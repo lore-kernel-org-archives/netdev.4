@@ -1,87 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795439452;
-	b=G/LTZjHnCvL3Cork8GwMqL+GtgKEw5UZqyYxmNUucCNbHTKOhMKYXLzqEWbsVlVh1qQL
-	 49pGJR+oAwmsK+/IUbnOABDHTQ9bFbsso165thWsSXjMd/w2NrPhxvh83e3Pzb7KVFhv0
-	 IgNk8qQBBhjLWYHnRYlFORkErXVkXjygaKp5z2KT5Lu1/+V+47aXoim6G+EQuhuMPZp0j
-	 cS/lGW9b4M6veOpGzHPLjPFlbaEGWL/fruasnj1xOAY272DIUnKEBxVFDdUBCNGMWyAGC
-	 MS+zPnqSrh7LCligehzTiqpoFrP4IPo6jV0WGGXQBz50EbhTb2bqG8ALgIOuTxlT4CQ==
+	b=tuGMzLnrfHL4mhrjPPhHpyupBpD4e8JGlgl4tBy14xBdcBSV9mSXFtRp8pzdCGrnVaU/
+	 aPKhVT9pF5OZEh7+pMgk0qU2UPlgz2H084OropkQU6BlphUJel/MoOmdj28dmRZ1+6Fc8
+	 9JTRBHUT8Im0jyeAO8DtWVFMhlMZQtL1C8+at4L/r/l73kDAslyfR4Z3wEgwNb46LZ+3K
+	 qB64ruCRgkzs11dWLgARWtMVc9psuIEwN0y8YcoV8EEKILGV1lIWVVeWz9avgnk2siFum
+	 fCgEy2sU4kxgSm5E2h1ldZL72irCR0b1ga7+DKURSJCkSJKRZyPlVCZU4qpiCnSXWkg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795439452;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ujJPcRqbo+8RtY1dP0KZUOw0lItPjums4GcCFi/u6GI=;
-	b=erd1D8Ena3/vQ/bARZ+cE5Bt33sVF9BflZ6LOp+GLvUSE9zHCj3uIdspYFSDXb++VvCo
-	 +vrpZPtg+0J33aBHBnNNGnaC0lOX9Uw0edAp5ISHdXbhqMgTL8/9vN6gj7cIBOUCUXjU3
-	 HJFuzjH1T9FXVZFrHFpoQ/gF+VTiS8sQZwhotyRYiHtdw2mG9kCed2Taj3UwFfPK1fkvo
-	 93n+P5iMyEOU8rh1d68B4y9TqS0ftdeCrUBhNkl+xf5y+U/Yen017wEuaWT3dF8yEIK0l
-	 0Wb7Yqj9iP2TCtoBMqtRNmNCqLrp9r3+4Gt5hG+3hnoSVctQzGr8vDwa81BvOZvBcIQ==
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
+	bh=jUp72NYV7Q0ADhk/tYOKR65YjvvA0NSY2G1zPBbXRx8=;
+	b=wPf4SW/O3hHJwIITUN8pxo/4xAv6KWfMV6Z72J7UaU+Fyt465+si1aRTFnLYs5LgaIAr
+	 qIBDZBygyXAFeXvHzGHCT4ULaK6HqaBhf5q9AFzk+Usv3YLjX/2irJ/MMW3WEYa2wDLcO
+	 MRHbQeAcJckPtXSZDklfM4ab2uwl97Fwihjfvtkh+HL123ieLl/ojss10KUuXx8W8+Jlg
+	 ZL8NHl6t97NNTTsqtGkgVwAMWbxC/9ul99KlE4VZ960jOARdYKZqwMzT5kQhPMCY0uZ3y
+	 uslEZ/SB4VSNBtju8QxNjY5J8OsOGsFRUXWyzSulHKVyL3xV+ZHrymqQjXE7985cgGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FKN45FTD;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tneHtAfD;
+	arc=none smtp.remote-ip=209.85.128.48
+Received: from mail-wm1-f48.google.com (mail-wm1-f48.google.com [209.85.128.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3C2A606A684
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08437606A68E
 	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:10:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3C2A606A684
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08437606A68E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FKN45FTD
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb666304fdso37919265e9.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tneHtAfD
+Received: by mail-wm1-f48.google.com with SMTP id 5b1f17b1804b1-49d05d51553so23340825e9.2
         for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:10:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795439450; x=1796044250; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=ujJPcRqbo+8RtY1dP0KZUOw0lItPjums4GcCFi/u6GI=;
-        b=FKN45FTD3Ydmz0WsoY+e9wQ2uD3JIwL1r7G1awo5XD9dZozfvJZaWnld2kjAGGaNFv
-         7Ft4xnw7mG3l339rbMJ4okalms5kMGvSrXtGJxoRXkSHuo9eNomL3p376icZVniyJLWX
-         yjNRxx85oXK0J3KPMVm+Cu7cM5ikEAJkqGr2Tzu/Tgb3ldp3MGcdrwoTBJ3hlBXyI6qU
-         VzIl6Z5SmLqdQjRlCClDK6RBZ0K7+zIilGhoaBa+J5aNaVkOmVZecUF7XSiNj3iTShkx
-         PJiaHh2IK5+0PZ3LsQaPP8Sabwf5VvgmxlEUD9LdswfhK+CEgUjUezVXVHKjy/+xwHbm
-         h+sA==
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=jUp72NYV7Q0ADhk/tYOKR65YjvvA0NSY2G1zPBbXRx8=;
+        b=tneHtAfDCBDR5o/j/eojOO0BbMdCpa/FhNiwqbUfae0KUYFL47VIs+tTHGqh3TGSav
+         ci5XtM7JoabAeTa/h5zOXa6gT6ych1EcMkcA5BvbwkWEM9fyFfLCNqCvtr5ruGi0vHLh
+         +90XBrHxJkVzON3xk/laL29zItoOqgwzxi3gs3+MidhymHXFYHjJS2KrfnwRRrpWIAnz
+         8zsQSRZk5TazapCv5n6exeh66fTXL3p1ALkI9wib2eUhEGspV5tRmjkugW8FwVtU/jrc
+         aygNj/fn6UChnQ+q8nth2PVyStoKzja+qBSfUhyDJtSAEsWD9cxMQ2DcSYvMa0VwLE/Z
+         qSGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795439450; x=1796044250;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ujJPcRqbo+8RtY1dP0KZUOw0lItPjums4GcCFi/u6GI=;
-        b=zesCUd6zaGVFOsvPOo7aWzBpoMRf5Q+kKeBPqlxzKJCXIU3puN1PUManar7CgaqVDf
-         fE6TpnSceguasnFYNVDShlqM2V0qQbfj1/Rndu+X0OXkt23n7E2JU3r2BykzTi2ZDNcq
-         yBIk6mx/xgntO7lFrwTJghPiPJ8hxHZB1sS2sVohVwmXi+mSUgwBbZged0bCh4h3h3i0
-         gb58bX5O/Enofkd0w8mqkCpQqH9Sm6RgPdBWslnOfYRwflnQj0htlw5X6vJLwcalDEIo
-         +zYJ1pnAXksm7asd1ZxL2QaMj6OApzTAWNSj+BQXAcFtuKvZS1KdCfJMxWpIx1B9u+1h
-         Lopg==
-X-Forwarded-Encrypted: i=1; AL+hErGbt2mEBMJE3xrgeOY2HTddmyKvBniOQfwA6sDJ3vvkklt8MhlH7Mp25j471nTdqiuM+sgA8mQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9S2cWelNMiZhY1o6CkGJc2mIXCtDit2Gb463olRjUgzEcyqsAH
-	jSH/7MmnEDlACWkSRKYCb4cXnWEO9N1nCiVdVDwipqf+3vHCZo6o/NWX
-X-Gm-Gg: AZFdTZdwiRP7zrGR+Pq/BQCIQPc643nZ3GExN/DC29eMPSs3T9aKoSg8YfhiBcIcqII
-	WCY4Jk0/H4byWn9pWT2EcNJnLSNIq488N0krHsJtxIfmPeAaezAND/MPPbd9HVjQQ7DZxBYhuRw
-	nhQ48lphlQ7vv2Bg8/C1lV9Qm4eMGQ9OhkzfGfB60R8xBsXzY5ovAlQoxKmDzPvMwKvlqnSIjX2
-	Idila2SBXd/vLBFl5vt9txpjXw4vDzaLYJvMZcHKKF3MxEfreQvGmIXe1uZvmJEeJ5J76F2Jugd
-	oruUM4uhgPz5URiI1DuCEPsYPtWVwMubb0pBHm6NtOW/qG8Ps8/Omih5jNl1DFtVx/bG6DPGU/c
-	dDzKpZF48kbnxE/1zA4opWJYFHgrJ2vSM69d4Kapu41JkGrIaSX2jAxszUJrVBVlN3J/3S4m9G+
-	ZCqNcf+fAGLiXLEOSo5lpmacOirklrXcDUPvZXH5erfV8QHQwFLulWbzwtFQkdOsCi3nYxRd5AH
-	ZghQYsrRsZid4ngxS7KfzT2kiOjMjKNXq+LvOjWajRW1nvEPq2caYL4jgRgxgJn2K1cCiHZLpt0
-	OYfTzH4AFViBCdBf0avGVtYCzsgATDU4kFOd9WaICpeDLNwhG9rRHdYbUKaFKR3Me42OASuvYax
-	rax0m6Al0PUpLfdRsIekvugZfuDIYEaEROyLnFpmkM3Ubg9hrJ8hvCt/vSeQBBPi4SFscPAU6fA
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=jUp72NYV7Q0ADhk/tYOKR65YjvvA0NSY2G1zPBbXRx8=;
+        b=0zq++z1sV9MwkJTvPoUXskH4zip8yNCtiHlSo6PZBto9kNpEBW19XqiSEcjRNvX941
+         5USgMugNVQt9Qok01COm8pWyjaIaPYqDa+J/VwYGLzif1XGsQJNjJONEY/360wv7+6Wx
+         YdJY+EaZEK5W224n6a4JH/HKJodDAd6KZIr4grlPkeSDSXFubZfICXZ0u4Phe+8ug2AZ
+         ZFVlV1sLtzAJAkglyDPY8wN+/xA40WePZIMhSDFVnx/bhk12QvZ2I9Se4beOf7k5Eo5O
+         Cm0Gp7j7N0J1rqpyaYmZz+dlzrELUXZ70bnRljS2gY4QEsO6Eaz2WxQTGfLMdUQ9Zvdb
+         6Saw==
+X-Forwarded-Encrypted: i=1; AL+hErEjL9LCRomBkN93GO+uBXZPh7cNiypXdjuNjo7dnSSpR6vpaMumabYxmDBG63QufD+JhUylyZE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ShjUz14e2ym5Za7O28cDm/q0aqpp+prOTSHT5bXWyTNZ8JKK4
+	CeYjnQNLLrIiiahV6K1RKfg8gA3Fp1mcc9S4RwpKoFxoweSP5DdN4CKP
+X-Gm-Gg: AZFdTZdYkEfxOQSUVFihXmkI5nnnE1KgxB8IkfCGi+gh3DCxCQJkOyj2n9BpYvIkfYG
+	aMPYp7YSDaEC0mUjgVCJgRtkobjcGfDp11eI5JuRivRYsSq/y6/1/D0xbLck2p14oM+hH7zbQ7V
+	doJGcHxsmjeHEHalDYhXTjQybuAdGhfEgLPEGsIkHj0xAK40Q6YPN3AL01UThIrVKPTr+WuWlGX
+	9ihKZSoN9QNP8PX5Pc0LLVB4HwMW/xKrFvpwT0OS5YIFts2kMXJMvq7XXIayDk+qvy6eALrmrOk
+	Gy17jDIw0qkI3NQ3mWYRETv9XXF/a4dU4V9nGOgy1AGEIuEmFWQW3c7DlNaEUrZGnkqAFB27ce1
+	7UAw/FAWEEn9bKVhy2P2aj8YTI8ZQlUc8VpYnaaNvtAidPsbcNN42rUjJD8hnkSm3xIZV/vZtu0
+	o0RZYbw1tPJQ/if4L1Y0VCZo9Svn1cjL5n+2cPGZq9jdhvmDePjt5T0XaIU8WF0Sv/rRSJa6n5o
+	CsKYFG3z2B5TqyZGT0/pVITqdL3emZPS9hUAhGqHFKKwnlP0fjidwtJCpdrGxcP/CzXg1hmd1mz
+	vyad3/vvjopPYX946QPeuI44GEwWMiqk0MUc2jA1zkK8a5Yl63FN0NXjxf8u82VfSJYGOAcdSoa
+	KQ2bPJyAA9c8vGZk00qIgoJ941TBrb55jBTbroAd0k9ou2TyNUjXp7kWG+MNAuAg+V/k1upOvkw
 	==
-X-Received: by 2002:a05:600c:5303:b0:4ba:4928:8aec with SMTP id 5b1f17b1804b1-4bb88807d7cmr225458775e9.9.1795439449739;
-        Mon, 23 Nov 2026 05:10:49 -0800 (PST)
+X-Received: by 2002:a05:600c:820d:b0:4bb:5de1:e912 with SMTP id 5b1f17b1804b1-4bb887c3ae7mr224591505e9.1.1795439450439;
+        Mon, 23 Nov 2026 05:10:50 -0800 (PST)
 Received: from iku.lan ([2a00:23c8:254f:fd01:f273:2c28:9387:7d5c])
         by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm400714065e9.7.2026.11.23.05.10.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 05:10:49 -0800 (PST)
+        Mon, 23 Nov 2026 05:10:50 -0800 (PST)
 From: Prabhakar <prabhakar.csengg@gmail.com>
 X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@linux.dev>,
@@ -101,9 +99,9 @@ Cc: Florian Fainelli <f.fainelli@gmail.com>,
 	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
 	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
 	stable@vger.kernel.org
-Subject: [PATCH net v6 1/4] net: dsa: rzn1-a5psw: Fix LK_LEARNCOUNT write mode encoding
-Date: Mon, 23 Nov 2026 13:08:49 +0000
-Message-ID: <20261123130852.3420491-2-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net v6 2/4] net: dsa: rzn1-a5psw: Fix VLANTransmitted counter offset
+Date: Mon, 23 Nov 2026 13:08:50 +0000
+Message-ID: <20261123130852.3420491-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
 References: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
@@ -116,95 +114,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
 From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-The LK_LEARNCOUNT register selects its write operation through the MODE
-field in bits [31:30], with the new count value in the low bits. The
-driver writes the raw A5PSW_LK_LEARNCOUNT_MODE_* values (0, 1, 2)
-directly, so the MODE field is always 0 (SET) and the mode value ends up
-in the count field instead.
+The RZ/N1 hardware manual places the VLANTransmittedOK counter at
+offset 0x8f4, not 0x8ec. Correct the register offset so the driver
+reads the counter from the right location.
 
-Add an a5psw_set_learncount() helper that places the mode in the correct
-field using FIELD_PREP(), and use it for all LEARNCOUNT writes.
-
-Fixes: 5edf246c6869 ("net: dsa: rzn1-a5psw: add FDB support")
+Fixes: c7243fd4a62f ("net: dsa: rzn1-a5psw: add statistics support")
 Cc: stable@vger.kernel.org
 Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Reviewed-by: Clément Léger <clement.leger@linux.dev>
 ---
 v6:
-  - Added a5psw_set_learncount() helper function
-  - Update commit message to clarify the purpose of the helper function
-  - Added reviewed-by tag
-v5: https://lore.kernel.org/all/20261120002549.1908299-9-prabhakar.mahadev-lad.rj@bp.renesas.com/
+  - No changes from v5
+v5: https://lore.kernel.org/all/20261120002549.1908299-10-prabhakar.mahadev-lad.rj@bp.renesas.com/
 ---
- drivers/net/dsa/rzn1_a5psw.c | 22 ++++++++++++----------
- 1 file changed, 12 insertions(+), 10 deletions(-)
+ drivers/net/dsa/rzn1_a5psw.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/dsa/rzn1_a5psw.c b/drivers/net/dsa/rzn1_a5psw.c
-index 13c46cf2c420..4c32e06a3cd2 100644
---- a/drivers/net/dsa/rzn1_a5psw.c
-+++ b/drivers/net/dsa/rzn1_a5psw.c
-@@ -5,6 +5,7 @@
-  * Clément Léger <clement.leger@bootlin.com>
-  */
+diff --git a/drivers/net/dsa/rzn1_a5psw.h b/drivers/net/dsa/rzn1_a5psw.h
+index d54acedac194..9693f8503b0b 100644
+--- a/drivers/net/dsa/rzn1_a5psw.h
++++ b/drivers/net/dsa/rzn1_a5psw.h
+@@ -185,7 +185,7 @@
+ #define A5PSW_etherStatsFragments		0x8E0
  
-+#include <linux/bitfield.h>
- #include <linux/clk.h>
- #include <linux/etherdevice.h>
- #include <linux/if_bridge.h>
-@@ -120,6 +121,12 @@ static void a5psw_port_mgmtfwd_set(struct a5psw *a5psw, int port, bool enable)
- 	a5psw_port_pattern_set(a5psw, port, A5PSW_PATTERN_MGMTFWD, enable);
- }
+ #define A5PSW_VLANReceived			0x8E8
+-#define A5PSW_VLANTransmitted			0x8EC
++#define A5PSW_VLANTransmitted			0x8F4
  
-+static void a5psw_set_learncount(struct a5psw *a5psw, u32 mode)
-+{
-+	a5psw_reg_writel(a5psw, A5PSW_LK_LEARNCOUNT,
-+			 FIELD_PREP(A5PSW_LK_LEARNCOUNT_MODE, mode));
-+}
-+
- static void a5psw_port_tx_enable(struct a5psw *a5psw, int port, bool enable)
- {
- 	u32 mask = A5PSW_PORT_ENA_TX(port);
-@@ -544,10 +551,8 @@ static int a5psw_port_fdb_add(struct dsa_switch *ds, int port,
- 	if (ret)
- 		goto lk_unlock;
- 
--	if (inc_learncount) {
--		reg = A5PSW_LK_LEARNCOUNT_MODE_INC;
--		a5psw_reg_writel(a5psw, A5PSW_LK_LEARNCOUNT, reg);
--	}
-+	if (inc_learncount)
-+		a5psw_set_learncount(a5psw, A5PSW_LK_LEARNCOUNT_MODE_INC);
- 
- lk_unlock:
- 	mutex_unlock(&a5psw->lk_lock);
-@@ -603,10 +608,8 @@ static int a5psw_port_fdb_del(struct dsa_switch *ds, int port,
- 		goto lk_unlock;
- 
- 	/* Decrement LEARNCOUNT */
--	if (clear) {
--		reg = A5PSW_LK_LEARNCOUNT_MODE_DEC;
--		a5psw_reg_writel(a5psw, A5PSW_LK_LEARNCOUNT, reg);
--	}
-+	if (clear)
-+		a5psw_set_learncount(a5psw, A5PSW_LK_LEARNCOUNT_MODE_DEC);
- 
- lk_unlock:
- 	mutex_unlock(&a5psw->lk_lock);
-@@ -963,8 +966,7 @@ static int a5psw_setup(struct dsa_switch *ds)
- 	}
- 
- 	/* Reset learn count to 0 */
--	reg = A5PSW_LK_LEARNCOUNT_MODE_SET;
--	a5psw_reg_writel(a5psw, A5PSW_LK_LEARNCOUNT, reg);
-+	a5psw_set_learncount(a5psw, A5PSW_LK_LEARNCOUNT_MODE_SET);
- 
- 	/* Clear VLAN resource table */
- 	reg = A5PSW_VLAN_RES_WR_PORTMASK | A5PSW_VLAN_RES_WR_TAGMASK;
+ #define A5PSW_aDeferred				0x910
+ #define A5PSW_aMultipleCollisions		0x914
 -- 
 2.56.1
 
