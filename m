@@ -1,81 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433020;
-	b=Gxkl3kasrjBNBoBnZaLgsjlfUl1syEMTTMtCvfgudllfI31DB0UhUvNWsej3ZW35VOAG
-	 5LptVIJrvg3x9T6fliBAitcu3/iT2S+FBXlHJhAZ8sr2LbXEofiLvNGnRxxy0NjIbViPs
-	 Llcp65V7paiPF/hJig1I9P/mPcmdTZFLY5/3gi3lUblL+2wxl+mheSqOES9RedbuBlBn3
-	 Rv1OMhUAehDX/lYIRknEnCV8POaoQDsngxmlPSFcQ3QFhKSogE8gHuo7IMCfc0fhzYHC5
-	 cPJijEsysNE3sXEmT9AKAQRlZ4bkIFvUP2bBtJAKd0214a0jbGvIHafDuKlmZy7xhFw==
+	t=1795433115;
+	b=oONVM5KqRNQsq+06V8T535V1ZMSc2iep2WUQRTC0kyjVD/282sFAegvHQZOHRYFB4/Hq
+	 u10osKAsFBjBsCRv9aoFLg/kkAT+50sh3p9hEuaNEAahvr1PpNFvrLS6hqCmxczENRD9j
+	 NbyYPPxg91BwWJnTib24jW1srLj58pO8x2KgoMeWXKf869F3beEv93QN5xjkBWwbM0o1C
+	 W785dXElbyfMyiI7ETE38ed25dNTMNrxjt0x5PHCH/lm6IcfrZNQnVvWca1RSBvseYb9R
+	 wxP2SoivLggMXCKmJKvSKCHy3kImcL51+c/PaUmJPCuU7+P6ssVVymAYQK/x7vVXBlA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433020;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
-	b=TDOuEQC8J92EudVTZxDhIUBqMFGIJLH2BqLCIw2tnNBnKTIi0fUFyZto6vt7h3YmNntm
-	 Rmc+btlXvhFK14gHZWEa9QByql+vMEOFe8zoobvS4YAoyt/2EjGymDjsYm15+xAUtsS4g
-	 PhYnR0zcEXN0KpCaP08+CHDE1V2BQ5Jj30sRpv0AfdZoChFUj0RQo93YIIB7vy9fQ2KZc
-	 s16aNCuYsP/WlFMNGtsF5BqYPZcOs+A8Y95+6NugnyWdJssrKH40zIPXWwlriWiGCpKEL
-	 Z9/9xQo7MBlKKx1/UhZoL/o56wrKrGR9qEpgxcv8tqsIUhS61YXesUAybTh+JwhLbQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433115;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Originating-IP:Date:
+	 X-CM-HeaderCharset:From:To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:
+	 References:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-Coremail-Antispam;
+	bh=pd7yZOfR/6/VdDILFb0nLqoZvgJwsuh6QMQF6pgZpBQ=;
+	b=mK8H2+uMB3gWElkQpxbRvIoS1C0aqGFaQk8TXg3MtSNa8OdpAcLfhht0J0IsyzidXGHi
+	 0nioTaArRSBo+ifqBehvosZzaVNmEyE3h3aDmtzGnrj6JndgUGJ8vGyPS0+dzN9jxpP7J
+	 /8ipg5/4MeQK+Ce0pATsrBXx0faW3k/MJgoTMvfRh75WlAZJKSSvs9eT9UIka2GPBUYtn
+	 2G6IluSiThD6L+szkf02T6ur+IceeaIvGjGG/aTvxfr1ezAhXbs5/BvOYNHdaABWmp7QI
+	 +Xgrxmnv2qE0b2DmZuVlxziZjU1KlNfDd5AOXq+dQ702DJqljV/S/zXrWr0AD9vXy/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 612E9606A31E;
-	Mon, 23 Nov 2026 11:23:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 612E9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	dmarc=pass header.from=mail.zgclab.edu.cn;
+	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
+	dkim=fail reason="signature verification failed" header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD;
+	arc=none smtp.remote-ip=162.243.161.220
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 74C83606A31A;
+	Mon, 23 Nov 2026 11:25:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74C83606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=HzqUGRGG
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 8950020728;
-	Mon, 23 Nov 2026 12:23:37 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id REJH_RAY6Ms5; Mon, 23 Nov 2026 12:23:36 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id A3DC9201C7;
-	Mon, 23 Nov 2026 12:23:36 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com A3DC9201C7
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795433016;
-	bh=Bum+lssZPEFatuL2bG+N1NnJsQw7nXk0ur3WJ+ACVtg=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=HzqUGRGG69t1azuhLafPq7isOoKAcz2QJREEgF44pc92J4ctrvIi9y7YJjsenc8Sr
-	 d1zizrlAdlKomgV1OMLUtzqkkPsjviu8UzWpr8BGV+UypsVR/7p8nRdk5L/Wm4zvIg
-	 EOwK0wswzgk2AG/hX5KUdjm3pWfP+inIs9+vhEGJ0ZBRDPg7ClEq9LTovzD0Wv0W7i
-	 PMB5hBjVlXuPRxZzAFx/1vRO1DPOSUWnPqaktxcX8S/VeucVY+dlzpEaJ4S//1kwUB
-	 jiHxViEnLbKy9cqoVdOTePhjMKFqelrnsNq1q1h/ZU0+SaqwQvEtZnF6IRRJjP3WXy
-	 qgyzQFKn4R0wA==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Mon, 23 Nov
- 2026 12:23:35 +0100
-Received: (nullmailer pid 2092840 invoked by uid 1000);
-	Mon, 23 Nov 2026 11:23:35 -0000
-Date: Mon, 23 Nov 2026 12:23:35 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, Christian Hopps
-	<chopps@labn.net>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	<netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>,
-	<syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com>
-Subject: Re: [PATCH ipsec] xfrm: iptfs: force a dst reference before queueing
- an skb
-Message-ID: <awQiN-6b40NOCVFV@gauss4>
-References: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
+	dkim=fail reason="signature verification failed" (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=mail.zgclab.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
+	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
+	MIME-Version:Message-ID; bh=/Ggu3rj0ThvKcNpBPXLiuiRBY02aVQgcwxpp
+	10zH9iI=; b=nkwPE3gDvJGKrSHgbKpWIGcydqeX56abOG+5Qe9CkWFoxWH4IguJ
+	9H84WETfFpEFGA/uEnnqL8HzGz5BJKHtby8AtWKnoGWUarBKdhQQ2/zKodlZus/C
+	YBcc9YS8dcPYOTBYgGdY0/UWJ/aaYrVNQWudojT11gzkb25sC6hIE+c=
+Received: from wanghr2026$mail.zgclab.edu.cn ( [58.206.202.88] ) by
+ ajax-webmail-web2 (Coremail) ; Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
+Date: Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
+X-CM-HeaderCharset: UTF-8
+From: =?UTF-8?B?546L5rWp54S2?= <wanghr2026@mail.zgclab.edu.cn>
+To: netdev-bot+sinfo@kernel.org
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: Re: [PATCH v2] net: dsa: mt7530: disable the power rails on
+ setup failure
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2024.2-cmXT5 build
+ 20261010(691d8f62) Copyright (c) 2002-2026 www.mailtech.cn
+ mispb-4df55a87-4b50-4a66-85a0-70f79cb6c8b5-tsinghua.edu.cn
+In-Reply-To: <179543235894.3294.8827397951204336522@kernel.org>
+References: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
+ <179543235894.3294.8827397951204336522@kernel.org>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=UTF-8
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,42 +71,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261115132611.427311-1-ngocthang2710.1999@gmail.com>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+Message-ID: <2a2bfab1.269a1.1a20826a7dd.Coremail.wanghr2026@mail.zgclab.edu.cn>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:yQQGZQCHtmp4IgRrBoVgAQ--.19466W
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYAD2sD8X5PDgABsv
+X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
+	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
+	daVFxhVjvjDU=
 
-On Sun, Nov 15, 2026 at 08:26:11PM +0700, Nguyen Ngoc Thang wrote:
-> iptfs_output_collect() is the dst->output hook and runs under the
-> caller's RCU read lock. It queues the skb and sends it later from the
-> iptfs hrtimer. The skb may still carry a noref dst, e.g. one set by
-> __ip_queue_xmit() via skb_dst_set_noref(). Once the RCU section ends,
-> nothing keeps that dst alive.
-> 
-> When the timer fires, xfrm_output_one() calls skb_dst_force() outside
-> any RCU section:
-> 
->   WARNING: include/net/dst.h:326 at xfrm_output_resume+0x41d9/0x64e0
->   Call Trace:
->    xfrm_output_one net/xfrm/xfrm_output.c:549 [inline]
->    xfrm_output_resume+0x41d9/0x64e0 net/xfrm/xfrm_output.c:597
->    iptfs_output_queued net/xfrm/xfrm_iptfs.c:2325 [inline]
->    iptfs_delay_timer+0x3803/0x4310 net/xfrm/xfrm_iptfs.c:2362
->    __run_hrtimer kernel/time/hrtimer.c [inline]
->    __hrtimer_run_queues+0x3bc/0xa10 kernel/time/hrtimer.c
->    hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
->    handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
-> 
-> The warning also means the queued skb may point to a dst that has
-> already been freed.
-> 
-> Take a reference with skb_dst_force() while still under RCU, as other
-> deferred xmit paths do, and drop the skb if its dst is already gone.
-> 
-> Fixes: 0e4fbf013fa5 ("xfrm: iptfs: add user packet (tunnel ingress) handling")
-> Reported-by: syzbot+622de7e1f18a30fc404a@syzkaller.appspotmail.com
-> Closes: https://syzkaller.appspot.com/bug?extid=622de7e1f18a30fc404a
-> Signed-off-by: Nguyen Ngoc Thang <ngocthang2710.1999@gmail.com>
-
-Applied, thanks a lot!
+LSBIb3cgaXQgd2FzIGRpc2NvdmVyZWQuIFN0YXRpYyBzY2FubmluZywgbm90IGEgcnVudGltZSBy
+ZXBvcnQuIEkKc2Nhbm5lZCBmb3IgcmVndWxhdG9yX2VuYWJsZSgpIGNhbGxzIGFuZCBjaGVja2Vk
+IHRoYXQgZWFjaCBvbmUgaGFzIGEKbWF0Y2hpbmcgcmVndWxhdG9yX2Rpc2FibGUoKSBvbiB0aGUg
+ZXJyb3IgcGF0aHMuIG10NzUzMF9zZXR1cCgpCmVuYWJsZXMgdGhlIGNvcmUgYW5kIGlvIHJhaWxz
+LCBidXQgb25seSBtdDc1MzBfcmVtb3ZlKCkgZGlzYWJsZXMgdGhlbSwKc28gYSBwcm9iZSB0aGF0
+IGZhaWxzIGFmdGVyIHRoZSBlbmFibGUgaGFzIG5vIG1hdGNoaW5nIGRpc2FibGUuCi0gV2hldGhl
+ciBpdCB3YXMgdHJpZ2dlcmVkLiBJdCB3YXMgbm90IHRyaWdnZXJlZCwgYW5kIEkgZGlkIG5vdApy
+ZXByb2R1Y2UgaXQgb24gaGFyZHdhcmUuIAoKClRoYW5rcywKSGFvcmFuCgoKPiAtLS0tLeWOn+Wn
+i+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiBuZXRkZXYtYm90K3NpbmZvQGtlcm5lbC5vcmcKPiDl
+j5HpgIHml7bpl7Q6MjAyNi0xMS0yMyAxOToxMjozOCAo5pif5pyf5LiAKQo+IOaUtuS7tuS6ujog
+Ikhhb3JhbiBXYW5nIiA8d2FuZ2hyMjAyNkBtYWlsLnpnY2xhYi5lZHUuY24+Cj4g5oqE6YCBOiBj
+aGVzdGVyLmEudW5hbEBhcmluYzkuY29tLCBkYW5pZWxAbWFrcm90b3BpYS5vcmcsIGFuZHJld0Bs
+dW5uLmNoLCBvbHRlYW52QGdtYWlsLmNvbSwgZGF2ZW1AZGF2ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRA
+a2VybmVsLm9yZywga3ViYUBrZXJuZWwub3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgbWF0dGhpYXMu
+YmdnQGdtYWlsLmNvbSwgYW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29tLCBu
+ZXRkZXZAdmdlci5rZXJuZWwub3JnLCBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
+cmcsIGxpbnV4LW1lZGlhdGVrQGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2Vy
+Lmtlcm5lbC5vcmcKPiDkuLvpopg6IFJlOiBbUEFUQ0ggdjJdIG5ldDogZHNhOiBtdDc1MzA6IGRp
+c2FibGUgdGhlIHBvd2VyIHJhaWxzIG9uIHNldHVwIGZhaWx1cmUKPiAKPiBIaSEKPiAKPiBUaGlz
+IGlzIGFuIGF1dG9tYXRlZCBtZXNzYWdlLiBUaGlzIHNlcmllcyBsb29rcyBsaWtlIGEgZml4LCBi
+dXQgaXRzCj4gY29tbWl0IG1lc3NhZ2VzIHNlZW0gdG8gYmUgbWlzc2luZyBzb21lIGluZm9ybWF0
+aW9uOgo+IAo+ICAtIEhvdyB0aGUgaXNzdWUgd2FzIGRpc2NvdmVyZWQsIGUuZy4gaGl0IGluIHBy
+b2R1Y3Rpb24sIGhpdCBkdXJpbmcKPiAgICBkZXZlbG9wbWVudCwgc3l6Ym90IHJlcG9ydCwgbWFu
+dWFsIGNvZGUgaW5zcGVjdGlvbiwgTExNIG9yIHN0YXRpYwo+ICAgIGFuYWx5c2lzIHRvb2wgc2Nh
+bi4KPiAKPiAgLSBXaGV0aGVyIHRoZSBpc3N1ZSB3YXMgYWN0dWFsbHkgdHJpZ2dlcmVkLCBvciBp
+cyBvbmx5IHRoZW9yZXRpY2FsCj4gICAgKGUuZy4gZm91bmQgYnkgTExNIGFuZCBub3QgcHJvdmVu
+IGF0IHJ1bnRpbWUpLiBJZiBpdCB3YXMgdHJpZ2dlcmVkCj4gICAgcGxlYXNlIGluY2x1ZGUgdGhl
+IHN5bXB0b21zLCBsaWtlIHRoZSBzdGFjayB0cmFjZSBvciBrZXJuZWwgbWVzc2FnZXMuCj4gCj4g
+UGxlYXNlIGRvIG5vdCByZXBvc3QgdGhlIHNlcmllcyBqdXN0IHRvIGFkZHJlc3MgdGhlIGFib3Zl
+LiBJbnN0ZWFkLAo+IHJlcGx5IHRvIHRoaXMgZW1haWwgd2l0aCB0aGUgbWlzc2luZyBpbmZvcm1h
+dGlvbiwgc28gdGhhdCByZXZpZXdlcnMKPiBjYW4gdGFrZSBpdCBpbnRvIGFjY291bnQuCj4gCj4g
+KklNUE9SVEFOVCo6IElmIHlvdSBkbyByZXBvc3QgKGZvciBvdGhlciByZWFzb25zKSAtIHBsZWFz
+ZSBpbmNsdWRlCj4gdGhlIHJlbGV2YW50IGluZm8gaW4gdGhlIGNvdmVyIGxldHRlciBvciBjb21t
+aXQgbWVzc2FnZXMuCj4gLS0gCj4gVGhlIGV2YWx1YXRpb24gaXMgZG9uZSBieSBhbiBMTE0gc28g
+aXQgbWF5IGJlIHdyb25nLCBpZiB5b3UgdGhpbmsKPiB0aGF0IGlzIHRoZSBjYXNlIHBsZWFzZSBy
+ZXBseSBhbmQgZXhwbGFpbi4K
