@@ -1,71 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405607;
-	b=mmr8ijS/ZK4l1M+T/FCZW9D9M6di6oXsTCvJ2hzkyd4KaST6KzqkxsFUiIJIlu2IvRGw
-	 Cpb+4+RYGxyHE3Q6onG9lPME6vfOBFqbdDxp5s4co1oyPakNXOEaMvASbI2KBFSS3DUwZ
-	 xmcmDBzFGAAt98SOOVhI5XRSnaIRNLz4jGKD01WayNyHqIWg83QbK1OLAfdxbItf1OnPY
-	 hRZ55NVYZsazCnix045ltgk6RvgRR/3W4iTqc3qxffUMWTcrRAj0wXeeZ6mYr1Roprh5X
-	 5nQMailUpBx6PSfWbwSAh2bfH0pppwriNEyDUlYRLmwesAXt/Dq2qEEF+l0mZBKWc+Q==
+	t=1795405683;
+	b=XXC/29KOBzCZUXi79VDMgTrjs9u09ezbG3p6V16+vFLoXPT2NpHiObWh4LV+1/ePcXN+
+	 ivcPcPgj8WSZD/6vYhexBDNMCeUri77kz7KAEaV1Pm7psyT0X3ZBiUEr7RzoIogkHaP4m
+	 jaDmz8YvGssKjOtiWluysWhG2HUbQNPCrspQFlgrO9DaHJZtlw+fkXj+UqV5cnpVcopnq
+	 uIwyMpXlVIoSfS+k9rFBP58knQ8yc/9MQ1ROuZ77M62SWR30mOITLkVgcgLq6uWSiMNgw
+	 j+NYWso6gS2EpV4YjH8dl9LZAcyjO3BC1kkL0+NOyKlP0ZcO8/cptBpkgL2EZl15pDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405607;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=hacvhlqCVEyZYpmow1jeuuBaUcRM+w1lbqJm788VwAI=;
-	b=XRZfrSagu3DnJhC4wON4ZNkLHzFuWJTsFooipDsOF1uOcHDZlEw1BgcfxjNOrhqVq4dA
-	 i7blJHNUm4vtGgLFr/GnXKg2BUacp9gJTmnJC1C2keDjSi4W2FJPuUC/0/DwghmP3pVSE
-	 Cu8ztMF4I4lbCxRFjdI5w+K7vGQAOLAX2NkNU/7V0pxN7Ff02+l7c/OXua9Swpcg4o9q0
-	 6uU/z0EZNXNkrHwnSyI2LhNSNFgHd2xrsXUjfOOfFfkl5rYwJKE+v9nHajK/TozdeXVJR
-	 BrvRiPNKjNpTQk3MoWPqPucg3Uylt4vPhQylgeAKQaG7Ycz9O+jS2l/cI7LdlYXzNsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405683;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=MsrGKQGzP+EEZyfx8T7spQGnVkdm377jBo1ms48nKBs=;
+	b=aSNwtgOK3lGbfplM1pqzxiDTGDnpFqDB0mOrNTn8G7EGnRcdGwcgw6qpPwp7kb7e89ah
+	 PEMiVYlvHrkt1m3MpmAQmNySJGviGIip5RgBPgCrqociriUlU0n4A1DetRGXsR7guTOg+
+	 7DDKu8F7TPNUFkp8c1iO7TZWkUvUORg+97vBjiFQcCh/+b6o/V8Srin4EL4AvQcg07EP9
+	 xCO/CcqS7omdvZd2Gj2yQh61wCIBcUmDqgGScR+GhJ/3/ZUJ9n0iZd2qa3SRrJlWWQ5Zv
+	 JHi5rTkmDTGuVhx383LBcEQT28WuHbr1PcwgOKlf3PALwaUK8I+MZL+TdPNb4WcVAtA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ovn.org;
-	spf=pass smtp.mailfrom=fe-bounces.ovn.org;
-	dkim=pass header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b="C9uKq/94";
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=KMm3v0NQ;
-	arc=none smtp.remote-ip=121.127.44.73
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ypSfdRG0;
+	arc=none smtp.remote-ip=162.62.57.49
+Received: from out162-62-57-49.mail.qq.com (out162-62-57-49.mail.qq.com [162.62.57.49])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DE2A606A320
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:46:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DE2A606A320
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ovn.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.ovn.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 80986606A31E;
+	Mon, 23 Nov 2026 03:48:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 80986606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=ovn.org header.i=@ovn.org header.a=rsa-sha256 header.s=fe-13eddc7e57 header.b=C9uKq/94;
-	dkim=pass (1024-bit key, unprotected) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=KMm3v0NQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ovn.org;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=fe-13eddc7e57;
- t=1795405606; bh=hacvhlqCVEyZYpmow1jeuuBaUcRM+w1lbqJm788VwAI=;
- b=C9uKq/94iuIPRr71b6mXrmH6EeOMvphqI7iRF3sowtZnZGywlQfJq/4mHQJ14bHSWbwZTozhs
- XVtiq60ahr1WInhunnApijXMBc/pjtyR9kAHGl6rmEo2CnXQjsyUyekyij5pjfuYfJziTWGiDf6
- QCw6tYzldHBM4qyeb+gxuJs=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: Autocrypt: From:
- Content-Language: References: Cc: To: Subject: MIME-Version: Date:
- Message-ID: CFBL-Address: CFBL-Feedback-ID; q=dns/txt; s=default;
- t=1795405606; bh=hacvhlqCVEyZYpmow1jeuuBaUcRM+w1lbqJm788VwAI=;
- b=KMm3v0NQQ1uDOp926aOl8HSR7nrwZ4D17nrV9BKkMqaysK9zTsTY2KQciqmfKiNfUgJi8ggks
- T+gScUmjjApWL6+sheYs03Hpl53K2VGW7qBw1uAtenj7txnlkaAj9qLng5ligBcWEB6hyVTPaX7
- O8//98VPYo9zKy6i+26zmIQ=
-CFBL-Feedback-ID: 6b03b725921a6e934196c2a6:0374b112ad4bb38e8fb37796d0db95e6
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b03b725921a6e934196c2a6
-X-Forward-Email-Sender: rfc822; i.maximets@ovn.org, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.19.37
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <e6d7aa66-3df1-476d-a8cb-359827cd8243@ovn.org>
-Date: Mon, 23 Nov 2026 04:46:41 +0100
+	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=ypSfdRG0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795405672; bh=MsrGKQGzP+EEZyfx8T7spQGnVkdm377jBo1ms48nKBs=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=ypSfdRG0QIzpVxRlXHK2I6UqUosY3jvkso8//n890qLLAvUZEOyzndTvZNhGff1zf
+	 JtspTZL0Lx/awse6nW3bAPC4bzsHmZspj9Yz/XsUPgwJyg1zAcSHVVtmCm/h+SX61v
+	 KBnON4GXwlmsp3x60vvAfROUeQKDzGI1fU9ryGwc=
+Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id BF083E63; Mon, 23 Nov 2026 11:47:48 +0800
+X-QQ-mid: xmsmtpt1795405668tqjo36uf2
+Message-ID: <tencent_8BA4FF587EE5579AB67149C5062618DC7109@qq.com>
+X-QQ-XMAILINFO: NbgegmlEc3JumeUkE1gRqM72suL6ijtrDDc9aZgBbFWMkMQmDbzihCOKF+oGC9
+	 Ps+IHliJmhXho+7NzR5WzABe5kEEev7XR47AWfBZ0oZdezu0UPECjqxhnXeJ9/QWR+X2R8OwFjPZ
+	 thMLvjYDIzz24W8JAdB4Gos+sSFD8Y3GwqikxiLgU3KVGQw8W5dpeoOULv8WT4yZ8QAg7L+QTIGb
+	 /sv1FjmB9whl0gwHlBXNIM29K8DiWh5uwr3gJox7M8toSLpANMa1aIIKrL5sMhwGwd+Si+F+Ht76
+	 V787l8MHmk+J84Uy6z2visyXCAvAGHnu8ZNnOL5QObMzElXRK4B2b2SyppOJGmUZEGSDF1HuzJyh
+	 b7KuFOo6HosPJsQgPbiRlCpuJKZCiPBSbnmdhqTHcoSEoEU8XwjDi1FMtpMsErOLtCJK2a17OSbT
+	 hMS2ofXExK9d/m/H/L+wQyvc1VzqjA3gU7uThncBHz4wJCX3qjoUElREKqgSv4ucRClq3cZ/kSEq
+	 qdcSHT4xTVpfi6LmnFz3yL/+SnsSxeIkdWJvmEXDH+MJzzb/0Aw1VysI4MUdFAEP+z7BoGLfoiqk
+	 M6fuNRDdaTmd0lYuzCZWo2HbL4NNTgXj0f71hKtKDtKBX95EW7NXwfiv0ybUVGvL81m0jxV5DUPW
+	 LINlbBXZj4HxDQLcENtYlrm8//HAOmIS8Qf4jS/ftX75eoKTd1/Pwdw3Z0/MS0AS6BRKPVPfSphd
+	 nRbbwB0CnwtSTB/Xhh/rEheBY/DsQuoQNErCPQTDpQVA3HQHUJogVKwBPhgeVUwMrikm7oh30A5k
+	 uKuKKx/jOGILTUARUmVtlDp0OolbtWKs09tkPw4qZPkVrivlH4Aw+A/ceX8YVgN8sdcueiyyBzqn
+	 Aw5bPfB4cjImsKzsmZbJu6F+w2VQRawaJwzQtl3wnx+dxMX1FbeHA2OIrvkzdrIt9LUVaGHItCmT
+	 LSHmUaceEdTyF9ww18slfAfYt4jV99L3rBhRg+kkXQBGPThEz37s8Pz5JxWEyfIaKpqk+u8Nr946
+	 g9uGsdsZjb7+um3JiLzEtHTmTfLWqFU6aEJIDleGU61Zad/sXzX4eoYmKlwwNTHou21aGfnahvJY
+	 d6ihNeAZFUoQamOL6MTDNeLDcxjg==
+X-QQ-XMRINFO: MSVp+SPm3vtSI1QTLgDHQqIV1w2oNKDqfg==
+From: Shuai Liu <847807867@qq.com>
+To: ms@dev.tdt.de,
+	linux-x25@vger.kernel.org
+Cc: netdev@vger.kernel.org,
+	davem@davemloft.net,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
+	linux-kernel@vger.kernel.org,
+	847807867@qq.com,
+	netdev-bot+sashiko@kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH] x25: defer socket cleanup on link termination to process context
+Date: Mon, 23 Nov 2026 11:47:48 +0800
+X-OQ-MSGID: <20261123034748.1269213-1-847807867@qq.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179539800759.3135.17245752044060918891@kernel.org>
+References: <179539800759.3135.17245752044060918891@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,123 +90,227 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: openvswitch: avoid hashing the network
- namespace pointer
-To: Zhengchuan Liang <zcliangcn@gmail.com>, Aaron Conole <aconole@redhat.com>
-Cc: Eelco Chaudron <echaudro@redhat.com>, Ilya Maximets <i.maximets@ovn.org>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- netdev@vger.kernel.org, dev@openvswitch.org, linux-kernel@vger.kernel.org
-References: <b2853b9410d049e08b3e2ae2491e775506b4f0e8.1795122681.git.zcliangcn@gmail.com>
-Content-Language: en-US
-From: Ilya Maximets <i.maximets@ovn.org>
-Autocrypt: addr=i.maximets@ovn.org; keydata=
- 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
-In-Reply-To: <b2853b9410d049e08b3e2ae2491e775506b4f0e8.1795122681.git.zcliangcn@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/19/26 10:20 PM, Zhengchuan Liang wrote:
-> The Open vSwitch vport name table uses the network namespace pointer as
-> the Jenkins hash seed. When an Open vSwitch vport already exists in the
-> attacker's network namespace, unprivileged OVS_VPORT_CMD_GET requests can
-> look up attacker-chosen missing names and time whether those lookups
-> traverse an occupied bucket. Ranking the resulting collision pattern
-> across possible KASLR slides recovers the init_net pointer and thus the
-> kernel text base.
-> 
-> Use the namespace cookie instead. It is a stable, unique, non-address
-> identifier that is deliberately exposed to userspace. setup_net() assigns
-> it before per-net initializers run, and it remains unchanged for the
-> namespace lifetime. Hash the cookie down to a 32-bit seed so vports in
-> different namespaces retain namespace-dependent bucket placement.
-> 
-> Found by AI-assisted code review and reproduced on an unmodified kernel
-> without fault injection. After privileged setup created the resident
-> vport, the timing measurements ran as an unprivileged user with no
-> effective capabilities. With this change, the pointer-derived prediction
-> fails. Existing and missing vport lookups behave as expected. Identically
-> named vports in separate network namespaces remain independent.
-> 
-> Fixes: 46df7b814548 ("openvswitch: Add support for network namespaces.")
-> Reviewed-by: Eric Dumazet <edumazet@kernel.org>
-> Signed-off-by: Zhengchuan Liang <zcliangcn@gmail.com>
-> 
-> ---
-> Changes in v2:
-> - Use hash_64() rather than jhash_2words() to derive the 32-bit seed.
-> - Use u32 for the local hash value.
-> - Drop Cc: stable because this net-next change is not a stable candidate.
-> - Drop the deprecated Assisted-by trailer.
-> 
-> v1: https://lore.kernel.org/netdev/4e124b37fc972925a825881c50f95eb6b3c2e231.1794989369.git.zcliangcn@gmail.com/
-> ---
->  net/openvswitch/vport.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/net/openvswitch/vport.c b/net/openvswitch/vport.c
-> index 083f7a8d9d4e..04e4df103b26 100644
-> --- a/net/openvswitch/vport.c
-> +++ b/net/openvswitch/vport.c
-> @@ -4,6 +4,7 @@
->   */
->  
->  #include <linux/etherdevice.h>
-> +#include <linux/hash.h>
->  #include <linux/if.h>
->  #include <linux/if_vlan.h>
->  #include <linux/jhash.h>
-> @@ -53,7 +54,8 @@ void ovs_vport_exit(void)
->  
->  static struct hlist_head *hash_bucket(const struct net *net, const char *name)
->  {
-> -	unsigned int hash = jhash(name, strlen(name), (unsigned long) net);
-> +	u32 hash = jhash(name, strlen(name), hash_64(net->net_cookie, 32));
-> +
-Sashiko had a nice comment about using net_hash_mix() as a seed, which
-seems to be a good idea as it fits the use case pretty well.
+x25_kill_by_neigh() walks all sockets bound to a neighbour and calls
+lock_sock() and x25_disconnect() on each one.  It is invoked from
+x25_link_terminated() and x25_link_control(), which both run in softirq
+context when the LAPB link goes down or a restart frame arrives, e.g.
+from the lapbether NAPI poll path.
 
-Best regards, Ilya Maximets.
+lock_sock() takes a mutex in its slow path, so calling it from softirq
+sleeps in atomic context:
+
+  BUG: sleeping function called from invalid context at net/core/sock.c:3839
+    in_atomic(): 1, irqs_disabled(): 0, non_block: 0, pid: 14, name: ksoftirqd/0
+    ...
+    lock_sock_nested+0x66/0x70
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
+
+and lockdep flags the sk_lock-AF_X25 usage violation because the same
+lock is registered in process context by x25_bind():
+
+  WARNING: inconsistent lock state
+  inconsistent {SOFTIRQ-ON-W} -> {IN-SOFTIRQ-W} usage.
+    ksoftirqd/0/14 [HC0[0]:SC1[1]:HE1:SE0] takes:
+    ...
+    x25_kill_by_neigh+0x90/0x110
+    x25_link_terminated+0x18/0x50
+    x25_lapb_receive_frame+0x1c2/0x1f0
+
+Defer the neighbour socket cleanup to a per-neighbour work item so it
+always runs in process context.  The work item holds a reference on the
+neighbour and on its net_device, so the deferred cleanup cannot race
+with neighbour or device teardown; both references are dropped again if
+queueing fails because the work is already pending.  A dedicated
+workqueue is drained in x25_exit() so that the module stays loaded until
+pending work has run, and NETDEV_DOWN flushes the work to keep device
+teardown synchronous as before.
+
+Fixes: 7781607938c8 ("net/x25: Fix null-ptr-deref caused by x25_disconnect")
+Reported-by: syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com
+Closes: https://syzkaller.appspot.com/bug?extid=300375dfd44665f063a6
+Cc: stable@vger.kernel.org
+Signed-off-by: Shuai Liu <847807867@qq.com>
+---
+
+Changes in v2:
+  - Use a dedicated workqueue and drain it in x25_exit() so the module
+    stays loaded until pending work has run (Sashiko)
+  - Hold a reference on the neighbour's net_device for the deferred work,
+    and drop it again when queueing fails because the work is already
+    pending (Sashiko)
+  - Flush the work in NETDEV_DOWN to keep device teardown synchronous
+    (Sashiko)
+  - Explicitly request WQ_PERCPU to satisfy the workqueue API
+  - Add Fixes tag and Cc stable
+
+Changes in v3:
+  - Flush kill_work in NETDEV_CHANGE as well, restoring synchronous
+    socket cleanup for both process-context notifier events (Sashiko)
+
+ include/net/x25.h  |  3 +++
+ net/x25/af_x25.c   | 12 +++++++++++-
+ net/x25/x25_link.c | 28 +++++++++++++++++++++++++---
+ 3 files changed, 39 insertions(+), 4 deletions(-)
+
+diff --git a/include/net/x25.h b/include/net/x25.h
+index 414f3fd993454..125803d4f0ee7 100644
+--- a/include/net/x25.h
++++ b/include/net/x25.h
+@@ -13,6 +13,7 @@
+ #include <linux/x25.h>
+ #include <linux/slab.h>
+ #include <linux/refcount.h>
++#include <linux/workqueue.h>
+ #include <net/sock.h>
+ 
+ #define	X25_ADDR_LEN			16
+@@ -143,6 +144,7 @@ struct x25_neigh {
+ 	struct sk_buff_head	queue;
+ 	unsigned long		t20;
+ 	struct timer_list	t20timer;
++	struct work_struct	kill_work;
+ 	unsigned long		global_facil_mask;
+ 	refcount_t		refcnt;
+ };
+@@ -317,6 +319,7 @@ extern struct list_head x25_forward_list;
+ extern rwlock_t x25_forward_list_lock;
+ extern struct list_head x25_neigh_list;
+ extern rwlock_t x25_neigh_list_lock;
++extern struct workqueue_struct *x25_wq;
+ 
+ int x25_proc_init(void);
+ void x25_proc_exit(void);
+diff --git a/net/x25/af_x25.c b/net/x25/af_x25.c
+index f45c9ec7d2c68..3696414617db1 100644
+--- a/net/x25/af_x25.c
++++ b/net/x25/af_x25.c
+@@ -222,6 +222,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 			nb = x25_get_neigh(dev);
+ 			if (nb) {
+ 				x25_link_terminated(nb);
++				flush_work(&nb->kill_work);
+ 				x25_neigh_put(nb);
+ 			}
+ 			x25_route_device_down(dev);
+@@ -235,6 +236,7 @@ static int x25_device_event(struct notifier_block *this, unsigned long event,
+ 				nb = x25_get_neigh(dev);
+ 				if (nb) {
+ 					x25_link_terminated(nb);
++					flush_work(&nb->kill_work);
+ 					x25_neigh_put(nb);
+ 				}
+ 			}
+@@ -1790,9 +1792,13 @@ static int __init x25_init(void)
+ {
+ 	int rc;
+ 
++	x25_wq = alloc_workqueue("x25", WQ_PERCPU, 0);
++	if (!x25_wq)
++		return -ENOMEM;
++
+ 	rc = proto_register(&x25_proto, 0);
+ 	if (rc)
+-		goto out;
++		goto out_wq;
+ 
+ 	rc = sock_register(&x25_family_ops);
+ 	if (rc)
+@@ -1825,6 +1831,8 @@ static int __init x25_init(void)
+ 	sock_unregister(AF_X25);
+ out_proto:
+ 	proto_unregister(&x25_proto);
++out_wq:
++	destroy_workqueue(x25_wq);
+ 	goto out;
+ }
+ module_init(x25_init);
+@@ -1843,6 +1851,8 @@ static void __exit x25_exit(void)
+ 
+ 	sock_unregister(AF_X25);
+ 	proto_unregister(&x25_proto);
++
++	destroy_workqueue(x25_wq);
+ }
+ module_exit(x25_exit);
+ 
+diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+index d1e8cd81c2143..424044c1cf974 100644
+--- a/net/x25/x25_link.c
++++ b/net/x25/x25_link.c
+@@ -31,6 +31,8 @@
+ LIST_HEAD(x25_neigh_list);
+ DEFINE_RWLOCK(x25_neigh_list_lock);
+ 
++struct workqueue_struct *x25_wq;
++
+ static void x25_t20timer_expiry(struct timer_list *);
+ 
+ static void x25_transmit_restart_confirmation(struct x25_neigh *nb);
+@@ -58,6 +60,25 @@ static inline void x25_stop_t20timer(struct x25_neigh *nb)
+ 	timer_delete(&nb->t20timer);
+ }
+ 
++static void x25_kill_by_neigh_work(struct work_struct *work)
++{
++	struct x25_neigh *nb = container_of(work, struct x25_neigh, kill_work);
++
++	x25_kill_by_neigh(nb);
++	dev_put(nb->dev);
++	x25_neigh_put(nb);
++}
++
++static void x25_defer_kill_by_neigh(struct x25_neigh *nb)
++{
++	x25_neigh_hold(nb);
++	dev_hold(nb->dev);
++	if (!queue_work(x25_wq, &nb->kill_work)) {
++		dev_put(nb->dev);
++		x25_neigh_put(nb);
++	}
++}
++
+ /*
+  *	This handles all restart and diagnostic frames.
+  */
+@@ -82,7 +103,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_confirmation(nb);
+ 			break;
+@@ -97,7 +118,7 @@ void x25_link_control(struct sk_buff *skb, struct x25_neigh *nb,
+ 			break;
+ 		case X25_LINK_STATE_3:
+ 			/* clear existing virtual calls */
+-			x25_kill_by_neigh(nb);
++			x25_defer_kill_by_neigh(nb);
+ 
+ 			x25_transmit_restart_request(nb);
+ 			nb->state = X25_LINK_STATE_2;
+@@ -254,7 +275,7 @@ void x25_link_terminated(struct x25_neigh *nb)
+ 	x25_stop_t20timer(nb);
+ 
+ 	/* Out of order: clear existing virtual calls (X.25 03/93 4.6.3) */
+-	x25_kill_by_neigh(nb);
++	x25_defer_kill_by_neigh(nb);
+ }
+ 
+ /*
+@@ -269,6 +290,7 @@ void x25_link_device_up(struct net_device *dev)
+ 
+ 	skb_queue_head_init(&nb->queue);
+ 	timer_setup(&nb->t20timer, x25_t20timer_expiry, 0);
++	INIT_WORK(&nb->kill_work, x25_kill_by_neigh_work);
+ 
+ 	dev_hold(dev);
+ 	nb->dev      = dev;
+-- 
+2.43.0
+
