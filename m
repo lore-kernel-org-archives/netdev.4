@@ -1,145 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.15
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795421584;
-	b=z3wV8HNpaq9Jw+XPamZGe5ICMGH74P0yhbkDQe11ThjEEkWF7M2Hx/dRW24fBQwlmWzP
-	 0KMFj/uHv8LlV0Y9Rlh1lCY57ZoAJDxjVIXEpAOGyAzpluwpN98piFSWYkN6GAidNnFJS
-	 v84DB+KB6JtbCFXxhKRwTYRVCmPNcnwiNQr63dyKaNKLlUqxREhK9qYKe00a6WkdVcxZm
-	 WHuc6KofhYv8IUYjYNr2nAlmMLkKyOx/KN1xeul4sGNOlS/P1WvxlSeWPH1PfI4PJCzaY
-	 qtUUyqFCxL9Y89/m0n8Kdr2XEoEzVrh45/LznjnTa1P/Dvljqj79iztnRBXDaHPP6AA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795421584;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=8Yyyl2drGi0li9oIdOZKgPU0UyeHqhRiRFmRWomKvag=;
-	b=ZRQ5AUZmz9W62fMCNkiJEmuop0MYMRi1tR9yHluevSaVzOwJkpx1KlRyoMSm6YKzjov0
-	 NgvfVvuFdScRK4Nb7+UXKnjO+GfmiwUZODWq5C2fvNizfryYg7GWN685/4L1nY5TuGECn
-	 022u8SFmk3p+1UY++uJoM9kbdL7MeuqtwkbCeVJqQnhVTdRr7e1wUxLpJu1Btzm4waKAd
-	 kp9eDx1/raKx0RzjK4DkgSdqEXHyl0uLtzWnQVPkVau+y83YuxewC2oCN49QjM2MFxBMJ
-	 fWu76AHxofQ21yEd0oys79Z3x18D16oErk73jg2Rc95XhkhKDJs6bg+sd7qLkFMdV2A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jo5GT0wW;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Oyq1m9hH;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.15
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.15])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795421595;
+	b=PguG2gRkqOiUlytclvJwjw1GJi192/PoJru2C3Y1naUkyPm+318nY7sKpsWk6XHEYGN8
+	 WT2fENd78QiqeffRMPw3Q7xWjijJbPHnWMYuml7Sgf3VRPttZWQ/JPwKgMr4qDSMkB34B
+	 QtN73f4ATfoS5aw8GoKFfIDw6axh3JqloNXLAyaAYyU0lAyhFaLmKSIF8H4nHuFfsFehy
+	 mSEBy8w4GDojzwq6A1Q46Fk0V3OhCA2hUbnklihK0FAXma3c5qc4jE8BZD0rkuOxa8xGA
+	 21TGrMlar+wT2O1mc5SOHHXnAg5g93CmjcrWb/AG52QYrlS6moOxBkjyML12Otvq4hg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795421595;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=KFmwdLzfnogC49xeMoaGP9Os7baWgFpsppZ8KRt3Wh4=;
+	b=0rQM+p98bN0EoDZ3xkt3HGO7/DzhA4/ijNcD3wkBDK1Zq2Y5oWJdNfqqdHo2H/BWCLD0
+	 F10qm3QDrTFnSJsDC8m38kjmLkzFid/62eQqKEpfwI7o2Snl07+1f2BeZ5F4hA2XhGpfW
+	 D58U9yWYFndb77Q8ql7qFIXmnIbvpb0u3UdekNh4t2rx822yuul9KEQlzK/BR2PKmmMn/
+	 PGTWfir72dhcvqV27LPai/E8uORnzr3zHX54bppA18zt7Ep49n+e4alJM0j7vI7p65y09
+	 21cT0auAs6UEqlsypuO+6adCkEeAVZQy9B/9hZ0Y8/AlIO1+/nBTATHEp6xFphhmXyQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rzGfxw61;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E39FB606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:13:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E39FB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5901E606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:13:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5901E606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=jo5GT0wW;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Oyq1m9hH
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795421584; x=1826957584;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=n7wlzf4m4FKCoswGR6Vd8rjI+zGJi3bAYu855uH4bM8=;
-  b=jo5GT0wW45FDP50j6bRavajnSlztEbAFS/T0MFKoFjc8kReKoTH+sRP6
-   AXfjeJiQLVIVknBQ58JtMMKpkVS/tepl7CvxxoY7LE3NyLRgP/C1QeHxS
-   UHSDpAHKmkdQeaBg2Za6MWrQb2Dvfr2EQH9jeJJUZc1vAh331P0NdPWv7
-   VM9Z/s4vKgx2SIX7frLtTb0ybmg8sDcNzQz7Qs5qtRZwsoPs8GFJFlSii
-   NPEgk4UCQNQox33qxx2elFXH64KTeLyCTyf13xolPRfzGRtoKyRQ0gYMq
-   bp0w5qfOTQUFbo2wLRuh91ewnejztAl1FXN4QgkG754PXx3LUCa1S4H7v
-   A==;
-X-CSE-ConnectionGUID: v7ryH5nnSFe8fsnNEPUbng==
-X-CSE-MsgGUID: sc08UxTGQB+Bk3XDeCgQww==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4228800"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4228800"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:13:03 -0800
-X-CSE-ConnectionGUID: P3+iJe2MSouRCBlRhyDquQ==
-X-CSE-MsgGUID: PozxDhewTOmnj1curXQBUg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11111150"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:13:03 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 00:13:02 -0800
-Received: from ORSEDG902.ED.cps.intel.com (10.7.248.12) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 00:13:02 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.65) by
- edgegateway.intel.com (134.134.137.112) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 00:13:02 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=IcMAjTxJaxWKYhzVNAKxZ876f5aLHo9aGhmcJhBHyGIgSOZhsdaUxmyIsGqFEl6G+dLI4cXfA7lpaGK2lv+nxpVYQsooJwp9YXEU0erPEM+1ge+Ub1X7HB4uDQ/Ns4u0MQM2Ce03vx9coZOXHlBJYoh04lOlACrjNZMSThPQx+uS5DGrqfuP5H1sOYx3ePSkuOtZyXlGMvrWGI0gega/i0YBfS0P/F3zZcTzQPG2Fz1rPrizdNvnApf/RU7CSnucY4GpfO95R4/McNAW0GQToWRgMVE+HN9xrv7XBKCOGOBkqVrJJ421LMfATj1qXnysF1LGetlpO0t15AJy3KTlzg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8Yyyl2drGi0li9oIdOZKgPU0UyeHqhRiRFmRWomKvag=;
- b=dPG+JRFGz5K7Hlef7gm11JsqD2zn6qh2jAP3ksFKx/qfBx5v+1GumnUxzAAXpnUu78ff5MHdeToiwGAjMPPRGCHD19ufyRaqR87IGHELfF2tH8Vz1ZrVSOA0LB9Pdi2ByuDhbofOc9CjL70j5qCgnmCbSqh1SvsFmCF/ycIWeyTRc0jOJ+Eao41BOBAFmvus968ghcj/U3rJEZWUaiX1M9GBfxv/It1OZ1LWg9m3/1laeg+frFNKbjts4b3WtlgDEEq0U7uNRPtn7zNBfOs7NvdC5jic/g8Zbl95Z9QV0WS46UaN9PE9+j1o5KbnwXaRFjg321oxlvBYnVN/4X0aNQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8Yyyl2drGi0li9oIdOZKgPU0UyeHqhRiRFmRWomKvag=;
- b=Oyq1m9hH+PMsnwbWuIpnfQ1/Zj8dKlAOvokRRmuj1EigUGUN1dXrGDsd9vSJFJ0dmuKmfjB0cv6Rc8f1Rz1V4E92VE3YSnWPIIs8KPJkHbA/65xSou7V38leeoDMMT8rHzgmPuAPAKtpPWSf1TZ4BRpuVdyf64UUBIQgxcFmEhY=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7958.namprd11.prod.outlook.com (2603:10b6:8:f9::19) by
- CY8PR11MB7292.namprd11.prod.outlook.com (2603:10b6:930:9c::8) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.14; Mon, 23 Nov 2026 08:12:58 +0000
-Received: from DS0PR11MB7958.namprd11.prod.outlook.com
- ([fe80::8cb2:cffc:b684:9a99]) by DS0PR11MB7958.namprd11.prod.outlook.com
- ([fe80::8cb2:cffc:b684:9a99%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 08:12:58 +0000
-Message-ID: <12176ea6-8664-4056-99d0-7fcfa2aba247@intel.com>
-Date: Mon, 23 Nov 2026 13:42:47 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] drm/xe: Expose retired VRAM pages via drm-ras
-To: Rodrigo Vivi <rodrigo.vivi@intel.com>, Aravind Iddamsetty
-	<aravind.iddamsetty@linux.intel.com>, Koujalagi Mallesh
-	<mallesh.koujalagi@intel.com>
-CC: <intel-xe@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>,
-	<netdev@vger.kernel.org>, <amd-gfx@lists.freedesktop.org>,
-	<simona.vetter@ffwll.ch>, <airlied@gmail.com>, <tejas.upadhyay@intel.com>,
-	<himal.prasad.ghimiray@intel.com>, <raag.jadav@intel.com>,
-	<joshua.santosh.ranjan@intel.com>, <ashwin.kumar.kulkarni@intel.com>,
-	<pratik.bari@intel.com>, <Hawking.Zhang@amd.com>, <tao.zhou1@amd.com>,
-	<YiPeng.Chai@amd.com>, <jinzhou.su@amd.com>, <cesun102@amd.com>,
-	<lijo.lazar@amd.com>, <alexander.deucher@amd.com>, <christian.koenig@amd.com>
-References: <20261007080354.3072751-1-aravind.iddamsetty@linux.intel.com>
- <20261007080354.3072751-2-aravind.iddamsetty@linux.intel.com>
- <as_2tO2jfQV764qC@intel.com>
-Content-Language: en-US
-From: "Tauro, Riana" <riana.tauro@intel.com>
-In-Reply-To: <as_2tO2jfQV764qC@intel.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MA5PR01CA0308.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:220::6) To DS0PR11MB7958.namprd11.prod.outlook.com
- (2603:10b6:8:f9::19)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rzGfxw61
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f02ee04378so23794335ad.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:13:15 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795421595; x=1796026395; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KFmwdLzfnogC49xeMoaGP9Os7baWgFpsppZ8KRt3Wh4=;
+        b=rzGfxw612Bifc8Aa8Vv+74lBeXFif7qRBKEs7H84D4p+pP1M9o1APf5SaLrD9ROfee
+         vutdyjVxEKyJ440OqKU9i40cvCQVyQEv1Gvoy3vLjee0Pi3bESWw7JU0dsTZ1QVxZmOM
+         B7rsqpJu3kSHrN/FcaVuqeaFg43OPAzxjst/3ElopzjlrDtekdA4wcXWsGPox4NcQnep
+         pM2QRKWXKZiJfvPdutBAFIBxWZec02VI8fb2iKxl2XjXfELhvvLQ81oSNBxRcdteAbCj
+         RWYL/3wx5Z+4OlxrcvioY5GQ3cHtUKBVu3CB2jKMcDoH/Unuhxbt80DplpoGf58aBQM4
+         SnCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795421595; x=1796026395;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KFmwdLzfnogC49xeMoaGP9Os7baWgFpsppZ8KRt3Wh4=;
+        b=JDbGu7ud5iTdjCjOfaEJQVCz1Y2xD2DsAw0yBBDMPlgx1UAv0IwnLowpmBKygw488E
+         XlNwE1eU4B+YRZdleuIGH7lyxd4iS/jxSRrA/PsRTgnXW810AeBTUT26HYpr2prcmplY
+         d0E8lyJanqyM+s6j+LYILFHkkmRbxV7nNTW0wBGd5aVa1TbgK08eLaybSdUlgTAYoyDT
+         WcmNFrBJ5FkYN+uYMTDYJ/6a6OMyIj845MegmQWU7+vrOADhky2QbqkzGlryI23ApsJ7
+         K+e6g5S2yI13r/N89W4DyzS0SrUxvENdZ9I0PVbbdZXQQqNbNm6GSCqXlz1M7PyWOeYh
+         SGgQ==
+X-Gm-Message-State: APuU4Z8di2/z8fMgIQiwrHj2aFVnVA8JMOmIHg8B56ZIldTrBY1Kc7hP
+	kuNDwSs5ol19BVl9xdGGRxp9gkZcdpcYSJ5QkBezyTLMmHf48ylA4R6zKorB8g==
+X-Gm-Gg: AZFdTZezPmE6MEe5N9ceoE2ZURgxbIRfItLL94ApN9GTpkjQO7w+RqkqD0SCUpf9TrN
+	eXkr2Qwhejd8qo51v9kEAFHT/p5frgWIwezN/5Q0O6ls+8s0FBkGOm/njulO5geEFEXDSIefRSA
+	rNha/4VFZc9VwGMUQUk4k+yaz3uT8pRgx1uPj+gWqQH3rEXhGEiZaL6VD8LpWB4Rf12Lh394IWl
+	awm6Y51xcY18mOK2rX2K4CwlwWsrx2a8pUZv0CJ8369L8T+Hi0I7qiEwZkTOcm8OLu9Y1fAfStu
+	JWf5xO7F4l+t7iN6+lh8urs3iHIyFlxg9OesXGwtNP4ZOwcyW873Z4ZmTJCNrg0Qco+ZdskJZVz
+	43Psz2yS9pyS9nDcjgY07uBRRORV5ATcLQINNIRulupOwBjvCKYtNGIpm7HBIOF1Ftjan+OUIhm
+	teDsMe9c0gc7sx0zKMMMDwbbPPIlilPL9n/qCYlmJKlq90SIg6pTSYU2IWJMELwM52id7ChhPrM
+	dbjZkaTEhhn2xwKBI33JBunSVvGBJJOtpXvbXgVVe5Dri+87+Kof8AixbuEqWUU4xW14UIfqSiS
+	y6CkJxUIr48N8sTaCJoWR2r+HZARWgKUMM0e5MFgC7iDpQUyS3GFGbA1OhCAwN6TR+Jt/grseRZ
+	dSEUygWuDo9jf9KpkQsvcs/I+feVRYY1Yy1CxUefttEpReRkxKxxvaulU2+jyzKLW6g8N2jVBra
+	x+Lg==
+X-Received: by 2002:a17:903:19cb:b0:2e9:3dd0:c8d with SMTP id d9443c01a7336-2f03f1cf44emr118698335ad.14.1795421594438;
+        Mon, 23 Nov 2026 00:13:14 -0800 (PST)
+Received: from ryzen.lan ([2601:644:8000:37f::e34])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84364sm49923835ad.5.2026.11.23.00.13.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:13:13 -0800 (PST)
+From: Rosen Penev <rosenp@gmail.com>
+To: netdev@vger.kernel.org
+Cc: =?UTF-8?q?Rafa=C5=82=20Mi=C5=82ecki?= <rafal@milecki.pl>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Felix Fietkau <nbd@openwrt.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Simon Horman <horms@kernel.org>
+Subject: [PATCH net v6] net: bgmac: fix RX frame length check
+Date: Mon, 23 Nov 2026 00:13:12 -0800
+Message-ID: <20261123081312.39427-1-rosenp@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -149,1028 +102,370 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7958:EE_|CY8PR11MB7292:EE_
-X-MS-Office365-Filtering-Correlation-Id: 188d3034-d92a-4dce-ac53-08df4939956a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021123027099003|261021121427099003|261102123227099003|261102130727099003|11063799006|4143699003|56012099006|10067099003|260925021911599003|260925021311599003|260925022911599003|261009221727099003|261009223327099003|261009220027099003|261009221227099003|261009223027099003|18002099003|22082099003|6133799003|3023799007;
-X-Microsoft-Antispam-Message-Info: vA/GzhR5tvGIPm2FWVyB9cap+OT/G/u8GyenvulwVTfL1/GGIP/EFJdamtPr5+pre73e2rYssLMioyFWP1ahZtFE+dbTfZtVgOeOBs8DOWEw+5f6fo347larzCoDnjz4gfDeTTVA1arAKO65wyaLmK3hult38W/g8N59+C35LNKMwD4sXFEpDDlK6pcxyUwtsHjOhGGXLxLguNX2Xw1pkInVedSP1EEVydwVqDxV1veUVCM5JTEkMFqZ9kDHxbtZ0OnGiReMr3w/A40Ey5OyS+B6nj5Q+GrIYGns1QhLm7bejI68A9sl5QRxb6BMF2hPVATtulDaH4XnpWQJOL1wru87lHmEXuKLSLqIltwS2Kixc7bMlyxiuEItzYGb5KtNjYVlhZjfpmShjOYtXTYNfXlpsbyCB9Ij0uWMxwdTbQZz7ySrQ9RK7g5V8Lls4MyK3C3KRMWm1HBbtD/EIGEMKjG1n0RvvV2ZAjfuGAK0p34tXF3yCA0EAqn9wlUSuRPI3r86vpBJmV+28FV6IAw2sC/grRHslMxxwQZLiLpG7/b46gpVim8QTOX7X1ZB2Rg32GQxEudn7CWK+BAEt4H8ud/Isr/hcFud8i5xhKXHkAm5/BiilI8Rzx4xlNKW/b+T
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7958.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261102130727099003)(11063799006)(4143699003)(56012099006)(10067099003)(260925021911599003)(260925021311599003)(260925022911599003)(261009221727099003)(261009223327099003)(261009220027099003)(261009221227099003)(261009223027099003)(18002099003)(22082099003)(6133799003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?V29WejBNQ3h2TlY3cXdRVzZFVHRLQ0xSWTJPR0lwV0lYYWhyMlV1RmpPUTlB?=
- =?utf-8?B?bi9vSFBETnRmZWNFem40MndmODFzVit0NTdCdnllUSt5UDlMK0h1cm9rbFU2?=
- =?utf-8?B?WEVLZlZJNGxzdUNURnd6aVBjV1VwbDI5R2prTEFxald1TllNaXVEU3BkRmtB?=
- =?utf-8?B?SE94VFByOS8vTkttZktBWkNrNFNaanlQZnpCN2c1YWVpU2lEb1VrRnY1a1JK?=
- =?utf-8?B?WlBSeVhiYWEvcERSQ0JLZlk5V09WRmNrRTZvb1kxSEdQWStFQkxRa2NSdFNp?=
- =?utf-8?B?VXFoL0xEVVRTM3YxVFVubjAyUCs1Z05CTVkvUTNSUVJhY2IyQ1EwczZnQUd5?=
- =?utf-8?B?cURjUm0xcGhHYUJBUnZTc05LZXI5eDdVa1gvd2JWaFo5d0FFMVFyOEZRdWMy?=
- =?utf-8?B?OTBBdGtjL3dTZDFPcEQrMktzUHFsZE9wbXJ0Z1EwMXQzTjhwTURPbXl2VG1v?=
- =?utf-8?B?dHVpYnEyVzM2MlZkSHFtSDQybU9mNW9sNHhLRjBLZExjeVRKMlBpTzUwQnNt?=
- =?utf-8?B?UEl3Y08zMnRIK1ord05od1NjU25tRzVJb0s4MSt1Qk90YU5nSHZXYzg5Z253?=
- =?utf-8?B?emNldk95N25zTWlrSUxiTm85bm8va2srWWFRaEU2WmM5cjZnRC85Y2RnUUlj?=
- =?utf-8?B?a1lvRHMxTis4SkJNL3B0cDkvSWJnbEIrN09LNUhvNVVPaEVueE1wYVU4UW5o?=
- =?utf-8?B?bUtCbmlIOU1tY3RSVE0vbFVmR0hjV1EydG5aY2c3dmgvY3N1SWZSL2syOFVp?=
- =?utf-8?B?amhZWDNISnRqemVVWVVmK00zWkM3TDc5aEdIbmFTcDdDUzJrZ0dFUWp4U2Fj?=
- =?utf-8?B?TjlmbS9kZGUvQ3JsZCtjb1NuZUVCdkxYTDNlTnFwN1BVbWdlbUk2aUNCSUlT?=
- =?utf-8?B?VGZ6UTV4RXhMcVJOT2lXWjZnaDA3bmIyd1Z4Mnk1VDBYbXZlNHp4RmRiOERG?=
- =?utf-8?B?VW96M3d6dkZaV3k4QnRPWFNST29mcGxTYnMxUGU1SjArNFFxUzIzMWRveDhK?=
- =?utf-8?B?V1FHWnZJemVCR3F6bmN5aXhyckhkaG9MU1VMZU1OWmtKSnJ0SGhEdnpPc3FU?=
- =?utf-8?B?S1QreWhFbTVzL2VkcDJia05SWWdQemZFVnpyaVVOeXFyRW9veXpsSk8yQVZG?=
- =?utf-8?B?Ti96ek9EKzhvYngyaE5rUDYxWTh2RGYycE5FVndBWWtUTEVQeVZuTk5XaXFv?=
- =?utf-8?B?TVJidjlURUFEZzZtSW52SjUzYldNem1teU1STUZVYWFWaGs5YVBJYmR0NktR?=
- =?utf-8?B?cm1TT3IvZTFnTmhOVXVDQXBYTHZ0dWxxTG53MEd2aFl2cmtOZ3d1ekE2WVVn?=
- =?utf-8?B?MnZOSWRjSHhTV252bVlPd21ibm5ObUdEY056NEVWL3ZzSm1DSmRUWlhtcisz?=
- =?utf-8?B?YW9CRWJTY3Vlc0tGRUZOV1F5bnNGcitDbmlqc3pLTjNpTThkN0laek53dXdC?=
- =?utf-8?B?WXQzSWNLeU50b0FwWmFEVkhydmZ4aHFpZzJQVmcxcnJxMEU5bzlQbTVDdzUw?=
- =?utf-8?B?M0phazJJUUNIdFJOZ3RiMnFmSW80d0w4V1pHR2tTa3phYXFybjlYcnRxMExi?=
- =?utf-8?B?emUwUWxmWUFRR3JaLzNkWVQvalZROVB2bGhHaUN3TzB2UDl6QWZLMXJZL1ZZ?=
- =?utf-8?B?YWc3Z08rSHRoTnB4MUFjZ0pMeis2VGZtSWtvajdwc2pHc1VsZmN2b3Zyczkr?=
- =?utf-8?B?WWRIbTlvZVdOVDVhMXFDSVpQQ0c1UDRQcWpIUndyZGhLMW5GUnhFT253Znox?=
- =?utf-8?B?aVZja2VJb3hzR21CUGV5Z0FSQzc4U0VyVmtTRmNxcTNuam1yQ2VMVmZYYm1t?=
- =?utf-8?B?bmRFaXZlSW5VYVd6bHV5cDJxQUEzai9mbnlQdUJqaXJPeTl0ME9UNStsc29q?=
- =?utf-8?B?ZnNiMndNdEhoTHZwcHh1WHEwNWt0ZVZ6a3NpYTdZM2dtY3MvalhQWjlvbkc2?=
- =?utf-8?B?TC80T0t1Q1Q5OVkxbktudk1tOTBldmI5emdPNmdHWDRjeXRXQnFpa2tHVnFB?=
- =?utf-8?B?MG51WmZUMW8xNFBmSWhReENPSlJoRCtuNGRqSjh3NGhvWWl0QUxmQ0J5Yytm?=
- =?utf-8?B?NFE2SmFrM0pFLzg1RFJMakVxNzNBOXAvbGQ0ZUk1Rkl3MmFFRmY0SnBsRmVq?=
- =?utf-8?B?SlVaQXhUc2tnUFJMOUU2bko3WjByUnNHSWc1L1NnTjFtYUZMa0xQeHJSVVNH?=
- =?utf-8?B?WVZvOStkSG4xWGJxNlBEK1hYZkdqZDhJYkRZeksxRXVKdzBvaXI5c201T0M4?=
- =?utf-8?B?U3pCaFQzYjl0SlQ5Zm5UK2YwNmhtbGZtQVF5ZVVHV2hYNmxKdmhxUHFzYjY0?=
- =?utf-8?B?bys4QTZjblA5ZXg5dU8wMUpLZ25JOW8vL1ZhYWN3VUdOZnhweStFdz09?=
-X-Exchange-RoutingPolicyChecked: Cy3cGCOejfBaRfS7OKoosKmPq60V0DNC0vRq6lXMcHlkZZ7ruJDJu44EI5s4dov8f6zCBV+08Xab1zROHNU3JNS7qdnhCcQPh2eZ+P19rDI5IwjAbcyVSxtRwDXffOSrk+KEDl60zGywXB6QruUuFpm+Xj2+HCRNnNqZQGuA+sHFxKbxKfLYSv4uX4Ciu9Lwcg+DRXf33CaIc0QTgDaj4YmdoRcEzUJYpGD4bt9JL1ktbGMFYIql+7VE0qwn4WQ6CDwK1t/8hhf8xQYVb+smz0uS/9C0MUM8qev/yYN7Cu2wWtp5ZFipbjdsVRItWHrKdSm42vYZ3MpDQkni8gl+jQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 188d3034-d92a-4dce-ac53-08df4939956a
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB7958.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 08:12:58.3210
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: BaYeSyUxAh+XkFG4/lILXICwYC0RuBM8tVXQcTmt2rYZkhZ5VL6TEQtcp6IIM9LtDTmIAAe2GhCNVfDCORaj/Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB7292
-X-OriginatorOrg: intel.com
+Content-Transfer-Encoding: 8bit
 
+While reviewing commit 77dac783f113
+("net: bgmac: rate limit RX error messages"), Florian spotted that the RX
+length sanity check compares the length reported in the RX header against
+BGMAC_RX_ALLOC_SIZE. That is the size of the whole fragment, including the
+space reserved for struct skb_shared_info. The data area handed to the
+hardware is only BGMAC_RX_BUF_SIZE bytes, and the frame starts
+BGMAC_RX_FRAME_OFFSET bytes into it, so at most BGMAC_RX_MAX_FRAME_SIZE
+(1536) bytes of a frame fit in one RX buffer.
 
-On 15-10-2026 03:10, Rodrigo Vivi wrote:
-> On Wed, Oct 07, 2026 at 01:33:53PM +0530, Aravind Iddamsetty wrote:
->> The memory page offlining support tracks bad VRAM pages and currently
->> only exposes them through debugfs (vram_bad_pages), which is not a
->> stable ABI. Add a proper userspace interface using the drm-ras
->> generic netlink family.
->>
->> Introduce a new node type DRM_RAS_NODE_TYPE_RETIRED_RESOURCES which
->> enumerates hardware resources that have been permanently taken out of
->> service. Each node reports a single resource type, identified by its
->> node-name, so the resource type is implied by the node rather than
->> carried per entry. The per-entry payload stays extensible: each entry
->> carries a single type-specific nested attribute, so future resource
->> types can be added without touching existing consumers. VRAM pages are
->> the first supported type, reported via the vram-page nest as
->> {address, size, status} where status is one of retired/pending/failed.
->>
->> A single operation is added on the node:
->>   - GET_RETIRED_RESOURCES: dump the resources retired on the node. The
->>     dump opens with a leading capacity summary entry (max-pages
->>     inside the vram-page nest, i.e. the maximum number of pages that
->>     can be offlined, with no address/size/status), followed by one
->>     entry per retired resource. Userspace derives the retired/queued
->>     counts by counting entries.
->>
->> The netlink interface is described by the YAML spec
->> Documentation/netlink/specs/drm_ras.yaml. The following files are
->> generated from that spec with tools/net/ynl/ynl-regen.sh and must not
->> be edited by hand:
->>   - include/uapi/drm/drm_ras.h        (uapi attribute/command enums)
->>   - drivers/gpu/drm/drm_ras_nl.c      (generated policy and op table)
->>   - drivers/gpu/drm/drm_ras_nl.h      (generated declarations)
->>
->> Eg:
->> $ sudo ./tools/net/ynl/pyynl/cli.py \
->>       --spec Documentation/netlink/specs/drm_ras.yaml \
->>       --dump list-nodes
->>
->> [{'device-name': '0000:03:00.0', 'node-id': 0, 'node-name':'correctable-errors',
->>   'node-type': 'error-counter'},
->>   {'device-name': '0000:03:00.0', 'node-id': 1, 'node-name':'uncorrectable-errors
->> ', 'node-type': 'error-counter'},
->>   {'device-name': '0000:03:00.0', 'node-id': 2, 'node-name':'vram-retired-pages',
->>   'node-type': 'retired-resources'}]
->>
->> $ sudo ./tools/net/ynl/pyynl/cli.py --spec \
->> Documentation/netlink/specs/drm_ras.yaml  --dump  get-retired-resources \
->> --json '{"node-id": 2}'
->>
->> [{'node-id': 2, 'vram-page': {'max-pages': 100}},
->>   {'node-id': 2, 'vram-page': {'address': 12807041024, 'size': 4096,
->>   'status': 'retired'}},
->>   {'node-id': 2, 'vram-page': {'address': 12809400320, 'size': 4096,
->>   'status': 'retired'}}]
+A corrupted length well beyond that limit passes the check, and the
+following skb_put() runs past the skb tailroom and calls skb_over_panic()
+instead of dropping the frame. Lengths only slightly above the limit fit
+in the alignment padding at the end of the buffer and were delivered,
+with the data past the buffer end being stale memory.
 
-We should also add device-name in case of multiple cards and the 
-resource type
+The check has no lower bound either. A length below ETH_FCS_LEN wraps
+when the FCS is subtracted, so skb_put() asks for almost 64 KiB and hits
+the same skb_over_panic(). A length that leaves less than an Ethernet
+header makes eth_type_trans() parse bytes the hardware never wrote.
 
-> I wonder if we shouldn't make the max-page a separate do function instead
-> of making this 0 entry different from the rest of the dump...
+The other limits in the driver do not agree with the buffer size either.
+The MAC is programmed to accept up to 32 + ETHER_MAX_LEN = 1550 bytes in
+bgmac_chip_init(), and up to 32 + mtu = 1564 bytes after
+bgmac_change_mtu(). max_mtu is BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN,
+which leaves out the Ethernet header and any VLAN tag.
 
-Agreed, we should have a different function for max pages
+Such frames do not fit in one RX buffer. The DMA engine is the same dma64
+engine used by b43 and brcmsmac, and with BGMAC_DMA_RX_OVERFLOW_CONT set it
+continues the frame into the next descriptor's buffer. bgmac_dma_rx_read()
+consumes only the first descriptor and parses the continuation buffer as
+a new frame, taking its RX header from frame data the sender controls. A
+bounds check on the length cannot catch that, and the stale memory in the
+rest of that buffer is passed up the stack.
 
->> The first entry is the capacity summary (max-pages); subsequent entries
->> are the retired pages.
->>
->> v2:
->>   - Drop the per-entry resource-type discriminator attribute; the type is
->>     now implied by the node (node-name), which reports a single type.
->>   - Fold all VRAM-page fields, including the retirement status, into the
->>     vram-page nested attribute; the top-level entry is just
->>     {node-id, vram-page}. (Rodrigo)
->>   - Drop the separate GET_RETIRED_RESOURCES_INFO operation. The capacity
->>     (max-pages) is now emitted as a leading summary entry inside
->>     GET_RETIRED_RESOURCES (max-pages in the vram-page nest, no status);
->>     offlined/queued counts are derived by counting entries.
->>
->> Cc: Tejas Upadhyay <tejas.upadhyay@intel.com>
->> Cc: Himal Prasad Ghimiray <himal.prasad.ghimiray@intel.com>
->> Cc: Rodrigo Vivi <rodrigo.vivi@intel.com>
->> Cc: Riana Tauro <riana.tauro@intel.com>
->> Cc: Raag Jadav <raag.jadav@intel.com>
->> Cc: Joshua Santhosh Ranjan <joshua.santosh.ranjan@intel.com>
->> Cc: Ashwin Kumar Kulkarni <ashwin.kumar.kulkarni@intel.com>
->> Cc: Pratik Bari <pratik.bari@intel.com>
->>
->> Signed-off-by: Aravind Iddamsetty <aravind.iddamsetty@linux.intel.com>
->> Assisted-by: Copilot:claude-opus-4.8
->> ---
->>   Documentation/netlink/specs/drm_ras.yaml |  91 +++++++++++-
->>   drivers/gpu/drm/drm_ras.c                | 174 ++++++++++++++++++++++-
->>   drivers/gpu/drm/drm_ras_nl.c             |  12 ++
->>   drivers/gpu/drm/drm_ras_nl.h             |   2 +
->>   drivers/gpu/drm/xe/xe_drm_ras.c          |  77 ++++++++++
->>   drivers/gpu/drm/xe/xe_drm_ras_types.h    |   3 +
->>   drivers/gpu/drm/xe/xe_ttm_vram_mgr.c     | 119 ++++++++++++++++
->>   drivers/gpu/drm/xe/xe_ttm_vram_mgr.h     |   3 +
->>   include/drm/drm_ras.h                    |  74 ++++++++++
->>   include/uapi/drm/drm_ras.h               |  48 ++++++-
->>   10 files changed, 592 insertions(+), 11 deletions(-)
->>
->> diff --git a/Documentation/netlink/specs/drm_ras.yaml b/Documentation/netlink/specs/drm_ras.yaml
->> index 4c2ac9a1ba3f..42ab1cceaea7 100644
->> --- a/Documentation/netlink/specs/drm_ras.yaml
->> +++ b/Documentation/netlink/specs/drm_ras.yaml
->> @@ -16,11 +16,34 @@ definitions:
->>       type: enum
->>       name: node-type
->>       value-start: 1
->> -    entries: [error-counter]
->> +    entries: [error-counter, retired-resources]
->>       doc: >-
->> -         Type of the node. Currently, only error-counter nodes are
->> -         supported, which expose reliability counters for a hardware/software
->> -         component.
->> +         Type of the node.
->> +         error-counter nodes expose reliability counters for a
->> +         hardware/software component. retired-resources nodes enumerate
->> +         hardware resources (e.g. VRAM pages) that have been permanently
->> +         taken out of service.
->> +  -
->> +    type: enum
->> +    name: retired-resource-status
->> +    value-start: 0
-> perhaps we should start at 1 like node-type so a zeroed default value
-> is not valid?!
->
->> +    entries: [retired, pending, failed]
->> +    doc: >-
->> +         Status of a retired resource entry. retired means the resource is
->> +         permanently reserved and out of service; pending means retirement is
->> +         queued but the reservation is not yet complete; failed means the
->> +         reservation failed and the resource may still be in use.
+Fix all of this:
 
-we can have some resources only retired for a particular duration or 
-till another indication.
-  Do we need a separate status for temporary or can we re-use retired 
-for such cases?
+- Program UMAC_MAX_FRAME_LEN to BGMAC_RX_MAX_FRAME_SIZE, so every frame
+  the MAC accepts by its programmed limit fits in one RX buffer, and
+  limit max_mtu so that a VLAN tagged frame at that MTU fits as well.
+  max_mtu drops from 1532 to 1514. The limit does not follow the MTU,
+  as receiving frames up to the buffer size regardless of the MTU is
+  what the driver did before. bgmac_change_mtu() only wrote the MAC
+  limit and never updated net_dev->mtu, so the MTU seen by the stack
+  never changed. Remove it and let the core set the MTU.
 
->> +  -
->> +    type: enum
->> +    name: retired-resource-type
->> +    value-start: 1
->> +    entries: [vram-page]
->> +    doc: >-
->> +         Type of a retired resource entry. The type selects which type-specific
->> +         nested attribute is present. New hardware resource types can be added
->> +         here, each carrying its own nested attribute set, without affecting
->> +         existing types. vram-page describes a VRAM page by device address and
->> +         size.
-> Deserves documentation saying that this is for future extensibility, while
-> for now the only supported type is vram-page, like we did with the type...
->
->>   
->>   attribute-sets:
->>     -
->> @@ -100,6 +123,45 @@ attribute-sets:
->>           name: error-value
->>           type: u32
->>           doc: Current value of the error counter.
->> +  -
->> +    name: retired-resource-attrs
->> +    attributes:
->> +      -
->> +        name: node-id
->> +        type: u32
->> +        doc: Node ID targeted by this retired resource operation.
->> +      -
->> +        name: vram-page
->> +        type: nest
->> +        nested-attributes: vram-page-attrs
->> +        doc: >-
->> +             Type-specific payload. The resource type is identified by the
->> +             node (its node-name); each node reports a single resource type.
+- Check the RX header flags. The MAC is not set up to discard errored
+  frames (CMD_RX_ERR_DISC is cleared), so frames above the programmed
+  maximum still reach the host. The layout of the flags is taken from
+  bcmgmacrxh.h in the Broadcom SDK: bits 11:8 hold the descriptor count
+  minus one, bit 7 flags an RX FIFO overflow, bit 4 a frame longer than
+  the maximum frame length and bit 3 a CRC error. Drop frames that have
+  any of the error flags set and count them in the matching statistics.
 
-Do we need this set?
+- Drop frames that span more than one descriptor and recycle their
+  continuation buffers without parsing them. Like b43 and brcmsmac, also
+  derive the number of continuation buffers from the length, and use
+  the larger of the two, so a length above the buffer size never leads
+  to its continuation being parsed. The count is taken before a
+  replacement buffer is allocated, so it is also known when that
+  allocation fails, and it is kept in the ring so that it carries over
+  into the next poll.
 
->> +  -
->> +    name: vram-page-attrs
->> +    attributes:
->> +      -
->> +        name: address
->> +        type: u64
->> +        doc: Device address of the retired VRAM page (e.g. DPA).
->> +      -
->> +        name: size
->> +        type: u64
->> +        doc: Size of the retired VRAM page in bytes.
->> +      -
->> +        name: max-pages
->> +        type: u32
->> +        doc: >-
->> +             Maximum VRAM pages that can be retired. Present only in the
->> +             leading summary entry of the dump (no address/size/status).
->> +      -
->> +        name: status
->> +        type: u32
->> +        doc: Retirement status of the retired VRAM page.
->> +        enum: retired-resource-status
->> +      -
->> +        name: pad
->> +        type: pad
->>   
->>   operations:
->>     list:
->> @@ -199,6 +261,27 @@ operations:
->>               - node-id
->>               - error-id
->>               - error-threshold
->> +    -
->> +      name: get-retired-resources
->> +      doc: >-
->> +           Enumerate the resources (e.g. VRAM pages) that a retired-resources
->> +           node has taken out of service. The dump begins with a leading
->> +           capacity summary entry (max-pages, with no address/size/status),
->> +           followed by one entry per retired resource (address, size and a
->> +           retirement status). The resource type is identified by the node
->> +           (its node-name); each node reports a single type. User space
->> +           derives the retired/queued counts by counting entries, and must
->> +           obtain the node ID from list-nodes first.
->> +      attribute-set: retired-resource-attrs
->> +      flags: [admin-perm]
->> +      dump:
->> +        request:
->> +          attributes:
->> +            - node-id
->> +        reply:
->> +          attributes:
->> +            - node-id
->> +            - vram-page
+- The DMA engine writes the RX header once the frame ends, so the first
+  slot of a multi-descriptor frame may be completed while its header
+  still holds the poison pattern. The driver dropped such a slot and
+  freed its buffer, which the engine could still write the header into,
+  and then parsed the continuation as a frame. Read the header before
+  doing anything else with the slot. If it is poisoned, stop and wait
+  for the next poll, unless more slots have been completed than one
+  frame can use. In that case the slot is dropped but its buffer is
+  kept mapped and handed back to the hardware.
 
-How can this be reused for other resources if the response has a 
-specific type?
-Shouldn't it be generic or the function name different?
+- Reject lengths below ETH_HLEN + ETH_FCS_LEN or above
+  BGMAC_RX_MAX_FRAME_SIZE, and print the bad length.
 
-Thanks
-Riana
+Only compile tested. Not tested on hardware.
 
+Fixes: dd4544f05469 ("bgmac: driver for GBit MAC core on BCMA bus")
+Fixes: 6a6c708469c9 ("bgmac: add check for oversized packets")
+Fixes: 752e5fcc2e77 ("bgmac: reduce max frame size to support just MTU 1500")
+Signed-off-by: Rosen Penev <rosenp@gmail.com>
+---
+v6:
+- program UMAC_MAX_FRAME_LEN to the RX buffer size instead of deriving it
+  from the MTU, so the MTU no longer filters RX, and remove
+  bgmac_change_mtu()
+- also derive the number of continuation buffers from the length, and
+  set it on every drop path, not only from the descriptor count field
+- read the RX header before anything else; on a poisoned header wait
+  for the next poll instead of dropping the slot, unless more slots have
+  been completed than one frame can use, and never free a buffer the
+  engine may still write the header into
+- count FIFO overflows and multi-descriptor frames in rx_over_errors
+- v5: https://lore.kernel.org/netdev/20261122080257.119640-1-rosenp@gmail.com/
+v5:
+- read the descriptor count from the RX header before poisoning it when
+  no replacement buffer can be allocated, so the continuation buffers of
+  that frame are not parsed as frames either
+- v4: https://lore.kernel.org/netdev/20261121005009.59491-1-rosenp@gmail.com/
+v4:
+- program UMAC_MAX_FRAME_LEN from the MTU plus a VLAN Ethernet header
+  and FCS, and limit max_mtu to 1514, so every frame the MAC accepts by
+  its programmed limit fits in one RX buffer
+- check the RX header flags: drop errored frames and recycle the
+  continuation buffers of frames that span more than one descriptor
+  instead of parsing them as frames
+- correct the commit message: lengths just above the limit fit in the
+  SKB_DATA_ALIGN padding and were delivered, not panicked on
+- AI coding assistant (Claude) used to help analyse the review and
+  prepare this version; I have reviewed the result
+v3: add a lower bound
+v2: replace Suggested-by with description.
 
->>   
->>   mcast-groups:
->>     list:
->> diff --git a/drivers/gpu/drm/drm_ras.c b/drivers/gpu/drm/drm_ras.c
->> index b099eb67836e..46ee897a13c9 100644
->> --- a/drivers/gpu/drm/drm_ras.c
->> +++ b/drivers/gpu/drm/drm_ras.c
->> @@ -63,7 +63,6 @@
->>    * Node type:
->>    *
->>    * - ERROR_COUNTER:
->> - *     + Currently, only error counters are supported.
->>    *     + The driver must implement the query_error_counter() callback to provide
->>    *       the name and the value of the error counter.
->>    *     + The driver must provide a error_counter_range.last value informing the
->> @@ -81,6 +80,13 @@
->>    *       that are raised by the hardware.
->>    *     + The driver is responsible for error threshold bounds checking.
->>    *
->> + * - RETIRED_RESOURCES:
->> + *     + Enumerates hardware resources (e.g. VRAM pages) permanently taken out
->> + *       of service.
->> + *     + The driver must implement the query_retired_resource() callback, which
->> + *       is called with an incrementing index and returns -ENOENT once the last
->> + *       entry has been reported.
->> + *
->>    * Netlink handlers:
->>    *
->>    * - drm_ras_nl_list_nodes_dumpit(): Implements the LIST_NODES
->> @@ -95,6 +101,9 @@
->>    *   operation, fetching the error threshold of a specific counter.
->>    * - drm_ras_nl_set_error_threshold_doit(): Implements the SET_ERROR_THRESHOLD doit
->>    *   operation, setting the error threshold of a specific counter.
->> + * - drm_ras_nl_get_retired_resources_dumpit(): Implements the
->> + *   GET_RETIRED_RESOURCES dumpit operation, enumerating retired resources of a
->> + *   specific node.
->>    */
->>   
->>   static DEFINE_XARRAY_ALLOC(drm_ras_xa);
->> @@ -105,6 +114,10 @@ static DEFINE_XARRAY_ALLOC(drm_ras_xa);
->>   struct drm_ras_ctx {
->>   	/* Which xarray id to restart the dump from */
->>   	unsigned long restart;
->> +	/* Ordering-key cursor for retired-resource dumps (inclusive lower bound) */
->> +	u64 cursor;
->> +	/* Whether the leading retired-resource summary has been emitted */
->> +	bool summary_sent;
->>   };
->>   
->>   /**
->> @@ -564,6 +577,148 @@ int drm_ras_nl_clear_error_counter_doit(struct sk_buff *skb,
->>   	return node->clear_error_counter(node, error_id);
->>   }
->>   
->> +static int msg_put_retired_resource(struct sk_buff *skb, u32 node_id,
->> +				    const struct drm_ras_retired_resource *res)
->> +{
->> +	struct nlattr *nest;
->> +
->> +	if (nla_put_u32(skb, DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID, node_id))
->> +		return -EMSGSIZE;
->> +
->> +	/* Type is implied by the node (its node_name); it selects the nest. */
->> +	switch (res->type) {
->> +	case DRM_RAS_RETIRED_RESOURCE_TYPE_VRAM_PAGE:
->> +		nest = nla_nest_start(skb,
->> +				      DRM_RAS_A_RETIRED_RESOURCE_ATTRS_VRAM_PAGE);
->> +		if (!nest)
->> +			return -EMSGSIZE;
->> +
->> +		if (res->is_summary) {
->> +			/* Leading capacity summary: max retirable pages. */
->> +			if (nla_put_u32(skb, DRM_RAS_A_VRAM_PAGE_ATTRS_MAX_PAGES,
->> +					res->vram_page.max_pages)) {
->> +				nla_nest_cancel(skb, nest);
->> +				return -EMSGSIZE;
->> +			}
->> +		} else if (nla_put_u64_64bit(skb, DRM_RAS_A_VRAM_PAGE_ATTRS_ADDRESS,
->> +					     res->vram_page.address,
->> +					     DRM_RAS_A_VRAM_PAGE_ATTRS_PAD) ||
->> +			   nla_put_u64_64bit(skb, DRM_RAS_A_VRAM_PAGE_ATTRS_SIZE,
->> +					     res->vram_page.size,
->> +					     DRM_RAS_A_VRAM_PAGE_ATTRS_PAD) ||
->> +			   nla_put_u32(skb, DRM_RAS_A_VRAM_PAGE_ATTRS_STATUS,
->> +				       res->status)) {
->> +			nla_nest_cancel(skb, nest);
->> +			return -EMSGSIZE;
->> +		}
->> +
->> +		nla_nest_end(skb, nest);
->> +		break;
->> +	default:
->> +		/* Unknown type: only the common node-id is reported. */
->> +		break;
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->> +/**
->> + * drm_ras_nl_get_retired_resources_dumpit() - Dump retired resources of a node
->> + * @skb: Netlink message buffer
->> + * @cb: Callback context for multi-part dumps
->> + *
->> + * Iterates over all retired resources of a %DRM_RAS_NODE_TYPE_RETIRED_RESOURCES
->> + * node and appends their attributes to the given netlink message buffer. The
->> + * dump opens with an optional leading type-specific capacity summary (e.g. the
->> + * maximum retirable page count), followed by one entry per retired resource;
->> + * each resource entry carries a status plus one type-specific nested attribute
->> + * selected by the node's type. Uses @cb->ctx to store an ordering-key cursor
->> + * so multi-part dumps resume by key rather than position, staying correct if
->> + * the list changes concurrently between message parts.
->> + *
->> + * Return: 0 if all entries fit in @skb, number of bytes added to @skb if
->> + *          the buffer filled up (requires multi-part continuation), or
->> + *          a negative error code on failure.
->> + */
->> +int drm_ras_nl_get_retired_resources_dumpit(struct sk_buff *skb,
->> +					    struct netlink_callback *cb)
->> +{
->> +	const struct genl_info *info = genl_info_dump(cb);
->> +	struct drm_ras_ctx *ctx = (void *)cb->ctx;
->> +	struct drm_ras_retired_resource res;
->> +	struct drm_ras_node *node;
->> +	struct nlattr *hdr;
->> +	u32 node_id;
->> +	u64 cursor;
->> +	int ret = 0;
->> +
->> +	if (!info->attrs ||
->> +	    GENL_REQ_ATTR_CHECK(info, DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID))
->> +		return -EINVAL;
->> +
->> +	node_id = nla_get_u32(info->attrs[DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID]);
->> +
->> +	node = xa_load(&drm_ras_xa, node_id);
->> +	if (!node || node->type != DRM_RAS_NODE_TYPE_RETIRED_RESOURCES ||
->> +	    !node->query_retired_resource)
->> +		return -ENOENT;
->> +
->> +	/* Leading type-specific capacity summary (e.g. max pages), emitted once. */
->> +	if (!ctx->summary_sent && node->query_retired_summary) {
->> +		memset(&res, 0, sizeof(res));
->> +		ret = node->query_retired_summary(node, &res);
->> +		if (ret == 0) {
->> +			hdr = genlmsg_iput(skb, info);
->> +			if (!hdr)
->> +				return -EMSGSIZE;   /* retry summary next part */
->> +			ret = msg_put_retired_resource(skb, node_id, &res);
->> +			if (ret) {
->> +				genlmsg_cancel(skb, hdr);
->> +				return ret;
->> +			}
->> +			genlmsg_end(skb, hdr);
->> +		} else if (ret != -ENOENT) {
->> +			return ret;
->> +		}
->> +		ctx->summary_sent = true;
->> +	}
->> +
->> +	cursor = ctx->cursor;
->> +	for (;;) {
->> +		memset(&res, 0, sizeof(res));
->> +		ret = node->query_retired_resource(node, cursor, &res);
-> According to https://raw.githubusercontent.com/masoncl/review-prompts/refs/heads/main/kernel/subsystem/netlink.md
->
-> ## Dumps
->
-> - If iteration during a dump may skip or repeat objects (e.g. due to lockless
->    data structures), set `NLM_F_DUMP_INTR` on the affected message(s).
->    This is normally implemented by maintaining a generation counter and
->    recording it in `netlink_callback.seq`.
->
->
-> so, it looks like our list can change between dump parts...
->
-> we should take a look into nl_dump_check_consistent() and cb->seq users
->
-> could you please check this?
->
->> +		/* -ENOENT marks the end of the list. */
->> +		if (ret == -ENOENT) {
->> +			ret = 0;
->> +			break;
->> +		}
->> +		if (ret)
->> +			return ret;
->> +
->> +		hdr = genlmsg_iput(skb, info);
->> +		if (!hdr) {
->> +			ret = -EMSGSIZE;
->> +			break;
->> +		}
->> +
->> +		ret = msg_put_retired_resource(skb, node_id, &res);
->> +		if (ret) {
->> +			genlmsg_cancel(skb, hdr);
->> +			break;
->> +		}
->> +
->> +		genlmsg_end(skb, hdr);
->> +		/* Advance past this entry; keys are unique. */
->> +		cursor = res.key + 1;
->> +	}
->> +
->> +	/* On buffer-full the current entry was not emitted; resume at it. */
->> +	if (ret == -EMSGSIZE)
->> +		ctx->cursor = cursor;
->> +
->> +	return ret;
->> +}
->> +
->>   /**
->>    * drm_ras_nl_get_error_threshold_doit() - Query error threshold of a counter
->>    * @skb: Netlink message buffer
->> @@ -631,15 +786,24 @@ int drm_ras_node_register(struct drm_ras_node *node)
->>   	if (!node->device_name || !node->node_name)
->>   		return -EINVAL;
->>   
->> -	/* Currently, only Error Counter Endpoints are supported */
->> -	if (node->type != DRM_RAS_NODE_TYPE_ERROR_COUNTER)
->> -		return -EINVAL;
->> -
->>   	/* Mandatory entries for Error Counter Node */
->>   	if (node->type == DRM_RAS_NODE_TYPE_ERROR_COUNTER &&
->>   	    (!node->error_counter_range.last || !node->query_error_counter))
->>   		return -EINVAL;
->>   
->> +	/* Mandatory entries for Retired Resources Node */
->> +	if (node->type == DRM_RAS_NODE_TYPE_RETIRED_RESOURCES &&
->> +	    !node->query_retired_resource)
->> +		return -EINVAL;
->> +
->> +	switch (node->type) {
->> +	case DRM_RAS_NODE_TYPE_ERROR_COUNTER:
->> +	case DRM_RAS_NODE_TYPE_RETIRED_RESOURCES:
->> +		break;
->> +	default:
->> +		return -EINVAL;
->> +	}
->> +
->>   	return xa_alloc(&drm_ras_xa, &node->id, node, xa_limit_32b, GFP_KERNEL);
->>   }
->>   EXPORT_SYMBOL(drm_ras_node_register);
->> diff --git a/drivers/gpu/drm/drm_ras_nl.c b/drivers/gpu/drm/drm_ras_nl.c
->> index c9f5e0ceb3b5..2f23f5681fa4 100644
->> --- a/drivers/gpu/drm/drm_ras_nl.c
->> +++ b/drivers/gpu/drm/drm_ras_nl.c
->> @@ -41,6 +41,11 @@ static const struct nla_policy drm_ras_set_error_threshold_nl_policy[DRM_RAS_A_E
->>   	[DRM_RAS_A_ERROR_COUNTER_ATTRS_ERROR_THRESHOLD] = { .type = NLA_U32, },
->>   };
->>   
->> +/* DRM_RAS_CMD_GET_RETIRED_RESOURCES - dump */
->> +static const struct nla_policy drm_ras_get_retired_resources_nl_policy[DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID + 1] = {
->> +	[DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID] = { .type = NLA_U32, },
->> +};
->> +
->>   /* Ops table for drm_ras */
->>   static const struct genl_split_ops drm_ras_nl_ops[] = {
->>   	{
->> @@ -83,6 +88,13 @@ static const struct genl_split_ops drm_ras_nl_ops[] = {
->>   		.maxattr	= DRM_RAS_A_ERROR_COUNTER_ATTRS_ERROR_THRESHOLD,
->>   		.flags		= GENL_ADMIN_PERM | GENL_CMD_CAP_DO,
->>   	},
->> +	{
->> +		.cmd		= DRM_RAS_CMD_GET_RETIRED_RESOURCES,
->> +		.dumpit		= drm_ras_nl_get_retired_resources_dumpit,
->> +		.policy		= drm_ras_get_retired_resources_nl_policy,
->> +		.maxattr	= DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID,
->> +		.flags		= GENL_ADMIN_PERM | GENL_CMD_CAP_DUMP,
->> +	},
->>   };
->>   
->>   static const struct genl_multicast_group drm_ras_nl_mcgrps[] = {
->> diff --git a/drivers/gpu/drm/drm_ras_nl.h b/drivers/gpu/drm/drm_ras_nl.h
->> index 9aef097ea10f..96b0fe017ea8 100644
->> --- a/drivers/gpu/drm/drm_ras_nl.h
->> +++ b/drivers/gpu/drm/drm_ras_nl.h
->> @@ -24,6 +24,8 @@ int drm_ras_nl_get_error_threshold_doit(struct sk_buff *skb,
->>   					struct genl_info *info);
->>   int drm_ras_nl_set_error_threshold_doit(struct sk_buff *skb,
->>   					struct genl_info *info);
->> +int drm_ras_nl_get_retired_resources_dumpit(struct sk_buff *skb,
->> +					    struct netlink_callback *cb);
->>   
->>   enum {
->>   	DRM_RAS_NLGRP_ERROR_REPORT,
->> diff --git a/drivers/gpu/drm/xe/xe_drm_ras.c b/drivers/gpu/drm/xe/xe_drm_ras.c
->> index 7f3695707611..fba58e9eb7e0 100644
->> --- a/drivers/gpu/drm/xe/xe_drm_ras.c
->> +++ b/drivers/gpu/drm/xe/xe_drm_ras.c
->> @@ -12,6 +12,7 @@
->>   #include "xe_device_types.h"
->>   #include "xe_drm_ras.h"
->>   #include "xe_ras.h"
->> +#include "xe_ttm_vram_mgr.h"
->>   
->>   static const char * const error_components[] = DRM_XE_RAS_ERROR_COMPONENT_NAMES;
->>   static const char * const error_severity[] = DRM_XE_RAS_ERROR_SEVERITY_NAMES;
->> @@ -188,6 +189,75 @@ static void cleanup_node(struct drm_device *drm, void *node)
->>   	cleanup_node_param(node);
->>   }
->>   
->> +static int query_retired_resource(struct drm_ras_node *node, u64 cursor,
->> +				  struct drm_ras_retired_resource *res)
->> +{
->> +	struct xe_device *xe = node->priv;
->> +	int ret;
->> +
->> +	ret = xe_ttm_vram_get_retired_page(xe, cursor, &res->vram_page.address,
->> +					   &res->vram_page.size, &res->status);
->> +	if (ret)
->> +		return ret;
->> +
->> +	res->type = DRM_RAS_RETIRED_RESOURCE_TYPE_VRAM_PAGE;
->> +	res->key = res->vram_page.address;
->> +
->> +	return 0;
->> +}
->> +
->> +static int query_retired_summary(struct drm_ras_node *node,
->> +				 struct drm_ras_retired_resource *res)
->> +{
->> +	struct xe_device *xe = node->priv;
->> +
->> +	res->type = DRM_RAS_RETIRED_RESOURCE_TYPE_VRAM_PAGE;
->> +	res->is_summary = 1;
->> +	res->vram_page.max_pages = xe_ttm_vram_get_max_bad_pages(xe);
->> +
->> +	return 0;
->> +}
->> +
->> +static int register_retired_node(struct xe_device *xe)
->> +{
->> +	struct pci_dev *pdev = to_pci_dev(xe->drm.dev);
->> +	struct xe_drm_ras *ras = &xe->ras;
->> +	struct drm_ras_node *node;
->> +	const char *device_name;
->> +	int ret;
->> +
->> +	/* Retired VRAM pages are only tracked on platforms with page offline */
->> +	if (xe->info.platform != XE_CRESCENTISLAND)
->> +		return 0;
->> +
->> +	node = drmm_kzalloc(&xe->drm, sizeof(*node), GFP_KERNEL);
->> +	if (!node)
->> +		return -ENOMEM;
->> +
->> +	device_name = kasprintf(GFP_KERNEL, "%04x:%02x:%02x.%d",
->> +				pci_domain_nr(pdev->bus), pdev->bus->number,
->> +				PCI_SLOT(pdev->devfn), PCI_FUNC(pdev->devfn));
->> +	if (!device_name)
->> +		return -ENOMEM;
->> +
->> +	node->device_name = device_name;
->> +	node->node_name = "vram-retired-pages";
->> +	node->type = DRM_RAS_NODE_TYPE_RETIRED_RESOURCES;
->> +	node->query_retired_resource = query_retired_resource;
->> +	node->query_retired_summary = query_retired_summary;
->> +	node->priv = xe;
->> +
->> +	ret = drm_ras_node_register(node);
->> +	if (ret) {
->> +		cleanup_node_param(node);
->> +		return ret;
->> +	}
->> +
->> +	ras->retired_node = node;
->> +
->> +	return drmm_add_action_or_reset(&xe->drm, cleanup_node, node);
->> +}
->> +
->>   static int register_nodes(struct xe_device *xe)
->>   {
->>   	struct xe_drm_ras *ras = &xe->ras;
->> @@ -279,5 +349,12 @@ int xe_drm_ras_init(struct xe_device *xe)
->>   		return err;
->>   	}
->>   
->> +	err = register_retired_node(xe);
->> +	if (err) {
->> +		drm_err(&xe->drm, "Failed to register DRM RAS retired node (%pe)\n",
->> +			ERR_PTR(err));
->> +		return err;
->> +	}
->> +
->>   	return 0;
->>   }
->> diff --git a/drivers/gpu/drm/xe/xe_drm_ras_types.h b/drivers/gpu/drm/xe/xe_drm_ras_types.h
->> index 0be218ba2db7..186024640f87 100644
->> --- a/drivers/gpu/drm/xe/xe_drm_ras_types.h
->> +++ b/drivers/gpu/drm/xe/xe_drm_ras_types.h
->> @@ -41,6 +41,9 @@ struct xe_drm_ras {
->>   	/** @node: DRM RAS node */
->>   	struct drm_ras_node *node;
->>   
->> +	/** @retired_node: DRM RAS retired-resources node for VRAM bad pages */
->> +	struct drm_ras_node *retired_node;
->> +
->>   	/** @info: info array for all types of errors */
->>   	struct xe_drm_ras_counter *info[DRM_XE_RAS_ERR_SEV_MAX];
->>   
->> diff --git a/drivers/gpu/drm/xe/xe_ttm_vram_mgr.c b/drivers/gpu/drm/xe/xe_ttm_vram_mgr.c
->> index 9a514d983e90..b56b543a56a2 100644
->> --- a/drivers/gpu/drm/xe/xe_ttm_vram_mgr.c
->> +++ b/drivers/gpu/drm/xe/xe_ttm_vram_mgr.c
->> @@ -15,6 +15,8 @@
->>   #include <drm/ttm/ttm_placement.h>
->>   #include <drm/ttm/ttm_range_manager.h>
->>   
->> +#include <uapi/drm/drm_ras.h>
->> +
->>   #include "regs/xe_regs.h"
->>   #include "xe_bo.h"
->>   #include "xe_configfs.h"
->> @@ -624,6 +626,123 @@ u64 xe_ttm_vram_get_avail(struct ttm_resource_manager *man)
->>   	return avail;
->>   }
->>   
->> +/**
->> + * xe_ttm_vram_get_retired_page - Fetch the next retired VRAM page by address
->> + * @xe: xe device instance
->> + * @min_addr: inclusive lower bound; return the page with the smallest DPA >=
->> + *            this value
->> + * @addr: output, device physical address (DPA) of the page
->> + * @size: output, size of the page in bytes
->> + * @status: output, retirement status (enum drm_ras_retired_resource_status)
->> + *
->> + * Scans the offlined and queued page lists across all tiles and returns the
->> + * entry with the smallest DPA that is >= @min_addr. Because retired pages have
->> + * unique addresses, iterating with @min_addr = previous_addr + 1 walks every
->> + * entry in a stable address order, which is robust against concurrent
->> + * insertion or removal between calls. Intended to back the drm-ras
->> + * retired-resources node enumeration.
->> + *
->> + * Return: 0 on success, -ENOENT when no page has a DPA >= @min_addr.
->> + */
->> +int xe_ttm_vram_get_retired_page(struct xe_device *xe, u64 min_addr,
->> +				 u64 *addr, u64 *size, u32 *status)
->> +{
->> +	struct xe_ttm_vram_offline_resource *pos;
->> +	struct ttm_resource_manager *man;
->> +	struct gpu_buddy_block *block;
->> +	struct xe_ttm_vram_mgr *mgr;
->> +	u64 best_addr = 0, best_size = 0;
->> +	struct xe_tile *tile;
->> +	u32 best_status = 0;
->> +	bool found = false;
->> +	u8 id;
->> +
->> +	for_each_tile(tile, xe, id) {
->> +		struct xe_vram_region *vr = tile->mem.vram;
->> +		u64 a, s;
->> +
->> +		man = ttm_manager_type(&xe->ttm, XE_PL_VRAM0 + id);
->> +		if (!man || !vr)
->> +			continue;
->> +		mgr = to_xe_ttm_vram_mgr(man);
->> +
->> +		rcu_read_lock();
->> +
->> +		list_for_each_entry_rcu(pos, &mgr->offlined_pages, offlined_link) {
->> +			block = list_first_entry_or_null(&pos->blocks,
->> +							 struct gpu_buddy_block, link);
->> +			if (block) {
->> +				a = gpu_buddy_block_offset(block) + vr->dpa_base;
->> +				s = gpu_buddy_block_size(&mgr->mm, block);
->> +			} else {
->> +				a = pos->addr + vr->dpa_base;
->> +				s = SZ_4K;
->> +			}
->> +
->> +			if (a >= min_addr && (!found || a < best_addr)) {
->> +				best_addr = a;
->> +				best_size = s;
->> +				best_status = DRM_RAS_RETIRED_RESOURCE_STATUS_RETIRED;
->> +				found = true;
->> +			}
->> +		}
->> +
->> +		list_for_each_entry_rcu(pos, &mgr->queued_pages, queued_link) {
->> +			block = list_first_entry_or_null(&pos->blocks,
->> +							 struct gpu_buddy_block, link);
->> +			if (block) {
->> +				a = gpu_buddy_block_offset(block) + vr->dpa_base;
->> +				s = gpu_buddy_block_size(&mgr->mm, block);
->> +			} else {
->> +				a = pos->addr + vr->dpa_base;
->> +				s = SZ_4K;
->> +			}
->> +
->> +			if (a >= min_addr && (!found || a < best_addr)) {
->> +				best_addr = a;
->> +				best_size = s;
->> +				best_status = pos->status == XE_PAGE_RESERVE_FAIL ?
->> +					      DRM_RAS_RETIRED_RESOURCE_STATUS_FAILED :
->> +					      DRM_RAS_RETIRED_RESOURCE_STATUS_PENDING;
->> +				found = true;
->> +			}
->> +		}
->> +
->> +		rcu_read_unlock();
->> +	}
->> +
->> +	if (!found)
->> +		return -ENOENT;
->> +
->> +	*addr = best_addr;
->> +	*size = best_size;
->> +	*status = best_status;
->> +
->> +	return 0;
->> +}
->> +
->> +/**
->> + * xe_ttm_vram_get_max_bad_pages - Fetch the FW-provided max offline page count
->> + * @xe: xe device instance
->> + *
->> + * Returns the static maximum number of VRAM pages that can be offlined, as
->> + * provided by FW at init. Intended to back the drm-ras retired-resources
->> + * capacity summary. Read from the root (VRAM0) manager; the value is a static
->> + * device-wide count.
->> + *
->> + * Return: max offline page count, or 0 if VRAM is not present.
->> + */
->> +u32 xe_ttm_vram_get_max_bad_pages(struct xe_device *xe)
->> +{
->> +	struct ttm_resource_manager *man;
->> +
->> +	man = ttm_manager_type(&xe->ttm, XE_PL_VRAM0);
->> +	if (!man)
->> +		return 0;
->> +
->> +	return to_xe_ttm_vram_mgr(man)->max_pages;
->> +}
->> +
->>   static int xe_ttm_vram_purge_page(struct xe_device *xe, struct xe_bo *bo)
->>   {
->>   	u32 q_flag = DRM_XE_EXEC_QUEUE_BAN_REASON_PAGE_OFFLINE;
->> diff --git a/drivers/gpu/drm/xe/xe_ttm_vram_mgr.h b/drivers/gpu/drm/xe/xe_ttm_vram_mgr.h
->> index d77f067d197b..70fae023d6a3 100644
->> --- a/drivers/gpu/drm/xe/xe_ttm_vram_mgr.h
->> +++ b/drivers/gpu/drm/xe/xe_ttm_vram_mgr.h
->> @@ -33,6 +33,9 @@ void xe_ttm_vram_get_used(struct ttm_resource_manager *man,
->>   			  u64 *used, u64 *used_visible);
->>   int xe_ttm_vram_handle_addr_fault(struct xe_device *xe, u64 addr);
->>   int xe_ttm_vram_inject_fault(struct xe_device *xe);
->> +int xe_ttm_vram_get_retired_page(struct xe_device *xe, u64 min_addr,
->> +				 u64 *addr, u64 *size, u32 *status);
->> +u32 xe_ttm_vram_get_max_bad_pages(struct xe_device *xe);
->>   
->>   static inline struct xe_ttm_vram_mgr_resource *
->>   to_xe_ttm_vram_mgr_resource(struct ttm_resource *res)
->> diff --git a/include/drm/drm_ras.h b/include/drm/drm_ras.h
->> index 1765a3130b09..38953f8f3012 100644
->> --- a/include/drm/drm_ras.h
->> +++ b/include/drm/drm_ras.h
->> @@ -10,6 +10,42 @@
->>   
->>   #include <uapi/drm/drm_ras.h>
->>   
->> +/**
->> + * struct drm_ras_retired_resource - A single retired resource entry
->> + *
->> + * Describes one hardware resource that has been taken out of service and is
->> + * reported by a %DRM_RAS_NODE_TYPE_RETIRED_RESOURCES node. @type selects which
->> + * member of the anonymous union is valid, allowing new hardware resource types
->> + * to be added without changing the common fields. When @is_summary is set the
->> + * entry is a leading, type-specific capacity summary (e.g. max retirable
->> + * pages) rather than an individual retired resource.
->> + */
->> +struct drm_ras_retired_resource {
->> +	/** @type: Resource type (enum drm_ras_retired_resource_type). */
->> +	__u32 type;
->> +	/** @status: Retirement status (enum drm_ras_retired_resource_status). */
->> +	__u32 status;
->> +	/**
->> +	 * @key: Opaque, driver-assigned ordering key for this entry. drm-ras
->> +	 * uses it only to advance the dump cursor; entries must be enumerable
->> +	 * in strictly increasing @key order and keys must be unique.
->> +	 */
->> +	__u64 key;
->> +	/** @is_summary: entry reports type capacity, not a retired resource. */
->> +	__u8 is_summary;
->> +	union {
->> +		/** @vram_page: Valid when @type is VRAM_PAGE. */
->> +		struct {
->> +			/** @vram_page.address: Device address (e.g. DPA). */
->> +			__u64 address;
->> +			/** @vram_page.size: Size in bytes. */
->> +			__u64 size;
->> +			/** @vram_page.max_pages: max retirable pages; summary only. */
->> +			__u32 max_pages;
->> +		} vram_page;
->> +	};
->> +};
->> +
->>   /**
->>    * struct drm_ras_node - A DRM RAS Node
->>    */
->> @@ -100,6 +136,44 @@ struct drm_ras_node {
->>   	 */
->>   	int (*set_error_threshold)(struct drm_ras_node *node, u32 error_id, u32 threshold);
->>   
->> +	/**
->> +	 * @query_retired_resource:
->> +	 *
->> +	 * This callback is used by drm-ras to enumerate retired resources of a
->> +	 * %DRM_RAS_NODE_TYPE_RETIRED_RESOURCES node. It is called with @cursor
->> +	 * and must return the next entry whose ordering key is greater than or
->> +	 * equal to @cursor, setting @res->key to that entry's key. drm-ras
->> +	 * resumes multi-part dumps from the returned key, so enumeration stays
->> +	 * correct across concurrent insertion or removal.
->> +	 *
->> +	 * The @query_retired_resource is a mandatory callback for
->> +	 * retired-resources nodes.
->> +	 *
->> +	 * Returns: 0 on success,
->> +	 *          -ENOENT when no entry has a key >= @cursor, used as an
->> +	 *                  indication that enumeration is complete.
->> +	 *          Other negative values on errors that should terminate the
->> +	 *          netlink query.
->> +	 */
->> +	int (*query_retired_resource)(struct drm_ras_node *node, u64 cursor,
->> +				      struct drm_ras_retired_resource *res);
->> +
->> +	/**
->> +	 * @query_retired_summary:
->> +	 *
->> +	 * This optional callback fills a leading, type-specific capacity summary
->> +	 * for a %DRM_RAS_NODE_TYPE_RETIRED_RESOURCES node (e.g. the maximum
->> +	 * number of retirable pages). drm-ras emits it as the first entry of the
->> +	 * retired-resources dump. The driver must set @res->is_summary, @res->type
->> +	 * and the type-specific summary fields (e.g. vram_page.max_pages).
->> +	 *
->> +	 * Returns: 0 on success,
->> +	 *          -ENOENT if the node has no summary to report,
->> +	 *          other negative values on errors that terminate the query.
->> +	 */
->> +	int (*query_retired_summary)(struct drm_ras_node *node,
->> +				     struct drm_ras_retired_resource *res);
->> +
->>   	/** @priv: Driver private data */
->>   	void *priv;
->>   };
->> diff --git a/include/uapi/drm/drm_ras.h b/include/uapi/drm/drm_ras.h
->> index 2f832275ee6e..64a7a7feb610 100644
->> --- a/include/uapi/drm/drm_ras.h
->> +++ b/include/uapi/drm/drm_ras.h
->> @@ -11,11 +11,35 @@
->>   #define DRM_RAS_FAMILY_VERSION	1
->>   
->>   /*
->> - * Type of the node. Currently, only error-counter nodes are supported, which
->> - * expose reliability counters for a hardware/software component.
->> + * Type of the node. error-counter nodes expose reliability counters for a
->> + * hardware/software component. retired-resources nodes enumerate hardware
->> + * resources (e.g. VRAM pages) that have been permanently taken out of service.
->>    */
->>   enum drm_ras_node_type {
->>   	DRM_RAS_NODE_TYPE_ERROR_COUNTER = 1,
->> +	DRM_RAS_NODE_TYPE_RETIRED_RESOURCES,
->> +};
->> +
->> +/*
->> + * Status of a retired resource entry. retired means the resource is
->> + * permanently reserved and out of service; pending means retirement is queued
->> + * but the reservation is not yet complete; failed means the reservation failed
->> + * and the resource may still be in use.
->> + */
->> +enum drm_ras_retired_resource_status {
->> +	DRM_RAS_RETIRED_RESOURCE_STATUS_RETIRED,
->> +	DRM_RAS_RETIRED_RESOURCE_STATUS_PENDING,
->> +	DRM_RAS_RETIRED_RESOURCE_STATUS_FAILED,
->> +};
->> +
->> +/*
->> + * Type of a retired resource entry. The type selects which type-specific
->> + * nested attribute is present. New hardware resource types can be added here,
->> + * each carrying its own nested attribute set, without affecting existing
->> + * types. vram-page describes a VRAM page by device address and size.
->> + */
->> +enum drm_ras_retired_resource_type {
->> +	DRM_RAS_RETIRED_RESOURCE_TYPE_VRAM_PAGE = 1,
->>   };
->>   
->>   enum {
->> @@ -51,6 +75,25 @@ enum {
->>   	DRM_RAS_A_ERROR_EVENT_ATTRS_MAX = (__DRM_RAS_A_ERROR_EVENT_ATTRS_MAX - 1)
->>   };
->>   
->> +enum {
->> +	DRM_RAS_A_RETIRED_RESOURCE_ATTRS_NODE_ID = 1,
->> +	DRM_RAS_A_RETIRED_RESOURCE_ATTRS_VRAM_PAGE,
->> +
->> +	__DRM_RAS_A_RETIRED_RESOURCE_ATTRS_MAX,
->> +	DRM_RAS_A_RETIRED_RESOURCE_ATTRS_MAX = (__DRM_RAS_A_RETIRED_RESOURCE_ATTRS_MAX - 1)
->> +};
->> +
->> +enum {
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_ADDRESS = 1,
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_SIZE,
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_MAX_PAGES,
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_STATUS,
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_PAD,
->> +
->> +	__DRM_RAS_A_VRAM_PAGE_ATTRS_MAX,
->> +	DRM_RAS_A_VRAM_PAGE_ATTRS_MAX = (__DRM_RAS_A_VRAM_PAGE_ATTRS_MAX - 1)
->> +};
->> +
->>   enum {
->>   	DRM_RAS_CMD_LIST_NODES = 1,
->>   	DRM_RAS_CMD_GET_ERROR_COUNTER,
->> @@ -58,6 +101,7 @@ enum {
->>   	DRM_RAS_CMD_ERROR_EVENT,
->>   	DRM_RAS_CMD_GET_ERROR_THRESHOLD,
->>   	DRM_RAS_CMD_SET_ERROR_THRESHOLD,
->> +	DRM_RAS_CMD_GET_RETIRED_RESOURCES,
->>   
->>   	__DRM_RAS_CMD_MAX,
->>   	DRM_RAS_CMD_MAX = (__DRM_RAS_CMD_MAX - 1)
->> -- 
->> 2.25.1
->>
+ drivers/net/ethernet/broadcom/bgmac.c | 104 ++++++++++++++++++++------
+ drivers/net/ethernet/broadcom/bgmac.h |  19 ++++-
+ 2 files changed, 98 insertions(+), 25 deletions(-)
+
+diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+index 9ef7307edd41..ec5bc1be41dd 100644
+--- a/drivers/net/ethernet/broadcom/bgmac.c
++++ b/drivers/net/ethernet/broadcom/bgmac.c
+@@ -10,6 +10,7 @@
+ #define pr_fmt(fmt)		KBUILD_MODNAME ": " fmt
+ 
+ #include <linux/bcma/bcma.h>
++#include <linux/bitfield.h>
+ #include <linux/etherdevice.h>
+ #include <linux/interrupt.h>
+ #include <linux/bcm47xx_nvram.h>
+@@ -414,6 +415,21 @@ static void bgmac_dma_rx_poison_buf(struct device *dma_dev,
+ 				   DMA_FROM_DEVICE);
+ }
+ 
++/* Number of continuation descriptors of the frame that starts with this RX
++ * header. The hardware reports it in the flags, but a frame longer than one
++ * buffer has continued into the next ones whatever the flags say.
++ */
++static u8 bgmac_rx_cont_descs(u16 len, u16 flags)
++{
++	unsigned int descs = FIELD_GET(BGMAC_RXF_DC_MASK, flags);
++
++	if (len > BGMAC_RX_MAX_FRAME_SIZE)
++		descs = max_t(unsigned int, descs,
++			      DIV_ROUND_UP(len - BGMAC_RX_MAX_FRAME_SIZE,
++					   BGMAC_RX_BUF_SIZE));
++	return descs;
++}
++
+ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+ 			     int weight)
+ {
+@@ -435,6 +451,46 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+ 		dma_addr_t dma_addr = slot->dma_addr;
+ 		u16 len, flags;
+ 
++		/* The rest of a multi descriptor frame that was dropped */
++		if (ring->rx_skip) {
++			ring->rx_skip--;
++			bgmac_dma_rx_poison_buf(dma_dev, slot);
++			goto next;
++		}
++
++		/* Get info from the header */
++		dma_sync_single_for_cpu(dma_dev, dma_addr, BGMAC_RX_BUF_SIZE,
++					DMA_FROM_DEVICE);
++		len = le16_to_cpu(rx->len);
++		flags = le16_to_cpu(rx->flags);
++
++		if (len == 0xdead && flags == 0xbeef) {
++			u32 done = (end_slot + BGMAC_RX_RING_SLOTS - ring->start) %
++				   BGMAC_RX_RING_SLOTS;
++
++			dma_sync_single_for_device(dma_dev, dma_addr,
++						   BGMAC_RX_BUF_SIZE,
++						   DMA_FROM_DEVICE);
++
++			/* The header is written when the frame ends, after
++			 * the slot of a frame spanning several descriptors is
++			 * completed. Wait for it, unless more slots have been
++			 * completed than one frame can use. Keep the buffer
++			 * mapped either way, the header may still be written.
++			 */
++			if (done <= BGMAC_RX_MAX_DESCS)
++				break;
++
++			if (net_ratelimit())
++				netdev_err(bgmac->net_dev, "Found poisoned packet at slot %d, DMA issue!\n",
++					   ring->start);
++			bgmac->net_dev->stats.rx_errors++;
++			goto next;
++		}
++
++		/* Do not parse the rest of the frame as frames */
++		ring->rx_skip = bgmac_rx_cont_descs(len, flags);
++
+ 		do {
+ 			/* Prepare new skb as replacement */
+ 			if (bgmac_dma_rx_skb_for_slot(bgmac, slot)) {
+@@ -446,24 +502,31 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+ 			dma_unmap_single(dma_dev, dma_addr,
+ 					 BGMAC_RX_BUF_SIZE, DMA_FROM_DEVICE);
+ 
+-			/* Get info from the header */
+-			len = le16_to_cpu(rx->len);
+-			flags = le16_to_cpu(rx->flags);
++			/* The frame did not fit in one buffer */
++			if (ring->rx_skip) {
++				put_page(virt_to_head_page(buf));
++				bgmac->net_dev->stats.rx_over_errors++;
++				bgmac->net_dev->stats.rx_errors++;
++				break;
++			}
+ 
+-			/* Check for poison and drop or pass the packet */
+-			if (len == 0xdead && flags == 0xbeef) {
+-				if (net_ratelimit())
+-					netdev_err(bgmac->net_dev, "Found poisoned packet at slot %d, DMA issue!\n",
+-						   ring->start);
++			if (flags & BGMAC_RXF_ERR) {
+ 				put_page(virt_to_head_page(buf));
++				if (flags & BGMAC_RXF_OVF)
++					bgmac->net_dev->stats.rx_over_errors++;
++				if (flags & BGMAC_RXF_OVERSIZE)
++					bgmac->net_dev->stats.rx_length_errors++;
++				if (flags & BGMAC_RXF_CRC)
++					bgmac->net_dev->stats.rx_crc_errors++;
+ 				bgmac->net_dev->stats.rx_errors++;
+ 				break;
+ 			}
+ 
+-			if (len > BGMAC_RX_ALLOC_SIZE) {
++			if (len < ETH_HLEN + ETH_FCS_LEN ||
++			    len > BGMAC_RX_MAX_FRAME_SIZE) {
+ 				if (net_ratelimit())
+-					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
+-						   ring->start);
++					netdev_err(bgmac->net_dev, "Found packet with invalid length %u at slot %d, DMA issue!\n",
++						   len, ring->start);
+ 				put_page(virt_to_head_page(buf));
+ 				bgmac->net_dev->stats.rx_length_errors++;
+ 				bgmac->net_dev->stats.rx_errors++;
+@@ -493,6 +556,7 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+ 			handled++;
+ 		} while (0);
+ 
++next:
+ 		bgmac_dma_rx_setup_desc(bgmac, ring, ring->start);
+ 
+ 		if (++ring->start >= BGMAC_RX_RING_SLOTS)
+@@ -735,6 +799,7 @@ static int bgmac_dma_init(struct bgmac *bgmac)
+ 
+ 		ring->start = 0;
+ 		ring->end = 0;
++		ring->rx_skip = 0;
+ 		for (j = 0; j < BGMAC_RX_RING_SLOTS; j++) {
+ 			err = bgmac_dma_rx_skb_for_slot(bgmac, &ring->slots[j]);
+ 			if (err)
+@@ -1131,7 +1196,10 @@ static void bgmac_chip_init(struct bgmac *bgmac)
+ 	else
+ 		bgmac_umac_cmd_maskset(bgmac, ~CMD_LCL_LOOP_EN, 0, false);
+ 
+-	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + ETHER_MAX_LEN);
++	/* Every frame the MAC accepts fits in one RX buffer. The limit
++	 * includes the FCS.
++	 */
++	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, BGMAC_RX_MAX_FRAME_SIZE);
+ 
+ 	bgmac_chip_intrs_on(bgmac);
+ 
+@@ -1263,14 +1331,6 @@ static int bgmac_set_mac_address(struct net_device *net_dev, void *addr)
+ 	return 0;
+ }
+ 
+-static int bgmac_change_mtu(struct net_device *net_dev, int mtu)
+-{
+-	struct bgmac *bgmac = netdev_priv(net_dev);
+-
+-	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN, 32 + mtu);
+-	return 0;
+-}
+-
+ static const struct net_device_ops bgmac_netdev_ops = {
+ 	.ndo_open		= bgmac_open,
+ 	.ndo_stop		= bgmac_stop,
+@@ -1279,7 +1339,6 @@ static const struct net_device_ops bgmac_netdev_ops = {
+ 	.ndo_set_mac_address	= bgmac_set_mac_address,
+ 	.ndo_validate_addr	= eth_validate_addr,
+ 	.ndo_eth_ioctl           = phy_do_ioctl_running,
+-	.ndo_change_mtu		= bgmac_change_mtu,
+ };
+ 
+ /**************************************************
+@@ -1559,8 +1618,7 @@ int bgmac_enet_probe(struct bgmac *bgmac)
+ 	net_dev->hw_features = net_dev->features;
+ 	net_dev->vlan_features = net_dev->features;
+ 
+-	/* Omit FCS from max MTU size */
+-	net_dev->max_mtu = BGMAC_RX_MAX_FRAME_SIZE - ETH_FCS_LEN;
++	net_dev->max_mtu = BGMAC_RX_MAX_MTU;
+ 
+ 	bgmac->in_init = false;
+ 
+diff --git a/drivers/net/ethernet/broadcom/bgmac.h b/drivers/net/ethernet/broadcom/bgmac.h
+index 6fee9a41839c..89702fcaa9df 100644
+--- a/drivers/net/ethernet/broadcom/bgmac.h
++++ b/drivers/net/ethernet/broadcom/bgmac.h
+@@ -2,6 +2,7 @@
+ #ifndef _BGMAC_H
+ #define _BGMAC_H
+ 
++#include <linux/if_vlan.h>
+ #include <linux/netdevice.h>
+ 
+ #include "unimac.h"
+@@ -330,6 +331,13 @@
+ 						 BGMAC_RX_FRAME_OFFSET)
+ #define BGMAC_RX_MAX_FRAME_SIZE			1536
+ #define BGMAC_RX_BUF_SIZE			(BGMAC_RX_FRAME_OFFSET + BGMAC_RX_MAX_FRAME_SIZE)
++/* Largest MTU whose VLAN tagged frames, FCS included, fit in one RX buffer */
++#define BGMAC_RX_MAX_MTU			(BGMAC_RX_MAX_FRAME_SIZE - VLAN_ETH_HLEN - \
++						 ETH_FCS_LEN)
++/* Most descriptors one frame can use, with a 16 bit length */
++#define BGMAC_RX_MAX_DESCS			(1 + DIV_ROUND_UP(U16_MAX - \
++								  BGMAC_RX_MAX_FRAME_SIZE, \
++								  BGMAC_RX_BUF_SIZE))
+ #define BGMAC_RX_ALLOC_SIZE			(SKB_DATA_ALIGN(BGMAC_RX_BUF_SIZE + BGMAC_RX_BUF_OFFSET) + \
+ 						 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
+ 
+@@ -363,8 +371,6 @@
+ #define BGMAC_CHIPCTL_7_IF_TYPE_MII		0x00000040
+ #define BGMAC_CHIPCTL_7_IF_TYPE_RGMII		0x00000080
+ 
+-#define ETHER_MAX_LEN	(ETH_FRAME_LEN + ETH_FCS_LEN)
+-
+ /* Feature Flags */
+ #define BGMAC_FEAT_TX_MASK_SETUP	BIT(0)
+ #define BGMAC_FEAT_RX_MASK_SETUP	BIT(1)
+@@ -426,6 +432,7 @@ struct bgmac_dma_ring {
+ 	u32 index_base; /* Used for unaligned rings only, otherwise 0 */
+ 	u16 mmio_base;
+ 	bool unaligned;
++	u8 rx_skip; /* Continuation slots of a dropped RX frame */
+ 
+ 	struct bgmac_slot_info slots[BGMAC_RX_RING_SLOTS];
+ };
+@@ -436,6 +443,14 @@ struct bgmac_rx_header {
+ 	__le16 pad[12];
+ };
+ 
++/* bgmac_rx_header::flags */
++#define BGMAC_RXF_DC_MASK			0x0f00	/* Descriptors used - 1 */
++#define BGMAC_RXF_OVF				0x0080	/* RX FIFO overflow */
++#define BGMAC_RXF_OVERSIZE			0x0010	/* Frame > max frame length */
++#define BGMAC_RXF_CRC				0x0008	/* CRC error */
++#define BGMAC_RXF_ERR				(BGMAC_RXF_OVF | BGMAC_RXF_OVERSIZE | \
++						 BGMAC_RXF_CRC)
++
+ struct bgmac {
+ 	union {
+ 		struct {
+
+base-commit: fdb6fcabdbb8247f1647d54fb1b9dc3575d7fcc8
+-- 
+2.56.1
+
