@@ -1,60 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427502;
-	b=aTU1SiQfCLedlLD7u7khU36VIX/DnL/mo8OoPJCj0+4EZ0+tT1V05Gut2T7iK6mgyIxi
-	 V/3FN/DFhL/NOiCOCaKzCEvuDZObMXKPy8xJ8PhXBqAYufegJaVGD8ek26s9+o4qYMC+W
-	 q8peKcNYqzQ/ByNa4BOxlk0XhtcEk4A3uJcjOhLQL9Sk+q2ZmWHHF+uXxNWF+xs390r3q
-	 R8cl9dIBDJFW9pVP8IIHTFi1m0GBSXXYKLjfimjgb475OatAQ6AcQ9cwI6MeI5NKBIoGM
-	 OZzBTACNbyc9/9UxiEbmLM+fivq69Q5Y+o7oQDuPGzKN01JnY12SDFX6vF0gReMccVg==
+	t=1795427692;
+	b=4mFbm0j0f4RaehQ0UURtDtWKcFePNTjoEleeMny4iY+dS/1BwVtMOeB03PjLKBqPEu7z
+	 IkwupQMsdbHwBaNuRGh4YcKkf576XrZ2WAjhqHq1xbIG1ZJpHPx8hgAvyNzWbxNfDD7xj
+	 H5FQCVP3i5U4QAR13lZj87qCpztm4Pj+JmA73opxpQUldD1qk2ADkhb84lduBW77EHhSu
+	 f8vp0lTYQa6ahWjCqzSifVzlk/MkU9WSL2MBHVOWxqGNPlNNfoLbyu1nylYQhfG3s7Tkz
+	 QBIv0hm51LprXlChB6ZaOYMziiw3UCIWFx2xCvwPaGVPTspTG7MuJLMKji41UDaHC+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427502;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427692;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=EWLH4/KgFJL5xsg0WV/YVksEmEhqZi3FriwXVjKfdUo=;
-	b=SDk9RATq1rXcpcG3iLmX4Qfovw5kV8XloO33eK83KSx8pmmX9lNzvwYgJ1YFD5wAC2Wj
-	 hPS5MYxp0c9PCxCLr+qGaVrIVRW6kkB8YtdJNurRiNxlT9AefAPThfd0EOL8ytMTmT32L
-	 RXfxaAczGecgQfT55YARzme1AHEazKaOWk9yuIMggG7DByG77Qsv8YrQYN15x4Vurfrbn
-	 w88QuXBq8Sz6aUqz9s4j3+UhdpUAsCVvPuGdt6Syxt7vhhdFYwUU7YHP1bOnUueNvi4MA
-	 JcCV9FQfOTcTiKvqtvX66kUA8XJkDN3zzxhyS1lH+yDKZgcW70JaoMfnKoZptxvvBGw==
+	bh=uewvvfPkIA+JpYak7yGl+BQUnFOTsnZsmgulW20Qso8=;
+	b=wmEzYPltmeZ/d9/+58D1/HmVjtS/qLeLliyKBc9MsQz88Ej4u3IYS5b+dJ56ASxHXbNW
+	 8m/HNxpC2qErVK3oxGhnEPNbwn6CpN/AECnMX6gVAZ7QbcwFHCXn2fYwq616GABLlyyP8
+	 UOnllxfh1zN4Lc/C2o9/txa+jTNDGniH3EV/naCMXp3pgVJHiaZbrc3q81H0VaukhI3+T
+	 r4Hs4s2Jzi4VnwzFCC1q7jgj39K9v6Ov5vAVoI5GQsdElDYB5cs3zBPDX0Y1TDcXOtXbn
+	 7++forXLD8QuHkZ65TsurJ1M9ESDNgZFKSOhuvYc/bvqiymnzRn4YBzLvXuukH+S+QA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzM+9Dz8;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JqR8N2xn;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 144EA606A33C;
-	Mon, 23 Nov 2026 09:51:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1915E606A31A;
+	Mon, 23 Nov 2026 09:54:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WzM+9Dz8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E78961F000F2;
-	Mon, 23 Nov 2026 09:51:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JqR8N2xn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11DD41F000D3;
+	Mon, 23 Nov 2026 09:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427501;
-	bh=EWLH4/KgFJL5xsg0WV/YVksEmEhqZi3FriwXVjKfdUo=;
+	s=k20260515; t=1795427691;
+	bh=uewvvfPkIA+JpYak7yGl+BQUnFOTsnZsmgulW20Qso8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WzM+9Dz87j3Eh6xCaJIW36vj/ZFXP9pttIH9pZVsxVLSYyBaLw47MJT7aGdT7m678
-	 ZJXP3bD5Xf+CUFJqKSa6wW1/UPZ7d+uscwtqTOmlvVSu8nZZbAwp70c4L7zRpetxqC
-	 EfIcJLyWDyDrgTAXitRVLHnkhRERPrCojrD9ymXyA7Iox0dvcQIuzKDVrmyH2L4cV8
-	 eL7dOarrW+L2zfsJUj9FXJTdCD8L6CiGXYV2d66NtQIHn/jcnczvCc4OW1CIL2j2t5
-	 9oMbRRPXKMRbLOZbajXca1cfW2ENcSn4vapwpjgYTWrI2TzrcfUT/Ze67k7srOg17g
-	 V/ZNuDQraimnA==
-Subject: Re: [PATCH net-next v13 12/14] net: dsa: realtek: rtl8365mb: make
- L2/LUT access work on family D
+	b=JqR8N2xnakYmvNLLnBbqqKKQTfDZxqyYHU3kVBTbuE6H42WbC0qCs9dlDvjpSZ1Ib
+	 WraRrMIbFAlDVl5Z4xfDhRQyop3tKkO65sbxUR+i30t9XiSePk+Cct0RDrupKcRjpX
+	 CuVyZQwBjaMbvVqf1eSeylzyBpisC/BHjFMO/0Ilv0CqKWIcq6dLBj3fsB8G+FlBYe
+	 U2E4YkxtUM1kAALWo6sQUyo/Cf6C0SP3q4O0Rgj5D9/hnwRQxRtvmGZIabFianNCaC
+	 hoKd4d6c5zqLm795+6DxxB9gpysoRH88sbAUD+fAJAdY/7V9a83iiQ4cM0Vb2obYgu
+	 e22i8MapKYIbw==
+Subject: Re: [PATCH net v4] mctp i2c: fix double free of midev on netdev
+ register failure
 From: netdev-bot+sashiko@kernel.org
-To: namiltd@yahoo.com
-Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
- davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
- linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
- fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 23 Nov 2026 09:51:40 +0000
-Message-ID: <179542750052.3135.1136880861185485174@kernel.org>
-In-Reply-To: <d5bc7f31-9189-4017-9e1b-79e71813dfa7@yahoo.com>
-References: <d5bc7f31-9189-4017-9e1b-79e71813dfa7@yahoo.com>
-X-sashiko-severity: Medium
+To: kenny_hsieh@jabil.com
+Cc: netdev@vger.kernel.org, jk@codeconstruct.com.au, matt@codeconstruct.com.au,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, stable@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 09:54:50 +0000
+Message-ID: <179542769062.3135.9147379725438179456@kernel.org>
+In-Reply-To: <20261119094307.3864679-1-kenny_hsieh@jabil.com>
+References: <20261119094307.3864679-1-kenny_hsieh@jabil.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 1 (1) · Medium: 1 (1) · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,154 +76,273 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] On family D (RTL8367S-VB), every offloaded VLAN-unaware bridge
-  port is put in the same port-based FID 1, whatever its bridge number.
-- [Low] When VLAN filtering is enabled on a bridged family D port,
-  rtl8365mb_port_vlan_filtering() writes PBFID[port] = 0 first and…
+- [High] mctp_i2c_tx_purge() (drivers/net/mctp/mctp-i2c.c:812-822) does
+  not keep the embedded unlock marker away from kfree_skb(), which the…
+- [Medium] mctp i2c: running tx_thread in mctp_i2c_ndo_uninit() can re-
+  select mcli->sel
+- [Low] Two comments in the patched code now contradict each other about
+  the bus lock.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the sibling
+  driver mctp-i3c has the reverse version of the same ndo_uninit…
+- [Medium] This problem wasn't introduced by this patch, but
+  mctp_register_netdevice() (net/mctp/device.c) leaks the mctp_dev.
 
 --
 
-net: dsa: realtek: rtl8365mb: make L2/LUT access work on family D
+mctp i2c: fix double free of midev on netdev register failure
 
-This patch teaches the rtl8365mb table and L2 code about the family D
-(RTL8367S-VB) LUT layout and its table access interface, which has no
-EFID. On family D it puts the ports of an offloaded VLAN-unaware bridge
-in port-based FID 1, enables the lookup-hit isolation fallback, adds a
-LUT init step and limits the switch to a single offloaded bridge.
+After this patch, mctp_i2c_ndo_uninit() no longer frees midev. midev is
+now freed only in the add_netdev() error path and in
+mctp_i2c_unregister(), and ndo_uninit only detaches midev from the
+client's sel and purges tx_queue, keeping the embedded unlock marker out
+of the purge. The tx thread now releases the i2c bus lock itself before
+it exits.
 
-Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-6708118180
+Closes: https://lore.kernel.org/netdev/179239912623.3135.11352652156626817288@kernel.org/
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index b83e39314708f..75d9c6120e7ff 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+> diff --git a/drivers/net/mctp/mctp-i2c.c b/drivers/net/mctp/mctp-i2c.c
+> index b02476d338bbf..29a186f714d1a 100644
+> --- a/drivers/net/mctp/mctp-i2c.c
+> +++ b/drivers/net/mctp/mctp-i2c.c
+> @@ -628,8 +628,11 @@ static int mctp_i2c_tx_thread(void *data)
+>  	unsigned long flags;
+>  
+>  	for (;;) {
+> -		if (kthread_should_stop())
+> +		if (kthread_should_stop()) {
+> +			/* Only the rt_mutex owner may release the bus lock */
+> +			mctp_i2c_unlock_reset(midev);
+>  			break;
+> +		}
+>  
+>  		spin_lock_irqsave(&midev->tx_queue.lock, flags);
+>  		skb = __skb_dequeue(&midev->tx_queue);
+> @@ -782,11 +785,46 @@ static struct mctp_i2c_dev *mctp_i2c_midev_init(struct net_device *dev,
 
 [ ... ]
 
-> @@ -2469,8 +2496,46 @@ static int rtl8365mb_port_vlan_filtering(struct dsa_switch *ds, int port,
->  			goto undo_egress_mode;
->  	}
->  
-> +	if (rtl8365mb_is_d(priv) &&
-> +	    dsa_port_bridge_dev_get(dsa_to_port(ds, port))) {
-> +		u8 fid = vlan_filtering ? 0 : RTL8365MB_D_UNAWARE_BRIDGE_FID;
+> +/* The unlock marker is embedded in midev, so keep it from kfree_skb() */
+> +static void mctp_i2c_tx_purge(struct mctp_i2c_dev *midev)
+> +{
+> +	unsigned long flags;
 > +
-> +		ret = regmap_update_bits(priv->map,
-> +					 RTL8365MB_D_PORT_PBFID_REG(port),
-> +					 RTL8365MB_D_PORT_PBFID_MASK, fid);
-> +		if (ret)
-> +			goto undo_refresh_ivl;
+> +	spin_lock_irqsave(&midev->tx_queue.lock, flags);
+> +	if (midev->unlock_marker.next)
+> +		__skb_unlink(&midev->unlock_marker, &midev->tx_queue);
+> +	spin_unlock_irqrestore(&midev->tx_queue.lock, flags);
 > +
-> +		ret = regmap_update_bits(priv->map,
-> +					 RTL8365MB_D_PORT_PBFIDEN_REG,
-> +					 BIT(port),
-> +					 vlan_filtering ? 0 : BIT(port));
-> +		if (ret)
-> +			goto undo_pbfid;
-> +	}
+> +	skb_queue_purge(&midev->tx_queue);
+> +}
 
-[Severity: Low]
-When VLAN filtering is enabled on a bridged family D port, this writes
-PBFID to 0 before it clears PBFIDEN. Between the two MDIO writes the
-port has PBFIDEN set with FID 0, and learning is still on from
-rtl83xx_port_bridge_join().
+[Severity: High]
+The commit message says the marker "must not reach kfree_skb() through
+the purge". Can it still get there?
 
-Can source MACs received in that window be learned as dynamic SVL
-entries in FID 0, the standalone port FID, and then stay in the LUT
-for up to the 300 s aging time programmed by rtl8365mb_d_lut_init()?
+The marker is unlinked under tx_queue.lock. The lock is then dropped,
+and skb_queue_purge() takes it again to splice the queue:
 
-rtl8365mb_port_set_efid() writes the same register pair in the opposite
-order when disabling, and its comment explains why:
+net/core/skbuff.c:skb_queue_purge_reason() {
+    ...
+	spin_lock_irqsave(&list->lock, flags);
+	skb_queue_splice_init(list, &tmp);
+	spin_unlock_irqrestore(&list->lock, flags);
 
-	/* PBFID is ignored while PBFIDEN is clear, so write them in
-	 * the order that leaves the port usable if the second write
-	 * fails: PBFID first when enabling, PBFIDEN first when
-	 * disabling.
-	 */
-
-Should the vlan_filtering == true case clear PBFIDEN first too, with
-the undo_pbfid path reordered to match?
-
-> +
->  	return ret;
->  
-> +undo_pbfid:
-> +	(void)regmap_update_bits(priv->map, RTL8365MB_D_PORT_PBFID_REG(port),
-> +				 RTL8365MB_D_PORT_PBFID_MASK,
-> +				 vlan_filtering ? RTL8365MB_D_UNAWARE_BRIDGE_FID : 0);
-
-[ ... ]
-
-> @@ -3672,9 +3826,22 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
->  		goto out_teardown_irq;
->  
->  	ds->assisted_learning_on_cpu_port = true;
-> -	ds->fdb_isolation = true;
-> -	/* The EFID is 3 bits, but EFID 0 is reserved for standalone ports */
-> -	ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
-> +	if (!rtl8365mb_is_d(priv)) {
-> +		ds->fdb_isolation = true;
-> +		/* The EFID is 3 bits, but EFID 0 is reserved for standalone */
-> +		ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
-> +	} else {
-> +		/* No EFID; FID 0 is used by standalone ports and FID 1 by the
-> +		 * offloaded VLAN-unaware bridge via port-based FID, so allow
-> +		 * at most one offloaded bridge. The bridge number it gets is
-> +		 * what rtl8365mb_port_set_efid() takes as "offloaded" to
-> +		 * enable port-based FID, so max_num_bridges must not be 0.
-> +		 * Bridge numbers are allocated system-wide by DSA, so this
-> +		 * does not stop a bridge that already has a number from
-> +		 * another switch from being offloaded here as well.
-> +		 */
-> +		ds->max_num_bridges = 1;
-> +	}
-
-[Severity: Medium]
-The comment says a bridge that already has a number from another switch
-can still be offloaded here. Should the driver reject that case?
-
-dsa_bridge_num_get() only checks max when it allocates a new number:
-
-net/dsa/dsa.c:dsa_bridge_num_get() {
-	unsigned int bridge_num = dsa_bridge_num_find(bridge_dev);
-	...
-	if (!bridge_num) {
-		bridge_num = find_next_zero_bit(&dsa_fwd_offloading_bridges,
-						DSA_MAX_NUM_OFFLOADING_BRIDGES,
-						1);
-		if (bridge_num > max)
-			return 0;
-	...
-	return bridge_num;
+	__skb_queue_purge_reason(&tmp, reason);
 }
 
-rtl83xx_port_bridge_join() then passes bridge.num to
-rtl8365mb_port_set_efid(), which maps any non-zero number to the same
-FID:
+In that gap, mctp_i2c_release_flow() can run on another CPU. It sees the
+unlock_marker.next == NULL state that __skb_unlink() just left and
+queues the marker again:
 
-	bool enable = efid && !dsa_port_is_vlan_filtering(dp);
-	u8 fid = enable ? RTL8365MB_D_UNAWARE_BRIDGE_FID : 0;
+mctp_i2c_release_flow() {
+    ...
+		spin_lock(&midev->tx_queue.lock);
+		if (!midev->unlock_marker.next)
+			__skb_queue_tail(&midev->tx_queue,
+					 &midev->unlock_marker);
+		spin_unlock(&midev->tx_queue.lock);
+    ...
+}
 
-rtl8365mb_d_l2_uc_to_data() and rtl8365mb_d_l2_mc_to_data() also drop
-efid and turn VID 0 into FID 1.
+This looks reachable from mctp_i2c_ndo_uninit(). It runs inside
+unregister_netdevice() after NETDEV_UNREGISTER and before the netdev
+refcount wait.
 
-Take a system with more than one DSA tree. Could bridge A (number 1,
-local to this switch) and bridge B (number 2, already spanning another
-tree) both be offloaded on the family D switch and share one SVL FDB in
-FID 1?
+At that point MCTP keys can still hold the mctp_dev. They are released
+without RTNL: by the key expiry timer through __mctp_key_remove(), by
+socket close, or through mctp_key_unref(). Each of these calls
+mctp_dev_release_key()->ops->release_flow().
 
-If so, static entries from the two bridges for the same MAC would
-overwrite each other through the OP_WRITE in rtl8365mb_l2_add_uc().
-rtl8365mb_l2_del_uc() would then skip the delete because
-found.port != port, so DSA and the hardware LUT would disagree.
+mdev->ops is not cleared on unregister. The tx thread has already been
+stopped by mctp_i2c_unregister(), so nothing else dequeues the marker in
+this window.
 
-Hardware learning in the shared FID could also let a host in one bridge
-take over the other bridge's MAC entries by sending with those source
-MACs. Unicast to those MACs would then be flooded within the victim's
-bridge through LOOKUP_HIT_ISO_ACT.
+The marker lives in netdev_priv and is never initialised, so its
+skb->users is 0. kfree_skb()->skb_unref() would then hit a refcount_t
+underflow / use-after-free warning, which panics with panic_on_warn.
 
-Would it work to record which bridge owns FID 1 in the port_bridge_join
-path and return -EOPNOTSUPP for any other bridge?
+Would it work to unlink the marker and splice the queue onto a local
+list under a single tx_queue.lock hold, and then purge the local list? A
+later re-queue would be harmless: the purge in mctp_i2c_midev_free()
+runs after unregister_netdev() has waited for all references.
+
+[ ... ]
+
+> @@ -797,17 +835,9 @@ static void mctp_i2c_midev_free(struct mctp_i2c_dev *midev)
+>  	mctp_i2c_unlock_reset(midev);
+
+[Severity: Low]
+This isn't a bug, but is this mctp_i2c_unlock_reset() call still needed?
+In mctp_i2c_midev_free() it reads:
+
+	/* Unconditionally unlock on close */
+	mctp_i2c_unlock_reset(midev);
+
+Both callers have stopped the tx thread before this point. The thread's
+only exit is the new kthread_should_stop() branch, which already resets
+i2c_lock_count. Nothing outside the tx thread increments i2c_lock_count,
+so this call never does anything.
+
+If it ever did fire, it would release the rt_mutex from a non-owner
+context. The new "Only the rt_mutex owner may release the bus lock"
+comment in mctp_i2c_tx_thread() rules that out.
+
+Could the call and the "Unconditionally unlock on close" comment be
+removed, or replaced with a WARN that the count is already zero?
+
+>  
+>  	/* Remove the netdev from the parent i2c client. */
+
+[ ... ]
+
+> @@ -837,11 +872,11 @@ static void mctp_i2c_ndo_uninit(struct net_device *dev)
+>  {
+>  	struct mctp_i2c_dev *midev = netdev_priv(dev);
+>  
+> -	/* Perform cleanup here to ensure that mcli->sel isn't holding
+> -	 * a reference that would prevent unregister_netdevice()
+> -	 * from completing.
+> +	/* Drop sel's reference and queued skbs before unregister waits
+> +	 * for the last netdev reference. midev is freed elsewhere.
+>  	 */
+> -	mctp_i2c_midev_free(midev);
+> +	mctp_i2c_midev_detach(midev);
+> +	mctp_i2c_tx_purge(midev);
+>  }
+
+[Severity: Medium]
+Can the tx thread put midev back into mcli->sel after this detach has
+run?
+
+The old ndo_uninit went through mctp_i2c_midev_free(), which stopped
+midev->tx_thread before touching sel. The new one leaves the tx thread
+running. That is fine on the mctp_i2c_unregister() path, which calls
+kthread_stop() first, but not on the register failure path this patch
+is fixing.
+
+mctp_i2c_midev_init() wakes the tx thread before mctp_i2c_add_netdev()
+calls mctp_register_netdev(). If a NETDEV_REGISTER notifier fails after
+a packet has been queued, register_netdevice() unwinds through
+unregister_netdevice_queue(), which calls mctp_i2c_ndo_uninit(). The
+rtnl_unlock() in mctp_register_netdev() then runs netdev_run_todo() and
+waits for the last reference in netdev_wait_allrefs_any().
+
+If the tx thread dequeued an skb just before mctp_i2c_tx_purge() ran,
+it carries on into mctp_i2c_xmit(), which selects the device without
+checking whether midev is still attached:
+
+mctp_i2c_xmit() {
+    ...
+	case MCTP_I2C_TX_FLOW_NONE:
+		/* no flow: full lock & unlock */
+		mctp_i2c_lock_nest(midev);
+		mctp_i2c_device_select(midev->client, midev);
+    ...
+}
+
+The MCTP_I2C_TX_FLOW_NEW case does the same.
+
+mctp_i2c_device_select() sets mcli->sel = midev and takes
+dev_hold(midev->ndev), although midev is no longer on mcli->devs. With
+list_empty(&midev->list) now true, every later mctp_i2c_midev_detach()
+returns early and never drops that reference. netdev_wait_allrefs_any()
+then waits forever, and mctp_i2c_add_netdev() never gets to the error
+path that would call mctp_i2c_midev_free().
+
+Would it work to stop the tx thread in mctp_i2c_ndo_uninit() before the
+detach, as the old code effectively did? mctp_i2c_midev_free() already
+skips kthread_stop() when tx_thread is NULL, and the tx thread now
+releases the bus lock itself on exit. Or should mctp_i2c_device_select()
+refuse to select a midev that has already been removed from mcli->devs?
+
+[Severity: High]
+This isn't a bug introduced by this patch, but mctp-i3c seems to have
+the reverse form of the same ndo_uninit mismatch:
+
+drivers/net/mctp/mctp-i3c.c:mctp_i3c_bus_add() {
+    ...
+	rc = mctp_register_netdev(ndev, NULL, MCTP_PHYS_BINDING_I3C);
+	if (rc < 0) {
+		dev_warn(&ndev->dev, "netdev register failed: %d\n", rc);
+		goto err_free_netdev;
+	}
+    ...
+}
+
+This skips mctp_i3c_bus_free() because it assumes mctp_i3c_ndo_uninit()
+already ran. That isn't true for early failures:
+
+- mctp_add_dev() can fail before register_netdevice() is called.
+- register_netdevice() can fail in dev_get_valid_name(), for example
+  with -EEXIST, since the name is a fixed "mctpi3c<id>".
+- register_netdevice() can fail when allocating the name node.
+
+The register_netdevice() failures take "goto out" and never reach
+ndo_uninit.
+
+In those cases mbus stays on the global busdevs list, and the tx thread
+started by kthread_run() keeps sleeping on mbus->tx_wq. Meanwhile
+free_netdev() frees the netdev, and mbus with it.
+
+Can the tx thread, or later walks of busdevs in
+mctp_i3c_bus_remove_all() and mctp_i3c_bus_add_new(), then use freed
+memory?
+
+The approach this patch takes for mctp-i2c might fit mctp-i3c as well:
+the error path always frees, and the uninit work is safe to repeat.
+
+[Severity: Medium]
+This is a pre-existing issue, and this patch neither claims to fix it nor
+relies on it. Does mctp_register_netdevice() leak the mctp_dev when
+register_netdevice() fails?
+
+net/mctp/device.c:mctp_register_netdevice() {
+	...
+	mdev = mctp_add_dev(dev);
+	if (IS_ERR(mdev))
+		return PTR_ERR(mdev);
+
+	mdev->ops = ops;
+	mdev->binding = binding;
+
+	return register_netdevice(dev);
+}
+
+mctp_add_dev() allocates the mdev, sets refs to 1, takes dev_hold(dev)
+and publishes dev->mctp_ptr. Only the NETDEV_UNREGISTER notifier
+(mctp_unregister()->mctp_dev_put()) frees it. register_netdevice() only
+reaches that notifier when a NETDEV_REGISTER notifier fails.
+
+None of the other failure paths free it. These are dev_get_valid_name(),
+name node allocation, netdev_check_ops, pcpu stats, dev_index_reserve,
+NETDEV_POST_INIT and kobject registration. At most they send
+NETDEV_PRE_UNINIT, which mctp doesn't handle.
+
+The driver's free_netdev() then frees the netdev, and the mdev and its
+untracked netdev hold are leaked. With CONFIG_NET_DEV_REFCNT_TRACKER,
+could this also trigger a ref_tracker warning at free_netdev()?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/3f1826f8-3096-40dd-a278-c70fce4852c8%40yahoo.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119094307.3864679-1-kenny_hsieh%40jabil.com
