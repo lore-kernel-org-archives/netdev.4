@@ -1,136 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444486;
-	b=c42oeZ5Jx3xm4nH2k94YXVSBz8dosDIpQrerDfKg80fvDKwGOjRzVgsMAgHs5vgTBt3q
-	 7Xtd1hrxumT6jqTveKnoF9r+OKd2mu3QcuwCXH+3vODHXLUOSkk4wf/BYDtRWcyANcbSY
-	 4no7GYFbZ1+1655WS3CqaoU6KOUGRD1hMxobQGRy+QtYbQjorBORABGC2rdDQNa+cz21y
-	 XC4fzb3BsmttNRAkd7SoDOuYaxjTIPbVzvKRNAHSg6PjxpFGX7h92Gr/+j2lNoEKN6h2G
-	 fyIdvEoD8e/+OMIp4J+o4kieJDubZNe3+6076LYFUFZMaiO1/lD+hF768ZrSXoP9KTQ==
+	t=1795444542;
+	b=SsPjfoslYSDbPrwhrc8WL/QcLWGtuCWbU/qVWtg67ytLxXr9QHC8Ns+EXVPLMK/+cOv4
+	 8jt6itrkbk3Qr+Qtuz2dBjxC8UqfyZU5+DBmh8a63s6IECD3jEQY0O1rqcYI4W4MtuoUM
+	 w7c9cn/Axh4rJvIjbhZvPZLzGu/dBNKdK1Xc+/wZPl7xFUpT3qvohKwAQ/hy1iV//gzbU
+	 QD5Vz9xLfjn81HiCj/shbHtVdco6lFXJ26mU2G6ueNbH3O0VbEFyEViIm0sm0bGOi7kbn
+	 UcmR7KkBOBHUnnclQacMBSQzzMnc9kz0Ry7Qvk38rrRYgd8ewGZWWbmAMTkNL8V/47A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444486;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
-	b=sAy0OsyuG8bLwT5eo0iE9jCoCufbKJxGO4TxWces1cpuoC2ABeP2Vb/HPzEuEiobQP+1
-	 zlcl3vi8QCP+Ba7QFs+FswkAvHZmpcnPEe4764SZo50KP3mzRjl6fv9cEvQrP0RJwJoDU
-	 x14i5jJYoLajELCpHdH8lLzvUEevC22xpgjl20Y5tdXEZ0xmOg1bvakaVUeA3V499EYpa
-	 AdsipgkrBILM89g7IaTjpLVtQg3KpRmpx6w6+uC6AzxwuX3BOOcQxUzQp3yg4wv/enclH
-	 DDhqRi3sz9u6Sc+gqUFIPTrRe9x307Ga9bOGmLf0yPLZal3Qsxp54N2SVDLDuzv61eA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444542;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=mBim/Hkn0bG2Xgqqehb5DNOIciJ6suXgpAyGSHCaxzk=;
+	b=r9WhplUaVla27GdDlgkH7jp6lVOlHURMEckAa1oC53+/JLoPIpeqQt2Pu9y37yG+dfoL
+	 anMGXyffu9RXu5/ZnejwbyU3EbP9SKtpcSYHac97NIShdldCniwifb2BO+SsoVeSHIGAe
+	 1w5O4Zo32XxxcrU01A7NvWP9W04PII3E47fxL7lfik47kZmb53PrFPQGDDGX5sD0xsAvv
+	 yPAvsxV9fCq110DeXSI84rnuj4s8v5DfuhoDdhlxIO/m7BF4Vy4+hA28+YFKIEXk2OiUb
+	 ZJBouXbn8X6iuLrJvKlrAAUWzvVeVVvEzszcCAozT7G/LqoovkMFzvxbUgSnxUTeu9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="IBdhDM7/";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="C3j2/6nH";
-	arc=none smtp.remote-ip=205.220.168.131
-Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kz2HxZH9;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C507606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C507606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDE6606A31E;
+	Mon, 23 Nov 2026 14:35:42 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IBdhDM7/;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=C3j2/6nH
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANDLSCx1461855
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:45 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=; b=IBdhDM7/3HUZSXDT
-	STbqoNJPo9owgso9UilkDQ1JQnpWHbDOcojnxddccFlu8fewo4UUTQCb5yeoLf5C
-	eYH36bKEhGSvqXQYmNFDn24gGNkWvr4thE9CrnjSerhEdQjMrmC2ifUyRaj3NAwd
-	Fx4UYOo89OlRGkyXhhHw+KjlCUeTb5kBSl4Z4alesXJ5rZ2NCZi0fnniQWRth0TU
-	K2PpHRW59IbpFVe4MTwXGnKxurv6P65/tYxVWmQ70jNRfoD0FCLxik6zxMFmRLEL
-	0NAQ8FrB/kNcxbs05EPw43SMrL7u53rPzXF/UYaYJ+OE8o0qGS7ijxuuGB9EmKhD
-	zYlOgg==
-Received: from mail-yx1-f69.google.com (mail-yx1-f69.google.com [74.125.224.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4g9a1spm-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:34:45 +0000 (GMT)
-Received: by mail-yx1-f69.google.com with SMTP id 956f58d0204a3-67935d0ddcdso5242306d50.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:34:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795444485; x=1796049285; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
-        b=C3j2/6nHdZtys2QUDXUO0TSbFjIwSOOANliTHWofJQRWUOcJ8zKb+SXYBZ1ieXjyTi
-         0FoTs3QBKBtDS980V7RJIQ12r3l4HI25cHvVNdiFCr3FfjN9S0bqswUeK1RjPvmpp0oH
-         aBMthSs2HYmswSyPDdYv0mf0A2i0xr78+cJvDBlyk3iw2GAcp904Kef4IOJmuOgoSXPC
-         YJj5G27TmvzPwZ1CrPjz2qvZ/VTGjCMNGAukaaE9eOzZXIBvzZ108y68EpQLaZpJXukw
-         BCY2W97hM28VCbBcSABWoU4CR/yOXLuyXz3vPAT8xY5TIGcXBhbnorRIxEIVHbqQC6Hl
-         ralw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795444485; x=1796049285;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=j+cXoVZT5d2t7hV9dyq4hvfu5OliGaOGWKLJaU5R7SA=;
-        b=hdJjNN0EEmaxhaVRcsBLlD4fz02T20s5Ood2LtpKJDTOjzgdKZZTjXUVzYakQ+Bupp
-         Plq8zbJJZfEngSAE4u22YFBrpnke+c8SIg6aJ/+Kk8XlmeXNIOIcw1lMTyxg7ZgyF0np
-         0c/6vG0yFCRzDJRNfkI4sSaVl/Qa0P//a24rHV7XSacMMExJAP6TVYg4ALg+Za/pg5xD
-         x8WqYUjQ/XidmBNxLFy3u+iaghU7gTz5OJt2aYEnzweid6J/H0aXH+gDgYhfZe+7Iv1N
-         GLvpGZEM4qXUkMQ9KdMjTnMRmenbzuKjtVnOiMSl61kMl8VSrMtmZtdzrHSB3gMsMoeY
-         0Xfg==
-X-Forwarded-Encrypted: i=1; AL+hErGh2qv1s3IBNeqxoEI3du5dmb+ScOZ7vzk/D/iGZcaH+nKj+h4RC4xB6MYVOyKpQ2Zzjyu81Ak=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+sR1hnJx88YOn3A0H6FIdejynOLyZRf4TBdRoRPP9b1BI9juc
-	601tjXdoqT3DOT2gSgxM0r61SaZv9NABkjee/Jajz+yHKBc0j1d8/aE0NC8apq+rOqytE/o/OJ+
-	3UKC+eFyhXGqsa+1/2u3E4AB2Z0hnaKwlxH0q+MvwTPizidUc/E2mfs2VJb8=
-X-Gm-Gg: AZFdTZe3y3NKYVlwevWgK82jpc7xLU2puh7ITyFt9SGFI73kh1N5oKxAuZT3uvfTRCw
-	7aN9y/SKo+/XXDOOyCeVXa76KWZd/vAsv1rOFrVFY9RzRc9v3BXNkko0g8XrPsdfyIQ4j6meHcy
-	1c136kc8VQRESGIoEcXJJWYiXnx/wHa351dyFDtsW//ArtiE/RitQa5P8eLTah2lCjTHDEYlggH
-	SUCMno8MOOiEcq5oFCEcweJYenaMb8eMx9rmUaYY99reX83nDKvyCphTJaxMFfciVyAfqlNa80i
-	Tv8dld/peM3N8/K6+5CYPv+B3p38Y3LXM+2kp9Aj4CTzwocqNfEMB1zt2EjH1jLgfmK6OiJYAMU
-	FFMWz70iDMkmB+6I6mYEb6AYElE9y4rbkQubyRRGeBCMdMRlugTGl7Ey9MxXsgwHi0xpXKhn+6g
-	zB4+ljzvunbTRpJ0iv4J4aXB21Mh8Tt7g26Kj3pUxS/Vf7IYh+VC+Z2K41fRNFDg==
-X-Received: by 2002:a05:690e:1c1c:b0:67c:1dca:7e0 with SMTP id 956f58d0204a3-67e03cff709mr2905882d50.14.1795444484730;
-        Mon, 23 Nov 2026 06:34:44 -0800 (PST)
-X-Received: by 2002:a05:690e:1c1c:b0:67c:1dca:7e0 with SMTP id 956f58d0204a3-67e03cff709mr2905869d50.14.1795444484149;
-        Mon, 23 Nov 2026 06:34:44 -0800 (PST)
-Received: from brgl-qcom.home (2a01cb1d00dc7e0089167b9b97a26c96.ipv6.abo.wanadoo.fr. [2a01:cb1d:dc:7e00:8916:7b9b:97a2:6c96])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm26263469f8f.21.2026.11.23.06.34.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 06:34:43 -0800 (PST)
-From: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
-To: Bartosz Golaszewski <brgl@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Jingyi Wang <quic_jingyw@quicinc.com>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Lijuan Gao <quic_lijuang@quicinc.com>,
-        Melody Olvera <quic_molvera@quicinc.com>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Komal Bajaj <komal.bajaj@oss.qualcomm.com>,
-        Taniya Das <taniya.das@oss.qualcomm.com>
-Cc: Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>,
-        Ajit Pandey <ajit.pandey@oss.qualcomm.com>,
-        Imran Shaik <imran.shaik@oss.qualcomm.com>,
-        Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>,
-        linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org,
-        devicetree@vger.kernel.org, netdev@vger.kernel.org,
-        Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
-        Abel Vesa <abel.vesa@oss.qualcomm.com>
-Subject: Re: [PATCH 00/18] pinctrl: qcom: add gp_mn mux function across Qualcomm TLMM blocks
-Date: Mon, 23 Nov 2026 15:34:40 +0100
-Message-ID: <179544447632.77146.14884722918215310109.b4-ty@oss.qualcomm.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com>
-References: <20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kz2HxZH9
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C44B1F000C4;
+	Mon, 23 Nov 2026 14:35:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795444542;
+	bh=mBim/Hkn0bG2Xgqqehb5DNOIciJ6suXgpAyGSHCaxzk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Kz2HxZH9Wm9+GwaAPXZUssHWGF/nGt5FCqgEiB45Mt5BMwdY3iF/mjLOaoCeck1Al
+	 hMkgxiNrFGo++1VjrLOqyNhy95tsGKjxrCsTFXWlqTZox4k+S4g3wIIo++MPysep6M
+	 kC3XgX560Nd02tY2a4IphH1QqsAzT/J9uQNFQk8atFO/xcbSUydnC0AZ+htXNzydQj
+	 lw9z6RqpHxsmZJg42lvp05Wxnn7yrXYWnsAFK1YHLNP/O/DfISEI7c0oSOsz9iUDtN
+	 vE4PfH8AUMVhcTO7vAUjLLvjPzYaSBxcYe+QIj9igXVSSpBQn7ba1kDvqRE7GSQyoM
+	 Ef7Yi0KkelMTA==
+Date: Mon, 23 Nov 2026 14:35:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
+Cc: sean.tranchetti@oss.qualcomm.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
+ dev_set_mtu() and restore on failure
+Message-ID: <20261123143538.GD31322@horms.kernel.org>
+References: <20261117060737.2764327-1-subash.a.kasiviswanathan@oss.qualcomm.com>
+ <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -140,92 +60,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA1NyBTYWx0ZWRfXwKx40Wt9rBe3
- cRJ3S3prG+7t1Ghl+RoJ++tEfe7XYy11KhzH9fcUsTUvlJtJzgkohbSbsHVTwZXiycK0a5GZs0q
- jECQeRCt0jhJf4Cz5nyeHSlzPyiPGJg=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA1NyBTYWx0ZWRfX/gl2Lc2E/P58
- qWqajdcjRFZ3SPiJZh2rpAsH0I7UwUTJwovR03gHk6YDqpaATmPF+I6m5tXSD9BHaOZr3VSiiBb
- C8djHMde4bylMJgcxrp9w+fNy/spG3IHumxHRx27vXBNjEGRFbWSOpon/ue0bRClfWhIdmLw4/t
- lhD86pHkzJzEdP1o4GfBImupi9qhpgvEREzGfVzybWc+uiJkNoBrzvf1AwaIaVheSiQNSBBJ/CF
- 5fLBX55USdsOycNN9Pukep0Uavn4H92TT0JbBtJ2d/8jwV5YNj2u7zrd6RSagfLTQrEMYuRo9ul
- caFzJUIsnhZ/4eUW3f+ujQMhHK8rMCQq80DvT050wGGTkxqyoRm+eVfFDI8jlx0oyzrmfmODqRY
- i5UheMDPKeHun2aBtOIKPGgm1yw+fTA9V1eBUnzf/45LCaHDyC05JKGlvmKWCRMeUdt95dW8uw7
- 8Hd6uaZuA2fnZZKgxmw==
-X-Proofpoint-ORIG-GUID: OKrybFcahMz_UpvElrki5IFwgnnrdYqo
-X-Authority-Analysis: v=2.4 cv=cYJHPXDM c=1 sm=1 tr=0 ts=6b044f05 cx=c_pps
- a=J+5FMm3BkXb42VdG8aMU9w==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=YMgV9FUhrdKAYTUUvYB2:22 a=VwQbUJbxAAAA:8
- a=EUspDBNiAAAA:8 a=gHIesgCGEubIfZZWx2YA:9 a=QEXdDO2ut3YA:10
- a=Epx66wHExT0cjJnnR-oj:22
-X-Proofpoint-GUID: OKrybFcahMz_UpvElrki5IFwgnnrdYqo
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 clxscore=1015 malwarescore=0 spamscore=0 bulkscore=0
- priorityscore=1501 adultscore=0 suspectscore=0 impostorscore=0
- lowpriorityscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611230057
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
 
-
-On Wed, 18 Nov 2026 11:32:31 +0530, Taniya Das wrote:
-> The GP M/N divider generates a clock output that can be routed to a TLMM
-> pin via the gp_mn pinmux function. This series adds the gp_mn function to
-> the Qualcomm TLMM pin control drivers that expose it.
+On Mon, Nov 16, 2026 at 10:07:38PM -0800, Subash Abhinov Kasiviswanathan wrote:
+> When the real device MTU or the data format requires a smaller MTU,
+> existing endpoints are shrunk by writing dev->mtu directly. No MTU
+> notifiers run and userspace gets no link notification.
 > 
-> The driver changes for QCS8300, SA8775P, SC7280 and QCS615 were originally
-> part of the PDM GP_MN clock series, where only the drivers were posted.
-> This series adds the matching gp_mn entry to each of those TLMM bindings as
-> well, so the binding and driver stay self-consistent. The remaining patches
-> extend the same gp_mn function to additional Qualcomm SoCs: SM8750,
-> Kaanapali, Glymur, Shikra and Nord. For every SoC the gp_mn entry is added
-> to its TLMM binding enum first, followed by the driver change.
+> Resize the endpoints with dev_set_mtu() so that the normal notifiers
+> and link notifications are delivered. If resizing an endpoint fails,
+> restore the endpoints which were already resized, ignoring any errors
+> from the restore, so that a failed request does not leave some of them
+> shrunk. The data format is not yet published while the endpoints are
+> resized, so the restore is validated against the format the endpoints
+> were sized for. The error from the failing dev_set_mtu() call is
+> returned to the caller.
 > 
-> [...]
+> Fixes: b7f5eb6ba21b ("net: qualcomm: rmnet: Update rmnet device MTU based on real device")
+> Co-developed-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
+> Signed-off-by: Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>
+> Signed-off-by: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>
+> ---
+>  .../ethernet/qualcomm/rmnet/rmnet_config.h    |  1 +
+>  .../net/ethernet/qualcomm/rmnet/rmnet_vnd.c   | 30 +++++++++++++++----
+>  2 files changed, 25 insertions(+), 6 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h b/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> index 5adda0323dda..47b8db3206b9 100644
+> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_config.h
+> @@ -19,6 +19,7 @@ struct rmnet_endpoint {
+>  	struct net_device *egress_dev;
+>  	struct hlist_node hlnode;
+>  	struct rcu_head rcu;
+> +	int saved_mtu;
+>  };
+>  
+>  struct rmnet_egress_agg_params {
+> diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> index 8bf87c5ecb43..dce436e4c630 100644
+> --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
+>  int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+>  			     struct net_device *real_dev, u32 data_format)
+>  {
+> +	struct rmnet_endpoint *fail_ep = NULL;
+>  	struct hlist_node *tmp_ep;
+>  	struct rmnet_endpoint *ep;
+>  	unsigned long bkt_ep;
+>  	int new_mtu;
+> -	int err;
+> +	int err = 0;
+>  
+>  	new_mtu = rmnet_vnd_target_mtu(real_dev, data_format);
+>  	if (new_mtu < 0)
+>  		return new_mtu;
+>  
+>  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> -		if (ep->egress_dev->mtu <= new_mtu)
+> +		ep->saved_mtu = ep->egress_dev->mtu;
+> +		if (ep->saved_mtu <= new_mtu)
+>  			continue;
+>  
+> -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
+> -		if (err)
+> -			return err;
+> +		err = dev_set_mtu(ep->egress_dev, new_mtu);
+> +		if (err) {
+> +			fail_ep = ep;
+> +			break;
+> +		}
+>  	}
+>  
+> -	return 0;
+> +	if (!err)
+> +		return 0;
+> +
+> +	/* Restore the endpoints which were already resized. Failures here
+> +	 * are ignored since the original error is the one to report.
+> +	 */
+> +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> +		if (ep == fail_ep)
+> +			break;
+> +
+> +		if (ep->egress_dev->mtu != ep->saved_mtu)
+> +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
+> +	}
+> +
+> +	return err;
+>  }
 
-Applied, thanks!
+The preferred idiom in Networking code is to:
+1. Keep the happy path in the main unconditional path of execution.
+2. Use goto for unwind on error
 
-[01/18] dt-bindings: pinctrl: qcom: qcs8300: add gp_mn function
-        https://git.kernel.org/brgl/c/98215755f97c9442690d7006390a6dd4fafe2496
-[02/18] pinctrl: qcom: qcs8300: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/d44c2eca9f49c89e566368dc38aacb1cb0c2b1b8
-[03/18] dt-bindings: pinctrl: qcom: sa8775p: add gp_mn function
-        https://git.kernel.org/brgl/c/942cc68b11c1a99e0cd0722934135bc0585f2352
-[04/18] pinctrl: qcom: sa8775p: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/04a448e013117a53f138464a3adc3454407e21cf
-[05/18] dt-bindings: pinctrl: qcom: sc7280: add gp_mn function
-        https://git.kernel.org/brgl/c/4b6560893c646794835fdd89643e9c71fd0ea870
-[06/18] pinctrl: qcom: sc7280: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/dbb4b922fd5e5f6f3bb8b6ecf1d48aa73445f98c
-[07/18] dt-bindings: pinctrl: qcom: qcs615: add gp_mn function
-        https://git.kernel.org/brgl/c/0d3cf110ffdb691742c3659508d5023f15d509fb
-[08/18] pinctrl: qcom: qcs615: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/5308e218e3c2cbf9cfafce322b3bdfbd71b258da
-[09/18] dt-bindings: pinctrl: qcom: sm8750: add gp_mn function
-        https://git.kernel.org/brgl/c/0cb5ffa9eb0ce97db86106d298d2b39d55680c81
-[10/18] pinctrl: qcom: sm8750: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/c24a092390a21ecb61ec8171b41fa289d27418e9
-[11/18] dt-bindings: pinctrl: qcom: kaanapali: add gp_mn function
-        https://git.kernel.org/brgl/c/d804723bcfda3f2b30618aec18eb1cc0881ea13b
-[12/18] pinctrl: qcom: kaanapali: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/dd9ecba27b981279e2cc84a225a11c7c6308ea76
-[13/18] dt-bindings: pinctrl: qcom: glymur: add gp_mn function
-        https://git.kernel.org/brgl/c/844b5b901910df4718171519fb1393e2bea57bac
-[14/18] pinctrl: qcom: glymur: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/b1922656379ea475bfc5c0f21f615c4eddcd0226
-[15/18] dt-bindings: pinctrl: qcom: shikra: add gp_mn function
-        https://git.kernel.org/brgl/c/36303ea598135dfbe30c77773af509ba32542795
-[16/18] pinctrl: qcom: shikra: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/c16f39dad1bbb9dc10886de1b113695166d60bb9
-[17/18] dt-bindings: pinctrl: qcom: nord: add gp_mn function
-        https://git.kernel.org/brgl/c/0a9a2a463910ba341fc12adf362227f730de7aff
-[18/18] pinctrl: qcom: nord: Add gp_mn mux function
-        https://git.kernel.org/brgl/c/e19e48b2e6c603ebd4839153a45294a9c416e083
+I think that can be achieved here with this incremental change
+(compile tested only!).
 
-Best regards,
+diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+index dce436e4c630..6b147ef5211e 100644
+--- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
++++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+@@ -433,12 +433,12 @@ int rmnet_vnd_validate_real_dev_mtu(struct net_device *real_dev)
+ int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+ 			     struct net_device *real_dev, u32 data_format)
+ {
+-	struct rmnet_endpoint *fail_ep = NULL;
++	struct rmnet_endpoint *fail_ep;
+ 	struct hlist_node *tmp_ep;
+ 	struct rmnet_endpoint *ep;
+ 	unsigned long bkt_ep;
+ 	int new_mtu;
+-	int err = 0;
++	int err;
+ 
+ 	new_mtu = rmnet_vnd_target_mtu(real_dev, data_format);
+ 	if (new_mtu < 0)
+@@ -452,13 +452,13 @@ int rmnet_vnd_update_dev_mtu(struct rmnet_port *port,
+ 		err = dev_set_mtu(ep->egress_dev, new_mtu);
+ 		if (err) {
+ 			fail_ep = ep;
+-			break;
++			goto restore_mtu;
+ 		}
+ 	}
+ 
+-	if (!err)
+-		return 0;
++	return 0;
+ 
++restore_mtu:
+ 	/* Restore the endpoints which were already resized. Failures here
+ 	 * are ignored since the original error is the one to report.
+ 	 */
+
 -- 
-Bartosz Golaszewski <bartosz.golaszewski@oss.qualcomm.com>
+pw-bot: changes-requested
