@@ -1,67 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795433115;
-	b=oONVM5KqRNQsq+06V8T535V1ZMSc2iep2WUQRTC0kyjVD/282sFAegvHQZOHRYFB4/Hq
-	 u10osKAsFBjBsCRv9aoFLg/kkAT+50sh3p9hEuaNEAahvr1PpNFvrLS6hqCmxczENRD9j
-	 NbyYPPxg91BwWJnTib24jW1srLj58pO8x2KgoMeWXKf869F3beEv93QN5xjkBWwbM0o1C
-	 W785dXElbyfMyiI7ETE38ed25dNTMNrxjt0x5PHCH/lm6IcfrZNQnVvWca1RSBvseYb9R
-	 wxP2SoivLggMXCKmJKvSKCHy3kImcL51+c/PaUmJPCuU7+P6ssVVymAYQK/x7vVXBlA==
+	t=1795433761;
+	b=YdqvFN0fSEs9Jyn8ntQOEefbo8uyJewkrinOx4MgEkUg/5COUu6rFxw8FYKT/QZ5kyGk
+	 1u+LpQZigarviCTyXFaw+Gyz8oYWvvacKrFALNGSj7XDJ6vkceTg/QqHKudjVdNB8lJu7
+	 /4rZADDTS5oUgAWjAwdvkWGtauO0ps1IINBqsJBbCSOgvd6Q/4fATwivbXmFahXivjTfm
+	 WON+gmes5PgwO5MV0AvmMgXy7iXBpHXjlYWyxolZewpR6pONa5RajeSiws3dI6W4kUDk9
+	 386pxbReL0+yRyxZ6vuhzubRqmQNZOBITk87m/LKQl53inJNqC3gooEWP85YXPwyRkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795433115;
-	h=DMARC-Filter:DKIM-Signature:Received:X-Originating-IP:Date:
-	 X-CM-HeaderCharset:From:To:Cc:Subject:X-Priority:X-Mailer:In-Reply-To:
-	 References:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	 Message-ID:X-Coremail-Locale:X-CM-TRANSID:X-CM-SenderInfo:
-	 X-Coremail-Antispam;
-	bh=pd7yZOfR/6/VdDILFb0nLqoZvgJwsuh6QMQF6pgZpBQ=;
-	b=mK8H2+uMB3gWElkQpxbRvIoS1C0aqGFaQk8TXg3MtSNa8OdpAcLfhht0J0IsyzidXGHi
-	 0nioTaArRSBo+ifqBehvosZzaVNmEyE3h3aDmtzGnrj6JndgUGJ8vGyPS0+dzN9jxpP7J
-	 /8ipg5/4MeQK+Ce0pATsrBXx0faW3k/MJgoTMvfRh75WlAZJKSSvs9eT9UIka2GPBUYtn
-	 2G6IluSiThD6L+szkf02T6ur+IceeaIvGjGG/aTvxfr1ezAhXbs5/BvOYNHdaABWmp7QI
-	 +Xgrxmnv2qE0b2DmZuVlxziZjU1KlNfDd5AOXq+dQ702DJqljV/S/zXrWr0AD9vXy/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795433761;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=PeGmCYBVQQI7hkfHmQc/r9yNXZgIQ3sY2oKMCBPb1+c=;
+	b=OMsqDFSEVVjjf/iV7/jMnv+lWqsPZl32IwhnhHrtsDTcT/4Xq3BHvcMqUbyG/mY+IZPB
+	 PRB0C8DNZs9uWOtNTWBwjkEtGrMNSNW7bfmlW7djJT+NICvMu1oqo8jVyG3HghCzIEYv/
+	 UEig8yh9znMoDBspq80lKJSyYw/wcmXpof+EQ5UvowWG/PTDsXiB8mt8Oy4buEmj4LAfo
+	 dhtST+aZmdIJAoII5nMjRxAnuehRdmXEAo9pozDk0JuKMoQ5F1wbMg/vsIkhDHYTErT5r
+	 7Fo7T4Oth7ltEJa+/Gmq1eo+YWfSuUqsvBsFDK/BYfXf2jk3iFP4v/wf/PIuaKWpYzQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.zgclab.edu.cn;
-	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=fail reason="signature verification failed" header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD;
-	arc=none smtp.remote-ip=162.243.161.220
-Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 74C83606A31A;
-	Mon, 23 Nov 2026 11:25:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 74C83606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jV2dXUSf;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 437B7606A31E;
+	Mon, 23 Nov 2026 11:36:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=fail reason="signature verification failed" (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=nkwPE3gD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=mail.zgclab.edu.cn; s=dkim; h=Received:Date:From:To:Cc:Subject:
-	In-Reply-To:References:Content-Transfer-Encoding:Content-Type:
-	MIME-Version:Message-ID; bh=/Ggu3rj0ThvKcNpBPXLiuiRBY02aVQgcwxpp
-	10zH9iI=; b=nkwPE3gDvJGKrSHgbKpWIGcydqeX56abOG+5Qe9CkWFoxWH4IguJ
-	9H84WETfFpEFGA/uEnnqL8HzGz5BJKHtby8AtWKnoGWUarBKdhQQ2/zKodlZus/C
-	YBcc9YS8dcPYOTBYgGdY0/UWJ/aaYrVNQWudojT11gzkb25sC6hIE+c=
-Received: from wanghr2026$mail.zgclab.edu.cn ( [58.206.202.88] ) by
- ajax-webmail-web2 (Coremail) ; Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
-Date: Mon, 23 Nov 2026 19:24:40 +0800 (GMT+08:00)
-X-CM-HeaderCharset: UTF-8
-From: =?UTF-8?B?546L5rWp54S2?= <wanghr2026@mail.zgclab.edu.cn>
-To: netdev-bot+sinfo@kernel.org
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
-	olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: Re: [PATCH v2] net: dsa: mt7530: disable the power rails on
- setup failure
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2024.2-cmXT5 build
- 20261010(691d8f62) Copyright (c) 2002-2026 www.mailtech.cn
- mispb-4df55a87-4b50-4a66-85a0-70f79cb6c8b5-tsinghua.edu.cn
-In-Reply-To: <179543235894.3294.8827397951204336522@kernel.org>
-References: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
- <179543235894.3294.8827397951204336522@kernel.org>
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jV2dXUSf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A7C671F000D2;
+	Mon, 23 Nov 2026 11:35:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795433760;
+	bh=PeGmCYBVQQI7hkfHmQc/r9yNXZgIQ3sY2oKMCBPb1+c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jV2dXUSf2JMPV59/83jfRfac5Iqp20IvAYReViUv1gFv5UhXhnyIZXCL+o8MkKLfi
+	 O/UA/btjlOgbq0t1PM6ONFuaHf7MaUb8liFbwUDHklTzDkHBt56UEZFhVCBt/6mkCT
+	 GjV5IrbhP3xZ96i28XkBNdR8b+4aNQp/5D+n2A6YMRxGwuTIIEENNjzBvoyDykPhN+
+	 bDlxgaJceMNdVOoXuv0E4ws2jNC6qLfmL5oVNUj2WNpi+6S4WQQfKk/4u/ReI7P5lk
+	 mCIdJGKmN8h8CnacheR0n6ou0u43K/GI3KllcUtlmyqKgEAkkiTQ/V1FgN1FcsaAkq
+	 HrcRsXfsLWQ6A==
+Subject: Re: [PATCH net] net: pse-pd: tps23881: Fix reported power class
+From: netdev-bot+sashiko@kernel.org
+To: kory.maincent@bootlin.com
+Cc: pabeni@redhat.com, o.rempel@pengutronix.de, kuba@kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org
+Date: Mon, 23 Nov 2026 11:35:59 +0000
+Message-ID: <179543375923.3135.13985748487135407652@kernel.org>
+In-Reply-To: <20261119112511.239208-1-kory.maincent@bootlin.com>
+References: <20261119112511.239208-1-kory.maincent@bootlin.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,47 +63,120 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <2a2bfab1.269a1.1a20826a7dd.Coremail.wanghr2026@mail.zgclab.edu.cn>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:yQQGZQCHtmp4IgRrBoVgAQ--.19466W
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQYAD2sD8X5PDgABsv
-X-Coremail-Antispam: 1Ur529EdanIXcx71UUUUU7IcSsGvfJ3iIAIbVAYjsxI4VWxJw
-	CS07vEb4IE77IF4wCS07vE1I0E4x80FVAKz4kxMIAIbVAFxVCaYxvI4VCIwcAKzIAtYxBI
-	daVFxhVjvjDU=
 
-LSBIb3cgaXQgd2FzIGRpc2NvdmVyZWQuIFN0YXRpYyBzY2FubmluZywgbm90IGEgcnVudGltZSBy
-ZXBvcnQuIEkKc2Nhbm5lZCBmb3IgcmVndWxhdG9yX2VuYWJsZSgpIGNhbGxzIGFuZCBjaGVja2Vk
-IHRoYXQgZWFjaCBvbmUgaGFzIGEKbWF0Y2hpbmcgcmVndWxhdG9yX2Rpc2FibGUoKSBvbiB0aGUg
-ZXJyb3IgcGF0aHMuIG10NzUzMF9zZXR1cCgpCmVuYWJsZXMgdGhlIGNvcmUgYW5kIGlvIHJhaWxz
-LCBidXQgb25seSBtdDc1MzBfcmVtb3ZlKCkgZGlzYWJsZXMgdGhlbSwKc28gYSBwcm9iZSB0aGF0
-IGZhaWxzIGFmdGVyIHRoZSBlbmFibGUgaGFzIG5vIG1hdGNoaW5nIGRpc2FibGUuCi0gV2hldGhl
-ciBpdCB3YXMgdHJpZ2dlcmVkLiBJdCB3YXMgbm90IHRyaWdnZXJlZCwgYW5kIEkgZGlkIG5vdApy
-ZXByb2R1Y2UgaXQgb24gaGFyZHdhcmUuIAoKClRoYW5rcywKSGFvcmFuCgoKPiAtLS0tLeWOn+Wn
-i+mCruS7ti0tLS0tCj4g5Y+R5Lu25Lq6OiBuZXRkZXYtYm90K3NpbmZvQGtlcm5lbC5vcmcKPiDl
-j5HpgIHml7bpl7Q6MjAyNi0xMS0yMyAxOToxMjozOCAo5pif5pyf5LiAKQo+IOaUtuS7tuS6ujog
-Ikhhb3JhbiBXYW5nIiA8d2FuZ2hyMjAyNkBtYWlsLnpnY2xhYi5lZHUuY24+Cj4g5oqE6YCBOiBj
-aGVzdGVyLmEudW5hbEBhcmluYzkuY29tLCBkYW5pZWxAbWFrcm90b3BpYS5vcmcsIGFuZHJld0Bs
-dW5uLmNoLCBvbHRlYW52QGdtYWlsLmNvbSwgZGF2ZW1AZGF2ZW1sb2Z0Lm5ldCwgZWR1bWF6ZXRA
-a2VybmVsLm9yZywga3ViYUBrZXJuZWwub3JnLCBwYWJlbmlAcmVkaGF0LmNvbSwgbWF0dGhpYXMu
-YmdnQGdtYWlsLmNvbSwgYW5nZWxvZ2lvYWNjaGluby5kZWxyZWdub0Bjb2xsYWJvcmEuY29tLCBu
-ZXRkZXZAdmdlci5rZXJuZWwub3JnLCBsaW51eC1hcm0ta2VybmVsQGxpc3RzLmluZnJhZGVhZC5v
-cmcsIGxpbnV4LW1lZGlhdGVrQGxpc3RzLmluZnJhZGVhZC5vcmcsIGxpbnV4LWtlcm5lbEB2Z2Vy
-Lmtlcm5lbC5vcmcKPiDkuLvpopg6IFJlOiBbUEFUQ0ggdjJdIG5ldDogZHNhOiBtdDc1MzA6IGRp
-c2FibGUgdGhlIHBvd2VyIHJhaWxzIG9uIHNldHVwIGZhaWx1cmUKPiAKPiBIaSEKPiAKPiBUaGlz
-IGlzIGFuIGF1dG9tYXRlZCBtZXNzYWdlLiBUaGlzIHNlcmllcyBsb29rcyBsaWtlIGEgZml4LCBi
-dXQgaXRzCj4gY29tbWl0IG1lc3NhZ2VzIHNlZW0gdG8gYmUgbWlzc2luZyBzb21lIGluZm9ybWF0
-aW9uOgo+IAo+ICAtIEhvdyB0aGUgaXNzdWUgd2FzIGRpc2NvdmVyZWQsIGUuZy4gaGl0IGluIHBy
-b2R1Y3Rpb24sIGhpdCBkdXJpbmcKPiAgICBkZXZlbG9wbWVudCwgc3l6Ym90IHJlcG9ydCwgbWFu
-dWFsIGNvZGUgaW5zcGVjdGlvbiwgTExNIG9yIHN0YXRpYwo+ICAgIGFuYWx5c2lzIHRvb2wgc2Nh
-bi4KPiAKPiAgLSBXaGV0aGVyIHRoZSBpc3N1ZSB3YXMgYWN0dWFsbHkgdHJpZ2dlcmVkLCBvciBp
-cyBvbmx5IHRoZW9yZXRpY2FsCj4gICAgKGUuZy4gZm91bmQgYnkgTExNIGFuZCBub3QgcHJvdmVu
-IGF0IHJ1bnRpbWUpLiBJZiBpdCB3YXMgdHJpZ2dlcmVkCj4gICAgcGxlYXNlIGluY2x1ZGUgdGhl
-IHN5bXB0b21zLCBsaWtlIHRoZSBzdGFjayB0cmFjZSBvciBrZXJuZWwgbWVzc2FnZXMuCj4gCj4g
-UGxlYXNlIGRvIG5vdCByZXBvc3QgdGhlIHNlcmllcyBqdXN0IHRvIGFkZHJlc3MgdGhlIGFib3Zl
-LiBJbnN0ZWFkLAo+IHJlcGx5IHRvIHRoaXMgZW1haWwgd2l0aCB0aGUgbWlzc2luZyBpbmZvcm1h
-dGlvbiwgc28gdGhhdCByZXZpZXdlcnMKPiBjYW4gdGFrZSBpdCBpbnRvIGFjY291bnQuCj4gCj4g
-KklNUE9SVEFOVCo6IElmIHlvdSBkbyByZXBvc3QgKGZvciBvdGhlciByZWFzb25zKSAtIHBsZWFz
-ZSBpbmNsdWRlCj4gdGhlIHJlbGV2YW50IGluZm8gaW4gdGhlIGNvdmVyIGxldHRlciBvciBjb21t
-aXQgbWVzc2FnZXMuCj4gLS0gCj4gVGhlIGV2YWx1YXRpb24gaXMgZG9uZSBieSBhbiBMTE0gc28g
-aXQgbWF5IGJlIHdyb25nLCBpZiB5b3UgdGhpbmsKPiB0aGF0IGlzIHRoZSBjYXNlIHBsZWFzZSBy
-ZXBseSBhbmQgZXhwbGFpbi4K
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
+
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] The new lookup table in tps23881_pi_get_pw_class()
+  (drivers/net/pse-pd/tps23881.c) maps four raw class codes to -ERANGE:…
+
+--
+
+net: pse-pd: tps23881: Fix reported power class
+
+This commit adds a lookup table to tps23881_pi_get_pw_class() that
+translates the raw classification register value into the IEEE 802.3
+class number. Before this, the raw value was reported directly.
+
+> diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
+> index 244ce596d845c..58ea7e0ffa996 100644
+> --- a/drivers/net/pse-pd/tps23881.c
+> +++ b/drivers/net/pse-pd/tps23881.c
+> @@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
+>  	return (int)tmp_64;
+>  }
+>  
+> +static int tps23881_class_table[] = {
+> +	-ERANGE,
+> +	1,
+> +	2,
+> +	3,
+> +	4,
+> +	0,
+> +	0,
+> +	-ERANGE,
+> +	5,
+> +	6,
+> +	7,
+> +	8,
+> +	4,
+> +	5,
+> +	-ERANGE,
+> +	-ERANGE,
+> +};
+> +
+
+[ ... ]
+
+> @@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+>  	if (ret < 0)
+>  		return ret;
+>  
+> -	return tps23881_calc_val(ret, chan, 4, 0x0f);
+> +	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
+> +	return tps23881_class_table[ret];
+
+[Severity: High]
+Will this make the whole PSE status query fail on a port with no
+classified PD?
+
+The table maps four raw codes to -ERANGE: 0x0 (unknown / not
+classified), 0x7 (overcurrent during classification), 0xE (reserved)
+and 0xF (class mismatch). Code 0x0 is the register's reset value. It is
+what an empty, disabled or still-detecting port normally reads.
+
+pse_ethtool_get_status() in drivers/net/pse-pd/pse_core.c treats any
+negative return as fatal:
+
+	if (ops->pi_get_pw_class) {
+		ret = ops->pi_get_pw_class(pcdev, psec->id);
+		if (ret < 0)
+			goto out;
+
+The error then goes back to userspace through this path:
+
+  pse_prepare_data()
+    -> pse_get_pse_attributes()
+      -> pse_ethtool_get_status()
+        -> tps23881_pi_get_pw_class()  /* returns -ERANGE */
+
+The admin state and power status, which were already read, are thrown
+away. Actual power, power limit and limit ranges are never read.
+
+Before this patch, raw 0 set c33_pw_class to 0. pse_fill_reply() in
+net/ethtool/pse-pd.c then just left the attribute out:
+
+	if (st->c33_pw_class > 0 &&
+	    nla_put_u32(skb, ETHTOOL_A_C33_PSE_PW_CLASS,
+			st->c33_pw_class))
+
+For the same op, pd692x0_pi_get_pw_class() returns 0 for unknown or
+out-of-range classes:
+
+	class = buf.data[3] >> 4;
+	if (class <= 8)
+		return class;
+
+	return 0;
+
+Could these four entries be 0 instead of -ERANGE, so that ethtool
+--show-pse still works on unclassified ports and on ports in the fault
+states (0x7, 0xF)?
+
+The commit message also doesn't say that some register values now cause
+the status query to fail.
+
+>  }
+>  
+>  static int
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119112511.239208-1-kory.maincent%40bootlin.com
