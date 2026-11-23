@@ -1,47 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425662;
-	b=CFsYh+kWw7gwexoUATI2UpuQ79d6uovLRmaq2DePxVPrviBPqdfMViei4BJZkn1Hym5T
-	 9L+K2Fy3svXT1ubJvK3Si/jqGgyN9Gi8PvQEbgIRxg91Jh6g0AFmVI7eEdg0ye/IN2ij8
-	 +6UnXqN8UfA5idkbnYJ7oqBMAJiZFkKuGPVEHup67EAbIgicNJyKVE/23bAUXeOdSbKL+
-	 u6y9UfTxBXK1b3+DPb2dPUoNj7niLzF2qddFa9pbxMqeTVVI844+GzWlwUSA9kYK7Lf9k
-	 bq++tabL0XM5IL+6R7g9eM2LqsTrgUY7Rmw5wjzBFcPfrWOH+eKQk46OLqJhMBVkJcw==
+	t=1795425723;
+	b=i2T/rr5L9LU2WiUfsp0PW4jlHR7PcPgFi2EEXw+sSwJDkYNeY9YCGh8b+ARySV5Y4LEs
+	 ILzYrqmM0GSLdGgjS1sO593Wc6xIbKJOZPVu4Iphi0TLqBFgjqaygiGb0iRdr2hkkesSk
+	 F5nEP27+AkmWA9Kf9LaXA1llNuvjoug4eMGkyq3lZUWgT+VsqKTKlQxSmJdSlYBP7ffQQ
+	 aQMkt05ca3+jdLnT7JZQYBMFcD1eSbkE+5sDwW7HY0NvdCB4dlppTlemWDZz6jWwbKxsx
+	 m5dMp/MyFPAZmqjjjqHCE30YKjrtmN0u0/MuqMTMEn15qf+SVli8L8kJLcagzgsqkTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425662;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=+Mxn66E+3S6L9J4jlnRsbyid0B8ipZGgfWiQ6G8vu0w=;
-	b=fE5sAbT+zDWm/vcAowAQ41tDIURL18g4BFLBA6Rx/3N9mjJu2nJE9QDQmFYXXWyY+Aet
-	 PyD66nxWmR/J7naJ17jnVlPr8wO4CiTP+ij7CH3zetN+EqvcHgq109CBGqqDKoR1XRtCX
-	 f95bLC/O4CHGZv9CY5BvuVhtfvtw9P7NXiTBbEXzNgTKDH0X4iqRGiGDZ68z4XLRzA+z9
-	 RKun+kzBMcoF67s8zm1WKFLQaRp0cGf1iWuvoIbwWWmxXNZE0DMX2ezjaUHRh84H6fjvL
-	 ZIl1WgHGc3buas4lmnyVoifyDvoyBMsw+tYVdfobObV1F5elwrA86JZQYK3S5avCPXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425723;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=eIbFUnpQzf9CL+kQRcEu/bBGQBOvyQr5xT5bgYpH8ro=;
+	b=DO6TM29oWYdicw3LOWqbHw3G/7Pm0fCYfMq0lA53HXIYBPwBW2jt1Km5WuVHcLy1Nl7V
+	 ZMTDqAeDdXN0vdVY+vwEwStIHZp8KmrJXzCEA8/RvncIGTXYIgsjzyanAim9ipuqqVxkp
+	 r/4Kbj9uGcmfy9iXG+qh66CWZC7ZWcejSAq0khtlSy/rRTdVVgpEeLJb7zOBQfF7tekwj
+	 G2L8yzZUrBrs45xt6S0BaGt/23x4lhunKu2sjJxiv9fG4jRgEj+S7yGYlrDYVH+k2eZzf
+	 h1MbKyUTNuju/3zuTgffa12dcWSvw0j83inPZrG0W82kL7t14sJE06JJvl7S6dc1Urg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m17bNl4l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=leeu3TLY;
+	arc=none smtp.remote-ip=220.197.31.9
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76708606A32A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:21:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3B83606A31F;
+	Mon, 23 Nov 2026 09:21:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3B83606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m17bNl4l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA9351F0093C;
-	Mon, 23 Nov 2026 09:21:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795425661;
-	bh=+Mxn66E+3S6L9J4jlnRsbyid0B8ipZGgfWiQ6G8vu0w=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=m17bNl4le7rShJ0K9ffxz3RUy7uO7Uf7OeDwO+cTRH+dHKPW0R/SanFpe5V4XrnUf
-	 uyCDJ36Yp5K8pPGTzeHLEpHnDitPmoxZV1MeGSIdxsy2ZbaXeRdkepgpiY/FOMT5vh
-	 G1RL16P4Gaa2B3qyqnexixEAHinMJLRE/Ay4FhsKzEfYopOi6bP/3uh3mGQCjMFCd3
-	 CUuJ6JjESwZVfGKmyDUmPbOSfpF7BCljYKV7Q/hEpcQHgcX89qoaw7m3MnBIfmfsx6
-	 AfzcOGTOPXRY3QU4OtTsmYXD+k8yqtq9367BjQZYXDHiC0QnlhFS780TriqINj/KEV
-	 nCblFXLsPSceA==
-Message-ID: <b3795455-a237-48a0-890e-97165d218260@kernel.org>
-Date: Mon, 23 Nov 2026 10:20:58 +0100
+	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=leeu3TLY
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=eI
+	bFUnpQzf9CL+kQRcEu/bBGQBOvyQr5xT5bgYpH8ro=; b=leeu3TLY9zSwD5MLER
+	FnyTVmvJmE0OHOHwK/FePtPVKQPzZBx7zW+6UNu61uC5euhBbBiQcYfPN9Jj1ldA
+	/mkRildSOTbjQgqYp2U8ymtO+zp7THEC7W4pwJmwj4Q7hKd5ec+W56DKgKO11tnS
+	7KvVwjLaucfOOnBbtJ2EVfeGA=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PykvCgCHrzx4BQRrXxDDDw--.13815S2;
+	Mon, 23 Nov 2026 17:20:56 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	jacob.e.keller@intel.com,
+	daniel.machon@microchip.com,
+	chunkeey@gmail.com,
+	kees+treewide@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	xiaolinkui@kylinos.cn,
+	Linkui Xiao <xiaolinkui@126.com>
+Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
+Date: Mon, 23 Nov 2026 17:20:53 +0800
+Message-Id: <20261123092053.743714-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <179483706662.3136.12689489417547730312@kernel.org>
+References: <20261112075321.3903875-1-xiaolinkui@126.com> <179483706662.3136.12689489417547730312@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,135 +74,70 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [TEST] Google's Netdev-CI: missing results
-Content-Language: fr
-To: Sheena Mohan <sheenamo@google.com>, Pin-yen Lin <treapking@google.com>
-Cc: Netdev <netdev@vger.kernel.org>, Willem de Bruijn <willemb@google.com>,
- Jakub Kicinski <kuba@kernel.org>
-References: <26fb4276-5615-45fb-9cb9-fa5e872d8e7b@kernel.org>
- <0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org>
- <CAHwYsirFS4nAuvXQA-eOgqq8n=29tfvvUvuk2QygrbCt0pcz3w@mail.gmail.com>
- <CADWJPTvhKh9twnA3Hs8w5-yA0uq6wnY=eXANf4hT4jjmVOz1Ag@mail.gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <CADWJPTvhKh9twnA3Hs8w5-yA0uq6wnY=eXANf4hT4jjmVOz1Ag@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PykvCgCHrzx4BQRrXxDDDw--.13815S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxJw1ftFy3XF4kGFW7Kw4kJFb_yoW5WFy3pa
+	9aqFykAryDGFWS9F4DuFy5GryrCr4xJa4jyFyFgr4a93Z8GryfAFWrKa4UtFyYyas7Ja4j
+	vF18Gas3AFWDJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUwmiiUUUUU=
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRg7EmsEBXhEVgAA3Y
 
-Hi Sheena, Pin-yen,
+Thanks for the review. All three issues are legitimate; v2 is a two patch
+series posted as a new thread, [PATCH net v2 0/2].
 
-On 21/11/2026 01:50, Sheena Mohan wrote:
-> On Fri, Nov 20, 2026 at 2:19 PM Pin-yen Lin <treapking@google.com> wrote:
->>
->> Hi Matthieu,
->>
->> On Fri, Nov 20, 2026 at 1:08 AM Matthieu Baerts <matttbe@kernel.org> wrote:
->>>
->>> Hi Sheena,
->>>
->>> (+ cc Pin-yen)
->>>
->>> On 23/10/2026 17:52, Matthieu Baerts wrote:
->>>> I'm working on the Netdev CI, and I notice that the runners on Google
->>>> side are frequently missing results:
->>>>
->>>> https://netdev.bots.linux.dev/flakes.html?tn-needle=google.*vlan-py&min-flip=0&br-pfx=net-next-hw
->>>>
->>>> (Look at the non-coloured blocks.)
->>>>
->>>> Is it normal? Do you mind looking at that please? :)
->>>>
->>>> Note that when an active runner doesn't process a branch, we cannot mark
->>>> the whole batch being validated as "not causing regression" because it
->>>> is lacking some validations. So when this happens, the end result is
->>>> marked as "pending". That's not an issue when it is once in a while, but
->>>> here, it looks "too frequent" not to be reported.
->>>
->>> Lately, it looks like the situation got worst: 3 days without results.
->>> Because it is blocking all the other HW tests, I temporarily disabled
->>> the two Google runners: results (if any) are still fetched, but ignored.
->>>
->>> Do you mind improving the situation, please?
->>
->> Thanks for looping me in.
->>
->> This was caused by two conflicting patches ([1], [2]) on the mailing
->> list. [2] removed .resizing from struct htable, which [1] references.
->> Our runners currently build from a full distro kernel config (which
->> enables CONFIG_IP_SET), so kernel compilation failed and no test
->> results were uploaded.
->>
->> Results for google-gve are being reported again today now that [2] is
->> no longer in the testing branches. Sorry for the inconvenience and for
->> blocking the other HW tests.
->>
->> We will update our testing infrastructure to use a minimal kernel to
->> avoid unrelated build breakage in the future.
->>
->> [1]: https://lore.kernel.org/all/20261117092731.14656-1-onleaf322@gmail.com/
->> [2]: https://lore.kernel.org/all/20261117101018.523826-1-fuchen.dust@gmail.com/
->>
->> Thanks and regards,
->> Pin-yen
-> 
-> Thanks Matthieu and Pin-yen. Yes the kernel build failed on the last
-> few Google runners. It is fixed, and both GVE and IDPF should report
-> results from the most recent run.
+- [High] The fixed-link PHY is attached but never detached.
 
-Thank you for the fix and explanations!
+Fixed in 1/2. emac_remove() and err_detach_tah in emac_probe() now call
+phy_disconnect() and of_phy_deregister_fixed_link(), so the stale
+attached_dev, the NUM_FP slot, the of_node reference and the module
+references are all released. emac_remove() already unregisters the netdev
+before this point, and phy_detach_internal() explicitly allows detaching
+without RTNL once dev is unregistered, so the suspend use-after-free on
+the stale attached_dev is gone.
 
-I only re-enabled GVE, because IDPF is still too unstable:
+The rebind analysis is correct: without the disconnect the second
+of_phy_find_device() returns the still-attached PHY and phy_attach_direct()
+fails with -EBUSY. Adding phy_disconnect() also stops the PHY, which the
+phy-handle path never did - emac_mdio_init_phy() calls phy_start() and
+nothing calls phy_stop().
 
-https://netdev.bots.linux.dev/flakes.html?tn-needle=google-idpf&min-flip=0&br-pfx=net-next-hw
+You are also right that "the rest of the driver already treats
+dev->phy.address < 0 as no PHY to poll, so nothing else changes" was too
+strong, since the attach state does change. That claim is gone from the v2
+commit message.
 
-Also, many .py tests (e.g. vlan.py) are no longer tested on IDPF, see
-the bottom of the previous link.
+- [Medium] of_phy_connect() failure leaves the fixed PHY registered.
 
-Can you look at all that please?
+Fixed in 1/2: the failure branch calls of_phy_deregister_fixed_link(np)
+before returning. The teardown paths guard the call with
+of_phy_is_fixed_link(), which is the pattern ravb, nixge, davinci_emac and
+cpsw use; of_phy_deregister_fixed_link() is also a no-op when no fixed PHY
+is registered, so reaching it twice is safe.
 
-Cheers,
-Matt
+- [Medium] emac_adjust_link() copies SPEED_UNKNOWN/DUPLEX_UNKNOWN.
+
+This one is worse than "the old code behaved the same way", so thank you
+for pushing on it. The regression comes from d99b408ed8e5 ("net: phy:
+fixed_phy: remove not needed initialization of phy_device members"), which
+stopped copying the device tree status into the phy_device on the
+assumption that the state machine fills those members in once the PHY is
+started. EMAC never starts it on the fixed-link path, so emac_configure()
+builds MR1 without EMAC_MR1_FDE and without EMAC_MR1_MF_1000 /
+EMAC_MR1_MF_100, and flow control is left off.
+
+Fixed in 2/2 with phy_read_status() after the attach, which is what
+emac_mdio_read_link() already does on the phy-handle path. The fixed PHY
+is bound to genphy, so genphy_read_status() resolves speed, duplex and
+pause from the BMSR/LPA/STAT1000/ESTATUS registers that swphy_read_reg()
+emulates out of the device tree status. phy_read_status() rather than
+phy_start() because a fixed link cannot change and there is no reason to
+run the state machine for it.
+
+Cross compiled for powerpc with W=1 out of ppc44x_defconfig, clean. No
+hardware here, so no runtime test.
+
+Regards,
+Linkui
+
+pw-bot: cr
+
