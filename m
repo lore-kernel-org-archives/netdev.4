@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.17
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.39
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795456855;
-	b=SD0T0bL7Euiys83v3FZCEyzdOSBwXmHip85mSKrlfPh8civoCZa55didZrEoF08A+myA
-	 tYYiuPwmFDQQGuwTRGHQvmtsHt3G2Ob+SsFm43DvrbEMkr0SSTiQj8atLyK3p4wbxXIFR
-	 qEeX1YDmLbEHag8MqGXf06sNjlwO2UV1Mq0Q62xXB4CpBoSpoPASCXpjI3t1xUsjcOLTs
-	 UInblkqdX4KiIqpiitYVyrMRz7QmyFHpulMp5PuUqJs0cxAeoHmheshgZKPxbq/C+cnre
-	 CJmeS0dtVaoVkczlayDU/FnWR9Om0YQOTvTiIylaZNheRPl4bBI4tSAq8I2kp9/mXKA==
+	t=1795456870;
+	b=M6RhkFJA9ZQklewH7T4Hmnyz2BdG8y7Qn7Tg6OSolcR9Mg5LQYG74zz7DgPI7pTITaTU
+	 1F4rFqLu5SkTotbKnAAqiKc68xVGFzqENvn/rL9a0JR7+aSlUPxuFT5ebCQGFpumxndeZ
+	 v4OlT1h2qoUrR3cfMnHS3JVChgQP+iUUNTXRRBJRs5r+FZd8TDUIF3PCQ3Nrew1RKvdzT
+	 eJLMMqGfCxV01JoIHvOg84uiMdodM9ExDXf26DRL1CHqieaLDTz23alUSPo3RTPTzXGm0
+	 7F2sN3KG+4S+Mvg2cNfVg/UKTzN4RISCxmNiFoslIoP3bC3SfGTlPBaX1edkVGerbDQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795456855;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795456870;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
@@ -26,35 +26,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=zx6yEgwy8nze2Tq2bWtkVXJMQWmaTvH/rbYpXA9I2lQ=;
-	b=HVxe0lQ7lkL46VhNsg/5bngNBTl3d2euIk3/hx+dmZypS8DgH4Gk/R/YkAIK55EOeQ6J
-	 gGvN73qdvLJehT8TMKzS6OsvGe508GAVsLkiD48duo37/q6PGyfVr0p0Z/coz9TtSEEmr
-	 I/N10Rd0eH2yrAnrlR8HFpWeTtWqfRzEYAimlVKRA6JtM0jhCsrDp8dHQyCvIG1gYLUI1
-	 F6K1GhwbkkN6eE402GLMXQTe1oDRNC8be0OGR4ni3a8ceOHDufhkPqHOX8Fb4UG88poQ7
-	 yhZpbmJ41DbIhXmUZz9hVOBLwOlB2UEokvzpp1sloQC7rE0k34HWEZh0Wrr1Cfa9jMg==
+	bh=5icK6gJ9M+2GYQhkpBtIMheONBO244alrBEdgVSVdYo=;
+	b=rqynQ5nMLFghy0Tdtsp0mghRRFKLCemTVJcQXj7YRPVTd6LDU1yorJWxmo4Uvb7/YaNI
+	 LoK3BYZ9ZpC/ZIdlnKagN+0Bjdtb72HpGCixPJW6uulSTLiTbxvpPd6OvUTSLgwc9CzIr
+	 lfNGTnoOXBp2MvTpKEjYs4AP2GBwvp11GWzx/oRjwxTYkpArJkUjUBpwJ9UxTEjw0OnMg
+	 q4a3Vp2r0Sis1zrHAT6GkO5nV8NUwQyJM+RoAxl5C9ARlLPc6cafOkM8C3fWiXj7/PZEp
+	 cij7Cz+BVYpDMXnPxHKsMt10sLXm6lxdujmkVMlOH6a/DnI0iIrF/DhRkJTOXCqH/WQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HUoHEc4v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.17
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011017.outbound.protection.outlook.com [40.93.194.17])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=d1oNzD5u;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.39
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011039.outbound.protection.outlook.com [52.101.52.39])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C070E606A32D
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:00:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C070E606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 63785606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:01:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 63785606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HUoHEc4v
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=d1oNzD5u
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L0JspqJjhQUeE0riqyB43VCgqNYVJDf7CFRc+g7W7lMCH5jCJvadYZfkjRHVtayQ7S/WL0oT6Zm3UDevinItjSQw+JIxCRrdQ6B8W0OK/Ihp24nqJojdjZC2/Gx4iL6y3o0JTonpWL4WeMpq0sbZWsVmyFqnCyJT4UNQrb6lfh3t7IWUsww7OuLxDqYGWSe7Hrt9Fu9Z5mvc6wdyO/ap7rcZ5jLH0URWn60r0winTAhlHJK1vU0m0SYj0or4A16rQNyqmka7TrztdEJNGEAaA+iq5apxmcPeTUIQpX62dOyg9xpBwhok4Uzd8jDgkrQ+/EYa5TTzvoGyw8Roc0mE0A==
+ b=SrarKPEpb2VBrGNYjJGUijAHeZTGOOJX6a1kcFRqD8bm4YUCjuKhKGj9CbRx28Ez8vJlIk2svF28ylNVti3VWfA6LLWKdT3H00acNcR9DUhcKeYX66Ycyjt7ClnSm83AbPi4dk3RXHtNzU6aAGl1ErXKt/tMD9vdMEMM5TdqtyPQCCmRWscXSy6wDKue3Ged/4Fh8JpDv5pqRoem8q2urGx6TJQoK64x4o4DSWUjE6z/WQf2E5Fs6y0HTfQYDkGAO5mx8GkswpLdDmHeXXAWu6fDpLdS7sr5J6WqpffbaBvBwWklGmA69UX7aDChpuc2JKCwimpubSH+YiAuUbDhvg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zx6yEgwy8nze2Tq2bWtkVXJMQWmaTvH/rbYpXA9I2lQ=;
- b=mtcKIURiBAUI27HtfkyY+ppdtZ/KrNWP+q1OzYKSgdATdeJgXPHqXxbiDYddlpBW6dJWQjBVLwfkd+xDxiBE5eSSkk1IHG77oFgpBdNjy/beK7YNL0IFkRb5XnXB5qemqdNGGplA/T5RpOwLgDUe04CvMtfbImitpMLhkvLNPb1tlRscSiAhmIgxCsqkglTTBbJ4vnqYHNmoMO9qxcY7bfMxywhNDB2VOvFgoQx+4+l4sxel3XR9JSZ4rzjfDinwVaW+IREmQXf1nvm0+MB18nRjUyCMvukXW/IPYQ+IA3FeCw0pXxGAbuHW6LI1rOJuu8So7ZftX3g+msoNYALeEw==
+ bh=5icK6gJ9M+2GYQhkpBtIMheONBO244alrBEdgVSVdYo=;
+ b=xCrW6jMIIS4YMaQCDLZCodQ0qyr6JzmJ26F4Srj+kZJChtutTHnVzTU76lvfO649ckq/LWRX9JkQIftnPFxJs2X7yoCkZh9GrVGh+T61EzBdEgyKfCIYk50pGGi521Bn71ZoyfwqUxScAYM7YrCZ98z1G8dV5PGwn+ARLgHuZsn8u7D99fBJTvnuBJbf1MmOBk5Ene4pDTzkv0Wk/lG3Hv26w7B2yCDYHotitXK8d0wd631GMcrKlXRxubcvwWoj5xNGRszHxzqjK3Q/TPZHX4UtmIklI0WofdW0JX97sL4PDgPn/aqfk6KUID6WVsqYSdHmOno3Shx+5vecmWFvFg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.117.161) smtp.rcpttodomain=davemloft.net smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zx6yEgwy8nze2Tq2bWtkVXJMQWmaTvH/rbYpXA9I2lQ=;
- b=HUoHEc4v1b20bkiDbdZ42NRWqGM7XDSUvPZaQy64bFfkxhWNRz7xfjGt7Y8kOQNSdd7i04LWqoybOg3GMzkSyHmKqYzFITWR1PJaktbjuxYoH+cU50XSMwdwaioPf6Qtly2EdW4Fvv8A4TilWd4UZ9NnT4XSKBBAp3zmQ5L6nxTK3HUBdhcw4YxYLO5aQIABA/Pce5DIPZL0l8S7OVzP1RtqsDP/KF3SltKZCNAJ56QXXMyGu0R+LHCEGJUDdZ4ouOV21UkZg7eoso3CqLqJYgXkvi2Stra0i0+LXbIrb7HcXyRAyODaVeqqFbchplMC+ZqSuXeQV16CY+Tt/+FC8w==
-Received: from SJ0PR13CA0187.namprd13.prod.outlook.com (2603:10b6:a03:2c3::12)
- by SA1PR12MB6848.namprd12.prod.outlook.com (2603:10b6:806:25f::6) with
+ bh=5icK6gJ9M+2GYQhkpBtIMheONBO244alrBEdgVSVdYo=;
+ b=d1oNzD5uBm+qaMQBO6p5Th7h5kUncwSAm3GAUXM8C0AE5DP8lOqXL0LbB/2i8ltwg6BMd2OqO9o0bmB2mU0UyTyhTmALFnzK5anuVw37QRa85aKZ2gio7/H91icJWs1RNPeovSYbTwHwzMSFY2oCjfz0J4eoGSrgAgMJL0boitiVMi9mjTVgspzaPUNoneRllAL0AUCwoypKjpoowmU4fSBTYJi0ecp5bxkCh435f26BURgViAyjVr03Pp+kjYntzqyI0hAmP+WAjeEHhTYHjo3OoNc+NJYAuZwNf0tOJkvSFwpAD1Ncyhr6fUVSe67uTEXHTLGcEJaR/PvRBTL8rg==
+Received: from PH7P220CA0103.NAMP220.PROD.OUTLOOK.COM (2603:10b6:510:32d::29)
+ by IA1PR12MB6188.namprd12.prod.outlook.com (2603:10b6:208:3e4::6) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 18:00:48 +0000
-Received: from MW2PEPF00014675.namprd04.prod.outlook.com
- (2603:10b6:a03:2c3:cafe::24) by SJ0PR13CA0187.outlook.office365.com
- (2603:10b6:a03:2c3::12) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Mon, 23
- Nov 2026 18:00:47 +0000
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 18:00:58 +0000
+Received: from MW2PEPF00014679.namprd04.prod.outlook.com
+ (2603:10b6:510:32d:cafe::69) by PH7P220CA0103.outlook.office365.com
+ (2603:10b6:510:32d::29) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
+ 23 Nov 2026 18:00:57 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -81,17 +81,17 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.117.161 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.117.161) by
- MW2PEPF00014675.mail.protection.outlook.com (10.167.249.182) with Microsoft
+ MW2PEPF00014679.mail.protection.outlook.com (10.167.249.186) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:00:46 +0000
+ 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 18:00:56 +0000
 Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
  (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 10:00:13 -0800
+ 2026 10:00:23 -0800
 Received: from tuxedo.docsis.vodafone.cz (10.126.231.37) by
  rnnvmail201.nvidia.com (10.129.68.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 10:00:06 -0800
+ 15.2.2562.57; Mon, 23 Nov 2026 10:00:18 -0800
 From: Petr Machata <petrm@nvidia.com>
 To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
 	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
@@ -100,13 +100,10 @@ To: "David S. Miller" <davem@davemloft.net>, Eric Dumazet
 CC: Andrew Lunn <andrew+netdev@lunn.ch>, Nikolay Aleksandrov
 	<razor@blackwall.org>, <bridge@lists.linux.dev>, Ido Schimmel
 	<idosch@nvidia.com>, Petr Machata <petrm@nvidia.com>, Andy Roulin
-	<aroulin@nvidia.com>, <mlxsw@nvidia.com>, Tony Nguyen
-	<anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	<intel-wired-lan@lists.osuosl.org>, Shahed Shaikh <shshaikh@marvell.com>,
-	Manish Chopra <manishc@marvell.com>, <GR-Linux-NIC-Dev@marvell.com>
-Subject: [PATCH net-next 02/13] net: Pass struct ndo_fdb_parms to ndo_dflt_fdb_{add, del}()
-Date: Mon, 23 Nov 2026 18:59:17 +0100
-Message-ID: <dfb728bec60618c6f1bebea429cabba25c5be36f.1795447450.git.petrm@nvidia.com>
+	<aroulin@nvidia.com>, <mlxsw@nvidia.com>
+Subject: [PATCH net-next 04/13] net: bridge: Pass struct ndo_fdb_parms a bit further
+Date: Mon, 23 Nov 2026 18:59:19 +0100
+Message-ID: <4721639390ba4d395d536cf118cfb392725a2ff9.1795447450.git.petrm@nvidia.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <cover.1795447450.git.petrm@nvidia.com>
 References: <cover.1795447450.git.petrm@nvidia.com>
@@ -125,237 +122,189 @@ X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
  rnnvmail201.nvidia.com (10.129.68.8)
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW2PEPF00014675:EE_|SA1PR12MB6848:EE_
-X-MS-Office365-Filtering-Correlation-Id: d927ac3a-da8a-428f-2b57-08df498bb36b
+X-MS-TrafficTypeDiagnostic: MW2PEPF00014679:EE_|IA1PR12MB6188:EE_
+X-MS-Office365-Filtering-Correlation-Id: b5fc412e-4a0e-4f6e-6837-08df498bb975
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|82310400026|1800799024|376014|7416014|261026140227099003|261026121527099003|261028144727099003|261021123027099003|261021121427099003|261022075727099003|261022105027099003|261021135927099003|261102123227099003|11063799006|56012099006|10067099003|22082099003|18002099003|261009223027099003|6133799003;
+	BCL:0;ARA:13230040|1800799024|376014|82310400026|23010399003|36860700016|22082099003|18002099003|11063799006|56012099006|261009223027099003|261102123227099003|261026140227099003|261022105027099003|261026121527099003|261021123027099003|261021121427099003|10067099003|261028144727099003|3023799007;
 X-Microsoft-Antispam-Message-Info:
-	kvcJlbWfrrOThYNnLRKTvCyrINCjQjl/gbQNB1iBFGySULZiVSg69t9hWp6ElMFxJSWG/y86qPGqafinpXOT1Nge9pfW/FYVkPzf6cIk/L+1G17A4qwmaAbEIikntMXUeo2HxpNUq/3BcBatAgwbXxUBdO8V/aQs3/qVZF7tawIEq6PcXlcEJBctc+VZRELSbNKeNPOOQsamxKR0hkD41pajBa5jb4qYBvfQQsI42OkmRY16GEKopMDHJTKhEuKORCLU0ULn/fezA0s8cEwRYC1titqJAFzSM7En5vk+e+mGtxmssU36f0yxdw8EmYX74qGqTcw2LWBqpQi/Dh3ATmM2ZjHOBXCsZm29ayv1PZzUjB0gEyxT/uHn5BKu2kBrszjCqjbpSqLjgmR6+rkVRfztyAD/KiQavWsN1DQiuANveXY5kK3wejSYhN1GnkqYuwKHcZP1t9HIhfS0XQS47yiNTmJ302gUUSa3PVdKzI8Ug++g6/gBoXZH3kfOQnbd+WcUA2i1KYxY/iHF4OtqrRnGg6RB6OilfQXWJ8oT3CQcaPBy28n8r8vMY+Ba9LQre9V4ScOL2hLnJkbU4xc8hagPOnzT0J+4zYTXEOmn7JkjGhJueIdV/qrwV+5bpIQ+eVum3/3adT5pvxKF27Bi1DUt0Ho21GfCGMPUNgUyk95Cu6IoNu8IXiHtUDqiptgsTSikAgBciFZ38iNrSYo1nw==
+	wKGzV4KiexegJ19PRaWxjGSQI+lOg/VLJfTPHcUCrS0NPrchj1cgDfT4Z0ALpYs1XpNdWqeKfEQA0dkDp3595HQ1rcZi2scr2Fv9ogpYl//DR1Dk+w95T7nbMd1fWbNnB6X5yrfPTVephsLXu0xMU6OZlzVAPAv8TXlqfyiLgFD1kbsaxJz7XFZDybbBpVJ1Ok9HH4cfHPOH0qQliidZkGTCx5OtG0YGf1IvhJpdvDnbzW3swHAfAz6ubO4Mw6HkAlltt611Lx0sUELLrBEtUKIeCFjuAzbN1cVtU9z8IaTETwMEItDJ6H5GUCAoBpkrmge03BIR6dMcFx1OELgDJK3/tDSZhpXCP5oMu1c9D23fbGouWwbzwF5/eUWPhKYr1krrSbMA9b2WGWBN4WXJPt0d1apZ1DL7JTbh33B9no6YTwnfPxzrDcCt4DHL3+ZGilIM3xSijxUuyTyA0Vx7c94L3ijUYgAwuo8A7ZcPEpQEd+7HU/LgHxEfjQdSOOcZwft/DW/lBEmMg1LjdALfDzozx3bCxDC+hck4zkgPIy9DuGX4zW/u4daIuKLbChSXzxqcDba9A+IVcPIi2YFDSma4bXNCMN5nLdkAA5Jp01wfRmgpf0P9tqcMs1yKGW20s7vVh0n87F2F51WlldY6/u/ev/mKwRZQ3t5awcpoyDuUB1fOlIz//hhoU1ZBmQ5vLW7+tWRAMkwpgQ57XcwCTA==
 X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(82310400026)(1800799024)(376014)(7416014)(261026140227099003)(261026121527099003)(261028144727099003)(261021123027099003)(261021121427099003)(261022075727099003)(261022105027099003)(261021135927099003)(261102123227099003)(11063799006)(56012099006)(10067099003)(22082099003)(18002099003)(261009223027099003)(6133799003);DIR:OUT;SFP:1101;
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(376014)(82310400026)(23010399003)(36860700016)(22082099003)(18002099003)(11063799006)(56012099006)(261009223027099003)(261102123227099003)(261026140227099003)(261022105027099003)(261026121527099003)(261021123027099003)(261021121427099003)(10067099003)(261028144727099003)(3023799007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	1nsEXsHnpvDh0eTMlqNY3SOskbUn9RbXLYU1bp9PvmL+ngRTdRH0YJYykNDqCzQlBHhvY3z6a13h41dxDQcgzMfVvjU7H5F+jqZiNf0TELG3bu/KWHst9cy8XyGTR9mC9nGhQ1iejJNfpaRB/A+7cbJ6m0C8WvL+xoDOoLj9InC5+c68hrAXsDrnrDuyMFNsJ/d5hkDuhatClxce8JiHUP3yO4kRggmOgLN25AHGQiROjHcxwTIgpqzZXjbv/y3Hh+9xNLpzJsAGyyZ/l3QCWay7G9ISvfxXmApwriujJtgL8d6Yp9EQhOLdyhRHMNqOy48SRihff78EfxxhZp5/g6mjmfH4iRqMk6nUvIdTEyLOVbAtS/5X9WZUf7AsZFIbV5w9DVqCkjSczvvL6aqbS9gfUZpNu9dPLTsx0kUtY6e1xg9dwVT5fzgbomKBiS1P
+	cuvaQIXS93hXnU6pK3OHgjT4CFlZgPVzK18z27mkVOSdaa1dyKyMRGXGYQuFt5m34rFbxQDhA3QsxXa+RP3br/LreL6a62ojpMXy03LBMWT5b5Or+eAyJHyROx0puhRb/NDIhzQjoXg4V/xRm/1qkI6jfSIyNsjEXCGRuH1VjTIBYW6LaSSwZXO3QPCuX0x2G3qTIgx1O9vJXINKvO7rvkMqeO5vYGjddBGOWuJ+nQrEqKk/fy1yD8SPDI1T+s1EUPh9zl+0YoUTq0u2ORC4yw/ZR/s3D8LMwj2N3G+iEqG99u8uOVxf0/d56ObQPhfwPp5oTwvVx4ju2sC9RRJ+enwH6Fplh5ECOQOLdIVvbAP+SauIzpwIUWZa195heuxaV11SUsbO7zmMV7xAYYCk+xHjImRU6x8B1IFduMa37auJkgHYP4u9Mf50PQwZ1oK/
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:00:46.8367
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 18:00:56.9578
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: d927ac3a-da8a-428f-2b57-08df498bb36b
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5fc412e-4a0e-4f6e-6837-08df498bb975
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	MW2PEPF00014675.namprd04.prod.outlook.com
+	MW2PEPF00014679.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB6848
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6188
 
-The previous patch converted the ndo_fdb_add, ndo_fdb_del and ndo_fdb_get
-callbacks to take their common arguments through struct ndo_fdb_parms. The
-default implementations, ndo_dflt_fdb_add() and ndo_dflt_fdb_del(), are
-called from those callbacks in several drivers (igb, ixgbe, qlcnic) and
-from rtnl_fdb_add() and rtnl_fdb_del() as a fallback. These default
-implementations have not been converted, and callers must unpack individual
-arguments.
+__br_fdb_add() and fdb_add_entry() take the FDB address, the netlink
+message flags and the VLAN ID as separate arguments. All of these are
+already available in struct ndo_fdb_parms, which br_fdb_add() receives from
+its caller. Just pass the structure instead.
 
-Convert the fallback functions to take the structure as well.
+__br_fdb_add() uses the passed-in vlan parameter to decode VID and passes
+that on to fdb_add_entry(). Instead, in br_fdb_add(), prime parms->vid to
+the right value, so that when __br_fdb_add() passes the parms structure
+through to fdb_add_entry(), the latter can just take the VID from there.
+This obeys the principle of least surprise: an add-like function that gets
+a parms structure has all add-like parameters properly initialized.
+
+It would also be possible to pass struct ndo_fdb_parms to
+br_fdb_external_learn_add(), which would replace addr and vid now and
+portid later. But that function is also called from switchdev, where the
+appropriate structure would have to be created from scratch, which makes
+the benefit less clear. In the end, I left it out.
 
 No functional change intended.
 
 Signed-off-by: Petr Machata <petrm@nvidia.com>
 Reviewed-by: Ido Schimmel <idosch@nvidia.com>
 ---
-CC: Tony Nguyen <anthony.l.nguyen@intel.com>
-CC: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-CC: intel-wired-lan@lists.osuosl.org
-CC: Shahed Shaikh <shshaikh@marvell.com>
-CC: Manish Chopra <manishc@marvell.com>
-CC: GR-Linux-NIC-Dev@marvell.com
----
- drivers/net/ethernet/intel/igb/igb_main.c     |  3 +-
- drivers/net/ethernet/intel/ixgbe/ixgbe_main.c |  3 +-
- .../net/ethernet/qlogic/qlcnic/qlcnic_main.c  |  6 +--
- include/linux/rtnetlink.h                     |  9 +---
- net/core/rtnetlink.c                          | 42 +++++++++----------
- 5 files changed, 26 insertions(+), 37 deletions(-)
+ net/bridge/br_fdb.c | 48 +++++++++++++++++++++++----------------------
+ 1 file changed, 25 insertions(+), 23 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/igb/igb_main.c b/drivers/net/ethernet/intel/igb/igb_main.c
-index 42b2fd3ed95c..b2efa0a1fa07 100644
---- a/drivers/net/ethernet/intel/igb/igb_main.c
-+++ b/drivers/net/ethernet/intel/igb/igb_main.c
-@@ -2531,8 +2531,7 @@ static int igb_ndo_fdb_add(struct ndmsg *ndm, struct nlattr *tb[],
- 			return -ENOMEM;
+diff --git a/net/bridge/br_fdb.c b/net/bridge/br_fdb.c
+index 9e2fdcc5ca9b..45b844a9a1f6 100644
+--- a/net/bridge/br_fdb.c
++++ b/net/bridge/br_fdb.c
+@@ -1209,7 +1209,7 @@ static bool fdb_update_dst(struct net_bridge_fdb_entry *fdb,
+ 
+ /* Update (create or replace) forwarding database entry */
+ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
+-			 const u8 *addr, struct ndmsg *ndm, u16 flags, u16 vid,
++			 struct ndmsg *ndm, const struct ndo_fdb_parms *parms,
+ 			 struct nlattr *nfea_tb[])
+ {
+ 	struct net_bridge_port *source = br_dst_port(dst);
+@@ -1242,12 +1242,12 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
+ 			return -EINVAL;
  	}
  
--	return ndo_dflt_fdb_add(ndm, tb, parms->dev, parms->addr,
--				parms->vid, parms->flags);
-+	return ndo_dflt_fdb_add(ndm, tb, parms);
- }
+-	fdb = br_fdb_find(br, addr, vid);
++	fdb = br_fdb_find(br, parms->addr, parms->vid);
+ 	if (fdb == NULL) {
+-		if (!(flags & NLM_F_CREATE))
++		if (!(parms->flags & NLM_F_CREATE))
+ 			return -ENOENT;
  
- #define IGB_MAX_MAC_HDR_LEN	127
-diff --git a/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c b/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-index 26d1a7253cf3..e444ebfe77fa 100644
---- a/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-+++ b/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-@@ -10617,8 +10617,7 @@ static int ixgbe_ndo_fdb_add(struct ndmsg *ndm, struct nlattr *tb[],
+-		fdb = fdb_create(br, dst, addr, vid,
++		fdb = fdb_create(br, dst, parms->addr, parms->vid,
+ 				 BIT(BR_FDB_ADDED_BY_USER));
+ 		if (!fdb)
  			return -ENOMEM;
- 	}
+@@ -1256,7 +1256,7 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
+ 	} else {
+ 		struct net_bridge_dst old_dst;
  
--	return ndo_dflt_fdb_add(ndm, tb, parms->dev, parms->addr,
--				parms->vid, parms->flags);
-+	return ndo_dflt_fdb_add(ndm, tb, parms);
+-		if (flags & NLM_F_EXCL)
++		if (parms->flags & NLM_F_EXCL)
+ 			return -EEXIST;
+ 
+ 		old_dst = br_fdb_dst_read(fdb);
+@@ -1271,15 +1271,15 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
+ 		if (state & NUD_PERMANENT) {
+ 			set_bit(BR_FDB_LOCAL, &fdb->flags);
+ 			if (!test_and_set_bit(BR_FDB_STATIC, &fdb->flags))
+-				fdb_add_hw_addr(br, addr);
++				fdb_add_hw_addr(br, parms->addr);
+ 		} else if (state & NUD_NOARP) {
+ 			clear_bit(BR_FDB_LOCAL, &fdb->flags);
+ 			if (!test_and_set_bit(BR_FDB_STATIC, &fdb->flags))
+-				fdb_add_hw_addr(br, addr);
++				fdb_add_hw_addr(br, parms->addr);
+ 		} else {
+ 			clear_bit(BR_FDB_LOCAL, &fdb->flags);
+ 			if (test_and_clear_bit(BR_FDB_STATIC, &fdb->flags))
+-				fdb_del_hw_addr(br, addr);
++				fdb_del_hw_addr(br, parms->addr);
+ 		}
+ 
+ 		modified = true;
+@@ -1307,12 +1307,11 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
  }
  
- /**
-diff --git a/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c b/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c
-index 85017de2161b..6c48cdaf25c0 100644
---- a/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c
-+++ b/drivers/net/ethernet/qlogic/qlcnic/qlcnic_main.c
-@@ -373,8 +373,7 @@ static int qlcnic_fdb_del(struct ndmsg *ndm, struct nlattr *tb[],
- 	int err = -EOPNOTSUPP;
- 
- 	if (!adapter->fdb_mac_learn)
--		return ndo_dflt_fdb_del(ndm, tb, parms->dev, parms->addr,
--					parms->vid);
-+		return ndo_dflt_fdb_del(ndm, tb, parms);
- 
- 	if ((adapter->flags & QLCNIC_ESWITCH_ENABLED) ||
- 	    qlcnic_sriov_check(adapter)) {
-@@ -399,8 +398,7 @@ static int qlcnic_fdb_add(struct ndmsg *ndm, struct nlattr *tb[],
+ static int __br_fdb_add(struct ndmsg *ndm, struct net_bridge *br,
+-			struct net_bridge_port *p, const unsigned char *addr,
+-			u16 nlh_flags, struct net_bridge_vlan *vlan,
+-			struct nlattr *nfea_tb[],
++			struct net_bridge_port *p,
++			const struct ndo_fdb_parms *parms,
++			struct net_bridge_vlan *vlan, struct nlattr *nfea_tb[],
+ 			bool *notified, struct netlink_ext_ack *extack)
+ {
+-	u16 vid = vlan ? vlan->vid : 0;
+ 	struct net_bridge_dst dst;
  	int err = 0;
  
- 	if (!adapter->fdb_mac_learn)
--		return ndo_dflt_fdb_add(ndm, tb, parms->dev, parms->addr,
--					parms->vid, parms->flags);
-+		return ndo_dflt_fdb_add(ndm, tb, parms);
+@@ -1327,7 +1326,8 @@ static int __br_fdb_add(struct ndmsg *ndm, struct net_bridge *br,
  
- 	if (!(adapter->flags & QLCNIC_ESWITCH_ENABLED) &&
- 	    !qlcnic_sriov_check(adapter)) {
-diff --git a/include/linux/rtnetlink.h b/include/linux/rtnetlink.h
-index a54ec40d095c..e963b43bce76 100644
---- a/include/linux/rtnetlink.h
-+++ b/include/linux/rtnetlink.h
-@@ -211,15 +211,10 @@ extern int ndo_dflt_fdb_dump(struct sk_buff *skb,
- 			     int *idx);
- extern int ndo_dflt_fdb_add(struct ndmsg *ndm,
- 			    struct nlattr *tb[],
--			    struct net_device *dev,
--			    const unsigned char *addr,
--			    u16 vid,
--			    u16 flags);
-+			    const struct ndo_fdb_parms *parms);
- extern int ndo_dflt_fdb_del(struct ndmsg *ndm,
- 			    struct nlattr *tb[],
--			    struct net_device *dev,
--			    const unsigned char *addr,
--			    u16 vid);
-+			    const struct ndo_fdb_parms *parms);
- 
- extern int ndo_dflt_bridge_getlink(struct sk_buff *skb, u32 pid, u32 seq,
- 				   struct net_device *dev, u16 mode,
-diff --git a/net/core/rtnetlink.c b/net/core/rtnetlink.c
-index b1649f1cb33a..e7d683952838 100644
---- a/net/core/rtnetlink.c
-+++ b/net/core/rtnetlink.c
-@@ -4749,9 +4749,7 @@ static void rtnl_fdb_notify(struct net_device *dev, u8 *addr, u16 vid, int type,
-  */
- int ndo_dflt_fdb_add(struct ndmsg *ndm,
- 		     struct nlattr *tb[],
--		     struct net_device *dev,
--		     const unsigned char *addr, u16 vid,
--		     u16 flags)
-+		     const struct ndo_fdb_parms *parms)
- {
- 	int err = -EINVAL;
- 
-@@ -4759,27 +4757,28 @@ int ndo_dflt_fdb_add(struct ndmsg *ndm,
- 	 * implement its own handler for this.
- 	 */
- 	if (ndm->ndm_state && !(ndm->ndm_state & NUD_PERMANENT)) {
--		netdev_info(dev, "default FDB implementation only supports local addresses\n");
-+		netdev_info(parms->dev, "default FDB implementation only supports local addresses\n");
- 		return err;
+ 		local_bh_disable();
+ 		rcu_read_lock();
+-		br_fdb_update(br, p, vlan, addr, BIT(BR_FDB_ADDED_BY_USER));
++		br_fdb_update(br, p, vlan, parms->addr,
++			      BIT(BR_FDB_ADDED_BY_USER));
+ 		rcu_read_unlock();
+ 		local_bh_enable();
+ 	} else if (ndm->ndm_flags & NTF_EXT_LEARNED) {
+@@ -1336,12 +1336,12 @@ static int __br_fdb_add(struct ndmsg *ndm, struct net_bridge *br,
+ 					   "FDB entry towards bridge must be permanent");
+ 			return -EINVAL;
+ 		}
+-		err = br_fdb_external_learn_add(br, p, addr, vid, false, true);
++		err = br_fdb_external_learn_add(br, p, parms->addr, parms->vid,
++						false, true);
+ 	} else {
+ 		dst = p && vlan ? br_vlan_to_dst(vlan) : br_port_to_dst(p);
+ 		spin_lock_bh(&br->hash_lock);
+-		err = fdb_add_entry(br, dst, addr, ndm, nlh_flags, vid,
+-				    nfea_tb);
++		err = fdb_add_entry(br, dst, ndm, parms, nfea_tb);
+ 		spin_unlock_bh(&br->hash_lock);
  	}
  
- 	if (tb[NDA_FLAGS_EXT]) {
--		netdev_info(dev, "invalid flags given to default FDB implementation\n");
-+		netdev_info(parms->dev, "invalid flags given to default FDB implementation\n");
- 		return err;
- 	}
+@@ -1422,11 +1422,11 @@ int br_fdb_add(struct ndmsg *ndm, struct nlattr *tb[],
+ 		}
  
--	if (vid) {
--		netdev_info(dev, "vlans aren't supported yet for dev_uc|mc_add()\n");
-+	if (parms->vid) {
-+		netdev_info(parms->dev, "vlans aren't supported yet for dev_uc|mc_add()\n");
- 		return err;
- 	}
+ 		/* VID was specified, so use it. */
+-		err = __br_fdb_add(ndm, br, p, parms->addr, parms->flags, v,
+-				   nfea_tb, notified, extack);
++		err = __br_fdb_add(ndm, br, p, parms, v, nfea_tb, notified,
++				   extack);
+ 	} else {
+-		err = __br_fdb_add(ndm, br, p, parms->addr, parms->flags,
+-				   NULL, nfea_tb, notified, extack);
++		err = __br_fdb_add(ndm, br, p, parms, NULL, nfea_tb, notified,
++				   extack);
+ 		if (err || !vg || !vg->num_vlans)
+ 			goto out;
  
--	if (is_unicast_ether_addr(addr) || is_link_local_ether_addr(addr))
--		err = dev_uc_add_excl(dev, addr);
--	else if (is_multicast_ether_addr(addr))
--		err = dev_mc_add_excl(dev, addr);
-+	if (is_unicast_ether_addr(parms->addr) ||
-+	    is_link_local_ether_addr(parms->addr))
-+		err = dev_uc_add_excl(parms->dev, parms->addr);
-+	else if (is_multicast_ether_addr(parms->addr))
-+		err = dev_mc_add_excl(parms->dev, parms->addr);
- 
- 	/* Only return duplicate errors if NLM_F_EXCL is set */
--	if (err == -EEXIST && !(flags & NLM_F_EXCL))
-+	if (err == -EEXIST && !(parms->flags & NLM_F_EXCL))
- 		err = 0;
- 
- 	return err;
-@@ -4884,8 +4883,7 @@ static int rtnl_fdb_add(struct sk_buff *skb, struct nlmsghdr *nlh,
- 			err = dev->netdev_ops->ndo_fdb_add(ndm, tb, &parms,
- 							   &notified, extack);
- 		else
--			err = ndo_dflt_fdb_add(ndm, tb, dev, addr, vid,
--					       nlh->nlmsg_flags);
-+			err = ndo_dflt_fdb_add(ndm, tb, &parms);
- 
- 		if (!err && !notified) {
- 			rtnl_fdb_notify(dev, addr, vid, RTM_NEWNEIGH,
-@@ -4902,8 +4900,7 @@ static int rtnl_fdb_add(struct sk_buff *skb, struct nlmsghdr *nlh,
-  */
- int ndo_dflt_fdb_del(struct ndmsg *ndm,
- 		     struct nlattr *tb[],
--		     struct net_device *dev,
--		     const unsigned char *addr, u16 vid)
-+		     const struct ndo_fdb_parms *parms)
- {
- 	int err = -EINVAL;
- 
-@@ -4911,14 +4908,15 @@ int ndo_dflt_fdb_del(struct ndmsg *ndm,
- 	 * implement its own handler for this.
- 	 */
- 	if (!(ndm->ndm_state & NUD_PERMANENT)) {
--		netdev_info(dev, "default FDB implementation only supports local addresses\n");
-+		netdev_info(parms->dev, "default FDB implementation only supports local addresses\n");
- 		return err;
- 	}
- 
--	if (is_unicast_ether_addr(addr) || is_link_local_ether_addr(addr))
--		err = dev_uc_del(dev, addr);
--	else if (is_multicast_ether_addr(addr))
--		err = dev_mc_del(dev, addr);
-+	if (is_unicast_ether_addr(parms->addr) ||
-+	    is_link_local_ether_addr(parms->addr))
-+		err = dev_uc_del(parms->dev, parms->addr);
-+	else if (is_multicast_ether_addr(parms->addr))
-+		err = dev_mc_del(parms->dev, parms->addr);
- 
- 	return err;
- }
-@@ -5019,7 +5017,7 @@ static int rtnl_fdb_del(struct sk_buff *skb, struct nlmsghdr *nlh,
- 				err = ops->ndo_fdb_del(ndm, tb, &parms,
- 						       &notified, extack);
- 			else
--				err = ndo_dflt_fdb_del(ndm, tb, dev, addr, vid);
-+				err = ndo_dflt_fdb_del(ndm, tb, &parms);
- 		} else {
- 			/* in case err was cleared by NTF_MASTER call */
- 			err = -EOPNOTSUPP;
+@@ -1435,11 +1435,13 @@ int br_fdb_add(struct ndmsg *ndm, struct nlattr *tb[],
+ 		 * vlan on this port.
+ 		 */
+ 		list_for_each_entry(v, &vg->vlan_list, vlist) {
++			struct ndo_fdb_parms vparms = *parms;
++
+ 			if (!br_vlan_should_use(v))
+ 				continue;
+-			err = __br_fdb_add(ndm, br, p, parms->addr,
+-					   parms->flags, v, nfea_tb, notified,
+-					   extack);
++			vparms.vid = v->vid;
++			err = __br_fdb_add(ndm, br, p, &vparms, v, nfea_tb,
++					   notified, extack);
+ 			if (err)
+ 				goto out;
+ 		}
 -- 
 2.56.1
 
