@@ -1,79 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795404681;
-	b=VG6qUQVM43p8HeiBUPPl8Fiu/Gsg8bprWa040GMWWci8s+0UqlGfn9FyfTs3qaF2OXST
-	 YoBhisBFtsY7HdgYht6sIikI9TOEOeFq6t7oGMQBX6uGC94baPZVkugqA6eGUqwYSkYHc
-	 zAV4CVsSfi9Z11iKgglf0S5tL8vbMpymX9+dpCh5WfDuXHlRtqEQEnYxW+vE6FQqZhs5Y
-	 NjZGEAY2xZQg8a+ogqxuT22AadUL6HhBDICdqdcSnsaw+Bpj5gDZs1f38En4EDo5lwExr
-	 HnF8JRaO2pqPK4VDCS9sNfDqSaxiKmnOwFu9cL3ijRHdHHa9L2GE54Eb0HVd/+Gw30g==
+	t=1795404684;
+	b=rd9O/oamojOQ9ntMzPjLm+ZBQUHkTdWqzs0fzZq/qZOfXJFegiUrgjB4BAozlOwPTZ8R
+	 mPSHfrszgoCS7AamqzpH/Vw28wzDVt6Hki1NNc0bznoUkdIRpgsmE9WHdRQ01IBu0KwaY
+	 uyPOM9Yw8CHpWCIEroYv+EhN1ZGKWEz27NnV5E0MND+tO5LBIKlrQ8kXZqMaIdR3+syqD
+	 /+Doyf4+e/12K7H859NUgRLOzcjqBvezDyAPIA98h231ngInDTNQDJ32GTO9d+Daf3AjO
+	 AfYK6nMC31T3Km5m7iDMmqDJVAQqaxQjv7L2fDvWSM/0Ad3wsG7b5Z+j3VKHoiujDZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795404681;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795404684;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=n3/QgCFjzvK6G73Tiampz5hPbLES3QQEgOsn43qeBn8=;
-	b=C6TdpMPKhUuXaBTqIvwb1KYBhEBADiK6rcxGpn1N9WoAVJWcZ5BvC5cDUL+4VowuB8zb
-	 5eFExzO82yPpwoiTqVButNFuAB7UfF4IKTYo1uI4f9XovRlyCVqNCslkJyF/Q3YV+fDrA
-	 iP6fN/ttC1Pjw2sEQUCFciUkhbE4ghqbA4C5eKeuG412L7dxMMoh7C/TaE6L98arrLSyB
-	 J1ZzDkzIhs6ayVDD9lvcWTa4DEzSbrnnP/nnenKyHMbOkRuaYpIOF/x8jNzV2zWjjatPj
-	 Lrqihl+g9PRBjlrVvyPEw2E4e8sVyO4vxww+2fmT5tZ7XWSTGIfTnalCQ8IZk/3t2Kg==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+	b=ZGSwiNZfjPJDA40kqTD+5wpe4RJiYVUuJqqpjgcSASREgKp+idd27dhmcqpQ7KMVggrG
+	 PPa2oV9IBTxh7RpDMBuaEgYICh+2P5Eq+DRCwwMatVDIpEQVZiAZU550uUSNmI6c2pSnC
+	 EphHTvTJ242FgLVm6+wyLfiCOtWeJDpG2AK23wiEZ/8Miwj+zrnXrh3o4HI7Pxvq9DNUu
+	 OYq1cJbwgo5e+fU87wxx6nQculwzZD/MncN2oh0FrYegfDG8dREHxyH84AmXwcnwFc0vv
+	 ChIDHx2LSIvBVES6NmKxxrDfKebXP8DYbCkNw5Tq20LKpTOTZhuk+u03QngJEKUNoKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=chromium.org;
 	spf=pass smtp.mailfrom=chromium.org;
-	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Edl3tDou;
-	arc=none smtp.remote-ip=209.85.210.172
-Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AxPYQPzz;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5816606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:31:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D5816606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A8B3606A331
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:31:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A8B3606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=Edl3tDou
-Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b3d544148dso36682b3a.3
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:31:20 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=AxPYQPzz
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b4ab53a966so9327a91.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:31:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1795404680; x=1796009480; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=n3/QgCFjzvK6G73Tiampz5hPbLES3QQEgOsn43qeBn8=;
-        b=Edl3tDoudDKu8O2PRwvYnO8MJvLjWtgoT26qqZAO1ooxzE3Tz8K2jSrkMRJ74CY71T
-         gmeUGNF0Du2akiiBchns1KHvONx24mVE1qX81TBQ16SMRNqU5PNNIc/hqFlKoySErJOB
-         LBybGaxPrLQI6vmhdHWQGORNw914goHqfldQc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795404680; x=1796009480;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=chromium.org; s=google; t=1795404683; x=1796009483; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=n3/QgCFjzvK6G73Tiampz5hPbLES3QQEgOsn43qeBn8=;
-        b=nnKIHQVILF0DKG78O6xyJxG96358C2DVUFqvehFCCwWu0W/qBeGAa5YvXpGvRcGtb9
-         3UkSORACslWK/SswysXkgKm7R4Tl2Kvdy0RnU3PBaH+GK4KDz1hoykyeBYG6BGu2CYhl
-         35yJgAPmE440w9nPyiVV+i/GPpcIJaMUFWy6dJQZ2MQMlM+F5uBEuupMkhcy6Hms453f
-         2Gs047LtJIvZAdkHxSEBSeDYPnmSkkjL8xY//dJlq9FXHW8+Dmtsx0EWUbOuI9XsUWX5
-         Btf4uSue22camdDYfmrNiiF/KEMUvBAJUtO7DscQ6pnytJ9f4QQ2mVC7kW2bDxwIZxaC
-         odQg==
-X-Forwarded-Encrypted: i=1; AL+hErGYDv7LQRUdtfYqraC4wk/HB/cSjDEbgDoegmViitYuEOJWCXYVuYh+Zuqn/55xuxiAnsVpesQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8h7P1rPL/aQBEDTjR82SshyDmQnOCgfQIE4VuyJ5uakyTpSmrq
-	6lnzBz/V1Lw3NIe3WT/PfIx5f1KOnZbic6MLzCPi70udzm/9C+yRQchQ4IBd0ho0/w==
-X-Gm-Gg: AZFdTZdE6BAoA7C+p/8mN33JJHxVbPND/3oTmAaHwYnItWtMa5HF8wngRv0zDjkoFGZ
-	njuK7QqgPH+9EcCX2NE0JG3wnKiBpe4pJ2ANPpAMj6RxT3BxNfH+zT+ufcLK5Wxc9loyQWB0y6z
-	H9pElGpKefeKCjNcnCO17fz4z4mNaJFiwtmJuuEYBpiWPZN5tIDpKFy2C7lzcWWTaeM5eUsRwW8
-	/51uOCuRnPJAwvUW1DyRRz/4rYmK1moWVluRC3z29RKQ6a+ti0uB5CmWMsGXij9AMBSk020Jp14
-	MZEgb5VRFQk080lgFZ0NrlIRy+iixErY64E6NrK1CwKLs7XV1MZ19fCXiVC7qDvHeZszrs0KQ8i
-	Rff5whHnN/csFFgo1WJydDSwPrMcxNFWQSa8e6FQCTIttBQHiVupjnQA7Taff5wl3EHhZpmyPS3
-	BNI5RfqO6cjxTKgBv4urjuacgJW0rv7VnkEi/eDeFosOzdxWLPD2gQvIhOa4KF/4scY1JYQi69Z
-	RMU5hpYtGNl7L5b3i4jRLg+MXO9VvNfggqAapHm5BXCYbveugIv6d6CO7wJ5cgkxadosquQ77hu
-	6lALNRKu/RZwwTwjh4QdlgY9w4ONDjQg68At8uzbad8Xp7A1nF97tYlhYtuUYF94SKYoCQ==
-X-Received: by 2002:a05:6a00:c1ca:20b0:8b0:4ee8:10b7 with SMTP id d2e1a72fcca58-8c8792b617bmr11211724b3a.1.1795404680238;
-        Sun, 22 Nov 2026 19:31:20 -0800 (PST)
+        bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+        b=AxPYQPzz//LoTvh9Mr24xcYoaLF4FfIftHMSVYvNWkkd2ORREvf97GRTmlchcg5pA/
+         BY7zxNGJ9LLSAtVEdx572axC+dtCMdmu2MGH8ThCGPY3DEEFyqzqLt5DgIuv64ua28yS
+         2YY/pj6BGymwB0NT9sh7rI/OFa3aN3Yg7uhBg=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795404683; x=1796009483;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=u+VJkDmgbhhT238e3Khqv+7tnUuWga3+yY83FP/NeKA=;
+        b=vRNpOUB6dPnL2bXGtsraSR0JhOBhXSwcoPj94/13lBMVCihverVZHni/D+ZEuCBTCl
+         2GqJV8aHwNOJa7rLZq/0puHZ7j0/w/HelD75vpW1Sq27+C4A7wtkwZ8DBVmgOVV4wtw3
+         SMl43pNORgk0TktlZ20vrRZlFGl36HIDf5QBXSkBRTKfTPn3OqCfHghkVddPO65CBA11
+         t9SRZe2bgAmP7fm716+NxxtYJQefNuN3PeknYJRBh9U6uNXa8Q8hEn7w/02otITzt+xz
+         nhaIyeRMe9GSREIYhzcO6ohWSR8FZI4z974Us3tsVk8/zOplaZmPXOQ8B54CQEwy/+8T
+         PpSQ==
+X-Forwarded-Encrypted: i=1; AL+hErG5ZGoerptTkDIGKi8X+EqoxQodwwjn7cKmXH16r4VZMQecgfPLMZVLrtkPIaO46aY+BC5VBK4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/YRVqkb7vldsVWPZYcTYKT2qnVT85CjoBDmZBizOsWpPBv6+pw
+	T4eL0GtMudjYaFYKqcXJWGfo8jd3YOh6GOc6531DRK1jtudgVeen2tA7B0Cqq3EdGA==
+X-Gm-Gg: AZFdTZeh41IFKyMj1oaEkpRqBYKeVIALAmTj3Na7NT3pZbi7YSpHs36DCRBADk5oWaw
+	KDuZUurzvn7QAWlzL/hrBa6a2CnjKcSW1ka68rlcRSdVp439by0ytKJz8M9LO+0imwgZsomKysV
+	PJkt2Cr7zFU8EIR1AiK1DbcwnZhdFoXb0bJfogN0jBdOaioVC1foQzRsPc3OTlA/cvZ8MaFvftU
+	bdN2VMZCBIOpztojBAbD+j1KB7hHopVGnOl9Nz8mVzglifzQyqsvHVdoXILiCAtf9yX7Ej/92AH
+	DnKTwX7K6gRvLRRzA4jmgeCarPjIrKNrJ6fFQoJ0994l0uOxfJ7ySwd+RGIGTVi3mCHgwD87BMW
+	ecne4tUQKXANRbvSWXyp16jMScK0SrBlrmI1aiKyapOhVzKu5hiSNeWFz4sz/ZEDe4SsBJdN9Bm
+	sKoFvhaNjlIGVdy8P3748MLWzLmo2l7W3o7b7t+qyOzA5v8JodUNhwih19VvpQDMa3A6fMiHPYB
+	FKPYo6EWhG3URhzE8AUFZasTFUq/4om7dfWxj69FfmKcvvGeoUBa2tqqHqbhym5xiiobEbpHO/c
+	K8gS4Tjr8DE2ACMux3DPKHwKh6lhDxEFzkqzAOLeNyRfU1mKDtmBtXcLpfYkkX7vQTQ0og==
+X-Received: by 2002:a17:90a:e70c:b0:3a0:c1b1:45fb with SMTP id 98e67ed59e1d1-3b41c58aebdmr15663729a91.0.1795404682704;
+        Sun, 22 Nov 2026 19:31:22 -0800 (PST)
 Received: from localhost (221.247.125.34.bc.googleusercontent.com. [34.125.247.221])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-8c87285c14fsm4712022b3a.15.2026.11.22.19.31.18
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-3b41ad48786sm15745736a91.9.2026.11.22.19.31.20
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 19:31:19 -0800 (PST)
+        Sun, 22 Nov 2026 19:31:22 -0800 (PST)
 From: Jeff Xu <jeffxu@chromium.org>
 To: Andrew Morton <akpm@linux-foundation.org>,
 	David Hildenbrand <david@kernel.org>,
@@ -131,10 +132,12 @@ Cc: Jeff Xu <jeffxu@chromium.org>,
 	linux-rdma@vger.kernel.org,
 	rds-devel@oss.oracle.com,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 0/2] mm: kasan: skip KASAN for GFP_HIGHUSER
-Date: Sun, 22 Nov 2026 19:31:09 -0800
-Message-ID: <20261123033111.2349160-1-jeffxu@chromium.org>
+Subject: [PATCH v2 1/2] mm: kasan: skip KASAN for GFP_HIGHUSER
+Date: Sun, 22 Nov 2026 19:31:10 -0800
+Message-ID: <20261123033111.2349160-2-jeffxu@chromium.org>
 X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+In-Reply-To: <20261123033111.2349160-1-jeffxu@chromium.org>
+References: <20261123033111.2349160-1-jeffxu@chromium.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -146,58 +149,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi all,
+Move __GFP_SKIP_KASAN from GFP_HIGHUSER_MOVABLE to GFP_HIGHUSER so
+non-movable userspace page allocations also skip KASAN tagging on
+allocation and poisoning on free under CONFIG_KASAN_HW_TAGS.
 
-This series moves __GFP_SKIP_KASAN from GFP_HIGHUSER_MOVABLE to
-GFP_HIGHUSER (patch 1) and adds a KUnit test for __GFP_SKIP_KASAN
-(patch 2).
+GFP_HIGHUSER_MOVABLE already skips KASAN because user pages do not hold
+kernel data structures and tagging every 16-byte MTE granule on
+allocation and free is expensive. GFP_HIGHUSER has the same contract and
+differs only in being non-movable, used mainly by DMA-BUF, DRM/GPU
+buffers, and non-movable HugeTLB.
 
-GFP_HIGHUSER_MOVABLE already skips KASAN tagging under
-CONFIG_KASAN_HW_TAGS, whereas GFP_HIGHUSER does not despite sharing the
-same userspace-allocation contract. On an Armv9.2-A device (6.12 kernel,
-kasan.mode=sync), skipping KASAN on GFP_HIGHUSER cuts 32 MB
-/dev/dma_heap/system alloc+free latency by ~80% and improves an
-app-loading OpenGL benchmark by 15-23%. As a side effect, GFP_HIGHUSER
-shmem mappings (such as drm_gem_shmem_helper / panthor [1, 2]) stop
-hitting the swap-in readahead PROT_MTE tag mismatch, though the general
-readahead issue for other gfp masks remains separate.
+On an Armv9.2-A device (6.12 kernel, kasan.mode=sync), this reduces
+32 MB /dev/dma_heap/system alloc+free latency by ~80% (~59% alloc, ~98%
+close) and improves an app-loading OpenGL benchmark by 15-23%.
 
-Changes since v1 [3]:
-- Dropped GFP_HIGHUSER_KASAN, the pipe/FUSE/kexec/RDS conversions, and
-  page_alloc_highuser_kasan (v1 patches 1-4 and 7) following David
-  Hildenbrand's and Tomasz Figa's feedback; kept those callers on
-  GFP_HIGHUSER (2 patches instead of 7).
-- Rewrote patch 1's commit message concisely (Lorenzo Stoakes).
-- Dropped Assisted-by: trailers from the patches, keeping tool
-  disclosure here (Lorenzo Stoakes).
-- Rebased onto mm-unstable (d12eccbcb79a).
-- Kept the fs/kexec/RDS maintainers from v1 on Cc for visibility since
-  those patches were dropped.
+Callers that access GFP_HIGHUSER pages through kmap_local_page() or
+page_address() (such as ramfs, pipe/FUSE buffers, kexec, and RDS) lose
+HW_TAGS checking on those pages. None of them store kernel structs
+there; this matches the trade-off already made for GFP_HIGHUSER_MOVABLE.
+Generic and SW_TAGS KASAN are unaffected.
 
-Testing: built and booted both commits on arm64 with
-CONFIG_KASAN_HW_TAGS under QEMU (virt,mte=on) across kasan.mode=sync,
-async, and asymm (9/9 runs passed for page_alloc_skip_kasan; 3/3 failed
-as expected when patch 1 was reverted, with the next test still
-passing). Verified W=1 builds with 0 warnings across arm64 (HW_TAGS,
-generic, SW_TAGS, no KASAN) and x86_64 (generic, no KASAN). KUnit tests
-were not run on real hardware.
+Signed-off-by: Jeff Xu <jeffxu@chromium.org>
+---
+ include/linux/gfp_types.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Tooling: an AI coding assistant was used under the author's direction to
-audit GFP_HIGHUSER callers, draft the KUnit test helper and changelog
-revisions, and run the QEMU/KUnit build and test matrix.
-
-Link: https://lore.kernel.org/r/20260519-panthor-kasan-v2-1-b7384458f076@gmail.com/ [1]
-Link: https://lore.kernel.org/r/20260521105148.5497c281@fedora/ [2]
-Link: https://lore.kernel.org/all/20261116230627.3537051-1-jeffxu@chromium.org/ [3]
-
-Jeff Xu (2):
-  mm: kasan: skip KASAN for GFP_HIGHUSER
-  mm/kasan/kunit: add page_alloc_skip_kasan test
-
- include/linux/gfp_types.h |  4 ++--
- mm/kasan/kasan_test_c.c   | 44 ++++++++++++++++++++++++++++++++++++++++++++
- 2 files changed, 46 insertions(+), 2 deletions(-)
+diff --git a/include/linux/gfp_types.h b/include/linux/gfp_types.h
+index c1331bf0b239..bb54c7abfb02 100644
+--- a/include/linux/gfp_types.h
++++ b/include/linux/gfp_types.h
+@@ -376,8 +376,8 @@ enum {
+ #define GFP_USER	(__GFP_RECLAIM | __GFP_IO | __GFP_FS | __GFP_HARDWALL)
+ #define GFP_DMA		__GFP_DMA
+ #define GFP_DMA32	__GFP_DMA32
+-#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM)
+-#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE | __GFP_SKIP_KASAN)
++#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM | __GFP_SKIP_KASAN)
++#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE)
+ #define GFP_TRANSHUGE_LIGHT	((GFP_HIGHUSER_MOVABLE | __GFP_COMP | \
+ 			 __GFP_NOMEMALLOC | __GFP_NOWARN) & ~__GFP_RECLAIM)
+ #define GFP_TRANSHUGE	(GFP_TRANSHUGE_LIGHT | __GFP_DIRECT_RECLAIM)
 
 base-commit: d12eccbcb79a4fa35c3aa588eb79056af62eb859
 -- 
 2.56.1.750.gf70dc682cf-goog
+
