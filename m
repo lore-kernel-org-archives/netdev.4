@@ -1,70 +1,70 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445685;
-	b=VqEcOQ8vOKqEukqTYB4/tRRtri/+ZJeFlysiwkOJ+iqiXNs8CJqd7J++5/88gu1AHoza
-	 6EAP1aKETyD0/Vj114M/U4gJR9gjOZWPpd2wpvtQmc3vkjYcwBZei+exthONk1Kgqx4qg
-	 qfpPQKiZghSn/NhhdxPL/p4I1tZVeW8I3+ROVodJThIThomKXehHN75v5YU8NttCTV04o
-	 CC31WMY4JpVHlsUJH5hOVY8EJ5kNv7RfK2Zwd2mh8xear134Z7MkkcBNM6q+r2j80EjLt
-	 6yo9dhsuC/ieZVlykVDmO1sKO/56JhByPVdOQdUg3v/EbnsJHeSRswrIpeQDvw25ZgA==
+	t=1795445713;
+	b=uPEOoNz8dN9d/NSwrFBUpB/YwwUN0J0bSbJWpyJ2L0HJUScDOaZt7dLjiyhLJIwVJN8S
+	 0oa79Bqy6odIF24+NIF/2pYKEXW189ox7m0Zdz3EqILjeTav0BmDl0enrJ5Y7lD4woAxh
+	 flm+ubI72b1Hvq8BK6kypmSzVvaZ+KPNb+woA0y07KnTqj+Ekac/Qk9cI+J8cZftaflpu
+	 QRQBvVd3cG5JShvg2tzs7FBfdJqvH1PBaiqaz7i+aBsZlhvS7j5XFAE74bfGpUx/vvOhF
+	 tedrXTRP1AvlqXFG0DuIqHHi0dgTM15PNcV7kz9R9SLF0QOwvRW06YjDwXPgVzXZlnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445685;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445713;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
 	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer;
-	bh=0nEfM8+R7e/4HgQIycbOLgNGhqmmppbJ+3L3DiB3oqk=;
-	b=Q75kX/IJkqskU5aEI4M7ffgwDwMXRCDljREPs9ZjTD4pRZuvB6+s71zJF0+ppKJh554T
-	 WwZoys/RsjpWDOBJcr4+fFjUm/LOcuZpYmgVXExKvHwFnDqsPDZfB4vA8IxF5dya4gT/B
-	 BnaR5vR7FWoAeX2xQGdOwv478uQzV7KWBd+B3UTwPwBDjJsYt3Ghz6J+Gd65aMP7sYFX8
-	 PD6XMz3TrVEqACS2fDXzKODnPm8td+72M7s3tWf7c+sanii79rq0xL22JwoVkkveaHDOC
-	 cruQmE4R092BJrRbFkSAxS24ytUgvsgmIuYT0i+mpTIQfvckmlwB4WSYYJejJ28tTnQ==
+	bh=Pc0ojdFZzlnG3jrdmVTzOVzlBAOKTUij29AsDO7jazM=;
+	b=yldzxNEQiPP/Ub7aUcAztQz4nFzEcpPk0JHh42N2FfXsSkriif4qgqPcpPKRdKE6Fu8B
+	 pPzH6hg8c8FZJ2XVjnwNVRlNq1Np4Z+y/tApKiL3fMGLoONjL8EB16YvCcYZEAhzoDHrO
+	 6UndJL94aFObAUxsxl4+IKPkOaUO/FMe1P0novu+U7zkE5MJsGuvqi7Hx792++VLLsum5
+	 Jl+GuXAElln9BLiplAg57VJF7K38ft8QOs8DLakWYgWaNqR6zfoEA9sCHDaUbKAJfW0UD
+	 1NBJboS1W7NrBgG8dL9S8otjy5tbhP+U91ENyjS2a3LczUjIRDKo38EYmpuLF25Whhg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=microchip.com;
 	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=i3JlD3d6;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=SjNvkuYc;
 	arc=none smtp.remote-ip=68.232.154.123
 Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2793D606B436;
-	Mon, 23 Nov 2026 14:54:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2793D606B436
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23891606A691
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:55:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23891606A691
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=i3JlD3d6
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=SjNvkuYc
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795445685; x=1826981685;
+  t=1795445721; x=1826981721;
   h=from:date:subject:mime-version:content-transfer-encoding:
    message-id:to:cc;
-  bh=BwIwJT8osuJvaJRaDW0YhIQ8yt7vHP664rCa55wPAJw=;
-  b=i3JlD3d6S7+9usTAgLrjIVH2Bn5dyWHPEKch+VKtwtc/nuz9FyEEf6pZ
-   7BNXeeS+cw7Npdmj/eMBFS6MRqcugZk78d4X/G70AoI0BcyWyM8JqhiSs
-   Z9lH1CxdfNwsPsU0Hl19KBf22oaX97YoCvpzj/cBjL2erwU/m0FG+NNDr
-   lc2yNkTv17gr5FogaZjUn84UA/4Q+bbNIZ2QXd7K7VV0hmi7XvBzJC71h
-   LUV+YMbUrUbsUy29eK2q/3r92QO77Eau5zbDbwGfjQ6sIiIFb7LZKCtsQ
-   YkjpeJr4+IgtVTS0zCDOURV9Qq//0ALdCkPj9vFOXcaTsCUVpi7lQy0lz
+  bh=cjk51Qv5NMuDXe5avYRemMt+9GS69CVYjYKcxrWGVVo=;
+  b=SjNvkuYcc+fB3v1v2bIGrikv8jtnmv/uA7BmFgVOWszfZs+ez6t7TKhO
+   mXA0V4KfPH7ke1hXYXJk17ymEe1kULLsGByjplvrvgU28+TUUXF/7QvNL
+   D/zfoIf1yz+1jlyn0D7zYrA/+8gaY7jV1mZrfbf9BOwxAQSfKQr0EyIji
+   CjaYqU77eK+Y8RIfI1/LMpCHq49a5yh8tJUdbIBNA4tXXtmQegQOB2j+2
+   VMuZYYhd1LNmgyXK7La3MEgFoHBbkE7EcO4Tjm/aS6+VJWoNnsvjv2SmT
+   JkA8g62ONej0N2X38Tlob7ydwsz3TRi12VALNKkT4+Wrn272aU5/icNKs
    Q==;
-X-CSE-ConnectionGUID: ccBHRNLNSoiNMgtx35Fx/w==
-X-CSE-MsgGUID: y04x1CvDS4etSRviHy7STA==
+X-CSE-ConnectionGUID: 2czfgEj2TimuzdtdpbWqXQ==
+X-CSE-MsgGUID: Lwuha7/dQMOrZsaV6NzSRQ==
 X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="65954576"
+   d="scan'208";a="233973959"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa4.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 07:54:44 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 07:55:20 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
  chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 07:54:43 -0700
+ 15.1.2507.58; Mon, 23 Nov 2026 07:55:11 -0700
 Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 23 Nov 2026 07:54:40 -0700
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Mon, 23 Nov 2026 07:55:10 -0700
 From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 23 Nov 2026 15:54:36 +0100
-Subject: [PATCH net] net: lan966x: return an error for XDP frames that are
- not queued
+Date: Mon, 23 Nov 2026 15:55:04 +0100
+Subject: [PATCH net-next] net: microchip: vcap: initialize the top address
+ of every VCAP
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,72 +76,67 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20261123-lan966x-xdp-xmit-errors-v1-1-f25b6661167d@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAKtTBGsC/x3MQQqEMBAF0atIr21IIkScqwwuHPPVBo3SkSEg3
- t3g8i2qLkpQQaJPdZHiL0n2WGDrisZliDNYQjE547y1ruF1iJ33mXM4OG9yMlR3TYzQmh+msTU
- BVOpDMUl+z1+KOKm/7we62SqnbgAAAA==
-X-Change-ID: 20261123-lan966x-xdp-xmit-errors-ed70befc70de
+Message-ID: <20261123-microchip-vcap-top-address-v1-1-fd1953fad422@microchip.com>
+X-B4-Tracking: v=1; b=H4sIAMdTBGsC/x3MQQrDIBAF0KuEWXcgagmhVyldiP42s6jKjIRAy
+ N0rXb7NO8mgAqPHdJJiF5NaBtxtorTF8gFLHiY/+8U5H/grSWvapPGeYuNeG8ecFWa83jEHv6Q
+ VIdMImuItxz9/UkHngqPT67p+kD6NhXYAAAA=
+X-Change-ID: 20261123-microchip-vcap-top-address-84e0326c8e3d
 To: Horatiu Vultur <horatiu.vultur@microchip.com>,
 	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
  S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Alexei
- Starovoitov" <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
-	"Jesper Dangaard Brouer" <hawk@kernel.org>, John Fastabend
-	<john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>
-CC: <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
+ Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Steen Hegelund
+	<Steen.Hegelund@microchip.com>
+CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
 X-Mailer: b4 0.14.3
 
-lan966x_xdp_xmit() counts a frame as transmitted when
-lan966x_fdma_xmit_xdpf() returns 0, and its caller only returns the
-frames that were not counted.
+The sparx5 and lan966x block init helpers initialize the address range
+of each VCAP instance, from first_valid_addr to last_valid_addr, with
+the VCAP initialize command. They pass the range as a count of
+last_valid_addr - first_valid_addr addresses.
 
-Before this patch, lan966x_fdma_xmit_xdpf() returns NETDEV_TX_OK, which
-is 0, when an xdp_frame has less headroom than the IFH or when its DMA
-mapping fails, without queueing the frame. The frame is then counted as
-transmitted and never freed. An xdp_frame can have less headroom than
-the IFH when an XDP program grows the head of a frame with
-bpf_xdp_adjust_head() before redirecting it to a lan966x port.
+The range is inclusive at both ends and holds one more address than
+that, so the top address is never initialized. It keeps whatever the
+TCAM held after reset, where it can match traffic until a rule is placed
+there.
 
-Return -EINVAL and -ENOMEM in these cases, so that lan966x_xdp_xmit()
-stops and the frames that were not queued are returned to the caller.
+Pass the full count to initialize the whole range.
 
-Found by an AI code review agent. Reproduced on a lan9668 board with an
-XDP program that grows the head of each frame and redirects it to
-another lan966x port. With the fix the frames are returned to the
-caller.
-
-Fixes: a825b611c7c1 ("net: lan966x: Add support for XDP_REDIRECT")
 Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
 ---
- drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/microchip/lan966x/lan966x_vcap_impl.c | 2 +-
+ drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-index 1fbe910c5ec38..f1b6638d5668d 100644
---- a/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-+++ b/drivers/net/ethernet/microchip/lan966x/lan966x_fdma.c
-@@ -636,7 +636,7 @@ int lan966x_fdma_xmit_xdpf(struct lan966x_port *port, void *ptr, u32 len)
- 		xdpf = ptr;
+diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_vcap_impl.c b/drivers/net/ethernet/microchip/lan966x/lan966x_vcap_impl.c
+index eb28df80b2818..c0bd831a32a88 100644
+--- a/drivers/net/ethernet/microchip/lan966x/lan966x_vcap_impl.c
++++ b/drivers/net/ethernet/microchip/lan966x/lan966x_vcap_impl.c
+@@ -659,7 +659,7 @@ static void lan966x_vcap_block_init(struct lan966x *lan966x,
  
- 		if (xdpf->headroom < IFH_LEN_BYTES) {
--			ret = NETDEV_TX_OK;
-+			ret = -EINVAL;
- 			goto out;
- 		}
+ 	__lan966x_vcap_range_init(lan966x, admin, admin->first_valid_addr,
+ 				  admin->last_valid_addr -
+-					admin->first_valid_addr);
++					admin->first_valid_addr + 1);
+ }
  
-@@ -650,7 +650,7 @@ int lan966x_fdma_xmit_xdpf(struct lan966x_port *port, void *ptr, u32 len)
- 					  xdpf->len + IFH_LEN_BYTES,
- 					  DMA_TO_DEVICE);
- 		if (dma_mapping_error(lan966x->dma_dev, dma_addr)) {
--			ret = NETDEV_TX_OK;
-+			ret = -ENOMEM;
- 			goto out;
- 		}
+ static void lan966x_vcap_port_key_deselection(struct lan966x *lan966x,
+diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+index 2dee2ce19fce7..b2e76bec8edba 100644
+--- a/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
++++ b/drivers/net/ethernet/microchip/sparx5/sparx5_vcap_impl.c
+@@ -250,7 +250,7 @@ static void sparx5_vcap_block_init(struct sparx5 *sparx5,
+ {
+ 	_sparx5_vcap_range_init(sparx5, admin, admin->first_valid_addr,
+ 				admin->last_valid_addr -
+-					admin->first_valid_addr);
++					admin->first_valid_addr + 1);
+ }
  
+ /* Get the keyset name from the sparx5 VCAP model */
 
 ---
-base-commit: af6737b9066832a2017c281159950ba92385ce00
-change-id: 20261123-lan966x-xdp-xmit-errors-ed70befc70de
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+change-id: 20261123-microchip-vcap-top-address-84e0326c8e3d
 
 Best regards,
 -- 
