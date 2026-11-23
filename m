@@ -1,70 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.9
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425723;
-	b=i2T/rr5L9LU2WiUfsp0PW4jlHR7PcPgFi2EEXw+sSwJDkYNeY9YCGh8b+ARySV5Y4LEs
-	 ILzYrqmM0GSLdGgjS1sO593Wc6xIbKJOZPVu4Iphi0TLqBFgjqaygiGb0iRdr2hkkesSk
-	 F5nEP27+AkmWA9Kf9LaXA1llNuvjoug4eMGkyq3lZUWgT+VsqKTKlQxSmJdSlYBP7ffQQ
-	 aQMkt05ca3+jdLnT7JZQYBMFcD1eSbkE+5sDwW7HY0NvdCB4dlppTlemWDZz6jWwbKxsx
-	 m5dMp/MyFPAZmqjjjqHCE30YKjrtmN0u0/MuqMTMEn15qf+SVli8L8kJLcagzgsqkTQ==
+	t=1795425813;
+	b=SSVnY6W2H6pGIMRS++D53MfoMIze4ZEeBLq6NTxe7df84vtCzOh9tqGWM91ATsbHnJPM
+	 0SXKk3CMnYmm2uTFqUvwhXuQiAb1TcLGKG43mBk7X2klzNZyZBAb+5nyRszXpkxeGxF4J
+	 qcz/JsxaIOGkeACWMAlIB3GJXfNU2HgboLkHQNE081H4BWheLX4Pa511AF3f+DJRhadov
+	 fyDJdmZm/nF0btk7k2eMv+7WVuRKbf9O/MbvqK45P6ctzl42g297VSbklOFP3RChwI82U
+	 fL4sOT91Xo6QvHQEbk2DPj/mvrJMi1Ogxy9UdQQ16IWBsTKhR7xlUYwRewViHnc/OhQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425723;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=eIbFUnpQzf9CL+kQRcEu/bBGQBOvyQr5xT5bgYpH8ro=;
-	b=DO6TM29oWYdicw3LOWqbHw3G/7Pm0fCYfMq0lA53HXIYBPwBW2jt1Km5WuVHcLy1Nl7V
-	 ZMTDqAeDdXN0vdVY+vwEwStIHZp8KmrJXzCEA8/RvncIGTXYIgsjzyanAim9ipuqqVxkp
-	 r/4Kbj9uGcmfy9iXG+qh66CWZC7ZWcejSAq0khtlSy/rRTdVVgpEeLJb7zOBQfF7tekwj
-	 G2L8yzZUrBrs45xt6S0BaGt/23x4lhunKu2sjJxiv9fG4jRgEj+S7yGYlrDYVH+k2eZzf
-	 h1MbKyUTNuju/3zuTgffa12dcWSvw0j83inPZrG0W82kL7t14sJE06JJvl7S6dc1Urg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425813;
+	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
+	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
+	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=DCCWNT2UZnY2HAu6a7Bi9Tv7MO6Gz0H6Q0FmsketR2s=;
+	b=er/D6DdvxQsFi9n89pQl7TGAQk3BxuDcv8tSK+2KefqRpzXJ927+9uiEDs8YvYu2jGH+
+	 HwoXta22CW++aU30q1m/Frpq7BLhssFS1hhi/tFWpYr9XCBg4TSt7v26tDzGLBu8mmFRT
+	 a7LHhO8VaAu7Kjhu1npdjcpvsO89U9OOGg9YYNvG/ZVGYKZcrKl/rZLtA69Ju8NLWj786
+	 1DmvpWbRHP74aZLct1ZsG0XJcVZ+L4zhG/Zo2AQkrAd7T3djaSAeBawkQnDi+S/LoM1qC
+	 uCi44wEylp39fwJOlSBfYTCksvPloVIohEUmcs8qtveGwjP9OfgKw0nlJxmmJldx6Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=leeu3TLY;
-	arc=none smtp.remote-ip=220.197.31.9
-Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.9])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="h/w5HXnz";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3B83606A31F;
-	Mon, 23 Nov 2026 09:21:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3B83606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38E65606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:23:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=leeu3TLY
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=eI
-	bFUnpQzf9CL+kQRcEu/bBGQBOvyQr5xT5bgYpH8ro=; b=leeu3TLY9zSwD5MLER
-	FnyTVmvJmE0OHOHwK/FePtPVKQPzZBx7zW+6UNu61uC5euhBbBiQcYfPN9Jj1ldA
-	/mkRildSOTbjQgqYp2U8ymtO+zp7THEC7W4pwJmwj4Q7hKd5ec+W56DKgKO11tnS
-	7KvVwjLaucfOOnBbtJ2EVfeGA=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PykvCgCHrzx4BQRrXxDDDw--.13815S2;
-	Mon, 23 Nov 2026 17:20:56 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	rosenp@gmail.com,
-	jacob.e.keller@intel.com,
-	daniel.machon@microchip.com,
-	chunkeey@gmail.com,
-	kees+treewide@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	xiaolinkui@kylinos.cn,
-	Linkui Xiao <xiaolinkui@126.com>
-Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
-Date: Mon, 23 Nov 2026 17:20:53 +0800
-Message-Id: <20261123092053.743714-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <179483706662.3136.12689489417547730312@kernel.org>
-References: <20261112075321.3903875-1-xiaolinkui@126.com> <179483706662.3136.12689489417547730312@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h/w5HXnz
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F5911F000D1
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795425812;
+	bh=DCCWNT2UZnY2HAu6a7Bi9Tv7MO6Gz0H6Q0FmsketR2s=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc;
+	b=h/w5HXnz/L6KL2RuFzRWf47Z+bKXDqoIiOpQkAdLwoEZCRqQP01VaDx5P0+Bo8OeI
+	 s5KkC1t+dg3BPAObJyuseCBsozgp1/cX+BL95WxcAgi3mc37ts2FhL1+KQmNFuR1nY
+	 8mMO0xc8Pavq3kqk6slr3P+cwnkXhtxI9aRsk+S5r/IDZX365dwwFaWJGxY6ziMkn/
+	 tU9+cxFkD8mBc+MlSNHIzDnK2conIJ3OuDwuPN2M6Po4YXCLePePU2NCPIiL6INM3p
+	 HyQ+YJG3fY7DfC192/3AriXkiZ+EXNbIkrKSu930TzN17t4aLHclpDbNC0OVfOP1lS
+	 pmweXl3/Hg9eA==
+Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-71ac9e15640so1945770eaf.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:23:32 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErE3b4TLnV0KFwIcKUzz1qvsxL/RbX8vDdMDaA02GPNEmGgxroxsDg2ciuSrDHxG32uUUovB1cQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FLEAVDiNuxDhWs3yLqLwyVYOoOTRRi9G1AuY72nngcKyTuGhD
+	t/IK7rm23qoGcCk8bA1fcF+CfHHD4aSQgJyD07itLFZ+TpxRUX0RjbKEH5t71iSyK7qpmOGpr9I
+	2BLo7b3YjZzkZUKB8L6w46KjlFxHtHEw=
+X-Received: by 2002:a05:6820:c305:b0:71b:2e57:16ee with SMTP id
+ 006d021491bc7-71b3953591fmr6771040eaf.64.1795425811745; Mon, 23 Nov 2026
+ 01:23:31 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,70 +59,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PykvCgCHrzx4BQRrXxDDDw--.13815S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJw1ftFy3XF4kGFW7Kw4kJFb_yoW5WFy3pa
-	9aqFykAryDGFWS9F4DuFy5GryrCr4xJa4jyFyFgr4a93Z8GryfAFWrKa4UtFyYyas7Ja4j
-	vF18Gas3AFWDJaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUwmiiUUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRg7EmsEBXhEVgAA3Y
+References: <20261118224758.1617869-1-edumazet@kernel.org> <20261120175424.0c0403d5@kernel.org>
+In-Reply-To: <20261120175424.0c0403d5@kernel.org>
+From: Eric Dumazet <edumazet@kernel.org>
+Date: Mon, 23 Nov 2026 10:23:20 +0100
+X-Gmail-Original-Message-ID: <CAL4WiiqYqOmApJo13sKEZY4E8-OyjsLh_CS3JRpzPKS7-eNUAg@mail.gmail.com>
+X-Gm-Features: Aa3M54pNLxYlcZ-nMKdQNjURrW487nA3quqsTOpxNMtpbtE4Bv6FbP7tFMV_4E8
+Message-ID: <CAL4WiiqYqOmApJo13sKEZY4E8-OyjsLh_CS3JRpzPKS7-eNUAg@mail.gmail.com>
+Subject: Re: [PATCH net-next] tls: wait for a single RCU grace period in tls_device_down()
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: "David S . Miller" <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for the review. All three issues are legitimate; v2 is a two patch
-series posted as a new thread, [PATCH net v2 0/2].
+Le sam. 21 nov. 2026 =C3=A0 02:54, Jakub Kicinski <kuba@kernel.org> a =C3=
+=A9crit :
+>
+> On Wed, 18 Nov 2026 23:47:58 +0100 Eric Dumazet wrote:
+> > tls_device_down() calls synchronize_net() for each offloaded context
+> > bound to the device going down. As this runs from the NETDEV_DOWN
+> > notifier, a device with N offloaded sockets waits for N RCU grace
+> > periods while RTNL is held.
+>
+> Looks like this needs a respin, conflicts with a fix that came in via
+> net.
 
-- [High] The fixed-link PHY is attached but never detached.
-
-Fixed in 1/2. emac_remove() and err_detach_tah in emac_probe() now call
-phy_disconnect() and of_phy_deregister_fixed_link(), so the stale
-attached_dev, the NUM_FP slot, the of_node reference and the module
-references are all released. emac_remove() already unregisters the netdev
-before this point, and phy_detach_internal() explicitly allows detaching
-without RTNL once dev is unregistered, so the suspend use-after-free on
-the stale attached_dev is gone.
-
-The rebind analysis is correct: without the disconnect the second
-of_phy_find_device() returns the still-attached PHY and phy_attach_direct()
-fails with -EBUSY. Adding phy_disconnect() also stops the PHY, which the
-phy-handle path never did - emac_mdio_init_phy() calls phy_start() and
-nothing calls phy_stop().
-
-You are also right that "the rest of the driver already treats
-dev->phy.address < 0 as no PHY to poll, so nothing else changes" was too
-strong, since the attach state does change. That claim is gone from the v2
-commit message.
-
-- [Medium] of_phy_connect() failure leaves the fixed PHY registered.
-
-Fixed in 1/2: the failure branch calls of_phy_deregister_fixed_link(np)
-before returning. The teardown paths guard the call with
-of_phy_is_fixed_link(), which is the pattern ravb, nixge, davinci_emac and
-cpsw use; of_phy_deregister_fixed_link() is also a no-op when no fixed PHY
-is registered, so reaching it twice is safe.
-
-- [Medium] emac_adjust_link() copies SPEED_UNKNOWN/DUPLEX_UNKNOWN.
-
-This one is worse than "the old code behaved the same way", so thank you
-for pushing on it. The regression comes from d99b408ed8e5 ("net: phy:
-fixed_phy: remove not needed initialization of phy_device members"), which
-stopped copying the device tree status into the phy_device on the
-assumption that the state machine fills those members in once the PHY is
-started. EMAC never starts it on the fixed-link path, so emac_configure()
-builds MR1 without EMAC_MR1_FDE and without EMAC_MR1_MF_1000 /
-EMAC_MR1_MF_100, and flow control is left off.
-
-Fixed in 2/2 with phy_read_status() after the attach, which is what
-emac_mdio_read_link() already does on the phy-handle path. The fixed PHY
-is bound to genphy, so genphy_read_status() resolves speed, duplex and
-pause from the BMSR/LPA/STAT1000/ESTATUS registers that swphy_read_reg()
-emulates out of the device tree status. phy_read_status() rather than
-phy_start() because a fixed link cannot change and there is no reason to
-run the state machine for it.
-
-Cross compiled for powerpc with W=1 out of ppc44x_defconfig, clean. No
-hardware here, so no runtime test.
-
-Regards,
-Linkui
+Sure, I am adding Jiayuan Chen tests in v2.
 
 pw-bot: cr
-
