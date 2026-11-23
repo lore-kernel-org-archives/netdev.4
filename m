@@ -1,95 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795396991;
-	b=ybwiiIvvn7M5g6h0Svc5w5ivHqrta/8bRYv2EoC0uFrOmAOZt9Rel4ujsJ/7x2IVLNPg
-	 TrtKLm8pI0RCKBiQxJ7qD1+TqzNtjnCKIYCN2WBPX3TZUoqFXOAmoNaStt430RRKB+13y
-	 K+x7a23L5GKrHTriIjJ1h8k/dASge+LUs+vDbq+SjRQxrlgPEw8PbXao+fymkYGzeoiek
-	 VDdXdLdIS7LMXlxrV3o9e6pUD/J0D1KvcHKOdcExaFg2RSLPahEQLf/H01nF/yIwwDHIo
-	 gCwu6X8wT19OMssjj2Sd2wcZZH2tb1UOagVZifAPqD5bDjdl6uArNQDIvv0F8cL4gQA==
+	t=1795397629;
+	b=XVPxtncXRWjdfjrQpzKLKG4kTTsXpS3bNbmHT66Py6HwYsQJOXoBKNG/3Xuq2Kc5WEZQ
+	 ZFXNh9uNc+FNFceehcfk/6aJH0a/65BOdkas8keqZVbPGoe2j/ExtfYl4OeL3K88GbXKv
+	 7o65rupeNmfJydpePGa3iPKLFUQP99GaXdVEN/COdkZ1Vq264m7q58e6yiIBJ2CH9cY1d
+	 d72KyZoJf1boq7j2u6oXdY1eo+aXOgvGbZiyXsB8MP2hJH4huWLzAAEUJwh14JdjT8QEJ
+	 fPrlSqu50QoY0H+lTk3coLdCH5rILE0WcC4PLGNooQ9crgxj5nCO5H6/t/EGoSIA05Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795396991;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=VrsRfKDaeRM/QRQs0v0E1mQH4y0dNu7zDHVPAnHGwRI=;
-	b=d8jfk7HG6omCbmw6KmdFlmhoX4vfo7M1wlvQp2kj8XXu/3kkjGO/8COb0Zb0Z9vgh4di
-	 C0jpAiAtIjiopQBpEAPf8uKpje8bgs/TXelCtup1m2Gl6GBdBj8rnBuCyMuEdL4L7OE9Q
-	 uIjYjDXAXwKvpmCXLCO9QZIzEWpwYYOPvvZzfOKfR16G38/gNye17pEoXIT6goBestzMu
-	 kTnK/ey3N0LzqHJZoYz2ylAWdVeuORh73RTAUtFipkPUKDeIVmJARvVY0XDubSx05RUcj
-	 fBcqN2EAUBgG9cEPdKprZMffE1KNOYbe7lpQA0icaN/+zlnQWkPM30NDcaNo6HLEZ8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795397629;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/X/XpNu+XU1r4t66dy+UWenVHX0JRM4YPorfQRX/rS8=;
+	b=iALnoNwIAkXkMaeDEzK0lRAsIXRunobse4X0tf6j10kLOnjnJWnH+k4t3XZUZo95hTDl
+	 R/1GCWUKLzunRycCeidN6xZ3YI2+5VAH4XSDX2xJTSN6dVaPcNUlNjw8ZCi1Ag8EuDpWd
+	 RVa+EXPGSlAc6NUzsa18V/IHATCfQ3lYJaVpDnyJMEoDwhGWvjwzAqC8IgO9twqSj1d3e
+	 zC/D+cgnF6OJt4qOaNNtCmmp75vVx6U0VlQ7mSXeAxAGFj82lU2Km7426Cr0HHIG5mXyE
+	 Obdlz7EQANGeh0fkyuMjrd5doyc5NFoHEXQTfaW54Np9m7me+0QlntWZE4FAH3h3YeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iH5E6dH0;
-	arc=none smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cPHfPjvB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C649606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:23:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C649606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 301D0606A31A;
+	Mon, 23 Nov 2026 01:33:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iH5E6dH0
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-5365f9a04c5so3507521cf.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:23:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795396990; x=1796001790; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VrsRfKDaeRM/QRQs0v0E1mQH4y0dNu7zDHVPAnHGwRI=;
-        b=iH5E6dH0H2wbHX6n6xgrGku9CMgEVlCrxy0LwyZx6wzSkf0MlcvGab5yb+9Z3Os2u3
-         lt2hGKmz23ZenWh7aeDRvrx4wLi8GbxH5HMJ9Ot9A/ebu2Y6IJGOkXcRtXD1FVbOdo7b
-         smJ0913ND9j6yl8HxFcTv9DCuKXquPv8OcfYnHhSWNq+564v8QEZ13BLXjVpLdZsxXsd
-         cq8l3Gbn8VPF/RYpO02nCiC8F/ZiBshJ/MCK1L5KkMaHMnDNP6ZCZh0SkgHG2FP69rWG
-         oXImx7CDTgMFNr9kTRGrHY5d03emRhMV2JL85dgxHeL+iuJwOUjC5n1Hnvp2pVY/m+bx
-         yX4w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795396990; x=1796001790;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=VrsRfKDaeRM/QRQs0v0E1mQH4y0dNu7zDHVPAnHGwRI=;
-        b=MHubBE0kHrk5wHje8FSWteQzrmMBqLf1H/STDgYVBGjwPALuv0YAJ1/IISkQWfnnHd
-         YDQKLaxFLagnEiJD/xYxi3QRy5xhYBNgNGriQFVxV9+G8g3iQsNWR77MkcdikMfalVtb
-         DY2Op6Xb1Kk6oNVWiQkhLmo+W2RvoTZzw8GoCliHEhnge/KiysKbNBC6ZIUtKMH+ZDzT
-         5Zv7PabiXXGPGg5Dns5hxZkzK+Bzx+U0JlZxQsOuqGxRjwBGjLRjP18pH4+PuCbnJS3K
-         1WEI7RPmNhGyzK4Dt3cpT7ujFtnT+NCFi66PcJ2jpH7nYO0TpzqL4FEgJmwChbQjojUw
-         aaZg==
-X-Gm-Message-State: APuU4Z9bQhnoFzkFLpQNZ7dFl79rGVuHhvdZw90mLPq/2qp56YkDUijE
-	a/gcX+F5sti+2PV12ZRcUYhkfg/JRCxEAWuGtBKPer8JScrmnKcX0CyCS7NXD1pp
-X-Gm-Gg: AZFdTZfDfPaz3ZOvZDA4qcBLo9607m+wCmXHd1NVTPfptp23vjRvjokflxRSZcHAil5
-	KyFvywX/KNAbh4FPuzAePsQvVoSuQSnnKWvuFtNitDs+2tydQIQii5NPNLY0XThvfuQtSMI/bIX
-	8Qsdg1i8Adffxrh+S0Y+e961SlZ1CWDsXFXg7hDsCCi8gFcFNMraIb0uWLFtd9l/cqDbwzEwzUk
-	eacU0OwUjUKFlMlUbjfG8Mo9lfCp7/4TLj9VjqURaIMclMMVFrsFleqRd63WxcJUhjkcwDdiTAd
-	uh6m7s0L2aor4Ov2hOQLAbJwRBypLq3HBM290c4OMS1yMmU9MSgJZfG9/nWzs10jQEWkmWUaRfs
-	n3T15Q7n2I2VJtgpZ4Ssc8ejQSAOEIMiqlS/emJvgLbTvPMgOOMfI2BJN+nu1lmDZWLaIJnApiU
-	MHolSsS4KxSKgsZyVc5obDjjF1hV1SkbIMZ2Lcu5sx8Qt6FbtTvB0FCyKNoVr3w4BoKnYUvSV4a
-	ijv1AhA/6J1jXA7D1njzJnFj7A7CkgqfYCNYefxlTqGOKR06nIORwkuhkTekYUTqgRxjVCKieVc
-	ABUqwqMjFs7P+GVj9XqXU9t3L0tXmg0Di8D9iD8mqeZRgoEuyDw9ZMRPSvxlK8pZQox32kW5FtM
-	BRtIBXnD9z8yHZbSlwUkhkt34T506g+toYeFwyxIwTXzZjDob4BAvn0kQMcxknXB+n7b0PGNq+F
-	WFDSYBHmNSpDs7vXXwlg==
-X-Received: by 2002:a05:622a:4e95:b0:536:141d:d427 with SMTP id d75a77b69052e-55d76ae8343mr164579311cf.73.1795396990227;
-        Sun, 22 Nov 2026 17:23:10 -0800 (PST)
-Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882e2c6sm86898611cf.12.2026.11.22.17.23.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 17:23:09 -0800 (PST)
-From: Xin Long <lucien.xin@gmail.com>
-To: network dev <netdev@vger.kernel.org>,
-	linux-sctp@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Subject: [PATCH net-next] sctp: copy endpoint settings to accepted and peeled-off sockets
-Date: Sun, 22 Nov 2026 20:23:09 -0500
-Message-ID: <48580ca6a02b588e9c24444801109506da11a9d2.1795396989.git.lucien.xin@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cPHfPjvB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E8961F000CA;
+	Mon, 23 Nov 2026 01:33:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795397628;
+	bh=/X/XpNu+XU1r4t66dy+UWenVHX0JRM4YPorfQRX/rS8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cPHfPjvBzRfvqtr0mQTN/wEv7wC+FV9msUfZyPluXpl3IADfXmEot7WrmTJj0R68d
+	 c5iu0R/hx7w1cdc0W0ThVQZR5rMgDfIR6YOZOX0CudXKz1i7IwU4FlMQvdSijM1SH2
+	 +WUKtranC5D+TT2HXlmL/WEUKAH+mtbSPwyy7A1FYxHk+ws6bUj0mg7taBVEavu4dO
+	 u3rcWL1kQN/u/5i0LuDD1dF70UEJ/e5b/sJ0VB5a8Hi2jC001CzqpOCKcp2PGj5mse
+	 FPNnEAWd25ldUd7t6K9T3bXTmvuGv5cvmZoWANmRZb3ccAm1NhqW43/0MPKNGSMl4o
+	 mI2b+NzjcnXKg==
+Subject: Re: [PATCH net-next v2 4/9] net: state the "XDP excludes HW-GRO" rule
+ in the core
+From: netdev-bot+sashiko@kernel.org
+To: kuba@kernel.org
+Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
+ michael.chan@broadcom.com, manishc@marvell.com, joshwash@google.com,
+ hramamurthy@google.com, tariqt@nvidia.com, saeedm@nvidia.com,
+ daniel@iogearbox.net, hawk@kernel.org, sdf@fomichev.me, willemb@google.com,
+ przemyslaw.kitszel@intel.com, bpf@vger.kernel.org, nktgrg@google.com
+Date: Mon, 23 Nov 2026 01:33:47 +0000
+Message-ID: <179539762712.3135.2625842431945223640@kernel.org>
+In-Reply-To: <20261122010112.1471146-5-kuba@kernel.org>
+References: <20261122010112.1471146-5-kuba@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,133 +66,221 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-As gomaja noticed, when accept() or SCTP_SOCKOPT_PEELOFF creates a new
-socket, sctp_endpoint_new() initialises the new endpoint from the network
-namespace sysctls and from the compiled-in AUTH defaults rather than from
-the listening socket's endpoint. If an association restart (RFC 9260
-section 5.2.2) arrives on the accepted or peeled-off socket, the restart
-INIT ACK is built from the new endpoint, so it negotiates capabilities
-based on the namespace sysctls instead of what the listening socket
-configured:
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
- - Feature flags (PR-SCTP, ECN, RECONF, ASCONF, I-DATA) in the restart INIT
-   ACK follow the namespace sysctls rather than what the listening socket
-   set via SCTP_*_SUPPORTED socket options.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
- - AUTH HMAC and chunk lists revert to the kernel defaults (SHA-1 only,
-   empty chunk list) instead of what SCTP_HMAC_IDENT and SCTP_AUTH_CHUNK
-   set on the listening socket.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Copy the feature flags and AUTH configuration from the old endpoint to the
-new one in sctp_sock_migrate(). Add sctp_auth_ep_copy() to deep-copy the
-HMAC list, chunk list, and shared keys from one endpoint to another. This
-ensures that association restarts on accepted and peeled-off sockets
-negotiate the same capabilities as the original handshake.
+- [Medium] In dev_xdp_attach() (net/core/dev.c), dev->xdp_pending is set
+  and dev_xdp_clear_rx_agg() runs before dev_xdp_install() validates the…
+- [Medium] dev_xdp_clear_rx_agg() turns the old warn-and-proceed
+  behaviour into a hard failure for every XDP attach mode, generic (SKB)…
+- [Low] The commit message describes concrete user-visible bugs that this
+  patch fixes, but there is no Fixes: tag.
 
-Signed-off-by: Xin Long <lucien.xin@gmail.com>
----
- include/net/sctp/auth.h |  2 ++
- net/sctp/auth.c         | 47 +++++++++++++++++++++++++++++++++++++++++
- net/sctp/socket.c       | 17 +++++++++++++++
- 3 files changed, 66 insertions(+)
+--
 
-diff --git a/include/net/sctp/auth.h b/include/net/sctp/auth.h
-index 85efa65d3912..2ef52507bf11 100644
---- a/include/net/sctp/auth.h
-+++ b/include/net/sctp/auth.h
-@@ -106,5 +106,7 @@ int sctp_auth_deact_key_id(struct sctp_endpoint *ep,
- 			   struct sctp_association *asoc, __u16 key_id);
- int sctp_auth_init(struct sctp_endpoint *ep, gfp_t gfp);
- void sctp_auth_free(struct sctp_endpoint *ep);
-+int sctp_auth_ep_copy(struct sctp_endpoint *dst,
-+		      const struct sctp_endpoint *src, gfp_t gfp);
- 
- #endif
-diff --git a/net/sctp/auth.c b/net/sctp/auth.c
-index cbeb8a87a17a..e075297b9ead 100644
---- a/net/sctp/auth.c
-+++ b/net/sctp/auth.c
-@@ -1056,3 +1056,50 @@ void sctp_auth_free(struct sctp_endpoint *ep)
- 	ep->auth_hmacs_list = NULL;
- 	ep->auth_chunk_list = NULL;
- }
-+
-+int sctp_auth_ep_copy(struct sctp_endpoint *dst,
-+		      const struct sctp_endpoint *src, gfp_t gfp)
-+{
-+	struct sctp_shared_key *sh_key, *new_key;
-+
-+	sctp_auth_free(dst);
-+	sctp_auth_destroy_keys(&dst->endpoint_shared_keys);
-+
-+	dst->auth_enable = src->auth_enable;
-+	dst->active_key_id = src->active_key_id;
-+
-+	if (src->auth_hmacs_list) {
-+		dst->auth_hmacs_list = kzalloc_flex(*dst->auth_hmacs_list,
-+						    hmac_ids,
-+						    SCTP_AUTH_NUM_HMACS, gfp);
-+		if (!dst->auth_hmacs_list)
-+			goto nomem;
-+		memcpy(dst->auth_hmacs_list, src->auth_hmacs_list,
-+		       ntohs(src->auth_hmacs_list->param_hdr.length));
-+	}
-+
-+	if (src->auth_chunk_list) {
-+		dst->auth_chunk_list = kzalloc(sizeof(*dst->auth_chunk_list) +
-+					       SCTP_NUM_CHUNK_TYPES, gfp);
-+		if (!dst->auth_chunk_list)
-+			goto nomem;
-+		memcpy(dst->auth_chunk_list, src->auth_chunk_list,
-+		       ntohs(src->auth_chunk_list->param_hdr.length));
-+	}
-+
-+	key_for_each(sh_key, &src->endpoint_shared_keys) {
-+		new_key = sctp_auth_shkey_create(sh_key->key_id, gfp);
-+		if (!new_key)
-+			goto nomem;
-+		new_key->key = sh_key->key;
-+		sctp_auth_key_hold(new_key->key);
-+		list_add_tail(&new_key->key_list, &dst->endpoint_shared_keys);
-+	}
-+
-+	return 0;
-+
-+nomem:
-+	sctp_auth_free(dst);
-+	sctp_auth_destroy_keys(&dst->endpoint_shared_keys);
-+	return -ENOMEM;
-+}
-diff --git a/net/sctp/socket.c b/net/sctp/socket.c
-index bc68af88e271..bfd87be8ed54 100644
---- a/net/sctp/socket.c
-+++ b/net/sctp/socket.c
-@@ -9623,6 +9623,23 @@ static int sctp_sock_migrate(struct sock *oldsk, struct sock *newsk,
- 	if (err)
- 		return err;
- 
-+	/* Copy the endpoint's feature flags and AUTH settings from the original
-+	 * endpoint so that restarts on the accepted or peeled-off socket
-+	 * negotiate the same capabilities.
-+	 */
-+	newep->prsctp_enable = oldsp->ep->prsctp_enable;
-+	newep->ecn_enable = oldsp->ep->ecn_enable;
-+	newep->reconf_enable = oldsp->ep->reconf_enable;
-+	newep->asconf_enable = oldsp->ep->asconf_enable;
-+	newep->intl_enable = oldsp->ep->intl_enable;
-+	newep->strreset_enable = oldsp->ep->strreset_enable;
-+	newep->sndbuf_policy = oldsp->ep->sndbuf_policy;
-+	newep->rcvbuf_policy = oldsp->ep->rcvbuf_policy;
-+
-+	err = sctp_auth_ep_copy(newep, oldsp->ep, GFP_KERNEL);
-+	if (err)
-+		return err;
-+
- 	sctp_auto_asconf_init(newsp);
- 
- 	/* Move any messages in the old socket's receive queue that are for the
+net: state the "XDP excludes HW-GRO" rule in the core
+
+This commit moves the rule that HW-GRO must be off while XDP is attached
+into __netdev_update_features(). A new xdp_pending bit makes
+dev_xdp_prog_count() report a program while one is being installed. The
+attach paths now try to clear HW-GRO first and refuse the attach if they
+can't, the detach paths refresh features, and dev_disable_gro_hw() is
+removed.
+
+> The device also lost the bit from wanted_features for good, so HW-GRO
+> never came back after detach - on mlx5 that took header-data split
+> with it, and with it devmem and io_uring zero-copy Rx.
+
+[Severity: Low]
+This isn't a bug, but the commit message describes user-visible problems
+that this patch fixes, and there is no Fixes: tag. The problems are:
+
+  - the WARN from generic_xdp_install()->dev_disable_gro_hw() on mlx5 with
+    tcp-data-split
+  - HW-GRO staying off after a generic XDP detach, because
+    dev_disable_gro_hw() cleared it from wanted_features
+  - idpf running RSC under XDP
+
+idpf_set_netdev_features() advertises GRO_HW with no XDP interlock:
+
+	if (idpf_is_cap_ena_all(adapter, IDPF_RSC_CAPS, IDPF_CAP_RSC))
+		other_offloads |= NETIF_F_GRO_HW;
+
+Should this have a Fixes: tag, or a note saying why it isn't meant for
+stable?
+
+> diff --git a/net/core/dev.c b/net/core/dev.c
+> index 4ca8a9f5a7a5c..5d38cdb6c3260 100644
+> --- a/net/core/dev.c
+> +++ b/net/core/dev.c
+
+[ ... ]
+
+> @@ -10617,6 +10599,32 @@ static void dev_xdp_set_prog(struct net_device *dev, enum bpf_xdp_mode mode,
+>  	dev->xdp_state[mode].prog = prog;
+>  }
+>  
+> +/* Try to clear HW-GRO before the driver reconfigures for XDP.
+> + * Driver may add features back in via ndo_fix_features(), due to feature
+> + * dependencies. In that case we can't run XDP at all.
+> + */
+> +static int dev_xdp_clear_rx_agg(struct net_device *dev,
+> +				struct netlink_ext_ack *extack)
+> +{
+> +	if (!(dev->features & NETIF_F_GRO_HW))
+> +		return 0;
+> +	if (!(dev->hw_features & NETIF_F_GRO_HW)) {
+> +		NL_SET_ERR_MSG(extack,
+> +			       "unable to disable HW-GRO, fixed on");
+> +		return -EOPNOTSUPP;
+> +	}
+
+[Severity: Medium]
+Is it intended that generic XDP attach now fails on devices where GRO_HW
+is fixed on? The old code warned and attached anyway. This check refuses
+the attach in every mode, generic (SKB) mode included.
+
+virtio_net is one such device. With VIRTIO_NET_F_GUEST_TSO4/6 negotiated
+and VIRTIO_NET_F_CTRL_GUEST_OFFLOADS missing, virtnet_probe() puts GRO_HW
+in features but never in hw_features:
+
+drivers/net/virtio_net.c:virtnet_probe() {
+    ...
+	if (virtio_has_feature(vdev, VIRTIO_NET_F_GUEST_TSO4) ||
+	    virtio_has_feature(vdev, VIRTIO_NET_F_GUEST_TSO6))
+		dev->features |= NETIF_F_GRO_HW;
+    ...
+	if (virtio_has_feature(vdev, VIRTIO_NET_F_CTRL_GUEST_OFFLOADS) &&
+	    (vi->guest_offloads_capable & GUEST_OFFLOAD_GRO_HW_MASK))
+		dev->hw_features |= NETIF_F_GRO_HW;
+    ...
+}
+
+virtnet_xdp_set() already refuses native XDP in this configuration, so
+xdpgeneric was the fallback. Before this patch,
+generic_xdp_install()->dev_disable_gro_hw() warned and the program was
+attached. Now dev_xdp_attach()->dev_xdp_clear_rx_agg() returns
+-EOPNOTSUPP, so xdpgeneric attach fails on these guests.
+
+The commit message covers the old splat and the "attached anyway" outcome.
+It doesn't say that such attaches are now refused, and it doesn't mention
+the fixed-on case. The later mlx5 patch in the series covers the -EBUSY
+refusal for tcp-data-split, but nothing in the series covers virtio_net or
+other fixed-on devices.
+
+Could the commit message describe this behavior change?
+
+> +
+> +	netdev_update_features(dev);
+
+[ ... ]
+
+> @@ -10880,19 +10905,36 @@ static int dev_xdp_attach(struct net_device *dev, struct netlink_ext_ack *extack
+>  			return -EOPNOTSUPP;
+>  		}
+>  
+> +		if (new_prog) {
+> +			dev->xdp_pending = 1;
+> +			err = dev_xdp_clear_rx_agg(dev, extack);
+> +			if (err)
+> +				goto err_clear_pending;
+> +		}
+> +
+>  		err = dev_xdp_install(dev, mode, bpf_op, extack, flags, new_prog);
+>  		if (err)
+> -			return err;
+> +			goto err_clear_pending;
+>  	}
+
+[ ... ]
+
+> +
+> +err_clear_pending:
+> +	dev->xdp_pending = 0;
+> +	netdev_update_features(dev);
+> +	return err;
+>  }
+
+[Severity: Medium]
+Should dev_xdp_clear_rx_agg() run only after dev_xdp_install() has
+validated the program?
+
+dev_xdp_clear_rx_agg() calls netdev_update_features(), which drops
+NETIF_F_GRO_HW and reconfigures the device through ndo_set_features().
+dev_xdp_install() can still reject the attach after that, for reasons
+unrelated to HW-GRO:
+
+net/core/dev.c:dev_xdp_install() {
+    ...
+		if (prog->expected_attach_type == BPF_XDP_DEVMAP) {
+			NL_SET_ERR_MSG(extack, "BPF_XDP_DEVMAP programs can not be attached to a device");
+			return -EINVAL;
+		}
+    ...
+		if (dev->cfg->hds_config == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&
+		    !prog->aux->xdp_has_frags) {
+    ...
+		if (dev_get_min_mp_channel_count(dev)) {
+    ...
+}
+
+The same applies to offloaded progs without HW_MODE, CPUMAP-typed progs,
+and dev-bound progs on the wrong device or in SKB mode.
+
+When that happens, err_clear_pending calls netdev_update_features() again
+to turn HW-GRO back on. Nothing checks whether that call succeeded.
+
+On bnxt, every TPA on/off transition in bnxt_set_features() sets re_init:
+
+drivers/net/ethernet/broadcom/bnxt/bnxt.c:bnxt_set_features() {
+    ...
+	if (changes & BNXT_FLAG_TPA) {
+		update_tpa = true;
+		if ((bp->flags & BNXT_FLAG_TPA) == 0 ||
+		    (flags & BNXT_FLAG_TPA) == 0 || ...)
+			re_init = true;
+	}
+    ...
+}
+
+So a misconfigured attach on bnxt would close and reopen the NIC twice
+before being refused. Examples are a DEVMAP-typed program, or any XDP
+program on a port with tcp-data-split or a memory provider bound.
+
+Each such attempt also sends two NETDEV_FEAT_CHANGE notifications. If the
+restoring ndo_set_features() fails, HW-GRO stays off with no XDP program
+attached.
+
+The extack also changes. On mlx5 with tcp-data-split enabled,
+mlx5e_fix_features() adds GRO_HW back:
+
+drivers/net/ethernet/mellanox/mlx5/core/en_main.c:mlx5e_fix_features() {
+    ...
+	if (cfg && cfg->hds_config == ETHTOOL_TCP_DATA_SPLIT_ENABLED &&
+	    !(features & NETIF_F_GRO_HW)) {
+		...
+		features |= NETIF_F_GRO_HW;
+	}
+    ...
+}
+
+A single-buffer program then gets "unable to disable HW-GRO, required by
+another feature" instead of the more specific "unable to install XDP to
+device using tcp-data-split".
+
+netif_xdp_propagate() runs its hds_config and memory provider checks
+before it sets xdp_pending and calls dev_xdp_clear_rx_agg(). Could
+dev_xdp_attach() use the same order, so the checks in dev_xdp_install()
+run before any features change?
+
 -- 
-2.47.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122010112.1471146-1-kuba%40kernel.org
