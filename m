@@ -1,58 +1,72 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446157;
-	b=fKXb0n9i4L2ENlLPxZDHvL182XZMx+Uw9gOsVfQKfZBJxuOwif+46P2aGCeE0+Y9zb0A
-	 jv3Npmh9ENZkjNo4B6SRiAL0KyFN6TiI1P0M0hef3G1+MDMcGBtUi/NIYkdei+gCsXgrd
-	 kkTEJamAqUXji44u9Hn2lxniHQGgTyvKkglFtaYy/LxdK9Y4JSYjdI1QSIOcmYzfAgFb6
-	 odA0SIMIf6j85Sa7+iCF4FAAabQJNl/1WhZ7sAt41O+E/ITeOek5hZAYcztp+7PemCxjU
-	 vFpvXAyDNWq1ug0inB+PbTcYUV0BlEVOIK4+rBzuILQAFYGezsEih5FoUOhLmkOcYKQ==
+	t=1795446517;
+	b=a1Yks04uL4F3Ke1yqbHhDu0245103Xua2/hLaNnEMCet3dOUK6HRnEOrsQcCluT1hzIh
+	 J9C6UdFlfZcce40qPEfrT74MYoR03x4UMZg4DtxbKdkH+a+XtvK9YoFYcWaMvQMGl30Ov
+	 7HcdCQq3cSIiElk0RYAmGlrnMd0qL0HAGG/XUnruS7fxIux91ck1iXC6qmclCXehUdGK+
+	 ki2aA6/nq8HEnd1URcQUwUa0VrAZ/srQ+labB3JcEu5r8OvUPQ79Glyz2lD8Zkanl4VAn
+	 HOvDRtCd8uds1Z04f0MtIWUamVBmK03Ldq36eFcIqG5uWH+WIsGw4FkDv/1leJAadcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446157;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446517;
 	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
 	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
 	 In-Reply-To;
-	bh=M8fAFgMA6Yg4YabTx+UAo89Z8CGbAn9HYyco+eim90Q=;
-	b=B1SlxapqwK9fa4hTjpqSvFm3hG/JqO1LhBI1gE5+ZEfKvNXeRMIZboiijoF4MH7z6eVM
-	 zAlrXo27tQOMceR+Xuzq+8FIAUQLLKrZgYdhvkJvC0JsfYVboBWP6DJJO9q10x5+9CgfT
-	 I5M6qZ2WayEO5oV/0rt+lQKdbtei8O15m4uP5p6laTT3Ytaqw98dD52OwhKy6HCpEjmqH
-	 EzzR/FEIomVkZl9sBUgAffBrIyjxwh5IZw4iRezUGT59pPGXDXmXNgFrUVAa6Z5OYZuBM
-	 FEfFF6LpAWDmlj4JlUJwhu0UnHc3B+3oEgdMXd/IfApO+Ou1m0DzRyi7lKfsugVwniQ==
+	bh=cjblWQP22DDkX8PQwyqUXo6ncqKIwHv586PCd1qQti4=;
+	b=LBIDzJypqQ4mrnZa3Oj6+5EIE05t3yy0aoPPaREHdxddheyz9UyvAktqevxwOcT9mzk4
+	 ebKyBMp0VJAaBau6ZIHU8D77xRPXWkURRwnSJcon+rpXjc+WqQFt2b2V4ojAV1ymDR9tx
+	 0XJmGUxgAvcvf2h3s2ub6H57MuAiuYHYysAqu+6jvIfqHW/yK/uLW2QYeEOWwyynMi+Tp
+	 MM4CXTf9a9NC7OphZJDTa8BJc1tn0Hma7dtzCS+s6z43OdpFiAxSiBlYYG642NvptBrz3
+	 GAnshAIKlp+gRnwZ30S0nxcXiKZdGy1l+F/4bRySrMaYeykKv2biCpAYnLzKTZfYoTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=lunn.ch;
 	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=MnJo6lMR;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ooMIwlxg;
 	arc=none smtp.remote-ip=156.67.10.101
 Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECD02606A321
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:02:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org ECD02606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDAB606A31A;
+	Mon, 23 Nov 2026 15:08:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DDAB606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=MnJo6lMR
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ooMIwlxg
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
 	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
 	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
 	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=M8fAFgMA6Yg4YabTx+UAo89Z8CGbAn9HYyco+eim90Q=; b=MnJo6lMR98aSCVPj8m+Gfa/M0e
-	iees1R/gIfFUlb6K0ym8SeKX6R6U/wSWXzUDsNpOhat1NLAgdhHa2x9G1g9wyV73Qy4AaFvKZv4z7
-	uKaRgKTsTpmgUljy5EgUTgi2Ru6UXX4P+4NmYgB8FY4OCfXjFKeuZ+jFqDGLj/9NH0Hk=;
+	bh=cjblWQP22DDkX8PQwyqUXo6ncqKIwHv586PCd1qQti4=; b=ooMIwlxgNI33rP63+Ad3nDuhiS
+	S+S+xP7FY8nMS6Hcz9h2CIDRnqiLbNwX+E1kpoG6nRApr1vLNGYfAgvNTmmXiyiBQSkdZ9mPQE3gU
+	/962kEe+CI852MVoo3PV30dPW/u97302eFEgw85NsSKZGlxkjNLOhmzpe/xv6xk6x6IU=;
 Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
 	(envelope-from <andrew@lunn.ch>)
-	id 1xVVYp-000oWR-Ek; Mon, 23 Nov 2026 16:02:27 +0100
-Date: Mon, 23 Nov 2026 16:02:27 +0100
+	id 1xVVeZ-000obW-B9; Mon, 23 Nov 2026 16:08:23 +0100
+Date: Mon, 23 Nov 2026 16:08:23 +0100
 From: Andrew Lunn <andrew@lunn.ch>
-To: b.lane130@outlook.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: octeon_mgmt: Add cleanup operations for
- octeon_mgmt_init_phy()
-Message-ID: <1cb2024c-45c8-4a40-830b-c4e29b414b00@lunn.ch>
-References: <BN8PR06MB61774294C2C7961C2D8A4923A4452@BN8PR06MB6177.namprd06.prod.outlook.com>
+To: Jisheng Zhang <jszhang@kernel.org>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 4/8] net: stmmac: Add glue layer for Synaptics SL2610 SoC
+Message-ID: <c86cfa4a-5738-4b8d-bed5-4dd075f7cbf8@lunn.ch>
+References: <20261116135442.4827-1-jszhang@kernel.org>
+ <20261116135442.4827-5-jszhang@kernel.org>
+ <4f1c4180-3a00-4b17-a27b-e61b307d3e5f@bootlin.com>
+ <awQ5raWYlMBpCqIl@xhacker>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,24 +78,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <BN8PR06MB61774294C2C7961C2D8A4923A4452@BN8PR06MB6177.namprd06.prod.outlook.com>
+In-Reply-To: <awQ5raWYlMBpCqIl@xhacker>
 
-On Mon, Nov 23, 2026 at 06:30:22PM +0800, b.lane130@outlook.com wrote:
-> From: Bruce Lane <b.lane130@outlook.com>
+> > > +#define CTL_PHY_INTF_SEL	GENMASK(4, 1)
+> > > +#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, 1)
+> > > +#define CTL_PHY_INTF_RMII	FIELD_PREP(CTL_PHY_INTF_SEL, 4)
+> > 
+> > Please use PHY_INTF_SEL_RGMII and PHY_INTF_SEL_RMII from "common.h"
 > 
-> The error path in octeon_mgmt_open() misses the cleanup
-> operations for octeon_mgmt_init_phy() if request_irq()
-> fails. Add an error label and the corresponding cleanup
-> functions.
-> 
-> Fixes: eeae05aa2169 ("netdev: octeon_mgmt: Add support for 1Gig ports.")
+> I read this as "use SYNA_PHY_INTF_SEL_RGMII and SYNA_PHY_INTF_SEL_RMII",
+> correct me if there's misunderstanding.
 
-Who does this bother?
+https://elixir.bootlin.com/linux/v7.3.1/source/drivers/net/ethernet/stmicro/stmmac/common.h#L316
 
-https://www.kernel.org/doc/html/latest/process/stable-kernel-rules.html
+#define PHY_INTF_SEL_RGMII	1
+#define PHY_INTF_SEL_SGMII	2
+#define PHY_INTF_SEL_TBI	3
+#define PHY_INTF_SEL_RMII	4
 
+Which is easier to understand?
 
-    Andrew
+#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, 1)
+or
+#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, PHY_INTF_SEL_RGMII)
 
----
-pw-bot: cr
+You should try to avoid magic numbers.
+
+	Andrew
