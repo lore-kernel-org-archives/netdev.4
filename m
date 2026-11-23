@@ -1,62 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422369;
-	b=ZNPC/mnJZYpFTYxiSt2V6mMn0KKBLkYLBTMeVkrYBPtuqShpxrHWE/KRgftwOADeNjWT
-	 00v9LuD21V9msSOkhN4dDymyfTUHVQRAw+RKTU7cBXVwmdYP8tYygksV+q3WI4aC5UfaA
-	 hgZFgQ1pGW5qUdV1dv8tgnsq1aLEcuZEQ6fK2x8O8T214G6Vc8Wf3zmKyMtB5VFhZP436
-	 Ay68I3leOmHnYxWqrWtY4rEW4B2L2Glo+SG13ViwXDLK6w1QP6lOxEH36WPzVOrz4NJ9M
-	 fmBzk6vC2qvscSYNOqitZuO7xX6ULUJ9vx959g+wmV4HEDcF/SPwgXWcudN9HwPMgqg==
+	t=1795422390;
+	b=aQLhbwe/KqMDA3sMtvWPr/ejnozkVwjSbBf3piVKED0c4VeXbKerwBsdifG0P/vbInMF
+	 lUAGPeoUoTeitnOHP5Z/Gju7zYInacNIYrY2ygRDogdYij040NiNYZfHNqXm0/Vh+jVbe
+	 EntOUO6x5lU3ezVpAI20fZfyakZK2WFhiNOt4c7WBVzJ6Uo/7SYQG7VRpisdbpkGe4qCk
+	 feNNC/MfET5eAtfKBrnRV9wrIAkBOJkaqVGLWO7l51EjjwrHvgdaWhVKltXei24u7vRA3
+	 aGelZDFkVW+U6jlh72JBGwBvSl2tQrhcX5fGDvoO0pLtCF1wITJfzy+ncR/LkGfyseQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422369;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
-	b=ADRVEGJUdiQ1KLOjKaz+GUxFvkezVZRz9NUZ4oO6O81GkwUTqxlo3/qhuQ/i6uV2do8t
-	 lJJH9qdmyxi9agx/mm8/UXrj4Be+eJ4DTXg+Ngbl179BtrtZPhV5rcv7BQuz7nGbYXLzq
-	 dgWpxuMIUcKmQ3VViUdOUjWXbXkAQPV3Cc/Gf+Fnt4ayoYvAGPZdtklv5xAHYjf8BYp8/
-	 OnkNPiwPk9QT641SvsxoGwyx5Mc+njrAskZ9PNNo2iPFB6q6KBRPiDV2gY9YF7kmWETDV
-	 w433GLgu4u7TQaRvLXPYQmRltBFv/kPtxOkEWRNBmYUXYEI60mdWo4N+cyou9EIn1sA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795422390;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
+	b=UuIB8y8FSUhZKBzdj5DKv7ijeWjCxlV1pyksmMr049PAO7IrpWgjeY3/TUEKlkN/xnNe
+	 YGaDBr4lVcTzKJj7Ju2l+4fHvHnmmPvPSlKIhDYrVkYLWSaYoHBFNeS/8Ce/SANwN2AXc
+	 vYxPfSJBRmqHvSw3JtcWagJL7UsXz588mJyKE/dhXTqzBj7kWDugpJ/eSdySgjR5reMvv
+	 TFbXS8+phhSAVIaE3Qbo1AQV1fCASc9p6qSKZCcz0tkCYSYV+wq6wuL+hwGHCRKzpJ15p
+	 X4pn1W/pgc52KF9JWK7yNKOPNHzkAkLdCOT2zjkkslBkYcWSPTo7PSny85gfmh7TGtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XmXsRc34;
+	arc=none smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E4B606A31A;
-	Mon, 23 Nov 2026 08:26:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AB2B606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:26:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0AB2B606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hG9R1cT4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BCE11F000C4;
-	Mon, 23 Nov 2026 08:26:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795422368;
-	bh=2ZXYzpMsSpVMbq5bALXeiDcyDHaH4rSnY+t2qNogl3c=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hG9R1cT4I778FIhn9+UnCNDcoR0RghBICzDHiYHixQahjyOswRk8B+/IIHceoKVmM
-	 /xEmFoR8oJvHBtjGToResk/kU1fR8t3juUbfgppPOQ6nW5GD8iuYb4yDzoifl6rYJ2
-	 uymziFFSfMMjkLVV1KUl+qCF7J2ZNfoVsfGezQHPjoblSSKWe6M5sodasfGgF9rJPP
-	 /IG0CdLeds+JE05IIzItpNLvLNMBplTnue/NwuCXYhEn4+F4Ene3jV/1VjfPUPkT6M
-	 9dwCHsG9RculA4+82o71pCuTDRcBzlFagnA5U3hYkT5oCYnez0mSU2N+hwNCqQB8wW
-	 sQap6TZqvNlWQ==
-Subject:
- Re: [PATCH] net: dsa: mt7530: disable the power rails on setup failure
-From: netdev-bot+sashiko@kernel.org
-To: wanghr2026@mail.zgclab.edu.cn
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 08:26:07 +0000
-Message-ID: <179542236717.3135.17350424891277003723@kernel.org>
-In-Reply-To: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
-References: <1795076103951-10-8fa23d94@mail.zgclab.edu.cn>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XmXsRc34
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8a06e79e152so1342031b3a.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:26:29 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795422389; x=1796027189; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
+        b=XmXsRc34f6Bc9KBidlioBOHmKWsw+Xk2ORPllNKtQKuczraQZvtgcDIOAWsb9rmLeE
+         lu0GGK34HkSZybONTHg9EJhyUbbNRDnz2BZIWVconcEUgmi3+hPUca6r1e+N9wElwhkf
+         k5Kw4YIaJyK/W+JK5NxJBiz0DY8Go0OVsuzeBgXL6zVh5CvNeFN9DG8r05B5BUne+xmf
+         lthZnzKlWaYezCoEFXl0siBMcgaLGk0AZ9TfnirLEsEijy42kfgHC93ip9jp734y3aOE
+         8KwL4AO7vbhaZUF8TZnI0Rp4plIRVnHuIZVWt6U82uki5+Nov9xTDA0tDRxxVK7fS5Mu
+         Thjw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795422389; x=1796027189;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7udVJwhYhiZkorajfCLaajaBwSVEsWpW464G07q84Aw=;
+        b=Ah57OVdOX4qdfmk2T1G7Lr9xAnVpRwepb9aFsaUayyj3Ys0XlUeSQ5Tsg+C7yP6nBP
+         7MBM0xZEJCW/+kvx8mRLl06RNajatyG90X/UwzQ7TsuQOG3XNjMmvmECWs5pDLwNQaZz
+         rxQajwd8FZ9oD6pyVVPlbm6qqyK/mPYNIXCxAUg9Q4hXwjMOXaYVFdmawAdPOadbLq6x
+         udOk3/xQC7cZoBCVTUMSL2yyrLbjFgqWzfht4yYQmPYgGwYE4M0N6dkSKTQIa2+xMA6S
+         Y8gCwAw1pJ5d1prYqtGVs2Zn38/NWmiWCk1lZFAKEsNvUTJPvbGcu28ZuWfw+F2uc5PM
+         jGeg==
+X-Forwarded-Encrypted: i=1; AL+hErHWG6b0yDBFhCeLN5Rt1aqLU/bOLUDZLqZYlt3s9lvIuYd/atkq29Psg5Q07YYCOiRjtq4hu+8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Bf3gKJJwNMroD2S9tb8lwq+9PEoYe8xYT/w+0LgDKH+xnS1wa
+	EdrBaYwJ2BkFAX2PXAOO/t1xaQX2aJHi7yG//B1qpkfvNS+sqTlvIukA
+X-Gm-Gg: AZFdTZcLv+rFewagP2vXB/mWbBx9hUA1EXDRiCbFpijZec+8zr8jnwK8e9hO+EE4eCQ
+	7eKRLiRBmah78WVvCz2rmHrZjx1pF+f2S+oh5S8k1UsK2bkbM+YDmbvnnrwIiVNZyNho3pEtOnc
+	R9L/GKoItBb8lX/mNOBVBX+QPqrGUIHVzAmGLTdTW1b6XGafS16fVTsLTRk5OFdPtjDCUcryJH9
+	toNzuOuKoh5dre26GAWuLyzz8evmJwLbardyYLaVW2edEE64DQuLkiFpYsHr+OimoudQMDUW/Yl
+	STZInz1LOt2hPhHlU/Z9lDLll2FqvGOHEUzqSducfWes/yLvuj9jUaOhKHJbCZfsjosVWnt2yQZ
+	StaD/fByk+pKlSvYwF4QSGpU6JRLERzZFmTxLItAsH9+jMnyaeTMmhHx+ncnWT/iG3ueYg26GC0
+	3BPT8R/f/cVW7PiaqFK/w+wwl9SwU5v6kyClvfLQVaA8f+x/Zh+td0aLWUy9/0iwbLCwnoYB65X
+	6G/AY/Kg+vORL4J7d/GN9cN5uWTZesmf244eJahayxwroPdj39jFzmYJ3zAeceDy1lWqtBelSIp
+	aipu6OP+A1l0kNmcmY9ufwdnr5p7fxXtbRAxHCmVUYOhpopiwMszUv1vgLrZEKvw0Ek=
+X-Received: by 2002:a05:6a00:2e15:b0:89f:ed3b:df97 with SMTP id d2e1a72fcca58-8c87d5169bdmr8978938b3a.51.1795422389280;
+        Mon, 23 Nov 2026 00:26:29 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f571sm4953714b3a.34.2026.11.23.00.26.26
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 00:26:28 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Xin Long <lucien.xin@gmail.com>,
+	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Neil Horman <nhorman@tuxdriver.com>,
+	linux-sctp@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] sctp: pick the AUTH key by the data chunk type that is sent
+Date: Mon, 23 Nov 2026 17:26:25 +0900
+Message-ID: <179542222978.3276016.1235014191109840927@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,201 +102,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+sctp_datamsg_from_user() takes the chunk key only when the peer asked
+to authenticate DATA, but with stream interleaving the message is sent
+as I-DATA chunks, and _sctp_make_chunk() marks those for AUTH when the
+peer asked for I-DATA. If the peer lists I-DATA but not DATA, the chunk
+has auth set and no key, and bundling the AUTH chunk dereferences it:
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 2
+  KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
+  RIP: 0010:sctp_packet_append_chunk (net/sctp/output.c:264)
+  Call Trace:
+   <TASK>
+   sctp_packet_transmit_chunk (net/sctp/output.c:189)
+   sctp_outq_flush (net/sctp/outqueue.c:1112 net/sctp/outqueue.c:1218)
+   sctp_do_sm (net/sctp/sm_sideeffect.c:1826)
+   sctp_primitive_SEND (net/sctp/primitive.c:163)
+   sctp_sendmsg_to_asoc (net/sctp/socket.c:1919)
+   sctp_sendmsg (net/sctp/socket.c:2086)
+   __sys_sendto (net/socket.c:2283)
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+In the opposite case, DATA listed and I-DATA not, the chunks carry a
+key but no AUTH, and room for an AUTH chunk is reserved for nothing.
 
-- [High] The fix is incomplete.
-- [Medium] The new error-path disable in mt7530_setup() can be followed
-  by a second disable of the same rails, because mt7530_remove()…
-- [Low] In mt7530_setup(), suppose mt7530_setup_gpio() has registered the
-  GPIO chip with devm_gpiochip_add_data() and the later…
-- [Low] Speculative.
+Ask about the chunk type that will actually be built.
 
---
+Fixes: 0c3f6f655487 ("sctp: implement make_datafrag for sctp_stream_interleave")
+Reported-by: Sashiko AI review <netdev-bot+sashiko@kernel.org>
+Closes: https://lore.kernel.org/netdev/179540440300.3135.8565987128928534228@kernel.org/
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+The Sashiko review of our earlier SCTP report pointed this out. We
+reproduced it with a test that enables AUTH and interleaving on both
+ends of a loopback association and has the listener ask for AUTH on
+I-DATA only: the first send() oopses. The test also works as an
+unprivileged user in its own user and network namespace, where
+net.sctp.auth_enable and net.sctp.intl_enable can be set.
 
-net: dsa: mt7530: disable the power rails on setup failure
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, the test runs clean.
 
-This commit changes the early returns in mt7530_setup() that come after
-the core and io regulator enables. They now jump to new unwind labels,
-which disable io_pwr and core_pwr when priv->id == ID_MT7530. The goal is
-to stop the switch rails from staying enabled after a failed probe.
+ net/sctp/chunk.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index d5a199293f78a..769f733f80d2a 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-
-[ ... ]
-
-> @@ -2579,16 +2581,25 @@ mt7530_setup(struct dsa_switch *ds)
->  	if (of_property_read_bool(priv->dev->of_node, "gpio-controller")) {
->  		ret = mt7530_setup_gpio(priv);
->  		if (ret)
-> -			return ret;
-> +			goto err_disable_pwrs;
->  	}
->  #endif /* CONFIG_GPIOLIB */
->  
->  	/* Flush the FDB table */
->  	ret = mt7530_fdb_cmd(priv, MT7530_FDB_FLUSH, NULL);
->  	if (ret < 0)
-> -		return ret;
-> +		goto err_disable_pwrs;
-
-[Severity: Low]
-Suppose mt7530_setup_gpio() has already registered the gpiochip with
-devm_gpiochip_add_data() and the FDB flush then fails. This goto turns
-off io_pwr and core_pwr while the gpiochip is still registered.
-
-The gpiochip is only removed when devres on priv->dev is released. In a
-single-switch tree that happens at the end of the failed probe. If another
-switch's probe drove the tree setup and the MT7530 stays bound, it does
-not happen at all.
-
-During that window, could mt7530_gpio_get(), mt7530_gpio_set() and
-mt7530_gpio_direction_*() do regmap accesses over MDIO to a switch whose
-supplies are off? Should the gpiochip be removed before the hardware
-loses power?
-
->  
->  	return 0;
-> +
-> +err_disable_pwrs:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->io_pwr);
-> +err_disable_core_pwr:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->core_pwr);
-> +
-> +	return ret;
->  }
-
-[Severity: High]
-Does this fully cover the leak described in the commit message? These
-labels only handle failures inside mt7530_setup(). The rails can still be
-left enabled when something fails after mt7530_setup() has returned 0.
-
-mt753x_setup() calls priv->info->sw_setup(), which is mt7530_setup() for
-ID_MT7530, and then does this:
-
-drivers/net/dsa/mt7530.c:mt753x_setup() {
-    ...
-	ret = mt7530_setup_irq(priv);
-	if (ret)
-		return ret;
-
-	ret = mt7530_setup_mdio(priv);
-	if (ret)
-		return ret;
-    ...
-}
-
-mt7530_setup_irq() can fail with -EPROBE_DEFER from of_irq_get() when the
-interrupt parent hasn't probed yet. Neither of these returns disables
-core_pwr or io_pwr.
-
-Something similar happens in dsa_switch_setup() and dsa_tree_setup().
-Failures after ds->ops->setup() succeeds (tag protocol setup, user MDIO
-bus, ports, conduit, lags) only unwind through ds->ops->teardown, which is
-mt753x_teardown():
-
-static void
-mt753x_teardown(struct dsa_switch *ds)
-{
-	struct mt7530_priv *priv = ds->priv;
-
-	if (priv->bus)
-		cancel_delayed_work_sync(&priv->stats_work);
-}
-
-In all of these cases dsa_register_switch() fails, so mt7530_probe() fails
-and mt7530_remove() never runs. When devres later calls regulator_put(),
-the regulator core would hit WARN_ON(regulator->enable_count). On
--EPROBE_DEFER, every re-probe enables the rails again:
-
-mt7530_probe()
-  dsa_register_switch()
-    dsa_tree_setup()
-      dsa_switch_setup()
-        mt753x_setup()
-          mt7530_setup()       <- rails enabled, returns 0
-          mt7530_setup_irq()   <- -EPROBE_DEFER, rails left enabled
-
-Would it be better to tie the regulator lifetime to the whole
-setup/teardown pair instead of using local labels in mt7530_setup()? One
-option is to disable the rails in mt753x_teardown() and on the
-mt753x_setup() error paths, and change mt7530_remove() to match. Another
-is to use devm-managed enables.
-
-[Severity: Medium]
-Can these new disables lead to unbalanced regulator disables later in
-mt7530_remove()?
-
-mt7530_remove() in drivers/net/dsa/mt7530-mdio.c disables both rails
-whenever priv->id == ID_MT7530. It does not know whether setup succeeded:
-
-drivers/net/dsa/mt7530-mdio.c:mt7530_remove() {
-    ...
-	if (priv->id == ID_MT7530) {
-		ret = regulator_disable(priv->core_pwr);
-		...
-		ret = regulator_disable(priv->io_pwr);
-    ...
-}
-
-The driver supports port 5 as a DSA link (see the
-dsa_is_dsa_port(priv->ds, 5) check in mt7530_setup_port5()). In a
-multi-switch tree, dsa_tree_setup() returns 0 while the tree is
-incomplete:
-
-	complete = dsa_tree_setup_routing_table(dst);
-	if (!complete)
-		return 0;
-
-So mt7530_probe() can succeed, and mt7530_setup() then runs later from
-another switch's dsa_register_switch(). Suppose it fails there after the
-rails are enabled. These labels bring the enable counts back to 0, and the
-error goes to the other switch's probe. The MT7530 stays bound with its
-drvdata set.
-
-On a later unbind, mt7530_remove() would call regulator_disable() again.
-_regulator_disable() would then WARN with "unbalanced disables" and return
--EIO. Before this patch the rails stayed enabled after a setup failure, so
-remove was balanced in this case.
-
-[Severity: Low]
-This one is speculative: should the switch be put back into reset before
-the rails are dropped here? By the time any of these gotos run, the chip
-has already been taken out of reset earlier in mt7530_setup():
-
-	if (priv->mcm) {
-		reset_control_assert(priv->rstc);
-		usleep_range(5000, 5100);
-		reset_control_deassert(priv->rstc);
-	} else {
-		gpiod_set_value_cansleep(priv->reset, 0);
-		usleep_range(5000, 5100);
-		gpiod_set_value_cansleep(priv->reset, 1);
-	}
-
-On the non-MCM path, the host keeps driving the reset GPIO at its run
-level, and the MDIO controller keeps driving MDC/MDIO, into a chip whose
-supplies have just been released. On boards where regulator_disable()
-actually removes the rail, could that back-power the I/O domain?
-
-Asserting reset with gpiod_set_value_cansleep(priv->reset, 0) or
-reset_control_assert(priv->rstc) before the regulator_disable() calls
-would avoid this. mt7530_remove() has the same ordering, but this patch
-adds a new power-off sequence that is reached more often.
-
+diff --git a/net/sctp/chunk.c b/net/sctp/chunk.c
+index 5b889e89e9f2..0ed251421cda 100644
+--- a/net/sctp/chunk.c
++++ b/net/sctp/chunk.c
+@@ -183,7 +183,8 @@ struct sctp_datamsg *sctp_datamsg_from_user(struct sctp_association *asoc,
+ 	 * we need to account for bundling of the AUTH chunks along with
+ 	 * DATA.
+ 	 */
+-	if (sctp_auth_send_cid(SCTP_CID_DATA, asoc)) {
++	if (sctp_auth_send_cid(asoc->peer.intl_capable ? SCTP_CID_I_DATA :
++							 SCTP_CID_DATA, asoc)) {
+ 		const struct sctp_hmac *hmac_desc =
+ 			sctp_auth_asoc_get_hmac(asoc);
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/1795076103951-10-8fa23d94%40mail.zgclab.edu.cn
+2.43.0
+
