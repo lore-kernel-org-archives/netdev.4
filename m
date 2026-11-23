@@ -1,75 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795437293;
-	b=wMVgWxOC9bVOTb6PunCnzTTtSPiPZOaMW0rpxRN9UFEkcvFenhRImEmxkxMixF7jxg3i
-	 PSWoe3wt5swiR39YwtXrbe7pXwseFxyKtoLOV25ZfO3kqYmsZxO5fVveT9Fu1j20kK7qD
-	 CeqqyP/XHq/RwocXXQWAnzU2W4Xk1PWyc3tqkuAAPyiT5c5sUtytRSpzPgwVqGlSgCoMJ
-	 lFQTs4YjOAFexLs6tz8ETgAS5DXvEsidSrYacpti5sb3NBmBAHNh20Ej5TqJHsiBo0JDv
-	 NJmIJKzdETCP8jNFlBSViSD9gEuEYWp+0bJ8Yjn3lwtJq0hAZx1WmvX/CrPeLuqWn1A==
+	t=1795437320;
+	b=AJGpoM0GtG+IP1BbL+JW5nnMRKJ//ydcX+1Me1AIIwJpMmUPRcZyM1jEVgv8M1nDAdlX
+	 DAC/r3YeTVK2oQbmrIAq9WSfBspiFeFpHdc55kUwo4F8nyTub7al1W8/mHVwAxqHZhKFR
+	 oB6x4a3LrS4KJgz5eteHVzFFj0beuc7lL1ED/T3onwBMtaDTH6TAUq/bs9ltd12ftPbI+
+	 DSm5hgp32pB5+tesNLbhETK7HQYsCqWRQ0RzPi9J735mjPYJHqbFhRhNEOy3FbrCfhq0D
+	 oKtwkreaxc7HASRr/gpDRGaP51x0eygg9GaV6NlZfIm4k1jDKvfkLRXIp112n8rluwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437293;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=3IJwMBwW8JkW2wptK+zgfPvwr+IFceyZHyiWMzHt3Lk=;
-	b=ANlzll2GCe6UIT5KhmW3PkePBVu5QPNJmoeW4Ii+mhZaZ974j3uAwxu4ZPuSiKOhGqb9
-	 NgtUo4TIBe9lDntV6ZZj6Jkpm/5w7sjnc/2iBretYBAGR+ANHBuAU+ahDTGD4Q//SkX9K
-	 WYrM7uKIWDKkgV8fORa1YBQ9omXsU/VlT+Lb6xKtR/0NEQL8XsB0N23+gOl6zpHryl6mX
-	 FVJFRWi/Gmkj0ws4v7sJpxctdAvPCOfn9yPKepqfmL5+dJvlF1LuxWSZCa7IQOuwHcqCA
-	 iWqmEGyCaL3VHlRjKTO0EdD3rrqQt/8U2QXz35VL1IO6y7jLgNsJHMIniYLcFoX9xzQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437320;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=SnK36Y9pli6fAhfG2bK4Kna1Thkk4RsjvqQSiahO20Q=;
+	b=sWIXpaIdpS0uX+knmUY7vdpjTBSWRCJwNxMvIReal8IMUn5fdNyohCwyM6yWRBP5mTCz
+	 sRw3ehtU+szz515Ilam8CcesbIHvLlhWCJ3GSpGzkBFfW4aFjV3Dx5cy0e3eGfh96mHAR
+	 5O/TALLKfDwD0on3wOSYOm5Tu+5TMqpCrqjIO5tJ68bMYCSh8gENWLafiK2TFHlb3ASGM
+	 oDnBavwNUuQfVCTuxy3VLPfzeaP3WzJ7ry2BnU1TWnkAveo0btEbnTLWTUh9QCApZ3Zbj
+	 JL7XKsSzN6IIa5QYGxjgU/oKnQXrMD5Ow4mPkqm8vEEvBX1CHc52Idlv9mQno4YO3nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=V9PRYonZ;
-	arc=none smtp.remote-ip=195.10.208.47
-Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AiSA9oIh;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7FC2606A327
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:34:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7FC2606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98967606A31A;
+	Mon, 23 Nov 2026 12:35:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=V9PRYonZ
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jY5422ywSz3wgl;
-	Mon, 23 Nov 2026 13:34:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795437282;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=3IJwMBwW8JkW2wptK+zgfPvwr+IFceyZHyiWMzHt3Lk=;
-	b=V9PRYonZekA2+PUXBjx/quDh4m8B8rBdUaQDMnvYAAGtlpqvrpaSTHm+NW+vU/LETjBV2F
-	l7a9boELYKna7KO7sg8Kd1QVZRJCy/2TjxF+JdyIiskv/VJpfGmoHVbotwabPotag/JDzn
-	Ob5bXags9DofB8pe7VJQxJ+jxtJvMJ9Esv8Q09cHunnyorCIhImOD56JMOQJVyX5HjDJNN
-	fzbNf6VhMWMH+/JtdCjJmLOaWA1/OkVm8FIzcpfOI552+qCez5fFsOeOv9hufORHw203Fs
-	wBW6MSroWlHtXQm9gg6GxOLPIVq5QRY+eUhMD0R/WWWiNyIdFjbraYVwhiN9dw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: David Ahern <dsahern@kernel.org>
-Cc: netdev@vger.kernel.org,
-	David Ahern <dahern@nvidia.com>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>
-Subject: Re: [RFC net-next 0/6] ipv6: validate dsts against the netns route generation
-Date: Mon, 23 Nov 2026 13:34:34 +0100
-Message-ID: <20261123123435.402751-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261122222717.126333-2-dsahern@kernel.org>
-References: <20261122222717.126333-1-dsahern@kernel.org> <20261122222717.126333-2-dsahern@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AiSA9oIh
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AFDA11F000C4;
+	Mon, 23 Nov 2026 12:35:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795437320;
+	bh=SnK36Y9pli6fAhfG2bK4Kna1Thkk4RsjvqQSiahO20Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AiSA9oIhvqf+PNXMeafaDvz6dNOSSekhMR4ecxhlv6PPZ7layggGUaJjhfTEOf/Ae
+	 1U6PxPohpKJSKVSaseVTaTukrT7x3G/3O8ii0PlBM9JXQEypkv/z5DAXsXBL2+AfCU
+	 TUY9ax+vY/npL0I9RD7x//9k2PcmrlcimYCmYvTP5IpXbwb8mseQEsQX3PGLTLzK4E
+	 xXVDc/B5P95rKMztaJuCIxHGinzuXhDlkzxy8/lE/m1itYI/bQChEoX5c4Sn9ZEta6
+	 T9eK1MW5oMPHDzEdsQMQwWUF8U7D9oI/UtfZMoXZdFoovUKBczC6XR4MTYgIQc6djI
+	 69stPCMrF2gwg==
+Date: Mon, 23 Nov 2026 13:35:17 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Taniya Das <taniya.das@oss.qualcomm.com>
+Cc: Bartosz Golaszewski <brgl@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Linus Walleij <linusw@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jingyi Wang <quic_jingyw@quicinc.com>, Richard Cochran <richardcochran@gmail.com>, 
+	Lijuan Gao <quic_lijuang@quicinc.com>, Melody Olvera <quic_molvera@quicinc.com>, 
+	Jingyi Wang <jingyi.wang@oss.qualcomm.com>, Komal Bajaj <komal.bajaj@oss.qualcomm.com>, 
+	Ajit Pandey <ajit.pandey@oss.qualcomm.com>, Imran Shaik <imran.shaik@oss.qualcomm.com>, 
+	Jagadeesh Kona <jagadeesh.kona@oss.qualcomm.com>, linux-arm-msm@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, netdev@vger.kernel.org, 
+	Bjorn Andersson <bjorn.andersson@oss.qualcomm.com>
+Subject: Re: [PATCH 01/18] dt-bindings: pinctrl: qcom: qcs8300: add gp_mn
+ function
+Message-ID: <20261123-debonair-hidden-swine-4ee3da@quoll>
+References: <20261118-gp_mn_tlmm_support-v1-0-703f7badd194@oss.qualcomm.com>
+ <20261118-gp_mn_tlmm_support-v1-1-703f7badd194@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,120 +66,21 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jY5422ywSz3wgl
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118-gp_mn_tlmm_support-v1-1-703f7badd194@oss.qualcomm.com>
 
-Hi David,
+On Wed, Nov 18, 2026 at 11:32:32AM +0530, Taniya Das wrote:
+> Add the gp_mn pin mux function to the QCS8300 TLMM function enum. This
+> exposes the GP M/N divider clock output and is used on gpio32.
+> 
+> Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
+> ---
+>  Documentation/devicetree/bindings/pinctrl/qcom,qcs8300-tlmm.yaml | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 
-I had a look at the series and tested it. I see two problems with the
-approach.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
 
-On Sun, 22 Nov 2026 15:26:58 -0700, David Ahern <dsahern@kernel.org> wrote:
-> copy of it. So this series moves dst validation onto that counter, the
-> way IPv4 uses rt_genid, instead of adding another one:
->
->  1. Stamp every dst with the counter in ip6_dst_alloc() and validate by
->     comparison in ip6_dst_check(). Long-lived dsts (pcpu dsts of routes
->     with an embedded fib6_nh, and exception dsts) are re-stamped when a
->     lookup finds them again, otherwise they would stay invalid.
->
+Best regards,
+Krzysztof
 
-pcpu and exception dsts are shared by every socket and dst_cache that
-holds them, and with this series validity lives in the shared dst
-instead of in each holder's cookie. When one lookup re-stamps the dst,
-the stale dst becomes valid again for every holder. IPv4 does not
-re-stamp: a stale cached route fails rt_cache_valid and __mkroute_output
-allocates a new one, so routes already held by sockets keep their old
-genid.
-
-The script below shows this. A connected UDP socket on CPU0 caches its
-route to fd01::2 through fd01::/64, then a blackhole for fd01::2/128 is
-added. If an unrelated socket on CPU0 then connects to fd01::3 through
-the same /64, the first socket keeps using the old route: all 10
-datagrams it sends after the blackhole reach the wire, in 3 out of 3
-runs. Without the unrelated socket they are dropped, and current
-net-next and my series [1] drop them in both cases. With an xfrm policy
-for the socket's port instead of the blackhole, the same sequence makes
-the socket keep sending its 10 datagrams in plaintext, where net-next
-and [1] encrypt them. This is not a narrow race but the deterministic
-outcome with this series.
-
-The stamp is also read after route selection, in ip6_dst_alloc and in
-rt6_refresh_sernum. A FIB change that lands in between, e.g. the same
-blackhole added while a lookup for fd01::2 has already selected the /64,
-yields a dst selected from the old state that carries the new
-generation. That is the window ip6_dst_lookup_flow_cookie in [1] closes
-by reading the generation before the lookup.
-
-For generation-based validation to hold, the value has to live with the
-holder rather than in the shared dst, and it has to be read before route
-selection. dst_check already takes a per-holder cookie for this: with
-the generation read before the lookup as the cookie, compared with the
-current one, dsts need no stamp or re-stamping and pcpu dsts stay
-reusable across changes. That is what ip6_dst_lookup_flow_cookie
-returns, with fn_sernum in place of the netns generation, so the two
-approaches differ in invalidation granularity (per node vs netns-wide)
-rather than in where the snapshot lives. I'd rather keep the per-node
-granularity, but either one needs the holders converted to a cookie read
-before the lookup.
-
-[1] https://lore.kernel.org/netdev/cover.1795166508.git.ralf@mandelbit.com/
-
-Reproducer, run as root in a VM, "restamp.sh route|xfrm ctrl|other":
-
-#!/bin/bash
-# usage: restamp.sh route|xfrm ctrl|other
-#
-# A connected UDP socket on CPU0 caches its route to fd01::2, then that
-# destination gets a blackhole (route) or an xfrm policy (xfrm). With
-# "other", an unrelated socket on CPU0 then connects through the same /64.
-# Counts what the first socket sends to fd01::2 after the change.
-case=$1 mode=$2
-log=/tmp/restamp-$case-$mode.txt
-on_cpu0() { taskset -c 0 ip netns exec cl "$@"; }
-
-ip netns del cl 2>/dev/null
-ip netns add cl
-ip -n cl link add c0 type veth peer name p0
-for dev in c0 p0; do
-	# no link-local address: its DAD would add a route and bump the generation
-	ip -n cl link set $dev addrgenmode none
-	ip -n cl link set $dev up
-done
-ip -n cl addr add fd00::1/64 dev c0 nodad
-ip -n cl neigh add fd00::2 lladdr 02:00:00:00:00:02 dev c0 nud permanent
-ip -n cl route add fd01::/64 via fd00::2 dev c0
-ip -n cl xfrm state add src fd00::1 dst fd01::2 proto esp spi 0x1001 reqid 1 \
-	mode transport aead 'rfc4106(gcm(aes))' \
-	0x0102030405060708090a0b0c0d0e0f1011121314 128
-
-on_cpu0 bash -c 'exec 3>/dev/udp/fd01::2/5002; echo before >&3; sleep 3
-	for i in {1..10}; do echo after >&3; sleep 0.1; done' 2>/dev/null &
-sock=$!
-sleep 0.5
-
-if [ $case = route ]; then
-	ip -n cl route add blackhole fd01::2/128
-else
-	ip -n cl xfrm policy add src fd00::1 dst fd01::2 proto udp dport 5002 \
-		dir out tmpl src fd00::1 dst fd01::2 proto esp reqid 1 mode transport
-fi
-ip netns exec cl tcpdump -nn -l -i c0 dst fd01::2 >$log 2>/dev/null &
-cap=$!
-if [ $mode = other ]; then
-	sleep 0.2
-	on_cpu0 bash -c 'echo x >/dev/udp/fd01::3/9'
-fi
-
-wait $sock
-sleep 0.5; kill $cap; wait $cap
-if [ $case = route ]; then
-	echo "route $mode: $(grep -c UDP $log) datagrams sent past the blackhole"
-else
-	echo "xfrm $mode: $(grep -c UDP $log) plaintext, $(grep -c ESP $log) ESP"
-fi
-ip netns del cl
-
--- 
-Ralf Lici
-Mandelbit Srl
