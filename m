@@ -1,98 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795475722;
-	b=yDTsEecMMBSbXMkiH58/JQzLzgfdBXfEYS4wHSAVA+/3ZC4CdxlcMVhXxh1kOlHKeBDo
-	 yewvDUvjSmK7ugZYw3LeZV29fHU2fDfqukhK+EYggupNniPM3/EsaGhSG0V6JndwIqrwe
-	 LF0icKvYrfuoWZx0lnByFujAvXa/Yd2cWSzzNadUUBZfNZeOSHRxJFqYZ1G17FT0Bp7rO
-	 QZM+mSkZzs91yKMvt80L0meIImAqB20c2LaRliJriY8RipQqaM18hZeOcHV1rk27LBz0D
-	 9/lm0PNe7rAgbB1QADKu2LZLWtwczmJjxnmvTulFSOAYF90/vFW0S04V2BD0S3HKxiA==
+	t=1795475805;
+	b=gKDZ/0/vY1Tt2WDl60UN0MiVbi1N8bx1S3AauekP47X49k0FCWbWjFJlPDqZvra/JClH
+	 PX1YM4x9faFMIxcAq1Iitzxcj10PhcABp8Qb/rQ0A7mKMwUVx3e1KgBFO7irZvvfH/T5R
+	 mC2JOlfK82cxAcu+O3Gz+Jbps8+8L0RZQ5nqSGmS60u4xEc+0ysu10jDAFzfR9oOTzTrg
+	 BWSiOdycybEUaLMLxvQ7G6d2lFkS0y1xvBYdVkKuY3EUrQjiOKaCjUCftL6saYetkCMuE
+	 GSdJyM7CYDmCxt94pKm/f/vktE4rM6v4J67X6PfA9cbMB6fGtrp1IiYbS17N2GGNI9Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795475722;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795475805;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:Mail-Followup-To:References:MIME-Version:
 	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
 	 In-Reply-To;
-	bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
-	b=CxMUG8DSgHCS1FhFvRwe0k5M24W7AClAkQlLAuNQvZmkz16RG0xxPs7rjjEPORLLTKO1
-	 WkwfDfPiEI42dv5dlHJtEmaAI8IVOT1ql/ik5E1QxlfoWgqWnmwzQBdj1GHcaCAA1XDAt
-	 RQHO81DXH5yQJ+VSvRwddYSnZADYAFnObO5uM4ZKsgH0EKsfYAU8Q0hngEGTPbJtN7jXm
-	 pmOfTzJUFyYq6rId2VbG/FsVZg30ovip3AfJUUb5Ap46warcbW2lrnRTMQwb3RXR2+uaZ
-	 LdbpaowfFGM2cTJMgH9y6lhv95+RhIbUT5YYlw+zEIdrDgjitxfGCYDqT7s7cKjTy0g==
+	bh=PnIZP38bSQQYy+Vm40NlbmFRb4tfNZqZ4muN435rWUA=;
+	b=kJrGE59KQj7fv8U7uQTA0s1BmLVMjt13FiVIg0qpt9IrEtA0p4oOiEoLxoZE94YDVsUZ
+	 YS+ypjP+3SgZZF9SVKpBSk5rZVgibn5i7QxHjhTi4FAOp91sA9QaQyQUGuPhhmZvgLAMl
+	 HhKJjQyZS4j/5C/rf91e1lJNfUvUVpVCZp3xA8QnrhkNoqxMeTQkov5vfbIDVQO8KVWav
+	 n6ZiwJKIrl4ZZvx5Qr7qm+MCJd/O4FL7Z3fyNOEO2dwI78z1y7CtLqeREhli7DDD65rLa
+	 0DP/v4PMtrB6Q85NYAMVxzX1IOr8eOeQ3/w900lUISKMLjEYr1lhFpixQjJo72YV0Eg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ra2UnGi0;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=rUPFvgOh;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC054606A337
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:15:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC054606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DFA7606A322
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5DFA7606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ra2UnGi0
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-38431138772so4965467eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:15:21 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=rUPFvgOh
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3ae2b7e1e17so2460475a91.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:16:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795475721; x=1796080521; darn=vger.kernel.org;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795475804; x=1796080604; darn=vger.kernel.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
-        b=Ra2UnGi0ij9gulCmXyGwRzEVlkwp8AK/N8UJYPA20T8Ml1jaNGA+2SDEJV5QWSsj92
-         oZqlYTy0seldjCrdxd24kOcuwMyfn/I5BerhTPwjAUumEKR7mbDLi3pUPJO+igLcMA61
-         gYHAa5LNfUGwUu9TCzWhoP4lRbyszuggZzxAB6DmCV++C2CT2McgftbmAXkNdu+a5BE5
-         +T8RrONQ9ID71jdoI8Nv3nkSULowUt6Yk7krBy23pYXqtQFtUlN/1E6sDDDGvZpO45M2
-         W2uWpUvHtSwzKqXmH5Bq1vOgj382IZcnakrbZm/3R7y1vanC2RFK27YSPQaHI7/MTuU8
-         0Bkw==
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=PnIZP38bSQQYy+Vm40NlbmFRb4tfNZqZ4muN435rWUA=;
+        b=rUPFvgOhbfHcH5KCYoiLPPemdNq0chJyCSwbU+Bo3wTIEWmLo2jw/kzIahIbcO+R5m
+         DkVYxQiQzHDMfOKvFRun+xrbDKuJabtyFXlKxMPzKF1gg5ZpG8gOLnmSUcuTpREPIjBf
+         16jmbYmEPW/oZen1KJfHkpUtvQ/ynswwm5dU+9Ut4bDFUGdNUYyl10BUW0Sx4oXeLSiB
+         wtdPo1x2kk6LhDrXSWhvdC4KV9LUV2ZpFCcXzJYU9mRZV38m5DkVlOF4nbBQtx2jEkKm
+         pVzKJpC7d5D6ctvc3ymurOaK76Vlohs6Dcujh6XXgsFQC4Z7lwFgSLxOVVQC6+EGcgcW
+         dnlA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795475721; x=1796080521;
+        d=1e100.net; s=20260707; t=1795475804; x=1796080604;
         h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=yLBdnVh8xwsXQonOiCKJHP1ANYw6wkSutl8/BrhO7dY=;
-        b=hXamsjvwJdNoA4zQVmXnC9A3IegkZEk4mOG95+AsJMv8zjFjsVjpBs6W3rH1zDItcv
-         7+QkgC4+54yVsaiOcDEsHXqUqmnDJj2HP7mBylxZU7b/hUFQmD5SloNDB4xCm7Ik+ykq
-         Smqnsmls3oYXYJCCi0mXl/QX70QYIrYpvK03Rv1KPmV5QkcBwRrhOUc41xgmuf2EJD6L
-         X6F+G/pEaTnys8NT7lUCW2aV4ZOVN7erLYqlZrivmsISfMh2aSeubs+bwcqqDsgE5tbv
-         bQtFNU+uOp5nWNuSWrL4Q9FC2+k2c+3n9Qy+1ULuw5MToGCWOZgZidk6LqipzB6gXnm4
-         y+rQ==
-X-Forwarded-Encrypted: i=1; AL+hErE6+U30v+kfU9kyi9xdWzWhiRJ4PDKvPnoMJH+z0pbwubHssNcNSR3knDvEd3TS5xJyCL/sVk8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Jc0+0zK/vFQPYnY9r/HMeLPfbSEJgwt3XyzvSWShSLYF3VnB8
-	QqWQ9253YUmGSbigVqiRWGWTVt8EEVv9zlW41lcFOzaTcMWfOH/Sqe1F
-X-Gm-Gg: AZFdTZf475B08KJ9Q4yRXTYdpFMQLT3KRGFpH0GPNXtOwWv9+ZdHFW3wyL94W0po7g5
-	9VSeZYqxe+YRlItdiPqBygUke6tU5zwNN97DyBRbtpA9+Qg+eNYOc7ItXDS59EABRkNvoVCsBq5
-	cWZJKV9j9F7O7qJNlRj4iwkgy2Rja4PDgp6ptJI7a6tfCtCncA6e3s1kvuKPQRg7aoV1cBRmGrk
-	IyZIjuePwprplx34FGKyEziyZc4xoMnxOmrilUXG+LbhLtvMwHu+hZW59XYsxBvxd6y+5B5EaXs
-	Gf55TzzwxcaDDIJ89Ye1CLcnyuO1EB0MUuRBID0nhyBrZpbl207NgQiJ9++3Jys+nKZgfPvB8Br
-	q/PGIdYFeNny3/5oAJ+jVMQ0J5RVbu5UiZo8uKUWcAN0zGlnd+nqhba3IYA5fGHPDkS0Wdp2ZRL
-	1ekoNu3F68tvKyd3BOiwfrgio+lVcAyY3pnqdmOFNLMRV9niy9ptqt1d64bMXsMIzCZJP2aAjRi
-	1FMTBO1/Ll3lY5VlK1RXxFWKXm27GvNVZLuoo2VjkIt4L6seCGibXw6lPcLRcuCoFSWE9UYIGnW
-	Z4ixME+jj4DW6QsTlYk+oMrfb5V5VpV+QvNTZ3viW/Ti47SInC3nH9b0O2Xx0QFjJxOTT5sfnv8
-	ebXO0A3rS9Lu3dnlzBTCS4UF3K0F9DBE=
-X-Received: by 2002:a05:7301:152f:b0:376:203e:7d7b with SMTP id 5a478bee46e88-3856c6b35b5mr15176431eec.2.1795475720681;
-        Mon, 23 Nov 2026 15:15:20 -0800 (PST)
-Received: from v4bel ([211.209.222.29])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm41447416eec.6.2026.11.23.15.15.17
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=PnIZP38bSQQYy+Vm40NlbmFRb4tfNZqZ4muN435rWUA=;
+        b=YwFVrfUKq5SQWjo5FPWaA0tcTXXUxDrvbGq4EfUCpOKpECXXOBluxP0JORxXPoGqzw
+         w0q4MIHAQRJusKmj8oL6XQ04U5RW4JUmiA8zXO7Ylhlb6VXPf8XGwef4IROejY5wfE4S
+         QldnwZgtQh7TEsrcUMsmj+cXCQ9+SNp5QOLGAXCu6JZ0sVPyv4TmWH0OMvRVfU8xQ5X9
+         SW5SrnzdH7QYTpVNwcuykYOLZtPPUt4RVS7xdfLT6VE4nRlsFE+kqsLkNa7bX4ePtMvl
+         J5kVJBMDbMjuonfPC+86OmWr71QfVj9A3cwdn6QB/YGJxKnaGOdM9Wi4y06LdPhOgTMq
+         zT3Q==
+X-Gm-Message-State: APuU4Z/NRSRJBwhUAmHhu6/BPQQ2C2KNQfkPa5nZzE5ET1FjIOK7Q//7
+	7WtYAJ/DAOT3M/h+1eDdNAe8gERK9PRrE42cJ7+TXUAnPLVyjs2kohcCIrSFT4DK925mz70pe52
+	dHfOR
+X-Gm-Gg: AZFdTZcy+YZhl72gsaXL0wJDohBwmS6IQjHpT8QDki60Fofe3wfZwqo0hbBMuZf2/+z
+	6Emd85FW7oNmFbeALVe47gqwg6gz6u+kIQhkMSA2TG73kvQJ4HLwHN4JC/JNER4d96Ub1fo1hjr
+	OzpIYwxocBLsg8WB4JKgnKIZG9oDNVhlncMlwvaLvayLwh+vpwfhPH/oQdyKzWKmJI/oh5Lkldk
+	Y+T6/ocktawlLlNx87hFunMhPwy6F7FJ2Cx7AySCfJbDJ03cyEpS9lLeNSEOt3h6TvtDHnLIQsI
+	OVFrzAsQrH2EXDpLWouu4MeKIwjXMu+TvpLgighXCSXsCv5hzuNn4y13IFX100yyApsDRPyQdTh
+	1kZdxGm5SX4IE27wZFiWSCExSUV821yRCNj0mgjK7ThnyHTVczW7y8dCOYgDF9DuGVKVYMDlHPD
+	GfIwanOTouMOemlcoL/DmKDBmMp8ktslSbt9aT0CAoBURkTLyewgZzHFpN14IREmUAgQb9xK1Fz
+	DpcvqugqBI/sip5/UO/7UwpFBhCRNyiTlRqJYcwTS641+vtiXWhhco6Bq20vSxfPpYI3W2nJSUe
+	PwP08zAmJyJK7Q1uwqT0JxyhqlXQ4zz7syelb1k78Z0=
+X-Received: by 2002:a17:90b:1c81:b0:3b3:c179:45b2 with SMTP id 98e67ed59e1d1-3b41c9735bfmr11609636a91.64.1795475803638;
+        Mon, 23 Nov 2026 15:16:43 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:5d::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b409330ae8sm22872817a91.7.2026.11.23.15.16.42
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 15:15:20 -0800 (PST)
-Date: Tue, 24 Nov 2026 08:15:15 +0900
-From: Hyunwoo Kim <imv4bel@gmail.com>
+        Mon, 23 Nov 2026 15:16:43 -0800 (PST)
+Date: Mon, 23 Nov 2026 15:16:42 -0800
+From: Joe Damato <joe@dama.to>
 To: netdev-bot+sashiko@kernel.org
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, richardbgobert@gmail.com, willemb@google.com,
-	kuniyu@google.com, netdev@vger.kernel.org, imv4bel@gmail.com
-Subject: Re: [PATCH net v2] net: gro: avoid truncating transport header
- offsets
-Message-ID: <awTJAyw57pj7LFfq@v4bel>
-References: <avcJ_0-OqgDlD5GB@v4bel>
- <179492223500.3136.9448543337352524214@kernel.org>
+Cc: netdev@vger.kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
+	horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
+Message-ID: <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, netdev-bot+sashiko@kernel.org,
+	netdev@vger.kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, prashant@broadcom.com, edumazet@google.com,
+	horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+References: <20261120152830.699712-6-joe@dama.to>
+ <179545866419.3135.14423996277439097165@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,16 +110,16 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179492223500.3136.9448543337352524214@kernel.org>
+In-Reply-To: <179545866419.3135.14423996277439097165@kernel.org>
 
-On Tue, Nov 17, 2026 at 01:30:35PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
+On Mon, Nov 23, 2026 at 06:31:04PM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 6 potential
 > issue(s) to consider.
 > 
-> Critical: 0 · High: 1 · Medium: 0 · Low: 1
+> Critical: 0 Â· High: 3 Â· Medium: 3 Â· Low: 0
 > 
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
@@ -119,144 +127,297 @@ On Tue, Nov 17, 2026 at 01:30:35PM +0000, netdev-bot+sashiko@kernel.org wrote:
 > know by including "pw-bot: cr" as a separate line at the end of your reply
 > (one such reply per series is enough).
 > 
-> - [High] ipv6: gro: u16 off truncation in ipv6_gro_receive() inflates
->   data_offset
-> - [Low] The commit message says the reproducer is already blocked by a
->   GRO extension-header limit.
+> - [High] Possible deadlock.
+> - [High] bnxt_reset() decides to call bnxt_ulp_start() only from !silent
+>   && !BNXT_STATE_DMA_STOPPED, after dropping its locks.
+> - [High] Incomplete fix.
+> - [Medium] bnxt_reset_task() discards the return value of
+>   bnxt_open_nic(), and bnxt_reset() calls bnxt_ulp_start() wheneverâ€¦
+> - [Medium] The new DMA_STOPPED check exists only at the bnxt_reset() call
+>   site.
+> - [Medium] Every non-silent reset now unregisters and re-registers the
+>   RoCE IB device, including the common case where DMA is never stopped,â€¦
 > 
 > --
 > 
-> net: gro: avoid truncating transport header offsets
+> bnxt_en: stop the ULP around the reset task
 > 
-> This patch replaces skb_set_transport_header() with
-> skb_set_transport_header_careful() in ipv6_gro_receive() and
-> inet_gro_receive(). If the GRO transport offset does not fit in the
-> 16-bit skb->transport_header, the skb is not held as a new GRO head and
-> goes through the normal receive path instead.
+> For non-silent resets, bnxt_reset() now calls bnxt_ulp_stop() before it
+> takes rtnl and the netdev lock. Afterwards it calls bnxt_ulp_start() unless
+> BNXT_STATE_DMA_STOPPED was set. The goal is to keep the RDMA driver off the
+> device once the reset task has stopped DMA.
 > 
-> > The IP6_MAX_EXT_HDRS_CNT limit in ipv6_gro_pull_exthdrs() prevents this
-> > reproducer. However, nested encapsulations can each add an extension
-> > header chain, so the accumulated offset can still exceed the range of
-> > skb->transport_header. inet_gro_receive() can also be reached with such
-> > an offset.
-> 
-> [Severity: Low]
-> Is this paragraph accurate for the tree this patch applies to? Here,
-> ipv6_gro_pull_exthdrs() in net/ipv6/ip6_offload.c is still an unbounded
-> loop with no header counter:
-> 
-> net/ipv6/ip6_offload.c:ipv6_gro_pull_exthdrs() {
-> 	for (;;) {
-> 		int len;
-> 
-> 		ops = rcu_dereference(inet6_offloads[proto]);
-> 
-> 		if (unlikely(!ops))
-> 			break;
-> 
-> 		if (!(ops->flags & INET6_PROTO_GSO_EXTHDR))
-> 			break;
->     ...
-> }
-> 
-> IP6_MAX_EXT_HDRS_CNT is not referenced anywhere in ip6_offload.c.
-> 
-> The limit appears to come from Eric's prerequisite patch. That patch is
-> only mentioned in the v2 notes below the --- line, and git am drops those
-> notes. The permanent log would then describe a cap that is not in this
-> tree, and nothing would point to the patch that adds it. In this tree,
-> this change is the only thing that stops the KASAN reproducer.
-> 
-> Could the prerequisite be referenced in the changelog itself, for example
-> with a Link: tag? Or could the sentence be reworded?
-> 
-> The nested encapsulation argument could also be more specific. With a
-> 12-header cap, one GRO pass handles at most two L3 layers through
-> encap_mark. That comes to about 2 x 12 x 2048 bytes, roughly 49 KB, plus
-> a small amount of driver headroom. That total is still below 64 KB.
-> 
-> Which path still exceeds the range? One candidate is a second GRO pass
-> through gro_cells after decapsulation, where the pulled outer headers
-> become headroom. Could the changelog name the concrete path?
-> 
-> Also, skb_set_transport_header_careful() was added by commit f12c2de4f542
-> ("batman-adv: reject unrepresentable multicast TVLV offsets"). This patch
-> carries Fixes: 4b0ebbca3e16 and Cc: stable, so stable trees would need
-> f12c2de4f542 as well. Should that dependency be noted in the changelog?
-> 
-> [ ... ]
-> 
-> > diff --git a/net/ipv6/ip6_offload.c b/net/ipv6/ip6_offload.c
-> > --- a/net/ipv6/ip6_offload.c
-> > +++ b/net/ipv6/ip6_offload.c
-> > @@ -249,7 +249,8 @@ INDIRECT_CALLABLE_SCOPE struct sk_buff *ipv6_gro_receive(struct list_head *head,
-> >  		skb_gro_pull(skb, sizeof(*iph));
-> >  	}
-> >  
-> > -	skb_set_transport_header(skb, skb_gro_offset(skb));
-> > +	if (!skb_set_transport_header_careful(skb, skb_gro_offset(skb)))
-> > +		goto out;
-> >  
-> >  	NAPI_GRO_CB(skb)->proto = proto;
-> >  
+> > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > index 9daf053293a42..2abb721d87de8 100644
+> > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > @@ -14710,10 +14710,14 @@ static void bnxt_tph_update(struct bnxt *bp)
+> >  /* Only called from bnxt_sp_task() */
+> >  static void bnxt_reset(struct bnxt *bp, bool silent)
+> >  {
+> > +	if (!silent)
+> > +		bnxt_ulp_stop(bp);
+> >  	bnxt_rtnl_lock_sp(bp);
 > 
 > [Severity: High]
-> Can this early exit turn a truncated inner offset into a heap
-> overflow?
+> Can this deadlock against bnxt_close()?
 > 
-> Suppose outer layers advance skb_gro_offset() to just below the
-> limit, so the outer transport offset still passes the new careful
-> check. A tunnel and L2 callback such as gre_gro_receive() followed by
-> eth_gro_receive() can then pull a few more bytes without any U16_MAX
-> check. The inner ipv6_gro_receive() is entered with off above 65535.
-
-This concern seems plausible, but I could not find a path where
-skb_gro_offset() exceeds 65535 in the current upstream tree with
-v2 applied. The two capped IPv6 header chains in this path stay
-below 50KB, and skb headroom is not part of skb_gro_offset().
-
-I will not send a v3.
-
-> It stores off into the u16 network_offsets[] slot before anything
-> validates it, so the slot holds off - 65536.
+> bnxt_sp_task() sets BNXT_STATE_IN_SP_TASK before it calls bnxt_reset().
+> bnxt_rtnl_lock_sp() clears that bit only after bnxt_ulp_stop() has
+> returned, and bnxt_rtnl_unlock_sp() sets it again before bnxt_ulp_start()
+> runs. So both new ULP calls run with IN_SP_TASK set.
 > 
-> If the inner nexthdr is an extension header, ipv6_gro_pull_exthdrs()
-> then does:
+> Both ULP callbacks take rtnl_lock():
 > 
-> net/ipv6/ip6_offload.c:ipv6_gro_pull_exthdrs() {
->     ...
-> 	skb_gro_pull(skb, off - skb_gro_receive_network_offset(skb));
->     ...
+> bnxt_ulp_stop()
+>   bnxt_re_suspend()
+>     bnxt_re_update_en_info_rdev()
+>       rtnl_lock()
+> 
+> bnxt_ulp_start()
+>   bnxt_re_resume()
+>     bnxt_re_add_device()
+>       bnxt_re_update_en_info_rdev()
+>         rtnl_lock()
+>       bnxt_re_ib_init()->ib_register_device()->...->enum_all_gids_of_dev_cb()
+>         rtnl_lock()
+> 
+> ndo_stop, meanwhile, holds rtnl and the netdev instance lock and waits for
+> IN_SP_TASK to clear, with no timeout:
+> 
+> __bnxt_close_nic() {
+> 	clear_bit(BNXT_STATE_OPEN, &bp->state);
+> 	smp_mb__after_atomic();
+> 	while (bnxt_drv_busy(bp))
+> 		msleep(20);
+> 	...
 > }
 > 
-> Subtracting the truncated value advances data_offset by an extra
-> 65536. On a linear skb the extension headers were read through
-> frag0, so frag0_len is still set.
+> Suppose "ip link set dev X down" runs just after a TX timeout has scheduled
+> BNXT_RESET_TASK_SP_EVENT. sp_task can block on rtnl inside bnxt_ulp_stop()
+> (or bnxt_ulp_start()), while bnxt_close() spins on bnxt_drv_busy() holding
+> rtnl. The comment above bnxt_lock_sp() warns about this exact case.
 > 
-> Before this patch, tcp6_gro_receive() or udp6_gro_receive() called
-> skb_gro_header() with the inflated offset. That went through
-> skb_gro_header_slow(), which invalidated frag0. With this change the
-> careful check fails first. We jump to out with data_offset far past
-> skb_headlen() and frag0_len still non-zero.
+> Before this patch, only the rare RESTART_ULP and firmware reset events
+> called into the ULP with IN_SP_TASK set. The frequent reset path did not.
 > 
-> dev_gro_receive() then takes the normal path and calls
-> gro_try_pull_from_frag0(). grow is roughly 64KB and frag0_len is
-> non-zero, so gro_pull_from_frag0() copies that many bytes to
-> skb_tail_pointer(skb), past skb->end. That overwrites
-> skb_shared_info and the memory after the head buffer.
+> Should the ULP calls happen only while IN_SP_TASK is clear?
+
+Yea, I think this is real.
+
+Not sure if Michael or the other Broadcom folks have a suggestion here? Maybe
+the minimal fix is to clear IN_SP_TASK before bnxt_ulp_stop() and call
+bnxt_ulp_start() only after unlock.
+
+The RDMA teardown on every TX timeout and restart races below would still need
+answers, though.
+
+> [Severity: Medium]
+> Does this tear down every RDMA resource on each TX timeout or ring error?
 > 
-> A single linear skb slightly over 64KB is enough to reach this.
-> virtio_net, veth, tun/tap and loopback can all deliver one. That
-> includes devices an unprivileged user sets up in a user and network
-> namespace.
+> bnxt_reset(bp, false) handles every BNXT_RESET_TASK_SP_EVENT. That event
+> comes from bnxt_tx_timeout(), from bnxt_sched_reset_txr(), and from
+> bnxt_sched_reset_rxr() for RX ring errors on P5+ chips. bnxt_ulp_stop() now
+> runs unconditionally, even when BNXT_STATE_OPEN or netif_running() is false
+> and bnxt_reset_task() does nothing.
 > 
-> Could the representability check move to the top of
-> ipv6_gro_receive(), before off is stored in network_offsets[] and
-> before ipv6_gro_pull_exthdrs() runs? Making ipv6_gro_pull_exthdrs()
-> pull relative to skb_gro_offset() would avoid the inflation, but the
-> truncated network_offsets[] entry would still be wrong for any later
-> user. inet_gro_receive() stores a truncated network_offsets[] entry
-> the same way, although it does not inflate data_offset.
+> For bnxt_re this is not a lightweight pause:
+> 
+> bnxt_ulp_stop()
+>   bnxt_re_suspend()
+>     bnxt_re_remove_device(rdev, BNXT_RE_PRE_RECOVERY_REMOVE, adev)
+>       ib_unregister_device()
+> 
+> That destroys all QPs, CQs, MRs and PDs owned by RDMA applications.
+> bnxt_ulp_start() then registers a new IB device.
+> 
+> Before this patch, an L2 close/open in the reset task left RoCE alone.
+> bnxt_hwrm_resource_free() only frees L2 rings, VNICs and stat contexts, and
+> the RoCE MSI-X vectors are handed over through bnxt_ulp_irq_stop() and
+> bnxt_ulp_irq_restart().
+> 
+> The commit message compares this to bnxt_fw_reset(), but a firmware reset
+> resets the whole device.
+> 
+> Would it be enough to stop the ULP after bnxt_rtnl_unlock_sp(), and only
+> when DMA_STOPPED was actually set? If the current behaviour stays, could the
+> commit message mention this cost?
+> 
+> [Severity: High]
+> The commit message says:
+> 
+>   The reset task can now stop DMA when the firmware does not free the
+>   rings, but the RDMA driver is not told and keeps using the device.
+> 
+> Does this patch cover all the places where that can happen?
+> 
+> bnxt_stop_dma() sets BNXT_STATE_DMA_STOPPED and calls pci_clear_master()
+> for the whole function. __bnxt_close_nic() calls it whenever
+> bnxt_shutdown_nic() fails, whatever the value of irq_re_init:
+> 
+> 	if (bnxt_shutdown_nic(bp, irq_re_init))
+> 		bnxt_stop_dma(bp);
+> 
+> bnxt_half_close_nic() and the bnxt_init_chip() error unwind call it too.
+> 
+> Two reset-task paths are still not covered:
+> 
+> - The silent VF_CFG_CHANGE reset, bnxt_reset(bp, true). It runs on VFs,
+>   where bnxt_re also runs.
+> - The bnxt_rx_ring_reset() fallback on pre-P5 chips. It calls
+>   bnxt_reset_task(bp, true) directly, and the commit message does not
+>   mention it:
+> 
+> bnxt_rx_ring_reset()
+>   bnxt_reset_task(bp, true)
+>     bnxt_close_nic(bp, false, false)
+>       __bnxt_close_nic()
+>         bnxt_shutdown_nic() fails
+>           bnxt_stop_dma()
+> 
+> Several other paths share the same close code: ndo_stop, ethtool channel
+> and ring changes, the offline self-test via bnxt_half_close_nic(),
+> MTU/feature reinit, XDP attach and DCB. In all of them, RoCE stays
+> registered with live QPs, CQs and NQs after bus mastering is cleared.
+> 
+> Would it make more sense to notify the ULP wherever DMA_STOPPED is set
+> (outside rtnl), instead of at this one caller?
+> 
+> >  	if (test_bit(BNXT_STATE_OPEN, &bp->state))
+> >  		bnxt_reset_task(bp, silent);
+> >  	bnxt_rtnl_unlock_sp(bp);
+> > +	if (!silent && !test_bit(BNXT_STATE_DMA_STOPPED, &bp->state))
+> > +		bnxt_ulp_start(bp);
+> 
+> [Severity: High]
+> Is it safe to restart the ULP based only on DMA_STOPPED?
+> 
+> bnxt_rtnl_lock_sp() clears IN_SP_TASK before taking rtnl, so other recovery
+> paths can run while bnxt_reset() waits. The new condition does not check:
+> 
+> - whether bnxt_reset_task() actually ran
+> - whether IN_FW_RESET or FW_FATAL_COND is set
+> - whether the PCI channel is offline, meaning another path now owns the
+>   stopped ULP
+> 
+> BNXT_EN_FLAG_ULP_STOPPED is a single flag. A second bnxt_ulp_stop() does
+> nothing, and the first bnxt_ulp_start() wins.
+> 
+> Case 1: devlink health recover runs while bnxt_reset() waits on rtnl.
+> 
+> __bnxt_fw_recover()
+>   bnxt_fw_reset()
+>     set_bit(BNXT_STATE_IN_FW_RESET)
+>     bnxt_fw_reset_close()
+>       __bnxt_close_nic()      <- clears OPEN
+>       bnxt_clear_int_mode()   <- bp->irq_tbl = NULL
+>       pci_disable_device()
+> 
+> bnxt_reset() then gets the lock and skips the reset because OPEN is clear.
+> It sees DMA_STOPPED clear and calls bnxt_ulp_start(). The RoCE edev is
+> still registered, with ULP_STOPPED set and msix_requested non-zero, so:
+> 
+> bnxt_ulp_start()
+>   bnxt_fill_msix_vecs()
+>     ent[i].vector = bp->irq_tbl[i].vector;
+> 
+> Can that dereference a NULL bp->irq_tbl?
+> 
+> Case 2: PCI AER.
+> 
+> bnxt_io_error_detected() calls bnxt_ulp_stop(), which does nothing if
+> bnxt_reset() already stopped the ULP. It then sets IN_FW_RESET, closes the
+> NIC and disables the device. bnxt_stop_dma() returns early in that state:
+> 
+> 	if (test_bit(BNXT_STATE_IN_FW_RESET, &bp->state) ||
+> 	    test_bit(BNXT_STATE_FW_FATAL_COND, &bp->state))
+> 		return;
+> 
+> So DMA_STOPPED stays clear, and bnxt_reset() resumes RDMA in the middle of
+> PCI error recovery.
+> 
+> With no firmware access, bnxt_re_dev_init() fails. bnxt_re_add_device()
+> then frees rdev while en_info->rdev still points to it, and
+> bnxt_re_resume() reads it in ibdev_info().
+> 
+> Later, bnxt_io_resume()->bnxt_ulp_start() finds ULP_STOPPED clear and does
+> nothing, so RDMA never comes back.
+> 
+> Case 3: bnxt_fw_reset() has entered POLL_VF, so OPEN is still set and
+> IN_FW_RESET is set.
+> 
+> A TX timeout now makes bnxt_reset() run bnxt_reset_task() and then
+> bnxt_ulp_start(). RDMA keeps running through the following
+> bnxt_fw_reset_close() and the firmware reset. bnxt_fw_reset_task()'s own
+> bnxt_ulp_start() later does nothing.
+> 
+> [Severity: Medium]
+> Should the restart also depend on bnxt_open_nic() succeeding?
+> bnxt_reset_task() discards its return value:
+> 
+> 	bnxt_close_nic(bp, !silent, false);
+> 	bnxt_open_nic(bp, !silent, false);
+> 
+> Other stop/start pairs restart only on success. For example,
+> bnxt_fw_reset_task() does:
+> 
+> ulp_start:
+> 	if (!rc)
+> 		bnxt_ulp_start(bp);
+> 
+> bnxt_resume(), bnxt_io_resume() and devlink reload_up follow the same
+> pattern.
+> 
+> One failure path can leave bp->irq_tbl NULL. bnxt_reserve_rings(bp, true),
+> reached from bnxt_open_nic()->__bnxt_open_nic(), calls
+> bnxt_clear_int_mode() when all of these hold:
+> 
+> - BNXT_NEW_RM
+> - irqs_required != bp->total_irqs
+> - !pci_msix_can_alloc_dyn()
+> 
+> If __bnxt_reserve_rings() or bnxt_init_int_mode() then fails, irq_tbl stays
+> NULL, and bnxt_ulp_start()->bnxt_fill_msix_vecs() dereferences it.
+> 
+> It isn't clear that this combination happens in a routine reset, because
+> bnxt_need_reserve_rings() is normally false when the configuration has not
+> changed. Other open failures would still resume RDMA on a device whose L2
+> bring-up failed.
+> 
+> [Severity: Medium]
+> The DMA_STOPPED check exists only at this call site. bnxt_ulp_start() in
+> bnxt_ulp.c resumes any registered edev that has BNXT_EN_FLAG_ULP_STOPPED
+> set:
+> 
+> 	if (i == BNXT_AUXDEV_FWCTL || !bnxt_ulp_registered(edev) ||
+> 	    !(edev->flags & BNXT_EN_FLAG_ULP_STOPPED)) {
+> 		goto clear_flag_continue;
+> 	}
+> 
+> Once bnxt_reset() has left the ULP parked after DMA was stopped, can
+> another caller resume it?
+> 
+> bnxt_dl_reload_down() for DRIVER_REINIT is one example. Its
+> bnxt_ulp_stop() does nothing here, and its early error returns call
+> bnxt_ulp_start() unconditionally:
+> 
+> 	if (bnxt_sriov_cfg(bp)) {
+> 		...
+> 		netdev_unlock(bp->dev);
+> 		rtnl_unlock();
+> 		bnxt_ulp_start(bp);
+> 		return -EOPNOTSUPP;
+> 
+> bnxt_ulp_restart() also does a bare stop and start.
+> 
+> Either way, bnxt_re_resume() runs on a function with bus mastering cleared
+> and no firmware access. bnxt_re_dev_init() then fails, which can leave
+> en_info->rdev pointing at a freed rdev.
+> 
+> Would moving the DMA_STOPPED check into bnxt_ulp_start() keep every caller
+> consistent?
+> 
+> >  }
 > 
 > -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/avcJ_0-OqgDlD5GB%40v4bel
+> Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120152830.699712-1-joe%40dama.to
