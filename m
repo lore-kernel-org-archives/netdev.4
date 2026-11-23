@@ -1,110 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394761;
-	b=c2WcUs7jFLYzibBapCnvLxaxnAMPEpSZQwkOt1u3f7Pag26W1BXkYf1IPtHl58mli7Dx
-	 2ICJSIVzGF9t9QZbodqKFfWJbCSzeNFIolwh+TqjUBUdKWHCF7XPxY76/G7Vlp87Ip4gc
-	 jk3ri3RWIPCZnf8Re2PPqz0Q+vm6qeE9zg3W1GeD2U3A3CR39zNiKChYAUXJ2ZdaAuHNJ
-	 1hLwZmJkneZbdv1vVAgbW0jt4jpl5ra9wGYGXoyXXmiwSBQ6lKpTlIvzet2w/zA/ZBkij
-	 lpEz0M0bJrux9/yODbzQymEyFaXlERdA4fWsHLUgL2TVrsX1FJFiijGPMwsDzzDWtxQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394761;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-	b=fVOPXDAilUJc3eCOyujl3zmScXNF/kFLUhBUJZ5jr7nFWjN4Na86/IBtAqubUN7cabHq
-	 dFP/9KQu/Jh+su13sY0q4Xnway3McH9KePGH7kwaYhccRVvp/ckyENo0AnFWsW3K13T18
-	 a0Ne7WHh33PRrvfEHgBspJoLzufLPnLB6PTzMDrqFUCONrFzRBOMjDWOtzq+PwsUhGQPQ
-	 4KTDB2I14IrQIGehzI17ErAC+NWgRVgxEDtIaiRfv+lvS0w+Anh+Utzn7j1wAz0cx8KKY
-	 jS419xSqGFbGJfIhFXY/y15Omm/7O9ovWT7uKIW2bLmq85ENHgvMD1RWUrFJtj/Q8Lg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795394791;
+	b=4UCWkP08CgualoyBUq2EAnGg9nUMi1gazzZ5HpwpMHgwUQR81okj54XF8rU52zhq/OZa
+	 LXAzyu/SlkM+2x/npuKYUiwnWCArK/d1LbzJlzxWIuAkAd/hC5iGaAF2RdTaw5iqr+BiR
+	 3wfBT6O6k37wLrIw2x8VE7C45lQNFxfuQ1V8wBTSsBgGwU3hQqd/ESZikvSsqrwsU1gTv
+	 Dl/wHcUJpmQoxskHa7FAAu76NS++p3l81nxT1MFI1qXGGWk8DNwPHLaI5FUDSOCnL57ve
+	 1bJAriqoDu9D66rGDIFjQHSjpzxF74iH5TKuJSWz+hK3DxtHyYryqfKdYyVNeqfgv6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394791;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cA/N3p8I7gIJ0F5ljZHX+T5KEJi4WKSf5rP+621uci4=;
+	b=dRD2H10SB5UyEhfjmh0jdC8uwbP4xoZ6vmhk1ZGFtMYrNw9+47289zMIKjQ75uKzQLj6
+	 sfpN4f9dR+wm7ayw3EM+4b8wVva4kMuhxie/396LfHtG1RC45k6fTU5MziVmNBZvLeWTs
+	 WSWaHk6xekFNp9c1pRUq918JJpBsvHjOHipteg5ZFtI5Co4wNBgltqZLwdlJ6ZfPWk3su
+	 9+/b/5aJIduH493PFwyf78XRtlm5pyWFcbPgpar+4AyxO4/YI/RIO9znZVcUO/SndCjlH
+	 QyzHWU3f6aR6779cqQMgSfiZsmfNQfCQWrlp70lGtKix1M/KBc+KbHP3fnXpbEa9N3Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QytJFNaf;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7F1DE606A31E;
+	Mon, 23 Nov 2026 00:46:31 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QytJFNaf
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795394791;
+	b=pjT87CQoyiV67Fh83bVk8tmC5SRaYTcJ4kfaS2KzvcWIRaKKg+4XgMNwC/zWRmIWpNsx
+	 Q88GHe2ss6qPVbiAF5Gg7urPYDzwc4Zd02baRAUUshWL1tExm+BrRQdKVQAQheSMj6BWB
+	 1hUBaeASkLXPPdZ441/fI5ksG752XOlFF/xOC5mgkmOkkHRh+soZ1U6PPc3ZjX5wUdaZS
+	 a+qhc/+nUEkzrtyQvT+FSe+xMINRMS+iCjHasiBuR1KcAH9jLexBo2rMlptySXoXjVyeB
+	 AjtDdC8I1fSkXn7FDAitOgsnE/YZ/NTHC2HtZ+eOVnMoPHe60iWyXbqffWKzfPL26Lw==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795394791;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=cA/N3p8I7gIJ0F5ljZHX+T5KEJi4WKSf5rP+621uci4=;
+	b=b/iP8ws5uOgjoWPxCEtmoB0y1BEIJIyW03LYTFVEt5b1SXkRUQ582CX8BHYAFauYfcPa
+	 ZAkc+3ZP01x6onJPj0t+stzWvVL6nY1U/nUbTKdbCiO43ALBdhytUFMVuorViH0Vd4Hjc
+	 m7nz/AyRjAdiUCwvu/iY974OjLNjt/6hlNjyy9mpydcTHNePs+JIveBAWLR8D7nyAQFnR
+	 vPSZda/ZNLg4S3JyHGyXm7Pcu/KytWZ3FhIn+/n42iCWu0p2yWDInEKJuJ9RWJdOadohZ
+	 P8dOL8qfEIObYfya9+/TLIcS2B+mnTEsPd+7xRKUr/7voc2l/EfQEDLY/hLT+VqN1mA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53746606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:46:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53746606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f03920c4a0so16556275ad.3
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:46:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795394761; x=1795999561; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-        b=xjQNwyU6MYR+Sv9DqBxkCsB1ojg0HIKyMipAx4s6KRT5IYdJvl+GnVSxTRanDwlO4b
-         OjsHRhZlksxkgGyYo9uQR4xnsH9smwEzvZB0U0xWIc7WLxA20JEVyHvBNfOB3Q6RKyJl
-         W3Omp6JWwiCVAkQ9a9ECTstSvDMsiW2opPGebxfCTT5SlPd+dIB1fYQxZJhDwkFAzhym
-         zUVWh9jYqyhJ1lPaR/5BHmGuhw1iLZ2Ep7uY5F2lH9rP296aefHI8qNbvrd9S8rKbf0P
-         oiX4dY0ljie0g+etEjHvsK3G0VGKqx3XN4ZOcK3unI0mprBibWrDrY0Vx0uR0JHB3rXt
-         eoGQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795394761; x=1795999561;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:from
-         :subject:cc:to:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
-        b=mOvsgMDOAS1F7kMxMZQOlJTYoSQ2ewlR5kH5T+GFMb2JlWzODDyAYJW1WNtfFCChex
-         ZOUTcRq4dUQUDkXeXWS7bW9FxbPJhvpVv8Apa2MyhuDp3ewQR2J9xZZ0uYZW0gmn2QO4
-         RDeGIS32bR/Px0AZHu2+TAfoFTZWxbqhIr8JWZvI8rMFMCtoGovf8AGO1wOdgkGo6Xs4
-         sU/whKjT4ntH+/2VMTXCiKkniY+sPGNaLkg8mKvQMSV8Vm2AF6b5iCJvCP/EkCwqGyWu
-         i/cs/1+3K+YH0/Y5bgr/vmZgWfzO/Z+ovCWKhkKGoMSdUn6CDJpMWl4CoCOb2b6kW+n7
-         NrEw==
-X-Forwarded-Encrypted: i=1; AL+hErFHPboJoeOq+PbTVGymmbpjgDw6qwBIGeP3YdEePtAQSPfr79UYBqTpazBYX+rO5AXnL1nDVCk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+gzmuUIfvU7vkJuFV/PqyJlpUcIp8TmDXBHEsP9ZsfVWX2d/Sl
-	mm56FRwaB13IpJrauiRF2ALgKX0xyVW1dJIV8NdM5Q2k+Av5LrXn87q0
-X-Gm-Gg: AZFdTZfCAQU5qFHjSu/UH7X951XEArEanC0XSTDlONBqsjLXVBINxXXEWF0C1uEEm92
-	dqj/LyDbSonN3WoUtAJ2klAeYTLMUbAoAUJ2ZXY5C8VE25NHT6eUBEExaH5vYMM/Ml5URvZIYd2
-	u9Jr5ZS0Diz8iRxbLp1Dib5FV8QQbLkizTJcTjD5Sv5k92IM9qmIOraoYj7zB/ChWB0U5P5cRZG
-	jxGVRgmBLrIVInFm1cW/KZPiu6YfRNk3Fk/Z7j3XY5s2kT6Hqhg/IOnd+ZWEBFa4llBRRKNn9hg
-	jFeFJPdemFklkNM//tTR+7eQzwafrdeYAYRFbW/L0RAQMwumTSz7QQweBvYeG1swhN6dHk4JWEJ
-	lNNEBLj3DL9zsP338xmpd9jX2YigWLMzjALXcJ3TU6/EcT4Qt2V8HvQX4yW+aIEt61KwnkTiW6R
-	jQbGGCZrq/B/NlpoxTQsgPyjw+atYbgfX7eKxaBkixQ60Ag3wktbIusb0kAxpNRrARBsoZ4zBjE
-	3htxoAUYodvGKT6UApcb/Ie95GTMtD3i+Ap4nxvrSJQM6VpEaqL2tMRPrJxJHIEabsoJgHnDO8q
-	YF90rVtNPP4PoXSM4mW9S12GDZUaUULUgMGJCfWhGfALIRVSa2kRVYxCOvOKaLYcASaPKto7YHV
-	JPTTUMja0ii9Y6gDPsI6gavtIXgfvEQjRvHI=
-X-Received: by 2002:a17:90b:1802:b0:3b1:64d3:f308 with SMTP id 98e67ed59e1d1-3b41c955a0bmr8991155a91.43.1795394760621;
-        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
-Received: from localhost ([153.61.198.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm15174661a91.9.2026.11.22.16.45.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 00:45:59 +0000
-Message-Id: <DN26BQ6CGT3J.2WZ83RCCF7HDD@gmail.com>
-To: "Jiayuan Chen" <jiayuan.chen@linux.dev>, <bpf@vger.kernel.org>
-Cc: "John Fastabend" <john.fastabend@gmail.com>, "Jakub Sitnicki"
- <jakub@cloudflare.com>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Kuniyuki
- Iwashima" <kuniyu@google.com>, "Willem de Bruijn" <willemb@google.com>,
- "Neal Cardwell" <ncardwell@google.com>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Ihor
- Solodrai" <ihor.solodrai@linux.dev>, "Daniel Borkmann"
- <daniel@iogearbox.net>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
- "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>,
- "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
- "Emil Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
- "Sechang Lim" <rhkrqnwk98@gmail.com>, "Mattia Meleleo"
- <mattia.meleleo@coralogix.com>, "Michal Luczaj" <mhal@rbox.co>,
- <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
- <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH bpf 00/11] fix misc sockmap issues
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
-Content-Transfer-Encoding: 8bit
+	by smtp.kernel.org (Postfix) with ESMTPS id E97B91F000D2;
+	Mon, 23 Nov 2026 00:46:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795394791;
+	bh=cA/N3p8I7gIJ0F5ljZHX+T5KEJi4WKSf5rP+621uci4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=QytJFNafGq8dAbUOEQ5vkAnejYblvZBqeaBfSHvf1RfFAgZfkGM0dR0sUpKoGTkQs
+	 pQT/DsJl0ymbuXmISNFgQni6yfGamc18T6NqmA8gA2UC+WWeXNe5We/76ZBkvlKOfV
+	 TPZIxCwh3MJys9Ru/0rlu4d8kXABYYPWNbDHAIh/dmZ4V7+d9XscOBPR6ySpO1Dt0O
+	 yuLBEgWxZ9p/TDBfs+ylocjKcrcnV1a87C2zmthImNGJrACxKAQCsM0P4Hzrn+AXdA
+	 ID1kbDkmqGjfEuFa/5mIODmPuwdnxyip8B1ZUvgHQe1jE9V9LIs9PkkrXaHvWM9CuK
+	 GzuIrJTID3yuQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 79B384C282;
+	Mon, 23 Nov 2026 00:46:19 +0000 (UTC)
+From: Igor Velkov via B4 Relay <devnull+iav.iav.lv@kernel.org>
+Date: Mon, 23 Nov 2026 00:46:14 +0000
+Subject: [PATCH net v8 2/5] net: phy: fix three paths that unbalance a
+ postponed PHY interrupt line
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,15 +83,314 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261123-b4-phylib-mac-pm-irq-v3-v8-2-e9f706e79614@iav.lv>
+References: <20261123-b4-phylib-mac-pm-irq-v3-v8-0-e9f706e79614@iav.lv>
+In-Reply-To: <20261123-b4-phylib-mac-pm-irq-v3-v8-0-e9f706e79614@iav.lv>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Thomas Gleixner <tglx@kernel.org>, linux-pm@vger.kernel.org, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Lukas Wunner <lukas@wunner.de>, 
+ "Rafael J. Wysocki" <rafael.j.wysocki@intel.com>, 
+ Wei Fang <wei.fang@nxp.com>, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+ Paul Barker <paul@pbarker.dev>, 
+ Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Doug Berger <opendmb@gmail.com>, 
+ Thangaraj Samynathan <Thangaraj.S@microchip.com>, 
+ Shenwei Wang <shenwei.wang@nxp.com>, 
+ Haoning Cheng <Haoning.CHENG@cn.bosch.com>, netdev@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Igor Velkov <iav@iav.lv>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=11424; i=iav@iav.lv;
+ h=from:subject:message-id;
+ bh=w00LTI1p+eM+1x7ZRAmQjTjEZhBtoli35Tub5EEx2ho=;
+ b=owGbwMvMwCVmNH1q96v4SmbG02pJDNnMPTe2C7lsy/ZrW5y0or9+fmbl6zdCVUbap849XXSCx
+ eP7Ve/WjlIWBjEuBlkxRZYJhzRuZSy5+tffw/wBzBxWJpAhDFycAjCRV9yMDCeEFxvMa9/d7z/b
+ o+7d9/cHgrUiW2fONXZy+LuJocRn7RSGvwLzV14U9dqx6eG/p1u9OoPUmbxWftkyT1JrS1Toq9C
+ rt7kA
+X-Developer-Key: i=iav@iav.lv; a=openpgp;
+ fpr=90C228DA68A4D5FD4F4837E03297958BEA5F7903
+X-Endpoint-Received: by B4 Relay for iav@iav.lv/default with auth_id=1060
+X-Original-From: Igor Velkov <iav@iav.lv>
+Reply-To: iav@iav.lv
+Content-Transfer-Encoding: 7bit
 
-On Sat, Nov 21, 2026 at 02:30 AM Jiayuan Chen <jiayuan.chen@linux.dev> wrote:
-> This series fixes misc issues in sockmap. Most of them are old.
+From: Igor Velkov <iav@iav.lv>
 
-Jiayuan,
-thanks for the follow up,
-but the fixes are way too heavy. bots are correct.
-The patches introduce more bugs than the fix.
-Pls ask your bot to think of absolultely minimal fixes that do not
-introduce new states.
+phy_interrupt() postpones interrupts during a system sleep transition:
+it sets irq_rerun and disables the line, and mdio_bus_phy_resume()
+re-enables the line once and reruns the handler. Three paths leave the
+line unbalanced:
 
-pw-bot: cr
+- On an edge-triggered line the IRQ core does not mask a ONESHOT
+  interrupt, so an edge that arrives before disable_irq_nosync() runs
+  the thread again. That second run disables the line again, and the
+  line stays disabled after resume.
+- phy_free_interrupt() can run between the postponed interrupt and
+  mdio_bus_phy_resume() and leaves irq_rerun set. Once the line has no
+  users, free_irq() shuts it down and a new request starts it at depth
+  0, so the enable_irq() in mdio_bus_phy_resume() is unbalanced. On a
+  shared line this can happen once the other users free it too, as with
+  the two PHYs of dra72-evm-revc behind cpsw.
+- If phy_request_interrupt() then leaves the PHY polling,
+  mdio_bus_phy_resume() returns before enable_irq(), and the other
+  users of a shared line stay disabled.
+
+MAC drivers that close the interface in their suspend callback, such as
+cpsw, and ravb with Wake-on-LAN off, reach phy_free_interrupt() through
+phy_disconnect(), and so does dev_close() in a kernel-internal reset of
+the MAC such as stmmac_reset_subtask(), whose workqueue does not freeze.
+These drivers set mac_managed_pm, which a later patch brings under
+postponing.
+
+Let only the run that sets irq_rerun disable the line, and record the
+line it disabled. Clear irq_rerun where the line starts again at depth
+0: in phy_free_interrupt() when free_irq() leaves the line without
+users, and in phy_request_interrupt() when the line has no users. Otherwise
+mdio_bus_phy_resume() enables the recorded line, also for a PHY that
+fell back to polling, and reruns the handler only if the PHY still uses
+that line. Enabling the line in phy_free_interrupt() instead would
+unmask a source that phy_disable_interrupts() failed to clear, and
+inside the noirq phase it would unbalance a wakeup line that
+suspend_device_irqs() enabled (IRQCHIP_ENABLE_WAKEUP_ON_SUSPEND).
+
+Add irq_pm_lock, so that requesting and freeing the interrupt do not
+change irq_rerun between the check and the enable_irq() of the rerun
+after resume, and move the postponing and the rerun into helpers.
+phy_interrupt() never takes the lock, so synchronize_irq() and
+free_irq() can wait for the handler under it. irq_rerun and
+irq_rerun_line are plain fields: one thread runs the handler, and the
+other paths access them only under the lock, after free_irq() or
+synchronize_irq(), or before this PHY has requested the line. Mark the
+irq_suspended accesses with READ_ONCE() and WRITE_ONCE(): the handler
+reads it while the PM callbacks write it.
+
+Three cases on a shared line stay unbalanced: after all users have freed
+the line, another user requests it first, so it has users when this PHY
+requests it; another user requests it between free_irq() and the
+irq_has_action() check in phy_free_interrupt(); or the last other user
+frees it between the irq_has_action() check and request_threaded_irq()
+in phy_request_interrupt(). irq_rerun then stays, and the enable after
+resume is unbalanced or reaches a line without users; until then a
+postponed interrupt does not disable the line again, so a
+level-triggered one keeps firing.
+
+This does not keep close and open off the MDIO bus: on close,
+phy_disconnect() calls phy_stop(), phy_free_interrupt() with its
+phy_disable_interrupts() and, in phy_detach(), phy_suspend(); on open,
+phy_attach_direct() calls phy_init_hw() and phy_request_interrupt()
+calls phy_enable_interrupts(). A MAC driver that powers its MDIO bus
+down during sleep must not close or open the interface until the bus is
+back.
+
+Fixes: 1758bde2e4aa ("net: phy: Don't trigger state machine while in suspend")
+Signed-off-by: Igor Velkov <iav@iav.lv>
+---
+Haoning Cheng's Tested-by on v5 is not carried: phy_free_interrupt()
+no longer enables a shared line.
+---
+ drivers/net/phy/phy.c        | 24 ++++++++++++++++---
+ drivers/net/phy/phy_device.c | 57 ++++++++++++++++++++++++++++----------------
+ include/linux/phy.h          | 12 ++++++++--
+ 3 files changed, 67 insertions(+), 26 deletions(-)
+
+diff --git a/drivers/net/phy/phy.c b/drivers/net/phy/phy.c
+index 9af303d60bd6..92ee4651bdbc 100644
+--- a/drivers/net/phy/phy.c
++++ b/drivers/net/phy/phy.c
+@@ -1416,7 +1416,7 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
+ 	/* Wakeup interrupts may occur during a system sleep transition.
+ 	 * Postpone handling until the PHY has resumed.
+ 	 */
+-	if (IS_ENABLED(CONFIG_PM_SLEEP) && phydev->irq_suspended) {
++	if (IS_ENABLED(CONFIG_PM_SLEEP) && READ_ONCE(phydev->irq_suspended)) {
+ 		struct net_device *netdev = phydev->attached_dev;
+ 
+ 		if (netdev) {
+@@ -1430,8 +1430,12 @@ static irqreturn_t phy_interrupt(int irq, void *phy_dat)
+ 				pm_wakeup_dev_event(parent, 0, true);
+ 		}
+ 
+-		phydev->irq_rerun = true;
+-		disable_irq_nosync(irq);
++		/* Disable the line only once: an edge can rerun the thread. */
++		if (!phydev->irq_rerun) {
++			phydev->irq_rerun_line = irq;
++			phydev->irq_rerun = true;
++			disable_irq_nosync(irq);
++		}
+ 		return IRQ_HANDLED;
+ 	}
+ 
+@@ -1480,6 +1484,12 @@ void phy_request_interrupt(struct phy_device *phydev)
+ {
+ 	int err;
+ 
++	/* A line without users restarts at depth 0, so our disable is gone */
++	mutex_lock(&phydev->irq_pm_lock);
++	if (phydev->irq_rerun && !irq_has_action(phydev->irq_rerun_line))
++		phydev->irq_rerun = false;
++	mutex_unlock(&phydev->irq_pm_lock);
++
+ 	err = request_threaded_irq(phydev->irq, NULL, phy_interrupt,
+ 				   IRQF_ONESHOT | IRQF_SHARED,
+ 				   phydev_name(phydev), phydev);
+@@ -1507,7 +1517,15 @@ EXPORT_SYMBOL(phy_request_interrupt);
+ void phy_free_interrupt(struct phy_device *phydev)
+ {
+ 	phy_disable_interrupts(phydev);
++
++	mutex_lock(&phydev->irq_pm_lock);
+ 	free_irq(phydev->irq, phydev);
++	/* free_irq() shuts down a line left without users and the next request
++	 * resets its depth; mdio_bus_phy_resume_irq() enables a shared line.
++	 */
++	if (!irq_has_action(phydev->irq))
++		phydev->irq_rerun = false;
++	mutex_unlock(&phydev->irq_pm_lock);
+ }
+ EXPORT_SYMBOL(phy_free_interrupt);
+ 
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index 1791d578f4dd..f2e2370b4be7 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -332,6 +332,39 @@ static bool mdio_bus_phy_may_suspend(struct phy_device *phydev)
+ 	return !phydev->suspended;
+ }
+ 
++/* Wakeup interrupts may occur during the system sleep transition when
++ * the PHY is inaccessible. Set flag to postpone handling until the PHY
++ * has resumed. Wait for concurrent interrupt handler to complete.
++ */
++static __maybe_unused void mdio_bus_phy_suspend_irq(struct phy_device *phydev)
++{
++	if (!phy_interrupt_is_valid(phydev))
++		return;
++
++	WRITE_ONCE(phydev->irq_suspended, true);
++	synchronize_irq(phydev->irq);
++}
++
++/* Rerun interrupts which were postponed by phy_interrupt()
++ * because they occurred during the system sleep transition.
++ */
++static __maybe_unused void mdio_bus_phy_resume_irq(struct phy_device *phydev)
++{
++	WRITE_ONCE(phydev->irq_suspended, false);
++
++	mutex_lock(&phydev->irq_pm_lock);
++	if (phy_interrupt_is_valid(phydev))
++		synchronize_irq(phydev->irq);
++	/* The PHY may have fallen back to polling since it disabled the line */
++	if (phydev->irq_rerun) {
++		phydev->irq_rerun = false;
++		enable_irq(phydev->irq_rerun_line);
++		if (phydev->irq == phydev->irq_rerun_line)
++			irq_wake_thread(phydev->irq, phydev);
++	}
++	mutex_unlock(&phydev->irq_pm_lock);
++}
++
+ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
+ {
+ 	struct phy_device *phydev = to_phy_device(dev);
+@@ -339,14 +372,7 @@ static __maybe_unused int mdio_bus_phy_suspend(struct device *dev)
+ 	if (phydev->mac_managed_pm)
+ 		return 0;
+ 
+-	/* Wakeup interrupts may occur during the system sleep transition when
+-	 * the PHY is inaccessible. Set flag to postpone handling until the PHY
+-	 * has resumed. Wait for concurrent interrupt handler to complete.
+-	 */
+-	if (phy_interrupt_is_valid(phydev)) {
+-		phydev->irq_suspended = true;
+-		synchronize_irq(phydev->irq);
+-	}
++	mdio_bus_phy_suspend_irq(phydev);
+ 
+ 	/* We must stop the state machine manually, otherwise it stops out of
+ 	 * control, possibly with the phydev->lock held. Upon resume, netdev
+@@ -393,19 +419,7 @@ static __maybe_unused int mdio_bus_phy_resume(struct device *dev)
+ 	if (ret < 0)
+ 		return ret;
+ no_resume:
+-	if (phy_interrupt_is_valid(phydev)) {
+-		phydev->irq_suspended = false;
+-		synchronize_irq(phydev->irq);
+-
+-		/* Rerun interrupts which were postponed by phy_interrupt()
+-		 * because they occurred during the system sleep transition.
+-		 */
+-		if (phydev->irq_rerun) {
+-			phydev->irq_rerun = false;
+-			enable_irq(phydev->irq);
+-			irq_wake_thread(phydev->irq, phydev);
+-		}
+-	}
++	mdio_bus_phy_resume_irq(phydev);
+ 
+ 	if (phy_uses_state_machine(phydev))
+ 		phy_start_machine(phydev);
+@@ -711,6 +725,7 @@ struct phy_device *phy_device_create(struct mii_bus *bus, int addr, u32 phy_id,
+ 	dev->max_n_ports = 1;
+ 
+ 	mutex_init(&dev->lock);
++	mutex_init(&dev->irq_pm_lock);
+ 	INIT_DELAYED_WORK(&dev->state_queue, phy_state_machine);
+ 
+ 	/* Request the appropriate module unconditionally; don't
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index 59c75296d535..d84f7d8bc9df 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -651,8 +651,8 @@ struct phy_oatc14_sqi_capability {
+  * @interrupts: Flag interrupts have been enabled
+  * @irq_suspended: Flag indicating PHY is suspended and therefore interrupt
+  *                 handling shall be postponed until PHY has resumed
+- * @irq_rerun: Flag indicating interrupts occurred while PHY was suspended,
+- *             requiring a rerun of the interrupt handler after resume
++ * @irq_rerun: Set by the postponed interrupt that disabled the line
++ * @irq_rerun_line: The line the postponed interrupt disabled
+  * @default_timestamp: Flag indicating whether we are using the phy
+  *		       timestamp as the default one
+  * @interface: enum phy_interface_t value
+@@ -675,6 +675,9 @@ struct phy_oatc14_sqi_capability {
+  * @n_ports: Number of ports currently attached to the PHY
+  * @max_n_ports: Max number of ports this PHY can expose
+  * @lock:  Mutex for serialization access to PHY
++ * @irq_pm_lock: Held by the PM callbacks, and by the requesting and freeing
++ *               of the interrupt where they test and clear @irq_rerun;
++ *               phy_interrupt() never takes it
+  * @state_queue: Work queue for state machine
+  * @link_down_events: Number of times link was lost
+  * @shared: Pointer to private data shared by phys in one package
+@@ -731,6 +734,7 @@ struct phy_device {
+ 	 */
+ 	bool irq_suspended;
+ 	bool irq_rerun;
++	int irq_rerun_line;
+ 
+ 	unsigned default_timestamp:1;
+ 
+@@ -808,6 +812,10 @@ struct phy_device {
+ 	struct delayed_work state_queue;
+ 
+ 	struct mutex lock;
++	/* Held where the PM callbacks and the requesting and freeing of the
++	 * interrupt test and clear irq_rerun
++	 */
++	struct mutex irq_pm_lock;
+ 
+ 	/* This may be modified under the rtnl lock */
+ 	bool sfp_bus_attached;
+
+-- 
+2.43.0
+
+
