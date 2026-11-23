@@ -1,63 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.211
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795410342;
-	b=bs6vh+gesfiZ4o07SraiOPYY1e01vyLqZ2qrhuXnJyy82b97QjyTgXpCg5DOWGuxB/E3
-	 EHv1cDtHgackRq0UAWXD7gkYobAZS6e1LnF6Ri07sWSsqvDyZITnioiZ3xtlj586i/Mfm
-	 jMEeW2iY0PpdbObUeY+SmVRb+fBqCHpNxgbr4zLBvOVI0rAQfCWvFfC30TKMxzz1gltRp
-	 aGYIwzc9X2exHZugL2y4xEvhpn5tSE6kDbMQy7z0clDEEpGA8jPW+8PvbRvZW3cAGN4XW
-	 Jxzy4gBiwfKbE4/tiXAyy7aRuJHTevJM54PTgDYs40WAEErbFN0weAT8JbtjlH2lECg==
+	t=1795410458;
+	b=hchbcEM8A+uVKlGE3XNOycdKoDm32obXYbcN3i2f8VVsrCAps7SIKFnOeZrlnpjEUKyT
+	 F3EdKDWVfLDtcvw23vWvFI8upukwl2jbFJk+oOB62yd/VkWrIkuxgyYTBlOFV0tCJX82t
+	 EVCvgBAUS7n3yVTC6peYMPXfzgPBR7WYyFZjj/I72eOJJSzLjRxfmtk3hsWwOBjOzagGN
+	 bJiozZQ9X9YSfMtCqSJf8rifO3yPJqK2vQPwI0RX6Qgk9BV4YJghfFYPkw2EJGRwjvVNh
+	 qe/PGsqJ8WP+YFijJrV6aATGcyWbZhtQq2wpdEebxI+66VgcjXAJEg3gorja+pW7rJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795410342;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=YZFYyshGMkQG/jKK+b6CCs4DmdN8U4z1ESvjudH9KZ4=;
-	b=pT+SFamdi2fvJ7c84zZ+LVBWw17bbjAbCmmpXzCsWaFIt/CVeD0RGx8oe/Tv7Lz5RVx8
-	 9u0Ou801Bvqh7Y61PXfW0TZTMSp3QKfJsEwlv6nqI6Pd3BtkwTEDeOaExflW127lC6N4z
-	 EZrK/Z+mHTdiKGeD/hEm5XBzMQLH4f9KP7KEbEw4zaSeIN0+1sLtf/16jQPysWyNFXlzw
-	 Xq6cB0kp+uoxvUi66knzm6qLuwQeJqZXYr3UZlXTCs0ysh9nWpmpbaH4n/4kSk5whwX/x
-	 Ca5NKF36/mFxCYG1oYj0+LslSi70D+sK3gXCLcu/1+zogk8EMhPt2gxZ0Sf9kXos2vA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795410458;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=jXsj4yBDa40W+GRxXNQS4djxEV9wqaTAzh35gQgC/FM=;
+	b=5YIbVLuhAgcMPmMsKnVXDzrsZCLOLFjS6+JZPIipbBbhm7fRrZv4YNh678ESe3rcRjJF
+	 KEdJ+WY7btudfCOCKDoI1WzHr+Ho6qwmRsMMjWzHdLaaYl/wHhCndIlriaXtCfT+N6nCj
+	 cqU7TTpuHab/t0+aN2xt9vcPgum+C7H/0jKKYzBvMuA+GCsESmNGEafXrIhr+qBWqoFlR
+	 UD1i8nBBqM3NLAx78PwqzpZpWbfdJ3o6wifOqK+JL2PkkD/NI6Q0Y78/lC7pt9biuRr3j
+	 NhD6uHJkL+owb0Voj9yhWtzHkr9VcGiLNUh1Cf1Lk+WbYMZmSMRofiVwRKZ44KTTmsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh3M8yiE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A5tXLO4H;
+	arc=none smtp.remote-ip=95.215.58.211
+Received: from mta1.migadu.com (out-211.mta1.migadu.com [95.215.58.211])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3635606A688;
-	Mon, 23 Nov 2026 05:05:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A516606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:07:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A516606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Fh3M8yiE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D12E1F00A03;
-	Mon, 23 Nov 2026 05:05:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795410342;
-	bh=YZFYyshGMkQG/jKK+b6CCs4DmdN8U4z1ESvjudH9KZ4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Fh3M8yiEUbu9z0IwRi2xmRsqpUznbp1mRezfJBcz4jVfCe80CWAs8XV4uXDRG/4v2
-	 jsOXnxzOVaJHU1KbXwxyK2oBw2eZQR6aOQvulzOaylDZWcfuFTlpgqwQxotxI96HLb
-	 YDrvTMouu4OYlMKYbMe7HC00jgX4mbKovooisV9t+oYVc7tHSsUa5i9o8ytCS2r+QQ
-	 k+UFFfhUOLf3AOtJFXnzrV1+87e79S789G7LYselCvKdLAIlHJFm1vCvyKZbP3QjOj
-	 44XpssWusv0JYzwDSg6nYihuoV91z5ZQ2xWvSPKuGS9fwzMmSbLVckcUvNSXkvdNn3
-	 1NPFDor1jfbYA==
-Subject: Re: [PATCH v8 net-next 9/9] net: dsa: netc: add PTP one-step
- timestamping support
-From: netdev-bot+sashiko@kernel.org
-To: wei.fang@oss.nxp.com
-Cc: xiaoning.wang@nxp.com, andrew@lunn.ch, olteanv@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- richardcochran@gmail.com, linusw@kernel.org, linux@armlinux.org.uk,
- wei.fang@nxp.com, imx@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-arm-kernel@lists.infradead.org
-Date: Mon, 23 Nov 2026 05:05:40 +0000
-Message-ID: <179541034095.3135.13496206683389250613@kernel.org>
-In-Reply-To: <20261119030534.1892935-10-wei.fang@oss.nxp.com>
-References: <20261119030534.1892935-10-wei.fang@oss.nxp.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=A5tXLO4H
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=lnUq93IGNsz/Cb1nIEvJY31ok+tibOAtwwZITwxSEzw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795410454; v=1; x=1796015254;
+ b=A5tXLO4H2zXdVBartanS99QsB4ZSefo+fmAjO1C/3RMC1RrLk9kfYzSklUKSYu0ER+BLUQBO
+ lwzfHrlBK09pU58/+KmHTIRuHjJHMRJDZMSaFQeWlywVqS5L+E1pid8n8R1PbobGwbsQfVmMHs+
+ tYBtWX99qnYJyIJvZIrRpQpg=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id f42f577cfbcb11bc;
+	Mon, 23 Nov 2026 05:07:34 +0000
+X-Mizu-Trace-ID: f42f577cfbcb11bc
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 13:07:25 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Xia Yan <yanxia@cmss.chinamobile.com>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, linux-kernel@vger.kernel.org,
+	kuniyu@google.com, xeb@mail.ru, yana06070@163.com,
+	netdev-bot+sashiko@kernel.org
+Subject: Re: [PATCH net-next v5] ip6_gre: fix changelink conflict checks for
+ L2 tunnels
+Message-ID: <20261123050725.GF10218@Liu-laptop>
+References: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,106 +67,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179535496489.1244648.10031965997557933761.ip6gre-v5@cmss.chinamobile.com>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In HWTSTAMP_TX_ONESTEP_SYNC mode,
-  netc_port_prepare_onestep_sync() (drivers/net/dsa/netc/netc_ptp.c)…
-
---
-
-net: dsa: netc: add PTP one-step timestamping support
-
-This adds one-step Sync offload for NETC switch ports and advertises
-HWTSTAMP_TX_ONESTEP_SYNC. The tagger hands each one-step Sync to the switch
-driver, which queues it per port and sends the frames one at a time from a
-work after programming PM_SINGLE_STEP and the originTimestamp field.
-
-> diff --git a/drivers/net/dsa/netc/netc_ptp.c b/drivers/net/dsa/netc/netc_ptp.c
-> index bd4d0b70e7ee5..a7ab62f76e352 100644
-> --- a/drivers/net/dsa/netc/netc_ptp.c
-> +++ b/drivers/net/dsa/netc/netc_ptp.c
-
-[ ... ]
-
-> @@ -407,6 +713,67 @@ int netc_port_hwtstamp_get(struct dsa_switch *ds, int port,
->  	return 0;
->  }
+On Sun, Nov 22, 2026 at 09:42:44PM +0800, Xia Yan wrote:
+> ip6gre_changelink_common() calls ip6gre_tunnel_locate(), which only
+> looks for ARPHRD_IP6GRE devices. The same helper also handles ip6gretap
+> and ip6erspan devices.
+> 
+> An L2 tunnel can therefore change its parameters to match another L2
+> tunnel, and incoming packets can be delivered to the wrong interface.
+> An L3 tunnel with matching parameters can also make a valid L2 update
+> fail with EEXIST.
+> 
+> Use ip6gre_tunnel_find() with dev->type, as the newlink paths do. This
+> also matches the device-type check in IPv4 ip_tunnel_changelink().
+> 
+> Found while comparing the duplicate checks in newlink and changelink.
+> Reproduced under UML using existing netlink interfaces, without kernel
+> instrumentation or fault injection. With an IPv6 underlay named under
+> already configured:
+> 
+>   ip link add tap1 type ip6gretap local fd26:106::1 \
+>       remote fd26:106::2 key 100 dev under
+>   ip link add tap2 type ip6gretap local fd26:106::1 \
+>       remote fd26:106::2 key 200 dev under
+>   ip link set tap1 up
+>   ip link set tap2 up
+>   ip link set tap2 type ip6gretap key 100
+> 
+> Before the fix, the last command succeeds and received frames move from
+> tap1 to tap2. After the fix, it fails with EEXIST and tap2 is unchanged.
+> 
+> Tested on net-next under UML with W=1 builds before and after the change.
+> Standalone tests covered duplicate and valid updates for ip6gretap and
+> ip6erspan, including receive-interface and payload checks, plus an L3 GRE
+> control. Kernel selftests were not run.
+> 
+> Signed-off-by: Xia Yan <yanxia@cmss.chinamobile.com>
+> ---
+> 
+> Notes (ip6gre-v5-mail):
+>     Changes in v5:
+>     - Return to the minimal one-line v1 change, as requested by Ido Schimmel.
+>     - Rebase onto current net-next.
+>     
+>     v4: https://lore.kernel.org/netdev/179491056935.741041.1816208847037703396.ip6gre-v4@cmss.chinamobile.com/
+>     Review: https://lore.kernel.org/netdev/20261122123555.GA2812544@shredder/
+>     
+>     Current UML build and runtime baseline: eb6d6c80d35449c27471b1874f13066c09a8964d.
+>     The v1 x86_64 W=1 allmodconfig- and allyesconfig-derived full builds used
+>     net 7076f684d513. Those full builds were not repeated for this rebase.
+> 
+>  net/ipv6/ip6_gre.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
+> index 26c0e1c4de18f8b44ceb05d01673aaadfbcbd5ef..9f1e58f9326afd27d097431ffe62efb0aaaaf58a 100644
+> --- a/net/ipv6/ip6_gre.c
+> +++ b/net/ipv6/ip6_gre.c
+> @@ -2064,7 +2064,7 @@ ip6gre_changelink_common(struct net_device *dev, struct nlattr *tb[],
 >  
-> +static void netc_port_prepare_onestep_sync(struct netc_port *np,
-> +					   struct sk_buff *skb,
-> +					   u32 ptp_class, bool *twostep)
-> +{
+>  	ip6gre_netlink_parms(data, p_p);
+>  
+> -	t = ip6gre_tunnel_locate(net, p_p, 0);
+> +	t = ip6gre_tunnel_find(net, p_p, dev->type);
+>  
+>  	if (t) {
+>  		if (t->dev != dev)
+> 
+> base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+> -- 
+> 2.43.0
+> 
+> 
+> 
 
-[ ... ]
-
-> +	/* Ensure the buffer is linear and writable so the packet can be
-> +	 * parsed and updated in place. Otherwise, fall back to two-step.
-> +	 */
-> +	if (unlikely(skb_linearize_cow(skb))) {
-> +		*twostep = true;
-> +		return;
-> +	}
-
-[Severity: Medium]
-What happens here if the frame is a one-step Sync and skb_linearize_cow()
-fails?
-
-skb_linearize_cow() runs before the message type is checked. It can return
--ENOMEM under GFP_ATOMIC pressure for any nonlinear or cloned skb, for
-example one cloned by dev_queue_xmit_nit() while a packet tap is attached.
-When that happens, the Sync goes down the two-step path:
-
-dsa_user_xmit()
-  dsa_skb_tx_timestamp()
-    netc_port_txtstamp()
-      netc_port_prepare_onestep_sync()
-        skb_linearize_cow() fails -> *twostep = true
-      netc_port_prepare_twostep()
-
-The frame gets a To_Port subtype 2 tag, or a subtype 0 tag if
-skb_clone_sk() also fails. Its twoStepFlag is still 0, but PM_SINGLE_STEP
-is never programmed, and originTimestamp and correctionField are never
-updated. Would the peer then accept a one-step Sync carrying whatever
-originTimestamp software put there?
-
-netc_port_txtstamp_handler() would also later deliver a hardware TX
-timestamp for this Sync through skb_complete_tx_timestamp(). Doesn't that
-conflict with the HWTSTAMP_TX_ONESTEP_SYNC description in
-include/uapi/linux/net_tstamp.h:
-
-    In this case, transmitted Sync packets will not received a time
-    stamp via the socket error queue.
-
-The commit message also says:
-
-    If the originTimestamp field of the sync frame is not in the linear
-    buffer of the skb or the correction offset exceeds the hardware
-    capability, the frame will be dropped.
-
-skb_linearize_cow() runs first, so the later check:
-
-    if (unlikely(tstamp_offset + 10 > skb_headlen(skb) ||
-                 correction_offset > NETC_MAX_STEP_OFFSET)) {
-            NETC_SKB_CB(skb)->ptp_flag = NETC_PTP_FLAG_DROP;
-
-only catches truncated frames. The "not linear" case falls back to
-two-step and is not dropped.
-
-Should a linearize failure on a Sync frame be handled the same way as the
-other error paths in this function, with NETC_PTP_FLAG_DROP and a
-tx_dropped increment?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119030534.1892935-1-wei.fang%40oss.nxp.com
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
