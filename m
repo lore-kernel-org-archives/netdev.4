@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444778;
-	b=Ou3VJW7B3SNKfj9QqNkC23fjFfIrVGI6BUFbPSJjVn7A2f4hlPQN+jgbf9m8reZn+SF2
-	 g/fwlpY31yNMvG5ELEh0fljBJRtbpc7gdIGMAAUHjaCTzQFyTX6zfAkLW4CcPSBp+LLGE
-	 m6jJ+9fHkg8OJMqLEtggZ75bvoZAe+93o950e2AyLsuU7EmD48GeJnxgx4x5pqQbuh8dm
-	 6Y8glVxdjisdMLcKhRNvQQlzHP78i3Exh0uCA1JmPb1tY0iumB/ZScH/nFL9Dx0tXgNsP
-	 Ql37UZnX6BeNWT15/yklLm9pMY8oeI0di9srTjAsG4QqFcE5kvVsdsYZuEIxdKXKRZQ==
+	t=1795444780;
+	b=QD2DJOSp8z7pgRdG04zhZnL+prgmiUC/oqRlqQpHIA9+HPlIhTc+RJAfBp1YETtTBTGy
+	 iOazYWdNtIyzpmUdpfwQBvvfJHmxO+naSM+TUFHr82OgX27nD3KYIFxbTB5uS/PFtMABy
+	 ilnKnkEByHGcMjkpsDziXhRhC+hxQYRSya28QFYnZnA83sk/xQPjDFH5eHFYwZduj6I+2
+	 MwPyhxs/xSXUxmNmQ8jcPfMm6aTkC2sFsCKVjZuBWcMYxeToy8HexBOmbTLz1nrsoLDuE
+	 P+Wj6+mGIf6MnSyz7WIi3k0ntC2wAoQObM69PJKOw3GoeThIFQoPGqa006ALTBihjFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444778;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444780;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=T6qSvEjZyD41I87wlBj9dRMtlhR3Lhe1Gpro/JPPIOw=;
-	b=OMMefkVXaG/DvTVkC/BMXoL7bvuF1wNAN8mD+/D3HxEtJLZd6yCjyzp6QD+aN7jCT1YG
-	 5YRdnSbvyzELXDsRz8iH/JAqcMiwWLhXqicxKmzO9pwM5h3clohZzObhnEgHYTYaPIU5b
-	 lidbRAkJCWBInvbePcd+OO9D7avmh/JACkyY7uyJVZyXWfPgfqEi4137aXGXDJOIRpyqW
-	 G2BwGTQ9TXr6pn7Svuw7Fd52p+31nEEZheAEFJKStCuRKO7XwCoY2uQ0dzy8B+qgoQnVV
-	 JbEn6Uz/5mrIzhqGft5D2AmXBhClpw92+WzzW9uJUTA8n9IM9uwtCbGOqLR9BmJbl5w==
+	bh=9UfLcSiWn0FiNKGKel4Ik3gxc0PzMKz6UDRi4JIVcvI=;
+	b=TgL+zkWT3HH/yfapLm0ZjQuxfc/o8wgbQ+U1a+JGt1aqSz9GPqv1t87oU+7S6D/VzOye
+	 /3/3yc21icGX24nDiL7IxC/TwO2UxiO8+E9rC2yH3FSaNEhHA6CUd1wUq143JQ2Mas2Pv
+	 hS9X5i8xZ7fj4WSngbZ4ZTlKfMsnrYAl/k0nUL5pqAJQgajYhfyf+SzdrMkXmnYx2xbDH
+	 jQRyp3qA9AiBZ8Iy0DKjiiXVEcnRIoa1VwsrUs3YnAdIOLBFnuEzEht2w3ajPDDZ5ECjk
+	 TuMGsMlBz2iszMqHdBFiRuWI8yyq1iJm46Jd78lilupNcVpS5eniZsRpYOEH1GcdSWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d2pLYXdw;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YtJ2IneO;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05FD5606A33B;
-	Mon, 23 Nov 2026 14:39:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AF0F606A32A;
+	Mon, 23 Nov 2026 14:39:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=d2pLYXdw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A073E1F000C0;
-	Mon, 23 Nov 2026 14:39:36 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YtJ2IneO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF2BC1F000C6;
+	Mon, 23 Nov 2026 14:39:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795444777;
-	bh=T6qSvEjZyD41I87wlBj9dRMtlhR3Lhe1Gpro/JPPIOw=;
+	s=k20260515; t=1795444779;
+	bh=9UfLcSiWn0FiNKGKel4Ik3gxc0PzMKz6UDRi4JIVcvI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=d2pLYXdwb8Uu/UC8PAUm7O6721joxh6PjGnTSg2poM9FgumP76d9CiuKwpxfRdWuP
-	 BAv4UZejLB4E0suNJ2cmLmHczG9XwiPJYRExlk4e3jtz4elbAMG5UhFKGNsDq8l3rs
-	 aBocclsNgdUoIRqaZaijgFIRnCFp3lC7K3N+3Sxd7axFht9rSRY8nb6BQEBWrQYzbW
-	 InLRSD/zSu1o24my0gOwC27rq9azN/cKQr5laV2Dj1Lnu8MHULW3kCEF5gpZLXsL0D
-	 kgr9UONXRfUQqw8vRzA9rLCZwEIpsPHp4HeqQyU3X6GFpq7Vx1zw2EgAInHaoVu/Jo
-	 fv3oTR9JtQY2w==
-Subject: Re: [PATCH net v8 3/4] net: stmmac: restore RX descriptor buffer
- addresses on resume
+	b=YtJ2IneO//CyRXjolhcD6mF1NS3/RUd09qy8o19j8zpBftrUoiUhqOzUD2fwVLp0C
+	 1icm5AaSh5SZyMDzO1LmM/2cf+mRbwPrfpISWD7PFuGsvaPcFM9ORouJDJJ36nxGSA
+	 7+eZLM+46c7X/hYvQ1C0vC6rh5Hn8s2YmNPAvWe0sBraK49u3SRhc02IDttaZbwH/3
+	 DGkjIF6+EdrL9ekElAePKO6sPIPcv/8/NxWVucDvz/ZhOlXZCCtgj+d48PxmjjI9JO
+	 7FbvbWqhyHjEKC1rTy5gvHDc3lEEVX1HJqp7hUxPf39rk6PWBGCkwPsHbfkoSATJMc
+	 udw2/KSs/5lXQ==
+Subject: Re: [PATCH net v8 4/4] net: stmmac: restore the XSK TX pool on resume
 From: netdev-bot+sashiko@kernel.org
 To: dinghui1111@163.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -51,10 +50,10 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  dinghui@lixiang.com, xiasanbo@lixiang.com, yangchen11@lixiang.com,
  liuxuanjun@lixiang.com, fujiahui@lixiang.com, zhoujing3@lixiang.com
-Date: Mon, 23 Nov 2026 14:39:36 +0000
-Message-ID: <179544477624.3135.5494306095846250622@kernel.org>
-In-Reply-To: <52672e4d879760b1434a92e12f3c7d5b2287e086.1795096430.git.dinghui@lixiang.com>
-References: <52672e4d879760b1434a92e12f3c7d5b2287e086.1795096430.git.dinghui@lixiang.com>
+Date: Mon, 23 Nov 2026 14:39:38 +0000
+Message-ID: <179544477829.3135.13778479191723150995@kernel.org>
+In-Reply-To: <5874b73b815d2385bbbf5f6988d50b3772fa0ce0.1795096430.git.dinghui@lixiang.com>
+References: <5874b73b815d2385bbbf5f6988d50b3772fa0ce0.1795096430.git.dinghui@lixiang.com>
 X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -68,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 2
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,158 +78,126 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] This patch adds a failure point to stmmac_resume(): `ret =
-  stmmac_resume_descriptors(priv); if (ret) goto error_unlock;`.
-- [Medium] The new early failure in stmmac_resume()
-  (stmmac_resume_descriptors() returning -ENOMEM) jumps to error_unlock.
-- [Low] Part of the commit message describes code that is not in the
-  tree.
-- [Low] The commit message frames the bug only as GMAC4/XGMAC writeback
-  overwriting buffer addresses, which leads to a 'fatal bus error'.
+- [High] The fix is incomplete because it is applied to one caller
+  instead of the shared helper.
+
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the same
+  resume path leaves corrupted TX next-descriptor pointers in chain mode.
 
 --
 
-net: stmmac: restore RX descriptor buffer addresses on resume
+net: stmmac: restore the XSK TX pool on resume
 
-The patch restores RX descriptor buffer addresses on resume. On GMAC4 and
-XGMAC, hardware writeback during suspend can overwrite them. Buffer
-preparation is factored into stmmac_prepare_rx_buffer() and
-stmmac_prepare_rx_buffer_zc(). A new stmmac_reinit_rx_descriptors()
-allocates any missing pages with GFP_KERNEL, and the per-ring resume work
-is gathered in stmmac_resume_descriptors().
-
-> Rebuild chain pointers and use stmmac_reset_rx_queue() to discard partial
-> receive state from before the DMA reset. Initialize RX descriptors after
-> restoring their addresses,
-> using the existing per-queue initializer to preserve the watchdog policy
-> and legacy control fields. Keep the unpopulated XSK suffix CPU-owned when
-> DMA restarts. This replaces the separate final ownership-setting loop.
-
-[ ... ]
-
-> The RX rings no longer undergo initialization before address restoration.
-
-[Severity: Low]
-Which ownership-setting loop does this replace? Before this patch,
-stmmac_resume() only called stmmac_reset_queues_param(),
-stmmac_free_tx_skbufs() and stmmac_clear_descriptors().
-stmmac_set_rx_owner() is only used in stmmac_rx_refill() and
-stmmac_rx_refill_zc().
-
-The second sentence has the same problem. The old resume path never
-restored RX addresses, so nothing was ever initialized "before address
-restoration".
-
-Both sentences read like notes against an earlier, unposted version. Could
-they be reworded to describe what changes relative to the current tree?
-
-> Share buffer preparation with the refill paths and restore addresses
-> from attached buffers. Allocate missing primary and secondary pages
-> independently with GFP_KERNEL. If allocation fails, return the error
-> without restarting DMA and leave the device detached.
-
-[Severity: Low]
-The commit message doesn't say why pages can be missing at resume time.
-
-stmmac_rx() hands buf->page to the stack or page_pool and sets
-buf->page = NULL. If the GFP_ATOMIC refill in stmmac_rx_refill() then
-fails, that entry is left with no page attached.
-
-The old resume path set OWN on every RX descriptor through
-stmmac_clear_descriptors() whether a page was attached or not. On cores
-whose writeback leaves the address word intact, the re-armed descriptor
-still pointed at a page the driver no longer owned. DMA could then write
-into recycled memory.
-
-The new stmmac_reinit_rx_descriptors() fixes this too. Could the commit
-message describe this case, so stable backporters know the patch also
-fixes it?
+When dma_free_tx_skbufs() completes outstanding XSK TX frames, it also
+clears tx_q->xsk_pool. This commit restores that pointer in
+stmmac_resume_descriptors() after the call. Without the restore,
+stmmac_tx_clean() skips zero-copy transmission after resume, even though
+the AF_XDP socket is still bound.
 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> index f9ac82d2e7266..1508cf08f03b0 100644
+> index 1508cf08f03b0..550a0bd647e13 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-
-[ ... ]
-
-> @@ -8563,10 +8659,9 @@ int stmmac_resume(struct device *dev)
->  
->  	mutex_lock(&priv->lock);
->  
-> -	stmmac_reset_queues_param(priv);
-> -
-> -	stmmac_free_tx_skbufs(priv);
-> -	stmmac_clear_descriptors(priv, &priv->dma_conf);
-> +	ret = stmmac_resume_descriptors(priv);
-> +	if (ret)
-> +		goto error_unlock;
+> @@ -2277,6 +2277,9 @@ static int stmmac_resume_descriptors(struct stmmac_priv *priv)
+>  	for (queue = 0; queue < priv->plat->tx_queues_to_use; queue++) {
+>  		stmmac_reset_tx_queue(priv, queue);
+>  		dma_free_tx_skbufs(priv, dma_conf, queue);
+> +		/* Buffer cleanup may clear the pool; the socket remains bound. */
+> +		dma_conf->tx_queue[queue].xsk_pool =
+> +			stmmac_get_xsk_pool(priv, queue);
 
 [Severity: High]
-If stmmac_resume_descriptors() fails here, does NAPI stay disabled while
-netif_running() is still true?
 
-stmmac_suspend() already called stmmac_disable_all_queues(), and
-error_unlock skips stmmac_enable_all_queues(). Any later stmmac_suspend()
-or stmmac_release() would then call napi_disable() a second time on the
-same instances:
+Does stmmac_tx_err() run into the same problem? It is not a teardown
+path, but it also calls dma_free_tx_skbufs() and then restarts the queue:
 
-stmmac_release()
-  __stmmac_release()
-    stmmac_disable_all_queues()
-      __stmmac_disable_all_queues()
-        napi_disable(&ch->rx_napi)
-          napi_disable_locked()
-
-net/core/dev.c:napi_disable_locked() {
+drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_tx_err() {
     ...
-		while (val & (NAPIF_STATE_SCHED | NAPIF_STATE_NPSVC)) {
-			usleep_range(20, 200);
-			val = READ_ONCE(n->state);
-		}
+	stmmac_stop_tx_dma(priv, chan);
+	dma_free_tx_skbufs(priv, &priv->dma_conf, chan);
+	stmmac_clear_tx_descriptors(priv, &priv->dma_conf, chan);
+	stmmac_reset_tx_queue(priv, chan);
+	stmmac_init_tx_chan(priv, priv->ioaddr, priv->plat->dma_cfg,
+			    tx_q->dma_tx_phy, chan);
+	stmmac_start_tx_dma(priv, chan);
     ...
 }
 
-SCHED is still set from the first disable. Wouldn't this loop spin forever?
-In the close path (ip link set down, MTU change, XDP setup, ring resize) it
-would hold rtnl_lock. On the next system suspend it would hold priv->lock.
+stmmac_dma_interrupt() and stmmac_msi_intr_tx() call it on a TX hard
+error. If xsk_frames_done is non-zero, dma_free_tx_skbufs() does:
 
-The -ENOMEM comes from the GFP_KERNEL page_pool allocations in
-stmmac_reinit_rx_descriptors() -> stmmac_init_rx_buffers(). These run
-during resume with the PM gfp restriction in place, so failure looks
-reachable under memory pressure.
+	if (tx_q->xsk_pool && tx_q->xsk_frames_done) {
+		xsk_tx_completed(tx_q->xsk_pool, tx_q->xsk_frames_done);
+		tx_q->xsk_frames_done = 0;
+		tx_q->xsk_pool = NULL;
+	}
 
-The commit message says "If allocation fails, return the error without
-restarting DMA and leave the device detached". Is that detached state safe
-to leave the device in? The stmmac_hw_setup() failure path already behaves
-this way, but this patch adds a new way to reach it.
+Nothing in stmmac_tx_err() sets the pointer again, even though
+af_xdp_zc_qps still has the bit set for this queue.
 
-[Severity: Medium]
-On the same failure path, is the MAC receiver left enabled?
+After that, stmmac_tx_clean() skips its if (tx_q->xsk_pool) block, so
+stmmac_xdp_xmit_zc() never runs. stmmac_napi_check() also starts sending
+TX interrupts to ch->tx_napi:
 
-error_unlock only powers down the legacy SerDes and drops the locks. Only
-error_stop_dma calls stmmac_mac_set(priv, priv->ioaddr, false). With
-Wake-on-LAN enabled, stmmac_suspend() never disables the MAC:
+	tx_napi = tx_q->xsk_pool ? &ch->rxtx_napi : &ch->tx_napi;
 
-	if (priv->wolopts) {
-		stmmac_pmt(priv, priv->hw, priv->wolopts);
-		priv->irq_wake = 1;
-	} else {
-		stmmac_mac_set(priv, priv->ioaddr, false);
+For ZC queues, stmmac_enable_all_queues() enabled rxtx_napi, not tx_napi.
 
-dwmac4_pmt() sets GMAC_CONFIG_RE when it arms wake-up. The
-stmmac_pmt(priv, priv->hw, 0) call earlier in stmmac_resume() only writes
-PMT=0 and leaves RE set. Because stmmac_hw_setup() is skipped, no DMA soft
-reset clears the configuration either.
+Wouldn't this stall zero-copy TX in the same way as the resume case?
 
-After the failure, the MAC keeps receiving with the link still up, while
-RX DMA is stopped. The failing queue's descriptors have already been made
-CPU-owned by the OWN-clearing loop at the top of
-stmmac_reinit_rx_descriptors(). Incoming frames fill the MTL FIFO with
-nothing to drain it. STMMAC_DOWN is not set, so the pre-suspend interrupt
-enables can still reach stmmac_interrupt().
+The commit message says:
 
-Should this path disable the MAC (and the DMA interrupts) before
-returning? Otherwise the device is neither armed for wake-up nor quiesced.
+    Keep the buffer cleanup helper's behavior for teardown unchanged.
+
+This suggests the other callers of dma_free_tx_skbufs() are all teardown
+paths, but stmmac_tx_err() is not one of them.
+
+Would it be better to fix this in the shared helper instead? For example,
+xsk_pool could be cleared only in __free_dma_tx_desc_resources(), or
+dma_free_tx_skbufs() could stop clearing it altogether. Either would
+cover both paths and remove the need for a restore in each caller.
+
+>  		stmmac_clear_tx_descriptors(priv, dma_conf, queue);
+>  	}
+
+[Severity: High]
+
+This isn't a bug introduced by this patch, but does the TX loop here
+need the same chain-pointer rebuild as the RX loop?
+
+In chain mode with non-extended descriptors and hwts_tx_en set, the MAC
+writes the timestamp seconds into des3 of the last-segment descriptor.
+In chain mode, des3 also holds the address of the next descriptor.
+clean_desc3() in chain_mode.c repairs this:
+
+	if (tx_q->tx_skbuff_dma[entry].last_segment && !priv->extend_desc &&
+	    priv->hwts_tx_en)
+		/* NOTE: Device will overwrite des3 with timestamp value if
+		 * 1588-2002 time stamping is enabled, hence reinitialize it
+		 * to keep explicit chaining in the descriptor.
+		 */
+
+However, clean_desc3() only runs from stmmac_tx_clean(). stmmac_suspend()
+disables NAPI before it stops DMA. A frame that completes in between is
+never cleaned, so its des3 still holds the timestamp.
+
+On resume, stmmac_clear_tx_descriptors()->ndesc_init_tx_desc() only
+clears TDES0_OWN and sets the chain bit. It does not touch des3, and
+nothing on this path calls stmmac_mode_init() for TX again.
+
+The RX side of this function already handles the same hazard in
+stmmac_reinit_rx_descriptors():
+
+	/* Hardware timestamp writeback may have overwritten chain pointers. */
+	if (priv->descriptor_mode == STMMAC_CHAIN_MODE) {
+		...
+		stmmac_mode_init(priv, des, rx_q->dma_rx_phy,
+				 dma_conf->dma_rx_size, priv->extend_desc);
+	}
+
+Could TX DMA then fetch its next descriptor from an address equal to the
+PTP seconds value? stmmac_tx_err() seems to have the same gap.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795096430.git.dinghui%40lixiang.com
