@@ -1,61 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795411072;
-	b=fgpl31Bsp8sxbiZel9maCKMYAjXbjLrpL4aLNnaMmhBKoTRIvgnXhSnGfENsgeRRif8G
-	 dJ7y4vrDpOhi47TYIpqx5CMQrsGEzn3Q48hsEafVsXUqk9u6/2NOEv3/vdbZrVFlwH1wE
-	 X8YYfWWQtC7qMIQ1JHFONapT/fyfRRLKDsAJPAU2W76AigemsC6iktV3uaWS7LW+Md1qo
-	 aSkQbTbpRx3EIb9MsV19h6u/7VUKTSVolxY/3MWXhXRu3xxRxqEHaoh3ktP3hiyXV2lCO
-	 4RPDsggj3/d7BqltRHpVFCt+SntEE6nbzD0z3uWreZxkNl1WrK4/lgnuuCR4NeyJwNw==
+	t=1795411341;
+	b=gQO5RNIMuN8JVmOK7ZYNHiUTOxEtupC8SuFPm9uLYCYrUuW7q8zTAnyiNZM1iD87yTuW
+	 E7g/ntYYanyTA9EpiGFKus9nQX7375O23dEr5FJYLxxRQOx2qNZMchj2nOnsBH30Hcie3
+	 P9CieFLra13KLjc3PUey+RShiSSCVp/1wbBGw2esZEcGB9ajqBcPGl1aIxQg8uJuU4wDY
+	 rPzlc2epOCh85PEvAtt7U1do/2R3tG+K4gCqFU60S+1voL8+zGJtlDOGL3DwCDxbkiGEC
+	 wI0BUBR8WZmq3Uj2ucWrkHwLIZHgfsuhLqSXaXe0UAwa2TtUPimCVNPCmxzqon4S9SQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795411072;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=p4ilBBmu4wqkUrExqEeONwlOBor94s/7aXOC9EBEpWM=;
-	b=VDk5cPPgDYvwJtIxA0P8DREDBhGYcH9lKz9tBL7WdvEQCuNZuvt7xC6PnE53LABoIjpO
-	 m3SKi3z3xj3Pu03LysaQhIUbcNs0L5y8wNi4eJUkUBJaCCHXagIlhRCFUhXGvSzZ6vvPj
-	 OGj5XVIaSZKNTn4P9OjqcvtE4cSEMsKhUZw970O1qobXsQSDr+aLS9hvQxoyoxNKruWKO
-	 gkSRqwC/7exhG3ywx1rUwyKL2+4HxCxT6E8JjFic8WQihaSibiUtrS9N1WHdUaAU2X9FP
-	 +JQtU6DLfvSHA9g45ZgeU6Gr/B4526mDUdQQTMzrMrHku2pO7No66TEr18rGUTwgG/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795411341;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=iy36ClD91OuaesY/Ay9KrdFH02xOa7KlfGzGZS847ZU=;
+	b=aJbSqqd8Oc9vlqSLpPxLoh4c0qJQb/CxGBVbdl3s5hKwjcrXbRkWsEpaIeOJn5uNQjsY
+	 MgUZ79RibCKcpHy+jpUPSKazeMoDTY9KK5VcONRieixu3dKSN/Mx5nYjwrNfPogFMhwg8
+	 tw2Z1Ihvs0BhvuUIhjeZm1nRUV0xsd0qllxIMisndxGJlzuggTG1HEvBUQwHLjoFbUKKG
+	 9Dc4mG/i7J4oiGl3W59vIFEZoviuGscaHltx6kl2asxlThr2h/+qUKxpOEYswW7KhUcsl
+	 btnMcZPAYaAo2gPNfLNOZg7Z2NE4am3m0Xje+nZ0w+3ebkfZeSwmVuhXdvc0b/S2imQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHyDgflT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="rorQCa/B";
+	arc=none smtp.remote-ip=95.215.58.43
+Received: from mta1.migadu.com (out-43.mta1.migadu.com [95.215.58.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21FC3606A336;
-	Mon, 23 Nov 2026 05:17:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26DAE606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:22:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26DAE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NHyDgflT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39EE11F000D0;
-	Mon, 23 Nov 2026 05:17:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795411072;
-	bh=p4ilBBmu4wqkUrExqEeONwlOBor94s/7aXOC9EBEpWM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NHyDgflTwXBT0Xrs/2H7JNc/Ij6du99K29Hen2VvceONUtEVCZPe/gMDTEsACnoD4
-	 jQcXlEiqM+m7RpoJeRL89u+S/s5s/6/QORkAKrGQQ/llMbDTipUcndCyTtpgl+o5hE
-	 m6NlDdBns9q3ORCl73/RSZP2kwXAj3QkQbv847fno+hQ9iFANo54HZJmizfA/dqO97
-	 g36qpeo8TW6gjtLt7JaAimXuuhfr0hYRlBuxGj6Vwgq8UgjNfwG7esbQ4F2zQermt8
-	 QE8dORK7CE/EDGvx4SaK6yrruBuDBz0wMuh0pC2XAPB8vmqcdKbXLln7js4GcLW0Qf
-	 3hdJ+h1sHXZzw==
-Subject: Re: [PATCH net v2 2/2] net: wwan: iosm: fix S3 resume by re-binding
- the driver around it
-From: netdev-bot+sashiko@kernel.org
-To: davidlwesten@gmail.com
-Cc: netdev@vger.kernel.org, loic.poulain@oss.qualcomm.com,
- ryazanov.s.a@gmail.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- m.chetan.kumar@linux.intel.com, linux-kernel@vger.kernel.org,
- mail@maciej.szmigiero.name, nihaal@cse.iitm.ac.in, stable@vger.kernel.org
-Date: Mon, 23 Nov 2026 05:17:50 +0000
-Message-ID: <179541107082.3135.11504382259893948340@kernel.org>
-In-Reply-To: <20261119042714.505405-2-davidlwesten@gmail.com>
-References: <20261119042714.505405-2-davidlwesten@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=rorQCa/B
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=D82Nd0c2N+O4K4PuYhgfhJVwNjk6bdjRGsOrqQiK2r4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795411339; v=1; x=1796016139;
+ b=rorQCa/BO2A211dkndlN3Z5a+4JYq5futjumyEheZuePk96gq4WCr5xxiiNzN0OOhnmMz6xT
+ ZYy/qBo+xlUR66fL2yeW3qkEcIsDDLIhN3QNJbE0KaQZEtKr3kVQkRYp3Ks+Ws7sc8Yb57Wk7p6
+ 1lORLH0C+OVV/3QD07YeWkuk=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id d4f9441bda4b8cfe;
+	Mon, 23 Nov 2026 05:22:19 +0000
+X-Mizu-Trace-ID: d4f9441bda4b8cfe
+X-Migadu-Flow: FLOW_OUT
+Date: Mon, 23 Nov 2026 13:22:07 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+Cc: tianyi@cloudflare.com, kuba@kernel.org, netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org,
+	bpf@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+	pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
+	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+	john.fastabend@gmail.com, sdf@fomichev.me,
+	skhan@linuxfoundation.org, kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev
+Subject: Re: [PATCH net-next v5 3/3] selftests: net: veth: propagate
+ bad-settings check failures to exit status
+Message-ID: <20261123052207.GG10218@Liu-laptop>
+References: <20261121182217.4609-1-emmaonana18@gmail.com>
+ <20261121182217.4609-4-emmaonana18@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,214 +71,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121182217.4609-4-emmaonana18@gmail.com>
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 · Medium: 1 · Low: 2
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] Use-after-free in the remove path, which this patch now runs on
-  every S3 suspend while the modem is live.
-- [Medium] When the card keeps power, the modem now goes into system
-  sleep fully awake.
-- [Low] The new PM_POST_SUSPEND branch in pm_notify() registers the
-  driver again based only on the global `pci_registered` flag, which…
-- [Low] The stable backport prerequisite is not declared.
-
---
-
-net: wwan: iosm: fix S3 resume by re-binding the driver around it
-
-This patch extends the iosm PM notifier. It now unregisters the PCI driver
-on PM_SUSPEND_PREPARE, unless the default suspend mode is s2idle, and
-registers it again on PM_POST_SUSPEND. This reuses the hibernation
-mechanism from commit 0b6f6593aa8c, so the modem is probed again after it
-reboots during S3.
-
-> Fixes: 1f52d7b62285 ("net: wwan: iosm: Enable M.2 7360 WWAN card support")
-> Cc: stable@vger.kernel.org
-
-[Severity: Low]
-Will this apply to the stable trees that this Fixes: tag selects?
-
-Commit 0b6f6593aa8c ("net: wwan: iosm: Fix hibernation by re-binding the
-driver around it") added pm_notify(), pm_notifier and pci_registered. That
-commit has no Fixes: or Cc: stable tag. A tree that has 1f52d7b62285 but
-not 0b6f6593aa8c has no pm_notify() at all.
-
-Could the prerequisite be named, for example with
-"Cc: stable@vger.kernel.org # depends on 0b6f6593aa8c"?
-
-The dependency on the preceding ADB timer patch is only described below
-the --- line. That patch carries the same Fixes: and stable tags, so that
-part is less of a concern.
-
-> diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> index 49052eb511baa..13e81012d818c 100644
-> --- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> +++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-> @@ -534,12 +534,17 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
+Hi Omokefe,
+On Sat, Nov 21, 2026 at 07:22:17PM +0100, Omokefe Emmanuel Onanaroghene wrote:
+> Three more checks in veth.sh print "fail - set operation successful
+> ?!?" without setting ret: "bad setting: XDP with RX nr less than TX",
+> "bad setting: reducing RX nr below peer TX with XDP set", and "bad
+> setting: increasing peer TX nr above RX with XDP set". A kernel that
+> wrongly accepts any of these invalid operations would be reported yet
+> the script would still exit 0. Wrap each fail branch so it sets ret=1.
+> 
+> Reported-by: Tianyi Gao <tianyi@cloudflare.com>
+> Link: https://lore.kernel.org/all/CAG4wq-cd01i7YrcFPmma=BXUcwn_PK=wneKW=vyEBYzQ3Bn7QA@mail.gmail.com/
+> Signed-off-by: Omokefe Emmanuel Onanaroghene <emmaonana18@gmail.com>
+> ---
+>  tools/testing/selftests/net/veth.sh | 26 +++++++++++++++++++-------
+>  1 file changed, 19 insertions(+), 7 deletions(-)
+> 
+> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
+> index 7a2bbed0263e7..6eeb123aaf885 100755
+> --- a/tools/testing/selftests/net/veth.sh
+> +++ b/tools/testing/selftests/net/veth.sh
+> @@ -474,9 +474,13 @@ if [ $CPUS -gt 1 ]; then
+>  	ip netns exec $NS_DST ethtool -L veth$DST rx 1 tx 2 2>/dev/null
+>  	ip netns exec $NS_SRC ethtool -L veth$SRC rx 1 tx 2 2>/dev/null
+>  	printf "%-60s" "bad setting: XDP with RX nr less than TX"
+> -	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+> -		section xdp 2>/dev/null &&\
+> -		echo "fail - set operation successful ?!?" || echo " ok "
+> +	if ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+> +		section xdp 2>/dev/null; then
+> +		echo "fail - set operation successful ?!?"
+> +		ret=1
+> +	else
+> +		echo " ok "
+> +	fi
 >  
->  static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unused)
->  {
-> -	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE) {
-> +	/* The modem may lose power in S3 and S4 and boot again on resume,
-> +	 * which the suspend/resume callbacks can't handle, so probe it again.
-> +	 */
-> +	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE ||
-> +	    (mode == PM_SUSPEND_PREPARE && !pm_suspend_default_s2idle())) {
->  		if (pci_registered) {
->  			pci_unregister_driver(&iosm_ipc_driver);
->  			pci_registered = false;
->  		}
+>  	# the following tests will run with multiple channels active
+>  	ip netns exec $NS_SRC ethtool -L veth$SRC rx 2
+> @@ -484,16 +488,24 @@ if [ $CPUS -gt 1 ]; then
+>  	ip -n $NS_DST link set dev veth$DST xdp object ${BPF_FILE} \
+>  		section xdp 2>/dev/null
+>  	printf "%-60s" "bad setting: reducing RX nr below peer TX with XDP set"
+> -	ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null &&\
+> -		echo "fail - set operation successful ?!?" || echo " ok "
+> +	if ip netns exec $NS_DST ethtool -L veth$DST rx 1 2>/dev/null; then
+> +		echo "fail - set operation successful ?!?"
+> +		ret=1
+> +	else
+> +		echo " ok "
+> +	fi
+>  	CUR_RX=2
+>  	CUR_TX=2
+>  fi
+>  
+>  if [ $CPUS -gt 2 ]; then
+>  	printf "%-60s" "bad setting: increasing peer TX nr above RX with XDP set"
+> -	ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null &&\
+> -		echo "fail - set operation successful ?!?" || echo " ok "
+> +	if ip netns exec $NS_SRC ethtool -L veth$SRC tx 3 2>/dev/null; then
+> +		echo "fail - set operation successful ?!?"
+> +		ret=1
+> +	else
+> +		echo " ok "
+> +	fi
+>  	chk_channels "setting invalid channels nr" $DST 2 2
+>  fi
+>  
+> -- 
+> 2.43.0
+> 
 
-[Severity: High]
-Can this expose a use-after-free of ipc_imem->ipc_task on every S3
-suspend?
+This one and patch 2 are fixing the same issue in the same test. Why bother
+with two patches?
 
-Here pci_unregister_driver() goes through ipc_pcie_remove() into
-ipc_pcie_cleanup(). That function frees the imem resources before it
-releases the MSI handlers:
-
-drivers/net/wwan/iosm/iosm_ipc_pcie.c:ipc_pcie_cleanup() {
-	/* Free the shared memory resources. */
-	ipc_imem_cleanup(ipc_pcie->imem);
-
-	ipc_pcie_resources_release(ipc_pcie);
-	...
-}
-
-Inside ipc_imem_cleanup(), the CP is told to go to IPC UNINIT. Then the
-tasklet and its container are freed, and the pointer is not cleared:
-
-drivers/net/wwan/iosm/iosm_ipc_imem.c:ipc_imem_cleanup() {
-	...
-	ipc_imem_device_ipc_uninit(ipc_imem);
-	ipc_imem_channel_reset(ipc_imem);
-
-	ipc_protocol_deinit(ipc_imem->ipc_protocol);
-	ipc_task_deinit(ipc_imem->ipc_task);
-
-	kfree(ipc_imem->ipc_task);
-	...
-}
-
-The threaded MSI handler is still registered at that point. Its only gate
-is the s2idle suspend bit, and this path never sets it:
-
-drivers/net/wwan/iosm/iosm_ipc_irq.c:ipc_msi_interrupt() {
-	...
-	if (!test_bit(0, &ipc_pcie->suspend))
-		ipc_imem_irq_process(ipc_pcie->imem, instance);
-	...
-}
-
-ipc_imem_irq_process() only checks ev_irq_pending[irq].
-ipc_imem_handle_irq() clears that flag before its IPC_P_OFF_REQ early
-return, so the flag doesn't block a new enqueue either.
-
-An MSI that arrives after tasklet_kill() in ipc_task_deinit() schedules
-the tasklet again just before it is kfree'd. An MSI that arrives after
-kfree(ipc_imem->ipc_task) makes ipc_task_queue_add_task() read and write
-the freed structure:
-
-	struct tasklet_struct *ipc_tasklet = ipc_imem->ipc_task->ipc_tasklet;
-	struct ipc_task_queue *ipc_task = &ipc_imem->ipc_task->ipc_queue;
-	...
-	spin_lock_irqsave(&ipc_task->q_lock, flags);
-	...
-	tasklet_schedule(ipc_tasklet);
-
-The softirq could then run that tasklet after ipc_pcie_deinit() has also
-freed imem and ipc_pcie.
-
-The unbind and hibernation paths already use this ordering. This patch
-puts it on the S3 path while the modem is running and has just been told
-to go to UNINIT. Could the MSIs be quiesced or freed before
-ipc_imem_cleanup() tears down the tasklet?
-
-[Severity: Medium]
-Does the modem now enter system sleep in D0 with its firmware still
-running? This applies when the card keeps power in S3, or when freeze or
-standby is entered while mem_sleep is deep.
-
-The driver is unbound at PM_SUSPEND_PREPARE, so ipc_pcie_suspend_cb() no
-longer runs and neither sleep handshake is sent:
-
-	switch (ipc_pcie->d3l2_support) {
-	case IPC_PCIE_D0L12:
-		ipc_pcie_suspend_s2idle(ipc_pcie);
-		break;
-	case IPC_PCIE_D3L2:
-		ipc_pcie_suspend(ipc_pcie);
-		break;
-	}
-
-This skips both the IPC_MEM_DEV_PM_FORCE_SLEEP doorbell and the
-ipc_imem_pm_suspend() host sleep message.
-
-The PCI core also stops putting the device into a low power state. With no
-driver bound, pci_pm_suspend_noirq() takes this branch and never reaches
-pci_prepare_to_sleep():
-
-drivers/pci/pci-driver.c:pci_pm_suspend_noirq() {
-	...
-	if (!pm) {
-		pci_save_state(pci_dev);
-		goto set_unknown;
-	}
-	...
-}
-
-Before suspend, the modem only gets IPC UNINIT from
-ipc_imem_device_ipc_uninit(), which is not a sleep request.
-
-Could this raise sleep power, or keep the platform out of S0ix during an
-explicit s2idle? The changelog lists lost data sessions for these cases,
-but it doesn't mention this.
-
-> -	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE) {
-> +	} else if (mode == PM_POST_HIBERNATION || mode == PM_POST_RESTORE ||
-> +		   mode == PM_POST_SUSPEND) {
->  		if (!pci_registered) {
->  			int ret;
-
-[Severity: Low]
-Can this register the driver again in the middle of a uswsusp
-hibernation?
-
-The hibernation and suspend paths now share pci_registered.
-snapshot_open() sends PM_HIBERNATION_PREPARE, which unbinds iosm. It then
-drops system_transition_mutex while /dev/snapshot stays open:
-
-kernel/power/user.c:snapshot_open() {
-	...
-	error = pm_notifier_call_chain_robust(PM_HIBERNATION_PREPARE, PM_POST_HIBERNATION);
-	...
- Unlock:
-	unlock_system_sleep(sleep_flags);
-	...
-}
-
-enter_state() only does a trylock on that mutex:
-
-	if (!mutex_trylock(&system_transition_mutex))
-		return -EBUSY;
-
-Suppose a suspend to RAM starts before SNAPSHOT_FREEZE. PM_SUSPEND_PREPARE
-does nothing because the driver is already unregistered. PM_POST_SUSPEND
-then calls pci_register_driver() and sets pci_registered = true.
-
-The hibernation image would then be created with iosm bound. The later
-PM_POST_HIBERNATION from snapshot_release() does nothing, so the unbind
-added by 0b6f6593aa8c is lost. Before this patch PM_POST_SUSPEND was
-ignored, so this couldn't happen.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119042714.505405-1-davidlwesten%40gmail.com
+Thanks
+Hangbin
