@@ -1,95 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795455691;
-	b=FSrmWx7Xc68HEsxU9fPOErt9t1vk/kYAFby+AN5rDVD0n9mW9tyB7tuzD70gut47KIWg
-	 oB/yU64Aq2tpfEJRx0u3QzHdGSET7yPmle9kdYqwwp2shMC6RYR6SC/ghsDVbo9KdhaOe
-	 Vsv48RAvcB29XhtOVWRBXnOwpubE+eqRBm0CrqzPqcgxTFm0p1S3ZAFOOT30YcseO9rYu
-	 ACjU5t2wufxeN9TvlvU63ekoSM9J1F0KyayjBgv/CfSqS3FnFVRpSBeYaszMEG+7WQ8I6
-	 q9tan2JKWw9L+3p/yHZaD50dOlGvRZfNrH0ntzMzO5GYO5w9FB73akLaUoyGeAm4V0w==
+	t=1795455890;
+	b=kgDXpXAIWaorRolcYiWenNcup0Tp1gam0JGEaEGZQusKPZf+AjK7icubpqGhEW5+f/Vh
+	 RriOP/MW60RZd4PAek50s7L6kd5/zR3ENajQbPWaXfVNjlJBO9IG8nSCL9n2BA3LbDhct
+	 ZBAM3lnGidsvLTeR34+Y8AuyybaywfA+S+gZ6H0Csux/ggNDgzT2GVyiFDXbLzZUm/FVN
+	 7hkmVj1uP7fG2NWAgf4RwSHfZcXN89Yjn7hEJAFhnMgOPLSYJlwXizeiwMPz+h4GiBLB2
+	 QxzEwLUfDvcag5v2FjpzjPMFpwA+vUACOqTCwLvmz5Z+3/v8XMJijAialPXYbJ/Ke7g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795455691;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
-	 X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=4IGoIcGsWUft5YVGktF5809rQkJhVmcEjghtz2ApRNg=;
-	b=Vk6sPm10ZanqS2egZA+SN8Dnb77jmQKRf8rvVsVI3B/qeEN4CKD05HYWK0/XOgBj/1q2
-	 3M5qEo8ghz+fyPpFc+vhdxDp1TOgeqBbWi53Ea4I8BCbp2xjBhCxoTBdrK8TJuyFlqtLj
-	 VSZmhKQFZlkZRgKgy0CrEK+ppVnRVIGCOx4/S7p9oN6jW2hDYKl3h0qIRAkGTrHvdN2TM
-	 1tbBKX6WYUCIohhm3Vtt1PsOHisQYN7/J/od3W2MYG7kuiqStaNKxhqid9Yq67leffg4V
-	 7IPpalcl/vDfTMCaQWXoAbyAPFQRqXr0gJQtY3rwx3a22kLXtDFje/eGQ+Lp8hNbMyQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795455890;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:
+	 X-purgate-type:X-purgate:X-purgate-ID;
+	bh=Xem99+IMWHB2IdSRPHk081dyBcwHZcfFeuaBwZ4cstE=;
+	b=LYKlaubKWAxK6eNA2maRJcRHODVA8ZoZ+pVt/y0p11ElXoHXC8UaXYjtGsDmsq5RWwuT
+	 /9r6UVobjioTwZMJa7SQ2CYXr4dux5WIA8lf3xnRCrIUGae71Qt43nr1BNsgJWvCovwYh
+	 2VBH3bP7UWp6Sc5Md1MAxaU0BC0sQsi1hPyXneDRouiHzJBET2vGgcSarBpWfF/quEPWp
+	 d8PbIcVwFT4knQJqBNsPast4JTOSdNxuodkHoN7mc6QuF+qWtvS/Kl/pYASk7baiZv6Fo
+	 6LVYysCexY5mPgxaeMFKJ3Dq4SfqdsR7/lVrUVZWFbllLavJIx1Nvp1KQD//I56pxXA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="OYQGZ/oA";
-	arc=none smtp.remote-ip=74.125.229.5
-Received: from mail-dy2-f5.google.com (mail-dy2-f5.google.com [74.125.229.5])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=ruvBVrzi;
+	arc=none smtp.remote-ip=91.198.224.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 996F8606A330
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:41:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 996F8606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4F08606A31E;
+	Mon, 23 Nov 2026 17:44:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4F08606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OYQGZ/oA
-Received: by mail-dy2-f5.google.com with SMTP id 5a478bee46e88-36f936424f2so994424eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:41:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795455690; x=1796060490; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4IGoIcGsWUft5YVGktF5809rQkJhVmcEjghtz2ApRNg=;
-        b=OYQGZ/oA8OM1MIc8Jg6zuAziA3dnCLXrt/f5ylKNScQPuZRmsrewFMvalKF/DiyKK8
-         9Yao4dIaIyj1xcn0vryHEN5KdD6+UfZMIeRqeWdoZexeoA/IP2YE1JCSL89f71pjUsKO
-         e7hNqnFEC7/O1aMiMQPlYz3rQ5Sn5+ZGMAmF6a+mSjHScClXoRon/X0QfkdEm4obfwR1
-         AdU36DQaoJ+C3JFRucvIC+2ho/Q0xCHOSoteYEC73nlftxiaPTRhexF6imdMdIOPEWjt
-         pwYZg2bvCAe7rhBt3cmgX40rGIwKN57NbULoRScYNjjaTvOk6qbYOc7Cw9shxplGU+Yd
-         jQpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795455690; x=1796060490;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4IGoIcGsWUft5YVGktF5809rQkJhVmcEjghtz2ApRNg=;
-        b=KarH8Z+M/Vt/bWe8021T5CtmXyvOBy99nqVYzus+RXiiRMNsbM250eitV9+8k0XQnG
-         Gtw9VoEdSmUxVkAIC8ck43tDLVOrknd1F8pIz5Ee0xBi1X7WeKyLl3LOFG3DkHtMmx1C
-         /gfG63IkNIqsgYpbm/iDxW9mXHWoc0Pf1SgG51vy/uduLcMMQXS6jhUzQWB9g/Ru3jjm
-         vLCwq2SFNOGEnR8fozPprr9SXWCOsGSoFF83EzxqSZXnIwqRfpZ/7qKA4J762SMgW1Fq
-         19M/GVPXqyh6SYwyqHlPFaV50mDX4f6/VzaFW0kQOjI6KYD1ZKifVn6//OPOmPP+Fh/f
-         dRzg==
-X-Gm-Message-State: APuU4Z8FLQ8va1cZjijoQly3PLtu+pbk46TtdG3yUJ8CCtko1s4OLPMP
-	7EgmWCOd+EfXRinm2Js8aM9xIt/TmnlZxIXcifo3VgH8jJq93npHG3WZ+dE5Dx26/BE=
-X-Gm-Gg: AZFdTZctccfFjpVuyfPzg9On/V/Q+9TPKFTvu8jYEg+WFIakjaWYu4aZxtV/5HvRHXU
-	CEox3/Ko98Z+wSW1cqNR9YMiUYtelK6OXu0DOkwQdzkM+4GvdBUpUbJNBN5F3+tIQ2HBobl3a8y
-	dceYpZID2TZ/vSvGI3/nplInDELarfBeqPaYUPau1aY/9eTZyxppgvRPM9jIU5rC86TMay13UX0
-	jN6qWt4bVCABP+M7tglUgLpaZdU13BPTKUgC1KQSbqrFKl748QT5YOOytaoRHxHv+mRurqTLfJH
-	gN1591J9dDXCfikOgzelO4yiD1uU6h64GUYXf7eKwecoEJEjGm6XDce53hSMTt4Q1RMYjkFjpZL
-	qume10furWwYOeJcXvInra8m2qW1qCIebSDIDGEHKbgL004+6r3uTsvB8xvNuMGFtaA8KKzWPw5
-	oHo0IN3tj46HEcwo5vYEDtPbAFBjBhJuuP0W/a5dRCFPHHC/LNKB3fgvlDy2ZZPttrwlAagJNnW
-	oNSR2ZRawDBnZcBpUjw0VokCUvSLaAjfYYP5v/wss1CKA0B/VtHWl69mwfFuC+9/rTxUWkG+kWG
-	OoJ3ReycpNym7oUJSHXU9EY=
-X-Received: by 2002:a05:7301:6405:b0:381:a3bb:f945 with SMTP id 5a478bee46e88-38570254ec3mr14653205eec.22.1795455689481;
-        Mon, 23 Nov 2026 09:41:29 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:6e::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm39987991eec.22.2026.11.23.09.41.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 09:41:29 -0800 (PST)
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-X-Google-Original-From: Stanislav Fomichev <sdf@fomichev.me>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Subject: [PATCH net-next 4/4] selftests: drv-net: remove the iperf performance test
-Date: Mon, 23 Nov 2026 09:41:20 -0800
-Message-ID: <20261123174120.505808-5-sdf@fomichev.me>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261123174120.505808-1-sdf@fomichev.me>
-References: <20261123174120.505808-1-sdf@fomichev.me>
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=ruvBVrzi
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=68018334f9=ms@dev.tdt.de>)
+	id 1xVY5l-00H8rQ-TC; Mon, 23 Nov 2026 18:44:37 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xVY5j-008MmH-KQ; Mon, 23 Nov 2026 18:44:35 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795455874;
+	bh=Xem99+IMWHB2IdSRPHk081dyBcwHZcfFeuaBwZ4cstE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ruvBVrzi6YBU7Ay5rAfCvg8gnuLfurJyKS0TgqmwlBd7uCD6C/SNJvF4zX/N4ZY0n
+	 PJ7VnSch/E7Vb1oSg9ehsXmvYu5ddG+kikY5QwWaguXrhM9P1AhRJhhAn/afKfDl8X
+	 N/OrgbI+zJNCUfuDiKf5T2bmmpo4v2mfK27t5z8Xc58jg1jayp3L/Ry4koMpIDfZbb
+	 wDxY+n9+8qD4eLF+B+Mhu3P1i1/iSew9P3wr8+XtCLLDY5+H5o5CispSyCXWhJSGYb
+	 wdswQx9dtGNUOgJyOmdwB3KrMyAO1wutlzOWvi6VlvxeLMwDBpi0FkSEY3QUQD6rhL
+	 S1k6WTzvDkD9w==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id E079B240040;
+	Mon, 23 Nov 2026 18:44:34 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id CE589240036;
+	Mon, 23 Nov 2026 18:44:34 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 7B56029BAC;
+	Mon, 23 Nov 2026 18:44:34 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,61 +71,59 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Mon, 23 Nov 2026 18:44:34 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Wentao Liang <vulab@iscas.ac.cn>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+	linux-x25@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH] net/x25: release the route on a nonblocking connect
+Organization: TDT AG
+In-Reply-To: <179375957890.488859.954022080109103885@kernel.org>
+References: <20261104022812.1484250-1-vulab@iscas.ac.cn>
+ <179375957890.488859.954022080109103885@kernel.org>
+Message-ID: <2b85d5c0abedae444d312de12a388ef4@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-type: clean
+X-purgate: clean
+X-purgate-ID: 151534::1795455876-ECF6CE18-0EA3A98F/0/0
 
-The throughput of one iperf3 stream changes by about 10% between
-back-to-back runs on the same hosts, e.g. from 90.7 to 99.6 Gbps over
-four runs, as much as a regression would. stream.py measures one TCP
-connection with kperf instead, remove iperf.py.
+On Wed, 04 Nov 2026 03:32:58 +0100, netdev-bot wrote:
+> - Whether the issue was actually triggered, or is only theoretical
+>   (e.g. found by code inspection). If it was triggered please include
+>   the symptoms, like the stack trace or error messages.
 
-Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
----
- .../selftests/drivers/net/perf/Makefile       |  1 -
- .../selftests/drivers/net/perf/iperf.py       | 23 -------------------
- 2 files changed, 24 deletions(-)
- delete mode 100755 tools/testing/selftests/drivers/net/perf/iperf.py
+It is real and easy to trigger: every nonblocking connect() leaks one
+reference on the route. After a single nonblocking connect() and
+deleting the route with SIOCDELRT, kmemleak reports the route:
 
-diff --git a/tools/testing/selftests/drivers/net/perf/Makefile b/tools/testing/selftests/drivers/net/perf/Makefile
-index b3f9dcac700b..898236833c42 100644
---- a/tools/testing/selftests/drivers/net/perf/Makefile
-+++ b/tools/testing/selftests/drivers/net/perf/Makefile
-@@ -2,7 +2,6 @@
- 
- TEST_PROGS := \
- 	devmem.py \
--	iperf.py \
- 	rr.py \
- 	stream.py \
- # end of TEST_PROGS
-diff --git a/tools/testing/selftests/drivers/net/perf/iperf.py b/tools/testing/selftests/drivers/net/perf/iperf.py
-deleted file mode 100755
-index 5b6f0bce2a03..000000000000
---- a/tools/testing/selftests/drivers/net/perf/iperf.py
-+++ /dev/null
-@@ -1,23 +0,0 @@
--#!/usr/bin/env python3
--# SPDX-License-Identifier: GPL-2.0
--
--"""Measure TCP throughput with iperf3."""
--
--from lib.py import Iperf3Runner, NetDrvEpEnv, ksft_exit, ksft_metric, ksft_run
--
--
--def tcp(cfg):
--    """Measure TCP throughput."""
--    result = Iperf3Runner(cfg).measure()
--    ksft_metric("throughput", result.throughput, goal="higher")
--
--
--def main():
--    """Run the iperf performance test."""
--    with NetDrvEpEnv(__file__, nsim_test=False) as cfg:
--        ksft_run([tcp], args=(cfg,))
--    ksft_exit()
--
--
--if __name__ == "__main__":
--    main()
--- 
-2.53.1-Meta
+  unreferenced object 0xffff8880008cf940 (size 64):
+    comm "x25test", pid 26, jiffies 4294892916
+    backtrace (crc 40ba0c57):
+      __kmalloc_cache_noprof+0x3c/0x69
+      x25_route_ioctl+0xe8/0x1bf
+      sock_ioctl+0x2d4/0x35d
+      __x64_sys_ioctl+0x56a/0x77c
 
+With the patch applied, kmemleak stays quiet. Good catch, I missed
+the route reference in e21dba7a4df4.
+
+Wentao, as the patch is marked "Changes Requested", please send a v2
+as a new thread with [PATCH net v2] in the subject:
+
+- describe in the commit message, in plain words, how you found the
+  issue, e.g. "discovered by an AI code review agent", and add the
+  kmemleak report above as validation: a single nonblocking connect()
+  followed by deleting the route with SIOCDELRT is enough;
+- drop the Assisted-by: line, checkpatch rejects it; if you want to
+  say which tools helped with the patch itself, do so below the "---"
+  line;
+- add a link to this v1 below the "---" line.
+
+Feel free to add my
+
+Acked-by: Martin Schiller <ms@dev.tdt.de>
