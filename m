@@ -1,97 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.61
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795461604;
-	b=O/0y8/hCA08Kc50AMgvFaU75kyEz023v2+osFyHFy4M7jJvnJ6D7/yFuOaL1f6gkWz7Q
-	 iX0hJeU3w2GUZPn0wlmx8l0YTdEomREXKvzQ4r5cJ7w5tgDzzPRA0Hp759u3de57w8NK3
-	 2uXeSlb9YQpFvGRJLyGsdlu4VCYe4rl9e7xZzq9wNmF+g5bs3x2LSVEsUjwjSm1oIiR8k
-	 IeMl8CsyQGW4OtWJqrWK5C8Nez9Xs02LUonfVtKPkcBnV9F/v4Sd/NfaJBqQbGoX0CJnc
-	 1Zqi7t/tFYKauwbgBh563AHkPSppv5hPI2/pndNZ9bR77wu3oGockwZlhhb3DfarL9g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795461604;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795461684;
+	b=WEyI4IXAoyKE3tkblJXCHkoVP1C+smiitt3m38J/1vknBwBjSF2WHnLkmxjD0hTSE717
+	 cTAKDbLLX8JaJ6SL2KmX1pz2mO6oQI64PvDgS4Nn7u5Ji0S6cajaQ0G8HOodOAP5VdrGh
+	 33tGGYwIYHLfNg0Bbtl/UKsKGUoMN1786p+uCRVmcCK4GpCVbxPoEQve2Y3tpCL+l5ohv
+	 ZlwbOjAleYbAPWucuGz6RzqhejitN8Ehj4J2wGJTY13fPI9UKgoNspkSWy/RfRlouDAxj
+	 ZVCa2FY4v8dJWq9WR/fTFHV01WZaOA8AVRtTsDJtO9zanD3+nEPND3LGeALSPBz69lQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795461684;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
 	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
 	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
 	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
 	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
 	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
 	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
 	 X-MS-Exchange-CrossTenant-Network-Message-Id:
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
 	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=d65RCQauGj1rpBY8ix7dx3Y30Z+mpXmukoB331c1oXg=;
-	b=j1yw9vE0pxRj+ua9wPsHU0qOQxESY+3vISVDtBzsuV7l7lmsW+fgf+g7vTJBQLdIhvE+
-	 1CntnpZtyw1t5NbtF28VIjEY8ceGHDfW9fiiAOBHt4dyl+qnE0WuCY4t89z+v1PE0fbln
-	 OudZ1P9udbqt2gQLsSssadQgjx0TZa9Y8dqVg5D/k2GoPk4QXgOYrfYZBQaZoKBlgcOr/
-	 CRb9r+O6DR/92j6kIsT5kCIfSghmjkr9cbp0AS1mSzYlzKbgV7ufls2UzPDnyu64i6QSI
-	 ouCuslGuRQq8S9kH4917ZJsyzB5Xqsp4ySHhkNOi8bY9yJSvdiELKO+hAHuh6ddEFsg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="Smv6Px/N";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.61
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013061.outbound.protection.outlook.com [40.107.201.61])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=h5nORR2uGxxqV1iPr3cmsdCnEOujccbZNvNXNDc7JkY=;
+	b=cnYuHJEyE5eZn5SU2XnELijc97xZEyOrHd2BKdFzwmBe/l9pU+f8o+kjGx6dnPcbNAuQ
+	 xMKVg29yUCSsMCsoRH8poR2F/wD8xuAhnlBtAV69YCGYCc7cPF86V2+guDX9u4Dhr4DgZ
+	 3bsPFMLjUSotzyDjkM02vqOMIu+7f85+G8hYXnlte5gRyu2cDXnSiwOHSysZOmvoc2g31
+	 p4B5EZTyWxqiw0auo/4f6aEseAdNH7sJte/whhcXQXy4Ldnfky7gXbQ7birtRJtRIRZxj
+	 ybpcTeHmZC16C4LXYXWsKFaEEOC+DEj5SAeVUFdwdIFL939uib5qNr1ms2IosEX6b9g==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IrQKGNOJ;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Q3KW2QPd;
+	arc=none smtp.remote-ip=192.198.163.18
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.18])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CEF2606A327;
-	Mon, 23 Nov 2026 19:20:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CEF2606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95CED606A31F;
+	Mon, 23 Nov 2026 19:21:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95CED606A31F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=Smv6Px/N
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=b0mH4cmBwZzXwIubiHDM3514xRG70Nzyb1wmyE25LyjvYUFznrfh7e3n+VxXekzka4A4N26IDRNYyW2bmLgISbM+BrbJglgq6jd/ZyWlWwt9o/S84RvmdqZkPGIjX0RVuJ0p1esrhLVeKC8kvWaWpbd4OIGhagWN5QXE9AsYp4bjoXxcdtWa3q0mykrR6mbMox9v9Q8nuLebDUL46J0zHee2pNa0rhvT9NnHaDRwQ91Kq/DiIdLuGFcpPOnMMheC6L9gt50oq9+o2i3l7zQ4M00QP7Vi3JxssJCbMQwCD4d1KUk8El2oRvfBYLfm9Z0oYZa7L4YcNp/Ko6G1WFo/NA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=d65RCQauGj1rpBY8ix7dx3Y30Z+mpXmukoB331c1oXg=;
- b=B3fP247jBsFlfOvIU7V/8X0fOowmsNLlDgmT2xcgXdVUu/8k2kqf1fBh+fldTcUvJHTqn9vTKHoOxWR4/S5Ftrb8aX0fwUUQ/EmX3X/b3YPunDbXPIO37n0OdLWNW47gGgEgWS27OYxZRFOtdado59uFa50M8TxK0cTWInYg++4t6pqAm6At5uw4Z5ANWiP83JZwOPgOozK4K7mtiDMrjY+urxBJ5OPUk648MRriJpRbQuEjIOhz8NgG+BzMUIkW8UYhswdwFJoWyLAOLd7IUzKr/x1CBY7fwLbqEWkw4BTdL/LlSS+MFLZgmNDIUphVsYIHhWC+uSFCqrVjLemsQw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=IrQKGNOJ;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=Q3KW2QPd
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795461683; x=1826997683;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=BeisGRgBdMMima5hibcA1gW3OOp9xgV8X8Q5WvNXWwk=;
+  b=IrQKGNOJ37L53zBuuprgZM/d2iVWVzLmqHh/HZIP1HVH+LwWMxF2keDH
+   hsEA/i5fowp6QjSHoBnOQiecv4c0Atev494IqFTXXQ7qu7phjbJHmCc8X
+   xex2MGyUxQISJb3m51HHTwZ8wgDIoeGIrABdPeYc7Za/RA0618nRITXIq
+   CtE68YH5BsA9u7lZt5CChydgs0pGS4fm23S6iqDnhF+EbgIuTyK5V8i1A
+   u2DjTZLkzZmGtQf6jvsA5BShP3NC3LtBuYi4O/UacedW5NYLnY89tmqcI
+   Z+Q6x16HgmtlIgGhklj+nHoR3h9JA7bdGHADpiSftFg9G8kvyVR+hjjrF
+   A==;
+X-CSE-ConnectionGUID: eknj4wVdRUqCrhWFIGYnKQ==
+X-CSE-MsgGUID: 21286OZNTGe1hNzxTcsBWw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4309822"
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="4309822"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa112.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:21:22 -0800
+X-CSE-ConnectionGUID: T7yFGAbOSWiR0GCrXxUDwQ==
+X-CSE-MsgGUID: h4JwevoEQjufgEoIm+K0sg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
+   d="scan'208";a="11455200"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 11:21:22 -0800
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Mon, 23 Nov 2026 11:21:21 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 11:21:21 -0800
+Received: from CH5PR02CU005.outbound.protection.outlook.com (40.107.200.43) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Mon, 23 Nov 2026 11:21:21 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=d65RCQauGj1rpBY8ix7dx3Y30Z+mpXmukoB331c1oXg=;
- b=Smv6Px/NjLcyygP/LepuqnlmPG0Nb9045xKGzY/LSZxYhkBKYjRKmuOgLOSKl3CH2iqTzVkyDRtVM8DKXffW9YkqVSKsW+jFTKHywVofy6di2khmIoTj+gARH56gxT8Z81smRhSxiT91Uess4GC2khurQwGLRIOnm2XoIEuT/edddaiIKYGsZ9btIt7QfEJV+cKIOaC4Rz954Unx57QcWryXwYKq80ulZEGPsh/73qIC0/RUrKKSUTXQ0e8qsVEewgcXhBagUXvSrfmoojYBPHxp/0FpcXvCHZTg7gnaOkzV+irwVSm9YG5kR+P3y+IhblRKwKzMk5/nyG8z18HWpQ==
+ bh=h5nORR2uGxxqV1iPr3cmsdCnEOujccbZNvNXNDc7JkY=;
+ b=Q3KW2QPdYSQake1TpkNwRZ1oB5AkwfmKrG/DJq6/6Mvm7EMoJs5SJTqw9RqYDDZ6TzcMlkWmeIDEWZy//TZR+FexGqlfq8Dd1Onm/a1GBL4QjIpAVbNNnByVZrBzFxWW17ysd+bKlcivbooYzZzhsj/TNGUF6aGdumRVGu1ic+k=
 Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CHAPR12MB999248.namprd12.prod.outlook.com
- (2603:10b6:610:2ff::22) by PH5PR12MB394451.namprd12.prod.outlook.com
- (2603:10b6:510:502::20) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Mon, 23 Nov
- 2026 19:20:00 +0000
-Received: from CHAPR12MB999248.namprd12.prod.outlook.com
- ([fe80::4972:8062:d74e:b205]) by CHAPR12MB999248.namprd12.prod.outlook.com
- ([fe80::4972:8062:d74e:b205%6]) with mapi id 15.21.0639.010; Mon, 23 Nov 2026
- 19:20:00 +0000
-Message-ID: <3f89c58c-ad70-4d20-86a3-4ba3ac8a2689@nvidia.com>
-Date: Mon, 23 Nov 2026 20:19:54 +0100
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from SJ2PR11MB8451.namprd11.prod.outlook.com (2603:10b6:a03:56e::20)
+ by LV2PR11MB5999.namprd11.prod.outlook.com (2603:10b6:408:17d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 19:20:15 +0000
+Received: from SJ2PR11MB8451.namprd11.prod.outlook.com
+ ([fe80::7d5f:b2ba:92d4:5f3c]) by SJ2PR11MB8451.namprd11.prod.outlook.com
+ ([fe80::7d5f:b2ba:92d4:5f3c%4]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
+ 19:20:15 +0000
+Message-ID: <e5f2fb8e-1129-41d0-b627-6d96b81899f8@intel.com>
+Date: Mon, 23 Nov 2026 11:20:14 -0800
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net/mlx5e: TX, Do not open a multi-packet WQE
- for a single packet
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>, netdev@vger.kernel.org,
- tariqt@nvidia.com
-Cc: saeedm@nvidia.com, leon@kernel.org, mbloch@nvidia.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-rdma@vger.kernel.org,
- linux-kernel@vger.kernel.org, Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-References: <20261123090200.1284018-1-xuanqiang.luo@linux.dev>
+Subject: Re: [PATCH net v2] r8169: clear RxOverflow before unmasking
+ interrupts
+To: Jure Rebernik <jure.rebernik@luxonis.com>, Heiner Kallweit
+	<hkallweit1@gmail.com>, <nic_swsd@realtek.com>, <netdev@vger.kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Sunil Goutham
+	<sgoutham@marvell.com>, <linux-kernel@vger.kernel.org>,
+	<stable@vger.kernel.org>
+References: <20261121073652.410916-1-jure.rebernik@luxonis.com>
 Content-Language: en-US
-From: Dragos Tatulea <dtatulea@nvidia.com>
-In-Reply-To: <20261123090200.1284018-1-xuanqiang.luo@linux.dev>
+From: Jacob Keller <jacob.e.keller@intel.com>
+In-Reply-To: <20261121073652.410916-1-jure.rebernik@luxonis.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0239.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e9::16) To CHAPR12MB999248.namprd12.prod.outlook.com
- (2603:10b6:610:2ff::22)
+X-ClientProxiedBy: MW4PR04CA0270.namprd04.prod.outlook.com
+ (2603:10b6:303:88::35) To SJ2PR11MB8451.namprd11.prod.outlook.com
+ (2603:10b6:a03:56e::20)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,198 +136,179 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CHAPR12MB999248:EE_|PH5PR12MB394451:EE_
-X-MS-Office365-Filtering-Correlation-Id: f65ee965-bcd9-41e5-52ff-08df4996c460
+X-MS-TrafficTypeDiagnostic: SJ2PR11MB8451:EE_|LV2PR11MB5999:EE_
+X-MS-Office365-Filtering-Correlation-Id: a4bba298-6c5f-4364-fa5e-08df4996cd88
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|18002099003|22082099003|3023799007|5023799004|11063799006|56012099006|261022075727099003|261026140227099003|261026121527099003|261021135927099003|261028144727099003|261021123027099003|261009223027099003|10067099003|261102123227099003|261021121427099003|261022105027099003;
-X-Microsoft-Antispam-Message-Info:
-	dRm/CnABnVfpZyGLuWkIc8z8voZvgUwoC9gDeT5SkO2fY1dMl/Jyl9gn/Igxb0UMfCvcIdpfdFyYuQmpjWNVTJTL1BTOF/N7fOhuEKyHQsohsYFe4zokInDO/0md0mdqqZrUAZuYp+1oXUwKgGoygLx4ai+aFfy4gcOjhpxTpU9bXK3gTWkCNZm8hEUyFAsne8/uv2KPnLDPJOQO+EY6fNC3rHNzNaiH981uj0ZLmDmI7lnwS93IFkosfuMJH2Jf66ePGo+MQL9T91NQ54whc9Wds8lY/0q9j1j8mu1p5xC8OFUj4oAwUCnAqK0vlVGabSseln7RAjJ5zOPPSbJICzJv1V9kM5BFGyVbsjede3GsW8Zljz2MyLDlgJh84YM8OfYFF8FvhhHXQ7xv2ppTxbyEs182Y1C7OFJh6ygWi3gyCsDufVAJz9JpEmVrDDGYXbADeL1qYxqNgPYmnvSq5B2Fio8zvqe+1fMI9s9beAZd7duGoPXcmItn9yZjbZoB6/6W8emHdVWbH7SrGthTrekYgF4jGhu5sp6WzSI1mihGwoBXL+9i0Ei/F/XM6IWiL2VP8Shen5dWIzC1MBP1Vk4aspIcSzm2Q5n60OroVoXBMRL44E/C2eZ36fPq9b2VU4Ottim/SGEGpVvmhmgm7KBvhlage1Fvf2NkodwH3R8=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CHAPR12MB999248.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(18002099003)(22082099003)(3023799007)(5023799004)(11063799006)(56012099006)(261022075727099003)(261026140227099003)(261026121527099003)(261021135927099003)(261028144727099003)(261021123027099003)(261009223027099003)(10067099003)(261102123227099003)(261021121427099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|1800799024|376014|7416014|366016|261102123227099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|10067099003|261021135927099003|5023799004|11063799006|56012099006|8126099003|261009223027099003|22082099003|18002099003|6133799003;
+X-Microsoft-Antispam-Message-Info: Z8UnaRQG7J3KdcD+Bemsctk3JLQRK1zQGsmB1wSmWf84XWPjjJeEUBJ/qsUYkwuXStm0mXbhuv6Rov/SUOFjN2iQ8vOVkznslYIc3c9P19m9w9/NOS9cw9YQ01TbOTokmo3QPHPguHilFecnK0VtXNjRvAMivvRba+n0TS9JLdUtwrRY8c32QlI4aViIy140w1TAAEeg+PkzHq4Qzj5AGb4GDSvCGeefhUdSSD1YoE20mfPiWFhRdb9vq60YOV9fpBSCItbDOmsBs61eoxpqMTf0fy+K+XhpH5UFUrwYU9KAehMB9dULmmsGYnEghiMjPA1+dbblH2JijHl91djZWBMrmUyH/GUrMavayQzQBepJQniKMJCYZNVo3nVk5cK03OGFvKaLhLCwgqL0N4HDQIjrfcDiRbQWa02djO3vcKakWuebhh2hXWT4CNDR+J2PBuHWShBE/05xv73ZstPOypNi8uaKlg1k+Z4YcMYlQtXkgqdLsjS1x765L8IDV/4MTC6k+BQFElS83mV74gOLlpOV81046lDuYSd4jjicrNtUXsS2MUNf94/ul09R+gXdSYU1Tft9oO2ANQTKHN27yKuoqcxJykBc+OVxv821Wbf79CFGR52wFwat2slaDLEL
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB8451.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(376014)(7416014)(366016)(261102123227099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(10067099003)(261021135927099003)(5023799004)(11063799006)(56012099006)(8126099003)(261009223027099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QkVBS2dJUW1sa2N3RjNSKzk2L2V4eDRSd3NhQ2FCc3NmT2pKVFp0ekpUY3hT?=
- =?utf-8?B?T2czOE4zcDVadEZNSGJtcWFQQitHUXVnZ05CSjJtem1RMVRnNjVubUxoR3Js?=
- =?utf-8?B?akkrOEY3dkFvdFlweUZHT2tVVGR3YzBGVnRRNjRpSjdsQVNFNWZuSTNZWEJv?=
- =?utf-8?B?NnJtY1VRVTNodnVLSVNzSnhjQ1JqTTg2UzJDYjN0OVIwckl2NndXaStlVllk?=
- =?utf-8?B?NW1wUytZSmFLWGR1cWVLSVkwUFVJOWdjWVp4YjZnUVNCT0ExenNyY2hGdUIx?=
- =?utf-8?B?eEoxSldXVk1Bc2FhZkxhakNMdmYydG9iemlVb2NLYS9Vd1NVQkFhWEtWOG1G?=
- =?utf-8?B?bzFWNnRON1RrSm5JZlMrM1RHblpwL2hkbGFRWEZNbXlYQXdFcUxMa0phTk9L?=
- =?utf-8?B?SVAvVGMvZWlaRUVvMC9Oa0ZXQ1BqVDZHUWZqUmdPdU9iY0xqc3F4Q3ozNEFO?=
- =?utf-8?B?ZFN1SkRaRXJSbGxmTlBYenJOa1A1MzBmUDA2U1BwYVA1RHdIWEdoYUZSMkFn?=
- =?utf-8?B?NHJzdmttOFhvY3FKa1A3VjQ4WnN6bkhPYmFQVUpKVmJmSEJ3bUhxSVRZRkFi?=
- =?utf-8?B?UVZKSGZlQUpiVEJBU3BMYzE2UjUxRjRFcXFrZTlxUVRWZmlhaU1pMG1nVTIx?=
- =?utf-8?B?TVZlNllLV3I4SUdUODR1bkp1UWpMZzBTY1VTQTNlZHJ4dTl1L0tzVDladFFS?=
- =?utf-8?B?ZXJOUm5abm4vRmxJRlI5WnI0ZmtiWlhJMERNS0cvM1lIVWpIUmV1NlB0LzJ0?=
- =?utf-8?B?ajlicGhyWnRYUlZ4ZkhSSFVOZTlqNmsrdjNpL1RkczNLNi8rWkRJcnM4TEE1?=
- =?utf-8?B?N2t4MFJOQUs1Vm13bWlucnZTRGw2L1pPbWdWS0JVbitpK3JnVGpUaVJCcFk3?=
- =?utf-8?B?NitMblBMUzBMaEg0TmFQUHJ5OEp0Ryt6V1VORXgyS3dQazdWd2thdlF3S2Nr?=
- =?utf-8?B?Y3IwbjRRUU5zQkliUksvcU5tOHN5U0hETTVWS2xYb3F5NlJrTC9tRFRYZGgy?=
- =?utf-8?B?MGs2blJuNDViZ0FpYUVpM3c2TDcyVVlwb3c5ZzFQQ1ZvL1p1bFdoOWZWODdT?=
- =?utf-8?B?TEhrTVNVdG1XdkJNRnhkWXZPckd6cnF5QUtiUXVVQXY4K09iMXpGMDRaVEd4?=
- =?utf-8?B?Qjd1S2RBa3dIMkpDZ2RsSW1SWUk4N0w1VWREQXVhVkZHV2FNaVJDN1Nqck52?=
- =?utf-8?B?VjVVOUFORk9Dd1BTWm1HQWhuN0VHaW9YQ0ZBMXhXY2dCOTl6WU15aEpYVnFO?=
- =?utf-8?B?YlhDT3hhQ29FUXZycVUyM0ZkZGlGNWZHQVZRNmQ1OXRkaE5DOXFGRUt6R3Z4?=
- =?utf-8?B?bGFUMEgvS1BsSEh4OEZ6MmNWN3BMZ3dVZGFGa1JXdzlXUTE3cUs3dk5nc3hB?=
- =?utf-8?B?VVJpc0tqUFJRaVBqRWlWbFRBbTRNT21kMzE3b29UQkxGTzJ3bVdUUVJvVUtC?=
- =?utf-8?B?S0RnZ21KOTh5QW9Dc1pJdUVyYVVLVEhuSTc0eWZnajMwRDAzM3NGeWhUSGN0?=
- =?utf-8?B?VGtuOUd5eUJOT3VDejJkcEtPblZYL20ydWtpY0dGMmVvWUtUaUxGbFJzL1F3?=
- =?utf-8?B?NUI0MGxLREE5Mi82MmdySVQ2c3pZRS96SERUUnM1bmQzRC95bitFUCtjczJ0?=
- =?utf-8?B?MjFrandPQ2wwT1RKdE1tbHBjTXBYM212WmZDVXJycERwQS9NTjJObTNpWXBj?=
- =?utf-8?B?YVcyRXJkN3MwWHV0dCtyeE1tUUY5MktaeE1Vclo1N1RZcUdqVHd3Mnlnekc3?=
- =?utf-8?B?eHBFUk5uSHROOE5EYWhYUVhXZGtRTDRjNVg0TEtaUm96WkdEMEdxc01weGh4?=
- =?utf-8?B?VXdYSk90UVNOd2t0bVg5cW9qcjhZTk9mdUE0TUozT2ZWUTlMYWsxMFRoQkdN?=
- =?utf-8?B?ZG1HYmxWY1N3MUZ1bzlsbHpkYUNqNDlxTzF4aVhqb2ovRmJmaXA4VmhZNk5D?=
- =?utf-8?B?UENRTmxwK3pHZHNrdUpJWGZPMEJFbTNNWVU3YnRYbHgzMDVRckFxUE95QWZy?=
- =?utf-8?B?WlNuZlRUcUkzc2ZpTnpkYUZwUVRkZGpwckh4NS9yNWExN3NqczJhc1VNVEZz?=
- =?utf-8?B?SkRTZ3I2MmJyemZtcHJKcVhENXE4ZlJDOEZMazRpZ3J4UFhuT0VVcldRSWIw?=
- =?utf-8?B?NU5xOG9Dc3l4Y1UzNXBSUXlqclU4MDlydnBtWlV4UlBsa0IwUjYvSDdYS0ZW?=
- =?utf-8?B?NW0yaC9QMFdGK2xDNm8ybVA5UEZtWUZtNTk1dmJKSjlwY2Z5TE9qaDVTK3Yy?=
- =?utf-8?B?MXlqWUlmdFNQRW1vNHRSVmlJWXZiZ2lxcWxNcFd6R2JGaFNualpWT0FSeVZH?=
- =?utf-8?B?ZkVtZWxVR1BJbGI3cEFIbFlQVVZuVmVVaUljYXpjWE5tU2tmb2Vrdz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f65ee965-bcd9-41e5-52ff-08df4996c460
-X-MS-Exchange-CrossTenant-AuthSource: CHAPR12MB999248.namprd12.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dHVLMjFDS1JCS0lsMHMvaElNdk1KcnNIeGVzWnprMG9sVTMvWWRySFpmY3cv?=
+ =?utf-8?B?R1VhQkQ3S0N1czl3a3JWUTg2NW5EbW5BRUdqQUdHVXZZSWp5MUJISFV1V2FK?=
+ =?utf-8?B?czBLQm92UHhJdTRlREgxZlhlWGc0MVVKeVk2cTBBRGhHWXU1SEhMZEh0OXRJ?=
+ =?utf-8?B?YkZac0RPcHBicEsrTis3aHc1TEwySDFjL1VkcjByU09mZ1pESGE0TGtnMG5B?=
+ =?utf-8?B?WFo1blNzYThpbzZZY1liZU5KMXFOQlpwekk5OTBlRlR6WkRRcE5PNXhWbWdY?=
+ =?utf-8?B?ekhyK0V5UW9yR0ZWVGxqMjVrd3hQWGRFdlNaditadFljQ05VR3VERnpqcHBK?=
+ =?utf-8?B?THIwejNsdVg5QnVVUm5yVndzRUtKWWhOYzhRY1RTN0VFVG9hNEErSE40NnM2?=
+ =?utf-8?B?TWFOUkRMaWsxcGhGZGo5NGh6RmE3VmZBUnk0ZU82VkprSTIxc1JJRUNUTjZF?=
+ =?utf-8?B?K0l0QnlrVmZQVlJGTGdPNHBNSjZpZisyZHRNUnhiL1dSZThBMDAvaG10OGtJ?=
+ =?utf-8?B?cnAzcjJ2UDJxUGZJMy9hR1VQVlFkVmpMU0xtTFAxWnJ2cGw5UXJMaEJZL2lK?=
+ =?utf-8?B?OVpuNkhsZlpaZE16TkpWWm5Pd3A2VEQ2MVc5cVRNbkZwLzhHRlhBT3p2WFc1?=
+ =?utf-8?B?U05VVVBqb2JxSlZHanFQNDE4SEdSV3RRZWNjL0hKU3R0Q0hZazdmbDNsT3lG?=
+ =?utf-8?B?MjZ4cVpXUkF0RTFvVjM2KzV0cXZUd2JzUmZDblFVUkpNYmJtTWM0RVlodk4v?=
+ =?utf-8?B?RnVsd2JCeXphSVNPOWVGa0tVTWE4RFhRckhNaHlKSGEzSTdvMnlXUjdyVi9S?=
+ =?utf-8?B?b05vQW4venp0bHpMZ2w1TXorcG9SWEszNUgwS1pLTWVXZkM1UWZxVmdIcVBH?=
+ =?utf-8?B?NFlLTTl4WUlDaGFHdUM4Z1ZzN0xjbHNGMFJoWDZHYTkybGpVcTRoOW03NHNZ?=
+ =?utf-8?B?V1FmOWJ6UTlJeXdnVUprQ0FxSHpua0xmMVdzSlJ2eWlsTGlkaEZYeDcxL1ZB?=
+ =?utf-8?B?d0VqWFpJajl6NmJKRUdVQWNHMnhTc1gzcDVaTjJZVkdVWThKTGM1REN6Z2hF?=
+ =?utf-8?B?MzJlbHY0TVRDeFRQc3ZOdVV2b1lJZU1rWWR3TEMvUXFPUHM0Sy9nT3JCRmt0?=
+ =?utf-8?B?N20yeGJySVV5Uk81ODA5N0laNWlwZXNiWWpDVVA3ZDZyN29Ydm9SVEZaNVo5?=
+ =?utf-8?B?Z3M0TmJqZ2U3djBOdlI3VlNZdkI5L3k0b3pLNS9WY2w4UkJUTmNKZGR1WDJW?=
+ =?utf-8?B?QUtIZHpRNXV0aDRyWkJwbC82N285UnIyQmJEclZIYTd5STZuZitadnlVNDBr?=
+ =?utf-8?B?cDk5Y2lha0pYOGp0dm5ibGs0WVR6OTVUMEhscm1nRDZuUm85aHRFSzQ5SzZ6?=
+ =?utf-8?B?Um9YQ0VFelNYVUpoRmpXb0FxaFdZN1dseGVTNVgrbHJMbkJaS3M4b3B5U3hS?=
+ =?utf-8?B?ZkFMNWN0MUhOMGhDZlk5VGZzZm0zbHdqV0krOEFpOHQwNXo5KzJrMFRGS01G?=
+ =?utf-8?B?UHZUMERpY0ZUZStiNk1uT3JMMEZkZkxLWVcrVDhPbGVuYVlvMXRQQ0RhbUFQ?=
+ =?utf-8?B?ajdqV1lOUHpINkdJQjJDbTFqblZYWGthVmpSSWFLM05LSUNPS1BWZXBIZzBQ?=
+ =?utf-8?B?NHNNa3NFdEpZRnVaQXN4L2VUM1MzTm9UaHZCNWxNWjJpeEMreTVDSDN0ZkVa?=
+ =?utf-8?B?Tk9nc3J3QkdsekF6dDBWSmhteWYvWDFOdElyNGNzNUhDMWJHT2dYamtoakJ5?=
+ =?utf-8?B?d3BBekRlcTNOeHNoRHpDVUNVNlNITW9BRHAxZEIyODRJUnVROHlaU1RUczVX?=
+ =?utf-8?B?b005d0daenlVMXk4NEpWZWI1QUJuakNMSEYxOWhDRWY2MzM5Y3FyQVJlTnlY?=
+ =?utf-8?B?TXlaOUxpVUM0MVZTZHc4TVN3OHRZUUVPL01LOG40SHRYZmEyWnVKeUhuejJD?=
+ =?utf-8?B?cTEwdWJpTUNTVEVXbEc1ZkthMUJFNmV5UjZuYmg4Q0dYZTZycjY4d1FrZkxk?=
+ =?utf-8?B?MlhOekQ0bzI4OWxnK0JZUThSYnI2N0pkZk9VOFNkL29vUGZ0a1R1N2hHSGRa?=
+ =?utf-8?B?WWtrMDZKbTNFbGhQZ3lTRHBSSTBBVkEwSUJJSmlTcjM2R1JhOFpHeUlYRHlz?=
+ =?utf-8?B?NjBWYnRHWGlldWNyczQzaDlZckY3T0NGTXkwTkxFZ1k2ZFZYMXVsL0E2UXJM?=
+ =?utf-8?B?eU5xZmUyVTN6dWcrbWdBd2s2QVJUeEhsQVNKa1JPalVvTE1kalVSQ2NqeHhS?=
+ =?utf-8?B?QWFBbGtsUEJDcVh5dllHVnFHY3hXMG1xaTFVYWFXd1V6NWpYUldxdGxFdkdr?=
+ =?utf-8?B?WGlGdWhHRDRGWUtLWUxiM3dPYXlJUWJsTHN5czVreFFNWTdGaUo4M1hMVFFz?=
+ =?utf-8?Q?WScg7Yt5td2ecdac=3D?=
+X-Exchange-RoutingPolicyChecked: CHbP1rFEFbZXBU/rQIcJnpRZtfibSs+vYSNP/AnOfdax11fO4iEhSTAYMRd1exY/ZuaB98m2t8FWlBUJcMhHxu6ZbdqaM3VDw5cEGkgG4XGfP9T3CikIkJan1E2YCDMBqq3LH3cD+akb5BXvx8YG70Fi08eF9bDGd6G0pViuKV5JCkViqlhYCYpfHwabZvHAmye0NPqmIYy0uo13BB1AwSpGF1ODnPKJMTYwcGa3AgCiMbY78EmJs0q1pG+XFtkzj/qzsWlbgkmz71uvCzGRF/Lj6Qv+Y0c+Or7vF3qmyPggljakR5bEdkupCIkFsPeT6uGRvEG43OXO5x46+Vwj8A==
+X-MS-Exchange-CrossTenant-Network-Message-Id: a4bba298-6c5f-4364-fa5e-08df4996cd88
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB8451.namprd11.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 19:19:59.9775
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 19:20:15.3326
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 0rU8lxw/I/UuyDafZz3cquKB0SgkERxSyBbJXVRT0XONP4NQYmMUvOZre2JTEwPnmwzZtUQprJ54hKgTlJaPCQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH5PR12MB394451
+X-MS-Exchange-CrossTenant-UserPrincipalName: K+N3FR6sDh8bU5Q6RnpS8v+BQGTDxG0uHb3jK29mrc2eahIUzgBuO1fhdMtpbJ8jh4yGIfWCo+5/bz0ODvm2IqzgVMvoS6eO33TWojjbEco=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR11MB5999
+X-OriginatorOrg: intel.com
 
-On 23.11.26 10:02, Xuanqiang Luo wrote:
-> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+On 11/20/2026 11:36 PM, Jure Rebernik wrote:
+> When the RTL8125B runs out of RX descriptors it sets RxOverflow
+> (RxDescUnavail in the vendor driver) and stops receiving. It does not
+> start again when the driver returns descriptors to it, only when
+> RxOverflow is cleared in IntrStatus. Since commit 6994520a3328 ("r8169:
+> disable interrupt source RxOverflow") nothing may clear it:
 > 
-> A multi-packet WQE (MPWQE, added by commit 5af75c747e2a ("net/mlx5e:
-> Enhanced TX MPWQE for SKBs")) lets several packets share one WQE, so the
-> control and Ethernet segments are fetched by the device once per batch
-> instead of once per packet. This saves PCIe bandwidth and CPU cycles, but
-> only if the WQE carries more than one packet.
+>  1. The ring fills. The chip completes the last frames (RxOK), then
+>     sets RxOverflow and stops receiving.
+>  2. rtl8169_interrupt() read IntrStatus before RxOverflow was set, so it
+>     clears only RxOK.
+>  3. NAPI empties the ring and unmasks the interrupts.
+>  4. The stopped receiver raises no new RxOK, and RxOverflow is not an
+>     interrupt source. Reception stays stopped, and every frame is
+>     counted in rx_missed, until another event such as TxOK makes the
+>     handler clear all status bits.
 > 
-> With skb_tx_mpwqe enabled, which is the default, mlx5e_xmit() sends every
-> skb accepted by mlx5e_tx_skb_supports_mpwqe() through an MPWQE session.
-> A session stays open between two calls only while the stack sets
-> xmit_more. A packet without xmit_more closes the session and rings the
-> doorbell. Hence a packet that comes without xmit_more while no session is
-> open opens a session just for itself and closes it right away. Such a WQE
-> takes one WQEBB, as a regular WQE does for the same packet, and the
-> doorbell is rung for each packet either way, so nothing is saved.
+> This was observed on a machine in real use: an RTL8125B (XID 641) on the
+> PCIe bus of an arm64 Qualcomm QCS8550, running v7.2.6 and receiving UDP
+> at 800 Mbit/s while sending nothing. Reception stopped for seconds and
+> a single transmitted packet restarted it. During each stop, a debugfs
+> dump added to a test build of the driver showed IntrMask 0x2f,
+> IntrStatus 0x50, NAPI idle and all 256 RX descriptors owned by the NIC,
+> and writing only RxOverflow to IntrStatus from user space, through the
+> sysfs PCI resource mapping and with nothing transmitted, restarted
+> reception in 17 of 17 stops. The order of steps 1 and 2 is inferred
+> from that state, not traced. Reproducing the stall itself needs no
+> kernel modification.
 > 
-> This is the case for the IP fragments of a large UDP datagram and for
-> UDP request/response traffic, which reach the driver one packet at a
-> time. With pktgen and burst 1 every MPWQE carries one packet (mpwqe_blks
-> equals mpwqe_pkts, xmit_more is 0) and the packet rate is 15% lower than
-> with skb_tx_mpwqe turned off.
+> Clear RxOverflow in rtl8169_poll() once NAPI has emptied the ring, right
+> before unmasking. This restarts reception without making the "ring
+> empty" condition an interrupt source again.
 > 
-> Use the regular WQE path for a packet that has no xmit_more and no open
-> session. Packets with xmit_more still open and extend a session, and the
-> last packet of a batch still closes it, so batching is unchanged.
+> Testing, on v7.2.6 with an RTL8125B and inbound UDP at 800 Mbit/s in
+> 30 s runs:
 > 
-> The only visible change besides the performance is in the statistics:
-> tx*_mpwqe_blks and tx*_mpwqe_pkts no longer count a packet sent alone.
-> Such a packet is counted in tx*_packets, as any packet sent with a
-> regular WQE.
+>  - A test build with a module parameter that switches between the old
+>    and the new behaviour on the same boot, 75 runs each:
 > 
-I don't think that this paragraph is needed. Not worth a respin.
-
-> netperf and pktgen between two 10G ConnectX-5 hosts, 2-socket Hygon
-> C86-4G 7490 sender on net-next, the patch switched at run time by a
-> temporary module parameter (not part of this patch) so that before and
-> after run in the same boot, mean of 3 boots x 2 rounds. "far" is a sender
-> on the other socket than the NIC, "near" one on the NIC NUMA node:
+>      old: 9 runs lost more than 1000 datagrams, 1041366 lost in total
+>      new: no run lost more than 1000 datagrams, 846 lost in total and
+>           at most 184 in one run
 > 
->   test                                 before    after   change
->   UDP_STREAM 65507, far, Mbps            3255     3815   +17.2%
->   UDP_STREAM 65507, near, Mbps           5619     5870    +4.5%
->   UDP_RR 1 B, far, trans/s              57667    60688    +5.2%
->   UDP_RR 1 B, near, trans/s             70538    71230    +1.0%
->   TCP_RR 1 B, far, trans/s              56822    57124    +0.5%
->   TCP_RR 1 B, near, trans/s             70048    70011    -0.1%
->   pktgen 64 B burst 1, kpps              1487     1748   +17.5%
->   pktgen 64 B burst 16, kpps             3192     3194    +0.1%
+>    The 846 equal the NIC's rx_missed count over those runs. The NIC
+>    dropped them while the default 256-entry RX ring was briefly full;
+>    reception did not stop.
 > 
-I didn't have a setup with 2 NUMAs at hand. But on a CX7 system with
-Intel Xeon Platinum 8380 I measured the near results:
-
-    test                                 before    after   change
-    UDP_STREAM 65507, Mbps                19755    20455    +3.5%
-    UDP_STREAM 64, Mbps                     496      496    +0.1%
-    UDP_RR 1 B, trans/s                   56317    56386    +0.1%
-    TCP_RR 1 B, trans/s                   54084    54229    +0.3%
-    pktgen 64 B burst 1, kpps              3014     3112    +3.3%
-    pktgen 64 B burst 16, kpps            12530    12420    -0.9%
-
-And the 16 packet burst is also a bit noisy so the degradation
-is less.
-
-> Batches do not regress: with burst 16, which uses xmit_more, the rate is
-> unchanged. TCP_RR does not change beyond the noise, its skbs carry the
-> data in page fragments and cannot use MPWQE.
+>  - This patch as written, without the module parameter: no run of 20
+>    lost more than 1000 datagrams (166 lost in total due to the default
+>    256-entry RX ring). With the unchanged driver on the same day, 3 of
+>    10 runs did (237264 lost in total).
 > 
-> The price is that the regular path runs a little more code for a packet
-> than a single packet MPWQE does (mlx5e_sq_calc_wqe_attr(),
-> mlx5e_accel_tx_finish()): the instructions per byte of UDP_STREAM 65507
-> go up by 0.3-0.4%, which the gains above outweigh.
+> On this tree the patch was only built, not run; rtl8169_poll() is the
+> same here as in v7.2.
 > 
-> Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+> The investigation was done with an AI coding assistant (Claude Code):
+> it wrote the HIL test scripts, the debugfs instrumentation and the
+> register tools used above, proposed this change and drafted this
+> changelog. I reviewed the change and the evidence, and the test
+> results above come from runs on our hardware.
+> 
+> Fixes: 6994520a3328 ("r8169: disable interrupt source RxOverflow")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jure Rebernik <jure.rebernik@luxonis.com>
 > ---
-> Changes:
-> v2:
->   - Check xmit_more and the open session first, so that a lone packet
->     skips the skb checks. (Suggested by Tariq.)
->   - Run the tests again with the new code and add netperf results to the
->     commit message. (Suggested by Tariq.)
->   - Rebase onto the latest net-next/main.
+
+Reviewed-by: Jacob Keller <jacob.e.keller@intel.com>
+
 > 
-> v1: https://lore.kernel.org/all/20261117085036.3138779-1-xuanqiang.luo@linux.dev/
+> Notes:
+>     v2:
+>     - Clear RxOverflow in rtl8169_poll() instead of making it an interrupt
+>       source again, as there should be no "ring empty" interrupt (Jakub)
+>     - Describe the race step by step
+>     - Same-boot A/B test results
+>     
+>     Keeping the v1 approach also fixes the stall: with RxOverflow in the
+>     unconditional init of tp->irq_mask, as Jakub suggested for v1, 0 of 76
+>     runs lost more than 1000 datagrams against 5 of 76 with the old mask.
+>     I can send that version instead if it is preferred.
+>     
+>     With the RX ring raised to 1024 entries, which this patch does not do,
+>     and v1 or v2 of this fix, 20 runs on two boards lost no datagrams at
+>     all.
+>     
+>     The patch changes only rtl8169_poll(), the single-vector path that
+>     RTL8125B uses. The multi-vector path added for RTL8127 after v7.3 has
+>     its own poll handlers and is not changed.
+>     
+>     v1: https://lore.kernel.org/netdev/20261101102720.702600-1-jure.rebernik@luxonis.com/
 > 
->  drivers/net/ethernet/mellanox/mlx5/core/en_tx.c | 9 ++++++---
->  1 file changed, 6 insertions(+), 3 deletions(-)
+>  drivers/net/ethernet/realtek/r8169_main.c | 8 +++++++-
+>  1 file changed, 7 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-> index 14479da98f42..5b5651c14750 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tx.c
-> @@ -646,6 +646,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
->  {
->  	struct mlx5e_priv *priv = netdev_priv(dev);
->  	struct mlx5e_accel_tx_state accel = {};
-> +	bool xmit_more = netdev_xmit_more();
->  	struct mlx5e_tx_wqe_attr wqe_attr;
->  	struct mlx5e_tx_attr attr;
->  	struct mlx5e_tx_wqe *wqe;
-> @@ -678,11 +679,13 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
->  	mlx5e_sq_xmit_prepare(sq, skb, &accel, &attr);
+> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
+> index f151ab681393..99b0a410f58e 100644
+> --- a/drivers/net/ethernet/realtek/r8169_main.c
+> +++ b/drivers/net/ethernet/realtek/r8169_main.c
+> @@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
+>  	/* rtl8169_poll() is used only when there is a single RX ring. */
+>  	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
 >  
->  	if (test_bit(MLX5E_SQ_STATE_MPWQE, &sq->state)) {
-> -		if (mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
-> +		/* An MPWQE for a lone packet saves nothing, use a regular WQE. */
-> +		if ((xmit_more || mlx5e_tx_mpwqe_session_is_active(sq)) &&
-> +		    mlx5e_tx_skb_supports_mpwqe(skb, &attr)) {
->  			struct mlx5_wqe_eth_seg eseg = {};
+> -	if (work_done < budget && napi_complete_done(napi, work_done))
+> +	if (work_done < budget && napi_complete_done(napi, work_done)) {
+> +		/* After running out of RX descriptors the chip does not
+> +		 * receive again until RxOverflow is cleared. The ring is
+> +		 * empty now, so clear it before unmasking.
+> +		 */
+> +		rtl_ack_events(tp, RxOverflow);
+>  		rtl_irq_enable(tp);
+> +	}
 >  
->  			mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &eseg, attr.ihs);
-> -			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, netdev_xmit_more());
-> +			mlx5e_sq_xmit_mpwqe(sq, skb, &eseg, xmit_more);
->  			return NETDEV_TX_OK;
->  		}
->  
-> @@ -697,7 +700,7 @@ netdev_tx_t mlx5e_xmit(struct sk_buff *skb, struct net_device *dev)
->  	mlx5e_accel_tx_finish(sq, wqe, &accel,
->  			      (struct mlx5_wqe_inline_seg *)(wqe->data + wqe_attr.ds_cnt_inl));
->  	mlx5e_txwqe_build_eseg(priv, sq, skb, &accel, &wqe->eth, attr.ihs);
-> -	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, netdev_xmit_more());
-> +	mlx5e_sq_xmit_wqe(sq, skb, &attr, &wqe_attr, wqe, pi, xmit_more);
->  
->  	return NETDEV_TX_OK;
+>  	return work_done;
 >  }
 
-The change makes sense to me:
-Reviewed-by: Dragos Tatulea <dtatulea@nvidia.com>
-
-Thanks for your patch!
-Dragos
