@@ -1,110 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795406074;
-	b=qxAol42CMwINo0BCQsagdzMmanGy9kCAaa02p8ruAm2nyPR1fHrKHd58A7Qq4Dwew8Do
-	 1YLcGu+tjTUKx1OLBPzPJK89sNHCN4LlQwgTCbsFvuXyQeKrew3maFTYpyg2xuMfquvGc
-	 dWvI9dpyPUISSTgmX4ce4XizSSj0Mlf3n6XOmEjQOMbIVvC1Xj8QPT9HIVB/ymQXgBcBB
-	 /cNSM9FjfYoU6UU87TU+0eLmjIdTqOyQWurWpfE/Ovc1QRvhh3FjyFv/SQC0hCZ4Tp10p
-	 L9Gstc7oFmRG1omNdZg/XYMyCmPgQcijdWEPvOGcQO9fUlorQJXCLRlhPT+SqxCL0Tg==
+	t=1795406344;
+	b=ZSO9PRbbgjLgycahuN85/j1QBj2P+LvFsComxrzsN7rvyF0LRiBZ53AuDNM1Lbe9b9Kh
+	 Kf8PFYHjjn30ZNcNFn/uzr8OqfFW1snMpnIDUhv5i35JysqhV1/3kojA0J3JtUFXasFFg
+	 7aSFtXuU05MNKWN97duFDpXKg6XiKkTSOT0y0G9MyJnUKJPULZmXKAPmQ1NWie1HNOjmv
+	 2Z4BBnA5L48eYl1Ka6tRVJss/CVzyjGbDZ71pQZ/nJ8OowKpfBjRQBbCYhYc+NiaUdgmR
+	 +YUhm+hV7WfKSxf2xQj9pEnKS12vDGmtGsogUUl1D7pCQ8ul5XRXxE2sUI6wKos5koQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795406074;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
-	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
-	b=vdLBrzAomoi9Azw7Nu/O2MDGzxb2qpoEow98aGkMhkNoTLxXPhFJbaCisy7VtlNW/hJi
-	 5OAXdtpnxGIObbPA6rk8nzEu3Cchg5vW1cbWxQzUuO2Xb5Jq2OJf0Su7ZdXUvcXQuHgUH
-	 94W8kcaHX9aCVy+Bm/7BrQqIw6B1uDxSkAzM5Wqc381wiDL/5ArR2xRzs9pbSkL2izhvf
-	 wYByD2rv564wt1nfvQEwGeIVqdOp/6aK9ZvVLQHc5EooV+rMU9buQvEZsGs4VGLdhwBl5
-	 Nx/jqOKFtu7A4KB0Fynmg2CrbFwYfvEOcbG0SPrAIhAuJAJeYKRHT+ohEgm3x4LNRwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406344;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=B3cIwgW8xrh8Ndjtv3N49JH+sVnVexWtWgTwsy9Ru1w=;
+	b=LP0dtx9CHSwI34l1p3UHaCLUJd0/RVkuL4zEgO+Rg8rQz0iDHGqwmQoFD2us++cH4UTQ
+	 2/2A539OiVEAyKVPxG3WCsXLXdao2lB7T6cwHdD+680HPV9xozC714ruTJUmWFdDOmaZm
+	 JDFyMuxB9fsxMFztSNMb2v4KFNnqPdcnDiM3/I8mSqtdtQwx3OrFaLG1rtjLDyP2Si/fv
+	 UABNwA6fjgysUiG44+hEvIRPOdck8ylqak4pQ4J8X7wr4wlvjpAUbSDRbuvXz9bY0vN2U
+	 FuEEs6dKnDPMujU0FP5jxPEAmii45mvjPto9TmE4d1r/7+ggnWdpxZReNuBDuS4S6ZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UhYIX+xe;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O97asVKD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9585606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:54:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9585606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84266606A31A;
+	Mon, 23 Nov 2026 03:59:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UhYIX+xe
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cc147d86bebso1437615a12.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:54:33 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795406073; x=1796010873;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
-        b=NDsiNdlHkneOefNnKHTnSaeuf3CTji2q6l4B+cBGH96gGj+xbClO7eABUFmDxIIZVW
-         NUS5ou9hIgYtzwixWcM9XZpMS2C667y2gILOAAtsyT7yLIfLC5kw55j3iy4r3oChXgI8
-         DviFCBp43h9Z3l0B6ajygpbm7Yd8GK7sIiG914bEtmr2JdgFm7i4u8NQwCH4wOVtQ+Py
-         5FRnbIPXecpV8pV0bIiop3B+F2i7EFYpVoF1fY6t9LagR2OAqSbmlcaTKcKjvQzN4bp6
-         tS+DbILafyxPP+7WOMyKOxKK6Y4ADSPn2+pcRlKonB6cd+3ff8txt3Wz91NgUpb5qpzK
-         XTRw==
-X-Forwarded-Encrypted: i=1; AL+hErFf8AgeEAtIYLpvOsxkygjbDFSGeqRUsGHcUTXwJFfodGgDU3n8FEsBv6o6qUpaSTEejaKuGT0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IJEhZ1H1l4rPupyUYtiXMXKO2jq2z7sax7swrYs0nP91hz31J
-	QkZ4lo4DLeTEAdDaOyevH8dU+5StXTE6U/VgNsxfM9PZJoy3gJvOu6HaMwgbLflsp9scTzKboKV
-	ExXqfKc4UtWBofWHWlEZT/stMH6bpMgvnZ73mjgOu6vCJ2KrNjuMBEbeo++v1FRFm6GIyw4Q8O5
-	RZfcDqgVYpO7ASf0NmWql3PRWROlBcqlGRMe8WN62jm0Vrf1BbK2sxDCOa4gnEaMm834yXU1adF
-	ncsJeq+OBY=
-X-Gm-Gg: AZFdTZdRot+d2B9Tmkxs87I4lJzk/n3O2j/zYTzz140E0VVMXaYDaq5cleiJuBcEC4E
-	B79Bv5amqGaNFqMBOuhfrGXi5dTJ8lthzt+jgHosDLuIBwMbAtPbhtIW86xN+2dMn/uAlvMk/vf
-	e8bq/jNFzWE59LmM5ErOdKJs7Q5512xNqyr+LKBWy2T6F0hWwpBAOk1BzrYxWXqvIW4TpJ2zdj9
-	Rd5D2K7CZbTc3Cgcnl04rZ3tYRwGo6/xcPeRNBfKOR/ANkgnOCKCh4fVlqHsR8gngmEKV+JZGbY
-	w6Lb3OV55YKUnUJns21lFDrlBwtdBIHfBgXStGkJsDQ5fVlt+Z2l12LzxXF/VSxPo0W4Vj7ugJs
-	j43NljgZ2efyEqPHFIkyK066f8BV9vA1C+sfSTjs6LJ30nt1fieD5BZuIPnmi7wFvbpA5pA64RF
-	3DezamQ+/gsnlXRe6OUsDuRXRiET2qBzln5Yc=
-X-Received: by 2002:a17:90b:2f8f:b0:3a0:d82b:237b with SMTP id 98e67ed59e1d1-3b41c938926mr6243580a91.25.1795406072963;
-        Sun, 22 Nov 2026 19:54:32 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d23cb9dsm3450296a91.1.2026.11.22.19.54.32
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Sun, 22 Nov 2026 19:54:32 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-375bac6bd21so3296180eec.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:54:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795406071; x=1796010871; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
-        b=UhYIX+xe0SH0Rha59WjQL2RiR8y+RT87JH7TQShkHUEQRf+5wqjxRq+uo4XpnskCbK
-         GjdvRNUuYFflOBn7xwUmcoAhmi98L4IZ+aNQlj+5KxSTxvRK18x9WeuA6OXRqnf14tKp
-         T2MJ3a+1OtG5iq3mcCvrg4NACuwASW1qCYTxI=
-X-Forwarded-Encrypted: i=1; AL+hErHhqWteOZrDh4M77nt/9pjC2jRdLNcsyangLC2x5u26mHXraeE5p/V2xb2N6By/uE+nUQEIdgU=@vger.kernel.org
-X-Received: by 2002:a05:693c:20ce:10b0:385:ab26:f3ad with SMTP id 5a478bee46e88-385ab26f492mr10124367eec.0.1795406071279;
-        Sun, 22 Nov 2026 19:54:31 -0800 (PST)
-X-Received: by 2002:a05:693c:20ce:10b0:385:ab26:f3ad with SMTP id 5a478bee46e88-385ab26f492mr10124349eec.0.1795406070582;
-        Sun, 22 Nov 2026 19:54:30 -0800 (PST)
-Received: from pc-hpe-top-git-sendmail-server.dhcp.broadcom.net ([192.19.234.250])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm3513127eec.27.2026.11.22.19.54.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 19:54:30 -0800 (PST)
-From: Pavan Chebbi <pavan.chebbi@broadcom.com>
-To: michael.chan@broadcom.com,
-	kuba@kernel.org
-Cc: andrew+netdev@lunn.ch,
-	andrew.gospodarek@broadcom.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	Pavan Chebbi <pavan.chebbi@broadcom.com>
-Subject: [PATCH net-next v2] tg3: Add support for boards integrated with security SoCs
-Date: Mon, 23 Nov 2026 09:27:21 +0530
-Message-ID: <20261123035721.1207175-1-pavan.chebbi@broadcom.com>
-X-Mailer: git-send-email 2.52.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=O97asVKD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9ED9A1F000C6;
+	Mon, 23 Nov 2026 03:59:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795406344;
+	bh=B3cIwgW8xrh8Ndjtv3N49JH+sVnVexWtWgTwsy9Ru1w=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=O97asVKDwkxOeeadFeh3J9aPbXrLb+FCaT6AqdP03OlYyX73QkkH0sLQNrvIdeVRk
+	 GyZieTnJahFjBX+EFSm2odWmdyjyeEUUr5Q/RbYHCe8Vo88X3Oxda/ynAgXB1higF/
+	 VGsxksAIvrawwdjWd4CRhlBEJPW3cFwVZgXehrd8PfdlYuNE25SF+6xWoqt3QtOlM4
+	 5TgAdSGRVCAEmWjhE1uUgJ5Jg+93E9wsSu53y1agyNl8IGXMM74MRZs8GOqu1EVfZ7
+	 a6E9WEWtBBMXMOIolzew8v/xvWLCHdDh2j4YDInUcEvaPLJUsHCSczPH0FgVyuT6k4
+	 ZL9L1f7gnLSGQ==
+Subject: Re: [PATCH net-next v2 01/11] net: add tx_extra_headroom and
+ netdev_get_alloc_headroom()
+From: netdev-bot+sashiko@kernel.org
+To: tianyi@cloudflare.com
+Cc: netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, davem@davemloft.net, horms@kernel.org, dkeogh@amazon.com,
+ hawk@kernel.org, daniel@iogearbox.net, dwmw2@infradead.org,
+ dtatulea@nvidia.com, noren@nvidia.com, alasdair@mcwilliam.dev,
+ willemdebruijn.kernel@gmail.com, maciej.fijalkowski@intel.com,
+ sdf@fomichev.me, magnus.karlsson@intel.com, dsahern@kernel.org,
+ idosch@nvidia.com, ast@kernel.org, john.fastabend@gmail.com,
+ donald.hunter@gmail.com, andrew+netdev@lunn.ch, corbet@lwn.net,
+ skhan@linuxfoundation.org, shuah@kernel.org, rdunlap@infradead.org,
+ leitao@debian.org, ast@fiberby.net, danieller@nvidia.com, kuniyu@google.com,
+ bpf@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, kernel-team@cloudflare.com,
+ nh-open-source@amazon.com, stephen@networkplumber.org, gustavoars@kernel.org,
+ one-d-wide@protonmail.com, ameryhung@gmail.com, andrii@kernel.org,
+ aroulin@nvidia.com, anilkaushikwireless@gmail.com, demosthenes.ra@gmail.com,
+ eddyz87@gmail.com, emil@etsalapatis.com, hangbin.liu@linux.dev,
+ ihor.solodrai@linux.dev, jiayuan.chen@linux.dev, jolsa@kernel.org,
+ joe@dama.to, memxor@gmail.com, lirongqing@baidu.com, louis.scalbert@6wind.com,
+ mkl@pengutronix.de, martin.lau@linux.dev, mkarsten@uwaterloo.ca,
+ mattbobrowski@google.com, michael.bommarito@gmail.com, razor@blackwall.org,
+ runyu.xiao@seu.edu.cn, song@kernel.org, linux@leemhuis.info,
+ wang.zhan@smartx.com, yonghong.song@linux.dev, n0ps1edzz@gmail.com,
+ tianyi.gao@linux.dev
+Date: Mon, 23 Nov 2026 03:59:00 +0000
+Message-ID: <179540634013.3135.970023281433843364@kernel.org>
+In-Reply-To: <20261119013830.36935-2-tianyi@cloudflare.com>
+References: <20261119013830.36935-2-tianyi@cloudflare.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,181 +83,113 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Add support for Broadcom NetXtreme NX1 network interface controllers
-integrated with security SoCs. This enables proper driver recognition
-and initialization for these hardware Root of Trust enabled network
-adapters.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-The boards are identified by their PCI subsystem IDs. Add the new
-subsystem device IDs and a helper that matches them.
+Low priority / nit picks for your consideration:
 
-These boards need the following deviations from the default behavior:
+- [Low] At this commit, Documentation/networking/netdevices.rst says
+  tx_extra_headroom is "at most 512 bytes" and include/linux/netdevice.h…
+- [Low] At this commit, the new documentation describes behaviour that is
+  not implemented yet.
 
-- Never drive GPIO1. These boards use GPIO1 for mailbox communication
-  between SoC and the NIC, internal to the board, so it must not
-  be driven externally and is always kept cleared. Skip it when
-  switching to Vaux or Vmain power, and do not set it in
-  tp->grc_local_ctrl.
+--
 
-- Do not enable EEPROM write protection, even if the NIC config in
-  SRAM requests it.
+net: add tx_extra_headroom and netdev_get_alloc_headroom()
 
-- Do not enable Wake-on-LAN. These boards reuse the GPIO that
-  Wake-on-LAN depends on for other purposes, so Wake-on-LAN cannot
-  work on these devices. Clear WOL_CAP so that it is not advertised.
+This adds a tx_extra_headroom field to struct net_device. It also adds the
+netdev_get_alloc_headroom(), netdev_get_alloc_headroom_hlen() and
+netdev_get_alloc_needed_headroom() helpers for sites that allocate locally
+generated packets. Nothing sets the field yet (later patches in the series
+set it from XDP, TC egress and a veth attribute), and the unused
+LL_RESERVED_SPACE_EXTRA() macro is removed.
 
-Signed-off-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
+> diff --git a/Documentation/networking/net_cachelines/net_device.rst b/Documentation/networking/net_cachelines/net_device.rst
+> index 7620d3fcb8dce..4341e9e443bab 100644
+> --- a/Documentation/networking/net_cachelines/net_device.rst
+> +++ b/Documentation/networking/net_cachelines/net_device.rst
+> @@ -35,6 +35,7 @@ unsigned_short                      gflags
 
----
-v2:
- - Move the "GPIO1 must be driven high" comment to the EEPROM_WRITE_PROT
-   branch in tg3_reset_hw().
- - Clear WOL_CAP where CITADEL is set so that the wakeup source is never
-   registered on these boards.
----
- drivers/net/ethernet/broadcom/tg3.c | 51 ++++++++++++++++++++++++++++-
- drivers/net/ethernet/broadcom/tg3.h | 13 ++++++++
- 2 files changed, 63 insertions(+), 1 deletion(-)
+[ ... ]
 
-diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
-index 95827df4cf6a..9b96959d51bb 100644
---- a/drivers/net/ethernet/broadcom/tg3.c
-+++ b/drivers/net/ethernet/broadcom/tg3.c
-@@ -2840,6 +2840,9 @@ static void tg3_pwrsrc_die_with_vmain(struct tg3 *tp)
- 	    tg3_asic_rev(tp) == ASIC_REV_5701)
- 		return;
- 
-+	if (tg3_flag(tp, CITADEL))
-+		return;
-+
- 	grc_local_ctrl = tp->grc_local_ctrl | GRC_LCLCTRL_GPIO_OE1;
- 
- 	tw32_wait_f(GRC_LOCAL_CTRL,
-@@ -2913,6 +2916,9 @@ static void tg3_pwrsrc_switch_to_vaux(struct tg3 *tp)
- 			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE2 |
- 					    GRC_LCLCTRL_GPIO_OUTPUT2);
- 		}
-+		if (tg3_flag(tp, CITADEL))
-+			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
-+					    GRC_LCLCTRL_GPIO_OUTPUT1);
- 		tw32_wait_f(GRC_LOCAL_CTRL,
- 			    tp->grc_local_ctrl | grc_local_ctrl,
- 			    TG3_GRC_LCLCTL_PWRSW_DELAY);
-@@ -10536,8 +10542,11 @@ static int tg3_reset_hw(struct tg3 *tp, bool reset_phy)
- 		tp->grc_local_ctrl &= ~gpio_mask;
- 		tp->grc_local_ctrl |= tr32(GRC_LOCAL_CTRL) & gpio_mask;
- 
-+		if (tg3_flag(tp, CITADEL))
-+			tp->grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
-+						GRC_LCLCTRL_GPIO_OUTPUT1);
- 		/* GPIO1 must be driven high for eeprom write protect */
--		if (tg3_flag(tp, EEPROM_WRITE_PROT))
-+		else if (tg3_flag(tp, EEPROM_WRITE_PROT))
- 			tp->grc_local_ctrl |= (GRC_LCLCTRL_GPIO_OE1 |
- 					       GRC_LCLCTRL_GPIO_OUTPUT1);
- 	}
-@@ -15220,6 +15229,38 @@ static struct subsys_tbl_ent *tg3_lookup_by_subsys(struct tg3 *tp)
- 	return NULL;
- }
- 
-+static bool tg3_is_citadel(struct tg3 *tp)
-+{
-+	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_BROADCOM) {
-+		switch (tp->pdev->subsystem_device) {
-+		case TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD:
-+		case TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2908:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2909:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2906:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_E14A:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_E34A:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2904:
-+		case TG3PCI_SUBDEVICE_ID_CHANNEL_2905:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	}
-+
-+	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_DELL) {
-+		switch (tp->pdev->subsystem_device) {
-+		case TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00:
-+		case TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L:
-+			return true;
-+		default:
-+			return false;
-+		}
-+	}
-+
-+	return false;
-+}
-+
- static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- {
- 	u32 val;
-@@ -15231,6 +15272,11 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- 	tg3_flag_set(tp, EEPROM_WRITE_PROT);
- 	tg3_flag_set(tp, WOL_CAP);
- 
-+	if (tg3_is_citadel(tp)) {
-+		tg3_flag_set(tp, CITADEL);
-+		tg3_flag_clear(tp, WOL_CAP);
-+	}
-+
- 	if (tg3_asic_rev(tp) == ASIC_REV_5906) {
- 		if (!(tr32(PCIE_TRANSACTION_CFG) & PCIE_TRANS_CFG_LOM)) {
- 			tg3_flag_clear(tp, EEPROM_WRITE_PROT);
-@@ -15430,6 +15476,9 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
- 			tp->phy_flags |= TG3_PHYFLG_DISABLE_1G_HD_ADV;
- 	}
- done:
-+	if (tg3_flag(tp, CITADEL))
-+		tg3_flag_clear(tp, EEPROM_WRITE_PROT);
-+
- 	if (tg3_flag(tp, WOL_CAP))
- 		device_set_wakeup_enable(&tp->pdev->dev,
- 					 tg3_flag(tp, WOL_ENABLE));
-diff --git a/drivers/net/ethernet/broadcom/tg3.h b/drivers/net/ethernet/broadcom/tg3.h
-index a9e7f88fa26d..713fe9c821e2 100644
---- a/drivers/net/ethernet/broadcom/tg3.h
-+++ b/drivers/net/ethernet/broadcom/tg3.h
-@@ -100,6 +100,8 @@
- #define TG3PCI_SUBDEVICE_ID_DELL_MERLOT		0x0109
- #define TG3PCI_SUBDEVICE_ID_DELL_SLIM_MERLOT	0x010a
- #define TG3PCI_SUBDEVICE_ID_DELL_5762		0x07f0
-+#define TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00	0x0e19
-+#define TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L	0x0ea1
- #define TG3PCI_SUBVENDOR_ID_COMPAQ		PCI_VENDOR_ID_COMPAQ
- #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE	0x007c
- #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE_2	0x009a
-@@ -111,6 +113,16 @@
- #define TG3PCI_SUBDEVICE_ID_ACER_57780_A	0x0601
- #define TG3PCI_SUBDEVICE_ID_ACER_57780_B	0x0612
- #define TG3PCI_SUBDEVICE_ID_LENOVO_5787M	0x3056
-+/* NetXtreme NX1 boards integrated with Citadel security SoCs */
-+#define TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD	0xd346
-+#define TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR	0xd146
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2908	0x2908
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2909	0x2909
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2906	0x2906
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_E14A	0xe14a
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_E34A	0xe34a
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2904	0x2904
-+#define TG3PCI_SUBDEVICE_ID_CHANNEL_2905	0x2905
- 
- /* 0x30 --> 0x64 unused */
- #define TG3PCI_MSI_DATA			0x00000064
-@@ -3122,6 +3134,7 @@ enum TG3_FLAGS {
- 	TG3_FLAG_ROBOSWITCH,
- 	TG3_FLAG_ONE_DMA_AT_ONCE,
- 	TG3_FLAG_RGMII_MODE,
-+	TG3_FLAG_CITADEL,
- 
- 	/* Add new flags before this comment and TG3_FLAG_NUMBER_OF_FLAGS */
- 	TG3_FLAG_NUMBER_OF_FLAGS,	/* Last entry in enum TG3_FLAGS */
+>  unsigned_short                      needed_headroom             read_mostly                             LL_RESERVED_SPACE/ip_finish_output2
+> +unsigned_short                      tx_extra_headroom           read_mostly                             netdev_get_alloc_headroom/__ip_append_data
+
+[ ... ]
+
+> diff --git a/Documentation/networking/netdevices.rst b/Documentation/networking/netdevices.rst
+> index 6a87f09e70158..f593b242da9cc 100644
+> --- a/Documentation/networking/netdevices.rst
+> +++ b/Documentation/networking/netdevices.rst
+> @@ -441,6 +441,19 @@ from a notifier.
+>  
+>  Drivers **must not** generate nested notifications of the ops-locked types.
+>  
+> +TX headroom reservation
+> +=======================
+> +
+> +``tx_extra_headroom`` is extra headroom for locally generated packets. The
+> +stack adds it when it allocates such a packet for the device, so that
+> +headers pushed later, for example at TC egress, fit without a
+> +reallocation. It is at most 512 bytes.
+
+[Severity: Low]
+Is this text accurate at this point in the series? This commit does not
+convert any allocation site. __ip_append_data() still sizes its headroom
+with LL_RESERVED_SPACE(), and nothing calls the new
+netdev_get_alloc_headroom*() helpers yet.
+
+The net_cachelines/net_device.rst row above names __ip_append_data as a
+reader of tx_extra_headroom. That is also only true after the next patch.
+
+This changes nothing at runtime, because the field is always 0 here. The
+next commit, "net: reserve extra TX headroom for local egress", converts
+__ip_append_data(), __ip6_append_data(), raw_send_hdrinc(),
+rawv6_send_hdrinc(), the AF_PACKET paths and AF_XDP copy mode. After that
+commit the docs match the code.
+
+Could these documentation updates move into that patch, so the docs match
+the code at every bisect point?
+
+[ ... ]
+
+> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+> index 0325c6f2a7d14..392e6fc81e347 100644
+> --- a/include/linux/netdevice.h
+> +++ b/include/linux/netdevice.h
+
+[ ... ]
+
+> @@ -2196,6 +2195,8 @@ struct net_device {
+>  	 */
+>  	unsigned int		mtu;
+>  	unsigned short		needed_headroom;
+> +#define NETDEV_TX_EXTRA_HEADROOM_MAX	512
+> +	unsigned short		tx_extra_headroom;
+
+[Severity: Low]
+Nothing in this commit uses NETDEV_TX_EXTRA_HEADROOM_MAX. Even so,
+netdevices.rst above already says the field "is at most 512 bytes".
+Nothing writes tx_extra_headroom yet, so there is nothing to clamp.
+
+Later in the series, every write goes through
+__netdev_update_tx_extra_headroom(), which does:
+
+	WRITE_ONCE(dev->tx_extra_headroom,
+		   min(tx_extra_headroom, NETDEV_TX_EXTRA_HEADROOM_MAX));
+
+The inputs are bounded as well. bpf_find_tx_extra_headroom() in the
+verifier rejects larger values, and veth applies
+NLA_POLICY_MAX(NLA_UINT, NETDEV_TX_EXTRA_HEADROOM_MAX) to
+VETH_INFO_TX_EXTRA_HEADROOM. So the documented limit holds by the end of
+the series.
+
+Would it be cleaner to add the define and the "at most 512 bytes" sentence
+in the same patch as the first code that uses them?
+
+[ ... ]
+
 -- 
-2.52.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119013830.36935-1-tianyi%40cloudflare.com
