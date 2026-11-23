@@ -1,60 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795443849;
-	b=m7x5NsqsrdJxgrPEW7OnxPQdtwEPnsRE1VbYL014kbNLJBd1bDqhdJE2Lypl2usCWpDQ
-	 U6vbzYAvpnthk04i7PSH+996O+06uemj+QW3hqbNc9Mr4vjiyS4dhDrwNXcCd+/mzkTO7
-	 b0C62hYua/pwrAuW/17UeTFUO5jReDbUC18XDpMD2oXMrv7woNAZZQhO9/jMQB/Bz5vh1
-	 eu6j7O4IBSuuZIOOGlhqKpGqM7n5QkkT71ys9xCCfpxeCorolkSQ+K01iXGVzrRcZDy7B
-	 i2fkG1KPvS0GzW5qBRze5sb9h1v0tbXaa2BYwpuJlnbiot7+8fRTmHykOk+UNTylC2Q==
+	t=1795443947;
+	b=Y3ScfkEsHyYnb86AQZUtW4LbEpzvQ8JsqWGe5lKla5nd7IwfrfW+1OseRyig8HzTKrVY
+	 HdU4FJ4IhWq6C1/XFhBuRFOCve/DsJwMx5CdPNp1w1ljRnvuKIcfN2XoV+0V6WeJDk9X0
+	 ADC07OAPB4ZZ2QUkrARp3cDwUiQdt01JpCKEButXtxf7IL4no6LE/aEa9j2nRZkshyxII
+	 IIAmBeemR3UUxC3MXiN6u2uBEw/T92ruZ9V+EUpG+tVGM+CF4p1D/9Bsz1McNHT9R4iOh
+	 zv3rwQGV4gqGFco2jTtwwEJaUPpVYqavF/SKPoxXIlNizwoCjaG1zZCiOSl7P/XPrTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795443849;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=55kelfXzKDdaZz5Yme2X9/SukHmv1LHP0kyLgVcPt0A=;
-	b=0HZUpHDfRa7ZQrsH/dO1/eQeOiSkR7FGTX0SfZ6R+o0h9x3zVLzlmgTP7drpqZXTiMmy
-	 DCaI+PzTUqRNUxdbjcEH9IkbBWDUZclbXHPfaiyg1fwyQ0o3GPMqjN0nSCvpA0HFN4EA9
-	 CbmKjAEmfQWi5A4kdTAIwfkEv+775mpT8AiilLL1kJagMLCEr8BD5q+MeJdPFIL5V7Nur
-	 HyVq5kzd06AzVzHTpPCZVqwBVjH9oJ/zmlVYRyRij1YXgZTiHvjHhVPH3Wi9yeCKdHSIe
-	 Zvek4HLOivEIyH+ix/eSVH4FOJ9RHZTlNfT3DZnRkfqXXQUjFUwXzpXWX1BdWoLhLCw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795443947;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
+	b=PCEq1NBl1h/shw1ZySsUMVSRr0CZBHEzdSu3ZhXO5C5Z8ZqznVgD0xXCbSPKwhGYJWOw
+	 K7KXDWxT4Wr4YaUZm4CncMz1c2KzXMvIJ0iMgfcZuRqlCu+60gnCInLfL/Lrwdx0RjaNd
+	 HpHpYyPJ4Rbh3UI51N7MxWMDt/S8hkvSEoXOAestC/r6tCT51/HiBMIFPE7vCGFsWMd5U
+	 Mks78YArpuVJRGWPxpkC48STZQmU2dyVLj9ZmHn4ADnN0xPjd/i3LHbj7I51M8Bh3e6bg
+	 EEhio/usFezc+qJWNqySzkf69hmd2UkyhNIVINle2RQFjL4UlzM3LSFkFsxWoofv+6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DxONPpg0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B6DB606A335;
-	Mon, 23 Nov 2026 14:24:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92227606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:25:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 92227606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DxONPpg0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E09711F000D2;
-	Mon, 23 Nov 2026 14:24:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795443848;
-	bh=55kelfXzKDdaZz5Yme2X9/SukHmv1LHP0kyLgVcPt0A=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DxONPpg0Zk64Kgo9Df/o+DPVq/UxmAuWm3vA74iqiBhKYj9rkRt1bCFmSlwZKD0SW
-	 YL0Uu33WPeMHfdnj8qaliZJJitoEztJecKJ7MSdjnPy5TSfANsCGSWsHKaRgXkw5IJ
-	 /dgfu1FrHGfphWpfQC/3hc0j5rCxSCvjcp1uYE0mhI+f5knEXq6+5MV9IdPeTRgBE/
-	 +qsr8I15DSJwwjj2BusrGOJkkch35Bia59viiofWJRpQ0/zssVspVTGmMvscijPuSW
-	 T7g/8YssSlqqHN0k8piRlVYmuPFumb0ATVJd/XDgPdm4eOj9pUEoiCC+QDxGIWTmE7
-	 hXSSE6WtkmOaA==
-Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
- for SRv6 End.X
-From: netdev-bot+sashiko@kernel.org
-To: hangbin.liu@linux.dev
-Cc: andrea.mayer@uniroma2.it, andrea@common-net.org, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org, liuhangbin@kylinos.cn
-Date: Mon, 23 Nov 2026 14:24:07 +0000
-Message-ID: <179544384743.3135.16053596947905097199@kernel.org>
-In-Reply-To: <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
-References: <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=LgXvSsKl;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EyCeo9KV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795443945;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
+	b=LgXvSsKlPakd7uYc27D7BnIE4UDFrHy1apvyc59uqVg2ei8HQ/bHLMtaf1GJOK48oltgO+
+	inL/abcbVyXSJc4u1bwTDqVDpeTbqVxfzFH9PqLxzkKdbGFc/atEsMBSL/D/AwMWwrEIT9
+	oatRVxCE8DNkt2uZ3f9bbbCXYCSXhq8=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-507-l4CRSzYdPnW861gbkmxteQ-1; Mon, 23 Nov 2026 14:25:43 +0000
+X-MC-Unique: l4CRSzYdPnW861gbkmxteQ-1
+X-Mimecast-MFC-AGG-ID: l4CRSzYdPnW861gbkmxteQ_1795443942
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-49090fde23aso2091867f8f.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:25:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795443942; x=1796048742; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
+        b=EyCeo9KVSS1jJ8bnW9XNbLBiaXRazjmE+WmLAfyf0V+72j/WeGV9VkgW/NFdEoYDAv
+         ORskZH889xizBAzTBpBE0oeXHTi7WK/HVKKAzqVLkMNS4SFAIjpkH5lQp2WUhOwcj6w2
+         U+68g6SlVLmQQSVG1B/GNX3jmbrdCil4BWXCROKK7fpzfYPy7uMgdJe9GjrTbhzeeK/P
+         p4RcEqUPgFtGzS/7Ria+0136rvsd06Bid2RFCswDyUcBQNRS4GWqMJ+lVxcipKuZwFzs
+         jAUWWrXeqQysb19AeRl5dq1+VbBViLB6bZiEpAEq1sKBR+LFvPoI0QvRVzvOc23WlG0g
+         8sDQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795443942; x=1796048742;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=//vDoMeDoG6qrEO4A9KSwEo9nf4mW8pFNbX/3y32fq4=;
+        b=QpNlBvG4Sbti5UfeBKOw4G4SlXcbEjdlpuakEVzfE71aPolACloWtYPtM0Z9DnwTLc
+         RGLs3Roc2TgmwhZnqrhcchCmb2vRY6t0d8/zl5QmUcDLytHCWlLB5gDC0xDFRGEMCR2x
+         gduXGqPIL/Bu+tGo8KJ/le9ZKE69vR/ny+LrC1xYf26MLTN8DirDUbc/3buXQCfX+xnM
+         2OjxD01d75OYptfPuRisb9fGg7PaASqMM64k9hZO0zGEay4dldA8VVZgTqfy8JoroInp
+         P5luyPX9uPAPId8epWC1JaSZLdH6XRDkayfB7eJDszn4L1NcHQpDMfG7R+T/CBaH00F5
+         6PAQ==
+X-Gm-Message-State: APuU4Z+86Gob1GHJRq+5ffjRv3Qm7ZP3wtE66T4BAQIKeoHWdXXJODxz
+	HC4hZK/Io5AGJ9TquXSy//2vifv2m0adyHjEswOGc5pNe3V1QLwVt9gkMIKdO/piGhsv7E9yxqX
+	TyaW9TU7D/h5WJvJt0EgIT2QdMZ/GIlQVzTI362u76Nk0PgaKJJNNoMdbpA==
+X-Gm-Gg: AZFdTZfRqqgB1CM2jcujhVIJv+XBDOb82uNbV2+WcuneWVed/e8YKsw4WwhwnucQ+K8
+	nItkm/7IuxKVDpuq7SUkACU3WAOrgrhfR5qys5t/PK7t8tiJ4Mwr2BD978+qZMVgxcxnsFni8hs
+	93o1nhzIClrK/WtvoYgjtyjapUDYCm0+mY/QQIvmxXKC2uzMvDMtPOmn8n9FPCasdCEJP76vefh
+	mfQ0FGR8baAXzZw6/cozec7TwT+vx4yJH5Fj3mF+X6hROndzY8SzJFH9u2wzakv4bo6BpWcJdv3
+	4HpAcJ3fYqVAbpsdkX/OflFf9WgJ3FDKk+7EF8bcQoV82w3UKSW2X3fTS1WMkn8ZQ3n4mlQxxc2
+	C8RzWsZhfKDSzFrGwrPM4DhZPTLAywFYtMadEd4C/D94VxMD9ODJ74uLlhHAJXDk7iVSoAMXcDv
+	7P5cVfCdo40s4jSKNv0Qt3dH78sA/PTZhtEoeUDbw0hCkw
+X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673181f8f.56.1795443941784;
+        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
+X-Received: by 2002:a05:6000:1a86:b0:4ad:d65:aaf9 with SMTP id ffacd0b85a97d-4ad0d65afa1mr22673141f8f.56.1795443941433;
+        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6bb989b3sm22660754f8f.51.2026.11.23.06.25.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 06:25:41 -0800 (PST)
+Message-ID: <e6811e96-20df-49fd-a5b9-d343047dbd7b@redhat.com>
+Date: Mon, 23 Nov 2026 15:25:40 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,182 +111,37 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] mctp: i3c: Fix potential thread leak on registration
+ failure
+To: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>,
+ Jeremy Kerr <jk@codeconstruct.com.au>,
+ Matt Johnston <matt@codeconstruct.com.au>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261117-571e631490-mctp-i3c-0@mail.sdu.edu.cn>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On 11/17/26 15:48, Guangshuo Li wrote:
+> mctp_register_netdev() can fail before netdev registration begins,
+> leaving the TX thread and bus list entry allocated. The error path
+> assumes ndo_uninit has already cleaned them up.
+> 
+> Always clean up on registration failure. Make bus cleanup idempotent
+> because later registration failures can already have called ndo_uninit.
+> 
+> This issue was found by our static analysis tool under development.
+> 
+> Fixes: c8755b29b58e ("mctp i3c: MCTP I3C driver")
+> Signed-off-by: Guangshuo Li <liguangshuo@mail.sdu.edu.cn>
+Issues in error paths in device init/shutdown existing since the
+beginning don't qualify for 'net' target. Applying to net-next.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+/P
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] test_kernel_supp_or_ksft_skip() in
-  tools/testing/selftests/net/srv6_end_flavors_test.sh is now also used…
-- [Low] The commit message does not describe several changes accurately.
-- [Low] The comment above __get_srv6_rtcfg_id() gives the example element
-  "1>2,2>3:psp:End.".
-
---
-
-selftests: seg6: add PSP flavor testing for SRv6 End.X
-
-This commit adds an End.X scenario to srv6_end_flavors_test.sh. The new
-scenario reuses the End PSP and NEXT-C-SID,PSP policies, with every SID
-bound through an adjacency. It teaches the policy helpers to parse
-<nodeid:op:act> elements, adds a consumed-SRH test for End.X, and checks
-kernel support for End.X PSP before running the new tests.
-
-> Add the packet path to each test section so the route taken by the
-> traffic is clear.
-
-[Severity: Low]
-
-Is this description accurate? The Path: lines only go into the header
-comment block that documents the policies. The TEST SECTION output that
-log_section() prints at runtime does not show any path.
-
-The commit message also leaves out two changes to existing End code.
-First, the existing End section titles are renamed:
-
-host_srv6_end_flv_psp_tests():
-    log_section "SRv6 connectivity test hosts (h1 <-> h2, ${act} PSP flavor)"
-
-host_srv6_end_flv_next_csid_psp_tests():
-    log_section "SRv6 connectivity test hosts (h1 <-> h2, ${act} NEXT-C-SID,PSP)"
-
-host_srv6_end_flv_consumed_srh_tests():
-    "SRv6 connectivity test hosts (h1 <-> h2, End PSP with a consumed SRH)"
-
-Second, LCNODE_FMT ("%x0") is removed, so build_csid() now prints the node
-ID with %s instead of %x:
-
-    printf "%s%s%s" "${node}" "${adj}" "${func}"
-
-For router IDs 1-4 the output is the same.
-
-Could the commit message mention these changes?
-
-> diff --git a/tools/testing/selftests/net/srv6_end_flavors_test.sh b/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> index 9d6b7de648da3..d7fdc4e19da9e 100755
-> --- a/tools/testing/selftests/net/srv6_end_flavors_test.sh
-> +++ b/tools/testing/selftests/net/srv6_end_flavors_test.sh
-
-[ ... ]
-
-> @@ -535,10 +570,12 @@ get_network_prefix()
->  	echo "${IPv6_RT_NETWORK}:${p}:${q}"
->  }
->  
-> -# Given the description of a router <id:op> as an input, the function returns
-> -# the <id> token which represents the ID of the router.
-> -# i.e. input: "12:psp"
-> -#      output: "12"
-> +# Given the description of a router <id:op:act> as an input, the function
-> +# returns its <id> field with the <op> and <act> fields dropped.
-> +# i.e. input: "12:psp", output: "12"
-> +#      input: "1,2:psp", output: "1,2"
-> +#      input: "1>2:psp", output: "1>2"
-> +#      input: "1>2,2>3:psp:End.", output: "1>2,2>3"
-
-[Severity: Low]
-
-This isn't a bug, but should "End." be "End.X" here? __setup_rt_policy()
-in this same patch would reject the documented element:
-
-	if [[ "${n}" == *">"* && "${n}" != *"End.X"* ]] || \
-		[[ "${n}" != *">"* && "${n}" == *"End.X"* ]]; then
-		echo "Incorrect operation format: ${n}" && false
-	fi
-
-Neither __get_func() nor __get_srv6_act_cfg() has a case for "End." either.
-
-[ ... ]
-
-> @@ -1336,12 +1549,19 @@ test_iproute2_supp_or_ksft_skip()
->  	fi
->  }
->  
-> +# exit directly if End action not supported, otherwise return 1
->  test_kernel_supp_or_ksft_skip()
->  {
-> -	local flavor="$1"
-> +	local action="$1"
-> +	local flavor="$2"
->  	local test_netns
-> +	local policy=()
->  
->  	test_netns="kflv-$(mktemp -u XXXXXXXX)"
-> +	policy=(action "${action}" flavors "${flavor}")
-> +	if [ "$action" == "End.X" ]; then
-> +		policy+=(nh6 "${IPv6_TESTS_NH6}")
-> +	fi
->  
->  	if ! ip netns add "${test_netns}"; then
->  		echo "SKIP: Cannot set up netns to test kernel support for flavors"
-> @@ -1366,10 +1586,15 @@ test_kernel_supp_or_ksft_skip()
->  
->  	if ! ip -netns "${test_netns}" -6 route \
->  		add "${IPv6_TESTS_ADDR}" encap seg6local \
-> -		action End flavors "${flavor}" dev "${DUMMY_DEVNAME}"; then
-> -		echo "SKIP: ${flavor} flavor not supported in kernel"
-> +		"${policy[@]}" dev "${DUMMY_DEVNAME}"; then
-> +		echo "SKIP: ${action} flavor ${flavor} not supported in kernel"
->  
->  		ip netns del "${test_netns}"
-> +
-> +		if [ "$action" != "End" ]; then
-> +			return 1
-> +		fi
-> +
->  		exit "${ksft_skip}"
->  	fi
->  
-
-[Severity: Medium]
-
-This function is now also called as a soft probe at the end of the
-script:
-
-test_end_flv
-
-if test_kernel_supp_or_ksft_skip End.X psp; then
-	test_endx_flv
-fi
-
-print_log_test_results
-
-This call runs after trap cleanup EXIT is installed. By then router_tests,
-host2gateway_tests and test_end_flv have already logged results.
-
-Only the seg6local route add branch returns 1 for End.X. The ip netns
-add, dummy link add and link set up failure branches still call
-exit "${ksft_skip}" for every action. Calling the function from an if
-condition does not stop that exit.
-
-If one of those steps fails here, are the earlier results lost? The exit
-runs cleanup(). SETUP_ERR is already 0 after setup_end_flv_psp(), so
-cleanup() reaches:
-
-	exit "${ret}"
-
-print_log_test_results() has not run yet. If all End tests passed, ret
-still holds its initial ${ksft_skip} value, so the run exits as SKIP with
-no summary. If some tests failed, it exits 1, also with no summary.
-
-The intended return 1 path (a kernel with End.X but without End.X PSP)
-only echoes a SKIP line. log_test_skipped is not called, so nskip stays 0.
-Does the final "Tests skipped" summary then leave out the dropped End.X
-tests?
-
-On success, the function returns the status of ip netns del. Would a
-failing delete also skip test_endx_flv without any message?
-
-The new header comment, "exit directly if End action not supported,
-otherwise return 1", also doesn't describe the netns and dummy device
-failure paths, which exit for every action.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119-srv6_flavors_endx-v4-0-284cdb484eee%40kylinos.cn
