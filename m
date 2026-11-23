@@ -1,65 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.137.202.133
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795394675;
-	b=njmtPiOqD8h3qVZyaeRKs/heeSsu289EOUuMVGMMdVYs6NBYhj1NcTtTKagE5NL8T5V9
-	 Ezh2sHrelDrYgXEFydMvM9vVoJnYSuUeHPskh7iU9zuzev03WEf5rfX1X1IW96mhVG1g0
-	 vxHdlqmvsheKOeyIA/j9r/g4fBMzTId8qUefivAiiIwvKd/xwHUPhtx3EDW/YbBT5TFgB
-	 1YbEvI3tUwij8285GPCUk4b3xR4VGEC7ugqQ4Hj0AEHm/cd+9BZnQdvSs74tcMZe62MOr
-	 6O7F/UIz3OA/+TnhIrkL8OAC8eQkL2dZ9dOJfKdP8vh3452nX7tiE7vi+eWYL/0EnJw==
+	t=1795394761;
+	b=c2WcUs7jFLYzibBapCnvLxaxnAMPEpSZQwkOt1u3f7Pag26W1BXkYf1IPtHl58mli7Dx
+	 2ICJSIVzGF9t9QZbodqKFfWJbCSzeNFIolwh+TqjUBUdKWHCF7XPxY76/G7Vlp87Ip4gc
+	 jk3ri3RWIPCZnf8Re2PPqz0Q+vm6qeE9zg3W1GeD2U3A3CR39zNiKChYAUXJ2ZdaAuHNJ
+	 1hLwZmJkneZbdv1vVAgbW0jt4jpl5ra9wGYGXoyXXmiwSBQ6lKpTlIvzet2w/zA/ZBkij
+	 lpEz0M0bJrux9/yODbzQymEyFaXlERdA4fWsHLUgL2TVrsX1FJFiijGPMwsDzzDWtxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795394675;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=TN3atIghVemOlMWS6OdQtOm4gB9s02HY7cHrHMnNt1g=;
-	b=dRGJS7A8eyYqj/A9XWtA/A3CKaQ5UDBlSUAaN8DUCw9QRAqV/5CphSSC+mTMJJgymtY5
-	 cYCKP9B5+qPE0dcnf73wvZ78u8G2j8Ix05hwr+NdNcJBspBOH40+DxhjIglryfEcCDm4B
-	 MoAolt+0bs3I5G8yWm3S4z17YnNOSwmHk08tA75llDm8QYHL0sbdG+l81ysNrw8BAErRP
-	 beM+gJuRejqucD2mCC249ArnnJ6ZojuJeSHPUbI/SsMaLpdx2O6a/dWAnmE2J0LFwILS0
-	 F21AVSBCWUWSUVAqf1pbJW1rnYa/HIzDv/Lo+MAt4G6DK378hOtqSPpC2NOYj9ETlMw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795394761;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
+	b=fVOPXDAilUJc3eCOyujl3zmScXNF/kFLUhBUJZ5jr7nFWjN4Na86/IBtAqubUN7cabHq
+	 dFP/9KQu/Jh+su13sY0q4Xnway3McH9KePGH7kwaYhccRVvp/ckyENo0AnFWsW3K13T18
+	 a0Ne7WHh33PRrvfEHgBspJoLzufLPnLB6PTzMDrqFUCONrFzRBOMjDWOtzq+PwsUhGQPQ
+	 4KTDB2I14IrQIGehzI17ErAC+NWgRVgxEDtIaiRfv+lvS0w+Anh+Utzn7j1wAz0cx8KKY
+	 jS419xSqGFbGJfIhFXY/y15Omm/7O9ovWT7uKIW2bLmq85ENHgvMD1RWUrFJtj/Q8Lg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=pass smtp.mailfrom=infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z3ADhScw;
-	arc=none smtp.remote-ip=198.137.202.133
-Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD71B606A33B;
-	Mon, 23 Nov 2026 00:44:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BD71B606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53746606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:46:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53746606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=bombadil.20210309 header.b=Z3ADhScw
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=bombadil.20210309; h=Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=TN3atIghVemOlMWS6OdQtOm4gB9s02HY7cHrHMnNt1g=; b=Z3ADhScwMuC+uRls6/gs6Q/4nA
-	MMFZuo0UX9R0GXb1cCxFJvko7rCzgYCmmBRUYJzCmF2ih1n/L5KvdYj+dvBWKpJbJcJbt2mC+EK5V
-	1JgsOfz1mzzezHvHMP+068m5rFFXHENOmJFqovAFiUFdtLqtaOVP6WmywhcJacE21CmrZYOaikyTm
-	1u8ZYA9lZ1V9okBI3x5H97qh1XrYuJShsDgDg9VWBt+mB0kchvwCRF6vil1pn+OrMzjy3Z7xR5LMW
-	ZBWgr2XGHt6vWW9WbgvjhRRqe7eyYQoDMEWvrYBJqEfuNts0DoKFXgXIwWGxkYbQuUup3leshLl4j
-	gpIvaIXQ==;
-Received: from [50.53.43.113] (helo=bombadil.infradead.org)
-	by bombadil.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVIAU-000000020Cs-35wA;
-	Mon, 23 Nov 2026 00:44:26 +0000
-From: Randy Dunlap <rdunlap@infradead.org>
-To: linux-fsdevel@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>,
-	"Aneesh Kumar K.V" <aneesh.kumar@linux.vnet.ibm.com>,
-	Eric Van Hensbergen <ericvh@kernel.org>,
-	Latchesar Ionkov <lucho@ionkov.net>,
-	Dominique Martinet <asmadeus@codewreck.org>,
-	Christian Schoenebeck <linux_oss@crudebyte.com>,
-	v9fs@lists.linux.dev
-Subject: [PATCH] net/9p: client.h: clean up kernel-doc warnings
-Date: Sun, 22 Nov 2026 16:44:25 -0800
-Message-ID: <20261123004425.1770155-1-rdunlap@infradead.org>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xjQNwyU6
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f03920c4a0so16556275ad.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:46:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795394761; x=1795999561; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
+        b=xjQNwyU6MYR+Sv9DqBxkCsB1ojg0HIKyMipAx4s6KRT5IYdJvl+GnVSxTRanDwlO4b
+         OjsHRhZlksxkgGyYo9uQR4xnsH9smwEzvZB0U0xWIc7WLxA20JEVyHvBNfOB3Q6RKyJl
+         W3Omp6JWwiCVAkQ9a9ECTstSvDMsiW2opPGebxfCTT5SlPd+dIB1fYQxZJhDwkFAzhym
+         zUVWh9jYqyhJ1lPaR/5BHmGuhw1iLZ2Ep7uY5F2lH9rP296aefHI8qNbvrd9S8rKbf0P
+         oiX4dY0ljie0g+etEjHvsK3G0VGKqx3XN4ZOcK3unI0mprBibWrDrY0Vx0uR0JHB3rXt
+         eoGQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795394761; x=1795999561;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:from
+         :subject:cc:to:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TlGQ+s1w0re2RtxBjjhAHjiKtshlusVceD/sHg+v24E=;
+        b=mOvsgMDOAS1F7kMxMZQOlJTYoSQ2ewlR5kH5T+GFMb2JlWzODDyAYJW1WNtfFCChex
+         ZOUTcRq4dUQUDkXeXWS7bW9FxbPJhvpVv8Apa2MyhuDp3ewQR2J9xZZ0uYZW0gmn2QO4
+         RDeGIS32bR/Px0AZHu2+TAfoFTZWxbqhIr8JWZvI8rMFMCtoGovf8AGO1wOdgkGo6Xs4
+         sU/whKjT4ntH+/2VMTXCiKkniY+sPGNaLkg8mKvQMSV8Vm2AF6b5iCJvCP/EkCwqGyWu
+         i/cs/1+3K+YH0/Y5bgr/vmZgWfzO/Z+ovCWKhkKGoMSdUn6CDJpMWl4CoCOb2b6kW+n7
+         NrEw==
+X-Forwarded-Encrypted: i=1; AL+hErFHPboJoeOq+PbTVGymmbpjgDw6qwBIGeP3YdEePtAQSPfr79UYBqTpazBYX+rO5AXnL1nDVCk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+gzmuUIfvU7vkJuFV/PqyJlpUcIp8TmDXBHEsP9ZsfVWX2d/Sl
+	mm56FRwaB13IpJrauiRF2ALgKX0xyVW1dJIV8NdM5Q2k+Av5LrXn87q0
+X-Gm-Gg: AZFdTZfCAQU5qFHjSu/UH7X951XEArEanC0XSTDlONBqsjLXVBINxXXEWF0C1uEEm92
+	dqj/LyDbSonN3WoUtAJ2klAeYTLMUbAoAUJ2ZXY5C8VE25NHT6eUBEExaH5vYMM/Ml5URvZIYd2
+	u9Jr5ZS0Diz8iRxbLp1Dib5FV8QQbLkizTJcTjD5Sv5k92IM9qmIOraoYj7zB/ChWB0U5P5cRZG
+	jxGVRgmBLrIVInFm1cW/KZPiu6YfRNk3Fk/Z7j3XY5s2kT6Hqhg/IOnd+ZWEBFa4llBRRKNn9hg
+	jFeFJPdemFklkNM//tTR+7eQzwafrdeYAYRFbW/L0RAQMwumTSz7QQweBvYeG1swhN6dHk4JWEJ
+	lNNEBLj3DL9zsP338xmpd9jX2YigWLMzjALXcJ3TU6/EcT4Qt2V8HvQX4yW+aIEt61KwnkTiW6R
+	jQbGGCZrq/B/NlpoxTQsgPyjw+atYbgfX7eKxaBkixQ60Ag3wktbIusb0kAxpNRrARBsoZ4zBjE
+	3htxoAUYodvGKT6UApcb/Ie95GTMtD3i+Ap4nxvrSJQM6VpEaqL2tMRPrJxJHIEabsoJgHnDO8q
+	YF90rVtNPP4PoXSM4mW9S12GDZUaUULUgMGJCfWhGfALIRVSa2kRVYxCOvOKaLYcASaPKto7YHV
+	JPTTUMja0ii9Y6gDPsI6gavtIXgfvEQjRvHI=
+X-Received: by 2002:a17:90b:1802:b0:3b1:64d3:f308 with SMTP id 98e67ed59e1d1-3b41c955a0bmr8991155a91.43.1795394760621;
+        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
+Received: from localhost ([153.61.198.250])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad48786sm15174661a91.9.2026.11.22.16.45.59
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Sun, 22 Nov 2026 16:46:00 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 23 Nov 2026 00:45:59 +0000
+Message-Id: <DN26BQ6CGT3J.2WZ83RCCF7HDD@gmail.com>
+To: "Jiayuan Chen" <jiayuan.chen@linux.dev>, <bpf@vger.kernel.org>
+Cc: "John Fastabend" <john.fastabend@gmail.com>, "Jakub Sitnicki"
+ <jakub@cloudflare.com>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>, "Paolo
+ Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>, "Kuniyuki
+ Iwashima" <kuniyu@google.com>, "Willem de Bruijn" <willemb@google.com>,
+ "Neal Cardwell" <ncardwell@google.com>, "Andrii Nakryiko"
+ <andrii@kernel.org>, "Eduard Zingerman" <eddyz87@gmail.com>, "Ihor
+ Solodrai" <ihor.solodrai@linux.dev>, "Daniel Borkmann"
+ <daniel@iogearbox.net>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>,
+ "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu" <song@kernel.org>,
+ "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>,
+ "Emil Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
+ "Sechang Lim" <rhkrqnwk98@gmail.com>, "Mattia Meleleo"
+ <mattia.meleleo@coralogix.com>, "Michal Luczaj" <mhal@rbox.co>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH bpf 00/11] fix misc sockmap issues
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+In-Reply-To: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+References: <20261121103222.88209-1-jiayuan.chen@linux.dev>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,99 +114,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Repair all kernel-doc warnings:
+On Sat, Nov 21, 2026 at 02:30 AM Jiayuan Chen <jiayuan.chen@linux.dev> wrote:
+> This series fixes misc issues in sockmap. Most of them are old.
 
-Warning: include/net/9p/client.h:52 Enum value 'BeginDisconnect' not described in enum 'p9_trans_status'
-Warning: include/net/9p/client.h:90 struct member 'refcount' not described in 'p9_req_t'
-Warning: include/net/9p/client.h:132 struct member 'fcall_cache' not described in 'p9_client'
-Warning: include/net/9p/client.h:132 struct member 'trans_opts' not described in 'p9_client'
-Warning: include/net/9p/client.h:147 expecting prototype for struct p9_fd_opts. Prototype was for struct p9_client_opts instead
-Warning: include/net/9p/client.h:243 enum fid_source { FID_FROM_OTHER, FID_FROM_INODE, FID_FROM_DENTRY, }; error: Cannot parse struct or union!
+Jiayuan,
+thanks for the follow up,
+but the fixes are way too heavy. bots are correct.
+The patches introduce more bugs than the fix.
+Pls ask your bot to think of absolultely minimal fixes that do not
+introduce new states.
 
-Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
----
-Cc: Aneesh Kumar K.V <aneesh.kumar@linux.vnet.ibm.com>
-Cc: Eric Van Hensbergen <ericvh@kernel.org>
-Cc: Latchesar Ionkov <lucho@ionkov.net>
-Cc: Dominique Martinet <asmadeus@codewreck.org>
-Cc: Christian Schoenebeck <linux_oss@crudebyte.com>
-Cc: v9fs@lists.linux.dev
-
- include/net/9p/client.h |   22 ++++++++++++++--------
- 1 file changed, 14 insertions(+), 8 deletions(-)
-
---- linux-next-20261120.orig/include/net/9p/client.h
-+++ linux-next-20261120/include/net/9p/client.h
-@@ -38,6 +38,7 @@ enum p9_proto_versions {
- /**
-  * enum p9_trans_status - different states of underlying transports
-  * @Connected: transport is connected and healthy
-+ * @BeginDisconnect: beginning transition to @Disconnected
-  * @Disconnected: transport has been disconnected
-  * @Hung: transport is connected by wedged
-  *
-@@ -75,6 +76,7 @@ enum p9_req_status_t {
-  * struct p9_req_t - request slots
-  * @status: status of this request slot
-  * @t_err: transport error
-+ * @refcount: request refcount
-  * @wq: wait_queue for the client to block on for this request
-  * @tc: the request fcall structure
-  * @rc: the response fcall structure
-@@ -98,6 +100,8 @@ struct p9_req_t {
-  * @trans_mod: module API instantiated with this client
-  * @status: connection state
-  * @trans: transport instance state and API
-+ * @fcall_cache: per-client fcall kmem cache
-+ * @trans_opts: union of struct fd, struct tcp
-  * @fids: All active FID handles
-  * @reqs: All active requests.
-  * @name: node name used as client id
-@@ -137,9 +141,9 @@ struct p9_client {
- };
- 
- /**
-- * struct p9_fd_opts - holds client options during parsing
-+ * struct p9_client_opts - holds client options during parsing
-  * @msize: maximum data size negotiated by protocol
-- * @prot-Oversion: 9P protocol version to use
-+ * @proto_version: 9P protocol version to use
-  * @trans_mod: module API instantiated with this client
-  *
-  * These parsed options get transferred into client in
-@@ -228,25 +232,27 @@ struct v9fs_context {
- 	struct p9_session_opts	session_opts;
- };
- 
-+enum fid_source {
-+	FID_FROM_OTHER,
-+	FID_FROM_INODE,
-+	FID_FROM_DENTRY,
-+};
-+
- /**
-  * struct p9_fid - file system entity handle
-  * @clnt: back pointer to instantiating &p9_client
-  * @fid: numeric identifier for this handle
-+ * @count: reference counter
-  * @mode: current mode of this fid (enum?)
-  * @qid: the &p9_qid server identifier this handle points to
-  * @iounit: the server reported maximum transaction size for this file
-  * @uid: the numeric uid of the local user who owns this handle
-  * @rdir: readdir accounting structure (allocated on demand)
-  * @dlist: per-dentry fid tracking
-+ * @ilist: inode list
-  *
-  * TODO: This needs lots of explanation.
-  */
--enum fid_source {
--	FID_FROM_OTHER,
--	FID_FROM_INODE,
--	FID_FROM_DENTRY,
--};
--
- struct p9_fid {
- 	struct p9_client *clnt;
- 	u32 fid;
+pw-bot: cr
