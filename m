@@ -1,47 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429102;
-	b=pZKVGzYYEY5Sou0EBgfxOydReiWYGW47PUjGaVT0rVae8mAshbnPe0FyUwPDvaHlZokq
-	 nPp6nLCHFy8YeV6H/PODrFdCTKr1FUvYcFfZlcmG4/5Z9fYtZXicDFzHJtwfuFIvVm3UF
-	 kx5BPV1T6FW62D3VQEl0T7kLrxQB3x/qQ+j9UYXooNnJKwpZ38YQ1vztokI4CY78fUQf5
-	 /GxG2QzYWoApBJFuMaMO6u/ZPE+2ozDiU98OuEYsyz+cIafNNTcRzPenbV9IRnGZZxS6J
-	 euG9eGOr1jnmBJy0FqgCNPsxmd5WE5660CmfT9acC0CK4sHhH1SIPh4He1+B0lqrUsw==
+	t=1795429174;
+	b=BJXNpBxXl9QY/TkeoRVWGp2e+oPSZOgeqt/JKSSRpcwK9yNzj3SROofWta2qxQ+9QvQT
+	 2XVOJKGpLGL4Vqa3Z9hUW9eHA8awQ48iHr58oTyZOWAIiT+K2uk/vWJ+++gEVtCg+Qnwb
+	 DXaeYcL/5sugyRnRDXNz99F6OMv4g195UtwobH7f2Q2Mxvct15GUSzSRXxgKDCGZgTVYR
+	 RpWki9zU+zRvblS0+gDBQDusj1UOfyjX2aGv4kjY9G2gb7XOSXYIfO7nFU1/s9/SDfRwD
+	 KR78RzA2zEySrxSRol05L/fDKDGs+07QhmeH/Qj5UNaoOEntEnrzFeU5+8xjxG+RYzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429102;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=QaFTrSB1UKnHwp3T3biJ5IgaoaKliB/c0FJCbEihJKo=;
-	b=dOR5utwroTcJol5DUp8EflSbpobwVAEtOevciCFXwBS4fqxaRXCx4ItrdGSQuEyfm1DF
-	 ZbvOCUtznffjNYCb4jYS/XLF/LgEct9jafX1plGfp9xEM9bpXsaoQGfAkyRv77R29s6of
-	 aKDqhEqhlGV5NKLqSaSWmflTTBj5kUR5BZ83WoGh+a6DvEuFNsiQZcKSp5j84LRMSa51a
-	 D6Uuj+nGpKgejoSRhmmhjp42KgTi8Js4xa3wI1r5IBSJ2D7JE3snVrVOxUr5n9vDp8gJ6
-	 0Hmi9KP5utk0h+lzrvDxR2b5v3J/Bx2jpHXSC1zvaOTHqkJN99gyzsw641CQFVLUZ0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429174;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=F8v/n8HAlGN35GNXNOZO9vza3hTM28edWtZoDu3Dyfk=;
+	b=iwP5+Dp2EzwhzyCIWxbbl/ni51Q1WSERTO2Cm0hKZ19YW7rKwMQQC65SSRcQuyDueA4n
+	 7ySnFRmY0h8FFuBzGXWRiD94ZQs1YAzCXmXFnKhzgh1GHq0DY7x4vprRo4tQWl5Zz3UsX
+	 WESY81a4W9vQdVvM5yQrxHsO1PTUt54JYZHbbof8lyxNz2ybkoIufbUqbsUMFsAriEuG6
+	 4M5LlGxAr7aSAnZi4hrUaixSo8hQzrXNX+AxwDDdqUpYq2ZmW52sUYt4p91YQI8mvROeO
+	 vB7n+B29yXaUTuR/m5+k6S77jtQyEJimJ7SGWAaHyXcezpXRd7T5Y6XIwmznBzNGwWA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IklTar8G;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Z5ez2xK/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D04EB606A31A;
-	Mon, 23 Nov 2026 10:18:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 760D1606A31A;
+	Mon, 23 Nov 2026 10:19:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IklTar8G
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 191BB1F000C6;
-	Mon, 23 Nov 2026 10:18:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z5ez2xK/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CF941F000C6;
+	Mon, 23 Nov 2026 10:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795429102;
-	bh=QaFTrSB1UKnHwp3T3biJ5IgaoaKliB/c0FJCbEihJKo=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=IklTar8GkpzS5SgnfSwWWbLh1sSJinFmu+k/1OJWy/qpRxNRJlIjjXxW5e6GUzrf/
-	 o99rhTjEIPf1GepylnbUnQlQdkjJP5Tkf5N6PA9gv1+dx5xG1EYXiRZIyLWfDpDw1V
-	 JyeX//L46WSL8wrdbR7tGnP2AUXqf/26ufbuCmNL8VXc46oSFOxeuK1wjQyr3k7cDa
-	 TBqJOJd/7b+o5dk1+xNW2PRnWrxvrgh6ALQO2CMv5uzbedw+m4g0EfOmiaD8Tptvvy
-	 chxqk5h3zX88ji1NRWb4X6pMQL9aP+7j08q8a4zAOgiGanr3Kp6Zspdw+DBm9O5smp
-	 OTAaP0yRd3TrQ==
-Message-ID: <4640f676-bcad-4ad8-aa38-14ac99c2d6d7@kernel.org>
-Date: Mon, 23 Nov 2026 11:18:13 +0100
+	s=k20260515; t=1795429174;
+	bh=F8v/n8HAlGN35GNXNOZO9vza3hTM28edWtZoDu3Dyfk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Z5ez2xK/vqwV0tZavLQQZIYA/oXS5T7++ezWNmN5QyAk53WoRLb38ns2iajFu//Bq
+	 dfOLooumBywho0Oe7HQRkmD2Q/y4I8q3wGilEalvciQbk05haexQWxEWZBt2P/w2KC
+	 Tt4gUSPm0fUpPtOkKMUxDTOqxlWwBgp0EjmzOxE+ZV7eJxjTgm78d8BNxw62yW2s2t
+	 xHGqB88Wj0FI8lr7uBXwhOj/GvPDI8DzGr4oIY9PW1AW6Y9a8aWwxBm54iGjXXuXTw
+	 SxDu52AR0bmppIOJ0AmOFCar4nAtqj4VOjBTk13BJiavMryMqGZWGZ6eqoHCMxT6XW
+	 a4v6K44LDSnqA==
+Subject: Re: [PATCH net v6 1/2] vxlan: reset the remote's dst cache when
+ snooping moves a MAC
+From: netdev-bot+sashiko@kernel.org
+To: ilskdw@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ kuniyu@google.com, mschiffer@universe-factory.net, nicolas.dichtel@6wind.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org
+Date: Mon, 23 Nov 2026 10:19:32 +0000
+Message-ID: <179542917290.3135.7119976710700884013@kernel.org>
+In-Reply-To: <20261119095256.42005-2-ilskdw@gmail.com>
+References: <20261119095256.42005-2-ilskdw@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,104 +64,168 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next v4 0/2] tcp/mptcp: prevent blackhole timeout
- arithmetic wraparound
-Content-Language: fr
-To: Yingjie Wang <x-professor@outlook.com>
-Cc: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
- "mptcp@lists.linux.dev" <mptcp@lists.linux.dev>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "corbet@lwn.net" <corbet@lwn.net>,
- "skhan@linuxfoundation.org" <skhan@linuxfoundation.org>,
- "rdunlap@infradead.org" <rdunlap@infradead.org>,
- "linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>,
- "edumazet@kernel.org" <edumazet@kernel.org>,
- "ncardwell@google.com" <ncardwell@google.com>,
- "gang.yan@linux.dev" <gang.yan@linux.dev>,
- "kuniyu@google.com" <kuniyu@google.com>,
- "davem@davemloft.net" <davem@davemloft.net>,
- "kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com"
- <pabeni@redhat.com>, "horms@kernel.org" <horms@kernel.org>,
- "martineau@kernel.org" <martineau@kernel.org>,
- "geliang@kernel.org" <geliang@kernel.org>,
- "ycheng@google.com" <ycheng@google.com>,
- "weiwan@google.com" <weiwan@google.com>,
- "joel.granados@kernel.org" <joel.granados@kernel.org>
-References: <cover.1795424546.git.x-professor@outlook.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <cover.1795424546.git.x-professor@outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-Hi Yingjie,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-On 23/11/2026 10:04, Yingjie Wang wrote:
-> The TCP Fast Open and MPTCP blackhole timeout calculations can wrap in
-> 32-bit unsigned arithmetic, even on 64-bit kernels. With HZ=1000 and a
-> 64-fold backoff, 67109 seconds becomes 8.7 seconds instead of about
-> 50 days.
-> 
-> Compute both delays in u64, cap them at MAX_JIFFY_OFFSET, and limit both
-> initial timeout sysctls to one day. The new input limits reject values
-> that were previously accepted, so this series remains for net-next and
-> is not intended for stable.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Thank you for the v4, it looks good to me:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
+- [Medium] The patch does not close the stale dst_cache problem it says
+  it fixes.
+- [Low] The re-check under the lock in vxlan_snoop_move() runs its tests
+  in a different order from the lockless fast path in vxlan_snoop().
 
-> Changes since v3:
+--
 
-Note for next time: you can put the ChangeLog in a "notes" section, so
-under "---"
+vxlan: reset the remote's dst cache when snooping moves a MAC
 
-Cheers,
-Matt
+When vxlan_snoop() sees a known MAC arrive from a different remote, it
+now resets the remote's dst_cache, updates remote_ifindex and clears
+offloaded, matching what vxlan_fdb_replace() does. It compares
+remote_ifindex only for IPv6 link-local sources. The remote update now
+runs in a new helper, vxlan_snoop_move(), which holds vxlan->hash_lock
+and checks the entry again once the lock is taken.
+
+> diff --git a/drivers/net/vxlan/vxlan_core.c b/drivers/net/vxlan/vxlan_core.c
+> index d11028b374721..8738be39e6019 100644
+> --- a/drivers/net/vxlan/vxlan_core.c
+> +++ b/drivers/net/vxlan/vxlan_core.c
+> @@ -1434,6 +1434,51 @@ static int vxlan_fdb_get(struct sk_buff *skb,
+
+[ ... ]
+
+> +static enum skb_drop_reason vxlan_snoop_move(struct net_device *dev,
+> +					     struct vxlan_fdb *f,
+> +					     const u8 *src_mac,
+> +					     union vxlan_addr *src_ip,
+> +					     u32 ifindex)
+> +{
+> +	struct vxlan_dev *vxlan = netdev_priv(dev);
+> +	struct vxlan_rdst *rdst;
+> +
+> +	lockdep_assert_held(&vxlan->hash_lock);
+> +
+> +	/* The entry may have changed before the lock was taken */
+> +	if (hlist_unhashed(&f->fdb_node))
+> +		return SKB_NOT_DROPPED_YET;
+> +
+> +	if (rcu_access_pointer(f->nh) ||
+> +	    (f->state & (NUD_PERMANENT | NUD_NOARP)))
+> +		return SKB_DROP_REASON_VXLAN_ENTRY_EXISTS;
+> +
+> +	rdst = first_remote_rcu(f);
+> +	if (vxlan_snoop_same_remote(rdst, src_ip, ifindex))
+> +		return SKB_NOT_DROPPED_YET;
+
+[Severity: Low]
+Is this check order intended? The lockless path in vxlan_snoop() calls
+vxlan_snoop_same_remote() before the NUD_PERMANENT | NUD_NOARP test. Here
+the static-state test runs first.
+
+Consider this sequence:
+
+CPU A in vxlan_snoop() sees a dynamic entry with a different remote and
+calls spin_lock(&vxlan->hash_lock).
+
+Before CPU A gets the lock, "bridge fdb replace <mac> dst <src_ip>
+permanent" runs vxlan_fdb_update_existing() under hash_lock. That sets
+f->state = NUD_PERMANENT, and vxlan_fdb_replace() sets
+remote_ip = src_ip.
+
+CPU A then takes the lock, and vxlan_snoop_move() returns
+SKB_DROP_REASON_VXLAN_ENTRY_EXISTS.
+
+The packet is dropped, even though it came from the remote the static
+entry now points to. The lockless path would have accepted the same
+packet.
+
+Would it make sense to move the same-remote check ahead of the
+static-state check? The nh check would have to stay first, since
+first_remote_rcu() is not valid for nexthop entries.
+
+> +
+> +	if (net_ratelimit())
+> +		netdev_info(dev,
+> +			    "%pM migrated from %pIS to %pIS\n",
+> +			    src_mac, &rdst->remote_ip.sa, &src_ip->sa);
+> +
+> +	dst_cache_reset(&rdst->dst_cache);
+> +	rdst->remote_ip = *src_ip;
+> +	rdst->remote_ifindex = ifindex;
+
+[Severity: Medium]
+Does this fully close the stale dst_cache window the patch is meant to
+fix?
+
+vxlan_xmit_one() does not take hash_lock. It copies the remote into the
+lookup key well before it looks at the dst_cache:
+
+drivers/net/vxlan/vxlan_core.c:vxlan_xmit_one() {
+    ...
+		ifindex = rdst->remote_ifindex;
+
+		if (addr_family == AF_INET) {
+			key.u.ipv4.src = cfg->saddr.sin.sin_addr.s_addr;
+			key.u.ipv4.dst = rdst->remote_ip.sin.sin_addr.s_addr;
+    ...
+}
+
+Later it calls udp_tunnel_dst_lookup(), which does dst_cache_get_ip4(),
+then ip_route_output_key() on a miss, then dst_cache_set_ip4().
+
+Cache validity is purely time based:
+
+net/core/dst_cache.c:dst_cache_per_cpu_get() {
+    ...
+	if (unlikely(!time_after(idst->refresh_ts,
+				 READ_ONCE(dst_cache->reset_ts)) ||
+    ...
+fail:
+	idst->refresh_ts = jiffies;
+	return NULL;
+}
+
+Here is a possible sequence:
+
+CPU1 (vxlan_xmit_one)            CPU2 (vxlan_snoop_move)
+key.u.ipv4.dst = old remote A
+                                 dst_cache_reset()  /* reset_ts = J0 */
+                                 rdst->remote_ip = B
+<jiffy tick, now J0+1>
+dst_cache_get_ip4()
+  miss, refresh_ts = J0+1
+ip_route_output_key() for A
+dst_cache_set_ip4(route for A)
+
+After that, every later lookup on CPU1 passes the time_after(refresh_ts,
+reset_ts) test. The IPv4 obsolete check only fails when the route genid
+changes.
+
+Would packets with outer daddr B then keep using the next hop chosen for
+A? That is the blackhole the commit message describes, and it would
+last until something like "ip route flush cache" or another reset.
+
+Doing the stores before dst_cache_reset() does not seem to help, since
+CPU1 can still read A before either of them. Would this need a re-check
+or a generation check between the route lookup and dst_cache_set, or an
+rdst replaced via RCU?
+
+vxlan_fdb_replace() and the other dst_cache_reset() users follow the
+same pattern.
+
+> +	rdst->offloaded = false;
+> +	vxlan_fdb_notify(vxlan, f, rdst, RTM_NEWNEIGH, true, NULL);
+> +
+> +	return SKB_NOT_DROPPED_YET;
+> +}
+
+[ ... ]
+
 -- 
-Sponsored by the NGI0 Core fund.
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119095256.42005-1-ilskdw%40gmail.com
