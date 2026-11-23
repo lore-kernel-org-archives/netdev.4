@@ -1,148 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.19
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795437084;
-	b=z1OSfw63+hhPMws/BR5zjL0G73WnVKmlkWlVmlG8inB6NjwlbZWafR94/vRxGJ9UMAr1
-	 FZkC47xk0V2S618fLV0n5trWz60YJpJwfatuPl0bcKfFqPiU+mIFV8/ODmdRtX0Un5XEd
-	 Mq1rQNI0BOMV6xEBwR8Cx0lfKrgZNOF9PskRnAtsE9TpPRafam61c2wpWmI4fsDTkTOG/
-	 tNALprybO/Qp7Fnw5bKBCtD+hGcQdXxQaqM4UCsXEUHsYQ/1iwZBdqd1bzQI43Gr3B+QF
-	 qQSCMU0KXeO3g2qjmzdG0+/TVxzQbTmh5f2FMulIUzwCjQTkgQK2A4E5M2Lhw2rxf3g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795437084;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
-	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-LD-Processed:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=myHi/OOkYOc2wg/44p5gUmxKl7enygWa0O7Z4Dupi+s=;
-	b=Obb+0ylZ0f/FRxHbgBKCm1LW2iqGjXpBxjpeKNyRhy1TMDznybkfmAOEVjz7n/YtbH/N
-	 Ik0ehrekIAEGSipjVzqFoz44fBVQ6gd9lyjgh2aoRtUfjM+ax4yak/g74f5GnnJpcTAlc
-	 34rdsw3RfZrqYVzK5DbUEa0BSPhqh2xlBNO6TxXXMxrQ+95WSTcE3a7RCLy05kXC5ZWcy
-	 XrvHCVSmyF+3O5KSeVXov+JaxY3F7zasaEfwNX7jr4PT62g6s3oMpZHntyLYwSK5Rzz7K
-	 Woz8K6t74nol26ILozRK0o8DA4q8BMU44ju9VDN9at1wMn6acH2R3m6WD4wJZrhgAWw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Zr2sZlIZ;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=AbG8j9im;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.19
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.19])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.102
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795437099;
+	b=nup2ujcLM9TbsvTz6D+0Zza3HALg7hfZ0XA2DMNawZ85x27GTWdHHt3qtuQPtPTozmB3
+	 HSfelutLoKSmqii/jJ+inEbq2DGhRVU6jZaE8y+LOjBv21Lsi+qegp8ASZ4YhzuHGKwky
+	 YtfY1aBXKwYJ67K7+mvfA4Cbl/BtiKbWQi233HFSs0B3pPxzxuTB5Ab6Q3sKZKdt5NLCS
+	 QVef8It7+yAqaRNZKIYPm8VOXZXK3h6GO/bTsaFGRxtuP2hy8IXo8RV2V7jl52qv7kFo1
+	 gFga0+TO8XphIGTy5HWveO/0GMf1M9ln4/800PhYWU8CjaAmYqW66WDNQQfYbM78/Kw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795437099;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type;
+	bh=L2yPIhyBQV7RPo2ReCzKyh/mpAYLjnCAGbEpJpcII3U=;
+	b=hNKqfgBDQjjg6AyKz29HbXh/IhXMfP5QpKCIzMJLJtuD4p1LPH1Hd+r7GezA8aRpVOCv
+	 mUpS4kC0KRTywjq33zA6RkzwngYjukoYmd/kCM71hmRW6u5aa/0h12L8SgpA4+FOku94X
+	 f6t2DpBYRlA51cE2ljr9CR2xfyGgk7gWGOGdGA1ZX4cZQPTRkN9C5dJYUFjNLPSilW3Kg
+	 eASzi14usDrz+2jbzMlu1oc91hPnBzAXA0ZFVnE9jwN57buS5oMP/1eXMgEBfXiDpdxtV
+	 b4y1jc6rMg0SgVO1tq0dZucsvvR8jTCsdlq+Wn90AVfKLOaf3VwU/gqiiR4GayIqh/Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=pm.me;
+	spf=pass smtp.mailfrom=pm.me;
+	dkim=pass header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=orGAHYfC;
+	arc=none smtp.remote-ip=185.70.43.102
+Received: from mail-43102.protonmail.ch (mail-43102.protonmail.ch [185.70.43.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05AC4606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:31:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05AC4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE86606A321;
+	Mon, 23 Nov 2026 12:31:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DE86606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=pm.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pm.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Zr2sZlIZ;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=AbG8j9im
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795437084; x=1826973084;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=lObjSCaOA0P5UCj2X9+XPtwFFUK5NMr8pOD/JdyYFvY=;
-  b=Zr2sZlIZlsajD3Rl72xfVwf2YQj29fvVMzYo8IcRKG/9BjuJ8GgzODGS
-   9j0sC23hsQoIbRmYzaZOmPhOaNIyK4ZdPBLhwIv6hiAORs4B4EfbgLYZa
-   tIFxnBCCOgyrKWVK6YjK+iisDK02mBVGHsJ4sRJzNPflJW8Nt7TKxCCsI
-   7nT+vbjBXpjaV+HWjNHkwEkdPPW0KdgdnY1XC8L3YePlEukWMkEMLTn9C
-   gTyuwlJFDrOqTLAh5a384TNm0RlrtWl9WTcjrNxKin3ICdJAx4beOKLTH
-   /Da9yFIN0NuHA5W1OuPnh4ecCV2/wjiHAOLvbkqxBqqroyYte9HfsE1XO
-   w==;
-X-CSE-ConnectionGUID: M4SggJ4ET8qY8LDxRfD4Rw==
-X-CSE-MsgGUID: 3xRMgX28Ts+NsJ12Jllh3w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4284209"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4284209"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:31:21 -0800
-X-CSE-ConnectionGUID: 1PpQqBzXSNKPV/6SXy8J5w==
-X-CSE-MsgGUID: XHwfGDyzRNWClt3GQxBykw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11168600"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 04:31:21 -0800
-Received: from ORSMSX902.amr.corp.intel.com (10.22.229.24) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Mon, 23 Nov 2026 04:31:20 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Mon, 23 Nov 2026 04:31:20 -0800
-Received: from BYAPR05CU005.outbound.protection.outlook.com (52.101.85.16) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Mon, 23 Nov 2026 04:31:20 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=B3BcWb10InLwPX+LwJhYn3yzC3mflbFE5bNnn/mRjHsF5Yn/quAYvuOMoWCuBlkXvZzXF3LbDAt9vNrn2mkcEOKA33WBr+Ohihixdz0sC9l8rEeaqGRVCwBeq+caw0G8ltr3QTVPB+5u79PVvJpg6B0XRieBkK0a5N1Bod1yYlrt9/Pc7NMyjw8sEsnHgIgnflz7BCLyGidZs1VBWuxJCcuc9fVt1bP5nBX+ZpI5DoMaLOEW0NUHn36ouc3cxwJYAnxMCnq8GQ79NeBVxPoIU7nkJFyytyL5tENUBEPfOe0nnLrB65CY/fWhx+uBrn8ih2YalQP6fl6KV28mtk2seA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=myHi/OOkYOc2wg/44p5gUmxKl7enygWa0O7Z4Dupi+s=;
- b=Az5+2o5CEWlQBu6nSf/4cmwRi8/wc1l9uSyHZsEScv/6n+OyIDdtTiCipbSyzWYkW44DqxAiNp0pelpnxFNrrGV8j4/Xno9PnBxand5sO+gICA6KujRvZs6K0EUbLp/xU1JvzRCvKksWHI3Dvk34xDqCB1Sj0gZ3pZlFuZLDjFQMswqZOc/A+/WGSEdMoeoHLtoG6aSSCUvqychZCG/ZS8bcQ/twAlUjEl0aqnmo0Jp2g8BYVZ/4yLzAfB5TO13Rz4EEz6N7tzgAv6dCwHHMKvCqKVltPj/43YD9niXWMVmN8+bZxRD/9D/iZcSsKk8US0xn1VtiPcvx1tiVQmJzmQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=myHi/OOkYOc2wg/44p5gUmxKl7enygWa0O7Z4Dupi+s=;
- b=AbG8j9imM3tvsMSrW3RbAr3tKeE8SDGIduu7+LiSDGe4Lz3iMSCUGwsmgEXAgJOK57Q2BIdlm1EhUKKRSycd1ax00GW/T533zJh2q59c8YZnTY0zwrA93fav2GhgB/KQexrI7bXJLAQkOptNWPzT6tx/d6t6ftwStdSo5aZwYWw=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13) by PH7PR11MB7663.namprd11.prod.outlook.com
- (2603:10b6:510:27c::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
- 2026 12:31:14 +0000
-Received: from LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de]) by LV2PR11MB868673.namprd11.prod.outlook.com
- ([fe80::5bfd:6afe:a9db:b7de%4]) with mapi id 15.21.0639.011; Mon, 23 Nov 2026
- 12:31:14 +0000
-Date: Mon, 23 Nov 2026 13:31:02 +0100
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Tony Nguyen <anthony.l.nguyen@intel.com>, Jacob Keller
-	<jacob.e.keller@intel.com>, Petr Oros <poros@redhat.com>, Magnus Karlsson
-	<magnus.karlsson@gmail.com>, <netdev@vger.kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, <edumazet@kernel.org>, <davem@davemloft.net>,
-	<andrew+netdev@lunn.ch>, <horms@kernel.org>, Przemek Kitszel
-	<przemyslaw.kitszel@intel.com>, Marcin Szycik
-	<marcin.szycik@linux.intel.com>, Aleksandr Loktionov
-	<aleksandr.loktionov@intel.com>, <intel-wired-lan@lists.osuosl.org>
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
- 2026-11-13 (ice)
-Message-ID: <awQyBgvgGLziCfLC@boxer>
-References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
- <20261118115915.116177-1-poros@redhat.com>
- <CAJ8uoz0MMUx68rMZWoZs-JwjodpRixwQSrgpyta1NsanGPn=dg@mail.gmail.com>
- <av2syi6lE/Vp86QW@boxer>
- <f7f1ae2d-a623-4eb7-a178-c618316beaf5@redhat.com>
- <0bb65ff3-2e27-4f2e-aaa3-2b8eb7cda356@intel.com>
- <fe1ce4cf-3400-4a87-8e46-072563f8fe9d@intel.com>
- <20261121162859.3522ab89@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261121162859.3522ab89@kernel.org>
-X-ClientProxiedBy: DU7P250CA0019.EURP250.PROD.OUTLOOK.COM
- (2603:10a6:10:54f::12) To LV2PR11MB868673.namprd11.prod.outlook.com
- (2603:10b6:408:422::13)
+	dkim=pass (2048-bit key) header.d=pm.me header.i=@pm.me header.a=rsa-sha256 header.s=protonmail3 header.b=orGAHYfC
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pm.me;
+	s=protonmail3; t=1795437095; x=1795696295;
+	bh=L2yPIhyBQV7RPo2ReCzKyh/mpAYLjnCAGbEpJpcII3U=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=orGAHYfCAh/lZAMNLANfqkImnJkAZx7I0N2gPUn2w43PmkCvXmNgS2NxjuYIsmrz0
+	 mzVF5+F9yLgu7pAxg4kOFIlMKMkt6Pg1F/0qu9Kfkhw9yiKci+BN8/KulgDJYBk5Ii
+	 Q7xAd4061oaXr8nu7hDsbqhRe9YSvcQ2E4vJPGxhIVs4g1so9xhGhjqytp5vXpC3QO
+	 mQi4azq0ihr9qSuRJc3VBJBz8pgMXAqDOZTE6f4CijtDLw+RYA/RawTa2FdbCyfzwc
+	 byOjDRU4ptYNlLyAD/63tpSEz8QK5S4JVdRr2urb9XsD3dOyPX+CStsVM5r1mch4tG
+	 Kzk30t+OP8SVg==
+Date: Mon, 23 Nov 2026 12:31:31 +0000
+To: Jiaming Fan <fan.jiaming@hotmail.com>
+From: fadouse <fadouse@pm.me>
+Cc: "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, =?utf-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, Linfeng Sun <linfeng.sun.dev@gmail.com>, Fang Xieyan <fangxy@xiaopeng.com>, kvm@vger.kernel.org, virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] vhost: mask the in-order used-ring log cursor
+Message-ID: <UyUECMkza3HsE8hlpqg49_Lm19szdV5Hc9zB7OETazRoRNW-HGoOQBwhufIzmdCbvO8WNSuWqN6mL1cZHGDY_keWvbNqVZI3H9MA1dYzBJM=@pm.me>
+In-Reply-To: <OS3PR01MB10251C7A76A9ED480E3C497FEE7452@OS3PR01MB10251.jpnprd01.prod.outlook.com>
+References: <20261122-b4-06-vhost-in-order-log-oob-v1-35efdba8fbab-v1-1-fc1253d60351@pm.me> <OS3PR01MB10251C7A76A9ED480E3C497FEE7452@OS3PR01MB10251.jpnprd01.prod.outlook.com>
+Feedback-ID: 173252840:user:proton
+X-Pm-Message-ID: 5cf0a3bb38be6b505433c93e8bf104a4c41df515
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -152,137 +64,344 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV2PR11MB868673:EE_|PH7PR11MB7663:EE_
-X-MS-Office365-Filtering-Correlation-Id: ea667231-b88f-409e-bcfa-08df495daa0a
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|23010399003|1800799024|10067099003|4143699003|11063799006|56012099006|261009223027099003|261021121427099003|261022105027099003|261028144727099003|261026140227099003|261026121527099003|261102123227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: jGlfQCk8rYcXMxEVBxrOwvDUpb2z4HAQ+pPxxhVFjw0FIWgFjUF3w9Nf4YG4J1dBznSuUCMOv2V5q7SiqTjVknu/kk/eLaAsYzj+Fx5hR9kqYLPMNOvmbL7+7eTB7zxb4+hgC7y3VOUpQzo7/Vamr1+ta4xeRCNiHvk5n+/lewLH3b6xpA15Oi4plYh0hLP8g2sL8kf8vm8m25frdanmGTb8pUczHB9o/ekmufkNMZu7k1QUvsFcqnNA41FS90yomYYaUM57xgPJb5nm2EmlybH/q+MrUY+zlzQ7IycpXshMrzEwHfkv5Gjm2yaYnK1GuGUU9qkEYv8+bfqy1pf6vH3HYN+7SIsY0oauQJCeJbTXOtg4rA39XkhDHFOxMzggBh2APQBYR9hrbTfVjFEBSg2xFW81GMiQ4VZumxDL/wzQbyArZmT9GaK1Z2hdQfIG3Zr60UzWLOqhmOT/R+DFEQD9rcKwow4Awj9DdlqUnHFuguxX2ZnM3gphwmXPPOs/4EjfTymrkLsVg9gfpb1kA2o9NWfXnTA9poTMoAhT9YMRFf1n+pjNnhF+qMeNFz02tfIg7XNdaIcIk1Zqxq13R1Hp0TVYuHErgdLSgjmeXdZNQuLC3/EjNANeFBPmAVKS2tORYGLtJpkBkrxkm0j9Ou9JfNqPOs1s4S2ZF0qeAss=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB868673.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(23010399003)(1800799024)(10067099003)(4143699003)(11063799006)(56012099006)(261009223027099003)(261021121427099003)(261022105027099003)(261028144727099003)(261026140227099003)(261026121527099003)(261102123227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?rY2YaJwnTrze7rVOJmsVeSfsvNQj1bkTrR74AhUeBsVIOU70nqvEy/EzzNTB?=
- =?us-ascii?Q?a5LdndaYGihMhhnkSG36CCPdyOYgA8LTJEE8/cFjhyYDk052/ivH5kY6yZUt?=
- =?us-ascii?Q?iJE5O23Tv49RygTWQO0NQL6MbpsVBxz7AIuS/eykoyA1tVWQhBktUax9/eg+?=
- =?us-ascii?Q?GbKsMGSYkLOyGEw8SAFBLOtEhaWZHbHSzK6kfxEYJ9utMOKVGiZiiNvSTMnk?=
- =?us-ascii?Q?VLgYXOioGcxtz0WEshahybxv/MxBIDhUpqrezRqRZllF4yQSEPG44P9iF3cI?=
- =?us-ascii?Q?sZbVeIEhV5SxdFI3ANuZXPFcKnbuqFTM3ctX76Pz+L2aujguxbVrSY7sY1R3?=
- =?us-ascii?Q?bEu1Txlu1MrmZxzYjC7NZ5ifTUEy5Q5OWBuDK2vQxS4FZUUWgkJ1OT6OPJYy?=
- =?us-ascii?Q?XtzLrtMe3PrZqT8u2sRhY8H3YmssztD8D18DPWZwgkSKMXL6obD5r+ELyuYz?=
- =?us-ascii?Q?IH3uVBA0zQokFrRgvojGGd/Zl3g1Oh3ZLFuzJ6XJ/S26UA2jy8oRRP9dAitV?=
- =?us-ascii?Q?NqG7aZeOFJ3MHGLMlcGnXPG3ZoEk4JbeXOdy7Q3lnHG2i9Imqr29MKRDCRkE?=
- =?us-ascii?Q?J8FRpO1C1Sob20ZoYpbpJPQvXedWRhuPhA2ZdlCeikO56sTc8x8QVKEs8Guc?=
- =?us-ascii?Q?dF8G2j8t6XrSKKkA/d0gx9DMKq7C3dXuYUIbIjmD3K8fAYk2IsAytJgx/9QE?=
- =?us-ascii?Q?q2aI2vewEX39q2h+LK6O5x/x/HED3/3r/tYNRXFDWef7Ts01FBXy60BUNema?=
- =?us-ascii?Q?JAL/FyNxeSqj3LOWrz1y0iR4Eldb3+fmTqXHkvSBg1V1xtP/xbwi3vENYrQe?=
- =?us-ascii?Q?uCiCZLL/YCHuDJAsD7u/PsHI4tcaTp1UdX7FOoM6KKzxt1jqBdyEf/Orkt6k?=
- =?us-ascii?Q?vZTwMjNwBv+TajegSWbzOg/yJx8m9L8bmCpGQn/AKAdOq7oWdRCcMAw5RvYK?=
- =?us-ascii?Q?yotHO3fPIEmKD9ns8i5RM76bkhLxVlsQYP58FxlpO3uV8eH0l9rB+qOA0Oz2?=
- =?us-ascii?Q?ITcjoUBKD79p/1i26NecTtSEIf5mXXz/QeEdzrj38hyHC5jkUuUAWZlRw3ec?=
- =?us-ascii?Q?zlqpo/MT0hJ3QJyWpciEGk7OOjodNQx8y6/s5mw8Wv75o+xT6Tv9BDchk4G2?=
- =?us-ascii?Q?iBIsWOJDB72+vUNtDW1Cf16Ecx38p415C2I4DeTqNk6tYaCEn2/+hBuEPXMD?=
- =?us-ascii?Q?6D4CumE7Q8uoPfQVmPI25DiNpfb4cSgPj6hp5/i7zxUEtYxp04y5meUKn95+?=
- =?us-ascii?Q?pR2ASFI7qvTG8pXt+4Ewz2VNKv8/yxM5EXDMqeIFQO2iHqs0AYlJvosGr8/f?=
- =?us-ascii?Q?U8BDhqHcLc0/0h7bvNi9iuNRXHKRWrYuT2JglyLU5JYvGxQy5jWRn139XpZP?=
- =?us-ascii?Q?HuJHrqM/PfLGNn6BF2zDVAhlLL1xdruRzH4mzX54LaGSWlCX63CEjy+BkoqV?=
- =?us-ascii?Q?XthLtDvVvlrvPscScXS+o4kHa/epiKTuyg/T2cGFmgpS1g+hVf7d1UCWNZj/?=
- =?us-ascii?Q?e4Tpo7Q2JHKFqhLemvANpcOwb/CcswwUJb2BNW82AHhyyuSJW2E2g24biWA1?=
- =?us-ascii?Q?qUPPxU8xnXl3Cb9O/fOEPXhmpMN5je/zhvKKjQ4/zQ/U+dsSHdLa1Jn3v4nB?=
- =?us-ascii?Q?G+kWv8BimWiEaBecmjETpEbZzd0K/uwb4kgcE1vPMb21nPl0RPjeEg9kuXpp?=
- =?us-ascii?Q?CmfwSUyMm3V5JT5qZ05GELBdSH23dB0q7i2HvDdJRUTW4zxj4dL+KWcYmfV7?=
- =?us-ascii?Q?TvHPTlQRZ95DDPCf4ZkqghPz8QqQbEI=3D?=
-X-Exchange-RoutingPolicyChecked: k7AkqzMK26AODIM8ihmieNNfSKNjPnO9rJnBYdCpBHMZhuxwbneYQpMdo/Cd6eFNlRkmhrYKOLNqHlfMf5JtYj5G7hT5W9B1+BxQGqOrKy0WFCDJHGAhg+tC0EdoEzDWB1nnHWye5jnTjD8+xyEBpady7Hp7f6YVPiDSbNegK5/T7e96MCqXMCnBaaeBVuRp2clg9IMTeUBP8lRwH4jm4hJrNIArDtHSUmbaemRuZcaywkhHryjTykJNB3tnwsQckDltPar9rTK9McTPyit2h2/LQ1D8MiaGJtH8YB+gDEY1xG5j16jSQr5j5zT/FRr3m/YXTlArr/eqFNg/Oq5CaQ==
-X-MS-Exchange-CrossTenant-Network-Message-Id: ea667231-b88f-409e-bcfa-08df495daa0a
-X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB868673.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 12:31:14.4418
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: iuFC6ypwYcPUxWTVsMPEvsSYD1HUKlSjJVb9K10fLkdkHT6mWQmrzd7RH5MVmjg1pHF46lc9IdFyOr0Y6M9efYZkc0uWo5genVGNhBayg1Q=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB7663
-X-OriginatorOrg: intel.com
+Content-Type: multipart/signed; protocol="application/pgp-signature"; micalg=pgp-sha512; boundary="------131195ce22d4e3494741ac7e4a8fcd905c43f07926a9b8163a5d63b446f9ad82"; charset=utf-8
 
-On Sat, Nov 21, 2026 at 04:28:59PM -0800, Jakub Kicinski wrote:
-> On Thu, 19 Nov 2026 10:07:10 -0800 Tony Nguyen wrote:
-> > An idea, but this would still increase the queue for netdev, would be a 
-> > separate budget for non-Intel authored patches. This would allow 
-> > community patches to continue flowing without being blocked by Intel work.
-> 
-> No extra patch budget will be provided.
-> 
-> As I think I mentioned multiple times netdev maintainers are happy to
-> take patches directly. My understanding is that it's Intel that wants
-> to feed the patches thru their internal QA and have the ability to work
-> on timelines, let's just say, different than netdev works on.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------131195ce22d4e3494741ac7e4a8fcd905c43f07926a9b8163a5d63b446f9ad82
+Content-Type: multipart/mixed;boundary=---------------------db2a6f9e247f33a80a9db7509317076d
 
-Here's a food for thought - I asked AI to crawl ML traffic from 2025 and
-2026 with closer look at Tested-by tag. This is a TL;DR summary which
-clearly shows the flaws (3rd bullet is nasty ;)):
+-----------------------db2a6f9e247f33a80a9db7509317076d
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;charset=utf-8
+
+Hi Jiaming,
+
+> The mask looks right to me. What I don't follow is how `nheads[0]`
+> gets to 64 on a 32-entry queue. Those buffers haven't been returned to
+> the driver yet, so what can it put back on the ring? Can this happen
+> with a conforming driver, or does the test guest reuse descriptors
+> that are still in flight?
+
+It is a non-conforming guest reusing in-flight ring slots; a conforming
+driver would not advance avail->idx past last_used_idx + vq->num.
+
+vhost accepts this because vhost_get_avail_idx() checks against
+vq->last_avail_idx rather than vq->last_used_idx:
+
+  if (unlikely((u16)(avail_idx - vq->last_avail_idx) > vq->num))
+
+With vq->num =3D 32 and an 8180-byte frame (+ 12B vnet hdr =3D 64 x 128B
+buffers) followed by a 64-byte frame (1 buffer):
+
+  1. Guest publishes avail->idx =3D 32 and kicks.  get_rx_bufs() runs dry
+     at 32 buffers and calls vhost_discard_vq_desc(), rewinding
+     last_avail_idx to 0 while leaving vq->avail_idx =3D 32 cached.
+  2. Guest advances avail->idx to 64 and kicks again.
+     vhost_get_vq_desc_n() consumes cached 0..31 (last_avail_idx -> 32,
+     last_used_idx still 0), then refreshes avail->idx =3D 64:
+     (u16)(64 - 32) =3D=3D 32 <=3D vq->num passes, so get_rx_bufs() collec=
+ts
+     32..63 into the same frame (nheads[0] =3D 64).
+  3. The test polls buf0[12] (with pages 1..31 dropped via
+     madvise(MADV_DONTNEED) to widen the copy window) and tries to
+     publish avail->idx =3D 65 during the frame-0 copy so handle_rx() can
+     pick up the 1-buffer frame and flush both in a single
+     vhost_add_used_n_in_order() batch (count =3D 2, nheads =3D {64, 1}).
+
+(Minor correction to my commit message: without VIRTIO_RING_F_EVENT_IDX
+the used ring is 260 bytes at [0x7ef8, 0x7ffc) rather than 262 bytes;
+vq_log_used_access_ok() still validates only log_base[0], and the
+unmasked flush logs [0x7ffc, 0x8004) into log_base[1].)
+
+> Could you share the RX test program you used?
+
+Build with `gcc -O2 -Wall -Wextra test_vhost_inorder.c -o test_vhost_inord=
+er`
+and run as root (exit 2 =3D bug reproduced, 0 =3D fixed, 3 =3D timing retr=
+y):
+
+----8<----
+// SPDX-License-Identifier: GPL-2.0
+#include <arpa/inet.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <linux/if_tun.h>
+#include <linux/vhost.h>
+#include <linux/virtio_config.h>
+#include <linux/virtio_net.h>
+#include <linux/virtio_ring.h>
+#include <net/if.h>
+#include <netpacket/packet.h>
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/eventfd.h>
+#include <sys/ioctl.h>
+#include <sys/mman.h>
+#include <sys/socket.h>
+#include <unistd.h>
+
+#define GUEST_MEM_SIZE	(16UL * 1024 * 1024)
+#define IOVA_DESC	0x0000
+#define IOVA_AVAIL	0x1000
+#define IOVA_USED	0x7ef8
+#define BUF_IOVA_BASE	0x20000
+#define VQ_NUM		32
+#define BUF_LEN		128
+#define FRAME0_LEN	8180	/* + 12B vnet hdr =3D 64 * 128B */
+#define FRAME1_LEN	64
+#define NHEADS0		64
+#define TOTAL_AVAIL	65
+
+typedef uint8_t  u8;
+typedef uint16_t u16;
+typedef uint64_t u64;
+
+static void die(const char *msg)
+{
+	fprintf(stderr, "%s: %s\n", msg, strerror(errno));
+	exit(1);
+}
+
+static void publish_avail(struct vring_avail *avail, u16 v)
+{
+	__atomic_store_n(&avail->idx, v, __ATOMIC_RELEASE);
+}
+
+static void kick(int efd)
+{
+	u64 one =3D 1;
+
+	if (write(efd, &one, sizeof(one)) !=3D sizeof(one))
+		die("kick");
+}
+
+int main(void)
+{
+	int vfd, tfd, pkt, sock, kick_fd, call_fd, ifindex;
+	struct ifreq ifr =3D {};
+	struct vring_desc *desc;
+	struct vring_avail *avail;
+	struct vring_used *used;
+	struct sockaddr_ll sll =3D {};
+	unsigned char frame0[FRAME0_LEN], frame1[FRAME1_LEN];
+	struct {
+		struct vhost_memory m;
+		struct vhost_memory_region r[1];
+	} memtable =3D {
+		.m =3D { .nregions =3D 1 },
+		.r =3D { { .guest_phys_addr =3D 0, .memory_size =3D GUEST_MEM_SIZE } },
+	};
+	struct vhost_vring_state vs =3D {};
+	struct vhost_vring_addr va =3D {};
+	struct vhost_vring_file vf =3D {};
+	u64 features, log_base_ptr;
+	void *guest_mem;
+	unsigned char *log_base;
+	u8 *buf0;
+
+	guest_mem =3D mmap(NULL, GUEST_MEM_SIZE, PROT_READ | PROT_WRITE,
+			 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
+	if (guest_mem =3D=3D MAP_FAILED)
+		die("mmap guest_mem");
+	log_base =3D mmap(NULL, 4096, PROT_READ | PROT_WRITE,
+			MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
+	if (log_base =3D=3D MAP_FAILED)
+		die("mmap log_base");
+
+	desc  =3D (struct vring_desc *)((u8 *)guest_mem + IOVA_DESC);
+	avail =3D (struct vring_avail *)((u8 *)guest_mem + IOVA_AVAIL);
+	used  =3D (struct vring_used *)((u8 *)guest_mem + IOVA_USED);
+	buf0  =3D (u8 *)guest_mem + BUF_IOVA_BASE;
+
+	for (int i =3D 0; i < VQ_NUM; i++) {
+		desc[i] =3D (struct vring_desc){
+			.addr  =3D BUF_IOVA_BASE + 4096 * i,
+			.len   =3D BUF_LEN,
+			.flags =3D VRING_DESC_F_WRITE,
+		};
+		avail->ring[i] =3D i;
+	}
+	for (int i =3D 1; i < VQ_NUM; i++)
+		madvise((u8 *)guest_mem + BUF_IOVA_BASE + 4096 * i,
+			4096, MADV_DONTNEED);
+
+	tfd =3D open("/dev/net/tun", O_RDWR);
+	if (tfd < 0)
+		die("open /dev/net/tun");
+	ifr.ifr_flags =3D IFF_TAP | IFF_NO_PI | IFF_VNET_HDR;
+	snprintf(ifr.ifr_name, IFNAMSIZ, "vh%d", getpid() % 1000);
+	if (ioctl(tfd, TUNSETIFF, &ifr))
+		die("TUNSETIFF");
+	{
+		int hdr_sz =3D 12;
+
+		if (ioctl(tfd, TUNSETVNETHDRSZ, &hdr_sz))
+			die("TUNSETVNETHDRSZ");
+	}
+	{
+		char path[128];
+		int fd;
+
+		snprintf(path, sizeof(path),
+			 "/proc/sys/net/ipv6/conf/%s/disable_ipv6",
+			 ifr.ifr_name);
+		fd =3D open(path, O_WRONLY);
+		if (fd >=3D 0) {
+			if (write(fd, "1", 1) < 0) {}
+			close(fd);
+		}
+	}
+
+	sock =3D socket(AF_INET, SOCK_DGRAM, 0);
+	if (sock < 0)
+		die("socket");
+	if (ioctl(sock, SIOCGIFFLAGS, &ifr))
+		die("SIOCGIFFLAGS");
+	ifr.ifr_flags |=3D IFF_UP | IFF_RUNNING;
+	if (ioctl(sock, SIOCSIFFLAGS, &ifr))
+		die("SIOCSIFFLAGS");
+	if (ioctl(sock, SIOCGIFINDEX, &ifr))
+		die("SIOCGIFINDEX");
+	ifindex =3D ifr.ifr_ifindex;
+	ifr.ifr_mtu =3D 9000;
+	if (ioctl(sock, SIOCSIFMTU, &ifr))
+		die("SIOCSIFMTU");
+
+	pkt =3D socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+	if (pkt < 0)
+		die("socket packet");
+	sll.sll_family =3D AF_PACKET;
+	sll.sll_protocol =3D htons(ETH_P_ALL);
+	sll.sll_ifindex =3D ifindex;
+	if (bind(pkt, (struct sockaddr *)&sll, sizeof(sll)))
+		die("bind");
+
+	vfd =3D open("/dev/vhost-net", O_RDWR);
+	if (vfd < 0)
+		die("open /dev/vhost-net");
+	if (ioctl(vfd, VHOST_SET_OWNER, 0))
+		die("VHOST_SET_OWNER");
+	memtable.r[0].userspace_addr =3D (u64)guest_mem;
+	if (ioctl(vfd, VHOST_SET_MEM_TABLE, &memtable))
+		die("VHOST_SET_MEM_TABLE");
+	log_base_ptr =3D (u64)log_base;
+	if (ioctl(vfd, VHOST_SET_LOG_BASE, &log_base_ptr))
+		die("VHOST_SET_LOG_BASE");
+
+	features =3D (1ULL << VIRTIO_NET_F_MRG_RXBUF) |
+		   (1ULL << VIRTIO_F_IN_ORDER) |
+		   (1ULL << VHOST_F_LOG_ALL);
+	if (ioctl(vfd, VHOST_SET_FEATURES, &features))
+		die("VHOST_SET_FEATURES");
+
+	kick_fd =3D eventfd(0, 0);
+	call_fd =3D eventfd(0, 0);
+	if (kick_fd < 0 || call_fd < 0)
+		die("eventfd");
+
+	vs.num =3D VQ_NUM;
+	if (ioctl(vfd, VHOST_SET_VRING_NUM, &vs))
+		die("VHOST_SET_VRING_NUM");
+	vs.num =3D 0;
+	if (ioctl(vfd, VHOST_SET_VRING_BASE, &vs))
+		die("VHOST_SET_VRING_BASE");
+
+	va.flags =3D 1U << VHOST_VRING_F_LOG;
+	va.desc_user_addr =3D (u64)desc;
+	va.avail_user_addr =3D (u64)avail;
+	va.used_user_addr =3D (u64)used;
+	va.log_guest_addr =3D IOVA_USED;
+	if (ioctl(vfd, VHOST_SET_VRING_ADDR, &va))
+		die("VHOST_SET_VRING_ADDR");
+
+	vf.fd =3D kick_fd;
+	if (ioctl(vfd, VHOST_SET_VRING_KICK, &vf))
+		die("VHOST_SET_VRING_KICK");
+	vf.fd =3D call_fd;
+	if (ioctl(vfd, VHOST_SET_VRING_CALL, &vf))
+		die("VHOST_SET_VRING_CALL");
+	vf.fd =3D tfd;
+	if (ioctl(vfd, VHOST_NET_SET_BACKEND, &vf))
+		die("VHOST_NET_SET_BACKEND");
+
+	memset(frame0, 0xAB, sizeof(frame0));
+	memset(frame1, 0xCD, sizeof(frame1));
+	frame0[12] =3D frame1[12] =3D 0x08;
+	frame0[13] =3D frame1[13] =3D 0x00;
+	if (sendto(pkt, frame0, sizeof(frame0), 0, NULL, 0) !=3D sizeof(frame0))
+		die("sendto frame0");
+	if (sendto(pkt, frame1, sizeof(frame1), 0, NULL, 0) !=3D sizeof(frame1))
+		die("sendto frame1");
+
+	publish_avail(avail, VQ_NUM);
+	kick(kick_fd);
+	usleep(100 * 1000);
+	publish_avail(avail, NHEADS0);
+	kick(kick_fd);
+
+	for (int i =3D 0; i < 5000000 && *(volatile u8 *)(buf0 + 12) =3D=3D 0; i+=
++)
+		;
+	publish_avail(avail, TOTAL_AVAIL);
+
+	for (int i =3D 0; i < 30 && used->idx < TOTAL_AVAIL; i++)
+		usleep(100 * 1000);
+
+	printf("avail->idx=3D%u used->idx=3D%u log_base[0]=3D0x%02x log_base[1]=3D=
+0x%02x\n",
+	       avail->idx, used->idx, log_base[0], log_base[1]);
+	if (used->idx !=3D TOTAL_AVAIL)
+		return 3;
+	return log_base[1] ? 2 : 0;
+}
+---->8----
+
+unpatched: avail->idx=3D65 used->idx=3D65 log_base[0]=3D0x80 log_base[1]=3D=
+0x01 (exit 2)
+patched:   avail->idx=3D65 used->idx=3D65 log_base[0]=3D0x80 log_base[1]=3D=
+0x00 (exit 0)
+
+Thanks,
+YanXin
+-----------------------db2a6f9e247f33a80a9db7509317076d
+Content-Type: application/pgp-keys; filename="publickey - fadouse@pm.me - 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="publickey - fadouse@pm.me - 0x99485AA3.asc"; name="publickey - fadouse@pm.me - 0x99485AA3.asc"
+
+LS0tLS1CRUdJTiBQR1AgUFVCTElDIEtFWSBCTE9DSy0tLS0tCgp4ak1FYVV1T01SWUpLd1lCQkFI
+YVJ3OEJBUWRBdG5ZbFN6SFRMSEEySXp1TkUxQXk4SnJLVUN4NmhQKy8KdGM0TERYQ25yZXpOSFda
+aFpHOTFjMlZBY0cwdWJXVWdQR1poWkc5MWMyVkFjRzB1YldVK3dzQVJCQk1XCkNnQ0RCWUpwUzQ0
+eEF3c0pCd2tRdVoxZ3QrWG0yWFJGRkFBQUFBQUFIQUFnYzJGc2RFQnViM1JoZEdsdgpibk11YjNC
+bGJuQm5jR3B6TG05eVp6bTBCcDNlRVhSV2tuSWdDbFd3dmR4Wm1vMVhuVmI2RmthalhUVk0KMUIv
+akF4VUtDQVFXQUFJQkFoa0JBcHNEQWg0QkZpRUVtVWhhbzNaL0FuQkk0TEJZdVoxZ3QrWG0yWFFB
+CkFMcTJBUUQ3OEs2cGVkU1gzbGROeXFkM09IMXVNak8zdjdMWU1oTytsN2NuU0xXckVBRCtPQ1Nx
+MTFTZQphS29ic1ZHckxlalRNc21Nc1BCOGpueGZpZDNoQ04rcGV3VE9PQVJwUzQ0eEVnb3JCZ0VF
+QVpkVkFRVUIKQVFkQXdYZHpWSXFFSC94OEhaalIvUE90MkFpRmJFbTZZcVhYMmoydjJpS0RzUU1E
+QVFnSHdyNEVHQllLCkFIQUZnbWxMampFSkVMbWRZTGZsNXRsMFJSUUFBQUFBQUJ3QUlITmhiSFJB
+Ym05MFlYUnBiMjV6TG05dwpaVzV3WjNCcWN5NXZjbWRkS05RWURGV2NFVmQzeE9IZVFwNnN5bjc5
+TkZwTnFrSHoraXpwSUxCblVnS2IKREJZaEJKbElXcU4yZndKd1NPQ3dXTG1kWUxmbDV0bDBBQUR6
+UWdEL2NJSjA4OUprbm9nVHM2dnZRWitKCjNMUklEYUk5K1FtK1Q1cU9tTms0eVhFQkFMUElsSkNT
+OGFoNWRCWVphOUwrSHFqYkRtZVNnRG81OHVTeAoraVd3KzZVTAo9TXVzVAotLS0tLUVORCBQR1Ag
+UFVCTElDIEtFWSBCTE9DSy0tLS0tCg==
+-----------------------db2a6f9e247f33a80a9db7509317076d--
+
+--------131195ce22d4e3494741ac7e4a8fcd905c43f07926a9b8163a5d63b446f9ad82
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wrsEARYKAG0FgmsEMhIJELmdYLfl5tl0RRQAAAAAABwAIHNhbHRAbm90YXRp
+b25zLm9wZW5wZ3Bqcy5vcmc6DEGO4FmydXLK4uX6uT4FRrKSW2K1NE7sPXWB
+4r0ZfBYhBJlIWqN2fwJwSOCwWLmdYLfl5tl0AAAuIAD+IvChTnLjCRfefwKS
+b63Mi/ku38U3TMyguYNcYTi1BaIBAMhH95MbkJJJj8oAiazsDvCQCM3kkQSL
+smpgMmWhnawI
+=yU1D
+-----END PGP SIGNATURE-----
 
 
-* Q1 (2026): 32 of 458 Intel-authored commits with a Tested-by (7.0%)
-  later got a merged Fixes:/Revert; 37 (8.1%) when fixes that are posted
-  on lore but not merged yet are counted.  Intel commits without a
-  Tested-by: 4.5%.  Intel Ethernet (drivers/net/ethernet/intel) only:
-  4 of 126 (3.2%), 9 (7.1%) with posted fixes.
+--------131195ce22d4e3494741ac7e4a8fcd905c43f07926a9b8163a5d63b446f9ad82--
 
-* A Tested-by does not predict fewer fixes.  Kernel-wide, commits with a
-  Tested-by are fixed later *more* often, for Intel (2026: 7.0% vs 4.5%)
-  and for everybody else (6.6% vs 4.0%); 2025 is the same.  The tag
-  marks risky patch types, not quality.  Inside Intel Ethernet, tested
-  vs. untested: 2025 13.2% vs 10.9% (p=0.50), 2026 1.8% vs 3.2% (p=0.46).
-
-* Intel Ethernet carries a Tested-by on 69% of commits, other Ethernet
-  vendors on 0-22% (6-7% on average).  Their later-fix rates are
-  statistically the same: 2025 11.8% vs 11.4% (p=0.77); 2026 1.5% vs
-  3.3% (p=0.12), or 3.4% vs 4.4% counting posted fixes (p=0.46).
-
-* The gate costs about a month per fix.  Median time from the first
-  posting of a fix to landing in net/net-next: Intel 29 days (2025) and
-  33 days (2026); other Ethernet vendors 3 and 5 days.  None of the
-  fixes pulled from Tony's tree landed within 7 days of posting; for
-  other vendors 95% (2025) and 91% (2026) did.
-
-* Validation is most of that month.  Median time from posting to the
-  validation Tested-by: 19 days (2025), 28 days (2026); only 3-4% come
-  within 3 days, 10% take longer than 45 / 64 days.
-
-* Backlog on 2026-11-19: 220 patches in Tony's queues, 142 of them fixes
-  (median age 48 days, 24 older than 90 days).  201 have no Tested-by;
-  143 of those (71%) are already reviewed or acked.
-
-* 95% of the Tested-by tags on Intel Ethernet come from 27 validation
-  engineers.  None of their 959 Tested-by mails on intel-wired-lan says
-  which hardware, firmware or test was used.  In 973 messages over ~23
-  months they reported 8 distinct problems on the list.
-
-* The gate is already discretionary: about 1 in 5 Intel Ethernet commits
-  that went through Tony's tree had no Tested-by at all (104/476 in
-  2025, 44/228 in 2026), and they were not fixed more often (2025: 10.6%
-  vs 13.0%, p=0.62; 2026: 0% vs 1.7%).
-
-* Since 2026-10-01 netdev requires every fix to say in plain English how
-  it was tested and on which hardware ("not with special tags").  A bare
-  validation Tested-by does not provide that; anyone who tested the fix
-  can.
-
-* Proposal (section 11): a Tested-by from any non-author who states what
-  was tested counts the same as a validation one.  Validation does not
-  block fixes (or is time-boxed) and stays a gate only for large
-  features and new hardware.
-
-* What the data cannot show: bugs that validation catches before posting
-  or reports off-list.  The defensible claim is "no measurable benefit
-  after merge, a large measurable cost", not "validation is useless".
-
-> 
-> We wait for an ack/review of a maintainer, from Intel such acks never
-> come. Przemek / Tony can start acking things directly on netdev.
-> You can also add another maintainer to your entry, or split it up
-> and designate even more people.
-> 
-> IOW I agree that the Intel process feels dated, and life would be
-> easier if Intel switched to an upstream first process.
