@@ -1,99 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.9
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795400868;
-	b=FUCWtX9xmiA4xPctCQGXB1P6kqPLOVFxxAXfIh6hSK5qqQpDrefuQSMmKZaMK0DaQBBU
-	 M6FR9Srl9u3R0XAOai91LkfBSNF4QZMDy4TdjJ2n4+u6+eSF+SOPy7SkgX6YAwSniJrCj
-	 JoJ5rkU4SpoYn18Ml4uYtvWIn973O5kFVrySsaYYfq0S87Y4X/A8xxzi6yBPJTJyQDDns
-	 ulfx7r9icqBNDDBfFfTp7orfz/xjZwS3Mkvho/dPaW1HL0pcSWhF1N2H5eSBn98D5FeOH
-	 jNlJQaixGwQGoVAix+2IOmzYRcEwKoshXJtSAsTFQJVYcKZkhIUjkP6I0jsOXVmH6Bw==
+	t=1795400978;
+	b=CvX1lbo4RAvPxENxyQku91XF21K4dpS2l17ni99pztfHSnF76Iy9UI0bv06SyujB58Oe
+	 z17uGuBpGO6wyqemz1i53JoDHkSMFxQV1Rt0woCPMfUVROsEcdmzoO0TumBg7FVZ+UxtB
+	 7jWz1W4Q1XCRwqugsgrX745eumoDN7upsw3nDQ4iebSRUJqqgDhpodzLHoB7odEWxl/vd
+	 ETsrUHMDxlN7RHadDmZom11GlyqFIaj3GjujbsBXKzUc6QgvoRHPQPilHbPb5F1k9Vkoi
+	 0UAiigHEfxu33ApISnBnCpBBQx7weNIpISLhBtExgiTX/OqiwRtliRL/uFmf+V+dqmQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400868;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SLBlob-MailProps:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=EBrldqAIBv3Z/hVlNah3042rzocjKOkIlVCKVSd1MmA=;
-	b=PJBd/JJXiSeajG1RGw/PPb/4g2jF4rnKSPOtpLz8lWk4C+QNW+ylUVobQ11kELxgpe0i
-	 CyEbqIS4vgHxjg3ihc6/uRF6M26EliCGwbR/UUB9bBwwJnAYS/bCmDVKEkGU7SBuNg3TI
-	 mua659TJoSuvu+7Uj3IWVF/9BgNZzWQcln1NoiZ6YKS8D17Gy44R4GeJ5bhi+6Tjk9Vcl
-	 MIsZFi1EG8ZyDRcXUEPBNLNENl+ErbkbLE+jKXilHf2eSLS+XIjBbdpGzGNosT8AG112Q
-	 7T1CQKch3waqF2tlArikgVMLMD0p9g3paAyl1vCa/Tysfa/zEr2ZQ1//0gM35hFJUag==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400978;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+	b=FhU7a8IgbM1KSA0thQ2dqnEgBamw7ZH3cVVE/EgrSTd3XSqex/NVkC9LwQHXFaRCUA0+
+	 oOh4Tk5O9BxNjh3U90jkxAWcvJrAuctbhtQFu/p5FPKxZsOuOGq0PvJKJXaeOZJVLmouj
+	 0hCATYj2N9B+ApQiBe3NJfAjWpProe6s7tB6ZVCbiBH3JM6aU6JVhL0lmW+RQHbrNUvJV
+	 OT0LOBgDjRCuf9eQHg04GjEL1MCQwzk0O0xYWExaqxSy7FQiqpmHl+muki/nwx0YQgXN9
+	 rtu7miJ/BaWWmt/fqCIO2xj8CZ7n/mpZY/w3QhlNFkGX3d4AIbkLQuo9mWD9H7NxHUQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=outlook.com;
-	spf=pass smtp.mailfrom=outlook.com;
-	dkim=pass header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b="q/0zeAw9";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.9
-Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazolkn19011009.outbound.protection.outlook.com [52.103.66.9])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
+Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10464606A31A;
-	Mon, 23 Nov 2026 02:27:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10464606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=outlook.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=outlook.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69500606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:29:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69500606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=outlook.com header.i=@outlook.com header.a=rsa-sha256 header.s=selector1 header.b=q/0zeAw9
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=eYoTdfNNOQGtVQhbMKr9X35fhnpC1q+sLW8K+16CUc7/OoNOTHBJRpys6qeZfW2zGQz9Ik60uaN83T+8KKqSaGqpBcDJdQG5ZF9rEaZN7uIgHpZYZbGO2lCoMAPu/xTNcWIt0tV9IZmaaRubWnQyT/MxFZ57TdtbbsTjsxiyhengC8+reaSmuGjnlfZZbMZJJamytPWFKAgMYWKfBP6dH8zTcyVIP0+uRU8dQJiMxF+7Nsx9q6JOaxDGtP/KKFAqq2BPno0z/WTLftUcgd8nze6wRubhpOV/E3Oe2eu3FAI7QBWNe1WHrzvlFSlnHegglZXWrftUHe6QiBP4gMhqzw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=EBrldqAIBv3Z/hVlNah3042rzocjKOkIlVCKVSd1MmA=;
- b=PCXd6+6hmgSbWPKAvHM+1o3mi+qW+0LtetJCqn5rk1D9FaBglsvSMtGfGj4Np6BVJUZ7/rEAa4Juzc0q7pfIY5/UowRpL+N5lY/jOftJ4PMeGDkvvncXkyMX/QOSnM+fvbU8wA+Adw6sTbw2xWJyebDcSDi5jXMD00eKI38pW5YIvXFH1p5IDthywEZwkZ7a5vS8X5X6hP1mrL0/rigN74LdMfiY7Pp8bRfzHrVMB2Iai5TQfuhMCfETHx1v9UD/8DPzi6OZ/pnT/q2JjnaGT0xlmOO87UvrkIzVhCX7zqjMc/03HVxzh91t+dtVN8ElYFboc8spAKAWqOl5OfwzEw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=EBrldqAIBv3Z/hVlNah3042rzocjKOkIlVCKVSd1MmA=;
- b=q/0zeAw97125AGbonQBsAs0KWiJXJwNuBL2MxAwJHfphpoEbzBWM45WFh7t8ANN+CdOfwsjIpSOZiZHjg9pDCyRCnhnraQCg5jtLVTYX0XSa/Yd6fL67MQQh6rLkte/qnDyMZnwA86kcMGi37okGmXjZzYDtauHkgvRHAamdFBJblCcpvR1y7SG/z41BuyXI+PVUJscwcZO87hTR+UohYaIzZPuDz+4Y7LbYpuEck1hyZWGmae1KDWmfBQsi3BCc0fu8U5WZ1YFDmLLDNJgTeNiiaQgS4EaZz1iNcrcM/l/rLWZrvIXShlY/A7wpn9oqJCDlRIMABu0RULwTiDLI1w==
-Received: from TYTPR01MB11000.jpnprd01.prod.outlook.com (2603:1096:400:39c::9)
- by TYYPR01MB16429.jpnprd01.prod.outlook.com (2603:1096:405:146::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Mon, 23 Nov
- 2026 02:27:41 +0000
-Received: from TYTPR01MB11000.jpnprd01.prod.outlook.com
- ([fe80::fe39:4f49:5d91:808a]) by TYTPR01MB11000.jpnprd01.prod.outlook.com
- ([fe80::fe39:4f49:5d91:808a%6]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 02:27:41 +0000
-Message-ID:
- <TYTPR01MB11000B5AC6D9C174AC489EA62CA452@TYTPR01MB11000.jpnprd01.prod.outlook.com>
-Date: Mon, 23 Nov 2026 10:27:33 +0800
-User-Agent: =?UTF-8?B?TW96aWxsYSBUaHVuZGVyYmlyZCDmtYvor5XniYg=?=
-Subject: Re: [RFC net-next v2 00/18] net: introduce ipxlat stateless IPv4/IPv6
- translation
-To: Ralf Lici <ralf@mandelbit.com>
-Cc: antonio@mandelbit.com, bgalvani@redhat.com, coreteam@netfilter.org,
- davem@davemloft.net, dsahern@kernel.org, dxld@darkboxed.org,
- edumazet@kernel.org, fw@strlen.de, horms@kernel.org, idosch@nvidia.com,
- kuba@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- netfilter-devel@vger.kernel.org, pabeni@redhat.com, pablo@netfilter.org,
- phil@nwl.cc, toke@kernel.org
-References: <TYTPR01MB11000E65B4D5C27C27D7414B4CA762@TYTPR01MB11000.jpnprd01.prod.outlook.com>
- <20261114094722.114623-1-ralf@mandelbit.com>
-From: Xavier HSINYUAN <XavierHsinyuan@outlook.com>
-In-Reply-To: <20261114094722.114623-1-ralf@mandelbit.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SL2P216CA0151.KORP216.PROD.OUTLOOK.COM
- (2603:1096:101:35::6) To TYTPR01MB11000.jpnprd01.prod.outlook.com
- (2603:1096:400:39c::9)
-X-Microsoft-Original-Message-ID:
- <06222a8b-074d-4ba1-9ee8-ec81c44bcb88@outlook.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny
+Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-5430f70c827so37795331cf.2
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:29:38 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795400977; cv=none;
+        d=google.com; s=arc-20260327;
+        b=jRBMqIXvbv7q5RvWCPTr1d19WHXb86Vx2cO0UgVpnWOpjB0xjeMvd3ATyPpTCIJeXr
+         OPJGnkzLgkM53H9WhTAQnSXpbqZ2ZV1TQ2ds+rH8x+tVnEeKnL9nDXDQ2+1ENna/3hcS
+         o8YTbDE3xtXgitdpR6R6S53J/8mt/DE6ncFOUCLgxwVMXbvkh3Td12e26pKp05nGy6uI
+         k71+aQ8LVG71YnP7+wAP11twIAcuw2RS39mx8hL4pLbtINKNuSAG0jlKQ86Ev49IFl/E
+         rzfl7tghueEHbeSaDxSytRK9EPSQ+WnRhjPsZ2y32nUBPeLZHvP+UIYULPQbMmyiPTFz
+         lkPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        fh=faxsrhtt1n47Gt4W//9s2HXsD8lrpkLX2H+pNjldq3c=;
+        b=QMyIxICbX3vfClvDVioauyqpbcYCJjRvF1hRvLFSMTtVDcBNSlkBFdX7dOf7Cd3TAy
+         zeNIIybLfF/CBVih/055r4mYsp08JC3lRLqHcnlaGNxetZ5G4WEMYe0SI9zhmlhUxY4O
+         8hzWRkZe9y9h4amQNam3tVNbeExWZFBQPlpaal2phMacJPi+5PBhDUALf8dGxGYdUshZ
+         LckrN9g0tLToZ89s7RYiyH4M9dOIJ2XanViuEen8YttL1CYpxLKUzmlqwG9+AWUSvihV
+         O+hAxfF68Rb3kZP5AqaIUa2nin3nt7R9YQkYDKy4XMlyzfOuua0saccN9MBkOvmTC7DO
+         fzHQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795400977; x=1796005777; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        b=eJdfSgnyeud0ugF7+oZKixOJncRtXAKpA5ceSl21fP/iB+EJhxkPf/lWhNcNnqiD4a
+         dvtHNIhPxlRp6RSdH5nbRdzw1yWS97bR+hHbJM/n85KdA/8G5U5UxpC2XLWJi2J5xncf
+         WgDFiPjLcqWrO12HBzfKWgJ0ghjfZ4SPosUty9HXBzokq6KYSeBnNuEh9pPTnTiSd9oW
+         0MdZB+wiFVZNn3cqp3bIa0ROkl74bKPTvj6iIXriLfI9mLUisPB+Gjq94gM0Irez5evo
+         Th1tJ0Q8wPqy+KIxbCl8j8N+5IR4J9j7d/K3dDz9VubL39Ll+xVAPEvidlkHbH7rtl3a
+         Q5lQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795400977; x=1796005777;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
+        b=YS1W4NAknIElq3P4SFcPG9w1Jx1L5OoER3ceh9SPWFkHtvoUEfgXMXSbVWfEDtF3JL
+         S9KndE/d9WhVuV9zMh7X6t/4//P8aWnFURrFkYudz04dqNA2LCm2+ETiJqm+W4IsTXLp
+         9XulD+dAwWGp7yRuKS7l7GDEkozuwhmdGEDLPhiVOWTm3YAMU7Yl7yJcbev8DkbsSFMR
+         lUBfzTcWtiATLSUEr25xvgY+VoiUpVdvo2wsbDJuBizkcBHujZSaebN73Bwhx2Uz1ROB
+         OqFuu9DReP7hHQSxbKxQNuXd1NfGKJvO1Zm5lK7KIoT2kJoCO1hFNsw5z2gorsL7rrVO
+         cKqg==
+X-Forwarded-Encrypted: i=1; AL+hErGtklvfjAO9XYoRt+vULZof2PZWg8ICDYNavfas4G1eL6B+rBBLkg1DiE61+oiZGDdzq/ByclA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+22vG+e0fBGt4rzYZUu4d+yXTOe4UMLdl64T+uDpDAj/7obx7g
+	7gPexfK4GLkeKAr+9BXhKy2sOpK1u40bk/ezFfp36drhuBoh+EZZ/4s5jkMfwimrAAvTfJQ4IAU
+	6ZMbmC1uFTnw1i3ad/OvURASU3QrK1+o=
+X-Gm-Gg: AZFdTZc77EvHF3edxn56kdOMI3WzNQZi4yR8LzyGcOuBOOlIKZoK8gyPpxSOGCB4HF7
+	5FLHwriaI2Sp/FwLkp5E2CWV2KdU7XnU6F002O8mpL4D2FuwDP0reJEgIftWyjjFHz5cMMqkGUK
+	qMsjTdpZdsNFOolRlXq0ZE7DQUiu6a1LyZlu2dYl4jgJvO9v6H3203uuAmCd4SN0g5OvkdQoH+O
+	XNrdYIu4TODxdD7uYDwxoHxkUStagWjLgck3H1ABEcjWgv5iJMwwE/m3HqYeZrf3Vn0uik4FRI/
+	goOpnoq4qbHHb7gxLGt4svAySr3q/rygfSr0elJkMFj+yjRRGSLFolEHDb29r9xlK4gTSPDYGo2
+	UHT7GszSlntqwEH9Nyz+0f/5QCKpnw9xCqswPzmQ9kOoA0fey5abV8cIU4dzeuSMXcyuior2ucr
+	ZOC8FO1/v22tyt0KIDj96rCAGV8SM/6A6waBOAFNAiM1z33icxXX/+CwO569ANqabVf1irMFlUg
+	0z/LuBxAZaui8p8SCf0UdH278WVF+Od+v3eFMk1u8UpjH4GhAkchlLPY3Nb7tbmB04MXGCwHys/
+	XU8NrGtjKp8=
+X-Received: by 2002:ac8:5f0c:0:b0:55b:fb2e:a754 with SMTP id
+ d75a77b69052e-55d768a2509mr200104651cf.8.1795400976999; Sun, 22 Nov 2026
+ 18:29:36 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,139 +107,211 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: TYTPR01MB11000:EE_|TYYPR01MB16429:EE_
-X-MS-Office365-Filtering-Correlation-Id: 24b379cb-c78a-465a-b2e7-08df49095941
-X-MS-Exchange-SLBlob-MailProps:
-	laRBL560oLSPhlJ95/U7v6W/AahuugGa4E0zKh4OOc3jFHgO/NH4HzQ9BvQ6mKielsUEGUsoG2LFfqpejiYWYQ6vA6AN2KCft0vEOOlZub3GBIcowfgREA5PeNo4W8OCAvtRt9GW8CB2EUHaDvew02b3B3rVaUQNxSQ/AwiunG4cJkqtJS630GNubWYiJk+mLqyL9P9mBc0IL+zNGxh+GheFex6RBllrRerjpM/Yc3170bLfvk8L1EXJyUlSwErt90C+7CgeAfKA0pXhpUjEeS00s7m6q3G3ZzX+wmJV+x+SZMfsQCJx7EWfTSiVj1/Qi2MKpsQwxZdH1pstl7dhFTNiJ+VrbdCrUlFe1ytaCw6xed9xgQN2BG+hj0olng2cKFN7a9xebbXq68aAwUsTpahSR3UtpbGEOsERv0HbrEPQOvZguyNucItpOjM9+xGvPSIkNJ0IWJkRMnz3Nf9XdsFhT9WmhIzHFBaJPMZyyxWnQaoZ0o/3607iv3GbMRf/ZvrK72DNQs2WpBMPpnVhZyn/0tAY4MKUVLf/nvhwADplpSHc4mZGuoHzqu1tsXeVXUNXGs2qbtLVuX1HfK1jVyNFOLC5z3RxT+pKC3/YBSHVwFoIa2GxY46cItKvXaeJ/H7ifrB0L8DAstNkUVR97HUV1kRtO5kiU3+EI17ApsYKlw4syp/Iz75gWSKfxtXlU7tinmfP0tm9VZWVQHAzae/KKZLah98ls8UOsylQbO/HMbj+3mmC7Z9YI9iWu/R+9Bjot8oWFxP4qFnqSsVq4qDqaWnTBul2
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|25010399006|8060799015|19110799012|24021099003|6090799003|51005399006|23021999003|5072599009|12121999013|15080799012|25031999004|40105399003|3412199025|440099028;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?ZzRnMnp6S21YZlhVWVpxdFU4eFhTTUdJenN3RFdMejhDejI3WDB0MGt2Ry96?=
- =?utf-8?B?SHh3dWRTakpYOWJKREg3U0xLMnRkUkM4WFFEcFNtZWo3QnNwM0ZUYlRxN0FS?=
- =?utf-8?B?TkFIb05VR3JYME5kSGFsTkYxUTVrM1c5V3ZHZnJnekJCdGlTbG0rR00vSGtR?=
- =?utf-8?B?UlJVSEZSNXFMaG52SVBwY0tDSVM0OFhDRU90OENHOFZpNDhsMjJEWHJDQXl6?=
- =?utf-8?B?TnE3Z1R5dGdWcDZuSmVvY1MwamVEZlBKSWRyNU9HeDN3YXMzMG41TEh6RmpF?=
- =?utf-8?B?K0FWQ1pxUkV1RnV0QWpHdUFXdTU3aFN2aS9VNGVPcmtEcTdING1SOG4vc0Rs?=
- =?utf-8?B?R00vNWsxYi9mMTdZOVMxcndIUW5aKyt3MUM4TzYxZWxJVkRrLzNvWFppeTR1?=
- =?utf-8?B?T1NoYmd5L3FueW03T25sdGtQS2lRZjJXU0JGd3hndXAvVVdqM2pseUovMm0v?=
- =?utf-8?B?MGJIdkgycmMzVmNOOTk5QUZxSStUdVFLdktUbmNzNkgyRVhjR1lkUDAzVzBK?=
- =?utf-8?B?Q1lndExka0poSy8reS80NEpsdXFpM0h3ZG53eEZXVEl1ek5mOVF4bXptYkp3?=
- =?utf-8?B?WTU0VGVlc1FHeWJxNi9ObzM1R1h4UksyWTBEQUFxaTQyd1RGTFdzVkF6TEk2?=
- =?utf-8?B?WFF4c3Q5RTFFZ09rQ0ovZWdxMTFQQ3lEU1dzTTRNRFV4UjJWNGdLU2JjZnd1?=
- =?utf-8?B?clVGdlhyS1hiZTBjbFBHOW8xYkRBWU1YZzFIZExOYnpZMXJ0alA4S3NJUTRx?=
- =?utf-8?B?akhxQ0ZRcXBYL2VjWjE0ZGw2RWRlS2hyNUw3cmxJUmRBSXFUWVdQTU9ab0s3?=
- =?utf-8?B?U21SdmJiV1lLQ2ZqOGkvQzRhMkZCbG9SeFI4QmtjQloyM05XWlBNaHZWQ0R2?=
- =?utf-8?B?N2tTUXo2NmQ1eHJMeVdQOGU2eExCWVdEZVUwMGFQQ0x4R045N2dPc09SVGJj?=
- =?utf-8?B?eEJaWE1GZHhLcytKQlp5blR6N3g4bFBPa04ydnQzWFRTNVdkR2lMWm05d1hQ?=
- =?utf-8?B?V0pMWjNQdlkvL0VuNFBsZUZFclE1WUlEZFBSLzdFWDlTR1k3YkdzZnovc0Yr?=
- =?utf-8?B?MUFuMnJLS05hRmFlU1lpeDRFdU9KSCtGTmVMOEFRUmVJUVFPSG1yVnVTczRC?=
- =?utf-8?B?R1d1YzJCd2N2bTJXRE5EK3VjUExOakQrREtyZHU5bmZ1eUd4V3FDUmN2K3Fi?=
- =?utf-8?B?d2Uzd21Ec01GcTdhbDhyTzVsY0I5ZmtSZzRDMmlNQ2szUXl3QURGNWtTSkR4?=
- =?utf-8?B?U3ZJRHZmclp0aFdNWEdINnFrZ1duTnF3YitCdHNhVmpPRlZRcTA1emRZNDha?=
- =?utf-8?B?L2VKK3VPa25xbFJodGJZaVB2YkQrdFR0d1ozajlqS0FCcWV4Z3BwWjB2VWxz?=
- =?utf-8?B?UmxVcytuaTVOMXc9PQ==?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?cVBOUWdSTFV2bXR1czQ5UTE4Y0IwQ3NBUkFwU254cTczLzVoSFM2Vnpjc005?=
- =?utf-8?B?OEFYMnZWWkovK0Q1dWVMTkc4M3hGVXB4ay93NWNoMmd6dkllVm1icXd3NUtn?=
- =?utf-8?B?RUdyRGhpWVQraVQxNVV2d1pwOFU0Q2Q1akNSVUVuZ3Z0SDRXN3FDZEtNRVJF?=
- =?utf-8?B?RGNmN2pJcVkxVVlYNmE4QTRMYXBQcFJZcm1sVmZ5V0lYUmR1NC9wNzVJYVp3?=
- =?utf-8?B?VGFzVXFZYlFCUU1PNW1wcndhbjcyVmt2bkJRZ2RtUFREaGg0Ry8vanVUcm1i?=
- =?utf-8?B?YmJaRC96bkovV3U3L29qRkYxVTB0SDZ5b2pHOFhheDFXVXVQS1VvN3Z1NkRW?=
- =?utf-8?B?QVVGcG1RRUJoWENyUExYZ2h0NkdvNmFjSFpzSXBJaWNnTWVmMDBOVWRIakYz?=
- =?utf-8?B?aEZCdGdLcFlmSUpKRTJaTUQwSi9lTmVmWk9SMVhQTHA2NmlEMU1wVk5heVhx?=
- =?utf-8?B?RzBpZjY0cjJMTHRVQ1VOeDNJSzBpTHVPWENKYks0SmFjUFlFc1Noa3hhcHFX?=
- =?utf-8?B?Y0lXNU12TDFzbkM4MHcwVlNTNE5PUlEvZ0pqcklXc1I1SGNVNTJ1TjF4N0tG?=
- =?utf-8?B?NiszQlU2b2s1ZHdXVHN4Ui8yWm8yc3Z1ellaYlpEZzhmZkx3MVorWWRTSjdJ?=
- =?utf-8?B?M2QxQi9sc2xXandvTE5VZUJ3dTFTZEFqUVh0Vzd6V29ZMCs2a2FmSXp0dWFp?=
- =?utf-8?B?M25nUDFkdldUWXY2SFdoQUFDclloRkQzaHRoODE1NWRjVzlGWFBGYXhJMXNp?=
- =?utf-8?B?eTNTaXBwRkdFeUdKYWFQQlJNQmZVV0hLSmFMbCs5Wk9KRWpWckNWVFVVOVhh?=
- =?utf-8?B?Q0psdUlPdGpZSHNVUkY3bmdjUlVISTFuRGZNMlcyUDFmRko4aC9rcWVQaVlX?=
- =?utf-8?B?bjdWOVhRUXNLSGNMc3U3empCRlRvVVQyK2pHRnFrcHBmQXBlOXA5M1dkOWlC?=
- =?utf-8?B?SjFCSURNRVZXK2ZPeko5TXFyaE05V2RTSW9TVmdHVjRLQ2Q0WWtZeTZBNFAy?=
- =?utf-8?B?dGhJWnp5WjVZM2dkMXdhY24yMEZ1MTRWWjBXTjdLVWZ5UFNOWTFkWXVKWkh2?=
- =?utf-8?B?aDBUckJvZWNhSXpKbzBnNkRUdTkrWXNnNGxQQnFQM040YnVmOHh2d0ExeEJy?=
- =?utf-8?B?RWZFSHVmbytJTTgrS2RYRWdocVF1ZDZ1a2ZvaEk2K2lDU0FTUzV3SkYxa043?=
- =?utf-8?B?SnNob1A5Yy9ZK2pBcGFkVzVaMEpDdTYwa2Ftc2NrOEpsbTVodVArcFFHZ0d6?=
- =?utf-8?B?ekRSeG1heGJEMjNXSmdwWmorTUFwSXVKOEZ3UUNNdzdFeGlhVnMwRmlsWG1m?=
- =?utf-8?B?K3FYREVwUzBUNGpYaUlZSDVENXIzazAvcVhHUTFkMEx0TjVWczJoaGR6Y25n?=
- =?utf-8?B?VGs5U056V2FyYnlwNnV1aGcrbHBYeGNybDJkMUgvdzVBV1dnNHJHd2F0NHV3?=
- =?utf-8?B?WVFpL3BvRTdzVzJ3bUViQU4xN3M4SG5Zc0tLdXJ3QldvUWFkVHVqT2ZoSmZP?=
- =?utf-8?B?YXN1bUdaOU9lM1Rpa3NrSXFYUWJMY2hkVTBUdFhKRTd4TDdmekZNY0FoLzdY?=
- =?utf-8?B?RkVJVlNEUXdnU01aVExxWlY4V3hMOGFlOXhnUElyK212Q1NyR21EbUs5d2w5?=
- =?utf-8?B?QWEvaEFVQkd6MUZwNjB5RFo4VXAyV3gzS1V5akVWZmlrUlNFdUVwblVFbUNa?=
- =?utf-8?B?RkRNYlpsWHMrTnhXeHBSZmNsbDdWeEU4Vk5iTkhnM1Q1SWNUc3VKS3dTVzhq?=
- =?utf-8?B?ZlJ1TjUxQnZDNldjT202bUlaUmhXM2FOSWtrUkRzemJ1bTFVNUNqbkpBbzhN?=
- =?utf-8?B?TkRPYUxLWjBYUm82Z0pWOVVWOHZvTVVxVGcwQzhyZFAzUGlZbmpPT2Y5TXFR?=
- =?utf-8?B?VGduQWdYbWowTVJZcmI0SnMzOUFWTFNrUkJnaW5USHVGNlZpalI4TTRLeE1O?=
- =?utf-8?B?bUFWYmJWMDYybzdOWVIrcjRmMGNQdUE1N1BiZjRMeU1scmpTQ3VyMVIzbDl6?=
- =?utf-8?B?WE1sRmJqODdnPT0=?=
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 24b379cb-c78a-465a-b2e7-08df49095941
-X-MS-Exchange-CrossTenant-AuthSource: TYTPR01MB11000.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 02:27:41.4040
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYYPR01MB16429
+References: <20261122013848.14287-1-jain.sm@gmail.com> <179539800944.3135.14978978337031412574@kernel.org>
+In-Reply-To: <179539800944.3135.14978978337031412574@kernel.org>
+From: shashank Jain <jain.sm@gmail.com>
+Date: Mon, 23 Nov 2026 07:59:25 +0530
+X-Gm-Features: Aa3M54pzQTEDW_gplLwb_hWSpvJYcv-CRsWKNxPf8T-ayTtusUL9-helZqYNMhs
+Message-ID: <CA+FWx=kTXUJanSicS0dUeeuratAj4wTmjwbjjqT7RmDepH1zrA@mail.gmail.com>
+Subject: Re: [PATCH net v2] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
+	pabeni@redhat.com, justin.iurman@gmail.com, horms@kernel.org, 
+	joel.granados@kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Ralf,
+Thanks for the review. Both points are fair.
 
-Thanks for looking into this!
+Low (procname): yes, the temporary table should carry .procname. v3
+sets it.
 
-> Actually v2 has no netdevice attachment any more, the LWT is the only
-> harness in this series.
+Medium (64-bit parsing changes): v2 changed more of the 64-bit parsing
+than its changelog said. Rather than list every difference, v3 keeps
+proc_doulongvec_minmax() on 64-bit, so nothing changes there, and uses
+the string based parser on 32-bit only, where the sysctl does not work
+today. The remaining differences of the 32-bit parser go in the commit
+message.
+
+pw-bot: cr
+
+On Mon, Nov 23, 2026 at 7:10=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
+te:
 >
-
-Ah, I was thinking of a possible future netdev attachment at the time.
-Thanks again for pointing that out.
-
-> Aside from that, yes, the difference you describe follows from the v2
-> contract. The selecting route terminates original-family processing, so
-> that family only sees PRE_ROUTING (received) or LOCAL_OUT (local), and
-> FORWARD/POST_ROUTING/LOCAL_IN run in the translated family only. That is
-> indeed the first open question in the cover letter.
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
 >
-> Looking into it again, there seems to be two concrete problems with that
-> contract:
-> 
-> - original-family conntrack entries are created at the entry hook and
->   never confirmed, so stateful rules in that family see replies as new
->   or invalid and a conventional ct state established firewall drops
->   them;
-> - SNAT in the original family before translation is not possible, which
->   rules out NAT44 in front of a CLAT and the NAPT66-based NAT64 recipe
->   from the v1 documentation.
-> 
-> So I do not consider the current behaviour settled.
-> 
-> nf_hooks_lwtunnel is one way to add an original-family exit hook, and
-> seg6 is a good precedent for the hook placement. I am less sure about
-> the gate itself because it is global, cannot be switched off again, and
-> is off by default, so the default configuration would keep the problem.
-> 
-> Two alternatives I am evaluating are calling the exit hook
-> unconditionally, and moving the translation point to the LWT xmit stage
-> so the original family completes its normal path. I will come back with
-> a concrete proposal and a per-hook table.
-> 
-> Which setup do you have in mind: SNAT before translation, filtering, or
-> accounting?
-
-My interest is mainly SNAT and counting before translation. Well,
-stateful SNAT seems a bit odd for IPv6, but with multiple upstreams we
-may need to adjust the source prefix based on the selected output
-interface for load balancing or failover.
-
-That said, separating NAT and translation by utilizing netns and veth
-pairs could already provide this, but letting packets pass through
-original-family POST_ROUTING before translation would make setup (looks)
-simpler.
-
-Best regards,
-Xavier
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] proc_ioam6_id_wide() (net/ipv6/sysctl_net_ipv6.c) changes how
+>   writes are parsed on 64-bit in several ways the commit body does not=E2=
+=80=A6
+> - [Low] proc_ioam6_id_wide() passes a temporary ctl_table `tmp` with only
+>   .data and .maxlen set to proc_dostring().
+>
+> --
+>
+> ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+>
+> net.ipv6.ioam6_id_wide was handled by proc_doulongvec_minmax(). This
+> commit replaces that with a local handler, proc_ioam6_id_wide(), which
+> formats and parses the u64 through proc_dostring() and kstrtou64(). This
+> fixes 32-bit architectures, where unsigned long is 4 bytes and the old
+> handler treated the u64 as a vector of two 32-bit values.
+>
+> > diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
+> > index 1a0a36dcdabc1..61c28df64d582 100644
+> > --- a/net/ipv6/sysctl_net_ipv6.c
+> > +++ b/net/ipv6/sysctl_net_ipv6.c
+> > @@ -30,6 +30,48 @@ static u32 rt6_multipath_hash_fields_all_mask =3D
+> >  static u32 ioam6_id_max =3D IOAM6_DEFAULT_ID;
+> >  static u64 ioam6_id_wide_max =3D IOAM6_DEFAULT_ID_WIDE;
+> >
+> > +/* unsigned long is 32-bit on some arches, so handle the u64 here */
+> > +static int proc_ioam6_id_wide(const struct ctl_table *table, int write=
+,
+> > +                           void *buffer, size_t *lenp, loff_t *ppos)
+> > +{
+> > +     u64 *valp =3D table->data;
+> > +     char buf[24] =3D "";
+> > +     const struct ctl_table tmp =3D {
+> > +             .data   =3D buf,
+> > +             .maxlen =3D sizeof(buf),
+> > +     };
+>
+> [Severity: Low]
+>
+> The temporary table passed to proc_dostring() has no procname. Will the
+> sysctl write warning then print "(null)" instead of ioam6_id_wide?
+>
+> On every write, proc_dostring() calls:
+>
+> kernel/sysctl.c:proc_dostring() {
+>         if (SYSCTL_USER_TO_KERN(dir))
+>                 proc_first_pos_non_zero_ignore(ppos, table);
+>     ...
+> }
+>
+> Take kernel.sysctl_writes_strict=3D0 and a write shorter than 24 bytes at
+> a non-zero offset. That write reaches warn_sysctl_write(&tmp):
+>
+>         pr_warn_once("%s wrote to %s when file position was not 0!\n"
+>                 [ ... ]
+>                 current->comm, table->procname);
+>
+> This is pr_warn_once(), so a message that doesn't name the file would
+> use up the only warning for the whole system. The old
+> proc_doulongvec_minmax() path passed the real table here.
+>
+> Would adding .procname =3D table->procname to tmp be enough?
+>
+> > +     loff_t pos =3D *ppos;
+> > +     u64 val;
+> > +     int ret;
+> > +
+> > +     if (!write) {
+> > +             snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
+> > +             return proc_dostring(&tmp, write, buffer, lenp, ppos);
+> > +     }
+> > +
+> > +     /* an empty write changes nothing, as with proc_doulongvec_minmax=
+() */
+> > +     if (!*lenp)
+> > +             return 0;
+> > +
+> > +     /* proc_dostring() would silently truncate a longer input */
+> > +     if (*lenp >=3D sizeof(buf))
+> > +             return -EINVAL;
+> > +
+> > +     ret =3D proc_dostring(&tmp, write, buffer, lenp, ppos);
+> > +     if (ret)
+> > +             return ret;
+> > +
+> > +     /* a lone "\n" is invalid, a continued write in strict mode is ig=
+nored */
+> > +     if (!buf[0])
+> > +             return pos ? 0 : -EINVAL;
+> > +
+> > +     if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
+> > +             return -EINVAL;
+>
+> [Severity: Medium]
+>
+> The commit message says:
+>
+>   One change on 64-bit: a write of two numbers such as "5 6" is now
+>   rejected with -EINVAL, instead of being a partial write that sets the
+>   value to 5.
+>
+> Does proc_ioam6_id_wide() change 64-bit behaviour in other ways that
+> should be listed too?
+>
+> The length guard checks the total write size. But _proc_do_string()
+> copies at most maxlen - 1 bytes and stops at the first '\n' or NUL:
+>
+> kernel/sysctl.c:_proc_do_string() {
+>     ...
+>                 while ((p - buffer) < *lenp && len < maxlen - 1) {
+>                         c =3D *(p++);
+>                         if (c =3D=3D 0 || c =3D=3D '\n')
+>                                 break;
+>                         data[len++] =3D c;
+>                 }
+>     ...
+> }
+>
+> So a 24-byte write of 23 characters plus "\n" fits in buf without being
+> truncated, yet the guard rejects it. The guard also rejects "5\n"
+> followed by 22 or more bytes, and a value padded with 24 or more bytes
+> of whitespace. The old path accepted all of these, fully or as a partial
+> write.
+>
+> Is the comment "proc_dostring() would silently truncate a longer input"
+> accurate for these cases?
+>
+> In strict mode, a continued write at a non-zero offset now returns
+> -EINVAL if it is 24 bytes or longer, and is ignored if it is shorter.
+> The old proc_first_pos_non_zero_ignore() path ignored it at any length.
+>
+> Because _proc_do_string() stops at the first '\n', "\n5" or " \n 5"
+> leaves buf empty and returns -EINVAL. The old path skipped the newline
+> in proc_skip_spaces() and set 5.
+>
+> In the other direction, "5\n6" now succeeds, sets 5 and reports all
+> bytes consumed. Meanwhile "5 6" and "5\t6" return -EINVAL.
+>
+> kstrtou64() also skips a leading '+', so "+5" is now accepted. The old
+> path rejected it in proc_get_long():
+>
+>         if (!isdigit(*p))
+>                 return -EINVAL;
+>
+> Two other changes are only described below the --- line, so they won't
+> reach git history: 21 to 23 digit input is now accepted, and a lone "\n"
+> at a non-zero offset in non-strict mode is now ignored.
+>
+> Could the up-front total length check be dropped? After proc_dostring(),
+> the handler could check whether a terminator was found within
+> maxlen - 1 bytes, and decide explicitly whether data after '\n' is
+> rejected. Any 64-bit changes that remain could then go in the commit
+> body.
+>
+> > +
+> > +     WRITE_ONCE(*valp, val);
+> > +     return 0;
+> > +}
+>
+> [ ... ]
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261122013848.14287-1-jain.sm%40gmail.com
