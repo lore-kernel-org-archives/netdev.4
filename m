@@ -1,81 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415953;
-	b=rUdukB9JkQio/YvgXbsbvWyj23cCQoSk3cPN8DjNPJpamX3P2BDtWOaXVg277vHKrBvy
-	 wo7oTLlxazzmodfe43xuUzZs7q4dSRXALD0gRYVQJBk+TlB2tBZDjkevMFOj9VSi5BJ+i
-	 P3MAPvrScPPDpjt52XWcQE5NL2WoN78hf+5+JOlFhhjqpp344SWDjtjTOMn1UmYADABFu
-	 hXseYEtYr4C94FZBVX+fsAO/hTik4/P0kXQrsTGRfwlwBzQsOsJQkZSqw4Q7KGY6NUeSU
-	 8MsiOGLOF5+QzTk4iG4EkvIPe21e1D/pN9qHvSRPtIQYtzmYCpPJ4EsSFNERl4o1mpQ==
+	t=1795415969;
+	b=epdhtve3j53VztQYEENwl/KX0/wOSwfEc2hpIXK2nMupaptEFCGvEtMfZxgeYdX5gjcP
+	 J84o5BJycI12ArvZqqKmb87/z0BCME+wynBieiPM2BOpkioN0fy0nUQm2uU4oanpq7+Ct
+	 bxgm1raR4ysrB7EmXG+TqtfPRYMMfHgJv+9UhUUxjcTZ9BlTmAzj6E4KBvmQhof++Ugcl
+	 sF1Er6+ylRdqr8OCXwK5SUzW7DvN38xkNB0LUx4tXggZbZuj1WvrsPEml3nXBIuTA38sv
+	 YZ2DuwMeb0vu/GeYNH5SIKq0Gyj4Adkyf1XfvT2PYH4+zajnE3oIlU63AWpcir9SMag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415953;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-TM-AS-GCONF:
-	 X-Proofpoint-Reinject:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=3p6j4BummQ7DEDYd3L0u+o/FJMfAWrrauAFxppvlCxs=;
-	b=Xi5n35hoSjTjnVhQRg2OJNmF/LR0gQbm5y+Wr11cSp6QeFfvNP6vJiaKZrXQMrgBza1f
-	 FioZ+s0TmDKPAUzSLid2pxL4f2c9R4G3bRDrvMbdfLELES3bAFSfSOuoPKqCkwahZZE/M
-	 BrjnAUYg/E5c14xV70r6BVatvqWeQ8kFrY+to9gqb60Yr9XbC/tVouLpuFwDiF3wUVUOb
-	 DbIqyscrvdy1gyBx614Oe2Xl6mQXgCaxSDBj0c/PNcmn6Hv83e7zukcT8nDhFlwbHfm8X
-	 q1zKxdBPlsGcQejielDQxIezWuwwCg6TA9OtgwLNyhQfEbx6dzLiahnmje95BcHElPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415969;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=7agXcixM5SUecxuwupsf5SFmE1L7F0iLFU7WsXCvLCo=;
+	b=Z7ow5/bcnSDi18kZJU6BXO7Z3ICMwUocwzJG4t+udrm1c36l/4HLOoJVh8ZAP5R2WCsD
+	 6AfXQ5B6NGJ7h0yfHf2LsSbVzhBWab9MPTk75NMdixxMmM6CE0rydxFypkCf9HqSQz6Y9
+	 fNbSYosrSmlox9kQcmOgQ/UpRLboASJoOYrUTrfdMbKPO4RLwUbZNzmOhEcehd+KWGf2K
+	 ZKcpmffQhQZxWukQTXYITsvzvji5sf0NC6TSZR0sT/oUUat551JmHwuJ89dmvE51E+CXy
+	 Q/aOyoFMbvuvEnNYjVeU4CRksFSCoRbh9m8IWeKEoqbn6/8wbAGuqMkFE+zCtqt9D+Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gcmlENnq;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NOKrRDrr;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EA59606A31A;
-	Mon, 23 Nov 2026 06:39:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EA59606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56497606A31A;
+	Mon, 23 Nov 2026 06:39:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=gcmlENnq
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN556vg2634170;
-	Mon, 23 Nov 2026 06:38:50 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=3p6j4B
-	ummQ7DEDYd3L0u+o/FJMfAWrrauAFxppvlCxs=; b=gcmlENnqM6MZy2/TO8vaqY
-	N5QSGCaIlBbQmO2dCASYvAex4SoCazeK6mwsEZbkd+jswWXNN2sg2zL/zk+4tH+o
-	6dXu2/8wrzMNelwT8n2uAhSeLuv/t6ZnGCx7vkwoc6oFIVJMRVhQ94hJYRSjBkCi
-	MMi7PJpwIA+ndg+oHgGU27DPd6GYcpkLgPKyCQCQ73WTM/6WQXb0175PLMAoiipC
-	yCZvxz74vDIdwRAg+ghnQc90wYickdQPTldmejkKujzv0tNmDVrqR5i3jabgF6iq
-	CdQ6+zNw3EXOn3nvtnQDqfXmOlufyrx3tgExgt7+ucBqaAr/dkscmWhpA98HYjdg
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g11jv6-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 06:38:49 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54SlE1346513;
-	Mon, 23 Nov 2026 06:38:48 GMT
-Received: from smtprelay02.fra02v.mail.ibm.com ([9.218.2.226])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j3nmqdtn9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 23 Nov 2026 06:38:48 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (smtpav04.fra02v.mail.ibm.com [10.20.54.103])
-	by smtprelay02.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN6ciW645285684
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Mon, 23 Nov 2026 06:38:44 GMT
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 66E1A2004B;
-	Mon, 23 Nov 2026 06:38:44 +0000 (GMT)
-Received: from smtpav04.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id AEC9120043;
-	Mon, 23 Nov 2026 06:38:41 +0000 (GMT)
-Received: from [9.123.13.84] (unknown [9.123.13.84])
-	by smtpav04.fra02v.mail.ibm.com (Postfix) with ESMTP;
-	Mon, 23 Nov 2026 06:38:41 +0000 (GMT)
-Message-ID: <90fb64eb-8fd6-47de-8773-263701b2179c@linux.ibm.com>
-Date: Mon, 23 Nov 2026 12:08:40 +0530
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NOKrRDrr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F21701F000CF;
+	Mon, 23 Nov 2026 06:39:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795415968;
+	bh=7agXcixM5SUecxuwupsf5SFmE1L7F0iLFU7WsXCvLCo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=NOKrRDrrj6eRUaabPUhzPcwV+gkEJogXEb2Au13b84teh3Gk8VNyNCNENuvdHjNGl
+	 oqdOWYsPCA/87fO+bc/dNhjmfYcnY4NtPWfNiGr30RnbvoIvDiaN4dRAhApBnLAqER
+	 epTUnH28hTOj5uvLuHtT4U/4yqPcjmpy6Er8/88a6ckSUARkXlgUzBkML4a2fBvGEn
+	 BQ7uGI6K/FMOi11L881IUooUP4HYlhOIkySp306IXn4QVi8/AslHUQoFHSKgwdMbFw
+	 eEolOWrQixXJOJBXzXLbV3Fq469UNk1bEFGTtI4M1pVACy8vyfcFGSlP7HmgGwxeVf
+	 IltdaeN86w5Ag==
+Subject:
+ Re: [PATCH net] net: wwan: t7xx: validate PIT data offset before skb_reserve
+From: netdev-bot+sashiko@kernel.org
+To: fangxy@xiaopeng.com
+Cc: chandrashekar.devegowda@intel.com, loic.poulain@oss.qualcomm.com,
+ ryazanov.s.a@gmail.com, ilpo.jarvinen@linux.intel.com, netdev@vger.kernel.org,
+ haijun.liu@mediatek.com, johannes@sipsolutions.net, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org, linqj@xiaopeng.com
+Date: Mon, 23 Nov 2026 06:39:27 +0000
+Message-ID: <179541596756.3135.6965744505387412637@kernel.org>
+In-Reply-To: <20261119062044.72261-1-fangxy@xiaopeng.com>
+References: <20261119062044.72261-1-fangxy@xiaopeng.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,110 +65,175 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/3] net/smc: fix clcsock lifetime vs
- asynchronous paths
-To: Mahanta Jambigi <mjambigi@linux.ibm.com>, andrew+netdev@lunn.ch,
-        davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-        pabeni@redhat.com, alibuda@linux.alibaba.com,
-        dust.li@linux.alibaba.com
-Cc: hidayath@linux.ibm.com, pasic@linux.ibm.com, horms@kernel.org,
-        tonylu@linux.alibaba.com, guwen@linux.alibaba.com,
-        netdev@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-rdma@vger.kernel.org
-References: <20261120124534.430200-1-mjambigi@linux.ibm.com>
-Content-Language: en-US
-From: Sidraya Jayagond <sidraya@linux.ibm.com>
-In-Reply-To: <20261120124534.430200-1-mjambigi@linux.ibm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: _rBVRy8o8DAmjMQF4L8z2M8ImwNSrJd-
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAyNiBTYWx0ZWRfX8wuVjDiQOY8G
- lW16sRYHwau+s+eOe2hfyHs385klPRws95jsc0V2oxy2pnLIsPxWIibanyPgQPI0ZSI6EMYoZTP
- gNe/z5E7vwrsKNERlWUXXyFc3Cd2CMA=
-X-Proofpoint-GUID: ZYuclnfSGq8afemKTGN9w3r1haX4RmPb
-X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b03df79 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=Upmd74fEsTyMv7FUjCUA:9
- a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAyNiBTYWx0ZWRfXz4h4F3OKm9pD
- VJxL83zO54K7KDyBL3wYjMdZaf7fM8UEYwjLLG9sAHEaXYhK+GSbme7LtlkriE3iwo4VY6OcA9J
- NRWPQXJs1HJwLSvLY8ZwrLBW9LO1QsJFxqMMVp7ohM/dzH6CmJz6Y+WEAIFxAscH06Q3Q7jdym9
- oml5dyjSnvIh0os2ZyEwdVdpBk8s1BHZMESQB2K3B5D0NeRDUQUCQaTerol3jCvvE2MWW6uGeQ7
- BWIIGdwSDBTTA4e/I7fjEj79jCe/x5IIq55RdyvihMu/+oRRvQJoX7fwJbREnpQtqSxtLfuN00e
- aMdGRdoqXzQJYfVxotsCCRe48SvASIFf4Z2sOiX5q0tZXcv61T8oG9axwLcG4it/BLaQQlg5qjj
- 3AruepxN/5D++dQdxYSwkTHE2fCs1dkReIsGd9aKSyePVNx6OdT+Vtvf3VN+5hkERA0feE6Xtfu
- n9p29lopn0DGdQoRKpQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 malwarescore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230026
 
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
+Critical: 0 · High: 2 · Medium: 1 · Low: 0
 
-On 20/11/26 6:15 pm, Mahanta Jambigi wrote:
-> The internal TCP socket (clcsock) of an SMC socket is freed by
-> asynchronous paths: link group termination reaches
-> smc_close_active_abort() and peer close reaches
-> smc_close_passive_work(), and both can run while the SMC socket is still
-> referenced by an open file descriptor. A task that uses the fd at that
-> moment, for example getsockopt() or a socket diag dump, then operates on
-> a released socket.
-> 
-> Free the clcsock only when no socket file can reference it: from the
-> socket release paths, after the socket has been unhashed, and from the
-> abnormal close paths once the socket has no file left. The decision is
-> made under the socket lock, and the accept path holds the same lock
-> across the accept-queue state check and sock_graft(), so a connection
-> that is being accepted cannot lose its clcsock to an asynchronous close.
-> The clcsock_release_lock is no longer needed: a socket operation on a
-> file is serialized with smc_release() by the file reference, and the
-> listen work is covered by flush_work() and cancel_work_sync() in
-> smc_clcsock_release().
-> 
-> Trade-off: with an open file, a clcsock now stays allocated after an
-> abnormal close until the application closes the SMC fd. The SMC
-> connection is already torn down and its TCP connection has been reset or
-> shut down; only the local TCP socket remains allocated until then.
-> 
-> Patch 1 makes the lifetime change and is self-contained. Patch 2 removes
-> the lock and the checks it made necessary, and serializes the accept
-> path with the asynchronous close. Patch 3 documents the invariant and
-> adds a destructor warning for it. The diag dump keeps its NULL check: a
-> socket is hashed in smc_sk_init(), before its clcsock is created.
-> 
-> This is hardening found by code walk, not a fix for a reported
-> regression, so the series targets net-next and carries no Fixes: tag.
-> 
-> Mahanta Jambigi (3):
->   net/smc: keep clcsock until socket release
->   net/smc: remove the clcsock release lock
->   net/smc: document the clcsock lifetime
-> 
->  net/smc/af_smc.c    | 123 +++++++++++++++---------------------------
->  net/smc/smc.h       |   8 ++-
->  net/smc/smc_close.c |  35 +++++++++----
->  net/smc/smc_diag.c  |   3 ++
->  net/smc/smc_inet.c  |   9 ++--
->  5 files changed, 82 insertions(+), 96 deletions(-)
-> 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-This series does not apply on net-next here.
-The cover letter carries no base-commit: b4 am reports "Base: not
-specified", so it is not possible to tell which tree the series was
-generated against. Please repost with the base recorded, so that b4 am
-and reviewers apply against the exact commit,for example:
-  git format-patch --base=origin/net-next -o outgoing/
+- [High] The patch fixes the modem-supplied PIT address/length problem
+  only for the normal BAT path.
+- [High] The new err_drop path in t7xx_dpmaif_set_data_to_skb() calls
+  `t7xx_dpmaif_set_bat_mask(rxq->bat_req,…
+- [Medium] The patch makes the normal-BAT error path free the skb and set
+  the entry's bit in bat_req->bat_bitmap, so release can move past it.
 
-which adds base-commit: <sha> to the cover letter. Naming the base SHA
-in the cover text is enough.
+--
 
-Thanks,
-Sidraya
+net: wwan: t7xx: validate PIT data offset before skb_reserve
+
+This patch makes t7xx_dpmaif_set_data_to_skb() check the modem-supplied
+PIT data address and length against the skb tailroom and the DMA mapping
+length before it calls skb_reserve(). On error it now frees the skb and
+marks the normal BAT entry consumed, so the BAT ring can be released and
+refilled.
+
+> diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> index 5af90ca6e0631..44e2ba15984df 100644
+> --- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> +++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+
+[ ... ]
+
+> @@ -643,22 +643,35 @@ static int t7xx_dpmaif_set_data_to_skb(const struct dpmaif_rx_queue *rxq,
+>  	data_bus_addr = le32_to_cpu(pkt_info->pd.data_addr_h);
+>  	data_bus_addr = (data_bus_addr << 32) + le32_to_cpu(pkt_info->pd.data_addr_l);
+>  	data_base_addr = bat_skb->data_bus_addr;
+> -	data_offset = data_bus_addr - data_base_addr;
+>  	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
+
+[ ... ]
+
+> +	if (data_bus_addr < data_base_addr) {
+> +		dev_err_ratelimited(dev, "Invalid PIT data address\n");
+> +		goto err_drop;
+> +	}
+> +
+> +	data_offset = data_bus_addr - data_base_addr;
+> +	tailroom = skb_tailroom(skb);
+> +	max_len = min(tailroom, bat_skb->data_len);
+> +	if (data_offset > max_len || data_len > max_len - data_offset) {
+> +		dev_err_ratelimited(dev, "Invalid PIT data offset or length\n");
+> +		goto err_drop;
+>  	}
+
+[Severity: High]
+Does t7xx_dpmaif_set_frag_to_skb() need the same validation? It derives
+the offset in the same way from the modem-supplied PIT address, and
+still stores it in an int:
+
+drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c:t7xx_dpmaif_set_frag_to_skb() {
+    ...
+	int data_offset;
+    ...
+	data_offset = data_bus_addr - data_base_addr;
+	data_offset += page_info->offset;
+	data_len = FIELD_GET(PD_PIT_DATA_LEN, le32_to_cpu(pkt_info->header));
+	skb_add_rx_frag(skb, shinfo->nr_frags, page_info->page,
+			data_offset, data_len, page_info->data_len);
+    ...
+}
+
+On this path the only check is t7xx_frag_bat_cur_bid_check(). It
+validates the BID, but not the address or the length. PD_PIT_DATA_LEN is
+a 16-bit field (GENMASK(31,16)), and the fragment buffer is only
+DPMAIF_HW_FRG_PKTBUF (128) bytes. skb_add_rx_frag() does no bounds
+checking of its own.
+
+PKT_BUF_FRAG PD PITs come from the same PIT ring, through
+t7xx_dpmaif_rx_start()->t7xx_dpmaif_get_frag(). A backwards address, or
+an oversized offset or length, would produce a fragment that points
+outside the 128-byte DMA-mapped buffer. A negative int offset would also
+become a huge fragment offset.
+
+Could later GRO header pulls, checksum walks or socket copies then read
+memory outside the fragment allocation? Should the frag path also reject
+data_bus_addr < data_base_addr, and any offset plus length beyond
+page_info->data_len?
+
+>  
+> +	skb_reserve(skb, (int)data_offset);
+
+[ ... ]
+
+> +
+> +err_drop:
+> +	dev_kfree_skb_any(skb);
+> +	bat_skb->skb = NULL;
+> +	t7xx_dpmaif_set_bat_mask(rxq->bat_req, t7xx_normal_pit_bid(pkt_info));
+
+[Severity: High]
+This line reads the BID from the PIT entry again. The PIT ring
+(rxq->pit_base) is dma_alloc_coherent() memory, so the device can write
+to it.
+
+The caller t7xx_dpmaif_get_rx_pkt() has already read the BID into
+cur_bid and bounded it with t7xx_bat_cur_bid_check()
+(cur_bid < DPMAIF_BAT_COUNT). That checked value is not passed down to
+this function.
+
+A re-read BID can be as large as 65535 (PD_PIT_H_BID << 13 plus
+PD_PIT_BUFFER_ID). bat_bitmap comes from
+bitmap_zalloc(DPMAIF_BAT_COUNT), so it holds 8192 bits. Because
+dma_unmap_single() and dev_kfree_skb_any() sit between the reads, the
+value really is loaded again from coherent memory.
+
+If the modem rewrites the PIT entry after the caller's check, can the
+set_bit() in t7xx_dpmaif_set_bat_mask() write past the end of
+bat_bitmap?
+
+Even if the index stays in range, the bit could land on a different slot
+from the one whose skb was just freed. The freed slot would then stay
+unmarked, and a slot the hardware still owns would be counted as
+consumed and refilled.
+
+The earlier re-read in "bat_skb += t7xx_normal_pit_bid(pkt_info)" has
+the same problem and predates this patch. Would it help to pass the
+validated cur_bid down (or read the PIT words once) and use that one
+value for both the bat_skb indexing and the bitmap update?
+
+> +	return -ENOBUFS;
+>  }
+
+[Severity: Medium]
+This path now marks the normal BAT entry consumed. Can the frag BAT ring
+still stall in the same way, from the same malformed input?
+
+When the head PD is rejected here, skb_info->cur_skb stays NULL. Every
+following PKT_BUF_FRAG PIT of the same packet then takes this branch in
+t7xx_dpmaif_rx_start():
+
+		else if (!skb_info->cur_skb)
+			ret = -EINVAL;
+
+That branch leaves the frag page mapped and never sets its bit in
+rxq->bat_frag->bat_bitmap.
+
+t7xx_dpmaif_get_frag() also sets the bit only on success:
+
+	ret = t7xx_dpmaif_set_frag_to_skb(rxq, pkt_info, skb_info->cur_skb);
+	if (ret < 0) {
+		dev_err(rxq->dpmaif_ctrl->dev, "Failed to set frag data to skb: %d\n", ret);
+		return ret;
+	}
+
+	t7xx_dpmaif_set_bat_mask(rxq->bat_frag, cur_bid);
+
+So a failure such as shinfo->nr_frags >= MAX_SKB_FRAGS leaves the entry
+unmarked as well.
+
+t7xx_dpmaif_avail_pkt_bat_cnt() counts set bits with
+find_next_zero_bit() starting at bat_release_rd_idx. One unmarked frag
+entry therefore stops release and refill of the frag ring for good.
+
+Isn't this the same "stall BAT release and buffer replenishment" problem
+the commit message describes, only on the frag ring?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119062044.72261-1-fangxy%40xiaopeng.com
