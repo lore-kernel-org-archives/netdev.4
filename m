@@ -1,66 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795463874;
-	b=ARhdpSXu9ODmRfUnyzKB76hfNq6ZBCSo+XAfKFu4ncv4sbNoZb9qFqKb0mjtbjpuDKgz
-	 yJuyUkwWCMEq6ftnZ3r4sCHC5GZ5AmRL5wjkKDHdC+xnjklLITDU++ufXYDlU2/hPkfM5
-	 sK0sTCIFVD3+JGYOaEDF6WZ8B26AV08oLUNGN5/vTz1o/4NQU8tmwE7tbbdMy0e5OKYyA
-	 y2UXOupZeu9JQvhoNgPTHgIs6VpTiRK9vzfQGyJWsZCx80FiWCWiWsYThaSEa6W8psyt1
-	 4XewwCQI4oU/4tP4Xp7N0yUDO/CmexTMxqXsENdNoBSOoQSBz+7r4urycqHa8/hE9tw==
+	t=1795464369;
+	b=jQklHY2lJQ+1ZKtNymGrtV4PkKrnaYhuY1scqTkTC6C1nPNgBj5NTa+FYZIB9e5owo9T
+	 m6cXx1HT1xUjKLfg5qodaj7B0Y7EWkfDrAzqF7Wit9/hkGe0B9Ed1KlFoYsMIwVgLZcrX
+	 ZjmbzDuvCSMqrpBU/mrRFA2A3ndH0vBsFjtMmnJs33PmaIWTPwkmZ2kc49iSuXBKpLwbv
+	 NXUN9dNMOy3Gh+GOWWnc8N3Orpi7vjUOK9yTjAkiuZN7k1lUS5slAYFSEqlj7IEH134oG
+	 kl9AioSzXrVyK6O6EOzbwEirN65GoZYYJCWUcKtOVYZc7VO6p/0Az8aM7rmEkBYDzjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795463874;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=D7q7cBjmg1g9miWY5cP21kvzMw2hIFRfrX+Qy8eFRzk=;
-	b=WMs9MpSFKPJOoY20Lr+62z++n8AefmYE8lzSbARBG+iaGnCXI8NtrWE5VBsmrCJDdPA5
-	 KkVpKbdRUdO6ZBwe0I3SgiogiyB0QdPDj/r8e+m4cIrBBRnkpegQzqMEHWOuY6qF8Weu+
-	 1pZKkX1Yg7yQNhI7+Y8BdEW/BCJtzpTcbJvy+CnGqfIC/QtET2O8lwW6srwW8sfSEd5l4
-	 geE6+PDFZE5jZi9DfozhL4KNCcjoJAGrH6FVeCsJmQp3iEhsTmhqoosLaClHghQf3Nw5k
-	 01yqCdO4sdBthRjoN6ljyslQhCsDUYvkPFCXZ5CR7jrvBV3c4Yid6V9P4VD6JmWihUg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795464369;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=9Z13M2q1BEju2I9bduqQgoLJT03MD/wXP6Ev3AKsXE8=;
+	b=aLzO3YnzE3KHz8qds2Nm/f8QfVqn/9ffoUxyo6KlQjTmoOr3Oo1t7lHyoLJUbYj4rPBr
+	 PB5dY5K6IMkfrOY8PVPaMy/cGyQtBzliClt+qbLJd6lTHQxG/UCYeDSQNCT++Yx6fpc3F
+	 EtqQhOP9onaYi5b6+t7QJKn2b7eGWh2Uc/jRP7l2ZE8b6Be7CmqaXJpcpY1WWpwNqHeyh
+	 w8ISAfbZrH/h6ktni3S1j+TBf4lp5oenyBHxrOFm5H3eBseBvBKy7wGA3pkucCUbfnzXl
+	 o+RRn/nW3KitmCY/NUxMsvGDexpl5xdnUIAbf/BmJhnixnvI7Bh0JQ5bLSb6N4RBoiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=3T9mqLlg;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OujbhL8g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69217606A31F;
-	Mon, 23 Nov 2026 19:57:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69217606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EEA47606A31E;
+	Mon, 23 Nov 2026 20:06:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=3T9mqLlg
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=D7q7cBjmg1g9miWY5cP21kvzMw2hIFRfrX+Qy8eFRzk=; b=3T9mqLlgtPoBR9w6y9TGRQXD/R
-	xCYTRGqWyQlkKtd4IxmBwovjdUDN/AQI3cqK9I/6NR/EhbWXw0cC+wDAgUReUNNP/wRdiB0JDkyRI
-	CBghBzOEzCpyvbFL/4UkThqeejtXWzSQD4bgtvgAGf/vhOG1qITUNfHeeyqsIZTtHIIQ=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVaAX-000skY-KP; Mon, 23 Nov 2026 20:57:41 +0100
-Date: Mon, 23 Nov 2026 20:57:41 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Jian Shen <shenjian15@huawei.com>,
-	Jijie Shao <shaojijie@huawei.com>, devicetree@vger.kernel.org
-Subject: Re: [PATCH net-next v2 2/2] net: hix5hd2_gmac: support fixed-link
- and mdio child
-Message-ID: <a9a587e3-f7d0-4a67-8815-f12e5ff49628@lunn.ch>
-References: <20261122230134.3366017-1-mmyangfl@gmail.com>
- <20261122230134.3366017-3-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OujbhL8g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82E2F1F000C6;
+	Mon, 23 Nov 2026 20:06:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795464368;
+	bh=9Z13M2q1BEju2I9bduqQgoLJT03MD/wXP6Ev3AKsXE8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=OujbhL8g4RjTPcaG7WStbC7wPRVKD9zNCUxUHNvz9yRdzjeEK5cLjMCFEGTf7tQLn
+	 SNTeOXnILyC+R8t7hohjDTuwu7ZxJ4tGblUEQnq3/jV3GOCFoKLrt9PAULrOg9Xc/l
+	 3G7rUInCJ5SvfOKfRMrBvS9SScrLa9dAKy6H0H/r7gvIB71I9qNg7I8USl8kfs3wrj
+	 gQY9PzLbdSGZn2I+SkWnziuwMtS9bAnmgLOjCoFzNTXY2e4918CxcXgONZvWy79RlA
+	 ARoEdVbJUpxF6HyGTirp6ggHj2sW3ddKU3UX86/QudDOMVQLpr4UI4ya8DzCrrFW9k
+	 2XDjFBPZAnRzw==
+Subject: Re: [PATCH net-next] net: stmmac: Advertise TX checksum offload only
+ when supported
+From: netdev-bot+sashiko@kernel.org
+To: prabhakar.csengg@gmail.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org,
+ prabhakar.csengg+renesas@gmail.com, biju.das.jz@bp.renesas.com,
+ fabrizio.castro.jz@renesas.com, prabhakar.mahadev-lad.rj@bp.renesas.com
+Date: Mon, 23 Nov 2026 20:06:07 +0000
+Message-ID: <179546436704.3135.12593345717335656860@kernel.org>
+In-Reply-To: <20261119185016.1789843-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20261119185016.1789843-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,32 +67,144 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261122230134.3366017-3-mmyangfl@gmail.com>
 
-On Mon, Nov 23, 2026 at 07:01:31AM +0800, David Yang wrote:
-> On Hi3716cv200 hix5hd2_gmac is found directly linked to another MAC
-> without PHY. The driver didn't take fixed-link into account and failed
-> probe when the node has no phy-handle. Add support for fixed-link.
-> 
-> With a fixed link declared on the MAC node, of_mdiobus_register() treats
-> the reg-less fixed-link child as a PHY candidate and walks all 32 bus
-> addresses, printing "scan phy fixed-link at address X" for each address.
-> Register the bus based on if the PHY attached to a given interface is
-> described in the device tree or not, like commit ef8a2e27289e ("net:
-> macb: fix probing of PHY not described in the dt").
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Please split this patch up.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Add support for the optional mdio node.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Then add support for fixed link.
+- [Medium] The new advertisement gate in __stmmac_dvr_probe() trusts
+  plat->tx_coe.
+- [Low] The commit message presents this as a bug fix ('This can cause
+  DSA user ports to inherit checksum offload through vlan_features…
 
-These are logically different things, so should be in different
-patches.
+--
 
-    Andrew
+net: stmmac: Advertise TX checksum offload only when supported
 
----
-pw-bot: cr
+With this patch, __stmmac_dvr_probe() adds NETIF_F_IP_CSUM and
+NETIF_F_IPV6_CSUM to hw_features only when plat->tx_coe is set.
+Previously they were always advertised. The goal is to stop DSA user
+ports from inheriting TX checksum offload through vlan_features when the
+conduit can't do it, for example in threshold DMA mode.
+
+> The driver unconditionally advertises TX checksum offload, even when
+> the hardware capability check disables it, such as when threshold DMA
+> mode is selected. This can cause DSA user ports to inherit checksum
+> offload through vlan_features despite the conduit not supporting it.
+
+[Severity: Low]
+This reads as a bug fix, but there's no Fixes: tag, and the message
+doesn't say what actually breaks. Is this meant for net or net-next?
+
+Before this patch the conduit's own dev->features was already correct.
+stmmac_fix_features() removes the TX checksum bits:
+
+stmmac_fix_features() {
+    ...
+	if (!priv->plat->tx_coe)
+		features &= ~NETIF_F_CSUM_MASK;
+    ...
+}
+
+So only hw_features and vlan_features were wrong.
+
+For header-tagged DSA traffic, validate_xmit_skb()->skb_csum_hwoffload_help()
+on the conduit already falls back to software checksums. Also,
+stmmac_features_check() drops CSUM for non-IP ethertypes. In that case
+the only effect looks like wrong feature reporting.
+
+Wrong L4 checksums on the wire would come from trailer taggers that rely
+on the conduit (tag_trailer, tag_xrs700x). Is that the case this patch
+fixes, and could the message say so?
+
+There is also a change users can see in ethtool when tx_coe is false.
+tx-checksumming on the stmmac netdev now shows "off [fixed]" instead of
+"off [requested on]". Should the message mention that as well?
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index f256244ce0d11..8cb1e3b4030e2 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8224,8 +8224,9 @@ static int __stmmac_dvr_probe(struct device *device,
+>  	ndev->xdp_metadata_ops = &stmmac_xdp_metadata_ops;
+>  	ndev->xsk_tx_metadata_ops = &stmmac_xsk_tx_metadata_ops;
+>  
+> -	ndev->hw_features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
+> -			    NETIF_F_RXCSUM;
+> +	ndev->hw_features = NETIF_F_SG | NETIF_F_RXCSUM;
+> +	if (priv->plat->tx_coe)
+> +		ndev->hw_features |= NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
+
+[Severity: Medium]
+On cores without the DMA HW feature register, does plat->tx_coe reflect
+threshold DMA mode by the time this check runs?
+
+The threshold-mode override is applied only inside the hw_cap_support
+branch of stmmac_hw_init():
+
+stmmac_hw_init() {
+    ...
+	if (priv->hw_cap_support) {
+		...
+		/* TXCOE doesn't work in thresh DMA mode */
+		if (priv->plat->force_thresh_dma_mode)
+			priv->plat->tx_coe = false;
+		else
+			priv->plat->tx_coe = priv->dma_cap.tx_coe;
+		...
+	} else {
+		dev_info(priv->device, "No HW DMA feature register supported\n");
+	}
+    ...
+}
+
+Older GMACs such as 3.40a don't have this register. There,
+dwmac1000_get_hw_feature() reads 0 and returns -EOPNOTSUPP, so the else
+branch runs and tx_coe keeps the value the platform set.
+
+For "snps,dwmac-3.40a", stmmac_probe_config_dt() sets that value
+statically:
+
+	if (of_device_is_compatible(np, "snps,dwmac-3.40a")) {
+		...
+		plat->tx_coe = true;
+
+It reads "snps,force_thresh_dma_mode" for any compatible. Nothing makes
+the two settings agree.
+
+If both are set, stmmac_dma_operation_mode() checks force_thresh_dma_mode
+first:
+
+	if (priv->plat->force_thresh_dma_mode) {
+		rxmode = tc;
+	} else if (priv->plat->force_sf_dma_mode || priv->plat->tx_coe) {
+
+The TX channels are then programmed in threshold mode with tx_threshold[],
+while tx_coe stays true.
+
+In that setup the new check still adds NETIF_F_IP_CSUM and
+NETIF_F_IPV6_CSUM to hw_features, features and vlan_features. That is the
+DSA case the commit message describes. stmmac_fix_features() keeps the
+bits because it also checks only tx_coe. stmmac_xmit() then requests HW
+checksum insertion for CHECKSUM_PARTIAL skbs.
+
+The driver comment says TX COE doesn't work in threshold mode. If the
+hardware really skips it, won't those frames go out with only the
+pseudo-header partial checksum?
+
+No in-tree DT seems to combine dwmac-3.40a with
+snps,force_thresh_dma_mode (spear3xx.dtsi uses 3.40a without it). This
+may not be reachable with current in-tree users.
+
+Would it fix this to move the force_thresh_dma_mode check that clears
+tx_coe out of the hw_cap_support branch?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119185016.1789843-1-prabhakar.mahadev-lad.rj%40bp.renesas.com
