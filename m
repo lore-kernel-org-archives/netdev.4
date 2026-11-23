@@ -1,60 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476438;
-	b=dMV3njYV2wYf9QflnjCz+PxkIalKyT+dneMXSBbEtBY3wCv1ou6zV8mI5b0hESRWTLm7
-	 x4o3L4VAW+wEPwWz3vguip4kZ0qBgYr+H6LoGkhrnAlfvi5cnDr++CdT190lj9zCczdCP
-	 aTSUmaiiJPM8lZ8CyqGdriLskYSKiAlQNs7rc1g+PxFwTgORCOZQckCtoXR6CO3qyBBod
-	 QvmbIGRj3lANE6nQgjz/4e49jIKMpkv4vUqyZXE47emwg0D+R/TzSQSpfGQ/JvS0HGFoT
-	 x2zERuozmRcTmfdWyDN4Wf1uZQf7F3vzcUG7yqywWbLnBjvdNJuWl9b4g3CEyHeZG5A==
+	t=1795476440;
+	b=hI3igmC/AOHi8lTJmNtMw4VB8mnJNHpXh0hgps99p0WcrpBk9ljKxpQ3l13C0mbPnBlU
+	 X86YANSjg151PGpkOX68t6oxM5dB9rakv7VL2LWwY6NFkcrpibCPSN8+IRVBjd/CXhgvy
+	 LM+/BY1V4AtcEB2FjruBKnDkb22kvgJ8gVJwj4Ko6EPL0yf5/pgEYJSgFO8pmeOy5Txk/
+	 uVsiOpC64M5GPzAgYpi4+FyjMh59jPtuXSguBx4LLuy9AotAaqYD6vX2qM/1HjV7l73Y7
+	 V/KsXM5upb+VFRfbZnWdysWYKtlrpNJEBSpsIyFokQN4YiVQXe+yx1uWR4KMIOX2nwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476438;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=UOCsuUblKp6MHryyZUEo50kZApMDVw34hVNlsTMvdFE=;
-	b=GtlrvhqZl8W2p2u9pj1TbksVy8lm7vibzfuUUq3R/zDGX0uDFP9Vw1XexZMzALYtFjId
-	 GP72fSyZCQ7Rgbv8o4OQk+rn54cjzDBkLSejmtuZ+2FMNDhzeTSjHUWnuAA7wezIoZCLv
-	 JUAbAgNQSTmiUqf0Ns2mWceEqc4hRogv1WDXt4KsVS+UF+8MhHUfZnJ0jGYuuUcTp+F8A
-	 vr/1xkdVh9eZwRfWqPRjLMM+5Blfq1R0wKX3a4vVi8GPRCUADpigDFgZLEZfDHPtG7zuL
-	 LCjkylNSKvcQhSUbhkcCyONaRad1Y41tXf2bXmsnpSQLyH49OQ9yHyvPg6+g/jdlgTA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795476440;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:Mail-Followup-To:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+	b=MI3kQfKw00pQwkUfESZRb9b4e/dDSAKeA9Mhyberq8lyUchBGJaY7UxPk5PxMtfvgwl2
+	 K98LjvdmldPKhiG17gY7/YgoWELwk7HcEEs4DV3w0oHAyug7fcHXcgsOzfpcqxRKBZzMa
+	 cRtW0CmWTfyFYsw5orP4lh5ZLvl4JHUahw3O+9XMmckJk1CswtLm2SQjGdGHv+nzjg8Fn
+	 2BBztVZeTreLUCWCHQ+VRdIlkr0EQSW9OZeDyNat9tknPR8ByvL8VKod+yRMIwBf7RqMr
+	 Hsww2e+PJdv+8os+2NzIOp6iCO5zYl9VRNrIXFa4zjqqeulGj96Jd1DNKHPqHjrmugg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDWicosc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg;
+	arc=none smtp.remote-ip=209.85.215.179
+Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4B6E6606A331;
-	Mon, 23 Nov 2026 23:27:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 482BB606A686
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:27:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 482BB606A686
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UDWicosc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A670D1F000C4;
-	Mon, 23 Nov 2026 23:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795476437;
-	bh=UOCsuUblKp6MHryyZUEo50kZApMDVw34hVNlsTMvdFE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UDWicoscz+gwBCeeIbs6ZafS0cpggEBbyyvTfSdljeZO6T/Ki0UVBlV7Mv2mRtNcb
-	 NRvoKu7JYtVH53OGzub6cwH7n9tDwTbsUHMpDiQxByHO159Kxt2H5Da+edGXW7AzeG
-	 z6MEoHNqKsSpE1UF8/Eu87vKtueFo4GMmb7KWC/RaxcyqOShE+7mm0jFT+l5Ve7jAd
-	 BdHzfjT8FizFbVlER3x32eYPnxjIiI7JZymI+aj1pdRpiqPvPf+JSydrv/UwrbS20b
-	 QCsOoVNDeiwrGAf8KrOC5QLZVk+FvBQjndCZzI0yUnFpZskigLGUHlNA+NtMIgPetC
-	 7qhK8/+NkH2hQ==
-Subject: Re: [PATCH net-next] net: mdio: handle broken-turn-around for non-PHY
- MDIO devices
-From: netdev-bot+sashiko@kernel.org
-To: bage@debian.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- olteanv@gmail.com
-Date: Mon, 23 Nov 2026 23:27:16 +0000
-Message-ID: <179547643618.3135.12985709493556442247@kernel.org>
-In-Reply-To: <20261119231319.1256419-1-bage@debian.org>
-References: <20261119231319.1256419-1-bage@debian.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=c6mBRDzg
+Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdb1199bfd8so1751696a12.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:27:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795476440; x=1796081240; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+        b=c6mBRDzgIZ9H7GWVPY/NPFpSZVPRkVb3ExQRmZnYsMUhVj6GwRJWUP6DIZ1N8CMm/v
+         IRrlLQKW/o6q8CFyf9Q151QiF4Nmnx/ouFuRYZLqeAx2zQyR9FKTsmnl+pE9/izvJEAw
+         4LuNWS1Cbhh0FDHjAtH3AkhwvRnw0H5H47LPPRqyxJGgr1rWl+5fJQdVJPr+9XVX9TYZ
+         DMT3/WeblE9Ly/L149xdrq8ZO/knZrAxSihN2cTrwv/ajrAm4q0JioORDvEA7VPib6+W
+         Fc1We1SHbHja0aU6la3mCKWmqdmdqyrw7PrK1kBw+lHZZRnVJkwWtgVJrKaeNf49g9jN
+         uuVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795476440; x=1796081240;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=MrlpIcAr71vla5T05FyN6t4TG/z1SlVrr2eAFwjUvj8=;
+        b=0G7JsNjTEzYVvPtxhQlJBq1dwtBb0sr57nGSTMAEOfi2vHmO6pTbogEQBcJQ/maSaD
+         4pS/zVtUvDHLiRjaZ4OIpHJ7Sww63R/+0oY/E73TzrviRrnp8ALOKwor31QXIZBmIAyF
+         rPRM0I+NiDsjcynxxUhSjlEDkSUMFrQuCQrkYtdwdVPSoVklfIiIwbSfUvS9OnYdT6AA
+         2sd77FMH9JbH2yy1nyRWckd1JGAflOGVwS/M2nsoXbZ+lZk/vpckm7rAH//J8VrH1Y0u
+         3MdWw0oSeT+aPP5HGqezUwoUXu0XbtfXK0x7M4CRCrTmTCmi5p8QFWiEF6QzuuiE/Dda
+         kOqg==
+X-Gm-Message-State: APuU4Z950fCyumzoHU++8MBCH8ZMAtWizvb020wu80y/lrRS+ObC/Wwk
+	NsrUg7zhNCOib1MGfnb/Xm4tN/+6akRDHLj/Lcul9vhyBHoY+d3S124ZZds1/paGYm24/3M8Qwi
+	lK8S0
+X-Gm-Gg: AZFdTZe/88+UyvTRCKXButVbQheGPrt/L8zt3WUBr26k69Xh39b52r6VEc9tXxFbI31
+	5oHFf5uieQeugtamtd1NjCtbxB1Tm2lSQO3+TsmyJn7jv1sYXC32ado6HO3sxg6b7BDPD8JU03D
+	UcxfnlOkhB3muijMzHE9NE4iWTEZhWABMYJOY0GtWxcYj3Ryf6a0g0C/titwiqaDKokE6UaXs5d
+	3XTYkTKbXjx5wpa5thWmAoC3AhYp3R+n7PDx/DUE4HW7lKPxXZL+dAwMMK7pBiL7vsa+ku1amC0
+	9LtlrrqVlQ5Ka5tmlaFc6dorOAId2FVrrths/6f0ZRYEjCWjEa2WThXHLj7zZsI0duL6Y6btgN7
+	1n2BE4XgHWgm595L2NJGUQMDatMM2SqMOU2PNAk72/fFxTWoDQ8Yy61G3Fl3+8JkdT38l8eF622
+	1fNiJl/DsK5McOrbQWs+IZVFrZ5KtDMbJeUohAqcBp2YyEnGGrMnlTa8aeUw3tX72cPiRbyms1I
+	DLWwdqT3RUWjUHb9SUNA+/YBVwWvkZg5RX91TNju8BZ30sWMhZIp5V1mPZ+nl4ZITXwBsXnhQ24
+	WgqEKToN9CTgakmb3O4Vpl5PbmDhnjOH+QLHrttt/3M=
+X-Received: by 2002:a17:90b:4a90:b0:3ab:e588:c295 with SMTP id 98e67ed59e1d1-3b41c95b542mr783917a91.42.1795476439597;
+        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:5d::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm8886551a91.2.2026.11.23.15.27.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 15:27:19 -0800 (PST)
+Date: Mon, 23 Nov 2026 15:27:18 -0800
+From: Joe Damato <joe@dama.to>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v6 0/5] bnxt_en: Make RING FREE more robust
+Message-ID: <awTL1hW4kH+lo8Vl@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, netdev@vger.kernel.org,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	selvin.xavier@broadcom.com, kalesh-anakkur.purayil@broadcom.com,
+	linux-kernel@vger.kernel.org
+References: <20261120152830.699712-1-joe@dama.to>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,147 +105,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120152830.699712-1-joe@dama.to>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Fri, Nov 20, 2026 at 07:28:22AM -0800, Joe Damato wrote:
+> Greetings:
+> 
+> On two production systems, I saw the following dmesg pattern:
+> 
+>   NETDEV WATCHDOG: transmit queue 0 timed out 6073 ms
+>   Resp cmpl intr err msg: 0x51                  x20
+>   hwrm_ring_free type 1 failed                  x12
+>   hwrm_ring_free type 2 failed                  x8
+>   AMD-Vi: IO_PAGE_FAULT  x3
+> 
+> This suggests that, for some currently unknown reason, TX completions stall
+> and the netdev watchdog fires. The driver asks FW to free the rings, this
+> times out, but the driver ignores the possible failure and frees ring memory.
+> Since the FW didn't respond to the ring free command, it is possible that the
+> FW is still DMAing to the memory which was freed.
+> 
+> To address this, this series makes the driver stop DMA before freeing ring
+> memory when the firmware did not answer RING_FREE.
+> 
+> Since the RFCv4, I found a third system that hit this repeatedly:
+> 
+>   NETDEV WATCHDOG: CPU: 35: transmit queue 0 timed out 5459 ms
+>   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x64
+>   hwrm_ring_free type 2 failed. rc:fffffff0 err:0    x32
+>   hwrm_ring_free type 0 failed. rc:fffffffb err:1    x64
+>   hwrm_ring_alloc type 1 failed. rc:ffffffe4 err:4
+>   hwrm_ring_free type 1 failed. rc:fffffff0 err:0    x44
+>   Abandoning msg {0x51 0x3e35} len: 0 due to firmware status: 0x408100
+>   nic open fail (rc: fffffffb)
+>   DMAR: [DMA Write NO_PASID] Request device [47:00.0] fault addr
+>   0xffffa07ef000 [fault reason 0x05] PTE Write access is not set
+> 
+> This case differs from the first two in a few ways, but this series would have
+> still helped:
+> 
+>  - The ring frees fail on the close path and again on the error path of
+>    the reopen (bnxt_init_chip()), and the device then writes to memory the
+>    driver has already unmapped. The series stops DMA on both paths.
+> 
+>  - The interface came back up later, the watchdog fired again, and the
+>    cycle started over. The host logged 79 DMAR write faults in about 20
+>    hours. Patch 4 breaks this loop by refusing to reopen after DMA has
+>    been stopped.
+> 
+>  - The firmware answers each RING_FREE about 5 seconds late, after the
+>    driver has given up, and finally reports an error in its health
+>    register. Patch 2 does not treat these late responses as success because
+>    their sequence ids do not match.
+> 
+> In this most recent case, I suspect the hardware is faulty, but the driver
+> shouldn't hand memory back to the system while the device could still write to
+> it.
 
-Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
+Sashiko's review of v6 raised a few questions that depend on how the firmware
+behaves.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+1. Patch 2: firmware ordering for RING_FREE
 
-- [Medium] The fix marks only BIT(addr), where addr is the device-tree
-  `reg` of the non-PHY MDIO device.
-- [Low] The kernel-doc for struct mii_bus::phy_ignore_ta_mask
-  (include/linux/phy.h:427) reads 'PHY addresses to ignore the TA/read…
+   When the firmware writes the RING_FREE response (valid byte set),
+   has it already stopped all DMA for that TX/RX/AGG ring? Is the
+   only thing still in flight the completions?
 
-Pre-existing issues:
-- [Medium] This patch does not introduce the problem, but the PHY path
-  that the commit message cites as the place where the property already…
+   Also, once the firmware answers RING_FREE for a completion ring, has
+   it stopped writing to that ring?
 
---
+   If the response can be written before the ring is quiesced, patch 2
+   is wrong and I'll change it.
 
-net: mdio: handle broken-turn-around for non-PHY MDIO devices
+2. Patch 3: abandoned waits because of FW health
 
-This commit parses the "broken-turn-around" property in
-of_mdiobus_register_device(), so that non-PHY MDIO devices such as DSA
-switches have their address set in phy_ignore_ta_mask. Before this, only
-PHY devices registered through fwnode_mdiobus_phy_device_register()
-honoured the property.
+   hwrm_wait_must_abort() gives up when the health register reports
+   not-healthy, and patch 3 counts that RING_FREE as stuck.
 
-> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-> index b8d298c04d3ff..0695ae83b83be 100644
-> --- a/drivers/net/mdio/of_mdio.c
-> +++ b/drivers/net/mdio/of_mdio.c
-> @@ -56,6 +56,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
->  	struct mdio_device *mdiodev;
->  	int rc;
->  
-> +	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
+   I am going to guess no, but is there a health status that guarantees the
+   firmware has discarded its ring state? If so, we could skip stopping
+   DMA in that case.
 
-[Severity: Medium]
-Does setting only BIT(addr) cover the addresses these switches actually
-use on the bus?
+   Sashiko suggests that an ifdown overlapping with a firmware reset would
+   need a rebind. That might be extremely rare and fine as-is, though.
 
-Bus drivers check phy_ignore_ta_mask against the address of each transfer,
-not against the registered device. For example, in unimac_mdio_read():
+3. Patch 5: Drop ?
 
-	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-		ret = -EIO;
-		goto out;
-	}
+   Sashiko found a deadlock and RDMA restart races. I don't know what the
+   simplest fix to all of this would be.
 
-The comment above that check names the Broadcom BCM53125 as the broken
-device. b53_mdio_probe() accepts a reg of either 0 or 30:
+   Maybe it's better to drop patch 5 and let bnxt_re handle this in a
+   separate series?
 
-	if (mdiodev->addr != BRCM_PSEUDO_PHY_ADDR && mdiodev->addr != 0) {
+It would be really great to get the ring free failure path fixed so that FW
+isn't TX-ing memory the driver has released.
 
-But b53_mdio_op() sends all switch register traffic to
-BRCM_PSEUDO_PHY_ADDR (30), whatever reg is:
+If there's any guidance on the above that Broadcom can provide to help get
+this applied that would be very helpful.
 
-	for (i = 0; i < 5; ++i) {
-		v = mdiobus_read_nested(bus, BRCM_PSEUDO_PHY_ADDR,
-					REG_MII_ADDR);
-		if (!(v & (REG_MII_ADDR_WRITE | REG_MII_ADDR_READ)))
-			break;
-		usleep_range(10, 100);
-	}
-
-	if (WARN_ON(i == 5))
-		return -EIO;
-
-There is an in-tree BCM53125 node with reg = <0> in
-bcm47094-linksys-panamera.dts. If broken-turn-around were added to a node
-like that, only bit 0 would be set.
-
-Wouldn't every read at address 30 still return -EIO from
-unimac_mdio_read()? Once that is truncated into the u16 v, the busy bits
-look set. b53_mdio_op() would then hit WARN_ON(i == 5), and the switch
-could not be programmed.
-
-b53_mdio_phy_read16() also reads the internal PHYs at their own addresses
-on the same bus. The mask does not cover those addresses either.
-
-mv88e6xxx in single-chip mode (reg = <0>, sw_addr == 0) looks similar.
-There, mv88e6xxx_smi_direct_read() calls:
-
-	ret = mdiobus_read_nested(chip->bus, dev, reg);
-
-for many different dev addresses, so no single reg value would cover the
-chip.
-
-How much of this matters depends on which of the chip's addresses really
-have the broken turn-around. Should the commit message say that this
-change only helps when reg is the only address the device uses? Or should
-devices like these get a wider set of addresses?
-
-[Severity: Medium]
-This is a pre-existing issue, not one introduced by this patch. The commit
-message cites the PHY path as already handling the property, but that path
-seems to apply it too late.
-
-In fwnode_mdiobus_register_phy(), a PHY without an explicit
-ethernet-phy-idXXXX.XXXX compatible goes through:
-
-	if (is_c45 || fwnode_get_phy_id(child, &phy_id))
-		phy = get_phy_device(bus, addr, is_c45);
-
-get_phy_device() reads the PHY ID registers over MDIO. The mask is only
-set later, in fwnode_mdiobus_phy_device_register():
-
-	if (fwnode_property_read_bool(child, "broken-turn-around"))
-		mdio->phy_ignore_ta_mask |= 1 << addr;
-
-During that ID read, mdiobb_read_common() would return 0xffff and
-unimac_mdio_read() would return -EIO. Wouldn't get_phy_device() then fail
-with -ENODEV before the property takes effect?
-
-The new non-PHY path sets the bit before mdio_device_create(). So after
-this patch, the PHY and non-PHY paths set the bit in a different order.
-
-[Severity: Low]
-This isn't a bug, but the kernel-doc for struct mii_bus in
-include/linux/phy.h still says:
-
-	/** @phy_ignore_ta_mask: PHY addresses to ignore the TA/read failure */
-
-The comment in mdiobb_read_common() also mentions "this PHY is listed in
-phy_ignore_ta_mask". After this patch the mask is set for non-PHY MDIO
-devices too.
-
-"PHY address" is the usual name for the Clause 22 PHYAD field, and
-phy_mask uses the same wording, so the text is not wrong. Would it still
-be worth rewording it to say MDIO device addresses?
-
->  
->  	mdiodev = mdio_device_create(mdio, addr);
->  	if (IS_ERR(mdiodev))
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119231319.1256419-1-bage%40debian.org
+Thanks,
+Joe
