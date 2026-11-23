@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795399068;
-	b=rFIvqDSfrCPHhscVOa0+bdKUrBGrUyvqiPu6mtQoX0AsJErXCsSEJ8AXerga72r6x2Mq
-	 gW5DU6rM4MzhM/3ahXswiatMR4R1wBKcRzP2ak7Y/y5jyViaBZwYsy0jDb7NbUuguxkwE
-	 jBG+34XM4tEE7+lCz52o4X4F6zmpLFm7VOYiZlyFKGWGTe6eirOLnGrxu2mcYv/u9LkbY
-	 AntpeJrSlXO++ZwEMX1TApR9jltsOC5Ocqn+nx4+dxN6K23hxUHUPRoaGkDIGkPDWxSM6
-	 lT4Ao8JcZJJAiyIu9wOoGu3nApn1WBdEiO7jtg7zTmwOf8fKYkHH/4+G+FnHviGDkFQ==
+	t=1795399072;
+	b=sYhWsvTePfEYzuJslp60nvV+telxq5GMvheKRJXIYpRO9SbGLlAUnd1N+UzrgJ7yHdAt
+	 gWtfcAXsZrQioiwBOnQKE9vkFup3sbAYIVSq+SnVbiwNOnny7sFIkJkBDklZeQE5xTXiy
+	 HpP2c2mNrMZZ4CzozVXOrUmCQGO5lt2N+fZgq1HXBST8/mrIzs8UtNC//c6eBz9FrHvEZ
+	 CGY5VAdpDiVr6W6vXugvALB2kg171HBLjY7RcyPWAADcw6ncZsxX1wXUP4pSsC80Wn+dK
+	 v3EpCVm0CeKLCqtZ83n7VmrYUVjHnTNv5MWL+cYFB4D7iFnBJafPpZ00Si0Yt5F2/cQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795399068;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399072;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=VZLwpPDij9JUW3KCOLKG+tXmQBD7Fz0cDDs3XVTWGsQ=;
-	b=n51gmh3PyEjRSzd6OR1gIP/ZaxfpuQymWaU9lXDTUWIjfY/U/8kDZW3JvexdgOfXtkuz
-	 qkrx3sLQgQH09dnm3XBzoSK/IqR/RMbYA7+yn0mQbeXskbfrRS877EDjCRh7op7vt2MdF
-	 UTGIK/W4+wDe5KqhVkUrO2jiP53b2rgk12/a9cXTF/zkrk+CX2+1071eZB63Et2hLYque
-	 a6DqAqfDU+V2zzvye57SlmQZFWYZVmfWmr2ql+zoCqDAHDyZhCFAuKj1yC+mJZTQuV2iA
-	 FzDkLmUEqtmYha3Eox/bw65bKAz0YPDpWBgbkF8tI7ETtC+u6Ga5XxL17sfqjJys2AQ==
+	bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
+	b=uFFblBiSIMAULmt4tdtgFDEu18i4hHRLj3OB0/SQk1j+rsTTxedXhaVdNNOO12Y4NZf4
+	 MFmyVjeHtYtmqLDSsqdRfUtTRPlCJnAFqUI/XttdJ7fXl10uPmg03zddy4AGz/4Cx+ZqO
+	 15+JAmIBQBoCE0eFZArrIcWlaPb+vuRvFjF9zH6RPY6KnmwuzKh14VaFUO09fYlmESkgx
+	 BkFaYnBKcHMq4MKcO/ZhiW9TOKJPLNs3zeSJdsQ1sQwWJwZg2EmwcO8qe6JEouP7HoBCQ
+	 gQG+zEcslKts56CwAx8/Zt24V5kP9XCQk0/w4CWLjNzKFVMZeF37WOtP5vKAOKheFOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iPKpwQbs;
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAIBn9Nf;
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C9B9606A320
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C9B9606A320
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 335B0606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 335B0606A31A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=iPKpwQbs
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-38699cf08dfso2348228eec.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XAIBn9Nf
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-36a315ed211so3574542eec.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795399067; x=1796003867; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795399071; x=1796003871; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=VZLwpPDij9JUW3KCOLKG+tXmQBD7Fz0cDDs3XVTWGsQ=;
-        b=iPKpwQbsrKk3I/u76gckxA+kxiRRK9YcylH0ljzygDhGy868JCVqLSeZ994kKwrsWB
-         MZ+Ae59ZjMhmO0hqghgIGdtdtH8hNd9ghxWw+gXKKBkjf2RRAosu00aMCsWm4s8OCOEF
-         ywVapv7CqWb++Rx883J6H+rVmR+whUE1pP/SLGeJzDa8K2n9kPSnTQFhH1T+GdKbGkUe
-         ekKA0UrXkLEnrd+40HGR6PoruaDBc9o0yf0wKuVZ0zO8Y0JzkLnMwZtnFVAEWMSFjAUn
-         nHrtkMcV6/A4AP4+TTjNwocZCmV5ywo6XBT9CF100hMBHH3I2yZ3wOXZNqI8n/B6lEBb
-         oYLg==
+        bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
+        b=XAIBn9NfPG5z1dR4weIWq+BXD0KqpxWIbswxq/foRuS+Enfu+1cNzuILKGZMpLcJAo
+         kvme9Jgq1/1Yd6exe0rRKh5JR+zkn3Ehc1+TOPhVUEXKz3V8OLKch71AH0T43H1Wf1tT
+         BT0eaDCfYnZky1pvSBnyUaC7ETuyUf0dplWICHIJZ31Kjp5ev76zbdrfMPnsCHGUueaC
+         nsEoC5AvKThV9gcnMeKMzcoXD2jKQTy6Gvn4M0uX24Xup0BUiN/QQX6n6EY+P5Wlm092
+         BeQAvIYOHEGOCWKLak2znSkHNl5MMUCMZ0Yhb5Y8+IQJ1IbL9kCuDlWkk3siiwoMSLa+
+         Otmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795399067; x=1796003867;
+        d=1e100.net; s=20260707; t=1795399071; x=1796003871;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=VZLwpPDij9JUW3KCOLKG+tXmQBD7Fz0cDDs3XVTWGsQ=;
-        b=p7HaSY3dIyjLLcnCvrWrM+Je5r9AFJjiWM7c3yiI0RG9EJ6M+vKISaBa6qE46SXQSj
-         3dqAIKqIzBxNtm6sNrp0R3WtccNFiFLuA2GdtpOR9c8/xboQ+P8jkCx3CoRO8ts5g9Nm
-         EClJACVoDkVwf/tH15cAA3nTMWEDLjktd67mr9FlF7JIsZRoqpWr6VguHvra+6q6Vc5t
-         DquWT60VQPikUDaTwHmCNuyfU+A5VHhW19/GB9FtkzH1TpoBZAdP7iiNewQVOVjpRaW7
-         h87t/4DalBAmZ4gxVlwk+MwCdgJxGB6sBEbK2F0uk9bRPa0RS4pdXp3SEnH5SC5YbgGG
-         uxmQ==
-X-Gm-Message-State: APuU4Z9ovKaPaBD98N6DXPhlnPRSaKI3VjDiBKrxXk+uT/zTkcRqZyeh
-	0MHU/xYFP0QqsZSVDaV2CIWl9fgmMH3iKaKJJM+WLVoO8JOrywSSejE+SexZNXsH
-X-Gm-Gg: AZFdTZcofkS2aN9oBTb3/HMkNOUVx8bWITiPvS9m+/vRHTk11hOz+HhZFYRnCRcxt+G
-	5Bw0R+YiKmKaGC6Avk8Y7ybTIHLaC+UG+c//Uy2KD5qlb3djNcmCir/xfi1dm2izYfpBClU4DnD
-	FybTGcOr7wrFvxaudW05Z73Qb2B0MFk0jelpdopthSjCPEbTWw+9L6qChrXy3ULjX0IB3w3wFE2
-	nkN4uCjsTTDY0VMTFtXumBYp6aM6BP75/GiDw1w2R3D6F4bJit5xC6UOPslbjyVT0aJPFRzdKtp
-	ufIP/1T7gwSIRLc/FSZd6T6OF6TVKhCHtQz3wl0XiT1nQxwT5pbd6dwqKAgn96ctc8lJ/uYoNwh
-	Gzm6A43rqmvoGQPuQHhVC+N/kFL9mahsr4VoWOFeV4ukSCBVL5eX48JtcSBibGO1BHeJtZB6LfY
-	lg4qIDpwZnStxcQ3TSykGgtDNAA8j/z/DqsdHdexjB35Iowcmuh/KQs4jzdc44T/2HroETM/Bac
-	WNMJpLGX3X47BxzwNhoVxoijLBoo9R+rlLiAFksffmH+Aw35Ga61RMkDphlPevgpFbAityz3utu
-	e18uHCI5lnecYgTb/Aaejw9uiETW1+F5E7/TysMoqPNIDFPvQe/C2mp+DT/Nm7eNJOYQ4QkgbI0
-	TWtFZ+gXQqDS0EEcRnDDfMQ6/qRlyRP5wB32gQXDmtJf+msNd0ndpjiR5lIIDOZAlUVmVuyip
-X-Received: by 2002:a05:693c:37c8:b0:386:a0d1:1b41 with SMTP id 5a478bee46e88-386a0d136aemr8794997eec.34.1795399067474;
-        Sun, 22 Nov 2026 17:57:47 -0800 (PST)
+        bh=wM7T3AJod4EBmTcKF7LzaZRbntzoK6ZSjCdw0P7V9/8=;
+        b=a+QwX6coW/frWQotkVIPT+ik284WEajiwwQbPLOFJ84H6O92zcU37eLkHXJIrNiLpG
+         tKvN0ld1TfHPqoYrBIEeTMyAHZGHk+3UuFcspbtPjSBbDg3yq827PFhj+OlZ1qJswXf0
+         g02vbivS/g5oWqLlLSCxEEO4dqHjjfKWrf5qWcytGvCzLefZX5rO296yjVI8tvR2OYu/
+         XeGiosbpY9gt3hD/ZHuwNmQT777KGKVvGCI5JXsQXf83Tqwlz6o8DkEZqHjp2gCxot5y
+         dWHVOSoQkKekSJaXilaC+KyG9w4LbOAdJm1P8i4HhjPbS9f3BW1QAHba/zxRArOk8rbQ
+         YRtA==
+X-Gm-Message-State: APuU4Z9Dw5emeIF9nYx8WP51TvWUWaV2up6k9GqAuAXMIKcUPs299tfG
+	31ecU4rgHK+CDTqCMfwG+U3HwaZJY9rKte/TCTV6/DjUHZ0uHyqQw1YskiMgj2UY
+X-Gm-Gg: AZFdTZeldNutq2LkSiiyHys1/l2QDM3/aAi+dUbc0J3RO/+iEWwkp7Ud4UA26JF+nly
+	71ki6dbSX7TNQyYg+GH25spCd6BUaSvwrnQ8vIE4RA/b3pzN6YJFq2i3XOqkPtRSDKzVSBE9hlP
+	78WTNyeSgiAQQchzQyc/Fmyx7UaW5h9Hg76XC/PbLbOLkTLbNX1V3Nt/NmT3shZ7Q2IRVrcS6pc
+	mFZA4EEtxowePnTmBi6i9r3DSpoqYDJ3XHMygMunqmqXWUzDfbDCUdSvUSwGqXrRjk0FfHGpEDF
+	2oEgv3EAJ4rxoYCRw1chbq/uACWjrUJsNilCRCk6ItK/GdHiogt1C4/bsmhqFoxn9JDhzxKb3Wj
+	pDf8uB8sqX4Hbci7+ZUC3nQ2eab3qrrrARimXiS4a1o61WtkLWL9tmgTC34uEjygsaClPsIM/KE
+	lZFMClTLO7Ge9GRXcbyfoY/LDjBWJRvCEakLYIpNL4HGuuiv2N9fO8wGotRmA8xSldSj06WwC3l
+	Wznel4dmayNlZEr5ui8/FEKbVZTeNSct76wVIai8Q11e8dPFmhhdqhNlTq9kVaaNenq5cvzoU6G
+	rooFTnlEdBH1ssjkjxzs6QyqcwJoo/5X5nolrzwMk/ujwnwKCccCm2hjt9V5sNyCjNdpDBwLN/Q
+	qxs64vOlErfhPfH/sqWP54jVBQupuVKkVqa1fg8HdndIQnSZKSORplHF2k6cfUKCeetOYdcKy
+X-Received: by 2002:a05:7301:b8c:b0:36a:2f6c:490e with SMTP id 5a478bee46e88-384b3986ef2mr12977042eec.6.1795399071276;
+        Sun, 22 Nov 2026 17:57:51 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm30096354eec.15.2026.11.22.17.57.46
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672ce402sm28493736eec.16.2026.11.22.17.57.50
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Sun, 22 Nov 2026 17:57:46 -0800 (PST)
+        Sun, 22 Nov 2026 17:57:50 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
@@ -91,9 +91,9 @@ Cc: andrew+netdev@lunn.ch,
 	rmk+kernel@armlinux.org.uk,
 	vadim.fedorenko@linux.dev,
 	vladimir.oltean@nxp.com
-Subject: [PATCH net v4 4/5] ptp: ocp: correct the DCF output frequency
-Date: Sun, 22 Nov 2026 17:57:44 -0800
-Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-4-ahmadexp@gmail.com>
+Subject: [PATCH net v4 5/5] ptp: ocp: correct the ART 10 MHz input frequency
+Date: Sun, 22 Nov 2026 17:57:48 -0800
+Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-5-ahmadexp@gmail.com>
 In-Reply-To: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
 References: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -107,44 +107,48 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The output selector table uses 77000 Hz for DCF, whereas the input table
-and the DPLL supported frequency list use 77500 Hz. A request for the
-advertised DCF77 frequency consequently fails on an output, and reading
-that output reports a frequency outside its advertised set.
+The ART input selector named 10Mhz has a frequency of 1000000 Hz instead
+of 10000000 Hz. ART pins advertise 10 MHz, not 1 MHz. A request for the
+advertised value passes the DPLL core's supported-frequency check but
+matches no input selector, so frequency_set returns -EINVAL. Reading
+the default ART input selector 0x08 reports the unadvertised 1 MHz value.
 
-Use 77500 Hz for the DCF output selector as well.
+Use 10000000 Hz for the ART input selector, matching the advertised
+frequency and the corresponding ART output entry.
 
-Source-derived set/readback tests with stubbed MMIO fail at 77500 Hz
-with the old entry and pass with the correction under ASan/UBSan.
-No physical card was tested.
+Tests using the actual ART accessors, stubbed registers and DPLL core
+frequency validation reproduce both failures and pass with the fix
+under ASan/UBSan. No physical ART card was tested.
 
-The issue was reported by the Sashiko review. Codex assisted with this
-table correction, its regression test and the changelog.
+The issue was reported by the Sashiko review. Codex assisted with the
+table correction, actual-accessor regression tests and the changelog.
 
 Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-Reviewed-by: Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
+Link: https://lore.kernel.org/r/179538007070.3135.8275620503580456948@kernel.org
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
-Changes in v4: no code change; trim the changelog to this correction and
-retain Vadim's Reviewed-by. The ART input typo is a separate fifth patch.
+New in v4, kept separate from the unchanged DCF correction.
 
-Testing: DCF output set/readback at 77500 Hz in the source-derived
-ASan/UBSan fixture. Restoring 77000 fails the runtime assertion.
+Testing: actual ART init/set/get functions plus the actual DPLL core
+frequency validation and get-before-set functions. A literal 10000000 Hz
+request succeeds; 1000000 is rejected; the fixed 0x08 default reports
+10000000. The old source and the one-MHz mutation fail runtime assertions.
+The test uses stubbed registers, not an ART card.
 
  drivers/ptp/ptp_ocp.c | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-index e27abe2c24c7..821ecd1a13c8 100644
+index 821ecd1a13c8..93923d5a2992 100644
 --- a/drivers/ptp/ptp_ocp.c
 +++ b/drivers/ptp/ptp_ocp.c
-@@ -1373,7 +1373,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
- 	{ .name = "GNSS1",	.value = 0x0004,  .frequency = 1 },
- 	{ .name = "GNSS2",	.value = 0x0008,  .frequency = 1 },
- 	{ .name = "IRIG",	.value = 0x0010,  .frequency = 10000 },
--	{ .name = "DCF",	.value = 0x0020,  .frequency = 77000 },
-+	{ .name = "DCF",	.value = 0x0020,  .frequency = 77500 },
- 	{ .name = "GEN1",	.value = 0x0040 },
- 	{ .name = "GEN2",	.value = 0x0080 },
- 	{ .name = "GEN3",	.value = 0x0100 },
+@@ -1385,7 +1385,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
+ 
+ static const struct ocp_selector ptp_ocp_art_sma_in[] = {
+ 	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
+-	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
++	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 10000000 },
+ 	{ }
+ };
+ 
