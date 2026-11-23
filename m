@@ -1,97 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795423393;
-	b=o8zydqLS8mIzCIifEUA0jcYJ30vfzIzO0mUFQfmJSstqgY/AmnP7RpghtJmXdN2ujNGx
-	 8QFgi/nfwUdWufCd5+ZY2hQnRXDTJ5l5TmEBLzZ3GCWpiQPC9QvQzv3J7TTf5zWdVcnyl
-	 B+Zq2oxwdT0jZTEmvWU9gE+NtsdKldvxdRgYZJ9Vq0InbMdDme2qjmeansTU/2zvHBm89
-	 u7AA8sbOJjO1tfReKzk1RiiZgQFDleDyZiTjm3VguxMt5WQHM59vpMO/s3QQPmKTTpxi3
-	 Yn90Cx30Vgk5VJdnjANzYD0s7KK3oD6iKiFoYplVNnuQLGESQ++9KpEmR5i3sAHzyAQ==
+	t=1795423391;
+	b=tdOKUqqeS7j7AsgEpJPL9w7M4DqROwFEeG6vLIL4ipAkmox5VNmlmadXKmsOEtnVQIvz
+	 aZT74n+rXQTPPkPqgrIPqjocPPg0qx/rPn6KPdJQgHUnfHn7Dw6AVuRiWh3LQp1xgti/I
+	 mpZTnzeRI0z47kvg+3z76+tE6uvpDc3vyhOPzucFWVYYDX000MXLUQqXNztrkdJzsMXh1
+	 xJN0WRZ65jfAs7vUb27PfNAatQ7mMye1lPVNYV0xheO0pws8pMN4ajs4ULoio87XMcfcM
+	 Wcg/1zjvi0vA64M/3E+5tspwOcl1boLQuFP+Z7XvOcUUfspIsUNRYXPtoUp/ejjH0rg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795423393;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423391;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=WsMDVDRcPOdr0yU45+bId8Zq42zni9YwKMp1FwF5jDA=;
-	b=EPC4QYkLdeNQiBaEGTtgsanYjwL5FMEAshc+hKAXPQzA3pEmwlK14Zw/XGYQACLhm+p4
-	 IZS99QmkKXROoPuxUi8YB+p/X4RyuGd6Kspt+sqAVlatUwE4hQHDtyDUB0hm2ACg09+r7
-	 gHDcWRkci7GlY6c9nlWbpJEGWtG/y60k1GlCKLlXaTG+5BIOJIcDec0TUs2tivodvob19
-	 jDv3uAzCAiQ2VtQXCOt55/zFqogZp8y8CGGjEu1tCXI5sy7PZwuomnmf/A7z95gi0C8TM
-	 hbe/ZadLJ0Mhd66zfqVNXa5AmjQd9e+pPz+cdN9ZVHJz7JKd4PPen4hPda9NCpQSDzw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=7dhioJkfIn8Rp/kl8bWOUoycB6YEQMQ+40u14yq/8cM=;
+	b=Hzk6UqTQ4es40Us+ea5XdNscFX1C3WfFY9bz6pBvbltfYi43dB7rz8sCIGVqHtL+aXtq
+	 VlG5fTt9OrR8/lmfeRYUBjWCKeTGQul8V7G/lbFDpzd7NmAMH+2R/Ia894o0qObaDu2fG
+	 ZFonY2m2mQmOGWIlX8Omy1sFL3kOGzULiVdwEKvmRO15sWkaaMx1HofOZwKSclodhzIh6
+	 vkRQ6FaFWXa8QwrkKo87Tc8CKcVNpY+OpSDEP/FtCaEZaBF+Mu1yh/98RLlevPMOXH04R
+	 5dIdXeBPJ5hJBswF8vVZzrvgFTx92TmdnTmNPdIVKLbjUR5iTWqA6+zInqUJGRITKfQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=blackwall.org;
 	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=jvjl7UuD;
-	arc=none smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=MznjcAqB;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3C253606A338
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:43:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C253606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00AC0606A68C
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:43:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00AC0606A68C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=jvjl7UuD
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso36027135e9.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:43:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=MznjcAqB
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so2261015f8f.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:43:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795423392; x=1796028192; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WsMDVDRcPOdr0yU45+bId8Zq42zni9YwKMp1FwF5jDA=;
-        b=jvjl7UuDeylAi/aqGSsDGsKLMOdDb2OhE6HDHqm47lRoNW0rpGHBwOMnOc+b+ed2Np
-         nyFIEIHasMr990mID+IBBY5NUr8cOfYQ8gRICFo8rsjeBoFC88qh1er7rwltZO9KkHr1
-         BO4POBGI0x9etEmADs8E64wav/Wa7gK406jOeKYnuUvwjAf6eHbYNoIQR6utFHe1793+
-         vrs2U7IvO7NpuC/AtJc6Cr0RLxARXHP1ROjbGtDFsl3PKWL8In7oSoyqbirPchpm0BYC
-         ILA6tvDEfKt8kvUMay5hJBy6p8la4632ctx/XhdjGbXquRZKPbKeWgFS2eRzlKfjVcZ7
-         oXUw==
+        d=blackwall.org; s=google; t=1795423389; x=1796028189; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=7dhioJkfIn8Rp/kl8bWOUoycB6YEQMQ+40u14yq/8cM=;
+        b=MznjcAqBGuBrzDtYHfSXAoUm+3W6oteZDRgJz5YyrNT0xTtbYHFpGPjdoDkEAXMN+/
+         gPu9Ln93VX3609Xiz9F+sYL4Pf87TlXCWLkB+AvYzldal2Ipcqj0C0GuXHIxLSN9jdU1
+         l1CDFeTEEqzWZLxfO1l0gah291HBJ7rH7QO2PJ1MJTKXkmc7x++cIiyuXtvHWW8mdMdi
+         GyuokDyNP/Mvvcd+Ye0SaCnlgeYOwH/yYcobRyUGT8psI/D99uvqgRrrXFZrYwacjWqS
+         ktfi7Q2Jxt1S2bNgLPD55Eo8oKo89Te2hVel2XPffYcsXmZSryTQHZNHDcW0ryg4PVnp
+         0j+w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795423392; x=1796028192;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WsMDVDRcPOdr0yU45+bId8Zq42zni9YwKMp1FwF5jDA=;
-        b=CBMuanNx5m5QywnZ8U8WFFPrn/A6B1MDDShJJAlGLsKpFXhnPP7GUtgPaVWxlx7Wiy
-         1n5uLKjrZU6LHQ3skbOqpHI11/FA/Bz/ZXORdlKPhL1A1oy/WwX9dR14AoP2C797Elv3
-         YW7/eu+L6pPtHxhU7fGAaHGVjuWGbiifAlHrqUdOw3NvKjyZlZppCQ+RC3y4AaQiMcuM
-         Fet8E+4YdKrBXtuYH4MR8w5uWUFOAkbzdiC+8fzh/B+U3FnV6Tn0eg7SP2/npEuHYXx5
-         Jzu1jKYhKJYAeTA8RHg7qdJkOBB7+4anflRhqSbrwmgb51eGYxFA8p0cbFEKeJfZAgT2
-         3UDA==
-X-Forwarded-Encrypted: i=1; AL+hErE5U68grdJb+G6mxfLpohFOpTJDC6krWHD2V/9wc2pt++x+kAfCXb1V+CFVYC5vNFRC6d4avK0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/FhPiwWncsHcycoJxGG8DtqOcahyidPRO3x/u7+tsxW115zksz
-	8ZjWXdOcX3hXqbdDbeMrg0iyonq8kZlB/rwbFupzqkJxLB5TKp6ScH5ZX7EqwrkZmAU=
-X-Gm-Gg: AZFdTZdo5zSdo8B+G6NMJk4Ufyrq7lMfViRFP+XIOA2GQcf0UVsRHd79OlXRm2Xj3zQ
-	0CTws8Gzctg14knsQx2fF0hCSmSKrk33nNWDPtc/n1jD84HyJZLFKqNpT40e9VyUIBBmGv9vSa0
-	NsZm3kT4tP8xo2XY23Heg9rwMMAa5q+eSulWtxo/hMY7M4gGi4vFglX5xjmvmqGCNsP4l6Qk9uy
-	TIEmyLD7sulIfJ7rMv921F0wf/8oXyh48C6ZqwUMrZTX/x4/HW6IvvMPYhfmD/X7oaLULqMXnlD
-	mJ8r4yuBX3LCT0UD9rQl4jssawmwqnhpiZG1yZ44P+o4bYpnQszoT/kSEz2r8vfWWaCeOP333/u
-	acc3tnnKJ/kd8+3xj74uqlZxzqVOsJb4tcHSIJQeXuFO23Ro8ojzt+JJHYFVM8Aev9ik/H+v9m8
-	n0CzzLYSapB2EyKEx3tq4THmYzwD6GtFhOzEw/xHnU9KLnH6f0XSrFOuyE7BZGt7T/H+zWmK33Q
-	h4oZ244h3lVZ7k8ExcV+PxuMiCA5WFsciQbeViiKQzCu5JvDYtX6+RYRKwAB/7/koHX64fZ0QVG
-	vu2Jzllybe9s2FuxmQK7mWIxu3sZ95KqGjK0SuYmlY4SkAjBvu5sI98DwGjam8Af+GdJzRbs
-X-Received: by 2002:a05:600c:848d:b0:4bb:6687:5386 with SMTP id 5b1f17b1804b1-4bb8880c7f1mr236936835e9.19.1795423391490;
-        Mon, 23 Nov 2026 00:43:11 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795423389; x=1796028189;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7dhioJkfIn8Rp/kl8bWOUoycB6YEQMQ+40u14yq/8cM=;
+        b=RDHku+HLDvc19P2XJIne7M3VF4KyUAqjMFcZNuPwfoQ4cSGG3vq9JZr9caQkd4IFh+
+         dGraFvnH3N/m07TzKUNeSLSQe223xFMgPGOdMpNnYFyr/k6BhI/BWpiij84lZSOc/3JJ
+         uoac+9C5ZX9NvqVAIW1Qx5UuZE8kEDTSA7bGhycbcU4FtIuDzXeo0WqoxPyhxSRO2CmY
+         QXou+zDZTLlyQ0ly/UuC0VcoxX+GylpGw0QYKZrxxqfYfoIYB15dwwY2eMW6n7dlf4UT
+         nYTBeRvy11WEAAO8lLMTE6b9orIwg6s2L9iBFV2NeY57R2C9AtNOdDzFhYylHaAzYIvc
+         FR0w==
+X-Forwarded-Encrypted: i=1; AL+hErGIAO/xAWEB583T04vF3vSgh13gnY7q0y5Ku0ADu15jGCJZE0a7BQvdRHRydSl1rZ2aNWwshhA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8ip0s7Y9IMEFqrG9IuIXALyksFYNes+7PY4z4hw/YL7ZmtEbR5
+	9hoyE1EJ5f2I8U09ZHjVor3+Myu/tStVFdQ38YVgaCszymi5PRzEXIUhurQxszpPijs=
+X-Gm-Gg: AZFdTZcpYUhqu604SLDaDjHJf8Oay76q7gDkNqnbMTfgW/+UZJSdJA4F7xzU7elE/Q4
+	wG7938hnIn9WYw0lGRPR7bxjnHjebzjboDm/+yH6BT6zxMxLIv/e0WkDOG6KfJJyxiLRNQNwM26
+	jSmYVUMdD/+D3Ib3uwvm2KtLw/NiE/BvORplwTI8/ND7e9l24SlM+sPLgmFi02dJqXgTY/0HiVZ
+	3ine6vLy+jR6N+EVDq1PUKDmcAJXP4RKKBg8F69GYGYSOMsPvYjdUc1jAotxMP+q486plLTdDeR
+	SY2SIxD3qvUhTX6kKeue9ipnKl1SEktgSCu8STOtA0pA9j1ZM5u8ITB3GNsIHt+WTDvPPXsONJt
+	L2Pt1hejamREhgu5RXcu04xsEasS0Q8fWioVAnCl5zVjwMLn0+iElwJJmKvOlPg/tpp/6rmcrm+
+	w1duKIve0z8skiAemr4QvRAiiuBmm/q6LJAmWUkPgMxh80wZP2BO+hTJZJuXjJikE9ujLOXHS6P
+	Zfo0PIgiJChnJJjGO3eE2uFWPYAKsYz00n+mzifW+hDe+PIuSzTfDUhOZ4dTVOmgMZxnJtumgpC
+	1h6/QPAivFoP/NyVpMh3PhFn9WMUP2lGphd5duMfgQZQbA6CkG/MJ9n4Gi1oYfP9uUxe3rMB
+X-Received: by 2002:a05:600c:4fc1:b0:4bb:53e4:a7cc with SMTP id 5b1f17b1804b1-4bb88820741mr245747455e9.30.1795423389108;
+        Mon, 23 Nov 2026 00:43:09 -0800 (PST)
 Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb88442693sm286713925e9.1.2026.11.23.00.43.10
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853c9170sm393185965e9.14.2026.11.23.00.43.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 00:43:11 -0800 (PST)
+        Mon, 23 Nov 2026 00:43:08 -0800 (PST)
 From: Nikolay Aleksandrov <razor@blackwall.org>
 To: bpf@vger.kernel.org
 Cc: Nikolay Aleksandrov <razor@blackwall.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
 	Martin KaFai Lau <kafai@fb.com>,
 	Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	John Fastabend <john.fastabend@gmail.com>,
 	netdev@vger.kernel.org
-Subject: [PATCH bpf 2/2] selftests/bpf: test assigning a TCP listener to a UDP datagram
-Date: Mon, 23 Nov 2026 10:41:38 +0200
-Message-ID: <20261123084138.723275-3-razor@blackwall.org>
+Subject: [PATCH bpf 0/2] bpf, net: fix assigned socket mismatches
+Date: Mon, 23 Nov 2026 10:41:36 +0200
+Message-ID: <20261123084138.723275-1-razor@blackwall.org>
 X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123084138.723275-1-razor@blackwall.org>
-References: <20261123084138.723275-1-razor@blackwall.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,91 +107,43 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Assign the TCP listener from server_map to a UDP datagram for an unbound
-port. Without "bpf, net: validate assigned socket on receive" UDP receive
-uses the TCP socket and the kernel crashes. With it the datagram gets the
-normal lookup and the client sees ECONNREFUSED. Let packets the program
-does not parse pass, so the ICMP error reaches the client.
+Hi,
+Patch 01 fixes various mismatches (protocol, netns etc) that can happen
+with assigned sockets which can lead to different corruptions. Patch 02
+exercises such mismatches for IPv4 and IPv6. For more information please
+check the commit messages. The problem was found during LLM review of
+the sk assign egress patch-set.
 
-Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
----
+Cheers,
+ Nik
+
+CC: David S. Miller <davem@davemloft.net>
+CC: Eric Dumazet <edumazet@kernel.org>
+CC: Jakub Kicinski <kuba@kernel.org>
+CC: Paolo Abeni <pabeni@redhat.com>
+CC: Simon Horman <horms@kernel.org>
+CC: Kuniyuki Iwashima <kuniyu@google.com>
+CC: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
 CC: Martin KaFai Lau <kafai@fb.com>
 CC: Alexei Starovoitov <ast@kernel.org>
 CC: Daniel Borkmann <daniel@iogearbox.net>
 CC: John Fastabend <john.fastabend@gmail.com>
 CC: netdev@vger.kernel.org
 
+Nikolay Aleksandrov (2):
+  bpf, net: validate assigned socket on receive
+  selftests/bpf: Test assigning a TCP listener to a UDP datagram
+
+ include/net/inet6_hashtables.h                | 33 ++++++++++++-----
+ include/net/inet_hashtables.h                 | 34 +++++++++++++-----
+ include/net/inet_sock.h                       |  2 ++
+ net/ipv4/inet_hashtables.c                    | 13 +++++++
+ net/ipv4/udp.c                                |  2 +-
+ net/ipv6/udp.c                                |  2 +-
  .../selftests/bpf/prog_tests/sk_assign.c      | 36 +++++++++++++++++++
  .../selftests/bpf/progs/test_sk_assign.c      |  2 +-
- 2 files changed, 37 insertions(+), 1 deletion(-)
+ 8 files changed, 105 insertions(+), 19 deletions(-)
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/sk_assign.c b/tools/testing/selftests/bpf/prog_tests/sk_assign.c
-index 10a0ab954b8a..804087a19aa9 100644
---- a/tools/testing/selftests/bpf/prog_tests/sk_assign.c
-+++ b/tools/testing/selftests/bpf/prog_tests/sk_assign.c
-@@ -199,6 +199,37 @@ prepare_addr(struct sockaddr *addr, int family, __u16 port, bool rewrite_addr)
- 	}
- }
- 
-+static void
-+run_udp_to_tcp_listener(int server_map, int family)
-+{
-+	struct sockaddr_storage addr;
-+	char buf[] = "testing";
-+	const int zero = 0;
-+	int client = -1;
-+	socklen_t len;
-+	__s64 server;
-+
-+	len = family == AF_INET ? sizeof(struct sockaddr_in) :
-+				  sizeof(struct sockaddr_in6);
-+	prepare_addr((struct sockaddr *)&addr, family, BIND_PORT, false);
-+	server = start_server_addr(SOCK_STREAM, &addr, len, NULL);
-+	if (!ASSERT_GE(server, 0, "start_server_addr"))
-+		return;
-+	if (!ASSERT_OK(bpf_map_update_elem(server_map, &zero, &server, BPF_ANY),
-+		       "update_server_map"))
-+		goto out;
-+
-+	prepare_addr((struct sockaddr *)&addr, family, CONNECT_PORT, false);
-+	client = connect_to_addr(SOCK_DGRAM, &addr, len, NULL);
-+	if (ASSERT_GE(client, 0, "connect_to_addr") &&
-+	    ASSERT_EQ(write(client, buf, sizeof(buf)), sizeof(buf), "write") &&
-+	    ASSERT_LT(recv(client, buf, sizeof(buf), 0), 0, "recv"))
-+		ASSERT_EQ(errno, ECONNREFUSED, "recv_errno");
-+	close(client);
-+out:
-+	close(server);
-+}
-+
- struct test_sk_cfg {
- 	const char *name;
- 	int family;
-@@ -255,6 +286,11 @@ void test_sk_assign(void)
- 		goto cleanup;
- 	}
- 
-+	if (test__start_subtest("ipv4 udp to tcp listener"))
-+		run_udp_to_tcp_listener(server_map, AF_INET);
-+	if (test__start_subtest("ipv6 udp to tcp listener"))
-+		run_udp_to_tcp_listener(server_map, AF_INET6);
-+
- 	for (i = 0; i < ARRAY_SIZE(tests) && !READ_ONCE(stop); i++) {
- 		struct test_sk_cfg *test = &tests[i];
- 		const struct sockaddr *addr;
-diff --git a/tools/testing/selftests/bpf/progs/test_sk_assign.c b/tools/testing/selftests/bpf/progs/test_sk_assign.c
-index 3079244c7f96..4e8ae7b7d297 100644
---- a/tools/testing/selftests/bpf/progs/test_sk_assign.c
-+++ b/tools/testing/selftests/bpf/progs/test_sk_assign.c
-@@ -178,7 +178,7 @@ int bpf_sk_assign_test(struct __sk_buff *skb)
- 
- 	tuple = get_tuple(skb, &ipv4, &tcp);
- 	if (!tuple)
--		return TC_ACT_SHOT;
-+		return TC_ACT_OK;
- 
- 	/* Note that the verifier socket return type for bpf_skc_lookup_tcp()
- 	 * differs from bpf_sk_lookup_udp(), so even though the C-level type is
 -- 
 2.47.3
 
