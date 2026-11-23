@@ -1,70 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795425088;
-	b=2O+Beh6FreEBgFs8ppumeQcMozowIlceIwh77FceRhJrId763OMt9oW5xqMdaEpnRbVZ
-	 pzhP2DEZluSX2DOdM10AKKKq4qvMoiaArPbcyYctNk9g6Y2QEbQ6SR6yDx+5OEbcJLwBD
-	 vw0//sa7vVD5fhJ8w8hj1hGB+hQlzI6sO/JjuHbggpg9RYRdM5v+vSCcPhcdYo2tB4IBr
-	 5fuwH/i7phDkZErInoP9BmQV1dzNGl2r9Srq4go8HmhFEDUmdmEQhWkRKq1sS8KIpzC83
-	 fewC2Jb08RK/0OVePr9E66Jj+yxxxzFn8WdJ1paj6ruvsLn92MzHNl2SILAgs82BzWw==
+	t=1795425122;
+	b=EMTcG2NZ8F/p79gGCfOQHDae8QbITm+ANAbAAkWWsZ5wnK8iP4n3TKRXElio1kNtolqZ
+	 aiH90jq4GD0Rcnf81WbEPVheq17VZK+jBk2cmInbePqA/Lo1OtuAG5LqcFpgcg5sZSBGZ
+	 F8f7sqjcW2H9vDFgvZDLJ16CWJGB5S+fevF/zHcpnXqNogbzdWaxk/zEMwPr/5ngqkslv
+	 cA/1GTvQyF4TxQs5DFSlxTqUXP05VAwrxGCjeo9JviRQLEFJzqGzTmJIiW82clwxJqVe6
+	 07gb0Ij1zece8rqz4NlPaKx1K+Jb2EYmexh5Q3Ysyzjkw4QC5HmtTtt7EuIouwZYiXw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795425088;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=iYJgAay7RVeU1p2WQGlauEXq3p+UlBiEl4Cgoy9ZUvU=;
-	b=JbWO7psLg7gGf1z+9Knfyek9LtZtSrQJN6LIbNv47933ddnTQbpzJNdYm/fmIaQXfbZm
-	 DBCttIff49PfB9aYi+JX630YWWGOgFxqAbaHrPXNEt9LUgLB6Ttgd6XwJVd0CMbXom6C4
-	 E3BYXSVR24yuDDO4d/ROIIZCRmMiE8x0I+TobUIEyEf3THRsM/qZwCAyg7DrWgaF6PC/Z
-	 zNUza7JdCcoLIljIcdJPQgDuODaECrqyrZ3EIetX0ZEC+oIB8Py0+ScFaM4wqbciZP7hh
-	 Dr41+DAe7Ynw3Ev8H/LUpyaMRWT8nnDiWwEUGnE8/a1mCnxUeqrCHU67Ivw1gnAATxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795425122;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JT67XamkzVTn8b/hiIPYLs/+m+YwJdMP360HsG0DU78=;
+	b=AqxKJ6GlGiHSwn2k7w0rG97uHAD0F3fQz5S9lgXguhvt5Y0eVXfHNHayRHqhWuILxlEs
+	 sBsq0NUcsosobma3r6UNOLhbKqxCqWnNYtgQQ0hUGw3cLQ1grOqp+mtDIqu9ba0aHjk1v
+	 G7xH7kdfhUlX0mYdMfps0p8Nm0g8lDqFM7VJEZSsRoylwxcFLFWGeIHT+vG4OTO1qXhx9
+	 +l25X24QFMauLfm1mXHujf3rsg+s2mpuiz0s+rLxRMlxaoudtjaXhE2MwBCPuKD9wxnLh
+	 OGgYsVC+79KgfPjJZDNTpG0Irkf2QN1f+N6yaNgJJjBsePlLoIJ1eHY70Ei3OoozPNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=cVC5Qx3H;
-	arc=none smtp.remote-ip=117.135.210.8
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.8])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZtK6CaaW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF513606A32D;
-	Mon, 23 Nov 2026 09:11:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF513606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B13C606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 09:12:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=cVC5Qx3H
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=iY
-	JgAay7RVeU1p2WQGlauEXq3p+UlBiEl4Cgoy9ZUvU=; b=cVC5Qx3HBEovcCeJGN
-	cEjwlAGbGRoaXUpZOhOZc/jGa5lhAvYLUwtPSLVnMu0OtLxyrATN3mVgjLwI/fRq
-	Gogork+gRl4D74RNJmdgI+8Mu4YGMhQndDooyjY1qICIUxDiUFs8yIdE9EdunffG
-	7OpHbVhvUVmjTjns6+v6+jkM8=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wD3xwf3AgRr4lagDg--.32715S2;
-	Mon, 23 Nov 2026 17:10:16 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: andrew@lunn.ch
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	rosenp@gmail.com,
-	jacob.e.keller@intel.com,
-	daniel.machon@microchip.com,
-	chunkeey@gmail.com,
-	kees+treewide@kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZtK6CaaW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3AC8F1F000C6;
+	Mon, 23 Nov 2026 09:11:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795425121;
+	bh=JT67XamkzVTn8b/hiIPYLs/+m+YwJdMP360HsG0DU78=;
+	h=From:To:Cc:Subject:Date;
+	b=ZtK6CaaWAhNb9sRXzaxBQ4PFhTAoNJKgroaBbvgPmLBbBvsv5J81oM4nANIQCDtnH
+	 N28GDLu+GWAYcvpxoH4LEXA01jL40Mv6MshD1C+pyCG52V50GsFdeaBg7d8JMUOF0u
+	 m7urr3fH0qYeb5tknn+3tgYmoDJ1snqC2/yE5LwtZCB3v7ZtMwnaiDWq8PdAnqTO8A
+	 LaLqSAo95J596pmwFPucZhZXfxyCEF/WFWsz+pPfb7EDxnFZgMylXpvVFFKDm6CjQ5
+	 vJqehFKyrRietHzeOm+LXXkLBfVw1OmAmsGGIAHphRfSF8W0lVXVA3a7GeYzZm951W
+	 QnFzqNz6cRURw==
+From: Eric Dumazet <edumazet@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>
+Cc: Kuniyuki Iwashima <kuniyu@google.com>,
+	Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	xiaolinkui@kylinos.cn,
-	Linkui Xiao <xiaolinkui@126.com>
-Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
-Date: Mon, 23 Nov 2026 17:10:12 +0800
-Message-Id: <20261123091012.730441-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <ef2eb733-4b94-4c2e-9165-0b324733a482@lunn.ch>
-References: <20261112075321.3903875-1-xiaolinkui@126.com> <ef2eb733-4b94-4c2e-9165-0b324733a482@lunn.ch>
+	Eric Dumazet <edumazet@kernel.org>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>
+Subject: [PATCH v2 net-next] net: do not over-estimate truesize in zerocopy_fill_skb_from_iter()
+Date: Mon, 23 Nov 2026 10:11:56 +0100
+Message-ID: <20261123091156.58359-1-edumazet@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,60 +63,114 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wD3xwf3AgRr4lagDg--.32715S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW7WFWkZryUJF1rGFWrZFyUGFg_yoW8tF15pa
-	93twnakr1kGF1fuFsrZFyUCryjkFZ7Ga45t34F9rW5Za4DWr1ayrW7Kw1UZa4YkF95Ga4j
-	vFWjga9xJF4Dtw7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0JUza09UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBqRiacWsEAvgl8AAA3a
 
-Hi Andrew,
+zerocopy_fill_skb_from_iter() adds PAGE_ALIGN(copied + start) to
+skb->truesize for each iov_iter_get_pages2() call.
 
-Thanks for the review, and for pointing out the missing teardown.
+Since commit 394fcd8a8134 ("net: zerocopy: combine pages in
+zerocopy_sg_from_iter()"), a chunk that directly follows the last frag
+in the same page is merged into this frag, and the extra page reference
+is released. The page is still accounted again in skb->truesize.
 
-> This commit message is overly verbose and contains a lot of irrelevant
-> information.
+With iovecs describing small contiguous chunks of the same page, each
+iovec charges a full page while a single page is pinned. For TCP,
+1024 one-byte iovecs sent with MSG_ZEROCOPY add 4 MB to sk_wmem_queued
+and charge 4 MB to the socket, for 1024 bytes of payload sitting in
+one page. Appending to the skb at the tail of the write queue does not
+check sk_sndbuf, so a single sendmsg() can get sk_wmem_queued above it.
 
-Agreed. v2 1/2 is three paragraphs: what breaks, why of_phy_connect(), and
-why the new phy_disconnect() calls belong in the same change. I dropped the
-walk through phy_prepare_data(), the list of other drivers, the archaeology
-about 08e39982ef64, and the "no in-tree DTS does this" paragraph. The cover
-letter notes the AI assistance per
-Documentation/process/generated-content.rst.
+Account pages while building the frags instead:
 
-> Why is emacs_adjust_link() still called?
+- A new frag accounts one page, as before.
+- A chunk merged into the last frag accounts one page if it starts
+  a new page of a compound page, and its bytes otherwise.
 
-of_phy_connect() only stores the handler in phydev->adjust_link, attach
-never calls it. The state machine is not started on this path either -
-emac_mdio_init_phy() runs only for the phy-handle case - so nothing else
-fills in dev->phy, which emac_configure() reads to build MR1. A fixed link
-cannot change, so calling it once is enough.
+A merged chunk can not be free, even if it lands in a page the last
+frag already covers: this frag might not have been built by this
+function. TCP can append to a tail skb whose last frag was charged
+per byte, either by skb_splice_from_iter() (MSG_SPLICE_PAGES) or
+by tso_fragment(). skb->truesize must not get smaller than skb->len.
 
-Answering that turned up a second bug. Since d99b408ed8e5 ("net: phy:
-fixed_phy: remove not needed initialization of phy_device members") the
-phy_device no longer carries the DT status, so that call currently copies
-SPEED_UNKNOWN and DUPLEX_UNKNOWN and the MAC is programmed for 10 Mbit/s
-half duplex. That is 2/2 of v2, which adds a phy_read_status() after the
-attach. emac_mdio_read_link() already does exactly that for the phy-handle
-path.
+The accounting is unchanged when no chunk is merged in the middle
+of a page.
 
-> This last sentence about phy_disconnect() was one of the things i thought
-> about while looking at the change, but because the commit messages was so
-> long, i had given up reading it....
+This was found with an AI coding assistant, while reviewing
+the patch in the Link below, which mentions 8 one-byte iovecs being
+charged 32768 bytes.
 
-Fair, and leaving it out was the wrong call: this patch is what creates the
-attached state, so it should also tear it down. v2 calls phy_disconnect() in
-emac_remove() and at err_detach_tah, and of_phy_deregister_fixed_link() in
-both places, plus the connect failure branch. That also fixes the
-phy-handle path, which called phy_start() without ever calling phy_stop().
-emac_remove() unregisters the netdev first, so detaching without RTNL is
-fine.
+It was validated with a userspace reproducer, on an unmodified kernel,
+without special privileges:
 
-v2 is posted as a new thread: [PATCH net v2 0/2].
+- TCP connection over loopback, SO_ZEROCOPY and TCP_CORK set
+- send() of one byte, so that the tail skb is not a pure zerocopy one
+- sendmsg(MSG_ZEROCOPY) of 1024 bytes of a single page, either
+  in one iovec or in 1024 one-byte iovecs
+- compare SK_MEMINFO_WMEM_QUEUED (SO_MEMINFO) before and after
 
-Cross compiled for powerpc with W=1 out of ppc44x_defconfig, clean. No
-hardware here, so no runtime test.
+  1 iovec        sk_wmem_queued += 4096
+  1024 iovecs    sk_wmem_queued += 4194304
 
-Thanks,
-Linkui
+With this patch, the 1024 iovecs case adds 5119 bytes (one page, then
+1023 merged bytes).
+
+A second reproducer covers the per byte charged frag: sendfile() of
+the first half of a memfd page on a corked socket, then
+sendmsg(MSG_ZEROCOPY) of the second half of the same page, from
+a shared mapping. With this patch, each half adds 2048 bytes to
+sk_wmem_queued, and the skb is received over loopback without
+a warning in skb_try_coalesce().
+
+Both reproducers were run in a VM (virtme-ng), as well as
+msg_zerocopy.sh, io_uring_zerocopy_tx.sh, udpgso.sh, udpgso_bench.sh,
+txtimestamp.sh and the packetdrill tcp_zerocopy tests, which all pass.
+
+Fixes: 394fcd8a8134 ("net: zerocopy: combine pages in zerocopy_sg_from_iter()")
+Link: https://lore.kernel.org/netdev/20261119090828.343748-1-jiayuan.chen@linux.dev/
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>
+Signed-off-by: Eric Dumazet <edumazet@kernel.org>
+---
+v2: charge the bytes of a chunk merged in the middle of a page, since
+    the last frag might have been charged per byte (Sashiko AI review)
+    Dropped Kuniyuki's Reviewed-by, the accounting changed.
+v1: https://lore.kernel.org/netdev/20261119101538.3229466-1-edumazet@kernel.org/
+
+ net/core/datagram.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/net/core/datagram.c b/net/core/datagram.c
+index 489d92fe6dae8952da08bc5cb2a58f9863938fe0..731a4e6c6b82d5e6a4b50a28c88061294abb0f35 100644
+--- a/net/core/datagram.c
++++ b/net/core/datagram.c
+@@ -659,7 +659,6 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 
+ 		skb->data_len += copied;
+ 		skb->len += copied;
+-		skb->truesize += PAGE_ALIGN(copied + start);
+ 
+ 		head = compound_head(pages[n]);
+ 		order = compound_order(head);
+@@ -680,6 +679,13 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 
+ 				if (head == skb_frag_page(last) &&
+ 				    start == skb_frag_off(last) + skb_frag_size(last)) {
++					/* A chunk starting a page accounts it.
++					 * Otherwise account the bytes only: the
++					 * frag might not have been built here,
++					 * and might not have paid for the page.
++					 */
++					skb->truesize += offset_in_page(start) ?
++							 size : PAGE_SIZE;
+ 					skb_frag_size_add(last, size);
+ 					/* We combined this page, we need to release
+ 					 * a reference. Since compound pages refcount
+@@ -695,6 +701,7 @@ int zerocopy_fill_skb_from_iter(struct sk_buff *skb,
+ 				page_ref_sub(last_head, refs);
+ 				refs = 0;
+ 			}
++			skb->truesize += PAGE_SIZE;
+ 			skb_fill_page_desc_noacc(skb, frag++, head, start, size);
+ 		}
+ 		if (refs)
+-- 
+2.53.0
 
