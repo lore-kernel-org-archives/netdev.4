@@ -1,145 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795428285;
-	b=jGsMXR8SjoDUdp2UZOgHQmeAayYdN4NfUpl3dVUwYLJgc2OF5tKu+sjKy1xT7EAHR/l0
-	 A5TTTphECUSGlqxU9xpjJIBTSrBJm/JfMyJ5g8ehbEj5xG8xjnVgkylDKf1xe+xu+H0cf
-	 GumW07DoIQu0UP15WIz4XnDrPfg8PyQMGSfv9sQUColaqy69FYVeVP4OgOCUtQJXRHL1P
-	 1B5esF2u9PbacWeItCjyOG5BkPkUVg+I9EdlHm67TbqQOfPZyLcpkqOmDBryhKMSduL/d
-	 a83ODGPLKTMzg4z6p+u/4kd6I02AGCmJuXPCH6YWfgPFuw+rUrn6uFuo+pFopLbsTWQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795428285;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:
-	 MIME-Version:X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=jhPmTJ+Iod9uvqIldisHA11u575qM9EvUkkjT3xBSVM=;
-	b=uxm9kLzLFvrRpe8nUCEanrSmxPhXXqlwBo6kc1TVio0agTPhJ3xmEoGEPRflWOJVvSbx
-	 wrhOn1a5rJiGJH+0M6eB1TP4XRVGS7aSxvCRyfi9ZDbfc/04vOAb78RtKamGfDK/iH/Rq
-	 8wxSJC693J8igQTUmYf7+0XfF890mDKJDRCChBUVksJmNxVdVBAw3WSNwSxRMU3Nx+0ku
-	 PMn19TVP+B0XIcqhs0sKaad71gLnxRKcTIY3jAHOlWAw2629j4fc7ZdWtnsfVzRuu8pS+
-	 +ts8p67+gb40AlQT07rjtkeidEhWZfBRjRs7EomRCJBmyfQvs2/nFKpQ1phh5Kdu9dQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cherry.de;
-	spf=pass smtp.mailfrom=cherry.de;
-	dkim=pass header.d=cherry.de header.i=@cherry.de header.a=rsa-sha256 header.s=selector1 header.b=HNomG4je;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.162.56
-Received: from PA4PR04CU001.outbound.protection.outlook.com (mail-francecentralazon11013056.outbound.protection.outlook.com [40.107.162.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795428419;
+	b=oLxlTgFmWWBYvqA4SDPRfNoXqVX/bbzTh4TKdRrvqB4iiG8xPTQW07xT5bRjNuZPkL+H
+	 5IuofFtv1y6bsJNqvQrH1Ao0Fcxr/Rgeg6XhRha1rw5pb9VrKDhFJlAGd6Gr+pOBqtu/x
+	 CGWR6+F08jrDLCpJrirCK2jxo/bbfDiSt0VK2X0ixaDIwfa44+fvGCcQSYqxIQNYviFHf
+	 29QquMNqX8bU507HnRiDtTtAD9D+mLVfmrnZOWMIDt5Wg0IbE7ZfNr+jfbaoxVkcAjuB+
+	 4CT7vsp2/Lxqav+xrvaqt2kfiCMupz4aTKpE90oIrFy8UUtk2Rb305RS9ioA7Rj1l+A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795428419;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=vctwdCkQx24yaGhbYfazmBWlj/Lh+OTA9NgY45mgVYs=;
+	b=EQXFDbpdoQrodbzH5eREDHV0YDRyr87E5qSVdmLp9dfKRoCd1RwyRNdS9AluDhEaryZT
+	 AGIDxjY9xH/NJOpY0HJjE/Gy6hCRKD686sHeJOz4ko7phWJjnq3dmPcg4+vmJVSyO37Ui
+	 lLll9hgDCr7zvLo9Zc9YCX/cnf8Av6PF662luR/DK9P9RN4VeyZ4MhzqfLBoTx6WBGxgs
+	 qCP9WESaIaTxE3mPdAMogQltjzUQBdWwlUs1N49BXd+HZbcwTxn8Td2ZMiUI2OvIjd7O+
+	 kD8eiJAweYsrjk8CAwfwVvFuEerY7+kV3whUUo9uLWfcNDzR1cZEcGkDBg8U/qo1DIA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h902wYg3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5574606A331;
-	Mon, 23 Nov 2026 10:04:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5574606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=cherry.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cherry.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5070C606A336;
+	Mon, 23 Nov 2026 10:06:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=cherry.de header.i=@cherry.de header.a=rsa-sha256 header.s=selector1 header.b=HNomG4je
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=o+osDGM6gJ800odm42xSsq9/tigt2Eog7bbaLLznR1VMFBTdHrO9y/po2gaOckkXXBtbaLsF7WrOMzbLHZYd0iAk7VWznjJ13vxJYGCmEoJcLLO75CdJHrn71ZXYbAmtGZraLj+/+7yxCuQzspwU05Ht6OxGc7Hpw0EDWid+cWTtKM7AmDsX2O+2qweRDKdyh8O4qrm3gvoIlnCQPM/1d+T8P0HiiahbQeuJzBRRc9G9AKmpslmPzBTldqsje8Yei8zEx4hFoiLm/PRYpOQ+MDHehYiaFG8TwiF1knwHRIAPXwqttJwkj+putesKUGDkOgghdqOA3kTLh2eUNdkkbw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=jhPmTJ+Iod9uvqIldisHA11u575qM9EvUkkjT3xBSVM=;
- b=gJQphfRI2rJfKEWvjBpOI3kk55murrfXTkT8holi6vPoVYhbFN/ghCpZShVUejF5KkZmUHySP0oj1Cbzy01ZBRowHfIhxFuJX0/8tCnBaMyg1SgSEtrCSYqmJl01YdI0xwm12n9vPobc08YxMmVhiTMcUDfGi0Arua1hpaxsDOESwvJI6b6J8BfzYbSVybb1ZLKswRoOY6fK4+naaqfImcXSY5FvoHPcjf4oHH8MY6KmTfuco0WvRal3uSfWzMxYrGavNJbBor/y5V0wCc/UhfhZfJeiv6gCAi5yb7UAoGiDi0BvOrdPBTCgTZI3n/DxA+cl9ZTkjBtDpowVwhSb+A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=jhPmTJ+Iod9uvqIldisHA11u575qM9EvUkkjT3xBSVM=;
- b=HNomG4jeglGmKxXQsj6pm3JymGQ1wwmCrZvrYUAcxPLpEKtFFUYbapDufr/rdzPJT7F59lQh7y1ppNlR3/9SemCahJGG6387jSefkmrYx+SmVGN6Zy4/ZtDI5CC3o2miYSu8psqOgHcBK67MOk6+5P+ZJJ98buDA5wJfEcLhkG4=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from GVXPR04MB12016.eurprd04.prod.outlook.com (2603:10a6:150:335::6)
- by AS1PR04MB769151.eurprd04.prod.outlook.com (2603:10a6:20b:6e0::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 10:04:40 +0000
-Received: from GVXPR04MB12016.eurprd04.prod.outlook.com
- ([fe80::f2d4:9db8:9a4e:b0bd]) by GVXPR04MB12016.eurprd04.prod.outlook.com
- ([fe80::f2d4:9db8:9a4e:b0bd%4]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
- 10:04:39 +0000
-Message-ID: <8cf6fadc-7987-41c6-ae64-05c4d4bde33f@cherry.de>
-Date: Mon, 23 Nov 2026 11:04:37 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net: stmmac: reset the DMA on a fatal bus error
-To: Nicolai Buchwitz <nb@tipi-net.de>,
- Jakob Unterwurzacher <jakobunt@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261120-stmmac_dma_fatal_error-v1-1-acd57921af57@cherry.de>
- <b3f78ebb57866c32046ccc60c92928cb@tipi-net.de>
-Content-Language: en-US
-From: Jakob Unterwurzacher <jakob.unterwurzacher@cherry.de>
-Autocrypt: addr=jakob.unterwurzacher@cherry.de; keydata=
- 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
- ldPHIqbIwpfecQ==
-In-Reply-To: <b3f78ebb57866c32046ccc60c92928cb@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: VIUP296CA0068.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:800:337::12) To GVXPR04MB12016.eurprd04.prod.outlook.com
- (2603:10a6:150:335::6)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h902wYg3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A37931F000D1;
+	Mon, 23 Nov 2026 10:06:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795428418;
+	bh=vctwdCkQx24yaGhbYfazmBWlj/Lh+OTA9NgY45mgVYs=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=h902wYg3EeR42ee+cZNAQXroQOZoRhDWCGwKrGL2jCbtvet7e8IUKMCkvZoegC+SG
+	 E9eILrT9B4c/wW+F1I1e8hDjwsZxM9mVkkpbKcWmsSZxK4HQ0KU5vPEL3CTwGSKXla
+	 sMjyzRdxGbxGAxnPZ5pIotKBbzsO91C2+gZY6L6hizd+BJhVhVaxkVTM5UJgR1WvCp
+	 BCN0oL6ZzggsBqe4O2v472KmNEyJ1mleq/LCsd6PyG5qlV/UvifoUtBOb2bskwWJUZ
+	 fn7XmiUPD8Ce4fDf5GUxRsn9OaBjwBCwoXWbgSSiH0fuQbjAjKP0n9ouWCoiPfxIDe
+	 xhxcMZwN2MZ8Q==
+Subject: Re: [PATCH net v2 1/2] net: stmmac: Limit the MTU of normal
+ descriptors to one buffer
+From: netdev-bot+sashiko@kernel.org
+To: aiyengar1990@gmail.com
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, clabbe.montjoie@gmail.com,
+ netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ rmk+kernel@armlinux.org.uk, nb@tipi-net.de, stable@vger.kernel.org
+Date: Mon, 23 Nov 2026 10:06:57 +0000
+Message-ID: <179542841718.3135.3290374626862889297@kernel.org>
+In-Reply-To: <20261122-sun8i-emac-mtu-limit-v2-1-c4081e5b83cf@gmail.com>
+References: <20261122-sun8i-emac-mtu-limit-v2-1-c4081e5b83cf@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -149,76 +67,237 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GVXPR04MB12016:EE_|AS1PR04MB769151:EE_
-X-MS-Office365-Filtering-Correlation-Id: 07aa916f-802f-4099-2358-08df49492f91
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|7416014|376014|23010399003|1800799024|10067099003|4143699003|11063799006|56012099006|261022105027099003|261021135927099003|261026140227099003|261028144727099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	XCeizu/HISrJ2oeIiNieYtIhGPxrHKLXrOL2A97ZmITKfB/LolhjbEu+7Vp+8bRdeWKwrk8+L8gKz0lnMdQsXu5Tib+Raxg+9twySM0FAFpQDXSC0gG3TvvBllsyH6MihJDdhEshZl9V7bZas+lv8ZQe/IWj9rlhYEIaYr2Dde826xvkOoJJSPh29Y0ej9rWwPzM3wAWdDu7h46mQHpphCwnacHjSI8cOU/EmI08/3qoEs1z/+pSLliCan/i5Lj5xzMcno7noexOax4/3m9pFfXd5F+Rc2G6oEQ9hzHA2tKWvbuTK+26eG/hdmq6mKmpJSbQZ1czAFFY11G/nuFNAvDDJ4O4OUpWBkTum2eIw488BSubiNlxe1aZ8M746mHo4sRXuXoB01MbnfXcxxwN+036HdceiZcr27IGYkTP//lO9NyORaZzSqcW+67ll08Bm/mgwuka5Nbtt/zZTIY7iuA8R3NzvM0oEBskDtl1lZ7Y/ZEVmvf+2HG1hjrd0PGlEGVaxZaKxhkuwHTcBpK4s7C1JmDERo48sejEQbqDaR/yrGy6DqVLO7wwW/TXwj4RJodMjdiHYCzfq4rBrNBur5lPxVCgbSqlkqBqZ34mwwCRZpiDN/fUUlz+C7zUCXUf6iRBqfQ4LwhEoJ6vxNCBBQXRcgjcpro1DKRUOU7P+FI=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GVXPR04MB12016.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(23010399003)(1800799024)(10067099003)(4143699003)(11063799006)(56012099006)(261022105027099003)(261021135927099003)(261026140227099003)(261028144727099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?Ly84UDgzaExwSjhzWnFiU0VaTERWa0FXdzU0Ty9BYmlOaTRmY3FJa0NGbDYv?=
- =?utf-8?B?bTFaQlpua3lBMERDaUtNOGR6ekZyc3RqemVsUUg5Ukh4SVVYcjM5d2VmYlNw?=
- =?utf-8?B?SjZ2RlpKTk43b0ZFUW5VTHZPWno3YUtERVBrYlByZTVOdm4yOW5CQnVQaG02?=
- =?utf-8?B?VWJyZDNhamhLRHZnU1VvdmlyMmcrZVhweHZhaHlDMm9ibWVNZGI3ZlUyTnZ4?=
- =?utf-8?B?YWcwN0ZlL2RVZG5pUTdUOFl1MXdvbkZxOTlMdlNhU2dudWcvMm8rc0srTkpx?=
- =?utf-8?B?Zm5SRVRjMndtOHJxWEdxNFMwZXhXTjFPbEpWcDFWY0E2aitWb3lkM21OaDBu?=
- =?utf-8?B?Vlo2NEtURE9TV0s1dXg4ZEk5UHFQOGVTR3JaREVkdzk3enJxMW55QWlJMVdy?=
- =?utf-8?B?dVhPLzFBd3NheFJMeHpXYzdnKzhDMytqQXZRTWtHVW9GL3cvYVdIcCtJZ0xl?=
- =?utf-8?B?L004cXFyQThTVG9WU0J4SStvTjhQVDU0OHRGZVRkS3pmV2FQZkhxWWcwNUVS?=
- =?utf-8?B?Y0V1OTlwc2svMWZYdUJLK2xHUm05OXBWWG1qcTdpVWVqQXR5QmEzdG1CRWNk?=
- =?utf-8?B?TTVsU1J6TG1nUlVXa08zUTdkSmlpdkFjY1ZaTGVTVnVLVm5sVWZsMEozWjhS?=
- =?utf-8?B?SVJqdCtONTQ0VVEwdlQ0OGRYcFpVZ0JYSURvSzN6ZFllRHhjSSsyeW9pTFJD?=
- =?utf-8?B?b2NodUp1b0J4NDFCcHZ4WUJBWmVRMWJKUTZJSmpIeWFyYldOSkZVNStZRDNG?=
- =?utf-8?B?TnF3Z2pWWlJxUDY2d3NEbEdkWnNKeWcyUVpvbTBiemV1M3dOK0xkeVg2ZDJs?=
- =?utf-8?B?WndpYzRnYVlsTmc3emc0dStYblZGclIwT1NXaXdPSVFGQU5aem9rOS9mRlhu?=
- =?utf-8?B?R25VZmcxYUlNTW83RExZMXNyQ2dJdEtwSW1FYStHbW1oeDBmMFp2R0FEb241?=
- =?utf-8?B?OEZXRUtaa25HOFFhTVZ2Q1lqZjdyUlNSTU9Cb3Z6MzJydytKc21IWVNqelpq?=
- =?utf-8?B?T3lUS0pvYmJ3Y3djSmo0QW40NWdjZFB5LzQzV3RrQkdTRGk0YWI5Q3JjOS9o?=
- =?utf-8?B?ZlgzbHFLekRiL2VxOStNR0ErR0E0TzNUWkxJZERwbUZZUVdFY1RTaG1CQUJi?=
- =?utf-8?B?Ly9LSkV1d2JVM1RMTnRtZlJMTUJnak9FNnlmcEtIcmFmeVdCYytKa2dtNDQv?=
- =?utf-8?B?akhFa2NQYmhPdWxrOWhlM3RlSVZFMWQ2SXpFRXFVMEllOEZCaXJ5bUcrdlFy?=
- =?utf-8?B?b0hiVFlGeG4vZHVjY0ZWYlQvSDM5ZDFKT0VFQlptTGNqTllQOWJidWhYT2h0?=
- =?utf-8?B?VnlUTHozOGtFSmorb0E0dkxXbTNwcDYrWTJWNlg1TFVBT1dwS3dRa0oxNEJJ?=
- =?utf-8?B?NTBhUWVVWW44L3pob3NkM0locnF5T2E3QnZmbFIvU0psajdtZWFRUDllUkdE?=
- =?utf-8?B?cTViSW11cUthaUtuZ0pLQld0bEhXU2xWNXNiN0ErQ0hOSnRPNGE1bGZHQ21L?=
- =?utf-8?B?aTl6N0x1cjVoUEh3bVErMDdLTnV5NHdIQ1BRdWNrZWx6UDNWS0h3b0diYTV0?=
- =?utf-8?B?Vmh6R0pYZnlqbnN0NUF2TW5kZGQ2SHZ3azd1TTY4Y25yNjNpNTdxdEhqcDVR?=
- =?utf-8?B?Z0JSRnpldVoyNnQ3TDdIRG51N29hR1Axa0RzZlRBclpQVHhOb3hWbGY2MEY2?=
- =?utf-8?B?Z2hXQlhJYW91YmVjY1IxN1o3UlFmWW5TbGljenhEMWhEaC96c25YNVIvOFlO?=
- =?utf-8?B?cFNlbHJzaENhSHNreS8xRUlyTFd6NGQvdEU5cm92bzRLclEyT2ttYzdCWXpp?=
- =?utf-8?B?eXdrNy94RytpbzNRbUJqQ1B0aVJiaGNwYUVZZ1JYUUt0V2IvQVhnOEVCMzgr?=
- =?utf-8?B?V3MyekFBamFoYmgwc3JpVFFQeGpuVmsyTUQ5MUpKMk8vWERlUUlBMDlqWU93?=
- =?utf-8?B?MVBHMk8rUEJYdzdZUE9Xd1dwd1VkOFlVaEg3b01hSWZja2dGY0VNUm40Uyt4?=
- =?utf-8?B?V0EzUmJqcVFjanZrNVIwajlKSFd2V1dkSWFsVnhCZm9vek1lRnQvcFZGZ0FF?=
- =?utf-8?B?emxucWM2Ry9PbC9Ld3ZuSDhYZ3ByMzNia0lpU01BU1Jub1I3c0JTdGpndCtU?=
- =?utf-8?B?b2RiZnlicnlQUEMveVMva3lxdlM4ZEkzZEdJalY1V2NmaElGQWtwN0pyakty?=
- =?utf-8?B?TkxsYU9oak05NkdEZjNkd2hnMFo3RXJXZGZORFozNis5d2twZE1kdkRBWm14?=
- =?utf-8?B?ajk4bjhEN2JsSWxBRGNjUWQvZ1JtblMwZWxzZjJPSG9SL1VYNitxWkxpc3dx?=
- =?utf-8?B?eTRWbWZYUnRCc2tkQzlGMnlsdm96RHk1d1FTWC82ZGd3RHdSSzR6K3lMc0ZD?=
- =?utf-8?Q?RYxc50piIG3joAPE=3D?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: 07aa916f-802f-4099-2358-08df49492f91
-X-MS-Exchange-CrossTenant-AuthSource: GVXPR04MB12016.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 10:04:39.1652
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ltaqWmjj6KF8CXFyTuSaw1tJ19wPWr+rPJEWLNRFcrOEF7NqoGuqSoeAVW+RLpkUHgaaXKQ6UrObTRrMmVphVoZTp8996LHOym+l1mbMpek=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB769151
 
-Hi Nicolai, thank you for the review, I shall reply in detail later.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Over the weekend I had two RK3588-Tiger suspend/resume cycling (totaling 
-58560 cycles). This uncovered problems when the reset overlaps with the 
-next suspend. I will try to fix these problems, too.
+Critical: 0 · High: 0 · Medium: 4 · Low: 0
 
-Thanks,
-Jakob
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In ring mode, normal RX descriptors still give the DMA a
+  1-byte buffer2 that has no address.
+- [Medium] The commit says stmmac does not split TX frames for normal
+  descriptors, so a frame must fit one 2047-byte buffer.
+- [Medium] The new normal-descriptor limit, max_mtu = 2047 - ETH_HLEN -
+  2*VLAN_HLEN - ETH_FCS_LEN = 2021, leaves zero slack.
+- [Medium] net: stmmac: unaligned 2047-byte RX buffer limit in
+  __stmmac_dvr_probe()
+
+--
+
+net: stmmac: Limit the MTU of normal descriptors to one buffer
+
+This patch sets max_mtu for normal descriptors to BUF_SIZE_2KiB - 1 -
+ETH_HLEN - 2 * VLAN_HLEN - ETH_FCS_LEN. The old limit was SKB_MAX_HEAD().
+The goal is to fit a double-tagged frame plus FCS into one 2047-byte
+buffer.
+
+Link: https://lore.kernel.org/r/E1vLJcL-0000000ExBL-0GFe@rmk-PC.armlinux.org.uk [1]
+
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index a685ce4638f61..2a27e1e7f9b9f 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -8247,6 +8247,9 @@ static int __stmmac_dvr_probe(struct device *device,
+>  		ndev->max_mtu = XGMAC_JUMBO_LEN;
+>  	else if (priv->plat->enh_desc || priv->synopsys_id >= DWMAC_CORE_4_00)
+>  		ndev->max_mtu = JUMBO_LEN;
+> +	else if (priv->hw->desc == &ndesc_ops)
+> +		ndev->max_mtu = BUF_SIZE_2KiB - 1 - ETH_HLEN - 2 * VLAN_HLEN -
+> +				ETH_FCS_LEN;
+
+[Severity: Medium]
+The new limit assumes the RX DMA can fill all 2047 bytes of buffer1.
+Does it on these cores?
+
+common.h has:
+
+	/* RX Buffer size must be multiple of 4/8/16 bytes */
+
+That rule is why BUF_SIZE_8KiB and BUF_SIZE_16KiB are 8188 and 16368
+rather than 2^N - 1. BUF_SIZE_2KiB - 1 does not follow it.
+
+For any MTU above 1510, stmmac_setup_dma_desc() picks
+dma_buf_sz == BUF_SIZE_2KiB. ndesc_init_rx_desc() then programs RBS1
+as min(bfsize, BUF_SIZE_2KiB - 1), which is 2047. If the DMA only
+writes whole bus-width words, buffer1 really holds 2044 bytes on a
+32-bit bus, 2040 on a 64-bit bus and 2032 on a 128-bit bus.
+
+With max_mtu = 2047 - 14 - 8 - 4 = 2021, a double-tagged frame with
+FCS can be up to 2047 bytes. Anything past the usable part of buffer1
+leaves the first descriptor without LS:
+
+- In chain mode, ndesc_get_rx_status() takes the
+  !RDES0_LAST_DESCRIPTOR path and returns discard_frame.
+- In ring mode, ndesc_rx_set_on_ring() has set RBS2 to 1 while des3
+  is still 0. The tail goes to address 0 or to the next descriptor.
+
+The follow-up "net: stmmac: dwmac-sun8i: Limit the MTU to 2018" looks
+like exactly this case. H616 fills only 2044 bytes, and
+2044 - 26 = 2018. Other ndesc_ops users would hit the same problem.
+On wider buses it starts at MTU 2015 (64-bit) or 2007 (128-bit), and
+the sun8i change does nothing for them.
+
+There is also dwmac1000_core_init(), which sets GMAC_CONTROL_JE once
+mtu > 2000. MTU 2001-2021 is now allowed, so the MAC is told to
+accept jumbo frames that can never fit one normal descriptor buffer.
+
+Should the generic limit be based on a bus-width aligned size, for
+example ALIGN_DOWN(BUF_SIZE_2KiB - 1, 16), instead of
+BUF_SIZE_2KiB - 1? That gives 2006, which is still above the JE
+threshold. Should max_mtu for normal descriptors also be capped at
+2000, or should JE not be set when ndesc_ops is in use? And is the
+DMA bus width known at this point, so that 32-bit cores don't lose
+more MTU than they need to?
+
+[Severity: Medium]
+Does the RX ring still give the DMA a buffer2 with these MTUs? Every MTU
+from 1511 up to the new limit of 2021 ends up with dma_buf_sz ==
+BUF_SIZE_2KiB:
+
+stmmac_setup_dma_desc()
+    len = mtu + ETH_HLEN + 2 * VLAN_HLEN + ETH_FCS_LEN;
+    stmmac_set_bfsize(len)
+
+ndesc_init_rx_desc() caps buffer1 at 2047. It then passes the uncapped
+2048 to ndesc_rx_set_on_ring():
+
+drivers/net/ethernet/stmicro/stmmac/descs_com.h:ndesc_rx_set_on_ring() {
+	if (bfsize >= BUF_SIZE_2KiB) {
+		int bfsize2;
+
+		bfsize2 = min(bfsize - BUF_SIZE_2KiB + 1, BUF_SIZE_2KiB - 1);
+		p->des1 |= cpu_to_le32(FIELD_PREP(RDES1_BUFFER2_SIZE_MASK,
+						  bfsize2));
+	}
+	...
+}
+
+So RBS2 is set to 1.
+
+RDES3 is never programmed for normal descriptors at this buffer size:
+
+- ndesc_ops has no set_sec_addr.
+- stmmac_init_rx_buffers() and refill_desc3() only write des3 when
+  dma_buf_sz == BUF_SIZE_16KiB.
+
+RDES3 therefore stays 0, or holds the timestamp seconds the hardware
+writes back.
+
+The comment in stmmac_rx_check_buf2_cap() says buffer2 is never handed
+to the hardware on legacy cores, but ndesc_rx_set_on_ring() appears to do
+exactly that.
+
+dwmac1000_core_init() sets GMAC_CONTROL_JE when mtu > 2000. MTU
+2001-2021 is now allowed, so the MAC accepts frames much larger than
+2047 bytes.
+
+If a peer sends a frame longer than 2047 bytes, can the DMA write one
+byte to the unmapped RDES3 address? The rest of the frame would then go
+to the next descriptor and be dropped through the !LS path in
+ndesc_get_rx_status().
+
+The databook says buffer sizes that are not a multiple of the bus width
+give undefined results, so the exact hardware behaviour with RBS2 = 1 is
+uncertain. The same RBS2 = 1 programming was also reachable before this
+patch. Still, the commit relies on every frame fitting in buffer1.
+
+Should ndesc_rx_set_on_ring() skip programming the buffer2 size for
+normal descriptors unless RDES3 holds a valid mapped address?
+
+The follow-up "net: stmmac: dwmac-sun8i: Limit the MTU to 2018" only
+lowers maxmtu on sun8i and does not change this.
+
+[Severity: Medium]
+The commit message says:
+
+  "stmmac neither splits TX frames nor joins RX descriptors for them, so
+  a frame must fit one 2047-byte buffer."
+
+Is max_mtu enough to enforce this on TX? In stmmac_xmit(), the jumbo
+handling only runs for enhanced descriptors:
+
+	if (enh_desc)
+		is_jumbo = stmmac_is_jumbo_frm(priv, skb->len, enh_desc);
+
+For normal descriptors, skb_headlen() and each frag size go straight to
+stmmac_prepare_tx_desc(). Nothing checks them against 2047.
+
+In ring mode, ndesc_prepare_tx_desc()->norm_set_tx_desc_len_on_ring()
+then does:
+
+	if (unlikely(len > buffer1_max_length)) {
+		p->des1 |= cpu_to_le32(FIELD_PREP(TDES1_BUFFER2_SIZE_MASK,
+						  len - buffer1_max_length) |
+	...
+
+ndesc_set_addr() only writes DES2. On this path DES3 stays 0 from the
+coherent allocation, or is cleared to 0 by clean_desc3().
+
+The stack does not guarantee skb length <= MTU at ndo_start_xmit:
+
+- tcf_mirred_forward() in net/sched/act_mirred.c calls
+  tcf_dev_queue_xmit() without an MTU check.
+- BPF egress redirect can deliver oversized skbs.
+- AF_PACKET with vnet_hdr GSO uses a user-chosen gso_size.
+- A bridge with mixed port MTUs can pass GSO skbs through.
+
+Can the NIC then DMA-read up to 2047 bytes from the unprogrammed DES3
+address and put them on the wire?
+
+Would stmmac_xmit() need a length check that drops oversized frames on
+normal descriptors? Without it, the single-buffer assumption does not
+hold on TX. The second patch in the series does not address this.
+
+[Severity: Medium]
+The new limit works out to 2047 - 14 - 8 - 4 = 2021, which leaves no
+slack. Does it allow for Type-1 RX checksum offload engines?
+
+ndesc_get_rx_frame_len() notes that those engines write two checksum
+bytes after the frame, and those bytes are included in the frame length:
+
+	/* The type-1 checksum offload engines append the checksum at
+	 * the end of frame and the two bytes of checksum are added in
+	 * the length.
+	...
+	if (rx_coe_type == STMMAC_RX_COE_TYPE1)
+		csum = 2;
+
+stmmac_hw_init() picks STMMAC_RX_COE_TYPE1 from dma_cap.rx_coe_type1,
+independently of enh_desc. So a pre-4.00 GMAC without the alternate
+descriptor feature can run ndesc_ops with Type-1 COE.
+dwmac1000_rx_ipc_enable() then sets GMAC_CONTROL_IPC.
+
+At MTU 2020 or 2021, a double-tagged frame with FCS is 2046-2047 bytes.
+With the appended checksum it needs 2048-2049 bytes in the buffer.
+
+ndesc_init_rx_desc() caps buffer1 at 2047. The leftover bytes would go
+into the 1-byte buffer2 at RDES3, then into the next descriptor. The
+first descriptor has no LS, so ndesc_get_rx_status() returns
+discard_frame.
+
+Wouldn't that drop QinQ frames at the advertised max MTU? That conflicts
+with:
+
+  "Limit max_mtu so that a frame with two VLAN tags and the FCS fits."
+
+stmmac_setup_dma_desc() also sizes the RX buffers without counting the
+Type-1 checksum bytes.
+
+The follow-up "net: stmmac: dwmac-sun8i: Limit the MTU to 2018"
+suggests the 2047 formula is already too tight on real hardware: H616
+fills only 2044 bytes. That change only covers sun8i, which uses Type-2
+COE.
+
+Should the generic limit reserve 2 more bytes when rx_coe ==
+STMMAC_RX_COE_TYPE1, or reserve them always?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf%40gmail.com
