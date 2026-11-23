@@ -1,70 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795445648;
-	b=icZLQ9mX5RL7Ux7+Qofx1hQgJPeRGgD26h7ALEclKLc1ReZdkQlF7hRvcmv2w1PB6Tf9
-	 qReikcnTBw9uv2iMRNIlRC/dqXTXpHrl5wZLLATcD0WyQcYTLb6DoR4hQ3oWNZ8wQCpp0
-	 iewSRh732KUisT0/3Tf5SF8/R5Z0UggMbfDr0Y373X5Al0o6YmyMBEsKBAPJt3ScwSZXP
-	 k2nMelPyhvIWlBxUGPzmwLnVCAnWvxQjCifz9eD+oHsfSyftG2VUaOSghaLHDo2sudjcF
-	 vk5ZDoxS9zCJxJZ796T8Nm5qv0mZD091MraHNVFl/5SRrCRYHfHydcKAiQJzv4Z4RrQ==
+	t=1795445657;
+	b=bnBOBJytON6Ew1w3g4N9/HvhWFN1RMavFPv1KRtlZVMWJfAw/dr902SCT7ldYkFZLbs6
+	 Ob7rzdfnAzkA0445MGw1SCxTuptLgIFqF2uVN8NjD2AfUhuvGTzF+rT1AhdSna/VYpZzJ
+	 MZE1+eK/M5UE6U2IIq0CorPlhYOQCHFO1qL6+HKE5xyCaJWYtXf3Xx9u09y+vjNEhSFIl
+	 o4spEgW8lgPc1KqC3RgefQplA5slx0Vr5sHfoLNVS3ym/bVGFy+Dc+zuU3jbtBWy9Dwrt
+	 /0u+X6w8c/F5P63Cqtdr6h611y9Nf3DLej0O0lvEJYplBL9CAS+eoXL5UqV3a/jOo9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795445648;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:X-B4-Tracking:X-Change-ID:To:CC:X-Mailer;
-	bh=uxLCR45VIz+tn/aUx4g18P6/+6NyUji6kuEOwzHQjiU=;
-	b=DSaht9yAmIB3+63trbVO61pLXxsXg9fLRrNZeFW7LzJFe+N3cSYuM0byup8Ydz14V/Yi
-	 EaamSEtEmi6k6ihAYSEEWyZYgVRj4l/kW6WfeEUj3XqNAvHfqPhtz6wsOn15ek7CPtU/Q
-	 8ImQqdA4aLFJZwy1N8x4cSS/wyVkDhhSQYYbHpICgUuOIAUCpbuIuSxWPvvv6S4DfLRFG
-	 tAVAYqyH9IG5KWOhecaK+OaujJqadgxVjh8hkEBgjd4tAjsUka7+IXOisi6GvlDL1UdY9
-	 LcG9kXtNv2sZm/UJt6n9aYwNrWtR35KfgFoTPkJuFyZCJmxwaVQSEgB5njqSpPsDj+w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795445657;
+	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
+	bh=5mz8QsVAUaO9bj17AWP3z2R7Bqrr5CER16zl8mouvOY=;
+	b=nffW55sFfg0oQMXpdW259AnT12muZnCGsYknFvfEWdBSuWH5cEZmGAk8p5Y+q5Sxy30c
+	 oHNNmK6c2ZNPbc2t+uv77nJrKZkebq5eaAOrgfZckj0JtjGBwayY4WAZUVRhEcTbQg3yn
+	 /9k7vqJ1WfVpMyXjfIF9VzD8s5u+jI+/kWM7ch/cUS3UwArj/yWVEDGsZGoTQBPwIX92j
+	 DNgGrMPTq4ur7LVkDDR1OfHZCk8GBbH9hGgyTX6KWWwnic5n/nbmU54ef9AB9YjktAtOB
+	 joo2str5oSY3pyZQzY0p04njM5mLnxdgCv7ac41Usj+wlyksYBbQYgmJR8qsoEM0p4A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="Hj/zW8iI";
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 525E9606B0AB
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 14:54:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 525E9606B0AB
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	dmarc=pass header.from=linux.microsoft.com;
+	spf=pass smtp.mailfrom=linux.microsoft.com;
+	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=J6UvCFbS;
+	arc=none smtp.remote-ip=13.77.154.182
+Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id C7A2B606A6A1;
+	Mon, 23 Nov 2026 14:54:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C7A2B606A6A1
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Hj/zW8iI
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795445656; x=1826981656;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:to:cc;
-  bh=KOr0QuseXB2oG1CPzhEyE2cqvEepSSkfyf/zMYIvqmc=;
-  b=Hj/zW8iIfIlbrrMM+vjwi3FHL2HHs46RblMeelbrRJupVCZWeQMTjZwe
-   LFCRxu41XRGtvCr9fQBKrkMsTovFiMK6F7Ce9iuktb/56aBnNg7+sxwGq
-   y0jG1qY1e4FPjALeyEwYuMJaWa2mxfr69h0JPbRE+JH3D6ITlujmQDZ6N
-   P/J8JHoTry8MwALOJppSEu6oucJvWc7db6ap77b+eixQFc1+qxBTEpO/2
-   QWXd/Oxq783+0pfdZ9EhYINWhvnXxqcI+uh+T0wpI5c/u7rzvmIwR2meM
-   ry7SAyuSLNieOJ6w4WfYltvbzG/Fwy+UsR8+Cxn20oYzc2WOlThypX0SJ
-   A==;
-X-CSE-ConnectionGUID: XOLUE6NJScuJ/ChBo0fGzw==
-X-CSE-MsgGUID: sJrYP1QZTdymQ2j2oF+gUg==
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="233973871"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 23 Nov 2026 07:54:15 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
- chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Mon, 23 Nov 2026 07:54:07 -0700
-Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Mon, 23 Nov 2026 07:54:05 -0700
-From: Daniel Machon <daniel.machon@microchip.com>
-Date: Mon, 23 Nov 2026 15:53:54 +0100
-Subject: [PATCH net] net: lan966x: fix disabling timestamping without PTP
- traps
+	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=J6UvCFbS
+Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1B69020B7167;
+	Mon, 23 Nov 2026 06:54:11 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1B69020B7167
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1795445652;
+	bh=5mz8QsVAUaO9bj17AWP3z2R7Bqrr5CER16zl8mouvOY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=J6UvCFbSLosaA/sY38ZP7f283cA4sXlYq/8jEisLFAV6fKiG+2TVB06Po76D8uSFI
+	 6QmaDFN5TcNl/ybumkiUfcD8nRs9p0KigeOSXu9QiAiS+ASmyIspz7kH1VQgGWDC9d
+	 b2lHX5hHQViMf0gAIjQMLk7izPqGiCrB5eju+rxk=
+From: Wei Hu <weh@linux.microsoft.com>
+To: leon@kernel.org
+Cc: longli@kernel.org,
+	kotaranov@microsoft.com,
+	kuba@kernel.org,
+	davem@davemloft.net,
+	pabeni@redhat.com,
+	edumazet@google.com,
+	andrew+netdev@lunn.ch,
+	jgg@ziepe.ca,
+	haiyangz@microsoft.com,
+	wei.liu@kernel.org,
+	decui@microsoft.com,
+	shradhagupta@linux.microsoft.com,
+	horms@kernel.org,
+	ernis@linux.microsoft.com,
+	stephen@networkplumber.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-hyperv@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	gargaditya@linux.microsoft.com,
+	kees+treewide@kernel.org,
+	kees@kernel.org,
+	mawasthi@linux.microsoft.com,
+	weh@microsoft.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v11 3/4] net: mana: support concurrent HWC requests
+Date: Mon, 23 Nov 2026 14:53:59 +0000
+Message-ID: <20261122064231.hwc-v11-leon-p3.weh@linux.microsoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261117180724.GD162713@unreal>
+References: <cover.1794751992.git.weh@linux.microsoft.com> <45db2acd8f03421191f5b3a9f4bd7ce9e9259b33.1794751992.git.weh@linux.microsoft.com> <20261117180724.GD162713@unreal>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,67 +83,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20261123-lan966x-ptp-del-trap-v1-1-3f46ca6072b2@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAIFTBGsC/x3MTQqAIBBA4avErBtQI/u5SrSwnGogTFQiCO+et
- PwW770QKTBFGKsXAt0c+XIFsq5gPYzbCdkWgxJKS6kaPI0btH7QJ4+WTkzBeBx6a0nItd26BUr
- qA238/NsJHCWYc/4A5kefGGsAAAA=
-X-Change-ID: 20261123-lan966x-ptp-del-trap-98dde01c5f7b
-To: Horatiu Vultur <horatiu.vultur@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Richard Cochran
-	<richardcochran@gmail.com>
-CC: <netdev@vger.kernel.org>
-X-Mailer: b4 0.14.3
+Content-Transfer-Encoding: 8bit
 
-lan966x_ptp_del_trap() looks up a PTP trap rule with vcap_get_rule() and
-removes the port from it, or deletes the rule when no other port needs
-it. The traps are removed whenever timestamping is configured with
-HWTSTAMP_FILTER_NONE.
+On Tue, Nov 17, 2026, Leon Romanovsky wrote:
+> Unfortunately, the entire series was written using AI tools, making it
+> difficult to provide meaningful feedback based on the commit messages.
 
-Before this patch, every vcap_get_rule() error is returned as -EEXIST,
-including the -ENOENT for a trap rule that does not exist, so disabling
-timestamping on a port that has no traps installed fails. This breaks
-moving the hardware timestamp provider of a port from its PHY to the
-MAC.
+I rewrote the v12 commit messages to explain what goes wrong and why
+each change is needed.
 
-Return 0 for -ENOENT, as there is nothing to remove. Pass any other
-error from vcap_get_rule() on, as the rule may still be installed with
-this port in its ingress port mask.
+> However, in RDMA, object destruction should not fail and we shouldn't
+> leave pinned memory for the user space process which already exited.
 
-Triggered during test development, without kernel modifications, on a
-lan9668 board whose LAN8814 PHYs are the default timestamp provider:
-"ethtool --set-hwtimestamp-cfg <port> index <switch PHC> qualifier
-precise" failed with "File exists". With the fix the same command moves
-the provider to the MAC.
+Agreed. ib_free_cq() frees the CQ even if destroy returns an error. I
+removed the CQ and QP early returns in v12. Teardown no longer relies
+on an exiting process retrying.
 
-Fixes: 72df3489fb10 ("net: lan966x: Add ptp trap rules")
-Signed-off-by: Daniel Machon <daniel.machon@microchip.com>
----
- drivers/net/ethernet/microchip/lan966x/lan966x_ptp.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+When a posted HWC command reaches its normal response timeout, the PF
+guarantees that DMA through the old MR has stopped and cannot restart.
+The driver can then unpin the pages without a destroy reply.
 
-diff --git a/drivers/net/ethernet/microchip/lan966x/lan966x_ptp.c b/drivers/net/ethernet/microchip/lan966x/lan966x_ptp.c
-index 9be2cfe6feeb7..e3af7831a10c3 100644
---- a/drivers/net/ethernet/microchip/lan966x/lan966x_ptp.c
-+++ b/drivers/net/ethernet/microchip/lan966x/lan966x_ptp.c
-@@ -110,7 +110,7 @@ static int lan966x_ptp_del_trap(struct lan966x_port *port,
- 
- 	vrule = vcap_get_rule(lan966x->vcap_ctrl, rule_id);
- 	if (IS_ERR(vrule))
--		return -EEXIST;
-+		return PTR_ERR(vrule) == -ENOENT ? 0 : PTR_ERR(vrule);
- 
- 	vcap_rule_get_key_u32(vrule, VCAP_KF_IF_IGR_PORT_MASK, &value, &mask);
- 	mask |= BIT(port->chip_port);
-
----
-base-commit: af6737b9066832a2017c281159950ba92385ce00
-change-id: 20261123-lan966x-ptp-del-trap-98dde01c5f7b
-
-Best regards,
--- 
-Daniel Machon <daniel.machon@microchip.com>
-
+Thanks,
+Wei
