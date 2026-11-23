@@ -1,59 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405975;
-	b=KJkEy/4fRbXP8q47b+YriwYslZY+aFqS7Yznwr6QiMFQz8TSK9681DJSQV8pnPSWcnQG
-	 TPXBt1dWVdJWKgE14oVnN6TB1K9/BVmhaPW6JrehmUGHsix8m0wVmmqLUTg2tkfBF8YLf
-	 v74R3vEbKy0zw4S5NQR7sdtRcZeoEfqjjz0nQF/WydZhrmtX29f6VKuDxHFEFDJi47DrP
-	 S2852S2WCLb0b+XPlVBZ91XD/idLNKsk3LLTi2k7Mfshooj1ulwd6Gcbq5yAx/FD+Ldr4
-	 1YpjR+oaj5RukfXCWMLe4tUOGPIyoOGfHv1hXaA27GE1G2A7N8vmrhuOHmDQSF3Ne9Q==
+	t=1795406074;
+	b=qxAol42CMwINo0BCQsagdzMmanGy9kCAaa02p8ruAm2nyPR1fHrKHd58A7Qq4Dwew8Do
+	 1YLcGu+tjTUKx1OLBPzPJK89sNHCN4LlQwgTCbsFvuXyQeKrew3maFTYpyg2xuMfquvGc
+	 dWvI9dpyPUISSTgmX4ce4XizSSj0Mlf3n6XOmEjQOMbIVvC1Xj8QPT9HIVB/ymQXgBcBB
+	 /cNSM9FjfYoU6UU87TU+0eLmjIdTqOyQWurWpfE/Ovc1QRvhh3FjyFv/SQC0hCZ4Tp10p
+	 L9Gstc7oFmRG1omNdZg/XYMyCmPgQcijdWEPvOGcQO9fUlorQJXCLRlhPT+SqxCL0Tg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405975;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wZawyu+yiKJdA76/KWNSvpB6T1UggooO2OitW4P0Azs=;
-	b=V2xzZMWUtMhrT94wYuRJ9FPExX3DH4h15dYXXaPDe2eSOljsCMy3RM0O8Fyu9y0Y6DUu
-	 S2jtKqewHOaIZCvBfZBMJ5FPCZl2E5AdPi46g1v28Y02uog4EM/th5F+RR/LPj03ytVvg
-	 3ooAYoa4NuShxsHObIOfjMcgnetKQL5hgS9kAIwh8lO9vGDa1YNVqDZLwgXcxB4Y9iTpI
-	 pFyTJ612+Lz4lcyHUrNGYbVcaDgKJ5+91XDvcCG8XVBX1mhXjBIrAz89FotduKclGFQzt
-	 3NB52HtFHLZ3gD76Pygm32UvlhfXek2qqbMI2dQxdaWB9KOyC6OdXuq1gKMsaNKrwsA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795406074;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:X-Relaying-Domain:
+	 X-CFilter-Loop:Received:DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
+	b=vdLBrzAomoi9Azw7Nu/O2MDGzxb2qpoEow98aGkMhkNoTLxXPhFJbaCisy7VtlNW/hJi
+	 5OAXdtpnxGIObbPA6rk8nzEu3Cchg5vW1cbWxQzUuO2Xb5Jq2OJf0Su7ZdXUvcXQuHgUH
+	 94W8kcaHX9aCVy+Bm/7BrQqIw6B1uDxSkAzM5Wqc381wiDL/5ArR2xRzs9pbSkL2izhvf
+	 wYByD2rv564wt1nfvQEwGeIVqdOp/6aK9ZvVLQHc5EooV+rMU9buQvEZsGs4VGLdhwBl5
+	 Nx/jqOKFtu7A4KB0Fynmg2CrbFwYfvEOcbG0SPrAIhAuJAJeYKRHT+ohEgm3x4LNRwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSLJ4ieK;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UhYIX+xe;
+	arc=none smtp.remote-ip=209.85.215.226
+Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85DF3606A332
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:52:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9585606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 03:54:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9585606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VSLJ4ieK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A7321F000C6;
-	Mon, 23 Nov 2026 03:52:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795405975;
-	bh=wZawyu+yiKJdA76/KWNSvpB6T1UggooO2OitW4P0Azs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VSLJ4ieKIgMdklEjD72xgEyW/WTs9/gYthKOtZG+c7JiNdB09hrQcT+nelFypIGsw
-	 O6wx4dx9YvtMBcjyAOregmGuovgWsWqC9qjhi5zwmnLmCmsz69yY139o3gEuBVsKyK
-	 coGKhhVxj//DKHZhFjHC10VKVDSp8Qyj9E1OjRZ8D4Xn6d5YRGg0TqUJAyScJqj4Eo
-	 iTnxQ+c0NxVuEPq8u5goYxP5uowIKqPBEttymyEQbJ5Wy+j10SJ0mGPcKnIpNNlDLz
-	 vkY3/jiCNVET/10xxFO6+TrOIHNBARoTo4i7uWIHqVV6S7j6e+meI5AQoWBlcHSBQl
-	 8TafJI7gDlFrQ==
-Subject: Re: [PATCH net-next v2 7/7] eth: bnxt_en: restart Rx queues when
- their IRQ moves to another NUMA node
-From: netdev-bot+sashiko@kernel.org
-To: kuba@kernel.org
-Cc: davem@davemloft.net, michael.chan@broadcom.com, netdev@vger.kernel.org,
- edumazet@google.com, pabeni@redhat.com, andrew+netdev@lunn.ch,
- horms@kernel.org, pavan.chebbi@broadcom.com, bjorn@kernel.org, joe@dama.to
-Date: Mon, 23 Nov 2026 03:52:53 +0000
-Message-ID: <179540597395.3135.10998884715226762162@kernel.org>
-In-Reply-To: <20261120035214.369158-8-kuba@kernel.org>
-References: <20261120035214.369158-8-kuba@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=UhYIX+xe
+Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cc147d86bebso1437615a12.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:54:33 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795406073; x=1796010873;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
+        b=NDsiNdlHkneOefNnKHTnSaeuf3CTji2q6l4B+cBGH96gGj+xbClO7eABUFmDxIIZVW
+         NUS5ou9hIgYtzwixWcM9XZpMS2C667y2gILOAAtsyT7yLIfLC5kw55j3iy4r3oChXgI8
+         DviFCBp43h9Z3l0B6ajygpbm7Yd8GK7sIiG914bEtmr2JdgFm7i4u8NQwCH4wOVtQ+Py
+         5FRnbIPXecpV8pV0bIiop3B+F2i7EFYpVoF1fY6t9LagR2OAqSbmlcaTKcKjvQzN4bp6
+         tS+DbILafyxPP+7WOMyKOxKK6Y4ADSPn2+pcRlKonB6cd+3ff8txt3Wz91NgUpb5qpzK
+         XTRw==
+X-Forwarded-Encrypted: i=1; AL+hErFf8AgeEAtIYLpvOsxkygjbDFSGeqRUsGHcUTXwJFfodGgDU3n8FEsBv6o6qUpaSTEejaKuGT0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/IJEhZ1H1l4rPupyUYtiXMXKO2jq2z7sax7swrYs0nP91hz31J
+	QkZ4lo4DLeTEAdDaOyevH8dU+5StXTE6U/VgNsxfM9PZJoy3gJvOu6HaMwgbLflsp9scTzKboKV
+	ExXqfKc4UtWBofWHWlEZT/stMH6bpMgvnZ73mjgOu6vCJ2KrNjuMBEbeo++v1FRFm6GIyw4Q8O5
+	RZfcDqgVYpO7ASf0NmWql3PRWROlBcqlGRMe8WN62jm0Vrf1BbK2sxDCOa4gnEaMm834yXU1adF
+	ncsJeq+OBY=
+X-Gm-Gg: AZFdTZdRot+d2B9Tmkxs87I4lJzk/n3O2j/zYTzz140E0VVMXaYDaq5cleiJuBcEC4E
+	B79Bv5amqGaNFqMBOuhfrGXi5dTJ8lthzt+jgHosDLuIBwMbAtPbhtIW86xN+2dMn/uAlvMk/vf
+	e8bq/jNFzWE59LmM5ErOdKJs7Q5512xNqyr+LKBWy2T6F0hWwpBAOk1BzrYxWXqvIW4TpJ2zdj9
+	Rd5D2K7CZbTc3Cgcnl04rZ3tYRwGo6/xcPeRNBfKOR/ANkgnOCKCh4fVlqHsR8gngmEKV+JZGbY
+	w6Lb3OV55YKUnUJns21lFDrlBwtdBIHfBgXStGkJsDQ5fVlt+Z2l12LzxXF/VSxPo0W4Vj7ugJs
+	j43NljgZ2efyEqPHFIkyK066f8BV9vA1C+sfSTjs6LJ30nt1fieD5BZuIPnmi7wFvbpA5pA64RF
+	3DezamQ+/gsnlXRe6OUsDuRXRiET2qBzln5Yc=
+X-Received: by 2002:a17:90b:2f8f:b0:3a0:d82b:237b with SMTP id 98e67ed59e1d1-3b41c938926mr6243580a91.25.1795406072963;
+        Sun, 22 Nov 2026 19:54:32 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d23cb9dsm3450296a91.1.2026.11.22.19.54.32
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 22 Nov 2026 19:54:32 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-375bac6bd21so3296180eec.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 19:54:32 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795406071; x=1796010871; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=26k3z18tg1ygvhI1VjK6YpvSE+G8SMGlXe8jtBkjhz0=;
+        b=UhYIX+xe0SH0Rha59WjQL2RiR8y+RT87JH7TQShkHUEQRf+5wqjxRq+uo4XpnskCbK
+         GjdvRNUuYFflOBn7xwUmcoAhmi98L4IZ+aNQlj+5KxSTxvRK18x9WeuA6OXRqnf14tKp
+         T2MJ3a+1OtG5iq3mcCvrg4NACuwASW1qCYTxI=
+X-Forwarded-Encrypted: i=1; AL+hErHhqWteOZrDh4M77nt/9pjC2jRdLNcsyangLC2x5u26mHXraeE5p/V2xb2N6By/uE+nUQEIdgU=@vger.kernel.org
+X-Received: by 2002:a05:693c:20ce:10b0:385:ab26:f3ad with SMTP id 5a478bee46e88-385ab26f492mr10124367eec.0.1795406071279;
+        Sun, 22 Nov 2026 19:54:31 -0800 (PST)
+X-Received: by 2002:a05:693c:20ce:10b0:385:ab26:f3ad with SMTP id 5a478bee46e88-385ab26f492mr10124349eec.0.1795406070582;
+        Sun, 22 Nov 2026 19:54:30 -0800 (PST)
+Received: from pc-hpe-top-git-sendmail-server.dhcp.broadcom.net ([192.19.234.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm3513127eec.27.2026.11.22.19.54.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 22 Nov 2026 19:54:30 -0800 (PST)
+From: Pavan Chebbi <pavan.chebbi@broadcom.com>
+To: michael.chan@broadcom.com,
+	kuba@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	andrew.gospodarek@broadcom.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	Pavan Chebbi <pavan.chebbi@broadcom.com>
+Subject: [PATCH net-next v2] tg3: Add support for boards integrated with security SoCs
+Date: Mon, 23 Nov 2026 09:27:21 +0530
+Message-ID: <20261123035721.1207175-1-pavan.chebbi@broadcom.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,212 +114,181 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Add support for Broadcom NetXtreme NX1 network interface controllers
+integrated with security SoCs. This enables proper driver recognition
+and initialization for these hardware Root of Trust enabled network
+adapters.
 
-Critical: 0 · High: 3 · Medium: 0 · Low: 0
+The boards are identified by their PCI subsystem IDs. Add the new
+subsystem device IDs and a helper that matches them.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+These boards need the following deviations from the default behavior:
 
-- [High] The new close-on-error handling in bnxt_irq_affinity_update()
-  cannot work.
-- [High] bnxt_irq_affinity_update() takes only the netdev instance lock
-  through bnxt_lock_sp() (bnxt.c:14636-14646: clear_bit(IN_SP_TASK);…
-- [High] With this patch, PFs that support the queue API but run without
-  TPH restart their Rx queues when the IRQ moves to another NUMA node.
+- Never drive GPIO1. These boards use GPIO1 for mailbox communication
+  between SoC and the NIC, internal to the board, so it must not
+  be driven externally and is always kept cleared. Skip it when
+  switching to Vaux or Vmain power, and do not set it in
+  tp->grc_local_ctrl.
 
---
+- Do not enable EEPROM write protection, even if the NIC config in
+  SRAM requests it.
 
-eth: bnxt_en: restart Rx queues when their IRQ moves to another NUMA node
+- Do not enable Wake-on-LAN. These boards reuse the GPIO that
+  Wake-on-LAN depends on for other purposes, so Wake-on-LAN cannot
+  work on these devices. Clear WOL_CAP so that it is not advertised.
 
-This patch schedules the IRQ affinity sp work on every device that
-supports the queue API, not only in TPH mode. bnxt_irq_affinity_update()
-then restarts an Rx queue if the TPH Steering Tag changed or if the page
-pool's nid no longer matches the IRQ's node. It also stops the loop when
-a failed restart has closed the device.
+Signed-off-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
 
-> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> index c022fcb063482..e2a0fb2b614a2 100644
-> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+---
+v2:
+ - Move the "GPIO1 must be driven high" comment to the EEPROM_WRITE_PROT
+   branch in tg3_reset_hw().
+ - Clear WOL_CAP where CITADEL is set so that the wakeup source is never
+   registered on these boards.
+---
+ drivers/net/ethernet/broadcom/tg3.c | 51 ++++++++++++++++++++++++++++-
+ drivers/net/ethernet/broadcom/tg3.h | 13 ++++++++
+ 2 files changed, 63 insertions(+), 1 deletion(-)
 
-[ ... ]
-
-> @@ -14677,27 +14679,40 @@ static void bnxt_tph_update(struct bnxt *bp)
->  		goto unlock;
->  
->  	for (i = 0; i < bp->rx_nr_rings; i++) {
-> +		struct bnxt_rx_ring_info *rxr = &bp->rx_ring[i];
-> +		bool new_tag = false, new_node = false;
-> +		int map_idx, err, nid;
->  		struct bnxt_irq *irq;
-> -		int map_idx, err;
->  		u16 tag;
->  
->  		map_idx = bnxt_cp_num_to_irq_num(bp, i);
->  		irq = &bp->irq_tbl[map_idx];
-> +
->  		tag = READ_ONCE(irq->new_tag);
-> -		if (irq->tag == tag)
-> -			continue;
-> +		if (irq->tag != tag) {
-> +			if (!pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-> +				new_tag = true;
-> +		}
->  
-> -		if (pcie_tph_set_st_entry(bp->pdev, irq->msix_nr, tag))
-> +		nid = READ_ONCE(bp->ring_nid[i]);
-> +		if (nid != NUMA_NO_NODE && rxr->page_pool->p.nid != nid)
-> +			new_node = true;
-
-[Severity: High]
-When bp->tph_mode is off, this new_node check alone now restarts the
-queue. Does the restart quiesce the XDP TX ring that shares this Rx
-queue's NAPI?
-
-XDP requires combined rings. The XDP TX ring is attached to the Rx bnapi,
-and its tx_int is bnxt_tx_int_xdp(). bnxt_queue_stop() calls
-bnxt_tx_queue_stop(), which skips freeing and draining the TX ring when
-TPH is off:
-
-bnxt_tx_queue_stop() {
-    ...
-		if (!bp->tph_mode)
-			continue;
-
-		bnxt_hwrm_tx_ring_free(bp, txr, true);
-		bnxt_hwrm_cp_ring_free(bp, txr->tx_cpr);
-		bnxt_free_one_tx_ring_skbs(bp, txr, txr->txq_index);
-    ...
-}
-
-That leaves XDP_TX descriptors already posted to hardware in flight while
-bnxt_queue_start() installs the clone's pools:
-
-	rxr->page_pool = clone->page_pool;
-	rxr->head_pool = clone->head_pool;
-
-Those completions are processed later in bnxt_tx_int_xdp():
-
-	page_pool_recycle_direct(rxr->page_pool, tx_buf->page);
-
-Wouldn't that recycle old-pool pages into the new pool? The same path
-also rings the Rx doorbell with a tx_buf->rx_prod from the old ring.
-
-Meanwhile, bnxt_queue_mem_free(old_mem) frees the old rx_buf_ring pages,
-including XDP_TX head pages that hardware may still be reading. It then
-calls page_pool_destroy() on the old pool, which DMA-unmaps the pages
-that pool still tracks. Some of those pages may already have been
-reposted to hardware Rx through the new pool.
-
-Before this patch, bnxt only called netdev_rx_queue_restart() in TPH
-mode, where the TX rings are freed during stop. Is it safe to reach this
-restart on non-TPH devices that have XDP attached?
-
->  
-> +		if (!new_tag && !new_node)
->  			continue;
->  
-> -		err = netdev_rx_queue_restart(dev, irq->ring_nr);
-> +		err = netdev_rx_queue_restart(dev, i);
->  		if (err) {
->  			netdev_err(dev, "RX queue restart failed: err=%d\n",
->  				   err);
-> +			/* Failing to start a new queue may close the device */
-> +			if (!test_bit(BNXT_STATE_OPEN, &bp->state))
-> +				break;
-
-[Severity: High]
-Can netdev_rx_queue_restart() return here safely once the device has
-been closed?
-
-If bnxt_queue_start() for new_mem hits an HWRM failure, it jumps to
-err_reset and calls netif_close(dev), which leads to:
-
-netif_close()
-  __dev_close_many()
-    bnxt_close()
-      bnxt_close_nic()
-        __bnxt_close_nic()
-          bnxt_free_mem(bp, true)
-            bnxt_free_rx_rings()   <- destroys rxr->page_pool (new pool)
-            kfree(bp->rx_ring); bp->rx_ring = NULL;
-
-Next, netdev_rx_queue_reconfig() takes its err_start_queue path. It does
-not check whether the device is still running:
-
-	if (qops->ndo_queue_start(dev, qcfg_old, old_mem, rxq_idx)) {
-		...
-	}
-
-err_free_new_queue_mem:
-	qops->ndo_queue_mem_free(dev, new_mem);
-
-bnxt_queue_start(old_mem) then runs:
-
-	rxr = &bp->rx_ring[idx];
-	clone = qmem;
-
-	rxr->rx_prod = clone->rx_prod;
-
-with bp->rx_ring set to NULL. Wouldn't this oops? Even if it didn't,
-bnxt_queue_mem_free(new_mem) would call page_pool_destroy() a second
-time on the new pool, which bnxt_free_rx_rings() has already destroyed.
-
-The reverse order has the same problem. Suppose the new queue fails in
-the MRU path without closing, and the rollback start for old_mem then
-reaches err_reset. The close destroys the old pool, and
-ndo_queue_mem_free(old_mem) destroys it again.
-
-So whenever the device closes inside the restart, the new
-BNXT_STATE_OPEN check doesn't seem to be reached safely.
-
-This restart can now be triggered by any cross-node affinity change on a
-queue-API PF, for example from irqbalance or a write to
-/proc/irq/*/smp_affinity, not only by TPH Steering Tag changes.
-
-[Severity: High]
-Related to the above: which locks are held when this close happens?
-
-bnxt_irq_affinity_update() takes only the netdev instance lock, through
-bnxt_lock_sp():
-
-bnxt_lock_sp() {
-	clear_bit(BNXT_STATE_IN_SP_TASK, &bp->state);
-	netdev_lock(bp->dev);
-}
-
-Unlike bnxt_rtnl_lock_sp(), it does not take RTNL. The err_reset path in
-bnxt_queue_start() calls netif_close(dev), and __dev_close_many() begins
-with:
-
-	ASSERT_RTNL();
-	might_sleep();
-
-	list_for_each_entry(dev, head, close_list) {
-		netpoll_poll_disable(dev);
-
-		call_netdevice_notifiers(NETDEV_GOING_DOWN, dev);
-
-Wouldn't this trigger the RTNL assertion?
-
-The NETDEV_GOING_DOWN and NETDEV_DOWN notifiers and rtmsg_ifinfo() would
-also run without RTNL. That lets them race with other RTNL holders that
-don't take this device's instance lock.
-
-The new comment "Failing to start a new queue may close the device"
-expects this close path. With this patch, it can be reached on every
-BNXT_SUPPORTS_QUEUE_API PF, not only in TPH mode.
-
->  			continue;
->  		}
-
-[ ... ]
-
+diff --git a/drivers/net/ethernet/broadcom/tg3.c b/drivers/net/ethernet/broadcom/tg3.c
+index 95827df4cf6a..9b96959d51bb 100644
+--- a/drivers/net/ethernet/broadcom/tg3.c
++++ b/drivers/net/ethernet/broadcom/tg3.c
+@@ -2840,6 +2840,9 @@ static void tg3_pwrsrc_die_with_vmain(struct tg3 *tp)
+ 	    tg3_asic_rev(tp) == ASIC_REV_5701)
+ 		return;
+ 
++	if (tg3_flag(tp, CITADEL))
++		return;
++
+ 	grc_local_ctrl = tp->grc_local_ctrl | GRC_LCLCTRL_GPIO_OE1;
+ 
+ 	tw32_wait_f(GRC_LOCAL_CTRL,
+@@ -2913,6 +2916,9 @@ static void tg3_pwrsrc_switch_to_vaux(struct tg3 *tp)
+ 			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE2 |
+ 					    GRC_LCLCTRL_GPIO_OUTPUT2);
+ 		}
++		if (tg3_flag(tp, CITADEL))
++			grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
++					    GRC_LCLCTRL_GPIO_OUTPUT1);
+ 		tw32_wait_f(GRC_LOCAL_CTRL,
+ 			    tp->grc_local_ctrl | grc_local_ctrl,
+ 			    TG3_GRC_LCLCTL_PWRSW_DELAY);
+@@ -10536,8 +10542,11 @@ static int tg3_reset_hw(struct tg3 *tp, bool reset_phy)
+ 		tp->grc_local_ctrl &= ~gpio_mask;
+ 		tp->grc_local_ctrl |= tr32(GRC_LOCAL_CTRL) & gpio_mask;
+ 
++		if (tg3_flag(tp, CITADEL))
++			tp->grc_local_ctrl &= ~(GRC_LCLCTRL_GPIO_OE1 |
++						GRC_LCLCTRL_GPIO_OUTPUT1);
+ 		/* GPIO1 must be driven high for eeprom write protect */
+-		if (tg3_flag(tp, EEPROM_WRITE_PROT))
++		else if (tg3_flag(tp, EEPROM_WRITE_PROT))
+ 			tp->grc_local_ctrl |= (GRC_LCLCTRL_GPIO_OE1 |
+ 					       GRC_LCLCTRL_GPIO_OUTPUT1);
+ 	}
+@@ -15220,6 +15229,38 @@ static struct subsys_tbl_ent *tg3_lookup_by_subsys(struct tg3 *tp)
+ 	return NULL;
+ }
+ 
++static bool tg3_is_citadel(struct tg3 *tp)
++{
++	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_BROADCOM) {
++		switch (tp->pdev->subsystem_device) {
++		case TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD:
++		case TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2908:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2909:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2906:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_E14A:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_E34A:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2904:
++		case TG3PCI_SUBDEVICE_ID_CHANNEL_2905:
++			return true;
++		default:
++			return false;
++		}
++	}
++
++	if (tp->pdev->subsystem_vendor == TG3PCI_SUBVENDOR_ID_DELL) {
++		switch (tp->pdev->subsystem_device) {
++		case TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00:
++		case TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L:
++			return true;
++		default:
++			return false;
++		}
++	}
++
++	return false;
++}
++
+ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ {
+ 	u32 val;
+@@ -15231,6 +15272,11 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ 	tg3_flag_set(tp, EEPROM_WRITE_PROT);
+ 	tg3_flag_set(tp, WOL_CAP);
+ 
++	if (tg3_is_citadel(tp)) {
++		tg3_flag_set(tp, CITADEL);
++		tg3_flag_clear(tp, WOL_CAP);
++	}
++
+ 	if (tg3_asic_rev(tp) == ASIC_REV_5906) {
+ 		if (!(tr32(PCIE_TRANSACTION_CFG) & PCIE_TRANS_CFG_LOM)) {
+ 			tg3_flag_clear(tp, EEPROM_WRITE_PROT);
+@@ -15430,6 +15476,9 @@ static void tg3_get_eeprom_hw_cfg(struct tg3 *tp)
+ 			tp->phy_flags |= TG3_PHYFLG_DISABLE_1G_HD_ADV;
+ 	}
+ done:
++	if (tg3_flag(tp, CITADEL))
++		tg3_flag_clear(tp, EEPROM_WRITE_PROT);
++
+ 	if (tg3_flag(tp, WOL_CAP))
+ 		device_set_wakeup_enable(&tp->pdev->dev,
+ 					 tg3_flag(tp, WOL_ENABLE));
+diff --git a/drivers/net/ethernet/broadcom/tg3.h b/drivers/net/ethernet/broadcom/tg3.h
+index a9e7f88fa26d..713fe9c821e2 100644
+--- a/drivers/net/ethernet/broadcom/tg3.h
++++ b/drivers/net/ethernet/broadcom/tg3.h
+@@ -100,6 +100,8 @@
+ #define TG3PCI_SUBDEVICE_ID_DELL_MERLOT		0x0109
+ #define TG3PCI_SUBDEVICE_ID_DELL_SLIM_MERLOT	0x010a
+ #define TG3PCI_SUBDEVICE_ID_DELL_5762		0x07f0
++#define TG3PCI_SUBDEVICE_ID_DELL_5720_L21T00	0x0e19
++#define TG3PCI_SUBDEVICE_ID_DELL_5720_XE9880L	0x0ea1
+ #define TG3PCI_SUBVENDOR_ID_COMPAQ		PCI_VENDOR_ID_COMPAQ
+ #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE	0x007c
+ #define TG3PCI_SUBDEVICE_ID_COMPAQ_BANSHEE_2	0x009a
+@@ -111,6 +113,16 @@
+ #define TG3PCI_SUBDEVICE_ID_ACER_57780_A	0x0601
+ #define TG3PCI_SUBDEVICE_ID_ACER_57780_B	0x0612
+ #define TG3PCI_SUBDEVICE_ID_LENOVO_5787M	0x3056
++/* NetXtreme NX1 boards integrated with Citadel security SoCs */
++#define TG3PCI_SUBDEVICE_ID_CITADEL_BEVERLYWOOD	0xd346
++#define TG3PCI_SUBDEVICE_ID_CITADEL_BEL_AIR	0xd146
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2908	0x2908
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2909	0x2909
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2906	0x2906
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_E14A	0xe14a
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_E34A	0xe34a
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2904	0x2904
++#define TG3PCI_SUBDEVICE_ID_CHANNEL_2905	0x2905
+ 
+ /* 0x30 --> 0x64 unused */
+ #define TG3PCI_MSI_DATA			0x00000064
+@@ -3122,6 +3134,7 @@ enum TG3_FLAGS {
+ 	TG3_FLAG_ROBOSWITCH,
+ 	TG3_FLAG_ONE_DMA_AT_ONCE,
+ 	TG3_FLAG_RGMII_MODE,
++	TG3_FLAG_CITADEL,
+ 
+ 	/* Add new flags before this comment and TG3_FLAG_NUMBER_OF_FLAGS */
+ 	TG3_FLAG_NUMBER_OF_FLAGS,	/* Last entry in enum TG3_FLAGS */
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120035214.369158-1-kuba%40kernel.org
+2.52.0
+
