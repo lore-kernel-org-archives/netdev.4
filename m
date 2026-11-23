@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795427500;
-	b=uOXo/ByDs0e3LYmi1J9yYcZOzFD91/tZC1ec6sfrh6dXI3ObwsYtEm+cxeetsEgDccet
-	 yT7lF0oANZdMBazl9Q40xlNaRZTto7SLWdLye8OQapYdmKurmgB49frIYK37fPy0damKz
-	 fjPAaAvZf+FoWhy4CJtLIPi9k0OBUv6hgZKTcHlDgB7qXdFp0dGBKMmTQs7jHNSF/uRxH
-	 iz13n4xzIFD3XpvqwMwK0S9Vn6fQHhKCQ/AhHklKTpi4Ux29w+mdwymQQBRFxEjxk9jSe
-	 +d/LespWQIuqwM8JmmLMLmIbxJp75wgsjSzS4PDQXylLtRwA5wWv5bwI0xxbPzMnbwQ==
+	t=1795427504;
+	b=h+CTvk/i+xpTVelgON3nW5+wxNJQ1GTpjF8X55VUdrlphGYbjKN77kty8Vt++i3WZk61
+	 EU77bugpE2Az5Uoed8ScIlPC9ZkjTAkpPWEra97Yo8si8mJ+YH7LzoTYSSckBnrloGWP0
+	 uysyaTmLAr1bYJHRxSyP/VaTVLSgYagH/nO/OefJnUgevD1v4kkbJjBYDj+W0T3VN485l
+	 dcS3fB3k15uW4Wq9W/Czwu1OrJfH2brTVJnQhX8Zj1r8s80+fAHXI2ZTh1q7pAN9Fw4wP
+	 laqDlOiKXPY1tzdnUn53OUoubUuMM7qiSjmv9Wzlqvmv8hnofbliCm1CAGHasnOdprQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795427500;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795427504;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=hRxieL1O5Yz+uBDOAl8S3FzDGEyOjAtfX9xXEMK4ZzM=;
-	b=ns1YkfaLfsk5P0EicpaqLNN27ZL1P2VOcxYdTIwTcyONOjbbHXcR6WHZaTwUBJJF0oEa
-	 oOpKVIZIH0FePAlstO2H1EWJMULAB3RXj7T+N8ynvgAqTX9ZGVoQgoInuZ6KdVOvF7hhF
-	 zM3CzVt+e8Qe5krBVAxkp8U6FgLk1fZWJgkL263fRtc8QAxT4Luv0mdv3+j6lTodGlhD2
-	 ffAlnKGOG+4YMBS0dTEXqe80zmpkIUEzRfGdXphpBAShV+FpPKkokAb/VkYuI9kMnCPpr
-	 5IWM3ZqKbKTRjFpsYvBwqxKLWy5SxOM7lZjK/eDZjaeQr/YN1Fz06ODP+j0Sh3EyGZQ==
+	bh=qoOqqQyfe2VE0IHHms+1mItF/LiME/jGAh/E3IK/h1g=;
+	b=mYg9g+HN98P4UcEb0LS7Z8O0aS9rw+qmsG/9YZ+hgBgf4AW8OezkA2ymsNm8Eso3RcZX
+	 q8PslE5vj63dzVoKL3jsZr/b6eaezmR9XOVdVMQ7RTcyKztH3lK/D4Q8ILbkjclFZ3zru
+	 6uh7Kl19jfHdidumUSE8Abw7uaJCivs0ez3Sl2jBglcb6B+9BILWExVW8s2Ll4yvinL+Z
+	 7eODUr7qURpBzLWFpxqrG0b6IaRywUl7cTRRghYpCbWeSQczT+b48R8M945c5pd9kOQv0
+	 L1dJUPC9mB872jK2rJ/EBD2cvP2HaWSGWmBj1meUm0TjwXtXpbPCr/O3jOuWoPbH3hw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRTIO+Ct;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGk08+lf;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38BA2606A686;
-	Mon, 23 Nov 2026 09:51:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 618C3606A334;
+	Mon, 23 Nov 2026 09:51:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lRTIO+Ct
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0FC41F000D3;
-	Mon, 23 Nov 2026 09:51:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iGk08+lf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B48381F008B2;
+	Mon, 23 Nov 2026 09:51:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795427499;
-	bh=hRxieL1O5Yz+uBDOAl8S3FzDGEyOjAtfX9xXEMK4ZzM=;
+	s=k20260515; t=1795427503;
+	bh=qoOqqQyfe2VE0IHHms+1mItF/LiME/jGAh/E3IK/h1g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lRTIO+CtmJDUDz7saE2hQYaFQMpx+NhFnK60Y7nFgQK76Jhw+dpQ1KPihcg7ayfFQ
-	 SXBx7+JSR3J2as1Hwd5xQzaD6x8/+DiydSrUoOvSSB4RqeQhNfR9X63K/JsPndTYuh
-	 c3MFRdIZcWGHoTW9i1E1npIcoqwn7C1/c0sz1zvp1tSwoHzbdERsMPZOSv7SS+EHGu
-	 Lu9tNNRgCsSeYqMvjMP9kmxNfVvD2V3sKj0f3J3+CW2ZibeVx9Y1eutBwaPJgSnoE2
-	 oPl6Tm7tZnSoxHhZA/Q1vWKSpFlpn+vurJGtVPCngZluMEP/zAnmOu+0qBRY+TR58/
-	 t26TmRRp9FinA==
-Subject: Re: [PATCH net-next v13 10/14] net: dsa: realtek: rtl8365mb: add
- family D SDS13 PCS support
+	b=iGk08+lfig9c0ZiEvUxD7Pm2/gQWupmhNEZ91w/bFTHl6Jln5/AGfw1vkovGWHQP4
+	 M81SmfGsytsDDMkMS6gV2B2JQ8/56qg7KWk3+FfK8EJUxZ6BNLPgxZjxWFOpDhSrfY
+	 LSOsLVo/E3PIXKTg5i9nDLEXv324aIYYtxlFbbel/bUbUpH7155a85h0/1Xbee8IkL
+	 yk7qIbUnyaGCpyqRHNKG0XG07nQb2CafvosuLc3WUio+Y2qvG4euMSuopmt/Yoktos
+	 O5yWknnh+Vba+SGvwrhBTyzwFt+2adao/+vMYlYU7nwrvLpHFuK87foZRE10V/O2Yi
+	 ct/UDqTvZ82QQ==
+Subject: Re: [PATCH net-next v13 13/14] net: dsa: realtek: rtl8365mb: use PCP
+ numbering on family D
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Mon, 23 Nov 2026 09:51:38 +0000
-Message-ID: <179542749823.3135.12232435194258605468@kernel.org>
-In-Reply-To: <04f43ce3-74af-4688-9235-458d21545cc8@yahoo.com>
-References: <04f43ce3-74af-4688-9235-458d21545cc8@yahoo.com>
+Date: Mon, 23 Nov 2026 09:51:42 +0000
+Message-ID: <179542750228.3135.1234426620734047109@kernel.org>
+In-Reply-To: <f5adc725-64fd-4aa5-b76f-b817528ba1be@yahoo.com>
+References: <f5adc725-64fd-4aa5-b76f-b817528ba1be@yahoo.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,129 +78,171 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] Flow control on the family D SerDes CPU port (port 6) is never
-  enabled on the SerDes side.
-- [Low] rtl8365mb_sds_probe_option() now sets mb->sds_supported = true
-  unconditionally on family D (lines 1467-1469).
+- [Medium] On family D, rtl8365mb_qos_set_port_prio()
+  (drivers/net/dsa/realtek/rtl8365mb_qos.c:261) accepts any default…
+- [Low] The realtek_ops::qos_set_port_prio contract in
+  drivers/net/dsa/realtek/realtek.h:186-191 says the callback sets the…
+- [Low] Within rtl8365mb_qos.c, this patch uses `iprio` to mean the
+  802.1Q traffic type (rtl8365mb_qos_iprio_to_hw(priv, u8 iprio),…
 
 --
 
-net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
+net: dsa: realtek: rtl8365mb: use PCP numbering on family D
 
-This commit extends the RTL8367S SGMII/HSGMII PCS code in rtl8365mb to
-cover family D switches. On those chips the CPU SerDes is reached through
-the indexed SDS13 window, and the SDS_MISC layout differs from family C.
-The family D path uses its own tuning tables, skips pcs_link_up(), and
-relies on the MAC forced-mode register that mac_link_up() programs.
+On family D, this patch converts between 802.1Q traffic types and the
+chip's PCP-style priority numbering at the register boundary. That covers
+the port priority, the PCP and DSCP priority tables, and the
+priority-to-queue table. Family D has no untagged-PCP register, so
+rtl8365mb_qos_set_port_prio() now returns -EOPNOTSUPP there when untag_pcp
+does not match the PCP the port priority implies.
 
-> diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index 7ad9ef1cbab7d..50ba2fa465808 100644
-> --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
-> +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-7067296792
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_qos.c b/drivers/net/dsa/realtek/rtl8365mb_qos.c
+> index 5b9e1abe75c8b..c06d684825c0b 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_qos.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_qos.c
 
 [ ... ]
 
-> @@ -1418,6 +1461,14 @@ static int rtl8365mb_sds_probe_option(struct realtek_priv *priv)
->  	int ret;
->  	int i;
+> @@ -231,41 +264,69 @@ int rtl8365mb_qos_set_port_prio(struct realtek_priv *priv, int port, u8 iprio,
+>  	u32 untag_reg = RTL8365MB_QOS_PORT_UNTAG_PCP_REG(port);
+>  	u32 reg = RTL8365MB_QOS_PORT_PRI_REG(port);
+>  	u32 mask = rtl8365mb_qos_sel_mask(port);
+> -	int ret;
+> +	int hw, ret;
 >  
-> +	/* Family D has a fixed SDS13 programming model and does not use the
-> +	 * family C option register to select its tuning table.
-> +	 */
-> +	if (rtl8365mb_is_d(priv)) {
-> +		mb->sds_supported = true;
-> +		return 0;
-> +	}
+>  	ret = rtl8365mb_qos_check_port(priv, port);
+>  	if (ret)
+>  		return ret;
+>  
+> -	ret = rtl8365mb_qos_regmap_update_field(priv, untag_reg, mask,
+> -						untag_pcp);
+> -	if (ret)
+> -		return ret;
+> +	hw = rtl8365mb_qos_iprio_to_hw(priv, iprio);
+> +	if (hw < 0)
+> +		return hw;
 > +
-
-[Severity: Low]
-sds_supported is now always true on family D, so rtl8365mb_setup() calls
-rtl8365mb_sds_raise_rate_limits() on every family D chip:
-
-rtl8365mb_setup()
-    if (mb->sds_supported) {
-        ret = rtl8365mb_sds_raise_rate_limits(priv);
-
-That function writes these family C port 6 limiter registers:
-
-  RTL8365MB_INGRESSBW_PORT6_RATE_CTRL0_REG and CTRL1_REG (0x00CF, 0x00D0)
-  RTL8365MB_PORT6_EGRESSBW_CTRL0_REG and CTRL1_REG (0x0398, 0x0399)
-
-The commit message checks the RTL8367D vendor API for the bypass line rate
-register 0x03F7. Has the same layout been confirmed on family D for these
-four registers?
-
-The comment above rtl8365mb_sds_raise_rate_limits() is also unchanged. It
-still gives only the family C rationale:
-
-/* The vendor driver raises the port 6 ingress and egress rate limiters to
- * their maximum in its switch init, unconditionally for the whole chip
- * family. The chip reset in rtl8365mb_setup() puts them back to their reset
- * default of 0x1FFFF, ...
-
-Could the comment or the commit message say whether the RTL8367D vendor
-API does the same on family D?
-
-[ ... ]
-
-> @@ -2087,18 +2231,21 @@ static void rtl8365mb_phylink_mac_link_up(struct phylink_config *config,
->  			return;
->  		}
->  
-
-[ ... ]
-
-> +		/* Family C: the SerDes has its own pause enables; program
-> +		 * them from the resolved pause modes, as the vendor driver
-> +		 * does when forcing the link on a SerDes external
-> +		 * interface. These bits, not the MAC force pause bits, gate
-> +		 * pause on the SerDes external interface: flow control
-> +		 * testing shows that pause frames are only emitted with the
-> +		 * SerDes TXFC bit set, while the MAC force pause bits alone
-> +		 * have no effect on this port. This is done here rather
-> +		 * than in rtl8365mb_pcs_link_up() because pcs_link_up()
-> +		 * carries no pause information. Family D does not use this
-> +		 * path: its pause bits are set in the forced-mode register
-> +		 * by rtl8365mb_d_ext_config_forcemode().
->  		 */
-> -		if (rtl8365mb_interface_is_serdes(interface)) {
-> +		if (rtl8365mb_interface_is_serdes(interface) &&
-> +		    !rtl8365mb_is_d(priv)) {
->  			u32 val = 0;
->  
->  			if (tx_pause)
+> +	if (rtl8365mb_is_d(priv)) {
+> +		/* No separate PCP for untagged frames: it is the one the
+> +		 * port priority implies, so a different one cannot be set.
+> +		 */
 
 [Severity: Medium]
-With this check, does flow control still work on the family D SerDes
-port?
+Is this also true when untagged frames are classified at ingress, or only
+for the PCP of a tag inserted on egress?
 
-The comment above says that on family C the MAC force pause bits alone
-have no effect on the SerDes interface. Pause frames are only sent when
-the SerDes TXFC bit is set.
+This file's comment above rtl8365mb_qos_apptrust_src[] says:
 
-On family D, the only pause programming left is the TXPAUSE/RXPAUSE bits.
-rtl8365mb_d_ext_config_forcemode() writes them into the MAC force
-register.
+/* The 1Q source also classifies untagged frames, by the PCP given to untagged
+ * frames. Ranked above DSCP, it would hide DSCP from untagged IP frames.
+ */
 
-Nothing else on family D seems to write a SerDes-side pause enable:
+Commit 78dc82293945 ("program the PCP of untagged frames") added the
+0x0851/0x0852 write for that reason: "With PCP trust, the switch classifies
+an untagged frame by this value. The value is 0 after reset, so untagged
+frames would be Best Effort whatever the port default priority is."
 
-- rtl8365mb_pcs_config() sets only PA33PC_EN, PA12PC_EN, MAC6_SEL_SDS0 and
-  the mode field in SDS_MISC.
-- rtl8365mb_pcs_link_up() returns early.
+On family D that write is now skipped. The commit message also says
+dal_rtl8367d_vlan_portPvid_set() rejects any priority other than 0, which
+suggests the untagged PCP is fixed at 0 there. On family D,
+rtl8365mb_qos_set_apptrust() still ranks the 1Q source above
+RTL8365MB_QOS_WEIGHT_PORT.
 
-rtl8365mb_phylink_get_caps() still advertises pause on that port:
+Suppose the family D 1Q source classifies untagged frames the same way
+family C does. What happens with this sequence?
 
-	config->mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
-				   MAC_10 | MAC_100 | MAC_1000FD;
+  dcb app replace dev lanX default-prio X     (X != 0)
+  dcb apptrust set dev lanX order pcp
 
-Suppose the family D SerDes behaves like family C here. Then phylink would
-report pause as enabled, but no PAUSE frames would be sent or honoured on
-the CPU link. A 2500base-x CPU port feeding a slower conduit would then
-drop frames under congestion instead of applying backpressure.
+rtl83xx_port_set_default_prio() calls rtl8365mb_qos_set_port_prio() with
+(pcp_to_tt(X), X). The untag_pcp != hw check passes, and the port priority
+is written as X.
 
-The commit message mentions only 1G SGMII and 2500base-x link testing.
-Was flow control tested on family D? Or does the RTL8367D vendor API show
-that the forced-mode pause bits are enough there?
+Once PCP is trusted, would untagged frames be classified from PCP 0? They
+would then go to the Best Effort queue and get PCP 0 in any tag inserted
+on egress, instead of X as on family C.
+
+If so, the driver reports success for a default priority the hardware
+does not apply. Also, the new "family C only" comment on
+RTL8365MB_QOS_PORT_UNTAG_PCP_REG seems to conflict with the apptrust
+comment for family D.
+
+The commit message says testing was done without CONFIG_DCB, so this path
+may not have been exercised.
+
+> +		if (untag_pcp != hw)
+> +			return -EOPNOTSUPP;
+
+[Severity: Low]
+This isn't a bug today, but should the qos_set_port_prio contract in
+realtek.h be updated too? It still says:
+
+	/* Set the priority of @port to @iprio, and make @untag_pcp the PCP
+	 * given to untagged frames on @port. @untag_pcp is an 802.1p
+	 * priority, not an iprio.
+	 */
+
+That reads as if untag_pcp is applied on its own. On family D it is never
+programmed, and any value other than ieee8021q_tt_to_pcp(iprio) gets
+-EOPNOTSUPP.
+
+The two current callers, rtl83xx_qos_init_port() and
+rtl83xx_port_set_default_prio(), both pass matching values, so this branch
+can't be reached now. The documented contract allows a later shared-layer
+change to set the untagged PCP on its own. Such a change would fail only
+on family D.
+
+> +	} else {
+> +		ret = rtl8365mb_qos_regmap_update_field(priv, untag_reg, mask,
+> +							untag_pcp);
+> +		if (ret)
+> +			return ret;
+> +	}
+>  
+> -	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, iprio);
+> +	return rtl8365mb_qos_regmap_update_field(priv, reg, mask, hw);
+>  }
+
+[ ... ]
+
+> @@ -306,19 +367,27 @@ int rtl8365mb_qos_qmap_init(struct realtek_priv *priv)
+>  {
+>  	unsigned int nq = priv->ds.num_tx_queues;
+>  	struct dsa_port *dp;
+> -	int iprio, ret;
+> +	int prio, ret;
+>  
+> -	for (iprio = 0; iprio < RTL8365MB_NUM_INTERNAL_PRIOS; iprio++) {
+> -		int tc = ieee8021q_tt_to_tc(iprio, nq);
+> +	/* The table is indexed by the chip's priority, which is the traffic
+> +	 * type on family C and the PCP on family D.
+> +	 */
+> +	for (prio = 0; prio < RTL8365MB_NUM_INTERNAL_PRIOS; prio++) {
+
+[ ... ]
+
+>  		qid = rtl8365mb_qos_tc_to_qid(nq, tc);
+>  		ret = rtl8365mb_qos_set_qmap_qid(priv,
+>  						 RTL8365MB_QOS_QMAP_DEFAULT,
+> -						 iprio, qid);
+> +						 prio, qid);
+
+[Severity: Low]
+This isn't a bug, but rtl8365mb_qos_set_qmap_qid() still calls its index
+parameter iprio, and so does RTL8365MB_QOS_QMAP_TBL_REG(_m, _iprio):
+
+static int rtl8365mb_qos_set_qmap_qid(struct realtek_priv *priv, int qmap,
+				      u8 iprio, u8 qid)
+
+In the rest of this file, and in realtek.h, an iprio is a traffic type.
+This helper now receives the chip's priority instead. On family D that is
+in PCP numbering, where BE (1) and BK (0) are swapped.
+
+The only caller passes the right value. Could the parameter be renamed,
+for example to prio or hw? Otherwise a future caller that passes a real
+traffic type would put BE and BK in each other's queues on family D.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/3f1826f8-3096-40dd-a278-c70fce4852c8%40yahoo.com
