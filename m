@@ -1,68 +1,159 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795408324;
-	b=HIIaZZI6vJdGuCxhO2CShUi60I8HpHX8hxtyFnHIYHCods05CNZa+ewAwITZv+zwTItc
-	 Vtl0QLHuvjs8muxd8tUhOON8dV5h8fMyOeI1thWmN/kTHQjHwYZGdfvBiOD2LpShc/QOi
-	 yQ/nrKh/JfXjeZDvEwxZNe3vGDGWTswYhZEslIr+jaryb80krWBWuILthDr4wzzvoUsae
-	 gn9DyG+I1GNzaUwp60iUUx/Y0Alpa3D97UjZpUhocVbKEEpYYvk1Ukh3Le+U68+BkNI33
-	 nscRIRYsU7RMzjl7orgVXpAqq5FUB0CJWnfpCOKtDMxFS+7zGIJAgvVCLx0Uba6cRuQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795408324;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=qg/kJeOBkORTxeX5fcxRClbAV/v8KBYiSMusiaVJKno=;
-	b=y6oKa55NXbXFYQU6Pk4MkSjjjXU7pU69PlgTTMzzxIJeB33RXnBBiAJj0mJYVPaTvGV6
-	 gCxz/CPgxGPAH99R59j2lAcJZXmcr9uZv2ryeA/VSI+p/9LsgchONZr/Ks8ZIxByv6FKn
-	 Khjvm0E13xygA1MN3gzebAbi5U7Wc99IJXhEqcXDIXhmSop2CqYdPZE2LhZAyvEgxSEWf
-	 JEzWz2PPZZ/3BUCeF/JiZHncYWnhDbLcJdT6GDHEH6owk3+ZUTomD5Gys0nimXYe6wi6P
-	 4mQQ02xEYm0O/3kAKPEN2NXXLq9cAYEvaob8K6RzOmwVItE/x0DEaBSygbW1wz0w6hg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=WOttlwxa;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795408683;
+	b=3SJ0ecWV1tcrkK9+0RYnGze7sljCU2S0zutDEcekMvwypPwlqMQ+tyMLUjl94dA6Xrmi
+	 NwIss50zlS8/s0+bVQTucXMz8mECuBDiT5pBFyt2/83QlZZ3+iP2aGkbFhE/NvlVkAh5+
+	 avZMElf3yGw8PPq6AMbmPIj+zc0W4BctWuaUc9BwuMmE3P/3Os7JHBjnXfUoL7S+rdrPM
+	 ooFJFKtguxqJivV7wClgUuh/NgM7spKiYDr2oTMYPcqNYevXNYOCVGX4Tn2Bpi8DiTeLG
+	 dL9eiH7Z6fHzWscIxPs+s/A4DwpVd3IRLJfUjz8WPI1ikhVziapfOAKosmQK4h/xNqQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795408683;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
+	b=qvCVtPU+2b3vQmzJwoPPWJ/zkVmFHBivTn9gtj9NQ6CNfG4OfJB717V1bpxcqcVrT3xZ
+	 bnUyMp36BstuCbGqIk3OzIiu5v6sMYfDF6cent/ZxcmeU2Zzgd27uQw7vAI4aVdnGbHE7
+	 HK0W6ZvF5Zbf4WfWdwG3YI0ruDOyyEDgMXPIqzOQwUvX9kS9f6DiMCY1QDfxFXcgLPnK7
+	 m9UTh6kllA7Ih0kcoxJH/GpocVoCFkpE+F8GzdT+MNWfwhCxTrc/6LNcaIN4Tl5uiNre9
+	 CZB+jIXzyvtgE82tGVZVTkjAZHVHnUNi6RrT0pnF4xi8llV7GbwyVlXEsr2fhmXEDcA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=jabil.com;
+	spf=pass smtp.mailfrom=jabil.com;
+	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b="a/wusqQi";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.13
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010013.outbound.protection.outlook.com [52.101.46.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0EC4606A31A;
-	Mon, 23 Nov 2026 04:32:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0EC4606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E88A606A31A;
+	Mon, 23 Nov 2026 04:38:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E88A606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=WOttlwxa
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=qg/kJeOBkORTxeX5fcxRClbAV/v8KBYiSMusiaVJKno=; b=WO
-	ttlwxav6/WRXMtpDRzgT7DlGf6XYq4BfMZE2fARkj7uTlyMCHvNM2lAq/o0iO9ZtSG/9tUT95Q1lI
-	6fOikqF/7kAhtx2XfSf8a2TRSLMxUdF4NoRaixYKtkDHktRRaLrJ02irL87ohOUH1Wn7FGWkogCoM
-	0gRYobqS3YuVTwo=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVLiE-000h2b-7O; Mon, 23 Nov 2026 05:31:30 +0100
-Date: Mon, 23 Nov 2026 05:31:30 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: SeungJong Ha <engineer.jjhama@gmail.com>
-Cc: netdev-bot+sashiko@kernel.org, fujita.tomonori@gmail.com,
-	tmgross@umich.edu, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net,
-	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org,
-	aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com,
-	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev,
-	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org,
-	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 2/3] rust: net: phy: make Device generic over
- a lock context
-Message-ID: <bfd7a44f-2bba-4aee-9758-1dd88f94566f@lunn.ch>
-References: <20261117-exp-phy-rs-maybelocked-v3-2-4e183a7366a7@gmail.com>
- <179513866237.3136.3197734576083995986@kernel.org>
- <CAGAB667HcHxS-XboSz559SG3tT-RhVmZKt5McWoez8iwuUGq5A@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=a/wusqQi
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u+sf+Y782nyw8ejE5ikqGHUZGikASvyq85FR9ZO0BRxGrbe9+B4BOOh0LaNu0epVyxcXepw4xWJ9lfeLc+3Mxsr7jSMPIYDjU1OOgJEmy1I/wv9Ddd9k83as6qFg2b0r4OALR5LRwQkc0sa0i8LsWdQz5ruYdLP+76mXObBHkGoEDBCKzgZNhSqBdkVz4Ae49jTpvg1oK9YUswvAC0mEaJWzXDqxHEDGYha7FKNfGTPPv5UWW6J6RqdAtXgU9PqaeC94Acl35qzeWbNFdlIzfP+unvx+hiuexB6tox+TG4wPVGsChPka3pQsonRBMFYG4P9yk0/c+iesDcGmv7KFtQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
+ b=XNuoQq8StLdxu6pEXB5dgGr6AxG7/HUbSvDmMUoMWGwvIRa3YfF0nqb7ZCyc3QCUJKvk+zMk+t3TON9FG0Nq5Gqyv+lZBgtfSifB3U90hsrlQkAAi51YT5QfWk3bwT6mvRLp9IxDnKI08FInswSneklHv/w1y3hEUn4Z6dhTLLUbT44+gyC63+lc/a0xac0qZWC++IRlyx/7yHNWMUYi60ZtzGfoySWmoPTJUbC29G9QcRhVnzBvmt35uH50IRwbihmo13ES2vq7ouH/0Cq5QejR39QUGaNJxDdPGC+khpM1ZCvhwdjY+PkH/JgeSHoj2Qkl4sqnHfui4I1YD6stvg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=jabil.com; dmarc=pass action=none header.from=jabil.com;
+ dkim=pass header.d=jabil.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=CcSLh5CUENOETOT7XYYCE5cFgpJh5ZGm1UmnE7xxWkE=;
+ b=a/wusqQirijTTqMflMCh4Nxt3z1DaAaMb9/8vJxCNcidKvJsFTDErpgLazaDcWiJH0p3qjxObYNwFRXMiLDybAN6jZrH+oia5DG4lE8oooVEwXTPqx42foCSLS/6DtnLPKIuVUOWaov1WNTaphN+zcc+RH+ynXCk/KpZGhHkcw5FQsJbdScFiaFxGlhIQl4QNr+zKAoGjGUpJhq+PoG1JUXUGfNiwJ8sFF8tsIcZNaiRGkNHUpudjNLfxPETw1eB3zE8sybSYpm2W6n3I/xz3logfx3we3vCymjeY6SZgO6vEb5Vb26vjXf2e9uc++o5Fw2/XjROfa6p2uwpU6CkAQ==
+Received: from DM8PR02MB8087.namprd02.prod.outlook.com (2603:10b6:8:1b::11) by
+ SA0PR02MB705379.namprd02.prod.outlook.com (2603:10b6:806:d5::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Mon, 23 Nov
+ 2026 04:38:00 +0000
+Received: from DM8PR02MB8087.namprd02.prod.outlook.com
+ ([fe80::6e40:b3cf:7280:6497]) by DM8PR02MB8087.namprd02.prod.outlook.com
+ ([fe80::6e40:b3cf:7280:6497%7]) with mapi id 15.21.0639.012; Mon, 23 Nov 2026
+ 04:37:59 +0000
+From: Kenny Hsieh <kenny_hsieh@jabil.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+	"matt@codeconstruct.com.au" <matt@codeconstruct.com.au>,
+	"andi.shyti@kernel.org" <andi.shyti@kernel.org>, "peda@lysator.liu.se"
+	<peda@lysator.liu.se>, "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>, "edumazet@kernel.org"
+	<edumazet@kernel.org>, "kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net-next v3] mctp i2c: add sysfs control for mux child
+ netdevs
+Thread-Topic: [PATCH net-next v3] mctp i2c: add sysfs control for mux child
+ netdevs
+Thread-Index: AQHdegx2DnsWakRucUKRIuqcH0yhQLc7FDMw
+Date: Mon, 23 Nov 2026 04:37:59 +0000
+Message-ID:
+ <DM8PR02MB8087942AD8FB03135001A0A48E452@DM8PR02MB8087.namprd02.prod.outlook.com>
+References: <20261118100231.3827609-1-kenny_hsieh@jabil.com>
+ <179530217699.3135.2359467047069026979@kernel.org>
+In-Reply-To: <179530217699.3135.2359467047069026979@kernel.org>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=jabil.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM8PR02MB8087:EE_|SA0PR02MB705379:EE_
+x-ms-office365-filtering-correlation-id: a0f58c9a-2932-4079-50d8-08df491b8d7a
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|1800799024|376014|366016|7416014|23010399003|18002099003|22082099003|261009223027099003|261021121427099003|261026121527099003|261102123227099003|261022075727099003|56012099006|10067099003|38070700021|4143699003|11063799006|5023799004;
+x-microsoft-antispam-message-info:
+ 1DCEnzvhXcVS9XPFKpkRfbhHhVzP6EMOhsTaeEltnD/qblF9sGI5S8gibODCcnIGx6XsZM6kx8ABwvs7vPd20j9kQ7HoguHHuQLgb+tc7kl15PPNj4UkaYjTXj+kc4m3d+wvvfOosuPwE7FdooWznY0ZYX+yB3O+MPZDuCFOZReOMxapZUdXtJbd3cq/sSvo3FAUjFXvtFx/WkQL8xy2M1RLzdd8FUeXNpVT+MkfcP+04/VoUELtIgMq5o6hRZBjBjithn3uIY5Yj9JbkTWYtZVy2OK9tvlQNk2lzKOAwjafc1SD1VUxNZopDAX6kOe0FGija8KVbRzt0nRjSYcwJXcU+1jokPqRO/H2Q+NfvZ8ez2JdcXxTAOnPryMTwXz0NBJxVbQpU7dNGoP8yQN2CbpIWEiiGX0YnHbJU3PefTiYMo/LXEtNKThbHKbiM/ol5tTlNWJZzqTWw1DegTaeYLsocfaxxvOpSb20wxnOpmvMcanQ+IWlW4XN2iZVpsD+BN7TaXwPRI7mXqU/YXF5CR2t1aaLkr1IzdbDriK7vAQXmF9vmrkmBwl/yo3x1IXZ/PbMpTs50sJxdvPSCb+/UVAgzLfj1PPQr3MNcFLGOVvqWPXrN9ReNiYPTf4k847V9+0N7xLpW5j8rlYxT4lISMBnXNRifGSSXURmUxAuOLc=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR02MB8087.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(7416014)(23010399003)(18002099003)(22082099003)(261009223027099003)(261021121427099003)(261026121527099003)(261102123227099003)(261022075727099003)(56012099006)(10067099003)(38070700021)(4143699003)(11063799006)(5023799004);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?alJTSXM1T1R6ZTRBMnpPbU9sSklDK2tYUEhWNUJZbURuVlZNSjJYRUh0Nlgr?=
+ =?utf-8?B?czRINmY1aDhCeFo5Q0VYTVRaOElZZXVzbUdmWi9IWkhLSTJOOG9vdEk4MTl3?=
+ =?utf-8?B?UlZjaWZ5M3V1VGc1RTRpb1loRi9OVzBUdEZWTk4zTUh6SGZNTDlwZDQ4czRT?=
+ =?utf-8?B?M1FpQnBXRHl3cnBSK0dMcGVRaDVyYldzeTJjNDlodm8vZUlVcE1CRTB5N3Vi?=
+ =?utf-8?B?eERIZ0Q2MkF0eXpUUjRZVm50TzhsTGpYdWxNUGQ2Skh0YUFWSHFDdWlQcCtH?=
+ =?utf-8?B?MG4xei83QVA5SUhXRjJJUDJtWkpGMThCNTA4aVY5akY1MmtlcmpJNEpld0pv?=
+ =?utf-8?B?YTBQWXBnQ0ZTOGZWVzRWVlM0L3B3N1g1MWVXZERnelNDTkdVQUhFVWpuVngz?=
+ =?utf-8?B?RXd5TFYwaTVFVStKZElhVEI0QzloV0lqL0dWY1hRU0dwZUY0bWM0eVJ2UUNi?=
+ =?utf-8?B?YUhGVVJYSnhmZ0I2U0h4azNKenVWRFMrcmdLbnNpdjZoYjlZTHNXMlZ0eSsr?=
+ =?utf-8?B?ZVlMUHl2ZEJnRHdhWCtUQzdJeFY2bzE5Q0RNVVNidG5sTkNLeGUxQWlrRmZp?=
+ =?utf-8?B?bkNjYW1RYUlrYzl4VEpvNHk2VFNsQTZnOGtId3crMUJUWmhjZ1UxR0Z4UE8w?=
+ =?utf-8?B?bUJGbFZpVFIvVU9uaHlXTEtPYlg1SUk3SjJFVS95UzMwcTluTmJqR3FLcFdE?=
+ =?utf-8?B?emR4Y2htUUI2MjhjMFBBVDhGVTJ5T1FCSlJJM1RuSHh1NGQzWGJNYzYzREx3?=
+ =?utf-8?B?bEZDRVFyT2xDTW9idTUwUytOUGZOd2F3S3IwU3F5cjlTdkEzSUk1WXhRdEhW?=
+ =?utf-8?B?bWlrUlFIYjJMZW9KYk92dGZBQ3o0OUJrajloUkMzTjNTRDZqd3ZJcEZDZ0pR?=
+ =?utf-8?B?b0FXaVhJamhmci85R0VVN1Nid0tYd1lYbkRHMXh2bjZQdHJWaWs1eStoU1FD?=
+ =?utf-8?B?bWZ0TUNWSkZhbG9NUVBudk5ObHNLU0d0WkNuTkYvRU9yT2RUdGVSZ1RXTUtW?=
+ =?utf-8?B?U3MrTXE0eXZEVUk2U083d3E3L1pFSEVJcW9tdjUzTzhaNCs3MWVORVpSVDVy?=
+ =?utf-8?B?YkZPN0RUV0NtTW5kQlY0WEloUTJQOXplNWppQ3M2RXI3cFdaUHZrSm11Uzho?=
+ =?utf-8?B?SmxiTXB1TTJ3TGc5cktqUGVHdG1qRUp3YThJYlBlcUJ3Qml5cFllVzAxd0RI?=
+ =?utf-8?B?SEpjQUZNY0RVaGR1VWdNRWdBTDgyeVRCc09zZmdTcHdCT1gvSzIrbTJLQjh2?=
+ =?utf-8?B?TUZIYk00M2taU3ZLT2xlWFZyUTJIaS9iRU1xd0Rpd29Kbi9DZE4xNzkzdlBy?=
+ =?utf-8?B?UVEzNnJ2elltWjJPUXdORG1sVHhOSEYvNnl4RnFYQjNYNzlGd3I4cTBqVW4r?=
+ =?utf-8?B?d1UvWXVXcERKWTAzUkRXSVFRVWJ1amZPQVZCbDQ2KzJldUpjU1hEVUtxbkQr?=
+ =?utf-8?B?Qkl6aitSWmRubEk1VCt3VWJBV0psU29XNXFFdFN1Q1lJTitqc00rM21wWjRC?=
+ =?utf-8?B?OWxXMU8rM3JlUnRGczYxQndpMUUzamhRY0lDcm14MWtGWVkvOEp5UHl1Qmpm?=
+ =?utf-8?B?Z0Rnc1BlSTBnZWVzaU16TzBFc2c2eWc0cDZQcXd4Z1pKTFQ5dXN2LzUvdzdq?=
+ =?utf-8?B?TlJQSUhTNEVUZGZXdUVBcTFUMERJU1I4THJnc0hYV1A4eVBCMStxQXdWYnFD?=
+ =?utf-8?B?VzVUdDhIRHBQVnRKVUZZTnhhaEhTQWN6RVNpc2tTNVhXNmxTV0pObGRpc0J6?=
+ =?utf-8?B?eldqdmU1VDhVVmtQb2xMZjc0SVhNMmRHQy9pTnpQY0pOK2pZZk8xY1BhR01I?=
+ =?utf-8?B?NUF1ZUpFcVRZdERJMWY5NW1pWXRrN01sazJIUVAzUkhkOXBzK1hyWTlSUFkr?=
+ =?utf-8?B?ZFFBeGhGZjRSNXN0NUppZXE1N211U3BJUlhnTnF4OGdsdWQ3elFRdTZqRjV5?=
+ =?utf-8?B?M1VHVUROek1JeVR6bVlLWExjY2U1Si9pV24wUXArV1V4Y2RZZ0l4MWprcUNY?=
+ =?utf-8?B?WjdzWEUwamZPY0ltMWVRU0N3enZTRVE2K25yZ0Fid0FDUExZWWsrS3ByQlRO?=
+ =?utf-8?B?RUVqeDJmNHZtcEk3dFFBMDBWb0VJSUhsTjdkaHdsblI3V3pRRTZUS0ZhNFdE?=
+ =?utf-8?B?Z3VSNGdISGx6aW52T2xobjNrNnpvbklBU3J1bmdmOHo5ZFRvSzYrWW8wZlNZ?=
+ =?utf-8?B?anRYblRkNWhvRUhNb2NKSGhUU0RWWDNmSnZ5WEV3RDV0czBTUC94Z0NHWnl1?=
+ =?utf-8?B?ME9XdXFUSWJsbmkydDgvQjJ1bXZCekVOWUZXeVEzWUcvYmlkS2M0U1NiTW5a?=
+ =?utf-8?B?RU1ULzBZY25LTFVocmQwaHdWNTFjbXovV25nOVd1eHo4bTlSREpRdz09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,53 +163,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGAB667HcHxS-XboSz559SG3tT-RhVmZKt5McWoez8iwuUGq5A@mail.gmail.com>
+X-OriginatorOrg: jabil.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM8PR02MB8087.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0f58c9a-2932-4079-50d8-08df491b8d7a
+X-MS-Exchange-CrossTenant-originalarrivaltime: 23 Nov 2026 04:37:59.6152
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: O25TqEKEDygfppCk5f6ywzYyXn8C/w7NsRIc5sPWTKmdWzKRz/10glwsBg/Z6DJKhZjkMxA/zTf+9QMVao4EvQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR02MB705379
 
-On Mon, Nov 23, 2026 at 12:11:55PM +0900, SeungJong Ha wrote:
-> 2026년 11월 20일 (금) 오전 10:37, <netdev-bot+sashiko@kernel.org>님이 작성:
-> 
-> 
-> > [Severity: Medium]
-> >
-> > Does this SAFETY comment justify the from_raw() call?
-> >
-> > The new Locked invariant says that no other thread accesses the
-> > lock-protected phy_device state for the lifetime of a &mut Device<Locked>.
-> > from_raw() now also requires the caller to be in the Ctx context.
-> >
-> > However, this comment and the Locked docs above both say that
-> > phy_mii_ioctl() reaches this callback without phydev->lock while the
-> > state machine may be running.
-> [...]
-> > Would one of these work instead?
-> >
-> > - take phydev->lock around phy_init_hw() in phy_mii_ioctl()
-> > - weaken the Locked invariant and drop the accessors that rely on it
-> > - give soft_reset a context that does not claim exclusive access
-> 
-> This is why the Locked docs list these exceptions. Taking phydev->lock
-> around phy_init_hw() in phy_mii_ioctl() does not look safe as is:
-> vsc85xx_config_init() takes the lock itself through vsc85xx_mac_if_set(),
-> so it would deadlock. Fixing that race belongs in phy_mii_ioctl() and
-> seems separate from this patch.
-
-phy_mii_ioctl() is meant to be a foot gun, bad things are expected to
-happen if you use it. 
-
-/**
- * phy_mii_ioctl - generic PHY MII ioctl interface
- * @phydev: the phy_device struct
- * @ifr: &struct ifreq for socket ioctl's
- * @cmd: ioctl cmd to execute
- *
- * Note that this function is currently incompatible with the
- * PHYCONTROL layer.  It changes registers without regard to
- * current state.  Use at own risk.
- */
-
-I would not spend any time on this.
-
-  Andrew
+QWxsIHRocmVlIGFyZSByaWdodC4gdjQgd2lsbDoNCg0KICAtIGNoZWNrIGNhcGFibGUoQ0FQX05F
+VF9BRE1JTikgbGlrZSBtY3RwLXNlcmlhbCBkb2VzLCBzaW5jZSBhbnlvbmUNCiAgICBjYW4gZ2V0
+IENBUF9ORVRfQURNSU4gaW4gYSBuZXRucyB0aGV5IGNyZWF0ZQ0KICAtIGZpeCB0aGUgY29tbWl0
+IG1lc3NhZ2Ugb24gd2hlcmUgdGhlIGR1cGxpY2F0ZSBhZGQgY29tZXMgZnJvbSwgYW5kDQogICAg
+bWVudGlvbiBCVVNfTk9USUZZX1JFTU9WRURfREVWSUNFIHRoZXJlDQogIC0gbGlzdCBFUEVSTSwg
+RUlOVkFMIGFuZCB0aGUgb3RoZXIgRU5PREVWIGNhc2UgaW4gdGhlIEFCSSBkb2MNCg0KVGhlIGRv
+dWJsZSBmcmVlIGlzIGZpeGVkIHNlcGFyYXRlbHkgaW4gbmV0LCBub3cgYXQgdjQsIGFuZCBpdCBh
+cHBsaWVzDQp3aXRoIHRoaXMgb25lIGluIGVpdGhlciBvcmRlcjoNCmh0dHBzOi8vbG9yZS5rZXJu
+ZWwub3JnL25ldGRldi8yMDI2MTExOTA5NDMwNy4zODY0Njc5LTEta2VubnlfaHNpZWhAamFiaWwu
+Y29tLw0KDQpwdy1ib3Q6IGNyDQoNCg==
