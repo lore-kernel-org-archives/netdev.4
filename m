@@ -1,61 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795440824;
-	b=S+2PWa8E2D0fL5cLnl4akeUpx6/JPNP4EwVgjawREexSZpeiUWEmxK6nU2rmSbGT6OP6
-	 Hf2DWZa2Cs+TZfIPSDflsLbr59nq2bJx+5LjysNvn1SugEoxrDJrMxCLuvGqbltyzOs3k
-	 2B9kHn4uTGzyY/Ut3YOegr+PeZOeHLgnDhk6DhMEt2GrSINhIa7hJXWqp4Ax4t79LYjyU
-	 8qDeDWgVSdoXvjPoJewFTy49MaEl3/ddZQcMYK09DcMnEdAIhAxeI3uDIWQK5NnFOxxfc
-	 YX9yoPAwlGg4Mzmb9EYTQj3k3j3gBPRG4YezQAKIEFqvmU+G7naNjB8vNPkRf1L+rug==
+	t=1795440872;
+	b=Z4HA8rjCHGtCLy7wLd3UXX8ltVnN4V0DUxac/klQRIsa9IPT6MXQfEckZwxAXQwQKMeh
+	 ztg5jcpuDw/JpD0pDOPKNoxQCAxnDPrW8bc3GCA7n5C83ZoC08HYQ9We630Iwjk+ciRhL
+	 dwFwv+JNN8LoWcf3DdixqDL1Zw9HO51yfsSuGlZtJfHAYTe+Cv3HakJ22AoQgFQWqW0Tk
+	 DKw4ZcpW1NAY3EAlxuNRxbhJNGh7gWaOYThfNKWB2zIcEkrohSu2tVicyZAzIdD78UufV
+	 o9ZRPOUKghnXa/ibk1gi85BCnv/8rGHWOqz1v9nthz224e7YRg/XTrp0P3xN+HalGqw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795440824;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=2Y8yOTbhtoK28NXLx6+AHEKOz4plE0kM1KVQW0HkT0E=;
-	b=hzXD+7c5eTT9U8NCPOZvpfe05zGd/yaEyoEkmbHgMuVqfvsml/ox8KCOvOrXCLg22IG1
-	 CVJEHFKKPJJ2QEsCAUJ/RcU5Vtx6bUpaQB1Idjq7NYHFnakqh0YHY0B45xnAdKdy0vZpR
-	 tc9OBqlvCHw2V+JMHkzmwploIXTq4NcGaavhnpfVOIR+FWR2agqo4Ex432aXT3Hb2zo1f
-	 ioMjg6/Za1b3J+QihHUqhiBDPkdwDXhBUzDQANrFBhheZo73pt6TeUGK4MGEGaIl5J031
-	 zQ1w87fR8x1M7dJK+wMQ8t3+LoeAs35LHZmtnxVCteZH8HePIWAOdWuJIj/8Hnwcsww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795440872;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=AINcIDDwj4eQX8NOiiAhTmz44nWBTca0iWfUd3yHmEI=;
+	b=KikulAqkE55izm7YC5fghILsc6UXOTN9cNPS7bK52xiM76SdE9fPRl1PXu0Tr+gMwBeC
+	 Ov6nfk9RGXx7A4MP7bQSgTqSqEGZfra3Hn7vlC2oJ33MUvftHjuCgxv7qhS/CUXPk1oLz
+	 G+yhr0Mph3tdsWuynIeIgHzH1YorMAvt7CYds+KKJQ4FMNfe64yAVkOvLo1wv25iym+m/
+	 kaI3hh10aolgj3+nPnVdy8AWEzOyJqACV+n+w72RNaylphXllKo2DCVGKLi6TyaX47AZm
+	 mUMFXdyn+SeIJte/JB6dmryEIA4LzcrHtb/0r73DYrZnoATrMPKAZsRRMAafXZ0f/TQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG78Xect;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b="Fwiba/du";
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B1413606A31A;
-	Mon, 23 Nov 2026 13:33:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB755606A31A;
+	Mon, 23 Nov 2026 13:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB755606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WG78Xect
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C5F4A1F000D2;
-	Mon, 23 Nov 2026 13:33:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795440824;
-	bh=2Y8yOTbhtoK28NXLx6+AHEKOz4plE0kM1KVQW0HkT0E=;
-	h=From:To:Cc:Subject:Date;
-	b=WG78XectP2FyDqthO37ScnDRMWI+8ex8igW/DoTTOhQMzC3nK+X/oyztCZxCKs7cW
-	 SJ8JYe19WT+SzK9KyY8RbsIoKEg4OBOvYk1XG45pA8m7CDeyVoB8Hf+uhg7pzSnNy1
-	 5jSJSxvCZQOOkyE/ryVDHK7yrStJZs1Q1Kkm7ZeJjxNH6WUDDWWgN61qhDT3yiz8cA
-	 JsyGiC0zGZFtJ89UqMTkpOjO5EEZEpftdeDhihn4SqRMeuTn/R2aLrKvWoPU1FH0SM
-	 aLysckbtOMHghFhpab7G+ooTL4pC8h2NWChExh+UL6aOcPQgzhfjcXVlcOIK/qaHma
-	 KPAgy7rY2ClPg==
-From: Jisheng Zhang <jszhang@kernel.org>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Fwiba/du
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id D8C55C69149;
+	Mon, 23 Nov 2026 13:34:36 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id D17FA601E1;
+	Mon, 23 Nov 2026 13:34:29 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6043111E6A27F;
+	Mon, 23 Nov 2026 14:34:22 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795440865; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=AINcIDDwj4eQX8NOiiAhTmz44nWBTca0iWfUd3yHmEI=;
+	b=Fwiba/dunBHflforMDp8fL1Yo35vKdIm+vVcoGrzE9uv/8MoBw2qRMNK/XuOKtMDWX9DHP
+	BxUtAkth0mNRZtFol/B4TLQiJUqBr8FrVNZjaw+h+ExzXJ8XYKZnUgSEcm5tpTZyefTX5G
+	/HnmHEkYtVz5KgoeOOnX+cL4atqHlhph9Z96ajdEx2MdP2nTTzpI52h7MOcGj8w4G3lTUa
+	SHu5PrdhprwA2wW4YXj4UdRgC002z+87P2nO7Y67fX2IzfAXFWs6DtPl1ePyXhHyVjfqIe
+	UWs6Rr4w/bQsRlbFjpnltkX1dYhLSY6Qpb9b7MORiSiuu/El61ZsaTEy+w2iSg==
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Paolo Abeni <pabeni@redhat.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] net: stmmac: fix uninitialized axi_blen array
-Date: Mon, 23 Nov 2026 21:13:26 +0800
-Message-ID: <20261123131326.7105-1-jszhang@kernel.org>
-X-Mailer: git-send-email 2.55.0
+Cc: thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>
+Subject: [PATCH net v2] net: pse-pd: tps23881: Fix reported power class
+Date: Mon, 23 Nov 2026 14:34:16 +0100
+Message-ID: <20261123133420.708557-1-kory.maincent@bootlin.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,31 +74,64 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-If platform doesn't provide a valid "snps,blen" property, the
-axi_blen[] array will contain random value from stack, then the array
-will be converted to mask which will be written to DMA_AXI_BUS_MODE
-reg later. Fix it by initializing the array.
+The driver reports an incorrect class for values above 4.
 
-Fixes: efd3c8cc52bb ("net: stmmac: remove axi_blen array")
-Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+The power class read from the classification register is not 1:1
+aligned with the IEEE 802.3 class value. Add a lookup table to report
+the correct class.
+
+Fixes: 7f076ce3f1733 ("net: pse-pd: tps23881: Add support for power limit and measurement features")
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index b3e06aa58fe5..29ead405f449 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -96,7 +96,7 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
- {
- 	struct device_node *np;
- 	struct stmmac_axi *axi;
--	u32 axi_blen[AXI_BLEN];
-+	u32 axi_blen[AXI_BLEN] = {};
+Change in v2:
+- Report 0 for unknown classes instead of -ERANGE.
+---
+ drivers/net/pse-pd/tps23881.c | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/pse-pd/tps23881.c b/drivers/net/pse-pd/tps23881.c
+index 244ce596d845c..a2218a872e83b 100644
+--- a/drivers/net/pse-pd/tps23881.c
++++ b/drivers/net/pse-pd/tps23881.c
+@@ -402,6 +402,25 @@ tps23881_pi_get_chan_current(struct tps23881_priv *priv, u8 chan)
+ 	return (int)tmp_64;
+ }
  
- 	np = of_parse_phandle(pdev->dev.of_node, "snps,axi-config", 0);
- 	if (!np)
++static int tps23881_class_table[] = {
++	0,
++	1,
++	2,
++	3,
++	4,
++	0,
++	0,
++	0,
++	5,
++	6,
++	7,
++	8,
++	4,
++	5,
++	0,
++	0,
++};
++
+ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+ 				    int id)
+ {
+@@ -416,7 +435,8 @@ static int tps23881_pi_get_pw_class(struct pse_controller_dev *pcdev,
+ 	if (ret < 0)
+ 		return ret;
+ 
+-	return tps23881_calc_val(ret, chan, 4, 0x0f);
++	ret = tps23881_calc_val(ret, chan, 4, 0x0f);
++	return tps23881_class_table[ret];
+ }
+ 
+ static int
 -- 
-2.55.0
+2.43.0
 
