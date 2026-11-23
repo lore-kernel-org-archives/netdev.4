@@ -1,72 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.17
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795422998;
-	b=ShZjrL55EgzUVyjQQZURSulTXVKUcy0V3JfRYVU/0uAkRo82Q1Ihd7JrPmbrSLCX0FEm
-	 wQNgJc5lXZhUVWc6WcPmiIwxGtwrjkNNpfMWDR32ZJgAVJoWk+GmyCJpJkDxMj9Icw3HU
-	 uXobM+BXEreFRewubXZJVKjhJnEEPxV8vg3UjZyMMyWEixAFyGVwVs01cDsMpBanyGr7T
-	 LosIkInjWKAn9xzAexr4UjS5FpbIqRad+nn48fYnvX6Taut1fFoD/olt1RCBb5oYwm5qu
-	 T0qOz2R3/6FvagRoatycTiPk5LQ2AH4V72CNN2X2nRF4j/23audOx7vqdktIbQYcRIQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795422998;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=2OX63kgV8CtpEDOwgqN7q56BE5W0V+/Nb3DnFHGJsZ4=;
-	b=SaZALOz/y3FUOlva/OXKiHS+LHCayQdTT4nNT6l8jmPeRe6DQN5k/g0BJWHX3KKCKzE4
-	 UD0NhmY9q/o93A0X3u4hhfD21fDJOhzKmWlf/wsmayNq0oNgybbFsfzFS5eyAzw4oSnQX
-	 yHtZaNq1anjLx/fT95JhD66zvEuR8URUDcsz+cL4us7APORl3hfu64pfMr+J/LdwhZVuF
-	 V5kUdUYkYlP+YyVGFfnOpXx4yQPRWhp1YrcO6j6lTRRTGmW3BT7Xe/99j4edaBkCL1z/b
-	 K1sDZlOCXG0M8UMeQYA7IF/VTZ2eeNpfVRBKPrxFU/v4s+w7ZuS+vkDkVXxUrDsRuVg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T6SOaqwF;
-	arc=none smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.44
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795423252;
+	b=gMuh/29ZHn6GUaEzyKF1TKGbPtyUFw27W9agwV3/8N/oEayYvB+HJ//ox+PgL9MUEurY
+	 CU3M6mKaJ/DeJdzG/jfkKA8YUE+k2w69C1Kwkts/ux/VoxVxQwuT+L2kUjUbG5uzJpEKG
+	 /GHqdSg3fXoeVCzgEbG6H71fNKmTCAF3mzKuTWCC3+/vUvpe/VjRh5C2h3EF3H16uwOc0
+	 uqt2hMN03hawskr+naM553sr9sdvgGTxchBl6EfKlE/3b33x/ozKbwyPg3nc2VhEXsySz
+	 m1kMm6dHLNYIEdkQ2YzqI47Q87Y+MLIBGWmChVTfMkeKYiEvkup1sTXQM/iS+6mLkuQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795423252;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=MynDxKrid/QCYt14OwnxA0MpxO30DpTyUBr7ZjLJt1M=;
+	b=GSkmLWXGIMyvr39egOT6ResvWRWDRuSDLXQMexwLhaCFbPeu4yh4pprOmWS/qOdKq7Md
+	 jMVFhP9IPMNWAP0Dt8YYnwVH9aATq5uDoEEgRfkxrzF+QUM7W9epVXR0b2V/mgrN0c9q8
+	 itkQ4RSyxMC7faiUGpUubNXH2pzsUVbDBeVw6vE3ZDDXR+tIM203lxUWfQrSKPhaAZFtZ
+	 EgYe7Lloa/Curg9kQ5QVQHYyErMAFo75hxVHXbPkDruOVsXMqx5Av4bLdj+jXZQjnd4B7
+	 X0oRo+/qfENZ9a69uFa3xehDmm2sS+QeQnjbFAFOBzp63ijEnPV28Aj6kXggyXYJSuQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R1pn5Qcn;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3799E606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:36:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3799E606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21C45606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:40:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21C45606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=T6SOaqwF
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795422998; x=1826958998;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=f57rKML2Xyrc1MDHRFxcs8lQhQu7zcxkpMHWNl9Kgzs=;
-  b=T6SOaqwF82cLkBykedKW7YgNwWFhrhD0hqB2yEaqmqbkQtimiChuZMB9
-   VTHQq2ph4SkA6N4jMFVnJU4ZYnSw/fVoGdA2wLQjsoLnLyMAOhY7QUEh7
-   M5lpH74UMNDS6FbugfxlB1m91yx9QtjC/SJAucBAexkM+M0874d6LFbgj
-   KhB+Djd8zcSFdOs6VtG9r4wFjMLWoOcLKnoEDeSWSKR6B9t5X/NjdZOXW
-   q5tflrTz7r2d/PKcXFxKimYCyAr0+R4gGvD3idlYngh+mrB9aVgpfJeLw
-   JqhdSwMmyZcBsH9AIZLgNNx5EpMvqL5FhK65GjiW/GqRIyZwhetH05Flk
-   w==;
-X-CSE-ConnectionGUID: 3yojb2J7S0WjsqsEPN0F9w==
-X-CSE-MsgGUID: 8o8Pl4FGQe+XSfheZ/F7/w==
-X-IronPort-AV: E=McAfee;i="6800,10657,11974"; a="4234543"
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="4234543"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:36:38 -0800
-X-CSE-ConnectionGUID: QrrBQgBBSgStlcLHxb5M5w==
-X-CSE-MsgGUID: +FOa851gTsSJxt+KLjFA3Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,227,1787036400"; 
-   d="scan'208";a="11016022"
-Received: from linux.intel.com ([10.54.29.200])
-  by orviesa008.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 00:36:38 -0800
-Received: from [10.241.178.60] (soc-5CG1401QVW.clients.intel.com [10.241.178.60])
-	by linux.intel.com (Postfix) with ESMTP id C851320B8CD1;
-	Mon, 23 Nov 2026 00:36:33 -0800 (PST)
-Message-ID: <a62bce53-a307-483f-86e9-00949b142e9f@linux.intel.com>
-Date: Mon, 23 Nov 2026 16:36:32 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=R1pn5Qcn
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b0d0b80fb9so1658312a91.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:40:50 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795423250; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GxHObqk1BCR8XYRvrGd/Iu92eFkwkIaggPbLY9N496xLmI37oyvjn7T9WjxMERAjNH
+         zrxDVjQESWTaT0E3mh9WFjSoNPF5eft4amVK50RH4aujxF5FufBg5n24PYJMp0kcdpu9
+         R5XbBRfiS9n1EGXcpaYXBswvdryeScuW7Rhtz3ZGBvxCfywJWUqsfXRjG5IiHA0HOf+E
+         nETOphWkd0vhrue9LRNNc/J1dOZiTM7XjUxTzhn2MxnrfUui+lTvLCCyj739/N0BA9qR
+         zcWZuigB/2VCILTDut/NUtmYXljjvfpnzjBf7RsAteZB82DKvveu+NGFSlHAsTXmNXQt
+         EB4A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=MynDxKrid/QCYt14OwnxA0MpxO30DpTyUBr7ZjLJt1M=;
+        fh=lwslPyFa5ok7z/QN+aD/HuYbtLxz2XXJ93kFTtKpmwY=;
+        b=C/ZK8h9jqzA/6Mw6uqbpsik2bdj2bAIJhHdlaHkv6pdfGnAu8zmbM1YcUpMWkox29/
+         85hVwbpfdLsmuD4uVRov1izRVhFdU7xCn3aUElBnqDRyiXzABhv9ag6d+/f8YlY6vFDf
+         i4fae2ZaIcw1WMvgnK3tUwbQlKc1DovkF10RsAgMXkdWokHn2Mm+joHMvnQVjhlmyFFb
+         uoYBTpHl5K+jLS0VAcP1qowW94iylqU4zITUSglENafQwF4sT7pqkZGLl2WoI9aXA8f7
+         v4WcYUSIi7pWmDhOD1MsXBritIaJPF+7CnwI3J1Mub39TSDhCa5BYl9ic73z9MOdkaja
+         twoQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795423250; x=1796028050; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MynDxKrid/QCYt14OwnxA0MpxO30DpTyUBr7ZjLJt1M=;
+        b=R1pn5QcnMbHro/AFaWZJXwvuFES5YJTI4bPPDDfmv0jKH14AeCyh1Qgz5cv4PDxsB2
+         QyeOt/GxAgDXiFy57X/OxF/8Wzo9Uhe/PlBcntXsPOjGdaps2TOqyhR5o6XbuY3RlkoQ
+         uMqoJZKA+RK5Qmden+d0EzFcQ4v7iT4c2EQMj04Fm8uQvROaTcgl6NvOq6TRIQu2ou00
+         qmEsDFkPhn/vEPM/f2PR4qbccdGK+l7FoSb1+aGdvCIvPgFZrZURCdZvvsGfQY4aZYEb
+         ZNXorghEuRAQp6yJ03XLjXBgzF7F74EUVOBb2jmO+ieJJwWWWLeFe0BVpOuDcHJoyYsO
+         r47g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795423250; x=1796028050;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=MynDxKrid/QCYt14OwnxA0MpxO30DpTyUBr7ZjLJt1M=;
+        b=Okh0WC/jEJSXA1iuxXoq0OLL2DbipNxo7vf2aE7hU0/+lo4BnQuGfQ/LG9rmgy4Zqy
+         RIzHBGhW0E+mtbHzr9KN/QspMkp4LrvrRlviJ5Dgvq3btD45vi77MamTVDUCDgnrYnRw
+         naW8kBQk8LcQGO2uE0532jqqjaODrDXsjb86qggf3JA98X67dL5LDPVU5MzbcHWBGdEO
+         7rP7/Vzt/OnOlFHHOlgefiI6ZLW1uyPyHxs0P/X+3eIJfaJz4+USiQFPmeZP69YaosjS
+         pU0y8mg+qG1sUkUo0nrrL+0xbSlLQK66E34TWxF/sG2+COsLGrfV2FaUz1hoHn1IRVeV
+         qFIg==
+X-Forwarded-Encrypted: i=1; AL+hErHm4B/6gmZFPVoLd6QJfnBiJLp0nmpSNtdo0VU+93Z3QAshXSdpGHMyIXdyECqtaavSown+oCY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9BBuXgdeVkGAaDeC7i0/PtpUzRo/DW8Y8k5YtvMWvme9c1kDn9
+	BRViTGnxexZjfIPy31hwOXiSCegH0uuvL+FzkwcmDJl1d4GPkLoXX/JujRC2g3OC9kWwl/Mo4ea
+	fffRDOtDI5Y6/m8h7V/kxU98qChOCr7c=
+X-Gm-Gg: AZFdTZca6F6q6BFzq47h2QAhmour52wop6RQcOVSHEGisFJCuP9QPAIB1uZm44oXGfJ
+	lPguxocpPSAYSOS77ma5UwcNCla4XCfj0oP9kdbVeQSWV/zibm9KHQv3UBjVeFqdm0GnCLQ7j2K
+	XDIOjLHRLDmHFzaO9IccY4TzkO2Hi8qRlxdPF/eJkT7QRIFUE4IuonN79Pv/QUcOM5x0c3Ycev9
+	NsIq0rchyXxFqJqNY/MExECzGf2SwR6q3Dw7oAEs827NnuLG1GThsp65ZjsP9Wh2doLWzlwVUDp
+	yeZec2nefivn5W34fIoNP4JEkQ3TAuC306ktrLjXhpe9ktmRAOxycj6cYZzqk5Nb313HkwDChKK
+	UaFw2yAJwmR6mDJnib4bQm8udmmwKVwtd4sNRd/4=
+X-Received: by 2002:a17:90b:3d4d:b0:3b3:b636:763c with SMTP id
+ 98e67ed59e1d1-3b41c8fe33bmr10343640a91.22.1795423250052; Mon, 23 Nov 2026
+ 00:40:50 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,74 +103,798 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1 0/3] af_packet/tcp: fix late hardware timestamp
- handling
-To: Kohei Enju <kohei@enjuk.jp>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn
- <willemb@google.com>, David Ahern <dsahern@kernel.org>,
- Neal Cardwell <ncardwell@google.com>,
- Gerhard Engleder <gerhard@engleder-embedded.com>,
- Jonathan Lemon <jonathan.lemon@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Gomes Vinicius <vinicius.gomes@intel.com>,
- Song Yoong Siang <yoong.siang.song@intel.com>,
- Looi Hong Aun <hong.aun.looi@intel.com>,
- "Tan, Khai Wen" <khai.wen.tan@intel.com>
-References: <20260429091632.26509-1-kohei@enjuk.jp>
-Content-Language: en-US
-From: KhaiWenTan <khai.wen.tan@linux.intel.com>
-In-Reply-To: <20260429091632.26509-1-kohei@enjuk.jp>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20261119165340.1071525-1-magnus.karlsson@intel.com>
+ <20261119165340.1071525-4-magnus.karlsson@intel.com> <awBXmCqkMKxsc+9i@boxer>
+In-Reply-To: <awBXmCqkMKxsc+9i@boxer>
+From: Magnus Karlsson <magnus.karlsson@gmail.com>
+Date: Mon, 23 Nov 2026 09:40:37 +0100
+X-Gm-Features: Aa3M54oBkH_ENrrfQ7pjdOupCIsvkRlW2c49DBDOxlNAweG-hN4IiQ6PdMQeClo
+Message-ID: <CAJ8uoz2tKthHN6MHUJoixtjzkGqJR0ukdJCWRG0_2_J11PN_uw@mail.gmail.com>
+Subject: Re: [PATCH net-next 3/5] xsk: ice: add USO zero-copy support
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: Magnus Karlsson <magnus.karlsson@intel.com>, netdev@vger.kernel.org, sdf@fomichev.me, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	horms@kernel.org, bjorn@kernel.org, kerneljasonxing@gmail.com, 
+	intel-wired-lan@lists.osuosl.org, anthony.l.nguyen@intel.com, 
+	przemyslaw.kitszel@intel.com, jacob.e.keller@intel.com
+Content-Type: text/plain; charset="UTF-8"
 
-On 4/29/2026 5:16 PM, Kohei Enju wrote:
-> Since commit 97dc7cd92ac6 ("ptp: Support late timestamp determination"),
-> skb_shared_hwtstamps may carry netdev_data instead of a resolved
-> hwtstamp. AF_PACKET and TCP could still read that storage as a ktime_t
-> and report bogus hardware timestamps to userspace.
-> 
-> This series factors the late timestamp resolution logic into a common
-> helper, then switches AF_PACKET and TCP to use it.
-> 
-> Notes on SOF_TIMESTAMPING_BIND_PHC:
-> The generic socket receive timestamping path honors it, but the
-> AF_PACKET and TCP receive paths touched here haven't implemented that
-> behavior.
-> This series doesn't change that; those paths always resolve timestamps
-> with cycles == false and preserve their timestamp-domain semantics.
-> 
-> Kohei Enju (3):
->    net: introduce helper to resolve hardware timestamps from skb
->    af_packet: use skb_get_hwtstamp() for hardware timestamps
->    tcp: use skb_get_hwtstamp() for hardware timestamps
-> 
->   include/linux/skbuff.h | 11 +++++++++++
->   include/net/tcp.h      |  2 +-
->   net/core/skbuff.c      | 27 +++++++++++++++++++++++++++
->   net/ipv4/tcp_input.c   |  3 ++-
->   net/ipv4/tcp_ipv4.c    |  6 ++++--
->   net/ipv6/tcp_ipv6.c    |  3 ++-
->   net/packet/af_packet.c |  2 +-
->   net/socket.c           | 27 +++------------------------
->   8 files changed, 51 insertions(+), 30 deletions(-)
-> 
-Hi Kohei,
+On Fri, 20 Nov 2026 at 15:22, Maciej Fijalkowski
+<maciej.fijalkowski@intel.com> wrote:
+>
+> On Thu, Nov 19, 2026 at 05:53:38PM +0100, Magnus Karlsson wrote:
+> > Add UDP Segmentation Offload (USO) for AF_XDP zero-copy and implement
+> > it in the ice driver. Drivers advertise support with tmo_supports_uso,
+> > which is reported to user space as the tx-uso-zc netdev XSK feature.
+> >
+> > The core exports xsk_tx_uso_parse() and xsk_tx_uso_prepare_headers() for
+> > drivers, which snapshot, validate and prepare the packet header, and
+> > xsk_tx_invalid_descs() for accounting dropped requests. Drivers without
+> > tmo_supports_uso keep handling a USO request as invalid metadata, so
+> > xsk_tx_metadata_request() ignores the packet's metadata. As in copy
+> > mode, requests that produce more than one datagram also need
+> > NETIF_F_GSO_UDP_L4 on the device.
+> >
+> > Packet headers are copied into kernel-owned memory before they are
+> > validated and handed to the NIC, so that user space cannot change them
+> > afterwards. ice keeps a DMA-mapped header slot for every two
+> > descriptors of the XDP Tx ring, as a USO packet takes at least a
+> > context and a header descriptor. The slots hold only header bytes and
+> > are allocated page by page to avoid a large contiguous
+> > allocation. They belong to the ring: they are allocated when a pool
+> > that can carry USO requests is assigned to the ring, and freed with
+> > the ring. They therefore follow XDP attach and detach, ring rebuilds
+> > and netdev unregistration rather than the pool. Only the copied header
+> > bytes are synced for the device. With fewer XDP rings than CPUs,
+> > queues share XDP rings and would share their slots, so no slots are
+> > allocated and USO requests are ignored for now, though support for
+> > this could be added as a separate patch set in the future. tx-uso-zc
+> > is still reported in this case, as documented. The slots are only
+> > set up when an XDP program is attached. If they cannot be allocated
+> > when a ring is reconfigured, the ring keeps its pool without USO and a
+> > warning is logged, while a bind fails.
+> >
+> > When the slots exist, ice_xmit_zc() processes descriptors one packet
+> > at a time. A USO packet gets a context and a header descriptor, then
+> > shares the data-descriptor loop with ordinary packets. The Tx budget
+> > reserves worst-case descriptors per packet. The per-packet path is used
+> > for every pool with a Tx metadata area that can carry USO requests,
+> > whether or not it sends them. Other pools keep the existing batched
+> > fast path. Both paths share the budget, tail, stats and wakeup
+> > handling. If the Tx ring cannot hold a maximum-size packet in this
+> > worst case, such a packet could never be peeked and Tx would stall, so
+> > no header slots are allocated, USO requests are ignored and a warning
+> > is logged. The pool flag is not cleared, as the pool may still fall
+> > back to copy mode. This is only possible when PAGE_SIZE is 64K and the
+> > Tx ring is set to its minimum size.
+> >
+> > Packets that exceed the hardware limits are dropped and counted in
+> > tx_invalid_descs through the new xsk_tx_invalid_descs() helper. Their
+> > completions are deferred behind in-flight descriptors to keep the
+> > completion ring in order. Packets without USO are dropped as well if
+> > they would exceed the eight buffers, which is possible when chunks
+> > larger than a data descriptor are split. A batch from the shared-umem
+> > fallback can end inside a packet. That packet is dropped, and so is
+> > its remainder in the next batch.
+> >
+> > On completion, a buffer of the existing fast path still stands for one
+> > completion, so that path writes nothing to tx_buf[] and struct
+> > ice_tx_buf keeps its size. Buffers of the USO path carry an explicit
+> > completion count in a union with fields that zero-copy rings do not use.
+> > USO header slots, deferred drops and buffers split into several
+> > descriptors are tracked with a per-ring counter, so ordinary traffic
+> > keeps the fast cleanup path. The header slot of a context descriptor is
+> > found from its position in the ring.
+> >
+> > The descriptors are built with the descriptor builders that the
+> > previous patch added for ice_tso().
+> >
+> > Signed-off-by: Magnus Karlsson <magnus.karlsson@intel.com>
+> > ---
+> >  Documentation/netlink/specs/netdev.yaml       |   4 +
+> >  Documentation/networking/xsk-tx-metadata.rst  |  47 +-
+> >  drivers/net/ethernet/intel/ice/ice.h          |  10 +-
+> >  drivers/net/ethernet/intel/ice/ice_ethtool.c  |   2 +
+> >  .../net/ethernet/intel/ice/ice_lan_tx_rx.h    |   1 +
+> >  drivers/net/ethernet/intel/ice/ice_main.c     |   1 +
+> >  drivers/net/ethernet/intel/ice/ice_sf_eth.c   |   1 +
+> >  drivers/net/ethernet/intel/ice/ice_txrx.c     |   3 +
+> >  drivers/net/ethernet/intel/ice/ice_txrx.h     |  22 +-
+> >  drivers/net/ethernet/intel/ice/ice_xsk.c      | 502 ++++++++++++++++--
+> >  drivers/net/ethernet/intel/ice/ice_xsk.h      |  13 +
+> >  include/net/xdp_sock.h                        |   5 +
+> >  include/net/xdp_sock_drv.h                    |   6 +
+> >  include/net/xsk_tx_uso.h                      |  20 +
+> >  include/uapi/linux/if_xdp.h                   |   5 +-
+> >  include/uapi/linux/netdev.h                   |   3 +
+> >  net/core/netdev-genl.c                        |   2 +
+> >  net/xdp/xsk.c                                 |  24 +
+> >  net/xdp/xsk_buff_pool.c                       |   4 +-
+> >  net/xdp/xsk_tx_uso.c                          |  97 ++++
+> >  tools/include/uapi/linux/if_xdp.h             |   5 +-
+> >  tools/include/uapi/linux/netdev.h             |   3 +
+> >  22 files changed, 729 insertions(+), 51 deletions(-)
+> >
+>
+> (...)
+>
+> >  struct ice_tx_ring {
+> >       __cacheline_group_begin_aligned(read_mostly);
+> >       void *desc;                     /* Descriptor ring memory */
+> >       struct device *dev;             /* Used for DMA mapping */
+> >       u8 __iomem *tail;
+> >       struct ice_tx_buf *tx_buf;
+> > +     struct ice_xsk_uso_page *xsk_uso_pages; /* USO header slots */
+> > +     u16 xsk_uso_slot_stride;
+> > +     u16 xsk_uso_slots_per_page;
+> > +     u32 xsk_uso_nr_pages;
+>
+> this is 16 bytes added; how about making an union out of it with tstamp
+> pointers? i think you are forbidding mixing USO with tstamping?
 
-I am currently working with Vinicius on a fix for wrong hardware 
-timestamp in tcpdump 
-(https://lore.kernel.org/all/20261111053728.2611070-1-khai.wen.tan@linux.intel.com/)
+Correct, so I can create a union here.
 
-We have came across your series are also fixing the same issue. I would 
-like to check about your current status on the v2 for this series, we 
-are planning to implement your fixes (skb_get_hwtstamp() helper) into 
-our patch, so we would like to ask if you currently have plan for the 
-series v2. If you not having plans for this or don’t have time for this, 
-may we include the first patch of this series into our patch, the patch 
-authorship will still be kept to you?
+> >
+> >       struct ice_q_vector *q_vector;  /* Backreference to associated vector */
+> >       struct net_device *netdev;      /* netdev ring maps to */
+> > @@ -377,6 +395,8 @@ struct ice_tx_ring {
+> >       u16 next_to_clean;
+> >
+> >       u16 xdp_tx_active;
+> > +     u16 xsk_uso_active;
+> > +     bool xsk_drain;                 /* drop XSk descriptors up to EOP */
+> >       spinlock_t tx_lock;
+> >       __cacheline_group_end_aligned(read_write);
+> >
+> > diff --git a/drivers/net/ethernet/intel/ice/ice_xsk.c b/drivers/net/ethernet/intel/ice/ice_xsk.c
+> > index 0c1ce3e86a45..7fa1127480b6 100644
+> > --- a/drivers/net/ethernet/intel/ice/ice_xsk.c
+> > +++ b/drivers/net/ethernet/intel/ice/ice_xsk.c
+> > @@ -5,6 +5,7 @@
+> >  #include <linux/unroll.h>
+> >  #include <net/libeth/xdp.h>
+> >  #include <net/xdp_sock_drv.h>
+> > +#include <net/xsk_tx_uso.h>
+> >  #include <net/xdp.h>
+> >  #include "ice.h"
+> >  #include "ice_base.h"
+> > @@ -133,6 +134,22 @@ static int ice_xsk_pool_disable(struct ice_vsi *vsi, u16 qid)
+> >       return 0;
+> >  }
+> >
+> > +/* Worst-case HW descriptors per AF_XDP descriptor on the USO path: the data
+> > + * split into maximum-size buffers plus a context and a header descriptor.
+> > + */
+> > +static u32 ice_xsk_uso_desc_cost(const struct xsk_buff_pool *pool)
+> > +{
+> > +     return DIV_ROUND_UP(pool->chunk_size, ICE_MAX_DATA_PER_TXD_ALIGNED) + 2;
+> > +}
+> > +
+> > +/* The Tx budget must fit a maximum-size packet, or it is never peeked. */
+> > +static bool ice_xsk_uso_ring_fits(const struct ice_vsi *vsi, u16 count,
+> > +                               const struct xsk_buff_pool *pool)
+> > +{
+> > +     return (count - 1) / ice_xsk_uso_desc_cost(pool) >=
+> > +            vsi->netdev->xdp_zc_max_segs;
+> > +}
+> > +
+> >  /**
+> >   * ice_xsk_pool_enable - enable a buffer pool region
+> >   * @vsi: Current VSI
+> > @@ -144,6 +161,7 @@ static int ice_xsk_pool_disable(struct ice_vsi *vsi, u16 qid)
+> >  static int
+> >  ice_xsk_pool_enable(struct ice_vsi *vsi, struct xsk_buff_pool *pool, u16 qid)
+> >  {
+> > +     struct ice_tx_ring *xdp_ring;
+> >       int err;
+> >
+> >       if (vsi->type != ICE_VSI_PF && vsi->type != ICE_VSI_SF)
+> > @@ -153,14 +171,129 @@ ice_xsk_pool_enable(struct ice_vsi *vsi, struct xsk_buff_pool *pool, u16 qid)
+> >           qid >= vsi->netdev->real_num_tx_queues)
+> >               return -EINVAL;
+> >
+> > -     err = xsk_pool_dma_map(pool, ice_pf_to_dev(vsi->back),
+> > -                            ICE_RX_DMA_ATTR);
+> > -     if (err)
+> > -             return err;
+> > +     /* No header slots are allocated then, see ice_xsk_cfg_uso_slots(). The
+> > +      * pool flag is left alone, as copy mode is a fallback if this fails.
+> > +      */
+> > +     if (pool->tx_metadata_len && pool->tx_uso_supported &&
+> > +         !ice_xsk_uso_ring_fits(vsi, vsi->num_tx_desc, pool))
+> > +             netdev_warn(vsi->netdev, "Tx ring too small for USO with %u byte chunks, USO requests on queue %u are ignored\n",
+> > +                         pool->chunk_size, qid);
+> > +
+> > +     /* Allocate the header slots before the pool is DMA mapped and can be
+> > +      * published to the rings, so that a failure leaves them without it.
+> > +      * Without XDP, rx_ring->xdp_ring is stale, and the slots are allocated
+> > +      * when the XDP rings are set up.
+> > +      */
+> > +     xdp_ring = ice_is_xdp_ena_vsi(vsi) ? vsi->rx_rings[qid]->xdp_ring : NULL;
+> > +     if (xdp_ring) {
+> > +             err = ice_xsk_cfg_uso_slots(xdp_ring, pool);
+> > +             if (err)
+> > +                     return err;
+> > +     }
+> > +
+> > +     err = xsk_pool_dma_map(pool, ice_pf_to_dev(vsi->back), ICE_RX_DMA_ATTR);
+> > +     if (err && xdp_ring)
+> > +             ice_xsk_cfg_uso_slots(xdp_ring, NULL);
+> > +     return err;
+> > +}
+> > +
+> > +/**
+> > + * ice_xsk_free_uso_slots - free the USO header slots of an XDP Tx ring
+> > + * @ring: XDP Tx ring without outstanding descriptors
+> > + */
+> > +void ice_xsk_free_uso_slots(struct ice_tx_ring *ring)
+> > +{
+> > +     u32 i;
+> > +
+> > +     if (!ring->xsk_uso_pages)
+> > +             return;
+> > +
+> > +     for (i = 0; i < ring->xsk_uso_nr_pages; i++) {
+> > +             struct ice_xsk_uso_page *page = &ring->xsk_uso_pages[i];
+> > +
+> > +             if (page->addr)
+> > +                     dma_free_noncoherent(ring->dev, PAGE_SIZE, page->addr,
+> > +                                          page->dma, DMA_TO_DEVICE);
+> > +     }
+> > +     kfree(ring->xsk_uso_pages);
+> > +     ring->xsk_uso_pages = NULL;
+> > +     ring->xsk_uso_nr_pages = 0;
+> > +     ring->xsk_uso_slots_per_page = 0;
+> > +     ring->xsk_uso_slot_stride = 0;
+> > +}
+> > +
+> > +/**
+> > + * ice_xsk_cfg_uso_slots - match the USO header slots of a ring to its pool
+> > + * @ring: XDP Tx ring without outstanding descriptors
+> > + * @pool: buffer pool bound to the ring, or NULL
+> > + *
+> > + * Header slots are only needed when USO requests can be submitted. They
+> > + * belong to the ring, one per two descriptors, and are freed with it. They
+> > + * are allocated in single pages to avoid a large contiguous allocation.
+> > + *
+> > + * Return: 0 on success, -ENOMEM on allocation failure.
+> > + */
+> > +int ice_xsk_cfg_uso_slots(struct ice_tx_ring *ring, struct xsk_buff_pool *pool)
+> > +{
+> > +     u32 stride = ALIGN(NET_IP_ALIGN + XSK_TX_USO_MAX_HEADER,
+> > +                        dma_get_cache_alignment());
+> > +     u32 per_page = PAGE_SIZE / stride;
+> > +     u32 nr_pages = DIV_ROUND_UP(ring->count / 2, per_page);
+> > +     u32 i;
+> > +
+> > +     /* With fewer XDP rings than CPUs, queues share XDP rings and so would
+> > +      * share their slots. USO requests are then ignored, as by drivers
+> > +      * without USO support. The same goes for a Tx ring too small for a
+> > +      * maximum-size USO packet.
+> > +      */
+> > +     if (!pool || !pool->tx_metadata_len || !pool->tx_uso_supported ||
+> > +         ring->vsi->num_xdp_txq < num_possible_cpus() ||
+> > +         !ice_xsk_uso_ring_fits(ring->vsi, ring->count, pool)) {
+> > +             ice_xsk_free_uso_slots(ring);
+> > +             return 0;
+> > +     }
+> > +     if (ring->xsk_uso_pages && ring->xsk_uso_nr_pages == nr_pages)
+> > +             return 0;
+> > +
+> > +     ice_xsk_free_uso_slots(ring);
+> > +     ring->xsk_uso_pages = kcalloc(nr_pages, sizeof(*ring->xsk_uso_pages),
+> > +                                   GFP_KERNEL);
+> > +     if (!ring->xsk_uso_pages)
+> > +             return -ENOMEM;
+> > +     ring->xsk_uso_nr_pages = nr_pages;
+> > +
+> > +     for (i = 0; i < nr_pages; i++) {
+> > +             struct ice_xsk_uso_page *page = &ring->xsk_uso_pages[i];
+> > +
+> > +             page->addr = dma_alloc_noncoherent(ring->dev, PAGE_SIZE,
+> > +                                                &page->dma, DMA_TO_DEVICE,
+> > +                                                GFP_KERNEL);
+> > +             if (!page->addr) {
+> > +                     ice_xsk_free_uso_slots(ring);
+> > +                     return -ENOMEM;
+> > +             }
+> > +     }
+> > +     ring->xsk_uso_slot_stride = stride;
+> > +     ring->xsk_uso_slots_per_page = per_page;
+>
+> do you really have to carry these within ring? This so you avoid repeated
+> calculations i assume?
 
-Best Regards,
-KhaiWen
+Correct. It is just for performance. Once I have made the other
+changes I can benchmark again and see if this still makes sense.
+
+> >
+> >       return 0;
+> >  }
+> >
+> > +/* Every USO packet takes a context and a header descriptor, so in-flight
+> > + * context descriptors are never adjacent and, as the ring size is even, half
+> > + * the context index is a unique header slot. Return the page and set the slot
+> > + * offset within it.
+> > + */
+> > +static struct ice_xsk_uso_page *
+> > +ice_xsk_uso_slot(const struct ice_tx_ring *ring, u16 ctx_idx, u32 *offset)
+> > +{
+> > +     u32 slot = ctx_idx >> 1;
+> > +
+> > +     *offset = slot % ring->xsk_uso_slots_per_page *
+> > +               ring->xsk_uso_slot_stride;
+> > +     return &ring->xsk_uso_pages[slot / ring->xsk_uso_slots_per_page];
+> > +}
+> > +
+> >  /**
+> >   * ice_realloc_rx_xdp_bufs - reallocate for either XSK or normal buffer
+> >   * @rx_ring: Rx ring
+> > @@ -354,6 +487,36 @@ bool ice_alloc_rx_bufs_zc(struct ice_rx_ring *rx_ring,
+> >       return __ice_alloc_rx_bufs_zc(rx_ring, xsk_pool, leftover);
+> >  }
+> >
+> > +static u32 ice_clean_xsk_buf(struct ice_tx_ring *ring, struct ice_tx_buf *buf)
+> > +{
+> > +     u32 completed = buf->xsk_completions;
+> > +     struct ice_xsk_uso_page *page;
+> > +     u32 offset;
+> > +
+> > +     switch (buf->type) {
+> > +     case ICE_TX_BUF_EMPTY:
+> > +             return 1;
+> > +     case ICE_TX_BUF_XSK_TX:
+> > +             xsk_buff_free(buf->xdp);
+> > +             ring->xdp_tx_active--;
+> > +             break;
+> > +     case ICE_TX_BUF_XSK_USO:
+> > +             page = ice_xsk_uso_slot(ring, buf - ring->tx_buf, &offset);
+> > +             dma_sync_single_range_for_cpu(ring->dev, page->dma, offset,
+> > +                                           ring->xsk_uso_slot_stride,
+> > +                                           DMA_TO_DEVICE);
+> > +             ring->xsk_uso_active--;
+> > +             break;
+> > +     case ICE_TX_BUF_XSK_DROP:
+> > +             ring->xsk_uso_active--;
+> > +             break;
+> > +     default:
+> > +             break;
+> > +     }
+> > +     buf->type = ICE_TX_BUF_EMPTY;
+> > +     return completed;
+> > +}
+> > +
+> >  /**
+> >   * ice_clean_xdp_irq_zc - produce AF_XDP descriptors to CQ
+> >   * @xdp_ring: XDP Tx ring
+> > @@ -365,9 +528,8 @@ static u32 ice_clean_xdp_irq_zc(struct ice_tx_ring *xdp_ring,
+> >       u16 ntc = xdp_ring->next_to_clean;
+> >       struct ice_tx_desc *tx_desc;
+> >       u16 cnt = xdp_ring->count;
+> > -     struct ice_tx_buf *tx_buf;
+> >       u16 completed_frames = 0;
+> > -     u16 xsk_frames = 0;
+> > +     u32 xsk_frames = 0;
+> >       u16 last_rs;
+> >       int i;
+> >
+> > @@ -384,22 +546,14 @@ static u32 ice_clean_xdp_irq_zc(struct ice_tx_ring *xdp_ring,
+> >       if (!completed_frames)
+> >               return 0;
+> >
+> > -     if (likely(!xdp_ring->xdp_tx_active)) {
+> > +     if (likely(!xdp_ring->xsk_uso_active && !xdp_ring->xdp_tx_active)) {
+> >               xsk_frames = completed_frames;
+> >               goto skip;
+> >       }
+> >
+> >       ntc = xdp_ring->next_to_clean;
+> >       for (i = 0; i < completed_frames; i++) {
+> > -             tx_buf = &xdp_ring->tx_buf[ntc];
+> > -
+> > -             if (tx_buf->type == ICE_TX_BUF_XSK_TX) {
+> > -                     tx_buf->type = ICE_TX_BUF_EMPTY;
+> > -                     xsk_buff_free(tx_buf->xdp);
+> > -                     xdp_ring->xdp_tx_active--;
+> > -             } else {
+> > -                     xsk_frames++;
+> > -             }
+> > +             xsk_frames += ice_clean_xsk_buf(xdp_ring, &xdp_ring->tx_buf[ntc]);
+> >
+> >               ntc++;
+> >               if (ntc >= xdp_ring->count)
+> > @@ -469,6 +623,7 @@ static int ice_xmit_xdp_tx_zc(struct xdp_buff *xdp,
+> >
+> >               tx_buf->xdp = xdp;
+> >               tx_buf->type = ICE_TX_BUF_XSK_TX;
+> > +             tx_buf->xsk_completions = 0;
+> >               tx_desc->buf_addr = cpu_to_le64(dma);
+> >               tx_desc->cmd_type_offset_bsz = ice_build_ctob(0, 0, size, 0);
+> >               /* account for each xdp_buff from xsk_buff_pool */
+> > @@ -791,6 +946,272 @@ static void ice_fill_tx_hw_ring(struct ice_tx_ring *xdp_ring,
+> >               ice_xmit_pkt(xdp_ring, xsk_pool, &descs[i], total_bytes);
+> >  }
+> >
+> > +static void ice_xsk_data_desc(struct ice_tx_ring *ring, dma_addr_t dma,
+> > +                           u32 len, u32 cmd, u32 offset, u32 completions)
+> > +{
+> > +     struct ice_tx_desc *desc = ICE_TX_DESC(ring, ring->next_to_use);
+> > +     struct ice_tx_buf *buf = &ring->tx_buf[ring->next_to_use];
+> > +
+> > +     buf->type = ICE_TX_BUF_XSK_DESC;
+> > +     buf->xsk_completions = completions;
+> > +     desc->buf_addr = cpu_to_le64(dma);
+> > +     desc->cmd_type_offset_bsz = ice_build_ctob(cmd, offset, len, 0);
+> > +     if (++ring->next_to_use == ring->count)
+> > +             ring->next_to_use = 0;
+> > +}
+> > +
+> > +/* Include the copied header in the eight-buffer limit for every wire segment. */
+> > +static bool ice_xsk_uso_fits(const struct xdp_desc *descs, u32 nr,
+> > +                          const struct xsk_tx_uso_info *uso)
+>
+> arghh this is easy to mix with ice_xsk_uso_ring_fits. could we somehow
+> distinguish control vs data path?
+
+I will come up with a better name.
+
+> > +{
+> > +     u16 network_offset = uso->metadata.request.network_offset;
+> > +     u16 transport_offset = uso->metadata.request.csum_start;
+> > +     u16 gso_size = uso->metadata.request.gso_size;
+> > +     u32 remaining = gso_size, buffers = 1, i;
+> > +
+> > +     /* The core does not know the width of the descriptor length fields. */
+> > +     if (!ice_tx_hdr_lens_ok(network_offset,
+> > +                             transport_offset - network_offset) ||
+> > +         (uso->gso_segs > 1 &&
+> > +          (gso_size < ICE_TXD_CTX_MIN_MSS || gso_size > ICE_TXD_CTX_MAX_MSS)))
+> > +             return false;
+> > +
+> > +     for (i = 0; i < nr; i++) {
+> > +             u32 len = descs[i].len - (i ? 0 : uso->header_len);
+> > +
+> > +             while (len) {
+> > +                     u32 chunk = min_t(u32, len, ICE_MAX_DATA_PER_TXD_ALIGNED);
+> > +                     u32 left = chunk;
+> > +
+> > +                     len -= chunk;
+> > +                     while (left) {
+> > +                             u32 bytes = min(left, remaining);
+> > +
+> > +                             if (++buffers > ICE_MAX_BUF_TXD)
+> > +                                     return false;
+> > +                             left -= bytes;
+> > +                             remaining -= bytes;
+> > +                             if (!remaining) {
+> > +                                     remaining = gso_size;
+> > +                                     buffers = 1;
+> > +                             }
+> > +                     }
+> > +             }
+> > +     }
+> > +     return true;
+> > +}
+> > +
+> > +/* A buffer longer than one data descriptor is split, so a packet without USO
+> > + * can then need more data descriptors than the hardware allows.
+> > + */
+> > +static bool ice_xsk_bufs_fit(const struct xsk_buff_pool *pool,
+> > +                          const struct xdp_desc *descs, u32 nr)
+> > +{
+> > +     u32 buffers = 0, i;
+> > +
+> > +     if (likely(pool->chunk_size <= ICE_MAX_DATA_PER_TXD_ALIGNED))
+> > +             return true;
+> > +     for (i = 0; i < nr; i++)
+> > +             buffers += DIV_ROUND_UP(descs[i].len,
+> > +                                     ICE_MAX_DATA_PER_TXD_ALIGNED);
+> > +     return buffers <= ICE_MAX_BUF_TXD;
+> > +}
+> > +
+> > +/* Write the context and header descriptors of a USO packet and return the
+> > + * command and offset fields for its payload descriptors.
+> > + */
+> > +static int ice_xsk_xmit_uso_hdr(struct ice_tx_ring *ring,
+> > +                             const struct xdp_desc *descs, u32 nr,
+> > +                             const struct xsk_tx_uso_info *info, u32 *cmd,
+> > +                             u32 *offset)
+> > +{
+> > +     const struct xsk_tx_metadata *meta = &info->metadata;
+> > +     u16 slot_idx = ring->next_to_use;
+> > +     u64 qw1 = ICE_TX_DESC_DTYPE_CTX;
+> > +     struct ice_xsk_uso_page *page;
+> > +     struct ice_tx_ctx_desc *ctx;
+> > +     struct ice_tx_buf *buf;
+> > +     dma_addr_t header_dma;
+> > +     u32 slot_offset;
+> > +     bool eop;
+> > +
+> > +     if (!ice_xsk_uso_fits(descs, nr, info))
+> > +             return -EOPNOTSUPP;
+> > +
+> > +     page = ice_xsk_uso_slot(ring, slot_idx, &slot_offset);
+> > +     header_dma = page->dma + slot_offset + NET_IP_ALIGN;
+> > +
+> > +     xsk_tx_uso_prepare_headers(info, page->addr + slot_offset + NET_IP_ALIGN);
+> > +     dma_sync_single_range_for_device(ring->dev, page->dma, slot_offset,
+> > +                                      NET_IP_ALIGN + info->header_len,
+> > +                                      DMA_TO_DEVICE);
+> > +
+> > +     *cmd = ICE_TX_DESC_CMD_L4T_EOFT_UDP;
+> > +     if (info->protocol == htons(ETH_P_IP))
+> > +             *cmd |= info->gso_segs > 1 ? ICE_TX_DESC_CMD_IIPT_IPV4_CSUM :
+> > +                                       ICE_TX_DESC_CMD_IIPT_IPV4;
+> > +     else
+> > +             *cmd |= ICE_TX_DESC_CMD_IIPT_IPV6;
+> > +     *offset = ice_build_tx_desc_offset(meta->request.network_offset,
+> > +                                        meta->request.csum_start -
+> > +                                        meta->request.network_offset,
+> > +                                        sizeof(struct udphdr));
+> > +
+> > +     /* The context owns the header until the whole submitted batch completes. */
+> > +     buf = &ring->tx_buf[slot_idx];
+> > +     buf->type = ICE_TX_BUF_XSK_USO;
+> > +     buf->xsk_completions = 0;
+> > +     ring->xsk_uso_active++;
+> > +
+> > +     if (info->gso_segs > 1)
+> > +             qw1 |= ice_build_tso_ctx_qw1(info->len - info->header_len,
+> > +                                          meta->request.gso_size);
+> > +     ctx = (struct ice_tx_ctx_desc *)ICE_TX_DESC(ring, slot_idx);
+> > +     memset(ctx, 0, sizeof(*ctx));
+> > +     ctx->qw1 = cpu_to_le64(qw1);
+> > +     if (++ring->next_to_use == ring->count)
+> > +             ring->next_to_use = 0;
+> > +
+> > +     eop = info->len == info->header_len;
+> > +     ice_xsk_data_desc(ring, header_dma, info->header_len,
+> > +                       *cmd | (eop ? ICE_TX_DESC_CMD_EOP : 0), *offset,
+> > +                       eop ? nr : 0);
+> > +     return 0;
+> > +}
+> > +
+> > +/* Write the data descriptors of a packet, skipping its first @skip bytes. */
+> > +static void ice_xsk_xmit_descs(struct ice_tx_ring *ring,
+> > +                            struct xsk_buff_pool *pool,
+> > +                            const struct xdp_desc *descs, u32 nr, u32 skip,
+> > +                            u32 cmd, u32 offset)
+> > +{
+> > +     bool split = false;
+> > +     u32 i;
+> > +
+> > +     for (i = 0; i < nr; i++, skip = 0) {
+> > +             u32 len = descs[i].len - skip;
+> > +             dma_addr_t dma;
+> > +
+> > +             if (!len)
+> > +                     continue;
+> > +             dma = xsk_buff_raw_get_dma(pool, descs[i].addr) + skip;
+> > +             xsk_buff_raw_dma_sync_for_device(pool, dma, len);
+> > +             while (len) {
+> > +                     u32 chunk = min_t(u32, len, ICE_MAX_DATA_PER_TXD_ALIGNED);
+> > +                     bool eop = i == nr - 1 && len == chunk;
+> > +
+> > +                     split |= len > chunk;
+> > +                     ice_xsk_data_desc(ring, dma, chunk,
+> > +                                       cmd | (eop ? ICE_TX_DESC_CMD_EOP : 0),
+> > +                                       offset, eop ? nr : 0);
+> > +                     dma += chunk;
+> > +                     len -= chunk;
+> > +             }
+> > +     }
+> > +     /* Split buffers break the one-completion-per-descriptor cleanup
+> > +      * shortcut, so make the cleanup walk this packet.
+> > +      */
+> > +     if (unlikely(split)) {
+> > +             u16 last = ring->next_to_use ? ring->next_to_use - 1 : ring->count - 1;
+> > +
+> > +             ring->tx_buf[last].type = ICE_TX_BUF_XSK_DROP;
+> > +             ring->xsk_uso_active++;
+> > +     }
+> > +}
+> > +
+> > +static void ice_xsk_drop_packet(struct ice_tx_ring *ring,
+> > +                             struct xsk_buff_pool *pool, u32 nr)
+> > +{
+> > +     xsk_tx_invalid_descs(pool, nr);
+> > +     /* Completion queue entries are published in submission order, so a
+> > +      * dropped packet must not be completed ahead of descriptors still in
+> > +      * flight. The ring always keeps one descriptor unused, so equal
+> > +      * indices mean that nothing is outstanding.
+> > +      */
+> > +     if (ring->next_to_use != ring->next_to_clean) {
+> > +             u16 last = ring->next_to_use ? ring->next_to_use - 1 : ring->count - 1;
+> > +             struct ice_tx_buf *buf = &ring->tx_buf[last];
+> > +
+> > +             /* XSK_TX buffers already force the slow cleanup path. */
+> > +             if (buf->type == ICE_TX_BUF_EMPTY) {
+> > +                     buf->xsk_completions = 1;
+> > +                     buf->type = ICE_TX_BUF_XSK_DROP;
+> > +                     ring->xsk_uso_active++;
+> > +             } else if (buf->type == ICE_TX_BUF_XSK_DESC) {
+> > +                     buf->type = ICE_TX_BUF_XSK_DROP;
+> > +                     ring->xsk_uso_active++;
+> > +             }
+> > +             buf->xsk_completions += nr;
+> > +     } else {
+> > +             xsk_tx_completed(pool, nr);
+> > +     }
+> > +}
+> > +
+> > +/* Returns the number of packets queued on the ring. */
+> > +static u32 ice_xmit_zc_metadata(struct ice_tx_ring *ring, struct xsk_buff_pool *pool,
+> > +                             u32 count, unsigned int *total_bytes)
+> > +{
+> > +     struct xdp_desc *descs = pool->tx_descs;
+> > +     u32 i = 0, packets = 0;
+> > +
+> > +     /* Drop the rest of a packet whose start was dropped in an earlier batch. */
+> > +     if (unlikely(ring->xsk_drain)) {
+> > +             while (i < count && ring->xsk_drain)
+> > +                     ring->xsk_drain = !xsk_is_eop_desc(&descs[i++]);
+> > +             ice_xsk_drop_packet(ring, pool, i);
+> > +     }
+> > +
+> > +     while (i < count) {
+> > +             u32 cmd = 0, offset = 0, skip = 0, slot_offset;
+> > +             u32 len = descs[i].len, nr = 1;
+> > +             struct ice_xsk_uso_page *page;
+> > +             struct xsk_tx_uso_info info;
+> > +             int uso;
+> > +
+> > +             while (!xsk_is_eop_desc(&descs[i + nr - 1]) && i + nr < count)
+> > +                     len += descs[i + nr++].len;
+> > +             /* The shared-umem fallback can end a batch inside a packet. */
+>
+> No, it can not... or at least the intent was not to. the shared umem
+> fallback has been written in a way that it also calls
+> xskq_cons_read_desc_batch() which is supposed *not* to expose incomplete
+> multi-buffer packet.
+>
+> Is that a special case where you don't set XDP_USE_SG but packets are not
+> linear due to USO, or what?
+>
+> I wouldn't like to propagate the draining disease down to drivers. We've
+> put enough of convoluted code onto layer above, let us address it there if
+> there's something missing?
+
+You are right. This should not be here in the driver. I will fix it in
+the core instead.
+
+At some point we really need to simplify the skb multi-buffer path.
+Always gives me a headache.
+
+> I'm gonna cut the review here and keep the comments I had so far.
+>
+> > +             if (unlikely(!xsk_is_eop_desc(&descs[i + nr - 1]))) {
+> > +                     ice_xsk_drop_packet(ring, pool, nr);
+> > +                     ring->xsk_drain = true;
+> > +                     break;
+> > +             }
+> > +             page = ice_xsk_uso_slot(ring, ring->next_to_use, &slot_offset);
+> > +             uso = xsk_tx_uso_parse(pool, &descs[i], nr, &info,
+> > +                                    page->addr + slot_offset + NET_IP_ALIGN);
+> > +             if (uso < 0 || (!uso && !ice_xsk_bufs_fit(pool, &descs[i], nr)) ||
+> > +                 (uso && ice_xsk_xmit_uso_hdr(ring, &descs[i], nr, &info,
+> > +                                              &cmd, &offset))) {
+> > +                     ice_xsk_drop_packet(ring, pool, nr);
+> > +                     i += nr;
+> > +                     continue;
+> > +             }
+> > +             if (uso) {
+> > +                     skip = info.header_len;
+> > +                     *total_bytes += (info.gso_segs - 1) * skip;
+> > +                     packets += info.gso_segs - 1;
+> > +             }
+> > +             ice_xsk_xmit_descs(ring, pool, &descs[i], nr, skip, cmd, offset);
+> > +             *total_bytes += len;
+> > +             packets++;
+> > +             i += nr;
+> > +     }
+> > +     return packets;
+> > +}
+> > +
+> > +/**
+> > + * ice_xsk_setup_metadata - register AF_XDP Tx metadata operations
+> > + * @netdev: net_device
+> > + */
+> > +void ice_xsk_setup_metadata(struct net_device *netdev)
+> > +{
+> > +     static const struct xsk_tx_metadata_ops ops = {
+> > +             .tmo_supports_uso = true,
+> > +     };
+> > +
+> > +     netdev->xsk_tx_metadata_ops = &ops;
+> > +}
+> > +
+> >  /**
+> >   * ice_xmit_zc - take entries from XSK Tx ring and place them onto HW Tx ring
+> >   * @xdp_ring: XDP ring to produce the HW Tx descriptors on
+> > @@ -801,9 +1222,9 @@ static void ice_fill_tx_hw_ring(struct ice_tx_ring *xdp_ring,
+> >  bool ice_xmit_zc(struct ice_tx_ring *xdp_ring, struct xsk_buff_pool *xsk_pool)
+> >  {
+> >       struct xdp_desc *descs = xsk_pool->tx_descs;
+> > -     u32 nb_pkts, nb_processed = 0;
+> > +     u32 nb_pkts, nb_processed = 0, packets;
+> >       unsigned int total_bytes = 0;
+> > -     int budget;
+> > +     u32 budget, cost = 1;
+> >
+> >       ice_clean_xdp_irq_zc(xdp_ring, xsk_pool);
+> >
+> > @@ -811,26 +1232,38 @@ bool ice_xmit_zc(struct ice_tx_ring *xdp_ring, struct xsk_buff_pool *xsk_pool)
+> >           !netif_running(xdp_ring->vsi->netdev))
+> >               return true;
+> >
+> > -     budget = ICE_DESC_UNUSED(xdp_ring);
+> > -     budget = min_t(u16, budget, ICE_RING_QUARTER(xdp_ring));
+> > +     /* Reserve worst-case descriptors for each potential USO packet. */
+> > +     if (xdp_ring->xsk_uso_pages)
+> > +             cost = ice_xsk_uso_desc_cost(xsk_pool);
+> > +     budget = min_t(u32, ICE_DESC_UNUSED(xdp_ring) / cost,
+> > +                    ICE_RING_QUARTER(xdp_ring));
+> >
+> >       nb_pkts = xsk_tx_peek_release_desc_batch(xsk_pool, budget);
+> >       if (!nb_pkts)
+> >               return true;
+> >
+> > -     if (xdp_ring->next_to_use + nb_pkts >= xdp_ring->count) {
+> > -             nb_processed = xdp_ring->count - xdp_ring->next_to_use;
+> > -             ice_fill_tx_hw_ring(xdp_ring, xsk_pool, descs, nb_processed,
+> > -                                 &total_bytes);
+> > -             xdp_ring->next_to_use = 0;
+> > -     }
+> > +     if (xdp_ring->xsk_uso_pages) {
+> > +             packets = ice_xmit_zc_metadata(xdp_ring, xsk_pool, nb_pkts,
+>
+> nit: could we stick to 'pkts'
+>
+> > +                                            &total_bytes);
+> > +     } else {
+> > +             if (xdp_ring->next_to_use + nb_pkts >= xdp_ring->count) {
+> > +                     nb_processed = xdp_ring->count - xdp_ring->next_to_use;
+> > +                     ice_fill_tx_hw_ring(xdp_ring, xsk_pool, descs, nb_processed,
+> > +                                         &total_bytes);
+> > +                     xdp_ring->next_to_use = 0;
+> > +             }
+> >
+> > -     ice_fill_tx_hw_ring(xdp_ring, xsk_pool, &descs[nb_processed],
+> > -                         nb_pkts - nb_processed, &total_bytes);
+> > +             ice_fill_tx_hw_ring(xdp_ring, xsk_pool, &descs[nb_processed],
+> > +                                 nb_pkts - nb_processed, &total_bytes);
+> > +             packets = nb_pkts;
+> > +     }
+> >
+> > -     ice_set_rs_bit(xdp_ring);
+> > -     ice_xdp_ring_update_tail(xdp_ring);
+> > -     ice_update_tx_ring_stats(xdp_ring, nb_pkts, total_bytes);
+> > +     /* Metadata packets may all have been dropped. */
+> > +     if (packets) {
+> > +             ice_set_rs_bit(xdp_ring);
+> > +             ice_xdp_ring_update_tail(xdp_ring);
+> > +             ice_update_tx_ring_stats(xdp_ring, packets, total_bytes);
+> > +     }
+> >
+> >       if (xsk_uses_need_wakeup(xsk_pool))
+> >               xsk_set_tx_need_wakeup(xsk_pool);
+> > @@ -939,12 +1372,7 @@ void ice_xsk_clean_xdp_ring(struct ice_tx_ring *xdp_ring)
+> >       while (ntc != ntu) {
+> >               struct ice_tx_buf *tx_buf = &xdp_ring->tx_buf[ntc];
+> >
+> > -             if (tx_buf->type == ICE_TX_BUF_XSK_TX) {
+> > -                     tx_buf->type = ICE_TX_BUF_EMPTY;
+> > -                     xsk_buff_free(tx_buf->xdp);
+> > -             } else {
+> > -                     xsk_frames++;
+> > -             }
+> > +             xsk_frames += ice_clean_xsk_buf(xdp_ring, tx_buf);
+> >
+> >               ntc++;
+> >               if (ntc >= xdp_ring->count)
+>
+> I think we could pull out core enablement for zc uso out of this patch
+> maybe?
+
+What do you mean with "core" here? Core as in AF_XDP core, or
+preparatory stuff to the ice driver?
