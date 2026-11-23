@@ -1,103 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795400978;
-	b=CvX1lbo4RAvPxENxyQku91XF21K4dpS2l17ni99pztfHSnF76Iy9UI0bv06SyujB58Oe
-	 z17uGuBpGO6wyqemz1i53JoDHkSMFxQV1Rt0woCPMfUVROsEcdmzoO0TumBg7FVZ+UxtB
-	 7jWz1W4Q1XCRwqugsgrX745eumoDN7upsw3nDQ4iebSRUJqqgDhpodzLHoB7odEWxl/vd
-	 ETsrUHMDxlN7RHadDmZom11GlyqFIaj3GjujbsBXKzUc6QgvoRHPQPilHbPb5F1k9Vkoi
-	 0UAiigHEfxu33ApISnBnCpBBQx7weNIpISLhBtExgiTX/OqiwRtliRL/uFmf+V+dqmQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400978;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795401044;
+	b=mVPjDtlBlb6PsBDDzVtrXsBH0UVM/LlGJS04RzyK8xEE9W9nNghYHpIXO4neeN2Lbyuq
+	 0HhDG7Bn8PP6Rn0yAT06TAaNwHgnTE39h28LZLrPsa0G5mGcMXM9OAiRiXV9APKUuB/WE
+	 MQ68tqxEysjgyGggDhnc5u1VWxPSA1uv2mbjebtXX5y15FE3O3WlEZQbr21t3dBDjyMbw
+	 0DRlEz8FeC80srbeJdeK4kxtDrwiWSMLPXrt0oONQb//HZUSmXYvzR+L8fb/d5TWO+1E/
+	 gvxE9hnq+limHDKPdjTN19HUB595dPUde4r3KbOSsHYqC6rEtMyvXBv9vjo/+Q1MtUQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401044;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
-	b=FhU7a8IgbM1KSA0thQ2dqnEgBamw7ZH3cVVE/EgrSTd3XSqex/NVkC9LwQHXFaRCUA0+
-	 oOh4Tk5O9BxNjh3U90jkxAWcvJrAuctbhtQFu/p5FPKxZsOuOGq0PvJKJXaeOZJVLmouj
-	 0hCATYj2N9B+ApQiBe3NJfAjWpProe6s7tB6ZVCbiBH3JM6aU6JVhL0lmW+RQHbrNUvJV
-	 OT0LOBgDjRCuf9eQHg04GjEL1MCQwzk0O0xYWExaqxSy7FQiqpmHl+muki/nwx0YQgXN9
-	 rtu7miJ/BaWWmt/fqCIO2xj8CZ7n/mpZY/w3QhlNFkGX3d4AIbkLQuo9mWD9H7NxHUQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
+	b=UbLwfu2OIAyp0D5wiWMM+E8eKfL3mH+Z0AvkzmvsK0ggZsxt5HM/drqvCNDeE5lOIENl
+	 dFrg6+VePCaNSLYe1EvsFo2SQhHfU9QAoX+OEZN6DmblyAns2mXMKO7M4FkAiTCtqjcdS
+	 4q7qx7xWiD9TOzM1dhiQN0WdE8c/4jq0IrlAjHNiL6JlJMhMwDslSXVZTAwOWF+7Oic4q
+	 xzZxrHAJXbgP9+2c142SYk0pOIBwqISTyHuEfvJAkx2tDZdb6S4vfXC6CMFpe/RvR7MOB
+	 WNwLqv4Li+tMFkSfNMZLqKR7AmJcUbwUsztVwTz5au6ZAWTHmgtFy4SaSSfRZR2rO0Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.160.169
-Received: from mail-qt1-f169.google.com (mail-qt1-f169.google.com [209.85.160.169])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=suY6Eqvf;
+	arc=none smtp.remote-ip=74.125.82.49
+Received: from mail-dl1-f49.google.com (mail-dl1-f49.google.com [74.125.82.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69500606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:29:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69500606A31A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31708606A32D
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:30:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31708606A32D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eJdfSgny
-Received: by mail-qt1-f169.google.com with SMTP id d75a77b69052e-5430f70c827so37795331cf.2
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:29:38 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795400977; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jRBMqIXvbv7q5RvWCPTr1d19WHXb86Vx2cO0UgVpnWOpjB0xjeMvd3ATyPpTCIJeXr
-         OPJGnkzLgkM53H9WhTAQnSXpbqZ2ZV1TQ2ds+rH8x+tVnEeKnL9nDXDQ2+1ENna/3hcS
-         o8YTbDE3xtXgitdpR6R6S53J/8mt/DE6ncFOUCLgxwVMXbvkh3Td12e26pKp05nGy6uI
-         k71+aQ8LVG71YnP7+wAP11twIAcuw2RS39mx8hL4pLbtINKNuSAG0jlKQ86Ev49IFl/E
-         rzfl7tghueEHbeSaDxSytRK9EPSQ+WnRhjPsZ2y32nUBPeLZHvP+UIYULPQbMmyiPTFz
-         lkPw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
-        fh=faxsrhtt1n47Gt4W//9s2HXsD8lrpkLX2H+pNjldq3c=;
-        b=QMyIxICbX3vfClvDVioauyqpbcYCJjRvF1hRvLFSMTtVDcBNSlkBFdX7dOf7Cd3TAy
-         zeNIIybLfF/CBVih/055r4mYsp08JC3lRLqHcnlaGNxetZ5G4WEMYe0SI9zhmlhUxY4O
-         8hzWRkZe9y9h4amQNam3tVNbeExWZFBQPlpaal2phMacJPi+5PBhDUALf8dGxGYdUshZ
-         LckrN9g0tLToZ89s7RYiyH4M9dOIJ2XanViuEen8YttL1CYpxLKUzmlqwG9+AWUSvihV
-         O+hAxfF68Rb3kZP5AqaIUa2nin3nt7R9YQkYDKy4XMlyzfOuua0saccN9MBkOvmTC7DO
-         fzHQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=suY6Eqvf
+Received: by mail-dl1-f49.google.com with SMTP id a92af1059eb24-1a2af4c8d00so4973567c88.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:30:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795400977; x=1796005777; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
-        b=eJdfSgnyeud0ugF7+oZKixOJncRtXAKpA5ceSl21fP/iB+EJhxkPf/lWhNcNnqiD4a
-         dvtHNIhPxlRp6RSdH5nbRdzw1yWS97bR+hHbJM/n85KdA/8G5U5UxpC2XLWJi2J5xncf
-         WgDFiPjLcqWrO12HBzfKWgJ0ghjfZ4SPosUty9HXBzokq6KYSeBnNuEh9pPTnTiSd9oW
-         0MdZB+wiFVZNn3cqp3bIa0ROkl74bKPTvj6iIXriLfI9mLUisPB+Gjq94gM0Irez5evo
-         Th1tJ0Q8wPqy+KIxbCl8j8N+5IR4J9j7d/K3dDz9VubL39Ll+xVAPEvidlkHbH7rtl3a
-         Q5lQ==
+        d=gmail.com; s=20260707; t=1795401043; x=1796005843; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
+        b=suY6Eqvf8YS4cgAPHyjGGg/8HZlfk7ma3mdfGUqeG6njl02vO/IEU9cYa9mLpKLbcg
+         YK9T6x3PRtsv0Fjhrgcucl+BEObjHPIpUpjPefVOT7ByclehITj1YSMWV1glG/3qvgAC
+         m/ThWNYBY8CBSfE5SIONUastTwM3zu0Rc79DbohO15WpXMf974IMx7/uudO+wAl9g02w
+         MZwHOYe32l3bK3jL1I3EtQHeqrYLJe/pkzjcTDGH/Bp651+OOcsewztG4wlI7XvatUWY
+         1wX0dMqUR2DT66s6U1NskkDPgMFMeNgEWBofw8D92dfow3+IQQRBrGxlbTeMkLSrQbF/
+         zHmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795400977; x=1796005777;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=qPlxoz5clbiKguSyQx0Jj++s2dMq5VhL0bDwBvBrdbE=;
-        b=YS1W4NAknIElq3P4SFcPG9w1Jx1L5OoER3ceh9SPWFkHtvoUEfgXMXSbVWfEDtF3JL
-         S9KndE/d9WhVuV9zMh7X6t/4//P8aWnFURrFkYudz04dqNA2LCm2+ETiJqm+W4IsTXLp
-         9XulD+dAwWGp7yRuKS7l7GDEkozuwhmdGEDLPhiVOWTm3YAMU7Yl7yJcbev8DkbsSFMR
-         lUBfzTcWtiATLSUEr25xvgY+VoiUpVdvo2wsbDJuBizkcBHujZSaebN73Bwhx2Uz1ROB
-         OqFuu9DReP7hHQSxbKxQNuXd1NfGKJvO1Zm5lK7KIoT2kJoCO1hFNsw5z2gorsL7rrVO
-         cKqg==
-X-Forwarded-Encrypted: i=1; AL+hErGtklvfjAO9XYoRt+vULZof2PZWg8ICDYNavfas4G1eL6B+rBBLkg1DiE61+oiZGDdzq/ByclA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+22vG+e0fBGt4rzYZUu4d+yXTOe4UMLdl64T+uDpDAj/7obx7g
-	7gPexfK4GLkeKAr+9BXhKy2sOpK1u40bk/ezFfp36drhuBoh+EZZ/4s5jkMfwimrAAvTfJQ4IAU
-	6ZMbmC1uFTnw1i3ad/OvURASU3QrK1+o=
-X-Gm-Gg: AZFdTZc77EvHF3edxn56kdOMI3WzNQZi4yR8LzyGcOuBOOlIKZoK8gyPpxSOGCB4HF7
-	5FLHwriaI2Sp/FwLkp5E2CWV2KdU7XnU6F002O8mpL4D2FuwDP0reJEgIftWyjjFHz5cMMqkGUK
-	qMsjTdpZdsNFOolRlXq0ZE7DQUiu6a1LyZlu2dYl4jgJvO9v6H3203uuAmCd4SN0g5OvkdQoH+O
-	XNrdYIu4TODxdD7uYDwxoHxkUStagWjLgck3H1ABEcjWgv5iJMwwE/m3HqYeZrf3Vn0uik4FRI/
-	goOpnoq4qbHHb7gxLGt4svAySr3q/rygfSr0elJkMFj+yjRRGSLFolEHDb29r9xlK4gTSPDYGo2
-	UHT7GszSlntqwEH9Nyz+0f/5QCKpnw9xCqswPzmQ9kOoA0fey5abV8cIU4dzeuSMXcyuior2ucr
-	ZOC8FO1/v22tyt0KIDj96rCAGV8SM/6A6waBOAFNAiM1z33icxXX/+CwO569ANqabVf1irMFlUg
-	0z/LuBxAZaui8p8SCf0UdH278WVF+Od+v3eFMk1u8UpjH4GhAkchlLPY3Nb7tbmB04MXGCwHys/
-	XU8NrGtjKp8=
-X-Received: by 2002:ac8:5f0c:0:b0:55b:fb2e:a754 with SMTP id
- d75a77b69052e-55d768a2509mr200104651cf.8.1795400976999; Sun, 22 Nov 2026
- 18:29:36 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795401043; x=1796005843;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=glbFFS+aXGpCoXPzQsQfZyiNK3IdL0vGW5/m3ogOzuE=;
+        b=Vrfr6wXQz2/OY7BmSnRnTNFb+d9pgvTSgJoNFVds8v3sr+/qSfIY27R6OyTdC8GM6V
+         wAcS6wCWJqIxh6SlUtuIc9ba0Y7DEwEXZR9+akxGNtkgZj2ez5VFnoiPDjGRRgICJ/+k
+         ON/xQFsmXS1xLXUz4rsx+CGxNzBwgotU4YOhdnOtUO/FkudhmcWlpKeaj0ZR+SYibhRG
+         /HI+yxBggeJo6AI5Uyj7WvxXVNY/EcuCyu5C/PUO4qrVYYLcrFz7VeIxXoiCpjLPHSjL
+         +yDzUx+qt40I8xgeo5rM0lg9ELN2C6hTcOdr/PlydyMWPe0ePfoO3F1HQC+NeEP1rjz3
+         Ylkw==
+X-Forwarded-Encrypted: i=1; AL+hErHlA2O3x75M8Iz4x1CSJtgopB7l3jRwq43bd5o1S4Cj/DCtoL1MDqBMugFpu4Iu6CJxv5XGtt8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9MsxF+RFabZaNC7m9/YUSBwizdnRO3Pgz+KhHEkj8dSa+z2W85
+	i/CopNJWpJY8XCFpZeNCD6Wi7BIMVx6Y3bLGB8lZ9TjLADa+jk3jHas9
+X-Gm-Gg: AZFdTZc6+bSXlu2UlfsLGKkaG/xvJZKFqEEk3ZsfhpaPhedMfLLs0Hgk/AHw2NVP09Q
+	U2lm/z2SBW794lqHJ5zPjuwSkRzmX1oiXyPp3QK7OueEr20HONsTnUIp2b/dfYuKXrWqDFlAt/k
+	sDpEyf9yAxR4Nk6yw4qUG9M/XK/ApC7xH2HadTxrCZaP0Iai54V2tnQ0JzidRg0X0+XrVFzavXH
+	jBD8Ddi9QiVAS6IarPK8VOToxyomfMOXd/qvz5+S1zZAYgZUOav07WWUkC3kYanwkkiOlBtLjrp
+	g96O7KUwLYeXvhCKSodBEnkFylqzZQnpq5mhmD1HnMIEmMftzCln1x7PNh2qrivE+hpQiHXH/or
+	GGaIrGfMwj/DipBwm6b+4ShXShRNkLJNH7wzognFoXlTmfx6g2wnqOPRgjWkBk8GFAprBuQXq4a
+	nvwHAJp1behsMXup2Gi1Vr6GHVJKOo49fMumXHkwyzQVifsLTVr1GT+Pb5fCdmB11x3xbaI0XBI
+	hA+8DXKEbsOGYsXwq3WULcaobsnNbl9FgYEC5SzCJUHPReMCiAFzBtIFuE0AHGF3qOc9QYElC/G
+	wBzpc4KZuEUgpm+YX510BxDZuwMDe75svOFWGj70QisZrA8rz1FbSpEvVObUv28FSEChyZbygCe
+	gM7Pu0WHYuRFZXu6feIIyKq/j9fYZfOecXt2RFFPor6MBUC0h2IQGuXhq37/jFCJVsq0TPaHicr
+	sLL78y4liy46/0f06dXLhu6VGAG7nTH7K/OobNSvtXuFWl+OQX1irPKfajQiexKRI4bHwhj6l3S
+	94ILmOdI8ZOkB3o4ZXsQQTPmb8fE4t7xg==
+X-Received: by 2002:a05:7022:4398:b0:1b2:610b:878 with SMTP id a92af1059eb24-1b556877921mr13816034c88.6.1795401043135;
+        Sun, 22 Nov 2026 18:30:43 -0800 (PST)
+Received: from FT6N242TWK ([223.181.117.48])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ff27bsm25943813c88.6.2026.11.22.18.30.39
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 18:30:42 -0800 (PST)
+From: Shashank Mohan Jain <jain.sm@gmail.com>
+To: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Justin Iurman <justin.iurman@gmail.com>
+Cc: Simon Horman <horms@kernel.org>,
+	Joel Granados <joel.granados@kernel.org>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v3] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+Date: Mon, 23 Nov 2026 08:00:36 +0530
+Message-ID: <20261123023036.88754-1-jain.sm@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,211 +103,150 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122013848.14287-1-jain.sm@gmail.com> <179539800944.3135.14978978337031412574@kernel.org>
-In-Reply-To: <179539800944.3135.14978978337031412574@kernel.org>
-From: shashank Jain <jain.sm@gmail.com>
-Date: Mon, 23 Nov 2026 07:59:25 +0530
-X-Gm-Features: Aa3M54pzQTEDW_gplLwb_hWSpvJYcv-CRsWKNxPf8T-ayTtusUL9-helZqYNMhs
-Message-ID: <CA+FWx=kTXUJanSicS0dUeeuratAj4wTmjwbjjqT7RmDepH1zrA@mail.gmail.com>
-Subject: Re: [PATCH net v2] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
-To: netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
-	pabeni@redhat.com, justin.iurman@gmail.com, horms@kernel.org, 
-	joel.granados@kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Thanks for the review. Both points are fair.
+net.ipv6.ioam6_id_wide stores a u64 (netns_sysctl_ipv6.ioam6_id_wide),
+but its table entry uses proc_doulongvec_minmax() with .maxlen =
+sizeof(u64) and .extra2 pointing at a u64. On 32-bit, unsigned long is
+4 bytes, so the handler treats the field as a vector of two 32-bit
+values and reads the u64 max through an unsigned long pointer:
 
-Low (procname): yes, the temporary table should carry .procname. v3
-sets it.
+ - reading prints two numbers ("4294967295 16777215" by default on
+   little-endian);
+ - writing one value only replaces one half of the u64: on
+   little-endian "echo 5 >" leaves 0x00ffffff00000005; on big-endian it
+   sets the upper half, and the range check uses the upper word of
+   ioam6_id_wide_max (0x00ffffff).
 
-Medium (64-bit parsing changes): v2 changed more of the 64-bit parsing
-than its changelog said. Rather than list every difference, v3 keeps
-proc_doulongvec_minmax() on 64-bit, so nothing changes there, and uses
-the string based parser on 32-bit only, where the sysctl does not work
-today. The remaining differences of the 32-bit parser go in the commit
-message.
+The wide namespace ID emitted in IOAM trace data is then not the
+configured value. Same class of issue as commit 162cf592b577
+("net/smc: fix limit_smc_hs sysctl on big-endian architecture").
 
-pw-bot: cr
+There is no u64 variant of proc_doulongvec_minmax(), so add a small
+local handler. On 64-bit it calls proc_doulongvec_minmax() as before,
+so nothing changes there. On 32-bit it goes through proc_dostring() and
+kstrtou64(): it reads and writes one value, parses it with base 0
+(decimal, hex or octal), accepts surrounding white space, and returns
+-EINVAL for a value above IOAM6_DEFAULT_ID_WIDE, for a write of only
+"\n", and for a write of 24 bytes or more. A generic u64 helper in
+kernel/sysctl.c would be a larger change for net and stable; it can
+follow in net-next.
 
-On Mon, Nov 23, 2026 at 7:10=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] proc_ioam6_id_wide() (net/ipv6/sysctl_net_ipv6.c) changes how
->   writes are parsed on 64-bit in several ways the commit body does not=E2=
-=80=A6
-> - [Low] proc_ioam6_id_wide() passes a temporary ctl_table `tmp` with only
->   .data and .maxlen set to proc_dostring().
->
-> --
->
-> ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
->
-> net.ipv6.ioam6_id_wide was handled by proc_doulongvec_minmax(). This
-> commit replaces that with a local handler, proc_ioam6_id_wide(), which
-> formats and parses the u64 through proc_dostring() and kstrtou64(). This
-> fixes 32-bit architectures, where unsigned long is 4 bytes and the old
-> handler treated the u64 as a vector of two 32-bit values.
->
-> > diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
-> > index 1a0a36dcdabc1..61c28df64d582 100644
-> > --- a/net/ipv6/sysctl_net_ipv6.c
-> > +++ b/net/ipv6/sysctl_net_ipv6.c
-> > @@ -30,6 +30,48 @@ static u32 rt6_multipath_hash_fields_all_mask =3D
-> >  static u32 ioam6_id_max =3D IOAM6_DEFAULT_ID;
-> >  static u64 ioam6_id_wide_max =3D IOAM6_DEFAULT_ID_WIDE;
-> >
-> > +/* unsigned long is 32-bit on some arches, so handle the u64 here */
-> > +static int proc_ioam6_id_wide(const struct ctl_table *table, int write=
-,
-> > +                           void *buffer, size_t *lenp, loff_t *ppos)
-> > +{
-> > +     u64 *valp =3D table->data;
-> > +     char buf[24] =3D "";
-> > +     const struct ctl_table tmp =3D {
-> > +             .data   =3D buf,
-> > +             .maxlen =3D sizeof(buf),
-> > +     };
->
-> [Severity: Low]
->
-> The temporary table passed to proc_dostring() has no procname. Will the
-> sysctl write warning then print "(null)" instead of ioam6_id_wide?
->
-> On every write, proc_dostring() calls:
->
-> kernel/sysctl.c:proc_dostring() {
->         if (SYSCTL_USER_TO_KERN(dir))
->                 proc_first_pos_non_zero_ignore(ppos, table);
->     ...
-> }
->
-> Take kernel.sysctl_writes_strict=3D0 and a write shorter than 24 bytes at
-> a non-zero offset. That write reaches warn_sysctl_write(&tmp):
->
->         pr_warn_once("%s wrote to %s when file position was not 0!\n"
->                 [ ... ]
->                 current->comm, table->procname);
->
-> This is pr_warn_once(), so a message that doesn't name the file would
-> use up the only warning for the whole system. The old
-> proc_doulongvec_minmax() path passed the real table here.
->
-> Would adding .procname =3D table->procname to tmp be enough?
->
-> > +     loff_t pos =3D *ppos;
-> > +     u64 val;
-> > +     int ret;
-> > +
-> > +     if (!write) {
-> > +             snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
-> > +             return proc_dostring(&tmp, write, buffer, lenp, ppos);
-> > +     }
-> > +
-> > +     /* an empty write changes nothing, as with proc_doulongvec_minmax=
-() */
-> > +     if (!*lenp)
-> > +             return 0;
-> > +
-> > +     /* proc_dostring() would silently truncate a longer input */
-> > +     if (*lenp >=3D sizeof(buf))
-> > +             return -EINVAL;
-> > +
-> > +     ret =3D proc_dostring(&tmp, write, buffer, lenp, ppos);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     /* a lone "\n" is invalid, a continued write in strict mode is ig=
-nored */
-> > +     if (!buf[0])
-> > +             return pos ? 0 : -EINVAL;
-> > +
-> > +     if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
-> > +             return -EINVAL;
->
-> [Severity: Medium]
->
-> The commit message says:
->
->   One change on 64-bit: a write of two numbers such as "5 6" is now
->   rejected with -EINVAL, instead of being a partial write that sets the
->   value to 5.
->
-> Does proc_ioam6_id_wide() change 64-bit behaviour in other ways that
-> should be listed too?
->
-> The length guard checks the total write size. But _proc_do_string()
-> copies at most maxlen - 1 bytes and stops at the first '\n' or NUL:
->
-> kernel/sysctl.c:_proc_do_string() {
->     ...
->                 while ((p - buffer) < *lenp && len < maxlen - 1) {
->                         c =3D *(p++);
->                         if (c =3D=3D 0 || c =3D=3D '\n')
->                                 break;
->                         data[len++] =3D c;
->                 }
->     ...
-> }
->
-> So a 24-byte write of 23 characters plus "\n" fits in buf without being
-> truncated, yet the guard rejects it. The guard also rejects "5\n"
-> followed by 22 or more bytes, and a value padded with 24 or more bytes
-> of whitespace. The old path accepted all of these, fully or as a partial
-> write.
->
-> Is the comment "proc_dostring() would silently truncate a longer input"
-> accurate for these cases?
->
-> In strict mode, a continued write at a non-zero offset now returns
-> -EINVAL if it is 24 bytes or longer, and is ignored if it is shorter.
-> The old proc_first_pos_non_zero_ignore() path ignored it at any length.
->
-> Because _proc_do_string() stops at the first '\n', "\n5" or " \n 5"
-> leaves buf empty and returns -EINVAL. The old path skipped the newline
-> in proc_skip_spaces() and set 5.
->
-> In the other direction, "5\n6" now succeeds, sets 5 and reports all
-> bytes consumed. Meanwhile "5 6" and "5\t6" return -EINVAL.
->
-> kstrtou64() also skips a leading '+', so "+5" is now accepted. The old
-> path rejected it in proc_get_long():
->
->         if (!isdigit(*p))
->                 return -EINVAL;
->
-> Two other changes are only described below the --- line, so they won't
-> reach git history: 21 to 23 digit input is now accepted, and a lone "\n"
-> at a non-zero offset in non-strict mode is now ignored.
->
-> Could the up-front total length check be dropped? After proc_dostring(),
-> the handler could check whether a terminator was found within
-> maxlen - 1 bytes, and decide explicitly whether data after '\n' is
-> rejected. Any 64-bit changes that remain could then go in the commit
-> body.
->
-> > +
-> > +     WRITE_ONCE(*valp, val);
-> > +     return 0;
-> > +}
->
-> [ ... ]
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261122013848.14287-1-jain.sm%40gmail.com
+The 32-bit parser is not identical to proc_doulongvec_minmax() for
+unusual input: a second value after a space is rejected rather than
+ignored, and a leading "+" is accepted. As the sysctl did not work on
+32-bit before, this only affects input that was already broken there.
+
+The bug was discovered by an AI coding agent (Claude Code) reading the
+code. It was confirmed and the fix tested on i386 and x86_64 kernels
+under QEMU, with a small static test program as init: before the fix,
+i386 reads "4294967295 16777215", and after "echo 5" it reads
+"5 16777215". With the fix, i386 reads and writes a single 64-bit value,
+and x86_64 behaves exactly as before. No kernel change was needed to
+reproduce it.
+
+Fixes: 9ee11f0fff20 ("ipv6: ioam: Data plane support for Pre-allocated Trace")
+Signed-off-by: Shashank Mohan Jain <jain.sm@gmail.com>
+---
+v3:
+ - Keep proc_doulongvec_minmax() on 64-bit, so 64-bit parsing does not
+   change at all; the string based parser is used on 32-bit only
+   (Sashiko review of v2 listed several 64-bit parsing differences).
+ - Set .procname in the temporary table, so the sysctl write warning
+   names ioam6_id_wide (Sashiko review of v2).
+v2: https://lore.kernel.org/netdev/20261122013848.14287-1-jain.sm@gmail.com/
+ - Keep -EINVAL for a write of only "\n", as before; a continued write
+   at a non-zero offset in strict mode is still ignored (Justin Iurman).
+ - Changelog: describe how the bug was found and how the fix was tested
+   in plain English, instead of an Assisted-by tag.
+ - Cc the sysctl maintainers.
+v1: https://lore.kernel.org/netdev/20261118042958.83243-1-jain.sm@gmail.com/
+
+Prepared with Claude Code (Anthropic), model Claude Opus 5.5
+(claude-opus-5-5).
+
+Tested on net.git main af6737b90668: x86_64 and i386 defconfig builds,
+plus a build-only 32-bit big-endian powerpc (pmac32_defconfig). W=1
+shows no warnings for sysctl_net_ipv6.o before or after.
+Under QEMU (TCG) with a small static test program as init, x86_64 gives
+exactly the same output as the unpatched kernel for every case. i386
+reads and writes one 64-bit value, with the same results as v2. With
+sysctl_writes_strict=0, the "file position was not 0" warning names
+ioam6_id_wide on i386, as it does on x86_64.
+The big-endian kernel was built only, not run.
+
+I did not add Cc: stable; please add it if you think it fits.
+
+ net/ipv6/sysctl_net_ipv6.c | 49 +++++++++++++++++++++++++++++++++++++-
+ 1 file changed, 48 insertions(+), 1 deletion(-)
+
+diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
+index 1a0a36dcda..c93ccf7e98 100644
+--- a/net/ipv6/sysctl_net_ipv6.c
++++ b/net/ipv6/sysctl_net_ipv6.c
+@@ -30,6 +30,53 @@ static u32 rt6_multipath_hash_fields_all_mask =
+ static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
+ static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
+ 
++/* unsigned long is 32-bit on some arches, so handle the u64 here */
++static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
++			      void *buffer, size_t *lenp, loff_t *ppos)
++{
++	u64 *valp = table->data;
++	char buf[24] = "";
++	const struct ctl_table tmp = {
++		.procname	= table->procname,
++		.data		= buf,
++		.maxlen		= sizeof(buf),
++	};
++	loff_t pos = *ppos;
++	u64 val;
++	int ret;
++
++	/* on 64-bit, unsigned long is a u64: keep the generic handler */
++	if (IS_ENABLED(CONFIG_64BIT))
++		return proc_doulongvec_minmax(table, write, buffer, lenp, ppos);
++
++	if (!write) {
++		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
++		return proc_dostring(&tmp, write, buffer, lenp, ppos);
++	}
++
++	/* an empty write changes nothing, as with proc_doulongvec_minmax() */
++	if (!*lenp)
++		return 0;
++
++	/* reject what may not fit in buf, proc_dostring() would truncate it */
++	if (*lenp >= sizeof(buf))
++		return -EINVAL;
++
++	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
++	if (ret)
++		return ret;
++
++	/* a lone "\n" is invalid, a continued write in strict mode is ignored */
++	if (!buf[0])
++		return pos ? 0 : -EINVAL;
++
++	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
++		return -EINVAL;
++
++	WRITE_ONCE(*valp, val);
++	return 0;
++}
++
+ static int proc_rt6_multipath_hash_policy(const struct ctl_table *table, int write,
+ 					  void *buffer, size_t *lenp, loff_t *ppos)
+ {
+@@ -210,7 +257,7 @@ static const struct ctl_table ipv6_table_template[] = {
+ 		.data		= &init_net.ipv6.sysctl.ioam6_id_wide,
+ 		.maxlen		= sizeof(u64),
+ 		.mode		= 0644,
+-		.proc_handler	= proc_doulongvec_minmax,
++		.proc_handler	= proc_ioam6_id_wide,
+ 		.extra2		= &ioam6_id_wide_max,
+ 	},
+ };
+-- 
+2.54.0 (Apple Git-157)
+
