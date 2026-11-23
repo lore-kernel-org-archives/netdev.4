@@ -1,94 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795401296;
-	b=FNmd6SPipY6Ex3Wyg2+4yyqIKixjjwRGXQd8gdkls8KZx/e3e+1+oKQYT5726UG8l7CA
-	 k4otsbLsnrhaY1VIcEJLw00BYidLWkPqtW/ub7kuzanBUuNwut+GVMEvV9Qag1WWH/FdM
-	 lgOJADIBAAtz4aGKepx3UGhRd96ZAshJDg9k39Q9mMkYVql43kP35tne4fAyHdrNYcWW+
-	 T9X/EWnz050odF4E1FIIR8E+f1hGNPspoA03Y5ReQ2x3pHWmDreHiHxO+kMo00oNT7XiR
-	 CwuT6iTRUprPESUhYLoikrPCQFj+LgWNLDfRfWLFdI4mWYdGAaJAeY9PbIZaEbQgLdg==
+	t=1795401329;
+	b=nt8htg9llbQ5TNEv+Rj3qmUDRzexNFAdfMjA6JPDVNEh0rVZ0Zb5yVRNZ5dcmtnj/GYD
+	 76wvUjlge4bonPckS5WwymGWM5MO5knanxx8VtfUB4acTe5a1HJO6qhdtn3Q6hj6oQP/b
+	 1yDWSZF5hZJ9EJ6WeZ9su1tgO2lnJ1hxT1cxr1691s/8kThgFM9/txu7WpHCgaQJnOuSF
+	 A1+mWbrroqQbdksc4VQWNPOo5Bm2gh02HqNrpz+SqIRTpBe7hbeaQrXkhKvw/v2cQ2/Fl
+	 TBkq0HDyfmfmF7mdF2WpvtlkO2f+95kaVM3GaDhqtDFzy7h9gkusGfNCDQEL+VC/5jA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795401296;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795401329;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=MKus0ZIpKMYnifwBN/xjucnEiMSY0/cmG61Pf4wmF+A=;
-	b=pEuuRhQL8SZz42J3Ar5tK6X91qNuCNJWQTT5bL7Yi/BWbBmTK0XuUplXT4HzWz5O6ppM
-	 x+AO6JSSP956zZmfivCoGOGMcNdRiOlJCcGA3+20wxTMLXM7JsDau1BLRZlCAGx1JOxvx
-	 JrGnerBTGh74H7bW8aILnHw/LUMKs9d5zI5wmm39N+7LLb2kSkbsHfzl5rSvx5u48E8xQ
-	 DgPE8mrFPtC43ueVGFY6z/iz0QK6VxByVkKyO43xU0/c/0gas+1+KYsQ16wRVj0Vt3ZoD
-	 VDCEmadVE9RuhybaZBrwqJEsK6+V0eas+T26xuWOIVUdqJexxK1ibBsomv5KE+dWcFg==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+EPn2+dOiCjCMUGOzXUCg9W8kUFJdJYMWemu9cFlc1Q=;
+	b=IdnDe4HcNbhlaGrQGe2oVxT75f6EIJ51rZrxTJeHCFwqQzKnskI95b0Y4+tbckUxNPfT
+	 Thzi97nKSDofQ7P9n0ZEvUTWNq5qiL7Y5fM3sLWgX9pnMCfvtdcYqpVeZP2TkDUTNVlru
+	 4UQZfq3KNM1DpLhRcmTg2k67XE1cxCpatrQ/KhautDegFJTQhVOKh4QPObNr/saxrBVYw
+	 3gM05/TDmU8MTbi+xBm69aa+8sAa0oY4yxKpNgGyWNKcQLvi9JHH0Z33ZamZ4kdr98D5c
+	 bM/2t927URdGpoHs6hcUBaQuPOtBp4GjZplutSI9XdggBU+/FeEdA1R/c01YnwoOuwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=iiitd.ac.in;
 	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Y0hfpd5q;
-	arc=none smtp.remote-ip=209.85.214.180
-Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=JWyMJlAY;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47311606A32C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:34:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47311606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B76F606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:35:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B76F606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Y0hfpd5q
-Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f052ae3c86so12583905ad.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:34:55 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=JWyMJlAY
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f0634667aaso6046555ad.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 18:35:25 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795401295; x=1796006095; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MKus0ZIpKMYnifwBN/xjucnEiMSY0/cmG61Pf4wmF+A=;
-        b=Y0hfpd5qTRrb+3rpAV23+M/RWWOEhKBFAs2X7rrkgPuRqB7wvs9tZmjNt6tNIaGP65
-         urbu9vK7cwJsSsT3sn7VyaD4BSB7DwtlAKF+2oGJ3i83jwvZEi064o/1mYpaV9ux098k
-         ia0Pw7FMerKQr4SVo59OV07X2HlJ2WGG2NYOE=
+        d=iiitd.ac.in; s=google; t=1795401325; x=1796006125; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+EPn2+dOiCjCMUGOzXUCg9W8kUFJdJYMWemu9cFlc1Q=;
+        b=JWyMJlAYm2RXQzI4xBM89/ScssdzvaZgHDsbe065tXlq/WtmDm0W54RISKwsO2Iwqc
+         +vAmBLHqIR7YbStgCfF5FS1dGVgee1kWiivbU2nPwVwPKTkgrocCoXJsU6elVVKhlAeu
+         wxKMk+Zx7Qyv/gvjbSum8eBBmhLiTqxI4ashM=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795401295; x=1796006095;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=MKus0ZIpKMYnifwBN/xjucnEiMSY0/cmG61Pf4wmF+A=;
-        b=hKl15PiTVs+URyNMnrzkoZamva85HR4uXVpeQEiyJkz/83iXHxXlZo4RwQVR4n/+Gb
-         W2Pz5OjPbcdOlggKqo6649IESOaYcOpcxebJI7LUFwhi9OVae1sQPrpzGTu1lOJdhvan
-         CzCuYIrQKTPVin/+4hzbiVTKY88GM7bP2wLF933wxUT62qQRGtoMj6neHmmz+KACKkAL
-         4UUs6wUmcnza2dkIQROdqa34ZNVkzK/wKUzSCEtxSwcQlSJbwT+NptQiIDKZ+6VPmWQs
-         w8LXGqhrm0tddn3d0piJxeaWwkjH/ZiexVq5S4NQkSthNX8+QcVWxPuN3UeAHoGUUnsh
-         TOpQ==
-X-Forwarded-Encrypted: i=1; AL+hErGQw4U4GGnIjyp70MP9gjV61n/QRUuIsw4H+drIJBkxa2zuFLS/wb9sgiG2lQDBIYfFG2ZxkoM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9a4foz/MU7p8zKFspd4a76ilQD7inFoQ+Vrlnj+qCRX4qpWnpH
-	QwsSAn/re5E+N4VZ5zAxSUn2+b74NudoW/Ug1fOa69pG30eljWIqiczmp0zDhLkpU4o=
-X-Gm-Gg: AZFdTZcSWqBIoFwbdCfKvutsQ81cWzlBXPxGjzfdcHPhzqoTOP/vYv9iiQMYgWLApcR
-	L7kMcwWKrGuRzoOQ7+Q9eTnqrUO5Pg77VrRnWznPSHyQIXBpcSE4M261pxRJBQX5EN6zoUko1GA
-	KvSWIwZ6s2HQKLZfX8KUW7KaceE3GFJUdJ2ZwjzYHkYt/9NfBzOtd8foG+7HUK6MzqesmFc9XlB
-	+kQb4hpboU4gqzVCiKn4Furk2KsHYZC2RdQs1AGU7YQTjeBgg293BsBlm6PKCQbPcLFEpW1cAnk
-	PcDU1MmSoos1U581HdEizFPWq7Zn1pnQM92uXZ1WqgogplUJiVgiCcaM+DQU8vYbmuVwQl7yo1s
-	65R4ZW0Y96cXXF/QU1L8ErbhnM+kkOu1sMIkb5098Fda7ptVQUeMY7ev0+5XXGGy39+JTUK7PDi
-	EmrgXtwuFNU71jobsBx4B91FIRuRkEqigJDy+GpG6BQZ1dYkkRdvGmyTs2b5UFauXdrkQHa9n7h
-	PwWjVOPbELoapEr28lirjmOIA5DNt+uHetOsFimAImmXOChGUe6X/LYgHYkr9YsQ/wAAP1aQKkP
-	sfOqF9OOKUMyvfnRJ/sndbli03aOZTuZOdpeo5MDYqZ7o0NaNBz5Y/sS3E1gioIFhQe/d7vGjkE
-	3q5M/y0uDI4j2IBfovd72cLtpTnkN/abWlDMj0osZ1Djx2J/rOfjK9iTX5Gvg2R2U
-X-Received: by 2002:a17:902:e803:b0:2ef:ea94:e04c with SMTP id d9443c01a7336-2f03ef3d413mr102290175ad.3.1795401294648;
-        Sun, 22 Nov 2026 18:34:54 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795401325; x=1796006125;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+EPn2+dOiCjCMUGOzXUCg9W8kUFJdJYMWemu9cFlc1Q=;
+        b=mspXnBjNIJhREC35hFVWdGPNObwBLpu4CAN7yVRw8DWWqwsHPhXZkvkCFh94cbQ2do
+         6K5dP5QJe6WZ1NOkHJh25+Q8pqciFZpoTNoS9o8DO115qoi0PcjOOiG8ZUaB2+a3QhHu
+         TyNT+54phKzkK0925IBjqCOMjZ5XdsNar69GUU5zTNBoUQPCfTZ48cViFBUaYrOO5f56
+         eqUTa/p5CLQn914nMAi9YWpZGTCvKsw0HEsqCu/x7UqzjDV22lRNCiraHEntVIz8MAVC
+         dfkFUu4QCxO5W36SMIaHJUnPiqsDvlBOfEMpkXVwVM/x9vFiXtzH7byqMQT0a2e2p3Gf
+         yENw==
+X-Forwarded-Encrypted: i=1; AL+hErEdt2cqdcW3acT+kinsHdPNrTU10wFjuOzdVB7CARtGilPhGgET4NoTqIExVtMwXUFndqVUccY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/ICUnNdCfaum5Bm0ny+8+5a/4ytWRTIwPus+MYbFCWVsjiOHf7
+	tAsTt7AiATvtQYBR7ioDlm3v8L0aI1qlBJOQA7OO0EQoash3yE34h+kN0tv+G6ZUXag=
+X-Gm-Gg: AZFdTZe040KY41vxjHom9bokXVRMiEA7nA5MTj0ONW78yAeJDmDLSVtIVeK8faD4p5Q
+	TN/RssqxYRM1RaJig6RVhTBQcpAS+atBYFqcFjD98EboaVWYwOaXoVwBVxMEoi5z0v7PHdD/mhq
+	zGSWXGzGHKRf/uGogqA6CK4cQqVZBEv2h8uWb2J6haR6AGyL9CGdDxP0IEQNbF9li5t4Wy8LvTc
+	d8dmqblznAebZ/RqwhDSkOwQENnb5gwQECvQKfdZsTMyXg5rq39jzVKGlwvGNek6t5B+spacHHa
+	ueM7GoDwlGfK5HIaW813DCj8m0ERVqEMVZsG8MBObMMLdY6NElyIjst59NEMhqIY3Dfz+t7HlKv
+	YYiQAZM6kt+RG7syoOaQqi2E8r4WO/fHD5mIdvod4y+iJQgU9/Q29TtCekQUw1GwD0/rGMCWMMI
+	ebbTvnXzaeBgI8KKsGbcROgYOuI0MYFIIqp3pCfEDJleAUUVc7hENuozDJu8JDmwLxjxVgz0KvJ
+	LwM8li52Pn3sjIdCsavzlAZzS5pr4kJaZL0+16SZjnXgyfLfLH5LdNHJUiyc3d1rSLdekNxWuDU
+	6HSowWnTT4bAKLNhse+8T74p6+jiiUx+deaoCo+f4/PrFtm92mY5OIk7fsabhGrJXNbFEFeihh3
+	rBlHG5dikrcHk82cBOUZ6Fxwue25s1Peq4pKbPJl5j0Tt9VqM9cBTjvlZf3XzIDUD
+X-Received: by 2002:a17:902:e88b:b0:2e9:569a:214d with SMTP id d9443c01a7336-2f03f2533abmr67096005ad.43.1795401325369;
+        Sun, 22 Nov 2026 18:35:25 -0800 (PST)
 Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84027sm44590425ad.7.2026.11.22.18.34.52
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215e2sm44320685ad.63.2026.11.22.18.35.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 18:34:54 -0800 (PST)
+        Sun, 22 Nov 2026 18:35:24 -0800 (PST)
 From: Piyus Kedia <piyus@iiitd.ac.in>
 To: David Heidelberg <david@ixit.cz>,
 	netdev@vger.kernel.org
 Cc: oe-linux-nfc@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	Piyus Kedia <piyus@iiitd.ac.in>
-Subject: [PATCH net 3/3] net/nfc: nci: do not hand a NULL skb to the nfc core
-Date: Mon, 23 Nov 2026 08:04:46 +0530
-Message-Id: <20261123023446.3350387-2-piyus@iiitd.ac.in>
+	Kapil Vaswani <kapil@presceralabs.ai>
+Subject: [BUG] net/nfc: LLCP takes the skb reference after queueing it to the socket, so a concurrent recvmsg() frees it first
+Date: Mon, 23 Nov 2026 08:05:18 +0530
+Message-Id: <20261123023519.3350997-1-piyus@iiitd.ac.in>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261123023446.3350387-1-piyus@iiitd.ac.in>
-References: <20261123023446.3350387-1-piyus@iiitd.ac.in>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,85 +96,178 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-nci_add_rx_data_frag() frees the skb and clears the local pointer when it
-cannot make room for the data accumulated so far, then falls through to the
-exit path shared with the success case:
+Hello,
 
-		if (skb_cow_head(skb, reassembly_len)) {
-			pr_err("error adding room for accumulated rx data\n");
+nfc_llcp_recv_ui() and nfc_llcp_recv_hdlc() queue a received frame to an
+LLCP socket and only then call skb_get() on it.  Between those two steps the
+skb is on sk_receive_queue at refcount one and a concurrent recvmsg() can
+dequeue and free it, so the skb_get() increments freed memory.
 
-			kfree_skb(skb);
-			skb = NULL;
-			...
-			err = -ENOMEM;
-			goto exit;
-		}
-	...
-exit:
-	if (ndev->nfc_dev->rf_mode == NFC_RF_TARGET) {
-		/* Data received in Target mode, forward to nfc core */
-		err = nfc_tm_data_received(ndev->nfc_dev, skb);
+Reproduced on net.git main at af6737b90668 ("net: af_key: fix use-after-free
+in dump_sp()"), 7.4.0-rc3-01164, with KASAN, at both sites.  A patch is in
+the next mail of this thread.
 
-In target mode that NULL reaches nfc_llcp_data_received(), whose own NULL
-test is on the LLCP local and not on the skb, and __nfc_llcp_recv() then
-dereferences it in pskb_may_pull():
 
-  BUG: KASAN: null-ptr-deref in nfc_llcp_data_received
-  Read of size 4 at addr 0000000000000070 by task kworker/u8:0/13
-   skb_headlen
-   pskb_may_pull_reason
-   pskb_may_pull
-   __nfc_llcp_recv
-   nfc_llcp_data_received
-   nfc_tm_data_received
+1. Root cause
 
-Test the skb before forwarding it.  The other branch,
-nci_data_exchange_complete(), already accepts a NULL skb and reports the
-error to the pending data exchange, so only the target-mode call needs it -
-and returning early instead would leave that exchange uncompleted.
+net/nfc/llcp_core.c, nfc_llcp_recv_ui() (and the same shape in
+nfc_llcp_recv_hdlc()):
 
-A peer reaches the failing branch by growing the reassembly with PBF_CONT
-fragments until the GFP_ATOMIC head expansion for the accumulated length
-cannot be satisfied.
+	/* There is no sequence with UI frames */
+	skb_pull(skb, LLCP_HEADER_SIZE);
+	if (!sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
+		/*
+		 * UI frames will be freed from the socket layer, so we
+		 * need to keep them alive until someone receives them.
+		 */
+		skb_get(skb);
+	} else {
+		pr_err("Receive queue is full\n");
+	}
 
-How this was found: by AI-driven fuzzing built on top of syzkaller.  Its
-analysis was then checked by hand against the code, the fault was
-reproduced
-on net.git main under KASAN, and the patched kernel is clean on the same
-reproducer with ordinary NFC LLCP traffic unaffected.
+sock_queue_rcv_skb() does not take a reference of its own: __sock_queue_rcv_skb()
+calls skb_set_owner_r() and skb_queue_tail(), taking over the reference the
+caller holds.  The moment it returns, the skb is visible on the receive
+queue and whoever reads the socket owns it.  A reader that gets there first
+dequeues and frees it, and the skb_get() that was meant to keep it alive
+then operates on a freed object:
 
-Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
-Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
----
- net/nfc/nci/data.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
+	refcount_t: addition on 0; use-after-free.
 
-diff --git a/net/nfc/nci/data.c b/net/nfc/nci/data.c
-index 4253edea5..d7597fbd2 100644
---- a/net/nfc/nci/data.c
-+++ b/net/nfc/nci/data.c
-@@ -258,10 +258,17 @@ static void nci_add_rx_data_frag(struct nci_dev *ndev,
- 
- exit:
- 	if (ndev->nfc_dev->rf_mode == NFC_RF_TARGET) {
--		/* Data received in Target mode, forward to nfc core */
--		err = nfc_tm_data_received(ndev->nfc_dev, skb);
--		if (err)
--			pr_err("unable to handle received data\n");
-+		/*
-+		 * Data received in Target mode, forward to nfc core.  skb is
-+		 * NULL when the reassembly above could not make room for the
-+		 * accumulated data; there is nothing left to forward and the
-+		 * core would dereference it.
-+		 */
-+		if (skb) {
-+			err = nfc_tm_data_received(ndev->nfc_dev, skb);
-+			if (err)
-+				pr_err("unable to handle received data\n");
-+		}
- 	} else {
- 		nci_data_exchange_complete(ndev, skb, conn_id, err);
- 	}
--- 
-2.34.1
+The comment above the call describes the intent correctly - the socket layer
+will free it, so a reference is needed - but the reference has to exist
+before the skb is published, not after.
 
+The intended final state is unchanged by taking it earlier: the caller
+(nfc_llcp_rx_skb(), via nfc_llcp_rx_work() or nfc_llcp_recv_agf()) drops its
+own reference with kfree_skb() when the dispatch returns, leaving the socket
+queue holding the last one.
+
+
+2. Both sites, and why the aggregated-frame path finds it so easily
+
+	nfc_llcp_recv_ui()    net/nfc/llcp_core.c:930   (SOCK_DGRAM, UI frames)
+	nfc_llcp_recv_hdlc()  net/nfc/llcp_core.c:1144  (SOCK_STREAM, I frames)
+
+Both are reached from nfc_llcp_rx_skb().  nfc_llcp_recv_agf() splits an
+aggregated frame and dispatches each sub-PDU through nfc_llcp_rx_skb() in a
+loop, freeing each one immediately afterwards:
+
+		new_skb = nfc_alloc_recv_skb(pdu_len, GFP_KERNEL);
+		...
+		skb_put_data(new_skb, skb->data, pdu_len);
+
+		nfc_llcp_rx_skb(local, new_skb);
+
+		kfree_skb(new_skb);
+
+so one AGF PDU delivers many frames to the socket back to back, which is
+what makes the window easy to hit from userspace.
+
+The same file already uses the correct ownership rule for the raw-socket
+copy a few hundred lines above:
+
+	if (sock_queue_rcv_skb(sk, nskb))
+		kfree_skb(nskb);
+
+
+3. KASAN reports
+
+net.git main, 7.4.0-rc3-01164-gaf6737b90668, KASAN.
+
+The I-frame site (kasan-nfc-llcp-hdlc-skb-uaf-mainline-7.4-rc3.txt):
+
+  BUG: KASAN: slab-use-after-free in nfc_llcp_rx_skb+0x17b3/0x34a0
+  Write of size 4 at addr ffff888055abe5e4 by task kworker/1:2/56
+   kasan_check_range
+   nfc_llcp_rx_skb            <-- __refcount_inc, skb_get, nfc_llcp_recv_hdlc
+   nfc_llcp_rx_skb            <-- the AGF loop's inner dispatch
+   process_scheduled_works
+
+  (rx_skb+0x17b3 resolves to skb_get at include/linux/skbuff.h:2004,
+   inlined by nfc_llcp_recv_hdlc at net/nfc/llcp_core.c:1144.)
+
+The UI-frame site (kasan-nfc-llcp-ui-skb-uaf-mainline-7.4-rc3.txt):
+
+  BUG: KASAN: slab-use-after-free in nfc_llcp_rx_skb+0x3a5/0x34a0
+  Write of size 4 at addr ffff888055973724 by task kworker/1:3/2203
+
+  (rx_skb+0x3a5 resolves to skb_get at include/linux/skbuff.h:2004,
+   inlined by nfc_llcp_recv_ui at net/nfc/llcp_core.c:930.)
+
+On 7.3.1, where net/ is built without inlining, the same two reproducers
+name the refcount helpers directly - once on the increment and once on the
+matching decrement, depending on which side of the race loses:
+
+  refcount_t: addition on 0; use-after-free.
+   __refcount_add
+   skb_get
+   nfc_llcp_recv_hdlc
+   nfc_llcp_rx_skb
+   nfc_llcp_recv_agf
+   nfc_llcp_rx_skb
+   nfc_llcp_rx_work
+
+  BUG: KASAN: slab-use-after-free in __refcount_sub_and_test
+
+(kasan-nfc-llcp-{hdlc,ui}-skb-uaf-7.3.1.txt.)
+
+
+4. Impact
+
+A four-byte increment on freed slab memory, with the value and the timing
+controlled by an unprivileged reader of the LLCP socket: it is the same
+primitive as any refcount-on-freed-object bug, and the freed skb can be
+reallocated between the free and the increment.  The decrement side can also
+land on a reallocated object, which is what the __refcount_sub_and_test
+report above shows.
+
+Reachable by whoever can deliver LLCP frames to the device (an NFC peer, or
+a local process owning an NFC device) together with any local process able
+to read the corresponding LLCP socket.
+
+
+5. Reproducers
+
+nfc_llcp_hdlc_skb_uaf.c and nfc_llcp_ui_skb_uaf.c in this directory (sent
+off-list on request).  Each brings up a virtual NCI device, binds an LLCP
+socket, and then races frame delivery against recvmsg().  Both fault within
+a few seconds on both trees.
+
+
+6. Suggested fix
+
+Take the reference before the skb is published, and drop it again if the
+queueing fails - sock_queue_rcv_skb() frees nothing on any of its failure
+paths, so the extra kfree_skb() balances exactly the reference taken here:
+
+	+	skb_get(skb);
+	+	if (sock_queue_rcv_skb(&llcp_sock->sk, skb)) {
+	+		pr_err("Receive queue is full\n");
+	+		kfree_skb(skb);
+	+	}
+
+at both sites.  The patch follows in this thread.  Checkpatch is clean.
+
+
+7. What was and was not checked
+
+Checked: both sites fault on net.git main under KASAN; the patched kernel is
+clean on both reproducers; the refcount accounting with the patch applied
+ends in the same state as the original intent (socket queue holds the last
+reference, the dispatcher's kfree_skb() drops its own); ordinary LLCP
+datagram and stream traffic still delivers with the patch applied;
+net/nfc/llcp_core.c is byte-identical between 7.3.1 and af6737b90668.
+
+Not checked: real hardware; an over-the-air peer.
+
+No Fixes: tag is given: both sites date from the original LLCP receive
+implementation and our clone of net.git does not reach that commit.  Happy
+to add exact tags if you would like them.
+
+This was found by AI-driven fuzzing built on top of syzkaller; its analysis
+was then checked by hand against the code and every claim above was
+reproduced.
+
+Kapil Vaswani
+Piyus Kedia
