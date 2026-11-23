@@ -1,52 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448351;
-	b=z1yn5rIg5wutkASHYSCGb8WuwfRPR+FzUJRYlBeen+EdTvdsjGtf5f+bJFHt33a+hP5D
-	 kxqARZcXXddlselOTKFfjFXjtGlKR1y5b0efh1kesTUDxt7cuASuAwv9I6TIiFBKXHGHO
-	 kUJH2xXd26tkh6TqxgzrdnBQ7xFJLQpW6swBAp9hPYJWVnpEM5bO4KDvunyROeaX5EF34
-	 e1wXICTHplh9MGa28JRejCVEkNNp1P8RbhGCRGqTceHDpZc5LVjwFPvEQcH8z+97eZi+V
-	 UPz9wamUQJVaBN2nOCbYAdtPtp64bes07XxWrs/oJuNgTKwugO2UqDBNCZcpehB+XEA==
+	t=1795448407;
+	b=q5IymUeYpakYXFpwVCcUu3UluLngcKa24kl+uQFL4SMA21vPVN/Dg+U0IMdFfCS09iqa
+	 DxsaWwjSyEHIM4SWRmAp5tVr8iL7PzMyKl3IIFcZi/D4NGtpRglaRCKkibUBedXynt31H
+	 hBSwi5z2lcOESSHP9ghQfLIAOrc/8yJM7sn6V4HaK0nlKG3vLBhAuZNcqpgJK3GKkEzR0
+	 H4MbgZnaSvpHzdvC8IEDN+GjwNNi0LAB8ffQN2Z2S6SGPDLNMr8nxjHjf9iy4E0JqeEyF
+	 psrk/gSlKmO9H6POYbGWLk0yvJivPr8tCBMyko8nPzFTv3ETdJCWetS0ZadCRSYSr0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448351;
-	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
-	bh=+OQ5w6uo1huBoXVafBe3RIUfkNs9d40Oo9URO4Dv+Hk=;
-	b=xUjhQXl4p67kBUCHv0IC3fG/HzEWyjIa+TE+3YohAqIq8irjarHLBqH0cXqjMSh36jIH
-	 M2Hp5fqq3DXySU/aY2m3EHesJgReq+lKZckS0YI5kz3VS0TH5x5pSQg7wo/gSr/DJMrSE
-	 zN0XTJGEebAei6KYXjBoqt3waBQ5/S5yYYdEr3gfqY4VlKYRlxXzEEuqGw+CcnQSbbHjR
-	 Gp4cwAeTrmj85n5k4K1OgxMpbpRuxc+BVtBu62sAjUcoH2Fru+M4s2STsXzHMvYf/08NM
-	 J0XKGxdKtPbQVb8vg5A5zZcvPQgxPBV/uDP2J4uFkovvYbqi/ZZBuF64MDuSlEB00ZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448407;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=OefWWDM6765zS8UeXsEa0lfO1VMuF0rqbjFE03jLU2U=;
+	b=xEJ3RBpsavY0F5OyTUohm6zAf+W6RTYf7Szw7lZfkqLy1rR3rndDLe9Rfgi27Gfpd1Cu
+	 5sJaIOND+0i29DEN5wtmHmgHQXY020n+wjsB6DncK5qzdI2mIPtMJSFSjHiAvZY9RIlA5
+	 EN4Z5Rd9UW0nf9xWZaJLNKXQAZQXIflVS8Ws8Ox7zq48eD6uqvVLz4zELu9EL8uTqvrL6
+	 Max+qe34ok2Ysul4cYPF11+8yzcXSo3HmgOxUc4urNa1J0Hgd7QgXN5TqB0bIveQhz2/9
+	 WZKqUwWENiqr/0fEcW8maqiv2OLjx15SPvZ8US+yHRtmTbJyAY/PlrbCzjCWn58BQkg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=tipi-net.de;
-	spf=pass smtp.mailfrom=tipi-net.de;
-	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ZDlv6wM7;
-	arc=none smtp.remote-ip=194.13.80.246
-Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="CRi/AjKi";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB381606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:39:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB381606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD96860A3806;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ZDlv6wM7
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4042BA08C5;
-	Mon, 23 Nov 2026 16:39:04 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
-	t=1795448346; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding; bh=+OQ5w6uo1huBoXVafBe3RIUfkNs9d40Oo9URO4Dv+Hk=;
-	b=ZDlv6wM7P/CQx3dN4dI4qVlu5QYFZFEzLkIqdR0EHU3Q38R92AGJuiY78lAQWbP+kIttyv
-	rtIBtYw/BydNMUGYMbGu6yGpCebLM+l4YAVrKubnFqHVUG9ySqV6tZVwpuMVaV1BmDt2jQ
-	XoBYERtGTzNfcggAtvPO2AWbWuigrd9ptEt4M7oyWRlaC0nPRIU/AYVoG5hw/yLdvF89TQ
-	8CwvwhSUrTXzG9eq0+8RhbOH95FT2zEcG9Sz0WmDDWvvlEl7GBcSbbnkzbsznCvy42FoJV
-	m2QMjSBwzCvPFy7OOnP/nTBd3pvq9e5EdP7AjkOFys9HleKdz8b5MhqOAjzeXw==
-From: Nicolai Buchwitz <nb@tipi-net.de>
-Date: Mon, 23 Nov 2026 16:38:48 +0100
-Subject: [PATCH net] net: macb: don't disable an IRQ wake that was never
- enabled
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CRi/AjKi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 465B11F000F2;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795448407;
+	bh=OefWWDM6765zS8UeXsEa0lfO1VMuF0rqbjFE03jLU2U=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=CRi/AjKi4ehlkE4PSAya5g8d7tvW4OSud7sc9Pg8fH40HXBLEs2tvnoejsHdpVAQO
+	 KUEWHcY7c1o0OrfflSZro2e3gz1vVQmmfo6Z7GhuuYscWwRYRKUqoRZxSASxB+Y7hT
+	 ZiYuOP94M5x1WnXCz6zE46plzqY24R2fM/HBpGwl0AGRsU4wKmHbQEs7qNyz/QAhmN
+	 xUHgoJs0YhOFDxiiwtrcfoW4Yx+HQapnsQDSsGuM6SYycICAV4lnTBfcQDb1H1XeDx
+	 2eWAAu87tMpA5rbUBMy1k1jaAKVw39U/7SR6PmoLIbVSeYACdYl+DZqJ3dxfU5e2og
+	 GcUBce8Tr0lRw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A5EE392EE0C;
+	Mon, 23 Nov 2026 15:40:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,105 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261123-nb-macb-irq-wake-net-v1-1-ccdd60a9a1bc@tipi-net.de>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQ6CMBREr0Jm7U9oQWO4CnHR1lG/hqItqAnh7
- lZdvsm8tyAzKTO6akHiU7OOsYDZVAgXF88UPRaGre3OGNtI9DK44EXTQ17uRomcZE/bsHW157Z
- FUe+JJ33/sj3KAYf/mGd/ZZi+QazrB2THbqJ9AAAA
-X-Change-ID: 20261123-nb-macb-irq-wake-net-8e23e4a0be54
-To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Conor Dooley <conor.dooley@microchip.com>, 
- Sergio Prado <sergio.prado@e-labworks.com>, netdev@vger.kernel.org, 
- Dom Cobley <popcornmix@gmail.com>, Nicolai Buchwitz <nb@tipi-net.de>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net] net: dsa: mv88e6xxx: do not override PHYIDs on
+ external MDIO
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179544840577.2474785.6234725190698108233.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 15:40:05 +0000
+References: <20261119-mv88e6xxx-fix-v1-1-2db604f3516f@airbus.com>
+In-Reply-To: <20261119-mv88e6xxx-fix-v1-1-2db604f3516f@airbus.com>
+To: Blake Alexander <blake.alexander@airbus.com>
+Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ f.fainelli@gmail.com, vivien.didelot@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
 
-From: Dom Cobley <popcornmix@gmail.com>
+Hello:
 
-If the irqchip has neither an .irq_set_wake callback nor the
-IRQCHIP_SKIP_SET_WAKE flag, enable_irq_wake() returns -ENXIO and
-macb_resume() later tries to drop a wake reference it never acquired:
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-  Unbalanced IRQ 108 wake disable
-  WARNING: CPU: 0 PID: 1013 at irq_set_irq_wake+0x168/0x238
-  ...
-   irq_set_irq_wake+0x168/0x238 (P)
-   macb_resume+0x23c/0x4b8
-   platform_pm_resume+0x30/0x70
+On Thu, 19 Nov 2026 11:50:00 +0100 you wrote:
+> From: Blake Alexander <blake.alexander@airbus.com>
+> 
+> Some variants of the Marvell 88E6xxx family (such as MV88E6390) support
+> an external MDIO bus (in addition to the internal MDIO bus for
+> configuring internal PHYs). A typical use-case for the external bus is
+> to configure PHYs that are external to the switch. On switches that do
+> not assign a PHYID for internal PHYs (i.e. the value is 0), the
+> mv88e6xxx_mdio_read() function traps read calls to the PHYID registers
+> and sets the PHYID equal to the family ID of the switch.
+> 
+> [...]
 
-Record whether arming the queue 0 IRQ for wake succeeded, warn on
-failure, and only disarm it on resume if it was armed.
+Here is the summary with links:
+  - [net] net: dsa: mv88e6xxx: do not override PHYIDs on external MDIO
+    https://git.kernel.org/netdev/net/c/dd206ec7ed36
 
-Fixes: 3e2a5e153906 ("net: macb: add wake-on-lan support via magic packet")
-Signed-off-by: Dom Cobley <popcornmix@gmail.com>
-Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
----
-Seen on Raspberry Pi 5, where the RP1 irqchip has no wake support.
-Tested on a CM5 with WoL enabled and a suspend/resume cycle.
----
- drivers/net/ethernet/cadence/macb.h      |  1 +
- drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++--
- 2 files changed, 11 insertions(+), 2 deletions(-)
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index b7b4b6a38298..bd4f04ac8356 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -1221,6 +1221,7 @@ struct macb_ptp_info {
- struct macb_pm_data {
- 	u32 scrt2;
- 	u32 usrio;
-+	bool irq_wake_enabled;
- };
- 
- struct macb_usrio_config {
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index 5ad0e32e2b40..f2d29428fa78 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -6517,6 +6517,7 @@ static int __maybe_unused macb_suspend(struct device *dev)
- 	unsigned long flags;
- 	u32 tmp, ifa_local;
- 	unsigned int q;
-+	int err;
- 
- 	if (!device_may_wakeup(&bp->netdev->dev))
- 		phy_exit(bp->phy);
-@@ -6589,7 +6590,11 @@ static int __maybe_unused macb_suspend(struct device *dev)
- 		}
- 		spin_unlock_irqrestore(&bp->lock, flags);
- 
--		enable_irq_wake(bp->queues[0].irq);
-+		err = enable_irq_wake(bp->queues[0].irq);
-+		if (err)
-+			netdev_warn(netdev, "Unable to enable IRQ %d as a wake source (error %d)\n",
-+				    bp->queues[0].irq, err);
-+		bp->pm_data.irq_wake_enabled = !err;
- 	}
- 
- 	netif_device_detach(netdev);
-@@ -6655,7 +6660,10 @@ static int __maybe_unused macb_resume(struct device *dev)
- 		macb_queue_isr_clear(bp, bp->queues, -1);
- 		spin_unlock_irqrestore(&bp->lock, flags);
- 
--		disable_irq_wake(bp->queues[0].irq);
-+		if (bp->pm_data.irq_wake_enabled) {
-+			disable_irq_wake(bp->queues[0].irq);
-+			bp->pm_data.irq_wake_enabled = false;
-+		}
- 
- 		/* Now make sure we disable phy before moving
- 		 * to common restore path
-
----
-base-commit: dd206ec7ed36be3883d08def9eca8faab7a38ee5
-change-id: 20261123-nb-macb-irq-wake-net-8e23e4a0be54
-
-Best regards,
---  
-Nicolai Buchwitz <nb@tipi-net.de>
 
