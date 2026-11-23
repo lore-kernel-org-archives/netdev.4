@@ -1,79 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.252
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795405704;
-	b=DSSSK2sedPjS53d60SOUMGjxTl9iA8R2tKPfxQAlCCViDMrWVrp603QGNXXBFYobFQIc
-	 GSrdQXJjGvo8X57S771mTfA/u5WUUfOxv/iEeBRp2wJ90EZtdRR04NxmYI0+PPgGamae8
-	 9UgUlIPZdtRyM8K8Ky38YG7K9oRk8x7ft6ZSMU/NYUuEDre5SMjDpTEQqarJOlJIfYW6E
-	 dTcey0HPXv9NwV8Jh+W32honz4DQduABZHUr9/hcvD2mZKItTyfxoULKIvzKeqPam31nI
-	 G6AXhFVeB4qznxiyGhVDuclYRXAPwZ97EOVJ4P3WEfCjKULmquClIUS7/WprBratQig==
+	t=1795405785;
+	b=ZJHxSXxXvcWrT8ofSmceL8WxK4LyEWBQ+bHPZTaoUHP3V0Tezxx1oncgI0IgN7lnICCw
+	 cCUtjsPtVDYEuH67qVEQSWEHj/BVInaCzLAsjQhnaSujJJrajB3QqaUMGQVrxaZf5gkE8
+	 31SdOwpwFzeW2Mkpyvy+o73phryyBTjrd2ecdTMGVzUwKKL4Edh1DpiGJt/vAlTQ7zilh
+	 DRNb5OFZT0JWq9Bjbk/Ey1NCG0zfdLU0Ww8JwpKVr10tl/S7wVqeUmF85UBdSnuBZRLN7
+	 ur3syuJf8Vs1K1h+CMamDhWAyyToVFc1YmwwGeRIfXH5708OHW7sgi9qZcxunjiODUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795405704;
-	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YNmHaqmtwbx/EzQOm04VaagFwsQ5IZpEuhdBjG4NZLA=;
-	b=ZN8BqRnKX57BXQBWbR2h4PVMOqVzTDiTW8bcGkUMhJrP3VX2+F2X8Nuipv8fq/uYXSTG
-	 Tefkw8RhdudHqrfG0rEZID2Ga6PTmKtiuNNgpzwZPbT+3Gr58cHdiwuZSZRol2cVrob+L
-	 VVc0UoJXNuC1o62/zlXOOcv+ZOYk6CQKGsqa5/Qv6n4LgZj6cLhFlserRIXqs9TXRQMNd
-	 XnS0XyUnlPFHb2JK8qcXmCKl6SiUEUOxpNg7ukPcdfqQnhAl8axwkz9NEKLBShAam5PKC
-	 6AVVe5pOvu1IuZHcRIkDLMgy75jkeJvkVXrljYqRnULo9uvAmJb5MjFbYXizl61hBKQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795405785;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=f8iyGXNmQvV5cTF4wbciC3whz9LR368QT9AC0uWH/+U=;
+	b=28HeGlafclZuoZgLSRoo97T3dKMpOMNpsiE6L+hOF7rFSGI/U2hGQUM+0jDjPgvJyNub
+	 UvN/+uNtE9h1/dn+uI/H4FaFpPbjq5LdkMe/MnQ6U9JTJIz4kykt6VD83KhfR8LWRRjjj
+	 CYBgAuYsi3w6kqARek85q5dCo18ZJTiFJVNppxkqD6HX2uPFmdCdcPPSAGh1lQDJ4+MZZ
+	 51oUQsnZTX5cmx1tNSjV818ibu4NFgG9JR8/ovUF+Vv7y+WLUdBAYyksWdffxuOH7n4zW
+	 jNSp5MUm0E8d5i0Yd1AFEXTPZr/xkZ2voTWB6WIlEJvDX/HEEIy6/2KC6bMmSUNrSmA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=qq.com;
-	spf=pass smtp.mailfrom=qq.com;
-	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=AVzpacww;
-	arc=none smtp.remote-ip=162.62.57.252
-Received: from out162-62-57-252.mail.qq.com (out162-62-57-252.mail.qq.com [162.62.57.252])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaPdDxiT;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68714606A31E;
-	Mon, 23 Nov 2026 03:48:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68714606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62EC5606A31A;
+	Mon, 23 Nov 2026 03:49:45 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=AVzpacww
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
-	t=1795405692; bh=YNmHaqmtwbx/EzQOm04VaagFwsQ5IZpEuhdBjG4NZLA=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AVzpacwwzg44/gz8/MhNrnij/3TmhDkqRv90iaJYnqtLZ8ePhxx2GC4EvJMzgOlCI
-	 MSGc347bdxhdacwFIbhl87N4qD36btIFU5gLmPTDbtdQ2XjXGtwRcU8i7L+sjHEKYp
-	 hr51/6CPkg+v2tH9J6WA2SzLvisrwG6cILfR1qQk=
-Received: from shuai-VMware-Virtual-Platform.. ([117.158.156.199])
-	by newxmesmtplogicsvrsza63-0.qq.com (NewEsmtp) with SMTP
-	id C0AA0A27; Mon, 23 Nov 2026 11:48:10 +0800
-X-QQ-mid: xmsmtpt1795405690tniae0z6g
-Message-ID: <tencent_0B3A9605591EA70906F7462C6282CD7D4305@qq.com>
-X-QQ-XMAILINFO: MA2CfewR0F23ME4Gg7w33qWAEdTs2lFyGItXk+FMPsVR0J1umXSbDUBausOrO0
-	 3vHnxXhov851SX9zF0FZGncogjvBkirGAtcHsFKQcUkPN/SoicShS/pqs7/pvH3BuVzd2ZSL4y0d
-	 jlPw5uml0Oq8wXSZTYtkiQigoCC0irUzbynCfA8gVjeHrUqTriu2j2jq7NoIoKwl1juO346bYVvS
-	 LgGJY3c5qPSRzvjK59G40H7LcSgZCCG/SZNp6xNdqKoQptfPy/DhkkZT7p8MK4bGRSDRQ7tpwPwB
-	 mjGD9fSJ/J+T9svcJsCPaupDXR2yaRZRNnYyvJur2cMPADjcSw5y1TIs0KeN1YlaFoN9Rm2QJeIo
-	 BAOaoOY2EVOwSdB+Or9ZlxaScKx50kzr47UjNsQU9IxNXQ02WHgsbIVnhg+IWI1ccoVDJVlTw9eG
-	 qgdAElqUcWVey1nY7BxasoMWh+SZW81sBPYuJsvP7v4YXupOTgwsfuO6ykT1cPGJrJ7QYIzikp76
-	 BF6fkMgWlmuHg5lyuo3pq3QeaNMAOZ6xBJ/U0c/yk9D8accemMKDQQD7dtNN0fwujAIiwA54J3ik
-	 i7DLq/k/fiNtnmoyPAHj4+Ec3erI3prmGUGAjZ75DkFkxIYoW9smHmcb5nNsx7KsCmwMILkLy4nW
-	 GfsZFAtkP/GHJkLkj6JUEoBtr9pFkZM1AF3LrcGY+eB227hpNgYgEx+Ap1MdG+nMuWiCUJ57vydH
-	 HK0L7YgDETwjmBxqyGw3T2RVr1Ehfaz+PXQsMpAYCS2VbjeQmyGaD5Dw9Js16wE/jeu/PvEVNuYZ
-	 asHCzxt480c9FnQaSZkDjMFp+GEqDbZyo77uz73mK97gybSW9Zc9P/q6k5MGDJZaCecyY90u88Q5
-	 17WHySV71jGwvdqi7/2YUeT3Pr3KpzDPzk6JofuEDAq7gmupGlVLtI0qTk2Xy8M7r1KMSjkS3e26
-	 iERCv4HlnoFEJkOQUHU145pFB8Xpl3lTuKFoIAVsrNCMGBhqDOLTtxvMGkzlCg9nWxQAhO5z8cSB
-	 vuOW4d2LwCX4b/x+DbT8UtbNj9dhju3mQgr4NxEAHADfO4LZgF2PseNv08691gk3eajysFLXejjm
-	 s6OnOM9wL7A4gFtbOocUjDhm/+5fvM5FoeDnGFFoKvwS9F6okeSJ/KuPgStLuD+PakpabB
-X-QQ-XMRINFO: Nq+8W0+stu50tPAe92KXseR0ZZmBTk3gLg==
-From: Shuai Liu <847807867@qq.com>
-To: netdev@vger.kernel.org
-Cc: ms@dev.tdt.de,
-	linux-x25@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org,
-	syzbot+300375dfd44665f063a6@syzkaller.appspotmail.com,
-	847807867@qq.com
-Subject: [PATCH v3] x25: defer socket cleanup on link termination to process context
-Date: Mon, 23 Nov 2026 11:48:10 +0800
-X-OQ-MSGID: <20261123034810.1269365-1-847807867@qq.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179539800759.3135.17245752044060918891@kernel.org>
-References: <179539800759.3135.17245752044060918891@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PaPdDxiT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54F971F000CF;
+	Mon, 23 Nov 2026 03:49:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795405784;
+	bh=f8iyGXNmQvV5cTF4wbciC3whz9LR368QT9AC0uWH/+U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PaPdDxiT0ZzWJF7DBMqH3luU5AtZBAAviGm8XkUt3lzOWMwrjtqRn0qsY7WboX0eQ
+	 iQq4Wt32cHVBgluXJkcGpBEXZqtLLbyGTgK2jecATH3j9mHHDx7wI31iG2Gnmt52hO
+	 5giAxFTkg+jhbJFx7atKXv1e5e+ILcl1P5jlOK11ROhC2Pt9oCjH5mAGgTqIx4P7PV
+	 ZvaSjb063KI14Uoi8nAmIqJ3NZd9ClfFOhs2P/ObLiDKjH5IG3a6rybHiQRiRxiAe1
+	 H9SaWC8u5Yes/8w1n5XWUbjnOU4XSQGbtD7NM6mMY103TMqqdKLus6+13k7RtXzJnd
+	 m1qnrmvOQRbeQ==
+Subject: Re: [BUG] netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX
+ queues with an RX queue index
+From: netdev-bot+sashiko@kernel.org
+To: kyuwoncho18@gmail.com
+Cc: kuba@kernel.org, leitao@debian.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 03:49:43 +0000
+Message-ID: <179540578385.3135.5126417737226790045@kernel.org>
+In-Reply-To: <179505710275.3511681.13434978152402269948@gmail.com>
+References: <179505710275.3511681.13434978152402269948@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,54 +63,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi Sashiko, Martin,
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Thanks for the review.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-On the [Low] (NETDEV_CHANGE flush): fixed in v3. The carrier-loss path
-now flushes kill_work right after x25_link_terminated(), so both
-process-context notifier events (NETDEV_DOWN and NETDEV_CHANGE) keep
-the fully synchronous socket cleanup they had before the patch.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-On the [Medium] (restart sequence vs stale virtual calls): I looked at
-each scenario and believe the remaining window is not actionable, so I
-kept the softirq deferral:
+- [Medium] The commit message for 7bdc53e966c0 is the raw multipart MIME
+  email.
 
-1. "A reused LCI is matched by a stale socket" cannot happen in the
-   x25_link_terminated() path: that path is entered when LAPB reports
-   the link down (X25_IFACE_DISCONNECT), and any further peer frame
-   (including a CALL_REQUEST on a reused LCI) requires LAPB to be
-   re-established first, i.e. a SABM/UA exchange at least one RTT away.
-   The deferred work runs within microseconds of the event, long before
-   the peer can deliver any new frame.
+--
 
-2. In the x25_link_control() restart paths the link is still up, so
-   frames that were already in flight when the restart was processed can
-   land in the window. That is precisely the out-of-order case the
-   existing "Out of order: clear existing virtual calls (X.25 03/93
-   4.6.3)" comment acknowledges: those in-flight frames belong to calls
-   that must be cleared anyway. The workqueue item runs microseconds
-   after the restart handling, so a peer would have to send a new
-   CALL_REQUEST before it has even seen the restart complete for it to
-   matter.
+netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX queues with an RX queue index
 
-3. Detaching the sockets synchronously in softirq would require writing
-   x25->neighbour / lci / state from BH without lock_sock(); those
-   fields are lock_sock-protected, so that trades a microseconds-wide
-   theoretical window for a real data race. Splitting the sleeping part
-   out has the same problem.
+This commit adds a check to nsim_start_peer_tx_queue() in
+drivers/net/netdevsim/netdev.c. The peer's TX queue is now woken only when
+rq->napi.index is below peer_dev->real_num_tx_queues.
 
-4. "Valid new calls torn down by the deferred worker": incoming calls
-   need the LAPB link up (point 1), and an outgoing call would need
-   userspace connect() to land inside the same microseconds window.
+This fixes a KASAN slab-out-of-bounds read in nsim_poll(). The read happens
+when a device is relinked to a peer that has fewer TX queues while its RX
+queues still hold traffic from the old peer.
 
-pw-bot: cr
+> netdevsim: nsim_start_peer_tx_queue() indexes the peer's TX queues with an RX queue index
+>
+> --===============8293946977515997899==
+> Content-Type: text/plain; charset="us-ascii"
+> Content-Transfer-Encoding: 7bit
+>
+> Hi Jakub,
 
-Changes since v2:
-  - Flush kill_work in NETDEV_CHANGE as well, restoring synchronous
-    socket cleanup for both process-context notifier events (Sashiko)
+[Severity: Medium]
+It looks like the cover email was applied here instead of the attached
+patch. The subject is the title of the bug report. The attached
+format-patch has its own subject:
 
-v3: https://lore.kernel.org/netdev/20261123034748.1269213-1-847807867@qq.com/
+  netdevsim: bound the peer TX queue index in nsim_start_peer_tx_queue()
 
+The changelog body is the raw multipart MIME message. It includes the MIME
+boundary lines, the per-part Content-Type, Content-Transfer-Encoding and
+Content-Disposition headers, and the full repro.c source. It also includes
+the base64-encoded config.gz attachment:
+
+> --===============8293946977515997899==
+> Content-Type: application/gzip
+> Content-Transfer-Encoding: base64
+> Content-Disposition: attachment; filename="config.gz"
+> MIME-Version: 1.0
+>
+[ ... ]
+
+The real changelog and its trailers come at the very end, inside the
+embedded attachment, after a nested format-patch header:
+
+> >>From 0a9629d8c7c93ef16dd000ab4cf04e9792044987 Mon Sep 17 00:00:00 2001
+> From: Kyuwon Cho <kyuwoncho18@gmail.com>
+> Date: Thu, 19 Nov 2026 11:36:52 +0900
+> Subject: [PATCH net] netdevsim: bound the peer TX queue index in
+>  nsim_start_peer_tx_queue()
+[ ... ]
+> Fixes: ff2ac4df58ad ("netdevsim: implement peer queue flow control")
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+
+Could this be re-applied from
+0001-netdevsim-bound-the-peer-TX-queue-index-in-nsim_star.patch? Then the
+subject and body would be the patch's own changelog, with the Fixes: and
+Signed-off-by: tags kept. The reproducer and kernel config could stay in
+the mail thread and be referenced with a Link: tag.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179505710275.3511681.13434978152402269948%40gmail.com
