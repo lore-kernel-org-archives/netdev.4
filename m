@@ -1,49 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795476504;
-	b=JPpw3+mYuFa37gMhOfUqBUoRdIf5HMfgsz+REPFRHm7Ans5e1JaLUwTMs8VGfcOnsQUI
-	 oCrWiLmDAP5IKnqefhTXc22t1E2jwT6ugWVPAwaNF5A9mgwLv+Qg0xsAYcYt62FQi4Tmh
-	 kdq32hhdpcSND2lr/AwFmey1fk2MUXWiEvrMOcxMVrJweQit0kJQY+yGxxuPQAwFcQxds
-	 tf7pVLmOVon3gZcmQyBNVtNypsEl6ETwcw2jygiXtAa85aO0cPb5sQC9xmFVergvnadNt
-	 Jnsn1nJl1Cg+RIS1cRqGvrO/amHHfcvijUvMopnC4s5lg5N6amyOC89gS0gK/DIRPQw==
+	t=1795477194;
+	b=mxnI532ObZ0qgx77CAKb9JgdK74IwOfESumBAhmxA+33cFl7LoWzNKw5ZJxiyjAY+Zpp
+	 d0ORj2df6Z+N92PU70MdthWC6Ji+1bo883Z1U0cbeyIAMoFGkY3S53FZRhHqJ0I7EmtE3
+	 S2Z+YmEv5nE4fM2wU9x/mY7BA3ggsnybBshBkEr0rs7b5bcr3KU/Lz9BB+GyHEeXKN2EL
+	 u6ZGsCWMrq3j3Khr2ktTztiHyz6bJgB+jmBHOqkr9PB8UFj4v+kIf0FDF6e+sKL9vbaGU
+	 ImIswzwwqiPnUA6CjzTI2i8KJYAQTaXedAZ2HNNAnFuUzkmzlvnyImKz8zOSJzSAXag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795476504;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=Z4q2lcvDeMyQnvMma/TSV0pjEr8kXRVVL/7uiZixGfQ=;
-	b=GmXV8TMZsQxCfITlv+MzVcNL5bYgDgcrpAx9d2SDpNcfhsJ10XCAVR6BILs2Rgp9Tlx1
-	 PrM+HPWkP73i1Y8BXm8y5RBaTkojVzAA7xz1H9zA8wdabtAj6+L7qysVlnRh1bb1o8jXG
-	 qk6Jv6bqNgrv6MIcUrmbuUQVbHpKGwWdxWaTLsTsrDF9WlTUbyombohma9mAoSDFoUW+0
-	 NozGRttGAp5H6lGCeImiwrD7p1dH3rPtGzosojCh2aINF9oI3xLGAiv1eiRFZcLF8F1PK
-	 t+T5/gVLABB68iyJDojqdCZaKgrbZNgJsptukIFfuDusf9x+1PxSSj15IrWd2JeMXbQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795477194;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
+	b=shMrdllPTn2ZAej1UaGZHVO/S4fY3MRMxAJghEOs+kEjGHhOyVfnz0RFfuYtlING26ET
+	 3XfGMItT85M3BBy6PPnUPYJPPxmDEBrQu8ZdbFu06t8SokSWpjHCWLKCBPO5gFwqJfufa
+	 oVTnAoGgjkWdy8I4WlrDRxQ9LbqN1qEK50hnqkYgvs4PpCHDWDEne1psjTTiG3FdM4NpV
+	 L/dhvsHj82bpCFICtFEpHfRXXz8roWb/eZGh6vKp0uKNn30bAsnDRFCanXzJBf41J8HIe
+	 9lvxFaEWwQiERyOCIBLni5XazX+pTLhD8dx0AE+BP19AVd1nswIHylLE9bFDycavOHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GBCBOGHy;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id E976E606A321;
-	Mon, 23 Nov 2026 23:28:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E976E606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj;
+	arc=none smtp.remote-ip=115.124.28.99
+Received: from out28-99.mail.aliyun.com (out28-99.mail.aliyun.com [115.124.28.99])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C4466606A6A6;
+	Mon, 23 Nov 2026 23:39:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C4466606A6A6
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=GBCBOGHy
-Received: from [192.168.159.19] (unknown [4.194.122.136])
-	by linux.microsoft.com (Postfix) with ESMTPSA id DCBAB20B7167;
-	Mon, 23 Nov 2026 15:27:54 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com DCBAB20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795476499;
-	bh=Z4q2lcvDeMyQnvMma/TSV0pjEr8kXRVVL/7uiZixGfQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GBCBOGHyS/woweuMXp/5IiE28nI/q/RWX2fOSyY1oqRdeq6mlJhA0Uy5CY+vntB9X
-	 OBTSWMmuYPNMyZOn37AlljwgO2+M5LQQTDHUqK0know9vyyT8rD60yDr0IBXlfgUHN
-	 T50QratbJQPYi89ozm+6Qtlk7+5eXdmnoqz5Vvmg=
-Message-ID: <ba8c4cdb-ba60-4166-8d0f-812db13ee90a@linux.microsoft.com>
-Date: Mon, 23 Nov 2026 15:27:55 -0800
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=DF42BqXj
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795477184; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=GQphScNATQHHldgFgEcB68heOuz1yKCUAO9uOSn7l/E=;
+	b=DF42BqXjUdPkQLpCBC5CtznPLQOQTUGHZFL+h9zdNSlL6hvmVlslfN2+9T1AN8aFdDyCTn01AiPsF1WML9OU6BY/VLNjO8yXZfYpN2nLf8gomaaJ81EJwf/NpjftDJjfcJgDzuaDaf7lVgxjUQ6+KfVReX0uCoKs9I54yL5Uzsw=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04998161|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00557952-0.000104749-0.994316;FP=12015874423884973311|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037032112;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=16;RT=16;SR=0;TI=SMTPD_---.k8dSJk7_1795477180;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8dSJk7_1795477180 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Tue, 24 Nov 2026 07:39:42 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: Chandrashekar Devegowda <chandrashekar.devegowda@intel.com>,
+	Loic Poulain <loic.poulain@oss.qualcomm.com>,
+	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
+	=?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	netdev@vger.kernel.org,
+	Liu Haijun <haijun.liu@mediatek.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Lin Qiaojie <linqj@xiaopeng.com>
+Subject: Re: [PATCH net v2] net: wwan: t7xx: validate PIT data before building RX skb
+Date: Tue, 24 Nov 2026 07:39:36 +0800
+Message-ID: <20261123233936.51601-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <179545421789.3294.8652562780118952990@kernel.org>
+References: <20261123171519.33975-1-fangxy@xiaopeng.com> <179545421789.3294.8652562780118952990@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,126 +74,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/14] mshv_vtl: convert mmap hooks to mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
-Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
- netdev@vger.kernel.org, Juergen Gross <jgross@suse.com>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
- Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
- Scott Branden <scott.branden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-References: <20261105-late-2026-mmap_prepare-v1-0-c56aadfbab8a@kernel.org>
- <20261105-late-2026-mmap_prepare-v1-3-c56aadfbab8a@kernel.org>
-Content-Language: en-US
-From: Kameron Carr <kameroncarr@linux.microsoft.com>
-In-Reply-To: <20261105-late-2026-mmap_prepare-v1-3-c56aadfbab8a@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/5/2026 1:05 PM, Lorenzo Stoakes (ARM) wrote:
-> Move from the deprecated mmap hook to the new mmap_prepare hook for both
-> the mshv_vtl and mshv_vtl_low devices. These only set VMA operations and
-> flags.
-> 
-> Signed-off-by: Lorenzo Stoakes (ARM) <ljs@kernel.org>
+The issue was found during a security review of the t7xx driver's
+device-supplied input paths, assisted by the Hawkeye agent
+(LLM-based code analysis).
 
-I don't see this causing any functional changes, but quickly ran basic
-regression testing on it anyway. I couldn't find b61fa14ce; I tested
-based on v7.4-rc1.
+It is reproduced at runtime, not only theoretical. No t7xx hardware
+is available, so a fault-injection harness in a KASAN-enabled QEMU
+guest synthesizes malformed PIT entries and drives the RX assembly
+paths; this is a synthetic trigger, not a natural one.
 
-No issues seen.
+On the normal path, a PIT data address 128 bytes below the BAT DMA
+base yields an int offset of -128. The unpatched code accepts it,
+skb_reserve() moves skb->data before skb->head, and reading the
+payload triggers:
 
-Tested-by: Kameron Carr <kameroncarr@linux.microsoft.com>
-Reviewed-by: Kameron Carr <kameroncarr@linux.microsoft.com>
+  BUG: KASAN: slab-out-of-bounds in t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
+  Read of size 1 at addr ff110000013bd000 by task insmod/71
+  Call Trace:
+   <TASK>
+   dump_stack_lvl+0x55/0x70
+   print_report+0x10d/0x5d0
+   kasan_report+0x96/0xd0
+   t7xx15_harness_run+0x1a5e/0x2340 [mtk_t7xx]
+   t7xx_pci_init+0x9/0xff0 [mtk_t7xx]
+   do_one_initcall+0x84/0x350
+   do_init_module+0x29d/0x800
+   load_module+0x510c/0x6630
+   init_module_from_file+0x15d/0x180
+   idempotent_init_module+0x320/0x670
+   __x64_sys_finit_module+0xbd/0x120
+   do_syscall_64+0xee/0x500
+   entry_SYSCALL_64_after_hwframe+0x77/0x7f
+   </TASK>
+  The buggy address belongs to the object at ff110000013bcd00
+   which belongs to the cache skbuff_small_head of size 704
+  The buggy address is located 64 bytes to the right of
+   allocated 704-byte region [ff110000013bcd00, ff110000013bcfc0)
 
--- 
-Regards,
-Kameron
-
-> ---
->  drivers/hv/mshv_vtl_main.c | 14 +++++++-------
->  1 file changed, 7 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/hv/mshv_vtl_main.c b/drivers/hv/mshv_vtl_main.c
-> index d8225242c73f..e372d4c0188d 100644
-> --- a/drivers/hv/mshv_vtl_main.c
-> +++ b/drivers/hv/mshv_vtl_main.c
-> @@ -832,9 +832,9 @@ static const struct vm_operations_struct mshv_vtl_vm_ops = {
->  	.fault = mshv_vtl_fault,
->  };
->  
-> -static int mshv_vtl_mmap(struct file *filp, struct vm_area_struct *vma)
-> +static int mshv_vtl_mmap_prepare(struct vm_area_desc *desc)
->  {
-> -	vma->vm_ops = &mshv_vtl_vm_ops;
-> +	desc->vm_ops = &mshv_vtl_vm_ops;
->  
->  	return 0;
->  }
-> @@ -852,7 +852,7 @@ static const struct file_operations mshv_vtl_fops = {
->  	.owner = THIS_MODULE,
->  	.unlocked_ioctl = mshv_vtl_ioctl,
->  	.release = mshv_vtl_release,
-> -	.mmap = mshv_vtl_mmap,
-> +	.mmap_prepare = mshv_vtl_mmap_prepare,
->  };
->  
->  static void mshv_vtl_synic_mask_vmbus_sint(void *info)
-> @@ -1283,10 +1283,10 @@ static const struct vm_operations_struct mshv_vtl_low_vm_ops = {
->  	.huge_fault = mshv_vtl_low_huge_fault,
->  };
->  
-> -static int mshv_vtl_low_mmap(struct file *filp, struct vm_area_struct *vma)
-> +static int mshv_vtl_low_mmap_prepare(struct vm_area_desc *desc)
->  {
-> -	vma->vm_ops = &mshv_vtl_low_vm_ops;
-> -	vm_flags_set(vma, VM_HUGEPAGE | VM_MIXEDMAP);
-> +	desc->vm_ops = &mshv_vtl_low_vm_ops;
-> +	vma_desc_set_flags(desc, VMA_HUGEPAGE_BIT, VMA_MIXEDMAP_BIT);
->  
->  	return 0;
->  }
-> @@ -1294,7 +1294,7 @@ static int mshv_vtl_low_mmap(struct file *filp, struct vm_area_struct *vma)
->  static const struct file_operations mshv_vtl_low_file_ops = {
->  	.owner		= THIS_MODULE,
->  	.open		= mshv_vtl_low_open,
-> -	.mmap		= mshv_vtl_low_mmap,
-> +	.mmap_prepare	= mshv_vtl_low_mmap_prepare,
->  };
->  
->  static struct miscdevice mshv_vtl_low = {
-> 
+A second input, where the u64 address difference narrows to a small
+positive int, is also accepted by the unpatched code. On the
+fragment path, a negative offset likewise reaches the page copy and
+faults on an unmapped address. With this patch applied, all of
+these inputs are rejected (-ENOBUFS on the normal path, -EINVAL on
+the fragment path) and no KASAN report or fault is produced.
