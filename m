@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.226
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419506;
-	b=ZQjojCZw+Hw6lUZ31VXuzbNXvAqncFvoAfZhdEE5bnIwVKMJj9LT8tNWy6jPqCcEu1yK
-	 hDO1UdP4ahv6vMOlSN7+wvHUME8Qlqu2h0jQUSMfZUCiE5aAndypZyXKXtPr6oNup2KmJ
-	 of3GMHB7OaOWbyTYR9S9ElZTL7HOkNA6HHxu9NiSrREzF3RysQzI+RUVBA6G3am4D/ONl
-	 ZlCzjXAkSxKHUtlK9/GF9zi8j/qeJfb429L9L7uijyuarUvZk8nMEjthIID3zNGOE0Sys
-	 bflUBteFhA/VeoWhexgTj+quv3k44xQq9AbX6JHsg/Zwf4eJ+zjf8jPOnqHbGHVZHTg==
+	t=1795419825;
+	b=VkfprUNVPiDoiHkgKBpTa2SDyn7d4L/Wpy84Ltgo+hOj0wgK+BQGnz6SxtxBpgIJdFVf
+	 0XGYY44rGZyxp3rIRvZW8pLkPrE20xU63h2pRWI7eXwN5/MJW0rbtyPYxCz6tYluNBsxO
+	 +IOTsonMSkywkb+3CFiEXCtLssrjCI3o0VIriLmOlLbQkHuu+Ja/uw0/oJGAjeFKUIZUa
+	 P6j3lvLp+zycbYH8dsN3YmFGmxIMxWHZXN0S13MLSkcw6S13LTP7/Q43ZPmVKfXHuuOP8
+	 oclt7Ogvvmhfz1ykpXddEpvyStM2RVsc0hCRvMAeCvHvVQTQGg8Qo0h0CfrHKqtZUxg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419506;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=4laaKLfX4uJEPj6sLMh6dLUw+QSNFTgGaTatAnmhhIJUhzDcHo/QhhUMkJkgcd48Bmfp
-	 WUa8+PqCp70PFDCAnF8VJOj6ppWj7qBZI81W1yGAKsXfURhrZe+tRaVIfZ3g7jT8cuZ7C
-	 Mv/KmwxNoPSJAumyj6JfU/lfhcoDQlLC7fDhLEBjuubwKXm6BDco+FeZkZr6ShLS3eY4r
-	 UlxAYaHnFTlapC3bSXdaIjrqiJROuceOJLYDmMDe1I8O1AXjZs/jt/BUbauT2c89l2tCd
-	 zf+ww1WdZbwefV42I3IdBxmCbAAVO4fd7HkXlr0+HUi4dd0icA+UbfuSMB4elMsUPWg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795419825;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
+	b=vUj8hCuRoe/jFz1TW/vG1hY69blsdJhr60JfjNyfNACUk5Wv0Ru16NuehNCaqK5CV8w0
+	 6EmWaERYbYJ11izyNM7clDCLTbtwZEDI55WHFSVnSCLO/gCN/WT//m8T1uE1WU+vq/wZn
+	 7iZh4ouShPTTm76Fvl6fnaORnAt/qMV7kMRhbSrkQGFYAa9KNtdd5Y60lQDeLhVh/+2HS
+	 KTNk+ueSv7BwqYe5l47bN0xAHe+1bCnWOIT3Fe0UrOYYm01ZOejsvUhJBM5ZBgNw45JxW
+	 eA1gNfNKdkfYP1/d2TDxRYsGDKkTJEZLl+oyFPws06ccyLocuErgVs63jstwF+0v+Rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AojOcVHh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5;
+	arc=none smtp.remote-ip=113.46.200.226
+Received: from canpmsgout11.his.huawei.com (canpmsgout11.his.huawei.com [113.46.200.226])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29517606A327
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:38:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07726606A31E;
+	Mon, 23 Nov 2026 07:43:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07726606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AojOcVHh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2111F000C4;
-	Mon, 23 Nov 2026 07:38:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795419505;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AojOcVHhLVq52qjBDNphKVC0lbkIDZGNMfKn302wfTTD/Sg9+yCmQDN9czbaZ2IEE
-	 o9mz04Ztl1xdGtiKopcILRM+x+AaqM/C6tLlns/NrbK1NrIkQFzHECtBwJO3IRL8WG
-	 OHAZSjk+BGhRoWbzHgwbxzgn1K5vPNoS6BEvF4iBSy0b/p9NIEVGPiLkAMtsyPrWcM
-	 Bpux6u1FkJ+i6JaKGpZM+w/C0+IpPDKYxiWU6hS/0paJCpgrE9Zu4h57du/075AJ19
-	 /VaZOPL03AqPJwWohBnM7b2u8tY8NIbcQhwAz3tNnTHhaPn/nsMiro+J8zp9H2GhhH
-	 aofEZ+0q8nIow==
-From: netdev-bot+sinfo@kernel.org
-To: b.lane130@outlook.com
-Cc: andreas@gaisler.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- kristoffer@gaisler.com, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net: ethernet: aeroflex: fix memory leak in greth
- probe and remove
-Date: Mon, 23 Nov 2026 07:38:24 +0000
-Message-ID: <179541950430.3294.4046271264324761830@kernel.org>
-In-Reply-To: =?utf-8?q?=3CBN8PR06MB6177818FBD04A32DAEDFC589A4452=40BN8PR06MB?=
- =?utf-8?q?6177=2Enamprd06=2Eprod=2Eoutlook=2Ecom=3E?=
-References: =?utf-8?q?=3CBN8PR06MB6177818FBD04A32DAEDFC589A4452=40BN8PR06MB6?=
- =?utf-8?q?177=2Enamprd06=2Eprod=2Eoutlook=2Ecom=3E?=
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
+	b=BSMKH+a5Oe1r9ZTzRbMJt/CRzzmm36loU/chsZd9oX5OSLT5yGFoPznBXlJSTe5CbDz2t5JwN
+	4YTEx+HTMOoSV2Jb2ENWbahGUTxSi//No8lmvTMFlqyxr2h57JVW/G9qnLOzj9c3Bc+UwsJzYLa
+	cpQM+HH0T8O7+sTOaGt7ddk=
+Received: from mail.maildlp.com (unknown [172.19.163.214])
+	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jXybk31LjzKmTk;
+	Mon, 23 Nov 2026 15:43:14 +0800 (CST)
+Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id CFC604057C;
+	Mon, 23 Nov 2026 15:43:31 +0800 (CST)
+Received: from [10.67.121.233] (10.67.121.233) by
+ kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Mon, 23 Nov 2026 15:43:31 +0800
+Message-ID: <d62f3532-5bc5-45aa-98c6-90a253c7bcb7@huawei.com>
+Date: Mon, 23 Nov 2026 15:43:30 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,30 +62,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <andrew+netdev@lunn.ch>,
+	<shenjian15@huawei.com>, <liuyonglong@huawei.com>, <chenhao418@huawei.com>,
+	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 net 4/4] net: hns3: fix use-after-free in debugfs read
+ during reset/unload
+To: <netdev-bot+sashiko@kernel.org>
+References: <20261118130330.3026625-5-shaojijie@huawei.com>
+ <179535384216.3135.13172932788054177257@kernel.org>
+From: Jijie Shao <shaojijie@huawei.com>
+In-Reply-To: <179535384216.3135.13172932788054177257@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ kwepemo500018.china.huawei.com (7.202.195.199)
 
-Hi!
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] The comment on the new `struct hnae3_handle::dbg_mutex` field in
+>    drivers/net/ethernet/hisilicon/hns3/hnae3.h reads "protect debugfs…
+>
+> --
+>
+> net: hns3: fix use-after-free in debugfs read during reset/unload
+>
+> This patch adds a dbg_mutex to struct hnae3_handle. The enet-layer debugfs
+> show callbacks take it, and so do the reset, driver unload and ethtool ring
+> resize paths, which keeps the readers away from priv->ring, priv->tqp_vector
+> and ring->desc while those are being freed. The readers also check the
+> device state on every iteration and return -EBUSY when the device is busy.
+>
+> Closes: https://lore.kernel.org/all/a0853cd9-cab5-441d-b181-8ba97f2f58b0@huawei.com/
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hnae3.h b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> index 4286af9239b01..e94cc33da8643 100644
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
+>> @@ -944,6 +944,7 @@ struct hnae3_handle {
+>>   
+>>   	u8 netdev_flags;
+>>   	struct dentry *hnae3_dbgfs;
+>> +	struct mutex dbg_mutex;	/* protect debugfs against reset/unload */
+> [Severity: Low]
+> This isn't a bug, but is this comment a little narrower and a little
+> broader than what the lock actually does?
+>
+> On the writer side, hns3_set_ringparam() also takes h->dbg_mutex around
+> hns3_init_all_ring(), the memcpy() restore and hns3_fini_ring() on the
+> backup rings:
+>
+>> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
+>> @@ -1252,6 +1252,7 @@ static int hns3_set_ringparam(struct net_device *ndev,
+>>   	if (if_running)
+>>   		ndev->netdev_ops->ndo_stop(ndev);
+>>   
+>> +	mutex_lock(&h->dbg_mutex);
+>>   	hns3_change_all_ring_bd_num(priv, new_ringparam.tx_desc_num,
+>>   				    new_ringparam.rx_desc_num);
+> Ring resize is neither a reset nor an unload, so the field comment does
+> not mention it.
+>
+> On the reader side, only the enet-layer seq_file callbacks take the
+> mutex (coal_info, rx/tx_queue_info, queue_map, page_pool_info, bd_info).
+> The hclge-layer readers that hns3_dbg_common_init_t2() registers through
+> ops->dbg_get_read_func() live under the same handle->hnae3_dbgfs tree,
+> and they never take it.
+>
+> The commit message says the mutex is "used by enet-layer debugfs
+> callbacks", but this comment is the only place in the tree that
+> describes the lock's scope.
+>
+> Could the comment say that the lock serializes the enet-layer debugfs
+> readers against the paths that free or rebuild priv->ring,
+> priv->tqp_vector and ring->desc (reset, unload and ring resize)? Then a
+> future writer would know it has to take the lock, and an hclge-layer
+> reader would not assume it is protected.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+It states what the lock is for.  I think a struct member comment isn't
+meant to enumerate every path that takes it, and covering the main cases
+should be enough.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
