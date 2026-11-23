@@ -1,79 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795459476;
-	b=RBlCnkT5Qufx72GmGoJRnESLXiTm33nSqBqtt78oPON/G0jsPYrYx1MZKMvAsYkXYNnk
-	 Ost8WaqM7UTajcrp7/dQHL8mCHQHn5Du7hE68od/u7fB7MgdbWgcIMUTFdyIvijf5YDbG
-	 y+T1MREc0gNahgK3fAIHcVNNQSD4F0p88s9rWiGnMA5ugXCVFx/Zql7igw+uCNmD1c5Gs
-	 2dX12UEZ8Iyc89xpiJGbeV6rzQEvi12ThxhfeQUXCxyu+8RCWi2Nh7nu73iQ5PzRRY4lb
-	 5jx8mFs5eEEJb/M6KMT3XDO1kgcboRs+67ZEpjP3J2/uyoxW4Eoxl054lo4z6Zct0zw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459476;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	b=rAMt+gdzKo8URmndsPf0s7BurRCHVzSPHmyiU7kcqNxKKVQjz5TygkvALbOkF5ah000R
-	 pZel0Y2+BVXmfBU6Ltt/wsiG3HIf4hWjm7dPcyzxk1Ml/skl/qazVkE3I/MJOlWTjiRwU
-	 /nrep9z4i8PKJn4/qdjOFsISR3coNLdO/BETJarE60HLl3wvVonqIkvUPx2DMEBa+/OrF
-	 nXOJpLB6I5Eq6SEJDcgHFUdqKLT817JEffZpv9+1Hiu7hzpLjnjdjBIn+zfJmDCCv+cIs
-	 Lz5CIhxbEMtgkK3euXw28SICiNUPepvIfbDcJqmw7GzvP1A8spz37EielUDAmwfgCqg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OV4JrOj5;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795459567;
+	b=QVp3Am5ikI8u9/SPfUP9AXEMq6LJ3ZxHglI4Ga2hKDUUkpfXt+kFV/q4i5Tmv+pS/psj
+	 XUsXklGCZT/AyOSi4LF0AaJeAzcb8O3teGUtORX+6qNM4kK0o9O3c3GIHSQpndw0KgoOr
+	 VA4VAMlqa7PAiTHjOH/vYw0Qv3RgZEtPElA8qbFXnENCaRMzFKNYhSBhobMKbs/SU2qQH
+	 SRggZgBSyR87/7Oad5T6Q/WTDgmuBWqrVQVHB2o5qubl5MvnMv1oe6PZTLAlYisxL4liV
+	 lSuDGbeHyI2/Gt7CPERAVCJ6JYMbL77YrnbTwF/8VleW9akYZsaYpQVHg2Gh4tCqanw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459567;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=enKWbkX9yJ0O1ZaXJxad94EUJe6VeeY5Q68gceVmBhA=;
+	b=cdpkAVce4+0ZfCEKCP878sXDDo4QcxgQOMO5PCbcbezLWKAOHh7n4bAzrCsG/4NMs0zV
+	 mLojYvdhyjPxrmkp9Rlp491ufNo6vR3cjvh0n/BIzi1TCs7ZQ/CHDilzmqhcZfpPG6fDZ
+	 73mHgM1r590ePHHFiQXhGbTesohkuyX+NCResPh4JVPtf46tFDbF6USsj0qyMbdPPjXMC
+	 /tc1P5LHbLmWLSQNNYXkmpAet5FDrnFk0r1hbqhJ9JumYwrGPEyD8mjVMAJ8NSC6KIiAg
+	 VOdmBsOb496LLx+xB64IWibVHJEgnGXe7CmvvMDx+2YsQPpIu+DxBhqSugMbW6L/qxQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aNgx8iy0;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5DB07606A327;
-	Mon, 23 Nov 2026 18:44:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AFE5606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OV4JrOj5
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795459476;
-	b=KzT7mAT98CCBciMIiudfpRF9OKpaklN1TQ9hHJo2QphWKijMdY50nGkqPACgDAGCaBg+
-	 3+DLzqdjTEx/7MKFtRqCYeNsic5GIqvjHTJJwEHW6tq+VBpGDkjTOVaSQnLfOtOk3yuFH
-	 MIdPV9u3wZNKzhBgtIBleuA3cpP3olwS3Ot437r+Ukh1OthY8e7SQJOzgs7Jvxnig0Qga
-	 8DRQuNYK4t3Pmy+8gnT18hmWcsWGZH4RVwvFCe4+DJK9DnhFBw1DIhHJf5cHN0T2vMqb0
-	 I1OyO4rjx2kMIhVbHJUx/vpePvONoMv6WwBrS9w+IGOGN9W/0DYG3iTIu2ocup5AOyg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795459476;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	b=P+sg0jvPPUNrO6bG8qQN8uIxYmMyFrvZV8iQkm/pXUkAM/XnJ9mYUCZIXPgJfKZ843mG
-	 64RzDbI7zXcamns6KDuBif044L6WW4eDw8dvqeU4nB5PSMxtBZ03H7Gij2vXJzbMdoEO9
-	 s7ULIfNS1F+6TALdr7pkKV69/1gMPU9oml1FhOvoM4N37Ar334RCkiqtlEXI1aY+tGqJ+
-	 IiG9W/6i2NAYBujBUwDjtYmz4UfDjWcGZngCrjiPWCE6wrkFB5VJ7BtEsE5dh2xpUALs3
-	 0s9NbbuJTXK4fwxOWoMmLmptkhS/NPBhwRtMlJTTA5zOYXM6rtrGuSQR3oangDkREiw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 280751F0093E;
-	Mon, 23 Nov 2026 18:44:14 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aNgx8iy0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3BC11F000CA;
+	Mon, 23 Nov 2026 18:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459476;
-	bh=hUFvvMrtcN3xKAWIZoqvLk+7RqIxx8dguKgTelmkfsM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=OV4JrOj50sAqztog0hetQwa+bPERizMvGtBxtvU3GCoAMV4MUFSdVbLurgPp1YzeE
-	 +//pchrpUTm8FWFNB3AnTbWvUwL4f2u7/FVVlHdrNWNx3SPdbNs4RX6v1OiNJBEgzX
-	 G52hOi8etMZfCPFNjr2i5To1vQetX9YSs78Di3C0W2nk0gLoaOiDJfuxx1dqsrL0W9
-	 S6Xi0Ewnf7oFNviVPb0y0OOYZ+S2g+uA7X5YixF7YGL4AoKhZZ2ee8qr/GoaTm1xjF
-	 SXuxQKRSFykuxQS8lH/i3pqEZrb3VTPmqyYCa7FtpAXoOIhrcaaCMEFdfkbaWZaadJ
-	 Gqcl8OO8U7qfA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id AB97F4C625;
-	Mon, 23 Nov 2026 18:44:13 +0000 (UTC)
-From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
-Date: Mon, 23 Nov 2026 21:44:14 +0300
-Subject: [PATCH net-next 5/5] MAINTAINERS: Add CS7542 network engine
- support
+	s=k20260515; t=1795459566;
+	bh=enKWbkX9yJ0O1ZaXJxad94EUJe6VeeY5Q68gceVmBhA=;
+	h=From:To:Cc:Subject:Date;
+	b=aNgx8iy01lqkrCLSop5IArl2F1mk++N6p/NfCjOaHE2gOlA+Dc3XJlYsJr/McmlTN
+	 9z6HwjMSJz2HOM21pSUSSh8dmevM261Y13OGR3nusvFPr5UlJTp5KnEz2s8t+aiFNr
+	 QT9cDuAK5l/85twQhGmUS2+ul1YHXt4gfifXZCVFOQQ2Ri812B6zsK0fJdKnmwutwl
+	 kqnvS9RuZeOFgiY5F7rDSbNaYr22+AwWsPJZqBtJxQB2fqLp3ifY5IEeKc9mUV+ABW
+	 CFhm2zrKv7lVKwy+VXf6iT1MGDK7zYkQLcgHeGGAl8ebii6buZ7B27YRKGqO54/2sj
+	 ZQaJdyelEjH8A==
+From: Eric Dumazet <edumazet@kernel.org>
+To: "David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>
+Cc: Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	edumazet@kernel.org,
+	Jamal Hadi Salim <jhs@mojatatu.com>
+Subject: [PATCH net] net/sched: fq_pie: clear memory_usage and flow backlog in fq_pie_reset()
+Date: Mon, 23 Nov 2026 19:46:02 +0100
+Message-ID: <20261123184602.386372-1-edumazet@kernel.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,65 +61,48 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261123-b4-cs7542-ethernet-v1-5-fdb5e8c2d508@gmail.com>
-References: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-In-Reply-To: <20261123-b4-cs7542-ethernet-v1-0-fdb5e8c2d508@gmail.com>
-To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Linus Walleij <linusw@kernel.org>, Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795459449; l=1003;
- i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
- bh=G+m7gJTK/NeHqNoGXUe2fybpj2Fx+enthhwoUjEoXRw=;
- b=7ecsMKI92CxEavAgE91R7+aRS33PjSd5cBpv9g0WV8kA+QieWXLcDOLx0NYijgRNp1xIpfZUr
- 2EjrS+tfyxXAkzlfCo2vL7KTb7EQCGjP8pVNMjP32958r/NdAhVg+4h
-X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
- pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
-X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
- auth_id=1085
-X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
-Reply-To: filipp.dunsky@gmail.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Fil Dunsky <filipp.dunsky@gmail.com>
+fq_pie_reset() frees all queued packets but does not update
+q->memory_usage, which is only decremented in fq_pie_qdisc_dequeue().
 
-Cover the Ethernet binding, network engine and reset provider under a
-dedicated CS7542 network engine entry.
+After each reset of a non-empty qdisc (dev_deactivate(), parent purge),
+the memory_usage reported in tc statistics is too high, and once it
+exceeds memory_limit the overmemory counter is incremented for every
+enqueued packet.
 
-Signed-off-by: Fil Dunsky <filipp.dunsky@gmail.com>
+Clear q->memory_usage like fq_codel_reset() does.
+
+Also clear flow->backlog, as fq_pie_timer() keeps feeding it to
+pie_calculate_probability() for flows that no longer hold packets.
+
+Found by code inspection (AI review) while looking at an unrelated
+syzbot KCSAN report in fq_pie_reset(), not reproduced.
+
+Fixes: ec97ecf1ebe4 ("net: sched: add Flow Queue PIE packet scheduler")
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>
+Signed-off-by: Eric Dumazet <edumazet@kernel.org>
 ---
- MAINTAINERS | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ net/sched/sch_fq_pie.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index d8835aeca..e5d1edd7b 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2959,6 +2959,15 @@ F:	drivers/clk/clk-cs7542.c
- F:	drivers/pinctrl/pinctrl-cs7542.c
- F:	include/dt-bindings/clock/cortina,cs7542-clock.h
+diff --git a/net/sched/sch_fq_pie.c b/net/sched/sch_fq_pie.c
+index 5982847df8f8..a5e2a83efb67 100644
+--- a/net/sched/sch_fq_pie.c
++++ b/net/sched/sch_fq_pie.c
+@@ -547,10 +547,12 @@ static void fq_pie_reset(struct Qdisc *sch)
+ 		/* Removes all packets from flow */
+ 		rtnl_kfree_skbs(flow->head, flow->tail);
+ 		flow->head = NULL;
++		flow->backlog = 0;
  
-+ARM/CORTINA SYSTEMS CS7542 NETWORK ENGINE
-+M:	Fil Dunsky <filipp.dunsky@gmail.com>
-+L:	netdev@vger.kernel.org
-+S:	Maintained
-+F:	Documentation/devicetree/bindings/net/cortina,cs7542-ethernet.yaml
-+F:	Documentation/devicetree/bindings/reset/cortina,cs7542-ne-reset.yaml
-+F:	drivers/net/ethernet/cortina/cs752x_*
-+F:	drivers/reset/reset-cs7542-ne.c
-+
- ARM/CORTINA SYSTEMS GEMINI ARM ARCHITECTURE
- M:	Hans Ulli Kroll <ulli.kroll@googlemail.com>
- M:	Linus Walleij <linusw@kernel.org>
-
+ 		INIT_LIST_HEAD(&flow->flowchain);
+ 		pie_vars_init(&flow->vars);
+ 	}
++	q->memory_usage = 0;
+ }
+ 
+ static void fq_pie_destroy(struct Qdisc *sch)
 -- 
 2.53.0
-
 
