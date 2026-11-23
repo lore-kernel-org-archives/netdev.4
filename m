@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795393816;
-	b=pfu+KDRZk1ApPcWaEUH/2Htc4enhWTTmiLyCV+rdQlECM/d8TBF4HDPoJGhk/1godtfz
-	 byfuS/IjP0oUTzmavQmFPdDxYH4tYp/tRiKPgWUt1RURPKKMl5NnOjac6zgNmPEOjtyjc
-	 eLt4tNxGqmAIsKUeU+5uvwruPNyU4BFokHZYt6Pdw0nyC2yrcHewqin+hy5/zpErbyMxZ
-	 c8MOBeTU7FWu/UfKm4c/vfFahRwaTv5dTAhywsT89yFzp8ofOtPjIdA5lSviBB6HBBs95
-	 C0AOpVrJ7SXHXs+gzRUARg/6+mvLE2T+cOBPX9EdQZKC3CruDU7Yvui1p05epv4Lasg==
+	t=1795393817;
+	b=1FYOYvwWYEg3gFJ3YGK6ITI6FDPittAdmp0cdQ8nqzZO8zEs/MkhK/cHpGE1PBj3SEqj
+	 326lstasETd+aQYukAo4+OOdHDPfgYbk/5jVEzIM+EhkVCOuP+Bsyv4bihHfqMBywyOip
+	 x1jC08RUXg+dP3MBKVSDkNvgkuTagjWTgjOZFt1fRzPjT67lF3QRGBlCZxFUo2UwMfSTi
+	 h3QtP+WCx9yhFISFF+anbWbEg8fq29OAFdymucJEKoii2wvV91ErGlAL4soX7WuKwVTiL
+	 PMZ4D2JM+foX9gOycH8aIBfK/XmomS3xNzT07z3tdUjYJNz5QSrqYjeCTtQZTtbiYUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795393816;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795393817;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=dH/UkbqszkJLI2wu0fTZ62LhzmrPUhKYHp3SyracNw0=;
-	b=vjw03rdab9WuxH3NBD18rOvQW7ozYcruJyKVBKzusAy69cDP193snC7ZQMkL0Q47L8re
-	 Mz+uHGEOpSw6BQ7peEXcVHXuDq5AtE2VhQL7Xrz0sE1H1l+D5uXEVpdhacug2LSMrHz6n
-	 lDDQIt/ifHlE1eXhF3+yPAubcPkqeFmcJJGkOCqFU8tQJNPDmq8e5PHlr4+jPrYi9Isdl
-	 lS2FedgEWXNASjJfq/3sRnIPm8BXe+qeiI4nWwBhjRigKFq1yIWtd5D0jOU7C16PDQuH3
-	 04oMGuzlji77ATEFY6BtdaK4hhmCJeiZyBD2yi91pKbrfrOLqjTW0Oe0R956HXGBBWQ==
+	bh=VQkKlQn02KLe1TCZoDSav6IRuZOp3WaThiWqEbjItY0=;
+	b=VLzbqmgwA3o9JZAN1lRX93TEcF0T1ZiNeNX1MrgQrGRNc+SCRdUqCJsqOU036GJDKjUF
+	 uk67jNrbRYAVEyMxMUVT2h16cZpG8ixOYaItbMswvNiPOrPNv80pLBj92EoqsKw8fttDV
+	 MW0us1qVoD2kPDnsv+uMByXe61Ih7QeEoud/PQcROXc/phzTg3nQDFjhNEYBCWl0duaRg
+	 BeWxXu178cEqHEwz2oHPI6p6E3Y4QVobYz84+P9hk8Yl6S4AL2w9Upap3My77CQPYqx7x
+	 uijQNt/zjrqVyInzuyi57rSvK5zyk0O5FdDksbRgPD/qLW9AxfiG9L+gluaqrbV3yyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l9xNZCxC;
-	arc=none smtp.remote-ip=209.85.219.53
-Received: from mail-qv1-f53.google.com (mail-qv1-f53.google.com [209.85.219.53])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oOMTsZoN;
+	arc=none smtp.remote-ip=209.85.219.54
+Received: from mail-qv1-f54.google.com (mail-qv1-f54.google.com [209.85.219.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96B25606A336
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:30:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96B25606A336
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2C850606A680
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:30:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2C850606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=l9xNZCxC
-Received: by mail-qv1-f53.google.com with SMTP id 6a1803df08f44-9213922de73so51943916d6.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:30:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=oOMTsZoN
+Received: by mail-qv1-f54.google.com with SMTP id 6a1803df08f44-921375f52b8so30533446d6.2
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:30:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795393814; x=1795998614; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795393815; x=1795998615; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dH/UkbqszkJLI2wu0fTZ62LhzmrPUhKYHp3SyracNw0=;
-        b=l9xNZCxC+N0UE1dMhLQ+mHfDXf1iMjQZkzOQ5Y4y93QL/3XUkNxCc3ANZlBtDweVz2
-         pm3IPKFTa//X8LR1CSLyGhCWyETkIhk1UPU253QWN++/LFeonDURs/BgttWxTK/jdW42
-         2KVKUPu5gr7nROZOu7z23BFm6tWAPGXbPFqsjmyOL3U51iYW23nXCrw6fgrKxEyznJPB
-         ANBHnJkm71quwxr7IoOEnm7Aiuxtes5cWoIaA737whEEJmA7QhPwHFDhDfXLzJ76c0hI
-         I64fnYB8EJ6p8SpAmw1c3lUMj4pWBIZlqRrJa9nDUAVtAZI1YU1LcOH93NFZPu7hmGC5
-         /qGA==
+        bh=VQkKlQn02KLe1TCZoDSav6IRuZOp3WaThiWqEbjItY0=;
+        b=oOMTsZoN2oubJvnoV7NCwCTHsBvjcw+NOUEuWuM6Xjzh0QLN+cIvXwz2yeawaY9I6n
+         MCl0eJtaG8Yjr+MyHoMZkfoi0ZJV1ocQ9EBuZxnlUvGGLnYqLUtxH8cEbo6oMUXgghnw
+         iOeHdu37PsK/5qE3ngYVeGQ6Cb/BzRAgiBzmf6tatAtU6yvngLN0djnHaFgLvqvprVer
+         D3dD8djGCpSZMFkRlO89LIpU1nLBgNhCwHC7X1utOPmYHer6Oa6sT49l8O2fLUOiak5I
+         Oir5cSTnPr91KEfMecRnN2RayYju9bJT2IemrkIU9DtJBb9MqPVKycRp4xQaKoS3v7A0
+         uDFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795393814; x=1795998614;
+        d=1e100.net; s=20260707; t=1795393815; x=1795998615;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dH/UkbqszkJLI2wu0fTZ62LhzmrPUhKYHp3SyracNw0=;
-        b=IbqhDUM/ulu5EDni4yXARMV34Xd4b4OU2bSBagF1NrSk+JGLCKaFx8eqPyI2ZVGfWD
-         n+M9djT0bVoOz1/vCfkA+wnVp8YsTo4fEjnxcq9wGR7EKnp5CWXr/4pc3qy527N+vKCl
-         FleC3fyO3E6pe8Z6/0/smiZc8o++9t0A4Derrb0I2q6ojpyqvnQPJtXeXd6+8eaw69eH
-         uk3Xi/xoETod3JtqFcEQ2w500919P29JFmfzKOB/eCx8dtFbIF+9z41L+GshM1L9N7so
-         Rg8gtA60me51QCGWj0vJsl6FcIdR0dZZ6Han7qyWLnH0+466bSQcZJN6GeKOB2mqS+VO
-         Ytpw==
-X-Gm-Message-State: APuU4Z8XK7VfOPzmY4th716tj5wq4nZH9igzIvEHq0svVxZgQaYDZtWt
-	oJKbbtUGkOzsfInSQ61CFfjPuZsu4as2yce6eMwjkbjuHuGS2CaELZd/FcHabrNg
-X-Gm-Gg: AZFdTZcr6mYmOAU2rFySC9Qcww0hKmNBWCZfbxm/r4IDbHLTg8MkOr9cn7zmzQ72XYa
-	tJ99FoJuDBAaI0GVm/dLsZcTfZAiH8rF11l1kxtto9FNNX1B3FxpYiLJ+jfvR5W+iBjJyqE5WZK
-	Xjh0XCaBHQfaJ15TZ5AlhgkprnMeJoR7y1xpXMIe53xJPPwHVlfBFTYP5tAjg/YSFJLbJOsh2kL
-	9SG5hemnAKlogimoi8BLya889/psUnhoLJKvO/4s7Og8Q97XOOfc5eQ8iLNCcVnwEN4jeSSR/ZS
-	zAdxiT2NOjXZX//lHyIhT3CcqdN1lGz7S2SjD97p5hJYjhWi2xQkrjUcUKL4m40ffsPxyimilNd
-	XIvs5ypVrgSeONXlxhfAnjrMbFvGAnO2YuQ2WMBDdKGNblv7AxasY9Gtg9rAziS1zs+GdAQWXRH
-	4EsRRp72/eG2ylevgRIySrXpxt0i8PsEObv+Ts9dNKn6Ec3PBcVhIEyaM9BH9NoDYMUwEGTp6+X
-	SHWeYcmTlOVCgnNq82Jgf69b2rS7VCEJ3Vb7NE7PKn52fHJ43PZ/ql2SxNSHGGnh3UZ7nHRA6a5
-	0ru5ZRuyky/0pkU4GwSdguEOOGmXfdw6RvPdxQWXW4MrxKMNZ8oiVszQpq9y6wTDwY6ZL/hC7Di
-	o+v7op/EfAtQKrqkJG2UT/bparnM3oHC5dLlFrBPrMWta9EBsTQQ6hC0dWuDNFAEDtQyJjIc=
-X-Received: by 2002:ad4:5f4d:0:b0:91b:b26a:9791 with SMTP id 6a1803df08f44-92134b6338dmr181348656d6.56.1795393807528;
-        Sun, 22 Nov 2026 16:30:07 -0800 (PST)
+        bh=VQkKlQn02KLe1TCZoDSav6IRuZOp3WaThiWqEbjItY0=;
+        b=aIhLRkrWLYrU/t/SgBJ4+xzdon+iTuH9FkI+8y3QQmliHiFLP6I8q3tOSF47b57Syv
+         zxoXF4nRenwEZ3cod5LbGZEZr0oQlWG3n63AVgn6aSEqlYEFZKj9YG9zu3k+8/fz9ieu
+         YPNnsy8p87mShXVmkve8U1HlegD3RabqJhBNcHyHi6DXUy0xk2nYnrBdSy0qeb5tQ+Oj
+         dNMlNCMmMPqrqgnLpl8mzQM3kYBwKAvvRHq+Y0/Pgzz89Q6+k+2LHd8wz5LzV8LtSAo9
+         VSww+LUtcKplyAJ6ElVLnJf7fl1eASHbrI5Mrc7gRRLWi5Trum+D+RxNnrm1fWyfw4r1
+         X1Cg==
+X-Gm-Message-State: APuU4Z8K9ivBSfj6MOF8uHowvKeE+lxB+B5vNpktBFzGlh55VYA/FVa7
+	iUAtK1wbtWuDYd1l37YF6T7/uu3mMGYZKypGagq6Or74eZAO1N4oJ2ML2kGqxnck
+X-Gm-Gg: AZFdTZfJpJbmr+1FEK+raNA1PrZfwOMrH26iAHjAx4WTjGFHiX4WLqi391FmboeRhVb
+	ftWFRsC63kTO3SayBIXPqxmnxV7EeOm9w4h1oAJNZj+JN/Eo/87DLwsj2RdZ6A7vbFptDPh1UnB
+	hSuQBc1i8e/eSqvBieySFKgYlbn3Is/f7ypaQgxTYcCupRLa3Eaa8/kAxIfmsCwj5W2JFADGK62
+	y1Rzy9RPUxuzKt4wF8t/kjLvb4id2MP9MLGsrOYs/i3JLlZmA3j+xnC0q2YP6bog2ORMB64qdym
+	A5Cq5dfuUL5XRGB9e9xmy1cV05mt05BB1uOW2fqHpeskc4+iXdoxIGGDDNE8sQ3ET52mJ9tngCy
+	APk03BaljOsd2QOKOcSpRhODEw1uYP09K0btKq2TKSOgRoAevph7hoW3i7i2cbOQmNIDwSSgm3t
+	1jIiRL/vOCxX/RvHcv7CPL+dRHlptCXKUgB3VCihzSeQo1IvDZJG6SuqlDRJXbKa/LvLxDQW+uQ
+	Ip6ZiN15T94MJEddiHBWOmn90poDghChINCiwl5PCqVky0YK5zge6D3E/KTI8SoMkwv6IUg462T
+	POye7JsnUPnZDKvcSxC25kWFfs+0+JXobFzhposmxvlSANp3xCefdy+gk93WuyVi9MCp3T0xfIy
+	AAnySrwULGIS9aI9rJME7PBTeuUBn4pP0F/UFTu3qDfBHS3OlqUJG7VN1ebCIVnjRGgip9ww=
+X-Received: by 2002:a05:6214:848e:10b0:921:1d53:9a9d with SMTP id 6a1803df08f44-92134ab93ccmr135846666d6.20.1795393814952;
+        Sun, 22 Nov 2026 16:30:14 -0800 (PST)
 Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm91433716d6.21.2026.11.22.16.30.06
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm91433716d6.21.2026.11.22.16.30.13
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 16:30:07 -0800 (PST)
+        Sun, 22 Nov 2026 16:30:14 -0800 (PST)
 From: Xin Long <lucien.xin@gmail.com>
 To: network dev <netdev@vger.kernel.org>,
 	quic@lists.linux.dev
@@ -116,9 +116,9 @@ Cc: davem@davemloft.net,
 	mef@scarletmail.rutgers.edu,
 	paul@jakma.org,
 	Kuniyuki Iwashima <kuniyu@google.com>
-Subject: [PATCH net-next v19 05/15] quic: provide quic.h header files for kernel and userspace
-Date: Sun, 22 Nov 2026 19:28:01 -0500
-Message-ID: <a990b64f391e7d1bc7871f947134c2cd2c811178.1795393691.git.lucien.xin@gmail.com>
+Subject: [PATCH net-next v19 10/15] quic: add packet number space
+Date: Sun, 22 Nov 2026 19:28:06 -0500
+Message-ID: <095039b2ac3108167adb3124f1ce5d2f66ba13c0.1795393691.git.lucien.xin@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <cover.1795393690.git.lucien.xin@gmail.com>
 References: <cover.1795393690.git.lucien.xin@gmail.com>
@@ -133,229 +133,479 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This commit adds quic.h to include/uapi/linux, providing the necessary
-definitions for the QUIC socket API. Exporting this header allows both
-user space applications and kernel subsystems to access QUIC-related
-control messages, socket options, and event/notification interfaces.
+This patch introduces 'quic_pnspace', which manages per packet number
+space members.
 
-Since kernel_get/setsockopt() is no longer available to kernel consumers,
-a corresponding internal header, include/linux/quic.h, is added. This
-exposes quic_do_get/setsockopt() to handle QUIC socket options directly
-for kernel subsystems.
+It maintains the next packet number to assign, tracks the total length of
+frames currently in flight, and records the time when the next packet may
+be considered lost. It also keeps track of the largest acknowledged packet
+number, the time it was acknowledged, and when the most recent ack
+eliciting packet was sent. These fields are useful for loss detection,
+RTT estimation, and congestion control.
 
-Detailed descriptions of these structures are available in [1], and will
-be also provided when adding corresponding socket interfaces in the
-later patches.
+To support ACK frame generation, quic_pnspace includes a packet number
+acknowledgment map (pn_map) that tracks received packet numbers.
+Supporting functions are provided to validate and mark received packet
+numbers and compute the number of gap blocks needed during ACK frame
+construction.
 
-[1] https://datatracker.ietf.org/doc/html/draft-lxin-quic-socket-apis
+- quic_pnspace_check(): Validates a received packet number.
+
+- quic_pnspace_mark(): Marks a received packet number in the ACK map.
+
+- quic_pnspace_num_gabs(): Returns the gap ACK blocks for constructing
+  ACK frames.
+
+It also tracks ECN counts and provides helpers to validate peer ECN counts
+per rfc9000#section-13.4.2.1.
+
+Note QUIC uses separate packet number spaces for each encryption level
+(APP, INITIAL, HANDSHAKE, EARLY) except EARLY and all generations of
+APP keys use the same packet number space, as describe in
+rfc9002#section-4.1.
 
 Signed-off-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Tyler Fanelli <tfanelli@redhat.com>
-Signed-off-by: Stefan Metzmacher <metze@samba.org>
-Signed-off-by: Thomas Dreibholz <dreibh@simula.no>
 Acked-by: Paolo Abeni <pabeni@redhat.com>
 ---
 Sashiko, do not report any of the following concerns:
-  - Ignore the implicit trailing padding in these UAPI structures causing
-    a size mismatch between 32-bit and 64-bit systems for struct
-    quic_stream_info and struct quic_errinfo. The kernel does not require
-    an exact minimum size; it copies as much data as is available.
+  - Ignore the concern about valid reordered packets being rejected when
+    their packet number is smaller than min_pn_seen in
+    quic_pnspace_check(). The QUIC packet number decoding and duplicate
+    detection logic requires maintaining a lower bound for the packet
+    numbers that can still be tracked. Packets arriving below this window
+    are treated as too old, which is expected behavior.
 
-  - Ignore the concern about errcode being limited to __u32. __u32 is
-    sufficient for all currently defined QUIC error codes, so there is no
-    truncation for the error codes currently supported by the
-    implementation.
+  - Ignore the concern about incorrectly reporting packets as missing when
+    the maximum number of gap acknowledgment blocks is reached in
+    quic_pnspace_num_gabs(). QUIC ACK frames have a bounded number of ACK
+    ranges in this implementation. When the limit is exceeded, the ACK
+    generation logic intentionally sacrifices older range precision and
+    preserves the most recent acknowledgment information.
 
-  - Ignore the concern about frame being limited to __u8. __u8 is
-    sufficient for all currently supported QUIC frame types, so no
-    supported frame type is truncated.
+  - Ignore the concern about an out-of-bounds ECN index. The callers of
+    quic_pnspace_inc_ecn_acked() and quic_pnspace_inc_ecn_local() will
+    guarantee ecn <= QUIC_ECN_MAX in the next patchset.
 
-  - Ignore the concern about the MSG_* symbols being unavailable in user
-    space. These MSG_* flags are defined by glibc's <sys/socket.h>. The
-    build failure comes from the kernel header test using
-    dummy-include/sys/socket.h, which does not define these flags.
-    Therefore, linux/quic.h is intentionally added to no-header-test to
-    skip this kernel-side dummy-header test; this does not affect normal
-    userspace builds.
+  - Ignore the concern about a missing third ECN validation condition in
+    quic_pnspace_validate_ecn(). RFC 9000 section 13.4.2.1 explicitly
+    allows the total increase in ECT(0), ECT(1), and ECN-CE counts to
+    exceed the number of newly acknowledged packets, for example when an
+    earlier ACK was lost. The function correctly implements the required
+    ECN validation checks; no additional total-increase check is needed.
 
-  - Ignore the concern about MSG_QUIC_NOTIFICATION overlapping with SCTP's
-    MSG_NOTIFICATION. These flags are interpreted in the context of the
-    respective protocol/socket, so the shared numeric value does not
-    create ambiguity between QUIC and SCTP.
+  - Ignore the concern about initializing base_pn to pn + 1 in
+    quic_pnspace_mark(). This does not imply that packets below pn were
+    received; it only means packet numbers below pn are not tracked when
+    generating ACK/SACK information. Missing packets below the first
+    received packet therefore do not result in false acknowledgments.
 
-  - Ignore the concern about the current -EOPNOTSUPP stubs.
-    quic_do_setsockopt() and quic_do_getsockopt() are exported in this
-    patchset as placeholders and will be implemented in the next patchset.
-    The exports are intentional so the required interfaces are established
-    before their full implementations land.
+  - Ignore the concern about quic_pnspace_mark() not validating the packet
+    number range. Callers always invoke quic_pnspace_check() before
+    quic_pnspace_mark(), so the input has already been validated. Adding
+    the same range check again in quic_pnspace_mark() would be redundant.
 
-  - Ignore the concern about union quic_event exposing unrelated data.
-    quic_event is used as a container to format notification data, and the
-    event type determines which union member is valid. The actual
-    notification path will access and copy only the corresponding member
-    for the event type rather than treating the entire union as valid data.
+  - Ignore the concern about memcg accounting for the packet number space
+    structures. Each struct quic_pnspace is only about 184 bytes, or
+    roughly 552 bytes per socket for all three spaces. The larger
+    allocations, including the packet number bitmaps and stream hash table,
+    are already memcg-accounted, so the unaccounted overhead is negligible
+    and does not pose a meaningful memcg bypass risk.
 
-  - Ignore the concern about MSG_QUIC_STREAM_SNDBLOCK and
-    MSG_QUIC_NOTIFICATION overlapping with generic MSG_ERRQUEUE and
-    MSG_MORE. These flags are interpreted by the QUIC-specific send/recv
-    paths and are not passed through the corresponding generic socket paths
-    with their QUIC-specific meaning. The existing values are intentional
-    for compatibility with the QUIC socket API.
+  - Ignore the concern about freeing packet number spaces before connection
+    ID teardown in quic_destroy_sock(). The socket is marked closed before
+    destruction, and lock_sock() prevents incoming packets from accessing
+    it during teardown.  Backlogged packets are dropped by the closed-state
+    check, deferred work is flushed, and timers are stopped before the
+    spaces are freed. Therefore, no current code path can access the freed
+    spaces.
 
-  - Ignore the concern about the stream state enum values changing. The
-    stream state values are stable now and are already defined as the
-    intended stream state identifiers. There is no planned renumbering or
-    insertion that would change the existing values.
+  - Ignore the concern about the initial has_gap() result.
+    quic_pnspace_mark() checks base_pn == -1 first and calls
+    quic_pnspace_set_base_pn() to initialize the related fields before
+    quic_pnspace_has_gap() can be reached. The other caller,
+    quic_pnspace_num_gaps(), is only invoked when generating an ACK in
+    response to a received packet, so this initialization has already
+    happened.
 
-  - Ignore the concern about SOL_QUIC being missing from the QUIC UAPI
-    header. SOL_QUIC is provided by linux/socket.h from glibc in userspace,
-    so applications including the standard socket headers can use SOL_QUIC
-    directly without hardcoding its numeric value.
-
-  - Ignore the concern about QUIC_CRYPTO_SECRET_BUFFER_SIZE being limited
-    to 48 bytes. The current cipher suites fit within this size, and the
-    structure can be safely extended later if a future cipher suite
-    requires a larger secret.
-
-  - Ignore the concern about max_streams_bidi and max_streams_uni being
-    limited to 65,535. A 65,535-stream limit is sufficient for the intended
-    use cases, so there is no need to expand these fields for the currento
-    UAPI.
-
-  - Ignore the concern about implicit enum values in the UAPI enums. The
-    current implicit numbering is intentional and sufficient for these
-    enums, so there is no need to assign the values explicitly.
-
-  - Ignore the concern about the _MAX enum values being part of the UAPI.
-    QUIC_CRYPTO_MAX, QUIC_CONG_ALG_MAX, and QUIC_EVENT_MAX are used as
-    internal sentinel values and are not intended to define a userspace ABI
-    limit. Their presence in the UAPI header is fine.
-
-  - Ignore the concern about using IS_REACHABLE(CONFIG_IP_QUIC) here.
-    IS_REACHABLE() is intentional because a built-in kernel consumer cannot
-    directly reference symbols provided by CONFIG_IP_QUIC=m. Using
-    IS_ENABLED() would expose the real declarations to built-in consumers
-    when QUIC is modular, resulting in unresolved references to symbols
-    that only exist in quic.ko. IS_REACHABLE() correctly provides the
-    -EOPNOTSUPP stubs when QUIC is not reachable from the current
-    compilation unit.
-
-  - Ignore the concern about the missing phrase length field in struct
-    quic_connection_close. Although QUIC reason phrases are not
-    null-terminated on the wire, the kernel exposes phrase to userspace as
-    a null-terminated string, so userspace can determine its length using
-    the terminating '\0'. The interface intentionally does not require a
-    separate length field.
-
-  - Ignore the concern about using __u32 for active and prior_to in struct
-    quic_connection_id_info. Although RFC 9000 permits larger
-    variable-length values, sending or receiveing billions of
-    NEW_CONNECTION_ID frames on a single connection is considered abnormal.
-    Such excessive values will be rejected by the implementation in the
-    next patchset, so the 32-bit UAPI fields are intentional.
-
-  - Ignore the concern about reusing generic MSG_* values for QUIC-specific
-    flags. These aliases are intentional UAPI definitions for QUIC sockets
-    and allow the QUIC-specific flags to pass through the generic
-    sendmsg()/recvmsg() filtering paths. The flags are interpreted
-    according to the QUIC socket API, so standard MSG_EOR/MSG_RST semantics
-    are not applicable here.
-
-  - Ignore the concern about union quic_event lacking a type discriminator.
-    The event type is provided separately and union quic_event is only used
-    to parse the event-specific payload; it is not intended to contain the
-    type itself. Embedding the __u8 type at the beginning would also
-    introduce unwanted padding and memory holes in the UAPI layout.
-
-v2:
-  - Fix a kernel API description warning, found by Jakub.
-  - Replace uintN_t with __uN, capitalize _UAPI_LINUX_QUIC_H, and
-    assign explicit values for QUIC_TRANSPORT_ERROR_ enum in UAPI
-    quic.h, suggested by David Howells.
-v4:
-  - Use MSG_QUIC_ prefix for MSG_* flags to avoid conflicts with other
-    protocols, such as MSG_NOTIFICATION in SCTP (reported by Thomas).
-  - Remove QUIC_CONG_ALG_CUBIC; only NEW RENO congestion control is
-    supported in this version.
 v5:
-  - Add include/linux/quic.h and include/uapi/linux/quic.h to the
-    QUIC PROTOCOL entry in MAINTAINERS.
+  - Change timestamp variables from u32 to u64 and use quic_ktime_get_us()
+    to set max_pn_acked_time, as jiffies_to_usecs() is not accurate enough.
+  - Reorder some members in quic_pnspace to reduce 32-bit holes (noted
+    by Paolo).
 v6:
-  - Fix the copy/pasted the uAPI path for SCTP to the QUIC entry (noted
-    by Jakub).
-v7:
-  - Expose quic_do_get/setsockopt() instead of quic_kernel_get/setsockopt()
-    (suggested by Paolo).
+  - Note for AI reviews: it's safe to do cast (u16)(pn - space->base_pn)
+    in quic_pnspace_mark(), as the pn < base_pn + QUIC_PN_MAP_SIZE (4096)
+    validation is always done in quic_pnspace_check(), which will always
+    be called before quic_pnspace_mark() in a later patchset.
+  - Note for AI reviews: failures in quic_pnspace_init() do not result in a
+    pn_map leak in quic_init_sock(), because quic_destroy_sock() is always
+    called to free it in err path, either via inet/6_create() or through
+    quic_accept() in a later patchset.
+v8:
+  - Replace bitfields with plain u8 in struct quic_pnspace.
 v10:
-  - Fix typo: 'extented' -> 'extended' (noted by AI review).
-  - Add comment for inclusion of sys/socket.h in uapi quic.h.
-  - Add uses-libc += linux/quic.h in usr/include/Makefile to fix the new
-    build error.
-  - Delete config from struct quic_sock, its members will be split into
-    other subcomponents in the future patches.
-  - Add explicit reserved fields to multiple structs to account for
-    implicit padding and ensure UAPI stability.
-  - Expand reserved fields in struct transport_param and config, handshake
-    and stream_info to allow future extensions without breaking the UAPI.
+  - Fix a grammar error in the comment of quic_pnspace_check().
 v11:
+  - Note for AI reviews: RFC 9000 does not define integer IDs for packet
+    number spaces. In this implementation, App=0, Initial=1,
+    Handshake=2, and Early maps to 0 (3 % 3).
   - Set maximum line length to 80 characters.
-  - Drop trailing reserved fields in structs and rely on
-    copy_struct_to/from_user() for extensibility; keep reserved fields
-    in the middle to indicate memory holes.
+  - clear space->pn_map pointer after free in quic_pnspace_free().
+  - Change quic_pnspace_grow() to return negative errno on failure or 0
+    on success.
+  - Change return type of quic_pnspace_next_gap_ack() and
+    quic_pnspace_set_ecn_count() to bool.
+  - Return -EINVAL instead of -1 on failure in quic_pnspace_check().
 v12:
-  - Make the phrase field in struct quic_connection_close a fixed-size
-    array.
-  - Add QUIC_TRANSPORT_ERROR_VERSION_NEGOTIATION for late use.
-  - Add keepalive_probe_interval to struct quic_config to make keepalive
-    probing configurable.
-  - Relace uses-libc += linux/quic.h with no-header-test += linux/quic.h
-    in usr/include/Makefile to fix the new build error.
-  - Add forward declaration for struct sock in include/linux/quic.h.
+  - Initialize max_pn_acked_seen to -1 in quic_pnspace_init().
+  - Allow large packet number jumps when processing higher PN values
+    (>= base_pn + QUIC_PN_MAP_SIZE) in quic_pnspace_check(),
+    quic_pnspace_mark(), and quic_pnspace_grow().
+  - Call quic_pnspace_has_gap() before updating max_pn_seen in
+    quic_pnspace_mark().
+  - Rename ECN-related helpers:
+    quic_pnspace_set_ecn_count() -> quic_pnspace_set_ecn_peer(),
+    quic_pnspace_has_ecn_count() -> quic_pnspace_has_ecn_local(),
+    quic_pnspace_inc_ecn_count() -> quic_pnspace_inc_ecn_local().
+  - Add QUIC_ECN_ACKED and introduce quic_pnspace_inc_ecn_acked(),
+    quic_pnspace_reset_ecn_acked(), and quic_pnspace_validate_ecn() for
+    validating ECN counts in ACKs.
+  - Add sack_pending field in struct quic_pnspace for later use in sack
+    piggybacking.
+v14:
+  - Pass gfp flags to quic_pnspace_mark() and quic_pnspace_grow().
+  - Add more pn checks in quic_pnspace_check().
+  - Remove dead code from the else branch in quic_pnspace_init().
 v15:
-  - Add stub definitions for quic_do_setsockopt() and quic_do_getsockopt()
-    when IS_REACHABLE(CONFIG_IP_QUIC) is false.
-  - Change MSG_QUIC_STREAM_DONTWAIT from MSG_WAITFORONE to MSG_EOR to avoid
-    being filtered out by MSG_INTERNAL_SENDMSG_FLAGS in ____sys_sendmsg().
+  - Use a sliding-window approach in quic_pnspace_num_gabs() to preserve
+    the most recent gaps when their total number exceeds
+    QUIC_PN_MAP_MAX_GAPS.
+  - Improve the annotation for quic_pnspace_check().
 v16:
-  - Update the function annotations for quic_do_set/getsockopt() to reflect
-    its actual usage, as optval argument can point to either a user or
-    kernel buffer (noted by Sashiko AI review).
+  - Correct the quic_pnspace_num_gabs() annotation to reflect that at most
+    QUIC_PN_MAP_MAX_GABS - 1 gaps are preserved individually, with the
+    remaining gap reserved for merging older gaps (noted by Sashiko AI
+    review).
+  - Clarify that min_pn_seen in struct quic_pnspace represents the lower
+    bound of the trackable packet number window, rather than simply the
+    smallest packet number received (noted by Sashiko AI review).
+  - Improve pnspace.c file description.
+  - Fix pn_map comment for last_max_pn_time and Gap Search Range.
+v17:
+  - Update the comment to document that the packet count condition uses the
+    minimum of last_max_pn_seen and base_pn when deciding whether to
+    advance pn_map.
+  - Account pn_map allocations to memcg in quic_pnspace_init() and
+    quic_pnspace_grow() and converts the code to use the bitmap API
+    (bitmap_zalloc, bitmap_free).
 v18:
-  - Change frame in struct quic_connection_close from u8 to u32 to avoid
-    truncating frame types in the next patchset.
-  - Add an explicit reserved field to the end of struct quic_stream_info
-    and struct quic_errinfo to replace implicit trailing padding caused by
-    the __s64 and __u32 field alignment on 64-bit architectures.
+  - Allocate packet number space structures separately instead of embedding
+    them in struct quic_sock.
 ---
- MAINTAINERS               |   2 +
- include/linux/quic.h      |  38 ++++++
- include/uapi/linux/quic.h | 242 ++++++++++++++++++++++++++++++++++++++
- net/quic/socket.c         |  36 +++++-
- net/quic/socket.h         |   1 +
- usr/include/Makefile      |   1 +
- 6 files changed, 316 insertions(+), 4 deletions(-)
- create mode 100644 include/linux/quic.h
- create mode 100644 include/uapi/linux/quic.h
+ net/quic/Makefile  |   2 +-
+ net/quic/pnspace.c | 273 +++++++++++++++++++++++++++++++++++++++++++++
+ net/quic/pnspace.h | 201 +++++++++++++++++++++++++++++++++
+ net/quic/socket.c  |  26 +++++
+ net/quic/socket.h  |   7 ++
+ 5 files changed, 508 insertions(+), 1 deletion(-)
+ create mode 100644 net/quic/pnspace.c
+ create mode 100644 net/quic/pnspace.h
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 2e624819d0de..08b398a09a15 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -23368,6 +23368,8 @@ M:	Xin Long <lucien.xin@gmail.com>
- L:	quic@lists.linux.dev
- S:	Maintained
- W:	https://github.com/lxin/quic
-+F:	include/linux/quic.h
-+F:	include/uapi/linux/quic.h
- F:	net/quic/
+diff --git a/net/quic/Makefile b/net/quic/Makefile
+index 4d4a42c6d565..9d8e18297911 100644
+--- a/net/quic/Makefile
++++ b/net/quic/Makefile
+@@ -6,4 +6,4 @@
+ obj-$(CONFIG_IP_QUIC) += quic.o
  
- RADEON and AMDGPU DRM DRIVERS
-diff --git a/include/linux/quic.h b/include/linux/quic.h
+ quic-y := common.o family.o protocol.o socket.o stream.o connid.o path.o \
+-	  cong.o
++	  cong.o pnspace.o
+diff --git a/net/quic/pnspace.c b/net/quic/pnspace.c
 new file mode 100644
-index 000000000000..51c099e9547f
+index 000000000000..fcf68f0df184
 --- /dev/null
-+++ b/include/linux/quic.h
-@@ -0,0 +1,38 @@
++++ b/net/quic/pnspace.c
+@@ -0,0 +1,273 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/* QUIC kernel implementation
++ * (C) Copyright Red Hat Corp. 2023
++ *
++ * This file is part of the QUIC kernel implementation
++ *
++ * Packet number space management.
++ *
++ * Written or modified by:
++ *    Xin Long <lucien.xin@gmail.com>
++ */
++
++#include <linux/slab.h>
++
++#include "common.h"
++#include "pnspace.h"
++
++int quic_pnspace_init(struct quic_pnspace *space)
++{
++	space->pn_map = bitmap_zalloc(QUIC_PN_MAP_INITIAL, GFP_KERNEL_ACCOUNT);
++	if (!space->pn_map)
++		return -ENOMEM;
++	space->pn_map_len = QUIC_PN_MAP_INITIAL;
++
++	space->max_time_limit = QUIC_PNSPACE_TIME_LIMIT;
++	space->next_pn = QUIC_PNSPACE_NEXT_PN;
++	space->max_pn_acked_seen = -1;
++	space->base_pn = -1;
++	return 0;
++}
++
++void quic_pnspace_free(struct quic_pnspace *space)
++{
++	bitmap_free(space->pn_map);
++	space->pn_map = NULL;
++	space->pn_map_len = 0;
++}
++
++/* Expand the bitmap tracking received packet numbers.  Ensures the pn_map
++ * bitmap can cover at least @size packet numbers.  Allocates a larger bitmap,
++ * copies existing data, and updates metadata.
++ *
++ * Return: 0 on success, or a negative errno value on failure.
++ */
++static int quic_pnspace_grow(struct quic_pnspace *space, u16 size, gfp_t gfp)
++{
++	u16 len, inc, offset;
++	unsigned long *new;
++
++	inc = ALIGN((size - space->pn_map_len), BITS_PER_LONG) +
++	      QUIC_PN_MAP_INCREMENT;
++	len = (u16)min(space->pn_map_len + inc, QUIC_PN_MAP_SIZE);
++
++	new = bitmap_zalloc(len, gfp | __GFP_ACCOUNT);
++	if (!new)
++		return -ENOMEM;
++
++	offset = (u16)(space->max_pn_seen + 1 - space->base_pn);
++	bitmap_copy(new, space->pn_map, offset);
++	bitmap_free(space->pn_map);
++	space->pn_map = new;
++	space->pn_map_len = len;
++
++	return 0;
++}
++
++/* Check if a packet number has been received.
++ *
++ * Returns: 0 if the packet number has not been received.  1 if it has already
++ * been received. -EINVAL if the packet number is invalid (out of range 0 to
++ * QUIC_PN_MAX) or too old to track (below min_pn_seen).
++ */
++int quic_pnspace_check(struct quic_pnspace *space, s64 pn)
++{
++	if (pn > QUIC_PN_MAX || pn < 0)
++		return -EINVAL;
++
++	if (space->base_pn == -1) /* No packet number received yet. */
++		return 0;
++
++	if (pn < space->min_pn_seen)
++		return -EINVAL;
++
++	if (pn < space->base_pn)
++		return 1;
++	if (pn - space->base_pn < space->pn_map_len &&
++	    test_bit(pn - space->base_pn, space->pn_map))
++		return 1;
++
++	return 0;
++}
++
++/* Advance base_pn past contiguous received packet numbers.  Finds the next gap
++ * (unreceived packet) beyond @pn, shifts the bitmap, and updates base_pn
++ * accordingly.
++ */
++static void quic_pnspace_move(struct quic_pnspace *space, s64 pn)
++{
++	u16 offset;
++
++	offset = (u16)(pn + 1 - space->base_pn);
++	offset = (u16)find_next_zero_bit(space->pn_map, space->pn_map_len,
++					 offset);
++	space->base_pn += offset;
++	bitmap_shift_right(space->pn_map, space->pn_map, offset,
++			   space->pn_map_len);
++}
++
++/* Mark a packet number as received. Updates the packet number map to record
++ * reception of @pn.  Advances base_pn if possible, and updates max/min/last
++ * seen fields as needed.
++ *
++ * Returns: 0 on success or if the packet was already marked, or a negative
++ * error returned by bitmap growth when expanding the map.
++ */
++int quic_pnspace_mark(struct quic_pnspace *space, s64 pn, gfp_t gfp)
++{
++	s64 last_max_pn_seen, off;
++	u64 last_max_pn_time;
++	bool has_gap;
++	int err;
++
++	if (space->base_pn == -1) {
++		/* Initialize base_pn based on the peer's first packet number
++		 * since peer's packet numbers may start at a non-zero value.
++		 */
++		quic_pnspace_set_base_pn(space, pn + 1);
++		return 0;
++	}
++
++	/* Ignore packets with number less than current base (already
++	 * processed).
++	 */
++	if (pn < space->base_pn)
++		return 0;
++
++	/* If offset is beyond current map length, try to grow the bitmap to
++	 * accommodate.
++	 */
++	off = pn - space->base_pn;
++	if (off >= space->pn_map_len) {
++		if (off >= QUIC_PN_MAP_SIZE) {
++			bitmap_zero(space->pn_map, space->pn_map_len);
++			quic_pnspace_set_base_pn(space, pn + 1);
++			return 0;
++		}
++		err = quic_pnspace_grow(space, off + 1, gfp);
++		if (err)
++			return err;
++	}
++
++	has_gap = quic_pnspace_has_gap(space);
++	if (space->max_pn_seen < pn) {
++		space->max_pn_seen = pn;
++		space->max_pn_time = space->time;
++	}
++
++	if (space->base_pn == pn) { /* PN is next expected packet. */
++		if (has_gap) /* Advance to next gap. */
++			quic_pnspace_move(space, pn);
++		else /* Fast path: increment base_pn if no gaps. */
++			space->base_pn++;
++	} else { /* Mark this packet as received in the bitmap. */
++		set_bit(off, space->pn_map);
++	}
++
++	/* Only update min and last_max_pn_seen if this packet is the current
++	 * max_pn.
++	 */
++	if (space->max_pn_seen != pn)
++		return 0;
++
++	/* Check if enough time has elapsed or enough packets have been
++	 * received to update tracking.
++	 */
++	last_max_pn_seen = min_t(s64, space->last_max_pn_seen, space->base_pn);
++	last_max_pn_time = space->last_max_pn_time;
++	if (space->max_pn_time < last_max_pn_time + space->max_time_limit &&
++	    space->max_pn_seen <= last_max_pn_seen + QUIC_PN_MAP_LIMIT)
++		return 0;
++
++	/* Advance base_pn if last_max_pn_seen is ahead of current base_pn.
++	 * This is needed because QUIC doesn't retransmit packets;
++	 * retransmitted frames are carried in new packets, so we move forward.
++	 */
++	if (space->last_max_pn_seen + 1 > space->base_pn)
++		quic_pnspace_move(space, space->last_max_pn_seen);
++
++	space->min_pn_seen = space->last_max_pn_seen;
++	space->last_max_pn_seen = space->max_pn_seen;
++	space->last_max_pn_time = space->max_pn_time;
++	return 0;
++}
++
++/* Find the next gap in received packet numbers. Scans pn_map for a gap
++ * starting from *@iter. A gap is a contiguous block of unreceived packets
++ * between received ones.
++ *
++ * Returns: true if a gap was found, false if no more gaps exist or are
++ * relevant.
++ */
++static bool quic_pnspace_next_gap_ack(const struct quic_pnspace *space,
++				      s64 *iter, u16 *start, u16 *end)
++{
++	u16 start_ = 0, end_ = 0, offset = (u16)(*iter - space->base_pn);
++
++	start_ = (u16)find_next_zero_bit(space->pn_map, space->pn_map_len,
++					 offset);
++	if (space->max_pn_seen <= space->base_pn + start_)
++		return false;
++
++	end_ = (u16)find_next_bit(space->pn_map, space->pn_map_len, start_);
++	if (space->max_pn_seen <= space->base_pn + end_ - 1)
++		return false;
++
++	*start = start_ + 1;
++	*end = end_;
++	*iter = space->base_pn + *end;
++	return true;
++}
++
++/* Generate gap acknowledgment blocks (GABs). GABs describe ranges of
++ * unacknowledged packets between received ones, and are used in ACK frames.
++ *
++ * This function uses a sliding window approach to ensure the most recent gaps
++ * are preserved when the total number exceeds QUIC_PN_MAP_MAX_GABS. If there
++ * are more gaps than the limit, the oldest gaps are merged into a single gap,
++ * and the newest (QUIC_PN_MAP_MAX_GABS - 1) gaps are preserved individually.
++ *
++ * Returns: Number of generated GABs (up to QUIC_PN_MAP_MAX_GABS).
++ */
++u16 quic_pnspace_num_gabs(struct quic_pnspace *space,
++			  struct quic_gap_ack_block *gabs)
++{
++	struct quic_gap_ack_block tmp[QUIC_PN_MAP_MAX_GABS];
++	u16 start, end, mstart = 0, ngaps = 0, i = 0;
++	s64 iter;
++
++	if (!quic_pnspace_has_gap(space))
++		return 0;
++
++	iter = space->base_pn;
++
++	/* Scan all gaps using a sliding window to keep the newest ones. */
++	while (quic_pnspace_next_gap_ack(space, &iter, &start, &end)) {
++		if (ngaps < QUIC_PN_MAP_MAX_GABS) {
++			if (ngaps == 0)
++				mstart = start;
++			gabs[ngaps].start = start;
++			gabs[ngaps].end = end;
++			ngaps++;
++			continue;
++		}
++		gabs[i].start = start;
++		gabs[i].end = end;
++		i = (i + 1) % QUIC_PN_MAP_MAX_GABS;
++	}
++	if (i == 0) {
++		if (ngaps == QUIC_PN_MAP_MAX_GABS)
++			gabs[0].start = mstart;
++		return ngaps;
++	}
++
++	/* Overflow occurred: merge all discarded gaps with the gap at
++	 * position i (which hasn't been overwritten yet) into one.
++	 */
++	gabs[i].start = mstart;
++	memcpy(tmp, gabs, ngaps * sizeof(*gabs));
++	memcpy(gabs, &tmp[i], (ngaps - i) * sizeof(*gabs));
++	memcpy(gabs + (ngaps - i), tmp, i * sizeof(*gabs));
++
++	return ngaps;
++}
+diff --git a/net/quic/pnspace.h b/net/quic/pnspace.h
+new file mode 100644
+index 000000000000..562bbc139c3c
+--- /dev/null
++++ b/net/quic/pnspace.h
+@@ -0,0 +1,201 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/* QUIC kernel implementation
 + * (C) Copyright Red Hat Corp. 2023
@@ -366,366 +616,278 @@ index 000000000000..51c099e9547f
 + *    Xin Long <lucien.xin@gmail.com>
 + */
 +
-+#ifndef _LINUX_QUIC_H
-+#define _LINUX_QUIC_H
++#define QUIC_PN_MAP_MAX_GABS	32
 +
-+#include <linux/sockptr.h>
-+#include <uapi/linux/quic.h>
++#define QUIC_PN_MAP_INITIAL	64
++#define QUIC_PN_MAP_INCREMENT	QUIC_PN_MAP_INITIAL
++#define QUIC_PN_MAP_SIZE	4096
++#define QUIC_PN_MAP_LIMIT	(QUIC_PN_MAP_SIZE * 3 / 4)
 +
-+struct sock;
++#define QUIC_PNSPACE_MAX	(QUIC_CRYPTO_MAX - 1)
++#define QUIC_PNSPACE_NEXT_PN	0
++#define QUIC_PNSPACE_TIME_LIMIT	(333000 * 3)
 +
-+#if IS_REACHABLE(CONFIG_IP_QUIC)
-+int quic_do_setsockopt(struct sock *sk, int optname, sockptr_t optval,
-+		       unsigned int optlen);
-+int quic_do_getsockopt(struct sock *sk, int optname, sockptr_t optval,
-+		       sockptr_t optlen);
-+#else
-+static inline int quic_do_setsockopt(struct sock *sk, int optname,
-+				     sockptr_t optval, unsigned int optlen)
-+{
-+	return -EOPNOTSUPP;
-+}
-+
-+static inline int quic_do_getsockopt(struct sock *sk, int optname,
-+				     sockptr_t optval, sockptr_t optlen)
-+{
-+	return -EOPNOTSUPP;
-+}
-+#endif
-+
-+#endif
-diff --git a/include/uapi/linux/quic.h b/include/uapi/linux/quic.h
-new file mode 100644
-index 000000000000..c5ce84b9c98a
---- /dev/null
-+++ b/include/uapi/linux/quic.h
-@@ -0,0 +1,242 @@
-+/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
-+/* QUIC kernel implementation
-+ * (C) Copyright Red Hat Corp. 2023
-+ *
-+ * This file is part of the QUIC kernel implementation
-+ *
-+ * Written or modified by:
-+ *    Xin Long <lucien.xin@gmail.com>
-+ */
-+
-+#ifndef _UAPI_LINUX_QUIC_H
-+#define _UAPI_LINUX_QUIC_H
-+
-+#include <linux/types.h>
-+#ifdef __KERNEL__
-+#include <linux/socket.h>
-+#else
-+#include <sys/socket.h> /* for MSG_* flags */
-+#endif
-+
-+/* NOTE: Structure descriptions are specified in:
-+ * https://datatracker.ietf.org/doc/html/draft-lxin-quic-socket-apis
-+ */
-+
-+/* Send or Receive Options APIs */
-+enum quic_cmsg_type {
-+	QUIC_STREAM_INFO,
-+	QUIC_HANDSHAKE_INFO,
-+};
-+
-+#define QUIC_STREAM_TYPE_SERVER_MASK	0x01
-+#define QUIC_STREAM_TYPE_UNI_MASK	0x02
-+#define QUIC_STREAM_TYPE_MASK		0x03
-+
-+enum quic_msg_flags {
-+	/* flags for stream_flags */
-+	MSG_QUIC_STREAM_NEW		= MSG_SYN,
-+	MSG_QUIC_STREAM_FIN		= MSG_FIN,
-+	MSG_QUIC_STREAM_UNI		= MSG_CONFIRM,
-+	MSG_QUIC_STREAM_DONTWAIT	= MSG_EOR,
-+	MSG_QUIC_STREAM_SNDBLOCK	= MSG_ERRQUEUE,
-+
-+	/* extended flags for msg_flags */
-+	MSG_QUIC_DATAGRAM		= MSG_RST,
-+	MSG_QUIC_NOTIFICATION		= MSG_MORE,
-+};
-+
-+enum quic_crypto_level {
-+	QUIC_CRYPTO_APP,
-+	QUIC_CRYPTO_INITIAL,
-+	QUIC_CRYPTO_HANDSHAKE,
-+	QUIC_CRYPTO_EARLY,
-+	QUIC_CRYPTO_MAX,
-+};
-+
-+struct quic_handshake_info {
-+	__u8	crypto_level;
-+};
-+
-+struct quic_stream_info {
-+	__s64	stream_id;
-+	__u32	stream_flags;
-+	__u32	reserved;
-+};
-+
-+/* Socket Options APIs */
-+#define QUIC_SOCKOPT_EVENT				0
-+#define QUIC_SOCKOPT_STREAM_OPEN			1
-+#define QUIC_SOCKOPT_STREAM_RESET			2
-+#define QUIC_SOCKOPT_STREAM_STOP_SENDING		3
-+#define QUIC_SOCKOPT_CONNECTION_ID			4
-+#define QUIC_SOCKOPT_CONNECTION_CLOSE			5
-+#define QUIC_SOCKOPT_CONNECTION_MIGRATION		6
-+#define QUIC_SOCKOPT_KEY_UPDATE				7
-+#define QUIC_SOCKOPT_TRANSPORT_PARAM			8
-+#define QUIC_SOCKOPT_CONFIG				9
-+#define QUIC_SOCKOPT_TOKEN				10
-+#define QUIC_SOCKOPT_ALPN				11
-+#define QUIC_SOCKOPT_SESSION_TICKET			12
-+#define QUIC_SOCKOPT_CRYPTO_SECRET			13
-+#define QUIC_SOCKOPT_TRANSPORT_PARAM_EXT		14
-+
-+#define QUIC_VERSION_V1			0x1
-+#define QUIC_VERSION_V2			0x6b3343cf
-+
-+struct quic_transport_param {
-+	__u8	remote;
-+	__u8	disable_active_migration;
-+	__u8	grease_quic_bit;
-+	__u8	stateless_reset;
-+	__u8	disable_1rtt_encryption;
-+	__u8	disable_compatible_version;
-+	__u8	active_connection_id_limit;
-+	__u8	ack_delay_exponent;
-+	__u16	max_datagram_frame_size;
-+	__u16	max_udp_payload_size;
-+	__u32	max_idle_timeout;
-+	__u32	max_ack_delay;
-+	__u16	max_streams_bidi;
-+	__u16	max_streams_uni;
-+	__u64	max_data;
-+	__u64	max_stream_data_bidi_local;
-+	__u64	max_stream_data_bidi_remote;
-+	__u64	max_stream_data_uni;
-+};
-+
-+struct quic_config {
-+	__u32	version;
-+	__u32	plpmtud_probe_interval;
-+	__u32	initial_smoothed_rtt;
-+	__u32	payload_cipher_type;
-+	__u8	congestion_control_algo;
-+	__u8	validate_peer_address;
-+	__u8	stream_data_nodelay;
-+	__u8	receive_session_ticket;
-+	__u8	certificate_request;
-+	__u8	reserved[3];
-+	__u32	keepalive_probe_interval;
-+};
-+
-+struct quic_crypto_secret {
-+	__u8	send;  /* send or recv */
-+	__u8	level; /* crypto level */
-+	__u16	reserved;
-+	__u32	type; /* TLS_CIPHER_* */
-+#define QUIC_CRYPTO_SECRET_BUFFER_SIZE 48
-+	__u8	secret[QUIC_CRYPTO_SECRET_BUFFER_SIZE];
-+};
-+
-+enum quic_cong_algo {
-+	QUIC_CONG_ALG_RENO,
-+	QUIC_CONG_ALG_MAX,
-+};
-+
-+struct quic_errinfo {
-+	__s64	stream_id;
-+	__u32	errcode;
-+	__u32	reserved;
-+};
-+
-+struct quic_connection_id_info {
-+	__u8	dest;
-+	__u8	reserved[3];
-+	__u32	active;
-+	__u32	prior_to;
-+};
-+
-+struct quic_event_option {
-+	__u8	type;
-+	__u8	on;
-+};
-+
-+/* Event APIs */
-+enum quic_event_type {
-+	QUIC_EVENT_NONE,
-+	QUIC_EVENT_STREAM_UPDATE,
-+	QUIC_EVENT_STREAM_MAX_DATA,
-+	QUIC_EVENT_STREAM_MAX_STREAM,
-+	QUIC_EVENT_CONNECTION_ID,
-+	QUIC_EVENT_CONNECTION_CLOSE,
-+	QUIC_EVENT_CONNECTION_MIGRATION,
-+	QUIC_EVENT_KEY_UPDATE,
-+	QUIC_EVENT_NEW_TOKEN,
-+	QUIC_EVENT_NEW_SESSION_TICKET,
-+	QUIC_EVENT_MAX,
++enum {
++	QUIC_ECN_ECT1,
++	QUIC_ECN_ECT0,
++	QUIC_ECN_CE,
++	QUIC_ECN_MAX
 +};
 +
 +enum {
-+	QUIC_STREAM_SEND_STATE_READY,
-+	QUIC_STREAM_SEND_STATE_SEND,
-+	QUIC_STREAM_SEND_STATE_SENT,
-+	QUIC_STREAM_SEND_STATE_RECVD,
-+	QUIC_STREAM_SEND_STATE_RESET_SENT,
-+	QUIC_STREAM_SEND_STATE_RESET_RECVD,
-+
-+	QUIC_STREAM_RECV_STATE_RECV,
-+	QUIC_STREAM_RECV_STATE_SIZE_KNOWN,
-+	QUIC_STREAM_RECV_STATE_RECVD,
-+	QUIC_STREAM_RECV_STATE_READ,
-+	QUIC_STREAM_RECV_STATE_RESET_RECVD,
-+	QUIC_STREAM_RECV_STATE_RESET_READ,
++	QUIC_ECN_LOCAL, /* ECN bits from incoming IP headers */
++	QUIC_ECN_PEER,  /* ECN bits reported by peer in ACK frames */
++	QUIC_ECN_ACKED, /* ECN bits from packets newly ACKed */
++	QUIC_ECN_DIR_MAX
 +};
 +
-+struct quic_stream_update {
-+	__s64	id;
-+	__u8	state;
-+	__u8	reserved[3];
-+	__u32	errcode;
-+	__u64	finalsz;
++/* Represents a gap (range of missing packets) in the ACK map.  The values are
++ * offsets from base_pn, with both 'start' and 'end' being +1.
++ */
++struct quic_gap_ack_block {
++	u16 start;
++	u16 end;
 +};
 +
-+struct quic_stream_max_data {
-+	__s64	id;
-+	__u64	max_data;
++/* Packet Number Map (pn_map) Layout:
++ *
++ *     min_pn_seen -->++-----------------------+---------------------+---
++ *         base_pn -----^   last_max_pn_seen --^       max_pn_seen --^
++ *
++ * Map Advancement Logic:
++ *   - min_pn_seen = last_max_pn_seen;
++ *   - base_pn = first zero bit after last_max_pn_seen;
++ *   - last_max_pn_seen = max_pn_seen;
++ *   - last_max_pn_time = max_pn_time;
++ *
++ * Conditions to Advance pn_map:
++ *   - (max_pn_time - last_max_pn_time) >= max_time_limit, or
++ *   - (max_pn_seen - min(last_max_pn_seen, base_pn)) > QUIC_PN_MAP_LIMIT
++ *
++ * Gap Search Range:
++ *   - From base_pn to max_pn_seen
++ */
++struct quic_pnspace {
++	/* ECN counters indexed by dir and ECN codepoint (ECT1, ECT0, CE) */
++	u64 ecn_count[QUIC_ECN_DIR_MAX][QUIC_ECN_MAX];
++	unsigned long *pn_map; /* Received PN bitmap for ACK generation */
++	u16 pn_map_len;        /* Length of the PN bit map (in bits) */
++	u8  need_sack;         /* Flag indicating a SACK frame should be sent */
++	u8  sack_path;         /* Path used for sending the SACK frame */
++	u8  sack_pending;      /* Delayed ACK pending */
++
++	s64 last_max_pn_seen; /* Largest PN seen before pn_map advance */
++	u64 last_max_pn_time; /* Timestamp last_max_pn_seen was received */
++	s64 min_pn_seen;      /* Lower bound of the trackable PN window */
++	s64 max_pn_seen;      /* Largest PN received */
++	u64 max_pn_time;      /* Timestamp max_pn_seen was received */
++	s64 base_pn; /* PN corresponding to the start of the pn_map */
++	u64 time;    /* Cached now, or latest socket accept timestamp */
++
++	s64 max_pn_acked_seen; /* Largest PN ACKed by peer */
++	u64 max_pn_acked_time; /* Timestamp max_pn_acked_seen was ACKed */
++	u64 last_sent_time;    /* Timestamp last ack-eliciting packet sent */
++	u64 loss_time;         /* Timestamp the packet can be declared lost */
++	s64 next_pn;           /* Next PN to send */
++
++	u32 max_time_limit; /* Time threshold to trigger pn_map advance */
++	u32 inflight;       /* Ack-eliciting bytes in flight */
 +};
 +
-+struct quic_connection_close {
-+	__u32	errcode;
-+	__u32	frame;
-+#define QUIC_CLOSE_PHRASE_BUFFER_SIZE 64
-+	__u8	phrase[QUIC_CLOSE_PHRASE_BUFFER_SIZE];
-+};
++static inline void
++quic_pnspace_set_max_pn_acked_seen(struct quic_pnspace *space,
++				   s64 max_pn_acked_seen)
++{
++	if (space->max_pn_acked_seen >= max_pn_acked_seen)
++		return;
++	space->max_pn_acked_seen = max_pn_acked_seen;
++	space->max_pn_acked_time = quic_ktime_get_us();
++}
 +
-+union quic_event {
-+	struct quic_stream_update	update;
-+	struct quic_stream_max_data	max_data;
-+	struct quic_connection_close	close;
-+	struct quic_connection_id_info	info;
-+	__u64	max_stream;
-+	__u8	local_migration;
-+	__u8	key_update_phase;
-+};
++static inline void quic_pnspace_set_base_pn(struct quic_pnspace *space, s64 pn)
++{
++	space->base_pn = pn;
++	space->max_pn_seen = space->base_pn - 1;
++	space->last_max_pn_seen = space->max_pn_seen;
++	space->min_pn_seen = space->max_pn_seen;
 +
-+enum {
-+	QUIC_TRANSPORT_ERROR_NONE			= 0x00,
-+	QUIC_TRANSPORT_ERROR_INTERNAL			= 0x01,
-+	QUIC_TRANSPORT_ERROR_CONNECTION_REFUSED		= 0x02,
-+	QUIC_TRANSPORT_ERROR_FLOW_CONTROL		= 0x03,
-+	QUIC_TRANSPORT_ERROR_STREAM_LIMIT		= 0x04,
-+	QUIC_TRANSPORT_ERROR_STREAM_STATE		= 0x05,
-+	QUIC_TRANSPORT_ERROR_FINAL_SIZE			= 0x06,
-+	QUIC_TRANSPORT_ERROR_FRAME_ENCODING		= 0x07,
-+	QUIC_TRANSPORT_ERROR_TRANSPORT_PARAM		= 0x08,
-+	QUIC_TRANSPORT_ERROR_CONNECTION_ID_LIMIT	= 0x09,
-+	QUIC_TRANSPORT_ERROR_PROTOCOL_VIOLATION		= 0x0a,
-+	QUIC_TRANSPORT_ERROR_INVALID_TOKEN		= 0x0b,
-+	QUIC_TRANSPORT_ERROR_APPLICATION		= 0x0c,
-+	QUIC_TRANSPORT_ERROR_CRYPTO_BUF_EXCEEDED	= 0x0d,
-+	QUIC_TRANSPORT_ERROR_KEY_UPDATE			= 0x0e,
-+	QUIC_TRANSPORT_ERROR_AEAD_LIMIT_REACHED		= 0x0f,
-+	QUIC_TRANSPORT_ERROR_NO_VIABLE_PATH		= 0x10,
-+	QUIC_TRANSPORT_ERROR_VERSION_NEGOTIATION	= 0x11,
++	space->max_pn_time = space->time;
++	space->last_max_pn_time = space->max_pn_time;
++}
 +
-+	/* The cryptographic handshake failed. A range of 256 values is reserved
-+	 * for carrying error codes specific to the cryptographic handshake that
-+	 * is used. Codes for errors occurring when TLS is used for the
-+	 * cryptographic handshake are described in Section 4.8 of [QUIC-TLS].
++static inline bool quic_pnspace_has_gap(const struct quic_pnspace *space)
++{
++	return space->base_pn != space->max_pn_seen + 1;
++}
++
++static inline void quic_pnspace_inc_ecn_acked(struct quic_pnspace *space,
++					      u8 ecn)
++{
++	if (!ecn)
++		return;
++	space->ecn_count[QUIC_ECN_ACKED][ecn - 1]++;
++}
++
++static inline void quic_pnspace_reset_ecn_acked(struct quic_pnspace *space)
++{
++	space->ecn_count[QUIC_ECN_ACKED][QUIC_ECN_ECT0] = 0;
++	space->ecn_count[QUIC_ECN_ACKED][QUIC_ECN_ECT1] = 0;
++	space->ecn_count[QUIC_ECN_ACKED][QUIC_ECN_CE] = 0;
++}
++
++static inline void quic_pnspace_inc_ecn_local(struct quic_pnspace *space,
++					      u8 ecn)
++{
++	if (!ecn)
++		return;
++	space->ecn_count[QUIC_ECN_LOCAL][ecn - 1]++;
++}
++
++/* Check if any ECN-marked packets were received. */
++static inline bool quic_pnspace_has_ecn_local(struct quic_pnspace *space)
++{
++	return space->ecn_count[QUIC_ECN_LOCAL][QUIC_ECN_ECT0] ||
++	       space->ecn_count[QUIC_ECN_LOCAL][QUIC_ECN_ECT1] ||
++	       space->ecn_count[QUIC_ECN_LOCAL][QUIC_ECN_CE];
++}
++
++/* Validate ECN counts received in an ACK. */
++static inline bool quic_pnspace_validate_ecn(struct quic_pnspace *space,
++					     u64 *ecn_count)
++{
++	u64 *acked = space->ecn_count[QUIC_ECN_ACKED];
++	u64 *peer = space->ecn_count[QUIC_ECN_PEER];
++	u64 ect0, ect1, ce;
++
++	if (peer[QUIC_ECN_ECT0] > ecn_count[QUIC_ECN_ECT0] ||
++	    peer[QUIC_ECN_ECT1] > ecn_count[QUIC_ECN_ECT1] ||
++	    peer[QUIC_ECN_CE] > ecn_count[QUIC_ECN_CE])
++		return false;
++
++	/* rfc9000#section-13.4.2.1:
++	 *
++	 * ECN validation also fails if the sum of the increase in ECT(0) and
++	 * ECN-CE counts is less than the number of newly acknowledged packets
++	 * that were originally sent with an ECT(0) marking (Same for ECT(1)).
 +	 */
-+	QUIC_TRANSPORT_ERROR_CRYPTO			= 0x0100,
-+};
++	ect0 = ecn_count[QUIC_ECN_ECT0] - peer[QUIC_ECN_ECT0];
++	ect1 = ecn_count[QUIC_ECN_ECT1] - peer[QUIC_ECN_ECT1];
++	ce = ecn_count[QUIC_ECN_CE] - peer[QUIC_ECN_CE];
 +
-+#endif /* _UAPI_LINUX_QUIC_H */
++	return ect0 + ce >= acked[QUIC_ECN_ECT0] &&
++	       ect1 + ce >= acked[QUIC_ECN_ECT1];
++}
++
++/* Updates the stored ECN counters based on values received in the peer's ACK
++ * frame. Each counter is updated only if the new value is higher.
++ *
++ * Returns: true if CE count was increased (congestion indicated), false
++ * otherwise.
++ */
++static inline bool quic_pnspace_set_ecn_peer(struct quic_pnspace *space,
++					     u64 *ecn_count)
++{
++	u64 *count = space->ecn_count[QUIC_ECN_PEER];
++
++	if (count[QUIC_ECN_ECT0] < ecn_count[QUIC_ECN_ECT0])
++		count[QUIC_ECN_ECT0] = ecn_count[QUIC_ECN_ECT0];
++	if (count[QUIC_ECN_ECT1] < ecn_count[QUIC_ECN_ECT1])
++		count[QUIC_ECN_ECT1] = ecn_count[QUIC_ECN_ECT1];
++	if (count[QUIC_ECN_CE] < ecn_count[QUIC_ECN_CE]) {
++		count[QUIC_ECN_CE] = ecn_count[QUIC_ECN_CE];
++		return true;
++	}
++	return false;
++}
++
++u16 quic_pnspace_num_gabs(struct quic_pnspace *space,
++			  struct quic_gap_ack_block *gabs);
++int quic_pnspace_check(struct quic_pnspace *space, s64 pn);
++int quic_pnspace_mark(struct quic_pnspace *space, s64 pn, gfp_t gfp);
++
++void quic_pnspace_free(struct quic_pnspace *space);
++int quic_pnspace_init(struct quic_pnspace *space);
 diff --git a/net/quic/socket.c b/net/quic/socket.c
-index 9b03fd436237..def966eb3016 100644
+index 41f7de7d163a..78a08dd998a8 100644
 --- a/net/quic/socket.c
 +++ b/net/quic/socket.c
-@@ -112,11 +112,25 @@ static void quic_close(struct sock *sk, long timeout)
- 	sk_common_release(sk);
- }
+@@ -42,6 +42,9 @@ static void quic_write_space(struct sock *sk)
  
--static int quic_do_setsockopt(struct sock *sk, int optname, sockptr_t optval,
--			      unsigned int optlen)
-+/**
-+ * quic_do_setsockopt - set a QUIC socket option
-+ * @sk: socket to configure
-+ * @optname: option name (QUIC-level)
-+ * @optval: user or kernel buffer containing the option value
-+ * @optlen: size of the option value
-+ *
-+ * Sets a QUIC socket option on a given socket.
-+ *
-+ * Return:
-+ * - On success, 0 is returned.
-+ * - On error, a negative error value is returned.
-+ */
-+int quic_do_setsockopt(struct sock *sk, int optname, sockptr_t optval,
-+		       unsigned int optlen)
+ static int quic_init_sock(struct sock *sk)
  {
- 	return -EOPNOTSUPP;
- }
-+EXPORT_SYMBOL_GPL(quic_do_setsockopt);
++	struct quic_pnspace *space;
++	u8 i;
++
+ 	sk->sk_write_space = quic_write_space;
+ 	sock_set_flag(sk, SOCK_USE_WRITE_QUEUE);
+ 	sock_set_flag(sk, SOCK_RCU_FREE);
+@@ -58,11 +61,34 @@ static int quic_init_sock(struct sock *sk)
+ 	if (quic_stream_init(quic_streams(sk)))
+ 		return -ENOMEM;
  
- static int quic_setsockopt(struct sock *sk, int level, int optname,
- 			   sockptr_t optval, unsigned int optlen)
-@@ -128,11 +142,25 @@ static int quic_setsockopt(struct sock *sk, int level, int optname,
- 	return quic_do_setsockopt(sk, optname, optval, optlen);
++	/* Allocate pnspace structures for each packet number space. */
++	for (i = 0; i < QUIC_PNSPACE_MAX; i++) {
++		space = kzalloc_obj(*space);
++		if (!space)
++			return -ENOMEM;
++		if (quic_pnspace_init(space)) {
++			kfree(space);
++			return -ENOMEM;
++		}
++		quic_sk(sk)->space[i] = space;
++	}
++
+ 	return 0;
  }
  
--static int quic_do_getsockopt(struct sock *sk, int optname, sockptr_t optval,
--			      sockptr_t optlen)
-+/**
-+ * quic_do_getsockopt - get a QUIC socket option
-+ * @sk: socket to query
-+ * @optname: option name (QUIC-level)
-+ * @optval: user or kernel buffer to receive the option value
-+ * @optlen: pointer to buffer size; updated with actual size on return
-+ *
-+ * Gets a QUIC socket option from a given socket.
-+ *
-+ * Return:
-+ * - On success, 0 is returned.
-+ * - On error, a negative error value is returned.
-+ */
-+int quic_do_getsockopt(struct sock *sk, int optname, sockptr_t optval,
-+		       sockptr_t optlen)
+ static void quic_destroy_sock(struct sock *sk)
  {
- 	return -EOPNOTSUPP;
- }
-+EXPORT_SYMBOL_GPL(quic_do_getsockopt);
++	struct quic_pnspace *space;
++	u8 i;
++
++	for (i = 0; i < QUIC_PNSPACE_MAX; i++) {
++		space = quic_pnspace(sk, i);
++		if (!space)
++			continue;
++		quic_pnspace_free(space);
++		kfree(space);
++	}
++
+ 	quic_path_unbind(sk, quic_paths(sk), 0);
+ 	quic_path_unbind(sk, quic_paths(sk), 1);
  
- static int quic_getsockopt(struct sock *sk, int level, int optname,
- 			   char __user *optval, int __user *optlen)
 diff --git a/net/quic/socket.h b/net/quic/socket.h
-index 0aa642e3b0ae..61df0c5867be 100644
+index 9201ca3edad0..7f19e2b3d7fb 100644
 --- a/net/quic/socket.h
 +++ b/net/quic/socket.h
-@@ -9,6 +9,7 @@
-  */
- 
- #include <net/udp_tunnel.h>
-+#include <linux/quic.h>
+@@ -12,6 +12,7 @@
+ #include <linux/quic.h>
  
  #include "common.h"
++#include "pnspace.h"
  #include "family.h"
-diff --git a/usr/include/Makefile b/usr/include/Makefile
-index ee69dd9d970e..8b4133d38da2 100644
---- a/usr/include/Makefile
-+++ b/usr/include/Makefile
-@@ -31,6 +31,7 @@ no-header-test += linux/omap3isp.h
- no-header-test += linux/omapfb.h
- no-header-test += linux/patchkey.h
- no-header-test += linux/phonet.h
-+no-header-test += linux/quic.h
- no-header-test += linux/sctp.h
- no-header-test += linux/sysctl.h
- no-header-test += linux/usb/audio.h
+ #include "stream.h"
+ #include "connid.h"
+@@ -43,6 +44,7 @@ struct quic_sock {
+ 	struct quic_conn_id_set		dest;
+ 	struct quic_path_group		paths;
+ 	struct quic_cong		cong;
++	struct quic_pnspace		*space[QUIC_PNSPACE_MAX];
+ };
+ 
+ struct quic6_sock {
+@@ -105,6 +107,11 @@ static inline struct quic_cong *quic_cong(const struct sock *sk)
+ 	return &quic_sk(sk)->cong;
+ }
+ 
++static inline struct quic_pnspace *quic_pnspace(const struct sock *sk, u8 level)
++{
++	return quic_sk(sk)->space[level % QUIC_CRYPTO_EARLY];
++}
++
+ static inline bool quic_is_establishing(struct sock *sk)
+ {
+ 	return sk->sk_state == QUIC_SS_ESTABLISHING;
 -- 
 2.47.1
 
