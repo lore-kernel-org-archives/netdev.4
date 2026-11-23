@@ -1,61 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.13.80.246
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795448291;
-	b=C3QjVV7BdOiS9uae5TzEF9aF8ReiDn8f3lkCY3Ng8qivLl9JEJBlHI5ZkkCavamxw2NU
-	 1JMzuUsqUZoIFaZ6kNGRq2mpAJcKHeSHz1QZ6LV4c5K0R5u8qMYtWoS6pkbvOHe6aMpuX
-	 JTQYerxOZiMJwZLpKJEAXP6CIkWeYHQPveMpYVRNgce4e5z4Ser4J0bHfz2hu/n8o9IBx
-	 WD5YlOkdufg53sAx4WG3148fWHEqiAiM9c9gGgurjnUGrUtT/kYQkXA1sPVVCv2//S/hq
-	 /4+jMul3zB4vVLqjiVaE9K7EYgePbBBtLNUYF0SfV/YPlBW7iJmoysEf/oKydPbpHXA==
+	t=1795448351;
+	b=z1yn5rIg5wutkASHYSCGb8WuwfRPR+FzUJRYlBeen+EdTvdsjGtf5f+bJFHt33a+hP5D
+	 kxqARZcXXddlselOTKFfjFXjtGlKR1y5b0efh1kesTUDxt7cuASuAwv9I6TIiFBKXHGHO
+	 kUJH2xXd26tkh6TqxgzrdnBQ7xFJLQpW6swBAp9hPYJWVnpEM5bO4KDvunyROeaX5EF34
+	 e1wXICTHplh9MGa28JRejCVEkNNp1P8RbhGCRGqTceHDpZc5LVjwFPvEQcH8z+97eZi+V
+	 UPz9wamUQJVaBN2nOCbYAdtPtp64bes07XxWrs/oJuNgTKwugO2UqDBNCZcpehB+XEA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795448291;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=IP6w07Na1xzP00O84ze68WNlf1Q0/rR61f7HlDCxa/4=;
-	b=chvpPfMRDjci05hykxTjXIEuMbQQYD9ixbk94+s/GSJlh8XagJA+kz/PQTsV8deRKO5K
-	 USi6oVNReW60zGcSrgLEChE9/PgW19kKFvNHDaAtLfrZIWMDlNtMuXK1+lK9MNn66uwPJ
-	 aGXubHoMXHX9VTNcCHwMFJdueJR2FfRJLsGzxXNLjKGnjvwjzMCbuIKFUVEYEuWhDs3wU
-	 zYcasebXCvua1kOV169VXc92k+o2JwbkXZ9KCUKHZtp/druIkZJir2QOb7pFZnDik8hnq
-	 x8Pi7mVdj4+pC4btEK6exjg2Wve2q68zsItNKVK05hSTHwz4wGdb13lTZ4Zbz+q6WgA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795448351;
+	h=DMARC-Filter:Received:DKIM-Signature:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Last-TLS-Session-Version;
+	bh=+OQ5w6uo1huBoXVafBe3RIUfkNs9d40Oo9URO4Dv+Hk=;
+	b=xUjhQXl4p67kBUCHv0IC3fG/HzEWyjIa+TE+3YohAqIq8irjarHLBqH0cXqjMSh36jIH
+	 M2Hp5fqq3DXySU/aY2m3EHesJgReq+lKZckS0YI5kz3VS0TH5x5pSQg7wo/gSr/DJMrSE
+	 zN0XTJGEebAei6KYXjBoqt3waBQ5/S5yYYdEr3gfqY4VlKYRlxXzEEuqGw+CcnQSbbHjR
+	 Gp4cwAeTrmj85n5k4K1OgxMpbpRuxc+BVtBu62sAjUcoH2Fru+M4s2STsXzHMvYf/08NM
+	 J0XKGxdKtPbQVb8vg5A5zZcvPQgxPBV/uDP2J4uFkovvYbqi/ZZBuF64MDuSlEB00ZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L20A+qUo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=tipi-net.de;
+	spf=pass smtp.mailfrom=tipi-net.de;
+	dkim=pass header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ZDlv6wM7;
+	arc=none smtp.remote-ip=194.13.80.246
+Received: from mail.tipi-net.de (mail.tipi-net.de [194.13.80.246])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B758B606A32D;
-	Mon, 23 Nov 2026 15:38:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB381606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:39:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB381606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=tipi-net.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tipi-net.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=L20A+qUo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8953E1F0093E;
-	Mon, 23 Nov 2026 15:38:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795448291;
-	bh=IP6w07Na1xzP00O84ze68WNlf1Q0/rR61f7HlDCxa/4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=L20A+qUoF4xxUtz78jGuSpdyIXQh8sV+EHFs30v4fTmwrARqD222/dUooQV+igm/9
-	 lsY2OCW6VXwwE0XP9p2fzoi2bZdS8zQAeAG/S9sI+4D9AVcbfqJfxasaZLiXpFtyce
-	 4bDgJE1FaDsTALa0YW1MnbNGLz0LzPtScsMWDMnqfk007vsa4BzyN7pUklZRmLkOu7
-	 m2TxsqNHqucnCvycFxkq8R7/5h85k0mSvwVjRo0utaeqvc52Ptxo+poxKhlmtSm8pA
-	 VMwar5lCVwSqH6h+XRn2Moqla0PeVuOjulfdFa9Ear6BSbMGQto6e4RjrXnJxyTF4x
-	 AoZvavxtkxgRQ==
-Subject: Re: [PATCH net v3 1/4] net: tun_vnet: validate hdr_len after skipping
- header padding
-From: netdev-bot+sashiko@kernel.org
-To: graypanda.inzag@gmail.com
-Cc: willemdebruijn.kernel@gmail.com, jasowangio@gmail.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- gwanhyunlee@gmail.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-kselftest@vger.kernel.org
-Date: Mon, 23 Nov 2026 15:38:10 +0000
-Message-ID: <179544829010.3135.9748959187466482821@kernel.org>
-In-Reply-To: <20261119144241.360238-2-graypanda.inzag@gmail.com>
-References: <20261119144241.360238-2-graypanda.inzag@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=tipi-net.de header.i=@tipi-net.de header.a=rsa-sha256 header.s=dkim header.b=ZDlv6wM7
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 4042BA08C5;
+	Mon, 23 Nov 2026 16:39:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tipi-net.de; s=dkim;
+	t=1795448346; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=+OQ5w6uo1huBoXVafBe3RIUfkNs9d40Oo9URO4Dv+Hk=;
+	b=ZDlv6wM7P/CQx3dN4dI4qVlu5QYFZFEzLkIqdR0EHU3Q38R92AGJuiY78lAQWbP+kIttyv
+	rtIBtYw/BydNMUGYMbGu6yGpCebLM+l4YAVrKubnFqHVUG9ySqV6tZVwpuMVaV1BmDt2jQ
+	XoBYERtGTzNfcggAtvPO2AWbWuigrd9ptEt4M7oyWRlaC0nPRIU/AYVoG5hw/yLdvF89TQ
+	8CwvwhSUrTXzG9eq0+8RhbOH95FT2zEcG9Sz0WmDDWvvlEl7GBcSbbnkzbsznCvy42FoJV
+	m2QMjSBwzCvPFy7OOnP/nTBd3pvq9e5EdP7AjkOFys9HleKdz8b5MhqOAjzeXw==
+From: Nicolai Buchwitz <nb@tipi-net.de>
+Date: Mon, 23 Nov 2026 16:38:48 +0100
+Subject: [PATCH net] net: macb: don't disable an IRQ wake that was never
+ enabled
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,119 +56,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261123-nb-macb-irq-wake-net-v1-1-ccdd60a9a1bc@tipi-net.de>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQ6CMBREr0Jm7U9oQWO4CnHR1lG/hqItqAnh7
+ lZdvsm8tyAzKTO6akHiU7OOsYDZVAgXF88UPRaGre3OGNtI9DK44EXTQ17uRomcZE/bsHW157Z
+ FUe+JJ33/sj3KAYf/mGd/ZZi+QazrB2THbqJ9AAAA
+X-Change-ID: 20261123-nb-macb-irq-wake-net-8e23e4a0be54
+To: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Conor Dooley <conor.dooley@microchip.com>, 
+ Sergio Prado <sergio.prado@e-labworks.com>, netdev@vger.kernel.org, 
+ Dom Cobley <popcornmix@gmail.com>, Nicolai Buchwitz <nb@tipi-net.de>
+X-Mailer: b4 0.16.0
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+From: Dom Cobley <popcornmix@gmail.com>
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+If the irqchip has neither an .irq_set_wake callback nor the
+IRQCHIP_SKIP_SET_WAKE flag, enable_irq_wake() returns -ENXIO and
+macb_resume() later tries to drop a wake reference it never acquired:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+  Unbalanced IRQ 108 wake disable
+  WARNING: CPU: 0 PID: 1013 at irq_set_irq_wake+0x168/0x238
+  ...
+   irq_set_irq_wake+0x168/0x238 (P)
+   macb_resume+0x23c/0x4b8
+   platform_pm_resume+0x30/0x70
 
-- [High] At this commit, the new check in __tun_vnet_hdr_get()
-  (drivers/net/tun_vnet.h:141-143) only limits a non-zero hdr_len to the…
-- [Low] The commit message says "The new tun and tap selftests pass on
-  the patched kernel", but this commit only changes…
+Record whether arming the queue 0 IRQ for wake succeeded, warn on
+failure, and only disarm it on resume if it was armed.
 
---
+Fixes: 3e2a5e153906 ("net: macb: add wake-on-lan support via magic packet")
+Signed-off-by: Dom Cobley <popcornmix@gmail.com>
+Signed-off-by: Nicolai Buchwitz <nb@tipi-net.de>
+---
+Seen on Raspberry Pi 5, where the RP1 irqchip has no wake support.
+Tested on a CM5 with WoL enabled and a suspend/resume cycle.
+---
+ drivers/net/ethernet/cadence/macb.h      |  1 +
+ drivers/net/ethernet/cadence/macb_main.c | 12 ++++++++++--
+ 2 files changed, 11 insertions(+), 2 deletions(-)
 
-net: tun_vnet: validate hdr_len after skipping header padding
+diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
+index b7b4b6a38298..bd4f04ac8356 100644
+--- a/drivers/net/ethernet/cadence/macb.h
++++ b/drivers/net/ethernet/cadence/macb.h
+@@ -1221,6 +1221,7 @@ struct macb_ptp_info {
+ struct macb_pm_data {
+ 	u32 scrt2;
+ 	u32 usrio;
++	bool irq_wake_enabled;
+ };
+ 
+ struct macb_usrio_config {
+diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
+index 5ad0e32e2b40..f2d29428fa78 100644
+--- a/drivers/net/ethernet/cadence/macb_main.c
++++ b/drivers/net/ethernet/cadence/macb_main.c
+@@ -6517,6 +6517,7 @@ static int __maybe_unused macb_suspend(struct device *dev)
+ 	unsigned long flags;
+ 	u32 tmp, ifa_local;
+ 	unsigned int q;
++	int err;
+ 
+ 	if (!device_may_wakeup(&bp->netdev->dev))
+ 		phy_exit(bp->phy);
+@@ -6589,7 +6590,11 @@ static int __maybe_unused macb_suspend(struct device *dev)
+ 		}
+ 		spin_unlock_irqrestore(&bp->lock, flags);
+ 
+-		enable_irq_wake(bp->queues[0].irq);
++		err = enable_irq_wake(bp->queues[0].irq);
++		if (err)
++			netdev_warn(netdev, "Unable to enable IRQ %d as a wake source (error %d)\n",
++				    bp->queues[0].irq, err);
++		bp->pm_data.irq_wake_enabled = !err;
+ 	}
+ 
+ 	netif_device_detach(netdev);
+@@ -6655,7 +6660,10 @@ static int __maybe_unused macb_resume(struct device *dev)
+ 		macb_queue_isr_clear(bp, bp->queues, -1);
+ 		spin_unlock_irqrestore(&bp->lock, flags);
+ 
+-		disable_irq_wake(bp->queues[0].irq);
++		if (bp->pm_data.irq_wake_enabled) {
++			disable_irq_wake(bp->queues[0].irq);
++			bp->pm_data.irq_wake_enabled = false;
++		}
+ 
+ 		/* Now make sure we disable phy before moving
+ 		 * to common restore path
 
-This patch moves the iov_iter_advance() past the virtio header padding in
-__tun_vnet_hdr_get() so it happens before the hdr_len check. hdr_len is
-then compared against the payload that is really left. With that, a
-hdr_len larger than the frame is rejected with -EINVAL in tun_get_user()
-and tap_get_user().
+---
+base-commit: dd206ec7ed36be3883d08def9eca8faab7a38ee5
+change-id: 20261123-nb-macb-irq-wake-net-8e23e4a0be54
 
-> The problem was identified during review of the tap zero-copy fix and
-> reproduced with vhost-net in an x86-64 QEMU guest: a 14-byte input
-> produced a 256-byte frame on both tun and tap. After the change, both
-> drivers reject that input with -EINVAL. The new tun and tap selftests
-> pass on the patched kernel.
+Best regards,
+--  
+Nicolai Buchwitz <nb@tipi-net.de>
 
-[Severity: Low]
-This commit only changes drivers/net/tun_vnet.h. Which selftests does
-"The new tun and tap selftests" refer to?
-
-They appear to be added by a later patch in this series, "selftests: net:
-check padded vnet hdr_len in tun and tap". That patch adds
-padded_hdr_len_exceeds_payload and padded_hdr_len_zero to
-tools/testing/selftests/net/tun.c and tools/testing/selftests/net/tap.c.
-
-Pointing at tests elsewhere in the same series is common. Could the
-message name that selftest patch, though, so stable backporters know to
-take it as well?
-
-> diff --git a/drivers/net/tun_vnet.h b/drivers/net/tun_vnet.h
-> index f4c652b1fa44d..0b96228916814 100644
-> --- a/drivers/net/tun_vnet.h
-> +++ b/drivers/net/tun_vnet.h
-> @@ -138,11 +138,10 @@ static inline int __tun_vnet_hdr_get(int sz, unsigned int flags,
->  		hdr->hdr_len = cpu_to_tun_vnet16(flags, hdr_len);
->  	}
->  
-> +	iov_iter_advance(from, sz - parsed_size);
->  	if (hdr_len > iov_iter_count(from))
->  		return -EINVAL;
-
-[Severity: High]
-Does this fully close the uninitialized bytes leak that the commit
-message describes? The check only limits a non-zero hdr_len, so
-hdr_len == 0 always passes.
-
-On the vhost-net zerocopy path, tun_get_user() then falls back to
-GOODCOPY_LEN and does not cap it by the remaining payload len:
-
-drivers/net/tun.c:tun_get_user() {
-    ...
-	if (msg_control) {
-		...
-		copylen = min(hdr_len ? hdr_len : GOODCOPY_LEN, good_linear);
-		linear = copylen;
-    ...
-}
-
-tap_get_user() does the same:
-
-drivers/net/tap.c:tap_get_user() {
-    ...
-		copylen = clamp(hdr_len ?: GOODCOPY_LEN, ETH_HLEN, good_linear);
-		linear = copylen;
-    ...
-}
-
-Take the same 512-byte vnet_hdr_sz and a 14-byte frame. The
-handle_tx_zerocopy() threshold (len >= VHOST_GOODCOPY_LEN) includes the
-vnet header, so this frame still takes the zerocopy path. After that:
-
-tun_get_user() / tap_get_user()
-  tun_alloc_skb() / tap_alloc_skb()
-    skb_put(skb, linear);                 /* linear == 128 */
-  zerocopy_sg_from_iter()
-    int copy = min_t(int, skb_headlen(skb), iov_iter_count(from)); /* 14 */
-
-Can that leave 114 bytes of uninitialized heap in the transmitted frame?
-That is the same result this patch sets out to fix.
-
-The trigger needs vhost-net with experimental_zcopytx=1, SOCK_ZEROCOPY on
-tap, and a large vnet_hdr_sz set by the host. With those in place, the
-guest controls hdr_len == 0 and the frame length.
-
-Two later patches in this series appear to close the gap: "tap: clamp
-zero-copy copylen to remaining payload length" and "tun: clamp zero-copy
-copylen to remaining payload length". They clamp copylen to len with
-min_t() in tap_get_user() and tun_get_user(). Could that dependency be
-noted here, or those changes folded into this patch, so this fix is not
-backported without them?
-
->  
-> -	iov_iter_advance(from, sz - parsed_size);
-> -
->  	return hdr_len;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119144241.360238-1-graypanda.inzag%40gmail.com
