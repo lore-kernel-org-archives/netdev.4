@@ -1,60 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795398010;
-	b=14fn4ZA94PcQZlABmp3Y09p531dOjMt/NBK/lXO649hktfOWGBkarArt+hnaallMAHzS
-	 QmPAIVjPveYm3p6LXLnLY8bpGGU+0ZFPZLqghqH+srloMbxP+aJkugxSn7Hk/LlQdzVEV
-	 d+sAls03rd7LXjNRX7KnuvbLHSPhjJxsZ7sD+JKwsJAVVNXsvQACJzCOktr8QBTc/xtwM
-	 68HuHOAyAAT4E67See4bcczNM2mvXedyNyLeFAfx+Id+Hv5Y/4IUOZMFq+W6k9ZlQyXcP
-	 R7Uml5fUvZccB3+FvThTqJSe9NHIzyXeREpXZZxoNcZ91mJMJWR4PpMlFDZTzay91JQ==
+	t=1795399055;
+	b=idW7O1ZJ9lijLywx3u8Unkl77ShpF4SBgD8JJ1wIYzMWowzxiUm5M2t54hJEkRaUYM4y
+	 8jXcZ6zWHeflUJv2SDExoppcD5i6EOlIW9kO7slQ9gUxLsTJzNEyqZ/1CWPIgztXg5cLL
+	 CjxZxzD3uPAC4cwaVwepITs3vivxDynag0iSupFJetgrUphomA8ZJZoWURO4olHiZeTmA
+	 Jy3Dv73ipy9odaIFG9XGBhnlE//D5Bt6UysqMQu3tr/Q+CsEzp7sD4u2HS2bEoRD8yMIM
+	 7hxVA6PGgN1P0jtLa2Xu3CiZkCG37liyphqxhXW3b/PUUkB99R/5HjUAMzLCmJ0/lBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795398010;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=y89p4Zfp3vjpcB8k1IxkJ///JSjR1z1U+uhQSBuiQGA=;
-	b=S7xwHRcvk5oPrUykLJKO4yG+SUeiD4ZcOvLFMQZyq62IUB/MMuXrFmdX28Jg0wj2+u62
-	 tViAWrNw8IdBcKK6U9rNPPz7T9xxFBcuRGaDQcTxnDARJ/asp/0S6nsKRy+RqfUID9A7+
-	 wkJaSykvgxW8BbzhUkdJfu3iQ0FjnZaF1J6p1leE4KaJm2kx8X7l8EEl+DgjSiVs45NUX
-	 tZf1+QGOjhXBaxs2DEzZk5hHFvxMBYBQMlEjyoymvvDLnS/9Cz1oC5zIQBsZT4nIkm2Am
-	 3A91j7pKBAblTeorX7dbvjqJrsw4H2l+Igq5YkFV5J8PRwt4seIY84obPkXDorX6K9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795399055;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=33MdLOgkY8inypYgCND5z5x006xVpX0YLRqyjObgHcg=;
+	b=YsSJViMwFkNpjILYVOLjykLTseRRDUvV64mU4d3VZJGFLiqUGfF9BsqtYPTA2qI8qctl
+	 VAoyZr3iyXN2Ok7VbJKMEhAEHRklQb2JqvR0lMCNQcmrFJFnea9Q5HeC11I8VP11XXxJq
+	 XtYfoIsPLb2rd5Hj1K7oYalAgVHLX6OtxWkjiFOsTLpiQU4+Zd1PO/h/tmwCzLlLbv9t+
+	 MByhQ5zrXtKt2rtcYsKuR/bKa/y5ZQbQMqxH/LhDvw3z/sOhqkzQu/sFwgH1MSX3dY0B4
+	 e+bvdOHunevZxSO4OKyhGGNQCholh3KGpqJUkd6PUY/iJyKNwHWvsDhpgHir7EkgbLg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFxI34y5;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YTmjUGmF;
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEFFE606A681;
-	Mon, 23 Nov 2026 01:40:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A300F606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:57:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A300F606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FFxI34y5
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3D9C1F000C0;
-	Mon, 23 Nov 2026 01:40:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795398010;
-	bh=y89p4Zfp3vjpcB8k1IxkJ///JSjR1z1U+uhQSBuiQGA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FFxI34y5GtZr6CUsawb3gkCSqiCeap6v7VnzXzALiAqSh9wCziAo94IfgkhRTuIge
-	 yxkbk+qAXh2gh93bulEqxWXjxLwdG8gUO/4FxucytAvn8K1Qa/Dmf2EZZSUvX9OI2g
-	 SK5QL/yBzm93ZRmzX8hy00rTfm93fggrks+PHk9FQclSfGzWawBHbkBC2tj1yUUrmZ
-	 z7uoy1yt1CvTMqkrNsUOdQoXu6iJbKEwgjDy4Xso9FJfXOWSOPLl7w0vusMAmF0b/8
-	 1hL+o3t+TfVn8wF4mwrpVW2y5lsciPJ8mufZ6XATmeWVEGQxzCrf6ddD4uxVPHgVJW
-	 wQZTUaXresW6A==
-Subject:
- Re: [PATCH net v2] ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
-From: netdev-bot+sashiko@kernel.org
-To: jain.sm@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, justin.iurman@gmail.com, horms@kernel.org,
- joel.granados@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 01:40:09 +0000
-Message-ID: <179539800944.3135.14978978337031412574@kernel.org>
-In-Reply-To: <20261122013848.14287-1-jain.sm@gmail.com>
-References: <20261122013848.14287-1-jain.sm@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YTmjUGmF
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-33fb4680717so7838654eec.1
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 17:57:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795399054; x=1796003854; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=33MdLOgkY8inypYgCND5z5x006xVpX0YLRqyjObgHcg=;
+        b=YTmjUGmFfLySzF+BzI443PlOFVLQ/6znvsQGdjwd0D/UKH/wo7nv+UhJFeprBF1QUE
+         MjGXT1tf+tmVPL2SfV4rOvm2zXZtka4mwbV/9sWT3sUbp9zxOnXxj1TNBq4kRXGfvmlj
+         31+jEkNML0oGfOde/5/pz2koAZdC8xcFFiikFUEZ99jYcgF/Cw3js9mowUPsa1O23bfw
+         4crQnVKK4cafmMNbcoVqL5vNAdv6Lhqfbnr+vuh7dPA8mKV8qgO7ZJ1yYMXQ5Q5ORJab
+         xRA+zjiJYAvc1zYTGFjMwfwtNLlK1JVKm+iOxQst8qQlLtQoeKkpRYpIxzIX9vYHKHE2
+         GoJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795399054; x=1796003854;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=33MdLOgkY8inypYgCND5z5x006xVpX0YLRqyjObgHcg=;
+        b=2O2SNPJQDVsXCn9TKRC8WqmN1ynToPDq2LEStuRjrnd1JgbqFhQAedwoeC/LPgG6Po
+         cYyoWXOITigqaw6S7h5lMhvGjWHh4n8QLHwqDwwEm0j3O5GfrF1Mhj5bKhql2mbX9QCu
+         on6TE0RlAX6/TV7R9bgcCvo8rSL9hCBBglLJ4vzZrX5V8D/RTKTaUv0Gtbp67VLIzCXt
+         4am40GckP0TnM5/KS+wQrQMb6NOoM5ubKkd7opXVhLV8GYKGwZF63nXMbrjluXPEinx4
+         ivnuWD2gp21od7isd3eFKVNZkkN6PGMVwFYpTZWiT4Pn2uYQWbSSpAWICSeRBv9Yh4It
+         sLBA==
+X-Gm-Message-State: APuU4Z8SlNROmL8vAaQ2Gu6uzWzutUZ0LNyhDLfnEoq0Tgn3wKNwWNc3
+	wk/BOsRFfIUNpQhIJVeUDiPsv8BIzZlhIoWYbom1Y3jRN3w21eFGgSmBAJHJG5As
+X-Gm-Gg: AZFdTZfwq9MXNBZHePL6V7AEAlBqnYKQxtWcDboQQPKfB60MNxxB6eH2CeFsIEmkhLc
+	gzw0OewIAdTdSYdps4mVrKSilEKlwtwG1wu5WW7egOCRRjMd99vO9t1nIayYNdFpbSC8bjM00Cq
+	cA9fZgU42QHAY4R045otfEkUD+QQjm+cRgH3frcyKD4++zsZLX0sLCPJrG0XUItBZlGLMSGoopb
+	nQ794646hjo+wWrCxyFMJDpolF51Gn4AST8MX8Eiyil3VQXgYWXoV3EXlxpMN5imp/voD9TqxQA
+	I1mENfLTTlgX5TzhyeyAHDfgDm00fcvOYyRgOyYxllOqYnzMNeOROhd3GVb4ryh/oBpZ/vwdjWW
+	FTXiB1ZsEkxd2tSh7DcUkgrn9vpgY6pDuZEIJFIoMYkWotISAqTbKJkLjGCT2loQLBtdDbJzwQv
+	ND4M7d43tpus4+Oh3CExRirbpk5cGMFn/7DslLnKo3nWV2Dta3nY+4p1NKcbvi/MnGU25yot8uz
+	zKkLS8xo5wzcx/8kPjlSdJZ4zzhaXZlgNqupW5VbGRQAamcyZhkUlAkz4xaTYgXeh+57hLG2ViA
+	X8wM6MyEOGUn9BrYm6L9czMUMrh5HsuKyOInUCRvMsPDcvCBMDBfE12ehpkTEk4DLDE3ZSLP/d/
+	PBHMY1fi8Z7VJaB1htjuH4j743/fJ+5byIzBXlnxl+o64J4B62fD1lXYdakQWUC/hiRPAqIjL
+X-Received: by 2002:a05:7300:ce11:b0:384:fe97:8ccc with SMTP id 5a478bee46e88-3856fb58443mr11857869eec.29.1795399053689;
+        Sun, 22 Nov 2026 17:57:33 -0800 (PST)
+Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm34912512eec.26.2026.11.22.17.57.32
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Sun, 22 Nov 2026 17:57:33 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	jiri@resnulli.us,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	richardcochran@gmail.com,
+	rmk+kernel@armlinux.org.uk,
+	vadim.fedorenko@linux.dev,
+	vladimir.oltean@nxp.com
+Subject: [PATCH net v4 0/5] Fix PTP teardown and Time Card DPLL operations
+Date: Sun, 22 Nov 2026 17:57:30 -0800
+Message-ID: <20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,173 +101,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+This series fixes timestamp teardown and existing ptp_ocp DPLL behavior.
+It contains no WiWi board support and targets net.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Changes since v3:
+ - Follow Vadim's channel/pin distinction explicitly: send
+   PTP_CLK_REQ_EXTTS disable requests for timestamp channels directly,
+   without using ptp_disable_pinfunc(). Keep that helper for actual pin
+   configuration. Preserve cleanup after user-interface removal, shared
+   PPS handling, and final IRQ draining without a new driver lock.
+ - Handle combined input destinations in the DPLL frequency getter.
+   Report a known frequency only when the frequency-bearing destinations
+   agree; report zero for unconstrained, conflicting or unknown routes.
+   Output selectors still require an exact match.
+ - Recover disconnected SMA state from mux enable bits at initialization.
+   Neither buffer enabled is represented as IN: None, since hardware does
+   not retain a direction for that state. Do not write the mux or change
+   fixed-direction firmware behavior. Explain the ADVA X1 failure too.
+ - Add a separate fifth patch for the ART 10 MHz input table typo.
+ - Keep patch-specific explanations and brief validation statements in
+   the changelogs; move detailed testing/revision notes below the separator.
+   Keep the trailer blocks contiguous.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Patch 4's DCF correction is unchanged and retains Vadim's Reviewed-by.
+Patches 2 and 3 changed substantially, so their earlier review tags are
+not carried forward. They need fresh review.
 
-- [Medium] proc_ioam6_id_wide() (net/ipv6/sysctl_net_ipv6.c) changes how
-  writes are parsed on 64-bit in several ways the commit body does not…
-- [Low] proc_ioam6_id_wide() passes a temporary ctl_table `tmp` with only
-  .data and .maxlen set to proc_dostring().
+Validation:
+ - Reproduced combined-input, ART-frequency and rebind failures against
+   the previous candidate using source-derived ASan/UBSan tests.
+ - Repeated teardown/shared-PPS tests 100 times; checked all six channels,
+   unassigned/zero pins, concurrent requests and active IRQ draining.
+ - Tested 4,669 input masks and 243 four-connector rebind configurations,
+   plus actual DPLL core get-before-set and supported-frequency checks.
+ - Rejected 16 deliberate regressions with runtime assertions.
+ - Built the PTP subtree for x86_64/i386, allmodconfig and allyesconfig,
+   with W=1 KCFLAGS=-Werror.
+ - Ran five PTP cleanup KUnit cases using real core register/unregister
+   in QEMU with KASAN and lockdep. No physical-card test is claimed.
 
---
+This replaces the previous four-patch common-driver series. The separate
+WiWi support series will follow for net-next after these fixes are in.
 
-ipv6: fix ioam6_id_wide sysctl on 32-bit architectures
+Previous series:
+https://lore.kernel.org/r/20261120-timecard-common-v3-33316bf475-0-ahmadexp@gmail.com
+Review prompting the explicit timestamp requests:
+https://lore.kernel.org/r/08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev
+Additional DPLL, rebind and ART reports:
+https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
+https://lore.kernel.org/r/179538006912.3135.16971430532149423594@kernel.org
+https://lore.kernel.org/r/179538007070.3135.8275620503580456948@kernel.org
 
-net.ipv6.ioam6_id_wide was handled by proc_doulongvec_minmax(). This
-commit replaces that with a local handler, proc_ioam6_id_wide(), which
-formats and parses the u64 through proc_dostring() and kstrtou64(). This
-fixes 32-bit architectures, where unsigned long is 4 bytes and the old
-handler treated the u64 as a vector of two 32-bit values.
+As required by generated-content.rst, Codex assisted with the code, tests
+and changelogs in response to review. This does not replace personal DCO
+certification or hardware validation.
 
-> diff --git a/net/ipv6/sysctl_net_ipv6.c b/net/ipv6/sysctl_net_ipv6.c
-> index 1a0a36dcdabc1..61c28df64d582 100644
-> --- a/net/ipv6/sysctl_net_ipv6.c
-> +++ b/net/ipv6/sysctl_net_ipv6.c
-> @@ -30,6 +30,48 @@ static u32 rt6_multipath_hash_fields_all_mask =
->  static u32 ioam6_id_max = IOAM6_DEFAULT_ID;
->  static u64 ioam6_id_wide_max = IOAM6_DEFAULT_ID_WIDE;
->  
-> +/* unsigned long is 32-bit on some arches, so handle the u64 here */
-> +static int proc_ioam6_id_wide(const struct ctl_table *table, int write,
-> +			      void *buffer, size_t *lenp, loff_t *ppos)
-> +{
-> +	u64 *valp = table->data;
-> +	char buf[24] = "";
-> +	const struct ctl_table tmp = {
-> +		.data	= buf,
-> +		.maxlen	= sizeof(buf),
-> +	};
+Ahmad Byagowi (5):
+  ptp: disable all timestamp channels after removing the user interfaces
+  ptp: ocp: handle hardware selectors and combined DPLL input routes
+  ptp: ocp: preserve disabled SMA inputs across driver rebind
+  ptp: ocp: correct the DCF output frequency
+  ptp: ocp: correct the ART 10 MHz input frequency
 
-[Severity: Low]
+ drivers/ptp/ptp_chardev.c | 14 ++++++----
+ drivers/ptp/ptp_ocp.c     | 58 ++++++++++++++++++++++++++-------------
+ 2 files changed, 48 insertions(+), 24 deletions(-)
 
-The temporary table passed to proc_dostring() has no procname. Will the
-sysctl write warning then print "(null)" instead of ioam6_id_wide?
 
-On every write, proc_dostring() calls:
-
-kernel/sysctl.c:proc_dostring() {
-	if (SYSCTL_USER_TO_KERN(dir))
-		proc_first_pos_non_zero_ignore(ppos, table);
-    ...
-}
-
-Take kernel.sysctl_writes_strict=0 and a write shorter than 24 bytes at
-a non-zero offset. That write reaches warn_sysctl_write(&tmp):
-
-	pr_warn_once("%s wrote to %s when file position was not 0!\n"
-		[ ... ]
-		current->comm, table->procname);
-
-This is pr_warn_once(), so a message that doesn't name the file would
-use up the only warning for the whole system. The old
-proc_doulongvec_minmax() path passed the real table here.
-
-Would adding .procname = table->procname to tmp be enough?
-
-> +	loff_t pos = *ppos;
-> +	u64 val;
-> +	int ret;
-> +
-> +	if (!write) {
-> +		snprintf(buf, sizeof(buf), "%llu", READ_ONCE(*valp));
-> +		return proc_dostring(&tmp, write, buffer, lenp, ppos);
-> +	}
-> +
-> +	/* an empty write changes nothing, as with proc_doulongvec_minmax() */
-> +	if (!*lenp)
-> +		return 0;
-> +
-> +	/* proc_dostring() would silently truncate a longer input */
-> +	if (*lenp >= sizeof(buf))
-> +		return -EINVAL;
-> +
-> +	ret = proc_dostring(&tmp, write, buffer, lenp, ppos);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* a lone "\n" is invalid, a continued write in strict mode is ignored */
-> +	if (!buf[0])
-> +		return pos ? 0 : -EINVAL;
-> +
-> +	if (kstrtou64(strim(buf), 0, &val) || val > ioam6_id_wide_max)
-> +		return -EINVAL;
-
-[Severity: Medium]
-
-The commit message says:
-
-  One change on 64-bit: a write of two numbers such as "5 6" is now
-  rejected with -EINVAL, instead of being a partial write that sets the
-  value to 5.
-
-Does proc_ioam6_id_wide() change 64-bit behaviour in other ways that
-should be listed too?
-
-The length guard checks the total write size. But _proc_do_string()
-copies at most maxlen - 1 bytes and stops at the first '\n' or NUL:
-
-kernel/sysctl.c:_proc_do_string() {
-    ...
-		while ((p - buffer) < *lenp && len < maxlen - 1) {
-			c = *(p++);
-			if (c == 0 || c == '\n')
-				break;
-			data[len++] = c;
-		}
-    ...
-}
-
-So a 24-byte write of 23 characters plus "\n" fits in buf without being
-truncated, yet the guard rejects it. The guard also rejects "5\n"
-followed by 22 or more bytes, and a value padded with 24 or more bytes
-of whitespace. The old path accepted all of these, fully or as a partial
-write.
-
-Is the comment "proc_dostring() would silently truncate a longer input"
-accurate for these cases?
-
-In strict mode, a continued write at a non-zero offset now returns
--EINVAL if it is 24 bytes or longer, and is ignored if it is shorter.
-The old proc_first_pos_non_zero_ignore() path ignored it at any length.
-
-Because _proc_do_string() stops at the first '\n', "\n5" or " \n 5"
-leaves buf empty and returns -EINVAL. The old path skipped the newline
-in proc_skip_spaces() and set 5.
-
-In the other direction, "5\n6" now succeeds, sets 5 and reports all
-bytes consumed. Meanwhile "5 6" and "5\t6" return -EINVAL.
-
-kstrtou64() also skips a leading '+', so "+5" is now accepted. The old
-path rejected it in proc_get_long():
-
-	if (!isdigit(*p))
-		return -EINVAL;
-
-Two other changes are only described below the --- line, so they won't
-reach git history: 21 to 23 digit input is now accepted, and a lone "\n"
-at a non-zero offset in non-strict mode is now ignored.
-
-Could the up-front total length check be dropped? After proc_dostring(),
-the handler could check whether a terminator was found within
-maxlen - 1 bytes, and decide explicitly whether data after '\n' is
-rejected. Any 64-bit changes that remain could then go in the commit
-body.
-
-> +
-> +	WRITE_ONCE(*valp, val);
-> +	return 0;
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122013848.14287-1-jain.sm%40gmail.com
+base-commit: af6737b9066832a2017c281159950ba92385ce00
