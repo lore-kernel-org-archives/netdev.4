@@ -1,58 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795419825;
-	b=VkfprUNVPiDoiHkgKBpTa2SDyn7d4L/Wpy84Ltgo+hOj0wgK+BQGnz6SxtxBpgIJdFVf
-	 0XGYY44rGZyxp3rIRvZW8pLkPrE20xU63h2pRWI7eXwN5/MJW0rbtyPYxCz6tYluNBsxO
-	 +IOTsonMSkywkb+3CFiEXCtLssrjCI3o0VIriLmOlLbQkHuu+Ja/uw0/oJGAjeFKUIZUa
-	 P6j3lvLp+zycbYH8dsN3YmFGmxIMxWHZXN0S13MLSkcw6S13LTP7/Q43ZPmVKfXHuuOP8
-	 oclt7Ogvvmhfz1ykpXddEpvyStM2RVsc0hCRvMAeCvHvVQTQGg8Qo0h0CfrHKqtZUxg==
+	t=1795420292;
+	b=oWbwYlYiLEvmLx7MfHuz+CkG2kvBp8Phs0pbKOxEQWGRBzjgdiqqqz57xbtZ9UF90Cop
+	 Am7V94t5fqc+GRq83HZaWewdYBPN08X0I+SdCX+6BG1VBIOjjYq1TkbfvL+lWd9NGoD/s
+	 IcEZeEHnqsmbhtYyyPnUVME4PUYAvFUcH6r7kuwsxQaD/lknNBqCg49kR4p4ZVjpTHNPb
+	 jzxzrX53Og3C+YFEMqU7Eq/8Tyrzu8DCAHujeo2semKL8KxLuLOzZZNMTW2au31htjuPP
+	 8fuB8IEtqKj8hxI/IlpmF63j4pJCdnWiEgbd5cDvQWRkSF8miSGSlAYv/rqRe4pnb9A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795419825;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
-	b=vUj8hCuRoe/jFz1TW/vG1hY69blsdJhr60JfjNyfNACUk5Wv0Ru16NuehNCaqK5CV8w0
-	 6EmWaERYbYJ11izyNM7clDCLTbtwZEDI55WHFSVnSCLO/gCN/WT//m8T1uE1WU+vq/wZn
-	 7iZh4ouShPTTm76Fvl6fnaORnAt/qMV7kMRhbSrkQGFYAa9KNtdd5Y60lQDeLhVh/+2HS
-	 KTNk+ueSv7BwqYe5l47bN0xAHe+1bCnWOIT3Fe0UrOYYm01ZOejsvUhJBM5ZBgNw45JxW
-	 eA1gNfNKdkfYP1/d2TDxRYsGDKkTJEZLl+oyFPws06ccyLocuErgVs63jstwF+0v+Rw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795420292;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-TM-AS-GCONF:X-Proofpoint-Reinject:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=NnmWGe9a+E123Mgyj097ItDVybjMM+ktVdi/Zst0ynI=;
+	b=aNHkUyEdSL8rJdLk0EpxbFgUA1vnaIPyq5nE+PrkZnPrequFZz26FA3RnlAUuWQh2oXe
+	 icGtNFZEk85lhl5oUojgTLcb9tvBJfFVoO1ZYJg+688pCa0SSpb5cw6/9jOOGP6j96YWX
+	 tHdQ5VFwMOKmnvjlzIxAUPNvfwW+v8LW9ZKSJtFvdqN60zB3SaQwtl5jjcNZ6C2aSKCWc
+	 ptdBq+JSgEunlGreUUJsGJ70wuUsqmqdgru1v91IZ41HxAYHixa2CcNzXjuOmLzqe5WgB
+	 oOp+mbGZudGklZItBwLlSkHdvJVjq6B2WhVWqRyt+NL1GoOJ3sCSYjxUy4UEtxgW7TA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5;
-	arc=none smtp.remote-ip=113.46.200.226
-Received: from canpmsgout11.his.huawei.com (canpmsgout11.his.huawei.com [113.46.200.226])
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qGKS1ask;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07726606A31E;
-	Mon, 23 Nov 2026 07:43:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07726606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7925D606A327
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:51:32 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7925D606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=BSMKH+a5
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=6j9uy6DpUm+FCCeQ0QSmVenyXc1ejPJ0OyDcAi7hXiA=;
-	b=BSMKH+a5Oe1r9ZTzRbMJt/CRzzmm36loU/chsZd9oX5OSLT5yGFoPznBXlJSTe5CbDz2t5JwN
-	4YTEx+HTMOoSV2Jb2ENWbahGUTxSi//No8lmvTMFlqyxr2h57JVW/G9qnLOzj9c3Bc+UwsJzYLa
-	cpQM+HH0T8O7+sTOaGt7ddk=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jXybk31LjzKmTk;
-	Mon, 23 Nov 2026 15:43:14 +0800 (CST)
-Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
-	by mail.maildlp.com (Postfix) with ESMTPS id CFC604057C;
-	Mon, 23 Nov 2026 15:43:31 +0800 (CST)
-Received: from [10.67.121.233] (10.67.121.233) by
- kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Mon, 23 Nov 2026 15:43:31 +0800
-Message-ID: <d62f3532-5bc5-45aa-98c6-90a253c7bcb7@huawei.com>
-Date: Mon, 23 Nov 2026 15:43:30 +0800
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=qGKS1ask
+Received: from pps.filterd (m0353729.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54b1v981894;
+	Mon, 23 Nov 2026 07:51:13 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=pp1; bh=NnmWGe9a+E123Mgyj097ItDVybjMM+ktVdi/Zst0y
+	nI=; b=qGKS1askR+/DF9BSqtkSa8nJzCtQfb29NK4ZN+EcV3sStctgJ55JyZWnV
+	oHL8Lsid4x0zB3bArx/fgiqhGST3mlXJcmAyD6tOiZhRffexI04V/nXgI5GwjtXv
+	+XkUwcNTL3cgWYJK9ujEnGwtrVoycdeb840xrkheTBY/0sIs6u53xUdxLewT/SpI
+	QONT1PEKTWlucN6pcKPNLc+y1sApBEZzp1iQFDVbGHLqEt4wFLa2QYvLt6P8/+Y1
+	J0PFlgrWKMmz9JvDJ6+PE7UHB746+Bf1p+VnjUfPtVRy3D6s93Zhqb0OR+w5/hdo
+	QzZRIZdilwVtijINRK193ZQ0Q9fBA==
+Received: from ppma23.wdc07v.mail.ibm.com (5d.69.3da9.ip4.static.sl-reverse.com [169.61.105.93])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g3238q-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 07:51:13 +0000 (GMT)
+Received: from pps.filterd (ppma23.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma23.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AN54KZ92487377;
+	Mon, 23 Nov 2026 07:51:12 GMT
+Received: from smtprelay07.dal12v.mail.ibm.com ([172.16.1.9])
+	by ppma23.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3q4h5rgg-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 23 Nov 2026 07:51:12 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (smtpav03.dal12v.mail.ibm.com [10.241.53.102])
+	by smtprelay07.dal12v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AN7pAJO28705500
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 23 Nov 2026 07:51:10 GMT
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 58C1D58056;
+	Mon, 23 Nov 2026 07:51:10 +0000 (GMT)
+Received: from smtpav03.dal12v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id DC80E5803F;
+	Mon, 23 Nov 2026 07:51:07 +0000 (GMT)
+Received: from localhost.localdomain (unknown [9.67.2.38])
+	by smtpav03.dal12v.mail.ibm.com (Postfix) with ESMTP;
+	Mon, 23 Nov 2026 07:51:07 +0000 (GMT)
+From: Mingming Cao <mmc@linux.ibm.com>
+To: netdev@vger.kernel.org
+Cc: Mingming Cao <mmc@linux.ibm.com>, nnac123@linux.ibm.com,
+        maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
+        chleroy@kernel.org, ritesh.list@gmail.com, sshegde@linux.ibm.com,
+        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+        kuba@kernel.org, pabeni@redhat.com, linuxppc-dev@lists.ozlabs.org,
+        horms@kernel.org, davemarq@linux.ibm.com, haren@linux.ibm.com,
+        ricklind@linux.ibm.com, bjking1@linux.ibm.com, shaik.abdulla1@ibm.com
+Subject: [PATCH net-next v2 0/2] ibmveth: two TX and reset fixes
+Date: Sun, 22 Nov 2026 23:51:00 -0800
+Message-Id: <20261123075102.2962-1-mmc@linux.ibm.com>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,97 +95,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <andrew+netdev@lunn.ch>,
-	<shenjian15@huawei.com>, <liuyonglong@huawei.com>, <chenhao418@huawei.com>,
-	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 net 4/4] net: hns3: fix use-after-free in debugfs read
- during reset/unload
-To: <netdev-bot+sashiko@kernel.org>
-References: <20261118130330.3026625-5-shaojijie@huawei.com>
- <179535384216.3135.13172932788054177257@kernel.org>
-From: Jijie Shao <shaojijie@huawei.com>
-In-Reply-To: <179535384216.3135.13172932788054177257@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- kwepemo500018.china.huawei.com (7.202.195.199)
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Authority-Analysis: v=2.4 cv=SoQFe/O0 c=1 sm=1 tr=0 ts=6b03f071 cx=c_pps
+ a=3Bg1Hr4SwmMryq2xdFQyZA==:117 a=3Bg1Hr4SwmMryq2xdFQyZA==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
+ a=uAbxVGIbfxUO_5tXvNgY:22 a=VwQbUJbxAAAA:8 a=VnNF1IyMAAAA:8
+ a=3XeKXeJX3U8D6EKEFAIA:9
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDAzMCBTYWx0ZWRfX9J7kNQzwMnBB
+ EtSoahheacZYsjuvifjbQ3xZMUSEH/gdhMWaQuU7TeKfHU2HMct4nislDcTtktuRRadB/V4/gWn
+ B8CVhKirZj+kNulIawIb+omKjYJp6O4=
+X-Proofpoint-ORIG-GUID: wjIrpWgzdPXzkBLwgNyrExVsaxPWTxI4
+X-Proofpoint-GUID: OTiLYXGmYa-CDWct8J9vd4aHwFqpStx5
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDAzMCBTYWx0ZWRfXxiE+GV+LvtNJ
+ mv0ZtR53z8R0jTuwomK2CYqwKnhAPELL7dvV3Vez+FSiZVVQq0WavPPQymXdXP9hjv1G7wusaff
+ 68vAT/Xdyl9hRXiC0G7S7ViRHbl4dasea92iLfTg8INJsemUHvvLK1VNPswYc0Kg18b9gIIn61d
+ +eH1z0Qcjxi2xLfbLDz79uP2o7+CMDebZ56CreF+o3RVhf0fc6NxXTYpo68/96XPPqu8up30BWe
+ trqH+1bUjZaJCEd7kZFgLr3jVoTc8AZ+RFnJj154PYvWjd47BLz/FBfV1GOttq3EIFsnSm9xtP4
+ I9+CAHOvKxxV7JL5GxzhhPUEvJLfI6ZZhDbr70EUAUMiFdDIXWh2i6rp+rfHK4r7tlGcOc+ngKX
+ /b4nQsGolrxwxXk3g3lPY1Qr3G14sbLAwU9gypSmNZn6MD3CezyPTiCS4KEcEYfpU1qKb3SMGxH
+ Ng+7TwfgthmBqg5qiLw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-23_01,2026-11-22_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 suspectscore=0 spamscore=0 bulkscore=0 adultscore=0
+ lowpriorityscore=0 clxscore=1015 malwarescore=0 impostorscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230030
 
+Two independent bugs in ibmveth that exist on today's kernels.
 
-on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
->
-> Low priority / nit picks for your consideration:
->
-> - [Low] The comment on the new `struct hnae3_handle::dbg_mutex` field in
->    drivers/net/ethernet/hisilicon/hns3/hnae3.h reads "protect debugfs…
->
-> --
->
-> net: hns3: fix use-after-free in debugfs read during reset/unload
->
-> This patch adds a dbg_mutex to struct hnae3_handle. The enet-layer debugfs
-> show callbacks take it, and so do the reset, driver unload and ethtool ring
-> resize paths, which keeps the readers away from priv->ring, priv->tqp_vector
-> and ring->desc while those are being freed. The readers also check the
-> device state on every iteration and return -EBUSY when the device is busy.
->
-> Closes: https://lore.kernel.org/all/a0853cd9-cab5-441d-b181-8ba97f2f58b0@huawei.com/
->
->> diff --git a/drivers/net/ethernet/hisilicon/hns3/hnae3.h b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
->> index 4286af9239b01..e94cc33da8643 100644
->> --- a/drivers/net/ethernet/hisilicon/hns3/hnae3.h
->> +++ b/drivers/net/ethernet/hisilicon/hns3/hnae3.h
->> @@ -944,6 +944,7 @@ struct hnae3_handle {
->>   
->>   	u8 netdev_flags;
->>   	struct dentry *hnae3_dbgfs;
->> +	struct mutex dbg_mutex;	/* protect debugfs against reset/unload */
-> [Severity: Low]
-> This isn't a bug, but is this comment a little narrower and a little
-> broader than what the lock actually does?
->
-> On the writer side, hns3_set_ringparam() also takes h->dbg_mutex around
-> hns3_init_all_ring(), the memcpy() restore and hns3_fini_ring() on the
-> backup rings:
->
->> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
->> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
->> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_ethtool.c
->> @@ -1252,6 +1252,7 @@ static int hns3_set_ringparam(struct net_device *ndev,
->>   	if (if_running)
->>   		ndev->netdev_ops->ndo_stop(ndev);
->>   
->> +	mutex_lock(&h->dbg_mutex);
->>   	hns3_change_all_ring_bd_num(priv, new_ringparam.tx_desc_num,
->>   				    new_ringparam.rx_desc_num);
-> Ring resize is neither a reset nor an unload, so the field comment does
-> not mention it.
->
-> On the reader side, only the enet-layer seq_file callbacks take the
-> mutex (coal_info, rx/tx_queue_info, queue_map, page_pool_info, bd_info).
-> The hclge-layer readers that hns3_dbg_common_init_t2() registers through
-> ops->dbg_get_read_func() live under the same handle->hnae3_dbgfs tree,
-> and they never take it.
->
-> The commit message says the mutex is "used by enet-layer debugfs
-> callbacks", but this comment is the only place in the tree that
-> describes the lock's scope.
->
-> Could the comment say that the lock serializes the enet-layer debugfs
-> readers against the paths that free or rebuild priv->ring,
-> priv->tqp_vector and ring->desc (reset, unload and ring resize)? Then a
-> future writer would know it has to take the lock, and an hclge-layer
-> reader would not assume it is protected.
+  1. After ethtool -L shrinks the TX queues, a sender that already
+     picked a removed queue (AF_PACKET PACKET_QDISC_BYPASS, pktgen)
+     can memcpy into a NULL long-term buffer. Drop that packet, and
+     stop TX with netif_tx_disable() so a sender already in xmit is
+     done before ethtool -L allocates or frees a buffer.
 
-It states what the lock is for.  I think a struct member comment isn't
-meant to enumerate every path that takes it, and covering the main cases
-should be enough.
+  2. ibmveth_reset() closes and reopens the device without checking
+     whether the admin already set it down, and can bring it back up.
+     Skip the reopen if the device is not running.
 
+Both came up during review of the v8 multi-queue series [1]: patch 1
+on v8 06/15, patch 2 while splitting that series. Neither was
+reproduced; the fixes are based on analysis of the code paths, and
+each commit message says so. They carry Fixes: tags, but the
+triggers are narrow and the second multi-queue series builds on them,
+so please take them through net-next. The first multi-queue series,
+posted separately, does not depend on them.
 
+Tested: on a PowerVM LPAR: ethtool -L TX shrink under traffic,
+ifdown/up under iperf3, and a queued reset while the admin has set
+the device down. v2 on QEMU pseries only: TX shrink and restore under
+UDP traffic, MTU change, open/close churn.
 
+Changes in v2:
+- 1/2: wake the TX queues under netif_tx_lock_bh(), and map a new
+  long-term buffer before publishing its pointer (Sashiko)
+- 2/2: say the bug was found during review and was not reproduced
 
+v1: https://lore.kernel.org/netdev/20261119000235.15622-1-mmc@linux.ibm.com/
+
+[1] https://lore.kernel.org/netdev/20261109235556.60604-1-mmc@linux.ibm.com/
