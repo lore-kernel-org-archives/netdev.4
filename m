@@ -1,101 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795459139;
-	b=k8Qc8yNKe1LB6eqFnkXVIoXwJmwfCXo7qnPP4JxXaCrCLIv+RHSINk5a/LsDUsopnRLO
-	 OhL4IEs63fx7UDM2Xd/t953VWASmFkdKiInCtPoq7TlXPvguT++IuBQZWlvWVYjA95zA2
-	 /bfqyUFhAm3t6VmeJHcrtgfeK2ocROwMFwvqlYDXxoj5+YxKuXqSTe9AStJJreevkOH4W
-	 cyFFWfnhgFegMS1ZcjZPXWpciFX8k1lDgV/pC55eAL3SlQVUXKD0+h0pwiInwM5axS9yt
-	 ijRipug7W64/R5SEsEnswq7OTUYBuB77JlaCTuE4WV79rXtOoh+cRBLDiv4zWXenuwg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459139;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=BVaIouS2pVUMajQqbfDiziKY6k1WNaUbZHjTPOkkoAI=;
-	b=GkBZpJYO7x1wu0W3KFS1sXCJTLE3L9fkJaJKBCP4Yf2TW1qXBYGdxZVlkMQQ4bsEHDxJ
-	 XYNl8XdNht3cFZw6Ss2CArVJYe2rWV6AP6Bvdsjs1Xqg/ESicIQdAYhNLR4djlvi/dsk+
-	 dS6/WyxvUsnlSHDFztfF6brfR8hG/wwNIBii+FLDt8O1mS9tFqI9yoViK9Mz8a+NAAwMo
-	 b4T2YwhgPC/gAwEZGMWWWwubIn/ZHy0DR9JOWmWjTfnauFNuIj79r0RLkRrXmLk8QrmHs
-	 KyRtx7qj70qMjAFnmVDZqyDpotUii0fxGho0AL+AaLL3JhlDKsCf0HA+tyt2H3Jflyw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=everpuredata.com;
-	spf=pass smtp.mailfrom=purestorage.com;
-	dkim=pass header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=odQEP70P;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.222.43
-Received: from mail-ua1-f43.google.com (mail-ua1-f43.google.com [209.85.222.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795459216;
+	b=HOSVe8LIAbK9nai9d/DypXz5Rj4DWl48u3XgTDHgUImsvumVNgwt0RM9PsBHn9dr3368
+	 8v7vWOnuc0zdOCgPzDUdis24zPUh1MIjZZwB9yhUiPkzaZTIDZ8UYBGIag/jKs/1WyhCL
+	 iY4vutGOs9xmg9gCExwQFAcHQ/InVQ/saHV9vLoMfM3w2VUUQ5zQKjIiv4+UNjINwi6ve
+	 SVGSkoLEsrTtBU/hzMYVqm8sITlbiv6FXWTwTCvtpQTQomMqIxCVEDX4b+IheESDfWxHC
+	 7q7NmdjktVYLX2FMcnu/Dr7af3B5IdiTuEN5zakLUEanmmKdGIx08Md6tOVh27PBA2Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459216;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=97n/AA44OWEFHAxhIbrtHJJ0Jb7k6ivcJGdUSEplDWU=;
+	b=MQJI0h0MNj0nrDqEB2mhn2bGQ5YMj9R1vJeB2PFzx5EImNBHbMyGeIZvH041F124Ef37
+	 RN9NYIMSDd53juBGjkH36YsCJSnIhF6cV5oIMqSknrkaN3NRXvji44xflsNL4dAj6q7EY
+	 OA9zsRDCHA2ofXW+gRQfMp8g5u0ponN14l7CUWJeUDA0k2G2sVvCDkD2XKQrVEocZfOCM
+	 dMeaUCI332VfIHErLgSAalyriKNK4uHrThRKELtE4yU4Sva/6yx3RvpZJPpjCeuyWNYOI
+	 lROYqNesQjjf1Tbn/q/GofbPrAELDV2NmxctNdVGa14m2OW03YgH+5xG4uzrCukSK7A==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9jy3mg7;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34104606A31F
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:38:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34104606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=everpuredata.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=purestorage.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 089D5606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:40:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=everpuredata.com header.i=@everpuredata.com header.a=rsa-sha256 header.s=google header.b=odQEP70P
-Received: by mail-ua1-f43.google.com with SMTP id a1e0cc1a2514c-9912c47367cso2397502241.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:38:58 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795459137; cv=none;
-        d=google.com; s=arc-20260327;
-        b=V8u14G4Ui6n23nXdg9XnflQWuckTePdgWsedkVn/Vl1u46v7YcHSJvP3pN3gA20TjL
-         P2J9eMuz1ECvB2eGdA6d6DGQ8jyHANbfDu7LxCeubyWb+W6t+3DZGXYnOyLQz6FnJcpn
-         8J8a6OaYBcKKq1QW5vtRItvO4iL/KBQDLe/yEOOk/X2Fya41OzbyW28RoBIAzuKQbgG3
-         9vbCW5P0RknIZJ1rpMukZG1W5BtmKmcuZfjcrGCuKycSVFLYHVGUJe45iVXApKUK7OJE
-         jKuwXePKD+DFKMPlYDHjtrqRQ6mPC0IVeBZzCRdix+kO/hk7F8jDBa1cgAPt6aIpqWAS
-         Qhyg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=BVaIouS2pVUMajQqbfDiziKY6k1WNaUbZHjTPOkkoAI=;
-        fh=SX0rjOcaEJo8Otrkwj6P8M3dcazI7V+x4K5KN5Mcay8=;
-        b=q43rNu5JOZj1TfhSRtivcA6iT/M1+koymBttVU5wx/FjNpZdkTd420Qmp2zeg2idgM
-         BcWne8gUY9yVgwcw6vLLcnJsPkWvX3IEI5XLSMPhLOmSiqqQgwrwPoOgjfAfU3+nLDMC
-         t3/6kZZn7tGZWEv9ZtrHWtzy0hc59dwRuLzo9PH+CFeaGDTiFPerR2HGpOt2DtSKkN3z
-         0IMjMDLkmv2B+Of4vLFhvBeo1POwUniO9tKD6uDYN2fLVzn7ojoiXN5U4jWZmbV9NIbE
-         wJOgpqH0d0Yzq8uTTY/izGFw/dQL0b8oJaUCryQR0ckhnQgA4uKgpx+FXu3pju+nneXO
-         Ccaw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=everpuredata.com; s=google; t=1795459137; x=1796063937; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BVaIouS2pVUMajQqbfDiziKY6k1WNaUbZHjTPOkkoAI=;
-        b=odQEP70PWFT6c5SCrCZ4mVifAoDK96XoPCuTYfmIwW5qusVGtYSEfdfpwkpIny5fvt
-         ueYLKr44uTbOecaTmw5zySux6FvYhiXh9gpbz9b0WglD2iepcHpNI9+7XKAqFtDY0tXR
-         yFDt7a15fqydzcsLjTKrC8mk/3nbWsqr0iaLbA6yHduNsZz7X5/J/TaqFklDzLw7WWFO
-         ikcis/EndrDpNa+w5aGu5Da+UxAdEsbVJy6cpi5InHemVoCV+RkX5c6N4legH2Po2lM8
-         C4MqrJS22IDV/CFvhXk+GT01+S8yrsxwk5NRxYgNPLSnw67ojRa/3OIWDL+i2Qq9qMOj
-         E5fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795459137; x=1796063937;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BVaIouS2pVUMajQqbfDiziKY6k1WNaUbZHjTPOkkoAI=;
-        b=QHbmAtJ34jah4TvWjoUjLEYfufa0X6+FKmPoWOlMsI/Oqvv+7vp5VsLOtimyjocLz5
-         aYgv5cqieMVr9BBoc9F7kWAemX3BCxJDfuuVBUwU4ZZ8AzDSP2xTZS6Twn7Cx2RqBvdO
-         GGryrbxeqGswT8Q92wxpWbjEtTT+KzfxZQYPZADc1IcxH3/ZWOHjlVPbAtBNfbLHPdej
-         3n/iAlUohDYo6j8QTDApqbzyDvfLiApMkSssnFBe7Nj+GMx22WAgZRGISpSB9trQRO4A
-         oO7FRERMpMCvlGchETyFhseDft8K6/Kr/tTaa1qdQKU3mGcux60VZqOWMlL1p9AVKcKI
-         krvA==
-X-Gm-Message-State: APuU4Z/bRPhAIZAJjY1D1ghAwPpOz/T2+tbMg2cS9qAjTQT2zo0R4flm
-	HIumQZbM0iRbod7LfqoPfILxR/aJTM38GBAXl6VJ0bBPg0UoqBEJurGYS8JNdx73xbYSs9vMKYk
-	RDVZp/rBizD8N1C4WWBeYEqf5oA1R1cilkEhArg0IWg==
-X-Gm-Gg: AZFdTZcr4eMTRT0Bjj0vp5K7xXTatA/tbnfLkm2MIpkqR0/u/sccEdnEGdBT0qy6+7T
-	po5IgHypieVc21YMDzKsbOM3Wj8a0AwHYcZNkkoUGbIEXnp26erIxn6/wgB60W20YUYHSJypi+a
-	x3vDt79R9k96EvXGhm26hme6TfxnnPFfTtyZqkLnLUU9WW4yQET2YA6+4vSPtIMVwQSNVmb3K0b
-	kGMKTI3pnQEMF/d43DP0KxUJye/KqFGyuTyeQvXcsAj5icU+FC4VzClREkiImkgvN/dte9cDEIa
-	etThJBRvukiBxWnnz06kc1L/HcKfIP6A+okXowQK1rp+rBEVgNAbCQqWvtOaVkJQrkaDi/bevs/
-	CyVDnt/qXM4Xz13IJoKIzt9gvwkJkTFS4D6xLMDQ9GVSXIl4eRnBqZy5mjr+0ttvAIQCsd9O+iO
-	ZznG5+gAwzm6ocXwFqwkewmDGpKtwo0s5VLt4oUdvxHnsHDRHqo631Bi14tFtpYmTom1U2dvhy5
-	VXVUeuq7roMFZ7Ska/v1aoj
-X-Received: by 2002:a05:6102:3709:b0:7c2:799c:9018 with SMTP id
- ada2fe7eead31-7d71e3301d9mr3598327137.0.1795459136929; Mon, 23 Nov 2026
- 10:38:56 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A9jy3mg7
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E96A11F000CF;
+	Mon, 23 Nov 2026 18:40:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795459215;
+	bh=97n/AA44OWEFHAxhIbrtHJJ0Jb7k6ivcJGdUSEplDWU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=A9jy3mg70bfhipdHr1f6Gjr3jKKYux/gZDGREMVky1I3aZgo+6zADncbVQYP3Xv01
+	 rFm0BC3xDxiK/g4NmU7HLkznPPf9xpD1QyvETpl+DNVSVSeBcgrw4Vtk4KhuuNxewa
+	 rxFiBKpzAGppzzkYu7lZ7+A71/i1bAc4hpQNMg48PZd2v4YnQVT84WGU9lvFEU93fY
+	 70a9TbUc6HeoyqeLRUx950weTrRqiWAIgqjRh2ypGR9/4pQzsQ6E+TedcrEQ5ial2a
+	 idTnnyd/fGOTEePVmP1OhkMa2beefjbG7J7eUNafaSysyvjavhCImYlirxwtjxNLJv
+	 OWcUJasQaaIUg==
+Subject:
+ Re: [PATCH net] udp: gro: do not match tunnel-processed and plain packets
+From: netdev-bot+sashiko@kernel.org
+To: aviralyash27@gmail.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, willemb@google.com, horms@kernel.org
+Date: Mon, 23 Nov 2026 18:40:14 +0000
+Message-ID: <179545921450.3135.6404804724515356262@kernel.org>
+In-Reply-To: <20261122183951.73210-1-aviralyash27@gmail.com>
+References: <20261122183951.73210-1-aviralyash27@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,37 +62,161 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116183519.3314837-1-rjethwani@purestorage.com> <20261121152324.668463ca@kernel.org>
-In-Reply-To: <20261121152324.668463ca@kernel.org>
-From: Rishikesh Jethwani <rjethwani@everpuredata.com>
-Date: Mon, 23 Nov 2026 10:38:46 -0800
-X-Gm-Features: Aa3M54ocmouk4lzpqzy6nOPF8SzDj5v--NdJJzUSb_41Ik007vkSQqPTkqjXAuw
-Message-ID: <CAKaoeS0KjzHPcgmhHZud4=1sUG-J4H_J_==PRTtpNSYnMZ7ipg@mail.gmail.com>
-Subject: Re: [PATCH net v5 1/2] tls: fix socket use-after-free during device-down
-To: Jakub Kicinski <kuba@kernel.org>
-Cc: netdev@vger.kernel.org, stable@vger.kernel.org, 
-	John Fastabend <john.fastabend@gmail.com>, Sabrina Dubroca <sd@queasysnail.net>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Alice Mikityanska <alice.kernel@fastmail.im>, Tariq Toukan <tariqt@nvidia.com>, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Sat, Nov 21, 2026 at 3:23=E2=80=AFPM Jakub Kicinski <kuba@kernel.org> wr=
-ote:
->
-> On Mon, 16 Nov 2026 11:35:17 -0700 Rishikesh Jethwani wrote:
-> > tls_device_down() pins each TLS context, then drops tls_device_lock bef=
-ore
-> > switching ctx->sk's TX validator. The socket destructor can run between
-> > these steps: the context survives, but __sk_destruct() frees the socket=
-.
->
-> Looks like it conflicts with another recent fix. please respin
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-I=E2=80=99ll resolve the conflict with the recent fix and send an updated p=
-atch.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-> --
-> pw-bot: cr
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The Fixes: tag covers only the out-of-bounds read, not the
+  older mis-merge bug.
+- [Low] The new comment and the commit message both say encap_mark is set
+  for any tunnel-processed packet; FOU and GUE clear it.
+
+--
+
+udp: gro: do not match tunnel-processed and plain packets
+
+With this patch, udp_gro_receive_segment() skips held packets whose
+NAPI_GRO_CB()->encap_mark differs from the incoming skb. A plain UDP
+datagram is then no longer compared against, or merged into, a held
+packet that went through a vxlan/geneve GRO handler. For such a packet
+udp_hdr(p) points at the inner L4 header.
+
+> When the bytes read happen to match, the UDP payload is merged into the
+> tunnelled TCP aggregate. With rx-gro-list and forwarding the datagram
+> is then segmented and sent out with the inner flow's addresses, without
+> having been seen by the forward or egress netfilter hooks.
+
+[ ... ]
+
+> Fixes: 4b0ebbca3e16 ("net: gro: move L3 flush checks to tcp_gro_receive and udp_gro_receive_segment")
+
+[Severity: Medium]
+Does this Fixes: tag cover the whole bug?
+
+4b0ebbca3e16 added the gro_receive_network_flush() call, and that call is
+where the out-of-bounds read comes from. The port comparison against a
+tunnel-processed held packet looks older:
+
+net/ipv4/udp_offload.c:udp_gro_receive_segment() {
+    ...
+		uh2 = udp_hdr(p);
+
+		/* Match ports only, as csum is always non zero */
+		if ((*(u32 *)&uh->source != *(u32 *)&uh2->source)) {
+    ...
+}
+
+Blame traces these lines to e20cf8d3f1f7 ("udp: implement GRO for plain
+UDP sockets.").
+
+udp_hdr(p) points at the inner L4 header because the inner
+inet_gro_receive() resets p's transport header:
+
+net/ipv4/af_inet.c:inet_gro_receive() {
+    ...
+	skb_set_transport_header(skb, skb_gro_offset(skb));
+    ...
+}
+
+Before 4b0ebbca3e16, flush came from NAPI_GRO_CB(p)->flush/flush_id.
+inet_gro_receive() computed these by comparing the outer IP headers (ttl,
+tos, DF, id) at the same offset in both skbs. The remote sender controls
+all of those fields. Before 5babae777c61 there was no flush check at all.
+
+On those kernels, can a plain UDP datagram whose ports equal the inner TCP
+ports of a held vxlan packet reach skb_gro_receive() through a UDP_GRO
+socket or rx-udp-gro-forwarding, without reading any out-of-bounds bytes?
+
+If so, "when the bytes read happen to match" is only true after
+4b0ebbca3e16. Backporters who follow the current tag would skip 6.6, 6.1,
+5.15 and 5.10, and those trees still have the cross-flow merge. The
+rx-gro-list forwarding variant needs TCP fraglist GRO, so it does not apply
+to those older trees.
+
+encap_mark has existed since 2016, so the check should backport easily.
+Would it make sense to add:
+
+Fixes: e20cf8d3f1f7 ("udp: implement GRO for plain UDP sockets.")
+
+and keep the current tag for the out-of-bounds read? The message could
+then say that on older kernels the mis-merge does not need the
+out-of-bounds read.
+
+> diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+> index b77ae2f00c626..160b60005a1b6 100644
+> --- a/net/ipv4/udp_offload.c
+> +++ b/net/ipv4/udp_offload.c
+> @@ -723,6 +723,17 @@ static struct sk_buff *udp_gro_receive_segment(struct list_head *head,
+>  		if (!NAPI_GRO_CB(p)->same_flow)
+>  			continue;
+>  
+> +		/* encap_mark is set once a packet has been through a tunnel
+> +		 * GRO handler (vxlan, geneve, ...). For such a packet
+> +		 * udp_hdr() points at the inner L4 header and its network
+> +		 * offsets describe the inner packet, so it must not be
+> +		 * compared with a packet that has not been through one.
+> +		 */
+> +		if (NAPI_GRO_CB(p)->encap_mark != NAPI_GRO_CB(skb)->encap_mark) {
+
+[Severity: Low]
+Is this comment accurate for FOU and GUE? The commit message makes the same
+claim:
+
+  NAPI_GRO_CB()->encap_mark records whether a packet has been through a
+  tunnel GRO handler.
+
+fou_gro_receive() and gue_gro_receive() in net/ipv4/fou_core.c both clear
+the mark after tunnel processing:
+
+net/ipv4/fou_core.c:gue_gro_receive() {
+    ...
+	NAPI_GRO_CB(skb)->encap_mark = 0;
+
+	/* Flag this frame as already having an outer encap header */
+	NAPI_GRO_CB(skb)->is_fou = 1;
+
+	ops = fou_gro_ops(sk, proto);
+    ...
+}
+
+For GUE version 0, the sender chooses proto through guehdr->proto_ctype.
+With IPPROTO_UDP, the packet reaches
+udp4_gro_receive()->udp_gro_receive_segment() with encap_mark == 0. No
+inner IP layer runs, so the transport header stays on the outer UDP
+header.
+
+Two such GUE-direct-UDP packets have equal encap_mark, but the headers
+being compared are from different layers. uh from udp_gro_udphdr(skb) is
+the inner UDP header. udp_hdr(p) is the outer GUE UDP header.
+
+If the sender sets the inner ports equal to the GUE port, can the packet
+match any held GUE-direct-UDP aggregate of the same outer flow, whatever
+its inner ports are?
+
+This path has no out-of-bounds read, because the offset difference is only
+the outer IP header length. The cross-inner-flow merge also predates this
+patch. Still, the invariant stated in the new comment and in the commit
+message does not hold for FOU/GUE.
+
+Could the comment say that encap_mark tracks whether an inner network layer
+was processed, rather than tunnel processing in general? Alternatively,
+could the check also compare is_fou?
+
+> +			NAPI_GRO_CB(p)->same_flow = 0;
+> +			continue;
+> +		}
+> +
+>  		uh2 = udp_hdr(p);
+>  
+>  		/* Match ports only, as csum is always non zero */
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261122183951.73210-1-aviralyash27%40gmail.com
