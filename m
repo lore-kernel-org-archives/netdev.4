@@ -1,105 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795438160;
-	b=2A3VDm8r2S9lheH5fTs2MxgD7hPEurpUqQt60G9Jbft1uhBp1M9O/5P0OuXSiyIohoZ8
-	 n0Htk4tgjOkmOsPKw4nzxhFXo2EJTRonrqWVF2dogo5T9ujDi4aBDIudC/XamvyjBe0Dv
-	 zQPurReumrrz23Tr4YEMcXT5hDJBpFwvZaDRB4+BXPZIrdeqhvlyqM7bM3UPl0Q+TAXF7
-	 8PjlXzuiNDJbmWo2zb1gbz6wk7vr2VQMrJCfb7jCjMZw6Vi6Bt7t1ridyeeQprPWxXFLL
-	 JcYTmOTmyG636mjLFAbdp0YxKtwTivReXFp9Zf2eFBXHoYy88uRYfcGoezcI9iOJ0HQ==
+	t=1795438321;
+	b=WZXjvYinbbWiaWTSzeEMwJOMofGjOMEmMo2obkeHy9OwuRhq/AyJ8sKW46CWO0dpoZJj
+	 Ri41r+GjfYut8O2tCSHp+MTV8HAuO/9hTDUXzPQT+d77Pp1hhVtJ4S/7AuQ5Pgob7Yf6O
+	 8AXjkdGknFXl6wYcujxOg+cWTZ29TSiMxi6QTMTSqfdrCIwsZd+i+CGvW8JpV9TE+CblR
+	 6rSKOAf0+w+KxEIoLSrWoCIRwn8KktQcOl91AktiZZ0VPCz7FVgvou/s33EloDbXM0FvY
+	 bZTMdK3m+ju+nUXGEIO48S08O8QjbnB6pb+0NqSr5DiQODoMegDgIt0fddiogpdx7qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795438160;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
-	b=ZHaL5LZUo15FKaX1ivsm8KaB9FNiKnsHagEuDvJJNjNhn4ucYTue/nOZNW1cjI0tT/5D
-	 uU0sJyYLcBBb4aa8vhUsxhS/9FPZyk03CwkdK8ue3liSOJLTJ/p9ohvvtD9qsRUJxr+0E
-	 EA1aVZy/0HRHxw6eAPtPBaEFV3t4GlUYrWWpeHjURxWu6pKxMyqGiJiJOMBxfxjor+Sif
-	 GZfmG0UTKJ4C5ABU46zuq4kvJ4/CDvZRLxZidakAHS1pwjga3iXcPoDVVek0VHH6favoJ
-	 DRayqJDPVqah3AwTnsaeSSNG8M7LW9zGPuQaiDIBcifVQSOvsL2RoxgfQySs0FxtJuQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795438321;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=/5wYdo2l6HVbwTab+q3bfPr6i/OED3I7Bdhb2Bb+iBc=;
+	b=MF1z8gIa72iI35pskrpSqXLEEAoEHY+nyIw+DmLvvgJCfcEOyUK8y8/Alerdyfp8nxZv
+	 qOwsrPfaSE8hUPqzezP4I6if+5trvoUawKbDd0bHCFl+jOrplslxMKHtpfbEV+INhFOq9
+	 MvuZWCrK8n2j9WNAggS6wuzScuPx8j/H/XNwbo6aCYXqeVV8I4QLjvDHqz5p0/FEz3YjI
+	 yixhXRs+vgKMkWCl3oru5KAKKx7ok9LDE3QYI7TTwtzGFLYJ9W0VLRY7IDHqNHn7nqiXO
+	 V+T496XVq6yvpgvszsOGbmGk95imGB75CTv0/mP4hd+ePI2qkhcj11f/JtNINNhAhFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="G0nVqK/2";
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGgg6fzE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 813B7606A31F
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 12:49:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 813B7606A31F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49838606A31A;
+	Mon, 23 Nov 2026 12:52:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G0nVqK/2
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so29718705e9.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 04:49:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795438159; x=1796042959; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
-        b=G0nVqK/2ApMbbi1v22uCMusPzgKZ6T7NzkA2JDYahvJcl5XsbXDnhqtOMQWHV1L2D3
-         cl2c8HIlxLMLLorroXlD/cDj/oHbFa5NBG2jpfPzetQDYEYneB5V31pWBEpv5Tp/EGD4
-         bzQKy/xpDsTJRo9uXfkUiY6Riqx5h5EagNFrW6LZW0AZDyp4m2CmNulNHnUWXEpQOuap
-         DNk+H7ndNwxPaK07EJQS9YIoKTiwjcmQ+7y15YBJzxYfddeOTwTR/ZcZKuzzMOfK5uR4
-         PznHTsPUAvR4ppyOh2vtzKhkSKSDDMbNi6Q0ZCBC4Q7Xf72fNMOqWPIGucqaEF0dTmOh
-         vHzg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795438159; x=1796042959;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=bferII2lyA/H1hIC/5y/64FdLoV9XxlRkIiuA63uNpY=;
-        b=q5oBQ3TAfX0BB1gV/Hr+9GE+ELf6d8mobf+weIseu1sBinGS2oVmIiBBB2qC6QHnjp
-         QdZwjA3OF/+vkNj7gMkon/mh+crwNtvVYSVggzEhkYIPVCwMAf8TBnW5Zt1Rx0Lwzs4D
-         ermHQfq8NZW9DIglndQuG5TWmIrZmtLQwZrT54LYChAX1yAt0ctxxt9wqmWPaKAJFyLZ
-         6TOKV9s0JlQPO3oMo91UyzBx8rhJIzkqIzyEMK/kADBy0O9iluSl7YgUgRdDoAmow0aY
-         IAG/HjTuX7Nx0d+ExwxRtKmHjZ0XeE+QlmU2YYoyu0rU1Sr0dah0R0aRWl80SUs4TZuF
-         yYPA==
-X-Gm-Message-State: APuU4Z/B8T4xf/ibawOgfRRhSiZCsK65ke02pP/tTyiZWssh2hKPJeCn
-	tFe1csledaEb3q1hS8YhA/O/36mUcPjJr1MqudrUgm1CXqh1m0lwdPFX
-X-Gm-Gg: AZFdTZe5DGcNudhgor1BV6Tw5pNN7RZs3uBmPFZ/82SyvLgdHJ5zXnGlJZYL6PFR5SN
-	fq9yQwxq8IROsHxpwS2zRFw/j2ZrbL5AOFIvC3J6KOjSchfEuIx9g3uPJ7Pdb1y4EKjf+191ei3
-	VWOSs0e7s9o8aJM87pZY/5g5oLSMbuRgZWSS8eve1dWUflfnfndRddOXfnTzgFZmSRgfn2wunT0
-	M130rFdbhHp1C8AA7XGfTcx8IA7+JxY5dwYD/EVJM1hRu8fGO4tjSgUqwAr/dphgAWjCFzR/zDa
-	GKLWsyfBIKx5LrG5xJiCcBLPbH6I10mVijMIWx11+RNSX9xPtZJgW8VWmTwaq5ih0dlZAW476FW
-	pf3eeNcgQx5bnn7MyF+qfDMciKWOzo2FKaZcCiGaoDTFoFgPKUEXoNijv0TTxMdTYFBXkkdF19K
-	gI1gZBb/bsON3LGti0DrNr454df1QFk3RdefG4jBT48Nxav3fDbL6WUXBUX+kzF4pn70QMJ8Te4
-	jX+h1NXz2Kx8pTjJkMPThvaG7dWjqY7SMWpSbeTqYi4BA33jBKlIrpM9R+J1R7SssL2GwRFfr0W
-	qSBS4IG4lI+SnajPkCgYU5Jo6JlENcLqTpiqpdw=
-X-Received: by 2002:a05:600c:4e0e:b0:4a1:da58:1ee with SMTP id 5b1f17b1804b1-4bb88938dc9mr245624855e9.31.1795438158755;
-        Mon, 23 Nov 2026 04:49:18 -0800 (PST)
-Received: from Philipp-PC ([91.227.186.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906817ccsm165097045e9.5.2026.11.23.04.49.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 04:49:18 -0800 (PST)
-From: Philipp Sudakas <filzador@gmail.com>
-To: ronak.doshi@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com
-Cc: netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	u9012063@gmail.com,
-	Philipp Sudakas <filzador@gmail.com>
-Subject: [PATCH net v2 5/5] vmxnet3: keep the XDP program across device resets
-Date: Mon, 23 Nov 2026 15:48:55 +0300
-Message-ID: <20261123124855.1021-6-filzador@gmail.com>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261123124855.1021-1-filzador@gmail.com>
-References: <20261123124855.1021-1-filzador@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IGgg6fzE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF0E41F000C4;
+	Mon, 23 Nov 2026 12:51:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795438320;
+	bh=/5wYdo2l6HVbwTab+q3bfPr6i/OED3I7Bdhb2Bb+iBc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=IGgg6fzE6bZuaNFzc0Fp/CkgcOK6S6NRWeyiMcRu3Gkl5YzugraAqgnAPp0/o2vtf
+	 qhFsX0MT5na/xlHuVJhm/j5V8anoejq2QTB/d5o0BQvHxY6QxPzYX1loRGTQ4+7/J2
+	 EevXIvwuHPlrEomd8QFq62E6hUYc6b+bc2gtFoQuP9K/s1Y4zho/ubrENHeacTAh4Z
+	 OZf9dIk0N87V1rLZzIuuCaYUTvWfDQu70sXU1KUfaOHa4cdYTYpz/XcpPgZhkD/jxK
+	 7AlvAyLU6sIY/7Kew03R51J81juzmdbkJpSniJ+oIGRmA6hZCbl6Ze82fiWjcLYvSG
+	 6m272+GtOyP1g==
+Subject: Re: [PATCH v35 net-next 1/8] net/nebula-matrix: add channel layer
+From: netdev-bot+sashiko@kernel.org
+To: illusion.wang@nebula-matrix.com
+Cc: dimon.zhao@nebula-matrix.com, alvin.wang@nebula-matrix.com,
+ sam.chen@nebula-matrix.com, netdev@vger.kernel.org, kuba@kernel.org,
+ andrew+netdev@lunn.ch, pabeni@redhat.com, edumazet@google.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org
+Date: Mon, 23 Nov 2026 12:51:59 +0000
+Message-ID: <179543831940.3135.6386641569668667332@kernel.org>
+In-Reply-To: <20261119113530.32107-2-illusion.wang@nebula-matrix.com>
+References: <20261119113530.32107-2-illusion.wang@nebula-matrix.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,64 +63,266 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-vmxnet3_rq_cleanup_all() clears adapter->xdp_bpf_prog. It is called
-from vmxnet3_quiesce_dev(), so on every MTU change, down/up, ring
-resize, reset work and resume. After that the driver no longer runs
-XDP, while the core still reports the program as attached, and the
-driver's reference to the program is never dropped: a later detach
-finds xdp_bpf_prog already NULL and returns early.
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Seen on 6.12.117 and 7.2.12: after "ip link set dev X mtu 1400",
-"ip link set dev X down; ip link set dev X up" or
-"ethtool -G X rx 512", the attached program is no longer called, and
-each detached program stays loaded.
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
 
-Do not clear the pointer there. The program is exchanged and released
-by vmxnet3_xdp_set(), which also runs when the device is unregistered,
-and which since an earlier patch of this series keeps the previous
-program on failure. Rx rings are then recreated in XDP mode after a
-reset, as vmxnet3_xdp_enabled() stays true.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Since the program now survives an MTU change, reject an MTU above
-VMXNET3_XDP_MAX_MTU while XDP is attached, as vmxnet3_xdp_set()
-already refuses to attach a program at such an MTU.
+- [Medium] nbl_probe_chip_deps() dereferences the struct device_link
+  returned by device_link_add() (`READ_ONCE(link->status)`) with no link…
+- [Medium] The TX timeout recovery in nbl_chan_quiesce_and_reclaim_tx()
+  asserts QUEUE_RST, forces next_to_use/next_to_clean/tail_ptr to 0, and…
+- [Low] The commit message (and the matching code comments) describe the
+  effect of the persistent DL_FLAG_AUTOPROBE_CONSUMER link on other…
+- [Low] nbl_probe_chip_deps() finds the management PF as (domain, bus,
+  PCI_SLOT(devfn), function 0) of the probing device, and its only VF…
+- [Low] The large comment in nbl_probe_chip_deps() justifies the lock-
+  free design by referring to "the trylock-and-retry scheme necessary…
 
-The problem was found and analysed, and this patch drafted, with the
-help of an AI coding assistant. It was reproduced and tested on the
-reporter's lab systems as described in the cover letter.
+--
 
-Fixes: 54f00cce1178 ("vmxnet3: Add XDP support.")
-Signed-off-by: Philipp Sudakas <filzador@gmail.com>
----
- drivers/net/vmxnet3/vmxnet3_drv.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+net/nebula-matrix: add channel layer
 
-diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-index 66f6773..22367b8 100644
---- a/drivers/net/vmxnet3/vmxnet3_drv.c
-+++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-@@ -2107,7 +2107,6 @@ vmxnet3_rq_cleanup_all(struct vmxnet3_adapter *adapter)
- 
- 	for (i = 0; i < adapter->num_rx_queues; i++)
- 		vmxnet3_rq_cleanup(&adapter->rx_queue[i], adapter);
--	rcu_assign_pointer(adapter->xdp_bpf_prog, NULL);
- }
- 
- 
-@@ -3666,6 +3665,11 @@ vmxnet3_change_mtu(struct net_device *netdev, int new_mtu)
- 	struct vmxnet3_adapter *adapter = netdev_priv(netdev);
- 	int err = 0;
- 
-+	if (vmxnet3_xdp_enabled(adapter) && new_mtu > VMXNET3_XDP_MAX_MTU) {
-+		netdev_err(netdev, "MTU %d too large for XDP\n", new_mtu);
-+		return -EINVAL;
-+	}
-+
- 	/*
- 	 * Reset_work may be in the middle of resetting the device, wait for its
- 	 * completion.
+This adds a mailbox-based channel layer that carries control messages
+between PF0 and the other PFs. It uses TX/RX descriptor rings, ACK wait
+slots and an xarray of message handlers. It also adds
+nbl_probe_chip_deps(), which defers sibling PF probes until function 0 is
+bound to nbl, and creates a persistent device link from each sibling to
+function 0.
+
+> - creates a persistent DL_FLAG_AUTOPROBE_CONSUMER device link, so the
+>   driver core unbinds every sibling PF before function 0 goes away and
+>   re-probes them when function 0 binds again. It is deliberately not
+>   flagged AUTOREMOVE_SUPPLIER: the link is what re-queues the siblings
+>   after a rebind, so it has to survive function 0's unbind. Because the
+>   link outlives the nbl binding that created it, two effects outside nbl
+>   follow, both intended: while function 0 is not bound to this driver
+>   the link is DORMANT, so any other driver on a sibling PF (vfio-pci,
+>   pci-stub) is deferred by device_links_check_suppliers(); and unbinding
+>   function 0 from its driver force-unbinds the sibling through
+>   device_links_unbind_consumers(). A PF of this controller is only
+>   usable with this driver bound to the management PF.
+
+[Severity: Low]
+Is this description of the link's effect on other drivers accurate?
+
+When the supplier binds to any driver, device_links_driver_bound() moves
+DORMANT consumer links to AVAILABLE:
+
+drivers/base/core.c:device_links_driver_bound() {
+    ...
+        WARN_ON(link->status != DL_STATE_DORMANT);
+        WRITE_ONCE(link->status, DL_STATE_AVAILABLE);
+    ...
+}
+
+device_links_check_suppliers() only defers a consumer when the link is
+not AVAILABLE:
+
+    if (link->status != DL_STATE_AVAILABLE &&
+        !device_link_test(link, DL_FLAG_SYNC_STATE_ONLY)) {
+
+So with function 0 bound to vfio-pci, it looks like a sibling PF can bind
+vfio-pci or pci-stub normally. The link seems to be DORMANT only while
+function 0 has no driver at all. The "bound to this driver" restriction
+comes only from the mgt->dev.driver != pdev->dev.driver check in
+nbl_probe_chip_deps(), and that check only applies when nbl is the
+sibling's driver.
+
+Could the commit message be updated to describe what the driver core
+actually enforces?
+
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.c
+> new file mode 100644
+> index 0000000000000..8db556c3c9b26
+> --- /dev/null
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_channel/nbl_channel.c
+> @@ -0,0 +1,1568 @@
+
+[ ... ]
+
+> +static void nbl_chan_quiesce_and_reclaim_tx(struct nbl_channel_mgt *chan_mgt,
+> +					    struct nbl_chan_info *chan_info)
+> +{
+
+[ ... ]
+
+> +	 * The QINFO entry exposes no idle or reset-done status, so that
+> +	 * proves the reset was accepted, not that DMA from the old run is
+> +	 * gone: a late USED write-back for the descriptor that timed out
+> +	 * can still land after the re-arm below.  The ring cannot step
+> +	 * around it either, because QUEUE_RST clears the hardware tail
+> +	 * counter and the software indices have to restart with it at
+> +	 * slot 0.  The timed-out message has already failed, so the only
+> +	 * remaining exposure is such a completion arriving while the next
+> +	 * message is polled.
+> +	 */
+> +	hw_ops->stop_mailbox_txq(hw_priv);
+
+[ ... ]
+
+> +	txq->tail_ptr = 0;
+> +	txq->next_to_use = 0;
+> +	txq->next_to_clean = 0;
+
+[ ... ]
+
+> +	if (READ_ONCE(chan_info->shutdn))
+> +		return;
+> +
+> +	/* Re-enable queue with current ring base and size */
+> +	nbl_chan_config_queue(chan_mgt, chan_info, true);
+> +}
+
+[Severity: Medium]
+What happens to the next message if the timed-out descriptor was in slot
+0? That is the case for the first send after setup or after a previous
+reset. The indices restart at 0, so the next send reuses the abandoned
+slot.
+
+nbl_chan_kick_tx_ring() decides completion only from the USED bit, with
+no msgid or generation check:
+
+    if (le16_to_cpu(READ_ONCE(tx_desc->flags)) &
+        BIT(NBL_CHAN_TX_DESC_USED)) {
+
+Could a late USED write-back from the old run, which the comment above
+says can land after the re-arm, make the new message look sent even
+though the device never fetched it? For non-ACK sends such as the
+nbl_chan_send_ack() replies, the message would be silently lost. ACK
+sends would end in a spurious ACK timeout.
+
+For payloads over 16 bytes, nbl_chan_update_txqueue() also does a
+memcpy() into tx_buf[0]. Can that race a late device read of the same
+buffer for the abandoned descriptor, so the peer receives a mix of the
+two messages?
+
+> diff --git a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+> index 442da73835b00..074875a0dad3b 100644
+> --- a/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+> +++ b/drivers/net/ethernet/nebula-matrix/nbl/nbl_main.c
+
+[ ... ]
+
+> @@ -67,6 +74,155 @@ static void nbl_get_func_param(struct pci_dev *pdev, kernel_ulong_t driver_data,
+
+[ ... ]
+
+> +static int nbl_probe_chip_deps(struct pci_dev *pdev, bool has_ctrl)
+> +{
+> +	struct device_link *link;
+> +	struct pci_dev *mgt;
+> +
+> +	if (has_ctrl)
+> +		return 0;
+> +
+> +	mgt = pci_get_domain_bus_and_slot(pci_domain_nr(pdev->bus),
+> +					  pdev->bus->number,
+> +					  PCI_DEVFN(PCI_SLOT(pdev->devfn), 0));
+
+[ ... ]
+
+> +	if (mgt == pdev) {
+> +		dev_err(&pdev->dev,
+> +			"management PF lookup matched this device\n");
+> +		pci_dev_put(mgt);
+> +		return -ENODEV;
+> +	}
+
+[Severity: Low]
+Does this guard cover only one of the VFs in a group?
+
+nbl_get_func_param() only sets has_ctrl in this case:
+
+    if ((PCI_FUNC(pdev->devfn) == 0) && !pdev->is_virtfn)
+        param->caps.has_ctrl = 1;
+
+so every VF that reaches nbl_probe() takes this lookup. For a VF,
+(domain, bus, slot, function 0) does not identify the owning PF.
+
+Under ARI, the VF at function 0x11 resolves to the VF at 0x10. That VF
+matches itself here and always fails with -ENODEV, so it can never be
+bound to nbl. Wouldn't every other VF in the same 8-function group then
+fail the mgt->dev.driver != pdev->dev.driver check and return
+-EPROBE_DEFER forever, with only a dev_dbg() record?
+
+At this commit a VF bound through driver_override can reach this path. A
+later patch in the series ("net/nebula-matrix: add common/ctrl dev
+init/remove operation") adds an -EOPNOTSUPP rejection for functions with
+neither capability, which closes the driver_override path. The lookup is
+still wrong for any VF whose device ID matches nbl_id_table.
+
+Would rejecting pdev->is_virtfn up front, or using pci_physfn(), make the
+VF handling consistent?
+
+[ ... ]
+
+> +	 * the supplier bound.  Since nothing is held across the deferral, no
+> +	 * retry can fail again on account of func 0's probe still being in
+> +	 * flight, which is what made the trylock-and-retry scheme necessary
+> +	 * before.
+
+[Severity: Low]
+This isn't a bug, but which trylock-and-retry scheme does this refer to?
+There doesn't seem to be one in the tree or in this series. Is this left
+over from an earlier revision of the patch?
+
+[ ... ]
+
+> +	link = device_link_add(&pdev->dev, &mgt->dev,
+> +			       DL_FLAG_AUTOPROBE_CONSUMER);
+> +	if (!link) {
+
+[ ... ]
+
+> +	if (READ_ONCE(link->status) != DL_STATE_CONSUMER_PROBE ||
+> +	    READ_ONCE(mgt->dev.links.status) != DL_DEV_DRIVER_BOUND ||
+> +	    READ_ONCE(mgt->dev.driver) != pdev->dev.driver) {
+
+[Severity: Medium]
+Is it safe to dereference link here?
+
+The link is managed (there is no DL_FLAG_STATELESS), so the driver core
+owns it. The device_link_add() kerneldoc says the return value can only
+be used to check whether the link is present. An existing managed link
+gets no extra reference, and this read is not inside a
+device_links_read_lock() section.
+
+Take the case the comment above describes, where function 0 starts
+unbinding between the readiness check and device_link_add():
+
+func 0 sysfs remove                    sibling probe
+device_links_busy()
+  links.status = DL_DEV_UNBINDING
+                                       device_link_add()
+                                         device_link_init_status()
+                                           status = DL_STATE_SUPPLIER_UNBIND
+device_links_unbind_consumers()
+  (only waits on CONSUMER_PROBE)
+->remove()
+device_del()
+  device_links_purge()
+    __device_link_del()
+  ...
+  device_link_release_fn()
+    device_link_synchronize_removal()
+    kfree(link)
+                                       READ_ONCE(link->status)
+
+The held pci_dev reference keeps mgt->dev alive but not the link. If the
+probe thread is preempted between device_link_add() and this READ_ONCE(),
+can it read freed memory?
+
+Could the check rely only on state that the held reference protects,
+such as mgt->dev.links.status and mgt->dev.driver, or run under
+device_links_read_lock()?
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119113530.32107-1-illusion.wang%40nebula-matrix.com
