@@ -1,61 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795444411;
-	b=KsO5WhL66B60m+DOSx9cF7EMKzbzE52HoulPbvlb75kFGntzzArshp07zoUgY91lfinm
-	 ep9mLnHJI5FLZrDsdJ8lm9LNBkKl7Y8gCDOmqrH7KZMda5LakgXRbf6LeIRX0snMAtXac
-	 O2+ELSJ3qF36q7wyEdw+GPmLLaYtIKvgW29ji1I7aiECC2qYUPW8njU3I6sUnbQNoXGoW
-	 6vDWISJPqGqUV/gfcVoEOUMeRIUeV/7AznEYCBv7DIzf2dezF1EiAodxrjhNWjcBVR30Z
-	 55NfxioXV+0alar001NBV4xVPMS9vEC8lvtn3NcM/cGlnOixH1U0V0pm9btxPuODv6w==
+	t=1795444424;
+	b=KCmcMP8H9xyAmxNxMOFROjVdDL1+ZdqRkxBbqEfjY6rUdgGlzLfFdO/kMsOSW0uU5mjE
+	 kz9ns8p6+323ry3PqIXvA3kDdd/TmsC48ReYWz2tTOuFZGzXGL0baMY9speAbO9DywdAd
+	 aIPu3j+DE05avVqnDwVaEuSAobXdnj54YNUNVjHEKrih4Ho0Iv8G7YF3a/rNwEat2pdVP
+	 M5XMl4VZvU6tMVB0rn0RsG27SVowRpTUOt+3jCeB4jCY3SGOxMohtOQl8lDRni5q3xxPQ
+	 96AZmmFVUFp8zuzkw5Dh14F5Hvc/B3HUeSZI94bC+nCGBHE7Xf9gtyMVvbFcrzEE5/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795444411;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=OCPSiHkYqSNvnClc+FUc66tTva53YlW4lXZmEaSjud0=;
-	b=Vnjvlu9yDbUSJHCqyo0t5+LKaBTl0ZdNZrERAajs236gDK4l7N3DlB9VWrsXUr7z6P0P
-	 AM+WEniYpCAlsQjI3o/0lYGOtpZLu/tjJqSjJHL5SOKKBE8rPgheH+9oAZC1vj0BPTzyP
-	 eHSs3p6YU9NbNUzaZ54XbUxS3yqqBEdFXRyIPqPWRNlchRnCOf1jirj1Ei683e6m65JWw
-	 gl+2o7mMJZGr48e3SxrUIZcM/Y+9zrfkrbg5QGoMD3GODgo0su+o1oQACpUQ5WwoVV2kd
-	 LhyYWggly/mIiPJ9A/KuP5Irerw+iQUT/4lkl+PbkQWlqWaI7PP/MWD6BQx1eHUtrxw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795444424;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=PAIZwiK5qKowgcqUfUnx7bgiDvxuWelNXNLii6FeV8A=;
+	b=N4cQ9hNNbJ5yb7A4dHX06L5YwOrsLDMjE9P3YJ5bCcd9Vuveqb5qnzY+5dRve0fwoLYU
+	 tYQVXeV0LIEXfXVKFPKOWM2s9NoLD08IgfNWDZp1GrN1YMYPpncNgdhnQpAFGlJspU34F
+	 O7TAdL5g1fHirdDzger7REd1cuj9z1IF1pPOjEP/rsBEv4/v7Bg12mIne/NlDStiuvjfM
+	 C1KCCCR1z+es6UO7DAt8R9k9AwNW3COQYbeZMOTG20JB6tW/UMD/5poZ2zoB81sFxihV0
+	 0qDf31UQzvA4I0Me2nDQxl7VnpipULJ8eF+0qoLa0YwAsBc2wCfgP3F5E/E0i4rnNlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=xiaopeng.com;
-	spf=pass smtp.mailfrom=xiaopeng.com;
-	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=RkycBL4G;
-	arc=none smtp.remote-ip=115.124.28.1
-Received: from out28-1.mail.aliyun.com (out28-1.mail.aliyun.com [115.124.28.1])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QgtIOA61;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CF03606A31A;
-	Mon, 23 Nov 2026 14:33:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CF03606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 92D5F606A31A;
+	Mon, 23 Nov 2026 14:33:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=RkycBL4G
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=xiaopeng.com; s=default;
-	t=1795444400; h=From:To:Subject:Date:Message-ID:MIME-Version;
-	bh=OCPSiHkYqSNvnClc+FUc66tTva53YlW4lXZmEaSjud0=;
-	b=RkycBL4GD2EXhFYzp0KJkFi4j9vZnxYhH3VRJI9Qdrhr8JAxOmt0E2PeSnBtmCG4fwM84QAhno1JafzbyNRDPCfZXll792hP5JfMxnBhTZ+ZSI+PkBSVe+mZJalXkxYLLJb2a78JPVkFjnCVhiajTRR0vvnLNALV3DTcbtO5ChY=
-X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04439905|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00493033-8.00282e-06-0.995062;FP=6621435113100027107|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=9;RT=9;SR=0;TI=SMTPD_---.k8K2y1G_1795444398;
-Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.k8K2y1G_1795444398 cluster:ay29)
-          by smtp.aliyun-inc.com;
-          Mon, 23 Nov 2026 22:33:20 +0800
-From: Fang Xieyan <fangxy@xiaopeng.com>
-To: "Michael S . Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>
-Cc: Xie Yongji <xieyongji@bytedance.com>,
-	stable@vger.kernel.org,
-	virtualization@lists.linux.dev,
-	kvm@vger.kernel.org,
-	netdev@vger.kernel.org,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QgtIOA61
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 028E41F000D3;
+	Mon, 23 Nov 2026 14:33:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795444423;
+	bh=PAIZwiK5qKowgcqUfUnx7bgiDvxuWelNXNLii6FeV8A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=QgtIOA61DawPVOSPQTA4zgawhZbWQ5WUTc5nGKJxuJxvhOgEDfcLPqH6cK0uzF0w9
+	 Qo9cNpP9nNNbc11jiA1pvqfLOXeYqGGLdVX72EoFrKgZwzhRkkzpb7ltpruBzcrcnz
+	 lWPm3zb1ho8ZTLGfKCL+DruO+jx7Ln+PUF4y+/GvchnTzzftoWyHLjua1uq6LYlrge
+	 ofIxmzH0C/csZ4dCIUPX89p77HkzadDzcwZOM/zk0TB79URonGv03Vz8GsxysOwQFl
+	 zdpusr//uo8gtyF8tOi1nfvTeHEIcF7rrQgtnLoG4uprRDWpC0uxSZakeC/hDDXgCR
+	 Dj5LqZIjjts6A==
+Date: Mon, 23 Nov 2026 14:33:39 +0000
+From: Simon Horman <horms@kernel.org>
+To: subash.a.kasiviswanathan@oss.qualcomm.com
+Cc: netdev-bot+sashiko@kernel.org, sean.tranchetti@oss.qualcomm.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH] vhost-vdpa: skip unmapped gap in vhost_vdpa_va_map()
-Date: Mon, 23 Nov 2026 22:33:18 +0800
-Message-ID: <20261123143318.73514-1-fangxy@xiaopeng.com>
-X-Mailer: git-send-email 2.50.1
+Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
+ dev_set_mtu() and restore on failure
+Message-ID: <20261123143339.GC31322@horms.kernel.org>
+References: <20261117060737.2764327-6-subash.a.kasiviswanathan@oss.qualcomm.com>
+ <179524464443.3135.11939584752095940965@kernel.org>
+ <000101dd79d0$1e2a73c0$5a7f5b40$@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,84 +62,198 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <000101dd79d0$1e2a73c0$5a7f5b40$@oss.qualcomm.com>
 
-find_vma() returns the first VMA with vm_end > uaddr; when uaddr lies
-in an unmapped gap, vma->vm_start > uaddr and the offset arithmetic
+On Sat, Nov 21, 2026 at 08:51:04AM -0700, subash.a.kasiviswanathan@oss.qualcomm.com wrote:
+> > -----Original Message-----
+> > From: netdev-bot+sashiko@kernel.org <netdev-bot+sashiko@kernel.org>
+> > Sent: Saturday, November 21, 2026 12:04 AM
+> > To: subash.a.kasiviswanathan@oss.qualcomm.com
+> > Cc: sean.tranchetti@oss.qualcomm.com; andrew+netdev@lunn.ch;
+> > davem@davemloft.net; edumazet@kernel.org; kuba@kernel.org;
+> > pabeni@redhat.com; netdev@vger.kernel.org; linux-kernel@vger.kernel.org
+> > Subject: Re: [PATCH net v5 5/5] net: qualcomm: rmnet: Resize endpoints with
+> > dev_set_mtu() and restore on failure
+> > 
+> > Thank you for your contribution! Sashiko AI review found 2 potential
+> > issue(s) to consider.
+> > 
+> > Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> > 
+> > If you believe none of the issues are legitimate, please reply to each
+> > issue of Medium severity or higher and explain why the AI is wrong.
+> > If any of them are legitimate and you plan to respin, please let patchwork
+> > know by including "pw-bot: cr" as a separate line at the end of your reply
+> > (one such reply per series is enough).
+> > 
+> > - [Medium] rmnet_vnd_update_dev_mtu()
+> >   (drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c:447-473) now
+> > shrinks…
+> > - [Low] The commit message opens with "When the real device MTU or the
+> >   data format requires a smaller MTU, existing endpoints are shrunk by…
+> > 
+> > --
+> > 
+> > net: qualcomm: rmnet: Resize endpoints with dev_set_mtu() and restore on
+> > failure
+> > 
+> > This commit changes rmnet_vnd_update_dev_mtu() so it shrinks existing
+> > endpoints with dev_set_mtu() instead of calling the ndo directly. As a
+> > result, MTU notifiers and link notifications are now delivered. If resizing
+> > an endpoint fails, the endpoints already resized are put back to their
+> > saved MTU, and the original error is returned.
+> > 
+> > > When the real device MTU or the data format requires a smaller MTU,
+> > > existing endpoints are shrunk by writing dev->mtu directly. No MTU
+> > > notifiers run and userspace gets no link notification.
+> > 
+> > [Severity: Low]
+> > Is the part about the real device MTU accurate?
+> > 
+> > rmnet_vnd_update_dev_mtu() has only two callers, rmnet_newlink() and
+> > rmnet_changelink(). The changelink call only happens when
+> > IFLA_RMNET_FLAGS
+> > is present, which means a data format change.
+> > 
+> > When the real device MTU changes, rmnet_config_notify_cb() only validates
+> > the new value and vetoes it if needed:
+> > 
+> > drivers/net/ethernet/qualcomm/rmnet/rmnet_config.c:rmnet_config_notify_
+> > cb() {
+> >     ...
+> > 	case NETDEV_CHANGEMTU:
+> > 		if (rmnet_vnd_validate_real_dev_mtu(real_dev))
+> > 			return NOTIFY_BAD;
+> >     ...
+> > }
+> > 
+> > So endpoints are never shrunk on that path, either before or after this
+> > patch.
+> > 
+> > Could the commit message be limited to the data format case? As written,
+> > it suggests this fix also covers the real device MTU path.
+> > 
+> > > diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > > index 8bf87c5ecb43b..dce436e4c6305 100644
+> > > --- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > > +++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_vnd.c
+> > > @@ -433,24 +433,42 @@ int rmnet_vnd_validate_real_dev_mtu(struct
+> > net_device *real_dev)
+> > 
+> > [ ... ]
+> > 
+> > >  	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> > > -		if (ep->egress_dev->mtu <= new_mtu)
+> > > +		ep->saved_mtu = ep->egress_dev->mtu;
+> > > +		if (ep->saved_mtu <= new_mtu)
+> > >  			continue;
+> > >
+> > > -		err = rmnet_vnd_change_mtu(ep->egress_dev, new_mtu);
+> > > -		if (err)
+> > > -			return err;
+> > > +		err = dev_set_mtu(ep->egress_dev, new_mtu);
+> > > +		if (err) {
+> > > +			fail_ep = ep;
+> > > +			break;
+> > > +		}
+> > >  	}
+> > >
+> > > -	return 0;
+> > > +	if (!err)
+> > > +		return 0;
+> > > +
+> > > +	/* Restore the endpoints which were already resized. Failures here
+> > > +	 * are ignored since the original error is the one to report.
+> > > +	 */
+> > > +	hash_for_each_safe(port->muxed_ep, bkt_ep, tmp_ep, ep, hlnode) {
+> > > +		if (ep == fail_ep)
+> > > +			break;
+> > > +
+> > > +		if (ep->egress_dev->mtu != ep->saved_mtu)
+> > > +			dev_set_mtu(ep->egress_dev, ep->saved_mtu);
+> > 
+> > [Severity: Medium]
+> > Does this restore undo everything the earlier dev_set_mtu() calls did?
+> > 
+> > Now that the shrink goes through dev_set_mtu(), netif_set_mtu_ext() runs
+> > the NETDEV_PRECHANGEMTU and NETDEV_CHANGEMTU notifier chains for
+> > each
+> > endpoint.
+> > 
+> > A PRECHANGEMTU notifier can now veto the shrink. For example,
+> > team_device_event() does this:
+> > 
+> > drivers/net/team/team_core.c:team_device_event() {
+> >     ...
+> > 	case NETDEV_PRECHANGEMTU:
+> > 		/* Forbid to change mtu of underlaying device */
+> > 		if (!port->team->port_mtu_change_allowed)
+> > 			return NOTIFY_BAD;
+> >     ...
+> > }
+> > 
+> > Before this patch, the direct rmnet_vnd_change_mtu() call could not fail
+> > here, because new_mtu < ep mtu <= real_dev->mtu - old headroom. So a
+> > newlink or changelink with IFLA_RMNET_FLAGS that used to succeed can now
+> > return an error.
+> > 
+> > If the veto happens on a later endpoint, the CHANGEMTU notifiers have
+> > already run on the earlier ones. If the temporary new_mtu was below
+> > IPV6_MIN_MTU, addrconf_notify() tore down IPv6 on those endpoints:
+> > 
+> > net/ipv6/addrconf.c:addrconf_notify() {
+> >     ...
+> > 	case NETDEV_CHANGEMTU:
+> > 		/* if MTU under IPV6_MIN_MTU stop IPv6 on this interface.
+> > */
+> > 		if (dev->mtu < IPV6_MIN_MTU) {
+> > 			addrconf_ifdown(dev, dev != net->loopback_dev);
+> > 			break;
+> > 		}
+> >     ...
+> > }
+> > 
+> > In the same way, inetdev_event() falls through to inetdev_destroy() when
+> > the MTU is below the IPv4 minimum.
+> > 
+> > Restoring saved_mtu only creates a new, empty inet6_dev or in_device. The
+> > configured addresses, routes and per-device sysctls are still lost, even
+> > though the request returned an error.
+> > 
+> > For example, take a real_dev MTU of 1284 with no checksum offload (4 bytes
+> > of headroom). Endpoint A has a lower mux_id, has IPv6 configured and is at
+> > 1280. Endpoint B has a higher mux_id, is a team port and is also at 1280. A
+> > changelink that sets CKSUMV5 (8 bytes of headroom) gives new_mtu = 1276:
+> > 
+> >   dev_set_mtu(A, 1276)  -> addrconf_ifdown(A, true)
+> >   dev_set_mtu(B, 1276)  -> vetoed by team_device_event(), -EPERM
+> >   dev_set_mtu(A, 1280)  -> A comes back with no IPv6 addresses
+> > 
+> > Userspace also gets a shrink-then-grow pair of RTM_NEWLINK events for A,
+> > for a request that failed.
+> > 
+> > The commit message says a failed request "does not leave some of them
+> > shrunk". That holds for the MTU values but not for the L3 state.
+> > 
+> > Is this partial rollback intended? If so, should the commit message
+> > mention the new veto failures and the lost L3 state on endpoints that were
+> > already resized?
+> > 
+> > > +	}
+> > > +
+> > > +	return err;
+> > >  }
+> > 
+> 
+> Yes, partial rollback is expected here. The comment above the rollback logic already mentions that - "Failures here
+> are ignored". 
 
-	offset = (vma->vm_pgoff << PAGE_SHIFT) + uaddr - vma->vm_start;
+I assume that the motivation for taking this approach is that both avoiding
+the need for rollback and performing a full rollback is somewhere between
+difficult and impossible.
 
-produces an incorrect file offset, potentially wrapping in u64
-arithmetic.
-
-The incorrect offset is stored in map_file->offset and passed to
-the mapping backend. Meanwhile, map_size includes the gap, causing
-the corresponding IOVA range to be mapped without valid backing.
-
-Skip the gap: stop if the whole remaining request is gap, otherwise
-shrink size, pin uaddr to vm_start and advance map_iova by the gap.
-The gap is left unmapped without error.
-
-Testing:
-- make W=1 drivers/vhost/vdpa.o
-- QEMU/KVM v7.4-rc1 with a probe vDPA parent; tested partial
-  gap, whole-gap and contiguous IOTLB updates.
-
-Fixes: d8945ec41120 ("vdpa: Support transferring virtual addressing during DMA mapping")
-Cc: stable@vger.kernel.org
-Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
----
- drivers/vhost/vdpa.c | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
-
-Reproducer: userspace model of va_map() with a mock find_vma(); shared
-file-backed VMA [0x2000,0x3000) at file offset 0, unmapped gap
-[0x1000,0x2000).
-
-  UPDATE iova=0x100000 uaddr=0x1000 size=0x2000 (partial gap):
-    without fix: ret=0, one map over the gap,
-                 file_offset=0xfffffffffffff000
-    with fix:    ret=0, map at iova=0x101000 uaddr=0x2000
-                 size=0x1000 file_offset=0x0
-  UPDATE uaddr=0x1000 size=0x1000 (whole request in gap):
-    without fix: ret=0, bogus map with underflowed offset
-    with fix:    ret=0, no mapping created
-
-Build: make W=1 drivers/vhost/vdpa.o completed without warnings on
-v7.4-rc1 (defconfig + VHOST/VDPA/VHOST_VDPA).
-
-Runtime: On v7.4-rc1 under QEMU/KVM, a userspace test client sent
-VHOST_IOTLB_UPDATE messages through the /dev/vhost-vdpa chardev to a
-probe vDPA parent with use_va enabled and dma_map logging.  Without
-the fix the parent receives offset=0xfffffffffffff000 for gap
-requests; with the fix the gap is skipped (map_iova advanced,
-offset=0), an all-gap request creates no mapping, and contiguous
-requests are unchanged.
-diff --git a/drivers/vhost/vdpa.c b/drivers/vhost/vdpa.c
-index ff7d907..4a6a946 100644
---- a/drivers/vhost/vdpa.c
-+++ b/drivers/vhost/vdpa.c
-@@ -1109,6 +1109,20 @@ static int vhost_vdpa_va_map(struct vhost_vdpa *v,
- 			ret = -EINVAL;
- 			break;
- 		}
-+		/*
-+		 * uaddr may lie in an unmapped gap before vma->vm_start; skip
-+		 * the gap so the offset calculation below uses an address in the VMA.
-+		 */
-+		if (uaddr < vma->vm_start) {
-+			u64 gap = vma->vm_start - uaddr;
-+
-+			if (gap >= size)
-+				break;
-+			size -= gap;
-+			uaddr = vma->vm_start;
-+			map_iova += gap;
-+			continue;
-+		}
- 		map_size = min(size, vma->vm_end - uaddr);
- 		if (!(vma->vm_file && (vma->vm_flags & VM_SHARED) &&
- 			!(vma->vm_flags & (VM_IO | VM_PFNMAP))))
--- 
-2.50.1
-
+If so, I think the trade-off made in this patch is reasonable.
