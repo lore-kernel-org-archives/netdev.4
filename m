@@ -1,99 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795415608;
-	b=psh1VA7TS81haHJKfVTwFoBN2BI2xIOmxu1HfNCNsg6apkJepK0B6k9b8IoSVlNWzcuF
-	 QXq1iIgdJ58oDnd5di6lkx84cOzyCWkr+b8pjKM9WTp3GuXpva3INJ8A3PJplDiCk6J2Q
-	 GM9J3uKuyoVXZt4Uayqce/5sRcuN9aba5u++RjRKGgg7zvWbHQ0zkVxOY8RY5nelGmKqR
-	 dNGBHAYLikCOvmuPA85Vab5r9ouxCKyDPxtHlTrPB6FaQbMVe6loJ6IG/TSfnu/pdZlkU
-	 Lj1g6YV8phIaOeeUOQFK3eD6Yvnl7jwTakCgk8R9mhnxD7+U2oAvuRdyR1n7Xv0yiuQ==
+	t=1795415773;
+	b=umMY30m1Ezr12g8l7Y52eP6zEwql+Z6jktoJBgRhb1sf3il9Q83ddNSV6TN7PeL5MNRf
+	 QuYs0pne6eYQ+tzO9sYhGIJwzN521zZn8L6QsGBhbgvf1IdhIQJ9LEEeSpDGMj39+0XLL
+	 7DtAu3HWNuLL8NNyU6hQIagoIZ5sgXV3JK774LzpLF6/KFfUzv1R1SmznX2vz6rDN2ZHs
+	 E0NIVJxbBYOS6OQTyPC3pb8xLqD7RFbsoWVfwXS8mEhuos2NSPxclhISaMNQlNC07R6Cq
+	 XUAQiKmOP78TBe20PxiayW85DpgZ66uphj/DbwzC3Qta/aHeHwRmhYywJ34yKqBSSyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795415608;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795415773;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=6mnZfOSkxDepY2i0f378cTykfqpzL6KhJuIK0Wt6zEk=;
-	b=htyXWS1DE3ANUK7xt9yvb0UPpZn7lJVvoj/1C6JHkAdBlxwmrHVl2Vbo4tAH74sW5W5q
-	 QXCroEWZIUFt8v5K/e/sDSl8SdXy4zW36dBHvTD8PQ0Qftm4YD2A83tiAln9rGmB+fu8w
-	 hGd/1zJgjo02xc2waue7irydBKgEfv/Pax3ySMmoe3jvARP3mS6zT3URcgzsUo0zv6tix
-	 YA2xFku8t8QO5XZsc2QbJ7e7+x1+gTPpk9BrgvXaSZtrb8i/0wT4VnI+R6u9CcnxnTNzJ
-	 b1po4tHgDJB9T59jw0EFKhxT1F/Ep/H1iEz36lVTyWn3tzFO/eEFEGPy3GX9J9uw7CA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:Mime-Version:
+	 X-Mailer:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+	b=TIoFdtzaLTO/bLQayhrjITdyHi+uqq7T6RMurelwO46UHDkf/SYHckv2N3RaNhEJRss5
+	 GoIp2L2XTX9MIS4ZbtxV9es4318rD2lSJewEhqFKWHQUj5GkCvrf5l2bf+9NcC/8JlCSv
+	 aGHwGmaQA5JNqt7Il7aIdHWUXLt1MmPkL/q3oakUA4yVndIc4OGRjOMzb9mFKvqgDFxdn
+	 37ge921yaSuc1hQm45s9aOLlMmjbHeu4eCwQbyZD/3JYOo/elHhwkM5uxfjMEyR8yozP9
+	 MuDJMgnIuohEICgNuvhTbEgJz386YMXLuH4UvquKceQJT+/CEdIzkuNmizTuXSvBRHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HCml0ifA;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--starchang.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A;
+	arc=none smtp.remote-ip=209.85.167.200
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E366E606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:33:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E366E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 328FF606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 06:36:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 328FF606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--starchang.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HCml0ifA
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-3869f03af6aso1985443eec.1
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:33:27 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=ndf82j9A
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4eb0b989f0eso3939910b6e.0
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 22:36:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795415607; x=1796020407; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=6mnZfOSkxDepY2i0f378cTykfqpzL6KhJuIK0Wt6zEk=;
-        b=HCml0ifAVoC04DR1qnxQJbTTPprsXumYeYTXKrUoG4N8+iSNYLroWnc1AN+0Sj/F8+
-         v1Wn1GBig8CYi28Z9Tpfy3xtKZzxIDr088Y0eZmF27zIIZ5PJGq8FnBO/01J2FIrl6kl
-         HTusLSf7gNIy2WYltMMZxsoTabhVwbE7F68vhV+cYFfyhxWXfrA4A0ZiSr8r+sXao5CA
-         oLi4SJXu2RCAa6mwmEXRBB8rrrEqbhafqRhyhuZG9MRzjE63BEVtpvyHQJwhuLacw9pN
-         k5HHpbTDF3SiWhBq+BvHkLvHY8Rc2Vn6EQXUcHi9HHFS0gqsRGYmceXvf81w2TK1WOVs
-         ZdSg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795415607; x=1796020407;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+        d=google.com; s=20260707; t=1795415772; x=1796020572; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6mnZfOSkxDepY2i0f378cTykfqpzL6KhJuIK0Wt6zEk=;
-        b=2Xd6xESAAp9P6kCn5AbQv73PrWzfN2oWlJzc3uEl3zIVuajiFxiu/4Hsig7CnCPNL9
-         tgqCyex4Izmou6h+4ZO7L+UMH1PajWhnySEQVwID1bsJ7rTfFakRHe7GLlOKJ0VamezJ
-         gzGuHMNTnwq6CcflRjIYJSIrOmAghyrQ0d95S0JTeZGdybZuT0XULmx0xdVyes5BJx3e
-         CgB2FzFOrABviPWcyXGlEANsqGQatHiCZ0OilNsnzU7VsDai3BOa4YwyiVeQFOaHBYcv
-         mOjiIhObqrD3YoTwJrOdYmdtZ5e41OtNHJarPgfd06Guuuwj8eRZK+Tc7Lzedgu93L0B
-         4EqA==
-X-Forwarded-Encrypted: i=1; AL+hErFuYLbYD7NyiA6tWDw3o45matDkfwFSzFxW1SCzja053fv1shFk2s3dmMWx4IBG6lZ7rzQ0tAs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8G2UCXcKDy49qBrc3oW6jxUs6C3/ZOHm1fqhhX0MVafvuYqRoU
-	zovf4RV2eqqESt9AAd7dVBKOiYQzVfSigpSm0jMmIU85+OxeNpeCSwkv
-X-Gm-Gg: AZFdTZd/d0hlhJhhVs5baBUWuO/v1bX0/DWDvz5RMepxmeOPZAjZrRE0g/SuScldzLA
-	SoAbqG5UjFr4rKdnLuqw0g9Blrn2FMt/EJyPnLZc0FnvY1lq5an7F0Z6wkzUJ2bGqB++VB3QVZl
-	z6B1BzIeheZGpBrH3xS71ZHypbLvApiMFvjIjTP6wgC6YJ47buIwUvQktJPLK9+6A4GciGevlyV
-	FUvc3HIJDJqndS24B7tuFE6JZokPHX4thS3DggCJ3YtT6et3JZJPUnJnvefXHrJhAdxQMyg6GWe
-	b6aCEj/4A1By/5uugy8RXUmcjXptvSOghQlb1v5am2RVS3FVGTfa8plR9dQNku7t+9EKEcULlhj
-	0V3rm3dpmOB8LUfEvvZU4Ws40DPkko6VkskTs5YaAHIsO2RDTOSvqRuLFHzRjJo83MC6GprIUxV
-	ziiErawE5/6Mv3V1IlJ0zaXmG3y/pcEObi4E3xr7gP4HevZ40beTi4xNmL3DZwjNOtHiUQ74f/x
-	A8kk4adNugdWu3G/WyAkBpauP3TjPY3k+6V5tlzc9xU67or/n07NU0hOgenz/HgFDz5wOu0vooO
-	a8GCSERkz/xbOSdZ5i6k1Z9AiMCdGBl+9MqbfblJIYlzTnehWj2PsCFMWgUzzG8CtKw2TGhaS/n
-	jffJ62/b4weVFmBNNQpHUqeau6YHw6/ENsTYqiK1oOe93dLqoCzYJEwFpvPn5ByoQ3rFsbqi6uO
-	PNWQI+yynim3VbQhqiSmgB/XmUlqOV6D/CrwmkgRpReG0nXwVYkcxTpIkOcBjHiTnl
-X-Received: by 2002:a05:693c:68dc:b0:384:244b:12ed with SMTP id 5a478bee46e88-384b11ec95amr13052915eec.3.1795415606797;
-        Sun, 22 Nov 2026 22:33:26 -0800 (PST)
-Received: from LAPTOP-3B99V33A (ec2-47-129-70-252.ap-southeast-1.compute.amazonaws.com. [47.129.70.252])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385d2b93dd9sm35452817eec.24.2026.11.22.22.33.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 22:33:26 -0800 (PST)
-From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: oe-linux-nfc@lists.linux.dev
-Cc: johan@kernel.org,
-	david@ixit.cz,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	"Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 2/2] nfc: preserve NCI data status error codes
-Date: Mon, 23 Nov 2026 14:33:10 +0800
-Message-ID: <20261123063310.1267-3-luob87709@gmail.com>
-X-Mailer: git-send-email 2.51.0.windows.1
-In-Reply-To: <20261123063310.1267-1-luob87709@gmail.com>
-References: <20261123063310.1267-1-luob87709@gmail.com>
+        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+        b=ndf82j9AD419mQdAmC6YLQ7YDAJmogSheYNYRMMJyb1tGQ6Z3uKEVwr02fSesodckD
+         u8a7mmizquPt/l6tI0UGe53paB0APeUL58w12k1NlcV1vT2F3Xr8a+RbUZe5mLoLt9qX
+         wHA1jPpedn12bHqJvNAxCRVbrr9LhcBtczwB+BwN108APCiOWZxPLjYNeCOyoCAwQzpu
+         QigWr6Ba/sT0Ys6laFaKXpsEAjd7RH0815FN8vJtgc9JSK9+h4IKsAJmsrI7rkrsAPYl
+         XJJs+cW++2gS9pBKcc7CGypjxUmSn2c5lF9ucSf7KuYz8NTrfv/Y1HkbiqfzObQpFQ12
+         47Sg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795415772; x=1796020572;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=BrBSPPpRxeUHkZ8Aspm71PBog/B6QtNxw8MB+kxwe5s=;
+        b=OrEjMENnjntvi5LrkUekSA9zd3YnAL5hkPK0JDG2Ebu2PdSCc91Mi642CCrSp9wd0M
+         RdTRQlDbgw3ZvmrHPuUpoG9bDsw9DDQyKB77ZngPu8EgtT0wBFOnJoy+tVrYb6Qdcc8Q
+         8/S7jG3qlTr0qO0peEVE777bzlAKIbi5mvPpVVGdHai01sWiDsRfGkF1kc/9ZuR18Ou7
+         C/iwmmHEtKMpZR6rcRDcD/jTKGZ2s8LJDS8SsDZ4tjHpxRmNlXBgWFrz1SktnMICAaHV
+         M6jFr5F4Nb8RAxIgpRKe4zxcetizoqxu6RyfZE+B9Ad1a1tGkICZLiPQdfY+3HpiywT/
+         lMEQ==
+X-Forwarded-Encrypted: i=1; AL+hErFXTeSxOPK6Tr4HUZU6V94osEVHBbAvU+zOU8uQ6Qww4qOjsPeES3PVnjsRL+YHaphrdqHw+s8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8uqhtWhY3YFekbKDVNiaQC4QDiydfeJd3jkY9PK/3pB7FyPxV4
+	NinhUYTp6CDCT2E0OJOZBBsIALhbV8/TFgWar5TgmwbDOxqdREOQGa7WGTZtQnL95JMxju9qAY4
+	LirlkTymIn6lfoPufuw==
+X-Received: from oibdu15.prod.google.com ([2002:a05:6808:628f:b0:56d:b7b4:fabf])
+ (user=starchang job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6808:199f:b0:568:2782:d1b4 with SMTP id 5614622812f47-57a0bd95bcemr8831086b6e.32.1795415771832;
+ Sun, 22 Nov 2026 22:36:11 -0800 (PST)
+Date: Mon, 23 Nov 2026 06:36:08 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,45 +75,155 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.750.gf70dc682cf-goog
+Message-ID: <20261123063608.3665186-1-starchang@google.com>
+Subject: [PATCH net v6] arp: Do not update neighbours from ARP in L2
+ multicast/broadcast frames
+From: Star Chang <starchang@google.com>
+To: "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>, 
+	Ido Schimmel <idosch@nvidia.com>, Julian Anastasov <ja@ssi.bg>, Johannes Berg <johannes@sipsolutions.net>, 
+	Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, netdev@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, wangroger@google.com, 
+	starchang@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-nci_to_errno() returns negative errno values for nonzero data-status
-bytes. Passing that value to nci_add_rx_data_frag() through a __u8
-parameter truncates the errno and changes it to an unrelated positive
-value before the completion callback receives it.
+The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
+are received in link-layer multicast or broadcast frames. On Wi-Fi this
+protects against the "Hole-196" attack, where any station that knows
+the group key injects frames as group-addressed traffic.
 
-Keep the error parameter as int so the original errno reaches the
-completion path unchanged.
+ARP is not covered. A broadcast ARP request or reply with sip set to
+the gateway address and sha set to the attacker MAC still creates or
+updates the gateway neighbour entry, so the attacker can poison the
+ARP cache of other stations. ARP requests are legitimately broadcast
+and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
 
-Fixes: 98ff416f97c5 ("NFC: nci: Add status byte management in case of error.")
+When drop_unicast_in_l2_multicast is set, do not pass ARP packets
+received in L2 multicast/broadcast frames to neigh_event_ns() or
+neigh_update(), so they can neither create nor change neighbour
+entries. Requests for local and proxied addresses are still answered;
+neighbours are learned from unicast replies to our own requests.
 
-Cc: stable@vger.kernel.org
-Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
+Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
+Suggested-by: Julian Anastasov <ja@ssi.bg>
+Signed-off-by: Star Chang <starchang@google.com>
 ---
-v3:
-- Split the signed NCI status errno correction into a separate patch.
+v6:
+ - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
+   neigh_update() for any ARP received in L2 BMC frames, which also
+   covers broadcast requests with sip = gateway (Julian)
+ - Drop the frame and release reply_dst on that path (Julian)
+v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
+v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
+v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
 
- net/nfc/nci/data.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
+ Documentation/networking/ip-sysctl.rst |  4 ++-
+ net/ipv4/arp.c                         | 38 +++++++++++++++++++-------
+ 2 files changed, 31 insertions(+), 11 deletions(-)
 
-diff --git a/net/nfc/nci/data.c b/net/nfc/nci/data.c
-index 3bbebb950..4a2326a33 100644
---- a/net/nfc/nci/data.c
-+++ b/net/nfc/nci/data.c
-@@ -213,13 +213,11 @@ EXPORT_SYMBOL(nci_send_data);
+diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
+index 208f46967ee5..d603588266b4 100644
+--- a/Documentation/networking/ip-sysctl.rst
++++ b/Documentation/networking/ip-sysctl.rst
+@@ -2298,7 +2298,9 @@ promote_secondaries - BOOLEAN
  
- static void nci_add_rx_data_frag(struct nci_dev *ndev,
- 				 struct sk_buff *skb,
--				 __u8 pbf, __u8 conn_id, __u8 status)
-+				 __u8 pbf, __u8 conn_id, int err)
- {
- 	int reassembly_len;
--	int err = 0;
+ drop_unicast_in_l2_multicast - BOOLEAN
+ 	Drop any unicast IP packets that are received in link-layer
+-	multicast (or broadcast) frames.
++	multicast (or broadcast) frames. ARP packets received in such
++	frames are not used to create or update neighbour entries,
++	but ARP requests for local addresses are still answered.
  
--	if (status) {
--		err = status;
-+	if (err) {
- 		kfree_skb(ndev->rx_data_reassembly);
- 		ndev->rx_data_reassembly = NULL;
- 		goto exit;
+ 	This behavior (for multicast) is actually a SHOULD in RFC
+ 	1122, but is disabled by default for compatibility reasons.
+diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
+index d409f606aec0..17b5f32736aa 100644
+--- a/net/ipv4/arp.c
++++ b/net/ipv4/arp.c
+@@ -714,6 +714,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	struct neighbour *n;
+ 	struct dst_entry *reply_dst = NULL;
+ 	bool is_garp = false;
++	bool bmc_no_learn;
+ 
+ 	/* arp_rcv below verifies the ARP header and verifies the device
+ 	 * is ARP'able.
+@@ -791,6 +792,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
+ 		goto out_free_skb;
+ 
++	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
++			   skb->pkt_type == PACKET_MULTICAST) &&
++			  IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
++
+  /*
+   *	For some 802.11 wireless deployments (and possibly other networks),
+   *	there will be an ARP proxy and gratuitous ARP frames are attacks
+@@ -850,14 +855,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
+ 				dont_send = arp_filter(sip, tip, dev);
+ 			if (!dont_send) {
+-				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+-				if (n) {
+-					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
+-						     sip, dev, tip, sha,
+-						     dev->dev_addr, sha,
+-						     reply_dst);
+-					neigh_release(n);
++				n = NULL;
++				/* Do not learn the sender from a BMC frame */
++				if (!bmc_no_learn) {
++					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
++					if (!n)
++						goto out_consume_skb;
+ 				}
++				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
++					     sip, dev, tip, sha,
++					     dev->dev_addr, sha,
++					     reply_dst);
++				if (n)
++					neigh_release(n);
+ 			}
+ 			goto out_consume_skb;
+ 		} else if (IN_DEV_FORWARD(in_dev)) {
+@@ -866,9 +876,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
+ 			     (rt->dst.dev != dev &&
+ 			      pneigh_lookup(&arp_tbl, net, &tip, dev)))) {
+-				n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
+-				if (n)
+-					neigh_release(n);
++				if (!bmc_no_learn) {
++					n = neigh_event_ns(&arp_tbl, sha, &sip, dev);
++					if (n)
++						neigh_release(n);
++				}
+ 
+ 				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
+ 				    skb->pkt_type == PACKET_HOST ||
+@@ -887,6 +899,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 		}
+ 	}
+ 
++	/* ARP received in L2 BMC frames must not change the neighbour table */
++	if (bmc_no_learn)
++		goto out_drop_dst;
++
+ 	/* Update our ARP tables */
+ 
+ 	n = __neigh_lookup(&arp_tbl, &sip, dev, 0);
+@@ -945,6 +961,8 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
+ 	dst_release(reply_dst);
+ 	return NET_RX_SUCCESS;
+ 
++out_drop_dst:
++	dst_release(reply_dst);
+ out_free_skb:
+ 	kfree_skb(skb);
+ 	return NET_RX_DROP;
+-- 
+2.56.1.750.gf70dc682cf-goog
+
