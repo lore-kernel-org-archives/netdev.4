@@ -1,61 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795400021;
-	b=KQmmSbU4V7/++l9KIUR+qPY1CLHl3bq5k6a3dV+BXZvx9d4vhTyGsAad+CKHOCHFZ9xX
-	 kpTgU2Cq0KrcNkxjzvd1wIGAVarx2ptsEkkPyP3kNrwi9ac523EAuLqSUR1DUc0lKnNny
-	 1RcOX4S3Fs1a5pGlImmIl94H9BXiFx4kIgOR80WYdrkwsNecZyWr258PEEtxqQiOnVbYp
-	 DjsU+El5hOpRiERFw9yyvsz0lxoVyRFKVCba+L2qhOF3OWyuPVXxb0EMOfhrUNSFEIT2L
-	 4lwNw+hu5N3wZlWpNoj4g8o/PnCFZ3M6GiRDU2iZ5DyulOTm/rdBwExSlkkaTwr1SOw==
+	t=1795400660;
+	b=3S8uj1S8oh2UIwToJn0hM87HmQqExkVRLx5JO7tX8ElAtCqjUKSCHEGDB48q7fdKEQxm
+	 LwkjzX9UD1gLWwrVg+qrvbAKt+fk5nwR+oLL00ESuyXc0avZQgMt9AQ0mpxivrcY17v8Q
+	 R7IzNR+WjuCSkKgYfDTQnNgdUQzSQoUGT1orD2vAMCBiNity8IaNNvxGftv4IPVcntcH9
+	 hVKymF/uSeH5fSMxg6aIMAo6Uq2o66msi1ZUrLw4XW2PeQvXhrjVrz44vA/BXrEPJaq/M
+	 iAcaYgdjKpk79z9WnUz911xmHT1MTj6/12CsH/qkM4g5RkxhLTjiOgu45uohzfCBtgw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795400021;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=w0qcFHuhOxRFhzy+XALtHsGtZc6YwmNn3t9p0bTe8Ek=;
-	b=KxihsPMJU1PrqviMQS6w6tfHSoMw2lqvm5fIFqz15ydluDgXdhR2fft0KYussOt3n0OR
-	 k25KoBzr7U2YtsMYihG7+E1H5S3TQxlxqarK2IoVCdJjd/fmsMl1nOW+3SBQ4Yh3x1fD3
-	 WMDshIrF6CvG2FAIxl/Z6e5pP5tgvtZId865aIXO56wvyRG2eZ6lyJfZ+bhC5COQJuNSi
-	 oZpe60AEVGzFRNWjP9oriXfEILIfa5nEt8dp5y7ICZLl1VSThf9ziFhRzPlfElJZ41xFZ
-	 RegmK3aU3sNvsD+A/3aMBOt1jFgBOCFJ5kQfGl9bwhMcBrGrZkjGNMEtT/CXKehzzMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795400660;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VUjnilYGMK6n8uRV96C20nGUmNVbpW+6JA21u4o9l+Y=;
+	b=iQxw5wl3Z59I9DPbgUbud+449Se6b2P+CTKPGTaI3iwIGWCUwAQYk8eKH6RhRF3V8sES
+	 J2LmtptYHYVYwHRiYRRVQdMcTJE5R+BvTRroj9oOnXw/s+Aekw4nmgLeF6XyUuChWxdX1
+	 7M4J0XaclONyigRFG64TDLK5psPaKa6qrD1LPdQll7jmYyzMQSZuvWwb9mVJEdrxqrHfs
+	 dnO1oGGsrieSg+vIF0CrsoZ6HmGiiqSduGesU4YrkZw2DplBsl77PblpZTbTyr4ncodBp
+	 LJv1iwIV0AS+U5yX3SHVt2DcYX8rhRqDPApRdgVLZkyXinIhMsX6cH6nYYQtzdKBZMA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cRPPexqY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E30EC606A33C;
-	Mon, 23 Nov 2026 02:13:40 +0000 (UTC)
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=K2VMpE3x;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2B382606A31A;
+	Mon, 23 Nov 2026 02:24:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2B382606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cRPPexqY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F8481F000C6;
-	Mon, 23 Nov 2026 02:13:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795400019;
-	bh=w0qcFHuhOxRFhzy+XALtHsGtZc6YwmNn3t9p0bTe8Ek=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cRPPexqYtX4gt98SVt8GN3oQ0ogmZgyPAGRoQo3ek9jc/awTUFDn2vFTuhR10E8sN
-	 h9iS/vYQKqZ6sdWCbaI6Ex7NQKmvjT3n6S1V4hLqQwxTnOPU6pEGKb5E7P77byfb7H
-	 3KNPtRgBO1MAdtWsqJfsUHe6dlAEmCZNDSdc8AZl7Eo8xsMhVYlIjYijZEDt9LFLOo
-	 pWMDMbzFGkxv2ppepByqp9p03A5RBN9NZGOkklK4pxSCCfOBKJji/+md9n037KG0zt
-	 Ty+7jPmIEvPdKiXRDJ5CKziZtsnwMMEAMorMghAlV7egPP6yZXmLBnYu7fOe9d9qoi
-	 tovYqz40/H8xQ==
-Subject: Re: [PATCH net v2] tls: fix send() returning success after the TCP
- send failed
-From: netdev-bot+sashiko@kernel.org
-To: hengyul@cs.unc.edu
-Cc: john.fastabend@gmail.com, kuba@kernel.org, sd@queasysnail.net,
- davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
- bcodding@redhat.com, ben.coddington@hammerspace.com,
- rjethwani@purestorage.com, netdev@vger.kernel.org, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 02:13:38 +0000
-Message-ID: <179540001873.3135.1838308128939252702@kernel.org>
-In-Reply-To: <20261119141106.840038-1-hengyul@cs.unc.edu>
-References: <20261119141106.840038-1-hengyul@cs.unc.edu>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=K2VMpE3x
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=K2VMpE3xFZwJoX/l9Aplb6D9Z22o/0VoN3wPthTYr628O17R/mNJPjvlRCov2DgCxXNcv6e5Jou3/
+	 7PTWcYdBieZ8u0Nw0ZZIEeie+/ZX0rIrb8oPcCWSGj8R/DqSBOgvNPcMn045NlXoNXrOAtcq/RhJkD
+	 dz9Xjwmy4mbFD8TY=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b03a3cf244-d793a;
+	Mon, 23 Nov 2026 10:24:15 +0800 (CST)
+X-RM-TRANSID:2ee46b03a3cf244-d793a
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b03a3cde27-eb193;
+	Mon, 23 Nov 2026 10:24:15 +0800 (CST)
+X-RM-TRANSID:2ee86b03a3cde27-eb193
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: chester.a.unal@arinc9.com
+Cc: daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH v3] net: dsa: mt7530: manage the core and io regulators with
+ devm actions
+Date: Mon, 23 Nov 2026 10:24:15 +0800
+Message-ID: <20261123022415.433-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,127 +74,161 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+mt7530_setup() enables the core and io regulators of the MT7530, but the=0D
+only matching regulator_disable() calls live in mt7530_remove(), which=0D
+never runs when the probe fails.  A failure anywhere between the enables=0D
+and a fully registered switch - the remaining steps of mt7530_setup(),=0D
+the IRQ chip or MDIO bus registration in mt753x_setup() (both can also=0D
+return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -=0D
+therefore leaves both regulators enabled.  The devm-acquired handles=0D
+are then released with a non-zero enable_count, which triggers the=0D
+WARN_ON() in _regulator_put(), and each probe deferral grows the count=0D
+further.=0D
+=0D
+Move the enables to mt7530_probe(), right after the regulators are=0D
+acquired, and pair each regulator_enable() with a=0D
+devm_add_action_or_reset() that disables it again.  This covers every=0D
+error path after the enables, and replaces the explicit disables in=0D
+mt7530_remove(), so the enables and disables stay balanced in all=0D
+combinations of probe, setup and unbind.=0D
+=0D
+Found by code inspection, the issue has not been triggered at runtime=0D
+and no MT7530 hardware was available for testing.  The visible symptom=0D
+of the leak would be both regulators staying powered after a failed=0D
+probe and a WARN_ON(enable_count) splat from the regulator core when=0D
+the devm-acquired handles are released with a nonzero enable count.=0D
+=0D
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 sw=
+itch")=0D
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>=0D
+---=0D
+=0D
+Changes in v3:=0D
+- Replaced the setup error-path unwinding of v2 with devm-managed regulator=
+=0D
+  enables in mt7530_probe(), and removed the explicit disables from=0D
+  mt7530_remove().  The late error paths outside mt7530_setup() (IRQ chip=0D
+  and MDIO bus registration, SGMII PCS creation, the DSA core) are now=0D
+  covered too, as suggested in the review of v1 by the netdev AI bot.=0D
+=0D
+Link: https://lore.kernel.org/r/20261119060424.1476-1-laixiangwu@cmss.china=
+mobile.com=0D
+ drivers/net/dsa/mt7530-mdio.c | 48 +++++++++++++++++++++++++----------=0D
+ drivers/net/dsa/mt7530.c      | 18 -------------=0D
+ 2 files changed, 35 insertions(+), 31 deletions(-)=0D
+=0D
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c=
+=0D
+index 0be107dc6..99432d658 100644=0D
+--- a/drivers/net/dsa/mt7530-mdio.c=0D
++++ b/drivers/net/dsa/mt7530-mdio.c=0D
+@@ -155,6 +155,14 @@ static const struct regmap_config regmap_config =3D {=
+=0D
+ 	.unlock =3D mt7530_mdio_regmap_unlock,=0D
+ };=0D
+ =0D
++static void=0D
++mt7530_disable_regulator(void *data)=0D
++{=0D
++	struct regulator *regulator =3D data;=0D
++=0D
++	regulator_disable(regulator);=0D
++}=0D
++=0D
+ static int=0D
+ mt7530_probe(struct mdio_device *mdiodev)=0D
+ {=0D
+@@ -210,6 +218,32 @@ mt7530_probe(struct mdio_device *mdiodev)=0D
+ 		priv->io_pwr =3D devm_regulator_get(&mdiodev->dev, "io");=0D
+ 		if (IS_ERR(priv->io_pwr))=0D
+ 			return PTR_ERR(priv->io_pwr);=0D
++=0D
++		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
++		ret =3D regulator_enable(priv->core_pwr);=0D
++		if (ret < 0) {=0D
++			dev_err(&mdiodev->dev,=0D
++				"Failed to enable core power: %d\n", ret);=0D
++			return ret;=0D
++		}=0D
++		ret =3D devm_add_action_or_reset(&mdiodev->dev,=0D
++					       mt7530_disable_regulator,=0D
++					       priv->core_pwr);=0D
++		if (ret)=0D
++			return ret;=0D
++=0D
++		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
++		ret =3D regulator_enable(priv->io_pwr);=0D
++		if (ret < 0) {=0D
++			dev_err(&mdiodev->dev,=0D
++				"Failed to enable io pwr: %d\n", ret);=0D
++			return ret;=0D
++		}=0D
++		ret =3D devm_add_action_or_reset(&mdiodev->dev,=0D
++					       mt7530_disable_regulator,=0D
++					       priv->io_pwr);=0D
++		if (ret)=0D
++			return ret;=0D
+ 	}=0D
+ =0D
+ 	rc.lock_arg =3D &priv->bus->mdio_lock;=0D
+@@ -228,23 +262,11 @@ static void=0D
+ mt7530_remove(struct mdio_device *mdiodev)=0D
+ {=0D
+ 	struct mt7530_priv *priv =3D dev_get_drvdata(&mdiodev->dev);=0D
+-	int ret =3D 0, i;=0D
++	int i;=0D
+ =0D
+ 	if (!priv)=0D
+ 		return;=0D
+ =0D
+-	if (priv->id =3D=3D ID_MT7530) {=0D
+-		ret =3D regulator_disable(priv->core_pwr);=0D
+-		if (ret < 0)=0D
+-			dev_err(priv->dev,=0D
+-				"Failed to disable core power: %d\n", ret);=0D
+-=0D
+-		ret =3D regulator_disable(priv->io_pwr);=0D
+-		if (ret < 0)=0D
+-			dev_err(priv->dev, "Failed to disable io pwr: %d\n",=0D
+-				ret);=0D
+-	}=0D
+-=0D
+ 	mt7530_remove_common(priv);=0D
+ =0D
+ 	for (i =3D 0; i < 2; ++i)=0D
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c=0D
+index 7781a63b4..b669a94d4 100644=0D
+--- a/drivers/net/dsa/mt7530.c=0D
++++ b/drivers/net/dsa/mt7530.c=0D
+@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)=0D
+ 	ds->ageing_time_min =3D 2 * 1000;=0D
+ 	ds->ageing_time_max =3D (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;=0D
+ =0D
+-	if (priv->id =3D=3D ID_MT7530) {=0D
+-		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
+-		ret =3D regulator_enable(priv->core_pwr);=0D
+-		if (ret < 0) {=0D
+-			dev_err(priv->dev,=0D
+-				"Failed to enable core power: %d\n", ret);=0D
+-			return ret;=0D
+-		}=0D
+-=0D
+-		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
+-		ret =3D regulator_enable(priv->io_pwr);=0D
+-		if (ret < 0) {=0D
+-			dev_err(priv->dev, "Failed to enable io pwr: %d\n",=0D
+-				ret);=0D
+-			return ret;=0D
+-		}=0D
+-	}=0D
+-=0D
+ 	/* Reset whole chip through gpio pin or memory-mapped registers for=0D
+ 	 * different type of hardware=0D
+ 	 */=0D
+-- =0D
+2.50.1.windows.1=0D
+=0D
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] With async encryption, send() still returns success when the TCP
-  send fails during that same call.
-
---
-
-tls: fix send() returning success after the TCP send failed
-
-The patch adds an abort_err field to struct tls_sw_context_tx. It is set
-when tls_tx_records() aborts the connection after a failed TCP send. The
-field is checked in tls_tx_records(), tls_push_record() and the
-tls_sw_sendmsg_locked() loop, and bpf_exec_tx_verdict() uses it to tell
-that the record was not sent and to take it out of copied.
-
-> diff --git a/net/tls/tls_sw.c b/net/tls/tls_sw.c
-> index 226e0f176fdc8..795cbfe5fb2a1 100644
-> --- a/net/tls/tls_sw.c
-> +++ b/net/tls/tls_sw.c
-
-[ ... ]
-
-> @@ -708,13 +717,15 @@ static int tls_push_record(struct sock *sk, int flags,
->  static int bpf_exec_tx_verdict(struct sk_msg *msg, struct sock *sk,
->  			       u8 record_type, ssize_t *copied, int flags)
->  {
-> +	struct tls_sw_context_tx *ctx = tls_sw_ctx_tx(tls_get_ctx(sk));
->  	int err;
->
->  	err = tls_push_record(sk, flags, record_type);
-> -	if (err && err != -EINPROGRESS && sk->sk_err == EBADMSG) {
-> +	if (err && err != -EINPROGRESS &&
-> +	    (ctx->abort_err || sk->sk_err == EBADMSG)) {
->  		*copied -= sk_msg_free(sk, msg);
->  		tls_free_open_rec(sk);
-> -		err = -sk->sk_err;
-> +		err = ctx->abort_err ?: -EBADMSG;
->  	}
->  	return err;
->  }
-
-[Severity: High]
-When encryption completes asynchronously, can send() still return success
-after the TCP send fails in that same call?
-
-With an async AEAD, or on the MAY_BACKLOG -EBUSY path that ends up as
--EINPROGRESS, tls_push_record() returns before it reaches
-tls_tx_records():
-
-    rc = tls_do_encryption(sk, tls_ctx, ctx, req, ...);
-    if (rc < 0) {
-        if (rc != -EINPROGRESS)
-            tls_err_abort(sk, -EBADMSG);
-        ctx->async_capable = 1;
-        return rc;
-    }
-
-That makes err == -EINPROGRESS here, so the new branch is skipped and
-nothing is subtracted from *copied.
-
-The record then goes to TCP later in the same sendmsg() call, from the
-send_end block of tls_sw_sendmsg_locked():
-
-    /* Transmit if any encryptions have completed */
-    if (test_and_clear_bit(BIT_TX_SCHEDULED, &ctx->tx_bitmask)) {
-        cancel_delayed_work(&ctx->tx_work.work);
-        tls_tx_records(sk, msg->msg_flags);
-    }
-
-end:
-    ret = sk_stream_error(sk, msg->msg_flags, ret);
-    return copied > 0 ? copied : ret;
-
-Say tcp_sendmsg_locked() fails there with -EPIPE after shutdown(SHUT_WR)
-or a reset. tls_tx_records() sets ctx->abort_err, but its return value
-is dropped. ret is still 0 and copied is positive, so the caller is told
-that the record was sent.
-
-The two in-loop "Transmit if any encryptions have completed" blocks, on
-the zerocopy and copy paths, follow the same pattern. The next iteration
-hits the new abort_err check and jumps to send_end, but copied still
-counts the failed records.
-
-Take the reproducer from the commit message on a system where gcm(aes)
-completes asynchronously. The first send has async_capable == 0 and
-eor == true, so it takes the zerocopy path. Then:
-
-tls_sw_sendmsg_locked()
-  bpf_exec_tx_verdict() returns -EINPROGRESS, num_async++
-  send_end: tls_encrypt_async_wait() returns 0
-  tls_tx_records()
-    tls_push_sg()
-      tcp_sendmsg_locked() returns -EPIPE
-  return copied
-
-So it looks like send() would still print 5. Later sends do now fail with
-EPIPE because of the new check at the top of the loop.
-
-tx_work_handler() also ignores the result of tls_tx_records(). There,
-though, the send that queued the record has usually returned already.
-
-The commit message says "Do not count the record as sent" and "The send()
-above then fails with EPIPE". Should the tls_tx_records() error from the
-send_end and in-loop transmits be propagated, or ctx->abort_err be checked
-after them, so that the failed records are not counted in copied?
-
-This first-send behaviour on the async path also existed before
-b341ca51d267. Since this patch targets this class of bug, would it make
-sense to cover the async path too?
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119141106.840038-1-hengyul%40cs.unc.edu
