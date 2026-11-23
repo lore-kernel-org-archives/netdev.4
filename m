@@ -1,99 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795429726;
-	b=Zg4lyBMC85o2Y9NFazwofsmpYYIfYGNbsrRHyzFz4QHKOCTiIOQRLjuaEQWPB05mGe6h
-	 8UcKhqa0JFkHc5K1iRgMX0fWCeusuf+Z0oFtdyHbjeEOAoI9ay4Jd+lCa7CAupfc/LjUC
-	 mJkQsmGmGseNDK1rPhsZv864g3FtuI5pLhewVT2IeJeSdSdK/UspzPIJBoxN0PdQ8aZ8w
-	 3R5uTUjsIB5/W2CL8TL9NxQiX4aI1zVLmh5EIs1igvZKM7I9gzDH0ZsNTErPejxphpWlL
-	 jWbOOiGypCvbCvEf71k4HpdnfTU033iEkvdGwPRhOMHV8zr4+jz4djRppoXMWYpGdSA==
+	t=1795429722;
+	b=NW7FRPyLyElfgr30xRmukndVdEBUAhsmacwXulnxXbzNRahClNINAlSG967boPszCo0U
+	 ZYTfIKzhD4qs9ZE8VLjMqviDtKQ8nTWxg0MNumOsnU5XUqj29uU1kM4GWOFdJf9Gu/0KK
+	 qtyCEcQwRyvSXChv8Ri5cEufSbcxtOwwr4WwnIRn2JcXyoN1fklvJcVLXcUKPhznoXaHi
+	 85Zht0rZ6b+ttZLhmX9W1X+hFqr0lE1QZZc41hZE4qDCtcxe52mPBs45AzXNgo+OU1UOf
+	 P5XL8LLTqjTCAqzJ1/t6TqUhc7/gTAE7D09vAka2nqg1Ah6Nj+9WqAt/DL8+3g5zmoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795429726;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vvhL2dudRhqTXrzfmMeH03EnlFMuQX0Rpev63eT5Nl8=;
-	b=r8mNrGXxFztVtZwIVQ85Z3dH3QeS7YT5TAjiAS3I/jzh/Gq54JbFD0ogATBZfa00yjlC
-	 8pjHYj8uu7gosIQvfsa5Y6tjN0//mS4R3Fx9ixDnkctGeGf1MDzz0wzzNEbhBMmANl3tC
-	 z0YxTf1dLwkEW364HReUTTTlDz13Eui3Mw5rxgpzzfkVeW+POUK2UymN72CnDXIedvZKW
-	 vFnd1xlmgq8ieutsAe2aUO2gn/P40nObzfKk8kiswOo5LaHrlXnY8rq24Rw5k2/IO+/1X
-	 4h1oHuBMfVQBHKvX8zhmCKd0TGCegIgw7++F2GhOSaFbHxzRdjDc9GnxjNaRwsmmGww==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795429722;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=3dEABjnP8zG4GS+2RR7xYcv4bokf7sqd6fxlHiM9nZA=;
+	b=dHAC+O2tW3jsR2p/C+0e8sqLvtKuX5AKYCn9kConN/jnkhb6yQk3tIfL9LmLCcy8kXjJ
+	 2UxQ6+Umbi53zgTVwA6I9JEzm+ldxk74VBSd6MIWxq+oCfsHLWOVKyGPd4F8+JAPNJBXu
+	 RdGXoGOy8c+zDSSVp+ihSpb6cwfaf9Ka0SYsd0S4aElT9Er/aCY4I8ll5G7GdtQPA9rzJ
+	 BhW9CZhDKnt1k5JUZPzKywIhDJtAslj2jPxtWUBStCBhC6aFltR9fpYKRusJ0lwmwEkEI
+	 On7zO7QMGhU6Lp4zYAkC9nxKK0cVJrOzg9jk0F0D1QXRob7ea9x1O6GFVV8FsmsPmJg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=DwyxMWk4;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAdE3ts2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E834606A33C
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:28:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E834606A33C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AEBD606A31A;
+	Mon, 23 Nov 2026 10:28:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=DwyxMWk4
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a68190a2a7so2577864f8f.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:28:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795429724; x=1796034524; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vvhL2dudRhqTXrzfmMeH03EnlFMuQX0Rpev63eT5Nl8=;
-        b=DwyxMWk4zNFfPX1m2Skc8WoPtXy0LDfyCLNDJkDbPNzR717UvDB1+YfAj7F2T2WcCn
-         j+MQHCCSRtK87E6S3RKZbqQM/68uf9Q24pQsC8CJ07Tmz7zHnHWIK2ndzuIUzJiYpA0N
-         oRylfhFrwfz9myRZCLvQUY7ikYQYqGPDkMDh3ArEuHoDS1vMd2CaA212ls6fau8e+pCX
-         ewF0MbBHWWt9ypPuw3wLZq7ZG4aUe8P4ao68nEgbgqtXq0mpQxvcHJC8dIFQDrFBT2Bf
-         HZb45iu4NvQTvUSJeHL4Ztt61X48aks+cfxic74pMbuT/gaeWp05PvFCMiJqRQigCGcW
-         yBNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795429724; x=1796034524;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vvhL2dudRhqTXrzfmMeH03EnlFMuQX0Rpev63eT5Nl8=;
-        b=Rgmy2uMTp/7DreIQ25DzTOk2+UI/nKC9kmoSOzNj5Rnoq6f7XDLFN/CWPsQ/enxgdf
-         v0PEHBLaxzyzyNdETk95GeKmBKuG4JPASIwWs7s4wDZh6LOaC4sdK/KESLkcKj1tWH3g
-         GxiIoXELakmfMKqFqigmM1UfDQREdEiX0SrTqBL/uRm9C40fPtK4ymSCQBMrVdwERM3t
-         jNxUaZfrh+9x8Km27dvYC4Wk1Q5f8rZDQp3ThB+5nxwrCPgGUw3TF374TR60QjdZesrx
-         eSNvlvPE1u33adhakUYQVpaBYLsI7neG0tMIMAK+GFqwgYaZmA17qPBWQx/LtuRLgtvo
-         Mxiw==
-X-Gm-Message-State: APuU4Z/4RtdWhbpM3Z/McT3zQkoannbAQ5BThZQJDKlzgWBQ0iNznVxB
-	cOo6Fkyju8MapB3t0OcavoWWAPV/e25MJXyF5h5UWalZpPMaJoFixgN/EMgHSywnQ8HMihqqprz
-	p+g1I2rApVg==
-X-Gm-Gg: AZFdTZepEkIVM/Q2UgWFJaeKiGm7q8ASzNT5L88oGPEWQFwlvf+DhGr0TZKAqJX/ego
-	Zjsrp1x+qcCHVCfzkUuJzvMHh9QE4+LCBRt9xaJi5zCWz0aGJZVQTvu2yfF2rrS82jjrrKegO0A
-	TFBmwBgANZnl1W1/KuBqEHMCUIjx+SjKegvO9bt6ReDoN22ufzwd9UG1fKwSLRWBQ5Nj1xvdwWN
-	iBbdqzuRz07xAJHd4t7hcbFLlU62JUKB0L1JaYGu7sE2D+R/+Wsvr/c4FcLXvgKrOCZQ5ICNxYf
-	6ERO2a1MjeaaNGESwlepnYr7NPOLw1CoHCob7E1iOUEUQdb/qDb91aM6rmoTybwXbKKe3sVO64L
-	usbx2D9zHwUWAtJuo2FtLWEMAuBaSj5j7zrBwcLiF7nKI+CVBpVdY1g+ELwSqMAkVYb+bDNavG3
-	3L7H8lbfxV8stcm/68fz4YZ8T2huOj+TjdFtT7azw7gs5coYhCsUpKY9/dvP4MKlLYoMtS1dkW6
-	vShdNh4kl58gjlI+T7kT3E3a1Sx2hMj9k5puUeu6/gny6Kre5Z13VIUJy1K5izf8op3HFdJRafD
-	BriRiWmZ7KZKmPdulMY4q6NMMeRa0anaL8GhZB99+XZI3XcwLjU=
-X-Received: by 2002:a05:6000:29d3:b0:4a2:6542:989a with SMTP id ffacd0b85a97d-4abb4b85a5cmr11933643f8f.52.1795429724549;
-        Mon, 23 Nov 2026 02:28:44 -0800 (PST)
-Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4abbd84e661sm19882368f8f.18.2026.11.23.02.28.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 02:28:44 -0800 (PST)
-From: Nikolay Aleksandrov <razor@blackwall.org>
-To: netdev@vger.kernel.org
-Cc: Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	bridge@lists.linux.dev
-Subject: [PATCH net-next 3/3] net: bridge: mdb: avoid VLAN lookups in listener forwarding
-Date: Mon, 23 Nov 2026 12:28:33 +0200
-Message-ID: <20261123102833.924427-4-razor@blackwall.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261123102833.924427-1-razor@blackwall.org>
-References: <20261123102833.924427-1-razor@blackwall.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IAdE3ts2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C7B11F000C6;
+	Mon, 23 Nov 2026 10:28:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795429721;
+	bh=3dEABjnP8zG4GS+2RR7xYcv4bokf7sqd6fxlHiM9nZA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=IAdE3ts28rbpjzsOoVlPyB/OB278tHv2AQSdyKejaw6hKNIDIOQGgQ32ezIjYBLXf
+	 0bgwh/y2fZjTMnYVwTXz0AZwl289IDZnA3ItMV8J1ZCkjTee3PNocDmZN02Maa5u1f
+	 +0THhfroqKhVYwyB65eA8zjDEkTMSYqCXI1CKcwZfKYqS3kH3QsLVmJyh+6oiAlTCj
+	 J+G13AGJHY8incJaZNbtQTHWrL0ZZuOdz5v2hXjMUq1RAlGzQHqqcqPRGzYxTSyu8o
+	 XdJ3GG/gcl++6K2gsX+ZDTTL2pOsHqyveE5p78JkLmTErYtKBMsc0vyR/PM/XbIO2s
+	 8KeWdY180ACZw==
+Subject: Re: [PATCH net] net/ncsi: fix channel loop termination when Channel
+ Count is 0
+From: netdev-bot+sashiko@kernel.org
+To: me@7xz.dev
+Cc: sam@mendozajonas.com, fercerpav@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ delphine_cc_chiu@wiwynn.com
+Date: Mon, 23 Nov 2026 10:28:40 +0000
+Message-ID: <179542972017.3135.10691735313982658423@kernel.org>
+In-Reply-To: <20261119100625.72505-1-me@7xz.dev>
+References: <20261119100625.72505-1-me@7xz.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,212 +64,149 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Cache a port or port-VLAN destination in each mdb port group and pass
-its resolved VLAN to listener and multicast-to-unicast forwarding.
-Groups with port VLAN membership can validate egress and handle tagging
-without VLAN lookups.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Adding or deleting a port VLAN rewrites the cached destination of every
-group in that VLAN so its cost grows linearly with the VLAN's groups.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 0
 
-When a listener is also a global multicast router, use its cached
-destination while retaining router delivery semantics.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-VLAN forwarding improvement:
-  VLANs  Listeners  Mpps before  Mpps after  Gain %  Cycles before  Cycles after  Saved %
-  ---------------------------------------------------------------------------------------
-    8          4     0.785571    0.865156  +10.13         3771.2        3381.2    10.34
-    8          8     0.454257    0.511490  +12.60         6900.5        6091.0    11.73
-    8         16     0.249896    0.288575  +15.48        13144.0       11362.9    13.55
-   64          4     0.765468    0.841916   +9.99         3881.6        3462.1    10.81
-   64          8     0.437448    0.501744  +14.70         7153.6        6215.6    13.11
-   64         16     0.238901    0.279188  +16.86        13690.2       11674.2    14.73
- 4094          4     0.583447    0.695246  +19.16         5271.6        4339.3    17.68
- 4094          8     0.293712    0.373710  +27.24        11001.0        8492.8    22.80
- 4094         16     0.140026    0.191269  +36.60        23509.6       17213.7    26.78
+- [Medium] The commit message says that "With the patch, Channel Count 0
+  behaves exactly like Channel Count 1" and that the probe-path change…
 
-Medians of 6 runs, 64b frames, one group per VLAN and packet VIDs
-chosen at random. Cycles are PMU cycles / input packet on the fwding CPU.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the patch's
+  own reasoning depends on it: the commit message says "Fixing the loop…
 
-Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
----
-CC: Ido Schimmel <idosch@nvidia.com>
-CC: David S. Miller <davem@davemloft.net>
-CC: Eric Dumazet <edumazet@kernel.org>
-CC: Jakub Kicinski <kuba@kernel.org>
-CC: Paolo Abeni <pabeni@redhat.com>
-CC: Simon Horman <horms@kernel.org>
-CC: bridge@lists.linux.dev
+--
 
- net/bridge/br_forward.c   | 16 +++++++++-------
- net/bridge/br_multicast.c | 24 ++++++++++++++++++++++++
- net/bridge/br_private.h   |  7 +++++++
- net/bridge/br_vlan.c      |  2 ++
- 4 files changed, 42 insertions(+), 7 deletions(-)
+net/ncsi: fix channel loop termination when Channel Count is 0
 
-diff --git a/net/bridge/br_forward.c b/net/bridge/br_forward.c
-index b725e8f1b29a..321e63495548 100644
---- a/net/bridge/br_forward.c
-+++ b/net/bridge/br_forward.c
-@@ -353,17 +353,15 @@ void br_flood(struct net_bridge *br, struct net_bridge_vlan *v,
- }
- 
- #ifdef CONFIG_BRIDGE_IGMP_SNOOPING
--static void maybe_deliver_addr(struct net_bridge_port *p, struct sk_buff *skb,
-+static void maybe_deliver_addr(struct br_fwd_dst *fwd, struct sk_buff *skb,
- 			       const unsigned char *addr, bool local_orig)
- {
- 	struct net_device *dev = BR_INPUT_SKB_CB(skb)->brdev;
- 	const unsigned char *src = eth_hdr(skb)->h_source;
--	struct br_fwd_dst fwd = {
--		.port = p,
--	};
-+	struct net_bridge_port *p = fwd->port;
- 	struct sk_buff *nskb;
- 
--	if (!should_deliver(&fwd, skb))
-+	if (!should_deliver(fwd, skb))
- 		return;
- 
- 	/* Even with hairpin, no soliloquies - prevent breaking IPv6 DAD */
-@@ -383,7 +381,7 @@ static void maybe_deliver_addr(struct net_bridge_port *p, struct sk_buff *skb,
- 	if (!is_broadcast_ether_addr(addr))
- 		memcpy(eth_hdr(skb)->h_dest, addr, ETH_ALEN);
- 
--	__br_forward(&fwd, skb, local_orig);
-+	__br_forward(fwd, skb, local_orig);
- }
- 
- /* called with rcu_read_lock */
-@@ -421,10 +419,11 @@ void br_multicast_flood(struct net_bridge_mdb_entry *mdst,
- 
- 		if ((unsigned long)lport > (unsigned long)rport) {
- 			port = lport;
-+			br_dst_decode(br_dst_read(&p->dst), &fwd.port, &fwd.vlan);
- 
- 			if (test_bit(BR_MULTICAST_TO_UNICAST_BIT,
- 				     &port->flags)) {
--				maybe_deliver_addr(lport, skb, p->eth_addr,
-+				maybe_deliver_addr(&fwd, skb, p->eth_addr,
- 						   local_orig);
- 				goto delivered;
- 			}
-@@ -435,6 +434,9 @@ void br_multicast_flood(struct net_bridge_mdb_entry *mdst,
- 		} else {
- 			port = rport;
- 			fwd.vlan = rpmctx->vlan;
-+			if (!fwd.vlan && lport == rport)
-+				br_dst_decode(br_dst_read(&p->dst),
-+					      &fwd.port, &fwd.vlan);
- 		}
- 
- 		fwd.port = port;
-diff --git a/net/bridge/br_multicast.c b/net/bridge/br_multicast.c
-index 7285229ca6d7..907918b31251 100644
---- a/net/bridge/br_multicast.c
-+++ b/net/bridge/br_multicast.c
-@@ -1423,6 +1423,22 @@ br_multicast_new_group_src(struct net_bridge_port_group *pg, struct br_ip *src_i
- 	return grp_src;
- }
- 
-+void br_multicast_update_vlan_dst(struct net_bridge_vlan *vlan, bool add)
-+{
-+	struct net_bridge_port *port = vlan->port;
-+	struct net_bridge_port_group *pg;
-+	struct net_bridge_dst dst;
-+
-+	ASSERT_RTNL();
-+
-+	dst = add ? br_vlan_to_dst(vlan) : br_port_to_dst(port);
-+	spin_lock_bh(&port->br->multicast_lock);
-+	hash_for_each_possible(port->mdb_vlan_hash, pg, vlan_node, vlan->vid)
-+		if (pg->key.addr.vid == vlan->vid)
-+			br_dst_write(&pg->dst, dst);
-+	spin_unlock_bh(&port->br->multicast_lock);
-+}
-+
- struct net_bridge_port_group *br_multicast_new_port_group(
- 			struct net_bridge_port *port,
- 			const struct br_ip *group,
-@@ -1433,9 +1449,12 @@ struct net_bridge_port_group *br_multicast_new_port_group(
- 			u8 rt_protocol,
- 			struct netlink_ext_ack *extack)
- {
-+	struct net_bridge_vlan *vlan = NULL;
- 	struct net_bridge_port_group *p;
- 	int err;
- 
-+	lockdep_assert_held_once(&port->br->multicast_lock);
-+
- 	err = br_multicast_port_ngroups_inc(port, group, extack);
- 	if (err)
- 		return NULL;
-@@ -1448,6 +1467,11 @@ struct net_bridge_port_group *br_multicast_new_port_group(
- 
- 	p->key.addr = *group;
- 	p->key.port = port;
-+	rcu_read_lock();
-+	if (group->vid)
-+		vlan = br_vlan_find(nbp_vlan_group_rcu(port), group->vid);
-+	br_dst_write(&p->dst, vlan ? br_vlan_to_dst(vlan) : br_port_to_dst(port));
-+	rcu_read_unlock();
- 	p->flags = flags;
- 	p->filter_mode = filter_mode;
- 	p->rt_protocol = rt_protocol;
-diff --git a/net/bridge/br_private.h b/net/bridge/br_private.h
-index 04430dc32d02..b4a35bd05879 100644
---- a/net/bridge/br_private.h
-+++ b/net/bridge/br_private.h
-@@ -377,6 +377,7 @@ struct net_bridge_port_group_sg_key {
- struct net_bridge_port_group {
- 	struct net_bridge_port_group __rcu *next;
- 	struct net_bridge_port_group_sg_key key;
-+	struct net_bridge_dst		dst;
- 	unsigned char			eth_addr[ETH_ALEN] __aligned(2);
- 	unsigned char			flags;
- 	unsigned char			filter_mode;
-@@ -1211,6 +1212,7 @@ void br_multicast_port_ctx_init(struct net_bridge_port *port,
- 				struct net_bridge_vlan *vlan,
- 				struct net_bridge_mcast_port *pmctx);
- void br_multicast_port_ctx_deinit(struct net_bridge_mcast_port *pmctx);
-+void br_multicast_update_vlan_dst(struct net_bridge_vlan *vlan, bool add);
- void br_multicast_update_vlan_mcast_ctx(struct net_bridge_vlan *v, u8 state);
- void br_multicast_toggle_one_vlan(struct net_bridge_vlan *vlan, bool on);
- int br_multicast_toggle_vlan_snooping(struct net_bridge *br, bool on,
-@@ -1682,6 +1684,11 @@ static inline void br_multicast_port_ctx_deinit(struct net_bridge_mcast_port *pm
- {
- }
- 
-+static inline void br_multicast_update_vlan_dst(struct net_bridge_vlan *vlan,
-+						bool add)
-+{
-+}
-+
- static inline void br_multicast_update_vlan_mcast_ctx(struct net_bridge_vlan *v,
- 						      u8 state)
- {
-diff --git a/net/bridge/br_vlan.c b/net/bridge/br_vlan.c
-index 6f6b574a359d..43ca46a5b926 100644
---- a/net/bridge/br_vlan.c
-+++ b/net/bridge/br_vlan.c
-@@ -383,6 +383,7 @@ static int __vlan_add(struct net_bridge_vlan *v, u16 flags,
- 	br_multicast_toggle_one_vlan(v, true);
- 
- 	if (p) {
-+		br_multicast_update_vlan_dst(v, true);
- 		br_vlan_rebuild_port_array(masterv, br_vlan_num_ports(masterv));
- 		nbp_vlan_set_vlan_dev_state(p, v->vid);
- 	}
-@@ -424,6 +425,7 @@ static void __vlan_unpublish(struct net_bridge_vlan_group *vg,
- 		rhashtable_remove_fast(&vg->vlan_hash, &v->vnode,
- 				       br_vlan_rht_params);
- 		__vlan_del_list(v);
-+		br_multicast_update_vlan_dst(v, false);
- 		/* -1 because br_vlan_put_master() is called later */
- 		br_vlan_rebuild_port_array(masterv,
- 					   br_vlan_num_ports(masterv) - 1);
+This patch changes the termination checks of the channel walks in
+ncsi_suspend_channel() and ncsi_probe_channel() from "==" to ">=". The
+goal is that a controller reporting Channel Count 0 in its Get
+Capabilities response can no longer make the walks run past the reported
+count. The suspend_gls change fixes a hang seen after a link-down AEN.
+
+> diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
+> index 1d63958c4429b..c5cf2ca0385c1 100644
+> --- a/net/ncsi/ncsi-manage.c
+> +++ b/net/ncsi/ncsi-manage.c
+
+[ ... ]
+
+> @@ -1491,7 +1491,7 @@ static void ncsi_probe_channel(struct ncsi_dev_priv *ndp)
+>  			ndp->channel_probe_id++;
+>  		}
+>  
+> -		if (ndp->channel_probe_id == ndp->channel_count) {
+> +		if (ndp->channel_probe_id >= ndp->channel_count) {
+>  			ndp->channel_probe_id = 0;
+>  			nd->state = ncsi_dev_state_probe_dp;
+>  		}
+
+[Severity: High]
+This is a pre-existing issue, not one introduced by this patch. The
+commit message says:
+
+  Fixing the loop bounds handles any reported value where it is used
+
+Does that hold for large counts? ncsi_rsp_handler_gc() still stores the
+8-bit Channel Count with no upper bound:
+
+net/ncsi/ncsi-rsp.c:ncsi_rsp_handler_gc() {
+    ...
+	np->ndp->channel_count = rsp->channel_cnt;
+    ...
+}
+
+A controller can report a count from 33 to 255. Both this probe loop and
+the suspend_gls state in ncsi_suspend_channel() then send commands with
+nca.channel = channel_probe_id, up to channel 254.
+
+ncsi_cmd_build_header() does not mask the channel:
+
+#define NCSI_TO_CHANNEL(p, c)	(((p) << NCSI_PACKAGE_SHIFT) | (c))
+
+So channel 31 becomes the reserved package-level channel. On package 0,
+channel 32 goes out as 0x20, which is package 1, channel 0.
+
+A channel that does not answer does not stop the walk.
+ncsi_request_timeout()->ncsi_free_request() schedules the work again and
+probing continues.
+
+Suppose a second package, or an emulator that echoes the channel byte,
+answers the CIS sent to 0x20. Package 1 has not been added yet, because
+that only happens in ncsi_rsp_handler_sp(). So
+ncsi_find_package_and_channel() returns np == NULL and nc == NULL:
+
+net/ncsi/ncsi-rsp.c:ncsi_rsp_handler_cis() {
+    ...
+	ncsi_find_package_and_channel(ndp, rsp->rsp.common.channel, &np, &nc);
+	if (!nc) {
+		if (ndp->flags & NCSI_DEV_PROBED)
+			return -ENXIO;
+
+		id = NCSI_CHANNEL_INDEX(rsp->rsp.common.channel);
+		nc = ncsi_add_channel(np, id);
+	}
+    ...
+}
+
+NCSI_DEV_PROBED is still clear during probe. Can ncsi_add_channel() then
+oops on spin_lock_irqsave(&np->lock, flags) in the NET_RX softirq?
+
+The old "==" check produced the same aliasing for these counts. Would it
+help to clamp channel_cnt in ncsi_rsp_handler_gc() to the range 1 to
+NCSI_MAX_CHANNEL - 1, and to add an np NULL check in
+ncsi_rsp_handler_cis()?
+
+[Severity: Medium]
+The commit message says:
+
+  With the patch, Channel Count 0 behaves exactly like Channel Count 1
+  (same command counts); Channel Count 1 is unchanged.
+
+It also says the probe path change "removes the ordering dependency".
+Is that true for ncsi_probe_channel()?
+
+This check runs after every CIS/GVI/GC/GLS step. It compares against
+ndp->channel_count, which is a single device-wide value.
+ncsi_register_dev() sets it to NCSI_RESERVED_CHANNEL once. After that,
+only ncsi_rsp_handler_gc() writes it, and it is never reset between
+packages.
+
+Take a single package that reports 0. If the GC response is processed
+before the check that follows the GC command, as in the tests described
+above, the check sees 0 >= 0. The state then moves to probe_dp and GLS is
+never sent to channel 0.
+
+If the response arrives later, GLS is sent. With a count of 1, GLS is
+always sent. So with a count of 0, the result still depends on response
+timing.
+
+Now take multiple packages, where package N reports 0. The probe of
+package N+1 sends CIS to channel 0 and hits the check right away:
+
+  ncsi_dev_state_probe_cis:
+    send CIS to channel 0
+    nd->state = ncsi_dev_state_probe_gvi
+    channel_probe_id (0) >= channel_count (0)
+      nd->state = ncsi_dev_state_probe_dp
+
+GVI, GC and GLS are never sent to package N+1 channel 0. Its caps,
+version and link state stay at zero, and its other channels are not
+probed. The zero caps could also make ncsi_check_hwa() treat the device
+as not supporting HWA.
+
+"==" behaves the same way in both of these cases, so this is no worse
+than before. For a count of 0 to really behave like a count of 1, would
+it need a clamp such as max(channel_cnt, 1), or a per-package bound?
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119100625.72505-1-me%407xz.dev
