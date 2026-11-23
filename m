@@ -1,108 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795431414;
-	b=SsZs8nqmArkUXJCYIVYCU1SsDM6kJwc9Aek24p62hMTYvL2xBpoW6o30n+e/ooaILmjD
-	 UPaHJdMQ4k9x9KJFEV4QZadHPjX9UThLzmMD8aUoAhZCaQokaEWRaSBxn17UkOw/R9fzL
-	 5zf121HU+Zp48CcH97Gv0YI4PiLwLnKoCUlbkH+4+l/CXxo7Bt9nbzfULGj6hCy0uRDPi
-	 YI+u2sAG64ubQabigzzulA1gsaQYxwhGR96u5FSDv5otO4ZIrY+OEMeMCcCHAcxMa7IFk
-	 j8iYczK+nU21ovVeGPfNWVzng0iPI0d5LAKtqMPHHMrMrPt8oIdOMu5l8kqBNvy0cRg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795431414;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=yhz1BaZJyup2+y9gHl3tJiv5++3fhydk0W+zQxSzg/w=;
-	b=E7Dkf6UqYfA5trQXokeN+8mN6iOTBxmZAednoB92zvto1RPJY+chg3MfoaLigdfjATgy
-	 kAcDvGdS28MmaA6RkR9qhOG6aax03LLF1YlybzQkVRcvskk7CP8SLeqRIckazapW5rO3c
-	 hcU61tm35h1rvR4qXtYZRWGnicQOBNRIt5Yjd2DH/ZFmFVwtf/wBMwedVNPak+aryJ/5l
-	 BRGmC0330QP0h7kQ0QGukSj6fqsuCM0F38fm8zLpIvrNhGHLWw7zkoqo3EAESoKvKsUfC
-	 sZ6hFkoK2VsUTVpcZUqyhbo8+TVvExH1sYbfi2dbTISRrKFyGtNTo179Of0OsHTTw1g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V0an0vCM;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e5Sv9Md6;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795431856;
+	b=Z90mDWhjLeZ2IzobeXBpa1sgy1LCoevt/cGmnzsSwSw/OtAlJakRzTxzYZeTGwEs2A3e
+	 bvV9Fubqpq723V5QJB70Iq0HhLJ9GZzrCzl2sdhiDXYwWdz1B7ErtUWcYhZQo1yq1vqdC
+	 FlFeRs8CJMzNF0AzOexSNjvcdo/8wYYFtoWPLRmIoaNqqcSnmB2Fj9GpGKokehpxNjoUS
+	 HdyUM4hNHn30v/oVw3PCwU7EDNnd0JwWFnXWw12yn6DLxTYNYQEqn5iuwWsfoTu7+FLd1
+	 XBcLouWCQMsq2OZuMxFwf9YKuUEynaRrQBg8G54hUv8snMeQAkrHjctSgMsVs5+NczQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795431856;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=VqdUJCGklE0Ceh8Fiho+/Y0/kCSZMYfaRRAoBrQNlHU=;
+	b=NaadWij1WGpftGngvemWloQ+Bn6aOeKJE5fbvn1ELzIDf56SCJmUQuGrYLXim0C0bwjI
+	 JM3rCY3p2buc7JbKoRKcPkP8Gxt1ckfAYSXVoF/dmztadzz6nlOGcUUIMeS4kLJzqiBKU
+	 /1V3u3IQ1NJXXGKgK/cPcQEoCuowymLTMc1w+Zqab3xhXmrI21Pw8BTQ/3K8ZAYTp1T5J
+	 v255Nzz88kSEgzuwuUUemw2G2hhCEl9kQke0kFMBNOc9V1DsaRZzGuAlm9fav5Ht2jRj/
+	 6GzCQTckbf1bLUgBs4+wS8/EyIk7AQkv+m/+n5LS8Yyduejvk4cHyNhOkWsea6eLdhg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="H/yXe80y";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C0D2606A321;
+	Mon, 23 Nov 2026 11:04:16 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=H/yXe80y
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795431855;
+	b=oVVON8aSO8MVcdGXjYG2Y+i37ziMtMrAMpFzM+iDo7SB9LhiwrHMCwohnUfnAG5Buv3B
+	 Vu2mE0nHxN1CblK9hoecJF6SB8sMaoiqda6jeRULd6S0n9eNjkYYsHUPEnCdlABgg47Em
+	 dZByY201x+F1z52y09GkP1vQTogm+ulmapxB4do/wP2xtA2LtFo9AhFneWn18pOQzetUL
+	 xBNpnianbZtZ7KGoXXYsg7qFYOfMczxdBq9tyQOpaCRIomAEt5Hgovb+IrbYoJX79dgZ7
+	 YUQ9cJnbOrpAvF05UKEoGSUycN28Hg+mBvhfRNfjYs8H4r6c4lWUrn4+mO10JrLCmWg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795431855;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=VqdUJCGklE0Ceh8Fiho+/Y0/kCSZMYfaRRAoBrQNlHU=;
+	b=kc0BI8nanvrTrLKjq891Q6WuyBIi3Rxx3N40AXN/hX3GUXeu8GHrFuhOd6QGwdzFOb9o
+	 jNAeaSNNsXsI7uW7J+ZD7oJxcccSobWu2ZoWwgD+JiXyBzZrbpJH0tu1qDgI4tLEhnaoe
+	 MxvnvcgfLbqT1Jpx+Fmfb4bGBaRTg8PMTXBhwfz4GV79sOW6FBcpKkaT2Ef6rmgsX9uSY
+	 doKO+oJtNspLzQzeqafFtdxvNJu4EUF3clK8QIqUjlj9eKY4SabxXLWyCHC+kr57aAa5r
+	 wMyd5GEW8v2kVClmQIx6Fa5m5f/0qrFg6uHHMy4OPuaUbxGtT4HmrCZzcDy6+3WPrMA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB6C4606A32A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:56:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB6C4606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=V0an0vCM;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=e5Sv9Md6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795431412;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yhz1BaZJyup2+y9gHl3tJiv5++3fhydk0W+zQxSzg/w=;
-	b=V0an0vCMumlkeYat4asSEHMQ9s7GFfakaYxpjBqRarSrIpC0dM+RSrVr3xdsrzpTF8McQ8
-	8QL70l8OSi2BKFiWYMHdEqiwns3Fxrp5XqfxgQ26UJqJ5KXof/CnHZ7i8pLvOxIF4EBZnl
-	u04ae/WzevlHzsg8jxTpNyB4egHCPYY=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-572-gTJO5TwDOmCpCZ32Htwbrg-1; Mon, 23 Nov 2026 10:56:50 +0000
-X-MC-Unique: gTJO5TwDOmCpCZ32Htwbrg-1
-X-Mimecast-MFC-AGG-ID: gTJO5TwDOmCpCZ32Htwbrg_1795431410
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a204f135ffso15846455e9.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 02:56:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795431409; x=1796036209; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=yhz1BaZJyup2+y9gHl3tJiv5++3fhydk0W+zQxSzg/w=;
-        b=e5Sv9Md6GKX50PFxkzRXF614O6C7L5bLQjRV6BxF7Glddk8XXrYrZjgTzcmSAuEifi
-         6ReejKJX/DnqzrXoNkMtg+894/4LKR4gAZo+M1ZgRYJcgPuwpSCD+3ffp+rZ7vA7CffA
-         X/NPXQi25DI5/hIzcT2s2r5Hq/5+/U5S/kg5cuLwjvzhLrq2RrdMe5a4Nj1I+axmIYTK
-         gqdTvnFWS/eJu+GUMJ0zI6mFkfqigOGXVRJwVqCpA2KSR6OW5GpVnF2eBcB8sbRoeCPE
-         NtwGPFv5s9Q11xZy+nzBU4l0NbqbG2exclpd0xPn/D40fFlZVFRltRqDtQlu8GRQjuHs
-         El/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795431409; x=1796036209;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=yhz1BaZJyup2+y9gHl3tJiv5++3fhydk0W+zQxSzg/w=;
-        b=T+GI5KzHheYTiKptMuf45ckORuTaL4LvgP+AgrJ3xbH+h+pi8lokqqmN3YZ/oOSOJr
-         fel8A1rHm7Rf0lMWedUswlt0zlfSleulPfkuWD3vR+pjsxe0LWUy3NrKVg+NtxAsM2Ri
-         Eu//l0nLgq8ZCeBLxU096P7in7k8Fc3IJ5bIES5AKO52SGQeJnJ2dl/5O36A0F2SgmzX
-         A+jzzbH70r6df4qPxN9+NLhEoT/shs4p6QodqXnJGoyw+XqHzuCaCXyoUqiIZVn2DCrq
-         726/b5otY83mz8A5LAGD4kvYmAiEh8Ies7x5vDRSozHIh0O0lsQZzJ3TwYWXXkge0X+4
-         XuEg==
-X-Forwarded-Encrypted: i=1; AL+hErFUGjqBNBuI6cQcfo1V/fFLwXBlw77K7Dts6A60XTen1LjtlAUuuuEdCsfneYEbcGMRXMPsIWI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9PXhkKW6uWSf5wrdCHGVh0FuwR0yOIapnFuWreDTnnA30G1q/q
-	ZDOa77/fRet/VKISA7G81us6gP3LxzgdZmHHt74PQq6Wf+NZyRfn78s4ynhDsFnXx1AIpfTxt/r
-	uNjazUIxd6zuHBecjoA4wtMzs4h+4OqCo4zrza8hSCz5tboVDnfr7j/iKmg==
-X-Gm-Gg: AZFdTZfbcJ+W0LTeX4o4yZ14i6Ats1Huya67DKTAR2snIak4cNdFElZPxAuTwYce+j+
-	mmfCOzOGmveW71MqyMggpRjFL0sRUZ2RQ9OnGjXClZS3cMb4BpLIfT8HevLxEabPIsXAe6bmKCi
-	InrhhHIV0/mZrL/w69tNKs0LKpSzOvXfEvR40DLYx/niIK+WpfksokxmWCLS/l7nOx7M0vbxP+L
-	z+l2/mIuzkU/K60xGPM+bJnJtfNoz3/w+jXbhtRc3YAjFH/4DAXk8nw7/HWdON52vV1qeChAIne
-	+leW/YsWWxdEg1yZrw3Rv4U8cbNtPvSkqt0s9WDgRCkZdQ1l0QVwhCxf2bWIOahKwMqI3jvKn+O
-	226e6iIJcL1FbryUuqfTsTT7HPYZbX5FJnd2NVc0hBu8Xz04nsH6gZQqf4G1V2WZ4pSjgWTNuFk
-	j0nnJddVT/UxgaxE8+OEnd4QPpRwG/WE26cldEJ2gCV/5z
-X-Received: by 2002:a05:600c:83c3:b0:4a1:7e77:c382 with SMTP id 5b1f17b1804b1-4bb8880ad68mr218950525e9.5.1795431409614;
-        Mon, 23 Nov 2026 02:56:49 -0800 (PST)
-X-Received: by 2002:a05:600c:83c3:b0:4a1:7e77:c382 with SMTP id 5b1f17b1804b1-4bb8880ad68mr218950095e9.5.1795431409222;
-        Mon, 23 Nov 2026 02:56:49 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf6804sm21090104f8f.10.2026.11.23.02.56.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 02:56:48 -0800 (PST)
-Message-ID: <250c2bb2-57d7-4f91-a32c-8f6ac7d55a46@redhat.com>
-Date: Mon, 23 Nov 2026 11:56:47 +0100
+	by smtp.kernel.org (Postfix) with ESMTPS id 684371F000C0;
+	Mon, 23 Nov 2026 11:04:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795431855;
+	bh=VqdUJCGklE0Ceh8Fiho+/Y0/kCSZMYfaRRAoBrQNlHU=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=H/yXe80yPiQH7ZrEFmWW7BuNUwtvu7kPp9HjLEUk0stggeB22dA4FMKtWuty0NOt+
+	 ppNAyaI5ae0Ts1LnNuK2eJorQSiJjfBoHB5Mldhagxf1bfLN0WUL8wxISqbOAqxiZ2
+	 HQnbH4KlX70gzjFO9qW5gxt8J4UdqWeZdSaKAgIRa7JzYQgPX6pU1tkspF6EUVlujL
+	 RBsbE/XBTN/R6Zq/9+/OXg1hFg7Gewkz3PmuaRXWDoEUWy+QLQRPXH5RRXN1oOFOHs
+	 UgwtE0E8TUIvWPis1gsnyW9pOqjaySmmZWOi9yBwvD/V4l9OhzFTMXs1J7ieNIlx9x
+	 aHOOdawOp9zVw==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id F1A584C42E;
+	Mon, 23 Nov 2026 11:04:10 +0000 (UTC)
+From: Yongjian Wang via B4 Relay <devnull+echoowall.gmail.com@kernel.org>
+Subject: [PATCH net-next v3 0/2] tcp: document and test MTU probing black
+ hole fallback
+Date: Mon, 23 Nov 2026 19:04:08 +0800
+Message-Id: <20261123-tcp-mtu-probing-doc-v1-v3-0-c288c2df9666@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,28 +84,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] rtnetlink: fix NULL pointer dereference in
- rtnl_get_link()
-To: mdshahid03@gmail.com, Jakub Kicinski <kuba@kernel.org>
-Cc: davem@davemloft.net, edumazet@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20261120134548.214126-1-mdshahid03@gmail.com>
- <20261120100415.363fcb19@kernel.org>
- <179525944307.361783.17801110279499293110.b4-reply@b4>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <179525944307.361783.17801110279499293110.b4-reply@b4>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKgdBGsC/4WOwQ6CMBBEf8X07BpaqKAn/8N4oGULNdKSthAM4
+ d8t9cLFmMxlMjtvdiEenUZProeFOJy019ZEkx8PRHa1aRF0Ez1hGTtTSksIcoA+jDA4K7RpobE
+ SJgo5p1KUvFB1KUgsDw6VnhP4TgwGMDgH8vgmfhRPlGHjbred9sG6d/phoqnxby6KAuesxqxos
+ EB1a/tav07S9mlkYntM9RPDIAMsL1yxTFRS4R6zrusHp5POmx8BAAA=
+X-Change-ID: 20261117-tcp-mtu-probing-doc-v1-351cb754fa7b
+To: corbet@lwn.net, kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, 
+ davem@davemloft.net, shuah@kernel.org
+Cc: Yongjian Wang <echoowall@gmail.com>, ncardwell@google.com, 
+ kuniyu@google.com, rdunlap@infradead.org, linux-kselftest@vger.kernel.org, 
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ netdev@vger.kernel.org, skhan@linuxfoundation.org, horms@kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795431849; l=1794;
+ i=echoowall@gmail.com; s=20261026; h=from:subject:message-id;
+ bh=DDZPPWsZS/fmb7fjrYYLTLl3o/pBegVDzjkgGENcWdQ=;
+ b=jsAhLZAF/QnepA5vxEKq3fK4Ci+wO675nO/KwYNKftvHF7zRcBr81kok7uBdxnJqwmUlMPjJQ
+ t6elncp7COPC51o1fzrOL6gEwZBS8jK/YK0n0MdhGnfjsFp7PxCMyWN
+X-Developer-Key: i=echoowall@gmail.com; a=ed25519;
+ pk=9XP6JhqjjPsHCF6UZZZTeqTRnXIa4+ufggnxXtTJ+no=
+X-Endpoint-Received: by B4 Relay for echoowall@gmail.com/20261026 with
+ auth_id=1323
+X-Original-From: Yongjian Wang <echoowall@gmail.com>
+Reply-To: echoowall@gmail.com
 
-On 11/21/26 12:10, mdshahid03@gmail.com wrote:
-> I tested this issue on both original and patched kernels in qemu.
-> 
-> First, I used a test module to unregister all PF_UNSPEC handlers.
+ip-sysctl.rst does not say when TCP detects a black hole with
+tcp_mtu_probing=1 or how the MSS drops afterwards. Patch 1 documents
+both. Patch 2 adds a packetdrill test for the part that had no
+coverage: each further retransmission timeout halves the MSS, down to
+tcp_mtu_probe_floor.
 
-Just in case the are any doubts on the poic: if you need a custom
-OoO kernel module to trigger a 'bug', it's not a bug.
+On x86_64 KVM, the new test passed in IPv4, IPv6 and IPv4-mapped IPv6.
+Variants expecting no floor or no halving failed in all three modes.
 
-/P
+Changes in v3:
+- Say that only timeouts at which a black hole is still detected lower
+  search_low again, and that the floors take precedence over the
+  tcp_base_mss cap (patch 1). Kept Eric's and Kuniyuki's tags since
+  the change is limited to this sentence.
+- Link to v2: https://lore.kernel.org/r/20261118-tcp-mtu-probing-doc-v1-v2-0-e795f20b8cfe@gmail.com
+
+Changes in v2:
+- Spell out the 200 ms RTO, say when the time starts and when it is
+  checked, and give the resulting detection time (Eric, patch 1).
+- Say that the MSS is only lowered, and that each further
+  retransmission timeout lowers it again (Eric, patch 1).
+- Add a test for tcp_mtu_probe_floor (patch 2).
+- Link to v1: https://lore.kernel.org/r/20261117-tcp-mtu-probing-doc-v1-v1-1-552ae04de4ef@gmail.com
+
+Signed-off-by: Yongjian Wang <echoowall@gmail.com>
+---
+Yongjian Wang (2):
+      tcp: document black hole detection for tcp_mtu_probing
+      selftests/net: packetdrill: test tcp_mtu_probe_floor
+
+ Documentation/networking/ip-sysctl.rst             | 22 +++++++++++++
+ .../tcp_mtu_probing_blackhole_floor.pkt            | 37 ++++++++++++++++++++++
+ 2 files changed, 59 insertions(+)
+---
+base-commit: 6ff4c5942a301675eb12e5b49d53a81e604624a1
+change-id: 20261117-tcp-mtu-probing-doc-v1-351cb754fa7b
+
+Best regards,
+--  
+Yongjian Wang <echoowall@gmail.com>
+
 
