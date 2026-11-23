@@ -1,59 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795439251;
-	b=rbnAGOwTN8SvCPnEZm3qNYhVj49RYwm24cEmWzTPJ2QmlMi8IFXJ9snOJXT5dZh/Q1bi
-	 mAOeQOyvmVs4Rc+HiyD2f9CUr54DH2jABgLTHgBjplu0vhJH/vZig1zHm5qvg+pq4MHj9
-	 9B6gJ8+9K32KWhCyTbZWvpNLeyAKDjAA89j9PniarDPSPnI3jXqrz1K1DQT2jJwEyPZ1/
-	 8A724jxt321e/hX9VqWVD7B2d0tHpDtdyOT4SoPkfDkM2K9NcX2dxyihMWif5KuB8gqeO
-	 Z6cV2F0LlXgAA7XsaGKd9Dku++3FaAnwgym/V/lu254XXHAz/Xje0eG1UHA3MgW8MIw==
+	t=1795439450;
+	b=wLhfvN+5LrSOG3PWWH8/K4CQHaWFGWYhno/dMo1XCwMcdVJtO4NhyPWgndiLnbh/469E
+	 0/RP/AneOqafwH51+lCLmSmfuDXL1OzzRGNLPXgXeyjM2bB/lUWiDnp0ZLby1ulUrrQWZ
+	 XxbqcVsLIuldRD52/HQXgrDLBAymbG76GQWiPZlJdhclqESaDNRiAHORlxg9pdKiNEvkC
+	 yDmnIq2X7oy+NIxv9DGofHX6GccrDHuDzjvWPO0AiCJ+RSgtIywbUPV8XhbvMHmPIi6qV
+	 OCkBej+7v+nJK8frqd9mx5HvokpMZq5vE472ARY/w6x6ubTSw8oe5W1Mq2cIs9ZomBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795439251;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=mltZcnDft4HwDtA/qRdYtVQKIWQHKVN2xEodH5O1JHE=;
-	b=ZF5EkOaIIUpD90euwFIuTGq5BBIv5D+XsuVP7pNDyOwss7NFeusXcTc75PkjmHtjSIsk
-	 5KE3H4KNnWd6ijwXzk8rZEV4OBMnq1Hub2BZ54ehDgJyMEv2wWeU4tlRxXSH+/X5sOXtc
-	 mqtpTP2NWe80kNR8EVEKt0dt6ktcDlWpbuBc//csu2PEu3yiAsFPTcnI8sJhrFoTvNBCB
-	 BsuRrDgn+HJU68btOm4C2tiWCYGFrMcJYUKNx9cSQYB36Ufb0OpK3QWLvDN2fDSmV2yeX
-	 i8/p199ZwRBgZnHsLUno2Tb8qx6qd149bo71SFa8DrWg+k1U4EXPf9AoRXdADEivL6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795439450;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=epWsmChu5kxsqQzRaceb7lkrWDeqBaYo/ag/t1gvP4s=;
+	b=HTjUQqnbt7RB3P/K9ekPGqfhi4w9kraeRfGUfMA1S2GWISXU8hFBagkl9ZFODg9Eai57
+	 BA6rcdfPAzTSdL/PSk+XPuPrC4MgzsNvdPMdTgQPoaplIgfwzi1ROzWqm/52eItvBU0fB
+	 LKpS9MGio9nEIrAn5TQiTyenmfqwlUyt/mjTr/NE5k8nP3+EO5SMvbauB9CyzhbDq8jm/
+	 x4TLtICqGrvkp1nknztjendyyFZHt/qpH2esLHTqmBlIqgnVPCkglEyjUdv1K5kkS0vnJ
+	 mdimTboI1ljaPWbIDVFkTAR2C9npBRd/90A116RxBE81O2GJlb50pp5tLtQpAp0K0aQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NiGYhgMT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YcLgKs28;
+	arc=none smtp.remote-ip=209.85.128.41
+Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 330E7606A32E;
-	Mon, 23 Nov 2026 13:07:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EFC3606A333
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 13:10:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EFC3606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=NiGYhgMT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B21311F000D4;
-	Mon, 23 Nov 2026 13:07:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795439250;
-	bh=mltZcnDft4HwDtA/qRdYtVQKIWQHKVN2xEodH5O1JHE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=NiGYhgMTuRbcY8f6vFTsqFab5dOHu8gmSn18rF+oKM3GNYU7A5xiaj/kc1D+Qtkm5
-	 i9fi+KvTwv9GUUPWdQL0MVIp5gVKtbq3agvq/4tzMUiLcLCQFZQE6pPqSSGDFkZfLc
-	 Zwww9jPkGxRWd5Kl2MydObySa05xlMcD7Cp586skHg3ruHkPyR+KtHG/LPvjz1mKAz
-	 owgwyjly4ov+HKMEMT6NpclfdjaYTUX7hraUiZC1bJd1wZe30sZVmRfIxq/tvjNY4u
-	 rqioShJTVzEPoPFyHAwyV2qQOcRZJ5cndCVe/HawOJ2GGjFuW78vidvhaAKl5PQ8AE
-	 w4U/usLVfnlmA==
-Subject: Re: [PATCH net] net: via-velocity: Stop the device on shutdown
-From: netdev-bot+sashiko@kernel.org
-To: roland.waltersson@netinsight.net
-Cc: romieu@fr.zoreil.com, netdev@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- kai.heng.feng@canonical.com, rafael.j.wysocki@intel.com,
- linux-kernel@vger.kernel.org
-Date: Mon, 23 Nov 2026 13:07:29 +0000
-Message-ID: <179543924928.3135.11097619488439916412@kernel.org>
-In-Reply-To: <IA0PR17MB668711363A5BE04D1BC3C76B9E792@IA0PR17MB6687.namprd17.prod.outlook.com>
-References: <IA0PR17MB668711363A5BE04D1BC3C76B9E792@IA0PR17MB6687.namprd17.prod.outlook.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YcLgKs28
+Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so29986925e9.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 05:10:49 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795439448; x=1796044248; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=epWsmChu5kxsqQzRaceb7lkrWDeqBaYo/ag/t1gvP4s=;
+        b=YcLgKs28W5afIxirPBaPCeVHDxFRyu3qkerDQi9cA7HHnYD0QliVSlGxH6ErFMP41e
+         v02LdtldfFAKcLjOYUBX8EFVnEFsuMffEQHetOWQDJINYjsAy+bXPSytWpxFHwz0pB7w
+         8zWUr04mVIFGoHfO981eBjbpzsWa38dCougTeceWeMa0ZNOGc438G1NZdBP+QeSpoS6D
+         Y2Hsjhe9bRBZIGPAV6G7PBIa4MarnOc5XHr3xec0GUNWwf0dqi41cDg7SIgBoPZ95Dsx
+         FfsNSQ19q792OxHap2XomAG3ri4xG0zY8YzhtYthUGpTJunLT1fJNkXBewF8mj8fsmDq
+         E1KQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795439448; x=1796044248;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=epWsmChu5kxsqQzRaceb7lkrWDeqBaYo/ag/t1gvP4s=;
+        b=sX/auqc7Zft7v/ybaT3kFd5PKyZ0IBafcHkzFv1WAY31/7OV7AJaS5ePzIOAuCXXBW
+         bDOPMGk3rMmSYwQogbAwAa6h+SeBIe6bzx5m2O3/gNcxbcYuanK+jma1sIA9zwh4Zkvo
+         Jb5OfNpcUMcTbs1fkWJ2vNIEa5Ee+YBwZEx4AEAAApjpSf/vmH/qwdZaScarNj1V7rS6
+         uqcL/z22ZQQLY2Evj2NPy1ivwDN9TFv2UwIQW8ozEAP69MDSSH0nYWojwf3dZ33L1DMa
+         X5MwWq7u77nHtGFYsU6uK9EiHgWPlW+kiVGLH4ejFUm+XscPKGcSak3kwbRDulC4+29h
+         e78Q==
+X-Forwarded-Encrypted: i=1; AL+hErFl4iqbMIfU+6y65nO+wKVQdByFpmdfpO9sxQBUGp0EIoqZG6rFgS7vLB9V21Vj5jMHU+A71/c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+SS0hl/qlPl30ctnfVRy295n8eXTdWnYfGLLpjexUG4pfDMOze
+	HTSRMnFHdjDc9bFrPNb6So5WR+A5i0NR7oYvwgbunpiSMJsXlow18HvM
+X-Gm-Gg: AZFdTZdUNo3jGo4goJM6KNjiYeMHVTiZuyaZAZmMZTOk4I0M5svGBYFxcZMTpIc19Nf
+	VPFcgLzrs9lWm5VWgnfrcDIk8+0GAG5OUzAhoOe28snqrgItNxXOR2glSDKeo35vQZCmZdgzR53
+	Xwd/JbLCk0mkepj10wZoVP2d4IQfit6ymVK6mHznc01BmQZZlSozAFtKZiKDa0Wk8rcj90ezooJ
+	DtUBb27OYsZcdXBPDfCF8ez8fSPD7I898Qhi0NxVeskmfCl4mVDNlzeMo+xmFvXIGXuBB+YgJct
+	V6oCljIfB+NOgc/pMkkzawyJfv3ziso8SJyIqMXvsdakT84Xoqn0Rq/PBnL1ahHzTgvy6XbE9H7
+	aRS8L/4wIFUa501LKNstLfrZ+C/4gWS2rMonbOCw15qO0uoNmGfBr9GNP4z5ibqeALac426cNaH
+	2EJ1IkQraTamwf1L5K/oWfv8ug+f8F5qA7cpg1cYJ98JptbNFp9s+siuRloxGzqMr43Sa0JuDJQ
+	+q4IB2zkB0JeUl6r0ESCcCa/UPlIQjS4H8oNYV7FGYPKQqkqZIS2CXelsAiSzcWeoYKq60u/CHK
+	Bi55miF/QY8ZmYOofB8QkdLpbYUj5j3WTv8LzxFs+pmP9SIK+Fln0z6gGgnMcVA00AM6VuyjYQH
+	+DlpxTjSs5Nfv9jdRjUIelaWlu2fD+7fPPoz7YcfI4kFOZFV8oR0/xibwe6YyDZuKg0THusGz04
+	M=
+X-Received: by 2002:a05:600c:6749:b0:4bb:8508:7fb3 with SMTP id 5b1f17b1804b1-4bb8881c3b3mr219043165e9.11.1795439448419;
+        Mon, 23 Nov 2026 05:10:48 -0800 (PST)
+Received: from iku.lan ([2a00:23c8:254f:fd01:f273:2c28:9387:7d5c])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb85399e2esm400714065e9.7.2026.11.23.05.10.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 05:10:48 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: =?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@linux.dev>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Florian Fainelli <f.fainelli@gmail.com>,
+	Ralph Siemsen <ralph.siemsen@linaro.org>,
+	linux-renesas-soc@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net v6 0/4] net: dsa: Fix various issues in rzn1-a5psw driver
+Date: Mon, 23 Nov 2026 13:08:48 +0000
+Message-ID: <20261123130852.3420491-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,113 +111,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Hi all,
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This series fixes several issues in the RZ/N1 Advanced 5-port Switch
+driver, including the LK_LEARNCOUNT write mode encoding, VLANTransmitted
+counter offset, MDIO clock divider calculation, and ensures the driver
+data is set in the probe function.
 
-- [Medium] The patch adds a .shutdown hook to velocity_pci_driver only.
-- [Low] The commit message carries a Fixes: tag for 38f34dba806a ("PM:
-  ACPI: reboot: Reinstate S5 for reboot").
-- [Low] The commit author is "Roland Waltersson
-  <roland.waltersson@netinsight.net>", but the only Signed-off-by…
+Note these fixes were part of series [0] as suggested by the reviewers
+sending this series to net instead of net-next and has been marked as v6.
 
---
+[0] https://lore.kernel.org/all/20261120002549.1908299-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
 
-net: via-velocity: Stop the device on shutdown
+v5->v6:
+  - Added a5psw_set_learncount() helper function
+  - Update commit message in patch #1
+  - Added reviewed-by tag for patch #1, #3, and #4
 
-This commit adds a PCI .shutdown hook to the via-velocity driver. The hook
-detaches and closes the interface, then disables the PCI device, so the
-chip stops DMAing into its RX rings and raising interrupts after
-device_shutdown(). The commit message links an occasional reboot hang on a
-congatec conga-EAF board to the ACPI S5 preparation, which commit
-38f34dba806a reinstated on reboot.
+Cheers,
+Prabhakar
 
-> and the board is never reset. Not running the S5 preparation on reboot
-> avoids the hang.
+Lad Prabhakar (4):
+  net: dsa: rzn1-a5psw: Fix LK_LEARNCOUNT write mode encoding
+  net: dsa: rzn1-a5psw: Fix VLANTransmitted counter offset
+  net: dsa: rzn1-a5psw: Fix MDIO clock divider calculation
+  net: dsa: rzn1-a5psw: Set driver data in probe
 
-[ ... ]
-
-> Fixes: 38f34dba806a ("PM: ACPI: reboot: Reinstate S5 for reboot")
-
-[Severity: Low]
-Was the new velocity_pci_shutdown() hook tested on the conga-EAF board?
-Does the hang go away with it?
-
-The message shows that skipping the S5 preparation avoids the hang. It
-does not say whether stopping the velocity chip has the same effect.
-
-It also does not explain how a chip that is still bus mastering, or still
-has INTx asserted, would hang during _PTS(5) or the GPE disable.
-
-The cited tg3 commit 2ca1c94ce0b6 fixed a different symptom (AER on
-reboot).
-
-The Fixes: tag makes this a stable candidate. Could the changelog say
-whether the fix was checked against this hang?
-
-> Signed-off-by: Roland Waltersson <rolwal@netinsight.net>
-
-[Severity: Low]
-This isn't a bug, but the Signed-off-by address (rolwal@netinsight.net)
-does not match the author address (roland.waltersson@netinsight.net).
-checkpatch reports this as a From:/Signed-off-by: email address mismatch.
-
-> diff --git a/drivers/net/ethernet/via/via-velocity.c b/drivers/net/ethernet/via/via-velocity.c
-> index 6d7b6f3b46339..3daf7a8dd06eb 100644
-> --- a/drivers/net/ethernet/via/via-velocity.c
-> +++ b/drivers/net/ethernet/via/via-velocity.c
-
-[ ... ]
-
-> @@ -3241,6 +3267,7 @@ static struct pci_driver velocity_pci_driver = {
->  	.id_table	= velocity_pci_id_table,
->  	.probe		= velocity_pci_probe,
->  	.remove		= velocity_pci_remove,
-> +	.shutdown	= velocity_pci_shutdown,
->  	.driver = {
->  		.pm = &velocity_pm_ops,
->  	},
-
-[Severity: Medium]
-Only velocity_pci_driver gets a .shutdown hook here. Does
-velocity_platform_driver need one as well?
-
-The platform driver binds the same VT6110 MAC through the
-"via,velocity-vt6110" compatible. It uses the same velocity_probe() core:
-
-velocity_platform_probe()
-    return velocity_probe(&pdev->dev, irq, info, BUS_PLATFORM);
-
-Its registration still has no .shutdown:
-
-static struct platform_driver velocity_platform_driver = {
-	.probe		= velocity_platform_probe,
-	.remove		= velocity_platform_remove,
-	.driver = {
-		...
-	},
-};
-
-The commit message describes the problem without naming a bus: "on
-reboot, power off or kexec the chip is left running after
-device_shutdown(): it keeps receiving packets into its RX rings by DMA and
-raising its interrupt."
-
-On a platform-bound velocity with the interface up, the chip would keep
-DMAing into its RX rings and raising its IRQ after device_shutdown(). With
-kexec, that DMA can land in memory the new kernel has reused.
-
-Apart from pci_disable_device(), velocity_pci_shutdown() does nothing
-bus-specific. Could that part go into a shared helper that a platform
-.shutdown hook also calls?
+ drivers/net/dsa/rzn1_a5psw.c | 26 +++++++++++++++-----------
+ drivers/net/dsa/rzn1_a5psw.h |  2 +-
+ 2 files changed, 16 insertions(+), 12 deletions(-)
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/IA0PR17MB668711363A5BE04D1BC3C76B9E792%40IA0PR17MB6687.namprd17.prod.outlook.com
+2.56.1
+
