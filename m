@@ -1,72 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795446517;
-	b=a1Yks04uL4F3Ke1yqbHhDu0245103Xua2/hLaNnEMCet3dOUK6HRnEOrsQcCluT1hzIh
-	 J9C6UdFlfZcce40qPEfrT74MYoR03x4UMZg4DtxbKdkH+a+XtvK9YoFYcWaMvQMGl30Ov
-	 7HcdCQq3cSIiElk0RYAmGlrnMd0qL0HAGG/XUnruS7fxIux91ck1iXC6qmclCXehUdGK+
-	 ki2aA6/nq8HEnd1URcQUwUa0VrAZ/srQ+labB3JcEu5r8OvUPQ79Glyz2lD8Zkanl4VAn
-	 HOvDRtCd8uds1Z04f0MtIWUamVBmK03Ldq36eFcIqG5uWH+WIsGw4FkDv/1leJAadcA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795446517;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=cjblWQP22DDkX8PQwyqUXo6ncqKIwHv586PCd1qQti4=;
-	b=LBIDzJypqQ4mrnZa3Oj6+5EIE05t3yy0aoPPaREHdxddheyz9UyvAktqevxwOcT9mzk4
-	 ebKyBMp0VJAaBau6ZIHU8D77xRPXWkURRwnSJcon+rpXjc+WqQFt2b2V4ojAV1ymDR9tx
-	 0XJmGUxgAvcvf2h3s2ub6H57MuAiuYHYysAqu+6jvIfqHW/yK/uLW2QYeEOWwyynMi+Tp
-	 MM4CXTf9a9NC7OphZJDTa8BJc1tn0Hma7dtzCS+s6z43OdpFiAxSiBlYYG642NvptBrz3
-	 GAnshAIKlp+gRnwZ30S0nxcXiKZdGy1l+F/4bRySrMaYeykKv2biCpAYnLzKTZfYoTA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ooMIwlxg;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795446564;
+	b=5HNgmt3rJ4cTycRibr5/i1JlSpAL7HGRKp2F7jbj5OF185S3RTQRpLbTFSUVNpxdcvod
+	 xgRuwPTe6amRmmSB27541prbLOI5qiSf3fTCnGLlrU+MRn0knxODKcaeoTxet3I4oCPXj
+	 8V8TJdAD5A2vvqogBjLAeo7UrWp3f0HFWX4AaHOB3HeS4nqTSSiQDX84Ec53lxX1avSNd
+	 HcIoMIbqSJC8bN0IFnSvoy1vW3G6n22x/USbhJRO/U2QOH9i5rbX57mSR1vayEHi/6QuU
+	 f0Ga0oPWgN4owRtyj8m8stvzKB5AuG0eQVwYo8Ku0STCPHlzfkInraPOgUE6YKpqsyA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795446564;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=/iROMKK4E2qrBJd8xzjbJ+DTtYIKryOK0KQ3FE39oKk=;
+	b=BVOwRK6wdzUrxM8/trLEDkSwZvbbGsM68eHnPUYT1LEOIwRk7BnW7tYJVHkqgwz6Ybkt
+	 sgDnMWGt/3PhnZ3GWBoDZQ/r1Q9Kxo5BKvLJ6xwlxRldJTdVjzxwj87Dg5hZWaZpgrkoE
+	 vltqqpc/S8GbY+OIruT6EHTpfCqULGz+zTMHW0YGvQXdm4HVVyPS/MS5E3wGAAvj+wngX
+	 PdRQnD2Af8yuI7xHigbCXMRnYDPfZs544urq7dgg6QUb+bZKLApjQeq7hjBEts0aH30Aq
+	 qn/jUQ0IbM7m7AVWlUzjpUYHzzS0lqM3OrAtQ6rMYIiqcLFbL7/tEkqiILeR+2ZZjtQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QYfvIHm5;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.49
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com [209.85.208.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9DDAB606A31A;
-	Mon, 23 Nov 2026 15:08:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9DDAB606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F18BF606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 15:09:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F18BF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ooMIwlxg
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=cjblWQP22DDkX8PQwyqUXo6ncqKIwHv586PCd1qQti4=; b=ooMIwlxgNI33rP63+Ad3nDuhiS
-	S+S+xP7FY8nMS6Hcz9h2CIDRnqiLbNwX+E1kpoG6nRApr1vLNGYfAgvNTmmXiyiBQSkdZ9mPQE3gU
-	/962kEe+CI852MVoo3PV30dPW/u97302eFEgw85NsSKZGlxkjNLOhmzpe/xv6xk6x6IU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVVeZ-000obW-B9; Mon, 23 Nov 2026 16:08:23 +0100
-Date: Mon, 23 Nov 2026 16:08:23 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jisheng Zhang <jszhang@kernel.org>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Sebastian Hesselbarth <sebastian.hesselbarth@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/8] net: stmmac: Add glue layer for Synaptics SL2610 SoC
-Message-ID: <c86cfa4a-5738-4b8d-bed5-4dd075f7cbf8@lunn.ch>
-References: <20261116135442.4827-1-jszhang@kernel.org>
- <20261116135442.4827-5-jszhang@kernel.org>
- <4f1c4180-3a00-4b17-a27b-e61b307d3e5f@bootlin.com>
- <awQ5raWYlMBpCqIl@xhacker>
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=QYfvIHm5
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-6b869ea8224so16835a12.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:09:23 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795446562; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ORspDrcOB1x8tM/PaiWesdZdrDtQ6Ilhd55eRt14K081+XWLV6zG5S8vhoeFj6bs5p
+         8h21zZoNHqCFO3V+e28EPXxbxM1/hdu9uWU4oUEWTs9ZyqEfVhaWQWTi/5dlogPqdjDc
+         qUkOYDuzx0f+zBVxAPpTqInvUtmFDRYy+D9lACGeNz5hgP2qPA7lIbQiGGSLeL8+42tf
+         PwczeVEwVvrkMssco/BXsPp/SmS3epJFHXvK9tjdVTFlPNUhc2dxikxTGgyEcAhu19XS
+         A1epv9KzJgClA3+SF7bsmVq/lI73XUd/vhxC9E29cxf+rHk+QpM9W6blrFu2lj64h3Jb
+         CYdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=/iROMKK4E2qrBJd8xzjbJ+DTtYIKryOK0KQ3FE39oKk=;
+        fh=VvUgftNV5IYXRnq3IicxynsBRD5YIONB+ovQ+xaSexE=;
+        b=k9Kd5Puow6bgw7NVLTfI04Gk2fMuAj5tsODh7zmHvQd1kc2u2Fyez7LR/iAkadBlOI
+         b1fwgoKANKVWdyfP0qENOCVqNGurw7TxT3YywFY23ZBg61H++0VQ7LrmwP0JhK8GVMfq
+         mAMpYwrECgEFpfdMkRa1Ig6sB8ioSXMFfj0T6203T+UEWdPIKbxyX4oLNRAd5gOJDEIj
+         x8XpfXxcRKbJdUm+wx8+TcdBu+kzcJBQ+cBC0+egHfI2YMYdAm8qnXMHKQf2teDgHOB9
+         A8K2IBb2RoAnsi0SjzjRSHWBSAHMVPoMZX4sIIQnlcOQgHLRZgrYq1tTJuiDzejfTibd
+         VsGQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795446562; x=1796051362; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/iROMKK4E2qrBJd8xzjbJ+DTtYIKryOK0KQ3FE39oKk=;
+        b=QYfvIHm51hQXR/eUaGZRXmA4issLNXn/O6pcRRxwPOiArg+TEDks2DdPx0ca6z6l7a
+         vtvW+kbq/iaPK9tUDHoAV+ViEJTh0hTyCM/BAVoSMfQ3EK2DHlsAy3CFJPlTlgagkG9r
+         z2LUP5xMVst9YHSSN8RrL9qrwWWFrunPYSjfnfmk2ANUwj0jSH4c883kVGz876fODsT5
+         ZBDomhcPQwZcFC9yPcPU3UuCWbtkmKM0G/P5Ag4EKwboUw/DiTtjZpeBafC70GVHL9p7
+         GG3XuNg7AuaLsq6q0AXdR5PrzselMImJYBDAIpgG7ULEskl8Vrh+rmOpxuHmd4KFEcMb
+         4oTw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795446562; x=1796051362;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/iROMKK4E2qrBJd8xzjbJ+DTtYIKryOK0KQ3FE39oKk=;
+        b=pgvDQShcKgeBz5Lt630x1T+cv10NV2L4CaBgLbMkq//c8W9RJvWFrdgFRz8xQgOnyS
+         X/tbZL1x0lJYpNpumwZK8N/esjo93MHhm5PL6HNXdecSD4aYFZtxHFwZ96CuGraSf9tc
+         a13HLkVypdfUhfo5b4uCRbcH7HmOHUDCPHMdr/mQCMo5ErtuWkfHBrkGqqD720lMdikR
+         cJPoj/Pkj2xFVBrZ5tH1Jj6l580kFXzU5hg82OpoHGvporQ45jSruj/vkKAL/6sZ+qA0
+         y2CRFj7PaIZaPq0GLm+9R3isj59bqhGVAnFB49S8uXPUwIXXZd/5s+plKsp0GLfJu0pk
+         Yogw==
+X-Gm-Message-State: APuU4Z9Cs9ypwH7rdBPTIQS1zppDDNmTe0hP94nRqw0q10YdLecT8NHh
+	4NZen+1uQ9sxYuTT3ewmat+J6EwadAtomPs5OshRyjQ5QVN6lmb4Wy/55b1YHdx5VG1aQe6HJpT
+	cUlzyYJ3yDHlvFw/4pVWL+fO6ulcIOxBWIodKA5Mw
+X-Gm-Gg: AZFdTZc+5WglHK2hoyKV3rIGQzgutMav8L4dgnxv9zGDlEjbaJs+OZmsZIz/3ltgJwE
+	wjvluwAe9kO+J+FNLaZjHtYZnZn37/uWVlEYeySSMbtQK2oqAwNfGLkS1rmM2RJKdqoU3WXzYiB
+	OmfOKjYRy315SDT3q0A16DCtEsIdEWeWK+6MGxcP4juv+dTfayUUj+T41VIZF3lIavYH7aoMfVM
+	jl/kHrebFFfi67irdfzqIROlI8b0ooghXpd0zs9RUeM5X9FXgz3UmBOzo7iTZriG6ELmP9+e8kI
+	lrcFbkEHU9ZID/YOCpe7x7tV6nD75loX7sy2TzfNv3VyTMgXJPy0HbvUkqNlIgsT5rPQTPYyyCQ
+	yU3byZ3z9vC1g5z7w4+jfT8vxcPkLs+HbLGw=
+X-Received: by 2002:aa7:c0c8:0:b0:6b5:77a4:e7c9 with SMTP id
+ 4fb4d7f45d1cf-6ba65a847bbmr156680a12.2.1795446561840; Mon, 23 Nov 2026
+ 07:09:21 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,32 +103,146 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awQ5raWYlMBpCqIl@xhacker>
+References: <20261120045918.1239746-6-almasrymina@google.com> <179540996620.3135.3612533688050456273@kernel.org>
+In-Reply-To: <179540996620.3135.3612533688050456273@kernel.org>
+From: Mina Almasry <almasrymina@google.com>
+Date: Mon, 23 Nov 2026 07:09:10 -0800
+X-Gm-Features: Aa3M54qGzgsg7LGdQaLFwL502JFh5W00x6CdU2_DLyJYa834Njv81crjgh4M-NU
+Message-ID: <CAHS8izOptCEaijuhQxtgj-3WAjKQxchNn2Pe62r8ihgdF9b0=Q@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 5/7] net: devmem: always populate bind_dev and
+ detach both devices on unregister
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org, 
+	linux-kselftest@vger.kernel.org, bestswngs@gmail.com, daniel@iogearbox.net, 
+	razor@blackwall.org, dw@davidwei.uk, sdf.kernel@gmail.com, 
+	bobbyeshleman@meta.com, dtatulea@nvidia.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> > > +#define CTL_PHY_INTF_SEL	GENMASK(4, 1)
-> > > +#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, 1)
-> > > +#define CTL_PHY_INTF_RMII	FIELD_PREP(CTL_PHY_INTF_SEL, 4)
-> > 
-> > Please use PHY_INTF_SEL_RGMII and PHY_INTF_SEL_RMII from "common.h"
-> 
-> I read this as "use SYNA_PHY_INTF_SEL_RGMII and SYNA_PHY_INTF_SEL_RMII",
-> correct me if there's misunderstanding.
+On Sun, Nov 22, 2026 at 8:59=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] Undisclosed user-visible behaviour change for leased TX
+>   bindings.
+> - [Low] The commit message presents this patch as fixing 'issues' found
+>   by AI review of the earlier devmem unregister series, 'confirmed by=E2=
+=80=A6
+>
+> --
+>
+> net: devmem: always populate bind_dev and detach both devices on unregist=
+er
+>
+> This patch always sets binding->bind_dev to the device that bind-rx or
+> bind-tx was called on. Socket teardown, queue close and queue uninstall
+> now use bind_dev, and net_devmem_dev_unregister() handles bind_dev and
+> map_dev separately, calling synchronize_net() before unmapping when
+> map_dev unregisters. net_devmem_get_binding() also now requires map_dev
+> to be non-NULL.
+>
+> > diff --git a/net/core/devmem.c b/net/core/devmem.c
+> > index 6f85b90950f8b..80c3e149cd762 100644
+> > --- a/net/core/devmem.c
+> > +++ b/net/core/devmem.c
+>
+> [ ... ]
+>
+> > @@ -252,20 +255,33 @@ void net_devmem_dev_unregister(struct net_device =
+*dev)
+> >
+> >       xa_lock(&net_devmem_dmabuf_bindings);
+> >       xa_for_each(&net_devmem_dmabuf_bindings, xa_idx, binding) {
+> > -             if (binding->direction =3D=3D DMA_FROM_DEVICE) {
+> > -                     if (READ_ONCE(binding->map_dev) !=3D dev ||
+> > -                         xa_get_mark(&net_devmem_dmabuf_bindings, xa_i=
+dx,
+> > -                                     NET_DEVMEM_BINDING_LIVE))
+> > -                             continue;
+> > -             } else {
+> > -                     if (READ_ONCE(binding->bind_dev) =3D=3D dev)
+> > +             if (READ_ONCE(binding->bind_dev) =3D=3D dev) {
+> > +                     __xa_clear_mark(&net_devmem_dmabuf_bindings, xa_i=
+dx,
+> > +                                     NET_DEVMEM_BINDING_LIVE);
+> > +                     if (xa_empty(&binding->bound_rxqs) ||
+> > +                         !netif_is_queue_leasee(dev))
+> >                               WRITE_ONCE(binding->bind_dev, NULL);
+> > -                     if (READ_ONCE(binding->map_dev) !=3D dev)
+> > -                             continue;
+> > -                     WRITE_ONCE(binding->bind_dev, NULL);
+> > +             }
+>
+> [Severity: Medium]
+> Does this change what happens to leased TX bindings when only the virtual
+> device goes away?
+>
+> If bind-tx is called on a netkit device, netdev_find_netmem_tx_dev()
+> picks the physical NIC as map_dev, and bind_dev is now the netkit device.
+> When the netkit device is deleted and the physical NIC stays registered,
+> this first walk matches bind_dev =3D=3D dev and clears
+> NET_DEVMEM_BINDING_LIVE.
+>
+> After that, net_devmem_get_binding() fails here:
+>
+>         binding =3D xa_find(&net_devmem_dmabuf_bindings, &xa_idx, dmabuf_=
+id,
+>                           NET_DEVMEM_BINDING_LIVE);
+>
+> So every later devmem sendmsg with that dmabuf id returns -EINVAL, even
+> when dst_dev =3D=3D map_dev.
+>
+> Before this patch, the code from ede1618064a9 ("net: devmem: detach TX
+> bindings on NETDEV_UNREGISTER") only cleared the virtual device pointer i=
+n
+> this case and left the binding live. That commit gave its reason as "only
+> clear binding->vdev so no new TX sends match the virtual device while
+> allowing in-flight TX packets on binding->dev to finish DMA safely".
+>
+> TX bindings have an empty bound_rxqs, so bind_dev is cleared here anyway.
+> net_devmem_get_binding() would then only match map_dev. Does correctness
+> need the LIVE mark to be cleared in this case?
+>
+> If the change is intended, could the commit message say that it reverses
+> the earlier design, and why? Right now it only says "first walk the
+> bindings to clear NET_DEVMEM_BINDING_LIVE to stop new lookups".
+>
+> The same goes for the synchronize_net() added further down for the
+> map_dev case. ede1618064a9 said a grace period was not needed there.
+>
+> This behaviour is still the same at the end of the series. The selftest
+> added later in the series (devmem_lease_bind_tx_unregister_check with
+> remove_virt_first) only checks the dmabuf attach count. It does not check
+> whether sends through the physical device still work.
+>
 
-https://elixir.bootlin.com/linux/v7.3.1/source/drivers/net/ethernet/stmicro/stmmac/common.h#L316
+This seems like some kind of hallucination? AFAICT after this patch
+we're making the binding not live anymore, so we don't match it
+against new TX, but in validate_xmit we're checking against map_dev,
+not bind_dev, so in-flight packets should be fine as long as the
+map_dev is in tact.
 
-#define PHY_INTF_SEL_RGMII	1
-#define PHY_INTF_SEL_SGMII	2
-#define PHY_INTF_SEL_TBI	3
-#define PHY_INTF_SEL_RMII	4
+Also, I'm not sure we care so much about what happens exactly to the
+in-flight TX packets when the binding is being unregistered. The
+application is probably ending tx anyway.
 
-Which is easier to understand?
+Also with so many life cycle bugs in the lease case, I'm worried
+someone can reproduce a consistent way to crash some setups with these
+issues.
 
-#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, 1)
-or
-#define CTL_PHY_INTF_RGMII	FIELD_PREP(CTL_PHY_INTF_SEL, PHY_INTF_SEL_RGMII)
-
-You should try to avoid magic numbers.
-
-	Andrew
+--=20
+Thanks,
+Mina
