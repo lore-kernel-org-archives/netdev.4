@@ -1,47 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795467603;
-	b=R9UI3z+ZjspoWKdF7B1PRMPD9x1BuHT9Dd7LvPeoTbLs2GR/O7TuUC86UfDee0LGojKh
-	 QEwuCNEIexSOzGsxkWnDn+YXqSXg+hbd0vzJxAWzEuRKNuvxPzAkwC/iHxoVuxTtmjEGd
-	 HwbQbdi0kGtWEKBGUQy51MNUwU44IHDny9XkYV1KnlSun5JKMMwjAtYa77f22GuTnnO55
-	 yGsPzNuxm/3i54tmAYcf+Bxe1Ea4kn0sNGScGHg2zlzwbrOahaLtCi16mwBcS4gYixCHH
-	 1ul3SoJNSpyoPWQJNMG3B7nCvLdMnO+ZY9VwoP6U53Q6meSpd8X+GJC3hEMh+4cnPew==
+	t=1795467608;
+	b=yL77zAlhrdZhSBaZq0QZqTwvkPu9cOsNs6UkQ4vEBnV55wW1vCIVGcgrjxBmvOSaxZuO
+	 us/VGRqwniX3dgY3G2Nw/YjG7Jns+XmvUKtJCxR7NLVUVkbQIclphOqIHbx8k0mFyFuIH
+	 9Nt7C1yh+4IPHeAJ2dwfFnw5FnLJCRBhrRFtSfE2tpUXnvg0Mf9n5P+E+0VcbpgbKlpNG
+	 fUQKqCh46PAGt03rB5RtFfDibIYwRAB1TdEOuB1IgNwxuM1avmYJ2/UThHp35ZHnZQ9o8
+	 VoV02gPmLBkedY/c3kiPjAwsw2fKBXsFoYQxRVk7HixfvmdxZhg9paDM31FcUU/Qe0w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795467603;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=Q2WRLbnHYblS15W10EOQGRmEfJurtksMySvdGxKi37c=;
-	b=ZuLVx2vC1SUIC01/NLS+Emty+90tHdw5vK0ZwQladqpoyY0huUS4RKpOJgTccPwhgjIJ
-	 gZTP31YGPLsy8T/gNNbanuxeFAl+JpZ72M5QIZ3oQJSkeMFnz58UMaN6At/rfbpLJxawY
-	 FDBQvlNKJg4BeeycKVYdM2QYxAebKkdd8jmnKtHavU6ud3c+8iqClB4gNllh5Udx2IxGg
-	 F5VkJh+iDk4EVFwcoBaX47NEnIPHmSDvRVJkwZ6DCDJhyUHPV9sUGgipMuYxL21tWle3L
-	 F7fhxpkHWZ1Ewzhv83dorrkUh/aEr1knQZ4SrmBjSiqdJ5SKhKFyt+xpSrpWp+P28ng==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795467608;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=Mw5g32Ob3xBy/rSQ+ex6KicKrC2O2/T6LL4fJvwYzzw=;
+	b=eRnnkhsdwJIqfHJBwNvTT2CH+FLvLI58A4F3UO2C8aL7oPRp8QhM5qlhnzefnSYOE1A6
+	 +Q72P+cgyfqsVsdCvLNWmcV4+OX5HBvn3aD9OY0R/GlVmVrRFbSvB3du1iDYDfWCkx6SH
+	 xoEfUuAH7cl96L0v/whwf4veuSHWFw2i5WAtTWpiNoTMSwboQg/2NBv9p2Pbz6eGqehJS
+	 1HKyvA26vIRuf98HvHux61w1qVYUscb0tGlJvBiRKc6u+wYLAVfJ/UHZ4Wvy4Lo0CDs/w
+	 U0PoT2Nu14tvBIs97xtQVGaCWV9m9RLI+fbZum9ljpPOoDgJFZlTOoxKZUoCgqCydJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYJw3RDD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNhD1A0s;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47032606A31E
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:00:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02ADA606A339
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:00:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=SYJw3RDD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1064E1F000C0;
-	Mon, 23 Nov 2026 21:00:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNhD1A0s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3AB61F000D4;
+	Mon, 23 Nov 2026 21:00:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795467603;
-	bh=Q2WRLbnHYblS15W10EOQGRmEfJurtksMySvdGxKi37c=;
-	h=Date:Subject:To:References:From:In-Reply-To;
-	b=SYJw3RDDh3Q8knDxbE4dxaafazrj2npZY4nZRNC1Ak8m84nKaIgNx5BPMd8WCFjs+
-	 Z64gBr2gTfMJp3bBYpXeBjKprhWZj4rFrZDrXiCHxhsUChuipHzzJKGXvWodazPips
-	 rYrYZPctH46maZ2Vwl44NB67BTDJKixYT2sZd76GEQ128yI/ZVXV3HPBNWxKMAuUe0
-	 BierxzEitqeX5IlcLQjkqX4mpnZ4B9YoE4V63TG+LAYuiSu1J85WjrEyCK9RIjW4DG
-	 M8QRCtDG6jL11E96nUbDydtMVqUcWA8TGzCR2hZTTCkDwZVoTUSaNpNHYkcb9OU/dK
-	 qxRPhDmgSGI+Q==
-Message-ID: <5a7ea9e4-cc8d-4b3d-9bf3-142d31b3fea1@kernel.org>
-Date: Mon, 23 Nov 2026 14:00:02 -0700
+	s=k20260515; t=1795467607;
+	bh=Mw5g32Ob3xBy/rSQ+ex6KicKrC2O2/T6LL4fJvwYzzw=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=nNhD1A0sXP6N4q23vO8pN+Vpcd1dpbgxk014CrA2N/nqlg7a5Dzb/Ryrpt+xwk4na
+	 dk4WD+r9yppg2D6FEWKz4azG1AMmjI78BPfag96bbSR+2s2c9s6P4lO6AuEJCMkj9+
+	 BU7IHJnCgQU25i+x+eQG8tapiK7fdlUcKVnbZfawmBQaUxseDFBwJodKVPal0KW01Y
+	 FneCnP/tD4wNrGHg+yrd6BGubjpyoPJB8mittAsntYINanWdQeAM0k4e/G6n2sNDLs
+	 mQKNSI4q1eSMC/PG44AhiTVY2BWM4kUbKNdLLx/EnCFdRajioIGFjrcdyETPEHWbTF
+	 1XCd30VJge3vg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B4594392FFED;
+	Mon, 23 Nov 2026 21:00:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,18 +53,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
+Content-Transfer-Encoding: 8bit
 Subject: Re: [PATCH iproute2-next 0/7] bpf: fix mount point parsing and drop
- the legacy loader
-Content-Language: en-US
-To: Stephen Hemminger <stephen@networkplumber.org>, netdev@vger.kernel.org
+ the
+ legacy loader
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179546760629.3119950.17276540991127747033.git-patchwork-notify@kernel.org>
+Date: Mon, 23 Nov 2026 21:00:06 +0000
 References: <20261119190312.578885-1-stephen@networkplumber.org>
-From: David Ahern <dsahern@kernel.org>
 In-Reply-To: <20261119190312.578885-1-stephen@networkplumber.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+To: Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org
 
-On 11/19/26 12:02 PM, Stephen Hemminger wrote:
+Hello:
+
+This series was applied to iproute2/iproute2-next.git (main)
+by David Ahern <dsahern@kernel.org>:
+
+On Thu, 19 Nov 2026 11:02:35 -0800 you wrote:
 > While looking at OSS Scanner reports noticed a pattern of issues
 > around the BPF loader. The first set related to parsing of
 > mount points with fscanf("%s").
@@ -71,32 +80,27 @@ On 11/19/26 12:02 PM, Stephen Hemminger wrote:
 > is no longer needed. This series rips the band-aid off
 > and related parts no longer needed.
 > 
-> There were also some bugs in error handling found
-> while changing all this.
-> 
-> Note: lib/bpf_legacy.c becomes lib/bpf_util.c. "ar rcs" does not
-> drop members that are no longer built, so a stale bpf_legacy.o and
-> sha1.o stay in lib/libutil.a and are picked up by the link. The
-> build still succeeds, but run "make distclean" to be rid of them.
-> 
-> The libbpf build options are gone: libbpf is now always required,
-> and pkg-config is the only way it is found. Both --libbpf_force and
-> --libbpf_dir are now rejected rather than silently ignored.
-> 
-> The last patch adds a tc bpf test, there was none before. It caught
-> a regression in this series that the build did not: the tc/ pin
-> subdirectory quietly went missing.
-> 
-> Since v1: squashed the four libbpf configure patches into one,
-> dropped the bpf_pinning fallback fix since the loader removal
-> deletes that code anyway, moved the tc-bpf(8) update next to the
-> change it documents, and reworded the export removal after Jamal
-> pointed out that LIBBPF_FORCE=off builds did have a working
-> import/run. Dropped Toke's Reviewed-by from the mount point check:
-> it now also restores the pin subdirectory, so it is not the patch
-> he reviewed.
-> 
+> [...]
 
-fixed a compile error introduced by patch 6 and applied the set to
-iproute2-next
+Here is the summary with links:
+  - [iproute2-next,v2,1/7] lib/bpf: parse /proc/mounts with getmntent and check fs magic
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=811d5c6fee81
+  - [iproute2-next,v2,2/7] lib/fs: parse /proc/mounts with getmntent and check fs magic
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=a472dd902002
+  - [iproute2-next,v2,3/7] tc: remove eBPF map export and exec bpf import
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=5ba7711088c8
+  - [iproute2-next,v2,4/7] man: tc-bpf: drop references to the removed eBPF agent
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=6ab6b5582f3a
+  - [iproute2-next,v2,5/7] lib/bpf: require libbpf 1.0 and remove legacy ELF loader
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=ef57368a23ba
+  - [iproute2-next,v2,6/7] lib/bpf: check for missing bpf fs mount point
+    (no matching commit)
+  - [iproute2-next,v2,7/7] testsuite: add tc bpf test
+    https://git.kernel.org/pub/scm/network/iproute2/iproute2-next.git/commit/?id=d462249417a1
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
