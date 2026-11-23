@@ -1,59 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795459603;
-	b=G18NJukDjZb+ypaQe0qJN+Y9ZStbxUwaq5d0Ssx2QLDwwWCRuum4H60cVlY/sPVwuTTK
-	 7YPGXBJnmBdkYbvZBAJl2qcSsh/NeerCpTW1SSOYZxLoJRd1NsBub1rpdo9cR3bGMQ35X
-	 yGt7MjT/f0nlpUWcPaLAHn2F6vf+5mMA1KGy2D0SpopKdQOwM3Kll60pLcCgjtb7UxOG3
-	 7+dp//UfTWdMMsIgC2xN5AhuZy6xcn4M4a2wb+hdjPcdY0itzuc8PTrz53TBnxIgkFTuP
-	 FzG2XhUwZHN1EQqsGYfHo/x0TEEsuN11Sngc0TmJPZn40BA9ZYYaK82Ys0JeugFJYTg==
+	t=1795459760;
+	b=2pW9rFXYeBjunAKMFIk71uo0TaSXU8IkHVYzc+OG1tOqb34Zr+xPyth19/d4E6PDw5JY
+	 CnNycCcL/Msll1W4+bkdniGyeoBB+PawIUkPh84lrN/TkGkyspdc+e46RiOihkUbRNt6B
+	 pvKJaFuRY1lzbsbGq2ll/owW6GO23ZUpIoTGIEZLoe9Tv0qmRP9GxvcIl9obbZ9hEJkej
+	 71h+nZuyQqDbjwyNs2OU3TxpxnItRcR59RTzKv8je/Qareg0qnbLLxi5X4ON9umMHmqEs
+	 +YugNBUVkXehufh1uNDCQgFFnteeVMfI5x+0NKzZtSsnpsrwTfZznaaxkW/DDeUaKfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795459603;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=O2xo+SKhF3J4hhycsczXOYDyFePFTtLghVqDW4zvE0Q=;
-	b=BY0VndANEWy621VJRD+NVygQYBbzO7hUb9R7VyhmWrQUorIGHXbvo0NyEF+OesFhKRwR
-	 BIc8rUSwKfJhzyjce4D7day/DvNCrJQyfmrV695NJYTkadVMZxSNzmfVvSk/zi1y/z+4S
-	 gkGfCo8gxPb+zEUF8oPBoYkw4M4L99WNtXq1cH73UEd6ypFgJtpWAK4NGlPriRhSoLdmp
-	 ajqo4hJFo3+6vmj37UegE6QwtCWem0gK+7S9xhetakr65Ywwtcdpxt9AAi1H8w3mClpIn
-	 WDrQkBd+kYaIzHsXFCywq941ebCr6Gjmg9eriF9d/VYbmTY5S8P+OZBA1FWT0QDyGYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795459760;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Subject:From:To:Cc:Date:In-Reply-To:References:
+	 Content-Type:Content-Transfer-Encoding:User-Agent:MIME-Version;
+	bh=yuo3RMT5uLMlvZjj6lcxSmCTKfmm/IW4Uhs7jIPyUXI=;
+	b=qSpGXS9tr2bSIlO3pohdHuIQ+uRXcjkPx3mNqozhObFZz0FWbxH9jV6xdaH5rvlAT4pj
+	 qiw3h01hGLGISAmQ7chve5a05wEjGqowb2gTokPYV+DLrQQWM0aA2Ey54NhRBnaYfeovY
+	 ugWCAglGROHa3UkLGod775Iu1mlzlmEa195mc+1p4tF8jSGDVglNwWhoCFUsxM4JLWtLy
+	 SdZBGBXEQ47TmKI9aBRTDsfVGYWo20UPoI2E0V5g3WewbGG+dVlm+S7iKOZD/9QOwgy/0
+	 LFJFw9zYRNJM631CbiGPA/H9z/Yf8p1wbVRCr/9taTpvWtQQdjNPRjirKoO/k1zxmcQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m73PgKnu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w7jGtki4;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8E2B606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:46:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02A7D606A31A
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 18:49:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 02A7D606A31A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m73PgKnu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37D7A1F000C4;
-	Mon, 23 Nov 2026 18:46:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795459602;
-	bh=O2xo+SKhF3J4hhycsczXOYDyFePFTtLghVqDW4zvE0Q=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m73PgKnuAn6znlaSxNCUlNpnb2GDuaRgCv9FHeMzTHoK3p13WmstCiA3jkaGh4cib
-	 yjl/4an2bdBix7FU6/Echku9z/PZ1EZ+iUFQlcjM+yV//0SfV/2+hBPXaeXhyms+Jj
-	 cMzvgNCjv4fjGE8csQgV6DA1o4ZE0uqgEAEckpCnTkuIyMW3WQso1XVarZ62f+F+5I
-	 2Cr28iy5xAQWmCNqVXwOQEhdwrmTsMSH8Vw1EYiA6Ca47pIERm2+0HwK46G5ueI0/b
-	 KKBDyqI47nMkMbTwcz5mpbYbLuW5emXiPm3hme2FPw30sAF8wseMNVPjVM5a8puepv
-	 1K6RcX4npaCGA==
-Subject: Re: [PATCH v5 net-next 12/13] selftests: drv-net: run the AF_XDP
- tests over veth or a NIC
-From: netdev-bot+sashiko@kernel.org
-To: maciej.fijalkowski@intel.com
-Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com, stfomichev@gmail.com,
- kuba@kernel.org, pabeni@redhat.com, tushar.vyavahare@intel.com,
- kerneljasonxing@gmail.com, bjorn@kernel.org
-Date: Mon, 23 Nov 2026 18:46:41 +0000
-Message-ID: <179545960180.3135.2456733586191087586@kernel.org>
-In-Reply-To: <20261119164636.1071385-13-maciej.fijalkowski@intel.com>
-References: <20261119164636.1071385-13-maciej.fijalkowski@intel.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=w7jGtki4
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f06ff94acfso11201335ad.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 10:49:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795459759; x=1796064559; darn=vger.kernel.org;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=yuo3RMT5uLMlvZjj6lcxSmCTKfmm/IW4Uhs7jIPyUXI=;
+        b=w7jGtki4ZNHDaxJHdNHINnnG1eGgqNHOmaOFMEhXYYECSTurvVVpvhOHfpRhGZfRVH
+         dvdEgf1tPzTHs0Qvcg1TfNgJrlj81iO3dUjfhEd+4hx0gskPRnaDVIz5XRMXSAbHW9Yb
+         TAsGuLwZETbA+nkI6b1cyr40k9QOlx+0e7/0Ciz0/K854rGqx9tkiGVOWBDa17jZLP0X
+         dUH6ZqvsrmnKsiJLlwWQFDGKPZUtdVqCj5XxvTN3J9jf2q29J1c15RKMZ3cRtVW4PTK0
+         Kb5ftldDi2ddAyVXx87wlBbRpe1ikddknZWHIeQBfA1QgnBFkC8UpRZS5h+l4dDDti8F
+         ru7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795459759; x=1796064559;
+        h=mime-version:user-agent:content-transfer-encoding:content-type
+         :references:in-reply-to:date:cc:to:from:subject:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=yuo3RMT5uLMlvZjj6lcxSmCTKfmm/IW4Uhs7jIPyUXI=;
+        b=bEBtVFbZtmQga7FkIRagz8FeC3JpHeH4/4FxTV6UTdFZO7Z1V3lxvT8GCD7JgGYEs9
+         GX9Tcs4EsBrJegxPDtF+Nkm6nL9liYzhUJ7bW+2PyjyXkzyf5drjpVvQGGTSH7LAtKMw
+         7I00E7vPxRhOWg672hyjiNeRIFrmpAKtL0t73Nr60qwqzN6OZlokQJKz+8WK1IbWAwCM
+         7C4L9JHUl+DJi8zNdDoHZkuNkaJg41v2Lti36sEC+17ZJBz3gsQUkhhED14idwJ2jHjO
+         mKTuHNvy3EuF2+f2xo12TTyBWUM5QlNyKbZvqKy9F6+CSAIQUiCsRoPGhoKArEapwsvI
+         UR1Q==
+X-Forwarded-Encrypted: i=1; AL+hErGpr2fZClB4NflJxMywBNEd1Hs0uCGX8l4IKil8h+KtN+GEqoOSaUkpyNj1Gpd1S+YzfoiyAo8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+woONuaMmkB5PUZ/uY5qbCQJiHEspqZ2tGF8wljsj1xEduGkGX
+	H1QK/8n+UKzhrQp5ZAqOlWs4oyUq7k0b0IND1pgpCdzztdrdikb8AQgL
+X-Gm-Gg: AZFdTZf4Qzmnjzxq7Yy2M2E4ZL3tsRPYHyFQCSXiUqnZ9y28JIKNlgG5K/CUcgmdtvn
+	jjGpUSxzNrmfgWsvW6Aimx/oYwDSjwiEIbRl2IyMO6Vsn5pGfjEr6qjAGxTYMcH006q3Ww2bF/c
+	bamn2199j92HDGZR8S8PPvOomsHOufsNDvrhHrWjrawFUaSSIl/thzvPTFYE741Pl7JFVntU5jE
+	7bZwrG0hUf/mhS5DyQv6fuxroxhzTv+Mery657nm4svGHqjcsTjMBZhsIT36D2vi8lvI69cbDGd
+	Uf7MOZb/b8If3X+fOFzsu31Rk5vgngoVwcc+PEHvfB8A2UD0znEIPFplc81Kllj+mkz7Hz5HIsE
+	m8nr3ccqg1bVBTg5ip9EyOYykqibqLOAvVnhiO0Xym6cVRfp7nB02zF2qbJv4QHDVLmsbRnnbyz
+	i+RDPYqe9LbhxVssTki5ZwfljFmNHJ3Kmx73+i9Ppyhnu0HqrfxKO/D5LhhrEdekPhK8RtMnn6i
+	+wZRqpxDgEWQG7cPXHA20e7NzeCFE+i7YPblbt4Qvh13KgBgivQy09BLRRVeeKEj0iIS75XkwaF
+	lj2/D2OhH+y8M9Fah9H3lpxSoCtIgv1e7FN++n6pZifJpeBaDiHHrKTgGaSVqdaWO3X349TM+Zl
+	8Jv3jGRZxJb0pAQ08oGG7LGQwHlkyvD8a09tYjT5Q0A0tF0Mc60jlEQQxhJcGVA0bXpU=
+X-Received: by 2002:a17:902:e80b:b0:2e9:9a19:c43 with SMTP id d9443c01a7336-2f03f118277mr119957685ad.15.1795459759098;
+        Mon, 23 Nov 2026 10:49:19 -0800 (PST)
+Received: from ?IPv6:2605:59c1:38c:400:82ee:73ff:fe41:9a02? ([2605:59c1:38c:400:82ee:73ff:fe41:9a02])
+        by smtp.googlemail.com with ESMTPSA id d9443c01a7336-2f03f1207f1sm57374525ad.64.2026.11.23.10.49.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 10:49:18 -0800 (PST)
+Message-ID: <3adef4b4d528780bae31f2fb02d0a08bf9c8ebd5.camel@gmail.com>
+Subject: Re: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP
+ program is attached
+From: Alexander H Duyck <alexander.duyck@gmail.com>
+To: Tianyi Gao <tianyi@cloudflare.com>, netdev@vger.kernel.org, 
+	intel-wired-lan@lists.osuosl.org, Tony Nguyen <anthony.l.nguyen@intel.com>,
+  Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>,  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,  Simon Horman
+ <horms@kernel.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>,  Jesper Dangaard Brouer	 <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Stanislav Fomichev <sdf@fomichev.me>,
+ Paul Greenwalt <paul.greenwalt@intel.com>, Alice Michael	
+ <alice.michael@intel.com>, Eric Joyner <eric.joyner@intel.com>, Jesse
+ Brandeburg <jbrandeb@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ bpf@vger.kernel.org, 	kernel-team@cloudflare.com, tianyi.gao@linux.dev
+Date: Mon, 23 Nov 2026 10:49:17 -0800
+In-Reply-To: <20261121012402.84848-1-tianyi@cloudflare.com>
+References: <20261121012402.84848-1-tianyi@cloudflare.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.60.2 (3.60.2-1.fc44) 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,919 +113,95 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 9 potential
-issue(s) to consider.
-
-Critical: 0 · High: 0 · Medium: 2 · Low: 7 (1)
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] Teardown restores the DUT's RSS indirection table before it
-  turns ntuple-filters back off.
-- [Medium] xsk.py keeps non-test traffic off the reserved DUT queue only
-  through the RSS indirection table (`ethtool -X equal N`) and a UDP…
-- [Low] main() in xsk.py picks the UDP test port with `cfg.udp_port =
-  rand_port()`, which defaults to stype=socket.SOCK_STREAM.
-- [Low] The xsk.py module docstring says "--max-frags hands the sysctl
-  value to both endpoints for TOO_MANY_FRAGS".
-- [Low] The patch adds "On a physical device, drivers/net/xsk.py runs the
-  hardware cases in zero-copy mode, with an SKB-mode peer on a remote…
-- [Low] _test() cancels all four fallback defers (MTU restore on both
-  hosts and `ip link set ... xdp*/xdpgeneric off` on both hosts)…
-- [Low] NetDrvEpEnv.__del__() now runs `ip(f"link del dev {self._veth}")`
-  with the default fail=True, before the netns and remote are torn down.
-- [Low] _steer_udp() always installs `flow-type udp{cfg.addr_ipver}`.
-- [Low] selftests: drv-net: _setup_busy_poll() reimplements
-  ctl_file_write()
-
-Pre-existing issues:
-- [Low] xsk.py reserves pages only in the 2048kB pool (HUGEPAGES =
-  /sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages).
-
---
-
-selftests: drv-net: run the AF_XDP tests over veth or a NIC
-
-This adds drivers/net/xsk.py. It runs each xskxceiver case as a pair of
-endpoints, one local and one remote, over a veth pair without NETIF, or
-in zero-copy mode on a NIC with NETIF. For the NIC run it takes the DUT
-queue out of RSS, adds an ntuple rule on each host and sizes the rings
-some cases need, and NetDrvEpEnv gains a veth_test parameter that
-creates the veth pair.
-
-> diff --git a/tools/testing/selftests/drivers/net/lib/py/env.py b/tools/testing/selftests/drivers/net/lib/py/env.py
-> index c1d58bef754f3..8438add502d9d 100644
-> --- a/tools/testing/selftests/drivers/net/lib/py/env.py
-> +++ b/tools/testing/selftests/drivers/net/lib/py/env.py
-
-[ ... ]
-
-> @@ -283,6 +306,9 @@ class NetDrvEpEnv(NetDrvEnvBase):
->          if self._ns_peer:
->              self._ns_peer.remove()
->              self._ns_peer = None
-> +        if self._veth:
-> +            ip(f"link del dev {self._veth}")
-> +            self._veth = None
-
-[Severity: Low]
-This ip() call uses the default fail=True. If it raises, self._veth stays
-set, the NetNS and remote teardown below is skipped, and the exception
-propagates out of the with-block in main().
-
-That only happens if the veth is already gone before teardown. Nothing in
-env.py or xsk.py deletes it earlier, and the other teardown steps in this
-class also raise on failure. The explicit delete is still useful, because
-netns teardown is asynchronous.
-
-Would fail=False be safer here, so a missing veth cannot leak the netns
-or the remote?
-
->          if self._netns:
->              del self._netns
->              self._netns = None
-
-> diff --git a/tools/testing/selftests/drivers/net/xsk.py b/tools/testing/selftests/drivers/net/xsk.py
-> new file mode 100755
-> index 0000000000000..a561a7f9aaf77
-> --- /dev/null
-> +++ b/tools/testing/selftests/drivers/net/xsk.py
-> @@ -0,0 +1,562 @@
-
-[ ... ]
-
-> +queues, so a socket on it has no NAPI to busy poll. Only the initial
-> +network namespace has the net.core.max_skb_frags sysctl, so the remote
-> +endpoint takes 17 frags. --max-frags hands the sysctl value to both
-> +endpoints for TOO_MANY_FRAGS, but the cases in TAILROOM_CASES size the
-
-[Severity: Low]
-Is this sentence accurate? The value passed is the sysctl value plus
-one, not the sysctl value. _setup_veth() does:
-
-    cfg.max_frags = cfg.max_skb_frags + 1
-
-testapp_too_many_frags() in test_xsk.c uses max_frags_override as given.
-Without the override it computes max_skb_frags + 1 itself, so the code is
-correct and the docstring is off by one.
-
-The README added later in the series says "plus one", but this docstring
-is never updated.
-
-> +endpoints for TOO_MANY_FRAGS, but the cases in TAILROOM_CASES size the
-> +UMEM tailroom by the value of each endpoint, and are expected failures
-> +when the sysctl is not 17.
-
-[ ... ]
-
-> +NR_HUGEPAGES = 32
-> +# xskxceiver maps the UMEMs of the UNALIGNED cases with MAP_HUGE_2MB.
-> +HUGEPAGES = "/sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages"
-
-[Severity: Low]
-This is a pre-existing issue and was not introduced by this patch, but
-the new reliance on the 2048kB pool exposes it.
-
-thread_common_ops() puts MAP_HUGE_2MB in the mmap flags, but the probe
-that decides XSK_CAP_UNALIGNED passes it as the offset:
-
-tools/testing/selftests/net/lib/xsk/test_xsk.c:hugepages_present() {
-    ...
-    bufs = mmap(NULL, mmap_sz, PROT_READ | PROT_WRITE, MAP_PRIVATE | MAP_ANONYMOUS | MAP_HUGETLB, -1, MAP_HUGE_2MB);
-    ...
-}
-
-So the probe checks the default huge page size, not 2M. Say
-default_hugepagesz is 1G and the 1G pool is empty. Won't
-hugepages_present() then fail even after _reserve_hugepages() filled the
-2M pool?
-
-In that case the UNALIGNED cases skip. They neither run nor get reported
-as expected failures, which is what the docstring describes.
-
-[ ... ]
-
-> +def _reserve_queue(cfg, undo):
-> +    """Take the last queue with both an RX and a TX ring out of RSS until
-> +    undo, return None if the DUT cannot. A TX endpoint fills no RX buffers,
-> +    so in zero-copy mode its queue drops what it receives, the control
-> +    connection included."""
-
-[ ... ]
-
-> +    queue = count - 1
-> +    if cmd(f"ethtool -X {cfg.ifname} equal {queue}", fail=False).ret:
-> +        print(f"1..0 # SKIP {cfg.ifname} cannot take queue {queue} out of RSS")
-> +        return None
-> +    undo.callback(_restore_rss, cfg, rss.get("indir"))
-> +    return queue
-
-[Severity: Medium]
-Is the RSS table enough to keep the control connection off the reserved
-queue? Hash-based flow steering can bypass it.
-
-On i40e, ATR stays enabled when only a UDP sideband rule exists. The
-only place that sets __I40E_FD_ATR_AUTO_DISABLED is
-i40e_add_del_fdir_tcp(), so the udp rule from _steer_udp() leaves ATR on.
-
-i40e_atr() then programs a filter for each transmitting TCP flow that
-steers its RX to the TX ring it was sent on:
-
-drivers/net/ethernet/intel/i40e/i40e_txrx.c:i40e_atr() {
-    ...
-    flex_ptype = FIELD_PREP(I40E_TXD_FLTR_QW0_QINDEX_MASK, tx_ring->queue_index);
-    ...
-}
-
-Suppose the local xskxceiver's control socket transmits on the last TX
-ring because of XPS or CPU placement. The returning control packets then
-land in the reserved queue, which drops them in TX cases. Wouldn't the
-case hang until timeout(1) kills it, depending on which CPU the endpoint
-runs on?
-
-The README later in the series warns about aRFS but not ATR. Should
-xsk.py turn off the flow-director-atr private flag, or add a rule that
-steers the control port away from the reserved queue?
-
-[ ... ]
-
-> +def _steer_udp(cfg, undo, ifname, queue, host=None):
-> +    """Steer the test flow to queue until undo, return False if ifname
-> +    rejects the ntuple rule."""
-> +    res = cmd(f"ethtool -N {ifname} flow-type udp{cfg.addr_ipver} "
-> +              f"dst-port {cfg.udp_port} action {queue}", host=host, fail=False)
-> +    if res.ret:
-> +        print(f"1..0 # SKIP {ifname} rejects the ntuple rule")
-> +        return False
-
-[Severity: Low]
-NetDrvEpEnv prefers IPv6, so this is a udp6 rule whenever LOCAL_V6 and
-REMOTE_V6 are set. ixgbe_flowspec_to_flow_type() handles only
-TCP_V4_FLOW, UDP_V4_FLOW, SCTP_V4_FLOW and IP_USER_FLOW, and returns 0
-for anything else.
-
-On ixgbe, doesn't this skip the whole zero-copy run when IPv6 is
-configured, even if IPv4 is also configured and would work?
-
-The skip also comes after ntuple-filters were turned on and the queue
-was taken out of RSS, which resets ixgbe for nothing. Could this fall
-back to cfg.set_ipver("4") when the udp6 rule is rejected?
-
-[ ... ]
-
-> +    local_ret, remote_ret = _run(cfg, local, remote)
-> +    rets = {local_ret, remote_ret}
-> +    if rets <= {0, SKIP_CODE}:
-> +        # Both endpoints detached their XDP programs and restored the MTU.
-> +        for fallback in fallbacks:
-> +            fallback.cancel()
-
-[Severity: Low]
-Is the comment above guaranteed? xskxceiver's exit code does not show
-whether the XDP detach worked:
-
-tools/testing/selftests/net/lib/xsk/xskxceiver.c:cleanup_iface() {
-    ...
-    if (ifobj->xdp_prog)
-        xsk_detach_xdp_program(ifobj->ifindex, mode_to_xdp_flags(ifobj->mode));
-    ...
-}
-
-xsk_detach_xdp_program() returns void and discards the result of
-bpf_xdp_detach().
-
-A driver detach can fail. For example, ice_xdp_setup_prog() can return
--ENOMEM and leave the program attached. The endpoint would still exit 0
-and the fallbacks would be cancelled.
-
-The next _setup() would then find the program and raise KsftSkipEx
-without removing it. Every later case would skip, and the DUT would keep
-the program after the run.
-
-Detaching a program that is not there and setting an unchanged MTU are
-both no-ops. Could the fallbacks just always run?
-
-[ ... ]
-
-> +    # Before the DUT queue is taken out of RSS, as turning ntuple-filters on
-> +    # can reset a NIC, and with it the RSS indirection table.
-> +    if not (_ntuple_on(undo, cfg.ifname) and
-> +            _ntuple_on(undo, cfg.remote_ifname, cfg.remote)):
-> +        return False
-> +
-> +    cfg.queue = _reserve_queue(cfg, undo)
-> +    if cfg.queue is None:
-> +        return False
-
-[Severity: Medium]
-Setup gets the order right, but does teardown? The ntuple-filters off
-callbacks go on the undo ExitStack before _reserve_queue() registers
-_restore_rss(). ExitStack runs callbacks last-in first-out, so the RSS
-table is restored first and ntuple-filters are turned off after it.
-
-On ixgbe, turning ntuple off resets the NIC:
-
-drivers/net/ethernet/intel/ixgbe/ixgbe_main.c:ixgbe_set_features() {
-    ...
-    if (adapter->flags & IXGBE_FLAG_FDIR_PERFECT_CAPABLE)
-        need_reset = true;
-    ...
-}
-
-The reset rebuilds the table in ixgbe_setup_reta(), which clears it,
-fills it round robin and calls ixgbe_store_reta().
-
-The commit message already notes that ixgbe rebuilds its indirection
-table on every reset. Wouldn't a custom RSS table the user had before
-the run be restored and then silently overwritten with driver defaults?
-
-Could the RSS snapshot and its _restore_rss() callback be taken before
-_ntuple_on(), so that restoring RSS happens after ntuple-filters are off?
-
-[ ... ]
-
-> +        cfg.udp_port = rand_port()
-
-[Severity: Low]
-rand_port() defaults to stype=socket.SOCK_STREAM, so it checks this port
-against TCP, not UDP. The value becomes the UDP destination port of the
-test flow, the dst-port of the ntuple rules and the port xskxceiver
-redirects.
-
-A local UDP service on the same port would not be detected. Other
-drv-net UDP tests such as toeplitz.py and uso.py pass socket.SOCK_DGRAM.
-Should this be rand_port(socket.SOCK_DGRAM)?
-
-> +        if cfg.veth_test:
-> +            _setup_veth(cfg)
-> +        elif not _setup_nic(cfg, undo):
-> +            sys.exit(SKIP_CODE)
-
-[ ... ]
-
-> diff --git a/tools/testing/selftests/net/lib/xsk/xskxceiver.c b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-> index fa6d8798e6b00..3eb313eb48ea3 100644
-> --- a/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-> +++ b/tools/testing/selftests/net/lib/xsk/xskxceiver.c
-> @@ -55,6 +55,9 @@
->   *    l. If multi-buffer is supported, try various nasty combinations of descriptors to
->   *       check if they pass the validation or not
->   *
-> + * On a physical device, drivers/net/xsk.py runs the hardware cases in
-> + * zero-copy mode, with an SKB-mode peer on a remote host.
-> + *
-
-[Severity: Low]
-The rest of this header still describes a veth-only setup, which
-contradicts the new paragraph.
-
-The tests information section says:
-
- * These selftests test AF_XDP SKB and Native/DRV modes using veth
-
-The Flow section below says:
-
- * - Each of these two processes attach to a veth interface
-
-It also says that Tx sends from veth<xxxx> to veth<yyyy>. Should these
-lines be updated for the NIC and remote host setup? The last patch of
-the series only adds a pointer to README.rst and leaves them as they
-are.
-
-Separately, the header lists "f. bpf_link resource persistence", which
-is not in the test tables. That line was already stale before this
-patch.
-
->   * Flow:
->   * -----
->   * - drivers/net/xsk.py starts two processes: Tx and Rx
-
-[ ... ]
-
-> @@ -0,0 +1,562 @@
-> +#!/usr/bin/env python3
-> +# SPDX-License-Identifier: GPL-2.0
-> +
-> +"""
-> +AF_XDP tests over veth or a NIC.
-> +
-> +Each case runs an xskxceiver endpoint on the local interface and one on the
-> +remote interface. The remote endpoint always runs in SKB mode and does not
-> +busy poll, so the remote needs no zero-copy support. The endpoints send UDP
-> +over IPv6, or over IPv4 if NETIF comes without LOCAL_V6 and REMOTE_V6, each
-> +to the MAC address of its next hop to the other. The local endpoint listens
-> +on a TCP control port on the local address, and the remote endpoint
-> +connects to it once the local one listens. The control connection shares
-> +the tested link, and the XDP programs of both endpoints pass it to the
-> +stack.
-> +
-> +"xskxceiver -l" lists each case with the roles that it tests on hardware,
-> +e.g. "0: SEND_RECEIVE rx tx", or with none if a NIC run leaves it out.
-> +test_xsk runs the cases with the local endpoint driven by interrupts, and
-> +on a NIC, test_xsk_busy_poll runs them again with the local endpoint busy
-> +polling. The UNALIGNED cases are reported as expected failures without
-> +being run when either host has no huge pages for them.
-> +
-> +Without NETIF, the interfaces are a veth pair with the remote end in a
-> +network namespace of its own. Each listed case runs in SKB and DRV mode,
-> +with the local endpoint receiving in that mode. A copy-mode socket sends
-> +alike in both modes, so the remote endpoint sends as it would in DRV mode.
-> +The variant name starts with the mode, e.g. test_xsk.drv_SEND_RECEIVE. The
-> +cases in VETH_XFAIL cannot pass over veth and are reported as expected
-> +failures without being run. veth does not tie its NAPI instances to its
-> +queues, so a socket on it has no NAPI to busy poll. Only the initial
-> +network namespace has the net.core.max_skb_frags sysctl, so the remote
-> +endpoint takes 17 frags. --max-frags hands the sysctl value to both
-> +endpoints for TOO_MANY_FRAGS, but the cases in TAILROOM_CASES size the
-> +UMEM tailroom by the value of each endpoint, and are expected failures
-> +when the sysctl is not 17.
-> +
-> +With NETIF, the local endpoint runs in zero-copy mode on NETIF, the DUT,
-> +and binds to its last queue, and the remote endpoint binds to queue 0.
-> +Before the cases run, main() takes the DUT queue out of RSS and adds an
-> +ntuple filter on each host that steers the test UDP flow to the queue of
-> +the receiving endpoint, and it undoes that however the run ends. A NIC
-> +that rebuilds its RSS indirection table on a reset, such as one for an
-> +XDP, MTU or ring change, puts the queue back into RSS, so a case fails if
-> +the queue is back in RSS after it. Each case runs once for each role
-> +listed with it, with the DUT endpoint in that role, and the variant name
-> +starts with the role, e.g. test_xsk.rx_SEND_RECEIVE. xskxceiver skips the
-> +multi-buffer cases, such as TOO_MANY_FRAGS, on a DUT without multi-buffer
-> +zero-copy.
-> +
-> +HW_SW_MIN_RING_SIZE and HW_SW_MAX_RING_SIZE expect the TX ring of the
-> +sending interface, and the latter also the RX ring of the receiving one, at
-> +given sizes. These cases set them with ethtool -G before the endpoints
-> +start, and restore them once the endpoints exit or get killed.
-> +"""
-> +
-> +import re
-> +import shlex
-> +import sys
-> +import time
-> +from contextlib import ExitStack
-> +from dataclasses import dataclass
-> +
-> +from lib.py import (CmdExitFailure, EthtoolFamily, KsftFailEx,
-> +                    KsftNamedVariant, KsftSkipEx, KsftXfailEx, NetdevFamily,
-> +                    NetDrvEpEnv, NlError, bkg, cmd, defer, ethtool, ip,
-> +                    ksft_eq, ksft_exit, ksft_pr, ksft_run, ksft_variants,
-> +                    rand_port)
-> +
-> +# cmd() and bkg() stop waiting for an endpoint that hangs but leave it
-> +# running, as killing ssh does on the remote, and bkg() waits for the local
-> +# endpoint to listen without a time limit, so timeout(1) ends each endpoint.
-> +VETH_CASE_TIMEOUT = 20
-> +NIC_CASE_TIMEOUT = 120
-> +SKIP_CODE = 4
-> +# Traffic and link timeout of the endpoints. veth takes the xskxceiver
-> +# default, and a NIC can take seconds to bring its link back after an MTU or
-> +# XDP change.
-> +VETH_XSK_TIMEOUT = 3
-> +NIC_XSK_TIMEOUT = 20
-> +# The TX ring of the sender and the RX ring of the receiver that a case
-> +# needs at a given size, 64 being the default batch size of xskxceiver.
-> +RING_SIZES = {
-> +    "HW_SW_MIN_RING_SIZE": {"tx": 64},
-> +    "HW_SW_MAX_RING_SIZE": {"tx": "max", "rx": "max"},
-> +}
-> +RING_BUSY_TIMEOUT = 5
-> +NR_HUGEPAGES = 32
-> +# xskxceiver maps the UMEMs of the UNALIGNED cases with MAP_HUGE_2MB.
-> +HUGEPAGES = "/sys/kernel/mm/hugepages/hugepages-2048kB/nr_hugepages"
-> +MAX_SKB_FRAGS = "/proc/sys/net/core/max_skb_frags"
-> +# What xskxceiver takes when it cannot read MAX_SKB_FRAGS.
-> +DEFAULT_SKB_FRAGS = 17
-> +# The ip link option that detaches the XDP program of an endpoint mode.
-> +XDP_OFF = {"skb": "xdpgeneric off", "drv": "xdpdrv off", "zc": "xdpdrv off"}
-> +# Why a case cannot pass over veth, by the mode, None for any, and the name.
-> +VETH_XFAIL = {
-> +    # Generic XDP leaves no room to grow the tail, so the RX endpoint skips.
-> +    ("skb", "XDP_ADJUST_TAIL_GROW"): "generic XDP has no tailroom",
-> +    ("skb", "XDP_ADJUST_TAIL_GROW_MULTI_BUFF"): "generic XDP has no tailroom",
-> +    # veth copies each frame into a page_pool fragment that leaves no room
-> +    # to grow the small frames of the case unless it is the last one of its
-> +    # page, so the XDP program drops most frames.
-> +    ("drv", "XDP_ADJUST_TAIL_GROW"): "veth frames have no tailroom",
-> +    # veth registers its XDP RX queues without a frag size, so
-> +    # bpf_xdp_adjust_tail() cannot grow a frag and the RX endpoint skips.
-> +    ("drv", "XDP_ADJUST_TAIL_GROW_MULTI_BUFF"): "veth cannot grow frags",
-> +    # bpf_xdp_adjust_tail() frees a frag that it trims off as the memory type
-> +    # of the XDP RX queue, which veth and generic XDP leave at
-> +    # MEM_TYPE_PAGE_SHARED for frames they copy into page_pool pages, so
-> +    # page_frag_free() frees a page that its pool still owns. The endpoints
-> +    # pass regardless, so running the case would only harm the kernel.
-> +    (None, "XDP_ADJUST_TAIL_SHRINK_MULTI_BUFF"): "trimmed frags leak",
-> +    (None, "HW_SW_MIN_RING_SIZE"): "veth has no HW rings",
-> +    (None, "HW_SW_MAX_RING_SIZE"): "veth has no HW rings",
-> +}
-> +# Cases not in VETH_XFAIL that size the UMEM tailroom by
-> +# net.core.max_skb_frags.
-> +TAILROOM_CASES = ("STAT_RX_DROPPED",)
-> +
-> +
-> +@dataclass
-> +class Case:
-> +    """The mode and direction of the local endpoint in a case, which
-> +    xskxceiver -t takes as test_id."""
-> +    mode: str
-> +    direction: str
-> +    test_id: int
-> +    name: str
-> +
-> +
-> +def _get_cases(cfg):
-> +    """
-> +    Each test case from xskxceiver -l comes out in a form below, with the
-> +    roles that it tests on hardware, if any:
-> +    0: SEND_RECEIVE rx tx
-> +    9: POLL_RX rx
-> +    33: BIDIRECTIONAL
-> +    """
-> +    ret = []
-> +    out = cmd([str(cfg.bin_local), "-l"]).stdout
-> +    cases = re.findall(r"^(\d+): (\w+)((?: rx| tx)*)$", out, re.MULTILINE)
-> +    if cfg.veth_test:
-> +        for mode in ("skb", "drv"):
-> +            for test_id, name, _ in cases:
-> +                case = Case(mode, "rx", int(test_id), name)
-> +                ret.append(KsftNamedVariant(f"{mode}_{name}", case))
-> +        return ret
-> +
-> +    for test_id, name, roles in cases:
-> +        for direction in roles.split():
-> +            case = Case("zc", direction, int(test_id), name)
-> +            ret.append(KsftNamedVariant(f"{direction}_{name}", case))
-> +    return ret
-> +
-> +
-> +def _reserve_hugepages(saved, host=None):
-> +    """Raise the count of 2 MiB huge pages on host to what the UNALIGNED
-> +    cases need, and return whether it has that many. Add the count to
-> +    restore to saved, a list for _release_hugepages(), or restore it right
-> +    away if the host falls short. A host without the pool or the rights to
-> +    resize it has no huge pages for the cases."""
-> +    have = cmd(f"cat {HUGEPAGES}", fail=False, host=host)
-> +    if have.ret:
-> +        return False
-> +    have = int(have.stdout)
-> +    if have >= NR_HUGEPAGES:
-> +        return True
-> +    saved.append((host, have))
-> +    cmd(f"echo {NR_HUGEPAGES} > {HUGEPAGES}", shell=True, fail=False,
-> +        host=host)
-> +    if int(cmd(f"cat {HUGEPAGES}", host=host).stdout) >= NR_HUGEPAGES:
-> +        return True
-> +    _release_hugepages([saved.pop()])
-> +    return False
-> +
-> +
-> +def _release_hugepages(saved):
-> +    """Restore the counts that _reserve_hugepages() added to saved, the last
-> +    one first, as two hosts can share the pool."""
-> +    for host, have in reversed(saved):
-> +        cmd(f"echo {have} > {HUGEPAGES}", shell=True, fail=False, host=host)
-> +
-> +
-> +def _setup_busy_poll(ifname):
-> +    """Set napi_defer_hard_irqs and gro_flush_timeout of ifname until the
-> +    case ends, so that SO_PREFER_BUSY_POLL of xskxceiver -b keeps the IRQs
-> +    masked."""
-> +    for attr, val in (("napi_defer_hard_irqs", 2),
-> +                      ("gro_flush_timeout", 200000)):
-> +        path = f"/sys/class/net/{ifname}/{attr}"
-> +        old = cmd(f"cat {path}").stdout.strip()
-> +        if old == str(val):
-> +            continue
-> +        cmd(f"echo {val} > {path}", shell=True)
-> +        defer(cmd, f"echo {old} > {path}", shell=True)
-> +
-> +
-> +def _restore_rss(cfg, indir):
-> +    """Restore the RSS indirection table of the DUT. Reset it to the default
-> +    first, which leaves it to the driver again, and write indir back only if
-> +    it was not the default."""
-> +    ethtool(f"-X {cfg.ifname} default")
-> +    req = {"header": {"dev-index": cfg.ifindex}}
-> +    if cfg.ethnl.rss_get(req).get("indir") != indir:
-> +        cfg.ethnl.rss_set({**req, "indir": indir})
-> +
-> +
-> +def _reserve_queue(cfg, undo):
-> +    """Take the last queue with both an RX and a TX ring out of RSS until
-> +    undo, return None if the DUT cannot. A TX endpoint fills no RX buffers,
-> +    so in zero-copy mode its queue drops what it receives, the control
-> +    connection included."""
-> +    req = {"header": {"dev-index": cfg.ifindex}}
-> +    try:
-> +        ch = cfg.ethnl.channels_get(req)
-> +        rss = cfg.ethnl.rss_get(req)
-> +    except NlError:
-> +        print(f"1..0 # SKIP cannot get the channels or RSS of {cfg.ifname}")
-> +        return None
-> +    count = ch.get("combined-count", 0) + min(ch.get("rx-count", 0),
-> +                                              ch.get("tx-count", 0))
-> +    if count < 2:
-> +        print("1..0 # SKIP Test requires NETIF with at least 2 channels")
-> +        return None
-> +    queue = count - 1
-> +    if cmd(f"ethtool -X {cfg.ifname} equal {queue}", fail=False).ret:
-> +        print(f"1..0 # SKIP {cfg.ifname} cannot take queue {queue} out of RSS")
-> +        return None
-> +    undo.callback(_restore_rss, cfg, rss.get("indir"))
-> +    return queue
-> +
-> +
-> +def _check_rss(cfg):
-> +    """Fail the case if the DUT queue is back in RSS, as on a driver that
-> +    rebuilds its indirection table on a reset, and take it out again for
-> +    the next case."""
-> +    req = {"header": {"dev-index": cfg.ifindex}}
-> +    if cfg.queue not in cfg.ethnl.rss_get(req).get("indir", []):
-> +        return
-> +    cmd(f"ethtool -X {cfg.ifname} equal {cfg.queue}", fail=False)
-> +    raise KsftFailEx(f"queue {cfg.queue} of {cfg.ifname} is back in RSS")
-> +
-> +
-> +def _ntuple_on(undo, ifname, host=None):
-> +    """Turn on ntuple-filters of ifname until undo, return False if it
-> +    cannot."""
-> +    ntuple = ethtool(f"-k {ifname}", json=True, host=host)[0]["ntuple-filters"]
-> +    if ntuple["active"]:
-> +        return True
-> +    if ntuple["fixed"]:
-> +        print(f"1..0 # SKIP {ifname} does not support ntuple-filters")
-> +        return False
-> +    ethtool(f"-K {ifname} ntuple-filters on", host=host)
-> +    undo.callback(ethtool, f"-K {ifname} ntuple-filters off", host=host)
-> +    return True
-> +
-> +
-> +def _steer_udp(cfg, undo, ifname, queue, host=None):
-> +    """Steer the test flow to queue until undo, return False if ifname
-> +    rejects the ntuple rule."""
-> +    res = cmd(f"ethtool -N {ifname} flow-type udp{cfg.addr_ipver} "
-> +              f"dst-port {cfg.udp_port} action {queue}", host=host, fail=False)
-> +    if res.ret:
-> +        print(f"1..0 # SKIP {ifname} rejects the ntuple rule")
-> +        return False
-> +    rule = re.search(r"ID (\d+)", res.stdout).group(1)
-> +    undo.callback(ethtool, f"-N {ifname} delete {rule}", host=host)
-> +    return True
-> +
-> +
-> +def _next_hop_mac(cfg, addr, peer_mac, ifname, host=None):
-> +    """Return the MAC address that host sends packets for addr to: peer_mac
-> +    if addr is on link, else the MAC address of the gateway."""
-> +    route = ip(f"-{cfg.addr_ipver} route get {addr}", json=True,
-> +               host=host)[0]
-> +    gw = route.get("gateway")
-> +    if not gw:
-> +        return peer_mac
-> +
-> +    # Resolve the gateway, from ifname as an IPv6 one is likely link-local.
-> +    # The ping only triggers ARP or neighbour discovery, so the gateway
-> +    # may ignore it.
-> +    cmd(f"ping -c1 -W1 -I{ifname} {gw}", host=host, fail=False)
-> +    # Unlike "neigh get", "neigh show" has JSON output in older iproute2.
-> +    neigh = ip(f"neigh show {gw} dev {ifname}", json=True, host=host)
-> +    if not neigh or "lladdr" not in neigh[0]:
-> +        raise KsftFailEx(f"cannot resolve the MAC address of gateway {gw}")
-> +    return neigh[0]["lladdr"]
-> +
-> +
-> +def _set_ring(ifname, ring, size, host=None):
-> +    """Set a ring of ifname with ethtool -G. A driver can refuse that while
-> +    an XSK socket that just closed still holds a queue, as ice does until a
-> +    work item releases the buffer pool of the socket, so retry for a while."""
-> +    deadline = time.monotonic() + RING_BUSY_TIMEOUT
-> +    while True:
-> +        res = cmd(f"ethtool -G {ifname} {ring} {size}", host=host, fail=False)
-> +        if res.ret == 0:
-> +            return
-> +        if "Device or resource busy" not in res.stderr or \
-> +           time.monotonic() > deadline:
-> +            raise CmdExitFailure("Command failed", res)
-> +        time.sleep(0.1)
-> +
-> +
-> +def _size_rings(cfg, name, direction):
-> +    """Set the rings that case name needs, and restore them after it."""
-> +    for ring, size in RING_SIZES[name].items():
-> +        # The DUT endpoint sends for tx, and receives for rx.
-> +        if ring == direction:
-> +            host, ifname = None, cfg.ifname
-> +        else:
-> +            host, ifname = cfg.remote, cfg.remote_ifname
-> +        try:
-> +            cur = ethtool(f"-g {ifname}", json=True, host=host)[0]
-> +        except CmdExitFailure:
-> +            cur = {}
-> +        if ring not in cur:
-> +            raise KsftSkipEx(f"cannot read the {ring} ring size of {ifname}")
-> +        if size == "max":
-> +            size = cur[f"{ring}-max"]
-> +        if cur[ring] == size:
-> +            continue
-> +        _set_ring(ifname, ring, size, host)
-> +        defer(_set_ring, ifname, ring, cur[ring], host)
-> +
-> +
-> +def _veth_xfail(cfg, case):
-> +    """Report a case that cannot pass over veth as an expected failure
-> +    without running it."""
-> +    reason = VETH_XFAIL.get((case.mode, case.name),
-> +                            VETH_XFAIL.get((None, case.name)))
-> +    if not reason and case.name in TAILROOM_CASES and \
-> +       cfg.max_skb_frags != DEFAULT_SKB_FRAGS:
-> +        reason = (f"the remote endpoint takes max_skb_frags as "
-> +                  f"{DEFAULT_SKB_FRAGS}, not {cfg.max_skb_frags}")
-> +    if reason:
-> +        raise KsftXfailEx(reason)
-> +
-> +
-> +def _setup(cfg, case, busy_poll):
-> +    # A case that fails to clean up can leave an XDP program behind, which
-> +    # cfg.dev and cfg.remote_dev, taken before the first case, do not show.
-> +    for ifname, host in ((cfg.ifname, None), (cfg.remote_ifname, cfg.remote)):
-> +        if "xdp" in ip(f"link show dev {ifname}", json=True, host=host)[0]:
-> +            raise KsftSkipEx(f"{ifname} already has an XDP program")
-> +    if not cfg.veth_test:
-> +        # Defers run in reverse, so this runs once the case has cleaned up,
-> +        # which can reset the NIC as well.
-> +        defer(_check_rss, cfg)
-> +    if busy_poll:
-> +        _setup_busy_poll(cfg.ifname)
-> +    if "RING_SIZE" in case.name:
-> +        _size_rings(cfg, case.name, case.direction)
-> +
-> +    # Defers run in reverse, so the XDP programs, which can cap the MTU, go
-> +    # first.
-> +    fallbacks = [
-> +        defer(ip, f"link set dev {cfg.ifname} mtu {cfg.dev['mtu']}"),
-> +        defer(ip, f"link set dev {cfg.remote_ifname} "
-> +                  f"mtu {cfg.remote_dev['mtu']}", host=cfg.remote),
-> +        defer(ip, f"link set dev {cfg.ifname} {XDP_OFF[case.mode]}"),
-> +        defer(ip, f"link set dev {cfg.remote_ifname} {XDP_OFF['skb']}",
-> +              host=cfg.remote),
-> +    ]
-> +    return fallbacks
-> +
-> +
-> +def _check_opt(opt, val, low, high):
-> +    """xskxceiver takes its numeric options as given, so check that val, the
-> +    value of opt, is in low-high before it is passed on."""
-> +    if not low <= val <= high:
-> +        raise ValueError(f"xskxceiver {opt} {val} is not in {low}-{high}")
-> +
-> +
-> +def _fixup_args(cfg, test_id, ctrl_port):
-> +    cfg.args[cfg.args.index("-t") + 1] = str(test_id)
-> +    cfg.args[cfg.args.index("-P") + 1] = str(ctrl_port)
-> +
-> +
-> +def _run(cfg, local_args, remote_args):
-> +    """Start the local endpoint, and the remote one once the local one
-> +    listens. Log the output of an endpoint that does not pass, and return
-> +    their exit codes."""
-> +    # Wait for each endpoint until timeout(1) has ended it, not just the 20 s
-> +    # that bkg() waits for the local one to exit.
-> +    wait = cfg.case_timeout + 10
-> +    with bkg(local_args, ksft_ready=True, exit_wait=True, fail=False) as local:
-> +        remote = cmd(shlex.join(remote_args), host=cfg.remote, fail=False,
-> +                     timeout=wait)
-> +        local.process(terminate=False, fail=False, timeout=wait)
-> +    for endpoint in (local, remote):
-> +        if endpoint.ret:
-> +            ksft_pr(endpoint)
-> +    return local.ret, remote.ret
-> +
-> +
-> +def _test(cfg, case, busy_poll):
-> +    if "UNALIGNED" in case.name and not cfg.hugepages:
-> +        raise KsftXfailEx("no huge pages")
-> +    if cfg.veth_test:
-> +        _veth_xfail(cfg, case)
-> +
-> +    ctrl_port = rand_port()
-> +    _check_opt("-P", ctrl_port, 1, 0xffff)
-> +
-> +    fallbacks = _setup(cfg, case, busy_poll)
-> +    _fixup_args(cfg, case.test_id, ctrl_port)
-> +
-> +    remote = [*cfg.remote_args,
-> +              "-e", "tx" if case.direction == "rx" else "rx",
-> +              *cfg.args]
-> +    local = [*cfg.local_args,
-> +             "-m", case.mode,
-> +             "-e", case.direction,
-> +             *(["-b"] if busy_poll else []),
-> +             *cfg.args]
-> +
-> +    local_ret, remote_ret = _run(cfg, local, remote)
-> +    rets = {local_ret, remote_ret}
-> +    if rets <= {0, SKIP_CODE}:
-> +        # Both endpoints detached their XDP programs and restored the MTU.
-> +        for fallback in fallbacks:
-> +            fallback.cancel()
-> +    # An endpoint that skips the case tells its peer, which skips it too.
-> +    if SKIP_CODE in rets and rets <= {0, SKIP_CODE}:
-> +        raise KsftSkipEx("xskxceiver skipped the case")
-> +    ksft_eq(local_ret, 0, "local endpoint exit code")
-> +    ksft_eq(remote_ret, 0, "remote endpoint exit code")
-> +
-> +
-> +def test_xsk(cfg, case):
-> +    """Run a case with the endpoints driven by interrupts."""
-> +    _test(cfg, case, busy_poll=False)
-> +
-> +
-> +def test_xsk_busy_poll(cfg, case):
-> +    """Run a case with the local endpoint busy polling."""
-> +    _test(cfg, case, busy_poll=True)
-> +
-> +
-> +def _setup_veth(cfg):
-> +    """Set up a run over veth, where both endpoints bind queue 0."""
-> +    cfg.queue = 0
-> +    cfg.case_timeout = VETH_CASE_TIMEOUT
-> +    cfg.xsk_timeout = VETH_XSK_TIMEOUT
-> +    try:
-> +        with open(MAX_SKB_FRAGS, encoding="utf-8") as fp:
-> +            cfg.max_skb_frags = int(fp.read())
-> +    except OSError:
-> +        cfg.max_skb_frags = DEFAULT_SKB_FRAGS
-> +    # An skb takes a descriptor for its linear part and one per frag.
-> +    cfg.max_frags = cfg.max_skb_frags + 1
-> +
-> +
-> +def _setup_nic(cfg, undo):
-> +    """Set up a run on NETIF until undo, return False if the DUT cannot run
-> +    the cases."""
-> +    cfg.case_timeout = NIC_CASE_TIMEOUT
-> +    cfg.xsk_timeout = NIC_XSK_TIMEOUT
-> +    cfg.ethnl = EthtoolFamily()
-> +    cfg.netnl = NetdevFamily()
-> +
-> +    dev = cfg.netnl.dev_get({"ifindex": cfg.ifindex})
-> +    if "xsk-zerocopy" not in dev["xdp-features"]:
-> +        print("1..0 # SKIP NIC does not advertise AF_XDP zero-copy")
-> +        return False
-> +
-> +    cfg.max_frags = dev.get("xdp-zc-max-segs", 1)
-> +
-> +    # Before the DUT queue is taken out of RSS, as turning ntuple-filters on
-> +    # can reset a NIC, and with it the RSS indirection table.
-> +    if not (_ntuple_on(undo, cfg.ifname) and
-> +            _ntuple_on(undo, cfg.remote_ifname, cfg.remote)):
-> +        return False
-> +
-> +    cfg.queue = _reserve_queue(cfg, undo)
-> +    if cfg.queue is None:
-> +        return False
-> +
-> +    return (_steer_udp(cfg, undo, cfg.ifname, cfg.queue) and
-> +            _steer_udp(cfg, undo, cfg.remote_ifname, 0, cfg.remote))
-> +
-> +
-> +def _set_args(cfg, local_dmac, remote_dmac):
-> +    """Set the endpoint options that the cases share. _fixup_args() sets
-> +    those that differ between them."""
-> +    _check_opt("--max-frags", cfg.max_frags, 1, 0xffff)
-> +    _check_opt("--udp-port", cfg.udp_port, 1, 0xffff)
-> +    _check_opt("--timeout", cfg.xsk_timeout, 1, 0xffff)
-> +    _check_opt("--queue", cfg.queue, 0, 0xffffffff)
-> +
-> +    cfg.args = ["-p", cfg.addr,
-> +                "--max-frags", str(cfg.max_frags),
-> +                "--udp-port", str(cfg.udp_port),
-> +                "--timeout", str(cfg.xsk_timeout),
-> +                "-t", "0",
-> +                "-P", "0"]
-> +    cfg.remote_args = ["timeout", "-k", "5", str(cfg.case_timeout),
-> +                       str(cfg.bin_remote),
-> +                       "-i", cfg.remote_ifname,
-> +                       "-m", "skb",
-> +                       "--queue", "0",
-> +                       "--src-ip", cfg.remote_addr,
-> +                       "--dst-ip", cfg.addr,
-> +                       "--dst-mac", remote_dmac]
-> +    cfg.local_args = ["timeout", "-k", "5", str(cfg.case_timeout),
-> +                      str(cfg.bin_local),
-> +                      "-i", cfg.ifname,
-> +                      "--listen",
-> +                      "--queue", str(cfg.queue),
-> +                      "--src-ip", cfg.addr,
-> +                      "--dst-ip", cfg.remote_addr,
-> +                      "--dst-mac", local_dmac]
-> +
-> +
-> +def main():
-> +    """Run the cases over veth without NETIF, else on NETIF."""
-> +    # defer() works only within a case, so undo restores what main() sets up
-> +    # for all of them, however the run ends.
-> +    with NetDrvEpEnv(__file__, veth_test=True) as cfg, \
-> +         ExitStack() as undo:
-> +        cfg.bin_local = cfg.net_lib_dir / "xskxceiver"
-> +        if not cfg.bin_local.exists():
-> +            print(f"1..0 # SKIP {cfg.bin_local} was not built")
-> +            sys.exit(SKIP_CODE)
-> +
-> +        # Before _setup_nic(), as ntuple-filters can reset a NIC.
-> +        local_dmac = _next_hop_mac(cfg, cfg.remote_addr,
-> +                                   cfg.remote_dev["address"], cfg.ifname)
-> +        remote_dmac = _next_hop_mac(cfg, cfg.addr, cfg.dev["address"],
-> +                                    cfg.remote_ifname, cfg.remote)
-> +
-> +        cfg.udp_port = rand_port()
-> +        if cfg.veth_test:
-> +            _setup_veth(cfg)
-> +        elif not _setup_nic(cfg, undo):
-> +            sys.exit(SKIP_CODE)
-> +
-> +        cfg.bin_remote = cfg.remote.deploy(cfg.bin_local)
-> +
-> +        saved_hugepages = []
-> +        undo.callback(_release_hugepages, saved_hugepages)
-> +        cfg.hugepages = (_reserve_hugepages(saved_hugepages) and
-> +                         _reserve_hugepages(saved_hugepages, cfg.remote))
-> +        if not cfg.hugepages:
-> +            _release_hugepages(saved_hugepages)
-> +            saved_hugepages.clear()
-> +
-> +        cases = _get_cases(cfg)
-> +        _set_args(cfg, local_dmac, remote_dmac)
-> +
-> +        tests = [ksft_variants(cases)(test_xsk)]
-> +        if not cfg.veth_test:
-> +            tests.append(ksft_variants(cases)(test_xsk_busy_poll))
-> +        ksft_run(tests, args=(cfg,))
-> +    ksft_exit()
-> +
-> +
-> +if __name__ == "__main__":
-> +    main()
-
-[Severity: Low]
-_setup_busy_poll() open codes what ctl_file_write() already does.
-That helper lives in net/lib/py/utils.py, and drivers/net/lib/py
-re-exports it. It reads the current value, returns early when the value
-already matches, writes the new one and defers restoring the old one.
-
-gro_lib.py and ring_reconfig.py in this directory already use it for
-the same napi_defer_hard_irqs and gro_flush_timeout attributes.
-
-Here the same logic goes through cat and shell echo instead. Each busy
-poll case spawns a cat and a shell per attribute, plus another shell
-for each deferred restore. The write and the restore are also shell
-strings rather than plain file writes.
-
-Could the loop body just call ctl_file_write(path, val), with
-ctl_file_write added to the lib.py import list?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119164636.1071385-1-maciej.fijalkowski%40intel.com
+On Sat, 2026-11-21 at 01:24 +0000, Tianyi Gao wrote:
+> On E830, ice reports CHECKSUM_COMPLETE with the generic checksum (GCS)
+> that the hardware computes over the received frame. If an XDP program
+> changes the packet and returns XDP_PASS, that checksum no longer
+> matches. The stack then checks the packet again in software and calls
+> netdev_rx_csum_fault().
+>=20
+> On Cloudflare servers, an XDP load balancer removes the encapsulation
+> of the packets that it accepts locally. Our production traffic hits
+> netdev_rx_csum_fault() all the time.
+>=20
+> Do not use GCS when the ring has an XDP program, as mlx5 has done since
+> commit 5d0bb3bac4b9 ("net/mlx5e: XDP, Avoid checksum complete when XDP
+> prog is loaded").
+>=20
+> E830 also sets the L3L4P and checksum error bits, so the packet gets
+> CHECKSUM_UNNECESSARY or CHECKSUM_NONE, as on E810. For example, a zero
+> UDP checksum over IPv6 is marked as bad and gets CHECKSUM_NONE. A zero
+> UDP checksum over IPv4 gets CHECKSUM_UNNECESSARY.
+>=20
+> Two pending series [1][2] give XDP access to the checksum status.
+> Neither of them supports CHECKSUM_COMPLETE.
+>=20
+> ice_rx_csum() reads rx_ring->xdp_prog again after the poll loop ran XDP.
+> While ICE_VSI_REBUILD_PENDING is set, ice_xdp_setup_prog() can replace
+> the program without stopping NAPI, so the two reads can differ. At
+> worst, a packet in that poll gets CHECKSUM_COMPLETE as before this
+> patch. The pointer is only compared with NULL, so this cannot crash.
+>=20
+> Link: https://lore.kernel.org/all/20260715-bpf-xdp-meta-rxcksum-v5-0-623d=
+5c0d0ab7@kernel.org/ [1]
+> Link: https://lore.kernel.org/all/cover.1794281983.git.tianyi@cloudflare.=
+com/ [2]
+> Fixes: 905d1a220e8d ("ice: Add E830 checksum offload support")
+> Suggested-by: Jesse Brandeburg <jbrandeb@kernel.org>
+> Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
+> ---
+> Tested on an E830 (8086:12d2, board N31483-007, fw.mgmt 7.9.5, DDP ICE
+> COMMS 1.3.63.0) with an XDP program that removes a UDP encapsulation
+> header with bpf_xdp_adjust_head() and returns XDP_PASS. The kernel was
+> based on 6.18.64, where ice_rx_csum() is the same as in net:
+>=20
+> - Before: 63322069 netdev_rx_csum_fault() calls in 30 s.
+> - After: 0.
+> - Without an XDP program, the port still reports CHECKSUM_COMPLETE.
+>=20
+> On an E810, which has no GCS, drivers/net/xdp.py, ping.py and
+> hw/csum.py give the same results with and without this patch.
+>=20
+> Request for comment: I also prepared a drv-net selftest for net-next.
+> It removes 16 bytes from the UDP payload with bpf_xdp_adjust_head()
+> and fails if the packet reaches the stack with CHECKSUM_COMPLETE. I am
+> not sure we want to enforce this for all NICs, so asking here.
+>=20
+>  drivers/net/ethernet/intel/ice/ice_txrx_lib.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/drivers/net/ethernet/intel/ice/ice_txrx_lib.c b/drivers/net/=
+ethernet/intel/ice/ice_txrx_lib.c
+> index e695a664e53d..ad22d855436e 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_txrx_lib.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_txrx_lib.c
+> @@ -123,6 +123,7 @@ ice_rx_csum(struct ice_rx_ring *ring, struct sk_buff =
+*skb,
+>  	rx_status1 =3D le16_to_cpu(rx_desc->wb.status_error1);
+> =20
+>  	if ((ring->flags & ICE_RX_FLAGS_RING_GCS) &&
+> +	    !READ_ONCE(ring->xdp_prog) &&
+>  	    rx_desc->wb.rxdid =3D=3D ICE_RXDID_FLEX_NIC &&
+>  	    (decoded.inner_prot =3D=3D LIBETH_RX_PT_INNER_TCP ||
+>  	     decoded.inner_prot =3D=3D LIBETH_RX_PT_INNER_UDP ||
+>=20
+> base-commit: 92e97d7cffc7ec6adfa4699203c18b1ab0c8b314
+
+I'm not sure this is the best fix for this. If we are needing all NICs
+that support CHECKSUM_COMPLETE *and* XDP to report CHECKSUM_NONE in the
+event of a frame being modified by XDP it really feels like we should
+probably look at moving this further up the stack.
+
+Otherwise the proper fix for this is probably going to need to be
+spread out to far more drivers as I suspect the intersection of the two
+is likely not that uncommon.
+
+Also even if we go the multiple driver fix route I wonder if we
+shouldn't look at adding a new XDP return type to indicate that we are
+passing a modified frame so that we don't have every XDP program out
+there forcing NICs into a state where they have to start turning off
+various offloads across the board when they don't need to.
+
+What we are going to end up with this current path is one group of XDP
+programs dragging down the performance of others since they will take
+the penalty for the ones that are making the dirty modifications.
