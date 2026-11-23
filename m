@@ -1,72 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795417333;
-	b=yTihTvcvNt/NGDNAdrkHZo6OxpDp2o9h/TSwnq42PAJGDUyw4FkZIlRyGqdU4kLf7DBD
-	 q3kOVBAyXquVpyrCzbDDR5Z7lbTMPF64bPTFMDIeIRdNqlzsrKEJT55JMvMsU8emI0z3p
-	 z6WDJevCEJeFJGpn1mVLT7eYEkjzR+R8ALQeBJ1SE84oOIv5J+ri35WIV7qQHszkw5guG
-	 nc02wpcsrJmuE5UQSFAukV0qBs0EcMUmT7V0F8jEpcJGC0RGhpFdds1ki8jdwWmfWsdPM
-	 Fv8ysP7pf8iHRuJLpwscp7Aafj+xGPm9oOA2uN9wFzeSvFCr+cqdPc3RtA/DEyuhlkA==
+	t=1795417345;
+	b=vFfC0oJH8W8NsA9MFi9OrwY2F3jLI/lppFxmmCdFacJTzD0+bjn4pISZBQXBQp1fydTW
+	 VN7hmBcFIl02MOpwzT7ymiD/IKJuLX2D2Nle3En5URl8nO2viaArPPtHIIt21Cki+YFL3
+	 CaswuyZjJlX39ewcJE95oSJKW8Pgp97rg/TiJFEqevV6440hKLe5hcT1SU30+uU2tMiJW
+	 K8aJH1+GE8mOEgUwW7p/eFnSrG9R2pjPkkhMKsJMswob9JQHbCI8ktLP2rLSawQ3DNXVB
+	 xD5YmWlR5WFxphwmky/4+dD8vcBp02Oz95CFZtY/KJjIgrQ6hBW1KJ6bP1mTfD8LnZw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795417333;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=y7v+P8bJqEof0yPy+kUZoCNH441jx4UihzMQ7Aabsd8=;
-	b=XDXL4FlHAo5YnEzpEC+0f99inXj4Yz1lE8UTQpkVrJSKNJgAU2qex3UBBD9G05IriJzL
-	 BEzSX3buCD3XU00PUAWzvQttROo3+38V6SFS+bFPYRbzVpH4uYfc9Dsq0cki1c3kUpJbJ
-	 1jOLUnC52HA3THliEBzSkAuVIXiCIUkH6wgzL0sfe+9NjUSCnrl3N6o1xo1nvBAeQVCZ4
-	 flw98pSzF8hM5SUSzi1Wv42wRCa05l8Kd/pfyourB4lNGBN1WICXJ8g85J9Wa2enTGtjD
-	 ucCbMVVHO3bfU9c1lDr5+5Uf8pbnm9Szn9G5eTVPTsAxfzJbSivFvuXnsrrRXedPi+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795417345;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=v69anBEUFwV7uzdskgwqH17t1Pi6Q8QstAXY+ngq78F2jsHCWdXn4yShFJ/CdfiwngRo
+	 Vug1f26l4wRCg9CprRAk5Glqw4X4LlupDdHOdMuoB6jmdGNLlEQphp2e/hyVulr1Aejtf
+	 IN7jezJEtLBFv9rT/3x1srBbZR3Vf2Ksg1oua7Y0F2Kz2Qs96q01L3diuljtAIO8oBM07
+	 wEsGZjP4+EX07GjOiYlzCiv1+2CKLSrCgTJv6RlHEWPRnNScAngXA2fwA9rYHY800IavP
+	 Mv63zfLPw1NNn11dvI85ccBOSURxnSiJvbL/pNeal2I06GLwe+WzottOu7sTSJSvL/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iAOiKLio;
-	arc=none smtp.remote-ip=95.215.58.169
-Received: from mta1.migadu.com (out-169.mta1.migadu.com [95.215.58.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IRzEWJY2;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0447C606A683
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:02:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0447C606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 478DB606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 07:02:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iAOiKLio
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=y7v+P8bJqEof0yPy+kUZoCNH441jx4UihzMQ7Aabsd8=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795417330; v=1; x=1796022130;
- b=iAOiKLioPKAj1vFLeKvMRq1XnMFLpAkNrLGOmAzzPk9a4s1uv61Oezn+Cx6rPz9njZn9OuBj
- /C9QXg4Y1neQ6XoUUfB1yrUqrggSCu8Jbo9skvh5MZeZIlQBbRMjOH4JuTYK9vXVzNOV+8BE9t+
- bDYMLA1DV7mIM4IkZAyZzDgk=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9deeaf9e38cf6456;
-	Mon, 23 Nov 2026 07:02:10 +0000
-X-Mizu-Trace-ID: 9deeaf9e38cf6456
-X-Migadu-Flow: FLOW_OUT
-From: Qiliang Yuan <qiliang.yuan@linux.dev>
-To: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>
-Cc: Qiliang Yuan <qiliang.yuan@linux.dev>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Ralf Lici <ralf@mandelbit.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v5 0/4] net: make moving a device to another netns cheaper
-Date: Mon, 23 Nov 2026 02:02:01 -0500
-Message-ID: <20261123070201.4117929-1-qiliang.yuan@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090@linux.dev>
-References: <20261121-bug-net-netns-move-rcu-barrier-v5-0-100a3b5d9090@linux.dev>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IRzEWJY2
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 335871F000CF;
+	Mon, 23 Nov 2026 07:02:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795417344;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=IRzEWJY2OFpU5Xprl1SH+4BluANL4jrafPA/kzMRVPNkMxvPa/aTOWls9ofsgj0Ff
+	 tsccQGbP+H4BvRYYyPaBVDCFWZ0c3S2020X0D+e6PDeUTxlO98101hPcd8BvsVFNWT
+	 MMPkThhsPNd2IlrZuKuGhpe4PI9XCRwaaXfamGH/xFqvy/v1lAg/iV8JzAz3gIMzHr
+	 GeXN+lipBRm1tfjJARB0/bMblWHnapTmHQChydSotiT5r94jTTQJwLf6bKqNy41OeJ
+	 Z/jX5kwSZacd32/LCqo3Oc0kICK5eghfPymPYfwagjnywrCLaWJaINgS+099X+j1f7
+	 OeuGrhS5knOvQ==
+From: netdev-bot+sinfo@kernel.org
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>,
+ Nikolay Aleksandrov <razor@blackwall.org>, netdev@vger.kernel.org
+Subject: Re: [PATCH net] ipv6: reject released nexthop object routes in
+ ip6_dst_check()
+Date: Mon, 23 Nov 2026 07:02:23 +0000
+Message-ID: <179541734374.3294.12814339545104396123@kernel.org>
+In-Reply-To:
+ <20261123-bug-net-ipv6-dst-check-released-v1-1-769d320a2470@linux.dev>
+References:
+ <20261123-bug-net-ipv6-dst-check-released-v1-1-769d320a2470@linux.dev>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,33 +67,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On Sat, Nov 21, 2026 at 06:21:18PM -0500, Qiliang Yuan wrote:
-> Moving a device to another netns waits in rcu_barrier() with RTNL held.
-[...]
+Hi!
 
-Please drop this series, I'm not going to post a v6.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-The barrier also waits for the RCU callbacks that release routes cached
-through the device, and some users never check their route again before
-sending. With v5, a UDP datagram corked on a route through the device
-goes out through it after the move. Retiring the cached routes when the
-device goes down doesn't close this either: a lookup that picked the
-nexthop before NETDEV_DOWN can cache the route after the flush, and
-that route is again only released by the callbacks. With the lookup
-delayed across NETDEV_DOWN and the callbacks delayed, the corked
-datagram went out through the moved device in 2/10 trials on a plain
-IPv4 route and 9/10 through a nexthop object, and in none on net-next.
-Closing that window would take a check after every route cache
-insertion, which isn't worth it for this.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-The init_net blackhole that came up in v5 3/4 is an existing bug and I
-sent a fix for it to net [1].
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Thanks to Ralf for the reviews.
-
-[1] https://lore.kernel.org/r/20261123-bug-net-ipv6-dst-check-released-v1-1-769d320a2470@linux.dev
-
-Thanks,
-Qiliang
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
