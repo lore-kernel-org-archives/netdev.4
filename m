@@ -1,104 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795452254;
-	b=IEXhc/4SOG/p0W5JJMcD2vCCP570o6OQ2eNxtei8EUBU6OjZpPXoYHIOGeLFlstpnTQS
-	 zaCkmm0wIHC6rrf62+lAkscRTKOPOS23BVVT/XHL5wceZ/i2j0eVtEGqTraQ91jVk0+l2
-	 +ghZxMBMPuxCarii+ECAeWKKroGWHvx01Sy0cawqELOmuvD8UuHFHJNOrH/ZKcR9JGx0I
-	 s5QkN+cDTkNunHDfB8WkGx7pjTDdSIJA+2QUPnGZ3OQzusH6/Vokbdynk0qFeRYFZwB6D
-	 MR4Yg7Vlu9tvG/aL25qa5cGkkOvqC9PBHXN58XVi21OiZdz3zqji/jBnOnRwZl1mDFQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795452254;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
-	b=jbUHq+dbouLvmHqn6gx2xjeX3+nd04rshO+VD5HrcioFI/Q+WWAZ3Kn4A1xfv4LpZadJ
-	 umYMYv/OWSA7jjMxq094t/BYFTH2khiDYZ3VhJcEym6Tur7+TFvgMeUloJKCXQ4ddOdVz
-	 04EXojlVf4om51aiwGs7zjuKeFuf8zFBEboMBo3B669XVQWrG9CEBokZeOSpv/ExcRdsW
-	 A9aO6ovGv8ifvr785sNDdIidT9gMKLHAQEvR0U2KkhDuEZUN7QJPVgklNBSYSgvqJogMg
-	 GfAXTrJyCHiGZyniPUPc5A/J+4RZI98pttaNSegKQm6pDrNdqpAELjpmTlCUa1FaDsg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.22
-Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013022.outbound.protection.outlook.com [40.93.201.22])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795452521;
+	b=thOCNu5j8ndDuGn88YJ4RcaQKmGLKisMrKY9k06WxqoEeWt+ZJYlcdcNKYf2Ow63V345
+	 Z92cv7f5zbsJnlnH/qjjbNf/UhKJlOBFM7ZASUYEXhrb/ePousUtpseFNxZxTg0O4y0fP
+	 ED68At5TBg0D+tjiF4qFihvtJ22A170fjAdjsJQO2cuMaYfjUQNF+ci1iRTiGbd6BJHTt
+	 YwtcIHxSvjbjppUlD/p5kEMm3URRd6kU3F5NIytKrf339Hi23IbrZn+Mo/tPGkEJcv4C6
+	 nmy8FDVuOk8ykvp/FmP9hDHGa4Ona5iC/ai4irv8agTCy6sYDf+sxVmcnyhqeFI78+g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795452521;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
+	b=ljJgID9ZkrJCYbAlqK3qMN+TY6MeVCkv+skQC4yFik6r5xn8+0N2GBFtLMqcsig+E7sc
+	 YONIeyBZKczdxkbH97GF1+/v0w1hn9QSP9poZB+nr3ill5qvPmltWHYMfofSHOkFPTDnI
+	 p/8YrDEDVE3Y9RpMIN2mAq8QIHl7cNTSRFUAUslaouwm2XBhfd7DVjqrqCMOeUtb4wKQM
+	 9TjD9KIVC9r42NlTIjmTiNakaNAiyvfpswRPOX0K836Y2CJ3hTiKw3d7X+0RPgVtCqEHM
+	 vnUz7nNEQZGvABu0QS9xj7ejuuXKVHi72JRsKEQxawPgJYePZUjFbS9z9SuDcHfzBig==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EWsuP7zJ;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDC7C606A31E;
-	Mon, 23 Nov 2026 16:44:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDC7C606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59A20606A33E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:48:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59A20606A33E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=2mU5GQlq
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=QWolYgO26gWeFlLGX44Jen1GudTtdhod9/KAC8cQhJxQOyuQmLUXZl2qroBQzgNHH1ly6+BAY532p3FN58P5TElDKda2iuie9A01FMhwcUSKYSk9JIjQKRyGfNxTn1MX5z6br6qXp1HRnKLAuIlp0WAu2O695pHluKLEXQITqkISjr5ARqTkZDzExS+JltnDRmNfOOQJtP5lnppjp/1woF2x/XYPf8IKRMS3iihT0dTVmRI4uVHg4+HVd4MAMRcsLhicAItiPRCRg+IvBXLgdBIvkI0L4nCjtp8v3Cnz+CSBJs5sHWDcPkaoJ7Sm1Lw4ZGQiiQxVlqxUKgPYRDCbDQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
- b=OX5q4WYc2dLRK5EDZSDcCU9ykm2WgzuILcLEbfoYlaU45nGqNwfCp2gBEgKHnF19AaqDHHEblMldVEKHfpmRw8ho/bIJtZtVhoCGI+PwJ3PKEcVqmeetyl8FaUP/FihIBHSBCqP8G93tSQ0Rpg+GBKY9YSc9C7dTADS5+krrt810pu6lrlQchm2+0wB+OAJZ5W8hQmfY5GswdbUVcittwWNkeqZv7XeHWTT1vfBAsBVhHwUmAsVc8HIQ8q99ZxaqfVcBKz0MF3fXny6GUJXXEjxccAjn3J7uw4radsVEei3Mz8f5YdWiYeT5awk6jFeG1bNChmeAlQKQWKJyFJR2vQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=FkwbwviojkM4gKR0Wj2UdEk1IhthcXzsco0vEBT+c3Y=;
- b=2mU5GQlqWVedpPiX8SfZGqFxRr4IVfJ5ehQKlF4KGC3t+9pbGVongLYdnp1q9h2SPtp0RLoDOobkZHlxdLvYKjjwlzN/ltam15grhVY5LFdNPwC80S5tmUXeZRF/waf1CDJawG3ePWOzS5xlEKlqF7KGDoQYLnc65GcrxM9POVA=
-Received: from PH8PR22CA0014.namprd22.prod.outlook.com (2603:10b6:510:2d1::29)
- by SJ2PR12MB8883.namprd12.prod.outlook.com (2603:10b6:a03:538::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Mon, 23 Nov
- 2026 16:42:59 +0000
-Received: from BY1PEPF0001AE17.namprd04.prod.outlook.com
- (2603:10b6:510:2d1:cafe::93) by PH8PR22CA0014.outlook.office365.com
- (2603:10b6:510:2d1::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.639.14 via Frontend Transport; Mon,
- 23 Nov 2026 16:42:59 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 165.204.84.17) smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- BY1PEPF0001AE17.mail.protection.outlook.com (10.167.242.107) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.639.5 via Frontend Transport; Mon, 23 Nov 2026 16:42:58 +0000
-Received: from satlexmb07.amd.com (10.181.42.216) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Mon, 23 Nov
- 2026 10:42:55 -0600
-Received: from xhdsneeli40.xilinx.com (10.180.168.240) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Mon, 23 Nov 2026 10:42:52 -0600
-From: Srinivas Neeli <srinivas.neeli@amd.com>
-To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <michal.simek@amd.com>, <horms@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <git@amd.com>
-Subject: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
-Date: Mon, 23 Nov 2026 22:12:51 +0530
-Message-ID: <20261123164251.48234-1-srinivas.neeli@amd.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EWsuP7zJ
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so1693114b3a.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:48:40 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795452520; x=1796057320; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
+        b=EWsuP7zJJNvbfMPNG7SLHEF3yL+QlEtMOmwu3by8A/WNpiRSTgAdB++0K9EZ63MAyy
+         GH/dq6DxwptKu20HOnCL709zeFibKErwDUJ31x2cknJd4fyN/snaHcQZfAwyzZ7yh7Uk
+         BAukFuqFnE2UP7n0BRfkKl8mvELW8MPhSm0MFsHS0iPEnAERpzScvrIcCwoT+sO9f6T+
+         VSqQ1de51OHqXLQT4UXz6dUD25pV6axh9dJhq1X56+pbxs/zElSZ8gf62GpCsQpHQhtK
+         4VyxmcuYiel5SCFACJZlWnEXUlLsGRSxqRA2YKsm7toBb/R8Ho9MJQnbZwdc5+6GdhCa
+         bcaA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795452520; x=1796057320;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=QTHxkjwnWdi0Sg67/NbYoTIjq9LWwP65YaigHl4xtvM=;
+        b=J5cby7MTbQ/+kBi5RjtRYmJcb2gC+4pffb6FBOt7qIk+RENv9DjgLHwkolsfpmvNr+
+         PCxuI3yL3EnLj9Ftjr2ulB5YkZThbtw2vkyYlqA8P7bv+F6ZHb0INxLq8yH55Re3uI0B
+         a7nGFzpAvla/Db7qTTw4KY+Ho6iE855bcPSOpgfgdrBGMETu0Ye5/B4KLpBeiKQxuOiC
+         DLWDKpA2OnVSzoOVE3z9eHUkL1cXlLK3faecp3BhLNmvhrSkbEgcbMGtaPqskOUTmWEL
+         fsd/+JTuHAio7MvJ6aFkzk6TU0awy3giJlHNxzBGvKl2kjD40E9kM+BRAf37jzQix64N
+         ze5Q==
+X-Forwarded-Encrypted: i=1; AL+hErESBfFk5QfApukp7Xnkc9CvxIHlI93LOt+8HTzTj3kEY83hdLcSd1ZYbCPnuAGN471n8syFX4c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9dXG7p+VI9e1g03oltm2craXFwEk7mhpa73YFtetv3EfiH3Ih5
+	cyfU5UoqQuuf8q531vW000liJ81197lgRdDBnaIcfwTbjeEgQhhy8viK
+X-Gm-Gg: AZFdTZf78FfgRN8jJgFfTWzPBRCnzdXtUl8JDXO1a//f/Z15xLgr8otabf8fymWkYPA
+	NdZndp2xrfsyIxTwZavT9W6ayc1DuToYrRRZWRI391IPCejyunoPSszwpeXhJwktDgDKyHz0wja
+	HTMYdt+vBNo3W2A0oxZrK1AcLetelkqDZlnOW320XZdtYTbeGqY4FfNj5xkKSOwmLmt1P916P0V
+	wAiqka2tdi+IddL4tPwAGSLXWumZmLnaEE3MHpM42Y0+ClefoDn1qC2LXRl5b+sM3ju1JcFE+Iy
+	NKlmDbDW56URc2t0bmeBVA9pRHiwC2Y06zyUCf/nZGNgtt/ke6k/69VrQ+fqRpO12DHW2Cxq3b2
+	SiqQerWNtNOY2VBSSE6c/7sbgG9isjhwRYyhpgooeOzemwh2Mm+KhjPSz+9h5c3jPkeqGAs7Htm
+	h1jOs0lWglB2a5ef2kR+LoGjSLxGA9rz/fQAqbXFGhNVT4DljjyxGNrDlvK2oHs8+kPymMm3RDc
+	fEaiqQ1gbp3Xvn5dRXX3IFP5chmXJHlFUYsRCBchRtZ8+FbyAQF/llqO2WTQwq4KtHVoWKKSUcO
+	YRPra0z6Hu0sQ6zVMzPFkRnm9nDglJPk68hbzmYjDVlth8s=
+X-Received: by 2002:a05:6a20:c992:b0:3f9:9114:804f with SMTP id adf61e73a8af0-4014d15937dmr11140810637.27.1795452519544;
+        Mon, 23 Nov 2026 08:48:39 -0800 (PST)
+Received: from [10.2.0.2] ([159.26.115.37])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343fe6csm6085691b3a.37.2026.11.23.08.48.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 23 Nov 2026 08:48:39 -0800 (PST)
+Message-ID: <a7752192-b417-4e70-8f39-a3cdc983f447@gmail.com>
+Date: Tue, 24 Nov 2026 00:48:34 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,121 +92,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY1PEPF0001AE17:EE_|SJ2PR12MB8883:EE_
-X-MS-Office365-Filtering-Correlation-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|82310400026|1800799024|376014|261102123227099003|261026121527099003|261026140227099003|261022075727099003|261022105027099003|261028144727099003|261021121427099003|261021123027099003|11063799006|56012099006|10067099003|261009223027099003|18002099003|6133799003|13003099007|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	mOG0yGFkax9pzAIkolMhn4iVmpZKbVxM3xT9VBqYhIqPG7gTYv9Dqfb9yYLifEf0ltNSB58b07t7ofiQw3mBVCumMsz2Vdh6VpeGNBJA2hsFV4QKDdvaPxsUuVbmLutknOyI088q7F2b7zYa1mdrzO92yLaUAK0cUXsFjt8rK2L4ub/wIEpbcZiXnyHnhKU41eoJx2moamKAJBDbkQ12U/+P0UprcoQL8WXsAmXkTUTuUwKknnrbfM2/V0Y62HyXNU+b+S2XSZhan+4Bnvzy1t+TY1o8Je9qDVWX4/itYwdfmqvv8rVNJMx4PoCnEuEGINF/a1OX2mnvl5rDjXms41PlZ2RnRby0JUxW8XMN2FNxn4f6i5JQtHQIrtaBYsTaAkcUNADGeys4RnkyNorfa+c5kLjTs0P3fLNwDBwNAVxgdB/uO46uYmySYvP6+u8DkTldL1QAyTI0aPl2PAkKtMaG8LmXi2sw0EXziS4dhoMjiMMzuDo+8eiGH9jv0dhL8Gpg8GzZ/BRriUdQaeSUhvZ05e7Qz78g3zSIi+BwhYFBKtAznK4rgBw0JMrtkuPvLgXUil8u1LT/e3Bwoot6qXLj0CAQbTyRRc46zWaPy11to0PJjk0G1Ay3aZ/fdxaiKJqDbxRdkyEw3Aea1gnV7XEgWxzdpT9w10KUHu/awP8=
-X-Forefront-Antispam-Report:
-	CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(82310400026)(1800799024)(376014)(261102123227099003)(261026121527099003)(261026140227099003)(261022075727099003)(261022105027099003)(261028144727099003)(261021121427099003)(261021123027099003)(11063799006)(56012099006)(10067099003)(261009223027099003)(18002099003)(6133799003)(13003099007)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	NPGtpyWmRI6l5G7fZcJZ0G9eYTyeG3j3+bZlUhdXRlyreR7jhL55XUCJWZyenx+JQ8UzPeX1Y/ftKxf63AdNVe4chvRmJx7ZUbN75hb5k3OKuP4rIucjxPNRwhDD7UhGfCCV0oor/0fHvudIQXslwn+y0RRTLhSYKSm6XtDSJNC1z8mXLAWl+Ph0ir1PgqMDT9PkmbTnbRWbnI4RMcnIIMdAt+4AcHg037AaXktFubbNpoyAUTE+K9u4tLDdY730c67bIdWx5En1dhaDaXgkZtlioQPthJ7bYWlSF4ZSwkhj67gL+eGdGzKbxYhC9Nz0SZsXRRcaC94ywPFp5c+pljbnqZI48/QxAoptGaYu6yzRZg5Sd+MjBE6Ft/kv1yzxYDjZNlOd9AmlNkPmH/h54MKxDmHuB+XMCqmWTBLSPjMGvKCs99ULkPGkKiTO+pOh
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 23 Nov 2026 16:42:58.7065
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: dd8a27e0-31a8-4c78-6f62-08df4980d503
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BY1PEPF0001AE17.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8883
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] vhost/vsock: annotate lockless accesses to guest_cid
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Stefan Hajnoczi <stefanha@redhat.com>,
+ Stefano Garzarella <sgarzare@redhat.com>,
+ Bobby Eshleman <bobbyeshleman@meta.com>, Jason Wang <jasowangio@gmail.com>,
+ =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
+ Asias He <asias@redhat.com>, kvm@vger.kernel.org,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20261117164916.2332953-1-phind.uet@gmail.com>
+ <20261118012321-mutt-send-email-mst@kernel.org>
+Content-Language: en-US
+From: Nguyen Dinh Phi <phind.uet@gmail.com>
+In-Reply-To: <20261118012321-mutt-send-email-mst@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-The dmaengine RX path derived the received frame length from the descriptor
-APP metadata. That only works when the optional AXI4-Stream status/control
-interface is present, because the hardware populates the APP fields solely
-when that interface is enabled. On designs without it the length read back
-is invalid.
+On 11/18/2026 2:33 PM, Michael S. Tsirkin wrote:
+> On Wed, Nov 18, 2026 at 12:48:43AM +0800, Nguyen Dinh Phi wrote:
+>> vhost_vsock.guest_cid is written by vhost_vsock_set_cid() under
+>> vhost_vsock_mutex, but It is also read without that mutex in
+>> vhost_vsock_handle_tx_kick(), and vhost_vsock_get().
+>>
+>> KCSAN will report data-race if we issue VHOST_VSOCK_SET_GUEST_CID
+>> ioctl while the device has TX traffic. For example:
+>>
+>>  write to 0xffff88810f1596ac of 4 bytes by task 7914 on cpu 1:
+>>    vhost_vsock_dev_ioctl+0x25f/0x720
+>>    __x64_sys_ioctl+0xc2/0x110
+>>    x64_sys_call+0x299/0x20a0
+>>    do_syscall_64+0xc9/0x510
+>>    entry_SYSCALL_64_after_hwframe+0x76/0x7e
+>>
+>>   read to 0xffff88810f1596ac of 4 bytes by task 7910 on cpu 3:
+>>    vhost_vsock_handle_tx_kick+0x41b/0x740
+>>    vhost_run_work_list+0x97/0xc0
+>>    vhost_task_fn+0x98/0x1f0
+>>    ret_from_fork+0x2e2/0x3c0
+>>    ret_from_fork_asm+0x1a/0x30
+>>
+>>   value changed: 0x0000004d -> 0x00000032
+>>
+>> Both readers load the CID once and works correctly with either the
+>> old or the new value.
+>>
+>> Mark the store with WRITE_ONCE() and the two lockless loads with
+>> READ_ONCE(), so KCSAN knows the race is intentional.
+> 
+> You make it sounds like it is just KCSAN false positive.
+> Is it?
+> if yes, this should be data_race. If no, document why.
+>
 
-The AXI DMA engine already reports how many bytes it wrote into the buffer
-through the standard dmaengine residue mechanism. Compute the RX frame
-length as the posted buffer length minus result->residue, which is
-independent of the status/control interface and correct across all designs,
-including multi-descriptor frames where the residue is summed over the
-chain.
+This is an actual data race, not a false positive. The value of guest_cid
+can change while the TX worker or lookup path reads it with plain accesses.
+Because each check loads the CID once and either value is valid, the result
+is equivalent to the read running just before or just after the ioctl.
+Even so, plain concurrent accesses are a data race under the Linux kernel
+memory model, and using READ_ONCE()/WRITE_ONCE() also prevents
+compiler re-fetching or tearing rather than just silencing KCSAN.
 
-Drop the descriptor metadata lookup, which was only used for this purpose.
-Detect a failed transfer from dmaengine_result.result instead of the
-metadata pointer return value, and remove the now unused LEN_APP macro.
+>>
+>> Fixes: 433fc58e6bf2 ("VSOCK: Introduce vhost_vsock.ko")
+>> Signed-off-by: Nguyen Dinh Phi <phind.uet@gmail.com>
+>> ---
+>>  drivers/vhost/vsock.c | 6 +++---
+>>  1 file changed, 3 insertions(+), 3 deletions(-)
+>>
+>> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
+>> index 88a310390eb0..f26c59013075 100644
+>> --- a/drivers/vhost/vsock.c
+>> +++ b/drivers/vhost/vsock.c
+>> @@ -78,7 +78,7 @@ static struct vhost_vsock *vhost_vsock_get(u32 guest_cid, struct net *net)
+>>  
+>>  	hash_for_each_possible_rcu(vhost_vsock_hash, vsock, hash, guest_cid,
+>>  				   lockdep_is_held(&vhost_vsock_mutex)) {
+>> -		u32 other_cid = vsock->guest_cid;
+>> +		u32 other_cid = READ_ONCE(vsock->guest_cid);
+>>  
+>>  		/* Skip instances that have no CID yet */
+>>  		if (other_cid == 0)
+>> @@ -572,7 +572,7 @@ static void vhost_vsock_handle_tx_kick(struct vhost_work *work)
+>>  		hdr = virtio_vsock_hdr(skb);
+>>  
+>>  		/* Only accept correctly addressed packets */
+>> -		if (le64_to_cpu(hdr->src_cid) == vsock->guest_cid &&
+>> +		if (le64_to_cpu(hdr->src_cid) == READ_ONCE(vsock->guest_cid) &&
+>>  		    le64_to_cpu(hdr->dst_cid) ==
+>>  		    vhost_transport_get_local_cid())
+>>  			virtio_transport_recv_pkt(&vhost_transport, skb,
+> 
+> Will prevent compiler from hoisting the reads out of the loops.
+> Does it matter?
+> 
 
-The transmit path is unaffected. It still passes APP metadata for checksum
-offload and derives its length from the skb.
+Not much in practice: because the loop body calls non-inline functions, the
+field needs to be reloaded across calls anyway (and in `vhost_vsock_get()`,
+the `vsock` pointer changes on every iteration). I checked with gcc 16.2 and
+clang 21, and the compiler does not hoist the load out of the loop even
+without the patch.
 
-Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
-Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
----
-Changes in v2:
-- Refresh the patch against next-20261120 to address the reported
-  git am failure. No intended change to the RX logic.
-base-commit: 909ef7a9a30fa139e69e555e3606680f5cca7726
-
-Apply failure reported in:
-https://lore.kernel.org/lkml/20261123140311.GB31322@horms.kernel.org/
-
-This patch was originally posted as part of the MCDMA series and can
-be applied independently of the other patches in that series.
-https://lore.kernel.org/lkml/20260818174151.1608971-4-srinivas.neeli@amd.com/
----
- drivers/net/ethernet/xilinx/xilinx_axienet_main.c | 14 +++++---------
- 1 file changed, 5 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 7e83c4b5f193..5b4998e2ca14 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -55,7 +55,6 @@
- #define TX_BD_NUM_MAX			4096
- #define RX_BD_NUM_MAX			4096
- #define DMA_NUM_APP_WORDS		5
--#define LEN_APP				4
- #define RX_BUF_NUM_DEFAULT		128
- 
- /* Must be shorter than length of ethtool_drvinfo.driver field to fit */
-@@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
- static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
- {
- 	struct skbuf_dma_descriptor *skbuf_dma;
--	size_t meta_len, meta_max_len, rx_len;
- 	struct axienet_local *lp = data;
- 	struct sk_buff *skb;
--	u32 *app_metadata;
-+	size_t rx_len;
- 	int i;
- 
- 	skbuf_dma = axienet_get_rx_desc(lp, lp->rx_ring_tail++);
- 	skb = skbuf_dma->skb;
--	app_metadata = dmaengine_desc_get_metadata_ptr(skbuf_dma->desc, &meta_len,
--						       &meta_max_len);
- 	dma_unmap_single(lp->dev, skbuf_dma->dma_address, lp->max_frm_size,
- 			 DMA_FROM_DEVICE);
- 	skbuf_dma->skb = NULL;
- 
--	if (IS_ERR(app_metadata)) {
-+	if (result->result != DMA_TRANS_NOERROR) {
- 		if (net_ratelimit())
--			netdev_err(lp->ndev, "Failed to get RX metadata pointer\n");
-+			netdev_err(lp->ndev, "RX DMA transfer failed\n");
- 		dev_kfree_skb_any(skb);
- 		lp->ndev->stats.rx_dropped++;
- 		goto rx_submit;
- 	}
- 
--	/* TODO: Derive app word index programmatically */
--	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
-+	/* Actual length = posted buffer length - residue. */
-+	rx_len = lp->max_frm_size - result->residue;
- 	skb_put(skb, rx_len);
- 	skb->protocol = eth_type_trans(skb, lp->ndev);
- 	skb->ip_summed = CHECKSUM_NONE;
--- 
-2.43.0
 
