@@ -1,73 +1,63 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795395618;
-	b=32Oee/8LLZfNJeY5cCgXm4gWE1HwV6LJTnl7FixPlcIHrHwhKdXtXIIQ1aiw49BvT3F/
-	 uNd9/TE4eZeQ7OQlaoAAcz5gjEzJFLSKeevQG5C68986VPme3tcagaBLS0vDMxs/VSLEK
-	 LzeGV4wJO+bJIZgyaB1M6SwJvi/wyx0LYCDJzVkrDB5SY4skPxXZtYG3Ly6RUbZjwkuFc
-	 NHCVhRqAX7axC+tSqM5ga77VHi26uJmSj+T+P4mGh1+f/9gDGBu/j0zvN5Bq8fnhNe9AU
-	 gtt6BSAtBOA4edHN0YpURTWY551O4weXLJ0B/KobYC33Nrtxo9IAiTpWYf2hw8HlDAw==
+	t=1795395968;
+	b=VX0jsLgudp1sEOkYOJMf65S5sf7JpSGmgFhfPVN1lXqMfXHpJ9dgz1qKV4UxukRleVg+
+	 JJzgHmcwv+2D6Pi7JjTfEKI2uVS/LZ27Crl9TUhO9u6J3vByGUDb/BBSQkJtusne+rWmZ
+	 dIxy1Hv0ER4AJtzA8EB0Bv4EYikmBS3PNYGytlW/03b1PYk2V5VnxunVhSPVwFj81zFLP
+	 SRZQM/vZQJKxuHccDTUrlPb/RgnnyvVRbr41U0cpGbxhTdAxSLn4SFC7GhxLRT6LYQyi8
+	 uxayXmFWjSmTKSo0hVB2VNuEqb3wKhk5XyTgx69sFrtOD0AmwVmZecsZX9+AH8T8agw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795395618;
-	h=Received:DKIM-Signature:Received:Received:X-ME-Sender:
-	 X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:X-ThreadId:Date:From:To:Cc:Message-Id:In-Reply-To:
-	 References:Subject:Content-Type:Content-Transfer-Encoding;
-	bh=iLrnKxxVMWKMeMeAgoH7MuH9sETQs3VlmpYHt8ql4sI=;
-	b=DOWcCik5wEUojNaMa42mCk86Oz+8dV3QLC9lb4RC9sYHlX38ajzZ9sVQsMP2/VQ7O3s2
-	 rmqXswi6NLIIZBEX2sfIpf6L1xseScXTBFk8Bop/EcJRENgk0Ft4qxYWobRZFBtZipSd3
-	 In0Td3R0mUZsZfM2sd0bEjvCsWERZ76cFOfpu/6ot65/cMNB3kob7JNTbDtvWxgkXnHjB
-	 CfTOFmvWWs+aY8kbABZ+LF/+aPV7adKz8dOOTix9/WPysb0Ouriqi9pSoLD2SvQETr9Wy
-	 NaPJl9n5Cfe34F1mdZeZT6a3xRlMmW937vRyJkIPAm2/Je1DAeSESef4x2P8TTJF8LA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795395968;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Pc0mbPEt0qUdPQBtJKfrlvydOvmXsdAhSeL1Yff4aoM=;
+	b=0RtnMrlEPvvmtPvQMx7N8a4mkvjadzchEaZxC5w5oXZKmNpY8LK4JdsWwbob/46f1IZN
+	 7Oi2+I2vs7iLN03LkWSrNTDouY5dj4idh2DbRjWX4rJZ6XhlxHoRkVva03QiBq9pJ0bof
+	 JeKzuZ5KUowdppX8fD+9QPC8iam22N3Wiy7AlS30/EQjLHODLBnpu8Gj2fWIRaPYFF/uD
+	 N7dXcCsmN2Se5ndaoApJkbk7Fg0O41b4ubycasPdqr4vq+iG/5jDCurRatfJlXFlwlL4a
+	 49R+VsjDv+pefLMuvz7NjZm5bck/X1NcIiSwsaToBS+b/cVSsciYw7jnBoUJwDiIDDw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CsxJXzR1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BZVPkEAb;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3544C606A32D;
-	Mon, 23 Nov 2026 01:00:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18E91606A31E
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 01:06:08 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CsxJXzR1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A9421F000CA;
-	Mon, 23 Nov 2026 01:00:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BZVPkEAb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A97691F000C0;
+	Mon, 23 Nov 2026 01:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795395617;
-	bh=iLrnKxxVMWKMeMeAgoH7MuH9sETQs3VlmpYHt8ql4sI=;
-	h=Date:From:To:Cc:In-Reply-To:References:Subject;
-	b=CsxJXzR1yflwMnj8XPbzLcPCJmf70siSQZaD/VFXj0qrc7OmQbPjZKWb6v7NUd97p
-	 EVgTwO478HHWS0KM3ejN5NFaQDfiovYLGaIFk/jqhi/d/bc40penOkQnCwCjKzxiLC
-	 yXr5ITyUVKhoz0ayrlF8wOHVIGvf2t2NWQqbpA6LtNSn6hpvmAPvkpsAs5MLkioiJT
-	 CUUm6HKvIMtH47SbOJ/xbyJ4P8UHzzMsHrq4ycDpt//TR2rNRV3ZxKyOmlWAyAsyM1
-	 nqac3iYrMpm4VRK2JBMIBbGiHdBKMmds3Eq52DD8dRrl4NPx3SNhIC8a3ww2MrMXyw
-	 ron5q8LYyDA4g==
-Received: from phl-compute-10.internal (phl-compute-10.internal [10.202.2.50])
-	by mailfauth.phl.internal (Postfix) with ESMTP id 6EB60F40068;
-	Sun, 22 Nov 2026 20:00:16 -0500 (EST)
-Received: from phl-imap-15 ([10.202.2.104])
-  by phl-compute-10.internal (MEProxy); Sun, 22 Nov 2026 20:00:16 -0500
-X-ME-Sender: <xms:IJADa4sWS_dWu437hzP3u_w67qUb75GfYEhu1TxxpCUo9Lsq218FBA>
-    <xme:IJADawRP7O4VUoTS_etAOCQEWoybhwVvPLWPNNTfEGqh-zjIwSRE_ZZhNHMnwcGq9
-    dNTDm10gIMcCymq22gB5myU20ajGQDo42acDS00hnC1bwIFCWIxBcw>
-X-ME-Proxy-Cause: dmFkZTFIEef34L9gI7dEhgKcCVtUw+ZHC7e1XQRRVaW1n+cw99FavR/qIyYWKGr2MqAkqJ
-    6dhS7cnALR9U3ZGnrXPxbBjkn2gnPlsDeJJbmilHbZ2LoGNqFSZCVPqRmwTEDmqyQNYEwL
-    6eMHNPgd/OyeBZuEpy31PIQfTrMNWhreYLasRbhMUMpxMEyQE1jfdf6ma5OFi5/yUoVRUB
-    WKxkGewiptcJ0vE4zUWHQdVw7V6g0usmVnBmOU8E1DJl2AUHmLqFSQxtbEFxPZerZ+9DZl
-    CF6V81tXc9kuP1iBWOa4WhpAf5TahRuYRKw8944qHu1bekT0hg2JpuWuP2dT5kLq7DfXjl
-    nbMAXZ6W6YXQb9BCsBJLYHO9fydxixQTjnwYQ5oBG3KjeLcw5kzd9XDkqkmTMIwtj4pxI5
-    wxEnYzFYasHvRGuYX5dij4IlMU8YdbtToqGlBnFZ9KPMKQy94rItjr69cl0QiROLWpS+xy
-    BnJ6U7bmmpXGdXOzjITEFLcSwkYbpW59VGWKDrbOCGiccG+GFmaOog4xnBlMVQBKr0ZFHJ
-    ERCaDhj+x325PLeYXpu+AniAdKkuKQQEUP0gsSq58IrTLMdImBLQ6/JJLNgKKdUHrvAhTh
-    6ZxcRxRCMuSxXSV6lN0iX9waARWZUoaGEGPlXS/hUM4tmI0eHdeqUZkAIk3A
-X-ME-Proxy: <xmx:IJADa9tgInJBZbfsFld5p5JrI8Itckc4f2VozugegDhGM907yqycEQ>
-    <xmx:IJADa7Xy3LG_ZOZ_qvzau2WE8U1-A1vvhHRRtX6mX1YxYtEAPjVoAg>
-    <xmx:IJADa-UFKkrlDBOhAa5-6tdDePlsI-glyEWAKNNR6eCa_YplXYYaAg>
-    <xmx:IJADa2QQ72b8k_XUKhSAfqzxdUmM6n0BgsgzQFMq0W7EM-xYGnzUaA>
-    <xmx:IJADa9Er_AzpJ81CrK5IEChZ9fPPJmpYEvNOo-MdKuZvbqLn-BZDi3o4>
-Feedback-ID: ifa6e4810:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 438A0780070; Sun, 22 Nov 2026 20:00:16 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	s=k20260515; t=1795395967;
+	bh=Pc0mbPEt0qUdPQBtJKfrlvydOvmXsdAhSeL1Yff4aoM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BZVPkEAbcTojVg8JMq9AXiu3/+6RVnbR+VC+8EeuzlUt8+/jgMB+eMo2CgQIyd0JH
+	 sw0LEDjpOO6jRRgEiAvAscgXh7sPQwhrysjSaqVnLvKaQ4nwZ5VXunKm4dKuD9UAtd
+	 W8w3mXbynmYuJy0Cfo9VrG96OIyEwBzaGfeGxS93ySTlPS6H+RDMm7Xa/Ka30FjqsZ
+	 C6MPKq1InnhNzmkctgEus+74d7H5wYnMG1NaTBl8GzNQXApzjc4q1rm2qsEAhrMVJa
+	 RxIXKdoxjKT3rJg8JuFJdMAys8nPPAamrKiX5NCsJ+I22C6LcLEaVXCqnwK5im11Y3
+	 5IKtIvtVHMAog==
+Subject: Re: [PATCH net-next 2/8] ibmveth: Refactor RX resource allocation for
+ MQ RX bring-up
+From: netdev-bot+sashiko@kernel.org
+To: mmc@linux.ibm.com
+Cc: netdev@vger.kernel.org, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, chleroy@kernel.org, ritesh.list@gmail.com,
+ sshegde@linux.ibm.com, nnac123@linux.ibm.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linuxppc-dev@lists.ozlabs.org, horms@kernel.org, davemarq@linux.ibm.com,
+ haren@linux.ibm.com, ricklind@linux.ibm.com, bjking1@linux.ibm.com,
+ shaik.abdulla1@ibm.com
+Date: Mon, 23 Nov 2026 01:06:06 +0000
+Message-ID: <179539596618.3135.16248027677119364858@kernel.org>
+In-Reply-To: <20261119000711.18093-3-mmc@linux.ibm.com>
+References: <20261119000711.18093-3-mmc@linux.ibm.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,75 +67,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-ThreadId: A8Z6fJDuAPLk
-Date: Sun, 22 Nov 2026 19:59:56 -0500
-From: "Chuck Lever" <cel@kernel.org>
-To: "Jakub Kicinski" <kuba@kernel.org>
-Cc: "Donald Hunter" <donald.hunter@gmail.com>,
- "David S. Miller" <davem@davemloft.net>, "Paolo Abeni" <pabeni@redhat.com>,
- "Simon Horman" <horms@kernel.org>,
- "John Fastabend" <john.fastabend@gmail.com>,
- "Sabrina Dubroca" <sd@queasysnail.net>, "Keith Busch" <kbusch@kernel.org>,
- "Jens Axboe" <axboe@kernel.dk>, "Christoph Hellwig" <hch@lst.de>,
- "Sagi Grimberg" <sagi@grimberg.me>, "Chaitanya Kulkarni" <kch@nvidia.com>,
- "Jeff Layton" <jlayton@kernel.org>, NeilBrown <neil@brown.name>,
- "Olga Kornievskaia" <okorniev@redhat.com>, "Dai Ngo" <Dai.Ngo@oracle.com>,
- "Tom Talpey" <tom@talpey.com>, "Eric Dumazet" <edumazet@kernel.org>,
- kernel-tls-handshake@lists.linux.dev, netdev@vger.kernel.org,
- linux-nvme@lists.infradead.org, linux-nfs@vger.kernel.org,
- "Hannes Reinecke" <hare@kernel.org>
-Message-Id: <b76fc2c2-466c-4638-876a-3f9af436d29a@app.fastmail.com>
-In-Reply-To: <20261121161302.69f202c8@kernel.org>
-References: <20261113-tls-session-tags-v3-0-91271964cdb0@kernel.org>
- <20261121161302.69f202c8@kernel.org>
-Subject: Re: [PATCH net-next v3 00/10] Deliver TLS session tags to upper-layer
- consumers (NFSD)
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
 
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
+Low priority / nit picks for your consideration:
 
-On Sat, Nov 21, 2026, at 7:13 PM, Jakub Kicinski wrote:
-> On Fri, 13 Nov 2026 14:21:58 -0500 Chuck Lever wrote:
->> NFSD controls remote access to its exports today by IP address and
->> hostname. Neither of these are cryptographically secure. For
->> instance, a MitM can replace the response to a server's plaintext
->> DNS query. As a result, a malicious NFS client can pretend to be a
->> client whose hostname matches one that has access to exports it
->> would otherwise be denied access to.
->> 
->> So instead, we want access-control decisions to be based on
->> cryptographically-vetted objects such as TLS peer-certificates.
->> In-kernel x.509 parsing would duplicate work mature userspace
->> libraries already do, so let's make tlshd evaluate peer certificates
->> in user space.
->> 
->> The certificates are evaluated against admin-defined policy, such
->> as whether the certificate's Issuer matches a particular string.
->> tlshd then marks NFS TLS sessions with those policy matches. Admins
->> also provide a set of policy names on each NFSD export (allow_tags).
->> Computing the intersection with these per-export tags is quick and
->> completely separate from the details of parsing x.509 certificates.
->> 
->> A yet-to-be-posted patch series introduces tag set support to the
->> exportfs command in nfs-utils. tlshd 1.5.0, current as of this
->> writing, already implements TLS session tagging.
->
-> I submitted this for AI review now, I think due to the problem
-> Simon flagged CI didn't just gobble it up automatically.
-> The AI review will not be emailed to the list automatically but
-> hopefully it will be ready here by the time you read this:
-> https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261113-tls-session-tags-v3-3-91271964cdb0@kernel.org
+- [Low] The kernel-doc for ibmveth_cleanup_rx_resources() in
+  drivers/net/ethernet/ibm/ibmveth.c says "Free all RX queue resources",…
 
-There are some drips and drabs here. I can re-roll, and think more
-about higher level policy-based access control.
+--
 
+ibmveth: Refactor RX resource allocation for MQ RX bring-up
 
-> Any examples of APIs like the one you're adding working well?
+This moves the filter list and per-queue RX ring and buffer list
+allocation out of ibmveth_open() into helpers that loop over
+num_rx_queues and undo their own partial failures. ibmveth_close() and
+the open() error path now free through the same helpers.
 
-I found one or two while developing these a year ago. Nothing
-is leaping to mind at the moment, though.
+> diff --git a/drivers/net/ethernet/ibm/ibmveth.c b/drivers/net/ethernet/ibm/ibmveth.c
+> index fc50036d5d265..559c4d2d957bb 100644
+> --- a/drivers/net/ethernet/ibm/ibmveth.c
+> +++ b/drivers/net/ethernet/ibm/ibmveth.c
+> @@ -159,6 +159,177 @@ static unsigned int ibmveth_real_max_tx_queues(void)
 
+[ ... ]
+
+> +/**
+> + * ibmveth_cleanup_rx_resources - Free all RX queue resources
+> + * @adapter: ibmveth adapter structure
+> + */
+> +static void
+> +ibmveth_cleanup_rx_resources(struct ibmveth_adapter *adapter)
+> +{
+> +	struct device *dev = &adapter->vdev->dev;
+> +	int i;
+> +
+> +	for (i = 0; i < adapter->num_rx_queues; i++) {
+> +		if (adapter->buffer_list_addr[i]) {
+> +			dma_unmap_single(dev, adapter->buffer_list_dma[i],
+> +					 4096, DMA_BIDIRECTIONAL);
+> +			adapter->buffer_list_dma[i] = 0;
+> +		}
+> +
+> +		if (adapter->rx_queue[i].queue_addr) {
+> +			dma_free_coherent(dev, adapter->rx_queue[i].queue_len,
+> +					  adapter->rx_queue[i].queue_addr,
+> +					  adapter->rx_queue[i].queue_dma);
+> +			adapter->rx_queue[i].queue_addr = NULL;
+> +		}
+> +
+> +		if (adapter->buffer_list_addr[i]) {
+> +			free_page((unsigned long)adapter->buffer_list_addr[i]);
+> +			adapter->buffer_list_addr[i] = NULL;
+> +		}
+> +	}
+> +}
+
+[Severity: Low]
+This isn't a bug, but is the kernel-doc for ibmveth_cleanup_rx_resources()
+accurate? It says "Free all RX queue resources". The body only frees
+buffer_list_addr[i] with its buffer_list_dma[i] mapping, plus the coherent
+ring at rx_queue[i].queue_addr.
+
+It doesn't free the per-queue buffer pools in adapter->rx_buff_pool[queue][*]
+(the free_map, dma_addr and skbuff arrays and the DMA-mapped skbs). That is
+why ibmveth_close() still frees them in a separate loop after calling this
+helper:
+
+	ibmveth_cleanup_rx_resources(adapter);
+	ibmveth_free_filter_list(adapter);
+
+	for (i = 0; i < IBMVETH_NUM_BUFF_POOLS; i++)
+		if (adapter->rx_buff_pool[0][i].active)
+			ibmveth_free_buffer_pool(adapter,
+						 &adapter->rx_buff_pool[0][i]);
+
+The ibmveth_open() error path also keeps its own out_free_buffer_pools
+label for the same reason.
+
+At the end of the series this doc line hasn't changed. There, close() and
+the open() error path call ibmveth_free_buffer_pools() separately before
+this helper. So the helper doesn't seem meant to free the pools.
+
+Could the comment be narrowed to describe the buffer lists and RX rings it
+actually frees? The name could also be changed to match its allocator,
+ibmveth_alloc_rx_queues().
+
+[ ... ]
 
 -- 
-Chuck Lever (Come to NFS bake-a-thon! https://nfsv4bat.org)
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119000711.18093-1-mmc%40linux.ibm.com
