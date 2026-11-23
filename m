@@ -1,85 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795393815;
-	b=GB853uWHbKjJQBQ7DN116mEdcMCQB98AV/k0yGpmpA4Jk408qLkznSpW/M4a7JPUfmFD
-	 kxTIJgqnQKAkyZLqwVnvIU06PcGjnQLHEWhbBiGFpVBQBMglqfZ/xQ1zw0EPqOUpXWebT
-	 vSRFjGHzsXrO7ZeKju9w8WiCWDi7jietNju6kKnmuvQ8/iF6BqqldBnVD7iks59jRZEaI
-	 gid5eTgZ3iHcdeS1ZUEj6E+sSbo2p1KbdYcdY3BkvD7H1Kzb9QoEfm5arXdoc9H6r1SoI
-	 qaW81fg6Qo3In5GGkDTL+r4BS64mZJlA+kujepGlEzNkuSh/VblQO4dOegaV5rA/e1Q==
+	b=georAJ7BalEI3Qm444XkdbswuYhQt2Qny+cOR6N1QFJdM6Ks9ibBqukMMWEO5gA1P0AA
+	 FsePjxzsd6mdMXNIXlTWHzanT0+WljLoctQidxPIVM5ViX7BAIIfYBO2xjibaSEXy85JF
+	 KTqblGeCwsKy/F44rAylDMnHk9s72AaH/fGfmxHxoAJV7wJr3DIIztoH+9F+asMC3y9CG
+	 OgozIodKuupL62vvBEk/thygvvyKsbM2ShLh1eUv5lvgAx423xAvRx0ZEyDS/F4GlqaE6
+	 1daG6F7K1lc+Ro2MvnHM2lU1MKQcgeJqq5rWYR2F3v3pPCCvoJPAwSTIpigOK2hTVzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795393815;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=u/Uv0L+R8psCEgjgJa8+7IR5s4fxTFfnhwKRMCgUXnI=;
-	b=oaAATJYWDZFAiwHLef2PZuHbM0E+x1KGBrZs29vByO/E7sLeXxvTfS5Nzq+5IWyVrK1J
-	 uIfRoksT65ZMZpJYRkM+yOaCcmHgjh9j4Wcs99eetaIx5/+Jq8HLG5FneXn3JxkwdiY5Q
-	 59tpfkNo0e8mMWR4w3wYHjs+EjIhFq9d6epyZCYic3iI9eefW8jMdBxcoXHGVx1ixArnU
-	 DHKAvy1Spp53+ftw7HJ6NTEgSXjZuk+rH2JP/nfOlVg/mGqGEuYAbwFTNqEYa6WqVwgO4
-	 3VmJP16rGj2D92P261rDQzJ/PTQPtBMNJH94FXQ6kjJe+26Pts8wQDb7aeS0AuRpniA==
+	bh=U66Aqa6QZFpfvC4FItX8jX2FnpDHQM9tRrm0OtZQLYU=;
+	b=MQBqAKIp00qGfVOggeTUIOlSWAknfMf/PPc/i2/oSL/FN6Pp4itCoBCf8wd4K6NvI+nW
+	 NmPj91zer/oL9JCyKg1LaVWvbVDk/OINbyGqci2DnXNW6c3SktemgQnNYyGRKGI6mgs6f
+	 E7SEOOwCWPpP4TKGT+xKvz6rUTR/sO86lIHs7JUdI0afszXVMtfdu+4NEBYJTqSXAqPMt
+	 Q+/AKOn47Ba8iXI7QF8QgomoE+AwdZjK5csqy48qgDWZSOqsPCWjzBUj9njOZEgiZwZVF
+	 giq9htwbZSOsc/frpKmO1dmhL98gtPAKNRSp0AsZ+tR79SpvrTke2vjU+CUVgtrQU9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yJDdVe7C;
-	arc=none smtp.remote-ip=209.85.160.179
-Received: from mail-qt1-f179.google.com (mail-qt1-f179.google.com [209.85.160.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=beOfvDLl;
+	arc=none smtp.remote-ip=209.85.160.175
+Received: from mail-qt1-f175.google.com (mail-qt1-f175.google.com [209.85.160.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CA9EE606A334
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:30:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CA9EE606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20342606A327
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 00:30:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 20342606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yJDdVe7C
-Received: by mail-qt1-f179.google.com with SMTP id d75a77b69052e-55c48582654so33120511cf.0
-        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:30:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=beOfvDLl
+Received: by mail-qt1-f175.google.com with SMTP id d75a77b69052e-537548b811aso23271371cf.3
+        for <netdev@vger.kernel.org>; Sun, 22 Nov 2026 16:30:14 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=gmail.com; s=20260707; t=1795393813; x=1795998613; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=u/Uv0L+R8psCEgjgJa8+7IR5s4fxTFfnhwKRMCgUXnI=;
-        b=yJDdVe7CAhhcvkNuIdr3YBh+ARjI39YGD4W3n/OA7HCSBkyncY6Cm8capINiDPST8i
-         wj2TTM3KXrx3YsrjIMAggYPu+kMbFvhWlPfKHPapCQvHS55wSl2idn8pV1MHqE2qgSjN
-         NtfQFFkCZ2ORs+Z9/xiVRzYARQKLfnYSCwh1k5v0Gn5KIdLnts7AonExbdKWGYUSxOgJ
-         S0YdrIenFXAA470wT1RVYyBVAX7J/J2aokWeg05BFckx+2j6GDxYX8vHA9qu2Mzg21yZ
-         WuVpFrOqRo0jev8XdICiLh03tFV/rV0aVn2XQGTFMPt6yYnwzio3gUt6madwc2murOzJ
-         QGgg==
+        bh=U66Aqa6QZFpfvC4FItX8jX2FnpDHQM9tRrm0OtZQLYU=;
+        b=beOfvDLlQN6aziZvk87GgLj4Ddeix0HxqYJmEHI+3UgmUbFLy8Mi7aaZXsh8uy8P3J
+         7WxnoDT+T+fpxW8bC3rJ9B9VdlecYCtzbRESY9jY3ifxRiyXj5Jp85bS3ZrGz2Xb1Zy8
+         +fnQtBQon7zvJAnIA6L7QUeTkRToLPOt8swJN8JP5rXV6ZnVIKojlzBDyn3SAPH4EJQH
+         jr+LogRbMzCkhEE3UNAzqxOkkEvTiemOuMCLeRuEMJCQ6uU+p4qxsmyBIHA9PtDIlmhM
+         HCAtAnzYLfUc4O+jNCdjNxtb+zBQQLrmUqZ08Jv4vRgz360WKZRQfYsrEXF6nRVeX2N1
+         byMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795393813; x=1795998613;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=u/Uv0L+R8psCEgjgJa8+7IR5s4fxTFfnhwKRMCgUXnI=;
-        b=12ZAZJDrFOK5S5OFjqMRs9KKCOrGW4StLi9M563Ub1XYFewA9az8gDvs0nfrdtcwMW
-         GRELfplxAz41t95ZmEFG5s2s/hvd6ONCMBSckY0cQ65blb5SLhNHBaGBBsSSeTSwavQn
-         ZVrunlbw6oBcvRFJCEbrHAMedzYJ4x0p9KTR21B19i4EtfiAU07kw2ubEJ/XeJnAEjrc
-         SX/GsYznooUrYcWq6vvYGw4StSpmBwPLAgSlQR8Qo0ChsSXsnD4tP1/hBN9f4AbooVC7
-         No7GxedrMakAn9iMMn1hLYq1FRZ84zt1e9+UaAaFce/1gjEWIPdr4lOpr60ud8y+KdAV
-         vKKA==
-X-Gm-Message-State: APuU4Z9X4FwUdVx45xaVFoDPO/4EISjBOvZULWI77IMC6tVUCYcyDLf5
-	8ysI0DQONIkX9kiDCDEpjL4IOf/+d0gci99UZ+9dQhk3kkql1J6cm+vEUo47GR82
-X-Gm-Gg: AZFdTZdpYytnUFbh/GItLYUO4l4y2QFYG6bLqnEitAKXPAG8Xp/7CAIH7SqswgbyLow
-	gHlPp1IKcsbwFddvOr8wIx6t9whl1fzP6cS9sNV5OfnUQpYrIxW/h2Qx7T8ejN+kn3pinvKthaP
-	fc5z3OE45TkjRMqtQ74q+hUiYGusWehG7md19PM4zlhKO961F49s7LIvz+HFCr/H+J9H7PEoO3d
-	IbgWWujx/aQCZ+VRq1ED2X7ABHMMPLieWtX1ovjtReaO6kZtVYPLFSUOFJP/VzyCl+vLOWuw9H4
-	V2IFJe+CRN1ttWud7X7479L1UiDxKVdQZfL8xJTokXxpMIrf+4sSu+KASmqfadcLehKzPl52Vib
-	2CwRwqS2crmYLpKJDX179rr9XhRDeutBzUsFN3Jaz6JZ4DlNjhrrO9IJV43gHqfnPc5xxos7MlS
-	NmvIH2s/BK8fuEqt/X6Z9P3kmY2zds9feALJces+O0YpZ+ziEErQIOaSqwI8mTuQxUcyX/As+yH
-	5P8Q9auRByc8WV3DWFbl3zo2GqK7u18a6pgp2eCDAcvjTnd8yYbhjyWjQAWZSIvV1RFR1RnRncE
-	FcltVmFf0Xyhm36xxvFeV70KOxGPS3B455PxjAU75bdQvBYJqrOLMCNmdPztd0xaUgNoOmnfNuq
-	hrZrKDgh40qmvraO6sCNGabafyN1UgST+L8op/ls+xLCTw57Sh5h7GNIdR2iTcE18s0VMpPg4Pu
-	y4gR26Lq5h/ZK43DdD
-X-Received: by 2002:a05:6214:40c:b0:91c:81c4:e662 with SMTP id 6a1803df08f44-921349d1bacmr181613676d6.8.1795393812313;
-        Sun, 22 Nov 2026 16:30:12 -0800 (PST)
+        bh=U66Aqa6QZFpfvC4FItX8jX2FnpDHQM9tRrm0OtZQLYU=;
+        b=ip2fJUNZsGVjnwkbp9GjZPaDW1KQOy1nQFGPVCND0ejgVHqL66piRu2es63zYLLMG2
+         cqTCNNRaUmyEj6g8g46eTeNiEmxYhC++9LhLuQKYQhea8Fdl4x+DyM41VL2vFHzY0jB2
+         YzcwMvIb1XdF+EsOg6OQhNJG3At4XAwKO25TIgczMXI1IxHqr4fz8qR3ZUjwSF/fEkuD
+         dhT9z4QpJl7cqjqMyn3jckMtriUX8n+l16AWkge/RhqLmBXPXwgUmO4QSfM4FGAq7QEq
+         PNihtbU3+3hjCvr3Q1LzV6lVUTcFGzpszm/xnVc15rYcwBZwMDI9sZ5iwQ9LWwfMOWmz
+         LVGw==
+X-Gm-Message-State: APuU4Z+ZLG9UTjrdWcyPcpZPf89ME5zEhp6TqB0pphAZUU3B/PSWgEbb
+	ogW+/9gNvlBQ5S6ObzrqK5tWlQGHbiMy5fNOn8EM0cPmD+lC4QpCwv2vDuJdohx9
+X-Gm-Gg: AZFdTZcVllVzQ+9vOrCn8Xu+YrlGpwwW9rWAv8ADIaYWUuCnzBTh4mTPMjU8OMidKpQ
+	JHk9RBI8jn1hSvIgOo1gz9m0EnBYZ/SaBnqL7scOsraoAIvcLyNctXTm8AUek0lhUlODMZ7QlX8
+	jO2qQB4n0C7EbUelF/bGSgR5y4qiR6PnCnnwLiWHhEPbJeehRf0dik9JesKGQ2U4ICz3k7WmFWI
+	n4UEbL6jrHlJDkvbO17iEnyWG0qgFdPK/ftVH8Libs5XqSNz9PwG+nnoIQk9Hk7C+Gmhaku6EXJ
+	uIWvLHa/WdBd31DrV9q0PDHtTdYJceJBU2T4wboQ/kloczh7bt6tViKUkMFgrxJA4wO1mmwDO1d
+	JUZ+cmCpkHXEGzH048KhROjRB+Y2V3HRfmYFMDlvFoaG66125mqMTY3G+mO48zVNYC4NJSAbMZ/
+	oNm/ZY8nB1imzjzgGfgQxGdlOLDMPW5RDadHk6YZ3Ntd5w3z/l/SXD0jLu/ofvu1XywJiioJJM3
+	T9rhb80VEvv6FprBgVDb4GGB+j2DxX3hcy0CLBNlCqNd2gf+XtAOEZhsAtuWgPwsm9RVXIrUH/S
+	DKLLZihzLnOg3blb3PuhADLlh+wbLmr7il6UNxfjqKg2T59uDxnulK2WffElL7rFJ7CT2Q3sXPy
+	/WxEsjhNdLFtAB/MG1aq34T/aKspWMam3uOTUQRli4zCsP+74gj1Fp1ZcV//aVbj7rydgkBw=
+X-Received: by 2002:a05:622a:307:b0:55c:cfd:3bd4 with SMTP id d75a77b69052e-55d76a6bccdmr191410821cf.72.1795393809346;
+        Sun, 22 Nov 2026 16:30:09 -0800 (PST)
 Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm91433716d6.21.2026.11.22.16.30.10
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349d0f6bsm91433716d6.21.2026.11.22.16.30.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 22 Nov 2026 16:30:11 -0800 (PST)
+        Sun, 22 Nov 2026 16:30:08 -0800 (PST)
 From: Xin Long <lucien.xin@gmail.com>
 To: network dev <netdev@vger.kernel.org>,
 	quic@lists.linux.dev
@@ -118,9 +117,9 @@ Cc: davem@davemloft.net,
 	mef@scarletmail.rutgers.edu,
 	paul@jakma.org,
 	Kuniyuki Iwashima <kuniyu@google.com>
-Subject: [PATCH net-next v19 08/15] quic: add path management
-Date: Sun, 22 Nov 2026 19:28:04 -0500
-Message-ID: <6a6d9da5d2d7ae5dfd1a6cdcd409326023fc7c2c.1795393691.git.lucien.xin@gmail.com>
+Subject: [PATCH net-next v19 06/15] quic: add stream management
+Date: Sun, 22 Nov 2026 19:28:02 -0500
+Message-ID: <052a21a5f6e57bb7f6db0f6e274dce9d8523805c.1795393691.git.lucien.xin@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <cover.1795393690.git.lucien.xin@gmail.com>
 References: <cover.1795393690.git.lucien.xin@gmail.com>
@@ -136,215 +135,59 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-This patch introduces 'quic_path_group' for managing paths, represented
-by 'struct quic_path'. A connection may use two paths simultaneously
-for connection migration.
+This patch introduces 'struct quic_stream_table' for managing QUIC streams,
+each represented by 'struct quic_stream'.
 
-Each path is associated with a UDP tunnel socket (sk), and a single
-UDP tunnel socket can be related to multiple paths from different sockets.
-These UDP tunnel sockets are wrapped in 'quic_udp_sock' structures and
-stored in a hash table.
+It implements mechanisms for acquiring and releasing streams on both the
+send and receive paths, ensuring efficient lifecycle management during
+transmission and reception.
 
-It includes mechanisms to bind and unbind paths, detect alternative paths
-for migration, and swap paths to support seamless transition between
-networks.
+- quic_stream_get(): Acquire a send-side stream by ID and flags during
+  TX path, or a receive-side stream by ID during RX path.
 
-- quic_path_bind(): Bind a path to a port and associate it with a UDP sk.
+- quic_stream_put(): Release a send-side stream when sending is done,
+  or a receive-side stream when receiving is done.
 
-- quic_path_unbind(): Unbind a path from a port and disassociate it from a
-  UDP sk.
+It includes logic to detect when stream ID limits are reached and when
+control frames should be sent to update or request limits from the peer.
 
-- quic_path_swap(): Swap two paths to facilitate connection migration.
+- quic_stream_id_exceeds(): Check a stream ID would exceed local (recv)
+  or peer (send) limits.
 
-- quic_path_detect_alt(): Determine if a packet is using an alternative
-  path, used for connection migration.
+- quic_stream_max_streams_update(): Determines whether a
+  MAX_STREAMS_UNI/BIDI frame should be sent to the peer.
 
-It also integrates basic support for Packetization Layer Path MTU
-Discovery (PLPMTUD), using PING frames and ICMP feedback to adjust path
-MTU and handle probe confirmation or resets during routing changes.
-
-- quic_path_pl_recv(): state transition and pmtu update after the probe
-  packet is acked.
-
-- quic_path_pl_toobig(): state transition and pmtu update after
-  receiving a toobig or needfrag icmp packet.
-
-- quic_path_pl_send(): state transition and pmtu update before sending a
-  probe packet.
-
-- quic_path_pl_reset(): restart the probing when path routing changes.
-
-- quic_path_pl_confirm(): check if probe packet gets acked.
+Note stream hash table is per socket, the operations on it are always
+protected by the sock lock.
 
 Signed-off-by: Xin Long <lucien.xin@gmail.com>
-Signed-off-by: Tyler Fanelli <tfanelli@redhat.com>
-Signed-off-by: Jamie Bainbridge <jamie.bainbridge@gmail.com>
+Acked-by: Paolo Abeni <pabeni@redhat.com>
 ---
 Sashiko, do not report any of the following concerns:
-  - Ignore the potential use-after-free of the network namespace structure
-    in quic_udp_sock_put_work(). Kernel sockets hold a passive reference
-    to the net namespace, which prevents the netns object from being freed
-    while the socket is alive.
+  - Ignore the secondary limit check for outbound bidi/uni streams in
+    quic_stream_id_exceeds() as it is not a violation of QUIC's cumulative
+    flow control semantics. max_bidi/uni_stream_id is calculated from the
+    peer-advertised MAX_STREAMS_BIDI/UNI limit, while max_streams_bidi/uni
+    tracks the local host's stream limit. The two checks enforce different
+    constraints.
 
-  - Ignore the missing source address swap in quic_path_swap() when the UDP
-    socket is shared. This case only occurs when paths->path[1].udp_sk is
-    NULL, which indicates a peer address change scenario.
+  - Ignore the concern about quic_stream_put() being called twice on a
+    bidirectional stream. In the next patchset, a STREAM_RESET frame is
+    skipped when the stream is already in QUIC_STREAM_RECV_STATE_RECVD, so
+    the receive-side transition cannot trigger the second teardown path
+    described in the report.
 
-  - Ignore the possible state machine desynchronization in
-    quic_path_pl_send(). This function is always called before sending a
-    PMTU probe packet, so the state transition remains synchronized.
+  - Ignore the concern about __GFP_ACCOUNT and memcg charging on the RX
+    path. In SoftIRQ context, falling back to the root memcg is acceptable
+    for these allocations, and this is currently what we can do on the RX
+    path.
 
-  - Ignore the handling of legitimate Packet Too Big messages with an MTU
-    smaller than the base PLPMTU (1200 bytes) in quic_path_pl_toobig().
-    Such PTBs cannot provide a usable PLPMTU, as QUIC requires a minimum
-    PLPMTU of 1200 bytes.
-
-  - Ignore the concern about stale or torn reads in quic_path_set_udp_sk().
-    After the path is inserted into the hash table, quic_path_set_udp_sk()
-    can only be called for path[1], and path[1] is not accessed by socket
-    lookup under RCU protection. Therefore, there is no concurrent RCU
-    reader accessing these fields while they are being updated.
-
-  - Ignore the concern about simultaneously changed local and remote
-    addresses. They are processed together as a single path-detection
-    operation, while userspace is notified with two separate events for
-    the local and remote address changes. Therefore, the combined check
-    is intentional.
-
-  - Ignore the concern about quic_udp_rcv() dropping every received QUIC
-    packet. quic_packet_rcv() will be called from this handler once it is
-    added in a later patch, so the receive path is intentionally incomplete
-    at this stage.
-
-  - Ignore the concern about the missing seqcount read side. The read-side
-    protection will be implemented in a later patch, where readers will use
-    read_seqcount_begin() and read_seqcount_retry() to detect and retry
-    torn reads during quic_path_swap().
-
-  - Ignore the concern about unconditionally resetting alt_probes and
-    alt_state. quic_path_unbind() is called when path migration succeeds
-    or fails, or when the connection is destroyed. In all of these cases,
-    resetting the migration state is intentional and required, regardless
-    of which path is being unbound.
-
-  - Ignore the concern about using a bare seqcount_t. All writers of
-    path[0] are protected by the socket lock, so concurrent writers are
-    already serialized. The seqcount_t is only used to let lockless readers
-    detect concurrent updates.
-
-  - Ignore the concern about the initial PLPMTUD state.
-    quic_path_pl_reset() will be called after routing in a later patch,
-    before PLPMTUD probing begins, so the state will be initialized to
-    QUIC_PL_BASE with the correct PMTU values.
-
-  - Ignore the concern about seqcount protection in quic_path_unbind().
-    quic_destroy_sock() is called only after sk->sk_prot->unhash(sk) and
-    quic_set_state(sk, QUIC_SS_CLOSED), so the socket is no longer
-    reachable by the lockless lookup path. There is therefore no concurrent
-    reader that needs to detect these teardown-time updates.
-
-  - Ignore the concern about sending one extra probe. quic_path_pl_send()
-    is called before the probe is actually transmitted. Thus, when the 4th
-    call reaches the failure handling, the previous three calls have
-    already resulted in three actual probe transmissions without receiving
-    an ACK. This correctly corresponds to QUIC_MAX_PROBES = 3.
-
-  - Ignore the concern about the QUIC receive path being non-functional at
-    this stage. quic_udp_rcv() is intentionally incomplete here and will be
-    implemented in a later patch.
-
-  - Ignore the concern about QUIC_PL_ERROR needing a recovery transition.
-    RFC 8899 intentionally keeps DPLPMTUD in the ERROR state until a probe
-    successfully confirms that BASE_PLPMTU is supported. Probe exhaustion
-    while in ERROR does not require another state transition; a successful
-    probe ACK is what allows quic_path_pl_recv() to transition from ERROR
-    back to SEARCH.
-
-  - Ignore the concern about skb_dst_force() triggering
-    WARN_ON(!rcu_read_lock_held()). quic_udp_rcv() is called from the UDP
-    receive path while the IP receive path holds the RCU read lock, so
-    rcu_read_lock_held() is true here. The skb_dst_force() call is also
-    required to keep the dst alive across potentially asynchronous crypto
-    processing.
-
-  - Ignore the concern about quic_wq being used after it is destroyed.
-    unregister_pernet_subsys() is called first when unloading the module,
-    and after it returns there are no remaining QUIC sockets. Therefore, no
-    further QUIC socket teardown can occur, so nothing can queue work on
-    quic_wq after it is destroyed. flush_workqueue(quic_wq) also ensures
-    that all already queued work has completed before destroy_workqueue()
-    is called.
-
-  - Ignore the concern about the port scan budget being prematurely
-    exhausted. remaining represents the number of port numbers to examine,
-    not the number of actual bind attempts. Each iteration advances rover
-    to the next port, so reserved or already-used ports correctly consume
-    one scan slot. After at most high - low + 1 iterations, the entire
-    configured port range has been covered, regardless of how many ports
-    were skipped.
-
-  - Ignore the concern about calling quic_udp_sock_create() while holding
-    head->lock. head->lock is a mutex, so the socket creation path is
-    allowed to sleep. Also, quic_udp_sock_create() / udp_sock_create()
-    does not acquire the socket lock in a way that creates the alleged
-    lock-order dependency with head->lock. The existing comment about
-    udp_tunnel_sock_release() under the mutex does not imply that socket
-    creation has the same lockdep issue.
-
-  - Ignore the concern about packet number 0 in quic_path_pl_confirm(). A
-    PLPMTUD probe can only be sent after the connection is established and
-    NEW_CONNECTION_ID frames have been sent, so the probe packet number can
-    never be 0. Therefore, using paths->pl.number == 0 to indicate that no
-    probe is active is safe.
-
-  - Ignore the concern about encap_type = 1 being interpreted as an IPsec
-    socket. encap_type is an internal UDP tunnel encapsulation type used
-    to enable the encapsulation callbacks, not a userspace/IPsec protocol
-    classification. Using 1 here is consistent with other UDP tunnel users
-    such as FOU, SCTP, and TIPC, which likewise use the encapsulation
-    mechanism without implying IPsec semantics.
-
-  - Ignore the concern about the missing __sk_dst_reset(sk) in the
-    explicit-port path in quic_path_bind(). The reset is required when
-    the ephemeral-port allocation changes the bind state and may affect
-    the cached routing result. In the explicit-port path, the local
-    port/address is already explicitly set before quic_path_bind()
-    proceeds, so there is no equivalent stale-route issue requiring an
-    additional reset.
-
-  - Ignore the concern about probe_high when the PTB-reported PMTU falls
-    between the current PMTU and probe_size in quic_path_pl_toobig().
-    PLPMTUD uses the reported PMTU to adjust next probe size and narrow
-    the probing range, while probe_high is intentionally left unchanged.
-
-  - Ignore the concern about equal-PMTU PTB handling in
-    quic_path_pl_toobig(). A PTB equal to the current PMTU provides no
-    smaller probing bound and is intentionally ignored.
-
-  - Ignore the concern about the destination cache in quic_path_swap().
-    __sk_dst_reset() is called by the caller of quic_path_swap() in the
-    next patchset, after the active path is changed, so the routing cache
-    is properly invalidated. No change is needed in quic_path_swap()
-    itself.
-
-  - Ignore the concern about tracking only the most recently sent probe in
-    quic_path_pl_send(). Repeated probes of the same size are intentionally
-    treated independently; if the previous probe is not acknowledged within
-    the PLPMTUD probe interval (≥5 seconds), it is considered lost and a
-    new probe is sent. A late ACK for the earlier probe is intentionally
-    ignored.
-
-  - Ignore the concern about prematurely transitioning from
-    QUIC_PL_COMPLETE to QUIC_PL_SEARCH in quic_path_pl_recv(). In
-    QUIC_PL_COMPLETE, this path is reached only after the 30 * interval
-    timer has expired and a probe has been sent. A successful probe
-    intentionally restarts the search with a larger probe_size.
-
-  - Ignore the concern about returning pathmtu == 0 while PLPMTUD is still
-    searching in quic_path_pl_recv(). The PMTU is intentionally updated
-    only when an optimized PMTU is found, which is indicated by probe_high
-    being set. During the ongoing search, the current PMTU remains in use
-    while larger probe sizes are tested.
+  - Ignore the concerns about excessive looping or count overflow in
+    quic_stream_create(). The effective max_streams_bidi and
+    max_streams_uni limits are capped at QUIC_MAX_STREAMS (4096),
+    regardless of a peer advertising a larger stream limit. Therefore,
+    quic_stream_create() cannot iterate an excessively large number of
+    times, and the u16 stream counters cannot overflow.
 
   - Ignore the concern about leaking the socket counters in
     quic_init_sock(). When quic_init_sock() fails, inet_create() or
@@ -352,827 +195,668 @@ Sashiko, do not report any of the following concerns:
     destroy path and properly undoes the socket accounting before the
     socket is freed.
 
-  - Ignore the concern about the reuse branch allowing a non-local source
-    address. The source address is validated by quic_get_user_addr() when
-    the quic_bind() socket API is added in the next patchset, including the
-    FREEBIND and sysctl_ip_nonlocal_bind checks. Therefore, the address has
-    already been validated before this UDP tunnel socket reuse path is
-    reached.
+  - Ignore the concern about identifying server-side child sockets in
+    quic_is_serv(). Accepted connection sockets inherit sk_max_ack_backlog
+    from the listening socket in the next patchset, so server-side child
+    sockets are correctly identified as servers.
 
-  - Ignore the concern about adding a socket-lock assertion to
-    quic_path_swap(). This function only receives struct quic_path_group
-    *paths and does not have access to the associated struct sock, so it
-    cannot assert that the socket lock is held.
+  - Ignore the concern about returning -EAGAIN when send is false in
+    quic_stream_get(). On the RX path, -EAGAIN is handled by the caller in
+    the next patchset, which sends a QUIC_TRANSPORT_ERROR_STREAM_LIMIT
+    close frame. Thus, the stream-limit violation is correctly treated
+    as a fatal protocol error.
 
-  - Ignore the concern about accessing us->sk after
-    udp_tunnel_sock_release(). The socket is explicitly held with
-    sock_hold() before udp_tunnel_sock_release(), so its struct sock
-    remains valid while quic_udp_sock_lookup() accesses it. The release is
-    intentionally performed before __hlist_del() so a new UDP tunnel socket
-    can be created for the same address and port if the lookup no longer
-    matches, and udp_tunnel_sock_release() cannot be called under the mutex
-    due to lockdep constraints.
+  - Ignore the concern about inconsistent handling of p->remote when it
+    contains values other than 0 or 1 in quic_stream_set_param(). The
+    caller added in the next patchset validates p->remote and ensures it
+    can only be 0 or 1, so the differing truth-test and XOR semantics
+    cannot occur with a valid transport parameter.
 
-  - Ignore the concern about accessing us->sk after
-    udp_tunnel_sock_release(). udp_tunnel_sock_release() does not clear
-    sk->sk_ipv6only, and ipv6_only_sock() used by quic_cmp_sk_addr()
-    remains safe to call on the socket during this window. The socket is
-    also held by the reference, so the object remains valid until it is
-    removed from the hash.
+  - Ignore the concern about negative stream_id values reaching
+    quic_stream_id_to_streams(). Negative stream IDs cannot reach this
+    path because quic_stream_id_closed() compares the ID against the
+    non-negative next_*_stream_id values and rejects them first. Therefore,
+    negative stream_id values are safely handled by the current call path.
 
-  - Ignore the concern about silently ignoring a valid remote-only
-    migration when path[1] has a stale source address in
-    quic_path_detect_alt(). This is intentional: only one alternate path
-    can be pending at a time, and a new candidate must wait until the
-    current path is successfully probed or fails and path[1] is cleared.
-    Therefore, a candidate with a different source address is intentionally
-    rejected rather than overwriting an in-flight path validation.
-
-  - Ignore the concern about the tunnel socket not inheriting IPV6_V6ONLY
-    from the QUIC socket. This is intentional because multiple QUIC sockets
-    with different IPV6_V6ONLY settings can share the same UDP tunnel
-    socket. The setting is checked at the QUIC socket layer instead,
-    allowing IPv4 traffic to reach eligible sockets.
-
-  - Ignore the concern about IP_FREEBIND not being propagated to the tunnel
-    socket. The next patchset handles IP_FREEBIND for user-supplied
-    addresses through quic_get_user_addr() in quic_bind(), quic_connect(),
-    and quic_sock_connection_migrate(), so the tunnel socket does not need
-    to inherit this option.
+  - Ignore the concern about quic_stream_set_param() not clamping
+    max_streams_bidi and max_streams_uni to QUIC_MAX_STREAMS.
+    QUIC_MAX_STREAMS will be enforced by the caller in the next patchset
+    before calling quic_stream_set_param(), so the values passed to this
+    function are already within the intended limit.
 
 v3:
-  - Fix annotation in quic_udp_sock_lookup() (noted by Paolo).
-  - Use inet_sk_get_local_port_range() instead of
-    inet_get_local_port_range() (suggested by Paolo).
-  - Adjust global UDP tunnel socket hashtable operations for the new
-    hashtable type.
-  - Delete quic_workqueue; use system_wq for UDP tunnel socket destroy.
+  - Merge send/recv stream helpers into unified functions to reduce code:
+    * quic_stream_id_send/recv() → quic_stream_id_valid()
+    * quic_stream_id_send/recv_closed() → quic_stream_id_closed()
+    * quic_stream_id_send/recv_exceeds() → quic_stream_id_exceeds()
+    (pointed out by Paolo).
+  - Clarify in changelog that stream hash table is always protected by sock
+    lock (suggested by Paolo).
+  - quic_stream_init/free(): adjust for new hashtable type; call
+    quic_stream_delete() in quic_stream_free() to avoid open-coded logic.
+  - Receiving streams: delete stream only when fully read or reset, instead
+    of when no data was received. Prevents freeing a stream while a FIN
+    with no data is still queued.
 v4:
-  - Cache UDP tunnel socket pointer and its source address in struct
-    quic_path for RCU-protected lookup/access.
-  - Return -EAGAIN instead of -EINVAL in quic_path_bind() when UDP
-    socket is being released in workqueue.
-  - Move udp_tunnel_sock_release() out of the mutex_lock to avoid a
-    warning of lockdep in quic_udp_sock_put_work().
-  - Introduce quic_wq for UDP socket release work, so all pending works
-    can be flushed before destroying the hashtable in quic_exit().
+  - Replace struct quic_shash_table with struct hlist_head for the
+    stream hashtable. Since they are protected by the socket lock,
+    no per-chain lock is needed.
+  - Initialize stream to NULL in stream creation functions to avoid
+    warnings from Smatch (reported by Simon).
+  - Allocate send streams with GFP_KERNEL_ACCOUNT and receive streams
+    with GFP_ATOMIC | __GFP_ACCOUNT for memory accounting (suggested
+    by Paolo).
 v5:
-  - Rename quic_path_free() to quic_path_unbind() (suggested by Paolo).
-  - Remove the 'serv' member from struct quic_path_group, since
-    quic_is_serv() defined in a previous patch now uses
-    sk->sk_max_ack_backlog for server-side detection.
-  - Use quic_ktime_get_us() to set skb_cb->time, as RTT is measured
-    in microseconds and jiffies_to_usecs() is not accurate enough.
-v6:
-  - Do not reset transport_header for QUIC in quic_udp_rcv(), allowing
-    removal of udph_offset and enabling access to the UDP header via
-    udp_hdr(); Pull skb->data in quic_udp_rcv() to allow access to the
-    QUIC header via skb->data.
+  - Introduce struct quic_stream_limits to merge quic_stream_send_create()
+    and quic_stream_recv_create(), and to simplify quic_stream_get_param()
+    (suggested by Paolo).
+  - Annotate the sock-lock requirement for quic_stream_send/recv_get()
+    and quic_stream_send/recv_put() (notied by Paolo).
+  - Add quic_stream_bidi_put() to deduplicate the common logic between
+    quic_stream_send_put() and quic_stream_recv_put().
+  - Remove the unnecessary check when incrementing
+    streams->send.next_bidi/uni_stream_id in quic_stream_create().
+  - Remove the unused 'is_serv' parameter from quic_stream_get_param().
 v7:
-  - Pass udp sk to quic_path_rcv() and move the call to skb_linearize()
-    and skb_set_owner_sk_safe() to .quic_path_rcv().
-  - Delete the call to skb_linearize() and skb_set_owner_sk_safe() from
-    quic_udp_err(), as it should not change skb in .encap_err_lookup()
-    (noted by AI review).
+  - Free the allocated streams on error path in quic_stream_create() (noted
+    by Paolo).
+  - Merge quic_stream_send_get/put() and quic_stream_recv_get/put() helpers
+    to quic_stream_get/put() (suggested by Paolo).
+  - Add more comments in quic_stream_id_exceeds() and quic_stream_create().
 v8:
-  - Remove indirect quic_path_rcv and late call quic_packet_rcv()
-    directly via extern (noted by Paolo).
-  - Add a comment in quic_udp_rcv() clarifying it must return 0.
-  - Add a comment in quic_udp_sock_put() clarifying the UDP socket
-    may be freed in atomic RX context during connection migration.
-  - Reorder some quic_path_group members to reduce struct size.
+  - Replace bitfields with plain u8 in struct quic_stream_limits and struct
+    quic_stream (suggested by Paolo).
+v9:
+  - Fix grammar in the comment for quic_stream::send.window.
 v10:
-  - Replace open-coded kzalloc(sizeof(*us)) with kzalloc_obj(*us) in
-    quic_stream_create().
-  - Use get_random_u32_below() for ephemeral port selection instead of
-    manual scaling of get_random_u32() in quic_path_bind().
-  - Reset additional PLPMTUD probe state (probe_high, probe_count) in
-    quic_path_pl_reset() to ensure a clean probe restart.
-  - Add plpmtud_interval to struct quic_path_group to store the PLPMTUD
-    probe timer interval, previously kept in struct quic_sock.config.
+  - Move quic_stream_init() to after sock_prot_inuse_add() ensure counters
+    are incremented before any early return paths in quic_init_sock(),
+    preventing underflow in quic_destroy_sock() (noted by AI review).
+  - Initialize the output parameters '*max_uni' and '*max_bidi' to 0 at the
+    start of quic_stream_max_streams_update()
+  - Use 'stream->recv.state > QUIC_STREAM_RECV_STATE_RECVD' instead of '!='
+    for clearer intent.
+  - Simplify some state checks in quic_stream_put() by using range
+    comparisons (> or <) instead of multiple != conditions.
+  - streams_uni/bidi are u16 type, and their overflow is already prevented
+    by QUIC_MAX_STREAMS indirectly. Update comment in quic_stream_create().
+  - Replace open-coded kzalloc(sizeof(*stream)) with kzalloc_obj(*stream)
+    in quic_stream_create().
 v11:
   - Set maximum line length to 80 characters.
-  - Add additional comments in quic_path_bind() and quic_path_pl_send()
-    for clarity.
-  - Return ERR_PTR() instead of NULL on error in quic_udp_sock_create().
-  - Change return type of quic_path_detect_alt() to bool.
-  - Allocate quic_wq using alloc_workqueue(WQ_MEM_RECLAIM | WQ_UNBOUND)
-    for UDP socket destruction and backlog packet processing (noted by
-    AI review).
+  - Change is_serv parameter type to bool in quic_stream_id_local().
 v12:
-  - Call quic_set_skb_iif() at the start of quic_udp_rcv().
-  - Set us->bind_ifindex from udp_conf.bind_ifindex instead of
-    sk->sk_bound_dev_if in quic_udp_sock_create().
-  - Compare us->bind_ifindex against quic_get_dev_if(sk, a) instead of
-    sk->sk_bound_dev_if, and do not match when only one is zero in
-    quic_udp_sock_lookup().
-  - Call cond_resched() in the retry loop of quic_path_bind() when
-    quic_udp_sock_create() returns -EADDRINUSE.
-  - Improve address-change handling and disable_saddr/daddr_alt checks
-    in quic_path_detect_alt().
-  - Do not pass WQ_MEM_RECLAIM to alloc_workqueue() to avoid a potential
-    deadlock.
-  - Change ampl_snd/rcvlen in struct quic_path_group to u32 to avoid
-    overflow, and move mtu_info for a better layout.
-  - Add keepalive_interval to struct quic_path_group to control path
-    liveness probing, and add version to indicate version negotiation
-    was performed.
-  - Pass sk instead of sk_socket to setup_udp_tunnel_sock() and
-    udp_tunnel_sock_release(), following their parameter type changes.
-  - Set bit fields paths->disable_saddr_alt and paths->disable_daddr_alt
-    from p->disable_active_migration using '!!'.
-  - Add QUIC_PMTUD_RAISE_TIMER_FACTOR for later use.
-  - Change QUIC_PATH_MAX_PMTU from 65536U to 65535U.
+  - Skip the server-initiator bit in quic_stream_head().
+  - Return -ENOMEM if quic_stream_get() returns NULL in quic_stream_get().
+  - Release the stream in quic_stream_put() instead of waiting for all
+    data to be read by users, and remove the no longer used done fields
+    from struct quic_stream.
+  - Remove the extra MSG_QUIC_STREAM_NEW check for send streams and do it
+    later in the caller, so the current check also applies to recv streams.
 v13:
-  - Drop explicit GFP_KERNEL from kzalloc_obj() in quic_udp_sock_create().
+  - Fix the comment for recv.max_uni/bidi_stream_id check in
+    quic_stream_id_exceeds().
+  - Use kmalloc_objs() instead of kmalloc_array() in quic_stream_init().
 v14:
-  - Replace kzalloc_obj() with kmalloc_obj() in quic_udp_sock_create(), as
-    all members of the object are initialized afterwards.
-  - Move INIT_WORK() before hlist_add_head() in quic_udp_sock_create(), as
-    it makes the initialization order clearer.
-  - Remove the unnecessary pmtu >= QUIC_MIN_PLPMTU check from
-    quic_path_pl_toobig().
-v15:
-  - Add seqcount_t path_seq to quic_path_group to protect path[0] updates
-    during path migration when accessed by a concurrent quic_sock_lookup().
-    Also add quic_path_init() to initialize it in quic_init_sock().
-  - Add CAP_NET_BIND_SERVICE and sk_uid checks to quic_path_bind().
+  - Pass gfp flags to quic_stream_get() and quic_stream_create().
+  - Call quic_stream_id_local() when send is true in quic_stream_get()
+    (noted by Sashiko AI review).
+  - Return -1 from quic_stream_streams_to_id() when the nstreams parameter
+    is zero, as peer implementations may advertise max_streams_uni/bidi as
+    zero.
+  - Set streams->head to NULL in quic_stream_free() as a defensive reset.
 v16:
-  - Disable preemption during the path swap in quic_path_swap(), as a
-    plain seqcount_t requires preemption to be disabled while its write
-    sequence is active. local_bh_disable() does not disable preemption
-    on PREEMPT_RT kernels (noted by Sashiko AI review).
-  - Fix the path group name from 'dst' to 'paths' in PMTU debug messages
-    (noted by Sashiko AI review).
-  - Clarify that quic_path_pl_recv() returns the new PMTU when it
-    changes, and 0 when it remains unchanged (noted by Sashiko AI review).
-  - Align struct member comments in quic_path_group using spaces instead
-    of tabs for consistent formatting.
-  - Fix the inaccurate comment for quic_path_pl_send(), which is called
-    before, not after, sending a probe packet. Also improve its summary
-    in the comment.
-  - Improve path.c file description.
-  - Improve quic_path_pl_recv() comment to clarify that PMTU expansion uses
-    a two-phase linear search.
+  - Add recv.data_blocked to struct quic_stream to track whether a
+    MAX_STREAM_DATA frame has been sent, preventing unlimited
+    MAX_STREAM_DATA frames from being in flight in the next patchset.
+  - Improve the annotations for bidi_blocked and uni_blocked in struct
+    quic_stream_limits to indicate that they also track sent
+    MAX_STREAMS_BIDI/UNI frames for receive limits, preventing unlimited
+    MAX_STREAMS_BIDI/UNI frames from being in flight in the next patchset.
+  - Improve stream.c file description.
+  - Explicitly reject negative stream IDs in quic_stream_id_valid().
 v17:
-  - Hold a netns reference when creating quic_udp_sock and release it after
-    deferred UDP socket cleanup completes (noted by Sashiko AI review).
-  - Compare the current fsuid with the existing tunnel socket's sk_uid to
-    match the ownership semantics used when creating the tunnel socket
-    (noted by Sashiko AI review).
-  - Replace us->sk->sk_uid with sk_uid(us->sk) in quic_path_bind().
-  - Fix the alternate path detection comment for quic_path_detect_alt().
-  - Fix format specifier for PMTU with pr_debug() in quic_path_pl_toobig().
+  - Include the per-netns hash mix when hashing stream IDs to prevent
+    predictable bucket selection based solely on the stream ID (noted by
+    Sashiko AI review).
+  - Account stream table memory to memcg by passing GFP_KERNEL_ACCOUNT to
+    kmalloc_objs() (noted by Sashiko AI review).
+  - Initialize the receive state of new streams in quic_stream_create().
+  - Remove recv.data_blocked from struct quic_stream and update the
+    comments for bidi/uni_pending and bidi/uni_blocked in struct
+    quic_stream_limits, as flow control frame retransmissions will no
+    longer be limited.
 v18:
-  - Use get_net_track()/put_net_track() for netns references instead of
-    the obsolete get_net()/put_net().
+  - Clarify that max_uni and max_bidi represent stream count limits, not
+    stream ID limits, in the comment of quic_stream_max_streams_update().
+  - Clarify the comments for bidi_blocked/uni_blocked in struct
+    quic_stream_limits, as they will also track the
+    MAX_STREAMS_BIDI/MAX_STREAMS_UNI frame sent by the receiving side.
 v19:
-  - Replace the active netns reference with flush_workqueue(quic_wq) in
-    quic_net_exit() to ensure pending udp_tunnel_sock_release() calls
-    complete before inet teardown (noted by Sashiko AI review).
-  - Improve PLPMTU dynamic debugging by adding entry and exit dynamic
-    debugging points to quic_path_pl_send/recv/toobig().
+  - Rename the quic_stream_id_closed() parameter from 'send' to 'is_serv'
+    and derive the counter selection internally.
+  - Simplify the three checks into two: a single quic_stream_id_closed()
+    call that selects the right counter based on stream ID parity, followed
+    by a send != local guard for streams that only the other side can
+    create (noted by Sashiko AI review).
+  - Move active_stream_id from quic_stream_limits to quic_stream_table, as
+    active_stream_id is only meaningful in the send instance.
+  - Preserve next stream IDs across parameter re-apply by guarding
+    next_*_stream_id in quic_stream_set_param() so they are only set when
+    they have not yet advanced past the base type value (noted by Sashiko
+    AI review).
 ---
- net/quic/Makefile   |   2 +-
- net/quic/path.c     | 608 ++++++++++++++++++++++++++++++++++++++++++++
- net/quic/path.h     | 191 ++++++++++++++
- net/quic/protocol.c |  16 ++
- net/quic/socket.c   |   4 +
- net/quic/socket.h   |   7 +
- 6 files changed, 827 insertions(+), 1 deletion(-)
- create mode 100644 net/quic/path.c
- create mode 100644 net/quic/path.h
+ net/quic/Makefile |   2 +-
+ net/quic/socket.c |   5 +
+ net/quic/socket.h |   8 +
+ net/quic/stream.c | 426 ++++++++++++++++++++++++++++++++++++++++++++++
+ net/quic/stream.h | 133 +++++++++++++++
+ 5 files changed, 573 insertions(+), 1 deletion(-)
+ create mode 100644 net/quic/stream.c
+ create mode 100644 net/quic/stream.h
 
 diff --git a/net/quic/Makefile b/net/quic/Makefile
-index eee7501588d3..1565fb5cef9d 100644
+index 13bf4a4e5442..094e9da5d739 100644
 --- a/net/quic/Makefile
 +++ b/net/quic/Makefile
 @@ -5,4 +5,4 @@
  
  obj-$(CONFIG_IP_QUIC) += quic.o
  
--quic-y := common.o family.o protocol.o socket.o stream.o connid.o
-+quic-y := common.o family.o protocol.o socket.o stream.o connid.o path.o
-diff --git a/net/quic/path.c b/net/quic/path.c
+-quic-y := common.o family.o protocol.o socket.o
++quic-y := common.o family.o protocol.o socket.o stream.o
+diff --git a/net/quic/socket.c b/net/quic/socket.c
+index def966eb3016..37660ff7528b 100644
+--- a/net/quic/socket.c
++++ b/net/quic/socket.c
+@@ -50,11 +50,16 @@ static int quic_init_sock(struct sock *sk)
+ 	sock_prot_inuse_add(sock_net(sk), sk->sk_prot, 1);
+ 	INIT_LIST_HEAD(quic_reqs(sk));
+ 
++	if (quic_stream_init(quic_streams(sk)))
++		return -ENOMEM;
++
+ 	return 0;
+ }
+ 
+ static void quic_destroy_sock(struct sock *sk)
+ {
++	quic_stream_free(quic_streams(sk));
++
+ 	quic_data_free(quic_ticket(sk));
+ 	quic_data_free(quic_token(sk));
+ 	quic_data_free(quic_alpn(sk));
+diff --git a/net/quic/socket.h b/net/quic/socket.h
+index 61df0c5867be..e76737b9b74b 100644
+--- a/net/quic/socket.h
++++ b/net/quic/socket.h
+@@ -13,6 +13,7 @@
+ 
+ #include "common.h"
+ #include "family.h"
++#include "stream.h"
+ 
+ #include "protocol.h"
+ 
+@@ -33,6 +34,8 @@ struct quic_sock {
+ 	struct quic_data		ticket;
+ 	struct quic_data		token;
+ 	struct quic_data		alpn;
++
++	struct quic_stream_table	streams;
+ };
+ 
+ struct quic6_sock {
+@@ -65,6 +68,11 @@ static inline struct quic_data *quic_alpn(const struct sock *sk)
+ 	return &quic_sk(sk)->alpn;
+ }
+ 
++static inline struct quic_stream_table *quic_streams(const struct sock *sk)
++{
++	return &quic_sk(sk)->streams;
++}
++
+ static inline bool quic_is_serv(const struct sock *sk)
+ {
+ 	return !!sk->sk_max_ack_backlog;
+diff --git a/net/quic/stream.c b/net/quic/stream.c
 new file mode 100644
-index 000000000000..946f5e44b635
+index 000000000000..cb1128abca10
 --- /dev/null
-+++ b/net/quic/path.c
-@@ -0,0 +1,608 @@
++++ b/net/quic/stream.c
+@@ -0,0 +1,426 @@
 +// SPDX-License-Identifier: GPL-2.0-or-later
 +/* QUIC kernel implementation
 + * (C) Copyright Red Hat Corp. 2023
 + *
 + * This file is part of the QUIC kernel implementation
 + *
-+ * Path management.
++ * Stream management.
 + *
 + * Written or modified by:
 + *    Xin Long <lucien.xin@gmail.com>
 + */
 +
-+#include <net/udp_tunnel.h>
++#include <net/netns/hash.h>
++#include <linux/jhash.h>
 +#include <linux/quic.h>
 +
 +#include "common.h"
-+#include "family.h"
-+#include "path.h"
++#include "stream.h"
 +
-+static int quic_udp_rcv(struct sock *sk, struct sk_buff *skb)
++/* Check if a stream ID is valid for sending or receiving. */
++static bool quic_stream_id_valid(s64 stream_id, bool is_serv, bool send)
 +{
-+	quic_set_skb_iif(skb);
++	u8 type = (stream_id & QUIC_STREAM_TYPE_MASK);
 +
-+	memset(skb->cb, 0, sizeof(skb->cb));
-+	QUIC_SKB_CB(skb)->seqno = -1;
-+	QUIC_SKB_CB(skb)->time = quic_ktime_get_us();
++	if (stream_id < 0)
++		return false;
 +
-+	skb_pull(skb, sizeof(struct udphdr));
-+	skb_dst_force(skb);
-+	kfree_skb(skb);
-+	/* .encap_rcv must return 0 if skb was either consumed or dropped. */
-+	return 0;
-+}
-+
-+static int quic_udp_err(struct sock *sk, struct sk_buff *skb)
-+{
-+	return 0;
-+}
-+
-+static void quic_udp_sock_put_work(struct work_struct *work)
-+{
-+	struct quic_udp_sock *us = container_of(work, struct quic_udp_sock,
-+						work);
-+	struct quic_uhash_head *head;
-+	struct sock *sk = us->sk;
-+
-+	/* Hold the sock to safely access it in quic_udp_sock_lookup() even
-+	 * after udp_tunnel_sock_release(). The release must occur before
-+	 * __hlist_del() so a new UDP tunnel socket can be created for the same
-+	 * address and port if quic_udp_sock_lookup() fails to find one.
-+	 *
-+	 * Note: udp_tunnel_sock_release() cannot be called under the mutex due
-+	 * to some lockdep warnings.
-+	 */
-+	sock_hold(sk);
-+	udp_tunnel_sock_release(sk);
-+
-+	head = quic_udp_sock_head(sock_net(sk), ntohs(us->addr.v4.sin_port));
-+	mutex_lock(&head->lock);
-+	__hlist_del(&us->node);
-+	mutex_unlock(&head->lock);
-+
-+	sock_put(sk);
-+	kfree(us);
-+}
-+
-+static struct quic_udp_sock *quic_udp_sock_create(struct sock *sk,
-+						  union quic_addr *a)
-+{
-+	struct udp_tunnel_sock_cfg tuncfg = {};
-+	struct udp_port_cfg udp_conf = {};
-+	struct net *net = sock_net(sk);
-+	struct quic_uhash_head *head;
-+	struct quic_udp_sock *us;
-+	struct socket *sock;
-+	int err;
-+
-+	us = kmalloc_obj(*us);
-+	if (!us)
-+		return ERR_PTR(-ENOMEM);
-+
-+	quic_udp_conf_init(sk, &udp_conf, a);
-+	err = udp_sock_create(net, &udp_conf, &sock);
-+	if (err) {
-+		pr_debug("%s: failed to create udp sock\n", __func__);
-+		kfree(us);
-+		return ERR_PTR(err);
++	if (send) {
++		if (is_serv)
++			return type != QUIC_STREAM_TYPE_CLIENT_UNI;
++		return type != QUIC_STREAM_TYPE_SERVER_UNI;
 +	}
-+
-+	tuncfg.encap_type = 1;
-+	tuncfg.encap_rcv = quic_udp_rcv;
-+	tuncfg.encap_err_lookup = quic_udp_err;
-+	setup_udp_tunnel_sock(net, sock->sk, &tuncfg);
-+
-+	refcount_set(&us->refcnt, 1);
-+	us->sk = sock->sk;
-+	memcpy(&us->addr, a, sizeof(*a));
-+	us->bind_ifindex = udp_conf.bind_ifindex;
-+
-+	INIT_WORK(&us->work, quic_udp_sock_put_work);
-+	head = quic_udp_sock_head(net, ntohs(a->v4.sin_port));
-+	hlist_add_head(&us->node, &head->head);
-+
-+	return us;
++	if (is_serv)
++		return type != QUIC_STREAM_TYPE_SERVER_UNI;
++	return type != QUIC_STREAM_TYPE_CLIENT_UNI;
 +}
 +
-+static bool quic_udp_sock_get(struct quic_udp_sock *us)
++/* Check if a stream ID belongs to the local endpoint. */
++static bool quic_stream_id_local(s64 stream_id, bool is_serv)
 +{
-+	return refcount_inc_not_zero(&us->refcnt);
++	return is_serv ^ !(stream_id & QUIC_STREAM_TYPE_SERVER_MASK);
 +}
 +
-+static void quic_udp_sock_put(struct quic_udp_sock *us)
++/* Check if a stream ID represents a unidirectional stream. */
++static bool quic_stream_id_uni(s64 stream_id)
 +{
-+	/* The UDP socket may be freed in atomic RX context during connection
-+	 * migration; defer the release to a workqueue.
++	return stream_id & QUIC_STREAM_TYPE_UNI_MASK;
++}
++
++#define QUIC_STREAM_HT_SIZE	64
++
++static struct hlist_head *quic_stream_head(struct quic_stream_table *streams,
++					   s64 stream_id, struct net *net)
++{
++	u32 hash = jhash_1word((u32)(stream_id >> 1), net_hash_mix(net));
++
++	return &streams->head[hash & (QUIC_STREAM_HT_SIZE - 1)];
++}
++
++struct quic_stream *quic_stream_find(struct quic_stream_table *streams,
++				     s64 stream_id, struct net *net)
++{
++	struct hlist_head *head = quic_stream_head(streams, stream_id, net);
++	struct quic_stream *stream;
++
++	hlist_for_each_entry(stream, head, node) {
++		if (stream->id == stream_id)
++			break;
++	}
++	return stream;
++}
++
++static void quic_stream_add(struct quic_stream_table *streams,
++			    struct quic_stream *stream, struct net *net)
++{
++	struct hlist_head *head;
++
++	head = quic_stream_head(streams, stream->id, net);
++	hlist_add_head(&stream->node, head);
++}
++
++static void quic_stream_delete(struct quic_stream *stream)
++{
++	hlist_del_init(&stream->node);
++	kfree(stream);
++}
++
++/* Create and register new streams for sending or receiving. */
++static struct quic_stream *quic_stream_create(struct quic_stream_table *streams,
++					      s64 max_stream_id, bool send,
++					      bool is_serv, struct net *net,
++					      gfp_t gfp)
++{
++	struct quic_stream *pos, *stream = NULL;
++	struct quic_stream_limits *limits;
++	struct hlist_node *tmp;
++	HLIST_HEAD(head);
++	s64 stream_id;
++	u32 count = 0;
++
++	gfp |= __GFP_ACCOUNT;
++	limits = send ? &streams->send : &streams->recv;
++	stream_id = limits->next_bidi_stream_id;
++	if (quic_stream_id_uni(max_stream_id))
++		stream_id = limits->next_uni_stream_id;
++
++	/* rfc9000#section-2.1: A stream ID that is used out of order results in
++	 * all streams of that type with lower-numbered stream IDs also being
++	 * opened.
 +	 */
-+	if (refcount_dec_and_test(&us->refcnt))
-+		queue_work(quic_wq, &us->work);
-+}
++	while (stream_id <= max_stream_id) {
++		stream = kzalloc_obj(*stream, gfp);
++		if (!stream)
++			goto free;
 +
-+/* Lookup a quic_udp_sock in the global hash table by port or address.  If 'a'
-+ * is provided, it searches for a socket whose local address matches 'a' and,
-+ * if applicable, matches the device binding. If 'a' is NULL, it searches only
-+ * by port.
-+ */
-+static struct quic_udp_sock *quic_udp_sock_lookup(struct sock *sk,
-+						  union quic_addr *a, u16 port)
-+{
-+	struct net *net = sock_net(sk);
-+	struct quic_uhash_head *head;
-+	struct quic_udp_sock *us;
-+
-+	head = quic_udp_sock_head(net, port);
-+	hlist_for_each_entry(us, &head->head, node) {
-+		if (net != sock_net(us->sk))
-+			continue;
-+		if (a) {
-+			if (quic_cmp_sk_addr(us->sk, &us->addr, a) &&
-+			    us->bind_ifindex == quic_get_dev_if(sk, a))
-+				return us;
++		stream->id = stream_id;
++		if (quic_stream_id_uni(stream_id)) {
++			if (send) {
++				stream->send.max_bytes =
++					limits->max_stream_data_uni;
++			} else {
++				stream->recv.max_bytes =
++					limits->max_stream_data_uni;
++				stream->recv.state =
++					QUIC_STREAM_RECV_STATE_RECV;
++				stream->recv.window = stream->recv.max_bytes;
++			}
++			hlist_add_head(&stream->node, &head);
++			stream_id += QUIC_STREAM_ID_STEP;
 +			continue;
 +		}
-+		if (ntohs(us->addr.v4.sin_port) == port)
-+			return us;
++
++		if (quic_stream_id_local(stream_id, is_serv)) {
++			stream->send.max_bytes =
++				streams->send.max_stream_data_bidi_remote;
++			stream->recv.max_bytes =
++				streams->recv.max_stream_data_bidi_local;
++		} else {
++			stream->send.max_bytes =
++				streams->send.max_stream_data_bidi_local;
++			stream->recv.max_bytes =
++				streams->recv.max_stream_data_bidi_remote;
++		}
++		stream->recv.state = QUIC_STREAM_RECV_STATE_RECV;
++		stream->recv.window = stream->recv.max_bytes;
++		hlist_add_head(&stream->node, &head);
++		stream_id += QUIC_STREAM_ID_STEP;
++	}
++
++	hlist_for_each_entry_safe(pos, tmp, &head, node) {
++		hlist_del_init(&pos->node);
++		quic_stream_add(streams, pos, net);
++		count++;
++	}
++
++	/* Streams must be opened sequentially. Update the next stream ID so the
++	 * correct starting point is known if an out-of-order open is requested.
++	 * Note overflow of next_uni/bidi_stream_id is impossible with s64.
++	 */
++	if (quic_stream_id_uni(stream_id)) {
++		limits->next_uni_stream_id = stream_id;
++		limits->streams_uni += count;
++		return stream;
++	}
++
++	limits->next_bidi_stream_id = stream_id;
++	limits->streams_bidi += count;
++	return stream;
++
++free:
++	hlist_for_each_entry_safe(pos, tmp, &head, node) {
++		hlist_del_init(&pos->node);
++		kfree(pos);
 +	}
 +	return NULL;
 +}
 +
-+static void quic_path_set_udp_sk(struct quic_path *path,
-+				 struct quic_udp_sock *us)
++/* Check if a stream ID was already used. */
++static bool quic_stream_id_closed(struct quic_stream_table *streams,
++				  s64 stream_id, bool is_serv)
 +{
-+	if (path->udp_sk)
-+		quic_udp_sock_put(path->udp_sk);
++	bool local = quic_stream_id_local(stream_id, is_serv);
++	struct quic_stream_limits *limits;
 +
-+	path->udp_sk = us;
-+	if (!us) {
-+		path->usk = NULL;
-+		memset(&path->uaddr, 0, sizeof(path->uaddr));
-+		return;
-+	}
-+	path->usk = us->sk;
-+	memcpy(&path->uaddr, &us->addr, sizeof(us->addr));
++	limits = local ? &streams->send : &streams->recv;
++	if (quic_stream_id_uni(stream_id))
++		return stream_id < limits->next_uni_stream_id;
++	return stream_id < limits->next_bidi_stream_id;
 +}
 +
-+/* Binds a QUIC path to a local port and sets up a UDP socket. */
-+int quic_path_bind(struct sock *sk, struct quic_path_group *paths, u8 path)
++/* Check if a stream ID would exceed local (recv) or peer (send) limits. */
++bool quic_stream_id_exceeds(struct quic_stream_table *streams, s64 stream_id,
++			    bool send)
 +{
-+	union quic_addr *a = quic_path_saddr(paths, path);
-+	int rover, low, high, remaining;
-+	struct net *net = sock_net(sk);
-+	struct quic_uhash_head *head;
-+	struct quic_udp_sock *us;
-+	u16 port;
++	u64 nstreams;
 +
-+	port = ntohs(a->v4.sin_port);
-+	if (port) {
-+		if (inet_port_requires_bind_service(net, port) &&
-+		    !ns_capable(net->user_ns, CAP_NET_BIND_SERVICE))
-+			return -EACCES;
-+		head = quic_udp_sock_head(net, port);
-+		mutex_lock(&head->lock);
-+		us = quic_udp_sock_lookup(sk, a, port);
-+		if (us) {
-+			if (!uid_eq(current_fsuid(), sk_uid(us->sk))) {
-+				mutex_unlock(&head->lock);
-+				return -EADDRINUSE;
-+			}
-+			/* Allow reuse of an existing UDP tunnel socket.
-+			 * However, if it is in the middle of asynchronous
-+			 * teardown (via workqueue), it is temporarily unusable.
-+			 * Return -EAGAIN (not -EADDRINUSE) to signal the caller
-+			 * to retry soon.
-+			 */
-+			if (!quic_udp_sock_get(us)) {
-+				mutex_unlock(&head->lock);
-+				return -EAGAIN;
-+			}
-+		} else {
-+			us = quic_udp_sock_create(sk, a);
-+			if (IS_ERR(us)) {
-+				mutex_unlock(&head->lock);
-+				return PTR_ERR(us);
-+			}
-+		}
-+		mutex_unlock(&head->lock);
-+		quic_path_set_udp_sk(&paths->path[path], us);
-+		return 0;
-+	}
-+
-+	inet_sk_get_local_port_range(sk, &low, &high);
-+	remaining = (high - low) + 1;
-+	rover = get_random_u32_below(remaining) + low;
-+	do {
-+		rover++;
-+		if (rover < low || rover > high)
-+			rover = low;
-+		port = (u16)rover;
-+		if (inet_is_local_reserved_port(net, port))
-+			continue;
-+
-+		head = quic_udp_sock_head(net, port);
-+		mutex_lock(&head->lock);
-+		if (quic_udp_sock_lookup(sk, NULL, port)) {
-+			mutex_unlock(&head->lock);
-+			cond_resched();
-+			continue;
-+		}
-+		a->v4.sin_port = htons(port);
-+		us = quic_udp_sock_create(sk, a);
-+		if (IS_ERR(us)) {
-+			a->v4.sin_port = 0;
-+			mutex_unlock(&head->lock);
-+			if (PTR_ERR(us) == -EADDRINUSE) {
-+				cond_resched();
-+				continue;
-+			}
-+			return PTR_ERR(us);
-+		}
-+		mutex_unlock(&head->lock);
-+
-+		quic_path_set_udp_sk(&paths->path[path], us);
-+		__sk_dst_reset(sk);
-+		return 0;
-+	} while (--remaining > 0);
-+
-+	return -EADDRINUSE;
-+}
-+
-+/* Swaps the active and alternate QUIC paths.
-+ *
-+ * Promotes the alternate path (path[1]) to become the new active path
-+ * (path[0]).  If the alternate path has a valid UDP socket, the entire path is
-+ * swapped.  Otherwise, only the destination address is exchanged, assuming the
-+ * source address is the same and no rebind is needed.
-+ *
-+ * This is typically used during path migration or alternate path promotion.
-+ */
-+void quic_path_swap(struct quic_path_group *paths)
-+{
-+	struct quic_path path = paths->path[0];
-+
-+	paths->alt_probes = 0;
-+	paths->alt_state = QUIC_PATH_ALT_SWAPPED;
-+
-+	/* Protect path[0] modifications with seqcount for RCU readers in
-+	 * quic_sock_lookup(). The seqcount allows readers to detect torn reads
-+	 * during the non-atomic structure assignment.
-+	 */
-+	local_bh_disable();
-+	preempt_disable_nested();
-+	write_seqcount_begin(&paths->path_seq);
-+	if (paths->path[1].udp_sk) {
-+		paths->path[0] = paths->path[1];
-+		paths->path[1] = path;
-+		goto out;
-+	}
-+
-+	paths->path[0].daddr = paths->path[1].daddr;
-+	paths->path[1].daddr = path.daddr;
-+out:
-+	write_seqcount_end(&paths->path_seq);
-+	preempt_enable_nested();
-+	local_bh_enable();
-+}
-+
-+/* Frees resources associated with a QUIC path.
-+ *
-+ * This is used for cleanup during error handling or when the path is no longer
-+ * needed.
-+ */
-+void quic_path_unbind(struct sock *sk, struct quic_path_group *paths, u8 path)
-+{
-+	paths->alt_probes = 0;
-+	paths->alt_state = QUIC_PATH_ALT_NONE;
-+
-+	quic_path_set_udp_sk(&paths->path[path], NULL);
-+
-+	memset(quic_path_daddr(paths, path), 0, sizeof(union quic_addr));
-+	memset(quic_path_saddr(paths, path), 0, sizeof(union quic_addr));
-+}
-+
-+/* Detects and records a potential alternate path.
-+ *
-+ * If the new source or destination address differs from the active path, and
-+ * alternate path detection is not disabled, the function updates the alternate
-+ * path slot (path[1]) with the new addresses.
-+ *
-+ * This is typically called on packet receive to detect new possible network
-+ * paths (e.g., NAT rebinding, mobility).
-+ *
-+ * Returns true if the alternate path (path[1]) matches (sa, da), regardless
-+ * of whether it was newly detected or already present. Returns false if the
-+ * addresses don't match the alternate path.
-+ */
-+bool quic_path_detect_alt(struct quic_path_group *paths, union quic_addr *sa,
-+			  union quic_addr *da, struct sock *sk)
-+{
-+	bool remote = !quic_cmp_sk_addr(sk, quic_path_daddr(paths, 0), da);
-+	bool local = !quic_cmp_sk_addr(sk, quic_path_saddr(paths, 0), sa);
-+
-+	if (!local && !remote)
-+		return false;
-+
-+	if ((local && paths->disable_saddr_alt) ||
-+	    (remote && paths->disable_daddr_alt))
-+		return false;
-+
-+	if (!quic_path_saddr(paths, 1)->v4.sin_port)
-+		quic_path_set_saddr(paths, 1, sa);
-+
-+	if (!quic_cmp_sk_addr(sk, quic_path_saddr(paths, 1), sa))
-+		return false;
-+
-+	if (!quic_path_daddr(paths, 1)->v4.sin_port)
-+		quic_path_set_daddr(paths, 1, da);
-+
-+	return quic_cmp_sk_addr(sk, quic_path_daddr(paths, 1), da);
-+}
-+
-+void quic_path_get_param(struct quic_path_group *paths,
-+			 struct quic_transport_param *p)
-+{
-+	if (p->remote) {
-+		p->disable_active_migration = paths->disable_saddr_alt;
-+		return;
-+	}
-+	p->disable_active_migration = paths->disable_daddr_alt;
-+}
-+
-+void quic_path_set_param(struct quic_path_group *paths,
-+			 struct quic_transport_param *p)
-+{
-+	if (p->remote) {
-+		paths->disable_saddr_alt = !!p->disable_active_migration;
-+		return;
-+	}
-+	paths->disable_daddr_alt = !!p->disable_active_migration;
-+}
-+
-+/* State Machine defined in rfc8899#section-5.2 */
-+enum quic_plpmtud_state {
-+	QUIC_PL_DISABLED,
-+	QUIC_PL_BASE,
-+	QUIC_PL_SEARCH,
-+	QUIC_PL_COMPLETE,
-+	QUIC_PL_ERROR,
-+};
-+
-+#define QUIC_BASE_PLPMTU        1200
-+#define QUIC_MAX_PLPMTU         9000
-+#define QUIC_MIN_PLPMTU         512
-+
-+#define QUIC_MAX_PROBES         3
-+
-+#define QUIC_PL_BIG_STEP        32
-+#define QUIC_PL_MIN_STEP        4
-+
-+/* Track PLPMTUD probe sends and handle probe exhaustion.
-+ *
-+ * Called right before sending a probe packet in QUIC Path MTU Discovery.
-+ * Tracks probe count and manages state transitions based on the number of
-+ * probes sent and current PLPMTUD state (BASE, SEARCH, COMPLETE, ERROR).
-+ * Detects probe failures and black holes, adjusting PMTU and probe sizes
-+ * accordingly.
-+ *
-+ * Return: New PMTU value if updated, else 0.
-+ */
-+u32 quic_path_pl_send(struct quic_path_group *paths, s64 number)
-+{
-+	u32 pathmtu = 0;
-+
-+	pr_debug("%s entry: paths: %p, state: %d, pmtu: %d, size: %d, high: %d\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, paths->pl.probe_high);
-+
-+	paths->pl.number = number;
-+	if (paths->pl.probe_count < QUIC_MAX_PROBES)
-+		goto out;
-+
-+	paths->pl.probe_count = 0;
-+	if (paths->pl.state == QUIC_PL_BASE) {
-+		if (paths->pl.probe_size == QUIC_BASE_PLPMTU) {
-+			/* BASE_PLPMTU Confirming Failed: Base -> Error. */
-+			paths->pl.state = QUIC_PL_ERROR;
-+
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+		}
-+	} else if (paths->pl.state == QUIC_PL_SEARCH) {
-+		if (paths->pl.pmtu == paths->pl.probe_size) {
-+			/* Black Hole Detected: Search -> Base. */
-+			paths->pl.state = QUIC_PL_BASE;
-+			paths->pl.probe_size = QUIC_BASE_PLPMTU;
-+			paths->pl.probe_high = 0;
-+
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+		} else { /* Normal probe failure. */
-+			paths->pl.probe_high = paths->pl.probe_size;
-+			paths->pl.probe_size = paths->pl.pmtu;
-+		}
-+	} else if (paths->pl.state == QUIC_PL_COMPLETE) {
-+		if (paths->pl.pmtu == paths->pl.probe_size) {
-+			/* Black Hole Detected:  Search Complete -> Base. */
-+			paths->pl.state = QUIC_PL_BASE;
-+			paths->pl.probe_size = QUIC_BASE_PLPMTU;
-+
-+			/* probe_high already reset when entering COMPLETE. */
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+		}
-+	}
-+
-+out:
-+	pr_debug("%s exit: paths: %p, state: %d, pmtu: %d, size: %d, high: %d\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, paths->pl.probe_high);
-+	paths->pl.probe_count++;
-+	return pathmtu;
-+}
-+
-+/* Handle successful reception of a PMTU probe.
-+ *
-+ * Called when a probe packet is acknowledged. Updates probe size and
-+ * transitions state if needed (e.g., from SEARCH to COMPLETE). Expands PMTU
-+ * using a two-phase linear search: coarse stepping (QUIC_PL_BIG_STEP) to
-+ * quickly find the upper bound, then fine stepping (QUIC_PL_MIN_STEP) to
-+ * refine.
-+ *
-+ * Return: New PMTU to apply, or 0 if unchanged.
-+ */
-+u32 quic_path_pl_recv(struct quic_path_group *paths, bool *raise_timer,
-+		      bool *complete)
-+{
-+	u32 pathmtu = 0;
-+	u16 next;
-+
-+	pr_debug("%s entry: paths: %p, state: %d, pmtu: %d, size: %d, high: %d\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, paths->pl.probe_high);
-+
-+	*raise_timer = false;
-+	paths->pl.number = 0;
-+	paths->pl.pmtu = paths->pl.probe_size;
-+	paths->pl.probe_count = 0;
-+	if (paths->pl.state == QUIC_PL_BASE) {
-+		paths->pl.state = QUIC_PL_SEARCH; /* Base -> Search */
-+		paths->pl.probe_size += QUIC_PL_BIG_STEP;
-+	} else if (paths->pl.state == QUIC_PL_ERROR) {
-+		paths->pl.state = QUIC_PL_SEARCH; /* Error -> Search */
-+
-+		paths->pl.pmtu = paths->pl.probe_size;
-+		pathmtu = (u32)paths->pl.pmtu;
-+		paths->pl.probe_size += QUIC_PL_BIG_STEP;
-+	} else if (paths->pl.state == QUIC_PL_SEARCH) {
-+		if (!paths->pl.probe_high) {
-+			if (paths->pl.probe_size < QUIC_MAX_PLPMTU) {
-+				next = paths->pl.probe_size + QUIC_PL_BIG_STEP;
-+				paths->pl.probe_size =
-+					min_t(u16, next, QUIC_MAX_PLPMTU);
-+				*complete = false;
-+				goto out;
-+			}
-+			paths->pl.probe_high = QUIC_MAX_PLPMTU;
-+		}
-+		paths->pl.probe_size += QUIC_PL_MIN_STEP;
-+		if (paths->pl.probe_size >= paths->pl.probe_high) {
-+			paths->pl.probe_high = 0;
-+			/* Search -> Search Complete */
-+			paths->pl.state = QUIC_PL_COMPLETE;
-+
-+			paths->pl.probe_size = paths->pl.pmtu;
-+			pathmtu = (u32)paths->pl.pmtu;
-+			*raise_timer = true;
-+		}
-+	} else if (paths->pl.state == QUIC_PL_COMPLETE) {
-+		/* Raise probe_size after 30 * interval in Search Complete;
-+		 * Search Complete -> Search.
++	if (!send) {
++		/* recv.max_uni/bidi_stream_id is updated in
++		 * quic_stream_max_streams_update() already based on
++		 * next_uni/bidi_stream_id, max_streams_uni/bidi, and
++		 * streams_uni/bidi, so only recv.max_uni/bidi_stream_id needs
++		 * to be checked.
 +		 */
-+		paths->pl.state = QUIC_PL_SEARCH;
-+		next = paths->pl.probe_size + QUIC_PL_MIN_STEP;
-+		paths->pl.probe_size = min_t(u16, next, QUIC_MAX_PLPMTU);
++		if (quic_stream_id_uni(stream_id))
++			return stream_id > streams->recv.max_uni_stream_id;
++
++		return stream_id > streams->recv.max_bidi_stream_id;
 +	}
 +
-+	*complete = (paths->pl.state == QUIC_PL_COMPLETE);
++	if (quic_stream_id_uni(stream_id)) {
++		if (stream_id > streams->send.max_uni_stream_id)
++			return true;
++		stream_id -= streams->send.next_uni_stream_id;
++		nstreams = quic_stream_id_to_streams(stream_id);
 +
-+out:
-+	pr_debug("%s exit: paths: %p, state: %d, pmtu: %d, size: %d, high: %d\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, paths->pl.probe_high);
-+	return pathmtu;
-+}
-+
-+/* Handle ICMP "Packet Too Big" messages.
-+ *
-+ * Responds to an incoming ICMP error by reducing the probe size or falling
-+ * back to a safe baseline PMTU depending on current state.  Also handles cases
-+ * where the PMTU hint lies between probe and current PMTU.
-+ *
-+ * Return: New PMTU to apply if state changes, or 0 if no change.
-+ */
-+u32 quic_path_pl_toobig(struct quic_path_group *paths, u32 pmtu,
-+			bool *reset_timer)
-+{
-+	u32 pathmtu = 0;
-+
-+	pr_debug("%s entry: paths: %p, state: %d, pmtu: %d, size: %d, ptb: %u\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, pmtu);
-+
-+	*reset_timer = false;
-+	if (pmtu < QUIC_MIN_PLPMTU || pmtu >= (u32)paths->pl.probe_size)
-+		goto out;
-+
-+	if (paths->pl.state == QUIC_PL_BASE) {
-+		if (pmtu < QUIC_BASE_PLPMTU) {
-+			paths->pl.state = QUIC_PL_ERROR; /* Base -> Error */
-+
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+		}
-+	} else if (paths->pl.state == QUIC_PL_SEARCH) {
-+		if (pmtu >= QUIC_BASE_PLPMTU && pmtu < (u32)paths->pl.pmtu) {
-+			paths->pl.state = QUIC_PL_BASE;  /* Search -> Base */
-+			paths->pl.probe_size = QUIC_BASE_PLPMTU;
-+			paths->pl.probe_count = 0;
-+
-+			paths->pl.probe_high = 0;
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+		} else if (pmtu > (u32)paths->pl.pmtu &&
-+			   pmtu < (u32)paths->pl.probe_size) {
-+			paths->pl.probe_size = (u16)pmtu;
-+			paths->pl.probe_count = 0;
-+		}
-+	} else if (paths->pl.state == QUIC_PL_COMPLETE) {
-+		if (pmtu >= QUIC_BASE_PLPMTU && pmtu < (u32)paths->pl.pmtu) {
-+			paths->pl.state = QUIC_PL_BASE;  /* Complete -> Base */
-+			paths->pl.probe_size = QUIC_BASE_PLPMTU;
-+			paths->pl.probe_count = 0;
-+
-+			paths->pl.probe_high = 0;
-+			paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+			pathmtu = QUIC_BASE_PLPMTU;
-+			*reset_timer = true;
-+		}
++		return nstreams + streams->send.streams_uni >
++		       streams->send.max_streams_uni;
 +	}
 +
-+out:
-+	pr_debug("%s exit: paths: %p, state: %d, pmtu: %d, size: %d, ptb: %u\n",
-+		 __func__, paths, paths->pl.state, paths->pl.pmtu,
-+		 paths->pl.probe_size, pmtu);
-+	return pathmtu;
++	if (stream_id > streams->send.max_bidi_stream_id)
++		return true;
++	stream_id -= streams->send.next_bidi_stream_id;
++	nstreams = quic_stream_id_to_streams(stream_id);
++
++	return nstreams + streams->send.streams_bidi >
++	       streams->send.max_streams_bidi;
 +}
 +
-+/* Reset PLPMTUD state for a path.
-+ *
-+ * Resets all PLPMTUD-related state to its initial configuration.  Called when
-+ * a new path is initialized or when recovering from errors.
++/* Get or create a send or recv stream by ID. Requires sock lock held. */
++struct quic_stream *quic_stream_get(struct quic_stream_table *streams,
++				    s64 stream_id, u32 flags, bool is_serv,
++				    bool send, struct net *net, gfp_t gfp)
++{
++	struct quic_stream *stream;
++
++	if (!quic_stream_id_valid(stream_id, is_serv, send))
++		return ERR_PTR(-EINVAL);
++
++	stream = quic_stream_find(streams, stream_id, net);
++	if (stream)
++		return stream;
++
++	if (quic_stream_id_closed(streams, stream_id, is_serv))
++		return ERR_PTR(-ENOSTR);
++
++	/* Cannot create if the other side must initiate this stream. */
++	if (send != quic_stream_id_local(stream_id, is_serv))
++		return ERR_PTR(-EINVAL);
++
++	if (!(flags & MSG_QUIC_STREAM_NEW))
++		return ERR_PTR(-EINVAL);
++
++	if (quic_stream_id_exceeds(streams, stream_id, send))
++		return ERR_PTR(-EAGAIN);
++
++	stream = quic_stream_create(streams, stream_id, send, is_serv, net,
++				    gfp);
++	if (!stream)
++		return ERR_PTR(-ENOMEM);
++
++	if (send || quic_stream_id_valid(stream_id, is_serv, !send))
++		streams->active_stream_id = stream_id;
++
++	return stream;
++}
++
++/* Release or clean up a send or recv stream. This function updates stream
++ * counters and state when a send stream has either successfully sent all data
++ * or has been reset, or when a recv stream has either received all data or has
++ * been reset. Requires sock lock held.
 + */
-+void quic_path_pl_reset(struct quic_path_group *paths)
++void quic_stream_put(struct quic_stream_table *streams,
++		     struct quic_stream *stream, bool is_serv, bool send)
 +{
-+	paths->pl.number = 0;
-+	paths->pl.probe_high = 0;
-+	paths->pl.probe_count = 0;
-+	paths->pl.state = QUIC_PL_BASE;
-+	paths->pl.pmtu = QUIC_BASE_PLPMTU;
-+	paths->pl.probe_size = QUIC_BASE_PLPMTU;
++	if (quic_stream_id_uni(stream->id)) {
++		/* For uni streams, decrement uni count and delete stream. */
++		if (send) {
++			streams->send.streams_uni--;
++			quic_stream_delete(stream);
++			return;
++		}
++		streams->recv.streams_uni--;
++		streams->recv.uni_pending = 1;
++		quic_stream_delete(stream);
++		return;
++	}
++
++	/* For bidi streams, proceed only if both send and receive in a final
++	 * state.
++	 */
++	if (send) {
++		if (stream->recv.state < QUIC_STREAM_RECV_STATE_RECVD)
++			return;
++	} else {
++		if (stream->send.state != QUIC_STREAM_SEND_STATE_RECVD &&
++		    stream->send.state != QUIC_STREAM_SEND_STATE_RESET_RECVD)
++			return;
++	}
++	if (quic_stream_id_local(stream->id, is_serv)) {
++		/* Local-initiated stream: decrement send.bidi count. */
++		streams->send.streams_bidi--;
++	} else {
++		/* Remote-initiated stream: decrement recv.bidi count. */
++		streams->recv.streams_bidi--;
++		streams->recv.bidi_pending = 1;
++	}
++	quic_stream_delete(stream);
 +}
 +
-+/* Check if a packet number confirms PLPMTUD probe.
++/* Updates the maximum allowed incoming stream IDs if any streams were recently
++ * closed. Recalculates the max_uni and max_bidi stream count limits based on
++ * the number of open streams and whether any were marked for deletion.
 + *
-+ * Checks whether the last probe (tracked by .number) has been acknowledged.
-+ * If the probe number lies within the ACK range, confirmation is successful.
-+ *
-+ * Return: true if probe is confirmed, false otherwise.
++ * Returns true if either max_uni or max_bidi was updated, indicating that a
++ * MAX_STREAMS_UNI or MAX_STREAMS_BIDI frame should be sent to the peer.
 + */
-+bool quic_path_pl_confirm(struct quic_path_group *paths, s64 largest,
-+			  s64 smallest)
++bool quic_stream_max_streams_update(struct quic_stream_table *streams,
++				    s64 *max_uni, s64 *max_bidi)
 +{
-+	return paths->pl.number && paths->pl.number >= smallest &&
-+	       paths->pl.number <= largest;
++	s64 max, rem;
++
++	*max_uni = 0;
++	*max_bidi = 0;
++	if (streams->recv.uni_pending) {
++		rem = streams->recv.max_streams_uni - streams->recv.streams_uni;
++		max = streams->recv.next_uni_stream_id - QUIC_STREAM_ID_STEP +
++		      (rem << QUIC_STREAM_TYPE_BITS);
++
++		streams->recv.max_uni_stream_id = max;
++		*max_uni = quic_stream_id_to_streams(max);
++		streams->recv.uni_pending = 0;
++	}
++	if (streams->recv.bidi_pending) {
++		rem = streams->recv.max_streams_bidi -
++		      streams->recv.streams_bidi;
++		max = streams->recv.next_bidi_stream_id - QUIC_STREAM_ID_STEP +
++			(rem << QUIC_STREAM_TYPE_BITS);
++
++		streams->recv.max_bidi_stream_id = max;
++		*max_bidi = quic_stream_id_to_streams(max);
++		streams->recv.bidi_pending = 0;
++	}
++
++	return *max_uni || *max_bidi;
 +}
 +
-+void quic_path_init(struct quic_path_group *paths)
++int quic_stream_init(struct quic_stream_table *streams)
 +{
-+	seqcount_init(&paths->path_seq);
++	struct hlist_head *head;
++	int i;
++
++	head = kmalloc_objs(*head, QUIC_STREAM_HT_SIZE, GFP_KERNEL_ACCOUNT);
++	if (!head)
++		return -ENOMEM;
++	for (i = 0; i < QUIC_STREAM_HT_SIZE; i++)
++		INIT_HLIST_HEAD(&head[i]);
++	streams->head = head;
++	streams->active_stream_id = -1;
++	return 0;
 +}
-diff --git a/net/quic/path.h b/net/quic/path.h
++
++void quic_stream_free(struct quic_stream_table *streams)
++{
++	struct quic_stream *stream;
++	struct hlist_head *head;
++	struct hlist_node *tmp;
++	int i;
++
++	if (!streams->head)
++		return;
++
++	for (i = 0; i < QUIC_STREAM_HT_SIZE; i++) {
++		head = &streams->head[i];
++		hlist_for_each_entry_safe(stream, tmp, head, node)
++			quic_stream_delete(stream);
++	}
++	kfree(streams->head);
++	streams->head = NULL;
++}
++
++/* Populate transport parameters from stream hash table. */
++void quic_stream_get_param(struct quic_stream_table *streams,
++			   struct quic_transport_param *p)
++{
++	struct quic_stream_limits *limits = p->remote ? &streams->send :
++							&streams->recv;
++
++	p->max_stream_data_bidi_remote = limits->max_stream_data_bidi_remote;
++	p->max_stream_data_bidi_local = limits->max_stream_data_bidi_local;
++	p->max_stream_data_uni = limits->max_stream_data_uni;
++	p->max_streams_bidi = limits->max_streams_bidi;
++	p->max_streams_uni = limits->max_streams_uni;
++}
++
++/* Configure stream hashtable from transport parameters. */
++void quic_stream_set_param(struct quic_stream_table *streams,
++			   struct quic_transport_param *p, bool is_serv)
++{
++	struct quic_stream_limits *limits = p->remote ? &streams->send :
++							&streams->recv;
++	u8 bidi_type, uni_type;
++
++	limits->max_stream_data_bidi_local = p->max_stream_data_bidi_local;
++	limits->max_stream_data_bidi_remote = p->max_stream_data_bidi_remote;
++	limits->max_stream_data_uni = p->max_stream_data_uni;
++	limits->max_streams_bidi = p->max_streams_bidi;
++	limits->max_streams_uni = p->max_streams_uni;
++
++	if (p->remote ^ is_serv) {
++		bidi_type = QUIC_STREAM_TYPE_CLIENT_BIDI;
++		uni_type = QUIC_STREAM_TYPE_CLIENT_UNI;
++	} else {
++		bidi_type = QUIC_STREAM_TYPE_SERVER_BIDI;
++		uni_type = QUIC_STREAM_TYPE_SERVER_UNI;
++	}
++
++	limits->max_bidi_stream_id =
++		quic_stream_streams_to_id(p->max_streams_bidi, bidi_type);
++	if (limits->next_bidi_stream_id < bidi_type)
++		limits->next_bidi_stream_id = bidi_type;
++
++	limits->max_uni_stream_id =
++		quic_stream_streams_to_id(p->max_streams_uni, uni_type);
++	if (limits->next_uni_stream_id < uni_type)
++		limits->next_uni_stream_id = uni_type;
++}
+diff --git a/net/quic/stream.h b/net/quic/stream.h
 new file mode 100644
-index 000000000000..c2537cf65a7d
+index 000000000000..6e17b354e193
 --- /dev/null
-+++ b/net/quic/path.h
-@@ -0,0 +1,191 @@
++++ b/net/quic/stream.h
+@@ -0,0 +1,133 @@
 +/* SPDX-License-Identifier: GPL-2.0-or-later */
 +/* QUIC kernel implementation
 + * (C) Copyright Red Hat Corp. 2023
@@ -1183,296 +867,129 @@ index 000000000000..c2537cf65a7d
 + *    Xin Long <lucien.xin@gmail.com>
 + */
 +
-+#define QUIC_PATH_MIN_PMTU	1200U
-+#define QUIC_PATH_MAX_PMTU	65535U
++#define QUIC_DEF_STREAMS	100
++#define QUIC_MAX_STREAMS	4096ULL
 +
-+#define QUIC_MIN_UDP_PAYLOAD	1200
-+#define QUIC_MAX_UDP_PAYLOAD	65527
-+
-+#define QUIC_PATH_ENTROPY_LEN	8
-+
-+#define QUIC_PMTUD_RAISE_TIMER_FACTOR	30
-+
-+extern struct workqueue_struct	*quic_wq;
-+
-+/* Connection Migration State Machine:
++/*
++ * rfc9000#section-2.1:
 + *
-+ * +--------+      recv non-probing, free old path    +----------+
-+ * |  NONE  | <-------------------------------------- | SWAPPED  |
-+ * +--------+                                         +----------+
-+ *      |   ^ \                                            ^
-+ *      |    \ \                                           |
-+ *      |     \ \   new path detected,                     | recv
-+ *      |      \ \  has another DCID,                      | Path
-+ *      |       \ \ snd Path Challenge                     | Response
-+ *      |        \ -------------------------------         |
-+ *      |         ------------------------------- \        |
-+ *      | new path detected,            Path     \ \       |
-+ *      | has no other DCID,            Challenge \ \      |
-+ *      | request a new DCID            failed     \ \     |
-+ *      v                                           \ v    |
-+ * +----------+                                       +----------+
-+ * | PENDING  | ------------------------------------> | PROBING  |
-+ * +----------+  recv a new DCID, snd Path Challenge  +----------+
++ *   The least significant bit (0x01) of the stream ID identifies the initiator
++ *   of the stream.  Client-initiated streams have even-numbered stream IDs
++ *   (with the bit set to 0), and server-initiated streams have odd-numbered
++ *   stream IDs (with the bit set to 1).
++ *
++ *   The second least significant bit (0x02) of the stream ID distinguishes
++ *   between bidirectional streams (with the bit set to 0) and unidirectional
++ *   streams (with the bit set to 1).
 + */
-+enum {
-+	QUIC_PATH_ALT_NONE,
-+	QUIC_PATH_ALT_PENDING, /* Waiting for new dest conn ID for migration */
-+	QUIC_PATH_ALT_PROBING, /* Validating alternate path (PATH_CHALLENGE) */
-+	QUIC_PATH_ALT_SWAPPED, /* Alternate path is now active; roles swapped */
++#define QUIC_STREAM_TYPE_BITS	2
++#define QUIC_STREAM_ID_STEP	BIT(QUIC_STREAM_TYPE_BITS)
++
++#define QUIC_STREAM_TYPE_CLIENT_BIDI	0x00
++#define QUIC_STREAM_TYPE_SERVER_BIDI	0x01
++#define QUIC_STREAM_TYPE_CLIENT_UNI	0x02
++#define QUIC_STREAM_TYPE_SERVER_UNI	0x03
++
++struct quic_stream {
++	struct hlist_node node;
++	s64 id; /* Stream ID as defined in RFC 9000 Section 2.1 */
++	struct {
++		/* Sending-side stream level flow control */
++		u64 last_max_bytes; /* Max send offset advertised by peer */
++		u64 max_bytes;      /* Max offset allowed to send */
++		u64 bytes;          /* Bytes already sent to peer */
++
++		u32 errcode; /* App error code for RESET_STREAM */
++		u32 frags;   /* STREAM frames sent but not yet acked */
++		u8 state;    /* Send stream state, per rfc9000#section-3.1 */
++
++		u8 data_blocked; /* True if flow control blocks sending */
++	} send;
++	struct {
++		/* Receiving-side stream level flow control */
++		u64 max_bytes; /* Max offset peer can send */
++		u64 window;    /* Remaining receive window */
++		u64 bytes;     /* Bytes consumed by app */
++
++		u64 highest; /* Highest received offset */
++		u64 offset;  /* Data buffered or consumed */
++		u64 finalsz; /* Final stream size if FIN received */
++
++		u32 frags; /* STREAM frames pending reassembly */
++		u8 state;  /* Receive stream state, per rfc9000#section-3.2 */
++
++		u8 stop_sent; /* True if STOP_SENDING has been sent */
++	} recv;
 +};
 +
-+struct quic_udp_sock {
-+	struct work_struct work; /* Workqueue to destroy UDP tunnel socket */
-+	struct hlist_node node;  /* Node in addr-based UDP socket hash table */
-+	union quic_addr addr; /* Source addr of underlying UDP tunnel socket */
-+	int bind_ifindex;
-+	refcount_t refcnt;
-+	struct sock *sk; /* Underlying UDP tunnel socket */
-+};
-+
-+struct quic_path {
-+	union quic_addr daddr; /* Destination address */
-+	union quic_addr saddr; /* Source address */
-+
-+	/* Wrapped UDP socket for receiving QUIC */
-+	struct quic_udp_sock *udp_sk;
-+	/* Cached UDP tunnel socket and source addr for RCU access */
-+	union quic_addr uaddr;
-+	struct sock *usk;
-+};
-+
-+struct quic_path_group {
-+	/* Connection ID validation during handshake (rfc9000#section-7.3) */
-+	struct quic_conn_id retry_dcid; /* Source CID from Retry packet */
-+	struct quic_conn_id orig_dcid;  /* Destination CID from first Initial */
-+
-+	/* Path validation (rfc9000#section-8.2) */
-+	u8 entropy[QUIC_PATH_ENTROPY_LEN]; /* Entropy for PATH_CHALLENGE */
-+	struct quic_path path[2]; /* Active path (0) and alternate path (1) */
-+	seqcount_t path_seq;      /* Protects path[0] during swap */
-+	struct flowi fl;          /* Flow info from routing decisions */
-+
-+	/* Anti-amplification limit (rfc9000#section-8) */
-+	u32 ampl_sndlen; /* Bytes sent before address is validated */
-+	u32 ampl_rcvlen; /* Bytes received to lift amplification limit */
-+
-+	/* MTU discovery handling */
-+	struct { /* PLPMTUD probing (rfc8899) */
-+		s64 number; /* Packet number used for current probe */
-+		u16 pmtu;   /* Confirmed path MTU */
-+
-+		u16 probe_size; /* Current probe packet size */
-+		u16 probe_high; /* Highest failed probe size */
-+		u8 probe_count; /* Retry count for current probe_size */
-+		u8 state;       /* Probe state machine (rfc8899#section-5.2) */
-+	} pl;
-+	u32 mtu_info; /* PMTU value from received ICMP, pending apply */
-+
-+	u32 plpmtud_interval;   /* Time interval for the PLPMTUD probe timer */
-+	u32 keepalive_interval; /* Time interval to maintain path liveness */
-+
-+	u8 ecn_probes;  /* ECN probe counter */
-+	u8 validated:1; /* Path validated with PATH_RESPONSE */
-+	u8 blocked:1;   /* Blocked by anti-amplification limit */
-+	u8 version:1;   /* Version negotiation performed */
-+	u8 retry:1;     /* Retry used in initial packet */
-+
-+	/* Connection Migration (rfc9000#section-9) */
-+	u8 disable_saddr_alt:1; /* Remote disable_active_migration parameter */
-+	u8 disable_daddr_alt:1; /* Local disable_active_migration parameter */
-+	u8 pref_addr:1; /* Preferred address offered (rfc9000#section-18.2) */
-+	u8 alt_probes;  /* Number of PATH_CHALLENGE probes sent */
-+	u8 alt_state;   /* Connection migration state (see above) */
-+};
-+
-+static inline union quic_addr *quic_path_saddr(struct quic_path_group *paths,
-+					       u8 path)
-+{
-+	return &paths->path[path].saddr;
-+}
-+
-+static inline void quic_path_set_saddr(struct quic_path_group *paths, u8 path,
-+				       union quic_addr *addr)
-+{
-+	memcpy(quic_path_saddr(paths, path), addr, sizeof(*addr));
-+}
-+
-+static inline union quic_addr *quic_path_daddr(struct quic_path_group *paths,
-+					       u8 path)
-+{
-+	return &paths->path[path].daddr;
-+}
-+
-+static inline void quic_path_set_daddr(struct quic_path_group *paths, u8 path,
-+				       union quic_addr *addr)
-+{
-+	memcpy(quic_path_daddr(paths, path), addr, sizeof(*addr));
-+}
-+
-+static inline union quic_addr *quic_path_uaddr(struct quic_path_group *paths,
-+					       u8 path)
-+{
-+	return &paths->path[path].uaddr;
-+}
-+
-+static inline struct sock *quic_path_usock(struct quic_path_group *paths,
-+					   u8 path)
-+{
-+	return paths->path[path].usk;
-+}
-+
-+static inline bool quic_path_alt_state(struct quic_path_group *paths, u8 state)
-+{
-+	return paths->alt_state == state;
-+}
-+
-+static inline void quic_path_set_alt_state(struct quic_path_group *paths,
-+					   u8 state)
-+{
-+	paths->alt_state = state;
-+}
-+
-+/* Returns the destination Connection ID (DCID) used for identifying the
-+ * connection.  Per rfc9000#section-7.3, handshake packets are considered part
-+ * of the same connection if their DCID matches the one returned here.
-+ */
-+static inline struct quic_conn_id *
-+quic_path_orig_dcid(struct quic_path_group *paths)
-+{
-+	return paths->retry ? &paths->retry_dcid : &paths->orig_dcid;
-+}
-+
-+void quic_path_init(struct quic_path_group *paths);
-+
-+bool quic_path_detect_alt(struct quic_path_group *paths, union quic_addr *sa,
-+			  union quic_addr *da, struct sock *sk);
-+int quic_path_bind(struct sock *sk, struct quic_path_group *paths, u8 path);
-+void quic_path_unbind(struct sock *sk, struct quic_path_group *paths, u8 path);
-+void quic_path_swap(struct quic_path_group *paths);
-+
-+u32 quic_path_pl_recv(struct quic_path_group *paths, bool *raise_timer,
-+		      bool *complete);
-+u32 quic_path_pl_toobig(struct quic_path_group *paths, u32 pmtu,
-+			bool *reset_timer);
-+u32 quic_path_pl_send(struct quic_path_group *paths, s64 number);
-+
-+void quic_path_get_param(struct quic_path_group *paths,
-+			 struct quic_transport_param *p);
-+void quic_path_set_param(struct quic_path_group *paths,
-+			 struct quic_transport_param *p);
-+bool quic_path_pl_confirm(struct quic_path_group *paths,
-+			  s64 largest, s64 smallest);
-+void quic_path_pl_reset(struct quic_path_group *paths);
-diff --git a/net/quic/protocol.c b/net/quic/protocol.c
-index d6ea3c8708b8..0d600e688f6c 100644
---- a/net/quic/protocol.c
-+++ b/net/quic/protocol.c
-@@ -21,6 +21,7 @@
- static unsigned int quic_net_id __read_mostly;
- 
- struct percpu_counter quic_sockets_allocated;
-+struct workqueue_struct *quic_wq;
- 
- DEFINE_STATIC_KEY_FALSE(quic_alpn_demux_key);
- 
-@@ -251,6 +252,9 @@ static void __net_exit quic_net_exit(struct net *net)
- {
- 	struct quic_net *qn = quic_net(net);
- 
-+	/* Complete pending udp_tunnel_sock_release() before inet teardown. */
-+	flush_workqueue(quic_wq);
-+
- #if IS_ENABLED(CONFIG_PROC_FS)
- 	quic_net_proc_exit(net);
- #endif
-@@ -342,6 +346,15 @@ static __init int quic_init(void)
- 	if (err)
- 		goto err_hash;
- 
-+	/* Allocate an unbound workqueue for UDP socket destruction and backlog
-+	 * packet processing.
++struct quic_stream_limits {
++	/* Stream limit parameters defined in rfc9000#section-18.2:
++	 *
++	 * - initial_max_stream_data_bidi_remote
++	 * - initial_max_stream_data_bidi_local
++	 * - initial_max_stream_data_uni
++	 * - initial_max_streams_bidi
++	 * - initial_max_streams_uni
 +	 */
-+	quic_wq = alloc_workqueue("quic_workqueue", WQ_UNBOUND, 0);
-+	if (!quic_wq) {
-+		err = -ENOMEM;
-+		goto err_wq;
-+	}
++	u64 max_stream_data_bidi_remote;
++	u64 max_stream_data_bidi_local;
++	u64 max_stream_data_uni;
++	u64 max_streams_bidi;
++	u64 max_streams_uni;
 +
- 	err = register_pernet_subsys(&quic_net_ops);
- 	if (err)
- 		goto err_def_ops;
-@@ -359,6 +372,8 @@ static __init int quic_init(void)
- err_protosw:
- 	unregister_pernet_subsys(&quic_net_ops);
- err_def_ops:
-+	destroy_workqueue(quic_wq);
-+err_wq:
- 	quic_hash_tables_destroy();
- err_hash:
- 	percpu_counter_destroy(&quic_sockets_allocated);
-@@ -373,6 +388,7 @@ static __exit void quic_exit(void)
- #endif
- 	quic_protosw_exit();
- 	unregister_pernet_subsys(&quic_net_ops);
-+	destroy_workqueue(quic_wq);
- 	quic_hash_tables_destroy();
- 	percpu_counter_destroy(&quic_sockets_allocated);
- 	rcu_barrier();
-diff --git a/net/quic/socket.c b/net/quic/socket.c
-index d4fed1782529..5ad2b08d632c 100644
---- a/net/quic/socket.c
-+++ b/net/quic/socket.c
-@@ -52,6 +52,7 @@ static int quic_init_sock(struct sock *sk)
- 
- 	quic_conn_id_set_init(quic_source(sk), true);
- 	quic_conn_id_set_init(quic_dest(sk), false);
-+	quic_path_init(quic_paths(sk));
- 
- 	if (quic_stream_init(quic_streams(sk)))
- 		return -ENOMEM;
-@@ -61,6 +62,9 @@ static int quic_init_sock(struct sock *sk)
- 
- static void quic_destroy_sock(struct sock *sk)
- {
-+	quic_path_unbind(sk, quic_paths(sk), 0);
-+	quic_path_unbind(sk, quic_paths(sk), 1);
++	s64 next_bidi_stream_id; /* Next bidi stream ID to open or accept */
++	s64 next_uni_stream_id;  /* Next uni stream ID to open or accept */
++	s64 max_bidi_stream_id;  /* Highest allowed bidi stream ID */
++	s64 max_uni_stream_id;   /* Highest allowed uni stream ID */
++	u8 bidi_blocked;  /* STREAMS_BLOCKED/MAX_STREAMS_BIDI sent */
++	u8 uni_blocked;   /* STREAMS_BLOCKED/MAX_STREAMS_UNI sent */
++	u8 bidi_pending;  /* MAX_STREAMS_BIDI needs to be sent */
++	u8 uni_pending;   /* MAX_STREAMS_UNI needs to be sent */
 +
- 	quic_conn_id_set_free(quic_source(sk));
- 	quic_conn_id_set_free(quic_dest(sk));
- 
-diff --git a/net/quic/socket.h b/net/quic/socket.h
-index 68a58f0016cc..91338601905e 100644
---- a/net/quic/socket.h
-+++ b/net/quic/socket.h
-@@ -15,6 +15,7 @@
- #include "family.h"
- #include "stream.h"
- #include "connid.h"
-+#include "path.h"
- 
- #include "protocol.h"
- 
-@@ -39,6 +40,7 @@ struct quic_sock {
- 	struct quic_stream_table	streams;
- 	struct quic_conn_id_set		source;
- 	struct quic_conn_id_set		dest;
-+	struct quic_path_group		paths;
- };
- 
- struct quic6_sock {
-@@ -86,6 +88,11 @@ static inline struct quic_conn_id_set *quic_dest(const struct sock *sk)
- 	return &quic_sk(sk)->dest;
- }
- 
-+static inline struct quic_path_group *quic_paths(const struct sock *sk)
++	u16 streams_bidi; /* Number of open bidi streams */
++	u16 streams_uni;  /* Number of open uni streams */
++};
++
++struct quic_stream_table {
++	struct hlist_head *head; /* Hash table storing all active streams */
++
++	struct quic_stream_limits send; /* Limits advertised by peer */
++	struct quic_stream_limits recv; /* Limits we advertise to peer */
++
++	s64 active_stream_id; /* Most recent stream ID we can send on */
++};
++
++static inline u64 quic_stream_id_to_streams(s64 stream_id)
 +{
-+	return &quic_sk(sk)->paths;
++	return (u64)(stream_id >> QUIC_STREAM_TYPE_BITS) + 1;
 +}
 +
- static inline bool quic_is_serv(const struct sock *sk)
- {
- 	return !!sk->sk_max_ack_backlog;
++static inline s64 quic_stream_streams_to_id(u64 streams, u8 type)
++{
++	if (!streams)
++		return -1;
++	return (s64)((streams - 1) << QUIC_STREAM_TYPE_BITS) | type;
++}
++
++struct quic_stream *quic_stream_get(struct quic_stream_table *streams,
++				    s64 stream_id, u32 flags, bool is_serv,
++				    bool send, struct net *net, gfp_t gfp);
++void quic_stream_put(struct quic_stream_table *streams,
++		     struct quic_stream *stream, bool is_serv, bool send);
++
++bool quic_stream_max_streams_update(struct quic_stream_table *streams,
++				    s64 *max_uni, s64 *max_bidi);
++bool quic_stream_id_exceeds(struct quic_stream_table *streams,
++			    s64 stream_id, bool send);
++struct quic_stream *quic_stream_find(struct quic_stream_table *streams,
++				     s64 stream_id, struct net *net);
++
++void quic_stream_get_param(struct quic_stream_table *streams,
++			   struct quic_transport_param *p);
++void quic_stream_set_param(struct quic_stream_table *streams,
++			   struct quic_transport_param *p, bool is_serv);
++void quic_stream_free(struct quic_stream_table *streams);
++int quic_stream_init(struct quic_stream_table *streams);
 -- 
 2.47.1
 
