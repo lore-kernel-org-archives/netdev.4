@@ -1,55 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795450598;
-	b=DN9g1J6vYJSu7cCEq2SoK5EbnjFKcxD51InxRT7rZmR7VR2408i3rB0ogZiy+lBy++E3
-	 lJtW7hseNWm5P+AEj1dM/M/wK8g9qUWPSGzQ738s4XguSJUGLhZ/KZcO49YVsODwwmMzq
-	 mu24ws0U3t8hLKP0YiLCyrpXbgSyZBAs1FJukcXer9JzPpQMnRENcQdtlKbyP9eBQqt1l
-	 rCXjYlVlPd7EWTYXZ1i7J07OkzxoI54wWZU2/lEdTPGuaXewADDT8VJD4ymZKbDWPbfHH
-	 Gw0vFS5hdk/wJIKQw32A/CxgQ4hxMrZ637zoKdrsQ4QhtbMNQmmuvr8bG6cDOyDCY0A==
+	t=1795450640;
+	b=CSn236F58mbc9cMrsuRp5VhKb99Lo3MGzHo61sZc21LwIlHGgZ6koVuqxdC30cTMRKXf
+	 /9SKLomEzQVdC84gXjDD4wNQmliG6oHNtMF4mltpeaPcRcoIIzZ+2ud1MbIKfUS+ddPTj
+	 KYky1TepEPCsUK8fzmmHSnJYI6fi6xvt+hrzneEGZCkh9tqa2U25PIruTUpUXgBywgr96
+	 V57+XxPWvsGkPOIcmWeb6vWqVeQHSNfS66pdzGnushAelIlSgC/AlZEPz4C5rMVmlshg5
+	 Avykk/142Z5A7z7KicvarJDdNYjpM44oEPniRzPsp+r0UV9jOa2u+lqMT3Q4pQlI+fA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795450598;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:To:From:
-	 Subject:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
-	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
-	b=d6OTpAp9YcbmlqEBWJYsUJYrkrd82GkLyqc2tk2C4e9bMZRhZwEsw9pCACS33AhF1259
-	 4zH7ncD/COLWoKm2eymea2SeABICscbgjvLFJHbhUt9hJ64TZnnO4z1XnpudmmuwJ+MKW
-	 aDzNxu63uJwotRqrVNjyO0RrdJSlmFeN8S+AgHt/qltvYa+TZD9u+zSMdGaq6HkurJD2W
-	 yZBkc/03b05wIjn9DZPrhvvo+UGLdcfhNlfs5QIBi1+d9pllpkH6uixZUx9pcjaO3AF/G
-	 ObLx8u97sohYylkggdWnfwLSwOrw7nFkEP9jh+vgmvIYy7tSa4CpB7Lz3CEEKVJi+jQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795450640;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=+GHb/SYd6gXinJYqxw1GDlcMLdqBI2V3zFyLkxFbZ0k=;
+	b=fIhuMfyDKg9F/lvKT1G1GeVbSX7Ueo8QipP2g38UdvvNIjJBF31uszdS570Q7ehGANX4
+	 hLZEFEzmXBmruZBISGYH51RuAFLw60BMZs9C7WL6wL6Hycir42irzTATGqNnlIpeMZcvq
+	 kIqwuiLO4VXqTASmF9RXDFhuezm/dhEIXouhTHtjo67jY2kmHLp4v2QPWp84K31CoqGVv
+	 gU+9cdTQE96YPoGm3z65v1+Pt+shWjG1F9fXyDlznz9OdOvlNdMzac7ydbhXf85FLjAx2
+	 PjnLmkagViN6MdNv1bTc3VaAJbJPcmHQdWrmETYUFLiH4KQxYWJ4BUrFQq2VkIkZ6pA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IPd1nB6Z;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EFWjYSTs;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC302606A31A
-	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:16:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC302606A31A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E5AE606A321
+	for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:17:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E5AE606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=eIYvsQdJ
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 622434E416C9;
-	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 24996601E1;
-	Mon, 23 Nov 2026 16:16:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 40D5411E6A6F4;
-	Mon, 23 Nov 2026 17:16:26 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795450590; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=7GWT3S/j9/aO65w9mriGtCTik2Oh9QF71C7dfpUwzzc=;
-	b=eIYvsQdJtYxWZ/9Mp4YVjUbwRpWXdnFJZDKQxAIIKnxVA225RdGHFg2r38CZr1c839J4sE
-	ognTwskLHcLYue5GxHvYt6P3j1glKRAFdJEKuYRhmCdUPXE9GOfwWBFWCCyzjSBm7A23EN
-	lw8W49H1OgRz849nmvj6O4t3ZgAkmFTFxUs3LxW2j6wvB5v29zN1ujaRebiHbMGnLCQyd8
-	5aPtk91XDGO7mSCIOVm0D6Exht214aw0S8Cyzt1lxjaBsPSiTepZ1ro5I0yl3gU4SMqxh8
-	/Appw7k/YtmYhjbo6pF8YplmJDsKvk+q/1Wd5KiTpoLCqURAB4F0I0+vP1nS7w==
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=IPd1nB6Z;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=EFWjYSTs
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795450638;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+GHb/SYd6gXinJYqxw1GDlcMLdqBI2V3zFyLkxFbZ0k=;
+	b=IPd1nB6ZLVQPneWsEXFvVVQMx8was4lClAZCBRJ/L+sUBLyHeaHJ98E0y44GGj2IvD8Mam
+	za2JsFaOFpufuJhaec8H2FOf+QS8CDWD6vLCgOC/WnmpZz0lMSflAG+Q6Annvq5f167pU8
+	zvfRzKu0Apt8fzLRRPeMKIo2Gzy3Jw0=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-297-ewr5f-fQPVuNIy2p2FiH3Q-1; Mon, 23 Nov 2026 16:17:16 +0000
+X-MC-Unique: ewr5f-fQPVuNIy2p2FiH3Q-1
+X-Mimecast-MFC-AGG-ID: ewr5f-fQPVuNIy2p2FiH3Q_1795450635
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4aa0500c979so2162790f8f.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 08:17:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795450635; x=1796055435; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=+GHb/SYd6gXinJYqxw1GDlcMLdqBI2V3zFyLkxFbZ0k=;
+        b=EFWjYSTs6eZbKtZfTzVI20evhQuKBSbQFwBnL7ixe6pYNqb3IX5FdNJ1NXk12la/fo
+         mtcq8GhB5fbnQhWtE3XAnfyxUDceh6nkUkIoCsejjiZ5xIUIo3D/lpZrrdqy6JZ1Uw13
+         i8gGNOQfWASM9FbNeEqtG58xOZ0gLZR8bMdPEOX2aXVh5toHQitzAoqzO7HXU7XK/nni
+         2yJbyWsuJtKRhA10Zs2K92JS5vL+KOQjUYEnkDWYjbNa0+6B+VTKq8E5pBfICJiVZpG4
+         jYCFjpoDjxCISpe4VOF/NOPsukP9LGBo41m8ux/OAQcxreEp8Ej6xJTjSYH05IAQwH8/
+         xjAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795450635; x=1796055435;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=+GHb/SYd6gXinJYqxw1GDlcMLdqBI2V3zFyLkxFbZ0k=;
+        b=RZosDsKY2uJjnDoFmuNTb6M4tovGbxtmALBYUF7/C8wUp+U0KlvwNVOi66f7sNlV1M
+         oS31FzSEzC2dldk2irQ0H9fQNQO9oroNo7JwvkGViAkg+h5MjjWqi7ONZK6coTjtCifl
+         ISUuhB31L74+OZ6JAVQizVo0WP4qdv/bqtg4JH5fVYTbJOb+3SgokQSRod+VqKOJlUo+
+         ikIzVHaTxAjx7Q4nYofV2s7R9dk2Ji9W3xUswhahuA2AzMjlWblnESPcbuMGsWp4p/MV
+         MNDovdHDbhsRSgG6CaYXiY8Bjr8Bwi3o350gquhSxpCARgT93rBPApJZ7KHaPY/c542t
+         0npQ==
+X-Forwarded-Encrypted: i=1; AL+hErGFa8vljD4Vo/FST8mWbrcyKXzcGoAtOf4KB3fWeeUzt0BT/lxkC8nevz5GpheyVU10dyicvw0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8aoN3RCQIV+dhkJSgXp/IqWMp3xDZfEqRIvwvz1jz01vn/CVvb
+	ugKV5NJFvQ48rziLgrxv3i+heJpzo6RrtBAtQrwn81Y5nwb9VRTUFSzz9lrYVS93Cok1NBJtSYY
+	jcsXO2B4Ev/cM85dD/e5Kt32JJqnANkTDJGQp/MqHMDCu9npamHDsyVXHrQ==
+X-Gm-Gg: AZFdTZeCU4x5qXPMGZrPX5p8DUp0XTDFx8PZfIOutqAaLrrbjz4Hhnr5qpegAx3HODm
+	AK6OpPD+5A1P27N+NTwimpegQcnntLdgQfcDvqbfd9792UTwuW3YgYYS9NXymmGt8sbn7GXxOyh
+	G5mdqPd18OzQbFNgZI9kdSKnEQiRatHIQkDVxXnUiXIJOkIb0ceAKBk8WP71lPlpPPf3iT8yhEi
+	Z9owOGoVe3zv9N0En0XCFtzoUfrnIN0aeLfgP44TA5NUMGXqfb/mugJg3aaWkYkoZJ1dtBHWcNu
+	ov10YUetJZ2NBQoxmWGDyTo2O4npL6WjwjRzG/dghMK/CLRx8YTPHKH/p+kmHRD2MRiGYRs6q6Z
+	jMUCZ2NLJqp2owZ5w67zWzrHkcQOOvbbDxFYTQms=
+X-Received: by 2002:a05:600c:674d:b0:4a0:1fb9:2f51 with SMTP id 5b1f17b1804b1-4bb88808263mr270420285e9.14.1795450634791;
+        Mon, 23 Nov 2026 08:17:14 -0800 (PST)
+X-Received: by 2002:a05:600c:674d:b0:4a0:1fb9:2f51 with SMTP id 5b1f17b1804b1-4bb88808263mr270419595e9.14.1795450634202;
+        Mon, 23 Nov 2026 08:17:14 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb9067846esm209571105e9.4.2026.11.23.08.17.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 08:17:13 -0800 (PST)
+Date: Mon, 23 Nov 2026 17:17:07 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: jrmmhm.kernel@eldare.de
+Cc: Bobby Eshleman <bobbyeshleman@meta.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
+	Michal Luczaj <mhal@rbox.co>, virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, bpf@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH net v6 1/2] vsock/bpf: fix zero-length, MSG_OOB and
+ MSG_ERRQUEUE reads
+Message-ID: <awRlwL1epH1j61Z7@sgarzare-redhat>
+References: <20261114-kbh3-1-022-fix-v2-v6-0-96b6029bbffa@eldare.de>
+ <20261114-kbh3-1-022-fix-v2-v6-1-96b6029bbffa@eldare.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,151 +119,77 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Mon, 23 Nov 2026 17:16:26 +0100
-Message-Id: <DN2Q44M3PG5M.1Q2PKJ5A3RKNY@bootlin.com>
-Cc: <conor.dooley@microchip.com>, <andrew+netdev@lunn.ch>,
- <davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
- <pabeni@redhat.com>, <linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <nb@tipi-net.de>, <pvalerio@redhat.com>,
- <vladimir.kondratiev@mobileye.com>, <gregory.clement@bootlin.com>,
- <benoit.monin@bootlin.com>, <tawfik.bayouk@mobileye.com>,
- <thomas.petazzoni@bootlin.com>
-To: <netdev-bot+sashiko@kernel.org>
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Subject: Re: [PATCH net-next v7 3/3] net: macb: distribute evenly Tx SRAM
- segments
-X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
-References: <20261118-macb-set-channels-v7-3-2dbc00f686af@bootlin.com>
- <179537769513.3135.7979336425983650280@kernel.org>
-In-Reply-To: <179537769513.3135.7979336425983650280@kernel.org>
-X-Last-TLS-Session-Version: TLSv1.3
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261114-kbh3-1-022-fix-v2-v6-1-96b6029bbffa@eldare.de>
 
-Hello netdev-bot+sashiko,
-
-On Sun Nov 22, 2026 at 9:01 PM CET,  wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in ca=
-se
-> you want to address the nit picks below when you respin.
+On Sat, Nov 14, 2026 at 12:59:14PM +0100, Jerome Mohm via B4 Relay wrote:
+>From: Jerome Mohm <jrmmhm.kernel@eldare.de>
 >
-> Low priority / nit picks for your consideration:
+>On a vsock socket in a sockmap, vsock_bpf_recvmsg() sends zero-length,
+>MSG_OOB and MSG_ERRQUEUE reads down the sockmap path whenever the psock
+>queue has data or nothing is queued at all. That path copies from the
+>psock queue and waits for data, and it handles none of these reads:
 >
-> - [Low] gem_sram_distribute_segments() in
->   drivers/net/ethernet/cadence/macb_main.c handles num_queues >=3D=E2=80=
-=A6
-> - [Low] The comment above static_assert(MACB_MAX_QUEUES =3D=3D 8) in
->   gem_sram_distribute_segments()=E2=80=A6
+> - a zero-length read with data in the psock queue spins with the
+>   socket lock held, and the delivery worker blocks on that lock;
+> - MSG_ERRQUEUE consumes stream bytes from the psock queue, and the
+>   zero-length MSG_ERRQUEUE read that MSG_ZEROCOPY users make to collect
+>   completions gets -EAGAIN or blocks instead of reading the error
+>   queue;
+> - MSG_OOB consumes ordinary stream bytes or waits for data, where a
+>   connected native socket returns -EOPNOTSUPP.
 >
-> --
+>Hand these reads to __vsock_recvmsg(), the path of a socket outside a
+>sockmap, which does not wait for any of them. They now take one path,
+>so the order of the checks no longer matters.
 >
-> net: macb: distribute evenly Tx SRAM segments
+>The MSG_ERRQUEUE case was found with the help of Anthropic's Claude,
+>its stream-byte and MSG_ZEROCOPY parts by Stefano, and the zero-length
+>and MSG_OOB cases by the netdev Sashiko reviews. Each was reproduced in
+>a VM with a vsock-loopback socket in a sockmap, without kernel changes
+>or error injection. With this patch alone they behave as on a native
+>socket. The vsock vmtest.sh single-VM tests and the BPF sockmap
+>selftests pass with the series; I did not run them on this patch alone.
+
+nit: IMO talking about series/patch is confusing while reading when the 
+patches will be applied.
+
 >
-> This patch adds gem_sram_distribute_segments(). It programs the GEM
-> TXQSEGALLOC register so that the Tx SRAM segments reported in DCFG6 are
-> spread across the active queues as powers of two. It is called from
-> macb_init_hw() and macb_context_swap_end(), and it is enabled for the
-> zynqmp, versal and eyeq5 configs.
+>Fixes: 634f1a7110b4 ("vsock: support sockmap")
+>Suggested-by: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+>Cc: stable@vger.kernel.org
+>Signed-off-by: Jerome Mohm <jrmmhm.kernel@eldare.de>
+>---
+> net/vmw_vsock/vsock_bpf.c | 3 +++
+> 1 file changed, 3 insertions(+)
 >
->> diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethe=
-rnet/cadence/macb_main.c
->> index 180da5d62f09a..5d382f0e4aec3 100644
->> --- a/drivers/net/ethernet/cadence/macb_main.c
->> +++ b/drivers/net/ethernet/cadence/macb_main.c
->> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
->>  	}
->>  }
->> =20
->> +/*
->> + * Distribute evenly available segments across active queues. The compu=
-tation
->> + * is complex because (1) segments are counted in powers of two and (2)=
- a queue
->> + * can only use up to 128 segments. There are four types of cases:
+>diff --git a/net/vmw_vsock/vsock_bpf.c b/net/vmw_vsock/vsock_bpf.c
+>index 9049d2648646..c9b399f37720 100644
+>--- a/net/vmw_vsock/vsock_bpf.c
+>+++ b/net/vmw_vsock/vsock_bpf.c
+>@@ -80,6 +80,9 @@ static int vsock_bpf_recvmsg(struct sock *sk, struct msghdr *msg,
+> 	struct vsock_sock *vsk;
+> 	int copied;
 >
-> [ ... ]
+
+nit: a brief comment here with the reason would be nice
+
+>+	if (unlikely(!len || (flags & (MSG_OOB | MSG_ERRQUEUE))))
+>+		return __vsock_recvmsg(sk, msg, len, flags);
+>+
+> 	psock = sk_psock_get(sk);
+> 	if (unlikely(!psock))
+> 		return __vsock_recvmsg(sk, msg, len, flags);
 >
->> + *  - Sharing all segments is not doable because not enough segments ar=
-e
->> + *    available. Take num_queues=3D4 and num_segments=3D2.
+>-- 
+>2.56.0
 >
-> [ ... ]
 >
->> +static void gem_sram_distribute_segments(struct macb *bp)
->> +{
->> +	unsigned int num_segments, pow, remaining_segments, i;
->> +	unsigned int num_queues =3D bp->ctx->num_queues;
->> +	unsigned int num_advantaged_queues =3D 0;
->> +	u32 val =3D 0;
->> +
->> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
->> +		return;
->> +
->> +	num_segments =3D 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG=
-6));
->> +
->> +	/* When growing the max # of queues, make sure to return a u64 here an=
-d
->> +	 * to write into GEM_TXQSEGALLOC_UPPER.
->> +	 */
->> +	static_assert(MACB_MAX_QUEUES =3D=3D 8);
->
-> [Severity: Low]
-> This isn't a bug, but the comment talks about returning a u64.
-> gem_sram_distribute_segments() is a static void function. It builds its
-> result in the local u32 val and writes it with:
->
->     gem_writel(bp, TXQSEGALLOC_LOWER, val);
->
-> To support more than 8 queues, wouldn't the change be to widen (or split)
-> val and add a second write to TXQSEGALLOC_UPPER, rather than to change a
-> return type? Could the comment say that instead?
 
-Yes; we shall replace:
+Code LGTM, if you have to respin, maybe you can improve a bit more.
 
-   When growing the max # of queues, make sure to return a u64 here and
-   to write into GEM_TXQSEGALLOC_UPPER.
+Acked-by: Stefano Garzarella <sgarzare@redhat.com>
 
-By:
-
-   When growing the max # of queues, make sure to write into
-   TXQSEGALLOC_UPPER.
-
-For the full story for why this comment went stale:
-gem_sram_distribute_segments() used to return a u64 with the low 32
-bits written into LOWER and the high 32 bits written into UPPER. That
-returned value was then writel() by the caller. But now that it can be
-called from two places, the writel() was moved into the function to
-avoid code duplication.
-
->> +
->> +	/* pow=3D0 for all queues. ilog2(0) is dangerous. */
->> +	if (num_queues >=3D num_segments)
->> +		goto writel;
->
-> [Severity: Low]
-> What happens here when num_queues is strictly greater than num_segments?
-
-I don't know, but this is not our worry.
-
-This check has been introduced to deal with the equality case.
-From my understanding, `num_queues > num_segments` is unreachable.
-
-And if `num_queues > num_segments` ever occurs, yes, we give each active
-queue 1 segment by doing a:
-
-   writel(0, TXQSEGALLOC_LOWER)
-
-We will *not* introduce code to lower max_num_queues if num_segments is
-found to be lower than the runtime detected queue count from
-macb_probe_queues(). This would be useless.
-
-Thanks,
-
---
-Th=C3=A9o Lebrun, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
 
