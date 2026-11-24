@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795559083;
-	b=sj7g8YikSxpu6WHjVMCa4R9SIt5MczIa8T81geO4OC6PT50bgc94hdUm5kIZ16NPrnHP
-	 aYuQtmiNk3wD2NDDR/l8jKDumRpVzojD2NxCNlAePJ3T2sf041+sRVpSIHL52ufOcLt+P
-	 /BJwA3gPB22wYzvuuXirOInxHf7rsuzAuNztqszYUSLYWsSGk0KO8paWVA8iYz84igeKa
-	 ZqaorqKuyiTa2/WXrSagznocGUW1JToPgiUUXL6LNrWo/feYhdGGKG4k7KqknYqNdFikE
-	 YDQlNhlqEwkxGwp3/Ht6TLaDNfwGWQ6sCvahYn7qcZgXBLJRLFsfuLpd8D55JYxaVMg==
+	t=1795559425;
+	b=2Ayy68/t4MMZ1JWdOmPuGsxIxV4eo0ThpHJmyA6SwyIrpyj0bK7c8dVbCQC7//H8Ag/g
+	 XWFjneCtHjdABCJNf1sNep9uGC1xqd24D0byL0qA7ofvkBmzmZgjQ8Zq40p4wx02DwS0b
+	 ZDySXttgBL9zUVMgSq5k+B69Q9aaazhT6gDO3UKxz2DHF/dPVDNWn0q016ugcqzB4Nizz
+	 1n9WqiI4KoyiGP7Tuw6SABlu3+kURtq87MVuAEtE21aA02ZbCJGtCDxeePS/lQPd3q9hU
+	 d4wk0/78d/zckWv5HQOqbp5jzoSiO+BVBMNfUVWTTXX8V75/O8SahTrCknmoTuZg6nA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795559083;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Content-Type;
-	bh=kIxtExBELn7SeoxzbJabhSlRGlT4UchM+BcTDqdeb3M=;
-	b=uvmHjFTQcicou6g0B1mqADotwBD73vCFszoOowEer/fzZBpbAriITwH8wtHbzKFRBON9
-	 5kASVkylRlFmchQi4MYiZj26IqJYKOOzmHg5Dc6BoXIoFOt+kQjMqpSKnMfL7+LRjDS5K
-	 lrKC7VuGROqCeRqcvbqCpDMmSrf7GtOZnT0+qwCnwKI9XS/tv0jG4/GoI+oSSMJo835yj
-	 +s8WKhojGJFJcFp1KA/x3jqiDtwMJSd6Dy7vI+sNlPmKid4wNoC/YQtiB+QTIhJ//U3SS
-	 k+Qjl+ayudnTdLEZ0tKcCO3pPqG4hOIMUKt+Zg9cH78LOWSE0JXqKQnOLp78shVXSGA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559425;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
+	 Subject:From:To:Cc:Content-Type;
+	bh=ycxX1BdIyqk5KPu/81NCSXj9/1Fa8M/RreVYaVwcZRQ=;
+	b=N/DIQxCMgXer4EYP2hgHLpA16Bi+mspvR0E/1o0j9G6/eEPtelYXB0eB3TLZT8BJLGqW
+	 YdEVd+bzkorHkFZ/YRKoyVDTw/6YSt1KbK5QUIYM6Q0GSRrOW+j1F2C5SGNpLzj58OwUQ
+	 Jd+qhbFYE0ZsV/yu/HRxx44A8zGDZfsgTBagbUDnlDSVuZcaYgH4VVu8hpjV99kCZCCV6
+	 ze2GfNIfIMnDiWse4OTeli67P30GFInKRDuaTgPxXCFmO5TIh5+HhqFd8GYQG31ItjBs/
+	 xWrEthiMwuMVfOzgy48Lsjg+P1iq0ykNupWbFgiFXHtTUxAlttwzIsDXsBAGeWowGow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.198
-Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--joshwash.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kquJf229;
+	arc=none smtp.remote-ip=209.85.214.198
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6F2606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:24:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6F2606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4c55ba309c2so5765160b6e.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:24:43 -0800 (PST)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A63C606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:30:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A63C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--joshwash.bounces.google.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=kquJf229
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2efa9aea3c0so64522135ad.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:30:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795559424; x=1796164224; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ycxX1BdIyqk5KPu/81NCSXj9/1Fa8M/RreVYaVwcZRQ=;
+        b=kquJf229EjCKKi4CkyfAgAQyS8BYji+nruMNvy6PNPF8bkei7ATbVRk2sAEe6Gl8i6
+         7oZrBF26dU8yhgZqw7W+21TxTbDDRTLwH/UhHREnpmN3GyS8BHancBGYwwL+jINBNKTe
+         o3aGdUTmHWqJEWk8dT3zz6dlWwn1m+pFIvJq2DPq59Y3zIOU3xnqJoq2XgVbIJs0MNG6
+         7oaW7YrNuV1EQDuxKxmHiL2W5RIcI59utNRzOozNnrbNIH1AAflfVTfOWqC22meeJ8G1
+         9Ood9m2KPsEoNeWrBTov/5NCdJ9K5SfXwF1lfE64OUc1DMJ3xTcXiHUWhQAKm6LzZU64
+         SUWA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795559082; x=1796163882;
-        h=content-type:to:from:subject:message-id:date:mime-version
+        d=1e100.net; s=20260707; t=1795559424; x=1796164224;
+        h=content-type:cc:to:from:subject:message-id:mime-version:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=kIxtExBELn7SeoxzbJabhSlRGlT4UchM+BcTDqdeb3M=;
-        b=ze2BINt23q+lukZycfFpP5gLuI60h19Yc9nYtLkbL9ytJBN1RM21v6mtqUiI7CqwcA
-         Hi5SVrtyDof9WEilU8dJy4TDqC6Q6KoTv3Ta8jfJkWdTxGOlwmA4/slEzFbndbgpq9jm
-         Bs3BILTIrpq8Y+l6lbvCsuHOpHHm2cHMAVXBUJhjTuTQdXveW3fhQQTQlTTfuZWBkQsb
-         oVt96xAFvTq1HgPh37qb05uRM8+vShjz4548fOe2c7vJvDGFMj5Qk35D1SliJjVVEdF5
-         f1rNXSFxpNTB9pCO2INuLU9QXB4H1ZDZdJIznB5/E9v7DED4NIjWxgW2B5iGtI7CEZR6
-         LdoQ==
-X-Forwarded-Encrypted: i=1; AL+hErHzmbVblqUzYZtFqFrefaSvYZl9rOa/iRfMbG1kAEROn5LY+5S+W3bmKaDEGmg2DcvflWVQHpQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/NlS4AJmcv0p/6lLwzbtOCJWVIHqA2oMi9yEQBibDA8BJlBd2r
-	XVNn2Ot3+BDyZdcLelQJWycnCVoyUHFLJkPVueR739bQZv4g5sT9a3Y0dmPQm5ZE7M9Pls4fRgR
-	hCmQhh/2WkoE0cPAqvLgY/QowNUvDzq0vQjmHxPJ5GE5y71B+bEJi8Xb/Xi4=
+        bh=ycxX1BdIyqk5KPu/81NCSXj9/1Fa8M/RreVYaVwcZRQ=;
+        b=Nk7tclXL8g1MvBtHJrYOhFUqzDgOh6DaUJeD9/MPU5niu0u/tEwEwlw96Bgzt9hRcN
+         srI6ywqA8aRHccvor+Fdw+SCQc4JQ4Xu8U6Gf9PS7qD8jTc9f2PIb0xzKQ+82xiOtK5g
+         kbIazwhCbIY5/SS2QIujoGp06gLoZAnZdQ+ElDQdR5yBb4QUGVptZob6ZYMwIxiHJghh
+         92MJq2EQG/PJEijvWQGG/6SNH0NFfrO+KZgCMGxLElVlPVBMA3ddlhQp+GPH4GdNpn6c
+         flfa2SoJ3IV/xh/4S4RLl+151+ZF8VKol99nKgMBKcDDAFyVI9FkgDaG+6l77qdRedrH
+         HUeQ==
+X-Gm-Message-State: APuU4Z/QJ8z3gDrD6Bj4DbAcu4Gft/hReFtib2DSjGeA/mdJuu7Iir7L
+	/TFKXYt0rQIHC2JwvQlk5wmglDSZkDWEHU5XF+K0jG4zrizONROEWUTXvlIxImq001/osmAyB8/
+	pCxBJW1iNLB9H/1LdJ2JvQYS0BnPcPq0LWkItGEeNP4YqNjyv30cEsDy3jTs2m85+fOTDUh63CJ
+	ozvI5ArHGz6bpzPoWwITIsLVZcpkZvKlw/7YWPQRLWYiLh4DA=
+X-Received: from plbaz1.prod.google.com ([2002:a17:902:a581:b0:2ef:d0d7:afa3])
+ (user=joshwash job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:903:41c6:b0:2ed:f9c:3e5b with SMTP id d9443c01a7336-2f03f17d5e7mr167576995ad.52.1795559423515;
+ Tue, 24 Nov 2026 14:30:23 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:30:09 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,342 +75,167 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-X-Received: by 2002:a05:6808:4f2c:b0:4d6:90f4:48b4 with SMTP id
- 5614622812f47-57a0cae5223mr18069529b6e.54.1795559082190; Tue, 24 Nov 2026
- 14:24:42 -0800 (PST)
-Date: Tue, 24 Nov 2026 14:24:42 -0800
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b060eaa.44b41460.34b83f.0040.GAE@google.com>
-Subject: [syzbot] [net?] possible deadlock in gup_fast_fallback (4)
-From: syzbot <syzbot+a248631c3876e5616b8c@syzkaller.appspotmail.com>
-To: axboe@kernel.dk, davem@davemloft.net, edumazet@google.com, 
-	edumazet@kernel.org, horms@kernel.org, jiayuan.chen@linux.dev, 
-	kartikey406@gmail.com, kuba@kernel.org, kuniyu@google.com, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
-	syzkaller-bugs@googlegroups.com, willemb@google.com
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+Message-ID: <20261124223009.331936-1-joshwash@google.com>
+Subject: [PATCH net-next] gve: add rx_critical_low_bufs ethtool statistic
+From: Joshua Washington <joshwash@google.com>
+To: netdev@vger.kernel.org
+Cc: Joshua Washington <joshwash@google.com>, Harshitha Ramamurthy <hramamurthy@google.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Jesper Dangaard Brouer <hawk@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
+	Stanislav Fomichev <sdf@fomichev.me>, Jordan Rhee <jordanrhee@google.com>, 
+	Willem de Bruijn <willemb@google.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Matt Olson <maolson@google.com>, Jacob Keller <jacob.e.keller@intel.com>, 
+	Debarghya Kundu <debarghyak@google.com>, Ankit Garg <nktgrg@google.com>, 
+	Eddie Phillips <eddiephillips@google.com>, bpf@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-Hello,
+From: Eddie Phillips <eddiephillips@google.com>
 
-syzbot found the following issue on:
+Commit b65352a1bac6 ("gve: fix Rx queue stall on alloc failure") added a
+starvation recovery timer to the DQO Rx path to prevent permanent queue
+stalls under severe memory pressure.
 
-HEAD commit:    2388bb763e32 vsock: only deliver taps to namespaces that c..
-git tree:       net-next
-console output: https://syzkaller.appspot.com/x/log.txt?x=1494da03580000
-kernel config:  https://syzkaller.appspot.com/x/.config?x=7c6e8aa85c823ea1
-dashboard link: https://syzkaller.appspot.com/bug?extid=a248631c3876e5616b8c
-compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+Existing allocation failure counters (such as rx_buf_alloc_fail and
+netdev queue alloc_fail) count every individual failed buffer allocation
+and do not distinguish transient, recoverable failures from severe
+buffer exhaustion where fewer than GVE_RX_BUF_THRESH_DQO (32) buffers
+remain available to hardware and starvation recovery is required.
 
-Unfortunately, I don't have any reproducer for this issue yet.
+Add a new "rx_critical_low_bufs" ethtool statistic for the DQO Rx path
+in gve_rx_post_buffers_dqo(). The counter increments on each refill
+attempt that leaves fewer than GVE_RX_BUF_THRESH_DQO buffers available
+to hardware and arms or reschedules the starvation recovery timer via
+mod_timer(). It is exposed both per-queue (rx_critical_low_bufs[%u]) and
+as an interface-wide aggregate (rx_critical_low_bufs).
 
-Downloadable assets:
-disk image: https://storage.googleapis.com/syzbot-assets/b841983d2243/disk-2388bb76.raw.xz
-vmlinux: https://storage.googleapis.com/syzbot-assets/594cfcd1a79e/vmlinux-2388bb76.xz
-kernel image: https://storage.googleapis.com/syzbot-assets/40f2d7665b0c/bzImage-2388bb76.xz
-
-The issue was bisected by AI to:
-
-commit 9280e6edf65662b6aafc8b704ad065b54c08b519
-Author: Deepanshu Kartikey <kartikey406@gmail.com>
-Date:   Sun Jun 21 23:52:55 2026 +0000
-
-    nbd: don't warn when reclassifying a busy socket lock
-
-AI reasoning:   https://syzkaller.appspot.com/ai_job?id=5962c4db-cae6-420d-9065-19f85abbc6f5
-
-AI-generated root cause summary:
-Lockdep detects a circular locking dependency between `&mm->mmap_lock` and
-`sk_lock-AF_INET6` because `nbd_reclassify_socket()` in `drivers/block/nbd.c`
-silently skips reclassifying the socket's `sk_lock` class when
-`sock_allow_reclassification(sk)` returns false (i.e., when `sk->sk_lock` or
-`sk->sk_lock.slock` is held by another thread or softirq at the time
-`nbd_add_socket()` runs). Leaving the NBD socket in the generic
-`sk_lock-AF_INET6` class causes lockdep to alias it with ordinary userspace
-`AF_INET6` sockets such as kTLS sockets in `tls_sw_sendmsg()`, which acquire
-`&mm->mmap_lock` via `gup_fast_fallback()` while holding `sk_lock`.
-Additionally, because `nbd_add_socket()` does not prevent userspace from
-continuing to use the socket FD (including kTLS sockets), concurrent userspace
-`sendmsg`/`writev` and NBD block I/O under `fs_reclaim` on the same socket can
-form a real AB-BA deadlock.
-
-full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a248631c3876e5616b8c
-
-IMPORTANT: if you fix the issue, please add the following tag to the commit:
-Reported-by: syzbot+a248631c3876e5616b8c@syzkaller.appspotmail.com
-
-The cause commit was identified by AI and may be wrong.
-If you agree with it, please also add:
-Fixes: 9280e6edf656 ("nbd: don't warn when reclassifying a busy socket lock")
-
-======================================================
-WARNING: possible circular locking dependency detected
-syzkaller #0 Not tainted
-------------------------------------------------------
-syz.3.1126/10806 is trying to acquire lock:
-ffff88807caee540 (&mm->mmap_lock){++++}-{4:4}, at: gup_fast_fallback+0x1f8/0x27f0 mm/gup.c:3235
-
-but task is already holding lock:
-ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1743 [inline]
-ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: tls_sw_sendmsg+0x189/0x2c10 net/tls/tls_sw.c:1032
-
-which lock already depends on the new lock.
-
-
-the existing dependency chain (in reverse order) is:
-
--> #7 (sk_lock-AF_INET6){+.+.}-{0:0}:
-       lock_sock_nested+0x41/0x100 net/core/sock.c:3911
-       lock_sock include/net/sock.h:1743 [inline]
-       inet_shutdown+0x6a/0x390 net/ipv4/af_inet.c:913
-       nbd_mark_nsock_dead+0x2cb/0x550 drivers/block/nbd.c:319
-       sock_shutdown+0x15e/0x260 drivers/block/nbd.c:420
-       nbd_clear_sock+0x24/0x170 drivers/block/nbd.c:1463
-       nbd_config_put+0x477/0x7e0 drivers/block/nbd.c:1492
-       nbd_genl_connect+0x19b8/0x1cd0 drivers/block/nbd.c:2319
-       genl_family_rcv_msg_doit+0x233/0x340 net/netlink/genetlink.c:1114
-       genl_family_rcv_msg net/netlink/genetlink.c:1194 [inline]
-       genl_rcv_msg+0x614/0x7a0 net/netlink/genetlink.c:1209
-       netlink_rcv_skb+0x226/0x4a0 net/netlink/af_netlink.c:2585
-       genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
-       netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
-       netlink_unicast+0x8ef/0xa80 net/netlink/af_netlink.c:1362
-       netlink_sendmsg+0x7f0/0xb20 net/netlink/af_netlink.c:1921
-       sock_sendmsg_nosec+0x14e/0x190 net/socket.c:800
-       __sock_sendmsg net/socket.c:818 [inline]
-       ____sys_sendmsg+0x49f/0x790 net/socket.c:2713
-       ___sys_sendmsg+0x2f8/0x3d0 net/socket.c:2770
-       __sys_sendmsg net/socket.c:2802 [inline]
-       __do_sys_sendmsg net/socket.c:2807 [inline]
-       __se_sys_sendmsg net/socket.c:2805 [inline]
-       __x64_sys_sendmsg+0x1b1/0x290 net/socket.c:2805
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
--> #6 (&nsock->tx_lock){+.+.}-{4:4}:
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       nbd_handle_cmd drivers/block/nbd.c:1143 [inline]
-       nbd_queue_rq+0x373/0xff0 drivers/block/nbd.c:1207
-       blk_mq_dispatch_rq_list+0x499/0x1990 block/blk-mq.c:2141
-       __blk_mq_do_dispatch_sched block/blk-mq-sched.c:168 [inline]
-       blk_mq_do_dispatch_sched block/blk-mq-sched.c:182 [inline]
-       __blk_mq_sched_dispatch_requests+0xd36/0x1580 block/blk-mq-sched.c:307
-       blk_mq_sched_dispatch_requests+0xd7/0x190 block/blk-mq-sched.c:329
-       blk_mq_run_work_fn+0x167/0x2f0 block/blk-mq.c:2556
-       process_one_work kernel/workqueue.c:3495 [inline]
-       process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
-       worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
-       kthread+0x38b/0x480 kernel/kthread.c:436
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #5 (&cmd->lock){+.+.}-{4:4}:
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       nbd_queue_rq+0xc1/0xff0 drivers/block/nbd.c:1199
-       blk_mq_dispatch_rq_list+0x499/0x1990 block/blk-mq.c:2141
-       __blk_mq_do_dispatch_sched block/blk-mq-sched.c:168 [inline]
-       blk_mq_do_dispatch_sched block/blk-mq-sched.c:182 [inline]
-       __blk_mq_sched_dispatch_requests+0xd36/0x1580 block/blk-mq-sched.c:307
-       blk_mq_sched_dispatch_requests+0xd7/0x190 block/blk-mq-sched.c:329
-       blk_mq_run_work_fn+0x167/0x2f0 block/blk-mq.c:2556
-       process_one_work kernel/workqueue.c:3495 [inline]
-       process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
-       worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
-       kthread+0x38b/0x480 kernel/kthread.c:436
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #4 (set->srcu){.+.+}-{0:0}:
-       srcu_lock_sync include/linux/srcu.h:261 [inline]
-       __synchronize_srcu+0xca/0x2f0 kernel/rcu/srcutree.c:1662
-       elevator_switch+0x1e8/0x7b0 block/elevator.c:576
-       elevator_change+0x2fa/0x480 block/elevator.c:681
-       elevator_set_default+0x375/0x440 block/elevator.c:754
-       blk_register_queue+0x404/0x4f0 block/blk-sysfs.c:992
-       __add_disk+0x6b8/0xdb0 block/genhd.c:531
-       add_disk_fwnode+0x100/0x3a0 block/genhd.c:600
-       add_disk include/linux/blkdev.h:799 [inline]
-       nbd_dev_add+0x733/0xb60 drivers/block/nbd.c:2026
-       nbd_init+0x168/0x1f0 drivers/block/nbd.c:2743
-       do_one_initcall+0x250/0x870 init/main.c:1419
-       do_initcall_level+0x10a/0x1a0 init/main.c:1481
-       do_initcalls+0x59/0xa0 init/main.c:1497
-       kernel_init_freeable+0x29d/0x3e0 init/main.c:1732
-       kernel_init+0x22/0x1d0 init/main.c:1622
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #3 (&q->elevator_lock){+.+.}-{4:4}:
-       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
-       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
-       elevator_change+0x1af/0x480 block/elevator.c:679
-       elevator_set_none+0xb5/0x140 block/elevator.c:769
-       blk_mq_elv_switch_none block/blk-mq.c:5168 [inline]
-       __blk_mq_update_nr_hw_queues block/blk-mq.c:5213 [inline]
-       blk_mq_update_nr_hw_queues+0x60b/0x1b70 block/blk-mq.c:5281
-       nbd_start_device+0x189/0xb30 drivers/block/nbd.c:1530
-       nbd_genl_connect+0x167d/0x1cd0 drivers/block/nbd.c:2310
-       genl_family_rcv_msg_doit+0x233/0x340 net/netlink/genetlink.c:1114
-       genl_family_rcv_msg net/netlink/genetlink.c:1194 [inline]
-       genl_rcv_msg+0x614/0x7a0 net/netlink/genetlink.c:1209
-       netlink_rcv_skb+0x226/0x4a0 net/netlink/af_netlink.c:2585
-       genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
-       netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
-       netlink_unicast+0x8ef/0xa80 net/netlink/af_netlink.c:1362
-       netlink_sendmsg+0x7f0/0xb20 net/netlink/af_netlink.c:1921
-       sock_sendmsg_nosec+0x14e/0x190 net/socket.c:800
-       __sock_sendmsg net/socket.c:818 [inline]
-       ____sys_sendmsg+0x49f/0x790 net/socket.c:2713
-       ___sys_sendmsg+0x2f8/0x3d0 net/socket.c:2770
-       __sys_sendmsg net/socket.c:2802 [inline]
-       __do_sys_sendmsg net/socket.c:2807 [inline]
-       __se_sys_sendmsg net/socket.c:2805 [inline]
-       __x64_sys_sendmsg+0x1b1/0x290 net/socket.c:2805
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
--> #2 (&q->q_usage_counter(io)#49){++++}-{0:0}:
-       blk_alloc_queue+0x544/0x690 block/blk-core.c:505
-       blk_mq_alloc_queue block/blk-mq.c:4468 [inline]
-       __blk_mq_alloc_disk+0x194/0x390 block/blk-mq.c:4515
-       nbd_dev_add+0x494/0xb60 drivers/block/nbd.c:1996
-       nbd_init+0x168/0x1f0 drivers/block/nbd.c:2743
-       do_one_initcall+0x250/0x870 init/main.c:1419
-       do_initcall_level+0x10a/0x1a0 init/main.c:1481
-       do_initcalls+0x59/0xa0 init/main.c:1497
-       kernel_init_freeable+0x29d/0x3e0 init/main.c:1732
-       kernel_init+0x22/0x1d0 init/main.c:1622
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #1 (fs_reclaim){+.+.}-{0:0}:
-       __fs_reclaim_acquire mm/page_alloc.c:4388 [inline]
-       fs_reclaim_acquire+0x71/0x100 mm/page_alloc.c:4402
-       might_alloc include/linux/sched/mm.h:316 [inline]
-       slab_pre_alloc_hook mm/slub.c:4673 [inline]
-       slab_alloc_node mm/slub.c:5011 [inline]
-       kmem_cache_alloc_noprof+0x5f/0x600 mm/slub.c:5047
-       mt_alloc_one lib/maple_tree.c:139 [inline]
-       mas_alloc_nodes+0x291/0x350 lib/maple_tree.c:1049
-       mas_preallocate+0x42a/0x840 lib/maple_tree.c:5080
-       vma_iter_prealloc mm/vma.h:698 [inline]
-       vma_link+0x123/0x460 mm/vma.c:1981
-       insert_vm_struct+0x439/0x840 mm/vma.c:3674
-       create_init_stack_vma+0x607/0xa40 mm/vma_exec.c:155
-       bprm_mm_init fs/exec.c:279 [inline]
-       alloc_bprm+0x507/0x640 fs/exec.c:1570
-       class_bprm_constructor fs/exec.c:1580 [inline]
-       kernel_execve+0x85/0x9a0 fs/exec.c:1976
-       try_to_run_init_process+0x13/0x60 init/main.c:1548
-       kernel_init+0xb2/0x1d0 init/main.c:1678
-       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
-       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
-
--> #0 (&mm->mmap_lock){++++}-{4:4}:
-       check_prev_add kernel/locking/lockdep.c:3209 [inline]
-       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
-       validate_chain kernel/locking/lockdep.c:3952 [inline]
-       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
-       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
-       gup_fast_fallback+0x211/0x27f0 mm/gup.c:3235
-       __iov_iter_get_pages_alloc+0x378/0xa40 lib/iov_iter.c:1111
-       iov_iter_get_pages2+0x5e/0xa0 lib/iov_iter.c:1157
-       sk_msg_zerocopy_from_iter+0x21b/0x8c0 net/core/skmsg.c:329
-       tls_sw_sendmsg_locked net/tls/tls_sw.c:889 [inline]
-       tls_sw_sendmsg+0x126f/0x2c10 net/tls/tls_sw.c:1033
-       sock_sendmsg_nosec+0x90/0x190 net/socket.c:800
-       __sock_sendmsg net/socket.c:818 [inline]
-       sock_write_iter+0x2de/0x3e0 net/socket.c:1269
-       do_iter_readv_writev+0x612/0x8c0 fs/read_write.c:-1
-       vfs_writev+0x33d/0x9a0 fs/read_write.c:1038
-       do_writev+0x154/0x2e0 fs/read_write.c:1084
-       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
-       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
-       entry_SYSCALL_64_after_hwframe+0x77/0x7f
-
-other info that might help us debug this:
-
-Chain exists of:
-  &mm->mmap_lock --> &nsock->tx_lock --> sk_lock-AF_INET6
-
- Possible unsafe locking scenario:
-
-       CPU0                    CPU1
-       ----                    ----
-  lock(sk_lock-AF_INET6);
-                               lock(&nsock->tx_lock);
-                               lock(sk_lock-AF_INET6);
-  rlock(&mm->mmap_lock);
-
- *** DEADLOCK ***
-
-locks held by syz.3.1126/10806: 2, on CPU#1:
- #0: ffff8880570b10e8 (&ctx->tx_lock){+.+.}-{4:4}, at: tls_sw_sendmsg+0x14e/0x2c10 net/tls/tls_sw.c:1029
- #1: ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1743 [inline]
- #1: ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: tls_sw_sendmsg+0x189/0x2c10 net/tls/tls_sw.c:1032
-
-stack backtrace:
-CPU: 1 UID: 0 PID: 10806 Comm: syz.3.1126 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
-Call Trace:
- <TASK>
- dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
- print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
- check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
- check_prev_add kernel/locking/lockdep.c:3209 [inline]
- check_prevs_add kernel/locking/lockdep.c:3328 [inline]
- validate_chain kernel/locking/lockdep.c:3952 [inline]
- __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
- lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
- gup_fast_fallback+0x211/0x27f0 mm/gup.c:3235
- __iov_iter_get_pages_alloc+0x378/0xa40 lib/iov_iter.c:1111
- iov_iter_get_pages2+0x5e/0xa0 lib/iov_iter.c:1157
- sk_msg_zerocopy_from_iter+0x21b/0x8c0 net/core/skmsg.c:329
- tls_sw_sendmsg_locked net/tls/tls_sw.c:889 [inline]
- tls_sw_sendmsg+0x126f/0x2c10 net/tls/tls_sw.c:1033
- sock_sendmsg_nosec+0x90/0x190 net/socket.c:800
- __sock_sendmsg net/socket.c:818 [inline]
- sock_write_iter+0x2de/0x3e0 net/socket.c:1269
- do_iter_readv_writev+0x612/0x8c0 fs/read_write.c:-1
- vfs_writev+0x33d/0x9a0 fs/read_write.c:1038
- do_writev+0x154/0x2e0 fs/read_write.c:1084
- do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
- do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
- entry_SYSCALL_64_after_hwframe+0x77/0x7f
-RIP: 0033:0x7fc9e65a9519
-Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
-RSP: 002b:00007fc9e739b028 EFLAGS: 00000246 ORIG_RAX: 0000000000000014
-RAX: ffffffffffffffda RBX: 00007fc9e6835fa0 RCX: 00007fc9e65a9519
-RDX: 0000000000000010 RSI: 00002000000007c0 RDI: 0000000000000004
-RBP: 00007fc9e6639136 R08: 0000000000000000 R09: 0000000000000000
-R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
-R13: 00007fc9e6836038 R14: 00007fc9e6835fa0 R15: 00007fff87de8258
- </TASK>
-
-
+Signed-off-by: Eddie Phillips <eddiephillips@google.com>
+Signed-off-by: Jordan Rhee <jordanrhee@google.com>
+Signed-off-by: Joshua Washington <joshwash@google.com>
 ---
-This report is generated by a bot. It may contain errors.
-See https://goo.gl/tpsmEJ for more information about syzbot.
-syzbot engineers can be reached at syzkaller@googlegroups.com.
+ drivers/net/ethernet/google/gve/gve.h         |  1 +
+ drivers/net/ethernet/google/gve/gve_ethtool.c | 17 ++++++++++++++---
+ drivers/net/ethernet/google/gve/gve_rx_dqo.c  |  3 +++
+ 3 files changed, 18 insertions(+), 3 deletions(-)
 
-syzbot will keep track of this issue. See:
-https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
-For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
+diff --git a/drivers/net/ethernet/google/gve/gve.h b/drivers/net/ethernet/google/gve/gve.h
+index 143d8cd595aa..90b633eb39ea 100644
+--- a/drivers/net/ethernet/google/gve/gve.h
++++ b/drivers/net/ethernet/google/gve/gve.h
+@@ -327,6 +327,7 @@ struct gve_rx_ring {
+ 	u64 rx_frag_flip_cnt; /* free-running count of rx segments where page_flip was used */
+ 	u64 rx_frag_copy_cnt; /* free-running count of rx segments copied */
+ 	u64 rx_frag_alloc_cnt; /* free-running count of rx page allocations */
++	u64 rx_critical_low_bufs; /* count of critical low buffer events */
+ 	u64 xdp_tx_errors;
+ 	u64 xdp_redirect_errors;
+ 	u64 xdp_alloc_fails;
+diff --git a/drivers/net/ethernet/google/gve/gve_ethtool.c b/drivers/net/ethernet/google/gve/gve_ethtool.c
+index a3220c651438..f04d06ffd673 100644
+--- a/drivers/net/ethernet/google/gve/gve_ethtool.c
++++ b/drivers/net/ethernet/google/gve/gve_ethtool.c
+@@ -43,7 +43,7 @@ static const char gve_gstrings_main_stats[][ETH_GSTRING_LEN] = {
+ 	"rx_packets", "rx_hsplit_pkt", "tx_packets", "rx_bytes",
+ 	"tx_bytes", "rx_dropped", "tx_dropped", "tx_timeouts",
+ 	"rx_skb_alloc_fail", "rx_buf_alloc_fail", "rx_desc_err_dropped_pkt",
+-	"rx_hsplit_unsplit_pkt",
++	"rx_hsplit_unsplit_pkt", "rx_critical_low_bufs",
+ 	"interface_up_cnt", "interface_down_cnt", "reset_cnt",
+ 	"page_alloc_fail", "dma_mapping_error", "stats_report_trigger_cnt",
+ };
+@@ -52,6 +52,7 @@ static const char gve_gstrings_rx_stats[][ETH_GSTRING_LEN] = {
+ 	"rx_posted_desc[%u]", "rx_completed_desc[%u]", "rx_consumed_desc[%u]",
+ 	"rx_bytes[%u]", "rx_hsplit_bytes[%u]", "rx_cont_packet_cnt[%u]",
+ 	"rx_frag_flip_cnt[%u]", "rx_frag_copy_cnt[%u]", "rx_frag_alloc_cnt[%u]",
++	"rx_critical_low_bufs[%u]",
+ 	"rx_dropped_pkt[%u]", "rx_copybreak_pkt[%u]", "rx_copied_pkt[%u]",
+ 	"rx_queue_drop_cnt[%u]", "rx_no_buffers_posted[%u]",
+ 	"rx_drops_packet_over_mru[%u]", "rx_drops_invalid_checksum[%u]",
+@@ -152,11 +153,13 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 	u64 tmp_rx_pkts, tmp_rx_hsplit_pkt, tmp_rx_bytes, tmp_rx_hsplit_bytes,
+ 		tmp_rx_skb_alloc_fail, tmp_rx_buf_alloc_fail,
+ 		tmp_rx_desc_err_dropped_pkt, tmp_rx_hsplit_unsplit_pkt,
++		tmp_rx_critical_low_bufs,
+ 		tmp_tx_pkts, tmp_tx_bytes,
+ 		tmp_xdp_tx_errors, tmp_xdp_redirect_errors;
+ 	u64 rx_buf_alloc_fail, rx_desc_err_dropped_pkt, rx_hsplit_unsplit_pkt,
+-		rx_pkts, rx_hsplit_pkt, rx_skb_alloc_fail, rx_bytes, tx_pkts, tx_bytes,
+-		tx_dropped, xdp_tx_errors, xdp_redirect_errors;
++		rx_critical_low_bufs, rx_pkts, rx_hsplit_pkt, rx_skb_alloc_fail,
++		rx_bytes, tx_pkts, tx_bytes, tx_dropped, xdp_tx_errors,
++		xdp_redirect_errors;
+ 	int rx_base_stats_idx, max_rx_stats_idx, max_tx_stats_idx;
+ 	int stats_idx, stats_region_len, nic_stats_len;
+ 	struct stats *report_stats;
+@@ -198,6 +201,7 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 	for (rx_pkts = 0, rx_bytes = 0, rx_hsplit_pkt = 0,
+ 	     rx_skb_alloc_fail = 0, rx_buf_alloc_fail = 0,
+ 	     rx_desc_err_dropped_pkt = 0, rx_hsplit_unsplit_pkt = 0,
++	     rx_critical_low_bufs = 0,
+ 	     xdp_tx_errors = 0, xdp_redirect_errors = 0,
+ 	     ring = 0;
+ 	     ring < priv->rx_cfg.num_queues; ring++) {
+@@ -216,6 +220,8 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 					rx->rx_desc_err_dropped_pkt;
+ 				tmp_rx_hsplit_unsplit_pkt =
+ 					rx->rx_hsplit_unsplit_pkt;
++				tmp_rx_critical_low_bufs =
++					rx->rx_critical_low_bufs;
+ 				tmp_xdp_tx_errors = rx->xdp_tx_errors;
+ 				tmp_xdp_redirect_errors =
+ 					rx->xdp_redirect_errors;
+@@ -228,6 +234,7 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 			rx_buf_alloc_fail += tmp_rx_buf_alloc_fail;
+ 			rx_desc_err_dropped_pkt += tmp_rx_desc_err_dropped_pkt;
+ 			rx_hsplit_unsplit_pkt += tmp_rx_hsplit_unsplit_pkt;
++			rx_critical_low_bufs += tmp_rx_critical_low_bufs;
+ 			xdp_tx_errors += tmp_xdp_tx_errors;
+ 			xdp_redirect_errors += tmp_xdp_redirect_errors;
+ 		}
+@@ -263,6 +270,7 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 	data[i++] = rx_buf_alloc_fail;
+ 	data[i++] = rx_desc_err_dropped_pkt;
+ 	data[i++] = rx_hsplit_unsplit_pkt;
++	data[i++] = rx_critical_low_bufs;
+ 	data[i++] = priv->interface_up_cnt;
+ 	data[i++] = priv->interface_down_cnt;
+ 	data[i++] = priv->reset_cnt;
+@@ -335,6 +343,8 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 				tmp_rx_buf_alloc_fail = rx->rx_buf_alloc_fail;
+ 				tmp_rx_desc_err_dropped_pkt =
+ 					rx->rx_desc_err_dropped_pkt;
++				tmp_rx_critical_low_bufs =
++					rx->rx_critical_low_bufs;
+ 				tmp_xdp_tx_errors = rx->xdp_tx_errors;
+ 				tmp_xdp_redirect_errors =
+ 					rx->xdp_redirect_errors;
+@@ -346,6 +356,7 @@ gve_get_ethtool_stats(struct net_device *netdev,
+ 			data[i++] = rx->rx_frag_flip_cnt;
+ 			data[i++] = rx->rx_frag_copy_cnt;
+ 			data[i++] = rx->rx_frag_alloc_cnt;
++			data[i++] = tmp_rx_critical_low_bufs;
+ 			/* rx dropped packets */
+ 			data[i++] = tmp_rx_skb_alloc_fail +
+ 				    tmp_rx_desc_err_dropped_pkt +
+diff --git a/drivers/net/ethernet/google/gve/gve_rx_dqo.c b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+index 82ed5e48b00a..ff535c421118 100644
+--- a/drivers/net/ethernet/google/gve/gve_rx_dqo.c
++++ b/drivers/net/ethernet/google/gve/gve_rx_dqo.c
+@@ -437,6 +437,9 @@ void gve_rx_post_buffers_dqo(struct gve_rx_ring *rx)
+ 		 bufq->head) & bufq->mask;
+ 
+ 	if (num_bufs_avail_to_hw < GVE_RX_BUF_THRESH_DQO) {
++		u64_stats_update_begin(&rx->statss);
++		rx->rx_critical_low_bufs++;
++		u64_stats_update_end(&rx->statss);
+ 		mod_timer(&rx->starvation_timer,
+ 			  jiffies + msecs_to_jiffies(GVE_RX_NAPI_RESCHED_MS));
+ 	}
 
-If the report is already addressed, let syzbot know by replying with:
-#syz fix: exact-commit-title
+base-commit: 57f165ff2f30491bc3511d24a52ca516751a268b
+-- 
+2.56.1.831.g720f3f5937-goog
 
-If you want to overwrite report's subsystems, reply with:
-#syz set subsystems: new-subsystem
-(See the list of subsystem names on the web dashboard)
-
-If the report is a duplicate of another one, reply with:
-#syz dup: exact-subject-of-another-report
-
-If you want to undo deduplication, reply with:
-#syz undup
