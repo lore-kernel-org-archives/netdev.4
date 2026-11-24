@@ -1,101 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795553133;
-	b=G8dWNR5ODzQ4J2y97IOAT22hmS6WcPN/HGEAOXOflb78OjmNe83ogwN6F5N1Nx8L+FsV
-	 rIJH0tfgQ5p7JBvVnqczwhYm4X4HcBU0dHIhsMatM79qFWReRzsXWnGmLdxxZKUKqAyzm
-	 duSDTAH1WBE/qglPy1TjK4tmpTB6nIcQLup18+ZYzmHlXfoimOBC0m3clW+9PBydjVVrX
-	 e1IrMPBVm4sp1PuhirkJ2gJKoBSc0Itciiaw0ty9KPvezZKo/eS7vLbksWV4CuqsRYeiZ
-	 tfT6JO4ajImKhS7htBz3kWtP1X0tZd83WGvx4AfHJt4QAQd3YG5TRQKSwOP2LsJESxg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795553133;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
-	b=EJzf6ee0wbe8p0laz45+xkXc2zHDl3tiusvlXxXRwXam+wQG88Vc6mZPl0jsRLBuEW/B
-	 Xocge58niAjIfSO4KbkFurDDXV3vePft3umSUJdDkVwxoWYXCeEtu/7aTSQxQ4eDx6FBA
-	 6X1xSqDpQaFRxoQaLQ0XNPWPQfU/8Deam4JNI7j4ZYtzf+gDOh1Tkc3WwXPeGDWXDYON4
-	 Or1ZZjQVEqh59NxDht1x2bJ+SN7tPdSgo36gv5RBUYIXUulztJIALyXyIQ4PbSur09WD7
-	 k7KE584Aw5MCZFI2RY5pqfHAKIDJ4Qx138nqwvfgtmrtrRAoBcQfxc+2Jh67ks3Nsog==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=googlemail.com;
-	spf=pass smtp.mailfrom=googlemail.com;
-	dkim=pass header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fWkfI7g7;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.176
-Received: from mail-yw1-f176.google.com (mail-yw1-f176.google.com [209.85.128.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795553194;
+	b=h1lIb1HcOc/Ep0fe9HbxrWVM3BjzI7Fy5U928KTUZtPdGSGBqYKknxRigA3SaDm8G8Qz
+	 NmVTBS6MwVCC8Q/ub0q3qxdf3x365buko4c+Jv0UpWj0XCG/dwDRQ4OCu0HpcGdjD6GVl
+	 5tqHeT07XUI8xSwYhIOZAO5DKdQbKSnk5OFtVEhd8SVLhtFXqwZsaN9hSu0u2OX3lRwYE
+	 bp+HGPlyoRIH6pQWO59i1rJjdEAYQPhPYFXE6vk8mquUtR11MQPpSc9aCguR5FWCYNrfV
+	 Ub0TeXQG5ofdi8o+8xTZ0cTVY92gDsngB9ywbUVsTxTspAgHVD5itLvjEvTL4hNNo6Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795553194;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=UiI3Y9ytEFNZ9auC1QhMx1hXzCdFx9m8tVRxBWmdnDM=;
+	b=3PT5lFTyQJ2fosaCkO/FEN+nQYs42JujrY9TsAWKp+HVAgLQbXqHW+joovvzRXazQJqP
+	 iE6j3kDWLM6DiwnhRH/BKIdWk9VNQiRCeN84d0RRoUA2tgecOQ24JEodeUI9tGtARBKE0
+	 tbLaqjT9IleMdGm4e6P3u6hW5JJvNxFtw7YlmesYUhA5eq3KBNsWc1mpWnvQDr6UH90Cl
+	 9L+V6zspwxqgemuNfObRr8aW8w7jYClnNnwgY6+roBBKOKd2U1qfIaDEOe1WE19Okptze
+	 LplgG3ZzKVCkLBh2apnBCM0li/pIt2oIjyg4dkGC0UbZpEBEpQ+TfNsFQlPykyI/ycQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b="nGmqpG/6";
+	arc=none smtp.remote-ip=195.10.208.52
+Received: from mout-b-203.mailbox.org (mout-b-203.mailbox.org [195.10.208.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B77A4606A330
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:45:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B77A4606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=googlemail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=googlemail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 585AA606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:46:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 585AA606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=googlemail.com header.i=@googlemail.com header.a=rsa-sha256 header.s=20260707 header.b=fWkfI7g7
-Received: by mail-yw1-f176.google.com with SMTP id 00721157ae682-8b4eab91bcaso27687237b3.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 12:45:32 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795553132; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dGMRdKyDKZtKBu6SI0QuahlYWRyRLY52TqFdLU/spvzj3T+683vAXRRMDrgQlt+qJM
-         spGkTYdTYCjN2HFt97PqxSlmp3eRvTuEJKdgc13BIA5TYT9SNCmvqYqagQfaThzKDfeM
-         wXQBoh0pLcXx7aSbMIvFXyvk37FRmmahvnW4i6/ZvL67KBc8vFCpW4kej1xHI3HgoBSi
-         Q5hM67ngxljWiYRRA14yOmH5w8PFGHU8mJpbMEeQvkH+rAKKUtCyCQVIbqLU1AQznuxL
-         Jb/NncZ+ZR9rPFEGwVGcfYhTPnOeE+LXx8H2yQRF0ZzkLCCOOILp/IBy1W3uRqfweDNz
-         /iSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
-        fh=e5FVgfiiB1hiCP+loaMMneG7c27SMb9pB/uyFSJxIu4=;
-        b=afu0mfCd4Nxquxyi43Kt0OO6eU3O6Ipky1yXkzTJLdjctIPG/7F1+WtwuczxPPss7A
-         H465O5kU96+zwSDLPxa4EHIwiz6gzHQNij0n2jXZYGiXaIQACYDN43mzief8DPfDIfpU
-         IUGcT4fNi8utrSHaUnr0G3ONvsrzYt6kGP2xb9o9fSv1Fjlw7zzgeKXUEv+lLCNwFNPg
-         c+Wgv6fq+IEsM8dT+JmzJ7zJZWFaE2+5Loc0sZtl4gzc92Lufwy0th8v+0w15mk7ROxr
-         j/8GQ1u8LfM6ViYB6abOg/US+gPFBVPK3UVIFTvBK3/BkUUhaeMK6cfOye4fGgs/xN+a
-         ueFw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=googlemail.com; s=20260707; t=1795553132; x=1796157932; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
-        b=fWkfI7g7PrLQ7bt+0UAil+Zy7J/2gPJX50pDHayXK+EpqLlR20gEcua4dazCanX3T5
-         E53HaM4usZB+CE/EUBt9WWedRTs2GcLHHZMNdI9HL+DQWjWIvORceM10ZdjtTOKgBdL6
-         aJMzVftA/pPwii3PvCGJApDKR1SH7WIDniYyN/fnUEkj9dyewvH9yCmNioPAwUhpdzIh
-         hPaq2LbyV86n5UydtCwC0x2FWZIn2eZHLO4E1bGxrFsWWM8scZG0+Hh28SugR8pD9uh4
-         98xRtzbCiLQjlnMY7czZmvRaYZUmtvYPyalncM69vRhfNSfPjPAVyEUYLYPyxyOx3xpZ
-         PRPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795553132; x=1796157932;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=KFzLi3vzdDSPGhuH40A8wZRyinBPu8g/pRL5DsdlYi8=;
-        b=O78fek/DLrSzzyrHBVa7HjgQuG1XuKGUXjcOURfq3ADLywJ0mS+4hSaGp5P7O4jdtP
-         CD2v3dS42zp+sDmrmcnXH04aGnmlo0sdVVFuhZHr6+4g4dqYeB+mFYv/20gr5HfCAjaG
-         LoJZ4vI0QLV1twzXabH71bQvKLgqluigKogOXZaTrtyEYwgxpYp4M8DvcneH1TTai4mT
-         tm0TH9UCQ2ZcUufRO0LI6Pho1xEn3QK0q9CJPTa7LM2rR19PCuadIiGp90fGyvdu4NMp
-         nhOPtN37TUEULC6HeSYph5u/ruqFnINucL0ghQEI/0+zf9D1k1QDiJJJOmupU18duKIK
-         og7A==
-X-Forwarded-Encrypted: i=1; AL+hErHAJ5TKsgTbF/miJ93bXdxL5y2bONT097kdzHIko+UZXqzUQZkoKjTBu/7WWcrJ40dJe57aK30=@vger.kernel.org
-X-Gm-Message-State: APuU4Z93OWQArxb7xXi6OBYy+gbZjQ5YlHbW/yTBy59Fg5FlGduE/Xmv
-	xdme+pMRve9emAZcw8OtWky/m3C6QNdxhY4YS1V/objNBiffJBVoi1Jxd5FBGq826vd4AoX1HEd
-	KcpEpyokeqxEvFRDr7cR9yZR0UrdZttA=
-X-Gm-Gg: AZFdTZfVN4vb3/DA6xCPcrdu7PU/TO53M752WJcdrNO2E/BFfNpt6eXXvP0Bl81SJr1
-	oX2wCkOUcayLPReuw+brTnvlNuZTH5YSoxbvIzzqH/587tEHBoSPJapp+XtJyrAbRoZ9VWlR3dE
-	xA3HjfcthWoFGQ6C0VaZHzdH8CwB3KDssRy6ppV/8GvKTXwGb8VN8q7ZlGT2VcGt0z1bbTrS6bQ
-	XjmBzpugxzHghqZQRIDRG/KERzqUDB+YYQcS8Iwh95Uf4LrSprcAAQ4qp7xpvyjgSO/ogjY618z
-	4BeMw45oKz2M3VzJ7pDjXOdbc9SAoaEhd8+PUXTYtHj8jcs+tYOFuUnKq3wS8Ls6APdvgMcKwii
-	MyER0ucLk12BTP76jk1u/hA/1sIgOWBvrCeRht/VuAtggLVXFG+WfxFqQK76uzjAxCW1fuh7pFe
-	cf2/Te1CUn4fJdgW2k
-X-Received: by 2002:a05:690c:799:b0:8b4:d584:6165 with SMTP id
- 00721157ae682-8b52043ff55mr69264227b3.21.1795553131511; Tue, 24 Nov 2026
- 12:45:31 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=nGmqpG/6
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-b-203.mailbox.org (Postfix) with ESMTPS id 4jYvx13yhVzLmYt;
+	Tue, 24 Nov 2026 21:46:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795553189;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UiI3Y9ytEFNZ9auC1QhMx1hXzCdFx9m8tVRxBWmdnDM=;
+	b=nGmqpG/6tNDMWkYNrYANu54v2lGepgEIH2UDzSZ9c/GmxnAX50SgxOCdpaaShXfZW/2fYT
+	scm+ddi6AQOyyWSB+48C5sMoXIYMGSX56O4sSehyUo7zrkReWsv0LWwbBdMaBfHd7MsHec
+	oNf99RONgOPB8L3wK4AGYaSR01RshuSMTUf9bep28gsc2nLnuG3+jKL2U7X34VbSzD+5lU
+	DGi8Hf64eBzv9wjSQFsWmrSn9XLLOX5vqx/kKNMhKbXinrAnYU4pThhqojl4U1frV4sCY/
+	5907y9dL3LkBs7mmYJB7QCveQIegcIAVRsgh3xRokUAqoLL73T+54y330bToAA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: David Ahern <dsahern@kernel.org>
+Cc: netdev@vger.kernel.org
+Subject: Re: [RFC net-next v2 0/7] ipv6: validate dsts against the netns route generation at lookup
+Date: Tue, 24 Nov 2026 21:46:21 +0100
+Message-ID: <20261124204623.45969-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <72ade685-ecce-4215-a30b-25be7666e299@kernel.org>
+References: <20261123212623.106153-1-dsahern@kernel.org> <20261124163553.783988-1-ralf@mandelbit.com> <72ade685-ecce-4215-a30b-25be7666e299@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,40 +72,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121213102.143130-1-tanure@linux.com> <20261121213102.143130-2-tanure@linux.com>
-In-Reply-To: <20261121213102.143130-2-tanure@linux.com>
-From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Date: Tue, 24 Nov 2026 21:45:20 +0100
-X-Gm-Features: Aa3M54pybnp1CQPsafQYDf0P2DptibC917JzUwMw-x18aat2wfvVMhiMsv1rR3s
-Message-ID: <CAFBinCDPGYpR6rmtJvN5pT1OdSN-ne=YJVeT0kk4Ff2SB2vraA@mail.gmail.com>
-Subject: Re: [PATCH v8 1/4] dt-bindings: net: amlogic,g12a-mdio-mux: add the
- T7 compatible
-To: Lucas Tanure <tanure@linux.com>
-Cc: xianwei.zhao@amlogic.com, Andrew Lunn <andrew+netdev@lunn.ch>, davem@davemloft.net, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Kevin Hilman <khilman@baylibre.com>, 
-	Jerome Brunet <jbrunet@baylibre.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jYvx13yhVzLmYt
 
-On Sat, Nov 21, 2026 at 10:31=E2=80=AFPM Lucas Tanure <tanure@linux.com> wr=
-ote:
+On Tue, 24 Nov 2026 10:15:40 -0700, David Ahern <dsahern@kernel.org> wrote:
+> IPv6's finer grained invalidation of fib changes is why this whole
+> cookie caching mess exists. It is a performance optimization that to me
+> has gotten out of hand and as you reported is the cause of functional
+> incorrectness with both xfrm and other caching.
 >
-> The T7 has the same management bus multiplexer as the G12A, in front
-> of the same on-chip 100M PHY, and the G12A driver runs it unchanged.
-> But a device tree that names only the G12A string leaves no way to
-> tell the two apart later: if a difference between the two blocks
-> turns up, every T7 board would have to change its compatible to get
-> the fix.
+> I spent the morning doing a deep dive on the claude assisted patches and
+> really like the direction. Making ipv6 fib management and invalidation
+> align with ipv4 should remove the need for all of the cookie stashing on
+> sockets and elsewhere plus remove the cookie argument to the dst APIs
+> including sockets. ie., it is a good cleanup and simplification of the
+> code base with the cost of more invalidations on ipv6 fib changes.
 >
-> Give the T7 a compatible of its own with the G12A one as fallback, so
-> the existing driver keeps binding and a T7-specific match can be added
-> without touching the boards.
->
-> Signed-off-by: Lucas Tanure <tanure@linux.com>
-Reviewed-by: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+
+Understood. My goal is to get the race fixed, so if this is the
+direction you want to take, I'll drop my series. FTR, I don't think the
+finer grained invalidation is the culprit here so much as reading the
+cookie after the lookup instead of during it, and I still think the
+per-node scope might be worth keeping (v5 shows that it can be kept with
+validity in the dst), but the trade-off is yours to make.
+
+Whichever way it goes, a few things I found while working on this apply
+to your series as well, some more broadly since any FIB change in the
+netns makes every pcpu dst stale:
+
+- A found pcpu or exception dst has to match the lookup's sample,
+  otherwise a lookup can return a dst rebuilt after the route it
+  selected changed.
+- A replaced pcpu dst released with dst_dev_put discards packets for
+  holders that use it without validating it again, such as a corked UDP
+  socket.
+- Dropping the slot's reference with dst_release while an xfrm bundle
+  holds the dst as its child can free it under a lookup that read the
+  slot without taking a reference, as the bundle drops its own reference
+  without waiting for a grace period. 4/4 of my v5 defers the slot's
+  release with call_rcu.
+- Stale exceptions need to keep their PMTU and redirect information
+  instead of being treated as misses.
+- The forwarding sysctl is read in ip6_pol_route before the generation
+  is sampled.
+
+
+-- 
+Ralf Lici
+Mandelbit Srl
