@@ -1,59 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554483;
-	b=vyb5fT97UT/tXoeUgtBarZjVcBbLu1RloHca5x07JMetSKBB8FYZir+FEUZI5HZb+kKf
-	 YrE4mjNehWpA6CNBEuZfgaU/DXPdDWWmuKIvu5hpqNPt5mTKDDowYmuydpCNVXtmP1iYu
-	 v481zZVH4cm7f2bunhLxqiPLDyWtanT3Z67juyvm7m81dRo/kmpZdirg4N7A0AxzgVjva
-	 2anUtedKRIsnmu331f8xNj7hwUqXCp0U2ceuB0b8K+Q0W22RyxgjWNdYP67zOYWz/xVD/
-	 Xw3Pz25fqRqjtEXgNMVIPp2AOHwssuNze1H5rfbJ3GoWoDW7qRhxEN/FoTKkX9Pb7dQ==
+	t=1795554674;
+	b=DxcBT99faZWeO0sXEvPebtXjqNTXk0iM60N7Z87E+3TRP9dBCVPS86JODDsi7qm4CH1Y
+	 oCeiAOQeE5SZrbIKJNJDEkelzLx/lSOtqxfUPz6cVUar2ktUAeMCUHhl0F9dfNPQDlw5q
+	 8SzDeXUoGwkwtwiUORz2FK+NgC76JWvlr9eefQ8da+cBjXueq07seoejBbKCTJgjrn0CB
+	 p3REPTMEfYDglAGtLud+8EI0XGvyCEY3rprtFQSykOMQovXmszvMabzbu1Tqn2RnDTkVa
+	 cPhSqcELYe7NceylpE5NblHvmK05RKnRbwHfsZBEVhRgv7yJ+jDuguZ98luL+Lz1lNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554483;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=stmJ501BpvjAccVzRZit0diOdUkKTMI8Pg27qZ0I8/Y=;
-	b=TYV24E/XgZZ1AsfAdPzRFx1u3z9tBY7R0RreBXhFXJi4q9RDor2qmSCV+2UHm/3UDwAC
-	 ZXpM0+ZP3DzA1dcVLVxYmOcRYRBMstc1kIQHKCwHATWY1YYjXDl3aE0OA8/Cuvmr2GBO9
-	 xYkCd0pOEmYDdtJ2V8QhUqL6k5Kyrzr3qxl8fuWta+Q61IiES2fd8okekIBLV4KWiSlnI
-	 rWyN7w1HGYjiqEZiC11E2E9oNs9xfLT6C+n9exYxH+TrsehqlrjsXXJGiTddQ77T9M6Oc
-	 q/JmxfCFxR4749kCIn2VQ0Obc2ArrgS97z88qw3/u1KfGTFK55NvSZW8TShgeH058yw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554674;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type;
+	bh=G3HX/NcDKYG/LV94s9yi5wM3im9Q7+MV9lfJBW3/vZU=;
+	b=vCbk3reAzM+lc1ZxKjNqotLEQl3lD4SpjPnBEMqJX44S3kbHXXSOfxr6KwdZYHJKdz/x
+	 BsJmZm2ohCYgds1SWt0PRBze//hzRkjJtOD4HqWZTFd1fozIuYAy+k/AgNdcprDT2zfLf
+	 4DErZfml/JyzE7qTvDi9BJc1aMnXISgXpwW5v52jU+TqNvUR/Hg1k2FKTjii+V9uTdyQU
+	 LZ9N9A1glTFn1K99aFJtyOZZuG55Fp1ArtTrSIPMwwNJ39eF4f1hvaZF5s/CGfP14awfO
+	 oUu5RKHloMt1wvcAXEKL2cjybjmjWTLQdI3xaycrR9dfYH7c14YmNgqSDx8x8pz92CA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=1rWphg3B;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=pass header.from=narfation.org;
+	spf=pass smtp.mailfrom=narfation.org;
+	dkim=pass header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b="vJw/GS2u";
+	arc=none smtp.remote-ip=213.160.73.56
+Received: from dvalin.narfation.org (dvalin.narfation.org [213.160.73.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8689606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:08:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8689606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 73F80606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:11:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 73F80606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=narfation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=narfation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=1rWphg3B
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=stmJ501BpvjAccVzRZit0diOdUkKTMI8Pg27qZ0I8/Y=; b=1rWphg3BlFm//KapY3okvNgmFo
-	SvUk+9TRJy12J87jAnL43xRwAoVln32y6gsWNlChsM0RoasKSoNh85DivIggm0ZQn/x9+qnmv1ppp
-	pBHYjIjbBQTlYYg86d+NXx16O+aV93LHKcoRri0PEZx0IRcfaD/rIwJY2WeEFRAugy+I=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVxjm-001A7T-Jj; Tue, 24 Nov 2026 22:07:38 +0100
-Date: Tue, 24 Nov 2026 22:07:38 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Aleksander Jan Bajkowski <olek2@wp.pl>
-Cc: skyline@mail.ru, hkallweit1@gmail.com, linux@armlinux.org.uk,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v4] net: phy: marvell: add support for PHY LEDs
- polarity modes
-Message-ID: <bbedbdd6-8255-47ae-8411-aaba27214a8a@lunn.ch>
-References: <20261124202054.1070702-1-olek2@wp.pl>
+	dkim=pass (1024-bit key) header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=vJw/GS2u
+Received: by dvalin.narfation.org (Postfix) id 5A49120277;
+	Tue, 24 Nov 2026 21:11:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=narfation.org;
+	s=20121; t=1795554670;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=G3HX/NcDKYG/LV94s9yi5wM3im9Q7+MV9lfJBW3/vZU=;
+	b=vJw/GS2uQ4vBOXvdZwwq6T6DsFagtRiFFeQinhjDYKxfBZrtbFzt/OoVmmyvKxjdBRX/Pt
+	kCntGUbA15sGVBbHZNSV2s5tR55pZjVMnJkiaVBiYNPtRrTbooDPVilJmJnpeuoqPdvkRR
+	rK6z6u1+A2i8BWd5msYsdtpGQMIHuuc=
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ b.a.t.m.a.n@lists.open-mesh.org
+Subject:
+ Re: [PATCH net-next 01/15] batman-adv: document refcount of returned objects
+Date: Tue, 24 Nov 2026 22:11:07 +0100
+Message-ID: <2939196.BEx9A2HvPv@sven-desktop>
+In-Reply-To: <179554083742.3135.4885971613759489815@kernel.org>
+References:
+ <20261123171827.3294525-2-sw@simonwunderlich.de>
+ <179554083742.3135.4885971613759489815@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,20 +65,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261124202054.1070702-1-olek2@wp.pl>
+Content-Type: multipart/signed; boundary="nextPart15895148.tv2OnDr8pf";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 
-On Tue, Nov 24, 2026 at 07:11:35PM +0100, Aleksander Jan Bajkowski wrote:
-> Add the led_polarity_set callback for setting LED polarity. Implement
-> this callback for the 88E1116R, 88E1318 and 88E1510 PHYs. This should
-> also work on other Marvell PHYs, but I don't have access to the TRM or
-> the hardware.
+--nextPart15895148.tv2OnDr8pf
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Date: Tue, 24 Nov 2026 22:11:07 +0100
+Message-ID: <2939196.BEx9A2HvPv@sven-desktop>
+In-Reply-To: <179554083742.3135.4885971613759489815@kernel.org>
+MIME-Version: 1.0
+
+On Tuesday, 24 November 2026 18:20:37 CET netdev-bot+sashiko@kernel.org wrote:
+> Earlier, the message gives "(with increased refcnt)" as an example of
+> wording that already documents this. The diff then removes that wording
+> and rewrites it in batadv_gw_get_selected_gw_node(),
+> batadv_gw_get_selected_orig(), batadv_hardif_get_by_netdev(),
+> batadv_primary_if_get_selected(), batadv_orig_hash_find() and all of the
+> netlink.c getters.
 > 
-> Tested on Adapteva Paralella board with Marvell 88E1318 PHY.
+> The same happens to "with an initialized reference counter" in
+> batadv_tt_local_create() and batadv_tt_global_create(). It also happens to
+> "it with an increased refcounter" in batadv_tt_global_orig_entry_find().
 > 
-> Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
+> On the other hand, the other existing phrasing is left alone:
+> 
+>     * The object is returned with refcounter increased by 1.
+> 
+> It is still in batadv_orig_node_vlan_new(), batadv_orig_router_get(),
+> batadv_orig_ifinfo_get(), batadv_orig_ifinfo_new(),
+> batadv_neigh_ifinfo_get(), batadv_neigh_ifinfo_new() and
+> batadv_last_bonding_get().
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-    Andrew
+Will sync the remaining kernel-doc in a follow up patch: 
+
+diff --git a/net/batman-adv/originator.c b/net/batman-adv/originator.c
+index 25a3f78aca1a73cb484cfa038c0cd9151bc77d74..917bdbdd276a3a256f7d9778ea2fb9551fd5e62c 100644
+--- a/net/batman-adv/originator.c
++++ b/net/batman-adv/originator.c
+@@ -165,8 +165,7 @@ static bool batadv_vlan_id_valid(unsigned short vid)
+  * Return: NULL in case of failure or the vlan object identified by vid and
+  * belonging to orig_node otherwise. The object is created and added to the list
+  * if it does not exist.
+- *
+- * The object is returned with refcounter increased by 1.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_orig_node_vlan *
+ batadv_orig_node_vlan_new(struct batadv_orig_node *orig_node,
+@@ -313,8 +312,7 @@ void batadv_neigh_node_release(struct kref *ref)
+  *  the OGM should be sent to
+  *
+  * Return: the neighbor which should be the router for this orig_node/iface.
+- *
+- * The object is returned with refcounter increased by 1.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_neigh_node *
+ batadv_orig_router_get(struct batadv_orig_node *orig_node,
+@@ -373,8 +371,7 @@ batadv_orig_to_router(struct batadv_priv *bat_priv, const u8 *orig_addr,
+  * @if_outgoing: the interface for which the ifinfo should be acquired
+  *
+  * Return: the requested orig_ifinfo or NULL if not found.
+- *
+- * The object is returned with refcounter increased by 1.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_orig_ifinfo *
+ batadv_orig_ifinfo_get(struct batadv_orig_node *orig_node,
+@@ -408,8 +405,7 @@ batadv_orig_ifinfo_get(struct batadv_orig_node *orig_node,
+  * Return: NULL in case of failure or the orig_ifinfo object for the if_outgoing
+  * interface otherwise. The object is created and added to the list
+  * if it does not exist.
+- *
+- * The object is returned with refcounter increased by 1.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_orig_ifinfo *
+ batadv_orig_ifinfo_new(struct batadv_orig_node *orig_node,
+@@ -451,9 +447,8 @@ batadv_orig_ifinfo_new(struct batadv_orig_node *orig_node,
+  * @neigh: the neigh node to be queried
+  * @if_outgoing: the interface for which the ifinfo should be acquired
+  *
+- * The object is returned with refcounter increased by 1.
+- *
+- * Return: the requested neigh_ifinfo or NULL if not found
++ * Return: the requested neigh_ifinfo or NULL if not found.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_neigh_ifinfo *
+ batadv_neigh_ifinfo_get(struct batadv_neigh_node *neigh,
+@@ -487,8 +482,7 @@ batadv_neigh_ifinfo_get(struct batadv_neigh_node *neigh,
+  * Return: NULL in case of failure or the neigh_ifinfo object for the
+  * if_outgoing interface otherwise. The object is created and added to the list
+  * if it does not exist.
+- *
+- * The object is returned with refcounter increased by 1.
++ * The returned object has an increased refcounter.
+  */
+ struct batadv_neigh_ifinfo *
+ batadv_neigh_ifinfo_new(struct batadv_neigh_node *neigh,
+diff --git a/net/batman-adv/routing.c b/net/batman-adv/routing.c
+index 821fb5addbfe1dafa8a43e3ccf03032b4c5d8b16..73d9217afd1f29f5c7a0605cbf0a4cf94c8055c7 100644
+--- a/net/batman-adv/routing.c
++++ b/net/batman-adv/routing.c
+@@ -538,9 +538,8 @@ static int batadv_check_unicast_packet(struct batadv_priv *bat_priv,
+  * batadv_last_bonding_get() - Get last_bonding_candidate of orig_node
+  * @orig_node: originator node whose last bonding candidate should be retrieved
+  *
+- * Return: last bonding candidate of router or NULL if not found
+- *
+- * The object is returned with refcounter increased by 1.
++ * Return: last bonding candidate of router or NULL if not found.
++ * The returned object has an increased refcounter.
+  */
+ static struct batadv_orig_ifinfo * __must_check
+ batadv_last_bonding_get(struct batadv_orig_node *orig_node)
+
+Regards,
+	Sven
+--nextPart15895148.tv2OnDr8pf
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCawX9awAKCRBND3cr0xT1
+y2CjAQCex3cOcPX3MfgI/UtuLP2yyWuXL9UBoTVAuIaPuHWHVwD/RSvamYy87WCZ
+dDbg5rreYWNBTetQ6jYJ/sTtvH7Iugs=
+=F+iV
+-----END PGP SIGNATURE-----
+
+--nextPart15895148.tv2OnDr8pf--
+
+
+
