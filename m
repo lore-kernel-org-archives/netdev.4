@@ -1,125 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515208;
-	b=bHs7gUz3138HQoiNB7qZxGLKxvReJpbO1nHekhh7NyWTIK5QGiFyj6BuCpulOCiAqcJH
-	 3Vib4Lm0vAsqMVdowXpxyZ+m8iASvqPDjoyRIGTyi9XIYW/7AOvYQ7euagEuAqMLisjZz
-	 Dyx+6KD4oVftGvzpZN0V/5+S9pHpAZLIwWKjZ3iG2665g3phPCer9T/2RyDEedviKFm/X
-	 KQMZKO1KyRXiLXZFPk0JEk2drJOR/Pv6kXkOTdZrHWHX7jEbPjSKNL6CdMubC6NyHyDvy
-	 n2RRUjOT6tf1NRWvj+I3wYAgsSN6yFzOWrXbtULdxEWT+4h6zAfy72zSalPRHo1yOWQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515208;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RCdWiz4M1U=;
-	b=Pd9j4g0AjUfcJXixQosFLNlu9dct7d2H/JSYsTRHI+5N8eF1twQZUabjyGR/QlKVwcLi
-	 DnuAp9AVwDl6INvPe5hZzRqxX7fVBxvXd738VThVevrgslbjAEZtGbDzkAT4P8lFmxyLU
-	 RTy9MDiJaHUfHP1h9N7pkbtW+EuopqA9oHK7i6nKLu5Sd0a7G6/xW0YS60Dsw4wpefh85
-	 C6nWSyfx523qd3/n6GTtXko4scOCz0lqb9LDwoB/HvvEOW1u/dAHuwPMgH6ANeLw3Rjxe
-	 XimnqDBLVZBqbD7BcoeDrHPrtg79S9gUG3QbmiNdFI9DRAb0ltPVI+HabaGLaE8mYbA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=queasysnail.net;
-	spf=pass smtp.mailfrom=queasysnail.net;
-	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b="Nj/0y5s+";
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=L9zegxUP;
-	arc=none smtp.remote-ip=103.168.172.154
-Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795515330;
+	b=uz+LfHnaSpshU6f2jk8gm7iEXXS1y+7Gn3nM1UOcRbOQQ9qG0cxAeRcm4GEypTch87Io
+	 WMJKxCamedy8cOBZ6nTiLK7e9dVgF1b5oL06VaK7CCyNLIKySHl59dJ8tGuYpDHZKm05Y
+	 NDUbxalRBqqUnfxyz0Xfh3OCiZTnX13hdG5AD50Z7kjm0dQ07Bi2Xzn3Bdin4o2tNeLke
+	 L+++YoZvFlfKDA2wmaoI+L64YGpU5dKnbY0FlsnsE0ozjWWr6L1a1k4P2/u4gHCURFksm
+	 azZv8S7WV953CMT3BW1HP9GKslu2XH46K5B4VoX8y8tHF9cS7fzyqheX4icZtib18uQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515330;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:
+	 References:User-Agent:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=nMng3ZJa0ZitP554JNLrDGi/NFaJSSIjBBszYdhqGDA=;
+	b=JBy2RNow7iEQdwLTpXDkmYRn9On0Ca37fXNyGfDTn1uRdegBYfojBrqKFXvvYywmLDwJ
+	 77jN/66lSf4tSMFa9OplGZ23kYPYfcCh8w8Uta3bq2plYUyMUslf823tjs80KNJKDMOli
+	 NAARI8+gdM/+QCaHEnYsbTkvhPxXDXS9la4RRKmrA1MRoVYbPUJFClz5OwWcv/ESyVylD
+	 IA5Fm/6HlhucjD/o2Ehz8FOM7LWs1WOX1bRRwZU6xc4ZJE7rY3EwuRkalgzVJ7gUuikht
+	 TrTqRwu8NZEuckdtuSUQxuozwS13FAP00VdRYymj0rkVHMfUFUTgauDRRklC5EDCIZQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XfNReD8+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA681606A68E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:13:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA681606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B927606A692;
+	Tue, 24 Nov 2026 10:15:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B927606A692
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=Nj/0y5s+;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=L9zegxUP
-Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id B64D914001ED
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:13:26 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 05:13:26 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
-	 h=cc:cc:content-type:content-type:date:date:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1795515206; x=
-	1795601606; bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RCdWiz4M1U=; b=N
-	j/0y5s+8e4TttaMsjjhWwCTX3fh7I0Gt7wAEGkZulRXhOP5V9yK5p3IgpiZWQepG
-	8ufiplg+hTA4HLPmfx4JgLNBo9g9Bhw5UamsO3vqpQpFz1zcuVMPx+9XUDD2ydmQ
-	bjQwARIE0LyThXLW9GlMuUQ/2mgnZsHTmpo0o70BPMqdDzeO1kJlB2alT0eYNBDf
-	uoVd88m0ptHoDtZKvSStRb/SDXfksUHZGshqnL/BWuVJMoGRDWcyM7eaHfRfvMyd
-	SCjr367dMhfN5IXsOy5mAoZpvm0qmR+upH/MKIpuysGwtNvx6c/Gb+tB+CdxYQZ2
-	ZN6bzsVRXSrZ9CdLP3z7w==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-type:content-type:date:date
-	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
-	:message-id:mime-version:references:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
-	1795515206; x=1795601606; bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RC
-	dWiz4M1U=; b=L9zegxUPFQWRnhYK7uVgP2l50bye/IJOUCVAvSxtR+Dot14/wes
-	8BbOkI3yBdtfDKQI7gxtLkROaJRIrOdBxh/Tk95f/nbG42jpEsZZ39inSm45W0ar
-	I46MTrQroiVrGlh4kg3qD6MJl7PIVIf13cnY8k+ZKzMY0qPwoFCTumjVhfj0EF45
-	u5u8bJPb5MhU5ViuxAZtU7zLPBzVvRu79sGiRDQ7wOCCpHcetrn89urkyczqvOVJ
-	G8YpZ/s6ODzRBt0A4bPK0Vsleureq7rkr03UIDvrZ2f0OtHr9hId2D+fr5JrODSq
-	2MkJimEwvbt9u1v5hJbFf+WQRxOQeRpryIg==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=queasysnail.net a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795515206; d=queasysnail.net;
-	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm1:rsa-sha256:W6ECtq5DZdxGHZqW+Ufg39Y/jBSGeAAtlUKX82PYAd7ucuv
-	AHNBkkgMWvVWjvi4Apsan0HwV7vEFiCeh03h2ET9rAGnfnqQ+ZSBzHF8XyiAzwDW
-	wKT7/cia9VWVY4tqy7nzRB1IbPrzRC2Ok6J9TBW/6r9pmSKrtFMA8HO8DHbZaKZv
-	sCgWKDP9S9/7BY5xAe5z0P0rI08YuNo9jBGPQZKRJwkx98QLFc+ekZXp8LTsE83h
-	IBvOOW0QLXljSSMhvGqdyI2akhKYVxg0/WrZz0C3lrXM1yPtkLzKCZ/Oaz7oRcjR
-	ii5Leu0dC/gkv965MCcYc7d/5uk0kPhUR//Cdkw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-disposition,content-type,date,feedback-id,from,
-	in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:XGq7YO4qTM0jBsvucew+q+U6y8Y67SvxXoyOifFsYnY=:K6Iy10X/R67a2aBlW39K1qryiE9RLNi0DyRWhcYeBPc=;
-X-ME-Sender: <xms:RGMFa6uZHQYR-AaDbWk50DAjjuDCRfk-QDB6TYsqWU566q5mkXjKRw>
-    <xme:RGMFa0pXzlblCw5NybEkqUQ7wVYbzx-WZM4gEtp_MZ2eeJLedQDK960WYLMW_nfL3
-    psZbCoPQxZJT0Rajjp0sFOcPxWhCoCKFJtnu27ZgB6A90-BOIkyVfc>
-X-ME-Received: <xmr:RGMFa5Iu6htMmy-PKSZnelOGs88Ahyzb1m3djuUfJaudXK0bKPrgV7VLEzE>
-X-ME-Proxy-Cause: dmFkZTGmhsSiOGHtwbWTJ7RXoFsZWmzIF9cXlWwfaL/dh9WORGxQtof0HdyIt3cLmdUuJ8
-    VsOAGmm7+V3c5JyXAZ/yigVQUYNf6o0hNZqJJnZ9XmbeJaAyTTnJUpPYOckWNfKNVes6Mr
-    gr4HWTmYoFlBNeBNvu14FgO+RbLIIRR6wWxPcTmJPz3FHdXR3H+QHanIDZWH38qbbm5yx2
-    eql/7WnABytDiZuWfe9NtU7xNCTN3eate9S2tVozDRmigqmwgsPCGyLDjW89meOAwy9i+C
-    YSHMiS6QOem3k3KKTaUbsyZ8Xx3M7NvQBGqfzd9DnGX4/bnY2KUwR7rYyd9Y5K7/CvXkNL
-    vZJbpJOFw0hmGpL/mm3/8GGTPAESAKZhHT1iTr5tOIlGqdvLJmovp85uKxkC5PNAxwnrZK
-    AhPR+IpYHFw7aFxmNaySJhqP2hTuDpCpAyWszk6s7anBUksTwyCW99FTyxtnM6W9XU6tEd
-    4SszOEMw/GgryseHVRnTuNQEMexElNoEJkdufN38bAXGWSs+fqnh5kaUSP9kgJo/Vi3A6c
-    pSWr6b18TeahYFAJZVcMe68tHnLegyl6BTXvXC3p50THOVX+K4kdeMGc6/VIGgKIv8cxC4
-    LchfkwpM8QCFkI0InHHHOARusFZrXHlt2I6znASTQo/2CEi7FFr8YrIQrF3A
-X-ME-Proxy: <xmx:RGMFa0s_Q3HRezrimIll11g8GX53109HCykwpzw8TTjcHZpPXIlzhQ>
-    <xmx:RGMFa2DoHurVpOZj0Bpu9mynMyAYUWQnX8L8rYRHiYeScLARIyeuvg>
-    <xmx:RGMFa86wTy1NVapjcF0IRfzMS9me0CNDn1iwOUD0LFQQbHF6Q_zulQ>
-    <xmx:RGMFa-DsasiP_rTnXi_YrfDrl2Wm6Xsl4siJ4pV51i-8j6acpoJ5Ag>
-    <xmx:RmMFa1Edqks_cuBp6BmHwTk_K5arWLy7MdY_TVxqiciAgz-IiCzFElaN>
-Feedback-ID: i934648bf:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 24 Nov 2026 05:13:24 -0500 (EST)
-Date: Tue, 24 Nov 2026 11:13:22 +0100
-From: Sabrina Dubroca <sd@queasysnail.net>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Florian Westphal <fw@strlen.de>,
-	Hui Peng <benquike@gmail.com>, netdev@vger.kernel.org,
-	ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH ipsec] xfrm: allow route optimization mode only for
- DSTOPTS and ROUTING states
-Message-ID: <awVjQipfDmyOZZtw@krikkit>
-References: <179550330841.535592.4607028415857424638@gmail.com>
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=XfNReD8+
+Received: from ratatoskr.pengutronix.de (unknown [IPv6:2a00:1f:f805:2b01:a03:2f4:308a:7b52])
+	(Authenticated sender: str@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id E9D5C202033;
+	Tue, 24 Nov 2026 11:15:26 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795515327;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nMng3ZJa0ZitP554JNLrDGi/NFaJSSIjBBszYdhqGDA=;
+	b=XfNReD8+95LSSEuAPwKVuMxr/EScHMIyNNXm6XzrKwlVFx1LvCCY1sNZbyiYYAJjA1v9OW
+	EaKYjEdBkBXbcUfeJSgZBhxVSxnZuARjYD8HgZdmem/cf3Mj4YDsMFgtFAB8fuAa+D3ntK
+	aO69h5aV/Velb4B0s6QzpBKqw7irgjDu+zW4QSJE20VvCDdyeT/tGIz1eLzKAZ7ufTRftJ
+	v06YRKm184FBw/py+VW5S9d8lYpkntH3blqNwnR0A7R9Aoy6HT55VTac4rNNI8lobKa0Xx
+	bya6dkvAPN9rxb9TIysYwjwh5jECD3asuCSRbbc/wqAhC94ZNJKoM99haMLh2g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795515327;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=nMng3ZJa0ZitP554JNLrDGi/NFaJSSIjBBszYdhqGDA=;
+	b=O7wBEvRpDwTYlkQcK04uYuwllHgnINS3lAGY4NxKgRW9SkgCIUFOgZx5ox7iZTwcTTXRyo
+	prNUPQ/r8KGNOlyfSLMv/BSXSvBkde3Ul+ccRX3Vr33+uzD37RQ62zEvGQsCvAmLWUnEQs
+	mZKoJqrVGArR4rOo87KcKIi4gjX60vZAfyANWNBHdz89J6IUjv2BbXEJHrS6tiJOyVzo9q
+	BrVCFA2lGII5lRW5MWNBzgzS3zTQzoqpuIHIFHBiLHvRwC3f97oE9IKbY45Mm4LsbSu+F4
+	tmkFhjGYF1kk4/18nCI9tMuAkBDYXIRX0wBaPDYDMK5WjACOzGM39DS32VZ9KA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=str@pengutronix.de smtp.mailfrom=s.trumtrar@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795515327; a=rsa-sha256;
+	cv=none;
+	b=OiC4RMMbihANiayaaHtNtDvTSbsaj++gqSa8r0Ie1G6tFLUeS5qPXvZeRg6E0XK3sPil6J
+	bklJeX2P9SQuytZYQcR0WGR8N7sPTxfKsoGrfd6fWu+7Z0Hr3kUUCOkR+6N+c/DcbTKXvZ
+	LCHbXj/n+4hfM06nhYH5cyVRc/HluquGRQeVDE0Gt9Er1mPti9P7n2EDeBrME/d/Wy2JOr
+	5eypMYT6XqHvRHjseFauRP+kao99cI1nYhoFvuS4J7c6axd0pMZd5s8U8XbW2CagyM144v
+	mpRiOqS2E5kQCokCB7xPAyCMNbyTHTnvDYTDuw7qafA3Zvu/d2mCGMqZrG6WbQ==
+From: Steffen Trumtrar <s.trumtrar@pengutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: mst@redhat.com,  xuanzhuo@linux.alibaba.com,  davem@davemloft.net,
+  kuba@kernel.org,  pabeni@redhat.com,  richardcochran@gmail.com,
+  willemdebruijn.kernel@gmail.com,  andrew+netdev@lunn.ch,
+  eperezma@redhat.com,  jasowangio@gmail.com,  ast@kernel.org,
+  daniel@iogearbox.net,  hawk@kernel.org,  john.fastabend@gmail.com,
+  sdf@fomichev.me,  edumazet@kernel.org,  andrew@lunn.ch,
+  horms@kernel.org,  kory.maincent@bootlin.com,  liangchen.linux@gmail.com,
+  hengqi@linux.alibaba.com,  virtualization@lists.linux.dev,
+  netdev@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  bpf@vger.kernel.org,  kvm@vger.kernel.org,  kernel@pengutronix.de
+Subject: Re: [PATCH net-next v5 9/9] tun: add rx timestamp to the vnet header
+In-Reply-To: <179483731174.3136.9033275454370245376@kernel.org>
+References: <20261112-v6-7-topic-virtio-net-ptp-v5-9-7ab67b572f4f@pengutronix.de>
+	<179483731174.3136.9033275454370245376@kernel.org>
+User-Agent: mu4e 1.14.4; emacs 31.1
+Date: Tue, 24 Nov 2026 11:15:25 +0100
+Message-ID: <87wlq2eds2.fsf@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -130,50 +100,46 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <179550330841.535592.4607028415857424638@gmail.com>
+Content-Transfer-Encoding: quoted-printable
 
-2026-11-24, 16:08:56 +0900, Kyuwon Cho wrote:
-> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION with any
-> protocol. esp6_init_state() treats a mode it does not know as
-> transport, so an ESP state in that mode is created, and the first
+On 2026-11-16 at 13:55 GMT, netdev-bot+sashiko@kernel.org wrote:
 
-nit: I'd say it doesn't really "treat" it as transport, it accepts
-everything and doesn't adjust header_len.
+> Thank you for your contribution! Sashiko AI review found 5 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 4 =C2=B7 Low: 1
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>=20
+> - [Medium] The commit message says the TAI time is written "when a packet
+>   is handed to userspace or vhost".
+> - [Medium] Whether tun writes the timestamp depends only on the
+>   configured header size: `vnet_hdr_sz >=3D offsetofend(struct=E2=80=A6
+> - [Medium] The value the device side reports as the 'TAI receive time' is
+>   sampled in tun_put_user() (drivers/net/tun.c:2178,=E2=80=A6
+> - [Medium] tun cannot see the negotiated virtio features, so it guesses
+>   them from vnet_hdr_sz.
+> - [Low] The patch adds `sz < tun_vnet_parse_size(features)` =E2=86=92 -EI=
+NVAL in
+>   __tun_vnet_hdr_put() (drivers/net/tun_vnet.h:163-164).
+>=20
+> --
 
-> packet through it hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
-> xfrm_inner_mode_input(), which assume that route optimization never
-> comes with ESP:
+(...)
 
-Looking at the list of available modes (include/uapi/linux/xfrm.h),
-what about XFRM_MODE_IN_TRIGGER?
+I will fix this.
 
->   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0
->   RIP: 0010:xfrm_state_mtu (net/xfrm/xfrm_state.c:3264)
->   Call Trace:
->    <TASK>
->    xfrm_bundle_create (net/xfrm/xfrm_policy.c:3992 net/xfrm/xfrm_policy.c:2785)
->    xfrm_resolve_and_create_bundle (net/xfrm/xfrm_policy.c:2885)
->    xfrm_lookup_with_ifid (net/xfrm/xfrm_policy.c:3114 net/xfrm/xfrm_policy.c:3245)
->    xfrm_lookup_route (net/xfrm/xfrm_policy.c:3344 net/xfrm/xfrm_policy.c:3355)
->    ip6_dst_lookup_flow (net/ipv6/ip6_output.c:1299)
->    udpv6_sendmsg (net/ipv6/udp.c:1699)
-> 
->   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50
->   RIP: 0010:xfrm_input (net/xfrm/xfrm_input.c:449 net/xfrm/xfrm_input.c:705)
->   Call Trace:
->    <IRQ>
->    xfrm6_esp_rcv (net/ipv6/xfrm6_protocol.c:119)
->    ip6_protocol_deliver_rcu (net/ipv6/ip6_input.c:479)
-> 
-> Accept the mode only for the Mobile IPv6 protocols, as IP-TFS mode is
-> already limited to ESP.
+pw-bot: cr=20
 
-This is reasonable, but I think we should instead (or maybe "also")
-add mode filtering to each ->init_state. Most already do it
-(interestingly, ah6_init_state does but not ah_init_state, can AH4
-also land in the same WARNs?), I think it's just ah4 and esp{4,6}
-missing those.
 
--- 
-Sabrina
+Steffen
+
+--=20
+Pengutronix e.K.                | Dipl.-Inform. Steffen Trumtrar |
+Steuerwalder Str. 21            | https://www.pengutronix.de/    |
+31137 Hildesheim, Germany       | Phone: +49-5121-206917-0       |
+Amtsgericht Hildesheim, HRA 2686| Fax:   +49-5121-206917-5555    |
