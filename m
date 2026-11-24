@@ -1,69 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.8
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509655;
-	b=RkyJNa47jkgo2gfG7wDt2ehOJQu4ncmRh1eiH7txxqZ54npwsx8q46lnopUFqUgnNmEv
-	 iQU1wZmkMsa3LrdNW6Q6V4ENaWlvsgX2It84daVmglZbv3DPzbMj/5ceNn+rKOYlStLQt
-	 XNBh0F65XUkP4OqjalWsliELPp+g2cglIj9izrJofN+XpP8ooiQ6nyUHnzK+z3UlU8vXj
-	 t5HMdMTvK5BpKgUZ2an5BsN9bDxCPFssdXx6F7ozvO/CJ8qzwLQwQoYIndZNcneeKLL5w
-	 chDqkhoQIYZdS3nT07q0BtQwBLEdkgUATRQWU1vH5TJXnuMx0BRtTyMD1Jd8o6BDUzg==
+	t=1795509731;
+	b=GkgEvaQ4HoT4Y9vJCMudlo2JvOqlgsDzJaKz0tkDbVTCuXHhIjLMYNmY0yH+si12LJ+G
+	 jvft8+zkxRMawQMywkdadZgAsmsQFdJkKNaraGx3c8rjoLeGAcTsIw1mipjjHfIZxKNYh
+	 tmU4nBHyJyBdU0lVRRWXjyfAejvMsA8bUaI0O5vbRBDGN2EUNoyvxPoud9NWQ12clIwVw
+	 zKHS8b27FmaMdSkcdNpP8gMHPD3ETmb0epPTV8u8q5gEFNzT2q2qDPnfVJtt0K3vGDKH1
+	 dHGLZOF6OOElvfsRHfDeaEZyxHtElGY5y/QfTkWoCTd02BSbHy8X3SwmUqEsa3xC3Yg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509655;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=LLFwVtKDDdrBbmQl5AzXD5u/y9ekHppzu7EmZ71WArU=;
-	b=FgJdTXIAsiiogqlnS1X4lZe3E6jd8rfDtq83b42IQF3Ba96fpLAz0HfNKeMSjtdl5aqZ
-	 bm3Z2/InLn25u98ZFg36BsJBjz1VT6ZsUITB9IpNmDCeLqZLkwEujKwCeF8UXCwtkn2mX
-	 r5z/jxzjYkt2Mdm8dcg+uuSx/BRbCu4RDY1IaI7FqjQJ1yh2yoEjbklO96uh+S6TGsHxC
-	 07QEknZUnxTNkkX5Gwe9O6SQEMS+B+nNhI4DvFlRzFzGoniZuz+V408BZIbH2NF/AtkiW
-	 h7BfRV5CCV9fYHAawzNiKjr6mOsiqJSG1Gy0AH9GlmiJHXyH6fAP2fETOs7rLfCHc5Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509731;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+	b=vAc748RLnKu3Opu4XKOKmCE4dzDunqSsyFJRejbVLDXpFx+ASajc7OJVw/qCbfwo7UDQ
+	 cp8VgzxEzRsd4c8Mbcj0vgMclcPRbBJnIp/osv1mflq1otItbT+FNZqpe1IJ6FaQdtoTu
+	 gnq+fwF0UPx0caZzBQcbOQYCjAD9OthNGjCoJDNtRIt5bj+jLbC2GpPSjB8mWKneY8VzA
+	 /Z5n8Q4lgcTZq30GUvBVgHO65qHfH7EN0jI/JEqaBGxbT7DmlK5xhEHaCcptwdAdQU+n8
+	 vm4cEPlIzA4/w70zPwAVvyG+8C1ImxV/S4JhZb1Cuob0PMsi0IogBZdtEZcuHp/p9IQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=OwF9OGky;
-	arc=none smtp.remote-ip=117.135.210.8
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.8])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kpz9b0CG;
+	arc=none smtp.remote-ip=209.85.221.42
+Received: from mail-wr1-f42.google.com (mail-wr1-f42.google.com [209.85.221.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05F05606A69B;
-	Tue, 24 Nov 2026 08:40:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05F05606A69B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A00F606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:42:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A00F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=OwF9OGky
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=LL
-	FwVtKDDdrBbmQl5AzXD5u/y9ekHppzu7EmZ71WArU=; b=OwF9OGkyhkG4KRk9wT
-	IqleHjt3Uu/TnTZv1VP45tgekaaMeCZMLO5UwM8BZmrYuSpAaIr+PJtbbnLnQLIl
-	TmVXmsK/6J4N3WfrJLDysx0fPrmIj72dhIyw7xZFXEYgIGPoBqlPtb3SHd17MbPN
-	yuc9O6r6AJ9L3Ic7KqfvWb13E=
-Received: from localhost.localdomain (unknown [])
-	by gzsmtp4 (Coremail) with SMTP id PykvCgD3_8VfTQVrT2gGEA--.38055S2;
-	Tue, 24 Nov 2026 16:39:59 +0800 (CST)
-From: Linkui Xiao <xiaolinkui@126.com>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	rosenp@gmail.com,
-	jacob.e.keller@intel.com,
-	daniel.machon@microchip.com,
-	chunkeey@gmail.com,
-	kees+treewide@kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: Re: [PATCH net] net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
-Date: Tue, 24 Nov 2026 16:39:57 +0800
-Message-Id: <20261124083957.2480682-1-xiaolinkui@126.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <4ed4f82b-3ff8-467b-9127-bdc29d498ae4@lunn.ch>
-References: <20261112075321.3903875-1-xiaolinkui@126.com> <ef2eb733-4b94-4c2e-9165-0b324733a482@lunn.ch> <20261123091012.730441-1-xiaolinkui@126.com> <4ed4f82b-3ff8-467b-9127-bdc29d498ae4@lunn.ch>
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Kpz9b0CG
+Received: by mail-wr1-f42.google.com with SMTP id ffacd0b85a97d-4a42b34e930so3696005f8f.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:42:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall.org; s=google; t=1795509730; x=1796114530; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+        b=Kpz9b0CGaR/tKGI+QLsZwJui5ZH0UGsl55OBqHSIyVbfwnp76QqFKUykB+3jXq97na
+         fQfO4W/4Rqmbl6hCM66BWO+Gt2XKy+CK1wNhKIvvI37LkVE//ZPYb9R8nvW+4pS6vApu
+         2XPS13L0+hiCIe/eNHxfklkS9k/Znqq8H4CNxxciFHl3YDNKvodHZXIjWl8jQjRpgcn4
+         iqxmDkN4LWYyhpBzUr3SKqLjcjUu9vRiQtpJn3uETKS9eRE/i1kPTyj7Vdj9/+lDaOKF
+         AVVudaiYgF+IYTHxEXU3dVZ44raI7pjRrEXJtgmx8QkIvF33E7x6OuWywSJrzFHxfDF4
+         iDtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795509730; x=1796114530;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=L2EgBNT48xGjvZX2/RhS0gWPDCHaepO1c5iBj7UXWkU=;
+        b=ACHJuOVBKwVn6Z1j42fBlgu7/tMKQBI3t9Mv22SMedaGt4BTQYspMGrEfV5vpuIIch
+         iSK6ySk0qnnqPw2rz+qEkIcTea9MGMmL1l7CN3cfp4Sre2HZgOEflD0352xHGAFiDPDW
+         Pn2xKZR3xaUmeG3a6dxxBblCdoebiuUSbdU7GIEPOjVAF1XaJTz5YiXaacMDgYlpsdON
+         djm1UUu0ZyfjMVGGDI0lAByoyE2Q4bJK40eEccMlucPCGHxPCOA2LtSvPmHk32U1GgUi
+         sHyAkdkA8nZ7MX8kcCqC3ugYyb8AigTXFSzhgI4uf4ngCPofa/N71ACOCL1IEokMCgfr
+         f2oA==
+X-Forwarded-Encrypted: i=1; AL+hErFEJBsWPjFjqGWU328l+iB23CkESci3uDuT7OSqMABoN8NoNXyjZE/cum+jphdk0yI/gDyVtpE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+VyNUWwWz/iS+Bw7eixPSHtq0LHvCVjPcXFTU1DYq0H6yIyFYa
+	IwyzXJ6XNKhSI7l8Sp5NndwB0sByENgtizDql6+D7XYSBEp4sJr1jqD3HMdIuRwZrio=
+X-Gm-Gg: AZFdTZcBnKiN7bHEYKeZm4BvXV8jPJjK2le/gpYBv71IXK+WPL4InguBZXN0sb/jnNo
+	K5mlwHlaNnIFt3fMLLjco3PPmDXziZRr1hfvq2TKii+fpULSoA5m1+fL//yrkTP3RHIvWVRLM0k
+	Hf5igzRdc9b7+HmnqYjJWcy5TkjHB6t9t3/Rt/jOpR8RueNOcYpeffPUxNpCPYyAzaE4jV6qa6b
+	WnV+18+EVDQIworVIZMjXyTGGXUH7CFqPrif/QEUaSITAGeutvTeROqAAh8msYSzWKeMGP0O9W/
+	6JzJBQLQ8UTC3OX4h0tQzVQIKf0vhUbMfxM7O4FH11zEdKHHrhFX0hEhmtB6cCXH50hUd9MjUDx
+	pgIFZ47bELpTBq8+34LjkMLDFu/0To/dt1FEPfIk6ehEoC2Y9e56+bOzFKasSuxZNB7gb0clHjk
+	YxVIeZZdM4mRME0XCaxPU6Zwdw3Gxzien/MXQmiTeIsnVDsXfRnuoNjKi0hgQC2lx+Q6/hJsQJd
+	y2UjzgERVxKzZpKS+7kU+oQKgrSAIaBe34HR3wfYLSI8/8aBfSXISlnfieTd+F3TBL6VS26YzMs
+	ky2OktLSdrsj6zDp1tY5Ou4ILN/kg2IvXx/S+1/xJEAczhdRMs5BWuMVG6E5
+X-Received: by 2002:a5d:6f07:0:b0:4af:7577:65c0 with SMTP id ffacd0b85a97d-4af75776767mr17039494f8f.5.1795509729871;
+        Tue, 24 Nov 2026 00:42:09 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b2c9sm27622547f8f.31.2026.11.24.00.42.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 00:42:09 -0800 (PST)
+Message-ID: <90e0bb95-6751-4ebb-8ee1-f5e97e811621@blackwall.org>
+Date: Tue, 24 Nov 2026 10:42:08 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,49 +91,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:PykvCgD3_8VfTQVrT2gGEA--.38055S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxJF1rtr47Xw17uF1DurW3Jrb_yoW8Wr4kpF
-	W2q3WDWrs5JF4IvFnrC3y8Cr9akF1kJFWjyryrGrW5AF98Gr12qrZrK3y2yFW5C3Z5Gryj
-	vw48JasxXa93taDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zE_Ma3UUUUU=
-X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlR+GXWsFTV9h0gAA3e
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 1/1] bonding: keep non-Ethernet slaves out of
+ 802.3ad bonds
+Content-Language: en-US, bg
+To: Kyuwon Cho <kyuwoncho18@gmail.com>, netdev@vger.kernel.org
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Hangbin Liu <hangbin.liu@linux.dev>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ linux-kernel@vger.kernel.org
+References: <179549697473.218888.8044828119056769556@gmail.com>
+ <179549697473.218888.6814133305133689781@gmail.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <179549697473.218888.6814133305133689781@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Hi Andrew,
+On 24/11/2026 07:13, Kyuwon Cho wrote:
+> bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
+> 802.3ad bond with dev_mc_add(), which copies the slave's addr_len bytes.
+> A slave with a 16-byte address, such as an ip6tnl device, makes it read
+> past the array:
+> 
+>    BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>    Read of size 16 at addr ffffffff878a2940 by task test/114
+>    Call Trace:
+>     <TASK>
+>     __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+>     dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+>     bond_open (drivers/net/bonding/bond_main.c:4405)
+>     __dev_open (net/core/dev.c:1762)
+>     __dev_change_flags (net/core/dev.c:10022)
+>     netif_change_flags (net/core/dev.c:10087)
+>     do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+>     rtnl_setlink (net/core/rtnetlink.c:3633)
+> 
+> Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+> devices") rejects such a slave only when enslaving it changes the
+> bond's type. A bond keeps the type of its last slave after that slave
+> is released, so a bond that once had an ARPHRD_TUNNEL6 slave can be set
+> to 802.3ad and take another TUNNEL6 device. A slave that is itself a
+> bond can also change its type after it was enslaved, when a
+> non-Ethernet device is enslaved to it.
+> 
+> Check that an 802.3ad slave is an Ethernet device before the type
+> handling, for every slave, and refuse NETDEV_PRE_TYPE_CHANGE for a
+> slave of an 802.3ad bond, as team does for its ports. Other modes still
+> allow the type change, as bond-eth-type-change.sh expects.
+> 
+> Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+> Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
 
-Thanks for the review.
-
-> The whole point of fixed-link is that it works like a real PHY. You
-> should not special case it other than when creating it and destroying
-> it. You should call phy_start/phy_stop. When start is called, phylib
-> will call the adjust link callback, same as a real PHY, and setup the
-> MAC as needed.
-
-Done. v3 drops both the hand called emac_adjust_link() and v2's
-phy_read_status(): the fixed PHY is attached with of_phy_connect() and
-started with phy_start(), and phylib resolves the link and calls the
-callback. phy_stop() comes from phy_disconnect() in emac_remove() and on
-the probe error path. The only special casing left is creating and
-destroying the fixed PHY.
-
-phy_start() stays in emac_init_phy() rather than moving to emac_open(),
-because that is where this driver already starts the phy-handle PHY
-(emac_mdio_init_phy()). Moving only the fixed link to open/close would
-special case it again, and moving both paths is a larger change to code I
-cannot test here. Say the word and I will send that to net-next
-separately.
-
-I was wrong that a fixed link has no reason to run the state machine.
-emac_adjust_link() does not program the MAC either, it only copies speed,
-duplex and pause into dev->phy, which emac_configure() reads at open.
-phy_start() is called from emac_init_phy(), before register_netdev(), so
-the state machine is queued before userspace can bring the interface up.
-
-v3 is posted as a new thread.
-
-Cross compiled for powerpc out of ppc44x_defconfig with W=1, clean. No
-hardware here, so no runtime test.
-
-Thanks,
-Linkui
+LGTM,
+Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
 
