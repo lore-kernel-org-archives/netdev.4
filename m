@@ -1,61 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504135;
-	b=r7m6NZDPFzVklYbYh33O+0z7UWNQGipCeF2DFnAQOfisoPNPWHfnlnqQBPHjQVsZyBGy
-	 mi/XkTnZ1uB30C5+n7pC0P8eFGaz27SQbBPEPJTaum53v7W7nnusRb8c+T1VwyzMjJtWw
-	 kzDi1HOVODTMfqGE8ffOOby/Ucv4VmXjXUFvoWrjkH/74ANniXBSUk7QTt1xO1zdh7+1S
-	 OBFm6x+pDSxcYuWxmArH6Eir4NRKvylypJr9lxiWPtRF+0/l44/NyiQVlzbSBwtzdr9G2
-	 iFwoejffk5CpuSHadGc/AT2ZHFIyM3ZgTeHWvyBxj8nj/UTX944qtJu/5EA+KBymsxQ==
+	t=1795504143;
+	b=CWsmjwHyycHghOnlnnqq+9gEAttOIyk7wOzLS6J+xcK1nxZQfiuBMYPslKLTNzgOb73E
+	 ZWlPv3xYl0OKPNrGYDvAIKDyy5jmMh0PmuVtc7eqfqG+xTnowEOj4zaLq43z75uWq4hzG
+	 DCgaMh/2ea9LRlo92aCDcoAMCkfn4Hn9rpiq1eckq2KOnJSUkyHawFj3kDoqeZEPCOMdd
+	 MxaAUKe6ULEInYfU8cTlY7gjIUOE05eMHuDlln+s/CEUuoRWuI2eZoe1MdrSNExGw0fbj
+	 +mWMFSn81Oq2si9fTjsLhxhk3AsU+8LJh1T/Aioo+mfR0uL3ipTwSE6RkRbE8WKMr0Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504135;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=OPp83t4K0hyYy88DdN1+rPkmqqDCpOJB1km+PXS/1Ik=;
-	b=Qhek2R5VLe0PMDyDSbjPfzkWS0gMtyi+t+8ghJEW/jgVM8XyBXNrH29XGbZvb9Dwl77g
-	 8eWDb2mUhUjQKdmioD4P079A/wVYjHtHgUTvJe/1CuLCz9D3964H6LJQIcQ742KNCE8oZ
-	 Jq5qXauMCtAfz8rlWlVJLIo3jHNKyXjzeZC3DvYKBK4Q9UBcEebmunTWmdAd5pkgMWeQE
-	 ScNIhn1h1m4l7KnRNkbkPfEmnpxhPSD4TXnAWn61v82WoKzETp5YRHvtMY5+VrDeuruS2
-	 YvMrYq4BhgBJFre1xH3RO5MBPwZrL6R4yhK/LA3FpAUXtfQZtoaXNKXmatD/wJo1T9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795504143;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+	b=cEsMzykk3MSmvXKPCm7XSZAFEivt11RkATWcc06z37YnE18DrcoCnnDS1+67yh2Bg5pW
+	 yOQ2Ie7serHDMeEvUcAHRnp3MnbJEN6NQP4q6ATiwvKFRD0PUmG2F04lwMGdbZT9PoEXu
+	 LI//gkU5sk1BOBwVJVfsHUldBq3b7yGtxY7MbgoTV/vRLmM+qwseSZ3KDvhIB0XHPorXG
+	 kQcIaKBL6bZA/XypH0M9Fm3NHAXhnRSL2cYNscaBFO+uv66k0GqmB5DIYgCthyZ4r6VBp
+	 NkZa1Yj1ZJLSTt9kb8dhsLUywodHRWondy9G7S+8abyj303JD/6LbI+KLhnpwifknMQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hl0yU0EE;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i7IDtHpi;
+	arc=none smtp.remote-ip=209.85.210.176
+Received: from mail-pf1-f176.google.com (mail-pf1-f176.google.com [209.85.210.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD6DA606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:08:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD6DA606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3828606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:09:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C3828606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=hl0yU0EE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=OP
-	p83t4K0hyYy88DdN1+rPkmqqDCpOJB1km+PXS/1Ik=; b=hl0yU0EEjn3oGLvojo
-	znIIwkPbnGLzm/u7lY2pqr/kG8uLXplttVE5SxytIq8o5v5ldEPzz2ep/xX1vVa9
-	Iq8/Qopk3GuZAnes+YsHtXNB31NIVqSx643X1ET54oJrqJwRlFtbNqJZoOE4tP/F
-	61jMONibF66ocPT2RdAD0Fecs=
-Received: from Precision-7960.. (unknown [])
-	by gzga-smtp-mtada-g1-3 (Coremail) with SMTP id _____wDnT1XPNwVrw+49Jg--.33029S2;
-	Tue, 24 Nov 2026 15:08:00 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: linux@armlinux.org.uk,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=i7IDtHpi
+Received: by mail-pf1-f176.google.com with SMTP id d2e1a72fcca58-8a070755c8cso1944018b3a.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:09:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795504142; x=1796108942; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+        b=i7IDtHpiA7zeZev7aih9yX1LZtQXdeesNsKu4cSsMhiefYQDrnDgPRGnMpMJDBc2H6
+         4yNSjtG6acrhqVBIPDrOng69tcGHUyU1KTKMOX9MMHEO9br25oUgFLPOGYfSTbw3RHzy
+         7gRlu8VsXkog7fclpydcW4rXwR+8zHhJruqLv0DBTsUOssQ2+YXHp2JmhxlR+a2NCkxz
+         RzUVuDzfxptM+Mb/jy/d1rGD5Ay4KOdjwJJAmntbj0tb/zt/JhtHChsAu3FjQJquZ8FC
+         xCxXVFx4O8sjs41d0ZodlYSOWbgxGZhql82soaWWMUrgZXAEJypg7RUL1JsfH2DK1wVn
+         9EJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795504142; x=1796108942;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yHzcEi28TzLcdkTdLjmsJRjiQsin7uG0PUUFZLOdqqY=;
+        b=C38IdM66LQtzmEhihLHqpyp6KZZk19UAL+VciG4fGRZXDEO3e3FK7B9B882A7dCfIx
+         8tPt+COtJ3Jn1GElFOMdMyE9vrxM2UCuYt2t/AMho7Si+kFWzo7ZEW8W6eP/yoZTmYzX
+         c8aYbFjUw4pKHKR//jRKbhxP+S/kxRdrKizwJcVZZYXMxxMGL0o/GHnIDqMVKBwfKVcw
+         rgqNd74w2a3jD4qdltQCcvLEIwrbqWEogGDWci8isJvQnThXxnmcyuQycuSHE+XvwY7W
+         ADuLmCV0YoM6qz0EsasQrsJoTC7pHDvkCr7YD/aXqYZoVOXqeIsBztAAmOkvJcVyyl8H
+         ZJtA==
+X-Forwarded-Encrypted: i=1; AL+hErETjKepGHEd9RTz+jJ4ZC9EnO6B15+1TqzJb/1GowKK2/Nfb+q0H+sgEyhpazZ5U/CaV9P7Tbc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/7ceivdQchYZ6l1evsO6UIulFNeRcKRoQnmA51U5SmllbG6zri
+	cLVlpax3TfQoXXZlxX/KIxwI8/7+W1DSHRdMfMga0EKtm5tFugTNagIO
+X-Gm-Gg: AZFdTZfqSL2YVZnrKof3Hpp6T7R17DuSMAqvqx4zhBkvxC62YDPzmdnPlX8h4Pl6b0e
+	apZnEiq1EQglgh7JLp6bpOKJzyRIv0ALCq2Ju2/IAgFmYqaiLJrvlNHIEPRbNpZUyESzvP2lr/8
+	NNpDzRFBakCALGlpNs1AVhle7aEs0qQok74QVZPkTxYhsmsroAUUI/O/vUrRy7odPb4jakTSTN5
+	hqM7VKsar3RM1mwYfYO1GJhPJSwUSm52TYXXRzV4DVyc0VsJ5sGjPYR1uFqePGZBL3BlGK124rO
+	PRP01kKDT5FiKyIcgcWc7tQSsjTWK+SxW0fJGJyaSN7kk78NQZlQbIJuQEfMBd77aqCm9hcIyIW
+	uvfD+C470Ymo9c2406OJW+VkuaybWFpfGyOWdMg4YcoFMcIUqsmHjoTBsnfMcvhNMp//5Bw8bOg
+	C1HVchuigL7FxPBwoHDiuA66YrUcv7ieoglTBW28XPJcWtTPJK7HPDPC/0Y4Epg1paNnfYD0aDM
+	cuKwfT6R+ALNSSp0F6fYV+vm5HmkhgENWqre1pruJPHm539JULNNkYOlQtrGMoOK34mgUOyVs8H
+	Kb+jvl+TUAPQec38+PceoMZ1tmtpxoHKApAY3fJIFBqEIdXUKla85PlqPIVCg2EhP4s=
+X-Received: by 2002:a05:6a00:94c8:b0:89f:129a:9590 with SMTP id d2e1a72fcca58-8c87d01fbc2mr12088013b3a.48.1795504142083;
+        Mon, 23 Nov 2026 23:09:02 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bff6sm6748955b3a.3.2026.11.23.23.08.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:09:01 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Florian Westphal <fw@strlen.de>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Hui Peng <benquike@gmail.com>,
 	netdev@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>
-Subject: [PATCH] net: phy: avoid synchronous module request in async probe context
-Date: Tue, 24 Nov 2026 15:07:53 +0800
-Message-ID: <20261124070753.25972-1-18255117159@163.com>
-X-Mailer: git-send-email 2.43.0
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH ipsec] xfrm: allow route optimization mode only for DSTOPTS and ROUTING states
+Date: Tue, 24 Nov 2026 16:08:56 +0900
+Message-ID: <179550330841.535592.4607028415857424638@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,99 +104,77 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDnT1XPNwVrw+49Jg--.33029S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxur4UGF43Kw4fGryDWr4fAFb_yoW5ZFW5pF
-	s8Ca4YyrZ8Xw47Wa1xJrWjyFyFgay5Cw43Wrn7Cw1a9a97trZrAFyDGr4YgryDJrWkJFy0
-	kFyDXrWrGFZYvaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJKI_UUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC7BAewWsFN9C2BAAA3Y
 
-phy_request_driver_module() calls request_module() with wait=true to
-load a PHY driver.  When the PHY device is probed from an async worker,
-such as a PCIe host controller driver that sets PROBE_PREFER_ASYNCHRONOUS,
-this triggers:
+verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION with any
+protocol. esp6_init_state() treats a mode it does not know as
+transport, so an ESP state in that mode is created, and the first
+packet through it hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
+xfrm_inner_mode_input(), which assume that route optimization never
+comes with ESP:
 
-  WARN_ON_ONCE(wait && current_is_async());
+  WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0
+  RIP: 0010:xfrm_state_mtu (net/xfrm/xfrm_state.c:3264)
+  Call Trace:
+   <TASK>
+   xfrm_bundle_create (net/xfrm/xfrm_policy.c:3992 net/xfrm/xfrm_policy.c:2785)
+   xfrm_resolve_and_create_bundle (net/xfrm/xfrm_policy.c:2885)
+   xfrm_lookup_with_ifid (net/xfrm/xfrm_policy.c:3114 net/xfrm/xfrm_policy.c:3245)
+   xfrm_lookup_route (net/xfrm/xfrm_policy.c:3344 net/xfrm/xfrm_policy.c:3355)
+   ip6_dst_lookup_flow (net/ipv6/ip6_output.c:1299)
+   udpv6_sendmsg (net/ipv6/udp.c:1699)
 
-in __request_module().  On an arm64 board whose PCIe controller uses
-PROBE_PREFER_ASYNCHRONOUS, probing an RTL8126A behind it produced:
+  WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50
+  RIP: 0010:xfrm_input (net/xfrm/xfrm_input.c:449 net/xfrm/xfrm_input.c:705)
+  Call Trace:
+   <IRQ>
+   xfrm6_esp_rcv (net/ipv6/xfrm6_protocol.c:119)
+   ip6_protocol_deliver_rcu (net/ipv6/ip6_input.c:479)
 
-  WARNING: kernel/module/kmod.c:145 at __request_module+0x198/0x200, CPU#5: kworker/u49:0/77
-  Workqueue: async async_run_entry_fn
-  Call trace:
-   __request_module+0x198/0x200 (P)
-   phy_request_driver_module+0x11c/0x17c
-   phy_device_create+0x234/0x260
-   get_phy_device+0x74/0x150
-   mdiobus_scan+0x34/0x114
-   __mdiobus_register+0x1ec/0x450
-   __devm_mdiobus_register+0x70/0xe8
-   rtl_init_one+0x1350/0x16b0
-   local_pci_probe+0x40/0xa8
-   pci_call_probe+0x64/0x174
-   pci_device_probe+0xb4/0x144
-   really_probe+0xbc/0x298
-   __driver_probe_device+0x16c/0x19c
-   driver_probe_device+0x3c/0x114
-   __device_attach_driver+0xb8/0x118
-   bus_for_each_drv+0x84/0xe0
-   __device_attach+0x9c/0x194
-   device_initial_probe+0x50/0x68
-   pci_bus_add_device+0x6c/0xf8
-   pci_bus_add_devices+0x3c/0x88
-   pci_bus_add_devices+0x68/0x88
-   pci_host_probe+0x90/0x108
-   cdns_pcie_hpa_host_setup+0x300/0x684
-   sky1_pcie_probe+0x230/0x360
-   platform_probe+0x5c/0x9c
-   really_probe+0xbc/0x298
-   __driver_probe_device+0x16c/0x19c
-   driver_probe_device+0x3c/0x114
-   __driver_attach_async_helper+0x58/0xcc
-   async_run_entry_fn+0x34/0xe0
-   process_one_work+0x180/0x2dc
-   worker_thread+0x188/0x304
-   kthread+0x110/0x124
-   ret_from_fork+0x10/0x20
-   ---[ end trace 0000000000000000 ]---
+Accept the mode only for the Mobile IPv6 protocols, as IP-TFS mode is
+already limited to ESP.
 
-Use request_module_nowait() when current_is_async() is true so that the
-PHY driver module load is requested without blocking the async worker.
-The PHY driver will still bind later, when it registers and the driver
-core attaches it to the already-created PHY device.
-
-Signed-off-by: Hans Zhang <18255117159@163.com>
+Fixes: c2d305e51038 ("xfrm: remove input indirection from xfrm_mode")
+Fixes: c7b37c769d2a ("xfrm: remove get_mtu indirection from xfrm_type")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- drivers/net/phy/phy_device.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+Steffen asked for this on our report:
+https://lore.kernel.org/netdev/awUsEE7XZIFwc0Ws@gauss4/
+Hui Peng posted a patch with this description in September, but its
+diff changed attach_auth_trunc() instead:
+https://lore.kernel.org/all/20260919215239.3471352-1-benquike@gmail.com/
 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index b39e945cebd7..a634b8b0c5b2 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -10,6 +10,7 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
- #include <linux/acpi.h>
-+#include <linux/async.h>
- #include <linux/bitmap.h>
- #include <linux/delay.h>
- #include <linux/errno.h>
-@@ -639,8 +640,12 @@ static int phy_request_driver_module(struct phy_device *dev, u32 phy_id)
- {
- 	int ret;
- 
--	ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
--			     MDIO_ID_ARGS(phy_id));
-+	if (current_is_async())
-+		ret = request_module_nowait(MDIO_MODULE_PREFIX MDIO_ID_FMT,
-+					    MDIO_ID_ARGS(phy_id));
-+	else
-+		ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
-+				     MDIO_ID_ARGS(phy_id));
- 	/* We only check for failures in executing the usermode binary,
- 	 * not whether a PHY driver module exists for the PHY ID.
- 	 * Accept -ENOENT because this may occur in case no initramfs exists,
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype. The patch was written with LLM
+assistance; we reviewed and tested it. With it, the ESP state of the
+reproducer is refused with -EINVAL and the warnings are gone, while
+DSTOPTS and ROUTING states in route optimization mode and ESP states in
+transport and tunnel mode are still accepted.
+
+ net/xfrm/xfrm_user.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index 217f65faa2bd..c4bbfd638d73 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -477,9 +477,16 @@ static int verify_newsa_info(struct xfrm_usersa_info *p,
+ 	switch (p->mode) {
+ 	case XFRM_MODE_TRANSPORT:
+ 	case XFRM_MODE_TUNNEL:
+-	case XFRM_MODE_ROUTEOPTIMIZATION:
+ 	case XFRM_MODE_BEET:
+ 		break;
++	case XFRM_MODE_ROUTEOPTIMIZATION:
++		if (p->id.proto != IPPROTO_DSTOPTS &&
++		    p->id.proto != IPPROTO_ROUTING) {
++			NL_SET_ERR_MSG(extack,
++				       "Route optimization mode requires DSTOPTS or ROUTING");
++			goto out;
++		}
++		break;
+ 	case XFRM_MODE_IPTFS:
+ 		if (p->id.proto != IPPROTO_ESP) {
+ 			NL_SET_ERR_MSG(extack, "IP-TFS mode only supported with ESP");
 -- 
 2.43.0
 
