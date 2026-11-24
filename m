@@ -1,55 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537655;
-	b=RzKopj4ESzHzRFaN9ce7DigW4nwthApJxmFvhyqVGQZsWT0lOSoXY9uUHRuqIk1qhl65
-	 U+JsbeWR0lksu3sWxZmD/iFIXtxbYhiEGN7y6PSrCJtSKwqyN6mDSqNtlPeSG5JNO8Q7V
-	 lCHTU/TPVafA/SlpR19QhedXpVlx6QtrEO0ax72qicFU9lu/DqprvP+JgIky+Tba3MrOR
-	 SLSOGN9Xdsl99eWqspxRUm6qxppJcgf+5c+bGQjtCTiJF7mu4Gq/lHjr20eLom1vJqacX
-	 pjA4ta0JFZBTSN30h6eMqwk3udFdWt47728+3UFEjpS/mBwUmPAnyTNkncATBXieosA==
+	t=1795537664;
+	b=0zjwc3Kl5ds3ENO6HKlPT5kXJvO+OdcOZwGccMVVT8mAOi03/JOFMwli7jsLYx0mqCb5
+	 07tJtj36NrMUyRsBSz3xPEWfJxdeogaZafSy5YgMs/t9lx68wd3Pazdb86z3sYuW6LDa/
+	 NKoCTQJYzOzlrbspRv4mewaN1af9ZD6x2s5hxcDLeDa4gFjQjUVdsI8/NTBvlf5/n6IKx
+	 yGfr41R2DLnoorEGLp9ZO5CYvX9LlriEPMMqqmuDbDDcQhDOGCCSVPZdSK+QfZZ7rs1jb
+	 SVhtArdZ51GLG2zU1Qv7GGSMEJQw2uG/qwqDgv/fwWIi3qQH3sGM62WxsC/3j3EWADw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537655;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537664;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Rspamd-Queue-Id;
-	bh=RRPKSlH/AFlBoyx42n74fxoqo2DHk47ScSbq0Z4ucHU=;
-	b=vBx9D+0hjhKVnG5jzd2TuRf4YubpwXDq1RcMOV4HiCJqPK+anhgeCqV9CBK0+Km3fCVR
-	 5D6JQEwAn3kcoK0NNKumU2sgIY6DktPmaYhaGBz9D/6zc7W9J7Df9f7/UQQ8Uqj4gWujh
-	 zVHgd6rCgH+nGFSPDq5LiHqnpdeLnyEmOpxrswXnNhjtegy6pmTpWJGetuxviaH3THZMk
-	 vbcrVu2TWofIHFxrD7QhY3fglCY7rvk/zZCl0GC/zhLQFaz4Z3zwFWrWZkHxArfhXJPQ2
-	 Q5gmXrQ9BsoKNoHQ4uCnkZ0fdS/75nABZXgRHR6lpRRd98zv39JozF8DDnjMabaUTSQ==
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
+	b=SzUlYG4D90DQpfbrRxmcs444aDhKMu72YJ/9nT5zE+ikbi/4eQypXhemE3aRN0j5T7hQ
+	 THbUu/cK/zQ8YtdaiTv4lGrSZ2TL3ZR5X1UtS1cfa5nMjj1nsht2IpeBJFMd1KvBIZ3D2
+	 +qOIh/5reolGNNGK7sTfKvVHlJerwJS4CzoRlvPqG8J9/XA1YuKZD6jGIDmCbZWph4ZR2
+	 EkYlxQVPc8uZmhHe7AiZgdK6T/vxxkpDh/g8ny6gB++HERX4nUqFLb/ZpcA7WSbrbHzw6
+	 L0t6WI5RVD3z9vE/4nIidO8Oo8Nkak6kNY4TLemsJgcvk3Vzup8y6QQ7y06IKBkkPuQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=N3VlWcNJ;
-	arc=none smtp.remote-ip=195.10.208.46
-Received: from mout-b-106.mailbox.org (mout-b-106.mailbox.org [195.10.208.46])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP;
+	arc=none smtp.remote-ip=195.10.208.62
+Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B345A606A330;
-	Tue, 24 Nov 2026 16:27:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B345A606A330
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86F0E606A329;
+	Tue, 24 Nov 2026 16:27:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86F0E606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=N3VlWcNJ
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-106.mailbox.org (Postfix) with ESMTPS id 4jYpB51ShWzNmF9;
-	Tue, 24 Nov 2026 17:27:25 +0100 (CET)
+	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jYpBG3f7szKnsH;
+	Tue, 24 Nov 2026 17:27:34 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795537645;
+	s=MBO0001; t=1795537654;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=RRPKSlH/AFlBoyx42n74fxoqo2DHk47ScSbq0Z4ucHU=;
-	b=N3VlWcNJ0CwZjW8aK7GT1lYwYzNvntuV9a9kmzG/p9FCnlC3bpWDkZ1Ww6L4ZI2/Jyf8FZ
-	RantTnEQittgImGiK8vaoMFecLyAwgTmMtOXq2JHAy1mEkYdKgLnf8R0PnaPGUG38eIcQh
-	7o25cjA2sceKzLWg7b4Gn63gBMk9hs/2mVTzqlBvY1PGLksZZJkyvrMHL39LaesNPnxRQw
-	sH5J+n3VbFOC54+MtUWWv3sm1mmTb52Kkpyr8PMfx1k1sySMwmuq8ZgGsIrEO7kadNJDWb
-	jGh3ah3rU1LHldhhGBNUpn/h9C7a8EsFWAn35AXBj4xF/bLjpGK3OaCdrOq+XA==
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
+	b=cc4d7QZPuxOeD8POei5YQZbOALG+AOMebhNI5laNKtPtXKqVDBp0sU1gT1tUvKlffxcXSM
+	OZg/EMz6Iu72bQSFozrs9ecmFfFEG4ad4DdqD/44xQjwzeJ9i9YLbWiLVjpS6vtRE/h2Jj
+	rWTMkwxT4rrNwy0SC3G4TRDwi2WSvH4O+QocH9HqUbvDAmv1RJTilRagRjj4/5Ka5WXcqt
+	bq9RJRtf/+vfRaku41lCj6b88pqHTPHw5rOlbTNnnTjLiyzkVOM29+k5ucWxBfsoE3Mwgc
+	47/hadLTlAbYQtYwEqNxSpWYUB/lQchj+ht0atZkypsxCem/k8r0A7lpA8RfOA==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
@@ -70,11 +71,17 @@ Cc: Ralf Lici <ralf@mandelbit.com>,
 	Xia Yan <yanxia@cmss.chinamobile.com>,
 	Sabrina Dubroca <sd@queasysnail.net>,
 	Antonio Quartulli <antonio@mandelbit.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-rt-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v5 0/4] ipv6: tie dst validation to the lookup that returned the dst
-Date: Tue, 24 Nov 2026 17:27:06 +0100
-Message-ID: <cover.1795537128.git.ralf@mandelbit.com>
+Subject: [PATCH net-next v5 4/4] ipv6: validate dsts against the state their lookup found
+Date: Tue, 24 Nov 2026 17:27:10 +0100
+Message-ID: <4b2bf5de6c9837fee8db88d639db0e27e6d687b9.1795537128.git.ralf@mandelbit.com>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
+References: <cover.1795537128.git.ralf@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,127 +92,185 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jYpB51ShWzNmF9
+X-Rspamd-Queue-Id: 4jYpBG3f7szKnsH
 
-Hi,
+Validate dsts in ip6_dst_check against the stamp of the lookup that
+built them instead of the cookie passed by their holder, which may have
+been read after a FIB change the lookup did not see. A stamp of 0,
+recorded when the generation changed during the lookup or the route was
+unlinked, never validates. Holders are covered without changes,
+including dst_cache users and the route and path dsts of xfrm bundles,
+and invalidation keeps its per-node scope: a FIB change only invalidates
+dsts of routes under the nodes it stamps.
 
-This series fixes the late cookie sampling race described in [1]: a dst
-can be stored together with a cookie read after a FIB change that its
-lookup did not see, and then passes dst_check until the next change.
-With xfrm, a socket whose lookup ran just before a policy insertion
-keeps its plain dst and leaks plaintext although the policy matches,
-and a more specific blackhole route can be bypassed in the same way.
+pcpu dsts are shared by all their holders, so they are never
+re-stamped, which would revalidate a stale dst for every holder. A pcpu
+dst is reused only if it carries the stamp of the current lookup.
+Otherwise it is replaced, so a lookup that selected a route before a FIB
+change cannot return a pcpu dst that another lookup rebuilt after it.
+On PREEMPT_RT, a pcpu dst that another task installed while this lookup
+built its own follows the same rule.
 
-v4 returned the cookie from the lookup and converted selected cache
-users to it. Following David's objection to growing the API and his RFC
-[2], which moves validity into the dst, this revision keeps validity in
-the dst but stamps it with the fn_sernum of the route's node, sampled
-during the lookup, instead of the netns generation:
+A replaced pcpu dst is released with dst_dev_put as before, and since
+pcpu dsts of nexthop-object routes are validated against the IPv6
+generation, now the one read before the lookup, they are also rejected
+once released. Lookups may have read the slot without taking a
+reference, and an xfrm bundle holding the dst as its child drops its
+reference without waiting for a grace period, so the slot's reference
+is dropped only after one (__fib6_drop_pcpu_from is unchanged).
 
-- Every holder is covered without being converted, including dst_cache
-  users and the route and path dsts of xfrm bundles.
-- Invalidation keeps its per-node scope, rather than every FIB change
-  invalidating every cached IPv6 dst in the netns.
-- Shared pcpu dsts are never re-stamped: a lookup only reuses one that
-  carries its own stamp, and replaces it otherwise.
+Not covered yet: a holder that sends through a released dst without
+validating it again, such as a corked UDP socket, loses those packets,
+now also when a FIB change in the route's subtree replaces the pcpu
+dst. Exceptions keep being validated against the holder's cookie, and
+so keep the late sampling, as refreshing them needs their PMTU updates
+serialized with the replacement.
 
-Patches 1 and 2 are writer-side fixes from v4: a fresh serial on default
-router failure, and fib6_ifup and fib6_ifdown advancing the serial
-after the ECMP rebalance. Patch 3 samples the stamp during the lookup
-and patch 4 validates dsts against it.
-
-I tested it in a VM with lockdep, PROVE_RCU and DEBUG_ATOMIC_SLEEP,
-using reproducers for the races above, which I can share.
-
-Not addressed here, and noted in the patches where relevant:
-
-- PMTU and redirect exceptions keep being validated against the
-  holder's cookie, so they keep the late sampling. Refreshing them
-  needs PMTU updates serialized with the replacement, a follow-up.
-- The stamp covers the lookup in one table: a fib rule inserted while
-  the rules are evaluated can leave a lookup on the previous table.
-- Deleting one route of an ECMP group rebalances the others without a
-  new serial, changing the forwarding sysctl changes how gateways are
-  scored without one, and deleting a nexthop-object route does not
-  advance the generation. These predate this series.
-- A replaced pcpu dst is released with dst_dev_put, so a holder that
-  sends through it without validating it again, such as a corked UDP
-  socket, loses those packets. This already happens when the route is
-  removed, and now also when a FIB change in the route's subtree
-  replaces the pcpu dst.
-- xfrm_policy_insert advances the generation before unlinking the
-  policy it replaces. I will send the fix separately to the ipsec tree.
-- pcpu dsts dropped when their route is removed, in
-  __fib6_drop_pcpu_from, still release the slot's reference without
-  waiting for a grace period, as before.
-
-[1] https://lore.kernel.org/netdev/20260901122501.482920-1-ralf@mandelbit.com/
-[2] https://lore.kernel.org/netdev/20261123212623.106153-1-dsahern@kernel.org/
-
-Thanks,
-
-Ralf Lici
-Mandelbit Srl
-
+Suggested-by: David Ahern <dsahern@kernel.org>
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
 ---
-Changes since v4 https://lore.kernel.org/netdev/cover.1795166508.git.ralf@mandelbit.com/
-- Keep validity in the dst instead of returning a cookie from the
-  lookup, with a stamp sampled during the lookup (patches 3 and 4).
-  Drop ip6_dst_lookup_flow_cookie, ip6_dst_store_cookie and the
-  conversion of socket cache users, which are no longer needed, and the
-  ip6_dst_check change for nexthop-object dsts, superseded by patch 4.
-  (David)
-- Mention the tunnel transmit error paths in patch 1. (Sashiko)
-- The xfrm bundle cookies and the UDP rx dst cookie pairing reported on
-  v4 no longer matter, since dsts are validated against their own
-  stamp. (Sashiko)
-- The xfrm_policy_insert ordering reported on v4 will be fixed
-  separately in the ipsec tree. (Sashiko)
-- Reword the fib6_ifup and fib6_ifdown patch to refer to the lookup
-  stamps.
+New in v5
+- Replaces the lookup cookie API and its users from v4. (David)
 
-Changes since v3 https://lore.kernel.org/netdev/cover.1794906743.git.ralf@mandelbit.com/
-- Rebase onto current net-next.
-- Split v3 2/3 into the writer ordering (2/5), the ip6_dst_check change
-  (3/5) and the new API (4/5), each with its own explanation. (David)
-- Reword the kdoc of ip6_dst_lookup_flow_cookie to say that it performs
-  the xfrm policy lookup (David) and narrow it to changes that advance
-  the IPv6 generation. (Sashiko)
-- Document the ordering of fib6_new_sernum that the helper relies on and
-  name it in the barrier comments. (Xia)
-- Note the per-call generation advance in 1/5 and widen the
-  rt6_exception_net comment. (Sashiko)
-- Drop the Fixes tag from the conversion patch. (Sashiko)
-- List the known limitations and pre-existing issues above.
+ net/ipv6/route.c | 78 +++++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 64 insertions(+), 14 deletions(-)
 
-Changes since v2 https://lore.kernel.org/all/cover.1794384146.git.ralf@mandelbit.com/
-- Rebase onto current net-next, preserving the connected-only cache
-  lookup introduced by f778e80b3daf ("ipv6: fix cached route reuse for
-  control messages"). (Jakub)
-- Move the serial update after rt6_multipath_rebalance in fib6_ifup and
-  fib6_ifdown. (Sashiko)
-- Add Fixes tags and improve wording. (Sashiko)
-- Clarify that this is the groundwork for fixing the race and a partial
-  conversion to the new API: other users will be covered in a follow-up
-  series.
-
-Changes since v1 https://lore.kernel.org/netdev/cover.1793806941.git.ralf@mandelbit.com/
-- Fix kdoc return statements in patch 2/3. (NIPA)
-
-Ralf Lici (4):
-  ipv6: stamp the default route node with a fresh serial on link failure
-  ipv6: advance the serial after rebalancing in fib6_ifup and
-    fib6_ifdown
-  ipv6: sample the route's serial during the lookup
-  ipv6: validate dsts against the state their lookup found
-
- include/net/ip6_fib.h |  10 +++
- net/ipv6/ip6_fib.c    |   4 ++
- net/ipv6/route.c      | 151 +++++++++++++++++++++++++++++++++++-------
- 3 files changed, 140 insertions(+), 25 deletions(-)
-
-
-base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index 8b98ee945c58..be9bf7a4e780 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -1501,7 +1501,7 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const struct fib6_result *res)
+ 	pcpu_rt->rt6i_flags |= RTF_PCPU;
+ 
+ 	if (f6i->nh)
+-		pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
++		pcpu_rt->sernum = res->gen;
+ 
+ 	return pcpu_rt;
+ }
+@@ -1511,6 +1511,33 @@ static bool rt6_is_valid(const struct rt6_info *rt6)
+ 	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+ }
+ 
++static bool rt6_stamp_matches(const struct rt6_info *rt,
++			      const struct fib6_result *res)
++{
++	if (rt->sernum || res->f6i->nh)
++		return res->gen && rt->sernum == res->gen;
++
++	return res->cookie && rt->cookie == res->cookie;
++}
++
++static void rt6_pcpu_release_rcu(struct rcu_head *head)
++{
++	struct dst_entry *dst = container_of(head, struct dst_entry, rcu_head);
++
++	dst_release(dst);
++}
++
++/* Release a pcpu dst taken out of its slot. Lookups may have read the slot
++ * without taking a reference, so drop the slot's own only after a grace
++ * period: an xfrm bundle holding the dst as its child releases its
++ * reference without waiting for one.
++ */
++static void rt6_pcpu_release(struct rt6_info *rt)
++{
++	dst_dev_put(&rt->dst);
++	call_rcu(&rt->dst.rcu_head, rt6_pcpu_release_rcu);
++}
++
+ /* It should be called with rcu_read_lock() acquired */
+ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
+ {
+@@ -1518,16 +1545,19 @@ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
+ 
+ 	pcpu_rt = this_cpu_read(*res->nh->rt6i_pcpu);
+ 
+-	if (pcpu_rt && pcpu_rt->sernum && !rt6_is_valid(pcpu_rt)) {
++	/* A pcpu dst is shared by all its holders, so it is never re-stamped.
++	 * Reuse it only if it was built under the state this lookup found,
++	 * otherwise replace it: a dst rebuilt by another lookup after a FIB
++	 * change must not be returned to a lookup that selected before it.
++	 */
++	if (pcpu_rt && !rt6_stamp_matches(pcpu_rt, res)) {
+ 		struct rt6_info *prev, **p;
+ 
+ 		p = this_cpu_ptr(res->nh->rt6i_pcpu);
+ 		/* Paired with READ_ONCE() in __fib6_drop_pcpu_from() */
+ 		prev = xchg(p, NULL);
+-		if (prev) {
+-			dst_dev_put(&prev->dst);
+-			dst_release(&prev->dst);
+-		}
++		if (prev)
++			rt6_pcpu_release(prev);
+ 
+ 		pcpu_rt = NULL;
+ 	}
+@@ -1550,13 +1580,21 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
+ 		/*
+ 		 * Another task on this CPU already installed a pcpu_rt.
+ 		 * This can happen on PREEMPT_RT where preemption is possible.
+-		 * Free our allocation and return the existing one.
++		 * Free our allocation and return the existing one if it was
++		 * built under the state this lookup found, otherwise replace
++		 * it as rt6_get_pcpu_route does.
+ 		 */
+ 		WARN_ON_ONCE(!IS_ENABLED(CONFIG_PREEMPT_RT));
+ 
+-		dst_dev_put(&pcpu_rt->dst);
+-		dst_release(&pcpu_rt->dst);
+-		return prev;
++		if (rt6_stamp_matches(prev, res)) {
++			dst_dev_put(&pcpu_rt->dst);
++			dst_release(&pcpu_rt->dst);
++			return prev;
++		}
++
++		prev = xchg(p, pcpu_rt);
++		if (prev)
++			rt6_pcpu_release(prev);
+ 	}
+ 
+ 	if (res->f6i->fib6_destroying) {
+@@ -2864,11 +2902,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 	struct dst_entry *dst_ret;
+ 	struct fib6_info *from;
+ 	struct rt6_info *rt;
++	bool exception;
+ 
+ 	rt = dst_rt6_info(dst);
+ 
++	/* a nexthop-object pcpu dst replaced by another lookup has been
++	 * released with dst_dev_put and must fail even if its stamp is current
++	 */
+ 	if (rt->sernum)
+-		return rt6_is_valid(rt) ? dst : NULL;
++		return (READ_ONCE(rt->dst.obsolete) == DST_OBSOLETE_FORCE_CHK &&
++			rt6_is_valid(rt)) ? dst : NULL;
+ 
+ 	rcu_read_lock();
+ 
+@@ -2879,9 +2922,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 
+ 	from = rcu_dereference(rt->from);
+ 
+-	if (from && (rt->rt6i_flags & RTF_PCPU ||
+-	    unlikely(rt->dst.rt_uncached_list)))
+-		dst_ret = rt6_dst_from_check(rt, from, cookie);
++	/* Exceptions are validated against the holder's cookie, every other
++	 * dst against the stamp of the lookup that built it rather than the
++	 * cookie its holder read afterwards, which may postdate a FIB change
++	 * the lookup did not see.
++	 */
++	exception = (rt->rt6i_flags & RTF_CACHE) && !rt->dst.rt_uncached_list;
++	if (from && !exception)
++		dst_ret = rt->cookie ?
++				  rt6_dst_from_check(rt, from, rt->cookie) :
++				  NULL;
+ 	else
+ 		dst_ret = rt6_check(rt, from, cookie);
+ 
 -- 
 2.56.0
 
