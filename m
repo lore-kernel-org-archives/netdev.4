@@ -1,72 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.10
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487229;
-	b=t+t/lxYS3Ke/AFXYklNGBD+PBA6ijlW44uDtB4h47ZxwGwOFIedNObhz323+4n/qB4tw
-	 IhuI0GqHf9+8ALjndEsd9IoxmoYLC3g0zC/kCf88fnVi8oiLmVTIg736KgdcmrPH8GeKo
-	 cqNgjDNNf4PQLAvogXN1LC6G68Jqi7n3EVg0uQuPiYGNScavefT60lCyZLz6U1GlSC/gJ
-	 wx6qSbq+B0+vJEP+wKRIUvMPXaTUR3OucF7Vusit+ePLiakprnHf8Txlba3NPz5vZyqHN
-	 qITCBLZtesxGVSmBSwnCQOyizyzhBu7N+2/Y9QtMvgurnmKSE725ex1lXjeY1QkNdrw==
+	t=1795487379;
+	b=jbI1pgnBGOgimxBmZg7RnYJfMrLYUWYl1gv5qpM2dFZyhQ+qbyCgSWUXDxjs+nIo8jYp
+	 FiYkAmBYNFrNzMNN3GQ1KfUDkKYz6eE4zbZ7nA0dajx/ogYB+NRvEbuuVc2XYVYyIhWiQ
+	 IU5/4GPzYGdZiMMarVf7CNcUupW2g/lVfcG6Rpfz+uA+B8ERWzNg9K/XpqM3kzbMLaHfd
+	 PfIQg7NmilEsR4pQsmO/2/mgCJZKkOGGTrhoPdeDq63xjiqBS3Wz6Ju+BkkP40LB0eHlf
+	 NHdHENyT8OZWYO/bQefD0mTTTT+gIt37TF06LtCGKmG6PP9bq+Tf1wt5rKrv9HATI8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487229;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=biDlCWEAViFygZmsfqd4vibtJ1ZYZE87r2fIceCMj6o=;
-	b=rN88P7iEoIv2jlGhisl77I7+PqEAlYiR5NNPVDe1KQfWvjUk1WwYNMEG3d7LxQxBwdGv
-	 3IfsHYnkqO/WjDUA01RZGeect3QIYkv52s6RLiDJ4PNmWOJ7KWQ7QT/92GAwcRACYxp+E
-	 7MDNdgqXsACiPqTgbV4EcvUcmqxZJthUKLep0XoD3sD5BUA55+a8oSTEdCfiTCmuTFaAe
-	 zl6XKcvPValed9VG7ppMwX5Snj2cDIPkCnw3bBQcCWoBbWniJ/Gk9rvutiJpC1MY663n3
-	 5Nr+R4d0EP6dL1Us+4nk2oe+P99jLQ0+/siwQP2ObBO0XMAhCSgsSB3HpBzKKWsrpQw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487379;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=8NvDqIrKXQ3eal5Cp0jr6Hk9FP8h4weYBqykTLZjvkg=;
+	b=4f9JphXynmeDxpeXB6cbmwHEfnVFetDtJ2n/brI+2r191Hlf3rZq4tgzOiWBXblsoBCS
+	 rHsejf/XGcZOII3ZzE/zqWTecfDtKIPlNvG22c4eDrbZDrD4q+gOWDLhoZiKFU2xO6G6a
+	 fN+7AtlGgEOrl64bqYjwo9aoGfEdpPjFOFRXIo29r656404y1Tn24hbZOTDihSaye3dGK
+	 Buf7eqjUKWeqMSita6jKzaVIiUZwFNg7NDQKpzak4avSKVxFpB+q2+VHFxHg89Tk44ZB0
+	 VdOnwIt1uD+0KGYIxaTufQKWxrnM9a6RGN5KtJucmx8cj2EK0kfqINhjRwggEnjCx0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b="QX/S8IlQ";
-	arc=none smtp.remote-ip=198.175.65.10
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.10])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f+jgVsxj;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2AAD606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 02:27:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2AAD606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE77E606A31E;
+	Tue, 24 Nov 2026 02:29:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=QX/S8IlQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795487228; x=1827023228;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=e/TlCoRsBj0ERFSxrd1P88I+Vk1tvkqJ0oJwRQJHJv4=;
-  b=QX/S8IlQ3u+3k4/qOcN+HmsNZuzwbIzIqhtlTWBkU3F80wAFyXFm6QKr
-   H8NkpAnBrJVa5u3Su96fGJt3h2JDUNsJKu9C/jyn6clhEJrjtV4438yJU
-   0FuBHuUnz4RlMhgj17agPhz7OlhSXrVaHT2nUCzVlBpmAUQMBf/pzWM89
-   YA76VAYaW4zOA+WtpFwx52WLfSvJoAHCuE3JZEL/JRvS/zziJWPwfyXuf
-   Uugd//CyXKveY5YHHXlFP+DFAXwgxx4YG+BJ8T7qbOcD1G5fuZ6Lfg8J8
-   xQd/sE0QE7XzXd15owwUysLzOuaC62azY36bSEenIx/wa2mz0CxiTW4gK
-   w==;
-X-CSE-ConnectionGUID: mgclZDlmS1CxzqMU7VIpQQ==
-X-CSE-MsgGUID: 4T8hjgQsQuuG7Rwz6BjRGQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11975"; a="4222640"
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="4222640"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 18:27:06 -0800
-X-CSE-ConnectionGUID: O39Y297wTv6w1jAti8WEKQ==
-X-CSE-MsgGUID: 46J6RiOsQkSUc8lT0JQiDw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,229,1787036400"; 
-   d="scan'208";a="11565525"
-Received: from linux.intel.com ([10.54.29.200])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 23 Nov 2026 18:27:00 -0800
-Received: from [10.107.17.224] (unknown [10.107.17.224])
-	by linux.intel.com (Postfix) with ESMTP id 7D25820B8CD1;
-	Mon, 23 Nov 2026 18:26:56 -0800 (PST)
-Message-ID: <be488576-0143-4c38-8259-6947053d55e5@linux.intel.com>
-Date: Tue, 24 Nov 2026 10:26:55 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=f+jgVsxj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16D081F000CA;
+	Tue, 24 Nov 2026 02:29:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795487379;
+	bh=8NvDqIrKXQ3eal5Cp0jr6Hk9FP8h4weYBqykTLZjvkg=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=f+jgVsxjp8mHuxBkzR7gtZ5ZFii3zHj/Vnf7rMjL1hpqnoVPzBxnROTETcd/Xa6WE
+	 jfZbixfKit3yNUUs/ayq3l8klvIpDznn8ggf6NUAE5LY1LuvrpGiKZ38FDDISj4Czv
+	 WDQ7ACcfL97lANMUYoIXa3aeCoJnjRBZzaTnlHUFzbjQma/izzyiHCwUGvmkP+2R1V
+	 /JQk8zRTSV7vcdfC3HodkbjS8rz2YwFOl7/uPABUEktKr24unr+pN4Q/Zrv6onDTHG
+	 5upHMdsbcxspjxDe3Vu4BJXhPImnvqHWsxXE8399FdCYCVo1tVpLhUjtSDKX0A3d8/
+	 txHN8K4FlMbfQ==
+Subject: Re: [PATCH net v7 2/6] net: wwan: t7xx: fix runtime PM usage count
+ underflow on -EACCES
+From: netdev-bot+sashiko@kernel.org
+To: tim770802@gmail.com
+Cc: netdev@vger.kernel.org, chandrashekar.devegowda@intel.com,
+ haijun.liu@mediatek.com, ricardo.martinez@linux.intel.com,
+ loic.poulain@oss.qualcomm.com, ryazanov.s.a@gmail.com,
+ johannes@sipsolutions.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ ilpo.jarvinen@linux.intel.com, sreehari.kancharla@linux.intel.com,
+ m.chetan.kumar@linux.intel.com, horms@kernel.org,
+ linux-kernel@vger.kernel.org, tim.jh.chen@wnc.com.tw,
+ Chih.Hung.Huang@wnc.com.tw
+Date: Tue, 24 Nov 2026 02:29:37 +0000
+Message-ID: <179548737758.3135.16325622111996411281@kernel.org>
+In-Reply-To: <20261120015556.131547-3-tim770802@gmail.com>
+References: <20261120015556.131547-3-tim770802@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,96 +69,156 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v1 0/3] af_packet/tcp: fix late hardware timestamp
- handling
-To: Kohei Enju <kohei@enjuk.jp>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Kuniyuki Iwashima <kuniyu@google.com>, Willem de Bruijn
- <willemb@google.com>, David Ahern <dsahern@kernel.org>,
- Neal Cardwell <ncardwell@google.com>,
- Gerhard Engleder <gerhard@engleder-embedded.com>,
- Jonathan Lemon <jonathan.lemon@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Gomes Vinicius <vinicius.gomes@intel.com>,
- Song Yoong Siang <yoong.siang.song@intel.com>,
- Looi Hong Aun <hong.aun.looi@intel.com>,
- "Tan, Khai Wen" <khai.wen.tan@intel.com>
-References: <20260429091632.26509-1-kohei@enjuk.jp>
- <a62bce53-a307-483f-86e9-00949b142e9f@linux.intel.com> <awRbgl7vlFO-c3Q6@x1>
-Content-Language: en-US
-From: KhaiWenTan <khai.wen.tan@linux.intel.com>
-In-Reply-To: <awRbgl7vlFO-c3Q6@x1>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-On 11/23/2026 11:31 PM, Kohei Enju wrote:
-> On 11/23 16:36, KhaiWenTan wrote:
->> On 4/29/2026 5:16 PM, Kohei Enju wrote:
->>> Since commit 97dc7cd92ac6 ("ptp: Support late timestamp determination"),
->>> skb_shared_hwtstamps may carry netdev_data instead of a resolved
->>> hwtstamp. AF_PACKET and TCP could still read that storage as a ktime_t
->>> and report bogus hardware timestamps to userspace.
->>>
->>> This series factors the late timestamp resolution logic into a common
->>> helper, then switches AF_PACKET and TCP to use it.
->>>
->>> Notes on SOF_TIMESTAMPING_BIND_PHC:
->>> The generic socket receive timestamping path honors it, but the
->>> AF_PACKET and TCP receive paths touched here haven't implemented that
->>> behavior.
->>> This series doesn't change that; those paths always resolve timestamps
->>> with cycles == false and preserve their timestamp-domain semantics.
->>>
->>> Kohei Enju (3):
->>>     net: introduce helper to resolve hardware timestamps from skb
->>>     af_packet: use skb_get_hwtstamp() for hardware timestamps
->>>     tcp: use skb_get_hwtstamp() for hardware timestamps
->>>
->>>    include/linux/skbuff.h | 11 +++++++++++
->>>    include/net/tcp.h      |  2 +-
->>>    net/core/skbuff.c      | 27 +++++++++++++++++++++++++++
->>>    net/ipv4/tcp_input.c   |  3 ++-
->>>    net/ipv4/tcp_ipv4.c    |  6 ++++--
->>>    net/ipv6/tcp_ipv6.c    |  3 ++-
->>>    net/packet/af_packet.c |  2 +-
->>>    net/socket.c           | 27 +++------------------------
->>>    8 files changed, 51 insertions(+), 30 deletions(-)
->>>
->> Hi Kohei,
-> 
-> Hi KhaiWen,
-> Sorry for the late response.
-> 
->>
->> I am currently working with Vinicius on a fix for wrong hardware timestamp
->> in tcpdump (https://lore.kernel.org/all/20261111053728.2611070-1-khai.wen.tan@linux.intel.com/)
->>
->> We have came across your series are also fixing the same issue. I would like
->> to check about your current status on the v2 for this series, we are
->> planning to implement your fixes (skb_get_hwtstamp() helper) into our patch,
->> so we would like to ask if you currently have plan for the series v2. If you
->> not having plans for this or don’t have time for this, may we include the
->> first patch of this series into our patch, the patch authorship will still
->> be kept to you?
-> 
-> I'm not currently working on a v2, so please feel free to incorporate my
-> changes into your patch. I'm fine with either keeping or dropping my
-> authorship.
-> 
-> Thanks for taking this forward!
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Thanks for the response. We will be including the first patch 
-"[net,v1,1/3] net: introduce helper to resolve hardware timestamps from 
-skb".
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
 
-> 
-> Thanks,
-> Kohei
-> 
->>
->> Best Regards,
->> KhaiWen
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
+- [Medium] At this commit, t7xx_cldma_send_skb()
+  (drivers/net/wwan/t7xx/t7xx_hif_cldma.c) still has the bug this patch…
+- [Low] net: wwan: t7xx: inaccurate Fixes tag citing 46e8f49ed7b3 for
+  runtime PM bug
+
+Pre-existing issues:
+- [Medium] t7xx_dpmaif_irq_rx_done() takes a runtime PM reference and
+  hands it to the NAPI poll by calling napi_schedule(&rxq->napi).
+
+--
+
+net: wwan: t7xx: fix runtime PM usage count underflow on -EACCES
+
+This commit replaces pm_runtime_resume_and_get() with
+pm_runtime_get_noresume() plus pm_runtime_resume() in four DPMAIF TX/RX
+contexts. A usage count reference is now still held when -EACCES is
+treated as success. The reference is dropped with pm_runtime_put_noidle()
+only on errors that abort the operation.
+
+> t7xx_dpmaif_tx_hw_push_thread(), t7xx_dpmaif_tx_done(),
+> t7xx_dpmaif_bat_release_work() and t7xx_dpmaif_irq_rx_done() treat
+> -EACCES from pm_runtime_resume_and_get() as success and proceed to
+> access the hardware.
+
+[Severity: Medium]
+Was a fifth caller with the same pattern left out here? At this commit,
+t7xx_cldma_send_skb() in drivers/net/wwan/t7xx/t7xx_hif_cldma.c still
+does:
+
+drivers/net/wwan/t7xx/t7xx_hif_cldma.c:t7xx_cldma_send_skb() {
+    ...
+	ret = pm_runtime_resume_and_get(md_ctrl->dev);
+	if (ret < 0 && ret != -EACCES)
+		return ret;
+    ...
+allow_sleep:
+	t7xx_pci_enable_sleep(md_ctrl->t7xx_dev);
+	pm_runtime_put_autosuspend(md_ctrl->dev);
+	return ret;
+}
+
+On the -EACCES path, pm_runtime_resume_and_get() has already given back
+its reference. Every exit then goes through allow_sleep, so wouldn't the
+pm_runtime_put_autosuspend() there drop a reference that was never
+taken? The path is t7xx_port_wwan_write() or t7xx_port_fastboot_write()
+-> t7xx_cldma_send_skb().
+
+The next patch in the series, "net: wwan: t7xx: fix skb double free when
+CLDMA send sees -EACCES", converts this site to the same
+pm_runtime_get_noresume() + pm_runtime_resume() pattern. So the end of
+the series looks correct.
+
+Could the CLDMA conversion be folded into this patch, or at least
+mentioned in the commit message? Then this commit would fully fix the
+underflow it describes.
+
+> diff --git a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> index 5af90ca6e0631..77770869d5750 100644
+> --- a/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> +++ b/drivers/net/wwan/t7xx/t7xx_hif_dpmaif_rx.c
+> @@ -911,8 +911,10 @@ void t7xx_dpmaif_irq_rx_done(struct dpmaif_ctrl *dpmaif_ctrl, const unsigned int
+>  	 * which can't be done from softirq context the poll function
+>  	 * is running in.
+>  	 */
+> -	ret = pm_runtime_resume_and_get(ctrl->dev);
+> +	pm_runtime_get_noresume(ctrl->dev);
+> +	ret = pm_runtime_resume(ctrl->dev);
+>  	if (ret < 0 && ret != -EACCES) {
+> +		pm_runtime_put_noidle(ctrl->dev);
+>  		dev_err(ctrl->dev, "Failed to resume device: %d\n", ret);
+>  		return;
+>  	}
+
+[Severity: Low]
+Is the Fixes: tag pointing at the right commit? 46e8f49ed7b3
+("net: wwan: t7xx: Introduce power management") only added the system
+sleep dev_pm_ops callbacks (suspend, resume, freeze, thaw, poweroff,
+restore) and the PM entity registration. It does not add any runtime
+PM calls, and it does not touch t7xx_hif_dpmaif_rx.c or
+t7xx_hif_dpmaif_tx.c.
+
+The pm_runtime_resume_and_get() calls that ignore -EACCES and are then
+paired with an unconditional pm_runtime_put_autosuspend() look like
+they came from two later commits:
+
+  d10b3a695ba0 ("net: wwan: t7xx: Runtime PM")
+    t7xx_dpmaif_bat_release_work(), t7xx_dpmaif_tx_done() and
+    t7xx_dpmaif_tx_hw_push_thread()
+
+  364d0221f178 ("net: wwan: t7xx: Fix Runtime PM resume sequence")
+    t7xx_dpmaif_irq_rx_done()
+
+Should the trailers cite those two commits instead? The stable
+tooling uses Fixes: to decide which trees need this patch. Anyone
+running git blame later would also be sent to a commit that has
+nothing to do with the usage count underflow.
+
+[Severity: Medium]
+This is a pre-existing issue and was not introduced by this patch. The
+reference taken here is passed on to the NAPI poll right after this
+block:
+
+	napi_schedule(&rxq->napi);
+
+The return value is ignored. If NAPI_STATE_SCHED is already set,
+napi_schedule() does nothing. In that case t7xx_dpmaif_napi_rx_poll()
+never reaches the pm_runtime_put_autosuspend() that would drop this
+reference.
+
+Can this leak the runtime PM usage count and keep the modem from
+runtime suspending?
+
+SCHED can stay set in two ways. The first is a closed netdev, while
+DPMAIF RX-done interrupts can still arrive:
+
+t7xx_ccmni_close()
+  t7xx_ccmni_disable_napi()
+    napi_disable()
+
+The second is the !rxq->que_started early return in
+t7xx_dpmaif_napi_rx_poll(), which returns without calling
+napi_complete_done():
+
+	if (!rxq->que_started) {
+		atomic_set(&rxq->rx_processing, 0);
+		pm_runtime_put_autosuspend(rxq->dpmaif_ctrl->dev);
+		dev_err(...);
+		return work_done;
+	}
+
+The same leak already existed on the normal success path before this
+patch. This patch adds the same handoff on the -EACCES path.
+
+The que_started part is fixed later in the series by "net: wwan: t7xx:
+complete NAPI on the not-started RX poll early return", which adds
+napi_complete_done() to that early return.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120015556.131547-1-tim770802%40gmail.com
