@@ -1,118 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560674;
-	b=0cBoQyc/Bpo89IeVEIqxh04/ayX7r2fYhY80AQebrsFbloyHa1g86OtbggAJq/P4c29g
-	 ZaofDblrOf2Nx3cI+/DAh3KR2iqlEXiQJUTAb13GdH2fjE6CgivO+CD9qTRwfY87xc19L
-	 /4tq85diVHbeg1zhUzfFsGCK3u0T9N8Gi9V5a4Q+22RCo0dZlIBdOuYhyYHZbc5eJAcr8
-	 RNnFV/I5hpr28nT+PosNkBkTmUPx742URHWarS+7Wnyd3ZU6FHzjGRO2OdyLkIl2aLr5T
-	 xfbPCLAxjWVEgZzuikG8hBXoKJMM2+obwIdxVbYlOmy51Fw0FdwjdL8CNZYMloSH2pQ==
+	t=1795560751;
+	b=AmHES3MRbTNpkBJU7rOk61BSIP8q1RP7cGNnmqIAlPqqzHC6nqgpDcRk44h7Lww76ndU
+	 rnv3e1xUZFQDIFUrbSBqtxm3OzkzWsnd1NXOF8JWsSv2QFnzopwZSNhT/Vc1orMcdIIGk
+	 xjcvq9Xtjn8L6AMzROwdktdsyDaEa3safDp66E2h0fwT6oV7ssznz2uykBUo/ITLQmFWY
+	 2R5Lb/C2zqv5aajMwfRBjem3kH1Xw3Qh31qb6REgQCPIj4BlCktT9kRAv4zbmstGvinRi
+	 6egstc+Wuo8NUgny5Ik/jiGXFzIZwF78P14+KKC7kuXNVgHUucOkDIHuSEpkEkxGEmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560674;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=flVppx0kRFMYxE8MCABde0wS9Ry07/Asx+8ob69Cr3Q=;
-	b=suvXtdT9UMyBGeH9o/9d0CZItWJ/FvaJIqswvGu/ZSdifZoB7yiuJuLlA1C9cUCqi1lx
-	 Ejx9VhX3aPVkcv5bnd8UgZYiAzu9J1rAdgSguXS1ORvBdXVluM4tDFY39CoqPJpoTbsjj
-	 4un80AErGasiN3sgE6C2Ujh3EdujeALT5RmcHnqWUVhpdbif3iE5kgzyAW1fOMxS56LE9
-	 3FqNUxV3Vxf4Fw8y9i5yK1gMLnLFtiKWMtE8CQgePqFgsMmpy9jFoaBGXgJ5RAdzHUNtC
-	 nE8wYpVP34Pm+qqmymLD5AXIyz2blGHOfcX8/j6wyTTYdTu3ophjg3s8KlYRJxfcFlQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
+	b=XmkzdQZb2jFzBIYRjQv6xYVHHBfLtgYIOM4qhIkTbRnvkmWBVTuh2QF0pu05flcgUgPd
+	 vPF1msJ2UgNiROeXSjxZzRpRpaKYq06zz0cDXUxEWOmrq4SAOSzpwaXqpA6BaOXefUUTg
+	 r5l9HX3TdIdfGhw1g2NEjq97XtmrucNRS+5VyL8Mvj+OfC9fIUBLkHemp31ekSF9ugPa+
+	 qs20Rpb5n7IfHbrR/o8qKEEr8nGjV2SneXrROlru3Q/TOyYjbpjoE6Avsaca4csnWWffg
+	 NQsmunfzS62nP81jwGovr0ql97+3UaG/e72BUClGxQp6jPcnTUQBKnYj4BvxW+r/gug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VeY9yGWs;
-	arc=none smtp.remote-ip=209.85.128.41
-Received: from mail-wm1-f41.google.com (mail-wm1-f41.google.com [209.85.128.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E9+SWYpR;
+	arc=none smtp.remote-ip=74.125.82.48
+Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4184606A6AF
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:51:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4184606A6AF
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9076D606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:52:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9076D606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VeY9yGWs
-Received: by mail-wm1-f41.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so52561535e9.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:51:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E9+SWYpR
+Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b3acec6677so7510268c88.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:52:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560672; x=1796165472; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=flVppx0kRFMYxE8MCABde0wS9Ry07/Asx+8ob69Cr3Q=;
-        b=VeY9yGWsUyLWfVDkEClul5rCYaCp/GGHKnbGE224WHpXJv2yEXHvlKDtdmbLtI8t93
-         eMEpUx8277T1FYjlBztx0zAgO6PqAb/7wOz2qGUAooVRYaUCGm0mXwRoudGd2mdvBhUo
-         8EQ03E8cmbY09e/tzsItyYTBem9/gkr6Ky7y2j5eTix5raUYKLGmQI3Naut5J/Z5GKR/
-         sBQ4JIVkRZn16jpX4k0YUkGJvUel50S+3vkoI6x3fJXlSNIkeNFNyk62321Mn/xUua7J
-         wdxRRHrq8lWLvt7khmLR0VmKJ0YlSnaj686jiXHuEFCBh040zDOoFTtZwhK1ixX2+hGu
-         nllg==
+        d=gmail.com; s=20260707; t=1795560750; x=1796165550; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
+        b=E9+SWYpRPDEsfq+0U/uJAo2engtzlYuz3sY9Je4smTBPQZ17qdzRGQHN1hA4CvLPCQ
+         Hlk95vLZF2tmrI9HkNPQffMC6AE3L9UwQJ3PLbuXfLH5IkOREsJUG303F031930SyFtt
+         keFRZGnUdlezx3g7J9ONM0DoMzwyukZ8Nm5xFtOqr3uMCys8n6urLRcBUYNmIGW5+9Mj
+         QZ9LcotNACDvnw/5kGWx0J3c8yGYHbbUtjNnpf4pAYr76W7aF21Lxd8gIWRM8ZIJsAKG
+         biyTBq5B3M50Q0GYV142Xdk1dMnzUjhCXVWM6nPcCXeUTZzfTuFJxvUa6gF2QqMMt2Dx
+         aYxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560672; x=1796165472;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=flVppx0kRFMYxE8MCABde0wS9Ry07/Asx+8ob69Cr3Q=;
-        b=b1M4n0fDSgSLFaMMuXxw0DiPe+m385MyfKbu/uj7r2qx+QFmmJ+ACwa7YB0fPHbN6u
-         TFoJiMYQL6R0JVVVKJDkXTY/3pZkB4WtIZd69t6tR3uBdyqC8N5svuCZ2YTX9pcCbIC7
-         7sqCeggwf9Q8+boR4p4MxPnWhk5Mf1FRYXijB5AQ+VImoJox2GBuuCfabH60efttEBYT
-         9cl4tfTIjlB0RpMAK3NW0ftcAL59LNVCgIvJHE9KaPiyqzmokmxZs24piy/nIrVPC6PX
-         +RJ02MQoAq1NbSMuK7JNZqftkGX7QvfAEPeZRs2aVxH8M6xQpAzcXo1XkoV23Op4oI9l
-         OYGQ==
-X-Forwarded-Encrypted: i=1; AL+hErFNJNHXnMf4Zhtjc3YJewPH3nSf0rS504gDVhC1zbufR7PI8h79Eldlhwkxnbjg2IR8weAEyHw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/1aOlt/8RrMUfgng2/VYwnTH3Uz2Q81rSavHh5BFEcKSnuPGhU
-	9y3WTuGGNwGtaKNpVRbfw0ME6KUdeUg8gGNeS4cv4hxk7u9tcH7RgUY=
-X-Gm-Gg: AZFdTZdBYWxOMBuo38TQEYavWNsPlBGCyMtxsmpXIl8vbL8JnlJdUf03d4tTqV6ecCv
-	WoRwrxips6HglY3mcHzS8WIAiSLEkgpENd3VZu0Lt30T28smJcDZCm7nijEH8JDerM9wpZs7bIE
-	0aRqwlRufeWtGBZAXeA3mR/zlBDFxjRyUj+dXHlyBMFnkw4caYQsdTQRuXw1HvmbmPtia+mD6I0
-	tijAtr5Ha4t8I5cmkCfOynBtX5whwFJMjbPKzqARpgDXNerfW+La1Iv/OfIK9WKrEFiqWAXaY1i
-	mux0szqx/HHI3AOrn17Rnx6BvqvH/IKpFYIvgOETiypUpIpzQt6oZcDrzVjPIktKHkYXyTP+eqX
-	0rIUESpRb2c79mC0XFLr9Zu9bb3FsAekRzQiCx/LFOedy6tHr1P6pPYMfJEvOg2SnUWYSvOyAQ0
-	XNfAL5CIFzR6+UTtOpnvr8pvCvH+Aw7oFJaiQ43iV+bc/cOZ6otlKmBmF17ueZ7g5nV4oula7wA
-	rUIDatEnq4WX+QERELv9HTcJxa6WYQ2J49M36/wJhNKuhsINyrUeflbGlOcE5FZHNzwciV5zi2w
-	dfbx06xLy7dkib1L5GVWmrphNyhPtlzOjn4hCICwc+UOPKNrSEbBvzAgFTPvYI53UQPYGJ03inv
-	81ZqKaaPB+lx7qLuVYmJa9Yyzixl9anCgKbEVX/g7WH86I1Hj8tiBnrTJ3ZISbklmijVFv/J+C9
-	cMw1akz9zQ3UuQhCk4fymXdsE8b0z11O4w
-X-Received: by 2002:a05:600c:3113:b0:4a2:267:25b3 with SMTP id 5b1f17b1804b1-4bb8882a4b9mr343791695e9.35.1795560671942;
-        Tue, 24 Nov 2026 14:51:11 -0800 (PST)
-Received: from localhost.localdomain (dynamic-2a02-3100-2ec1-8a00-a10d-4335-1e05-e7ae.310.pool.telefonica.de. [2a02:3100:2ec1:8a00:a10d:4335:1e05:e7ae])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a1e8bsm393839525e9.9.2026.11.24.14.51.10
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 14:51:11 -0800 (PST)
-From: Tobias Philipp <tphilipp@gmail.com>
-To: bpf@vger.kernel.org
-Cc: Tobias Philipp <tphilipp@gmail.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Felix Fietkau <nbd@nbd.name>,
-	=?UTF-8?q?Thibaut=20VAR=C3=88NE?= <hacks@slashdirt.org>,
-	Stijn Tintel <stijn@linux-ipv6.be>,
-	Daniel Mack <daniel@zonque.org>,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH bpf-next v2 4/4] selftests/bpf: Check that map values are 8-byte aligned
-Date: Tue, 24 Nov 2026 23:50:55 +0100
-Message-ID: <20261124225055.87344-5-tphilipp@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261124225055.87344-1-tphilipp@gmail.com>
-References: <20261124225055.87344-1-tphilipp@gmail.com>
+        d=1e100.net; s=20260707; t=1795560750; x=1796165550;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
+        b=T7X7hzsfVPXZZqQ0MdHZO+cPYM7MTr/HTPfj3nBKNYLvGk0dTER+snPoxVlwij3F1Z
+         YZxbSTWBU0+JzX1Obv3Z6sMBqefyiqdZ5s5eYyZ3hDM9lBXdJQbkFgcQr2IeGpY/bgZc
+         Sb1SyMwUAPxuu0ZRjJ/36EkJUOx6+LtGxQ/IuEyiF+MhkQIU9SubCQ5IK7jh9BEhYDfB
+         NuLVqp9pyp8W4NbKfs2dQ+3zqDxj4LSC2ojBP8ObosUOA06TbYh+V+UEvHc9zVo0Ni88
+         DC/2Kb9DMgSEbvF4JoRLyIphb1wsAvtXvglvPCEZ0k9v3F6rPMgexuhnbx/+95mALLPT
+         RQ7g==
+X-Gm-Message-State: APuU4Z8cSEQp+rzOFhl/JSL6juG+dEwefyBoSOuahAH5+yNT+gOgvMrU
+	Jtjf/zXbfGnSgZMugLC8s4Lyh0JAU71F6Lb5ge81jAPfrBp1nPh7d1eZgpk9dg==
+X-Gm-Gg: AZFdTZdX/C5sCTdRPqBxrblXYKi3/fL4Lxo9S7RG7C/DSou5jMHrpUxMpJ+7PKhcuJb
+	Hn/+xWCSfEHhH3H74/GwGF0oLwALEniwsmCI6Fummmo9z5wl/MSHMmkjxMPjmS4IzRkvokSUe71
+	q6LFtRhyXVdrsBDAhftLDqcjWnxY3+jX3R3bIFjbDHcMCINpB7Wj5lvpVuaXROqIuvReiBvObWW
+	tsaPbhO4XfHf/Py2nAK209KfTzrYuxEM6GE9s5X6qUe5EXOjKzvndEa4ytzm6N57d4bPO7Slq40
+	veEwxULg96cbYPNh4H2Jjw9K5g1M1aWXdacO6ccoJn5xs35lIP6d7HCCjOQGcSUEtoBpR1bNuMt
+	CNmSFjJXUsUJKfcC1i8oN4dbZd5wetOhw6kPz4NMMldTSczn36s3URzMo7PfHQopacEKi2Jb2YE
+	fSJo4WZF/nZnIuqsUpuG7cjmg9BbSkB/8x5vfKuwTBy5Zb7FNw61RNpwzKDah1K1Eyp0Hytx59I
+	AZoOd0Ld9s/FlIU0uPZJePhnousNyQHtd9brfeQDgAkiJSu4ZcqUzp4YYD6oEgkgJrEmV2wsRr1
+	KnTb+wdIN48T8PKQeSKln0yB6/w3C8bvGkmCQCdY7WP2YSVHFYXC1t6JLfN98l0PXpphvUqoz7W
+	nxdmIQhjgDs7UFspJF5PmTX54OU3A/hAT3RVQeAgqUVeL/c5kY5/Uhn6Wua/0ISB4Eg==
+X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr17412085c88.10.1795560749548;
+        Tue, 24 Nov 2026 14:52:29 -0800 (PST)
+Received: from l ([2603:8002:ea00:6800:e2af:cae4:df96:350])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm42648144c88.13.2026.11.24.14.52.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 14:52:29 -0800 (PST)
+From: Dave Seddon <dave.seddon.ca@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Dave Seddon <dave.seddon.ca@gmail.com>,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	David Ahern <dsahern@kernel.org>,
+	Paolo Lungaroni <paolo.lungaroni@uniroma2.it>,
+	Frank Dressler <frank@dressler.pro>
+Subject: [PATCH iproute2] seg6local: accept lblen and nflen in either order
+Date: Tue, 24 Nov 2026 14:52:27 -0800
+Message-ID: <20261124225227.3795875-1-dave.seddon.ca@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -124,139 +98,80 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The verifier assumes that map values are 8-byte aligned. Add a test
-that looks up an IPv4 lpm_trie value, a BPF_F_NO_PREALLOC hash value
-and a devmap value from an XDP program, stores the returned addresses
-in global variables and checks them in user space.
+The man page lists lblen and nflen as flavors attributes in no fixed
+order, but ip only accepts lblen first:
 
-The program does not execute any instruction that requires alignment,
-so on an affected kernel the test fails instead of crashing it.
-Without the previous patches the lpm_trie and devmap checks fail on
-64-bit architectures, and the hash and devmap checks fail on 32-bit
-architectures.
+  ip -6 route add 2001:db8:2::/64 dev lo encap seg6local action End \
+    flavors next-csid nflen 16 lblen 32
+  Error: either "to" is duplicate, or "lblen" is garbage.
 
-This patch was written with the help of an AI coding assistant
-(Claude Opus 5.5).
+Parse them in a loop.
 
-Signed-off-by: Tobias Philipp <tphilipp@gmail.com>
+Fixes: 04a6b456bf74 ("seg6: add support for flavors in SRv6 End* behaviors")
+Suggested-by: Frank Dressler <frank@dressler.pro>
+Assisted-by: Claude:claude-fable-5-2
+Signed-off-by: Dave Seddon <dave.seddon.ca@gmail.com>
 ---
- .../bpf/prog_tests/map_value_align.c          | 51 +++++++++++++++++++
- .../selftests/bpf/progs/map_value_align.c     | 48 +++++++++++++++++
- 2 files changed, 99 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/map_value_align.c
- create mode 100644 tools/testing/selftests/bpf/progs/map_value_align.c
+This applies on top of "seg6local: fix crash when next-csid ends the
+command", as discussed in that thread.
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/map_value_align.c b/tools/testing/selftests/bpf/prog_tests/map_value_align.c
-new file mode 100644
-index 000000000..91898a052
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/map_value_align.c
-@@ -0,0 +1,51 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <test_progs.h>
-+#include <network_helpers.h>
-+#include "map_value_align.skel.h"
-+
-+#define IFINDEX_LO 1
-+
-+/* The verifier assumes that map values are 8-byte aligned */
-+void test_map_value_align(void)
-+{
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+	);
-+	struct bpf_devmap_val dval = { .ifindex = IFINDEX_LO };
-+	struct { __u32 prefixlen, data; } lkey = { .prefixlen = 32 };
-+	struct map_value_align *skel;
-+	__u64 val = 0;
-+	__u32 key = 0;
-+	int err;
-+
-+	skel = map_value_align__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "open_and_load"))
-+		return;
-+
-+	err = bpf_map__update_elem(skel->maps.lpm, &lkey, sizeof(lkey),
-+				   &val, sizeof(val), BPF_ANY);
-+	if (!ASSERT_OK(err, "lpm_update"))
-+		goto out;
-+	err = bpf_map__update_elem(skel->maps.hash, &key, sizeof(key),
-+				   &val, sizeof(val), BPF_ANY);
-+	if (!ASSERT_OK(err, "hash_update"))
-+		goto out;
-+	err = bpf_map__update_elem(skel->maps.devmap, &key, sizeof(key),
-+				   &dval, sizeof(dval), BPF_ANY);
-+	if (!ASSERT_OK(err, "devmap_update"))
-+		goto out;
-+
-+	err = bpf_prog_test_run_opts(bpf_program__fd(skel->progs.lookup), &topts);
-+	if (!ASSERT_OK(err, "test_run"))
-+		goto out;
-+
-+	ASSERT_NEQ(skel->bss->lpm_addr, 0, "lpm_lookup");
-+	ASSERT_EQ(skel->bss->lpm_addr & 7, 0, "lpm_value_align");
-+	ASSERT_NEQ(skel->bss->hash_addr, 0, "hash_lookup");
-+	ASSERT_EQ(skel->bss->hash_addr & 7, 0, "hash_value_align");
-+	ASSERT_NEQ(skel->bss->devmap_addr, 0, "devmap_lookup");
-+	ASSERT_EQ(skel->bss->devmap_addr & 7, 0, "devmap_value_align");
-+out:
-+	map_value_align__destroy(skel);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/map_value_align.c b/tools/testing/selftests/bpf/progs/map_value_align.c
-new file mode 100644
-index 000000000..bd0663a13
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/map_value_align.c
-@@ -0,0 +1,48 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+
-+struct lpm_key {
-+	__u32 prefixlen;
-+	__u32 data;
-+};
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_LPM_TRIE);
-+	__uint(map_flags, BPF_F_NO_PREALLOC);
-+	__uint(max_entries, 1);
-+	__type(key, struct lpm_key);
-+	__type(value, __u64);
-+} lpm SEC(".maps");
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_HASH);
-+	__uint(map_flags, BPF_F_NO_PREALLOC);
-+	__uint(max_entries, 1);
-+	__type(key, __u32);
-+	__type(value, __u64);
-+} hash SEC(".maps");
-+
-+struct {
-+	__uint(type, BPF_MAP_TYPE_DEVMAP);
-+	__uint(max_entries, 1);
-+	__type(key, __u32);
-+	__type(value, struct bpf_devmap_val);
-+} devmap SEC(".maps");
-+
-+/* Addresses of the map values, checked by user space */
-+__u64 lpm_addr, hash_addr, devmap_addr;
-+
-+SEC("xdp")
-+int lookup(struct xdp_md *ctx)
-+{
-+	struct lpm_key lkey = { .prefixlen = 32 };
-+	__u32 key = 0;
-+
-+	lpm_addr = (unsigned long)bpf_map_lookup_elem(&lpm, &lkey);
-+	hash_addr = (unsigned long)bpf_map_lookup_elem(&hash, &key);
-+	devmap_addr = (unsigned long)bpf_map_lookup_elem(&devmap, &key);
-+	return XDP_PASS;
-+}
-+
-+char _license[] SEC("license") = "GPL";
+ ip/iproute_lwtunnel.c | 41 ++++++++++++++++++++++-------------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
+
+diff --git a/ip/iproute_lwtunnel.c b/ip/iproute_lwtunnel.c
+index 53004b5f..3a6bf7c0 100644
+--- a/ip/iproute_lwtunnel.c
++++ b/ip/iproute_lwtunnel.c
+@@ -1433,27 +1433,30 @@ static int seg6local_parse_flavors(struct rtattr *rta, size_t len,
+ 		return ret;
+ 
+ 	if (flavors & (1 << SEG6_LOCAL_FLV_OP_NEXT_CSID)) {
+-		NEXT_ARG_FWD();
+-		if (argc > 0 && strcmp(*argv, "lblen") == 0) {
+-			NEXT_ARG();
+-			if (lbl_ok++)
+-				duparg2("lblen", *argv);
+-			if (get_u8(&lbl, *argv, 0))
+-				invarg("\"locator-block length\" value is invalid\n", *argv);
+-			ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCBLOCK_BITS, lbl);
+-			NEXT_ARG_FWD();
+-		}
+-
+-		if (argc > 0 && strcmp(*argv, "nflen") == 0) {
+-			NEXT_ARG();
+-			if (nfl_ok++)
+-				duparg2("nflen", *argv);
+-			if (get_u8(&nfl, *argv, 0))
+-				invarg("\"locator-node function length\" value is invalid\n", *argv);
+-			ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCNODE_FN_BITS, nfl);
++		while (NEXT_ARG_OK()) {
+ 			NEXT_ARG_FWD();
++			if (strcmp(*argv, "lblen") == 0) {
++				NEXT_ARG();
++				if (lbl_ok++)
++					duparg2("lblen", *argv);
++				if (get_u8(&lbl, *argv, 0))
++					invarg("\"locator-block length\" value is invalid\n",
++					       *argv);
++				ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCBLOCK_BITS, lbl);
++			} else if (strcmp(*argv, "nflen") == 0) {
++				NEXT_ARG();
++				if (nfl_ok++)
++					duparg2("nflen", *argv);
++				if (get_u8(&nfl, *argv, 0))
++					invarg("\"locator-node function length\" value is invalid\n",
++					       *argv);
++				ret = rta_addattr8(rta, len,
++						   SEG6_LOCAL_FLV_LCNODE_FN_BITS, nfl);
++			} else {
++				PREV_ARG();
++				break;
++			}
+ 		}
+-		PREV_ARG();
+ 	}
+ 
+ 	rta_nest_end(rta, nest);
 -- 
-2.54.0 (Apple Git-157)
+2.56.0
 
