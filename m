@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795536728;
-	b=pU/5D24JHerLTVK5OqiJ6GNIUQJfS9xaEWA0LuA73GulzhDP48L3r2toN38fpQyYeWjk
-	 C0aviOXF3teDFbA8PaIv0zBpQ0MdTYHgbg0zSz7tVNTBvOvRq5X2V9/BOotq2UrkfuufA
-	 TROH4R+lYND+AUUsmpv2ITcug5WY9aZ2opBd2OoN13n9d5x8RlYa8JijEDW5sDGJ8tXnS
-	 AeDDQmjWeX5gDGBrOCy3NHnVoRzvgQlyPg/h6zQWYcPUKTpSriwqPjRKaa0LNen3wwU5R
-	 Erk94of/mPnOVcuCCyizllkdkuq3hZ48Kqof8uGKdPTiRYdnv0w0/2+HqRy9AKz3kvg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536728;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
-	b=BMwx5TkTukKdztBq/7HabMfmS2dmEW1hvaLmlc8cyAQ+TRmRHVltzAkypaOKF+NZ+V++
-	 9uoGIE0UQ11zBDy9tf71cf+gDuAZrvDyUssqyHx5DNhXLx9DsnkwNcjPb7uJLYR36lJ6d
-	 yKTS2VMiW2L3fTjrCPhx1szuJ4jCF8/bK1kbWUHcVh/Y1e1tBYY4bxvUcCwFk3Sm6OeIc
-	 3awhXomjn43N82dFT0zlIPQxWG+pQpcTmKO/k5SJ3jABclLd98allGapOoPADqEUd3+2P
-	 HO3IUUfYOzIZTuzpMEkBGcrZbjJMdoTXkmfp4qXrkKtRjQTDOVkVdh2n1+rvuKz+ZWA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UXXyVN0x;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
-Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com [209.85.221.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795536783;
+	b=0gQKUrjRpoezEtco5Dz7wa4SK+EAWpL0dw5UhVq1arZ7yHX4xn/EJEkgLSmSA6TMAI/r
+	 gQSii4lB1MFuA2BOfgHleS4SZ9H4Hn5EEqoU0NUJAlPFVlnIVx5HFo5+vmMjxrGdhlqpv
+	 2X+XD7AgaEjAr54F2rZV+5lttifWakqKe9k10YnbTTOhJqEIHB7i2dAXpxtmW6jYEGlIO
+	 dP9doS1OhGqniL/XSJQ0XCt3hdj/aABNCZ+K7YCu7eaJrL9/qNNM89LwUD2zcl30FFptk
+	 WyqO/isWu1Fr+CHdT+QPF/o+3c4LqVsJB3HEekx0OEwgRD4HNDNfZahrbi4N1jQaY5g==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536783;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=6ABt+1NP35P44bJHQ15Q5p7RXKaacPi/rMPqE9NPrfA=;
+	b=VQtapqg8IRJ31ko7hvzYcV/n6riA5t7lNMaTOvFHFcm7AOx9XzG3eYjW+5d2w2Tgtq0m
+	 KWEflPYxTo+8bIJZSMkcyQUGSRBcM+L/0nArSba4TEithkTaGpEu+HyUsnrLygUVMKSck
+	 mZYHRnDmcdhUCebkplt2uRidiyQ01LFgtSYZdAeR2dRe17UKK7ZtZjwtS1s/rAgi7LTtL
+	 Oeg7XwAokhYUxFG/HzmguK/ysczPU9ESTgZOscpKMnzvkRToXpbUnw/iLFo5OHbhRTjMg
+	 8VW+89M6tt/EnNZOtK+uzKZjsa0nnjRK/hbIzlXP8oS2Nng3mk1X9VV4mtAkwCPiQWw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=fNMFu2nt;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=LYdg5Av8;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B7B3606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:12:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B7B3606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3D596606A31E;
+	Tue, 24 Nov 2026 16:13:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3D596606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UXXyVN0x
-Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5eadadf23e5so3408801e0c.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:12:08 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795536727; cv=none;
-        d=google.com; s=arc-20260327;
-        b=ACXK5n/sVrJEtACSFQ5ss2uxmnP+u7CC1NAMMNcYMTLrmHjsQxRIS/xBJoT9UNUlRE
-         LvjLS+KLx2k4IL1h7fp9PJPA38DoVtTuZHb4ZNQyhZ+8YU6at+Zt0utNJzP8TXjIwY5B
-         aobo8E5P9xMgEpFhOo0mntMODvpzuCLqpc8JeExUo9xC/3xA4nT8M7PO5AlPwbnG/yCs
-         xO8QDv4ybamPVidZsPVSta9UJJhyBIHH5EQXnNII9EZ5GOfzns+To58p7kIwhVK+I+cg
-         Q/sbZmVNL/57e3FecLN018/ITLRCjvaJhuQV5fruqbivKTh4VO8VlZmDDdyrfMgWjExy
-         iSTw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
-        fh=hmXngdu0Xr0aCzuWtPuWhRZej2OQgztQTyz38XdXv0I=;
-        b=M0TODQzdfNSYKhRlCBiW77HrQcjmf7WDn+Aa6tQNpsYpxjZDazppxe7Lraml4wlrIj
-         kXMVSStrnocWqeWelRgKe18295QXChrq0PRAgoDmp3Ch021svEqsC32i3AyZa8mp3sIW
-         GaSm6nyTFd+Kgn7gQfJf96Jpwl7VxdphQDWW8zWQnvRzULe7Xu1wP321znF+x+D+OBYV
-         /dnqCkn1WLCLN5y9sC1Zu/rNPxczcOTVtHw7xFIsLU4O4Lte7wUU0tWQxRdom+N/M1ge
-         6Kbay/4KXbVCdxa+fZe2vJvYfPCmRZKLylKFfzd/sLT1sHyPo3zNN4OVc2SwpbDFwgVR
-         OUzQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795536727; x=1796141527; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
-        b=UXXyVN0xytSlIXEW2iQEhjp/MPhYUgJhJJSzv3XuObQgmlaMQ3rEYTC1sXw4cw5ked
-         Ny16b3lqpRpeM3YOEa969DFm1S4vDTJiIyiAXW3/iftuvFpgYDi/Nm2MzxLiAr8mlOXE
-         Y14IS44LbELxb7kENKfwLCG9YwfeEcwXdHOExDfBHb5lMrlBw+/P5JONWF1DsJBRICNy
-         P43uTA19DZOLi1E39omx6Q61Rfc1NnRaxRcpju66qdxBC1pmb0ZbkDYvq4ka1Z34dK6O
-         3nAV24GNFShGvRDATuYFvWcxT/aAFxeSskEWGLfeTb7tHzVAVIppd9ahxZeTPNRxZQDI
-         J+sw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795536727; x=1796141527;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
-        b=e7wQDPTaXVRYvN80Ao/xTsYBtvfS69ePaF3Ij00mBIRR4o8j2U3iZAVL/5kK8Vqg1L
-         J5k6X6jtSZnpxnlF6pnmFbfaHU4Oyp7AQjdyDyUUpdV99EImtv84GuzRGgz+7NwDo2T+
-         wryTrg+OMOZxB20w4rC4twH5mJntD4Gg6mGkKMSsRlWU73sqqbPz4mJ+13upb4xxMlnw
-         nxPuBbmqfX5714fXSYAaNW5w3dhPDVzqCKNgRwXTjS8QNLnIUoUnCAlaRkK4WHWzaP1I
-         2+8SMFjei4EQwWEeFMxnLRli7mOTV4ugRWAJHjd3rwevHTfs2E+d+743zr3luSkfMSpF
-         cF2w==
-X-Gm-Message-State: APuU4Z/zs/iznGUxcCheBZUmG3sNWWoN46tP6oHr+FohMIPHLe84uWmS
-	SSEOimQBhTw6tMIVI6ocJImehLPdaCDEXTr4H91KVNoP3y9agXBf3Qu/7ogpX+8/Aq/ynnl6IiY
-	CV7hlDONfm9d72cDji4k7kxwz/S/4lQg=
-X-Gm-Gg: AZFdTZfS/f1PPajv5JSSGayPU1TsWbwC9/Z0fWUB2g742KHJO1q9JwLhMmTFjfd5kTh
-	7+Szz6bThn6jGKH6n7SBpy2oHz3yMjkYR3maDLpM0o4VOcXfiSqJyN5DfREe0PJDhyCN/0V6fwx
-	hY2Scbop4ukOw+D1CWSh7tsamS91Ji++7sFkkJKRx0wC7g7wPYvIoj5naTn4tJXE5FmP6XoT7KW
-	O5CDPyERhTYNMR0wsaf2p+QpDJ5x4qZD54rPkzfKf8iFoCV66VEVmsSG2zF5bifouUpk4IBpACY
-	OvIREvqThA0l2boUXK3ZnxX9Sb1+oa5sqKHjKNFLa12xxhvL4ET8kHOvvlpwGvKwKkyB/6EkgyV
-	hbbE64VPjB+u3BzznkLiAQqMCpCXsmKipEqQnzTwybiyLMcyBTClpWL/i/uyOrryL3meHZMvAhs
-	ckTh5YBZQ7xfSo11orHlg3nfyQautD6g1u/Q9wJDmJ7AQPF7HaxWKnyc6oxZw=
-X-Received: by 2002:a05:6122:d03:b0:5ec:b8f0:774a with SMTP id
- 71dfb90a1353d-5ee8adf6c85mr8478872e0c.3.1795536727041; Tue, 24 Nov 2026
- 08:12:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=fNMFu2nt;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=LYdg5Av8
+Date: Tue, 24 Nov 2026 17:12:58 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795536781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6ABt+1NP35P44bJHQ15Q5p7RXKaacPi/rMPqE9NPrfA=;
+	b=fNMFu2ntSulqEHYe4h7y6ycct4JNoq2GqIx9OqKd+TwHIkXyOaclXzrzHbhQ1/KSX+PboM
+	Cj5y/vps7iirji8LNFhnM1SN5anzPczdVVSiDLkTaiSTlwZV/39mKyGHrzUkWwa83YiOyW
+	fQR6zwJocsmNpVO2cr/QX8kM3Hc+j7FChur6nLWjPySNulksxAZR5LPBt9SsRuN03WUDn0
+	HW2W5JlwBRIPAbkm1wLmiACFDnS2TfLn/QO7jxsG1W5X+jpKrlLTM1jyUYIn9o8jicgjCM
+	fRhG5culoSAX/H8Wr3Oh5J3jeUmlFhSdgUqaNj49/THudvaiwlIZqHDKkG0tjw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795536781;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6ABt+1NP35P44bJHQ15Q5p7RXKaacPi/rMPqE9NPrfA=;
+	b=LYdg5Av84vm0RSHLB3wLnsa7EGqxCm8Ba2Uxc+EHN1WxpbQlAmkT255y4hbIfnLw6px0PA
+	jTRjqg8K8ChobHBg==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: Jamal Hadi Salim <jhs@mojatatu.com>
+Cc: netdev@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	linux-rt-devel@lists.linux.dev,
+	Victor Nogueira <victor@mojatatu.com>, Po Liu <Po.Liu@nxp.com>,
+	stable@vger.kernel.org, sashiko-bot@kernel.org
+Subject: Re: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries
+ shorter than 10 us
+Message-ID: <20261124161258.vLyrm8Y4@linutronix.de>
+References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
+ <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,163 +84,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <409da01d058fee776791de001ffd222069f06090.1795394936.git.lucien.xin@gmail.com>
- <179548140847.3135.8828188577061386396@kernel.org>
-In-Reply-To: <179548140847.3135.8828188577061386396@kernel.org>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Tue, 24 Nov 2026 11:11:54 -0500
-X-Gm-Features: Aa3M54rqETa2lnqAo-ABIO05wIeeFIjUfvZmi8lF89O6LgYoCp4j7vLsobhJRjY
-Message-ID: <CADvbK_eX-86Wh28QBQomBANJ=UpxhzXJe028r99KN5+VA9Urpw@mail.gmail.com>
-Subject: Re: [PATCH net-next] sctp: diag: set sin6_scope_id for IPv6
- link-local lookup addresses
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net, 
-	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	marcelo.leitner@gmail.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
 
-On Mon, Nov 23, 2026 at 7:50=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] sctp_diag_dump_one() (net/sctp/diag.c:458 and 464) uses the
->   single req->id.idiag_if as the scope id for both laddr and paddr.
-> - [Low] The patch fixes a long-standing bug but has no Fixes: tag and no
->   Reported-by: tag.
->
-> --
->
-> sctp: diag: set sin6_scope_id for IPv6 link-local lookup addresses
->
-> This patch sets sin6_scope_id from req->id.idiag_if on the IPv6 laddr
-> and paddr lookup addresses built in sctp_diag_dump_one(). The goal is to
-> let exact SOCK_DIAG_BY_FAMILY queries match IPv6 link-local associations
-> when the caller supplies the correct interface index.
->
-> > As gomaja noticed, sctp_diag_dump_one() builds IPv6 lookup addresses on=
- the
-> > stack but never sets sin6_scope_id.
->
-> [Severity: Low]
-> Should this patch have Fixes: and Reported-by: tags?
->
-> The laddr and paddr union in sctp_diag_dump_one() has been declared
-> without an initializer since commit 8f840e47f190 ("sctp: add the
-> sctp_diag.c file"). So on the IPv6 path, sin6_scope_id has been
-> uninitialized stack data since that commit.
->
-> For link-local peers, the scope of the transport's ipaddr is non-zero.
-> Both sctp_v6_from_skb() and sctp_v6_from_addr_param() set it from the
-> iif. This means __sctp_v6_cmp_addr() reads the uninitialized value
-> through two paths:
->
->   sctp_hash_cmp()->sctp_cmp_addr_exact()
->   sctp_bind_addr_match()->sctp_inet6_cmp_addr()
->
-> As a result, whether an exact query matches has depended on leftover
-> stack contents, and KMSAN could flag the read.
->
-> Would it make sense to add a Fixes: 8f840e47f190 tag, so stable tooling
-> picks this up, and a Reported-by: tag for gomaja?
->
-> > diff --git a/net/sctp/diag.c b/net/sctp/diag.c
-> > index c2a0de2adf6fd..dc199e3e96b1c 100644
-> > --- a/net/sctp/diag.c
-> > +++ b/net/sctp/diag.c
-> > @@ -455,11 +455,13 @@ static int sctp_diag_dump_one(struct netlink_call=
-back *cb,
-> >               memcpy(&laddr.v6.sin6_addr, req->id.idiag_src,
-> >                      sizeof(laddr.v6.sin6_addr));
-> >               laddr.v6.sin6_family =3D AF_INET6;
-> > +             laddr.v6.sin6_scope_id =3D req->id.idiag_if;
->
-> [Severity: Medium]
-> Can using idiag_if as the scope for laddr make an exact query fail, even
-> when the sockid is copied straight from the kernel's own dump?
->
-> On the dump side, inet_diag_msg_sctpasoc_fill() takes idiag_src and
-> idiag_if from different places:
->
-> net/sctp/diag.c:inet_diag_msg_sctpasoc_fill() {
->     ...
->         laddr =3D list_entry(asoc->base.bind_addr.address_list.next,
->                            struct sctp_sockaddr_entry, list)->a;
->         paddr =3D asoc->peer.primary_path->ipaddr;
->         dst =3D asoc->peer.primary_path->dst;
->     ...
->         r->id.idiag_if =3D dst ? dst->dev->ifindex : 0;
->     ...
-> }
->
-> So idiag_src comes from the first bind entry, which has its own
-> sin6_scope_id. idiag_if comes from the primary path's dst device.
->
-> Here is an example. A multi-homed socket calls bindx() with fe80::a%eth0
-> and then fe80::b%eth1, and its peer is fe80::p%eth1.
-> sctp_inet6_bind_verify() allows these binds without setting
-> sk_bound_dev_if.
->
-> sctp_add_bind_addr() uses list_add_tail_rcu(), and sctp_bind_addr_copy()
-> keeps that order. The dump therefore reports idiag_src=3Dfe80::a,
-> idiag_dst=3Dfe80::p and idiag_if=3Deth1.
->
-> When that sockid is sent back, laddr.sin6_scope_id is set to eth1. The
-> lookup then goes through:
->
-> sctp_transport_lookup_process()
->   sctp_addrs_lookup_transport()
->     sctp_bind_addr_match()
->       sctp_inet6_cmp_addr()
->         __sctp_v6_cmp_addr()
->
-> __sctp_v6_cmp_addr() rejects the fe80::a entry because both scopes are
-> non-zero and differ:
->
->         if ((ipv6_addr_type(&addr1->v6.sin6_addr) & IPV6_ADDR_LINKLOCAL) =
-&&
->             addr1->v6.sin6_scope_id && addr2->v6.sin6_scope_id &&
->             addr1->v6.sin6_scope_id !=3D addr2->v6.sin6_scope_id)
->                 return 0;
->
-> The other bind entry has a different address, so the query returns
-> -ENOENT.
->
-> In this case no non-zero idiag_if works for both laddr and paddr. Only
-> idiag_if =3D=3D 0 works, and only for sockets not bound to a device.
-> Wildcard-bound sockets on hosts with several NICs might hit the same
-> problem, depending on the order of local_addr_list.
->
-> The transport hash lookup is keyed on paddr, and dif already filters on
-> the bound device. Would it be better to set only the scope id on paddr,
-> or to leave the laddr scope at 0 so it acts as a wildcard?
->
-> >
-> >               paddr.v6.sin6_port =3D req->id.idiag_dport;
-> >               memcpy(&paddr.v6.sin6_addr, req->id.idiag_dst,
-> >                      sizeof(paddr.v6.sin6_addr));
-> >               paddr.v6.sin6_family =3D AF_INET6;
-> > +             paddr.v6.sin6_scope_id =3D req->id.idiag_if;
-> >       }
->
-It's better not to set sin6_scope_id for both laddr and paddr, and
-leave req->id.idiag_if to match sk->sk_bound_dev_if as it is.
+On 2026-11-24 09:12:09 [-0500], Jamal Hadi Salim wrote:
+> This is a followup of commit a51c328df310 ("net: qos: introduce a gate
+> control flow action") as reported by Sashiko.
+>=20
+> The issue:
+> fill_gate_entry() only rejects an interval of zero, but that interval is
+> the period gate_timer_func() re-arms the hrtimer at, and a few
+> nanoseconds is below the cost of servicing one expiry: the next is due
+> before the current one finishes, so the action holds a CPU in the timer
+> softirq for as long as it exists.
 
-I will just zero-initialize laddr and paddr only and target it as
-a fix to net.git instead.
+The timer is programmed in the past, fires immediately and hogs the
+CPU.
 
-Thanks.
+> On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a core,
+> 2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to a
+> few percent and it reaches zero by 100 us.
+>=20
+> The Fix:
+> Require at least 10 us per entry.  An act_gate schedule is not tied to a
+> device, so unlike taprio there is no frame time to derive a bound from;
+> the bound has to come from the cost of servicing one expiry, with room
+> for a kernel that services it slower.
 
-pw-bot: cr
+The 10us sound sane. With enough debug (say kasan, lockdep, =E2=80=A6) this
+might become tight again.
+
+=E2=80=A6
+>=20
+> Fixes: a51c328df310 ("net: qos: introduce a gate control flow action")
+> Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
+
+There is no syzbot report for this?
+
+> Closes: https://sashiko.dev/#/patchset/tencent_4ED9536B0375C96183B2244CF7=
+709768C605@qq.com
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
+
+Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+
+> --- a/net/sched/act_gate.c
+> +++ b/net/sched/act_gate.c
+> @@ -25,6 +25,11 @@ static struct tc_action_ops act_gate_ops;
+>   */
+>  #define GATE_ENTRIES_MAX	1024U
+> =20
+> +/* An entry shorter than this lets the next expiry land before the softi=
+rq
+> + * servicing the current one can finish, so the timer stays permanently =
+behind.
+> + */
+
+No strong opinion. I leave this here.
+
+| With a too small interval the next timer will be programmed in the past
+| and will fire immediately.
+
+> +#define GATE_MIN_INTERVAL_NSEC	10000U
+> +
+>  static ktime_t gate_get_time(struct tcf_gate *gact)
+>  {
+>  	ktime_t mono =3D ktime_get();
+
+Sebastian
