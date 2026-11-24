@@ -1,71 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.6
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.101.131.9
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511768;
-	b=JJOzp11Jr+qo6cMu9BQIpqbgFhfgVOS+x/rIAM+0YsX5OX3Sjfu8b2xULFmKmleYCeNO
-	 CdroKR85QMUVCBVu9tx9WXSMM5l9VoZHehuqdQ0X+b9ybl9ADWbpLEvyJ3SkneES7RhEh
-	 /WV46I67NI9GXdeGjgoEKtQ2XVO8g94ICE1dBqaAphXN+eep8hZH5TQnxyDR+2HGhvjzI
-	 SZH6YOXVuXwt9fk1cglzwJqrF3IxV5sC35dUF5K61p3c5ldF74jc5bvoS33PMJJLHOjsv
-	 GEFikkRTlBIEYkBMFjHRt/Tpaipe3WzsuYW7oxy1Zt0620b1z/AOcwNVFPJeoDt3lgA==
+	t=1795511896;
+	b=j388Agkz96KoZO4BEg7xU11zXLKUNBvpWII2hfaHyKVGMCu7FExnMoYOh2B50r/35xxz
+	 QnkWpbPHIn2Zx1TICnZ8xSvClcgGbdRnnx7CLAxFop0p4S/YuxqX40IAS7YFoS8s+2b9B
+	 kciXbRHsRhpbimiukD8+F+WYjjUy3Ms5o1H1BooB7qFp/WnyobeQVWN68D8zw26SHkgFn
+	 T5inkcFx/f30kRDZINYkfW5dYc45yKfTDbklhiKWVwH7v1cSWLsCX5CZl+cHPK1vgLTYE
+	 DNow1L9KzJo5g4wD4A/ZPUknlTRBCjRFIWCywhR+0eOKhIs72/XHcWx7V0sl6W6jdyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511768;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=WaQAgbQn7LYluCU0HRYFUIsBUjFMTbLtny5Gyx7kShE=;
-	b=OKWrcEr3H7KIatUWIKXSmsyAb7g1R2bUA1rrRrSh3mPLc91PxZxuQ/DMCG2nDimaITEI
-	 JscSkNmhMzJHuIxvO88P0x5YTGqH29bA/k66z1Vusqul2meDTjiZrA2ZxGiv6IGeMmoVn
-	 A9eiJ3b7EfhXsaqevmldErZ3qJpOY1Qjc8uQcvHpRtmxQ1GJZG72tvOuKd7rFL/fhuFw0
-	 Q+rFqNjeiXRoRNhd7pjsRiiaETgIuolHvcoqEHx9fh90DzVrEh7sGlxTVfiY2MZbFP6Lo
-	 +8AY97IW+Iiq7NrqnEtMxZwz6j1DutFMmh+0m7M6BvywXOcWAwi8p7RGEkgh/Zuk1nQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511896;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=VIVHFdR/MmlluOtjRkycwLxPeI+HMWe1SECTlY1/a68=;
+	b=QgQ1WQryGr3kNle/biYh4fbG80T/WeBKYUDgn8inr+4Zntj/EISNNruS2MJjdBFydvAp
+	 22UyWtwci/dYCExkt8snWbnaWE4s0+MaQ2Z8MBg88CDou/EV0BBuelOadTf1OoiIr1Fol
+	 z8+oL+eG8MGLKkF/vFwkMEg/wT8KLKrV/1yFW+nx5FMsyATOtUQxnLrNt6yhip31KPAzB
+	 AL7NT31JPnJaPwMLwa4SG1Bkn4BQ8EMQCICnKaY9K7xr0wd7SGXRirEUwUV82AXdlE8QD
+	 Da8Ssw3n0bDFKiexGhBfrjcbwRfTm5oDNvqvi1fm6dtAjPOoop7TZbg+NfoNQwICzlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=126.com;
-	spf=pass smtp.mailfrom=126.com;
-	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=R2WvJpZW;
-	arc=none smtp.remote-ip=117.135.210.6
-Received: from m16.mail.126.com (m16.mail.126.com [117.135.210.6])
+	dmarc=pass header.from=citrix.com;
+	spf=pass smtp.mailfrom=citrix.com;
+	arc=none smtp.remote-ip=160.101.131.9
+Received: from na1pdmzitismtp02.tibco.com (unknown [160.101.131.9])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3D62606A31E;
-	Tue, 24 Nov 2026 09:16:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3D62606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=R2WvJpZW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
-	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=Wa
-	QAgbQn7LYluCU0HRYFUIsBUjFMTbLtny5Gyx7kShE=; b=R2WvJpZW/7F5KdH0N6
-	qF79ePd07ae+TMZtiHUDPPBxAd6WgOFIFD6jIdSlsqoqIL2FPfQjE9PlieJB7k82
-	IQeDoH2bDB4E2+UucOtxBH+ZYVBX3tM+jSU5TdRslxF4xiFBcwHNvB7Z++Ka4vrI
-	Hfea6YX45ZPEJCjy9WKBvz1mA=
-Received: from localhost.localdomain (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wDXzz+hVQVrYLMcDQ--.60726S5;
-	Tue, 24 Nov 2026 17:15:16 +0800 (CST)
-From: Jin Qi <jinvas@126.com>
-To: saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leonro@nvidia.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	jinvas@126.com
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	horms@kernel.org,
-	alexious@zju.edu.cn,
-	Daniel Machon <daniel.machon@microchip.com>
-Subject: [PATCH net v4 1/1] net/mlx5e: fix NULL pointer dereference in arfs_create_groups()
-Date: Tue, 24 Nov 2026 17:14:55 +0800
-Message-Id: <20261124091455.1714-2-jinvas@126.com>
-X-Mailer: git-send-email 2.28.0.windows.1
-In-Reply-To: <20261124091455.1714-1-jinvas@126.com>
-References: <20261124091455.1714-1-jinvas@126.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0196606A688;
+	Tue, 24 Nov 2026 09:18:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0196606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=citrix.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=citrix.com
+Received: from mewpvdipd1070.citrite.net (unknown [10.113.40.46])
+	by na1pdmzitismtp02.tibco.com (Postfix) with ESMTP id 5CC6184D50E7;
+	Tue, 24 Nov 2026 04:16:31 -0500 (EST)
+From: Mark Syms <mark.syms@citrix.com>
+To: Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Jesper Dangaard Brouer <hawk@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	netdev@vger.kernel.org,
+	xen-devel@lists.xenproject.org,
+	bpf@vger.kernel.org,
+	Mark Syms <mark.syms@citrix.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] xen-netfront: unregister the XDP rxq before destroying its page_pool
+Date: Tue, 24 Nov 2026 09:18:06 +0000
+Message-ID: <20261124091806.2736453-1-mark.syms@citrix.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,94 +65,61 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDXzz+hVQVrYLMcDQ--.60726S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxXrW3Ww1Utr1fJFW5XFWrKrg_yoW5uw4rpF
-	45Ga4DKF4kGF1xJa1kZ3y0q34rCa1Fyay5CF1Sy3yayr15Jr4rWFyrury5uFy7CFWrJ3sF
-	yr15Zw1jyFn8JaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0ptQ6p_UUUUU=
-X-CM-SenderInfo: xmlq4tbv6rjloofrz/xtbBpQSaMWsFVaRM4QAA34
 
-arfs_create_groups() creates up to two flow groups in ft->g[], and
-increments ft->num_groups for each group that was created successfully.
-If creating the second group fails, the error path frees ft->g and sets
-it to NULL, but leaves ft->num_groups at 1.
+Each receive queue registers its page_pool as the XDP memory model,
+which takes a second reference on the pool. On disconnect,
+xennet_disconnect_backend() calls page_pool_destroy() but never
+unregisters the rxq, so the pool's user count never reaches zero and
+the pool is never released, together with the receive buffers that
+xennet_release_rx_bufs() has just recycled into it. Every
+suspend/resume or backend reconnect therefore leaks one pool per
+receive queue. The pool never begins shutdown, so the page_pool stall
+warning does not fire and the leak is silent.
 
-The only caller, arfs_create_table(), calls mlx5e_destroy_flow_table() on
-the error path, which calls mlx5e_destroy_groups(). The latter walks
-ft->g[] from ft->num_groups - 1 down to 0 and dereferences ft->g[0].
-Since ft->g was freed and set to NULL, this is a NULL pointer
-dereference, and the kernel oopses.
+Unregister the rxq before destroying the pool, and clear the pointer
+so that a second disconnect without a reconnect is harmless.
 
-The same error path also leaks the flow group that was created
-successfully before the failure, since ft->g is freed without the group
-being destroyed.
+The leak was observed in CI testing: in XenServer suspend/resume
+stress runs, HVM guests lost available memory on every cycle until
+they stalled. Over 100 suspend/resume cycles the loss scaled with the
+number of VIFs, on Debian 12 (6.1.0-50) and Ubuntu 26.04 (7.0.0-30)
+guests alike; the missing unregister was then found by code
+inspection. Reproducing it needs no kernel modification: suspend and
+resume a guest repeatedly and compare MemAvailable.
 
-Freeing ft->g here was added by commit 3c6d5189246f ("net/mlx5e: fix a
-double-free in arfs_create_groups"). Before that commit, the group
-failure path did not touch ft->g at all, so the caller destroyed the
-flow groups that had been created and then freed the array. That
-commit fixed a double free in the allocation failure path by freeing
-ft->g here as well, and in doing so changed the group failure path
-too.
+Tested on Debian 12 HVM guests on XenServer 9 (Xen 4.21, AMD EPYC),
+running two builds of the same 6.1.192 source with and without this
+patch. Over 100 suspend/resume cycles the unpatched kernel lost
+1107 KiB per cycle with one VIF and 2279 KiB with two; the patched
+kernel lost 51 and 42 KiB. On current mainline the patch builds
+without warnings at W=1 but was not boot-tested, and kernel selftests
+were not run.
 
-Rather than also resetting ft->num_groups, leave the free of ft->g to
-the caller: mlx5e_destroy_flow_table() frees ft->g exactly once, and
-also destroys the flow groups that were created. This fixes the NULL
-pointer dereference and the leak, while keeping the double free fixed.
+An AI coding assistant (Claude Code) was used to locate the cause,
+write the fix and draft this changelog.
 
-The bug was hit on a virtual mlx5 device whose firmware answers host
-mailbox commands. The device took longer than the firmware's own
-timeout to answer one CREATE_FLOW_GROUP command, so the firmware
-reported the command as failed even though the device had completed it.
-The host then took the error path and oopsed:
-
-  Oops [#1]
-  epc : mlx5e_destroy_groups+0x38/0x6c
-   ra : mlx5e_destroy_flow_table+0x10/0x30
-  status: 0000000200000120 badaddr: 0000000000000000 cause: 000000000000000d
-
-Note that the host oopses on any error returned by CREATE_FLOW_GROUP,
-no matter where the error comes from, so the trigger is not specific to
-that firmware.
-
-The fix has not been tested: the patched kernel was not booted, only the
-original crash was reproduced.
-
-Fixes: 3c6d5189246f ("net/mlx5e: fix a double-free in arfs_create_groups")
-Signed-off-by: Jin Qi <jinvas@126.com>
-Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
-Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+Fixes: 6c5aa6fc4def ("xen networking: add basic XDP support for xen-netfront")
+Cc: stable@vger.kernel.org
+Signed-off-by: Mark Syms <mark.syms@citrix.com>
 ---
- drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c | 9 ++-------
- 1 file changed, 2 insertions(+), 7 deletions(-)
+ drivers/net/xen-netfront.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-index c5e62d7..6baffc7 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_arfs.c
-@@ -265,10 +265,8 @@ static int arfs_create_groups(struct mlx5e_flow_table *ft,
- 		return -ENOMEM;
+diff --git a/drivers/net/xen-netfront.c b/drivers/net/xen-netfront.c
+index fdcb91042..b82b3bdb2 100644
+--- a/drivers/net/xen-netfront.c
++++ b/drivers/net/xen-netfront.c
+@@ -1860,7 +1860,10 @@ static void xennet_disconnect_backend(struct netfront_info *info)
+ 		queue->tx.sring = NULL;
+ 		queue->rx.sring = NULL;
  
- 	in = kvzalloc(inlen, GFP_KERNEL);
--	if (!in) {
--		err = -ENOMEM;
--		goto err_free_g;
--	}
-+	if (!in)
-+		return -ENOMEM;
- 
- 	mc = MLX5_ADDR_OF(create_flow_group_in, in, match_criteria);
- 	outer_headers_c = MLX5_ADDR_OF(fte_match_param, mc,
-@@ -338,9 +336,6 @@ err_clean_group:
- 	ft->g[ft->num_groups] = NULL;
- err_free_in:
- 	kvfree(in);
--err_free_g:
--	kfree(ft->g);
--	ft->g = NULL;
- 	return err;
++		if (xdp_rxq_info_is_reg(&queue->xdp_rxq))
++			xdp_rxq_info_unreg(&queue->xdp_rxq);
+ 		page_pool_destroy(queue->page_pool);
++		queue->page_pool = NULL;
+ 	}
  }
  
 -- 
-2.28.0.windows.1
+2.56.0
 
