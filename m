@@ -1,81 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541949;
-	b=Fsf1/8ccibqck4BGOelIagbRG+QZcCU50xb5N6+XhvdESDvGBUon0IfMn4sXs5b3rUIq
-	 Ohk5vP0OX3cx7O104VYMBQKf5chlAdnLRVdCvx/KiL/zLQFMKuadMVYixAniSSEg5APEz
-	 gF9Zzo3GnByD2dczfMzqNS0nOwH+OcloMTqwsPCP4XyxXeKM5ru05Y75J739AR50mUJja
-	 Z6gE5ToMUDL5aO43zwzM/K79N49pXK+iLvyeyhpXiwoNmIoyqrMSHIlWwiR8j8f+DsGQE
-	 6/ijc2To2eDLH+XAF1Zpa4lJeW4HVSv02r6eqdbDgb92jydvijhdXxDbtzkB2dBQIcw==
+	t=1795541957;
+	b=JoJLVD5iwC7QoP8f7ZtRhynoZG5YnLNY2j5Cb3i9cJPb++5nWDNYRQuylcHnUvVRtr/V
+	 FPDGHuMDt9sv3GgAlR34teGcR+r/55xou49gqyFRRTp23UO3pq4o2eMGDAdvwTSLv/SHE
+	 f+/3QMBDd32ierl1Fup5KgnCGxC4vcNXkuWq29YvYNWsc/4ZHd3Ze0m2chtoCNi4RbZS6
+	 koAY9K0QrdT7jMn/bRw1LCs7lRrr/YopKvWaFc+lYq0KSS+b4jYihiHNoWZW0pvKhkadr
+	 /QRFxkgthXp23xXmEFCqm1jbBXEY25lSZ25HV7ygadebzZ6ZCrv72nAuQUyDmsUyLrQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541949;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541957;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
-	b=rHEtrhzCWfoZuGJ+wvcfDeVjoaAyXF/Y5LzEu9h1cTRQRXEfU9Eu8j0hUpRPyP7b8KKq
-	 VURApkBBI4lC28VSNFbga9FuyVckEotTOuFl5tJXteVrrBoQnDRqghHwsx1sQBhrnA9tK
-	 inqFQ1cdnP51Wwq8TF3PFfdhKJJQ+IEK97ixGTEHLbi4vCQ+Ft1QQ824Z1a73ehiLdR+O
-	 /OXSh1n1ItR4RqOGgTQaWaiaB+bXnAWZHyw6jTnE3w7KeE0+7ccErZNPZakKL5MJCXwFS
-	 rE/LJ5e0xGf0Ui753Amr3Hg1KIFZeFa5RJMSJHnLe+o43ir5ohNYyfxfonqV49MLsXg==
+	bh=qGcGut7eAi8H93LIdqn+Kee7P6v6fQ6Qx47rDjArsLg=;
+	b=G7mm8JOV+pWIl7Na3A/XVaytCdIpcW8CFHoX0pVlGYjLDzg5PBR4exlfUAMgv+qmWngG
+	 /UgBzNGiYwXvTA4t7EaPMwSKUArAiBbdPztmG7WOPiz85QerG2gXwHQ6PS1SucZBUh/tL
+	 nL417LsGfAd3XQ2/LT/7Vry095cepwlJ0uUDKSVftEA9aXCkuAPNdkodMG6VN7T2JZME7
+	 SqtMmV/IizZdRB7Mge6Z7K6n985htwOKFaZwA9/ns/saQxmkYPu04KXQ4k8N6q8AW/rfL
+	 CNRQSpMYznX7FJJeE87UBHVCiK38pWJrFctTJMDUmRjBMgXri7lH9QhW04cAr1DQmDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=openai.com;
 	spf=pass smtp.mailfrom=openai.com;
-	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=f2gEbtGR;
-	arc=none smtp.remote-ip=209.85.210.48
-Received: from mail-ot1-f48.google.com (mail-ot1-f48.google.com [209.85.210.48])
+	dkim=pass header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JIACiH0J;
+	arc=none smtp.remote-ip=209.85.210.51
+Received: from mail-ot1-f51.google.com (mail-ot1-f51.google.com [209.85.210.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 70BA4606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:39:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 70BA4606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84C05606A335
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:39:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84C05606A335
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=openai.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openai.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=f2gEbtGR
-Received: by mail-ot1-f48.google.com with SMTP id 46e09a7af769-8470d7d430fso2345101a34.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:39:08 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=openai.com header.i=@openai.com header.a=rsa-sha256 header.s=google header.b=JIACiH0J
+Received: by mail-ot1-f51.google.com with SMTP id 46e09a7af769-845788309b4so2319708a34.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:39:17 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openai.com; s=google; t=1795541947; x=1796146747; darn=vger.kernel.org;
+        d=openai.com; s=google; t=1795541956; x=1796146756; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
-        b=f2gEbtGRDi6lbeomSvcpQ0QdCX8uct4QfSd6rDXyt5iasOa3HaTU0kM2N1y9PouN3U
-         wr4j/znsIErMIKVSR++Um1IzoeWvwqgaeBK3tt8KD0bJhpLZiGfMS7V/8t/wDR/WIVui
-         Xr/WcdODDDLYQ7EFrl2dovxre9oWWQOFKQgWg=
+        bh=qGcGut7eAi8H93LIdqn+Kee7P6v6fQ6Qx47rDjArsLg=;
+        b=JIACiH0JjJGqpvdFFrZoiJ/QF5X52W+XVK8P82BwuFPfNuK9pPLPMG4+cb1MfN12JL
+         M30WNxMjIIm4lQDU0t5EfFFpWEsZrLjjma5mkvAlvaQ7+Sx/LqGaNeowge898vv6R74A
+         hMIgKPFjkzqUi+8ZiAIBMd2ugg+3WQng2NbI4=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541947; x=1796146747;
+        d=1e100.net; s=20260707; t=1795541956; x=1796146756;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=jyCwvSiXyapt+odS15hCGmLJu951HzG6HR13+BbHYtg=;
-        b=1xme5CdQq2BvLE51xopTlYBUXWWK1N31MLfcM97+35JU7534/HiTKUvE4BS/k0w1Hi
-         YS+A4RvmbWvQojbkp5Wh6YoleHi6t5m5TG6sLxH4+1qcUTh4A1HSKMbmmzM0TNQKbC9/
-         PElbCkovgxNDP3HJz//cyu3PXRElRniWPLsOimQU5WPIg1EQUG0+CE5kRC0Tp2aeuqXs
-         XY36oIIpE2CDIfNvvrHwojaIlq+j01oxh48/qmVmgRglViMOp6ojKB1zhxM2EvQ1tXxn
-         eiz/XsuGMJFSP4NaroPzf1kwtmiPe+pa+s7YYFaoqdtiHRxFBXOdoz00f9LFYA9gNsJm
-         xvtA==
-X-Gm-Message-State: APuU4Z+btGTp3dCNMlxSVk8L+bkZk/wg7159UkiTkOl9SidO8+H/hLFW
-	x3eW/O0dXYrjCJxpwDxWPFjxGaXpEP/6CTPVhl9HPjmJRpBky5y9io4VVrY6a8aWCXZlRxK7mLe
-	does2jTY=
-X-Gm-Gg: AZFdTZcthlvZl4vsEt4zrViWf9Jig5KPhXH1MxFXS02aHX5As9jEnRHAWRJFg5U57jW
-	vdLGLhEEdaG1DW/30ha5QQwdT+3w1PgZ+IGHzxzZTZWwRhn1TQ+HvptSbwRIPAghpQG44t1u3nX
-	oxaWcyhmqrvkvtMYz0xzoVhZGWcNazeC/B2IAQsqrqPNZPeQY2ezvrvIg6N3/W9UUuW2MmxdNdh
-	KNh0bnXTiWztECUw4hqvq5coj0HSqZqa68ZsumfecDBrt720je8TlIhSqJPqWiQfLUw03fkm6uz
-	xtPkW8q36oW/5bkI7dYRF0cFUN1X3Pyc/oHbTHieHVNaf2cnp8dViv+0n0M8NjzUqBhpSujmVqD
-	w1dc5KrOOtB+hmiCz3kFpo2qwf+v4v4MP1NhgR2uxKmaWQ2SLkbLd3m468SP+tW28CV3DZxwm3X
-	IqmSzSLyYfpDZq/OLQXQ7Rzv1X0ytEWp9rIhXdmWaabLplYsPoHaqNOU0+82yoOFftQYidJnzpO
-	UoqJfmik7d50uHnHmA6mF3kWjIHDuqbULd0hJ9MqAcj2SQ2tRahNOn/DkUPAGVUaNDTJqwqZSUQ
-	63LBA2CUk4LJr1wZBrduPNY5bjPosdd/MYpneZLoa8qEZjjfnqRlLAYiMLGM05wyH2f6VCOhbHd
-	mudi+LX3l43UnOboFgUKuHJIO6DGh/uE/vhay+Vxx7WEOgZwXy7k3
-X-Received: by 2002:a05:6830:4487:b0:861:5b84:4fab with SMTP id 46e09a7af769-863159af3b6mr15626513a34.27.1795541947281;
-        Tue, 24 Nov 2026 09:39:07 -0800 (PST)
+        bh=qGcGut7eAi8H93LIdqn+Kee7P6v6fQ6Qx47rDjArsLg=;
+        b=AsWg1UjllYOJUPP0DyeLhMguKqTXSmgxe7Gv2BKopWRQhumfTfADy1rd6uUZTOOe84
+         we1fgEMECtExMiML+cy5jGD4RivdWDn55LQ/7eO7KmUb+kPUS1T9M6+CXYItf2OLNHMq
+         U5kXpy+9yr8Z+cKt0CG4t3E2q6VISldnpL9H92Dx33ySwQesBe3YmSENdBaaZhdRplyW
+         j4+lnrfgcPkR88p5ANk9M0n1JQEFHwvqtSTn+9oNivM/o1c9rnaGBMQcYWe/ezn7P6pE
+         8GpqGUQTHXe2hsFjoUK6eq4jxITL37MzgkATGiaNI2uJI3KhnBf/uyOvaihhHLcZuTjO
+         KG8g==
+X-Gm-Message-State: APuU4Z/8Mo+eZUa4sFRSfQz0Tc5PHZpFkZsBaWdxOwfr60vLCcpNIoJK
+	3lqF3fhRpS8yLHSeSBvxxebA4lEpm1Vw/zYEwbd5TlBYXcGquOaQOYm27QVTosHZOc7Li3adYXz
+	hXKesA+g=
+X-Gm-Gg: AZFdTZferWcHS7sHVEVjh1tTJgVM9MpzaVVB12ai4r8vHYVlz542b8n6FOKkNxkMFn1
+	IqDalGbicjKigmJ8of+nsYeEaLUbtMilWd9seDc9AOzo+s3H+AIY8P4VHN/tAyZT0T0CZsXedVo
+	LvCXziozcOIfCwv1hJHcG6/XXNJeioLpAk4CxMR+WWIN60o2iMPDnMRFWn9FfSEmdbxEv11Nhww
+	xdn1W+eH5/YzCl3JK+xWZkUOsQObIWwCgiNmHcAZ1qeVO0HwQtiaTRnAu6+SSPD5sb6U0N2PelK
+	/CH8Oz0zv4zFmfx2B9xPoqR4cfXlTIcOHAHvmlpteRPMQov0b2EzttuRnB+e90Fzy1l8beKZPxs
+	ceFB9vTmmYFbAlG6JxbpOxHbBJrSbk3KdWDLVR5ClznurvAD3gqWzXOsZCbohCAMZRIdTpZ5Ojk
+	A2FD4W6B/TD7m2iQCY+srQQG+zFXilrw7Vu9mYNnaQGkp1EPYDyobIbDlycBQcZ22D99T1TfwPq
+	M8vJdwtIeTjkqhtW99szn01ByiLdQh6hRZOAMhsi0IsNe9AcRdcBbxKQMuERZUakjfAYFh0gAxf
+	RBb44AS+bVCrcONa8eHyVUEo3xEmsoIR2OjiEzWsnM5PkSomEl9sDK/qmmr33aW8VY3YNNHJGxF
+	YV29k1V0DOZ2RDiwX1HhkOsWaSvZMGpA=
+X-Received: by 2002:a05:6830:25d1:b0:845:8d86:9f7a with SMTP id 46e09a7af769-863158f0dcemr15925423a34.10.1795541956463;
+        Tue, 24 Nov 2026 09:39:16 -0800 (PST)
 Received: from com-75606.corp.openai.org ([199.47.143.1])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168bdaf7sm11667094a34.5.2026.11.24.09.39.06
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-863168bdaf7sm11667094a34.5.2026.11.24.09.39.15
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 09:39:07 -0800 (PST)
+        Tue, 24 Nov 2026 09:39:16 -0800 (PST)
 From: Kyle Zeng <kylebot@openai.com>
 To: netdev@vger.kernel.org
 Cc: jhs@mojatatu.com,
@@ -85,13 +85,14 @@ Cc: jhs@mojatatu.com,
 	horms@kernel.org,
 	pabeni@redhat.com,
 	Kyle Zeng <kylebot@openai.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3 0/2] net/sched: serialize qdisc timers and defer SFQ rehashing
-Date: Tue, 24 Nov 2026 09:38:12 -0800
-Message-ID: <cover.1795540952.git.kylebot@openai.com>
+	linux-kernel@vger.kernel.org,
+	syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
+Subject: [PATCH net v3 1/2] net/sched: serialize autonomous timers with qdisc resets
+Date: Tue, 24 Nov 2026 09:38:13 -0800
+Message-ID: <c9a2eca12cf6ef23f4c102ce6d72ddd7ce791227.1795540952.git.kylebot@openai.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <20261110044450.51921-1-kylebot@openai.com>
-References: <20261110044450.51921-1-kylebot@openai.com>
+In-Reply-To: <cover.1795540952.git.kylebot@openai.com>
+References: <20261110044450.51921-1-kylebot@openai.com> <cover.1795540952.git.kylebot@openai.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,45 +104,233 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series retains the v2 timer/reset fix and adds one focused SFQ
-change for the detached-timer accounting issue identified in review.
+Autonomous qdisc timers can race with queue resets during graft and
+destruction. A timer can read qdisc_sleeping before a graft, acquire
+that root's lock after the graft, and modify queues protected by the
+replacement root's lock. __qdisc_destroy() also resets detached qdiscs
+without the tree lock before their destroy callbacks stop the timers.
+In SFQ, either race can corrupt skb lists and flow-slot state.
 
-Patch 1 has the same source changes as v2. Patch 2 moves periodic SFQ
-hash perturbation to enqueue, where the key change and rehash run under
-the packet-path lock. This prevents the autonomous timer from walking
-the live device's ancestor handles after its own hierarchy is detached.
+Add a helper that acquires the sleeping-root lock under RCU and retries
+if the root changed. Use it in the SFQ, RED, PIE, FQ-PIE and DualPI2
+timers. Route default-qdisc attachment and scheduler shutdown through
+dev_graft_qdisc(), so all live root replacements hold the previous
+root's lock. For a fixed queue association, a validated root then
+remains current until the timer unlocks.
 
-The separate HTB queue-association and offloaded-leaf purge findings
-remain follow-up work. This revision does not claim to fix those paths.
+Hold the tree lock across the final qdisc reset and release it before
+calling the destroy callback so synchronous timer cancellation can
+complete. Detached TAPRIO children can have different sleeping roots,
+so defer their final resets to taprio_destroy() and lock each subtree
+separately. Keep those resets before hardware offload is disabled.
 
-The original PoC caused SFQ memory corruption on an unchanged kernel.
-A separate unchanged-kernel QEMU run reproduced the detached-SFQ warning
-in qdisc_tree_reduce_backlog().
+The issue was found by an LLM.
 
-Changes in v3:
-- Retain v2 as patch 1, with its code unchanged.
-- Add the SFQ-only detached-timer fix as patch 2.
-- Preserve the first perturbation interval and use deferred skb freeing.
+Fixes: 225d9b89c937 ("sch_sfq: rehash queues in perturb timer")
+Fixes: 47e8dbb6e763 ("net/sched: do not reset queues in graft operations")
+Reported-by: syzbot+00f5a4ef4bcb8f4d19f1@syzkaller.appspotmail.com
+Link: https://syzkaller.appspot.com/bug?extid=00f5a4ef4bcb8f4d19f1
+Signed-off-by: Kyle Zeng <kylebot@openai.com>
+---
+I have a reproducer for this issue and can share it via DM.
 
-v2: https://lore.kernel.org/netdev/20261110044450.51921-1-kylebot@openai.com/
-Review: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261110044450.51921-1-kylebot%40openai.com
-
-Kyle Zeng (2):
-  net/sched: serialize autonomous timers with qdisc resets
-  net/sched: sfq: perturb the hash from the enqueue path
-
- include/net/sch_generic.h | 20 ++++++++++++++++
+ include/net/sch_generic.h | 20 ++++++++++++++++++++
  net/sched/sch_dualpi2.c   |  3 +--
  net/sched/sch_fq_pie.c    |  3 +--
- net/sched/sch_generic.c   | 11 +++++----
+ net/sched/sch_generic.c   | 11 +++++++----
  net/sched/sch_pie.c       |  3 +--
  net/sched/sch_red.c       |  3 +--
- net/sched/sch_sfq.c       | 50 ++++++++++++---------------------------
- net/sched/sch_taprio.c    | 16 +++++++++++++
- 8 files changed, 62 insertions(+), 47 deletions(-)
+ net/sched/sch_sfq.c       |  3 +--
+ net/sched/sch_taprio.c    | 16 ++++++++++++++++
+ 8 files changed, 48 insertions(+), 14 deletions(-)
 
-
-base-commit: 5f22fb20497f4983094131f00a734362300d22d2
+diff --git a/include/net/sch_generic.h b/include/net/sch_generic.h
+index 1acaadb3e2cf..e234256e6ae8 100644
+--- a/include/net/sch_generic.h
++++ b/include/net/sch_generic.h
+@@ -608,6 +608,26 @@ static inline spinlock_t *qdisc_root_sleeping_lock(const struct Qdisc *qdisc)
+ 	return qdisc_lock(root);
+ }
+ 
++/* The caller must hold rcu_read_lock().  dev_graft_qdisc() changes the
++ * sleeping root under the old root's lock, so retry if it changed while
++ * we were waiting for that lock.
++ */
++static inline spinlock_t *qdisc_lock_root_sleeping(const struct Qdisc *qdisc)
++{
++	struct Qdisc *root;
++	/* Lock of the sleeping root observed under RCU. */
++	spinlock_t *lock;
++
++	for (;;) {
++		root = qdisc_root_sleeping(qdisc);
++		lock = qdisc_lock(root);
++		spin_lock(lock);
++		if (root == qdisc_root_sleeping(qdisc))
++			return lock;
++		spin_unlock(lock);
++	}
++}
++
+ static inline struct net_device *qdisc_dev(const struct Qdisc *qdisc)
+ {
+ 	return qdisc->dev_queue->dev;
+diff --git a/net/sched/sch_dualpi2.c b/net/sched/sch_dualpi2.c
+index 4947def7c49e..8a74ceaab29d 100644
+--- a/net/sched/sch_dualpi2.c
++++ b/net/sched/sch_dualpi2.c
+@@ -750,8 +750,7 @@ static enum hrtimer_restart dualpi2_timer(struct hrtimer *timer)
+ 	spinlock_t *root_lock; /* to lock qdisc for probability calculations */
+ 
+ 	rcu_read_lock();
+-	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
+-	spin_lock(root_lock);
++	root_lock = qdisc_lock_root_sleeping(sch);
+ 
+ 	WRITE_ONCE(q->pi2_prob, calculate_probability(sch));
+ 	hrtimer_set_expires(&q->pi2_timer, next_pi2_timeout(q));
+diff --git a/net/sched/sch_fq_pie.c b/net/sched/sch_fq_pie.c
+index 5982847df8f8..a1b5126db640 100644
+--- a/net/sched/sch_fq_pie.c
++++ b/net/sched/sch_fq_pie.c
+@@ -394,8 +394,7 @@ static void fq_pie_timer(struct timer_list *t)
+ 	int max_cnt, i;
+ 
+ 	rcu_read_lock();
+-	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
+-	spin_lock(root_lock);
++	root_lock = qdisc_lock_root_sleeping(sch);
+ 
+ 	/* Limit this expensive loop to 2048 flows per round. */
+ 	max_cnt = min_t(int, q->flows_cnt - q->flows_cursor, 2048);
+diff --git a/net/sched/sch_generic.c b/net/sched/sch_generic.c
+index d2e0d20f3ba1..fbbc07700160 100644
+--- a/net/sched/sch_generic.c
++++ b/net/sched/sch_generic.c
+@@ -1106,7 +1106,7 @@ struct Qdisc *qdisc_create_dflt(struct netdev_queue *dev_queue,
+ }
+ EXPORT_SYMBOL(qdisc_create_dflt);
+ 
+-/* Under qdisc_lock(qdisc) and BH! */
++/* Under sch_tree_lock(qdisc) and BH! */
+ 
+ void qdisc_reset(struct Qdisc *qdisc)
+ {
+@@ -1154,8 +1154,10 @@ static void __qdisc_destroy(struct Qdisc *qdisc)
+ #endif
+ 	gen_kill_estimator(&qdisc->rate_est);
+ 
++	/* Autonomous timers can still run after the qdisc was detached. */
++	sch_tree_lock(qdisc);
+ 	qdisc_reset(qdisc);
+-
++	sch_tree_unlock(qdisc);
+ 
+ 	if (ops->destroy)
+ 		ops->destroy(qdisc);
+@@ -1213,6 +1215,7 @@ struct Qdisc *dev_graft_qdisc(struct netdev_queue *dev_queue,
+ 	struct Qdisc *oqdisc = rtnl_dereference(dev_queue->qdisc_sleeping);
+ 	spinlock_t *root_lock;
+ 
++	/* Pairs with qdisc_lock_root_sleeping() in asynchronous callbacks. */
+ 	root_lock = qdisc_lock(oqdisc);
+ 	spin_lock_bh(root_lock);
+ 
+@@ -1236,8 +1239,8 @@ static void shutdown_scheduler_queue(struct net_device *dev,
+ 	struct Qdisc *qdisc_default = _qdisc_default;
+ 
+ 	if (qdisc) {
++		qdisc = dev_graft_qdisc(dev_queue, qdisc_default);
+ 		rcu_assign_pointer(dev_queue->qdisc, qdisc_default);
+-		rcu_assign_pointer(dev_queue->qdisc_sleeping, qdisc_default);
+ 
+ 		qdisc_put(qdisc);
+ 	}
+@@ -1261,7 +1264,7 @@ static void attach_one_default_qdisc(struct net_device *dev,
+ 
+ 	if (!netif_is_multiqueue(dev))
+ 		qdisc->flags |= TCQ_F_ONETXQUEUE | TCQ_F_NOPARENT;
+-	rcu_assign_pointer(dev_queue->qdisc_sleeping, qdisc);
++	dev_graft_qdisc(dev_queue, qdisc);
+ }
+ 
+ static void attach_default_qdiscs(struct net_device *dev)
+diff --git a/net/sched/sch_pie.c b/net/sched/sch_pie.c
+index 3b7863ffd284..9367065db4b1 100644
+--- a/net/sched/sch_pie.c
++++ b/net/sched/sch_pie.c
+@@ -429,8 +429,7 @@ static void pie_timer(struct timer_list *t)
+ 	spinlock_t *root_lock;
+ 
+ 	rcu_read_lock();
+-	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
+-	spin_lock(root_lock);
++	root_lock = qdisc_lock_root_sleeping(sch);
+ 	pie_calculate_probability(&q->params, &q->vars, sch->qstats.backlog);
+ 
+ 	/* reset the timer to fire after 'tupdate'. tupdate is in jiffies. */
+diff --git a/net/sched/sch_red.c b/net/sched/sch_red.c
+index d7598214270b..a7601b879092 100644
+--- a/net/sched/sch_red.c
++++ b/net/sched/sch_red.c
+@@ -333,8 +333,7 @@ static inline void red_adaptative_timer(struct timer_list *t)
+ 	spinlock_t *root_lock;
+ 
+ 	rcu_read_lock();
+-	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
+-	spin_lock(root_lock);
++	root_lock = qdisc_lock_root_sleeping(sch);
+ 	red_adaptative_algo(&q->parms, &q->vars);
+ 	mod_timer(&q->adapt_timer, jiffies + HZ/2);
+ 	spin_unlock(root_lock);
+diff --git a/net/sched/sch_sfq.c b/net/sched/sch_sfq.c
+index 8bbcfc9e85d9..2bd3fc65053a 100644
+--- a/net/sched/sch_sfq.c
++++ b/net/sched/sch_sfq.c
+@@ -611,8 +611,7 @@ static void sfq_perturbation(struct timer_list *t)
+ 
+ 	get_random_bytes(&nkey, sizeof(nkey));
+ 	rcu_read_lock();
+-	root_lock = qdisc_lock(qdisc_root_sleeping(sch));
+-	spin_lock(root_lock);
++	root_lock = qdisc_lock_root_sleeping(sch);
+ 	q->perturbation = nkey;
+ 	if (!q->filter_list && q->tail)
+ 		sfq_rehash(sch);
+diff --git a/net/sched/sch_taprio.c b/net/sched/sch_taprio.c
+index 4f69ef3d847a..b7489cf4bba9 100644
+--- a/net/sched/sch_taprio.c
++++ b/net/sched/sch_taprio.c
+@@ -2041,6 +2041,10 @@ static void taprio_reset(struct Qdisc *sch)
+ 
+ 	hrtimer_cancel(&q->advance_timer);
+ 
++	/* Destroy resets each detached subtree under its own root lock. */
++	if (!refcount_read(&sch->refcnt))
++		return;
++
+ 	if (q->qdiscs) {
+ 		for (i = 0; i < dev->num_tx_queues; i++)
+ 			if (q->qdiscs[i])
+@@ -2063,6 +2067,18 @@ static void taprio_destroy(struct Qdisc *sch)
+ 	hrtimer_cancel(&q->advance_timer);
+ 	qdisc_synchronize(sch);
+ 
++	if (q->qdiscs) {
++		for (i = 0; i < dev->num_tx_queues; i++) {
++			struct Qdisc *child = q->qdiscs[i];
++
++			if (!child)
++				continue;
++			sch_tree_lock(child);
++			qdisc_reset(child);
++			sch_tree_unlock(child);
++		}
++	}
++
+ 	taprio_disable_offload(dev, q, NULL);
+ 
+ 	if (q->qdiscs) {
 -- 
 2.55.0.openai.911.g06873a30d2f3
 
