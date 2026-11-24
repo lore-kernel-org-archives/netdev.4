@@ -1,89 +1,87 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795510690;
-	b=FmdGUuWUXlgiZdKRO1jhehjHLCk5vk2EokK/kA/Pt9OuX7/x6tAPkVzHhANinq3isfiS
-	 E4Ag7hCJ6f/vSzi8B5cTpoZnAjH7jcXFbbwvDEHUnyemWYd+Izv9onmTaDzTYQJ0ofrc0
-	 +MWAQHbTng3gfphxyF4m9fUCJr0F57m1GtIVVZFF4YOoPmuTfT+eqAAiJ5gJDXmDU2jz9
-	 Fk7v/0Qvvzh82JDSCWORASL9SBqJQOEROSwgdUvM+09xa8p3C0hRRVzn3sHkgK8VgftVT
-	 lkRU710vU58z9Dr0gRzP//P5mIeb+dk9Bsm8TwLgxGQdsk5kHz/2WcpNM3+ASNgp8cA==
+	t=1795510693;
+	b=K/NqiNkrqtr5eig4YCK/+SfUWR8vVmSml4fpJTwACUa+BiQOtSnBOEoUV+dnxkPegGFe
+	 L0z9wndScX562CpIOEzd4HXKe8hiyhtPkLmUkjNZFSG+2PD8hC7G61bdeNwz1PoZYox02
+	 3MWb7ZGApyv8chWQlN23WVRliOtuY7kj+00axzoJn+7MZwrE6HrKf3m4dGe/Qv1QKWxS8
+	 XSKd8PYIaJk/ueyJhP5i4Hy+nSLrz7qzkZ3ZDvED++omGJAgauKrVjS0LzPL8ykrdAmPV
+	 xUxGoRd+DBKz1Z0Q4iu6+xp3nhF3V5muwe31P9+yJo97gP+p0lRXmUARKwqjW7y5v4g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510690;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510693;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=eHTCv6HQRiUw26+HCYaGvaVvXgKEk1d9i0EJSX4z98k=;
-	b=3vjDpVjuyxOchvgWwZKV9ymOiACg7KjxSxAXNXoo9BLUIahsvblHDrMERGm1uf+0KQg0
-	 T0PQE12PDieaGwjgdJNmI0e4vVK5X8jwasW7TBLNGPWuxydngy13PBkgWmnodrJVuEbr/
-	 +qwYEfdI4mhO9zbu4Ne1UkIQDB1YhcOB3ZhQm1DmHM2/EAyCK8xWRege7+wCV0E0hck+g
-	 SqCRueWeNF4uzzXEidrVgf0jR23q8ylnsayRxT1ywBTlXdeq9fXd+kAqcLxRkgrIZ+vB8
-	 RKrLJsDBnDerzrJUfj4IojuDxuptLIHab/VkI0BdA7eEIsr95yL3kCSw8Pa/QGINcBg==
+	bh=2ZCKJUkcPCKNP1mFV2hmd1YZNhy6cxlOHxjxjiaagQ4=;
+	b=bT7ZRmS+X2G0bwhA/jzAYIJS/ASfJ7+VG9dNtV1TNWZ8cT0ufe0UE1N3KEdnFwUvayMx
+	 RVHVbnG1S/Ww9tjod0xwsm1j4a/kiFT3MoHkn6GQC6HIPYtPQ2irhu6sRSNi0MfyU5Hrt
+	 8IQSvF3tZ5HjWxoBZWWb9kF9ZQG2k2XKQoeD2/UCIhENsmeoKH4m/Mtj+4tQNEc+TUBY8
+	 E3Phsg8k21GKhJTu9QvKvCj7gz6c54x6ygeEQ06OjgDzrTnjPs7hZYE8teSjqHZ/WU0M7
+	 BY23dEk7SDlkB5ZGqch/7s4dr859uHVyiIHAUUkBgbpsi0zOqeQ4HKef1D3MzwWrnRQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=G31urPFj;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="P5/lM8AX";
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8211606A687;
-	Tue, 24 Nov 2026 08:58:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8211606A687
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71944606A33C;
+	Tue, 24 Nov 2026 08:58:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71944606A33C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=G31urPFj
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=P5/lM8AX
 Received: from pengutronix.de (p20030102af17cb00d2e697ee776c6466.dip0.t-ipconnect.de [IPv6:2003:102:af17:cb00:d2e6:97ee:776c:6466])
 	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D7D7E205A26;
-	Tue, 24 Nov 2026 09:58:06 +0100 (CET)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id BDC01205A2E;
+	Tue, 24 Nov 2026 09:58:07 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795510687;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=eHTCv6HQRiUw26+HCYaGvaVvXgKEk1d9i0EJSX4z98k=;
-	b=G31urPFjXMW4DDGkPtyN3bKJ1b6S5w7WF1+j2KvrQ2pLVyC57gT++4TzPl8D3OdiB2wx8X
-	C5UvKLkPzS1GqG1LChpEFaUPuRslHWk9vXjRiIi6lF9qZ9p0mPBPVIks0WpiFUYEjI6PSX
-	ocbZRCPjyV+QfEfCKIHeLrXsrBqDSWIz6clXKZsWVt3lXO894VzrtM4SKqrexMAlGMSbgz
-	vlzdOi0gvnzvHFTRwR2LHwn+k4AJL+BvbeihgyXf9edVTBQrNC6PZtZYBkLHuVfe4nlDPC
-	sSBxA3FyhzuP8FxxdHsu29qqFv63a8jX0H4IUtDNIzuyzwPkRHI+KJmyr/ZXKQ==
+	bh=2ZCKJUkcPCKNP1mFV2hmd1YZNhy6cxlOHxjxjiaagQ4=;
+	b=P5/lM8AXmErJiHzaMxssXebEUOoE5qtfCqOKshycNjuHokQLJTgQylEmjEJAeHPHTzS06b
+	X1BRpNMaL4xmnfnXNHYtUmL1MaBT9l3xs/QRAqqSdrlnmxyoUYbB+qXA46mqU8jhbk/YC7
+	/aLA8XySYXmzU7OzTgvJsPgrXRIc0FIS/Dp2CLWt7rAKji4njLGdIa5simyXc0srOIP3A6
+	MTNS0dwlwxQctgRLb3MSYfaSj2qPT2L4nSuXapv49jZjK93q/got6DaI+xkSnKJfx3DPax
+	sX5UtTgtv2OACo6l315GSMfsCatcK91Ahk47Hg5O8Pfzbk16uoVNxe0zYqiSHg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795510687;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=eHTCv6HQRiUw26+HCYaGvaVvXgKEk1d9i0EJSX4z98k=;
-	b=M1wbOrVY0KYXKHY8vSZa6XMJasMKBCogPgdmxfRqyhn4d1ulthRxsNNCB2zPqcrAas9kaH
-	lcA1dEjBLwTwsT+dkNPNDBaX0Uoe10swHOzRoaclyfrGLci+4v9qHVuWkG5G85gKcjVa5X
-	Kp+hS88+UVZke0kG/IfraXZNpYhJbzt0YK4pNBGYzNblFjvlLGuLVMtYM7qSOMvrgUH9gq
-	fC+lvdsJyRFdK+Qk0DSO6G1dWDkge5nJK88706AEOwL9h5TNlrGddAedjlOqMbuJCm/NvG
-	COS8OLf2fkcq3yvw4reROb2KBHdJJM+BVvfN9Rkky/zHx8MBYk7DoWntbmpuTw==
+	bh=2ZCKJUkcPCKNP1mFV2hmd1YZNhy6cxlOHxjxjiaagQ4=;
+	b=DInkK4lB+kKss7GhncpLtdDNQWXvbHyrjbOdZu/SArIrf1rI7QcQMpxrslxwM0RNVOTIg2
+	bwe8lCxi5WFJGysUzuNVci7GDRHaV8VzsBC3rBCskFCfbu/cRov/z/XQgoaaZCWA/UeoYZ
+	9tCWopwcp7CvnTDZ06mz6brVOzvmm2sWcFTkLdXgHVVEkOb17ptNGeH9fdDGYSMYF4bv9j
+	2YrleWEYSylBGs753bzxWEBEHy2N1PSOw4XdMjKcIQ2QMLQRncqa3LeeCpalsQzFSQNU+Y
+	Z4D6cqYocTjUKzDYT6/A2iKl1d03VRG6idd7gilmP3D6VTGx+Wa+R68InSfdcw==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510687; a=rsa-sha256;
 	cv=none;
-	b=RAAbULMa3e6K1O2Gi0FwhBnnneJwqk7lNyNwIJzboTS9qy4nqC3u6Rad8GqqLcZTgt6f/6
-	tnqpY0lMCrR9vuo1T7PlsITrgtissGmnFN0yFKPa1hcQHSmeT6UgeeUi0VOpdw5ucLHqH3
-	L0D/UjqkzaislfvOgRRR0uc0YCOm15OalhUGVpgZDTQHb+2gqCd0oA7IVQE4sxRHedV0oj
-	y4CVnkoCKsOsm2ahsQ8kCEtq85ytQC0moRZdOcHeGdlxrpNlLvvy/CjAGmvE5LZodf3NVY
-	SEYsZI2dlHkvjsZ+GWT43WwY8hksmBszMDoFsE6x5DTAgIUdYLJmF72YeHjkEQ==
+	b=JM7E3VrCbkNfEl8BQidfuOAtAO69k6iys7EV32Pa34siMRlViPc9X1un1kbPbAFYNDHleo
+	OUdHrjTsAbrHMMBArI1UyRzibpC7K/nO9Q/yFr8pH4E92K20XeCva8bBzmnQg/JM24MOoJ
+	/oK0fY/C8IV95/qXJc/oYCkvNCrCmHE18rqVHVR/IcXiwGyCGwR/qYJ8HOsmQ5xmpQZGr7
+	t8HfmdqGeU+4qikiFX3iuJgeb0qmOV1RbbNL6RA8Xh67RCdmLYm2LvgsyZ5UCY/GYW6k7R
+	16zQkL2mindSQqBtGH6S79JLVp7ApcdadQQPxqrX3dnzYNB0AqNi7parn6HeBQ==
 From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
 	kuba@kernel.org,
 	linux-can@vger.kernel.org,
 	kernel@pengutronix.de,
-	Zhu Ling <zhuling0805@qq.com>,
-	stable@vger.kernel.org,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
-	Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH net 08/12] can: netlink: fix static FD-NON-ISO mode validation
-Date: Tue, 24 Nov 2026 09:51:35 +0100
-Message-ID: <20261124085757.1093632-9-mkl@pengutronix.de>
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	stable@vger.kernel.org
+Subject: [PATCH net 11/12] can: gs_usb: gs_can_start_xmit(): don't leak uninitialized memory over USB
+Date: Tue, 24 Nov 2026 09:51:38 +0100
+Message-ID: <20261124085757.1093632-12-mkl@pengutronix.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261124085757.1093632-1-mkl@pengutronix.de>
 References: <20261124085757.1093632-1-mkl@pengutronix.de>
@@ -98,81 +96,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Zhu Ling <zhuling0805@qq.com>
+The driver allocates the transmission buffer using kmalloc(), which means
+the memory remains uninitialized. Then various headers are filled and, but
+only the actual CAN frame data payload (of length cfd->len or cf->len) is
+copied into the buffer, leaving the remaining buffer uninitialized.
 
-Controllers with a static CAN_CTRLMODE_FD_NON_ISO mode (M_CAN v3.0.x and
-v3.1.x, PEAK pcan_usb_fd with firmware < 2.x) do not require the
-'fd-non-iso' option to be provided when CAN FD is not switched on by the
-IFLA_CAN_CTRLMODE request.
+Fix this information leak, allocate the buffer with kzalloc().
 
-Since commit 6742ca18cb41 ("can: netlink: add userland error messages")
-ctrlstatic_missing is calculated before this exception is applied to
-ctrlstatic, which is not evaluated afterwards. As a result every
-IFLA_CAN_CTRLMODE request on such controllers that does not contain
-'fd-non-iso on' is rejected with -EOPNOTSUPP and "missing required
-FD-NON-ISO static control mode", e.g. 'fd off', 'loopback on' or
-'one-shot on', regardless of the current CAN FD state.
-
-Apply the exception to ctrlstatic_missing instead.
-
-The exception must only relax the requirement to *provide* the static
-FD-NON-ISO mode. It must not allow to *switch off* a static mode: before
-the above mentioned commit a request like 'fd-non-iso off' passed the
-check and removed the static CAN_CTRLMODE_FD_NON_ISO bit from
-priv->ctrlmode. As can_get_static_ctrlmode() derives the static modes
-from priv->ctrlmode, this information was lost permanently. Therefore
-reject any request that explicitly switches off a static control mode
-with a dedicated error message. With this check in place a static mode
-can never be cleared by the 'priv->ctrlmode &= ~cm->mask' operation as
-every static bit in cm->mask is also set in maskedflags.
-
-The request is rejected independent of the resulting CAN FD state, as
-accepting it while CAN FD is switched off would remove the static mode
-from priv->ctrlmode as well.
-
-Older kernels without the above mentioned commit do not need this fix.
-They can lose the static FD-NON-ISO mode by an explicit 'fd-non-iso off'
-too, but this only changes the reported control mode while the hardware
-keeps using non-ISO CAN FD.
-
-[Hartkopp: reject switching off static control modes instead of restoring
- them, extend the commit message (Sashiko review)]
-
-Fixes: 6742ca18cb41 ("can: netlink: add userland error messages")
+Closes: https://sashiko.dev/#/bug/linux-0a8c0e8a-c623-426a-8db3-f55111f6cd84
+Fixes: d08e973a77d1 ("can: gs_usb: Added support for the GS_USB CAN devices")
 Cc: stable@vger.kernel.org
-Signed-off-by: Zhu Ling <zhuling0805@qq.com>
-Link: https://lore.kernel.org/all/tencent_3A964832542399A780E646D6A6246335C409@qq.com/
-Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261115095746.709371-1-mkl%40pengutronix.de
-Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
-Link: https://patch.msgid.link/20261120-can-bcmlock-memcg-v7-8-f6b84f5257b1@hartkopp.net
 Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- drivers/net/can/dev/netlink.c | 10 +++++++++-
- 1 file changed, 9 insertions(+), 1 deletion(-)
+ drivers/net/can/usb/gs_usb.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/can/dev/netlink.c b/drivers/net/can/dev/netlink.c
-index 081dfddda000..521e2496e2cc 100644
---- a/drivers/net/can/dev/netlink.c
-+++ b/drivers/net/can/dev/netlink.c
-@@ -330,9 +330,17 @@ static int can_ctrlmode_changelink(struct net_device *dev,
- 		return -EOPNOTSUPP;
- 	}
+diff --git a/drivers/net/can/usb/gs_usb.c b/drivers/net/can/usb/gs_usb.c
+index 3b9b2f104d86..15f28833f2de 100644
+--- a/drivers/net/can/usb/gs_usb.c
++++ b/drivers/net/can/usb/gs_usb.c
+@@ -861,7 +861,7 @@ static netdev_tx_t gs_can_start_xmit(struct sk_buff *skb,
+ 	if (!urb)
+ 		goto nomem_urb;
  
-+	/* static control modes can not be switched off */
-+	if (deactivated & ctrlstatic) {
-+		NL_SET_ERR_MSG_FMT(extack,
-+				   "static control mode %s can not be switched off",
-+				   can_get_ctrlmode_str(deactivated & ctrlstatic));
-+		return -EOPNOTSUPP;
-+	}
-+
- 	/* do not check for static fd-non-iso if 'fd' is disabled */
- 	if (!(maskedflags & CAN_CTRLMODE_FD))
--		ctrlstatic &= ~CAN_CTRLMODE_FD_NON_ISO;
-+		ctrlstatic_missing &= ~CAN_CTRLMODE_FD_NON_ISO;
+-	hf = kmalloc(dev->hf_size_tx, GFP_ATOMIC);
++	hf = kzalloc(dev->hf_size_tx, GFP_ATOMIC);
+ 	if (!hf)
+ 		goto nomem_hf;
  
- 	if (ctrlstatic_missing) {
- 		NL_SET_ERR_MSG_FMT(extack,
 -- 
 2.53.0
 
