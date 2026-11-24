@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533184;
-	b=dRh7X8OmoLwDoPFLwEvSYdgXE6vcF2mrYl2kIpfFRq9OAu03vGXyPxZAjtJ/8ZsidbUS
-	 XYBrMDlmvBre9xX+bUpzQcbo6sBxN0SU/QWTydWGh10zwRxVjI5IRbOYmBQJSIl/H4ioy
-	 Z7DIIbGaao9vTjfNwJvk4IoxwcfAcgIK1+dY0RXB/pQrhqT7G9u+tdRjNZcaAiTdlM4HC
-	 m2lmW8tGpwcOiWvutMBTaWqVGVDTC5/FXkdeD+RDXieWSb1LQ2wx4UAXUHmK4mZs7XZO5
-	 MYeV6Pp0pb3jEgFYIOT3kRSqNzQ5kRBuIW8SJxqUiv5knTdf5EOEcSDYyIOAQFpvhXQ==
+	t=1795533187;
+	b=jLGSq2hdoOw5YGRz/v+S/LbJCdtbECMZ2S2HuWtv1HX4kJUoFu8UjtS43WVeWNTB9cO2
+	 HztjF2rDerEY7FPfJhtO8/XnJf5fGyvOKmgyCGYGvxES4X2S5Aq7fVT/7CMwXbvd2eLTE
+	 Z2x2/Gbv+QuPdI70I3HnNlL67RRAMG73u3pvsOdyXagNlTDMGNajn/8by7g74oaapPKo8
+	 RzFV3ia9GLg7MPHQrEWWsYvyIw+eTOwvp02P7AwSwGnHvdzxwXyCVwHfMsilBkdGlRGPF
+	 DpJFvTC+OPnC/n7wWbEE0ZUCNf9c3S8inLkicykm2ZoqeJlrsZCK7J5cxaNt22ZGZKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533184;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533187;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=vpd0lROsX5a/XF56z2hf5LS7nxFovlUX1TJjxvTaxHs=;
-	b=TIKHSh60MfRy2shBA5hXf1JrYRjvaOQ1tLqIMTPdRgYBxTogmIUK7YukO0bT62q18AXH
-	 hFaj3QPeN7syW4eDDb6jFX0MuohzJ0ygXBIAwvVtGOnp98sh4tleiyQY25ZwZo6z0E8jy
-	 2qHDVg+2xCshjvNE1afiPfpe9MMcrlYX5fHBYwtTIm8DBnSv7EnN3QzPNl+N8yXqZvE7a
-	 3GnZzv4iLuDs4Veq9x22fNoTwCLVzHQlZemi7Me8iZJBiZh9rnROVp9IirdPhl+KDOmxo
-	 i0t8mh/yzcZbjzHHl9FPmAG+VIspC0G8gDDSymJqAHHDgtwK05AiBp4QlNWez6EWMjQ==
+	bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
+	b=DUTOa105UUfAPCYeDj4fnuiYLPIP1NTeGtuCSM8VqJzOb9sII5RA4LfOXE51tpoBsuXP
+	 a11R++PFnFCcHbZKHEUO9etUNlB+xWT5AbnHxoiQhKLKdQQ1xVuBnuLLsPrwLatilGo5Y
+	 /w6S3ZBKXa6zHEM91igYGKQNqjmm4F2e9wvge7GjnSByHXQwi8Plb3IMv6Tfxb0tpHVN3
+	 9YNPxREWQ9fD4olSH+i/BpmHHuSCPBqS9/DxTbZr0sM3PcC2bW1s832/k+9xAwYqr7qur
+	 r1drFxaNYM9nIjdkyRgH1/Al6go332HGZwyT+qBdq3SQZHeZmAytref79hK7lPpuU+w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=blackwall.org;
 	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=H7SZps7d;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=luFFhWBn;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23DE1606A334
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:13:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23DE1606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC117606A323
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:13:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC117606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=H7SZps7d
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4bb85e07aadso56692515e9.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:13:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=luFFhWBn
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-492f0a1b685so3198311f8f.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:13:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795533182; x=1796137982; darn=vger.kernel.org;
+        d=blackwall.org; s=google; t=1795533185; x=1796137985; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=vpd0lROsX5a/XF56z2hf5LS7nxFovlUX1TJjxvTaxHs=;
-        b=H7SZps7dlT2FpBTrfNfi1083KMNJ6FiEwqlfaapdzLdWZBI+eeY1Pb6ifPToJr7B/K
-         vQbD11jgSjp/S27apFzaF+EhrM+K50VmbgQ8hYz/sQIp4tcYP4H0avpBpNcvmj9d1/w4
-         6HFQrkIMlzUJXuaIufsTJGnKy68XrhN5h+st0203hwZU6Vf6UWz0Slc1j2Btf/hILZ98
-         ESj0LVOCEW2c8lMpNn+9hh1nHkcVpMu1zLS5+LTePpzX8O+bllmzvUe7WRJ4bLe6S5ye
-         mY9wdv2ojMEzwpyixY4ElFWst1uf7BcRod9xjmQBqCXDwIGrCgpAqWhxIsggYFOcAcEt
-         yOxQ==
+        bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
+        b=luFFhWBnvJasuPduGXDLmcyKDdLH9NnCPVQ9aQyfP2EnOlw3gn545repZ/+MzWDiY2
+         T4iHI7kqLCdfRhSISFfIFeaiquVZlZQuXA38S3kHeIYxdNwM+SJ07xcXyyNVHiZpaajF
+         wMK8D6UcNgSGLCNA1s5vADQif883i1buZt/PM6pdSsBY9g8Zh+rh6FAzcyD53e4vpx48
+         Yi8PEo7LCqqHcnPveb5TjQsOjVxykDJa5PHpyWR041h809n9mobzfyt1+KVbJE6EnsG0
+         Hlw5tagWS3zDIXCLfn693UCABVzx/yI62mN7imPk1twMeGIosXKfPsxY2xInYY2i+L3R
+         Rzhw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795533182; x=1796137982;
+        d=1e100.net; s=20260707; t=1795533185; x=1796137985;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vpd0lROsX5a/XF56z2hf5LS7nxFovlUX1TJjxvTaxHs=;
-        b=eDf2wYRyu5Wm+uyZ2LBzxWugJR+GT5xABf46WWOtGmkpNPADBWvpcKCyv85DcmUHJ+
-         /BEsED3scCNNF1BCQ7fxklKAyu2mOCtoRDqkzoPkzflXLM81Mce5HRLGTnMc2j62GH8n
-         JCJMZ7gaISlnkl3H5chq8mquIqMoBmuoqcJWimvBfJEBo2LkJIir7qfh6aLrhFtUNBAW
-         8fqb1Cw4EtVWvi7ak5mq8KSCGe7/mnT5dGZMd3qKXF9ksljCebpYnGls+ovWNRb6uHA2
-         oueuN0g7nRwch/iwGXwCk2Enbqnzx4mzKzg2kU8kMV8/h/b52V9fNtMWKIFHETuL69qE
-         wPwQ==
-X-Forwarded-Encrypted: i=1; AL+hErFaMPnJ246smCan9w50iSof2LKGc5z9frobiY8KIwKdVS166oBp8760oHxCD1v2+Fp4n1LhF2w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+htDQd8Rnj30B9SSJWggZqwfc/24W/k646jKPdow8saWBE7Q0l
-	UCkdoOnWE2XwjWVranNSkFTeCpOdutOHourIjYCxGYT4tgbzc6u0kfKBLYm6kdCP7jA=
-X-Gm-Gg: AZFdTZeNHrvyVagIhvNn9AcxlHT/JCaMS9DR2grO00NpKNp3CsZ7ToJ1DW7+9gxYY8l
-	VXj5KfH3wJo1xfLAiLudsfqNqywL+mRoAAg30Btm9kv+w7gQMMpZIhjtU/I7AJQZHrhN37PdU3G
-	NLR+cNotMzDnEbdw5lxjQ1Z0E/Pjt3OODMQHUEbT78Ijrlj0kz+1l5p23g09vizDXtTWYyBESXz
-	KaZ4e23DzR/ETXKirnCoi/sJwXqcWQSoolwv0mnLQeT8R1014be/iaVwGwKJZnANRfiIlUxLIQ0
-	qjEWGQcC95TA+Z8VxRVNv5d5VBu0dxpCQoO0ql+W7qbnMzNGd6kjfJ8QtGuCLNJH9PahRolSA/B
-	oDBBsQktU/BWjquKDvxYNrYDR5jYrb8R9YH/lfCS/aCD4yEv9hzJaOBnD/CFHHO7FwBiY3iuXdW
-	8ElRj8/BAVk3/oWk73tdskoyn06+wndGk0SKXUqkH+H1NcV8lTCqAE4YlYDRuC2alVjuCe+jyz+
-	4Ytfm1ghDCroEf2fZjLachGchltv86AKksDSo0NTvBzPjgA7KhX3uch1WopP3X9lC9OfqY1g2Ux
-	uDtS8qtdNDFvBh+WjXpoFKHVc+Orcfw1y5+eiTgrsPDmmVXMu7Y=
-X-Received: by 2002:a05:600c:820c:b0:4bb:7987:fbbc with SMTP id 5b1f17b1804b1-4bb887c29b4mr273103965e9.1.1795533182447;
-        Tue, 24 Nov 2026 07:13:02 -0800 (PST)
+        bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
+        b=TFSt+mZ1VcI7GTX8T0deP+6UcJR7XrZVbeW31ajcqC3MFbVjgcE7/1ujQUVcBq3fOo
+         dgAThTZyae0T3DoVnvjvrIW5zGkWlIGWO4GepxL3Zo80wK+JKHvIDCy1Z+FVQ9vuGH/N
+         CE/esSYEpn8O40NRtSxafxUv81F4/CEoFh9mQ0ezQc3m9H419as8vOUhdE41kJ0oHpjs
+         NcIPHSBEFtzbGCAj56OJMK+KgSL4YVNYy14Oydk8kTwQ2V1XF2esoAFU+F/QoBrNtL4P
+         oi+0sT5V6qpD+VqECFuuwzhDhBmmbbxmrqbfG0r5SJjYUF0h6qNsfAs6lmeaNRxo/ysD
+         3SHw==
+X-Forwarded-Encrypted: i=1; AL+hErFcRz6FzXV5lyTNaHiifcCGqi7bwMwmNP2C89AMXXPrxaAXIw77dxT8SfzzA27FA7Z6CwDqB00=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9cTdr810869Jw82VEa+LwKJspsTy+XncrNtrd92Gs8FAcrMME5
+	gT/Yf5DbMrtLpLa+qhErmUwJl9XEiq1w0D8IRch+Lee0EQ9iCt09BKit7f4tt9kbaCo=
+X-Gm-Gg: AZFdTZfRW6IHuNLOZIPbCFvTTa7flGANxAMyI6sRC+b70TKvHezTdJfbWRPJYSdBUEh
+	WgVrJutt0zjAruo7cqp+fN/TdKKdSX0xj/ebunufJCORi08welDZol8sTWztxI5wbrfpiKu3TF0
+	T4EVMBVWDv0ofx2c2an6AYWLyyexqsoxJDl8nJQGucz4FRmItE0KlBCpi8k7/TaembFY5+9ktYh
+	wVGOpKm2aFfYKkzk0QmbH2vRtmvK7IRA/tsfkTfPvlqCT6U1m7XkftW887rNVj4jA5gTZv3BygS
+	QDHefYom64egnF6BrxPh3/P5BBogRtBoEouGmeK0detYqbA2qbmuRhiC8cx2PqDEUrU9cp587lw
+	qYaUPDqm7HNB032V8/FkfKNTGSQtKJvcXrGH4+bWFAdTBEC/0rFQrdC/TIydZTzlnKxEFJ5kfQE
+	QFotaabUUilZjQy50rKtT+dKw/X1OApVxWLykgmpSSmAuFxHCbXftCyKY3ugB8mo9au8KqtW1gD
+	U1cveW18bo2/VadAJF+5GJFTS0wBK5zoETgfQQXEAkTE3HlFT13gCCCXNAiuClyYcirkZjbBixC
+	8ijUrxmoo6i7CoraCfsJ4iOxN9Zki/4oC1bd1NW68KoeF6KDRbI=
+X-Received: by 2002:a05:600c:1d8c:b0:4a1:c5eb:b445 with SMTP id 5b1f17b1804b1-4bb88820436mr309578445e9.35.1795533184836;
+        Tue, 24 Nov 2026 07:13:04 -0800 (PST)
 Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb906e4ce6sm244162175e9.4.2026.11.24.07.13.01
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb906640a2sm229067635e9.0.2026.11.24.07.13.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:13:01 -0800 (PST)
+        Tue, 24 Nov 2026 07:13:03 -0800 (PST)
 From: Nikolay Aleksandrov <razor@blackwall.org>
 To: bpf@vger.kernel.org
 Cc: Eric Dumazet <edumazet@kernel.org>,
@@ -88,9 +88,9 @@ Cc: Eric Dumazet <edumazet@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
 	Stanislav Fomichev <sdf.kernel@gmail.com>,
 	Nikolay Aleksandrov <razor@blackwall.org>
-Subject: [PATCH RFC bpf-next 3/4] bpf: support bpf_sk_assign in netkit tx path
-Date: Tue, 24 Nov 2026 17:12:43 +0200
-Message-ID: <20261124151244.1423343-4-razor@blackwall.org>
+Subject: [PATCH RFC bpf-next 4/4] selftests/bpf: test netkit socket assignment to a transparent proxy
+Date: Tue, 24 Nov 2026 17:12:44 +0200
+Message-ID: <20261124151244.1423343-5-razor@blackwall.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20261124151244.1423343-1-razor@blackwall.org>
 References: <20261124151244.1423343-1-razor@blackwall.org>
@@ -105,217 +105,324 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Let netkit programs assign a socket in the receiving network namespace,
-for example a transparent proxy listener on the host for traffic coming
-from a pod.
+Attach a netkit peer program that assigns TCP SYNs and UDP datagrams for
+a non-local service address to a transparent host socket on another
+port. Check for IPv4 and IPv6 that the datagram reaches the proxy socket
+and that the connection is accepted with the original destination. Only
+the SYN is assigned, the rest of a TCP connection uses the normal
+lookup, so no TCP data is exchanged.
 
-A netkit program runs with skb->dev already set to the peer and on
-NETKIT_PASS the skb goes straight to __netif_rx() on that peer. The
-assigned skb therefore doesn't travel the tx path of the sending side, so
-transmit code doesn't need to understand the new ownership.
-
-General tc egress assignment stays unsupported.
-
-netkit records the skb it is running programs for in the BPF net
-context and the helper only takes the netkit path for that skb.
-A clone made with bpf_clone_redirect(), test runs, cls_bpf and act_bpf on
-egress still get -EOPNOTSUPP.
-
-The backlog queue outlives the RCU section so the skb takes a reference
-with sock_pfree_ref even for SOCK_RCU_FREE sockets such as tcp
-listeners.
+Clone each assigned packet to the host netkit device while the netkit
+program is still running. A tcx egress program on that device tries to
+assign the proxy socket to the clone and checks for -EOPNOTSUPP. The
+clone has no socket, so if the netkit gate accepted any skb while the
+netkit program runs, the helper would return 0. Skip the subtests when
+the kernel does not provide netkit.
 
 Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
 ---
- drivers/net/netkit.c           | 10 ++++++++++
- include/linux/filter.h         |  4 ++++
- include/net/netkit.h           | 15 +++++++++++++++
- include/uapi/linux/bpf.h       |  9 +++++++--
- net/core/filter.c              | 13 ++++++++++---
- tools/include/uapi/linux/bpf.h |  9 +++++++--
- 6 files changed, 53 insertions(+), 7 deletions(-)
+ .../bpf/prog_tests/sk_assign_netkit.c         | 189 ++++++++++++++++++
+ .../selftests/bpf/progs/sk_assign_netkit.c    |  95 +++++++++
+ 2 files changed, 284 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
+ create mode 100644 tools/testing/selftests/bpf/progs/sk_assign_netkit.c
 
-diff --git a/drivers/net/netkit.c b/drivers/net/netkit.c
-index 75a1a561e5aa..d32d98cad6f6 100644
---- a/drivers/net/netkit.c
-+++ b/drivers/net/netkit.c
-@@ -53,15 +53,25 @@ static __always_inline int
- netkit_run(const struct bpf_mprog_entry *entry, struct sk_buff *skb,
- 	   enum netkit_action ret)
- {
-+	struct bpf_net_context *bpf_net_ctx = bpf_net_ctx_get();
- 	const struct bpf_mprog_fp *fp;
- 	const struct bpf_prog *prog;
-+	struct sk_buff *prev = NULL;
- 
-+	if (bpf_net_ctx->ri.kern_flags & BPF_RI_F_NETKIT_SK_ASSIGN)
-+		prev = bpf_net_ctx->sk_assign_skb;
-+	bpf_net_ctx->sk_assign_skb = skb;
-+	bpf_net_ctx->ri.kern_flags |= BPF_RI_F_NETKIT_SK_ASSIGN;
- 	bpf_mprog_foreach_prog(entry, fp, prog) {
- 		bpf_compute_data_pointers(skb);
- 		ret = bpf_prog_run(prog, skb);
- 		if (ret != NETKIT_NEXT)
- 			break;
- 	}
-+	if (prev)
-+		bpf_net_ctx->sk_assign_skb = prev;
-+	else
-+		bpf_net_ctx->ri.kern_flags &= ~BPF_RI_F_NETKIT_SK_ASSIGN;
- 	return ret;
- }
- 
-diff --git a/include/linux/filter.h b/include/linux/filter.h
-index 61448be53f8d..ddc4e6912e0c 100644
---- a/include/linux/filter.h
-+++ b/include/linux/filter.h
-@@ -981,6 +981,7 @@ struct bpf_nh_params {
- #define BPF_RI_F_CPU_MAP_INIT	BIT(2)
- #define BPF_RI_F_DEV_MAP_INIT	BIT(3)
- #define BPF_RI_F_XSK_MAP_INIT	BIT(4)
-+#define BPF_RI_F_NETKIT_SK_ASSIGN	BIT(5)
- 
- struct bpf_redirect_info {
- 	u64 tgt_index;
-@@ -998,6 +999,9 @@ struct bpf_net_context {
- 	struct list_head cpu_map_flush_list;
- 	struct list_head dev_map_flush_list;
- 	struct list_head xskmap_map_flush_list;
-+#ifdef CONFIG_NETKIT
-+	struct sk_buff *sk_assign_skb;
-+#endif
- };
- 
- static inline struct bpf_net_context *bpf_net_ctx_set(struct bpf_net_context *bpf_net_ctx)
-diff --git a/include/net/netkit.h b/include/net/netkit.h
-index 9ec0163739f4..70992f145a63 100644
---- a/include/net/netkit.h
-+++ b/include/net/netkit.h
-@@ -4,6 +4,7 @@
- #define __NET_NETKIT_H
- 
- #include <linux/bpf.h>
-+#include <linux/filter.h>
- 
- #ifdef CONFIG_NETKIT
- int netkit_prog_attach(const union bpf_attr *attr, struct bpf_prog *prog);
-@@ -11,6 +12,15 @@ int netkit_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
- int netkit_prog_detach(const union bpf_attr *attr, struct bpf_prog *prog);
- int netkit_prog_query(const union bpf_attr *attr, union bpf_attr __user *uattr);
- INDIRECT_CALLABLE_DECLARE(struct net_device *netkit_peer_dev(struct net_device *dev));
+diff --git a/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c b/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
+new file mode 100644
+index 000000000000..59dc204318ca
+--- /dev/null
++++ b/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
+@@ -0,0 +1,189 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <uapi/linux/if_link.h>
++#include <net/if.h>
++#include <test_progs.h>
++#include "network_helpers.h"
++#include "netlink_helpers.h"
++#include "sk_assign_netkit.skel.h"
 +
-+static inline bool netkit_runs_skb(const struct sk_buff *skb)
++#define NS_HOST "sk_assign_host"
++#define NS_POD "sk_assign_pod"
++#define HOST_DEV "nk_host"
++#define POD_DEV "nk0"
++#define SERVICE_ADDR4 "198.18.0.99"
++#define SERVICE_ADDR6 "2001:db8:99::99"
++#define SERVICE_PORT 18080
++#define PROXY_PORT 15001
++#define TEST_DATA "test"
++#define IO_TIMEOUT_MS 1000
++
++struct iplink_req {
++	struct nlmsghdr n;
++	struct ifinfomsg i;
++	char buf[512];
++};
++
++static int transparent_socket(int fd, void *opts)
 +{
-+	struct bpf_net_context *bpf_net_ctx = bpf_net_ctx_get();
++	int one = 1;
 +
-+	return bpf_net_ctx &&
-+	       (bpf_net_ctx->ri.kern_flags & BPF_RI_F_NETKIT_SK_ASSIGN) &&
-+	       bpf_net_ctx->sk_assign_skb == skb;
++	return setsockopt(fd, SOL_IP, IP_TRANSPARENT, &one, sizeof(one));
 +}
- #else
- static inline int netkit_prog_attach(const union bpf_attr *attr,
- 				     struct bpf_prog *prog)
-@@ -40,5 +50,10 @@ static inline struct net_device *netkit_peer_dev(struct net_device *dev)
- {
- 	return NULL;
- }
 +
-+static inline bool netkit_runs_skb(const struct sk_buff *skb)
++static int create_netkit(void)
 +{
++	struct rtnl_handle rth = { .fd = -1 };
++	struct rtattr *linkinfo, *data;
++	struct iplink_req req = {};
++	int err;
++
++	err = rtnl_open(&rth, 0);
++	if (err)
++		return err;
++
++	req.n.nlmsg_len = NLMSG_LENGTH(sizeof(req.i));
++	req.n.nlmsg_flags = NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL;
++	req.n.nlmsg_type = RTM_NEWLINK;
++	addattrstrz(&req.n, sizeof(req), IFLA_IFNAME, HOST_DEV);
++	linkinfo = addattr_nest(&req.n, sizeof(req), IFLA_LINKINFO);
++	addattrstrz(&req.n, sizeof(req), IFLA_INFO_KIND, "netkit");
++	data = addattr_nest(&req.n, sizeof(req), IFLA_INFO_DATA);
++	addattr32(&req.n, sizeof(req), IFLA_NETKIT_MODE, NETKIT_L2);
++	addattr_nest_end(&req.n, data);
++	addattr_nest_end(&req.n, linkinfo);
++
++	errno = 0;
++	err = rtnl_talk(&rth, &req.n, NULL);
++	if (err && errno)
++		err = -errno;
++	rtnl_close(&rth);
++	return err;
++}
++
++static bool setup_netkit(int family, const char *dest)
++{
++	const char *host = family == AF_INET ? "10.88.0.1" : "fd88::1";
++	const char *pod = family == AF_INET ? "10.88.0.2" : "fd88::2";
++	const char *dad = family == AF_INET6 ? "nodad" : "";
++	int prefix = family == AF_INET ? 24 : 64;
++
++	SYS(fail, "ip link set %s netns %s", POD_DEV, NS_POD);
++	SYS(fail, "ip link set %s up", HOST_DEV);
++	SYS(fail, "ip -n %s link set %s up", NS_POD, POD_DEV);
++	SYS(fail, "ip addr add %s/%d dev %s %s", host, prefix, HOST_DEV, dad);
++	SYS(fail, "ip -n %s addr add %s/%d dev %s %s", NS_POD, pod, prefix,
++	    POD_DEV, dad);
++	SYS(fail, "ip -n %s route add default via %s", NS_POD, host);
++	SYS(fail, "ip route add local %s dev lo", dest);
++	return true;
++fail:
 +	return false;
 +}
- #endif /* CONFIG_NETKIT */
- #endif /* __NET_NETKIT_H */
-diff --git a/include/uapi/linux/bpf.h b/include/uapi/linux/bpf.h
-index 62de0919db72..25f89f3cca1e 100644
---- a/include/uapi/linux/bpf.h
-+++ b/include/uapi/linux/bpf.h
-@@ -4611,7 +4611,10 @@ union bpf_attr {
-  *		**bpf_clone_redirect**\ () or other methods outside of BPF may
-  *		interfere with successful delivery to the socket.
-  *
-- *		This operation is only valid from TC ingress path.
-+ *		This operation is valid from TC ingress and from netkit
-+ *		programs. In netkit programs, only full TCP and UDP sockets
-+ *		are accepted, and the *skb* then holds a reference on *sk*
-+ *		until the receive path consumes it or the *skb* is freed.
-  *
-  *		The *flags* argument must be zero.
-  *	Return
-@@ -4624,7 +4627,9 @@ union bpf_attr {
-  *		**-ENETUNREACH** if the socket is unreachable (wrong netns).
-  *
-  *		**-EOPNOTSUPP** if the operation is not supported, for example
-- *		a call from outside of TC ingress.
-+ *		a call from outside of TC ingress or netkit programs, or, in a
-+ *		netkit program, a socket other than a full TCP or UDP socket or
-+ *		an *skb* that already carries a socket it does not own.
-  *
-  * long bpf_sk_assign(struct bpf_sk_lookup *ctx, struct bpf_sock *sk, u64 flags)
-  *	Description
-diff --git a/net/core/filter.c b/net/core/filter.c
-index 3206b40887c5..a8e7b46bd648 100644
---- a/net/core/filter.c
-+++ b/net/core/filter.c
-@@ -8132,21 +8132,28 @@ static const struct bpf_func_proto bpf_tcp_gen_syncookie_proto = {
- 
- BPF_CALL_3(bpf_sk_assign, struct sk_buff *, skb, struct sock *, sk, u64, flags)
- {
-+	bool from_netkit = netkit_runs_skb(skb);
 +
- 	if (!sk || flags != 0)
- 		return -EINVAL;
--	if (!skb_at_tc_ingress(skb))
-+	if (from_netkit) {
-+		if (!sk_fullsock(sk) || (!sk_is_tcp(sk) && !sk_is_udp(sk)) ||
-+		    (skb->sk && !skb->destructor))
-+			return -EOPNOTSUPP;
-+	} else if (!skb_at_tc_ingress(skb)) {
- 		return -EOPNOTSUPP;
++static void run_netkit(int family, int type)
++{
++	static const struct network_helper_opts opts = {
++		.timeout_ms = IO_TIMEOUT_MS,
++		.post_socket_cb = transparent_socket,
++	};
++	const char *dest = family == AF_INET ? SERVICE_ADDR4 : SERVICE_ADDR6;
++	int server = -1, client = -1, accepted = -1;
++	struct netns_obj *host = NULL, *pod = NULL;
++	struct sk_assign_netkit *skel = NULL;
++	struct sockaddr_storage expected;
++	unsigned int ifindex;
++	struct nstoken *tok;
++	socklen_t len;
++	int err;
++
++	host = netns_new(NS_HOST, true);
++	if (!ASSERT_OK_PTR(host, "host_netns"))
++		return;
++	pod = netns_new(NS_POD, false);
++	if (!ASSERT_OK_PTR(pod, "pod_netns"))
++		goto cleanup;
++	err = create_netkit();
++	if (err == -EOPNOTSUPP || err == -ENODEV) {
++		printf("%s:SKIP: CONFIG_NETKIT is unavailable\n", __func__);
++		test__skip();
++		goto cleanup;
 +	}
- 	if (unlikely(dev_net(skb->dev) != sock_net(sk)))
- 		return -ENETUNREACH;
- 	if (sk_unhashed(sk))
- 		return -EOPNOTSUPP;
--	if (sk_is_refcounted(sk) &&
-+	if ((from_netkit || sk_is_refcounted(sk)) &&
- 	    unlikely(!refcount_inc_not_zero_acquire(&sk->sk_refcnt)))
- 		return -ENOENT;
- 
- 	skb_orphan(skb);
- 	skb->sk = sk;
--	skb->destructor = sock_pfree;
-+	skb->destructor = from_netkit ? sock_pfree_ref : sock_pfree;
- 
- 	return 0;
- }
-diff --git a/tools/include/uapi/linux/bpf.h b/tools/include/uapi/linux/bpf.h
-index 62de0919db72..25f89f3cca1e 100644
---- a/tools/include/uapi/linux/bpf.h
-+++ b/tools/include/uapi/linux/bpf.h
-@@ -4611,7 +4611,10 @@ union bpf_attr {
-  *		**bpf_clone_redirect**\ () or other methods outside of BPF may
-  *		interfere with successful delivery to the socket.
-  *
-- *		This operation is only valid from TC ingress path.
-+ *		This operation is valid from TC ingress and from netkit
-+ *		programs. In netkit programs, only full TCP and UDP sockets
-+ *		are accepted, and the *skb* then holds a reference on *sk*
-+ *		until the receive path consumes it or the *skb* is freed.
-  *
-  *		The *flags* argument must be zero.
-  *	Return
-@@ -4624,7 +4627,9 @@ union bpf_attr {
-  *		**-ENETUNREACH** if the socket is unreachable (wrong netns).
-  *
-  *		**-EOPNOTSUPP** if the operation is not supported, for example
-- *		a call from outside of TC ingress.
-+ *		a call from outside of TC ingress or netkit programs, or, in a
-+ *		netkit program, a socket other than a full TCP or UDP socket or
-+ *		an *skb* that already carries a socket it does not own.
-  *
-  * long bpf_sk_assign(struct bpf_sk_lookup *ctx, struct bpf_sock *sk, u64 flags)
-  *	Description
++	if (!ASSERT_OK(err, "create_netkit") || !setup_netkit(family, dest))
++		goto cleanup;
++
++	server = start_server_str(family, type, NULL, PROXY_PORT, &opts);
++	if (!ASSERT_OK_FD(server, "start_server"))
++		goto cleanup;
++	skel = sk_assign_netkit__open();
++	if (!ASSERT_OK_PTR(skel, "skel_open"))
++		goto cleanup;
++	skel->rodata->service_port = SERVICE_PORT;
++	skel->rodata->proxy_port = PROXY_PORT;
++	if (!ASSERT_OK(sk_assign_netkit__load(skel), "skel_load"))
++		goto cleanup;
++	ifindex = if_nametoindex(HOST_DEV);
++	skel->links.assign_proxy = bpf_program__attach_netkit(
++		skel->progs.assign_proxy, ifindex, NULL);
++	if (!ASSERT_OK_PTR(skel->links.assign_proxy, "attach_netkit"))
++		goto cleanup;
++	skel->links.egress_assign = bpf_program__attach_tcx(
++		skel->progs.egress_assign, ifindex, NULL);
++	if (!ASSERT_OK_PTR(skel->links.egress_assign, "attach_tcx_egress"))
++		goto cleanup;
++	if (!ASSERT_OK(make_sockaddr(family, dest, SERVICE_PORT, &expected,
++				     &len), "make_sockaddr"))
++		goto cleanup;
++
++	tok = open_netns(NS_POD);
++	if (!ASSERT_OK_PTR(tok, "open_pod"))
++		goto cleanup;
++	client = connect_to_addr(type, &expected, len, NULL);
++	close_netns(tok);
++	if (!ASSERT_OK_FD(client, "connect_client"))
++		goto cleanup;
++	if (type == SOCK_DGRAM) {
++		char buf[sizeof(TEST_DATA) - 1];
++
++		if (!ASSERT_EQ(send(client, TEST_DATA, sizeof(buf), 0),
++			       sizeof(buf), "send_client") ||
++		    !ASSERT_EQ(recv(server, buf, sizeof(buf), 0),
++			       sizeof(buf), "recv_server") ||
++		    !ASSERT_MEMEQ(buf, TEST_DATA, sizeof(buf), "proxy_payload"))
++			goto cleanup;
++	} else {
++		socklen_t actual_len = sizeof(struct sockaddr_storage);
++		struct sockaddr_storage actual = {};
++
++		accepted = accept(server, NULL, NULL);
++		if (!ASSERT_OK_FD(accepted, "accept") ||
++		    !ASSERT_OK(getsockname(accepted, (void *)&actual,
++					   &actual_len), "getsockname") ||
++		    !ASSERT_EQ(actual_len, len, "original_address_len") ||
++		    !ASSERT_MEMEQ(&actual, &expected, len, "original_dst"))
++			goto cleanup;
++	}
++	ASSERT_OK(skel->bss->proxy_err, "assign_and_clone");
++	ASSERT_EQ(skel->data->egress_ret, -EOPNOTSUPP, "egress_rejected");
++cleanup:
++	sk_assign_netkit__destroy(skel);
++	if (accepted >= 0)
++		close(accepted);
++	if (client >= 0)
++		close(client);
++	if (server >= 0)
++		close(server);
++	netns_free(pod);
++	netns_free(host);
++}
++
++void test_sk_assign_netkit(void)
++{
++	if (test__start_subtest("tcpv4"))
++		run_netkit(AF_INET, SOCK_STREAM);
++	if (test__start_subtest("tcpv6"))
++		run_netkit(AF_INET6, SOCK_STREAM);
++	if (test__start_subtest("udpv4"))
++		run_netkit(AF_INET, SOCK_DGRAM);
++	if (test__start_subtest("udpv6"))
++		run_netkit(AF_INET6, SOCK_DGRAM);
++}
+diff --git a/tools/testing/selftests/bpf/progs/sk_assign_netkit.c b/tools/testing/selftests/bpf/progs/sk_assign_netkit.c
+new file mode 100644
+index 000000000000..1837486de4b3
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/sk_assign_netkit.c
+@@ -0,0 +1,95 @@
++// SPDX-License-Identifier: GPL-2.0
++#include "vmlinux.h"
++#include <asm-generic/errno-base.h>
++#include <bpf/bpf_endian.h>
++#include <bpf/bpf_helpers.h>
++#include "bpf_tracing_net.h"
++
++#define SKIP_PACKET 1
++
++const volatile __u16 service_port;
++const volatile __u16 proxy_port;
++int proxy_err;
++int egress_ret = SKIP_PACKET;
++
++static __always_inline int assign_proxy_sock(struct __sk_buff *skb)
++{
++	void *data_end = (void *)(long)skb->data_end;
++	void *data = (void *)(long)skb->data;
++	struct bpf_sock_tuple tuple = {};
++	struct bpf_sock *sk;
++	__u8 proto;
++	__u32 len;
++	void *l4;
++	int ret;
++
++	if (skb->protocol == bpf_htons(ETH_P_IP)) {
++		struct iphdr *iph = data + ETH_HLEN;
++
++		if (iph + 1 > data_end || iph->ihl != 5)
++			return SKIP_PACKET;
++		proto = iph->protocol;
++		l4 = iph + 1;
++		tuple.ipv4.dport = bpf_htons(proxy_port);
++		len = sizeof(tuple.ipv4);
++	} else if (skb->protocol == bpf_htons(ETH_P_IPV6)) {
++		struct ipv6hdr *ip6h = data + ETH_HLEN;
++
++		if (ip6h + 1 > data_end)
++			return SKIP_PACKET;
++		proto = ip6h->nexthdr;
++		l4 = ip6h + 1;
++		tuple.ipv6.dport = bpf_htons(proxy_port);
++		len = sizeof(tuple.ipv6);
++	} else {
++		return SKIP_PACKET;
++	}
++	if (proto == IPPROTO_TCP) {
++		struct tcphdr *th = l4;
++
++		if (th + 1 > data_end || th->dest != bpf_htons(service_port) ||
++		    !th->syn || th->ack)
++			return SKIP_PACKET;
++		sk = bpf_sk_lookup_tcp(skb, &tuple, len, BPF_F_CURRENT_NETNS, 0);
++	} else if (proto == IPPROTO_UDP) {
++		struct udphdr *uh = l4;
++
++		if (uh + 1 > data_end || uh->dest != bpf_htons(service_port))
++			return SKIP_PACKET;
++		sk = bpf_sk_lookup_udp(skb, &tuple, len, BPF_F_CURRENT_NETNS, 0);
++	} else {
++		return SKIP_PACKET;
++	}
++	if (!sk)
++		return -ENOENT;
++	ret = bpf_sk_assign(skb, sk, 0);
++	bpf_sk_release(sk);
++	return ret;
++}
++
++SEC("netkit/peer")
++int assign_proxy(struct __sk_buff *skb)
++{
++	int ret;
++
++	ret = assign_proxy_sock(skb);
++	if (ret == SKIP_PACKET)
++		return NETKIT_PASS;
++	if (!ret)
++		ret = bpf_clone_redirect(skb, skb->ifindex, 0);
++	if (ret) {
++		proxy_err = ret;
++		return NETKIT_DROP;
++	}
++	return NETKIT_PASS;
++}
++
++SEC("tcx/egress")
++int egress_assign(struct __sk_buff *skb)
++{
++	if (egress_ret == SKIP_PACKET)
++		egress_ret = assign_proxy_sock(skb);
++	return TCX_PASS;
++}
++
++char LICENSE[] SEC("license") = "GPL";
 -- 
 2.47.3
 
