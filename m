@@ -1,56 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535608;
-	b=HkUmkyWLLQcznT2DOrSnp0tQWejyj9X+dR1vgOfkHzEOpz2mMXsmJ6hgIGnpt3HCcEjs
-	 +tJJPaGG//8sXFozYsuYLlBSmHl50fbTWcgv1LwKlzpbLeymNZl7RkYO2Nt4ZQq8z7R9W
-	 07+6PrRMjn/lnzOSi78JUQ6D8SDm4eDDBEKHIir7eSYGdx2PgepZMVOBrot0p7niuk+RW
-	 wVvDPX+8OcBqfuYqdRb+14n6NDLOglmIPe9Eqa9pZJhtfxeemB3S8NjN33zFsMz1gxccj
-	 G61fWTMmlhizlWygiqAavsfUCsBa1sicfdEoCX6UeJ2BzSquwDj+6L+uOityUVkGsmg==
+	t=1795535796;
+	b=oLELV17Sqtr7P5PJgVa9yguR7+t300+tjmUHtoyv3xUahfCibo3XMExgn6OnDqX8D16g
+	 QUsA7wSFtZ7FrAaiH8JDdK942bkvOrbnLPqEuUJLf3H56P3UL/+j4QpIHyYBGlJnZOjfb
+	 W7TvbZG3vstqtzUiadvJYHY4er/3nT7EOjkMCJx46we69xsk4aC3dKjWVmbqeS4YzW05c
+	 Xjc8NRW1+9SJ96AMtnFyCu1akZMNFM/j0MU688OdcLwfU7ew5ZGRuv6qLlMfj2UJBg5iL
+	 fxpPpBFVSpTS9YMma/zN7CR1COWc3yQGDW0n1kkTVpf/ru7on6qk087FHDMKRWkia5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535608;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535796;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=HAbaKpAXtfda70HEA8mpf5g5mt2TC8wb/qxPCub+us0=;
-	b=Lis8dyEfex7xSO6oOYFwxc78etUG78YGZNKlHb5sKrbg8dfvzAYn69g+mt12hCzrGolH
-	 OH7SpfL2ZM+W7K9vb7/pfeXrQb+1Phk8MC/JgMS2kd3mv8TsVMWc9AjCIatDohYA6MbqI
-	 zec8W+QGcRBuaqs1nLKZmLF0nNLCKM5SrGEryzLVrgbVCT1015nDpI5fz+GH00yJR2ww6
-	 dGeD5OQzNmtJFqV5cJNJ9fNhFPSdYg07jtOl7nm+fDNF1kzJUEhzL2piEqbBu4lcLum1k
-	 q8Kn8e4n1keSe4pwFV2rfjVkh+8OzzONW0/BGrhu9UPTChlniDdYDjG8hDb2LwvMpjA==
+	bh=cp9qvJzAYDDQdk38T0+e5AQe8omtVBjXWGNOkDO7CrY=;
+	b=GGVPYO82lLwvAUtkXx/A2k/u0aeNJaTLcH3gePzM6HysVa/WK/5HZzHJx8yUBpq2qndw
+	 ot32Y7FkJKQUH2BBo7pLVNLcmgVeQiN2Oj+SemaJ2Ii8QJm4BP5bcl/aEOwUgNDAJfILZ
+	 86EVbGV4U1ke+SgV/A3etMQPnfjgoDUOGanpmK4eKylDebqlnnjTGXtt3wPhaoYvfqROu
+	 oyNhIth9+cEoTtm0aOj6LCaZ96Kb6Rawa9d6cWLS9IarUQT+99Lw2cCbPiSC5mPSZ+vKH
+	 RBWH2amsFLXL8yOfJZCfo5kQj2Y/I2jxy/R4wnelrvyjvVdGHVZNDvhEN0YYtxxgxcA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2cYmcZM;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0t+J8Ce;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46906606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:53:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DE06606A327;
+	Tue, 24 Nov 2026 15:56:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2cYmcZM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9DD11F000D2;
-	Tue, 24 Nov 2026 15:53:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j0t+J8Ce
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7C2BB1F000D4;
+	Tue, 24 Nov 2026 15:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535607;
-	bh=HAbaKpAXtfda70HEA8mpf5g5mt2TC8wb/qxPCub+us0=;
+	s=k20260515; t=1795535795;
+	bh=cp9qvJzAYDDQdk38T0+e5AQe8omtVBjXWGNOkDO7CrY=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=M2cYmcZM49nCQSs51/O+Rr4P8a3xyGcFFYP52A4hg8XLyHsHlGGrfHB+5aV1MBzQD
-	 8V9GyNeGhL+/FOK6EuBAfJ/Y/KhnNlz7GAnVhdGf4lplLQ/0JD9NWGIkMI/7kjAJ9R
-	 wFF5DSvNBkffuxKtmdL8TI1X/rtiMxVTtbaR7NZsABOHCPKk6qF7/wOnnvHcFpZD2r
-	 BCa7ukQawMOSQJ+Wcs9ZSMl7u6n3MMOkFwCVajKpJbCXuyTTwBFl2lmEL9EW8uNN1v
-	 msm+Jrs9L93kJfPvVUVQl10r5khik+hdh2veC8JQYqSlnQWwPkhjfeEqR5HKeEG/mZ
-	 DBKeBG5szqHwQ==
-Subject: Re: [PATCH net-next v2] tools: ynl-gen: avoid shadow local variable
- declarations
+	b=j0t+J8CeRganGFdwxySeSsw/MNGzMiwH6I3Hgz25CS/gZceM5Lnth6f9FvgGq12S9
+	 xmci9Ar3KEedv7ftTaHvxdjR+3G3XnqfDNzJpzBRFILLIPKGdGs7893MNC9PIKyBFu
+	 D3Lk/ot7c9qA+dkNbQdh8dwRBbv3reLCvmPl1tj0TG9Ecb7QIvTFRKp6MbIhKybvq+
+	 p0cMqhgPGRhE5x6zpvt0i8nTitPYKB7+Yewje64KugW3xdUjD10l5LrkRf5nOK4Kjz
+	 nHsA0Zy85f05PSNw0q9f8BnXGhZYyXdPog+44fbEUFm5oANQ5CSShY66FFrICXmJ/8
+	 HzzLFzrY6/1qA==
+Subject: Re: [PATCH net v8 1/2] genetlink: Reject joining multicast groups no
+ family owns
 From: netdev-bot+sashiko@kernel.org
-To: horms@kernel.org
-Cc: donald.hunter@gmail.com, kuba@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, ast@fiberby.net, cel@kernel.org,
- netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 15:53:26 +0000
-Message-ID: <179553560643.3135.4325165389540156144@kernel.org>
-In-Reply-To: <20261123-ynl-scope-v2-1-f5b8c6bb31c1@kernel.org>
-References: <20261123-ynl-scope-v2-1-f5b8c6bb31c1@kernel.org>
+To: anilkaushikwireless@gmail.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, idosch@nvidia.com,
+ nicolas.dichtel@6wind.com, jacob.e.keller@intel.com, jiri@resnulli.us,
+ fw@strlen.de, martineau@kernel.org, v3rdant.xiang@gmail.com,
+ aliceryhl@google.com, linux-kernel@vger.kernel.org, nhorman@tuxdriver.com,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org
+Date: Tue, 24 Nov 2026 15:56:34 +0000
+Message-ID: <179553579407.3135.13476478403966318528@kernel.org>
+In-Reply-To: <20261123155503.2497063-2-anilkaushikwireless@gmail.com>
+References: <20261123155503.2497063-2-anilkaushikwireless@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -64,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
+Thank you for your contribution! Sashiko AI review found 1 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,100 +78,108 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In `_multi_parse()` (tools/net/ynl/pyynl/ynl_gen_c.py), the
-  patch moves the per-attribute counter declarations `unsigned int…
-- [Low] In `_multi_parse()`, the patch removes the block-local
-  `ri.cw.p('unsigned int len;')` from the multi-attr string branch but…
+- [Medium] Check-then-act race (TOCTOU) between the ownership/capability
+  check in genl_bind() and the point where af_netlink sets the…
 
 --
 
-tools: ynl-gen: avoid shadow local variable declarations
+genetlink: Reject joining multicast groups no family owns
 
-This commit moves the block-scoped len declarations in _multi_parse() to
-function scope, using the set-based mechanism from commit 099902fc66f8. It
-also renames the size_t variant of len to size, so two variables with
-different types don't share a name in the same scope.
+With this commit, genl_bind() returns -ENOENT when no genetlink family
+owns the requested multicast group. Unprivileged users can then no longer
+join free group IDs that a privileged family takes later. netlink_bind()
+skips such IDs in a bind() mask instead of failing, and
+setsockopt(NETLINK_ADD_MEMBERSHIP) returns the error.
 
-> diff --git a/tools/net/ynl/pyynl/ynl_gen_c.py b/tools/net/ynl/pyynl/ynl_gen_c.py
-> index 4aca51396a9e2..80b541619df49 100755
-> --- a/tools/net/ynl/pyynl/ynl_gen_c.py
-> +++ b/tools/net/ynl/pyynl/ynl_gen_c.py
+Link: https://lore.kernel.org/netdev/179324692107.3134.14443689892607921337@kernel.org/
+
+> diff --git a/net/netlink/genetlink.c b/net/netlink/genetlink.c
+> index 5cc1037d4917e..e5d4f3c4e22ac 100644
+> --- a/net/netlink/genetlink.c
+> +++ b/net/netlink/genetlink.c
 
 [ ... ]
 
-> @@ -2218,7 +2218,14 @@ def _multi_parse(ri, struct, init_lines, local_vars):
->      all_multi = indexed_arrays | multi_attrs
+> @@ -1825,7 +1827,7 @@ static int genl_bind(struct net *net, int group)
+>  {
+>  	const struct genl_family *family;
+>  	unsigned int id;
+> -	int ret = 0;
+> +	int ret = -ENOENT;
 >  
->      for arg in sorted(all_multi):
-> -        local_vars.append(f"unsigned int n_{struct[arg].c_name} = 0;")
-> +        aspec = struct[arg]
-> +        var_set.add(f'unsigned int n_{struct[arg].c_name} = 0;')
-> +        if aspec.type == 'binary' and 'struct' in aspec:
-> +            var_set.add('size_t size;')
-> +        elif aspec.type == 'string':
-> +            var_set.add('unsigned int len;')
-> +
-> +    local_vars += list(var_set)
+>  	down_read(&cb_lock);
+>  
+> @@ -1841,6 +1843,7 @@ static int genl_bind(struct net *net, int group)
+>  			continue;
+>  
+>  		grp = &family->mcgrps[i];
+> +		ret = 0;
+>  		if ((grp->flags & GENL_MCAST_CAP_NET_ADMIN) &&
+>  		    !ns_capable(net->user_ns, CAP_NET_ADMIN))
+>  			ret = -EPERM;
 
 [Severity: Medium]
+The commit message says "This does not cover a family that is
+unregistered between the check and the point where the membership bit is
+set."
 
-Can this make the generator output differ from run to run?
+Can that window still leave a socket as a member of a group ID that no
+family owns? That is the state this patch is meant to prevent.
 
-The n_ counter declarations used to be appended in sorted(all_multi)
-order. Now they go into var_set. The order of list(var_set) follows
-Python's set iteration order, which depends on the randomized str hash
-(PYTHONHASHSEED).
+genl_bind() decides ownership under down_read(&cb_lock). It then drops
+cb_lock and returns 0. The caller sets the bit later, and holds only
+netlink_table_grab() when it does:
 
-After that, CodeWriter.write_func_lvar() only does:
+netlink_bind()
+    err = nlk->netlink_bind(net, group + 1);  /* cb_lock taken, dropped */
+    ...
+    netlink_table_grab();
+    ...
+    nlk->groups[0] = (nlk->groups[0] & ~0xffffffffUL) | groups;
 
-        local_vars.sort(key=len, reverse=True)
+netlink_setsockopt(NETLINK_ADD_MEMBERSHIP) follows the same pattern
+through netlink_update_socket_mc().
 
-That sort is stable and uses only the length. Declarations of equal length
-keep whatever order the set gave them.
+One possible interleaving:
 
-This looks reachable in-tree today. In Documentation/netlink/specs/nfsd.yaml,
-the server-stats-get dump reply has the multi-attr members proc2-ops,
-proc3-ops and proc4-ops. They generate:
+CPU0                              CPU1
+bind() to group X of family F
+  genl_bind() returns 0
+  up_read(&cb_lock)
+                                  genl_unregister_family(F)
+                                    genl_lock_all()
+                                    genl_unregister_mc_groups()
+                                      __netlink_clear_multicast_users(X)
+                                        /* CPU0 bit not set yet */
+                                      clear_bit(X, mc_groups)
+                                    idr_remove()
+  netlink_table_grab()
+  sets bit X in nlk->groups
 
-    unsigned int n_proc2_ops = 0;
-    unsigned int n_proc3_ops = 0;
-    unsigned int n_proc4_ops = 0;
+After this, the socket is a member of X and X has no owner.
 
-All three have the same length. Their order in the generated nfsd-user.c
-parse function can change between runs on the same spec. That hurts
-reproducible builds of the YNL user library. It also defeats the
-filecmp.cmp() check in CodeWriter that skips rewriting unchanged output.
+A later family G can be given X by find_first_zero_bit() in
+genl_allocate_reserve_groups(). An unprivileged user can trigger that
+registration with CTRL_CMD_GETFAMILY -> request_module().
 
-The n_ names are already unique per attribute, so they don't need
-deduplication; only len and size do. Would it work to keep
-local_vars.append() for the n_ counters, or to use
-local_vars += sorted(var_set) instead?
+Nothing checks the socket again. It would get G's notifications even when
+the group has GENL_MCAST_CAP_NET_ADMIN or GENL_MCAST_CAP_SYS_ADMIN set.
 
-The commit message also doesn't mention that the n_ declarations now go
-into the set.
+The unregister side usually needs a privileged rmmod, but an unprivileged
+user can keep calling bind() until an admin unloads a module.
 
->  
->      ri.cw.block_start()
->      ri.cw.write_func_lvar(local_vars)
-> @@ -2304,13 +2311,12 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+Module init error paths, such as ila_init(), seg6_init() and fou_init(),
+can also unregister a family. That can happen after a request_module()
+the attacker triggered, if init fails partway.
 
-[ ... ]
+There is also a side effect. F->bind(i) ran for the old family, but on
+close genl_unbind() would call G->unbind(i). The family bind and unbind
+callbacks could then get out of balance.
 
->          elif aspec.type == 'string':
-> -            ri.cw.p('unsigned int len;')
->              ri.cw.nl()
->              ri.cw.p('len = strnlen(ynl_attr_get_str(attr), ynl_attr_data_len(attr));')
-
-[Severity: Low]
-
-This isn't a bug, but should the ri.cw.nl() be removed along with the
-declaration?
-
-This branch is emitted right after block_start() opens the
-if (ynl_attr_type(attr) == ...) block. CodeWriter.p() writes the pending
-newline before the next line, so the generated C now has a blank line
-right after the opening brace. checkpatch flags that ("Blank lines aren't
-necessary after an open brace").
+Could this be closed fully? One option is to recheck ownership, or a
+registration generation, under netlink_table_grab() before setting the
+bit. Another is to clear stale members of a group ID when it is given to
+a new family.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-ynl-scope-v2-1-f5b8c6bb31c1%40kernel.org
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123155503.2497063-1-anilkaushikwireless%40gmail.com
