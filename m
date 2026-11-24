@@ -1,102 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538061;
-	b=Tlb+U3SNW/vh8IyJvAEHLVt5P3g3gKLqRKpW6Oz/owWrkaVaEarfmLAnaoKnu8KwoRBk
-	 66htxbqZYxMBVT7lbHTc7G+8kexh3abWxKbqJ73hlXSQw/xE3LP4LQd0fn0m6PVOxdNZI
-	 MRkvUtRU8ljrAFWWj8WK6nGxPffgUPoueVslnRQnmyaNSyKlEdyzc9Cl2RAwKx695O0jd
-	 yR6HrY24hN44tuOI/OLIb3TPSLWMpyltaM69BQgKgDDlFKTVPFMnA6ESkXqwaFTxXrh0R
-	 H5SpjWtZLIQXgNVSc7o+L+QgVofshnGxry0t7G2lLbXnQpWCUftyTBM5wwkP5NQwndA==
+	t=1795538172;
+	b=qIsKEyFsV5p+hY7VyFPPMWA8FDB/IB0aTx78Io5/sEO67b0Z9s/HJSxOiefCQ1nGrOKm
+	 JACsEyNSoRRZ8ox2sdJT7hIiMbvudBKxLBmrzgf47WwFdbPL8eu6gxOTZDfMOA493NQ8g
+	 PVxmuKTq9xEOdPLTm9l2zesMEyc8byB/Iqam4plRAYsefnrnSUTsmNPaL1GBrKeCL8im1
+	 SmSMolao2anq4ahxO/3WRAxx8WmR6ClEBHG8vIo5+e17/t273SNVY8yg5rJU1D1IZo0rC
+	 NO5mSo7JNavfU5i6aUsYu27ijCtgRCApfCihTTtjHorgf9cHLcU+ThvJ3CBvqRgrr/A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538061;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
-	b=I/1i1bG2Ij45hjeCV+9nb2uwQAD1thXbutbwSDlH2Zv3khsy+AVNTOen6cqHnCu/VcsN
-	 s9EKdLl4XqhyezX8UztLP9hAoiu2Qg1EY2AdRTki2+7EiBLs7zn6ahuC/uNVid1SS8UmE
-	 r4wDj5zInpBRyCn7J4hnratunGs6ymEUA37RStSPWTaplmU5RGECNr5HHjY1MUDEiKmHK
-	 RKudqexWQ4Al86PsJ5nWoWOIHKwpIoiqHnKTdkAyzh4J7JQJDTjXRL8/5Zv5Y9j9+it3v
-	 tXZCT+mQDcvjBTT1XofyDbRLIDZuPyUuayncpCdDs0cSbOecKoN6Bi0uRrSPCQmSB2A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538172;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=Ig/g6f6JH6crL2tbYKcTPvMky50h4POrHgH/dxBOz2Y=;
+	b=owPQOsqTBKxeUSrIePvN72uINpkVbmv14Q3w67ddFD4klBEtbkk2jW18/Vrm9SPelQ6R
+	 VtTRU9emiI5gNpiTzyycyM3AZ49R5KrfNfE0dl2Xox1CsKmRv+poA6Ud+cBEWGGAcTCWB
+	 EL1/+STNgm/kGlzhhwtKZnw3IpSe7H7KppQSELMrbbB7NoYDH2rGNE653BDRE8af2M0TA
+	 vNa+lC60sOcu8AfDEYrLeGy0F/PM81a/CUG80YgFvGSKMg1+PGrzTY4vNjHCDWXnBNjx6
+	 amXdeLKMJXg8Eu8DU6lkpQ+H9UWWyLaqh5+PH6+sMPIUpVZofyPOim5v4Oxi5BKuS6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tWrCri4C;
-	arc=none smtp.remote-ip=209.85.218.49
-Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=OUyiurIh;
+	arc=none smtp.remote-ip=195.10.208.51
+Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0989C606A333
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:34:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0989C606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBE6F606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:36:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBE6F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tWrCri4C
-Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c516a192844so391847866b.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:34:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795538059; x=1796142859; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
-        b=tWrCri4CWnTG22uOM9C+jp/befCVypiSR14ss4Hhuw4nQttam+vHWjhBIEnqPCrADa
-         C2HDs9OgrZ8A+wz8/LswPqpENVfLvEEj0/oiOOEXqx1cxSvUS/4S0h/rL3nNJNNBJS3D
-         Sl56mCRN+MPh+Zn8aGmIT1KZn8UvzbDcxXBgYKE6Gkysp3v0RpXILpd6khsmXaUtiP7K
-         Yi9cjmvBEHJJrBPiA1eBfTVO+82+19L3Fb1dECfEpUAdjvDHhBsX8BE/DyJGpcWosNw5
-         wp2pQXVv2LFi4pqSkz1xoLVMxRw2ur7RzNe8WfvBZMLZh3gVTNaJSJuEOL5yGS8b216x
-         HXGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795538059; x=1796142859;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
-        b=MniISPyq2xSb71Lm3bn7Ndjl6CNiXqbFZ+XnrpO8YC4TXZymDyPQ5C0UHcAXC+cd3k
-         UkbHt1bOEclsDT/yy4C6rRvqQgOCSMwrjZNIDswQc4sYQE2FosmSokcRnAqsiQdAZQab
-         X3RQDrBXyLMKajAmbsVoCI6reHpuE9dUG+wfhlj3/SmjysHGsyiAtZDznE1qrcZOy/3k
-         Rn+b8GurLby0PAJ1WB7hx32r/SpsbTyyovC/emP+Eh/Tb+8KIbGXrCjC7Z03xEVFrZiA
-         kVKZxNA5/G/ZDl0jRsx9J7HzXMA8ctP5d22dKPTFlSNEN7LMOOLctQVc8kqraX5uGott
-         suKQ==
-X-Forwarded-Encrypted: i=1; AL+hErFz09PD1fWdbrb5COlZGPBzP2j6+/Exk7iYvDfHQOeWyfu6JXeN7FOZXarZszA2FF1cglyaXFw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/HEbfkpXFGPaWDwIETMGziJTtAZPvp2wVH9CFcukII+4FnEHIO
-	VxNg7wmSJrlOdD7jZ4PYq0GHzWbrge4tiVye6AX6URojiT2Dw67BRXXF
-X-Gm-Gg: AZFdTZc445WzpZbBLG571e6zbPxBviPuJ5g+APsstyd+ZGK0n+c/fIyTOU/yWYPUdzg
-	kQUG8/a4PgR93lNDxqd8QF+arKxNl0Eb7sq7GbaFLysvdShDnaCh1Ap66Ct/iubaxy+tIwhPOu3
-	4uCa+MHcY7iSosf81WFP8FuVszOipzaEDT/st1UUugrcA5gcitEvygDjTHhHExI9A94+hOmYiLs
-	uZMnH282P632IX0exEcifA8Cp1+OgLwzbaip9g/4j1NM/DGSc+FuzBqc5Ey51g0uTZko9LzjuOQ
-	ccc82tqtdNuQ0QSFQuVohIBwSDNaPlsaKmGNGUMmx1sE0NyfEECxv68PaYjHDqF2fiEPzFwaVhb
-	3fJUhbkYAyyn24Lf/sMcapOQnLeyx4WffKw2ZEuu1leicJzsJxWSBz1JDgeAetyEheJAWaf7pWD
-	rK2rpHlb4vFtI2K3FG79NI3mSswn4Iq5/MU3Acm/2+OTmHbjfLMPjUafxlDCrcEJLAKwjMOEYdi
-	Ftt50t4zudsJ4LlsyJgkdQn9+wDR4jzUkpTrWfUQCYfC1td+EGH6MxPjNpvbVYJ3T+v+TKjrb6E
-	8MlcO+Bc3253tL/jAHHvYbcUkce71RG8JQEf7jLWhQZoVrK4fCa52xo=
-X-Received: by 2002:a17:906:7944:b0:c50:564b:c63 with SMTP id a640c23a62f3a-c513a43559cmr1313486866b.6.1795538059334;
-        Tue, 24 Nov 2026 08:34:19 -0800 (PST)
-Received: from theodors-laptop.dotcomltd.ru ([5.255.118.7])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afeca8dsm542032866b.75.2026.11.24.08.34.18
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 08:34:19 -0800 (PST)
-From: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-To: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	netdev@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-Subject: [PATCH net v3 2/2] net: unset the mac header of a pskb copy that points into headroom
-Date: Tue, 24 Nov 2026 19:33:58 +0300
-Message-Id: <20261124163358.755345-3-theodorlarionov@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20261124163358.755345-1-theodorlarionov@gmail.com>
-References: <20261124163358.755345-1-theodorlarionov@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=OUyiurIh
+Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jYpN25GDwzny;
+	Tue, 24 Nov 2026 17:36:02 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795538162;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Ig/g6f6JH6crL2tbYKcTPvMky50h4POrHgH/dxBOz2Y=;
+	b=OUyiurIhWn0ff3mwoVGXayDjhdYClS9bw/2p7AdLH6ZK2n1LfVDpBBF2cqHwmdJBf+osWe
+	bLeT+v9QKF7TMzQig7tgSv08lUVOJo2wuHMM90R/F2LXygd42QXBb/wGWOJNC5eo/D8CGB
+	ca3ApcpJwuE7Fd9FBc8tfG6+qGV87S0OvRSOjQsN+RFFUkUfi+wZIFdz0dCp/Ci0AOJwAN
+	siRnnf5Wip/73tDEvjjq303gLuQjoPcPtWM1PIt6rDT4VK2F/VdKrceb2D2lXTGNKkMEPH
+	iR01uwLMgdZimppLG7gl+egZZeVoOMsMpCvT7WcbRU/BsaIdraLCHcpIKBgBLQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::2 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: David Ahern <dsahern@kernel.org>
+Cc: netdev@vger.kernel.org,
+	David Ahern <dahern@nvidia.com>
+Subject: Re: [RFC net-next v2 0/7] ipv6: validate dsts against the netns route generation at lookup
+Date: Tue, 24 Nov 2026 17:35:52 +0100
+Message-ID: <20261124163553.783988-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261123212623.106153-1-dsahern@kernel.org>
+References: <20261123212623.106153-1-dsahern@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,45 +74,67 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jYpN25GDwzny
 
-__pskb_copy_fclone() copies the data from skb->data onwards but keeps
-the mac_header offset, so if the link-layer header was pulled, the
-copy's mac header points into uninitialised headroom. With nft dup, a
-link-layer payload load on the copy at LOCAL_OUT or POST_ROUTING reads
-those bytes, and a set element hands them to userspace:
+Hi David,
 
-  BUG: KMSAN: kernel-infoleak in _copy_to_iter
+On Mon, 23 Nov 2026 14:26:02 -0700, David Ahern <dsahern@kernel.org> wrote:
+> Known trade-off: any FIB change in a netns now invalidates every cached
+> IPv6 dst in it, not just those under the affected node; stale dsts are
+> rebuilt lazily on their next use.
+[...]
+> Ralf: Patch 7 is alternative to your patch that adds the cookie to the
+> APIs. Instead the result struct contains the genid before the lookup is
+> done. Adding it to the fib6_result seems simpler and accomplishes the
+> end goal everywhere.
+>
 
-Unset the mac header in that case. Callers that use the copy's mac
-header push the link-layer header before copying, as
-maybe_deliver_addr() in the bridge does, so the header is copied and
-stays valid.
+Carrying the sample in fib6_result avoids growing the API, but
+validating against the netns generation also changes what a FIB change
+invalidates: every route added or removed anywhere in the netns
+invalidates every cached IPv6 dst in it. I considered this before the
+RFC and discarded it as a potential regression against the current
+model, since the IPv6 FIB was designed to limit invalidations to the
+affected nodes, as 8f34e53b60b3 ("ipv6: Use global sernum for dst
+validation with nexthop objects") puts it:
 
-Depends on "netfilter: nf_dup: do not duplicate packets from
-br_netfilter"; without it, a tcp reset reject of a bridged dup copy
-reads out of bounds.
+  With the per-node counter only dst_entries based on fib entries under
+  the node are invalidated when changes are made to the routes -
+  limiting the scope of invalidations.
 
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Suggested-by: Florian Westphal <fw@strlen.de>
-Cc: stable@vger.kernel.org
-Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
----
- net/core/skbuff.c | 2 ++
- 1 file changed, 2 insertions(+)
+On v1 you wrote [1]:
 
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 85d5caa08887..e38d0de59e06 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -2278,6 +2278,8 @@ struct sk_buff *__pskb_copy_fclone(struct sk_buff *skb, int headroom,
- 	}
- 
- 	skb_copy_header(n, skb);
-+	if (skb_mac_header_was_set(n) && skb_mac_offset(n) < 0)
-+		skb_unset_mac_header(n);
- out:
- 	return n;
- }
+> That said, I have very limited time to work on a proposal. If this set
+> cannot converge on an acceptable solution in a few days, then I will
+> have to move on.
+
+I hope v5 [2] (that I just sent) is the convergence we were both looking
+for. It follows your direction, with validity in the dst, the sample
+carried in fib6_result and every holder covered without changes, but
+stamps the dst with the fn_sernum of the route's node, sampled during
+the lookup, and keeps the netns generation only for nexthop-object dsts,
+as today.
+
+It also avoids three problems I found in v2: a lookup can reuse a pcpu
+or exception dst that another lookup rebuilt after the route it selected
+changed, a stale exception is treated as a miss (so any FIB change in
+the netns stops learned PMTUs and redirects from being used), and
+fib6_ifup and fib6_ifdown still advance the generation before
+rt6_multipath_rebalance (which 2/4 of [2] fixes).
+
+But moving validity into the dst also raises lifetime questions that any
+version of this approach has to answer: pcpu dsts replaced while still
+held, including as children of xfrm bundles, and exceptions, which can
+neither be re-stamped nor be kept valid as they are. v5 covers the
+validation of pcpu dsts, still releases replaced ones with dst_dev_put
+and leaves exceptions on the holder's cookie for now. I'd welcome your
+input on how to take the rest further.
+
+[1] https://lore.kernel.org/netdev/2354d63e-1ba5-4655-8cea-2918fa0ee51f@kernel.org/
+[2] https://lore.kernel.org/netdev/cover.1795537128.git.ralf@mandelbit.com/
+
+Thanks.
+
 -- 
-2.34.1
-
+Ralf Lici
+Mandelbit Srl
