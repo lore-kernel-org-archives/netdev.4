@@ -1,86 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533179;
-	b=kcqIptr2at5oK9/myxT+2W7Cq1Sf7o4N3qEIko0cEtnGSpBKJq9cg9sQB3JrMVjuZjVR
-	 dFJjNuQCN/811nqoYZIobgamyMKOIcy0kexRek8dt2+XfcHd5L+ZVkzW+AxRw7ILARdqn
-	 vvQdAaG+7l8nB6zHlk+H5PJsOabQAybqbjZx5eb2uNLgdGZEf+4s5twQCKGdMfhnowOb3
-	 UPH9yVwRvgAH8FusMtfuouGH/4lUmltJwbO71KgEk/Lpz1o5P8xeVwVjZ+oqop5wU43TX
-	 RgMLZzASY3aUeZpql6W8mkXRslHw5CyuocKAmWktcKfzdnlAp9LMvxVlMSUNRPsWvQg==
+	t=1795533181;
+	b=f03j4fgmpPV1YpothcLUI+tzIGY9qcF9CAznOebeZ754+1EJuk6t5gr8aF9dTum/PTiX
+	 QJBtPCmn5uf3eA4Lh6Z3nIlVlnpzqayXmZKfwG3+Lb5Bb7axTfNVUOTasAkcxsDyvch6j
+	 LzTQp0hMM13+7Q0o8ETTs0Cipz/IFPNIoSimTpYyE30zf/VYvabkFMfJzGIU9PjSmr1r6
+	 CseHlTA7u4m0a3icvpPA7tcXv9rQXw7nzCf/dIm3+9W7ynbA1a4KIhRfishfmKO3kGL/8
+	 HNfM9o85UOFypbX1vI1pWMYB/BV+K56fJhiFudQtCoiCWT50gmsEDsTKCcvFJF+ajeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533179;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=6Uar3t/+oC60cS1BrmaHO8k37ywHjnvxhO9kNhoiN88=;
-	b=SHEswaAwRouk0qCTBoqbFQOlj4GZzzS8BMfntL5nBGiZFx5J9dcdgy7f0l++bhsXyLD1
-	 gSH52JQ3RbuwjKT9/1AWpIcwh/eAc3lF5lrZjqO9VFiRIxsery1i2oqCppAtbxtXgBeK2
-	 Q9qOikJ+iG4SCb7anxDuVC85efbKr+aH7gzBvWzWfhPCfQt4anIT01kx58xz8slNf10l6
-	 H33Le82RSiCwMuiC0REknKxN87xgHIbkKLpefVqpEF10Ru69+5784mAbwi2X4dNC6eCq3
-	 HqpEJhttG1r2dbPIsK9CNXwlsflSUThiA7b234HvxbhdIDtZrb/aBqaFD390MVoKodw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533181;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=rwg2yD1zJeOjWk9k6blison6UKKrmu+SCF2d3nY+2Pc=;
+	b=G6PLaAIwBECpI65rx6e91qIVmpfU0q4HdtSnjpajDjS6QL+gciFaeEmmaZcdCnRFmgvd
+	 Y5+T9PE8tx0E57cbyB3YHvmpXEyM+3nZ6KDsoqUeXxfQYG6gz1qKfQv5H0JrsJfiE+Vgm
+	 d6GrYA+eoHWqmkxVo7mDMt0UC4XNk1ahixbfHmB3+n2aNVstv/zMu226n7Eua7ZrvrdOy
+	 CcadgSu7JehQorBfy4F1AsWvEtvCDPRedbKRoGVjszqjyk88wHE2CPgNK6HTlGA9Wbe/M
+	 /ued8X02CZUGQu5Z6TfTBB7N8BXFMFbcSfSpA+vUF6bMDR0SLti6T7yzECKd5GUL23g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G+nNIFQ6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=aqSip14k;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7C46606A31E;
-	Tue, 24 Nov 2026 15:12:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88EDB606A339
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:13:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88EDB606A339
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=G+nNIFQ6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160881F000D0;
-	Tue, 24 Nov 2026 15:12:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795533178;
-	bh=6Uar3t/+oC60cS1BrmaHO8k37ywHjnvxhO9kNhoiN88=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=G+nNIFQ6jPsv18hssdU/aidLe43A5eos1FHdc/bh6x+c8CD5jfD6I4PWARXscaOBN
-	 D7E1ZsP0YHF4CzUVbWfjmhXcrl1aPrxDi3UHNgE3xSX9ZHzHWTCTsm1wsiVwh1pMtt
-	 ZNP4NYqq6RnetdnFjGdn8KDvSFjYBBqz3ctBl9/+UbzwNl3A74itsQerDBIzPI55Xb
-	 yGQdtSmdx15Ss8gU6fcPzdrtmR3jcgtOcKLOuFKG3GOhgHDN1zcdmOqNIWQ5tfLMHF
-	 DhCgfRZwEMHxdd1sm+y8zc15LdE+6SA1YJ4bM4fRExDteZHrNevMaCA5YY7z7JHWw/
-	 eX3XpigD1u5OQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Magnus Karlsson <magnus.karlsson@gmail.com>
-Cc: Magnus Karlsson <magnus.karlsson@intel.com>, Maciej Fijalkowski
- <maciej.fijalkowski@intel.com>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
- <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
- Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
- <memxor@gmail.com>, Ilias Apalodimas <ilias.apalodimas@linaro.org>,
- Alexander Duyck <alexanderduyck@fb.com>, Saeed Mahameed
- <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Mark Bloch
- <mbloch@nvidia.com>, Leon Romanovsky <leon@kernel.org>, Michael Chan
- <michael.chan@broadcom.com>, Pavan Chebbi <pavan.chebbi@broadcom.com>,
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <shuah@kernel.org>,
- bpf@vger.kernel.org, netdev@vger.kernel.org, Stuart Clark
- <stuclar@meta.com>, Stanislav Fomichev <sdf@fomichev.me>, Simon Horman
- <horms@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Mina Almasry
- <almasrymina@google.com>, Song Liu <song@kernel.org>, Yonghong Song
- <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
- <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, Randy
- Dunlap <rdunlap@infradead.org>, kernel-team@meta.com, Dimitri Daskalakis
- <dimitri.daskalakis1@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>,
- Mohsin Bashir <mohsin.bashr@gmail.com>, Kees Cook <kees@kernel.org>, Breno
- Leitao <leitao@debian.org>, Maxime Chevallier
- <maxime.chevallier@bootlin.com>, Tao Cui <cuitao@kylinos.cn>, Vadim
- Fedorenko <vadim.fedorenko@linux.dev>, "Mike Marciniszyn (Meta)"
- <mike.marciniszyn@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Jiayuan Chen <jiayuan.chen@linux.dev>, Martin Karsten
- <mkarsten@uwaterloo.ca>, Nikolay Aleksandrov <razor@blackwall.org>, David
- Wei <dw@davidwei.uk>, Pavel Begunkov <asml.silence@gmail.com>,
- linux-rdma@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 06/15] xsk: Lend UMEM chunks to the page pools
- of a queue
-In-Reply-To: <CAJ8uoz3f2MPpDevbMY3q_Nx=SQ2Om1ojAxBTsYhNw1V9_NXQMA@mail.gmail.com>
-References: <20261124112707.118678-1-bjorn@kernel.org>
- <20261124125654.183091-6-bjorn@kernel.org>
- <CAJ8uoz3f2MPpDevbMY3q_Nx=SQ2Om1ojAxBTsYhNw1V9_NXQMA@mail.gmail.com>
-Date: Tue, 24 Nov 2026 16:12:56 +0100
-Message-ID: <875wxmp8jr.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=aqSip14k
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4bb6adaf0f1so40883625e9.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:13:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall.org; s=google; t=1795533179; x=1796137979; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=rwg2yD1zJeOjWk9k6blison6UKKrmu+SCF2d3nY+2Pc=;
+        b=aqSip14kJuwOstw9v1SSzcUqfxbfcSSU1+YaNCeXU7kbwhBBGtPWSlwIMRuIbzfuaL
+         ERWULgL2sqSxy9m2yB+GHEnsgz3v7oetNbCl6qWvpij49i+MgesFHx2us+4u8WbGCzbC
+         8MdAf1/yl+uFdGCt0rDcvBAJNnYIvfPq9/QUn56gdyJ1Tv+TJzVS41ZJrW03dFgMhQpH
+         qwRObwBamonPdZl0dllqDtMgJjVNKthhu+GfWx0ANFoD8+gvJBtNaCRR2hq9nPvwV2OC
+         J3pcAgmbg+0PA27wvo6+P2r8s7NL5AD8NHYpc0Rp6ak9nmEFCWtPJnJppLAf3dTMnWd/
+         rOZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795533179; x=1796137979;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=rwg2yD1zJeOjWk9k6blison6UKKrmu+SCF2d3nY+2Pc=;
+        b=ayijIF+lwnb5gvUXlw+52HShOh5AobGIRO6GP29nvtjcJ084F7hg9dggBmk3QmC2Mt
+         aBHcKGL8wnWLFKc/ktl1rzB4HxO/We6msaKVeYzdN3S0YR3rqc+DML4T27GZL4qvVaff
+         M/LZiKXNfuKqkUdxHn5ep+4/UoCYdeyzOuFXC3CRXJMy0bKrCatWjB096tEjaHqAQodv
+         +VfX4SL8l9+75e+51RR3x0X9R4DZaHptWdGSitGoi8+K9HearytA95E/Na6Y443659F5
+         yBvS2kiVMoVm9gD4I5jgcRYezseuqwzv/uznWM06XcRiY1xguWJGOLRPFLQrfH2+09PQ
+         UX6Q==
+X-Forwarded-Encrypted: i=1; AL+hErEVvFY6TtQZ1kpr1zTXw7MlVQHcaUms0IGA3gB/83BKckwLN+GqB2TnewqbTcJZ3UP25jIisY0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+EUZajGcd31MJWaKrvbyT/cASXLD2T/kxSo2WOZOS5WojM1s10
+	B0jtcBE/yCY6RGBcsJt5r3dnYyHF0+IoJXS2M0LlAe+2AYWOmRxwNnerz3fb6EwNIHE=
+X-Gm-Gg: AZFdTZfyvrRSPJDsGWVVpWqyJOIdot6HB2bixCOVIlDgXGEdMit1ev5rlzthG9C/21u
+	nI7DanaKKMTDSDtvVD5olPaAzHaW4SVVft7SAAK3dndDeIXPIJtKe/HOtI6E+pYLOyOhqhm66ho
+	5O9M/0a2JIaK9zpjU3EnNBapxxqegVaXq9oASiQeh9m4U3xSdrShRFq7bcp+Q62zUBaCAskJlPa
+	QmstcjFMJaz61nQqqo3J7az7EcYEBURr1ZiEIzZbm7Rjp1tMFNBlTnW+46nT0MsD2EBxqNpD2XO
+	GwinTFZ8A/A/HfzXAyitncHU/M6UByNPacW25leGqLO0lpRF4/J9CQmQXAgz3acSuJ1h4Z5oPAf
+	CsKiSNwpWr8EX7FVW3V8A9KBwePKN/34tKSiVWKQ5gphKlsHy3ZC3a8SE1bPf/DdJbWi607FvAQ
+	wLe1v/T4lPQsA0+XMzEq/rNrMCCoD6dndUORwpj+OeHmNKgAMFuLOl24ZdaH7zigKkzZ2G8929y
+	m3NuJ0wLY6XDIPLzx6Ev9De29kc5ZH0sChS3tb5RBBrrmGqgOgVXHuAXZrlQ9v6Bd9Cyj2k5F0Z
+	uRYORoQC6lDE+81ZL9dZbNaBqLYVgxAafWLuvurTOtb3fwhZjJw=
+X-Received: by 2002:a05:600c:a086:b0:4af:c210:5b3f with SMTP id 5b1f17b1804b1-4bb88817ef1mr320282735e9.24.1795533178500;
+        Tue, 24 Nov 2026 07:12:58 -0800 (PST)
+Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4ab6bc8ce06sm27944396f8f.47.2026.11.24.07.12.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 07:12:58 -0800 (PST)
+From: Nikolay Aleksandrov <razor@blackwall.org>
+To: bpf@vger.kernel.org
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Stanislav Fomichev <sdf.kernel@gmail.com>,
+	Nikolay Aleksandrov <razor@blackwall.org>
+Subject: [PATCH RFC bpf-next 0/4] bpf: add bpf_sk_assign support on netkit egress
+Date: Tue, 24 Nov 2026 17:12:40 +0200
+Message-ID: <20261124151244.1423343-1-razor@blackwall.org>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,168 +100,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Magnus Karlsson <magnus.karlsson@gmail.com> writes:
+Hi,
+This RFC narrows the earlier egress series [1] to netkit's transmit
+path. NETKIT_PASS queues the assigned skb directly to the peer's
+receive backlog. NETKIT_REDIRECT clears the assignment before forwarding.
 
-> On Tue, 24 Nov 2026 at 13:59, Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org> wr=
-ote:
->> +/* RX buffers follow the device's layout: a page-sized chunk may hold
->> + * several of them, a packet may span chunks, and the device picks the
->> + * offsets. A FILL entry lends a chunk to the kernel. Needs aligned
->> + * page-sized chunks and no headroom.
->> + */
->> +#define XDP_UMEM_DRV_LAYOUT            (1 << 4)
->
-> First of all, this looks a lot better than the previous patch set.
-> Much simpler from a driver point of view, fewer changes to core
-> networking code, and that with just a small change/extension to the
-> uAPI.
+General TC egress support would require changes across the networking
+stack. Many transmit paths rely on skb->sk and skb->destructor for
+send-side ownership and socket write-memory accounting, and would need
+to handle an assigned socket reference in place of the transmit owner.
 
-Thanks, I do as well. Credits to Kuba that took me down this path.
+There is a new sk_assign_skb added to bpf_net_context that is used to
+record the exact skb netkit is running BPF on, bpf_sk_assign uses that
+identity to allow egress assignment for that skb. It is valid only when
+the new kern_flags bit is set, that is used to avoid always initializing
+it to NULL in bpf_net_ctx_set.
+A nested tc egress program running on a clone still gets -EOPNOTSUPP.
 
-> But I do not think this name is good. Most users of this API do not
-> care about driver details such as the layout. Why not call it
-> something that has to do with what has changed from the user's point
-> of view? Previously we had implicit ownership transfers. You got a
-> packet in Rx, you own the chunk. Now we have explicit ownership
-> transfer. You do not own the chunk the packet is in, unless you get
-> the new flag back (introduced later). So something with "explicit
-> ownership" or something similar would be better. Or focus the name on
-> that you can support larger chunks, but that is for later patches so
-> might not be the best choice.
+This series builds on Daniel's work [2] to steer netkit traffic to a
+transparent proxy in the receiving namespace. The receive backlog can
+outlive the transmit path's RCU read-side section, so the skb takes its
+own socket reference even for SOCK_RCU_FREE listeners.
 
-Magnus... naming is hard! Good point. There are two things in play; You
-cannot choose your geometry, and explicit ownership.
+The selftests exercise the new netkit sk assign for both IPv4/IPv6 and
+TCP/UDP.
 
-XDP_UMEM_EXPLICIT_OWNERSHIP?
-XDP_UMEM_EXPLICIT_RELEASE?
-XDP_UMEM_CHUNK_COMPLETION?
-XDP_UMEM_PACKED_RX?
+Feedback is most welcome, more importantly if the approach taken in
+patch 03 is acceptable.
 
-I'm leaning towards XDP_UMEM_EXPLICIT_RELEASE, and naming the flag
-XDP_RX_CHUNK_RELEASED?
+Changes since the original posting:
+ - Use a new approach to limit the egress sk assign only to netkit
+ - Reduce the number of selftests
+ - Drop some unnecessary fixes of pre-existing problems
 
->> diff --git a/net/xdp/xsk_sink.c b/net/xdp/xsk_sink.c
->> new file mode 100644
->> index 000000000000..b78116f25e71
->> --- /dev/null
->> +++ b/net/xdp/xsk_sink.c
+Pre-existing problems found during reviews that will be dealt with
+separately:
+   - Receive lookup could use a prefetched socket whose protocol, family
+     or network namespace did not match the packet
+   - GRO via gro_cells can merge an assigned skb after tunnel
+     decapsulation and discard its socket reference without calling the
+     destructor
+   - When a reuseport program rejects an assigned UDP socket, receive can
+     report an error pointer as rx_sk to the kfree_skb tracepoint
+   - A generic XDP program, an rx_handler or a classic mirred action on
+     the receiving device can forward the assigned skb to another network
+     namespace. Generic XDP can also drop the assignment when it copies
+     the skb, so the packet falls back to normal socket lookup
+   - nsim_forward_skb() queues the skb for napi_gro_receive() without
+     orphaning it. GRO can discard its socket reference when merging it
 
->> +static netmem_ref xsk_sink_alloc_netmems(struct page_pool *pp, gfp_t gf=
-p)
->> +{
->> +       struct xsk_sink *sink =3D pp->mp_priv;
->> +       /* The NAPI owns the need_wakeup flags */
->> +       bool napi =3D in_softirq() && !in_hardirq();
->> +       struct xsk_queue *fq;
->> +       dma_addr_t dma;
->> +       u32 i, n;
->> +
->> +       /* The page pool refills only an empty cache */
->> +       if (WARN_ON_ONCE(pp->alloc.count))
->> +               return 0;
->> +
->> +       spin_lock_bh(&sink->lock);
->> +       n =3D xsk_sink_take_fill(sink, pp);
->> +       n =3D xsk_sink_take_released(sink, pp, n);
->> +       fq =3D sink->fq;
->> +       /* Ask for kicks only while FILL runs dry, as zero copy drivers =
-do: a
->> +        * kick schedules the NAPI, which a busy poller would rather run
->> +        * itself. Process context refills new queues only and leaves the
->> +        * flags to their NAPI and to bind.
->> +        */
->> +       if (napi && fq && sink->pool->uses_need_wakeup) {
->
-> Was not need_wakeup a requirement for using this new mode? If so, why
-> not just set it somewhere and not test it after that?
+Thanks,
+ Nik
 
-Argh, indeed. 08/15 makes XDP_USE_NEED_WAKEUP mandatory and removes both
-checks when it enables the mode. I'll move that so the requirement is
-clear from the start. Good catch.
-
->> +int xsk_sink_bind(struct xsk_buff_pool *pool, struct net_device *dev,
->> +                 u16 queue_id, u16 flags)
->> +{
->> +       u32 needed =3D NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT;
->> +       struct pp_memory_provider_params p =3D { .mp_ops =3D &xsk_sink_o=
-ps };
->> +       struct device *dma_dev;
->> +       struct xsk_sink *sink;
->> +       int err;
->> +
->> +       if (flags & XDP_USE_SG)
->> +               needed |=3D NETDEV_XDP_ACT_RX_SG;
->> +       if (flags & XDP_COPY || !dev->queue_mgmt_ops ||
->> +           (dev->xdp_features & needed) !=3D needed ||
->> +           queue_id >=3D dev->real_num_rx_queues)
->> +               return -EOPNOTSUPP;
->> +
->> +       /* The program of another device would see a leased queue's pack=
-ets */
->> +       if (netif_rxq_is_leased(dev, queue_id))
->> +               return -EOPNOTSUPP;
->> +
->> +       /* The device of the queue's page pools, which may differ per qu=
-eue */
->> +       dma_dev =3D netdev_queue_get_dma_dev(dev, queue_id, NETDEV_QUEUE=
-_TYPE_RX);
->> +       if (!dma_dev)
->> +               return -EOPNOTSUPP;
->> +
->> +       /* Without a program, drivers would build skbs from the buffers =
-*/
->> +       if (!dev_xdp_drv_prog_held(dev))
->> +               return -ENOENT;
->> +
->> +       err =3D xp_dma_map(pool, dma_dev, XSK_SINK_DMA_ATTR, pool->umem-=
->pgs,
->> +                        pool->umem->npgs);
->> +       if (err)
->> +               return err;
->> +
->> +       sink =3D xsk_sink_create(pool, dma_dev);
->> +       if (IS_ERR(sink)) {
->> +               xp_dma_unmap(pool, XSK_SINK_DMA_ATTR);
->> +               return PTR_ERR(sink);
->> +       }
->> +
->> +       /* Until the first refill of the NAPI: the queue may need FILL to
->> +        * start. Set before the NAPI runs, which owns the flags after t=
-hat.
->> +        */
->> +       if (pool->uses_need_wakeup)
->> +               xsk_set_rx_need_wakeup(pool);
->> +
->> +       /* The core keeps sink buffers to the socket once the queue runs=
- */
->> +       static_branch_inc(&xdp_sink_key);
->> +       sink->rxq =3D __netif_get_rx_queue(dev, queue_id);
->> +       pool->sink =3D sink;
->> +       p.mp_priv =3D sink;
->> +       err =3D netif_mp_open_rxq(dev, queue_id, &p, NULL);
->> +       if (err) {
->> +               xsk_sink_detach(pool);
->> +               return err;
->> +       }
->> +
->> +       return 0;
->> +}
->
-> At a first glance it feels like some of this code could be shared with
-> the current bind, but I guess you have already tried and it is not
-> worth it, or? The commonality seems somewhat spread out.
-
-Pool setup and registration are already shared in xp_assign_dev(). The
-main difference is how we start the queue. Classic ZC calls the driver
-with XDP_SETUP_XSK_POOL; this path maps the UMEM and installs a memory
-provider with netif_mp_open_rxq().
-
-I'll look for checks we can share without mixing the two setup and
-unwind paths.
+[1] https://lore.kernel.org/bpf/20261119142231.2612515-1-razor@blackwall.org/
+[2] https://github.com/cilium/linux/commits/pr/bpf-tproxy
 
 
-Thanks for having a look!
-Bj=C3=B6rn
+Nikolay Aleksandrov (4):
+  net: track references owned by prefetched socket assignments
+  bpf: preserve owned socket assignments on ingress redirects
+  bpf: support bpf_sk_assign in netkit tx path
+  selftests/bpf: test netkit socket assignment to a transparent proxy
+
+ drivers/net/netkit.c                          |  10 +
+ include/linux/filter.h                        |   4 +
+ include/net/inet6_hashtables.h                |  10 +-
+ include/net/inet_hashtables.h                 |  10 +-
+ include/net/netkit.h                          |  15 ++
+ include/net/request_sock.h                    |  10 +-
+ include/net/sock.h                            |   4 +-
+ include/uapi/linux/bpf.h                      |   9 +-
+ net/core/filter.c                             |  50 ++++-
+ net/core/sock.c                               |   7 +
+ net/netfilter/nf_queue.c                      |  16 +-
+ tools/include/uapi/linux/bpf.h                |   9 +-
+ .../bpf/prog_tests/sk_assign_netkit.c         | 189 ++++++++++++++++++
+ .../selftests/bpf/progs/sk_assign_netkit.c    |  95 +++++++++
+ 14 files changed, 412 insertions(+), 26 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
+ create mode 100644 tools/testing/selftests/bpf/progs/sk_assign_netkit.c
+
+-- 
+2.47.3
+
