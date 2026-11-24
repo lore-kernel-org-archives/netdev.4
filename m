@@ -1,79 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795558228;
-	b=sIY/ZvEZwGB9mTowFcgezn/joHyHhLe+z8jPiRo4SlDiPwGHSjRpkMdmBhHzJ8Ycvkg4
-	 XRQnRpVMrN4I0scGeFugzL7VFFhhtWGZckN00S2+SSfcpLCViKtgjmtee/Q8M9zv2OATu
-	 rDhldY/4yTn0ugtrDqAcKgDsl0yGfS0FD9PUmzfeegru0hW/Upq3weRivEZjQxOcpi+7Q
-	 yCJuNn6Bvi+T+FC3/j3cYps7TJjiFdXCsRnHhMPoBG5UVM5YH8tD5N8jtxjXe3B+FsTUA
-	 Dq3kLST6pcM9X9krb3yVSrFy/1qfw3WgsO7eqtjOqvn5k6nuhZYk3pYXd1ZdLewnTJQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558228;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tG9RtY2F7L1FixSiuMUcW8pD24jpG6qfA4TxF6zKDLA=;
-	b=cyZmotPPgo5g5/bav8oAT/UEEI3GKtrgthb9Ss3e/brNedhlXfyOHQ74QWuoYwhnvZLe
-	 kEow5hV/Dn0ce9AEcP8Og8ScCN6jIutRlw8NIKfUQS2KC+NcJ5idTW7DRUGJT1rcMmb2T
-	 aa7BQmrl3UYb34pecQILCVpsyGncQFIfxQt9H2cs/GYTYYuVkIp2Nauh8JBEjsfcEDEDU
-	 C/1HWLLkYKJkOJtWFBb2YH616rh92J/mInGnnpwyX/zlbD/2Te3cgjuRJR4lx5MiqLUOr
-	 YZ5fHecHJXIYXNoNZr7zRxgXTOItPTP/MwhYyvGsqa5jaJ2zCzpPGxzQC+8fwDOwzjA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Lu/FHKBI";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15BAA606A31E;
-	Tue, 24 Nov 2026 22:10:27 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Lu/FHKBI
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795558227;
-	b=Mm1VqZa59JLk8Pw0t3cQzV3jJNfRxbr3O1rzh+jGVXTw2TiBzIZygFwZDr817MNBnFKW
-	 EKZwI2YEfti/209Sx1U9NJm/QQy7INOUMIYnYhkOS3VDUuxA6TL1TnlWUViLpu7kg30+B
-	 Ety2x6rtUpOw4juPezEhzMuOqiYAm0xcvNfI7UnrZbPNAXcluQ/UmxyNhz9ojUxZupfZx
-	 P5GFU/WT8iJFq49cZLMIHDAY/IkJDq+gzOCm1Sa5rkY3IMbrRNgia9gcdzfQ1tpiacUvN
-	 cA8VzplMfm03gvPU10gPBUkQe2wdVvmHgSAeF8nqSSzptnYk9hTbroH5G/VscI7KtFA==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795558227;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=tG9RtY2F7L1FixSiuMUcW8pD24jpG6qfA4TxF6zKDLA=;
-	b=APtLGkCBUI/RAXRyLUCA0MLLsTBac844UE1XuAA1FY4OG+mlDevcd5Ut4+EPagjxP2yD
-	 bS9r6zNmAWRnQ3ipxq/Sm6psXV/+PHaOx1RKJtaQrv3hprYy14FMWkwDHiedfmbIsDyCN
-	 AMhl3X3OeV3aC+hV8Ik4lOLmmRtK6kcPPvI3aEZ/eXBze7Xg9q7orVFqKPtOy6lUJXuuB
-	 lCH96mZTe28TD/FnKV0bFmRB9WcH44VQZFl9reHOYG5yJ4uaR9eFCnV/aGKGg4XClPNV5
-	 73yAGSPLMBTJAiQrEKLTmnLQLz9kgky0WwVtNYYq3NIYWzyYgl8SMLtNMiHCDkJlV2g==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795558749;
+	b=hapj3zQGB4wCtKdzV1Z2ud/NhyW8qveR4GmeSuIpqD6V76Nz5tCzCcn0sUPc4bYSAumP
+	 6elX+FKBZ3JNHRsu9F6A2xql2zUbhprUzPu0o3w/C34hKluACOrrS3zezcD5yzYjhHXES
+	 jq4TFQSDYE1u5nczaYxs5tv4Ypoah5Qj1reizmLbe1CbW3/cpkva5mspZbdvNoJ5lvzzN
+	 /92dbdKBg/PuEXHOy1g5LmRocJt2pSKYh3wU1Z+/RnNmaJImi2KXgm8TzYP26g9bltwS+
+	 4m6WgjkXBtlwBMqs1WXJJKkfUOMfzsBytHT5OR/P3U5xXdicsaCYauFjQqwfJ1KE8hw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558749;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
+	 X-Proofpoint-Virus-Version;
+	bh=5+y+pEJjkRlNPLPCUMjFNeoBC6zZvACT5MVl5k5uM+g=;
+	b=yiCK0JOw3ek13rC9Jh12o91SGP/3rVIqANXVzH2UX3gt0CKbY1mtQifO1efbTNXRBT8y
+	 FlUzyzbYuNZLByUy9zDsb9pFZ1dXEwTWdWB0XxJc/z8djLiLNyeikx4t5EbubItFudrSR
+	 4gpuHHEwSoBl6qZrAK8FUyCqYHxnAklOiUL+eEYdtFT5MN2KkcM0hMFET6OKLGvcCs8tt
+	 S5y+GVMu6lowz7xAQjWgV3q1PdOSr3VHvDQWfBRvGs2FQnfrDEnqVj5zysllfUAocrmIF
+	 LjB90gX4oOlZrOyy/Bruy0yTvtnt1q0x8eWCMnM6NPRjhb8kV1kFuoa1f1gCUPiSbuQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=meta.com;
+	spf=pass smtp.mailfrom=meta.com;
+	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=IIw3paMo;
+	arc=none smtp.remote-ip=67.231.153.30
+Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 713E81F000D2;
-	Tue, 24 Nov 2026 22:10:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558227;
-	bh=tG9RtY2F7L1FixSiuMUcW8pD24jpG6qfA4TxF6zKDLA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Lu/FHKBIL7Od+6cn5KSpeiEElHIDYniFirzO//wdjoqjxzyPdsiFuBAheUiowvE+6
-	 PPjXaw5U+f/XVJTC4j2Qssx0JwKrpO4mBezhcosIUqug6FwE5qRoA7jOwMSb/kV/QQ
-	 TqmV448knNFhjErp1sDyRFl+wrdNF3pHGP9tejdNiOmB8ymRBbf4R+jLgpbREmcgJ/
-	 KbUHSqfnp8WcMdun/UZl5knO2xac6YVvS8KepTJFrpDgKlFdFSq6YWa0He+EGnGktG
-	 08EunxjM9V+NR4LNk+q9Mg21vusT/EoPJw0Me6hlXN5IAgkILyaP5ibKMVtb08I1Ew
-	 VD+r2f7yWJczA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 4B8B64CBFD;
-	Tue, 24 Nov 2026 22:09:58 +0000 (UTC)
-From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:10:03 -0800
-Subject: [PATCH net-next v12 15/15] net: ethernet: onsemi: s2500: Add
- driver support for S2500
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B694A606A326;
+	Tue, 24 Nov 2026 22:19:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B694A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=IIw3paMo
+Received: from pps.filterd (m0109331.ppops.net [127.0.0.1])
+	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMBBeR1462611;
+	Tue, 24 Nov 2026 14:18:25 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	pps82601-s2048-2026-q3; bh=5+y+pEJjkRlNPLPCUMjFNeoBC6zZvACT5MVl5
+	k5uM+g=; b=IIw3paMo5bwlWOU0u1YpRsGSmkRgCEHTRaqSoytolBtu+Wdbgo92k
+	8Gzi+ZEn/Luvq+fErnwzuDt+MDvH/xZ3Yv8e5J6M6X6mETlyeXLgdraT/8lnGoyk
+	ZvSyGqp45on3AOnlzVApD7G4QexEYocfJXLgTLChiDXwE7BRBfSsKhHrOtAtGSj5
+	3oa3Qz4x+0YhHcvZ8ckuMrnHRCEQL4g0nI/QGpMbFGBaXs9w5zDWmBrVM3rmMP4c
+	XeqsaIDQ9tQfEBk5vNq3RriplObC1pu5lZUO27gMpsjn/52FV4pZiLuEvQgPMIpe
+	YLQgBmGRN3/bZp2EAXuZAGKDNdIhkX0CA==
+Received: from maileast.thefacebook.com ([163.114.135.16])
+	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5eaw2q3v-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Tue, 24 Nov 2026 14:18:25 -0800 (PST)
+Received: from localhost (2620:10d:c0a8:1c::11) by mail.thefacebook.com
+ (2620:10d:c0a9:6f::237c) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
+ 2026 22:18:24 +0000
+From: Todd Freed <toddfreed@meta.com>
+To: <netdev@vger.kernel.org>
+CC: "David S. Miller" <davem@davemloft.net>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
+	<bjorn@kernel.org>,
+        Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
+	<cratiu@nvidia.com>,
+        Daniel Zahka <daniel.zahka@gmail.com>,
+        Donald Hunter
+	<donald.hunter@gmail.com>,
+        Dragos Tatulea <dtatulea@nvidia.com>,
+        Eric Dumazet
+	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Jamal Hadi Salim
+	<jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
+        Leon Romanovsky
+	<leon@kernel.org>, <linux-doc@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
+        <linux-rdma@vger.kernel.org>, Mark Bloch <mbloch@nvidia.com>,
+        Paolo Abeni
+	<pabeni@redhat.com>,
+        Pedro Tammela <pctammela@mojatatu.com>,
+        Saeed Mahameed
+	<saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
+        Tariq Toukan
+	<tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
+        Willem de Bruijn
+	<willemdebruijn.kernel@gmail.com>,
+        Kuniyuki Iwashima <kuniyu@google.com>, <bpf@vger.kernel.org>,
+        =?UTF-8?q?Asbj=C3=B8rn=20Sloth=20T=C3=B8nnesen?=
+	<ast@fiberby.net>,
+        Qingfang Deng <qingfang.deng@linux.dev>,
+        =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+        Shuah Khan
+	<shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+        Shuah Khan
+	<skhan@linuxfoundation.org>,
+        Randy Dunlap <rdunlap@infradead.org>,
+        Matthieu
+ Baerts <matttbe@kernel.org>,
+        David Ahern <dsahern@kernel.org>,
+        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+        Hangbin Liu
+	<hangbin.liu@linux.dev>
+Subject: [PATCH net-next v3 07/12] net/sched: flower: add psp_spi, psp_ver, and psp_dev matches
+Date: Tue, 24 Nov 2026 14:17:53 -0800
+Message-ID: <20261124221758.3230929-8-toddfreed@meta.com>
+X-Mailer: git-send-email 2.53.1
+In-Reply-To: <20261124221758.3230929-1-toddfreed@meta.com>
+References: <20261124221758.3230929-1-toddfreed@meta.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,1507 +118,356 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-15-3575855d99f9@onsemi.com>
-References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- Parthiban Veerasooran <parthiban.veerasooran@microchip.com>, 
- Selva Rajagopal <selvamani.rajagopal@onsemi.com>, 
- Richard Cochran <richardcochran@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Eric Dumazet <edumazet@kernel.org>, 
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>, 
- Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
- Jerry Ray <jerry.ray@microchip.com>, 
- Ciprian Regus <ciprian.regus@analog.com>, 
- Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=44897;
- i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=2TQB8Ygu0aRCncLo2aESqIQ8v8oQpN3qoyj1g54Ov+Y=;
- b=6xBi+kYWHECCoZxvF/arpgtIlIOvGIt4uWXCdLGGeQNHuP/qiVQzMEXVUYTY0onejWUKEXmUf
- U5IlCeVZtm4DjsNc9UZ/cAOX9XFC8BjFoCklgc7ayd5AQU0Il3Afhns
-X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
- pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
-X-Endpoint-Received: by B4 Relay for
- Selvamani.Rajagopal@onsemi.com/20260531 with auth_id=803
-X-Original-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-Reply-To: Selvamani.Rajagopal@onsemi.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX7XYE2Q0CcUy2
+ DimOKe5b5dNamxzPHUOUFTFujO/HJk6wvJsoCl4pIp60zfuQtN9khqPBzDnfHF6y5HN2bZK+BgT
+ AuBBRNoWecgarywsuGq2YvYhAVNSyT4jbELgWl1jKjeHfO3y3zQKTiCT81juypnSX4tmauJGk0n
+ VBkHzT9eKpgj8FHcrKOTQ+m/JhzayeVxRI4CQE/CouQ4I8lpSgDyRuginQDAiaYtVX8membAyXK
+ R+cUvLubOmExTUnE4jg3PxIxgWiz6mHCc73QzWi+noC2pPYACp1To/8AHslAhIKStPo6PlUq79C
+ +JlYiKGIk13gxaM0o68UEo7bx9r0x/y4L3mOjLLPOY3yYko+RqS5jfwHz3s9oGXaFrzJQf8W50A
+ nReNaZJNXmBW0twk5paitnXi+WdESUg2o84D7AHqQgLOpy0AoO+qMrgen4FSCmdoVFj/D3yT20h
+ t3FEL4IhFtOHW980+kw==
+X-Proofpoint-GUID: E4J5Ot1bXoTVxhuzwU2hmJFy0ppCnYHO
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX6WkrXyfbygoC
+ 0IS4no1xadnSVsw6JFddkN4blCdNCk9BLPDjaWbVXoLXgyDFl8AkpO7qJ6jm+bDPIy9r4e3jVhv
+ +LRM6hXXbj/tEs27k4PwvtysLfl5eHA=
+X-Proofpoint-ORIG-GUID: E4J5Ot1bXoTVxhuzwU2hmJFy0ppCnYHO
+X-Authority-Analysis: v=2.4 cv=cIV1IVeN c=1 sm=1 tr=0 ts=6b060d31 cx=c_pps
+ a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
+ a=wpfVPzegXHpEFt3DAXn9:22 a=VabnemYjAAAA:8 a=UA3dg4tPmuigaKddVqUA:9
+ a=gKebqoRLp9LExxC7YDUY:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
 
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+Add a flow dissector key filled from the PSP Rx state (SKB_EXT_PSP) the
+device attached to a decrypted packet, and corresponding flower matches:
+the SPI the packet was decrypted with (psp_spi, with a mask), the PSP
+version (psp_ver), and the ID of the PSP device which decrypted it
+(psp_dev).
 
-Support for onsemi's S2500, 802.3cg compliant Ethernet
-transceiver with integrated MAC-PHY. Works with
-OPEN Alliance TC6 framework.
+For example, to take the packets of one Rx SPI (allocated with
+rx-spi-alloc), and remove their PSP state so that they can be forwarded:
 
-Hardware timestamp support is present in the driver. adjtime
-functionality is implemented as a read-modify-write of the time
-registers as the device has no add-delta register.
+  tc filter add dev eth0 ingress protocol ipv6 flower
+      psp_spi 0x80000001 psp_ver 0 psp_dev 1
+      action psp decap
 
-Driver has ethtool support for printing some device
-registers, MAC, PHY and rmon stats and timestamp related
-traffic counters.
+Together these matches tie a rule to one Rx SPI, in a form which
+hardware can match on (offload comes in a follow-up series). The SPI is
+only unique on its PSP device, and is allocated for one PSP version.
+This matches the per-packet check that PSP sockets have against their
+association, with an important exception - the generation of the device
+key is not checked.
 
-The MAC address is taken from a device tree property if
-present, otherwise from the device, otherwise a random
-address is used.
+This means that a rule for an SPI could match packets after two device
+key rotations, if the device allocates the same SPI again (which it is
+free to do).
 
-Driver supports a maximum of three multicast filters. If
-the system has more than 3 multicast addresses to support,
-all multicast traffic is allowed.
+Userspace is responsible for handling this. It must replace a rule which
+matches on SPI before the device key has had two rotations. The existing
+key rotation notification may be used for this purpose.
 
-Raise the transmit credit threshold from the default of 1
-credit to 8, using the new oa_tc6_tx_credit_threshold_set()
-helper, so that the MAC-PHY asserts the interrupt only when at
-least 8 transmit credits are free.
+No driver offloads these matches yet, and some drivers offload a rule
+without checking which keys it uses, so it would match without them.
+Don't offload a rule which uses them, and reject it with skip_sw. A
+rule which isn't offloaded is not on the filter's hw list either, so
+it isn't offloaded later when the block gets another device.
 
-Enable RX cut-through.
+Note that these flower matches only ever match packets which were
+decrypted, even if the mask is 0. So "psp_spi 0/0" matches any decrypted
+PSP packet.
 
-Enable the MAC's hardware FCS generation, so the host does
-not have to append the FCS to transmitted frames.
-
-Statistics read from the device are cached for 100 ms, so
-repeated ethtool queries within that period return the
-cached counters. The rx_otherhost_dropped link statistic
-is refreshed every 3 seconds while the interface is up.
-
-Support self-test. Also Add imply NET_SELFTESTS in Kconfig
-so that users would be able to disable self-test and still
-compile.
-
-Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-
+Signed-off-by: Todd Freed <toddfreed@meta.com>
 ---
-changes in v12
-  - Squashed self-test for S2500 into this patch as number of
-    patches nearing the maximum 15.
-  - Moved OA TC6 framework API changes to its own patch.
-  - Fixed RX filter and multicast handling.
-  - Added rx_otherhost_dropped statistic, refreshed periodically.
-changes in v11
-  - fixed a potential "Oops" due to jumping to wrong label on error
-    while enabling RX cut-through feature
-  - Function that enables RX cut-through is made private
-  - Moved the frame drop feature to separate patch as it is not
-    related to S2500 driver support.
-  - MAINTAINERS file changed to include files under onsemi too.
-changes in v10
-  - Removed the code that overwrites CONFIG0 after oa_tc6_init
-    is done.
-  - Removed the code that clears status0 register that would
-    interfere interrupt handling
-  - setting tx credit threshold to 8 credits
-  - New API documentation moved to this patch
-changes in v9
-  - moved net_selftest entry in ethtool_ops to the correct patch
-  - Moved MAINTAINERS changes here for driver files.
-  - Fix the order of variable declaration to keep reverse Christmas
-    tree format.
-changes in v8
-  - changes to use the new MMS read/write API in OA TC6 framework
-  - Updated to improve adjtime/adjfine implementation
-  - cleanup to remove unnecessary definitions/initializations
-  - Removed unnecessary ioctl callback
-changes in v7
-  - Moved the update to MAINTAINERS to the patch that has DTS
-    as it comes first.
-  - Added space between {}. Added missing MODULE_DEVICE_TABLE
-  - Removed the duplicate vendor dependency check in Kconfig
-changes in v6
-  - Changes to ensure line length stay within 80 columns
-changes in v5
-  - integrated the onsemi's selftest support to onsemi's driver
-    as a single patch as number of patches exceeded the limit
-  - Fixed the formatting issue in Kconfig file
-  - Fixed commenting issue
-changes in v4
-  - MAC/PHY Loopback implemented by onsemi replaced by Linux
-    standard net_selftest APIs
-  - onsemi defined MMS values are replaced by OA TC definitions.
-  - removed only model information as it has no practical use
-  - replaced all read/write APIs that use non-zero MMS to
-    use the new APIs that takes mms as one of its parameters.
-  - some bit manipulations are changed to use FIELD_GET macro
-changes in v3
-  - split rmon stats and interface states separately.
-  - moved get_ts_info to OA TC6 framework as this isn't vendor
-    specific
-  - removed few static inline code
-  - moved ptp register code OA TC6 framework
-changes in v2
-  - Removed the support for onsemi's NCN26010 which is legacy
-    MAC-PHY to keep only onsemi's S2500 MAC-PHY
-  - Renamed all the functions to start with S2500
-changes in v1
-  - Added onsemi MAC-PHYs NCN26010 and S2500 support
----
- MAINTAINERS                                       |   1 +
- drivers/net/ethernet/Kconfig                      |   1 +
- drivers/net/ethernet/Makefile                     |   1 +
- drivers/net/ethernet/onsemi/Kconfig               |  21 +
- drivers/net/ethernet/onsemi/Makefile              |   6 +
- drivers/net/ethernet/onsemi/s2500/Kconfig         |  20 +
- drivers/net/ethernet/onsemi/s2500/Makefile        |   6 +
- drivers/net/ethernet/onsemi/s2500/s2500_ethtool.c | 389 +++++++++++++++++
- drivers/net/ethernet/onsemi/s2500/s2500_hw_def.h  | 165 +++++++
- drivers/net/ethernet/onsemi/s2500/s2500_main.c    | 496 ++++++++++++++++++++++
- drivers/net/ethernet/onsemi/s2500/s2500_ptp.c     | 156 +++++++
- 11 files changed, 1262 insertions(+)
+ Documentation/netlink/specs/tc.yaml | 19 ++++++++
+ include/linux/skbuff.h              |  4 ++
+ include/net/flow_dissector.h        | 18 +++++++
+ include/uapi/linux/pkt_cls.h        |  5 ++
+ net/core/flow_dissector.c           | 27 ++++++++++
+ net/sched/cls_flower.c              | 76 +++++++++++++++++++++++++++++
+ 6 files changed, 149 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 5020e938604a..e30e76acba5c 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21039,6 +21039,7 @@ M:	Selvamani Rajagopal <selvamani.rajagopal@onsemi.com>
- L:	netdev@vger.kernel.org
- S:	Supported
- F:	Documentation/devicetree/bindings/net/onnn,s2500.yaml
-+F:	drivers/net/ethernet/onsemi/
+diff --git a/Documentation/netlink/specs/tc.yaml b/Documentation/netlink/specs/tc.yaml
+index b6ccc645b0e3..d9d8b21eb1bf 100644
+--- a/Documentation/netlink/specs/tc.yaml
++++ b/Documentation/netlink/specs/tc.yaml
+@@ -2908,6 +2908,25 @@ attribute-sets:
+         byte-order: big-endian
+         enum: flower-key-ctrl-flags
+         enum-as-flags: true
++      -
++        name: key-psp-spi
++        type: u32
++        byte-order: big-endian
++      -
++        name: key-psp-spi-mask
++        type: u32
++        byte-order: big-endian
++      -
++        name: key-psp-version
++        type: u8
++        checks:
++          max: 15
++      -
++        name: key-psp-dev
++        type: u32
++        checks:
++          min: 1
++          max: 65535
+   -
+     name: flower-key-enc-opts-attrs
+     name-prefix: tca-flower-key-enc-opts-
+diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
+index 55ab6392301a..c20294084fb7 100644
+--- a/include/linux/skbuff.h
++++ b/include/linux/skbuff.h
+@@ -1663,6 +1663,10 @@ void skb_flow_dissect_hash(const struct sk_buff *skb,
+ 			   struct flow_dissector *flow_dissector,
+ 			   void *target_container);
  
- OP-TEE DRIVER
- M:	Jens Wiklander <jenswi@kernel.org>
-diff --git a/drivers/net/ethernet/Kconfig b/drivers/net/ethernet/Kconfig
-index 5758e0fbbca5..c160bf991345 100644
---- a/drivers/net/ethernet/Kconfig
-+++ b/drivers/net/ethernet/Kconfig
-@@ -137,6 +137,7 @@ source "drivers/net/ethernet/nvidia/Kconfig"
- source "drivers/net/ethernet/nxp/Kconfig"
- source "drivers/net/ethernet/oa_tc6/Kconfig"
- source "drivers/net/ethernet/oki-semi/Kconfig"
-+source "drivers/net/ethernet/onsemi/Kconfig"
++void skb_flow_dissect_psp(const struct sk_buff *skb,
++			  struct flow_dissector *flow_dissector,
++			  void *target_container);
++
+ static inline __u32 skb_get_hash_net(const struct net *net, struct sk_buff *skb)
+ {
+ 	if (!skb->l4_hash && !skb->sw_hash)
+diff --git a/include/net/flow_dissector.h b/include/net/flow_dissector.h
+index ced79dc8e856..151ae03d5ad5 100644
+--- a/include/net/flow_dissector.h
++++ b/include/net/flow_dissector.h
+@@ -339,6 +339,23 @@ struct flow_dissector_key_cfm {
+ 	u8	opcode;
+ };
  
- config ETHOC
- 	tristate "OpenCores 10/100 Mbps Ethernet MAC support"
-diff --git a/drivers/net/ethernet/Makefile b/drivers/net/ethernet/Makefile
-index e0e86c249e42..e4bad64bf95c 100644
---- a/drivers/net/ethernet/Makefile
-+++ b/drivers/net/ethernet/Makefile
-@@ -74,6 +74,7 @@ obj-$(CONFIG_NET_VENDOR_NVIDIA) += nvidia/
- obj-$(CONFIG_LPC_ENET) += nxp/
- obj-$(CONFIG_OA_TC6) += oa_tc6/
- obj-$(CONFIG_NET_VENDOR_OKI) += oki-semi/
-+obj-$(CONFIG_NET_VENDOR_ONSEMI) += onsemi/
- obj-$(CONFIG_ETHOC) += ethoc.o
- obj-$(CONFIG_NET_VENDOR_PASEMI) += pasemi/
- obj-$(CONFIG_NET_VENDOR_QLOGIC) += qlogic/
-diff --git a/drivers/net/ethernet/onsemi/Kconfig b/drivers/net/ethernet/onsemi/Kconfig
-new file mode 100644
-index 000000000000..afef0c9ebc72
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/Kconfig
-@@ -0,0 +1,21 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# onsemi network device configuration
-+#
-+
-+config NET_VENDOR_ONSEMI
-+	bool "onsemi network devices"
-+	default y
-+	help
-+	  If you have a network card belonging to this class, say Y.
-+
-+	  Note that the answer to this question doesn't directly affect the
-+	  kernel: saying N will just cause the configurator to skip all
-+	  the questions about onsemi ethernet devices. If you say Y, you
-+	  will be asked for your specific card in the following questions.
-+
-+if NET_VENDOR_ONSEMI
-+
-+source "drivers/net/ethernet/onsemi/s2500/Kconfig"
-+
-+endif # NET_VENDOR_ONSEMI
-diff --git a/drivers/net/ethernet/onsemi/Makefile b/drivers/net/ethernet/onsemi/Makefile
-new file mode 100644
-index 000000000000..1091c55dcbe6
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Makefile for the onsemi network device drivers.
-+#
-+
-+obj-$(CONFIG_S2500_MACPHY) += s2500/
-diff --git a/drivers/net/ethernet/onsemi/s2500/Kconfig b/drivers/net/ethernet/onsemi/s2500/Kconfig
-new file mode 100644
-index 000000000000..4bd28dc560e6
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/Kconfig
-@@ -0,0 +1,20 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# onsemi S2500 Driver Support
-+#
-+
-+config S2500_MACPHY
-+	tristate "S2500 support"
-+	depends on SPI
-+	depends on PTP_1588_CLOCK_OPTIONAL
-+	imply NET_SELFTESTS
-+	select BITREVERSE
-+	select NCN26000_PHY
-+	select OA_TC6
-+	help
-+	  Support for the onsemi S2500 MACPHY Ethernet chip.
-+	  It works under the framework that conforms to OPEN Alliance
-+	  10BASE-T1x Serial Interface specification.
-+
-+	  To compile this driver as a module, choose M here. The module will be
-+	  called s2500.
-diff --git a/drivers/net/ethernet/onsemi/s2500/Makefile b/drivers/net/ethernet/onsemi/s2500/Makefile
-new file mode 100644
-index 000000000000..807eabaa7a3c
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/Makefile
-@@ -0,0 +1,6 @@
-+# SPDX-License-Identifier: GPL-2.0-only
-+#
-+# Makefile for the onsemi network device drivers.
-+#
-+obj-$(CONFIG_S2500_MACPHY) := s2500.o
-+s2500-objs := s2500_main.o s2500_ethtool.o s2500_ptp.o
-diff --git a/drivers/net/ethernet/onsemi/s2500/s2500_ethtool.c b/drivers/net/ethernet/onsemi/s2500/s2500_ethtool.c
-new file mode 100644
-index 000000000000..77d7d172efe0
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/s2500_ethtool.c
-@@ -0,0 +1,389 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2026 Semiconductor Components Industries, LLC ("onsemi").
-+ * onsemi's S2500 10BASE-T1S MAC-PHY driver
++/**
++ * struct flow_dissector_key_psp - PSP Rx state of a decrypted packet
++ * @spi: SPI of the PSP association the packet was decrypted with
++ * @dev_id: ID of the PSP device which decrypted the packet
++ * @version: PSP version (enum psp_version) the packet was decrypted with
++ * @present: packet was decrypted by a PSP device
++ *
++ * Taken from the PSP Rx state the device attached to the skb, not from the
++ * packet, which no longer carries the PSP header.
 + */
-+
-+#include <linux/ethtool.h>
-+#include <net/selftests.h>
-+#include <linux/phy.h>
-+
-+#include "s2500_hw_def.h"
-+
-+#define S2500_NUM_REGS			38
-+#define S2500_REGDUMP_LEN		(sizeof(u32) * (S2500_NUM_REGS * 2))
-+
-+#define S2500_NUM_RMON_STATS		12
-+
-+struct s2500_reg_map {
-+	u16 reg;
-+	u8 mms;
++struct flow_dissector_key_psp {
++	__be32	spi;
++	u16	dev_id;
++	u8	version;
++	u8	present;
 +};
 +
-+static const struct s2500_reg_map s2500_reg_map[S2500_NUM_REGS] = {
-+	{ S2500_REG_VS_ONIPVER,      OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_TWEAKS1,      OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_PLCAEXT,      OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_PMATUNE0,     OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_PMATUNE1,     OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_T1SWUPTUNE,   OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_HDD,          OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_DCQ_TOID,     OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_DCQ_SQI,      OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_DCQ_SQI_PLUS, OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_HDD_TUNE1,    OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_HDD_TUNE2,    OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_HDD_TUNE3,    OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_WS_STATUS_0,  OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_WS_CTRL_0,    OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_WS_STATUS_1,  OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_WS_CTRL_1,    OA_TC6_PHY_C45_VS_PLCA_MMS4 },
-+	{ S2500_REG_VS_MIIMIRQE,     S2500_VS_MMS12 },
-+	{ S2500_REG_VS_MIIMIRQS,     S2500_VS_MMS12 },
-+	{ S2500_REG_VS_DIOCFG0,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CHIPID,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_TWEAKS2,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_MACID0,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_MACID1,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_NVM_HEALTH,   S2500_VS_MMS12 },
-+	{ S2500_REG_VS_PTP_SEC,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_PTPNSEC,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_PTP_SETSEC,   S2500_VS_MMS12 },
-+	{ S2500_REG_VS_SETNSEC,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_PTP_ADJ,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CMPCTL,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CMPSEC,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CMPNSEC,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CMPPER,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CAPCTL,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CAPSEC,       S2500_VS_MMS12 },
-+	{ S2500_REG_VS_CAPNSEC,      S2500_VS_MMS12 },
-+	{ S2500_REG_VS_BCNCNT,       S2500_VS_MMS12 },
-+};
+ #define FLOW_DIS_CFM_MDL_MASK GENMASK(7, 5)
+ #define FLOW_DIS_CFM_MDL_MAX 7
+ 
+@@ -376,6 +393,7 @@ enum flow_dissector_key_id {
+ 	FLOW_DISSECTOR_KEY_L2TPV3, /* struct flow_dissector_key_l2tpv3 */
+ 	FLOW_DISSECTOR_KEY_CFM, /* struct flow_dissector_key_cfm */
+ 	FLOW_DISSECTOR_KEY_IPSEC, /* struct flow_dissector_key_ipsec */
++	FLOW_DISSECTOR_KEY_PSP, /* struct flow_dissector_key_psp */
+ 
+ 	FLOW_DISSECTOR_KEY_MAX,
+ };
+diff --git a/include/uapi/linux/pkt_cls.h b/include/uapi/linux/pkt_cls.h
+index 14cff8f5da74..0cfa7425404b 100644
+--- a/include/uapi/linux/pkt_cls.h
++++ b/include/uapi/linux/pkt_cls.h
+@@ -561,6 +561,11 @@ enum {
+ 	TCA_FLOWER_KEY_ENC_FLAGS,	/* be32 */
+ 	TCA_FLOWER_KEY_ENC_FLAGS_MASK,	/* be32 */
+ 
++	TCA_FLOWER_KEY_PSP_SPI,		/* be32 */
++	TCA_FLOWER_KEY_PSP_SPI_MASK,	/* be32 */
++	TCA_FLOWER_KEY_PSP_VERSION,	/* u8, enum psp_version */
++	TCA_FLOWER_KEY_PSP_DEV,		/* u32, PSP device ID */
 +
-+enum s2500_stat_idx {
-+	S2500_MSTOCTETSTX_IDX = 0,
-+	S2500_MSTFRAMESTXOK_IDX,
-+	S2500_MSTBCASTTXOK_IDX,
-+	S2500_MSTMCASTTXOK_IDX,
-+	S2500_MSTFRAMESTX64_IDX,
-+	S2500_MSTFRAMESTX65_IDX,
-+	S2500_MSTFRAMESTX128_IDX,
-+	S2500_MSTFRAMESTX256_IDX,
-+	S2500_MSTFRAMESTX512_IDX,
-+	S2500_MSTFRAMESTX1024_IDX,
-+	S2500_MSTTXUNDERFLOW_IDX,
-+	S2500_MSTSINGLECOL_IDX,
-+	S2500_MSTMULTICOL_IDX,
-+	S2500_MSTEXCESSCOL_IDX,
-+	S2500_MSTDEFERREDTX_IDX,
-+	S2500_MSTCRSERR_IDX,
-+	S2500_MSTOCTETSRX_IDX,
-+	S2500_MSTFRAMESRXOK_IDX,
-+	S2500_MSTBCASTRXOK_IDX,
-+	S2500_MSTMCASTRXOK_IDX,
-+	S2500_MSTFRAMESRX64_IDX,
-+	S2500_MSTFRAMESRX65_IDX,
-+	S2500_MSTFRAMESRX128_IDX,
-+	S2500_MSTFRAMESRX256_IDX,
-+	S2500_MSTFRAMESRX512_IDX,
-+	S2500_MSTFRAMESRX1024_IDX,
-+	S2500_MSTRUNTSERR_IDX,
-+	S2500_MSTRXTOOLONG_IDX,
-+	S2500_MSTFCSERRS_IDX,
-+	S2500_MSTSYMBOLERRS_IDX,
-+	S2500_MSTALIGNERRS_IDX,
-+	S2500_MSTRXOVERFLOW_IDX,
-+	S2500_MSTRXDROPPED_IDX,
-+};
-+
-+static const u8 s2500_rmon_stat_map[S2500_NUM_RMON_STATS] = {
-+	S2500_MSTFRAMESTX64_IDX,
-+	S2500_MSTFRAMESTX65_IDX,
-+	S2500_MSTFRAMESTX128_IDX,
-+	S2500_MSTFRAMESTX256_IDX,
-+	S2500_MSTFRAMESTX512_IDX,
-+	S2500_MSTFRAMESTX1024_IDX,
-+	S2500_MSTFRAMESRX64_IDX,
-+	S2500_MSTFRAMESRX65_IDX,
-+	S2500_MSTFRAMESRX128_IDX,
-+	S2500_MSTFRAMESRX256_IDX,
-+	S2500_MSTFRAMESRX512_IDX,
-+	S2500_MSTFRAMESRX1024_IDX,
-+};
-+
-+static const struct ethtool_rmon_hist_range s2500_rmon_hist_ranges[] = {
-+	{ 64, 64 },
-+	{ 65, 127 },
-+	{ 128, 255 },
-+	{ 256, 511 },
-+	{ 512, 1023 },
-+	{ 1024, 1522 },
-+	{ },
-+};
-+
-+static_assert(ARRAY_SIZE(s2500_rmon_stat_map) == S2500_NUM_RMON_STATS);
-+
-+#define STAT_REG_OFFSET(x) ((S2500_REG_MAC_ST##x) - \
-+			   S2500_REG_MAC_FIRST_STAT)
-+
-+/* Adds the registers just read to the counters. The hardware clears them on
-+ * read, so each read returns only the delta since the previous read. Hence
-+ * the values are accumulated. Called with stats_lock held.
-+ */
-+static void s2500_accumulate_stats(struct s2500_info *priv, const u32 *regs)
+ 	__TCA_FLOWER_MAX,
+ };
+ 
+diff --git a/net/core/flow_dissector.c b/net/core/flow_dissector.c
+index 1be6c739e3c7..95d3fa3b1568 100644
+--- a/net/core/flow_dissector.c
++++ b/net/core/flow_dissector.c
+@@ -28,6 +28,7 @@
+ #include <linux/ptp_classify.h>
+ #include <net/flow_dissector.h>
+ #include <net/pkt_cls.h>
++#include <net/psp/types.h>
+ #include <scsi/fc/fc_fcoe.h>
+ #include <uapi/linux/batadv_packet.h>
+ #include <linux/bpf.h>
+@@ -511,6 +512,32 @@ void skb_flow_dissect_hash(const struct sk_buff *skb,
+ }
+ EXPORT_SYMBOL(skb_flow_dissect_hash);
+ 
++void skb_flow_dissect_psp(const struct sk_buff *skb,
++			  struct flow_dissector *flow_dissector,
++			  void *target_container)
 +{
-+	u64 *data = priv->stats_data;
-+	const u32 *rptr = regs;
++#if IS_ENABLED(CONFIG_INET_PSP)
++	struct flow_dissector_key_psp *key;
++	struct psp_skb_ext *pse;
 +
-+	lockdep_assert_held(&priv->stats_lock);
-+
-+	/* TX bytes is a 64-bit value that is stored in two regs.
-+	 * When lower 32 bits are read from OCTETS-L register,
-+	 * upper bits are sampled and stored in OCTETS-H register.
-+	 * Request to read multiple registers reads OCTETS-L first.
-+	 * This way, counter value is read in an atomic manner.
-+	 */
-+	*(data++) += ((u64)*rptr) | (((u64)*(rptr + 1)) << 32);
-+
-+	/* Rest are 32-bit values until RX bytes register. */
-+	for (rptr += 2; (rptr - regs) < STAT_REG_OFFSET(OCTETSRXL); ++rptr)
-+		*(data++) += *rptr;
-+
-+	/* RX bytes is a 64-bit value that is stored in two regs.
-+	 * Like TX bytes counter, value is read atomically from
-+	 * registers.
-+	 */
-+	*(data++) += ((u64)*rptr) | (((u64)*(rptr + 1)) << 32);
-+
-+	for (rptr += 2; (rptr - regs) < S2500_NUM_STAT_REGS; ++rptr)
-+		*(data++) += *rptr;
-+}
-+
-+/* Reads the statistics registers, unless that was done recently, and adds
-+ * them to the counters. If @buf is not NULL it receives a copy of the
-+ * counters, taken in the same locked section, so that the caller gets whole
-+ * 64-bit values and a set that belongs together while the stats work keeps
-+ * adding to them. The copy is made also when no register was read.
-+ */
-+void s2500_update_stats(struct s2500_info *priv, u64 *buf)
-+{
-+	u32 regs[S2500_NUM_STAT_REGS];
-+	bool have_regs = false;
-+	u32 addr;
-+
-+	if (!time_is_after_jiffies(priv->stats_last_update +
-+				   S2500_STATS_CACHE_PERIOD)) {
-+		addr = FIELD_PREP(S2500_REG_MMS_MASK, OA_TC6_MAC_MMS1) |
-+				  S2500_REG_MAC_STOCTETSTXL;
-+		have_regs = !oa_tc6_read_registers(priv->tc6, addr, regs,
-+						   S2500_NUM_STAT_REGS);
-+	}
-+
-+	if (!have_regs && !buf)
++	if (!dissector_uses_key(flow_dissector, FLOW_DISSECTOR_KEY_PSP))
 +		return;
 +
-+	spin_lock_bh(&priv->stats_lock);
-+	if (have_regs) {
-+		priv->stats_last_update = jiffies;
-+		s2500_accumulate_stats(priv, regs);
-+	}
-+	if (buf)
-+		memcpy(buf, priv->stats_data, sizeof(priv->stats_data));
-+	spin_unlock_bh(&priv->stats_lock);
++	pse = skb_ext_find(skb, SKB_EXT_PSP);
++	if (!pse)
++		return;
++
++	key = skb_flow_dissector_target(flow_dissector,
++					FLOW_DISSECTOR_KEY_PSP,
++					target_container);
++	key->spi = pse->spi;
++	key->dev_id = pse->dev_id;
++	key->version = pse->version;
++	key->present = 1;
++#endif
 +}
++EXPORT_SYMBOL(skb_flow_dissect_psp);
 +
-+/* Cannot sleep, so no register is read here: the stats work keeps the
-+ * counters up to date. The standard counters the driver keeps in
-+ * ndev->stats are reported as well, as the core clears @stats first.
-+ */
-+void s2500_get_stats64(struct net_device *ndev,
-+		       struct rtnl_link_stats64 *stats)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	netdev_stats_to_stats64(stats, &ndev->stats);
-+
-+	spin_lock_bh(&priv->stats_lock);
-+	stats->rx_otherhost_dropped =
-+		priv->stats_data[S2500_MSTRXDROPPED_IDX];
-+	spin_unlock_bh(&priv->stats_lock);
-+}
-+
-+static void s2500_get_drvinfo(struct net_device *ndev,
-+			      struct ethtool_drvinfo *info)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	strscpy(info->driver, DRV_NAME, sizeof(info->driver));
-+	strscpy(info->bus_info, dev_name(&priv->spi->dev),
-+		sizeof(info->bus_info));
-+}
-+
-+static int s2500_get_sset_count(struct net_device *ndev, int sset)
-+{
-+	switch (sset) {
-+	case ETH_SS_TEST:
-+		if (!IS_ENABLED(CONFIG_NET_SELFTESTS))
-+			return -EOPNOTSUPP;
-+		return net_selftest_get_count();
-+	default:
+ static enum flow_dissect_ret
+ __skb_flow_dissect_mpls(const struct sk_buff *skb,
+ 			struct flow_dissector *flow_dissector,
+diff --git a/net/sched/cls_flower.c b/net/sched/cls_flower.c
+index 23eba4a00a94..d7b6250f417b 100644
+--- a/net/sched/cls_flower.c
++++ b/net/sched/cls_flower.c
+@@ -81,6 +81,7 @@ struct fl_flow_key {
+ 	struct flow_dissector_key_l2tpv3 l2tpv3;
+ 	struct flow_dissector_key_ipsec ipsec;
+ 	struct flow_dissector_key_cfm cfm;
++	struct flow_dissector_key_psp psp;
+ } __aligned(BITS_PER_LONG / 8); /* Ensure that we can do comparisons as longs. */
+ 
+ struct fl_flow_mask_range {
+@@ -343,6 +344,7 @@ TC_INDIRECT_SCOPE int fl_classify(struct sk_buff *skb,
+ 				    ARRAY_SIZE(fl_ct_info_to_flower_map),
+ 				    post_ct, zone);
+ 		skb_flow_dissect_hash(skb, &mask->dissector, &skb_key);
++		skb_flow_dissect_psp(skb, &mask->dissector, &skb_key);
+ 		skb_flow_dissect(skb, &mask->dissector, &skb_key,
+ 				 FLOW_DISSECTOR_F_STOP_BEFORE_ENCAP);
+ 
+@@ -465,6 +467,16 @@ static int fl_hw_replace_filter(struct tcf_proto *tp,
+ 	bool skip_sw = tc_skip_sw(f->flags);
+ 	int err = 0;
+ 
++	/* No driver offloads the PSP matches yet, and some offload a rule
++	 * without checking which keys it uses: it would match without them
++	 */
++	if (dissector_uses_key(&f->mask->dissector, FLOW_DISSECTOR_KEY_PSP)) {
++		if (!skip_sw)
++			return 0;
++		NL_SET_ERR_MSG_MOD(extack, "PSP matches can't be offloaded");
 +		return -EOPNOTSUPP;
 +	}
-+}
 +
-+static void s2500_get_strings(struct net_device *ndev, u32 stringset,
-+			      u8 *buf)
-+{
-+	switch (stringset) {
-+	case ETH_SS_TEST:
-+		net_selftest_get_strings(buf);
-+		break;
-+	}
-+}
-+
-+static void s2500_get_eth_mac_stats(struct net_device *ndev,
-+				    struct ethtool_eth_mac_stats *mac_stats)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	u64 st[S2500_NUM_STAT_VARS];
-+
-+	if (mac_stats->src != ETHTOOL_MAC_STATS_SRC_AGGREGATE)
-+		return;
-+
-+	s2500_update_stats(priv, st);
-+
-+	mac_stats->OctetsTransmittedOK = st[S2500_MSTOCTETSTX_IDX];
-+	mac_stats->FramesTransmittedOK = st[S2500_MSTFRAMESTXOK_IDX];
-+	mac_stats->BroadcastFramesXmittedOK = st[S2500_MSTBCASTTXOK_IDX];
-+	mac_stats->MulticastFramesXmittedOK = st[S2500_MSTMCASTTXOK_IDX];
-+	mac_stats->SingleCollisionFrames = st[S2500_MSTSINGLECOL_IDX];
-+	mac_stats->MultipleCollisionFrames = st[S2500_MSTMULTICOL_IDX];
-+	mac_stats->FramesAbortedDueToXSColls = st[S2500_MSTEXCESSCOL_IDX];
-+	mac_stats->FramesWithDeferredXmissions = st[S2500_MSTDEFERREDTX_IDX];
-+	mac_stats->CarrierSenseErrors = st[S2500_MSTCRSERR_IDX];
-+	mac_stats->FramesLostDueToIntMACXmitError =
-+		st[S2500_MSTTXUNDERFLOW_IDX];
-+	mac_stats->OctetsReceivedOK = st[S2500_MSTOCTETSRX_IDX];
-+	mac_stats->FramesReceivedOK = st[S2500_MSTFRAMESRXOK_IDX];
-+	mac_stats->BroadcastFramesReceivedOK = st[S2500_MSTBCASTRXOK_IDX];
-+	mac_stats->MulticastFramesReceivedOK = st[S2500_MSTMCASTRXOK_IDX];
-+	mac_stats->FrameTooLongErrors = st[S2500_MSTRXTOOLONG_IDX];
-+	mac_stats->FrameCheckSequenceErrors = st[S2500_MSTFCSERRS_IDX];
-+	mac_stats->AlignmentErrors = st[S2500_MSTALIGNERRS_IDX];
-+	mac_stats->FramesLostDueToIntMACRcvError =
-+		st[S2500_MSTRXOVERFLOW_IDX];
-+}
-+
-+static void s2500_get_eth_phy_stats(struct net_device *ndev,
-+				    struct ethtool_eth_phy_stats *phy_stats)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	u64 st[S2500_NUM_STAT_VARS];
-+
-+	if (phy_stats->src != ETHTOOL_MAC_STATS_SRC_AGGREGATE)
-+		return;
-+
-+	s2500_update_stats(priv, st);
-+	phy_stats->SymbolErrorDuringCarrier = st[S2500_MSTSYMBOLERRS_IDX];
-+}
-+
-+static void s2500_rmon_stats(struct net_device *ndev,
-+			     struct ethtool_rmon_stats *rmon_stats,
-+			     const struct ethtool_rmon_hist_range **ranges)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	u64 st[S2500_NUM_STAT_VARS];
-+	u8 offset;
-+	int i;
-+
-+	if (rmon_stats->src != ETHTOOL_MAC_STATS_SRC_AGGREGATE)
-+		return;
-+
-+	s2500_update_stats(priv, st);
-+
-+	rmon_stats->undersize_pkts = st[S2500_MSTRUNTSERR_IDX];
-+	rmon_stats->oversize_pkts = st[S2500_MSTRXTOOLONG_IDX];
-+
-+	for (i = 0; i < 6; i++) {
-+		offset = s2500_rmon_stat_map[i];
-+		rmon_stats->hist_tx[i] = st[offset];
-+	}
-+
-+	for (i = 0; i < 6; i++) {
-+		offset = s2500_rmon_stat_map[i + 6];
-+		rmon_stats->hist[i] = st[offset];
-+	}
-+
-+	*ranges = s2500_rmon_hist_ranges;
-+}
-+
-+static int s2500_get_ts_info(struct net_device *ndev,
-+			     struct kernel_ethtool_ts_info *ts_info)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	return oa_tc6_get_ts_info(priv->tc6, ts_info);
-+}
-+
-+static int s2500_get_regs_len(struct net_device *dev)
-+{
-+	return S2500_REGDUMP_LEN;
-+}
-+
-+static void s2500_get_regs(struct net_device *ndev,
-+			   struct ethtool_regs *regs, void *p)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	__be32 *pbuff = p;
-+	int ret = 0;
-+	u32 val;
-+	u16 reg;
-+	u8 mms;
-+	int i;
-+
-+	regs->version = 0;
-+	memset(p, 0, S2500_REGDUMP_LEN);
-+
-+	if (!netif_running(ndev))
-+		return;
-+
-+	for (i = 0; i < S2500_NUM_REGS; i++) {
-+		val = 0;
-+		reg = s2500_reg_map[i].reg;
-+		mms = s2500_reg_map[i].mms;
-+		ret = oa_tc6_read_register_mms(priv->tc6, mms, reg,
-+					       &val);
-+
-+		/* Write a pattern to indicate failure */
-+		if (ret)
-+			val = 0xDEADC0DE;
-+		*pbuff++ = cpu_to_be32(((u32)mms << 16) | reg);
-+		*pbuff++ = cpu_to_be32(val);
-+	}
-+}
-+
-+static void s2500_get_ts_stats(struct net_device *ndev,
-+			       struct ethtool_ts_stats *ts_stats)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	oa_tc6_get_ts_stats(priv->tc6, ts_stats);
-+}
-+
-+const struct ethtool_ops s2500_ethtool_ops = {
-+	.get_drvinfo = s2500_get_drvinfo,
-+	.get_link = ethtool_op_get_link,
-+	.get_link_ksettings = phy_ethtool_get_link_ksettings,
-+	.set_link_ksettings = phy_ethtool_set_link_ksettings,
-+	.get_ts_stats = s2500_get_ts_stats,
-+	.get_sset_count = s2500_get_sset_count,
-+	.get_strings = s2500_get_strings,
-+	.get_eth_mac_stats = s2500_get_eth_mac_stats,
-+	.get_eth_phy_stats = s2500_get_eth_phy_stats,
-+	.get_rmon_stats = s2500_rmon_stats,
-+	.get_ts_info = s2500_get_ts_info,
-+	.get_regs_len = s2500_get_regs_len,
-+	.get_regs = s2500_get_regs,
-+	.self_test = net_selftest,
-+};
-diff --git a/drivers/net/ethernet/onsemi/s2500/s2500_hw_def.h b/drivers/net/ethernet/onsemi/s2500/s2500_hw_def.h
-new file mode 100644
-index 000000000000..1d80bec76824
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/s2500_hw_def.h
-@@ -0,0 +1,165 @@
-+/* SPDX-License-Identifier: GPL-2.0-or-later */
-+/*
-+ * Copyright 2026 Semiconductor Components Industries, LLC ("onsemi").
-+ * onsemi's S2500 10BASE-T1S MAC-PHY driver
-+ */
-+
-+#ifndef S2500_HW_DEF_H
-+#define S2500_HW_DEF_H
-+
-+#include <linux/bitfield.h>
-+#include <linux/kernel.h>
-+#include <linux/netdevice.h>
-+#include <linux/spi/spi.h>
-+#include <linux/ptp_clock_kernel.h>
-+#include <linux/mutex.h>
-+#include <linux/spinlock.h>
-+#include <linux/workqueue.h>
-+#include <linux/ktime.h>
-+#include <linux/errno.h>
-+#include <linux/oa_tc6.h>
-+
-+#define DRV_NAME			"s2500"
-+
-+#define S2500_N_MCAST_FILTERS		3
-+
-+/* Vendor specific memory map selector (MMS 10..15 are vendor defined) */
-+#define S2500_VS_MMS12			12
-+
-+#define S2500_REG_MMS_MASK		GENMASK(19, 16)
-+
-+/* SPI OID and model register */
-+#define S2500_REG_PHYID			0x1
-+
-+#define S2500_PHYID_OUI_SHIFT		10
-+#define S2500_PHYID_OUI_MASK		GENMASK(31, S2500_PHYID_OUI_SHIFT)
-+#define S2500_PHYID_OUI_MASK0		GENMASK(21, 16)
-+#define S2500_PHYID_OUI_MASK1		GENMASK(15, 8)
-+#define S2500_PHYID_OUI_MASK2		GENMASK(7, 0)
-+
-+#define S2500_REG_MAC_CTRL		0x0
-+
-+#define S2500_MAC_CTRL_MCSF		BIT(18)
-+#define S2500_MAC_CTRL_ADRF		BIT(16)
-+#define S2500_MAC_CTRL_FCSA		BIT(8)
-+#define S2500_MAC_CTRL_TXEN		BIT(1)
-+#define S2500_MAC_CTRL_RXEN		BIT(0)
-+
-+/* MAC address filter registers */
-+#define S2500_REG_MAC_ADDRFILTL(n)	(16 + 2 * (n))
-+#define S2500_REG_MAC_ADDRFILTH(n)	(17 + 2 * (n))
-+#define S2500_REG_MAC_ADDRMASKL(n)	(32 + 2 * (n))
-+#define S2500_REG_MAC_ADDRMASKH(n)	(33 + 2 * (n))
-+
-+#define S2500_MAC_ADDRFILT_ENABLE	BIT(31)
-+
-+/* Individual/group bit, the LSB of the first address byte (1 = multicast) */
-+#define S2500_ADDR_IG_BIT		BIT(8)
-+
-+/* MAC statistic registers */
-+#define S2500_REG_MAC_STOCTETSTXL	48
-+#define S2500_REG_MAC_STOCTETSRXL	65
-+#define S2500_REG_MAC_STRXDROPPED	82
-+
-+/* First/last statistic register for sequential access */
-+#define S2500_REG_MAC_FIRST_STAT	S2500_REG_MAC_STOCTETSTXL
-+#define S2500_REG_MAC_LAST_STAT		S2500_REG_MAC_STRXDROPPED
-+
-+#define S2500_NUM_STAT_REGS \
-+	(S2500_REG_MAC_LAST_STAT - S2500_REG_MAC_FIRST_STAT + 1)
-+#define S2500_NUM_STAT_VARS		(S2500_NUM_STAT_REGS - 2)
-+#define S2500_STATS_CACHE_PERIOD	msecs_to_jiffies(100)
-+#define S2500_STATS_WORK_PERIOD		msecs_to_jiffies(3000)
-+
-+/* Vendor specific MMS4 registers */
-+#define S2500_REG_VS_ONIPVER		0x8000
-+#define S2500_REG_VS_TWEAKS1		0x8001
-+#define S2500_REG_VS_PLCAEXT		0x8002
-+#define S2500_REG_VS_PMATUNE0		0x8003
-+#define S2500_REG_VS_PMATUNE1		0x8004
-+#define S2500_REG_VS_T1SWUPTUNE		0x8007
-+#define S2500_REG_VS_HDD		0xCC01
-+#define S2500_REG_VS_DCQ_TOID		0xCC02
-+#define S2500_REG_VS_DCQ_SQI		0xCC03
-+#define S2500_REG_VS_DCQ_SQI_PLUS	0xCC04
-+#define S2500_REG_VS_HDD_TUNE1		0xCD00
-+#define S2500_REG_VS_HDD_TUNE2		0xCD01
-+#define S2500_REG_VS_HDD_TUNE3		0xCD02
-+#define S2500_REG_VS_WS_STATUS_0	0xD000
-+#define S2500_REG_VS_WS_CTRL_0		0xD001
-+#define S2500_REG_VS_WS_STATUS_1	0xD100
-+#define S2500_REG_VS_WS_CTRL_1		0xD101
-+
-+/* MIIM IRQ enable register */
-+#define S2500_REG_VS_MIIMIRQE		0x10
-+
-+/* MIIM IRQ status register */
-+#define S2500_REG_VS_MIIMIRQS		0x11
-+
-+/* Digital I/O config register */
-+#define S2500_REG_VS_DIOCFG0		0x12
-+
-+#define S2500_REG_VS_CHIPID		0x1000
-+#define S2500_REG_VS_TWEAKS2		0x1001
-+
-+/* Permanent MAC address register */
-+#define S2500_REG_VS_MACID0		0x1002
-+#define S2500_VS_MACID0_BYTE4_MASK	GENMASK(15, 8)
-+#define S2500_VS_MACID0_BYTE5_MASK	GENMASK(7, 0)
-+
-+#define S2500_REG_VS_MACID1		0x1003
-+#define S2500_VS_MACID1_BYTE3_MASK	GENMASK(7, 0)
-+#define S2500_REG_VS_NVM_HEALTH		0x1005
-+
-+/* Frequency adjust magnitude, 1 LSB = 0.000125 ppm = 1/8 ppb */
-+#define S2500_PTP_ADJ_MAX		GENMASK(27, 0)
-+#define S2500_PTP_ADJ_BASE		8000000000ULL
-+#define S2500_PTP_MAX_ADJ_PPB		(S2500_PTP_ADJ_MAX / 8)
-+
-+/* PTP registers */
-+#define S2500_REG_VS_PTP_SEC		0x1010
-+#define S2500_REG_VS_PTPNSEC		0x1011
-+#define S2500_REG_VS_PTP_SETSEC		0x1012
-+#define S2500_REG_VS_SETNSEC		0x1013
-+#define S2500_REG_VS_PTP_ADJ		0x1014
-+#define S2500_REG_VS_CMPCTL		0x1015
-+#define S2500_REG_VS_CMPSEC		0x1016
-+#define S2500_REG_VS_CMPNSEC		0x1017
-+#define S2500_REG_VS_CMPPER		0x1018
-+#define S2500_REG_VS_CAPCTL		0x1019
-+#define S2500_REG_VS_CAPSEC		0x101A
-+#define S2500_REG_VS_CAPNSEC		0x101B
-+#define S2500_REG_VS_BCNCNT		0x101C
-+
-+/* prototypes / forward declarations */
-+extern const struct ethtool_ops s2500_ethtool_ops;
-+
-+struct s2500_info {
-+	struct device *dev;
-+	struct net_device *ndev;
-+
-+	/* To have atomic operation for PTP time registers */
-+	struct mutex ptp_adj_lock;
-+
-+	struct spi_device *spi;
-+
-+	/* statistic counters variables */
-+	u64 stats_data[S2500_NUM_STAT_VARS];
-+	unsigned long stats_last_update;
-+
-+	/* Protects stats_data and stats_last_update. */
-+	spinlock_t stats_lock;
-+	struct delayed_work stats_work;
-+
-+	/* PTP related variables */
-+	struct ptp_clock_info ptp_clock_info;
-+	struct oa_tc6 *tc6;
+ 	cls_flower.rule = flow_rule_alloc(tcf_exts_num_actions(&f->exts));
+ 	if (!cls_flower.rule)
+ 		return -ENOMEM;
+@@ -633,6 +645,12 @@ static void *fl_get(struct tcf_proto *tp, u32 handle)
+ 	return __fl_get(head, handle);
+ }
+ 
++/* SKB_EXT_PSP holds the PSP device ID in 16 bits, and IDs start at 1 */
++static const struct netlink_range_validation fl_psp_dev_range = {
++	.min = 1,
++	.max = U16_MAX,
 +};
 +
-+int s2500_ptp_register(struct s2500_info *priv);
-+
-+void s2500_update_stats(struct s2500_info *priv, u64 *buf);
-+void s2500_get_stats64(struct net_device *ndev,
-+		       struct rtnl_link_stats64 *stats);
-+
-+#endif /* S2500_HW_DEF_H */
-diff --git a/drivers/net/ethernet/onsemi/s2500/s2500_main.c b/drivers/net/ethernet/onsemi/s2500/s2500_main.c
-new file mode 100644
-index 000000000000..55dbf3ba032d
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/s2500_main.c
-@@ -0,0 +1,496 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2026 Semiconductor Components Industries, LLC ("onsemi").
-+ * onsemi's S2500 10BASE-T1S MAC-PHY driver
-+ */
-+
-+#include <linux/etherdevice.h>
-+#include <linux/if_ether.h>
-+#include <linux/module.h>
-+#include <linux/bitrev.h>
-+#include <linux/phy.h>
-+
-+#include "s2500_hw_def.h"
-+
-+/* Initializes the net device MAC address by reading the UID stored
-+ * into the device internal non-volatile memory.
-+ */
-+static int s2500_read_mac_from_nvmem(struct s2500_info *priv)
-+{
-+	u8 mms = S2500_VS_MMS12;
-+	u8 addr[ETH_ALEN];
-+	u32 mac1 = 0;
-+	u32 mac0 = 0;
-+	u32 val;
-+	int ret;
-+
-+	ret = oa_tc6_read_register_mms(priv->tc6, mms,
-+				       S2500_REG_VS_MACID1, &mac1);
-+	if (ret)
-+		return ret;
-+
-+	ret = oa_tc6_read_register_mms(priv->tc6, mms,
-+				       S2500_REG_VS_MACID0, &mac0);
-+	if (ret)
-+		return ret;
-+
-+	/* Pre-production parts may have 0 */
-+	if (mac0 == 0 && mac1 == 0)
-+		return -ENXIO;
-+
-+	ret = oa_tc6_read_register(priv->tc6, S2500_REG_PHYID, &val);
-+	if (ret)
-+		return ret;
-+
-+	val = (val & S2500_PHYID_OUI_MASK) >> S2500_PHYID_OUI_SHIFT;
-+
-+	/* Mapping for bits from PHY ID register to OUI as given below.
-+	 * - PHY-ID[10:17] provides OUI[16:23]
-+	 * - PHY-ID[18:25] provides OUI[8:15]
-+	 * - PHY-ID[26:31] provides OUI[2:7]
-+	 *
-+	 * Hardware presents OUI such a way that this requires not just
-+	 * byte level swap, bit level swap is needed as well.
-+	 */
-+	addr[0] = bitrev8(FIELD_GET(S2500_PHYID_OUI_MASK0, val));
-+	addr[1] = bitrev8(FIELD_GET(S2500_PHYID_OUI_MASK1, val));
-+	addr[2] = bitrev8(FIELD_GET(S2500_PHYID_OUI_MASK2, val));
-+
-+	addr[3] = FIELD_GET(S2500_VS_MACID1_BYTE3_MASK, mac1);
-+	addr[4] = FIELD_GET(S2500_VS_MACID0_BYTE4_MASK, mac0);
-+	addr[5] = FIELD_GET(S2500_VS_MACID0_BYTE5_MASK, mac0);
-+
-+	__dev_addr_set(priv->ndev, addr, ETH_ALEN);
-+	priv->ndev->addr_assign_type = NET_ADDR_PERM;
-+	return 0;
-+}
-+
-+/* Writes MAC address to macphy registers */
-+static int s2500_write_filter(struct s2500_info *priv, int slot,
-+			      const u8 *mac)
-+{
-+	u8 mms = OA_TC6_MAC_MMS1;
-+	u32 val;
-+	int ret;
-+
-+	ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+					S2500_REG_MAC_ADDRMASKL(slot),
-+					0xffffffff);
-+	if (ret)
-+		return ret;
-+
-+	ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+					S2500_REG_MAC_ADDRMASKH(slot),
-+					0xffff);
-+	if (ret)
-+		return ret;
-+
-+	val = get_unaligned_be32(&mac[2]);
-+
-+	ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+					S2500_REG_MAC_ADDRFILTL(slot), val);
-+	if (ret)
-+		return ret;
-+
-+	val = S2500_MAC_ADDRFILT_ENABLE | get_unaligned_be16(mac);
-+
-+	return oa_tc6_write_register_mms(priv->tc6, mms,
-+					 S2500_REG_MAC_ADDRFILTH(slot), val);
-+}
-+
-+static int s2500_set_mac_filter(struct net_device *ndev, const u8 *mac)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	int ret;
-+
-+	/* Disable slot 0 before programming its address. */
-+	ret = oa_tc6_write_register_mms(priv->tc6, OA_TC6_MAC_MMS1,
-+					S2500_REG_MAC_ADDRFILTH(0), 0);
-+	if (ret)
-+		return ret;
-+
-+	return s2500_write_filter(priv, 0, mac);
-+}
-+
-+static int s2500_mac_ctrl_modify_bits(struct s2500_info *priv,
-+				      u32 in_bits, bool clr)
-+{
-+	u32 reg = S2500_REG_MAC_CTRL;
-+	u8 mms = OA_TC6_MAC_MMS1;
-+	u32 rval = 0;
-+	u32 wval = 0;
-+	int ret;
-+
-+	ret = oa_tc6_read_register_mms(priv->tc6, mms, reg, &rval);
-+	if (ret)
-+		return ret;
-+
-+	if (clr)
-+		wval = rval & ~in_bits;
-+	else
-+		wval = rval | in_bits;
-+	if (rval != wval)
-+		ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+						reg, wval);
-+	return ret;
-+}
-+
-+static int s2500_init(struct s2500_info *priv)
-+{
-+	u32 val;
-+	int ret;
-+
-+	/* Configure MAC-PHY's behavior */
-+	ret = oa_tc6_tx_credit_threshold_set(priv->tc6,
-+					     OA_TC6_CONFIG0_TXCTHRESH_8);
-+	if (ret)
-+		return ret;
-+
-+	/* Program the source MAC address into the device */
-+	ret = s2500_set_mac_filter(priv->ndev, priv->ndev->dev_addr);
-+	if (ret)
-+		return ret;
-+
-+	val = S2500_MAC_CTRL_ADRF | S2500_MAC_CTRL_FCSA;
-+
-+	return s2500_mac_ctrl_modify_bits(priv, val, false);
-+}
-+
-+static void s2500_shutdown(struct s2500_info *priv)
-+{
-+	u32 val = S2500_MAC_CTRL_TXEN | S2500_MAC_CTRL_RXEN;
-+	struct net_device *ndev = priv->ndev;
-+
-+	netif_stop_queue(ndev);
-+	phy_stop(ndev->phydev);
-+
-+	s2500_mac_ctrl_modify_bits(priv, val, true);
-+}
-+
-+static int s2500_set_promiscuous_mode(struct s2500_info *priv,
-+				      unsigned int rx_flags)
-+{
-+	u32 val = S2500_MAC_CTRL_ADRF;
-+	bool clr = false;
-+
-+	if (rx_flags & IFF_PROMISC)
-+		clr = true;
-+	return s2500_mac_ctrl_modify_bits(priv, val, clr);
-+}
-+
-+static int s2500_clear_mcast_filters(struct s2500_info *priv)
-+{
-+	int i, ret;
-+
-+	for (i = 1; i <= S2500_N_MCAST_FILTERS; i++) {
-+		ret = oa_tc6_write_register_mms(priv->tc6, OA_TC6_MAC_MMS1,
-+						S2500_REG_MAC_ADDRFILTH(i), 0);
-+		if (ret)
-+			return ret;
+ static const struct nla_policy fl_policy[TCA_FLOWER_MAX + 1] = {
+ 	[TCA_FLOWER_UNSPEC]		= { .strict_start_type =
+ 						TCA_FLOWER_L2_MISS },
+@@ -745,6 +763,12 @@ static const struct nla_policy fl_policy[TCA_FLOWER_MAX + 1] = {
+ 	[TCA_FLOWER_KEY_SPI]		= { .type = NLA_U32 },
+ 	[TCA_FLOWER_KEY_SPI_MASK]	= { .type = NLA_U32 },
+ 	[TCA_FLOWER_L2_MISS]		= NLA_POLICY_MAX(NLA_U8, 1),
++	[TCA_FLOWER_KEY_PSP_SPI]	= { .type = NLA_BE32 },
++	[TCA_FLOWER_KEY_PSP_SPI_MASK]	= { .type = NLA_BE32 },
++	/* the version field of the PSP header has 4 bits */
++	[TCA_FLOWER_KEY_PSP_VERSION]	= NLA_POLICY_MAX(NLA_U8, 15),
++	[TCA_FLOWER_KEY_PSP_DEV]	= NLA_POLICY_FULL_RANGE(NLA_U32,
++							&fl_psp_dev_range),
+ 	[TCA_FLOWER_KEY_CFM]		= { .type = NLA_NESTED },
+ 	[TCA_FLOWER_KEY_ENC_FLAGS]	= NLA_POLICY_MASK(NLA_BE32,
+ 							  TCA_FLOWER_KEY_ENC_FLAGS_POLICY_MASK),
+@@ -2077,6 +2101,34 @@ static int fl_set_key(struct net *net, struct nlattr *tca_opts,
+ 			return ret;
+ 	}
+ 
++	if (tb[TCA_FLOWER_KEY_PSP_SPI_MASK] && !tb[TCA_FLOWER_KEY_PSP_SPI]) {
++		NL_SET_ERR_ATTR_MISS(extack, tca_opts, TCA_FLOWER_KEY_PSP_SPI);
++		return -EINVAL;
 +	}
-+
-+	return 0;
-+}
-+
-+static int s2500_set_multicast_mode(struct s2500_info *priv,
-+				    unsigned int rx_flags,
-+				    struct netdev_hw_addr_list *mc)
-+{
-+	struct netdev_hw_addr *ha;
-+	u8 mms = OA_TC6_MAC_MMS1;
-+	int i, ret = 0;
-+	int mc_count;
-+	u16 addr;
-+	u32 val;
-+
-+	mc_count = netdev_hw_addr_list_count(mc);
-+
-+	if ((rx_flags & (IFF_PROMISC | IFF_ALLMULTI)) ||
-+	    mc_count > S2500_N_MCAST_FILTERS) {
-+		/* Disable multicast filter */
-+		ret = s2500_mac_ctrl_modify_bits(priv,
-+						 S2500_MAC_CTRL_MCSF,
-+						 true);
-+		if (ret)
-+			return ret;
-+
-+		/* Accept all multicasts */
-+		addr = S2500_REG_MAC_ADDRMASKL(1);
-+		ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+						addr, 0);
-+		if (ret)
-+			return ret;
-+
-+		addr = S2500_REG_MAC_ADDRMASKH(1);
-+		ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+						addr, S2500_ADDR_IG_BIT);
-+		if (ret)
-+			return ret;
-+
-+		addr = S2500_REG_MAC_ADDRFILTL(1);
-+		ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+						addr, 0);
-+		if (ret)
-+			return ret;
-+
-+		val = S2500_MAC_ADDRFILT_ENABLE | S2500_ADDR_IG_BIT;
-+		addr = S2500_REG_MAC_ADDRFILTH(1);
-+		ret = oa_tc6_write_register_mms(priv->tc6, mms,
-+						addr, val);
-+	} else if (mc_count == 0) {
-+		/* Enable multicast filter */
-+		ret = s2500_mac_ctrl_modify_bits(priv,
-+						 S2500_MAC_CTRL_MCSF,
-+						 false);
-+		if (ret)
-+			return ret;
-+
-+		/* Disable filters */
-+		ret = s2500_clear_mcast_filters(priv);
-+	} else {
-+		/* Disable multicast filter */
-+		ret = s2500_mac_ctrl_modify_bits(priv,
-+						 S2500_MAC_CTRL_MCSF,
-+						 true);
-+		if (ret)
-+			return ret;
-+
-+		/* Disable filters */
-+		ret = s2500_clear_mcast_filters(priv);
-+		if (ret)
-+			return ret;
-+
-+		/* Slot 0 holds the unicast MAC, multicast starts at 1 */
-+		i = 1;
-+		netdev_hw_addr_list_for_each(ha, mc) {
-+			ret = s2500_write_filter(priv, i++, ha->addr);
-+			if (ret)
-+				return ret;
++	if (tb[TCA_FLOWER_KEY_PSP_SPI] || tb[TCA_FLOWER_KEY_PSP_VERSION] ||
++	    tb[TCA_FLOWER_KEY_PSP_DEV]) {
++		if (!IS_ENABLED(CONFIG_INET_PSP)) {
++			NL_SET_ERR_MSG(extack, "PSP isn't enabled");
++			return -EOPNOTSUPP;
 +		}
-+	}
-+	return ret;
-+}
-+
-+static int s2500_set_rx_mode(struct net_device *ndev,
-+			     struct netdev_hw_addr_list *uc,
-+			     struct netdev_hw_addr_list *mc)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	int ret;
-+
-+	ret = s2500_set_promiscuous_mode(priv, ndev->flags);
-+	if (ret)
-+		return ret;
-+
-+	return s2500_set_multicast_mode(priv, ndev->flags, mc);
-+}
-+
-+static int s2500_set_mac_address(struct net_device *ndev, void *p)
-+{
-+	struct sockaddr *addr = p;
-+	int ret;
-+
-+	ret = eth_prepare_mac_addr_change(ndev, p);
-+	if (ret)
-+		return ret;
-+
-+	ret = s2500_set_mac_filter(ndev, addr->sa_data);
-+	if (ret)
-+		return ret;
-+
-+	eth_commit_mac_addr_change(ndev, p);
-+	return 0;
-+}
-+
-+static netdev_tx_t s2500_start_xmit(struct sk_buff *skb,
-+				    struct net_device *ndev)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	return oa_tc6_start_xmit(priv->tc6, skb);
-+}
-+
-+static void s2500_stats_work(struct work_struct *work)
-+{
-+	struct s2500_info *priv = container_of(to_delayed_work(work),
-+					       struct s2500_info, stats_work);
-+
-+	s2500_update_stats(priv, NULL);
-+	schedule_delayed_work(&priv->stats_work, S2500_STATS_WORK_PERIOD);
-+}
-+
-+static int s2500_open(struct net_device *ndev)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+	u32 val;
-+	int ret;
-+
-+	phy_start(priv->ndev->phydev);
-+
-+	val = S2500_MAC_CTRL_TXEN | S2500_MAC_CTRL_RXEN;
-+	ret = s2500_mac_ctrl_modify_bits(priv, val, false);
-+	if (!ret) {
-+		netif_start_queue(priv->ndev);
-+		schedule_delayed_work(&priv->stats_work,
-+				      S2500_STATS_WORK_PERIOD);
-+	} else {
-+		phy_stop(priv->ndev->phydev);
-+	}
-+	return ret;
-+}
-+
-+static int s2500_stop(struct net_device *ndev)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	cancel_delayed_work_sync(&priv->stats_work);
-+	s2500_shutdown(priv);
-+	return 0;
-+}
-+
-+static int s2500_hwtstamp_get(struct net_device *ndev,
-+			      struct kernel_hwtstamp_config *k_cfg)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	oa_tc6_hwtstamp_get(priv->tc6, k_cfg);
-+	return 0;
-+}
-+
-+static int s2500_hwtstamp_set(struct net_device *ndev,
-+			      struct kernel_hwtstamp_config *cfg,
-+			      struct netlink_ext_ack *extack)
-+{
-+	struct s2500_info *priv = netdev_priv(ndev);
-+
-+	return oa_tc6_hwtstamp_set(priv->tc6, cfg);
-+}
-+
-+static const struct net_device_ops s2500_netdev_ops = {
-+	.ndo_open              = s2500_open,
-+	.ndo_stop              = s2500_stop,
-+	.ndo_start_xmit        = s2500_start_xmit,
-+	.ndo_set_mac_address   = s2500_set_mac_address,
-+	.ndo_set_rx_mode_async = s2500_set_rx_mode,
-+	.ndo_get_stats64       = s2500_get_stats64,
-+	.ndo_eth_ioctl         = phy_do_ioctl_running,
-+	.ndo_hwtstamp_get      = s2500_hwtstamp_get,
-+	.ndo_hwtstamp_set      = s2500_hwtstamp_set,
-+};
-+
-+static int s2500_probe(struct spi_device *spi)
-+{
-+	struct oa_tc6_quirks tc6_quirks = {
-+		.quirk_flags = OA_TC6_CONFIG_RX_CUT_THROUGH,
-+		.vend1_mms = S2500_VS_MMS12,
-+	};
-+	struct device *dev = &spi->dev;
-+	struct net_device *ndev;
-+	struct s2500_info *priv;
-+	int ret;
-+
-+	if (!spi->irq)
-+		return dev_err_probe(dev, -ENODEV, "Missing interrupt\n");
-+
-+	ndev = devm_alloc_etherdev(dev, sizeof(struct s2500_info));
-+	if (!ndev)
-+		return -ENOMEM;
-+
-+	priv = netdev_priv(ndev);
-+	priv->ndev = ndev;
-+	priv->spi = spi;
-+	priv->dev = dev;
-+
-+	SET_NETDEV_DEV(ndev, dev);
-+
-+	mutex_init(&priv->ptp_adj_lock);
-+	spin_lock_init(&priv->stats_lock);
-+	INIT_DELAYED_WORK(&priv->stats_work, s2500_stats_work);
-+	ndev->irq = spi->irq;
-+
-+	/* Ensures that the first read is not from the cache. */
-+	priv->stats_last_update = jiffies - S2500_STATS_CACHE_PERIOD;
-+
-+	spi_set_drvdata(spi, priv);
-+
-+	ndev->netdev_ops = &s2500_netdev_ops;
-+	ndev->ethtool_ops = &s2500_ethtool_ops;
-+	ndev->if_port = IF_PORT_10BASET;
-+	ndev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
-+
-+	priv->tc6 = oa_tc6_init(spi, ndev, &tc6_quirks);
-+	if (IS_ERR(priv->tc6))
-+		return dev_err_probe(dev, PTR_ERR(priv->tc6),
-+				     "OA TC6 init failed\n");
-+
-+	ret = device_get_ethdev_address(priv->dev, ndev);
-+	if (ret)
-+		ret = s2500_read_mac_from_nvmem(priv);
-+
-+	if (ret) {
-+		eth_hw_addr_random(ndev);
-+		dev_warn(&spi->dev, "Using random MAC address %pM\n",
-+			 ndev->dev_addr);
++		fl_set_key_val(tb, &key->psp.spi, TCA_FLOWER_KEY_PSP_SPI,
++			       &mask->psp.spi, TCA_FLOWER_KEY_PSP_SPI_MASK,
++			       sizeof(key->psp.spi));
++		if (tb[TCA_FLOWER_KEY_PSP_VERSION]) {
++			key->psp.version =
++				nla_get_u8(tb[TCA_FLOWER_KEY_PSP_VERSION]);
++			mask->psp.version = 0xff;
++		}
++		if (tb[TCA_FLOWER_KEY_PSP_DEV]) {
++			key->psp.dev_id =
++				nla_get_u32(tb[TCA_FLOWER_KEY_PSP_DEV]);
++			mask->psp.dev_id = 0xffff;
++		}
++		/* Only match packets which were actually decrypted */
++		key->psp.present = 1;
++		mask->psp.present = 0xff;
 +	}
 +
-+	ret = s2500_init(priv);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to initialize device\n");
-+		goto err_tc6_exit;
-+	}
-+
-+	/* Configure PTP as S2500 supports it */
-+	ret = s2500_ptp_register(priv);
-+	if (ret)
-+		goto err_tc6_exit;
-+
-+	ret = register_netdev(ndev);
-+	if (ret) {
-+		dev_err_probe(dev, ret, "Failed to register netdev\n");
-+		oa_tc6_ptp_unregister(priv->tc6);
-+		goto err_tc6_exit;
-+	}
-+
-+	return 0;
-+
-+err_tc6_exit:
-+	oa_tc6_exit(priv->tc6);
-+	return ret;
-+}
-+
-+static void s2500_remove(struct spi_device *spi)
-+{
-+	struct s2500_info *priv = spi_get_drvdata(spi);
-+
-+	unregister_netdev(priv->ndev);
-+	oa_tc6_ptp_unregister(priv->tc6);
-+	oa_tc6_exit(priv->tc6);
-+}
-+
-+static const struct of_device_id s2500_of_match[] = {
-+	{ .compatible = "onnn,s2500" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, s2500_of_match);
-+
-+static const struct spi_device_id s2500_ids[] = {
-+	{ "s2500" },
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(spi, s2500_ids);
-+
-+static struct spi_driver s2500_driver = {
-+	.driver = {
-+		.name = DRV_NAME,
-+		.of_match_table = s2500_of_match,
-+	},
-+	.probe = s2500_probe,
-+	.remove = s2500_remove,
-+	.id_table = s2500_ids,
-+};
-+module_spi_driver(s2500_driver);
-+
-+MODULE_AUTHOR("Selvamani Rajagopal <selvamani.rajagopal@onsemi.com>");
-+MODULE_AUTHOR("Piergiorgio Beruto");
-+MODULE_DESCRIPTION("onsemi MACPHY ethernet driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/net/ethernet/onsemi/s2500/s2500_ptp.c b/drivers/net/ethernet/onsemi/s2500/s2500_ptp.c
-new file mode 100644
-index 000000000000..595067a97ae5
---- /dev/null
-+++ b/drivers/net/ethernet/onsemi/s2500/s2500_ptp.c
-@@ -0,0 +1,156 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright 2026 Semiconductor Components Industries, LLC ("onsemi").
-+ * onsemi's S2500 10BASE-T1S MAC-PHY driver
-+ */
-+
-+#include "s2500_hw_def.h"
-+
-+static int s2500_ptp_get_time64(struct ptp_clock_info *ptp,
-+				struct timespec64 *ts,
-+				struct ptp_system_timestamp *ptp_sts)
-+{
-+	struct s2500_info *priv = container_of(ptp, struct s2500_info,
-+					       ptp_clock_info);
-+	u32 data[2];
-+	u32 addr;
-+	int ret;
-+
-+	ptp_read_system_prets(ptp_sts);
-+	addr = FIELD_PREP(S2500_REG_MMS_MASK, S2500_VS_MMS12) |
-+			  S2500_REG_VS_PTP_SEC;
-+	ret = oa_tc6_read_registers(priv->tc6, addr, &data[0], 2);
-+	ptp_read_system_postts(ptp_sts);
-+
-+	if (!ret) {
-+		ts->tv_sec = data[0];
-+		ts->tv_nsec = data[1];
-+	}
-+
-+	return ret;
-+}
-+
-+static int s2500_ptp_write_time(struct s2500_info *priv,
-+				const struct timespec64 *ts)
-+{
-+	u32 data[2];
-+	u32 addr;
-+
-+	lockdep_assert_held(&priv->ptp_adj_lock);
-+
-+	if (ts->tv_sec >= (1ULL << 32))
-+		return -ERANGE;
-+
-+	data[0] = (u32)ts->tv_sec;
-+	/* bit 31 = execute set command */
-+	data[1] = ts->tv_nsec | BIT(31);
-+	addr = FIELD_PREP(S2500_REG_MMS_MASK, S2500_VS_MMS12) |
-+			  S2500_REG_VS_PTP_SETSEC;
-+
-+	return oa_tc6_write_registers(priv->tc6, addr, &data[0], 2);
-+}
-+
-+static int s2500_ptp_set_time64(struct ptp_clock_info *ptp,
-+				const struct timespec64 *ts)
-+{
-+	struct s2500_info *priv = container_of(ptp, struct s2500_info,
-+					       ptp_clock_info);
-+	int ret;
-+
-+	mutex_lock(&priv->ptp_adj_lock);
-+	ret = s2500_ptp_write_time(priv, ts);
-+	mutex_unlock(&priv->ptp_adj_lock);
-+
-+	return ret;
-+}
-+
-+static int s2500_ptp_set_freq(struct s2500_info *priv, long scaled_ppm)
-+{
-+	u32 sign_bit = 0;
-+	u64 adj;
-+	u32 val;
-+
-+	if (diff_by_scaled_ppm(S2500_PTP_ADJ_BASE, scaled_ppm, &adj))
-+		sign_bit = 1U << 31;
-+
-+	/* check overflow */
-+	if (adj > S2500_PTP_ADJ_MAX)
-+		return -ERANGE;
-+
-+	val = (u32)adj | sign_bit;
-+	return oa_tc6_write_register_mms(priv->tc6, S2500_VS_MMS12,
-+					 S2500_REG_VS_PTP_ADJ, val);
-+}
-+
-+static int s2500_ptp_adjfine(struct ptp_clock_info *ptp, long scaled_ppm)
-+{
-+	struct s2500_info *priv = container_of(ptp, struct s2500_info,
-+					       ptp_clock_info);
-+
-+	return s2500_ptp_set_freq(priv, scaled_ppm);
-+}
-+
-+static int s2500_ptp_step_time(struct s2500_info *priv, s64 delta)
-+{
-+	struct timespec64 target, now, delta_ts;
-+	ktime_t start;
-+	s64 elapsed;
-+	int ret;
-+
-+	start = ktime_get_raw();
-+	ret = s2500_ptp_get_time64(&priv->ptp_clock_info, &now, NULL);
-+	if (ret)
-+		return ret;
-+	if (delta >= 0) {
-+		delta_ts = ns_to_timespec64(delta);
-+		target = timespec64_add(now, delta_ts);
-+	} else {
-+		delta_ts = ns_to_timespec64(-delta);
-+		target = timespec64_sub(now, delta_ts);
-+	}
-+
-+	/* Adjust the time to take the SPI transaction time into
-+	 * account.
+ 	if (tb[TCA_FLOWER_KEY_ENC_IPV4_SRC] ||
+ 	    tb[TCA_FLOWER_KEY_ENC_IPV4_DST]) {
+ 		key->enc_control.addr_type = FLOW_DISSECTOR_KEY_IPV4_ADDRS;
+@@ -2263,6 +2315,8 @@ static void fl_init_dissector(struct flow_dissector *dissector,
+ 			     FLOW_DISSECTOR_KEY_IPSEC, ipsec);
+ 	FL_KEY_SET_IF_MASKED(mask, keys, cnt,
+ 			     FLOW_DISSECTOR_KEY_CFM, cfm);
++	FL_KEY_SET_IF_MASKED(mask, keys, cnt,
++			     FLOW_DISSECTOR_KEY_PSP, psp);
+ 
+ 	skb_flow_dissector_init(dissector, keys, cnt);
+ }
+@@ -3651,6 +3705,28 @@ static int fl_dump_key(struct sk_buff *skb, struct net *net,
+ 			    sizeof(key->ipsec.spi)))
+ 		goto nla_put_failure;
+ 
++	if (mask->psp.present &&
++	    fl_dump_key_val(skb, &key->psp.spi, TCA_FLOWER_KEY_PSP_SPI,
++			    &mask->psp.spi, TCA_FLOWER_KEY_PSP_SPI_MASK,
++			    sizeof(key->psp.spi)))
++		goto nla_put_failure;
++	/* With a 0 SPI mask and no version or device, the SPI still carries
++	 * the match on a decrypted packet: dump it with its mask
 +	 */
-+	elapsed = ktime_to_ns(ktime_sub(ktime_get_raw(), start));
-+	timespec64_add_ns(&target, elapsed);
++	if (mask->psp.present && !mask->psp.spi && !mask->psp.version &&
++	    !mask->psp.dev_id &&
++	    (nla_put(skb, TCA_FLOWER_KEY_PSP_SPI, sizeof(key->psp.spi),
++		     &key->psp.spi) ||
++	     nla_put(skb, TCA_FLOWER_KEY_PSP_SPI_MASK, sizeof(mask->psp.spi),
++		     &mask->psp.spi)))
++		goto nla_put_failure;
++	if (mask->psp.version &&
++	    nla_put_u8(skb, TCA_FLOWER_KEY_PSP_VERSION, key->psp.version))
++		goto nla_put_failure;
++	if (mask->psp.dev_id &&
++	    nla_put_u32(skb, TCA_FLOWER_KEY_PSP_DEV, key->psp.dev_id))
++		goto nla_put_failure;
 +
-+	/* The subtraction above can take the target below the epoch */
-+	if (target.tv_sec < 0)
-+		return -ERANGE;
-+	return s2500_ptp_write_time(priv, &target);
-+}
-+
-+static int s2500_ptp_adjtime(struct ptp_clock_info *ptp, s64 delta)
-+{
-+	struct s2500_info *priv = container_of(ptp, struct s2500_info,
-+					       ptp_clock_info);
-+	int ret;
-+
-+	/* Nothing to do */
-+	if (delta == 0)
-+		return 0;
-+
-+	/* The device has no add-delta register, so the offset is applied as
-+	 * a read-modify-write of the time registers.
-+	 */
-+	mutex_lock(&priv->ptp_adj_lock);
-+	ret = s2500_ptp_step_time(priv, delta);
-+	mutex_unlock(&priv->ptp_adj_lock);
-+
-+	return ret;
-+}
-+
-+int s2500_ptp_register(struct s2500_info *priv)
-+{
-+	struct ptp_clock_info *info = &priv->ptp_clock_info;
-+
-+	info->max_adj = S2500_PTP_MAX_ADJ_PPB;
-+	info->owner = THIS_MODULE;
-+	info->adjfine = s2500_ptp_adjfine;
-+	info->gettimex64 = s2500_ptp_get_time64;
-+	info->settime64 = s2500_ptp_set_time64;
-+	info->adjtime = s2500_ptp_adjtime;
-+
-+	return oa_tc6_ptp_register(priv->tc6, info);
-+}
-
+ 	if ((key->basic.ip_proto == IPPROTO_TCP ||
+ 	     key->basic.ip_proto == IPPROTO_UDP ||
+ 	     key->basic.ip_proto == IPPROTO_SCTP) &&
 -- 
-2.43.0
-
+2.53.1-Meta
 
