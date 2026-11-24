@@ -1,102 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.99
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544295;
-	b=yAJFscXkW+VKu07mgkNcPalCBri2UuPCYPcfby/QV7M+LcjMu5uTRmcWgBcvFHPuB4+7
-	 Noz4cFhsuxHAm+v61mIPjtpRX0KzfrleQY7nM7pW4k4oAALLw6WvvlF5S+GHDgviPIVPE
-	 F6CAFlqHdd6/kmTMSFHSuWaFTUuOB9+ZSGEpUra4XJPo1kP8IaSq3BRO29IV0a4lmnMR+
-	 TV9sDABZinRwNJUDGOhp84HPgr2SaqWcN84ACnplzbdpzdQlT04QBtzUDn7tfG3Yv7zgw
-	 3irqNJXtiUK9t+EQDfmHfH/77tVeJTDYJDgQujklDQCG7uHVe2vkcAsSQlqTmZD1RqQ==
+	t=1795544920;
+	b=oNiNY6CZFgGyuwpmavNtdtWhL9hyJF57oYEuDFDXojksMtNSylcfekr+zfexKIcyxRWc
+	 hi211J6dzowr/scDkhqYFPBB17T9/Yx5P425eZhjILa7V2JmEoCPvSIrWA3JYg+/CStQk
+	 pdR2bBJ6heu+wDNt+pPrm1Qx6eEZjcT9SJ5BLZjADBFRoxSILScPGYMLjqLXuZRSjMHro
+	 z6j9CalVckML+SY2jAAZFbIoXrGt/USlJF2Nu/I2HnmQ/s/vO9QI1X2BDx7MXU2FsOYq0
+	 opSa6Aem5vUu5eSnbP/MV+na2oTFPh1490tInE8a0NEdgdwq9zOxwUG+nlUhCAgRwpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544295;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=g3r6px9wj27AE9bL3j63vFiaa51YZ/UcQpMXj27Znd8=;
-	b=5LG4jV99QvpONFXbpEjDdGWH4yJUAcxI9uaE5YiBvYqFaaryJKNbcXalD9NEbIFBa1vV
-	 FNgttHcRKmBdWETp6JacmJ8jWCPnriAVSKMLmLeuU0qskmXITfkyxIp/CIyae9h40ctLH
-	 ZTUCLwAwG+KU9YPVBY/91kNhlq7rqny5pTAPp7khpo2YQDo4sEZ1ClmoEneC7ynbU/KJl
-	 TamweeVSdrFdd75RK9dFwbqS1DhAcSBC4vk37NJJVeCRjFc5xTnYjQqbpf/FVohsyr7HY
-	 cTRqRMEFvtQkdILlOO5SF21X7dpUtQ5l1e4kPtv3e7n2nq6mDrmuhnHXTHPHNGIOmWQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544920;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
+	b=08K5ZB9/fUZpGlAzF7405gck4v7pQKJXsUcnlasLjd4karGP9hAaG+W5Qk7qwjTFZvBD
+	 1UA9qau01oX1riNmzPUrO2G6BJ3Ge6kmzAq9oe6TGW4aQSeVlWxNPzuSyFX1bjNTUW3Cu
+	 tSZXSeq2xBM44xHu89gBB+t3rtiejf31eHRU/eLzs9FfC8FE3aakkvFF68RsCR1AUSXhI
+	 joVR/ML4ctsUwZz1AEVYOzMncH14JRdY2/yTnHw9/ptcf9TecUqxNOlVgyp2bqfTHtWLR
+	 oHiDHCiIP/tN3TOA8LcAtxO5vecBvtuCmYHAEqJu5hgAUu8VG/Go+EshaWSTkYqVtZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=U0UOrD57;
-	arc=none smtp.remote-ip=209.85.214.172
-Received: from mail-pl1-f172.google.com (mail-pl1-f172.google.com [209.85.214.172])
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fwQHrovs;
+	arc=none smtp.remote-ip=209.85.161.99
+Received: from mail-oo1-f99.google.com (mail-oo1-f99.google.com [209.85.161.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3FC7A606A69D
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:18:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3FC7A606A69D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FADD606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:28:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FADD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=U0UOrD57
-Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-2f07a960666so28435815ad.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:18:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795544293; x=1796149093; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=g3r6px9wj27AE9bL3j63vFiaa51YZ/UcQpMXj27Znd8=;
-        b=U0UOrD57HY7ZLPwmUocZLCznbZCJPGOt0bsN8t0/Ex2MQnz4GIBpxpMskA/9NhMrto
-         hD56TozGhVXNDm23Qqdzo2MY6niq5bpEJBY1kHIynxnsTUmaE3+HNkDI6XdFPEAkpSAv
-         AxJrPcg1305PtwD6S7vziF4a01HZN2Yfi+1QU=
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fwQHrovs
+Received: by mail-oo1-f99.google.com with SMTP id 006d021491bc7-71ad047710aso3021767eaf.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:28:40 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795544293; x=1796149093;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=g3r6px9wj27AE9bL3j63vFiaa51YZ/UcQpMXj27Znd8=;
-        b=fsZzc9UidusYYG4tPN3Y4nLYCC8kaBgPzDBUBvK56vvTYFCKTyqHp/kRnWaTyn4Spm
-         KXN6XNTZ6b86ypy5EVNAZawXDQcBAsnbb8hzqbcZmWTg7h0O1IgFeRZzGwMOeq0aRfWI
-         9OJTo3wJs3eWunVkMF3EyGwnpjLSptAuAcp5nIPRB4+P0orkKs5VyzPjWW2E9956ntv5
-         ZJReibYPtOSVqKiDOMD9artAxQVMFoBBi7efACFg1xyRMCou+bHob0cg8TKmewZeGIYf
-         G1uOl0tqtURtO+VUxXJhs2HyIGAhJ57vLWXisVQF+cruwZpOTNFLpaq26qaO+K0OFE7C
-         qtwA==
-X-Forwarded-Encrypted: i=1; AL+hErFgrMclJJGfAzn4BB/pe2nzuhRnlD908jKP6o/TAnb3zfzzLszjpOD3fUg0nhoqdfJVtvVvtNI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/EVriO4JiJwz26/9NE3FzjBFE7QgCM38ks3px1hm9QMK3l7hxz
-	qpb7Tx9ktrUITXv1rpyLHY2G9S9oYssXRk/CskCy/+1WQX3wNaM1EGMciDNgmUuW0uo=
-X-Gm-Gg: AZFdTZfiZKTTuOLF4jbRpP7GoW6Q6Tl5EfrxpxqTleqr26e6XJ998kT5OK2sDmNf9dJ
-	vFusriysZ5WDtMUzymY0aHcsXvyMVVTaH+tkdM4TsWwTnbytlU1vaiMs9Y58/HGAkFTD9yqC7IK
-	dLpoD9iTSqJAFwIfZkIuRWgaFwXD4G4y/Oi7LJuaunpDwOX7iKvdAot5YE/Rk2LTUCYYyZNM06b
-	rVJuFSemvzQB4aK7HXzD0Ra/yXsmU1ugoiR30BnrlTqoGdoAFLIixeoQBvYKaz38YnZvwtTf7ha
-	xDbyLrbvjDd1xnXJEQ6edPOtas3tZ5fCCK98wXrr5hRGkNFBnbOgC/cpq3mgOSgim3dtxBVDvQN
-	ax6GSsYjCS5sFF04PM2krFdwN8m0O3jmNvpC9b10x52elOFx6rqdd5OxwNEVqL4d15aceT80w4i
-	b8NdGIP6mdJU7Ysef1MbPEXoc1sybAshjZ3E39qhsR50a1u2tsuDBm0AJaWfM1vz5maEgHXmWTx
-	J2CpkO4HIG52I0rZ4h8MD8OrHaB5umgBt6NqVDrc3npV/47gQejPi9p5XV+bSxwvvE8mIa9Qr8R
-	JmX3/TqA3beVaw3GYT8LsEkseQuXUn9NVfC0LPkoqt43/RPCkzvLEW8CUurUildfZHYCXmZ7uPM
-	f65GgSV7ZY3ek4pnNRMnxoh32qTBpyrXhisldEyseMM+KNy8vXgDUafXSVQM/FXnG
-X-Received: by 2002:a17:903:1a2b:b0:2ed:99b9:7fd8 with SMTP id d9443c01a7336-2f03f1403acmr165211935ad.30.1795544292574;
-        Tue, 24 Nov 2026 10:18:12 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f12028dsm71104755ad.60.2026.11.24.10.18.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:18:12 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: Robin van der Gracht <robin@protonic.nl>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Oliver Hartkopp <socketcan@hartkopp.net>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	linux-can@vger.kernel.org,
-	netdev@vger.kernel.org
-Cc: kernel@pengutronix.de,
-	linux-kernel@vger.kernel.org,
-	Kapil Vaswani <kapil@presceralabs.ai>,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net] can: j1939: do not pass a NULL session skb to the socket layer
-Date: Tue, 24 Nov 2026 23:48:05 +0530
-Message-Id: <20261124181805.638413-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179553126874.3135.14817947057284289051@kernel.org>
-References: <179553126874.3135.14817947057284289051@kernel.org>
+        d=1e100.net; s=20260707; t=1795544919; x=1796149719;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
+        b=WSNYo4XzPMO0GoxWOtQxSCHrZlhe3gJTaOM0yGr6BwBV66LXCrHYQHk55Bz6nFfT4Q
+         9I7gizsCgBOGvwL8q7fmg0UE6O/xr7r22Lqg3GFbgIPmoFzGsrci24GeEZJEBFKcecGN
+         hfzPDPog3trDQAM9OhFltp17aqNg8g+QIDYHhftsUrlWeJeTxplS7Y7Uo7PO5qCUXkFv
+         tTjsXUCdILTHIMQOVuF6DBNCYLqO8McvkkPaPT5YYZk9HEa/E/zVgqhUkCRul45KwpZ2
+         Bxm9u+sZS6TQ0GZUVl2BLt+NdDpvAfMjpdKnF2xfVluLGNYIkaJQ2U7v0l87WZcyQ0i4
+         MJPw==
+X-Gm-Message-State: APuU4Z9on/f2zKWvQlsUKB6qCbZLlUVk7QdZfnLZZ7rPs+YkFPP0JQgv
+	axib+wrW15LviNj01UDyj5lyAg5h2g9lu7vxtIfN9o2ylq137YGdogezzLGXVyI31v1FfBZgNqX
+	LpGiEqz28C6XuvXUUcpse/KDl6YIFK6OdUHlpCaAvsdxb9y1Jcx+snJriakAw7HxKq51PliKVAY
+	GioKcfGh4x+BpWdYRLaVpATGKIZ+1LGPRabyrrdyiMq0oQOX71kMEOo8HGUZ2gLg739GStARgyk
+	R+/oaS2UTQDXvBQ
+X-Gm-Gg: AZFdTZdXqWxnViP4FKQVnpIkCmiczj7dpEQepNd2uD1dcezxiKR/mTvtCbx+WjHtYsr
+	N4vHxKqiwMmuZfIz2cJ5EO7ihEJJiWaRyH3H0WQJ6RfEDL1/9Uzd8spHz62HiYYepM9aDs7Jg/D
+	LQ/hfproXf86TgP1/Be6NADfm3PW/MyQoicRemmh8XVRqfENphgrtls+QByBBI9pS2uF3oVyoV4
+	X6fvLiqEvZrSMnCHnFbj7RBxTvDbGBJR0Yl9luQ+nZoPa41+lTKL+zCXxL95HzfupyHIic92QjR
+	M2AnDZOJ+C4MY4WAMmuwXlD2bmremzJIxMEznMuXb6AaAUR5lkpYNYsEoWz5ePOqQWAAyjKsz+S
+	dsIaA07iT94igZKnIrgio79jvUOp05UiSb0NqeKqPtlK/Jd/kbAqpO4HwqEeouqAfFszblbntOx
+	CkRO7yXBRnNmYK9cxRLolgmwokrL0QQqwC5sKpa0ICKAw=
+X-Received: by 2002:a05:6820:4403:b0:71a:fb85:d06b with SMTP id 006d021491bc7-71b39585c70mr10964302eaf.60.1795544919056;
+        Tue, 24 Nov 2026 10:28:39 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
+        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-71b3805f642sm100377eaf.15.2026.11.24.10.28.38
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 24 Nov 2026 10:28:39 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-382af5cfc58so4269934eec.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:28:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795544917; x=1796149717; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
+        b=fwQHrovsdISQ6PZ+Kar8Kc6n+CGB6pzWtJaeQqzo15c+p60kcHq6a2cTHZTXdTO2lZ
+         wK9/dd0Jsnr4c1CKB/vlFOmxetxXoTNx1VTbc4LfMtXjKR+e5E8KApMkEI60fFSK/K1U
+         vwhmo7d6Y4vUkpMJ10UjqJ0ci2wM0nHG/mQag=
+X-Received: by 2002:a05:7301:53c3:b0:380:f8fd:d19b with SMTP id 5a478bee46e88-3856fb693d7mr17169015eec.38.1795544917442;
+        Tue, 24 Nov 2026 10:28:37 -0800 (PST)
+X-Received: by 2002:a05:7301:53c3:b0:380:f8fd:d19b with SMTP id 5a478bee46e88-3856fb693d7mr17168980eec.38.1795544916671;
+        Tue, 24 Nov 2026 10:28:36 -0800 (PST)
+Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm45529078eec.15.2026.11.24.10.28.35
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 10:28:35 -0800 (PST)
+Message-ID: <be288244-9f14-41d4-a699-f666ce354158@broadcom.com>
+Date: Tue, 24 Nov 2026 10:28:33 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,128 +103,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v6 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, nb@tipi-net.de, carlos.soto@broadcom.com,
+ justin.chen@broadcom.com, opendmb@gmail.com,
+ bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
+ kudzo51@gmail.com
+References: <20261123164835.1733304-2-florian.fainelli@broadcom.com>
+ <179553896595.3135.12489762291979495707@kernel.org>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <179553896595.3135.12489762291979495707@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-
-Thank you - you are right on both counts, and the first one is the more
-useful kind of wrong to be told about: the patch stopped the crash while the
-commit message named a trigger that cannot happen, and the cause was left in
-place.  v2 fixes the cause and says what actually happens.
-
-v2 is posted as a separate thread:
-
-  [PATCH net v2] can: j1939: reject an out-of-range data packet offset
-
-The changelog is under its --- line, with a Link: back to this thread.
-
-Point by point.
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
 
-1. Is this the actual trigger?
 
-> For a receive session, the queue does not seem able to be empty while the
-> session is alive.
-> That means the splat needs an ETP RTS, then an ETP DPO with an out-of-range
-> offset, then an EOMA.
-> Could the commit message describe the DPO trigger instead?
+On 11/24/2026 8:49 AM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 4 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 2 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The commit message describes the SFP impact wrongly.
 
-It is not the trigger, and yours is.  Checked against net.git:
-j1939_session_new() queues one skb, j1939_session_fresh_new() sizes it to the
-whole message with skb_put_zero(), and only j1939_session_skb_drop_old() -
-which returns early below two queued skbs - and j1939_session_destroy()
-remove any.  So the queue is never empty for a live receive session, and
-"an EOMA for a connection whose data packets never arrived" describes nothing
-real.  What fails is where the getter looks:
+Agreed this was wrong. mdio-i2c reports an absent PHY as 0xffff so only 
+a Rollball I2C transport error is affected, reworded in v7.
 
-	offset_start = session->pkt.dpo * 7;
+> - [Medium] get_phy_c45_devs_in_pkg() reads MDIO_DEVS2 and then
+>    MDIO_DEVS1, and returns the raw bus error from whichever read fails.
 
-and for a receive session pkt.dpo is written only by j1939_xtp_rx_dpo_one(),
-straight from the wire.
+Agreed, only a MDIO_DEVS2 failure is mapped to -ENODEV now, a MDIO_DEVS1 
+failure stays as -EIO.
 
-The reproducer sends precisely the sequence you describe - an ETP RTS, an ETP
-DPO carrying 0xffffff, 0x100000, 0x010000 and 0x001000 in turn, then an EOMA -
-and its own comments in the report thread say that pkt.dpo is taken unchecked
-and that the lookup then matches no skb.  The analysis was there; it did not
-reach the commit message I wrote.  That is on me, and v2's message is written
-around the DPO.
+> - [Low] The commit message says errors from the vendor MMD presence check
+>    in the identifier loop "are not mapped, so a PHY that fails midway is…
 
-> Would it also make sense to fix the cause? j1939_xtp_rx_dpo_one() could
-> reject or cancel the session when the DPO is >= pkt.total. Another option
-> is to fetch the RX message at offset 0 in j1939_session_completed(). The
-> NULL check would then stay as a second guard.
+The vendor-MMD error path predates this patch. I dropped the "not 
+silently skipped" claim for it rather than changing its behavior.
 
-v2 does both, because they answer different questions.
+> - [Low] When a devices-in-package read in the MMD search loop of
+>    get_phy_c45_ids() fails with -EIO/-ENODEV, the new code breaks out of…
 
-	dpo = j1939_etp_ctl_to_packet(dat);
-	if (dpo >= session->pkt.total) {
-		netdev_info(...);
-		j1939_session_timers_cancel(session);
-		j1939_session_cancel(session, J1939_XTP_ABORT_FAULT);
-		return;
-	}
+We are not continuing the loop. The vendor MMD presence check would 
+return -ENODEV at MMD 30 and end the scan before the MMD 0 fallback, 
+which would break PHYs that only answer on MMD 0. I noted that in the 
+commit message.
 
-That is the cause, and the shape is j1939_xtp_rx_dat_one()'s: it already
-refuses a packet number it cannot place and cancels the session, and the
-packet numbers it checks are counted from this very offset, so checking one
-and not the other was the gap.  dpo >= pkt.total is exactly the condition
-under which dpo * 7 lands at or past total_message_size, since
-pkt.total = (len + 6) / 7.
+pw-bot:cr
+-- 
+Florian
 
-An out-of-range offset has no legitimate use either way: every data packet
-that follows is rejected by the "packet > session->pkt.total" test in
-j1939_xtp_rx_dat_one(), which derives packet from the same dpo, so such a
-session can never complete with data.  Cancelling it costs a correct peer
-nothing.
-
-And in j1939_session_completed() the lookup is now at offset 0:
-
-	se_skb = j1939_session_skb_get_by_offset(session, 0);
-
-The DPO window says where the next data packet belongs; at completion it is
-the whole message that goes to the sockets, which for a receive session is
-the single skb at offset 0.  The NULL test stays, now as a second guard: if
-it ever fires, an skb has gone missing from a queue this file does not touch
-while the session lives, which would be a kernel bug rather than something a
-peer did.
-
-> One more point: j1939_session_tx_dat() and j1939_xtp_rx_dat_one() both call
-> j1939_session_skb_get_by_offset(), not j1939_session_skb_get(). The only
-> other caller of j1939_session_skb_get() appears to be j1939_simple_txnext().
-
-Correct, and v1's commit message said otherwise.  j1939_simple_txnext() is
-the other caller and it does test the result ("if (!se_skb) return 0;").
-That sentence is gone from v2 rather than repaired, since the patch no longer
-rests on what other callers do.
-
-
-2. When se_skb is NULL, the session still ends as a success
-
-> Is user space told anything at all?
-> Could it also mention that error-queue users are left with a transfer that
-> never completes or aborts?
-
-Nothing is told, exactly as you describe.  j1939_session_deactivate_locked()
-leaves session->err at 0, j1939_session_destroy() queues
-J1939_ERRQUEUE_RX_ABORT only when err is set, so a socket on the error queue
-sees RX_RTS and RX_DPO and then neither the data nor an abort; and no abort
-frame goes to the peer, because j1939_session_cancel() is not called on that
-path.  v2's commit message states this in those terms.
-
-I have not made the guard report an error, and the reason is the first point:
-with the offset checked where it arrives, that path is no longer reachable
-from the wire, and the peer now gets the abort frame and the socket the
-RX_ABORT from j1939_session_cancel() in j1939_xtp_rx_dpo_one() instead -
-which is the right place for it, since that is where the protocol was
-violated.  Setting session->err in j1939_session_completed() would also write
-a field that __j1939_session_cancel() writes under
-active_session_list_lock, and I would rather not add that to a path that
-should now be unreachable.
-
-If you would still prefer the guard to abort rather than to drop quietly, say
-so and I will respin; it is a small change, but it is one I would rather not
-make blind.
-
-
-Thanks again for both - the first changed the patch, and the second changed
-what the commit message claims.
-
-pw-bot: cr
