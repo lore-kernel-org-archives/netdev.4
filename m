@@ -1,79 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795558222;
-	b=2Q2Asb2AyrVKQ7mPVRlq3RJZVf/hsA1miOnulh19uXLdgBSpAHk1gT06Uhi1I6tdiJiD
-	 xDPJYo75rMxYbRZjP6usltEeYQlrQpFhgWEe+sTRE2yr3yaFeubweECB6vdh5s/VCDDbb
-	 7/dQlt/MyBzfGSiQDmJn0C7UK/N7SMRz2JOuUmg3E8Xx7UU5SERCdsk0YfrDhb5Z+VRMV
-	 UE2b6krDAPhFLGX3wXHT4xXGiuRbsHtaRvDcdWPXXVBIKyFSKBg2jdYY9HggExLIbI8QX
-	 y1Aet8C95JN/3Ile/fQL9EJxHa6kVrA60dS2CgM1rXvGDXMY6AFG93yje1v5uFpbc0Q==
+	t=1795558220;
+	b=abq/4AXZ7XjciU62bik5Qedn/hDYL8NG0U2eurbMSs+HSwuVqs6uiegsKVs2+B7G5hlj
+	 HNMSocFHI7AoEHoJPwR9uhPKuVQcsXx4DF1Ymuqx2KuhM5NQuiqs9keCuHd23Y+/Jy6/R
+	 XOWuLvuPZFlqwn2kTdXz/da1OLd9Bln7gmZ6GuNCsgraVelVzIYP+WRl2mtgpblytWDgD
+	 EvWrUXATuHBCISefuK88UlCzTZwUYx7CKkjgCwOVRkeWhM3LCTmIeUFXgD2OdEkXJe2ME
+	 /jTNoqNcdybt5kmfVlpVMId1VD1NA6zB4FcqeTq1EBNGayWLNAo/HXT30/jYP8Xmh+g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558222;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558220;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/2IWogm2fwSHZvOr+N+Ys3nu3YFFva9IZtPdG8Z6fRU=;
-	b=idz6vLyaEQcgNTTmwjai6NhwVLlTzz8iDPkCG57IVD9l8sE5iP3VCEfP8lKkkl+Q0imK
-	 Haa5qUVSIcikPAYcGU7HCmGRHVoZotNgaywWZLcH6R4dt+zZYNR6lmPgstCjwLsquMalZ
-	 rkIucpJE7F2taAZwXI2m62TUHS/1Yv/xUrc52rxV2X8zgfxeBKXvZRpQHIAK+gGTdQzrk
-	 t7vecgaCex44S4kY1rfuqBf2iohBHdZhLVnFUeJ2PhXX9ER9MEoRsAUpc+DZpFAPM9pTE
-	 WEEpMvzQdUvoExcNBIHwird2+FuOAVFHCZjEnbnU/Z6jFXDwP8YNRS/1sHPWiaA8yXA==
+	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
+	b=Q7WaF0KgOgQ5hgI5KIiS4yaghvcKvx82ErZaNQ9onwD7oIllxTc3Ok63V3FJbITbhTom
+	 Z1xRP26UUm6YtnL3v8Qznf7pEknyYTYPiptt7GKckaz5Y1NUNWXaYvu7rIyripnz+gGdC
+	 pVkcdExLwC1ZmbqIzcF/cW/IOUAD9tkqTW7pCCbj3mW4UZN3iXoFlzQhxaep7Ilhioylu
+	 zv8xksXCYMYcUUWTAU7tzITuu4ims7uMOa/g+PVfopOWoOXTawehNg0JIDEYZK2JlIL0+
+	 +bv8n6PFz5R8aRFDBENhCGkKalSGaAnTpG4O5a9g7yUMt046cOzPwXosTRtMlME1kdw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBXgHKIj;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf1TRmmw;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 509BA606A690;
-	Tue, 24 Nov 2026 22:10:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11D6D606A6A7;
+	Tue, 24 Nov 2026 22:10:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GBXgHKIj
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf1TRmmw
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795558221;
-	b=fkAixQ22z7K9FqDIKLux2hazCISCkMm4673fGTYOw/f5GXRTbCdqrW7UrSRWD9NeSPwE
-	 68gMDiF5l7ce3JYnPfTJXlAE3HXy7Iu72UJTnjUtrutJqJ3KId5lFrYnZFT8QjabEm7ls
-	 0nQu8zlSEyyCSm123xlH6PvEyroaRUSIEsPxPHoSFPtP3+A3s9kbAoGUOqIrE7n3yAcrm
-	 xW0uLUFegIxu2DXhg0q8goZUNXRnKCOPvP4v/mZqytT/j9akY+FVtx20FP3dIopARZowJ
-	 NTNvrcitog7LPp+k3vjm0ImwkUcULrUl2PKVuXON/if6hcalVUJW7NkfmC+75b0AdNQ==
+	t=1795558219;
+	b=baIQk22ui7f83ewjJ6mhfjIEBh9XoqlT20xDlrfa2d346yGDYgRSXkneLe6OFi2sYCfB
+	 ZK+dMMLj2bn1NCTM7RNLCkF7fbunJE+4dkXuIusFjFb9bt/1d0MXLU1wo6Cnib4wv7dDQ
+	 mVAAmKHDRnFW+1pedEO+2favUmT9u+RG1Ak9GhxSgxfYQN+DyyubARpRYaQdZCbImUMVs
+	 kQkkLd1cxxD1p73vAsPGFkUInVn+WpRbqsoqPQQdVG+DIR4Yq7AaDjYcY94r3u54AwLJJ
+	 VomvFnx8TnLX+e4jzuMsYN46QXqUsPS8RCxju9ZmstA5TDCyLLNcq4QWGgYOpL53nDw==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795558221;
+	c=relaxed/relaxed; t=1795558219;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=/2IWogm2fwSHZvOr+N+Ys3nu3YFFva9IZtPdG8Z6fRU=;
-	b=Gj3K/JOKfXoKcQq9rvaEAI2X4zwH8Sxvz93z7vVdRWGy6wLEo1jEIxc1OqnQz5LA2/hO
-	 ZdDXXV0ehXzExMMJ817xLbm4eXLFDQ/9jYLuYxgI851feOdRz7GKyGuDoC+QlaXCAvjQu
-	 LDhC852qejuTDMDyl9kAIDja+v9o2yYMFJ9FtypRhtk0ND18Wap9a79QU+xwCITdMx5tC
-	 u+IENqUXnWGsGv99n0Y5MC1UPM6VVyU2juMntMke9oNK9RPdUJrJu4YvvthyOkiqGo0Dr
-	 M0u6rmUOVPcYjLgXTO1yXppzWypravVxu4tadzsawtxLrgwfpaQLsfHVLx+vCJzjIGQ==
+	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
+	b=HNTAQpP2RdF5QjtjiLzxWupgcfETVp4rYUAjX63pyq9OatHldi3eXJ1OXmguVcSddYje
+	 gZI6JmmHFxD0c6N4KDPjrM4wKPXdGxKYudn1Qr6z4N4YOzIXvH2tJvwyi1FTUKSUhc1un
+	 twa4hizrtVHmJI6cvUO+4S8V1UgrvKcvvs/HDrf6RwbxsiP3M8AGvjGB39DgnuxqOFzay
+	 LfhaE+b+G82xmt4+wcufOa7ChhHJQtGemQfIzhHFKz3mh5IFAl0skArHoA9dde8f/mVeb
+	 pmDMuu37U4EhrVTujwGr16U8FUHZImSu8ruWCUnOnrGi6hPCDEdo8c1o8GW9mnIRFag==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2B6DC1F000C0;
-	Tue, 24 Nov 2026 22:10:09 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 629C11F000ED;
+	Tue, 24 Nov 2026 22:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558221;
-	bh=/2IWogm2fwSHZvOr+N+Ys3nu3YFFva9IZtPdG8Z6fRU=;
+	s=k20260515; t=1795558219;
+	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=GBXgHKIjLnsYWYNZsBF/sNdmhwqUx/Rsxy/LOx+gx4QO/gQtw2nynISm/4e1yn8F1
-	 oz3oo2FwkW1OC+NuVnShnLGJqT1jNy+jpYv2KL6ziDynTH+Mql1fRBfcVFSgrlRWLB
-	 W3kWGMq2AIXe6+i/TIC5gSfw9GFufO71aYjphyD6OruCPaOZTmZNxn53EZsUYGuqY9
-	 fQYrlDKUEFH/k0VYxwjD37AlW+boZp0YQAVbCOo2KCNJSA/jIv3RfDu9B+GNP1f0u9
-	 GcBlngbjUoDnD7vvcUxU9srsyLfVb+7xQ1cR2bKJby9asjPwdCucn7MJE0n0anh7ky
-	 K2+vkhAVmzUtw==
+	b=Kf1TRmmwqcqN7jk4wXSDNUAWVjmfirCpADEbs20fGQOzgrvgfBjyPAy+F7pIHyR8e
+	 P8v7q+XFmtMZX6ZwNDG/yddFY7DY5BDPK1lLBnSzHXvS/Tm2BeqE7thfOTwMWsr1Ec
+	 Z8I4GG+1CsrqpdYJySGRh7zx5w3d8VX2ObfCWdgULbJkzqcU78QZ1lGaRSuWROoEaN
+	 WLbV97Rdyts+RyHJsPba9zrM62/72Nxghg43apO7e8PiGgmX+13K0dvpciFEGI1NoN
+	 O0RQuNpwsJQNzGsIAV8DTPrXtmJoOaO7SmpN4rKxDkg+SyTW43oqYhp8iucmugXJgJ
+	 fQtx74Xm/20wA==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 116D04CBF5;
-	Tue, 24 Nov 2026 22:09:58 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id ACE9A4CBE9;
+	Tue, 24 Nov 2026 22:09:57 +0000 (UTC)
 From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:10:01 -0800
-Subject: [PATCH net-next v12 13/15] net: phy: ncn26000: Support for
- onsemi's S2500 internal phy
+Date: Tue, 24 Nov 2026 14:09:58 -0800
+Subject: [PATCH net-next v12 10/15] net: ethernet: oa_tc6: APIs to
+ customize CONFIG0 settings
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,7 +84,7 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-13-3575855d99f9@onsemi.com>
+Message-Id: <20261124-s2500-mac-phy-support-v12-10-3575855d99f9@onsemi.com>
 References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
 In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
 To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
@@ -106,11 +106,11 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  Ciprian Regus <ciprian.regus@analog.com>, 
  Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=6253;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=7885;
  i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=33vN8LGUyb0Bkdk4IC7K6emvRpLmqk57tr5NivfYGP4=;
- b=Sn8Dsaua3MtAr1stl23pR/g4FLbqPFHe5bCi9eo5Iji6uXwhscLysbY2V1Fh4FZzfX/TJtwcB
- Qdl/LcskfJoBdr/mL6aWB54jQplKd+mgZHDhTewvcZ3Z2yN2WutaMXr
+ bh=Tn4qWJ+KFSw9aGl6Q6VzMJbvXt57m8JvDM/gl/PybZM=;
+ b=p7j4SSbr4p/WbELw+XYJSjjMFLeABk2s9XCiDfhFcNKoYqAwNPwXE/okv24Q9uKPEARIlmr4P
+ bEwG/ORqH3yC94obRhUP1MvaBfZk8m8PzWvxjTnVTgcCBjkOPvpxKdq
 X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
  pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
 X-Endpoint-Received: by B4 Relay for
@@ -121,187 +121,212 @@ Content-Transfer-Encoding: 7bit
 
 From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 
-Add support for internal PHY of the integrated media access
-controller S2500. PLCA tx opportunity timer's default value
-is correct in this device, compared to the currently supported
-PHY NCN26000.
+Add oa_tc6_tx_credit_threshold_set() to let a vendor driver set the
+minimum transmit credits the MAC-PHY needs before it asserts the
+interrupt.
 
-The S2500 entry additionally supports SQI reporting, OATC14 cable
-testing and loopback, and enables direct Clause 45 MMD access. The
-S2500 entry works in polled mode only.
+Add the OA_TC6_CONFIG_RX_CUT_THROUGH quirk flag. When set,
+oa_tc6_init() enables receive cut-through before the SYNC bit is set.
+This can't be done after oa_tc6_init(), which sets the SYNC bit.
+The flag is ignored if the MAC-PHY does not report cut-through
+capability.
 
-S2500 uses its own config_aneg that sets BMCR_ANENABLE without
-affecting other bits in BMCR register. Also this keeps NCN26000
-behavior unchanged.
+Existing drivers are not affected: the default credit threshold is
+unchanged and cut-through stays disabled unless the quirk is set.
 
-Also add S2500 support to the Kconfig help text, add a MAINTAINERS
-entry and a MODULE_AUTHOR line.
-
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
 
 ---
 changes in v12
-  - No change
-changes in v11
-  - Copyright year changed from 2022 to 2022-2026
-    Previous patch had 2026 only.
-  - Added more information in commit message
-  - s2500 has its own config_aneg so that it won't cause any
-    change in behavior to ncn26000.
-changes in v10
-  - removed config_intr callback as PHY driver is in polled mode
-changes in v9
-  - Added Reviewed tag
-changes in v8
-  - changes to use newer API for read/write_mmd callback
-changes in v7
-  - No change
-changes in v6
-  - No change
-changes in v5
-  - No change
-changes in v4
-  - no change
-changes in v3
-   added new PHY support in a separate patch
-   changed model comparison to use phy_id_compare_model
-changes in v2
-   Removed bug fixes. Retained only S2500 specific changes
-changes in v1
-   Added support for an internal PHY of onsemi's MAC-PHY S2500
+  - Moved the TX credit threshold API and the RX cut-through
+    quirk out of the S2500 driver patch.
+  - New patch in v12.
 ---
- MAINTAINERS                |  1 +
- drivers/net/phy/Kconfig    |  2 +-
- drivers/net/phy/ncn26000.c | 45 ++++++++++++++++++++++++++++++++++++++++++---
- 3 files changed, 44 insertions(+), 4 deletions(-)
+ Documentation/networking/oa-tc6-framework.rst | 20 +++++++++
+ drivers/net/ethernet/oa_tc6/oa_tc6_main.c     | 62 +++++++++++++++++++++++++++
+ drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h  |  1 +
+ include/linux/oa_tc6.h                        |  7 +++
+ 4 files changed, 90 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index a5275c6bff0a..5020e938604a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -21028,6 +21028,7 @@ F:	arch/mips/boot/dts/ralink/omega2p.dts
+diff --git a/Documentation/networking/oa-tc6-framework.rst b/Documentation/networking/oa-tc6-framework.rst
+index 558dc25038d3..2ce95ae58923 100644
+--- a/Documentation/networking/oa-tc6-framework.rst
++++ b/Documentation/networking/oa-tc6-framework.rst
+@@ -476,6 +476,9 @@ The quirk_flags field supports:
  
- ONSEMI ETHERNET PHY DRIVERS
- M:	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
-+M:	Selvamani Rajagopal <selvamani.rajagopal@onsemi.com>
- L:	netdev@vger.kernel.org
- S:	Supported
- W:	http://www.onsemi.com
-diff --git a/drivers/net/phy/Kconfig b/drivers/net/phy/Kconfig
-index 30e9d22c8d1a..cff58dbe391d 100644
---- a/drivers/net/phy/Kconfig
-+++ b/drivers/net/phy/Kconfig
-@@ -396,7 +396,7 @@ config NCN26000_PHY
- 	help
- 	  Adds support for the onsemi 10BASE-T1S Ethernet PHY.
- 	  Currently supports the NCN26000 10BASE-T1S Industrial PHY
--	  with MII interface.
-+	  with MII interface and the S2500 10BASE-T1S PHY.
+ - OA_TC6_BROKEN_PHY: Leave MDIO bus registration and PHY connection to the
+   vendor driver instead of the framework.
++- OA_TC6_CONFIG_RX_CUT_THROUGH: Enable receive cut-through in the CONFIG0
++  register. It is ignored if the MAC-PHY does not report cut-through
++  capability.
  
- source "drivers/net/phy/qcom/Kconfig"
+ A zero value for vend1_mms means no Clause 45 ``MDIO_MMD_VEND1``
+ mapping is requested; it does not select MMS 0. For any nonzero value
+@@ -519,6 +522,23 @@ Zero align receive frame feature can be enabled to align all receive ethernet
+ frames data to start at the beginning of any receive data chunk payload with a
+ start word offset (SWO) of zero.
  
-diff --git a/drivers/net/phy/ncn26000.c b/drivers/net/phy/ncn26000.c
-index 888d74b83125..ec2ebddef5b9 100644
---- a/drivers/net/phy/ncn26000.c
-+++ b/drivers/net/phy/ncn26000.c
-@@ -2,7 +2,7 @@
- /*
-  *  Driver for the onsemi 10BASE-T1S NCN26000 PHYs family.
-  *
-- * Copyright 2022 onsemi
-+ * Copyright 2022-2026 onsemi
-  */
- #include <linux/kernel.h>
- #include <linux/bitfield.h>
-@@ -14,6 +14,7 @@
- 
- #include "mdio-open-alliance.h"
- 
-+#define PHY_ID_S2500			0x180FF411
- #define PHY_ID_NCN26000			0x180FF5A1
- 
- #define NCN26000_REG_IRQ_CTL            16
-@@ -40,13 +41,18 @@
- 
- static int ncn26000_config_init(struct phy_device *phydev)
- {
-+	int ret = 0;
++.. c:function:: int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, \
++                                                   u8 thresh)
 +
- 	/* HW bug workaround: the default value of the PLCA TO_TIMER should be
- 	 * 32, where the current version of NCN26000 reports 24. This will be
- 	 * fixed in future PHY versions. For the time being, we force the
- 	 * correct default here.
- 	 */
--	return phy_write_mmd(phydev, MDIO_MMD_VEND2, MDIO_OATC14_PLCA_TOTMR,
--			     TO_TMR_DEFAULT);
-+	if (phy_id_compare_model(phydev->drv->phy_id, PHY_ID_NCN26000))
-+		ret = phy_write_mmd(phydev, MDIO_MMD_VEND2,
-+				    MDIO_OATC14_PLCA_TOTMR,
-+				    TO_TMR_DEFAULT);
-+	return ret;
++Sets the minimum number of free transmit credits that must be available
++before the MAC-PHY asserts the interrupt. The default is one credit
++according to OPEN Alliance 10BASE-T1x MAC-PHY Serial Interface specification.
++
++The thresh argument is the encoded TXCTHRESH field value of the CONFIG0
++register, not the credit count:
++
++- 0: one or more credits (default)
++- 1: four or more credits
++- 2: eight or more credits (OA_TC6_CONFIG0_TXCTHRESH_8)
++- 3: sixteen or more credits
++
++A value above 3 does not fit the field and fails with -EINVAL.
++
+ .. c:function:: int oa_tc6_ptp_register(struct oa_tc6 *tc6, \
+                                         struct ptp_clock_info *info)
+ 
+diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
+index 228cc2a3dc2d..c078f22c32d6 100644
+--- a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
++++ b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
+@@ -289,9 +289,29 @@ static int oa_tc6_update_standard_capability(struct oa_tc6 *tc6)
+ 		return ret;
+ 	if (regval & OA_TC6_STDCAP_FTSC_CAPABILITY) /* Timestamp */
+ 		tc6->ftsc_capable = true;
++	if (regval & OA_TC6_STDCAP_CTC_CAPABILITY) /* Cut-through */
++		tc6->ctc_capable = true;
+ 	return 0;
  }
  
- static int ncn26000_config_aneg(struct phy_device *phydev)
-@@ -62,6 +68,17 @@ static int ncn26000_config_aneg(struct phy_device *phydev)
- 	return phy_write(phydev, MII_BMCR, NCN26000_BCMR_LINK_CTRL_BIT);
- }
- 
-+/* Kept separate to leave ncn26000_config_aneg() unchanged. BMCR is
-+ * modified instead of overwritten, to keep loopback enabled.
-+ */
-+static int s2500_config_aneg(struct phy_device *phydev)
++static int oa_tc6_rx_cut_through_enable(struct oa_tc6 *tc6)
 +{
-+	phydev->mdix_ctrl = ETH_TP_MDI_AUTO;
-+	phydev->mdix = ETH_TP_MDI;
++	u32 regval;
++	int ret;
 +
-+	return phy_set_bits(phydev, MII_BMCR, NCN26000_BCMR_LINK_CTRL_BIT);
++	if (!tc6->ctc_capable)
++		return 0;
++
++	ret = oa_tc6_read_register(tc6, OA_TC6_REG_CONFIG0, &regval);
++	if (ret)
++		return ret;
++
++	/* Set Receive Cut-Through Enable */
++	regval |= OA_TC6_CONFIG0_RXCTE;
++
++	return oa_tc6_write_register(tc6, OA_TC6_REG_CONFIG0, regval);
 +}
 +
- static int ncn26000_read_status(struct phy_device *phydev)
+ static __be32 oa_tc6_prepare_ctrl_header(u32 addr, u8 length,
+ 					 enum oa_tc6_register_op reg_op)
  {
- 	/* The NCN26000 reports NCN26000_LINK_STATUS_BIT if the link status of
-@@ -162,6 +179,26 @@ static int ncn26000_config_intr(struct phy_device *phydev)
+@@ -1618,6 +1638,36 @@ int oa_tc6_zero_align_receive_frame_enable(struct oa_tc6 *tc6)
  }
+ EXPORT_SYMBOL_GPL(oa_tc6_zero_align_receive_frame_enable);
  
- static struct phy_driver ncn26000_driver[] = {
-+	{
-+		PHY_ID_MATCH_MODEL(PHY_ID_S2500),
-+		.name                  = "S2500",
-+		.features              = PHY_BASIC_T1S_P2MP_FEATURES,
-+		.config_init           = ncn26000_config_init,
-+		.config_aneg           = s2500_config_aneg,
-+		.read_status           = ncn26000_read_status,
-+		.set_loopback          = genphy_loopback_no_speed,
-+		.set_plca_cfg          = ncn26000_c45_plca_set_cfg,
-+		.get_plca_cfg          = genphy_c45_plca_get_cfg,
-+		.get_plca_status       = genphy_c45_plca_get_status,
-+		.soft_reset            = genphy_soft_reset,
-+		.get_sqi               = genphy_c45_oatc14_get_sqi,
-+		.get_sqi_max           = genphy_c45_oatc14_get_sqi_max,
-+		.read_mmd              = genphy_read_mmd_c45,
-+		.write_mmd             = genphy_write_mmd_c45,
-+		.cable_test_get_status =
-+			genphy_c45_oatc14_cable_test_get_status,
-+		.cable_test_start      = genphy_c45_oatc14_cable_test_start,
-+	},
- 	{
- 		PHY_ID_MATCH_MODEL(PHY_ID_NCN26000),
- 		.name			= "NCN26000",
-@@ -182,11 +219,13 @@ module_phy_driver(ncn26000_driver);
++/**
++ * oa_tc6_tx_credit_threshold_set - function to set the minimum number of free
++ * transmit credits needed before the MAC-PHY asserts the interrupt.
++ * @tc6: oa_tc6 struct.
++ * @thresh: transmit credit threshold field value, e.g.
++ *	OA_TC6_CONFIG0_TXCTHRESH_8.
++ *
++ * Return: 0 on success, -EINVAL if @thresh does not fit the TXCTHRESH
++ * field, otherwise a negative error code from the register access.
++ */
++int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, u8 thresh)
++{
++	u32 regval;
++	int ret;
++
++	if (thresh > OA_TC6_CONFIG0_TXCTHRESH_16)
++		return -EINVAL;
++
++	ret = oa_tc6_read_register(tc6, OA_TC6_REG_CONFIG0, &regval);
++	if (ret)
++		return ret;
++
++	/* Set Transmit Credit Threshold */
++	regval &= ~OA_TC6_CONFIG0_TXCTHRESH_MASK;
++	regval |= FIELD_PREP(OA_TC6_CONFIG0_TXCTHRESH_MASK, thresh);
++
++	return oa_tc6_write_register(tc6, OA_TC6_REG_CONFIG0, regval);
++}
++EXPORT_SYMBOL_GPL(oa_tc6_tx_credit_threshold_set);
++
+ /**
+  * oa_tc6_start_xmit - function for sending the tx skb which consists ethernet
+  * frame.
+@@ -1779,6 +1829,18 @@ struct oa_tc6 *oa_tc6_init(struct spi_device *spi, struct net_device *netdev,
+ 		return ERR_PTR(ret);
+ 	}
  
- static const struct mdio_device_id __maybe_unused ncn26000_tbl[] = {
- 	{ PHY_ID_MATCH_MODEL(PHY_ID_NCN26000) },
-+	{ PHY_ID_MATCH_MODEL(PHY_ID_S2500) },
- 	{ }
++	/* Cut-through bits must be configured before SYNC bit is set
++	 * in CONFIG0 register.
++	 */
++	if (tc6->quirks.quirk_flags & OA_TC6_CONFIG_RX_CUT_THROUGH) {
++		ret = oa_tc6_rx_cut_through_enable(tc6);
++		if (ret) {
++			dev_err(&tc6->spi->dev,
++				"Failed to enable RX cut-through: %d\n", ret);
++			return ERR_PTR(ret);
++		}
++	}
++
+ 	ret = oa_tc6_unmask_macphy_error_interrupts(tc6);
+ 	if (ret) {
+ 		dev_err(&tc6->spi->dev,
+diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
+index cc7cda673f1b..245a1b316395 100644
+--- a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
++++ b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
+@@ -140,6 +140,7 @@ struct oa_tc6 {
+ 	struct list_head ttsc_skb_list;
+ 	struct ptp_clock *ptp_clock;
+ 	bool ftsc_capable; /* Timestamp capability */
++	bool ctc_capable;  /* cut-through capability */
+ 	u64 tx_hwtstamp_pkts;
+ 	u64 tx_hwtstamp_lost;
+ 	u64 tx_hwtstamp_err;
+diff --git a/include/linux/oa_tc6.h b/include/linux/oa_tc6.h
+index f34ed8218a7c..35b536741d01 100644
+--- a/include/linux/oa_tc6.h
++++ b/include/linux/oa_tc6.h
+@@ -20,6 +20,7 @@
+ /* Standard Capabilities Register */
+ #define OA_TC6_REG_STDCAP			0x0002
+ #define OA_TC6_STDCAP_DIRECT_PHY_REG_ACCESS	BIT(8)
++#define OA_TC6_STDCAP_CTC_CAPABILITY		BIT(7)
+ #define OA_TC6_STDCAP_FTSC_CAPABILITY		BIT(6)
+ 
+ /* Reset Control and Status Register */
+@@ -30,6 +31,10 @@
+ #define OA_TC6_REG_CONFIG0			0x0004
+ #define OA_TC6_CONFIG0_SYNC			BIT(15)
+ #define OA_TC6_CONFIG0_ZARFE_ENABLE		BIT(12)
++#define OA_TC6_CONFIG0_TXCTHRESH_MASK		GENMASK(11, 10)
++#define OA_TC6_CONFIG0_TXCTHRESH_8		2	/* 0b10: >=8 credits */
++#define OA_TC6_CONFIG0_TXCTHRESH_16		3	/* 0b11: >=16 credits */
++#define OA_TC6_CONFIG0_RXCTE			BIT(8)
+ #define OA_TC6_CONFIG0_FTSE_ENABLE		BIT(7)
+ #define OA_TC6_CONFIG0_FTSS_64BIT_TSTAMP	BIT(6)
+ #define OA_TC6_CONFIG0_PROTE			BIT(5)
+@@ -82,6 +87,7 @@ struct oa_tc6;
+ 
+ enum oa_tc6_quirk_flag {
+ 	OA_TC6_BROKEN_PHY = BIT(0),
++	OA_TC6_CONFIG_RX_CUT_THROUGH = BIT(1),
  };
  
- MODULE_DEVICE_TABLE(mdio, ncn26000_tbl);
- 
-+MODULE_AUTHOR("Selvamani Rajagopal <selvamani.rajagopal@onsemi.com>");
- MODULE_AUTHOR("Piergiorgio Beruto");
- MODULE_DESCRIPTION("onsemi 10BASE-T1S PHY driver");
- MODULE_LICENSE("Dual BSD/GPL");
+ struct oa_tc6_quirks {
+@@ -104,6 +110,7 @@ int oa_tc6_read_registers(struct oa_tc6 *tc6, u32 address, u32 value[],
+ 			  u8 length);
+ netdev_tx_t oa_tc6_start_xmit(struct oa_tc6 *tc6, struct sk_buff *skb);
+ int oa_tc6_zero_align_receive_frame_enable(struct oa_tc6 *tc6);
++int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, u8 thresh);
+ int oa_tc6_mdiobus_read_c45(struct mii_bus *bus, int addr, int devnum,
+ 			    int regnum);
+ int oa_tc6_mdiobus_write_c45(struct mii_bus *bus, int addr, int devnum,
 
 -- 
 2.43.0
