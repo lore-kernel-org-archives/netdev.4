@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483483;
-	b=Y1NcnY0EOun7OO6Nq7OhAuevN0MoJVDWq9DBwnkIHb3fmQItgQrWn/FkrLjZ0gAxYN4Y
-	 IPaSqRwUNAxGzwz4F07ojMzB2lLYA5y/bK6ysGFpGy7PUaAkEBlbdluBO/hSc7L7mppss
-	 LtEflCWq5aeM7Oxe4lr1iIT/sB9PEJuA4PKcn6u08VPb8UiqZ5PuUuYMPyI9JcE1ketgG
-	 W7uBBo3jvxuQJroebndGElcXKPmp6FQyQCXMkGH+tEAQXGA77Gkzp86L3u+2BrLHwOEP4
-	 3NK7OvfRUjA3vIzjj2ewslMp/L5yocMmKJPpGkLZ/JnFWQ4kG3X/TbXLUp67OQl/GkQ==
+	t=1795483484;
+	b=rKKkFugHsKYSyaS/vBOJMf1a0nfnuvcT2wEdB3xFvdJA+OJihbQtwB4POtO5YAGJbbCW
+	 0HGMq0llBgWLXCvTOW4k5uQvrf2Xp248HjEjwoXesMLN1jgSAeyiBzk/VvOrbYqYGhQIW
+	 rf3Dvh/5Vlkb+tachkF54UaZuEWXnVf1TFt8QeV3xAsM/JoZfig/0yQ1aQ6eDLqJBUL2D
+	 leORptog5Vch/X4jI6bzo48B+bi3y6fJb9ocVjSIpDQTkMsQrUCXzr+vjtlku64fpbg1h
+	 KJAHlZh5BgBOf408svTkHtPwIjIluoEoe36/jFuFIe64Sk8EdkAGLDw3q7F7yBu28gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483483;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483484;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=YpbR6Q0yO7II70afwzTmmnjztlsfobvcSMwi9UnVyv0=;
-	b=KuOfGQBXivlG+XbU9qobLWb3pH9kugEATbcvocAqALcXgnRLqiyqUCQ+Wn8TANr2B5Ng
-	 uUBPectibIvjbywo2AgZo2Z/WIMW8rp1989tF1c+KxqwQenbte9QuTQKUkfKhtahZ6DRh
-	 VZ7TgMjHuz8xVljLG0kICmGYQD3MZNVfGyO9bCd90FAd7LT5OqtSSu6BwQPARErBGiGqt
-	 1bPKBN2vzMXkxHR64b3o6H4lcMLpozur/fgDZuE1inFEAv4spwOxCnP2PBPPudMfp2HmN
-	 iO6fTEAbK+EhVZnrc1q1HaA+E/mYlr2qdlFbIxPIc2cgFQbGC5mHvatQLh9ALi3YVAQ==
+	bh=NG28A2C4OikQ3XaWsnprxxxGQWHk4dDUl1NFOV2wSx0=;
+	b=pQQJcxhvVdNhi7ox9E2zqpq+e+kW6A+8bfVf0FeKu1mgwH7th+fReOLaETpkQUHqFO3J
+	 MlOixISoVfWZvheofFBoz9Dh+WXhXTb0yArW4gUPc3EezQiavMAoOYnUS4lAQa1JQgeov
+	 KVqi5I1UfNEmt7/Xeh0n7RrfE1t/jfD29qNoW+hczTF8tf1RI+7IK+XlhNE7ZHJkR1pJd
+	 uKdbVvknT3xxIgqASttQSQczj16ETdf5fVztK2TECK9sl2WN4hKfXzWLPJeEJaSC0b0pN
+	 KaEdak/Z1xAXJUUM6WwxopwCXCTucqHCmMI8eK5u4gaZMRewlOQ1ah4+SzLenYgEx3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XL8QxwRx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U36lc+am;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A053606A326;
-	Tue, 24 Nov 2026 01:24:42 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 938A5606A333;
+	Tue, 24 Nov 2026 01:24:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XL8QxwRx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 642441F000C6;
-	Tue, 24 Nov 2026 01:24:41 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U36lc+am
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B29C1F000E6;
+	Tue, 24 Nov 2026 01:24:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795483482;
-	bh=YpbR6Q0yO7II70afwzTmmnjztlsfobvcSMwi9UnVyv0=;
+	s=k20260515; t=1795483484;
+	bh=NG28A2C4OikQ3XaWsnprxxxGQWHk4dDUl1NFOV2wSx0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XL8QxwRxPew84irklwZHHrrvfLUHxv9ICKhSb4JNgiZH/lsDzLfvhNcrlr+0ui/ZR
-	 wgqlcS2g9YQtg7AgQDDyKkBT+BPdhjJJRUdIqG6PG0Eh3WJ9rGhFU6uYlhJzuh8KGK
-	 quGwq1y9HZjLlPc8v+pj1yvf33Uj78uchVZktZzVH9iiJdkURoUcrn7bz2xIYLRhT3
-	 v53UssqmaO6JgwPpjJfbqGtEq23q2gHeddQW3zRkAlFVzCC6kVuj5KjDxVZQXGvb4K
-	 T1J555JuN+8/8vMHZqkCXqi1l+bAG3Sxnh6Vave3hubwDHWi4WR6JvqAK9Z/DkkeEG
-	 +2z0wzOGkbSrw==
-Subject: Re: [PATCH net-next v12 10/13] net: dsa: realtek: rtl8365mb: add
- family D SDS13 PCS support
+	b=U36lc+amrLasxatwP83d745Ay+7nGyNAyOC8U9TPeeVUiHay7+ZHzftohvnw0V0F9
+	 uHWO2pENXmMoAPHTBb3MgC9x3agSn+S26O6MHbK66d3uCALp6PVDl/XMBTupHRnWo1
+	 mBnDJF99zdikQDgMVvyYfQW9pYm17VtpBT5nZwnySmB+AMc/hWOHpYTMwkyUVO9/fB
+	 6J5k1XmUWU0y5REwcmMZZkuyqT9ZIQjP0ch8pdq0eq1hDim3R9qZDW/C2bMaWa+HPQ
+	 8978TJQK/FHhQ6rdqO+7IorQlbCN1I0TSLZ7ThNfkAZ69Pt9fFZwINGXre8Oz9Yu0p
+	 esr5+2vyF9i9A==
+Subject: Re: [PATCH net-next v12 12/13] net: dsa: realtek: rtl8365mb: make
+ L2/LUT access work on family D
 From: netdev-bot+sashiko@kernel.org
 To: namiltd@yahoo.com
 Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
@@ -50,10 +50,10 @@ Cc: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
  fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev
-Date: Tue, 24 Nov 2026 01:24:40 +0000
-Message-ID: <179548348098.3135.991309116032726075@kernel.org>
-In-Reply-To: <87c2a0f9-bf6f-408f-b711-c566769b40d3@yahoo.com>
-References: <87c2a0f9-bf6f-408f-b711-c566769b40d3@yahoo.com>
+Date: Tue, 24 Nov 2026 01:24:42 +0000
+Message-ID: <179548348297.3135.11750610960946672439@kernel.org>
+In-Reply-To: <ca39376d-37b6-43e0-9dd5-7d431d335e63@yahoo.com>
+References: <ca39376d-37b6-43e0-9dd5-7d431d335e63@yahoo.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 4 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+Critical: 0 · High: 0 · Medium: 4 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,177 +78,231 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] rtl8365mb_phylink_mac_link_up() now skips the SerDes-side
-  pause programming (RTL8365MB_SDS_MISC_REG 0x1D11, SGMII_TXFC BIT(13) /…
-- [Low] On family D, rtl8365mb_pcs_config() in
-  drivers/net/dsa/realtek/rtl8365mb_main.c now wraps the external…
-- [Low] On family D, rtl8365mb_sds_probe_option() returns early with
-  mb->sds_supported = true (line 1468).
+- [Medium] Family D sets `ds->max_num_bridges = 1` in rtl8365mb_setup()
+  (drivers/net/dsa/realtek/rtl8365mb_main.c:3728), but DSA hands out…
+- [Medium] The comment in rtl8365mb_d_l2_uc_to_data()
+  (drivers/net/dsa/realtek/rtl8365mb_l2.c:278-284) says that IVL_EN…
+- [Medium] rtl8365mb_d_l2_mc_to_data() (rtl8365mb_l2.c:318) writes VID-0
+  MDB entries of a VLAN-unaware bridge with IVL=0, FID 0.
+- [Medium] The family D serializers pick IVL from the VID alone (`ivl =
+  key.ivl && key.vid`, rtl8365mb_d_l2_uc_to_data() at…
 
 --
 
-net: dsa: realtek: rtl8365mb: add family D SDS13 PCS support
+net: dsa: realtek: rtl8365mb: make L2/LUT access work on family D
 
-This extends the existing RTL8367S SGMII/HSGMII PCS code to family D
-switches. On family D the CPU SerDes is reached through the indexed SDS13
-window, and the family D SDS_MISC layout and tuning tables come from the
-vendor RTL8367D API. On family D the patch also skips the pcs_link_up()
-forcing and the SerDes pause programming, and stops advertising 10/100 on
-the SerDes port.
+This patch adds L2 entry (de)serializers for family D (RTL8367S-VB). It
+also adjusts table access for the narrower SPA and address fields, and
+adds a LUT init step. EFID handling becomes a no-op on family D,
+fdb_isolation is not advertised, and max_num_bridges is set to 1.
+
+Closes: https://github.com/openwrt/openwrt/pull/19644#issuecomment-6708118180
+
+> diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.c b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+> index cd5b333932bee..e98ba5c5f9193 100644
+> --- a/drivers/net/dsa/realtek/rtl8365mb_l2.c
+> +++ b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+
+[ ... ]
+
+> @@ -240,6 +255,78 @@ void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
+>  	data[5] |= FIELD_PREP(RTL8365MB_L2_MC_D5_MBR_HI2_MSK, val);
+>  }
+>  
+
+[ ... ]
+
+> +void rtl8365mb_d_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc,
+> +			       u16 *data)
+> +{
+> +	/* A VLAN-unaware bridge reaches us with VID 0. The chip learns such
+> +	 * traffic in SVL (IVL=0, FID=0), so use the same key here, otherwise
+> +	 * the static entry never matches the learned one. Only a real VID
+> +	 * selects IVL. IVL_EN of the VLANs follows the VLAN filtering state
+> +	 * (see rtl8365mb_d_vlan_4k_refresh_ivl()), so this matches the key
+> +	 * the chip learns with.
+> +	 */
+> +	bool ivl = uc->key.ivl && uc->key.vid;
+
+[Severity: Medium]
+Does this comment still hold when one family D switch offloads two
+bridges with different vlan_filtering settings?
+
+IVL_EN is decided once for the whole switch, not per bridge. In
+rtl8365mb_d_want_ivl(), a single filtering user port is enough:
+
+    dsa_switch_for_each_user_port(dp, ds) {
+        if (dp->index == port ? filtering :
+                    dsa_port_is_vlan_filtering(dp))
+            return true;
+    }
+
+rtl8365mb_d_vlan_4k_refresh_ivl() then writes that value to every used
+VID, including the default PVID VLAN:
+
+    vlan4k.ivl_en = want_ivl;
+
+The comment in rtl8365mb_setup() says a bridge that already has a number
+from another switch can still be offloaded here. So a VLAN-aware bridge
+and a VLAN-unaware bridge can both be offloaded on this switch.
+
+With configure_vlan_while_not_filtering set, the VLAN-unaware bridge's
+ports keep PVID 1. Would the chip then learn them in IVL with VID 1,
+while DSA still passes their FDB/MDB entries with VID 0 and this code
+writes IVL=0/FID=0?
+
+If so, it looks like the duplicate key problem from the commit message
+comes back for static FDB entries, and MDB entries would stop limiting
+the flood. How the chip learns on non-filtering ports is a hardware
+assumption here.
+
+> +	u16 id = ivl ? uc->key.vid : uc->key.fid;
+
+[Severity: Medium]
+IVL is chosen here from the VID alone, not from whether the bridge is
+VLAN-aware. Can a VLAN-aware bridge put a static entry into the shared
+FID 0 domain this way?
+
+A VLAN-aware bridge still produces VID-0 FDB entries. For example,
+"bridge fdb add MAC dev swpX master static" without a vlan argument
+makes br_fdb_add() add a VID-0 entry next to the per-VLAN ones. DSA
+passes the VID through unchanged, so the path is:
+
+    rtl83xx_port_fdb_add(vid 0)
+      -> rtl8365mb_l2_add_uc()
+        -> rtl8365mb_d_l2_uc_to_data()
+
+and it writes a static (age 6) entry with IVL=0/FID 0.
+
+The commit message says standalone and software-bridged ports look up
+in that same FID 0. Would unicast to MAC arriving on a standalone port
+then hit the swpX entry and be dropped by the isolation mask? The entry
+is static, so it would never age out.
+
+In VLAN-aware mode the bridge treats VID-0 entries as matching nothing,
+so the software FDB and the hardware LUT would disagree. On family C
+the same entry was written with IVL=1, VID 0 and EFID separation, so it
+did not affect other ports.
+
+The commit message notes that with a VLAN-aware bridge the drop "did not
+happen". Does that observation cover only learned entries, not static
+VID-0 ones like this?
+
+> +
+> +	memset(data, 0, RTL8365MB_D_L2_ENTRY_SIZE * 2);
+> +	rtl8365mb_l2_mac_to_data(uc->key.mac_addr, data);
+> +	data[3] = FIELD_PREP(RTL8365MB_D_L2_UC_D3_VID_MSK, id) |
+> +		  FIELD_PREP(RTL8365MB_D_L2_UC_D3_IVL_MSK, ivl) |
+> +		  FIELD_PREP(RTL8365MB_D_L2_UC_D3_PORT_LO_MSK, uc->port & 0x3);
+
+[ ... ]
+
+> +void rtl8365mb_d_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
+> +			       u16 *data)
+> +{
+> +	/* Same as for unicast: VID 0 means a VLAN-unaware bridge, use SVL. */
+> +	bool ivl = mc->key.ivl && mc->key.vid;
+
+[Severity: Medium]
+VID-0 MDB entries end up in the shared FID 0 SVL key, and
+rtl8365mb_l2_add_mc() makes them static:
+
+    mc.member |= BIT(port);
+    mc.is_static = 1;
+
+Family D has no EFID, since rtl8365mb_port_set_efid() returns 0. It also
+does not set fdb_isolation, so standalone ports get no host MDB entries
+and share FID 0 with the VLAN-unaware bridge. Normal IGMP/MLD snooping on
+the bridge would then install non-aging entries {G -> bridge ports}.
+
+Would multicast for G arriving on a standalone port (for example a WAN
+stream used by igmpproxy) hit that entry and go to the bridge ports?
+The standalone port's CPU-only isolation mask would then drop it
+instead of delivering it to the CPU.
+
+Any LAN host could trigger this just by sending membership reports, and
+it would last as long as the membership is refreshed.
+
+The commit message calls the unicast case "bounded by the aging time"
+and "a known limitation of the chip", and only says the same "may apply"
+to static multicast entries. These entries do not age, and they come
+from the choice to offload VID-0 MDB entries into the shared key.
+
+Could family D avoid offloading VID-0 MDB entries instead, for example
+by returning -EOPNOTSUPP for them?
+
+> +
+> +	memset(data, 0, RTL8365MB_D_L2_ENTRY_SIZE * 2);
+
+[ ... ]
 
 > diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
-> index 7ad9ef1cbab7d..50ba2fa465808 100644
+> index b83e39314708f..bfd7e303ca254 100644
 > --- a/drivers/net/dsa/realtek/rtl8365mb_main.c
 > +++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
 
 [ ... ]
 
-> @@ -1418,6 +1461,14 @@ static int rtl8365mb_sds_probe_option(struct realtek_priv *priv)
->  	int ret;
->  	int i;
+> @@ -3672,9 +3714,19 @@ static int rtl8365mb_setup(struct dsa_switch *ds)
+>  		goto out_teardown_irq;
 >  
-> +	/* Family D has a fixed SDS13 programming model and does not use the
-> +	 * family C option register to select its tuning table.
-> +	 */
-> +	if (rtl8365mb_is_d(priv)) {
-> +		mb->sds_supported = true;
-> +		return 0;
-> +	}
-> +
-
-[Severity: Low]
-Since sds_supported is now always true on family D, rtl8365mb_setup()
-will always call rtl8365mb_sds_raise_rate_limits() on these chips:
-
-drivers/net/dsa/realtek/rtl8365mb_main.c:rtl8365mb_setup() {
-    ...
-	if (mb->sds_supported) {
-		ret = rtl8365mb_sds_raise_rate_limits(priv);
-    ...
-}
-
-That function writes 0xFFFF to 0x00CF and 0x0398, and sets GENMASK(2, 0)
-in 0x00D0 and 0x0399. These are the family C port 6 ingress/egress limiter
-addresses, with the family C 3-bit MSB field layout.
-
-The commit message checks the BYPASS_LINE_RATE (0x03f7) layout against the
-RTL8367D vendor definitions. It doesn't do the same for these four
-registers. The comment above rtl8365mb_sds_raise_rate_limits() says the
-vendor driver raises them "for the whole chip family", and that appears to
-mean family C.
-
-In this series family D already differs from family C in several other
-register blocks: the per-port force registers, the 3-bit speed field, the
-VLAN 4k format, PVID and the LUT.
-
-Do the port 6 rate limiter registers have the same addresses and field
-widths on the RTL8367D? If they don't, could these writes set bits in
-registers the driver doesn't mean to touch?
-
->  	/* Nothing to probe if no external interface is wired to the SerDes */
->  	for (i = 0; i < RTL8365MB_MAX_NUM_EXTINTS; i++) {
->  		extint = &mb->chip_info->extints[i];
-
-[ ... ]
-
-> @@ -1546,34 +1620,58 @@ static int rtl8365mb_pcs_config(struct phylink_pcs *pcs, unsigned int neg_mode,
-
-[ ... ]
-
-> -	val = mode << RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_OFFSET(id);
-> -	ret = regmap_update_bits(priv->map,
-> -				 RTL8365MB_DIGITAL_INTERFACE_SELECT_REG(id),
-> -				 RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_MASK(id),
-> -				 val);
-> -	if (ret)
-> -		return ret;
-> +	if (!is_d) {
-> +		val = sds_mode << RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_OFFSET(id);
-> +		ret = regmap_update_bits(priv->map,
-> +					 RTL8365MB_DIGITAL_INTERFACE_SELECT_REG(id),
-> +					 RTL8365MB_DIGITAL_INTERFACE_SELECT_MODE_MASK(id),
-> +					 val);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	/* Take the SerDes out of reset. The vendor driver does this only
->  	 * after the SerDes mux and the interface mode are configured.
->  	 */
-
-[Severity: Low]
-This isn't a functional bug as far as the testing shows. On family D the
-DIGITAL_INTERFACE_SELECT mode write in rtl8365mb_pcs_config() is now
-skipped, and nothing equivalent is written for ext0 (MAC6). Does the
-RTL8367D vendor sequence leave out this step on purpose? For example, does
-SDS_MISC[4:0] (0x02/0x12) alone select SGMII/HSGMII?
-
-The commit message only says that the SDS13 window and the SDS_MISC fields
-differ. The comment just below still says the interface mode is configured
-before the reset is deasserted.
-
-Could a short comment or a sentence in the commit message explain why
-family D doesn't need an interface mode select write here?
-
-[ ... ]
-
-> @@ -2087,18 +2231,21 @@ static void rtl8365mb_phylink_mac_link_up(struct phylink_config *config,
->  			return;
->  		}
->  
-> -		/* The SerDes has its own pause enables; program them from
-> -		 * the resolved pause modes, as the vendor driver does when
-> -		 * forcing the link on a SerDes external interface. These
-> -		 * bits, not the MAC force pause bits, gate pause on the
-> -		 * SerDes external interface: flow control testing shows
-> -		 * that pause frames are only emitted with the SerDes TXFC
-> -		 * bit set, while the MAC force pause bits alone have no
-> -		 * effect on this port. This is done here rather than in
-> -		 * rtl8365mb_pcs_link_up() because pcs_link_up() carries no
-> -		 * pause information.
-> +		/* Family C: the SerDes has its own pause enables; program
-> +		 * them from the resolved pause modes, as the vendor driver
-> +		 * does when forcing the link on a SerDes external
-> +		 * interface. These bits, not the MAC force pause bits, gate
-> +		 * pause on the SerDes external interface: flow control
-> +		 * testing shows that pause frames are only emitted with the
-> +		 * SerDes TXFC bit set, while the MAC force pause bits alone
-> +		 * have no effect on this port. This is done here rather
-> +		 * than in rtl8365mb_pcs_link_up() because pcs_link_up()
-> +		 * carries no pause information. Family D does not use this
-> +		 * path: its pause bits are set in the forced-mode register
-> +		 * by rtl8365mb_d_ext_config_forcemode().
->  		 */
-> -		if (rtl8365mb_interface_is_serdes(interface)) {
-> +		if (rtl8365mb_interface_is_serdes(interface) &&
-> +		    !rtl8365mb_is_d(priv)) {
+>  	ds->assisted_learning_on_cpu_port = true;
+> -	ds->fdb_isolation = true;
+> -	/* The EFID is 3 bits, but EFID 0 is reserved for standalone ports */
+> -	ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
+> +	if (!rtl8365mb_is_d(priv)) {
+> +		ds->fdb_isolation = true;
+> +		/* The EFID is 3 bits, but EFID 0 is reserved for standalone */
+> +		ds->max_num_bridges = FIELD_MAX(RTL8365MB_EFID_MASK);
+> +	} else {
+> +		/* No EFID, so bridges cannot be told apart in the LUT: allow
+> +		 * at most one offloaded bridge. Bridge numbers are allocated
+> +		 * system-wide by DSA, so this does not stop a bridge that
+> +		 * already has a number from another switch from being
+> +		 * offloaded here as well.
+> +		 */
+> +		ds->max_num_bridges = 1;
 
 [Severity: Medium]
-Does flow control still work on the family D SerDes port after this
-change?
+Can this block bridge offload on this switch completely if another DSA
+switch in the system already holds bridge number 1?
 
-The comment records a measured family C result. On the SerDes external
-interface, the MAC force pause bits alone have no effect, and pause frames
-are only sent when the SerDes TXFC bit is set.
+For a new bridge, dsa_bridge_num_get() in net/dsa/dsa.c picks the next
+free number from one global bitmap:
 
-On family D, mac_link_up() now skips the SDS_MISC TXFC/RXFC programming.
-It relies only on the TXPAUSE/RXPAUSE bits that
-rtl8365mb_d_ext_config_forcemode() writes to the MAC force register.
+    bridge_num = find_next_zero_bit(&dsa_fwd_offloading_bridges,
+                                    DSA_MAX_NUM_OFFLOADING_BRIDGES,
+                                    1);
+    if (bridge_num > max)
+        return 0;
 
-The family D SDS_MISC update in rtl8365mb_pcs_config() only touches
-RTL8365MB_D_SDS_MISC_CFG_MASK (bits 11, 10, 9 and 4:0). Any SerDes-side
-flow control gate on family D would therefore keep its reset value.
+If bit 1 is taken, for example by a family C rtl8365mb, mv88e6xxx,
+felix, sja1105 or a second RTL8367S-VB, this returns 2 or more and is
+rejected with max = 1. dsa_port_bridge_create() then fails:
 
-Is there an RTL8367D vendor API reference, or a flow control test, showing
-that family D has no similar SerDes pause gate? The commit message only
-mentions link testing at 1G SGMII and 2500base-x.
+    bridge->num = dsa_bridge_num_get(br, ds->max_num_bridges);
+    if (ds->max_num_bridges && !bridge->num) {
+        NL_SET_ERR_MSG_MOD(extack,
+                           "Range of offloadable bridges exceeded");
+        kfree(bridge);
+        return -EOPNOTSUPP;
+    }
 
-If such a gate does exist, phylink and ethtool would report tx/rx pause as
-active on port 6 while the hardware never sends or honours pause frames.
+The bridge then falls back to software, even if it would be the only
+bridge on this switch.
 
->  			u32 val = 0;
+The comment and commit message cover only the other direction, where
+this limit is not an upper bound. Whether offload works here then
+depends on the order in which bridges were created on other switches.
+
+Would a driver-side check in port_bridge_join that tracks the single
+bridge offloaded on this switch be a better fit? Family D ignores the
+EFID, so max_num_bridges could then stay 0.
+
+> +	}
 >  
->  			if (tx_pause)
+>  	ds->configure_vlan_while_not_filtering = true;
+>
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/bc42ae96-dc7e-4b6e-b9cc-64cde5dc51ce%40yahoo.com
