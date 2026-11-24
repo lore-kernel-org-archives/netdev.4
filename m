@@ -1,99 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.99
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544920;
-	b=oNiNY6CZFgGyuwpmavNtdtWhL9hyJF57oYEuDFDXojksMtNSylcfekr+zfexKIcyxRWc
-	 hi211J6dzowr/scDkhqYFPBB17T9/Yx5P425eZhjILa7V2JmEoCPvSIrWA3JYg+/CStQk
-	 pdR2bBJ6heu+wDNt+pPrm1Qx6eEZjcT9SJ5BLZjADBFRoxSILScPGYMLjqLXuZRSjMHro
-	 z6j9CalVckML+SY2jAAZFbIoXrGt/USlJF2Nu/I2HnmQ/s/vO9QI1X2BDx7MXU2FsOYq0
-	 opSa6Aem5vUu5eSnbP/MV+na2oTFPh1490tInE8a0NEdgdwq9zOxwUG+nlUhCAgRwpw==
+	t=1795544989;
+	b=YdQI7ZwJw6YYkM4FMSdAQ2XWy+lBdjFw7JkF7XFJH2XyHSHdSbCAM7T/bVmP6jVjLfpC
+	 bHvyCseKnowP03hPL8qgRVUMHH3fctFipuVBVVJC9/aRKel4xXNeI/V65ic1kGvTp4mSq
+	 r1A22pS8YwhnkLRHeTjJjgGNJxbGrZxnJ2XkyXUpRxz4XGjk3uBTfPSwpmJC2lYIAWmwn
+	 7gYl2Zy7Hz+/p5jJ7YYl0ga76cTNyKHYy9KTpImn3mgdDCnQ+6qZGPzuH8QGUx4uU3s8W
+	 j5knrkrOydb6L4Wj/xAfogqvxhI26FUp7AAsS96UUeFck0hQl0ttOJzOwsqA6WSNNFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544920;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
-	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
-	 DKIM-Signature:X-Received:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:Autocrypt:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-DetectorID-Processed;
-	bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
-	b=08K5ZB9/fUZpGlAzF7405gck4v7pQKJXsUcnlasLjd4karGP9hAaG+W5Qk7qwjTFZvBD
-	 1UA9qau01oX1riNmzPUrO2G6BJ3Ge6kmzAq9oe6TGW4aQSeVlWxNPzuSyFX1bjNTUW3Cu
-	 tSZXSeq2xBM44xHu89gBB+t3rtiejf31eHRU/eLzs9FfC8FE3aakkvFF68RsCR1AUSXhI
-	 joVR/ML4ctsUwZz1AEVYOzMncH14JRdY2/yTnHw9/ptcf9TecUqxNOlVgyp2bqfTHtWLR
-	 oHiDHCiIP/tN3TOA8LcAtxO5vecBvtuCmYHAEqJu5hgAUu8VG/Go+EshaWSTkYqVtZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544989;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LwPQvU8HFIEJxsVRsyJ8MuUH901uLz76RTZpffHbgbM=;
+	b=ARKyCo0j7MCELOcegS7eyGUw1nVfJcda/wBYBdSS4f6yjr5d2B5VRsWrHS/j0VXam6eZ
+	 nV090AcUjjLVJJo1LRhSKgTA/FyX8gg6HbXnR9ykah4kGZecnUVriAwbuXx3FtqJAg3JV
+	 x3nRGNu5pt82WtOoEKpdF+FmqeuiB8iUUz7g4r0rarjrN+1xR4qn4O8P2AvadiCz5LeJl
+	 qS5P9kK2NQn65PlvOdDdFSGxHpNL7vucyVCYPsDLNiXpvwud5xWmQGW1LjUT5dv8fgK4K
+	 HzoUKkMflH4xV6PUN6SZA3TbDvc6Pv7Uxp8BdOp3amsErvr/pztjFATym6ACbg5iIxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=broadcom.com;
-	spf=fail smtp.mailfrom=broadcom.com;
-	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fwQHrovs;
-	arc=none smtp.remote-ip=209.85.161.99
-Received: from mail-oo1-f99.google.com (mail-oo1-f99.google.com [209.85.161.99])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cTiQtxxG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FADD606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:28:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4FADD606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BCBE606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=fwQHrovs
-Received: by mail-oo1-f99.google.com with SMTP id 006d021491bc7-71ad047710aso3021767eaf.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:28:40 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795544919; x=1796149719;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-gg:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to:content-type;
-        bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
-        b=WSNYo4XzPMO0GoxWOtQxSCHrZlhe3gJTaOM0yGr6BwBV66LXCrHYQHk55Bz6nFfT4Q
-         9I7gizsCgBOGvwL8q7fmg0UE6O/xr7r22Lqg3GFbgIPmoFzGsrci24GeEZJEBFKcecGN
-         hfzPDPog3trDQAM9OhFltp17aqNg8g+QIDYHhftsUrlWeJeTxplS7Y7Uo7PO5qCUXkFv
-         tTjsXUCdILTHIMQOVuF6DBNCYLqO8McvkkPaPT5YYZk9HEa/E/zVgqhUkCRul45KwpZ2
-         Bxm9u+sZS6TQ0GZUVl2BLt+NdDpvAfMjpdKnF2xfVluLGNYIkaJQ2U7v0l87WZcyQ0i4
-         MJPw==
-X-Gm-Message-State: APuU4Z9on/f2zKWvQlsUKB6qCbZLlUVk7QdZfnLZZ7rPs+YkFPP0JQgv
-	axib+wrW15LviNj01UDyj5lyAg5h2g9lu7vxtIfN9o2ylq137YGdogezzLGXVyI31v1FfBZgNqX
-	LpGiEqz28C6XuvXUUcpse/KDl6YIFK6OdUHlpCaAvsdxb9y1Jcx+snJriakAw7HxKq51PliKVAY
-	GioKcfGh4x+BpWdYRLaVpATGKIZ+1LGPRabyrrdyiMq0oQOX71kMEOo8HGUZ2gLg739GStARgyk
-	R+/oaS2UTQDXvBQ
-X-Gm-Gg: AZFdTZdXqWxnViP4FKQVnpIkCmiczj7dpEQepNd2uD1dcezxiKR/mTvtCbx+WjHtYsr
-	N4vHxKqiwMmuZfIz2cJ5EO7ihEJJiWaRyH3H0WQJ6RfEDL1/9Uzd8spHz62HiYYepM9aDs7Jg/D
-	LQ/hfproXf86TgP1/Be6NADfm3PW/MyQoicRemmh8XVRqfENphgrtls+QByBBI9pS2uF3oVyoV4
-	X6fvLiqEvZrSMnCHnFbj7RBxTvDbGBJR0Yl9luQ+nZoPa41+lTKL+zCXxL95HzfupyHIic92QjR
-	M2AnDZOJ+C4MY4WAMmuwXlD2bmremzJIxMEznMuXb6AaAUR5lkpYNYsEoWz5ePOqQWAAyjKsz+S
-	dsIaA07iT94igZKnIrgio79jvUOp05UiSb0NqeKqPtlK/Jd/kbAqpO4HwqEeouqAfFszblbntOx
-	CkRO7yXBRnNmYK9cxRLolgmwokrL0QQqwC5sKpa0ICKAw=
-X-Received: by 2002:a05:6820:4403:b0:71a:fb85:d06b with SMTP id 006d021491bc7-71b39585c70mr10964302eaf.60.1795544919056;
-        Tue, 24 Nov 2026 10:28:39 -0800 (PST)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-123.dlp.protect.broadcom.com. [144.49.247.123])
-        by smtp-relay.gmail.com with ESMTPS id 006d021491bc7-71b3805f642sm100377eaf.15.2026.11.24.10.28.38
-        for <netdev@vger.kernel.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 24 Nov 2026 10:28:39 -0800 (PST)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-382af5cfc58so4269934eec.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:28:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1795544917; x=1796149717; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=DMtJ637Jfog3YFE4AY12NMq7z345TwA2MwABaesdV88=;
-        b=fwQHrovsdISQ6PZ+Kar8Kc6n+CGB6pzWtJaeQqzo15c+p60kcHq6a2cTHZTXdTO2lZ
-         wK9/dd0Jsnr4c1CKB/vlFOmxetxXoTNx1VTbc4LfMtXjKR+e5E8KApMkEI60fFSK/K1U
-         vwhmo7d6Y4vUkpMJ10UjqJ0ci2wM0nHG/mQag=
-X-Received: by 2002:a05:7301:53c3:b0:380:f8fd:d19b with SMTP id 5a478bee46e88-3856fb693d7mr17169015eec.38.1795544917442;
-        Tue, 24 Nov 2026 10:28:37 -0800 (PST)
-X-Received: by 2002:a05:7301:53c3:b0:380:f8fd:d19b with SMTP id 5a478bee46e88-3856fb693d7mr17168980eec.38.1795544916671;
-        Tue, 24 Nov 2026 10:28:36 -0800 (PST)
-Received: from [192.168.10.3] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm45529078eec.15.2026.11.24.10.28.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 10:28:35 -0800 (PST)
-Message-ID: <be288244-9f14-41d4-a699-f666ce354158@broadcom.com>
-Date: Tue, 24 Nov 2026 10:28:33 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cTiQtxxG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE3A1F000C0;
+	Tue, 24 Nov 2026 18:29:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795544988;
+	bh=LwPQvU8HFIEJxsVRsyJ8MuUH901uLz76RTZpffHbgbM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=cTiQtxxG+SQwGLzgaWSz6U0Ljmo9ape9xdV2ZhteUS38A3Y9hid3TtP+oUjzQCQry
+	 uKh3ZbwGpI2Ai6+lJtMjfNPt/r/hujbTIOfa3HUkvAehrPFdi9wfkLshzks8m55CxH
+	 r669/68/CbUjgTJTyGQf+NlNq4klB547cdDR2JZHGfeEQqCVUYassN9w2SA9ZF3x+5
+	 pJX9ZDycRYeNDMQv8tOLX7yjGdbMLToLm3n+01w57jvQkrp16n2DO6AypIbmTfdkR1
+	 EBSLKBKo5K5YGSOP0XM1daMB/fZID5VSMJv5jPwdVX3UGyhSJYuQfA47RKZOuoLauj
+	 vtjWckPMVqOjw==
+Subject: Re: [PATCH net-next v9 01/14] net: ethernet: cortina: Keep shared
+ free queue parent-owned
+From: netdev-bot+sashiko@kernel.org
+To: linusw@kernel.org
+Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
+ mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
+Date: Tue, 24 Nov 2026 18:29:47 +0000
+Message-ID: <179554498743.3135.16883208999993946923@kernel.org>
+In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-1-298671d799d5@kernel.org>
+References: <20261120-gemini-ethernet-fixes-3-v9-1-298671d799d5@kernel.org>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,97 +63,126 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v6 1/4] net: phy: Map C45 probe read errors to
- -ENODEV during bus scan
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, nb@tipi-net.de, carlos.soto@broadcom.com,
- justin.chen@broadcom.com, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, andrew@lunn.ch, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-References: <20261123164835.1733304-2-florian.fainelli@broadcom.com>
- <179553896595.3135.12489762291979495707@kernel.org>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <179553896595.3135.12489762291979495707@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
+Low priority / nit picks for your consideration:
 
-On 11/24/2026 8:49 AM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 2
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The commit message describes the SFP impact wrongly.
+- [Low] The commit message has Reported-by and Closes tags but no Fixes:
+  tag and no Cc: stable, even though the patch fixes user-triggerable…
+- [Low] gemini_ethernet_probe() now gets every available child's PCLK
+  with devm_get_clk_from_child() and enables it with…
 
-Agreed this was wrong. mdio-i2c reports an absent PHY as 0xffff so only 
-a Rollball I2C transport error is affected, reworded in v7.
+--
 
-> - [Medium] get_phy_c45_devs_in_pkg() reads MDIO_DEVS2 and then
->    MDIO_DEVS1, and returns the raw bus error from whichever read fails.
+net: ethernet: cortina: Keep shared free queue parent-owned
 
-Agreed, only a MDIO_DEVS2 failure is mapped to -ENODEV now, a MDIO_DEVS1 
-failure stays as -EIO.
+This patch makes the parent gemini-ethernet device the only owner of the
+shared software free queue. The parent now depopulates the port devices
+before it cleans up the queue, and it keeps the port clocks enabled itself.
+Each netdev is now unregistered before its PHY is disconnected.
 
-> - [Low] The commit message says errors from the vendor MMD presence check
->    in the identifier loop "are not mapped, so a PHY that fails midway is…
+Closes: https://lore.kernel.org/netdev/20260917192835.58126-1-mhun512@gmail.com/
 
-The vendor-MMD error path predates this patch. I dropped the "not 
-silently skipped" claim for it rather than changing its behavior.
+> diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
+> index 3ed8b1ae0bbc2..f198e535f1a00 100644
+> --- a/drivers/net/ethernet/cortina/gemini.c
+> +++ b/drivers/net/ethernet/cortina/gemini.c
 
-> - [Low] When a devices-in-package read in the MMD search loop of
->    get_phy_c45_ids() fails with -EIO/-ENODEV, the new code breaks out of…
+[ ... ]
 
-We are not continuing the loop. The vendor MMD presence check would 
-return -ENODEV at MMD 30 and end the scan before the MMD 0 fallback, 
-which would break PHYs that only answer on MMD 0. I noted that in the 
-commit message.
+> @@ -2387,11 +2390,10 @@ static irqreturn_t gemini_port_irq(int irq, void *data)
+>  static void gemini_port_remove(struct gemini_ethernet_port *port)
+>  {
+>  	if (port->netdev) {
+> -		phy_disconnect(port->netdev->phydev);
+>  		unregister_netdev(port->netdev);
+> +		phy_disconnect(port->netdev->phydev);
+>  	}
+>  	clk_disable_unprepare(port->pclk);
+> -	geth_cleanup_freeq(port->geth);
+>  }
 
-pw-bot:cr
+[Severity: Low]
+This isn't a bug, but should the commit message carry Fixes: tags, and
+maybe Cc: stable?
+
+The geth_cleanup_freeq() call removed from gemini_port_remove() here goes
+back to the original driver. gemini_ethernet_remove() also calls it, so a
+single parent unbind or module unload could run the cleanup up to three
+times.
+
+geth_cleanup_freeq() never clears freeq_ring. The later runs then call
+dma_free_coherent() and kfree() on memory that was already freed. Unbinding
+before any interface was opened also dereferenced the NULL freeq_ring.
+
+The phy_disconnect() before unregister_netdev() order was added later. With
+the interface up, it makes gmac_stop() call phy_stop(netdev->phydev) with a
+NULL phydev.
+
+Something like:
+
+Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
+Fixes: 3e813d61401a ("net: gemini: Clean up phy registration")
+
+Without these tags, stable trees that still have these bugs may not pick up
+the fix.
+
+[ ... ]
+
+> @@ -2656,6 +2666,30 @@ static int gemini_ethernet_probe(struct platform_device *pdev)
+>  		return PTR_ERR(geth->base);
+>  	geth->dev = dev;
+>  
+> +	/* Keep both port clocks enabled until the shared queue is torn down. */
+> +	for_each_available_child_of_node_scoped(dev->of_node, child) {
+> +		struct clk *clk;
+> +
+> +		if (!of_device_is_compatible(child, "cortina,gemini-ethernet-port"))
+> +			continue;
+> +
+> +		clk = devm_get_clk_from_child(dev, child, "PCLK");
+> +		if (IS_ERR(clk))
+> +			return dev_err_probe(dev, PTR_ERR(clk),
+> +					     "failed to get port clock\n");
+> +
+> +		ret = clk_prepare_enable(clk);
+> +		if (ret)
+> +			return ret;
+> +		ret = devm_add_action_or_reset(dev, gemini_ethernet_disable_clk,
+> +					       clk);
+> +		if (ret)
+> +			return ret;
+> +		clocks++;
+> +	}
+> +	if (!clocks)
+> +		return -ENODEV;
+
+[Severity: Low]
+Is the commit message accurate about this part? It says:
+
+  Hold parent-managed enables on the port clocks across child removal, IRQ
+  draining and shared queue cleanup, so teardown never relies on clocks
+  already released by the children.
+
+gemini_ethernet_probe() enables the clocks, and the matching
+clk_disable_unprepare() runs as a parent devm action. Both port clocks
+therefore stay on for as long as the parent is bound, not only during
+teardown.
+
+The patch also adds new ways for the parent probe to fail, and the message
+doesn't mention them. Because of the "if (!clocks) return -ENODEV;" check,
+a parent with no available port children now fails to probe. Before this
+patch that probe succeeded and did nothing.
+
+The parent probe can also fail or defer if devm_get_clk_from_child() cannot
+resolve a child's PCLK, since it only does OF lookups. The child's own
+devm_clk_get() can fall back to clkdev lookups.
+
+The in-tree gemini.dtsi provides "PCLK" for both ports, so in-tree boards
+don't hit these paths. Could the commit message describe these changes?
+
 -- 
-Florian
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5%40kernel.org
