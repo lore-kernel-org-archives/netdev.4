@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508070;
-	b=udK2v+hc9kDpIfXe6t9GqZMeWN2B5BcntgkQOAPC0lPEXNtkD2ByveiwmwIOu/TI7h+C
-	 6fT+FKoIqQbqZxDbCmjUch3KadFfo/BIPYlLpa583iV9mwvZ/Cj7CGkfea9pwnTzeN3nw
-	 1LFI1vV9H3YU2KvpEXtke9pD97o6diDMBMx1Wp4ha/oRAY+Kd0zqDWDiSXmI6JIlr6aU4
-	 fbr/hPeBDqJySojqBWF3h891NgT7CCeZ2Ngaa0BqmcR+FF6CS9wUoQHGPCkQ2bUl0+Y3r
-	 Nng6IusYSWKaaOFtCMv0bqHZJQ8+LKQFVnx9We1L2QDhNDCOWCDf9fWIeK78EOU6bWg==
+	t=1795508071;
+	b=vpNXRMQmEQs0G8DF7UF1ZMowrE0hB4gmskmyQeHvx+3CYvytHFqAyK6+copAPekkB6ix
+	 oLkGDpyozXSvcSAXEurL58Q2FkP3k2/Ig7l2o2SJsjNGoGl0N8CIQvD/TR9IucmRBADu9
+	 hV2l36TN+/j2x6DoMZfgtQOW3slg3mTl/uEe8TQ8hAfKFRPgNVMvajqxpWTyY1PGBmEJS
+	 c+YF45OYlPnITF7usFZ9u74nYGd1CUb1H2qI4mdblLUj+CRQXxeqMyEBXsTQbQwgiBZ8o
+	 2u2oJRWnQehRtKaPJtLtsLp8cks8wDX/xQsAHfqquAP7c4/VdzhqEZNlhf13oPyK4cg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508070;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508071;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=qVgSrWAccIYah7AwQUb0a/8/o/lC3k/iBGY+fMbRdNs=;
-	b=DukUyEDen4RqAHMre5L0a2gL94BLYfdzsi4fCNSJl0+tPIWXEpvPo6olelde28KkeMvi
-	 7PzkvejP+tX3adzl5ERbgY2miM1lb5iiutJ3m3GKpx+ODNVWokJE1hVgDWd2lL6zy7DzR
-	 IIodzpVDYXK2302OFuuuEQDdf21EVTA+nvpQRBoPgjQzJ54P7iSWZKchp42qaGYqN6qwE
-	 4cVqYVmZnuhlpQYP6r8J+1r92iIow4a5gBZhMZIn1wYTW4SYVg0vPuxAuElm7j7ctXFb5
-	 Iui0SvPKqE3N/AwMPYGnDJLf8UxDb2YD4GRyjhoFURy2RgE7bj9AscvLEz5Lcgo57RA==
+	bh=5kIJ6tQi0PHKcy1HxVFl+UQPO7ioAUVMwSZpbfVBl2U=;
+	b=i6efuHN+IJxEuF9Jukrpk7R0n9T8YGDbCUhI+oyo58ouOAB43rgSpXLvmDGBl4p6ZDsj
+	 KJxGVEvTi2rGYurK2MNHGLKKtPhRH4o5Swxqy+MFjJjYJZK3Afykbu/8DX7fLeLMOGEIJ
+	 nMMdxE+QgHKfLTuoW2EUXvofe/3gkauBngSC91Eh7B3GU48P/l38l4qBiZi3x4/fMEfKv
+	 laJn9V3R3w9pxkEWnvhJJ70GZBY37X+/Mc2NJMSzLD1fSQoF1EDha9O5K/TAvwLEz2YhG
+	 xeC7Ss2ziSj0hubUwk85H+8jlv2cBrxin6BPmivwr+6Hr/LDo3bRHAcTxkq6xb0aFsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="fWeS/sVK";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgFZtFdF;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46235606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:14:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9841606A330
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:14:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fWeS/sVK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA8391F000EB;
-	Tue, 24 Nov 2026 08:14:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XgFZtFdF
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B6951F000C4;
+	Tue, 24 Nov 2026 08:14:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508069;
-	bh=qVgSrWAccIYah7AwQUb0a/8/o/lC3k/iBGY+fMbRdNs=;
+	s=k20260515; t=1795508071;
+	bh=5kIJ6tQi0PHKcy1HxVFl+UQPO7ioAUVMwSZpbfVBl2U=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fWeS/sVKycGt5Xp/XKaSsebtQgjMELGBWxvhxQek4tt3+PcZCj9SzwZvbV1NEfQZO
-	 HLdRtZhUjQEp8BEEWtKni71eBBd7BVnEwdiBFFId4QZfbtBuUxooHVALI22K/kDGeA
-	 J8KLx2xprb0dvKRXUSUIcqiSSpg8W+TwZXxMAmGBfnrWoJBvUFIA2WI9ELyQeFKFo5
-	 r04aq9Jk55JAjatCxIZ34PH9Kb7I7DkLICeZue0xe9xO43WMIX2bI+MqOEF1YJP4ll
-	 HedKRjsTYK3aTU/j5sn4R1DTGkcBl+glyB07zyNDNdiBDAYV3Lc7YKxuNWscX7z2Um
-	 Yd3OXkjD8aZLQ==
-Subject: Re: [PATCH net-next v6 5/7] net: kunit: attach net_iov frags to
- target skbs in unreadable tests
+	b=XgFZtFdF0V4fbRTG5wXJzkN+0nEC84NCbktt2Dgz/Z6AV4hiJk/+4xdb5OVgHTe98
+	 d1DyJBHFEcOJXlQRGzHGB5qmYW4wRFNVPoHTGbOpqCfxK1d3WpY5qS94QymFAEbeKx
+	 8R2F15BDHj9k/PXTZqEgE/VFzSZ59ZkbOmQJXXyChtKmQXdYaU75NRoN09RUMauuyQ
+	 SRN6Fjt3K4IwYCoM+jiSNE78O6pmkCH/6aCJB2xAmSSrq07CwE/NB23VO8zL42P0QN
+	 TRuCCvQFPoS5qo4WAWCtt+t0RYjFJ+1UrUPwPqMAsgpfw/CF+x9WrldyF0LqNbs9im
+	 uJd0hOoNObLlw==
+Subject: Re: [PATCH net-next v6 6/7] net: prevent mixing frags from different
+ memory providers or bindings
 From: netdev-bot+sashiko@kernel.org
 To: almasrymina@google.com
 Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
@@ -49,11 +49,11 @@ Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
  horms@kernel.org, sdf@fomichev.me, kaiyuanz@google.com, willemb@google.com,
  daniel@iogearbox.net, josef@toxicpanda.com, sdf.kernel@gmail.com,
  dtatulea@nvidia.com, asml.silence@gmail.com, bobbyeshleman@meta.com
-Date: Tue, 24 Nov 2026 08:14:28 +0000
-Message-ID: <179550806827.3135.15602698633826190265@kernel.org>
-In-Reply-To: <20261120201408.3445445-6-almasrymina@google.com>
-References: <20261120201408.3445445-6-almasrymina@google.com>
-X-sashiko-severity: Low
+Date: Tue, 24 Nov 2026 08:14:30 +0000
+Message-ID: <179550807001.3135.15837206052330880112@kernel.org>
+In-Reply-To: <20261120201408.3445445-7-almasrymina@google.com>
+References: <20261120201408.3445445-7-almasrymina@google.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,92 +66,175 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 1 · Medium: 0 · Low: 1
 
-- [Low] In net/core/net_test.c, netmem_ref_test_try_coalesce() subtest 3,
-  the patch adds `KUNIT_EXPECT_TRUE(test, to->unreadable)` after…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [High] skb_mem_provider_compat() is now called in skb_try_coalesce()
+  and skb_gro_receive(), but both functions can still move a struct page…
+- [Low] The commit message calls the issue 'theoretical' and only talks
+  about mixing provider instances or devmem bindings.
 
 --
 
-net: kunit: attach net_iov frags to target skbs in unreadable tests
+net: prevent mixing frags from different memory providers or bindings
 
-This commit changes two netmem KUnit tests so that the target skb gets an
-initial net_iov fragment from the same binding before the operation runs.
-In netmem_ref_test_net_iov(), that operation is skb_shift(). In
-netmem_ref_test_try_coalesce(), it is skb_try_coalesce(). The goal is to
-keep both tests valid once memory provider compatibility is enforced in
-those functions.
+This adds skb_mem_provider_compat(). Two skbs count as compatible when
+both are readable, or when both are unreadable and frags[0] of each
+resolves to the same net_iov provider instance. The check is enforced in
+skb_try_coalesce(), skb_gro_receive(), skb_gro_receive_list(),
+skb_segment() and tcp_skb_can_collapse(), and skb_shift() gets a debug
+assertion.
 
-> diff --git a/net/core/net_test.c b/net/core/net_test.c
-> index 19f422300d9c8..1cfa947c11f2c 100644
-> --- a/net/core/net_test.c
-> +++ b/net/core/net_test.c
+> diff --git a/net/core/gro.c b/net/core/gro.c
+> index c093fe388dfe8..6852b19e48408 100644
+> --- a/net/core/gro.c
+> +++ b/net/core/gro.c
+> @@ -109,6 +109,9 @@ int skb_gro_receive(struct sk_buff *p, struct sk_buff *skb)
+>  	if (p->pp_recycle != skb->pp_recycle)
+>  		return -ETOOMANYREFS;
+>  
+> +	if (!skb_mem_provider_compat(p, skb))
+> +		return -ETOOMANYREFS;
+> +
+>  	if (skb_zcopy(p) || skb_zcopy(skb))
+>  		return -ETOOMANYREFS;
+>  
+
+[Severity: Low]
+This isn't a bug, but could the commit message say more about what this
+hunk fixes? The message says:
+
+    This issue is theoretical and was found by manual code inspection and
+    LLM review; it was not triggered in production.
+
+It only describes the problem as mixing provider instances or devmem
+bindings.
+
+Before this patch, skb_gro_receive() and skb_gro_receive_list() did not
+check readable against unreadable at all. skb_gro_receive() only compared
+pp_recycle, which is 1 for both normal page_pool pages and net_iov
+page_pool memory. It also never set p->unreadable.
+
+So the headlen <= offset frags path could merge an unreadable skb into a
+readable p. The result would be a readable skb holding net_iov frags.
+__skb_datagram_iter() only checks skb_frags_readable() before doing:
+
+	skb_frag_foreach_page(frag, ...) {
+		vaddr = kmap_local_page(p);
+
+Here skb_frag_page() returns NULL for a net_iov.
+
+skb_try_coalesce() and tcp_skb_can_collapse() already compared
+readability, so for those paths this patch only tightens the check. The
+GRO hunks close a much larger gap.
+
+Could the message mention this, so stable maintainers can judge the
+impact?
 
 [ ... ]
 
-> @@ -1730,18 +1733,19 @@ static void netmem_ref_test_try_coalesce(struct kunit *test)
->  	from = alloc_skb(0, GFP_KERNEL);
->  	KUNIT_ASSERT_NOT_NULL(test, to);
->  	KUNIT_ASSERT_NOT_NULL(test, from);
-> -	skb_put(to, skb_tailroom(to));
->  	to->pp_recycle = 1;
-> -	to->unreadable = 1;
->  	from->pp_recycle = 1;
-> -	skb_add_rx_frag_netmem(from, 0, niov_nm, 0, 64, PAGE_SIZE);
-> +	skb_add_rx_frag_netmem(to, 0, niov_nm, 0, 32, PAGE_SIZE);
-> +	napi_pp_get_page(niov_nm);
-> +	skb_add_rx_frag_netmem(from, 0, niov_nm, 32, 64, PAGE_SIZE);
->  	napi_pp_get_page(niov_nm);
+> diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+> index aac61fbe419f2..212d76ef9672e 100644
+> --- a/net/core/skbuff.c
+> +++ b/net/core/skbuff.c
+
+[ ... ]
+
+> @@ -6620,7 +6667,7 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+>  	 * belong to the same memory provider instance; do not coalesce skbs
+>  	 * that would mix them.
+>  	 */
+> -	if (skb_frags_readable(from) != skb_frags_readable(to))
+> +	if (!skb_mem_provider_compat(to, from))
+>  		return false;
 >  
->  	clone = skb_clone(from, GFP_KERNEL);
->  	KUNIT_ASSERT_NOT_NULL(test, clone);
->  	KUNIT_EXPECT_TRUE(test, skb_try_coalesce(to, from, &fragstolen,
->  						 &delta));
-> -	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 4L);
-> +	KUNIT_EXPECT_TRUE(test, to->unreadable);
+>  	if (len <= skb_tailroom(to) && skb_frags_readable(from)) {
 
-[Severity: Low]
-Can this new assertion ever fail?
+[Severity: High]
+Can a struct page still end up in an unreadable skb's frag array after
+this check passes?
 
-The new skb_add_rx_frag_netmem(to, ...) call above already sets
-to->unreadable before skb_try_coalesce() runs. The call chain is
-skb_add_rx_frag_netmem()->skb_fill_netmem_desc()->__skb_fill_netmem_desc():
+If to and from are both unreadable and share a provider,
+skb_mem_provider_compat() returns true. Suppose from carries payload in
+its linear area. The tailroom copy is skipped because
+skb_frags_readable(from) is false.
 
-include/linux/skbuff.h:__skb_fill_netmem_desc() {
+If from also has head_frag set and is not cloned, skb_head_is_locked() is
+false, so the head gets stolen:
+
+net/core/skbuff.c:skb_try_coalesce() {
     ...
-	if (netmem_is_net_iov(netmem)) {
-		skb->unreadable = true;
-		return;
+	if (skb_headlen(from) != 0) {
+		struct page *page = virt_to_head_page(from->head);
+		unsigned int offset;
+
+		offset = from->data - (unsigned char *)page_address(page);
+		skb_fill_page_desc(to, to_shinfo->nr_frags,
+				   page, offset, skb_headlen(from));
+		*fragstolen = true;
 	}
+
+	memcpy(to_shinfo->frags + to_shinfo->nr_frags,
+	       from_shinfo->frags, ...
     ...
 }
 
-skb_try_coalesce() never writes to->unreadable. At this commit it only
-compares skb_frags_readable(from) with skb_frags_readable(to). Later in the
-series that comparison is replaced by skb_mem_provider_compat(to, from).
-The rest of the function copies frags, takes frag references and updates
-len/data_len/truesize. The one frag fill inside it is skb_fill_page_desc()
-for a page-backed head, and that does not touch unreadable.
+skb_gro_receive() seems to do the same after its new check when
+headlen > skb_gro_offset(skb):
 
-So the check reads back a flag the test itself set. It would still pass if
-skb_try_coalesce() mishandled the unreadable state of the merged frags.
+net/core/gro.c:skb_gro_receive() {
+    ...
+	} else if (skb->head_frag) {
+		...
+		struct page *page = virt_to_head_page(skb->head);
+		...
+		skb_frag_fill_page_desc(frag, page, first_offset, first_size);
 
-The assertion is also unchanged at the end of the series. The later commit
-"net: kunit: test incompatible memory provider rejection" adds rejection
-subtests for different bindings and providers, but leaves this check as it
-is.
+		memcpy(frag + 1, skbinfo->frags, sizeof(*frag) * skbinfo->nr_frags);
+    ...
+}
 
-Should the assertion be dropped, or changed to check something that
-skb_try_coalesce() actually changes, such as nr_frags on the target skb?
+Either way, the skb has unreadable set but its frags mix a page_pool
+header page with net_iovs. That goes against the comment right above the
+new check: "All frags in an skb must either all be struct page-backed or
+all belong to the same memory provider instance".
 
-> +	KUNIT_EXPECT_EQ(test, atomic_long_read(&niov.desc.pp_ref_count), 5L);
->  	KUNIT_EXPECT_EQ(test, atomic_long_read(&binding.ref.data->count),
->  			base_iov_ref);
->  	consume_skb(from);
+skb_zerocopy() already rejects this layout:
+
+	if (!skb_frags_readable(from) && j > 0 && len) {
+		skb_frag_unref(to, 0);
+		return -EFAULT;
+	}
+
+Documentation/networking/devmem.rst says payload lands in the linear area
+when the NIC can't split the packet at the header boundary. The remote
+peer controls the shape of those packets.
+
+A devmem receiver would then reach this in tcp_recvmsg_dmabuf():
+
+			if (!skb_frag_net_iov(frag)) {
+				net_err_ratelimited("Found non-dmabuf skb with net_iov");
+				err = -ENODEV;
+				goto out;
+			}
+
+The skb is never consumed. Wouldn't every later recvmsg() on that socket
+fail the same way?
+
+Also, skb_net_iov_provider() only looks at frags[0], so later merges
+won't catch a mixed skb once it exists. Nothing later in the series
+appears to touch these paths.
+
+Should skb_try_coalesce() and skb_gro_receive() refuse to steal the head
+of an unreadable skb, the way skb_zerocopy() does?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120201408.3445445-1-almasrymina%40google.com
