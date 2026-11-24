@@ -1,46 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515633;
-	b=2D+qmcXRLCVU93/yDlcEdoWIZTzuScohDWWCdkjJzRV453HJB5gRtkuiIuN3Ibsfobkb
-	 90GiPX4tOpZb0ZVnc1cqSHsS0YboQu1a7z9vRZ37rwfg5PKnWa+UGbcbEqxKGof5J6QOD
-	 xms/TorHPf3j6viDPVjs5AkT8jX7oqdYCgI9Xrp/zRGU/yNbJdWbaaOtgmkdl4g/pcQ67
-	 xLC0EnUX+/B1a6kVL1pme0tYXWzyZSdS1KPNn6LjkytO8giZ87CRHams1uLwAQIyNl2DX
-	 oTo/RDSdWck2ES6gV8uQ06B6JBy+YFqfnrMpunhvyN5zSSdw77sEm9k3ydDkiicaxgw==
+	t=1795515629;
+	b=QM97ABTl5swdUmB2sERRvBNAJiebLFFcek6CQEy7h24ode7FmBVp3WwiV01Jr53hh3Mb
+	 BdSduUhM1+FcZ8eu+0Pu2+g6m6F2Pq/ALhT2D8vtf85cO3OBXLfatta1EqS+NvDgYVboU
+	 K3AKhcMpqHZpHQK+zUM8d7Bme8tulq33victTBQt6CE2C9vcCM/dnUpNl8GcAGbi9ccAd
+	 eS4oxf1QmgSieglFtnr+Qf+7RQIimWq9pXwKs4WEqgG9uwvGZfkr7z7CvTIsSadCwglBa
+	 dJqSahUKQlvLP0/8gRyjU8OkGrc1QA5vCMAouiCAd9M85a89nOLSIIPJ0mia8YeLlwQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515633;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515629;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=gjDyuTkmmyfYSqD39L2E6i2oyf7DxqDr5MYZav/UbyU=;
-	b=4FCqP3sutqF6tvqs7ym7pfknPmHcY84KFQ/LM/lcRen3+TY/rMeIuCWawtJVMboEZMCF
-	 9YnlWoEFLNgdoJbGanBSEWuqejmphr0gYVU5ICwey0BzpmIgQZk1nqQYrbx2CXKzGEOE/
-	 UXys+sXFWdtMU/ZyOSq26vkS7kaSDsDTDupy66ncVPXQPLNtb3VSkH0M4+ESbofGP7QAe
-	 BlvB1pyGCu3yeJ4vQvd15XHcN9S6ERqNRSBkQMCDlF2Pmpk0kN8MVrV6+v1DZkNMRwGRE
-	 9Nd+IPdMxaahdFPCgFBovsCY8f2HOW87qAWnMm13ooVlRR/6HfLEL4CMaY7/iYWjjQQ==
+	bh=71lhKW3WAtNPUMZQpIRwdFzKebxSgDk2Bsk4diiWFOc=;
+	b=y83awqXHwpL0YQg3kJIotir9HNk4HPYg/8+5vviIFsg1sV769vmdD+g6MhT1cj9fw23K
+	 GJRsLe4LmciYGf4DX2ftil287LoGwZN2g40zzUZOzMiC4nltaQecYqvNVv1BoI+R+NbP0
+	 f2MMRCmZUbw3i06rnTp/mZ5Ld6zy6w363aUiHaET6+PEsvV0IyuWN5UTpSJv87r3t2vLC
+	 BefpLhRBTYRCuv5ixBIjDWX9JSXNnEEbnWsOZkfVH82Z/Qe63jNxtNyxQFs5b2z1zj0G0
+	 /6fGVSn2PqhkxFZvd2YhUkRuD/r6SPjzXBxDW9r2cG8MKVCFZHjart0nExWlb0fIx+g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpFqO1P6;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a8VESq8d;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2C13606A692;
-	Tue, 24 Nov 2026 10:20:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C60C4606A33D;
+	Tue, 24 Nov 2026 10:20:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpFqO1P6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5522F1F000C6;
-	Tue, 24 Nov 2026 10:20:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a8VESq8d
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72CE21F000C0;
+	Tue, 24 Nov 2026 10:20:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795515633;
-	bh=gjDyuTkmmyfYSqD39L2E6i2oyf7DxqDr5MYZav/UbyU=;
+	s=k20260515; t=1795515629;
+	bh=71lhKW3WAtNPUMZQpIRwdFzKebxSgDk2Bsk4diiWFOc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IpFqO1P63or12BDYNLZZoaIXfhk2Xse3vdtKdaLPNOFDbXISS0MiCPKMrZ/AafES3
-	 LuS+giDnHIQcfZZ/Z8kIlMR4s4MlSXHZRegQsR/UbzNXKb0SsBOoJaGrX9lyU7+vez
-	 1tkFpH9KWfZ17bgpE1hjh2qoypGssRTDdkrO0kF2oVeKNaje32rGLkNWPaS2DGG7Hy
-	 2v9YfNboqsR9EWolR8f4Tui5U5RGcV61yXPbwoi6o4uCXqIk/58LrGWOoOQniLjizT
-	 fw0Y6/YoswKkgMOhNdK1namMRKMDGIaJcJmhSm+iDjMXJKG5mOkcrykvkndEnAEdxt
-	 ohvmCm5pe2/YA==
-Subject: Re: [PATCH net-next v9 06/10] bnge: remove refcount from L2 filter
+	b=a8VESq8dwu+7Wc9G+agp0PYiJJedS6oUbkD/QEZDpyuFkAXRhFwgh3NwEYdaSAzbB
+	 kJcZsnYDleJbz600ZB3l4xJh09zNwQBCCxIzukTNsJtYTBWqiIOWMUqoDmLsZC6vbW
+	 6DcZaKrJgKolyKZZU5e7nkJLU/+V6W3XbxqPMj9QKD+ErWTPrlrvhjrX5NfgC9sLRv
+	 N/aav3bu4M5C4DAPtwSXAFCxT6S30q8W4mzDhmH5wr0SnkVpCnGj2BmUiXNX/OT8ux
+	 F41BSu2gS1hCN44UuEIafUhFrM6OwHiWFMy8bDgZy2pC0U3BwG3HdT2hAovCDZBVJB
+	 C+E+mAFRHyorg==
+Subject: Re: [PATCH net-next v9 04/10] bnge: add RXFH ethtool support
 From: netdev-bot+sashiko@kernel.org
 To: vikas.gupta@broadcom.com
 Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
@@ -49,10 +49,10 @@ Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
  bhargava.marreddy@broadcom.com, rahul-rg.gupta@broadcom.com,
  vsrama-krishna.nemani@broadcom.com, rajashekar.hudumula@broadcom.com,
  dharmender.garg@broadcom.com, ajit.khaparde@broadcom.com
-Date: Tue, 24 Nov 2026 10:20:31 +0000
-Message-ID: <179551563189.3135.3879694697631182157@kernel.org>
-In-Reply-To: <20261123100746.1975030-7-vikas.gupta@broadcom.com>
-References: <20261123100746.1975030-7-vikas.gupta@broadcom.com>
+Date: Tue, 24 Nov 2026 10:20:28 +0000
+Message-ID: <179551562804.3135.9305263922001429893@kernel.org>
+In-Reply-To: <20261123100746.1975030-5-vikas.gupta@broadcom.com>
+References: <20261123100746.1975030-5-vikas.gupta@broadcom.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -72,101 +72,68 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit message does not describe two behaviour changes this
-  patch makes.
+- [Low] This commit sets four RSS-context fields in bnge_ethtool_ops:
+  `.rxfh_per_ctx_key = 1`, `.rxfh_max_num_contexts =…
 
 --
 
-bnge: remove refcount from L2 filter
+bnge: add RXFH ethtool support
 
-This patch removes the refcount from struct bnge_l2_filter. A filter is
-now expected to be removed only by the context that created it. It also
-folds the RCU lookup wrapper into bnge_lookup_l2_filter(), and makes
-bnge_alloc_l2_filter() return an error when the key is already present.
+This adds the ethtool get/set_rxfh and get/set_rxfh_fields callbacks for
+the RSS hash key, the indirection table and the hash fields. Changes are
+only accepted while the device is down. The default key now comes from
+netdev_rss_key_fill(), and the indirection table is reset or kept when
+the RX ring count changes.
 
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-> index a8bb441ebef9a..6316f75ca36ea 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_filter.c
-
-[ ... ]
-
-> @@ -13,8 +14,8 @@
->  
->  void bnge_del_l2_filter(struct bnge_net *bn, struct bnge_l2_filter *fltr)
->  {
-> -	if (!refcount_dec_and_test(&fltr->refcnt))
-> -		return;
-> +	netdev_assert_locked_or_invisible(bn->netdev);
-> +
->  	hlist_del_rcu(&fltr->base.hlist);
->  	kfree_rcu(fltr, base.rcu);
->  }
+> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
+> index 2467e44de291a..878fe4888160f 100644
+> --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
+> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
 
 [ ... ]
 
-> -static struct bnge_l2_filter *__bnge_lookup_l2_filter(struct bnge_net *bn,
-> -						      struct bnge_l2_key *key,
-> -						      u32 idx)
-> +static struct bnge_l2_filter *bnge_lookup_l2_filter(struct bnge_net *bn,
-> +						    struct bnge_l2_key *key,
-> +						    u32 idx)
->  {
->  	struct bnge_l2_filter *fltr;
->  	struct hlist_head *head;
->  
-> +	netdev_assert_locked_or_invisible(bn->netdev);
-> +
->  	head = &bn->l2_fltr_hash_tbl[idx];
-> -	hlist_for_each_entry_rcu(fltr, head, base.hlist) {
-> +	hlist_for_each_entry(fltr, head, base.hlist) {
-
-[ ... ]
-
-> @@ -75,9 +63,10 @@ static struct bnge_l2_filter *bnge_alloc_l2_filter(struct bnge_net *bn,
->  
->  	idx = jhash2(&key->filter_key, BNGE_L2_KEY_SIZE, bn->hash_seed) &
->  	      BNGE_L2_FLTR_HASH_MASK;
-> +
->  	fltr = bnge_lookup_l2_filter(bn, key, idx);
->  	if (fltr)
-> -		return fltr;
-> +		return ERR_PTR(-EEXIST);
+> @@ -757,6 +1090,18 @@ static const struct ethtool_ops bnge_ethtool_ops = {
+>  	.get_eth_ctrl_stats	= bnge_get_eth_ctrl_stats,
+>  	.get_pause_stats	= bnge_get_pause_stats,
+>  	.get_rmon_stats		= bnge_get_rmon_stats,
+> +	/* RXFH */
+> +	.rxfh_per_ctx_key	= 1,
+> +	.rxfh_max_num_contexts	= BNGE_MAX_ETH_RSS_CTX + 1,
+> +	.rxfh_indir_space	= BNGE_MAX_RSS_TABLE_ENTRIES,
+> +	.rxfh_priv_size		= sizeof(struct bnge_rss_ctx),
 
 [Severity: Low]
-This isn't a bug, but should the commit message describe two behaviour
-changes this patch makes? The message only talks about removing the
-refcount:
+This isn't a bug, but these four fields describe RSS context support.
+This patch doesn't add create_rxfh_context, modify_rxfh_context or
+remove_rxfh_context to bnge_ethtool_ops, so here they have no effect.
 
-  However, going forward, the filter will only be removed by the same
-  context that created it, making refcount unnecessary.
+The ethtool core checks for the create callback before it reads any of
+them, for example in ethnl_rss_create_validate():
 
-First, the contract of bnge_alloc_l2_filter() changes. When it found a
-duplicate MAC/VLAN key it used to take a reference and return the
-existing filter. It now returns ERR_PTR(-EEXIST).
+    if (!ops->create_rxfh_context)
+        return -EOPNOTSUPP;
 
-That error would go back through bnge_hwrm_set_vnic_filter() to
-bnge_init_chip(), where open fails with "HWRM vnic filter failure", and
-to bnge_cfg_rx_mode(). As far as I can tell this branch can't be reached
-today, so there is no runtime impact.
+As a result, "ethtool -X ethX context new" still returns -EOPNOTSUPP at
+this commit, the same as before the patch. The new BNGE_MAX_ETH_RSS_CTX
+define in bnge_vnic.h is only used by rxfh_max_num_contexts here.
 
-Second, lookups of l2_fltr_hash_tbl switch from an RCU walk under
-rcu_read_lock() to a plain hlist_for_each_entry(). The new
-netdev_assert_locked_or_invisible() calls in bnge_lookup_l2_filter() and
-bnge_del_l2_filter() make the netdev instance lock the required
-protection.
+The next patch in the series, "bnge: add ethtool support to manage RSS
+contexts", adds all three callbacks. By the end of the series these
+fields line up with the context code.
 
-At this commit nothing documents that rule. The bnge_netdev.h comment
-saying l2_fltr_hash_tbl is covered by the netdev instance lock only
-appears later in the series.
+The commit message doesn't mention these fields. Could they and
+BNGE_MAX_ETH_RSS_CTX move to the RSS context patch, where they are first
+used? Alternatively, the commit message could note why they are added
+here.
 
-Could the commit message mention the new -EEXIST return and the move
-from RCU to the instance lock for lookup and delete? Other commits in
-this series list changes like these explicitly.
-
->  
->  	fltr = kzalloc_obj(*fltr, gfp);
->  	if (!fltr)
+> +	.get_rx_ring_count	= bnge_get_rx_ring_count,
+> +	.get_rxfh_indir_size	= bnge_get_rxfh_indir_size_eth,
+> +	.get_rxfh_key_size	= bnge_get_rxfh_key_size,
+> +	.get_rxfh		= bnge_get_rxfh,
+> +	.set_rxfh		= bnge_set_rxfh,
+> +	.get_rxfh_fields	= bnge_get_rxfh_fields,
+> +	.set_rxfh_fields	= bnge_set_rxfh_fields,
+>  };
 
 [ ... ]
 
