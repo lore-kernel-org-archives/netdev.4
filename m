@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795558216;
-	b=JP5estRSyW37alAxju0dRQEm12yosekeKilc4XAHqBi4r1rJyGb9JCFnmHsTHvHMxXI8
-	 KebPJvT6veWRdJ9l2BWwl3x3ScJvnW1o859ZgB3I+SbcDZvdguPqTXizKIFYeZLg6iKt5
-	 FqfbF9sk0o9hzZCTXmCDr152QF2Qa+6AIWecLVvoIg9hX3jm3tmwM75uJ3/WYZUW2xIVC
-	 rJqlA44SWL0CjVxxZ1Y442ktdv/Vo6lOViEl2o0wj4/hRbLunG59s+/kAPS03seCFP7or
-	 Ji5yWGuN8hgQtyZGUof5+lmHmsxIyOt/klmQkB5+88ur6CoyF1N12IokmEnrXd4btFA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558216;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+gcYIv/WfsiKdzbyK8qfJ9ewfdv+u7itvKXaxeZ+e7w=;
-	b=AtSCL9mjqe1jvk7/93VWNXSt/RmtzViXqK4IFAjk8m9JPheiJ7apXYmbnyR27wLfhjAE
-	 7is5N25+nPHIJSI9BaSsIBa20ab+VsGRIRTvXXghwRBLrAZSbHf4FBboCGnSdVJX2987d
-	 Xlto04hHIhXZ6GqRhj41ASjPwpIrP6Z7U31GMdUPUrm7YDamPYQ3aW/lR/hW1onDxPUxg
-	 lu0DfFfp98XzybBTCrR5Q1rjR05OQpl7anmkXYt4M3jEWbvPqdJitwBVFfoTpx5UGTXEj
-	 HYZ60MlsxttMoXZClD6P74vUt7F8Ut/DnxklydrQvm05iIAjMjlVhkjWFyV4Ll5gJFw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JsRlwf4v;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795558226;
+	b=TrTxtqWcmtUvE7HPUaueCU+3mtQjXoYGvlY6sNgxZJo+woL+IKWzyW3f/6XYMtvFIHkD
+	 8AlNT6UUL/i8pZ2jRLJMpERrmVgaiac0aICqjXVznrIyaiYni8eNFTUw2J+XCmfOON4Op
+	 RwyXd6ZV4XKfp2ZWA60O+58mXApbppOgmVbRHKlzGoJ2CarzWCOgKTWL7BBF4urpKLNWg
+	 zi4OFTqH6rIqjCp2UdLSEdxtC/MeoslBviJ3VmLHDCcXrD5WmCYT8rB97BAmLVf2r41kU
+	 sYY7QMQhfdJDPutcd8tFZdOHPrX4bS5JW5dFlX802PFXNQD+1J8Y18NdHrBTq6+p6Og==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558226;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=grPJl3Iqgza9gPZ4RSpU3JxYcBIXfN08pQ2Wkt/2m8g=;
+	b=ke43k6ozRfsrLOM7+b7AEYteOLd8YPzLp+uJ9epBkXFYXQwxHOHV/14iB6qyIRgVWx4+
+	 w4cIzFOW8SYCIf2Ued5I3cyQI0iGCpsESYHWl7qSMPoDY3wXovVTDbVUaOMbv6t9kVDf5
+	 uWNQDvDjJ6+k82ZC6DG60oh+lb3beH2JkXIVlTEmITsbpCmZpclM/DJTOE36cTJGzOeSi
+	 VgkwcsV0N4cg3AZFbwFVErSUuZT56puUhyoMuKcnfkDRsClTiYvRLKlXvNJ1O8x0FFEX5
+	 Mqc6dyrIwIczl8FYdHg58ljpV9YN2Zl+9uwqxyMf9fMN5RsjPWSJoOV9O0z16Ub0eTQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MU4vXOIH;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D09B606A31E;
-	Tue, 24 Nov 2026 22:10:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC2EA60A2612
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:10:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JsRlwf4v
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795558215;
-	b=QbzG3zC59ehoowP4QsbuaIUNW1kveqMUqNCzpmzh/jI2i2WGFaM8j5wPyq74cxcNqvEU
-	 hKkj17+3ThzYkabiPPwsBDhLycb/KZqcSuQDjCduYUC+Wu1/jrz7Hk7Yf2pNgJbnJVoVz
-	 EUuiCFA+ziYYS8cgpyazKr68RwVJTpV/vrduPVYIJuJMLG5vKiCX36oHgpU+qoY4pHCF2
-	 jgvadVVi97HiWTnHeJcOpkAEHGOLYoVVkXxzgbtg2geVH3yBdB86lT0FsTfQwTgapfBdX
-	 boLUxMugG+J1Ia2Md0o25ITY404u2NWzgEO9gfck3bDYGa7XRbiAnZMosuPLKpk8PSQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795558215;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=+gcYIv/WfsiKdzbyK8qfJ9ewfdv+u7itvKXaxeZ+e7w=;
-	b=EiLWboK+lQFaDU9EObSblI9RV3YDxkULAgrX3y7E0hcvz9AYoCSEDDonOaynM+saDCrT
-	 /Fg2iGToi10Y7sOTNVrbzJsPGmi0o3xC6kuaBBbfZBoM16uaUPNa1GgOwU6/Uibg5yjuW
-	 f//R6o5STBl8Bxlg8oAzURyLNAvTyvJOUkzdf115fFCYyHKRqfth9hM0io9+KBXENJcUG
-	 NZXo5EF95/uJKgaFrcbMy1B0bPEIg0wz/+/F/AI3OJ8cde9VD7BKmwCzEin193YetB9sH
-	 KHMbl1NQIt5iLWV7KpxCyjEn0CvylP3JNBbp+zzPVDixAeooXfQGlYLYHVmxC25Ophw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id A6CEC1F000E0;
-	Tue, 24 Nov 2026 22:10:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MU4vXOIH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC29E1F02ED1;
+	Tue, 24 Nov 2026 22:10:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558215;
-	bh=+gcYIv/WfsiKdzbyK8qfJ9ewfdv+u7itvKXaxeZ+e7w=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=JsRlwf4vi/OZu8aDLkFlhD+QvSC3n4B+ZOgfu1xAe/1z2WPQhjbOjWz2Gva+9q6MC
-	 blx9Sa/4MsRSEIGMlHCvbl1HAs0+6fb2fpZBIUZMwtVTIjhxIdEU5UdMs3UpqeVN4J
-	 IbK0Gk1bfbzIopc2KRXN6NYJdgFDFfG6iwE/3gijI6vBkKqbOmqQQKeOklkzYM3KwX
-	 myO4imTf8EGn8pLutHiAHWVWafQuk6HbxGL8kpPYd0YoCGXXuU4pGnMAZLydg60Hud
-	 7oGAwup4rfNMYqAQ8UAs/lQTy15d5/GLRQVBTQvgsuPatRBcU1McCikbqDNnldeJCL
-	 f5T6sK+Z5d9eg==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 1BC764CBD6;
-	Tue, 24 Nov 2026 22:09:57 +0000 (UTC)
-From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:09:53 -0800
-Subject: [PATCH net-next v12 05/15] net: ethernet: microchip: lan865x:
- Depends on PTP_1588_CLOCK_OPTIONAL
+	s=k20260515; t=1795558226;
+	bh=grPJl3Iqgza9gPZ4RSpU3JxYcBIXfN08pQ2Wkt/2m8g=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=MU4vXOIHD/nGMpl9zYbMFH/8dS3QoV8VDaJi6RiAFzaP+S1bewREYuBFPnT1uzD2d
+	 MC23znUr/UH8D749rwTy0pKjBQZIUu50xuqcVAIPTPwAmojG2WU+5BM+BV0G9KKYHG
+	 mwK6WN+qg4lmCVlJlVCcs1he1q5Fh6obGrrBb9m9t08F/jaVFPq30WayJ3RPwO4wcB
+	 YvKGC4sIpvjuruJQbHHGwJdNL1dA4rtB//5GywVNGQaKrpidxDcBv5aBlWwD3gNg4c
+	 9NaVLIEAEX5KqvCoVB00PJ0P5cszTBjUZKnTCZ//ohciBbP7IE/FbkoKRiUoSdA7LT
+	 /ahjQp7C/13Ig==
+Subject: Re: [PATCH net v3 2/4] ptp: ocp: use hardware selectors in DPLL
+ frequency operations
+From: netdev-bot+sashiko@kernel.org
+To: ahmadexp@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
+ jiri@resnulli.us, kuba@kernel.org, pabeni@redhat.com,
+ richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
+ vadim.fedorenko@linux.dev, vladimir.oltean@nxp.com
+Date: Tue, 24 Nov 2026 22:10:25 +0000
+Message-ID: <179555822538.3135.15182959488825985221@kernel.org>
+In-Reply-To: <20261120-timecard-common-v3-33316bf475-2-ahmadexp@gmail.com>
+References: <20261120-timecard-common-v3-33316bf475-2-ahmadexp@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,75 +65,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-5-3575855d99f9@onsemi.com>
-References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- Parthiban Veerasooran <parthiban.veerasooran@microchip.com>, 
- Selva Rajagopal <selvamani.rajagopal@onsemi.com>, 
- Richard Cochran <richardcochran@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Eric Dumazet <edumazet@kernel.org>, 
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>, 
- Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
- Jerry Ray <jerry.ray@microchip.com>, 
- Ciprian Regus <ciprian.regus@analog.com>, 
- Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=1026;
- i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=RQxAdojvFbC2z0bmjWTse0lgoK2TJf6A/qXGzrGcCkA=;
- b=p0NKz7k9K6K4RSXzwPHx8lBfqGHGKsKhxiP8WhroW9Y3rXW8Qz4qXe1Udj25+TZ0rEH0LK+f/
- vkffmfPiLUiBtXcP0eAoshVkwHr32QoDj8U86dfNb6mANJh2zIup636
-X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
- pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
-X-Endpoint-Received: by B4 Relay for
- Selvamani.Rajagopal@onsemi.com/20260531 with auth_id=803
-X-Original-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-Reply-To: Selvamani.Rajagopal@onsemi.com
-Content-Transfer-Encoding: 7bit
 
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Add the PTP_1588_CLOCK_OPTIONAL dependency to LAN865X. A following
-patch makes OA_TC6 depend on it, but "select" ignores that, so
-LAN865X built in with PTP_1588_CLOCK=m would link-fail on
-ptp_clock_register().
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
----
-changes in v12
-  - No change
-changes in v11
-  - Moved the vendor changes into its own patch.
-  - New patch in v11.
----
- drivers/net/ethernet/microchip/lan865x/Kconfig | 1 +
- 1 file changed, 1 insertion(+)
+- [High] The mask fix does not cover adva_x1 after a DPLL direction
+  change to input.
 
-diff --git a/drivers/net/ethernet/microchip/lan865x/Kconfig b/drivers/net/ethernet/microchip/lan865x/Kconfig
-index 7f2a4e7e1915..342172cb8837 100644
---- a/drivers/net/ethernet/microchip/lan865x/Kconfig
-+++ b/drivers/net/ethernet/microchip/lan865x/Kconfig
-@@ -8,6 +8,7 @@ if NET_VENDOR_MICROCHIP
- config LAN865X
- 	tristate "LAN865x support"
- 	depends on SPI
-+	depends on PTP_1588_CLOCK_OPTIONAL
- 	select OA_TC6
- 	help
- 	  Support for the Microchip LAN8650/1 Rev.B0/B1 MACPHY Ethernet chip. It
+--
+
+ptp: ocp: use hardware selectors in DPLL frequency operations
+
+This commit makes ptp_ocp_dpll_frequency_set() pass the selector table
+value to ptp_ocp_sma_store_val(). Before, it passed the table index. It
+also masks the direction enable bit in ptp_ocp_dpll_frequency_get()
+before the table lookup, so that enabled, direction-configurable pins
+resolve to a table entry.
+
+Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
+
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index b16d36c3305f9..95a4df468e793 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+
+[ ... ]
+
+> @@ -5887,6 +5888,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  	int i;
+>  
+>  	val = bp->sma_op->get(bp, sma_nr + 1);
+> +	val &= SMA_SELECT_MASK;
+>  	tbl = bp->sma_op->tbl[sma->mode];
+>  	for (i = 0; tbl[i].name; i++)
+>  		if (val == tbl[i].value) {
+
+[Severity: High]
+Does this mask fix the get/dump failure on adva_x1 after a DPLL direction
+change to input?
+
+ptp_ocp_dpll_direction_set() always writes selector 0, whatever the
+board:
+
+drivers/ptp/ptp_ocp.c:ptp_ocp_dpll_direction_set() {
+    ...
+	return ptp_ocp_sma_store_val(bp, 0, mode, sma_nr + 1);
+}
+
+On a direction-configurable pin (fixed_dir is false), the call path is
+ptp_ocp_sma_store_val() -> ptp_ocp_sma_adva_set_inputs(). Along the way
+SMA_ENABLE is ORed in, so 0x8000 is written to the input mux. Once the
+new mask is applied in ptp_ocp_dpll_frequency_get(), that leaves 0.
+
+On fb and adva, 0 matches the "10Mhz" entry. The adva_x1 input table has
+no 0x0000 entry:
+
+static const struct ocp_selector ptp_ocp_adva_x1_sma_in[] = {
+	{ .name = "PPS1",	.value = 0x0001,      .frequency = 1 },
+	{ .name = "TS1",	.value = 0x0004,      .frequency = 0 },
+	...
+
+So the lookup loop finds nothing and returns -EINVAL.
+
+ocp_adva_x1_sma_op uses ptp_ocp_sma_fb_init(). When sma_map2->gpio2 is not
+0xffffffff, the adva_x1 pins keep fixed_dir false and
+DIRECTION_CAN_CHANGE, so a DPLL pin-set with direction=input reaches this
+path.
+
+After that:
+
+- dpll_cmd_pin_get_one() fails, so PIN_GET and the change notification
+  fail for that pin.
+- dpll_nl_pin_get_dumpit() breaks out on any error other than -ENODEV,
+  so the whole pin dump fails, not just this pin's entry.
+- dpll_pin_freq_set() calls frequency_get first and stops with "unable
+  to get old frequency value", so the pin cannot be recovered through
+  DPLL.
+
+The commit message says the corrections apply "to all board variants".
+Would adva_x1 need a board-specific default selector in
+ptp_ocp_dpll_direction_set(), or a matching entry in
+ptp_ocp_adva_x1_sma_in[]?
+
+Later patches in this series do not change this path either. Those are
+"ptp: ocp: report disabled SMA inputs consistently over DPLL" and "ptp:
+ocp: correct the DCF output frequency".
+
+ptp_ocp_dpll_direction_set() clears sma->disabled, so the disabled-state
+substitution added later does not trigger here. The adva_x1 input table
+is unchanged at the end of the series.
 
 -- 
-2.43.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-timecard-common-v3-33316bf475-0-ahmadexp%40gmail.com
