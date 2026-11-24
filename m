@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795480846;
-	b=EaABwhZk+1T/0ppLfmOfViKsX7ywEcblPbD7rseM5fTjHhrPFzX6bGI+sWgC0Qg1BQ1E
-	 U28zntZw37y/GaZjD2vxY56RJnbA/m+Mm/oa43UVCcw708fMK49u+h6Aeq8hC10qQTqWI
-	 D33UXgtGcg471fw8OgWewatyNd4CRIQ+U7RpcKc/unpc5KfJ90c7hVLKtgUwLQLeHMkJv
-	 hH2aWrYXpPEiei1gmO+mlI2Yp2i1ChSA7xllodzcslIZ79wQWEudwIFjRL9mMqfcL2Owq
-	 JPz72j0Ixrc0a8SFSHlGi47zOwvx6bnXtDNrCMnEOw8T6mMfnpxDZsPkT7EuHimIObQ==
+	t=1795480841;
+	b=tPFNhv7JkZYCxV3II3j7idMSjXftalJ88f3grLXEUWwDUWGGLaiPze9JesOfN8oq5jiY
+	 bbk+uu8baYWHLLFuegZaCJAvjJxuHqlYvIyxJmOzNBqXhS7vYooir/CvhvCxc38NLduCj
+	 QPAkExJ/62BnNWBRHh7qJRJuOvUQIWNPR5FAgcU5tmWTwD7KUSxjrWOer0dFr/NsBzy1l
+	 swXH/qCR6IKCMA58ecTERrTJBmXosNRlqk059d0sR/TOtMF03OOcuOfzlmJtuaiy2Snxu
+	 Yu8ijdbOB4Gh0fVCaeW0aBoOIHBAngOmJ0sxENlYk1kQ+2d/sXecjAHzd5vDuukJ+ZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795480846;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795480841;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=UxAk27qf1Gk099IyvH+3L6Kvw/r6p4DEhslmzFrzte4=;
-	b=4KMdHvpN15yCjssO6ECUPbYMAuHChIyEPsLSkTDVmsrjwqJ1cx3mgx7cb3Mz5JDvDl4Q
-	 5YnoPpU26cibxQoiPdx7PajOI2rcgYJMeWE9oxM9jkUDqTBLjseF5uR4o9ktTuJeJinps
-	 21AlUcFEByLgbrFiwv/at9CB1SDuhipizUpayHxrtNMx8rfcgC/30aRuydr5tVOXr7fEj
-	 vBMIR1Ly6bUyDZL/SfW0tet4NotCt+Qe+MYuI8GOxwdGfJTro8c8Z2nOs2GjbYm9N4QQ3
-	 usCleVyJ6tOgULLGG9Xs3M2TPgzVfpJHth4QGyURg6ZwwKgjXmEtgbAVraH+cWixFPg==
+	bh=WczDa/DdtekPr78ZQiSSWKxGrLszSJ6wbNBUvaiGJIE=;
+	b=rRDQ2h4yjE0xzPWIerSJu4lFYSiOG4xvXrhDmK3ds3L6HFcXQB0T0L08EKP3AT077N8M
+	 Zuh38ORTIxA1x3xKw1biWa0B/gN2W1XeMmE7UU4bo245Q+evYku2oOTuVa5Gu2UClhSCL
+	 6mLoI5KOk+ewXJL7VYeh70lNa+AnvxLMewInIClUmhhmvf73OeypDd72NG0hZrMnaRpdX
+	 vtJ6ODX1htFm5pufKPhMToX368p8WWDETC5vaXcvQg7UFXOcm++epD3jJ4CA23sBOMvwR
+	 Ue/t/UyI8TwZahTkh8F0CUh8Kxd5nYYPnc8Kb5UukqvR+fb5S3X5qGAeMAA7UlOArOQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="hU1D/SzD";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="oNIF6j/L";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 210DA606A32E;
-	Tue, 24 Nov 2026 00:40:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ACA2B606A331;
+	Tue, 24 Nov 2026 00:40:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hU1D/SzD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6C1091F00ACF;
-	Tue, 24 Nov 2026 00:40:44 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oNIF6j/L
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 616B11F00A19;
+	Tue, 24 Nov 2026 00:40:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795480845;
-	bh=UxAk27qf1Gk099IyvH+3L6Kvw/r6p4DEhslmzFrzte4=;
+	s=k20260515; t=1795480841;
+	bh=WczDa/DdtekPr78ZQiSSWKxGrLszSJ6wbNBUvaiGJIE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hU1D/SzDAAjBXQ1ejMWyimHzRjJkiS/D2c8/FsftP9IAFDMpFTGWzj9ilAM0KsmxM
-	 jezG7EgQWVG4ZZ7i8L7MxnwYgbsGfCIi6nXeIBUCXNZBV1KUldDu/LXfKapZwCkSBt
-	 +oiA4OJIAqR6ta6SYAB1a+nQKuBZlCPFkdskN3m4f+8nivAHBnO1eOyaul+l+lJ7/V
-	 7Qyy4eWTDz0jL99H4Sm1TCrVwkFfXJPhF9Tj2IkQzQ9h8+wnDF+bygjIOUypy2ziLB
-	 QUXuF3NUoqO3JDHt/+wZB0PXvAcUYNiyf230GGh+H6CWq8ME3rC4DrAL4EPf+ReMT+
-	 yecAxJzw9G1TQ==
-Subject: Re: [PATCH net-next v16 08/13] dpll: sit9531x: add support to get and
- set priority on input pins
+	b=oNIF6j/Lee/Zcnwk7Sjl9pCHorv2aOJqMT+aUhYBs2TsKEX1Aw57nSyDUYC4l/bLh
+	 ReKbufuA7HuXVw3ldkX9n+TwqTm31y8uuK4mqkWVQlcTzZnRKNRenVIpP2RCVLih2w
+	 A1Zh3o/J+grtwySfk079x6Whqs5lJMjCpsgPGJwWkVaxAsaC7hk4hxAR/O5JMtKIkG
+	 sfu7davvAqFbXdP3ezHF7thm6izLNE+Xt+bmsVlcCNhJ0jj9fhavgbjPdQIeqKQI5d
+	 5UtVRaqf+GduTFeezFKBRUZRwcxiXAUzep+oe0YN03ppOkk02Ab9qsQ1QSrGF50DaW
+	 tERv3KmBI6G9Q==
+Subject: Re: [PATCH net-next v16 05/13] dpll: sit9531x: read DPLL types and
+ pin properties from system firmware
 From: netdev-bot+sashiko@kernel.org
 To: arouhi@sitime.com
 Cc: jiri@resnulli.us, vadim.fedorenko@linux.dev,
@@ -50,11 +50,11 @@ Cc: jiri@resnulli.us, vadim.fedorenko@linux.dev,
  cjubran@nvidia.com, Oleg.Zadorozhnyi@devoxsoftware.com,
  prabhakar.mahadev-lad.rj@bp.renesas.com, devicetree@vger.kernel.org,
  netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 00:40:44 +0000
-Message-ID: <179548084402.3135.10043442329542996745@kernel.org>
-In-Reply-To: <20261119225752.41846-9-arouhi@sitime.com>
-References: <20261119225752.41846-9-arouhi@sitime.com>
-X-sashiko-severity: Medium
+Date: Tue, 24 Nov 2026 00:40:39 +0000
+Message-ID: <179548083991.3135.257746872384905150@kernel.org>
+In-Reply-To: <20261119225752.41846-6-arouhi@sitime.com>
+References: <20261119225752.41846-6-arouhi@sitime.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,216 +67,148 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The OCXO is ordered in the priority table, but its priority
-  cannot be seen or changed, and it lives on a different scale from user…
-- [Medium] sit9531x_prio_table_commit() now passes `routed =
-  sit9531x_input_hw_src(chan->routed_ref)` to…
-- [Low] prop.c now advertises DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE
-  on every reference input pin and on the INTSYNC destination pin,…
+- [Low] At this commit nothing writes ref[].sig_mode, so it stays
+  SIT9531X_MODE_SE from devm_kzalloc().
+- [Low] When an output has no supported-frequencies-hz,
+  sit9531x_pin_props_get() advertises a hard-coded continuous range,…
 
 --
 
-dpll: sit9531x: add support to get and set priority on input pins
+dpll: sit9531x: read DPLL types and pin properties from system firmware
 
-This patch adds prio_get and prio_set callbacks for sit9531x input pins.
-Each input keeps a priority from 0 to 255 per PLL, and a set rebuilds the
-hardware priority table from those values. When the best live source does
-not change, a table commit now latches the routed source as the active
-selection. The poll also compares each pin's state, operstate and priority
-with a baseline taken at registration and sends a notification when one
-changes.
+This adds prop.c. It reads the DPLL type from the firmware node, plus
+each pin's label, connection type and supported frequencies, and uses
+defaults when the node doesn't provide them. An output with no
+supported-frequencies-hz is advertised as one continuous frequency
+range.
 
-> diff --git a/drivers/dpll/sit9531x/core.c b/drivers/dpll/sit9531x/core.c
-> index d61c2a8e24f39..bbc17a514c5ce 100644
-> --- a/drivers/dpll/sit9531x/core.c
-> +++ b/drivers/dpll/sit9531x/core.c
+> diff --git a/drivers/dpll/sit9531x/core.h b/drivers/dpll/sit9531x/core.h
+> index 0f826313eff8c..7a81c9b14b7fd 100644
+> --- a/drivers/dpll/sit9531x/core.h
+> +++ b/drivers/dpll/sit9531x/core.h
 
 [ ... ]
 
-> @@ -745,6 +773,12 @@ static u8 sit9531x_prio_activesel_pick(struct sit9531x_dev *sitdev,
->  	    top != sit9531x_prio_top_live(sitdev, old))
->  		return top;
->  
-> +	if (sit9531x_prio_src_usable(routed) &&
-> +	    sit9531x_prio_src_live(sitdev, routed))
-> +		for (i = 0; i < SIT9531X_PRIO_MAX_SLOTS; i++)
-> +			if (srcs[i] == routed)
-> +				return routed;
-> +
->  	cur = sit9531x_prio_src_canon(sitdev, cur & SIT9531X_PRIO_NIBBLE_MASK);
->  
->  	if (sit9531x_prio_src_usable(cur) &&
-> @@ -827,12 +861,19 @@ static int sit9531x_prio_table_commit(struct sit9531x_dev *sitdev, u8 pll_idx,
->  
->  	if (!empty) {
->  		u8 sel = sit9531x_prio_slot_get(val, slot + 1);
-> +		u8 routed = SIT9531X_PRIO_SRC_NONE;
->  
-> +		/*
-> +		 * The pick needs the signal state now, not as of the last poll;
-> +		 * the routed source is the last poll's sample.
-> +		 */
->  		rc = sit9531x_input_mon_fetch(sitdev);
->  		if (rc)
->  			goto rollback;
-> +		if (!chan->stale && chan->routed_ref != SIT9531X_REF_INVALID)
-> +			routed = sit9531x_input_hw_src(chan->routed_ref);
-
-[Severity: Medium]
-Is chan->routed_ref recent enough to latch here? It is only set in
-sit9531x_chan_state_fetch(), once per poll or after an earlier commit, and
-the comment above says it is the last poll's sample. Before the pick,
-sit9531x_input_mon_fetch() refreshes only the LOS monitors.
-
-Take this sequence within one poll period:
-
-poll: chan->routed_ref = B
-B has a brief LOS, the device falls back to C (and does not revert)
-B recovers before the next poll
-prio_set or state_set on an unrelated input
-  sit9531x_prio_table_commit()
-    sit9531x_prio_top_live() is unchanged
-    sit9531x_prio_activesel_pick() returns routed (B): live and listed
-
-Would the commit then write B into CLK_ACTIVESEL and move the PLL off C,
-the reference it is actually tracking? That looks like the acquisition
-restart the commit message says this change avoids:
-
-  "A commit that leaves the best live source unchanged keeps the routed
-  source as the active selection, so the PLL does not restart
-  acquisition for it."
-
-Could the routed source be sampled with sit9531x_chan_routed_ref_read()
-before HO_FORCE is written, and that value latched instead?
-sit9531x_chan_state_fetch() only reads it while the PLL is tracking and not
-frozen, so the cached copy can't be refreshed through that path here.
-
->  		sel = sit9531x_prio_activesel_pick(sitdev, chan->prio_srcs,
-> -						   srcs, sel);
-> +						   srcs, sel, routed);
->  		val = sit9531x_prio_slot_set(val, slot + 1, sel);
->  	}
+> @@ -41,6 +49,35 @@ struct sit9531x_chip_info {
+>  	const u8	*clkout_map;
+>  };
 >  
 
 [ ... ]
 
-> +int sit9531x_input_prio_set(struct sit9531x_dev *sitdev, u8 pll_idx,
-> +			    u8 input_idx, u8 prio)
-> +{
-
-[ ... ]
-
-> +	chan = &sitdev->chan[pll_idx];
-> +	old_prio = chan->cfg_prio[input_idx];
-> +	old_known = chan->cfg_known;
-> +	chan->cfg_prio[input_idx] = prio;
-> +	chan->cfg_known |= BIT(input_idx);
-
-[Severity: Medium]
-How does a user priority compare with the OCXO's place in the table?
-
-sit9531x_prio_cfg_seed() sets the OCXO's configured priority from its slot
-index in the profile table:
-
-drivers/dpll/sit9531x/core.c:sit9531x_prio_cfg_seed() {
-    ...
-		chan->cfg_prio[src] = slot;
-		chan->cfg_known |= BIT(src);
-    ...
-}
-
-That value is in 0..10, but this function accepts 0..255 for the other
-inputs. sit9531x_prio_table_build() then sorts every member by cfg_prio,
-the OCXO included:
-
-sit9531x_dpll_input_pin_prio_set()
-  sit9531x_input_prio_set()
-    sit9531x_prio_table_apply()
-      sit9531x_prio_table_build()
-
-Suppose a profile, or an external table rewrite that the poll accepts as
-configuration, lists the OCXO at slot k. Any input given a priority above k
-(20, 50 or 100, all normal-looking DPLL priorities) is then sorted behind
-the OCXO.
-
-sit9531x_prio_src_live() always treats the OCXO as live:
-
-	if (index >= sitdev->info->num_inputs)
-		return true;
-
-The device also falls back down the table without reverting. Can that
-input ever be selected while the OCXO is listed?
-
-Userspace also has no way to see or change the OCXO's priority, or to drop
-it from the table:
-
-static const struct dpll_pin_ops sit9531x_dpll_xo_pin_ops = {
-	.direction_get		= sit9531x_dpll_input_pin_direction_get,
-	.state_on_dpll_get	= sit9531x_dpll_xo_pin_state_on_dpll_get,
-};
-
-The xo branch in sit9531x_pin_props_get() also leaves capabilities at 0.
-On this point the commit message only says "The range is 0 to 255 over
-eleven slots".
-
-Should the OCXO's priority be exposed, or should user priorities be mapped
-relative to its position?
-
-[ ... ]
-
-> diff --git a/drivers/dpll/sit9531x/prop.c b/drivers/dpll/sit9531x/prop.c
-> index b9405eba49a39..69877fc940284 100644
-> --- a/drivers/dpll/sit9531x/prop.c
-> +++ b/drivers/dpll/sit9531x/prop.c
-> @@ -146,6 +146,7 @@ sit9531x_pin_props_get(struct sit9531x_dev *sitdev,
->  		/* INTSYNC destination: a reference the PLL can lock to. */
->  		props->dpll_props.type = DPLL_PIN_TYPE_INT_OSCILLATOR;
->  		props->dpll_props.capabilities =
-> +			DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE |
->  			DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE;
->  		curr_freq = 0;
->  	} else if (sync_out) {
-> @@ -161,6 +162,7 @@ sit9531x_pin_props_get(struct sit9531x_dev *sitdev,
->  	} else if (dir == DPLL_PIN_DIRECTION_INPUT) {
->  		props->dpll_props.type = DPLL_PIN_TYPE_EXT;
->  		props->dpll_props.capabilities =
-> +			DPLL_PIN_CAPABILITIES_PRIORITY_CAN_CHANGE |
->  			DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE;
->  		curr_freq = sitdev->ref[index].freq;
->  	} else {
+> +/*
+> + * struct sit9531x_ref - input reference state
+> + * @freq: configured frequency in Hz
+> + * @sig_mode: signal mode of the input pair, read from CLKINx_INPUT_MODE at
+> + *   probe
+> + */
+> +struct sit9531x_ref {
+> +	u64		freq;
+> +	enum sit9531x_signal_mode	sig_mode;
+> +};
 
 [Severity: Low]
-Is PRIORITY_CAN_CHANGE accurate when every PLL uses manual input select?
+This isn't a bug, but is this kernel-doc accurate at this point in the
+series?
 
-For a manual PLL, sit9531x_dpll_pin_ops_get() returns
-sit9531x_dpll_input_pin_manual_ops, which has neither prio_get nor
-prio_set:
+Nothing in this commit writes ref[].sig_mode, so it stays at
+SIT9531X_MODE_SE from the zeroed allocation. That means the differential
+branch in sit9531x_input_pin_label() can't run yet:
 
-	if (sit9531x_chan_state_get(sitdev, pin->dpll->id)->manual_input)
-		return &sit9531x_dpll_input_pin_manual_ops;
+    if (sitdev->ref[id].sig_mode == SIT9531X_MODE_DE)
+        snprintf(props->package_label,
+                 sizeof(props->package_label), "IN%u", pair);
 
-All four PLLs share one dpll_pin per index, and capabilities are per pin.
-So with mixed modes the bit has to be advertised, and the DPLL core's
-per-ref ops checks handle the manual PLLs.
+The binding's pin numbering text ("A pair the loaded configuration runs
+differential is one input, described at 2k") also has no effect until
+then.
 
-The driver reads manual_input at probe, before any pin is registered, so
-it knows when all four PLLs are manual. In that case the reference pins
-and the INTSYNC destination pin still advertise PRIORITY_CAN_CHANGE. They
-report no priority, and every set fails in dpll_pin_prio_set() with a bare
--EOPNOTSUPP and no extack message.
+A later patch in the series fixes this. In "dpll: sit9531x: register
+DPLL devices and pins", sit9531x_input_mode_fetch() reads
+CLKINx_INPUT_MODE for every pair at probe and sets both lanes:
 
-Could the bit be left off when no PLL can take a priority?
+    sitdev->ref[pair * 2].sig_mode = sig_mode;
+    sitdev->ref[pair * 2 + 1].sig_mode = sig_mode;
+
+So the per-lane ref[id] lookup here gets the right value. Also, nothing
+calls sit9531x_pin_props_get() at this commit, so no wrong label can be
+registered in the meantime.
+
+Would it be clearer to add this kernel-doc text in the same patch as
+sit9531x_input_mode_fetch()?
+
+> diff --git a/drivers/dpll/sit9531x/prop.c b/drivers/dpll/sit9531x/prop.c
+> new file mode 100644
+> index 0000000000000..b9405eba49a39
+> --- /dev/null
+> +++ b/drivers/dpll/sit9531x/prop.c
+> @@ -0,0 +1,327 @@
+
+[ ... ]
+
+> +skip_fwnode_props:
+> +	if (sync_in || sync_out)
+> +		return props;
+> +
+> +	/*
+> +	 * An output with no listed rates gets one wide range, as the setter
+> +	 * checks Fvco/N; the XO gets its one rate.
+> +	 */
+> +	ranges = kcalloc(num_freqs + 1, sizeof(*ranges), GFP_KERNEL);
+
+[ ... ]
+
+> +	if (!num_freqs && dir == DPLL_PIN_DIRECTION_OUTPUT) {
+> +		ranges[j].min = 1;
+> +		ranges[j].max = 1000000000ULL; /* 1 GHz */
+> +		j++;
+
+[Severity: Low]
+Where does the 1 GHz upper bound in sit9531x_pin_props_get() come from?
+It isn't derived from the part's limits, and it doesn't match the
+setter added later in the series.
+
+In "dpll: sit9531x: add support to get and set frequency on pins",
+sit9531x_output_freq_set() accepts any exact Fvco/N up to U32_MAX:
+
+    if (frequency > U32_MAX)
+        return -EINVAL;
+    ...
+    if (divo > SIT9531X_DIVO_MAX)
+        return -EINVAL;
+
+Fvco is at least 4.9152 GHz, so dividers from 2 to 7 give about 1.1 to
+3.9 GHz across the VCO bands. However, dpll_pin_freq_set() in
+drivers/dpll/dpll_netlink.c checks the advertised ranges before it calls
+the driver:
+
+    if (!dpll_pin_is_freq_supported(pin, freq)) {
+        NL_SET_ERR_MSG_ATTR(extack, a, "frequency is not supported by the device");
+        return -EINVAL;
+    }
+
+On a board with no supported-frequencies-hz in DT, can a DPLL_CMD_PIN_SET
+above 1 GHz ever reach sit9531x_output_freq_set()? It looks like the
+core would always return -EINVAL for those divider values. The uAPI
+would then report a ceiling that doesn't come from the hardware. I
+couldn't confirm from the tree whether the output buffers can actually
+drive more than 1 GHz.
+
+The 1 Hz lower bound is fine. SIT9531X_DIVO_MAX is GENMASK_ULL(33, 0),
+so 1 Hz is an exact Fvco/N.
+
+Also, the comment says "as the setter checks Fvco/N", but that setter
+only arrives in the later commit mentioned above.
+
+Could the upper bound come from the VCO and divider limits, or from a
+documented output maximum, so the advertised range and the setter
+agree?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261119225752.41846-1-arouhi%40sitime.com
