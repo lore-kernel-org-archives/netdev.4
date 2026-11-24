@@ -1,105 +1,106 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795478660;
-	b=o5MbK1IXRW/TCYTANOt5edLkvp44JYsT29Ui60QcAJyc4csdXAe42DiodgeaQDAfkOHP
-	 hpP5QIDn3tKWTIaLx37FfKqyRw7e1W4hVNaZHvOMLs2SRdWcJ6Xa9yXx5Pe26Y0ciZdrC
-	 a4C1EEtTbTEYAWxDd4hv23MTh7CsZbBd3j9QGF/HAz/jKJcXIaf+NfOfdJ5MyIXXjmjF5
-	 6EHyrjbWuImTYEpqbJ/DYfhMJXO4moLoeQ9fivTl6FrmmjpFa72+fgG8PM94BPfRAgLmb
-	 K4sg8eX07VwnG31+xIxvp1f5UoUQ9Pk3KbE2GjiDNSCN5HHRWk4XvZNPYfAgCdc+7wg==
+	t=1795478662;
+	b=JizNRhRUF03z73dkOlv+iZ7S6xpBdJyoddjwY9ifFU74TUH1sy1cV2V2JYT1cYSCGt7F
+	 gPdSJkQmaV83HtP4R6IVtKCFulpJXgqjUahR4CwW8H5rtYeXj8QbeVQMgacMGkr+FbxTZ
+	 znp0j98/jCQq9ij87/NMVfFXQRJ2lpDLjjR1YdNI+uYh3tHn2n98XKX/EQj3xwPg5wgon
+	 aSjUJU/z3ZAmmr+XLEsyqUH5cFHKOfLiux/kra7TvuGvELijk70owm56+07J6fhH3cfoc
+	 J9cknBCVFfy+7g/Oy7U2f0+x41I9S8bO2trzp/+E5Z+skW0lPO0Nmj7jKKqHh7DHjaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795478660;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795478662;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
 	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:From:To:Cc:
-	 Subject:Date:Message-Id:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Authority-Analysis:
-	 X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-ORIG-GUID:X-Authority-Analysis:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-Virus-Version:
 	 X-Proofpoint-Spam-Details;
-	bh=Qm1RQNetAuFgXdndilb+UqjdnHPgEpFGABMCjzlVzYU=;
-	b=hIBKPSiptP+qc18FCEgDxwjOAUqfXSlUizxTqkDsfh2MdHupELQXOJBqorovNP1KelC9
-	 QkOrZXwp1m1YC2rbMq92MK8MZPCvCCoifFZhNHn/eCeWcVoPCIk1rdsOVryNi7ePWlqtY
-	 6puXnrs1gsyOl/VNQFABOpvJd+S9wPYWkoj9wikg2Wq/lYZmbwlhIxvQ6wHt0SedhlcBY
-	 LGyt1vkvJi0ScNHGnkg+g2HLm+WZgaInLAOLG01JwaSoN9pT/5YHYOctzvlNfL1a0ako6
-	 yaxTGH7Wzkadj2FiegNhaAIYXUufS0lEMEyxryX8oSS2bxDxOPkJsBibouZppWe6Irw==
+	bh=mg80NlqNhInEEXsJ4+/dKojyRD9aqcsf2dfBNL3KfVs=;
+	b=AGZfufyc3BulifSF6sVzU+l3Ty4c/XItoTwajC6o/e4J4CkRPC1f0fuar3Nae9dyL9vk
+	 3rgtKtnF39i/4BnKwC+DjdlS4mVinxMqhm/dN/o6ivrQCj2FlfBUelw6wXyJ6cvwgcaAm
+	 GPkn9NUBB9xVx06A/KKG1oFwdFKpBASFBb+IYfJyd5Qsx90J7aId3JRHjyTm0PcpXc1RV
+	 kHFRYkCAsM2hn9VBqMS+V3VSQvT3ugDrv6cw1t0mCJLI5yCCrUdnSI9QqJt7j9NJ1YFco
+	 a3fk7EzUxs1Y5Vqzh+j80VzxCFPX7z9QpzOzWaRZjSI/hHi0624brOVJhfjuQcFjIhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=oss.qualcomm.com;
 	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WsuLAtoB;
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WFXVrNQc;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Isdm3+S6;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HWsiGxiM;
 	arc=none smtp.remote-ip=205.220.180.131
 Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F089606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F089606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39697606A680
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39697606A680
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=WsuLAtoB;
-	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=WFXVrNQc
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJupjQ2862090
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:19 GMT
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Isdm3+S6;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=HWsiGxiM
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6ANJubSj2973633
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:21 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=Qm1RQNetAuFgXdndilb+UqjdnHPgEpFGABM
-	CjzlVzYU=; b=WsuLAtoBPvFCnvZOFiNOb7w6/tgENSRqbkGK8bz8EXAvevvza7f
-	izgoRuO7tjbvhGrZvBEWOAq7uqjWK/2R8W2eFbEWnZ56JIJmgM+L289khjFsVPZH
-	kaIV838m6IqVtnV9/MJS6BMjBhA0B2k/erOxB0tXLHtVS/qDBGZ6WgF0RRoJOVgu
-	0cpG3XnUvxc+yuHJoZNfhWUwu/SPrxtJq96kZ/mrAHwOpKYzhw4TR8R9myOvQ82S
-	yRPfT+5CGNfzpNNyj1AnbxpzGw9dGEbCiAyB6NouuJz3JF2FsMlakHsr9Zuu3e1A
-	ooG2vOuyPkjC8MmvlgTHMK5Eorw4h/nhNhQ==
-Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4m7utyhp-1
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=mg80NlqNhIn
+	EEXsJ4+/dKojyRD9aqcsf2dfBNL3KfVs=; b=Isdm3+S6dwSMvWxl6cJiPxQDHYc
+	TTBkduGearKIXJFdEyftR2lH0dlFfflobdBqpo6hDwArreDSnh/ZxyTGnIF86bZK
+	Q9kMCK/nJ5oH00mm4+4KNjoNnRnn0KNQnekv3uxaxrPDKFSh8SOGl/uUrqQga4wL
+	sjy7FvR4lMLkh92tF8ac4Dwv/Qn9DsFoGToNny1oFYm7UHCSGGdND1q7hd5R+5ci
+	IhEBWUYXy0qvXqvu3IiqxmktPr9PHnLs5qqHpdO7S/qkecQcvVNeiUa7cU9lAUGB
+	p2a2+UDFXTJ/pH5fHscaWQcdkaB3RunPiFJWevgRLwm+gDc2CQgDOOm0Tpw==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j4fy041mw-1
 	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:18 +0000 (GMT)
-Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-33713e5e6daso6950194eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:04:18 -0800 (PST)
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:04:21 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-38531c1a566so2489866eec.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:04:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795478658; x=1796083458; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Qm1RQNetAuFgXdndilb+UqjdnHPgEpFGABMCjzlVzYU=;
-        b=WFXVrNQccPNkigzXQzLWbI62bprrTJ2FktkZZV0txywu0DjRYx1Tl6gCP7c5LzGvZN
-         k/1G3nKh701ShcRjIYvUUwR92HUBZtH2WwcV5ktZWTOTPG4o6BjRi9Or3+7yFSWaO1JU
-         v0wJHbrRY8fzYvpNIRzrgyp04ZJNPgxbiyw6z0tfKySAci/t7DFRS5jT5FLn2/+HNo9u
-         K6IH23fpiPloUmGpXDUidXRqPxakiRP+s5FbO/63yXaLg6LxjRh60fkrxCGIv3vKChIs
-         PZr41bMUz8kj7N38RFBuNUsSgQSH2lYYOt3OjZzCebfw7qNC5m7O+ouJK4Se/scAHT5+
-         16jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795478658; x=1796083458;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=oss.qualcomm.com; s=google; t=1795478660; x=1796083460; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Qm1RQNetAuFgXdndilb+UqjdnHPgEpFGABMCjzlVzYU=;
-        b=zy8HHJssU2rpzyr1qbKLAaUBouYw3d42vChiT9yuQ85hNSE9nzAPhZnhot+zbNpVGa
-         w1SbvPnY0tNbywW6W6IGrhfRPQIXCyPArDZwzyz1BNvMja6WWRBklqLqWk1vVvJpV0JU
-         Q9jfRAViRNNgDnvHufzQ5tOyj/nQd2UFhNr+y+c1OyNiGudoCEUjUNVMMI02cGpEs31H
-         A9w6K9mbm12vD6zN27FrcPe1wMOKUVS/SaTlGUA+YOPJGl7EtSkJAiUnPMX1Mn6wWJ42
-         6cfjwAHl86DkaeGIg5tVgiSBFl10MZz0kFKsTCAQ34nJrWuloBMMiuo1tHmXroyfgzjb
-         XyDw==
-X-Forwarded-Encrypted: i=1; AL+hErFCUJ46pn8/M7abtpPNiws44RoHMqjH41y34tK7AATzfjFngOwMgTPqXxx66mR4vE49KoqaJXA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z99rwYvnze89Tw8oPAprsizTC5NyJTKwodMum9XCclWrNnmHjWu
-	W5r9+44X8gSX6XPJZBVzSrrKe12gpQZF05TslRYoNaiQaKxdlNNI8PSW/aqX9XMyr6SeI0Vu65i
-	QGwMGKIYRdAmZtDMoApdl65xHgndgD4W6H1pwKs6oqGre3IA2a+WpfH8apZk=
-X-Gm-Gg: AZFdTZcEwDM0l3PurxwsWIDpAHtjslVUdHGJrZ5OxZ+6ps/gaNSs7D7Fy1Mx7cUC288
-	wWmkhjpT6afybY/JhGmJInsOhHUzwrxWlHDRrEjnbeIg+UuA86lhAWR1/N5GtfvBZGtydn8luZd
-	SFVYQQBmOIm6KUVz3aP1diM2kOWVaZj2mIT6+OhLpdbu0TA3tribQ761AHZlc/2ZeFt9veosaw3
-	Yjc9grVZMCsumJIb/SR6RDnE74fyULnWSYm5e3UrsyliME3pLvv69NnNV+8v0tuhZRZxjZuMluw
-	2XnK8dEYC/JzLE8W2wptNXCKcsGetUEy96Fp9OTq+CFi9ahKy+iTDck6rq0Uso1777wNUZNr8ht
-	KbMSThtgmPf70agCwFRSCzMrpLWSDckTRS899o/EDdKqqsx+raFmdBS3drnio1YSb3byt2MFOFq
-	k5qg7rSaLJq7kmfPGjryBDJKNEWp2Ew+QX+10=
-X-Received: by 2002:a05:7301:4281:b0:386:a193:9afa with SMTP id 5a478bee46e88-386a1939c38mr8920255eec.11.1795478657507;
-        Mon, 23 Nov 2026 16:04:17 -0800 (PST)
-X-Received: by 2002:a05:7301:4281:b0:386:a193:9afa with SMTP id 5a478bee46e88-386a1939c38mr8920228eec.11.1795478656983;
-        Mon, 23 Nov 2026 16:04:16 -0800 (PST)
+        bh=mg80NlqNhInEEXsJ4+/dKojyRD9aqcsf2dfBNL3KfVs=;
+        b=HWsiGxiMz9W+RZYRRLNR8QXHiOG5WeU7hChT8rUj8Ic6IrX9b1bJu+JSf9q/QwPCPz
+         4cWwc+GceZKxY30vvHQZZBQzQiyz8G3AKsY4n5TrojsCL4xhpaznRfZzTMTsydvh7wb5
+         cE5FcBGrTQsgNB7Zz7N8El+Ol2k8P4lE2Ef2kTus7liWU9KzWi5+H1GF4K5JdBG4QoE9
+         o0HmKcnRTFPpeuP3aE/zO3RJE05dhaXXLf5AVBqswnzp8yJEhOqYEE5ZkCOx6AC2OLGU
+         bAETWFH4Dr7dUmyPYGV+X1WDqEJgADpbvlqhnS7hQ4DFD2fhV11UvIjeaiiyIfiTbwrF
+         cnXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795478660; x=1796083460;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=mg80NlqNhInEEXsJ4+/dKojyRD9aqcsf2dfBNL3KfVs=;
+        b=L/wHL8HCLKBVHyG2lEvK84RptSgwyRU1SDodZ9mNLQoQD0aZHKPPyJBkeD08z8R2+i
+         Y5WCt9XN2IzUi4jQo2bvi2RHXvIUHdDrQW6G43k0SlZHXp0KW/jkEYFwhwJCaiSloO0n
+         zqnGXvcVMl/FY9IV4gAhoFj2nTbVKsIkg2h9F7PL4GcLhV2QLzVBAt+2eRDBdGEQxT/d
+         6yo5Wlub5NB3fqhD0Ss82dKVxSguby6qooHCrM63v8G7r2yn619vtTk83Jg2NqtCnbre
+         IuapeZVhKcXoLZZo2PYtwOUd/0LmElMSzZqlAmuTzZNw7MoDS7Qp175k0PNgTQZBt5/K
+         Btlg==
+X-Forwarded-Encrypted: i=1; AL+hErEy7PI3xcwaebuFYz3YAystW+nk7RpyEUXbkVglVgSTIWgEq7Pa6j9/bFJSZd7SLrw6w+bv/N0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96xp5q6EHBlDkf0giDr5HAWZOlQBpOvO0ulVWdfTwvaDT/gvR5
+	6dDnZz9IpLDcZ0o4kyqVSBsrIe4VZ67jEXYA/Dn7SQfkllsddQPkHHQi9hGxHGy7G6P3KsIwXMr
+	BDED7xrvL8vA8wj7BApxJwp0gr1he6KQWI1LYa4Aea4CCPR4a9VGntQ8Q5Bo=
+X-Gm-Gg: AZFdTZemR5wnsQ+1sJpIfcoGG1T1GPudS1fs1gCt2jl04gRMEyRRQ2nYzCmlhiP4Ex+
+	yQX6TyrQKwglhkvlA4uKf7y9I1Xm9U3Yelt/JOyi3GEeG8weTaLjHqFmYMXwTXnl6FwyaK1MSuS
+	nFi7auxtXf/c0uo+KNObHzZ3mxj71L3iuvoL/1j7katLat1w71Ws5YQF+xZDpG3FhTVGqaZZ7k8
+	tC1vA/X06/XAXWlV+0JF1gjvSTAZh6blQ6yBns6lgA8U3xN/QEGTW/MODLcfCfDzEmY7BXqTE62
+	A399r/vJUBfdvhwc+fjZPjn8WTFB1AbeKDgbCJqPrYRr1mxvK1Q09jsD3WfIfr++52CnkM6+pdA
+	rujPoKfjMJp7dJVlsbNHPFvnWLALCU3D1ORMZOfB5EasUZ2FROFd+0c2qPi5Qtxpvtswhd1zZrH
+	uvD1wXnbx5lt4SevohM74bflEvSVi6mANiEWc=
+X-Received: by 2002:a05:7300:824b:b0:386:9c6a:3e87 with SMTP id 5a478bee46e88-3869c6a3f0fmr9650575eec.15.1795478660243;
+        Mon, 23 Nov 2026 16:04:20 -0800 (PST)
+X-Received: by 2002:a05:7300:824b:b0:386:9c6a:3e87 with SMTP id 5a478bee46e88-3869c6a3f0fmr9650534eec.15.1795478659631;
+        Mon, 23 Nov 2026 16:04:19 -0800 (PST)
 Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm41662125eec.6.2026.11.23.16.04.15
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e7f59sm41662125eec.6.2026.11.23.16.04.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 16:04:16 -0800 (PST)
+        Mon, 23 Nov 2026 16:04:19 -0800 (PST)
 From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
 To: j.raczynski@samsung.com
 Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -112,10 +113,12 @@ Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
         abhishek.chauhan@oss.qualcomm.com, lorenzo.bianconi@oss.qualcomm.com,
         sarosh.hasan@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com,
         sagar.cheluvegowda@oss.qualcomm.com
-Subject: [PATCH net-next v2 0/3] net: stmmac: support up to 16 MTL/DMA queues on XGMAC
-Date: Mon, 23 Nov 2026 16:04:12 -0800
-Message-Id: <20261124000415.4067701-1-sagar.cheluvegowda@oss.qualcomm.com>
+Subject: [PATCH net-next v2 2/3] net/stmmac/dwxgmac: Extend MTL/DMA support to 16 queues
+Date: Mon, 23 Nov 2026 16:04:14 -0800
+Message-Id: <20261124000415.4067701-3-sagar.cheluvegowda@oss.qualcomm.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20261124000415.4067701-1-sagar.cheluvegowda@oss.qualcomm.com>
+References: <20261124000415.4067701-1-sagar.cheluvegowda@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -126,90 +129,104 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: NAdtAq3PoZZrCNjcugbHX_E4KkWjK_3L
-X-Authority-Analysis: v=2.4 cv=KurYSmWN c=1 sm=1 tr=0 ts=6b04d482 cx=c_pps
- a=PfFC4Oe2JQzmKTvty2cRDw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfXxcc20Se7tCcJ
+ DNYQLC6ZPMK0YEbZMx25/AP2hTyXqyQrsEnw/93ol8N+t4mYMYwrvrBN+/I5GOXJbLJGmcgGiCD
+ TtpMSb6RvGv7k8YbFHkQd97ivI08uixllU0E5S9JYBroQAlMkyP7LGuTqp9k7yRrWvsFk+MpG2m
+ haz9DIzizCGZjkAnG+K8G5yG3OGRottxmvUGInee036RK+rcOssH1Gak4wo53S5I5TLBC9FyTt2
+ f6C1dVAbru2qn3L53hK7H7Rbh1O9Us8b7A7VwPrbLV2vj8s4dz/W1M/pZYjvNtKFevfnoKOsLO/
+ XyO6bRQZvcNRFonBIYIVq5lcW2FH9K334cSTLDtA8SroPnqFNOBk5rGwqHululwYJu1yMeXFJDl
+ h2oh9Pvk5iEvPKK6i7UEjJ8tZCdtXzovnjzslDbeFJqmyWDzi2AfrPkLiAOdtn1RwLyUpCfjNUI
+ OICooUYhRnjW5He4wgw==
+X-Proofpoint-ORIG-GUID: o4tKaqLc6hcERrvpO4gxZey-jDw2UBZD
+X-Authority-Analysis: v=2.4 cv=QrXLTlyd c=1 sm=1 tr=0 ts=6b04d485 cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
  a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=u7WPNUs3qKkmUXheDGA7:22 a=yx91gb_oNiZeI1HMLzn7:22 a=VwQbUJbxAAAA:8
- a=hD80L64hAAAA:8 a=EUspDBNiAAAA:8 a=j8eSvQKXAAAA:8 a=fBzlRZiCmRc88xsmlxcA:9
- a=6Ab_bkdmUrQuMsNx7PHu:22 a=j1SoD6Fdrn8k65qUt67a:22
-X-Proofpoint-GUID: NAdtAq3PoZZrCNjcugbHX_E4KkWjK_3L
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfXw+3s8zFlEaCC
- lLtoht85rXsjW394pBWTUy3kfhUsTGBH8TC3Yqrdf/JjCOccJay89BMtM0Oqs6r6RQA/2Hf+XtP
- BlN06Ja0K1mDho8h8Z7g6w2yw071CBQ=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfX1m4ZBWXTLWPr
- M8aGX37JH07vppaf4SNXnBPGYjiomC9mBFyUjt5v3ExDBxyf9rjJka95wQoJcreBfY0/MIAvlg+
- FtM2haYTSclKfnV2NMEpTLFXLiSz+lDhw+Kt6YsAFtR0mdEXFa+qfJVR6UfqZiqlXMzm14noaDM
- X1xO4d0UHmk+r2U6x9xWP+QWCajvtSz647p4yHp2vscj+ryJoIkOMXuJHpx7VwiuhMC4aTsIqLQ
- r+jr+ZBR4+uwV5aodQ+kaeYRAo8xZOlqcPnaG6MT/IJJyHLomPYNGc+VX1AQicW5JnNDoTrxQuH
- kZj5FvDmwsroXCk48yybeNX4Cfy99iDG3yO9XhNZvImtHmOXfaERkKFFdCgVQmif6KAVW/Xz/UW
- sN2F/wqlygsgJFq7dzqAr1KzQHtJKIqkXzdtvvq8Ndjm1nqPHpNPCk8/XeiBQseDjstZ3m3lxJw
- oGgqI6ma1zKM0RE5PpA==
+ a=u7WPNUs3qKkmUXheDGA7:22 a=ZpdpYltYx_vBUK5n70dp:22 a=hD80L64hAAAA:8
+ a=EUspDBNiAAAA:8 a=Hi6WPrPG3QlE4bLLXg4A:9 a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-GUID: o4tKaqLc6hcERrvpO4gxZey-jDw2UBZD
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTIzMDA5NSBTYWx0ZWRfX3QccfNlinDVX
+ Bds1a0/79PWVIW1kuM5IrS0wuE2w+lY0YGmMY+kc8TIJizALr1VFCprf0Av/82h6AE/NTBvOvlr
+ WGSJR23rmHH29AX29I4J21bhaQ+ASSc=
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
  definitions=2026-11-23_05,2026-11-23_01,2025-10-01_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 bulkscore=0 phishscore=0 spamscore=0
- malwarescore=0 adultscore=0 suspectscore=0 clxscore=1015 impostorscore=0
+ priorityscore=1501 impostorscore=0 suspectscore=0 phishscore=0 spamscore=0
+ lowpriorityscore=0 adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
  reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611230095
 
-This series continues Jakub Raczynski's v2 series "Extend MTL/DMA
-support to 16 queues":
-https://lore.kernel.org/netdev/20260601162537.553512-1-j.raczynski@samsung.com/
+From: Jakub Raczynski <j.raczynski@samsung.com>
 
-Newer XGMAC hardware can have more queues than traffic classes: Qualcomm
-Nord is a 25GMAC-based SoC with 12 queues enabled (the core supports 16)
-and 8 TCs. The driver assumes one TC per queue and bounds every TC
-register write by the number of queues, so the DMA/queue count and the
-TC count need to be separated before the queue limit can be raised. This
-was raised in the review of the v2 1/3.
+New datasheets for XGMAC (3.20a and 3.40a, depending on product)
+support up to 16 MTL/DMA queues. Before we increase max amount
+through macro, prepare dwxgmac functions to handle that.
 
- 1/3: separate the TC count from the queue count. Bound the per TC
-      registers (ETS, CBS, weight, TC_PRTY) by the number of TCs and
-      the per priority registers (Qx_TX_FLOW_CTRL, PSRQ) by the 8
-      priorities, and do the checks in the callers so that errors are
-      returned to the user. This is a rework of Jakub's v2 1/3.
-      tc_setup_cbs() is not changed: CBS offload on queues without their
-      own TC needs the HDMA support, which is not upstream yet.
- 2/3: extend the RX queue to DMA channel mapping to 16 queues (MAP2/MAP3).
-      Jakub's v2 2/3 with netdev_err() replaced by WARN_ON(), authorship and
-      sign-offs kept.
- 3/3: raise the maximum number of queues to 16. Jakub's v2 3/3 as it was.
+The only caller, stmmac_rx_queue_dma_chan_map(), walks the queues
+below rx_queues_to_use, which the devicetree parser limits to
+MTL_MAX_RX_QUEUES. A queue above 15 is therefore a driver bug, not
+bad input. v2 reported it with netdev_err() through hw->priv_data,
+but that back-pointer was only added by v2 1/3, which this series
+replaces, and a log line from a void callback does not stop the
+caller from carrying on. Use WARN_ON() instead: it needs no
+net_device and its backtrace points at the caller.
 
-The review of Jakub's v2 3/3 asked whether the other cores, whose per queue
-registers only cover 8 queues, could now be configured with more. They
-cannot: stmmac_hw_init() already limits the number of queues to the
-count reported by the HW feature register, which is at most 8 on those
-cores.
+Co-developed-by: Chang-Sub Lee <cs0617.lee@samsung.com>
+Signed-off-by: Chang-Sub Lee <cs0617.lee@samsung.com>
+Signed-off-by: Jakub Raczynski <j.raczynski@samsung.com>
+Co-developed-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+---
+ .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  2 ++
+ .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 21 +++++++++++++++++--
+ 2 files changed, 21 insertions(+), 2 deletions(-)
 
-Changes in v2:
-- v1 was the MAP2/MAP3 patch on its own:
-  https://lore.kernel.org/netdev/20261016193823.2711773-1-sagar.cheluvegowda@oss.qualcomm.com/
-  Following Jakub's review of it:
-  https://lore.kernel.org/netdev/atXhR0sgdW84YxcQ@AMDC4622.eu.corp.samsungelectronics.net/
-  - add 1/3, which splits the TC count from the queue count, as Nord
-    has 12 queues (the core supports 16) and 8 TCs
-  - add 3/3, which raises the queue limits, so the MAP2/MAP3 mapping
-    in 2/3 can be reached
-  - 2/3 is unchanged
-
-
-Jakub Raczynski (2):
-  net/stmmac/dwxgmac: Extend MTL/DMA support to 16 queues
-  include/stmmac: Increase max DMA/MTL channel count from 8 to 16
-
-Sagar Cheluvegowda (1):
-  net: stmmac: separate the TC count from the queue count on XGMAC
-
- .../net/ethernet/stmicro/stmmac/dwxgmac2.h    |  3 +++
- .../ethernet/stmicro/stmmac/dwxgmac2_core.c   | 23 ++++++++++++++++---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h  | 17 ++++++++++++++
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 22 +++++++++++-------
- .../net/ethernet/stmicro/stmmac/stmmac_tc.c   | 21 ++++++++++-------
- include/linux/stmmac.h                        |  6 ++---
- 6 files changed, 70 insertions(+), 22 deletions(-)
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index 77a54792893b..5b83fe07c1e4 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -257,6 +257,8 @@
+ #define XGMAC_MTL_INT_STATUS		0x00001020
+ #define XGMAC_MTL_RXQ_DMA_MAP0		0x00001030
+ #define XGMAC_MTL_RXQ_DMA_MAP1		0x00001034
++#define XGMAC_MTL_RXQ_DMA_MAP2		0x00001038
++#define XGMAC_MTL_RXQ_DMA_MAP3		0x0000103c
+ #define XGMAC_QxMDMACH(x)		GENMASK((x) * 8 + 7, (x) * 8)
+ #define XGMAC_QxMDMACH_SHIFT(x)		((x) * 8)
+ #define XGMAC_QDDMACH			BIT(7)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index e50c0f4c482d..8aa69647a207 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -259,9 +259,26 @@ static void dwxgmac2_map_mtl_to_dma(struct mac_device_info *hw, u32 queue,
+ 	void __iomem *ioaddr = hw->pcsr;
+ 	u32 value, reg;
+ 
+-	reg = (queue < 4) ? XGMAC_MTL_RXQ_DMA_MAP0 : XGMAC_MTL_RXQ_DMA_MAP1;
+-	if (queue >= 4)
++	switch (queue) {
++	case 0 ... 3:
++		reg = XGMAC_MTL_RXQ_DMA_MAP0;
++		break;
++	case 4 ... 7:
++		reg = XGMAC_MTL_RXQ_DMA_MAP1;
+ 		queue -= 4;
++		break;
++	case 8 ... 11:
++		reg = XGMAC_MTL_RXQ_DMA_MAP2;
++		queue -= 8;
++		break;
++	case 12 ... 15:
++		reg = XGMAC_MTL_RXQ_DMA_MAP3;
++		queue -= 12;
++		break;
++	default:
++		WARN_ON(1);
++		return;
++	}
+ 
+ 	value = readl(ioaddr + reg);
+ 	value &= ~XGMAC_QxMDMACH(queue);
 -- 
 2.34.1
 
