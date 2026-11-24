@@ -1,102 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795479292;
-	b=glmEfsNNU/4NGzJRad0I6uIBcsbSEhE5Gk6HzXytOGiJ0RRxHjYrXE7KG7Ck7U5L1t7A
-	 vhOZqm0Vn43PkxfAVmvXIBO3G5sKAoDuHBL7SgA7soMBbHHcFyHsZjl4d8G7yLzrjc9gv
-	 393zDNM50gJXLW2fOpY/oRDIcV+wU2D4A9A/62nMwyNRvTzCGp2kzfLuex1kXWx1lzWCv
-	 G/d2+o70NSmy53LvkluyJQ6Uv92EeGq8xVdC8EaumN84QyCHC4pNtmnICF34RRPJeABWh
-	 rpTEtgICXiNszQDwsAM0PYsYeIGo60r6+oB2HzcRTyDz6777B0+LQcTuEmS+lP4ROpg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479292;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795479470;
+	b=FVfHqjnKuanu6Pp7x/NCaq/PBUAnxW0SV/bZAOTVXncoD3yUfFenuvOqdmefKdnli/Va
+	 aj3ouaBYITWFKtf+i68tRAgN77Jgs0qcUi2qcb06EDJFqNi8+z88IRjmDkRLsfGi0Gr8S
+	 cZLZOWZcaJy5+539S7i2C0JCAaAAiz38+vB0bgM/x7rcTXafUrrb15I4CxNgZvNOU+L6P
+	 oCwpr3q6410kDenP4rDIdjbkCtmXByzd3cLoBqBRpM4Iye4ikrrQlnJVjKXLZSMOlnhjz
+	 0bdn9nEuXiZudHyUO+XS5Q69REvBLoaTgs/3hcFWE30TWFoD13gaDQV+j09zyd1yeNA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479470;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-	b=hN/DOa8+m2TZQ7h1wS/kuKWO9/Tstu/kW+axP/Gk9ao0aHJBDAUl/slYvq7MZCQq4nqv
-	 xvmnFj8R5Ma/YOJn+HA1kfXK3mK3foB+RUqajGZRvqChmM0XuC1FHOc5vagGYvi7djoT1
-	 zZ83TKGD3nPwzrerKSCwedQ3oJLKdLrFpLnxtbW/rjeP6ovUY0dYs2oX2Jh9wBpDw/F7a
-	 g516FqzssCf33pm01XGy9A6KIZG2NHyaQ2btOfJbZQlm9z8S4sx2B3P3RsOKGoXcoyGoM
-	 uSlVHQMiTAALXJC3l2QQxTh0iTk9fzwDu++DyUtdHf35qxZc0/pgZvAf12lir+0MATg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=hM0eVvv3ckNmqNx1hlLmZhTZXfCWOxofv85JN3p3tO8=;
+	b=TuZJXqzwc2ZxNkPUECu2qAIyYd1E8HIs4FZGk0S4hgzBV5IRyh8P5p8cBV9DLJZE5DWi
+	 egs9JpvR/4zyZC5QZUhybiCYQ1RsDVxGj5yIFmAcQumhytXSakv6HCn94JuAw+uPEH/6M
+	 NLChfOMHSCMfSfrOAB38VwSJY/jnUQtqlAdZztY0mnOejszWDlFgHLmsAuSj/SYan1x0r
+	 FwHvGxhZXfHs1kiwrYsY2kFHaiolHapdhFSiN5kXtOhK16bBaXTLE9Em9+hp1xZueLHvb
+	 7OcWIS9QKVEDK5M4am2XSxd/akwMFBhVQELC0oj78Yh8sZxx5/xMBJYfgdG0VSr9xkg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=stellman-greene.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
-Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y2Y+3jOX;
+	arc=none smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC72A606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:14:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC72A606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 786DC606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:17:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 786DC606A322
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg
-Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-91e8a05ec5aso55304686d6.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:14:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795479291; cv=none;
-        d=google.com; s=arc-20260327;
-        b=fnXHnsEVPNLyEOu3jIghalNDe72zIIHTc4+Z+4c1qpx2B2kpw8Jbl6CJ2pVOJgss+f
-         0enI0vIGZtSFdvZhwhty9gdDOBi21Nxjh6W8D49oGcbBh+RsNgRtQH8Ba7ZkiaFBT1ic
-         lWbU8qaIoa2RVtd/n9SDaefEx/aCSwB/tfTiT9cPrMqYD5e0KPrXpLmNontS+VK1MGyt
-         JqwmnUga/DZWbdRNCyPExCdXSXn5emit+ucNaSVX1yChXlJ7UStEn9/TugNwu0ratRW/
-         0qriW+C6mso+mJ31yyIbWXfL43rm0iwrQ6kqb3r1suMY/GQZ3JwzJk5sf5K7+Im50if5
-         ZG9w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        fh=mwXzGv9uGBgAaVGGlAP3fLINw6Z3Cx8g4QbK6y2Ygwg=;
-        b=FH0zmO+Cfv9ty/wzrj8OmuoJgVU1J+j6VH0tMWsUWjluh3OeKGogNbA6GYiQOMVKh6
-         UBfyYiXhGBsZ2zifCqazLPpR3Tl9M4tVQia5STSR5RaUSNtdm6TZ9K5/89+6jo6Wdr4u
-         ibg+7b9dFX3JAk5h5HkAffMxsWykH7Kd7D3i/xjZXkVVTJbcfC5H6rz11QcnV9VZQVOf
-         jlSKhF1+5/tKbwH1Z7RLxHSsuYcbdFFE+hJ/BlNCA36kuo4QCsH1O1w4Wu4XacjvGvXU
-         lDFNECh0K/0wtY/OxrkhwvjntZi1f7OhH5p3d1XJy6Olph6CPGQsp9+592agqwEgojJf
-         /DlA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Y2Y+3jOX
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-9210f2622ccso48104606d6.3
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:17:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795479291; x=1796084091; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        b=A4QlAUdgzcP4QQMusPEGIU7gYufXHiTJ8so/+IqtSIsFx9qdWKy+wWPDSyd2xBim7O
-         em9Hzsbp4eF2QgZ4E/ZOCukj+tpJjX+cmpgVdlWHIUjhj1jAlb1OeGkCeyVNS4DDCAX/
-         BYFeDw8AXnCxqpICZ+V6oLllWqiAs5S/z5inSGFNlLzh11DcYuyxugkaJJCXppU809jS
-         Eva34bxzf2Ia5lO7ZiS8JMaQuPY3f6nhf4Vcby57ik8Usmh4IlaDvHJ9FU5rTZ4sczsN
-         C37xoJWsTpyn/8InYUPjfzMV3kamioT6+DwmuyZ0CLYB8W4zZfAq5/uvoamQOrjYcfV4
-         c0Wg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795479291; x=1796084091;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=gmail.com; s=20260707; t=1795479468; x=1796084268; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
-        b=Hdh90smEyroZkLU04Ivmma4HT67q9u8mtDX+U00zXfIYb2xJxyNepmOqUiJaUr5nab
-         P5EhwJS3sW76xH3jHdyzUHicI0uM+tldKuOD0qGQgNrwrx5lvmxSoiC3Utj+FPYPNinN
-         I1KNCD3IuojyTmV+6hgBm+ZKGRpALm5htYHjHYIknvwqAN4ob1jovPe5qXF3u7IdZ85M
-         JxiWsTJoDAELxojhllStvAEQEt9wkGUAmzBmkoyYYwQAIY6aB4sxZEjd1QuXc3991sW2
-         Q83Mauc18aBPqViOV6y4eGWrYVz0Wegi1glF1lYl7hCxV9oVqqH0NDkqH2Lm6/L6sYTt
-         7WKw==
-X-Forwarded-Encrypted: i=1; AL+hErGkIXfAVywbkBEu6gL2byp+0rECa0AdvFpWXltcqo7BR/oM3iqvpawBubcToHQcwPu7aA26IRM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8+yhA4qqKTeYN07O0gZVgypGpxJEEHph4C3jENZaBS7HmUDLhp
-	fJ31QVD3easZxfm9J365SlXErEvqfYGgg+oTm3ZnrUotTp6WAbZJ635o0JuMkcX/m7V9lthPtAm
-	uO1B/bJhfr6IRKTxMmaSIPbfvWekeJck=
-X-Gm-Gg: AZFdTZemOfO4NtDWxVeA8usAkZrqxVJqdq6yTbUlz1VuvjSHIzM2hLN4s4D9+yFgtyy
-	TrEQ+4zYCB4mTew/mZpFs+74mlXTXjubfIWx56ImsZmMs2SUs8Bdv8uHxUgRlGeKxRHpt8/E/el
-	qvTq/wvQ8jU3RXIzxX/ie65Fh1aXp5LOKV6HV1A1cmas5lWH2RjUOACXhJEKMwEc994RQlJK4NV
-	N6e3XwPmCuTbVpXO1lxRe5W4gHVIDGoEm2qbC1omUeWKiruQ/ypXaNrKlmKsw6zYDSAp65IhRV+
-	6rlwf6uvPoKZLkTh7aBBKfGzTU8/NUVeDFIALWHVgN0XoRuHtfSGo9F0bwdl+tyKlnefyzocdhC
-	BuNuZXcbjvOB2HdxzDNoYSN8J5tfYQPdG0wO2WTOsHPgFR5Is7IazC2LNLVgpqzHXyAJc5WXCQW
-	WeQD7Nwirri9IvG5mqaSS4tEOg3tZZkJ5VuSvoAio/BkGHO7DVWoW98QPnQVlNe7F4SIu2rqLm9
-	xH/p1WBNMKmavelUQ==
-X-Received: by 2002:a05:6214:85d4:10b0:921:2397:15c0 with SMTP id
- 6a1803df08f44-92134aae88amr174798896d6.9.1795479290741; Mon, 23 Nov 2026
- 16:14:50 -0800 (PST)
+        bh=hM0eVvv3ckNmqNx1hlLmZhTZXfCWOxofv85JN3p3tO8=;
+        b=Y2Y+3jOX1GEao9CJkjI4KQvehfCQRg0hJwPgndNx1Z5vOdWSNye4CzSBlc5r/OPYB6
+         ek+CoV9LSVmKhVw56oBDdwMz8DJcwT8oCagELB27XXlzmH3cn3vaUH6Mpjth9i3G2+Mk
+         SGK4QyYlYoowlgaGWvOgxVZvpILUBaIeZ1iinLLEyo8TDU2MPR9Y76wsZlKFHRCqDFAl
+         Yp6PmdlcMevVox+9ITFfUVtEAkHiqJW0GiOzRpoNxAqUcjw6Mh7rAbomteu15SwjNXRk
+         4trpY7TDJk+sivLCVI8/x9QQ8Kod/UKsqsWIxXyuy0c4iKCHl73Lko3IoL1GO21SSWvv
+         ic/Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795479468; x=1796084268;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=hM0eVvv3ckNmqNx1hlLmZhTZXfCWOxofv85JN3p3tO8=;
+        b=DesGNH5y9Q+UpkmemV8+fcOf5OMxnzySHemVqYKLtNatYZ00vMm3eiEUSfAnj1Ic5W
+         HNHLkFQ5pTkSK1vTQbPJy1pGt3qm5srHKnDiJTGnaOOKdzWvh9xdywLJ3YFL4nzENu3H
+         cigUhbmTY6UYmoYpLfZQhWr/5i0aiDkm8isrwcXH7cnhT4HqPwv0nWZtxmNcl3QS0SRf
+         JZ2XGtwd/mUHQu4BsjAYPoEw/CbQXn7fdj2P0zDJqnoBdP1r559TedXIyNzRqZhIomEr
+         jyH12EbIkvdDXxXwKg6+r2MQ21VxjLEf3/U4dYNLZrmhToMqGNzDCD7cmR/kentUKdSz
+         LjlA==
+X-Forwarded-Encrypted: i=1; AL+hErFc0JYthSTbROAuhek2xToAM3sN0F76SU4jcOmBxx1n73v892dSGD0jQnzWPEw40hh5JbGHqf8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8BklHcAa2sh+zYqO9xy+tkDvQsnyPYgtYsgVJ6z0BsBuPMT06Q
+	APTKGElzY2YjQJtEJS0vU3NJFqUUsaM+c8p9YFiN+Gcj2clMirmeIi1FIj/hhzQl8Y0=
+X-Gm-Gg: AZFdTZdlsh+bjOXDIalcLn60FtjBEM0o5AveCgyyDC7Bkl5Cke8s2Ka3OyY9lILevkR
+	p0RtM/0vZH8U0BtcRkf/7tdUct1t0mvf18odapV6s767VgcdskdefhDjc5t2GngiqZ8KC6pZW2d
+	S/0JUanxe422NbCoX4QX04CptUPHx1NF0tzSeQ9cdtQQTja1S+vMPAjwGG84+JAK8eXlTmG7Q2g
+	Scz/oGK4APKJXyrXrLuug6nZGRJs6wCzP3NYoe+CQTMXppBO8MGLfDx3n/ym4s3nvXpck5dgIyj
+	BjbNPgzwsAeEZVGyhIxmNRo1KtZ1lwF0p4DPc6wXyG+mIMbo6b6/5Iy7vJ9VmjgGcKFuMfmGvhe
+	wmjYj1PsBPbD7UwlVPRtTLl3mv77Z8EgFTviHfVcNF9QbDb/ADMv3i9TNDQMhGKIhFPLmLngZwz
+	lb78xhAnkCuaSOScSn97g95vqmuKNwX1zKxgDNElX46grCdJLSBJS7VLMXE8wAeLV69II+uPoWY
+	Ls4Lz5JWTnraiih3MdOg6FSeCpP7Jai0cdzp5LDT3ESB7sLcXDs33Y9G8dbgIox1978arz11asM
+	ehpJx+Hlck+3PVUCCga2PtG6fMavxaSfGlZI2HbwEdGiLECyKcRbNbEFjIv4jW8nuwS3BGjO5HN
+	CelsmvVmK2atNmX+P7RLx7nm8pz1pRAMo8kA9ZInIRxK+UlTawpMyVQL4z097Txvip+h/PdoKD+
+	DXqYaLgOEp0QDvirnHiN9u6FD0j2e4NLxr6IYkVhf8T6pL2sd7
+X-Received: by 2002:a05:6214:509a:b0:921:394f:72af with SMTP id 6a1803df08f44-921394f72c6mr215749656d6.22.1795479468286;
+        Mon, 23 Nov 2026 16:17:48 -0800 (PST)
+Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:2c1f:24f2:550a:1590])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a24e91sm118927056d6.43.2026.11.23.16.17.47
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 16:17:47 -0800 (PST)
+Sender: Andrew Stellman <stellman@gmail.com>
+From: Andrew Stellman <astellman@stellman-greene.com>
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Tuong Lien <tuong.t.lien@dektech.com.au>,
+	Ying Xue <ying.xue@windriver.com>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org,
+	Andrew Stellman <astellman@stellman-greene.com>
+Subject: [PATCH net v2] tipc: free the tunnel packets when failover tunnelling stops early
+Date: Mon, 23 Nov 2026 19:17:39 -0500
+Message-ID: <20261124001740.83267-1-astellman@stellman-greene.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,136 +108,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261122233958.10462-1-astellman@stellman-greene.com> <179547862919.3135.6087887655063297728@kernel.org>
-In-Reply-To: <179547862919.3135.6087887655063297728@kernel.org>
-From: Andrew Stellman <astellman@stellman-greene.com>
-Date: Mon, 23 Nov 2026 19:14:39 -0500
-X-Gm-Features: Aa3M54r8LqYwCwZHSInNPFAsZl3pmCroukwtjzOFoNnEUp-H2sQ6lvQOIHcivKs
-Message-ID: <CAChPuV88P4Uf8BBxAhrM044ozX21ZCiPqn4J3-vLc-x_Gz_wiA@mail.gmail.com>
-Subject: Re: [PATCH net] tipc: free the tunnel packets when failover
- tunnelling stops early
-To: netdev-bot+sashiko@kernel.org
-Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	tuong.t.lien@dektech.com.au, ying.xue@windriver.com, netdev@vger.kernel.org, 
-	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Agreed: that return also skips the FAILOVER_MSG hand-over, and goto
-out is safe there since tnlq is already initialised and empty. I'll
-include it in v2.
+tipc_link_tnl_prepare() returns from the middle of its tunnelling loop
+when a packet does not fit the tunnel link MTU and the peer lacks
+TIPC_TUNNEL_ENHANCED, when fragmenting such a packet fails, and when a
+tunnel packet cannot be allocated. The tunnel packets already built on
+the local tnlq are leaked, and for FAILOVER_MSG the receive side
+hand-over at the end of the function (drop_point, failover_reasm_skb,
+deferdq) is skipped.
 
-pw-bot: cr
+Purge tnlq on these paths and go on with the hand-over. The earlier
+return taken when the dummy tunnel packet can't be allocated leaks
+nothing but skips the same hand-over, so take the same exit there.
 
-On Mon, Nov 23, 2026 at 7:03=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The patch leaves one early exit in tipc_link_tnl_prepare()
->   (net/tipc/link.c) that still skips the FAILOVER_MSG receive-side hand-=
-=E2=80=A6
->
-> --
->
-> tipc: free the tunnel packets when failover tunnelling stops early
->
-> The three early returns inside the tunnelling loop of
-> tipc_link_tnl_prepare() now jump to a new out: label. That label purges
-> any tunnel packets left on tnlq. It then runs the FAILOVER_MSG receive
-> side hand-over (drop_point, failover_reasm_skb, deferdq).
->
-> > diff --git a/net/tipc/link.c b/net/tipc/link.c
-> > index 6427c69f89294..2fead2f4ed0fa 100644
-> > --- a/net/tipc/link.c
-> > +++ b/net/tipc/link.c
->
-> [ ... ]
->
-> > @@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, s=
-truct tipc_link *tnl,
-> >               }
-> >
-> >       tipc_link_xmit(tnl, &tnlq, xmitq);
-> > +out:
-> > +     /* Empty unless tunnelling stopped early */
-> > +     __skb_queue_purge(&tnlq);
-> >
-> >       if (mtyp =3D=3D FAILOVER_MSG) {
-> >               struct sk_buff_head *fdefq =3D &tnl->failover_deferdq;
->
-> [Severity: Medium]
-> The commit message says the fix is to "go on with the hand-over" when
-> tunnelling stops early. Should the earlier exit, taken when the dummy
-> packet can't be allocated, also jump to out?
->
-> That path in tipc_link_tnl_prepare() still returns directly:
->
-> net/tipc/link.c:tipc_link_tnl_prepare() {
->     ...
->         skb =3D tipc_msg_create(TIPC_LOW_IMPORTANCE, TIPC_DIRECT_MSG,
->                               BASIC_H_SIZE, 0, l->addr, tipc_own_addr(l->=
-net),
->                               0, 0, TIPC_ERR_NO_PORT);
->         if (!skb) {
->                 pr_warn("%sunable to create tunnel packet\n", link_co_err=
-);
->                 return;
->         }
->     ...
-> }
->
-> tipc_msg_create() allocates with tipc_buf_acquire(..., GFP_ATOMIC), so it
-> can fail under memory pressure. If it fails for FAILOVER_MSG, this code
-> never runs:
->
->     tnl->drop_point =3D l->rcv_nxt;
->     tnl->failover_reasm_skb =3D l->reasm_buf;
->     skb_queue_splice_init(&l->deferdq, fdefq);
->
-> The caller goes into failover anyway:
->
-> __tipc_node_link_down()
->     tipc_link_tnl_prepare(l, tnl, FAILOVER_MSG, xmitq);
->     tipc_link_reset(l);    <- frees l->reasm_buf, purges l->deferdq
->     tipc_link_fsm_evt(l, LINK_RESET_EVT);
->     tipc_link_fsm_evt(l, LINK_FAILOVER_BEGIN_EVT);
->     tipc_node_fsm_evt(n, NODE_FAILOVER_BEGIN_EVT);
->
-> tnl->drop_point then keeps a stale value. That is 0 from link creation,
-> 1 from tipc_link_failover_prepare(), or whatever an earlier failover left=
-.
-> tipc_link_failover_rcv() then does this:
->
->         if (unlikely(less(seqno, l->drop_point))) {
->                 kfree_skb(iskb);
->                 continue;
->         }
->         if (unlikely(seqno !=3D l->drop_point)) {
->                 __tipc_skb_queue_sorted(fdefq, seqno, iskb);
->                 continue;
->         }
->
-> Could this drop the peer's tunnelled messages? Could it also leave them
-> in failover_deferdq for good, since drop_point only moves forward on an
-> exact match?
->
-> tnlq is already initialised and empty at that point, and the out: block
-> only touches tnlq, l and tnl. So changing that return to goto out looks
-> safe.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261122233958.10462-1-astellman%40stellman-greene.com
+Reproduced on net (af6737b90668) under QEMU with kmemleak, with two
+guests joined by two TIPC eth links: MTU 9000 (active) and MTU 1500
+(standby). The receiving guest runs the same kernel with
+TIPC_TUNNEL_ENHANCED removed from TIPC_NODE_CAPABILITIES, to stand in
+for a peer whose kernel predates that capability; the sending guest's
+kernel is unmodified. The sender blocks the MTU 9000 link in both
+directions with tc, sends three 100 byte messages and one 4000 byte
+message, and waits for the link to fail. Without this patch that logs
+
+  tipc: Link tunneling error, too large msg <0, 2>: 4040!
+
+and kmemleak reports three skbs (six objects) allocated by
+tipc_link_tnl_prepare():
+
+  unreferenced object 0xff11000004d34780 (size 472):
+    backtrace (crc dd2ea0a1):
+      kmem_cache_alloc_node_noprof+0x296/0x3a0
+      __alloc_skb+0xde/0x890
+      tipc_buf_acquire+0x1d/0xe0
+      tipc_link_tnl_prepare+0x94b/0x1960
+      __tipc_node_link_down+0x4ae/0x13e0
+      tipc_rcv+0x2187/0x2e20
+      tipc_l2_rcv_msg+0x1d8/0x2e0
+
+With this patch the same test logs the warning and kmemleak reports
+nothing. With a 1000 byte message instead of the 4000 byte one, all
+four messages reach the receiver over the tunnel with and without this
+patch. The allocation failure paths and the skipped hand-over were
+found by reading the code and were not exercised. Apart from the
+receiver's capability change, no kernel changes, fault injection, debug
+code or delays were used. There are no TIPC selftests to run.
+
+The issue was found by Claude Opus 5.5 running Quality Playbook, an
+LLM-driven code review tool:
+https://github.com/andrewstellman/quality-playbook
+The fix and this changelog were drafted with Claude Opus 5.5 and
+reviewed by me.
+
+Fixes: 2320bcdae628 ("tipc: fix changeover issues due to large packet")
+Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
+---
+v2: also take the out: exit when the dummy tunnel packet can't be
+allocated (Sashiko review).
+v1: https://lore.kernel.org/netdev/20261122233958.10462-1-astellman@stellman-greene.com/
+
+A reproducer is available on request.
+
+ net/tipc/link.c | 13 ++++++++-----
+ 1 file changed, 8 insertions(+), 5 deletions(-)
+
+diff --git a/net/tipc/link.c b/net/tipc/link.c
+index 6427c69f8929..ce6739d6cbba 100644
+--- a/net/tipc/link.c
++++ b/net/tipc/link.c
+@@ -1995,7 +1995,7 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
+ 			      0, 0, TIPC_ERR_NO_PORT);
+ 	if (!skb) {
+ 		pr_warn("%sunable to create tunnel packet\n", link_co_err);
+-		return;
++		goto out;
+ 	}
+ 	__skb_queue_tail(&tnlq, skb);
+ 	tipc_link_xmit(l, &tnlq, &tmpxq);
+@@ -2035,7 +2035,7 @@ tnl:
+ 				if (rc) {
+ 					pr_warn("%sunable to frag msg: rc %d\n",
+ 						link_co_err, rc);
+-					return;
++					goto out;
+ 				}
+ 				pktcnt += skb_queue_len(&frags) - 1;
+ 				pktcnt_need_update = true;
+@@ -2043,19 +2043,19 @@ tnl:
+ 				continue;
+ 			}
+ 			/* Unluckily, peer doesn't have TIPC_TUNNEL_ENHANCED
+-			 * => Just warn it and return!
++			 * => Just warn it and stop tunnelling!
+ 			 */
+ 			pr_warn_ratelimited("%stoo large msg <%d, %d>: %d!\n",
+ 					    link_co_err, msg_user(hdr),
+ 					    msg_type(hdr), msg_size(hdr));
+-			return;
++			goto out;
+ 		}
+ 
+ 		msg_set_size(&tnlhdr, pktlen + INT_H_SIZE);
+ 		tnlskb = tipc_buf_acquire(pktlen + INT_H_SIZE, GFP_ATOMIC);
+ 		if (!tnlskb) {
+ 			pr_warn("%sunable to send packet\n", link_co_err);
+-			return;
++			goto out;
+ 		}
+ 		skb_copy_to_linear_data(tnlskb, &tnlhdr, INT_H_SIZE);
+ 		skb_copy_to_linear_data_offset(tnlskb, INT_H_SIZE, hdr, pktlen);
+@@ -2073,6 +2073,9 @@ tnl:
+ 		}
+ 
+ 	tipc_link_xmit(tnl, &tnlq, xmitq);
++out:
++	/* Empty unless tunnelling stopped early */
++	__skb_queue_purge(&tnlq);
+ 
+ 	if (mtyp == FAILOVER_MSG) {
+ 		struct sk_buff_head *fdefq = &tnl->failover_deferdq;
+-- 
+2.43.0
+
