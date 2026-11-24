@@ -1,68 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.84.171
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534665;
-	b=c0A16NCyCOL+DKvTleSbhTYCHrpHIM/qL8SawYSmkTsMmdxj4QO+wadPJHW/dLJbX0hW
-	 gbrealWxOHeV3tkoBX7WgLy5I6u7xb7QchoBpH6rHGPgvOso4LXioPraZrq6vWeEKqZk6
-	 sgrmkWocOsUGMr3wrmSUlo6ITK1LItJe6d4geAPb/WYYMp1/ttmV5QMz++NPNeiW/6fVc
-	 jo96+lqytBoEjD13tMIMscrhhAYJ+Via1vYfcrF87e/c7pfrFq+95XQyvCYB2YzhFvMt1
-	 jVVma4d4fNiMitKsohgPUSJLY3PpOoW3G9H8DUoxSQcvanGPsU60NaioSnCx8/iBawg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534665;
-	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
-	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Info:X-Authority-Info-Out:
-	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-JNJ;
-	bh=BmUU93uhr5OsPAnEIhNQgL1kE5fNwW5hzTfoPEFRphw=;
-	b=j4tqIzmixM4kgnHvaX9vh1FiFWixHyl622DJEkhaAhaEv3rvKy8jJMVPcDJnkk9blijC
-	 jV0RB4wP0KPCesW/zgRWU8Bn52JHKlozWzvEVQjdXwL2dL0v3QyfzSnhtcYbrYgrns2t/
-	 Bxd94RjAUUOOxgVqahwtDeBb8EDqo+zL4uXeV+1jJwvTFCRc57oImJDKQwHmDjolsac1T
-	 9eLsn5IVG52UTsKuAcWrECOrPxh9NL/LmJkTCMzQsiQDwciUe541Nc3eGtZgiGAIMGmmD
-	 K0YcdG70P/p6uVG2gX7h5qm5FX5NZxvg6wJxbG9z7dnQ7Lr7XWPOCb3mEqQufuzdIrA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=verdict.gg;
-	spf=pass smtp.mailfrom=verdict.gg;
-	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Hvw5pVnx;
-	arc=none smtp.remote-ip=57.103.84.171
-Received: from outbound.qs.icloud.com (qs-2007d-snip4-11.eps.apple.com [57.103.84.171])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.33
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795534676;
+	b=w+tsTgciC8fyW5x3wKPjFIh41SRAW3IfeN+gBRVNYOnDQ4bBAbApk2luZI4G0mYL/RMb
+	 h60vdtUPQc0cvZ1IrkDidO+jxu9GzPObLP1XBaDDV7qyHxYkyC1MYd/Q6m+FhvpfoyjaJ
+	 M3xeBznWcYaLeF4qKIcEUxzn6K7yKyL9mEKbuuuZqxBhplVgZuFdl7b2nF5DwUW8ogl8C
+	 YPa9bdbEs6txEHcFE1vfbumlLqUJFPDfLh09yxI6VAP8IeXNVaUBiTr5+FHSD72L3A7Kq
+	 +CtvHxpsgayKlQaHEBaOGPrs/Wd4iR0AGNXQ4vlHQl9EoZXx6O3p/ERc/XWK/yK6iFA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534676;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=yd6RMuTmT8RrR/1Jb7xP5+vJ2rwKD9yrzTLhWXgT3tc=;
+	b=HaEVuYTr1mr3p7eCIUoFNz7d20/PxbZ4wACZhRJYzVm42ddEu6k9t234ggaXPXpYGVv0
+	 cqJydrlmvxhYk7p3ILvj1rqxqB9kWrRSifsBYbePpswku+56XmYYZSs6/nY8Wu87raI7J
+	 gkpqXy8ifqkhUEdTQG+qqdoeo40wcQOHfAQS0qWmCz4ZrhAQvh6PbUvhyJWPzYDJcgoks
+	 L8w5cRhgly0arE4btpt7LC5cGOc3b/k0vH9bdJOMZXlajflLM9hNSFveENwkab50VWJdQ
+	 WSC1IpxZPcUUKIdXF33cWiAB7L+yLTqNhVuQSbkOQQaMsqj4fZtO1yMt8j3jXC14aVw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=RJC0xy+P;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.56.33
+Received: from BN1PR04CU002.outbound.protection.outlook.com (mail-eastus2azon11010033.outbound.protection.outlook.com [52.101.56.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 03150606A683
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:37:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 03150606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EB07606A327;
+	Tue, 24 Nov 2026 15:37:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EB07606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=Hvw5pVnx
-Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPS id 2752D18002BC;
-	Tue, 24 Nov 2026 15:37:43 +0000 (UTC)
-X-ICL-RepId: 01a20e34-ade2-714c-809d-5fbc2ff6bde9
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1795534663; x=1827070663; bh=BmUU93uhr5OsPAnEIhNQgL1kE5fNwW5hzTfoPEFRphw=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=Hvw5pVnxAC+O6k5JcJQuMYXHGcDdGPH1PC2DxiiRMVpWAFaWXj+bW2pgOPSpJ1TKdSdlGne3NTy7pn6K0YJ3rnONHyY+hQipHF9uyzbNa8OM5gAfFty68BWINJ5t1SFrjPy7c3QB9Dh5UkRy+Rs4AETtMQVhkr99+1RQFZMHbyZEY8YzGqtBIeyUkRX95yc3gE59RCOfSti9gsw3WtokmDIlfDSNRyL7uet+iBeFBnmVGqXv67MrkE9G4NuHpD8GmAqTrQgXCN3Xs/gWucMwtVCk4o3yqKi6ZNOvnFqTi4osyonnw1977WxcPo6NWXg+GU+XCCOoi8tVELGY8HKQ6Q==
-mail-alias-created-date: 1621344842221
-Received: from DelNac.mail.msk (unknown [17.57.155.37])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPSA id 26A8518002A8;
-	Tue, 24 Nov 2026 15:37:41 +0000 (UTC)
-From: Vladimir Vdovin <deliran@verdict.gg>
-To: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=RJC0xy+P
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PE3UF07T/0KKiut+zxLPEnf9RPg5acZJQh3r1bgRnSn7Z5HnxXopmyPDQw3XWcQGjdtOIG2yRyFIqeqcg1xvruz75aRBuDMjY7LnV7EZ1Ri7xwb+0EC52rOod4HlrgvCTYLhxtGfgx77CgVDhRVPgEbvCdPPgLuHt21PxxEucIl+5+yBIqganGIk3i+/u1qBKhOZgZYMj0TezqDZDErD9or5F4dUxJ0jxwRUKkE4cVneEW2x0SztesgGzdKtYrYaVgTjYkJnQwmEKTXkFrxX3Bfr4AT4zaGoN5yZTInb334TcfKnCEnrEdn/QJAKMHbqywpchgIKkpRWPp31Z+iP1w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yd6RMuTmT8RrR/1Jb7xP5+vJ2rwKD9yrzTLhWXgT3tc=;
+ b=GRj8D6W+zcxye0JUHvNjXRoeanwokFvjXWPZFgiFwgIVWQgWYIhCSw62WTQbdkRjW7HUAuGFrMKQ218e7SdDU4NvFEpOySmXtVXpP+coHbEKm78hAesTG4OhvE6DnJckn/Vxzh367ovUc9rZEO3yxo/ZeRSd1GuwqxbJSoF4VApobdLOMdg8GEI7ZCHTAlLQrPPexKzzp4pfnCeDWZAxApIYGrOz78RBwWge0GAPOiYsZEJEn/WRZ2yh7DT91pnEYm+n3hHMHNTxL36aBfUori9SrhazecKzatYXb3QmdiMhGsOXNjI8cmT4+ldAgYG6y1jZmLpmbtlogIw/H7RnGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yd6RMuTmT8RrR/1Jb7xP5+vJ2rwKD9yrzTLhWXgT3tc=;
+ b=RJC0xy+Pz71uVhanE5pRRvS6TepXr4l1OOEtmuC9YIlQXWldIT6N+X3Px/tAe+885fWA3BdaMEHsZOJmQbXKGmDeZ62K1KjsHaXeP17F3NK9FoPtXbMBjbFDIyXckEPt1ytpsuHJaiug64GN9iO0F3LHwNprNN5pow6Og5obRkS7mEDipyMtrCJzVuLwAazlUyrdlwzYOJXdCriXFOHGyyOXZVOEYTkeq1ZoL6bP9sP26cK/PaBqZKeK/NlMz2b/s4SPvTTsrWQ2jxRUcx/Erq6RzL+BwR9TDHfq0VyMR2YqVYgX4LvOrTEzXKTfgNDa/ZHKQ15u0znyF6wckMA6oA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from CYXPR12MB9385.namprd12.prod.outlook.com (2603:10b6:930:e2::13)
+ by CHBPR12MB319464.namprd12.prod.outlook.com (2603:10b6:610:409::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
+ 2026 15:37:52 +0000
+Received: from CYXPR12MB9385.namprd12.prod.outlook.com
+ ([fe80::f8b:8279:83a9:3591]) by CYXPR12MB9385.namprd12.prod.outlook.com
+ ([fe80::f8b:8279:83a9:3591%3]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 15:37:52 +0000
+Date: Tue, 24 Nov 2026 17:37:42 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Yifei Sun <yifei.sun@inria.fr>
+Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>
-Cc: netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	Vladimir Vdovin <deliran@verdict.gg>
-Subject: [PATCH net-next 2/2] selftests: net: pmtu: Add a multipath test with paths of different MTU
-Date: Tue, 24 Nov 2026 18:37:30 +0300
-Message-ID: <20261124153730.56549-3-deliran@verdict.gg>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261124153730.56549-1-deliran@verdict.gg>
-References: <20261124153730.56549-1-deliran@verdict.gg>
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net 2/2] selftests: net: test IPv4 nexthop fallback in
+ the same trie leaf
+Message-ID: <20261124153742.GB3946712@shredder>
+References: <20261121182031.36626-1-yifei.sun@inria.fr>
+ <20261121182031.36626-2-yifei.sun@inria.fr>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261121182031.36626-2-yifei.sun@inria.fr>
+X-ClientProxiedBy: TL0P290CA0001.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:5::15) To CYXPR12MB9385.namprd12.prod.outlook.com
+ (2603:10b6:930:e2::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,158 +103,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfX2bMOWvnmVPrP
- HIxpvaGDrfMjxdlCAvG2P0K2PHeuT+THL8sTsqD5xlLaiZlhSfNqd2QOV78Bhcj/bfXywaqM4jK
- rdEE0ImJNa3FRCy/OwcTqtu37FYWAcY=
-X-Authority-Info-Out: v=2.4 cv=PYZqFShd c=1 sm=1 tr=0 ts=6b05af47
- cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
- a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=HxOO8S7qDNDRVQTpMkN7:22 a=1-P0SRgB0hgiDeu8hSP7:22 a=W74Lhd9-C7prWGa38HQA:9
-X-Proofpoint-GUID: BUejfQcTUNiKPssilSLA_do0t2B1yxcm
-X-Proofpoint-ORIG-GUID: BUejfQcTUNiKPssilSLA_do0t2B1yxcm
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfXypqbsGHB+jab
- i5T9W+vpY3vdCb2JOFUilmlRJwfIba2fDVDUA/65rQ0Pm8IPTAel/cekDwTeR3DdS4c2bpEA7n+
- RamoNyv6IWqOOo5TPkfaMqWoKrPR7dD1j837qXaC+FnYnGs/aBpSIrp+91a1+sA2iI4jEzXV1bs
- 7cb0fOsMjyNbznMVMlUkudjeKSCddNp0vXrb+XW83WskwpCUPjvvSKURXenl3OMkKMrA0ytsZXx
- pJSNKDVi3YLzS9debOt62faMsA6xulAPo+kEmBB381ynji/jtxSqfBBqoM42B8zvr9QlUsVi1qa
- jRCOE/Mw0SREBO/dLDMitGVJShw4ijA/HwYTz+JyrkMtNa+lCm/WZ1sRsuOTZg=
-X-JNJ: AAAAAAABUR1p02ohqzzoZgrJ5V/iVr9Pvv7cQg/bY+CmgjOrBfNpC0LKrIfjcrTHmwzIlS
- qIHqwoY3/M9lc4NxhRjWeB9ixontFMW06SCTIkVLcdUl8Z9zySUARLzBkvfifzqVBYBx7X
- FrcoMOwQkPj4L0YP/nlKpN1kHmiIVSfNZhQoHbwPjwNQuXt8yoY85jbnsiUmY5vfYZCEN8
- +hnE7LIHLaMkRvVorqenuDw2/ML2jJEOqW09U0/GX53RkU9Z+QkT8TqbqYchFBqSnCsMS8
- +Xebo2FpBcZzyCIP1huJp/Erz/oUGxXtIXU7flkoAzE+wHIwGdjPlDIp3NpY6VqwSOeoXR
- nPA/PtgLDy8/Ubuds3TC2vyucBudOQiKoJwHupI3ECIUsXkTdHkwhi1jInsfKPx+W+Tv+e
- Pe7VqGGOlSHEWrxidmZTbMzvNeIuZk1hzWpa1ndh+5ktGpVTAopxPbm3QEfleSIjDIz1cQ
- ZxtvXNG+CzjXLTTPfhO7RhP15TM8LfkH57MPLp0+gyFcBB4DwuYKmYDonfOPFVwNTd8gv1
- sL4RgWv64/4j/aOGZhMRAsGBHU/VpIZzFSAe37IFYrj/+wYLhGCo6JRIxjl6oASPSGMoBf
- mHKxVsbUMmPnl3Ns/ReCs/wnyEvoejkgWKh6h0Vl/1CBpt8eJBW+a16jqtT6zKTOtKzH/e
- wi+SGA0Dfv4y1om9lJnsj5My5QJzoHj0+YLuQ8ohFiokBvRlQU6bFZ89dR6UBA8W8HJMlo
- inoDVIipu+2X1BaAV4t2U1o9FOrWU7XpwCXTnneK/Zix9tc6yiVYtSgfqsaFJGCt2N+eeM
- b47pIOwNaqCdlIzGMqd5bTD/Cl3x1BZOGg==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CYXPR12MB9385:EE_|CHBPR12MB319464:EE_
+X-MS-Office365-Filtering-Correlation-Id: 88d15730-ea3d-4051-3f77-08df4a40e6a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|376014|7416014|23010399003|366016|6133799003|261009223027099003|22082099003|18002099003|3023799007|4143699003|56012099006|11063799006|261028144727099003|261102123227099003|261026140227099003|261022105027099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	Lycxi7B/eMuxzrNkNsQMLdwser8QAS38T/qR9ixsPzUZKE8Lu/SamfCe1PCiZcTBjIxZq1SmdNGWtUv9lk1Adu6HaawP8Ezs/tYMLvYe9I01qaLNfjwng8brlBHiqK6WTlxEd7kCxapy9xaaS6nSItym/LmVkrjEjH2qmOrVnhtEklvaRM9zbwzJnBXsqSERRsZ3VEdrIV5oELNsKHKdmjylTMnWOihx3MQvVownqfZTpE6PWhmB5tR105S7z6xS1IosaHqb2nmNmUTQWL4xAGhQAICQq/AHlPtrXWuy9d0Q6u0EgXdx6YRas7Fi/+et9HTI9Bqtk6+IX6vZhNS9wno0GJck1TXuqTPzoi4lk3jJgv2HuXNtm47UA1rZ5KUUYwS4BIUq4BgQC0KT7eTmj0iCIQDzcLZRwul/D5qtP3A8uq5w2wlCO/DoVhHFHKVogqkxKRq+iKPR+IJ897+mzXtxQyleH2wXiuHljnohW0NV0Ri1Qxh7xy9pwjOYN7g89a7RNyHcmcH5fDzTpODzwqEsR0+RrxHkic+3cmDnxlWMUpHniKpVnqODJgx4mv4QHGvDnrP+KeeIBTKmKPxBKvflRbbkps5oQ/sL7GLIHDHjyvQTF/OU+/U3Uzz2SUV66TnWkCpx4R7Ui+KZY/bEVqS+TuEznzHWPHa+ZcsxUnc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CYXPR12MB9385.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(23010399003)(366016)(6133799003)(261009223027099003)(22082099003)(18002099003)(3023799007)(4143699003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026140227099003)(261022105027099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?g1DoAFvYvMLWX84cG70GB2hYKgTDQKQOvvYVs8GLaMFSd/6Y4apaUssI9U9g?=
+ =?us-ascii?Q?vSzVn8uWgIUiwqQltj2F7qilZsaS1lAF67fCArlNi8eoOC+DO1tukJ8osC1i?=
+ =?us-ascii?Q?6LPSt/xmU3k6x9IY/cAPaw4cdlFJUhI3MhRGDBu02X6Eyjd/pDe4jqV1kPPl?=
+ =?us-ascii?Q?cSrBLGI5hoS/N1KryockgfOTZISRozx/mbRllZdbeO8iFZfkL3+nq/zDJFIH?=
+ =?us-ascii?Q?SpQCXr3KdSqA4ckinFsjZmR+vHO6aQjQouXBs10Mv18spA0/CI7brxREtVki?=
+ =?us-ascii?Q?hWYSpIa0tLavmomRrpyo8D+CHDxEXkuwOV0ys8ZzZYCkPn0JLenRQolKvdzI?=
+ =?us-ascii?Q?pp27FsfBuQUSg/140SUhpj/mFXJRjY/8CEvF6yYZTvQxOSmHDkO4ZOgIn65q?=
+ =?us-ascii?Q?orWjItU93wH8VJyHtkfHDchOTmRNrYcDjShdqbFsiNYPCxgT3LJIaVHzNxnp?=
+ =?us-ascii?Q?hwl3+CHO+2pIv1MgivRnqD/7sWyxW7GjqfFPThFvTlFAoZLl+71cLb1Pm53A?=
+ =?us-ascii?Q?KZQRUyvRrgJY2F+X5nzrybjK+vOvyPTRLzK8Ow5XdG80MFkMi8Ez8Fii50oh?=
+ =?us-ascii?Q?y7K5x+AZW6MUQOSdydZ134xz01+jHvEqHh3gOyBGIzDvb1IG/0qWALHaey7D?=
+ =?us-ascii?Q?JP9CncpPzLhJgw+DuEnqKvCTEsxYAD1iHVaGL9LpS4W//6qR/zumdepFlo9m?=
+ =?us-ascii?Q?Qe1Yq//Bo+YlsS7p4ypaPpAPwhkA8c2d0Ekyiwq8EC9XK9tpmrHaJ0M27pNg?=
+ =?us-ascii?Q?VMcNsxq+n+G5aUOgGbku8ZZeoE1lr1cagIJn56nNOApfChIyvMjUTc06vNW7?=
+ =?us-ascii?Q?HyRVY5g1HBlrH54whCxgEsws+ZsIGF5SIMbvzS6NI3sFyjtfzQTqpT3mmn5X?=
+ =?us-ascii?Q?7vBMBkty/bqHeqH9w3EeVP0Jg/d/YzjZnF3+wWS9NCu39zllT5U69ICwdHjM?=
+ =?us-ascii?Q?aO/9cLmVRzNShhIowy0dJbVXmZThEFcKCkPOIO4ABAf4uCy8AoFIrz9bZCCW?=
+ =?us-ascii?Q?KOGRH6dHsTJpOkspZjTWsR72i9yfkYhyzj+/SADKY64Wj66hPie3B70YevK8?=
+ =?us-ascii?Q?5FXE1SHH6lK8rIvR7WHvUUKY4n0Fd88X8/RHQrN7VFUp89Sh/c0ouBAemS8i?=
+ =?us-ascii?Q?ma2OaaxnDF3LMwHA9bvLLBE0xHRfMR9Hr+4lMyN9Fg2CilPTqSYCetX926fb?=
+ =?us-ascii?Q?jjsV+kPa4uHsR40EsTV9mb9Pl9momD6abvNarfn4Eayk0jQrReMgTa54B2Bg?=
+ =?us-ascii?Q?GyKs3P4rxqM1i70U7Rs8zJRBp0gabaeqyj9TPpQDVrI/QaKHA2J0Xyu10Lqc?=
+ =?us-ascii?Q?5f/S7zXqVv5NHSTvZ4L3qA0WN3PK3k6+yktQtSksoamXw75TKx5Dc1oCVmjM?=
+ =?us-ascii?Q?UPktKIgjMDoN052kq018sJjv/LTzAautsWV9t4WVJ4OqvSTEbHm9aeo6vjRP?=
+ =?us-ascii?Q?L3HUVm90QCC/gUN96lNFHBeLD2Bc1mH4NZxd26TJBo73OWRk1W1qhpuunHoU?=
+ =?us-ascii?Q?4YaWdtu7VjBBjAd4eKeWS+WhEIs2vIKfkXATG7rEBB5/BnXZALBEYMUmZ37P?=
+ =?us-ascii?Q?mGgBTafXXG+hzdpsfiMv2Mdw+dozfD/FGcA+cWGObeZmMJwqMXf60o6+8a3q?=
+ =?us-ascii?Q?CYcj0Bh9eqdq5TO6TX05fvJbK2VZ+Jw8L3J/ULk7FJjvvFfBl2KjrJyTBIgD?=
+ =?us-ascii?Q?XSXMIkrnK/Vh2GFBdN1tfAxFU40mbsDtDZi1xKwJ0sYohPcV?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 88d15730-ea3d-4051-3f77-08df4a40e6a7
+X-MS-Exchange-CrossTenant-AuthSource: CYXPR12MB9385.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 15:37:52.2023
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0u5H4OGbacUADdl6srSgdUEBaWzT9Dz9LuDurVVZSOr/eETvJbsGVF66BWUSGVJ2vrTUdsQGbVad/aRBWQdHpQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CHBPR12MB319464
 
-Add pmtu_ipv4_mp_asym_exceptions: the topology of pmtu_ipv4_mp_exceptions
-with an MTU of 1400 behind one router, and 1350 on the link to the other
-router with 1300 behind it. Pick a flow through each router, a source
-address as the IPv4 multipath hash covers addresses only by default, and
-check that a Fragmentation Needed from the first router is cached on its
-path only, as the second one can't carry 1400, then that a flow through
-the second router lowers the PMTU of both paths.
+On Sat, Nov 21, 2026 at 07:20:17PM +0100, Yifei Sun wrote:
+> Check that a lookup bound to veth1 selects the nexthop object, while
+> one bound to veth3 falls back to another route in the same trie leaf.
+> Cover both a shorter prefix and a higher metric for the same prefix.
+> 
+> Signed-off-by: Yifei Sun <yifei.sun@inria.fr>
+> ---
+>  tools/testing/selftests/net/fib_nexthops.sh | 23 +++++++++++++++++++++++
+>  1 file changed, 23 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/net/fib_nexthops.sh b/tools/testing/selftests/net/fib_nexthops.sh
+> index adbec51917eb..38bb56f28187 100755
+> --- a/tools/testing/selftests/net/fib_nexthops.sh
+> +++ b/tools/testing/selftests/net/fib_nexthops.sh
+> @@ -22,6 +22,7 @@ ksft_skip=4
+>  # all tests in this script. Can be overridden with -t option
+>  IPV4_TESTS="
+>  	ipv4_fcnal
+> +	ipv4_oif_fallback
+>  	ipv4_grp_fcnal
+>  	ipv4_res_grp_fcnal
+>  	ipv4_withv6_fcnal
 
-Without the preceding patch the test fails with both legacy nexthops and
-nexthop objects.
+Please add a matching test case for IPv6. Ideally both address families
+should behave the same.
 
-Signed-off-by: Vladimir Vdovin <deliran@verdict.gg>
----
- tools/testing/selftests/net/pmtu.sh | 74 ++++++++++++++++++++++++++++-
- 1 file changed, 73 insertions(+), 1 deletion(-)
+Also, this test is more about the lookup semantic than nexthop objects,
+so I suggest moving it to fib_tests.sh.
 
-diff --git a/tools/testing/selftests/net/pmtu.sh b/tools/testing/selftests/net/pmtu.sh
-index c7cd271714ef..a5d602a453c9 100755
---- a/tools/testing/selftests/net/pmtu.sh
-+++ b/tools/testing/selftests/net/pmtu.sh
-@@ -203,6 +203,13 @@
- #	on host A and B on lo reachable via both routers. Host A and B
- #	addresses have multipath routes to each other, b_r1 mtu = 1500.
- #	Check that PMTU exceptions are created for both paths.
-+#
-+# - pmtu_ipv4_mp_asym_exceptions
-+#	Same topology as pmtu_ipv4_mp_exceptions, with b_r1 mtu = 1400,
-+#	a_r2 mtu = 1350 and b_r2 mtu = 1300. Pick a flow through each router
-+#	and check that a Fragmentation Needed from R1 creates a PMTU
-+#	exception on the path via R1 only, as the path via R2 can't carry
-+#	1400, then that a flow through R2 lowers the PMTU of both paths
- 
- source lib.sh
- 
-@@ -272,7 +279,8 @@ tests="
- 	list_flush_ipv6_exception	ipv6: list and flush cached exceptions	1
- 	pmtu_ipv4_route_change		ipv4: PMTU exception w/route replace	1
- 	pmtu_ipv6_route_change		ipv6: PMTU exception w/route replace	1
--	pmtu_ipv4_mp_exceptions		ipv4: PMTU multipath nh exceptions	1"
-+	pmtu_ipv4_mp_exceptions		ipv4: PMTU multipath nh exceptions	1
-+	pmtu_ipv4_mp_asym_exceptions	ipv4: PMTU multipath exceptions, asym MTU	1"
- 
- # Addressing and routing for tests with routers: four network segments, with
- # index SEGMENT between 1 and 4, a common prefix (PREFIX4 or PREFIX6) and an
-@@ -350,6 +358,7 @@ tunnel6_b_addr="fd00:2::b"
- tunnel6_mask="64"
- 
- host4_a_addr="192.168.99.99"
-+host4_a_net="192.168.97"
- host4_b_addr="192.168.88.88"
- 
- dummy6_0_prefix="fc00:1000::"
-@@ -2407,6 +2416,69 @@ test_pmtu_ipv4_mp_exceptions() {
- 	check_pmtu_value "1500" "${pmtu_a_R2}" "exceeding MTU (veth_A-R2)" || return 1
- }
- 
-+# Pick a source address out of ${host4_a_net} for a flow from host A to
-+# ${1} through ${2}: the IPv4 multipath hash covers addresses only by
-+# default
-+mp_flow_via() {
-+	dst="${1}"
-+	oif="${2}"
-+
-+	for i in $(seq 1 32); do
-+		flow="${host4_a_net}.${i}"
-+		${ns_a} ip route get ${dst} from ${flow} |
-+			grep -q " dev ${oif} " && echo "${flow}" && return
-+	done
-+
-+	return 1
-+}
-+
-+test_pmtu_ipv4_mp_asym_exceptions() {
-+	setup namespaces routing multipath || return $ksft_skip
-+
-+	trace "${ns_a}"  veth_A-R1    "${ns_r1}" veth_R1-A \
-+	      "${ns_r1}" veth_R1-B    "${ns_b}"  veth_B-R1 \
-+	      "${ns_a}"  veth_A-R2    "${ns_r2}" veth_R2-A \
-+	      "${ns_r2}" veth_R2-B    "${ns_b}"  veth_B-R2
-+
-+	# Source addresses for mp_flow_via(), with routes back to them
-+	run_cmd ${ns_a} ip route add local ${host4_a_net}.0/24 dev lo
-+	run_cmd ${ns_r1} ip route add ${host4_a_net}.0/24 via ${prefix4}.${a_r1}.1
-+	run_cmd ${ns_r2} ip route add ${host4_a_net}.0/24 via ${prefix4}.${a_r2}.1
-+
-+	# Set up initial MTU values: 1400 behind R1, 1350 to R2, 1300 behind R2
-+	mtu "${ns_a}"  veth_A-R1 2000
-+	mtu "${ns_r1}" veth_R1-A 2000
-+	mtu "${ns_r1}" veth_R1-B 1400
-+	mtu "${ns_b}"  veth_B-R1 1400
-+
-+	mtu "${ns_a}"  veth_A-R2 1350
-+	mtu "${ns_r2}" veth_R2-A 1350
-+	mtu "${ns_r2}" veth_R2-B 1300
-+	mtu "${ns_b}"  veth_B-R2 1300
-+
-+	flow_r1="$(mp_flow_via ${host4_b_addr} veth_A-R1)" || {
-+		err "  no flow through veth_A-R1 found"; return 1; }
-+	flow_r2="$(mp_flow_via ${host4_b_addr} veth_A-R2)" || {
-+		err "  no flow through veth_A-R2 found"; return 1; }
-+
-+	# A Fragmentation Needed from R1 is cached on the path via R1, not on
-+	# the path via R2, whose link can't carry 1400
-+	run_cmd ${ns_a} ping -I ${flow_r1} -q -M want -i 0.1 -c 1 -s 1800 "${host4_b_addr}"
-+
-+	pmtu_a_R1="$(route_get_dst_pmtu_from_exception "${ns_a}" "${host4_b_addr}" oif veth_A-R1)"
-+	pmtu_a_R2="$(route_get_dst_pmtu_from_exception "${ns_a}" "${host4_b_addr}" oif veth_A-R2)"
-+	check_pmtu_value "1400" "${pmtu_a_R1}" "exceeding MTU via R1 (veth_A-R1)" || return 1
-+	check_pmtu_value "" "${pmtu_a_R2}" "exceeding MTU via R1 (veth_A-R2)" || return 1
-+
-+	# The lower MTU behind R2 lowers the PMTU of both paths
-+	run_cmd ${ns_a} ping -I ${flow_r2} -q -M want -i 0.1 -c 1 -s 1280 "${host4_b_addr}"
-+
-+	pmtu_a_R1="$(route_get_dst_pmtu_from_exception "${ns_a}" "${host4_b_addr}" oif veth_A-R1)"
-+	pmtu_a_R2="$(route_get_dst_pmtu_from_exception "${ns_a}" "${host4_b_addr}" oif veth_A-R2)"
-+	check_pmtu_value "1300" "${pmtu_a_R1}" "exceeding MTU via R2 (veth_A-R1)" || return 1
-+	check_pmtu_value "1300" "${pmtu_a_R2}" "exceeding MTU via R2 (veth_A-R2)" || return 1
-+}
-+
- usage() {
- 	echo
- 	echo "$0 [OPTIONS] [TEST]..."
--- 
-2.56.0
+I suggest four test cases:
 
+ipv4_oif_fallback - Two routes with legacy nexthops. Should pass even
+w/o the fix.
+
+ipv4_oif_fallback_nh - Two routes with nexthop objects. Should fail w/o
+the fix and pass with it.
+
+Another two for IPv6 which should pass regardless of the fix.
