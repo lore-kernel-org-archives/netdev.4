@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538967;
-	b=B2+Aq2fpFft/9bcLyXWJnPbv1CosPOFYDHTmp1udKreA71cVOxthpFgux6BNVtAhjd0s
-	 B3d9hRvyx/YEqthIi/N+CHtN/+7qqA+G93tXsY7oibFJSDGLJTgxc7PV4dZbu6UNvr/2u
-	 +rY148354voaREh19u3Uj8LyMHTFW1baIgg/VLpph7sle0AlEBWIUm9yBnBst4xxRQvDS
-	 BnAIbydFZ+kwZXMu1Vo6TqvBGBSYp9eMkq63lOrTzoD8dfDihX7hcgjyxeVAvlQx3M/+a
-	 E0uj5Tw8xFh+QOZoVCRrpoZacVMQPdM1Z3OuKTvCWefUqqp2AApgPjqGgWoVEHHMnyg==
+	t=1795538969;
+	b=FtXZ+8wwq5dqwm/gCGA8ek5DO1qjd2U5oQKmVmFnXHFSVhKvUUunkHeWlxQYIttw9n+t
+	 tCzIlMiga//ZhmQyWvfuqTNpoG001+16zRFMU0I6Zq0y12ZV3kbZc30CYTcW4YC7FdKO2
+	 +f+VpMscs2nwM6mLnXnWohJog2REgqtbqiTn7KbxqOfYVvLa63hVmWcQlx30KR+FkCLY+
+	 OpAxa88M7c2ntYtLYk+ADe4vsdvSu/uwav2F2M0brHwcM036SWiPbKVlJgYLIKdTPJXtP
+	 iPogbhSBpgUhtetb8Mmxh/yUJNOH6KBPk+MNkrWe4R3R20B0zjxoBa70P8F8b56pkvw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538967;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538969;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=uTYBfpgEmNFEt26cRrwfLchBRDCus8OpqSq+AdE/ibE=;
-	b=0soOv+rsv5FN69tqOtJabatrw8r2ASopjZAw//lDbLCmJ6rIgfIHRqhN9hleyTdw6jWM
-	 a30so1fGs4/wmQ7ObWIitDvh0EffWykdeYGvkav0H/qXKp/nynTG4/Lpzoya1PFuHEr3X
-	 mRDURRrt2LWk1RD6uqCSGloxBxwWXSxCOv1KIal9SaHHXb8RUsXGdIydvq2++O2AxRhy4
-	 PFsRJZ5gWiGZp6r1tvQu7BBSaUPrIUMtQS+FkbI3fCJWeVUkumjQvjlooXVdSdDGe1swJ
-	 srHBFGUHml1ZT9l7knPArIdHwPcj5rrD2ocaA0J8WhNF1vXcifzVkPZ+O/tLSM2vbYg==
+	bh=wYLNAZcvAlxW8drbiBSHvvk3XyZKonPGhZLlrgm0+CU=;
+	b=DMXSEK1oixKYCU0ZEP5WMR9OkCc9VeCfrfUs+kgDAlzfFlMRHNZ3dc/OSXoK1z48vRLx
+	 O+BzoRzYqsndaEYUOqKDnPjIwkQCKRf/sEmtYqgP7H7JCxiZ2PueSxBdr7zNguzCcOQ16
+	 MpLwBMyKWs8rT+VfCMhCGSVb8KW/6Z6a+V+ejPUscZjTsHQ44uLUEbDGZDqPPZdhTiapY
+	 eykGQ6jNw+tPvp4+YT5Dgv6h01Z2I1uTIOpXa0+UwyJMVVpxLnbsZn1NsDGK3FhwkHpRa
+	 FCttnFBNEl+GR/mj/xwOk746iu/Jj0WjjC21vUU5KeVIqxFMMS9vMU6EmhUQn3NNsyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QrZk390s;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VY4UUBmj;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87439606A33E;
-	Tue, 24 Nov 2026 16:49:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5741860A2606;
+	Tue, 24 Nov 2026 16:49:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QrZk390s
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 620001F000CA;
-	Tue, 24 Nov 2026 16:49:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VY4UUBmj
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE2851F000D0;
+	Tue, 24 Nov 2026 16:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795538967;
-	bh=uTYBfpgEmNFEt26cRrwfLchBRDCus8OpqSq+AdE/ibE=;
+	s=k20260515; t=1795538968;
+	bh=wYLNAZcvAlxW8drbiBSHvvk3XyZKonPGhZLlrgm0+CU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QrZk390sbgErIgN1mEeSQylLsXjdkG/49h0rsamx2y+4p4ftNrKePfnB4L4QEaQWf
-	 cGQplUX53q+AayvD5v5merO1zsw1TIUGENnfijxrLZ51h6S/2+PUJg42hJkTPH5MVS
-	 62eQE25B9E4m6VRxYMaa1ZvaijK8DX4alkSiitUNow1XULae6N8BvXbzmfJTYSZSH1
-	 4LZuOeoOyBqlT3WCHh+yezQH4/UZ9E2FRkGr6tvhE6uR92XJawO/rRQ4V4JhF6Lk5i
-	 YHRds4s7VhXecsvXEp/8Y4BR86vUi0V5ij6GTK9N7gC2FOY0jElY9ZsAxB9JSUrZZS
-	 NyS5CKwl3FRpQ==
-Subject: Re: [PATCH net-next v6 1/4] net: phy: Map C45 probe read errors to
- -ENODEV during bus scan
+	b=VY4UUBmj6CUyELYpfvbDSWKr9HAPiBDaTEyPMkyBARELbp96ObcSDI+Z4sztgWq+S
+	 EmmQNxyS3w0s556g339p7mvkl3Ai6zq849SMMUQj/ePsaDg78HcnrfZ0+YVp/9ostX
+	 f6K8Vt7gZuU9uPCm6Dv+9iSWQPPNhvjst6dImNy09ixDTf7AStiuPpVAL9nHq38WI/
+	 9Hg4d353tHeGidxyJ8HMGzVx3h4EleKyxf35Uh63Gv5ky14JYOeXtKALQjtlWf2CO5
+	 GnlXAY7T53MqidXdliBi/Pjh+ZilzXabwx9uB9YRFifN6ipoc4iIcJwOLtpcw0++08
+	 SwodWxMOGkI2g==
+Subject:
+ Re: [PATCH net-next v6 4/4] net: mdio: mdio-bcm-unimac: Add Clause 45 support
 From: netdev-bot+sashiko@kernel.org
 To: florian.fainelli@broadcom.com
 Cc: netdev@vger.kernel.org, nb@tipi-net.de, carlos.soto@broadcom.com,
@@ -50,10 +50,10 @@ Cc: netdev@vger.kernel.org, nb@tipi-net.de, carlos.soto@broadcom.com,
  linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
  kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
  kudzo51@gmail.com
-Date: Tue, 24 Nov 2026 16:49:25 +0000
-Message-ID: <179553896595.3135.12489762291979495707@kernel.org>
-In-Reply-To: <20261123164835.1733304-2-florian.fainelli@broadcom.com>
-References: <20261123164835.1733304-2-florian.fainelli@broadcom.com>
+Date: Tue, 24 Nov 2026 16:49:27 +0000
+Message-ID: <179553896749.3135.9852837290681703615@kernel.org>
+In-Reply-To: <20261123164835.1733304-5-florian.fainelli@broadcom.com>
+References: <20261123164835.1733304-5-florian.fainelli@broadcom.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,248 +78,116 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The commit message describes the SFP impact wrongly.
-- [Medium] get_phy_c45_devs_in_pkg() reads MDIO_DEVS2 and then
-  MDIO_DEVS1, and returns the raw bus error from whichever read fails.
-- [Low] The commit message says errors from the vendor MMD presence check
-  in the identifier loop "are not mapped, so a PHY that fails midway is…
-- [Low] When a devices-in-package read in the MMD search loop of
-  get_phy_c45_ids() fails with -EIO/-ENODEV, the new code breaks out of…
+- [Medium] On ACPI (non-DT) GENET systems, the new C45 scan can create a
+  phy_device that GENET then attaches to instead of the intended PHY.
+- [Low] Adding read_c45/write_c45 slows GENET probe on ACPI (non-DT)
+  systems by much more than the commit message says.
 
 --
 
-net: phy: Map C45 probe read errors to -ENODEV during bus scan
+net: mdio: mdio-bcm-unimac: Add Clause 45 support
 
-This commit makes get_phy_c45_devs_in_pkg() return the raw bus error. It
-then maps -EIO and -ENODEV to -ENODEV in the MMD search loop and in the
-MMD 0 fallback of get_phy_c45_ids(), so C45 bus scans carry on past empty
-addresses. When such an error happens in the MMD loop, the remaining MMDs
-are skipped and only MMD 0 is probed.
+This adds read_c45/write_c45 callbacks to the UniMAC MDIO driver. Each
+access does an ADDR cycle followed by a READ/WRITE cycle, and MDIO_CFG is
+switched between C22 and C45 mode only when needed. Every cycle is now
+followed by an idle check, resume takes the bus lock around the clock
+divider update, and the BMSR workaround is skipped for C45 DT children.
 
-> - sfp_sm_probe_phy(): a module whose PHY does not answer ends up with "no
->   PHY detected" after the usual retries, instead of going to SFP_S_FAIL.
-
-[Severity: Medium]
-
-Is this description of the SFP change accurate? On the mdio-i2c buses that
-SFP uses, a PHY that does not answer does not seem to show up as a bus error
-at all:
-
-drivers/net/mdio/mdio-i2c.c:i2c_mii_read_default_c45() {
-    ...
-	ret = i2c_transfer(i2c, msgs, ARRAY_SIZE(msgs));
-	if (ret != ARRAY_SIZE(msgs))
-		return 0xffff;
-    ...
-}
-
-drivers/net/mdio/mdio-i2c.c:i2c_mii_read_rollball() {
-    ...
-	ret = i2c_rollball_mii_poll(bus, bus_addr, res, sizeof(res));
-	if (ret == -ETIMEDOUT)
-		return 0xffff;
-	else if (ret < 0)
-		return ret;
-    ...
-}
-
-So a module with an absent PHY already ended up with "no PHY detected"
-before this patch.
-
->From an SFP bus, the only -EIO that seems able to reach
-get_phy_c45_devs_in_pkg() is an I2C transport error on a RollBall module.
-That error comes from i2c_rollball_mii_cmd() or i2c_rollball_mii_poll(),
-for example a short transfer that __i2c_transfer_err() turns into -EIO.
-
-With this patch, that transport fault becomes -ENODEV, and
-sfp_sm_probe_phy() returns it without logging anything:
-
-drivers/net/phy/sfp.c:sfp_sm_probe_phy() {
-    ...
-	phy = get_phy_device(sfp->i2c_mii, addr, is_c45);
-	if (phy == ERR_PTR(-ENODEV))
-		return PTR_ERR(phy);
-	if (IS_ERR(phy)) {
-		dev_err(sfp->dev, "mdiobus scan returned %pe\n", phy);
-		return PTR_ERR(phy);
-	}
-    ...
-}
-
-The state machine then retries R_PHY_RETRY times and starts the module
-without a PHY through sfp_module_start(). Before the patch it logged
-"mdiobus scan returned -EIO" and went to SFP_S_FAIL.
-
-This patch has a Fixes: tag and will likely be backported. Could the
-sfp_sm_probe_phy() bullet describe this change instead?
-
-> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-> index b39e945cebd73..2f17c9d4a2b9f 100644
-> --- a/drivers/net/phy/phy_device.c
-> +++ b/drivers/net/phy/phy_device.c
-
-[ ... ]
-
-> @@ -810,8 +823,10 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
->   * the PHY identifiers for each device. Return the "devices in package"
->   * and identifiers in @c45_ids.
->   *
-> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
-> - * the "devices in package" is invalid or no device responds.
-> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
-> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
-> + * reads that look for a device), or a negative error code from a failed bus
-> + * access otherwise (usually %-EIO).
->   */
->  static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->  			   struct phy_c45_device_ids *c45_ids)
+> The platform device that GENET instantiates when it is probed without a
+> Device Tree node (e.g.: ACPI) does not mask any address, so it is scanned
+> too. Its wait_func is bcmgenet_mii_wait(), which sleeps for up to a timeout
+> per frame since GENET's interrupt is not registered yet when the bus is
+> registered. That makes the scan slower at probe time on such systems, the
+> same way the C22 scan already is.
 
 [Severity: Low]
 
-The commit message says:
+Could the commit message say how large this slowdown is?
 
-    Errors from the vendor MMD presence check done while reading the
-    identifiers and from the reads of the per-MMD identifiers themselves,
-    which only happen once a device has answered, are not mapped, so a PHY
-    that fails midway is not silently skipped.
+For each empty address, get_phy_c45_ids() does a failing MMD 1 DEVS2
+read and then the MMD 0 DEVS2 fallback read. That is two C45 reads, so
+four frames (ADDR + READ each). Each frame goes through
+bcmgenet_mii_wait():
 
-Does the identifier loop in get_phy_c45_ids() keep that guarantee? The
-VEND1/VEND2 branch returns the raw bus error from phy_c45_probe_present():
+	wait_event_timeout(priv->wq,
+			   !(bcmgenet_umac_readl(priv, UMAC_MDIO_CMD)
+			   & MDIO_START_BUSY),
+			   HZ / 100);
 
-	/* Now probe Device Identifiers for each device present. */
-	for (i = 1; i < num_ids; i++) {
-		...
-		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
-			...
-			ret = phy_c45_probe_present(bus, addr, i);
-			if (ret < 0)
-				return ret;
+The GENET ISR is not installed at this point, so nothing calls
+wake_up(). Each frame sleeps the full HZ/100, which is 4-10 ms depending
+on HZ.
 
-Some read_c45 implementations return -ENODEV. One example is
-orion_mdio_xsmi_read_c45() in drivers/net/ethernet/marvell/mvmdio.c:
+With one C22 PHY on the bus, the C45 scan adds about 31 x 4 = 124
+sleeping frames. That is roughly 0.5-1.2 s per GENET instance.
 
-	if (!(readl(dev->regs + MVMDIO_XSMI_MGNT_REG) &
-	      MVMDIO_XSMI_READ_VALID)) {
-		dev_err(bus->parent, "XSMI bus read not valid\n");
-		return -ENODEV;
-	}
+The existing C22 cost is about 63 frames: 32 BMSR workaround reads plus
+31 failed PHYSID1 reads. Total probe-time MDIO waiting therefore roughly
+triples.
 
-Suppose a PHY has already answered the devices in package reads, and then
-its STAT2 read on a vendor MMD fails this way. get_phy_c45_ids() returns
--ENODEV. mdiobus_scan_bus_c45(), __of_mdiobus_parse_phys() and
-sfp_sm_probe_phy() all treat that as an empty address, so the PHY is
-skipped without a message.
+Would it be worth stating the size of the delay? It would also help to
+explain why the C45 scan cannot be avoided on these buses. Known hardware
+here, such as the Raspberry Pi 4's BCM54213PE, is C22-only and gains
+nothing from the scan.
 
-This code path is older than the patch. However, the new kernel-doc here
-and for phy_get_c45_ids() links -ENODEV only to "no MMD responds". Should
-this error be mapped to -EIO? Otherwise, should the commit message and
-kernel-doc make a weaker claim?
+> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
+> index f8e5c1811d96b..b01e99327b561 100644
+> --- a/drivers/net/mdio/mdio-bcm-unimac.c
+> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
 
-> @@ -844,8 +859,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
->  				continue;
->  		}
->  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
-> -		if (phy_reg < 0)
-> -			return -EIO;
-> +		if (phy_reg < 0) {
-> +			ret = get_phy_c45_probe_err(phy_reg);
-> +			if (ret != -ENODEV)
-> +				return ret;
+[ ... ]
+
+> @@ -302,6 +408,8 @@ static int unimac_mdio_probe(struct platform_device *pdev)
+>  	bus->parent = &pdev->dev;
+>  	bus->read = unimac_mdio_read;
+>  	bus->write = unimac_mdio_write;
+> +	bus->read_c45 = unimac_mdio_read_c45;
+> +	bus->write_c45 = unimac_mdio_write_c45;
 
 [Severity: Medium]
 
-Can this treat a PHY that has already answered as absent?
-get_phy_c45_devs_in_pkg() reads MDIO_DEVS2 and then MDIO_DEVS1. It returns
-the raw error from whichever read fails, so the caller cannot tell the two
-cases apart:
+Can this change which PHY GENET attaches to on ACPI systems?
 
-	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS2);
-	if (phy_reg < 0)
-		return phy_reg;
-	...
-	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS1);
-	if (phy_reg < 0)
-		return phy_reg;
+Without a DT node, bcmgenet_mii_register() does:
 
-Suppose DEVS2 succeeds at MMD i, which on a controller that checks
-turnaround means the device drove the bus. If only DEVS1 then fails with
--EIO or -ENODEV, this path sets devs_in_pkg to all Fs, breaks out of the
-loop and leaves the decision to MMD 0 alone:
+	else
+		ppd.phy_mask = ~0;
 
-		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, 0, &devs_in_pkg);
-		if (phy_reg < 0)
-			/* returning -ENODEV doesn't stop bus scanning */
-			return get_phy_c45_probe_err(phy_reg);
+So bus->phy_mask = ~pdata->phy_mask = 0 here. With read_c45 now set,
+__mdiobus_register() runs:
 
-Two outcomes seem possible:
+	if (!prevent_c45_scan && bus->read_c45) {
+		err = mdiobus_scan_bus_c45(bus);
 
-- MMD 0 also fails with -EIO or -ENODEV. get_phy_c45_ids() returns -ENODEV,
-  and mdiobus_scan_bus_c45(), __of_mdiobus_parse_phys() and
-  sfp_sm_probe_phy() skip the PHY without a message.
+This covers every address that has no C22 device.
+mdiobus_prevent_c45_scan() only skips the scan for Micrel OUIs.
 
-- MMD 0 answers with a value that is not mostly Fs (some PHYs return 0
-  there). The identifier loop finds no set bits, and the function returns 0
-  with devices_in_package and mmds_present both 0. get_phy_device() would
-  then create a phy_device with no MMDs. gpy_probe() would overwrite the
-  live phydev->c45_ids with empty ids through phy_get_c45_ids() and keep
-  probing.
+Later, the has_acpi_companion() branch of bcmgenet_mii_probe() does:
 
-Before this patch, the same condition returned -EIO and the failure was
-visible.
+	phydev = phy_find_first(unimacbus);
 
-Would it be better to map only a failure of the first (DEVS2) read, and to
-return the error when DEVS1 fails after DEVS2 succeeded?
+This returns the lowest-address phy_device on the bus, whether it is a
+C22 or a C45 device.
 
-> +
-> +			/* The MMD did not answer: treat it like a read of all
-> +			 * Fs, which is what controllers that do not check the
-> +			 * turnaround return, and go straight to the MMD 0
-> +			 * probe below. Do not probe the remaining MMDs, each
-> +			 * one costs two bus reads on a slow bus.
-> +			 */
-> +			devs_in_pkg = 0xffffffff;
-> +			break;
-> +		}
->  	}
+Suppose something answers C45 ID reads at an address below the intended
+C22 PHY. Would GENET then call phy_connect_direct() on that device
+instead?
 
-[Severity: Low]
+That device could be a C45-only PHY or switch. It could also be a ghost
+device from a C22 PHY that misdecodes C45 frames sent to other
+addresses. mdiobus_prevent_c45_scan() guards against that case, but only
+for Micrel.
 
-The comment says a failed MMD is treated like a read of all Fs. With the
-break, can discovery give different results on the two kinds of
-controller?
+This has not been confirmed on known ACPI GENET boards, e.g. RPi4 with
+the BCM54213PE at address 1, so it depends on what is on the bus.
 
-When the read returns all Fs, the loop condition moves on to the next MMD,
-including the VEND1/VEND2 presence checks:
+There is also a side effect: with bus->read_c45 set, get_phy_device()
+falls back to C45 ID probing for any C22 address whose ID reads as 0.
+C45 frames now reach devices that only ever saw C22 frames before.
 
-	for (i = 1; i < MDIO_MMD_NUM && (devs_in_pkg == 0 ||
-	     (devs_in_pkg & 0x1fffffff) == 0x1fffffff); i++) {
-
-After a mapped error, only MMD 0 is probed.
-
-Take a package that does not implement MMD 1 but does implement later
-MMDs, and that does not drive turnaround for an unimplemented DEVAD.
-
-On a controller that does not check turnaround, it is found.
-
-On a controller that does check turnaround, it gets -ENODEV unless it
-answers on MMD 0, and it is skipped without a message. Examples are UniMAC
-with the read_c45 from "net: mdio: mdio-bcm-unimac: Add Clause 45 support"
-later in this series, or mvmdio XSMI. For an "ethernet-phy-ieee802.3-c45"
-DT node it would be logged as missing, and the bus would register without
-it.
-
-The same applies when an earlier MMD already answered with devs_in_pkg ==
-0 and a later MMD then fails turnaround.
-
-These PHYs were not found on such controllers before the patch either,
-because the scan failed with -EIO. The difference is that a visible failure
-becomes a silent skip.
-
-Would continuing the loop after a mapped error, as for 0xffff, give the
-same results on both kinds of controller? The cost would be a bounded
-number of extra reads.
-
-[ ... ]
+The commit message covers the probe-time slowdown but not this change in
+PHY selection. Should the unmasked non-DT bus be kept out of the C45
+scan?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123164835.1733304-1-florian.fainelli%40broadcom.com
