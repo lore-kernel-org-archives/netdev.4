@@ -1,59 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795511557;
-	b=VQE2Wl+Cs5zDKgOrWEL3HqCkQZMq8WgbXj63fY2D0PkGAfT/ThUBpdsLm7lA5Ir/idU3
-	 Rez/FU6YqHPChKOXaaW5YXMJIMZqWkdIj3YtlUCA8o3EVKFhfGdOPCmcTa5c3PW1OdDhV
-	 i9LeJ//xOm/kwc7pPizhMAiHUlhOIZoRHJ7dNjzNplWuCiF8bmUR+KkCe7UO91IzPCmuf
-	 bgrYMB9Apek15/kyFasjEsOGRVGAJJVge2UgKpuZdkygD/adDJUUO0PMqXK3/ByuNbrNV
-	 FWs9rsfnq3WKxwGTbxIcUgZsIyGv1+XD/2l31DDH9ra0Fgz59h27hCBZv6fc3Jf+pPQ==
+	t=1795511675;
+	b=koyaf4c5zccrdL3xAcbuE7bQLJWtLta58zAr23w8xauJ6luuqabkH8NXK8p2OLg507XR
+	 clezvvjfnnEW3Pg3ngFptuQYTt+4IbSYJyVwYLzab7c+3kM7dfCQQuaFb8kos6pNv9HRG
+	 n+A02sLtLq8A5nTMcSlhwiXxDCKSswDe6lQGIGUULHT0S3fsYFF68a+dtwKcVuP7jk8ir
+	 uJyrvzGp7ccQi8qxbEvVX5c7PjtJlWcvZ1cF4nX5YkL5pH4hmxu5jBCuIrZPOA5rCAw3u
+	 uui4IH+FkRr+g5cbjH5xDoVB8OlUGGrnwRD2rML4BrN2WSwNF4k5D/KVliz18DGPOUg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795511557;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=wBHKoeRWleVFfHl940Ty7A0iRJsiM2iMZXzTcQH2DLg=;
-	b=lBeJgFKxJOg/7xh4feSJo0B4c0+dUEzBHIC09m6PWlGi2Uw3tiTxxVDBogQCbl6jv/Y4
-	 We595ZAI8aGsMzseDx46CQnjChxESojCZM+XZ28r6dvdBFzKee412bbSFN34Y8AsRQH+P
-	 rz7mbmY7bbrFxLQhCwTVor895Ubqbezm9gq0hha3S8X/0FO05LsXKBuRrxIjaQw8CqlmT
-	 eT2ofhTihQWCgZDNRTPnyI5Uldxzjt7A8Dc2ZE3qs2Llpe/h5mcHciPrrb5Y84JEIs2dP
-	 FpimhmwxK9iiYSajQ7w0L0AHiebzsz0x1A7jKD38FxZN6P+G77R5fsys9frbFCTNMZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795511675;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=OUngm4girPZ/UgXDY4tToZ5+MVYoWJUTU2VlTrOevjQ=;
+	b=MC9YAhuezO8UN+d7M6/brm+Ezw0I7CnMXoS9KOTqIZv3ZobpHSiuJF8zqs5yAKVdXH3j
+	 hdZS/1m0A9fKwHPjasEyhEW2/raCi7v4AACHtLMA6+0ibvuAQhKbrEeOHrglo8iok8KXe
+	 Ey3EyEhOEz7MXUuOcXokq3YAY+vfXK6G9umEFw5VZG8jzfJKgwkPAAvhDNk5o5WZkrb+f
+	 KupWFnGDJGA+eK28XYUdDVEb3PrD20w/ODCAWbEZqcH5uuzijyXlCfsGBkqf6QM3QhX97
+	 TQUHchx1P83WoQEDKLlC6PVe0ClbvO4A5Pnis4UuN+kUm/DKd8QqhVVdiSzJhAwZ2FA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i2ngdyzo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=C+JbvLTx;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CAEF2606A33D;
-	Tue, 24 Nov 2026 09:12:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF2E8606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:14:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF2E8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i2ngdyzo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1B851F000F0;
-	Tue, 24 Nov 2026 09:12:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795511557;
-	bh=wBHKoeRWleVFfHl940Ty7A0iRJsiM2iMZXzTcQH2DLg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=i2ngdyzoAvTCoKm/2jroeUELl4YP9mAXdmom0NPpo2cz2Jpfe2C0h2pk03CbMf8zr
-	 i+vhsI0oE9zk6yq1L9FZTmdpAEkWOPL2BGDs7d33KrfYN61Vth3afL8b+A940vgtsQ
-	 7shCQAWig/vRPF38URP30Lwc+Iy5mQrwLo+mR9DT8fZeQU1PkYw6Y3pLqE2GinXxmI
-	 +9l0J+d4KpGfZhK7o8IL+/T+WIPVFcFPNIjXW9WjJynsFZyPmg8MZILbn9iMpbYS8x
-	 fuAu3zBXBITwOK5yYXTQgiJa2h11q92QoQ7ihWoBYJYAipqCCOms6QV7DMBaUOYgR/
-	 ynN64DAFwGIDQ==
-Subject:
- Re: [PATCH net] l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
-From: netdev-bot+sashiko@kernel.org
-To: shyckless@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, stephen@networkplumber.org, linux-kernel@vger.kernel.org,
- maoyixie.tju@gmail.com, netdev@vger.kernel.org, horms@kernel.org
-Date: Tue, 24 Nov 2026 09:12:36 +0000
-Message-ID: <179551155628.3135.2386849565665238708@kernel.org>
-In-Reply-To: <20261120-l2tp-mcast-perm-v1-1-22dbffa88655@gmail.com>
-References: <20261120-l2tp-mcast-perm-v1-1-22dbffa88655@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=C+JbvLTx
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 3EFA71A17A9;
+	Tue, 24 Nov 2026 09:14:33 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 085D3601E1;
+	Tue, 24 Nov 2026 09:14:33 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1FC9111E68DFE;
+	Tue, 24 Nov 2026 10:14:14 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795511671; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=OUngm4girPZ/UgXDY4tToZ5+MVYoWJUTU2VlTrOevjQ=;
+	b=C+JbvLTxACFgmMXVP5wvlu1mwmVIZQveH3j3i0LGBpo78jGydRRVv3Hmp9utJB7uXLQ+s2
+	Qgc5XZZ5u4jbrc0G5lH6mvUGyLCWErr9KbVrLnD/rFathee8+APWG7fT/gWcoOAtKt4pEi
+	FML1o06sWvxWlFeUgrvifnT+nWxVxZ2DsliSkVbaKQNQUe7VomPqbvjei8feQ37mEkrslC
+	Vq4FDCp2vHaWKuAHDHa2+/LubEr0dc7UHiWE9BOsuuihGpxseeqihOXgLJVrRPOZygT24e
+	aXmUyEfacOCvvtChysMgxDNGTI4uFRujoUZ73JU+QXBSQdp9cRgCFYPzhftReA==
+Message-ID: <cc3580f8-9a45-487f-ac86-84e0f1c3e8b4@bootlin.com>
+Date: Tue, 24 Nov 2026 10:14:13 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,94 +62,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v12 1/4] net: xdp: add
+ __xdp_build_skb_from_buff() helper
+To: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, Jose Abreu <Jose.Abreu@synopsys.com>,
+ Ong Boon Leong <boon.leong.ong@intel.com>, Simon Horman <horms@kernel.org>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+ Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>,
+ Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>,
+ Emil Tsalapatis <emil@etsalapatis.com>,
+ Ihor Solodrai <ihor.solodrai@linux.dev>, peilinhe2020@163.com,
+ Peilin He <he.peilin@zte.com.cn>, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+References: <20261121-stmmac-rx-mb-v12-0-3ae2f3bce174@oss.qualcomm.com>
+ <20261121-stmmac-rx-mb-v12-1-3ae2f3bce174@oss.qualcomm.com>
+ <9997f4e9-9453-4511-af3e-4be664a09281@bootlin.com>
+ <awVTNSYCD-_5gE4D@lore-desk>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <awVTNSYCD-_5gE4D@lore-desk>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Hi,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+On 11/24/26 10:04, Lorenzo Bianconi wrote:
+>> Hi Lorenzo,
+>>
+>> On 11/21/26 18:28, Lorenzo Bianconi wrote:
+>>> xdp_build_skb_from_buff() always calls eth_type_trans() on the skb it
+>>> builds, which pulls the Ethernet header and advances skb->data. Drivers
+>>> that still need to process the L2 header before protocol parsing
+>>> therefore cannot use the helper.
+>>>
+>>> stmmac is such a driver: its software VLAN path (stmmac_rx_vlan()) reads
+>>> the VLAN tag at skb->data and shifts the MAC addresses over it, so it has
+>>> to run before eth_type_trans().
+>>>
+>>> Split the implementation into __xdp_build_skb_from_buff(), which builds
+>>> the skb (including the recycle mark, the Rx queue index and the frags
+>>> info) but leaves skb->dev, skb->protocol, skb->pkt_type and the mac
+>>> header unset, so the caller must initialize them, usually by calling
+>>> eth_type_trans(). Make xdp_build_skb_from_buff() a static inline wrapper
+>>> that still calls eth_type_trans() as before, preserving the behavior of
+>>> existing in-tree users. A follow-up patch will let stmmac use it.
+>>
+>> I've been questionning why we even do that in stmmac in the first place
+>> actually. This pretends to offload, but it's just to deal with the tag
+>> in the driver instead of later down the road.
+>>
+>> The original idea was for GRO back when it didn't handle vlan tags, but
+>> this isn't necessary anymore.
+>>
+>> There was a series in-flight to remove stmmac_rx_vlan altogether, but it
+>> seems to have stalled [1]:
+>>
+>> [1]: https://lore.kernel.org/all/20260914150612.9798-3-peilinhe2020@163.com/
+>>
+>> Peilin He, do you have any plans to continue this ? If not, it may be good
+>> to pick this up instead of working around this.
+> 
+> I am fine to rebase my series on top of that one or pick the required patch.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+There's been no activity on this since september, I think you can pick this
+one up and have Peilin He in CC + Author then, your multi-buff XDP has been
+going on for long enough, let's not block it further.
 
-- [Medium] The commit message says the patch stops unprivileged listeners
-  in the tunnel's own netns from getting l2tp notifications ("This patch…
+Maxime
 
---
-
-l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
-
-This commit marks the l2tp generic netlink multicast group with
-GENL_MCAST_CAP_NET_ADMIN. With the flag set, genl_bind() requires
-CAP_NET_ADMIN in the user namespace that owns the network namespace before
-a socket can join the group. The goal is to keep unprivileged listeners in
-the tunnel's namespace from receiving tunnel and session notifications,
-which include L2TPv3 cookies.
-
-> diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
-> index a07009d4cb009..c442e953df66a 100644
-> --- a/net/l2tp/l2tp_netlink.c
-> +++ b/net/l2tp/l2tp_netlink.c
-> @@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
->  static const struct genl_multicast_group l2tp_multicast_group[] = {
->  	{
->  		.name = L2TP_GENL_MCGROUP,
-> +		.flags = GENL_MCAST_CAP_NET_ADMIN,
->  	},
->  };
-
-[Severity: Medium]
-The commit message says "This patch handles listeners in the tunnel's own
-namespace." Does that hold when l2tp_netlink is built as a module and has
-not been loaded yet?
-
-genl_bind() only checks the new flag when a registered family owns the
-group ID:
-
-net/netlink/genetlink.c:genl_bind() {
-    ...
-	idr_for_each_entry(&genl_fam_idr, family, id) {
-		...
-		i = group - family->mcgrp_offset;
-		if (i < 0 || i >= family->n_mcgrps)
-			continue;
-
-		grp = &family->mcgrps[i];
-		if ((grp->flags & GENL_MCAST_CAP_NET_ADMIN) &&
-		    !ns_capable(net->user_ns, CAP_NET_ADMIN))
-			ret = -EPERM;
-    ...
-}
-
-If no family owns the ID, ret stays 0 and the join succeeds. Apart from the
-NL_CFG_F_NONROOT_RECV check, netlink_setsockopt(NETLINK_ADD_MEMBERSHIP)
-only compares the ID against nlk->ngroups.
-
-It looks like an unprivileged user in the same netns could do this:
-
-  setsockopt(NETLINK_ADD_MEMBERSHIP) on every free genetlink group ID
-  send CTRL_CMD_GETFAMILY "l2tp"
-    ctrl_getfamily()->request_module()     (MODULE_ALIAS_GENL_FAMILY("l2tp"))
-      genl_register_family()
-        genl_allocate_reserve_groups()
-          find_first_zero_bit()            <- returns an ID already joined
-
-genl_validate_assign_mc_groups() does not remove sockets that are already
-subscribed to that ID. Later notifications sent through
-genlmsg_multicast_netns() would then reach the pre-joined socket, and
-genl_bind() never checks the new flag for it. Those notifications include
-the cookies that l2tp_nl_session_send() adds.
-
-The note below the --- line mentions a companion patch, "genetlink: Reject
-joining multicast groups no family owns". That note is dropped when the
-patch is applied, and genl_bind() is unchanged in this tree.
-
-This patch is Cc: stable. Could it be sent as a series with the genetlink
-fix, or could the commit message name that dependency? Otherwise a backport
-of this commit alone would leave the cookie leak reachable on CONFIG_L2TP=m
-builds.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-l2tp-mcast-perm-v1-1-22dbffa88655%40gmail.com
