@@ -1,61 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543303;
-	b=KcFv/E3k985HApvvdg21clntPzGLMzwzZT4/Mw46ZXDyEms+Mf1K1tUAUhBNP7ixX6kn
-	 ZNP9D3mwsV1KS6hymcoMq6/FgBtLHCKagkBjh9Ie50FHfepQOgYKMq9auupJgnxGiiahr
-	 E0NyvbdbftPFdWpgGSUVdsuM6bdc1kQYziEjROFf0e5yk23qRIT7MQddTchx/B9Y0PYIm
-	 rfGuzLULJplwctxgRQSUzPVvv8h4lUesKlSaHNOkDmEGHqqywReB0PHnhydFgeEDiFVJV
-	 Y+tf6QDx3TLlaNy2/3aRlSLBZ7ySxz2gC4w+tCIdXDceLA/3NwG5oXCmqO2ERgQ3RJA==
+	t=1795543336;
+	b=CP1VPQpZoeey9uUsvLAttXGG04bs9xtqkPSiXMT4nbx8/MjzOll5Uk7uTmIsgxe4HoaL
+	 I33+sIKWv1rt+o+B6zmwGyqxLkH4Oy8kP3Vq7r5JC/wmboRNdGjPbJib4Da7ofsk8EpJ7
+	 V1+3R1G7uYso+3neRqzpZjNm4uNHkNsezDp/4yw/vRvTpMmx/KDcIz3NyEuOTMBMaemVD
+	 so1AeW5WYkwP1l8tyOdnPtGYfoVxXSci0ClUtdCJrxRvVrIt+sR/h/LVvgo8Dyy+L9yJe
+	 yXymtP6QIHLFjPMtPmcdVfn4wD9Ea5Euhd+hMxIqs6g/JinjKuzOWXf1oK8KANzf/ng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543303;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=V04vAdVpogXa23Aj5LpdDeMbHYFx7Zl+YAyoPUYjQH0=;
-	b=1k4GuH/5V7+ckvF40bMWXadANxy94gUzqO0fj/XsSB/uGrYlLvrYYn7B5nTWKVR/KRyO
-	 +I8esnkeFG1x40JavmGkInP5yK8lx3KLzKiniZucBWDUU2RiVjiBimryMK2YOby1qj/OP
-	 34IWnPwzLaGYB0BdC7HizHRVEEFC5Z7cGvwA5YVEK6Sx4crVWC2A3foaFKj3C5JK3sfob
-	 aJEiVCKIufS8N0yqW0A3yQcEn86hTII1EGXghiJTlR3r7HjRbCQ7v4f4KWijqaGWSasZR
-	 V0Rs2SzvEVjYrLa+hpw8c/viRgjJKIpsH2AukCjbGR6ed04ivuWpIEi+ojzYZjc6o8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543336;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:
+	 X-Proofpoint-Reinject:X-QCInternal:X-QCInternal:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=7vVL+O22Fy4xfBwvf4r81a/dEA1a/72qiNfr/2FpCxM=;
+	b=cDTJA5YJfPWXjhTufjVzZTxO2fMJwt1GVkBxAPfZKe9gk7UJbIybSfF5fjUArkmWdsXT
+	 IQXG1J2981/tIkEd1RFwdazU+Lq+Mj48JMaE9itsc1aoH/kW/bMdJvL83mS7YzbwHw4TW
+	 GBHTzI/3HXKBFztASGglTS+1vfJv+Q3AZpQMIoVZ7Frej9zgnia5fork3n4usDp/dKBJJ
+	 PQE+WoNt+PRX4U6JRo93CD0TFxatcAU7MWrBPf1Hudx0YZlrvxXsf99NStZPmYtD2KPEC
+	 965iTwA/eCuN5p19gRzy7pc2VwS5Oh+oMI9haU56GXU+Ya4wn+DAypBwDaRaTZ9uilw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHUfRB2l;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XF+l6G02;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67E41606A330;
-	Tue, 24 Nov 2026 18:01:43 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D91DE606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:02:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D91DE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QHUfRB2l
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 330381F000E6;
-	Tue, 24 Nov 2026 18:01:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795543303;
-	bh=V04vAdVpogXa23Aj5LpdDeMbHYFx7Zl+YAyoPUYjQH0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=QHUfRB2ljJKV9OqLOWISXXxka6hmlIAsHZqSFhMFlHdwtuI9KnDCDRiDSMhjHYVru
-	 SKMRL63Epkpab1uu74IVZoPzgojpqBXYbhXlbLXuY/gUAgIQTrf4fb3ecNqJEUDMGh
-	 n43HJba6o//WPx49XmOXFCTOKXBGAArUCqrZMVzog/G3LEvRK3nonGG5EO3a8TzbXS
-	 AdUUhfpdYx91Ll/ole8OTENsb6hT1o30DeM+fdiCtZONnTY8juOonpMIvFS8XrBS23
-	 O7JL8IoC1znyW8o9vtzoS9D9Q+q5hRvKFh7AxW/rOtbxw93iw/nNBVshZL4xKI94HH
-	 MrjaRbghnekyg==
-Subject:
- Re: [PATCH net] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-From: netdev-bot+sashiko@kernel.org
-To: ivecera@redhat.com
-Cc: netdev@vger.kernel.org, min.li@microchip.com, vadim.fedorenko@linux.dev,
- arkadiusz.kubalewski@intel.com, jiri@resnulli.us, richardcochran@gmail.com,
- poros@redhat.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:01:41 +0000
-Message-ID: <179554330175.3135.16771863750850493127@kernel.org>
-In-Reply-To: <20261120171800.327855-1-ivecera@redhat.com>
-References: <20261120171800.327855-1-ivecera@redhat.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=XF+l6G02
+Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOFLKdr3267085;
+	Tue, 24 Nov 2026 18:01:49 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:in-reply-to:message-id
+	:mime-version:references:subject:to; s=qcppdkim1; bh=7vVL+O22Fy4
+	xfBwvf4r81a/dEA1a/72qiNfr/2FpCxM=; b=XF+l6G02+pGjxZjEhCV/pZfVrus
+	mqHgiSOxNZgHoaPTZ+poUV+BaGPjXNhEcIF+S+MxlRQpKUUcXAKdgdqMKRU9rjqw
+	N46qIXgAN2xUQ3UbLD5EK1pOYPwh5z4B0Y+jzJ5To7GPBz+hot666A5bvFkt6oDI
+	ddHhXf8SsZ0wr3YL6cFK7FdbnyyVKgHnpZYmxytXXxiMdg593v0mwZBg+fNVW/6D
+	T2ttKEzqK5t/i5vw5HylmjdVQ2iVEGMfgWaxpMJShyJkqyPb/vk1fi56Y335IoCb
+	Ay3N4mgv3pwWLjOHn3S58HYUYVx4e1jqeh+T4jBFea9PAIXAzCNQ2jPmGug==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5ad7smys-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:01:49 +0000 (GMT)
+Received: from pps.filterd (nalasppmta01.qualcomm.com [127.0.0.1])
+	by NALASPPMTA01.qualcomm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOHvYoe992721;
+	Tue, 24 Nov 2026 18:01:48 GMT
+Received: from hu-devc-lv-u24-a.qualcomm.com (hu-zmckevit-lv.qualcomm.com [10.81.84.220])
+	by NALASPPMTA01.qualcomm.com (PPS) with ESMTPS id 6AOI1mDY999514
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Tue, 24 Nov 2026 18:01:48 +0000 (GMT)
+Received: by hu-devc-lv-u24-a.qualcomm.com (Postfix, from userid 4696302)
+	id 20A432238E; Tue, 24 Nov 2026 10:01:48 -0800 (PST)
+From: Zack McKevitt <zachary.mckevitt@oss.qualcomm.com>
+To: dri-devel@lists.freedesktop.org, netdev@vger.kernel.org,
+        riana.tauro@intel.com, aravind.iddamsetty@linux.intel.com,
+        rodrigo.vivi@intel.com, raag.jadav@intel.com, simona.vetter@ffwll.ch,
+        airlied@gmail.com, kuba@kernel.org, ogabbay@kernel.org,
+        lizhi.hou@amd.com, karol.wachowski@linux.intel.com
+Cc: jeff.hugo@oss.qualcomm.com, carl.vanderlip@oss.qualcomm.com,
+        troy.hanson@oss.qualcomm.com, youssef.abdulrahman@oss.qualcomm.com,
+        Zack McKevitt <zachary.mckevitt@oss.qualcomm.com>
+Subject: [PATCH v5 2/4] drm/drm_ras: Remove admin-perm flag from list-nodes operation
+Date: Tue, 24 Nov 2026 10:01:30 -0800
+Message-ID: <20261124180137.616249-3-zachary.mckevitt@oss.qualcomm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124180137.616249-1-zachary.mckevitt@oss.qualcomm.com>
+References: <20261124180137.616249-1-zachary.mckevitt@oss.qualcomm.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,206 +87,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-QCInternal: smtphost
+X-QCInternal: smtphost
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA3MCBTYWx0ZWRfXxxbktzot0Do1
+ dIeIbZpO7ieCMD2tiR82P2mM8gkMvAfuB9Hm20pISpV5sAEn/F7bIe3MgBiPPxrJUx0jI7zyHQy
+ bwPgYEprtqjs+uFBMnx9cXX8BrKcj3o=
+X-Authority-Analysis: v=2.4 cv=cI51IVeN c=1 sm=1 tr=0 ts=6b05d10d cx=c_pps
+ a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22
+ a=3WHJM1ZQz_JShphwDgj5:22 a=QyXUC8HyAAAA:8 a=EUspDBNiAAAA:8
+ a=CU0-bA9xmp4BjaDge1wA:9
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA3MCBTYWx0ZWRfX8Lkg1TYnygFH
+ LSw2GSQj0dMSeF4EidTpyG27hMRmGQkzxbPQmFOdycuzXPXYvrfrv15HFUH2LlGqG8460pfoyIf
+ mcucuBQzPIx4tZmZ7kfqyD1wLaHCug8Ats3TCYku+Wdu6U5YH1DHI1yq6ubQmk/4HAjK3WYEeQs
+ GPOC7v0jubCKGTdDdMiFumojDHawxoHCsFB0RylKKs1lpT2sSVj8Dc2SA0ttE66JsvFHBob0x1c
+ 3HjqGY7eeTsHTpZ9mIL7iuQroD0+2DDjtLMT9nZ9C+VZTCbu24JqAX5dHI/oXvtE4YZrHYwp4DG
+ iC6Z1M9hjhIKhFtL9azd4A6UU11gVk8kiJuNsaw2PCtxhZ0bSMjoDeSaIsdyJSRJhwqYClXKmd7
+ qMGsj9EXKFIJdk/57fivNToFoYdO7CMNApmmPpFyZDlCOGHkvuwc8yMPktj+EYRb22HUcM85Dc+
+ tWSBCBp3FC/Dd4Hh2Ng==
+X-Proofpoint-ORIG-GUID: xol-gpWVeN2O07h_yy8stNjAyWZc3zTd
+X-Proofpoint-GUID: xol-gpWVeN2O07h_yy8stNjAyWZc3zTd
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 bulkscore=0 suspectscore=0
+ clxscore=1015 impostorscore=0 spamscore=0 adultscore=0 malwarescore=0
+ phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240070
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Drivers may want to avoid requiring CAP_NET_ADMIN for subsequent
+drm-ras operations. However, userspace must still be able to access
+the list of RAS nodes to determine the node IDs. So, drop the
+CAP_NET_ADMIN requirement for dumping RAS nodes so that drivers
+with different permission requirements are still able to use the
+interface.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+This prepares the interface to be used for telemetry by the qaic
+driver.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Reviewed-by: Rodrigo Vivi <rodrigo.vivi@intel.com>
+Reviewed-by: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+Signed-off-by: Zack McKevitt <zachary.mckevitt@oss.qualcomm.com>
+---
+ Documentation/netlink/specs/drm_ras.yaml | 1 -
+ drivers/gpu/drm/drm_ras_nl.c             | 2 +-
+ 2 files changed, 1 insertion(+), 2 deletions(-)
 
-- [Medium] Concurrent mode change can leave a phase step half-applied
-  across synth groups.
-- [Low] zl3073x_dpll_ptp_adjphase() in drivers/dpll/zl3073x/dpll.c no
-  longer checks the TIE-capable mode before touching hardware.
-- [Low] The kernel-doc for struct zl3073x_dpll in
-  drivers/dpll/zl3073x/dpll.h says PTP clock operations take @ptp_lock…
-
---
-
-dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-
-This patch adds a per-channel ptp_lock to serialize the zl3073x PTP clock
-operations. The channel lock is now taken only to read the channel mode and
-the output pins, and to issue a TIE write or a phase step. The waits for a
-previous TIE write or phase step now run outside the channel lock, and the
-mode is checked again under that lock before the hardware operation is
-issued.
-
-> diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
-> index 1cdadb8e46fb2..0b605945ee618 100644
-> --- a/drivers/dpll/zl3073x/dpll.c
-> +++ b/drivers/dpll/zl3073x/dpll.c
-
-[ ... ]
-
-> +static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
-> +				       u16 out_mask, s32 step_cycles,
-> +				       bool tod_step)
-> +{
-> +	struct zl3073x_dev *zldev = zldpll->dev;
-> +	const struct zl3073x_chan *chan;
-> +	int rc;
-> +
-> +	rc = zl3073x_chan_phase_step_ready_wait(zldev);
-> +	if (rc)
-> +		return rc;
-> +
-> +	mutex_lock(&zldpll->lock);
-> +	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-> +	if (zl3073x_chan_mode_is_nco(chan))
-> +		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-> +					     step_cycles, tod_step);
-> +	else
-> +		rc = -EOPNOTSUPP;
-> +	mutex_unlock(&zldpll->lock);
-> +
-> +	return rc;
-> +}
-
-[ ... ]
-
-> @@ -2560,33 +2607,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
->  		/* Safe for s32: max synth freq is 750 MHz */
->  		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
->  
-> -		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
-> -					     synth_mask[i], step_cycles,
-> -					     !tod_stepped);
-> +		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
-> +						 step_cycles, !tod_stepped);
->  		if (rc) {
->  			if (tod_stepped) {
->  				dev_warn(zldev->dev,
->  					 "Partial phase step failure\n");
-> -				return 0;
-> +				rc = 0;
->  			}
-> -			return rc;
-> +			goto unlock;
->  		}
->  		tod_stepped = true;
->  	}
-
-[Severity: Medium]
-Can a concurrent mode change leave the phase step applied to only some of
-the synth groups?
-
-Take a channel in NCO mode with stepped outputs on two or more enabled
-synths. The first group is issued with tod_step set, so the ToD and that
-group's outputs are stepped by delta.
-
-For the second group, zl3073x_dpll_ptp_phase_step() calls
-zl3073x_chan_phase_step_ready_wait() without zldpll->lock held. That call
-can wait up to ZL_POLL_PHASE_STEP_TIMEOUT_US (3 s) for the first step to
-finish.
-
-During that window a DPLL callback can take zldpll->lock and move the
-channel out of NCO mode. Examples are zl3073x_dpll_mode_set(),
-zl3073x_dpll_input_pin_state_on_dpll_set() (NCO to REFLOCK) and the NCO pin
-state set (NCO to FREERUN).
-
-The second group's NCO check then returns -EOPNOTSUPP. Because tod_stepped
-is already true, this path logs "Partial phase step failure" and sets
-rc = 0. zl3073x_dpll_ptp_adjtime() then returns success and skips the ToD
-adjust fallback.
-
-Wouldn't the outputs on the first synth then be offset by delta from the
-outputs on the other synths fed by the same DPLL? The PTP servo would also
-be told that the full adjustment was applied.
-
-Before this patch, zldpll->lock was held for the whole adjtime, so the mode
-could not change partway through. This partial path could only be reached
-on a register I/O error.
-
-[ ... ]
-
-> @@ -2747,20 +2845,13 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
->  {
->  	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
->  						   ptp_info);
-> -	struct zl3073x_dev *zldev = zldpll->dev;
-> -	const struct zl3073x_chan *chan;
->  
->  	if (!delta)
->  		return 0;
->  
-> -	guard(mutex)(&zldpll->lock);
-> -
-> -	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-> -
-> -	if (!zl3073x_chan_mode_supports_tie(chan))
-> -		return -EOPNOTSUPP;
-> +	guard(mutex)(&zldpll->ptp_lock);
->  
-> -	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-> +	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
->  }
-
-[Severity: Low]
-Is it intended that adjphase now accesses the hardware before it reports
--EOPNOTSUPP for a mode that does not support TIE?
-
-The old code checked zl3073x_chan_mode_supports_tie() first and returned
-right away. zl3073x_dpll_ptp_tie_write() now takes the device-wide tie_lock
-and polls ZL_REG_DPLL_TIE_CTRL before it checks the mode:
-
-zl3073x_dpll_ptp_tie_write() {
-	mutex_lock(&zldev->tie_lock);
-	rc = zl3073x_chan_tie_ready_wait(zldev);
-	if (rc)
-		goto unlock_tie;
-	...
-}
-
-tie_lock and TIE_CTRL are shared by all channels. So adjphase on a channel
-in NCO, freerun or holdover mode can block behind another channel's pending
-TIE write, for up to about one second per wait.
-
-If the poll times out or the regmap read fails, the caller gets -ETIMEDOUT
-or a bus error. The adjphase kernel-doc still says:
-
- * * %-EOPNOTSUPP	- mode does not support TIE and @delta is non-zero
-
-zl3073x_dpll_ptp_adjtime() avoids this with its is_tie pre-check. Could
-adjphase keep a similar mode check before it calls
-zl3073x_dpll_ptp_tie_write()?
-
-[ ... ]
-
-> diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
-> index 993221dc63249..eda37239ef1e3 100644
-> --- a/drivers/dpll/zl3073x/dpll.h
-> +++ b/drivers/dpll/zl3073x/dpll.h
-> @@ -19,10 +19,12 @@
->   * @ops: DPLL device operations for this instance
->   * @dpll_dev: pointer to registered DPLL device
->   * @tracker: tracking object for the acquired reference
-> - * @lock: per-DPLL mutex serializing all operations
-> + * @lock: per-DPLL mutex serializing DPLL operations and channel state access
->   * @type: DPLL type (PPS or EEC)
->   * @lock_status: last saved DPLL lock status
->   * @pins: list of pins
-> + * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
-> + *	      hold only while they use the channel state
-
-[Severity: Low]
-This isn't a bug, but the comment looks incomplete. The PTP ops also hold
-@lock for more than the channel state.
-zl3073x_dpll_ptp_adjtime_phase_step() holds it while it walks zldpll->pins
-and reads the output state through zl3073x_dev_out_is_stepped() and
-zl3073x_dev_out_synth_get():
-
-	mutex_lock(&zldpll->lock);
-	list_for_each_entry(pin, &zldpll->pins, list) {
-
-The commit message says the PTP ops need the channel lock "only for the
-channel mode and the list of output pins". Should the @ptp_lock comment
-mention the pins list too?
-
+diff --git a/Documentation/netlink/specs/drm_ras.yaml b/Documentation/netlink/specs/drm_ras.yaml
+index 4c2ac9a1ba3f..a88fdab7a1c7 100644
+--- a/Documentation/netlink/specs/drm_ras.yaml
++++ b/Documentation/netlink/specs/drm_ras.yaml
+@@ -112,7 +112,6 @@ operations:
+            the node IDs. These IDs are required for all subsequent
+            operations on nodes, such as querying error counters.
+       attribute-set: node-attrs
+-      flags: [admin-perm]
+       dump:
+         reply:
+           attributes:
+diff --git a/drivers/gpu/drm/drm_ras_nl.c b/drivers/gpu/drm/drm_ras_nl.c
+index c9f5e0ceb3b5..ff0dc406c27c 100644
+--- a/drivers/gpu/drm/drm_ras_nl.c
++++ b/drivers/gpu/drm/drm_ras_nl.c
+@@ -46,7 +46,7 @@ static const struct genl_split_ops drm_ras_nl_ops[] = {
+ 	{
+ 		.cmd	= DRM_RAS_CMD_LIST_NODES,
+ 		.dumpit	= drm_ras_nl_list_nodes_dumpit,
+-		.flags	= GENL_ADMIN_PERM | GENL_CMD_CAP_DUMP,
++		.flags	= GENL_CMD_CAP_DUMP,
+ 	},
+ 	{
+ 		.cmd		= DRM_RAS_CMD_GET_ERROR_COUNTER,
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120171800.327855-1-ivecera%40redhat.com
+2.43.0
+
