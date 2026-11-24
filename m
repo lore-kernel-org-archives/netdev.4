@@ -1,61 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795526790;
-	b=1dd97NsC/gyLHM7UjhJ7i/ccF5oBkTxqymCGpW9Jtjq/WOdDQr/tBC18ix8uhZs5vcRC
-	 TkCXZcyAFXPzF/jw40zHWhn/hOGpaUuXR94FNfx0TbRRchEHsEMqKsAu1MUH7bv1e7+b0
-	 Mb2JKI/vHuarjDLYIDEh63NweW6wd5UznSVUsdvDgg9k94G7SHhuI9UBRSw86TaFYEi5o
-	 9W6iykbJV1Zt8iK3UqUupeB2SDR9RSHvnfHzixDa0u5P1CB9UNIdvncDUio0xN5n/dLBM
-	 0sckGxr5kdlxyenyXw2fIZ2kwgrghYXBONApN1hmjkp/9Y6eU1zyqspqj9cP6ow6sNw==
+	t=1795526898;
+	b=JcD72uavdJBOKWjuRa/mNdIr90XzL98I4O8oPy0idBfMqilHNnlJjOt5Xqr/7QE7HqXl
+	 R+7483xpSJ2a7hidW8N1wq/U3ItAk+eFQrsYelOoQGcsWSoLkOQtvLOTL//apSSN6e5Jz
+	 G/KFEF9EYZoc0l9wVR5T8i8p9uvffX3lvIouSoQMc3KdslXDsm18Nfymw8moaskAUIbYh
+	 HRNJo265tLUV/vY8RycWrieNGS1nCP8/gYZUFhFsgM+5apvRkxX7Xqi283zW8Y7nrCjF0
+	 WCdW9ZDsF4Chf8p8OdmKvbU1g8HxwqbtbXWhHzOZ3TG4m+Tr6kYc2nKEKIriX19Snpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795526790;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=BUFMmdOEluzkiFS1/VYvQjPKeZ2ocL8nf6EPYzQ1tVA=;
-	b=3eHJ3pJ4wPPYXoLPEYq+tl8W+vcaj3WoxyYi7KBaRRaYEIV8P0BcSOusTWUew66tulIP
-	 pd3JHSKXEUPHS85filh3uXYovZfaWLdPp8/NNl2BYzTKejRykE3LRTYijfanuB+eSl4kZ
-	 fFd9GoZu4wATrzCwWbESLryijRoRg58iDYZX2AcL0RrMS+G+xTkts/4km7VgQES8otor9
-	 E74A/Z2TnAC9Dt1huvA3KytuOpopRVyGIam9F/t3yJuiVsTGah1P/DAEJ2GQoCDhMi2XF
-	 jtjI7EKyZvAyXiBYqHFTaodGWoxv6avD2iW1vO1JpHdpdY8RQzgXw7Nf0gZU2iFom1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795526898;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:
+	 X-Google-Original-From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=JT2uC7qMkTRa47GGYeiS4hj8nXfSMLBZRiQ/uyjcVpY=;
+	b=v1NLWD2K9FFJaoOGZXHHGLBeZvlCWfVOBENr74zczLXjgn6VkiAEPlycsQikXdXgUGD3
+	 cblbTS9nnBFiYaWULHDjr6fPJqLQESEp/gogMIdae2xSSee+4Hn9iTg3zgEuw/SByEqXE
+	 +3EHDZC4EMe1pukVLa19c6Rn14DrnfAuWWSQK3Iv/jfB71EONTkdKRFphQRlXHS3nFYhY
+	 gzjacyRAyscEy5HupVMsAgshn65R18zM2cz1YHU2o+z9McIGoUYl76VT0tZpYuCprbbfy
+	 gGBN3usz7MldV8SP2ItNF0vcc2yotvW9FTmbuE408mF+ELDOboxoJFjVloBqPtC+iEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VgR0xoAW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lVeZZl2N;
+	arc=none smtp.remote-ip=209.85.221.52
+Received: from mail-wr1-f52.google.com (mail-wr1-f52.google.com [209.85.221.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49425606A336;
-	Tue, 24 Nov 2026 13:26:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8504606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:28:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8504606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VgR0xoAW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B6A01F000C0;
-	Tue, 24 Nov 2026 13:26:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795526790;
-	bh=BUFMmdOEluzkiFS1/VYvQjPKeZ2ocL8nf6EPYzQ1tVA=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VgR0xoAWJuy9cj3Xzg/3436wkn4wGgTYr9Ek6hrvI1e8Hn0fVa4uTPhdeUPwhOTTh
-	 b5U+fIbAkEqSeNpvUpCAG+fZpr+WJWkseTLMiEYEuJS9UEbAoeS2u2j3Ug1id9wzIB
-	 gU0C9g44INMyloE2qrE0w0/sqaJ9XF/zmz10+69vkwjtxHhosNRprX/6qIs/mbKyDO
-	 e0mso1Q8UGjW/TDSXicpUxkDDFIfvj/oEojBrKEebfCr8TRN4KrkiSh0KPVwBtHpC2
-	 WgsFSC7a1eeb24Q+WmAnTUl3If2xT0InhUsJSCBqYigauFGFqHsdrH0wuv2VjUVil+
-	 bGU9sVvY9pANQ==
-Subject: Re: [PATCH net v2 4/5] vmxnet3: drop XDP frames that do not fit in
- one rx buffer
-From: netdev-bot+sashiko@kernel.org
-To: filzador@gmail.com
-Cc: ronak.doshi@broadcom.com, bcm-kernel-feedback-list@broadcom.com,
- netdev@vger.kernel.org, bpf@vger.kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, u9012063@gmail.com
-Date: Tue, 24 Nov 2026 13:26:28 +0000
-Message-ID: <179552678888.3135.8339153303682923721@kernel.org>
-In-Reply-To: <20261123124855.1021-5-filzador@gmail.com>
-References: <20261123124855.1021-5-filzador@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=lVeZZl2N
+Received: by mail-wr1-f52.google.com with SMTP id ffacd0b85a97d-48e09aa5264so2579200f8f.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:28:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795526895; x=1796131695; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=JT2uC7qMkTRa47GGYeiS4hj8nXfSMLBZRiQ/uyjcVpY=;
+        b=lVeZZl2NwyUaG2U7IBIaU9daivsWdX/Xdy/lVTivmmkemufLwiDtPMJFjo9CRqGBbb
+         +sGwCL+zWTWiu6T7oyqnwyz65V8xyifG3uzbXk/Sxbl9cN97DsCZLXXAferAXaqkChSf
+         6nKc+GAbPdtoQMBDpr1qzRy9ikMlkbnbGmyxpXtPr/4Ew+25ay/jHgsUYzxccdMQGj3Q
+         vxm6e4/NWQtN7Pzc8QL6uIAfmpCOZ//Y5bLv//IVUdJt36VaYJ8h8+y0GLd8L46ul3Ys
+         7q/JU7lOYOnhizjYGOfkUxWe19W5U0zav+SA2nI8/Vbo+oCfvLvrU3CqysNbT5o9jif0
+         umiA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795526895; x=1796131695;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JT2uC7qMkTRa47GGYeiS4hj8nXfSMLBZRiQ/uyjcVpY=;
+        b=t0WmliNV91zN3g6wvGTutL20++H0Cf0+e8wozhC66zC4IfmuBsonQ3Hm27U+gTKR/0
+         iAf0b3D1IfUwGqadCbq2iLJz7bdtyNzdUHa0L2KPtwO4m/K08TsTphVrs4doBIav0fO7
+         l3N2OzXnP58cIMI4UGuvt2skFpbRIZTzOpiQzI1bCy+t45WHReLu+2hqDDuWW1mJykEr
+         GVXie2R0Hw1ChpNyGKmoefFeXnN7gVHyWuP1ku5wUb9QFJwrdXNFSzglXUHUTOUPPfd7
+         JirYh47ARI/dX/yoUs63kcJaovmXkbNiHdIxi3vedfsq9vD1yHm2Sw6q0MHBiiYYoIq2
+         1Frw==
+X-Gm-Message-State: APuU4Z84RMUEjwsGGNmIbjXRdMxO/JUMbEK3WS6S/C8qz106b8iZhoc5
+	IfWXVc3Yu1KWI45bZw8f8Aa6eJdgcwm8iWGIeCtoWdzZbbzjRi3Yt/oY
+X-Gm-Gg: AZFdTZcCVrqCQYhZFYriuT4ERk67zQ5qljjNLRVoPAAwcBRxyJmV5KyxVxg/qlUY5CC
+	I7gd3/3kzFSQkCcoEvSIYcQDukyvNuh21FWeqJ/n6HxgJNCu9OTvmRZodnJ5bKyLto7sl0dnbU2
+	EC4jqRaAtF3yDAjpgbD825C/6hXnzslCl5xQ6swGIib1OesV/m2AA6pm8jAGXYq6aj60ffVu63a
+	uMQtzO8eKv5jzjmUSP2H4eAmPsPqVSYX/7etk71+j3222vHntSQAVKFEnV03LnGV4t6iY4s/JAf
+	xRpi5uXaBV3QWCRlqmcuxgcFwNML0B5kNO7vnOg/np0c0/AZCXMDcRUx4priyIsTttqE8aUd2lO
+	iW/L34/gz26MWMvGf7ci7GL+fpuo6grZSETxWsBDXnUtgzjBfd3Mx/GmZHK3JoSt4Owm75HQ8zp
+	600nWP2kSRFsGIPhBFtc3jswZ+0R+Vsc+i9M2G7STx32QWTb2VyG1s/uZRWSUgHWX8DRbg64OIA
+	2ZWioCDZPukSPZ/9DYclIHG0DjiNnP96PQ2s9HpSfH/Sum88r0xJnOuNz1u7pq6LPjcDSgsbvB1
+	QTPIbhhRujJ6mO145nhUwF1ufo6wzLLN5Ek6ohPKawI3d5a59GJ0qnCEWeCClUbi1YmY1bk0WNp
+	u9qYOPnqhi9LZINO/8gPx0So9DrtQ1KT9V4rmwSiLBq5WhDzEKPNY99ZQVHqKnDkqficagIWi
+X-Received: by 2002:a05:6000:4b1e:b0:48e:7e1f:8cee with SMTP id ffacd0b85a97d-4abb0f3c23bmr28439351f8f.12.1795526895084;
+        Tue, 24 Nov 2026 05:28:15 -0800 (PST)
+Received: from iku.lan ([2a00:23c8:254f:fd01:99e:712b:4aa0:53aa])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d1bsm29256157f8f.8.2026.11.24.05.28.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 05:28:14 -0800 (PST)
+From: Prabhakar <prabhakar.csengg@gmail.com>
+X-Google-Original-From: Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Corinna Vinschen <vinschen@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Prabhakar <prabhakar.csengg+renesas@gmail.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>,
+	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Subject: [PATCH net v2] net: stmmac: Advertise TX checksum offload only when supported
+Date: Tue, 24 Nov 2026 13:28:02 +0000
+Message-ID: <20261124132802.2003605-1-prabhakar.mahadev-lad.rj@bp.renesas.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,116 +109,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+From: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-Low priority / nit picks for your consideration:
+stmmac unconditionally adds IPv4 and IPv6 TX checksum offload to
+hw_features and copies the resulting features to vlan_features. When
+tx_coe is false, for example in threshold DMA mode on hardware with a
+capability register, stmmac_fix_features() removes the flags from the
+active features at registration, but vlan_features retains them.
 
-- [Low] In vmxnet3_rq_rx_complete() (drivers/net/vmxnet3/vmxnet3_drv.c),
-  the patch adds an early exit inside the `rcd->eop && rcd->err` branch:…
-- [Low] The patch changes the initialiser in vmxnet3_rq_rx_complete()
-  (drivers/net/vmxnet3/vmxnet3_drv.c:1618) from `bool skip_page_frags =…
+DSA user ports inherit vlan_features and can therefore advertise TX
+checksum offload even though the conduit cannot perform it.
 
---
+Only add NETIF_F_IP_CSUM and NETIF_F_IPV6_CSUM to hw_features when
+tx_coe is enabled. This prevents the unsupported features from being
+propagated to DSA user ports and reports them as fixed off on the
+conduit.
 
-vmxnet3: drop XDP frames that do not fit in one rx buffer
+The issue was discovered while using stmmac as the DSA CPU port on
+RZ/T2H and RZ/N2H EVKs. The fix was tested with ethtool on the switch
+ports of both EVKs.
 
-With XDP enabled, a frame with sop set but not eop can land in a page_pool
-head buffer. It then falls through to the skb path and crashes. This patch
-drops such frames and skips their body buffers. It also starts each poll
-with skip_page_frags set when no frame is in progress, and avoids counting
-a dropped frame twice when its last body buffer has rcd->err set.
+Fixes: 6b2c6e4a938f ("net: stmmac: propagate feature flags to vlan")
+Signed-off-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+---
+v2:
+  - Added fixes tag
+  - Updated commit message
+  - Targetted the patch to net instead of net-next
+v1: https://lore.kernel.org/all/20261119185016.1789843-1-prabhakar.mahadev-lad.rj@bp.renesas.com/
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-> diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-> index e8be95c1d9f8e..66f677391bbbc 100644
-> --- a/drivers/net/vmxnet3/vmxnet3_drv.c
-> +++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-> @@ -1614,7 +1614,8 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
->  		adapter->rx_prod_offset, adapter->rx_prod2_offset
->  	};
->  	u32 num_pkts = 0;
-> -	bool skip_page_frags = false;
-> +	/* A frame dropped at its head may continue in the next poll. */
-> +	bool skip_page_frags = !rq->rx_ctx.skb;
-
-[Severity: Low]
-This initializer runs on every poll in vmxnet3_rq_rx_complete(), with or
-without XDP. Does it also change behaviour on the non-XDP rx path?
-
-Before this patch, two head-buffer drops set only the poll-local
-skip_page_frags: the netdev_alloc_skb_ip_align() failure and the
-dma_map_single() failure.
-
-Suppose the poll ended before the body completion became visible. The next
-poll then started with skip_page_frags = false and ctx->skb == NULL, and the
-body completion would hit this in the non-sop branch:
-
-    BUG_ON(ctx->skb == NULL && !skip_page_frags);
-
-That problem seems to predate 54f00cce1178. With this change the non-XDP
-case is fixed as well. Orphan body completions at the start of a poll are
-now skipped silently instead of triggering the BUG_ON.
-
-The subject, the Fixes: tag and this sentence in the commit message all
-present the change as XDP-only:
-
-  "drop such frames: count them in drop_total, reuse the head buffer and
-  skip the body buffers, as the existing allocation failure path does."
-
-Could the commit message say that the existing allocation failure path had
-the same cross-poll problem, and that non-XDP rx behaviour changes too? The
-non-XDP issue looks older than the Fixes: commit, so this would help
-stable backport triage.
-
-[ ... ]
-
-> @@ -1662,10 +1663,27 @@ vmxnet3_rq_rx_complete(struct vmxnet3_rx_queue *rq,
->  		       rxd->len != rbi->len);
->  
->  		if (unlikely(rcd->eop && rcd->err)) {
-> +			/* The last body buffer of a frame already dropped */
-> +			if (!rcd->sop && skip_page_frags)
-> +				goto rcd_done;
-
-[Severity: Low]
-Does this skip assume that every path setting skip_page_frags has already
-counted the frame in drop_total?
-
-The head-buffer drops do increment drop_total. Those are the new XDP
-oversize drop, the netdev_alloc_skb_ip_align() failure and the
-dma_map_single() failure.
-
-The two body-buffer drops later in vmxnet3_rq_rx_complete() set
-skip_page_frags without touching drop_total:
-
-    if (unlikely(!new_page)) {
-        rq->stats.rx_buf_alloc_failure++;
-        dev_kfree_skb(ctx->skb);
-        ctx->skb = NULL;
-        skip_page_frags = true;
-        goto rcd_done;
-    }
-
-The dma_map_page() failure branch right after it does the same.
-
-Before this patch, suppose the final body completion of such a frame had
-rcd->eop && rcd->err set. vmxnet3_rx_error() then counted the frame once in
-drop_err and drop_total.
-
-With this check, does that frame go uncounted in both? drop_total feeds
-rx_dropped in vmxnet3_get_stats64() and the ethtool drop counters.
-
-Would it make sense to increment drop_total in those two body-path failure
-branches? Another option is to limit this skip to drops that were already
-counted.
-
->  			vmxnet3_rx_error(rq, rcd, ctx, adapter);
->  			goto rcd_done;
->  		}
-
-[ ... ]
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index a685ce4638f61..d32d3e7b1b8c6 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -8147,8 +8147,9 @@ static int __stmmac_dvr_probe(struct device *device,
+ 	ndev->xdp_metadata_ops = &stmmac_xdp_metadata_ops;
+ 	ndev->xsk_tx_metadata_ops = &stmmac_xsk_tx_metadata_ops;
+ 
+-	ndev->hw_features = NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
+-			    NETIF_F_RXCSUM;
++	ndev->hw_features = NETIF_F_SG | NETIF_F_RXCSUM;
++	if (priv->plat->tx_coe)
++		ndev->hw_features |= NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;
+ 	ndev->xdp_features = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
+ 			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123124855.1021-1-filzador%40gmail.com
+2.56.1
+
