@@ -1,47 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795536528;
-	b=lqt65cWFjULno9LCsRjs7Hd2yOsdcM67ZVOsjzA6Y7WKuo+31Njcy2ZtwfVacrDX6/1j
-	 bynZ9HHEF7t0I637f9JTXmM1itkn00fycsUIsG+pbPkv1Gqrgrev8B6h4FocMGXK6T7c1
-	 jdm0JVB6YQZUtA04mQp4LyD+FH7ALBfTUrPpGs2VG7kCSxUIXszqDhB48jcGOx7aLLbxG
-	 ERCB6kEjqtd1FmDr60FJxNgjrkdXh7WuVu9Dt34v45vnA6BYV4JfjKJW4tK9ePsXhaTyS
-	 MwQgxeLOlgx1t6t0rPwD+QubZCuCvuzeOO0m9Bu/Gtlgeme8Fqc/SWXEwKxcFRMNcRA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795536528;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=YzoUE8OCWMOHAIHuxyqYGDj3RveXhEb5kGI+bHbplfk=;
-	b=z8LnH8ix0SuAVjt1Nec5RInV5UIVEJPTefbNHweiIvE61FBbYvSOkwuOUp/XcKYCfPtw
-	 rfRKId+yQ1cj2Ss3scNjL9Z5LNFLiTSUnaX0N08P6PCl30pk9dxY3gK7mraEBDiWteuLD
-	 2bIp4xqSepe/qi+6FND4DQLFnwC+6p1QVVlNhjrJb+CLRKMM0Y2x0bwb4OqfJOVxoYRap
-	 P8DbENWgGgadpnM66g6KDbr9VAyulC4PaY2EcYHB6NZVuHV6pO6wFlzcIz9ujrp6FIMa7
-	 bcWqxbeZDzcqp4nsMRV9yM1WUSJRAk++HK3YuZzP7bNH/Wy5oEf+MYyIgpEyWZrzUlg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lgW0ecz6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795536728;
+	b=pU/5D24JHerLTVK5OqiJ6GNIUQJfS9xaEWA0LuA73GulzhDP48L3r2toN38fpQyYeWjk
+	 C0aviOXF3teDFbA8PaIv0zBpQ0MdTYHgbg0zSz7tVNTBvOvRq5X2V9/BOotq2UrkfuufA
+	 TROH4R+lYND+AUUsmpv2ITcug5WY9aZ2opBd2OoN13n9d5x8RlYa8JijEDW5sDGJ8tXnS
+	 AeDDQmjWeX5gDGBrOCy3NHnVoRzvgQlyPg/h6zQWYcPUKTpSriwqPjRKaa0LNen3wwU5R
+	 Erk94of/mPnOVcuCCyizllkdkuq3hZ48Kqof8uGKdPTiRYdnv0w0/2+HqRy9AKz3kvg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795536728;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
+	b=BMwx5TkTukKdztBq/7HabMfmS2dmEW1hvaLmlc8cyAQ+TRmRHVltzAkypaOKF+NZ+V++
+	 9uoGIE0UQ11zBDy9tf71cf+gDuAZrvDyUssqyHx5DNhXLx9DsnkwNcjPb7uJLYR36lJ6d
+	 yKTS2VMiW2L3fTjrCPhx1szuJ4jCF8/bK1kbWUHcVh/Y1e1tBYY4bxvUcCwFk3Sm6OeIc
+	 3awhXomjn43N82dFT0zlIPQxWG+pQpcTmKO/k5SJ3jABclLd98allGapOoPADqEUd3+2P
+	 HO3IUUfYOzIZTuzpMEkBGcrZbjJMdoTXkmfp4qXrkKtRjQTDOVkVdh2n1+rvuKz+ZWA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UXXyVN0x;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.169
+Received: from mail-vk1-f169.google.com (mail-vk1-f169.google.com [209.85.221.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EB79606A32C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:08:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3B7B3606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:12:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3B7B3606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lgW0ecz6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 074D81F000EF;
-	Tue, 24 Nov 2026 16:08:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795536528;
-	bh=YzoUE8OCWMOHAIHuxyqYGDj3RveXhEb5kGI+bHbplfk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=lgW0ecz678JbtXXlcnToomiHDE8WEBXu8DjYI/11wt/MTIDQFrOUGVdYbgjtv0/mB
-	 RTw2FslUlHFg6BKWrdPxJDep9ZrsKg6AX3G+nR7YGxga/dJHvNc40z9kyqN0PvVnU1
-	 B/r/zxvs/9Qt69UR3c9Hsug0zXyiSQbnG6OkxkYQOuHesfwPm8zRYhAwgEkySOLAY/
-	 imI7PfyJ5dbYdiwIDiRJ02A/FTVqduakt6U7N9HiVZxwAm6vvqepcpyG0lsi7aNHIP
-	 auySaKT4DxKklCYR6R1YiqaWmmyi/sEGmOloiLVWZrp6MIVYi4u1ihgXoZpGN0GlJO
-	 zhs+hpp05fgYA==
-Message-ID: <b5c9e1c2-bc02-4b47-bcbd-a660f86410ca@kernel.org>
-Date: Tue, 24 Nov 2026 17:08:44 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=UXXyVN0x
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-5eadadf23e5so3408801e0c.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:12:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795536727; cv=none;
+        d=google.com; s=arc-20260327;
+        b=ACXK5n/sVrJEtACSFQ5ss2uxmnP+u7CC1NAMMNcYMTLrmHjsQxRIS/xBJoT9UNUlRE
+         LvjLS+KLx2k4IL1h7fp9PJPA38DoVtTuZHb4ZNQyhZ+8YU6at+Zt0utNJzP8TXjIwY5B
+         aobo8E5P9xMgEpFhOo0mntMODvpzuCLqpc8JeExUo9xC/3xA4nT8M7PO5AlPwbnG/yCs
+         xO8QDv4ybamPVidZsPVSta9UJJhyBIHH5EQXnNII9EZ5GOfzns+To58p7kIwhVK+I+cg
+         Q/sbZmVNL/57e3FecLN018/ITLRCjvaJhuQV5fruqbivKTh4VO8VlZmDDdyrfMgWjExy
+         iSTw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
+        fh=hmXngdu0Xr0aCzuWtPuWhRZej2OQgztQTyz38XdXv0I=;
+        b=M0TODQzdfNSYKhRlCBiW77HrQcjmf7WDn+Aa6tQNpsYpxjZDazppxe7Lraml4wlrIj
+         kXMVSStrnocWqeWelRgKe18295QXChrq0PRAgoDmp3Ch021svEqsC32i3AyZa8mp3sIW
+         GaSm6nyTFd+Kgn7gQfJf96Jpwl7VxdphQDWW8zWQnvRzULe7Xu1wP321znF+x+D+OBYV
+         /dnqCkn1WLCLN5y9sC1Zu/rNPxczcOTVtHw7xFIsLU4O4Lte7wUU0tWQxRdom+N/M1ge
+         6Kbay/4KXbVCdxa+fZe2vJvYfPCmRZKLylKFfzd/sLT1sHyPo3zNN4OVc2SwpbDFwgVR
+         OUzQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795536727; x=1796141527; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
+        b=UXXyVN0xytSlIXEW2iQEhjp/MPhYUgJhJJSzv3XuObQgmlaMQ3rEYTC1sXw4cw5ked
+         Ny16b3lqpRpeM3YOEa969DFm1S4vDTJiIyiAXW3/iftuvFpgYDi/Nm2MzxLiAr8mlOXE
+         Y14IS44LbELxb7kENKfwLCG9YwfeEcwXdHOExDfBHb5lMrlBw+/P5JONWF1DsJBRICNy
+         P43uTA19DZOLi1E39omx6Q61Rfc1NnRaxRcpju66qdxBC1pmb0ZbkDYvq4ka1Z34dK6O
+         3nAV24GNFShGvRDATuYFvWcxT/aAFxeSskEWGLfeTb7tHzVAVIppd9ahxZeTPNRxZQDI
+         J+sw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795536727; x=1796141527;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pYLlGY9anwpb2Q0J0H7lZsHuURtjsvjjHUo0v1ukGAk=;
+        b=e7wQDPTaXVRYvN80Ao/xTsYBtvfS69ePaF3Ij00mBIRR4o8j2U3iZAVL/5kK8Vqg1L
+         J5k6X6jtSZnpxnlF6pnmFbfaHU4Oyp7AQjdyDyUUpdV99EImtv84GuzRGgz+7NwDo2T+
+         wryTrg+OMOZxB20w4rC4twH5mJntD4Gg6mGkKMSsRlWU73sqqbPz4mJ+13upb4xxMlnw
+         nxPuBbmqfX5714fXSYAaNW5w3dhPDVzqCKNgRwXTjS8QNLnIUoUnCAlaRkK4WHWzaP1I
+         2+8SMFjei4EQwWEeFMxnLRli7mOTV4ugRWAJHjd3rwevHTfs2E+d+743zr3luSkfMSpF
+         cF2w==
+X-Gm-Message-State: APuU4Z/zs/iznGUxcCheBZUmG3sNWWoN46tP6oHr+FohMIPHLe84uWmS
+	SSEOimQBhTw6tMIVI6ocJImehLPdaCDEXTr4H91KVNoP3y9agXBf3Qu/7ogpX+8/Aq/ynnl6IiY
+	CV7hlDONfm9d72cDji4k7kxwz/S/4lQg=
+X-Gm-Gg: AZFdTZfS/f1PPajv5JSSGayPU1TsWbwC9/Z0fWUB2g742KHJO1q9JwLhMmTFjfd5kTh
+	7+Szz6bThn6jGKH6n7SBpy2oHz3yMjkYR3maDLpM0o4VOcXfiSqJyN5DfREe0PJDhyCN/0V6fwx
+	hY2Scbop4ukOw+D1CWSh7tsamS91Ji++7sFkkJKRx0wC7g7wPYvIoj5naTn4tJXE5FmP6XoT7KW
+	O5CDPyERhTYNMR0wsaf2p+QpDJ5x4qZD54rPkzfKf8iFoCV66VEVmsSG2zF5bifouUpk4IBpACY
+	OvIREvqThA0l2boUXK3ZnxX9Sb1+oa5sqKHjKNFLa12xxhvL4ET8kHOvvlpwGvKwKkyB/6EkgyV
+	hbbE64VPjB+u3BzznkLiAQqMCpCXsmKipEqQnzTwybiyLMcyBTClpWL/i/uyOrryL3meHZMvAhs
+	ckTh5YBZQ7xfSo11orHlg3nfyQautD6g1u/Q9wJDmJ7AQPF7HaxWKnyc6oxZw=
+X-Received: by 2002:a05:6122:d03:b0:5ec:b8f0:774a with SMTP id
+ 71dfb90a1353d-5ee8adf6c85mr8478872e0c.3.1795536727041; Tue, 24 Nov 2026
+ 08:12:07 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,168 +104,163 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [TEST] Google's Netdev-CI: missing results
-Content-Language: fr
-To: Sheena Mohan <sheenamo@google.com>
-Cc: Pin-yen Lin <treapking@google.com>, Netdev <netdev@vger.kernel.org>,
- Willem de Bruijn <willemb@google.com>, Jakub Kicinski <kuba@kernel.org>
-References: <26fb4276-5615-45fb-9cb9-fa5e872d8e7b@kernel.org>
- <0469d224-3baa-48c2-9d28-ac0d9fa2ec73@kernel.org>
- <CAHwYsirFS4nAuvXQA-eOgqq8n=29tfvvUvuk2QygrbCt0pcz3w@mail.gmail.com>
- <CADWJPTvhKh9twnA3Hs8w5-yA0uq6wnY=eXANf4hT4jjmVOz1Ag@mail.gmail.com>
- <b3795455-a237-48a0-890e-97165d218260@kernel.org>
- <CADWJPTvOQnFreBBRJdhhSX5vdp7pCh7VrVJFrGEDJdC=RpfW8Q@mail.gmail.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <CADWJPTvOQnFreBBRJdhhSX5vdp7pCh7VrVJFrGEDJdC=RpfW8Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <409da01d058fee776791de001ffd222069f06090.1795394936.git.lucien.xin@gmail.com>
+ <179548140847.3135.8828188577061386396@kernel.org>
+In-Reply-To: <179548140847.3135.8828188577061386396@kernel.org>
+From: Xin Long <lucien.xin@gmail.com>
+Date: Tue, 24 Nov 2026 11:11:54 -0500
+X-Gm-Features: Aa3M54rqETa2lnqAo-ABIO05wIeeFIjUfvZmi8lF89O6LgYoCp4j7vLsobhJRjY
+Message-ID: <CADvbK_eX-86Wh28QBQomBANJ=UpxhzXJe028r99KN5+VA9Urpw@mail.gmail.com>
+Subject: Re: [PATCH net-next] sctp: diag: set sin6_scope_id for IPv6
+ link-local lookup addresses
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net, 
+	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	marcelo.leitner@gmail.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Sheena,
+On Mon, Nov 23, 2026 at 7:50=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 1
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] sctp_diag_dump_one() (net/sctp/diag.c:458 and 464) uses the
+>   single req->id.idiag_if as the scope id for both laddr and paddr.
+> - [Low] The patch fixes a long-standing bug but has no Fixes: tag and no
+>   Reported-by: tag.
+>
+> --
+>
+> sctp: diag: set sin6_scope_id for IPv6 link-local lookup addresses
+>
+> This patch sets sin6_scope_id from req->id.idiag_if on the IPv6 laddr
+> and paddr lookup addresses built in sctp_diag_dump_one(). The goal is to
+> let exact SOCK_DIAG_BY_FAMILY queries match IPv6 link-local associations
+> when the caller supplies the correct interface index.
+>
+> > As gomaja noticed, sctp_diag_dump_one() builds IPv6 lookup addresses on=
+ the
+> > stack but never sets sin6_scope_id.
+>
+> [Severity: Low]
+> Should this patch have Fixes: and Reported-by: tags?
+>
+> The laddr and paddr union in sctp_diag_dump_one() has been declared
+> without an initializer since commit 8f840e47f190 ("sctp: add the
+> sctp_diag.c file"). So on the IPv6 path, sin6_scope_id has been
+> uninitialized stack data since that commit.
+>
+> For link-local peers, the scope of the transport's ipaddr is non-zero.
+> Both sctp_v6_from_skb() and sctp_v6_from_addr_param() set it from the
+> iif. This means __sctp_v6_cmp_addr() reads the uninitialized value
+> through two paths:
+>
+>   sctp_hash_cmp()->sctp_cmp_addr_exact()
+>   sctp_bind_addr_match()->sctp_inet6_cmp_addr()
+>
+> As a result, whether an exact query matches has depended on leftover
+> stack contents, and KMSAN could flag the read.
+>
+> Would it make sense to add a Fixes: 8f840e47f190 tag, so stable tooling
+> picks this up, and a Reported-by: tag for gomaja?
+>
+> > diff --git a/net/sctp/diag.c b/net/sctp/diag.c
+> > index c2a0de2adf6fd..dc199e3e96b1c 100644
+> > --- a/net/sctp/diag.c
+> > +++ b/net/sctp/diag.c
+> > @@ -455,11 +455,13 @@ static int sctp_diag_dump_one(struct netlink_call=
+back *cb,
+> >               memcpy(&laddr.v6.sin6_addr, req->id.idiag_src,
+> >                      sizeof(laddr.v6.sin6_addr));
+> >               laddr.v6.sin6_family =3D AF_INET6;
+> > +             laddr.v6.sin6_scope_id =3D req->id.idiag_if;
+>
+> [Severity: Medium]
+> Can using idiag_if as the scope for laddr make an exact query fail, even
+> when the sockid is copied straight from the kernel's own dump?
+>
+> On the dump side, inet_diag_msg_sctpasoc_fill() takes idiag_src and
+> idiag_if from different places:
+>
+> net/sctp/diag.c:inet_diag_msg_sctpasoc_fill() {
+>     ...
+>         laddr =3D list_entry(asoc->base.bind_addr.address_list.next,
+>                            struct sctp_sockaddr_entry, list)->a;
+>         paddr =3D asoc->peer.primary_path->ipaddr;
+>         dst =3D asoc->peer.primary_path->dst;
+>     ...
+>         r->id.idiag_if =3D dst ? dst->dev->ifindex : 0;
+>     ...
+> }
+>
+> So idiag_src comes from the first bind entry, which has its own
+> sin6_scope_id. idiag_if comes from the primary path's dst device.
+>
+> Here is an example. A multi-homed socket calls bindx() with fe80::a%eth0
+> and then fe80::b%eth1, and its peer is fe80::p%eth1.
+> sctp_inet6_bind_verify() allows these binds without setting
+> sk_bound_dev_if.
+>
+> sctp_add_bind_addr() uses list_add_tail_rcu(), and sctp_bind_addr_copy()
+> keeps that order. The dump therefore reports idiag_src=3Dfe80::a,
+> idiag_dst=3Dfe80::p and idiag_if=3Deth1.
+>
+> When that sockid is sent back, laddr.sin6_scope_id is set to eth1. The
+> lookup then goes through:
+>
+> sctp_transport_lookup_process()
+>   sctp_addrs_lookup_transport()
+>     sctp_bind_addr_match()
+>       sctp_inet6_cmp_addr()
+>         __sctp_v6_cmp_addr()
+>
+> __sctp_v6_cmp_addr() rejects the fe80::a entry because both scopes are
+> non-zero and differ:
+>
+>         if ((ipv6_addr_type(&addr1->v6.sin6_addr) & IPV6_ADDR_LINKLOCAL) =
+&&
+>             addr1->v6.sin6_scope_id && addr2->v6.sin6_scope_id &&
+>             addr1->v6.sin6_scope_id !=3D addr2->v6.sin6_scope_id)
+>                 return 0;
+>
+> The other bind entry has a different address, so the query returns
+> -ENOENT.
+>
+> In this case no non-zero idiag_if works for both laddr and paddr. Only
+> idiag_if =3D=3D 0 works, and only for sockets not bound to a device.
+> Wildcard-bound sockets on hosts with several NICs might hit the same
+> problem, depending on the order of local_addr_list.
+>
+> The transport hash lookup is keyed on paddr, and dif already filters on
+> the bound device. Would it be better to set only the scope id on paddr,
+> or to leave the laddr scope at 0 so it acts as a wildcard?
+>
+> >
+> >               paddr.v6.sin6_port =3D req->id.idiag_dport;
+> >               memcpy(&paddr.v6.sin6_addr, req->id.idiag_dst,
+> >                      sizeof(paddr.v6.sin6_addr));
+> >               paddr.v6.sin6_family =3D AF_INET6;
+> > +             paddr.v6.sin6_scope_id =3D req->id.idiag_if;
+> >       }
+>
+It's better not to set sin6_scope_id for both laddr and paddr, and
+leave req->id.idiag_if to match sk->sk_bound_dev_if as it is.
 
-On 23/11/2026 21:49, Sheena Mohan wrote:
-> On Mon, Nov 23, 2026 at 1:21 AM Matthieu Baerts <matttbe@kernel.org> wrote:
->>
->> Hi Sheena, Pin-yen,
->>
->> On 21/11/2026 01:50, Sheena Mohan wrote:
->>> On Fri, Nov 20, 2026 at 2:19 PM Pin-yen Lin <treapking@google.com> wrote:
->>>>
->>>> Hi Matthieu,
->>>>
->>>> On Fri, Nov 20, 2026 at 1:08 AM Matthieu Baerts <matttbe@kernel.org> wrote:
->>>>>
->>>>> Hi Sheena,
->>>>>
->>>>> (+ cc Pin-yen)
->>>>>
->>>>> On 23/10/2026 17:52, Matthieu Baerts wrote:
->>>>>> I'm working on the Netdev CI, and I notice that the runners on Google
->>>>>> side are frequently missing results:
->>>>>>
->>>>>> https://netdev.bots.linux.dev/flakes.html?tn-needle=google.*vlan-py&min-flip=0&br-pfx=net-next-hw
->>>>>>
->>>>>> (Look at the non-coloured blocks.)
->>>>>>
->>>>>> Is it normal? Do you mind looking at that please? :)
->>>>>>
->>>>>> Note that when an active runner doesn't process a branch, we cannot mark
->>>>>> the whole batch being validated as "not causing regression" because it
->>>>>> is lacking some validations. So when this happens, the end result is
->>>>>> marked as "pending". That's not an issue when it is once in a while, but
->>>>>> here, it looks "too frequent" not to be reported.
->>>>>
->>>>> Lately, it looks like the situation got worst: 3 days without results.
->>>>> Because it is blocking all the other HW tests, I temporarily disabled
->>>>> the two Google runners: results (if any) are still fetched, but ignored.
->>>>>
->>>>> Do you mind improving the situation, please?
->>>>
->>>> Thanks for looping me in.
->>>>
->>>> This was caused by two conflicting patches ([1], [2]) on the mailing
->>>> list. [2] removed .resizing from struct htable, which [1] references.
->>>> Our runners currently build from a full distro kernel config (which
->>>> enables CONFIG_IP_SET), so kernel compilation failed and no test
->>>> results were uploaded.
->>>>
->>>> Results for google-gve are being reported again today now that [2] is
->>>> no longer in the testing branches. Sorry for the inconvenience and for
->>>> blocking the other HW tests.
->>>>
->>>> We will update our testing infrastructure to use a minimal kernel to
->>>> avoid unrelated build breakage in the future.
->>>>
->>>> [1]: https://lore.kernel.org/all/20261117092731.14656-1-onleaf322@gmail.com/
->>>> [2]: https://lore.kernel.org/all/20261117101018.523826-1-fuchen.dust@gmail.com/
->>>>
->>>> Thanks and regards,
->>>> Pin-yen
->>>
->>> Thanks Matthieu and Pin-yen. Yes the kernel build failed on the last
->>> few Google runners. It is fixed, and both GVE and IDPF should report
->>> results from the most recent run.
->>
->> Thank you for the fix and explanations!
->>
->> I only re-enabled GVE, because IDPF is still too unstable:
->>
->> https://netdev.bots.linux.dev/flakes.html?tn-needle=google-idpf&min-flip=0&br-pfx=net-next-hw
->>
->> Also, many .py tests (e.g. vlan.py) are no longer tested on IDPF, see
->> the bottom of the previous link.
->>
->> Can you look at all that please?
->>
->> Cheers,
->> Matt
-> 
-> Hi Matt,
-> 
-> For IDPF, we temporarily disabled tests with failing sub-tests because
-> they triggered executor timeouts. A few test suites, such as vlan.py,
-> had all sub-tests failing (example
-> https://idpf-netdev-nipa.static.usercontent.goog/results/202611200839-ff3e4741-e35c-4950-aa4f-691a3771c7ac/vlan-py/stdout.txt),
-> so we disabled them until the underlying failures are resolved.
+I will just zero-initialize laddr and paddr only and target it as
+a fix to net.git instead.
 
-Thank you for the explanations!
+Thanks.
 
-I think the NIPA scripts should export a list of tests that are
-explicitly disabled, ideally with a way to set a reason. With that, we
-would be able to have a view of what is being tested, and understand why
-some tests are no longer validated.
-
-> In parallel, we are looking into disabling only the specific failing
-> sub-tests rather than entire suites to prevent executor timeouts while
-> maintaining test reporting visibility.
-
-Thanks for that! I just re-enabled the IDPF remote while you are looking
-into that. Note that I kept testEthtool test ignored because it seems to
-be failing for more than a week.
-
-Cheers,
-Matt
+pw-bot: cr
