@@ -1,105 +1,143 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549910;
-	b=z0Kp6evGMxVGOJFtsJPuMzvvGtQKS6fDgA3Nk2b/8zI7yQ5HfoZkAtDVpi4a5QARCt7n
-	 HOPURiT1PCsr6097xu5S6HjITwYnTejXD8LuZXIU3aCsDUJ35B/oiyjTHw+d2rXTuJp95
-	 wv+3HfsItClaRSUqdArmZPftEQYzn3uU/TQcXFj1RTfE6QbyH/JbageXF6Jx2J4KKgYTd
-	 ehwCbOGkHCCQ3YtTcHq8iBnWB6g+04oeQYhCxU1txfZSpDyVCAz7G2fFqH2YE0XIRgxRb
-	 t9YcOU5YLosUfMfonj/p2iTyp3qaLOQm7bsBhhIaQq+iEkCWzAwIaVQuqP41tHxHoiA==
+	t=1795550101;
+	b=G/GkP90jWiKAApmQYSlMz+4bRD6j/piCUUQ2zjVDyZueFVQdwnQ1Dr0GFtWpb9s9sN7B
+	 CcFRIKa4Ax4zR+FeQ/CojcMuvE1VXFj9X4x6+Si92+b4DJc4pEILxNkHLHDWooF2/85MD
+	 DcoLTWs9srfQUexctpteddXBPAHoo7Vzc1P4vK1vAYXxh8Vep3ns6Tr69CD82skUxzVvX
+	 mtONvKY40KxVDUSjZMAw91O0vnTQOnt16GfXoUvU3jLfhZ7+8yUvOGJ+NE4/d84AW2+Bv
+	 /iD1kp6hdBHzABLe57ZICZqTVriaTZ7vS0oNM6af3U//AyLYlqvjK+tVN5Bgk0PnHfg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549910;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795550101;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=0xxfXHhFtKfjkqyqcsfFPM0ROkNnOJpRIbccoi8xK4w=;
-	b=TRPSCFpxexntqRTDKToeDofmYyDrqamcjHUPK9xwM3l0yT7Cmo7h5/3t2BORaGFtaFEb
-	 61BOYYbgPAsuH8NCdjD2iau0ptHivLtGMNT5mAsbeDF7lkhd66qLWBlpYvuLuZe0EhcPm
-	 gExqpE+jTFegnbG+GI4wrc3xOyjZffTc7OnXy6ot9c/FCG6HiuBDtAtcEI4pTLej3Rc0u
-	 a0DADpkmQry6Ok80mXiQEeMxYnWbn7d0H2V8bnWCAOCAxggK/HsNPNwAuupl0n/OCw9xZ
-	 kwQq8uUjEUp95IUOUb3KU17qbUTfrHFqUzqo6X2+OV9/gr5bVLy015hor0lqCrJyjcw==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=IV7aCStFZdnFeaXhFPoQdGrpPnMKMt+5GDtnao0aM7M=;
+	b=V7SHKWdVqyxCiRitkIAWGZJYiirXgDDD155FF86wYzL2Sj34Xa4swgPjVmdySxiEGrWb
+	 b9Nu2TGkubYtlXpteXyZ6y1JU1ACgHiK1yQ4dLccvAxMCianStXt3R9cGdvgT/OKmIXaR
+	 sgqjSX7fK0Ka35HwFUF32U/kkrIJmLRMnYqBW9oRT+GG0hpkCD7eusnGEU+fpHUpdE4ec
+	 Jmj8j40Ebj5aPMVdePIXCLsxFWTVEiXdSjwu3OXoIt+xTG2je3sLrQBOK9UbksBqUBDmh
+	 exqFTDI5Uzi624MuglgPM76CgI7pjQqhlL7l8ncKKSpKKrih/q3dnzCvl6l0w5+Z/EA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xllrdZnw;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dmarc=pass header.from=chromium.org;
+	spf=pass smtp.mailfrom=chromium.org;
+	dkim=pass header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=F8BWsB0n;
+	arc=none smtp.remote-ip=209.85.215.170
+Received: from mail-pg1-f170.google.com (mail-pg1-f170.google.com [209.85.215.170])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A4151606A684
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:51:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A4151606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 244BC606A32D
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:55:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 244BC606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=chromium.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=chromium.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=xllrdZnw
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso2515317a91.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:51:49 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=chromium.org header.i=@chromium.org header.a=rsa-sha256 header.s=google header.b=F8BWsB0n
+Received: by mail-pg1-f170.google.com with SMTP id 41be03b00d2f7-cde60d879e4so107870a12.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:55:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795549909; x=1796154709; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=0xxfXHhFtKfjkqyqcsfFPM0ROkNnOJpRIbccoi8xK4w=;
-        b=xllrdZnwkm+pubWTFuN1lJ6YR0/wK34LHx9gNIsRUT/z5BSLXFhEqcs8Pxg7EL93ZJ
-         3FK3ltGzVVBXgLReBnHIgtnD1QiEdkC7W9LpG5Oe32AoHfpjLdXkXos64FAbJrJpgokl
-         PkzdvgHOaisJN16uijwFP/G4klxWvfrr5aoe5QNlfT98XKfaxeos2NFNfZGLS1IIjznK
-         0kBkOL5TafhjY0Qr25JTMirxdW03ds8AKxgQRrNBBMznlVc+BXSGUZiCmDSYXlr8f/dJ
-         7Vzeobsd8/uy3bk8tYmiZ2EuaMHUCdkWS9yMea6UUcWcFtKT3NztJSkEfhiaQuhyGuv+
-         FnMQ==
+        d=chromium.org; s=google; t=1795550100; x=1796154900; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=IV7aCStFZdnFeaXhFPoQdGrpPnMKMt+5GDtnao0aM7M=;
+        b=F8BWsB0nCAqeb/AWcfO+HDVK8mZYlTd5OrAGXo+PDo4qNalYx0D3fOywTn36jlGI3o
+         c+cNELy8fDLVUhaoRcT08PS33thK2uCkqwfG9C9YuYZMNa4hOWdKcnZwta+H9xQ9PyXj
+         BerC9R4yihNnd8XXBnr17D3gJaZI3rr46c44Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795549909; x=1796154709;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=0xxfXHhFtKfjkqyqcsfFPM0ROkNnOJpRIbccoi8xK4w=;
-        b=qZGsqyaRKPLU3G2R/3vgM6g34vG5sNNxVfPSEfIS5HHqc8Tc+SEDsPbXbbvXeoBH6P
-         5XplEsFqjunX4396dS9/2xpH6DkLQbp3VsEKnGhWNRZoRnOn0+GJ3qOhcoxO0NMer4pp
-         d7RfWdv91BaLsVyy0sVKemU1cjBz3mXy9dqhR+xGyTqHDrsFzsm1s7vwTIbye9mKLffb
-         kOZtRWh0oCrVduirmxr2HL1sWbt+xkBsKpwjV9eoXYvbehEMw/SiR000Jfuuf++BNoQz
-         TxSkXNhoVvfxKgflSV8DZd+7vq62TDaOlP45uOb3n2yd4Mkd/9w/RI8Ab5qXnFyFMAJb
-         0IMA==
-X-Forwarded-Encrypted: i=1; AL+hErEUVi2PpUp0f6toaaeeDtKdEAcMWcVb40cvYMzXhtB2WDH0OjLscW4U20HOiG94WH8svAHPbxY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8m96d920kIsCULOhRVbeOCh25o3ClGlu0w0jSevFnpRZO4bmne
-	1PUhSJOb8Xx+aHnDhaNnUra9jOD85K1mIMHeNRFe0brOhy19WzQWYXkf
-X-Gm-Gg: AZFdTZdx3KCqoQqufCpvk++GP4EMhXN91eJXcaTYQfx9pzLgMGke3eL4tpfph3to/ce
-	L6Uvx412cRyyPhZo15o3eOFdB/MLJIgNovYw/wNCDAmiMLaaqJQuBi260+j/6COmjqASkmlTKEO
-	uAUse89JNjyy9bY+RPhxWIK6CPNsxY6lnbXNJ0MabN2WNHHLsPzpvQUxVM517fdoySmLwkg7ie5
-	U3FzsN+xBENQzTBO2ejvhVv2ae/g5otjqSiHwmg13lRYU/jnqAf7tPujLva9X0ztVImtUkz3dSj
-	UKLJIaaq9S8V0v0hf9CXOVQiuAns59Cfmt3bC2fG7IHn5lZnqb+xV9UkwTPg+CITSgU6h3ROGoA
-	6PqIHYtQ7Y96TF5HbdbpdqAMiVDVGIn+FwV1M6CHDtZtacwQ1cPeUpcouZwMnXSTMfy+6Bkc33Q
-	TuQAl4qPXS6ghF+P0rxjlEj/lew7dfq9e6RSQMNzz02GZJclFbNPFWiFU+TRZ4jlulfCqxc63Ve
-	p9mnBKwCXgyDTvVgZtE2fcsZy1JKrt7IHNgki/TZT/do0pZxBDZHlpOeS7GXNQGHuPP4wwJcTwe
-	+t106DwP3DY7zebcFU7jIGjjnr8x419MWGnlujp9Ny8RO8m+rdgZyMendojQRhyAsk6sVyZXktm
-	6gWEMfssay4Xe0f4j9CoBO23xx2DF78iYag==
-X-Received: by 2002:a17:90b:5847:b0:3b4:6094:2fad with SMTP id 98e67ed59e1d1-3b4609432acmr9064199a91.48.1795549908783;
-        Tue, 24 Nov 2026 11:51:48 -0800 (PST)
-Received: from localhost ([153.61.198.245])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm24987505a91.1.2026.11.24.11.51.48
+        d=1e100.net; s=20260707; t=1795550100; x=1796154900;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IV7aCStFZdnFeaXhFPoQdGrpPnMKMt+5GDtnao0aM7M=;
+        b=JHOwoWJeyBcq/9phYcdbfLpSB+L1JQ117Gd4XcgFlieiBMMKYOZHgRn7iK1K7GpQ0B
+         zqmDDkk6QD/kkQtjt5D34TFfxMIpMRtBdbMESHFg9Q6HRHCcbItRPeHUCE0T29TSaBBV
+         nvC+QFjMPSdBmjtoO2pnT98GEDFXsu73n6a8fdp0wuWbZl/7+LkMMfE6oQ4uXnk29SE4
+         Uere3fTGq1C+BfOmfqEmKLXgjwzHYnaaxawra0Y5Wt6W0BsQcqrtYbIN5lLgbegFySxa
+         j4sEHuv0+7HJG+pqwnPIeL38mY9ZMdypuqRvAlQFfs19sK/QYgA+1dbSUSVLFPBie47m
+         Lsqw==
+X-Forwarded-Encrypted: i=1; AL+hErHCMxGOiQIM2LWR5/DJAqp5bbeTZFKF13eCk3o1BH7gn7Hy0CaSxqGbpMuQl+bPey58J5/zuVI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/436V6Pv5aZDiL8fsDi/gqkFXvdf0s5UOCe01vxmCo0BAOUdtx
+	hKF+LnZvBndE/36kylmRA4TbJBLLkbAGfnOdcFfbkda10Fd4PQ09CIwNzPQKQhBLyQ==
+X-Gm-Gg: AZFdTZfVSV5ba5qdThTGZjCpXlfMg4sXKkuMJTjO+68xxi3vgRFYxRwy5WZSrpPAk9I
+	i3QCZl6AFUVwTCijI48StvIeUc2WJe3rM+B1xaXEgpHQ4v/CmF5LQF7e5bQHdnFu+RKYoVk09Az
+	jOBVlDLbDwkTSeglhjqYcMpBRC+WsUwB/cy2K+n0OudyKT+cNuPDrK19zGYyDRXmg6EYhTTNl5U
+	vl1fauKtYuzVa6bsTE7wq+gg9oOlT4hCaczC4+goAyGJMXQkLL3muYjEVA0v4yzbNuSVqHdKJX3
+	i7zMcwuiafxlnI/vVEOBON7tnVUNHyxVt1xD7l2z/ucRV4NszJT9J2FXvWXbyaYlS0nooeBMpzs
+	KbII6rwXMzWsu2gwWKNYxfDLpTGur2Hmi1RAUMlgzvkyrhbyEC6iSVXne5wiF61p5QiJa/3rdA9
+	6FvJ4Az/7bgAarG/wRjip+L+TwB4odkGZVmUBYI0tiqxm0Zi20+9c/hHEFuWPO7TvpY4zpSICpC
+	oQuiY8kbcu65mDBxevSZn4bfYaAJQdBV0x9pLav2bPgFO/FRbBM3ZxDYWWjL5DyHo/MLN8EzWtm
+	mAeoIgJPJcHLP+VWc8EnEGYYTJRBxmd5IQ33HuPVdPf09P783zi/BAbUhJtXRbVVH4H4/w==
+X-Received: by 2002:a17:903:4688:b0:2f0:7d6d:4a09 with SMTP id d9443c01a7336-2f07d6d4bc1mr137239435ad.1.1795550100419;
+        Tue, 24 Nov 2026 11:55:00 -0800 (PST)
+Received: from localhost (221.247.125.34.bc.googleusercontent.com. [34.125.247.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2f03f142b8bsm72335435ad.70.2026.11.24.11.54.58
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 11:51:48 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 19:51:48 +0000
-Message-Id: <DN3PBKDHWZF3.18F6D49JMJ2AH@gmail.com>
-Cc: "Stanislav Fomichev" <sdf@fomichev.me>,
- =?utf-8?q?Bj=C3=B6rn_T=C3=B6pel?= <bjorn@kernel.org>, "David S. Miller"
- <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
- Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Willem de
- Bruijn" <willemb@google.com>, "Simon Horman" <horms@kernel.org>, "Daniel
- Borkmann" <daniel@iogearbox.net>, "Jesper Dangaard Brouer"
- <hawk@kernel.org>, "John Fastabend" <john.fastabend@gmail.com>,
- <netdev@vger.kernel.org>, <bpf@vger.kernel.org>
-Subject: Re: [PATCH bpf] xsk: keep the charged page count when pinning a
- umem fails
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Kyuwon Cho" <kyuwoncho18@gmail.com>, "Magnus Karlsson"
- <magnus.karlsson@intel.com>, "Maciej Fijalkowski"
- <maciej.fijalkowski@intel.com>
-In-Reply-To: <179552079829.1290967.12345053263834529704@gmail.com>
-References: <179552079829.1290967.12345053263834529704@gmail.com>
-Content-Transfer-Encoding: 8bit
+        Tue, 24 Nov 2026 11:55:00 -0800 (PST)
+From: Jeff Xu <jeffxu@chromium.org>
+To: David Hildenbrand <david@kernel.org>
+Cc: Jeff Xu <jeffxu@chromium.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Vlastimil Babka <vbabka@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Lorenzo Stoakes <ljs@kernel.org>,
+	"Liam R . Howlett" <liam@infradead.org>,
+	Mike Rapoport <rppt@kernel.org>,
+	Suren Baghdasaryan <surenb@google.com>,
+	Michal Hocko <mhocko@suse.com>,
+	Brendan Jackman <brendan.jackman@linux.dev>,
+	Zi Yan <ziy@nvidia.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>,
+	Marco Elver <elver@google.com>,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Chia-I Wu <olvaffe@gmail.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Ian Rickards <ian.rickards@arm.com>,
+	Jann Horn <jannh@google.com>,
+	Jeff Vander Stoep <jeffv@google.com>,
+	Jeff Xu <jeffxu@google.com>,
+	Kees Cook <kees@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Peter Collingbourne <peter@pcc.me.uk>,
+	=?UTF-8?q?Pierre-Cl=C3=A9ment=20Tosi?= <ptosi@google.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Tomasz Figa <tfiga@chromium.org>,
+	Will Deacon <will@kernel.org>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>,
+	Jan Kara <jack@suse.cz>,
+	Miklos Szeredi <miklos@szeredi.hu>,
+	Baoquan He <baoquan.he@linux.dev>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Pratyush Yadav <pratyush@kernel.org>,
+	Allison Henderson <achender@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-mm@kvack.org,
+	kasan-dev@googlegroups.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-fsdevel@vger.kernel.org,
+	fuse-devel@lists.linux.dev,
+	kexec@lists.infradead.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	rds-devel@oss.oracle.com,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] mm: kasan: skip KASAN for GFP_HIGHUSER
+Date: Tue, 24 Nov 2026 11:54:55 -0800
+Message-ID: <20261124195455.164425-1-jeffxu@chromium.org>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
+In-Reply-To: <7ed1f755-5759-4b5b-ae00-a814f16b7903@kernel.org>
+References: <20261123033111.2349160-1-jeffxu@chromium.org> <20261123033111.2349160-2-jeffxu@chromium.org> <7ed1f755-5759-4b5b-ae00-a814f16b7903@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,12 +147,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Tue, Nov 24, 2026 at 05:03 AM Kyuwon Cho <kyuwoncho18@gmail.com> wrote:
->  net/xdp/xdp_umem.c | 7 ++-----
->  1 file changed, 2 insertions(+), 5 deletions(-)
+On Tue, Nov 24, 2026 at 09:10:53AM +0100, David Hildenbrand (Arm) wrote:
+> On 11/23/26 04:31, Jeff Xu wrote:
+> > -#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM)
+> > -#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE | __GFP_SKIP_KASAN)
+> > +#define GFP_HIGHUSER	(GFP_USER | __GFP_HIGHMEM | __GFP_SKIP_KASAN)
+> > +#define GFP_HIGHUSER_MOVABLE	(GFP_HIGHUSER | __GFP_MOVABLE)
+>
+> Can we please add a big fat comment above GFP_HIGHUSER, explaining why we use
+> __GFP_SKIP_KASAN and which security impact this has?
 
-xsk fixes go via net tree.
-Pls respin as [PATCH net].
+Sure, I'll add a comment above GFP_HIGHUSER in v3:
 
-pw-bot: cr
+/*
+ * GFP_HIGHUSER (and GFP_HIGHUSER_MOVABLE derived from it) sets
+ * __GFP_SKIP_KASAN to skip HW_TAGS tagging on allocation and poisoning on
+ * free. These pages are meant for userspace data (e.g. anonymous and page
+ * cache pages, DMA-BUF, GPU/DRM buffers) rather than kernel data structures,
+ * and tagging every granule on allocation and free is expensive.
+ *
+ * Security impact: under CONFIG_KASAN_HW_TAGS, these pages carry the
+ * match-all tag (0xff), so kernel accesses via page_address() or
+ * kmap_local_page() lose HW_TAGS out-of-bounds and use-after-free
+ * detection. Callers that store kernel data structures in these pages
+ * should not use GFP_HIGHUSER. Generic and SW_TAGS KASAN are unaffected.
+ */
+
+Thanks,
+Jeff
