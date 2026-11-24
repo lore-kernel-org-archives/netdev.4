@@ -1,103 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495379;
-	b=NIcan/md/ooT9rLHQAm69+JNFhR/lL94vSen2NFMbgyYX9I+hiHORCdnktH7sN+igqiM
-	 MPzDnwjlRu/x5gO/3ejsry4ojpk9HI4GuTQDgGSjtf732elIiKruq7odLzZsmj9+lVCc8
-	 CFVqwZ+chHkogKvVD3e1KSyD26l2XelHb1EcuLFcKry3u8grdZILdCkZE7r/ZK5wTVgAa
-	 mj4d504808W3pLLm0sHfV06+NcFZ0cn4ZWLJPbzF/GaSYoQrz07uBsdTjxZPT0uCXm2aK
-	 0/cJanvwYes76zg+OdfZoKYaCCmxGtdkDR/o3ErS7huKPotN3dCTwXHezT52Dbopblw==
+	t=1795495555;
+	b=zvn/E43RtwUh6JATk/RPp/xVq9mmdr68Ix1ozOx4cCUtNQq718C1xoIdMdIoZNaqTz2f
+	 YB2QN0yyrL1ibGnp7D5xBhXCCcbsL8rXv1hmQfBdwscJPGdztNUQvtkBve3tjQX3SxzGJ
+	 ir7hckSF6sKWnxL3tvC0GrGF0SHDADiyIW6eadjYu9Xn9cxiiyLodskMSKHd2QJaKUTaH
+	 lhEjdE6k8QQP3DNHqIUUaDhVXSEHnf6yzqSom1TV7rY8lFGWnrLUqUOjLs2pOR9kEBXdd
+	 mHHvpGWmZVOjvBnKcO7UfdxRLPpmYeyAj/8KqAeC1JHg9RIo7C7vF1Osn8+hbYKT47w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495379;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
-	b=Qx2VFxvdyjrfdROUiYW5U0gOSMHjiaGzx/vaeeHbAGx2j+piQbiW5OuvjfMSyZ34ZDo9
-	 EKwdz7xuWyYbuddZuBKFdXygVvLedxqAke5QCSiC6cO1ec7xJaZawQx1pnGRSoB8sLFHu
-	 wvPuu2UWEY1NxQHQ8gpJQuRQBxksgsu1zjKlYj2JO+QKQnGifBVDM5mVoZElEvKrjJrDm
-	 7MiTermQmBlGnGrp0QcWOUEuO6JaUPDnDoAwyhuPv7ADv3wWEF12VhHx6PMPpBbxqtJRt
-	 pEDCliv2+3qk/s8qad2ZNi7XEWdS6Ias5KPdK9MqF9kuChDSW9zLHtJcDf0vuHrXQIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495555;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=uyV6ROrO1CtSDtUiRySsm1MrJZ9iaX3jNj12OZgR3iU=;
+	b=dB9rpN+dgRNgc8sb3YkDTUAugTEL/aeqOoqktF0qajD2KX6m6wfGgUCB+jbenAKKHQcY
+	 Gc193mUQwsFGpKNAVYJWLcenCQiLskhKAaTR0JbabJ8yvlWXUIxxsfNxNSh6az15KpjRJ
+	 fdR0VcV67eAownujhGxuQBd8fahP784Y7eFZjPKXU9WyJzo3cYCJCWNZIbfJQ2E8AMRlu
+	 JMLHXAeJbFvEUA2Lp+ywFcOjaxhWXZQIPA5nWl7OleaZgXDslO/N/soJ/ol5EXEHXIEhy
+	 QRGKA9C/RTD8N3TfTBPjeevc6K/B1X9Nomnjt1nHuxi8izMmdZG6bHd//esjaT5gvgQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fHU46/Kj";
-	arc=none smtp.remote-ip=74.125.82.175
-Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59D8060A2606
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:42:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59D8060A2606
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fHU46/Kj
-Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-386bd881d39so1268740eec.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:42:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795495378; x=1796100178; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
-        b=fHU46/KjvpMZQYKPo4HLXNCfm0+Rfuf//E8ToI2q2vV9H9pD6U8dF4+urDo2CMQqLf
-         b/eqGVK38OW+/Equlc1s+NuCi4ALa6fmsLOBTLfmEHE6bLMrhvzsxAsyNiz3J8M0lxfy
-         MBQ3FNgiVSNCk1SriGBdltsvT/fL9xyPcwLdMKfugD0+BvoKwVRDkslAeSaTGvF2wD91
-         A1nKNrPdwk2wnN0CZTxWB4UrLgtJCLGnguhIyCnZbhQYYaEzPpfmM9T8sW4bX5OiSIJx
-         DyE1FAlWbCe/nNGa2api/palYm7VD3jbWhFT4w1uyGFCh23j7i1XJkoXfYTEGuTnc5GE
-         LCnQ==
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1402606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:45:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1402606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4b37620eb73so5522472b6e.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:45:54 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795495378; x=1796100178;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
-        b=16DCF6m2y38NpaQNRqqYunHlIw+eC74clvXfOJWYrzFFudeVJSmy5U2FhyYKCGF6Qj
-         RBFpAiyPEPc+e9elepxhDs1hp0w5mLXOvKXLXDy9Za7HYzaHHGPwb7sh/ZQkcqYicAfK
-         RDDVmeLfeb8uc8U17e33Wg1ZC+2csuAg2nEJuKwug4nKFa8xo7xAwtRsOv8cbtnmKE/D
-         ZXNKBnQBXpoIvFxf35gAM/aKhR5PnOBU7gZwWCc7iFXuLnIlvXx5BTe1FQwLWwDLHm30
-         HCP3yH/s1G2jge2xgNLJZJ/jLyjLXWWaKOzxeAiB48QsUecYlNFpaO5BsIV+hqdlFo1N
-         MpLA==
-X-Gm-Message-State: APuU4Z9pBIwbWANxGoe4sKRTyniHPQnGSJ/4ebm63MCmktvWaPEqk+0V
-	GHLSnorJTWOuLRkCdKk6VrItNi/g/qlt5DOT32jLrcOWyp5cLVvTgMo9
-X-Gm-Gg: AZFdTZe5k6D+1o7PloeDW7qqBxhepnuyJ1igVIOQ11KE7jdCY3MoLRKOzZenXnqwO5a
-	N37Uv11vH2Yu/eRf9YKzPUSolvUWnS61KOm8geS4S7pYxZeZ5XszFZgJxXGD8wpwoXxZYlqp40X
-	J5Xx8OMDKK/8YE7mzUb61+1o5lR2w9fw5TKy0G3P8zkl+NmDDIpYnI6jN3olOqRBncDoyer9RT7
-	3oh0lKKwR7IPLIY6ZdZYFuAWUXeCFKctA77u49+18DZsq1OT9YzTFQGgDArkV8YFS0tEBi98/Gy
-	XLun9/m0Xwlp8PyPeX1Y7nUMG3NIjaAr4C/Vi3KLtW6OdhB7WSEoZyvibvERiD2S0L63yFWxHiR
-	2cyzOB+zAuWffhoFip8JEQHmOi2ZfgEdCBKVYL3kQUW3Am9eaM//fZaecqWd11yHtqq+dKSqp8A
-	/B3xTh8WPagZ/6sVAGaYsBin+/oZGX0Ra5AlOCa7iAjuoGXNMm2gLhUhNdl+3RagANgS6RaNOn3
-	ma8eXxapDud+o5ZWzqCPqSSSovr+cwJRBGQ+733QGcoUPtXk6wPOruI4urAkpoHpZk0/CoT+kv8
-	EAkaZdSkxWcz8wMSUrL7LgULxQr8MCXS11xDb5XoTkzmhSe43OODv3QqM/tdeakU0RiA7GlgmYs
-	GOfoCFKIJDyG948tvyQERKxHmUxC7uvflP3MYTheJ1jFdvDrQiJkhSLS5GINJJ3b3D7rIo2VN
-X-Received: by 2002:a05:693c:8083:b0:376:6530:248f with SMTP id 5a478bee46e88-38570a3717dmr16070179eec.24.1795495378467;
-        Mon, 23 Nov 2026 20:42:58 -0800 (PST)
-Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm39913328eec.15.2026.11.23.20.42.57
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 20:42:57 -0800 (PST)
-From: Ahmad Byagowi <ahmadexp@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	arkadiusz.kubalewski@intel.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	jiri@resnulli.us,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	richardcochran@gmail.com,
-	rmk+kernel@armlinux.org.uk,
-	vadim.fedorenko@linux.dev,
-	vladimir.oltean@nxp.com
-Subject: Re: [PATCH net v4 3/5] ptp: ocp: preserve disabled SMA inputs across driver rebind
-Date: Mon, 23 Nov 2026 20:42:56 -0800
-Message-ID: <20261123-timecard-common-v5-d669cfa034-r2-ahmadexp@gmail.com>
-In-Reply-To: <179548551472.3135.11972018356692852897@kernel.org>
-References: <20261122-timecard-common-v4-e0db4ab1aa-3-ahmadexp@gmail.com> <179548551472.3135.11972018356692852897@kernel.org>
+        d=1e100.net; s=20260707; t=1795495554; x=1796100354;
+        h=content-type:to:from:subject:message-id:in-reply-to:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=uyV6ROrO1CtSDtUiRySsm1MrJZ9iaX3jNj12OZgR3iU=;
+        b=2k6mID8X33R7uyT1uCJlHg0oB0QwJL5T2JUQ09XSpytqGzobGxRStGssqjOKJxrqcu
+         8UuVik4BgwfMPy3fOi+Jj23h9IzviW5F0DLDdx3GANPIYRRQ952mKcq86zmJ1tzKNSGh
+         mI2rUVGU9/EcALwxvvSOmV+I/X+Kdir7WgnFRSkzR6R9dvxhNiPCjVuH27lSV9OkClax
+         3ZOtCfrqcNoKMQltputBj0VBdA9N2PPk+mOTz3JBdo5OvdJnqYQ1jy274l5Y3U0oHkzw
+         euiXoo0U3aWhadR8EbR0toXmJF49scAD5h0bjXwOomo+XrCb6EJSAxImwF1PdaUCzi2P
+         q5eA==
+X-Forwarded-Encrypted: i=1; AL+hErHpJ+AUhrGKTpskdB/XxSk0fEqyiWkcJVnxVbDKZcFbmp1odR7u9pcqcQ+MaWi6ygBcqdOREj8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+a6Xx+GTXa1W8cUYWCEuRCkL1V4yFIgbLotwrz3kM6RznLcMv2
+	dvxo02W8em6Lv4MiAgz63+cCUgdXeS/rLh2Hn0taZeZ78Tb0D3K7uR37kltphd/EvnJ6YpPPfy2
+	/nNIwKKVWpBn0GxKZa736088OtvJ3rSioTckOSgID/XNj8uv9DZYl4wZEcEI=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,72 +58,118 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-Received: by 2002:a05:6808:f07:b0:4cb:f21b:6f91 with SMTP id
+ 5614622812f47-57a0a719e9bmr15482730b6e.36.1795495554014; Mon, 23 Nov 2026
+ 20:45:54 -0800 (PST)
+Date: Mon, 23 Nov 2026 20:45:53 -0800
+In-Reply-To: <673fdc18.050a0220.363a1b.012c.GAE@google.com>
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b051681.58b41460.7037.0590.GAE@google.com>
+Subject: Re: [syzbot] [tomoyo?] [mm?] INFO: rcu detected stall in
+ security_file_ioctl (9)
+From: syzbot <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com>
+To: akpm@linux-foundation.org, andrii@kernel.org, ast@kernel.org, 
+	bpf@vger.kernel.org, brauner@kernel.org, daniel@iogearbox.net, jack@suse.cz, 
+	jmorris@namei.org, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-security-module@vger.kernel.org, netdev@vger.kernel.org, 
+	paul@paul-moore.com, penguin-kernel@I-love.SAKURA.ne.jp, serge@hallyn.com, 
+	syzkaller-bugs@googlegroups.com, takedakn@nttdata.co.jp, 
+	tomoyo-users_en@lists.sourceforge.net, viro@zeniv.linux.org.uk
+Content-Type: text/plain; charset="UTF-8"
 
-On Tue, 24 Nov 2026 at 01:58:34 +0000, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Low]
-> Does the ADVA X1 part of this description still hold for the tree this
-> patch applies to?
->
-> The previous patch in this series, "ptp: ocp: handle hardware selectors
-> and combined DPLL input routes", changed ptp_ocp_dpll_frequency_get().
-> An input that fails the exact match now falls through to the
-> combined-destination loop instead of returning -EINVAL:
+syzbot has found a reproducer for the following issue on:
 
-No. Thank you for catching the inaccurate incremental description. After
-the combined-input patch, a disabled X1 input with raw selector zero
-already reads as zero Hz and can be re-enabled through the DPLL core.
-The explicit SMA_DISABLE substitution has no additional visible effect
-for that X1 case. Its effect is on FB/ADVA, where zero otherwise matches
-10 MHz. X1 separately benefits from recovering disabled state on rebind.
+HEAD commit:    3896ae4adf5f tun: complete the zerocopy buffer of packets ..
+git tree:       net
+console output: https://syzkaller.appspot.com/x/log.txt?x=16305bbe580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=d44b06612b68f56
+dashboard link: https://syzkaller.appspot.com/bug?extid=b6f8640465bdf47ca708
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
+syz repro:      https://syzkaller.appspot.com/x/repro.syz?x=1740f363580000
+C reproducer:   https://syzkaller.appspot.com/x/repro.c?x=11305bbe580000
 
-The v5 series says this explicitly. A boundary test runs the actual X1
-getter and DPLL core get-before-set path after the combined-input patch
-but before either disabled-state patch. It passes disabled-to-PPS
-re-enable and output-to-input direction-change recovery on all four
-pins. These are source-derived tests with stubbed MMIO, not hardware
-observations.
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/ca6f81eb80f4/disk-3896ae4a.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/e88582fee6d7/vmlinux-3896ae4a.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/a978638f7ba7/bzImage-3896ae4a.xz
 
-> [Severity: Low]
-> Should this also have a Fixes: tag for b2c4f0ac53f3 ("ptp: ocp: Add
-> ability to disable input selectors.")?
->
-> The init-time recovery in ptp_ocp_sma_fb_init() fixes a lost disabled
-> state that goes back to that commit. It added the software-only
-> sma->disabled flag and the SMA_DISABLE substitution in
-> ptp_ocp_sma_show(). It also added this write in ptp_ocp_sma_store_val(),
-> which clears the SMA_ENABLE bit:
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com
 
-Yes. I split the old patch into two independently described changes:
-
-  v5 patch 5: recover disabled state at bind, with
-    Fixes: b2c4f0ac53f3 ("ptp: ocp: Add ability to disable input selectors.")
-
-  v5 patch 6: report disabled inputs as zero Hz through DPLL, with
-    Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
-
-Patch 5 contains only the initialization hunk, with no DPLL dependency.
-It applies independently to the current net base. The base reproduces
-the lost state, and that patch alone passes 243 modeled FB/ADVA/X1
-initialization states without calling DPLL or writing the mux. Backports
-to older trees may still need context/name adjustments.
-
-The complete series also passes the rebind plus DPLL re-enable tests,
-4,669 input-route combinations, ART and DCF frequency tests, and nine
-deliberately broken routing variants are rejected by runtime assertions.
-No physical rebind was performed. Vadim's Reviewed-by remains only on
-the unchanged DCF correction; I have not carried it onto changed patches.
-
-I have sent the eight-patch v5 series to net for review.
-
-Series:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com
-Patch 4:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-4-ahmadexp@gmail.com
-Patch 5:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-5-ahmadexp@gmail.com
-Patch 6:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-6-ahmadexp@gmail.com
-
-Ahmad
+rcu: INFO: rcu_preempt self-detected stall on CPU
+rcu: 	0-....: (10499 ticks this GP) idle=f474/1/0x4000000000000000 softirq=18751/18751 fqs=4770
+rcu: 	         hardirqs   softirqs   csw/system
+rcu: 	 number:     5264          0            0
+rcu: 	cputime:      138      52351           25   ==> 52490(ms)
+rcu: 	(t=10500 jiffies g=18789 q=10129 ncpus=2)
+CPU: 0 UID: 0 PID: 5837 Comm: syz-executor Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+RIP: 0010:__raw_spin_unlock_irqrestore include/linux/spinlock_api_smp.h:211 [inline]
+RIP: 0010:_raw_spin_unlock_irqrestore+0x47/0x80 kernel/locking/spinlock.c:221
+Code: f7 e8 3d d4 99 f5 f7 c3 00 02 00 00 74 05 e8 10 79 c6 f5 9c 58 a9 00 02 00 00 75 29 f7 c3 00 02 00 00 74 01 fb bf 01 00 00 00 <e8> c4 c4 8a f5 65 48 8b 05 8c 0d d7 08 48 85 c0 74 18 5b 41 5e e9
+RSP: 0018:ffffc90000007e18 EFLAGS: 00000206
+RAX: 0000000000000002 RBX: 0000000000000287 RCX: 0000000000000101
+RDX: 0000000000000003 RSI: ffffffff8e6a85cd RDI: 0000000000000001
+RBP: ffff88807ed35538 R08: ffffffff91be1bbf R09: 1ffffffff237c377
+R10: dffffc0000000000 R11: fffffbfff237c378 R12: ffff8880b8228600
+R13: ffffffff89fd0480 R14: ffff8880b8228600 R15: 1ffff1101704514a
+FS:  000055557acc5500(0000) GS:ffff8881233ff000(0000) knlGS:0000000000000000
+CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+CR2: 00005612e0743768 CR3: 0000000077760000 CR4: 00000000003526f0
+Call Trace:
+ <IRQ>
+ __run_hrtimer kernel/time/hrtimer.c:2075 [inline]
+ __hrtimer_run_queues+0x2bf/0xa10 kernel/time/hrtimer.c:2136
+ hrtimer_run_softirq+0x1e3/0x2e0 kernel/time/hrtimer.c:2153
+ handle_softirqs+0x265/0x8d0 kernel/softirq.c:669
+ __do_softirq kernel/softirq.c:703 [inline]
+ invoke_softirq kernel/softirq.c:542 [inline]
+ __irq_exit_rcu+0xc6/0x220 kernel/softirq.c:786
+ irq_exit_rcu+0x9/0x30 kernel/softirq.c:809
+ instr_sysvec_apic_timer_interrupt arch/x86/kernel/apic/apic.c:1062 [inline]
+ sysvec_apic_timer_interrupt+0xa6/0xc0 arch/x86/kernel/apic/apic.c:1062
+ </IRQ>
+ <TASK>
+ asm_sysvec_apic_timer_interrupt+0x1a/0x20 arch/x86/include/asm/idtentry.h:674
+RIP: 0010:lock_acquire+0x232/0x350 kernel/locking/lockdep.c:5947
+Code: ff ff ff e8 50 07 64 0a f7 44 24 10 00 02 00 00 0f 84 38 ff ff ff 65 48 8b 05 12 e1 3d 13 48 3b 44 24 50 75 33 fb 48 83 c4 58 <5b> 41 5c 41 5d 41 5e 41 5f 5d c3 cc cc cc cc cc 48 8d 3d 37 27 1d
+RSP: 0018:ffffc9000326f700 EFLAGS: 00000296
+RAX: 3c7ff0ca9698f600 RBX: 0000000000000000 RCX: 0000000000000046
+RDX: 000000000e8f2ff9 RSI: ffffffff8e936150 RDI: ffffffff8c8e9880
+RBP: ffff8880281e8000 R08: ffffffff817889cf R09: 0000000000000000
+R10: ffffc9000326f838 R11: ffffffff81b3b880 R12: ffffffff9015a2e0
+R13: 0000000000000002 R14: 0000000000000000 R15: 0000000000000246
+ rcu_lock_acquire include/linux/rcupdate.h:309 [inline]
+ rcu_read_lock include/linux/rcupdate.h:849 [inline]
+ class_rcu_constructor include/linux/rcupdate.h:1216 [inline]
+ unwind_next_frame+0xac/0x2550 arch/x86/kernel/unwind_orc.c:495
+ arch_stack_walk+0x11b/0x150 arch/x86/kernel/stacktrace.c:25
+ stack_trace_save+0xa9/0x100 kernel/stacktrace.c:122
+ kasan_save_stack mm/kasan/common.c:57 [inline]
+ kasan_save_track+0x3f/0x90 mm/kasan/common.c:79
+ kasan_save_free_info+0x40/0x50 mm/kasan/generic.c:599
+ poison_slab_object mm/kasan/common.c:267 [inline]
+ __kasan_slab_free+0x70/0x90 mm/kasan/common.c:299
+ kasan_slab_free include/linux/kasan.h:239 [inline]
+ slab_free_hook mm/slub.c:2780 [inline]
+ slab_free mm/slub.c:6637 [inline]
+ kfree+0x1c7/0x650 mm/slub.c:6930
+ tomoyo_path_number_perm+0x4ba/0x5f0 security/tomoyo/file.c:741
+ security_file_ioctl+0xc3/0x2a0 security/security.c:2534
+ __do_sys_ioctl fs/ioctl.c:592 [inline]
+ __se_sys_ioctl+0x47/0x170 fs/ioctl.c:584
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7f2e4e9a91ab
+Code: 00 48 89 44 24 18 31 c0 48 8d 44 24 60 c7 04 24 10 00 00 00 48 89 44 24 08 48 8d 44 24 20 48 89 44 24 10 b8 10 00 00 00 0f 05 <89> c2 3d 00 f0 ff ff 77 1c 48 8b 44 24 18 64 48 2b 04 25 28 00 00
+RSP: 002b:00007fffff379100 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 0000000000000005 RCX: 00007f2e4e9a91ab
+RDX: 00007fffff379160 RSI: 0000000000008933 RDI: 0000000000000005
+RBP: 00007f2e4ea394f3 R08: 0000000000000000 R09: 00007fffff379470
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000003
+R13: 00007f2e4f764620 R14: 0000000000000006 R15: 0000000000000000
+ </TASK>
+sched: DL replenish lagged too much
