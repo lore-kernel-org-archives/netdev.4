@@ -1,112 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531085;
-	b=ouyqnxS3vnDPOJ4A3f0PdsS7wqlHxLVh6DkFEmTZqLZ/TEHwvjKlPOUbJCmY9esVwyr1
-	 32WwUvikaD2wWFHr2RoSQegu9hpMzwr0VKbJUJKNkjTBRbibrKgxn4QA8s6KYTcpJ9xoP
-	 nj0l05VMWpfN02SpYSn2ogJzprRJqLdGPQL19US9g9UJH73ShvTkm0CwchGHADZ46zoEF
-	 5uJURmIGxnYSVI7j7obbJ60j67MWb74eTjk1ZJBO6Oe7LqTNlmYvjtrCiA+turTjU0cxl
-	 C4+7Gqknp77bsTn7tVZ8p6Z14Ls1vE6mEAplE0r07Vu3CgcrLAA32sgbev8logRAheg==
+	t=1795531164;
+	b=QwwmEcEG5JUjxf0lCBoAIiCcfjhvYCwm+KepnXokFHuNv0xN01PcUfE8zqt4p1Rn3V1y
+	 ZzADFZ838vW09tjFids88UF0U9n46Op0foo+bjGgwEZEc+itbx90GJzs0vV8XBCi6e/E1
+	 M/mXi0TzlAzVq1KqgONiauyWgPu3GneR9piKnuyGJYmvkTmJHHuVOw44Yudy85jyN0tf7
+	 IkoY6vt1nNbxbShYqIKPmygYdE0fxRCiaYyi59uy12/KjZLExIzbnhl+mWfOqNEXPHydp
+	 RaS2sa/qtl8w1TpIShNq75kqXbZKL5w40bpU9Qn0u7Z6Dm/YqryvrK4mFHUJEUBnpBA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531085;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Message-ID:In-Reply-To:References:Subject:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=TXF4UCpmnFnmbQujb61ZHVn+BsQR8wZ6idVaNwcyERc=;
-	b=t2Pp3NsRY5iLhF8p27Q8+w1tsdrjZRq9qyJbJ95JMve3sNkzknkGdN+Ao/cVaGNOfJ31
-	 seTK3wPItRo2izJc0b81jhPEaZjbrFLU8WnlxsUwcX/9x8b8jOjXn3UGJYD7unMV7tTc1
-	 6+Ct3Up3x6DEr5DH3vCXVWs6ASq6Ov/6k4hHYTCBEXKiGOHnEWBak4iHidpXj3x3+2PXw
-	 LvTqMG4CdIho+5GgWW3O+/TNAezRzQttmgnJguhrdcEwiK+NAVKpG6Sf2UV79IWjD907P
-	 zC8dNQ5lbwchAbC86NBvnAHlCzqVLvXzSvm8itYHrjx/eZ5jHxkRBDDZQb23/rCAqLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531164;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2stGQ4/HiGTctVyhMRCTqhZkagSo1oOLNXehp2IlUCY=;
+	b=u1H/pwgI9RgW86XmCE80I7+/X5W75MnEt2TOMQy7TfrNpavofBCDXkpct/KXKbPwc1Z+
+	 C7VfzsVDkqNIxWYHK+j77rTrsYXsyPAuo9BH5hwJ4b3Ez7XbK0e/cdvex+2m7l/9hp/5p
+	 wNmBMnV0umt/t6z+OcvDDirZQJUNSDGZWFS1oOAnxiFxki+ivaiZZhLLLVss5IsKIOESO
+	 rSDG8TQeufmv/dE7rvz6vd8Fs/md8/+DXb6cDlc7OwoeKw+owqL7RdkvQ/dODuyFZ6bm6
+	 1poTUm8kxkpZMJCHSSa3sTJT7LrtGfeaVxLs7JycqCpgeN1aLVmn9Lo7ULWixM9SpEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OaTeu9Zj;
-	arc=none smtp.remote-ip=209.85.222.176
-Received: from mail-qk1-f176.google.com (mail-qk1-f176.google.com [209.85.222.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=T8UuG8ZY;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=iDfPyZMA;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 905EC606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:38:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 905EC606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0EF5D606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:39:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0EF5D606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OaTeu9Zj
-Received: by mail-qk1-f176.google.com with SMTP id af79cd13be357-93a40a9a01aso663561285a.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:38:05 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=T8UuG8ZY;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=iDfPyZMA
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795531162;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2stGQ4/HiGTctVyhMRCTqhZkagSo1oOLNXehp2IlUCY=;
+	b=T8UuG8ZYCnnEw/hILltYbvL+Ws/MrVmKMp8C9lrgcXLNVCcyBvt7SNpl2rDqZHyyY7UO1z
+	CL3rthACmy2uwv9jhY5JaEezqCeZOFf/sesVGDYVfuTzKhXEbYBIEVqQ0xbOZgSiv0EM4s
+	mGn3RCvcZDPgrRzLvrI0Xn914/OOVw0=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-86-Noxaw3nAOE2UCjsUjNw9ag-1; Tue, 24 Nov 2026 14:39:20 +0000
+X-MC-Unique: Noxaw3nAOE2UCjsUjNw9ag-1
+X-Mimecast-MFC-AGG-ID: Noxaw3nAOE2UCjsUjNw9ag_1795531159
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48fbcf023dcso2093222f8f.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:39:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795531084; x=1796135884; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=TXF4UCpmnFnmbQujb61ZHVn+BsQR8wZ6idVaNwcyERc=;
-        b=OaTeu9ZjnHKqxhdBQhy3764JrMDTP9EzLmKhiQLi6x0+MBiKIpaHhKSH2dTs4aoELH
-         c97jTtQezwiOl3Oa1++3Ega30H5eyAgWbBGrO8G0JmMruRwMnBMYAoTm3B3HkAM+Rng9
-         ST7sOju9EefZG1T3Z5029pd/19VNxqs3aj5u3j6ijH/OXliL0He8i4U4OESvmgf3JLSL
-         p4LmE7Kk+1gnHvGdJQyLoAX2JRhIFr0M3h3cq7vBZTct3DK0huH295JXs+GRnu8JXhRR
-         QXsPsWUuF2hdOfpRAXvnlLGUAs0GzM12Kru7Rk2LCpBF2j8o4eewLNePP6TFIRfQSxEB
-         Gujg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795531084; x=1796135884;
-        h=content-transfer-encoding:content-type:mime-version:subject
-         :references:in-reply-to:message-id:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+        d=redhat.com; s=google; t=1795531159; x=1796135959; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=TXF4UCpmnFnmbQujb61ZHVn+BsQR8wZ6idVaNwcyERc=;
-        b=hqbqaxENHzfBgmSN+HWCoDL3bACu2oaJNMldZn0XUAADRzeCfUydlSaVmkBxdy0O2y
-         Q1qoeyhBUYDBG4AtjkGH6/8aoPfgoAAT9psTrEngYgCQYGL4qy01Jj9jqbd/bHK51hVj
-         t0RerHMQdXtZmVQnh0/MFf66Aglujvrqswq5R8LaU9ZkL0ArlzDLHU7LNYldWwGmDLEI
-         etmvriTvCyjG9+szo3FXQ4y8U3i2d00Mk8+hkL/SnRi+IS+LY9wtphSQsvGyIeMwsEol
-         nIIYY7P4Xn36ocZp0AMpi0RhAkN79y29P0uNHT63xRzZ/QyY4dfVzEdhEoK6N3eg30s7
-         POzA==
-X-Forwarded-Encrypted: i=1; AL+hErEt8nr3lGkJBz2yqXaJ1WNEFG9OVRFP2sPToeRrDUUMlrJ0WI7DIeaERyPVr0D3asP3xCgfuyU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9b06jBR4RmV76GP+nLJUrjgMEDd9dnF4fVJkLVIQtNY3+vuzKS
-	FbWG7yISl5RCIUIKu37UfjpMemskdWHc3he3e4gV2Z5AukNsnRN+gVLA
-X-Gm-Gg: AZFdTZfcZEUznCp9RK8ARDZtBF8saw+QFvMXMF/Y4EX6P5eyUM1W9YTqOsZUootC4bx
-	9/6Q5DbctnzmMzbfkIpI15orMHQMVONtRXHbeVRt7Tiw4vXQE2iQ2JCVCtsZGa+4dsoc+RxWyFv
-	VWrB9vIkDY+9RgzJQr9N8WzVGn4kKoxk6AX34ovDc1dmgwPwKzPvQwZH8Jr8Eov3Da/oMn0qQYQ
-	AHVUNQ49tu+iRAiN93Me8Z07l+bP5YMRIlqtJfQLaA1XuhoaMMTvpFCnjS8blaK8+HtnK3GuCJk
-	JYwIo2ExpZ+YsdaXua1lWCfV9qlmXZRkz4oqOFojTcurFIMUQsYzwtn1h2I5RF/LqlZEQlXnXyS
-	xOJClpjfPdnnuEX6NnWCvkJnxpiH8GhL0waxP4K9WoE1uGN/SZFjD0qiDY4NCKGMjP41j0nLoWN
-	tpt/8x8oGIMrvNIxzDbfMVN5aCHbREsJCgx9F5+3II5z+yEhgFvL/Xn4o4hW7oC4RrQnfSPG35L
-	lQXKfhtijLe2xVlbMUolPiqXhhw/hzY2uIKGH0tSw+FCIbObyiaVorYv0WnsvtVvKQa0wzDtTVH
-	DHiaWuZkPv7Z7z27kRmhfpbUI9aUUWAC4veUDXxj45kTlKjB9Cw1UFReytWs5VuEo2Xdx7yjokK
-	EnbHoTW8vO89KAs1pznLuJ8TpWXiZCqrf4lAYc2XfamtFCkjiCEUqUPs+UiYBm/GuAaLjJToZpP
-	/Y8EuZMKp+
-X-Received: by 2002:a05:620a:4592:b0:947:af55:40d8 with SMTP id af79cd13be357-949ba955b65mr2471290685a.9.1795531084469;
-        Tue, 24 Nov 2026 06:38:04 -0800 (PST)
-Received: from gmail.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3f5c31sm1060219285a.30.2026.11.24.06.38.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:38:03 -0800 (PST)
-Date: Tue, 24 Nov 2026 09:38:03 -0500
-From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
-To: Mina Almasry <almasrymina@google.com>, 
- netdev@vger.kernel.org
-Cc: Mina Almasry <almasrymina@google.com>, 
- Eric Dumazet <edumazet@kernel.org>, 
- Neal Cardwell <ncardwell@google.com>, 
- Kuniyuki Iwashima <kuniyu@google.com>, 
- "David S. Miller" <davem@davemloft.net>, 
- Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, 
- Simon Horman <horms@kernel.org>, 
- Stanislav Fomichev <sdf@fomichev.me>, 
- Kaiyuan Zhang <kaiyuanz@google.com>, 
- Willem de Bruijn <willemb@google.com>, 
- Daniel Borkmann <daniel@iogearbox.net>, 
- Josef Bacik <josef@toxicpanda.com>, 
- Stanislav Fomichev <sdf.kernel@gmail.com>, 
- Dragos Tatulea <dtatulea@nvidia.com>, 
- Pavel Begunkov <asml.silence@gmail.com>, 
- Bobby Eshleman <bobbyeshleman@meta.com>
-Message-ID: <willemdebruijn.kernel.18018d6cd8e06@gmail.com>
-In-Reply-To: <20261120201408.3445445-1-almasrymina@google.com>
-References: <20261120201408.3445445-1-almasrymina@google.com>
-Subject: Re: [PATCH net-next v6 0/7] net: prevent mixing incompatible memory
- providers in skbs
+        bh=2stGQ4/HiGTctVyhMRCTqhZkagSo1oOLNXehp2IlUCY=;
+        b=iDfPyZMAsOOf4GlAWF1w+Rvk09wYkTPmhUVxp+sx1qDuGhGyYHwa2dBhrcGQANOfQ9
+         BEoN5/mSiHMh+r42ep+klS0kwN8CEsQS/8W5JrStS4jzqbfzDtIw6j4mTkHbM7IW7LrD
+         5ZrS/9jIratGGiMTyu1NwBYjRZZQaOMOLudhzQ1TJAF0vwHLc7CraA5AzL4kz6GU7Xtj
+         SdEOp3GcAqnnbOdiB4EZTMqL2/UWru291myeyEGPJ6GFbkd291b6yv+Ax44OxH5DDkIA
+         fo8xhwh/vP1zdL7+D9iyaS15NnVHuDp2y7+fcfbgTHKV6nOeL//GRauqcBJC599aPnhl
+         xE9g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795531159; x=1796135959;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=2stGQ4/HiGTctVyhMRCTqhZkagSo1oOLNXehp2IlUCY=;
+        b=zKey7FyD4jC73C5gaIGWUrBit0pBoFO29diLiV4mFaJwLxUXB8Ez35YcyVQIA6B1mY
+         1lszdwqQ4RLCHFdHq2YbR834Tb5IaM+0RKF++1WstF3FZPwpVTAooYiioqUdXiGhXAmv
+         yy22th1VEPWzt/4a/rib3Wcl2FdoG7460tkqgC7YXI52TSQzBJmQxrsgG5aIyQgrARsO
+         WU2aLXkg46ZL71FL0o4mejJ5O9D9z+0U3rZd4h6FBt87ocNyDr0RorKQu25Z6eyb+txd
+         wLSjAqKMj4HYYLXwqMqWyAWJ8TzZCRfJj81SBmOLyjO4SqgHITBfSxwBiZ09np2TYSAs
+         /vyQ==
+X-Forwarded-Encrypted: i=1; AL+hErHfspKYYDL7oZtRkQNDSgaSQLn23GobroMAc69mL5gXLnpJaAo2I77nhrSOF+z0qJX/h+USr4c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+FWOBrXzIFh1m/fLkZa0lfhYO0FkLTQCY7J3fWGJ7TtmnIFQly
+	ZNaTIqL6RHr44auMIJ/e9nVSAUOE1wfNQDLEUggIfQDu0xqzjDxBUfkhqdG4aZGxhV41HnN1k8k
+	VGvOno3B26i/Iewd4LmLht6khF6jF5zYCD9UY9lmTqOuFLXLwdsaWPIs0bw==
+X-Gm-Gg: AZFdTZdnYlwvTBIuUDQa2Ob+haHlJeg//f3QxSez4qZihSu3F8P6u/Q8mzs6WxUxpkv
+	6mxNhQ5dicvSuN2t8NHz7nGd/Zs+0FKGjTO03m/faykwqqHSKd5ct8hY4ljdc9wb66qEXaUThlx
+	Sq/ZeRS2yK9+mp2SuVQYXrYKeabgsdQ6dpFMgZw6M95o+bBrFFgLnmNbLHqvvSWg32nNsL9u4ue
+	duwpwpnwIy/VtkvgzPAh/JGT0RHWSl3rYr5SaP16v4MUPZ13+QxKCuld78X+tj2Ei19uloRuPkF
+	GR1XpwRwHWKr8TBzIlmuWGHU2aVnSLYjQqcVIDtGpCCTXDA3z4ooSNU2CXLgntRfeTB3eiykbPd
+	LMNTzfPWQEp68V/2+M6OizpaxWVTQnsI4nNptsj7n8OeAL5NEvuGJUliLRRwojs1aNBKMpND3wo
+	3BVYvTeEzjvk1ml2mQOhUxQGJS7LbtOzlJbItYb9Vdbzk9
+X-Received: by 2002:a05:6000:4705:b0:48d:f851:ee5f with SMTP id ffacd0b85a97d-4abb225e5f9mr30398852f8f.24.1795531159352;
+        Tue, 24 Nov 2026 06:39:19 -0800 (PST)
+X-Received: by 2002:a05:6000:4705:b0:48d:f851:ee5f with SMTP id ffacd0b85a97d-4abb225e5f9mr30398797f8f.24.1795531158872;
+        Tue, 24 Nov 2026 06:39:18 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c340df4sm32920486f8f.55.2026.11.24.06.39.17
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 06:39:18 -0800 (PST)
+Message-ID: <ebb9c249-85bf-4737-841f-ab6ddcaab5a9@redhat.com>
+Date: Tue, 24 Nov 2026 15:39:17 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,29 +112,146 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>, Michal Luczaj <mhal@rbox.co>
+Cc: Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
+ George Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>,
+ Dmitry Torokhov <dtor@vmware.com>, virtualization@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Kyle Zeng <kylebot@openai.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-Mina Almasry wrote:
-> Enforce that all fragments in a nonlinear skb come from compatible
-> memory providers (and for devmem, the exact same binding).
+On 11/24/26 00:19, Bobby Eshleman wrote:
+> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
+>> On 11/18/26 02:34, Bobby Eshleman wrote:
+>>> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
+>>> can complete the handshake, setting sock->state to SS_CONNECTED, and then
+>>> reset the connection, e.g. in vhost_vsock_reset_orphans(),
+>>> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
+>>> connect() gets the lock back, it finds sk_err set and moves the socket
+>>> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
+>>> and a connect() to a CID on another transport makes
+>>> vsock_assign_transport() release the transport the socket was connected
+>>> on.
+>>>
+>>> Only move the socket back to SS_UNCONNECTED if it is still
+>>> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
+>>> another connect() fails with -EISCONN.
+>>>
+>>> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
+>>> Otherwise a second thread blocked in connect() on the same socket can
+>>> time out after the first one failed and called listen(), and overwrite
+>>> TCP_LISTEN.
+>>
+>> Ohh, this took me a while.
+>>
+>>> +/* Avoid breaking the socket when another thread has changed its state while
+>>> + * we were asleep.
+>>> + */
+>>> +static void vsock_connect_close(struct socket *sock)
+>>> +{
+>>> +	struct sock *sk = sock->sk;
+>>> +
+>>> +	if (sk->sk_state == TCP_SYN_SENT)
+>>> +		sk->sk_state = TCP_CLOSE;
+>>> +	if (sock->state == SS_CONNECTING)
+>>> +		sock->state = SS_UNCONNECTED;
+>>> +}
+>>
+>> I was wondering why not
+>>
+>> 	if (sk->sk_state == TCP_SYN_SENT) {
+>> 		sk->sk_state = TCP_CLOSE;
+>> 		sock->state = SS_UNCONNECTED;
+>> 	}
+>>
+>> and I think the only reasons we can't say "SYN_SENT iff CONNECTING" is
+>> because shutdown() can flip SYN_SENT/CONNECTING to SYN_SENT/DISCONNECTING.
+>> On connect's failure, the blocking path kinda-ignores such shutdown() and
+>> resets the socket to UNCONNECTED anyway, while the non-blocking (i.e.
+>> vsock_connect_timeout()) also consults sk_shutdown != SHUTDOWN_MASK.
+>>
+>> So how about being consistent:
+>>
+>> static void vsock_connect_close(struct socket *sock)
+>> {
+>> 	struct sock *sk = sock->sk;
+>>
+>> 	// we follow vsock_connect_timeout():
+>> 	// TCP_SYN_SENT implies SS_{DIS,}CONNECTING;
+>> 	// and we do check sk_shutdown
+>> 	//
+>> 	// or am I missing something?
+>>
+>> 	if (sk->sk_state == TCP_SYN_SENT &&
+>> 	    sk->sk_shutdown != SHUTDOWN_MASK) {
+>> 		sk->sk_state = TCP_CLOSE;
+>> 		sock->state = SS_UNCONNECTED;
+>> 	}
+>> }
+>>
+>> What do you think?
+> 
+> I think we could say TCP_SYN_SENT implies SS_{DIS,}CONNECTING, but
+> probably not the reverse... without a peer on the other end our connect
+> request gets an RST reply, switching to TCP_CLOSE but leaving untouched
+> SS_CONNECTING. Using only TCP_SYN_SENT then skips resetting
+> SS_CONNECTING to SS_UNCONNECTED, and future connect() retries hit
+> -EALREADY forever.
+> 
+> It seems to work for vsock_connect_timeout() because that function only
+> needs to test if the attempt to connect is still pending (if yes, then
+> close everything up), but vsock_connect_close() needs to know more
+> precisely if the socket still holds the state that this current connect
+> attempt changed... so it separately checks "Did we set TCP_SYN_SENT? if
+> so, set to TCP_CLOSE.  Did we set SS_CONNECTING?  If so, set to
+> SS_UNCONNECTED."
+> 
+> I think it might even make more sense to consolidate in the other
+> direction and make vsock_connect_timeout() a caller of the new
+> vsock_connect_close(), since it appears there is a similar edge case
+> there...
+> 
+> connect(), O_NONBLOCK
+>    transport->connect()  /* OP_REQUEST */
+>    mod_delayed_work(connect_work)
+> 
+> shutdown(SHUT_RDWR)
+>    sock->state = SS_DISCONNECTING
+>    sk_shutdown = SHUTDOWN_MASK
+> 
+> vsock_connect_timeout()
+>    skips the socket because of SHUTDOWN_MASK
+>    /* still TCP_SYN_SENT / SS_DISCONNECTING */
+> 
+> late OP_RESPONSE, virtio_transport_recv_connecting()
+>    sk_state = TCP_ESTABLISHED
+>    sock->state = SS_CONNECTED
+>    vsock_insert_connected()
+> 
+> So the attempt never times out, and a late OP_RESPONSE connects a
+> socket the user already shut down, overwriting SS_DISCONNECTING with
+> SS_CONNECTED. I think that's a separate bug for a separate patch,
+> though.
+> 
+> Or am I off track / missing something?
+I have slightly different question: is the 'multiple threads
+connecting/disconnecting the same socket concurrently' a
+relevant scenario? Otherwise if final state is self-consistent
+(i.e. _NOT_ TCP_SYN_SENT + SS_DISCONNECTING) I think there is
+nothing to fix here.
 
-Is the following correct. Not an automatic need for respin. Can also be
-addressed in a follow-up.
+/P
 
-    IP defragmentation (inet_frag_reasm_finish() in net/ipv4/inet_fragment.c) is
-    still a gap for the frag_list invariant this series enforces in
-    skb_gro_receive_list() and skb_segment(). Neither ip_frag_queue() nor
-    ipv6_frag_rcv() rejects unreadable skbs, and when skb_try_coalesce(head, fp,
-    ...) returns false because head and fp come from incompatible providers (or
-    readable + unreadable), inet_frag_reasm_finish() falls through to its else
-    branch and chains fp onto head->frag_list anyway without propagating
-    fp->unreadable to head->unreadable. If head is readable and fp is unreadable,
-    the resulting reassembled skb has head->unreadable == 0 with an unreadable
-    frag_list member, bypassing validate_xmit_unreadable_skb() on forwarding.
-    Please clarify whether IP defrag is intentionally left to a follow-up (like
-    head_frag-on-unreadable) or handle/reject unreadable fragments in defrag.
 
-NB fragments here has two meanings, skb frags and IP fragments. Where
-possible, please use unambiguous wording.
