@@ -1,51 +1,51 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.145
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525645;
-	b=Uo886aD1mUq3g5lqiu0pKrGGAYsIDzjGlfdcjs1whWyDFSVd9PzQ71yGLVcquxaongBT
-	 n+qlti5O/WD2vw4xgwP9o0BsEJWEupfLKPC9YcDjNn0nkTgGLn4V5USLdmgryo4wWFKlC
-	 uBcmWFA5N+jzhcjeWHeI3WtzS0/Q5wlc6hLFI9oeWY+Xe+uJn/AOj1v1sO8/TFQASVdQU
-	 CTr0jMr4egBVyAK0GUuvl4lg2GgbGLbEXsjUqHH5y2LVPvjIqiuzhAkKnu3BYjMHSkVoP
-	 syruURKJY9I1Eu+D9xhSZMaKN3gY1cECYGcc6JKJXs88Gsequf8xT5EVy/btTZdkUkQ==
+	t=1795525664;
+	b=zT///nTZG4+iecAqNoFLmunGB6ezKA5Qb0yJX+Gub//e6LZLjPx7m3vL2MtzMvri2KRW
+	 rUX3NMRrAKgoo9adMqz1/BFsJQjXEu7e8DmI5Z+Tnd4rgfM3p0mX6H9fgCXXjUpSXkgd6
+	 nWpV1fKx4+DHDb8zKcTWgbO9Sq8/YfwFb0kyiD97JvLUY/mO08Lkm+slLJGadgbJ60Xqe
+	 ARWDDDFpOZ3AcTJKqBBnnAb+b7nG7KBkxXjw7420m9HfRnYfS84FqMNBgPK2qvNTJFep2
+	 dMZdlXpQRWpm/f5W/ftT+aUVJLeR2Q6LOr2y1eE01xhBlb9ZQJv8tyGhYVnF+VY5Eqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525645;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525664;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
 	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=IRYpCfBdDG6Cmr83IE6+7sfFsL5aqFoYzM91s2U+Ui4=;
-	b=ZpzaoyZW7GEyeEsmfaLuPexqMUiR/f1MB3sPSvahc21f9uyOae+aRSIS09lfY/tw9mLD
-	 pH4UmHbVQmZj6V5XyLpP7TC+FsYrSZ2V35NRS23x2aEHhDBsN3SKnguZUgyWov6paAjwP
-	 SOf5I8dWWGsBhmciF3w9yKWtURuQFy4gHvdYTRH+qtf7Mhn0G4bgAzt0IdXZX/TLgol2j
-	 Co7xUGaWkBsPB5octr/576thE8GCCrvMepapLOQ6UbHy0it4VrAGaSi+hpjpylkMkHDPJ
-	 LjuF0OtiwRjYyJU6nMBNH5+VIxbACyUIA7I8zvOe7Cg6+eki+GjN0Uq1bC2hMDjytaw==
+	bh=fEuuayYjW4XK27k8r55+0VUrC6Hs/dGSwkUdlWW+LZE=;
+	b=g5sW75UruCo3/pWmEl63R69xxUafiFteVspTCnsVBevgM2UhNtZM/UTrjjFjUMS3ez6Q
+	 xFI4qpAbTRpP4QLBYFfCh7we+jA/26L1G5nQzSG7X/KDBYjs6+jvA8mDWX62R4kq2uSER
+	 qPgOiHvQNHI0J1bsZVAvY/7eAUDKmBxgsLePrKuualZdt3sz+wZpU2u/sE1S3QAply4/0
+	 Bp5ADNqllfuutPc6FB/kJ/dQ8aVBfyogYjBaImNNm7xEoyjrWRRfafrYXk8+e5NHkcARZ
+	 XDuy/y3HnXiVfZsZDq68tgNdZ0B5bFc1aBDeQpqIbC8n7GJM7BkWrZOveCHMsVMPArQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iTJGjG3n;
-	arc=none smtp.remote-ip=95.215.58.145
-Received: from mta1.migadu.com (out-145.mta1.migadu.com [95.215.58.145])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Xi68m6lQ;
+	arc=none smtp.remote-ip=91.218.175.83
+Received: from mta0.migadu.com (out-83.mta0.migadu.com [91.218.175.83])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 373B7606A334
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:07:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 373B7606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1583606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:07:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1583606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=iTJGjG3n
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Xi68m6lQ
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ibxHueNdSa+6jCrSJ3z2vsx/BayuZQYl+Vp2C26ROrY=;
+DKIM-Signature: a=rsa-sha256; bh=lVCqhItCiIoTTyh8Q0RjFysA+d8zHM9N0SL1I0gqsaw=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525643; v=1; x=1796130443;
- b=iTJGjG3nry4hnjW096EFE24uo5BhjLnR2EKZDCvRGidQFXv3lsy9/q399oqEgmVcerS2rmx0
- ltjYWGGyDHbYeQp/JHmMXV6CeQDM6H0R3bXGb23UFCcHBM6GIlexNosvUD1cXr9/bpIikEWgUxX
- VFuPMgwt1oIlQmjo03KkQk1g=
+ t=1795525661; v=1; x=1796130461;
+ b=Xi68m6lQUSHdNMDO+P4VgY83OvfQHbLGw2USCjdd7r6VMF0//ep1QADwsKDPGt3kVlj7Gyo9
+ UGogOBo9kpRojrZEzt7njcQeSjsqCzasELJDjz3/zyupd/HFXpzc7w4pEVdtRux/JYFGS1jU+Tv
+ gcWU0yPYYKB7IQ1YOznremUA=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 9c346e1770fb1ab7;
-	Tue, 24 Nov 2026 13:07:21 +0000
-X-Mizu-Trace-ID: 9c346e1770fb1ab7
+Received: by smtp.migadu.com with ESMTPS id a0f3c9bae6bbb747;
+	Tue, 24 Nov 2026 13:07:41 +0000
+X-Mizu-Trace-ID: a0f3c9bae6bbb747
 X-Migadu-Flow: FLOW_OUT
 From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
 To: netdev@vger.kernel.org
@@ -83,9 +83,9 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	netfilter-devel@vger.kernel.org,
 	coreteam@netfilter.org,
 	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v1 1/6] tcp: avoid a stack canary in __tcp_select_window()
-Date: Tue, 24 Nov 2026 22:06:26 +0900
-Message-ID: <20261124130631.1886963-2-xuanqiang.luo@linux.dev>
+Subject: [PATCH net-next v1 2/6] ipv4: avoid a stack canary in ip_finish_output2()
+Date: Tue, 24 Nov 2026 22:06:27 +0900
+Message-ID: <20261124130631.1886963-3-xuanqiang.luo@linux.dev>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
 References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
@@ -102,121 +102,161 @@ Content-Transfer-Encoding: 8bit
 
 From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-__tcp_select_window() passes the address of two locals to
-mptcp_space(), but only for MPTCP subflows.
+ip_neigh_gw4() passes the address of its by-value @daddr argument to
+__neigh_create() when the lockless lookup finds no neighbour.
 
-With CONFIG_STACKPROTECTOR_STRONG=y, this forces a stack canary in
-__tcp_select_window() for all TCP sockets.
+Once inlined, this forces a stack canary (CONFIG_STACKPROTECTOR_STRONG=y)
+into its callers, ip_finish_output2() being the one in the transmit path
+of every IPv4 packet, although creating a neighbour is rare compared to
+finding one.
 
-Return both values in a small structure instead.
+Change ip_neigh_gw4() to take a pointer to the address, like
+ip_neigh_gw6(). All callers have the address in the route, in the packet
+or in another object that is not on their stack.
 
-While we are at it, do not compute tcp_space() and tcp_full_space()
-for MPTCP subflows, their values were overwritten.
+Call it only once in ip_neigh_for_gw() and ipv4_dst_neigh_lookup(), so
+that the lookup and the creation are no longer inlined twice there.
+
+Change the type of ipv4_nh in struct bpf_nh_params to __be32, since its
+address is now given to ip_neigh_gw4().
+
+Note that skb_do_redirect() and nf_flow_offload_ip_hook() still need a
+canary for other reasons.
 
 $ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
-add/remove: 0/0 grow/shrink: 0/3 up/down: 0/-51 (-51)
+add/remove: 0/0 grow/shrink: 1/5 up/down: 3/-846 (-843)
 Function                                     old     new   delta
-mptcp_space                                   87      86      -1
-tcp_connect                                 5892    5876     -16
-__tcp_select_window                          706     672     -34
-Total: Before=24068967, After=24068916, chg -0.00%
+nf_flow_offload_ip_hook                     2065    2068      +3
+ip_do_fragment                              1441    1425     -16
+ipv4_dst_neigh_lookup                        684     587     -97
+skb_do_redirect                             4382    4222    -160
+vrf_finish_output                           1614    1345    -269
+ip_finish_output2                           1775    1471    -304
+Total: Before=24068916, After=24068073, chg -0.00%
 
 Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 ---
- include/net/mptcp.h   | 13 +++++++++++--
- net/ipv4/tcp_output.c | 14 ++++++++++----
- net/mptcp/subflow.c   |  9 ++++++---
- 3 files changed, 27 insertions(+), 9 deletions(-)
+ include/linux/filter.h           |  2 +-
+ include/net/route.h              | 16 ++++++++--------
+ net/core/filter.c                |  2 +-
+ net/ipv4/route.c                 | 15 +++++++--------
+ net/netfilter/nf_flow_table_ip.c |  4 +++-
+ 5 files changed, 20 insertions(+), 19 deletions(-)
 
-diff --git a/include/net/mptcp.h b/include/net/mptcp.h
-index ad7005b574bb..95ebcfd5950d 100644
---- a/include/net/mptcp.h
-+++ b/include/net/mptcp.h
-@@ -126,6 +126,12 @@ struct mptcp_pm_ops {
- 	void (*release)(struct mptcp_sock *msk);
- } ____cacheline_aligned_in_smp;
- 
-+/* Result of mptcp_space(). */
-+struct mptcp_space_info {
-+	int space;
-+	int full_space;
-+};
-+
- #ifdef CONFIG_MPTCP
- void mptcp_init(void);
- 
-@@ -144,7 +150,7 @@ static inline bool rsk_drop_req(const struct request_sock *req)
- 	return tcp_rsk(req)->is_mptcp && tcp_rsk(req)->drop_req;
+diff --git a/include/linux/filter.h b/include/linux/filter.h
+index 4f0cd67caccb..e258ba4741af 100644
+--- a/include/linux/filter.h
++++ b/include/linux/filter.h
+@@ -871,7 +871,7 @@ struct bpf_skb_data_end {
+ struct bpf_nh_params {
+ 	u32 nh_family;
+ 	union {
+-		u32 ipv4_nh;
++		__be32 ipv4_nh;
+ 		struct in6_addr ipv6_nh;
+ 	};
+ };
+diff --git a/include/net/route.h b/include/net/route.h
+index 3fccd31eb74d..1571e1c6082c 100644
+--- a/include/net/route.h
++++ b/include/net/route.h
+@@ -406,15 +406,15 @@ static inline int ip4_dst_hoplimit(const struct dst_entry *dst)
  }
  
--void mptcp_space(const struct sock *ssk, int *space, int *full_space);
-+struct mptcp_space_info mptcp_space(const struct sock *ssk);
- bool mptcp_syn_options(struct sock *sk, const struct sk_buff *skb,
- 		       unsigned int *size, struct mptcp_out_options *opts);
- bool mptcp_synack_options(const struct request_sock *req, unsigned int *size,
-@@ -291,7 +297,10 @@ static inline bool mptcp_skb_can_collapse(const struct sk_buff *to,
- 	return true;
- }
- 
--static inline void mptcp_space(const struct sock *ssk, int *s, int *fs) { }
-+static inline struct mptcp_space_info mptcp_space(const struct sock *ssk)
-+{
-+	return (struct mptcp_space_info){ };
-+}
- static inline void mptcp_seq_show(struct seq_file *seq) { }
- 
- static inline int mptcp_subflow_init_cookie_req(struct request_sock *req,
-diff --git a/net/ipv4/tcp_output.c b/net/ipv4/tcp_output.c
-index 08d0d4a639fe..c2022fc9ad52 100644
---- a/net/ipv4/tcp_output.c
-+++ b/net/ipv4/tcp_output.c
-@@ -3391,12 +3391,18 @@ u32 __tcp_select_window(struct sock *sk)
- 	 * fluctuations.  --SAW  1998/11/1
- 	 */
- 	int mss = icsk->icsk_ack.rcv_mss;
--	int free_space = tcp_space(sk);
--	int allowed_space = tcp_full_space(sk);
-+	int free_space, allowed_space;
- 	int full_space, window;
- 
--	if (sk_is_mptcp(sk))
--		mptcp_space(sk, &free_space, &allowed_space);
-+	if (sk_is_mptcp(sk)) {
-+		struct mptcp_space_info info = mptcp_space(sk);
-+
-+		free_space = info.space;
-+		allowed_space = info.full_space;
-+	} else {
-+		free_space = tcp_space(sk);
-+		allowed_space = tcp_full_space(sk);
-+	}
- 
- 	full_space = min_t(int, tp->window_clamp, allowed_space);
- 
-diff --git a/net/mptcp/subflow.c b/net/mptcp/subflow.c
-index 00677fb3efcd..d22ee068f599 100644
---- a/net/mptcp/subflow.c
-+++ b/net/mptcp/subflow.c
-@@ -1532,13 +1532,16 @@ bool mptcp_subflow_data_available(struct sock *sk)
-  * as far as mptcp peer is concerned that data is still inflight.
-  * DSS ACK is updated when skb is moved to the mptcp rx queue.
-  */
--void mptcp_space(const struct sock *ssk, int *space, int *full_space)
-+struct mptcp_space_info mptcp_space(const struct sock *ssk)
+ static inline struct neighbour *ip_neigh_gw4(struct net_device *dev,
+-					     __be32 daddr)
++					     const __be32 *daddr)
  {
- 	const struct mptcp_subflow_context *subflow = mptcp_subflow_ctx(ssk);
- 	const struct sock *sk = subflow->conn;
-+	struct mptcp_space_info info;
+ 	struct neighbour *neigh;
  
--	*space = __mptcp_space(sk);
--	*full_space = mptcp_win_from_space(sk, READ_ONCE(sk->sk_rcvbuf));
-+	info.space = __mptcp_space(sk);
-+	info.full_space = mptcp_win_from_space(sk, READ_ONCE(sk->sk_rcvbuf));
-+
-+	return info;
+-	neigh = __ipv4_neigh_lookup_noref(dev, (__force u32)daddr);
++	neigh = __ipv4_neigh_lookup_noref(dev, (__force u32)*daddr);
+ 	if (unlikely(!neigh)) {
+ 		struct neigh_table *tbl = arp_table(dev_net(dev));
+ 
+-		neigh = __neigh_create(tbl, &daddr, dev, false);
++		neigh = __neigh_create(tbl, daddr, dev, false);
+ 	}
+ 
+ 	return neigh;
+@@ -425,17 +425,17 @@ static inline struct neighbour *ip_neigh_for_gw(struct rtable *rt,
+ 						bool *is_v6gw)
+ {
+ 	struct net_device *dev = rt->dst.dev;
+-	struct neighbour *neigh;
++	const __be32 *daddr;
+ 
+ 	if (likely(rt->rt_gw_family == AF_INET)) {
+-		neigh = ip_neigh_gw4(dev, rt->rt_gw4);
++		daddr = &rt->rt_gw4;
+ 	} else if (rt->rt_gw_family == AF_INET6) {
+-		neigh = ip_neigh_gw6(dev, &rt->rt_gw6);
+ 		*is_v6gw = true;
++		return ip_neigh_gw6(dev, &rt->rt_gw6);
+ 	} else {
+-		neigh = ip_neigh_gw4(dev, ip_hdr(skb)->daddr);
++		daddr = &ip_hdr(skb)->daddr;
+ 	}
+-	return neigh;
++	return ip_neigh_gw4(dev, daddr);
  }
  
- static void subflow_error_report(struct sock *ssk)
+ #endif	/* _ROUTE_H */
+diff --git a/net/core/filter.c b/net/core/filter.c
+index f42ecfb5841f..8ee023c87c24 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -2376,7 +2376,7 @@ static int bpf_out_neigh_v4(struct net *net, struct sk_buff *skb,
+ 		neigh = ip_neigh_gw6(dev, &nh->ipv6_nh);
+ 		is_v6gw = true;
+ 	} else if (nh->nh_family == AF_INET) {
+-		neigh = ip_neigh_gw4(dev, nh->ipv4_nh);
++		neigh = ip_neigh_gw4(dev, &nh->ipv4_nh);
+ 	} else {
+ 		rcu_read_unlock();
+ 		goto out_drop;
+diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+index d0930ae4c5ae..585c10743e1b 100644
+--- a/net/ipv4/route.c
++++ b/net/ipv4/route.c
+@@ -419,15 +419,14 @@ static struct neighbour *ipv4_dst_neigh_lookup(const struct dst_entry *dst,
+ 
+ 	rcu_read_lock();
+ 	dev = dst_dev_rcu(dst);
+-	if (likely(rt->rt_gw_family == AF_INET)) {
+-		n = ip_neigh_gw4(dev, rt->rt_gw4);
+-	} else if (rt->rt_gw_family == AF_INET6) {
++	if (unlikely(rt->rt_gw_family == AF_INET6)) {
+ 		n = ip_neigh_gw6(dev, &rt->rt_gw6);
+-        } else {
+-		__be32 pkey;
+-
+-		pkey = skb ? ip_hdr(skb)->daddr : *((__be32 *) daddr);
+-		n = ip_neigh_gw4(dev, pkey);
++	} else {
++		if (likely(rt->rt_gw_family == AF_INET))
++			daddr = &rt->rt_gw4;
++		else if (skb)
++			daddr = &ip_hdr(skb)->daddr;
++		n = ip_neigh_gw4(dev, daddr);
+ 	}
+ 
+ 	if (!IS_ERR(n) && !refcount_inc_not_zero(&n->refcnt))
+diff --git a/net/netfilter/nf_flow_table_ip.c b/net/netfilter/nf_flow_table_ip.c
+index 78bba416dd5b..19f62005b517 100644
+--- a/net/netfilter/nf_flow_table_ip.c
++++ b/net/netfilter/nf_flow_table_ip.c
+@@ -872,7 +872,9 @@ static int nf_flow_queue_xmit4(struct sk_buff *skb,
+ 			flow_offload_teardown(flow);
+ 			return NF_DROP;
+ 		}
+-		neigh = ip_neigh_gw4(rt->dst.dev, rt_nexthop(rt, ip_addr->ip));
++		neigh = ip_neigh_gw4(rt->dst.dev,
++				     rt->rt_gw_family == AF_INET ?
++				     &rt->rt_gw4 : &ip_addr->ip);
+ 		if (IS_ERR(neigh)) {
+ 			flow_offload_teardown(flow);
+ 			return NF_DROP;
 -- 
 2.43.0
 
