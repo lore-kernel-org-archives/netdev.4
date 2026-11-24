@@ -1,95 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506620;
-	b=cUN5BeXOfwT2KlRMSFWerWJQLZC6dx0MAV8tiCrPd6k8K2ddN82/rejSoO+LPx5QVuah
-	 pnaQAlzzonoUzXddwzMRmjAY7iM03QEEeNFU9iti516048GnrCnF9JIT1rCbjI2O4xZKS
-	 UcxCNnq+VA/PkaiPmSwc9EGuHTHxGgaojHmMa2ywtmqXSqx1hVHP3t/JdyVzBbZSrihM5
-	 BZYiRX7jTM5DzO0byQVsFwhFQjIdhfkrfw5DEduIdyHwFBxbfkFMyktXJSB6uiJORE7XH
-	 YfSu31O20UA3RdwgTbN9FAsW/CSj0LtTv7AvxmIkrR7MTdSwyPQu3sXQN+c2kRstKEA==
+	t=1795506772;
+	b=zT/PjrbAW5tNdwQnyinYgTpJcVzb1fVgrn0FErbiVuGtf7XIt3EPq/QjXDTpgvXR05Lo
+	 uKjgxR3WVkgvHbOT6JgWDPegzOYP3rRwUH0x1Zp7PHZhddx0eYTBZQUhoPEk+nXIsx3+6
+	 uBJ4WAuqHgNBUXOpEt2H19k1uVPCUTB/Ib8XR7VNCzyylXDy7NGN+Z7obAXguX9vUKDAo
+	 XBlcJ7J2PuBN2gp7g5PCDIQ1LX3oRxxZmEKakQPBVSQZ9aAwD7n283qJ2i3X6nWwbMbu2
+	 o5iYt5DDNlenHCne5wqBAp+k7eEUZhtxPBsp3vulEkwojtU2a+3wRN+0TOEVFvZjb9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506620;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=d/ScMjDTdZjQ0BTpNHSS+kgxqfX+lqvUwknkpxTB7IE=;
-	b=svDbB4841kYLi0UL1bO2bu1vSAKkacB+502GB/ULc6oskhUzoEpNR8B03s3LA8egamDl
-	 P8a6K2HSvlsUozElS5i5quzFV16nXIMshBTeL74LMiTMLaSd1z0+UXIeH8jBe5p/ln5v8
-	 Izytya36RiLB6M1EG86exChmVVqvxQQzDFDMOMrkD2kdVmoxtRVzy3wEjbW/drBKUl2q2
-	 NK23NrPzkFPOtlgLpyA4tuG+qe++dLxwxuCexsJGCifYqH4b11abIjO0CleJXHee1Md81
-	 9FQLdSNBk6OCt/pOjA1yjizHJCmMd3c/nXlLw/Alxc0u+/o5dTt5W6G9RXvgVaCU0wQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506772;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=RrnVY+ZofBroIM5B7vAXAF0TamSQ44tggpydwwzWVMM=;
+	b=wnH5gyMkKWy7VUgkda3HooQ/Tnb8aopDKHn+rOReJE13WDR0siTgejLu8qvR5oYOtbsP
+	 AL795eRlx5RdkDrU229Mgl/YRAnuUiAvkG6zhcRJcWIo5pCE9nc1WjH+oourF+ITuSEkN
+	 xeb5A1bedDcMG5pStDLW6ClMH6z21fSBM7Yh5DkqVGDPdFefBPeLtMMHV/3d+0oNTzPIn
+	 6BJr5zsx/JgL29hnuUMv1XT9Wep2C7C9dhOqgfrveWFZWOWcZ05Rp+amwefinPncuZqS6
+	 /ktzrSx/nMIlTNkWhrpW5Cryavvb0IcoGmRgl/q13JBkwjpJJmOUYrA6BXQKkjFz0fA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CjqiRmjC;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cYou23AF;
+	arc=none smtp.remote-ip=209.85.216.52
+Received: from mail-pj1-f52.google.com (mail-pj1-f52.google.com [209.85.216.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E7E606A31E;
-	Tue, 24 Nov 2026 07:50:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90E7E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5702C606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:52:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5702C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=CjqiRmjC
-Received: from pps.filterd (m0353725.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO35SRe003612;
-	Tue, 24 Nov 2026 07:50:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=pp1; bh=d/ScMjDTdZjQ0BTpN
-	HSS+kgxqfX+lqvUwknkpxTB7IE=; b=CjqiRmjCXQQlTkf0MC6mrpaVJXiwZMnW+
-	yoMFVdBVV68OKqblxA/q6GgyYVsztEIqQn9fnZPWzq7TOBuF6zcRYLwhDoBTEZ2g
-	nYhUl/p8yshLUW7bsjvMp+kK9I4b+IpLktZVPY3A5uqd6IER3f3A1f4HDUcctnzL
-	Vs9CklpMkc6F796NA0PWB1zS58xmfCMP+zPttXl5bViheQZbI18Uh4B8rVKwWNU1
-	+oIBZpAjV8Xk6FPkHihuOEROP5u7Gzz2pIwQZVldcezIw09FUqYId4LTVNrIsZLH
-	IXIArkZOiy9v5sFMzCR5OsggHpYBf3kLe5S9OamzhmicoOXtM9sWQ==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34p4e4kj-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 07:50:08 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AO2nK2B021916;
-	Tue, 24 Nov 2026 07:50:07 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j3pmk1rvv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Tue, 24 Nov 2026 07:50:07 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AO7o2wn42140046
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 24 Nov 2026 07:50:03 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 23D172004D;
-	Tue, 24 Nov 2026 07:50:02 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id E16B920040;
-	Tue, 24 Nov 2026 07:50:01 +0000 (GMT)
-Received: from tuxmaker.boeblingen.de.ibm.com (unknown [9.87.85.9])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with SMTP;
-	Tue, 24 Nov 2026 07:50:01 +0000 (GMT)
-Received: by tuxmaker.boeblingen.de.ibm.com (Postfix, from userid 56341)
-	id CC71F1616BE; Tue, 24 Nov 2026 08:50:01 +0100 (CET)
-From: Mahanta Jambigi <mjambigi@linux.ibm.com>
-To: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
-        kuba@kernel.org, pabeni@redhat.com, alibuda@linux.alibaba.com,
-        dust.li@linux.alibaba.com, sidraya@linux.ibm.com
-Cc: hidayath@linux.ibm.com, pasic@linux.ibm.com, horms@kernel.org,
-        tonylu@linux.alibaba.com, guwen@linux.alibaba.com,
-        netdev@vger.kernel.org, linux-s390@vger.kernel.org,
-        linux-rdma@vger.kernel.org, Mahanta Jambigi <mjambigi@linux.ibm.com>
-Subject: [PATCH net-next v2 3/3] net/smc: document the clcsock lifetime
-Date: Tue, 24 Nov 2026 08:49:27 +0100
-Message-ID: <20261124074927.3622245-4-mjambigi@linux.ibm.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124074927.3622245-1-mjambigi@linux.ibm.com>
-References: <20261124074927.3622245-1-mjambigi@linux.ibm.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cYou23AF
+Received: by mail-pj1-f52.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso2224371a91.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:52:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795506772; x=1796111572; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=RrnVY+ZofBroIM5B7vAXAF0TamSQ44tggpydwwzWVMM=;
+        b=cYou23AF4SEylTjH72edOqmsrdJC71eO5tZsSTwRxDdUUtNwNOFvNtV+TrUkuG2bzP
+         tF9xgmzEiB4muV6gxFq7nUv7V0s8efg2t9q5T0YwrYWTfpFNSLiRZMEL7YS23Jh4U6rm
+         ksWQ+PaHD0KZoouBjvoze64VLs8HIfIKQDB3hwl2ZndzaavrmsBTzpbKPqyWZBdaBqOh
+         moiIn0tNptDn4p/rSUTHs2f/2PkMC9SUUHhYQuq0tkob11I/HjJpS0wYtSxcNSWoqsrp
+         2owKk9ehjH0zx70fmdGfQdgNge5bv/AJ784rSl13nkRmrxEBSUFD58OcRCxoVGt1YyXe
+         eTZw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795506772; x=1796111572;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=RrnVY+ZofBroIM5B7vAXAF0TamSQ44tggpydwwzWVMM=;
+        b=LTm0mQESMB+KJ+74z/zF72P9EBNajbmmr4dh0ctAheKO0bSsv9hZq9wDU8YKuyPZx+
+         P8u65Ic7LwOzzwzFy2RyVmJ1lHKZH8C5jSKqBb7+hWjilcNEf6IfoWaQ6HeIxvblSVW9
+         0kMBQZP1p7pWBJ84CdCs5wbPcJDHSCSp0oxtd8WoBughDfy9+ASXlqzWDWTAVL7id1XU
+         4f4Y8V2j1JPdejktMDWTEilATspL3PHTKwSy1Wm9s/KL0iEXeykD4OCPjiV0welnB3aY
+         C1SefeEHAPi9KO5dhItVcdwxXXjBvmKlSomcnoqlgEgAVkzj8DHEbtphnWKE4LR6/Yba
+         WA/A==
+X-Forwarded-Encrypted: i=1; AL+hErHBwQGlvp0J8Iak25Hr6bphbyaBCNXCo898htW2JI9KCKaDJK0/i6lc9vwnBVz+moYXFKSVb9A=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/wQHwJl6QJRpB6+xNWdDcr8RcPzADASyWZd8EKe1uzfsgTKerj
+	haNy2wGNoB+9t1sXmFaGUeJTB+XJk2ngPdO0shPb5sIErThmo2A6kdgE
+X-Gm-Gg: AZFdTZf5twgA/iydUGPsyzmJrJNKxGwY3lVULf30e6T6FdYbSJhhez496b4t3d9IQUT
+	S+l1ejIn5E8zW4LmOPMbUlJ+uHcV0buOZ3qkHZt/8uNct/zWf9Dgo7a/DMyzYTBv4/H1zE+TQ5J
+	rEPpHcEK5auVuaBG4esWsZj2EABbVwwdR7wE/PmBVIT11F3Z9A7fXYALWDBK6nTBAGQpUda6+Uc
+	A/ypD8SJUSUAXq+W0nmJxUDVghHWCHr1m0OdcRXv/r/KH9rLY19t8/rfNa661tN/1FuBG2tcE0I
+	2C8ANSUerV11+kgzsmzxnzL/73GMFuXluToLoHf+6DvwjdlI356iGil8KA+mV1BNAi0EncaBSyl
+	geKo619TX2qjd0EbLepsjwnsmN18NzEaSX41KJ7xUExJPvaIE0jixrRArLvXsJcC3XpWHQIsE3u
+	5sNP3oO4CnRTkuOE8UY5wPnBJoYt8/ny7puADioN7x04S1VlD+X5gtEfuCnzrqn0HMmgFhRSsfy
+	0vBh3opjey18uMd+VewR3AkG9+uyNQcLz6mw8n9Y5EPj8tfZdFBj4j3inYsZ2433qjNSqOYHQLK
+	bvKYtYAQ02OloMJFw7M66Mstw8riS6CLOOTYz/ylzdEOwN3mwlkCU0zJbZkhVbr6Id0=
+X-Received: by 2002:a17:90b:2ecb:b0:3b3:c45e:c715 with SMTP id 98e67ed59e1d1-3b41c95e7bcmr11837289a91.50.1795506771626;
+        Mon, 23 Nov 2026 23:52:51 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d97356sm24140910a91.13.2026.11.23.23.52.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:52:51 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: Ying Xue <ying.xue@windriver.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tipc: drop discovery messages shorter than the fields they carry
+Date: Tue, 24 Nov 2026 16:52:46 +0900
+Message-ID: <179550610427.774194.2378040347436778640@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,133 +102,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDAzMCBTYWx0ZWRfX3Pf2pL3nl1y6
- IdQ4G3hTSEC9qc2MpyzccjYMcViewYyoKfv65rS/2i3/Mp+7iWxGOI9r7ty51+TiUFphRfGAurz
- Yys45YM903H9d4f/vEvSuTLbCjL3XsE=
-X-Proofpoint-GUID: cfK_VD-D_h2G4fxX02AuT67FB5O5624Y
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDAzMCBTYWx0ZWRfX6rFRKVG9Zig5
- qZsLTwS74SzwKnFUOFK1uoo/BCT0eY6Hj49xLJfrX6sfoQuT6S1LE8OJxW1NMho3gJwURv1ujFU
- yednlWW4j6k4/AauGcofCXvmxVXv/sZ6RyNSV4Bk3vdwAlXJI6u1twJNyg+F2JyKyqOkZjbhJTC
- 2BHY6P7aev/kZhJY5iiP2sSVeJRNoWSUMYUemJhugq52ONFtsOWV57dT00pNiozsATR3P06YVv9
- iNYYQQ5A1FkJGVN68vRS7/14XI+yOLDkKa1dJVamL+Vmye2Zi94tf3YBkgHUxaTkkaanKmiRBqe
- 3qoPZ25/iEYFlatqffSZkr00cXhaVhaTSKOtkWf3B95vfp3YOUi0DQ6aooBDeHuec1D0HuIb3ng
- CpomcAVMbx+sLRdSjkqCRHd4ykUrkJRnhD9Bb3YutSiDPtlfbtG0USrv1AbiKyqBvhLKNlOSwtl
- YD7JGcXEeTZlcIX1TVg==
-X-Proofpoint-ORIG-GUID: 41Mut2htOV48vOIJRN8Ijeoaft_Jzybd
-X-Authority-Analysis: v=2.4 cv=QabzLcbv c=1 sm=1 tr=0 ts=6b0541b0 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=RnoormkPH1_aCDwRdu11:22
- a=V8glGbnc2Ofi9Qvn3v5h:22 a=VnNF1IyMAAAA:8 a=yV60tvTADACx1VT-17AA:9
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_01,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 phishscore=0 lowpriorityscore=0 suspectscore=0 adultscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 malwarescore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611240030
+Content-Transfer-Encoding: 8bit
 
-The clcsock is freed only when no socket file can reference it. Record
-that invariant where it is relied upon: at the clcsock field, at the
-release helper, at the diag dump, which can find a socket before its
-clcsock has been created, at the accept cleanup, which must not wait for
-the listen work with the child and listener locks held, and in the
-destructor, which warns if a clcsock is left.
+tipc_disc_rcv() reads the media address and words 13 and 14 of a full
+MAX_H_SIZE header, and the 128-bit node identity from the data after
+it, but tipc_msg_validate() only checks that the declared header is at
+least MIN_H_SIZE. A peer on the bearer can send a discovery message
+with a 24-byte header, and those fields are then read from past the end
+of the message. For a UDP bearer, tipc_udp_msg2addr() takes the peer's
+address from there:
 
-Freeing the clcsock from the destructor is not possible: it can run from
-an RCU callback or a softirq.
+  BUG: KMSAN: uninit-value in tipc_udp_msg2addr (net/tipc/udp_media.c:129)
+   tipc_udp_msg2addr (net/tipc/udp_media.c:129 net/tipc/udp_media.c:159)
+   tipc_disc_rcv (net/tipc/discover.c:227)
+   tipc_rcv (net/tipc/node.c:2136)
+   tipc_udp_recv (net/tipc/udp_media.c:389)
+   udp_queue_rcv_one_skb (net/ipv4/udp.c:2433)
+   udp_queue_rcv_skb (net/ipv4/udp.c:2473)
+  Uninit was created at:
+   kmem_cache_alloc_node_noprof (mm/slub.c:5105)
+   __alloc_skb (net/core/skbuff.c:616 net/core/skbuff.c:716)
 
-Signed-off-by: Mahanta Jambigi <mjambigi@linux.ibm.com>
+Discovery messages have been sent with a MAX_H_SIZE header since commit
+948fa2d115c5 ("tipc: increase size of tipc discovery messages"), and
+with the node identity after it when TIPC_NODE_ID128 is set. Drop the
+shorter ones.
+
+Fixes: b97bf3fd8f6a ("[TIPC] Initial merge")
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
- net/smc/af_smc.c    | 13 +++++++++++++
- net/smc/smc.h       |  4 +++-
- net/smc/smc_close.c |  7 ++++++-
- net/smc/smc_diag.c  |  3 +++
- 4 files changed, 25 insertions(+), 2 deletions(-)
+The issue was found by an LLM-guided test generator that we are
+developing as a research prototype: as an unprivileged user in its own
+user and network namespace, it enables a UDP bearer and sends it a
+discovery message with a 24-byte header. KASAN stays quiet, as the
+bytes read are in the skb's tailroom; KMSAN reports them as above, and
+the kernel logs "Rcv corrupt discovery message" for the address built
+from them.
 
-diff --git a/net/smc/af_smc.c b/net/smc/af_smc.c
-index 7fd79bb..912da20 100644
---- a/net/smc/af_smc.c
-+++ b/net/smc/af_smc.c
-@@ -373,6 +373,14 @@ out:
+The patch was written with LLM assistance; we reviewed and tested it.
+With it, the short message is dropped without KMSAN reports, and two
+namespaces joined by a veth pair with UDP bearers still discover each
+other and bring the link up.
 
- static void smc_destruct(struct sock *sk)
- {
-+	struct smc_sock *smc =3D smc_sk(sk);
+ net/tipc/discover.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/net/tipc/discover.c b/net/tipc/discover.c
+index b9d06595b067..0f99e4af1cfa 100644
+--- a/net/tipc/discover.c
++++ b/net/tipc/discover.c
+@@ -219,6 +219,12 @@ void tipc_disc_rcv(struct net *net, struct sk_buff *skb,
+ 	}
+ 	hdr = buf_msg(skb);
+ 
++	if (msg_hdr_sz(hdr) < MAX_H_SIZE ||
++	    ((caps & TIPC_NODE_ID128) && msg_data_sz(hdr) < NODE_ID_LEN)) {
++		kfree_skb(skb);
++		return;
++	}
 +
-+	/* The destructor can run from an RCU callback or a softirq, where
-+	 * sock_release() must not be called. Every path that drops an SMC
-+	 * socket therefore releases its clcsock before the final
-+	 * sock_put().
-+	 */
-+	WARN_ON_ONCE(smc->clcsock);
- 	if (sk->sk_state !=3D SMC_CLOSED)
- 		return;
- 	if (!sock_flag(sk, SOCK_DEAD))
-@@ -1825,6 +1833,11 @@ struct sock *smc_accept_dequeue(struct sock *paren=
-t,
- 		lock_sock(new_sk);
- 		if (new_sk->sk_state =3D=3D SMC_CLOSED) {
- 			new_sk->sk_prot->unhash(new_sk);
-+			/* The child is on the accept queue, so its
-+			 * smc_listen_work() no longer uses the clcsock. Do not
-+			 * wait for that work here, the child and listener locks
-+			 * are held.
-+			 */
- 			tcp =3D xchg(&isk->clcsock, NULL);
- 			release_sock(new_sk);
- 			if (tcp)
-diff --git a/net/smc/smc.h b/net/smc/smc.h
-index 616bb32..c6bfe63 100644
---- a/net/smc/smc.h
-+++ b/net/smc/smc.h
-@@ -288,7 +288,9 @@ struct smc_sock {				/* smc sock container */
- 		struct sock		sk;
- 		struct inet_sock	icsk_inet;
- 	};
--	struct socket		*clcsock;	/* internal tcp socket */
-+	struct socket		*clcsock;	/* internal tcp socket, freed
-+						 * when no file can use it
-+						 */
- 	void			(*clcsk_state_change)(struct sock *sk);
- 						/* original stat_change fct. */
- 	void			(*clcsk_data_ready)(struct sock *sk);
-diff --git a/net/smc/smc_close.c b/net/smc/smc_close.c
-index e71245d..d359436 100644
---- a/net/smc/smc_close.c
-+++ b/net/smc/smc_close.c
-@@ -20,7 +20,12 @@
- #include "smc_cdc.h"
- #include "smc_close.h"
-
--/* release the clcsock that is assigned to the smc_sock */
-+/* Release the clcsock.  Call this only after the socket has been
-+ * unhashed, and only when no socket file can reach the clcsock: from
-+ * smc_release(), from the listener cleanup, and from the abnormal
-+ * close paths once the socket has no file left. While a file is open,
-+ * the clcsock stays in place until smc_release() runs.
-+ */
- void smc_clcsock_release(struct smc_sock *smc)
- {
- 	struct socket *tcp;
-diff --git a/net/smc/smc_diag.c b/net/smc/smc_diag.c
-index 15485a0..42828ff 100644
---- a/net/smc/smc_diag.c
-+++ b/net/smc/smc_diag.c
-@@ -39,6 +39,9 @@ static void smc_diag_msg_common_fill(struct smc_diag_ms=
-g *r, struct sock *sk)
- 	memset(r, 0, sizeof(*r));
- 	r->diag_family =3D sk->sk_family;
- 	sock_diag_save_cookie(sk, r->id.idiag_cookie);
-+	/* The socket is hashed in smc_sk_init(), before its clcsock is
-+	 * created, so a dump can find it without one.
-+	 */
- 	if (!smc->clcsock)
- 		return;
- 	r->id.idiag_sport =3D htons(smc->clcsock->sk->sk_num);
---=20
-2.50.1 (Apple Git-155)
+ 	if (caps & TIPC_NODE_ID128)
+ 		memcpy(peer_id, msg_node_id(hdr), NODE_ID_LEN);
+ 	else
+-- 
+2.43.0
 
