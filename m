@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539961;
-	b=MOciXQYNrKcxCbyeupk00JEbJ8CcrkQCLOF2ByxMhtkCSteH5//g5wRbu9Pc6CX/s5eM
-	 bW8LKnxuQWD8Iq++7O5dLrZYFQBsvIxk0SmbCKYtscyOuD69pGmbOFp1e2249h09EOc0m
-	 GMyyhV1KRliyV1PikeDnDxN/w6G/B3j6V4K3sG+71KCwlzwErzhHHdw19/KqNsyDHSS1S
-	 g16cHM9mGWQ8dv/eVV92rohKC0LoS9DHebJNG+hS5hIBAK9QZs/kE9k5zfEycbEA9ANxq
-	 Qp0mhAIj8QGxaRQJAhv8+GqL4OAIzrxvDQcbxhOAfPvoAuvcQErh8QLfxBFratXqzNg==
+	t=1795539962;
+	b=gHL6eNaCgFZovMoMMsW5n7kCD4BShVamKYuU3aIaWc1sWSldvZ2Ia2VXMv+LeA1jFahV
+	 yPwyDNQZ40ZcUBZRvLhCFPkwHTH63HZzgZALYTTZrUP15c1A1GeP6eSjOzg2JvIP1rzEJ
+	 7tgFHfnOgtnYRxCoxrwWcZAbAg3CqPo0Js/k6g+XXAnNyHTez3n5sfcvGren2L8y/gLBu
+	 lk9Y+DaqrTs25+/Y2iQ0yC2pTYTf+8irK9dT5OCbjMNGG1b7B4xbj74s05Ur2cJh/V00G
+	 nD4zfui1RTShtmGk0mqWSNvGWkomth8efhvX18OxrQmLI8RfhfjEHGz32I4j0lASOmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539961;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539962;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=z9pbJVTlR5PLcfnhzrvyRIl/uOzqYqCXnJGseZz6l8U=;
-	b=1g8uAYsOqgtRtGIFChvYV+TpeooJd7/PlHFBNHMBUxlee0hGH8i3HsBpDEdCfPSdAR01
-	 Ld3IKcPohzKw8sTf6j9WkM++gwG+l0dsyXK6fkfBOP+XDnt4yCLCxixQJzd+Co0Q+M4Qy
-	 cmrOiD3dIDJhVZ+BnyljmDXo/zD49FDjyrFROwLvnGY7XbY2s55lCyvUvyntdR+6VVwf/
-	 IoRDpuyc1Yx4XXWBxkm4sEBrJVyNo8KeGVHC3FXVmPN36tSpbFsPc02Qf63efvQBGYLhL
-	 yc8QDm/lwSRMBiSCHX5b+FPizMKSgon2KPQ9PFN6zPfgbRt1raUXhn146ptosF0r3fw==
+	bh=GycbPrjLIEZ3KgMVDJILZlmIak4gkeiTtWgG7biYRic=;
+	b=INjtWKl4u1Y0sUwdGyvdim4mIw88S4+hwOhueYvGZ4v9pGN4AyHU5KiZOWu38DzDhviY
+	 gQcEDeCcr4rVMMnql9T9pWUxSs40rJm84ttwDr+8V8skvzVXauwGzZnTIUkipAdtknsyV
+	 OYPcNFMCHcatGeMziaNRtvYWTBzsw1CEw28gzMRcQADYUfjytjjZGLMbtBkw6dmghkdiM
+	 tKNb1XPJ9YcRWuEhFD5GNfnSDWJgjDtVHjET8zt1L2PkPOXE5ZA+gmwFpDQoPgG0Y4BmC
+	 s/bP2dgjqB3/lCpGw6Wrf5vuwdA82UBm5qhdCLdNA/5xMGwi3QZvTu6bOUhcEoLXS0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JgK8ZGIX;
-	arc=none smtp.remote-ip=209.85.217.41
-Received: from mail-vs1-f41.google.com (mail-vs1-f41.google.com [209.85.217.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JVBZ/gci";
+	arc=none smtp.remote-ip=74.125.224.49
+Received: from mail-yx1-f49.google.com (mail-yx1-f49.google.com [74.125.224.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90C6A606A6A2
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49F62606A68D
 	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:06:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90C6A606A6A2
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49F62606A68D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JgK8ZGIX
-Received: by mail-vs1-f41.google.com with SMTP id ada2fe7eead31-7d2ca055399so1397379137.3
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JVBZ/gci
+Received: by mail-yx1-f49.google.com with SMTP id 956f58d0204a3-67dc7eb1442so5253391d50.0
         for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:06:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795539960; x=1796144760; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795539961; x=1796144761; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=z9pbJVTlR5PLcfnhzrvyRIl/uOzqYqCXnJGseZz6l8U=;
-        b=JgK8ZGIXRozre07Hjjv1sQwvquTZM0VYkcEhRsUf04mFc3uMQwiXCLPCGO7QR7334t
-         LMqqMSrQBOFQDzgJBiBKRaZL/Q9LEH3wz00wzeAw70MGw76gXYhPWcPzADvI6Epnqua4
-         K1Qa40tIsM5ugSvehUQJs5jzYf0jDtwO3ndrr6IsIRhgqOebhWKwydKfIkszw4FMxrE+
-         +0bVyhvjhuFb9lGTrIMgNahpM6E32jxVqzSErL6pcoOFkmcHF3u54fh4hQviINQMdakh
-         LdBH4+2iDOMEb9w0YGpdt/TNj/kyn5ghRhBr7KgIuH+QeOAUpwEDQxqvpdUitPK5UyH+
-         QwqQ==
+        bh=GycbPrjLIEZ3KgMVDJILZlmIak4gkeiTtWgG7biYRic=;
+        b=JVBZ/gciU8LaadUKVtSxe50zsEVtAqSBrFa6R0oOPjGU32k79tm4PAgfTYushX8mZ4
+         jDUIJ94c9byvlcuPpO4pToPmifFXcCN9X1we8w7xV/mU5cEJrX5Tx3mk0fjUY+Sc9Any
+         9PP5YrZx4cKIiIgnDiHNImHjHolwwI/N8HAf20MZ4+aNaRggPQCrfCcvN0fsB6mKqDXS
+         nu1fA9NrE3k+t45Rqn13vH0Y1nAC8NJqot5XOs2GAafvpEegFOWjeyj2qQnNEOTKm/6Y
+         7kY6Yrft2zGdUp0Ad07Yo2RP3Zr+MMLfWHN3FJ9DgJnW/YGuOljwY7EFyYAUHVOu6acQ
+         Du0w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795539960; x=1796144760;
+        d=1e100.net; s=20260707; t=1795539961; x=1796144761;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=z9pbJVTlR5PLcfnhzrvyRIl/uOzqYqCXnJGseZz6l8U=;
-        b=N1phJdOxoa0MFGSvFRabW+015XJ1PR6fKe8BG+xRSGS32j0J3FhjJLCrfcb++FAn8A
-         IqNptl5z6EVDlc4uEIzsBfjW0ScLqY6oiyXH80JbqGsImLRw5ahvstO444gst0mFWKX9
-         6wcMVXnxJf1HV5EzWKhN40SFgBMZUuFG6wIuM+iOSvcknzdby2E6e0Q8j+DBZ3+yJ5MU
-         JTnJR5YglLMFtcyWs7D+VpHlXcT+Q0Z0R8AzPatusrZOy4UYS1R2A+QQIkmgDVjt9g8z
-         b/JgWGGtQMVNRQHTpUoZ9ARiOgxJX9LNTBAOnNKGiVWUQzkqquklCqxp5g0s9wxTPKzV
-         JhqA==
-X-Gm-Message-State: APuU4Z81cwa2aPtMn25WLjn09hqSNdBlmM0ZlRTYgSZapBbkIukxGgUS
-	DstpoaepiTbCZsBmZVOgDOioaVWYgfetwZlq+MGgaLQnALwOJxmOp9SyJQHfsw==
-X-Gm-Gg: AZFdTZf1z4BSAeI0E6jCpWZpIE5H3r4ICTw0julGxiJ5v0LTOOduSpqvGuzzEs2vI+m
-	UqI8UqKj5YKwdoc8aZWKRZBhmdfERQ+tp0RIWRuqXtmPMpFslJ3pzex1lRQpnS2tTRd2B4ZziGh
-	MdVXp000GzfcC8PUS5uZkQJhjDJjgNQ/TWcHkeo5Am+2dPadSRGczszEPRMh3Yj1O/wnOtS+BEu
-	Qq/0EFv3tsDD7x4NBr3vTEPCiBJ8qJPxzNoieLhs/g2SoyHWvvDBkKnKqeWlH7prtwG8BdvoE/y
-	1iC7y5iOrweN9jAM62fpObMGg32/pbqf0mvmJy9L6hZ7WvKtFqBES0nKBMbUpl7WQ8ifxGmTSax
-	d+oyBp+xesCvMc9hfjir2rXk3ht6pY2REdIK5y6JTa1i4ovZ150DcFAGfXEG1otIDLuUXNjX695
-	m2dBOUIFqLdFBz6cQV7FjtYuZYXbPL9MH/Ha776tsFWjH4oI99iLyj88FiWW/rhE2/UhoANJt8Z
-	GuqJMQkk+JZx0m6o3GqBOmBNwWgdolwIn2BCMcMMdT0pYPPvU9NuRODeaUQoOFjCp1WgvVaNTx7
-	3hVUSRMNGMVD+rTN7tReK5E3CYmNg71PFucEjKvhz4w4jZaMm849eiHfK/3mOMMD+AtJ/YKSBy5
-	CdhaqzgaKtqSpB2HD1sRHrAvpoAXJ5zEcAFGy3nP2p8rdAxmurYVwc27vft9XtBkmMtNOQgorLs
-	3d1EyWVWd8ag==
-X-Received: by 2002:a05:6102:1614:b0:7a7:19aa:f0d8 with SMTP id ada2fe7eead31-7d7396ed4a0mr6070502137.37.1795539959986;
-        Tue, 24 Nov 2026 09:05:59 -0800 (PST)
+        bh=GycbPrjLIEZ3KgMVDJILZlmIak4gkeiTtWgG7biYRic=;
+        b=EHDJpI/2sJjUPSnSJf1IKkD5MUVJXRxdGX3FH5cTHZ1s9ilxfzICSv/78u5/M3zvxJ
+         WXdwWHHUEWDdCdTH857d3JgHD0LVKm/NEoIy8+KaAQx3x7aOW7wa48s2EgA/CoTAD6s3
+         R/zh0EysbbqKcfQfXPTaxXSqeC4wmq4uSKKkluuEHFOT6OzQY9mVj49xVGAYWkbGD4+1
+         q1sJ7E+WsHeBKLXxcW5WJfY84Rh3Gptn1LwKxGf/He5n9qzRJtbhpjOaRsWDnryspAHA
+         2clEFdUWova06hY6eYiTNw9I4pHxa6VMhEtfVONUzwe2j41e8IlFzzMGUpXBxUnPPAuL
+         KHyw==
+X-Gm-Message-State: APuU4Z+yEUME54IeaC+j6DzPCI+07+SGv2f8mDP5Jaf/oqSuehHe3iXx
+	CZP2Wh4pg4x2swt5l7ZQV8ashBvTAbg5xAmUjfGkqqlcsZ+izDMlUAYd9Pcegg==
+X-Gm-Gg: AZFdTZeA7G090+TNbCsoGjwi8Tf2QNvD2Mmef+ri17Pl3AapTZH+j1oq42V6hM8s87n
+	aPknJ5N2FSDnsaIp6EA/oKILXrGjZOVfjo/vNLWvEbvxUuCPUsy1kXkRCg99TA4vxPvbyqJ8I/D
+	Rt8wqIxBzbTO3zhu43J9XsywcFUvUa1oK2s/7QJ3Lu9AVB8e1SUUPS0ZywwS02rHDLRf3t43qyN
+	zZdBLAMBaXX/I9ip/zHielQkbjcFpfdVvst5zRK9bCtLG/qpVie89tGPI8ZTan3adVuazLLF746
+	TKkC6s4Pgv3VT8/uZ3KvGuysNtaE4B6lZ+eZTNiWvcMfWhA0X1YP6aKDnwH/223Y4XXnqlgW/ct
+	77lkJmXKpfdPwcknQygf5ZkWPkBelc2AwBZC2Bl6GOB/ZErRJncIygoANmZIzhlpBsTc68aH2TO
+	WRjvKfH7CpL3fHWuwgzj94mxfl24c91/46sGbBF/3s5377FCrCJm5aoUEcWWmgKw+pqIIF5/nT9
+	L/cz8WhmJgIyKjljZRS2kHgAPtHdyrsfbZQJ57S4Aegyv5YG6ZouGd5RyITt5EtbXG0cZub4v1n
+	RlFMhqYy4c1Mgw6aF3MktP1ScgE/Fd2LgxYtdw8DofP8JXqDbQHCclhqUtTHF4HJz6btYfhBqMp
+	25IWR/FXoxGNglKpuxsSzFx4KTaLkGF4g2rwM4jRTE/ApeADE1INANxAFxrXVsMUBgZ1u6jiCtN
+	6FpC12keJ2NSiYz7OkJPDzcbV8D6XJ8Sw=
+X-Received: by 2002:a05:690e:118b:b0:67d:ba05:de0a with SMTP id 956f58d0204a3-67df44c6725mr7098218d50.109.1795539960862;
+        Tue, 24 Nov 2026 09:06:00 -0800 (PST)
 Received: from willemb.c.googlers.com.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349cdfbasm140078216d6.17.2026.11.24.09.05.59
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349cdfbasm140078216d6.17.2026.11.24.09.06.00
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:05:59 -0800 (PST)
+        Tue, 24 Nov 2026 09:06:00 -0800 (PST)
 From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch,
@@ -89,9 +89,9 @@ Cc: andrew+netdev@lunn.ch,
 	horms@kernel.org,
 	elder@kernel.org,
 	Willem de Bruijn <willemb@google.com>
-Subject: [PATCH net-next 5/6] packet: use Ethernet header length in vlan_get_tci()
-Date: Tue, 24 Nov 2026 12:05:43 -0500
-Message-ID: <20261124170551.1874487-6-willemdebruijn.kernel@gmail.com>
+Subject: [PATCH net-next 6/6] net: remove unused net_device::min_header_len
+Date: Tue, 24 Nov 2026 12:05:44 -0500
+Message-ID: <20261124170551.1874487-7-willemdebruijn.kernel@gmail.com>
 X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 In-Reply-To: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
 References: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
@@ -108,113 +108,80 @@ Content-Transfer-Encoding: 8bit
 
 From: Willem de Bruijn <willemb@google.com>
 
-vlan_get_tci() uses dev->min_header_len to locate the outer 802.1Q/AD
-header on SOCK_DGRAM captures, with an is_vlan_dev() fallback that has
-been obsolete since commit 447cbe95ebb9 ("vlan: fix skb_under_panic and
-races when toggling HW VLAN offload") stopped adding VLAN_HLEN to
-vlandev->hard_header_len.
+dev->min_header_len was introduced in commit 217e6fa24ce2 ("net:
+introduce device min_header_len") for dev_validate_header() when
+header_ops->validate and the CAP_SYS_RAWIO bypass could accept frames
+shorter than hard_header_len.
 
-Only Ethernet and loopback devices set min_header_len (to ETH_HLEN).
-Check ARPHRD_ETHER / ARPHRD_LOOPBACK and read at ETH_HLEN directly
-instead, removing the last min_header_len reader and letting
-packet_recvmsg() use sll->sll_hatype without an RCU device lookup.
-
-This changes the reported TCI in three cases:
-
-- Ethernet devices with hard_header_len > ETH_HLEN (e.g., smsc95xx,
-  rndis_host) previously failed the min_header_len == hard_header_len
-  test and reported TCI 0. They now report the TCI.
-- Non-Ethernet devices with hard_header_len 0 (e.g., tun, rmnet)
-  previously read a VLAN header at the MAC offset. They now report
-  TCI 0.
-- packet_recvmsg() previously omitted the VLAN fields if the device
-  had been unregistered since the packet was queued. It now fills
-  them from the queued skb.
+Now that dev_validate_header() and the remaining workarounds in
+af_packet have been removed, dev->min_header_len has no readers left.
+Remove the field from struct net_device along with its remaining
+assignments in ether_setup() and loopback setup.
 
 Signed-off-by: Willem de Bruijn <willemb@google.com>
 ---
- net/packet/af_packet.c | 38 +++++++++-----------------------------
- 1 file changed, 9 insertions(+), 29 deletions(-)
+ Documentation/networking/net_cachelines/net_device.rst | 1 -
+ drivers/net/loopback.c                                 | 1 -
+ include/linux/netdevice.h                              | 2 --
+ net/ethernet/eth.c                                     | 1 -
+ 4 files changed, 5 deletions(-)
 
-diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
-index bf0ad6d5c1e3..b169d3e11b17 100644
---- a/net/packet/af_packet.c
-+++ b/net/packet/af_packet.c
-@@ -547,29 +547,18 @@ static void *packet_current_frame(struct packet_sock *po,
- 	return packet_lookup_frame(po, rb, rb->head, status);
- }
- 
--static u16 vlan_get_tci(const struct sk_buff *skb, struct net_device *dev)
-+static u16 vlan_get_tci(const struct sk_buff *skb, unsigned short type)
+diff --git a/Documentation/networking/net_cachelines/net_device.rst b/Documentation/networking/net_cachelines/net_device.rst
+index 7620d3fcb8dc..f73ea0069432 100644
+--- a/Documentation/networking/net_cachelines/net_device.rst
++++ b/Documentation/networking/net_cachelines/net_device.rst
+@@ -46,7 +46,6 @@ netdev_features_t                   gso_partial_features        read_mostly
+ unsigned_int                        min_mtu
+ unsigned_int                        max_mtu
+ unsigned_short                      type
+-unsigned_char                       min_header_len
+ unsigned_char                       name_assign_type
+ int                                 group
+ struct net_device_stats             stats
+diff --git a/drivers/net/loopback.c b/drivers/net/loopback.c
+index 1e6d1b7d71ba..6fdf00c223b9 100644
+--- a/drivers/net/loopback.c
++++ b/drivers/net/loopback.c
+@@ -173,7 +173,6 @@ static void gen_lo_setup(struct net_device *dev,
  {
- 	struct vlan_hdr vhdr, *vh;
--	unsigned int header_len;
+ 	dev->mtu		= mtu;
+ 	dev->hard_header_len	= ETH_HLEN;	/* 14	*/
+-	dev->min_header_len	= ETH_HLEN;	/* 14	*/
+ 	dev->addr_len		= ETH_ALEN;	/* 6	*/
+ 	dev->type		= ARPHRD_LOOPBACK;	/* 0x0001*/
+ 	dev->flags		= IFF_LOOPBACK;
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 930899a7a577..2a1b3f48bed5 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -1929,7 +1929,6 @@ enum netdev_reg_state {
+  *	@max_mtu:	Interface Maximum MTU value
+  *	@type:		Interface hardware type
+  *	@hard_header_len: Maximum hardware header length.
+- *	@min_header_len:  Minimum hardware header length
+  *
+  *	@needed_headroom: Extra headroom the hardware may need, but not in all
+  *			  cases can this be guaranteed
+@@ -2292,7 +2291,6 @@ struct net_device {
+ 	unsigned int		min_mtu;
+ 	unsigned int		max_mtu;
+ 	unsigned short		type;
+-	unsigned char		min_header_len;
+ 	unsigned char		name_assign_type;
  
--	if (!dev)
-+	if (type != ARPHRD_ETHER && type != ARPHRD_LOOPBACK)
- 		return 0;
- 
- 	/* In the SOCK_DGRAM scenario, skb data starts at the network
- 	 * protocol, which is after the VLAN headers. The outer VLAN
--	 * header is at the hard_header_len offset in non-variable
--	 * length link layer headers. If it's a VLAN device, the
--	 * min_header_len should be used to exclude the VLAN header
--	 * size.
-+	 * header is at the ETH_HLEN offset from the MAC header.
- 	 */
--	if (dev->min_header_len == dev->hard_header_len)
--		header_len = dev->hard_header_len;
--	else if (is_vlan_dev(dev))
--		header_len = dev->min_header_len;
--	else
--		return 0;
--
--	vh = skb_header_pointer(skb, skb_mac_offset(skb) + header_len,
-+	vh = skb_header_pointer(skb, skb_mac_offset(skb) + ETH_HLEN,
- 				sizeof(vhdr), &vhdr);
- 	if (unlikely(!vh))
- 		return 0;
-@@ -1012,7 +1001,7 @@ static void prb_fill_vlan_info(struct tpacket_kbdq_core *pkc,
- 		ppd->hv1.tp_vlan_tpid = ntohs(pkc->skb->vlan_proto);
- 		ppd->tp_status = TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 	} else if (unlikely(po->sk.sk_type == SOCK_DGRAM && eth_type_vlan(pkc->skb->protocol))) {
--		ppd->hv1.tp_vlan_tci = vlan_get_tci(pkc->skb, pkc->skb->dev);
-+		ppd->hv1.tp_vlan_tci = vlan_get_tci(pkc->skb, pkc->skb->dev->type);
- 		ppd->hv1.tp_vlan_tpid = ntohs(pkc->skb->protocol);
- 		ppd->tp_status = TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 	} else {
-@@ -2454,7 +2443,7 @@ static int tpacket_rcv(struct sk_buff *skb, struct net_device *dev,
- 			h.h2->tp_vlan_tpid = ntohs(skb->vlan_proto);
- 			status |= TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 		} else if (unlikely(sk->sk_type == SOCK_DGRAM && eth_type_vlan(skb->protocol))) {
--			h.h2->tp_vlan_tci = vlan_get_tci(skb, skb->dev);
-+			h.h2->tp_vlan_tci = vlan_get_tci(skb, dev->type);
- 			h.h2->tp_vlan_tpid = ntohs(skb->protocol);
- 			status |= TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 		} else {
-@@ -3626,19 +3615,10 @@ static int packet_recvmsg(struct socket *sock, struct msghdr *msg, size_t len,
- 			aux.tp_status |= TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 		} else if (unlikely(sock->type == SOCK_DGRAM && eth_type_vlan(skb->protocol))) {
- 			struct sockaddr_ll *sll = &PACKET_SKB_CB(skb)->sa.ll;
--			struct net_device *dev;
- 
--			rcu_read_lock();
--			dev = dev_get_by_index_rcu(sock_net(sk), sll->sll_ifindex);
--			if (dev) {
--				aux.tp_vlan_tci = vlan_get_tci(skb, dev);
--				aux.tp_vlan_tpid = ntohs(skb->protocol);
--				aux.tp_status |= TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
--			} else {
--				aux.tp_vlan_tci = 0;
--				aux.tp_vlan_tpid = 0;
--			}
--			rcu_read_unlock();
-+			aux.tp_vlan_tci = vlan_get_tci(skb, sll->sll_hatype);
-+			aux.tp_vlan_tpid = ntohs(skb->protocol);
-+			aux.tp_status |= TP_STATUS_VLAN_VALID | TP_STATUS_VLAN_TPID_VALID;
- 		} else {
- 			aux.tp_vlan_tci = 0;
- 			aux.tp_vlan_tpid = 0;
+ 	int			group;
+diff --git a/net/ethernet/eth.c b/net/ethernet/eth.c
+index 39aab0f8035a..db39527d4704 100644
+--- a/net/ethernet/eth.c
++++ b/net/ethernet/eth.c
+@@ -330,7 +330,6 @@ void ether_setup(struct net_device *dev)
+ 	dev->header_ops		= &eth_header_ops;
+ 	dev->type		= ARPHRD_ETHER;
+ 	dev->hard_header_len 	= ETH_HLEN;
+-	dev->min_header_len	= ETH_HLEN;
+ 	dev->mtu		= ETH_DATA_LEN;
+ 	dev->min_mtu		= ETH_MIN_MTU;
+ 	dev->max_mtu		= ETH_DATA_LEN;
 -- 
 2.56.1.839.g22a8290db9-goog
 
