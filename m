@@ -1,81 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529547;
-	b=Tx44VuVyss8wAirtVqdKj2iGtxlTmrdSfi2M0wqkLxRl+DP773qokscVOU9pfs9U303m
-	 pD0d+P5aQED/zGWPVt54wbfjkfPSk700cKGzoFjBTgY54npRJw9xXsovdlQIiG/xrQN2s
-	 XhpL+2wF0ME71pU7tkBpxKg1hVQkbbyfVbY7CMK/1cby+NERrkbfNwGyWPEKPf0oe9PgC
-	 1VpNh3Ky+uqDYWvbnBwb75I3BHULIS0f9juNVH7jhlFXizZZaarGDGPSL6VN8y0K4+9o0
-	 abh+X9lhWiOcGCcknB5PJrTSz5fBQHoItng72aycrXo36fmruvXe851aBMJ/sXX9uSg==
+	t=1795529549;
+	b=29Ghb48dqs6xg5wZwkXjpu8wug+trjFK0k2F54qIDvSYyr6ammBvgO2FYF4AS9qZjmdR
+	 zIPT0hXGLHTyvEOrrasFXEd05HCl2q9g046/kbGIuzb/xkv3CmH4WX7svsswHBtZOjq3a
+	 zV65ofn1T/4lI3eiqSfTacnGBDYzIpZRYXslsl7wf+4ZWZhnZfqIVmQHn6tEY8EO1TQi3
+	 AoDdLSaNfU0aDS1mmjLZtNaw+OwkO3HUOsmPUpuaK2oLaQqoqgxvkUnue+h8kEvt91K63
+	 EFsJOUmJoYB/3ZH0xNZma5lq2NQciTeeHq8xKa5myq1Gsydg7GfaF8eRNr7U8+baDmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529547;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529549;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=phUozZ9UmERABn/pPGUaQNiwGGv5ztLQHvi9xNV+FYI=;
-	b=LywYE8rocj1UCY0J0Ly3/ypXR+22SAfZ8ljuJeL7rHXtNJKVmN/ur+sGbHJmyjkJB6Zk
-	 XHmRmL7SqLr2LPtfzPi+ss+90TRpB6QgOW8lx+NGgXIEsqBGIINeKHPO2lzpiDNIHGiSs
-	 46C67cybMEDHoNivHlGQALzx6ZMj/vcQNJVL8EraZHJl6YZLtFvM256TNWL3DdzHovQmv
-	 4G2yuJ29N9dpURyq6A/twkokrjXiDjIE2tA2+ZDyZZjkIbCep2jfOoNY4qkbKj6ay6zjU
-	 mdDRkrtDFd28XSKMirrVnrBo9U3KpB//3RN0V8dRsqiYXsO8TqXobOdeLblME9wa0/g==
+	bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
+	b=hvurp9SRrSFDnW2h373c1UjeqWaB4sGY4WiWG/nkqBWmPWFlofVOlyyKuYAZQkSsKHxW
+	 Ow0RPsUqi4Oyv5iENpWELxtRcVRZjkVSqPkGCHK3qj3A+Dujf0ocutzoK//QDyTH0kEdu
+	 WqHxSvy3Mr/pfb4LQNXhNyXJ/6JdE1KNSEC3yYzWs1VbFvgHXRfrd5vYcVuDArx5A6Uit
+	 wTHjidAkHhclMFClzqppHnXz7WgWZKIEMRZL2dDD2LeKSrK27rVfOxuVhyOkDC5nR+qFB
+	 ninsGVexccd06fUgsUUdOsOcw2o82iDJIVAbZrp6PLcNFh5IOpK24429vHCLQ2U3XQg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mojatatu.com;
 	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=uis4V8ye;
-	arc=none smtp.remote-ip=209.85.208.45
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com [209.85.208.45])
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=fkdJxOgB;
+	arc=none smtp.remote-ip=209.85.208.50
+Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2293606A339
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:12:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2293606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F7A606A339
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:12:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F7A606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=uis4V8ye
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-6b88d143160so5583398a12.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:12:26 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=fkdJxOgB
+Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b87a92c17eso6391365a12.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:12:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795529545; x=1796134345; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1795529548; x=1796134348; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=phUozZ9UmERABn/pPGUaQNiwGGv5ztLQHvi9xNV+FYI=;
-        b=uis4V8yeb/qTxc4bubBEs9VnJacXPlg5J02zHhTig087RA5WXyILFdTLn2SfWRbo9z
-         RJwUc9CLY0tElT8DvuxOGHTJBwt/N5M+Xhu8LMPBaucPYnR5z44cSgsceeY7wI2G7ttX
-         Gx/FDKOeqpKaHyS8qZ6wCzwqjG6ZJL00hXDv8=
+        bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
+        b=fkdJxOgBoaXmx4Uq9NG2pEj1ki5zp2qhfGRNWrw2H1/hqJNoO42DJuCwjp9+3dUvd+
+         jtK/UW2Yz+IZw9v8/dbVAQ8Ezm+jDWLtIPTewtA9CItm7vc1j71Ct0XTM47g6pAS/STj
+         LPRz222/rN7lrLxtqb/sIKRnW5rHmyxgIj3bE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529545; x=1796134345;
+        d=1e100.net; s=20260707; t=1795529548; x=1796134348;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=phUozZ9UmERABn/pPGUaQNiwGGv5ztLQHvi9xNV+FYI=;
-        b=w9NYWGP7u5wkDkTADd3utL3LvafmtYmj0QCtZguOVh3hAYYFMg0BsBYazStihSE+Ni
-         7EkKSj81tYV4xF5WR3lwCGhHy2GGvvGbuA89eJaL8uWp5+IhddUYADac1fKk7BzY+jGI
-         Gmx5vQeM5L18NvEhJ8rmBkbxGRgxdr92/RG3aSOPMZe6NY2BE7b3Bi6EJPZgnwqV9nVy
-         yk9Y73itGVhXOJVjNyE9jcZi69a+1bZjmgsaAcNYfmiaiCd9IMDq65+E6tG9NX2PDDy4
-         6wPadPOdUUWrq+WUwja82cUXnZJUg5PEwV8oAU6F1WFLZzt2EAi+hu0XvSHLsSyEAPrs
-         fc0g==
-X-Gm-Message-State: APuU4Z/mmDxZHs4CK+LbuKA1B1RwbA2xuJCwxvEJ5536s2gFTvPLUCUQ
-	xjNOZK23NB3OuFDE+sRn0/Q0QJFX1Gr2GBpA2gAT+WYbJHXJIHTmeFeuAQ4mbAOq0nGfJgv7XK6
-	2qk8=
-X-Gm-Gg: AZFdTZc+pCIgmPF4SLGZcMiganDu3H0Cw1wnJBZ80lU+6+n8Kw1U6cnfzVHczZkBdCc
-	w2xHg5h7GLkiJ/8vzS+rFmaog/A+qkT10xupmmAlhWepJA8cl7k8+7NlVhp0PwQ4qjtJ1jj1CIc
-	7XkauGInuvnie0KghTer5r3LiwnFCyqUbiJFtE3eWBaKtMqm2pV4NHBn4kc2rZj1rCCQrWJ3DAN
-	YxYS5Qu5rwMS3E1aa3b5kir2DcW+oqfSWWvQR88eU16L2KZtVfr6QLP5vf5zwwaRYq3VvETBh6A
-	2c1H4LsJn/t69vdKwcu5Hcn3G9bgTRo07zAdLq6ilWoIA+/MWlffWYNx92p8AhKwMv1W7vEgHUb
-	58UhlcJW6vaa0eHu9MRdsylRiHsSoV68fFr6Ha2K6B+fzHr+bVHZm7fFSTlRBC4Lu6Cx3zipqNb
-	xEtkI2/ozgD4OinYG2904ErqG4sE8D6JXY+3K0Zm3k91PPUcIQYz5ba+eoeN1V51m4MtTiS7xxg
-	+0yBLzv7BWrrT4dXUh1XQbLjFraJCSFFPJ24ruk8u3iSjKZFScTjmxMFT7NKCkzZXWdXf4AH+Tg
-	bcBl67bHgyIrb0PH+HDYO3Ph7RNbEvueSV0ZGS4+VOsUBGfiL+RV8hJRsmIPUtJTKtUiXAgTsU9
-	pPUYxcaPiwrXDe2l4UN0e
-X-Received: by 2002:a05:6402:210e:b0:6b8:50e:3bb0 with SMTP id 4fb4d7f45d1cf-6ba37ec6490mr11204252a12.43.1795529544904;
-        Tue, 24 Nov 2026 06:12:24 -0800 (PST)
+        bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
+        b=jFX1G7n6xvnI2+xtLqq2iRb0RXNzEghstVj1mwLNaO2At0GVuT0m0oNinWH0TQ7wI7
+         vIdW6crm9RDQSjzEKdLVLw4zYDCRGtLCMbnzMqbdqvyi9IjS9ayXq1nrgH9nNVq20/0A
+         qooPPTSdxs0ugOflEJgQHJC6C9935TaA5YZdJz9zGniQx9ACb/1yj4f2Ti11L4fV5gYk
+         HkQsKrVchyZ31zjr3EzBf9mCajhQeUtfBBFUF4bkrncCJ2qUxgIOnMiPG2QWlPd87E9M
+         fUNj1f2IYkyNxk/eeWaYo0MU4kuXiyBPRD8I9HhuN3h4513nWRYnrniO3H7sxvK71+CW
+         jMNg==
+X-Gm-Message-State: APuU4Z+cA3glzh4C8/qIVhrRqsuQB5BBXY0ZfCJ+lt+ntnSbdw0O8sZl
+	dro2Vg44gLUYd5sBFpF3aOAHEtn1uUDu8l8zxTdvX7rsMuJTAdSEwDr0kPx76hbY/e9KSmFgRXF
+	PeBc=
+X-Gm-Gg: AZFdTZf/MppH3XfuuI8jwobsP+a2/6uuc0tiSsuLLaELRRSIht6tr8H9/86HKMhROfO
+	lSI1LEq2DwcPpercZ/6+C3nWYX8yit0yKP3ivVEgK8t+8Jz0EdzNVoWjFDrdWgIXUGI1C+WT7Db
+	U82AXd6jyWDIlTzo22OwHkWLiP3g+RpTzAfQneOvemLxmnoxgYO7748b/IJyoQC2sqrynN3fPv6
+	MDzJg+i75pRXQoKuY2zcFLaYbPD/Bz3xTwF+t401qP8DASViHqq1b+OH2unNpKHYZbl2TsbX65W
+	cM5Smoh2x2FK3xH4btPEfYrn7Yh/UvHg1o//yh1bJlWfB+tkj2VCfXMhNexTZJLl64/bNkCHxwk
+	9D9MmdsIyu7r3GuOMotPliVtocDXPbUJuYvdROaydzIvFJXHYKJaIGH/t7YVPy/1eHaj6lZCphZ
+	cfjb1dd8kiT0mJtwmBsvWlClhIqGKZhVJc74UkeOXAu4iAZ4RiqDK0OTA5pk6zvqqbXbamkOlN2
+	cwPQJrrHb5fl268oPAlWPnokrqKJvFtbtshEB3PCYdC2sjwgGc0EWjmxH0qi1IoycCvDvQQk20e
+	8qhon1PIW16+ow7r91Q43dPzYQN+F9U7g7FkpKGCUw5XIMwTOgrJE+EirVCeieCnGvE/jWX99a0
+	=
+X-Received: by 2002:a05:6402:210a:b0:6ba:a7d7:4e21 with SMTP id 4fb4d7f45d1cf-6baa7d75253mr5685496a12.35.1795529547924;
+        Tue, 24 Nov 2026 06:12:27 -0800 (PST)
 Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba7b9570e9sm5032739a12.36.2026.11.24.06.12.21
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba7b9570e9sm5032739a12.36.2026.11.24.06.12.25
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:12:24 -0800 (PST)
+        Tue, 24 Nov 2026 06:12:27 -0800 (PST)
 From: Jamal Hadi Salim <jhs@mojatatu.com>
 To: netdev@vger.kernel.org
 Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
@@ -86,17 +86,13 @@ Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
+	Shuah Khan <shuah@kernel.org>,
 	Victor Nogueira <victor@mojatatu.com>,
-	Po Liu <Po.Liu@nxp.com>,
-	stable@vger.kernel.org,
-	sashiko-bot@kernel.org
-Subject: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries shorter than 10 us
-Date: Tue, 24 Nov 2026 09:12:09 -0500
-Message-Id: <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
+	linux-kselftest@vger.kernel.org,
+	Po Liu <Po.Liu@nxp.com>
+Subject: [PATCH net v4 3/3] selftests: tc-testing: act_gate: cover the new cycle time and interval limits
+Date: Tue, 24 Nov 2026 09:12:10 -0500
+Message-Id: <ACT-WEXM.v4.r0.20261124074514-3@mojatatu.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
 References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
@@ -111,94 +107,232 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This is a followup of commit a51c328df310 ("net: qos: introduce a gate
-control flow action") as reported by Sashiko.
+The tests:
+The gate action now bounds the base time and the cycle time at KTIME_MAX
+and refuses a schedule entry shorter than 10 us.  Cover the four
+refusals, both ends of the cycle time range and both sides of the
+interval boundary.
 
-The issue:
-fill_gate_entry() only rejects an interval of zero, but that interval is
-the period gate_timer_func() re-arms the hrtimer at, and a few
-nanoseconds is below the cost of servicing one expiry: the next is due
-before the current one finishes, so the action holds a CPU in the timer
-softirq for as long as it exists.
+The refusals:
+A base time or a cycle time of 2^63 is above KTIME_MAX, so it is refused
+as out of range; a base time of -1 reaches the kernel as the largest u64
+and is refused the same way.  An entry interval of 9999 ns is below the
+floor and is refused as an invalid argument.
 
-On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a core,
-2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to a
-few percent and it reaches zero by 100 us.
+The accepted values:
+An entry interval of exactly 10000 ns installs and reads back with the
+interval it was given, and so do a base time and a cycle time of exactly
+KTIME_MAX.
 
-The Fix:
-Require at least 10 us per entry.  An act_gate schedule is not tied to a
-device, so unlike taprio there is no frame time to derive a bound from;
-the bound has to come from the cost of servicing one expiry, with room
-for a kernel that services it slower.
+Context note:
+tc does not pass the action path's extended acknowledgment back to the
+caller, so the negative cases re-run the failing command and match the
+kernel's own error text instead of relying on the exit code alone.
 
-On a 2-vCPU guest one expiry costs a few hundred nanoseconds, so 10 us
-sits 25 to 50 times above it, and that margin is also what holds on a
-debug or PREEMPT_RT kernel where the cost is a few microseconds and a
-floor at the 3.5 us knee would slip back in.
-
-That is what the withdrawn 100 us taprio floor got wrong.  It refused
-schedules that cost a fraction of their own interval, a 250 us cycle
-split into four windows among them, on a margin over the measured cost it
-never explained.  This floor admits those windows and states its margin.
-
-The interval == 0 test is subsumed.  A change cannot bypass the floor: a
-change carrying a list re-validates every entry, and one without a list
-copies entries the running kernel has already accepted.
-
-Some context:
-The request that reproduces the cycle-time stall also carries a 1 ns
-entry interval.  With the cycle time derived from the entries, that alone
-sets a 1 ns timer period: the report covers both defects.
-
-Conditions to recreate the bug:
-CONFIG_NET_ACT_GATE=y, and CAP_NET_ADMIN in the initial user namespace
-(netlink_capable() checks init_user_ns, so a user namespace of its own
-does not help), in a new network namespace:
-
-  tc actions add action gate index 1 sched-entry close 1
-
-The action is accepted and the CPU running the timer softirq stays busy
-for as long as the action exists.  An entry of 10 us or more still
-installs.
-
-Fixes: a51c328df310 ("net: qos: introduce a gate control flow action")
-Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/patchset/tencent_4ED9536B0375C96183B2244CF7709768C605@qq.com
-Cc: stable@vger.kernel.org
 Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
 ---
- net/sched/act_gate.c | 11 +++++++++--
- 1 file changed, 9 insertions(+), 2 deletions(-)
+ .../tc-testing/tc-tests/actions/gate.json     | 189 ++++++++++++++++++
+ 1 file changed, 189 insertions(+)
 
-diff --git a/net/sched/act_gate.c b/net/sched/act_gate.c
-index 4835f6543901..797562dbde69 100644
---- a/net/sched/act_gate.c
-+++ b/net/sched/act_gate.c
-@@ -25,6 +25,11 @@ static struct tc_action_ops act_gate_ops;
-  */
- #define GATE_ENTRIES_MAX	1024U
- 
-+/* An entry shorter than this lets the next expiry land before the softirq
-+ * servicing the current one can finish, so the timer stays permanently behind.
-+ */
-+#define GATE_MIN_INTERVAL_NSEC	10000U
-+
- static ktime_t gate_get_time(struct tcf_gate *gact)
- {
- 	ktime_t mono = ktime_get();
-@@ -199,8 +204,10 @@ static int fill_gate_entry(struct nlattr **tb, struct tcfg_gate_entry *entry,
- 	if (tb[TCA_GATE_ENTRY_INTERVAL])
- 		interval = nla_get_u32(tb[TCA_GATE_ENTRY_INTERVAL]);
- 
--	if (interval == 0) {
--		NL_SET_ERR_MSG(extack, "Invalid interval for schedule entry");
-+	if (interval < GATE_MIN_INTERVAL_NSEC) {
-+		NL_SET_ERR_MSG_FMT(extack,
-+				   "Entry interval must be at least %u ns",
-+				   GATE_MIN_INTERVAL_NSEC);
- 		return -EINVAL;
- 	}
- 
+diff --git a/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json b/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
+index db645c22ad7b..1c910e07c41c 100644
+--- a/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
++++ b/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
+@@ -347,5 +347,194 @@
+         "teardown": [
+             "$TC action flush action gate"
+         ]
++    },
++    {
++        "id": "c873",
++        "name": "Add gate action with the minimum schedule entry interval",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++           "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate sched-entry close 10000ns index 100",
++        "expExitCode": "0",
++        "verifyCmd": "$TC action get action gate index 100",
++        "matchPattern": "interval 10us",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "2c35",
++        "name": "Reject gate action with a schedule entry below the minimum interval",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++           "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate sched-entry close 9999ns index 100",
++        "expExitCode": "255",
++        "verifyCmd": "$TC action add action gate sched-entry close 9999ns index 100 2>&1",
++        "matchPattern": "RTNETLINK answers: Invalid argument",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "92b8",
++        "name": "Reject gate action with a base time above S64_MAX",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++           "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate base-time 9223372036854775808 sched-entry close 10000ns index 200",
++        "expExitCode": "255",
++        "verifyCmd": "$TC action add action gate base-time 9223372036854775808 sched-entry close 10000ns index 200 2>&1",
++        "matchPattern": "RTNETLINK answers: Numerical result out of range",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "8265",
++        "name": "Reject gate action with a cycle time above S64_MAX",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++           "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate cycle-time 9223372036854775808 sched-entry close 10000ns index 300",
++        "expExitCode": "255",
++        "verifyCmd": "$TC action add action gate cycle-time 9223372036854775808 sched-entry close 10000ns index 300 2>&1",
++        "matchPattern": "RTNETLINK answers: Numerical result out of range",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "7d1f",
++        "name": "Add gate action with the maximum base time",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++            "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate base-time 9223372036854775807 sched-entry close 10000ns index 201",
++        "expExitCode": "0",
++        "verifyCmd": "$TC action get action gate index 201",
++        "matchPattern": "index 201",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "9f10",
++        "name": "Add gate action with the maximum cycle time",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++            "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate cycle-time 9223372036854775807 sched-entry close 10000ns index 301",
++        "expExitCode": "0",
++        "verifyCmd": "$TC action get action gate index 301",
++        "matchPattern": "index 301",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
++    },
++    {
++        "id": "5c47",
++        "name": "Reject gate action with a negative base time",
++        "category": [
++            "actions",
++            "gate"
++        ],
++        "plugins": {
++            "requires": "nsPlugin"
++        },
++        "setup": [
++            [
++                "$TC actions flush action gate",
++                0,
++                1,
++                255
++            ]
++        ],
++        "cmdUnderTest": "$TC action add action gate base-time -1 sched-entry close 10000ns index 401",
++        "expExitCode": "255",
++        "verifyCmd": "$TC action add action gate base-time -1 sched-entry close 10000ns index 401 2>&1",
++        "matchPattern": "RTNETLINK answers: Numerical result out of range",
++        "matchCount": "1",
++        "teardown": [
++            "$TC actions flush action gate"
++        ]
+     }
+ ]
 -- 
 2.43.0
 
