@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531173;
-	b=LPMtVl1zovNzohFlOmLuEhj2MA2FAgEa/pmQMOn3AwjusvC+FAR6DpIZlQoLMezarFnf
-	 ozqAwyTvGxrSX5IG3cIOKQnY50mivvVpxU0TZ7Vco4UqrpXOwzD65WkS2vvLGQPGGQvRH
-	 rvoqvSfj5X2cR5GJ/NRJMNixl3evmNYT7ODU+jx+HsV7eSseTZHLa2oVFhzf+vHZH2kMA
-	 vKh/3c+g+sd6eAQN8bRY3ou+dPMUzOZlbzrwFUhxsqiJUC07P+xKqra5m92DqZto8ELKj
-	 r0GT++9sYjqCEs/+6SnMbk0Xo1hB40xeycDl1UztH83Qn3Gqr/SqhKh1oPVLpmkyxNA==
+	t=1795531175;
+	b=vQEsIIQynAqdfck0dlgbPt2MdI7LTWCWS6yZbEJe+WAZfr0UNO1jiqTpFwfv1aIvchMz
+	 3FNJsuyxJ5bZRtwQl6Y2yFUveHz/TVw+H9sKmV+MZ38aBh+TPQGyFSuxAs5a/wTbDxcp2
+	 J6egvM+NgXxvreq2NsHwkf97S0paoOLmuq9/r4O5zJkOqXj8I67rbnxplqQAFYO49gt56
+	 8G677JsktLeTTOB9eyGb8kEBPBLvlb5UUDcvciod6CbQGglsqrwdsFK9cn0jjiJoEGfXO
+	 qdxyPbT13H5ZOVbpSvec/fyht6/aySzcG/G1H+1sl1eAnMyEgrpxOUS/ZiCJtD44TCw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531173;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531175;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=z8v4NCeWFM6qc5ofwBJn2Izk3HxJydkFDGFRVXGG0p8=;
-	b=Wb7BTQJQoIpvd471MGNfsULoDixlkddiA94/4ChGBlZbXePqt7gL0LhST6kgRuYT2MSF
-	 PTaPGmnaZbP9O2rqRzFHeNEe22uY2bTOCEpzJ+mHh0ZJNxbgmPsoqW+u4FFBey5yVtZ0D
-	 sEr6KGK6ujKUzXaSdeP65ry1SPHce2dw1lpZY0hqKWxoCGhHQTrwRc4Qrnhugy9RzAIic
-	 me1OPYckEABD8+RLzUH9u092kRUBKPd7vM8ka/izouskMxSNPi58Atw2I0IaGIqyVoSMJ
-	 gSHp25xmDkWWT9F3EUO+NEP85hxjkpIjbNsJOMlOvtDlZyGseuTCI0mC3PYTaHkQkiw==
+	bh=TXNbTZIFkURe4DDU63HqIMXwC3wYeijQ0bXyCiJSP3g=;
+	b=gC2a9IySgihd6HYftdH5onrufhXFBg7GDKk3o+PbhsVCWIga1eojN5odIUad/amOWyZx
+	 9yP5BCPmnxwAhGKAgTCwZl20XqVFn4Gt4McWAXYmNbTCvP1WTY4QWG3rBSgWR6L3vePfH
+	 fappUHGMWKEBqxFmSEWuiVhc6QIRG86VN8Ect61qRX1oYupzUu87y7QoSqkZi4SkFU8oc
+	 K4HtCWH5RhXya9i8Ci81dVL0T+DkyeehNE589esRlArdK+i/+edmVzKKUtQh3fJxisCEM
+	 KA6X4vsjKgcrFGYZQM+Gpfeyy6dDmPkElUu61IkOZ0KcY/k18KQSYN+jTCUYwVOwL8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bt94r4dJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hc794+bL;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5F992606A329;
-	Tue, 24 Nov 2026 14:39:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5151F606A326;
+	Tue, 24 Nov 2026 14:39:35 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bt94r4dJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6D3061F000D2;
-	Tue, 24 Nov 2026 14:39:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hc794+bL
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 168FC1F000D0;
+	Tue, 24 Nov 2026 14:39:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795531172;
-	bh=z8v4NCeWFM6qc5ofwBJn2Izk3HxJydkFDGFRVXGG0p8=;
+	s=k20260515; t=1795531174;
+	bh=TXNbTZIFkURe4DDU63HqIMXwC3wYeijQ0bXyCiJSP3g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bt94r4dJe9Wuy1mJTKUxz+6anRZR0AS/CjF3d4YhvOc47Y3nuq0PV1kMOUUROb+hp
-	 jaoweIZP/6T6ewQzBMehUU2Iy6VwzPoKoHVMmL6++H8f19vHR3ZVRzdMCX9f+/2sjz
-	 jM03k2XcIYXAYd8KHdcxmUoJbDxbOeXK9PCFvleP28yHSaV1IcrayvtiXziXGAusXf
-	 4lJAuxV1BLwDLI2HjFZOIMhWOiLgjqFXwLhhmiYnfhapb4ySntFWmMQ5YlLeswhX9e
-	 MMM5h8Y17T0EIBaElyxJBU6lnip64o/Z0mJ7Z15kvlFP5nshGFsngD/HqXH2/LkM8k
-	 UV+oQCre94Rfw==
-Subject: Re: [PATCH net-next 04/15] netfilter: conntrack: verify L4 protocol
- before calling helper
+	b=Hc794+bLZOgu+BAxlGtyBHVphgzUijDgUWfkPcw7XXH0E4Xq1X82tUgPb2+Bcs454
+	 Dm95h5Z2R3y56qYId0qguFpxjGeKd25ydmXyrsMkI6D+JsLsbFvif09ihyZAhvJgog
+	 s4XElXLPoSkjjrDs3irMx6OU2z0bfY06Bz2+PNSu1sSzf7ltwpjbGGy3RydRK/SBMF
+	 HnNnT5hqsTM7NmP3OCp6IasLxe00Lpj9+0hid1GB4PRpkxeTr5nxkRRKd/rmIIkPVz
+	 qWvEZ3S2oHuZK+UET7mzUK3LIvoOmOCYBzIuirOT6zHJveZep2vROTid+5oAQ8jdj3
+	 IeQMxaiMyU0nQ==
+Subject: Re: [PATCH net-next 05/15] netfilter: conntrack: replace open-coded
+ helper invocation
 From: netdev-bot+sashiko@kernel.org
 To: pablo@netfilter.org
 Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
  netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
  edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Date: Tue, 24 Nov 2026 14:39:32 +0000
-Message-ID: <179553117201.3135.14194838592566427007@kernel.org>
-In-Reply-To: <20261123135726.3940688-5-pablo@netfilter.org>
-References: <20261123135726.3940688-5-pablo@netfilter.org>
-X-sashiko-severity: High
+Date: Tue, 24 Nov 2026 14:39:33 +0000
+Message-ID: <179553117362.3135.14148690589375438131@kernel.org>
+In-Reply-To: <20261123135726.3940688-6-pablo@netfilter.org>
+References: <20261123135726.3940688-6-pablo@netfilter.org>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,7 +67,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 2 · Medium: 0 · Low: 1
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,174 +75,209 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] This patch breaks the H.245 helper on the normal netfilter path,
-  which breaks H.323 media tracking and NAT.
-- [High] nft_ct_expect_helper_alloc() now sets the internal helper's
-  l4proto to `priv->l4proto` (NFTA_CT_EXPECT_L4PROTO).
-- [Low] The commit message does not fully describe the behaviour change.
+- [Medium] This patch changes the OVS/tc helper path in nf_ct_helper()
+  (net/netfilter/nf_conntrack_ovs.c:30) so that it calls…
+- [Medium] netfilter: conntrack: nf_ct_helper() does not verify
+  nf_ct_l3num(ct) == proto
+- [Low] The comment `/* rcu_read_lock()ed by nf_hook */` at
+  net/netfilter/nf_conntrack_proto.c:211 in nf_ct_call_helper() is now…
 
 --
 
-netfilter: conntrack: verify L4 protocol before calling helper
+netfilter: conntrack: replace open-coded helper invocation
 
-This commit makes nf_ct_call_helper() skip the assigned conntrack helper
-when the packet's L4 protocol does not match helper->l4proto. It also
-skips IPv4 fragments and packets with no L4 payload. It sets l4proto on
-the internal helper that nft_ct expectation objects allocate.
+The commit replaces the open-coded helper invocation in nf_ct_helper(),
+which the OVS datapath and tc act_ct use. It now calls
+nf_ct_call_helper(), which nf_confirm() also uses. The commit message
+says there are no functional changes, apart from extra checks that make
+sure the helper can process the packet.
 
-> diff --git a/net/netfilter/nf_conntrack_proto.c b/net/netfilter/nf_conntrack_proto.c
-> index 32f900c155de8..18125aa29e0d0 100644
-> --- a/net/netfilter/nf_conntrack_proto.c
-> +++ b/net/netfilter/nf_conntrack_proto.c
-> @@ -134,21 +134,23 @@ static bool in_vrf_postrouting(const struct nf_hook_state *state)
+> diff --git a/net/netfilter/nf_conntrack_ovs.c b/net/netfilter/nf_conntrack_ovs.c
+> index fe525b324af41..2a80eaf05186b 100644
+> --- a/net/netfilter/nf_conntrack_ovs.c
+> +++ b/net/netfilter/nf_conntrack_ovs.c
 
 [ ... ]
 
->  	case NFPROTO_IPV6:
-> -		pnum = ipv6_hdr(skb)->nexthdr;
-> -		start = ipv6_skip_exthdr(skb, sizeof(struct ipv6hdr), &pnum, &frag_off);
-> -		if (start < 0 || (frag_off & htons(~0x7)) != 0)
-> +		*pnum = ipv6_hdr(skb)->nexthdr;
-> +		start = ipv6_skip_exthdr(skb, sizeof(struct ipv6hdr), pnum, &frag_off);
-> +		if (start < 0 || frag_off)
->  			return false;
+> @@ -35,50 +27,7 @@ int nf_ct_helper(struct sk_buff *skb, struct nf_conn *ct,
+>  	    helper->nfproto != proto)
+>  		return NF_ACCEPT;
+>  
+
+[ ... ]
+
+> -	default:
+> -		WARN_ONCE(1, "helper invoked on non-IP family!");
+> -		return NF_DROP;
+> -	}
+> -
+> -	if (helper->l4proto != proto)
+> -		return NF_ACCEPT;
+> -
+> -	helper_cb = rcu_dereference(helper->help);
+> -	if (!helper_cb)
+> -		return NF_ACCEPT;
+> -
+> -	err = helper_cb(skb, protoff, ct, ctinfo);
+> -	if (err != NF_ACCEPT)
+> -		return err;
+> -
+> -	/* Adjust seqs after helper.  This is needed due to some helpers (e.g.,
+> -	 * FTP with NAT) adusting the TCP payload size when mangling IP
+> -	 * addresses and/or port numbers in the text-based control connection.
+> -	 */
+> -	if (test_bit(IPS_SEQ_ADJUST_BIT, &ct->status) &&
+> -	    !nf_ct_seq_adjust(skb, ct, ctinfo, protoff))
+> -		return NF_DROP;
+> -	return NF_ACCEPT;
+> +	return nf_ct_call_helper(skb, ct, ctinfo);
+
+[Severity: Medium]
+Can nf_ct_helper() now pick the helper by one family and parse the
+packet by another?
+
+The check left in nf_ct_helper() compares helper->nfproto against the
+proto passed in by the caller. nf_ct_call_helper() then calls
+nf_confirm_get_protoff(), and that function switches on
+nf_ct_l3num(ct) instead:
+
+	switch (nf_ct_l3num(ct)) {
+	case NFPROTO_IPV4:
+		...
+		protoff = skb_network_offset(skb) + ip_hdrlen(skb);
+		*pnum = ip_hdr(skb)->protocol;
+		break;
+	case NFPROTO_IPV6:
+		*pnum = ipv6_hdr(skb)->nexthdr;
+		...
+
+The removed code also switched on proto when it parsed the headers. So
+the helper family check and the protoff and l4proto lookup always used
+the same family.
+
+Nothing in nf_ct_helper() checks that nf_ct_l3num(ct) == proto, and
+the callers do not seem to guarantee it. In tcf_ct_act(),
+tcf_ct_skb_nfct_cached() treats an existing skb->_nfct as cached when
+only the net and the zone match:
+
+	if (!net_eq(net, read_pnet(&ct->ct_net)))
+		goto drop_ct;
+	if (nf_ct_zone(ct)->id != p->zone)
+		goto drop_ct;
+
+For an unconfirmed ct with commit set, tcf_ct_act() then calls
+nf_ct_helper(skb, ct, ctinfo, family) and skips nf_conntrack_in().
+skb_nfct_cached() in net/openvswitch/conntrack.c looks similar.
+
+Consider a tc chain with these steps, all in the same zone:
+
+1. A ct action without commit tracks an IPv6 packet.
+2. skbedit, pedit or bpf changes skb->protocol to ETH_P_IP.
+3. A ct action with commit and an IPv4-only helper runs.
+
+nf_ct_helper() accepts the helper, because helper->nfproto is
+NFPROTO_IPV4. nf_confirm_get_protoff() parses the packet as IPv6. An
+IPv4 helper such as snmp_trap_helper() finds the UDP header from
+ip_hdr(skb)->ihl, not from protoff, so it would run on an IPv6 header.
+The reverse case is also possible: act_ct trimmed and classified the
+packet as IPv6, but nf_confirm_get_protoff() parses it as IPv4.
+
+Setting this up needs CAP_NET_ADMIN. Still, it changes which bytes the
+helper is pointed at, and the commit message only says it adds checks.
+The old code also ran the helper against a ct of the other family in
+this case, but its header parsing at least matched the family that was
+used to pick the helper.
+
+The later patch "harden helper invocation with tuple revalidation"
+adds nf_ct_get_tuplepr() to nf_confirm_get_protoff(). It also keys off
+nf_ct_l3num(ct), so it does not seem to close this gap.
+
+Should nf_ct_helper() return early when nf_ct_l3num(ct) != proto? Or
+should the helper->nfproto check compare against nf_ct_l3num(ct)?
+Another option is for the cached checks in act_ct and OVS to reject a
+ct whose l3num does not match the current family.
+
+[Severity: Medium]
+Does this change when sequence adjustment runs for tc act_ct on
+loopback?
+
+In net/netfilter/nf_conntrack_proto.c, nf_ct_call_helper() does this:
+
+	seqadj_needed = test_bit(IPS_SEQ_ADJUST_BIT, &ct->status) && !nf_is_loopback_packet(skb);
+	...
+	if (seqadj_needed &&
+	    !nf_ct_seq_adjust(skb, ct, ctinfo, protoff))
+		return NF_DROP;
+
+The removed code called nf_ct_seq_adjust() whenever IPS_SEQ_ADJUST_BIT
+was set after a successful helper call. It never checked the device.
+
+nf_is_loopback_packet() is:
+
+	return skb->dev && skb->skb_iif && skb->dev->flags & IFF_LOOPBACK;
+
+When tcf_ct_act() runs from a tc ingress filter on lo, this is always
+true. __netif_receive_skb_core() sets skb->skb_iif before
+sch_handle_ingress() runs:
+
+	skb->skb_iif = skb->dev->ifindex;
+
+Consider a pure act_ct setup on lo ingress with commit, nat and a helper
+that rewrites the payload, such as ftp. act_ct registers no netfilter
+hooks, so nf_confirm() never adjusts these packets. Before this patch,
+nf_ct_helper() was the only place that did.
+
+After nf_nat_mangle_tcp_packet() changes the payload length and sets
+IPS_SEQ_ADJUST_BIT, will seq/ack go uncorrected on later packets? That
+would leave the TCP control connection out of sync.
+
+OVS does not seem able to reach this, because ovs_netdev_link() rejects
+IFF_LOOPBACK vports. In a mixed setup where netfilter conntrack already
+adjusted the packet in POSTROUTING, skipping the adjustment on lo
+ingress does avoid adjusting twice.
+
+The commit message says:
+
+    No functional changes intended, except the additional checks to
+    ensure the helper can process the given packet.
+
+The loopback exemption does not seem to fit that description.
+
+Two smaller behaviour changes also seem to be undisclosed. First, a
+NULL helper->help, which happens briefly while a helper is being
+unregistered, used to return NF_ACCEPT without any seq adjustment. It
+now falls through to nf_ct_seq_adjust().
+
+Second, a non-IP family used to hit WARN_ONCE() and return NF_DROP. It
+now returns NF_ACCEPT after DEBUG_NET_WARN_ONCE(). That path is
+probably unreachable, because the switch is now on nf_ct_l3num(ct).
+
+Should nf_ct_helper() keep the unconditional seq adjustment for the
+act_ct path? Or should the commit message describe these changes? The
+behaviour looks the same at the end of the series.
 
 [Severity: Low]
-This isn't a bug, but the commit message only mentions IPv4:
+This isn't a bug, but the comment in nf_ct_call_helper() looks stale
+now that nf_ct_helper() calls it:
 
-  Also change ipv4 to explicitly skip frasgments, this shouldn't happen
-  for normal netfilter-only code path, ...
+		/* rcu_read_lock()ed by nf_hook */
+		helper = rcu_dereference(help->helper);
 
-The IPv6 check in nf_confirm_get_protoff() changes too. ipv6_skip_exthdr()
-returns the raw frag_off field, including the M bit and the reserved
-bits. So the new check also rejects first fragments (offset 0, M=1) and
-atomic fragments with reserved bits set. Before, both of those still
-went through the helper and seqadj.
+Before this patch, nf_confirm() was the only caller, and it runs inside
+nf_hook_slow(). Through nf_ct_helper(), this code is now also reached
+from the OVS datapath in net/openvswitch/conntrack.c and from
+tcf_ct_act() in net/sched/act_ct.c.
 
-The new check also no longer matches the unchanged IPv6 check in
-nf_ct_helper() in nf_conntrack_ovs.c.
+Those paths get their RCU read-side section from somewhere else: the
+netdev rx handler, ovs_packet_cmd_execute(), or tc classify. The
+rcu_dereference() calls are still protected in practice, so only the
+comment is wrong.
 
-Could the commit message mention the IPv6 change as well?
+Could the comment be updated to cover the new callers? It is unchanged
+at the end of the series.
 
-The commit message also says:
-
-  or when conntrack got attached via TC/act_ct, then was later munged via
-  act_pipe to alter the ip protocol.
-
-There doesn't seem to be an act_pipe tc action. Should this say
-pedit/bpf, like the new comment above nf_ct_call_helper()? Also, there's
-a typo (frasgments).
-
-[ ... ]
-
-> @@ -204,6 +210,9 @@ int nf_ct_call_helper(struct sk_buff *skb, struct nf_conn *ct,
->  		/* rcu_read_lock()ed by nf_hook */
->  		helper = rcu_dereference(help->helper);
->  		if (helper) {
-> +			if (helper->l4proto != pnum)
-> +				return NF_ACCEPT;
-> +
-
-[Severity: High]
-Does this guard break the H.245 helper on the normal netfilter path?
-
-h323_helper_init() in nf_conntrack_h323_main.c registers H.245 as a UDP
-helper:
-
-	nf_ct_helper_init(&nf_conntrack_helper_h245, AF_UNSPEC, IPPROTO_UDP,
-			  "H.245",
-			  &h245_exp_policy, 0, h245_help, NULL, THIS_MODULE);
-
-However, expect_h245() creates a TCP expectation and assigns that helper
-to the TCP child conntrack:
-
-	nf_ct_expect_init(exp, NF_CT_EXPECT_CLASS_DEFAULT, nf_ct_l3num(ct),
-			  &ct->tuplehash[!dir].tuple.src.u3,
-			  &ct->tuplehash[!dir].tuple.dst.u3,
-			  IPPROTO_TCP, NULL, &port);
-	rcu_assign_pointer(exp->assign_helper, nf_conntrack_helper_h245_ptr);
-
-h245_help() also parses TCP: get_tpkt_data() reads a struct tcphdr at
-protoff.
-
-With this patch, every H.245 packet takes this path:
-
-q931_help()->expect_h245()   (TCP expectation, H.245 helper)
-nf_confirm()->nf_ct_call_helper()
-    nf_confirm_get_protoff() sets pnum = IPPROTO_TCP
-    helper->l4proto (IPPROTO_UDP) != pnum -> return NF_ACCEPT
-
-As a result h245_help() never runs. No RTP/RTCP/T.120 expectations are
-created and the H.245 NAT payload rewrite is skipped. Wouldn't H.323
-calls through an iptables/nftables conntrack/NAT box lose their media?
-
-Before this patch nf_confirm() didn't check the protocol. Only the
-nf_ct_helper() path used by OVS/act_ct had this check. This still seems
-to be the case at the end of the series.
-
-Should the H.245 helper be registered with IPPROTO_TCP as part of this
-change? This matters more because the Fixes: tag makes the patch a
-stable candidate on its own.
-
->  			helper_cb = rcu_dereference(helper->help);
->  			if (helper_cb) {
->  				ret = helper_cb(skb, protoff,
-> diff --git a/net/netfilter/nft_ct.c b/net/netfilter/nft_ct.c
-> index 5a8db55920364..58846bc405b7e 100644
-> --- a/net/netfilter/nft_ct.c
-> +++ b/net/netfilter/nft_ct.c
-> @@ -1307,6 +1307,7 @@ static int nft_ct_expect_helper_alloc(struct nft_ct_expect_obj *priv)
->  		 "nft_ct_expect");
->  	ct_expect_helper->me = THIS_MODULE;
->  	ct_expect_helper->expect_policy[NF_CT_EXPECT_CLASS_DEFAULT].max_expected = priv->size;
-> +	ct_expect_helper->l4proto = priv->l4proto;
-
-[Severity: High]
-Is priv->l4proto the right value to store here?
-
-In the expectation object, l4proto is the protocol of the expected child
-connection. ct_expect_help() passes it as the protocol of the
-expectation tuple:
-
-	nf_ct_expect_init(exp, NF_CT_EXPECT_CLASS_DEFAULT, l3num,
-			  &ct->tuplehash[!dir].tuple.src.u3,
-			  &ct->tuplehash[!dir].tuple.dst.u3,
-			  expect_data->obj.l4proto, NULL, &expect_data->obj.dport);
-
-The new guard in nf_ct_call_helper() compares helper->l4proto with the
-L4 protocol of the master connection that the helper is attached to.
-
-nft_ct_expect_obj_eval() attaches the helper to any unconfirmed
-conntrack. Unlike nft_ct_helper_obj_eval(), it doesn't check
-nf_ct_protonum(ct) against priv->l4proto:
-
-	if (help && refcount_inc_not_zero(&priv->helper->ct_refcnt))
-		rcu_assign_pointer(help->helper, priv->helper);
-
-The nft documentation shows a TCP control connection with a UDP
-expectation:
-
-  ct state new tcp dport 8888 ct expectation set "expect"
-
-Here the expectation object uses "protocol udp". So pnum is IPPROTO_TCP
-and helper->l4proto is IPPROTO_UDP. ct_expect_help() never runs and no
-expectation is created. Nothing reports an error, either at rule load
-or at runtime.
-
-Before this patch, helper->l4proto was 0 from kzalloc and nf_confirm()
-didn't check it, so expectations with a different protocol than the
-master worked. The code is still unchanged at the end of the series.
-
-Could the check use the master connection's protocol for this helper
-instead? Another option is to reject the mismatch in
-nft_ct_expect_obj_eval().
-
-A smaller point: the l4proto field comment in struct
-nf_conntrack_helper says IPPROTO_UDP/TCP, but this assignment can now
-store DCCP or SCTP.
-
->  	rcu_assign_pointer(ct_expect_helper->help, ct_expect_help);
->  	refcount_set(&ct_expect_helper->ct_refcnt, 1);
+>  }
+>  EXPORT_SYMBOL_GPL(nf_ct_helper);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123135726.3940688-2-pablo%40netfilter.org
