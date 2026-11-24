@@ -1,81 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518572;
-	b=ASOsnbJyr9qNYoGnpZP2+VvoOf11K/6DPY3nDTJ3LRLie3NKq7BweraHKCPGKe85zaoW
-	 K7S3ZlgUElvTehUUOX1WhocVsH3dYUTHGY6v2ufxlkmO10rLTOzpVgHXLFWYPdbKoSJu4
-	 seXncdW5U3oTMuGky4cnRpoh340g7nxClutjC3D6NYgw0HzfQWBeYfvbQNVIJWKnpGZCP
-	 Roa658gtNFgZZTBFTeyq+DdcH/IMau6E7pJWd2TTKDFtLccFWVWcUj8W+jdcaepnJXEzD
-	 0gHetkiwMBz0fxKw7WS4WgRYP9nm25x16jm3FxnrYK4jmONI6E3d+qrWelKwYvHk1BA==
+	t=1795518672;
+	b=DA7BnWE56t87cXwOcn4hR/ayDKr8+H4P7tlac7uH835ZjB9dDU3tmU0U4adtJY/OV0ED
+	 vhz2qWMLhN7dtgDDdvrkIMGgIm3LGtwYqb35keGrdxk/+JR3Y7wb8EUuIrrL7DkRzXxIf
+	 CYxFupxoq3eq/IqWHY8lsQbrgZix3/E4yueWCcvc5uzRJfClEPzHdo+3d4DdWkZo6Xy9s
+	 B44XQKyIgnOkeUU0AWfqQMc3ugBzHMGkJWGNbjv9qzUVPiu4sCaKRuecqSh/ymlpZ7+nV
+	 5YTaBJcykJLTk20rGMLJ/N1e9EmuVMdrEOm368R95nnZm8j8yisJf3b7o01nw/edMOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518572;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=bGnX/iGZlgGEkI+A2mMrk0IcJmCgekVCaIDWKQdKsXc=;
-	b=QG1qrgSU38bNwdedr/Fh6jwbWoyW2UKv4d+YfaCYJedmbN56n+k9e9gg0bzWaVOV8RxD
-	 CjMF7lKO2tCpZpgoe/NBWjsvuu/r2EH5JNdEvtossPwd8zum5D1XwgQOU5OxlcOmkdz5h
-	 tS7/EchXcNDY1dgAgDEPniaBZALhwHBFRm8ebg4ntQ1sIsKBgpiAQn6pK7WStjQDtqtxX
-	 d/N2CxCUTfAlwDfoBy37WfycA0ooqiefWmPwgtwUWGPyk5wB4GgosolT6Ql23q0jIbkHZ
-	 86mkLNpgjcJXHl3Ry/IjOUdnpFmKfWkU/rGVbCp4vJ4gCxHmBsmxhLWpmCINZGLiOaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518672;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
+	b=Xn3pzYOAh+X6JM+YgMxLRQIF1m8idD7XZKIjdj3d0BRzHgeEsnUwXmdgg+mIrbwyFGds
+	 T1e10RXE+bUcc1SGIn8gXKU0v843RRr+VLPwnldtmpxRZB6nKUl0RmqIfP44Au8Fs+SAq
+	 aNJ6uL0ZX3fzx5SHy7+S3DGFm8lypXR74KdFKNlkl24SvKSvr1y3fwBIzaU7G45DCrrpn
+	 0sM8WWPm9wn0KdmBmcJBTNXnuNm5ruQMMbysdbXbzrYiYXijzAJrjyYxFrL+uh32f3Rln
+	 P/5uNUjdB86Omb7jiM0ZuxCrZYZUnZg4YO1KfkD4W9H5tFmrGLOM0fag0jz60QW7dwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="MDRTN/tS";
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=UcnJHTyQ;
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7B7C606A32D;
-	Tue, 24 Nov 2026 11:09:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7B7C606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DB4B606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:11:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DB4B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=MDRTN/tS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795518579; x=1827054579;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=FgzITZRt5fWSTf72IJZ4AJHUAoY48XOZrElrGCAvSG0=;
-  b=MDRTN/tSqwlKEHy/o6VEkTyvDglEhKrTahMorXn2gk9LTKpI1DbQmHWa
-   tLMWP8CcS37cojsF37zDgW+fuInGYtN5iH4/4soyQ1ldV+kxHs/xVRBIE
-   Ntedc0uc38emVPnLgEMOqPBWFgV2/NhXApVdtP9jbwMzTcph9pQL9m+wZ
-   BEAWdhdXA3rS3fkd+CUyz8yX2XT8I54WhTehcG05TrWiZboGjEco9ZGBN
-   ynrI7qhX/gM6ZaNOS+gUO3OESzkjUEib2ohCGodOj341kNwcYCWT0pa3r
-   iG0TGZQvCZJjUbbKAxTOUL7s8SP3JiDJxTZ3HnSoimMEa5G3UevgsAHjm
-   Q==;
-X-CSE-ConnectionGUID: AKY9yM2+ROe7nyPTM4+KAA==
-X-CSE-MsgGUID: 9HGun83SRcybvxP03o15dA==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="66982986"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 04:09:38 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.57; Tue, 24 Nov 2026 04:09:30 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 04:09:27 -0700
-Date: Tue, 24 Nov 2026 12:09:26 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 7/9] net: sparx5/lan969x: scale the queue
- watermarks with the MTU
-Message-ID: <20261124110926.o3pm6urngmdca72s@DEN-DL-M70577>
-References: <20261120-sparx5-mtu-change-v3-7-55c272fe1acc@microchip.com>
- <179544589953.3135.16152141389643791611@kernel.org>
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=UcnJHTyQ
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e46e449e8so2788768f8f.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:11:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795518670; x=1796123470; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
+        b=UcnJHTyQiH+pKFVhR73XzeT85KeSi92KVWmgCXQdae9Iorf7if3nOhlsvuGVx3zgnR
+         3I3oHy5W9T2Ov4uRkRfiVlOVshc2IG7lp0WiaWnmG9FMm520X0c+I/g/cq7uhwnFsQdg
+         zknf/Zf0WKLMy38opavOI9WQdshHATN9mpQfg/u4JnCn7ShBDgSeqR8gv2I3evbY5Z7f
+         Kw4IXDtUhHXpn91jpwhLNI+sk8j9s7fuwnMohaAaHvwXbuiC1je1zXLI7b45DDwpxUPL
+         hqYXeckrkBKMd8s56zpcNkHGIA3vbIwciYPXpCc6GvN0XKfUjqoe4i8r1liUGfggMFJV
+         f1rQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795518670; x=1796123470;
+        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
+         :content-language:from:references:cc:to:subject:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
+        b=KBc8yfgi5snIY+oRBF40F/6YcMxXnRyi0nr1f5oPbCB25Hh1RRFhEMIUML2yyHY/cZ
+         Dn/E8cEY3mnKxySDJe+Pxpcn4KElA4LRdJZOtQAwCly2O/pJsUfkPM62WSvKFMwPyUb/
+         A+tTK1PvSer7oMhMuXx7WTVCHGqU6TjDqkRq5z+RILDuXgPaTc0MQ9xqkaBfAGaxzLpL
+         V0KMFnr1vMWKn2fev6BVoDdVBa2H66mcZsAXBY4edmSvqHXHB1Ok0rYh3tQ/XteUnNWO
+         w4si9Qob5N5WWSzaJ04UiNESBF4gVKmdZiNPkYaceYGaBDbfWWbGDMA1aXKDhtuTz97m
+         hXRA==
+X-Forwarded-Encrypted: i=1; AL+hErEpdy4a+V24Nt7S878Xb0ImIcdVA9CMw5ksHOwoXPOzHHoIsXkQHpwkaRL/d5INZphez7urERA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8LhEzCRJQxhV03YZMCOMZ3/NNwUB07t4tTbEbjSemy40dYJtoL
+	J3DvAshenvKhz4cN2Jlp/1qPIm87y6Mpn7cageO+mrzpHZzLnQYTutysqMb6D6BT7lQ=
+X-Gm-Gg: AZFdTZdMaecoQ0r59NkTYIyiskATpWvsgcFhIP/y0xksK7nqzKUe9ApD+zCbwMA9qt9
+	oIlSrQJ0Es355hGEd6HQzmsiAeuCdFbdzMkXznq+mmzNCuSaij8LAHZrRhif5LiUrSgUzKi6Z9H
+	gT39OokhFMjVTh1+nwHw6P4bhJN/LHh91DlKFApy1KuBYNHgq1DFFCNUbBCko271dykPV4hLyiX
+	q0ZFT1MnG4SvKQKLHRC/VdmQXEHBx38RRz25PZheOgHM+kQZ6VWHaPvsM4EiKb1YME+pB9/Z08i
+	YKDMWAd6dJ9G5zwcBMFmWHTf0vU64EHcqJOLrEurz6VUb/efy64Jcw+0/+O+QaXEunOIECV39lC
+	9LyLWwOfmSfHpaPe1RGsNBDfxZSatip9yYSdHQHxonP1pUKgA86Dt5aBKfiRGLwJKDXA4ekyCpC
+	ci6WCM7SXkSO0rJqV2VMOoafrgZ8qgojQy/RHsLYRlu20/IAkSLDXlqmJ5hUOrEwwhtibQ31i27
+	OD0HnOYW5QHnpAzkLd1RCrEbs8q5/HscZ97lxnKFIH3Hbu8zdYecBuIbFdh8ewv2V7T+PncCtLw
+	rdA6bqTudAGpI9G4uJlBad5POIHfPztJ
+X-Received: by 2002:a05:6000:4541:b0:48e:6264:c373 with SMTP id ffacd0b85a97d-4abb400bd81mr17140230f8f.14.1795518670500;
+        Tue, 24 Nov 2026 03:11:10 -0800 (PST)
+Received: from [192.168.0.20] ([212.21.133.162])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm28151271f8f.48.2026.11.24.03.11.09
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 03:11:10 -0800 (PST)
+Message-ID: <ffdd26d1-4316-47ad-9ab2-9a62b94bd2e3@suse.com>
+Date: Tue, 24 Nov 2026 13:11:09 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,133 +92,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ipv4: fib_rules: Switch to using a for loop in
+ fib_empty_table
+To: Ido Schimmel <idosch@idosch.org>
+Cc: davem@davemloft.net, kuba@kernel.org, dsahern@kernel.org,
+ netdev@vger.kernel.org
+References: <20261120081242.318541-1-nik.borisov@suse.com>
+ <20261124110317.GA3761951@shredder>
+From: Nikolay Borisov <nik.borisov@suse.com>
+Content-Language: en-US
+Autocrypt: addr=nik.borisov@suse.com; keydata=
+ xsFNBGcrpvIBEAD5cAR5+qu30GnmPrK9veWX5RVzzbgtkk9C/EESHy9Yz0+HWgCVRoNyRQsZ
+ 7DW7vE1KhioDLXjDmeu8/0A8u5nFMqv6d1Gt1lb7XzSAYw7uSWXLPEjFBtz9+fBJJLgbYU7G
+ OpTKy6gRr6GaItZze+r04PGWjeyVUuHZuncTO7B2huxcwIk9tFtRX21gVSOOC96HcxSVVA7X
+ N/LLM2EOL7kg4/yDWEhAdLQDChswhmdpHkp5g6ytj9TM8bNlq9I41hl/3cBEeAkxtb/eS5YR
+ 88LBb/2FkcGnhxkGJPNB+4Siku7K8Mk2Y6elnkOctJcDvk29DajYbQnnW4nhfelZuLNupb1O
+ M0912EvzOVI0dIVgR+xtosp66bYTOpX4Xb0fylED9kYGiuEAeoQZaDQ2eICDcHPiaLzh+6cc
+ pkVTB0sXkWHUsPamtPum6/PgWLE9vGI5s+FaqBaqBYDKyvtJfLK4BdZng0Uc3ijycPs3bpbQ
+ bOnK9LD8TYmYaeTenoNILQ7Ut54CCEXkP446skUMKrEo/HabvkykyWqWiIE/UlAYAx9+Ckho
+ TT1d2QsmsAiYYWwjU8igXBecIbC0uRtF/cTfelNGrQwbICUT6kJjcOTpQDaVyIgRSlUMrlNZ
+ XPVEQ6Zq3/aENA8ObhFxE5PLJPizJH6SC89BMKF3zg6SKx0qzQARAQABzSZOaWtvbGF5IEJv
+ cmlzb3YgPG5pay5ib3Jpc292QHN1c2UuY29tPsLBkQQTAQoAOxYhBDuWB8EJLBUZCPjT3SRn
+ XZEnyhfsBQJnK6byAhsDBQsJCAcCAiICBhUKCQgLAgQWAgMBAh4HAheAAAoJECRnXZEnyhfs
+ XbIQAJxuUnelGdXbSbtovBNm+HF3LtT0XnZ0+DoR0DemUGuA1bZAlaOXGr5mvVbTgaoGUQIJ
+ 3Ejx3UBEG7ZSJcfJobB34w1qHEDO0pN9orGIFT9Bic3lqhawD2r85QMcWwjsZH5FhyRx7P2o
+ DTuUClLMO95GuHYQngBF2rHHl8QMJPVKsR18w4IWAhALpEApxa3luyV7pAAqKllfCNt7tmed
+ uKmclf/Sz6qoP75CvEtRbfAOqYgG1Uk9A62C51iAPe35neMre3WGLsdgyMj4/15jPYi+tOUX
+ Tc7AAWgc95LXyPJo8069MOU73htZmgH4OYy+S7f+ArXD7h8lTLT1niff2bCPi6eiAQq6b5CJ
+ Ka4/27IiZo8tm1XjLYmoBmaCovqx5y5Xt2koibIWG3ZGD2I+qRwZ0UohKRH6kKVHGcrmCv0J
+ YO8yIprxgoYmA7gq21BpTqw3D4+8xujn/6LgndLKmGESM1FuY3ymXgj5983eqaxicKpT9iq8
+ /a1j31tms4azR7+6Dt8H4SagfN6VbJ0luPzobrrNFxUgpjR4ZyQQ++G7oSRdwjfIh1wuCF6/
+ mDUNcb6/kA0JS9otiC3omfht47yQnvod+MxFk1lTNUu3hePJUwg1vT1te3vO5oln8lkUo9BU
+ knlYpQ7QA2rDEKs+YWqUstr4pDtHzwQ6mo0rqP+zzsFNBGcrpvIBEADGYTFkNVttZkt6e7yA
+ LNkv3Q39zQCt8qe7qkPdlj3CqygVXfw+h7GlcT9fuc4kd7YxFys4/Wd9icj9ZatGMwffONmi
+ LnUotIq2N7+xvc4Xu76wv+QJpiuGEfCDB+VdZOmOzUPlmMkcJc/EDSH4qGogIYRu72uweKEq
+ VfBI43PZIGpGJ7TjS3THX5WVI2YNSmuwqxnQF/iVqDtD2N72ObkBwIf9GnrOgxEyJ/SQq2R0
+ g7hd6IYk7SOKt1a8ZGCN6hXXKzmM6gHRC8fyWeTqJcK4BKSdX8PzEuYmAJjSfx4w6DoxdK5/
+ 9sVrNzaVgDHS0ThH/5kNkZ65KNR7K2nk45LT5Crjbg7w5/kKDY6/XiXDx7v/BOR/a+Ryo+lM
+ MffN3XSnAex8cmIhNINl5Z8CAvDLUtItLcbDOv7hdXt6DSyb65CdyY8JwOt6CWno1tdjyDEG
+ 5ANwVPYY878IFkOJLRTJuUd5ltybaSWjKIwjYJfIXuoyzE7OL63856MC/Os8PcLfY7vYY2LB
+ cvKH1qOcs+an86DWX17+dkcKD/YLrpzwvRMur5+kTgVfXcC0TAl39N4YtaCKM/3ugAaVS1Mw
+ MrbyGnGqVMqlCpjnpYREzapSk8XxbO2kYRsZQd8J9ei98OSqgPf8xM7NCULd/xaZLJUydql1
+ JdSREId2C15jut21aQARAQABwsF2BBgBCgAgFiEEO5YHwQksFRkI+NPdJGddkSfKF+wFAmcr
+ pvICGwwACgkQJGddkSfKF+xuuxAA4F9iQc61wvAOAidktv4Rztn4QKy8TAyGN3M8zYf/A5Zx
+ VcGgX4J4MhRUoPQNrzmVlrrtE2KILHxQZx5eQyPgixPXri42oG5ePEXZoLU5GFRYSPjjTYmP
+ ypyTPN7uoWLfw4TxJqWCGRLsjnkwvyN3R4161Dty4Uhzqp1IkNhl3ifTDYEvbnmHaNvlvvna
+ 7+9jjEBDEFYDMuO/CA8UtoVQXjy5gtOhZZkEsptfwQYc+E9U99yxGofDul7xH41VdXGpIhUj
+ 4wjd3IbgaCiHxxj/M9eM99ybu5asvHyMo3EFPkyWxZsBlUN/riFXGspG4sT0cwOUhG2ZnExv
+ XXhOGKs/y3VGhjZeCDWZ+0ZQHPCL3HUebLxW49wwLxvXU6sLNfYnTJxdqn58Aq4sBXW5Un0Q
+ vfbd9VFV/bKFfvUscYk2UKPi9vgn1hY38IfmsnoS8b0uwDq75IBvup9pYFyNyPf5SutxhFfP
+ JDjakbdjBoYDWVoaPbp5KAQ2VQRiR54lir/inyqGX+dwzPX/F4OHfB5RTiAFLJliCxniKFsM
+ d8eHe88jWjm6/ilx4IlLl9/MdVUGjLpBi18X7ejLz3U2quYD8DBAGzCjy49wJ4Di4qQjblb2
+ pTXoEyM2L6E604NbDu0VDvHg7EXh1WwmijEu28c/hEB6DwtzslLpBSsJV0s1/jE=
+In-Reply-To: <20261124110317.GA3761951@shredder>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179544589953.3135.16152141389643791611@kernel.org>
 
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] At this commit (and at the next one, "scale the TAS guard band
->   with the MTU"), sparx5_port_wm_set() in…
-> - [Low] This commit adds sparx5_port_wm_update() (sparx5_port.c:717) as a
->   non-static function with a prototype in sparx5_port.h:94, but nothing…
-> 
-> --
-> 
-> net: sparx5/lan969x: scale the queue watermarks with the MTU
-> 
-> The commit now computes the QSYS PAUSE_START, PAUSE_STOP and ATOP
-> watermarks from the port MTU, plus the Ethernet header, FCS and two VLAN
-> tags, rounded up to whole buffer cells. Before, they were fixed multiples
-> of a 1518 byte frame. The watermarks are programmed at port init and when
-> pause is resolved. The commit also adds sparx5_port_wm_update() for MTU
-> changes and a per-port wm_lock.
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> > index 701d310df0ba6..87aa0b7841359 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_port.c
-> 
-> [ ... ]
-> 
-> > @@ -676,24 +679,53 @@ int sparx5_port_fwd_urg(struct sparx5 *sparx5, u32 speed)
-> 
-> [ ... ]
-> 
-> > +/* Pause start/stop and tail drop at 6/4/20 frames of the port MTU */
-> > +static void sparx5_port_wm_set(struct sparx5 *sparx5, struct sparx5_port *port,
-> > +			       u8 pause)
-> > +{
-> > +	u32 len = SPX5_HW_MTU(READ_ONCE(port->ndev->mtu)) + 2 * VLAN_HLEN;
-> > +	u32 cells = DIV_ROUND_UP(len, SPX5_BUFFER_CELL_SZ);
-> 
-> [Severity: Medium]
-> At this commit, can port->ndev->mtu drift away from the MAC max frame
-> length?
-> 
-> sparx5_port_init() still programs a fixed max length:
-> 
-> 	sparx5_port_max_len_set(sparx5, port, ETH_MAXLEN);
-> 
-> sparx5_port_netdev_ops has no .ndo_change_mtu. With the ether_setup()
-> defaults (min_mtu 68, max_mtu 1500), the core writes dev->mtu directly
-> and no hardware gets reconfigured.
-> 
-> Suppose the MTU is lowered to 68 with ip link. The next link-up then runs:
-> 
->   sparx5_port_config()->sparx5_port_fc_setup()->sparx5_port_wm_set()
-> 
-> That gives len = 94 and cells = 1. PAUSE_START becomes 6 cells,
-> PAUSE_STOP 4 cells and ATOP 20 cells.
-> 
-> The MAC still accepts 1518-byte frames, which take 9 cells each. With TX
-> pause enabled, wouldn't one full-size frame go past PAUSE_START, so that
-> a pause frame is sent for every received frame? ATOP would also drop to
-> about two full-size frames, which means heavy tail drop. That is the
-> problem the commit message describes, only triggered by a smaller MTU
-> instead of a larger one.
-> 
-> The problem is also present at the next patch, "scale the TAS guard band
-> with the MTU". The final patch of the series, "net: sparx5/lan969x: add
-> support for changing the MTU", fixes it. It adds
-> sparx5_port_change_mtu(), which returns -EOPNOTSUPP when FDMA is not in
-> use. Otherwise it calls sparx5_port_max_len_set() with
-> SPX5_HW_MTU(new_mtu) and then sparx5_port_wm_update(). So this only
-> affects the intermediate bisection points.
-> 
-> Could the series be ordered so that the watermarks and the MAC max length
-> stay in sync at every commit?
 
-This goes away with patch 9, which keeps the watermarks and the MAC max
-frame length in sync. Until then, it needs the MTU to be lowered from
-userspace, and it does not break anything. At worst the port sends extra
-pause frames and tail drops earlier. I dont think that is worth
-reordering the series for.
 
+On 24.11.26 г. 13:03 ч., Ido Schimmel wrote:
+> On Fri, Nov 20, 2026 at 10:12:42AM +0200, Nikolay Borisov wrote:
+>> Since commit efdfb1e27a33 ("ipv4: fib: bound automatic table ID allocation")
+>> added a sane bound to the loop looking for a table id the concerns in
+>> 58075ff523af ("ipv4: fib_rules: Fix possible infinite loop in fib_empty_table")
+>> are rendered moot. Just revert the code back to a "for" loop, using the
+>> new bound. This makes the code's flow and terminating condition a
+>> lot clearer.
 > 
-> > +	u32 pause_stop = 0xFFF - 1; /* FC gen disabled */
-> > +
+> I disagree with "a lot clearer". The function is tiny.
 > 
-> [ ... ]
+> Please read:
 > 
-> > +}
-> > +
-> > +void sparx5_port_wm_update(struct sparx5 *sparx5, struct sparx5_port *port)
-> > +{
-> > +	mutex_lock(&port->wm_lock);
-> > +	sparx5_port_wm_set(sparx5, port, port->wm_pause);
-> > +	mutex_unlock(&port->wm_lock);
-> > +}
-> 
-> [Severity: Low]
-> This isn't a bug, but sparx5_port_wm_update() is non-static and has a
-> prototype in sparx5_port.h, yet nothing calls it at this commit.
-> sparx5_port_netdev_ops has no .ndo_change_mtu yet, so the MTU-change part
-> of this patch is not connected to anything.
-> 
-> This comment in sparx5_port_disable() also refers to an MTU-change path
-> that does not exist yet:
-> 
-> 	/* 5: Disable Flowcontrol, and keep an MTU change from re-enabling it */
-> 
-> The first caller is sparx5_port_change_mtu(), added by the final patch of
-> the series, "net: sparx5/lan969x: add support for changing the MTU". It
-> calls sparx5_port_wm_update() after WRITE_ONCE(dev->mtu, new_mtu), so the
-> READ_ONCE() in sparx5_port_wm_set() picks up the new MTU.
-> 
-> Could the helper be added in the same patch as its caller?
-> 
-> [ ... ]
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
+> https://docs.kernel.org/next/process/maintainer-netdev.html#clean-up-patches
+
+
+You are the maintainer, it's your say. However, I disagree that this 
+patch falls within the "cleanup patches" described in the aforementioned 
+link.
+
+That function is a linear scan in a [1-4096] space. I see no reason why 
+a linear scan should be implemented via an infinite while(1) loop with a 
+terminating condition in the body, when a 'for' loop construct is the 
+right tool for the job. Anyway, as I said it's up to the maintainers.
+
+Regards,
+Nikolay
