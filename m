@@ -1,61 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.28
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795506229;
-	b=IXKXwDjINX8Fj5TRVRowafiqszhR+LJpC5AJssuFaOjEjhh2HBxKjx9c1ASPjwzzvlms
-	 DlpIeR38B7qdg3ANUJj/Ffw+dZr6KPj5xAo4MiUUiYfO1lXXQKBM3JbpttRPqV519gqqC
-	 K6afvad+bagb/xQq9sMFtkGi1/3y+g63AxYIKB5OcJAagNJiUFHqzGr7HPh9AujKzovvm
-	 vsAyzbVzBwsMFzW7wuXg1JQyhzG3b6tb6H/E5K6vgZmbk+7UYsK2ZzG5doSLgdNDsMNRg
-	 p7gxguJpmZadUsAkqfN2FwA6YednDFVny3RBoxk/msIuI3q1WfLRdIAjKQhDYGnU+oQ==
+	t=1795506362;
+	b=SRNVHEfMv+OG87nOhUFl8Y0jBe/OETAo6BHbEyUZA9AUSxYMAc73rnZxH2F4St+pUItJ
+	 tGWm/jInVQlxEyrhRZ5ALR9JImttriEsBUMsZAMC4OP5yBEt3OqjFO4hQej27/mbQ233Z
+	 GkitrXJXWfzXk9FOzI8MdmOD5S16VJD8MlWEgX99LbseSy8Dhtxg2J9jLzLORQiq1A0Ks
+	 TPffbUS2uWXbKaqtr8ZHY6Kpl9F4ChiCEUPabvT8cZVSzvsbzlvWmUonaFeXiamLOKC2G
+	 u97cCHRSHuQX/3X3A3c9CA6AJCg0BJUgG1x9i4VGljGeEwDb3k0twk5M30ijPyOSsTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795506229;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=MLRWpDubs9Y4rgv+EMrJUHYJG26wrXirvqv1xl/RBsfrPzlEOiy3bM4aY05WK+MSKC/X
-	 or/56EBL1PBHLZ/v4lm5pqBy9ihUYPFYPMqXkwjaqqW2O0eoiOZsFpX2T3JwF4vMxybV3
-	 R5B9FlFBTGTXfGbb7S8YYd3VAr6tqd4ELw+UG3cI4tc/6PxO/Pl8IwWjY0dFQ1UOkcmFQ
-	 AOK4pEs19uApgl8+yhfizE4z7GQVkjSTD760x/Y+NuuQazH4G64hl6VRczYD2gQUW74ZG
-	 G5ysSZmpjrxrjBW2fPO3P7OWtsHg7gHvTVVTCxiMQyZuDVsywtLN3iX+3J+AuM4nt3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795506362;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=zpRnhO6ETmCWwFUmF0vR5fErBVE1PURDZa67B1CQG1I=;
+	b=BoVYCDQhfRs8FeNPWZAWuMlrrE3ZC3Pg3F9WjxaMcLs9FsyWejEEOYy8LPG9Oq1gyDAp
+	 Ye7H4C7VhyfXtKAe4l0GrYxjSi/QaA0p9hQXwIfyVAq743TZoXLJqDLHO2bs3IdceESs9
+	 lsEblR43paRZD2T6nGWB7XXuH0oZozg/5U4RrXvzkwVTWV4GKtu2pv6r6iPOjNyFonefO
+	 bQt5i+tA6uJvCG7K56yAsMkdWw9yFtEcyHe2bn1kWNYzKWalbq6RiPl+hepstKbZfwXWb
+	 VHB/NPi3UlJc4fY4evLdVW3u2tPayIGCvVe6NE7qrSlGbYMUSpGaHdsqleVCdFOK+Qw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YysbH92D;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ggBp+EqB;
+	arc=none smtp.remote-ip=79.135.106.28
+Received: from mail-10628.protonmail.ch (mail-10628.protonmail.ch [79.135.106.28])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D0473606A321;
-	Tue, 24 Nov 2026 07:43:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71C82606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:46:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71C82606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YysbH92D
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16E791F000CA;
-	Tue, 24 Nov 2026 07:43:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795506229;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YysbH92DSwRDJYwz5DkuOofp4RGojFeYBd38NdQQWNNOVTan0gmSls0rq0QhlXrp5
-	 3PxuBkHLjhSXhu5OuKzNphqpm/DEyTxQeRcCPg7guHxjEp4DM4xsOUHDvTXyt4aXTc
-	 0DdrQ74eNW/kbrp3i7d3e2e5mCcLv3x2JiYrBkE26D6ZKhIS3Nh437aC6aSsxRtpnd
-	 hmrGPsI6iFQUo8N6kzU/7SnrA22pccJ39cl5s6l+RYYAyqFWC1GZ7YLSGIREVjrd0b
-	 RtBervhriGxgtB96j8ssSzNStkNRYdW6iKnwVpFxZKxeghxsuMQWc6WtWX+vQOxPxL
-	 TD7rXqmZgZtqg==
-From: netdev-bot+sinfo@kernel.org
-To: Mahanta Jambigi <mjambigi@linux.ibm.com>
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, alibuda@linux.alibaba.com,
- dust.li@linux.alibaba.com, sidraya@linux.ibm.com, hidayath@linux.ibm.com,
- pasic@linux.ibm.com, horms@kernel.org, tonylu@linux.alibaba.com,
- guwen@linux.alibaba.com, netdev@vger.kernel.org, linux-s390@vger.kernel.org,
- linux-rdma@vger.kernel.org, stable@vger.kernel.org
-Subject: Re: [PATCH net] net/smc: fix sock reference leak on abort_work cancel
-Date: Tue, 24 Nov 2026 07:43:47 +0000
-Message-ID: <179550622759.3294.11500155506194750683@kernel.org>
-In-Reply-To: <20261124073602.2341904-1-mjambigi@linux.ibm.com>
-References: <20261124073602.2341904-1-mjambigi@linux.ibm.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=ggBp+EqB
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795506359; x=1795765559;
+	bh=zpRnhO6ETmCWwFUmF0vR5fErBVE1PURDZa67B1CQG1I=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=ggBp+EqBmkmTKocSuPKhyKg7t38Eq96Qwu9+i8JjZug7LiV1O/M5TlnMW8ETNia6x
+	 9KDjySjxH2c0demKBo7AVbDZhiZPWu5nEA5bBNWRQtDV9uxRoWWt5MrFA2AWex5pIW
+	 ApQlGzwXX7ffEOAyTIoDEPUsr3sX0MJ5iMWlyTz4dMPd2wLLM8kS31IoyHlwx1QVVe
+	 HeSCo3N2dQ9bzGY0gDwiSzArBFTPKyAg8b00l11zcmdXGvWpX57HcLHE1n1OGa+aB/
+	 l33NVuesCone/otY1wr9SZsjCzJVeNJHxXCE7dqQryA66/0y0h5zzBsJvwTlhv/ra4
+	 9as+mdTAp0n2w==
+Date: Tue, 24 Nov 2026 07:45:51 +0000
+To: linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+From: Ryan Prinz <rc4d5a@protonmail.com>
+Cc: Alexander Aring <alex.aring@gmail.com>, Stefan Schmidt <stefan@datenfreihafen.org>, Miquel Raynal <miquel.raynal@bootlin.com>, "David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, Ryan Prinz <rc4d5a@protonmail.com>
+Subject: [PATCH net v5] ieee802154: 6lowpan: validate fragment offset against datagram size
+Message-ID: <20261124074531.1701179-1-rc4d5a@protonmail.com>
+Feedback-ID: 190731814:user:proton
+X-Pm-Message-ID: 5db93f1eb541a8ff9e8e77829bba84e724955fbe
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,26 +61,81 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi!
+A 6LoWPAN fragment carries the datagram's total size (d_size) and its
+own offset within it. lowpan_frag_queue() never checks that the
+offset, or offset plus length, fits inside d_size, and never rejects
+an empty fragment.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+A datagram is considered complete once enough bytes have been counted
+(fq->q.meat) toward d_size, regardless of whether those bytes actually
+form a contiguous range. So an out-of-range or empty fragment's length
+still counts toward completion, even though it doesn't belong anywhere
+in the datagram.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+IPv6's ip6_frag_queue() already bounds each fragment's end against
+IPV6_MAXPLEN and rejects zero-length fragments; 6LoWPAN had no
+equivalent checks.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Fixed by rejecting any fragment that is empty, or whose offset (or
+offset + length) exceeds d_size.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Fixes: 7240cdec60b1 ("6lowpan: handling 6lowpan fragmentation via inet_frag=
+ api")
+Signed-off-by: Ryan Prinz <rc4d5a@protonmail.com>
+---
+v5:
+ - Resent as a new thread instead of in reply to the v1 thread, per
+   Jakub Kicinski's request. No content changes from v4.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+v4:
+ - Added a check for zero-length fragments (!skb->len), which the
+   previous check missed. ip6_frag_queue() and nf_ct_frag6_queue()
+   already reject these; this patch now does too.
+ - Reworded the impact description to stop claiming one specific
+   mechanism for how an out-of-range fragment causes harm. A
+   separate, pre-existing bug elsewhere in the reassembly code made
+   that mechanism unreliable; it's left out of scope here and will
+   be addressed on its own.
+
+Reproduced two ways: with a local kernel module calling
+lowpan_frag_rcv() directly, and over mac802154_hwsim with three
+independent processes standing in for sender, receiver and attacker.
+An attacker in radio range who observes one fragment of an
+in-progress transmission reads d_tag, d_size and the addressing in the
+clear, then sends a single out-of-range fragment of its own before the
+legitimate fragment for that span arrives. In this arrival order, the
+receiver's reassembly completed with the attacker's bytes included in
+the final buffer instead of the out-of-range fragment being rejected.
+Both reproducers were re-run against this fix to confirm the
+out-of-range fragment is now rejected outright.
+
+AI Disclosure: An AI assistant (Claude) was used to assist with the
+analysis and testing. I have verified the vulnerability, the fix, and
+the test results myself and take responsibility for this contribution,
+per Documentation/process/coding-assistants.rst.
+
+ net/ieee802154/6lowpan/reassembly.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/net/ieee802154/6lowpan/reassembly.c b/net/ieee802154/6lowpan/r=
+eassembly.c
+index ddb6a5817d09..4edd307000c8 100644
+--- a/net/ieee802154/6lowpan/reassembly.c
++++ b/net/ieee802154/6lowpan/reassembly.c
+@@ -103,6 +103,9 @@ static int lowpan_frag_queue(struct lowpan_frag_queue *=
+fq,
+ =09offset =3D lowpan_802154_cb(skb)->d_offset << 3;
+ =09end =3D lowpan_802154_cb(skb)->d_size;
+
++=09if (!skb->len || offset > end || skb->len > end - offset)
++=09=09goto err;
++
+ =09/* Is this the final fragment? */
+ =09if (offset + skb->len =3D=3D end) {
+ =09=09/* If we already have some bits beyond end
+--
+2.51.2
+
