@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557657;
-	b=2cA/ObksbVFbEueFXmr5RA/yEJsTRg3qxA4tVPAc5QlFWqHEj3dQ/58W4b/bAqiysZnM
-	 9E/pCzrhW6cI5NS3z9kdNgyIuepTVB1orlq82O37r9pCmSel3u5Cm5K9PjYuvIQ8VrC/Y
-	 MdViB4s3hlEVgd1CzAcrjYHD5t4EDct/yskZwbBe3U8xKjDzUHxwIScR5tApFg21y2QX4
-	 ddiMbpJ9STv+hyXYLynLQ1ZRerZIeF0CdIZpaC2lw1NQznAJQW/y3wDfbmFaks7w9QF3e
-	 DXZ0j+GbprgJNuQYSu4UelPrxqHfnIFXC1dY30iswsRdTiLP19An+D1YBEbhIyM+qUA==
+	t=1795557659;
+	b=26UzIXacUL+zEE7Y220L87RfjeaAyvHtjRokj72QmtwMV9xDfYKslxK3nRkioInoiWQ7
+	 EiaibDDYO3wmj0AWC6FiMuQTi9y6VZ8kkcTIdGVtQjuq/AekRfBSrEyzLUHhzu1WTS+4l
+	 f/thVibTJ0H3hbHBoWskjVilGt9+cck8eTOPyMml+PO+TjEUTqrlBH34YM9IdnEwSXdIB
+	 JwVwmHKjtywXkHgonFqJGIDt7hjRt2GfhCTPGFJP3/8btLOhFpHOaK36Vr/Re1Bt3m4tR
+	 YxvD8vdmeF2PzWYtDKJlMRClNmf8T4KTJNfywtJtq1GEOEovmEFv+Pdg2XPkVz9lQvQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557657;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557659;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=FVH5FPtfJO7PCnnlFrVIHQchlOb+hJTsrV7TH24bPa0=;
-	b=HpIApohu+wrDBadDmzKtKmtinKSjzALdNiX+aWl/C2AjA1LQ6r8WCwUnpeiUpidt28sQ
-	 HmOBSJhPsq0Jea/xY7cL17TW715WJBxk3dQyRUZnQe36Lu1fB85i+iCokos9pWkbgAHFI
-	 e+H9nWRd1BUJHwSlb3xQAHQntgnN1N172jbwuZGeM9G9vXS8mFFzvzVJSPJYv5dBxPiMf
-	 Qg9hUIFOS/xy/3cHWbiqdPd/f42e6E7OXh/tPZXwL/Ry+ksrJnjXLn7QDQaPM141Grj6W
-	 3j1iKbeFPVq90JaRkVtu44exbeG2/9WzsUHppeXVw7wTHC/OKmTvJiiDWfJWdD3wMcA==
+	bh=Svp5tfCVx3x2HzT5okbsmcjF/I6s13MdLGOG7N9xBME=;
+	b=UZAAti3ymd0FnPllc25Pdwo0j8LJ93BuuCBY8x6zj0tH7Xiw5nrusPujY60d29iNQVki
+	 1K3QFlXSFfiile2nSFaP20cMiRaNHpsLho1B3iTKiZwGW1FL6eyy9JwIJ1zFE+qEqqvXl
+	 R45Pepz8m5o5pyWYf5ujQVHjBNoa0/j0KIhJBkoYcGE5wk4R+gPGw3WduDs3ciamYjy8S
+	 cRFgdDFxHpF76xycZU/7cMX4s8kxW7+xBcN52LYciHrY+gruDuNHoQ/fWxDfebtHBI14k
+	 mZkikDPlNSUFhm2cp0wRf6v//OgHtTYplbAoU/rEMpVVWx5CJza/PeQziHow/cyOA1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kp23W1rt;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Pt/XGcBK";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE763606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:00:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 456D5606A330
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:00:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kp23W1rt
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81DBA1F000C4;
-	Tue, 24 Nov 2026 22:00:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pt/XGcBK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A2B31F000C4;
+	Tue, 24 Nov 2026 22:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795557657;
-	bh=FVH5FPtfJO7PCnnlFrVIHQchlOb+hJTsrV7TH24bPa0=;
+	s=k20260515; t=1795557659;
+	bh=Svp5tfCVx3x2HzT5okbsmcjF/I6s13MdLGOG7N9xBME=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=kp23W1rtlEdn3OD2E7JySTO+KlPpinOB7n9ZDXXzn8lrFSb816IrbMpWt6wpm5Uyv
-	 EIcI+1CdV5hlbwkPof5ummZHUO7qukAgVOPv/SKMOop1QEIwHt/3aQOGO1qDpWridG
-	 h+TtjsEAruyA71EuK0KKts85s3+X3KaAG+vz3vxzS+fvHZ7bq984JNumMkzkqT5Z2B
-	 NfjapZyepyXGUt5SIC+bAD7TiWze/c3tSYlZbm/tcRaZ7Kv8vHRHRgwGbelD4+KPLX
-	 Vu4Vagvi8TJrx+s7MDDpfdB01sLM0I1hXhHvX1AffDpjAy14K9SIqtf+/7ymSIc/PN
-	 YV6k+qo6VoFvw==
-Subject: Re: [PATCH net 1/4] ixgbe: fix MDIO bus lifetime
+	b=Pt/XGcBKONzNFJeqO2MDoUVvQchlDbSgyMkgCiUQ2m+wd5Cdlef7AQW0CVpAlPrHR
+	 54DQCNT2ClteL9M7CLuDJ3wisfo1Mj+MFk2nYUdGW2R+6RjMxP4TLaRaSR8DVlIfkw
+	 /hK9KuYZdXU0WkuCvx8KzUPs6gqkfI6ffrwmBN0OE4HgibN70xCPH2i1hnEdm5uscF
+	 b7lqc/RPtdCq8+oCmXdARKney6XWj+KS4q9RMJKg9UGOi0GPpZuhhkioaS3D0agP1M
+	 aYD/ODOo2g+jA9tjiY1mSscCvg4BnfeRpXH2zCOb9NFz2VM2ItNs3XZWsuS1fsbWzZ
+	 OWB3jTDAt1mJw==
+Subject:
+ Re: [PATCH net 2/4] ixgbe: fix incomplete ACI command buffer backup on retry
 From: netdev-bot+sashiko@kernel.org
 To: anthony.l.nguyen@intel.com
 Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
@@ -49,10 +50,10 @@ Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
  xiaolinkui@126.com, runyu.xiao@seu.edu.cn, horms@kernel.org,
  marcin.szycik@linux.intel.com, przemyslaw.kitszel@intel.com,
  rafal.romanowski@intel.com
-Date: Tue, 24 Nov 2026 22:00:56 +0000
-Message-ID: <179555765601.3135.4530614438146845451@kernel.org>
-In-Reply-To: <20261120220022.3133664-2-anthony.l.nguyen@intel.com>
-References: <20261120220022.3133664-2-anthony.l.nguyen@intel.com>
+Date: Tue, 24 Nov 2026 22:00:57 +0000
+Message-ID: <179555765776.3135.11697122330674580418@kernel.org>
+In-Reply-To: <20261120220022.3133664-3-anthony.l.nguyen@intel.com>
+References: <20261120220022.3133664-3-anthony.l.nguyen@intel.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,113 +78,56 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The patch now clears adapter->mii_bus only after
-  unregister_netdev() has returned.
+- [Medium] The patch "ixgbe: fix incomplete ACI command buffer backup on
+  retry" has the wrong Fixes: tag.
 
 --
 
-ixgbe: fix MDIO bus lifetime
+ixgbe: fix incomplete ACI command buffer backup on retry
 
-This commit changes ixgbe_mii_bus_init() to register the MDIO bus with
-devm_mdiobus_register() on the netdev device. The bus is then unregistered
-and freed when unregister_netdev() runs device_del(). The explicit
-mdiobus_unregister() calls in the FW error path and in ixgbe_remove() are
-dropped, and adapter->mii_bus is now cleared after unregister_netdev() in
-both the unsupported SFP path and the FW error path.
+This commit changes the EBUSY retry backup in ixgbe_aci_send_cmd(). It
+now copies the whole indirect command buffer with kmemdup() instead of
+saving only the first byte. It also skips the backup when buf_size is 0
+and keys the restore off buf_cpy, to match ice_sq_send_cmd_retry().
 
-> diff --git a/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c b/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-> index b9496f0bee131..2b6d1177addab 100644
-> --- a/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-> +++ b/drivers/net/ethernet/intel/ixgbe/ixgbe_main.c
-> @@ -8471,6 +8471,7 @@ static void ixgbe_sfp_detection_subtask(struct ixgbe_adapter *adapter)
->  		e_dev_err("Reload the driver after installing a "
->  			  "supported module.\n");
->  		unregister_netdev(adapter->netdev);
-> +		adapter->mii_bus = NULL;
->  	}
->  }
->  
-> @@ -8693,11 +8694,8 @@ static void ixgbe_service_task(struct work_struct *work)
->  	}
->  	if (ixgbe_check_fw_error(adapter)) {
->  		if (!test_bit(__IXGBE_DOWN, &adapter->state)) {
-> -			if (adapter->mii_bus) {
-> -				mdiobus_unregister(adapter->mii_bus);
-> -				adapter->mii_bus = NULL;
-> -			}
->  			unregister_netdev(adapter->netdev);
-> +			adapter->mii_bus = NULL;
+> Fixes: c9e563cae19e ("ixgbe: add support for devlink reload")
 
 [Severity: Medium]
+Is this the right commit for the Fixes: tag?
 
-With the NULL store moved after unregister_netdev(), does adapter->mii_bus
-point at a freed bus for a while?
+In c9e563cae19e, the only change to ixgbe_e610.c is the new
+ixgbe_aci_nvm_update_empr(). That function sends a direct command:
 
-The bus is now registered via devm on &adapter->netdev->dev in
-ixgbe_mii_bus_init(), so unregister_netdev() itself unregisters and frees
-it:
+    return ixgbe_aci_send_cmd(hw, &desc, NULL, 0);
 
-unregister_netdev()
-  unregister_netdevice_many_notify()
-    netdev_unregister_kobject()
-      device_del()
-        devres_release_all()
-          mdiobus_unregister() + mdiobus_free()
-            put_device() -> mdiobus_release() -> kfree(bus)
+Its opcode, ixgbe_aci_opc_nvm_update_empr, is not listed in
+ixgbe_should_retry_aci_send_cmd_execute(). With buf == NULL it also never
+reaches the buf_cpy path.
 
-phy_mask is GENMASK(31, 0), so no PHY devices hold extra references. That
-means the bus memory really is freed at this point.
+The code this patch fixes in ixgbe_aci_send_cmd() looks like it came in
+with the original ACI support. Running git blame on the baseline points the
+backup:
 
-Next, unregister_netdev() calls rtnl_unlock() -> netdev_run_todo(). That
-function drops RTNL early and then sleeps in rcu_barrier() and
-netdev_wait_allrefs_any(). During that whole wait, adapter->mii_bus still
-holds the stale pointer and no lock is held.
+    if (buf) {
+        buf_cpy = kmalloc(buf_size, GFP_KERNEL);
+        if (!buf_cpy)
+            return -ENOMEM;
+        *buf_cpy = *(u8 *)buf;
+    }
 
-The old FW error code cleared the pointer before it called
-unregister_netdev(). The new hunk in ixgbe_sfp_detection_subtask() has the
-same after-the-call ordering.
+and the restore:
 
-The reader is ixgbe_mdio_read() (and likewise ixgbe_mdio_write()). It
-checks the pointer without a lock and then dereferences it:
+    if (buf)
+        memcpy(buf, buf_cpy, buf_size);
 
-	if (adapter->mii_bus) {
-		...
-			return mdiobus_c45_read(adapter->mii_bus, prtad,
-						devad, regnum);
+to 46761fd52a88 ("ixgbe: Add support for E610 FW Admin Command Interface").
 
-		return mdiobus_read(adapter->mii_bus, prtad, regnum);
+Kernels that have 46761fd52a88 but not c9e563cae19e still have this bug.
+Stable and CVE tooling would treat them as unaffected with the current tag.
 
-Both calls take bus->mdio_lock, which is inside the freed object.
+Should the tag be the following instead?
 
-ixgbe_reset() can get to this reader without RTNL, for example from
-ixgbe_io_slot_reset() or ixgbe_resume():
-
-ixgbe_reset()
-  hw->mac.ops.init_hw / reset_hw
-    phy.ops.identify -> ixgbe_identify_phy_generic()
-      ixgbe_probe_phy()
-        mdio45_probe()
-          hw->phy.mdio.mdio_read == ixgbe_mdio_read()
-
-Nothing serializes these paths against the service task. The service task
-is only cancelled in ixgbe_remove().
-
-This chain only runs when hw->phy.type == ixgbe_phy_unknown. In the trigger
-paths traced so far, phy.type was already known, so no concrete
-interleaving has been shown. It also hasn't been ruled out for every
-MAC/PHY combination.
-
-Would it be safer to clear adapter->mii_bus before calling
-unregister_netdev() in both ixgbe_service_task() and
-ixgbe_sfp_detection_subtask(), as the old FW error path did?
-WRITE_ONCE()/READ_ONCE() or a shared lock around the pointer might also be
-worth considering.
-
->  		}
->  		ixgbe_service_event_complete(adapter);
->  		return;
-
-[ ... ]
+    Fixes: 46761fd52a88 ("ixgbe: Add support for E610 FW Admin Command Interface")
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120220022.3133664-1-anthony.l.nguyen%40intel.com
