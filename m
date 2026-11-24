@@ -1,90 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521906;
-	b=K0P+6S9uZWLM43QPQGMhM7OirWYFDFURZ6HWelCnRUfb9/HgvD1MiCepAYVonm/ntIBr
-	 4F14Ln2M4S6kcgRrrIj2kBHvAPLqOjr0M+yYqMCuXCLvuBrfEqp5fQ8vZb2mV8WFXNb2c
-	 X6yz8ZtSre85ITZGs9RYGRF6wVfEBstJkJrQLpyzCuNjWUEBZwI7is+enOcMTbzvhCJqv
-	 oHhRqQbvWxfY60ffd0U4qTB7oBTCPpKrwgP08TkpopGXgs07p5yD1OdFTH8NRYlL/pK9l
-	 M0z+lNyLJi6H9qOCaVkpokbAJl4CYWqTUFGnpRKlre3YQeORT3IKsTO+d062Rcl6O4w==
+	t=1795521958;
+	b=RO8pbREZbogVWi1RUoq/kFoDV6u6Vt+xLf9Cees/RxwSsWyoCc8Wn3b7VWd9JurXx/PV
+	 lDCNO3eQLqJt6b+CWmJG/hKeJTONgEZtZuE38jwj4LOAUC5BNNykC/tlr/3S0Zns0iNkx
+	 6Om7u29j0M9CM//Q9CJZrcuQL/CscwmCUHJTY1/H9v2ErtzFx7HcfujWfNZaMb1pYIAts
+	 W75n6ch0FP10dMGIRNl2va+zxGMm0sYMOrdJAXWY2vBOg12MeBMUa+A4wmQbRfbg0Rkg/
+	 glhcRB5TEx9cB4Bb9qelirLHupIUTz8jskvGJV0YxLmsyv44eGWa/X55jmUl1UlvOLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521906;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=EJvIXWSNay6+eoioVal9zFgh6NBH6xoDfIbKyCb3bL4=;
-	b=E9HP7HY3753D2OjSrv+5hh9miiMHN9OGznu6Tem+r+n/x45TVbq6EtO/SSCPdX/u/1v+
-	 JNmnkUoC05nBinIjuy3wP3rv3LuIY82SQGQu95LLkwa+I72NZRXMZraaNmNKTAqS8hEct
-	 oTrCIEV3g1Xv/wbXF8RKBow7p6bmfhWrkoOjHOBz1bRtPKcKjX5qNIe7j2iIbtSXL2XIi
-	 ZaD/F/6HyDrI0qPSUG8J+AyymvXV3CXeXTQVZcYRIdNqbNdNlo3QsZrqTpC62jQQ6Aua9
-	 nsgGX8rcIonZ4g+L0eKO4BItmCo8BomV/cWDsHGsg9YcmCfqB9LqMmNJh0ueIN+T39Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521958;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=uh6VIcmUihTJZpbQIAs5Uul2q/clKDFIcJydo+fPY/c=;
+	b=SKkys6nNKXzK41uEz1uQuGFVxxlpmKbFRY19Bs40JC6oMQwkM82lUXlIUkJH4sLfdtcF
+	 D8Ovouj0m5KFblb1lHaa5yAj0aegav7KpY88uIndLFq0Tv4Lx9/n7nm3iZ57QGS7sfsDG
+	 hZCVf8rMjxQxDb4XhEp8JKTGWyTvfB0opoGZFYIJTmilq11NQkNBbi/oIaRs/L10RVhkn
+	 Q3DGVx/eFl6CO6ovD1itCQK4t4vrSiPxcO1di+Soz5zSUXC/ImHgzLtN17MKKl8RDTNhN
+	 pz6LlGjWNga6tZelbTAsbjC2slEBn44bpwzRUwuT9CcAMcesanXQrPbreE/B/AsXOgg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=TsbtPaxe;
-	arc=none smtp.remote-ip=209.85.128.51
-Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="jkO62I/N";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A03BF606A32C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 12:05:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A03BF606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93977606A330;
+	Tue, 24 Nov 2026 12:05:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=TsbtPaxe
-Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4bb606491faso24150235e9.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:05:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795521904; x=1796126704; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=EJvIXWSNay6+eoioVal9zFgh6NBH6xoDfIbKyCb3bL4=;
-        b=TsbtPaxeVCoTgdwSm/a8nEcqMfW6W9RjrBpAv7QKzpWQAfHV0wxxOfNEYZWfuoIM2U
-         z1gkIZKi13A4xXr+1AkfXZePC6umukWNkLy/xXW9qjtT32X+5A12clS/uqWA8ChrA8q2
-         i9rxmIydregBEZEDVIlwhzrj8HlGKnRQLvICyC1xxfif1KjvisMweIpyliDQY7A5cwb/
-         VT6q3e4YV8IETr4bRi/bEfMICIYcP34xeuFO3ChNjR9eATiq+svlF8clsd69GcG3u/FE
-         zwo4LPt9mX1XbMR9BlTYMAkNIodaYSVhFce4nq0Im5/zEXJDCzbHYVEqb1t0WTYSgACT
-         qACw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795521904; x=1796126704;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=EJvIXWSNay6+eoioVal9zFgh6NBH6xoDfIbKyCb3bL4=;
-        b=NhIBlmFCCklZ9jgvIQhYiCiI8xrhnWg8KaCYWI4spHK8fM4LJoY7l+cUE6SdXXvcD/
-         qVTa96jNLTc+5vlI8Z5UVYr/UpAxOT5xE7dOq/pb1ShsTDo6m1ObBwYH7dmrfijLjGdS
-         N1f/eQ2R6V3HtkpT+RJACkbYg/8vdm+7XXP4dQ6239OJUkDdSa6GwefznghvEd6WuIRV
-         hZOXI8S10THjLCb/nlV66SuDLuYB8IT8L5NfEXssheCwxDrlqE6XJXSt/BJTkRhHILO/
-         JSzLd29EsiMBAwuRyjSGU9TFu+El+SWq5btdvXa0zzZDMiJNW24IOtyOD/yNV/ehf5+B
-         DArA==
-X-Forwarded-Encrypted: i=1; AL+hErGcVNao3UO0EAvdqgihtGzfquXyv2MHRAtthWrw+t7VmLKooueJ1J4AI8iom6B7Q9j5SY3OboY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+KkkjKfTnE9veP/XjUK8YOMquoNhhBYCJGXPr4qp/b8rdlv9vQ
-	WvhAbV80vPmDuLtGg+eNY80fGl+m7QhUTnbXHl5ZGj3mUi6k2dS4/RVRM5sAFUqVmo0=
-X-Gm-Gg: AZFdTZeYTHZvBC2Gvd4N4vJscSE8E01IsPBUK5ImJcLX5a6hJyFhieyYXvK8qm7bYsO
-	zgMbLjzE2Eqa6EiBJLeswZR0FrCqdia6OQc4rn9XqrrE1XutyZK6ej7JPB+k0QSi/rE66t6fhYI
-	COy4R5VBojFK2FMwi+yWNPGo+IkOYS3v2hM9ZTISdd2gVoNHvvIU12RwNaTMXiew94APK/F4Sbe
-	7+6NDbkRK+FVzTpjexofHTFOn4sqjOHznPCnUQb/67fJqgmGCnP07XjFJUY5Giz8py3jpkYC3eW
-	YTDK4VUbHAUrmwri0UhZ3QomcYxew2FAwapNDn5Ef02vmNiR50211pnrBECzTHIMp9l9+00BGOB
-	R6kETzu5yXxXsVzbITr93SZKvUtjM+PHlNViOA0NvbFdN1USXox2gvKKn2GpWaZg0Hlq89g4VBK
-	zbM3iE+I2h9T/a1lhVkmtycdNzZzkrdL9yAsmhZiPqPNVmZp9rvRw5zPWvCfoMiG5HwSHTOq7uU
-	3HLdZKuTSPuvcvZPFaMM0R5eNi9s3qXVPN36dc/QQXa7gBUUAyO25OOEdj0n6f4M2nrNBy3wood
-	viCnQMhNqhfUOaWTDiSmxmrzD/Frmxst50CXXByCxS7+eK+3ce/9tzNUSRkYkh882HwHryzrnDP
-	9bWs57MXN
-X-Received: by 2002:a05:600c:530f:b0:4a2:677:ad8e with SMTP id 5b1f17b1804b1-4bb8892a21amr273175025e9.34.1795521903923;
-        Tue, 24 Nov 2026 04:05:03 -0800 (PST)
-Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906635c7sm242405235e9.2.2026.11.24.04.05.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 04:05:03 -0800 (PST)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Tue, 24 Nov 2026 16:04:35 +0400
-Subject: [PATCH v4 5/5] arm64: dts: rockchip: Derive GMAC MAC addresses
- from OTP on RK3576
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jkO62I/N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3816E1F000EF;
+	Tue, 24 Nov 2026 12:05:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795521958;
+	bh=uh6VIcmUihTJZpbQIAs5Uul2q/clKDFIcJydo+fPY/c=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jkO62I/NkOgxLczWDu+s+u6Vg9w+FOcmx9E0LT9FVUmdYwqbuW/6XfqM+4cTjlWwl
+	 /DMR3U9M0WVJK3k/DpZDuAx2HptQYdiZ0ZZDmguKe/3xuiUTRJh6eVaf5Yl2sFVgWl
+	 LNHeEJBu5kuf6e9G4GVSbWI3s4PYuA1Qb7uel+lYx+J1Lk1c/7JWeOgSl0GO048IMr
+	 NUb0Qn4jJ143ter8OZhYaZflZEnDxnS1JXD4xU5mJhGcV9zApiWZ77+s60/9Pw32b/
+	 +6KYSeua4GbIi5RqKV8iblvGZJAyFacFUsQJLLDUIB+qiB7xZK+Xk6j9UTksJL7VFq
+	 FW4U0YiQ1OUqw==
+Subject:
+ Re: [PATCH v2] net: dsa: mt7530: disable the power rails on setup failure
+From: netdev-bot+sashiko@kernel.org
+To: wanghr2026@mail.zgclab.edu.cn
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
+ olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, matthias.bgg@gmail.com,
+ angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 12:05:56 +0000
+Message-ID: <179552195677.3135.2679930645626053258@kernel.org>
+In-Reply-To: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
+References: <179543215348.11880.18316180385674365789@mail.zgclab.edu.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,85 +66,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261124-rk3576-otp-cpuid-mac-v4-5-d403b8a25113@flipper.net>
-References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
-In-Reply-To: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>
-Cc: Ryan Leung <untilscour@protonmail.com>, 
- Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2032; i=alchark@flipper.net;
- h=from:subject:message-id; bh=tZOur1/QC2p0pVqmEykIV1YH8t0mT0OobMPfGwIip6s=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWSz1gZzMG2ZIVa1VaHNpl5i+Uabx29mRjirng3cKjfv8
- przth/OdUxkYRDjYrAUU2SZ+22J7VQjvlm7PDy+wsxhZQIZIi3SwAAELAx8uYl5pUY6Rnqm2oZ6
- hkY6xjpGDFycAjDVrQmMDLPE63JuX70qZ+aS+dFd/8Xf5FePN6WYKmtVc1981MhzvoeR4WagBYe
- 7mGGu3MfyE5uP9na396055ZHrZC64m1Eobu5dPgA=
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
 
-RK3576 boards without dedicated storage for a MAC address only get a
-stable one if the bootloader derives it from the CPU ID and patches it
-into the device tree, which not every boot flow does.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Mark the CPU ID cell as such and reference it from both GMACs, so that
-the addresses can be derived from the device tree alone, whatever the
-bootloader. Boards which store a MAC address of their own can override
-the reference with a cell of their choosing.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-Note that the GMACs then depend on the OTP memory being accessible, as
-the thermal sensors already do for their trim values.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 6 ++++++
- 1 file changed, 6 insertions(+)
+- [High] The commit message says moving mt7530_setup_gpio() after the FDB
+  flush means "the gpiochip is not left registered when the rails are…
+- [Low] The patch fixes a runtime bug: regulators stay enabled on
+  mt7530_setup()/mt753x_setup() failure, enable_count grows on each…
+- [Low] The new power-down helper mt7530_disable_pwrs() drops core_pwr
+  and io_pwr without first asserting the chip reset.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 2e83a73ddbb2..55892f4afe60 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -2070,6 +2070,8 @@ gmac0: ethernet@2a220000 {
- 			interrupts = <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_id 0>;
-+			nvmem-cell-names = "mac-address";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC0>;
- 			reset-names = "stmmaceth";
-@@ -2118,6 +2120,8 @@ gmac1: ethernet@2a230000 {
- 			interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_id 1>;
-+			nvmem-cell-names = "mac-address";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC1>;
- 			reset-names = "stmmaceth";
-@@ -2317,7 +2321,9 @@ otp_cpu_version: cpu-version@5 {
- 					bits = <3 3>;
- 				};
- 				otp_id: id@a {
-+					compatible = "rockchip,cpuid";
- 					reg = <0x0a 0x10>;
-+					#nvmem-cell-cells = <1>;
- 				};
- 				cpub_leakage: cpub-leakage@1e {
- 					reg = <0x1e 0x1>;
+--
+
+net: dsa: mt7530: disable the power rails on setup failure
+
+This patch moves the MT7530 core/io regulator disable out of
+mt7530_remove(). The rails are now disabled in mt753x_teardown() and on
+the mt7530_setup()/mt753x_setup() error paths. It also moves
+mt7530_setup_gpio() after the FDB flush in mt7530_setup().
+
+> Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+
+[Severity: Low]
+
+This fixes a regulator core WARN and an unbalanced regulator_disable() in
+mt7530_remove(), but there is no Fixes: tag.
+
+git blame shows that the regulator_enable() calls in mt7530_setup(), with
+their bare return ret error paths, come from:
+
+ddda1ac116c8 ("net: dsa: mt7530: support the 7530 switch on the Mediatek MT7621 SoC")
+
+That commit restructured code first added in:
+
+b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+
+Should one of these be added as a Fixes: tag? The recent fix to the same
+regulator handling, c2cdef41e0b4 ("net: dsa: mt7530: fix NULL dereference
+on unbind of MT7531 and MT7621"), carries one.
+
+> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+> index d5a199293f78a..5bbeed0491c45 100644
+> --- a/drivers/net/dsa/mt7530.c
+> +++ b/drivers/net/dsa/mt7530.c
+> @@ -2376,6 +2376,16 @@ mt7530_setup_mdio(struct mt7530_priv *priv)
+>  	return ret;
+>  }
+>  
+> +static void
+> +mt7530_disable_pwrs(struct mt7530_priv *priv)
+> +{
+> +	if (priv->id != ID_MT7530)
+> +		return;
+> +
+> +	regulator_disable(priv->core_pwr);
+> +	regulator_disable(priv->io_pwr);
+> +}
+
+[Severity: Low]
+
+Should reset be asserted here before the rails are dropped?
+
+mt7530_probe() requests the reset GPIO with GPIOD_OUT_LOW, so reset is
+asserted while the chip is unpowered. mt7530_setup() then pulses reset and
+leaves it deasserted:
+
+	gpiod_set_value_cansleep(priv->reset, 0);
+	usleep_range(5000, 5100);
+	gpiod_set_value_cansleep(priv->reset, 1);
+
+Every new caller of mt7530_disable_pwrs() cuts io_pwr and core_pwr with
+reset still deasserted. That covers the err_disable_pwrs labels in
+mt7530_setup() after the reset pulse, the mt753x_setup() error paths, and
+mt753x_teardown().
+
+The SoC then keeps driving the inactive level into the RESET pad of a chip
+whose IO rail is off, and this repeats on every -EPROBE_DEFER re-probe.
+The MCM path also never calls reset_control_assert() before power-off.
+
+The v2 notes say this was left out because it matches the old
+mt7530_remove() ordering. However, this patch adds several new power-down
+points. Would asserting reset first, then disabling io_pwr and core_pwr,
+better mirror the power-up sequence?
+
+[ ... ]
+
+> @@ -3205,11 +3228,11 @@ mt753x_setup(struct dsa_switch *ds)
+>  
+>  	ret = mt7530_setup_irq(priv);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_pwrs;
+>  
+>  	ret = mt7530_setup_mdio(priv);
+>  	if (ret)
+> -		return ret;
+> +		goto err_disable_pwrs;
+
+[Severity: High]
+
+The commit message says:
+
+  Move mt7530_setup_gpio() after the FDB flush so the gpiochip is not left
+  registered when the rails are dropped.
+
+and the v2 notes say "no failure path leaves the gpiochip registered after
+the rails are disabled". Does that hold on these paths?
+
+mt7530_setup_gpio() is now the last step of mt7530_setup(), so the reorder
+only covers the FDB flush failure. When mt7530_setup_irq() fails here, for
+example with -EPROBE_DEFER from of_irq_get(), the gpiochip is already
+registered through devm:
+
+mt7530_setup_gpio() {
+    ...
+    return devm_gpiochip_add_data(dev, gc, priv);
+}
+
+err_disable_pwrs then calls mt7530_disable_pwrs() while the gpiochip is
+still registered. The commit message calls -EPROBE_DEFER the common case.
+
+On the mt7530_setup_mdio() failure path, mt7530_setup_irq() has also
+already registered the regmap IRQ chip and its threaded handler:
+
+	ret = devm_regmap_add_irq_chip_fwnode(dev, dev_fwnode(dev),
+					      priv->regmap, irq,
+					      IRQF_ONESHOT,
+					      0, &mt7530_regmap_irq_chip,
+					      &irq_data);
+
+The new mt7530_disable_pwrs() call in mt753x_teardown() has the same
+problem. DSA calls teardown from the teardown label in dsa_switch_setup()
+when tag protocol or user MDIO bus setup fails. It also runs on any tree
+teardown, through:
+
+dsa_tree_teardown()->dsa_tree_teardown_switches()->dsa_switch_teardown()
+
+In all of these cases three resources stay registered while the rails are
+cut: the gpiochip, the regmap IRQ chip, and the internal MDIO bus from
+devm_of_mdiobus_register(). Their lifetime is tied to device bind, not to
+DSA setup/teardown.
+
+In a multi-switch tree, unbinding another switch tears this switch down
+while it stays bound. The registered-but-unpowered state then lasts for as
+long as this switch stays bound. Before this patch the rails stayed on in
+these cases.
+
+Can a gpiochip consumer (mt7530_gpio_get(), mt7530_gpio_set() and the
+direction callbacks), the regmap-irq threaded handler, or a PHY on the MDIO
+bus then issue regmap/MDIO accesses to an unpowered chip?
+
+Would this need explicit unregistration in teardown and on these error
+paths, using non-devm registration or the devm_*_release helpers, instead
+of the reorder? If not, could the commit message and the v2 notes be
+corrected?
+
+[ ... ]
 
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179543215348.11880.18316180385674365789%40mail.zgclab.edu.cn
