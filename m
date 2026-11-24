@@ -1,58 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530519;
-	b=RZ8nmK8Q/pmuPhUtiii6e/13J1ZY7HohB6/sXrikaFX9oLWoLFJBOZddCs/6EPOLPLs5
-	 z+T2dQhhY1UIQWZkvS8JACYclI7ZxniKfxNLzrZYdBuUui2QzYQgXD//Igau4LnqeizP/
-	 MVbn+us+k7V8Y+PDTmV6IqW1hKVyUNHeDpmwYiqf38kpLKDx4dTuTlWeeftiLq/+1e5ef
-	 +NXW7KpsFXcKt3iX5C8FZaDhVkBbm+Gln3jDAxHfbpedSrPRr1NvoKS3kO+6/nqkr9rwv
-	 vhzUA7S/X03+/zz0qQ+OGKQRnHRtiSFp5apIq5mzHh0mZ6O/+wUIxwunIu0u5buUlWA==
+	t=1795530607;
+	b=0t6c+Yt5xBag/e9Flgtmq4v/WxzPpaGeLSmJoHYVKLatnsr2n6/gyF/MN75rTNvyaP7G
+	 XU+p1iuLJh8j0M5ComLE7q7c0RA9C+YI4LeUOH68+bDNBm1V4xa9ikoKOSfE4PoYCYNQL
+	 S0v3o9Y2kjyXRyvp+VpXck8hgt5lh7fMJW7gqkI3E8zWaM0FDNBt4K6QnSth+vK3MJfOj
+	 /Hu/QexriNWMQgXrY4U7TJbMMO7IXmDFgAzHVHOb2LPw+I+fXsYh5ZbJppt4B+FqZhma0
+	 ImhuWt9Bnj3+vHzMSl12ak5dgSgqMo/H5qS2R5WhlMCxQDucb7YEWpp6rFJvxt1On4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530519;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=LH4a4hHP4+iSjT21Gj0fTiK9neIkhLuhZMVIe6xvia0=;
-	b=KLNvLZ7iCbVVha1t7pPodmKsUN5/vq9bd7lE0gx3/lzhUUgn2owynawkaWtEWTlGs9H8
-	 TV2CSmTX0MuqS/FWwPe7YpmHYcwBMWEU6ZEGKQISWW0QSarqTUPs58InlHFZvMgZ3aj1Z
-	 cJUerFFdVlKoDBVGQvIxQHDL0tsUIKkWZdPO1FQIsg1mgdK1CQsrjekM1pVoPT9rds2ha
-	 +JxIa4fTtO248FGIsEE+6wOs1q8bc8POQ33wJvz2X+ka+EW4K1lHVQP8pXEpKVsmBOsSG
-	 YrnNADC/V6RBRKz3NjWMOPUQs9ry1LaPukFuczQIhlbXA2kkrJLyiSaP8ikJlXi/6EQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530607;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=MCSCqZHHvryhg8ODr5LBnNsODrF/ifEJC84WKGsvfFo=;
+	b=N391E2uG5L5YB0SmbVOWWwl8rWfTCWpiONdG8GOn0MoJy5zzF425Bl7rLOfbMDYFQWYI
+	 KI29wVKf/ORSi4PyT+r8DTPY4A5KqIx3UqcyJfQsx2Bb4G3j/sChhA8JT79nL8EP9+7ua
+	 /zFGaadExD9wp0Q313mzjHkmRvkM4IoHYvvlmCZdJdwP6jlU3mIhovR8+ty1M+wVPEwVw
+	 8YtCTiZPNIHjxJ6X7P99PUdToO91xXtlqgzWp6EJUnRCz4aqbBfJmqgoCDZMVrQ/NcUDe
+	 lZAyXILTXlupdNG5kiST0MUq/GxjDcyUYkqdu7uQGq3ZzfgnNvMKMMnp+cm6aWyB7MQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lwtvOzvB;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YNa8vQa/";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C734606A335
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:28:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C734606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98C25606A32A;
+	Tue, 24 Nov 2026 14:30:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=lwtvOzvB
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id CAFC44E41709;
-	Tue, 24 Nov 2026 14:28:36 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 95019601E1;
-	Tue, 24 Nov 2026 14:28:36 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D29D611E6983A;
-	Tue, 24 Nov 2026 15:28:23 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795530511; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=LH4a4hHP4+iSjT21Gj0fTiK9neIkhLuhZMVIe6xvia0=;
-	b=lwtvOzvBfTausWjF1yMGdOURL2wkFwGYG5dPFuaZEAqBxxsQew8BGJp/NBCEDD7ilggNaR
-	PjILLjJzjQSZlnqQj6d2N9CMtRVZR3eIrKyd3zXYUdyFXjfmF8CjFPSa+E8ToJvTkk4Cbh
-	VGVVJWjsWxSWVNAxSqgQwodVe7BMNUcY3Lf6hyldH+viILoEl4AG0XuJSCZee70rmK8blD
-	WXcr8AGORCRMmFVzFv0gf2xaJAtduRIG0JJe3nYfU4hjrWtyFmd+aNbPNzTQYVQYcXdrCk
-	cYasnytEzuj4VLjqgMWgE+Wscnmn/LQdGhw9otHIW3uGRuRLDxt5D6fBGisXaw==
-Message-ID: <fb92bc0b-ab3f-49ac-b4a5-5368c87b3a7e@bootlin.com>
-Date: Tue, 24 Nov 2026 15:28:22 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YNa8vQa/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BE0D41F000D4;
+	Tue, 24 Nov 2026 14:30:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795530606;
+	bh=MCSCqZHHvryhg8ODr5LBnNsODrF/ifEJC84WKGsvfFo=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=YNa8vQa/h736nAOnv31dYMYuX68VotIyc63HTGjF1YwBOriflkZuRxivavCs//ddd
+	 fJaslRswxHQUhCU3k3CT9FUocUTYNC0TGRlGLZF3HMwO3L+Yi5/H8BDcDE6xErg0xg
+	 8sJ1O87ebUAxgSESRXM6XRrISsu6nqUaT8wgIIxOBdSaLr3VF7S1LGCHLnc32+OHxf
+	 mqXJpesmqzmRXftARfcMrqOyV+PVfEyxhJqLDtI7C3mBb0wYkZtvhavJfSK3VjrLSF
+	 SPozmWCEI2xewxFjst+SwU5hEerOe6jKvpeSoECmgxHc0eNu6GB7nNjZLERaglNOv/
+	 ScC8ynWdNGM1A==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B453E3931121;
+	Tue, 24 Nov 2026 14:30:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,80 +53,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
- from the remote side
-To: Matthieu Baerts <matttbe@kernel.org>
-Cc: Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
- Willem de Bruijn <willemb@google.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Shuah Khan <skhan@linuxfoundation.org>,
- Bobby Eshleman <bobbyeshleman@meta.com>, Stanislav Fomichev
- <sdf@fomichev.me>, Breno Leitao <leitao@debian.org>,
- thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
- <4148e81b-ec5b-4374-b74f-4f5cba175c7b@kernel.org>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <4148e81b-ec5b-4374-b74f-4f5cba175c7b@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next V2] net: dsa: bcm_sf2: Use
+ devm_clk_get_optional_enabled() calls in bcm_sf2_sw_probe()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179553060553.3568937.17596403084282951473.git-patchwork-notify@kernel.org>
+Date: Tue, 24 Nov 2026 14:30:05 +0000
+References: <abc2c963-f3bc-43e3-a7c0-56e2cde1a268@web.de>
+In-Reply-To: <abc2c963-f3bc-43e3-a7c0-56e2cde1a268@web.de>
+To: Markus Elfring <Markus.Elfring@web.de>
+Cc: netdev@vger.kernel.org, andrew@lunn.ch, christophe.jaillet@wanadoo.fr,
+ davem@davemloft.net, edumazet@kernel.org, florian.fainelli@broadcom.com,
+ kuba@kernel.org, jonas.gorski@gmail.com, pabeni@redhat.com,
+ olteanv@gmail.com, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org, ruc_gongyuanjun@163.com
 
+Hello:
 
+This patch was applied to netdev/net-next.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-On 11/24/26 12:29, Matthieu Baerts wrote:
-> Hi Maxime,
+On Fri, 20 Nov 2026 11:18:20 +0100 you wrote:
+> From: Markus Elfring <elfring@users.sourceforge.net>
+> Date: Fri, 20 Nov 2026 10:45:18 +0100
 > 
-> On 23/11/2026 21:14, Maxime Chevallier (Netdev Foundation) wrote:
->> The logic used to detect if the kselftest remote we're interacting with
->> is directly connected to us uses link renegotiation to flap the link,
->> that way we know if there's a switch between the remote and the DUT.
->>
->> However the current logic is racy. It triggers a link renegotiation,
->> wait for the link to come back up locally, and looks on the remote if
->> the link flap counter changed.
->>
->> It's possible that this entire cycle happens locally before the peer
->> reports the link flap, in which case it reports that we're not directly
->> connected to the peer when we actually are.
->>
->> Solve that by reversing the logic : Trigger a link renegotiation on the
->> peer, and check if we see the link flap locally. The current
->> wait_for_aneg() already waits for a full "up - down - up" cycle, so
->> it doens't really matter which side of the link flaps first here.
->>
->> This was found in the stmmac CI setup, between an Intel I350-T4 card and
->> an iMX8mp + KSZ9131 board. The Pause test was failing seemingly at
->> random, due to the link flap occuring either on the host or the remote
->> first.
+> * Reuse existing functionality from devm_clk_get_optional_enabled()
+>   instead of keeping duplicate source code.
 > 
-> Thank you for the fix, but it looks like it is introducing new issues on
-> BCM57508:
+> * Omit two clk_disable_unprepare() calls in the remove function
+>   and on error handling paths.
 > 
-> 
-> https://netdev.bots.linux.dev/branch_deltas/net-next-hw-2026-11-24--08-00.html
+> [...]
 
-Arg seems that on this setup, the remote (I don't know which one it is) doesn't
-support 'ethtool -r', damn :(
+Here is the summary with links:
+  - [net-next,V2] net: dsa: bcm_sf2: Use devm_clk_get_optional_enabled() calls in bcm_sf2_sw_probe()
+    https://git.kernel.org/netdev/net-next/c/91cf0bf355c3
 
-I'll take another approach then.
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-> 
-> Do you mind looking at that, and mask this test on your side for the two
-> boards you mentioned, please? :)
-
-Np, tests are masked on all boards though, I've done more runs and the race
-shows on all of them (all are now connected to the same type of NIC).
-
-Thanks for the report !
-
-Maxime
-
-> pw-bot: cr
-> 
-> Cheers,
-> Matt
 
