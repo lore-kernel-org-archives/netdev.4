@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557446;
-	b=pcEcO6yEtJ2z+6uwIJWOlEcbiH6BWr7W9XEpEFsR8Tg6WTw7T61xYxA2XeOto04m7L42
-	 nY2ghWyzWHnZkI1Mqm8BP1d1puoUPh9YGdqKTqNQmjJG04xScMYDnP6BSj7QQLcLsmZHe
-	 NlZZqmodOVTu2xVJo2xE7vX+QZq7Pl0xTJJQ3R18Tyqxq4bvCosWmXhbrq0BXflRjXy7w
-	 zROsRUk7xGxQSktq4otSOfK58LBBG5sGMFyZ4XYUaGRTESiVd9w4zbn3v9LJngjMXSj8O
-	 tdtLMDmebbsAT4e6i1cmVdDe+CokQ/xDR+6VSRzgdnmtCTIuWbSUUBnlf4mKtLDIpBw==
+	t=1795557448;
+	b=x59Q7mwIPyxWiIiAr5szkHg0XCoIuvr0kAZwWLBSKD9MsLnQdQDOkXDoDL8tVyQgfDK8
+	 UQQULfe7qcCH1Xtnggf5GxlStNOQrQCAywZZoAIDU/B1yv8tLrXx7N3zdStqQymlKuEug
+	 zjXhAbuKDEZJknlkOkrqsUUU7JtKDNeu0dzj6gOpg1ZMMx8JTSRc91wsW4/oiEtu3QxUG
+	 OUosiK4cSFHyASLa1I96m1EKBKID6ID+14HVSP8l11aqF27p9XbzVX89GHKu7fh6FrXao
+	 sCUrHP1YS5L4MZ83FVJUHNzGASTWML8hIQetGKm6aeNb90mns8HOA+zHBSLQfq2yclw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557446;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557448;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=/bDLU+KnXBiyE6EZcw6JsgqTTPV2XJQMAz2Sh3kOrzI=;
-	b=rTr3YGhkRpHlYWM8ZZaGjs48SC6eSu3eNCTlnBSB02qcLBTvFV5z5fuG6Kn6GT7mRWpk
-	 g+s4M0sC2KlKNIrQbZ6qpcVaV91/omW2mQ5y06U9/NknOWKA6/yJT+8FM8xY420jp2by2
-	 MZbq2aFGQS9PqgXzYDXuTlzdR435RzKoODbY/NhBMnqW8bQR+qzd8Klz5qZnAJE1HQh03
-	 TWKIatEr2oT1XVbXRP/FFtEk73MG1EEHk2NQ+BJtj+2GtPEZD++as5L+zlQm5CyaYP1dM
-	 m+jUtvoimKcrDib2qO5AwInjd7wsoFF6GnqLZLkSVF+tWL2ks0x1Nt10PSyictUM5QQ==
+	bh=0P7+ZyyVCZ1JDeUcm9y05PO0ngvsEzwcfMmqkUmPnIQ=;
+	b=sSi0JDIuNptdAg0PPWis55OnTEsHCXMC5KSKbvB8STpk/W7+mazbjeaQn+EL/SKeHt8e
+	 RMyK56ZrFgSDAxJDOnembrwhszb0ubbk/+N+w2KZU5xQWETFHXyQ6larexXJrffyS0+yo
+	 K+4i1FDzNsKsupm/WckxRwncCj/Ul3SmIbKtB7z19pmByGrIqrp/dFcESbMCXGZvJoXc8
+	 Gl6yCbymhSCW5wAkSnqpzAkN2nFt/bCDbPALawCKk6JoWIClcSWkA0L0a/tDz8K7mHOgm
+	 za0voY2ZVBp87NkCG8Tdv46dbnQM6R5dgVsUV4mNi/mtknZYADgzcHJSY9/EAEverVg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z7pOxDge;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WwRkCnR5;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E8E606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:57:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA16B606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:57:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z7pOxDge
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD4A31F000C0;
-	Tue, 24 Nov 2026 21:57:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WwRkCnR5
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 203491F000C0;
+	Tue, 24 Nov 2026 21:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795557446;
-	bh=/bDLU+KnXBiyE6EZcw6JsgqTTPV2XJQMAz2Sh3kOrzI=;
+	s=k20260515; t=1795557448;
+	bh=0P7+ZyyVCZ1JDeUcm9y05PO0ngvsEzwcfMmqkUmPnIQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z7pOxDgerHL5c9trnSjC/PYZx8av8GvmRKAWdjhwmF7RPSIfpnVGbqCxOtIrPxSem
-	 d9Jj6rG6k2G937wLeUWan4yTuKsIlkfCV9xNhuEmWefDpmK5IKlc7bdaFHenIHEKRB
-	 +GQ1YVjqJV1YER3RIthP6CW57IWaLhb0uhP7uURvcx2GxJi2sE9zuMKsrIilgpGwng
-	 zm2FABs2v1l9JWpGdaGsQYABZN1tWYR4QQPCxOyHZ1ThxOBxlmFrzVKuJAcU/uMXmH
-	 z4BzJukgCxPFAOrGyJZk+qUwR/Kj532vYQpjx90bCWDmlV1cFG34Gpbj8L3SDPcdBS
-	 AXAmgZsS2r1zA==
-Subject: Re: [PATCH net-next v7 01/15] iavf: keep RSS config across resets
+	b=WwRkCnR5eKQTfXqn1TatJB+cOHSUotBze826HDfN8Ifao81IjsrydIpX7hQc5eNaf
+	 dsLrDiiEsRkvKVssDrUJaOukiyHhyuLr3HrdpVn9OCqbZQoYCSH7U0NtmZT0XJkONy
+	 1UHbcWpGTc03sGlnMceptrQGU4ww1dnXmjKtWMIPisduU2+s1wZen6mHxdfyrFHsv/
+	 Z9ptTVC3D8hZ3uF1WFuLozyDOcpMSQl/EZHGlaVWaSjX31/gueX9GE3qyBsAQvKAOr
+	 9IKfyL2ASrfftKIdBMqVIKM/sIMILu3JKYlOEowtYxW+/kKq4mF/ktZzvNca8W8PO0
+	 wJQRxSrnzKvXQ==
+Subject: Re: [PATCH net-next v7 02/15] ice: prepare RSS LUT config for runtime
+ LUT changes
 From: netdev-bot+sashiko@kernel.org
 To: przemyslaw.kitszel@intel.com
 Cc: netdev@vger.kernel.org, kuba@kernel.org, jiri@resnulli.us,
@@ -52,11 +53,11 @@ Cc: netdev@vger.kernel.org, kuba@kernel.org, jiri@resnulli.us,
  jacob.e.keller@intel.com, jedrzej.jagielski@intel.com, anzaki@gmail.com,
  brett.creeley@amd.com, ohartoov@nvidia.com, poros@redhat.com,
  donald.hunter@gmail.com
-Date: Tue, 24 Nov 2026 21:57:24 +0000
-Message-ID: <179555744418.3135.2924449587168522535@kernel.org>
-In-Reply-To: <20261121230123.316391-2-przemyslaw.kitszel@intel.com>
-References: <20261121230123.316391-2-przemyslaw.kitszel@intel.com>
-X-sashiko-severity: Medium
+Date: Tue, 24 Nov 2026 21:57:26 +0000
+Message-ID: <179555744667.3135.6613548571231576927@kernel.org>
+In-Reply-To: <20261121230123.316391-3-przemyslaw.kitszel@intel.com>
+References: <20261121230123.316391-3-przemyslaw.kitszel@intel.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,306 +70,164 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 6 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 4 · Low: 2
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] The aq_wait_count fix is incomplete.
-- [Medium] When the RSS buffer reallocation in
-  iavf_parse_vf_resource_msg() fails, the RSS buffers and…
-- [Medium] While init retries with the netdev registered, adapter->vf_res
-  is zeroed.
-- [Medium] iavf: premature ethtool_rxfh_indir_lost() broadcasts zeroed
-  LUT on reinit
-- [Low] This commit fixes several pre-existing bugs without a Fixes: tag,
-  and bundles them with a new feature, so the fixes cannot be backported…
-- [Low] The new iavf_init_rss() call in the size-change branch of
-  iavf_parse_vf_resource_msg() (iavf_main.c:2600) skips the RSS_AQ…
+- [Low] The ice_cfg_rdma_fltr() change
+  (drivers/net/ethernet/intel/ice/ice_switch.c) fixes a user-visible…
+- [Low] The commit message says pf->rss_lut_lock protects "q_opt_rss of
+  the VSI context" and is taken "around VSI context writes that include…
+- [Low] The patch adds scoped_guard() (a scope-based cleanup helper) to
+  functions that also use goto-based cleanup labels.
 
 --
 
-iavf: keep RSS config across resets
+ice: prepare RSS LUT config for runtime LUT changes
 
-This commit keeps the user-set RSS key and LUT across VF resets. When the
-PF reports a different key or LUT size, it reallocates both and folds the
-LUT, and it reinits the queues when the PF cuts the queue count. It also
-fixes the RSS buffer leak on reinit after iavf_disable_vf(), keeps vf_res
-allocated on a failed resources message, checks what
-iavf_parse_vf_resource_msg() returns, and resets aq_wait_count.
+This commit adds pf->rss_lut_lock to protect the RSS LUT config of a VSI.
+It now sets the default LUT type and size only on VSI init, and it caps the
+RSS queue count to what the LUT type can address. It also changes
+ice_cfg_rdma_fltr() to take the Q_OPT section from vsi->info instead of the
+cached VSI context.
 
-> Most of these issues are old and affect every PF, but are rarely hit.
-> The rest of this series makes them common: the VF is reset on each
-> change of its RSS LUT via devlink, and on init, after iavf asks the PF
-> for more queues and waits for them in __IAVF_INIT_FAILED. Hence fix
-> them first.
-
-[Severity: Low]
-This isn't a bug, but could the standalone fixes be split into their own
-patches, each with a Fixes: tag? As far as I can tell, this commit fixes
-several old bugs:
-
-- the rss_key/rss_lut leak when iavf_init_config_adapter() allocates them
-  again on reinit after iavf_disable_vf()
-
-- the NULL adapter->vf_res left by the err_alloc path of
-  iavf_init_get_resources() while the netdev stays registered; ethtool ops
-  dereference it through RSS_PF(), ADV_RSS_SUPPORT() and
-  LARGE_NUM_QPAIRS_SUPPORT()
-
-- aq_wait_count never being reset
-
-- the ignored return value of iavf_parse_vf_resource_msg() in
-  iavf_virtchnl_completion()
-
-They are bundled with the new RSS preservation feature
-(IAVF_FLAG_RSS_LUT_LOST, the LUT resize, the reset on a queue cut) and
-have no Fixes: tags. Stable kernels would not pick up the leak and NULL
-dereference fixes this way.
-
-> diff --git a/drivers/net/ethernet/intel/iavf/iavf_main.c b/drivers/net/ethernet/intel/iavf/iavf_main.c
-> index 4de3ea8525b3f..c7b12de63c2f5 100644
-> --- a/drivers/net/ethernet/intel/iavf/iavf_main.c
-> +++ b/drivers/net/ethernet/intel/iavf/iavf_main.c
-
-[ ... ]
-
-> @@ -2494,11 +2562,45 @@ int iavf_parse_vf_resource_msg(struct iavf_adapter *adapter)
->  	vsi->netdev = adapter->netdev;
->  	vsi->qs_handle = adapter->vsi_res->qset_handle;
->  	if (adapter->vf_res->vf_cap_flags & VIRTCHNL_VF_OFFLOAD_RSS_PF) {
-> -		adapter->rss_key_size = adapter->vf_res->rss_key_size;
-> -		adapter->rss_lut_size = adapter->vf_res->rss_lut_size;
-> +		key_size = adapter->vf_res->rss_key_size;
-> +		lut_size = adapter->vf_res->rss_lut_size;
-> +	} else {
-> +		key_size = IAVF_HKEY_ARRAY_SIZE;
-> +		lut_size = IAVF_HLUT_ARRAY_SIZE;
-> +	}
-> +
-> +	if ((adapter->rss_key && adapter->rss_key_size != key_size) ||
-> +	    (adapter->rss_lut && adapter->rss_lut_size != lut_size)) {
-> +		u8 *rss_key, *rss_lut;
-> +
-> +		rss_key = kzalloc(key_size, GFP_KERNEL);
-> +		rss_lut = kzalloc(lut_size, GFP_KERNEL);
-> +		if (!rss_lut || !rss_key ||
-> +		    iavf_rss_lut_resize(adapter, rss_lut, lut_size)) {
-> +			kfree(rss_key);
-> +			kfree(rss_lut);
-> +			/* old buffers and sizes are kept, retry via reset */
-> +			iavf_schedule_reset(adapter, IAVF_FLAG_RESET_NEEDED);
-> +			return -ENOMEM;
-> +		}
-
-[Severity: Medium]
-Can this failure path leave the RSS sizes out of step with the
-capabilities in adapter->vf_res?
-
-When this runs, iavf_virtchnl_completion() has already copied the new
-reply into adapter->vf_res. RSS_PF(), RSS_AQ() and RSS_REG() therefore
-follow the new vf_cap_flags, but rss_key_size and rss_lut_size keep their
-old PF-reported values.
-
-Suppose the old negotiation had RSS_PF with a LUT larger than 64 bytes
-(512 or 2048, which ice gives VFs later in this series) and the new reply
-drops RSS_PF. Until reset_task runs, an ethtool -X would go:
-
-iavf_set_rxfh()
-  iavf_config_rss()
-    iavf_config_rss_reg()
-
-which does:
-
-	dw = (u32 *)adapter->rss_lut;
-	for (i = 0; i < adapter->rss_lut_size / 4; i++)
-		wr32(hw, IAVF_VFQF_HLUT(i), dw[i]);
-
-IAVF_VFQF_HLUT() only has indexes 0..IAVF_VFQF_HLUT_MAX_INDEX (15).
-Would the 128 or 512 writes land past 0xD03C, in other VF BAR registers?
-
-With RSS_AQ, iavf_config_rss_aq() casts rss_key to a fixed-size
-struct iavf_aqc_get_set_rss_key_data. Could that read past the end of the
-old key buffer if the old key was shorter?
-
-This needs a small GFP_KERNEL allocation to fail, so it is unlikely to
-trigger.
-
-> +
-> +		if (adapter->rss_key_size == key_size)
-> +			memcpy(rss_key, adapter->rss_key, key_size);
-> +		else
-> +			netdev_rss_key_fill(rss_key, key_size);
-> +
-
-[ ... ]
-
-> +		adapter->rss_lut_size = lut_size;
-> +		/* no queues yet on init, iavf_init_config_adapter() sets RSS */
-> +		if (adapter->state != __IAVF_INIT_GET_RESOURCES)
-> +			iavf_init_rss(adapter);
-
-[Severity: Medium]
-Can this notification go out before the new LUT has any content?
-
-On reinit after iavf_disable_vf() the netdev stays registered, and the
-RSS buffers are now kept. So iavf_parse_vf_resource_msg() can run from
-iavf_init_get_resources() with adapter->state set to
-__IAVF_INIT_GET_RESOURCES and an old rss_lut_size. Suppose the PF
-reports a different LUT size and ethtool_rxfh_indir_can_resize()
-returns false. Then iavf_rss_lut_resize() leaves the kzalloc()ed
-rss_lut all zeros and calls iavf_rss_lut_lost(), which queues
-finish_config right away.
-
-iavf_parse_vf_resource_msg() then installs the zeroed buffer as
-adapter->rss_lut. It skips iavf_init_rss() because there are no queues
-yet. The LUT is only filled later, by iavf_init_config_adapter(), and
-that is several watchdog steps away: __IAVF_INIT_EXTENDED_CAPS comes
-first, and the watchdog runs as delayed work.
-
-iavf_finish_config() only needs rtnl and the netdev lock, so it can run
-in that window. It clears IAVF_FLAG_RSS_LUT_LOST and calls
-ethtool_rxfh_indir_lost(). As far as I can tell, that sends an RSS
-notification which reads the table back through iavf_get_rxfh(). If so,
-userspace is told that every entry of the new table points at queue 0.
-When iavf_init_config_adapter() later programs the default spread,
-nothing sends a second notification, so the reported table stays
-wrong.
-
-Outside init this does not happen, because iavf_init_rss() fills the
-new buffer right after the swap, in the same call.
-
-Would it be enough to only set IAVF_FLAG_RSS_LUT_LOST while in
-__IAVF_INIT_GET_RESOURCES? The iavf_schedule_finish_config() call at
-the end of iavf_init_config_adapter() could then report the loss once
-the default LUT is in place.
+> diff --git a/drivers/net/ethernet/intel/ice/ice.h b/drivers/net/ethernet/intel/ice/ice.h
+> index 432da05c48c08..f614b9360f7bd 100644
+> --- a/drivers/net/ethernet/intel/ice/ice.h
+> +++ b/drivers/net/ethernet/intel/ice/ice.h
+> @@ -595,6 +595,7 @@ struct ice_pf {
+>  	struct mutex tc_mutex;		/* lock to protect TC changes */
+>  	struct mutex adev_mutex;	/* lock to protect aux device access */
+>  	struct mutex lag_mutex;		/* protect ice_lag struct in PF */
+> +	struct mutex rss_lut_lock;	/* protect VSI RSS LUT config */
 
 [Severity: Low]
-Should this call handle RSS_AQ the way the other callers do? Both
-iavf_init_config_adapter() and iavf_reset_step() defer it:
+The commit message says this lock protects "q_opt_rss of the VSI context"
+and is taken "around VSI context writes that include q_opt_rss". Do the VF
+virtchnl paths follow that contract?
 
-	if (RSS_AQ(adapter)) {
-		adapter->aq_required |= IAVF_FLAG_AQ_CONFIGURE_RSS;
-	} else {
-		err = iavf_init_rss(adapter);
-		if (err)
-			goto reset_err;
-	}
+In drivers/net/ethernet/intel/ice/virt/rss.c, these callers don't take
+rss_lut_lock, either at this commit or at the end of the series:
 
-Outside init, this code runs from the VIRTCHNL_OP_GET_VF_RESOURCES case
-of iavf_virtchnl_completion(), where current_op is still
-VIRTCHNL_OP_GET_VF_RESOURCES.
+ice_vc_rss_hash_update()
+    read-modify-write of vsi->info.q_opt_rss, then a Q_OPT VSI update
 
-The commit message names a PF that stops offering RSS_PF as one of the
-cases this patch handles. If such a PF grants RSS_AQ instead,
-iavf_init_rss()->iavf_config_rss()->iavf_config_rss_aq() will always hit:
+ice_vc_config_rss_hfunc()
+    ice_set_rss_hfunc(vsi, hfunc)
 
-	if (adapter->current_op != VIRTCHNL_OP_UNKNOWN) {
-		/* bail because we already have a command pending */
-		dev_err(&adapter->pdev->dev, "Cannot configure RSS, command %d pending\n",
-			adapter->current_op);
-		return -EBUSY;
-	}
+ice_vc_config_rss_lut()
+    ice_set_rss_lut(vsi, vrl->lut, ICE_LUT_VSI_SIZE)
+        reads vsi->rss_lut_type and vsi->global_lut_id
 
-The -EBUSY is ignored here, while iavf_reset_step() treats an
-iavf_init_rss() error as reset_err.
+ice_set_rxfh() now calls the same ice_set_rss_hfunc() helper under
+scoped_guard(mutex, &pf->rss_lut_lock), so the ethtool and virtchnl paths
+don't match.
 
-The deferred IAVF_FLAG_AQ_CONFIGURE_RSS handler in
-iavf_process_aq_command() only clears the flag, so the end result matches
-the other call sites. What this call adds is an error log that always
-fires and a failure that is silently dropped.
+Today vf->cfg_lock, taken in ice_vc_process_vf_msg(), serializes these VF
+handlers. The later devlink VF LUT change also takes vf->cfg_lock, so I
+couldn't find a concrete race.
 
-[ ... ]
+Should the virtchnl paths take rss_lut_lock too? Or should the commit
+message and the lock comment be narrowed to what the lock actually covers?
 
-> @@ -2563,8 +2665,8 @@ static void iavf_init_get_resources(struct iavf_adapter *adapter)
->  	return;
+Later in the series, vsi->rss_table_size replaces the hard-coded
+ICE_LUT_VSI_SIZE in ice_vc_config_rss_lut().
+
+> diff --git a/drivers/net/ethernet/intel/ice/ice_ethtool.c b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> index dffa213734f10..6d1e506b69cd8 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_ethtool.c
+> @@ -3645,11 +3645,13 @@ ice_get_rxfh(struct net_device *netdev, struct ethtool_rxfh_param *rxfh)
+>  	if (!rxfh->indir)
+>  		return 0;
 >  
->  err_alloc:
-> -	kfree(adapter->vf_res);
-> -	adapter->vf_res = NULL;
-> +	/* keep it allocated, ethtool ops may run on reinit */
-> +	memset(adapter->vf_res, 0, IAVF_VIRTCHNL_VF_RESOURCE_SIZE);
+> -	lut = kzalloc(vsi->rss_table_size, GFP_KERNEL);
+> -	if (!lut)
+> -		return -ENOMEM;
+> +	scoped_guard(mutex, &pf->rss_lut_lock) {
+> +		lut = kzalloc(vsi->rss_table_size, GFP_KERNEL);
+> +		if (!lut)
+> +			return -ENOMEM;
+>  
+> -	err = ice_get_rss(vsi, rxfh->key, lut, vsi->rss_table_size);
+> +		err = ice_get_rss(vsi, rxfh->key, lut, vsi->rss_table_size);
+> +	}
+>  	if (err)
+>  		goto out;
 
-[Severity: Medium]
-With vf_res zeroed while the netdev is registered, RSS_PF() and RSS_AQ()
-both return false. iavf_set_rxfh() has no adapter->state check, so can it
-end up writing the RSS registers directly?
+[Severity: Low]
+This isn't a bug, but this function now uses both scoped_guard() and
+goto-based cleanup. include/linux/cleanup.h says:
 
-iavf_set_rxfh()
-  iavf_config_rss()
-    iavf_config_rss_reg()
+    the expectation is that usage of "goto" and cleanup helpers is never
+    mixed in the same function.
 
-iavf_config_rss_reg() writes rss_key_size/4 dwords to IAVF_VFQF_HKEY(i)
-and rss_lut_size/4 dwords to IAVF_VFQF_HLUT(i). The RSS buffers and sizes
-are now kept across reinit, so these are the PF-negotiated sizes from the
-last successful init.
+Here lut is allocated inside the guard, which has an early return. It is
+then freed by hand through goto out after the guard ends.
 
-The HLUT register file has 16 entries (IAVF_VFQF_HLUT_MAX_INDEX is 15).
-Later in this series ice gives VFs 512 or 2048 entry LUTs under RSS_PF.
-Would that mean 128 or 512 writes, reaching 0xD7FC?
+The same mix appears in:
 
-Even when the sizes are in range, this writes RSS registers directly on a
-VF whose RSS is managed by the PF, and ethtool is told it succeeded.
+ice_vsi_cfg_rss_lut_key()  - lut freed at goto ice_vsi_cfg_rss_exit
+ice_vsi_cfg_def()          - scoped_guard() followed by goto unroll_get_qs
+ice_set_channels()         - scoped_guard() next to goto adev_unlock
 
-iavf_disable_vf() already zeroed vf_res like this before this patch. This
-change adds a second such window and keeps the large sizes alive across
-both.
+ice_vsi_set_dflt_rss_lut() and ice_vsi_manage_rss_lut() also kzalloc() lut
+inside the guard and kfree() it outside.
 
->  err:
->  	iavf_change_state(adapter, __IAVF_INIT_FAILED);
->  }
+No current path leaks, because lut is NULL on the early return. The pattern
+is still there at the end of the series.
+
+Could these functions use plain mutex_lock()/mutex_unlock()? Or could lut
+become __free(kfree) and the goto labels be dropped?
 
 [ ... ]
 
-> @@ -2967,6 +3073,7 @@ static int iavf_watchdog_step(struct iavf_adapter *adapter)
->  			 */
->  			iavf_change_state(adapter, __IAVF_STARTUP);
->  			adapter->flags &= ~IAVF_FLAG_PF_COMMS_FAILED;
-> +			adapter->aq_wait_count = 0;
->  		}
+> diff --git a/drivers/net/ethernet/intel/ice/ice_switch.c b/drivers/net/ethernet/intel/ice/ice_switch.c
+> index d873eda9af826..70eed3bcc404b 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_switch.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_switch.c
 
-[Severity: Medium]
-Does this fully fix what the commit message describes?
+[ ... ]
 
-  "It was never reset, so once it reached IAVF_AQ_MAX_ERR, the first wait
-  for a PF reply sent init back to __IAVF_COMM_FAILED."
+> @@ -1850,9 +1852,10 @@ ice_cfg_rdma_fltr(struct ice_hw *hw, u16 vsi_handle, bool enable)
+>  	if (!ctx)
+>  		return -ENOMEM;
+>  
+> -	ctx->info.q_opt_rss = cached_ctx->info.q_opt_rss;
+> -	ctx->info.q_opt_tc = cached_ctx->info.q_opt_tc;
+> -	ctx->info.q_opt_flags = cached_ctx->info.q_opt_flags;
+> +	/* not from the cached ctx, that misses later RSS changes */
+> +	ctx->info.q_opt_rss = info->q_opt_rss;
+> +	ctx->info.q_opt_tc = info->q_opt_tc;
+> +	ctx->info.q_opt_flags = info->q_opt_flags;
 
-The new reset only runs in the __IAVF_COMM_FAILED recovery branch, which
-is after the limit has already been hit. The only other place that
-touches the counter is the __IAVF_INIT_FAILED case:
+[Severity: Low]
+This change fixes a user-visible bug, which the commit message admits
+("which the toggle reverted"). Could it be split out as a standalone fix
+for net with a Fixes: tag?
 
-	if (++adapter->aq_wait_count > IAVF_AQ_MAX_ERR) {
+ice_set_rss_hfunc() and the NO_INIT path of ice_vsi_init() both go through
+ice_update_vsi(). That function only sends the AQ command and doesn't
+refresh hw->vsi_ctx[].
 
-Nothing resets it when init makes progress or completes. Nothing resets
-it when iavf_reset_step() restarts init either:
+Before this patch, an irdma probe or remove then did:
 
-	if (adapter->state <= __IAVF_INIT_FAILED) {
-		iavf_shutdown_adminq(hw);
-		iavf_change_state(adapter, __IAVF_STARTUP);
-		iavf_startup(adapter);
-		...
+ice_rdma_update_vsi_filter()
+    ice_cfg_rdma_fltr()
+        ctx->info.q_opt_rss = cached_ctx->info.q_opt_rss;  (stale hash bits)
+        ice_update_vsi()
 
-So the counter still adds up every __IAVF_INIT_FAILED visit, not just
-consecutive failures, and several ordinary waits end up there:
+So hardware silently went back to plain Toeplitz after a symmetric-xor hash
+was set with ethtool -X. Meanwhile vsi->rss_hfunc and ethtool still
+reported symmetric-xor.
 
-- each extended caps RECV step polls the ARQ without blocking, shortly
-  after its SEND
+As submitted, the fix depends on the new pf->rss_lut_lock and the changed
+ice_cfg_rdma_fltr() signature, so stable trees can't pick it up. A
+standalone version could carry:
 
-- GET_RESOURCES and VERSION_CHECK polls that run before the PF reply
-  arrives
-
-- later in this series, init also waits there for the reset that grants
-  the queue request
-
-Once the total passes IAVF_AQ_MAX_ERR (20), won't init still set
-IAVF_FLAG_PF_COMMS_FAILED, shut down the admin queue and restart from
-__IAVF_STARTUP, even though the PF answered every request?
+Fixes: 352e9bf23813 ("ice: enable symmetric-xor RSS for Toeplitz hash function")
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121230123.316391-1-przemyslaw.kitszel%40intel.com
