@@ -1,87 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533265;
-	b=KuZ77aitjWcdAGS/D7wtSV0A/7M/ZN+rVgiNDrOADCdQFkmWsnWFBcrorh2ErI7b8gEy
-	 02yW/Cov6/Ap0dZcHmnp3zrME5jdRuFVDOK9/8EZnqwLMup718+lPqeFNM+uV/XC8cpkQ
-	 Yjohc3DUFh7ByuI5rlBIS8Q2JK7uqUOGdPvFJEieZOW0454Lj6uTl2hONoA5YD7eR/+h/
-	 0DujnSrI+ZEw+8WiiKpeWiuxXGJUKhB77Ub3oHV4lTLTtWlDtW2xCZjpCHEW3ldVuB7Am
-	 ArrlCmbHK4LQBBF3MXuxhJkR4Kk0WWtpf0I6dycXHCJB/DtQQ+MY+EZxJapf+KLrbeQ==
+	t=1795533548;
+	b=T/ofw5zIVxxQUDt/bKTtUGtiRztCtmVQzLmQRbzhLSnjEMGWx8R9Gvrw0XM5INteRa9b
+	 Z0iucHujAekXF4MNcpvnbdvxUNsX04075J4Dt47b2KRu4V1j9tP5Wq8NW4G95rcITeVxc
+	 O2BOeSRyLHZsOuUXz6qBWbf1X/+aSiuH2ges1OIBQmFoOHRsUKI1SWBN3yxrUg78QWhKR
+	 b4ggZIjjkxeIVnnaIb7dVckIkWuvcYbEFvOTTLtJvQQ06c2JHqsd5vRTu4N2KxSLks/aJ
+	 QJyl6KXO1u182ttXKv5GaAOqtkBDdKGDv/yZLsq3C64GgdcYHXwnuwo59RIBX1w242Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533265;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
-	bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
-	b=Thp6lX8kGlZz3g88CNqlwHFQFTJlI6lDnzSG4mLN+zg6W6m0qADqAAokCZzhh4TpQbtr
-	 xnHdOcnLruFgmqdDowTV2yHqbgsTKvb5sSVjcNa7ASdXV5df9A72GXfU4WkSGc0JFmapP
-	 p0yethmLr1ZLN/ujd78KeMInUkn9ebtQjtLPNC2AemdDXmvt4KEYN9yeJiBYP0Zd3ljnk
-	 V3ScR2huLJpaozwTVPAREHXbpocO4uGJ+1dIgB+hyvi0lQsrH5r7bFBl2W4YS1m9vZ0I+
-	 EaaT4m9LP8Ae0ahaz2LI0yc6cc6PM0NKQYWPcLK2lk8Y7p3TrUCzjR5B6bdFVHpUuOw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533548;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=6oWnfXqgTuQPp52o8Doeg6T054YN4mh37i5AiGViOQk=;
+	b=2xuv/aeF/12AAZ8iG3rAt1605wIA+ZVa56vO5OaM/oad5MwRws63y2CVNOC6Ztwic2ny
+	 IUeYv55XTFFU2jTOrFKNw8ZlVkp5FcbOTP00iu0DuXSZz4f3QFp/Ovw70vEews3TgDg5q
+	 Da0VYjthfybuzvWLb4beuSNjQke1UA/f/myrMtaxyNMWCDDRcMQmiGoferfVdu9xvhwyX
+	 6oYKKj8m7t61qjIPNTGrJ3ACSq32DfynCFsRchnXDWkpW7WYUYi3HiLctCbUDh+7ih/7J
+	 G/0SctvfyoAJGHxG9UwEl/j3n+4MHh2kXyyYbcLTauNJc84k1IA/M4rgNXfFBvzMwEQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ebSy9c36;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=cGNoremp;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b="fQG/l3Vs";
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 89551606A32C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:14:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 89551606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BEA4606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:19:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BEA4606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=ebSy9c36
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c516a1623d0so400247466b.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:14:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795533263; x=1796138063; darn=vger.kernel.org;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
-        b=ebSy9c36aTR8fbWR4auSrsGE/djusSt0wnGSrYtNZznYZO2AGsYTXrIWq5Yx/WWe6e
-         5ppdti40uhKEW94t7ZFSocCJi011dLv/IVmpZLdx/hiVg8VcBfIBAEs9q1T6IWtCm+Xj
-         oSM2xBQwN4fD4gQt5tj/eZqzLrclz2LCj8ebVfMTOHAVciqttvJTIS7ZcwhwWF0k9wQ5
-         8NioETZdeLEjKVFWDGMpidQVMTe6Mx8z++FhWSVzYqOd2ooA4jgnCjR11G0MKsf6jdMF
-         /pjFmiUu291q6bMbQPtFgKvgB/yL4somch6Ia+TKpVodctkK5lj2HheDegrBEjDsKVgM
-         rucw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795533263; x=1796138063;
-        h=content-type:in-reply-to:autocrypt:from:content-language:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PVJS6gkYs1IOy2J1QEN8soh2l1ljp7ZJVoiYPlTtrQ8=;
-        b=bQWxv2eQTWrQJBmY7QBd+4Kclvvxg47BvIQdS+Cu6FtEVSGNZ0HRzAYBU6cbtSv5mf
-         q8Pcc0rXCQu/g+9uMXJIG/xTgl6Er2f9qbb+iPkspBxUgquiwWhB7Cni2soLTn5zQojF
-         OTLRYp6gM6WoBxhVltpwImhP9JU2et0l2qUasQQ2Gmknqv09d4h8yZOA4BDoonkWfSNy
-         3OJznwB0td1AVHOqXsmIRXUJQ3srDaaEBajtjVirThgMrtLJ3G4089ILDdgsUCiTl2Pa
-         5K54Tk4mTylCPXI4eXkkWilX0GoAtnaaA+2hDY5GTr91TdHfq0AlRuP4QHZhXIGvmSnl
-         kvPQ==
-X-Forwarded-Encrypted: i=1; AL+hErF+ZFzRfyrzHM20wfuJ75fquatwJsZ9g3r3gxK+R3hzgulTgeQVAMSepX0odByVy2ixcRkAdew=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+1FeYCtgvp6uk8wDrxKjsoBrUHA/LKh9Fqk8r+i4FKoKyRPX8G
-	DbjTGltBBx+LoPXgZNOBvcco/n4CDr5UGEq1eocxf/YSQxaKzObtVp1a9BsT6fM9W1g=
-X-Gm-Gg: AZFdTZfywspbzO5Hbj7lkPWJ1iOBBWhbnyNCxSg9igPdX+lQYNtgu+qmartATLU1RxJ
-	x9fhCKdHJ+A8JZIZw67t1oQcWiOAjIOb0kOlUTcqzOuHqMotqCLWd7j7cNHxf0l13/bS8iMmfN/
-	kthc6E3T8HNtbWMY5o1/XkHKS3B4hVcZAQmV2/ji5revRXkiAxuFQHpE0g39BVUy7OeuiP870k6
-	wosuFugo72xxhFhD0TDdD1coP5qK+ycxJk+k0YPF72sq6Bhjgc5naEx61ERLNJHXMYn6ZBUs9Au
-	11PMBXhSjfh2MPUiKWBYB8wlhhz6ZcyIo3QwkKvHo1xhtPA+KSPCI1B70/UBsY/yB8bbA43wBPc
-	ExrxGmMsyxtzrq+IrudHKtxrQoOb9eg4hj8LbP8G2D1wKpiPukfJqRJDCbcj+wqP6CSvCp6H5hf
-	kEzsix32q36Bgd9rPt7Z86n84b31/JWP4hWG214pJU6LDmucvtCP5Xgiqwp/Cdbpi5wb99ZWyek
-	pIe9XbeT7vuBBokQtrh/E5Yw242oiOGjznZ8CVmg8NUVzlcKU21xVww6syD9+JUy55GunDaN2YF
-	PlNQvwPZomXIIcI0nOxUwGcWNvt0Mje3b9Au+jHp1fVQLMemPn8n+FIQlrCuMaftxk0qg38Hrla
-	5RtBw9mAv0p7OD+AXKupZUZSQM8MM8BZqELdB6VR6lZKyV5rNq9I=
-X-Received: by 2002:a17:906:c14b:b0:c35:babe:ab44 with SMTP id a640c23a62f3a-c513a1e0076mr1490288666b.0.1795533262820;
-        Tue, 24 Nov 2026 07:14:22 -0800 (PST)
-Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae698ccsm534442066b.26.2026.11.24.07.14.21
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 07:14:22 -0800 (PST)
-Message-ID: <589d567e-912d-4913-9949-ee28dfd7f719@suse.com>
-Date: Tue, 24 Nov 2026 16:14:21 +0100
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=cGNoremp;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=fQG/l3Vs
+Date: Tue, 24 Nov 2026 16:19:04 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795533546;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6oWnfXqgTuQPp52o8Doeg6T054YN4mh37i5AiGViOQk=;
+	b=cGNorempfMYw+M3WsE5ne4HlyNjCZot6B8JV1+Y3uHXbLvIMZTn5AETcK5z3zENcLnqSpP
+	takfEEglhyU4ridmtZUJCgBUwK741z1uHILjoWkv6cl8ZXCWsFbgr8zdK/vG1kpa4hcHH9
+	2cgm42O4HMfpWw5HUH8TizWrE20BooUpfvFZsICm+2PbJfYoQ5v+7fp/kusSwYn9bPxneC
+	efytAu/HYtbHvaKkkxPdxSebf0w0j/aiEOpNuz7kZDX1Yc43h5/SKq1D1RV+Zk8SxJ/Wb5
+	Pqhqpq7xRHWuykWpyj5OvnL5zUYN0oYQ3oUyOsR0GO4dEmAv1/1UYS2A8ykZEA==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795533546;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=6oWnfXqgTuQPp52o8Doeg6T054YN4mh37i5AiGViOQk=;
+	b=fQG/l3VsiwMXcD0hx/o7b3RCkLyaI04VgEJKq4aHyBP3xQOksslTHmileiVI0xc1XU3oWL
+	PhxN0xFrw89E5QAA==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
+	danishanwar@ti.com, d-qiu@ti.com, davem@davemloft.net,
+	fmaurer@redhat.com, kuba@kernel.org, neelima@ti.com,
+	pabeni@redhat.com, praneeth@ti.com, pratheesh@ti.com,
+	richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
+	willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v11 5/8] hsr: Use the port and header
+ information in hsr_forward_skb()
+Message-ID: <20261124151904.QEfjoeC9@linutronix.de>
+References: <20261120-hsr_ptp-v11-5-264c88f4f1d0@linutronix.de>
+ <179551954393.3135.14245872279309105973@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,192 +80,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/13] xen: convert xenstore interface mmap hooks to
- mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
- Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
- Scott Branden <scott.branden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
- netdev@vger.kernel.org, linux-mm@kvack.org
-References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
- <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
-Content-Type: multipart/signed; micalg=pgp-sha256;
- protocol="application/pgp-signature";
- boundary="------------rZw0QHKmzMvHx5VSPSOUKur0"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <179551954393.3135.14245872279309105973@kernel.org>
 
-This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
---------------rZw0QHKmzMvHx5VSPSOUKur0
-Content-Type: multipart/mixed; boundary="------------1hIkmj8WyEEdRHjB5CXVAQ0q";
- protected-headers="v1"; hp="clear"
-Message-ID: <589d567e-912d-4913-9949-ee28dfd7f719@suse.com>
-Date: Tue, 24 Nov 2026 16:14:21 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/13] xen: convert xenstore interface mmap hooks to
- mmap_prepare
-To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- Stefano Stabellini <sstabellini@kernel.org>,
- Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
- Madhavan Srinivasan <maddy@linux.ibm.com>,
- Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
- "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
- "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
- Shrikanth Hegde <sshegde@linux.ibm.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
- Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
- Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
- <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
- Jarkko Sakkinen <jarkko@kernel.org>,
- Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
- <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, x86@kernel.org,
- "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
- Paul Moore <paul@paul-moore.com>,
- Stephen Smalley <stephen.smalley.work@gmail.com>,
- =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
- <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
- Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
- Scott Branden <scott.branden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
- linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
- linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
- linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
- netdev@vger.kernel.org, linux-mm@kvack.org
-References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
- <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
-Content-Language: en-US
-From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
-Autocrypt: addr=jgross@suse.com; keydata=
- xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
- ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
- dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
- NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
- XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
- AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
- CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
- mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
- G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
- kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
- Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
- RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
- vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
- sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
- aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
- w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
- auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
- 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
- fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
- HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
- QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
- ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
-In-Reply-To: <20261124-late-2026-mmap_prepare-v2-7-0b0d99d655f9@kernel.org>
+On 2026-11-24 11:25:43 [+0000], netdev-bot+sashiko@kernel.org wrote:
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> - [Medium] The commit message says the new path "is only used in the pure
+>   software version" and that NETIF_F_HW_* offload "need[s] to be=E2=80=A6
+> - [Low] The has_hsr_header semantics added by this patch are implemented
+>   for HSR only, not PRP.
+>=20
+=E2=80=A6
+> [Severity: Medium]
+>=20
+> The commit message says:
+>=20
+>   This is only used in the pure software version. Hardware with any kind
+>   of NETIF_F_HW_* offload support need to be addressed separately.
+>=20
+> Does anything in the code actually limit this to software?
+> hsr_dev_xmit() accepts the inline header for ETH_P_1588 frames on any HSR
+> device. Neither the req_tx_port filter nor the has_hsr_header shortcut
+> here checks port->dev->features.
+>=20
+> When a slave has NETIF_F_HW_HSR_DUP (ksz9477 and xrs700x through DSA),
+> software sends one clone to the requested port only. However,
+> dsa_xmit_port_mask() in net/dsa/tag.h ORs every HSR member port into the
+> TX mask:
+>=20
+>     if (IS_ENABLED(CONFIG_HSR) &&
+>         unlikely(dev->features & NETIF_F_HW_HSR_DUP)) {
+>         ...
+>         dsa_hsr_foreach_port(other_dp, dp->ds, hsr_dev)
+>             mask |=3D BIT(other_dp->index);
+>     }
+>=20
+> icssg also switches to PRUETH_UNDIRECTED_PKT_DST_TAG in that mode.
+> Wouldn't a PTP frame meant for one ring port then go out on both?
 
---------------1hIkmj8WyEEdRHjB5CXVAQ0q
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: base64
+Yes, this has been mentioned earlier. Nothing limits this to be
+software only. For now this is software only and the next step will be
+to take hardware acceleration into account.
+It wasn't working before this series so it is not a regression.
 
-T24gMjQuMTEuMjYgMTU6MDIsIExvcmVuem8gU3RvYWtlcyAoQVJNKSB3cm90ZToNCj4gTW92
-ZSBmcm9tIHRoZSBkZXByZWNhdGVkIG1tYXAgaG9vayB0byB0aGUgbmV3IG1tYXBfcHJlcGFy
-ZSBob29rIGZvciB0aGUNCj4geGVuZnMgeHNkX2t2YSBmaWxlIGFuZCB0aGUgeGVuYnVzX2Jh
-Y2tlbmQgZGV2aWNlLCBib3RoIG9mIHdoaWNoIHJlbWFwIHRoZQ0KPiB4ZW5zdG9yZSBpbnRl
-cmZhY2UgcGFnZS4NCj4gDQo+IFVzZSB0aGUgUEZOIHJlbWFwIG1tYXAgYWN0aW9uIHRvIGRv
-IHNvLCByZXRhaW5pbmcgdGhlIC1FQUdBSU4gZXJyb3Igb24NCj4gZmFpbHVyZSB2aWEgdGhl
-IGFjdGlvbiBlcnJvciBvdmVycmlkZS4NCj4gDQo+IFNpZ25lZC1vZmYtYnk6IExvcmVuem8g
-U3RvYWtlcyAoQVJNKSA8bGpzQGtlcm5lbC5vcmc+DQpBY2tlZC1ieTogSnVlcmdlbiBHcm9z
-cyA8amdyb3NzQHN1c2UuY29tPg0KDQoNCkp1ZXJnZW4NCg==
+=E2=80=A6
 
---------------1hIkmj8WyEEdRHjB5CXVAQ0q--
-
---------------rZw0QHKmzMvHx5VSPSOUKur0
-Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
-Content-Description: OpenPGP digital signature
-Content-Disposition: attachment; filename="OpenPGP_signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmsFqc0FAwAAAAAACgkQsN6d1ii/Ey8U
-agf9EKmbZX8l548UDsdyJg6oJvCYHOXjuS/ExKBuNpmGhFgk7GREMY+3u3PwwH5i8jr55bbeWohR
-PQZmJLsVx91G2Go2UnTECf+ux5hcQK/L88QRCcbKXHLPL5o2jl4qSVtCpjc4+Zq8UulQYIwYP35a
-OS34bD2osQ81MOzn9C89cW+1W2vyw6436TybryP/f0H8AtinZ/cTr3yFyQO/tR2V2NBHtEzwqslP
-jNDjxr1xdpiDdCL4jZ8rdh7WfCE5cgGr89hzbDR9ZyzH4ka8x2ICUX++Mym777GSOuxLf3wzSPuW
-OkTRlKQEHsYqdVjYj7TAHGOBC56IwBlTfAmWefOR2g==
-=vFml
------END PGP SIGNATURE-----
-
---------------rZw0QHKmzMvHx5VSPSOUKur0--
+Sebastian
