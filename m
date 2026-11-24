@@ -1,69 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795501596;
-	b=eGZtoR/nFmqB7cCztfjBV+/nXx9s0JKnTRxBqezze3Y0odHTJLCYbQj5WJNhqOBcyYOF
-	 pKWaDgnkqofjrY3CQxVR4wMmw1giViKrippvQBnFo53W90Sg6AvLW9whaRXbzs4OSfe5v
-	 kY9z4glNGvrO9QOKdpNdZruBO0DQhCwKTnclJZNil78auUnL3bDjb1mSWCcvqUzNLL7vb
-	 sMUjLdBC95mB43ut/0fPPYKnuNw5kJfDCAwDmXqd72zFczQxGWJn6PC07bi/ZndYKBvMw
-	 f4GmeFJdwa0Iiw3El2HkQIwTzz54Ed/kMBTE9sPnFCMZU3dJQ99fJMfJ/z3vQx0MaSg==
+	t=1795501636;
+	b=imjCMW4x7mh24IET91Y4652xq8bGG1EdmXySV+Eha1jxaR9OjqFqHxXRBb6YOrBdp9PR
+	 GwmlQvpYloeOJKhxCTRN2yb1Etc7BQx1Krwl9JhwJ71nCdv1Q1q/20f0DDNFi6wAm9apK
+	 se+Y0l2DgxYX4bS5b6tnEzKxOLR8o3LuGogXSDQeo9BaEFnMl7Z3PY1qKUKV2l1kAn1zE
+	 jSO2nlWixmxuOP84BBJbeRoH6DSTg7b7haKxCYxDI91iNJ2PT8mbnc31KNzrB5/TulZe0
+	 JMNFp4tNT9jdjDEtUvL+zqA6EYL7PC4mP6cn1AG9d0bVeI/AzOjRRACNANZgmbluJdg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795501596;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501636;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=UToQbuNcK5DCGtMPsmz26BXf75Fd4f2y7nwL39lM1lI=;
-	b=BnYtwELndiDRRjP1Ob/4arMNvv/8RkolWYYZafr13BNxbxIjTrm5odLgvqaBzLxPB1o4
-	 NVjInc3n144OTdU16uTGGsHZ/A/gM2M4N1EhT9NYPOhgiie8P6/ynfjKD6tBscbXkFUoy
-	 cYE4K00luYScMTz6NxGIxdXcu1n6UmRUwsnXTysAHHOq3jNmLZq9vihfjp+iNySi5XQUF
-	 /r7rFKCJTa3lQd5r1jOy2/X6N/AkSi4rL5xFMdcCinTGNsWDXVqr2FgMES2VEQ5kpnLcn
-	 fbGcuJeQmVMpofMAZdNQvD1dW6f+6/YcK7bCn9l4hEoY9e5N99ld2RcBFWO4rL49Dsg==
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=7u094NZKZxpETVB03vTt5m2yLYD6kPFSRwEM5jWpjdA=;
+	b=iP3gvufBwl9u1kZescZiYpCiFSr+ESxAydl+ODQJ5lU1gYUsgQP7WZbdemORLeCcV3jQ
+	 KSmjDZJr3BqwBkUsaYE12+v2LBRbrCUl8JvD1mL3ZOq8xvr+gNy5BJCMKKAbf7ayC9NC4
+	 5NReE/Kc4te4JWPHDHRcd2f9mAe7tTqRLYppyyDOkDGK6KBo6E9bPoCOwEEVWMTSOoSCs
+	 fHpu9stXauQuLpHUDd8uOhEUgfkm8kEKxQe5rPlGaUz7YCaRXaf3TvsQTqQbB9YTsLUp2
+	 PbtGv9TNNDqXmZgrdTsQKBIlpNnyz2H6Tqpi7rvZTQurpPi/BzfDGqN93g1p2MRFs5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WvebJkB6;
-	arc=none smtp.remote-ip=91.218.175.69
-Received: from mta0.migadu.com (out-69.mta0.migadu.com [91.218.175.69])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Gh5wSmnL;
+	arc=none smtp.remote-ip=95.215.58.13
+Received: from mta1.migadu.com (out-13.mta1.migadu.com [95.215.58.13])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C551B606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:26:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C551B606A322
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 60150606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:27:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 60150606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=WvebJkB6
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=Gh5wSmnL
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=r2VL/0aEgO4eKDKOiYsncvbfGzRHrO9uCcvMnl2AXpw=;
+DKIM-Signature: a=rsa-sha256; bh=473BHmUcpoTKfEKxqqh8pcmuw4bO0dBRaaAPnB0eK70=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795501593; v=1; x=1796106393;
- b=WvebJkB62/efEXZQD7y1khGV7+l8WGM3zC7SybX6Deyop8TyAfCayebC9D5CB5LeGu/KfTXb
- /XgSc9ru8kh3hcX5tZ31VyJERt1Z7vX6UIrgkFWc5xfXVyoAYrhMbZjI+uB56ufH1m+w4ERl69A
- j6djPIKCsEhkzcKcsaLErxyI=
+ t=1795501633; v=1; x=1796106433;
+ b=Gh5wSmnLFmCRHN4BGff7kZfKIiLvS5PAGUz6ExmleynNnCer02szrsjnDVBZzSKPcPmTcz1+
+ NynYpWjjXmLjbYeCbaoAKmqP5crQ7wSWzBanfAAeM7Zw2JQtKZl6DxHCg+O56u7pGhwmZv6V09e
+ 2ftwTAORAx96bmja1ZFz2TkI=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 734e0f106dabc218;
-	Tue, 24 Nov 2026 06:26:33 +0000
-X-Mizu-Trace-ID: 734e0f106dabc218
+Received: by smtp.migadu.com with ESMTPS id 948f5afaef9c9964;
+	Tue, 24 Nov 2026 06:27:13 +0000
+X-Mizu-Trace-ID: 948f5afaef9c9964
 X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Florian Westphal <fw@strlen.de>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	linux-kernel@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH net] tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
-Date: Tue, 24 Nov 2026 14:26:24 +0800
-Message-ID: <20261124062625.264148-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+Message-ID: <fd8bf876-6e10-4183-96da-8778f8c4ca3f@linux.dev>
+Date: Tue, 24 Nov 2026 14:27:03 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,148 +58,100 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH bpf-next v3 4/9] bpf: Add log support for cgroup prog
+ link_create
+To: bot+bpf-ci@kernel.org, bpf@vger.kernel.org
+Cc: ast@kernel.org, daniel@iogearbox.net, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
+ kpsingh@kernel.org, matt@bobrowski.net, shuah@kernel.org,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
+ martin.lau@kernel.org, mason@kernel.org
+References: <20261123152743.19629-5-leon.hwang@linux.dev>
+ <ec5343ff7b660c9126b72574cd89cbd54772bd4291d4af16f1b9e39f16939398@mail.kernel.org>
+Content-Language: en-US
+From: Leon Hwang <leon.hwang@linux.dev>
+In-Reply-To: <ec5343ff7b660c9126b72574cd89cbd54772bd4291d4af16f1b9e39f16939398@mail.kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Issue found by sashiko [1].
+On 24/11/26 00:04, bot+bpf-ci@kernel.org wrote:
+>> bpf: Add log support for cgroup prog link_create
+> 
+> TL;DR: The new bpf_log() calls in cgroup attach run under cgroup_mutex and
+> cgroup_bpf_mutex, so a copy_to_user() fault on the user log buffer may stall
+> other cgroup operations. Consider logging after unlock.
+> 
+>> diff --git a/kernel/bpf/cgroup.c b/kernel/bpf/cgroup.c
+>> --- a/kernel/bpf/cgroup.c
+>> +++ b/kernel/bpf/cgroup.c
+> 
+> [ ... ]
+> 
+>> @@ -1045,23 +1060,33 @@ static int __cgroup_bpf_attach(struct cgroup *cgrp,
+>>  	atype = bpf_cgroup_atype_find(type, new_prog->aux->attach_btf_id);
+>>  	if (atype < 0)
+>>  		return -EINVAL;
+>> -	if (revision && revision != cgrp->bpf.revisions[atype])
+>> +	if (revision && revision != cgrp->bpf.revisions[atype]) {
+>> +		bpf_log(log, "Cgroup revision mismatch: expected %llu, actual %llu.\n",
+>> +			revision, cgrp->bpf.revisions[atype]);
+>>  		return -ESTALE;
+>> +	}
+> 
+> [ ... ]
+> 
+>> @@ -1143,13 +1168,14 @@ static int cgroup_bpf_attach(struct cgroup *cgrp,
+>>  	cgroup_bpf_lock_hierarchy();
+>>  	ret = __cgroup_bpf_attach(cgrp, prog, replace_prog, link, type, flags,
+>> -				  id_or_fd, revision);
+>> +				  id_or_fd, revision, log);
+>>  	cgroup_bpf_unlock_hierarchy();
+>>  	return ret;
+> 
+> Can these bpf_log() calls block other cgroup users while the locks are
+> held?
+> 
+> cgroup_bpf_attach() takes cgroup_mutex and cgroup_bpf_mutex through
+> cgroup_bpf_lock_hierarchy() before calling __cgroup_bpf_attach(), and
+> the new messages are emitted from inside it (and from get_prog_list()
+> via insert_pl_to_hlist()):
+> 
+> cgroup_bpf_attach()
+>   cgroup_bpf_lock_hierarchy()
+>   __cgroup_bpf_attach()
+>     bpf_log()
+>       bpf_verifier_vlog()
+>         copy_to_user(log->ubuf + ..., log->kbuf, ...)
+> 
+> log->ubuf is the user supplied log_buf, so if that page is not resident
+> (swapped out, or backed by FUSE or userfaultfd), copy_to_user() can sleep
+> in the fault for as long as the caller chooses.  While it sleeps,
+> cgroup_mutex and cgroup_bpf_mutex remain held, so cgroup mkdir/rmdir,
+> migration, BPF attach/detach, BPF_PROG_QUERY and the cgroup bpf release
+> work would all wait.
+> 
+> Commit 40aec6bab02e ("bpf, cgroup: Protect cgroup_bpf state with its own
+> mutex") split these paths out from cgroup_mutex to avoid hung tasks, and
+> before this patch the attach path did not touch user memory under these
+> locks.
+> 
+> This isn't a lock ordering problem, since cgroup_mutex -> mmap_lock
+> already exists, but would it be better to record the message and emit it
+> from cgroup_bpf_link_attach() after cgroup_bpf_unlock_hierarchy()?
+I think it's okay to call bpf_log() inside those locks' critical
+section, even though copy_to_user() could unlikely trigger page fault.
 
-tcp_v4_syn_recv_sock() creates the child with tcp_create_openreq_child(),
-which inherits icsk->icsk_ca_ops from the listener without taking a
-reference. The reference is only taken later in tcp_ca_openreq_child().
-If inet_csk_route_child_sock() fails in between, we go to put_and_exit
-and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
-the reference unconditionally. The one dropped belongs to the listener.
+I didn't have good idea to address such concern. Probably, in
+cgroup_bpf_attach(), prepare a local buffer before
+cgroup_bpf_lock_hierarchy(), pass the buffer to __cgroup_bpf_attach() in
+order to store the log messages, then call bpf_log() after
+cgroup_bpf_unlock_hierarchy() if __cgroup_bpf_attach() returns error.
 
-Seen with a listener using bbr (built as a module) and TCP_DEFER_ACCEPT:
-make the route to the client prohibited once the handshake is done, then
-let the client send data.
-
-  WARNING: kernel/module/main.c:969 at module_put.part.0+0x97/0x160, CPU#1: swapper/1/0
-  Modules linked in: tcp_bbr(OE)
-  RIP: 0010:module_put.part.0+0x97/0x160
-  Call Trace:
-   <IRQ>
-   module_put+0x13/0x30
-   tcp_cleanup_congestion_control+0xae/0xe0
-   tcp_v4_destroy_sock+0x103/0x360
-   inet_csk_destroy_sock+0xb7/0x1e0
-   tcp_done+0x146/0x1e0
-   tcp_v4_syn_recv_sock+0x73a/0x9f0
-   tcp_check_req+0x351/0x1130
-   tcp_v4_rcv+0xe82/0x22e0
-   ip_protocol_deliver_rcu+0x5f/0x340
-   ip_local_deliver_finish+0x19f/0x3a0
-   ip_local_deliver+0xc9/0xf0
-   ip_rcv+0x1b1/0x1c0
-   __netif_receive_skb_one_core+0xc4/0xe0
-   __netif_receive_skb+0x23/0xb0
-   process_backlog+0x27a/0x950
-   __napi_poll.constprop.0+0x61/0x2c0
-   net_rx_action+0x372/0x800
-   handle_softirqs+0x109/0x570
-   </IRQ>
-
-Options considered:
- 1. Take the reference in tcp_create_openreq_child(), see the diff below
-    the "---". It adds a get/put pair on the passive open path.
- 2. Point the child at tcp_reno (built in, no owner) on this error path,
-    so the put becomes a no-op. It works but looks odd.
-
-Instead, clear icsk_ca_ops on this error path and make
-tcp_cleanup_congestion_control() skip a socket without a CA.
-
-[1] https://sashiko.dev/#/message/20260606095014.2531B1F00893%40smtp.kernel.org
-
-Fixes: 81164413ad09 ("net: tcp: add per route congestion control")
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-security_inet_csk_clone() -> bpf_setsockopt(TCP_CONGESTION) from a
-lsm_cgroup prog has a similar problem, the child puts a reference it
-never took. That one is being fixed in the bpf tree.
-
-The root cause can be fixed as below instead, but I am worried that the
-extra refcounting may hurt performance (not tested):
-
-    diff --git a/net/ipv4/tcp_minisocks.c b/net/ipv4/tcp_minisocks.c
-    --- a/net/ipv4/tcp_minisocks.c
-    +++ b/net/ipv4/tcp_minisocks.c
-    @@ -506,6 +506,8 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
-     		rcu_read_lock();
-     		ca = tcp_ca_find_key(ca_key);
-     		if (likely(ca && bpf_try_module_get(ca, ca->owner))) {
-    +			bpf_module_put(icsk->icsk_ca_ops,
-    +				       icsk->icsk_ca_ops->owner);
-     			icsk->icsk_ca_dst_locked = tcp_ca_dst_locked(dst);
-     			WRITE_ONCE(icsk->icsk_ca_ops, ca);
-     			ca_got_dst = true;
-    @@ -514,10 +516,10 @@ void tcp_ca_openreq_child(struct sock *sk, const struct dst_entry *dst)
-     	}
-
-     	/* If no valid choice made yet, assign current system default ca. */
-    -	if (!ca_got_dst &&
-    -	    (!icsk->icsk_ca_setsockopt ||
-    -	     !bpf_try_module_get(icsk->icsk_ca_ops, icsk->icsk_ca_ops->owner)))
-    +	if (!ca_got_dst && !icsk->icsk_ca_setsockopt) {
-    +		bpf_module_put(icsk->icsk_ca_ops, icsk->icsk_ca_ops->owner);
-     		tcp_assign_congestion_control(sk);
-    +	}
-
-     	tcp_set_ca_state(sk, TCP_CA_Open);
-     }
-    @@ -590,6 +592,13 @@ struct sock *tcp_create_openreq_child(const struct sock *sk,
-     	newsk->sk_txhash = READ_ONCE(treq->txhash);
-     	newtp->total_retrans = req->num_retrans;
-
-    +	/* Hold the inherited CA until tcp_ca_openreq_child() makes the choice. */
-    +	if (!bpf_try_module_get(newicsk->icsk_ca_ops,
-    +				newicsk->icsk_ca_ops->owner)) {
-    +		WRITE_ONCE(newicsk->icsk_ca_ops, &tcp_reno);
-    +		newicsk->icsk_ca_setsockopt = 0;
-    +	}
-    +
-     	tcp_init_xmit_timers(newsk);
-     	WRITE_ONCE(newtp->write_seq, newtp->pushed_seq = treq->snt_isn + 1);
----
- net/ipv4/tcp_cong.c | 3 +++
- net/ipv4/tcp_ipv4.c | 5 ++++-
- 2 files changed, 7 insertions(+), 1 deletion(-)
-
-diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
-index e3f462f161dd..0f99405a78b1 100644
---- a/net/ipv4/tcp_cong.c
-+++ b/net/ipv4/tcp_cong.c
-@@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
- {
- 	struct inet_connection_sock *icsk = inet_csk(sk);
- 
-+	if (!icsk->icsk_ca_ops)
-+		return;
-+
- 	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
- 		icsk->icsk_ca_ops->release(sk);
- 	icsk->icsk_ca_initialized = 0;
-diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
-index f2a5c8f3bf9d..991fb249323e 100644
---- a/net/ipv4/tcp_ipv4.c
-+++ b/net/ipv4/tcp_ipv4.c
-@@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
- 	if (!dst) {
- 		dst = inet_csk_route_child_sock(sk, newsk, req);
- 		if (!dst)
--			goto put_and_exit;
-+			goto clear_ca_and_exit;
- 	} else {
- 		/* syncookie case : see end of cookie_v4_check() */
- 	}
-@@ -1790,6 +1790,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
- exit:
- 	tcp_listendrop(sk);
- 	return NULL;
-+clear_ca_and_exit:
-+	/* newsk holds no reference on the inherited CA yet. */
-+	inet_csk(newsk)->icsk_ca_ops = NULL;
- put_and_exit:
- 	newinet->inet_opt = NULL;
- 	inet_csk_prepare_forced_close(newsk);
--- 
-2.43.0
+Thanks,
+Leon
 
