@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495377;
-	b=lCbru9aSnqy1oq7+K4oxVR+2hNP0/c0urraG7vuGB4Qo3D3e8yjMHKTclEj6BHDjv/E4
-	 LYyEvhkTcKEiCxk45VLm6lnl9vf0/4fBsH/gnOYK0Plr66LFW6/M1RkahDlTRL8E6ks4g
-	 E1BotI3GUhKbBhdN1WbGYZuC9dqxY+8nGSKVWzCRrOB0vnnZRhmI4IdkKEDfRhcDSnU2H
-	 bw7tbTlEVamPtQCdGRQuj1DUKXZMbA6GXLO7/jQFABF81sfw3bJdxUVy7VtvVb+4kOUOm
-	 o5fyMn/StXXzJE1rU3oahj3GwUk/UBJCIPZClkVUBCo9gEBcD7zOalxXlmmiw6yN/xA==
+	t=1795495379;
+	b=NIcan/md/ooT9rLHQAm69+JNFhR/lL94vSen2NFMbgyYX9I+hiHORCdnktH7sN+igqiM
+	 MPzDnwjlRu/x5gO/3ejsry4ojpk9HI4GuTQDgGSjtf732elIiKruq7odLzZsmj9+lVCc8
+	 CFVqwZ+chHkogKvVD3e1KSyD26l2XelHb1EcuLFcKry3u8grdZILdCkZE7r/ZK5wTVgAa
+	 mj4d504808W3pLLm0sHfV06+NcFZ0cn4ZWLJPbzF/GaSYoQrz07uBsdTjxZPT0uCXm2aK
+	 0/cJanvwYes76zg+OdfZoKYaCCmxGtdkDR/o3ErS7huKPotN3dCTwXHezT52Dbopblw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495377;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495379;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=h3S16/5KPWtPB7WBVUH8p12gM2oBDsoLItSzaUNlh4Y=;
-	b=VVUndh4SHPKfULzrMXxtWzkMi2WVUT1b6JpHNpjVIGlK00HYKbwM9rtvfL2BWZbmMian
-	 yJ6gr5CgbuH3kwisYMTM+HECEbzU4yFsQaMDdJOfOABudN3Gh6L8QB0GltgRda7StFS9B
-	 hPBipndEiYdJnI0dRV2FEjDD8eiggYjx7+tju/VH39chBlrWWXB7od5myn7Fcg3uMQBbO
-	 BZj5MxcTwjAFFsQUNqnvvKxor0ZD4npJVNYcA+VHPS6/nMg5MBroETCOIP+Nthy2DLpGG
-	 Pm8DpzBUB18flEL+hTEO0QDbctxkaIO63UnG+LXWhKOb+EXjaIoSDaDAVDAJI3Deyzw==
+	bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
+	b=Qx2VFxvdyjrfdROUiYW5U0gOSMHjiaGzx/vaeeHbAGx2j+piQbiW5OuvjfMSyZ34ZDo9
+	 EKwdz7xuWyYbuddZuBKFdXygVvLedxqAke5QCSiC6cO1ec7xJaZawQx1pnGRSoB8sLFHu
+	 wvPuu2UWEY1NxQHQ8gpJQuRQBxksgsu1zjKlYj2JO+QKQnGifBVDM5mVoZElEvKrjJrDm
+	 7MiTermQmBlGnGrp0QcWOUEuO6JaUPDnDoAwyhuPv7ADv3wWEF12VhHx6PMPpBbxqtJRt
+	 pEDCliv2+3qk/s8qad2ZNi7XEWdS6Ias5KPdK9MqF9kuChDSW9zLHtJcDf0vuHrXQIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XCuIvvcz;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="fHU46/Kj";
+	arc=none smtp.remote-ip=74.125.82.175
+Received: from mail-dy1-f175.google.com (mail-dy1-f175.google.com [74.125.82.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51125606A6BD
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:42:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51125606A6BD
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59D8060A2606
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:42:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59D8060A2606
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XCuIvvcz
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386c336eab8so199217eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:42:57 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fHU46/Kj
+Received: by mail-dy1-f175.google.com with SMTP id 5a478bee46e88-386bd881d39so1268740eec.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:42:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795495376; x=1796100176; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795495378; x=1796100178; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=h3S16/5KPWtPB7WBVUH8p12gM2oBDsoLItSzaUNlh4Y=;
-        b=XCuIvvczz+YBWGfsc8wEBGkRO5bwumbAmEf80t21XdT61wC3/odiARaRnx8bgq+W+0
-         +BVhtQXFud0qm3F0zqmlZAKZ2ib9n1plrxA4K6fK0ifImFNRjj+KAFL1JWkQjYh3rcGY
-         E2mNngoLjHUSdGW5cFkS+/PmvCX+Ula3Mva9RcPEu77iqOB7glVZfsBte1IiXrGcnrKV
-         74PJGBNQ8GmOpk165KhFIECcAJRlAR4ososvLEoCNbeNynIoJqCoN0dHet2/+Aere4Vf
-         yOilQTB2T198uz3Tsx7N/cdRbasjXPjmoSubrkNad7sSABFtkQUPAJPXHDPAuLw01MgA
-         YQrA==
+        bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
+        b=fHU46/KjvpMZQYKPo4HLXNCfm0+Rfuf//E8ToI2q2vV9H9pD6U8dF4+urDo2CMQqLf
+         b/eqGVK38OW+/Equlc1s+NuCi4ALa6fmsLOBTLfmEHE6bLMrhvzsxAsyNiz3J8M0lxfy
+         MBQ3FNgiVSNCk1SriGBdltsvT/fL9xyPcwLdMKfugD0+BvoKwVRDkslAeSaTGvF2wD91
+         A1nKNrPdwk2wnN0CZTxWB4UrLgtJCLGnguhIyCnZbhQYYaEzPpfmM9T8sW4bX5OiSIJx
+         DyE1FAlWbCe/nNGa2api/palYm7VD3jbWhFT4w1uyGFCh23j7i1XJkoXfYTEGuTnc5GE
+         LCnQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795495376; x=1796100176;
+        d=1e100.net; s=20260707; t=1795495378; x=1796100178;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=h3S16/5KPWtPB7WBVUH8p12gM2oBDsoLItSzaUNlh4Y=;
-        b=WWMPZamw1Vv8mgFKmWIDTMNe7UFoagdbJz3XXcW4PphhYp+GZTNJ2pcJx5xouKoHZV
-         u54aQpU1/sgOYa97t0j6v0wZzxsQCOxp3wSyozVErpxvyqFcHOmBBXw4nkXgJImt6trD
-         FNpDEcjRy0maMeBeCZkxJNdbQe7IDbNnhw/f6PBfB7Eq5Sq9tA7kdmB2C3obgUQy+oKV
-         bsgefZ17FeOfcHUBOCXzTlVV4uKWcKyBAQcsxEa+TcjTcgyY1LJNZ18ipWONhqLNXkGv
-         EwRux9ImElP2fk84THFxJoitpZbBljr1fBEXSxv3o2Jpgju6RhaRjDiUHDUd0HqyFDNI
-         dF7A==
-X-Gm-Message-State: APuU4Z83yPNHvRUVY+eziMNfHpxoTE6hqWojdfqy/hF5srkhRXfN/6+y
-	xCNAS5+Lo9zKyfCXXyHhmOhvjKGUPLthPVkLPL/SEW57uZ7d9NvSUzDP
-X-Gm-Gg: AZFdTZcdVs3XvYiEDJ/TLk6ZOfI1KRoKbvGgP3uG3qm2NTpFldbH+nMIJYMDYTLQV8r
-	kdFY/ROEyj53tCykGvFcyznulIMtTjQYu2EYMVCf9Z0WsUz8y2TVXPVOcsPvFKis9ifMSEklEGv
-	CigeE3iuMNXRNTnyNhjyX+iEW8UA1r3rWOrgm4H02qwDoxWsBRpifGGzTAzBz/x68lwNz3aEaGN
-	RCsXEkBWwYuWfyXvblFLz2J+qrIGTk6b+aTWwDTaSiOX8BM7fEj3GPGez1ugOaQYrJGfcH7ILOz
-	yBEHZ1EcGlN5HL8N4oSdHNBx6J8hqlEtgY/7J/eFcu/B0RQOLsY29pksjphEeFjPyPCP5iHrRTs
-	1HQJT08nSPlwJxRlbw36ycTf7WicUehYYD1HN3hbXDHn+lbrW/5HwbFxqVuTZGHDYzxbOvQJL8k
-	i3L1cZew02bey1cdjpzRtqZ/nTawWboKmbGJ/mYudoenNLqcaRz5CI45iysMooeKk2KnBly3lnX
-	qHPa7EGu/uavH+7kh7lQPbmAuAO0n7tqF/eNocxMKSaDvBQZkDOv9k1F8BIfUyV1nr9OoUN/bp0
-	7J+t5BP3AeTlByFQh4ujByOKwjfleupw+1St00KdnAp818A1gq+sJ14pdOkmA7KLtmU+d68yWCk
-	n0rWdK0YqP0yVKxW4dwvMLj5d60tU4I0eGlvGQOTyYtPWfx4xf7ommYgz5og0Py6wHZnw7ryI
-X-Received: by 2002:a05:7301:d804:b0:386:b076:a940 with SMTP id 5a478bee46e88-386b076a9e4mr5229992eec.26.1795495376261;
-        Mon, 23 Nov 2026 20:42:56 -0800 (PST)
+        bh=mgb8NPEDQAhabDl9XbmMIsbZ+qr2JkyUbDG9DbSPShw=;
+        b=16DCF6m2y38NpaQNRqqYunHlIw+eC74clvXfOJWYrzFFudeVJSmy5U2FhyYKCGF6Qj
+         RBFpAiyPEPc+e9elepxhDs1hp0w5mLXOvKXLXDy9Za7HYzaHHGPwb7sh/ZQkcqYicAfK
+         RDDVmeLfeb8uc8U17e33Wg1ZC+2csuAg2nEJuKwug4nKFa8xo7xAwtRsOv8cbtnmKE/D
+         ZXNKBnQBXpoIvFxf35gAM/aKhR5PnOBU7gZwWCc7iFXuLnIlvXx5BTe1FQwLWwDLHm30
+         HCP3yH/s1G2jge2xgNLJZJ/jLyjLXWWaKOzxeAiB48QsUecYlNFpaO5BsIV+hqdlFo1N
+         MpLA==
+X-Gm-Message-State: APuU4Z9pBIwbWANxGoe4sKRTyniHPQnGSJ/4ebm63MCmktvWaPEqk+0V
+	GHLSnorJTWOuLRkCdKk6VrItNi/g/qlt5DOT32jLrcOWyp5cLVvTgMo9
+X-Gm-Gg: AZFdTZe5k6D+1o7PloeDW7qqBxhepnuyJ1igVIOQ11KE7jdCY3MoLRKOzZenXnqwO5a
+	N37Uv11vH2Yu/eRf9YKzPUSolvUWnS61KOm8geS4S7pYxZeZ5XszFZgJxXGD8wpwoXxZYlqp40X
+	J5Xx8OMDKK/8YE7mzUb61+1o5lR2w9fw5TKy0G3P8zkl+NmDDIpYnI6jN3olOqRBncDoyer9RT7
+	3oh0lKKwR7IPLIY6ZdZYFuAWUXeCFKctA77u49+18DZsq1OT9YzTFQGgDArkV8YFS0tEBi98/Gy
+	XLun9/m0Xwlp8PyPeX1Y7nUMG3NIjaAr4C/Vi3KLtW6OdhB7WSEoZyvibvERiD2S0L63yFWxHiR
+	2cyzOB+zAuWffhoFip8JEQHmOi2ZfgEdCBKVYL3kQUW3Am9eaM//fZaecqWd11yHtqq+dKSqp8A
+	/B3xTh8WPagZ/6sVAGaYsBin+/oZGX0Ra5AlOCa7iAjuoGXNMm2gLhUhNdl+3RagANgS6RaNOn3
+	ma8eXxapDud+o5ZWzqCPqSSSovr+cwJRBGQ+733QGcoUPtXk6wPOruI4urAkpoHpZk0/CoT+kv8
+	EAkaZdSkxWcz8wMSUrL7LgULxQr8MCXS11xDb5XoTkzmhSe43OODv3QqM/tdeakU0RiA7GlgmYs
+	GOfoCFKIJDyG948tvyQERKxHmUxC7uvflP3MYTheJ1jFdvDrQiJkhSLS5GINJJ3b3D7rIo2VN
+X-Received: by 2002:a05:693c:8083:b0:376:6530:248f with SMTP id 5a478bee46e88-38570a3717dmr16070179eec.24.1795495378467;
+        Mon, 23 Nov 2026 20:42:58 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm40108125eec.23.2026.11.23.20.42.54
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385672c6f31sm39913328eec.15.2026.11.23.20.42.57
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 20:42:55 -0800 (PST)
+        Mon, 23 Nov 2026 20:42:57 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev-bot+sashiko@kernel.org
 Cc: netdev@vger.kernel.org,
@@ -93,11 +93,11 @@ Cc: netdev@vger.kernel.org,
 	rmk+kernel@armlinux.org.uk,
 	vadim.fedorenko@linux.dev,
 	vladimir.oltean@nxp.com
-Subject: Re: [PATCH net v4 1/5] ptp: disable all timestamp channels after removing the user interfaces
-Date: Mon, 23 Nov 2026 20:42:54 -0800
-Message-ID: <20261123-timecard-common-v5-d669cfa034-r1-ahmadexp@gmail.com>
-In-Reply-To: <179548551283.3135.17206659598806657887@kernel.org>
-References: <20261122-timecard-common-v4-e0db4ab1aa-1-ahmadexp@gmail.com> <179548551283.3135.17206659598806657887@kernel.org>
+Subject: Re: [PATCH net v4 3/5] ptp: ocp: preserve disabled SMA inputs across driver rebind
+Date: Mon, 23 Nov 2026 20:42:56 -0800
+Message-ID: <20261123-timecard-common-v5-d669cfa034-r2-ahmadexp@gmail.com>
+In-Reply-To: <179548551472.3135.11972018356692852897@kernel.org>
+References: <20261122-timecard-common-v4-e0db4ab1aa-3-ahmadexp@gmail.com> <179548551472.3135.11972018356692852897@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,92 +110,69 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On Tue, 24 Nov 2026 at 01:58:32 +0000, netdev-bot+sashiko@kernel.org wrote:
-> [Severity: Medium]
-> Can a disable that finds the map already empty now undo a concurrent
-> enable at runtime?
+On Tue, 24 Nov 2026 at 01:58:34 +0000, netdev-bot+sashiko@kernel.org wrote:
+> [Severity: Low]
+> Does the ADVA X1 part of this description still hold for the tree this
+> patch applies to?
 >
-> Nothing serializes the callers of ptp_ocp_ts_enable():
->
->   - extts_enable_store() in drivers/ptp/ptp_sysfs.c calls ops->enable()
->     without taking ptp->pincfg_mux.
->   - ptp_extts_request() and ptp_enable_pps() in ptp_chardev.c call it
->     under pincfg_mux.
->   - ptp_ocp_enable() sends both PTP_CLK_REQ_PPS and PTP_CLK_REQ_EXTTS
->     index 5 to bp->pps, and takes no driver lock.
+> The previous patch in this series, "ptp: ocp: handle hardware selectors
+> and combined DPLL input routes", changed ptp_ocp_dpll_frequency_get().
+> An input that fails the exact match now falls through to the
+> combined-destination loop instead of returning -EINVAL:
 
-You're right. V4 addressed final shutdown but left the runtime callers
-unserialized. The reported schedule reproduces with the actual v4
-functions and stubbed registers: the map ends at OCP_REQ_PPS while both
-enable and intr_mask are zero.
+No. Thank you for catching the inaccurate incremental description. After
+the combined-input patch, a disabled X1 input with raw selector zero
+already reads as zero Hz and can be re-enabled through the DPLL core.
+The explicit SMA_DISABLE substitution has no additional visible effect
+for that X1 case. Its effect is on FB/ADVA, where zero otherwise matches
+10 MHz. X1 separately benefits from recovering disabled state on rebind.
 
-The v5 series adds a prerequisite taking pincfg_mux around the enable
-callback in extts_enable_store(), pps_enable_store() and period_store().
-The latter two also lacked the lock. This uses the same mutex as the
-ioctl paths and permits synchronize_irq() to sleep. Permission and parse
-checks remain outside the critical section; callback errors and an
-interrupted lock acquisition are propagated.
-
-Four controlled sysfs/ioctl interleavings passed in 100 ASan/UBSan runs.
-The final map and hardware enable/mask agree. Three additional local
-KUnit cases call the real sysfs stores against a registered test clock
-while pincfg_mux is held, then verify completion after release. All
-eight KUnit cases passed in QEMU with KASAN, lockdep and
-DEBUG_ATOMIC_SLEEP. No physical OCP card was used.
-
-> With either one in place, the original shortcut would still be correct
-> and this change would not be needed.
-
-That removes the runtime-race justification for changing the shortcut.
-I corrected the message accordingly. The series retains the final
-empty-map disable for a separate reason: ptp_ocp_register_ext() requests
-the IRQ without resetting the timestamp source, so an empty software
-subscription map is not proof that the initial hardware state is idle.
-The final disable still masks and drains that source before releasing
-the clock. The test explicitly models a prearmed source with map == 0;
-it no longer simulates a sysfs callback bypassing the now-held mutex.
-This is a modeled state, not an observation on physical hardware.
+The v5 series says this explicitly. A boundary test runs the actual X1
+getter and DPLL core get-before-set path after the combined-input patch
+but before either disabled-state patch. It passes disabled-to-PPS
+re-enable and output-to-input direction-change recovery on all four
+pins. These are source-derived tests with stubbed MMIO, not hardware
+observations.
 
 > [Severity: Low]
-> Can this loop change the hardware pin direction on sja1105 during
-> teardown?
+> Should this also have a Fixes: tag for b2c4f0ac53f3 ("ptp: ocp: Add
+> ability to disable input selectors.")?
 >
-> The commit message says "Keep the pin configuration unchanged". However,
-> sja1105 registers n_pins=1, n_ext_ts=1 and n_per_out=1, and EXTTS and
-> PEROUT share the single PTP_CLK pin. Its EXTTS handler switches the pin
-> function whatever the value of on:
+> The init-time recovery in ptp_ocp_sma_fb_init() fixes a lost disabled
+> state that goes back to that commit. It added the software-only
+> sma->disabled flag and the SMA_DISABLE substitution in
+> ptp_ocp_sma_show(). It also added this write in ptp_ocp_sma_store_val(),
+> which clears the SMA_ENABLE bit:
 
-Yes, and that side effect was not intended. A second prerequisite makes
-sja1105_extts_enable() select EXTTS only when enabling capture. Disable
-clears extts_enabled and synchronously deletes the timer without changing
-cas_master or attempting the AVB_PARAMS write. Repeated disable is safe,
-and the enable/error paths are retained.
+Yes. I split the old patch into two independently described changes:
 
-The actual-function test reproduces the output-to-input change on v4.
-The correction passes 14 modeled chip/direction cases per run, repeated
-100 times, including repeated disable and enable/error paths. The writes
-are stubbed: this is not an SJA1105/SJA1110 hardware test. All four
-x86_64/i386 allmodconfig/allyesconfig builds passed for PTP and the
-SJA1105 PTP object with W=1 and KCFLAGS=-Werror.
+  v5 patch 5: recover disabled state at bind, with
+    Fixes: b2c4f0ac53f3 ("ptp: ocp: Add ability to disable input selectors.")
 
-Vadim's teardown approach remains unchanged: remove the user interfaces,
-then directly disable every advertised EXTTS channel followed by PPS.
-No pin assignment, pin-function helper misuse, new stopping flag or
-spinlock is introduced. The removal/shared-PPS suite passed 100 runs,
-and all seven deliberately broken cleanup variants failed at runtime.
+  v5 patch 6: report disabled inputs as zero Hz through DPLL, with
+    Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 
-I have sent v5 for review. The v4 series should not be applied as-is.
-Thank you for identifying both gaps.
+Patch 5 contains only the initialization hunk, with no DPLL dependency.
+It applies independently to the current net base. The base reproduces
+the lost state, and that patch alone passes 243 modeled FB/ADVA/X1
+initialization states without calling DPLL or writing the mux. Backports
+to older trees may still need context/name adjustments.
+
+The complete series also passes the rebind plus DPLL re-enable tests,
+4,669 input-route combinations, ART and DCF frequency tests, and nine
+deliberately broken routing variants are rejected by runtime assertions.
+No physical rebind was performed. Vadim's Reviewed-by remains only on
+the unchanged DCF correction; I have not carried it onto changed patches.
+
+I have sent the eight-patch v5 series to net for review.
 
 Series:
 https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com
-Patch 1:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-1-ahmadexp@gmail.com
-Patch 2:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com
-Patch 3:
-https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-3-ahmadexp@gmail.com
+Patch 4:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-4-ahmadexp@gmail.com
+Patch 5:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-5-ahmadexp@gmail.com
+Patch 6:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-6-ahmadexp@gmail.com
 
 Ahmad
-
-pw-bot: cr
