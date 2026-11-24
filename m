@@ -1,60 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538760;
-	b=RfIw3TUNEOsYFAi9wlvN9o8UjLlsSxjD2WWAE0gvR4p7A/o9okw9zhuNSB0+704T2CRd
-	 d+AOYP+V31g0RHTfTHbRs0CayMDnT71AyheMQZLFyuxnZBXzDsEYtxfOyRLdfVc4ESwnS
-	 +DLyGYU2WTw20uUEZDt7LI0bqK0rPboT+lr3UW9+YyLmT7sh+F1etmQ/eAbQY21Ifl6Ed
-	 2SN02fsXygGMyfGmeD2QmNKME0/P6E3sSYgSUyweX1mNWQ7FxsRVFONTwnAZ3Z4iIBr+4
-	 QbklLMjMCaAXJ3EfS6YFIQssUL8fxVnyOHJ5w3yEkdMypff4p60BJFPQi6+cbZk3ymg==
+	t=1795538778;
+	b=Wt/Mue5GHTVicdCGekhiVsk+rIQjDz2Jqlx862ci60KsxfOuiaEil46cJTZTLUFxDNPT
+	 IJ9HUF/HdrgSbFp+sJK0YHsV8IVOQSHvWHzD1c7+MIlKADsTwMHcGTOGMrfuG1GCH2HsS
+	 LaKKFxGjb12tRPvk+Y5M9zsXDhofkJ0w/kNm/n4IXT+85OHe/fq2S0jWJM5c/O3z4f8gS
+	 wybBSuKKWqt8ETg325iLcGb8wghM4IYuPSlt8UzHTphRLG9v0zj5+20o28b9hqvtkwMOi
+	 KnybumBNmT8b4EKVUx9YBzRB1s1gIal8MBq11lzf84LLUJtJZY9hlvej2fUWYV1IIjA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538760;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Last-TLS-Session-Version;
-	bh=jf4+4xvIIO97g9s8IeoqmmeYjHC9UCpDD24sdyu5G+s=;
-	b=wQ0ij9C45PqXebkw49j1X5FFxbIwRtTpcPC7WcqmYYeacf2DZzIwLXCbW3bxjVAEED0T
-	 ToXRfQuwug2iir2po6RUUiWRBDmOyKKjjs53nXbCVlQjxFnW4StX14+v6wFwFpNTrQp6p
-	 yPHvYmie+25YwMHJw4o7RhBSP8+W9WwxWg6cwMqaSlOyBoi+E/t2V7olOuPNOnGOdR5ud
-	 TuJnUv7pdu1a1MHQao4ksEEI33cy3DHUVwPw/qXaRLsR7JSPXq8eXTuXLHkmZHZMaR1br
-	 8yJveCcHp6qZC+B4v0tTvAxvSqOEnXKfiz+ZPHK34oeoyNyKcPHr6dXGHb6tMqlwORA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538778;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
+	b=T8NdhgtGd0eWLBnBug7y6AoiSzJQuHCfHbyMehameWyibT2DhgNa61LpxlZJ0iB1+Uw5
+	 Altf8VpogFEtI6HohQTNS3ruxbyXiWt9eiucqkHgyCt2mtE4hdCFiSLrcvKgi7uuRvYcC
+	 IMFnNNmBClTGISzFO/WDAQTvYUFHlR8MinAe9BXfY8a8xkAfOlH7T0q5HolG46SIGI1cO
+	 0K+C5GU+UAUdBgLaASAVZpdaaXJ7skkk1b+XCMceTBtaBqrtlDhHlOSBR7A7Vtc7S+mZd
+	 9zu4MVTysidg8/XWtyo5Kwrgb0AvJlxuvjDXjIZoQZVH/DyyyjGkJfMTSlk+yxPJ42Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bsaTiENi;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06CE0606A323
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:46:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06CE0606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5076606A321;
+	Tue, 24 Nov 2026 16:46:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=bsaTiENi
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 5327AC2C66D;
-	Tue, 24 Nov 2026 16:46:06 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id CE5F5601E1;
-	Tue, 24 Nov 2026 16:45:58 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 44E6B11E69A5A;
-	Tue, 24 Nov 2026 17:45:52 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795538757; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=jf4+4xvIIO97g9s8IeoqmmeYjHC9UCpDD24sdyu5G+s=;
-	b=bsaTiENih1keLeQBZKZG44bIXhhevDYJxvJLS2BZahhEdP+DG56VJWTW1wRy78O5iVCWAh
-	1moyEhtyHJ0uf4L9t10mdRAmDVncZ+sfCAIyc9Y/3+/Wek16rn+xICIHwPmv4ytCs3xT9Z
-	uC3Gs1aHqlQ9Paav+sUufhC9qeOgzlvWdbPXvYGpgDldch7sVhRRO0EZLFCdZViSg/sI1x
-	PRHRoU88ZPNQ9KoRcQsgS4pgR1H90o4LznlsXg9B1VFA1ye79c7CA27EgZYXC21SPaPZP6
-	dFfTVBC1SImchZS8nywUxNrnyTUQkw2tIKEk6QtrG63kInpphn+Y1iPovwQ7YA==
-From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-Date: Tue, 24 Nov 2026 17:45:22 +0100
-Subject: [PATCH net-next v8 3/3] net: macb: distribute evenly Tx SRAM
- segments
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BMaxAH7m
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CCA1F000D1;
+	Tue, 24 Nov 2026 16:46:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795538778;
+	bh=66yLjLF09no/CGggODWw/UNlLt5dwM1C2hA7f/88NZE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=BMaxAH7m0fFWfiFx4/Wk2I1BVUzKTw3nqggjWxQ7oB52l0+GE1njFSsJtFQbGUbaI
+	 ZKH9WXB+PXzpSZsc2LO+SvxYj8kUvtACPrSpkJhbEsQjItQcTMSZlljF89lET8+q4i
+	 9wDP3A1cWMj4UnxJW9JFwErcg6VHA7hTwsFwFaIV+mq9p82O5DscIHm4uNfPxz5TSv
+	 JdwoMrAGvX5JxeVjlT/s2dpuo9z3fh/tE0fmYmg0qCGWBDXmPFAM5f93m7RK7bVx69
+	 Ew9sUlAt/vfgaXGo+Ktq1otOa78OkrnrUhNESS4C8yN/hnp48GsJxoqXiqQdos0amD
+	 ogwLX7yjHtSSg==
+Subject: Re: [PATCH net-next v2] net: xilinx: axienet: Derive RX frame length
+ from residue in dmaengine path
+From: netdev-bot+sashiko@kernel.org
+To: srinivas.neeli@amd.com
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, michal.simek@amd.com,
+ horms@kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ git@amd.com
+Date: Tue, 24 Nov 2026 16:46:16 +0000
+Message-ID: <179553877690.3135.3125454257939180385@kernel.org>
+In-Reply-To: <20261123164251.48234-1-srinivas.neeli@amd.com>
+References: <20261123164251.48234-1-srinivas.neeli@amd.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,218 +65,172 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20261124-macb-set-channels-v8-3-770cf8e50e6d@bootlin.com>
-References: <20261124-macb-set-channels-v8-0-770cf8e50e6d@bootlin.com>
-In-Reply-To: <20261124-macb-set-channels-v8-0-770cf8e50e6d@bootlin.com>
-To: Conor Dooley <conor.dooley@microchip.com>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Nicolai Buchwitz <nb@tipi-net.de>, Paolo Valerio <pvalerio@redhat.com>, 
- Vladimir Kondratiev <vladimir.kondratiev@mobileye.com>, 
- Gregory CLEMENT <gregory.clement@bootlin.com>, 
- =?utf-8?q?Beno=C3=AEt_Monin?= <benoit.monin@bootlin.com>, 
- Tawfik Bayouk <tawfik.bayouk@mobileye.com>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Vineeth Karumanchi <vineeth.karumanchi@amd.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
-X-Mailer: b4 0.16.0
-X-Last-TLS-Session-Version: TLSv1.3
 
-GEM has registers to configure the Tx SRAM segments distribution across
-active queues. The reset value is appropriate (even spread) but we need
-to care if/when number of active queues is modified (or if we inherited
-unevenly initialised hardware from bootloader).
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-To distribute segments, we take as input the number of queues (current
-context num_queues) and the number of segments (found inside DCFG6).
-Its output is a number of segments for each queue, formatted as
-powers-of-two. For example, 2 for queue 0 means it has 2^2=4 segments.
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
-We define register offset GEM_TXQSEGALLOC_UPPER which is never used.
-It shall be used when an IP supports >8 number of queues.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Note that the manual mentions explicitly that only active queues are
-taken into account. So when we write 0x1 in TXQSEGALLOC and a single
-queue is active, this means we assign (1<<1) == 2 segments to the
-first (active) queue and none on the others.
+- [Medium] The commit message says the residue-based length is "correct
+  across all designs, including multi-descriptor frames".
+- [Medium] The commit message says that summing the residue over the
+  chain gives the correct length for multi-descriptor frames.
+- [Low] This patch fixes a real, user-visible RX failure in the dmaengine
+  path of axienet_dma_rx_cb()…
 
-Signed-off-by: Théo Lebrun <theo.lebrun@bootlin.com>
----
- drivers/net/ethernet/cadence/macb.h      | 14 ++++++
- drivers/net/ethernet/cadence/macb_main.c | 73 +++++++++++++++++++++++++++++++-
- 2 files changed, 85 insertions(+), 2 deletions(-)
+--
 
-diff --git a/drivers/net/ethernet/cadence/macb.h b/drivers/net/ethernet/cadence/macb.h
-index d60b06e41b83..f8335b9fd129 100644
---- a/drivers/net/ethernet/cadence/macb.h
-+++ b/drivers/net/ethernet/cadence/macb.h
-@@ -194,6 +194,10 @@
- /* Screener Type 2 match registers */
- #define GEM_SCRT2		0x540
- 
-+/* Tx queue segment allocation */
-+#define GEM_TXQSEGALLOC_LOWER	0x05A0
-+#define GEM_TXQSEGALLOC_UPPER	0x05A4
-+
- /* EtherType registers */
- #define GEM_ETHT		0x06E0
- 
-@@ -545,6 +549,8 @@
- #define GEM_PBUF_CUTTHRU_SIZE			1
- #define GEM_DAW64_OFFSET			23
- #define GEM_DAW64_SIZE				1
-+#define GEM_SEGMENTS_BIT_SIZE_OFFSET		16
-+#define GEM_SEGMENTS_BIT_SIZE_SIZE		4
- 
- /* Bitfields in DCFG8. */
- #define GEM_T1SCR_OFFSET			24
-@@ -657,6 +663,13 @@
- #define GEM_CMPCEN_OFFSET			30 /* Compare C Enable */
- #define GEM_CMPCEN_SIZE				1
- 
-+/* Bitfields in TXQSEGALLOC (Q0 at 2:0, Q1 at 6:4, etc.) */
-+#define GEM_TXQSEGALLOC_MASK(q_) \
-+	({ \
-+		typeof(q_) q__ = (q_); \
-+		GENMASK(4 * (q__) + 2, 4 * (q__)); \
-+	})
-+
- /* Bitfields in ETHT */
- #define GEM_ETHTCMP_OFFSET			0 /* EtherType compare value */
- #define GEM_ETHTCMP_SIZE			16
-@@ -785,6 +798,7 @@
- #define MACB_CAPS_USRIO_HAS_MII			BIT(26)
- #define MACB_CAPS_USRIO_HAS_REFCLK_SOURCE	BIT(27)
- #define MACB_CAPS_USRIO_HAS_TSUCLK_SOURCE	BIT(28)
-+#define MACB_CAPS_TXQSEGALLOC			BIT(29)
- 
- /* LSO settings */
- #define MACB_LSO_UFO_ENABLE			0x01
-diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-index bcf77b276344..b939a1391273 100644
---- a/drivers/net/ethernet/cadence/macb_main.c
-+++ b/drivers/net/ethernet/cadence/macb_main.c
-@@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
- 	}
- }
- 
-+/*
-+ * Distribute evenly available segments across active queues. The computation
-+ * is complex because (1) segments are counted in powers of two and (2) a queue
-+ * can only use up to 128 segments. There are four types of cases:
-+ *  - Sharing all segments equally is doable. Take num_queues=4 and
-+ *    num_segments=16. Each queue will get 2^2=4 segments.
-+ *  - Sharing all segments is doable. Take num_queues=5 and num_segments=16.
-+ *    Three queues will get 2^2=4 segments and two will get 2^1=2 segments.
-+ *  - Sharing all segments is not doable because not enough queues are
-+ *    available. Take num_queues=1 and num_segments=256; queue 0 can only
-+ *    have 128 segments.
-+ *  - Sharing all segments is not doable because not enough segments are
-+ *    available. Take num_queues=4 and num_segments=2.
-+ *
-+ * We start by computing the power each queue will have. For num_queues=5 and
-+ * num_segments=16, each queue will have at least 2^1 segments. That leaves us
-+ * with remaining_segments=6. If we increase the power for a queue, we get a
-+ * delta of 2 (2^2-2^1). The first three queues will therefore be advantaged
-+ * and each have 2^2 segments. The remaining 2 queues will only have 2^1
-+ * segments.
-+ */
-+static void gem_sram_distribute_segments(struct macb *bp)
-+{
-+	unsigned int num_segments, pow, remaining_segments, i;
-+	unsigned int num_queues = bp->ctx->num_queues;
-+	unsigned int num_advantaged_queues = 0;
-+	u32 val = 0;
-+
-+	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
-+		return;
-+
-+	num_segments = 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG6));
-+
-+	/* When growing the max # of queues, make sure to write into
-+	 * TXQSEGALLOC_UPPER too.
-+	 */
-+	static_assert(MACB_MAX_QUEUES == 8);
-+
-+	/* pow=0 for all queues. ilog2(0) is dangerous. */
-+	if (num_queues >= num_segments)
-+		goto writel;
-+
-+	pow = min_t(unsigned int, ilog2(num_segments / num_queues), 7);
-+	remaining_segments = num_segments - num_queues * (1U << pow);
-+
-+	/* We can only distribute remaining segments if (1) there are remaining
-+	 * segments and (2) we did not reach the max segments per queue (2^7).
-+	 */
-+	if (remaining_segments != 0 && pow != 7) {
-+		unsigned int delta = (1U << (pow + 1)) - (1U << pow);
-+
-+		num_advantaged_queues = remaining_segments / delta;
-+	}
-+
-+	for (i = 0; i < num_advantaged_queues; i++)
-+		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow + 1);
-+	for (i = num_advantaged_queues; i < num_queues; i++)
-+		val |= field_prep(GEM_TXQSEGALLOC_MASK(i), pow);
-+
-+writel:
-+	gem_writel(bp, TXQSEGALLOC_LOWER, val);
-+}
-+
- /* Configure the receive DMA engine
-  * - use the correct receive buffer size
-  * - set best burst length for DMA operations
-@@ -3452,6 +3515,8 @@ static void macb_context_swap_end(struct macb *bp,
- 	/* Re-arm normal interrupt processing before enabling IRQs. */
- 	bp->irq_quiesced = false;
- 
-+	gem_sram_distribute_segments(bp);
-+
- 	macb_configure_dma(bp);
- 
- 	if (bp->link_up) {
-@@ -3519,6 +3584,8 @@ static void macb_init_hw(struct macb *bp)
- 	if (bp->caps & MACB_CAPS_JUMBO)
- 		bp->rx_frm_len_mask = MACB_RX_JFRMLEN_MASK;
- 
-+	gem_sram_distribute_segments(bp);
-+
- 	macb_configure_dma(bp);
- 
- 	/* Enable RX partial store and forward and set watermark */
-@@ -6228,6 +6295,7 @@ static const struct macb_config zynqmp_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE |
- 		MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
-+		MACB_CAPS_TXQSEGALLOC |
- 		MACB_CAPS_USRIO_HAS_MII,
- 	.dma_burst_length = 16,
- 	.init = init_reset_optional,
-@@ -6295,7 +6363,7 @@ static const struct macb_config versal_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_BD_RD_PREFETCH |
- 		MACB_CAPS_NEED_TSUCLK | MACB_CAPS_QUEUE_DISABLE |
--		MACB_CAPS_QBV |
-+		MACB_CAPS_QBV | MACB_CAPS_TXQSEGALLOC |
- 		MACB_CAPS_USRIO_HAS_MII,
- 	.dma_burst_length = 16,
- 	.init = init_reset_optional,
-@@ -6306,7 +6374,8 @@ static const struct macb_config versal_config = {
- static const struct macb_config eyeq5_config = {
- 	.caps = MACB_CAPS_GIGABIT_MODE_AVAILABLE | MACB_CAPS_JUMBO |
- 		MACB_CAPS_GEM_HAS_PTP | MACB_CAPS_QUEUE_DISABLE |
--		MACB_CAPS_NO_LSO | MACB_CAPS_EEE | MACB_CAPS_QBV,
-+		MACB_CAPS_NO_LSO | MACB_CAPS_EEE | MACB_CAPS_QBV |
-+		MACB_CAPS_TXQSEGALLOC,
- 	.dma_burst_length = 16,
- 	.init = eyeq5_init,
- 	.jumbo_max_len = 10240,
+net: xilinx: axienet: Derive RX frame length from residue in dmaengine path
+
+This commit changes axienet_dma_rx_cb() so that the dmaengine RX path
+computes the received frame length as the posted buffer length minus
+result->residue. Previously the length came from the APP4 descriptor
+metadata word. It also detects failed transfers through
+dmaengine_result.result and removes the unused LEN_APP macro.
+
+> diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> index 7e83c4b5f1931..5b4998e2ca148 100644
+> --- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+> +++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
+
+[ ... ]
+
+> @@ -1219,30 +1218,27 @@ axienet_start_xmit(struct sk_buff *skb, struct net_device *ndev)
+>  static void axienet_dma_rx_cb(void *data, const struct dmaengine_result *result)
+>  {
+
+[ ... ]
+
+> -	/* TODO: Derive app word index programmatically */
+> -	rx_len = (app_metadata[LEN_APP] & 0xFFFF);
+> +	/* Actual length = posted buffer length - residue. */
+> +	rx_len = lp->max_frm_size - result->residue;
+
+[Severity: Low]
+This fixes a receive failure that users can see. Should it carry a Fixes:
+tag and go through net rather than net-next?
+
+The line being replaced came in with commit 6a91b846af85 ("net: axienet:
+Introduce dmaengine support"). On designs without the status/control
+stream, the old code had two failure modes.
+
+If the channel has no metadata_ops, dmaengine_desc_get_metadata_ptr()
+returns ERR_PTR(-ENOTSUPP) and every frame is dropped here:
+
+	if (IS_ERR(app_metadata)) {
+		...
+		dev_kfree_skb_any(skb);
+		lp->ndev->stats.rx_dropped++;
+		goto rx_submit;
+	}
+
+Before commit 8bbceba7dc5090, that ERR_PTR was dereferenced instead.
+
+If metadata_ops is present but the status stream is absent, the invalid
+APP4 value is passed straight to skb_put().
+
+The stable trees that carry the dmaengine RX path won't pick this up unless
+it has something like:
+
+Fixes: 6a91b846af85 ("net: axienet: Introduce dmaengine support")
+
+>  	skb_put(skb, rx_len);
+>  	skb->protocol = eth_type_trans(skb, lp->ndev);
+
+[Severity: Medium]
+The commit message says the residue-based length is "correct across all
+designs, including multi-descriptor frames where the residue is summed over
+the chain". Does that hold for a frame longer than one posted RX buffer?
+
+axienet_rx_submit_desc() posts each skb as its own dmaengine descriptor
+with a single sg entry:
+
+	sg_dma_len(skbuf_dma->sgl) = lp->max_frm_size;
+	dma_rx_desc = dmaengine_prep_slave_sg(lp->rx_chan, skbuf_dma->sgl,
+					      1, DMA_DEV_TO_MEM,
+
+xilinx_dma_get_residue() only sums the segments of that one descriptor:
+
+	residue += (axidma_hw->control & chan->xdev->max_buffer_len) -
+		   (axidma_hw->status & chan->xdev->max_buffer_len);
+
+So the residue is never summed across the several descriptors that make up
+one frame.
+
+When the MTU is above 1500, axienet_device_reset() sets max_frm_size to
+mtu + VLAN_ETH_HLEN + XAE_TRL_SIZE and enables XAE_OPTION_JUMBO. No maximum
+receive frame length is programmed into the MAC.
+
+If the MAC then accepts frames longer than max_frm_size, any L2 peer can
+send one. For example, a double-tagged frame at MTU size is mtu + 26 bytes.
+AXI DMA S2MM fills the current BD without EOF and continues into the next
+BD, which belongs to the next descriptor and the next skb:
+
+  first callback:  residue == 0, so a truncated max_frm_size frame is
+                   passed to __netif_rx()
+  second callback: rx_len == remainder, so eth_type_trans() parses bytes
+                   from the sender's payload as a new Ethernet header
+
+Could a remote peer use this to inject a frame with its own choice of MAC
+addresses, ethertype and VLAN tag, getting past hardware MAC filtering and
+VLAN separation?
+
+If the remainder is shorter than ETH_HLEN, eth_skb_pull_mac() silently
+fails and the short skb is still passed up the stack.
+
+axienet_dma_rx_cb() never checks XAXIDMA_BD_STS_RXSOF_MASK or
+XAXIDMA_BD_STS_RXEOF_MASK, and dmaengine_result does not carry them.
+
+The missing SOF/EOF handling predates this patch. Before it, APP4 on the
+EOF BD held the full frame length, so skb_put() hit skb_over_panic(). With
+this change the same input instead becomes silent frame splitting.
+
+Should buffers that don't carry both SOF and EOF be dropped? Alternatively,
+could the MAC's accepted frame size be limited to max_frm_size?
+
+[Severity: Medium]
+A related case can happen inside a single descriptor. Is the summed
+residue still correct when the dmaengine provider splits the single RX sg
+into several BDs?
+
+xilinx_dma_prep_slave_sg() caps each hardware BD at xdev->max_buffer_len
+through xilinx_dma_calc_copysize(). max_buffer_len comes from
+xlnx,sg-length-width, which can be 8 to 26 bits.
+
+Nothing in axienet checks lp->max_frm_size against that per-BD limit. Two
+examples where one descriptor ends up with several BDs:
+
+  width 13 (8191) with MTU 9000 (max_frm_size 9022)
+  width 10 (1023) with the default 1522 byte max_frm_size
+
+AXI DMA S2MM ends a BD at TLAST and starts each packet in a new BD. The
+legacy axienet_rx_poll() relies on the same behaviour.
+xilinx_dma_complete_descriptor() only checks the last segment:
+
+	if (!(seg->hw.status & XILINX_DMA_BD_COMP_MASK) && chan->has_sg)
+		break;
+
+With a frame A shorter than BD0, the sequence would be:
+
+  frame A lands in BD0, and the descriptor stays pending
+  frame B lands in BD1, which is the same skb at offset BD0-size
+  BD1 completes, and the residue sum gives rx_len = len(A) + len(B)
+
+Would axienet_dma_rx_cb() then deliver frame A followed by len(B) bytes of
+stale buffer data, and lose frame B? If B is longer than BD1, it spills
+into the next descriptor as described above.
+
+The old APP4 method was also wrong here, because it reported B's length
+from the last BD. However, the commit message explicitly says the
+summed-residue case is handled correctly.
+
+>  	skb->ip_summed = CHECKSUM_NONE;
 
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123164251.48234-1-srinivas.neeli%40amd.com
