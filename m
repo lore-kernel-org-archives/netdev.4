@@ -1,97 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540278;
-	b=F7Tu7WuSv0KCqO5/qHJZIihIScg4tl3mwbOehXRJk4Nc5UmAwMGWoNVNtMfhNzNjcK73
-	 lYFGaTDGc1+KOYNESWgCPEgT4fpFi2PLHehr2vgx+zCEGdsAiA7mJ2f6TLCOp1kJP0oWL
-	 NpzWyfUXZptFscUEW63Z17i3GY/N6DRLPC+Msm1EMhEeWWdC/SQC563HI19bIOdlmJkeL
-	 /d12qhjYuZEvE83L3HK5Npiyw4xw1VZXSWIr/g8Stg5CG+jlQ/3RMnVT1QFpw0RKIE7QM
-	 EfJgf4kAP/0LYTpvumCGym3cvAGk8g5XP9UMJnu0VMaGwz5Z/yIXWTAV+MoG6i+vtBA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540278;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Ke4DMY/5oHPgUmAeqSFagfiX14Vkl9nfeTs1w7gvuG8=;
-	b=Z5mLOHr88UQ44NbvfHbx009oKY26O108FHrGInY/ltr6hXfaOM4Q80nbp1BVso7xpJgZ
-	 c02SZh6sFnIZtOlwsHSZsXBpVDKlLUqTmPbKBrLuuLxAdL72bNXpTt59iU4e3L/5DQkjf
-	 MOBpv6yvBMu7X8qa63XgUtGh7lq2LlirTa8vvt60q/r+TXDqUOJkM90oIcTzI1vAfPbHF
-	 Nevr9RHU9Q1zsWJPY5DAznx9drF/sNhzz+W3aaUERpGb5ufNwU4S4IjRh2iQoO4l28tK9
-	 deXl9zGDjwkr24yw+OmEXUBqd9L/+QYQkUjgPAHXhUqkxEj+jdFIWmjaAgme7MQ3xeg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=aKkNx6z8;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=23.88.97.239
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795540454;
+	b=VxkY3Zstq1j57OyUfF7gw9Lt9dxMttPIgdLhMgC/f54ZaiyR+1OnIvTsyg4cHoxRx8ZX
+	 5zkmP69Z+VTKDgMCZn9I9GOxs5AMtIW80xpFb5sCynCWP/OpDZCWXk0XVNyTm/iadMPHa
+	 SIzI03V4zoPM7BhWRMjU3Satotwhz4sAV3j7hBXoBWtHqu/bHFeRFn8eo5BQI59YWV7Uv
+	 Kn4wKS0chjVbEbfKc2ARFz5VRjb9buLheCq1SniiNxKD/rL2JRbXg9eWC9Pb+5cmPN9Xl
+	 KmYBLRXmkpc1vfdhT2rZfxXJqLaaYDJEPwQO3PVI3WUvgkAEehFfqRu2tUOs+DposJA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540454;
+	h=DMARC-Filter:DKIM-Signature:Received:X-Spam-Checker-Version:
+	 X-Spam-Level:X-Spam-Status:DKIM-Signature:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=l+8r1bGabc3oHw1CGGMsn650L5hrNdPH9kcVJO23sWM=;
+	b=uEV3ntEIRkLjKj8gtc6JO/pjymwK09VfCMdieSDgm0qhAT9f7yd9r6DrBr9cN/O6rlAz
+	 RqIws9IJZtZ9TjIJQ0FICoedCJ1O2pYZTGO3kNXGPbRDFmbOeFlvbVGgkM96F0z9lnHyO
+	 /bJldZKs5IQxnWlL6+DaFkvPzqQ3OI/3gtoJX1YLz/0RRjXoP6Sb4pDgtiUn28elFt8nT
+	 j9jVHkfrE8OEh+anKCromljiXBm62pJeNdlSx53D0Bxp5W89tVAG8aBm7jQ5j5612tI4K
+	 pYbHcNNKDWEXHU9Y4CNUErVkrJdfvphKeakbJciolOhQQr6XKTkDI7jzDXENU4hUxsA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=birger-koblitz.de;
+	spf=pass smtp.mailfrom=birger-koblitz.de;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=2ZOKGDew;
+	dkim=pass header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=hNA6ZoUb;
+	arc=none smtp.remote-ip=23.88.97.239
+Received: from bkemail.birger-koblitz.de (bkemail.birger-koblitz.de [23.88.97.239])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 257E7606A6B0
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:11:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 257E7606A6B0
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E749F606A31E;
+	Tue, 24 Nov 2026 17:14:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E749F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=birger-koblitz.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=birger-koblitz.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=aKkNx6z8
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso2935837b3a.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:11:17 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795540277; cv=none;
-        d=google.com; s=arc-20260327;
-        b=hWJFfbIxeNhZJ2eWxCNERUel1t7fwKIf+G2P+xetdrJfGi2TbbnVw23SazKwojiFIH
-         LW0v9RI3wnpzsPyz/kifdmhNqjd5LHuLLUzpAQZUZpV/FxgOUNmaHucZ63hwNYIfVPYG
-         aKzm3qeTXDEgMBTbnlMYQ/zNPlt0m+BFnmRSGPVNMt2JyJG/UwfEI57ogtm2v8lkK8j2
-         ZmmX8pQ1XqRPEYIJOMVtkZeYidc4+9g/uYXZzEPPKGtgZWbdOdDe2g40LmjRO2O9tYaD
-         TkuBlrCJZgVl0sEXuFyuX3J5Pw8kjtQyrAlG7IlUmRrTNzICI17Ka8tbSpT+lip0Ibe4
-         KWJg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Ke4DMY/5oHPgUmAeqSFagfiX14Vkl9nfeTs1w7gvuG8=;
-        fh=qASyZGPwl3aoNJMYPKk7NONDMpMxJ0d6QGIyXMj+joo=;
-        b=WyCZzSZUzvX3j6G0zyLP5bwJXALyamSndUBwmbWA/AMYzKmUvfCp+3QPvCWTKSP3Hh
-         4JIJbj/PppxtIAPfrxa7TmuFIM3tC1nP/+YWCPv7aErNzr/Oew/CV/kIg4WYiArJPGrT
-         jny/PPaxumXrVcK/KJY7Y9NkGUJVglKjZZM9lNQw9RgrlZZPVEhBshJryRmVZ9PHSLaC
-         a/8wbPnGOpX7prwENY8pXfb5Gx9Yv+sBRkJ0v4Zqctg0jEADra2Zh4pkSpk4a+FqQPTr
-         0hPwUmA8r8eTYSNOY1jqT5g45lx366npnfg1xBb5eVTC15ubnKtvlu7GsreG2i+GAiam
-         i16w==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795540277; x=1796145077; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ke4DMY/5oHPgUmAeqSFagfiX14Vkl9nfeTs1w7gvuG8=;
-        b=aKkNx6z8zf1GFQJFVfRbdvXUoIdS76x/L8IotURk7AtYZABQ+Agu7L2ft+MyU/oCZ1
-         8RacuoMqNGIGTKMEeRMuCym+SPEGH5myefDjMl6p2+1MlVUqXgckoKAsD9pE9oVD9+kj
-         iUp0zCdOOqhicYBxWhfEqQiaYmS7KKQeO9daw=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540277; x=1796145077;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ke4DMY/5oHPgUmAeqSFagfiX14Vkl9nfeTs1w7gvuG8=;
-        b=yo9BtGvdAPG8SWNSympj4REMwmO6WIkfre4VTxslkEaCSTjXor82PywwurQRgQMb39
-         u567aj38pQwLlpS63dnjLK1Qs04WkpVJHNeZUS4UTncaDaYEanq3gR81fOKoBOzL1eDH
-         yxxJ9iifY3ZtMfbKqxLmgAtnXtIQ/Zq1Dj9JgTlL1dzEH/rdjLoYVGIQVaGa2bcJAh0s
-         Uu08nwj1GZldC1xzlzqs20RMjL2OtS+XpsaNZspg1mYcZ3DsRa9pRPp3kXSXQSdgFmv/
-         2T/ZkjoI84L0f84qxFO9RUWNuhFkywAa1aTLFpg9zZ6STr+gW84UjDMCalUcS80Ii+d8
-         QU9A==
-X-Gm-Message-State: APuU4Z/zBAF4MANw1Oa3Wh6BBfwUSFG6P7yEFYu8z8ioE0qqd56l16ul
-	cRPYGPFXptnrOSlszv5DV3uSj3MoET/j2QhxPqkQIWuh1pfTeg+P5HgW7/fd32AkccRArcFO2Oc
-	7xB2cey5nDgow8Zm9Oh/AKgWW8zGYlwyQF57ST7jy
-X-Gm-Gg: AZFdTZd2Q/j9ypuoKHbaQ+nScPl3XwAiBWGt5WzniMNGDqEntRochW6jsf4v7IH+3kD
-	ZAAxkxGgHC73xewOZz3O3Ql6Vjpy+33/VAw94kJl05ZEH9xtexmArpKo74E/ljVqz/nxsH5FdSH
-	GNwk4fAA8YwyNXMKjh6bOIXBHYlCM9vu41RRJ2QtBbHdu6MiqlkxHqA8K3fFfCgg1F7XdKwkNBr
-	RjgSoa5Abfa2FzNKX+Cqgebu2RsgaDCsy1Y6V8eygEECHxkutYMKhpQZWzD/4WXzC9O68rTckJs
-	j9nYAm8V+YZn3voWFc+M4RcQ7hMBYn3UQdRMyUo2Jdby7+quN9bohCeIQk1IOVMU2YL/kPkqK92
-	twFUFHLWLaJLl1eDCh3GFoCK88hH3mlHxhQUoWhopqD1KJdhohrxg7zPs3YRP1yWcsjil7LOXlu
-	PcCVB6tMs3bH7CfNo=
-X-Received: by 2002:a05:6a21:e089:b0:3d8:e57a:5a5b with SMTP id
- adf61e73a8af0-40149f7bc79mr13550670637.5.1795540277488; Tue, 24 Nov 2026
- 09:11:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=2ZOKGDew;
+	dkim=pass (2048-bit key) header.d=birger-koblitz.de header.i=@birger-koblitz.de header.a=rsa-sha256 header.s=default header.b=hNA6ZoUb
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795540452;
+	bh=fqYDUrorm3k05HYMeY3xb/Mvgw2jMfaogj6XTMp9LJ8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=2ZOKGDew1xfvR8XPEsB1DYGmbiW9rWS+uYgwfYJFMpXLzd/K9KjciNgCMAqUPyVUX
+	 41RBORxe9oa+R7wsORDlv0OlGadBp4aArcLjw1txoWuVQck569mBsQP33Elq1hs8rp
+	 gFm1FWTo2BCiO6NgtkxC07ykTR0z/MLxL/Fw+EUQCSo8mTKVdrOFHeMqB2VdBFh6C/
+	 3iP/AD2bUDwaxzgcQkeQ6Z2D1fdE8pJX31J1tjqR9N633TYO4WPL7Z4PX2YGEyg2Lp
+	 LloIR2QLSdLF3rhEiaojspEpzUQuacLrdFKxUGf223YKI0qzE7F47zwKqp9onXkBcY
+	 OfD9ZpHe1Hg+w==
+Received: by bkemail.birger-koblitz.de (Postfix, from userid 109)
+	id 5680E495EC; Tue, 24 Nov 2026 17:14:12 +0000 (UTC)
+X-Spam-Level: 
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=birger-koblitz.de;
+	s=default; t=1795540449;
+	bh=fqYDUrorm3k05HYMeY3xb/Mvgw2jMfaogj6XTMp9LJ8=;
+	h=From:Date:Subject:To:Cc:From;
+	b=hNA6ZoUboYJJBnWnQQmjgx7uiEmp9HDLmOMeE2OQoTbcGbaAI/xjgNnhSwDNGSVpj
+	 ZRnQpD41rSnuIMeUst30CpiSB+jjd29elYgT5W8fKRNRNHv1bYOCAs7Z9qfyoNRbOu
+	 ME/o9urmrggBoV/T/rhwCtOqWOni6XpKS1ZWcljmFi9eMOSUQGd0kRW5bGDZZfBpOd
+	 gotU41LcYTEJSM6jKmjyPl8iWhAr2lO+C7uuJv8CoiAIdFMSCx7MSagc9KRCCcSbE0
+	 hCBIgaaBZhpJz4waZkgO4h/04DrhqRk2jQ47rYDGNNxTIuWcPHfEKOQ0vPV3szygUz
+	 9p52bpduar1xA==
+Received: from AMDDesktop.lan (unknown [IPv6:2a00:6020:47a3:e800:271c:c6c5:9fde:77cb])
+	by bkemail.birger-koblitz.de (Postfix) with ESMTPSA id A2018495E2;
+	Tue, 24 Nov 2026 17:14:09 +0000 (UTC)
+From: Birger Koblitz <mail@birger-koblitz.de>
+Date: Tue, 24 Nov 2026 18:14:07 +0100
+Subject: [PATCH net-next v3] net: usb: aqc111: Fix rx/tx_fixup issues
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,135 +74,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com> <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
- <20261124161258.vLyrm8Y4@linutronix.de> <CAM0EoMmMio4kotBqbcJmFtf_c3Du=rhfvp+sMiAd0fHKowv6Vg@mail.gmail.com>
-In-Reply-To: <CAM0EoMmMio4kotBqbcJmFtf_c3Du=rhfvp+sMiAd0fHKowv6Vg@mail.gmail.com>
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-Date: Tue, 24 Nov 2026 12:11:05 -0500
-X-Gm-Features: Aa3M54oig4IWsvcX3iSlWHrklygop5_tvIrr2s7WuHfHlt2lcJnss6T7_wTd3Ko
-Message-ID: <CAM0EoMkEjxCo6K9k3MZH0U+3na9soMNE0gouddwOTzUYXcEunA@mail.gmail.com>
-Subject: Re: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries
- shorter than 10 us
-To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-Cc: netdev@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>, 
-	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	linux-rt-devel@lists.linux.dev, Victor Nogueira <victor@mojatatu.com>, 
-	Po Liu <Po.Liu@nxp.com>, stable@vger.kernel.org, sashiko-bot@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-aqc111-v3-1-10f2c124d808@birger-koblitz.de>
+X-B4-Tracking: v=1; b=H4sIAN7FBWsC/22NywrCMBBFf6VkbaSZPiKu/A9xkce0HZRUkxCqp
+ f9uyEJE3MxwuXPOrCygJwzsWK3MY6JAs8uh2VXMTMqNyMnmzKCGXgghuXqYvLmuzdDWBytlr1k
+ +vnscaCmiM3MYucMlsktuJgpx9s/yIYnS/8qS4IKDVF1rWp2HOmnyI3p+nfWN4mtvsagSfOEAH
+ xwy3oHtrNVCqkb+w7dtewNjNcoG7QAAAA==
+X-Change-ID: 20261117-aqc111-b0cf408d776b
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@kernel.org>
+Cc: linux-usb@vger.kernel.org, netdev@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Birger Koblitz <mail@birger-koblitz.de>
+X-Mailer: b4 0.14.2
 
-On Tue, Nov 24, 2026 at 11:58=E2=80=AFAM Jamal Hadi Salim <jhs@mojatatu.com=
-> wrote:
->
-> On Tue, Nov 24, 2026 at 11:13=E2=80=AFAM Sebastian Andrzej Siewior
-> <bigeasy@linutronix.de> wrote:
-> >
-> > On 2026-11-24 09:12:09 [-0500], Jamal Hadi Salim wrote:
-> > > This is a followup of commit a51c328df310 ("net: qos: introduce a gat=
-e
-> > > control flow action") as reported by Sashiko.
-> > >
-> > > The issue:
-> > > fill_gate_entry() only rejects an interval of zero, but that interval=
- is
-> > > the period gate_timer_func() re-arms the hrtimer at, and a few
-> > > nanoseconds is below the cost of servicing one expiry: the next is du=
-e
-> > > before the current one finishes, so the action holds a CPU in the tim=
-er
-> > > softirq for as long as it exists.
-> >
-> > The timer is programmed in the past, fires immediately and hogs the
-> > CPU.
-> >
-> > > On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a cor=
-e,
-> > > 2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to =
-a
-> > > few percent and it reaches zero by 100 us.
-> > >
-> > > The Fix:
-> > > Require at least 10 us per entry.  An act_gate schedule is not tied t=
-o a
-> > > device, so unlike taprio there is no frame time to derive a bound fro=
-m;
-> > > the bound has to come from the cost of servicing one expiry, with roo=
-m
-> > > for a kernel that services it slower.
-> >
-> > The 10us sound sane. With enough debug (say kasan, lockdep, =E2=80=A6) =
-this
-> > might become tight again.
-> >
->
-> Agreed. Unfortunately, there is no way to derive a "good value" here
-> (it depends on workload, machine, utilization, etc, etc).
-> poor choice of wording on my part - should probably have said all of
-> what i said above for precisiness...
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness, respectively
+alignment-handling were found, which are also present in the aqc111 driver:
+ CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+drivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
 
-And now that you bring this up - this should really have been
-targetting net-next not net.
-I dont want to resend (unless sashikos find something sinister) - but
-Jakub/Paolo consider applying this to net-next instead when the time
-comes.
+While sparse complains about lack of the use of __le64, these spots also
+incorrectly handle alignment. Fix these problems by introducing __le64
+where necessary and additionally make use of get_unaligned_le64/
+put_unalignged_le64().
 
+The current code also incorrectly modifies the skb buffer without checking
+it was cloned, possibly corrupting a shared buffer. This issue is also
+fixed.
 
-cheers,
-jamal
+Finally, also introduce a minimum lengthe check for packets as the packet
+length is received via a USB transfer and may be incorrect.
 
-> Cant wait to see the pedantic nitpicks the sashikos will get about
-> this. Regardless if this is all they came up with I am not resending.
+Fixes: 361459cd9642 ("net: usb: aqc111: Implement RX data path")
+Fixes: 4a3576d2bcc7 ("net: usb: aqc111: Implement TX data path")
+Signed-off-by: Birger Koblitz <mail@birger-koblitz.de>
+---
+The MAC supported by the aqc111 driver is very similar
+to the AX88179A. During the development of the driver for
+the AX88179A, the following issues in endianness-handling
+were found, which are also present in the aqc111 driver:
+CHECK   drivers/net/usb/aqc111.c
+drivers/net/usb/aqc111.c:1094:34: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1094:34:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1094:34:    got unsigned long long [usertype] *
+drivers/net/usb/aqc111.c:1122:45: warning: incorrect type in argument 1 (different base types)
+drivers/net/usb/aqc111.c:1122:45:    expected restricted __le64 const [usertype] *p
+drivers/net/usb/aqc111.c:1122:45:    got unsigned long long [usertype] *[assigned] pkt_desc_ptr
+drivers/net/usb/aqc111.c:1235:22: warning: incorrect type in assignment (different base types)
+drivers/net/usb/aqc111.c:1235:22:    expected unsigned long long [usertype]
+ddrivers/net/usb/aqc111.c:1235:22:    got restricted __le64 [usertype]
+    
+Fix these problems and additionally also make sure that cloned
+skbs are always copied for expansion. Finally also a length-cleck
+on the minimum length of received packets is added.
+---
+Changes in v3:
+- Use finer-grained decision to expand skb as found in asix_tx_fixup()
+- Add prefix "net: usb:"
+- Link to v2: https://lore.kernel.org/r/20261122-aqc111-v2-1-52d5ddb17a37@birger-koblitz.de
 
+Changes in v2:
+- Do not use cast in desc_hdr = get_unaligned_le64((__le64 *)skb_tail_pointer(skb));
+- Added packet-length check
+- Improved commit subject and description covering alignment and skb-cloned
+  fixes
+- Link to v1: https://lore.kernel.org/r/20261117-aqc111-v1-1-27a54c4b54ca@birger-koblitz.de
+---
+ drivers/net/usb/aqc111.c | 14 ++++++++------
+ 1 file changed, 8 insertions(+), 6 deletions(-)
 
-> > =E2=80=A6
-> > >
-> > > Fixes: a51c328df310 ("net: qos: introduce a gate control flow action"=
-)
-> > > Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
-> >
-> > There is no syzbot report for this?
-> >
->
-> It's in 1/3
->
-> > > Closes: https://sashiko.dev/#/patchset/tencent_4ED9536B0375C96183B224=
-4CF7709768C605@qq.com
-> > > Cc: stable@vger.kernel.org
-> > > Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
-> >
-> > Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
-> >
-> > > --- a/net/sched/act_gate.c
-> > > +++ b/net/sched/act_gate.c
-> > > @@ -25,6 +25,11 @@ static struct tc_action_ops act_gate_ops;
-> > >   */
-> > >  #define GATE_ENTRIES_MAX     1024U
-> > >
-> > > +/* An entry shorter than this lets the next expiry land before the s=
-oftirq
-> > > + * servicing the current one can finish, so the timer stays permanen=
-tly behind.
-> > > + */
-> >
-> > No strong opinion. I leave this here.
-> >
-> > | With a too small interval the next timer will be programmed in the pa=
-st
-> > | and will fire immediately.
-> >
->
-> see above.
->
-> cheers,
-> jamal
->
-> > > +#define GATE_MIN_INTERVAL_NSEC       10000U
-> > > +
-> > >  static ktime_t gate_get_time(struct tcf_gate *gact)
-> > >  {
-> > >       ktime_t mono =3D ktime_get();
-> >
-> > Sebastian
+diff --git a/drivers/net/usb/aqc111.c b/drivers/net/usb/aqc111.c
+index 12a99df77f0d332053852e44991188c690c4c0bc..59ac08775db3ebb9b6fe2296e4f8fb431197aeff 100644
+--- a/drivers/net/usb/aqc111.c
++++ b/drivers/net/usb/aqc111.c
+@@ -1078,7 +1078,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 	struct aqc111_data *aqc111_data = dev->driver_priv;
+ 	struct sk_buff *new_skb = NULL;
+ 	u32 pkt_total_offset = 0;
+-	u64 *pkt_desc_ptr = NULL;
++	__le64 *pkt_desc_ptr = NULL;
+ 	u32 start_of_descs = 0;
+ 	u32 desc_offset = 0; /*RX Header Offset*/
+ 	u16 pkt_count = 0;
+@@ -1095,7 +1095,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 	/* RX Descriptor Header */
+ 	skb_trim(skb, skb_len - sizeof(desc_hdr));
+-	desc_hdr = le64_to_cpup((u64 *)skb_tail_pointer(skb));
++	desc_hdr = get_unaligned_le64(skb_tail_pointer(skb));
+ 
+ 	/* Check these packets */
+ 	desc_offset = (desc_hdr & AQ_RX_DH_DESC_OFFSET_MASK) >>
+@@ -1120,10 +1120,10 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 		goto err;
+ 
+ 	/* Get the first RX packet descriptor */
+-	pkt_desc_ptr = (u64 *)(skb->data + desc_offset);
++	pkt_desc_ptr = (__le64 *)(skb->data + desc_offset);
+ 
+ 	while (pkt_count--) {
+-		u64 pkt_desc = le64_to_cpup(pkt_desc_ptr);
++		u64 pkt_desc = get_unaligned_le64(pkt_desc_ptr);
+ 		u32 pkt_len_with_padd = 0;
+ 		u32 pkt_len = 0;
+ 
+@@ -1139,6 +1139,7 @@ static int aqc111_rx_fixup(struct usbnet *dev, struct sk_buff *skb)
+ 
+ 		if (pkt_desc & AQ_RX_PD_DROP ||
+ 		    !(pkt_desc & AQ_RX_PD_RX_OK) ||
++		    pkt_len < (ETH_HLEN + AQ_RX_HW_PAD) ||
+ 		    pkt_len > (dev->hard_mtu + AQ_RX_HW_PAD)) {
+ 			skb_pull(skb, pkt_len_with_padd);
+ 			/* Next RX Packet Descriptor */
+@@ -1224,7 +1225,8 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 	headroom = skb_headroom(skb);
+ 	tailroom = skb_tailroom(skb);
+ 
+-	if (!(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
++	if (skb_header_cloned(skb) || (padding_size && skb_cloned(skb)) ||
++	    !(headroom >= sizeof(tx_desc) && tailroom >= padding_size)) {
+ 		new_skb = skb_copy_expand(skb, sizeof(tx_desc),
+ 					  padding_size, flags);
+ 		dev_kfree_skb_any(skb);
+@@ -1236,7 +1238,7 @@ static struct sk_buff *aqc111_tx_fixup(struct usbnet *dev, struct sk_buff *skb,
+ 		skb_put_zero(skb, padding_size);
+ 	/* Copy TX header */
+ 	tx_desc_ptr = skb_push(skb, sizeof(tx_desc));
+-	*tx_desc_ptr = cpu_to_le64(tx_desc);
++	put_unaligned_le64(tx_desc, tx_desc_ptr);
+ 
+ 	usbnet_set_skb_tx_stats(skb, 1, 0);
+ 
+
+---
+base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
+change-id: 20261117-aqc111-b0cf408d776b
+
+Best regards,
+-- 
+Birger Koblitz <mail@birger-koblitz.de>
+
