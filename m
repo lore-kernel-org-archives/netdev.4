@@ -1,64 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.223
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795489798;
-	b=GKBq3xmIsmW5F0UCFxcl1H/P+5bch54eMEzLC4D5LJYP2DGi+ZFlKXb+r67z5VIAKsDo
-	 HvNI6fdFihXwQtY0evjb79S3eKhYrKgE3gyX71kKj/+K81P2+k8pLCvajIwTwFSrmqEwb
-	 qLK8u5C7AMSMKMsXZExoM5NGxgiRZNVgh6NYLWo4o2p+lr/leG7y/q87jqtaDKGcg65rG
-	 Q3usQ5EypGYlCILVQERm4uP+RU/AUuT1sunIeAbRuFdf043nq413mF9NYakWaQPxgOaqa
-	 rqmK49fTUv+CnBz5V4L0aMwFShItvv4FqGBeZivRVrzn+z07LpDJN7KiZXB85akehxg==
+	t=1795489802;
+	b=IiMVoNWKWY26KfVT4Q+Py4aNm5j+6KuKCO0McHLXdUz0hlnE/s0CkZSIBwQtkccKtosd
+	 JLcx8dRjrOkTgt0vjF5R6pFy5xqxEZ0dSUkrcZO+DTfST/SqSQHW25hJ2Xb2PmfsFVOQP
+	 +PpFAt3TnQ/3j55pLPhD2R41m0M9XuM2vHzTp3hT67IbLsYEymNWD/dOFMGIsTqTMSU7M
+	 USAVWU2kDs6ll5wy0/9AC1jMlCOv6Tk5qkE7x0qonxzMTJflk68ciR7okNWXa7FGVklVQ
+	 vPyq5ewdwtSyRVWyLa1LAB3QZ0tfBW9XXclO4i03RDf0kJGWWi2f6XsvicJxjH0qxpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489798;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795489802;
 	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
 	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
 	 X-ClientProxiedBy;
-	bh=iaxJ2sd7BQERA/spM7MAzW69k655Z4/XP+sxG79D8DU=;
-	b=1R+/pmhV7skr7qHj0dm6rYg+Z9A65mTkSS/1iWT2+vTacFtA6JQsVnhpC9NAfD57yLVH
-	 LcEAXbSTzP1OdOpSpWs7t9y1oWd54Ah3Gc8kYOV50clLPukNhKt4x4P7bFy+U2sXQFA0A
-	 IIdlm3wbwUwfjJRs5BXl7lBLZWfpKct2JWsZLGR186UEDLK4GUwNdDKrRHnM6QF3+p8ac
-	 fCTOPq+3fHV61k+l6ywa6H2n9vjBfzcWHR+cq+2ApWjjnfKZFyV0gijYtanLPWs+1/pRB
-	 mZSLA1EW2ULleWNTj4+SuYmx5hzjTDfU0YstbrapbDZCSw38E8PCVp6RWy7OgzoWJkg==
+	bh=W81H+TE49/3IgkadsaNJ+lmJwBEtLVh0c4H0G361Jws=;
+	b=s5iuTro0TOkNXIU9ohJZUYAjVoDxAiLJpfA38qyEgI3RcjIEOd/La7De8Y1ZigkcDKJy
+	 TVB6sCMVIKR7yVV1c99nz8NZtmUEbn2G7yxNXR+xBYepodOdXNiMkI5C6U+SIibjFW1IE
+	 b2m1NJrAVbtsyyoMsg1wzMlW9FHsoogzFZBoUBcWYS/mGN67xXHAy3kr65iSxdeSY6yQX
+	 NbOV90GtoPduoYxuCtsRv8rLtlIhTql8AK6INov5tt0yOB9gIb3wFLHMD7v2aN1DTdH52
+	 Awqg+h+pPPss3bIVgZEgbUL9lFi/c6HVhY9SFnW0OCOz5RNtZHlI01QM5UF6udnk4KA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=huawei.com;
 	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=muHKCS2o;
-	arc=none smtp.remote-ip=113.46.200.226
-Received: from canpmsgout11.his.huawei.com (canpmsgout11.his.huawei.com [113.46.200.226])
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b="yW5vl/oT";
+	arc=none smtp.remote-ip=113.46.200.223
+Received: from canpmsgout08.his.huawei.com (canpmsgout08.his.huawei.com [113.46.200.223])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5CC0606A332
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:09:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5CC0606A332
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8D1E606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:10:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8D1E606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=muHKCS2o
+	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=yW5vl/oT
 dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
 	c=relaxed/relaxed; q=dns/txt;
 	h=From;
-	bh=iaxJ2sd7BQERA/spM7MAzW69k655Z4/XP+sxG79D8DU=;
-	b=muHKCS2o3PvqxoHTMW98Bn9XZoDi3B4VOn4dyMnxhDvowpYZs1X/+1T/xoFg6AmQ3FpdG+C6Q
-	QvgCS61StU+s4UY9XON1Eomj6w47Lhpt5NCYKS9WCDIrrX2vhWw1joK/IOodZeyPkVBkw5Iqinl
-	YN4iGRaD213webN4IMFVZVc=
-Received: from mail.maildlp.com (unknown [172.19.163.214])
-	by canpmsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4jYSTW3y0dzKmVC;
-	Tue, 24 Nov 2026 11:09:35 +0800 (CST)
+	bh=W81H+TE49/3IgkadsaNJ+lmJwBEtLVh0c4H0G361Jws=;
+	b=yW5vl/oTVhbdB2KKqlncFTAGw5qeV3RSnElOFCOCXZFrxLbWHI2/4MIjb7ihKV2elYJVDIPuU
+	wV2JpJRxx6ms62GLtkeVPFR55E188TH/Hf38amLrkr6GvZNlm6C125dC3u36HoX4SuJLhUxzD1O
+	FYYfcdamqVKDH7wD8DrzfDQ=
+Received: from mail.maildlp.com (unknown [172.19.163.127])
+	by canpmsgout08.his.huawei.com (SkyGuard) with ESMTPS id 4jYSTQ5ts7zmV8H;
+	Tue, 24 Nov 2026 11:09:30 +0800 (CST)
 Received: from kwepemk200008.china.huawei.com (unknown [7.202.194.74])
-	by mail.maildlp.com (Postfix) with ESMTPS id 765554057C;
+	by mail.maildlp.com (Postfix) with ESMTPS id CD28D40572;
 	Tue, 24 Nov 2026 11:09:53 +0800 (CST)
 Received: from huawei.com (10.90.53.73) by kwepemk200008.china.huawei.com
  (7.202.194.74) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.45; Tue, 24 Nov
- 2026 11:09:52 +0800
+ 2026 11:09:53 +0800
 From: Jinjie Ruan <ruanjinjie@huawei.com>
 To: <cai.huoqing@linux.dev>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
 	<edumazet@kernel.org>, <kuba@kernel.org>, <pabeni@redhat.com>,
 	<netdev@vger.kernel.org>
 CC: <ruanjinjie@huawei.com>
-Subject: [PATCH net v2 1/2] net: hinic: Don't fail probe when firmware lacks rx-vlan-filter
-Date: Tue, 24 Nov 2026 11:09:45 +0800
-Message-ID: <20261124030946.1229396-2-ruanjinjie@huawei.com>
+Subject: [PATCH net v2 2/2] net: hinic: Zero-initialise the VLAN filter request
+Date: Tue, 24 Nov 2026 11:09:46 +0800
+Message-ID: <20261124030946.1229396-3-ruanjinjie@huawei.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261124030946.1229396-1-ruanjinjie@huawei.com>
 References: <20261124030946.1229396-1-ruanjinjie@huawei.com>
@@ -76,95 +76,33 @@ Content-Type: text/plain
 X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
  kwepemk200008.china.huawei.com (7.202.194.74)
 
-nic_dev_init() calls set_features() with force_change set, so it
-unconditionally sends HINIC_PORT_CMD_SET_VLAN_FILTER because
-NETIF_F_HW_VLAN_CTAG_FILTER is advertised.  Firmware that predates
-rx-vlan-filter support answers with HINIC_MGMT_CMD_UNSUPPORTED (0xff).
+struct hinic_vlan_filter is filled in only in part: func_idx and enable
+are set, while status, version and both reserved arrays keep whatever the
+stack held.  The whole structure is passed to the device as buf_in, so
+those bytes are sent to firmware.
 
-set_features() treats that as fatal: it folds it into err and returns
--EIO, so nic_dev_init() bails out and the only visible symptom is
+Initialise it to zero.  Requesting a VLAN filter change is rare, so the
+cost is irrelevant, and it keeps reserved fields from carrying garbage
+across the management channel.
 
-	hinic 0000:29:00.0: Failed to initialize NIC device
-	hinic 0000:29:00.0: probe with driver hinic failed with error -5
-
-although nothing is actually broken.  The bit is not in hw_features
-either, so ethtool cannot turn it off.
-
-Keep the feature advertised and let the probe succeed.
-
-Also make hinic_set_vlan_fliter() trust the reply status only once the
-command has been delivered and a full reply has come back.  On a send
-error or a timeout nothing is written to buf_out, so the status read back
-is stale stack contents, and a stray 0xff would now be mistaken for
-"firmware does not support this" instead of failing the probe.
-
-Fixes: 2acf960e3be6 ("net: hinic: Add support for configuration of rx-vlan-filter by ethtool")
-Cc: stable@vger.kernel.org
 Signed-off-by: Jinjie Ruan <ruanjinjie@huawei.com>
 ---
- .../net/ethernet/huawei/hinic/hinic_main.c    |  5 +++-
- .../net/ethernet/huawei/hinic/hinic_port.c    | 28 +++++++++++--------
- 2 files changed, 21 insertions(+), 12 deletions(-)
+ drivers/net/ethernet/huawei/hinic/hinic_port.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/huawei/hinic/hinic_main.c b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-index 34ed5ea9e46e..3c5d5c7de307 100644
---- a/drivers/net/ethernet/huawei/hinic/hinic_main.c
-+++ b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-@@ -1098,9 +1098,12 @@ static int set_features(struct hinic_dev *nic_dev,
- 		ret = hinic_set_vlan_fliter(nic_dev,
- 					    !!(features &
- 					       NETIF_F_HW_VLAN_CTAG_FILTER));
--		if (ret) {
-+		if (ret && ret != HINIC_MGMT_CMD_UNSUPPORTED) {
- 			err = ret;
- 			failed_features |= NETIF_F_HW_VLAN_CTAG_FILTER;
-+		} else if (ret) {
-+			dev_info(&nic_dev->hwdev->hwif->pdev->dev,
-+				 "Firmware does not support rx-vlan-filter, feature left enabled\n");
- 		}
- 	}
- 
 diff --git a/drivers/net/ethernet/huawei/hinic/hinic_port.c b/drivers/net/ethernet/huawei/hinic/hinic_port.c
-index 7bb6eb2a8917..ad271d7aa52b 100644
+index ad271d7aa52b..dda545aba1c7 100644
 --- a/drivers/net/ethernet/huawei/hinic/hinic_port.c
 +++ b/drivers/net/ethernet/huawei/hinic/hinic_port.c
-@@ -462,19 +462,25 @@ int hinic_set_vlan_fliter(struct hinic_dev *nic_dev, u32 en)
- 	err = hinic_port_msg_cmd(hwdev, HINIC_PORT_CMD_SET_VLAN_FILTER,
- 				 &vlan_filter, sizeof(vlan_filter),
- 				 &vlan_filter, &out_size);
--	if (vlan_filter.status == HINIC_MGMT_CMD_UNSUPPORTED) {
--		err = HINIC_MGMT_CMD_UNSUPPORTED;
--	} else if ((err == HINIC_MBOX_VF_CMD_ERROR) &&
--			   HINIC_IS_VF(hwif)) {
--		err = HINIC_MGMT_CMD_UNSUPPORTED;
--	} else if (err || !out_size || vlan_filter.status) {
--		dev_err(&pdev->dev,
--			"Failed to set vlan filter, err: %d, status: 0x%x, out size: 0x%x\n",
--			err, vlan_filter.status, out_size);
--		err = -EINVAL;
-+	if (err == HINIC_MBOX_VF_CMD_ERROR && HINIC_IS_VF(hwif))
-+		return HINIC_MGMT_CMD_UNSUPPORTED;
-+
-+	if (err || !out_size) {
-+		dev_err(&pdev->dev, "Failed to set vlan filter, err: %d, out size: 0x%x\n",
-+			err, out_size);
-+		return -EINVAL;
- 	}
+@@ -452,7 +452,7 @@ int hinic_set_vlan_fliter(struct hinic_dev *nic_dev, u32 en)
+ 	struct hinic_hwdev *hwdev = nic_dev->hwdev;
+ 	struct hinic_hwif *hwif = hwdev->hwif;
+ 	struct pci_dev *pdev = hwif->pdev;
+-	struct hinic_vlan_filter vlan_filter;
++	struct hinic_vlan_filter vlan_filter = {0};
+ 	u16 out_size = sizeof(vlan_filter);
+ 	int err;
  
--	return err;
-+	if (vlan_filter.status == HINIC_MGMT_CMD_UNSUPPORTED)
-+		return HINIC_MGMT_CMD_UNSUPPORTED;
-+
-+	if (vlan_filter.status) {
-+		dev_err(&pdev->dev, "Failed to set vlan filter, status: 0x%x\n",
-+			vlan_filter.status);
-+		return -EINVAL;
-+	}
-+
-+	return 0;
- }
- 
- int hinic_set_max_qnum(struct hinic_dev *nic_dev, u8 num_rqs)
 -- 
 2.34.1
 
