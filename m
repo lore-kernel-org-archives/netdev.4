@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795540839;
-	b=Fn/5ihBaFKNNFq5dicWDTym7MdmoIJN7twQF6VdmNUPZTnKg47EclKdScGRs0IQ0JqCQ
-	 9TSI3rcCpylaiWH5Dtw+X+ZIv5FSYC1gCkrB7bjm019Y8P7gjYvm8c+oein45QG86IGc4
-	 bV6oiC9EzO7Hpe1WqffZbFYhSdpFAXqKpxUnFhk6em02zlAqQtOVajhonwFOM8qza/k7Y
-	 2re3g2QGYaFpGtObz7LelE1PyT2FWSi55rZ/PiKjcSo4L5CvwkMa2b4QAAUpS1M7EmfEZ
-	 JMAgPx7+veCR/TD3+CkVRI6UquWJhDF3KJ++TJDm3XpayqOi4RNUdFRhmCiR+5adxxA==
+	t=1795540841;
+	b=s6Nwebtmi6rk5ZlGalBlmImnVQlMtsmUIh3Sv4mAV6scX8oL/X7Rk530PPK9iVLhQi21
+	 dysUQXwCEDF3peIeUkgmJLnmoygcr9AuXEpdF5BM0FPMqrzXONQP/oxKkWdcqmLX5bDo1
+	 U1ShW/bJ9IjbEqOq9SZCUcTBZ9q+sJ7GFlqQ1XOF5HuzPXII+cwCBBWbvbJE9E980LF8A
+	 09/P5YfNE29+igVILnTbvHKSb20iguNyWHtovsrEy9JNIHsRmtx68myPRtMiBBqR+Zdhr
+	 qBrdc7II4YQm4CQibUqBo+nVmj9VvkBctl8LH8uUL+Z0rSpPi+3jgCa1G4VlQ6S9qqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540839;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540841;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=FUK8eWr2NDwVWOIiPWW2mhsPXB2tXYeP2xK491Ae/Us=;
-	b=4fjpRZzjtx76Ro49fXGta4Albim1L96ROuTcRaiqYYtzEq0jhV6y0Hq1ut5bKUFTU9Dm
-	 rI01leSwsMfSVHglgNuaqkdJZtYTWcAFCXvdAhhY/LC77GVhd1ylttpT+oFC/1mfcdIm2
-	 Z8Mk435ku3vVXW/zRueG2zKSVPLYmhxlokHlIbc0lXvvEgXRxClKvS8tUX+MRkFMgAt6R
-	 tWC1AVxr+mINB5Pd0yABpe90XOKMlLxTalHiRe4S/nf+u2a8px2Rh9v6memalEhyGod6f
-	 x0fMOrvqMYQjyesvUlIi4cadHAblk6dkTYmG18VHibIeMWXTGQeXR0WsUlzPUCKRgwg==
+	bh=/OQQQduCopXVIDGmi2trA2UVwG7vGp1csUVpwdmh0dg=;
+	b=PJ+3t9EOXsSoJHfsbbzWITJZGxNS3DMpgu+H7FE1Dg1CSPLqUGFYfxNVe0vtFKy0otsn
+	 EWlapEb3F1xXecY1MAlGYNnd3OMslHu7VD5pjnz1xEhEODxpyyauTvbe7zTY81nrRxAXl
+	 5owKHpFpj4YSDBAvyZCzYMmkCeTUPKVSL8+s3UKsFm/+k8gh5Gku11SVlr7oE+h+chT2G
+	 zwpULqXG2NzhN9t5nf90zZLPGwBcar9IJJbuRTiX43NHcytMH84JcUVlWn64f9/MJbyLB
+	 VmTQPmFyFQm28o9HYW04tlfl6N98PxtvwbyxcpOAIA9iq1P+rp0YIZI/T54flzKuNCA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aOsFhM4I;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Hgx4/M8s";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B7BD606A329
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:20:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E8FB606A684
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:20:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aOsFhM4I
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E83E71F000D2;
-	Tue, 24 Nov 2026 17:20:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hgx4/M8s
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B2061F000F0;
+	Tue, 24 Nov 2026 17:20:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795540839;
-	bh=FUK8eWr2NDwVWOIiPWW2mhsPXB2tXYeP2xK491Ae/Us=;
+	s=k20260515; t=1795540840;
+	bh=/OQQQduCopXVIDGmi2trA2UVwG7vGp1csUVpwdmh0dg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=aOsFhM4IzJ/6vH5lymBfEfHvbRwNjxJ9y7HK+CRJ1dFcu/bP9p2hWaq4r/YCx4F3+
-	 u7qu12tcuWPd/H41TbsLiousWPl7hUoqFW1IQhM49qkL994Z+uxlxartH4MGCJOA2j
-	 97bNJ25PUWbU1l0sfIbW+DHwsER8eXv6HySxNamQ0VVitotkFTER66BpGoTEwDYi1/
-	 IGHn9ZH31hBeqG/yYTlnVdMrKg8cHIoIiW2a4mjFwPOvUsVdsdZY1g5270Sto09Rn7
-	 BidzR1OxLsZ2X6aoQ1AJOWivIN89y/p1bqrIgnD2llz6ygQC9Pldnl8aS0hh+AfhKA
-	 ygzrrNNljLRZw==
-Subject: Re: [PATCH net-next 04/15] batman-adv: bla: register own backbone gw
- when claiming for local node
+	b=Hgx4/M8svojd2sq/v2XH0KHRjBIJSp2H+4xtuTcejvr0YEpkwEJcd78+ATG+mxO+Y
+	 7zL4HvoLUhLaUk70StCPiDjS52phYH1qrnwm2Jf+eznWyiRo/bG1eucEgjPRYS2FQe
+	 4u1vEln9AysRORseuiFWk1Woxjn2d8LeRF6IQPev5dIaFu4TbGxE0ZFLJdIyGZGwjc
+	 CFLdFt+/sjCXdB5lQMRtyxfyrrvJ2nkXruSFyVdr87hzE0OypBaI4nC/DK2bcOucKB
+	 AXFdyslsO8kRDMgFFyeLJX4FppIB/Cr7d/BvNYUoEIgA+lIUmIeWiGGy7Q1SzZEDYm
+	 YgqrrOPkPBiJw==
+Subject: Re: [PATCH net-next 06/15] batman-adv: tt: refresh local entry in
+ single flags_lock section
 From: netdev-bot+sashiko@kernel.org
 To: sw@simonwunderlich.de
 Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  b.a.t.m.a.n@lists.open-mesh.org, sven@narfation.org
-Date: Tue, 24 Nov 2026 17:20:38 +0000
-Message-ID: <179554083850.3135.5611010478427382077@kernel.org>
-In-Reply-To: <20261123171827.3294525-5-sw@simonwunderlich.de>
-References: <20261123171827.3294525-5-sw@simonwunderlich.de>
+Date: Tue, 24 Nov 2026 17:20:40 +0000
+Message-ID: <179554084001.3135.10319614345027013330@kernel.org>
+In-Reply-To: <20261123171827.3294525-7-sw@simonwunderlich.de>
+References: <20261123171827.3294525-7-sw@simonwunderlich.de>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,107 +70,68 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] The commit fixes a real BLA bug that users can see on the LAN,
-  but it has no Fixes: tag.
-- [Low] The commit message says the own backbone gateway entry may be
-  missing "for example due to an earlier error".
+- [Low] The commit message of "batman-adv: tt: refresh local entry in
+  single flags_lock section" tells reviewers and backporters less than…
 
 --
 
-batman-adv: bla: register own backbone gw when claiming for local node
+batman-adv: tt: refresh local entry in single flags_lock section
 
-With this patch, batadv_handle_claim() passes own_backbone=true to
-batadv_bla_get_backbone_gw() when the backbone address is the primary
-interface address. Before, an own backbone gateway entry created on the
-rx claim path was set up like a foreign one. No initial announcement was
-sent and the UNSYNCED grace period was skipped.
+This commit merges batadv_tt_local_add_existing() and
+batadv_tt_local_update_flags() into batadv_tt_local_refresh(). Clearing
+PENDING/ROAM, updating the dynamic flags and queueing the ADD event now all
+happen in one flags_lock section. A new announce parameter requests the
+initial ADD for a new entry.
 
-Closes: https://sashiko.dev/#/bug/linux-dba9d95d-5eeb-40fd-abf4-e054aee1f735
+Closes: https://sashiko.dev/#/bug/linux-7602d89e-b2cd-43ca-8aca-c165e5d674b2
 
-> When no backbone gateway entry for the local node exists yet on this VLAN
-> (for example due to an earlier error), the entry is therefore created like
-> a foreign backbone gateway.
-
-[Severity: Low]
-Is "for example due to an earlier error" the usual way to reach this state?
-
-In batadv_bla_rx(), batadv_handle_claim() is called with the primary
-interface address before batadv_bla_update_own_backbone_gw() runs at the
-allow label:
-
-net/batman-adv/bridge_loop_avoidance.c:batadv_bla_rx() {
-    ...
-		batadv_handle_claim(bat_priv, primary_if,
-				    primary_if->net_dev->dev_addr,
-				    ethhdr->h_source, vid);
-		goto allow;
-    ...
-allow:
-	batadv_bla_update_own_backbone_gw(bat_priv, primary_if, vid);
-    ...
-}
-
-batadv_bla_update_orig_address() also purges every backbone entry when
-there is no old primary interface or BLA is disabled:
-
-net/batman-adv/bridge_loop_avoidance.c:batadv_bla_update_orig_address() {
-    ...
-	if (!oldif) {
-		batadv_bla_purge_claims(bat_priv, NULL, 1);
-		batadv_bla_purge_backbone_gw(bat_priv, 1);
-		return;
-	}
-    ...
-}
-
-This runs when the primary interface is selected and when BLA is toggled
-through batadv_bla_status_update().
-
-After bring-up or a BLA toggle, the first frame on a VLAN received from
-the mesh with an unclaimed source (or a unicast source claimed by a
-foreign gateway) seems to create the own entry through
-batadv_handle_claim(). That happens in normal operation, without any
-earlier error.
-
-Could the commit message say that this is the normal startup path? Stable
-maintainers would then have an accurate picture of how often the bug
-occurs.
-
-> diff --git a/net/batman-adv/bridge_loop_avoidance.c b/net/batman-adv/bridge_loop_avoidance.c
-> index 68ff2f94cf49d..3da070a087da6 100644
-> --- a/net/batman-adv/bridge_loop_avoidance.c
-> +++ b/net/batman-adv/bridge_loop_avoidance.c
-> @@ -986,18 +986,22 @@ static bool batadv_handle_claim(struct batadv_priv *bat_priv,
->  				unsigned short vid)
->  {
->  	struct batadv_bla_backbone_gw *backbone_gw;
-> +	bool own_backbone;
-> +
-> +	own_backbone = batadv_compare_eth(backbone_addr,
-> +					  primary_if->net_dev->dev_addr);
->  
->  	/* register the gateway if not yet available, and add the claim. */
->  
->  	backbone_gw = batadv_bla_get_backbone_gw(bat_priv, backbone_addr, vid,
-> -						 false);
-> +						 own_backbone);
+> This is a preparation for the validation of the entry under the hash bucket
+> list_lock, which then only needs to cover a single region.
+>
+> Reported-by: Sashiko <sashiko-bot@kernel.org>
+> Closes: https://sashiko.dev/#/bug/linux-7602d89e-b2cd-43ca-8aca-c165e5d674b2
 
 [Severity: Low]
-Should this patch have a Fixes: tag?
+The Reported-by: and Closes: tags suggest this is a bug fix. The message
+calls it a preparation patch, though, and there is no Fixes: tag. Could the
+message describe the race being fixed and what users see as a result?
 
-The false argument replaced here came from commit 52aebd6a9fe4
-("batman-adv: send announcement when backbone gw is registered"). That
-commit's message says the announcement should go out as soon as a
-backbone gw is added, for example when "a packet passes the rx or tx
-path". This rx call site never passed own_backbone=true, though.
+Before this patch, batadv_tt_local_add() cleared PENDING in the flags_lock
+section of batadv_tt_local_add_existing(). It then queued the ADD with
+batadv_tt_local_event(), which reads the flags again after the lock has
+been dropped:
 
-Commit d807f2728708 later added the UNSYNCED/num_requests hold-back. It
-sits in the same if (own_backbone) block in batadv_bla_get_backbone_gw(),
-so this call site skipped it too.
+    flags = batadv_tt_flags_get(common) | event_flags;
+    __batadv_tt_local_event(bat_priv, common, flags);
 
-Would something like this work?
+That leaves a window like this:
 
-Fixes: 52aebd6a9fe4 ("batman-adv: send announcement when backbone gw is registered")
+CPU1                                   CPU2
+batadv_tt_local_add()
+  batadv_tt_local_add_existing()
+    clear BATADV_TT_CLIENT_PENDING
+                                       batadv_tt_local_remove()
+                                         batadv_tt_local_set_pending()
+                                           set PENDING, queue DEL
+  batadv_tt_local_event()
+    __batadv_tt_local_event()
+      entry->change.flags = flags;
+
+The late ADD is merged into the queued DEL, and its flags replace the DEL's
+flags. The local entry still has PENDING set, so it is purged at the next
+commit. The mesh is told ADD while the local table drops the client. The
+CRC then no longer matches and a full table resync follows.
+
+batadv_tt_local_refresh() now queues the event under the same flags_lock
+that modifies the flags, which closes this window.
+
+Could the commit message state this consequence and add a Fixes: tag? The
+flag-update helpers being replaced seem to come from ec6edeb755ece6 and
+d72e16b1c5d527.
+
+Is this patch enough on its own to resolve the Closes: report? Or is the
+later "batman-adv: tt: don't queue local events for unhashed entries" patch
+also needed? Saying so in the message would help with backporting.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123171827.3294525-2-sw%40simonwunderlich.de
