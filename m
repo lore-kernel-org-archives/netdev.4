@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795554148;
-	b=AmDzVpc6T0Lmv6IqUdp5Uxnj4DVgfbPGg5lQiH0+EjMc+d7kfNsN+lAU0R/eXXWK75Gj
-	 g855Ab4QMOLUjbKZz079dWtvJpKIsFF1yekW01+yvMIjw9F8xzwQzVxH73zmsyYdnIC4R
-	 ABTAGCYTiom+gHgLs2txas48lKJXMoAEDfR4ci+McZckYkKypN+5v1oW+5OogfgsxPEyP
-	 o42NDRe7cgE9bO2r+yD5XeNGYIOu37vtFIwv4e6tB7cXe8iwAyhJ+DVERVX0AA+4GBGxI
-	 a0I79IaZAhAptrqhzHbTNto3CU810PxjojoHVgy+SpUYT8NyvOU2phTdEwpc76k1RRg==
+	t=1795554166;
+	b=B5F4Vj+7hLZQ1HrLTK4+EflA4jtTscUiwI9XwcP7Mn1QIIg0R8f+E7UipEMH6cdnpcdd
+	 dtwhQAAvRPwLBjC9xMM+aU0Q9uLY6Dk9jNTGfEDtuBjcO0wRwSQWmH/xE5hMfBt1eD9T8
+	 DMNRfevdThiAPpAmkLgO/qPN7oYhTXB34np75BblPoD0jQnLSQYeYXUoQwbn5fJH8lU+u
+	 0IGTTLSUOpSOW8oOiQMOKa+mOj8yCrZNNR4tv7ZNWkx1+0pB6UW2s5WpoE0gHZRL+YQ8f
+	 d4olrmUJNpUamopyFwqlKxHbBED5IHz+dI3jTj6fvOYzx4F+GgXMwLFyg9TkNb02wZA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795554148;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=lN0LIdbFRBgoTNvh2FY0WEDqLMBfD1vMRoz0mR1ChNI=;
-	b=grAjzWwwwYaKpFb1JMgcPIZbzw2+eMiGX16RhUheXlcjI2aQETRPl4Hs3AW1Wb880XRC
-	 jR00pBaLGOGMn1BoW3ApG03I0Bc2nkq7zAThSNGH68hs6Um9RMUOuW1AfwYahhJBLSke/
-	 XFkI6j3NiwmBdtdoBE/gZXstb3znmIrpsTHyjXG12o3AvE6dMyghGZuJk9zXCa0/WGlzt
-	 L93AgNehSAe9VpxqOZtJKFAvGLKmA0myaTh11l9QHwhZcVjlxcC9IflZq36ehPIDDG1UF
-	 Mi3fQ5GtuSq8o62ZqRez4JNs+enES3KiWDDEwAfDVq16TcwtwqF3Ms47KPOZnRIm3ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795554166;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type;
+	bh=4JGiNssiIcSVO+k5XG7/GTij0g2M1gpRrtZJ04qYbvI=;
+	b=IJwjw8+SlBdvjzjc7Zw8oZpYeF8jUZL3YPik9aSwBLFyV6dlEDdkCh2/r/GSIxyn1Dvk
+	 cMEh5uABHTQ2uikkuoVxOlrEyOrQO1o7don4a5QcNi8lqsBKuf0RJIMeoiDzN00X1U6fx
+	 AwmTFJyM5DsNFXcgdnaIsDZgskO+YMze5joeMs/BqCYUTpm/C3pKa2glgZUHJDFMoSZJr
+	 dDAohhtQxdAH3KgOBmMZdNig+L3nHT40eC6Ff1Zk4GUvlNFCoEopH5OeFncbFuTFPqG1I
+	 Vp24uYYcbwdshxzqSbiPpDERfFlbuM2CSArb4w+6Co8hx47riszt0AjFJGYqHIKmXBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GA1+320B;
-	arc=none smtp.remote-ip=209.85.216.49
-Received: from mail-pj1-f49.google.com (mail-pj1-f49.google.com [209.85.216.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=narfation.org;
+	spf=pass smtp.mailfrom=narfation.org;
+	dkim=pass header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=VBiFhedo;
+	arc=none smtp.remote-ip=213.160.73.56
+Received: from dvalin.narfation.org (dvalin.narfation.org [213.160.73.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A545A606A323
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:02:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A545A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E35606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:02:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4E35606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=narfation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=narfation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GA1+320B
-Received: by mail-pj1-f49.google.com with SMTP id 98e67ed59e1d1-3b405d8f1cfso2493236a91.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:02:27 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795554147; x=1796158947; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=lN0LIdbFRBgoTNvh2FY0WEDqLMBfD1vMRoz0mR1ChNI=;
-        b=GA1+320B821O1xy60RjnsPaoOs6agEFfkicaceCVePqeMX033v7n36KLO/PvHWIRzG
-         //3+nxW+4B5oxveiEjqdwnv5TkUMRNYRqNRoVWe4qeoaHIPWIhRABcxh99Amjmmzio8H
-         9tKvRh2n78eifEQr3nJxsc0e7POzW6IHftngXvqOxNnLKr/CtXgkBPlSAufaqIW+C19i
-         5ZN5UoO6yS6T3uzb1snWHvuBPYPVmAHjlzxeMhS8kwxqkH6ew80NxqfP8bFpBcUlBUP+
-         Lhz6lBrqD23wEn28u1I94D9dHZKMLCTWPNHsLziGoohBoAQTqkUkdDzj6Wh7OSjAsXKu
-         AXlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795554147; x=1796158947;
-        h=mime-version:content-transfer-encoding:references:in-reply-to:to
-         :from:subject:cc:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=lN0LIdbFRBgoTNvh2FY0WEDqLMBfD1vMRoz0mR1ChNI=;
-        b=TlLxmphysnluj7epgBvuv/axqAONZ5rkvTxScYMh1ouYLw0aiRO6GRtDwDmBLEWhJZ
-         Ra+1vTBPNduLVu9qmcsnqVujbOuzVkiYCzIAVqq37TKLCJikwpvREHLJlW3ORveU3q+e
-         vJPwQz0Wd/fTj9Ybxe1j6ZovKNFr726TyvPKqdT0tHJleiWoW04sqm2P7Wf/VCrES7Is
-         Gda3uzaA8FIvOSaW8a3pWgff/KF9pIM0RlyO3UOU/m9s8nBxYnZn8kv2lDHP8GD9g2yL
-         jR93tbEdw0TUMT732x04V11Q7q4eRcULjoq8kne9QIgePdonHuzHeFaXEtq1O6O59oVn
-         o9TQ==
-X-Forwarded-Encrypted: i=1; AL+hErEP1ot4vQGU0AmT5TkqopDxXbEMr7fCkCKtJa5xXjgjZIJ3ss3JkIIi6oetLRjPlz4oLAGzz14=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/MrRJL/wO0RWEgwLUNJM5kXWNP0Vf6WmSx8g1aNG5JMEL5/IzG
-	86FynDDoqKboBwsWhpKFw8dSYU1LvPcfOX6rBFWnx5rpHBpFvMJUZzDW
-X-Gm-Gg: AZFdTZcfTeMI5VrriqmP+Afs3uvi3pUYrUkD/IK6318jhngvLA7Ie68aloiPyGxLDpn
-	OAEICxMCbLMJx+LEH8oLlh+swKIKjeX96i43jYEVCwmjny+e24ej3UL833uzfoMqNb+ZotbW/kh
-	D5N9wjX8vwnFbLj+snEcWLt3a1+mhj4eOnv14l4mjQ2n607HR7ZvlNWDddrgqyCItoaPqr1UBE3
-	uZ+R1+f4jRRe48eYHN7b1zZMORJ0PQqDXnkIoYkUA++CRA4oNCuGCGyXjNJdGggloDrOHA4E8ir
-	7tYvuoszWf2CDpK6mseRZy56nNyTe8mzl1B2fAn7gSLYwfHSiFmcFNuiZI5fk1jkxU0RfDzf0rC
-	lPIrpS/gNJlasagBao6C5aNibjIMqV09h3GjhX0S1I+gAN1mz/axmg/OgCD9xkaqcJnWhGG73uX
-	bYRv75VJBWZX0Xc+IEwxAS8Ampe+Gih6GBh14Ef63SmvW0SPlhKDu/C4g5hd2LLdDfh8CisckKD
-	RCQ2pS5le76spOVsDPugEX7QzC1u6W4jzvQH7bUEnB4jUy/5SAKyCQN3Y9prz/xmVuFSFOjXUv9
-	RJBxWe5X31vKbXZwaR6QEpJ5PxY5CgsmG/S9hVpYW6wq+Czc+0pGtlEbqmwmPDVdeiyT85JgFjT
-	DSYWRTj3+p5qdFm8gVe4ypH6rSrXgNoZTF2ekvrn6DXEHa7cmaHeRwkc=
-X-Received: by 2002:a17:90b:4f8f:b0:3b4:f260:72de with SMTP id 98e67ed59e1d1-3b4f2607685mr359340a91.64.1795554146817;
-        Tue, 24 Nov 2026 13:02:26 -0800 (PST)
-Received: from localhost ([153.61.198.242])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405d639fdsm27414620a91.10.2026.11.24.13.02.26
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 13:02:26 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 21:02:25 +0000
-Message-Id: <DN3QTN97ANJV.14Z27ER78AES8@gmail.com>
-Cc: "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski"
- <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
- <netdev@vger.kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
- "Stanislav Fomichev" <sdf.kernel@gmail.com>
-Subject: Re: [PATCH RFC bpf-next 0/4] bpf: add bpf_sk_assign support on
- netkit egress
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Nikolay Aleksandrov" <razor@blackwall.org>, <bpf@vger.kernel.org>
-In-Reply-To: <20261124151244.1423343-1-razor@blackwall.org>
-References: <20261124151244.1423343-1-razor@blackwall.org>
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=VBiFhedo
+Received: by dvalin.narfation.org (Postfix) id 58AA02014F;
+	Tue, 24 Nov 2026 21:02:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=narfation.org;
+	s=20121; t=1795554163;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4JGiNssiIcSVO+k5XG7/GTij0g2M1gpRrtZJ04qYbvI=;
+	b=VBiFhedo04EAIz/Qylw9LFm+7RRDT8VKIZchXKdAlsoVp+mSKZna2Uljn6qt1ciaWTMs/y
+	xWRJSi6OPtnQcKTu+xqLSZXv4on9mFh78CIgsFkI619LkO4DpFAKpRvCKRU4LGgqAn5dDd
+	jiRDNoyXGnkcr10W3+hF+3PsdtjICi8=
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ b.a.t.m.a.n@lists.open-mesh.org
+Subject:
+ Re: [PATCH net-next 15/15] batman-adv: tt: drop ADD+DEL events of never
+ announced clients
+Date: Tue, 24 Nov 2026 22:02:41 +0100
+Message-ID: <2071514.yKVeVyVuyW@sven-desktop>
+In-Reply-To: <179554084949.3135.16426370585063518179@kernel.org>
+References:
+ <20261123171827.3294525-16-sw@simonwunderlich.de>
+ <179554084949.3135.16426370585063518179@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,55 +66,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; boundary="nextPart2249726.OBFZWjSADL";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 
-On Tue, Nov 24, 2026 at 07:12 AM Nikolay Aleksandrov <razor@blackwall.org> wrote:
-> This series builds on Daniel's work [2] to steer netkit traffic to a
-> transparent proxy in the receiving namespace. The receive backlog can
-> outlive the transmit path's RCU read-side section, so the skb takes its
-> own socket reference even for SOCK_RCU_FREE listeners.
+--nextPart2249726.OBFZWjSADL
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Date: Tue, 24 Nov 2026 22:02:41 +0100
+Message-ID: <2071514.yKVeVyVuyW@sven-desktop>
+In-Reply-To: <179554084949.3135.16426370585063518179@kernel.org>
+MIME-Version: 1.0
 
-can we do the assign at tcx ingress of the receiving netkit device ?
-That works today. After NETKIT_PASS the skb goes through
-sch_handle_ingress() of that device. It runs after the backlog, so
-the listener stays borrowed under RCU.
-tc_netkit_pkt_type already runs such a pair: tc1 in netkit, tc7 at
-tcx ingress of the peer.
-netkit scrubs skb->mark before the prog runs. So the netkit prog can
-pass its verdict to the tcx prog in the mark.
+On Tuesday, 24 November 2026 18:20:49 CET netdev-bot+sashiko@kernel.org wrote:
+[...]
+> > @@ -685,6 +692,9 @@ static bool __batadv_tt_local_event(struct batadv_priv *bat_priv,
+> >  
+> >  	lockdep_assert_held(&common->flags_lock);
+> >  
+> > +	if (cancelled)
+> > +		*cancelled = false;
+> > +
+> >  	tt_change_node = kmem_cache_alloc(batadv_tt_change_cache, GFP_ATOMIC);
+> >  	if (!tt_change_node)
+> >  		return false;
+> 
+> [Severity: Low]
+> Can the cancellation be skipped under memory pressure? In
+> batadv_tt_local_event(), the new change node is allocated before
+> changes_list is searched for a queued initial ADD.
 
-assign_proxy_sock() from patch 4 needs no change for that, I think:
+See
+https://patchwork.open-mesh.org/project/b.a.t.m.a.n./patch/20261124-event-late-allocation-v1-1-756780b98c10@narfation.org/
 
-  SEC("tcx/ingress")
-  int assign_proxy(struct __sk_buff *skb)
-  {
-          int ret = assign_proxy_sock(skb);
+[...]
+> > @@ -1883,6 +1919,11 @@ static void batadv_tt_local_unhash(struct batadv_priv *bat_priv,
+> >   * retry it. Such an entry is marked as del_unqueued instead. It stays in the
+> >   * local table until batadv_tt_local_purge_list() was able to queue its DEL.
+> >   *
+> > + * A client whose initial ADD is still queued was never announced to the other
+> > + * nodes. Its DEL cancels the ADD and the entry is removed from the local table
+> > + * right away. The caller has to drop the hash reference of the entry after it
+> > + * released the flags_lock.
+> > + *
+> 
+> [Severity: Low]
+> This isn't a bug, but the first paragraph of the
+> batadv_tt_local_set_pending() kernel-doc still reads:
+> 
+>  * The entry is kept in the local table until the next TTVN increment
+>  * so that a consistency-check response can still be answered.
+> 
+> That is no longer always true with the new cancel path. Only this later
+> paragraph mentions the exception.
+> 
+> The summary line of batadv_tt_local_remove() also still says "logically
+> remove an entry from the local table". Through
+> batadv_tt_local_remove()->batadv_tt_local_remove_entry()->
+> batadv_tt_local_set_pending(), the entry can now be unhashed and freed
+> before any TTVN increment.
+> 
+> Could both comments be updated? The callers of batadv_tt_local_remove()
+> in mesh-interface.c and multicast.c rely on that description.
 
-          return ret && ret != SKIP_PACKET ? TCX_DROP : TCX_PASS;
-  }
+Will send a follow up patch:
 
-  bpf_program__attach_tcx(skel->progs.assign_proxy,
-                          if_nametoindex(HOST_DEV), NULL);
+diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
+index 7de69a30dda5de8f3e875acc21e4edfada838c9c..d69e5380f461c73443ddee949a2698ee02b8c0bf 100644
+--- a/net/batman-adv/translation-table.c
++++ b/net/batman-adv/translation-table.c
+@@ -1964,8 +1964,9 @@ static void batadv_tt_local_unhash(struct batadv_priv *bat_priv,
+  * @message: debug message describing the reason for the change
+  *
+  * Schedule the TT change announcement and set BATADV_TT_CLIENT_PENDING on the
+- * entry. The entry is kept in the local table until the next TTVN increment
+- * so that a consistency-check response can still be answered.
++ * entry. An entry which was already announced to the other nodes is kept in
++ * the local table until its DEL is committed with a TTVN increment so that a
++ * consistency-check response can still be answered.
+  *
+  * The entry is also marked as BATADV_TT_CLIENT_PENDING when the DEL could not
+  * be queued. The removal must not be lost because not all callers are able to
+@@ -2106,13 +2107,19 @@ batadv_tt_local_remove_entry(struct batadv_priv *bat_priv,
+ }
+ 
+ /**
+- * batadv_tt_local_remove() - logically remove an entry from the local table
++ * batadv_tt_local_remove() - remove an entry from the local table
+  * @bat_priv: the bat priv with all the mesh interface information
+  * @addr: the MAC address of the client to remove
+  * @vid: VLAN identifier
+  * @message: message to append to the log on deletion
+  * @roaming: true if the deletion is due to a roaming event
+  *
++ * An entry which was already announced to the other nodes is only removed
++ * logically. It is marked as BATADV_TT_CLIENT_PENDING and stays in the local
++ * table until its DEL is committed. An entry whose initial ADD is still queued
++ * is removed from the local table immediately. See
++ * batadv_tt_local_remove_entry() for details.
++ *
+  * Return: the flags assigned to the local entry before being deleted
+  */
+ u16 batadv_tt_local_remove(struct batadv_priv *bat_priv, const u8 *addr,
 
-The two ways:
+> 
+> [ ... ]
+> 
+> > @@ -1907,8 +1952,13 @@ batadv_tt_local_set_pending(struct batadv_priv *bat_priv,
+> >  	lockdep_assert_held(&hash->list_locks[i]);
+> >  	lockdep_assert_held(&common->flags_lock);
+> >  
+> > -	queued = __batadv_tt_local_event(bat_priv, common,
+> > -					 common->flags | flags);
+> > +	queued = batadv_tt_local_event(bat_priv, common, common->flags | flags,
+> > +				       false, &cancelled);
+> > +	if (cancelled) {
+> > +		/* the entry was never announced */
+> > +		batadv_tt_local_unhash(bat_priv, tt_local_entry, message);
+> > +		return true;
+> > +	}
+> 
+> [Severity: Low]
+> Does this hold when the DEL comes from a roaming event? The commit
+> message says:
+> 
+>   The other nodes never heard about the client and don't need a DEL
+>   for it.
+[...]
 
-                      netkit prog             tcx ingress prog
-                      (this series)           on nk_host (today)
-  ------------------  ----------------------  -----------------------
-  kernel changes      patches 1 and 3         none
-  listener, UDP sk    refcount inc and put    no refcount
-                      per skb
-  other netkit skbs   netkit_run() sets and   one more prog, only
-                      clears sk_assign_skb    after NETKIT_PASS
-  who sees the skb    backlog, generic XDP,   same as today
-  with assigned sk    tcx ingress, the rest
-                      as today
+There is too much text for a low severity at this time of day. Just made a 
+note for later: https://www.open-mesh.org/issues/493
 
-With a UDP proxy every datagram does an atomic inc and dec on one
-socket, from all cpus.
-commit 7ae215d23c12 ("bpf: Don't refcount LISTEN sockets in sk_assign()")
-removed that for tc ingress.
+Regards,
+	Sven
 
-Then there is no need for sock_pfree_ref, sk_assign_skb,
-BPF_RI_F_NETKIT_SK_ASSIGN and the second set of rules in the helper doc.
+--nextPart2249726.OBFZWjSADL
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
 
-pw-bot: cr
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCawX7cQAKCRBND3cr0xT1
+y50yAQDNQi+vtGSntlly8ShE3zzrK3+CZsHKQhJwg55Dds1DTgEA4K3LIwpHjAc+
+91zj5Z+iAsW5VREI+Qgz6IsDpH/xzQg=
+=MVS0
+-----END PGP SIGNATURE-----
+
+--nextPart2249726.OBFZWjSADL--
+
+
+
