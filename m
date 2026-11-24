@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.62
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537664;
-	b=0zjwc3Kl5ds3ENO6HKlPT5kXJvO+OdcOZwGccMVVT8mAOi03/JOFMwli7jsLYx0mqCb5
-	 07tJtj36NrMUyRsBSz3xPEWfJxdeogaZafSy5YgMs/t9lx68wd3Pazdb86z3sYuW6LDa/
-	 NKoCTQJYzOzlrbspRv4mewaN1af9ZD6x2s5hxcDLeDa4gFjQjUVdsI8/NTBvlf5/n6IKx
-	 yGfr41R2DLnoorEGLp9ZO5CYvX9LlriEPMMqqmuDbDDcQhDOGCCSVPZdSK+QfZZ7rs1jb
-	 SVhtArdZ51GLG2zU1Qv7GGSMEJQw2uG/qwqDgv/fwWIi3qQH3sGM62WxsC/3j3EWADw==
+	t=1795537660;
+	b=2TBnl7RjqLm5UoGEkbdjGY7vmyd0rx6grMcCprHt/+wkn6NRFHEc77EGj3ynlQKYUewR
+	 mpeXDKK3DYmTpctWIqRpQpaYBsN1NDwHqIkaGdCxYIX4h67aoAPvrMIhgpt+bx3JT+3uI
+	 GAsHN3JkmSpTjX9zl99fE0meG3KXFgLjvZ96tCIQfaLH0DnAnKD7PWXsvPRquKcidzuV/
+	 M2ZzqE5kVhyqiziucYiampAad2H/JqiHjRrEbRFytWBBsD+5zjm8/rOjFP34xQziclHJc
+	 C3Zjb1ept2lFeoxaVu8php/0zhSWjiB9ybdI7Kbs1ElrruzQjA7z4+lrGJ8XVAE5u9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537664;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537660;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
-	b=SzUlYG4D90DQpfbrRxmcs444aDhKMu72YJ/9nT5zE+ikbi/4eQypXhemE3aRN0j5T7hQ
-	 THbUu/cK/zQ8YtdaiTv4lGrSZ2TL3ZR5X1UtS1cfa5nMjj1nsht2IpeBJFMd1KvBIZ3D2
-	 +qOIh/5reolGNNGK7sTfKvVHlJerwJS4CzoRlvPqG8J9/XA1YuKZD6jGIDmCbZWph4ZR2
-	 EkYlxQVPc8uZmhHe7AiZgdK6T/vxxkpDh/g8ny6gB++HERX4nUqFLb/ZpcA7WSbrbHzw6
-	 L0t6WI5RVD3z9vE/4nIidO8Oo8Nkak6kNY4TLemsJgcvk3Vzup8y6QQ7y06IKBkkPuQ==
+	bh=h56pUtpzKi6ZjI8yryE2jUzmVykN3g1PyuvGdZZmHnA=;
+	b=RDWNpNi9jYzZ/E1d0PvPApAEWJuGbJOd4Fb6PCN+++3jkUh0dmV5sT94wJqcsZq1hFmG
+	 +x+ipo3JZZDvVRxDhKJGugPuwFYyiqll5+wrP7CiDfUrut349+QRXY1nrfAuUl/pqflvd
+	 Fihg8gqUKpAJR7DmgP9UI+YXHfwSVLly8yGU++PoMT1X1vTEcYY5dyJbHyV1dDLezuyKF
+	 tqa/RpSvZ1ez/LFDdjZN528wqn4Fopakgwj6iTbuAitdvyE7XSf+pD1+mshNTIGj9x/nD
+	 C7B/1WFN9/cPLcrhdzCHt0VWCP2YUhnU78fPAZ0SZF6Ws8aNul+w1zHbYZ2pqg/ljWg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP;
-	arc=none smtp.remote-ip=195.10.208.62
-Received: from mout-b-202.mailbox.org (mout-b-202.mailbox.org [195.10.208.62])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=BlcVNAk2;
+	arc=none smtp.remote-ip=195.10.208.47
+Received: from mout-b-107.mailbox.org (mout-b-107.mailbox.org [195.10.208.47])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86F0E606A329;
-	Tue, 24 Nov 2026 16:27:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86F0E606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8453A606A326;
+	Tue, 24 Nov 2026 16:27:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8453A606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cc4d7QZP
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=BlcVNAk2
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-202.mailbox.org (Postfix) with ESMTPS id 4jYpBG3f7szKnsH;
-	Tue, 24 Nov 2026 17:27:34 +0100 (CET)
+	by mout-b-107.mailbox.org (Postfix) with ESMTPS id 4jYpBB61ktz3yS1;
+	Tue, 24 Nov 2026 17:27:30 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795537654;
+	s=MBO0001; t=1795537650;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Jrpxc1Q6pgjfCQC9LCXv5AaAKRJs/kdvERD9Fgr0nfc=;
-	b=cc4d7QZPuxOeD8POei5YQZbOALG+AOMebhNI5laNKtPtXKqVDBp0sU1gT1tUvKlffxcXSM
-	OZg/EMz6Iu72bQSFozrs9ecmFfFEG4ad4DdqD/44xQjwzeJ9i9YLbWiLVjpS6vtRE/h2Jj
-	rWTMkwxT4rrNwy0SC3G4TRDwi2WSvH4O+QocH9HqUbvDAmv1RJTilRagRjj4/5Ka5WXcqt
-	bq9RJRtf/+vfRaku41lCj6b88pqHTPHw5rOlbTNnnTjLiyzkVOM29+k5ucWxBfsoE3Mwgc
-	47/hadLTlAbYQtYwEqNxSpWYUB/lQchj+ht0atZkypsxCem/k8r0A7lpA8RfOA==
+	bh=h56pUtpzKi6ZjI8yryE2jUzmVykN3g1PyuvGdZZmHnA=;
+	b=BlcVNAk2TMrd3fwRAAW4KXBDfq0uxcrx+9zwHeXtqv5buNZ326tXrLtW3sboBAV6QbJtdO
+	Ti6FTShADfo0teCWKwtv7cc+F9ab9KjRDKL+yLv6paMCMOCZNPzl0PPHNUN0PeDPgUwrOO
+	RgKCyyRvO6PalDwMAE4ZWmXOOg6r8IuAg5j1qNmz08q+oC69UqjEsM6lMKSYgFSUH08/hJ
+	axf68VRaA/lrVf72R/4ot0rHQJrRuMiTMZPEblCkRrRoCwPrWi0xgm2FijnW5gHVvfSCAm
+	tQ9glXC4WEJs8ER94g8KPYtIToM0hMmYNvp9uo5jNjpA+P1d4q+ouJwpbVQTBQ==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
@@ -71,14 +71,10 @@ Cc: Ralf Lici <ralf@mandelbit.com>,
 	Xia Yan <yanxia@cmss.chinamobile.com>,
 	Sabrina Dubroca <sd@queasysnail.net>,
 	Antonio Quartulli <antonio@mandelbit.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Clark Williams <clrkwllms@kernel.org>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	linux-rt-devel@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v5 4/4] ipv6: validate dsts against the state their lookup found
-Date: Tue, 24 Nov 2026 17:27:10 +0100
-Message-ID: <4b2bf5de6c9837fee8db88d639db0e27e6d687b9.1795537128.git.ralf@mandelbit.com>
+Subject: [PATCH net-next v5 3/4] ipv6: sample the route's serial during the lookup
+Date: Tue, 24 Nov 2026 17:27:09 +0100
+Message-ID: <773ec5346a43c3b6d9cd03e01569caea7043c577.1795537128.git.ralf@mandelbit.com>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
 References: <cover.1795537128.git.ralf@mandelbit.com>
@@ -92,39 +88,38 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jYpBG3f7szKnsH
+X-Rspamd-Queue-Id: 4jYpBB61ktz3yS1
 
-Validate dsts in ip6_dst_check against the stamp of the lookup that
-built them instead of the cookie passed by their holder, which may have
-been read after a FIB change the lookup did not see. A stamp of 0,
-recorded when the generation changed during the lookup or the route was
-unlinked, never validates. Holders are covered without changes,
-including dst_cache users and the route and path dsts of xfrm bundles,
-and invalidation keeps its per-node scope: a FIB change only invalidates
-dsts of routes under the nodes it stamps.
+ip6_dst_check validates a dst against a cookie that its holder reads
+with rt6_get_cookie after the lookup has returned. For routes without
+their own sernum, this is the current fn_sernum of the route's node, so
+a FIB change or xfrm policy insertion between the lookup and the read
+pairs an old dst with a new serial, and the stale dst keeps passing
+dst_check until another relevant change.
 
-pcpu dsts are shared by all their holders, so they are never
-re-stamped, which would revalidate a stale dst for every holder. A pcpu
-dst is reused only if it carries the stamp of the current lookup.
-Otherwise it is replaced, so a lookup that selected a route before a FIB
-change cannot return a pcpu dst that another lookup rebuilt after it.
-On PREEMPT_RT, a pcpu dst that another task installed while this lookup
-built its own follows the same rule.
+Sample that state during the lookup instead. ip6_pol_route and
+ip6_pol_route_lookup read the IPv6 generation before walking the FIB
+and, once the route and path are selected, the fn_sernum of the route's
+node followed by the generation again. If the generation changed in
+between, or the route was unlinked meanwhile, the selection may predate
+the change and the sample is 0. Store the sample in struct fib6_result
+and stamp every dst built from the result with it.
 
-A replaced pcpu dst is released with dst_dev_put as before, and since
-pcpu dsts of nexthop-object routes are validated against the IPv6
-generation, now the one read before the lookup, they are also rejected
-once released. Lookups may have read the slot without taking a
-reference, and an xfrm bundle holding the dst as its child drops its
-reference without waiting for a grace period, so the slot's reference
-is dropped only after one (__fib6_drop_pcpu_from is unchanged).
+The sample covers the lookup in one table. With fib rules, the table is
+selected before the first generation read, so a rule inserted while the
+rules are evaluated can leave the lookup on the previous table with a
+stamp that still validates. Closing that needs the generation read
+before rule selection and passed down to the table lookups, which is
+left for a follow-up.
 
-Not covered yet: a holder that sends through a released dst without
-validating it again, such as a corked UDP socket, loses those packets,
-now also when a FIB change in the route's subtree replaces the pcpu
-dst. Exceptions keep being validated against the holder's cookie, and
-so keep the late sampling, as refreshing them needs their PMTU updates
-serialized with the replacement.
+Writers that change the selection without advancing the serial are not
+covered either: deleting one route of an ECMP group makes fib6_del_route
+rebalance the remaining ones without a new serial, and changing the
+forwarding sysctl changes how gateways are scored without one, so a
+lookup racing with either can keep its previous path. Both cases
+predate this series.
+
+Nothing uses the stamp yet, the following patch does.
 
 Suggested-by: David Ahern <dsahern@kernel.org>
 Signed-off-by: Ralf Lici <ralf@mandelbit.com>
@@ -132,145 +127,158 @@ Signed-off-by: Ralf Lici <ralf@mandelbit.com>
 New in v5
 - Replaces the lookup cookie API and its users from v4. (David)
 
- net/ipv6/route.c | 78 +++++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 64 insertions(+), 14 deletions(-)
+ include/net/ip6_fib.h | 10 +++++++++
+ net/ipv6/ip6_fib.c    |  4 ++++
+ net/ipv6/route.c      | 49 +++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 63 insertions(+)
 
+diff --git a/include/net/ip6_fib.h b/include/net/ip6_fib.h
+index 232289b439c3..75da95b2349b 100644
+--- a/include/net/ip6_fib.h
++++ b/include/net/ip6_fib.h
+@@ -208,6 +208,10 @@ struct rt6_info {
+ 	struct dst_entry		dst;
+ 	struct fib6_info __rcu		*from;
+ 	int				sernum;
++	/* fn_sernum of the route's node, sampled by the lookup that built
++	 * this dst, 0 if the lookup raced with a generation change
++	 */
++	u32				cookie;
+ 
+ 	struct rt6key			rt6i_dst;
+ 	struct rt6key			rt6i_src;
+@@ -225,6 +229,12 @@ struct fib6_result {
+ 	u32			fib6_flags;
+ 	u8			fib6_type;
+ 	struct rt6_info		*rt6;
++	/* sampled by rt6_lookup_stamp: the IPv6 generation and the route
++	 * node's fn_sernum, both 0 if the generation changed during the
++	 * lookup
++	 */
++	int			gen;
++	u32			cookie;
+ };
+ 
+ #define for_each_fib6_node_rt_rcu(fn)					\
+diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
+index e1d49897d6ab..c94968a8fcbd 100644
+--- a/net/ipv6/ip6_fib.c
++++ b/net/ipv6/ip6_fib.c
+@@ -123,6 +123,10 @@ static void fib6_walkers_skip_rt(struct net *net, struct fib6_info *rt)
+ 	fib6_walkers_replace_leaf(net, rt, next);
+ }
+ 
++/* The successful atomic_try_cmpxchg is fully ordered: it publishes the
++ * routing change before the new generation, and the new generation before
++ * the nodes stamped with it. rt6_lookup_stamp relies on both.
++ */
+ static int fib6_new_sernum(struct net *net)
+ {
+ 	int new, old = atomic_read(&net->ipv6.fib6_sernum);
 diff --git a/net/ipv6/route.c b/net/ipv6/route.c
-index 8b98ee945c58..be9bf7a4e780 100644
+index 98e3ca0644ab..8b98ee945c58 100644
 --- a/net/ipv6/route.c
 +++ b/net/ipv6/route.c
-@@ -1501,7 +1501,7 @@ static struct rt6_info *ip6_rt_pcpu_alloc(const struct fib6_result *res)
- 	pcpu_rt->rt6i_flags |= RTF_PCPU;
- 
- 	if (f6i->nh)
--		pcpu_rt->sernum = rt_genid_ipv6(dev_net(dev));
-+		pcpu_rt->sernum = res->gen;
- 
- 	return pcpu_rt;
- }
-@@ -1511,6 +1511,33 @@ static bool rt6_is_valid(const struct rt6_info *rt6)
- 	return rt6->sernum == rt_genid_ipv6(dev_net(rt6->dst.dev));
+@@ -1216,11 +1216,48 @@ static void ip6_rt_copy_init(struct rt6_info *rt, const struct fib6_result *res)
+ 		rt->rt6i_flags |= RTF_GATEWAY;
+ 	}
+ 	rt6_set_from(rt, f6i);
++	rt->cookie = res->cookie;
+ #ifdef CONFIG_IPV6_SUBTREES
+ 	rt->rt6i_src = f6i->fib6_src;
+ #endif
  }
  
-+static bool rt6_stamp_matches(const struct rt6_info *rt,
-+			      const struct fib6_result *res)
++static int rt6_lookup_gen(const struct net *net)
 +{
-+	if (rt->sernum || res->f6i->nh)
-+		return res->gen && rt->sernum == res->gen;
-+
-+	return res->cookie && rt->cookie == res->cookie;
++	/* the acquire pairs with the full barrier in fib6_new_sernum */
++	return atomic_read_acquire(&net->ipv6.fib6_sernum);
 +}
 +
-+static void rt6_pcpu_release_rcu(struct rcu_head *head)
-+{
-+	struct dst_entry *dst = container_of(head, struct dst_entry, rcu_head);
-+
-+	dst_release(dst);
-+}
-+
-+/* Release a pcpu dst taken out of its slot. Lookups may have read the slot
-+ * without taking a reference, so drop the slot's own only after a grace
-+ * period: an xfrm bundle holding the dst as its child releases its
-+ * reference without waiting for one.
++/* Record in @res the state the selected route was found under: the
++ * generation read by rt6_lookup_gen and the fn_sernum of the route's
++ * node. If a FIB change advanced the generation during the lookup, the
++ * selection may predate it, so record 0, which never validates.
 + */
-+static void rt6_pcpu_release(struct rt6_info *rt)
++static void rt6_lookup_stamp(const struct net *net, struct fib6_result *res,
++			     int gen)
 +{
-+	dst_dev_put(&rt->dst);
-+	call_rcu(&rt->dst.rcu_head, rt6_pcpu_release_rcu);
++	bool linked;
++	u32 cookie;
++
++	/* a route unlinked by a concurrent deletion has no node left, so no
++	 * dst built from it should validate: treat it like a generation change
++	 */
++	linked = fib6_get_cookie_safe(res->f6i, &cookie);
++
++	/* keep the FIB and fn_sernum reads before the final generation read,
++	 * pairs with the full barrier in fib6_new_sernum
++	 */
++	smp_rmb();
++	if (unlikely(!linked || rt_genid_ipv6(net) != gen)) {
++		res->gen = 0;
++		res->cookie = 0;
++		return;
++	}
++
++	res->gen = gen;
++	res->cookie = cookie;
 +}
 +
- /* It should be called with rcu_read_lock() acquired */
- static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
+ static struct fib6_node* fib6_backtrack(struct fib6_node *fn,
+ 					struct in6_addr *saddr)
  {
-@@ -1518,16 +1545,19 @@ static struct rt6_info *rt6_get_pcpu_route(const struct fib6_result *res)
- 
- 	pcpu_rt = this_cpu_read(*res->nh->rt6i_pcpu);
- 
--	if (pcpu_rt && pcpu_rt->sernum && !rt6_is_valid(pcpu_rt)) {
-+	/* A pcpu dst is shared by all its holders, so it is never re-stamped.
-+	 * Reuse it only if it was built under the state this lookup found,
-+	 * otherwise replace it: a dst rebuilt by another lookup after a FIB
-+	 * change must not be returned to a lookup that selected before it.
-+	 */
-+	if (pcpu_rt && !rt6_stamp_matches(pcpu_rt, res)) {
- 		struct rt6_info *prev, **p;
- 
- 		p = this_cpu_ptr(res->nh->rt6i_pcpu);
- 		/* Paired with READ_ONCE() in __fib6_drop_pcpu_from() */
- 		prev = xchg(p, NULL);
--		if (prev) {
--			dst_dev_put(&prev->dst);
--			dst_release(&prev->dst);
--		}
-+		if (prev)
-+			rt6_pcpu_release(prev);
- 
- 		pcpu_rt = NULL;
- 	}
-@@ -1550,13 +1580,21 @@ static struct rt6_info *rt6_make_pcpu_route(struct net *net,
- 		/*
- 		 * Another task on this CPU already installed a pcpu_rt.
- 		 * This can happen on PREEMPT_RT where preemption is possible.
--		 * Free our allocation and return the existing one.
-+		 * Free our allocation and return the existing one if it was
-+		 * built under the state this lookup found, otherwise replace
-+		 * it as rt6_get_pcpu_route does.
- 		 */
- 		WARN_ON_ONCE(!IS_ENABLED(CONFIG_PREEMPT_RT));
- 
--		dst_dev_put(&pcpu_rt->dst);
--		dst_release(&pcpu_rt->dst);
--		return prev;
-+		if (rt6_stamp_matches(prev, res)) {
-+			dst_dev_put(&pcpu_rt->dst);
-+			dst_release(&pcpu_rt->dst);
-+			return prev;
-+		}
-+
-+		prev = xchg(p, pcpu_rt);
-+		if (prev)
-+			rt6_pcpu_release(prev);
- 	}
- 
- 	if (res->f6i->fib6_destroying) {
-@@ -2864,11 +2902,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
- 	struct dst_entry *dst_ret;
- 	struct fib6_info *from;
+@@ -1291,8 +1328,11 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
+ 	struct fib6_result res = {};
+ 	struct fib6_node *fn;
  	struct rt6_info *rt;
-+	bool exception;
- 
- 	rt = dst_rt6_info(dst);
- 
-+	/* a nexthop-object pcpu dst replaced by another lookup has been
-+	 * released with dst_dev_put and must fail even if its stamp is current
-+	 */
- 	if (rt->sernum)
--		return rt6_is_valid(rt) ? dst : NULL;
-+		return (READ_ONCE(rt->dst.obsolete) == DST_OBSOLETE_FORCE_CHK &&
-+			rt6_is_valid(rt)) ? dst : NULL;
++	int gen;
  
  	rcu_read_lock();
++	/* read before walking the FIB, rt6_lookup_stamp checks it again */
++	gen = rt6_lookup_gen(net);
+ 	fn = fib6_node_lookup(&table->tb6_root, &fl6->daddr, &fl6->saddr);
+ restart:
+ 	res.f6i = rcu_dereference(fn->leaf);
+@@ -1311,11 +1351,13 @@ INDIRECT_CALLABLE_SCOPE struct rt6_info *ip6_pol_route_lookup(struct net *net,
+ 		dst_hold(&rt->dst);
+ 		goto out;
+ 	} else if (res.fib6_flags & RTF_REJECT) {
++		rt6_lookup_stamp(net, &res, gen);
+ 		goto do_create;
+ 	}
  
-@@ -2879,9 +2922,16 @@ INDIRECT_CALLABLE_SCOPE struct dst_entry *ip6_dst_check(struct dst_entry *dst,
+ 	fib6_select_path(net, &res, fl6, fl6->flowi6_oif,
+ 			 fl6->flowi6_oif != 0, skb, flags);
++	rt6_lookup_stamp(net, &res, gen);
  
- 	from = rcu_dereference(rt->from);
+ 	/* Search through exception table */
+ 	rt = rt6_find_cached_rt(&res, &fl6->daddr, &fl6->saddr);
+@@ -2278,10 +2320,16 @@ struct rt6_info *ip6_pol_route(struct net *net, struct fib6_table *table,
+ 	struct rt6_info *rt = NULL;
+ 	bool have_oif_match;
+ 	int strict = 0;
++	int gen;
  
--	if (from && (rt->rt6i_flags & RTF_PCPU ||
--	    unlikely(rt->dst.rt_uncached_list)))
--		dst_ret = rt6_dst_from_check(rt, from, cookie);
-+	/* Exceptions are validated against the holder's cookie, every other
-+	 * dst against the stamp of the lookup that built it rather than the
-+	 * cookie its holder read afterwards, which may postdate a FIB change
-+	 * the lookup did not see.
+ 	WARN_ON_ONCE((flags & RT6_LOOKUP_F_DST_NOREF) &&
+ 		     !rcu_read_lock_held());
+ 
++	/* read before the forwarding mode and the FIB, rt6_lookup_stamp
++	 * checks it again
 +	 */
-+	exception = (rt->rt6i_flags & RTF_CACHE) && !rt->dst.rt_uncached_list;
-+	if (from && !exception)
-+		dst_ret = rt->cookie ?
-+				  rt6_dst_from_check(rt, from, rt->cookie) :
-+				  NULL;
- 	else
- 		dst_ret = rt6_check(rt, from, cookie);
++	gen = rt6_lookup_gen(net);
++
+ 	strict |= flags & RT6_LOOKUP_F_IFACE;
+ 	strict |= flags & RT6_LOOKUP_F_IGNORE_LINKSTATE;
+ 	if (READ_ONCE(net->ipv6.devconf_all->forwarding) == 0)
+@@ -2296,6 +2344,7 @@ struct rt6_info *ip6_pol_route(struct net *net, struct fib6_table *table,
+ 	have_oif_match = fl6->flowi6_iif == LOOPBACK_IFINDEX &&
+ 			 oif == res.nh->fib_nh_dev->ifindex;
+ 	fib6_select_path(net, &res, fl6, oif, have_oif_match, skb, strict);
++	rt6_lookup_stamp(net, &res, gen);
  
+ 	/*Search through exception table */
+ 	rt = rt6_find_cached_rt(&res, &fl6->daddr, &fl6->saddr);
 -- 
 2.56.0
 
