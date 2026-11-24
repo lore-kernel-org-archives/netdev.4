@@ -1,77 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529516;
-	b=n7kdw6iSaSazH5EWBOGNVFf5jMcnmI5yMIxHTrS/VmFHvyQ5nkTIDHjqUPYufRtKCpc7
-	 akVy8Ap8i9+2eWbO8/HR8ZnB7KyUq8tYDTkcHOvrFeX6pYcFbP9Z6d0x17PYvioQcV9ED
-	 jpFA0QMzIEPGlbMVBKau94uxigF4/etlUSGnhfPUSUihP1Ecr7Xw0BGaKwNAlIvW0VTMK
-	 z9X4e0TZqkxYws5+9XW6lmnfb8H59OeBTJiZQqFgrJH/vGIMQXXVnXfkWOZ0sJ3JTyW97
-	 EmFCyTP+dRlD7odj8EGQj+0xBhiLacKyv7AAnCS+P2O7YnkPr5UVL5/nMFciwbvX/YA==
+	t=1795529540;
+	b=fQEVmfpLbA16CFOfGKW/rjkzglgW6uo3upGWOJ5eEXTH5AoKi1ex8BA8VDmV+Bx8vGkf
+	 Nny6GaEExeBPXLvhktwNUuzehHp3SjrZ5UpXmAWuAfb0MOKjuWXL/mHgVrgZcfoFvVjoK
+	 RvhdnLbQwScuxduVrnyP92sE6z2bIwKk38/Wotaaa0mM8Vgiy/YWKOoKGP8LOhiYnveV5
+	 hFNdzpuGSurVahSQWxGt1T20IV5gqj6Z29Y6EaJPfyXO06u0Ke02p1VSd/qdCBtmMq4M0
+	 uoAxD3YCksUqBdJX/FDuinsgTKpS6kIG9VcbGUs6B3yNOzoaB+dTIWWIJwgoIDSRhMQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529516;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=fvo2h3JIwZN7hWeBwmn0tLWx2GCJbisaKyHc3jsnWH4=;
-	b=Yu9JjtiTa2KQn8BmNBBOzREXhBBqGrJerkZBuoxq0m0nqPFTFJW1ctTzMTXKd9yI+0LX
-	 ruIQCnaMRUBtmNhcOP0/ByyYABoI03a+HXct2nBz3r8ANeZSffYCHzzdJqSkSDqaj5Rd2
-	 SIF0RUfi3tRM+2UUFV1sRtwJMtKoCbKZQaztd4+0mNvHzPrzNH7l30wcu+pZyFQRzXwdG
-	 HPMGsqjEk94B7l1R60s8+UGrfYVfxeeRduk91iNmZqdv6ipU4kaTgEFc7f5q5VmFYV23I
-	 3QO6gpAo3cfY+Sitdnl2MeW2BLyTZunk4EDBwYK745eyM7FNkiq36j4lwdcqpHw85jA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529540;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=1xGMs6jT7TfzD1rWb/wp0MZUHeeMb6G/nblIX2zqKoc=;
+	b=WOGpr3uvgDHMaJ2uT6SOtsCTgTDxoJIO6L+14fBOI1zyUMu0L0qin3I1Jgg76A5WI3d9
+	 L0oirC6no2oYVUbuoTekmW0APUM10J5F6UmXAwh23uf7pfeZtdCiNDPYlspZNxiKgxutB
+	 qQKrAwlHfXnA98FKM51an64IRQc/aqpeEeAFMKUA/1DwDhl3wOrgXhRw0g2yTQPFgONNo
+	 BHFPjBc57/pcTZIpB0d69V++TSx1PZj7Dax+9hI/6z+k99JVhsQ8MN4cv/eKcN8LYo2P0
+	 UtZsI3YaogTiuXjbMw4EL2EDGJVDR/30gkSQdj59QKxfvcE47iVIJibdPm+R0GyfHng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=ULtsbGOe;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=c+5KiT+9;
+	arc=none smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57E8D606A32A;
-	Tue, 24 Nov 2026 14:11:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 57E8D606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E0291606A336
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:12:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0291606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=ULtsbGOe
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 86E2521FD0;
-	Tue, 24 Nov 2026 16:11:53 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=fvo2h3JIwZN7hWeBwmn0tLWx2GCJbisaKyHc3jsnWH4=; b=ULtsbGOep7bS
-	p/klpreRpLeW7SAy9DCZw3VmpRT2d+ieVt7ccca7TwUdvQmDOnyI2BhmnX8eQStC
-	hvpn5v17uk9NuEU/T8MA+SjwLnNT7h/r8mzO1jvCGAAjgsmgU1eYbbRKAyuUJdeG
-	TzHlajdPD0hlfBoHDTPaLfbFIXrm+L86+008Gsp2UIUViTwCvLTYpTW+qceL7PXO
-	E3YsOD325zpo474F80ydKCIR1IKgWKIyTFopZHn/fKlWp37kXsgoJWxEZbUF7HL/
-	DwokzUkIJ+PgRrwVTjuwPa05p+PkUKC/2n+MjGcY/q7f1MRO6dH6+4JqI2ZXY49T
-	9IiYqZGifo0oy9cA2cMsZMfrcy1RBUwVup6kTVtGiENxLCuO+obWlXDOvoH2lgkT
-	XrV/VjM3p3smgad/Fa0/Avr2wALOZEvos5CZ5+2hiAaw2KQmBSqW2NV8qWfmd4KO
-	nWn4V0bgxjA0uVzEBRJmGaW86h6RhVkPHeJpMg5cvgj6xhDrV5ueQP+2u8PuB5Uo
-	JOflLg0fIQqOXWmKlolysSZ0gSKKzmb320wWAStn9CgvgvqgHak2JE7p9lFzaFlR
-	m+IxR6/Vq2Pz80FRp3qIazGww7qOFBG91D7lrKYR8ARJJHAB55LEfQ41b1bUxdts
-	khSjxczWFMoy6e12MqcWk2kJOurCdPI=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Tue, 24 Nov 2026 16:11:53 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id 1D59160992;
-	Tue, 24 Nov 2026 16:11:53 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AOEBnsS085119;
-	Tue, 24 Nov 2026 16:11:49 +0200
-Date: Tue, 24 Nov 2026 16:11:49 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-cc: Pablo Neira Ayuso <pablo@netfilter.org>, Simon Horman <horms@verge.net.au>,
-        Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-        lvs-devel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-        netdev@vger.kernel.org, coreteam@netfilter.org
-Subject: Re: [PATCH nf v6] ipvs: ftp: do not link expectations to unconfirmed
- conntracks
-In-Reply-To: <20261124085239.62750-1-theodorlarionov@gmail.com>
-Message-ID: <fce2ed4e-5257-8b7b-b850-a434a7769553@ssi.bg>
-References: <20261124085239.62750-1-theodorlarionov@gmail.com>
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=c+5KiT+9
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6b596afb4c5so5224439a12.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:12:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1795529538; x=1796134338; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=1xGMs6jT7TfzD1rWb/wp0MZUHeeMb6G/nblIX2zqKoc=;
+        b=c+5KiT+93GkBxGQDnZLhMfbzB4uOpSJpkhB557s6VSmMDjh/WdWRmKGYd9rfHEpK83
+         LLjyPPVRzMGVtn/owlTnBaSun1o3TfKtlYqcIUt88P9eCh4VtBNAbSTMfk1DKYHPfoGJ
+         8/U/ct1dPt4Z+AdpQeggupLl8qwi8szv+PsUA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795529538; x=1796134338;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=1xGMs6jT7TfzD1rWb/wp0MZUHeeMb6G/nblIX2zqKoc=;
+        b=GVAAjcZAXntVPmoA3yRC++DBfNuO9AnCR8p04Kl7vm8yJEm0gmY5jHdB6624CGTPtg
+         LKLoZcvX1qdnFms02WPPevFpGFAxDYeQ/737OqHi28JSevGPbPu3CqXMl83VKaE/mNp6
+         lYe9lIecIuTJ4cO/EjW73oCbzMmth2ZDmzqfqGytgPPW6k56qJQujJANzjocPhyYdoaX
+         Q9CqxqiCES4Nc1/a2zguDuxXcYiPbFj9NmgbypVmUsVBzNPU/8bP0ST2wRnVZgcpnmhV
+         R3brezj0WCBY5nWkSQuTAsCIxczDvhM3r4TU5BSFf+WljesT8/TS8loxe+wz5imTo4T/
+         hRpg==
+X-Gm-Message-State: APuU4Z9/QjPlDyIkeM7sjIEFMRYM+T12a2Dkq1QyBM5YOfYAulukYIf3
+	lV4sIdlnZwT1t5nTds+Bv9XlGLJAVMHv9YMY/Z0tSfSxALR/C/JFV7dGhwwEvqa5cGFGaflpRJg
+	wre4=
+X-Gm-Gg: AZFdTZeqx0bl0UPpbdsjsQpaekFRz/MJzdY7WZ1hSUl117G9HH6K/8ZpbomG6W5gg7B
+	nKUmEgjiO4dTDGtIwHXk5g1q5v58Q8OiScmDvZlgvmC57PXfzd3a7+rJ1WQp9TXbpbG8f8N2WAU
+	rtKUri9KaYjx8qhFj+m3O60sNLgVYBPMe6TzMFXaz0H4YP79vuyv6FV0qaZKu+QYcnhfoYX2t4Y
+	7ZfsIHTtCTJkCy3NW6dhaq+n7SIkreCqHZqU4HCFh26tRoHfLsmX5CVrlfhp+VO4SofGh5A0PhQ
+	2LG+K05PKgFO4all3OwuUrpJNYHFkY13HW3S8mjywbHtYo6Bu4PUu8JZC2lnUuKdXx8vAtW1azI
+	BErrNPHC3Obq4HpKNysATJA8L+s7SfnO3tpM6ybEX0RauFdbC0BpFmSYf6DqFUf/P0Mr+vaov3h
+	DWbBglqQIFdwlFSpAHALsTv3zywmDdUO00iK7gaxoRg59QFQiLU7PgciAgLCFpI4uQauAm4S3Ol
+	ldvxwdgiBsw4olTZJKoH7pUhdndvb/v4LDaY2xwdXAn6E0A5ky4qCo0vItph15qHO3GC4o3wulV
+	AV1HU9Ccf/y9UFzc11TLuzXAtucIRWHBSsn9cUFGtSa/rIsgswwUAsD+sS19m7gpG0BoX9tNa4O
+	eB8E9jdqlBxNS96zlJDB2
+X-Received: by 2002:a05:6402:1596:b0:6bb:6c8:c4d2 with SMTP id 4fb4d7f45d1cf-6bb06c8ce30mr1085338a12.31.1795529537654;
+        Tue, 24 Nov 2026 06:12:17 -0800 (PST)
+Received: from mbili.waya ([64.203.83.2])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba7b9570e9sm5032739a12.36.2026.11.24.06.12.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 06:12:17 -0800 (PST)
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+To: netdev@vger.kernel.org
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Clark Williams <clrkwllms@kernel.org>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	linux-rt-devel@lists.linux.dev,
+	Victor Nogueira <victor@mojatatu.com>,
+	Edward Adam Davis <eadavis@qq.com>,
+	Po Liu <Po.Liu@nxp.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	stable@vger.kernel.org,
+	syzbot+0054fed3dc9085390f51@syzkaller.appspotmail.com,
+	shaos <shawnq1@163.com>,
+	sashiko-bot@kernel.org
+Subject: [PATCH net v4 0/3] net/sched: act_gate: bound the cycle time and refuse schedule entries shorter than 10 us
+Date: Tue, 24 Nov 2026 09:12:07 -0500
+Message-Id: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,125 +111,67 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 8bit
 
+An act_gate schedule is armed from TCA_GATE_BASE_TIME and
+TCA_GATE_CYCLE_TIME, both unchecked u64 attributes that are read into a
+signed ktime_t.  A cycle time above S64_MAX turns negative on that read
+and the cycle arithmetic that follows wraps.
 
-	Hello,
+That arms the timer in the past.  Every expiry then recomputes the same
+past time, so the timer softirq never finishes and the task that
+installed the action spins until the watchdog reports a soft lockup.
 
-On Tue, 24 Nov 2026, Theodor Arsenij Larionov Trichkine wrote:
+A schedule entry of a few nanoseconds reaches the same state from the
+other direction: the entry interval is the period the hrtimer runs at, so
+the handler is always behind its own next expiry and the action holds a
+core for as long as it exists.
 
-> ip_vs_ftp_out() can link an expectation to an unconfirmed conntrack. A
-> later extension add on the same packet, such as seqadj in
-> ip_vs_update_conntrack() or NAT, then reallocates ct->ext and leaves the
-> expectation pointing into the freed area:
-> 
->   BUG: KASAN: slab-use-after-free in nf_ct_unlink_expect_report+0x490/0x4c0
->   Write of size 8 at addr ffff888004dd4e48 by task syz.2.17/649
-> 
-> Check the conntrack at the start of ip_vs_ftp_out() and drop the packet
-> unless the conntrack is confirmed, is not a template and already carries
-> the seqadj extension. This makes the conntrack check before the mangling
-> redundant, so remove it.
-> 
-> Fixes: b25adce16064 ("ipvs: correct usage/allocation of seqadj ext in ipvs")
-> Suggested-by: Julian Anastasov <ja@ssi.bg>
-> Suggested-by: Pablo Neira Ayuso <pablo@netfilter.org>
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
+  1/3  cap base_time and cycle_time at KTIME_MAX, and make every
+       start-time computation saturate instead of wrapping.
+  2/3  require at least 10 us per schedule entry.
+  3/3  cover the refusals, the largest accepted base time and cycle time,
+       and both sides of the interval boundary in the tdc action tests.
 
-	The patch looks good to me, thanks!
+Edward Adam Davis posted a v3 that capped cycle_time at S64_MAX and moved
+the attribute to NLA_S64.  That refuses the reported value but leaves the
+invariant to the wrap: base_time is read the same way into the same
+arithmetic and stays unbounded, so an accepted pair can still compute a
+start the timer was never meant to take.  The type change is also
+unnecessary; S64_MAX is a fine range for NLA_U64.
 
-Acked-by: Julian Anastasov <ja@ssi.bg>
+Alexei Starovoitov traced the stall to this action on the syzbot thread
+and sketched the saturating arithmetic used here:
+https://lore.kernel.org/netdev/DN37NBGPJJG9.2DSVDCKS3UYTV@gmail.com/
 
-> ---
-> v6: remove the conntrack check before the mangling and the 'mangled'
-> variable, and unindent that block.
-> v5: drop the second nf_ct_get().
-> v4: check the conntrack at the start of ip_vs_ftp_out(). A server reply
-> that fails the check is now dropped even when it is not a PASV/EPSV
-> response. Without a conntrack, e.g. with a notrack rule, only PASV/EPSV
-> replies were dropped before.
-> Link to v5: https://lore.kernel.org/netfilter-devel/20261118151726.2509853-1-theodorlarionov@gmail.com/
-> Link to v4: https://lore.kernel.org/netfilter-devel/20261117123944.270667-1-theodorlarionov@gmail.com/
-> 
->  net/netfilter/ipvs/ip_vs_ftp.c | 45 +++++++++++++++++-----------------
->  1 file changed, 22 insertions(+), 23 deletions(-)
-> 
-> diff --git a/net/netfilter/ipvs/ip_vs_ftp.c b/net/netfilter/ipvs/ip_vs_ftp.c
-> index 44de99f4d187..c90f7a9e1452 100644
-> --- a/net/netfilter/ipvs/ip_vs_ftp.c
-> +++ b/net/netfilter/ipvs/ip_vs_ftp.c
-> @@ -29,6 +29,7 @@
->  #include <linux/netfilter.h>
->  #include <net/netfilter/nf_conntrack.h>
->  #include <net/netfilter/nf_conntrack_expect.h>
-> +#include <net/netfilter/nf_conntrack_seqadj.h>
->  #include <net/netfilter/nf_nat.h>
->  #include <net/netfilter/nf_nat_helper.h>
->  #include <linux/gfp.h>
-> @@ -283,6 +284,12 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
->  	if (cp->state != IP_VS_TCP_S_ESTABLISHED)
->  		return 1;
->  
-> +	ct = nf_ct_get(skb, &ctinfo);
-> +	if (!ct || !nf_ct_is_confirmed(ct) || nf_ct_is_template(ct))
-> +		return 0;
-> +	if (!nfct_seqadj(ct))
-> +		return 0;
-> +
->  	/* Linear packets are much easier to deal with. */
->  	if (skb_ensure_writable(skb, skb->len))
->  		return 0;
-> @@ -382,29 +389,21 @@ static int ip_vs_ftp_out(struct ip_vs_app *app, struct ip_vs_conn *cp,
->  	}
->  	buf_len = strlen(buf);
->  
-> -	ct = nf_ct_get(skb, &ctinfo);
-> -	if (ct && !nf_ct_is_template(ct)) {
-> -		bool mangled;
-> -
-> -		/* If mangling fails this function will return 0
-> -		 * which will cause the packet to be dropped.
-> -		 * Mangling can only fail under memory pressure,
-> -		 * hopefully it will succeed on the retransmitted
-> -		 * packet.
-> -		 */
-> -		mangled = nf_nat_mangle_tcp_packet(skb, ct, ctinfo,
-> -						   ipvsh->len,
-> -						   start - data,
-> -						   end - start,
-> -						   buf, buf_len);
-> -		if (mangled) {
-> -			ip_vs_nfct_expect_related(skb, ct, n_cp,
-> -						  ipvsh->protocol, 0, 0);
-> -			if (skb->ip_summed == CHECKSUM_COMPLETE)
-> -				skb->ip_summed = CHECKSUM_UNNECESSARY;
-> -			/* csum is updated */
-> -			ret = 1;
-> -		}
-> +	/* If mangling fails this function will return 0
-> +	 * which will cause the packet to be dropped.
-> +	 * Mangling can only fail under memory pressure,
-> +	 * hopefully it will succeed on the retransmitted
-> +	 * packet.
-> +	 */
-> +	if (nf_nat_mangle_tcp_packet(skb, ct, ctinfo, ipvsh->len,
-> +				     start - data, end - start,
-> +				     buf, buf_len)) {
-> +		ip_vs_nfct_expect_related(skb, ct, n_cp,
-> +					  ipvsh->protocol, 0, 0);
-> +		if (skb->ip_summed == CHECKSUM_COMPLETE)
-> +			skb->ip_summed = CHECKSUM_UNNECESSARY;
-> +		/* csum is updated */
-> +		ret = 1;
->  	}
->  
->  	/* Not setting 'diff' is intentional, otherwise the sequence
-> -- 
-> 2.34.1
+This series keeps NLA_U64 for both attributes and bounds the computed
+start time rather than one input's value.  cycle_time = 0 stays accepted:
+it means "derive the cycle from the entry intervals".
 
-Regards
+The 10 us entry floor comes from the measured cost of one expiry rather
+than a device's frame time, and 2/3 states the margin it leaves.  The
+100 us floor proposed for taprio was withdrawn for narrowing working uAPI
+and for a margin it never explained; this floor answers both.
 
---
-Julian Anastasov <ja@ssi.bg>
+Changes in v4:
+- Reworked as a three-patch series on the current net tree.
+- Bound base_time and cycle_time at KTIME_MAX, keeping NLA_U64.
+- Saturating start-time arithmetic, shared with the catch-up path.
+- Minimum entry interval, with its measured cost and its tdc coverage.
+
+v1 -> v2: reject an out-of-range cycletime instead of clamping it.
+v2 -> v3: move the range check into the netlink policy.
+
+Jamal Hadi Salim (3):
+  net/sched: act_gate: bound the cycle time and start time arithmetic
+  net/sched: act_gate: refuse schedule entries shorter than 10 us
+  selftests: tc-testing: act_gate: cover the new cycle time and interval
+    limits
+
+ net/sched/act_gate.c                          |  45 +++--
+ .../tc-testing/tc-tests/actions/gate.json     | 189 ++++++++++++++++++
+ 2 files changed, 217 insertions(+), 17 deletions(-)
+
+-- 
+2.43.0
 
