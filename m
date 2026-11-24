@@ -1,101 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.172
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795540153;
-	b=NAMD+qYehYUVHKUJPHIni/mVY+yd0rd7Rk6xUNoPfguOnIExAWpNXLXp4U5JTf+EgvYy
-	 v+pBxh0KvLssC/ETz1VWk+LRIIvLsdGCg6yYpABzuS2g/Mh56qObUcQTEx6UMQqA+SPYG
-	 ms1MWd4eZeo7lIIl2i5n0AxrDaNdZruCqT8hu9gdifAyz9Xj9IEwbvr5tVwL+2WRIeXf1
-	 sAS8vcJk3hcMCRhXm87onVyupO35BSKqPScvskEpKatqI3OGem9OWhiMV8J7J4QitB8uK
-	 cy8KNeKud1HjMdzjlxcHmNZz8mUhvtgcmA7PoJNNBMDNadSTNoYOfsylLKLqw4rts5w==
+	t=1795540255;
+	b=k6GTiKQSbnkWFL7TaFbsdYEjCqDiGC3sKcEe4ONDCKG3ivai2s1AeUbJtdSId5Q4olQy
+	 /4KWM7FWz7YvOlfEKFic8gGEoziRHObB/bZydShasMXdHgUbSVUFxrFCKXi5G3KM4YyXp
+	 4RTNbeGaFwJTOAU3pnIOO6EUbFa4g5sk6bU3QRExxvgQB1Bqg+u8jlAJzrO6b2DWvaS6S
+	 hA9A5Cs6XIJ3Mw6WGfmWLzKIWgvTEcdxun/8r1ng9Tn0K5+GgMM4VTyfq3OHESEkrWh50
+	 Gdx+AIl2fw08QiYIc31Mb8vXSw8spUO5i7P7tqZ1nUKDHnNfpbs8UVzbczW+Soqv38g==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795540153;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795540255;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
 	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-	b=XZ+IosqB974fR5wW5FSudaN9tZ2IEmX6l+wxjJUvLgVOMiBuXobbKPa9FG/q/SrolFio
-	 8D2t5EOlL2r64rbzrWOjoWRiPD9a46PvPqYb7zGlURdbjlRhO8zaJG83rAexRMMi8aPAB
-	 Wppju1jlBhJKNPQ3nPQZQ0M/EAOcPZVLNtiPhNjGQSw6EmBB2/jM1tPnre9oGec9YIy6C
-	 AvErLV9KofWIy4DKT+pQBzEeEb6DjsMA8rkaGL1A2+BCgXHxQHmuAL5XBfO+I/gq63Zoa
-	 b3o2zbjj9w4cle/rsWn/FNCrELnmk0TgnZQtZQoH/p0Tdd9G1VRuUWDK4fmJ9NZGrQg==
+	bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+	b=QonZpJpsrJksZAVmysnOiV7RAwPD+eSFaBZzuPWgT8WmHOR5cztFw2k/kjzg0udeDpwL
+	 J2bBPGw1F1lmRGB9IAQlcE5O3qAy7c9NZXaWUMXd0rtrjDGEkxc3cl/vw2ojtWmGuVRxs
+	 9SdqPExSEHsuQV/z09cIyEwGvspmOmkjy2wimcABxdHNyiU6BW3HdjVpePEtQs/ucplum
+	 fzesINGtGW8ruTj44ZaCJX41WzuiTBiYJnx372/E1eMF3rglAc/xEYts7p2Mw7OZqA5jc
+	 bQg+RiUEdVqtVUz340M18HpiYw9LRV53SUK/vnfkuWGw48JsnQW7O9FOelaJ3xZNwVg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3ofmZ51;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.181
-Received: from mail-pg1-f181.google.com (mail-pg1-f181.google.com [209.85.215.181])
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=XGZP1B9e;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 204AF60A262B
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:09:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 204AF60A262B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0404606E141
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:10:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0404606E141
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q3ofmZ51
-Received: by mail-pg1-f181.google.com with SMTP id 41be03b00d2f7-cd6acc50b8dso2433008a12.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:09:12 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795540152; cv=none;
+	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=XGZP1B9e
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cc4aa18f9afso1888627a12.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:10:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795540254; cv=none;
         d=google.com; s=arc-20260327;
-        b=RBp6Zo71hQcKVMOjriWiQb9ZvLMoZWpXY3DoWMo5p30JLkDPFPwJyZ5bSxEhuVLBgU
-         HQbLJsQc3ra+5pGoTBYuZhF9gkwliC2HZWd1SDA+tzJyF7cAfWcSOI3RjVxilmwLpCVL
-         /pqymO59/gMTUuCkORJ0MI2doorp5iLBDIZ68cOsabMLE8tiS0Kzj/+v2hMjKfDwnlYo
-         4I6xOfkdMU8W+oXV8xyWC98r2PgJRbj2WZAObzx39HPxgk4pzsczM7FY790uBx47112Y
-         zDeAEOouWAqCt1qsGExD8r7g97p1Yu76GC0DJP6AU+z2dTFSwHiTj0K1QlojPCjih+95
-         4rUA==
+        b=NYWBrpQoeXZ/8qdkVpPNLaz6eSEjGmWNF9wTgQq8SQFZwJWLsHtTW6DIVIrVH6Swnz
+         qWnM0ICdBnk9SmhsAFNIjFwAoXTm0UN10Sz/58Tm0uAFmpxthaoOYgi6bvcn3f02+uHY
+         WjdeMUcJDk0HxBIoHjp0sjGV5oZkIc4347Gh/KfpZ6BY0DcIzT/cWPIjjKSJ3kvBZuTb
+         Zcrw4JTiIy0cH+svAHTKN+91dTIriSOlG3c8K95E0WiYYZncAd3EfMjGN2NQIIth9A2k
+         VfsSDX4AAWAuYaOKY6nUTe7xUnZe0cGcgG5JcQuuq5zhqqL/iHrW7PAsnE7mQlz5cZP3
+         GVcw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:dkim-signature;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        fh=kOeNUMtxOSWwlHYKPzmuibXz7Smd2IEiLW8nQctqOew=;
-        b=S4F13acj7nwZ5pX7lLpZ15Kpo3wGfKhNcL+oEhM4faisHnMs6W6OpP3bw7TGSaVMQE
-         XMzPQaF+hbd5efTNLwV0zFEqw9WceLmgYRyWNJqOrIEjKI8pQ93yyzzqd7laPDmOkJW1
-         WRmkCVLjx6zBTofAvHBTufjQ+J/Mj9umtyGmma3PnGQQNn+DFFgSRerGUpaBKznewptD
-         KwB0ZqzbquUpiy95u7BH9R7kOxPV5ox53DJcW4XK9EqeDA2/00d84h+iZuEUkOrLuRkB
-         H0A+cY+J4ZBx1vxDQTuTy7yMX6lFNKcb44ts7KkNr+U/UHyIFIzWLH+Ued/s5ifpruR0
-         LN/Q==;
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        fh=Jb8oGeNy1ADk1jreCZI5g8tZqqaGTstE/98e/F6IPfk=;
+        b=bJK8E/Z7kF0g4r74RoEhqh00h9Y45pY6KuBj04lLXhgCZxeXvbWHyUjU2HzS43fRof
+         9/I/TGjBuf6AiwI7KfDCONQ2PYTGX8ogJfvd/6wB9zF/r96cAvHbE2N3vfuzivf1suBY
+         OcnRkcPLBiEahpDeDp0x3329W0uAOBFKqBZke1is1ioV3EZtz3PB8LYL4rWuxPtITEfB
+         MHMicaSnXFZzQ5s1T+uL9CbHLUc+HYhmHjp3vilVU9OootKh2pmpGtCCHjxOtKEW5Jy3
+         V56NN8FpN33/GV14wSDj031+j8FeoTymCR5WVTSolqqAQ5pb4mrgrbg0Ek2dGa1Yg4+l
+         Qohw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795540152; x=1796144952; darn=vger.kernel.org;
+        d=paul-moore.com; s=google; t=1795540254; x=1796145054; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        b=q3ofmZ51KdDiSe31lFyb1pGcKM2i5v6DnKfzrg+Pky/e9KyGKb1/+AkYl9QZ9sR3du
-         rj+nBMjVGvXqgjlFfny2JCQCIRfswUsErqN7P3Yu3Kl4Wr0hHhZg+XxKijd5Q6fAKWR4
-         6NVEsE4P3Uib7ty8eOkbDpbZkWkUpOW6Onh7y4dGdlvMtpqtZIWn+8rKO+i/cpPY/HY7
-         huQTRNe46nKtyvdSuzaLClrIVBxyPmYoJmfyspB53oTKgr8sZljTPJKBRbXPKmmzlweO
-         g+U4obngtO0yjgCUOK3gaB5CYU5lHY96yfGFG2lH32X/OHwq1g9lzqUfrsKqhRLSnGCV
-         4GXQ==
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        b=XGZP1B9ebdkS8ePIk89ZuzQ1iCcHMbjCNYVdkW1Ikavfb7BfPm2cIFvIY/wrKRe72B
+         sgtUsrG0y94ks58sAPWoPUZbaXTVzgig7BodyAWi6buZ0/NCmjX8E7Xfnq/JXDVG1uOG
+         gZmhWdPv5Y4dY390ZwAB3s+ccss4ZSLw2/FwNYsfSGt8q4qrX7ZMBdKbJIYEOW8LtS7z
+         Npr7U/WjzZAIMnhBXhD2TiYX3sPVYyxAi7D7cu4ltg1q/lUVnLTeEwduU2vlu+2Pccuk
+         wuolouFPHsPqHmaPGaztToyeO/jvTkDu6eHV/VvaKPn2hibcKXvDCckQQZ30iZidEfwA
+         ic6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795540152; x=1796144952;
+        d=1e100.net; s=20260707; t=1795540254; x=1796145054;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=X9VL+UZGuvvn+L4e88A9yFSdMmbH0iKnEH4T++PwoT0=;
-        b=bHoMS5AV1ymyrZKpGY6jVQu/ZFMGmux6PNzfIetuwlPsmfqi2TG6NZp4zCBXUX4eAf
-         T4WFBxIp5+SX53BaWiMvU4pHNOuiwQME87d+drku29tBrRX1CIwpr1xkgH8KyU9TFFjO
-         WJ09qsgU5wHm4p7ozwu726A5yi6itv28eZ4Jm+u+6LbkQglUKXOcUaNk1RmQ0HhnsKuz
-         HH97P7tTDx10F9FRw+7CjVKP2r7Q4jdNn8AJPrxJaDoBDdRSLzZWOy463sCHyfcHaFiM
-         CoIY3vrSY/Hg4spDF4RTJM6YVo/Q6kxDNJz9j/uptnqgmDBSYyRFT//goixM1K2PSj6Y
-         jyVw==
-X-Forwarded-Encrypted: i=1; AL+hErGt7vRnT3QiykY7NNWuM3DqWNP1ZlfU10wWhIl+QkgSSJZL1Xu/07/7OjzTrdamgni3OJHxM6A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/jfOuAizMnD7cMb25BqZamrgNJf8dt+1CQdOnCd4BxQ48rEPIN
-	U+jWaej11clWS14t/GN5rMMtwknNMTn72eM4tF0TjyQ2T8LKXU29zBA2Ejys0Y9lreZSeQ2IVyJ
-	6N6zkPVfihweoS0HAcDpD/na47QUdlSI=
-X-Gm-Gg: AZFdTZfgQ4z7heRGwXPC1TTLbDN2fv98AFYbHFS6oJNtrjpyrfbL9nNhYJnYfk/usuk
-	xrXnF/mtDUbM9wsjy2Wid3cToVXX2Q1H3aNesSuzFqYnwMYBc6J9wClnUfWL5+q9xKAtfUBLJgJ
-	JrayEhaS2rIjcek+G/59mqlcWYindBSiUPPsaJPNQBa/jBqlSiP1OgWrI5Hkj5oWL5Tb8WkmAmn
-	IIMub/ZPyVPpaH/TlTsOJLKk/9LxY8xXH5knWwuJ3GMu98r/9BoM5LSuNHnuXV7CHGb2t6sy5yF
-	YmySBLassTDgp/Ghxk7lzX8vo5TrtsGFSbnq85MdjOtuOfg7RCCO0mTZroPf72Uk9Iw/BsGe9l4
-	HZibA8NVTsi3O7aHaxEEBxsn4XhKjj+ekOcrrU4dQqeOObp5T+OdIWbIMa7nuqL6pHewldK4YBf
-	3V+3DPkH0K08sSLXy8tdfEdixwu0poexa7LZuxqA==
-X-Received: by 2002:a05:6a20:6a06:b0:3f8:443c:4ce1 with SMTP id
- adf61e73a8af0-4014db57950mr17323321637.29.1795540152313; Tue, 24 Nov 2026
- 09:09:12 -0800 (PST)
+        bh=YD659iZbhB9OAfnpI+8tlGtmEiCdl2kb0qCNC7Yp8ls=;
+        b=NXYIzJAq6odFBR/vTYUx0NFeAK0qb5tpbOvpqIyT4X+ZSyXwdOV7um1w0a4ARKTDVz
+         jgJE1Og3a1mTBZw4VLq2gUCeQcZmjB6XHv583SEETVoR/wManqlfdTCv7L4lMoWUOoxG
+         HZm7xNshgyE2Fb7nkFnRyNZ8wJ1L7+BnJQ+wue5V6KZeCj6jppQlawWQAovClhEYdZG+
+         WOL4bHd7aGxO+Ua8SikwWKvHx55wvov9fJ+c4TNZ89uTu78JZbDf/AArx+wUX7NIRlUX
+         F+bpky8wH3OJt6zxNmCqd18qLew0gMSzuAZP8janM+gPVPB4QpiHPVl7dhKXxWkvoyxy
+         4jBg==
+X-Forwarded-Encrypted: i=1; AL+hErFpEum50PToHVapa3cypAx6fw+s3XuWlbfoVFhj9mnXFd6oNEDG3pTKahlHYaTvlkz/DAwP9P4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z99Mbu6cfPhz92kYZAwxAtNvbiuJ3wo3M3/YzIsP13w3IDMPu9T
+	qhjaynv7McU49YUBlMeOLjgZEdCC9ASb8bjWNVIHe0Y3LABsvdt0RfraR9bl2J04UJ5JPvtMxXp
+	bKdjBdkVsAzNDrP0XAI6mRJrhwp2q/NnmwktSZCak
+X-Gm-Gg: AZFdTZe1oWc/anKQKCcwieG+XVCBhyIV0DQGgfjCcYycQWzdhFoHRSUIPLI9eZGTQMo
+	Y+ijctf0VYKiqJkXRijj21AaxwKhqSpBGt9u5UaD/NDEMtgBcoFzNKe4sqQQb2sTMLDhmjaOsT2
+	cZXSjjCer0nLB3JaNJcjohaQjOuH9QJsPC42XxIr2yHJgKGX/28ziyKvFQeUCO+JmZQmpL549/B
+	xY0E2Dqx9sJXAz1pd5PK9cFJMylb9B/KsQ6IHGABLGbm8sIKxMtl9UYxl1uzvPDFHGCSc6XiOox
+	YzR5qlyFwZmNZQ2N4sNIZvdtEcRzOkoYtYDnejpBqj5VhAlI+a0nIA32BW9MMTzIGr6HeSV7yse
+	Zx59dN0q53h3cMDJXKCxv7MKCwzsT0rDyI5n1lEPoo4UzVgNODNtCmJURKwSxHdWYIBDW
+X-Received: by 2002:a17:90b:50:b0:3b0:9e2c:9b5f with SMTP id
+ 98e67ed59e1d1-3b41c7b6044mr14858398a91.2.1795540253878; Tue, 24 Nov 2026
+ 09:10:53 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,225 +104,44 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <179539544818.3016044.13738712075053349592@gmail.com> <179539544818.3016044.18009252996572506068@gmail.com>
-In-Reply-To: <179539544818.3016044.18009252996572506068@gmail.com>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Tue, 24 Nov 2026 12:09:01 -0500
-X-Gm-Features: Aa3M54o3Mm28v-FnGzbOeKj4VXKtMVAJcVd8119mGvZOM1SygJE7tskfr7xggbY
-Message-ID: <CADvbK_de1zGLfjvEk-BJYcv5SsEzqC2RwL3R7qt7sWL09aCmow@mail.gmail.com>
-Subject: Re: [PATCH net v3 1/1] sctp: fail the association when the INIT-ACK
- cannot be processed
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, Willem de Bruijn <willemb@google.com>, Jun Yang <junvyyang@tencent.com>, 
-	linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
+References: <20261123-x25-v1-1-4432d3892f8b@gmail.com> <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+In-Reply-To: <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+From: Paul Moore <paul@paul-moore.com>
+Date: Tue, 24 Nov 2026 12:10:41 -0500
+X-Gm-Features: Aa3M54pQl1423xvicd2W8eKUxg-iwZ3pBcyz1tFldZ8tVNfr4v2hJioLBtMFymY
+Message-ID: <CAHC9VhTLg2FLNf3sLe3+A=q5Mo4gKs+gB7zi5sQT1jizsOPuNQ@mail.gmail.com>
+Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
+ label on accept
+To: Martin Schiller <ms@dev.tdt.de>
+Cc: shyckless@gmail.com, davem@davemloft.net, kuba@kernel.org, 
+	edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	linux-x25@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, stevewong@hust.edu.cn, 
+	kaixuan.li@ntu.edu.sg
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Sun, Nov 22, 2026 at 11:09=E2=80=AFPM Kyuwon Cho <kyuwoncho18@gmail.com>=
- wrote:
+On Mon, Nov 23, 2026 at 11:44=E2=80=AFAM Martin Schiller <ms@dev.tdt.de> wr=
+ote:
 >
-> sctp_sf_do_5_1C_ack() queues SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY.
-> If either fails to allocate memory, sctp_cmd_interpreter() stops there,
-> but the association stays: with the peer marked AUTH capable and
-> asoc->shkey still NULL, a chunk that the peer wants authenticated, such
-> as the ABORT built by close() with SO_LINGER {1, 0}, takes a reference
-> on the NULL key:
+> On Mon, 23 Nov 2026 01:31:20 +0100, Suyuan Wang wrote:
+> > x25_make_new() creates the socket that accept() returns by copying
+> > fields from the listening socket, but it never clones the listening
+> > socket's LSM security state -- there is no security_sk_clone(osk, sk).
 >
->   BUG: KASAN: null-ptr-deref in sctp_auth_shkey_hold (net/sctp/auth.c:113=
-)
->   Write of size 4 at addr 0000000000000018
->   Call Trace:
->    sctp_auth_shkey_hold (net/sctp/auth.c:113)
->    sctp_control_set_owner_w (net/sctp/sm_make_chunk.c:112)
->    sctp_make_abort_user (net/sctp/sm_make_chunk.c:1016)
->    sctp_close (net/sctp/socket.c:1564)
+> Thanks!
 >
-> Process the INIT-ACK and set up the association key directly in
-> sctp_sf_do_5_1C_ack(), and fail the association if either step fails.
-> SCTP_CMD_PEER_INIT and SCTP_CMD_ASSOC_SHKEY have no other users, so
-> remove them.
->
-> Fixes: 1b1e0bc99474 ("sctp: add refcnt support for sh_key")
-> Suggested-by: Xin Long <lucien.xin@gmail.com>
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> ---
->  include/net/sctp/command.h |  4 ----
->  net/sctp/sm_sideeffect.c   | 40 --------------------------------------
->  net/sctp/sm_statefuns.c    | 15 +++++++++++---
->  3 files changed, 12 insertions(+), 47 deletions(-)
->
-> diff --git a/include/net/sctp/command.h b/include/net/sctp/command.h
-> index 2058fabffbf6..8596e96c321a 100644
-> --- a/include/net/sctp/command.h
-> +++ b/include/net/sctp/command.h
-> @@ -34,7 +34,6 @@ enum sctp_verb {
->         SCTP_CMD_GEN_SACK,      /* Send a Selective ACK (maybe).  */
->         SCTP_CMD_PROCESS_SACK,  /* Process an inbound SACK.  */
->         SCTP_CMD_GEN_INIT_ACK,  /* Generate an INIT ACK chunk.  */
-> -       SCTP_CMD_PEER_INIT,     /* Process a INIT from the peer.  */
->         SCTP_CMD_GEN_COOKIE_ECHO, /* Generate a COOKIE ECHO chunk. */
->         SCTP_CMD_CHUNK_ULP,     /* Send a chunk to the sockets layer.  */
->         SCTP_CMD_EVENT_ULP,     /* Send a notification to the sockets lay=
-er. */
-> @@ -86,7 +85,6 @@ enum sctp_verb {
->         SCTP_CMD_ASSOC_CHANGE,   /* generate and send assoc_change event =
-*/
->         SCTP_CMD_ADAPTATION_IND, /* generate and send adaptation event */
->         SCTP_CMD_PEER_NO_AUTH,   /* generate and send authentication even=
-t */
-> -       SCTP_CMD_ASSOC_SHKEY,    /* generate the association shared keys =
-*/
->         SCTP_CMD_T1_RETRAN,      /* Mark for retransmission after T1 time=
-out  */
->         SCTP_CMD_UPDATE_INITTAG, /* Update peer inittag */
->         SCTP_CMD_SEND_MSG,       /* Send the whole use message */
-> @@ -117,7 +115,6 @@ union sctp_arg {
->         struct sctp_association *asoc;
->         struct sctp_transport *transport;
->         struct sctp_bind_addr *bp;
-> -       struct sctp_init_chunk *init;
->         struct sctp_ulpevent *ulpevent;
->         struct sctp_packet *packet;
->         struct sctp_sackhdr *sackh;
-> @@ -158,7 +155,6 @@ SCTP_ARG_CONSTRUCTOR(CHUNK, struct sctp_chunk *, chun=
-k)
->  SCTP_ARG_CONSTRUCTOR(ASOC,     struct sctp_association *, asoc)
->  SCTP_ARG_CONSTRUCTOR(TRANSPORT,        struct sctp_transport *, transpor=
-t)
->  SCTP_ARG_CONSTRUCTOR(BA,       struct sctp_bind_addr *, bp)
-> -SCTP_ARG_CONSTRUCTOR(PEER_INIT,        struct sctp_init_chunk *, init)
->  SCTP_ARG_CONSTRUCTOR(ULPEVENT,  struct sctp_ulpevent *, ulpevent)
->  SCTP_ARG_CONSTRUCTOR(PACKET,   struct sctp_packet *, packet)
->  SCTP_ARG_CONSTRUCTOR(SACKH,    struct sctp_sackhdr *, sackh)
-> diff --git a/net/sctp/sm_sideeffect.c b/net/sctp/sm_sideeffect.c
-> index 35f540fb15fc..a95bf10b852b 100644
-> --- a/net/sctp/sm_sideeffect.c
-> +++ b/net/sctp/sm_sideeffect.c
-> @@ -698,32 +698,6 @@ static void sctp_cmd_assoc_failed(struct sctp_cmd_se=
-q *commands,
->         sctp_add_cmd_sf(commands, SCTP_CMD_DELETE_TCB, SCTP_NULL());
->  }
->
-> -/* Process an init chunk (may be real INIT/INIT-ACK or an embedded INIT
-> - * inside the cookie.  In reality, this is only used for INIT-ACK proces=
-sing
-> - * since all other cases use "temporary" associations and can do all
-> - * their work in statefuns directly.
-> - */
-> -static int sctp_cmd_process_init(struct sctp_cmd_seq *commands,
-> -                                struct sctp_association *asoc,
-> -                                struct sctp_chunk *chunk,
-> -                                struct sctp_init_chunk *peer_init,
-> -                                gfp_t gfp)
-> -{
-> -       int error;
-> -
-> -       /* We only process the init as a sideeffect in a single
-> -        * case.   This is when we process the INIT-ACK.   If we
-> -        * fail during INIT processing (due to malloc problems),
-> -        * just return the error and stop processing the stack.
-> -        */
-> -       if (!sctp_process_init(asoc, chunk, sctp_source(chunk), peer_init=
-, gfp))
-> -               error =3D -ENOMEM;
-> -       else
-> -               error =3D 0;
-> -
-> -       return error;
-> -}
-> -
->  /* Helper function to break out starting up of heartbeat timers.  */
->  static void sctp_cmd_hb_timers_start(struct sctp_cmd_seq *cmds,
->                                      struct sctp_association *asoc)
-> @@ -1397,16 +1371,6 @@ static int sctp_cmd_interpreter(enum sctp_event_ty=
-pe event_type,
->                                         SCTP_CHUNK(new_obj));
->                         break;
->
-> -               case SCTP_CMD_PEER_INIT:
-> -                       /* Process a unified INIT from the peer.
-> -                        * Note: Only used during INIT-ACK processing.  I=
-f
-> -                        * there is an error just return to the outter
-> -                        * layer which will bail.
-> -                        */
-> -                       error =3D sctp_cmd_process_init(commands, asoc, c=
-hunk,
-> -                                                     cmd->obj.init, gfp)=
-;
-> -                       break;
-> -
->                 case SCTP_CMD_GEN_COOKIE_ECHO:
->                         /* Generate a COOKIE ECHO chunk.  */
->                         new_obj =3D sctp_make_cookie_echo(asoc, chunk);
-> @@ -1772,10 +1736,6 @@ static int sctp_cmd_interpreter(enum sctp_event_ty=
-pe event_type,
->                         sctp_cmd_peer_no_auth(commands, asoc);
->                         break;
->
-> -               case SCTP_CMD_ASSOC_SHKEY:
-> -                       error =3D sctp_auth_asoc_init_active_key(asoc,
-> -                                               GFP_ATOMIC);
-> -                       break;
->                 case SCTP_CMD_UPDATE_INITTAG:
->                         asoc->peer.i.init_tag =3D cmd->obj.u32;
->                         break;
-> diff --git a/net/sctp/sm_statefuns.c b/net/sctp/sm_statefuns.c
-> index 6a4205de0aa6..fd9f94c12d42 100644
-> --- a/net/sctp/sm_statefuns.c
-> +++ b/net/sctp/sm_statefuns.c
-> @@ -603,13 +603,22 @@ enum sctp_disposition sctp_sf_do_5_1C_ack(struct ne=
-t *net,
->
->         initchunk =3D (struct sctp_init_chunk *)chunk->chunk_hdr;
->
-> -       sctp_add_cmd_sf(commands, SCTP_CMD_PEER_INIT,
-> -                       SCTP_PEER_INIT(initchunk));
-> +       if (!sctp_process_init((struct sctp_association *)asoc, chunk,
-> +                              sctp_source(chunk), initchunk, GFP_ATOMIC)=
-) {
-> +               sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-> +                               SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-> +               return SCTP_DISPOSITION_CONSUME;
-> +       }
->
->         /* SCTP-AUTH: generate the association shared keys so that
->          * we can potentially sign the COOKIE-ECHO.
->          */
-> -       sctp_add_cmd_sf(commands, SCTP_CMD_ASSOC_SHKEY, SCTP_NULL());
-> +       if (sctp_auth_asoc_init_active_key((struct sctp_association *)aso=
-c,
-> +                                          GFP_ATOMIC)) {
-> +               sctp_add_cmd_sf(commands, SCTP_CMD_INIT_FAILED,
-> +                               SCTP_PERR(SCTP_ERROR_NO_RESOURCE));
-> +               return SCTP_DISPOSITION_CONSUME;
-> +       }
-Please change the error process to:
+> Acked-by: Martin Schiller <ms@dev.tdt.de>
 
-                if (err_chunk)
-                        sctp_chunk_free(err_chunk);
-                return sctp_stop_t1_and_abort(net, commands,
-                                              SCTP_ERROR_NO_RESOURCE, ENOME=
-M,
-                                              asoc, chunk->transport);
+My apologies, but I'm about as X.25 ignorant as possible, so a quick
+question: the x25_make_new() function is called by
+x25_rx_call_request(), which as far as I can tell is on pretty
+analogous to an accept() operation, is that correct?
 
-in the two places above as Clashiko [1] suggested.
+If that's the case (x25_rx_call_request() acting similar to accept()),
+cloning the listening socket's LSM data makes sense, but if it's
+something else we may want to leave the new socket as-is, labeled by
+the process performing the operation.
 
-You may also want to confirm and address the issue reported in
-sctp_assoc_update()
-in a separate patch.
-
-Thanks.
->
->         /* Reset init error count upon receipt of INIT-ACK.  */
->         sctp_add_cmd_sf(commands, SCTP_CMD_INIT_COUNTER_RESET, SCTP_NULL(=
-));
-> --
-> 2.43.0
->
-
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179539544818.301604=
-4.18009252996572506068%40gmail.com
+--=20
+paul-moore.com
