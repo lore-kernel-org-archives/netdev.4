@@ -1,101 +1,68 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483005;
-	b=shtJjyx8EFnNNWR77FL/cBQrUt+KCkkLQoTBD06gi8fS/N0FBRq/6yYgDY8roC64T0cS
-	 mgAfzqjldg5+EGxWw7vZtxFo+Iv7oxnVRuecRb5SYqlzvc54QnW/GtQm88Ty44E8mL3Uo
-	 0yc2tCWi+6VxsZEdSYdmt/6ojqjAoZTWM3kEHLdhs071m4TmXb90oGPVXKhoWvWRUum6+
-	 S0G37jgMVVnBT0M5JewK8AL5/MrEKPofosyo6R+64/dncfNc1z35X4PAiudeL3EXL7Qhz
-	 Y2sxAg9aAtCX51BzGZLmc/xCPsaHCPRmqgv9WtHZ6Kg3RMnjFaN9E6Sg4Adh8+6fhig==
+	t=1795483264;
+	b=OsiwFj6wd/boJTWrN99FX7e563fIZqtVaWipBy5yP9TU9x1xWqr+0jaoGvcAimbzrGFg
+	 pRgMMr8Tn7coDlTWuU/jB2b+E92XetsWfl/04RZ1bdTYAUBp/NoOpMRw+egGQcdT3dFjd
+	 RIlUB2j8nAyMn7GDkQB50QYQT4bFH4IShW1QbJJiJ/aScvxQhdm7KiUxlYT1uvyba+hoy
+	 aF5xlIufEQ+n0iSr5/mTdfeQXLUNpBrU27gLYse273hsR9dk5dHL71UNCeJqzn38T+cAt
+	 otXQogfZ/4xs0PQsZkk7GW+s/urhehcsQJ6/I+/8vmD1CeVUAYdgML+u1AOSJlArhNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483005;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=qZxwJbaKC6lsjHCvbsBOtxQBCZj8gipsbFteOfeQl3c=;
-	b=SHGRGqDnAdZcq5wx2pXJvnrnZuJYVQN0dja9vgjwbG3TAMPJSDsuu2JgXejyEA3udkj+
-	 8dF0Ti3/7Ghz/SOCPFteS0wfTJYDTbKsSR4d1OZuHanJG0boY6xY1CV0Ae60bt7FY6UNZ
-	 gRtX90vpFYxQCZMgP+lVDBtrohsfJWB//p/U+VHpuVPvpDXz96Rq4ZkEXVAViw1YlwtUi
-	 PQQl5AMjxI3DdtOTkdQW2NWmcbePbnu5E9Z7EuSXpcnU7EA3KMpKXwpDkW/F+DUP9ooa6
-	 MoiROFqUANXxGQ3aeUfexyzBpSQYr+R6vV+1kk9/spzp0xV3rPC3Rxrtd+ixBQ22/qQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483264;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=9BDulXHaTFH9WUerzen4hwlWxTAC3ppvvJGAoF+motE=;
+	b=op6KFcKEav1+BuRFaMvYval/e1sZK/zU8ZigS5qPeW3Fne0cYEHLilzytNjTM+hwJ4It
+	 ltHc/JO+q3dRQNfgGSCf0TRQP7IIoi5rqNuty7itJ9oKNI/aA5pJxqIESgjvfELM/dVXB
+	 rne2hbmZfL4VMSndLhNvUJkkaeJZI8sBpdn6dSNEh4NTBswqGl4hWzmvSNjXj0ysHFk6s
+	 ZpGVC/yB1R5WkqFmXXjv0co/pMR6YM3OH1Fz426Px23ZBXZ1O5FCRzq6fi/1g9lJkNPQt
+	 u1qsQ5/aIf73xh1YVlvaf8OHqYIlqoyIkVSLwUtNnxuiGsiuGgs4tqr9YNUz49lmQdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="f/H+RESd";
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkne1S9o;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1BBA9606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:16:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1BBA9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F31BB606A31E;
+	Tue, 24 Nov 2026 01:21:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=f/H+RESd
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-3866a784546so5104940eec.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:16:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795483004; x=1796087804; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qZxwJbaKC6lsjHCvbsBOtxQBCZj8gipsbFteOfeQl3c=;
-        b=f/H+RESdedGsNsvPRVDhVJC/gHEVwxUl7Xnr4hnSsFnxnSDmYqX56RbA6ilCZ6L+qK
-         pMj6QvrklaAZ/r/epThcjTOtM6fiPbXzNlDKjmCQ4WQNPc4Nps4u1xXO/U/55VoZYB1G
-         2OJWxLiWeWQAxw8ZCcK5VdzluZZsNOGLaEXJlyCCSNjh/wJGbEhKMTpmaPHdOOMBKjHA
-         0u/p2LG06kOvwnzA0VThN1h/qdoPHTuKgWMCOXZIj+h8RBFg/sHeQqdOoFEGfTAr3gMg
-         5QV204VUQEh/Uo8qnveFuBCgxaDq3cuJFUJ5ONqyxkWcnUFXNSHXG7nv60298geQP28K
-         nwtQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795483004; x=1796087804;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qZxwJbaKC6lsjHCvbsBOtxQBCZj8gipsbFteOfeQl3c=;
-        b=LRA2a3s3x1XnDiFlEYwqhU6QJlCwLm/+Dw6ba63fGJDRgu1+kWgHGz+N78r/3dDSas
-         zlPXU+eeJvzQaVVq83HOx3VOrMRI+ZSwQAwMNVkPGevN+0dFxpgclY34HR8A9wo3G5Fa
-         0RKSUgMuCvELRV+rZUBTdv9YKw/mqpbKQhSWwxas4BMkTe8wjcJKVdchwd4+PFRRFtu+
-         gXtHMlo3OB8CqMITNMIjixPKynbAq3N/T85OJReRPGVnlzjZnfP6YedM/hfnaJWq0rx5
-         rAPOeLcnEVLG+BPMEQ5ZhahoYPqFOBio/XBLxVLAFm/hb0CcD4TVyx9T0IYVk2524cQQ
-         nWXQ==
-X-Forwarded-Encrypted: i=1; AL+hErFkWPEcGwWF/iEIffttJMabt7CZWdRLov2C7dzt1cDaBaFgkZRWJhyMF2mmIchxNd5ZwPlHxa0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/J+7kHWH8rQ8i0mwvW+BxeYuDS6XiLWLNEiBwI8dblKIEiXgP+
-	1SJ9ERSUnJKW1N1Y0rOnMn3/5ANIVPsKj0zvRngo7GGeS5W+0/5/FxAQ
-X-Gm-Gg: AZFdTZccHDvw3m1W1RTjhPDh+VcqyVOz0U138t9IeZ0cFQxKMk2EXU4IaKFAM63gAM7
-	YfP3oLyZqImlO5oiOiBsE/USGHP4o0ezTIAOTwf+Tl3cAsoxDT3Lu9iqiX7MGy/J+Ynbazyckuk
-	jQpkhTkEn82OoUY3uxbQlkZZzRIcmf+4rHzvNITPAPkL9pcxtq+iSoUcwn/HfcwnKVIOq7OssTV
-	ledqhsmNwNvADWyvrpJe9ztRf+2YuhT9zMHtFrUQoyO225y0CpuYbkYHYp1TKkMoiPRZd+5gHgy
-	Xlv7Dsf9plwenim6bGQvMEWvVh5zi1EfZe2uAC/XX6B8S5jo1YdekWmfOL/LjK8whjRDnfxgpgn
-	0+QC4kZoXXtUpWV6K0mxfK8YsiNAahwx0eWcxS7euCglEGjtnQx2wwp7rFlMAS6kOwTQS3dpgGU
-	X1+tj00GX/7R5P5lYKX1nauOOQ+ehE0BA0yHI+wB0CCIbtFL0RsZl5Oqq8zip0GTWcI4x3yoOoR
-	Tu2Wky7byWMZGf9qdEvAPNerWMkuZM+b1Yp015dfW794NxZXAvjFWIwGbQuraO6fGjmj1rBzvAh
-	o1oorx2JtYfIb1SwZzXc63mVGXcJPKgEthTIKVNRnS5JJ10ipnC0017XCw9BqufZ5DV66KliUHJ
-	52t0ZQ4MaalFN/74Yz40RAQ==
-X-Received: by 2002:a05:7300:de44:b0:375:c5e1:931d with SMTP id 5a478bee46e88-3857073ebabmr13338923eec.25.1795483003964;
-        Mon, 23 Nov 2026 17:16:43 -0800 (PST)
-Received: from samniyama.tailbcd61.ts.net ([76.20.4.3])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm47878511eec.11.2026.11.23.17.16.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 17:16:43 -0800 (PST)
-From: Koral Ilgun <koralilgun@gmail.com>
-To: Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Ioana Ciornei <ioana.ciornei@nxp.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	bridge@lists.linux.dev,
-	netdev@vger.kernel.org
-Subject: [PATCH net] net: bridge: switchdev: clear the hwdom of a port that stops the offload
-Date: Mon, 23 Nov 2026 17:16:39 -0800
-Message-ID: <20261124011639.990261-1-koralilgun@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkne1S9o
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 740841F000C0;
+	Tue, 24 Nov 2026 01:21:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795483263;
+	bh=9BDulXHaTFH9WUerzen4hwlWxTAC3ppvvJGAoF+motE=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bkne1S9okR19YKrKDubvz0IUMj2gGJv58KhVJgv/j0c8GqH2EiN3J3sfzmUkWtnKn
+	 C/9tbQI2SoZGxOVEFBNj0W/imvtwJQu2oSlqdakV+Em7sinwEP7WLIPKl7GjJITkpT
+	 2l5AUIv0iWo58eYIZcl5H+zOZmGBOYBOxry2wLevzl89WY3q8+4kZ+3ygPzycETtDe
+	 EiNY1YHalsxE6Srkp7f26GaeMNuKEz4q0xSTcjsmh4clf8az3eN1UDNKWSX2dWumyM
+	 j/IX6V+v4kkMg60RA37GA+3L+2VVDEYexKOtU/mXa3my2zJL5td5ce5PtPsToCj8Tv
+	 ouxs2U1C47MVA==
+Subject: Re: [PATCH net-next v19 01/15] net: define IPPROTO_QUIC and SOL_QUIC
+ constants
+From: netdev-bot+sashiko@kernel.org
+To: lucien.xin@gmail.com
+Cc: netdev@vger.kernel.org, quic@lists.linux.dev, davem@davemloft.net,
+ kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ metze@samba.org, mbuhl@openbsd.org, tfanelli@redhat.com, hepengtao@xiaomi.com,
+ dreibh@simula.no, jamie.bainbridge@gmail.com, linux-cifs@vger.kernel.org,
+ pc@manguebit.org, linkinjeon@kernel.org, tom@talpey.com,
+ kernel-tls-handshake@lists.linux.dev, cel@kernel.org, jlayton@kernel.org,
+ steved@redhat.com, hare@suse.de, aahringo@redhat.com, dhowells@redhat.com,
+ matttbe@kernel.org, mail@johnericson.me, xiyou.wangcong@gmail.com,
+ alibuda@linux.alibaba.com, jbaron@akamai.com, illiliti@protonmail.com,
+ sd@queasysnail.net, marcelo.leitner@gmail.com, daniel@haxx.se,
+ andrew.gospodarek@broadcom.com, mef@scarletmail.rutgers.edu, paul@jakma.org,
+ kuniyu@google.com
+Date: Tue, 24 Nov 2026 01:21:00 +0000
+Message-ID: <179548326096.3135.1557496253047696896@kernel.org>
+In-Reply-To: <ba1d4f03926411d4e61a7587e41a12b0b423d841.1795393691.git.lucien.xin@gmail.com>
+References: <ba1d4f03926411d4e61a7587e41a12b0b423d841.1795393691.git.lucien.xin@gmail.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,229 +72,107 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Koral Ilgun <koral.ilgun@adtran.com>
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-A switchdev driver can stop the offload of a bridge port while the port
-stays in the bridge. DSA does this when the last switch port leaves a
-LAG that stays a bridge port. nbp_switchdev_del() then keeps the hwdom
-of the port, and nbp_switchdev_hwdom_put() finds the port itself in the
-port list, so the hwdom also stays busy. If the other ports with that
-hwdom leave the bridge before the port, nothing releases the hwdom.
-dsa_port_change_conduit() leaves a port in the same state when its new
-offload fails.
+Low priority / nit picks for your consideration:
 
-After BR_HWDOM_MAX - 1 such leaks, nbp_switchdev_hwdom_set() returns
--EBUSY for a port that needs a new hwdom, so the first port of a switch
-cannot join the bridge. While the stale hwdom stays,
-nbp_switchdev_allowed_egress() also refuses the port for each frame that
-another port of the switch forwarded in hardware, although the switch no
-longer forwards to the port.
+- [Low] This patch edits the tools/ copies of the kernel headers
+  directly: tools/include/uapi/linux/in.h (adds IPPROTO_QUIC = 261) and…
+- [Low] The commit message does not mention the change to
+  include/trace/events/sock.h.
 
-Clear the hwdom when the last offload of the port stops. Make
-nbp_switchdev_hwdom_set() skip a port without a hwdom, so that a port
-does not take hwdom 0 from itself or from another port that stopped the
-offload. The skip also fixes a LAG that is already a bridge port when
-its first switch port joins: nbp_switchdev_hwdom_set() can find the LAG
-itself in the list and give it hwdom 0. The bridge then refuses each port
-without a hwdom for a frame from the LAG with offload_fwd_mark, and a
-later port of the same switch copies hwdom 0.
+--
 
-During a LAG leave, the LAG now has no hwdom from
-dsa_port_pre_lag_leave() until dsa_port_lag_leave(), while the switch
-still forwards to the leaving port. A frame that the switch already
-forwarded can then also go out through the LAG. The window lasts for
-one RTNL operation.
+net: define IPPROTO_QUIC and SOL_QUIC constants
 
-The forwarding path reads the hwdom under RCU only, and
-nbp_switchdev_del() clears the hwdom before BR_TX_FWD_OFFLOAD. A reader
-can now see the flag with hwdom 0, and would then mark the frame for TX
-forwarding offload to a port that stopped the offload, or set bit 0 of
-fwd_hwdoms. Replace nbp_switchdev_can_offload_tx_fwd() with
-nbp_switchdev_tx_fwd_hwdom(), which reads the hwdom once and returns 0
-for a port without one, so that each caller uses the value of one read.
+This commit adds the IPPROTO_QUIC (261) and SOL_QUIC (288) constants for
+the in-kernel QUIC socket implementation. It also adds IPPROTO_QUIC to
+the inet_protocol_names trace enum mapping. The tools/ copies of in.h
+and socket.h get the same definitions.
 
-The fault was first seen on a downstream kernel. An out-of-tree DSA
-feature there stops the offload of an isolated bridge port while the
-port stays in the bridge, and frames to that port were lost. Mainline
-has no such feature. An AI code review agent then read the mainline
-source and found that the LAG case above reaches the same state.
+> diff --git a/include/trace/events/sock.h b/include/trace/events/sock.h
+> index b5310439536e0..ed43fe6d2705b 100644
+> --- a/include/trace/events/sock.h
+> +++ b/include/trace/events/sock.h
+> @@ -20,7 +20,8 @@
+>  #define inet_protocol_names		\
+>  		EM(IPPROTO_TCP)			\
+>  		EM(IPPROTO_SCTP)		\
+> -		EMe(IPPROTO_MPTCP)
+> +		EM(IPPROTO_MPTCP)		\
+> +		EMe(IPPROTO_QUIC)
 
-Only the hwdom leak was reproduced on mainline. The egress refusal, the
-self match in nbp_switchdev_hwdom_set() and the reader race come from a
-read of the source.
+[Severity: Low]
+This isn't a bug, but could the commit message mention this change?
 
-The leak was reproduced in a VM on dsa_loop, with a local change that
-adds empty port_lag_join and port_lag_leave ops to dsa_loop:
+inet_protocol_names feeds the TRACE_DEFINE_ENUM exports and
+show_inet_protocol_name(). That helper is used in the TP_printk output
+of inet_sock_set_state, inet_sk_error_report and the sock_msg_length
+class. With this change those events print "IPPROTO_QUIC" instead of a
+raw 261, and a new enum is exported to trace parsers.
 
-  ip link add br0 type bridge
-  for i in $(seq 70); do
-    ip link add bond1 type bond mode balance-xor
-    ip link set bond1 master br0
-    ip link set lan2 master br0 || break
-    ip link set lan1 down; ip link set lan1 master bond1
-    ip link set lan2 nomaster; ip link set lan1 nomaster
-    ip link del bond1
-  done
+The commit body only describes the new UAPI constants. The tracepoint
+change is noted only in the v15 changelog below the "---" line, and
+that text is dropped when the patch is applied. A one-line note in the
+body would cover it.
 
-Without the fix, the join of lan2 fails with EBUSY in round 64. With
-the fix, all 70 rounds pass. No kernel selftest ran, and no frame
-went through the bridge in the test.
+>  
+>  #define tcp_state_names			\
+>  		EM(TCP_ESTABLISHED)		\
 
-This patch was prepared with Claude Code (Anthropic). It wrote the
-code change, this changelog and the reproducer, and ran the tests in
-the VM, under my direction; a separate model instance reviewed the
-patch. I reviewed the result and checked the test output.
+[ ... ]
 
-Fixes: 2f5dc00f7a3e ("net: bridge: switchdev: let drivers inform which bridge ports are offloaded")
-Signed-off-by: Koral Ilgun <koral.ilgun@adtran.com>
----
-Test: net/main 5677cf0e039b plus the dsa_loop change named above,
-x86_64 in QEMU (TCG), dsa_loop with tag protocol none. Without the fix
-the join fails in round 64; with the fix all 70 rounds pass, with no
-WARNING or BUG in the log. W=1 builds of net/bridge/ with
-allmodconfig, allyesconfig and an x86_64_defconfig-based config, and
-sparse (C=2), show no new warnings. net/bridge and net/dsa did not
-change between the tested base and 639a75a3539f.
+> diff --git a/tools/include/uapi/linux/in.h b/tools/include/uapi/linux/in.h
+> index ced0fc3c3aa53..e4072152f2e62 100644
+> --- a/tools/include/uapi/linux/in.h
+> +++ b/tools/include/uapi/linux/in.h
+> @@ -85,6 +85,8 @@ enum {
+>  #define IPPROTO_RAW		IPPROTO_RAW
+>    IPPROTO_SMC = 256,		/* Shared Memory Communications		*/
+>  #define IPPROTO_SMC		IPPROTO_SMC
+> +  IPPROTO_QUIC = 261,		/* A UDP-Based Multiplexed Secure Transport */
+> +#define IPPROTO_QUIC		IPPROTO_QUIC
+>    IPPROTO_MPTCP = 262,		/* Multipath TCP connection		*/
+>  #define IPPROTO_MPTCP		IPPROTO_MPTCP
+>    IPPROTO_MAX
+> diff --git a/tools/perf/trace/beauty/include/linux/socket.h b/tools/perf/trace/beauty/include/linux/socket.h
+> index b17fdb7d38a77..7677133953ecf 100644
+> --- a/tools/perf/trace/beauty/include/linux/socket.h
+> +++ b/tools/perf/trace/beauty/include/linux/socket.h
+> @@ -401,6 +401,7 @@ struct ucred {
+>  #define SOL_MCTP	285
+>  #define SOL_SMC		286
+>  #define SOL_VSOCK	287
+> +#define SOL_QUIC	288
 
-Not tested: a frame through the bridge, so also the egress refusal,
-the TX forwarding offload path (mv88e6xxx, tag_8021q) and the LAG
-leave window; dsa_port_change_conduit(); other drivers that call
-switchdev_bridge_port_unoffload() (mlxsw, ocelot, lan966x, prestera,
-dpaa2-switch, sparx5, rocker, am65-cpsw-nuss, cpsw_new); team; the
-kernel selftests; lockdep, KASAN and KCSAN.
+[Severity: Low]
+Should these two tools/ hunks be part of this patch?
 
-nbp_switchdev_frame_mark() and nbp_switchdev_allowed_egress() keep
-plain reads of p->hwdom: each mix of the old and the new hwdom gives
-the result of one of the two states.
+tools/include/uapi/README says:
 
-Stable: the patch does not apply before v7.2, because of f76ae12b6ba3
-("net: bridge: use atomic ops to read/change p->flags (III)"). Older
-trees need a backport of the first hunk.
+  So its important not to touch the copies in tools/ when doing changes in
+  the original kernel headers, that will be done later, when
+  check-headers.sh inform about the change to the perf tools hackers.
 
- net/bridge/br_switchdev.c | 56 ++++++++++++++++++++++++++++-----------
- 1 file changed, 40 insertions(+), 16 deletions(-)
+tools/perf/check-headers.sh tracks both include/uapi/linux/in.h and
+include/linux/socket.h. The perf maintainers normally sync these copies
+in their own tree and check that the beauty scripts still parse the new
+definitions. Editing the copies from the networking tree skips that
+check and can lead to duplicate or conflicting syncs.
 
-diff --git a/net/bridge/br_switchdev.c b/net/bridge/br_switchdev.c
-index 10f3aea6a1f8..7b368fa82f76 100644
---- a/net/bridge/br_switchdev.c
-+++ b/net/bridge/br_switchdev.c
-@@ -11,17 +11,33 @@
- 
- static struct static_key_false br_switchdev_tx_fwd_offload;
- 
--static bool nbp_switchdev_can_offload_tx_fwd(const struct net_bridge_port *p,
--					     const struct sk_buff *skb)
-+/*
-+ * Returns the hwdom of the egress port if the frame can use TX forwarding
-+ * offload to it, or 0.
-+ */
-+static int nbp_switchdev_tx_fwd_hwdom(const struct net_bridge_port *p,
-+				      const struct sk_buff *skb)
- {
-+	int hwdom;
-+
- 	if (!static_branch_unlikely(&br_switchdev_tx_fwd_offload))
--		return false;
-+		return 0;
- 
- 	if (br_multicast_igmp_type(skb))
--		return false;
-+		return 0;
-+
-+	if (!test_bit(BR_TX_FWD_OFFLOAD_BIT, &p->flags))
-+		return 0;
-+
-+	/*
-+	 * nbp_switchdev_del() clears the hwdom before the flag, while the
-+	 * port can stay in the bridge.
-+	 */
-+	hwdom = READ_ONCE(p->hwdom);
-+	if (hwdom == BR_INPUT_SKB_CB(skb)->src_hwdom)
-+		return 0;
- 
--	return test_bit(BR_TX_FWD_OFFLOAD_BIT, &p->flags) &&
--	       (p->hwdom != BR_INPUT_SKB_CB(skb)->src_hwdom);
-+	return hwdom;
- }
- 
- bool br_switchdev_frame_uses_tx_fwd_offload(struct sk_buff *skb)
-@@ -41,7 +57,7 @@ void br_switchdev_frame_set_offload_fwd_mark(struct sk_buff *skb)
- void nbp_switchdev_frame_mark_tx_fwd_offload(const struct net_bridge_port *p,
- 					     struct sk_buff *skb)
- {
--	if (nbp_switchdev_can_offload_tx_fwd(p, skb))
-+	if (nbp_switchdev_tx_fwd_hwdom(p, skb))
- 		BR_INPUT_SKB_CB(skb)->tx_fwd_offload = true;
- }
- 
-@@ -53,8 +69,10 @@ void nbp_switchdev_frame_mark_tx_fwd_offload(const struct net_bridge_port *p,
- void nbp_switchdev_frame_mark_tx_fwd_to_hwdom(const struct net_bridge_port *p,
- 					      struct sk_buff *skb)
- {
--	if (nbp_switchdev_can_offload_tx_fwd(p, skb))
--		set_bit(p->hwdom, &BR_INPUT_SKB_CB(skb)->fwd_hwdoms);
-+	int hwdom = nbp_switchdev_tx_fwd_hwdom(p, skb);
-+
-+	if (hwdom)
-+		set_bit(hwdom, &BR_INPUT_SKB_CB(skb)->fwd_hwdoms);
- }
- 
- void nbp_switchdev_frame_mark(const struct net_bridge_port *p,
-@@ -221,10 +239,14 @@ static int nbp_switchdev_hwdom_set(struct net_bridge_port *joining)
- 	struct net_bridge_port *p;
- 	int hwdom;
- 
--	/* joining is yet to be added to the port list. */
-+	/*
-+	 * joining can already be in the port list, and so can another port
-+	 * that stopped the offload but stays a member. Both have no hwdom.
-+	 */
- 	list_for_each_entry(p, &br->port_list, list) {
--		if (netdev_phys_item_id_same(&joining->ppid, &p->ppid)) {
--			joining->hwdom = p->hwdom;
-+		if (p->hwdom &&
-+		    netdev_phys_item_id_same(&joining->ppid, &p->ppid)) {
-+			WRITE_ONCE(joining->hwdom, p->hwdom);
- 			return 0;
- 		}
- 	}
-@@ -234,7 +256,7 @@ static int nbp_switchdev_hwdom_set(struct net_bridge_port *joining)
- 		return -EBUSY;
- 
- 	set_bit(hwdom, &br->busy_hwdoms);
--	joining->hwdom = hwdom;
-+	WRITE_ONCE(joining->hwdom, hwdom);
- 	return 0;
- }
- 
-@@ -243,9 +265,9 @@ static void nbp_switchdev_hwdom_put(struct net_bridge_port *leaving)
- 	struct net_bridge *br = leaving->br;
- 	struct net_bridge_port *p;
- 
--	/* leaving is no longer in the port list. */
-+	/* leaving is still in the port list if it stays a member. */
- 	list_for_each_entry(p, &br->port_list, list) {
--		if (p->hwdom == leaving->hwdom)
-+		if (p != leaving && p->hwdom == leaving->hwdom)
- 			return;
- 	}
- 
-@@ -304,8 +326,10 @@ static void nbp_switchdev_del(struct net_bridge_port *p)
- 	if (p->offload_count)
- 		return;
- 
--	if (p->hwdom)
-+	if (p->hwdom) {
- 		nbp_switchdev_hwdom_put(p);
-+		WRITE_ONCE(p->hwdom, 0);
-+	}
- 
- 	if (test_bit(BR_TX_FWD_OFFLOAD_BIT, &p->flags)) {
- 		clear_bit(BR_TX_FWD_OFFLOAD_BIT, &p->flags);
+The commit body also doesn't mention the tools/ changes. They appear
+only in the v15 changelog below the "---" line.
 
-base-commit: 639a75a3539f621e4437ffeec7ab51bf8a1fb170
+Would it make sense to drop the tools/include/uapi/linux/in.h and
+tools/perf/trace/beauty/include/linux/socket.h hunks, or send them as a
+separate patch to the perf-tools maintainers?
+
+>  
+>  /* IPX options */
+>  #define IPX_TYPE	1
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795393690.git.lucien.xin%40gmail.com
