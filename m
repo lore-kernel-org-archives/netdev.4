@@ -1,58 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795535058;
-	b=lOa8i0lRBiOyG9tKq7oFeLGKkVNHKM1xvlpdZCwXMtxTJtQH5VquPqXHXy7j2syUdqQf
-	 mwUCGt0rzmWz7Cu2gbICy+YF4Ek2DqetJfh4VpsvNytUbw5tfgsNO1WY97+JSPi2+OmeZ
-	 rTV9/MnfYE+YBe8XcqocfSMz2D5YK1rHKG1nSyYzWGkRuNfbKGd79lYBf+s1j279HDzQn
-	 7h1Znoz0k2HSvFbWLD5gA4DUdMtRMmXLxb4GDXjqNXYFUP3ORf5FIZb/JPoaNTnfI02bM
-	 rGZv3A6bf6Q+fYFmX16HynH0RGZjGpYPleCeEmFVcOv8AhwgbULzYIZwuG/VMbenyZw==
+	t=1795535072;
+	b=bg4VKmP/4TEfp3GB0bb44+cXDrSld3JrayfbeQM379dfE+cwX5xTsRqFeM7TvRy6e6C6
+	 JNRXTNUrx37N3c5inuIqTYr9mTNp50/mEzmb0VsMCV7mksaFXbgWS1+PnjQPSkUDZkFD/
+	 yvPsaCRNowNuhV9FrXmgQGxYafJ1ZUVg/5akYYz9/GEipY7acCzEWy6yzRiVOLUJFyCNy
+	 W8qfpP/wCux7yhbO/ze79zW/XNmP94Mq0Gn3NTIlxnF8YESCNviiW56Eh6nwD99MshTgc
+	 eTNO9qLCtbh8qfa2aa/PMS7NJxtBWrB2lWmr+3JXDvIpj4MqhSFijQ5PDdaFkRUhAlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535058;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535072;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=IDbUmybDpH6/fsWmOG0pilZ3vqZX4QH2JbML7+b3ATdvGHXlae5X0j7xwtUkPmunet5w
-	 o6vErgxZdNGnVkGgGT8SdsLyzzhQXqRsXxJSHf/yveHIb7vZZLdy+IBP6sCY4+fHSaVPP
-	 2kEqs/0WC/WY4WcQk5tljxS7z2P8n3Z6sgm4iSi/y9BxEE+ZNCHYBLBNZd3lrWMDBadGO
-	 rf0MOlFVS0xgwmKdUs7GoddcOdcOwel+BKN1d16C1htS4dgaRWIe0opsz6ZR8SD3fae8y
-	 tC1z1ZzzHk9NEdYoSLII+OnQUrb0EuVxCgT5NTNU2ecgoKfjdEgRv/bXT6vtsO6ihFA==
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=l5veRuTsjCef0xKyYh69YyZqGM0kjOnoOgsyFhra9otqVBjOST3TbtwFlRRVQUrEqUYr
+	 zLnDoTtmhbhzmMsZGdDR1OVvmWGEQ4GKx6YXYd6rt68UoSQNYAKVcdqVTf6fXZ8y1+6+p
+	 FjfEb4goCEV3P2jbQmDLIv5rFFKfcBzL3ITY+vpkkVV9Dnzf2GkKB0Nr/sqGXcbuh7byR
+	 FGioG+bTsX8XmSdQWC19HqJFoFYwMYOaBPG8ekI3/yyblvOxiReZfrQ3k4WTf8+dJNMLx
+	 OC6rU09k//aJ2+hDXLlhc1knvewGXbNshR66acmg4Hw22FbvqKF00RiTRpRAFQ/Mb8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=osQA8K9F;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgVVaL33;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42973606A329;
-	Tue, 24 Nov 2026 15:44:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BECD4606A321;
+	Tue, 24 Nov 2026 15:44:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=osQA8K9F
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E5DB1F000D8;
-	Tue, 24 Nov 2026 15:44:17 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HgVVaL33
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4C591F000C0;
+	Tue, 24 Nov 2026 15:44:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795535058;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	s=k20260515; t=1795535072;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=osQA8K9FJ2oHcByg5S9Gh31bLnkKJJDICqtrw+En+EZdsrVb089DfMlYis74N3XJi
-	 wID2EwyDcqXKfzJr80O8BSW0m0lUAZ0Dw2hVK/2BI4fvKQjWVAzZjy10H+biTT2sqw
-	 /3yFt0uW4O5iO+1wjl9Wu+nIWbNK4RktvXfsdrDkQKqUBR3sgBBfbVTyAS8VKlxpZs
-	 AcYuA6PIjOwROJpeYx83oY9CIJVp+71zLyxcRgwmC8xMo9UF5agG1Hpyxh0QQ16srF
-	 GPQH+S81yUhIIFGaM0C6aILZn8rb624D/dDzb6kZCT7CYcnSSPvmOgrA/T77DCafUI
-	 h1+reil9iLHKw==
+	b=HgVVaL3357PSobOf7PgmF85+LVhDXxGOV9OlYq7N0s6Sg2O8nusYgSLBxcMszVBBs
+	 Qi+fhARTMLsyB2rU5CwwTho6EG3elDBWWEC2bWT4PyAygfHTgaqjOo3FOdy5Z0joYR
+	 7Q/faxAZp0LOtUIt2D/HuKAZmHg3fZaWpxh0zXMxaBr0y9pafquLb+IJYWEzi9awcu
+	 MqcCSqDi3oOPcqK8COOSaZ3vjM2/JVRkPRoz+0b5oZCLzlVLrnIe1anb4vTjZrYOGM
+	 p9HIJtEvXYPUTg4qW8yZyjsG+8AhOJBbg7Abz6/Lycf9w1ckL0yE4fF3QwcqJ3G2N4
+	 omMBAFoU2HyNg==
 From: netdev-bot+sinfo@kernel.org
-To: Vladimir Vdovin <deliran@verdict.gg>
-Cc: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next 0/2] ipv4: Don't cache a pmtu above the device
- mtu of a path
-Date: Tue, 24 Nov 2026 15:44:16 +0000
-Message-ID: <179553505696.3294.4594349466787129471@kernel.org>
-In-Reply-To: <20261124153730.56549-1-deliran@verdict.gg>
-References: <20261124153730.56549-1-deliran@verdict.gg>
+To: Wei Hu <weh@linux.microsoft.com>
+Cc: longli@kernel.org, kotaranov@microsoft.com, kuba@kernel.org,
+ davem@davemloft.net, pabeni@redhat.com, edumazet@google.com,
+ andrew+netdev@lunn.ch, jgg@ziepe.ca, leon@kernel.org, haiyangz@microsoft.com,
+ wei.liu@kernel.org, decui@microsoft.com, shradhagupta@linux.microsoft.com,
+ horms@kernel.org, ernis@linux.microsoft.com, stephen@networkplumber.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, linux-kernel@vger.kernel.org,
+ gargaditya@linux.microsoft.com, kees+treewide@kernel.org, kees@kernel.org,
+ mawasthi@linux.microsoft.com, weh@microsoft.com, edumazet@kernel.org,
+ shacharr@microsoft.com
+Subject: Re: [PATCH net-next v12 0/5] net: mana: concurrent HWC requests
+Date: Tue, 24 Nov 2026 15:44:30 +0000
+Message-ID: <179553507044.3294.2548266527967853234@kernel.org>
+In-Reply-To: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
+References: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -74,6 +78,10 @@ commit messages seem to be missing some information:
  - How the issue was discovered, e.g. hit in production, hit during
    development, syzbot report, manual code inspection, LLM or static
    analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
 Please do not repost the series just to address the above. Instead,
 reply to this email with the missing information, so that reviewers
