@@ -1,47 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539494;
-	b=N85mZikJBLYjv7Iu1M4X3NXCjBWpkmgLZHmWoYo7QEzQD8NCoivOgucD+FmP2u3YoAZd
-	 45Hr9Kvh3eCrOES/F1PlaPE8Lou8+LpRrGAfV3htmN3PkgP5Pa3iXvd+9WyATmvL1jKXz
-	 ZwD6uByqZKB0QWIPT1noEN79/8DWF0VZbhJpPkw1n/+QLVc1X5JvYyGlpQHsIkZf+O7XF
-	 M7soungqfmKCihktenCEL+S+movl8msoCTA1m1tgDEzf0zwsfU4tv1tRPDkstTQtWosNS
-	 CgkNy3PecludW1f9vI2xKitHeyLXCMa/gFiAL2jBTVhiLBoEBGnp3z0Aqw0qqDxdIJw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539494;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=7bzqAqpmFimjeJFcxVgTHaPyYVyV1TyY7rhQFKp6yio=;
-	b=tCtPfp6gpCw9wKffKQP/+8BFxsxY2toGOJSQpUMoMef3o8TxHEfKSFf0DG2wF7xMSJdh
-	 B/Clo2ZfM69UwELqrx0AC0z5ToB4FpGBQc5ZPnhywRdu7A6MQU3wzDOhAMPLdm8V6HWK7
-	 FZOcW5nE878CE/6N6wIRNH0KKgIeE/h/SrJ6s/8tXZ+tNKZMmuw5uEPscsInbDSSD81Ab
-	 e3PciyECUb2ym/bzMHZmDWcjwPwtOtcSb/kCRs+q0LMgCdFM5spWYy+kdnuQ+K/JRkyMN
-	 y/lL3PAPgQS3xcnrFDtPi6jVnJLkIjWP1Raetuy3hYe3DD08tdsxI3LA9Ghx8fFl0Sg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvYVBtuT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.177
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795539523;
+	b=dPoyLEexRKpeU9bSsg3YMFEz5ilq+tl50avUH68EumcZxtF3pnK8stZZM1iCyR5qO5Uh
+	 1GFMEud4F0Uj4YTNJiciuiHlWy4TPsf82fXvTKr98IUUKwemWxkkp08F+R5zg2jbyf3hU
+	 X7r85eq/g0Z3ZOEzHuGUK11DL2d/hGuMJ0A7HduyHrj6wM5IMjH3/Qltc5bAvwA4G9zJy
+	 6z1pVxieuIz35dPq4Xgy3N4nfzAY4WnzCIO5ruBK76tII0Q/5FLn6jFQN1hTYNxzSFzJH
+	 DZe8cS8tvGiuD/+uz7T6JmMVODD9tZS7SJJOxkxWK9TUVcs8ShmECaOSBUbOLgewJ1A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539523;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=5HjZJAjY5u3Fowj7izRJvXnGMFA618no4HsUeAZCCbU=;
+	b=Pe1POEZkHJxMxFcOwLZ+uZTf/IIrJOBgLBuytFOEE9Ee18uhQfXc9dW8zcstQXiv91j7
+	 meo/b0eRKJGwLrxD5nZGoeCHTKRPpQV6ZsRn9n3ZFNYErK3X5Q7V2/oaxEv1scFKR+iEY
+	 rQeR29N5NJ2ZZcnPvWf0EO1LWj5S6QwZtitTO4hVHRB6hSd43o0qBL26A3ejNm/fBAlvT
+	 ONYwHMrJDGwZDmQJ3T/jjhQE25C+ObCsoAQcNNmInL3Xw6SVHMnL6stRWw8ov7YRpRLH2
+	 iaSXPUZZRtRyiV+CJ0FNGWk/xzhx4KbO5+KJ/6zwcJ2AK0eBpK9QbMQzvDjAC8I/pNA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=YeeksOgb;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.177
+Received: from mail-pf1-f177.google.com (mail-pf1-f177.google.com [209.85.210.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52333606A33D;
-	Tue, 24 Nov 2026 16:58:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E357606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:58:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E357606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvYVBtuT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7CDB31F000C6;
-	Tue, 24 Nov 2026 16:58:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795539494;
-	bh=7bzqAqpmFimjeJFcxVgTHaPyYVyV1TyY7rhQFKp6yio=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WvYVBtuTFXAF5q1MbcgyTZ6v/USmCbK7qJaXXQnPjFqspRJKqHZPYiEf/vD1YH0Y6
-	 gYgD+2nWq9q++UnvbZ9dcF80jj3KaCsDwJiaJnlpZ6G0lNXGQIY6mcpFxxJQXNMgIh
-	 ODDpbFjZGyzo2VkF4TVAQpWEbkGYkZyx0MZXtYpO0/HI8ah5Y+aRMTX0DbaNi8AKB+
-	 P6g4oOSJdhHqpQOLj6O6QgwGmZyn20/bPfRroUq0IkseV5wcmjk20Pzf4DMJ1IO1OV
-	 IvqdgrVdi0gGmDt0+RS77LFgHGn8FfmvTZ0RRIju5dKkHB9cU68pl6dF42XAdkPXyc
-	 3JWEXGH3R1ddA==
-Message-ID: <0f4420d2-c4cd-4b93-9841-20d95d98d9e3@kernel.org>
-Date: Tue, 24 Nov 2026 17:58:05 +0100
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=YeeksOgb
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-8b9c51097e2so1752563b3a.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:58:41 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795539521; cv=none;
+        d=google.com; s=arc-20260327;
+        b=NLFgmYd2+Tp2shaiZSFFYz7t8oG748mlghJcdlRXVCHzXWhQoJ0xxw+7o/zAFUZ+Fp
+         EjXxjkQruYTs+FwwvkGvdGxbllsF7CIlEF7ehoni9kb4wsukmmawiJbwbn6VpBpInHfu
+         LmL3SqqDtvj53cMtRSxRXcpclc63sX/ScvKeoTdF/nZc+vBJKwyWagtF77bTV1KE9Z7P
+         tcf+R0gr3Ekv/t25qaavNl7xDCwLFHmV6xwTPgG6Bhj5k8KxTRztns9R3O7RH5x4HFx9
+         /NRVsZRWRe2l85AvU+aLjzMivfNt+RUQYEuQE/o3Tn+z7qnrMW5+/mbTYJUKGF/dkxF0
+         cyNA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=5HjZJAjY5u3Fowj7izRJvXnGMFA618no4HsUeAZCCbU=;
+        fh=qASyZGPwl3aoNJMYPKk7NONDMpMxJ0d6QGIyXMj+joo=;
+        b=pLYmuMmOGrqUSm1uhiZXrbiMu6gVaXXXiQ0WZLGHu8t/DaUMGD2AZ4szt52Fak8sFo
+         jUu9aL0xHJLxKqg6rn+1DOARaXMf6XEXCEzSJJshYHl41lu/vbOyNanN1J3uNo5umOqn
+         NQNaIVFHvLClqaEnp0zgk0SMsYCZLDwULy52UNm5AxKYt9H6kMWhiD1SQ2FaPsOc9cN8
+         mxONrHzkFfU3UeyP1cIyQtRqkIqkdlks3+RI+EbGkrmO022XsB+TvfqSo/cH+t9QJSoO
+         ukNIBiS/cxbFok/EZhc3W7Bt6hRBURBMMFqH1n+fsT/vZ69FJwu15g23QK9URPQg1prD
+         CmUQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=mojatatu.com; s=google; t=1795539521; x=1796144321; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=5HjZJAjY5u3Fowj7izRJvXnGMFA618no4HsUeAZCCbU=;
+        b=YeeksOgbP/Ulct0x6tumOGXv0wn/ZsspZGvZfAkR27B9GIzuFGk73NNFZQ5WF53eKh
+         Wroaprl5KEkWpWNY4Mm5HDKZtzlzvVltshd/1Qg3x19fEijmQ4z/Ei5Tt0cqTy1ieCTa
+         meoBLb/33SzPZUHLTbZOF2qYBX/qaxU7al0oA=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795539521; x=1796144321;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=5HjZJAjY5u3Fowj7izRJvXnGMFA618no4HsUeAZCCbU=;
+        b=IgBvKlk5Z15oT2jl4EUOxH13KQv7/x0rdNKnk7zQrK33V1DFKa+aW6/QUr0Es8E+6a
+         GbvYA+OzegmZm09sJ/iPCVK5ynWnN8f2hh26IqlskmP2/oWXnCrLj1J2e+Qwz3Y7erdO
+         PS6PEXukubCdDzzg7Big1iRTt25GeYhaivV+kwUUskEBBUOWo+DhG4vKICPeDrqfjYZy
+         Fmp8RWVQRu7iv+Aj5f6NRpjY2l3KuAYolHbxYDrCoK8p/vhb68vTNyMTIy6zLwrc5r/7
+         kXLj4yfMl+1NlpgXmRJ6KQXfya5QDNmhLjNeC1qP1RfDMnJHlKwo+TOudwMrW150ChnA
+         pxPQ==
+X-Gm-Message-State: APuU4Z97gNwAZ5wtP45XXIpCaUiOSoIukhAkZU4KwiMWoptzxCRmXiRZ
+	vleAlRVZNc6sxLccmH5dm6AddJh2K36vcypJXTFWO/f7eWZTchhiJ+ys5kwH1W4DrUbadMALCho
+	oLfl5kcI0h4di5NO5zgGAG1T8ZmKZNBS/kOQkUiu9
+X-Gm-Gg: AZFdTZdUCbPSbfQzoJs97XspggzNQKvX0/NxjjkbS8DJdkIiyquzMl6Esdch2Oq1gdD
+	WsfUuoqdTnQ4k5c245DialukwKEWx+0tkbVJ72A0yVR+rmxaGSGXjSxdaTO3IaCgYruX3Dx4rQ8
+	zMois8rlieDyyV677M1r0M4cuKqn+9Jp8KIHh3hfTnk5umglwufq5A/v8G7F73fEQgoNrYjMm57
+	vaBf26kblt7Hc2kYJPzl3YMvFqWjp+pE3iUFLFnNv5I2erFsefCTIT4rh8XylvOaChDS5c2Nqwg
+	AqNH0X47vjqppVfABGs+xLAvF6sytfzsrYVMZf50fyHAngWJPeK+bouo6mrohb6AWVsRK2G/sV+
+	mX5D9p3wok2tPuQZU8mISvjaHzZ+v9TS1eo/VpTUXDBwykHsnJXy6qyQaH4AFs69KGZEqZoOk4p
+	l+bgI20/q3j3MQTVU=
+X-Received: by 2002:a05:6a21:6116:b0:3e2:1418:aae8 with SMTP id
+ adf61e73a8af0-4014dd566d2mr15911153637.72.1795539521356; Tue, 24 Nov 2026
+ 08:58:41 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,98 +101,111 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net 08/10] mptcp: pm: don't let listeners pin their netns
-Content-Language: fr
-To: netdev-bot+sashiko@kernel.org
-Cc: edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com, willemb@google.com, horms@kernel.org,
- martineau@kernel.org, geliang@kernel.org, cpaasch@openai.com, fw@strlen.de,
- netdev@vger.kernel.org, mptcp@lists.linux.dev, dcaratti@redhat.com,
- mason@kernel.org, stable@vger.kernel.org, ncardwell@google.com,
- kuniyu@google.com, kafai@fb.com, daniel@iogearbox.net, ast@kernel.org,
- martin.lau@kernel.org, bpf@vger.kernel.org
-References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-8-278042217e8d@kernel.org>
- <179553041337.3135.9610172277728846515@kernel.org>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <179553041337.3135.9610172277728846515@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com> <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
+ <20261124161258.vLyrm8Y4@linutronix.de>
+In-Reply-To: <20261124161258.vLyrm8Y4@linutronix.de>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Tue, 24 Nov 2026 11:58:29 -0500
+X-Gm-Features: Aa3M54pJO0xlb2aFJWl13lvot59VCzXd4TbuAAatZjI5CYCOVCy7EsRNd2NC2Vk
+Message-ID: <CAM0EoMmMio4kotBqbcJmFtf_c3Du=rhfvp+sMiAd0fHKowv6Vg@mail.gmail.com>
+Subject: Re: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries
+ shorter than 10 us
+To: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+Cc: netdev@vger.kernel.org, Jiri Pirko <jiri@resnulli.us>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
+	linux-rt-devel@lists.linux.dev, Victor Nogueira <victor@mojatatu.com>, 
+	Po Liu <Po.Liu@nxp.com>, stable@vger.kernel.org, sashiko-bot@kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hello,
+On Tue, Nov 24, 2026 at 11:13=E2=80=AFAM Sebastian Andrzej Siewior
+<bigeasy@linutronix.de> wrote:
+>
+> On 2026-11-24 09:12:09 [-0500], Jamal Hadi Salim wrote:
+> > This is a followup of commit a51c328df310 ("net: qos: introduce a gate
+> > control flow action") as reported by Sashiko.
+> >
+> > The issue:
+> > fill_gate_entry() only rejects an interval of zero, but that interval i=
+s
+> > the period gate_timer_func() re-arms the hrtimer at, and a few
+> > nanoseconds is below the cost of servicing one expiry: the next is due
+> > before the current one finishes, so the action holds a CPU in the timer
+> > softirq for as long as it exists.
+>
+> The timer is programmed in the past, fires immediately and hogs the
+> CPU.
+>
+> > On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a core,
+> > 2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to a
+> > few percent and it reaches zero by 100 us.
+> >
+> > The Fix:
+> > Require at least 10 us per entry.  An act_gate schedule is not tied to =
+a
+> > device, so unlike taprio there is no frame time to derive a bound from;
+> > the bound has to come from the cost of servicing one expiry, with room
+> > for a kernel that services it slower.
+>
+> The 10us sound sane. With enough debug (say kasan, lockdep, =E2=80=A6) th=
+is
+> might become tight again.
+>
 
-On 24/11/2026 15:26, netdev-bot+sashiko@kernel.org wrote:
-> - [High] The netns leak this patch claims to fix can still be triggered
->   through the SYN-cookie path.
+Agreed. Unfortunately, there is no way to derive a "good value" here
+(it depends on workload, machine, utilization, etc, etc).
+poor choice of wording on my part - should probably have said all of
+what i said above for precisiness...
+Cant wait to see the pedantic nitpicks the sashikos will get about
+this. Regardless if this is all they came up with I am not resending.
 
-(...)
+> =E2=80=A6
+> >
+> > Fixes: a51c328df310 ("net: qos: introduce a gate control flow action")
+> > Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
+>
+> There is no syzbot report for this?
+>
 
-> Doesn't that leak the namespace the same way as before this patch?
+It's in 1/3
 
-Yep! But this is not a regression: before this patch, these children
-also held a netns reference, and the listener itself always pinned the
-netns.
+> > Closes: https://sashiko.dev/#/patchset/tencent_4ED9536B0375C96183B2244C=
+F7709768C605@qq.com
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
+>
+> Reviewed-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+>
+> > --- a/net/sched/act_gate.c
+> > +++ b/net/sched/act_gate.c
+> > @@ -25,6 +25,11 @@ static struct tc_action_ops act_gate_ops;
+> >   */
+> >  #define GATE_ENTRIES_MAX     1024U
+> >
+> > +/* An entry shorter than this lets the next expiry land before the sof=
+tirq
+> > + * servicing the current one can finish, so the timer stays permanentl=
+y behind.
+> > + */
+>
+> No strong opinion. I leave this here.
+>
+> | With a too small interval the next timer will be programmed in the past
+> | and will fire immediately.
+>
 
-(...)
+see above.
 
-> Could the reference be taken only for MP_JOIN children that get attached
-> to an msk? Another option would be to reject non-MP_JOIN cookie ACKs on a
-> pm_listener in mptcp_subflow_init_cookie_req().
+cheers,
+jamal
 
-The second option is already pending on the MPTCP ML, for a separate
-*pre-existing* issue. It will be sent with the next batch:
-
-
-https://lore.kernel.org/20261121-mptcp-cmason-fixes-v2-31-00327fd1de1f@kernel.org
-
-So no need to change this patch, it can be applied as is.
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
-
+> > +#define GATE_MIN_INTERVAL_NSEC       10000U
+> > +
+> >  static ktime_t gate_get_time(struct tcf_gate *gact)
+> >  {
+> >       ktime_t mono =3D ktime_get();
+>
+> Sebastian
