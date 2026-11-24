@@ -1,58 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795489970;
-	b=dAhZd/qMG4f4/rmmWAaOewFAhpFx+FsC3c9OeU7qg2jlZ7NWAljW3IYX7PTaoF9xuDvQ
-	 xQyJ3qNekiXPernwbsIcKmIlZW72T8VrR1xOW6ZwizBVl8hc9EKL5gvAfAo8WTilWptqa
-	 hqX/zT73YNYxZJkNMe6HIbT3SVvl0kWDRTjtGv9oL1oqNBUMGEBzg4Z3t1tijwS9J1QzT
-	 98o9B+7Pb3nUHxZIOuum2ZBx/TuPmCMcbeDQcho9Oj4hKLtOA1dzj9DXxg2bvJCIijhCO
-	 aOANcGj8lnYK1kVL+W1b/pk3B4XEktOZrzkhsjCX4W56X/ypKzId2d98bA30FLjduLA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795489970;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=h+8Na1BEpkJkdeI2fn00t3Mx0IWg8ehRSC634a0KQgQ=;
-	b=z2YO1E8ZW4fu4D3AewfsQ8DWDy6HuCoLI/37dJ0O+GygNm1XeVYnEe4Jcn8FzqavtDll
-	 hILs/gihmf+gZXmfL3x2IopjVbNtszSpHbWpdRs8+eZRqJ8QltHnyIc6nZ8u3LMG1Us6o
-	 rZ8tQF75ird8nV0wjA8GVWwf97cTaCm2iBdnNhJb7Qa8Fqi+U3GxHrVKvR1sVknjiXM8V
-	 r05Vmh09UnUT6dneqy2ApTXOXDxxZLvZuUF7YYmAflTULzPl2XaxC87OvXpkx8fxGJZ0a
-	 NXTgrGe1PL+5C4Ojlb9Mp5V4YT7wvN7oKUV9WXEu9pBMoYQk7yoTslK47W0zJWhjgKQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k7xmli+N;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795490464;
+	b=GBOTY8rEb0cx1IItkfISHE788M4H4CqMLPnPDqwZOh22Uun7BOQjNL7y1ZDYEamwCZ1x
+	 kUnqf/ICNectP8ZDwhqbg9YJbR+bw3ow6N86KTRxu+WdaTLH8ypSgaA+Auet+jS2r5Szp
+	 Dr6fgbYFQRmUyqWAL6orF663QOAzOXbvLbhRwkO6l12JY9GYJpHL5LlqEskMV5bkV+M+c
+	 Vwc4OZZTQOXrbnIesLlJ/SwIg2/Dt4/mNTFmYmp4XTe4NISmi7DDG6+AQzu7A6p0mgIzm
+	 7pofasbAxKHBfBWg3G9+wQreaM03pm14KM80s+pdj8Lu3suMl8Hf7Vz23SnLJS+9XdA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490464;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:MIME-Version:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type;
+	bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
+	b=D7AVY++uOrEMuj6IKo+oIzlJnyESir4CRZ3dV4vdN77u8hWFBvM1vvWcBJKMKCV7qGae
+	 x1/ogRiKv9AQ30Do0q4mYkO+wRDx5EYfXI9WTiI02l+oUkXzWpAOhaKIvfHUFYthloqwE
+	 lrxp93LH3L3UJJDpkB6QfCsSOJwG/K2ueC4vvGolQeKKp0hkKwNz7RcBPZTXJTVo6okEw
+	 k320tqGiBLpD4gMYIgNmWWvFVkv9hIH5YxltgwNKASgf5VMBZv5ZLdO7lov5FNq2Bi9Nf
+	 Zi2SmlXfoqDy6a6rS0s9Rd70+3Q8f9u3k7YJ9VJQKhbmpbLYLPEhQEcxsaWv7EVfMWw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Tn6/6sCB";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 209C4606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:12:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB15A606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:21:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB15A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k7xmli+N
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BA77F1F000CF;
-	Tue, 24 Nov 2026 03:12:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795489969;
-	bh=h+8Na1BEpkJkdeI2fn00t3Mx0IWg8ehRSC634a0KQgQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=k7xmli+N8FCTrRLzx6CIWF4KnyL1K8lk+aAfdCxNh/2Gvv4MOco7ut04C0WiGAGb1
-	 iPKUiAZCpnENWGTh9StMfAfNTaaGSR6O+oY07Q7jR/qKhO7i0CuCI72Bm7uXopamnQ
-	 BQdy7xpL53eLFdUOBAxDcKUivgPjEu3QDeiFQJ5/GpXK4sD/bUGtqr4Dph2cAOo2r9
-	 u6JvzLlkuEbaPT9G8wMyyByj9PkTxUDSJTTDzfZd6ulGNIFhAy1eTdSTBnIlP1HgRk
-	 W1iSB37x3ZCFFd33dlM+vvBJttlN9KjZSjrwHOgfWf8uXK0Fl/9mleveoWS6t5YsXt
-	 3A41DvLNiWLeA==
-Subject: Re: [PATCH net-next] net: hix5hd2_gmac: support fixed-link
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, shenjian15@huawei.com, shaojijie@huawei.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com
-Date: Tue, 24 Nov 2026 03:12:48 +0000
-Message-ID: <179548996825.3135.16418644691427963139@kernel.org>
-In-Reply-To: <20261120031026.1371052-1-mmyangfl@gmail.com>
-References: <20261120031026.1371052-1-mmyangfl@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tn6/6sCB
+Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67921b515a7so4297758d50.2
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:21:03 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795490462; cv=none;
+        d=google.com; s=arc-20260327;
+        b=KOtBzhT7dJT0YuRQ4Qwox5IBG2hjUZFu9u7MEGE4EXkAWWlKysbI5+HMH2F/Kuq0/4
+         XzulU1jb+xLH5vHODjO1V90raSvBfYvnSF8MnMwRnVAk042Un1ZlUcPROFSM9hZgHIUB
+         dk2xjrmVFkIaDs2pubPxlP7wFDNUQI/Rl8m/UjkMgBiIwLlJJ9ruMyfk1qlhnbdc/TAy
+         xuy2/FpIpu1hT6bwHhEFcZcJleg51Pz+is27O3c7IUtLu50XKY29y2HF1bDFEZ2FqIXI
+         niTCqocBUhui8h9QKO3expMNxxMFfz+5a7HB9mXqf1lW4GH9i/Ee+87xSwz7lWeIgYiU
+         KSdg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:mime-version:from:dkim-signature;
+        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
+        fh=2KpoSw4Kt2zHAcQBzv2N6yqVuAW7K4dw9/foNYpZiDE=;
+        b=Buw2BmDfTakAZJdM0yCz5ZfNA1WpQzFaWUgqxWBFdOAdBgEPvH0mrYWQEP+tucehup
+         mCkUjpHSG7/WhQSuwGvn8b3K6Qq3Uj7QPeiLGISQ0pjkpVsXp1iNsF+b44aKySLbxXNq
+         TeFeejuh/aaY7+96+6zw1nFkTzUCDIe6j10Rx62oWCL1ecLKSSYidjRhLgcOs7JjaCmu
+         d3Fe4Wn7UYXaqD9OUilMVnLcmB/OSS2PK46F3VEuneXo4GA+0qocsN7Qalus5pOC+P79
+         mu9Fu5Sa8dqhOqHN6ewjayX0u0oPswzty0ZBjX14SSMvnRRWrcgGYaZBJ41qHH8DlZd3
+         9pSA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795490462; x=1796095262; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:from:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
+        b=Tn6/6sCBM2z1QteltRHf3JVlPrQx1QfFDpcq+nFYZCZOKfU26pOIEZmHkWQ1/o4261
+         qdQ+84gC352gwLnCNCXBHpyQ++5rL/jtxYpVIUg55znQSOluEglySt5ZPpldLzDWyFWy
+         T9f4enOw8u5dhqq0D/t50vJbPiQ9pvbbRazOfxhn7PsfGv3fDBmXs8ctnCnLjyNOLmZM
+         lIjBjfwnpEjS4bE1RyTmnt0CrR9FKrZY7593C3axqBGAkiBatP6piioC7cK0GCBmtjt/
+         GSAlWY87t8KPhPEZsjagLz68eiKKxgQsDPVHb/F/C//99as/rjt6n/Zuobk6Ln3ZY9k3
+         /8hg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795490462; x=1796095262;
+        h=content-type:cc:to:subject:message-id:date:mime-version:from
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
+        b=2Ue/slvxSquekmTEbmMvPRFxD8N7+JakZu39Z0dobS7M2fXTIZ5VbRDmpQGfelfCb1
+         wzGD3Ce8QTj1u9O4Fo3WiA2iJTo/DLxUhCiJZkqQBB3ZKDSZmld0bKG03Wn2WIWPAD8U
+         ngYcX8vF7pK9kd4rZheor+b+72M0cDVD4I9k9qWaALyFm7Kz/aHql/nXBPQ7580V+Hrf
+         6m2uM3Xn1nvITw4ijv+ed40Izek+yOv8nHLcVUNRw9z/fUNmFfWHnM64v85os1P4zEej
+         3LlOc8rIcr+1dh79egckzt6895G0h4rf8nS4cX3nUKMueTnRws7E4IKPJHAJOuxE9prb
+         7ZWw==
+X-Forwarded-Encrypted: i=1; AL+hErFUnUwlGAcqUcuB91b6YL3tkiQ4hj0dz4d9aq5fCorhhapfKpUKfyTeGJfZFQhyr7k3GQ2lRJo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+02ieCpLANaysK7RXXTXUHBRh7hdQKD/KXEHHGe+PhNHE4GXOK
+	FVI3DbirxUEEbd+wtjsvPKyoV1+bADZp0nJHrJt+xYngYHO5qR7vPqP1R1kD4ACuSSl9acHw5Uy
+	GhejHzkJBZ5VqIdX8ZuZ2rwc6Q+9ZiGY=
+X-Gm-Gg: AZFdTZcRYkjbEZoLz0A6FAL9e7Zq4nfjZvhcEjlNvIxC4XvBI/xojdbT1iLkWpLO2r4
+	TwLRpNcZ31CdMFxY/cAloMZoAqizTgnpFvTOKDIVgvhv8ZMyG6YVaLfdejx7dYEKY6W3cOqF6jP
+	92Zc/6v8LAdVtYn8TMPwRBGRXas/1m53WiDPtjhQaMlt9/QYccvD/0rlPeW9bWX0tyF/k7w8fGa
+	EHHD/rr6l2Knz2m8/JrHpjBXJ8gW8bDMRD3YPZT95ZQ3xwGVOFJeToYV04RvQc5NoRpquUPUOJY
+	mnsArkqtfC5voauTIi7ny/yRXQf8kv4ildL8x5Qkazq1tuURHtnWB3Bu7MmKfzzU0FzwK8s42nw
+	NS8DdcuUMr2mGfac3aHyXBN+8ni9AK70HF0KW
+X-Received: by 2002:a05:690e:4852:10b0:67c:664a:9006 with SMTP id
+ 956f58d0204a3-67df442350bmr3743774d50.64.1795490462283; Mon, 23 Nov 2026
+ 19:21:02 -0800 (PST)
+Received: from 723974502065 named unknown by gmailapi.google.com with
+ HTTPREST; Mon, 23 Nov 2026 19:21:01 -0800
+From: Qican Ma <goonsomeway@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,141 +104,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Date: Mon, 23 Nov 2026 19:21:01 -0800
+X-Gm-Features: Aa3M54o-isdJh2GWELyKgDAhaVRdXLz0zHe-XJNinNk_CrP5_D5lsQjTiIb73Yw
+Message-ID: <CA+OT+ON4Lt9mLvWPK8rUaHKZ01_p0fGCiCsWHwXWzT1sGaTtLA@mail.gmail.com>
+Subject: [PATCH net] net/smc: validate peer CDC cursors against buffer bounds
+ and window
+To: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com, 
+	sidraya@linux.ibm.com, mjambigi@linux.ibm.com
+Cc: tonylu@linux.alibaba.com, guwen@linux.alibaba.com, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, 
+	netdev@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+smc_cdc_cursor_to_host() only checks cursor monotonicity and
+smcd_cdc_msg_to_host() copies peer cursors without any validation. Neither
+verifies that prod.count < conn->rmb_desc->len or
+cons.count < conn->peer_rmbe_size, nor that the resulting cursor deltas
+stay within available buffer capacity. A malformed or malicious peer CDC
+message can therefore:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+1. Drive conn->urg_curs.count past conn->rmb_desc->len in
+   smc_cdc_handle_urg_data_arrival(), causing an out-of-bounds read from
+   conn->rmb_desc->cpu_addr exposed via recvmsg(MSG_OOB).
+2. Inflate conn->bytes_to_rcv past conn->rmb_desc->len (either via an
+   out-of-range prod.count or repeated wrap increments), causing the
+   second chunk iteration in smc_rx_recvmsg() to copy past the end of
+   rcvbuf_base.
+3. On SMC-D dmb_nocopy links, inflate conn->sndbuf_space past
+   conn->sndbuf_desc->len, causing the second chunk iteration in
+   smc_tx_sendmsg() to write past the end of sndbuf_base.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Decode incoming CDC messages into a temporary smc_host_cdc_msg and verify
+both cursor offsets and their deltas against rmb_desc->len,
+peer_rmbe_size, and (for dmb_nocopy) sndbuf_desc->len before committing
+the update to conn->local_rx_ctrl.
 
-- [Medium] In hix5hd2_dev_probe()
-  (drivers/net/ethernet/hisilicon/hix5hd2_gmac.c:1192-1197), the fixed-…
-- [Low] After this patch, hix5hd2_dev_probe() accepts a node that has
-  'fixed-link' and no 'phy-handle'…
+Found with an LLM-assisted code review tool and verified by inspection on
+v7.4-rc4 (b6a9fa34ce4). Build-tested only; not runtime-tested due to lack
+of an SMC-R/SMC-D setup.
 
---
+Fixes: 5f08318f617b ("smc: connection data control (CDC)")
+Cc: stable@vger.kernel.org
+Signed-off-by: Qican Ma <goonsomeway@gmail.com>
+---
+ net/smc/smc_cdc.c | 46 +++++++++++++++++++++++++++++++++++++---------
+ 1 file changed, 37 insertions(+), 9 deletions(-)
 
-net: hix5hd2_gmac: support fixed-link
+diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
+index 32d6d03df32..fd5e296e8be 100644
+--- a/net/smc/smc_cdc.c
++++ b/net/smc/smc_cdc.c
+@@ -332,14 +332,48 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
+ {
+ 	union smc_host_cursor cons_old, prod_old;
+ 	struct smc_connection *conn = &smc->conn;
+-	int diff_cons, diff_prod, diff_tx;
++	struct smc_host_cdc_msg rx_ctrl = {};
++	int diff_cons, diff_prod, diff_tx = 0;
 
-This commit adds fixed-link support to hix5hd2_gmac for Hi3716cv200, where
-the MAC is wired directly to another MAC with no PHY. When fixed-link is
-present, the MDIO bus is registered with mdiobus_register() and all
-addresses masked, and the fixed-link PHY is registered in place of the
-phy-handle lookup.
+ 	smc_curs_copy(&prod_old, &conn->local_rx_ctrl.prod, conn);
+ 	smc_curs_copy(&cons_old, &conn->local_rx_ctrl.cons, conn);
+-	smc_cdc_msg_to_host(&conn->local_rx_ctrl, cdc, conn);
++	rx_ctrl.prod = prod_old;
++	rx_ctrl.cons = cons_old;
++	smc_cdc_msg_to_host(&rx_ctrl, cdc, conn);
++
++	if (rx_ctrl.prod.count >= conn->rmb_desc->len ||
++	    rx_ctrl.cons.count >= conn->peer_rmbe_size)
++		return;
 
-> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index 12a5657653f85..dd4ba6d7a1574 100644
-> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> @@ -1189,7 +1189,12 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
->  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-mii", dev_name(&pdev->dev));
->  	priv->bus = bus;
->  
-> -	ret = of_mdiobus_register(bus, node);
-> +	if (of_phy_is_fixed_link(node)) {
-> +		bus->phy_mask = ~0;
-> +		ret = mdiobus_register(bus);
-> +	} else {
-> +		ret = of_mdiobus_register(bus, node);
-> +	}
-
-[Severity: Medium]
-Does the commit message match what this hunk does? The message says:
-
-    Suppress the warning by masking out all PHY address.
-
-__of_mdiobus_register() in drivers/net/mdio/of_mdio.c already masks every
-address before it registers the bus:
-
-    /* Mask out all PHYs from auto probing.  Instead the PHYs listed in
-     * the device tree are populated after the bus has been registered */
-    mdio->phy_mask = ~0;
-
-So setting bus->phy_mask = ~0 is not what stops the 32 lines of output.
-
-The output seems to come from the fixed-link child node. It has no reg
-property, so __of_mdiobus_parse_phys() sets scanphys. It also has no
-compatible property, so of_mdiobus_child_is_phy() treats it as a PHY:
-
-    if (!of_property_present(child, "compatible"))
-        return true;
-
-The auto-scan loop in __of_mdiobus_register() then prints this for every
-address:
-
-    dev_info(&mdio->dev, "scan phy %pOFn at address %i\n",
-             child, addr);
-
-What actually removes the output is skipping OF registration altogether.
-
-That has a side effect when fixed-link is present. The bus gets no fwnode,
-so DT children of the MAC node are never populated and of_mdio_find_bus()
-cannot find this bus.
-
-The hisilicon,hisi-gmac-v1.yaml binding includes mdio.yaml, which
-describes the MAC node as an MDIO bus with optional children. Take a
-switch whose CPU port is on a fixed link and which is managed over this
-GMAC's MDIO lines. Can that setup still be described, or is the
-registered mii_bus left with nothing able to use it?
-
-Fixed-link nodes failed probe before this patch, so this is not a
-regression of existing behaviour. Could the commit message at least state
-this limitation and describe the mechanism accurately?
-
->  	if (ret)
->  		goto err_free_mdio;
->  
-> @@ -1199,11 +1204,18 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
->  		goto err_mdiobus;
->  	}
->  
-> -	priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
-> -	if (!priv->phy_node) {
-> -		netdev_err(ndev, "not find phy-handle\n");
-> -		ret = -EINVAL;
-> -		goto err_mdiobus;
-> +	if (of_phy_is_fixed_link(node)) {
-> +		ret = of_phy_register_fixed_link(node);
-> +		if (ret < 0)
-> +			goto err_mdiobus;
-> +		priv->phy_node = of_node_get(node);
-> +	} else {
-> +		priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
-> +		if (!priv->phy_node) {
-> +			netdev_err(ndev, "not find phy-handle\n");
-> +			ret = -EINVAL;
-> +			goto err_mdiobus;
-> +		}
->  	}
-
-[Severity: Low]
-Does the DT binding need updating along with this? hix5hd2_dev_probe() now
-accepts a node with fixed-link and no phy-handle. However,
-Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml still
-requires phy-handle unconditionally:
-
-    required:
-      - compatible
-      - reg
-      - interrupts
-      - clocks
-      - clock-names
-      - phy-mode
-      - phy-handle
-
-The fixed-link property itself passes through the ethernet-controller.yaml
-$ref. The required phy-handle rule does not, so a Hi3716cv200 DTS that
-uses fixed-link alone would fail dtbs_check.
-
-Would a oneOf or if/then that accepts fixed-link instead of phy-handle
-fit here?
-
-[ ... ]
-
+ 	diff_cons = smc_curs_diff(conn->peer_rmbe_size, &cons_old,
+-				  &conn->local_rx_ctrl.cons);
++				  &rx_ctrl.cons);
++	if (diff_cons > conn->peer_rmbe_size - atomic_read(&conn->peer_rmbe_space))
++		return;
++
++	if (diff_cons && conn->lgr->is_smcd &&
++	    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
++		if (rx_ctrl.cons.count >= conn->sndbuf_desc->len)
++			return;
++		diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
++					&conn->tx_curs_fin, &rx_ctrl.cons);
++		if (diff_tx > conn->sndbuf_desc->len - atomic_read(&conn->sndbuf_space))
++			return;
++	}
++
++	diff_prod = smc_curs_diff(conn->rmb_desc->len, &prod_old,
++				  &rx_ctrl.prod);
++	if (diff_prod > conn->rmb_desc->len - atomic_read(&conn->bytes_to_rcv))
++		return;
++
++	conn->local_rx_ctrl.common.type = rx_ctrl.common.type;
++	conn->local_rx_ctrl.len = rx_ctrl.len;
++	conn->local_rx_ctrl.seqno = rx_ctrl.seqno;
++	conn->local_rx_ctrl.token = rx_ctrl.token;
++	smc_curs_copy(&conn->local_rx_ctrl.prod, &rx_ctrl.prod, conn);
++	smc_curs_copy(&conn->local_rx_ctrl.cons, &rx_ctrl.cons, conn);
++	conn->local_rx_ctrl.prod_flags = rx_ctrl.prod_flags;
++	conn->local_rx_ctrl.conn_state_flags = rx_ctrl.conn_state_flags;
++
+ 	if (diff_cons) {
+ 		/* peer_rmbe_space is decreased during data transfer with RDMA
+ 		 * write
+@@ -355,12 +389,6 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
+ 		 */
+ 		if (conn->lgr->is_smcd &&
+ 		    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
+-			/* Calculate consumed data and
+-			 * increment free send buffer space.
+-			 */
+-			diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
+-						&conn->tx_curs_fin,
+-						&conn->local_rx_ctrl.cons);
+ 			/* increase local sndbuf space and fin_curs */
+ 			smp_mb__before_atomic();
+ 			atomic_add(diff_tx, &conn->sndbuf_space);
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120031026.1371052-1-mmyangfl%40gmail.com
+2.50.1 (Apple Git-155)
