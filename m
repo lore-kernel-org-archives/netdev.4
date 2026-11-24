@@ -1,107 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795512665;
-	b=Ns8AbKo3DMeqMz0WvCLFfjdpa0ht6pG4ja9eWK9AHSFGfibDV9dac6R0x0zVzPFxITbX
-	 EjgeQ3rpS/LOksUYQNyV/7FXudGth2+hNvVYC3+cw/NyljQi3UvwlDyqdzWS9uh64Mwwh
-	 +IPySg94UT2IC0AigL8yN63DDhED/GtSXIvkloljwqgdl5iw5WMI0eEhdcDFGFinT/FZ/
-	 RSyaAH4TCPDE9fJm8nh9QKV9LjOB+Lnyp0xk6L9fv6UTLCx34eP2jd6qUBuMoqsl4QdrL
-	 qgec4uqSepIiYBKRaKaj2XD2GASKxJ+g5Yhptc4YQczBOkHWpHdCDX2I6eAg5wYWm0A==
+	t=1795512842;
+	b=2k/d75dR4z7d4SNTr9mhVEKO57bzPcRz3Bp/E103knV+9w/OZrJ2iWxurh6qBsZexjkH
+	 UKR3NGUQRZhtw1LEdpVf41LLkFH+HEA5G2ExhrSJDMwqYS59ery/UU5OAv8ceDRCKwOPT
+	 2p7uA70Rhl9IQCywUrDVS7iE8ArLK+37qTd490rZ1sqXgZq6EiesF2JNDJ28ZluLCAtvP
+	 64YBg6L5S78NnMHeFidj5e84HY9NNAnL+XyXoUgeiqSFLeI3EkmjnGfULI1iIPtTY2SWx
+	 zfOwf6pyXLmf/VH8dEX5aTS5TdLKMTX0pinco82bK7FF4CgKt5MHo9SL+0R1tBBKvag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795512665;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=p8/AOUE2k2Bi5Zz6s9PwthDlESwQmQ8r07ZNdj5Rp/Y=;
-	b=VsnTDj3+oEjXHYiXAtF6TIdYAL5ycMVXDMk1ZLjEy87hAn6v5f6RA5klqsnNOTfUf7bZ
-	 +E1rsx+xM5+7gKoaFnaJdI1QfpGMOcDrrVN0R3VhdaqlCU6va4tj9sk5qk7KgyzCn0nAJ
-	 kEUyjLHR37mAg8LKgSlefRcCfQEM1L3AYrKBuDUlB2FbolCQlidte8OFpprn6DDmSxkjA
-	 c0SvGHoC8HTzaFF3tkKy+bnGXlFqel6wSBSO9BQenSbRnH70GigeF83bf+Xa/4bx6+Ws8
-	 k3i382QPqwV0L9dE/3PLVaqlL7ZLn9JzY7eUisrBMLxSFZrmQfVKZJW/T8t5PYYXGzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795512842;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=pEHllY3wB79e0b2IJ3VOYybEoWGDEgP+1ZO0Wb52Q2o=;
+	b=iHXeOIMNn8THhW1Zm3Sg6oEc7SHHm/+BdTRTnPpdEnwX/Q5ekW7Q9+/TAcKAKOUSW6f1
+	 QtMAf38VkFeiV2xr0iSAPXz2FovklNLC01A9kdm3dBuIgkdwu0zSaiHOlHWfkKvflK8SH
+	 ZXo434Mxo4Yz18GAASGtNCroKwzrfAyYnU1NT0rZyabCACo3oQw0ogAGLqEICF5lLuoNY
+	 2dfCHVY3Ny+D9VK0LvGGh25tdQc6DWXxZPjpbd5zpGWXJrXXFXWcK5D0V4IXzgnt4GnC3
+	 HsyIsxMUofDOUiM/h5RCmyLd7EgEyOHi+F9TiCZq2eV3W1bCFGxtbaAOKfmeD+vnGXQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=J0LxC01S;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=g5nEKchU;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QF5ErUir;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41D06606A327
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:31:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 41D06606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 52286606A32D;
+	Tue, 24 Nov 2026 09:34:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=J0LxC01S;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=g5nEKchU
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795512663;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=p8/AOUE2k2Bi5Zz6s9PwthDlESwQmQ8r07ZNdj5Rp/Y=;
-	b=J0LxC01SqMv5Z/qpiASWxdDLMMPFI0FI0uRkZTFVkMxmYE7Dn40At+sfiSgaeK5mNffDk1
-	5PQ9xanmTHGAMJJepyvtLfydenQ3xoMPFaY/SPL/bVRkeQS8Nj7Wlcxkqrby6llNHqih2Y
-	eP5bNnfaUZHgooQn3j7BhBKC9BFYjmI=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-687-cqsUUC5sON6QLNToQaHCTQ-1; Tue, 24 Nov 2026 09:31:00 +0000
-X-MC-Unique: cqsUUC5sON6QLNToQaHCTQ-1
-X-Mimecast-MFC-AGG-ID: cqsUUC5sON6QLNToQaHCTQ_1795512659
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4ab855a8c21so3503178f8f.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:31:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795512659; x=1796117459; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=p8/AOUE2k2Bi5Zz6s9PwthDlESwQmQ8r07ZNdj5Rp/Y=;
-        b=g5nEKchUY/sgW+6GB07azuSey4SHZ/7OiYBQtrAtPPazqHviffbCL9I4dUVBMmShfZ
-         ysnYJ2BJE9jkGLeDEJ4gVOfq0WbXbWIm+XKSzJvDy0Xzj0QZPdcTMRE7D3+08SakR0/p
-         XVQmzgTRp1Sw+ZTpYjFKZDVo/xAwTbun179/ovaw6e/Ef9cMRJ9h6eRfjUQSox31vZ2U
-         dj3RLGQg2eTVmWYw679NMiKbFinOs0l8FoFPW2QecDjLv2mOzl5ZY1rwid45YMMZrIkj
-         uO+Ckms9Ne1VOhNGOom8ahI3K+lAVL4OlsGWyMryKHUU6VA5SlUkx/pA3pLDlRoNe63W
-         OHlA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795512659; x=1796117459;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=p8/AOUE2k2Bi5Zz6s9PwthDlESwQmQ8r07ZNdj5Rp/Y=;
-        b=Dhu1K+aiWBdySRfP7HA+UlESFxIK8tv4xNUzttwTgeCNFFh74nY1tbfblZSDxIty7t
-         P3GmGwCeiEvn/y8+BVzeO6VAXBlmx1kWCOqPI/3A2YAPfWbk5PwlGYdU7Zjr9Zwo+owr
-         gfJmiQfqvBZ7loMHmctpH3n6OLgkK8xpYYkO6GRapXLexwkrhuxj/NXwDgQPFh7Hvxed
-         dLMmWI+iwF4Y38esdolzfACiv4q3u/Qimibbo1HXrWjCzwLwdH0ubeBEKvwyK2Pi2cxM
-         wD6VH6E5Y0+B1Lg4R9ZdDVLrDnu4+pjlHdRokOiwXZYfPvcKQ/ApPbz+i7FfZxTk0XQw
-         M1RA==
-X-Gm-Message-State: APuU4Z/UfaurthUcPdS9PWZAUKezXsIUydy2giRjF7wfN7cQSViwwPP/
-	/j5aqp9+ExiyOq5H9eSdj+lGXAJxz9cKw3N3DGplpjuLKcS2vkBU6xEt7y8nktW5hw2fd3nrbhU
-	UteSLJ50o20CcYSUBeC8fpcQKzJmySLhfVOpVw3z6nNEaDCCuOHgpvwCpIQ==
-X-Gm-Gg: AZFdTZeriRk3MIYo4NIgmD/cs0nwOSW7GKRWc10+6asedoBoUsAd4/UcDRLhSzHvHwo
-	OTELLe7f2Jzf82dhFYee9ok5vSX3+BrDbGSoeDbCgK7o+mJQbjDklUcbf35TISpx+PvdhTea4OS
-	vRSXbtNMIZQq2UX8aAP3ZVgB9ubOwLJ3Eldlsdxau9yqjOSWG428E763usfmeuFBmJFegOhf1D1
-	pBdg2dLA6d1aVbXqLkT+I5AdmiML2StfUAOnj/CY/hirD0poGiRNk9VM1WY5cQ7AKkIvz0iulDh
-	1yyEAEwlkTT4rLlrtXD9iW5fSpijVYJvGdrzgAHm0rss2WUNMlHYjSHY97jEtQKoHftwumZig1e
-	zdd4SbyuRhl3F+VXDgXKFKXVRhJYlwAZ+73rji9wwtgr8Gwspmpz6Z7Km23v5cQ8icfhQVpBFh3
-	ERMGGwyZ2VCFK5kY+fnbQyF8wc1SdlbEvjXb+eeTrssW//
-X-Received: by 2002:a05:6000:2c05:b0:4a9:df02:6040 with SMTP id ffacd0b85a97d-4abaac57bf5mr26381695f8f.3.1795512659250;
-        Tue, 24 Nov 2026 01:30:59 -0800 (PST)
-X-Received: by 2002:a05:6000:2c05:b0:4a9:df02:6040 with SMTP id ffacd0b85a97d-4abaac57bf5mr26381657f8f.3.1795512658831;
-        Tue, 24 Nov 2026 01:30:58 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf61e8sm28289277f8f.11.2026.11.24.01.30.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 01:30:58 -0800 (PST)
-Message-ID: <95d49bf8-21b3-4ea4-961c-d5a229995829@redhat.com>
-Date: Tue, 24 Nov 2026 10:30:57 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QF5ErUir
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C45231F000D1;
+	Tue, 24 Nov 2026 09:34:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795512841;
+	bh=pEHllY3wB79e0b2IJ3VOYybEoWGDEgP+1ZO0Wb52Q2o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=QF5ErUirrDLXM2ZECVOAMBE9ATMMmiu9gNxoAytjuDcBP608bAcq/RmXdcJmYavK/
+	 6Jagw8oIjvo0SMWC0G+czqI/s1ALsbaPJISGkwhGjCSdadBXawzgL+jUVTMQXThVVp
+	 7r1iILhR0ZrUPD2obfZtiObFRKCXzE1te/1EduuTtr2e00s9zofalp2+fB860Kfl/y
+	 ulbCMkP3cCk2idEO2Mk2s6CrmomUDSDt4kaje7aktGNg3lpoBPMAWKroA9xqteCoB1
+	 CeSeDrIOB0csr2AayYn72ZDnvzKpqo1E+kjXSk6+4zV2fCIxQFHFoKtlZD/zmx74cS
+	 ymBlMU6uTl90A==
+Subject: Re: [PATCH net v2 1/2] net: ibm: emac: attach the fixed-link PHY with
+ of_phy_connect()
+From: netdev-bot+sashiko@kernel.org
+To: xiaolinkui@126.com
+Cc: andrew@lunn.ch, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, rosenp@gmail.com,
+ jacob.e.keller@intel.com, daniel.machon@microchip.com, chunkeey@gmail.com,
+ kees+treewide@kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, xiaolinkui@kylinos.cn
+Date: Tue, 24 Nov 2026 09:34:00 +0000
+Message-ID: <179551284032.3135.4209335363407893906@kernel.org>
+In-Reply-To: <20261123093201.770552-2-xiaolinkui@126.com>
+References: <20261123093201.770552-2-xiaolinkui@126.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,45 +65,115 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/5] net/mlx4: TX helpers and deferred
- doorbell fix
-To: tariqt@nvidia.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, horms@kernel.org, linux-kernel@vger.kernel.org,
- daniel.machon@microchip.com, Jakub Kicinski <kuba@kernel.org>,
- Joe Damato <joe@dama.to>
-References: <20261117155353.2250540-1-joe@dama.to>
- <179493106742.3291.11434436383058043225@kernel.org>
- <avyELebAXqr4y1Yi@devvm20253.cco0.facebook.com>
- <20261119143852.3bca9000@kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261119143852.3bca9000@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/19/26 23:38, Jakub Kicinski wrote:
-> On Tue, 17 Nov 2026 08:43:25 -0800 Joe Damato wrote:
->> The only fix in this series is the deferred doorbell flush (patch 5), but I
->> need the other code (patches 1-4) for SW USO support I plan to submit next
->> if this series is applied.
-> 
-> Not sure if this is what you meant but this may read as if you were
-> sending a fix for net-next for convenience of sending more patches.
-> To be clear - that's not a valid excuse. That said, here, we're talking
-> about a 10 year old error path bug which nobody apparently have been
-> bothered by. We don't have space in net for such things at this point
-> of the cycle, anyway :S
-> 
-> Tariq, could you ack?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-This is small and clean. @Tariq, any special reason to skip this?
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-I think we are better off with this merged; if nobody complain I'm
-going to merge it soon.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thanks,
+- [High] When the driver is unbound, emac_remove() calls phy_disconnect()
+  only after unregister_netdev() has finished.
 
-Paolo
+--
 
+net: ibm: emac: attach the fixed-link PHY with of_phy_connect()
+
+For the fixed-link case, this patch stops setting ndev->phydev by hand
+in emac_init_phy() and attaches the PHY with of_phy_connect() instead.
+It also adds phy_disconnect() and of_phy_deregister_fixed_link() calls
+to the emac_probe() error path and to emac_remove(), so the PHY is
+detached on unbind.
+
+> diff --git a/drivers/net/ethernet/ibm/emac/core.c b/drivers/net/ethernet/ibm/emac/core.c
+> index 1b95b4d5deff5..ba02cf878a124 100644
+> --- a/drivers/net/ethernet/ibm/emac/core.c
+> +++ b/drivers/net/ethernet/ibm/emac/core.c
+
+[ ... ]
+
+> @@ -3223,6 +3232,11 @@ static void emac_remove(struct platform_device *ofdev)
+>  
+>  	cancel_work_sync(&dev->reset_work);
+>  
+> +	if (dev->ndev->phydev)
+> +		phy_disconnect(dev->ndev->phydev);
+
+[Severity: High]
+Can this phy_disconnect() run against a netdev that is already
+unregistered? Earlier in emac_remove() we have:
+
+	unregister_netdev(dev->ndev);
+
+	cancel_work_sync(&dev->reset_work);
+
+On the phy-handle path, emac_mdio_init_phy() calls phy_start() at probe
+time. emac_close() only calls netif_carrier_off() and never phy_stop().
+So the phylib state machine keeps running while the interface is down,
+and phy_link_change() can turn carrier back on.
+
+Suppose carrier is on when the driver is unbound. That happens if the
+interface was never opened, or if the link flapped after close. The
+sequence is then:
+
+emac_remove()
+  unregister_netdev()
+    netdev_run_todo()    /* NETREG_UNREGISTERED, waits for refs */
+  phy_disconnect()
+    phy_stop()
+      _phy_state_machine()    /* PHY_HALTED, phydev->link == 1 */
+        phy_link_down()
+          phy_link_change(false)
+            netif_carrier_off()
+              linkwatch_fire_event()
+                linkwatch_add_event()
+                  netdev_hold()
+
+netif_carrier_off() only skips NETREG_UNINITIALIZED:
+
+	if (!test_and_set_bit(__LINK_STATE_NOCARRIER, &dev->state)) {
+		if (dev->reg_state == NETREG_UNINITIALIZED)
+			return;
+		atomic_inc(&dev->carrier_down_count);
+		linkwatch_fire_event(dev);
+	}
+
+The unregistered netdev therefore lands on lweventlist, and it holds a
+reference taken after netdev_run_todo() has already waited for all
+references to drop.
+
+When emac_remove() returns, devres frees the netdev that came from
+devm_alloc_etherdev(). Later, __linkwatch_run_queue() still uses it:
+
+	dev = list_first_entry(&wrk, struct net_device, link_watch_list);
+	list_del_init(&dev->link_watch_list);
+	if (!netif_device_present(dev) ||
+
+Wouldn't that be a use-after-free of the net_device? The same thing can
+happen if the running state machine reports any link change between
+unregister_netdev() and phy_disconnect().
+
+The commit message says:
+
+  This fixes the phy-handle path as well, which calls phy_start() but
+  never phy_stop().
+
+Could the PHY be stopped or disconnected before unregister_netdev()
+instead? Another option would be to move phy_start() and phy_stop()
+into ndo_open and ndo_stop.
+
+> +	if (of_phy_is_fixed_link(ofdev->dev.of_node))
+> +		of_phy_deregister_fixed_link(ofdev->dev.of_node);
+> +
+>  	if (emac_has_feature(dev, EMAC_FTR_HAS_TAH))
+>  		tah_detach(dev->tah_dev, dev->tah_port);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123093201.770552-1-xiaolinkui%40126.com
