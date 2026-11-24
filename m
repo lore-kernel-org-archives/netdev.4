@@ -1,60 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.30.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795494331;
-	b=ec88FkM+EQSqIaZs1N9TYBTBAvNCwzMzkoen2stUdFj7k1APR2dxYsP3mFDosnb7NKyB
-	 FTj6VY5BK1DzaZ7DHd8dDy/D+3uh7FbeSVd7LmqJTSXJrheWesjotA1RmZZYbHzAgrQVZ
-	 cRfcX5YY1iDNBIg70zXYFGXZvaj2sO/U2WjF5KAQyLtsyqjbFgkM6f5jWNp4qusgr1SRG
-	 d1VyLvojnagOrq/sNp0ck4v4bnr9+kH8GI5MwZfJEzCgFP2vVpuLZlxHi5KI5dmjiBO3K
-	 A5cjYM8Ov+kNu+s0thoQz608y3QzFCDeIZGbY/2YV2WmRAyHXNuv1s+3BLYoSuBI1Ow==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795494331;
-	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:Date:From:To:
-	 Cc:Subject:Message-ID:Reply-To:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=OEh0PEZT89NLtHRlSYqxwc0geCRim/3SLGx9Dh1iylk=;
-	b=z6SjNOr28yxDUM/dDI6N2Xo9COgXKWnSeurFxHcfD89EzTE6L1eV7c4wa29Adgb3p950
-	 df10haaaMQKyA8w+NB+2InlHAR/1nHmPA/7TIYvUbI6PKpIzw1sUbxbL97P6lZ/CEZzxM
-	 xZoKIDLY8z/XoxiFwIzumUFrx979+LIYkPtFHD2zOxk7NkW8noJYnOORrQsB3d2U3ouls
-	 sWHsDrA3uHvfZa/CnQNLO6M9mMFGXaNdwbdPAAOPS8SL4kkm/wLcoAv37LjwJkxb+wWez
-	 EmfF0U9M8k+10dEiibMSRCp5frHJCGNLoKQR7470vukDBP/gSI3SHgZyxIvalOXBkRQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.alibaba.com;
-	spf=pass smtp.mailfrom=linux.alibaba.com;
-	dkim=pass header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IxpdG9A8;
-	arc=none smtp.remote-ip=115.124.30.101
-Received: from out30-101.freemail.mail.aliyun.com (out30-101.freemail.mail.aliyun.com [115.124.30.101])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795494478;
+	b=mfn/QG+JINWb2LeXhAOMyvnbcL4NayIFdnepHrfLGO8XkvJnbWyxdIuRVKfVPB/D3TIz
+	 MVB2uymqHcs6p8kOlcvkgXSYATspBQwF0wGxErt5nB9dcZTpiUlPH5q4R3iV47m4jCGr5
+	 2pfVfJPonUME7wU3QMqU9zmoTZCxfygxyX6kvZINCFquo07Gm/8AbXgtNcA1vmEUtv0BM
+	 1eLjJ6//LPuCXhnO53bJhkKtczjyJNSFhN4okn6ZgBy5SnzsEznaWdEHpnN3itmBvwtgC
+	 a8BeTqMcMVPJFxTNLE++F0EdoWxRsBwGn0mu9xSnNDp5vBYIOomvF9TY8jaxcYYZmaA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795494478;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4+V4dSRGnzJ/VnBrav+/YZ8i/rQ7LsI9He/HzxOZObo=;
+	b=GOT759WtE2dSp9ROsJfgBJZwOBPkGmr8kxTk9YDhd6Vd+oEx7DbPZlBmq/thD3wu4naC
+	 kAFVKfqF+1z8r+sYyAELB+blqm50zWb8dfZ+KApFtXmRa3LjMJdA8aqLS1EaPKo81BoPo
+	 uldkZ3wGMecP7puhmK3frBgrp6/HA6ulaRcOU8hXudJhCSkjDLePIcwOFICP13bfWFDd1
+	 5TZtBMvXV42RqNSC0/r+vCOEIuO/IfwcriNzx47h1bdJiBzfNEFS8Ran2K15pGuRx5ORr
+	 r+zOWa8fdWMpc/nLdyFtfmIFGEMtRLiKWLQ7MmdZNn8znndTEeginQAaE4YCJ2hqDow==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=iav.lv;
+	spf=pass smtp.mailfrom=iav.lv;
+	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=PkRezWk3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
+Received: from sender-op-o15.zoho.eu (sender-op-o15.zoho.eu [136.143.169.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D6E8E606A31E;
-	Tue, 24 Nov 2026 04:25:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D6E8E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.alibaba.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.alibaba.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A76F7606A322;
+	Tue, 24 Nov 2026 04:27:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A76F7606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.alibaba.com header.i=@linux.alibaba.com header.a=rsa-sha256 header.s=default header.b=IxpdG9A8
-DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=linux.alibaba.com; s=default;
-	t=1795494325; h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
-	bh=OEh0PEZT89NLtHRlSYqxwc0geCRim/3SLGx9Dh1iylk=;
-	b=IxpdG9A8qnuRA8pxSS/Vtfm1q9AYaNeaszlZznmzBzJRjcgiLvPIt8RLR961rjg5uW4FeLt175rlpqQDrcVuv1tghRiOYeqons/t172rCbmeuVYL4TUCrsacSBVlMKvwdwHDE6px9Vm1w4M0FU4wEc5xHkcWihlZ0fe3bfVrhhw=
-X-Alimail-AntiSpam:AC=PASS;BC=-1|-1;BR=01201311R201e4;CH=green;DM=||false|;DS=||;FP=0|-1|-1|-1|0|-1|-1|-1;HT=maildocker-contentspam033037026112;MF=dust.li@linux.alibaba.com;NM=1;PH=DS;RN=14;SR=0;TI=SMTPD_---0XFNJdsr_1795494324;
-Received: from localhost(mailfrom:dust.li@linux.alibaba.com fp:SMTPD_---0XFNJdsr_1795494324 cluster:ay36)
-          by smtp.aliyun-inc.com;
-          Tue, 24 Nov 2026 12:25:25 +0800
-Date: Tue, 24 Nov 2026 12:25:24 +0800
-From: Dust Li <dust.li@linux.alibaba.com>
-To: Qican Ma <goonsomeway@gmail.com>, alibuda@linux.alibaba.com,
-	sidraya@linux.ibm.com, mjambigi@linux.ibm.com
-Cc: tonylu@linux.alibaba.com, guwen@linux.alibaba.com, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, linux-rdma@vger.kernel.org,
-	linux-s390@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net] net/smc: serialize clcsock release against CDC
- receive path
-Message-ID: <awURtCvesMgSBQY2@linux.alibaba.com>
-Reply-To: dust.li@linux.alibaba.com
-References: <CA+OT+OPkNsk2QHczVmb6KVJ+z_1tpH9DXm8JmACc5E6x-YFwPA@mail.gmail.com>
+	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=PkRezWk3
+ARC-Seal: i=1; a=rsa-sha256; t=1795494420; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=ENDkdvJleOPV+g1ulm2XPp2ajq+wL1ROaBUYZl4g/bYpinUNhffVai3/Sz964Hu0Y1JOrX8F8aeS8SJwRuGD9wem48XXslivjnw7KXU3n6aXcCnVbS8ePywwUovcJABvlZGqMOs8Emxia6bLiKig28e3xO0K9CrTg8LpcJRcJuA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1795494420; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=4+V4dSRGnzJ/VnBrav+/YZ8i/rQ7LsI9He/HzxOZObo=; 
+	b=fgFrYNl+nSlzp555z1gIy4JU5efaLRkASiLhr9bRV1aTzgfaf6fpd1SWR6Q7EZXKNldbxEa3p+4z6T5BHczCba5vBONaSksS2V/vT9Xcm97oTeizAyFc7Bmw2eDStBGuNyBxCyotbYWWIqcAn9GZQ7ZKkSY98UAWgWXXC5xSyrs=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=PkRezWk39gKolyjHUxOIqzxoT9JZB1u2/1ecP74wq/KyGJ2t6sGkwZqAi527j6KumLib5Ftm0ySYy2+St6+DWpZ0fxLWz9nkbOxgs7vMD6/D5dtwK79ucHl4WT1/SPmOdxWxfnClUGnTem6iOlEc8c/wfg+4D0xB9hQO22/I/5g=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=4+V4dSRGnzJ/VnBrav+/YZ8i/rQ7LsI9He/HzxOZObo=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1795494419197698.9156739315267;
+	Tue, 24 Nov 2026 05:26:59 +0100 (CET)
+Date: Tue, 24 Nov 2026 06:26:57 +0200
+From: Igor Velkov <iav@iav.lv>
+To: netdev-bot+sashiko@kernel.org
+Cc: iav@iav.lv, andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, tglx@kernel.org, linux-pm@vger.kernel.org, maxime.chevallier@bootlin.com, lukas@wunner.de, rafael.j.wysocki@intel.com, wei.fang@nxp.com, niklas.soderlund@ragnatech.se, paul@pbarker.dev, florian.fainelli@broadcom.com, opendmb@gmail.com, Thangaraj.S@microchip.com, shenwei.wang@nxp.com, Haoning.CHENG@cn.bosch.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v8 2/5] net: phy: fix three paths that unbalance a postponed PHY interrupt line
+Message-ID: <179549408687.90849.139754794817286@iav.lv>
+In-Reply-To: <179548269886.3135.1487195148841555901@kernel.org>
+References: <20261123-b4-phylib-mac-pm-irq-v3-v8-2-e9f706e79614@iav.lv> <179548269886.3135.1487195148841555901@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,35 +64,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CA+OT+OPkNsk2QHczVmb6KVJ+z_1tpH9DXm8JmACc5E6x-YFwPA@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-On 2026-11-23 19:21:06, Qican Ma wrote:
->In smc_cdc_msg_recv_action(), receiving a close or senddone flag writes
->RCV_SHUTDOWN to smc->clcsock->sk->sk_shutdown while holding only
->bh_lock_sock(&smc->sk). Meanwhile __smc_release() drops the socket lock
->and calls smc_clcsock_release() (which clears smc->clcsock and calls
->sock_release() under clcsock_release_lock) before calling
->smc_conn_free(&smc->conn). Even on paths that call smc_conn_free() first,
->an in-flight SMC-R softirq that already looked up the connection in
->smc_cdc_rx_handler() can still enter smc_cdc_msg_recv() concurrently with
->smc_clcsock_release() and dereference or write through a freed clcsock.
->
->Free the SMC connection before releasing clcsock in __smc_release(),
->matching smc_close_active_abort() and smc_close_passive_work(). Because
->smc_conn_free() sets conn->freed = 1 while lock_sock(sk) is held and
->release_sock(sk) synchronizes on sk->sk_lock.slock before
->smc_clcsock_release() runs, checking !smc->conn.freed under
->bh_lock_sock(&smc->sk) in smc_cdc_msg_recv() guarantees that no CDC
->handler accesses smc->clcsock once smc_clcsock_release() can start.
->
->Found with an LLM-assisted code review tool and verified by inspection on
->v7.4-rc4 (b6a9fa34ce4). Build-tested only; not runtime-tested due to lack
->of an SMC-R/SMC-D setup.
+> Can a stale irq_rerun here turn a stuck line into an interrupt storm?
 
-This fails to apply to net/main
+Yes, this is the first of the three cases the commit message leaves
+open, and it lasts until this PHY resumes. Closing it needs to know
+whether this PHY's disable still counts in the line's depth, and phylib
+has no interface for that.
 
-Best regards,
-Dust
+> Should this check use phydev->irq_rerun_line rather than phydev->irq?
 
+Agreed, it should match phy_request_interrupt(). I will fix it in the
+next version or in a follow-up.
+
+> Is this PHY's disable still counted in the line's depth when this
+> enable_irq() runs?
+
+This is the case the cover letter lists as not covered: another user
+requests the line before this PHY does. That the enable can also cancel
+the other user's disable_irq() is missing; I will add it to the commit
+message.
