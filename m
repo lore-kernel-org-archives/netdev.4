@@ -1,99 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795533187;
-	b=jLGSq2hdoOw5YGRz/v+S/LbJCdtbECMZ2S2HuWtv1HX4kJUoFu8UjtS43WVeWNTB9cO2
-	 HztjF2rDerEY7FPfJhtO8/XnJf5fGyvOKmgyCGYGvxES4X2S5Aq7fVT/7CMwXbvd2eLTE
-	 Z2x2/Gbv+QuPdI70I3HnNlL67RRAMG73u3pvsOdyXagNlTDMGNajn/8by7g74oaapPKo8
-	 RzFV3ia9GLg7MPHQrEWWsYvyIw+eTOwvp02P7AwSwGnHvdzxwXyCVwHfMsilBkdGlRGPF
-	 DpJFvTC+OPnC/n7wWbEE0ZUCNf9c3S8inLkicykm2ZoqeJlrsZCK7J5cxaNt22ZGZKg==
+	t=1795533200;
+	b=G9PiHYWgSuiuVi6uO1co0wOBnVhzY0iTj9cW2tZD3X/dOdm9AbTBfrM3Pto448up6cwF
+	 M8H8Y0fsAtyMH9aae+UqdUXkowd0DQvPDR4lkBOTomwjmvYQD1DJoytFPpviEauFXF7uA
+	 KyjOjldLP9gBWltZJfbCbt8ZV4AJjPhh97zTdQc10ITI9BWSZ7q4h5uDx5GQFtslxavsg
+	 beyaHtGl+efOEkgTNkGx4JWRe589sHORA3++hcmT5AaLD2xWuZsLgb7kxYmly2Of5/4Ps
+	 HWikisMV7eNLGtolcFGdkMItpJX2DJskHo7WYoHcYUpzW41Hj0oNvebpnixqKV+Bf1w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795533187;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795533200;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
-	b=DUTOa105UUfAPCYeDj4fnuiYLPIP1NTeGtuCSM8VqJzOb9sII5RA4LfOXE51tpoBsuXP
-	 a11R++PFnFCcHbZKHEUO9etUNlB+xWT5AbnHxoiQhKLKdQQ1xVuBnuLLsPrwLatilGo5Y
-	 /w6S3ZBKXa6zHEM91igYGKQNqjmm4F2e9wvge7GjnSByHXQwi8Plb3IMv6Tfxb0tpHVN3
-	 9YNPxREWQ9fD4olSH+i/BpmHHuSCPBqS9/DxTbZr0sM3PcC2bW1s832/k+9xAwYqr7qur
-	 r1drFxaNYM9nIjdkyRgH1/Al6go332HGZwyT+qBdq3SQZHeZmAytref79hK7lPpuU+w==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:Autocrypt:In-Reply-To:Content-Type;
+	bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
+	b=4negud7f7cUAXtO34ndZBUGdCeGcmUZ043sr1UmajTcJ5zydEtyLeQrXbn0+PuvwJV0C
+	 eyVdWKW6pRVQOoOgapgZdykS5O4Fw1GAOHb30V7+cPkgRVGcmBsCOQ7JvsLfHWxSmxkd5
+	 drMchCww/C3OGnzjERnUyTQTUHXZglPPPx9TiHzSi/mM6DT4kAp0jKx0d98uAKH1aUGgc
+	 ZDJLJi/KMDPw2mn4s390oq1byWxCm/P1GJ/cVvCz1FwnXyYnbquHtEIY42EffGjPgt/8p
+	 C+dR7H7Rg4mak/gsWVC44WpxnXVClz7T5s687ymp1CBeKpaYLAV/5Ucs+jV/G3iOB5w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=luFFhWBn;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=bB0gXxT5;
+	arc=none smtp.remote-ip=209.85.208.46
+Received: from mail-ed1-f46.google.com (mail-ed1-f46.google.com [209.85.208.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC117606A323
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:13:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC117606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DC3C606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:13:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DC3C606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=luFFhWBn
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-492f0a1b685so3198311f8f.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:13:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=bB0gXxT5
+Received: by mail-ed1-f46.google.com with SMTP id 4fb4d7f45d1cf-6b86bbce3d1so6247471a12.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:13:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795533185; x=1796137985; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
-        b=luFFhWBnvJasuPduGXDLmcyKDdLH9NnCPVQ9aQyfP2EnOlw3gn545repZ/+MzWDiY2
-         T4iHI7kqLCdfRhSISFfIFeaiquVZlZQuXA38S3kHeIYxdNwM+SJ07xcXyyNVHiZpaajF
-         wMK8D6UcNgSGLCNA1s5vADQif883i1buZt/PM6pdSsBY9g8Zh+rh6FAzcyD53e4vpx48
-         Yi8PEo7LCqqHcnPveb5TjQsOjVxykDJa5PHpyWR041h809n9mobzfyt1+KVbJE6EnsG0
-         Hlw5tagWS3zDIXCLfn693UCABVzx/yI62mN7imPk1twMeGIosXKfPsxY2xInYY2i+L3R
-         Rzhw==
+        d=suse.com; s=google; t=1795533198; x=1796137998; darn=vger.kernel.org;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
+        b=bB0gXxT5Q8JH/1W/OdI0h97Qt3d4ySyODEfnz6xoARA7SA4/X3lTaCmWMaZ1fCMX8s
+         JnioO/vI7K/nhE6XtL/vBilK1zeV1MYlabhR0b7QWwxkxoB5jfT+vRdm1Mqv7QvPtoSf
+         lKK+GJYxGSvU+jZoDadaxjWl6qt9Umrc3u9FTw1k9yBnz8JglaXClP/Ia1gp562FNVJV
+         LcAQwYtC6mnaW+4x+3kSsqUDbJKYWUav7glSYpTmp6Jl386wc2F6I2xTELMmWDlwXaum
+         708AY6VmbTAgyqfTAzX8cWEx+CAGoECgrYqzQIIa8HR0lBgBKqEBYw2EE7tjPP8Fi2Lr
+         vcQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795533185; x=1796137985;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=oSIagrRM61aKNDSM8lSa+5lNFq6nePeRvO38ASVlUbo=;
-        b=TFSt+mZ1VcI7GTX8T0deP+6UcJR7XrZVbeW31ajcqC3MFbVjgcE7/1ujQUVcBq3fOo
-         dgAThTZyae0T3DoVnvjvrIW5zGkWlIGWO4GepxL3Zo80wK+JKHvIDCy1Z+FVQ9vuGH/N
-         CE/esSYEpn8O40NRtSxafxUv81F4/CEoFh9mQ0ezQc3m9H419as8vOUhdE41kJ0oHpjs
-         NcIPHSBEFtzbGCAj56OJMK+KgSL4YVNYy14Oydk8kTwQ2V1XF2esoAFU+F/QoBrNtL4P
-         oi+0sT5V6qpD+VqECFuuwzhDhBmmbbxmrqbfG0r5SJjYUF0h6qNsfAs6lmeaNRxo/ysD
-         3SHw==
-X-Forwarded-Encrypted: i=1; AL+hErFcRz6FzXV5lyTNaHiifcCGqi7bwMwmNP2C89AMXXPrxaAXIw77dxT8SfzzA27FA7Z6CwDqB00=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9cTdr810869Jw82VEa+LwKJspsTy+XncrNtrd92Gs8FAcrMME5
-	gT/Yf5DbMrtLpLa+qhErmUwJl9XEiq1w0D8IRch+Lee0EQ9iCt09BKit7f4tt9kbaCo=
-X-Gm-Gg: AZFdTZfRW6IHuNLOZIPbCFvTTa7flGANxAMyI6sRC+b70TKvHezTdJfbWRPJYSdBUEh
-	WgVrJutt0zjAruo7cqp+fN/TdKKdSX0xj/ebunufJCORi08welDZol8sTWztxI5wbrfpiKu3TF0
-	T4EVMBVWDv0ofx2c2an6AYWLyyexqsoxJDl8nJQGucz4FRmItE0KlBCpi8k7/TaembFY5+9ktYh
-	wVGOpKm2aFfYKkzk0QmbH2vRtmvK7IRA/tsfkTfPvlqCT6U1m7XkftW887rNVj4jA5gTZv3BygS
-	QDHefYom64egnF6BrxPh3/P5BBogRtBoEouGmeK0detYqbA2qbmuRhiC8cx2PqDEUrU9cp587lw
-	qYaUPDqm7HNB032V8/FkfKNTGSQtKJvcXrGH4+bWFAdTBEC/0rFQrdC/TIydZTzlnKxEFJ5kfQE
-	QFotaabUUilZjQy50rKtT+dKw/X1OApVxWLykgmpSSmAuFxHCbXftCyKY3ugB8mo9au8KqtW1gD
-	U1cveW18bo2/VadAJF+5GJFTS0wBK5zoETgfQQXEAkTE3HlFT13gCCCXNAiuClyYcirkZjbBixC
-	8ijUrxmoo6i7CoraCfsJ4iOxN9Zki/4oC1bd1NW68KoeF6KDRbI=
-X-Received: by 2002:a05:600c:1d8c:b0:4a1:c5eb:b445 with SMTP id 5b1f17b1804b1-4bb88820436mr309578445e9.35.1795533184836;
-        Tue, 24 Nov 2026 07:13:04 -0800 (PST)
-Received: from localhost (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb906640a2sm229067635e9.0.2026.11.24.07.13.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:13:03 -0800 (PST)
-From: Nikolay Aleksandrov <razor@blackwall.org>
-To: bpf@vger.kernel.org
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Stanislav Fomichev <sdf.kernel@gmail.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>
-Subject: [PATCH RFC bpf-next 4/4] selftests/bpf: test netkit socket assignment to a transparent proxy
-Date: Tue, 24 Nov 2026 17:12:44 +0200
-Message-ID: <20261124151244.1423343-5-razor@blackwall.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20261124151244.1423343-1-razor@blackwall.org>
-References: <20261124151244.1423343-1-razor@blackwall.org>
+        d=1e100.net; s=20260707; t=1795533198; x=1796137998;
+        h=content-type:in-reply-to:autocrypt:from:content-language:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=OavKAVZv+OA0pfYHqsDmPh81k4IRaCsSuMGSaPHhIPw=;
+        b=Yl5JufGkPjYelo5DlEaNykkALOx8QRDXcfO+vE3NIxasS/D/IkkjGANcZg8Tep0125
+         C9RZIkqb4ca1FUkyi3u8NSSd+R1mkBYSrnfxISdxjAniMEwP0W5RxRnm95KW18KhTXKD
+         pH7x0bEL8EAv+68tRA1w8v2EyM0KDn4dD/+dAcxkdEWCq4icqNe18CI7ZfEWX+kJBOIN
+         XuZ6VL/IlGtZRy91Ke0gr/8yra6W+ABYjErSohBTWTg9YgIMl24VeIzNdWv8irmHYCqi
+         khOeccXS/YeWAvt4Q9BvP++6oLkMYcyAujAE4DWSOzfl0pqstnU0ulpvs1gBGpm2nLGQ
+         eUFQ==
+X-Forwarded-Encrypted: i=1; AL+hErFYmdjaZPLxT6r9A8Ff5wJZV7uR0AtXE9gtEqI34O9qSjWYDCyJTRVjp33fT38vQIy5yWKEISk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EEoP2MR4XFy72x16mYxHT3acCUq14K63httUVUJBsG9vwIP2E
+	Nhz69HE6TEI0kxaZloHCCPpdqqZ5/mePbkjYRfqKY7kDUDTZ62Gyls2kwEhaSCb64Uk=
+X-Gm-Gg: AZFdTZekYzjQyohzDhVrI30sRJ9uTtlJPIyvAJANEHSV8xyZ2xdUyTUeeb7AwBGTu0A
+	ZHbpqq3Cqk9BPkY3YTTD//f1UfOko/S+OORVXjgQQY6s64y7u1clmqQgdXKUbSh6uxzf9FOSuAz
+	aqzGiNHBe82yJxoBnni3oOHWAF5897d9LUzFyJW8T8mHs9oFpRt6ys/tOemIdxUACy5uyffcKpP
+	vopWDhcuzIvcMk/2s0DXg2GIFpji4Nhfp0KAMZ9hmrsp+qKroblgh9S6nvKdcQkgXy7XBLNTL8x
+	I/BTZojaUt4MPVjkVTjn5ByRhtL2dGPBwdf1ReCa0XdcZquCBf/UHbd8byL1EomZOmT++Z8uHEv
+	iWJanX7MeZwBePzBM/4BRkH1uciccZDmfjMecsJZDvicV6qJurNgCwthEgLjsN/HxL18cdQT31a
+	vwrWsTk1iLLgI0Fw7H2fGVye0eOJzJCbXZZxHGptULuLg3dDTCUrCUOSXY5haOKmCAKk10JhEJH
+	7QlwzoLc62IeCkV91d6fd3Uu8Zc2muq/eJC7FrUJ7yL/N3hnCYIRF+YZVSRP1O+mmOY9e6/IONk
+	ONTm6aqTS5eTZxPwQ18urd7QyEp8KglZxqFUf9tEqrcHQjaKeaqH8fi3N6JP0eC7N9DKOTncPsK
+	WLFFTRVEjMDJcPw6LnJXtR7366v8v5nK+IgaJl+VtvHxPBxR1OUg=
+X-Received: by 2002:a17:907:e00b:20b0:c4d:22e2:1a2b with SMTP id a640c23a62f3a-c513a47e2ffmr818303866b.1.1795533197737;
+        Tue, 24 Nov 2026 07:13:17 -0800 (PST)
+Received: from ?IPV6:2a00:12d0:afa3:c01:92cc:e257:77ba:97a1? (2a00-12d0-afa3-c01-92cc-e257-77ba-97a1.ip.tng.de. [2a00:12d0:afa3:c01:92cc:e257:77ba:97a1])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ae8d0dbsm543097066b.31.2026.11.24.07.13.16
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 07:13:17 -0800 (PST)
+Message-ID: <f9ddfaa9-9a78-4fcb-a142-6c466d215492@suse.com>
+Date: Tue, 24 Nov 2026 16:13:16 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,326 +91,189 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/13] xen/privcmd: convert mmap hook to mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, linux-mm@kvack.org
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+ protocol="application/pgp-signature";
+ boundary="------------q205G5Arex3sh2KHaxisqvnr"
 
-Attach a netkit peer program that assigns TCP SYNs and UDP datagrams for
-a non-local service address to a transparent host socket on another
-port. Check for IPv4 and IPv6 that the datagram reaches the proxy socket
-and that the connection is accepted with the original destination. Only
-the SYN is assigned, the rest of a TCP connection uses the normal
-lookup, so no TCP data is exchanged.
+This is an OpenPGP/MIME signed message (RFC 4880 and 3156)
+--------------q205G5Arex3sh2KHaxisqvnr
+Content-Type: multipart/mixed; boundary="------------AjT5XFhC0OM07fDCW0uVTora";
+ protected-headers="v1"; hp="clear"
+Message-ID: <f9ddfaa9-9a78-4fcb-a142-6c466d215492@suse.com>
+Date: Tue, 24 Nov 2026 16:13:16 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 01/13] xen/privcmd: convert mmap hook to mmap_prepare
+To: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Stefano Stabellini <sstabellini@kernel.org>,
+ Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>,
+ Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Nicholas Piggin <npiggin@gmail.com>, Michael Ellerman <mpe@ellerman.id.au>,
+ "Christophe Leroy (CS GROUP)" <chleroy@kernel.org>,
+ "Ritesh Harjani (IBM)" <ritesh.list@gmail.com>,
+ Shrikanth Hegde <sshegde@linux.ibm.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>,
+ Dexuan Cui <decui@microsoft.com>, "Michael S. Tsirkin" <mst@redhat.com>,
+ Jason Wang <jasowangio@gmail.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
+ Jarkko Sakkinen <jarkko@kernel.org>,
+ Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
+ <tglx@kernel.org>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, x86@kernel.org,
+ "H. Peter Anvin" <hpa@zytor.com>, Jan Kara <jack@suse.com>,
+ Paul Moore <paul@paul-moore.com>,
+ Stephen Smalley <stephen.smalley.work@gmail.com>,
+ =?UTF-8?B?T25kcmVqIE1vc27DocSNZWs=?= <omosnacek@gmail.com>,
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Ryan Chen <ryan_chen@aspeedtech.com>, Billy Tsai
+ <billy_tsai@aspeedtech.com>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>, Abel Vesa <abelvesa@kernel.org>,
+ Jens Wiklander <jenswi@kernel.org>, Sumit Garg <sumit.garg@kernel.org>,
+ Scott Branden <scott.branden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Arnd Bergmann <arnd@arndb.de>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: xen-devel@lists.xenproject.org, linux-kernel@vger.kernel.org,
+ linuxppc-dev@lists.ozlabs.org, kvm@vger.kernel.org,
+ linux-hyperv@vger.kernel.org, virtualization@lists.linux.dev,
+ linux-sgx@vger.kernel.org, selinux@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-arm-msm@vger.kernel.org, op-tee@lists.trustedfirmware.org,
+ netdev@vger.kernel.org, linux-mm@kvack.org
+References: <20261124-late-2026-mmap_prepare-v2-0-0b0d99d655f9@kernel.org>
+ <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?B?SsO8cmdlbiBHcm/Dnw==?= <jgross@suse.com>
+Autocrypt: addr=jgross@suse.com; keydata=
+ xsBNBFOMcBYBCACgGjqjoGvbEouQZw/ToiBg9W98AlM2QHV+iNHsEs7kxWhKMjrioyspZKOB
+ ycWxw3ie3j9uvg9EOB3aN4xiTv4qbnGiTr3oJhkB1gsb6ToJQZ8uxGq2kaV2KL9650I1SJve
+ dYm8Of8Zd621lSmoKOwlNClALZNew72NjJLEzTalU1OdT7/i1TXkH09XSSI8mEQ/ouNcMvIJ
+ NwQpd369y9bfIhWUiVXEK7MlRgUG6MvIj6Y3Am/BBLUVbDa4+gmzDC9ezlZkTZG2t14zWPvx
+ XP3FAp2pkW0xqG7/377qptDmrk42GlSKN4z76ELnLxussxc7I2hx18NUcbP8+uty4bMxABEB
+ AAHNH0p1ZXJnZW4gR3Jvc3MgPGpncm9zc0BzdXNlLmNvbT7CwHkEEwECACMFAlOMcK8CGwMH
+ CwkIBwMCAQYVCAIJCgsEFgIDAQIeAQIXgAAKCRCw3p3WKL8TL8eZB/9G0juS/kDY9LhEXseh
+ mE9U+iA1VsLhgDqVbsOtZ/S14LRFHczNd/Lqkn7souCSoyWsBs3/wO+OjPvxf7m+Ef+sMtr0
+ G5lCWEWa9wa0IXx5HRPW/ScL+e4AVUbL7rurYMfwCzco+7TfjhMEOkC+va5gzi1KrErgNRHH
+ kg3PhlnRY0Udyqx++UYkAsN4TQuEhNN32MvN0Np3WlBJOgKcuXpIElmMM5f1BBzJSKBkW0Jc
+ Wy3h2Wy912vHKpPV/Xv7ZwVJ27v7KcuZcErtptDevAljxJtE7aJG6WiBzm+v9EswyWxwMCIO
+ RoVBYuiocc51872tRGywc03xaQydB+9R7BHPzsBNBFOMcBYBCADLMfoA44MwGOB9YT1V4KCy
+ vAfd7E0BTfaAurbG+Olacciz3yd09QOmejFZC6AnoykydyvTFLAWYcSCdISMr88COmmCbJzn
+ sHAogjexXiif6ANUUlHpjxlHCCcELmZUzomNDnEOTxZFeWMTFF9Rf2k2F0Tl4E5kmsNGgtSa
+ aMO0rNZoOEiD/7UfPP3dfh8JCQ1VtUUsQtT1sxos8Eb/HmriJhnaTZ7Hp3jtgTVkV0ybpgFg
+ w6WMaRkrBh17mV0z2ajjmabB7SJxcouSkR0hcpNl4oM74d2/VqoW4BxxxOD1FcNCObCELfIS
+ auZx+XT6s+CE7Qi/c44ibBMR7hyjdzWbABEBAAHCwF8EGAECAAkFAlOMcBYCGwwACgkQsN6d
+ 1ii/Ey9D+Af/WFr3q+bg/8v5tCknCtn92d5lyYTBNt7xgWzDZX8G6/pngzKyWfedArllp0Pn
+ fgIXtMNV+3t8Li1Tg843EXkP7+2+CQ98MB8XvvPLYAfW8nNDV85TyVgWlldNcgdv7nn1Sq8g
+ HwB2BHdIAkYce3hEoDQXt/mKlgEGsLpzJcnLKimtPXQQy9TxUaLBe9PInPd+Ohix0XOlY+Uk
+ QFEx50Ki3rSDl2Zt2tnkNYKUCvTJq7jvOlaPd6d/W0tZqpyy7KVay+K4aMobDsodB3dvEAs6
+ ScCnh03dDAFgIq5nsB11j3KPKdVoPlfucX2c7kGNH+LUMbzqV6beIENfNexkOfxHfw==
+In-Reply-To: <20261124-late-2026-mmap_prepare-v2-1-0b0d99d655f9@kernel.org>
 
-Clone each assigned packet to the host netkit device while the netkit
-program is still running. A tcx egress program on that device tries to
-assign the proxy socket to the clone and checks for -EOPNOTSUPP. The
-clone has no socket, so if the netkit gate accepted any skb while the
-netkit program runs, the helper would return 0. Skip the subtests when
-the kernel does not provide netkit.
+--------------AjT5XFhC0OM07fDCW0uVTora
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: base64
 
-Signed-off-by: Nikolay Aleksandrov <razor@blackwall.org>
----
- .../bpf/prog_tests/sk_assign_netkit.c         | 189 ++++++++++++++++++
- .../selftests/bpf/progs/sk_assign_netkit.c    |  95 +++++++++
- 2 files changed, 284 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
- create mode 100644 tools/testing/selftests/bpf/progs/sk_assign_netkit.c
+T24gMjQuMTEuMjYgMTU6MDIsIExvcmVuem8gU3RvYWtlcyAoQVJNKSB3cm90ZToNCj4gTW92
+ZSBmcm9tIHRoZSBkZXByZWNhdGVkIG1tYXAgaG9vayB0byB0aGUgbmV3IG1tYXBfcHJlcGFy
+ZSBob29rLg0KPiANCj4gVGhlIGhvb2sgb25seSBzZXRzIFZNQSBmbGFncyBhbmQgb3BlcmF0
+aW9ucy4gVGhlIFZNQSBwcml2YXRlIGRhdGEgaXMNCj4gYWxyZWFkeSBOVUxMIGF0IHRoaXMg
+cG9pbnQsIHNvIHdlIG5vIGxvbmdlciBleHBsaWNpdGx5IGNsZWFyIGl0Lg0KPiANCj4gU2ln
+bmVkLW9mZi1ieTogTG9yZW56byBTdG9ha2VzIChBUk0pIDxsanNAa2VybmVsLm9yZz4NCkFj
+a2VkLWJ5OiBKdWVyZ2VuIEdyb3NzIDxqZ3Jvc3NAc3VzZS5jb20+DQoNCg0KSnVlcmdlbg0K
 
-diff --git a/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c b/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
-new file mode 100644
-index 000000000000..59dc204318ca
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/sk_assign_netkit.c
-@@ -0,0 +1,189 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <uapi/linux/if_link.h>
-+#include <net/if.h>
-+#include <test_progs.h>
-+#include "network_helpers.h"
-+#include "netlink_helpers.h"
-+#include "sk_assign_netkit.skel.h"
-+
-+#define NS_HOST "sk_assign_host"
-+#define NS_POD "sk_assign_pod"
-+#define HOST_DEV "nk_host"
-+#define POD_DEV "nk0"
-+#define SERVICE_ADDR4 "198.18.0.99"
-+#define SERVICE_ADDR6 "2001:db8:99::99"
-+#define SERVICE_PORT 18080
-+#define PROXY_PORT 15001
-+#define TEST_DATA "test"
-+#define IO_TIMEOUT_MS 1000
-+
-+struct iplink_req {
-+	struct nlmsghdr n;
-+	struct ifinfomsg i;
-+	char buf[512];
-+};
-+
-+static int transparent_socket(int fd, void *opts)
-+{
-+	int one = 1;
-+
-+	return setsockopt(fd, SOL_IP, IP_TRANSPARENT, &one, sizeof(one));
-+}
-+
-+static int create_netkit(void)
-+{
-+	struct rtnl_handle rth = { .fd = -1 };
-+	struct rtattr *linkinfo, *data;
-+	struct iplink_req req = {};
-+	int err;
-+
-+	err = rtnl_open(&rth, 0);
-+	if (err)
-+		return err;
-+
-+	req.n.nlmsg_len = NLMSG_LENGTH(sizeof(req.i));
-+	req.n.nlmsg_flags = NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL;
-+	req.n.nlmsg_type = RTM_NEWLINK;
-+	addattrstrz(&req.n, sizeof(req), IFLA_IFNAME, HOST_DEV);
-+	linkinfo = addattr_nest(&req.n, sizeof(req), IFLA_LINKINFO);
-+	addattrstrz(&req.n, sizeof(req), IFLA_INFO_KIND, "netkit");
-+	data = addattr_nest(&req.n, sizeof(req), IFLA_INFO_DATA);
-+	addattr32(&req.n, sizeof(req), IFLA_NETKIT_MODE, NETKIT_L2);
-+	addattr_nest_end(&req.n, data);
-+	addattr_nest_end(&req.n, linkinfo);
-+
-+	errno = 0;
-+	err = rtnl_talk(&rth, &req.n, NULL);
-+	if (err && errno)
-+		err = -errno;
-+	rtnl_close(&rth);
-+	return err;
-+}
-+
-+static bool setup_netkit(int family, const char *dest)
-+{
-+	const char *host = family == AF_INET ? "10.88.0.1" : "fd88::1";
-+	const char *pod = family == AF_INET ? "10.88.0.2" : "fd88::2";
-+	const char *dad = family == AF_INET6 ? "nodad" : "";
-+	int prefix = family == AF_INET ? 24 : 64;
-+
-+	SYS(fail, "ip link set %s netns %s", POD_DEV, NS_POD);
-+	SYS(fail, "ip link set %s up", HOST_DEV);
-+	SYS(fail, "ip -n %s link set %s up", NS_POD, POD_DEV);
-+	SYS(fail, "ip addr add %s/%d dev %s %s", host, prefix, HOST_DEV, dad);
-+	SYS(fail, "ip -n %s addr add %s/%d dev %s %s", NS_POD, pod, prefix,
-+	    POD_DEV, dad);
-+	SYS(fail, "ip -n %s route add default via %s", NS_POD, host);
-+	SYS(fail, "ip route add local %s dev lo", dest);
-+	return true;
-+fail:
-+	return false;
-+}
-+
-+static void run_netkit(int family, int type)
-+{
-+	static const struct network_helper_opts opts = {
-+		.timeout_ms = IO_TIMEOUT_MS,
-+		.post_socket_cb = transparent_socket,
-+	};
-+	const char *dest = family == AF_INET ? SERVICE_ADDR4 : SERVICE_ADDR6;
-+	int server = -1, client = -1, accepted = -1;
-+	struct netns_obj *host = NULL, *pod = NULL;
-+	struct sk_assign_netkit *skel = NULL;
-+	struct sockaddr_storage expected;
-+	unsigned int ifindex;
-+	struct nstoken *tok;
-+	socklen_t len;
-+	int err;
-+
-+	host = netns_new(NS_HOST, true);
-+	if (!ASSERT_OK_PTR(host, "host_netns"))
-+		return;
-+	pod = netns_new(NS_POD, false);
-+	if (!ASSERT_OK_PTR(pod, "pod_netns"))
-+		goto cleanup;
-+	err = create_netkit();
-+	if (err == -EOPNOTSUPP || err == -ENODEV) {
-+		printf("%s:SKIP: CONFIG_NETKIT is unavailable\n", __func__);
-+		test__skip();
-+		goto cleanup;
-+	}
-+	if (!ASSERT_OK(err, "create_netkit") || !setup_netkit(family, dest))
-+		goto cleanup;
-+
-+	server = start_server_str(family, type, NULL, PROXY_PORT, &opts);
-+	if (!ASSERT_OK_FD(server, "start_server"))
-+		goto cleanup;
-+	skel = sk_assign_netkit__open();
-+	if (!ASSERT_OK_PTR(skel, "skel_open"))
-+		goto cleanup;
-+	skel->rodata->service_port = SERVICE_PORT;
-+	skel->rodata->proxy_port = PROXY_PORT;
-+	if (!ASSERT_OK(sk_assign_netkit__load(skel), "skel_load"))
-+		goto cleanup;
-+	ifindex = if_nametoindex(HOST_DEV);
-+	skel->links.assign_proxy = bpf_program__attach_netkit(
-+		skel->progs.assign_proxy, ifindex, NULL);
-+	if (!ASSERT_OK_PTR(skel->links.assign_proxy, "attach_netkit"))
-+		goto cleanup;
-+	skel->links.egress_assign = bpf_program__attach_tcx(
-+		skel->progs.egress_assign, ifindex, NULL);
-+	if (!ASSERT_OK_PTR(skel->links.egress_assign, "attach_tcx_egress"))
-+		goto cleanup;
-+	if (!ASSERT_OK(make_sockaddr(family, dest, SERVICE_PORT, &expected,
-+				     &len), "make_sockaddr"))
-+		goto cleanup;
-+
-+	tok = open_netns(NS_POD);
-+	if (!ASSERT_OK_PTR(tok, "open_pod"))
-+		goto cleanup;
-+	client = connect_to_addr(type, &expected, len, NULL);
-+	close_netns(tok);
-+	if (!ASSERT_OK_FD(client, "connect_client"))
-+		goto cleanup;
-+	if (type == SOCK_DGRAM) {
-+		char buf[sizeof(TEST_DATA) - 1];
-+
-+		if (!ASSERT_EQ(send(client, TEST_DATA, sizeof(buf), 0),
-+			       sizeof(buf), "send_client") ||
-+		    !ASSERT_EQ(recv(server, buf, sizeof(buf), 0),
-+			       sizeof(buf), "recv_server") ||
-+		    !ASSERT_MEMEQ(buf, TEST_DATA, sizeof(buf), "proxy_payload"))
-+			goto cleanup;
-+	} else {
-+		socklen_t actual_len = sizeof(struct sockaddr_storage);
-+		struct sockaddr_storage actual = {};
-+
-+		accepted = accept(server, NULL, NULL);
-+		if (!ASSERT_OK_FD(accepted, "accept") ||
-+		    !ASSERT_OK(getsockname(accepted, (void *)&actual,
-+					   &actual_len), "getsockname") ||
-+		    !ASSERT_EQ(actual_len, len, "original_address_len") ||
-+		    !ASSERT_MEMEQ(&actual, &expected, len, "original_dst"))
-+			goto cleanup;
-+	}
-+	ASSERT_OK(skel->bss->proxy_err, "assign_and_clone");
-+	ASSERT_EQ(skel->data->egress_ret, -EOPNOTSUPP, "egress_rejected");
-+cleanup:
-+	sk_assign_netkit__destroy(skel);
-+	if (accepted >= 0)
-+		close(accepted);
-+	if (client >= 0)
-+		close(client);
-+	if (server >= 0)
-+		close(server);
-+	netns_free(pod);
-+	netns_free(host);
-+}
-+
-+void test_sk_assign_netkit(void)
-+{
-+	if (test__start_subtest("tcpv4"))
-+		run_netkit(AF_INET, SOCK_STREAM);
-+	if (test__start_subtest("tcpv6"))
-+		run_netkit(AF_INET6, SOCK_STREAM);
-+	if (test__start_subtest("udpv4"))
-+		run_netkit(AF_INET, SOCK_DGRAM);
-+	if (test__start_subtest("udpv6"))
-+		run_netkit(AF_INET6, SOCK_DGRAM);
-+}
-diff --git a/tools/testing/selftests/bpf/progs/sk_assign_netkit.c b/tools/testing/selftests/bpf/progs/sk_assign_netkit.c
-new file mode 100644
-index 000000000000..1837486de4b3
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/sk_assign_netkit.c
-@@ -0,0 +1,95 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include "vmlinux.h"
-+#include <asm-generic/errno-base.h>
-+#include <bpf/bpf_endian.h>
-+#include <bpf/bpf_helpers.h>
-+#include "bpf_tracing_net.h"
-+
-+#define SKIP_PACKET 1
-+
-+const volatile __u16 service_port;
-+const volatile __u16 proxy_port;
-+int proxy_err;
-+int egress_ret = SKIP_PACKET;
-+
-+static __always_inline int assign_proxy_sock(struct __sk_buff *skb)
-+{
-+	void *data_end = (void *)(long)skb->data_end;
-+	void *data = (void *)(long)skb->data;
-+	struct bpf_sock_tuple tuple = {};
-+	struct bpf_sock *sk;
-+	__u8 proto;
-+	__u32 len;
-+	void *l4;
-+	int ret;
-+
-+	if (skb->protocol == bpf_htons(ETH_P_IP)) {
-+		struct iphdr *iph = data + ETH_HLEN;
-+
-+		if (iph + 1 > data_end || iph->ihl != 5)
-+			return SKIP_PACKET;
-+		proto = iph->protocol;
-+		l4 = iph + 1;
-+		tuple.ipv4.dport = bpf_htons(proxy_port);
-+		len = sizeof(tuple.ipv4);
-+	} else if (skb->protocol == bpf_htons(ETH_P_IPV6)) {
-+		struct ipv6hdr *ip6h = data + ETH_HLEN;
-+
-+		if (ip6h + 1 > data_end)
-+			return SKIP_PACKET;
-+		proto = ip6h->nexthdr;
-+		l4 = ip6h + 1;
-+		tuple.ipv6.dport = bpf_htons(proxy_port);
-+		len = sizeof(tuple.ipv6);
-+	} else {
-+		return SKIP_PACKET;
-+	}
-+	if (proto == IPPROTO_TCP) {
-+		struct tcphdr *th = l4;
-+
-+		if (th + 1 > data_end || th->dest != bpf_htons(service_port) ||
-+		    !th->syn || th->ack)
-+			return SKIP_PACKET;
-+		sk = bpf_sk_lookup_tcp(skb, &tuple, len, BPF_F_CURRENT_NETNS, 0);
-+	} else if (proto == IPPROTO_UDP) {
-+		struct udphdr *uh = l4;
-+
-+		if (uh + 1 > data_end || uh->dest != bpf_htons(service_port))
-+			return SKIP_PACKET;
-+		sk = bpf_sk_lookup_udp(skb, &tuple, len, BPF_F_CURRENT_NETNS, 0);
-+	} else {
-+		return SKIP_PACKET;
-+	}
-+	if (!sk)
-+		return -ENOENT;
-+	ret = bpf_sk_assign(skb, sk, 0);
-+	bpf_sk_release(sk);
-+	return ret;
-+}
-+
-+SEC("netkit/peer")
-+int assign_proxy(struct __sk_buff *skb)
-+{
-+	int ret;
-+
-+	ret = assign_proxy_sock(skb);
-+	if (ret == SKIP_PACKET)
-+		return NETKIT_PASS;
-+	if (!ret)
-+		ret = bpf_clone_redirect(skb, skb->ifindex, 0);
-+	if (ret) {
-+		proxy_err = ret;
-+		return NETKIT_DROP;
-+	}
-+	return NETKIT_PASS;
-+}
-+
-+SEC("tcx/egress")
-+int egress_assign(struct __sk_buff *skb)
-+{
-+	if (egress_ret == SKIP_PACKET)
-+		egress_ret = assign_proxy_sock(skb);
-+	return TCX_PASS;
-+}
-+
-+char LICENSE[] SEC("license") = "GPL";
--- 
-2.47.3
 
+--------------AjT5XFhC0OM07fDCW0uVTora--
+
+--------------q205G5Arex3sh2KHaxisqvnr
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wsB5BAABCAAjFiEEhRJncuj2BJSl0Jf3sN6d1ii/Ey8FAmsFqYwFAwAAAAAACgkQsN6d1ii/Ey9P
+6wgAhB7FWWxaGPhKVeHejmUgx+jnN5sGJc29B5zeOJ/udOQfrpojRJR0JMaTJNeJ8g/QXkTWmCZt
+Zd6lRhkVQVMmVrlatIREKD6+lx0mr154pd31nTm9ffbjdyAK9RPk6czEHFUxkktbU/9vv+pBcZEa
+4SaEbJuidUtK7Vgek2j0JKYNWpqv8R80d+nRsMU+RX0YbRKCuT8Jtt3uB/TLb76UL/eK81vzE7j3
+bGBh83GA0cSOumIzSg72te0PCuz4U9UgccJbDbwLIPRkV2Gx83sLPaLOj5968cz/vyT0qZwJ5LfI
+2oGgirhriBPAdLJrm4WtpkDGIWO5CaJWyZf5I3zVZQ==
+=Eyqx
+-----END PGP SIGNATURE-----
+
+--------------q205G5Arex3sh2KHaxisqvnr--
