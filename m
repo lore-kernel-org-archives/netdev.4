@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795564828;
-	b=pYAAdsrrJyQ8C1a+LYm8PNWc6uckwPB/ASXoYTnIi+8g3Re7Y5lJWCGEQEjO41W1jHhb
-	 /VrbxDiHprLr0OJEBEkkwkz9masJviDNKzwKRRXIt2eCS4fG2Ba4pWZ28w/1bXM1Gqr0m
-	 +nmoHvpkBd6bjn5ddMbdJLc4+FTCRqDm69/IUMdpkvTnK4Muy8T0ByWTdlxiRpuBmJKQU
-	 p0TWpQgFGqoUnfaJbD+5yhUK/gEC24XNrKz3bfehq+hHAQ6/f8OQpw2EFTVnFaW3AdohD
-	 U/2pA0Qh3hCSm3xb2WCDJ0TIV3FE06Orp25fY3MZzHD9hLylVVTsCDvc06XpOFodUHw==
+	t=1795564829;
+	b=4shPhM6M51zHmdhjPzCY+1yT5I9PfCU/h04PSiOQ310R0EFbCJmR784S64OQthNexUQx
+	 oN8OtPI9v8NYcl6QEJxzHcgE6NXtfNMWIeUIdOUgfgY6iMtarLbkw3RbuAfqv+LFk+hsA
+	 fqyzqdhQ2/XriU9xI2EXKaQjJMmisQaYCX1Wqdl06zfhVhHtH7alz4s+gKqleHC6WLfRF
+	 dHdGi3Fhvru4JTlRyucjrML0s6DpwiQlCUMsdvQF2xvij5bMt1mQYPTany8Ac2Ytggdkw
+	 Pb3gYs+ntP7mFuiRuatvY7HL7rIR/0cyDEfVB+0iNwCIAJOsOmid5c8S8hV0T4eBjcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795564828;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795564829;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=2m3OpPdUjA4WrVEr6vJeg6i0tYglHyIViTuYZp2tBU0=;
-	b=0EAYB19HcQ1VweOp2YRjkUPfvwtZYXw1nGcsFsTyacSIniMkkdJruFyqqVr1ohDXSg3P
-	 bW+cT3KkZOvLjYqCYGuaxc1GIFAJQisDvmLleNLJCFCl2a1OZZudig3RoYyLI108Igmop
-	 y9g1k2nwyEg7VK8gBCRw6I6soxklEFhtNDVhjl5ZXCF0pIV+L/Dztc4N3XuPTjZdCPy5G
-	 D/aOL80QiVOR/IsuVDeKfjrf1DCKcovOArltZR/0QrgylkyWkOY+VRWROOXlR4Akj9CSg
-	 5FHIyVw7SLX7sucmLPX974Q4m15dFIu2yBDg7kegHiHPg/PH5OcZoI7JA6tyuIZGUEw==
+	bh=MUSDaOJql8U2lhE9G5LULgroKuZjK1HPW/0+tyWH37A=;
+	b=ECM+SCmIcmzFyYt7zbgn6MlLqtTIMZH5m+TRNCpEYgL0/MPMCYbC/x8MqF09ZCGHj7Af
+	 I9Ud6rPNmd0znsjiq7DJkSeQTpn/EJpJ4ewCbc3Kuq51WjlKL7ljznPosIcmBLjtnNtTx
+	 D9NOqdrPdWFW/ekeXjOhBghgKon5LZD1Hib+eP6qe1pUYOuaypo4g76H5z7gg/LVFqoe3
+	 eTSTMSyEhVGx0kUcEC3gDxs9nwKtNwq4smY6r+zzjhpaTe4ktiJ7lOFXQ3xxx3IjVz2+D
+	 J/YteWZOa/GFQXXwjmPsIXSxnOsj28xsl1HRUK4va5NSmD3clw1MD6jUs79rafJrFsg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=mandelbit.com;
 	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=J4dXMJX7;
-	arc=none smtp.remote-ip=195.10.208.42
-Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=c3KCYSlQ;
+	arc=none smtp.remote-ip=195.10.208.46
+Received: from mout-b-106.mailbox.org (mout-b-106.mailbox.org [195.10.208.46])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31B1C606A327;
-	Wed, 25 Nov 2026 00:00:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31B1C606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E460B606A33D;
+	Wed, 25 Nov 2026 00:00:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E460B606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=J4dXMJX7
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=c3KCYSlQ
 Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jZ0Dl5f1dz5wsf;
-	Wed, 25 Nov 2026 01:00:23 +0100 (CET)
+	by mout-b-106.mailbox.org (Postfix) with ESMTPS id 4jZ0Dn3j41zNmD3;
+	Wed, 25 Nov 2026 01:00:25 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795564823;
+	s=MBO0001; t=1795564825;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=2m3OpPdUjA4WrVEr6vJeg6i0tYglHyIViTuYZp2tBU0=;
-	b=J4dXMJX7xVhCGS2LRLoPlsPlO5fOy01uKy03tplpGf1ELXzDjenyycpQIq4VTjRBPlCObl
-	90a2Vzm8B7at+z365X5UHorviRZV2nkW6ySS7GOZVWD4QckthDsEFHkM5d+qdMqD+8jCS7
-	xlvZwxDa7aGSPCocVqpsM00Ne6mWHzoaYgeF/cGH6VF5BrIAD2DEmxRFDNGJir28zyRh8T
-	M+dRVN7AViwzeF11NvRTgiTbvWC02FsTf8I0a6Zs1gRkE9aCSJo8T2pFgtYP0sum3hE/qQ
-	PzUZjIbJNzeZmV26wYcmP8AbwoVnJxNcPHfesL9TsaAINHsneBo/Y5YAnFftlw==
+	bh=MUSDaOJql8U2lhE9G5LULgroKuZjK1HPW/0+tyWH37A=;
+	b=c3KCYSlQpDeHnvE7WVodU/bktz4NGw0UT3unSnJ+oVAjz74wRW7QzsdJliHWAb67Y213c3
+	qCMMO+XCSpYk1nv7fyZ2Q2OPFIbzSBI3gnTqHuuM96dOfNgYDUyejnkTvFPCRqpq8rtCWc
+	k6HFgbYMRg6IBTlSYL5llVvRPxfFVyqIBg4sVzlN55N8JmqTFqFuWiSGWbNtKjS3FhPLud
+	bMTX3oSRw2egaaiivUmO+5kthex0ijEDSTFee5GtAA7LiGxEcw04xTD59SPjY04+bTSJZd
+	VpM8bI8COrxHXp/4BHJ2IllAHoUqPW8TUhlTMEJ+XWzu/cBdZyRWw+VMXJQwvQ==
 Authentication-Results: outgoing_mbo_mout;
 	dkim=none;
 	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
@@ -70,9 +70,9 @@ Cc: Antonio Quartulli <antonio@mandelbit.com>,
 	sdf@fomichev.me,
 	netdev@vger.kernel.org,
 	bpf@vger.kernel.org
-Subject: [PATCH net-next v2 1/2] tun: don't disable BHs for the XDP program check of every packet
-Date: Wed, 25 Nov 2026 00:59:55 +0100
-Message-ID: <20261124235959.1141963-2-antonio@mandelbit.com>
+Subject: [PATCH net-next v2 2/2] tun: skip the virtio-net header parsing without IFF_VNET_HDR
+Date: Wed, 25 Nov 2026 00:59:56 +0100
+Message-ID: <20261124235959.1141963-3-antonio@mandelbit.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124235959.1141963-1-antonio@mandelbit.com>
 References: <20261124235959.1141963-1-antonio@mandelbit.com>
@@ -86,69 +86,49 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jZ0Dl5f1dz5wsf
+X-Rspamd-Queue-Id: 4jZ0Dn3j41zNmD3
 
-For every packet, tun_get_user() disables BHs and enters an RCU section
-only to find out whether tun's XDP program is attached, which only TAP
-devices can have. tun_build_skb() takes the RCU read lock for the same
-NULL test.
+Without IFF_VNET_HDR, tun_get_user() still passes an all-zero header to
+tun_vnet_hdr_tnl_to_skb(), which then only resets the MAC header. The
+parser is not inlined, so that costs two nested calls per packet. Reset
+the MAC header directly, as tap_get_user() already does.
 
-Test the pointer with rcu_access_pointer() instead, and enter the
-BH-disabled RCU section in tun_get_user() only with a program attached.
-A program attached concurrently could already miss the packets in
-flight.
-
-1.2% fewer instructions per 1400-byte UDP packet written and dropped at
-the raw table, 0.7% fewer when forwarded (qemu -icount, x86_64).
+2.0% fewer instructions per 1400-byte UDP packet written and dropped at
+the raw table, 1.2% fewer when forwarded (qemu -icount, x86_64).
 
 Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
 ---
- drivers/net/tun.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
+ drivers/net/tun.c | 17 ++++++++++++-----
+ 1 file changed, 12 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/net/tun.c b/drivers/net/tun.c
-index 76a5ac2359b9..408bb0b40348 100644
+index 408bb0b40348..79aaadd9a2aa 100644
 --- a/drivers/net/tun.c
 +++ b/drivers/net/tun.c
-@@ -1709,14 +1709,13 @@ static struct sk_buff *tun_build_skb(struct tun_struct *tun,
- 	size_t copied;
- 	int pad = TUN_RX_PAD;
- 	int metasize = 0;
-+	bool has_xdp;
- 	int err = 0;
+@@ -1951,11 +1951,18 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
+ 		break;
+ 	}
  
--	rcu_read_lock();
--	xdp_prog = rcu_dereference(tun->xdp_prog);
--	if (xdp_prog)
-+	has_xdp = rcu_access_pointer(tun->xdp_prog);
-+	if (has_xdp)
- 		pad += XDP_PACKET_HEADROOM;
- 	buflen += SKB_DATA_ALIGN(len + pad);
--	rcu_read_unlock();
+-	if (tun_vnet_hdr_tnl_to_skb(tun->flags, features, skb, &hdr,
+-				    (tun->flags & TUN_TYPE_MASK) == IFF_TAP)) {
+-		atomic_long_inc(&tun->rx_frame_errors);
+-		err = -EINVAL;
+-		goto free_skb;
++	if (tun->flags & IFF_VNET_HDR) {
++		bool has_eth = (tun->flags & TUN_TYPE_MASK) == IFF_TAP;
++
++		if (tun_vnet_hdr_tnl_to_skb(tun->flags, features, skb, &hdr,
++					    has_eth)) {
++			atomic_long_inc(&tun->rx_frame_errors);
++			err = -EINVAL;
++			goto free_skb;
++		}
++	} else {
++		/* a zero hdr would only reset the MAC header */
++		skb_reset_mac_header(skb);
+ 	}
  
- 	alloc_frag->offset = ALIGN((u64)alloc_frag->offset, SMP_CACHE_BYTES);
- 	if (unlikely(!skb_page_frag_refill(buflen, alloc_frag, GFP_KERNEL)))
-@@ -1733,7 +1732,7 @@ static struct sk_buff *tun_build_skb(struct tun_struct *tun,
- 	 * of xdp_prog above, this should be rare and for simplicity
- 	 * we do XDP on skb in case the headroom is not enough.
- 	 */
--	if (hdr->gso_type || !xdp_prog) {
-+	if (hdr->gso_type || !has_xdp) {
- 		*skb_xdp = 1;
- 		return __tun_build_skb(tfile, alloc_frag, buf, buflen, len,
- 				       pad, metasize);
-@@ -1972,7 +1971,10 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
- 	skb_probe_transport_header(skb);
- 	skb_record_rx_queue(skb, tfile->queue_index);
- 
--	if (skb_xdp) {
-+	/* Don't disable BHs and enter an RCU section for every packet only
-+	 * to find that no program is attached, the common case.
-+	 */
-+	if (skb_xdp && rcu_access_pointer(tun->xdp_prog)) {
- 		struct bpf_prog *xdp_prog;
- 		int ret;
- 
+ 	if ((tun->flags & TUN_TYPE_MASK) == IFF_TAP)
 -- 
 2.56.1
 
