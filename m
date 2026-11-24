@@ -1,47 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508281;
-	b=wxzF8rWBIfQNcKb23+gU0LDIiFXck95vzdZKdoGEeqfDwKxN1zwifxtboZBnLw7xaXmt
-	 RRbI57v9YgXaIpglYZlJ3eO6ayp2MncXTw/ma/saH2P9xqMG6Nz3+xdVOs22AW7b3/jAw
-	 VBg+OKF6KmsemKCnJyDsoMrY1M50TzJlwneJAD2989LgDl2GSY1oc2Qz+j5yZp/suBN9j
-	 0zQmRfINc+LVhhj1vCP3VzT4hmm9vrTdlK1Q0nUzsEwFhDY/1PFvkNT4izkAvq9Cjx75L
-	 /bLvBVJmKpO5JUULfiI34Xxn47rcPxVWi5kVBTIXlJ5rSP7tKWdJhJHKWK2+D+0iz4Q==
+	t=1795508801;
+	b=wnAf/5Mwm32hNJh7xtAwFHAmsUHMYNex7iKf3KtX/luc8jSHTVr8+hOriGA83Gf14p3c
+	 wq+LpQrUxzaqfu9vuoNON58o5mEPn4kq35hQUL0ULJXPrvd222Vv4bUnp99AN42cwXoYr
+	 Z+xYN63gmoABLwbHNxwryfRBm1DiZLfJ9hbw6XF2vVkNyDk384eDwX09vlPgsUdSONlyo
+	 2+uqTOPFwzoIOXUOqvuIBBw3BSRtvsGD1MckASFN49CJNk1FBwr1XmZdQHVNub9LlXM62
+	 AMWLHLwphQT8qcMAyfaimVW3+5rIngC7iOJWRwtvJ0mLYqmg1iRofbotOcLw2SYJDuA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508281;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=FXF3amYK4zVK9HrsHP25oSXQsLclmm6eVoNLKiPVVAk=;
-	b=HfNqKeHrkc+mBMFEIncsPl9GCSFFcP+jzZb5aAxPDlh2r2Ydn3SC74RDoFS7vqp3pN8o
-	 f8y0rZ/FcJ5ZKkbaDsFNIdw5gV/zP0fYRX5KEFj61hFHhdsNaNiRJRJF+1Zq5WPbd138t
-	 qxohk3xqmv+IB1ZOyIzmR+5SYp2aUGenz2Gh0GbJwtgHmSVceCNaMKeVwt+Pw6fLuPrHg
-	 KujlLkD30qOXyfFmsQq4RZN/6BgSEOfQZRcyfsoLfzEEclL4T3lmaqVJiVDkTUsS71LgS
-	 7Z2Z2MlT8EHvJJpWepNaL0L52LQSDq94lhNnMkEdIpJkgKSWeFoDMOVyd+6BOBuieeA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508801;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=NIXNWsD1GnWzukxgS94b8Vtpt/UkvIRehEZsYKJ0bvU=;
+	b=5QAUXXYdlxQdVk2MDQgB2q9kYZL1tqAq9sBca2LONWtBk9w9fZUZLmsSk4tDVIpHqNJe
+	 OQknG1MwNFV9RpPsmz5uY9DU8dMV/RU7PJQuPBkgU6wEAzIRHhrN90OxRR7SrcrDn6v1Q
+	 eoZCI7oTgFd5jj3NjLgOL8CCZb5gIJpMJyMKBKTNzKAkx8H+816Uyxj9YlBGqaWhumNBs
+	 TucAMkaIq7nQvahRwL9Cwk5/ButBHN/lqH3WjXsX+bDEl1txWItv41h3NbIxCq4GbMOFj
+	 I0tWLThndvhyTTOWtwoIdNoi/N86dDxOoYG71TlR1D28tUJy3qm2CbaLsfUuhF321JQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDfksFj9;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jHXdmBoI;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 613FE606A31E;
-	Tue, 24 Nov 2026 08:18:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11AB9606A31E;
+	Tue, 24 Nov 2026 08:26:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jDfksFj9
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B505E1F000C4;
-	Tue, 24 Nov 2026 08:17:48 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jHXdmBoI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DB271F000CA;
+	Tue, 24 Nov 2026 08:26:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795508281;
-	bh=FXF3amYK4zVK9HrsHP25oSXQsLclmm6eVoNLKiPVVAk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=jDfksFj90RJuUYMvQl/D3DcouK7J4WV7mZz3xt4Ni+IJnZVhJeicGKcJbs7h1ClSc
-	 umDt4lfTGeLUThRvmvaMVMkyL8DZ1vNmwfedc0zwkDaEcBb4yw3Np6ZLJ35arCmyW9
-	 A5ZgWhVN6lINi9/7peguLU5acV7966donpMgCZXSUxFIYAQTH8GwsoiEg5phANvA8P
-	 YrQzrNCR8FajQyg8aCkJ4ufXQMkJeC+OfUeruoDxyo8N45lFVUks5DGI9X0RGYp3H+
-	 I2vgTRhcthwLELfGV7udxRMB5gHre/OVC9exQklOIYSZxpUkrtjtwlBPTHbkrzxi/B
-	 6d73Z4BcdjGqQ==
-Message-ID: <74dd67a2-eaff-4bbb-8105-4481fbbdd016@kernel.org>
-Date: Tue, 24 Nov 2026 09:17:45 +0100
+	s=k20260515; t=1795508800;
+	bh=NIXNWsD1GnWzukxgS94b8Vtpt/UkvIRehEZsYKJ0bvU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jHXdmBoImH/yMdINR1oUHELG1cJAB/1ooV1BS/9WCvhE4UnXHXEh0zy1Af2meyXq7
+	 2l+/KCeFO3QGiEiLJXBJUov5UOvZOgmaPKoSoxHYo9jV8029eB8AxEp/AvMW35d4Hp
+	 bMcOQjO96knFIN2Zy9pOrCYR6PSZQMitHW3R9kVUqe4GgFN5Fu1bJ2luzHS96vgwEX
+	 xQL1cy55b3TDgaBmH2jR5LgSjIe6yuQB8cO3qcxSjY3DlIXoZ0RtZyuXlbPh+LixTG
+	 6HmWFVZ8oMRxSm4TkAuNMqsQ/Y4KIcBENh1TX/y1EdFfT+noW+S1ZYHbDU/IUSjzKJ
+	 NTvlyI2cgm+ZQ==
+Subject: Re: [PATCH net v2] nfc: llcp: fix socket list self-loop on connect of
+ a linked socket
+From: netdev-bot+sashiko@kernel.org
+To: bsdhenrymartin@gmail.com
+Cc: david@ixit.cz, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, oe-linux-nfc@lists.linux.dev,
+ netdev@vger.kernel.org, stable@vger.kernel.org
+Date: Tue, 24 Nov 2026 08:26:39 +0000
+Message-ID: <179550879966.3135.13090779183406614087@kernel.org>
+In-Reply-To: <20261120075908.4064155-1-bsdhenrymartin@gmail.com>
+References: <20261120075908.4064155-1-bsdhenrymartin@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,193 +63,189 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] mm/kasan/kunit: add page_alloc_skip_kasan test
-To: Jeff Xu <jeffxu@chromium.org>, Andrew Morton <akpm@linux-foundation.org>,
- Vlastimil Babka <vbabka@kernel.org>, Johannes Weiner <hannes@cmpxchg.org>,
- Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Lorenzo Stoakes <ljs@kernel.org>, "Liam R . Howlett"
- <liam@infradead.org>, Mike Rapoport <rppt@kernel.org>,
- Suren Baghdasaryan <surenb@google.com>, Michal Hocko <mhocko@suse.com>,
- Brendan Jackman <brendan.jackman@linux.dev>, Zi Yan <ziy@nvidia.com>,
- Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Marco Elver
- <elver@google.com>, Boris Brezillon <boris.brezillon@collabora.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Chia-I Wu <olvaffe@gmail.com>,
- Dev Jain <dev.jain@arm.com>, Ian Rickards <ian.rickards@arm.com>,
- Jann Horn <jannh@google.com>, Jeff Vander Stoep <jeffv@google.com>,
- Jeff Xu <jeffxu@google.com>, Kees Cook <kees@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Peter Collingbourne <peter@pcc.me.uk>,
- =?UTF-8?Q?Pierre-Cl=C3=A9ment_Tosi?= <ptosi@google.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Tomasz Figa <tfiga@chromium.org>,
- Will Deacon <will@kernel.org>, Alexander Viro <viro@zeniv.linux.org.uk>,
- Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
- Miklos Szeredi <miklos@szeredi.hu>, Baoquan He <baoquan.he@linux.dev>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Pratyush Yadav <pratyush@kernel.org>, Allison Henderson
- <achender@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- linux-mm@kvack.org, kasan-dev@googlegroups.com,
- linux-arm-kernel@lists.infradead.org, linux-fsdevel@vger.kernel.org,
- fuse-devel@lists.linux.dev, kexec@lists.infradead.org,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
- rds-devel@oss.oracle.com, linux-kernel@vger.kernel.org
-References: <20261123033111.2349160-1-jeffxu@chromium.org>
- <20261123033111.2349160-3-jeffxu@chromium.org>
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=david@kernel.org; keydata=
- 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
- qIws/H2t
-In-Reply-To: <20261123033111.2349160-3-jeffxu@chromium.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/23/26 04:31, Jeff Xu wrote:
-> Add a KUnit test (page_alloc_skip_kasan) to verify that page allocations
-> using __GFP_SKIP_KASAN (GFP_KERNEL | __GFP_SKIP_KASAN, GFP_HIGHUSER, and
-> GFP_HIGHUSER_MOVABLE) under CONFIG_KASAN_HW_TAGS:
-> 
-> 1. Reset page_kasan_tag() to KASAN_TAG_KERNEL (0xff) across all sub-pages
->    of a high-order allocation, and
-> 2. Return a match-all (0xff) linear-map pointer from page_address() that
->    does not trigger a KASAN fault even when the underlying physical
->    granules carry a mismatched tag (such as KASAN_TAG_INVALID or
->    restored userspace PROT_MTE tags).
-> 
-> Tested on arm64 with CONFIG_KASAN_HW_TAGS under QEMU (virt,mte=on) with
-> kasan.mode=sync, async and asymm.
-> 
-> Signed-off-by: Jeff Xu <jeffxu@chromium.org>
-> ---
->  mm/kasan/kasan_test_c.c | 44 +++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 44 insertions(+)
-> 
-> diff --git a/mm/kasan/kasan_test_c.c b/mm/kasan/kasan_test_c.c
-> index f34163e19bd6..72342137bb18 100644
-> --- a/mm/kasan/kasan_test_c.c
-> +++ b/mm/kasan/kasan_test_c.c
-> @@ -380,6 +380,49 @@ static void page_alloc_uaf(struct kunit *test)
->  	KUNIT_EXPECT_KASAN_FAIL_READ(test, ((volatile char *)ptr)[0]);
->  }
->  
-> +static void page_alloc_skip_kasan_helper(struct kunit *test, gfp_t gfp)
-> +{
-> +	struct page *pages;
-> +	size_t order = 2;
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Why magic value two?
+Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
 
-Should be const.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> +	char *ptr;
-> +	size_t i;
-> +
-> +	pages = alloc_pages(gfp, order);
-> +	KUNIT_ASSERT_NOT_ERR_OR_NULL(test, pages);
-> +
-> +	for (i = 0; i < (1UL << order); i++) {
+- [High] Incomplete fix: the same sk_node double-link, and the same
+  endless loop over local->sockets, can still be reached through…
+- [Low] The new check in llcp_sock_connect()
+  (net/nfc/llcp_sock.c:722-725) returns -EISCONN for any hashed socket,…
 
-"1 << order" is sufficient.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but it is the same
+  shared-sk_node bug class, in the same function, and it is still…
 
-> +		/*
-> +		 * __GFP_SKIP_KASAN allocations must carry the match-all tag
-> +		 * in page->flags, and so in page_address(), not a random tag.
-> +		 */
-> +		KUNIT_EXPECT_EQ(test, page_kasan_tag(pages + i),
-> +				(u8)KASAN_TAG_KERNEL);
+--
 
-Squeeze this into a single line.
+nfc: llcp: fix socket list self-loop on connect of a linked socket
 
-> +
-> +		ptr = page_address(pages + i);
-> +		KUNIT_EXPECT_EQ(test, (u8)get_tag(ptr), (u8)KASAN_TAG_KERNEL);
-> +
-> +		/*
-> +		 * The memory tags of such pages are arbitrary: stale poison,
-> +		 * or tags set by userspace through PROT_MTE. Accesses via
-> +		 * page_address() must not fault regardless.
-> +		 */
-> +		kasan_poison(ptr, PAGE_SIZE, KASAN_TAG_INVALID, false);
-> +		KUNIT_EXPECT_KASAN_RESULT(test, WRITE_ONCE(*ptr, 0),
-> +					  "WRITE_ONCE(*ptr, 0)", false);
+This patch makes llcp_sock_connect() reject a socket whose sk_node is
+still linked, so that the node is never on both local->sockets and
+local->connecting_sockets. Before this, nfc_llcp_recv_cc() could link the
+node back into local->sockets and make it point to itself.
 
-Why do we care about checking HW behavior? (match-all working)
+Link: https://lore.kernel.org/all/20261009092338.3146149-1-bsdhenrymartin@gmail.com/
 
+> diff --git a/net/nfc/llcp_sock.c b/net/nfc/llcp_sock.c
+> index 1e5ee4bcde684..01b311d5adda1 100644
+> --- a/net/nfc/llcp_sock.c
+> +++ b/net/nfc/llcp_sock.c
+> @@ -714,6 +714,15 @@ static int llcp_sock_connect(struct socket *sock, struct sockaddr_unsized *_addr
+>  		ret = -EINPROGRESS;
+>  		goto error;
+>  	}
+> +	/* A socket that is still linked in local->sockets must not be linked
+> +	 * into local->connecting_sockets as well: both lists use sk_node, and
+> +	 * the CC handler links the node back into local->sockets, which turns
+> +	 * the stale entry into a self-loop.
+> +	 */
+> +	if (sk_hashed(sk)) {
+> +		ret = -EISCONN;
+> +		goto error;
 > +	}
-> +
-> +	__free_pages(pages, order);
-> +}
-> +
-> +static void page_alloc_skip_kasan(struct kunit *test)
-> +{
-> +	KASAN_TEST_NEEDS_CONFIG_ON(test, CONFIG_KASAN_HW_TAGS);
-> +
-> +	page_alloc_skip_kasan_helper(test, GFP_KERNEL | __GFP_SKIP_KASAN);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER);
-> +	page_alloc_skip_kasan_helper(test, GFP_HIGHUSER_MOVABLE);
-> +}
-> +
->  static void krealloc_more_oob_helper(struct kunit *test,
->  					size_t size1, size_t size2)
->  {
-> @@ -2369,6 +2412,7 @@ static struct kunit_case kasan_kunit_test_cases[] = {
->  	KUNIT_CASE(kmalloc_large_invalid_free),
->  	KUNIT_CASE(page_alloc_oob_right),
->  	KUNIT_CASE(page_alloc_uaf),
-> +	KUNIT_CASE(page_alloc_skip_kasan),
 
-Don't we have to limit this case to having actual MTE-capable HW etc?
+[Severity: High]
+The commit message lists "sockets that a peer moved to LLCP_CLOSED with
+DISC or DM" as one of the problem states. Can those sockets still get
+their sk_node linked twice through llcp_sock_bind()?
 
->  	KUNIT_CASE(krealloc_more_oob),
->  	KUNIT_CASE(krealloc_less_oob),
->  	KUNIT_CASE(krealloc_large_more_oob),
+nfc_llcp_recv_disc() moves a connected socket to LLCP_CLOSED but leaves
+it linked in local->sockets:
 
+net/nfc/llcp_core.c:nfc_llcp_recv_disc() {
+    ...
+	if (sk->sk_state == LLCP_CONNECTED) {
+		nfc_put_device(local->dev);
+		sk->sk_state = LLCP_CLOSED;
+		sk->sk_state_change(sk);
+	}
+    ...
+}
+
+For any reason other than LLCP_DM_NOBOUND or LLCP_DM_REJ,
+nfc_llcp_recv_dm() looks the socket up on local->sockets through
+nfc_llcp_sock_get(). Since connecting is false in that case, the socket
+stays linked:
+
+net/nfc/llcp_core.c:nfc_llcp_recv_dm() {
+    ...
+	if (connecting)
+		nfc_llcp_sock_unlink(&local->connecting_sockets, sk);
+
+	sk->sk_err = ENXIO;
+	sk->sk_state = LLCP_CLOSED;
+    ...
+}
+
+That applies to connected sockets, accepted children, and bound or
+listening sockets whose ssap/dsap match the DM.
+
+llcp_sock_bind() only checks the state:
+
+	if (sk->sk_state != LLCP_CLOSED) {
+		ret = -EBADFD;
+		goto error;
+	}
+
+nfc_llcp_sock_from_sn() skips CLOSED sockets. With a non-WKS service
+name, nfc_llcp_get_sdp_ssap() therefore returns LLCP_SDP_UNBOUND, and
+bind() reaches:
+
+	nfc_llcp_sock_link(&local->sockets, sk);
+
+nfc_llcp_sock_link()->sk_add_node()->hlist_add_head() runs on a node that
+is already in the list. If the node was first, it now points to itself.
+Otherwise the list gets a cycle.
+
+Wouldn't every later sk_for_each() over local->sockets, such as
+nfc_llcp_sock_get() in the RX worker or nfc_llcp_sock_from_sn(), then
+spin forever with the read lock held? sk_add_node() also takes an extra
+sock_hold() that is never released.
+
+Should llcp_sock_bind() get the same sk_hashed() check? Alternatively,
+the DISC and DM handlers could unlink the socket from local->sockets.
+
+[Severity: Low]
+This returns -EISCONN for any hashed socket, not just LLCP_CONNECTED
+ones. That includes LLCP_BOUND and LLCP_LISTEN sockets, and sockets a
+peer left in LLCP_CLOSED with DISC or DM. Is -EISCONN the intended errno
+in those cases?
+
+In the usual non-blocking connect pattern, a repeated connect() that
+returns EISCONN means the socket is connected. After a CC and then a
+default-reason DM, connect() would no longer report the pending ENXIO in
+sk_err. The application would be told the socket is connected after the
+link has gone away.
+
+TCP's __inet_stream_connect() also returns -EISCONN for some
+non-connected states, so this may be deliberate. Still, the other
+wrong-state checks in this file (llcp_sock_bind(), llcp_sock_listen(),
+llcp_sock_accept()) return -EBADFD. The commit message also doesn't
+mention this change to the errno userspace sees.
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. It is
+the same shared sk_node problem in the same function, further down in
+the sock_unlink error path of llcp_sock_connect(). Can that path unlink
+the socket from the wrong list and drop the nfc_dev reference twice?
+
+sock_wait_state() releases the socket lock while it sleeps:
+
+		release_sock(sk);
+		timeo = schedule_timeout(timeo);
+		lock_sock(sk);
+
+While the lock is released, the RX worker can handle a CC.
+nfc_llcp_recv_cc() then moves sk to local->sockets and sets
+LLCP_CONNECTED:
+
+	nfc_llcp_sock_unlink(&local->connecting_sockets, sk);
+	nfc_llcp_sock_link(&local->sockets, sk);
+
+Before the waiter takes the lock again, the worker can also handle a
+DISC or a default-reason DM for the same socket. nfc_llcp_recv_agf()
+handles aggregated sub-PDUs one after another in a single worker run, so
+one AGF frame carrying CC plus DISC would be enough.
+
+After a DM, sock_wait_state() returns -ENXIO. After a DISC, sk_err is not
+set, so the waiter sleeps until a signal arrives and returns -ERESTARTSYS
+or -EINTR. In both cases connect() then runs:
+
+	if (ret && ret != -EINPROGRESS)
+		goto sock_unlink;
+	...
+sock_unlink:
+	nfc_llcp_sock_unlink(&local->connecting_sockets, sk);
+
+This takes connecting_sockets.lock, but sk_del_node_init() removes the
+node from local->sockets. Isn't local->sockets then being modified
+without local->sockets.lock, racing with its other writers and readers?
+
+In the DISC case, nfc_llcp_recv_disc() has already called
+nfc_put_device(local->dev) for the connected state. The error path then
+falls through to:
+
+put_dev:
+	nfc_put_device(dev);
+
+Could this underflow the nfc_dev refcount and eventually free the
+nfc_dev while it is still in use?
+
+The same path also frees service_name, puts the ssap, and clears
+llcp_sock->local and llcp_sock->dev on a socket the peer had already
+connected.
+
+Should this error path use sk_state, checked under lock_sock(), to decide
+which list to unlink from and whether to drop the device reference?
 
 -- 
-Cheers,
-
-David
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120075908.4064155-1-bsdhenrymartin%40gmail.com
