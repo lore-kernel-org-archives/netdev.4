@@ -1,103 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795504777;
-	b=aEZ/k44aMsWUjVw80oNx7MiEHhV2rQgD3aVAQ+hhgBXHQiiPinnRvFFG+/m9njoT5hju
-	 hSd5q1uugDafpS8MyEs+rPeaG59xOdx33qzheKiz6fyLK17VGezbThPud6Y0FA6SvLWAK
-	 gobtv+t4VRVsqf9GdXfMPd1G4ZOVG4rsGGQladRHGrXAbgv8y514ecklwhZJr2QWwUhF1
-	 1BdKCdeKZwCYB125tbOtoJnXDiQ+cRA5PJhjxnDJ0XUR5d1Ura1ktld5rDVqpzRDopLaK
-	 s1bM/zkMlvl8X5TiAChZv5e56QsVOt2CE5kzLXU3+gECLTgIYP1yiQIewsWB5Jjf1fg==
+	t=1795505162;
+	b=DrNXAiVXmT/1uZIxryg68TrBJ6MWmB0mgF+yR/KIgWyciUegT8DEWOfKHpiX2T4TOYJB
+	 J77I2qAeI2lwrGnQQ/XsDBy79vDgoguhi94/ovvsN/I+ul69zrDgbdBdxm0Uz0zjYF51F
+	 Ak0JedbUHhPAfMWPm+8B8rtjSYxTFQY4lQi26E1irRitSAWUUPrs4mKx68OlfQFtGHT9S
+	 3vVNf/zO51L+bvlKdQvNtFHFkL7IJCzrkCnHsdker+wTFxEVHzuQK6/tMSTl0C3q9w9TL
+	 /xMMXIL8CYsGiPmH15WhtYc+jeWGRQl1BMxy37gQdir/kZu/QKsakS7lbsYakqn7n0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795504777;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505162;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
-	b=NGyOCknxmtmGPOQuFFH4MoqX1jtOc2hpyObzRt72wcmGkyn1cTw9Dv6NNP0AcQfFMDTC
-	 2kcsyqQdJBGexY4SJHT6Oa2roQXuIDWzjeQTjP2HgA5ds1A+lNQ4VognUvzp8JmCXfDAQ
-	 Ib95zjgmO3Qio9fz/OG26BDMkPxdDMM6a1SbWg6teNpVQJq9rMbT3hRXguI8WB3qX1a+c
-	 DonvUVr6EdRw0PCwomeLOpfmHzqz+BRNDVchBL+BIYWgFlPoJ4/wFOfGXRGNUsYNJx+32
-	 xBrR7MLTMndE3BDg84pA6wPtDHxICKb5QB9l5jPM/nYaNid8g+ceIdp09tpyDGZehDQ==
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=IeBQC3lSXEZNlP3HbfWzWAcMFyODyANfg7T0vLSKZnM=;
+	b=ffs1F+L6oKrdDtcjFRgu8lHMYil+NCto0gVjZ9Uok0tLGwedE+dcymJ2TJxoGHajohTu
+	 skFZCEEzg/J68/TN8yR8BIO5zi1RABS2YR2s9jLFgQYdfVOQFu0DlNdpCpeapcO59kxil
+	 JD94YUFr7QOw19sfvoRTNeciwtKx/2oZAWTouI3wZUjLbRJiDE2on57+BUEecQppcOGaa
+	 pdnsa5OwTVx6zJfml3lnDaHs4Tb9Sghi8Z/nvnKPq5CdClu/wwErl+npTlccKXTnlbX8l
+	 N/xoudw4DNf7/TyyiaXQiRcUO/KXiwatiJn1kKjzP/G6TIldotcrWMiN190kzqO/k0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jb33G8mO;
-	arc=none smtp.remote-ip=209.85.210.173
-Received: from mail-pf1-f173.google.com (mail-pf1-f173.google.com [209.85.210.173])
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b="S/Smj6gw";
+	arc=none smtp.remote-ip=74.125.82.54
+Received: from mail-dl1-f54.google.com (mail-dl1-f54.google.com [74.125.82.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9993606A681
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:19:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9993606A681
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30DA4606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:26:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30DA4606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jb33G8mO
-Received: by mail-pf1-f173.google.com with SMTP id d2e1a72fcca58-8ca6a12efd9so1068448b3a.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:19:36 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=S/Smj6gw
+Received: by mail-dl1-f54.google.com with SMTP id a92af1059eb24-1b3ada81853so4829747c88.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:26:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795504776; x=1796109576; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
-        b=jb33G8mOS/Hi1jWlbaudR+Y8v/b7kjNRymBbnp45JRiKAkM+lr1QSILrSFem736iC2
-         AfvHjuItnI3tl4xVMogeehGLzwOMrB2+yFoU13bZ3qGKTRZR9JaIU8msDmLWruizzj8j
-         OSk6LEihZORe7s9OQMIZGBkXVm+kEF6KUqbfzlc4/pxTv404AitSpyj5YzzJEcHIsezr
-         /1DLOdMmJ6e9rD9GDj/ELR4XWfVfJG6AjbqkDpEa26i/A1g0xYDL07lr38ai6F0IKdp5
-         KKtU89PJzK9LVmwEICshchHb2kl73xBJ3h7Hg5CleDSX8DZLiDYtmfUHIYsFky5Lfs90
-         2YWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795504776; x=1796109576;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=blockcast.net; s=google; t=1795505161; x=1796109961; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=psyQ3R+IPgp+Vrzba+etQGrWT4agfKgZFhLKLz+GJT8=;
-        b=CUBPcClEycEtSRqK4ImbdvdBKYLZghReUiBCJrOUkpqCqJ1pj2u+NB1nMUzsIMUYgq
-         lgezqA5mLIHQSjh21tgDZM97xRzCO//IfHKpNy51n2BdMOgborIO1hDPhnE3Wlaa+SQG
-         rWugafE0pjl6PIadd9X0Sa2spTeajJ32uB66SXqd57e4sFm0erJK3+02giL5MCteYHk8
-         DrNfKZwHzIt9noVaEnW8NggthH+Ezp0HXM79jSZWmlk6vL4hT65TcQ0DJiZbwNTziKoL
-         uxZY1UubWFmaF+4hb0j/sfMrtgGgfvEfJ6u37Btitk3mi0179JC05JAd6swdfI8XenwL
-         h09w==
-X-Forwarded-Encrypted: i=1; AL+hErEY6V+BGK6jGf4XQcHa/dX+a1tBWSMy99gbc7wPx2zwpDsPrPZHvcwvwOoDwnH8x4dL0FO3dKI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9vdFgK452JuC4ThYUAXs6MmMEuIZDzPvBgEanArQsHCKx99RFX
-	lKXoO4LP+eK6MNwAUdl1itQ0IFxECvZSEdzBN3hxZbx6XE7WGAk2AXxb
-X-Gm-Gg: AZFdTZdCi6XA5Qdi2KK0zcpRF/NUh026TuSVQhMhBXiCJCLSSKRPnhGCrEfbIuN8OPi
-	OH6V3rSrYNCztDPNHgEkqJ2vdYl9CaOeg77GST1SOs+oKCQzN4ObqapSn5TYw9SG5/6jiSyciPM
-	44v12phAwPhpgtDpU0C+EyFM4Ih2U3/EOCslN8c1J3Off06suT11LlvnsGuQAFvjCCM96BA8hnQ
-	eORnuGhxqKzFvrbdNgQlUAYItMMEb74hgUXWj6H1wmp9HQqotgPUvAWESYGdQ81RXbCOLxNb82e
-	SzIK/yysLeD95Ts+H2XaNu879Ck1ea7IbvOjXFHdfnmc+GfaCfc6dnS68zjhnj5qRTLj7319pe9
-	lcSL+ihdcsnUtxjFgm1c/N42kk0k+j+9zMnxP//umd4Zu9PUumbGsaGk2+V9S1PajM2CplMHnYF
-	xIVZ32A9GXoX3FI6Gq7kYn7awPThe4wT+MvmEJN5GlaGDnRYm836SFU7qUVbXIzanIZpQ2VjR3B
-	zCkbZQQy9eulmVbSdCCVVy2I5PX6HX2/vzk5PkAC65k9eNUH2j2uz2R2RYwScl6iVAZ568F37hm
-	kb8zF6Ehvhfg19aIQlSIMfO8ISVjKqt3A3lGTgvCs6jVwFe2STDn1/kZ9O4QIS+SWwYN7TKb2dp
-	0KmNnuvFxcruPa8wPiS0=
-X-Received: by 2002:a05:6372:a748:b0:3e1:885f:b4ab with SMTP id adf61e73a8af0-4014a27e905mr10620093637.8.1795504776021;
-        Mon, 23 Nov 2026 23:19:36 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad3:119::1c:2e7])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde7f91c6f5sm4425486a12.27.2026.11.23.23.19.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 23:19:35 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
+        bh=IeBQC3lSXEZNlP3HbfWzWAcMFyODyANfg7T0vLSKZnM=;
+        b=S/Smj6gweouoG95p7UsC5L9Rx326jh0jEK9gkCokZYGvxdANcb0jbpcviSVVuh+H6A
+         4371MTqFT/jUvbR/Z8Tcx6roSTVrzfF75Tm5uMLkzi8qyBrEMQVt/NvknLxk51SuVVa+
+         sE1F6Dbanul6jDvIlLeAy4t8p0O1wCMUXNxs47k0MxUPbJt0YRU0NK/eGpsmWRgO5v7V
+         IHSujl5P0chvXtfr+4FoXvqxIvQTklqVHZ8p35Tkvn6NdtC/uGme9ZSZlJKP05mg1IO4
+         xosJ3Mwn9AsibhfRhFM9ZxhyG6LA6Z5JzTYt8if9BrFw3kpOVlBjwVBUBKxYYJ2oXM7J
+         OJRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795505161; x=1796109961;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=IeBQC3lSXEZNlP3HbfWzWAcMFyODyANfg7T0vLSKZnM=;
+        b=L6D5q+q5kg8hlnlSQH3npGoIObg1TR3tEnm9hFTweQ0gxi/vrE1bvF9bUoz+RweF4C
+         3tvM/FcBAL2PPQG/9LuoP4S9s9n7XizetAot+TFaeBKH91QdBZEBpvFSFTkmBx/HHtmV
+         +57a4h9XFd806StFjWiX0htIKGsn274HgkLmA5TaaJsX/UizsKI57MefJiEXqOdv2K36
+         zSCvYRJscu105RcK9xxwrdgPw63FZO5/HM/CXksypafQNGIkaFpvRyKrNcGis9UKWzMb
+         b1FbqHqCkRupDHO13R8I2o36F5+wscXnWd6WWnm2MXVHy+QjNuXgUDGUNyr/MKQ4OBWA
+         sfHw==
+X-Forwarded-Encrypted: i=1; AL+hErEpfUoqlewi/LV14cBKUVKU72D7TEEYP8K8Fs4WwbPvq+sAo8wMnc3QL7mKPdDRANg/t+DkDhM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pZU3mJsOvSj1w/aYE7qEAdepCWADae1SRBz6UgaQYsJBhlMM6
+	OFErVzNqSNEpb98YPmBrN6F7iRBj/edAioDPglYk9rvqeMtaTScb/hmSsMKwnQs3snM=
+X-Gm-Gg: AZFdTZd0C9pqu3idZ/ve0yjpl6+o3ufSsndboEsBzwknfnuRslCr+ncTLf2K3ERUHFN
+	lHIyR8kzyVhHMmXqT5rrHlktjovY2uL/t7063cU3lFkFAIrZ35/QJJH3jbXRjMxrFqVNbvywxJf
+	nZHxx6JAq+Tj34j4UDAfD+UtXRFVz8YnZjqJ3WKyYoOWSc/aMtsjqYuNBLtE2RhdwDPXo1pmj3W
+	6dw/V2fGXzs9vGx3qXWQDUBW0ggZXAu7W1lk9gqdwe7x7dk+pYzwa/WMA9UOfYBQPYWUemtFp8w
+	Vs0YlxndcvJ80XamzDvtuGue2IJM1bGcax1ZSPH1MWZUvasfI5nz40TAfZ4iLL3KGnkNJ7YzS7q
+	j2v0i1CHeNVyTPMcZg5m8tT/whON3K3lV/feQYDGiucCPKMWcmNz/HB6yClvFdirNA0GB0RkZ84
+	XN0+X0JFonmSp0EXBnRwVeZaFZqNEq5vk8VWNSHpIApv13/cGwpzmEX/qd4XnoAyUkpTrabi4Ms
+	IRv7S8IsAJBVvsOnjMTqpvqoaAhEloCth9kIaU/D6bUi6ExtpYSR+RzI2gNsY/QluZqsCRJRqkg
+	bC7lk2WuvqbNsbkiLhaCXJx8H9Dr4wyIOOccSMXgnmu1owFtFUuNhZV33h4vVTm7BtYNrCe/sL3
+	abm+E9ocY1e+nqOZxEXrSt8/wVLrad8HyM+fLVqjV0RlO+EkavHs=
+X-Received: by 2002:a05:701b:2088:10b0:1b3:a22c:7f68 with SMTP id a92af1059eb24-1b5568d349fmr14493980c88.29.1795505161121;
+        Mon, 23 Nov 2026 23:26:01 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c3052sm33037003c88.1.2026.11.23.23.25.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 23:26:00 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: netdev-bot+sashiko@kernel.org
+Cc: ap420073@gmail.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
 	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Zhiqi Zhang <zhiqizhangg@gmail.com>
-Subject: [PATCH] selftests: netfilter: fix missing echo in nft_nat_zones.sh
-Date: Tue, 24 Nov 2026 15:19:26 +0800
-Message-ID: <20261124071926.8818-1-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
+	horms@kernel.org
+Subject: Re: [PATCH net-next v3 3/3] amt: make the per-tunnel group and source limits configurable
+Date: Tue, 24 Nov 2026 07:25:56 +0000
+Message-ID: <20261124072558.846669-1-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179547826432.3135.16263442399696125291@kernel.org>
+References: <20261122235724.2898320-4-omar@blockcast.net> <179547826432.3135.16263442399696125291@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,37 +107,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The ping failure path tries to execute the failure message as a command
-because the echo command is missing. This reports a confusing "command not
-found" error and returns 127 from that command instead of printing the
-intended diagnostic.
+On Mon, 23 Nov 2026 23:57:44 +0000, netdev-bot+sashiko@kernel.org wrote:
+> Do these new ceilings also raise the per-packet work a remote gateway can
+> cause under tunnel->lock by roughly 32x?
 
-Add the missing echo so the ping failure is reported consistently with the
-other failure paths in the script.
+Yes. At 512 groups and 4096 sources the budget of 2/3 allowed 3,850,240
+bucket and source visits per Update, 32 times the 120,320 at the
+defaults, and the caps were argued from memory only.
 
-I found this bug manually. OpenAI Codex generated the one-line code
-change. I wrote the reproducer/test case, reviewed the generated change,
-and tested the patch.
+v4 caps the budget at what one report as large as the device's MTU can
+cost: a host splits its report to the MTU, so a report names at most
+mtu / 8 groups. On a 1500-byte stream link (relay MTU 1460) that is
+416,256 visits at the ceilings, 3.5 times the default; the largest
+legitimate report there costs about 348,000. The defaults keep the 120,320. A report
+larger than the relay's own MTU, from a gateway on a jumbo link to a
+relay on a standard one, has the records past the bound ignored at high
+limits; the commit message says so.
 
-Fixes: d6905f088d2b ("selftests: netfilter: nft_nat_zones.sh: shellcheck cleanups")
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
----
- tools/testing/selftests/net/netfilter/nft_nat_zones.sh | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Measured in a UML guest (KASAN off, so only the ratio means anything),
+v3 and v4 booted alternately on one machine, at the ceilings: the
+report you describe, ~7,500 empty records naming one group that holds
+4,096 sources, takes 8.2-8.9 ms in v3 and 1.3-1.6 ms in v4 on a
+1500-byte stream link (119 records applied against 13), and 5.3-5.7 ms
+with the stream link at 65535. A full refresh is not slower.
 
-diff --git a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-index d935c967dd..f15bfd3373 100755
---- a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-@@ -171,7 +171,7 @@ done
- 
- wait || ret=1
- 
--[ "$ret" -ne 0 ] && "FAIL: Ping failure from $cl" 1>&2
-+[ "$ret" -ne 0 ] && echo "FAIL: Ping failure from $cl" 1>&2
- 
- for i in $(seq 1 "$maxclients"); do
-    if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 }" | grep -q "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 counter packets 3 bytes 252 }"; then
+Teardown at the ceilings walks 512 * 256 bucket heads in v4, once per
+tunnel.
+
+> With hash_buckets at AMT_HSIZE_MAX, do the per-group and per-tunnel
+> allocations end up just over 4 KiB?
+
+Yes. v4 keeps hash_buckets at AMT_HSIZE (256): pahole gives 200 bytes
+for amt_group_node and 168 for amt_tunnel_list, so with 256 heads both
+stay in kmalloc-4k. At 4096 sources in one group a chain averages 16
+entries, which only makes a lookup longer. One tunnel at the ceilings
+then holds about 2 MiB of group nodes and 0.75 MiB of source nodes, and
+max_tunnels multiplies that; v4's comment on the caps says so instead
+of "a few MiB".
+
+I will send v4.
+
+pw-bot: cr
+
 -- 
-2.54.0 (Apple Git-157)
-
+Omar
