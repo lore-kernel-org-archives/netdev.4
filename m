@@ -1,69 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=90.155.50.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549468;
-	b=XpVJX9yISdZmtz9w15FOvieJpqn4QaY7CoQs6LSDh368Xu3NLDCUCggGmTaOvaiKfphM
-	 pISp37EMlkMSU9XjqNtv4yAxvJVn9OpCQAt0H3hS8Pbzso9Fsfj3JaZO+PvjBlpjPf6MK
-	 nGjn1tIz6jZETCxLRYt4+eSVK+blnMOQLPAkxF28Rh9QWwJAu1wVp4ivlcDBksqjjpe0W
-	 biBsE0VewWVAAJDEJbEF03mFBtxccav1MH+UcbipE2R7hwMCWH50kTxyp7XnMJ/EMziMi
-	 HBpXLaCziFRkxrJ1JrRYqipNwr9prZ28myqgqRMPpvZeG7J9fIlsqUsorZbgqjsTKJg==
+	t=1795549516;
+	b=v7xQ2tM5Hz5R8gsXuAU8mkmvHtVyLzMd8O4hJnpdFY64brUWVlEcIzAmAystNxfHd6fj
+	 bUJw6/I4rMbR9uoSzitf4iJZUlFua1uKM1ao/dWaadvU7p8UUVQUfqe0PilcSyoCl6qQq
+	 tHw+N6juMy0nGaBtOfTvN7sP3NFehkwKNE/MMnKHNqjhIqYb6OULnUNneSHzS2p71FKGV
+	 /S+i1anH2tNykhQZUPaGuutMFWO81DI7+9FP1pfphN0Cp4fbNIzoCxOHppOdXT9vr4St9
+	 T32U2qrxFITho1H7a8VmbBqQkYrPGakFbE9dmHTKlA1ScwX0HB+qI3H04GIEhqlTuYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549468;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:User-Agent:MIME-Version:
-	 X-SRS-Rewrite;
-	bh=O31Czn1AwWMnxNPMpREucXy12+Bq/Zd2pE8Xe2nZEbM=;
-	b=N/37wNhQU6wqrmEsBvlfbTpTbNqx+DdQtECK2RJk34Y4EekBsOUtB148t+rPsNtSyXr7
-	 QuCB9UlAJaDuh1W8Z/E6Pj0Ou3boKiBti1AxUPJYCNQskjiGmWYxJFQ7do/GYuJpKnSR1
-	 nYVjDEklOIhgIwUl/VA95tthKkdHnD8f6GTeBwYdv2T5nQ53Wnd0C4NnlLs2KvlncAn59
-	 n8ewUH3QFTCg0zDnvp2OxvtYCsuuz6umm+2P9gNdv7tctwkUDt+RmY4PWwLUlk46358JN
-	 WFu3hrugN6SjJQbi8Ep/u9TvvTEfc0fz0vvQjfB0aFY0NpyUHKGsF84YsVA0DaXEZFw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549516;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=JiYqJ8pWSXf2zuz3CaHvcAmXxPwkVTLsHQb8M9JN5M0=;
+	b=1weZvRiEIBxYjYkaym0evyyqp6pZfb16zstJ3Ntk48fSBQFRmLzVujNE5J6/0POI3W7P
+	 lxp2xcK3c2jpaBpt9zTEfVkK/r20x5VKHcNXyHBdWhG+cCzI3LvC/ZoLgAbUUICaGfcnC
+	 EapInRzIER5sbJAKGwwTG9dyUKeUTg5lozQl65zKL975sN6CRsLA6HjX2wihEUhcFSfeG
+	 oIauU8E7/FCv++pKn66VWHGXD/TLNZUALF0cMlkAV3Qp7SZkw3nqkFvqVCopOHCE+k0+0
+	 pLDMurnFvwbn2VCoo/pcorZ38fZ6MlIeawThlJk9+Z7eQKORyFZISO3Aqye5vJC7h7A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=infradead.org;
-	spf=none smtp.mailfrom=casper.srs.infradead.org;
-	dkim=pass header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b="i/T2c1/G";
-	arc=none smtp.remote-ip=90.155.50.34
-Received: from casper.infradead.org (casper.infradead.org [90.155.50.34])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QfHcjZyL;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2A89606A31E;
-	Tue, 24 Nov 2026 19:44:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E2A89606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=infradead.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=casper.srs.infradead.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F725606A32C
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:45:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F725606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=infradead.org header.i=@infradead.org header.a=rsa-sha256 header.s=casper.20170209 header.b=i/T2c1/G
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Type:References:
-	In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=O31Czn1AwWMnxNPMpREucXy12+Bq/Zd2pE8Xe2nZEbM=; b=i/T2c1/GoD48Kw1JFJMSr2o+ne
-	o9dpnKUKiDSkr2O7RxdIK3p90A5M1AALZF1hN7vJ48kgeUIc/FD6iLKzFqHzPbXatOj6G3SIYtlTd
-	dfIJKfonmDLk2/FlyM14xz8U7gYacN4oGgSVlPBFgLpxC0d/1yw6Pi0D8H9lzWYDUOiVKsj99qWLy
-	WtMsIm7LKJrNLWNBzvc6OxgH21GywcQrqxfuEevy/W+n5CpJYmfg7Z9Ut/SFFDsmW2oy6Qzs3hkIl
-	ye81PFn6amW+5f4UUKvapVzk/cN7eXzK0BbIZHFshdNdv6v9W+leHkO5KVhNDWwFU7TAjVnHn/l/z
-	B9T7ftZA==;
-Received: from 54-240-197-239.amazon.com ([54.240.197.239] helo=freeip.amazon.com)
-	by casper.infradead.org with esmtpsa (Exim 4.100.1 #2 (Red Hat Linux))
-	id 1xVwRD-0000000CUFX-0MkM;
-	Tue, 24 Nov 2026 19:44:23 +0000
-Message-ID: <1f77fa9014f8dfafb2be9cf15a66c5541880656a.camel@infradead.org>
-Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the
- last file is closed
-From: David Woodhouse <dwmw2@infradead.org>
-To: Chad Aldreda <ca@modelmiser.com>, Richard Cochran
- <richardcochran@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>,  Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
- <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,  Shuangpeng Bai
- <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org,
- stable@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 19:44:21 +0000
-In-Reply-To: <20261119061517.1142436-2-ca@modelmiser.com>
-References: <20261119061517.1142436-2-ca@modelmiser.com>
-Content-Type: multipart/signed; micalg="sha-256"; protocol="application/pkcs7-signature";
-	boundary="=-F5EVYuBQNmdZNJbvbcsL"
-User-Agent: Evolution 3.62.0-0ubuntu1~ppa1~24.04 
+	dkim=pass (2048-bit key, unprotected) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=QfHcjZyL
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b40d23e1adso3396448a91.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:45:16 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795549515; x=1796154315; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JiYqJ8pWSXf2zuz3CaHvcAmXxPwkVTLsHQb8M9JN5M0=;
+        b=QfHcjZyLxYJIfWaGX4EKpOM9Vae2nnop4nwtgKsxgQPASWgPdudgT4kxkHdI9dIUSi
+         Rk7A08/r4dpXqmnPhbZBoltj9XucbqYSu5QTIG9uNgmKMwGo/SD6/KoIR7UAln4WhaX7
+         NRvz+l19OR6AQ/v8TI3S4R66pBUzAoel/1eTLtIR0z66pjI88IJ8SFCClLSEeaaZ/cme
+         h5xCNLlYRu5/VNh+ww08Y+4/kLRwkFM4pj4w5xH5ZuaUpY67rz/iJNkW38+u/hY8hh9v
+         KVd132ZMDq2b7plQXVqJ7sfw7VLXvJUVpI0zkb/qO8FAr2YDaJZUsF+8IubFeLbcTzkC
+         2lSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795549515; x=1796154315;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=JiYqJ8pWSXf2zuz3CaHvcAmXxPwkVTLsHQb8M9JN5M0=;
+        b=q3hxovrloGM6JtoRDRt9qLz6OcfOaDte/bvDpHhYBo4Qy2yHSetNFqvC0xKIWINbEU
+         4PuusVonrxVkQOrMhB0c1G1bq7825VOclu0CPF4P6SQwrZI1bJWT3eWaE/vczydklETS
+         6AUSxwJi20dEIPekkDjO924xrXoVlmi5r7uKGM/gnEWDdKNZy892JOq/npEnx8a7++VB
+         4wG6LjGYqFwaKccfPo85kU0B9X9UKYPtFdYmYXnzExAlKkPU4X3cLt0vfD3Sdl5yZnGr
+         /dpKhnLxcKOEPsWAvRr+UKUr13hsSpuGVLCJyp1PIl1VLJRHLgvkNHZoNGCgBwKz5Kxc
+         Fdiw==
+X-Forwarded-Encrypted: i=1; AL+hErHDcHnTCO/A98Ivxy/SeISYm3/ofXiV5Epxn9+9IsEEBtPdMN6vfnz/VM7+sedGvCuBMCHOHQE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pIP1jiuBRuin+jNgWWDu0DMxDBFSX9qN14WzCN0IOFeqjxY1c
+	rkqVLv5dWhDAGHeM9xmZAHbsi47/blIVvdV7IUuzHs/qh58vUkmgO27dkGhgPHcBjalHb1hg+fW
+	E5hzo
+X-Gm-Gg: AZFdTZfZhAObg8BHEHJEeyPMx2GsPaJ04j/436X5PdNkABExXWds1SUQ3najjMWCrCi
+	zGT1RVEZDDn1yPHSzcC0kdbWeF1dnwgnPmVq02GNornZW7mpTcUcJ89hD/oPPOg2H90MrtqLV+M
+	VLjhtSI6zO8Jx8BesHoIck2FjWnAx8JPSZm0EDCSVcsEZ7dKUtBS+KbmeGb6bVp0OYwxsV/RK5k
+	2xoq2REe7MAo5pn8ySSkP1M772/k+JA1zzrdpSh4OW1AtkCd0CGhxtjCKaLqIWEv3pjJcZDedZY
+	0tWuCB3Qwb700zqnGifLR88v+ogoqF8taeqPpfhf5OPxnHk4EFMfe75k9547v3IXsZLIsPQxvU0
+	PIlZPqSxtH/q/urC8bNhft0HhEVqeIguh02pB8PO5PPAlxZiAz4y8s5ToIu7eb86VHD47k7fhND
+	boZ+Xtlp2t36ElLxAtXgOZCrF5YE8UQpZLiFY3WYNQCxRN3MqCYv0bZIRlN7s0zPUgqJXmeqG7t
+	CrlohP/Yd/sY2C/U5ocnsoGmEpjhIfV11ogRykXUAFf5RpKD8NsPs221QunfR1f0ocW4zmeAdlf
+	duzL8y3fhuAdSMJX54EE1Dit99J90Ln/sdKnO707zpA=
+X-Received: by 2002:a17:90b:2f8c:b0:3ac:9c37:9426 with SMTP id 98e67ed59e1d1-3b41c92a2c1mr14856690a91.31.1795549515465;
+        Tue, 24 Nov 2026 11:45:15 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:4c::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad0a33fsm24496842a91.6.2026.11.24.11.45.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 11:45:14 -0800 (PST)
+Date: Tue, 24 Nov 2026 11:45:14 -0800
+From: Joe Damato <joe@dama.to>
+To: Mark Bloch <mbloch@nvidia.com>
+Cc: Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, edumazet@google.com,
+	horms@kernel.org, linux-kernel@vger.kernel.org,
+	daniel.machon@microchip.com, linux-rdma@vger.kernel.org
+Subject: Re: [PATCH net-next v2 4/5] net/mlx4: track whether a TX doorbell is
+ pending
+Message-ID: <awXpStIV4ZnZYvJC@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, Mark Bloch <mbloch@nvidia.com>,
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, edumazet@google.com,
+	horms@kernel.org, linux-kernel@vger.kernel.org,
+	daniel.machon@microchip.com, linux-rdma@vger.kernel.org
+References: <20261117155353.2250540-1-joe@dama.to>
+ <20261117155353.2250540-5-joe@dama.to>
+ <add5a54b-eaa7-4507-b089-6a6c330c39b6@nvidia.com>
+ <9fb09021-bd62-4a96-9218-7c2e0739734e@redhat.com>
+ <fb13f8ff-41ed-4464-a182-cabbe7028ffe@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,180 +119,171 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-SRS-Rewrite: SMTP reverse-path rewritten from <dwmw2@infradead.org> by casper.infradead.org. See http://www.infradead.org/rpr.html
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <fb13f8ff-41ed-4464-a182-cabbe7028ffe@nvidia.com>
+
+On Tue, Nov 24, 2026 at 02:08:37PM +0200, Mark Bloch wrote:
+> 
+> 
+> On 24/11/2026 13:55, Paolo Abeni wrote:
+> > On 11/24/26 11:46, Mark Bloch wrote:
+> >> On 17/11/2026 17:53, Joe Damato wrote:
+> >>> When the stack sets xmit_more, mlx4_en_xmit() skips the doorbell and
+> >>> relies on a later call in the same batch to write it. Nothing records
+> >>> that a doorbell is owed, so a path that ends the batch without writing
+> >>> the doorbell leaves the WQEs posted before it unannounced to HW.
+> >>>
+> >>> Add ring->doorbell_pending, set when the doorbell is deferred and
+> >>> cleared whenever a doorbell or a BlueFlame write is issued, so such a
+> >>> path can flush the deferred doorbell.
+> >>>
+> >>> Place the flag in the cache line dirtied by mlx4_en_xmit(), next to
+> >>> prod. That line has no room left, so move tx_dropped, which is only
+> >>> written when an skb is dropped, to the end of the struct among the
+> >>> fields not used in the fast path.
+> >>>
+> >>> Signed-off-by: Joe Damato <joe@dama.to>
+> >>> Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
+> >>> ---
+> >>> v2:
+> >>>    - doorbell_pending moved to the area of the struct marked as cache line
+> >>>      used and dirtied in mlx4_en_xmit. In exchange, tx_dropped is moved
+> >>>      among fields not written in the fast path. It is only written for
+> >>>      drops and is read for stats.
+> >>>    - Update the commit message.
+> >>>
+> >>>   drivers/net/ethernet/mellanox/mlx4/en_tx.c   | 9 +++++++--
+> >>>   drivers/net/ethernet/mellanox/mlx4/mlx4_en.h | 3 ++-
+> >>>   2 files changed, 9 insertions(+), 3 deletions(-)
+> >>>
+> >>> diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >>> index 97f27e005810..123071a47bed 100644
+> >>> --- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >>> +++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >>> @@ -194,6 +194,7 @@ int mlx4_en_activate_tx_ring(struct mlx4_en_priv *priv,
+> >>>       ring->prod = 0;
+> >>>       ring->cons = 0xffffffff;
+> >>>       ring->last_nr_txbb = 1;
+> >>> +    ring->doorbell_pending = false;
+> >>>       memset(ring->tx_info, 0, ring->size * sizeof(struct mlx4_en_tx_info));
+> >>>       memset(ring->buf, 0, ring->buf_size);
+> >>>       ring->free_tx_desc = mlx4_en_free_tx_desc;
+> >>> @@ -757,6 +758,7 @@ void mlx4_en_xmit_doorbell(struct mlx4_en_tx_ring *ring)
+> >>>       iowrite32be(
+> >>>   #endif
+> >>>             (__force u32)ring->doorbell_qpn, ring->doorbell_address);
+> >>> +    ring->doorbell_pending = false;
+> >>
+> >> Can we keep this in mlx4_en_xmit()? XDP_TX calls this helper too, but
+> >> tracks its pending doorbell in a local variable. If the XDP TX ring
+> >> stays full for the whole poll, this store can dirty the producer cache
+> >> line even though we didn't post a single WQE.
+> > 
+> > I guess you quote the wrong slice of code and that you are referring to
+> > mlx4_en_tx_write_desc(), right?
+> 
+> 
+> I meant the clear in mlx4_en_xmit_doorbell(). There are two paths to it:
+> 
+> skb TX:
+> mlx4_en_xmit() -> mlx4_en_tx_write_desc() -> mlx4_en_xmit_doorbell()
+> 
+> XDP_TX:
+> mlx4_en_poll_rx_cq() -> mlx4_en_process_rx_cq() -> mlx4_en_xmit_doorbell()
+> 
+> In the XDP_TX case, mlx4_en_process_rx_cq() passes its local
+> doorbell_pending by address to mlx4_en_xmit_frame(). If the TX ring is
+> full, mlx4_en_xmit_frame() sets that flag and returns NETDEV_TX_BUSY
+> without advancing ring->prod. At the end of the poll, the local flag
+> causes mlx4_en_process_rx_cq() to call mlx4_en_xmit_doorbell()
+> directly. The new clear can therefore dirty the producer cache line
+> even if the poll posted no WQEs.
+> 
+> >> diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >> index c5d564e5a581..9d8a4ea473f1 100644
+> >> --- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >> +++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+> >> @@ -1074,6 +1074,7 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
+> >>          send_doorbell = __netdev_tx_sent_queue(ring->tx_queue,
+> >>                                                 tx_info->nr_bytes,
+> >>                                                 netdev_xmit_more());
+> >> +       ring->doorbell_pending = !send_doorbell;
+> >>
+> >>          real_size = (real_size / 16) & 0x3f;
+> > 
+> > AFAICS, preserving the state across poll() invocation is needed
+> > for correctness. To avoid writing the cacheline in the XDP case,
+> > mlx4_en_tx_write_desc() could return the new ring->doorbell_pending
+> > value.
+> 
+> The proposed assignment still saves the state in ring->doorbell_pending,
+> so the next mlx4_en_xmit() sees it. Returning the value from
+> mlx4_en_tx_write_desc() would work too. I suggested using !send_doorbell
+> because mlx4_en_xmit() already has that value and it covers BlueFlame
+> as well. Patch 5 would then clear the flag after the drop path flush
+
+Thanks for the review, Mark, and thanks Paolo for taking a look.
+
+Mark's version seems better to me, so I'll go with that and send a v3. In
+patch 5, I'll factor out the logic of clearing the flag into a helper.
+
+Here's what patches 4 and 5 of v3 look like:
+
+[omitting the data structure change from patch 4, which is unchanged]
+
+diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+index 97f27e005810..b98eb9edf4a9 100644
+--- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
++++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+@@ -194,6 +194,7 @@ int mlx4_en_activate_tx_ring(struct mlx4_en_priv *priv,
+        ring->prod = 0;
+        ring->cons = 0xffffffff;
+        ring->last_nr_txbb = 1;
++       ring->doorbell_pending = false;
+        memset(ring->tx_info, 0, ring->size * sizeof(struct mlx4_en_tx_info));
+        memset(ring->buf, 0, ring->buf_size);
+        ring->free_tx_desc = mlx4_en_free_tx_desc;
+@@ -1099,6 +1100,7 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
+        send_doorbell = __netdev_tx_sent_queue(ring->tx_queue,
+                                               tx_info->nr_bytes,
+                                               netdev_xmit_more());
++       ring->doorbell_pending = !send_doorbell;
+
+        real_size = (real_size / 16) & 0x3f;
 
 
---=-F5EVYuBQNmdZNJbvbcsL
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+and patch 5:
 
-On Thu, 2026-11-19 at 06:15 +0000, Chad Aldreda wrote:
-> vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
-> and maps the shared page with devm_memremap(), so both are released
-> when the driver is unbound, but an open /dev/vmclockN keeps using them
-> through its file state. After an unbind, read() runs on the freed
-> struct and reads through the released mapping, and a poll() in
-> progress sleeps on a wait queue in the freed struct. KASAN reports a
-> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
-> read() faulted on the unmapped page once the device had been bound
-> again.
->=20
-> Allocate the state with kzalloc_obj() and map the page with memremap(),
-> and release both on the last reference: open() takes a reference and
-> release() drops it, and a devm action drops the device's own reference
-> after vmclock_remove() has called misc_deregister(). misc_open() calls
-> open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
-> open() always runs while the device's reference is held.
->=20
-> vmclock_remove() now marks the device as removed and wakes every waiter
-> on the wait queue. A read() or mmap() on a file that is still open fails
-> with -ENODEV once it sees the mark. On a device that supports
-> notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
-> that was already waiting; it tests the mark after poll_wait(), so it
-> cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
-> because no later notification will reach a waiter that the remove-time
-> wake-up skips, such as a second epoll instance that registered the file
-> with EPOLLEXCLUSIVE. Without notifications poll() already returns
-> POLLHUP.
->=20
-> Separately from the report below, the bug was also found by a
-> Coccinelle script that reports device nodes in devm-allocated memory,
-> posted at
-> https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
-> and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
-> to EC2 hardware with this device, so the fix has only been tested in
-> QEMU. QEMU's device has no notifications, so the poll() path was tested
-> with a local change that lets poll() wait without them.
->=20
-> Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device"=
-)
-> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
-> Closes: https://lore.kernel.org/all/178144969601.60470.144935696082710691=
-60@gmail.com/
-> Cc: stable@vger.kernel.org=C2=A0# 7.0+
-> Signed-off-by: Chad Aldreda <ca@modelmiser.com>
+diff --git a/drivers/net/ethernet/mellanox/mlx4/en_tx.c b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+index b98eb9edf4a9..944146d21053 100644
+--- a/drivers/net/ethernet/mellanox/mlx4/en_tx.c
++++ b/drivers/net/ethernet/mellanox/mlx4/en_tx.c
+@@ -760,6 +760,14 @@ void mlx4_en_xmit_doorbell(struct mlx4_en_tx_ring *ring)
+                  (__force u32)ring->doorbell_qpn, ring->doorbell_address);
+ }
 
-Reviewed-by: David Woodhouse <dwmw@amazon.co.uk>
++static void mlx4_en_flush_pending_doorbell(struct mlx4_en_tx_ring *ring)
++{
++       if (ring->doorbell_pending) {
++               mlx4_en_xmit_doorbell(ring);
++               ring->doorbell_pending = false;
++       }
++}
++
+ static void mlx4_en_tx_write_desc(struct mlx4_en_tx_ring *ring,
+                                  struct mlx4_en_tx_desc *tx_desc,
+                                  union mlx4_wqe_qpn_vlan qpn_vlan,
+@@ -1132,6 +1140,8 @@ netdev_tx_t mlx4_en_xmit(struct sk_buff *skb, struct net_device *dev)
 
-We did have a plan to pull the PHC-only drivers out into drivers/phc
-and leave only the *real* PTP in drivers/ptp. I kind of stalled on that
-because I wasn't sure I had consensus especially from Richard and the
-net maintainers. Shall I revive that and repost it?
+ tx_drop_count:
+        ring->tx_dropped++;
++       /* an earlier skb in this batch may have deferred the doorbell */
++       mlx4_en_flush_pending_doorbell(ring);
+ tx_drop:
+        dev_kfree_skb_any(skb);
+        return NETDEV_TX_OK;
 
---=-F5EVYuBQNmdZNJbvbcsL
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Transfer-Encoding: base64
-
-MIAGCSqGSIb3DQEHAqCAMIACAQExDzANBglghkgBZQMEAgEFADCABgkqhkiG9w0BBwEAAKCCE8Ew
-ggWvMIIEl6ADAgECAhANkOKMSmGXhF5eMl0rsRhvMA0GCSqGSIb3DQEBDAUAMGUxCzAJBgNVBAYT
-AlVTMRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5jb20xJDAi
-BgNVBAMTG0RpZ2lDZXJ0IEFzc3VyZWQgSUQgUm9vdCBHMjAeFw0yNDAzMTMwMDAwMDBaFw0zNDAz
-MTIyMzU5NTlaMGIxCzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UE
-AxMxRGlnaUNlcnQgQXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTCCAiIw
-DQYJKoZIhvcNAQEBBQADggIPADCCAgoCggIBAOfSIeC0vv1xPQ+dgSxbIIrkaru6skAWJYaGFzmv
-q4Kq+2wU2jxhcWlJg/JeP5jEkq/LM3pn5aaLao79j+XRmS7J1ZpJKUODJVoM4s9MQJhTMvo4qS5Z
-S64g6QR7Obkz3I1Lr3aWeSBmDDEyzue+NKtuWZ1Cxy3RdXo/w5HgRc3l2AercOM3Gt1XonTzEtTb
-Z/Hwc0Sn9Gz8RmGRK6Ka4hVDl8q/2l110KaV233Kh5etP0csXS8MIMdVRfRu3sc5hp13DG7lCKzK
-72a2GEpI8Wpl26G6I1/LMzz/98T+FqjTqxsdquk7Cj7m2vKGLW1BorpQH7WFGPdJQXJe1hfbfiZA
-CcVdCtl4nAacFacmsiArZBfX7AQGL7isvHUwwYFEtcApyGW4p2Lt+t8nvU0CANA6BHOpOz1xOP8W
-mAESbUriIjyuTUf3fJ9oDNCurVqhASMJCDaWI3lYX/QAoiAzt6akqbbZxo2ujW7mGGqc0KxqE2cs
-h2T79v7pC8aUtHBfwNrTR19GnZVxE0eQ7ViIQhR6mpSaUQFA9sG+cmD2G8TnCgYsLa0q8De6F61a
-CBevQGHNzrbZ3JAMneveYg/Jy1XxQHDRcvrMfWKe0jjcWbdKYlaGVPm5V1ILwYz7Yv5ewo3NUrxI
-GJiywe9qPhuJSDZs7VehTuI0FxGIsgKzVjgbAgMBAAGjggFcMIIBWDASBgNVHRMBAf8ECDAGAQH/
-AgEAMB0GA1UdDgQWBBT3m6JO05fF9DQPQw6Bhc6RkzKv+TAfBgNVHSMEGDAWgBTOw0q5mVXyuNtg
-v6l+vVa1lzan1jAOBgNVHQ8BAf8EBAMCAYYwHQYDVR0lBBYwFAYIKwYBBQUHAwQGCCsGAQUFBwMC
-MHkGCCsGAQUFBwEBBG0wazAkBggrBgEFBQcwAYYYaHR0cDovL29jc3AuZGlnaWNlcnQuY29tMEMG
-CCsGAQUFBzAChjdodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkSURS
-b290RzIuY3J0MEUGA1UdHwQ+MDwwOqA4oDaGNGh0dHA6Ly9jcmwzLmRpZ2ljZXJ0LmNvbS9EaWdp
-Q2VydEFzc3VyZWRJRFJvb3RHMi5jcmwwEQYDVR0gBAowCDAGBgRVHSAAMA0GCSqGSIb3DQEBDAUA
-A4IBAQA+b8Uw53sDspdZgukU+qzLyyHkcjlxGGhHlP+zrmDLKm1wEFvCRS2pili3Hy67i8N4N5NU
-vw5Rg6kv3lxb9S9Rktxk43k+tvm68pl7OxQE55ZjVY87P0lUPGwEqOOwLLyH02ZQcsfq5p5LrOH9
-0JvmvZ1yy73HS+VpDAqOlytE0NSvTIRqFFkKQGQwfjvtql9YflujuNNvJztjBaHKYZsnNSg+J38o
-jYq4TP3pSg3UdVH0PncVjPQyqxC9xef5Xae92Kbkzol3x7Nel3A1bwAkalrDMspvTHvey6LfiBks
-FIqviTnoy7fgjaRAJgHS+RXx/cmuRd3rUAclSVVrYu8RMIIHAzCCBOugAwIBAgIQAzUotrsybJHx
-HTjKOIVdIDANBgkqhkiG9w0BAQsFADBiMQswCQYDVQQGEwJVUzEXMBUGA1UEChMORGlnaUNlcnQs
-IEluYy4xOjA4BgNVBAMTMURpZ2lDZXJ0IEFzc3VyZWQgRzIgU01JTUUgUlNBNDA5NiBTSEEzODQg
-MjAyNCBDQTEwHhcNMjYwNzE4MDAwMDAwWhcNMjgwMTA0MjM1OTU5WjAeMRwwGgYDVQQDDBNkd213
-MkBpbmZyYWRlYWQub3JnMIICIjANBgkqhkiG9w0BAQEFAAOCAg8AMIICCgKCAgEA2pYux73kdbYX
-sWF8f1u6DJP91qcqaZetsyfPkZk0B+MmXmAEv0kVes5n15V2mbDThOnpoPFly0UugQO9JYqLfrtD
-tKD5yL58fgrDB9Dw+LQikgrHafl6YSCds5AvUu/8hw2J6noKrcOLJpKlKn9Fl/4IB9Q3JIdLx5aa
-EtTqMalIPqHFOlgrJ7s+aua8xbB8YQ9ahqYBXWRJNv3P/2b1DYtdrz1oqZPE3CcB8Pc6Gf2a1Tcm
-6TAgtEx7Cf1BFcrsrMz7TWHmGQITieNb2r9UYWSc2Gp+GtYFNJCgT0JJXKUBIauPMKBLteYrL8Fo
-ff/uY44dC/mDWjdCP/5x0qelPQjlBvWdHL5zvBTOj06rJ0m3HNI/hnIcDh0Qu2j9reb9rLVcdym6
-bWmBM4uDEB8Zv9Ph0KTBFSy1IosyakuD1j1Os30EzjGfbi0EUXIvnOcYbTBAbM5UAzrxEHMhBvoX
-Pvnx+OyvjJmc9tWxTX6AcSz+m40esbT17URBeZS18afgieiikm5TynlUYP1LciR3hSgGVzvGXnKO
-02VDFR5itGWdRKZ2W5wIShNfWfhSa0D0K5UdIDt5Qc7sjzwK1Yb1sY5Tu0uA5mhIS82q1ov83uxB
-sFkriNnhGv/M1NCDVLBiOMsHu73qUM+yKmgKLwF9Hfn9WI25glbAMI4S5r3hYzcCAwEAAaOCAfcw
-ggHzMB8GA1UdIwQYMBaAFPebok7Tl8X0NA9DDoGFzpGTMq/5MB0GA1UdDgQWBBRcYhqbcGzn1jrT
-JOZaB8O7qllDpzAwBgNVHREEKTAngRNkd213MkBpbmZyYWRlYWQub3JngRBkYXZpZEB3b29kaG91
-LnNlMBQGA1UdIAQNMAswCQYHZ4EMAQUBAjAOBgNVHQ8BAf8EBAMCBeAwHQYDVR0lBBYwFAYIKwYB
-BQUHAwIGCCsGAQUFBwMEMIGpBgNVHR8EgaEwgZ4wTaBLoEmGR2h0dHA6Ly9jcmwzLmRpZ2ljZXJ0
-LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsME2gS6BJ
-hkdodHRwOi8vY3JsNC5kaWdpY2VydC5jb20vRGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZT
-SEEzODQyMDI0Q0ExLmNybDCBjQYIKwYBBQUHAQEEgYAwfjAkBggrBgEFBQcwAYYYaHR0cDovL29j
-c3AuZGlnaWNlcnQuY29tMFYGCCsGAQUFBzAChkpodHRwOi8vY2FjZXJ0cy5kaWdpY2VydC5jb20v
-RGlnaUNlcnRBc3N1cmVkRzJTTUlNRVJTQTQwOTZTSEEzODQyMDI0Q0ExLmNydDANBgkqhkiG9w0B
-AQsFAAOCAgEAocabrh1cPd5s3vY5rnlBVQSTc7zs2ZWs67dAIltR+05WELrYClVzzUhMs/LOJPlr
-EUo45UDDomXq38DxFepaPd9+iNLjXfn33EX/IG44j04lU/oF/Rg9VeQILkYLbCZ/x9wOjNHZc4SN
-ydY7Dhvf/sT5aBz88u7D5+azZJ7Qf1U57wYseCH1Mt0nDrtr5y19IJ8D9xJJ33RFL6vfpHZBBAQ8
-+3RqkKNxLoV2aFvQhxdhjNLDqTv3LjUIdicwPraN7JkxEu7CV2Lka7eRqJgkWL7SK0YmBjGpRafs
-+icP/ON5RCCKTTb6VlX8eTG2sJJfsFhvJNCCt6xexbWzWtIrfP7NvPBvwBB737AyEGBZkS5aNizT
-McURJGTv9UKvBh1LF/+tNhYtLvPCN7oecGzhCHht9jcwSkygTo3Y6YlK3QgOu+ncmiBbfeuwlLZ1
-LxbYvG6hgNqXv7u6YyADbYajAQJXJ2OQen39pm3Q/AQSyLYG+B8lDglWsM8tYXPlEdrYJcksGK6F
-nqIX6Bumn43rBooLJdiZp4WmfWdL2pxe+LxRDjprmqu1WprixDxULSTOKJZoqTlugs6y3Bc+if+s
-gHnBBtz9WQ6MtPHkh7zONDAFIKcBmv8OqPQCx0F3Wv3OEybwMpXx0OsKgK8wLldaX1pXcMuyDgTL
-Sqs0AV0OHUgwggcDMIIE66ADAgECAhADNSi2uzJskfEdOMo4hV0gMA0GCSqGSIb3DQEBCwUAMGIx
-CzAJBgNVBAYTAlVTMRcwFQYDVQQKEw5EaWdpQ2VydCwgSW5jLjE6MDgGA1UEAxMxRGlnaUNlcnQg
-QXNzdXJlZCBHMiBTTUlNRSBSU0E0MDk2IFNIQTM4NCAyMDI0IENBMTAeFw0yNjA3MTgwMDAwMDBa
-Fw0yODAxMDQyMzU5NTlaMB4xHDAaBgNVBAMME2R3bXcyQGluZnJhZGVhZC5vcmcwggIiMA0GCSqG
-SIb3DQEBAQUAA4ICDwAwggIKAoICAQDali7HveR1thexYXx/W7oMk/3Wpyppl62zJ8+RmTQH4yZe
-YAS/SRV6zmfXlXaZsNOE6emg8WXLRS6BA70liot+u0O0oPnIvnx+CsMH0PD4tCKSCsdp+XphIJ2z
-kC9S7/yHDYnqegqtw4smkqUqf0WX/ggH1Dckh0vHlpoS1OoxqUg+ocU6WCsnuz5q5rzFsHxhD1qG
-pgFdZEk2/c//ZvUNi12vPWipk8TcJwHw9zoZ/ZrVNybpMCC0THsJ/UEVyuyszPtNYeYZAhOJ41va
-v1RhZJzYan4a1gU0kKBPQklcpQEhq48woEu15isvwWh9/+5jjh0L+YNaN0I//nHSp6U9COUG9Z0c
-vnO8FM6PTqsnSbcc0j+GchwOHRC7aP2t5v2stVx3KbptaYEzi4MQHxm/0+HQpMEVLLUiizJqS4PW
-PU6zfQTOMZ9uLQRRci+c5xhtMEBszlQDOvEQcyEG+hc++fH47K+MmZz21bFNfoBxLP6bjR6xtPXt
-REF5lLXxp+CJ6KKSblPKeVRg/UtyJHeFKAZXO8Zeco7TZUMVHmK0ZZ1EpnZbnAhKE19Z+FJrQPQr
-lR0gO3lBzuyPPArVhvWxjlO7S4DmaEhLzarWi/ze7EGwWSuI2eEa/8zU0INUsGI4ywe7vepQz7Iq
-aAovAX0d+f1YjbmCVsAwjhLmveFjNwIDAQABo4IB9zCCAfMwHwYDVR0jBBgwFoAU95uiTtOXxfQ0
-D0MOgYXOkZMyr/kwHQYDVR0OBBYEFFxiGptwbOfWOtMk5loHw7uqWUOnMDAGA1UdEQQpMCeBE2R3
-bXcyQGluZnJhZGVhZC5vcmeBEGRhdmlkQHdvb2Rob3Uuc2UwFAYDVR0gBA0wCzAJBgdngQwBBQEC
-MA4GA1UdDwEB/wQEAwIF4DAdBgNVHSUEFjAUBggrBgEFBQcDAgYIKwYBBQUHAwQwgakGA1UdHwSB
-oTCBnjBNoEugSYZHaHR0cDovL2NybDMuZGlnaWNlcnQuY29tL0RpZ2lDZXJ0QXNzdXJlZEcyU01J
-TUVSU0E0MDk2U0hBMzg0MjAyNENBMS5jcmwwTaBLoEmGR2h0dHA6Ly9jcmw0LmRpZ2ljZXJ0LmNv
-bS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNBNDA5NlNIQTM4NDIwMjRDQTEuY3JsMIGNBggrBgEF
-BQcBAQSBgDB+MCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wVgYIKwYBBQUH
-MAKGSmh0dHA6Ly9jYWNlcnRzLmRpZ2ljZXJ0LmNvbS9EaWdpQ2VydEFzc3VyZWRHMlNNSU1FUlNB
-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
-2OteTuH1xPvv9LJ6HJlxPeYAAAAAAAA=
-
-
---=-F5EVYuBQNmdZNJbvbcsL--
+---
+pw-bot: cr
