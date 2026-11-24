@@ -1,94 +1,157 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795497189;
-	b=WH0rAmClow0i90F+X8TSFi8mXCLZHzQVmxpULCQtRyOWBc37HJqg3R1+gCpc1n5mhbl3
-	 RM0CpvVp45WRtHAwbNGBiriqPEDZLiirFW9glks4lK4KeXoD4NHhHABZZDwY+TtvWiv4F
-	 9OgPCldhPzx/Be6gmNPy/RC6d+FBtyTPK7OLbdd3AvJeC2zKkm8l5NrIELWfLixvrCEoK
-	 Sg4jSAZLS1Vea0K0RnNTosa6s9XHUXhzmZF0M3xzQGINtWV2seiOHbC0GEd5I4tHZ7pxL
-	 bGS483SCBorre2/AUlA2K+KclKLttOoEWUPkTBCQKoS0CeDlbSiZ7NJKksRAZ4V2QiQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795497189;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
-	bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
-	b=wM9u9dccB8qW5H3KFzmlL85nUQ8tFUpt5a/cCJOj3iPVKQWOtD6KUu7UQmpcYiR4jFXt
-	 MV3ndhO+aFOpssMVJBdrpnnnLcDKbciorrwKkACM2ya5vNJz3vL0FmqtJrAqBBsxna/oL
-	 Zs7VaQl+S4iLJL8JuZDb0pPu9JsuDqoK9JdTqlE/ceyIkPWTAIxJST7QEZ8PX36w3r9an
-	 FLrhjJVmYFmX2muzcOSwnGJQ6PNR/DDEZAyvl1I0AT7qWem7LWwbghaiu75wJA2w/GGZm
-	 y1mfpvyCanDE7UtANKdA4m7B7tK1dnKdhLGS9BV7BNNoj4NrMGQlUxxl65mbN7k0gZQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxINg8c1;
-	arc=none smtp.remote-ip=209.85.215.176
-Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795497665;
+	b=d30JkR2hrGcVQN0+SyDrLulF/7T4GdCnlkl2u+SvwF/KpJOYruN+YP+jtwjq3cQyFeiX
+	 q7LsrDmqB7x3XHCC9+kJZ3vGRQ59+WF1oYdKPphihZ3V5W3aGh8aQ7IoECoj+Vy3Vgczi
+	 XTfqnd+Z/JUJ1G/NUjKWpeTSsAicTMdItDz8p2mZbXcwRCQMmgHIRrsvYSFkj3Tju4hqe
+	 8P3KYm5qpFb6/TxGHc/bT5dOEugKM2GvcygANVt2s4wKcex1iStIsYpw998XpQbWzxeLt
+	 CmodUQ1IhwxxYWjQM+Oo/p3DhDiWlaw4T8/Fmj/5df/AaBaJg8eBBbS/0Mqf18DRA4g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795497665;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
+	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
+	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
+	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
+	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
+	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
+	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
+	 x-ms-exchange-antispam-messagedata-chunkcount:
+	 x-ms-exchange-antispam-messagedata-0:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-originalarrivaltime:
+	 X-MS-Exchange-CrossTenant-fromentityheader:
+	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
+	 X-MS-Exchange-CrossTenant-userprincipalname:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
+	b=mp3rZ60K4aKmtW5O9Au04LLq+o3VwByLSJzXsZgUrXZXDZb3QAf9LvVqIhJ9Ik1HvuCx
+	 /NVZzeaSxzVoGv9DFsAfDGLGOQSdu31NkHolqUL5kKYIi+6oEgOJwhkDjeG2XhYBt+AVd
+	 g8YnuSWcKVdd/WaRSbWffiDhNVaSPbu25KQ6Q0Sa42R4dn2Fe7jHhqVFzzC85Kmh65tuJ
+	 q40E26q2Xzjvw/JxPjL67fsMaj2vOR3AeXPAMnse/SsGfOcyI/oISeBpmvbMrs4Bm8agg
+	 +dr9IR673imEHY4Z4Qm8dcrZloyLKh0FiTzuAAhO8V8XURy7dRfW3Qz/v1GwBKWadTQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=jabil.com;
+	spf=pass smtp.mailfrom=jabil.com;
+	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=cjIkLQTD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.27
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010027.outbound.protection.outlook.com [52.101.201.27])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 27D24606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:13:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 27D24606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C83F8606A31E;
+	Tue, 24 Nov 2026 05:21:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C83F8606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NxINg8c1
-Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cc4be0e5351so3479003a12.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:13:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795497188; x=1796101988; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
-        b=NxINg8c1AgfCXWKbfYOFtB3nsOrEWsWzdTKChb67uX2acyICeLVFgrKZfC5ZgKZlc9
-         ALuua28Lx/xqPHr75cmIAvyseAdStvWw2xmWDlxMVkWm4DgpA4Hn/VKZKp9iR+d/Tq6i
-         /1MFBMpkcnxfJBLbgnOCGJAD1jjfMeirjxjS00/H6PcZViIgU4d+GUcEB/zI29SDWp/1
-         2TOTuCte/pjie357Iv1QRJfbaqsw1oCwEuhle8D56dkOwXVnOP5N9DFUGFtKP9FGclep
-         Wo8bSfetxsDWh03unjWp69ff1qhJuyFtthDOnrblcnR/0EYBJko2Sm+8eUecTj3rrUb/
-         RoGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795497188; x=1796101988;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fbuF9hlpTG6s4GxKA4A2ztm7Dabcy2UDtXz43/cyP3I=;
-        b=QG5kqL16G7FHJJiVqq8KFeC231cTabasyp8AsFJEnhDdh08EM5LNZqJMHRTucyEl1o
-         WYHzvFJrloSjjp31jZVIlHfBvqtQc7S29pdiwxnFeEyftY/BNOGdSDiisCPnfROPlwuv
-         4vTPAIWGVV9LtbRnjYprv2wlJI0mHQhd4hicoJkyEVW6cCoo1a9QSi9aCKzW6npiAR+2
-         jbE6kRA5qAgfSSJGS5RLKvEvtUQTg/gsG8Ux5nc6jYdgPoUdME81lM+7XKQ8v8NT94jW
-         lvuKdgcGzqU2G++7m3dmdaT/E3+dELECwE85lPVtWiXLpc5fclYeV6e4dlrnQ7vfqYuS
-         +g2w==
-X-Gm-Message-State: APuU4Z8v0iuLo7vaaFfQNwzbr12HzfSbPfUAIHzbCbZ46uwwngHhZ6Ys
-	w1Lt628bdFiGuvMVsMAQIY/dk8W3OF7qga+sgVkDYwA33aQtBECypFkJXev/vxBD
-X-Gm-Gg: AZFdTZernC7wFEZ9PwRAy1Bn3siKI8Fp6IPxYlQ0SxN9oAtz19kgM3y1F6nvESdAbA1
-	NI4A3/KTeJ0/oBcv0jXibtSocLw8wKWeN4ZnEoYIQCSZDIrzIc7xWcV3FYqotQ3CKQs9+jE/tbP
-	88BwKSxrQ0gBypVg8NkSu+z7zh1MOKHciyrn5LIzqBK+/5iRPbKZZT9s+ZX3cnhaZZy8Mn7gwoB
-	VkGTUTe0Tv5Zim0B6F7gDD4CTli0Yzp0MX38Ld0j4R896+/KyMBhg3Xed017tqWYYrSTSEC1GTc
-	PcwLuit5g3d0tAeDCxkfXBtJFnpDk0plRvu/XhyiNIXFmvstv7yOAgk8HvdVUlTahzG66Y10+dv
-	64jGDamgscUBXjrncDbKpaEEIEdwzNHpK+Qy/Gh2DCfr8gOdGdBSpvSjo3Bi84GkfcS5/jz+AwT
-	Syqhv7WhcMZAb9WpTwiLRuZUxMcBU3sMO9IYSOkHeoc6pKq0WrNpq0uYsoUExenPKZQpsEnqZ+T
-	qWCzdpNvHIy6DEHOvSIaaQIJURRfODiGSQq79AgyEdVuYl2QMRXAVxJBTVInV5mDXjhAcA0PQr+
-	g2iQilWz05oFeTpKkZw2T7dCEP/cAwLDM/mP0TN1ycCEapZpydCBKqCH5Ly3hNPgsTw=
-X-Received: by 2002:a17:90b:4d10:b0:3ac:9176:e836 with SMTP id 98e67ed59e1d1-3b41c8d4860mr12118607a91.21.1795497188321;
-        Mon, 23 Nov 2026 21:13:08 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7500992a91.1.2026.11.23.21.13.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 21:13:07 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Jay Vosburgh <jv@jvosburgh.net>,
-	Hangbin Liu <hangbin.liu@linux.dev>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v4 0/1] bonding: keep non-Ethernet slaves out of 802.3ad bonds
-Date: Tue, 24 Nov 2026 14:13:02 +0900
-Message-ID: <179549697473.218888.8044828119056769556@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=cjIkLQTD
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U1YB1DLu7LQZz4fOrMv1oaTCGVWMIStRKpxD4ayW3dwY1NRcPLSxs6IwAqrmvAgRwALA23Sxsy3dfJMm82J5BlTPLPqStF5fS5RT64gDB1LgEIVlTeb00cwEvNGNgzUMxV+3zuHiE/qPO1dCB4R9tIUeitlqfIvZBBnsXdaQoYD/FIZIACBizxXIIiEM4U4Cs36yjK7Me4ziG3MP5pJUS5gdhik6XfWXrRQabr4S2RV7xH4ozPzB6f7Z+Fr0ehJyS7EWOYixz9AWfMkZuN9KHL99apiB4eDrceJRj3/wnYfiJAPE6ekQwb3AIFwQ/BL58sb61Rk78SAjnMxl5301Qg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
+ b=M4suE2/3vaYyJ8w7xGf2ouNQHpvtAXHBylcBtNO8MjzkZwZ23i5eKGUM6rpIVDv4jNfCsqTRWe0JcapSbJGJPhXUeZ2nzVZ7931Rcb29nmHXrRQWBSR98e9wuDzzTtbBP1V9LTtm7+7kPKlfsuJfkRUdPOf/WsAwzwOjMGV/iqtTbbKJUDndMWMWqJzib701F/SrigRj+V6lkUZVqg5ILV2bCfGOmOsHKtsFsZkGrhoEpvH41xtr1uBOc05K+iIvEJcJyBi7Qa2yV9CcDu/7wPWEavjqxG/TVw8e2B/XZG8f9R60Sp5hhORd8cFzQUFiQf+i099StNf6qindUM92vA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=jabil.com; dmarc=pass action=none header.from=jabil.com;
+ dkim=pass header.d=jabil.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
+ b=cjIkLQTDvdAJ8EWlFpXShRFvYFepXYdmR1n4B6wRT+2jUh7aG0SSwt50+ti4BVQop5dSzpfI3BMaAcYkgNr/KMB0oIYgkkkhDPY4emO5pKz9k3qhiMgh1odP+nAPPjp0M0BVSyEeJbg1n2gxwp5pc7+v35fvCJ30CFz4b6hzTcbL9HVHYwjgQzgC+A83nHUlISO3klAuYTD9gOO2dQApLOw4ftUPi6K+KzgOp2wzCa6x/nRpetPHROLkX6hSDmNwllqkj884Cpubg4yfWpE53DV4GabFRVyBB0p4rTG2QMwV2IFKbxDCHRNW1GKce3H/E0nrCOzKB66bYbUc51LlEA==
+Received: from DM8PR02MB8087.namprd02.prod.outlook.com (2603:10b6:8:1b::11) by
+ LV8PR02MB10215.namprd02.prod.outlook.com (2603:10b6:408:203::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
+ 2026 05:21:01 +0000
+Received: from DM8PR02MB8087.namprd02.prod.outlook.com
+ ([fe80::6e40:b3cf:7280:6497]) by DM8PR02MB8087.namprd02.prod.outlook.com
+ ([fe80::6e40:b3cf:7280:6497%7]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
+ 05:21:00 +0000
+From: Kenny Hsieh <kenny_hsieh@jabil.com>
+To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
+CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
+	"matt@codeconstruct.com.au" <matt@codeconstruct.com.au>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@kernel.org" <edumazet@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"stable@vger.kernel.org" <stable@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH net v4] mctp i2c: fix double free of midev on netdev
+ register failure
+Thread-Topic: [PATCH net v4] mctp i2c: fix double free of midev on netdev
+ register failure
+Thread-Index: AQHdezCyUYUkxQqQZEKDnyQV1Qg0Bbc8sLHw
+Date: Tue, 24 Nov 2026 05:21:00 +0000
+Message-ID:
+ <DM8PR02MB80874F4F75254E2C19665EB98E442@DM8PR02MB8087.namprd02.prod.outlook.com>
+References: <20261119094307.3864679-1-kenny_hsieh@jabil.com>
+ <179542769062.3135.9147379725438179456@kernel.org>
+In-Reply-To: <179542769062.3135.9147379725438179456@kernel.org>
+Accept-Language: en-US, zh-TW
+Content-Language: zh-TW
+X-MS-Has-Attach:
+X-MS-TNEF-Correlator:
+authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=jabil.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: DM8PR02MB8087:EE_|LV8PR02MB10215:EE_
+x-ms-office365-filtering-correlation-id: 5d22bf04-f062-452a-a51e-08df49eaba6c
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam:
+ BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|38070700021|56012099006|10067099003|11063799006|4143699003|261026140227099003|261022105027099003|261026121527099003|261028144727099003|22082099003|18002099003;
+x-microsoft-antispam-message-info:
+ 95cRVbij2jqjDLSv7opt6yBUytPadJbJ5ISQAUqt8FWezgxfo2O7rVe5fv+dp4+XJOGLD0fi8bS8SmfvPY5LAWrva5XPKosznDtkx55b00Hzwj8msBE1t37bilHZwZblF9WhtEGCDvj5kBbAUXax5bd1aju82QQ67E62V//b02jUSzSDHkzVz+6V3Pv3X5LYwnKMcCnyTrD7JDL/IPSVZLtwechuNpZuSfZCVosphWjrd3v6w50O7BiIbZ4dcObQ5ZZw6eniOMAVZobxf4k9V5tOBaa/tQpI+ajRa7xVY9Tri+CTiOJxNaXN63QsrQiD4AI7kd1c7+avU9kYBV2KAlxZP+3LHNAEEYgHpCM+1/vhZOGS8wdl6D3QIDnsZDXbiuBhFkY8dZ4sZ2HnnkUCHRoNsoFBMbm39LUPuaag0XiboGLHmOUYSgwzGtdeoyZdfsdoCX3CVObNFAW6FuwkrpYZZk+2I52jcdX/gblOtCku9agnDCdBf348P3K+u+udG/Zbo8bmiVQuAZAWW4gVDomqGdIgX0+kGaOrudJ0SdEWz3qL1I437w04jkv9wShdMAONDUHACxt+4jYU9u0Gru36K5GAqV90U9Y6NdqFUU/U+uqv5KAfEeYLSKa+XGL/QItKSi8hpHVDk67jWsqZVG2hS2316sKkbXU9BkCevkKqk4KJ9dR1w3fCePQCSrRND8A98vtoHMcOQE/YPPVGX7J905n1UJkKkfSjCuId8h4=
+x-forefront-antispam-report:
+ CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR02MB8087.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(38070700021)(56012099006)(10067099003)(11063799006)(4143699003)(261026140227099003)(261022105027099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0:
+ =?utf-8?B?Qm4weGZsa0doZUxxZFJoeEJOM09KV3ZZeXFkTXJjbXQ1NXRzcUpUc2dVbUxX?=
+ =?utf-8?B?WkZEV0RoL05kbXYvaVIvaDY3NGZCd0tpUzh1YnZ1c3JNWFVpL2VrZHphbklm?=
+ =?utf-8?B?Uzh3SmY1Nll4NEtEeUV2aDN6enRFZjJaRElpQWdLNW8xejV5S0FpY1h4dUVY?=
+ =?utf-8?B?U2xUbFVkTm1SQlM2T2g1eFpHVmRHeVR5WEUwTi8xelFPVnBuQ3NNWktZVlRP?=
+ =?utf-8?B?UUVDOC9LQ3QwbUpDWC8vQXRRRzJpV2J0QmF0Vlp1RmlrR0xZZTF0UHpPTWND?=
+ =?utf-8?B?dmltMGs5WHAycUU3eFJ5TjM3VUxTa3g5SDRROUE0cGZkTTNuSjNuamJsckVa?=
+ =?utf-8?B?QUZuYnlOSXdwRkNJTlgxR2tVUDVqUzZLVnNselNHbmNMSGFIU0pWaC9Pbnlq?=
+ =?utf-8?B?WkV1MzkyRjdQV2pLSzMrMEZva1VqMVh0bHJLYTZGUE1pb0F2MGk2MzhEd0tT?=
+ =?utf-8?B?VjRtNkI4dEQvbU4yR0xQZmdnN0R3S1JDMXpQakY4MGdiNmJRQk9kSmNTMHhP?=
+ =?utf-8?B?eU1SeFlNVW9JS2Y3Y0Y4QmVYNkFCSjdFa3FvNVIxdFM4N3ptazlCQ2ZINnZn?=
+ =?utf-8?B?cDJJQ3BPRmtaRWNLbzFkbkZFM3R4UkdkaThCanZRSmk3a014eVJJNWZhOFNJ?=
+ =?utf-8?B?eVRvNzBwYm9sVTNOWjBibHphbE1GY29KS0paQ3ZwQmRzaS9sZ09RNkJQVVpX?=
+ =?utf-8?B?MDVUUmN3TXd5RGxyeVFzVHNZeWpPdGVWVUh3K1IxRVByUlZVY0tWWHNhcmtL?=
+ =?utf-8?B?cGo4azhyVENYSjZ0SmxwQUxkalplL2FvdlBUSXFIRk9keWxJemtOaWdlVkYv?=
+ =?utf-8?B?Um1QdEhQd0RRd1FlazhyZURJcDRpOEphcEUzU2dDSmxNWm1ZZ3VyMGtqdVZz?=
+ =?utf-8?B?a1gzT1ltQVp1STUvbmtnUm4vOXpRRm9kcld5TXk1NUVreGFGZHFuakM3dEZr?=
+ =?utf-8?B?OFc1U3JaRWkxZTRDd1czYTN4S1NURjBaMXBYRUh4MDhGMEtEd1J4dkdGSkpJ?=
+ =?utf-8?B?V0l4RThiaFh5Uk5qL20zTnFVczg0cUd0Z0dxWXJkcW10TURIdys1VEk5Mytq?=
+ =?utf-8?B?WW91aWhOQzR0bFVEemNxU2c1ZUNpbkV5SjVoam9lRHgzejBITWN1NVZiTzVT?=
+ =?utf-8?B?YjlzUzlSZ09kZlRpTDBxQXBKcXpLZmxIQTF0YkRMU05Yc3J4SXQzdkZJQ2JD?=
+ =?utf-8?B?bHQzL2RNRSt3SVBMUkpWUHFseDdrT09VcTRNQ2Q2bEFvYmUvTk4zN3BqUnpS?=
+ =?utf-8?B?VVQ2aENMUVh6c2tjWkRwa1A3RHR5RWRsVENrclFLSWFnU2JrNGx2bUQ4eXVx?=
+ =?utf-8?B?bGU1TU45c0F5emZlSm13SlNqSmNBWkU0RUxyWm5RSW1wZjl2QklTc3lyMDlj?=
+ =?utf-8?B?RXQyM2NJV0Y4RjF2b3drTC92MEJRM0tNQUcxMHNNTXNYeVMvNVpybnJZbzdE?=
+ =?utf-8?B?amZNQnFIZ3c0U1ZZUGRPVEt1cTEweFptUEhzc3h4VEZSV2xxTUdsdDI0VStJ?=
+ =?utf-8?B?Zm12ZU94bEU4aHNnK1hTbjhUK3hOUVBhR3hUZjNhcFJNdUpPM2RxZU92N3dx?=
+ =?utf-8?B?TWxIS25ydEdXbWtUVTFzcXpEdXk0WjRHS3M3eFozS0dwYlZ3VU5xRjhnM2k0?=
+ =?utf-8?B?cXNJS0RvYkQrNUFtQTVCTWFwN1NnSU1ONXdDZWVkZ3gvVjRIU1FhdWRqb3BW?=
+ =?utf-8?B?c2xXbzV4SEI0blMyODlPRHJEWm9zaTB4UkJ6Qzd2ODVEZXFPeCtXaDBsclBI?=
+ =?utf-8?B?NjQwM1daVGZFQUZTREpxR1ZKRjNHczg2YVdtSHlDU3lwaVlmY1BGQU5xK3Nq?=
+ =?utf-8?B?VEVEY0ZrcVg4aDhJSEFKYTVuZm0yWDNIZHM2VU9sSWpTcUFXTHN6RDFtcjBj?=
+ =?utf-8?B?QzJXa1lPQnp1ZXFiMGlmdld4eERVaHN1Z3VuRE55OHdOWi96eVVGaWhISTJY?=
+ =?utf-8?B?Y3B2Y3NPMmNlcDEyUFI2NVJMUlI4K1lteExsTnozK0YyMkpXUkpGZlM4UHlr?=
+ =?utf-8?B?eWpGZ1hzTDhoSUhwbFhEekVCQUFJZUJQeWtqbS96azhDK3ZLTDVqNGlnUUVq?=
+ =?utf-8?B?VVg1TFpJcXRqT0xhcHJDWTBnNjhCZ29XNEgvdDdJaE1BNytoZzF6SEd4VHVV?=
+ =?utf-8?B?SnFieTdLemoweEFPOThXd3VKdEtnOUUyNFJaYXNBT2RPZnE5cllCZVcvWkZS?=
+ =?utf-8?B?V29PTU4rd0JteTBCMzdxczBWUUF4TjdZRnFZVmdvUFhmSHdSV1oraW0wSmRy?=
+ =?utf-8?B?aWVVSzJPVVRpazJ3SG1mWlczV0tNVjYvK2V6L0tuWlBGa3hpUUVTQ1FPMURO?=
+ =?utf-8?B?Z0NYTzJhaHo2ZmpiMzBNQ0dXTTZXbE9iL2tTZjN3RThVRHRHY014QT09?=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,44 +161,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: jabil.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: DM8PR02MB8087.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5d22bf04-f062-452a-a51e-08df49eaba6c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 05:21:00.8481
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 4py20g2MZ1VC47TfIEZRlc/Yc2sg8nxGS1SZ7LPnPF+zRdBVXEuRKdxJ23yzMovXmE4Qx+in6JMSqbh4h6GJtQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR02MB10215
 
-bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
-802.3ad bond, so a slave whose addr_len is 16, such as an ip6tnl device,
-makes dev_mc_add() read past it. The patch rejects such a slave at
-enslave time in every case and stops a slave of an 802.3ad bond from
-changing its type afterwards.
-
-The issue was found by an LLM-guided test generator that we are
-developing as a research prototype.
-
-v4:
-- Target net-next (Nikolay).
-- Merge the two patches into one (Hangbin).
-- Drop the Reviewed-by tags of Eric and Hangbin, as the patch changed.
-- Keep the type change veto to 802.3ad. Refusing type changes after
-  enslave in every mode, as Nikolay noted, would only affect nested
-  non-Ethernet setups and can be discussed separately.
-v3: https://lore.kernel.org/netdev/179535729502.2645501.5219010464870440@gmail.com/
-- Add a patch that refuses NETDEV_PRE_TYPE_CHANGE for 802.3ad slaves
-  (Sashiko review).
-v2: https://lore.kernel.org/netdev/179505868590.3571070.12381528230330714812@gmail.com/
-- Move the check above the type handling, as Jay suggested.
-v1: https://lore.kernel.org/netdev/179500849159.1877154.14715369660816392826@gmail.com/
-
-The patch was written with LLM assistance; we reviewed and tested it.
-With it, neither the direct nor the nested reproducer triggers the
-report. Enslaving Ethernet devices into an 802.3ad bond, a non-Ethernet
-device into an active-backup bond, and the type change of a bond
-enslaved to a balance-rr bond, as in bond-eth-type-change.sh, work as
-before.
-
-Kyuwon Cho (1):
-  bonding: keep non-Ethernet slaves out of 802.3ad bonds
-
- drivers/net/bonding/bond_main.c | 17 +++++++++++------
- 1 file changed, 11 insertions(+), 6 deletions(-)
-
--- 
-2.43.0
-
+VGhlIHRocmVlIG1jdHAtaTJjIG9uZXMgYXJlIHJpZ2h0LiB2NSB3aWxsOg0KDQogIC0gdGFrZSB0
+aGUgdW5sb2NrIG1hcmtlciBvZmYgYW5kIHNwbGljZSB0eF9xdWV1ZSBvdXQgdW5kZXIgb25lIGhv
+bGQNCiAgICBvZiB0aGUgcXVldWUgbG9jaywgc28gcmVsZWFzZV9mbG93KCkgY2FuJ3QgcmVxdWV1
+ZSBpdCBpbiBiZXR3ZWVuDQogIC0gc3RvcCB0aGUgdHggdGhyZWFkIGF0IHRoZSBzdGFydCBvZiBu
+ZG9fdW5pbml0LCBzbyBvbiBhIGZhaWxlZA0KICAgIHJlZ2lzdGVyIGl0IGNhbid0IHNlbGVjdCBt
+aWRldiBhZ2FpbiBhZnRlciB0aGUgZGV0YWNoDQogIC0gZHJvcCB0aGUgdW5sb2NrX3Jlc2V0KCkg
+aW4gbWN0cF9pMmNfbWlkZXZfZnJlZSgpLCBzaW5jZSB0aGUgdHgNCiAgICB0aHJlYWQgYWxyZWFk
+eSBkcm9wcyB0aGUgYnVzIGxvY2sgd2hlbiBpdCBzdG9wcw0KDQpUaGUgbWN0cC1pM2MgaXNzdWUg
+YW5kIHRoZSBtY3RwX2RldiBsZWFrIGluIG1jdHBfcmVnaXN0ZXJfbmV0ZGV2aWNlKCkNCmFyZSBv
+dXRzaWRlIG1jdHAtaTJjLCBzbyBJJ2xsIGxlYXZlIHRoZW0gb3V0IG9mIHRoaXMgc2VyaWVzLg0K
+DQpwdy1ib3Q6IGNyDQo=
