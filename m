@@ -1,63 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518985;
-	b=zxbNpe/Y0rOwUSdz822patC6FoyyNcS/aw7xjl3DCGP6XlV+Bj8CjVjpDKTOj10XYhRk
-	 gxa1n/JFN59WA9AlrsuUjqkulcaB2J3rVEaDuxy9WEAO8137ZfzjKjdlJOMXe9GhWI6Gt
-	 6Zc4P3zyWJtoQaP6mna/0JwlX5QuXoH1rCRH6jAxVy1n8vReJ12qy6dY2W+V2pTb37gcO
-	 DMYPgrHDYA9s5pjTs+rJunsplzEDWXdAphe+6pJDRpV0nhdcUjjHibTeZZa1bV1g3y5mx
-	 Olf1VERErxtGu3RkEDfWjJRepy/JWfK5YXBjvaFNp70HB5nntBTkOCq2F/32jMif50A==
+	t=1795519036;
+	b=jgduD51jOSid2QSwCSyY/D7+9CSkN8ib4AvoVAfOe0wddI9bzTA1osPn3XuY7Mmyd8Xy
+	 dg9g3D1F4dFvQuM38kqgHBTXcOC8r53o9fh0AnpsHzPwD+GgemuEpHNsLqZjufY6RnXfz
+	 SyNrc2KBeCI0610LT/Lf9g79/jAEqxCZRysWS2B13lFLDeyWrKEiNFsztHjgTLRW70Nwj
+	 rzpQGA/PYusuMouJ1E1+exM6MZdOk3aTnxocHhNuraQ4JUbiPvbvU5zeQ1CiMpAFwdGf0
+	 scIr5BbnnvJrWWjKEc+7ZF2Vr4TMQptBpn5kUnBc7YPy2ZgW54yWKwJvJFkB3AAknzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518985;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=FgfkXvgrc7uLZ8CZZkTM/Ni360utD6hlAVDSp6eqokk=;
-	b=RLWHYanLiW9+R3twj+izaWl8Hnr3iXR3Izc5BeUqrn63ZtG1VwiMVdmy/gjPemSLXR6g
-	 EW8WRbn3oBsZeY9kTYuAQ4JsKTtiHD14SFkyiMNUOnDrROCyLf3qI9LFmVGOvN8DHvkOy
-	 37cfWqCrXr+7j0IzC+GsL4VJdR5JpRMbMvUh7+a/IagfwlBT5XioY5vlG6/X65IKI3eNX
-	 4iWQ0EARdIV9yRUbqn32poaHzKn+NA05qBnbTpykFicg7dvzxtYU+egO6g1rau6jQYPuK
-	 0B1qdzjYnKcQ6XAsu8CqpHlvpcLbj4sqPSo+fNVez5LlyROIP8TQFZhfxgQgmrtMb3w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519036;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=9b0baDy1DGNiSmksJk8Tx9Zd3z3NuWwMptXJp6zFIqA=;
+	b=tQNVwalL1pnHiJ4SYq3Eeog8glprMLJDymnwOEcdQkoKJtFtIvIG0tjGw/qstGsdGc66
+	 cazPDuzy07FlBP7Uqs/CmDlU4gP5DawZKa+WycZt4diZ+6YWNpr1S0Z+/D6X1RYLOkWzb
+	 HVfKsHIms38/LWoKp/d+8YpA8oj0a6YLGgtAEE1Gw8y8ywm7SCde9AF4RG5sY+CqTmnZK
+	 6uVy+w9Ytr9A3pMpOvktTwZI2pn7b/qUwhDBPwaEaDVW/6MMGfOpwvOzlvS5z/Fc2FGqr
+	 GGAeHesTBXueqlRRlARHJ8BH4gnvYApTwQYG2ZSH4p6MbZBDBbnbK+J6FVYPCOx/o9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0kVkh8d;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WgZS1Q4h;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82E53606A32A;
-	Tue, 24 Nov 2026 11:16:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AA45606A31E;
+	Tue, 24 Nov 2026 11:17:15 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0kVkh8d
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E39731F000C0;
-	Tue, 24 Nov 2026 11:16:23 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WgZS1Q4h
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D201F000D3;
+	Tue, 24 Nov 2026 11:17:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795518985;
-	bh=FgfkXvgrc7uLZ8CZZkTM/Ni360utD6hlAVDSp6eqokk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=k0kVkh8dZcS/xPqg16cgv3QP+uZzFSq2766UJlz1RxFDRIymeZXSFErQy7uhrfZLR
-	 VT/mwGl14pTgUJ4A2BYosFih2psoKYXILqbhLHy3Z390QCcdA3nBrjR9dS2bjgbNSw
-	 R6UUBCbAWaZ93WvZQMXK4Wg32x85Fxzzy9tQ1IRodkJmsbOX1wukPze5ZNE8sW1osT
-	 10thy26lELO1nJlPytAKtP9Yncw0tVEmA+YdXSHdh8W7Rbk0Lawy4tmEikl0t28srd
-	 Ip2tZEhVDWIHrBuIeH6jcifwLxkIVK12H4G6o9Pwam0UA46I3Bj8uSNn6d7VN3xF15
-	 +nTqmbvqvsKjg==
-Subject: Re: [PATCH net-next v4 5/5] net: stmmac: dwmac-sun8i: Register the
- MDIO mux in the MDIO setup
-From: netdev-bot+sashiko@kernel.org
-To: aiyengar1990@gmail.com
-Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, wens@kernel.org,
- jernej.skrabec@gmail.com, samuel@sholland.org, p.zabel@pengutronix.de,
- linux@armlinux.org.uk, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 11:16:23 +0000
-Message-ID: <179551898345.3135.1078888477341036847@kernel.org>
-In-Reply-To: <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
-References: <20261120-sun8i-emac-mux-uaf-v4-5-57eba8915f25@gmail.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795519035;
+	bh=9b0baDy1DGNiSmksJk8Tx9Zd3z3NuWwMptXJp6zFIqA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=WgZS1Q4hhutTQF9SnsFjOgHtBLtKdJ9TlSBT2lBaIotBuKGkWk4jkQ/nIOHc8txNJ
+	 12jRKuTZ6J9LGppXFjWgTzGQfsaoE3Q/8PTErZvEfZz0ckoxqPVZB1udNZNjxntUY0
+	 9Op9NZSxXMx/TWy5fOgfrChJbDc6+zkkZ/TrsiL/rgr/Rn3wWVBItfPYzfvdPSfoIb
+	 tQBD3PWtlmfux4o94jHEgOX3MdkSuwAsqop628V9SgBRmREic6nahFUdyV2/5SmYzG
+	 eku5aINkwB6yPSuvqknVhU8bRkGFGW4PApMM/TvQBT+7QshlPGxlOvWuIAcd8tpIMB
+	 eMHNuslHozZfA==
+Message-ID: <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
+Date: Tue, 24 Nov 2026 12:17:10 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,145 +51,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
+ CAP_NET_ADMIN
+Content-Language: fr
+To: Dominik Maier <dmnk@google.com>
+Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, mptcp@lists.linux.dev,
+ netdev@vger.kernel.org, dmnk+artist@google.com,
+ Kalpan Jani <kalpan.jani@mpiricsoftware.com>
+References: <20261119192159.2646113-1-dmnk@google.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261119192159.2646113-1-dmnk@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi Dominik,
 
-Low priority / nit picks for your consideration:
+(+cc Kalpan)
 
-- [Low] The commit fixes two user-visible bugs but has no Fixes: tag and
-  no Cc: stable.
-- [Low] The mux children (and the PHYs on them) are now torn down after
-  the EMAC has been put back into reset.
+On 19/11/2026 20:21, Dominik Maier wrote:
+> In net/mptcp/diag.c, subflow_get_info() restricts MPTCP sequence-related
+> subflow attributes (rel_write_seq, map_seq, map_subflow_seq, ssn_offset)
+> to callers holding CAP_NET_ADMIN in the network namespace.
+> 
+> However, mptcp_diag_get_info() unconditionally exports mptcpi_write_seq,
+> mptcpi_snd_una, and mptcpi_rcv_nxt via INET_DIAG_INFO because
+> .idiag_get_info does not receive the caller's net_admin status. Any
+> unprivileged local user can therefore dump or query cross-UID MPTCP
+> sockets by token via SOCK_DIAG_BY_FAMILY and read live 64-bit MPTCP Data
+> Sequence Numbers.
 
---
+Thank you for this patch!
 
-net: stmmac: dwmac-sun8i: Register the MDIO mux in the MDIO setup
+> Emit INET_DIAG_INFO from an .idiag_get_aux callback in mptcp_diag (which
+> already receives net_admin from inet_sk_diag_fill(), while msk never
+> sets icsk_ca_ops so netlink attribute ordering is unchanged) and zero
+> mptcpi_write_seq, mptcpi_snd_una, and mptcpi_rcv_nxt when !net_admin.
+> getsockopt(SOL_MPTCP, MPTCP_INFO) for the socket owner and token-based
+> lookup in mptcp_diag_dump_one() remain unchanged.
 
-This patch moves registration of the sun8i MDIO mux out of
-sun8i_dwmac_probe(), where it ran after stmmac_pltfr_probe() returned,
-and into the new plat->mdio_init() hook. The mux now exists before
-register_netdev(). Teardown moves from sun8i_dwmac_remove() into
-plat->mdio_exit(), which runs after unregister_netdev().
+Oh, that's a good idea, I didn't think about .idiag_get_aux callback.
 
-> On remove, the mux goes away before
-> unregister_netdev(), and unbinding with the link up oopses in
-> phy_stop().
->
-> Register and unregister the mux through the new mdio_init() and
-> mdio_exit() hooks.
->
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+Kalpan was trying to fix the same thing:
 
-[Severity: Low]
-The message describes two user-visible bugs: an early open that cannot
-find the PHY, and an oops on unbind. There is no Fixes: tag and no
-Cc: stable. Should these tags be added so the fix is picked up for
-backporting?
 
-The probe-side logic ("The mux must be registered after parent MDIO so
-after stmmac_dvr_probe()") seems to come from commit 634db83b8265
-("net: stmmac: dwmac-sun8i: Handle integrated/external MDIOs").
+https://lore.kernel.org/20261123054324.561321-1-kalpan.jani@mpiricsoftware.com
 
-The remove-side ordering seems to come from commit 529254216773. That is
-the ordering where sun8i_dwmac_remove() calls mdio_mux_uninit() before
-stmmac_pltfr_remove().
+@Kalpan: what do you think of this? If it looks good to you, and you
+tested it, can you send your Tested-by tag?
 
-A backport would also need the earlier patch "net: stmmac: Add MDIO init
-and exit platform hooks". The message says "the new mdio_init() and
-mdio_exit() hooks" but does not name that patch. Could the dependency be
-named explicitly?
+We can add:
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 4acfda235394d..0ec25ae0b77ef 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+Closes: https://github.com/multipath-tcp/mptcp_net-next/issues/445
 
-[ ... ]
-
-> @@ -941,6 +940,13 @@ static int sun8i_dwmac_register_mdio_mux(struct stmmac_priv *priv)
->  	return ret;
->  }
->  
-> +static void sun8i_dwmac_unregister_mdio_mux(struct stmmac_priv *priv)
-> +{
-> +	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
-> +
-> +	mdio_mux_uninit(gmac->mux_handle);
-> +}
-> +
-
-[ ... ]
-
-> @@ -1269,9 +1251,6 @@ static void sun8i_dwmac_remove(struct platform_device *pdev)
->  	struct stmmac_priv *priv = netdev_priv(ndev);
->  	struct sunxi_priv_data *gmac = priv->plat->bsp_priv;
->  
-> -	if (gmac->variant->soc_has_internal_phy)
-> -		mdio_mux_uninit(gmac->mux_handle);
-> -
->  	stmmac_pltfr_remove(pdev);
-
-[Severity: Low]
-With this change, stmmac_mdio_unregister() calls mdio_mux_uninit()
-through plat->mdio_exit(). In stmmac_dvr_remove() that call comes after
-the EMAC resets are asserted:
-
-drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_dvr_remove() {
-    ...
-	phylink_destroy(priv->phylink);
-	if (priv->plat->stmmac_rst)
-		reset_control_assert(priv->plat->stmmac_rst);
-	reset_control_assert(priv->plat->stmmac_ahb_rst);
-
-	stmmac_pcs_clean(ndev);
-	stmmac_mdio_unregister(ndev);
-    ...
-}
-
-Before this patch, sun8i_dwmac_remove() tore down the mux children while
-the EMAC was still out of reset. On H3/H5, sunxi-h3-h5.dtsi supplies the
-stmmaceth reset, so plat->stmmac_rst is non-NULL there.
-
-Could MDIO accesses made while the PHYs behind the mux are being removed
-now reach an EMAC held in reset? This happens with CONFIG_PHYLIB_LEDS
-and a PHY driver that implements led_brightness_set. The path looks like
-this:
-
-stmmac_mdio_unregister()
-  sun8i_dwmac_unregister_mdio_mux()
-    mdio_mux_uninit()
-      mdiobus_unregister(child)
-        phy_remove()
-          phy_leds_unregister()
-            led_classdev_unregister()      /* LED_OFF */
-              drv->led_brightness_set()
-                mdio_mux_write()
-                  mdio_mux_syscon_switch_fn()
-                  pb->mii_bus->write()     /* stmmac MDIO write */
-
-If the target child is not the one currently selected,
-mdio_mux_syscon_switch_fn() also does more work against the block in
-reset. It rewrites the syscon EPHY select bits, toggles internal EPHY
-power, and calls sun8i_dwmac_reset(priv->ioaddr).
-
-It is not verified what the hardware returns for reads from a block in
-reset. If it returns 0, the MII busy-bit poll and the soft-reset poll
-would pass at once and the PHY write would be dropped silently. The PHY
-LED could then stay in its previous state after unbind.
-
-The practical impact looks limited:
-
-The only in-tree H3/H5 board with PHY LED nodes is
-sun50i-h5-orangepi-pc2.dts. It uses an RTL8211E, and that realtek driver
-entry has no led_brightness_set.
-
-Other glue drivers already have the same reset-before-mdio_unregister
-ordering for PHYs that sit directly on the stmmac bus.
-
-sun8i_dwmac_exit() and sun8i_dwmac_unset_syscon() still reconcile EPHY
-power and syscon afterwards.
-
+Cheers,
+Matt
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sun8i-emac-mux-uaf-v4-0-57eba8915f25%40gmail.com
+Sponsored by the NGI0 Core fund.
+
