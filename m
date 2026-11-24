@@ -1,131 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795549581;
-	b=MIS8mKNCy4Yf92jPb7LQq63s+fONcGaCmuxMliWjOaihIkwwUzEoXmTbM5UWXCIZi23b
-	 JiFwCZ3kX3XdT42UrAP+DfM5tKY6DdLYwi/85VVKPCpmo86oD44OCNpOm/ayujF3dzcFg
-	 AC15JY0eOfb7m8VLjmWTM5vI8M3mmna692CiLT/wqlAI2t2MPST1DleaSOfx+A2hApR/U
-	 dP6NF2nWnHEFrTngaMkXVRfltrytmSLt6YWlRMGM708L+jhyWcciWAEuwmDm5pPS/39XN
-	 J/ys4d4zMHszbLpc5hI4JqoQVZVAvVipsiSM/OKJnhbCiXa4mVKAhgrkgDP6tGGTMfw==
+	t=1795549623;
+	b=neNl5RR7V4+Wb0x5lV9GlGh1M9j8mHYE2s2Rw8n9f09JsuC0rtB8GA6uC0BfHtrwzbxf
+	 3XdxopcwNJh8aoG+6viEqSflNSYfe6QFdDYCok5nPoLKL1ext9IYvJ26lriyJ8nv9kG29
+	 SEZF2LbR18GAQN388KxlDrEvgzCTKbplrPCwtL0pLW1AIxC0alwPK3alCWwm/eNHilTkz
+	 /ldnGOhAisq8HnP1dgAWm4I0aa9ZFz7ZxPByJ1WpuS0in4e4mLlNByxMSe9uYiz4JGACP
+	 rbUzF7a1zJlryXIXPLaD31K6oiyXf+XUTpURbtnvgDVSbWtxgi5QIilcUFw1GT/nVIg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795549581;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=cCMOaZdag+2OcXEDMl2EbRqTcxfKhXeKWu4Qydoaad0=;
-	b=AhhAoZfBoltXOudY972Xyy/DW8hsKn3B4wW1+538YwVGIdt5PAWKvaJVIgbG/nvnVSX0
-	 7EpqatK4hsnxtSX0nznKRrKQTypg/VJNjpzLkPGGAMNLS/eo3m+kHIGFWK+cqtd5e4xMP
-	 KjjmW4MIZ9vvt6zx0RiWounuU7vPaqfkI00INoZYthdYjK9dwuktZ6znZvvUegDKs480p
-	 C3+dcvleJv/EMZoUnX+0gKQ4z8Sh1gtNSLCw/+djGXXliPrrFQe2wMX93dALLl2Q7CORs
-	 EOrothgjQnP4c73kdvY7FTpApt8Sze/63lpwEAeBXAD8AHn25fixIar2Dgvu+CIU4dg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795549623;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type;
+	bh=cJRVzTMJnlShHbcMCuLGWkT4v841qpZ2m9PE1z4Vr0s=;
+	b=F837dASE/XbWW6HzxihaArMcpIajVCgvXzHl4uD22pf7gMWOikAfjlKZB5D8yCZ/SF7Q
+	 jxNTi/fKHknAxN2AQPFWUeYNSn0wToDddW4jULs8KWXj5chBp0ev2raARxN/xU86sMMeE
+	 siQ4ZyicxWcEBzXDWWjHadf6kOV1J4aRr+gWoK7imNyeBQmwwP0DznUfboTJgejtVeYI0
+	 YvCZYxYTB2/xYXDBZL32rON5tJqLPXwfa0uLEN+bPltfvL9jUcTGt6nA/p6LjS2arIBT0
+	 io9YPcppxCEA973NXvCvYG0mbQ4W6lq5ld1yd9DSt90VVHobsJzbppcCj8lI865Hzvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=hNzo9bKF;
-	arc=none smtp.remote-ip=209.85.160.178
-Received: from mail-qt1-f178.google.com (mail-qt1-f178.google.com [209.85.160.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=narfation.org;
+	spf=pass smtp.mailfrom=narfation.org;
+	dkim=pass header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=TUs1pWxp;
+	arc=none smtp.remote-ip=213.160.73.56
+Received: from dvalin.narfation.org (dvalin.narfation.org [213.160.73.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 035E3606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:46:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 035E3606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82888606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:47:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82888606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=narfation.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=narfation.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=hNzo9bKF
-Received: by mail-qt1-f178.google.com with SMTP id d75a77b69052e-55c48582654so55886631cf.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:46:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795549580; x=1796154380; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=cCMOaZdag+2OcXEDMl2EbRqTcxfKhXeKWu4Qydoaad0=;
-        b=hNzo9bKFfhVQc9qzPT4XFVGb8WWDhkAsWzEGNeoMtQsVv/UieKFHIx8duXK+pVyc+7
-         K5tuXAPvt7SnRa+oW1TYccovCbxEoQMg8PMSal3gZtNqnBkfc9eaI8iRduIFPXdXeGyC
-         7IqbxUGwhapkSK1PkTGpbVYuC07dIRe3KRRo51bldaV5T8p/83gXtSNREqT8fVb1HMZP
-         lRwnNEOCDprIXQY+fn4dNi7XyHXAEaKdOG2aZhU8DQiLg94XiGTcamJqB2smYFg1x/Sg
-         siI5MDO2hfLOudZP5xdAkje683/c7T63Kjq3de7kKz2KbuVb5db1oTFbL+o0yYQz2SQS
-         i3lg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795549580; x=1796154380;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=cCMOaZdag+2OcXEDMl2EbRqTcxfKhXeKWu4Qydoaad0=;
-        b=tNbFzjxElPAMPmHQ+btnb0tFdEhfKMuA1/cTCnPf9ge0c47jH8J5Y2neAqNZZCVnnl
-         Pzo+PtO4j5X2xhg1pLQDeqHeshtp0Bnu1g2/6tny0Zn43xthg50LnM6xJY47nLBMRnz+
-         Q46bIQd5i7wJYnW3OM+6qsJN98DrWrU6m4P/N3aqOjkHoxFoJIir7oSAI9ZDlVFe3ARz
-         1mkeWJgpJ8gesIyroDLDkoDDXgupnlG/MKQkByq4H6k0UqYNH1SxBbeMVEIsAOcP5f5/
-         CCvy9HkGZ+RG+0z2lTxs/5gdcjfZCfWmL+67/O9jVXza6oXh3fFazNFvkKKKsUUlOgYN
-         YGiA==
-X-Forwarded-Encrypted: i=1; AL+hErGt4vRdvMtUoAfqBQT7x/n8sO9bi/1oDdxoFAWvLp7Eu6zhb0Dr1mQaxVkIJQ9EaJ7Iz0yREbU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9kTAvre8GgnMY3hHsod6s8aXBJweMyKgYhX8LkZBZ7FL+yAsXY
-	sXigqX2a3RueMhhTfFYpxYQttU5muAdQ18veyEDRJSjIbPUkHctFF3ME2EiQxg3iTGk=
-X-Gm-Gg: AZFdTZdJ9jDjaAhRoPVfStjXW7zGLmPHEUcuJvz4vTKv6RrnhkTgVSTZEbE5VlPuMwh
-	brn3OsabiQOW4SztUDHfl3Lgk7ELfpvEVeU12+4YfX53tnZ/yIMmvITB/0xkAwC0Yj3wF2MD30Z
-	QHTWQ83mjtxVA0QwQTew8JyYBs5BXA0u8SV5yWQnaU3vOfmuexl3Spy+9H5ID9bj+M0pj+92BMK
-	p1CTNMzSBCSXJ6uNS+BP/8InZBauRKdZGJedFm5tTGbWAkx2L2BHJjGL4CBdLWXZXgMz9MiHlMl
-	EmBzOTxl93V+2hYKjwxwOM8AfjbPfoHMhvP9oWMKPa7NqojzmPBHylaUGleiUvVLFsIu0jWmfbr
-	AKg70uB4OymSwfz9vH8GqwVJmwZ4HjFU/3jwpYEfzTy6IAZQ25NvduZ5Ppi1CcLLOJ7fb4RULIH
-	lQJz3CwIWSmv6ye3+hrcVpCIjADGdzK5ytAybTF1WpJR4102sSYSW4//kOxhEUaTG1skg91lMiM
-	3YXMi7XlaFpAXZICPZQjhI/c+s3/5qxea8nwJbxUJHf1IXb9ipdkVzeuxpCasQLOPEPOduMa2d8
-	hb5eog==
-X-Received: by 2002:ac8:5c8a:0:b0:55c:66f0:5bfe with SMTP id d75a77b69052e-55d76a6f55fmr288174681cf.22.1795549579924;
-        Tue, 24 Nov 2026 11:46:19 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882ea2dsm135596661cf.15.2026.11.24.11.46.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 11:46:19 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xVwT4-0000000113s-3B2s;
-	Tue, 24 Nov 2026 15:46:18 -0400
-Date: Tue, 24 Nov 2026 15:46:18 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dongwon Kim <dongwon.kim@intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Felix Kuehling <felix.kuehling@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	linux-nvme@lists.infradead.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
-	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-Message-ID: <20261124194618.GC114530@ziepe.ca>
-References: <20261120-dma_mapping_type_v4-v3-0-c0183a409bdf@nvidia.com>
- <20261120-dma_mapping_type_v4-v3-3-c0183a409bdf@nvidia.com>
- <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
- <20261123165716.GM179082@ziepe.ca>
- <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
- <awT8prWsj11TBdmP@nvdebian.thelocal>
- <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
- <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
+	dkim=pass (1024-bit key) header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=TUs1pWxp
+Received: by dvalin.narfation.org (Postfix) id B8B471FD15;
+	Tue, 24 Nov 2026 19:46:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=narfation.org;
+	s=20121; t=1795549619;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=cJRVzTMJnlShHbcMCuLGWkT4v841qpZ2m9PE1z4Vr0s=;
+	b=TUs1pWxpJHdUuzx3RVFfsGPmy/ifaaMFFO91p+PtzScMW9Xb3aaKBKHHyyKkH77LdmmpRW
+	RToYqifsfyP/z1YWTuFTmwzKIZgjKxSbuiKgmpvkwyeiaDhim2hjZ6ZH0po9g1JPauQdTM
+	EUSOmuBy5GNSgU1JvGNsaAF3j10jDck=
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ b.a.t.m.a.n@lists.open-mesh.org
+Subject:
+ Re: [PATCH net-next 11/15] batman-adv: tt: requeue DEL of pending local entry
+ after failed allocation
+Date: Tue, 24 Nov 2026 20:46:56 +0100
+Message-ID: <9710957.CDJkKcVGEf@sven-desktop>
+In-Reply-To: <179554084450.3135.11910035656981995724@kernel.org>
+References:
+ <20261123171827.3294525-12-sw@simonwunderlich.de>
+ <179554084450.3135.11910035656981995724@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -135,36 +66,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
+Content-Type: multipart/signed; boundary="nextPart3374045.5fSG56mABF";
+ micalg="pgp-sha512"; protocol="application/pgp-signature"
 
-On Tue, Nov 24, 2026 at 05:02:31PM +0100, Christian König wrote:
-> The whole conversion from phys_vec to DMA addresses is something
-> some API should provide based on the data the exporter/importer have
-> negotiated (e.g. p2pdma_provider for example).
+--nextPart3374045.5fSG56mABF
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
+From: Sven Eckelmann <sven@narfation.org>
+To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
+Date: Tue, 24 Nov 2026 20:46:56 +0100
+Message-ID: <9710957.CDJkKcVGEf@sven-desktop>
+In-Reply-To: <179554084450.3135.11910035656981995724@kernel.org>
+MIME-Version: 1.0
 
-Yeah, probably, and this is exactly why I think it will take some
-time. Building a new something in lib/ like this is not a
-straightforward task.
-
-But also, this:
-
-> > You need to negotiate the actual C data types too, especially if you
-> > want to do that nasty idea where dmabuf populates an iommu domain.
+On Tuesday, 24 November 2026 18:20:44 CET netdev-bot+sashiko@kernel.org wrote:
+[...]
+> > @@ -1779,13 +1793,24 @@ batadv_tt_local_set_pending(struct batadv_priv *bat_priv,
+> >  {
+> >  	struct batadv_tt_common_entry *common = &tt_local_entry->common;
+> >  	struct batadv_hashtable *hash = bat_priv->tt.local_hash;
+> > +	bool queued;
+> >  	u32 i;
+> >  
+> >  	i = batadv_choose_tt(&common->key, hash->size);
+> >  	lockdep_assert_held(&hash->list_locks[i]);
+> >  	lockdep_assert_held(&common->flags_lock);
+> >  
+> > -	__batadv_tt_local_event(bat_priv, common, common->flags | flags);
+> > +	queued = __batadv_tt_local_event(bat_priv, common,
+> > +					 common->flags | flags);
 > 
-> Yeah agree as well, but to be honest that task is negligible. We
-> first need to figure out where to put the code.
+> [Severity: Low]
+> This isn't a bug, but this code now relies on __batadv_tt_local_event()
+> returning bool. That return value was added by the preceding patch,
+> "batman-adv: tt: keep local entry unchanged when ADD can't be queued".
 
-Means you need to get the phys_addr_t into the dma-buf code so it can
-do this conversion.
+What? I am now not even allowed to build on top of other patches in a patch 
+series? This is insane.
 
-I'm still absolutely NAKity against allowing any DRM driver visibility
-to an importer's iommu_domain if we do this hack.
+> The commit message doesn't mention this dependency, and there is no
+> Fixes: tag. No patch in the series has a Fixes: tag, so this may be
+> intentional. Is the series meant to stay out of stable?
 
-I don't see how to meet all these concerns without making dma-buf into
-a "converter" framework...
+It is in the same patch series. Why should I add a Fixes: tag? This wouldn't 
+even be allowed in a submission for net-next. And when this would not be a 
+pull-request then I would not even have a commit ID to use here.
+
+> 
+> > +
+> > +	/* a failed attempt must not hide the still queued DEL of an already
+> > +	 * pending entry
+> > +	 */
+> > +	if (queued)
+> > +		tt_local_entry->del_unqueued = false;
+> > +	else if (!(common->flags & BATADV_TT_CLIENT_PENDING))
+> > +		tt_local_entry->del_unqueued = true;
+> 
+> [Severity: Low]
+> What happens here when the entry is already BATADV_TT_CLIENT_PENDING and
+> the new event carries BATADV_TT_CLIENT_ROAM?
+[...]
+> Say a plain DEL was already queued earlier in the same OGM interval, for
+> example by the timeout in batadv_tt_local_purge_list(). The DEL+DEL
+> update can still fail, because __batadv_tt_local_event() allocates
+> before it looks for the queued change to merge into:
+> 
+> 	tt_change_node = kmem_cache_alloc(batadv_tt_change_cache, GFP_ATOMIC);
+> 	if (!tt_change_node)
+> 		return false;
+> 
+> In that case the else-if above leaves del_unqueued false. So
+> batadv_tt_local_purge_list() never requeues the DEL with the ROAM flag.
+[...]
+> Could __batadv_tt_local_event() look up the existing change before
+> allocating, so the in-place update can't fail? If not, the kernel-doc
+> could say that an already pending entry only keeps its first DEL.
+
+This is a corner case (already existing in the current code) but I will make a 
+note to think about first searching the list before trying to allocate a new 
+entry. https://www.open-mesh.org/issues/491
+
+One case would remain: if the plain DEL has already been taken out of 
+changes_list for the next ttvn but not yet committed, the ROAM flag is lost. 
+That is unavoidable, because the DEL is already part of the announced change 
+set.
+
+
+> 
+> > +
+> >  	common->flags |= BATADV_TT_CLIENT_PENDING;
+> 
+> [ ... ]
+> 
+> > @@ -1911,11 +1936,18 @@ static void batadv_tt_local_purge_list(struct batadv_priv *bat_priv,
+> >  					      common);
+> >  
+> >  		scoped_guard(spinlock_bh, &tt_local_entry->common.flags_lock) {
+> > -			if (tt_local_entry->common.flags & BATADV_TT_CLIENT_NOPURGE)
+> > +			/* entry already marked for deletion */
+> > +			if (tt_local_entry->common.flags & BATADV_TT_CLIENT_PENDING) {
+> > +				/* but its removal must still be announced */
+> > +				if (tt_local_entry->del_unqueued)
+> > +					batadv_tt_local_set_pending(bat_priv,
+> > +								    tt_local_entry,
+> > +								    BATADV_TT_CLIENT_DEL,
+> > +								    "requeued");
+> 
+> [Severity: Low]
+> This is a pre-existing issue and wasn't introduced by this patch. This
+> requeue runs from the periodic work without tt.commit_lock.
+> 
+> Can it clear del_unqueued after the splice but before
+> batadv_tt_local_purge_pending_clients() runs in
+> batadv_tt_local_commit_changes_nolock()?
+
+This is just a preparation for the "batman-adv: tt: commit only the announced 
+local changes". It is normal that a patch at the beginning of a patch series 
+doesn't have everything which is there after the patch series ended. This is 
+why it is a patch series and not a patch.
 
 Regards,
-Jason
+	Sven
+
+--nextPart3374045.5fSG56mABF
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part.
+Content-Transfer-Encoding: 7Bit
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCawXpsAAKCRBND3cr0xT1
+y5YRAP985zfMTcYcJwkAHx7hlY9XIPohnKAfSpgMeUHOdhV9VQD/QTS3VslaZbD3
+qcEXTpVYJLENsr2HJOILjrfs6H47jAc=
+=Cd5q
+-----END PGP SIGNATURE-----
+
+--nextPart3374045.5fSG56mABF--
+
+
+
