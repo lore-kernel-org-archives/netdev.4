@@ -1,53 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=47.251.158.227
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528781;
-	b=3IIsfGD+aZjlhFbhBh+05FyeELG1fk7I7sVCLGVgRWshb3ztZBiU/rRA/MkgMRyoqy3V
-	 PQNM3BUW1cuLKAoFj/q+J/N5ef2eeWpojR4fCEkTSvpO37V4TZNDqeAxR/bJ/9ZDOyBy+
-	 xqfh3sXv8Hn21en9qcgM/fknrCFu9BNQnIKmHE79Dk/dsDBZF5SSxS3CszmxbGuF5IzWk
-	 FhZqXdrhE58cGlm85CkR37uD6b4Bo1yme6nw0rfOJiFHqByG8Q2FQS+GRqG/Otbb6mb8w
-	 p/cQUuoEDpo1atQcJ/lHcLwOfDRAnDxxEMYh1p82J2va2ZLBWC/eMVVqyJLXv/HNv+A==
+	t=1795528842;
+	b=pcDzN29KS8xqQXL7phRrKOa1QWJEGyCm7watL3z6OagJAvLXWRWlLa44Ro2GT9HhYkIr
+	 9CbuUBIU0UtmF3nKM//JvWdOZtuEcodLArN+3SwBP3GFd6dP0hKSbZpfbTBgW7G5VwPeE
+	 qihlRW8i+3eZxlzKCEdxB7LB8xkR937DDyobyxdiNYbQX34iApIWYoggoHBvLPw7aH0H8
+	 MNHunWQ05nT5JMPSTrHiETeAd1WvFBE9JvVXgJt3sfbhNjiWYY2wWAmq8/kRXfZtxJv3a
+	 lGFJAGBNOLc6Sp1rUYDSXstM6LXlnsN943GtvulsD2rjkh4Fo3ap70ogQh1lKoxoNlQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528781;
-	h=DMARC-Filter:Content-Type:Content-Transfer-Encoding:Message-ID:To:Cc:
-	 Subject:X-Priority:X-Mailer:X-Originating-IP:In-Reply-To:References:
-	 MIME-Version:Received:From:Date:X-HM-Tid:X-HM-MType:X-HM-NTES-SC:
-	 X-HM-Spam-Status:DKIM-Signature;
-	bh=xTzP+FWznfHpgFKA87GLlDPgUcxC4He0Ep3h6yFBigQ=;
-	b=TZkCptHwr7UCXCOju5M18aRitqUEO1rDb+1tjqzD7OJ4c1lM/NaOLbCWf0IExpmwk/50
-	 Hb5DPm9Y1OPSA28N81NnkQdProefpSXkHm41HFNUyiRl1KVY9+cmnEOQrrR/OD/TgMDfD
-	 fQGb9JdWQUq4L/dlQ4DV+9qfK6aiSDY5XFnui2R5LcbGQtk6YQgfUaQFyJ/ahBRM71LK3
-	 6T+urMBVH6AwGynJcIg25v8f7sktemOiveQGMd5J2v7ncs1UcPq5IArrFacplI3vPDr7C
-	 LHNbhWLJZ7B8TqPrpQERtzZ79tML8gOvKXiNiLI2r7bfaXYE6UMVApQRSKlWMbwOYIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528842;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=o+7iSwGfMjtzT2Y6Ygii4nLjUX3g93NcfuA7HOwwEkw=;
+	b=GUkJb4up94dq5YJPpy2yYoymqTBWQzoy4eG79HmjMz0MfHXOpid+NSPl1/SG0XJRJFwo
+	 sXhLVGOXP611w8zLN3OOfNKeuTpnl6UD8RQCvDgJhuYGsUXo5F6/zpDnAbV35cyMjfWZ3
+	 hwpW+Qc+T4vO+4NzB3Ww4lVORgjXUYBMwfqKyoe/EHqDViVVj3NHrDWKHA/vtYhDv1BTY
+	 VJcLQ0CfyAtaCIVcKLbissR3ElxgpPwrP7slttZ8BcBv7p5iao3T8LxZyVA7MIxMjQtAH
+	 VAURXF9VE/oHhjv9/2SfZiWOLe6nhnBTXa3rDXhuK/LqgQkRKsmN3uYG2yPJYxZEZLA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mail.sdu.edu.cn;
-	spf=pass smtp.mailfrom=mail.sdu.edu.cn;
-	dkim=pass header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=CHOCV15b;
-	arc=none smtp.remote-ip=47.251.158.227
-Received: from mail-m158227.netease.com (mail-m158227.netease.com [47.251.158.227])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=V30Q+iur;
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53386606A32A;
-	Tue, 24 Nov 2026 13:59:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53386606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=mail.sdu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.sdu.edu.cn
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE708606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:00:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE708606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.sdu.edu.cn header.i=@mail.sdu.edu.cn header.a=rsa-sha256 header.s=default header.b=CHOCV15b
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: base64
-Message-ID: <AI*AUwChLCfQR70Ccf4TQapV.3.1795528770193.Hmail.202321181@mail.sdu.edu.cn>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	"David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: =?UTF-8?B?UmU6UmU6IFJlOiBSZTogW1BBVENIIG5ldF0gbmV0OiBwaHk6IG1pY3JlbDogRml4IHBvdGVudGlhbCBzaGFyZWQgUEhDIHVzZS1hZnRlci1mcmVl?=
-X-Priority: 3
-X-Mailer: HMail Webmail Server V2.0 Copyright (c) 2016-163.com web
-In-Reply-To: <ed84f6b1-4bed-4328-9278-02bbde45ca23@lunn.ch>
-References: <20261107-0d0c29e10a-net-micrel-lan8814-1@mail.sdu.edu.cn> <71089325-dfab-45f7-9ebd-1feb65013863@lunn.ch> <AHAASAAGLPGJfVjn9skPJKoS.3.1794229559658.Hmail.202321181@mail.sdu.edu.cn> <198e6702-0663-4183-9aaf-0fa4082dbf79@lunn.ch> <ANsAuAAOLLS4OaDq0elM1KrN.3.1795091965243.Hmail.202321181@mail.sdu.edu.cn> <ed84f6b1-4bed-4328-9278-02bbde45ca23@lunn.ch>
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=V30Q+iur
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c40e30c26a4so1089074166b.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:00:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1795528840; x=1796133640; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=o+7iSwGfMjtzT2Y6Ygii4nLjUX3g93NcfuA7HOwwEkw=;
+        b=V30Q+iurO56H29PrX9q7wVWHAj934LHyh9dyaSa8KHPs1wYEL79KlkRZ8Ndk67ZYFP
+         8Moy2ZuuvXyGxj6hxEU5MHXoHu4tO+Fkx1FOmb3i6VmcSl2yRSR7ozCFXelACXZQQdpH
+         73eeCdMmnAdK5bgaPJM2yLbbq+7EGbpzKQXhHQ+LiUd9gwn3Zcp08lnZgZpi+N/nP0qn
+         CCEUWkIh7w7v7yFw7Ka90+w4XwePfoZZMNmE95Z67q//yab58k2vPq4mUMHNrX/ny0rT
+         lztbpD17efmc4Yo1kTZgqTWxQyLSdMFoAnYsApctQXm4VrrSm5WoZqx2pG7gjDZXr6oU
+         zvzA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795528840; x=1796133640;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:message-id:subject:cc:to:from
+         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=o+7iSwGfMjtzT2Y6Ygii4nLjUX3g93NcfuA7HOwwEkw=;
+        b=Za2z0I0gW8gb9Js0gqKCSQo9P4KRQJ8w1wwzn79muRna/7iUVMH8goH1Srz+WyrrHM
+         WquyKozJKmvE/9Gjue68vvS96agWoOY6b0CEGflNIfP+frwH6sjYlIcORTjOmd2c3qwg
+         pDvf+W9Ct0yU09+MuOR0tTZNFrpxpWJyglEei+ymm+FnTzZQnEBEvECkg7krMzsJw/oe
+         IwGm21UpBuQH1JZ4bG0b8N86ET2BgRlKP4w7Kq8uwYqDVgMonp7KSgz4mlPEl06QJ4tv
+         kzRMHVV8/U798V8GmA6VMu+m5mUeXAEmx64087dmrCiuaSSADUUMAGPwpS9OVcSZdHqM
+         zOww==
+X-Forwarded-Encrypted: i=1; AL+hErH7k3IkLtui6cgrZzmulCGHYKVAa6CAkRKObG2xGKWpDU2ZivtmlXcb2jv+DurL1K4L57oScw0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9mSEFV0KatmpCcc4HQXW370ypQljtPOfVy8ZFzhu8y6NCOtYmp
+	2vCVSVGH0ISeghMsaUC7/svFdZ0SlxEjS4PcDtcVJ6WsFFud3Zll6Q+4iBgOtEk26u4=
+X-Gm-Gg: AZFdTZevhrvjSkuIs+qv2C07SfkXhosQZedZvo9MSxQhU6jG5RQifqsCf0iEFv7bPPE
+	eYj9PYRQcC5v/UKbxX3k4tbEZ3B43UJLc9qONLeZ2metpDKENp8nnMhx0b77J5yAWBd1SIeEcrH
+	BS3suuMw3osotrTDW5vzLXRFNFFBhpeQOtM6xx2ujk+f3gIphnMazvAAm7G16mTcByyvKSw+2OT
+	viX4qNmeMjAHK2OFl1oPRJ1ACUw12i46DQxKg+JigSXwMBjVq15ozIeGDGGePbp2YvzQeWKJtHl
+	zqwGD/eM+BsW8Hn5JZThyBK8vETPi05W4W45TyAchoG0GVMi48R7lf9mcmZp5lQjOS1jxETzl3R
+	G5JlOxd83gJPW2dZOUTzGubTu87x8xlnrzJkhyDqgrFo1fwz2iBANaBefmNceouTerjPaNEXK1f
+	/ELlhFMW57f4tNvNBQFRSqvBr9syAW6O9CFKQdfQoMNyFkKwBDMvED5m5V1aFmuLWXOIddFKZKT
+	KXvICBo8EQk1X4rPMTP8LghkSc9FcIYEEiWLfeImdRveZ9XWcci41aRKCywB6F9Hji4vCIu3cy9
+	wb4f+A==
+X-Received: by 2002:a17:907:3e86:b0:c36:777f:824c with SMTP id a640c23a62f3a-c51315851d7mr1405271066b.4.1795528839874;
+        Tue, 24 Nov 2026 06:00:39 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba370cc257sm6492195a12.13.2026.11.24.06.00.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 06:00:39 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xVr4W-00000000QnE-3MAi;
+	Tue, 24 Nov 2026 10:00:36 -0400
+Date: Tue, 24 Nov 2026 10:00:36 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
+Cc: Alistair Popple <apopple@nvidia.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Matthew Brost <matthew.brost@intel.com>,
+	Vivek Kasireddy <vivek.kasireddy@intel.com>,
+	Dongwon Kim <dongwon.kim@intel.com>,
+	Kevin Tian <kevin.tian@intel.com>,
+	Xu Yilun <yilun.xu@linux.intel.com>,
+	Karl Mehltretter <kmehltretter@gmail.com>,
+	Baolu Lu <baolu.lu@linux.intel.com>,
+	Felix Kuehling <felix.kuehling@amd.com>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
+	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
+	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
+	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
+	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
+	linux-nvme@lists.infradead.org,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
+	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
+	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
+	Leon Romanovsky <leon@kernel.org>
+Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
+Message-ID: <20261124140036.GM9566@ziepe.ca>
+References: <20261120-dma_mapping_type_v4-v3-0-c0183a409bdf@nvidia.com>
+ <20261120-dma_mapping_type_v4-v3-3-c0183a409bdf@nvidia.com>
+ <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
+ <20261123165716.GM179082@ziepe.ca>
+ <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -57,41 +131,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Received: from 202321181@mail.sdu.edu.cn( [101.76.249.61] ) by ajax-webmail ( [127.0.0.1] ) ; Tue, 24 Nov 2026 21:59:30 +0800 (GMT+08:00)
-From: =?UTF-8?B?5p2O5bm/56GV?= <liguangshuo@mail.sdu.edu.cn>
-Date: Tue, 24 Nov 2026 21:59:30 +0800 (GMT+08:00)
-X-HM-Tid: 0aa20dda7e64d0cdkusy9f8e7101248b4
-X-HM-MType: 1
-X-HM-NTES-SC: AL0_4z5B86Wr4Tz9jdMF+bhXMVHpP02bZAKsMEiErRSAekjx+ys+KNZNl0PLwl
-	f2MeqR5lbiqKsoq8sm3hZVy9q3VetZ+Wq0Te/EdHEVk+2W3XygE0t2b+veD5v+x2w+urvHAkVDJd
-	Ei1NnylQmVMR3mW/EzGaNxitlxEN6AvfBDt1A=
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWRgWCB1ZQUpXWS1ZQUlXWQ8JGhUIEh9ZQVkZHUsaVh9LTE9MSh1KGE8eGlYVFA
-	kWGhdVEwETFhoSFyQUDg9ZV1kYEgtZQVlKS0pVTE1VSU9CVU1KWVdZFhoPEhUdFFlBWU9LSFVCQk
-	lOS1VKS0tVSkJLQlkG
-DKIM-Signature: a=rsa-sha256;
-	b=CHOCV15brrf7GYyCIOtxR1qTCNrLdwZhUlXaVhqJMp4+beBHoSqa0+Jo7vq3pYE8n5EJ7j8IEuvv2sBukAh11tPObDUpjO/LQ7EB4Xv5MSod+VebKeyfTl9SsLQLQD9pglxcwOgGaX8DYQG8bSvC8IFnBctTaHbY6E9ijta7LUk=; c=relaxed/relaxed; s=default; d=mail.sdu.edu.cn; v=1;
-	bh=xTzP+FWznfHpgFKA87GLlDPgUcxC4He0Ep3h6yFBigQ=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
 
-CgpIaSBBbmRyZXcsCgpGcm9tOiBBbmRyZXcgTHVubiA8YW5kcmV3QGx1bm4uY2g+CkRhdGU6IDIw
-MjYtMTEtMTkgMjM6MjM6MTAKVG86ICAi5p2O5bm/56GVIiA8bGlndWFuZ3NodW9AbWFpbC5zZHUu
-ZWR1LmNuPgpDYzogIEhlaW5lciBLYWxsd2VpdCA8aGthbGx3ZWl0MUBnbWFpbC5jb20+LFJ1c3Nl
-bGwgS2luZyA8bGludXhAYXJtbGludXgub3JnLnVrPiwiRGF2aWQgUy4gTWlsbGVyIiA8ZGF2ZW1A
-ZGF2ZW1sb2Z0Lm5ldD4sRXJpYyBEdW1hemV0IDxlZHVtYXpldEBrZXJuZWwub3JnPixKYWt1YiBL
-aWNpbnNraSA8a3ViYUBrZXJuZWwub3JnPixQYW9sbyBBYmVuaSA8cGFiZW5pQHJlZGhhdC5jb20+
-LG5ldGRldkB2Z2VyLmtlcm5lbC5vcmcsbGludXgta2VybmVsQHZnZXIua2VybmVsLm9yZwpTdWJq
-ZWN0OiBSZTogUmU6IFJlOiBbUEFUQ0ggbmV0XSBuZXQ6IHBoeTogbWljcmVsOiBGaXggcG90ZW50
-aWFsIHNoYXJlZCBQSEMgdXNlLWFmdGVyLWZyZWU+PiBPbiBMQU44ODE0LCBpZiB0aGUgcmVnaXN0
-ZXJpbmcgUEhZIHVuYmluZHMgZmlyc3QsIHRoZSBvdGhlciBwb3J0cyB3b3VsZAo+PiBsb3NlIGFj
-Y2VzcyB0byB0aGUgUEhDLiBJcyB0aGF0IHRoZSBiZWhhdmlvdXIgeW91J2QgZXhwZWN0Pwo+Cj5O
-bywgYXMgaSBrZWVwIHNheWluZywgaSBleHBlY3QgcmVtb3ZlIHRvIGJlIHRoZSBvcHBvc2l0ZSBv
-ZiBwcm9iZS4gVGhlCj5maXJzdCBQSFkgcHJvYmVkIHNldHMgdXAgdGhlIFBIQy4gV2hhdCBpcyB0
-aGUgb3Bwb3NpdGUgb2YgdGhhdD8gVGhlCj5sYXN0IFBIWSByZW1vdmVkIHJlbGVhc2VzIHRoZSBQ
-SEMuCj4KPiAgICAgQW5kcmV3Cj4KClRoYW5rcyBmb3IgY2xhcmlmeWluZy4gSSBoYWQgdGllZCB0
-ZWFyZG93biB0byB0aGUgcmVnaXN0ZXJpbmcgUEhZLApidXQgaXQgc2hvdWxkIGhhcHBlbiB3aGVu
-IHRoZSBsYXN0IFBIWSBsZWF2ZXMgdGhlIHBhY2thZ2UuCgpJJ2xsIHJld29yayB0aGUgY2xlYW51
-cCBhcm91bmQgdGhhdCBsaWZldGltZSwga2VlcGluZyB0aGUgUEhDIGFuZAppdHMgcGluIGFycmF5
-IGFsaXZlIHVudGlsIHRoZW4uIEknbGwgYWxzbyBjaGVjayB0aGF0IHJlZ2lzdGVyIGFjY2Vzcwpy
-ZW1haW5zIHZhbGlkIGFmdGVyIHRoZSBmaXJzdCBQSFkgaXMgdW5ib3VuZC4KClRoYW5rcywKR3Vh
-bmdzaHVvCg==
+On Mon, Nov 23, 2026 at 07:37:41PM +0100, Christian König wrote:
+> > Part of the design of this series was to allow the conversion away
+> > from SGT to be done incrementally without breaking compatibility.
+> 
+> Do you know the joke from the hitchhikers guide to the galaxy where
+> the dolphins are happy for exactly the same reasons?
+> 
+> I'm pushing against this plan for exactly the same reason because I
+> think it will make the conversation away from SGT even more
+> problematic than it already is.
+
+I think it is well proven that trying to do big bang conversions in
+software doesn't work well. :(
+ 
+> > So it is effectively this:
+> > 
+> >> The framework should then either connect the SGT directly if both
+> >> importer and export are using the "classic" interface 
+> 
+> Yeah but that should not be a separate mapping type, it's rather
+> that we just convert back and forth from DMA addresses to SGT for
+> compatibility reasons.
+
+The mapping type is to support ualink/etc that don't do "DMA".
+
+Only DMA API can create dma_addr_t's, you can't reuse those types for
+something else.
+
+And you still need a scheme to negotiate exactly what kind of
+connection you need. Focusing on the SGT is missing the big picture of
+why this was organized like this.
+
+> > As this is actually quite complicated and needs discussion exactly
+> > what it will look like.
+> 
+> Actually that is the easy step I think because quite a lot of
+> drivers already convert the SGT to a DMA addr array outside of the
+> DMA-buf framework anyway.
+
+Given the importer an array is not so bad. Getting the sgt out of the
+importer will be a debate.
+
+Jason
