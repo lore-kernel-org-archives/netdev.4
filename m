@@ -1,43 +1,43 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516852;
-	b=eNqZsF2eusQJprUQ1b17PRYsDJUA2/65hAL/7b+n81TVKF53ZJ6IFNIOsJG75LQHTDIK
-	 q1R7ORO6oBEbpiCsSejpcXLXd6oK9SYg7nlV2WakTdGrzDvmd7CsdLbutBTRpPDyvH5fd
-	 hZDDMoc+526FyTvexBb8Cy4CYMcmisGPilDonXBFpNIB3qqwx7o36+dQbpLDAEkwRvdGV
-	 Q/yV6XSqjGEFGmJ5Tf7GQTU58bwNzHYvhgaQZteSgOwgDW42wIMK0OQgJl0wWQCRKo0iD
-	 2DzRdfKns87KEHJAG1cKLdWOIeGMf0d1/B7dBUJoPPzjKdbOHVhSK/pp9zoWAENv8Ag==
+	t=1795516848;
+	b=TPFVXKgHSz7fpSFBhlRDVdCVzFP2nx27AdlW/28EvQ4H523WrcHPvN2vn6OSE118C0UO
+	 oV9cL1Jfooa4Ac8w6USqwXSXSYEk/MH/MHyRsFHVmjA/rhiMuokFc0XNtEKwRL86c/bU0
+	 oe9WCJKZufQNQZDAOGRWc4j5gOIQPTPs0lxSKJxmK+AScgwxahMm6dsrk2yP4PIvV7h3o
+	 QT4cLk/TMs8BRPAzVbPCzvggu81mx3TAPEQcJqomO+YOIqC2GGGAGhTvTCBlBS2Wg5cxr
+	 my74SMwxrqGNlXYEsz/ULq0r1avv9cb2oOc7FFr+29RHGceOp9V6QtTOTcWMnP5z9gQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516852;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516848;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 DKIM-Signature;
-	bh=WFelugwLNPTLGIsm1EbRuqynel4zd3FFYDI8cAMlECY=;
-	b=5tvOqYbwGRjeBGmzPNer/WvBp0P/i3TZX5e9QFanViwrQazoRdHwHdzyqUC79jzgxt5F
-	 ey++VNcKS8SFvtLqqU2oLuWZgafGIJvEFqVhFUalvXFySLaZu4MZzPwyIrc/qhbHxuR9E
-	 2WwER3t0xatgY/S42o9MF+jip2Pxr6cW/hAaal7pfJ2V/CXCKnWY7OKvqRw6KBs/jIC79
-	 LY6vTCS8LoOfCtdySbVFQcGuIeCkwnjSsQCXzr03mQXLtlkUFvVSM3oWT2O/aS6nYW0u3
-	 GT6vgAN77zCTW9Sz9xEsIFyb4i65EKDqoYACydflYEWlTXEbX2u86s6BwFzjkDqH8Tg==
+	bh=yKXJR0+G/Op/9dWMjQ2xoOvE2F0j7mzzfhEkNXBD61g=;
+	b=fGqD/NfTJpEwJrwNjdQb+ZZYIVM8Ukc0HAVNuVB9soXIzs4Vfzdz5QqA9eyRfz+acVCx
+	 zHPWCI/eSrfcCM1zXu9dqLAtS4jmrd2RZpgct1oNwtPE4weFIr5np5BcHknCbPtJuaRnw
+	 Ph9bE1NgWRJcC051TTEAJe40gvrc+NOPRn/OdGs06P8KIYKRmJNioN8M4VL0yHfA736UA
+	 QvD9qBVOwkGxSZ7kAKiMjxAsGiGJm5I4laksyjVNgoJAMinV46TCF1cTRmPIbY58b/8i0
+	 r8mCikL1GTAfkegUTXrEiSdtD5X/mNjXQ3QshFtgNGu6vS+Pex80bE1XCb+rnK2SEYQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=poczta.fm;
 	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=STm0VC+e;
-	arc=none smtp.remote-ip=217.74.67.49
-Received: from smtpo49.interia.pl (smtpo49.interia.pl [217.74.67.49])
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="ONn//QBF";
+	arc=none smtp.remote-ip=217.74.67.75
+Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1634C606A327
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:40:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1634C606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64492606A33A
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:40:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64492606A33A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=STm0VC+e
+	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=ONn//QBF
 Received: from localhost (unknown [80.68.231.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
 	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Tue, 24 Nov 2026 11:40:46 +0100 (CET)
+	Tue, 24 Nov 2026 11:40:43 +0100 (CET)
 From: Slawomir Stepien <sst@poczta.fm>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -73,9 +73,9 @@ Cc: bpf@vger.kernel.org,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
 	Slawomir Stepien <sst@poczta.fm>
-Subject: [PATCH v8 bpf 7/7] selftests/bpf: Grow test_run and generic XDP frags after a test run
-Date: Tue, 24 Nov 2026 11:40:16 +0100
-Message-ID: <20261124104016.532341-8-sst@poczta.fm>
+Subject: [PATCH v8 bpf 6/7] selftests/bpf: Shrink test_run frags after generic XDP ran on lo
+Date: Tue, 24 Nov 2026 11:40:15 +0100
+Message-ID: <20261124104016.532341-7-sst@poczta.fm>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261124104016.532341-1-sst@poczta.fm>
 References: <20261124104016.532341-1-sst@poczta.fm>
@@ -90,144 +90,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795516849; bh=WFelugwLNPTLGIsm1EbRuqynel4zd3FFYDI8cAMlECY=;
+	t=1795516845; bh=yKXJR0+G/Op/9dWMjQ2xoOvE2F0j7mzzfhEkNXBD61g=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=STm0VC+ek9TIpVheZ/4/x7tmiA49norvQ4c89q3dZVCOPjkQHkaqblXoWksmCvCnF
-	 S4dVfPnlFS1z6h5HhN1mbIl5UaLOaWQH+192OmRdOQU8dOBBieKbx0zh/lxx7uqynv
-	 gaDjivdClbYsufi500tdav8Pez1By1JOtJEawJ8s=
+	b=ONn//QBFiz6XX1/HO1oT4nPQVS2Supke/o7wCBwb8pt5zD+gzsoSA/W72RlQrMpUc
+	 uK9fXqdls58H/VU8TFN842/jqRIMaz7f0oM77Rc6z5RUjSoF/ZbcZRYRns1PLNMDUF
+	 FTuspwTTkzO8lLIWsiEebmJ5gbxo0E7sC5D56bT0=
 
-Add two xdp_adjust_tail subtests for frag_size of the rxq info a
-program runs with:
+bpf_prog_test_run_xdp() used the rxq info of the loopback device's
+queue 0, and generic XDP sets the mem type of that rxq info for the
+packets it handles. Run a packet through generic XDP on lo in a new
+netns, then repeat xdp_adjust_frags_tail_shrink there, which frees
+test_run frags from the program.
 
-- xdp_adjust_frags_tail_grow_ingress_ifindex grows the last frag of a
-  9000 byte test_run packet with ingress_ifindex set to a veth device.
-  test_run allocates PAGE_SIZE frags, so the grow must succeed.
-
-- xdp_adjust_frags_tail_grow_lo_after_test_run does a test run, then
-  sends a UDP packet a bit larger than a page over lo with a generic XDP
-  frags program attached, or is skipped with 64K pages. Generic XDP
-  copies the packet into a page_pool head page and a frag, which can be
-  a part of a page, so growing the frag must fail with -EOPNOTSUPP. The
-  program asks for more than any tailroom, so nothing is written even
-  when the grow is allowed.
+Without the test_run fix this hits WARN_ON() in page_pool_unref_netmem()
+and leaks the frag pages; the test itself still passes, so the failure
+shows up in the kernel log (and as a panic with panic_on_warn).
 
 Signed-off-by: Slawomir Stepien <sst@poczta.fm>
 ---
- .../bpf/prog_tests/xdp_adjust_tail.c          | 138 ++++++++++++++++++
- .../test_xdp_adjust_frags_tail_grow_lo.c      |  25 ++++
- 2 files changed, 163 insertions(+)
- create mode 100644 tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
+ .../bpf/prog_tests/xdp_adjust_tail.c          | 53 +++++++++++++++++++
+ 1 file changed, 53 insertions(+)
 
 diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-index be0c36871911..ead6c0be960e 100644
+index 43264347e7d7..be0c36871911 100644
 --- a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
 +++ b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-@@ -4,6 +4,7 @@
- #include <linux/if_link.h>
- #include <net/if.h>
- #include "xdp_dummy.skel.h"
-+#include "test_xdp_adjust_frags_tail_grow_lo.skel.h"
+@@ -1,6 +1,9 @@
+ // SPDX-License-Identifier: GPL-2.0
+ #include <test_progs.h>
+ #include <network_helpers.h>
++#include <linux/if_link.h>
++#include <net/if.h>
++#include "xdp_dummy.skel.h"
  
  static void test_xdp_adjust_tail_shrink(void)
  {
-@@ -406,6 +407,139 @@ static void test_xdp_adjust_frags_tail_shrink_after_generic(void)
- 	xdp_dummy__destroy(skel);
+@@ -355,6 +358,54 @@ static void test_xdp_adjust_frags_tail_grow_64k(void)
+ 	bpf_object__close(obj);
  }
  
 +/*
-+ * test_run allocates PAGE_SIZE frags, so a program may grow the last one up
-+ * to the end of its page, also when ingress_ifindex picks the rxq info of
-+ * another device.
++ * bpf_prog_test_run_xdp() runs on the rxq of lo's queue 0, where generic
++ * XDP sets the mem type of the frags it hands to its program. Let generic
++ * XDP see a packet on lo first, then free test_run frags from the program.
 + */
-+static void test_xdp_adjust_frags_tail_grow_ingress_ifindex(void)
-+{
-+	const char *file = "./test_xdp_adjust_tail_grow.bpf.o";
-+	struct xdp_md ctx = { .data_end = 9000 };
-+	struct netns_obj *ns = NULL;
-+	struct bpf_program *prog;
-+	struct bpf_object *obj;
-+	__u8 *buf = NULL;
-+	int err, ifindex;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.ctx_in = &ctx,
-+		.ctx_size_in = sizeof(ctx),
-+	);
-+
-+	if (getpagesize() != 4096) {
-+		test__skip();
-+		return;
-+	}
-+
-+	obj = bpf_object__open(file);
-+	if (!ASSERT_OK_PTR(obj, "open"))
-+		return;
-+
-+	prog = bpf_object__next_program(obj, NULL);
-+	if (!ASSERT_OK(bpf_object__load(obj), "load"))
-+		goto out;
-+
-+	ns = netns_new("xdp_adjust_tail_ns", true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto out;
-+
-+	SYS(out, "ip link add veth_xat0 type veth peer name veth_xat1");
-+	ifindex = if_nametoindex("veth_xat0");
-+	if (!ASSERT_GT(ifindex, 0, "veth ifindex"))
-+		goto out;
-+	ctx.ingress_ifindex = ifindex;
-+
-+	buf = malloc(16384);
-+	if (!ASSERT_OK_PTR(buf, "alloc buf 16Kb"))
-+		goto out;
-+	memset(buf, 1, 16384);
-+
-+	/* Test case add 10 bytes to last frag */
-+	topts.data_in = buf;
-+	topts.data_out = buf;
-+	topts.data_size_in = 9000;
-+	topts.data_size_out = 16384;
-+	err = bpf_prog_test_run_opts(bpf_program__fd(prog), &topts);
-+
-+	ASSERT_OK(err, "9Kb+10b");
-+	ASSERT_EQ(topts.retval, XDP_TX, "9Kb+10b retval");
-+	ASSERT_EQ(topts.data_size_out, 9000 + 10, "9Kb+10b size");
-+out:
-+	free(buf);
-+	netns_free(ns);
-+	bpf_object__close(obj);
-+}
-+
-+/*
-+ * The frags generic XDP gets from skb_pp_cow_data() can be parts of a
-+ * page_pool page, so its rxq info must not allow growing them. test_run
-+ * must not change that for lo.
-+ */
-+static void test_xdp_adjust_frags_tail_grow_lo_after_test_run(void)
++static void test_xdp_adjust_frags_tail_shrink_after_generic(void)
 +{
 +	struct sockaddr_in addr = {
 +		.sin_family = AF_INET,
 +		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
 +		.sin_port = htons(9),
 +	};
-+	struct test_xdp_adjust_frags_tail_grow_lo *skel;
 +	struct netns_obj *ns = NULL;
-+	static char payload[60000];
-+	int fd = -1, lo, i, len, prog_fd;
-+	LIBBPF_OPTS(bpf_test_run_opts, topts,
-+		.data_in = &pkt_v4,
-+		.data_size_in = sizeof(pkt_v4),
-+		.repeat = 1,
-+	);
++	struct xdp_dummy *skel;
++	int fd = -1, lo, prog_fd;
 +
-+	/* larger than the head generic XDP copies the packet into */
-+	len = getpagesize() + 500;
-+	if (len > (int)sizeof(payload)) {
-+		test__skip();
-+		return;
-+	}
-+
-+	skel = test_xdp_adjust_frags_tail_grow_lo__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "skel open_and_load"))
++	skel = xdp_dummy__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "xdp_dummy__open_and_load"))
 +		return;
 +
 +	ns = netns_new("xdp_adjust_tail_ns", true);
@@ -239,77 +158,37 @@ index be0c36871911..ead6c0be960e 100644
 +	if (!ASSERT_GT(lo, 0, "lo ifindex"))
 +		goto out;
 +
-+	/* a test run in this netns, before generic XDP sees a packet on lo */
-+	prog_fd = bpf_program__fd(skel->progs.xdp_grow_frags);
-+	ASSERT_OK(bpf_prog_test_run_opts(prog_fd, &topts), "test_run");
-+
++	prog_fd = bpf_program__fd(skel->progs.xdp_dummy_prog);
 +	if (!ASSERT_OK(bpf_xdp_attach(lo, prog_fd, XDP_FLAGS_SKB_MODE, NULL),
 +		       "attach generic XDP"))
 +		goto out;
 +
-+	/*
-+	 * a linear skb with little headroom: generic XDP copies it into a
-+	 * page_pool head page and a frag
-+	 */
 +	fd = socket(AF_INET, SOCK_DGRAM, 0);
 +	if (ASSERT_GE(fd, 0, "socket"))
-+		ASSERT_EQ(sendto(fd, payload, len, 0, (struct sockaddr *)&addr,
-+				 sizeof(addr)), len, "sendto");
-+	for (i = 0; i < 100 && skel->data->grow_ret == 1; i++)
-+		usleep(10000);
++		ASSERT_EQ(sendto(fd, "x", 1, 0, (struct sockaddr *)&addr,
++				 sizeof(addr)), 1, "sendto");
 +	bpf_xdp_detach(lo, XDP_FLAGS_SKB_MODE, NULL);
 +
-+	ASSERT_EQ(skel->data->grow_ret, -EOPNOTSUPP, "grow frag on lo");
++	test_xdp_adjust_frags_tail_shrink();
 +out:
 +	if (fd >= 0)
 +		close(fd);
 +	netns_free(ns);
-+	test_xdp_adjust_frags_tail_grow_lo__destroy(skel);
++	xdp_dummy__destroy(skel);
 +}
 +
  void test_xdp_adjust_tail(void)
  {
  	int page_size = getpagesize();
-@@ -426,4 +560,8 @@ void test_xdp_adjust_tail(void)
- 		else
- 			test_xdp_adjust_frags_tail_grow_4k();
- 	}
-+	if (test__start_subtest("xdp_adjust_frags_tail_grow_ingress_ifindex"))
-+		test_xdp_adjust_frags_tail_grow_ingress_ifindex();
-+	if (test__start_subtest("xdp_adjust_frags_tail_grow_lo_after_test_run"))
-+		test_xdp_adjust_frags_tail_grow_lo_after_test_run();
- }
-diff --git a/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
-new file mode 100644
-index 000000000000..207346b14ad8
---- /dev/null
-+++ b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
-@@ -0,0 +1,25 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <linux/bpf.h>
-+#include <bpf/bpf_helpers.h>
-+
-+/* 1 until the program saw a packet with frags */
-+int grow_ret = 1;
-+
-+SEC("xdp.frags")
-+int xdp_grow_frags(struct xdp_md *xdp)
-+{
-+	void *data_end = (void *)(long)xdp->data_end;
-+	void *data = (void *)(long)xdp->data;
-+
-+	if (grow_ret != 1 || bpf_xdp_get_buff_len(xdp) <= data_end - data)
-+		return XDP_PASS;
-+
-+	/*
-+	 * More than the tailroom of any frag, so nothing is written: the
-+	 * result only tells if frag_size of the rxq allows a grow at all.
-+	 */
-+	grow_ret = bpf_xdp_adjust_tail(xdp, 0x10000);
-+	return XDP_PASS;
-+}
-+
-+char _license[] SEC("license") = "GPL";
+@@ -367,6 +418,8 @@ void test_xdp_adjust_tail(void)
+ 		test_xdp_adjust_tail_grow2();
+ 	if (test__start_subtest("xdp_adjust_frags_tail_shrink"))
+ 		test_xdp_adjust_frags_tail_shrink();
++	if (test__start_subtest("xdp_adjust_frags_tail_shrink_after_generic"))
++		test_xdp_adjust_frags_tail_shrink_after_generic();
+ 	if (test__start_subtest("xdp_adjust_frags_tail_grow")) {
+ 		if (page_size == 65536)
+ 			test_xdp_adjust_frags_tail_grow_64k();
 -- 
 2.56.0
 
