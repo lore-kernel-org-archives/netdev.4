@@ -1,79 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795558220;
-	b=abq/4AXZ7XjciU62bik5Qedn/hDYL8NG0U2eurbMSs+HSwuVqs6uiegsKVs2+B7G5hlj
-	 HNMSocFHI7AoEHoJPwR9uhPKuVQcsXx4DF1Ymuqx2KuhM5NQuiqs9keCuHd23Y+/Jy6/R
-	 XOWuLvuPZFlqwn2kTdXz/da1OLd9Bln7gmZ6GuNCsgraVelVzIYP+WRl2mtgpblytWDgD
-	 EvWrUXATuHBCISefuK88UlCzTZwUYx7CKkjgCwOVRkeWhM3LCTmIeUFXgD2OdEkXJe2ME
-	 /jTNoqNcdybt5kmfVlpVMId1VD1NA6zB4FcqeTq1EBNGayWLNAo/HXT30/jYP8Xmh+g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558220;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
-	b=Q7WaF0KgOgQ5hgI5KIiS4yaghvcKvx82ErZaNQ9onwD7oIllxTc3Ok63V3FJbITbhTom
-	 Z1xRP26UUm6YtnL3v8Qznf7pEknyYTYPiptt7GKckaz5Y1NUNWXaYvu7rIyripnz+gGdC
-	 pVkcdExLwC1ZmbqIzcF/cW/IOUAD9tkqTW7pCCbj3mW4UZN3iXoFlzQhxaep7Ilhioylu
-	 zv8xksXCYMYcUUWTAU7tzITuu4ims7uMOa/g+PVfopOWoOXTawehNg0JIDEYZK2JlIL0+
-	 +bv8n6PFz5R8aRFDBENhCGkKalSGaAnTpG4O5a9g7yUMt046cOzPwXosTRtMlME1kdw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf1TRmmw;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795558225;
+	b=1St2dpnMmMvOP/KcgmYk+ySdgByDcnVlBDGr9YqCeSmEgGL2ObhhmOwKeuOhIudBB7YV
+	 j1g7T5WAXqrLMxK3wYRQjlCdJVZqRowdmxqC+WSGWEmBXoIXiRM85yT4J/KtIrNzkc5XL
+	 uylBPYg7k4u2C6HsgwbQridT8b8yBWX2tKpSMXB5Qa9Mra6MqsN+ogtfJC0T+QHBDa5Tg
+	 k0QiSkxbHeLoNdrocr0io+frpy6sqO6J6Gu2IO4QMpOcIVDvdOFEz5CggWdGS6tUsfIPv
+	 w8stfQeP+ZeG9Ufrl1LRVSnJC4c4taLZLFWmXSz0UyCKJKyZXQg/HwBr3DMZhCc7i7w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795558225;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=3XsF0pdTj2E6P4E49Yy+ra62HdqMcgKB+fDzSWipd20=;
+	b=mZM6JxrZuBkBkaeiuNVyVqFBh30HbrKNBJZMkUTNENiOppTGalZRT7UFli9GUMVth2oP
+	 xZ62U8yCXSaqV/mWGNZ0eDbkfgBrZ9Y6qHhKUdbY2sIKx2OO1HIGu3Fee0Exzs3GKB+Rd
+	 +v1naiIEl+oM4OURhFKoxLroiVzo7eX0s6CP6z2zABIINwpppz9am1lJc8+g3aatRjkMj
+	 l1HVdm7esD/wTRpSPo2ccQHSQ1O1MbjiH+GTHBlDU5S5XlEEqiKFmR/6pkgdUFbzE/2x9
+	 5zkUA/toaRPEtOBnX9b/u4PUPjg2OFBEnceb/IpTygvvzJoAdv9AaPE60PJnHHQoZIA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y0Hwg87M;
+	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11D6D606A6A7;
-	Tue, 24 Nov 2026 22:10:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2EBD260A3823
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:10:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Kf1TRmmw
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795558219;
-	b=baIQk22ui7f83ewjJ6mhfjIEBh9XoqlT20xDlrfa2d346yGDYgRSXkneLe6OFi2sYCfB
-	 ZK+dMMLj2bn1NCTM7RNLCkF7fbunJE+4dkXuIusFjFb9bt/1d0MXLU1wo6Cnib4wv7dDQ
-	 mVAAmKHDRnFW+1pedEO+2favUmT9u+RG1Ak9GhxSgxfYQN+DyyubARpRYaQdZCbImUMVs
-	 kQkkLd1cxxD1p73vAsPGFkUInVn+WpRbqsoqPQQdVG+DIR4Yq7AaDjYcY94r3u54AwLJJ
-	 VomvFnx8TnLX+e4jzuMsYN46QXqUsPS8RCxju9ZmstA5TDCyLLNcq4QWGgYOpL53nDw==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795558219;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
-	b=HNTAQpP2RdF5QjtjiLzxWupgcfETVp4rYUAjX63pyq9OatHldi3eXJ1OXmguVcSddYje
-	 gZI6JmmHFxD0c6N4KDPjrM4wKPXdGxKYudn1Qr6z4N4YOzIXvH2tJvwyi1FTUKSUhc1un
-	 twa4hizrtVHmJI6cvUO+4S8V1UgrvKcvvs/HDrf6RwbxsiP3M8AGvjGB39DgnuxqOFzay
-	 LfhaE+b+G82xmt4+wcufOa7ChhHJQtGemQfIzhHFKz3mh5IFAl0skArHoA9dde8f/mVeb
-	 pmDMuu37U4EhrVTujwGr16U8FUHZImSu8ruWCUnOnrGi6hPCDEdo8c1o8GW9mnIRFag==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 629C11F000ED;
-	Tue, 24 Nov 2026 22:10:08 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y0Hwg87M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0AAA1F02ED6;
+	Tue, 24 Nov 2026 22:10:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795558219;
-	bh=nswBVZdCxLMglHPqDPCiGmN98qoPf819Vz94uZ+XzpA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=Kf1TRmmwqcqN7jk4wXSDNUAWVjmfirCpADEbs20fGQOzgrvgfBjyPAy+F7pIHyR8e
-	 P8v7q+XFmtMZX6ZwNDG/yddFY7DY5BDPK1lLBnSzHXvS/Tm2BeqE7thfOTwMWsr1Ec
-	 Z8I4GG+1CsrqpdYJySGRh7zx5w3d8VX2ObfCWdgULbJkzqcU78QZ1lGaRSuWROoEaN
-	 WLbV97Rdyts+RyHJsPba9zrM62/72Nxghg43apO7e8PiGgmX+13K0dvpciFEGI1NoN
-	 O0RQuNpwsJQNzGsIAV8DTPrXtmJoOaO7SmpN4rKxDkg+SyTW43oqYhp8iucmugXJgJ
-	 fQtx74Xm/20wA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id ACE9A4CBE9;
-	Tue, 24 Nov 2026 22:09:57 +0000 (UTC)
-From: Selvamani Rajagopal via B4 Relay <devnull+Selvamani.Rajagopal.onsemi.com@kernel.org>
-Date: Tue, 24 Nov 2026 14:09:58 -0800
-Subject: [PATCH net-next v12 10/15] net: ethernet: oa_tc6: APIs to
- customize CONFIG0 settings
+	s=k20260515; t=1795558224;
+	bh=3XsF0pdTj2E6P4E49Yy+ra62HdqMcgKB+fDzSWipd20=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Y0Hwg87M6vyKRDXIZcEXNMN9FUMw1g2qV/VWnoJtZJ8qF0Cp31UxdwfiFYAOpBHoY
+	 zGvEaYMTRcCy57JE7qG5bYmzTMru+tVQZvmChyulKfEkfjQNua7OwC/AfNvLcmSFe7
+	 nYNitJ/7t0BYZUtH3Lok4BFcwz7ZjNr70sYllVITUiep0AvKIuCNzMn6QYmgUgDz2i
+	 AOnuTCeXN4vEzBrz2tu6g7NyTmlkjUKXALeeGXGAPNhkazH9lmhvPpCYGg8xNXvhFn
+	 1JTMKt+s3wW1UYXUEjOxiq1UMvY8AAxdPF/Xg9xou0VgXyweIGcDaqVfUndz0FeMgc
+	 L0m2vE/wesYWw==
+Subject: Re: [PATCH net v3 1/4] ptp: disable all timestamp channels after
+ removing the user interfaces
+From: netdev-bot+sashiko@kernel.org
+To: ahmadexp@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch,
+ arkadiusz.kubalewski@intel.com, davem@davemloft.net, edumazet@kernel.org,
+ jiri@resnulli.us, kuba@kernel.org, pabeni@redhat.com,
+ richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
+ vadim.fedorenko@linux.dev, vladimir.oltean@nxp.com
+Date: Tue, 24 Nov 2026 22:10:23 +0000
+Message-ID: <179555822342.3135.3643426123083976487@kernel.org>
+In-Reply-To: <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com>
+References: <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,252 +65,208 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261124-s2500-mac-phy-support-v12-10-3575855d99f9@onsemi.com>
-References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-In-Reply-To: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, 
- "David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- Parthiban Veerasooran <parthiban.veerasooran@microchip.com>, 
- Selva Rajagopal <selvamani.rajagopal@onsemi.com>, 
- Richard Cochran <richardcochran@gmail.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, Eric Dumazet <edumazet@kernel.org>, 
- Piergiorgio Beruto <piergiorgio.beruto@gmail.com>, 
- Eric Dumazet <edumazet@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-doc@vger.kernel.org, 
- Jerry Ray <jerry.ray@microchip.com>, 
- Ciprian Regus <ciprian.regus@analog.com>, 
- Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795558193; l=7885;
- i=Selvamani.Rajagopal@onsemi.com; s=20260531; h=from:subject:message-id;
- bh=Tn4qWJ+KFSw9aGl6Q6VzMJbvXt57m8JvDM/gl/PybZM=;
- b=p7j4SSbr4p/WbELw+XYJSjjMFLeABk2s9XCiDfhFcNKoYqAwNPwXE/okv24Q9uKPEARIlmr4P
- bEwG/ORqH3yC94obRhUP1MvaBfZk8m8PzWvxjTnVTgcCBjkOPvpxKdq
-X-Developer-Key: i=Selvamani.Rajagopal@onsemi.com; a=ed25519;
- pk=5QRdM0HS/LGWWcUZZ9hVfZ+qbPQGZCumcTXOiN7Fyug=
-X-Endpoint-Received: by B4 Relay for
- Selvamani.Rajagopal@onsemi.com/20260531 with auth_id=803
-X-Original-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-Reply-To: Selvamani.Rajagopal@onsemi.com
-Content-Transfer-Encoding: 7bit
 
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Add oa_tc6_tx_credit_threshold_set() to let a vendor driver set the
-minimum transmit credits the MAC-PHY needs before it asserts the
-interrupt.
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-Add the OA_TC6_CONFIG_RX_CUT_THROUGH quirk flag. When set,
-oa_tc6_init() enables receive cut-through before the SYNC bit is set.
-This can't be done after oa_tc6_init(), which sets the SYNC bit.
-The flag is ignored if the MAC-PHY does not report cut-through
-capability.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Existing drivers are not affected: the default credit threshold is
-unchanged and cut-through stays disabled unless the quirk is set.
+- [Medium] The new skip condition in ptp_ocp_ts_enable(), `if (old_map &&
+  bp->pps_req_map) return 0;`, lets a redundant disable on the shared…
+- [Low] The commit message's testing statement describes private, out-of-
+  tree test harnesses and leaves out the information netdev requires.
+- [Low] After this patch, ptp_disable_all_events() calls the driver's
+  EXTTS disable for every channel below n_ext_ts, whatever the pin…
 
-Signed-off-by: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
+--
 
----
-changes in v12
-  - Moved the TX credit threshold API and the RX cut-through
-    quirk out of the S2500 driver patch.
-  - New patch in v12.
----
- Documentation/networking/oa-tc6-framework.rst | 20 +++++++++
- drivers/net/ethernet/oa_tc6/oa_tc6_main.c     | 62 +++++++++++++++++++++++++++
- drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h  |  1 +
- include/linux/oa_tc6.h                        |  7 +++
- 4 files changed, 90 insertions(+)
+ptp: disable all timestamp channels after removing the user interfaces
 
-diff --git a/Documentation/networking/oa-tc6-framework.rst b/Documentation/networking/oa-tc6-framework.rst
-index 558dc25038d3..2ce95ae58923 100644
---- a/Documentation/networking/oa-tc6-framework.rst
-+++ b/Documentation/networking/oa-tc6-framework.rst
-@@ -476,6 +476,9 @@ The quirk_flags field supports:
- 
- - OA_TC6_BROKEN_PHY: Leave MDIO bus registration and PHY connection to the
-   vendor driver instead of the framework.
-+- OA_TC6_CONFIG_RX_CUT_THROUGH: Enable receive cut-through in the CONFIG0
-+  register. It is ignored if the MAC-PHY does not report cut-through
-+  capability.
- 
- A zero value for vend1_mms means no Clause 45 ``MDIO_MMD_VEND1``
- mapping is requested; it does not select MMS 0. For any nonzero value
-@@ -519,6 +522,23 @@ Zero align receive frame feature can be enabled to align all receive ethernet
- frames data to start at the beginning of any receive data chunk payload with a
- start word offset (SWO) of zero.
- 
-+.. c:function:: int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, \
-+                                                   u8 thresh)
-+
-+Sets the minimum number of free transmit credits that must be available
-+before the MAC-PHY asserts the interrupt. The default is one credit
-+according to OPEN Alliance 10BASE-T1x MAC-PHY Serial Interface specification.
-+
-+The thresh argument is the encoded TXCTHRESH field value of the CONFIG0
-+register, not the credit count:
-+
-+- 0: one or more credits (default)
-+- 1: four or more credits
-+- 2: eight or more credits (OA_TC6_CONFIG0_TXCTHRESH_8)
-+- 3: sixteen or more credits
-+
-+A value above 3 does not fit the field and fails with -EINVAL.
-+
- .. c:function:: int oa_tc6_ptp_register(struct oa_tc6 *tc6, \
-                                         struct ptp_clock_info *info)
- 
-diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
-index 228cc2a3dc2d..c078f22c32d6 100644
---- a/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
-+++ b/drivers/net/ethernet/oa_tc6/oa_tc6_main.c
-@@ -289,9 +289,29 @@ static int oa_tc6_update_standard_capability(struct oa_tc6 *tc6)
- 		return ret;
- 	if (regval & OA_TC6_STDCAP_FTSC_CAPABILITY) /* Timestamp */
- 		tc6->ftsc_capable = true;
-+	if (regval & OA_TC6_STDCAP_CTC_CAPABILITY) /* Cut-through */
-+		tc6->ctc_capable = true;
- 	return 0;
- }
- 
-+static int oa_tc6_rx_cut_through_enable(struct oa_tc6 *tc6)
-+{
-+	u32 regval;
-+	int ret;
-+
-+	if (!tc6->ctc_capable)
-+		return 0;
-+
-+	ret = oa_tc6_read_register(tc6, OA_TC6_REG_CONFIG0, &regval);
-+	if (ret)
-+		return ret;
-+
-+	/* Set Receive Cut-Through Enable */
-+	regval |= OA_TC6_CONFIG0_RXCTE;
-+
-+	return oa_tc6_write_register(tc6, OA_TC6_REG_CONFIG0, regval);
-+}
-+
- static __be32 oa_tc6_prepare_ctrl_header(u32 addr, u8 length,
- 					 enum oa_tc6_register_op reg_op)
- {
-@@ -1618,6 +1638,36 @@ int oa_tc6_zero_align_receive_frame_enable(struct oa_tc6 *tc6)
- }
- EXPORT_SYMBOL_GPL(oa_tc6_zero_align_receive_frame_enable);
- 
-+/**
-+ * oa_tc6_tx_credit_threshold_set - function to set the minimum number of free
-+ * transmit credits needed before the MAC-PHY asserts the interrupt.
-+ * @tc6: oa_tc6 struct.
-+ * @thresh: transmit credit threshold field value, e.g.
-+ *	OA_TC6_CONFIG0_TXCTHRESH_8.
-+ *
-+ * Return: 0 on success, -EINVAL if @thresh does not fit the TXCTHRESH
-+ * field, otherwise a negative error code from the register access.
-+ */
-+int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, u8 thresh)
-+{
-+	u32 regval;
-+	int ret;
-+
-+	if (thresh > OA_TC6_CONFIG0_TXCTHRESH_16)
-+		return -EINVAL;
-+
-+	ret = oa_tc6_read_register(tc6, OA_TC6_REG_CONFIG0, &regval);
-+	if (ret)
-+		return ret;
-+
-+	/* Set Transmit Credit Threshold */
-+	regval &= ~OA_TC6_CONFIG0_TXCTHRESH_MASK;
-+	regval |= FIELD_PREP(OA_TC6_CONFIG0_TXCTHRESH_MASK, thresh);
-+
-+	return oa_tc6_write_register(tc6, OA_TC6_REG_CONFIG0, regval);
-+}
-+EXPORT_SYMBOL_GPL(oa_tc6_tx_credit_threshold_set);
-+
- /**
-  * oa_tc6_start_xmit - function for sending the tx skb which consists ethernet
-  * frame.
-@@ -1779,6 +1829,18 @@ struct oa_tc6 *oa_tc6_init(struct spi_device *spi, struct net_device *netdev,
- 		return ERR_PTR(ret);
- 	}
- 
-+	/* Cut-through bits must be configured before SYNC bit is set
-+	 * in CONFIG0 register.
-+	 */
-+	if (tc6->quirks.quirk_flags & OA_TC6_CONFIG_RX_CUT_THROUGH) {
-+		ret = oa_tc6_rx_cut_through_enable(tc6);
-+		if (ret) {
-+			dev_err(&tc6->spi->dev,
-+				"Failed to enable RX cut-through: %d\n", ret);
-+			return ERR_PTR(ret);
-+		}
-+	}
-+
- 	ret = oa_tc6_unmask_macphy_error_interrupts(tc6);
- 	if (ret) {
- 		dev_err(&tc6->spi->dev,
-diff --git a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
-index cc7cda673f1b..245a1b316395 100644
---- a/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
-+++ b/drivers/net/ethernet/oa_tc6/oa_tc6_std_def.h
-@@ -140,6 +140,7 @@ struct oa_tc6 {
- 	struct list_head ttsc_skb_list;
- 	struct ptp_clock *ptp_clock;
- 	bool ftsc_capable; /* Timestamp capability */
-+	bool ctc_capable;  /* cut-through capability */
- 	u64 tx_hwtstamp_pkts;
- 	u64 tx_hwtstamp_lost;
- 	u64 tx_hwtstamp_err;
-diff --git a/include/linux/oa_tc6.h b/include/linux/oa_tc6.h
-index f34ed8218a7c..35b536741d01 100644
---- a/include/linux/oa_tc6.h
-+++ b/include/linux/oa_tc6.h
-@@ -20,6 +20,7 @@
- /* Standard Capabilities Register */
- #define OA_TC6_REG_STDCAP			0x0002
- #define OA_TC6_STDCAP_DIRECT_PHY_REG_ACCESS	BIT(8)
-+#define OA_TC6_STDCAP_CTC_CAPABILITY		BIT(7)
- #define OA_TC6_STDCAP_FTSC_CAPABILITY		BIT(6)
- 
- /* Reset Control and Status Register */
-@@ -30,6 +31,10 @@
- #define OA_TC6_REG_CONFIG0			0x0004
- #define OA_TC6_CONFIG0_SYNC			BIT(15)
- #define OA_TC6_CONFIG0_ZARFE_ENABLE		BIT(12)
-+#define OA_TC6_CONFIG0_TXCTHRESH_MASK		GENMASK(11, 10)
-+#define OA_TC6_CONFIG0_TXCTHRESH_8		2	/* 0b10: >=8 credits */
-+#define OA_TC6_CONFIG0_TXCTHRESH_16		3	/* 0b11: >=16 credits */
-+#define OA_TC6_CONFIG0_RXCTE			BIT(8)
- #define OA_TC6_CONFIG0_FTSE_ENABLE		BIT(7)
- #define OA_TC6_CONFIG0_FTSS_64BIT_TSTAMP	BIT(6)
- #define OA_TC6_CONFIG0_PROTE			BIT(5)
-@@ -82,6 +87,7 @@ struct oa_tc6;
- 
- enum oa_tc6_quirk_flag {
- 	OA_TC6_BROKEN_PHY = BIT(0),
-+	OA_TC6_CONFIG_RX_CUT_THROUGH = BIT(1),
- };
- 
- struct oa_tc6_quirks {
-@@ -104,6 +110,7 @@ int oa_tc6_read_registers(struct oa_tc6 *tc6, u32 address, u32 value[],
- 			  u8 length);
- netdev_tx_t oa_tc6_start_xmit(struct oa_tc6 *tc6, struct sk_buff *skb);
- int oa_tc6_zero_align_receive_frame_enable(struct oa_tc6 *tc6);
-+int oa_tc6_tx_credit_threshold_set(struct oa_tc6 *tc6, u8 thresh);
- int oa_tc6_mdiobus_read_c45(struct mii_bus *bus, int addr, int devnum,
- 			    int regnum);
- int oa_tc6_mdiobus_write_c45(struct mii_bus *bus, int addr, int devnum,
+This patch changes ptp_disable_all_events() to disable every EXTTS channel
+below n_ext_ts, not just the channels that have a PTP_PF_EXTTS pin
+assigned. It removes the timestamp-disable loop that ptp_ocp_detach() ran
+before unregistering and leaves the final shutdown to the core. It also
+changes ptp_ocp_ts_enable() so that a disable on an empty PPS
+subscription map still reaches the register-disable path.
+
+Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
+Link: https://lore.kernel.org/r/4e42134b-b017-4836-9772-9c1915b16e77@linux.dev
+
+> The source-derived ASan/UBSan tests exercise late and in-flight enables,
+> the early-disable/map race, concurrent sysfs/ioctl requests, active IRQ
+> draining and shared PPS users.
+> KUnit tests exercise real PTP registration and unregistration in QEMU
+> with KASAN and lockdep, using a test callback without physical hardware.
+
+[Severity: Low]
+Where can these tests be found? They are not part of this patch or the
+series, and drivers/ptp/ has no KUnit infrastructure.
+
+The patch also changes how ptp_ocp programs its registers: the shared PPS
+shortcut in ptp_ocp_ts_enable() and the removed disable loop in
+ptp_ocp_detach(). Was this tested on TimeCard hardware?
+
+Documentation/process/maintainer-netdev.rst says:
+
+  If the bug is in a hardware driver, the testing statement must include
+  information about the HW on which the fix was tested.
+
+The changelog says Codex revised the code and tests.
+Documentation/process/coding-assistants.rst asks that the changelog say
+so explicitly when a fix could not be tested.
+
+Could the changelog name the hardware that was used, or state that
+ptp_ocp was not tested on hardware?
+
+> diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
+> index f63b45f5ee6ae..193e6baf2b475 100644
+> --- a/drivers/ptp/ptp_chardev.c
+> +++ b/drivers/ptp/ptp_chardev.c
+> @@ -53,11 +53,9 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
+>  	unsigned int i;
+>  
+>  	mutex_lock(&ptp->pincfg_mux);
+> -	/* Disable any pins that may raise EXTTS events */
+> -	for (i = 0; i < info->n_pins; i++)
+> -		if (info->pin_config[i].func == PTP_PF_EXTTS)
+> -			ptp_disable_pinfunc(info, info->pin_config[i].func,
+> -					    info->pin_config[i].chan);
+> +	/* EXTTS requests do not require a pin assignment. */
+> +	for (i = 0; i < info->n_ext_ts; i++)
+> +		ptp_disable_pinfunc(info, PTP_PF_EXTTS, i);
+
+[Severity: Low]
+Can this reconfigure hardware on drivers whose EXTTS disable callback has
+side effects? ptp_disable_all_events() now calls the EXTTS disable for
+every channel. It does this whether or not a pin is assigned to EXTTS,
+and whether or not the channel was ever enabled.
+
+sja1105 sets n_pins = 1 and n_ext_ts = 1. Its single PTP_CLK pin is
+shared between EXTTS and PEROUT. sja1105_extts_enable() switches the pin
+function before it checks on:
+
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_extts_enable() {
+    ...
+	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
+	if (rc)
+		return rc;
+
+	priv->ptp_data.extts_enabled = on;
+    ...
+}
+
+sja1105_change_ptp_clk_pin_func() treats the pin as PEROUT when
+cas_master is set, and always does so on E/T parts:
+
+drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_change_ptp_clk_pin_func() {
+    ...
+	if (priv->info->device_id == SJA1105E_DEVICE_ID ||
+	    priv->info->device_id == SJA1105T_DEVICE_ID ||
+	    avb->cas_master)
+		old_func = PTP_PF_PEROUT;
+    ...
+	avb->cas_master = (func == PTP_PF_PEROUT);
+
+	return sja1105_dynamic_config_write(priv, BLK_IDX_AVB_PARAMS, 0, avb,
+					    true);
+}
+
+On teardown the call chain is now:
+
+sja1105_teardown()
+  sja1105_ptp_clock_unregister()
+    ptp_clock_unregister()
+      ptp_disable_all_events()
+        ptp_disable_pinfunc(info, PTP_PF_EXTTS, 0)
+          sja1105_extts_enable(on=false)
+            sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS)
+              sja1105_dynamic_config_write(BLK_IDX_AVB_PARAMS)
+
+This switches a pin that is running PEROUT into EXTTS input mode, and
+rewrites the AVB params table over SPI.
+
+On SJA1105E/T this happens on every teardown, even though
+sja1105_ptp_verify_pin() rejects PTP_PF_EXTTS on those parts. Before this
+patch, the path ran only when pin_config[0].func was PTP_PF_EXTTS.
+
+The core also ignores the return value, so an SPI failure here goes
+unreported.
+
+Is this reconfiguration intended?
+
+[ ... ]
+
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index 625a85b2dc7e5..b16d36c3305f9 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+> @@ -2559,8 +2559,8 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
+>  		else
+>  			bp->pps_req_map &= ~req;
+>  
+> -		/* if no state change, just return */
+> -		if ((!!old_map ^ !!bp->pps_req_map) == 0)
+> +		/* Skip the register update while a subscription remains. */
+> +		if (old_map && bp->pps_req_map)
+>  			return 0;
+>  	}
+
+[Severity: Medium]
+Does this widen the race on pps_req_map at runtime? Before this patch, a
+disable on an already empty map returned early. Now it falls through to
+the register disable:
+
+	iowrite32(0, &reg->intr_mask);
+	iowrite32(0, &reg->enable);
+	...
+		synchronize_irq(irq_vec);
+
+The pps_req_map read-modify-write is not serialized against the register
+writes:
+
+  - extts_enable_store() and pps_enable_store() in ptp_sysfs.c call
+    ops->enable() without any lock.
+  - ptp_extts_request() and ptp_enable_pps() hold only ptp->pincfg_mux,
+    which the sysfs paths never take.
+  - ptp_ocp_enable() takes no driver lock.
+
+One possible interleaving, with TS5 never enabled:
+
+CPU A (echo '5 0' > extts_enable)     CPU B (PTP_ENABLE_PPS, 1)
+ptp_ocp_ts_enable(enable=false)
+  old_map = 0, map = 0
+  0 && 0 is false, continue
+                                      ptp_ocp_ts_enable(enable=true)
+                                        old_map = 0, map = OCP_REQ_PPS
+                                        iowrite32(1, &reg->enable)
+                                        iowrite32(1, &reg->intr_mask)
+  iowrite32(0, &reg->intr_mask)
+  iowrite32(0, &reg->enable)
+  synchronize_irq()
+
+The result is pps_req_map == OCP_REQ_PPS with the source masked and
+disabled. PPS and EXTTS index 5 events would stop with no error. The
+debugfs summary would show the source as off while the map still shows a
+subscription.
+
+The commit message acknowledges this race:
+
+  An overlapping extts_enable sysfs request and ioctl can leave an empty
+  map with the source enabled.
+
+However, only teardown is made to tolerate it. Would a driver mutex held
+across the pps_req_map update and the register programming be more
+robust? It would need to be a mutex rather than a spinlock because of
+synchronize_irq(). With that lock in place, the original transition-based
+shortcut would also be correct again.
+
+[ ... ]
 
 -- 
-2.43.0
-
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-timecard-common-v3-33316bf475-0-ahmadexp%40gmail.com
