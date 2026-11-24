@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544989;
-	b=YdQI7ZwJw6YYkM4FMSdAQ2XWy+lBdjFw7JkF7XFJH2XyHSHdSbCAM7T/bVmP6jVjLfpC
-	 bHvyCseKnowP03hPL8qgRVUMHH3fctFipuVBVVJC9/aRKel4xXNeI/V65ic1kGvTp4mSq
-	 r1A22pS8YwhnkLRHeTjJjgGNJxbGrZxnJ2XkyXUpRxz4XGjk3uBTfPSwpmJC2lYIAWmwn
-	 7gYl2Zy7Hz+/p5jJ7YYl0ga76cTNyKHYy9KTpImn3mgdDCnQ+6qZGPzuH8QGUx4uU3s8W
-	 j5knrkrOydb6L4Wj/xAfogqvxhI26FUp7AAsS96UUeFck0hQl0ttOJzOwsqA6WSNNFw==
+	t=1795544990;
+	b=hgLAa94PkgRirKeoGlw3WKel50xiPdau1CLTBc2KNXLKcsQ0u2e1LyNRQ3NnNWoWM+mD
+	 S0WfWQOUm6I4Va3n2QTaNr6sfAvy2ruLiCOjrRQTNPBXDfW80b/pV+vcqUlYc0nz/OkUB
+	 4d9WGwW+PB1Ix6xDtcvMJglFAp8l6KAJ/qG1OO4YKlrhdT0zZpQScd3UVlZcWmsve0z+n
+	 C0sZ2EdBs7joRgFgStnfjbsZhl6e53r4wbMcLkR3kVeL3KJDdzJ8CmCBvSFPKmq/LBQq6
+	 wktj1SxvYHFn7E1hIBYljTWYXMcUHoUxJxx5ekr0oREK8RZF5QFph9QjncV3O+5mHuw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544989;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544990;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=LwPQvU8HFIEJxsVRsyJ8MuUH901uLz76RTZpffHbgbM=;
-	b=ARKyCo0j7MCELOcegS7eyGUw1nVfJcda/wBYBdSS4f6yjr5d2B5VRsWrHS/j0VXam6eZ
-	 nV090AcUjjLVJJo1LRhSKgTA/FyX8gg6HbXnR9ykah4kGZecnUVriAwbuXx3FtqJAg3JV
-	 x3nRGNu5pt82WtOoEKpdF+FmqeuiB8iUUz7g4r0rarjrN+1xR4qn4O8P2AvadiCz5LeJl
-	 qS5P9kK2NQn65PlvOdDdFSGxHpNL7vucyVCYPsDLNiXpvwud5xWmQGW1LjUT5dv8fgK4K
-	 HzoUKkMflH4xV6PUN6SZA3TbDvc6Pv7Uxp8BdOp3amsErvr/pztjFATym6ACbg5iIxw==
+	bh=uvYXo1NJZ7jtDItBpveJ0v8RtdeC1Qmy4w+lOr2nbiQ=;
+	b=TjxRHlwXhYhR8IzNVW57L7GyonednfE2jiJP96vC0+9Va7XXc1JEwQ34NhYToKqeMynf
+	 itetg8e5pgHpjx0GZPmhN55K0BJg+OIcEMbieX1u/vxT8FS1mtGcfgNLqWDE31uSCEkqZ
+	 25C0MVnZmNHjHX4Njy7IoMAhy9YA/gCCxe7URe3Eal0i5TbE0e51Z51aROvltSEm6XJe1
+	 YkWzPubm2ORlWUtBxelMidUfFV2eUm3+vVshNlWaD5xrwuLg7tfYDEdKRS2SHcxb2pkTi
+	 cjTk+0fs+pTBAliCIrSWBvdadQPqjNUGZOZ+BYhdxz4PHIkTvpIwNYM7cqStZ9vaMBA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cTiQtxxG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oDyIWWNT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0BCBE606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 727DD606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:50 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cTiQtxxG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EEE3A1F000C0;
-	Tue, 24 Nov 2026 18:29:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=oDyIWWNT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70CEA1F000C0;
+	Tue, 24 Nov 2026 18:29:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795544988;
-	bh=LwPQvU8HFIEJxsVRsyJ8MuUH901uLz76RTZpffHbgbM=;
+	s=k20260515; t=1795544990;
+	bh=uvYXo1NJZ7jtDItBpveJ0v8RtdeC1Qmy4w+lOr2nbiQ=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=cTiQtxxG+SQwGLzgaWSz6U0Ljmo9ape9xdV2ZhteUS38A3Y9hid3TtP+oUjzQCQry
-	 uKh3ZbwGpI2Ai6+lJtMjfNPt/r/hujbTIOfa3HUkvAehrPFdi9wfkLshzks8m55CxH
-	 r669/68/CbUjgTJTyGQf+NlNq4klB547cdDR2JZHGfeEQqCVUYassN9w2SA9ZF3x+5
-	 pJX9ZDycRYeNDMQv8tOLX7yjGdbMLToLm3n+01w57jvQkrp16n2DO6AypIbmTfdkR1
-	 EBSLKBKo5K5YGSOP0XM1daMB/fZID5VSMJv5jPwdVX3UGyhSJYuQfA47RKZOuoLauj
-	 vtjWckPMVqOjw==
-Subject: Re: [PATCH net-next v9 01/14] net: ethernet: cortina: Keep shared
- free queue parent-owned
+	b=oDyIWWNTrE7mNaVlu+wkp6GTdeQ8PVuK4I5gySSSQo9bETMwFDut815mfoJ4cf1Qr
+	 dWydAYNErdR8/GF+5kspzxpvsTpxHugYSuIGbnzGPKEVCn90Ox+BQnhyJJY+kk60s2
+	 LsM+Pm9PrTnPgIH93aTKIWJdljFlRep6kR50k+cVdsm3QuFHK1YxJQUXdM4wLOml/c
+	 OMLVvYAf7QHp0JIfEI9fQJhiUa8BJ5J/reZJzU3PjnpDmBcQODnccWAGP61P4wHCxS
+	 SIZQeHU6a0xoXN1Zmr53ZoRsxK1jSih1OClbfxKKjtwExgn8hB2vViMyRLmsE7cF1A
+	 qexjXdg4WdhVQ==
+Subject: Re: [PATCH net-next v9 02/14] net: ethernet: cortina: Keep ports
+ bound for shared IRQ
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:29:47 +0000
-Message-ID: <179554498743.3135.16883208999993946923@kernel.org>
-In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-1-298671d799d5@kernel.org>
-References: <20261120-gemini-ethernet-fixes-3-v9-1-298671d799d5@kernel.org>
-X-sashiko-severity: Low
+Date: Tue, 24 Nov 2026 18:29:48 +0000
+Message-ID: <179554498899.3135.2703515763788273993@kernel.org>
+In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-2-298671d799d5@kernel.org>
+References: <20261120-gemini-ethernet-fixes-3-v9-2-298671d799d5@kernel.org>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,125 +64,131 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] The commit message has Reported-by and Closes tags but no Fixes:
-  tag and no Cc: stable, even though the patch fixes user-triggerable…
-- [Low] gemini_ethernet_probe() now gets every available child's PCLK
-  with devm_get_clk_from_child() and enables it with…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In the commit "net: ethernet: cortina: Keep ports bound for
+  shared IRQ", gmac_setup_phy()…
+- [Low] The commit "net: ethernet: cortina: Keep ports bound for shared
+  IRQ" fixes user-visible bugs on in-tree boards but has no Fixes: tag…
 
 --
 
-net: ethernet: cortina: Keep shared free queue parent-owned
+net: ethernet: cortina: Keep ports bound for shared IRQ
 
-This patch makes the parent gemini-ethernet device the only owner of the
-shared software free queue. The parent now depopulates the port devices
-before it cleans up the queue, and it keeps the port clocks enabled itself.
-Each netdev is now unregistered before its PHY is disconnected.
+This patch keeps Gemini ethernet child ports bound as IRQ-only ports when
+no PHY is described or PHY setup fails. That keeps the shared free queue
+interrupt routed through port 1 available. Probe is deferred until
+referenced PHYs register, and ports are published to the parent under
+RTNL only once their setup is complete.
 
-Closes: https://lore.kernel.org/netdev/20260917192835.58126-1-mhun512@gmail.com/
+> The software free queue interrupt is routed through port 1 even on
+> boards which only connect a PHY to port 0. Since PHY setup was moved
+> into probe, the PHY-less port fails to bind and releases the threaded
+> handler needed by the shared queue.
+>
+> Publishing the port before PHY setup also leaves a dangling parent pointer
+> when probe fails and devres frees the netdev private data. Opening the
+> sibling can then dereference freed memory.
+
+[Severity: Low]
+This describes a use-after-free and a lost SWFQ interrupt handler. Both
+can happen on in-tree boards such as gemini-verbatim-s08v1901-d1.dts,
+where ethernet-port@1 has no phy-mode and no phy-handle.
+
+Before this patch, gemini_ethernet_port_probe() set geth->port1 before
+gmac_setup_phy() failed with -ENODEV. Devres then freed the port, and
+opening eth0 dereferenced the stale pointer in geth_resize_freeq():
+
+    other_netdev = geth->port1->netdev;
+
+Should this have a Fixes: tag and Cc: stable so stable backporters pick
+it up?
+
+The change behind "Since PHY setup was moved into probe" looks like
+3e813d61401a ("net: gemini: Clean up phy registration"). The ordering
+that leaves the dangling pointer goes back to 4d5ae32f5e1e ("net:
+ethernet: Add a driver for Gemini gigabit ethernet").
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index 3ed8b1ae0bbc2..f198e535f1a00 100644
+> index f198e535f1a00..4f27a48908b1a 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
 
 [ ... ]
 
-> @@ -2387,11 +2390,10 @@ static irqreturn_t gemini_port_irq(int irq, void *data)
->  static void gemini_port_remove(struct gemini_ethernet_port *port)
->  {
->  	if (port->netdev) {
-> -		phy_disconnect(port->netdev->phydev);
->  		unregister_netdev(port->netdev);
-> +		phy_disconnect(port->netdev->phydev);
->  	}
->  	clk_disable_unprepare(port->pclk);
-> -	geth_cleanup_freeq(port->geth);
->  }
-
-[Severity: Low]
-This isn't a bug, but should the commit message carry Fixes: tags, and
-maybe Cc: stable?
-
-The geth_cleanup_freeq() call removed from gemini_port_remove() here goes
-back to the original driver. gemini_ethernet_remove() also calls it, so a
-single parent unbind or module unload could run the cleanup up to three
-times.
-
-geth_cleanup_freeq() never clears freeq_ring. The later runs then call
-dma_free_coherent() and kfree() on memory that was already freed. Unbinding
-before any interface was opened also dereferenced the NULL freeq_ring.
-
-The phy_disconnect() before unregister_netdev() order was added later. With
-the interface up, it makes gmac_stop() call phy_stop(netdev->phydev) with a
-NULL phydev.
-
-Something like:
-
-Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
-Fixes: 3e813d61401a ("net: gemini: Clean up phy registration")
-
-Without these tags, stable trees that still have these bugs may not pick up
-the fix.
+> @@ -359,18 +361,51 @@ static void gmac_adjust_link(struct net_device *netdev)
 
 [ ... ]
 
-> @@ -2656,6 +2666,30 @@ static int gemini_ethernet_probe(struct platform_device *pdev)
->  		return PTR_ERR(geth->base);
->  	geth->dev = dev;
->  
-> +	/* Keep both port clocks enabled until the shared queue is torn down. */
-> +	for_each_available_child_of_node_scoped(dev->of_node, child) {
-> +		struct clk *clk;
-> +
-> +		if (!of_device_is_compatible(child, "cortina,gemini-ethernet-port"))
-> +			continue;
-> +
-> +		clk = devm_get_clk_from_child(dev, child, "PCLK");
-> +		if (IS_ERR(clk))
-> +			return dev_err_probe(dev, PTR_ERR(clk),
-> +					     "failed to get port clock\n");
-> +
-> +		ret = clk_prepare_enable(clk);
-> +		if (ret)
-> +			return ret;
-> +		ret = devm_add_action_or_reset(dev, gemini_ethernet_disable_clk,
-> +					       clk);
-> +		if (ret)
-> +			return ret;
-> +		clocks++;
+> +	} else {
+> +		phy_np = of_parse_phandle(dev->of_node, "phy-handle", 0);
+> +		if (!phy_np)
+> +			return -ENODEV;
 > +	}
-> +	if (!clocks)
-> +		return -ENODEV;
+> +
+> +	phy = of_phy_find_device(phy_np);
+> +	of_node_put(phy_np);
+>  	if (!phy)
+> -		return -ENODEV;
+> +		return -EPROBE_DEFER;
 
-[Severity: Low]
-Is the commit message accurate about this part? It says:
+[Severity: Medium]
+Can this defer forever when the phy-handle target never gets a
+phy_device? of_phy_find_device() returns NULL both for a PHY that is
+slow to appear and for one that never will. Some examples of the second
+case:
 
-  Hold parent-managed enables on the port clocks across child removal, IRQ
-  draining and shared queue cleanup, so teardown never relies on clocks
-  already released by the children.
+  - the PHY node referenced by phy-handle has status = "disabled", and
+    of_mdiobus_register() only walks available children
+  - the PHY does not answer at its address, so of_mdiobus_register()
+    logs "MDIO device at address %d is missing." and skips it
+  - the MDIO bus driver (such as mdio-gpio) is not built
 
-gemini_ethernet_probe() enables the clocks, and the matching
-clk_disable_unprepare() runs as a parent devm action. Both port clocks
-therefore stay on for as long as the parent is bound, not only during
-teardown.
+In gemini_ethernet_port_probe(), a deferral skips the IRQ-only fallback:
 
-The patch also adds new ways for the parent probe to fail, and the message
-doesn't mention them. Because of the "if (!clocks) return -ENODEV;" check,
-a parent with no available port children now fails to probe. Before this
-patch that probe succeeded and did nothing.
+	ret = gmac_setup_phy(netdev);
+	if (ret) {
+		dev_err_probe(dev, ret, "PHY init failed\n");
+		if (ret == -EPROBE_DEFER)
+			goto unprepare;
+		goto irq_only;
+	}
 
-The parent probe can also fail or defer if devm_get_clk_from_child() cannot
-resolve a child's PCLK, since it only does OF lookups. The child's own
-devm_clk_get() can fall back to clkdev lookups.
+so gemini_port_publish() never runs for this port. fw_devlink does not
+parse phy-handle, and the deferred probe timeout does not override a
+driver's own -EPROBE_DEFER. The port is therefore retried indefinitely.
 
-The in-tree gemini.dtsi provides "PCLK" for both ports, so in-tree boards
-don't hit these paths. Could the commit message describe these changes?
+Opening the sibling then fails every time:
+
+gmac_open()
+  geth_resize_freeq()
+    if (!geth->initialized || !geth->port0 || !geth->port1)
+        return -ENODEV;
+
+gmac_open() treats this as fatal ("could not resize freeq", goto
+err_stop_phy), so the sibling interface never comes up.
+
+The commit message says ports stay bound when PHY setup "fails
+permanently, so an unusable interface does not disable its sibling".
+Isn't a PHY that never registers that kind of permanent failure? In
+this case the unusable port still disables its sibling.
+
+Could something like driver_deferred_probe_check_state(), or a fallback
+to irq_only after the deferred probe timeout, handle the permanent case
+here? The behaviour looks the same at the end of the series:
+gmac_setup_phy() still returns -EPROBE_DEFER and the probe still takes
+goto unprepare.
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5%40kernel.org
