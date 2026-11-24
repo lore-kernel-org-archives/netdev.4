@@ -1,104 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500051;
-	b=XKgeJ+RhlpH5dUzZL1i1AWyZccimOtaWY/etvWFMsO+aTb/yoJJ5a/CyObx1VPs5L9AM
-	 P4ND6guAKcle+VEPfa4q992kwgHEmhbSljnjoWXW5XV4uw2dB2Iap5xkXylpgKtIs5E1D
-	 96uYpsBMbtUl1eqWuFR8Cp1MP7ecwo6uC3KGVqgi7Sv9QS+W2lzKJqobEhSgLsT+MUp/R
-	 +lQpxBRl6oC9ZywIr8IpIIde6WMlF+fjX/Px61//5aJbFWtN9ypFdWizHixU71aq9U/xs
-	 e9haWhC1bGKtm0zBDB9hRJaCKccNHEdgxoS7k7wMju8Wn/yc0B6VKGF3DqH4Bksqssw==
+	t=1795500102;
+	b=uMpssyCQ4qzOA4mWK7Njs9ffZppnmId+AlYM29el+jVWEmCGzO8vt4SX5U3aHViPmdHQ
+	 LgXQ2lo06iUGXuWPoso+E2UsSYMqoCLPk6QK5e9zoSOryjOauvDgPxOBOoyonmAIzXI+J
+	 LYl2Cmox5cZuFVtjSM4jgyH1O6WbsJHsYwW506BoBS9qPlo810/fFw+Dp4iblcJPSjN/i
+	 NVQ3a6lRKZRI0x9RUaMJ0G1srpNXxqoqX7hAnTciXx/2ba93JFdphwz3PnvZS/dPP883D
+	 i4Ytro+/e2Ox1W9KPvIES2fiRQ84yBOOk7vjLJDEkIRA0JwbhTUdPJkGRwBA7/qDPcA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500051;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500102;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Subject:In-Reply-To:References:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-	b=OtUvxKwqseiMeRQd1iv7DwBI0BfplRCXnYbbmY/3Cp3zcH2zJPmTxnngLjOy5B0x/xtt
-	 2ftqHNKZRqRTQMAADvsjtrKVZjLlKuGJ1jQdVtFRlEamITwvctRYZgvSLb2rknq5IDT43
-	 G/RrkCDSPGKlTND6ATGo7vBuvLBxk4t4sliqEdZjE0sHZ7DU6fm/LO739/aT3UvgThxFq
-	 aOlSbYek/mSCMgUwm9ln78V8T5Ai54Elzjm9xVXjmmDVaGAA/Y9eytYzdIfTpQ3NtTIY1
-	 f1lHqyJScPfVQJDf23fL/i6wlChCaPuIuc25jVHNpX9MHZtBUIXSoD7Ba//XleedkgQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=YLWBcnjpHzaKWxBReMI58+o9to+w6VCplIwRTps6okE=;
+	b=mc9w4nrHvWFVtuCbr4wttWlhT5GAJTA0Tc5OrzfzdKLECa5tCJ8pTJ8paGm9AL0bFK/+
+	 RW5Gxlx2cosMISgNzUCUeLnBDGeuhGxo21fiJUv2/fUaXH+9xvzo3tO/nm5rtiR/IVUy/
+	 201thX1xYQX9E+Yp9pxehsvIRcAuwLxbRYZ7uGchvWZ/cfnNIVvduiT33YHR7wpMG+ECm
+	 Z7biMlQRisSUDz0XzNhOqLnWemZJipoJYfp7FdTjiDtK6ql271wS2WWRdnoxVCKm6N5Pf
+	 q20sMmfC3jHlaKjB++o6XoOddOw9A4Trv1d7m8lNjofGTZl81k1nH5iJCiY44s98KGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1+Zpv7v;
-	arc=none smtp.remote-ip=209.85.210.181
-Received: from mail-pf1-f181.google.com (mail-pf1-f181.google.com [209.85.210.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pdobrAK0;
+	arc=none smtp.remote-ip=74.125.82.176
+Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3EAE606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:00:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3EAE606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5FB7606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:01:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5FB7606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=q1+Zpv7v
-Received: by mail-pf1-f181.google.com with SMTP id d2e1a72fcca58-8c6c06b3321so3191096b3a.3
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:00:50 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pdobrAK0
+Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso8914003eec.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 22:01:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795500050; x=1796104850; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:to:from:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-        b=q1+Zpv7vRdLuNryjubIcK9p1C6hYtJyM8s4Ya+V8PgQONvpdTC7Ua853SGJTsIUcXQ
-         M0pFVL8Do2Ry2wiXUj3cxeKtoqtmO0eJBjUj9twM08oj3aaj/1mWJSU3N4CXDAYxBpCK
-         on+bdLfyiTexuyK1b6zmgwGoqKXFL4GeCN4DTr+jWK4djxI0BL1/DadGxeBp6DK7jASk
-         tRKgLLfGrF8S9KN1UlG+krPmugZz0AWnplxbg1kncJbcJLBXntvKA8UjrUbEBTdBxIUf
-         JruoLYhZMGVzT+PZrzx9sT1rk+fc369T12hC6PaBt2ez90GghipDT83vmsUcG8y9Od5P
-         M7qA==
+        d=gmail.com; s=20260707; t=1795500101; x=1796104901; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YLWBcnjpHzaKWxBReMI58+o9to+w6VCplIwRTps6okE=;
+        b=pdobrAK0hUrL3+ecyic0D/QiuOsi/ozJVmh/ToQhxe9HaIGxw1YYO+fc/0+peCaS47
+         4hSHcdlAZXP5b03DQEnqltRsl1I/eq7uVdLs5moM2t/x1fBxDYnGM719vJ4OFZfxEkpw
+         SgY9LDDGwi1qfz4JuZfnxwvkpG6LGZFZBI4ZxtXWXtcy7zne4piXiE+LmtaEPpj3p5Yq
+         99pjXeg3SWcYmmB91cvLUdZ+7K/ufSdrARpOXaM00FsJlhW5rTUANGBwf6sQMarxVlgi
+         xUW5qJA3DX3LIY8oA8sFwRGp6J38AOe++pix4m4DHzKoCnO933Ux4dqFvT6mRPKmdpCI
+         ac+Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795500050; x=1796104850;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:to:from:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/SLHfkNsrCjSRx5Wz9p+DTV861mq73QFj5nkNZKg5lU=;
-        b=zkGDWADaMxcyTJtQ95kb2+j7oqmDGdeVeh79c3FpF5yoAJP76rM9glkuTuhnVmT51d
-         1iYsrZGj7LhX1A8MYnpx0YR7gi+tZ9YYYqNUw1opdepuGn0RL+z7JnjWohlRuzB2emmF
-         QHW5VinpDZBhui0Ct21Mf5ozD4/rbMxf/QP+s4Z8aqqZ9gN+K1XTlKOgp5+Qfu3VP5DY
-         tsSKl4wZLBvXFsvhDXYf6zmgkqqtZRX23pTXLJEssC1d4ZkoRJna4vDwd1DyiqgRtOYa
-         wRELdEk/c3rTy/paCE8b9LFrhDliXiKKdnmH0YQWI+/TF/KCvGF9s3YlEWx/TcbdeYTk
-         Oo5w==
-X-Forwarded-Encrypted: i=1; AL+hErGmEEeOyMeKkTvvTvQq99SxKfErYCQlXkcrUF9iCEKk6IMV+5wxC3o0LrgiE68OnCZIqMEVHTc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8KvPiUj9DJTxf4YgVGUXIKtUS0EasBy1/uArHtcB0Kww6XGWrz
-	CuD+MSq/KR50c/OiAytPZlRgW3bhHFdeupRvYG/YLxXnCZVqYBmlOqwT
-X-Gm-Gg: AZFdTZcshvuhfXBLbgtGwpltzp0S+a9WckbBD/T/Cr+eXvFwu2fxyeuB1aS6Mca+pRb
-	jxvT9SmoU/R3CqmNY+xq8PzZDkjaLoYNzu7i7y5r1ODNs6aI/UrB2qpFCAl+czEK6uekZ+OlMsp
-	ticeagO78UqkVuOQqiiO9LtaRLKauhWm1Hprv1Iuwv0thHNOAt7LmzqCvZ/oai4PFpMbmDxvNpi
-	YrHAW7RE/q4yRDLmcZrcIbOv9GfXzYfXXOpPNQKcH8rLW9Ndh/SnEyJ2QMzyIky4UhmD+ZvZsSD
-	vlKFRl/Lmug2CFYEAkpwPKS9udrq5eqqcpqS/gNjj+VXZYtAvzgm9U1u+hzEmHtj/mn22eboDTy
-	LjmRzwE5NjG1CJ+d03RXkengfEfVnePbC9acwTXVkWd7wnpDshHH54daThxsobebX1yOOZXWxrE
-	EOjU+Wa03f3b4aK9kbLD5JFmPdaK+z3sZGvmAFWrvPVq1ka4UwECnkE1c5uY5U6OyeGHQcFzs2o
-	pX6PONXyOZ8/F9AbXltfUkI+MmtP3Qe+aUXYgTvHQ8ZzUfdp86LX45cK0wt/xyLjRaoK7sJGyt3
-	dqmzFi+/H+KOWuPdgRAZvWTOZS8JGJCVxsYuk94ez0WuoAytuf716gccTFvG1swCSqDDO9GPm5K
-	swLh8Z5Jy0FTX2UGasl+lgPTamph2LjYdpds=
-X-Received: by 2002:a05:6a21:780a:b0:3e2:8b64:2ca0 with SMTP id adf61e73a8af0-4014d35f1bamr11982201637.49.1795500050075;
-        Mon, 23 Nov 2026 22:00:50 -0800 (PST)
-Received: from localhost ([153.61.198.255])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d03adafsm6596544a12.23.2026.11.23.22.00.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 22:00:49 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 06:00:49 +0000
-Message-Id: <DN37NBGPJJG9.2DSVDCKS3UYTV@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "syzbot" <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com>,
- <akpm@linux-foundation.org>, <andrii@kernel.org>, <bpf@vger.kernel.org>,
- <brauner@kernel.org>, <daniel@iogearbox.net>, <jack@suse.cz>,
- <jmorris@namei.org>, <linux-fsdevel@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <linux-mm@kvack.org>,
- <linux-security-module@vger.kernel.org>, <netdev@vger.kernel.org>,
- <paul@paul-moore.com>, <penguin-kernel@I-love.SAKURA.ne.jp>,
- <serge@hallyn.com>, <syzkaller-bugs@googlegroups.com>,
- <takedakn@nttdata.co.jp>, <jhs@mojatatu.com>, <netdev@vger.kernel.org>,
- <tomoyo-users_en@lists.sourceforge.net>, <viro@zeniv.linux.org.uk>
-Subject: net: act_gate bug. was: [syzbot] [tomoyo?] [mm?] INFO: rcu detected
- stall in security_file_ioctl (9)
-In-Reply-To: <6b051681.58b41460.7037.0590.GAE@google.com>
-References: <6b051681.58b41460.7037.0590.GAE@google.com>
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20260707; t=1795500101; x=1796104901;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YLWBcnjpHzaKWxBReMI58+o9to+w6VCplIwRTps6okE=;
+        b=jYUCRUx2+kLfyRzCSclkrAw4Yhcr9/M0zVodkw1jPSSc9oTIjMI7gaosqLe4Foec2/
+         djOAHjDIzQrgUiUecGAdXqxcF6MGhBS6gfwGosvYnRtdghCcq76Tm1z+Gpz4tT/JkmeS
+         Qub6NJggiL3i/jNRSxIlGg19UDbX9+9541Y7UlZYkQPMylvQgzDIS9xl/oLKuGNpfzgs
+         AMmRys8f0qyJV6Kwhg04B3NUw9g9/y/LEAgc8yyQNZrrdyxoHL6gfi2c3UvpG2vrWyuT
+         jfvg3KquvzpZ0UdSt9w/Gby6nYIkFvLYWYklY2w9n3gWG373cmP0sVJT/f5zeA61Bg48
+         mTRA==
+X-Gm-Message-State: APuU4Z+7IXqC5U9ThgYFBuT5FtgXSroasAm7Uzi9QLzIxZh9x9Gay9df
+	tRBiBV+tekIUxz9gyi4fFRUmb76QZiJs9u+TEyT0H/uUvwPIHxRrJ0tSfN6tiQ==
+X-Gm-Gg: AZFdTZfQbKGg5III1ZkX2M5Shw9CCZH84z/STgKZQHbbp2uYCrH7HaGB8aZBxC1Bl03
+	BV+XbVAJc7/K6g9i1QK7VgC85xJrjUUvN1e1tox+ezLjcy4diZW6Ev8vGBHv8rteCDrzCdZ+3na
+	PdWIvG/SxeY2uq+axfdc+Hk+De69n6knMgpsnDPUxxcuu4NlFMuCW6gt82bWlRykTaaffP2ULMi
+	Lh4hYExM0EjFLBYemmK0Pta7yvXXISjU2rO368t8UZsXjYalSISs76VVU4YjjLIBemdNhygGoe5
+	D3Ei3ae86/T24LDRk67BlIALZYjH4O2GbghjQr4d/CWWVQL5HkVpBm9zJ4/f+1vCVWf4ra515Vl
+	KbMkNPt0WA8iuIMP4Vcvk3P8ZlFqWqofy4UahTQLuU0fMgnbImltDwsQ5BTVmXyviUaZXQC/p/2
+	c8ouvAJq/j2BZ3xKWkJsICecqzG42qPl7VhbUtuGn0eSaVWVHSy6AkS2UPoRW23I+UoPZEksWP3
+	DcZR67gB3ffkKCrxQ1gt96nNo6azSHRfo/MKYDVmqBXcc6lRW0JoXbGau6Qytb53koyVMxcWq+P
+	jtN+qGpDj0nXoNGBVzadCkhVYcdEtwNuyrQdrhRxMrS3pka8+IsgmZohgLAAgxv8X3EUgjYXCKP
+	hcJvTIMIAwqcMZjMv/Vf5gF/wZloFWiJBv70YLj15K2RQ
+X-Received: by 2002:a05:693c:62c3:b0:386:a9f4:2d49 with SMTP id 5a478bee46e88-386a9f42e68mr6229535eec.36.1795500100864;
+        Mon, 23 Nov 2026 22:01:40 -0800 (PST)
+Received: from l ([2603:8002:ea00:6800:e2af:cae4:df96:350])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm44774006eec.14.2026.11.23.22.01.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 22:01:40 -0800 (PST)
+From: Dave Seddon <dave.seddon.ca@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Dave Seddon <dave.seddon.ca@gmail.com>,
+	Stephen Hemminger <stephen@networkplumber.org>,
+	David Ahern <dsahern@kernel.org>
+Subject: [PATCH iproute2] ip xfrm: copy only the mark payload in deleteall
+Date: Mon, 23 Nov 2026 22:01:39 -0800
+Message-ID: <20261124060139.3393511-1-dave.seddon.ca@gmail.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,90 +94,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 08:45 PM syzbot <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com> wrote:
-> rcu: 	         hardirqs   softirqs   csw/system
-> rcu: 	 number:     5264          0            0
-> rcu: 	cputime:      138      52351           25   ==> 52490(ms)
+deleteall copies XFRMA_MARK with rta_len, which includes the attribute
+header, so each delete request carries four extra bytes. Use
+RTA_PAYLOAD().
 
-It's not tomoyo, mm or bpf. Looks like act_gate.
-Zero new softirqs in 52 sec, so one hrtimer_run_softirq() doesn't return.
+Fixes: 0c7d651b38d6 ("xfrm_{state, policy}: Allow to deleteall polices/states with marks")
+Assisted-by: Claude:claude-opus-5-5
+Signed-off-by: Dave Seddon <dave.seddon.ca@gmail.com>
+---
+ ip/xfrm_policy.c | 2 +-
+ ip/xfrm_state.c  | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
 
-> RBP: ffff88807ed35538 R08: ffffffff91be1bbf R09: 1ffffffff237c377
-> R10: dffffc0000000000 R11: fffffbfff237c378 R12: ffff8880b8228600
-> R13: ffffffff89fd0480 R14: ffff8880b8228600 R15: 1ffff1101704514a
-
-The registers with lockdep struct sizes:
-
-  reg       value             points to
-  --------  ----------------  --------------------------------------
-  R14       ffff8880b8228600  cpu_base
-  R15 << 3  ffff8880b8228a50  clock_base[HRTIMER_BASE_TAI_SOFT].seq
-  RBP       ffff88807ed35538  kmalloc-512 + 0x138, tcf_gate->hitimer
-
-act_gate has the only soft hrtimer that can be on CLOCK_TAI.
-bpf_timer_init() rejects that clock.
-
-TCA_GATE_CYCLE_TIME is an unchecked u64. In gate_timer_func():
-
-  n = div64_u64(ktime_sub_ns(now, base), cycle);
-  close_time = ktime_add_ns(base, (n + 1) * cycle);
-
-With base = 0 and cycle = U64_MAX, n is 0 and close_time is -1.
-The timer restarts in the past and __hrtimer_run_queues() runs it again.
-It's there since
-commit a51c328df310 ("net: qos: introduce a gate control flow action").
-
-Jamal,
-taprio's INT_MAX limit doesn't fit. tdc uses cycle-time of 600 sec.
-The diff saturates the sum instead.
-Here is a potential fix:
-
-diff --git a/net/sched/act_gate.c b/net/sched/act_gate.c
-index 711cf24..5422d60 100644
---- a/net/sched/act_gate.c
-+++ b/net/sched/act_gate.c
-@@ -45,8 +45,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
- 				const struct tcf_gate_params *param,
- 				ktime_t *start)
- {
--	ktime_t now, base, cycle;
--	u64 n;
-+	u64 cycle = param->tcfg_cycletime;
-+	ktime_t now, base;
-+	u64 rem;
+diff --git a/ip/xfrm_policy.c b/ip/xfrm_policy.c
+index 5261a292..1a41f2a9 100644
+--- a/ip/xfrm_policy.c
++++ b/ip/xfrm_policy.c
+@@ -783,7 +783,7 @@ static int xfrm_policy_keep(struct nlmsghdr *n, void *arg)
  
- 	base = ns_to_ktime(param->tcfg_basetime);
- 	now = gate_get_time(gact);
-@@ -56,10 +57,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
- 		return;
- 	}
+ 	if (tb[XFRMA_MARK]) {
+ 		int r = addattr_l(new_n, xb->size, XFRMA_MARK,
+-				(void *)RTA_DATA(tb[XFRMA_MARK]), tb[XFRMA_MARK]->rta_len);
++				(void *)RTA_DATA(tb[XFRMA_MARK]), RTA_PAYLOAD(tb[XFRMA_MARK]));
+ 		if (r < 0) {
+ 			fprintf(stderr, "%s: XFRMA_MARK failed\n", __func__);
+ 			exit(1);
+diff --git a/ip/xfrm_state.c b/ip/xfrm_state.c
+index dcd08d59..7e365b19 100644
+--- a/ip/xfrm_state.c
++++ b/ip/xfrm_state.c
+@@ -1203,7 +1203,7 @@ static int xfrm_state_keep(struct nlmsghdr *n, void *arg)
  
--	cycle = param->tcfg_cycletime;
--
--	n = div64_u64(ktime_sub_ns(now, base), cycle);
--	*start = ktime_add_ns(base, (n + 1) * cycle);
-+	/* cycle is an unchecked u64, the sum must not wrap into the past */
-+	div64_u64_rem(ktime_sub(now, base), cycle, &rem);
-+	*start = ktime_add_safe(now, cycle - rem);
- }
- 
- static void gate_start_timer(struct tcf_gate *gact, ktime_t start)
-@@ -107,15 +107,8 @@ static enum hrtimer_restart gate_timer_func(struct hrtimer *timer)
- 
- 	now = gate_get_time(gact);
- 
--	if (ktime_after(now, close_time)) {
--		ktime_t cycle, base;
--		u64 n;
--
--		cycle = p->tcfg_cycletime;
--		base = ns_to_ktime(p->tcfg_basetime);
--		n = div64_u64(ktime_sub_ns(now, base), cycle);
--		close_time = ktime_add_ns(base, (n + 1) * cycle);
--	}
-+	if (ktime_after(now, close_time))
-+		gate_get_start_time(gact, p, &close_time);
- 
- 	gact->next_entry = next;
- 
+ 	if (tb[XFRMA_MARK]) {
+ 		int r = addattr_l(new_n, xb->size, XFRMA_MARK,
+-				(void *)RTA_DATA(tb[XFRMA_MARK]), tb[XFRMA_MARK]->rta_len);
++				(void *)RTA_DATA(tb[XFRMA_MARK]), RTA_PAYLOAD(tb[XFRMA_MARK]));
+ 		if (r < 0) {
+ 			fprintf(stderr, "%s: XFRMA_MARK failed\n", __func__);
+ 			exit(1);
+-- 
+2.56.0
+
