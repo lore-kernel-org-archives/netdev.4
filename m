@@ -1,80 +1,138 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534875;
-	b=YVmj9aegRyjq263xarzKKphbZmc6MB0RWmaPSZC9JaEloeTa3IX09aOmfx1HyX9Hvghc
-	 cQp2NXm7vYwaDBboxSIC0Fw6+zbM15Wk2B987STUg4DMsJWN0039ZypL6EuyOXSLuPGq2
-	 p9QzdqTpu6+3euNEIZpSBfgtP7V5+Ln40Nvq55wn0LAwBZtiDt2YA6P6xvkQU9/GynaZu
-	 aNoAWokB59aWB6UkmSe7pm4FGFMKyDHFn8BETE0r6vt9XTv1Qik0xH/8H/U+DsCvx3/EB
-	 uIjXxQbzZEhSIdrMnrh+4FmG1gmcRmhZNuMlcYes6OcQ/C9v4XlOV2Q5ChmaBUWZJmQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534875;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Spam-Status:X-Spam-Checker-Version;
-	bh=cx/197fJqD9mKnSUWOaqWkmYO/Nkgu1VEXJ0Jt6DjI4=;
-	b=pzXQnSCg2rZmVNRSlmR/gr7Lf+4vpz/H3mBmezmrYD/6cG+bPKe0LiNEmmHzXW538WlH
-	 bilpEpnYLyWQva7hYL59X0OAWtI4Qhm0gA3Tw88cFltv2vrn1XkajWfqN3bMUq9HbGhgu
-	 0oCSgBOwNEckS3iHdHm6CuQVq+dh4CV+570tg4/msu8uOYP/E08//nnKLjktzawld8sn5
-	 c11RCfuVfCOWSuAcqVGx2RJDgiIW0GTh3gKW0zjfhZLPTXLpdfujGKFQOUwDARrIPN2+d
-	 OPxpmB+ENInc4SVR9fjxuUuD1Uag7jjd9gQksiU7xVJn5OM/kROAxCJTdxRCrZIK83g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=oRVocWQN;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2EFB7606A682;
-	Tue, 24 Nov 2026 15:41:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2EFB7606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795535022;
+	b=AsJgzE5AKzZhv5i/nj4SG60TspYPHnoduKfofuL33i2cssmsC71Wm/zsk8cqfYhQnpqI
+	 7CXMZSAmq3XOf9Umy+3M8pFNxfBjh4n+bPX0WQL7JMRlye7ZUOT2FHxI7SFL8NH3+zgkt
+	 lfI02qPu+oR5TCZObEh8LsvvnQINk1rZejzZafYwfxxNkYmc66U5bNElywF8crVl7QSoP
+	 ildA7X3Frwt/AnwzYP+8bNqJvwqn3FGwGbrQflVZ99Of/Sf10QPgN4TTVIxR5QPyyRrXD
+	 b9hqlHI26eSdre5IYu/7u5WQwiZy3Za8sc7CFeWdrRTsHqbqfwfSLU1oUaH7hjgnlnw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535022;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Date:From:To:CC:Subject:
+	 Message-ID:References:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=zAv6qhzrixhqJa17ftLlZAF2IDPf9MB1MXk96TjsXfs=;
+	b=X0Aa+NaOToN4WcUcoj3VZ/wCQK8HBPGZEI7zVH2VAf7ZjXUo/G5TGRHo7UINXxAgXmPd
+	 ez3xIRF9eFcFANbomnUtVx90V3fW3vOFjXd0bgK1KrXb7gI5j+2rzkeleGuoqK8RW2YdL
+	 5GDO4pPrteIXpIOdf6Ge0exuA35cTARFOhhQi46EWVqBGaXXt/HCQspjv/klrI6DqosiH
+	 +B9PDb+ZoX6gLbPIZqKbdAA0LkLlAHM1gnLglnJEBHbneRxTxPw7HumArRQuoHuy+Ckqc
+	 yMG6KLtGCL2CHe5RF/nfX/YbsuyRIM3yFAptpouH+cyKSmF6Pl883oYlEW6DhTSOLTQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nZ2bkmqA;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=YfkJ5p7X;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.21
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.21])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A2D35606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:43:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2D35606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=oRVocWQN
-Received: from weh-cvm-dev-vm.y50bckvjo0hefgfnzfztsfttff.phxx.internal.cloudapp.net (unknown [20.169.55.37])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5E3FB20B716F;
-	Tue, 24 Nov 2026 07:41:03 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5E3FB20B716F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795534864;
-	bh=cx/197fJqD9mKnSUWOaqWkmYO/Nkgu1VEXJ0Jt6DjI4=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=oRVocWQNzGrBpEcubiUs7Utvh/+jB+MGLCSVJQP16C+Uqc3YJGjaIKtR6Ve5+p8JF
-	 ehzev612t85Sstx8p6y677t12HMRaGh2ffWIDFQ12e70jzG32B39Uz6csuby3Nl5lh
-	 dAJULQhxvki2Gfr3EY5brybOaSeD0ATE8eB0GtQ0=
-From: Wei Hu <weh@linux.microsoft.com>
-To: longli@kernel.org,
-	kotaranov@microsoft.com,
-	kuba@kernel.org,
-	davem@davemloft.net,
-	pabeni@redhat.com,
-	edumazet@google.com,
-	andrew+netdev@lunn.ch,
-	jgg@ziepe.ca,
-	leon@kernel.org,
-	haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	shradhagupta@linux.microsoft.com,
-	horms@kernel.org,
-	ernis@linux.microsoft.com,
-	stephen@networkplumber.org
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	gargaditya@linux.microsoft.com,
-	kees+treewide@kernel.org,
-	kees@kernel.org,
-	mawasthi@linux.microsoft.com,
-	weh@microsoft.com,
-	edumazet@kernel.org,
-	shacharr@microsoft.com
-Subject: [PATCH net-next v12 2/5] net: mana: keep HWC queues until the PF acknowledges teardown
-Date: Tue, 24 Nov 2026 15:40:55 +0000
-Message-ID: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.2@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
-References: <hwc-v12.91ec3eff9cb647d5bc5cc932b3c6f60c.0@linux.microsoft.com>
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=nZ2bkmqA;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=YfkJ5p7X
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795535021; x=1827071021;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=AJ9KYRHiLojK3i05U75NLtxAX0Lgv/LvXg5YB/cp4Kw=;
+  b=nZ2bkmqA3Uc4XO03o93PirwqnZFG4mqVR37XA3tXHArxpHK1KXZ1IMfw
+   /E0cJhVLAhT1qiqPMBCY3/OpVZNBa6pEnTHliFf8xuOFzbGG971q5FYlY
+   sKJk0Zi0oXAVoJ1E1mWGovZas3f7XWDqNkHlUCVONZfML40ISrTiiGuU1
+   l0FXPgdXM07V/JoVpvzrJDy2blWpGq3i8qe21ysy/76+S+GuV5ym419EU
+   5uusl04Joxo+NA7HUF0TWzj6eF2xzBSX4KsywWVo57Z7XVCGYqdnCeIJp
+   AApEJOFxQdPVlkblsG+BjYi0N0Wn46+HgLNf2Nyi63hJsZ4gIRBgHqeVo
+   g==;
+X-CSE-ConnectionGUID: +yRmZZRcTF6PbrAoLLZjkQ==
+X-CSE-MsgGUID: SZ7EtbaqR7yddqvdgKDq3w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4468362"
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="4468362"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:26:15 -0800
+X-CSE-ConnectionGUID: gRrhN+mNT4G+z9SUABw0tw==
+X-CSE-MsgGUID: pyYPsxPxTf6Mvv/midt82A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,231,1787036400"; 
+   d="scan'208";a="11568534"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by fmviesa004.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 07:25:56 -0800
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 07:25:55 -0800
+Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 07:25:55 -0800
+Received: from MW6PR02CU001.outbound.protection.outlook.com (52.101.48.63) by
+ edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 07:25:54 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HTfChzbkDtyWk/nwFk1diBF037FHtopT6YFgX1TjsR8Y+ImUH6iSEfnCMlhClh4Lbhl6FwQ71imM/2ki9qwSu6dWUQr8fEZoyzoOkZb5rE4qnAEi1dpctyVqRnbFsiuEH9Zup8mqz3jH9nARNvySPLQrQVjS6ad98LDh1/2Yopf2eWgGV1todEYv0frhuoulQdzBSRh5OiOfNAvkMkhLIifTNbrNrh8u5+wSvoPiPV3DcVOULdriYG1eC8U9Da4pqoXohhdyaq+NU0gY9NwetARDBn3iYCiJ6U7EPgbc9e9t5s0UuEnhqyg1fo6+FEpn8h1ninH4jxOL7hzfh5I5UA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zAv6qhzrixhqJa17ftLlZAF2IDPf9MB1MXk96TjsXfs=;
+ b=pT4JDLAD8sJyRsMrpD71o6Ncc/yhHF79nzRRfcK3GDRpmYSDId40P9xUjFGy8ocJzb0hQXPyGCjW6NzlhH/cj/4Hhfin34jwxIP5SnU1wQkMe0vTOak7ua4D+/8iRcjK9JPmWw1ZItc1yQLVOvFoEx1grH3EtX6u/81K384To9yyOIofMQioyl9mmy1UvBkBkiANkyMkPyJkZekRRR5Ir7PEujQyENI+mxt5oGwm/2o1qS9aVAq43y0FCf6VRgZz7VHIvw1xY9J/tOlhSi+0m+UA0oMy00v76y2NWB2/mJvCEl+Tdh36SaEEpQFmadAlYkJh5Bs5BJcBjonlF2p1UQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zAv6qhzrixhqJa17ftLlZAF2IDPf9MB1MXk96TjsXfs=;
+ b=YfkJ5p7X5q5BGqPUe0a8PTGyD0Y5O/SasAO/su/C6CO9RXcwTwKm7rvTmUlr89ORUYdhBN8/qYH96z34OEoadGSW/zvb4rL0DvgDHzDf1MNJVEQJXgCuVZix6+PCCng681OuMMT7vkiAyzc3bCvnXfM5VRRofVGDw7aSPDHY3dg=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV2PR11MB868673.namprd11.prod.outlook.com
+ (2603:10b6:408:422::13) by SJ2PR11MB7453.namprd11.prod.outlook.com
+ (2603:10b6:a03:4cb::19) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Tue, 24 Nov
+ 2026 15:25:52 +0000
+Received: from LV2PR11MB868673.namprd11.prod.outlook.com
+ ([fe80::5bfd:6afe:a9db:b7de]) by LV2PR11MB868673.namprd11.prod.outlook.com
+ ([fe80::5bfd:6afe:a9db:b7de%4]) with mapi id 15.21.0639.011; Tue, 24 Nov 2026
+ 15:25:52 +0000
+Date: Tue, 24 Nov 2026 16:25:41 +0100
+From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: <netdev@vger.kernel.org>, <magnus.karlsson@intel.com>,
+	<stfomichev@gmail.com>, <pabeni@redhat.com>, <tushar.vyavahare@intel.com>,
+	<kerneljasonxing@gmail.com>, <bjorn@kernel.org>
+Subject: Re: [PATCH v5 net-next 12/13] selftests: drv-net: run the AF_XDP
+ tests over veth or a NIC
+Message-ID: <awWsdRFsI4Z9/lkl@boxer>
+References: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
+ <20261119164636.1071385-13-maciej.fijalkowski@intel.com>
+ <20261123172946.54f8323a@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123172946.54f8323a@kernel.org>
+X-ClientProxiedBy: DB9PR01CA0025.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::30) To LV2PR11MB868673.namprd11.prod.outlook.com
+ (2603:10b6:408:422::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,923 +142,202 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV2PR11MB868673:EE_|SJ2PR11MB7453:EE_
+X-MS-Office365-Filtering-Correlation-Id: fe866e10-8b31-4731-b0c3-08df4a3f39e9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|376014|366016|1800799024|22082099003|18002099003|6133799003|3023799007|56012099006|4143699003|261028144727099003|261102123227099003|11063799006|261022105027099003|261026140227099003|261021135927099003|261022075727099003|261021121427099003|261026121527099003|10067099003;
+X-Microsoft-Antispam-Message-Info: e9BU8wbIPKAjUlPbm7LjF6mHK8g/8t7ZmLq3PHCqgt09AVk/AC6w20srEy630qhAoUT6ukOaqOhOJ/FDYGqS3x73an8VpDE6KnK+Q4uMZ07ibV2HrhOrcoyZTeCq6KP9k5p57mEwkKdroRvjqN4r3kljZ16m53fFl+EevzzDfmNRfwzIQEWiOPARu3W+DSH3tGtHBrElSX6iKkPjxBHkcP4nY2zhr8iaZbO+SMjygXuDqKuXQKonUsrTk3Pf2HhSOGb9caSjfl7B0nQPzLxtfIZf4QsuMaqJVEWGvKyTV1SpRcF4pv3/nqZ37pMk3Ys8uFtyg90GpOBv0vvRhXc/aBI03Ld4g3NrOYVja6Jxkg4GZ54wLEG8NxfcR3MLglniY0AaxeFGef9uHHThclrlj8Xe6e4FA/cf0qnIjs7eQPz3jSbmmd1QsG+jaoYaMlnMXlhgaojxMwkRHomzFXtLnQLXR08jJ+bbxISjB0SjJKCn3Ipm+OeiUrG6m00H4eEetRJFuGc8oEwt3zJhTlEtCsF4AakxeLaHJ9iDzgUcDlYMBPmljL1Ort0H23XpSuvS+NImrN+4Qf2uBJTAHNK2j7pi33x2RxAMvMFEPykNzRCJhIyovhVej2899mmta8mFEQ64OZqz4/dnT6Wf81p4J5woklJ9twJ0k7usgHsBFUg=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR11MB868673.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(366016)(1800799024)(22082099003)(18002099003)(6133799003)(3023799007)(56012099006)(4143699003)(261028144727099003)(261102123227099003)(11063799006)(261022105027099003)(261026140227099003)(261021135927099003)(261022075727099003)(261021121427099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?E4ggQzdbvUFHTbi7hSjuspKHXh8bOMQXHGFgDH6e5OIBTo3XEpe5AUjP/C5E?=
+ =?us-ascii?Q?+PNJ0wprZFRsBSBMYawuBEYOR9tuA09U0mvSPHZ2ZTspOaf8skDp79K9pR+C?=
+ =?us-ascii?Q?de6aTnSRbdZcp1BsZDV6oB2N+HcKH1W1DkYhZ7T30mgZCnJyIH30fY17ADNw?=
+ =?us-ascii?Q?oZXI0NhPID5VQNw0Q/WQ9LvuELW0YjEAKDxiG7dz9oz1c91ggYV5JGMFhBAD?=
+ =?us-ascii?Q?agVLA7ddP8Cy1CgZiPm+EeaUn9BvaIKC1Zh1t/ZdJGXo/nXmPfBkBns7Z3FN?=
+ =?us-ascii?Q?7NLTDIkscXfJacF9QJFgdLVqAnU6MX+SrDy+dKFoH/5KRvnDkA7nyoDNIF7B?=
+ =?us-ascii?Q?E4LhH/HTN+N+/tMd/AIKCDcS+l0Cu9nA3U3GXiB3LIAH0Liy40tUOQBUnaX+?=
+ =?us-ascii?Q?DkAajjL/9G3dLR+ETW9UYylrTf4z2lKZDC3tT6oUmkf4nhIOUPQEKGdu9c+t?=
+ =?us-ascii?Q?U4KXzGnYKn6OwNI4TlnKayWcrZih9VWBDuLEseEPvphrkXcyM2pQpPYWAu90?=
+ =?us-ascii?Q?iPjjLpUMDsSkJVkiiET0mwKkCTA9iPmQ8QhWFzg3ZYi1N5DkZFYfhUnlnVen?=
+ =?us-ascii?Q?bCZZ7BqNJ53OACOJW5jLEbHYdpPFoBstiTEb+7EobC444fthhDRU2Zd0Ol3l?=
+ =?us-ascii?Q?HyF64erb5S73UMcGz/K1WADrdhqsQYOxiwUXWsove4iZYUwYEvA4TxgC2k+k?=
+ =?us-ascii?Q?biWgqZmx2Wkw36A6edBawa6ak+dvLdIUGXt6jaERHy0MYJciU2zfTouDfjGQ?=
+ =?us-ascii?Q?WjlZXtmFKab9vUt5m4RSz3AvVfGp0rKdi+rXcMBPAgp9SS3Qc7jvYI5TFLXl?=
+ =?us-ascii?Q?f4usk0yI2hJteK7LY4ZFDIRI7tsMw8qgbViSOvBkIbPeiA2SheUMRYrd5aVj?=
+ =?us-ascii?Q?cJeO2DXrv+Xoaf+bZAiA7NGIdfwQdi/KIzZ8zloDnm3ER4ffpseS81Oo9OrI?=
+ =?us-ascii?Q?VpBgu4XOtrOs4QY8NWLt7r6xzF1F00t3xlHDVbVrE/cUCmJEdBde9MpPNiSc?=
+ =?us-ascii?Q?/zY/+G9idm4O8fc8Nj80bnGesfYoy3PPlGPLf7r5gsiY4m5qhoBCd8CMo8pG?=
+ =?us-ascii?Q?YaNtQl+YklR/oM8AJXaRyQsrbteBByt7qCCre05YBHBITELeOg/h2DljbImG?=
+ =?us-ascii?Q?qcxPSPfE0vspRo09ce+s51yBZcprp2tdCuzq5VRp408kOSJW51lzea7hExUt?=
+ =?us-ascii?Q?x/xMuio34q156wxBBiAH2e5bp+CN2VDh8yhw7ZWKanY84AQAOhNrjhZvb1xU?=
+ =?us-ascii?Q?cBLUjPTlutuDIlJadIYOZ6Kb4Sa7EviR40mU2fGFNI7nT3uShNnvFU5F7LDZ?=
+ =?us-ascii?Q?wsuTxBJI1oOCqJG9j7D6pPdJ6cw/Xq82w+ImKq81L7FNESLRzMfgaKtloz25?=
+ =?us-ascii?Q?dyDYVXKNeXU7peREDwywtNITKrO6w27KhdPXClN6AavOSVaTIw1rGJFTC6Fm?=
+ =?us-ascii?Q?tDwn+xspv/oMZ4l8dD1sQzKAurTWT+iai0sFwNfg9XEWlj6YJyPowOmU9/1j?=
+ =?us-ascii?Q?uI8zZl1tNLn+5TEnXv1cZFmmRJD+AgTRPlWNSPJcSYJDQYzoA6UW6Z4RRkYU?=
+ =?us-ascii?Q?qOUZAChEcFW4IX7voOXjgQ8xfXIbypQmHhk6iCyN08HNfQemSwZkJZxA65jX?=
+ =?us-ascii?Q?tsm+fB/MsBC3lnasXwBj+AyD9vcVc2OY+AzWy/XGHHlqtOS6C5FfoOK8O4EC?=
+ =?us-ascii?Q?sd20QMsvL+hGuRkm29tuBhEyiJThpifE+uJH5Y+LujKgVTZ5Tb3MTS+sRpEr?=
+ =?us-ascii?Q?IRJr7ETqmdaYormRtIYh5YWPigAo1uU=3D?=
+X-Exchange-RoutingPolicyChecked: mGFhZPn29GnShxPSWLIWLhCs4NuebWOxZPoc8/TU4gCaN8/PGjFmoBZtOn3YdkDDjcdGmVIqOVfVMozHmf0iCYln0T5QklgmUu0eSpHQAybi3qAm/RylioZnyvAsTUtTYkcLzZEdl5XiuIO0/tx+YORgkMuS987jMVtCdQCI/gJTcs3H+p4qiLNFi5korREDWioXZLfsNzH31CiewKKU5drlvu+W2J7RMeCyr4XaIutlF8RpVZhDqx4fGemaOKgwMRGw0+2DW5EmA4d54u+fKtuAfIqiVgNcmmxwcAFI9dvdmcJcZWbJVCIXxhb0oDN73/D2OLbjTJ3xnsiJ0GxPjw==
+X-MS-Exchange-CrossTenant-Network-Message-Id: fe866e10-8b31-4731-b0c3-08df4a3f39e9
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR11MB868673.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 15:25:52.6568
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: f7nM0v37JhKO5W2fTjKRpn5I/ZGr+XXA1YG+a7qob/of/cBq5PKeu8zt56RcFuj0eJk3OgVwPK/tmV2gEUNaGQO3bFcGSSVYJN3Wifihpek=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR11MB7453
+X-OriginatorOrg: intel.com
 
-From: Long Li <longli@microsoft.com>
-Date: Mon, 7 Sep 2026 20:51:55 -0700
+On Mon, Nov 23, 2026 at 05:29:46PM -0800, Jakub Kicinski wrote:
+> On Thu, 19 Nov 2026 17:46:35 +0100 Maciej Fijalkowski wrote:
+> > +Without NETIF, the interfaces are a veth pair with the remote end in a
+> > +network namespace of its own. Each listed case runs in SKB and DRV mode,
+> > +with the local endpoint receiving in that mode. A copy-mode socket sends
+> > +alike in both modes, so the remote endpoint sends as it would in DRV mode.
+> > +The variant name starts with the mode, e.g. test_xsk.drv_SEND_RECEIVE. The
+> > +cases in VETH_XFAIL cannot pass over veth and are reported as expected
+> > +failures without being run. veth does not tie its NAPI instances to its
+> > +queues, so a socket on it has no NAPI to busy poll.
+> 
+> I think it does now? Merged last week.
 
-Once ESTABLISH_HWC submits queue addresses, a failed response does not
-give the memory back to the driver. Serialize setup and teardown on the
-shared mailbox. If DESTROY_HWC fails, stop IRQ callbacks and keep the
-queues for another destroy attempt rather than freeing their DMA.
+I'll double check and if so, gonna lift up the xfail cases.
 
-On teardown, withdraw the CQ table and wait for readers before freeing
-the HWC queues. Use the same table bound for allocation and dispatch.
+> 
+> > Only the initial
+> > +network namespace has the net.core.max_skb_frags sysctl, so the remote
+> > +endpoint takes 17 frags. --max-frags hands the sysctl value to both
+> > +endpoints for TOO_MANY_FRAGS, but the cases in TAILROOM_CASES size the
+> > +UMEM tailroom by the value of each endpoint, and are expected failures
+> > +when the sysctl is not 17.
+> > +
+> > +With NETIF, the local endpoint runs in zero-copy mode on NETIF, the DUT,
+> > +and binds to its last queue, and the remote endpoint binds to queue 0.
+> > +Before the cases run, main() takes the DUT queue out of RSS and adds an
+> > +ntuple filter on each host that steers the test UDP flow to the queue of
+> > +the receiving endpoint, and it undoes that however the run ends. A NIC
+> > +that rebuilds its RSS indirection table on a reset, such as one for an
+> > +XDP, MTU or ring change, puts the queue back into RSS, so a case fails if
+> > +the queue is back in RSS after it.
+> 
+> Yeah but that'd be an outrageous driver bug :/ If AI made you mention it
+> - drop it pls.
+> 
+> > +# The TX ring of the sender and the RX ring of the receiver that a case
+> > +# needs at a given size, 64 being the default batch size of xskxceiver.
+> > +RING_SIZES = {
+> 
+> We usually "glue" this sort of cached state onto env and check for it
+> being cached already with hasattr() but I guess global is fine...
+> 
+> > +def _setup_busy_poll(ifname):
+> > +    """Set napi_defer_hard_irqs and gro_flush_timeout of ifname until the
+> > +    case ends, so that SO_PREFER_BUSY_POLL of xskxceiver -b keeps the IRQs
+> > +    masked."""
+> > +    for attr, val in (("napi_defer_hard_irqs", 2),
+> > +                      ("gro_flush_timeout", 200000)):
+> > +        path = f"/sys/class/net/{ifname}/{attr}"
+> > +        old = cmd(f"cat {path}").stdout.strip()
+> > +        if old == str(val):
+> > +            continue
+> > +        cmd(f"echo {val} > {path}", shell=True)
+> > +        defer(cmd, f"echo {old} > {path}", shell=True)
+> 
+> ctl_file_write(), ask you agent to check for lib helpers perhaps?
+> 
+> > +
+> > +
+> > +def _restore_rss(cfg, indir):
+> > +    """Restore the RSS indirection table of the DUT. Reset it to the default
+> > +    first, which leaves it to the driver again, and write indir back only if
+> > +    it was not the default."""
+> > +    ethtool(f"-X {cfg.ifname} default")
+> 
+> IIRC indir table of 0 size is the same as reset so you can add below an
+> 
+> > +    req = {"header": {"dev-index": cfg.ifindex}}
+> > +    if cfg.ethnl.rss_get(req).get("indir") != indir:
+> > +        cfg.ethnl.rss_set({**req, "indir": indir})
+> 
+> 	else:
+> 		cfg.ethnl.rss_set({**req, "indir": []})
+> 
+> instead?
+> 
+> > +def _reserve_queue(cfg, undo):
+> > +    """Take the last queue with both an RX and a TX ring out of RSS until
+> > +    undo, return None if the DUT cannot. A TX endpoint fills no RX buffers,
+> > +    so in zero-copy mode its queue drops what it receives, the control
+> > +    connection included."""
+> > +    req = {"header": {"dev-index": cfg.ifindex}}
+> > +    try:
+> > +        ch = cfg.ethnl.channels_get(req)
+> > +        rss = cfg.ethnl.rss_get(req)
+> > +    except NlError:
+> > +        print(f"1..0 # SKIP cannot get the channels or RSS of {cfg.ifname}")
+> 
+> No no, never print() in netdev py tests. You're not allowed to output
+> any TAP directly. let the ksft_run() handle that. If you need to print
+> something - ksft_pr() which does necessary escaping.
+> 
+> > +def main():
+> > +    """Run the cases over veth without NETIF, else on NETIF."""
+> > +    # defer() works only within a case, so undo restores what main() sets up
+> > +    # for all of them, however the run ends.
+> > +    with NetDrvEpEnv(__file__, veth_test=True) as cfg, \
+> > +         ExitStack() as undo:
+> > +        cfg.bin_local = cfg.net_lib_dir / "xskxceiver"
+> > +        if not cfg.bin_local.exists():
+> > +            print(f"1..0 # SKIP {cfg.bin_local} was not built")
+> > +            sys.exit(SKIP_CODE)
+> > +
+> > +        # Before _setup_nic(), as ntuple-filters can reset a NIC.
+> > +        local_dmac = _next_hop_mac(cfg, cfg.remote_addr,
+> > +                                   cfg.remote_dev["address"], cfg.ifname)
+> > +        remote_dmac = _next_hop_mac(cfg, cfg.addr, cfg.dev["address"],
+> > +                                    cfg.remote_ifname, cfg.remote)
+> > +
+> > +        cfg.udp_port = rand_port()
+> > +        if cfg.veth_test:
+> > +            _setup_veth(cfg)
+> > +        elif not _setup_nic(cfg, undo):
+> > +            sys.exit(SKIP_CODE)
+> > +
+> > +        cfg.bin_remote = cfg.remote.deploy(cfg.bin_local)
+> > +
+> > +        saved_hugepages = []
+> > +        undo.callback(_release_hugepages, saved_hugepages)
+> > +        cfg.hugepages = (_reserve_hugepages(saved_hugepages) and
+> > +                         _reserve_hugepages(saved_hugepages, cfg.remote))
+> > +        if not cfg.hugepages:
+> > +            _release_hugepages(saved_hugepages)
+> > +            saved_hugepages.clear()
+> > +
+> > +        cases = _get_cases(cfg)
+> > +        _set_args(cfg, local_dmac, remote_dmac)
+> 
+> You're doing way too much outside the test cases. Don't optimize for
+> execution time, let each test case prepare a clean environment. If
+> we want to optimize for shared prep we'll do it later in a structured
+> way, inside ksft_run(). Not now.
 
-A failed PCI probe has no context left to retry the destroy. Do not
-start another automatic probe that could lose another set of coherent
-allocations. A failed resume can keep the binding and retry in place.
+Ack on all above, but here let me just explain myself/express this feels
+counter-intuitive to usual coding approach ;) hence my previous attempts
+to put repeated stuff onto lib side (and pulling out common things
+different .py do onto common place).
 
-Fixes: ca9c54d2d6a5 ("net: mana: Add a driver for Microsoft Azure Network Adapter (MANA)")
-Signed-off-by: Long Li <longli@microsoft.com>
-Signed-off-by: Wei Hu <weh@microsoft.com>
----
- .../net/ethernet/microsoft/mana/gdma_cdx.c    |   4 +-
- .../net/ethernet/microsoft/mana/gdma_main.c   |  41 +++-
- .../net/ethernet/microsoft/mana/gdma_pci.c    | 132 +++++++++----
- .../net/ethernet/microsoft/mana/hw_channel.c  | 187 +++++++++++++++---
- drivers/net/ethernet/microsoft/mana/mana_en.c |   4 +-
- .../net/ethernet/microsoft/mana/shm_channel.c |  58 +++++-
- include/net/mana/gdma.h                       |   4 +
- include/net/mana/hw_channel.h                 |   8 +
- include/net/mana/shm_channel.h                |  10 +-
- 9 files changed, 369 insertions(+), 79 deletions(-)
+Anyways, clean env.
 
-diff --git a/drivers/net/ethernet/microsoft/mana/gdma_cdx.c b/drivers/net/ethernet/microsoft/mana/gdma_cdx.c
-index 0d01e3d2f0d96f67dda17f40a8266bf663697c0d..2e0dcb902d7e263fad7341a1756441ec10d8339d 100644
---- a/drivers/net/ethernet/microsoft/mana/gdma_cdx.c
-+++ b/drivers/net/ethernet/microsoft/mana/gdma_cdx.c
-@@ -279,7 +279,7 @@ unmap_bar:
- 	iounmap(bar0_va);
- free_gc:
- 	dev_set_drvdata(&cdx_dev->dev, NULL);
--	vfree(gc);
-+	mana_gd_free_context(gc);
- clear_master:
- 	cdx_clear_master(cdx_dev);
- 	return err;
-@@ -298,7 +298,7 @@ static int mana_cdx_gd_remove(struct cdx_device *cdx_dev)
- 	iounmap(gc->bar0_va);
- 
- 	dev_set_drvdata(&cdx_dev->dev, NULL);
--	vfree(gc);
-+	mana_gd_free_context(gc);
- 	return 0;
- }
- 
-diff --git a/drivers/net/ethernet/microsoft/mana/gdma_main.c b/drivers/net/ethernet/microsoft/mana/gdma_main.c
-index 673a4754c9dd00a8a0b4436e27ce1c433d85c2ff..2d495db51d7463e260d32f9a52870df578ef0bee 100644
---- a/drivers/net/ethernet/microsoft/mana/gdma_main.c
-+++ b/drivers/net/ethernet/microsoft/mana/gdma_main.c
-@@ -11,6 +11,7 @@
- #include <linux/irqdomain.h>
- #include <linux/export.h>
- #include <linux/uaccess.h>
-+#include <linux/vmalloc.h>
- 
- #include <net/mana/mana.h>
- #include <net/mana/hw_channel.h>
-@@ -775,9 +776,15 @@ void mana_gd_free_service_wq(struct gdma_context *gc)
- static void mana_gd_schedule_eq_cqs(struct gdma_queue *eq)
- {
- 	struct gdma_context *gc = eq->gdma_dev->gdma_context;
-+	struct gdma_queue **cq_table;
- 	struct gdma_queue *cq;
- 	u8 i;
- 
-+	/* The IRQ's RCU read-side section protects this table snapshot. */
-+	cq_table = smp_load_acquire(&gc->cq_table);
-+	if (!cq_table)
-+		return;
-+
- 	for (i = 0; i < GDMA_EQ_MAX_CHILD_CQ; i++) {
- 		cq = rcu_dereference(eq->eq.child_cq[i]);
- 
-@@ -785,7 +792,7 @@ static void mana_gd_schedule_eq_cqs(struct gdma_queue *eq)
- 			continue;
- 
- 		if (cq->id >= READ_ONCE(gc->max_num_cqs) ||
--		    !gc->cq_table || gc->cq_table[cq->id] != cq)
-+		    READ_ONCE(cq_table[cq->id]) != cq)
- 			continue;
- 
- 		if (cq->cq.callback)
-@@ -800,6 +807,7 @@ static void mana_gd_process_eqe(struct gdma_queue *eq)
- 	union gdma_eqe_info eqe_info;
- 	enum gdma_eqe_type type;
- 	struct gdma_event event;
-+	struct gdma_queue **cq_table;
- 	struct gdma_queue *cq;
- 	struct gdma_eqe *eqe;
- 	u32 cq_id;
-@@ -811,11 +819,16 @@ static void mana_gd_process_eqe(struct gdma_queue *eq)
- 	switch (type) {
- 	case GDMA_EQE_COMPLETION:
- 		cq_id = eqe->details[0] & 0xFFFFFF;
--		if (WARN_ON_ONCE(cq_id >= gc->max_num_cqs))
-+		/* HWC teardown unpublishes this table and waits for these
-+		 * RCU readers before freeing it, then fences its own EQ.
-+		 */
-+		cq_table = smp_load_acquire(&gc->cq_table);
-+		if (!cq_table || cq_id >= READ_ONCE(gc->max_num_cqs))
- 			break;
- 
--		cq = gc->cq_table[cq_id];
--		if (WARN_ON_ONCE(!cq || cq->type != GDMA_CQ || cq->id != cq_id))
-+		cq = READ_ONCE(cq_table[cq_id]);
-+		if (!cq || WARN_ON_ONCE(cq->type != GDMA_CQ ||
-+					cq->id != cq_id))
- 			break;
- 
- 		if (cq->cq.callback)
-@@ -1047,23 +1060,32 @@ out:
- 	return err;
- }
- 
--static void mana_gd_destroy_eq(struct gdma_context *gc, bool flush_evenets,
-+static void mana_gd_destroy_eq(struct gdma_context *gc, bool flush_events,
- 			       struct gdma_queue *queue)
- {
- 	int err;
- 
--	if (flush_evenets) {
-+	if (queue->eq.msix_index == INVALID_PCI_MSIX_INDEX)
-+		return;
-+
-+	if (flush_events) {
- 		err = mana_gd_test_eq(gc, queue);
- 		if (err && mana_need_log(gc, err))
- 			dev_warn(gc->dev, "Failed to flush EQ: %d\n", err);
- 	}
- 
- 	mana_gd_deregister_irq(queue);
-+	queue->eq.msix_index = INVALID_PCI_MSIX_INDEX;
- 
- 	if (queue->eq.disable_needed)
- 		mana_gd_disable_queue(queue);
- }
- 
-+void mana_gd_fence_eq(struct gdma_context *gc, struct gdma_queue *queue)
-+{
-+	mana_gd_destroy_eq(gc, false, queue);
-+}
-+
- static int mana_gd_create_eq(struct gdma_dev *gd,
- 			     const struct gdma_queue_spec *spec,
- 			     bool create_hwq, struct gdma_queue *queue)
-@@ -2136,6 +2158,13 @@ void mana_gd_cleanup(struct gdma_context *gc)
- }
- EXPORT_SYMBOL_NS(mana_gd_cleanup, "NET_MANA");
- 
-+void mana_gd_free_context(struct gdma_context *gc)
-+{
-+	mana_hwc_free_retained_channel(gc);
-+	vfree(gc);
-+}
-+EXPORT_SYMBOL_NS(mana_gd_free_context, "NET_MANA");
-+
- static int __init gdma_core_init(void)
- {
- 	mana_debugfs_root = debugfs_create_dir("mana", NULL);
-diff --git a/drivers/net/ethernet/microsoft/mana/gdma_pci.c b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
-index 208dadbcf977ca965fb48a37bef0db7b5019d7f1..cec2e548f36ea70bd821bc085f77ac94e78b4541 100644
---- a/drivers/net/ethernet/microsoft/mana/gdma_pci.c
-+++ b/drivers/net/ethernet/microsoft/mana/gdma_pci.c
-@@ -19,7 +19,6 @@
- struct mana_dev_recovery {
- 	struct list_head list;
- 	struct pci_dev *pdev;
--	enum gdma_eqe_type type;
- };
- 
- static struct mana_dev_recovery_work {
-@@ -32,49 +31,84 @@ static struct mana_dev_recovery_work {
- 
- static int mana_gd_suspend(struct pci_dev *pdev, pm_message_t state);
- static int mana_gd_resume(struct pci_dev *pdev);
-+static struct pci_driver mana_driver;
- 
- #define MANA_SERVICE_PERIOD 10
- 
--static void mana_serv_rescan(struct pci_dev *pdev)
--{
--	struct pci_bus *parent;
-+enum mana_rescan_reason {
-+	MANA_RESCAN_PROBE,
-+	MANA_RESCAN_RESET,
-+	MANA_RESCAN_FPGA,
-+};
- 
--	pci_lock_rescan_remove();
-+/* The rescan/remove lock serializes service removals. A synchronous
-+ * ->remove() on this task can veto the scan, including for a sibling
-+ * removed along with the upstream bridge.
-+ */
-+static struct task_struct *mana_rescan_task;
- 
--	parent = pdev->bus;
--	if (!parent) {
--		dev_err(&pdev->dev, "MANA service: no parent bus\n");
--		goto out;
--	}
-+static int mana_check_unbound(struct pci_dev *pdev, void *data)
-+{
-+	bool *unbound = data;
- 
--	pci_stop_and_remove_bus_device(pdev);
--	pci_rescan_bus(parent);
-+	if (READ_ONCE(pdev->driver) ||
-+	    !pci_match_id(mana_driver.id_table, pdev))
-+		return 0;
- 
--out:
--	pci_unlock_rescan_remove();
-+	*unbound = true;
-+	return 1;
- }
- 
--static void mana_serv_fpga(struct pci_dev *pdev)
-+static void mana_serv_rescan(struct pci_dev *pdev,
-+			     enum mana_rescan_reason reason)
- {
--	struct pci_bus *bus, *parent;
-+	struct pci_dev *target = pdev;
-+	struct pci_bus *parent;
-+	bool unbound = false;
- 
- 	pci_lock_rescan_remove();
--
--	bus = pdev->bus;
--	if (!bus) {
--		dev_err(&pdev->dev, "MANA service: no bus\n");
-+	if (!device_is_registered(&pdev->dev))
- 		goto out;
-+
-+	scoped_guard(device, &pdev->dev) {
-+		if (reason == MANA_RESCAN_PROBE) {
-+			if (pdev->dev.driver)
-+				goto out;
-+		} else if (pdev->driver != &mana_driver) {
-+			goto out;
-+		} else if (reason == MANA_RESCAN_FPGA) {
-+			struct gdma_context *gc = pci_get_drvdata(pdev);
-+
-+			/* An unbound sibling cannot veto the bridge rescan in
-+			 * ->remove(). Its last probe may have lost HWC DMA.
-+			 */
-+			target = pci_upstream_bridge(pdev);
-+			if (target)
-+				pci_walk_bus(target->subordinate,
-+					     mana_check_unbound, &unbound);
-+			if (unbound) {
-+				dev_err(&pdev->dev,
-+					"Unbound MANA function, skipping bridge rescan\n");
-+				clear_bit(GC_IN_SERVICE, &gc->flags);
-+				goto out;
-+			}
-+		}
- 	}
- 
--	parent = bus->parent;
--	if (!parent) {
-+	if (!target || !target->bus) {
- 		dev_err(&pdev->dev, "MANA service: no parent bus\n");
- 		goto out;
- 	}
- 
--	pci_stop_and_remove_bus_device(bus->self);
-+	parent = target->bus;
-+	WRITE_ONCE(mana_rescan_task, current);
-+	pci_stop_and_remove_bus_device(target);
-+	if (!READ_ONCE(mana_rescan_task))
-+		goto out;
-+	WRITE_ONCE(mana_rescan_task, NULL);
- 
--	msleep(MANA_SERVICE_PERIOD * 1000);
-+	if (reason == MANA_RESCAN_FPGA)
-+		msleep(MANA_SERVICE_PERIOD * 1000);
- 
- 	pci_rescan_bus(parent);
- 
-@@ -82,19 +116,18 @@ out:
- 	pci_unlock_rescan_remove();
- }
- 
--static void mana_serv_reset(struct pci_dev *pdev)
-+/* Return true if recovery needs to escalate to PCI re-enumeration. */
-+static bool mana_serv_reset(struct pci_dev *pdev)
- {
--	struct gdma_context *gc = pci_get_drvdata(pdev);
- 	struct hw_channel_context *hwc;
-+	struct gdma_context *gc;
- 	int ret;
- 
--	if (!gc) {
--		/* Perform PCI rescan on device if GC is not set up */
--		dev_err(&pdev->dev, "MANA service: GC not setup, rescanning\n");
--		mana_serv_rescan(pdev);
--		return;
--	}
-+	guard(device)(&pdev->dev);
-+	if (pdev->driver != &mana_driver)
-+		return false;
- 
-+	gc = pci_get_drvdata(pdev);
- 	hwc = gc->hwc.driver_data;
- 	if (!hwc) {
- 		dev_err(&pdev->dev, "MANA service: no HWC\n");
-@@ -114,8 +147,7 @@ static void mana_serv_reset(struct pci_dev *pdev)
- 	if (ret == -ETIMEDOUT || ret == -EPROTO) {
- 		/* Perform PCI rescan on device if we failed on HWC */
- 		dev_err(&pdev->dev, "MANA service: resume failed, rescanning\n");
--		mana_serv_rescan(pdev);
--		return;
-+		return true;
- 	}
- 
- 	if (ret)
-@@ -125,17 +157,19 @@ static void mana_serv_reset(struct pci_dev *pdev)
- 
- out:
- 	clear_bit(GC_IN_SERVICE, &gc->flags);
-+	return false;
- }
- 
- static void mana_do_service(enum gdma_eqe_type type, struct pci_dev *pdev)
- {
- 	switch (type) {
- 	case GDMA_EQE_HWC_FPGA_RECONFIG:
--		mana_serv_fpga(pdev);
-+		mana_serv_rescan(pdev, MANA_RESCAN_FPGA);
- 		break;
- 
- 	case GDMA_EQE_HWC_RESET_REQUEST:
--		mana_serv_reset(pdev);
-+		if (mana_serv_reset(pdev))
-+			mana_serv_rescan(pdev, MANA_RESCAN_RESET);
- 		break;
- 
- 	default:
-@@ -160,7 +194,7 @@ static void mana_recovery_delayed_func(struct work_struct *w)
- 		list_del(&dev->list);
- 		spin_unlock_irqrestore(&work->lock, flags);
- 
--		mana_do_service(dev->type, dev->pdev);
-+		mana_serv_rescan(dev->pdev, MANA_RESCAN_PROBE);
- 		pci_dev_put(dev->pdev);
- 		kfree(dev);
- 
-@@ -632,8 +666,16 @@ unmap_bar:
- 	xa_destroy(&gc->irq_contexts);
- 	pci_iounmap(pdev, bar0_va);
- free_gc:
-+	/* No binding remains to retry DESTROY. Do not start another probe
-+	 * which could abandon another set of coherent allocations.
-+	 */
-+	if (gc->hwc.driver_data) {
-+		dev_err(&pdev->dev,
-+			"HWC teardown failed, disabling probe recovery\n");
-+		err = -ENOTRECOVERABLE;
-+	}
- 	pci_set_drvdata(pdev, NULL);
--	vfree(gc);
-+	mana_gd_free_context(gc);
- release_region:
- 	pci_release_regions(pdev);
- disable_dev:
-@@ -658,7 +700,6 @@ disable_dev:
- 			return err;
- 
- 		dev->pdev = pci_dev_get(pdev);
--		dev->type = GDMA_EQE_HWC_RESET_REQUEST;
- 
- 		spin_lock_irqsave(&mana_dev_recovery_work.lock, flags);
- 		list_add_tail(&dev->list, &mana_dev_recovery_work.dev_list);
-@@ -682,11 +723,16 @@ static void mana_gd_remove(struct pci_dev *pdev)
- 
- 	mana_gd_cleanup(gc);
- 
-+	if (gc->hwc.driver_data && READ_ONCE(mana_rescan_task) == current) {
-+		dev_err(gc->dev, "HWC teardown failed, skipping PCI rescan\n");
-+		WRITE_ONCE(mana_rescan_task, NULL);
-+	}
-+
- 	xa_destroy(&gc->irq_contexts);
- 
- 	pci_iounmap(pdev, gc->bar0_va);
- 
--	vfree(gc);
-+	mana_gd_free_context(gc);
- 
- 	pci_release_regions(pdev);
- 	pci_disable_device(pdev);
-@@ -714,7 +760,7 @@ static int mana_gd_resume(struct pci_dev *pdev)
- 
- 	err = mana_gd_setup(gc);
- 	if (err)
--		return err;
-+		goto check_hwc;
- 
- 	err = mana_probe(&gc->mana, true);
- 	if (err)
-@@ -728,6 +774,10 @@ static int mana_gd_resume(struct pci_dev *pdev)
- 
- cleanup_gd:
- 	mana_gd_cleanup(gc);
-+check_hwc:
-+	/* Keep the binding and DMA handles for a later DESTROY retry. */
-+	if (gc->hwc.driver_data)
-+		return -ENOTRECOVERABLE;
- 	return err;
- }
- 
-diff --git a/drivers/net/ethernet/microsoft/mana/hw_channel.c b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-index 130b249318f208ae8369c98facf5113a3743cfd4..39a0ed32e43c7953885146b647249db6e03fb8bb 100644
---- a/drivers/net/ethernet/microsoft/mana/hw_channel.c
-+++ b/drivers/net/ethernet/microsoft/mana/hw_channel.c
-@@ -143,7 +143,7 @@ static void mana_hwc_init_event_handler(void *ctx, struct gdma_queue *q_self,
- 
- 		switch (type) {
- 		case HWC_INIT_DATA_CQID:
--			hwc->cq->gdma_cq->id = val;
-+			WRITE_ONCE(hwc->hwc_init_cq_id, val);
- 			break;
- 
- 		case HWC_INIT_DATA_RQID:
-@@ -167,7 +167,11 @@ static void mana_hwc_init_event_handler(void *ctx, struct gdma_queue *q_self,
- 			break;
- 
- 		case HWC_INIT_DATA_MAX_NUM_CQS:
--			gd->gdma_context->max_num_cqs = val;
-+			/* Store only; establish_channel() commits it to
-+			 * max_num_cqs once, so a later event cannot grow the
-+			 * bound past the allocation; pairs with READ_ONCE().
-+			 */
-+			WRITE_ONCE(hwc->hwc_init_max_num_cqs, val);
- 			break;
- 
- 		case HWC_INIT_DATA_PDID:
-@@ -395,9 +399,43 @@ static void mana_hwc_comp_event(void *ctx, struct gdma_queue *q_self)
- 	mana_gd_ring_cq(q_self, SET_ARM_BIT);
- }
- 
-+static int mana_hwc_publish_cq(struct gdma_context *gc,
-+			       struct gdma_queue *cq)
-+{
-+	struct gdma_queue **cq_table = READ_ONCE(gc->cq_table);
-+	u32 id = READ_ONCE(cq->id);
-+
-+	if (!cq_table || id >= READ_ONCE(gc->max_num_cqs) ||
-+	    READ_ONCE(cq_table[id]))
-+		return -EINVAL;
-+
-+	WRITE_ONCE(cq_table[id], cq);
-+
-+	return 0;
-+}
-+
-+static void mana_hwc_unpublish_cq(struct gdma_context *gc,
-+				  struct gdma_queue *cq)
-+{
-+	struct gdma_queue **cq_table = READ_ONCE(gc->cq_table);
-+	u32 id;
-+
-+	if (!cq_table || !cq)
-+		return;
-+
-+	id = READ_ONCE(cq->id);
-+	if (id < READ_ONCE(gc->max_num_cqs) &&
-+	    READ_ONCE(cq_table[id]) == cq)
-+		WRITE_ONCE(cq_table[id], NULL);
-+}
-+
- static void mana_hwc_destroy_cq(struct gdma_context *gc, struct hwc_cq *hwc_cq)
- {
--	kfree(hwc_cq->comp_buf);
-+	/* Fence callbacks first, but keep the parent EQ alive until CQ
-+	 * destruction has detached its child entry.
-+	 */
-+	if (hwc_cq->gdma_eq)
-+		mana_gd_fence_eq(gc, hwc_cq->gdma_eq);
- 
- 	if (hwc_cq->gdma_cq)
- 		mana_gd_destroy_queue(gc, hwc_cq->gdma_cq);
-@@ -405,6 +443,7 @@ static void mana_hwc_destroy_cq(struct gdma_context *gc, struct hwc_cq *hwc_cq)
- 	if (hwc_cq->gdma_eq)
- 		mana_gd_destroy_queue(gc, hwc_cq->gdma_eq);
- 
-+	kfree(hwc_cq->comp_buf);
- 	kfree(hwc_cq);
- }
- 
-@@ -687,6 +726,9 @@ static int mana_hwc_establish_channel(struct gdma_context *gc, u16 *q_depth,
- 	struct gdma_queue *sq = hwc->txq->gdma_wq;
- 	struct gdma_queue *eq = hwc->cq->gdma_eq;
- 	struct gdma_queue *cq = hwc->cq->gdma_cq;
-+	struct gdma_queue **cq_table;
-+	u32 num_cqs;
-+	u32 cq_id;
- 	int err;
- 
- 	gc->hwc.doorbell = INVALID_DOORBELL;
-@@ -698,7 +740,7 @@ static int mana_hwc_establish_channel(struct gdma_context *gc, u16 *q_depth,
- 				 cq->mem_info.dma_handle,
- 				 rq->mem_info.dma_handle,
- 				 sq->mem_info.dma_handle,
--				 eq->eq.msix_index);
-+				 eq->eq.msix_index, &hwc->setup_active);
- 	if (err)
- 		return err;
- 
-@@ -713,15 +755,45 @@ static int mana_hwc_establish_channel(struct gdma_context *gc, u16 *q_depth,
- 	*max_req_msg_size = hwc->hwc_init_max_req_msg_size;
- 	*max_resp_msg_size = hwc->hwc_init_max_resp_msg_size;
- 
--	/* Both were set in mana_hwc_init_event_handler(). */
--	if (WARN_ON(cq->id >= gc->max_num_cqs))
-+	/* Snapshot the device-reported count and id once, so the same value
-+	 * sizes, bounds and indexes cq_table even across the sleeping
-+	 * vcalloc() and a concurrent init event.
-+	 */
-+	num_cqs = READ_ONCE(hwc->hwc_init_max_num_cqs);
-+	cq_id = READ_ONCE(hwc->hwc_init_cq_id);
-+
-+	/* Both operands come from untrusted HWC bootstrap events; a missing
-+	 * MAX_NUM_CQS leaves num_cqs at 0.  Reject rather than WARN_ON() so a
-+	 * malformed device response cannot panic a panic_on_warn guest.
-+	 */
-+	if (cq_id >= num_cqs) {
-+		dev_err_ratelimited(hwc->dev,
-+				    "HWC: bad CQ id %u >= max %u\n",
-+				    cq_id, num_cqs);
- 		return -EPROTO;
-+	}
-+
-+	/* Init events remain enabled, so commit the validated CQ ID once. */
-+	WRITE_ONCE(cq->id, cq_id);
- 
--	gc->cq_table = vcalloc(gc->max_num_cqs, sizeof(struct gdma_queue *));
--	if (!gc->cq_table)
-+	cq_table = vcalloc(num_cqs, sizeof(*cq_table));
-+	if (!cq_table)
- 		return -ENOMEM;
- 
--	gc->cq_table[cq->id] = cq;
-+	/* Publish the bound and the initialised table together; the release
-+	 * pairs with smp_load_acquire() in mana_gd_process_eqe().
-+	 */
-+	WRITE_ONCE(gc->max_num_cqs, num_cqs);
-+	/* Pairs with smp_load_acquire() in mana_gd_process_eqe(). */
-+	smp_store_release(&gc->cq_table, cq_table);
-+
-+	err = mana_hwc_publish_cq(gc, cq);
-+	if (err) {
-+		dev_err_ratelimited(hwc->dev,
-+				    "HWC: failed to publish CQ %u: %d\n",
-+				    cq_id, err);
-+		return err;
-+	}
- 
- 	return 0;
- }
-@@ -770,6 +842,18 @@ out:
- 	return err;
- }
- 
-+static void mana_hwc_clear_cq_table(struct gdma_context *gc)
-+{
-+	struct gdma_queue **cq_table;
-+
-+	cq_table = READ_ONCE(gc->cq_table);
-+	WRITE_ONCE(gc->max_num_cqs, 0);
-+	/* Stop new table readers before waiting for prior RCU readers. */
-+	smp_store_release(&gc->cq_table, NULL);
-+	synchronize_rcu();
-+	vfree(cq_table);
-+}
-+
- int mana_hwc_create_channel(struct gdma_context *gc)
- {
- 	u32 max_req_msg_size, max_resp_msg_size;
-@@ -778,6 +862,13 @@ int mana_hwc_create_channel(struct gdma_context *gc)
- 	u16 q_depth_max;
- 	int err;
- 
-+	/* Retry a retained context before assigning queues to the PF again. */
-+	if (gd->driver_data) {
-+		mana_hwc_destroy_channel(gc);
-+		if (gd->driver_data)
-+			return -ETIMEDOUT;
-+	}
-+
- 	hwc = kzalloc_obj(*hwc);
- 	if (!hwc)
- 		return -ENOMEM;
-@@ -827,25 +918,45 @@ out:
- 	return err;
- }
- 
-+static void mana_hwc_fence_channel(struct gdma_context *gc,
-+				   struct hw_channel_context *hwc)
-+{
-+	if (!hwc->cq)
-+		return;
-+
-+	if (hwc->cq->gdma_eq)
-+		mana_gd_fence_eq(gc, hwc->cq->gdma_eq);
-+
-+	if (hwc->cq->gdma_cq)
-+		mana_hwc_unpublish_cq(gc, hwc->cq->gdma_cq);
-+}
-+
- void mana_hwc_destroy_channel(struct gdma_context *gc)
- {
- 	struct hw_channel_context *hwc = gc->hwc.driver_data;
-+	int err;
- 
- 	if (!hwc)
- 		return;
- 
--	/* gc->max_num_cqs is set in mana_hwc_init_event_handler(). If it's
--	 * non-zero, the HWC worked and we should tear down the HWC here.
-+	/* An unacknowledged destroy leaves the PF's mappings live.  Fence
-+	 * software dispatch, but retain every PF-visible allocation.
- 	 */
--	if (gc->max_num_cqs > 0) {
--		mana_smc_teardown_hwc(&gc->shm_channel, false);
--		WRITE_ONCE(gc->max_num_cqs, 0);
-+	err = mana_smc_teardown_hwc(&gc->shm_channel, false,
-+				    &hwc->setup_active);
-+	if (err) {
-+		dev_err(hwc->dev,
-+			"HWC teardown failed: %d, retaining PF-visible resources\n",
-+			err);
-+		mana_hwc_fence_channel(gc, hwc);
-+		return;
- 	}
- 
--	if (hwc->cq)
--		mana_gd_detach_cq(gc, hwc->cq->gdma_cq);
-+	mana_hwc_clear_cq_table(gc);
- 
--	synchronize_rcu();
-+	/* Fence the EQ before releasing the remaining HWC state. */
-+	if (hwc->cq)
-+		mana_hwc_destroy_cq(hwc->gdma_dev->gdma_context, hwc->cq);
- 
- 	if (hwc->txq)
- 		mana_hwc_destroy_wq(hwc, hwc->txq);
-@@ -853,9 +964,6 @@ void mana_hwc_destroy_channel(struct gdma_context *gc)
- 	if (hwc->rxq)
- 		mana_hwc_destroy_wq(hwc, hwc->rxq);
- 
--	if (hwc->cq)
--		mana_hwc_destroy_cq(hwc->gdma_dev->gdma_context, hwc->cq);
--
- 	kfree(hwc->caller_ctx);
- 	hwc->caller_ctx = NULL;
- 
-@@ -871,9 +979,44 @@ void mana_hwc_destroy_channel(struct gdma_context *gc)
- 	kfree(hwc);
- 	gc->hwc.driver_data = NULL;
- 	gc->hwc.gdma_context = NULL;
-+}
- 
--	vfree(gc->cq_table);
--	gc->cq_table = NULL;
-+static void mana_hwc_free_retained_wq(struct hwc_wq *wq)
-+{
-+	if (!wq)
-+		return;
-+
-+	kfree(wq->msg_buf);
-+	kfree(wq->gdma_wq);
-+	kfree(wq);
-+}
-+
-+/* Final disposal after IRQ and service-work teardown, not a retry path.
-+ * Free only software state: unacknowledged HWC DMA allocations stay live.
-+ */
-+void mana_hwc_free_retained_channel(struct gdma_context *gc)
-+{
-+	struct hw_channel_context *hwc = gc->hwc.driver_data;
-+
-+	if (!hwc)
-+		return;
-+
-+	gc->hwc.driver_data = NULL;
-+	mana_hwc_clear_cq_table(gc);
-+
-+	if (hwc->cq) {
-+		kfree(hwc->cq->gdma_eq);
-+		kfree(hwc->cq->gdma_cq);
-+		kfree(hwc->cq->comp_buf);
-+		kfree(hwc->cq);
-+	}
-+
-+	mana_hwc_free_retained_wq(hwc->txq);
-+	mana_hwc_free_retained_wq(hwc->rxq);
-+	kfree(hwc->caller_ctx);
-+	mana_gd_free_res_map(&hwc->inflight_msg_res);
-+	kfree(hwc);
-+	gc->hwc.gdma_context = NULL;
- }
- 
- int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
-diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
-index 7e9223143fc75ff82a45bcdd6f320564b1befa15..744e6ceb7d2b9d88bc9dd3be83a6b280da30b5a5 100644
---- a/drivers/net/ethernet/microsoft/mana/mana_en.c
-+++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
-@@ -2736,8 +2736,8 @@ static void mana_destroy_txq(struct mana_port_context *apc)
- 		if (apc->tx_qp[i]->txq.napi_initialized) {
- 			/* Detach the CQ only after the WQ object is destroyed,
- 			 * so a completion EQE that arrives before then still
--			 * finds the CQ in cq_table[] rather than hitting the
--			 * WARN in mana_gd_process_eqe(). One grace period then
-+			 * finds the CQ in cq_table[] rather than being dropped
-+			 * by mana_gd_process_eqe(). One grace period then
- 			 * covers both mana_gd_intr() and NAPI users.
- 			 */
- 			mana_gd_detach_cq(gc, apc->tx_qp[i]->tx_cq.gdma_cq);
-diff --git a/drivers/net/ethernet/microsoft/mana/shm_channel.c b/drivers/net/ethernet/microsoft/mana/shm_channel.c
-index d21b5db06e5092d82249fb1053d07f65aa38490c..df9d05062dd57b465bfab5dba0c476867526ed3b 100644
---- a/drivers/net/ethernet/microsoft/mana/shm_channel.c
-+++ b/drivers/net/ethernet/microsoft/mana/shm_channel.c
-@@ -125,13 +125,24 @@ static int mana_smc_read_response(struct shm_channel *sc, u32 msg_type,
- void mana_smc_init(struct shm_channel *sc, struct device *dev,
- 		   void __iomem *base)
- {
-+	/* The first call precedes channel publication. Later calls refresh the
-+	 * BAR mapping after reset or resume without reinitializing a live lock.
-+	 */
-+	if (!sc->transaction_lock_initialized) {
-+		mutex_init(&sc->transaction_lock);
-+		sc->transaction_lock_initialized = true;
-+	}
-+
-+	mutex_lock(&sc->transaction_lock);
- 	sc->dev = dev;
- 	sc->base = base;
-+	mutex_unlock(&sc->transaction_lock);
- }
- 
--int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
--		       u64 cq_addr, u64 rq_addr, u64 sq_addr,
--		       u32 eq_msix_index)
-+static int mana_smc_setup_hwc_locked(struct shm_channel *sc, bool reset_vf,
-+				     u64 eq_addr, u64 cq_addr, u64 rq_addr,
-+				     u64 sq_addr, u32 eq_msix_index,
-+				     bool *submitted)
- {
- 	union smc_proto_hdr *hdr;
- 	u16 all_addr_h4bits = 0;
-@@ -144,6 +155,9 @@ int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
- 	int err;
- 	int i;
- 
-+	lockdep_assert_held(&sc->transaction_lock);
-+	*submitted = false;
-+
- 	/* Ensure VF already has possession of shared memory */
- 	err = mana_smc_poll_register(sc->base, false);
- 	if (err) {
-@@ -229,6 +243,7 @@ int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
- 	/* Write 256-message buffer to shared memory (final 32-bit write
- 	 * triggers HW to set possession bit to PF).
- 	 */
-+	*submitted = true;
- 	dword = (u32 *)shm_buf;
- 	for (i = 0; i < SMC_APERTURE_DWORDS; i++)
- 		writel(*dword++, sc->base + i * SMC_BASIC_UNIT);
-@@ -248,11 +263,32 @@ int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
- 	return 0;
- }
- 
--int mana_smc_teardown_hwc(struct shm_channel *sc, bool reset_vf)
-+int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
-+		       u64 cq_addr, u64 rq_addr, u64 sq_addr,
-+		       u32 eq_msix_index, bool *submitted)
-+{
-+	int err;
-+
-+	mutex_lock(&sc->transaction_lock);
-+	err = mana_smc_setup_hwc_locked(sc, reset_vf, eq_addr, cq_addr,
-+					rq_addr, sq_addr, eq_msix_index,
-+					submitted);
-+	mutex_unlock(&sc->transaction_lock);
-+
-+	return err;
-+}
-+
-+static int mana_smc_teardown_hwc_locked(struct shm_channel *sc, bool reset_vf,
-+					bool *setup_active)
- {
- 	union smc_proto_hdr hdr = {};
- 	int err;
- 
-+	lockdep_assert_held(&sc->transaction_lock);
-+
-+	if (!*setup_active)
-+		return 0;
-+
- 	/* Ensure already has possession of shared memory */
- 	err = mana_smc_poll_register(sc->base, false);
- 	if (err) {
-@@ -283,5 +319,19 @@ int mana_smc_teardown_hwc(struct shm_channel *sc, bool reset_vf)
- 		return err;
- 	}
- 
-+	*setup_active = false;
-+
- 	return 0;
- }
-+
-+int mana_smc_teardown_hwc(struct shm_channel *sc, bool reset_vf,
-+			  bool *setup_active)
-+{
-+	int err;
-+
-+	mutex_lock(&sc->transaction_lock);
-+	err = mana_smc_teardown_hwc_locked(sc, reset_vf, setup_active);
-+	mutex_unlock(&sc->transaction_lock);
-+
-+	return err;
-+}
-diff --git a/include/net/mana/gdma.h b/include/net/mana/gdma.h
-index bde68d6a99f01634f456a9b16eb74fba566e788c..2da086a3b8f721d51827553d78261240c8d69a6f 100644
---- a/include/net/mana/gdma.h
-+++ b/include/net/mana/gdma.h
-@@ -600,6 +600,9 @@ int mana_gd_create_mana_wq_cq(struct gdma_dev *gd,
- 
- void mana_gd_destroy_queue(struct gdma_context *gc, struct gdma_queue *queue);
- 
-+/* Remove an EQ from interrupt dispatch without freeing its queue memory. */
-+void mana_gd_fence_eq(struct gdma_context *gc, struct gdma_queue *queue);
-+
- int mana_gd_poll_cq(struct gdma_queue *cq, struct gdma_comp *comp, int num_cqe);
- 
- void mana_gd_ring_cq(struct gdma_queue *cq, u8 arm_bit);
-@@ -1150,6 +1153,7 @@ int mana_gd_verify_vf_version(struct gdma_context *gc);
- int mana_gd_query_max_resources(struct gdma_context *gc);
- int mana_gd_setup(struct gdma_context *gc);
- void mana_gd_cleanup(struct gdma_context *gc);
-+void mana_gd_free_context(struct gdma_context *gc);
- int mana_gd_detect_devices(struct gdma_context *gc);
- int mana_gd_init_registers(struct gdma_context *gc);
- irqreturn_t mana_gd_intr(int irq, void *arg);
-diff --git a/include/net/mana/hw_channel.h b/include/net/mana/hw_channel.h
-index 113b01325137bfbab4a0b4c42f1ee883dbcbedb5..fc2c26f809047703244ffd30ff4a7a115c682617 100644
---- a/include/net/mana/hw_channel.h
-+++ b/include/net/mana/hw_channel.h
-@@ -185,6 +185,8 @@ struct hw_channel_context {
- 	u16 hwc_init_q_depth_max;
- 	u32 hwc_init_max_req_msg_size;
- 	u32 hwc_init_max_resp_msg_size;
-+	u32 hwc_init_max_num_cqs;
-+	u32 hwc_init_cq_id;
- 
- 	int hwc_init_error;
- 	struct completion hwc_init_eqe_comp;
-@@ -200,11 +202,17 @@ struct hw_channel_context {
- 	u32 dest_vrcq_id;
- 	u32 hwc_timeout;
- 
-+	/* Once ESTABLISH_HWC submits the queue addresses, a setup error
-+	 * does not release them. The PF may still use the rings and buffers
-+	 * until it acknowledges DESTROY_HWC.
-+	 */
-+	bool setup_active;
- 	struct hwc_caller_ctx *caller_ctx;
- };
- 
- int mana_hwc_create_channel(struct gdma_context *gc);
- void mana_hwc_destroy_channel(struct gdma_context *gc);
-+void mana_hwc_free_retained_channel(struct gdma_context *gc);
- 
- int mana_hwc_send_request(struct hw_channel_context *hwc, u32 req_len,
- 			  const void *req, u32 resp_len, void *resp);
-diff --git a/include/net/mana/shm_channel.h b/include/net/mana/shm_channel.h
-index dbabcfb95daf3e87b39a657e3a5f23a1508d4f31..c8daa61fa759e167a97059887fb88a8b9626ed8f 100644
---- a/include/net/mana/shm_channel.h
-+++ b/include/net/mana/shm_channel.h
-@@ -4,6 +4,8 @@
- #ifndef _SHM_CHANNEL_H
- #define _SHM_CHANNEL_H
- 
-+#include <linux/mutex.h>
-+
- #define SMC_APERTURE_BITS 256
- #define SMC_BASIC_UNIT (sizeof(u32))
- #define SMC_APERTURE_DWORDS (SMC_APERTURE_BITS / (SMC_BASIC_UNIT * 8))
-@@ -13,6 +15,9 @@
- struct shm_channel {
- 	struct device *dev;
- 	void __iomem *base;
-+	/* Protects base and complete aperture request/response transactions. */
-+	struct mutex transaction_lock;
-+	bool transaction_lock_initialized;
- };
- 
- void mana_smc_init(struct shm_channel *sc, struct device *dev,
-@@ -20,8 +25,9 @@ void mana_smc_init(struct shm_channel *sc, struct device *dev,
- 
- int mana_smc_setup_hwc(struct shm_channel *sc, bool reset_vf, u64 eq_addr,
- 		       u64 cq_addr, u64 rq_addr, u64 sq_addr,
--		       u32 eq_msix_index);
-+		       u32 eq_msix_index, bool *submitted);
- 
--int mana_smc_teardown_hwc(struct shm_channel *sc, bool reset_vf);
-+int mana_smc_teardown_hwc(struct shm_channel *sc, bool reset_vf,
-+			  bool *setup_active);
- 
- #endif /* _SHM_CHANNEL_H */
+> 
+> > +        tests = [ksft_variants(cases)(test_xsk)]
+> > +        if not cfg.veth_test:
+> > +            tests.append(ksft_variants(cases)(test_xsk_busy_poll))
+> > +        ksft_run(tests, args=(cfg,))
+> > +    ksft_exit()
+> 
