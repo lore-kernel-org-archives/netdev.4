@@ -1,58 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531908;
-	b=NT3s51yW28yqMQ4HKNOg9WLlK/yLcX7g+JbwY0I64GvZ5stkURRrNf84uzpsZU3v9J1r
-	 6qU7SamoSRa/tOtojDMFgycZoOiy3awWAFMkBe9miTNKNySapiwerMu7kLQRcmQkfFPrt
-	 F6PfKV2JdfZ78cFB8GtA4BrQwFxv5Hu7I5Uayde3eXXg8Mvtmxt5FdUO4fnx+HibiYUVb
-	 qb5Km8yPl8jT3h2AazptpLl/vJsU3y45CjLGCkBFsSgtZ5S9z5A69xEnU5YZVZGFLlicW
-	 0rcHEiIM+0XbAvCoA2+8TuPe5DuFlQhjSHR/4r4lMFP2z8C+aV3BLKJUqpLHeuRQ5dw==
+	t=1795531939;
+	b=Y14u4Mv9kBoRxlVH4/HneHS632cI9/NwghrsukJBC3Z4yseiHFbkDZx2eoa/Lylku1h2
+	 jbKb9TAwWa++Lm1yvAQw0AZehc8+zLzuGKhj2iMw4oUryBxq3dYf8z62hud0nAjFFfvFj
+	 WJFllMBo4Rth3YqXv4vvqkucBbuGNO5ErjZDdDz5+hxCmdmntIHtGL8/cwumJmoHAMGdq
+	 56vGzM9W1tPu3XtQlWvgd9PIxQWyLUDJHZT/VYmqLRQJz0gwi6yzcoq8mLgIlxfiZuIDO
+	 lL89mlEojO8LcYADfqVZexE9Bk9d0DBjFLOT2DlUnbEfZlYG4IVX+erJOGNKVO6INtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531908;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=ULSJeJaQRalsTqoU5W1rSuYhUrpQTwSQEQPfYYy36zk=;
-	b=2/gcdWGf4uJyRQHyXKgM86LTE+3iW0JLBhr0lyGh7E38USOPhGc1gxIqmgCQHP+KSYjk
-	 J+jzTfusdrgCSIWXZWWNGu4cXy1ZCxaj9ANGTrGQLa5+6JB+AbM1JzAVRjNFCn1N5LNym
-	 LwKaCfuYfBHrq7FpsNvc448WJA7EQOnyj6pWVCtzMx/jxmNgtCs1xbMMPHXCyo/RTUTBC
-	 hOSmr7sZaRJ95Dcw/MWGlwnqTQe7keZqxgHll7imcFIB04USaqtmGNq9nISSmGrmqTFmu
-	 obHzyDeFSXuygyBukQPVgvN7ei8p5IKpq+zP34cnPyFvE2XNyIbXaqek3zDL0aoJ6pw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531939;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=ir8r/DdPbBDChwKt9EzTpfDH4Fv+1sx4PRU3oksokh853k9AGsHIHf6ghjq3maIS10QQ
+	 RAgpLbeCDJqWt2H6kqUX7+0A1RCkwlGuFyuMmmTl8Y4IHhsjDv/CHPgLO8SXNXDy0M+8A
+	 /4YssheRekJumvOn+Uv1XUD3XnfwPvuzcgXG6KCLorgnQL7n4+0ggLApGfTuuzSF+WStu
+	 MYrPjR0TuVM3DDe9p4VQpoC40ZWX/3NMFJacXl9PIGJnllIy3w1WGdTDWd20IXTBGg74x
+	 0EE2hULt5J8s6QLf2PtvgNJBUvaEoxLo/reHv4JWqHBOYxAk9UPtQPvIU5/Dt05Lhyg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Jzg3QENG;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PbBmCLFn;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 567F7606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:51:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 567F7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31934606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:52:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Jzg3QENG
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 758F44E41762;
-	Tue, 24 Nov 2026 14:51:46 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 45162601E1;
-	Tue, 24 Nov 2026 14:51:46 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5FCCE11E698C3;
-	Tue, 24 Nov 2026 15:51:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795531905; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=ULSJeJaQRalsTqoU5W1rSuYhUrpQTwSQEQPfYYy36zk=;
-	b=Jzg3QENGVlhk4j/SENqmtOZebmGfYqsEyLpCNZMOV9RWteUNWbt9h7o5HLWm2gZ6UlACu9
-	Iz3GhKtkvPZU0gNvccDbmmZeYo63x1kb1z7kPU0wFk0t/hCn3II/U/3dia72VeQgXsZscw
-	Zi1TaVrwWsdn2+Rg7yIR8wT1DUNJc7qY5CuIjkCUjZ4T0n92DsYJNRL/QEMQNrjAUOI/m6
-	DqrOe8D5SwORGMVaXLAwj0+X8sWjyaBW4VRjsZZse5qJWyDPctLkPRbLS8s4DxFOEA0qHK
-	Ik/pYTwLm2pGLZ7Y7ZP+sxFxgNao51qbMd96bpcDXMpgGumI2jHaiqOpm6lW3Q==
-Message-ID: <73996d83-47bc-495d-ac5f-539c32b5147f@bootlin.com>
-Date: Tue, 24 Nov 2026 15:51:35 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PbBmCLFn
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BB611F000D0;
+	Tue, 24 Nov 2026 14:52:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795531938;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=PbBmCLFnC+pd32TunHK8o/mjKwQadDLqO7HG2hiWAocPcMTKJ5BRqLeAotTEIRPHY
+	 PNynMEdWj7SfaF4l28JA2myvP7QG/SqWf277vTuxPptY/8S7RPbcrFBm5nmZGVF6aq
+	 FvPS25OJRxws4yygEc0UTB5M2vh2XppxfDV+AGIfUSVuaoQf7SLnXwlEmUdtPRQMRN
+	 0XyaW9/OE+ZTSn/ivkpQdXz1asWTIM9yFf5AI+u+11F9DuH5b4BxYM6oFBuOwA7GSC
+	 ldInYAlHRdfdHV3HMr/Cd1dg9q5V/CR0tJvusOseSjrrvH4LjVrVpryG2j3NzRJcuQ
+	 PmI7aLsy1krnA==
+From: netdev-bot+sinfo@kernel.org
+To: Minxi Hou <houminxi@gmail.com>
+Cc: netdev@vger.kernel.org, dev@openvswitch.org, aconole@redhat.com,
+ echaudro@redhat.com, i.maximets@ovn.org, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ matttbe@kernel.org, shuah@kernel.org, netdev-bot+sashiko@kernel.org
+Subject: Re: [PATCH net v6 0/3] net: openvswitch: fix a feature leak on a
+ failed change
+Date: Tue, 24 Nov 2026 14:52:17 +0000
+Message-ID: <179553193708.3294.13977466604609033873@kernel.org>
+In-Reply-To: <20261124145033.627044-1-houminxi@gmail.com>
+References: <20261124145033.627044-1-houminxi@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,59 +64,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2 2/2] net: stmmac: dwmac-sun8i: Limit the MTU to
- 2018
-To: Nicolai Buchwitz <nb@tipi-net.de>, wens@kernel.org
-Cc: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- LABBE Corentin <clabbe.montjoie@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- Russell King <rmk+kernel@armlinux.org.uk>, stable@vger.kernel.org
-References: <20261122-sun8i-emac-mtu-limit-v2-0-c4081e5b83cf@gmail.com>
- <20261122-sun8i-emac-mtu-limit-v2-2-c4081e5b83cf@gmail.com>
- <CAGb2v65_vY86WqvKr1m=g0N1Qr2UhLC1v3OHKPG3x+oURUKp7Q@mail.gmail.com>
- <5e09c85c2c33885fecbdf81cd0b9209b@tipi-net.de>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <5e09c85c2c33885fecbdf81cd0b9209b@tipi-net.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi,
+Hi!
 
-On 11/22/26 17:31, Nicolai Buchwitz wrote:
-> On 22.11.2026 12:39, Chen-Yu Tsai wrote:
->> [...]
-> 
->> FWIW I think this applies to all DWMAC cores.
-> 
->> [...]
-> 
->> So for normal descriptors the buffer size is bound to (2KB - bus width).
->> Not tested, but I think there is more evidence supporting a cross-platform
->> limit.
-> 
-> The sun8i EMAC isn't a Synopsys core, so this needs a test on one.
-> Maxime, could you try MTU 2019-2021 on your boards?
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Sorry for the delay, I'm back with numbers :)
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-So on net-next, w/o this patch, I see:
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
- - dwmac-sunxi (Allwinner A20), the first MTU that fails is 2029 (so frame size is 2046 incl. FCS)
- - dwmac 3.70a (meson-g12a), first failing MTU is 2031
- - dwmac-sun8i (H2+), first failing MTU is 2025
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-The first two are ring mode, the last is chain mode.
-
-This was all untagged traffic.
-
-Maxime
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
