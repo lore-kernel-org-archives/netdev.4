@@ -1,67 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546096;
-	b=UUC/TqQ0t74e96IF+f0AF/zpI+zq85HeNW84mNXuphmSa1kmRDqSHCpYEDCz7UghrQFX
-	 hzpjWq3Kswze7Sczm9CBSeSC85Nyq2MMSRSFtpGhTZN9AvWzc0kA7b9IWnO730tmFVvpG
-	 G66CFsLW1BQA3iXbnHpv8Ravvof1O4JpcqJdWFnn4u2DOO3FzyyYB2wvEkYoh9WNW6g8F
-	 NT/aca3usr8VVZN0C/PDhnbWQ7mMidKnb0+CaqJobf3L0IwPWWD/q4HfPqMtbACMNud5V
-	 AYdQ96ildbHOhA3Ro65EtaAzvy7IWsbLps5ZEFvQaRODm/7+47mQ3El7YJjmSxrvPLQ==
+	t=1795546127;
+	b=mRbMdGs+FXtnPrheNQjGIHcMLXxKfRdwESuJtGn8DuPzvrvdlLOyfkmKsR0aHxlNBOka
+	 K3lHntVJwbKb5WvQojpN9tcrzA2NTXQC4zw2wq0SWAw+JRRbouuqatc6g0RtQtnro9spo
+	 0lGGHriYV6TOMoROn81xDQaEhSnMAjH1qGenauL4qd16I/htyPljH3Nt0eYoighH1gI6T
+	 a6vdjZoXIupPn9z3rEv7HfxlgdXOmRu3d9GTWKCZPkJ5+dcjdSDzWw4Bhq4PRj6UgpmdP
+	 PB2WuvTMoR3p9Y9jtIYLqZ4RO52T0fE34PM8BW1uTKQZztDkLQQrlT0UezpxnSSM6JA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546096;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=XBzDKPy8F5atVthy1/b+yB4P2BpBTE8nfPxwYLvRUlA=;
-	b=m/E/dcpb6fu320blg5gXLEFYWISelgzs832U81idlX3ei6sUIKvhfa5xBZ1jzZX/82nq
-	 /gp/qnXFkl42UmVr1S9NoUZ4hQqtFJqQM5TkEYury+V4tAkTUuuIWjGRQ873KviGO+/UJ
-	 MOegldak09kffkrqyqbwDRfgQWZVlSu+gmnJjLcyqyADwNpc1bYMpRDVs+Nl1JiWs+ko5
-	 0mIzptj/pJmSFWPU3PwHgTOwXPQFdm+r3he4+J9abodnFfJVz6Yr5ULX0ckP5nYqGET4d
-	 vHQEvLK+J+2iQ9G4Ftc6pqAj4M4GDDdZI9sk6XJfqJGAarn6m3JYD+RF45x2prztX9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546127;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Dc+VwRig8VSn4wpYWTZ82flxuN19bvjXSOBz/lbecMM=;
+	b=Xci1oFMybLg0/Z3P2jDK5R6i/O+eDLam1FdwT4s5FbKGpIm/QsfqQAbQRRKdhhX2KObO
+	 KwXliHGVd1BaQ9gXhUQfeUXtArTbahPiVcE6fqPs32a1c9QRWg1kFqYZw24U8uvfCzxEw
+	 TkN1XrPvdER3m6CwVlCjbylXb4DmDci0UkSRG+NdTV39hWX30XHm9amTOZ6EqNO3+gWDD
+	 sq3UIcvY6CO3G/d7RwSnUlFjmW2duzoLECbXdOgaJBIQ4+8tZ2qxOeNOXhWhlyIGCMQLf
+	 +5tHYLS0ByuGOpzNgOqf7N5HG5P1oJXz4nbJQakSiMfhWDzS58tMgqpwstWJ2InfWAw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=oSOHBSUB;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPhRu7wG;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2ED5F606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:48:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2ED5F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15C95606A323
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:48:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=oSOHBSUB
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 9FA491A17C1
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:48:12 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 72EEA601E1;
-	Tue, 24 Nov 2026 18:48:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EE0A311E69B24;
-	Tue, 24 Nov 2026 19:48:06 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795546087; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=XBzDKPy8F5atVthy1/b+yB4P2BpBTE8nfPxwYLvRUlA=;
-	b=oSOHBSUBxG/QjZ8d8nZY+rHMg62PZfnFkOoAyjGxNqLMJuZfCyqHI9McElp46SpNSSqaem
-	Va7jzAdPY87J8Pd8Z9llt/kXToQTKuca0H9xXh609tDtMR2khrHponTR0SBDSq2IkeJOyM
-	gp58odi8NrnVa8l5SuMT0D0T8MoaKq9Whd2dv+94gfcUK00vQMw1GXLFuGNvIyz3ltUw2m
-	yueKJ2yhOvrmONqgECu9MD67dlg8hWVAbbXWpGe0qHwXr3d7M9HrP5EYzDsqZFt6qr6+dT
-	8tXA8xkHXu30ihBBreT/Kj6iEw7jC2rfqDYBk5IzA+vc8Qeb063fIIfJr2KJzw==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Lee Keon-Hyeong <leegun25@proton.me>
-Cc: alex.aring@gmail.com,  stefan@datenfreihafen.org,
-  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org
-Subject: Re: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
-In-Reply-To: <20261121150835.256812-1-leegun25@proton.me> (Lee Keon-Hyeong's
-	message of "Sat, 21 Nov 2026 15:08:43 +0000")
-References: <20261121150835.256812-1-leegun25@proton.me>
-User-Agent: mu4e 1.12.12; emacs 30.2
-Date: Tue, 24 Nov 2026 19:48:06 +0100
-Message-ID: <87se0qqd5l.fsf@bootlin.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPhRu7wG
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7D41F000CF;
+	Tue, 24 Nov 2026 18:48:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795546126;
+	bh=Dc+VwRig8VSn4wpYWTZ82flxuN19bvjXSOBz/lbecMM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WPhRu7wGW/JaWITdY49J/pYDBVrL2ggA16OBYkEmgNbFOI4qzXz4Eji9rNBzXZTaj
+	 HaYWW6Ynu6cxeZbMxtgSkdCoQrO/kuteupznaUKqbvhM2rS30Z9DvqTAVWgeutetdR
+	 TTeAaKVWD0/0bFVkiWUAH1qLBxFkwsoyvC+yg39hVY4rZLhkxJNArB+VMgdZb8bNWK
+	 bfFvq560mchjlysJMTvHEzn11OcmI2E8MMYDkT6DOdBAiFEFEYmpPdU1qd4BLp/jtc
+	 GxgsTbWimu1uMf18NW33RKXObLmU+/ck9/OQPxhEyHg+fBtl6xZVWsqRhkava/UVJ2
+	 nqI77FRpmxmsA==
+Subject: Re: [PATCH net] net/sched: fq_pie: clear memory_usage and flow
+ backlog in fq_pie_reset()
+From: netdev-bot+sashiko@kernel.org
+To: edumazet@kernel.org
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ willemb@google.com, horms@kernel.org, netdev@vger.kernel.org,
+ jhs@mojatatu.com
+Date: Tue, 24 Nov 2026 18:48:45 +0000
+Message-ID: <179554612514.3135.4817357528010046097@kernel.org>
+In-Reply-To: <20261123184602.386372-1-edumazet@kernel.org>
+References: <20261123184602.386372-1-edumazet@kernel.org>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,55 +63,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-Last-TLS-Session-Version: TLSv1.3
 
-On 21/11/2026 at 15:08:43 GMT, Lee Keon-Hyeong <leegun25@proton.me> wrote:
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-> mac802154_process_association_req() runs from the rx_mac_cmd workqueue.
-> The missing RTNL was identified during an LLM-assisted code audit of the
-> mac802154 association handling path.  The function builds the ASSOC RESP
-> and sends it through
-> mac802154_send_association_resp_locked() -> ieee802154_mlme_tx_locked(),
-> which asserts the RTNL and calls ieee802154_sync_queue().  The worker does
-> not hold the RTNL: this triggers an RTNL assertion failure whenever an
-> ASSOC REQ reaches the response transmission path.  With panic_on_warn=3D1=
- a
-> single unauthenticated frame panics the kernel, even with
-> max_associations=3D0 (a rejected request still sends a response).
->
-> Take the RTNL before association_lock, matching the netlink lock order
-> (RTNL then association_lock), and release it after the association lock on
-> all exits.
->
-> Reproduced with a monitor/coordinator pair on mac802154_hwsim; the same
-> test is silent with this patch.  On a CONFIG_PROVE_LOCKING kernel 86,891
-> association requests were sent while the coordinator was brought down and
-> up 1,200 times and recreated 71 times: no lockdep report, no hang and no
-> warning, and the longest down transition took about 4 ms.  The
-> panic_on_warn run (22,941 requests, 300 down/up cycles) also completed.
-> There is no in-tree selftest for this path; the checks above use a
-> dedicated hwsim harness.
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-Ok, we can definitely align on the observation but the approach may not
-stand.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-First let's approach the numbers. 4ms is on a locally run simulator. You
-are fixing a subsystem that plays with radios. A physical IEEE802154
-radio would probably bring the usual bad case to > 100ms, and worth case
-would be above the 1s boundary. So taking the RTNL lock as you do it
-there would no longer warn in dev mode, but might lead to a DoS.
+- [High] This patch leaves the problem it gives as its reason for
+  clearing `flow->backlog` in place for the default configuration.
 
-Reviewing your patch makes me realize we do something even worse: up to
-10s waiting with the RTNL when waiting for an association response (for
-which we are ouselves the initiator). That is slightly less a problem
-since it is not remotely triggerable like the approach you propose, but
-still.
+--
 
-I don't remember why we *had* to take the RTNL in the mlme_tx path.
+net/sched: fq_pie: clear memory_usage and flow backlog in fq_pie_reset()
 
-Alex, maybe you remember why?
+This commit makes fq_pie_reset() clear q->memory_usage, matching
+fq_codel_reset(), so tc statistics and the overmemory counter stay correct
+after a non-empty qdisc is reset. It also clears flow->backlog, since
+fq_pie_timer() keeps passing it to pie_calculate_probability() for flows
+that no longer hold packets.
 
-Thanks,
-Miqu=C3=A8l
+> diff --git a/net/sched/sch_fq_pie.c b/net/sched/sch_fq_pie.c
+> index 5982847df8f85..a5e2a83efb679 100644
+> --- a/net/sched/sch_fq_pie.c
+> +++ b/net/sched/sch_fq_pie.c
+> @@ -547,10 +547,12 @@ static void fq_pie_reset(struct Qdisc *sch)
+>  		/* Removes all packets from flow */
+>  		rtnl_kfree_skbs(flow->head, flow->tail);
+>  		flow->head = NULL;
+> +		flow->backlog = 0;
+>  
+>  		INIT_LIST_HEAD(&flow->flowchain);
+>  		pie_vars_init(&flow->vars);
+
+[Severity: High]
+Is clearing flow->backlog enough to stop fq_pie_timer() from feeding stale
+per-flow state into pie_calculate_probability()?
+
+With the default dq_rate_estimator=0, pie_calculate_probability() does not
+derive the delay from the backlog argument. It reads the cached values:
+
+net/sched/sch_pie.c:pie_calculate_probability() {
+    ...
+	} else {
+		qdelay = vars->qdelay;
+		qdelay_old = vars->qdelay_old;
+	}
+    ...
+	delta += alpha * (qdelay - params->target);
+	delta += beta * (qdelay - qdelay_old);
+    ...
+}
+
+In that mode backlog only gates update_prob when qdelay is 0.
+
+pie_vars_init() only resets burst_time, dq_tstamp, accu_prob, dq_count and
+avg_dq_rate. It leaves vars->qdelay, vars->qdelay_old, vars->prob and
+vars->backlog_old as they were.
+
+When the dequeue-time estimator is off, pie_process_dequeue() is the only
+place that writes a fresh vars->qdelay. The reset frees the packets without
+going through it. If the flow was congested at reset time, vars->qdelay
+therefore keeps the last sojourn time of the purged queue.
+
+adapt_timer is only stopped in fq_pie_destroy(), so it keeps running after
+a reset such as:
+
+linkwatch -> dev_deactivate() -> dev_deactivate_many() -> dev_reset_queue()
+  -> qdisc_reset() -> fq_pie_reset()
+
+If the stale qdelay is above target, can each tupdate round compute a
+positive delta and keep raising prob for as long as the flow is idle? The
+decay branch for qdelay == 0 && qdelay_old == 0 never runs in that case.
+prob is only clamped when the u64 wraps, so it looks like it can grow past
+MAX_PROB.
+
+When traffic hashed to that bucket comes back, the 150ms burst_time runs
+out. After that, pie_drop_early() no longer takes this early return:
+
+	if ((vars->qdelay < params->target / 2) &&
+	    (vars->prob < MAX_PROB / 5))
+		return false;
+
+Would that flow then see almost every packet dropped once its backlog
+reaches 2 MTU? It looks like this would last until prob decays, which can
+take seconds or longer depending on how long the flow was idle.
+
+Should the reset path also clear vars->qdelay, vars->qdelay_old, vars->prob
+and vars->backlog_old? That could go either in fq_pie_reset() or in a
+full-reset helper. pie_reset() in sch_pie.c appears to have the same gap.
+
+>  	}
+> +	q->memory_usage = 0;
+>  }
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123184602.386372-1-edumazet%40kernel.org
