@@ -1,94 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525681;
-	b=vBsNVk4M44sKWDoQQjx+qi92F7a8UpGyZm3JZDsGUwxmqThyGT7qgsjpBlGpxGhYFmKP
-	 F2Cc2PK6ixUyLOvRBHER5MK0Dh05l4clVyNl863iCuyOa9i5Qko2MFeW4f0OEqVxq7DCi
-	 IRiOMXm/W4WmOfbzFoM5OQBLzFrWf5TAsCBkGm8uXMKRvNJSEB3rD3tSQEsoyEE6o1hca
-	 C5Mm/GUHwn3LcNcPreMwpyPuFn2NWC4WM4XFcxL0q15roRpnRqax7VoSaKZ0WvMwLRj20
-	 eO8mrO05rIvuEj4by/Xd5C6u2qww+MQIsrAHwpZ0rNaLx4Ar79LT3BH8P6cf6NH10+Q==
+	t=1795525686;
+	b=PR9dpTVuCG4CuNQ84zoiJc5YgqRVX2AOTE+1uzQ/9qJrbMkce2MhbN9peB2D5gVmz6K6
+	 G1c4Y6+wxmbcMYIdLlPGeZqrlsR13w5xcX2hKshuEfAgc8v/URGS6+LzJlSu1SA3iIe2T
+	 w7o/E0YIcypnh7KPZz6WaHDiQ7KXFitF27eBAEzxJQ9Qk2q3CE0Bz5QKseS9WQl7vnK7+
+	 ltKDmvAvt5JyZrOM4XkDea5u5ePOuLyEIR1Oe0O0ml2zBFIgnIbZjyGmaurhNwZDyiNNa
+	 Vkx51qQb4jUHk4sydKhAU/kARPrWoXa8M1GfenFpNYoCWwZC3UBzitETzcvGlllDhGg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525681;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525686;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=f/G0Fc0+8dzWPDQzsPiAzYB6o89KWN828G+K+hRqFNE=;
-	b=ebdZKEwhuziPEcxkWAaL7bfkvKDl+ANuwOG4QKprB+KsWwb1e1RJCGDQ2jI9XyEn0FOB
-	 JsZ31oOHCVzb8wClYrCCbr6IzFiyuzfvhWc+2Qb+kYyQ3mQMwFElohKEG/SsZKI49PGCk
-	 lTkOXqJLzkNBeVChnp0QMqtT/2Ry+n4W/MI9AlqxzPWw25JhkF+R6/YlStIVeIUWp19GK
-	 6pnT++nCnk6o+kgEzU2Da2VyLIobPh7NEE326NXjvyIHGr66b/HgH/mfHKHJb5YLbmFV5
-	 9e2nJCubMI5viqW5PbET01pyfJSc5lcKl97IfcZiDWtVamBPQFMJT8l39oa+ABqjVBw==
+	bh=oosESyXixnnHbF5S3HtNOAGe+FND+MwLVsS8CF2PbEQ=;
+	b=wXxIe8Becf2LmLRKFzNKE4auzhjuc62/pxc25Su4AtRE7s2zPe58Ulj1e2lkr+9le7w9
+	 kEfhJx7jyCDf1cICSyzOfNoqP4mqB/HMAVcNAGVqsbyPR8IC2TuhAwD0tODuomp9NdNtY
+	 jU6Tl0wEu2nByGQFKmXFdV9VOTDK3LDivPpFgvmVP8Ok7lr5BLm0HcrNjdubdcYx9zBkm
+	 7GpqUqEbRuH+7msQuPPyil2DkidPHx9Jwu40TQdzWHnqFl4qdLrTPrhExGRZDwKd+zwKG
+	 Rl/TsRtQptlFgEe2xqpJqg/pSA0DPwSDjtTn8tD+Gludojwch/fkbW/b2lqCOGJoztQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ODaOGWoN;
-	arc=none smtp.remote-ip=91.218.175.102
-Received: from mta0.migadu.com (out-102.mta0.migadu.com [91.218.175.102])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=SruTvaOe;
+	arc=none smtp.remote-ip=79.135.106.96
+Received: from mail-10696.protonmail.ch (mail-10696.protonmail.ch [79.135.106.96])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69820606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:08:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69820606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 202BA606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:08:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 202BA606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=ODaOGWoN
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=e+WlsO9K9EpVleBqqJfkV1jawEX8Hcz/qMi1mhljrKA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795525678; v=1; x=1796130478;
- b=ODaOGWoNUu0cAybXn/jSPkqAUi8eNNegbM2E0oe1c19JQEI5xygj1/qwB/O+nCqceXM4NhwL
- 58ll2NtAUJqPxAxbN17eEV6tTmsG2tou4nqGn8sfBh30SpEps9xATGqxdmXHMCEirT1Ksdz/kLY
- jkfjUOxzp5AUU/CSpqtE/yZc=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 45409a6f410f3181;
-	Tue, 24 Nov 2026 13:07:58 +0000
-X-Mizu-Trace-ID: 45409a6f410f3181
-X-Migadu-Flow: FLOW_OUT
-From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-To: netdev@vger.kernel.org
-Cc: "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Matthieu Baerts <matttbe@kernel.org>,
-	Mat Martineau <martineau@kernel.org>,
-	Geliang Tang <geliang@kernel.org>,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Neal Cardwell <ncardwell@google.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Florian Westphal <fw@strlen.de>,
-	Phil Sutter <phil@nwl.cc>,
-	bpf@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	mptcp@lists.linux.dev,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
-Subject: [PATCH net-next v1 3/6] ipv4: raw: do not use skb_header_pointer() in icmp_filter()
-Date: Tue, 24 Nov 2026 22:06:28 +0900
-Message-ID: <20261124130631.1886963-4-xuanqiang.luo@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=SruTvaOe
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795525683; x=1795784883;
+	bh=oosESyXixnnHbF5S3HtNOAGe+FND+MwLVsS8CF2PbEQ=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=SruTvaOeebrocGlxZ2tOtwCoU2ayhMIcI83h6HePrGbFaqdLDx/b6LBp8twcf+8tQ
+	 TOIJRjHR0/lLjOTVspX/FdPWLYBJMRqMn3URc9PydAr+aqO+U6+IVksBtyqZhaZWiS
+	 UNxgImkqF1r0FpBbboEkZ2YdnFA71G8zWGYkv0I22HZXbDuyfFF4TsnXYzW8KMBYcZ
+	 KSDoWIH8NHloluCTOLg5cbU3RfT1T9KUl7UzVDGQl+Zu/MiAIbt9Ni2k6tXXBvt7IM
+	 883s1Sr1dKMw1QsK1upR+OxmO+Gk7QlSMXb81P/QPj9hE/hXHnNKEPD9oUXoGpiL7f
+	 7lIR+wTAQO+QQ==
+Date: Tue, 24 Nov 2026 13:07:58 +0000
+To: Linux Networking <netdev@vger.kernel.org>
+From: Turritopsis Dohrnii Teo En Ming <teo.en.ming@protonmail.com>
+Cc: "ceo@teo-en-ming-corp.com" <ceo@teo-en-ming-corp.com>
+Subject: Configuring Sophos APX 530 Access Points APs with Sophos XGS136 firewall (also function as a Wireless LAN Controller)
+Message-ID: <O2ZNaA5qh3aKRNQrbKpZQr4erGR2bXqU2jOL6AUNwDcZYwYQ8TMImWq1a_VDaZD3_GUMWKdjCm4b2i1EGPUY5xYy-Az4vk8An15qFOp7Gy0=@protonmail.com>
+Feedback-ID: 39510961:user:proton
+X-Pm-Message-ID: ca3dafe0a8b2c800da4fb0640b268a49230b8a76
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,104 +61,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: Configuring Sophos APX 530 Access Points APs with Sophos XGS136 fi=
+rewall (also function as a Wireless LAN Controller)
 
-raw_local_deliver() is called for every IPv4 packet delivered locally.
+Good day from Singapore,
 
-icmp_filter() passes the address of a local struct icmphdr to
-skb_header_pointer(). Once inlined, this forces a stack canary
-(CONFIG_STACKPROTECTOR_STRONG=y) into raw_local_deliver(), although
-only ICMP packets matching a raw socket need the filter.
+Author: Mr. Turritopsis Dohrnii Teo En Ming
+Date: 24 Nov 2026 Tuesday=20
+Country: Singapore
 
-Prefer pskb_may_pull(), as commit a14d93179045 ("ipv6: do not use
-skb_header_pointer() in icmpv6_filter()") did for IPv6.
+Connect DATA-1 PoE network switch to Port 5 on Sophos XGS136 firewall (spec=
+ific subnet requirement 192.168.125.0/24).
+Port 5 is also part of LAN zone.
 
-skb->data already points to the transport header here.
+Connect Sophos APX 530 access point to DATA-1 PoE network switch.
 
-skb->head can change, reload iph pointer in raw_v4_input().
+DATA-1 network switch is PoE+ capable (IEEE 802.3at).
 
-$ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
-add/remove: 0/0 grow/shrink: 0/1 up/down: 0/-95 (-95)
-Function                                     old     new   delta
-raw_local_deliver                            648     553     -95
-Total: Before=24068073, After=24067978, chg -0.00%
+Login to Sophos XGS136 firewall (TCP port 4444).
 
-Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
----
- net/ipv4/raw.c | 25 ++++++++++++++-----------
- 1 file changed, 14 insertions(+), 11 deletions(-)
+Go to Wireless > Access Points > Pending access points
 
-diff --git a/net/ipv4/raw.c b/net/ipv4/raw.c
-index f33a9dfc5309..f72163699040 100644
---- a/net/ipv4/raw.c
-+++ b/net/ipv4/raw.c
-@@ -140,16 +140,14 @@ EXPORT_SYMBOL_GPL(raw_v4_match);
-  *	0 - deliver
-  *	1 - block
-  */
--static int icmp_filter(const struct sock *sk, const struct sk_buff *skb)
-+static int icmp_filter(const struct sock *sk, struct sk_buff *skb)
- {
--	struct icmphdr _hdr;
- 	const struct icmphdr *hdr;
- 
--	hdr = skb_header_pointer(skb, skb_transport_offset(skb),
--				 sizeof(_hdr), &_hdr);
--	if (!hdr)
-+	if (!pskb_may_pull(skb, sizeof(*hdr)))
- 		return 1;
- 
-+	hdr = (const struct icmphdr *)skb->data;
- 	if (hdr->type < 32) {
- 		__u32 data = raw_sk(sk)->filter.data;
- 
-@@ -166,10 +164,10 @@ static int icmp_filter(const struct sock *sk, const struct sk_buff *skb)
-  * RFC 1122: SHOULD pass TOS value up to the transport layer.
-  * -> It does. And not only TOS, but all IP header.
-  */
--static int raw_v4_input(struct net *net, struct sk_buff *skb,
--			const struct iphdr *iph, int hash)
-+static int raw_v4_input(struct net *net, struct sk_buff *skb, int hash)
- {
- 	int sdif = inet_sdif(skb);
-+	const struct iphdr *iph;
- 	struct hlist_head *hlist;
- 	int dif = inet_iif(skb);
- 	int delivered = 0;
-@@ -178,13 +176,19 @@ static int raw_v4_input(struct net *net, struct sk_buff *skb,
- 	hlist = &raw_v4_hashinfo.ht[hash];
- 	rcu_read_lock();
- 	sk_for_each_rcu(sk, hlist) {
-+		iph = ip_hdr(skb);
- 		if (!raw_v4_match(net, sk, iph->protocol,
- 				  iph->saddr, iph->daddr, dif, sdif))
- 			continue;
- 
- 		delivered = 1;
--		if ((iph->protocol != IPPROTO_ICMP || !icmp_filter(sk, skb)) &&
--		    ip_mc_sf_allow(sk, iph->daddr, iph->saddr,
-+		if (iph->protocol == IPPROTO_ICMP) {
-+			if (icmp_filter(sk, skb))
-+				continue;
-+			/* icmp_filter() might have changed skb->head. */
-+			iph = ip_hdr(skb);
-+		}
-+		if (ip_mc_sf_allow(sk, iph->daddr, iph->saddr,
- 				   skb->dev->ifindex, sdif)) {
- 			struct sk_buff *clone;
- 
-@@ -208,8 +212,7 @@ int raw_local_deliver(struct sk_buff *skb, int protocol)
- {
- 	struct net *net = dev_net(skb->dev);
- 
--	return raw_v4_input(net, skb, ip_hdr(skb),
--			    raw_hashfunc(net, protocol));
-+	return raw_v4_input(net, skb, raw_hashfunc(net, protocol));
- }
- 
- static void raw_err(struct sock *sk, struct sk_buff *skb, u32 info)
--- 
-2.43.0
+Select the access point and click Accept
+
+A. Enable Sophos Wireless Protection
+
+Navigate to Wireless =E2=86=92 Wireless Settings.
+1. Enable Wireless Protection.
+2. Under Allowed Zones, select LAN.
+3. Click Apply.
+4. Under Administration =E2=86=92 Device Access, ensure the appropriate LAN=
+ management and wireless services are permitted, if that option is availabl=
+e in your firmware.
+
+Sophos documents LAN as a supported zone for AP registration.
+
+B. Create the Wi-Fi network
+
+Go to Wireless =E2=86=92 Wireless Networks =E2=86=92 Add.
+
+Setting |=09Recommended configuration
+Name:=09Server and Printer
+SSID:=09Server and Printer
+Security mode:=09WPA2-Personal
+Encryption:=09AES
+Password:=09Strong unique password
+Client traffic:=09Bridge to AP LAN
+Frequency bands:=092.4 GHz and 5 GHz
+
+Save, then go to Wireless =E2=86=92 Access Points and assign "Server and Pr=
+inter" SSID to all Sophos APX 530 access points.
+
+Do not create a separate bridge interface on the Sophos XGS136 firewall. So=
+phos specifically confirms that external APX access points using Bridge to =
+AP LAN do not require a firewall bridge interface.
+
+That's all.
+
+Regards,
+
+Mr. Turritopsis Dohrnii Teo En Ming
+Republic of Singapore
+24 Nov 2026 Tuesday 9.02 pm Singapore Time
+
+
+
 
