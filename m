@@ -1,88 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518672;
-	b=DA7BnWE56t87cXwOcn4hR/ayDKr8+H4P7tlac7uH835ZjB9dDU3tmU0U4adtJY/OV0ED
-	 vhz2qWMLhN7dtgDDdvrkIMGgIm3LGtwYqb35keGrdxk/+JR3Y7wb8EUuIrrL7DkRzXxIf
-	 CYxFupxoq3eq/IqWHY8lsQbrgZix3/E4yueWCcvc5uzRJfClEPzHdo+3d4DdWkZo6Xy9s
-	 B44XQKyIgnOkeUU0AWfqQMc3ugBzHMGkJWGNbjv9qzUVPiu4sCaKRuecqSh/ymlpZ7+nV
-	 5YTaBJcykJLTk20rGMLJ/N1e9EmuVMdrEOm368R95nnZm8j8yisJf3b7o01nw/edMOA==
+	t=1795518688;
+	b=wkIubLs86R1lqfrfK0/eof0THqK1sbJpZkVs1BrV1IyGxv0vUh9WWviawnvqfjXomkwn
+	 oOVAKaKFlhGZCTkddJlxbkWGucKNo3JVlDwzfa15TF3EjqmBV6rcP1a7RuyUqlRO+NJ+s
+	 m8WdogPqwDuaWx6mugX6fYT6u5CXt0yTNpeAh+bduRoFBbVazqGYgQFGQ0FNd+FxGQOOZ
+	 MkJN1/yOIKaHrIpTUFiN57k8fulqMvi7DbuVPRxzdVo3hkArYSu0GxGPQQlX4mZPf/svB
+	 TlgfEzaI81C9JzkBsXosw3zcJBq5+wjBz/lUvq885X/jA2LfywLwMsS1liF8VWYpQjQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518672;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:Autocrypt:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
-	b=Xn3pzYOAh+X6JM+YgMxLRQIF1m8idD7XZKIjdj3d0BRzHgeEsnUwXmdgg+mIrbwyFGds
-	 T1e10RXE+bUcc1SGIn8gXKU0v843RRr+VLPwnldtmpxRZB6nKUl0RmqIfP44Au8Fs+SAq
-	 aNJ6uL0ZX3fzx5SHy7+S3DGFm8lypXR74KdFKNlkl24SvKSvr1y3fwBIzaU7G45DCrrpn
-	 0sM8WWPm9wn0KdmBmcJBTNXnuNm5ruQMMbysdbXbzrYiYXijzAJrjyYxFrL+uh32f3Rln
-	 P/5uNUjdB86Omb7jiM0ZuxCrZYZUnZg4YO1KfkD4W9H5tFmrGLOM0fag0jz60QW7dwQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518688;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=OwZXOITJo56PReQ9BykCMJAs017o0l+E14VdkE53qkE=;
+	b=KbLxhosNMMj7hFBKW1W06JSO7W0aqjwEVaSB00R6E6Kg2HnH0U3eCsW8cQdLHdsBfh2V
+	 Cvem5eFD56yzBPTxxg+SVA0r0XGtvfDRg2LHlkSE4uBicyWZkb/Gj0o/R1XPeULlrfYpO
+	 D6oJ27SFRHtYWxRIwGbcVGe5Ak9WjoH+TBzlpQiyTWcBTfQ5sR0TCJoZH1hlFNmnGUiR4
+	 OwezzWAhLLTiSBzBjeVTxTIUCcHlTgaiyGm9zlSDqHNOjU49pNeKmxaz9XAfTew7g+S9A
+	 Rq1kesapln2t5pt8qAO/udjyUzlXtl9tmfYFLm3NXfilUEow+kALZYMXJvI3CXqR+Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=suse.com;
-	spf=pass smtp.mailfrom=suse.com;
-	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=UcnJHTyQ;
-	arc=none smtp.remote-ip=209.85.221.46
-Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=JCDTNmB+;
+	arc=none smtp.remote-ip=68.232.153.233
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DB4B606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:11:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3DB4B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9601C606A31E;
+	Tue, 24 Nov 2026 11:11:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9601C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=UcnJHTyQ
-Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-48e46e449e8so2788768f8f.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:11:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1795518670; x=1796123470; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
-        b=UcnJHTyQiH+pKFVhR73XzeT85KeSi92KVWmgCXQdae9Iorf7if3nOhlsvuGVx3zgnR
-         3I3oHy5W9T2Ov4uRkRfiVlOVshc2IG7lp0WiaWnmG9FMm520X0c+I/g/cq7uhwnFsQdg
-         zknf/Zf0WKLMy38opavOI9WQdshHATN9mpQfg/u4JnCn7ShBDgSeqR8gv2I3evbY5Z7f
-         Kw4IXDtUhHXpn91jpwhLNI+sk8j9s7fuwnMohaAaHvwXbuiC1je1zXLI7b45DDwpxUPL
-         hqYXeckrkBKMd8s56zpcNkHGIA3vbIwciYPXpCc6GvN0XKfUjqoe4i8r1liUGfggMFJV
-         f1rQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795518670; x=1796123470;
-        h=content-transfer-encoding:content-type:in-reply-to:autocrypt
-         :content-language:from:references:cc:to:subject:user-agent
-         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=t2at0oNmEktJ6fTz2jAVgHoFYZN4l8WmAMuyA5WiFQQ=;
-        b=KBc8yfgi5snIY+oRBF40F/6YcMxXnRyi0nr1f5oPbCB25Hh1RRFhEMIUML2yyHY/cZ
-         Dn/E8cEY3mnKxySDJe+Pxpcn4KElA4LRdJZOtQAwCly2O/pJsUfkPM62WSvKFMwPyUb/
-         A+tTK1PvSer7oMhMuXx7WTVCHGqU6TjDqkRq5z+RILDuXgPaTc0MQ9xqkaBfAGaxzLpL
-         V0KMFnr1vMWKn2fev6BVoDdVBa2H66mcZsAXBY4edmSvqHXHB1Ok0rYh3tQ/XteUnNWO
-         w4si9Qob5N5WWSzaJ04UiNESBF4gVKmdZiNPkYaceYGaBDbfWWbGDMA1aXKDhtuTz97m
-         hXRA==
-X-Forwarded-Encrypted: i=1; AL+hErEpdy4a+V24Nt7S878Xb0ImIcdVA9CMw5ksHOwoXPOzHHoIsXkQHpwkaRL/d5INZphez7urERA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8LhEzCRJQxhV03YZMCOMZ3/NNwUB07t4tTbEbjSemy40dYJtoL
-	J3DvAshenvKhz4cN2Jlp/1qPIm87y6Mpn7cageO+mrzpHZzLnQYTutysqMb6D6BT7lQ=
-X-Gm-Gg: AZFdTZdMaecoQ0r59NkTYIyiskATpWvsgcFhIP/y0xksK7nqzKUe9ApD+zCbwMA9qt9
-	oIlSrQJ0Es355hGEd6HQzmsiAeuCdFbdzMkXznq+mmzNCuSaij8LAHZrRhif5LiUrSgUzKi6Z9H
-	gT39OokhFMjVTh1+nwHw6P4bhJN/LHh91DlKFApy1KuBYNHgq1DFFCNUbBCko271dykPV4hLyiX
-	q0ZFT1MnG4SvKQKLHRC/VdmQXEHBx38RRz25PZheOgHM+kQZ6VWHaPvsM4EiKb1YME+pB9/Z08i
-	YKDMWAd6dJ9G5zwcBMFmWHTf0vU64EHcqJOLrEurz6VUb/efy64Jcw+0/+O+QaXEunOIECV39lC
-	9LyLWwOfmSfHpaPe1RGsNBDfxZSatip9yYSdHQHxonP1pUKgA86Dt5aBKfiRGLwJKDXA4ekyCpC
-	ci6WCM7SXkSO0rJqV2VMOoafrgZ8qgojQy/RHsLYRlu20/IAkSLDXlqmJ5hUOrEwwhtibQ31i27
-	OD0HnOYW5QHnpAzkLd1RCrEbs8q5/HscZ97lxnKFIH3Hbu8zdYecBuIbFdh8ewv2V7T+PncCtLw
-	rdA6bqTudAGpI9G4uJlBad5POIHfPztJ
-X-Received: by 2002:a05:6000:4541:b0:48e:6264:c373 with SMTP id ffacd0b85a97d-4abb400bd81mr17140230f8f.14.1795518670500;
-        Tue, 24 Nov 2026 03:11:10 -0800 (PST)
-Received: from [192.168.0.20] ([212.21.133.162])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa397asm28151271f8f.48.2026.11.24.03.11.09
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 03:11:10 -0800 (PST)
-Message-ID: <ffdd26d1-4316-47ad-9ab2-9a62b94bd2e3@suse.com>
-Date: Tue, 24 Nov 2026 13:11:09 +0200
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=JCDTNmB+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795518695; x=1827054695;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=8pXOKlK0mI7Ua5Htx7CMcHzP1KNpru5khORw6FKthcw=;
+  b=JCDTNmB+xnNBuuCx2kxNORNlQuJQouskj9zRp5jwyZkTdlN9u0U1br8S
+   /xOh80MZ9dRcqciHgtzqykS+mCtA+2Gt4bHaEmlRhD5NEFxg6TD0Gnz7C
+   txTj54TVR58gDwRooo947FMUuVO6nLR6fve10buYPX+6vDCJqrm/wOxMC
+   uPrmkYwqnJYSvGp5tcUDDUW3SOcz6WX8IWP90QNa4I+BFjfjtCmjxY81w
+   w2wwGqttYtfV9XGYC2x5p3cCbM+Pa4zbC6V0OEqJPvlD9NsTl/7D8kCiU
+   45bsTaTAw23rjVO93J6NrFUzkkBrIhR45l2M+NUi63fkYxbOh3PGOQMHk
+   w==;
+X-CSE-ConnectionGUID: xaLedNgPSdmdvd3E7rHtqQ==
+X-CSE-MsgGUID: kaayPWVHTBSQnDmgi0HBlQ==
+X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
+   d="scan'208";a="66983052"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 04:11:34 -0700
+Received: from chn-vm-ex04.mchp-main.com (10.10.87.151) by
+ chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Tue, 24 Nov 2026 04:11:25 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex04.mchp-main.com
+ (10.10.85.152) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Tue, 24 Nov 2026 04:11:22 -0700
+Date: Tue, 24 Nov 2026 12:11:21 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
+	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
+	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
+Subject: Re: [PATCH net-next v3 8/9] net: sparx5/lan969x: scale the TAS guard
+ band with the MTU
+Message-ID: <20261124111121.medudcljq3slykzx@DEN-DL-M70577>
+References: <20261120-sparx5-mtu-change-v3-8-55c272fe1acc@microchip.com>
+ <179544590174.3135.13752120910636082921@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,89 +85,155 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ipv4: fib_rules: Switch to using a for loop in
- fib_empty_table
-To: Ido Schimmel <idosch@idosch.org>
-Cc: davem@davemloft.net, kuba@kernel.org, dsahern@kernel.org,
- netdev@vger.kernel.org
-References: <20261120081242.318541-1-nik.borisov@suse.com>
- <20261124110317.GA3761951@shredder>
-From: Nikolay Borisov <nik.borisov@suse.com>
-Content-Language: en-US
-Autocrypt: addr=nik.borisov@suse.com; keydata=
- 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
-In-Reply-To: <20261124110317.GA3761951@shredder>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <179544590174.3135.13752120910636082921@kernel.org>
 
-
-
-On 24.11.26 г. 13:03 ч., Ido Schimmel wrote:
-> On Fri, Nov 20, 2026 at 10:12:42AM +0200, Nikolay Borisov wrote:
->> Since commit efdfb1e27a33 ("ipv4: fib: bound automatic table ID allocation")
->> added a sane bound to the loop looking for a table id the concerns in
->> 58075ff523af ("ipv4: fib_rules: Fix possible infinite loop in fib_empty_table")
->> are rendered moot. Just revert the code back to a "for" loop, using the
->> new bound. This makes the code's flow and terminating condition a
->> lot clearer.
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
 > 
-> I disagree with "a lot clearer". The function is tiny.
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
 > 
-> Please read:
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
 > 
-> https://docs.kernel.org/next/process/maintainer-netdev.html#clean-up-patches
+> - [Medium] sparx5_tas_gb_update()
+>   (drivers/net/ethernet/microchip/sparx5/sparx5_tas.c) takes the largest…
+> - [Low] In sparx5_tas_gb_update()
+>   (drivers/net/ethernet/microchip/sparx5/sparx5_tas.c:738) the guard…
+> 
+> --
+> 
+> net: sparx5/lan969x: scale the TAS guard band with the MTU
+> 
+> This commit programs the TAS guard band (HSCH_TAS_QMAXSDU_CFG) for all
+> ports and traffic classes. The value comes from the largest MTU of all
+> ports, plus the Ethernet header, FCS and two VLAN tags, rounded up to
+> 64 bytes. It adds sparx5_tas_gb_update(), calls it from sparx5_tas_init(),
+> and makes it available for use when the MTU changes.
+> 
+> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+> > index ec80bc69371ab..32e502bc4f18f 100644
+> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_tas.c
+> 
+> [ ... ]
+> 
+> > @@ -718,6 +721,40 @@ int sparx5_tas_disable(struct sparx5_port *port)
+> >  	return err;
+> >  }
+> >  
+> > +/* Size the guard band of all ports for a frame of the largest MTU of all
+> > + * ports, as a port can transmit frames forwarded from any port.
+> > + */
+> > +void sparx5_tas_gb_update(struct sparx5 *sparx5)
+> > +{
+> > +	u32 max_mtu = 0, gb;
+> > +	int i, tc;
+> > +
+> > +	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
+> > +		if (sparx5->ports[i])
+> > +			max_mtu = max_t(u32, max_mtu,
+> > +					READ_ONCE(sparx5->ports[i]->ndev->mtu));
+> > +	}
+> > +
+> > +	gb = DIV_ROUND_UP(SPX5_HW_MTU(max_mtu) + 2 * VLAN_HLEN,
+> > +			  TAS_QMAXSDU_UNIT);
+> 
+> [Severity: Low]
+> Should the 8 byte preamble/SFD be counted here?
+> 
+> The guard band is sized from the L2 frame only, F = mtu + 26, rounded up
+> to 64 bytes. A frame of F bytes that starts just before the guard band
+> needs F + 8 byte-times on the wire to finish.
+> 
+> When F mod 64 is 0 or 57..63, the rounding leaves less than 8 bytes of
+> slack. For example, mtu=2022 gives F=2048 and mtu=9190 gives F=9216, both
+> with no slack. mtu=4000 gives F=4026, with 6 bytes of slack.
+> 
+> Suppose the HSCH turns QMAXSDU_VAL * 64 directly into time at LINK_SPEED,
+> without adding L1 overhead itself. Could a maximum size double tagged
+> frame then overrun the gate close by up to 8 byte-times? The default MTU
+> of 1500 is fine (1526 vs 1536).
+> 
+> For comparison, felix/vsc9959 adds L1 overhead explicitly when it
+> calculates the guard band. The tree doesn't show whether the
+> sparx5/lan969x hardware adds the preamble time internally.
+> 
+> > +
+> > +	mutex_lock(&sparx5->tas_lock);
+> > +
+> > +	/* Each port uses the TAS profile of its own number */
+> > +	for (i = 0; i < sparx5->data->consts->n_ports; i++) {
+> > +		if (!sparx5->ports[i])
+> > +			continue;
+> > +
+> > +		for (tc = 0; tc < SPX5_PRIOS; tc++)
+> > +			spx5_rmw(HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL_SET(gb),
+> > +				 HSCH_TAS_QMAXSDU_CFG_QMAXSDU_VAL,
+> > +				 sparx5,
+> > +				 HSCH_TAS_QMAXSDU_CFG(i, tc));
+> 
+> [Severity: Medium]
+> What happens to taprio schedules already offloaded on other ports when
+> this loop rewrites the guard band?
+> 
+> The loop writes the new guard band into every port's profile for all 8
+> traffic classes. That includes ports whose lists are already pending or
+> operating. sparx5_tas_init() sets ALWAYS_GUARD_BAND_SCH_Q, so the guard
+> band applies to every class:
+> 
+> sparx5_tas_init() {
+>     ...
+> 	spx5_rmw(HSCH_TAS_CFG_CTRL_LIST_NUM_MAX_SET(list_num_max) |
+> 		 HSCH_TAS_CFG_CTRL_ALWAYS_GUARD_BAND_SCH_Q_SET(1),
+>     ...
+> }
+> 
+> Later in this series, "net: sparx5/lan969x: add support for changing the
+> MTU" calls sparx5_tas_gb_update() from sparx5_port_change_mtu(). After
+> that, "ip link set dev ethB mtu 9000" raises the guard band on every port
+> from 1536 to 142 * 64 = 9088 bytes. That is about 72.7 us at 1 Gbps and
+> 727 us at 100 Mbps. At the maximum MTU it reaches 219 * 64 = 14016 bytes.
+> 
+> Take a schedule on ethA with a 20-50 us window at 1G. It works with the
+> 1536 byte guard band (about 12.3 us). The commit message notes that the
+> scheduler starts no frame inside the guard band.
+> 
+> After the MTU change on ethB, wouldn't that window never open? The queue
+> would then fill and tail-drop, and no error would be reported.
+> 
+> sparx5_tas_gb_update() returns void and doesn't recheck the programmed
+> lists. sparx5_tas_enable() checks intervals only against
+> TAS_MIN_CYCLE_TIME_NS and TAS_MAX_CYCLE_TIME_NS, not against the guard
+> band, so such schedules are also accepted without a warning:
+> 
+> sparx5_tas_enable() {
+>     ...
+> 		if (interval < TAS_MIN_CYCLE_TIME_NS) {
+>     ...
+> }
+> 
+> The taprio max_sdu[] values, which correspond to this register, are also
+> ignored. So the guard band can't be limited per class.
+> 
+> felix/vsc9959 handles this in vsc9959_tas_guard_bands_update(). It
+> recomputes the per-TC QMAXSDU from the schedule's minimum gate lengths
+> whenever the MTU or the schedule changes. It also enables oversize
+> dropping, so short windows can still carry smaller frames.
+> 
+> Using the switch-wide maximum MTU seems reasonable, since ports forward
+> and mirror frames from each other. The concern is only that running
+> schedules can stop transmitting without any error.
 
+This was already dismissed on v2 [1].
 
-You are the maintainer, it's your say. However, I disagree that this 
-patch falls within the "cleanup patches" described in the aforementioned 
-link.
+[1] https://lore.kernel.org/netdev/20261113081058.onqbnzydftlc4jeu@DEN-DL-M70577.microsemi.net/
 
-That function is a linear scan in a [1-4096] space. I see no reason why 
-a linear scan should be implemented via an infinite while(1) loop with a 
-terminating condition in the body, when a 'for' loop construct is the 
-right tool for the job. Anyway, as I said it's up to the maintainers.
-
-Regards,
-Nikolay
+> 
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
