@@ -1,99 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795484296;
-	b=3szaKUcx7KEhD/x/p/vYY7zgKNFOJykcFHjNVUOnVQChUVcxr+q0zf7atr+wzNXDKdxt
-	 oq/yloBoDLyeOzf7YoLGGWfx0XloYSJ2WOdgSJDicMNIR8m/0fmmb3pO7M92WzEzG8UBv
-	 ALeg0cM48+7c/mKx0lIdcB4cKxB+w9sgG3CqwJDvPt947T3RF8rRLoqFlXoVlPyCaqtbB
-	 E2j7gYFP4u3jg7DgIupZpyeOD0q8coQoZArS20yDMO6Lf75KOHKqf1sXxh1spax55uA62
-	 MC5wcQFoTb4UHz9yqVXY6Nkzx49TUpHmMf1SwhtVlRhzfW6qXKLwo9PzlxssxlJZtSA==
+	t=1795484311;
+	b=QqopP2jV+UbRU6b1BaVYa7rFGRyvgzQedeTdp8Vu03v9A92dbMLofD2VQNXxkxpWo1Nf
+	 YWO+Xv4okQPBZ3Et+9uB8oO/fgWLpYn4tPW7sklSPPGrpqpeLiwhSgK+3kv9IXkXyAmNA
+	 8LvDA3VIeYgft47K6zzmXzL2mC+kd9fsiqFX3yxPfnRhe+FarEk84DkpO5rCNkMY2fYOy
+	 sRmdpXaK16cJDp4bcQI8eu/unmAgmhcd5o9G90do8BTg4eEUBQIJ7hOnx72INkjzHvjkr
+	 hOyF7zcVQQYQC/vTBHl+I6fWYLiBPxEYXDxcHnuEBghvNBd7JPYOKJ8gSuGkwM0s3fg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795484296;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795484311;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
-	b=pDWGNPeJNQ2oIa+ij2+KzI6zVf6h7nwaBPr7e9P0APlVPGcHZUJgHYV5igmKDw6G6H66
-	 0PQUTYYTA3iAmIokQVJHCmeFlr3VF2Wu12cF9xJxdM7Itclts8RuzQqIYi1HuoxbdwY75
-	 54LoovoX/wD8xT3Lq5z4JF6+eISvdDBKL5MnPvXHC/1zjyBxQeWVD0qH9k2HrfN1ubEL6
-	 RClBtROM8L5M67ZKofXxvZBGMhsnyHvfS9r59lwYYuRuR0Zjw+O0BBDacWnSwffiYkw9d
-	 +KgNEnDh4Cgli58OxGxlGuiZwyFcTtxVOJOaxyc43eEawYTTJb5yg4CTp6N8twWrBdw==
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=zPEkjCEVqbn6YbsK/3IOudjnU9MkfzVsn/g6qbuTA7w=;
+	b=lHfQ1tg0SvJl55taO/bxEQNXQVWqpr6vnOZ6jhnuFFCb9C6Udr8ZdDpJsD7de7waek6Z
+	 mtsXXM/ENrtpao2JJJBdyEo76hrtc89os8R5RQIqfpHBoGWm3NHi6lKD3vrJB91t4CxE5
+	 PVaBIU1AmnJx9z0WturxjX+Z9abjIHdGzu6+joagu8tJZVzR5MpOOw3TsiA2XDegB6Dl/
+	 skjxEgDkLy8NRKvq9C93HCHJhZDsHgQGO6YU1jvb6E1tOlIqrzHqGHNxEqzQwk8JtwCAg
+	 8C6wsVVlcE2zNdqALgEm/+UiXDmEaOAonr2BoDcmhQTISJ3EERjOJs0UTX4MjU40QHA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HalbCFD1;
-	arc=none smtp.remote-ip=209.85.128.173
-Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tis7Ks6Y;
+	arc=none smtp.remote-ip=209.85.128.172
+Received: from mail-yw1-f172.google.com (mail-yw1-f172.google.com [209.85.128.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2BBA606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:38:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2BBA606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2785E606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:38:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2785E606A322
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HalbCFD1
-Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4c685c751so34091737b3.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:38:15 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tis7Ks6Y
+Received: by mail-yw1-f172.google.com with SMTP id 00721157ae682-8b0dba37a7fso32091847b3.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:38:30 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795484295; x=1796089095; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
-        b=HalbCFD1Lw2UXPOv9DcbVAZIgTEpte5A7w0gB77Ia2AhhvTFnr+Cavmw04K6IXkBis
-         gK/IW/J4QWjG1qGtWv6eIxLs0IhA6CR6s/oKp9ufURlCQcxuI6uDqx6DvLgI53F9E7aY
-         m4c4zLFVzR5BW4DG5w+DBrp8KQ4VulJq2ihZ4T+ovhanQdgKA1SzBBVbcxPyv234pXhR
-         YQBVwVjB5p5L5KgA0AffA2ScuCMwuul7g3vv26euOWsnMD9GmsT+grXBZDZZkaIV21Gh
-         g0EQPgOTVAFOMQhJw22qn0uXQJzPOrGhFz2ka3EBMQcSNSp4eqjzTNb8vwFzinaH9ap+
-         dOug==
+        d=gmail.com; s=20260707; t=1795484309; x=1796089109; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=zPEkjCEVqbn6YbsK/3IOudjnU9MkfzVsn/g6qbuTA7w=;
+        b=Tis7Ks6YH3lIFYhtif3vvVyETTXpbJHyX8WoZh7J60hvENiYqzcvsnVH4Q/df67uGT
+         vfpdue3Xzbl7nDk0myzXBlXaxsB4MsIL8BwzD/bQemrz70xqpJA1tNSrpWoyXCQW7Fjo
+         sCvjn9DXt241tTDV8VUGDXq/Du6JCtFWkMdBP3u3RapBy7CxMAKK9W9mjSYw7j4LpsY/
+         nttToLwinv0jVXq7uDMiVlnxJd92W1SaEiyU1yzpdUUlOR4fxQ20VUM7Z2sW+UiCdv7K
+         YXuKRnm+vB2+Ex6QlGOyqhuMV7Z/qnp5bew4recieYpL2EVRC//cuA9SjTwoITtcDcRm
+         a0OQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795484295; x=1796089095;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
-        b=dAFY6DVT6lxT6YWOulUee9SuhdQYnC9dQEei7qHaXfdqDM4jcTGDElt4gq7/zEmzKL
-         16J4W0iSb8SC1vLnOLbV9XSDE6+F6PaLE5Z+qktelwj9kVqNNTp65bGqRqHYAyBUKMZ1
-         yJvV3vl7eC8C7RUpis0N10TqT7OmGUjgaFEcmRF2fuJtIsKeF4KwtRaCemF3Vg0+RhhF
-         fHzqUh6tbGAZB1Y1mqfMSecBcxtM9jApK8NCosMBWlwfUWL0CZOosXIJbJ8dFjgb+UQo
-         uaUr3CW1Wd2q9c8rJgTYKOOHnLYDpZzmTqWf2mYZxmqZR4qLBqq9PdEfK/2BJpB0ksfD
-         2ccw==
-X-Gm-Message-State: APuU4Z9U+LQkY581DhdUwoFtvCIMHdC5y82Skeeg5l7EZlbDpLpUduZj
-	75qSI/xcPKSAnI3YM4ii2/5jp3fP2CMGXMZosLtELKgF9JQ/tI6L9GLZxi37qKFO
-X-Gm-Gg: AZFdTZfJc681qJISkhXrfo1xvSN/GtqM7WhFeDS3JqNct8fk2OG/q6yII4d/JaC0b9u
-	UUIOlu5QS+drTMM/ygcTGTWMqyRfOx/9ArfoOPX716Topp1sTSgLj2cI19+zILUk2qrqnw+/yHk
-	36/f3uFOVQiKRoPm/QeWOuKityX20rkjHDp9vRqMroJcIcR26R65ESDoVUgqmqZ3ELwt9VuWHG3
-	f+jPOfKQfcCI2vXDOM8fGswdiUaLnkXh2BnpP0ny4bDF3j/PKujGLtBrxGWLKm0n0HhIpzybAwR
-	ZXX5+swoltGL3a8trnta62A2F3szWKN2BEIjDTMgWPSSo+rIxiiUR7sNtOR9Wklqla0XKCcYep8
-	RbC1KA4+purQ9fVhwTa2fxQHIT8XLK6Ul8hn6RXlJB0PZFNN4zxS8tiEpEF3v/aBO6sUv7WBpD6
-	f7wvIDP8TRHsmsNWyZm3STQkKkNeNJMDgalIDPtUe+MpYUCVeKm6QtuiiMehOGTlaDPpqam7xuQ
-	73n0jlHSbnXO2SSYr2J8PJfqS+0+PsZhKN+yTkoksm14vr0jZtldvDgRaSqKUTcfAsEKbgk5vo8
-	rfDfvGDpPxGWa47eJ3YpXm3JoGrRiZrRWYAx//wT+iLWMSswueBxkNYJV5K+fzVLsBjxjIQmCr4
-	EzSdJuSKhmygcAr8HxljRu6G2HVx7rhK9ARZ3GKoiUlketqX94t0l+9WF9OPPlfvkQMU+SLpqMD
-	UHSNhIE5SgQNg7txCvVRIgvd32
-X-Received: by 2002:a05:690c:4a02:b0:8b0:f1c0:60b1 with SMTP id 00721157ae682-8b5204a7d4bmr41571617b3.60.1795484294996;
-        Mon, 23 Nov 2026 17:38:14 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795484309; x=1796089109;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=zPEkjCEVqbn6YbsK/3IOudjnU9MkfzVsn/g6qbuTA7w=;
+        b=ZovxrC5Zm4KpSkCkD0fYU1NnT0PClTLbtVudvTCGZ+0IlCjytbn4HEf6BhT8XHHNlY
+         MxD6tvESaiNCthW3EDxxkDqfC8jM68epgEEp2tyoWK+PmzUpD/0uNgZb/5X1bNrYBZFB
+         PRWVDX0meFspr1KMqPQDqhV+p8vrRu/EwXHR01HtZXZVF6mDnkZHXdkuhNhxnAvO9h4i
+         4qyALZusVLjuT33o9ckggEoDRaSoNiGHh6Iglfxxd6spoOymtAQbr5zCl40pYNxm6Vkc
+         qLMqnQJJvPkoqtZ67AURt+ViTq8sTwX0FKmDYdFU0StmhvMS8soXQwWSLpH25OEwsHXe
+         LoDg==
+X-Gm-Message-State: APuU4Z97lC2KlcIvYP2OFm0qwiRpdVfT9GXpq6u/KWH0xDxLjW3VD7KS
+	BqMKZM35E+UtzpCaEsdo9ZJCJ1Jrrt7m9qz06q6xQW5tAiih+y3t/BIhDiTNkK8x
+X-Gm-Gg: AZFdTZeawOn9WC6S91Xraz6HqRzq1re4vq0lfHkDtMJBxRWgEWuxFGx+x+OAZikRGoT
+	loEwoqiuz/QcBPLG8YZPisH9jfhGlg/bm82hE/sG7RrAWN0StFgqJ30AvQGDsJUkX4c8R2n+q2p
+	PwQuqSK7rEB/DEeqtOC0nI07Af5I3C19TKBTXykbws66Wjqx7egL6qy212Y2LHYtYbVNkKkhdr8
+	eF3IPgg3GhZlagOdjiQRF9zyKT/DkxcusNO2xqZWg/6Vg1EAErbG3jKY025Ud92RHLxH/mYstoJ
+	vPgCffigPiUbC6TIXIFSkvN3OJWp5X1YsJ1CvSKbYAZuVUpABu2ukcRSbgh1k5YOWtUCiDSJAi0
+	bPhgK8rHgnKXYlHfp+yLiP04BoYgsMmwEtBRZnFaPy0PHKy+EJ5cPg5tCrb7s+6ZwiKfi4P19zR
+	fmQfa2gwqck1I6bn+JQlurqrKHiLL/JXQPFOSwGIRkPMXTW+t2FkXL79VqY304TtjB+9l0wLD/A
+	WH1LFy/+ycVpV3RNxNanBIIPkSnluDO6ORSFha1Ea9gos1nvotGoTAoNhnJn+rgp8ANzrHgu3XR
+	pZdrpJVzpUFqbx1FOjIm/6zXj/MG7KsyEuVXlC1z3kdOG28Vtsep2+fwx2ccnAIEnYI6NZjY0L2
+	yd+tXUywDFie+56PUn88M8tcWzvbZeNttuNsya3iUf0boLBQvuOfRbUcDhzRD+h/nu7DXSMghCC
+	yIwkeSrmRmmjIDKssg81KJX/zt
+X-Received: by 2002:a05:690e:12cc:b0:679:a943:7da7 with SMTP id 956f58d0204a3-67df447de99mr5037121d50.81.1795484309083;
+        Mon, 23 Nov 2026 17:38:29 -0800 (PST)
 Received: from localhost.localdomain ([2600:1702:7bd1:1ca0:6d54:522c:b8ac:678d])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df3353258sm6455451d50.9.2026.11.23.17.38.12
+        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b52036d72csm52271787b3.45.2026.11.23.17.38.27
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 17:38:13 -0800 (PST)
+        Mon, 23 Nov 2026 17:38:28 -0800 (PST)
 From: Aviral Srivastava <aviralyash27@gmail.com>
 To: netdev@vger.kernel.org
-Cc: netdev-bot+sashiko@kernel.org,
-	davem@davemloft.net,
+Cc: davem@davemloft.net,
 	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
 	willemb@google.com,
-	horms@kernel.org
-Subject: Re: [PATCH net] udp: gro: do not match tunnel-processed and plain packets
-Date: Mon, 23 Nov 2026 17:38:04 -0800
-Message-ID: <20261124013804.96778-1-aviralyash27@gmail.com>
+	horms@kernel.org,
+	Aviral Srivastava <aviralyash27@gmail.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] udp: gro: do not match tunnel-processed and plain packets
+Date: Mon, 23 Nov 2026 17:38:23 -0800
+Message-ID: <20261124013823.96835-1-aviralyash27@gmail.com>
 X-Mailer: git-send-email 2.55.0
-In-Reply-To: <179545921450.3135.6404804724515356262@kernel.org>
-References: <20261122183951.73210-1-aviralyash27@gmail.com> <179545921450.3135.6404804724515356262@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,64 +102,118 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Thanks for the review. Both points lead to changes, I will send a v2.
+udp_gro_receive_segment() matches an incoming UDP packet against the
+held packets using udp_hdr(p), while every other GRO layer compares at
+p->data + off. When an inner network header was parsed for p (vxlan,
+geneve, or IPIP/SIT/GRE carried over FOU/GUE), the transport header of
+p points at the inner L4 header. The port check then compares the ports
+of an incoming plain UDP datagram with the inner TCP/UDP ports of the
+tunnelled flow, and on a match the datagram is handled as the next
+segment of that flow.
 
-[Medium] Fixes tag covers only the out-of-bounds read
+This needs both packets in the same GRO bucket with the same outer
+addresses (no RX hash, or an equal one), a UDP tunnel GRO socket on the
+receiver, and a UDP_GRO socket on the port, rx-udp-gro-forwarding or
+rx-gro-list. Plain and tunnelled TCP cannot meet this way, their outer
+IP protocols differ.
 
-Agreed. The port match through udp_hdr(p) dates from e20cf8d3f1f7 and
-the merge does not depend on 4b0ebbca3e16. I checked it on v6.6.162,
-which does not have 4b0ebbca3e16 (arm64 QEMU, KASAN, netns over veth):
+Since commit e20cf8d3f1f7 ("udp: implement GRO for plain UDP sockets.")
+the datagram can be merged into the tunnelled aggregate. On v6.6.162 a
+plain datagram with ordinary outer header values (same TTL, TOS and DF
+as the vxlan packet) is appended to the inner TCP segment and never
+reaches the UDP socket.
 
-- vxlan with inner TCP, UDP_GRO socket on the port, plain datagram
-  with the same outer TTL, TOS and DF as the vxlan packet: 2000 of
-  2000 datagrams end up inside the inner TCP segments on the vxlan
-  device, none reach the UDP socket. No KASAN report.
-- Same with consecutive IP IDs and no DF: 2000 of 2000.
-- Same with the plain datagram's TTL off by one: 0 merged. Differing
-  ports, no tunnel device, GRO off: 0 merged.
-- With the v1 hunk applied to v6.6.162: 0 merged in every case, and
-  UDP in vxlan/geneve still aggregates.
+Since commit 4b0ebbca3e16 ("net: gro: move L3 flush checks to
+tcp_gro_receive and udp_gro_receive_segment")
+gro_receive_network_flush() also derives the network header of the
+incoming skb from p's offsets (outer network header to inner transport
+header: 70 bytes for vxlan over IPv4, more with larger inner headers)
+and reads before the incoming skb's network header, out of bounds on
+skbs with small headroom:
 
-On v6.6 the L3 gate is the flush/flush_id state from 5babae777c61,
-computed on the two real outer headers, so ordinary header values are
-enough there. v2 carries both tags, e20cf8d3f1f7 first, and Cc: stable.
-The hunk applies to 6.6.y, 6.1.y, 5.15.y and 5.10.y as is.
+  BUG: KASAN: slab-out-of-bounds in __gro_receive_network_flush
+  Read of size 1 ...
+   udp_gro_receive <- udp4_gro_receive <- inet_gro_receive <- dev_gro_receive
 
-[Low] encap_mark is cleared by FOU/GUE
+The merge then depends on the bytes read there. When it happens with
+rx-gro-list and forwarding, the datagram is forwarded as part of the
+inner flow's aggregate, so netfilter rules matching the datagram itself
+are not applied to it. Without a merge, the wrong comparison still
+flushes the tunnelled flow on every such datagram.
 
-The observation is right and the comment and changelog in v1 are wrong
-on this. I do not think an is_fou comparison is needed, though:
+When udp_gro_receive_segment() runs, NAPI_GRO_CB()->encap_mark is set
+only if an inner network header was parsed for the packet, which is
+also the only case where the transport header is past the first UDP
+header. FOU and GUE clear encap_mark, but when they carry an L4
+protocol directly the transport header and network offsets still
+describe the outer headers, the same layer as for plain UDP; when they
+carry IPIP, SIT or GRE the inner handler sets it again. Skip held
+packets whose encap_mark differs from the incoming packet: both are 0
+or both are 1 within one flow, so legitimate aggregation is unchanged.
 
-- When FOU/GUE carry IPIP, SIT or GRE (or vxlan), the inner handler
-  sets encap_mark again and the transport header moves to the inner L4
-  header. Those are covered by the v1 check: they give the same KASAN
-  report against plain UDP before the patch and none after.
-- When FOU/GUE carry UDP directly, encap_mark is 0, but nothing moves
-  the transport header or the network offsets, so udp_hdr(p) is the
-  outer UDP header, the same layer as for a plain packet. A plain
-  datagram with those ports resolves to the FOU socket itself in the
-  GRO lookup, so it does not reach udp_gro_receive_segment().
+Found by an AI code review agent (Claude) reviewing the UDP GRO code.
+Confirmed with reproducers on unmodified kernels (arm64 QEMU with
+KASAN, network namespaces over veth), and the fix was tested there:
+- torvalds/master 4843f6873f7c, vxlan, geneve, and FOU/GUE carrying
+  IPIP, SIT, GRE and vxlan: KASAN reports on every run before, none
+  after; forced merge of 98% of the datagrams before, none after.
+- v6.6.162 with this change backported, vxlan and geneve: 2000 of 2000
+  datagrams merged before, none after; no KASAN report either way.
+- Plain UDP GRO, UDP and TCP in vxlan, UDP in geneve and UDP in
+  FOU/GUE + IPIP/GRE still aggregate.
+Not tested: x86_64, real NICs, vxlan-gpe.
 
-I ran held plain UDP followed by FOU/GUE-direct UDP with matching inner
-ports, and the reverse order, with a wildcard, a single-tunnel and a
-connected FOU socket, with a UDP_GRO socket, rx-udp-gro-forwarding and
-rx-gro-list: no cross merge and no KASAN report, with or without the
-patch. The only merge with differing is_fou I could produce needs the
-FOU port to be deleted while a packet is held; it is at the same header
-layer and in bounds.
+Fixes: e20cf8d3f1f7 ("udp: implement GRO for plain UDP sockets.")
+Fixes: 4b0ebbca3e16 ("net: gro: move L3 flush checks to tcp_gro_receive and udp_gro_receive_segment")
+Cc: stable@vger.kernel.org
+Signed-off-by: Aviral Srivastava <aviralyash27@gmail.com>
+---
 
-v2 keeps the code and rewords the comment and changelog to say what
-encap_mark guarantees at that point.
+Notes:
+    v2:
+    - Add Fixes: e20cf8d3f1f7 and Cc: stable. The merge without the
+      out-of-bounds read is reproduced on v6.6.162 (Sashiko).
+    - Reword the comment and changelog on what encap_mark means with
+      FOU/GUE. No functional change: FOU/GUE carrying L4 directly keep the
+      transport header at the outer UDP header (Sashiko).
+    - Changelog: state the preconditions, correct the netfilter sentence
+      (the hooks see the aggregate, not the datagram), move discovery and
+      testing into the changelog, add geneve, FOU/GUE and v6.6 results.
+    - v1 reported "28 and 29" KASAN reports; that was the dmesg ring
+      limit. The console logs of those runs hold 1023 and 308 reports.
+    v1: https://lore.kernel.org/netdev/20261122183951.73210-1-aviralyash27@gmail.com/
+    
+    The analysis, reproducers, fix and changelog were drafted with an LLM
+    coding assistant (Claude). I reviewed them before sending. Reproducers
+    and logs are available on request.
 
-Separately, UDP carried directly in FOU/GUE never aggregates in
-udp_gro_receive_segment(), because the inner header is compared with
-the held packet's outer one. That is not a regression and not changed
-by this patch.
+ net/ipv4/udp_offload.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-The v1 notes also said "28 and 29" KASAN reports. That was the dmesg
-ring limit, the console logs of those runs have 1023 and 308. And the
-changelog said the merged datagram is not seen by the forward and
-egress netfilter hooks; the hooks do see the aggregate, what is skipped
-are rules matching the datagram itself. Both are corrected in v2.
+diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+index b77ae2f00c62..a9368a6abde2 100644
+--- a/net/ipv4/udp_offload.c
++++ b/net/ipv4/udp_offload.c
+@@ -723,6 +723,19 @@ static struct sk_buff *udp_gro_receive_segment(struct list_head *head,
+ 		if (!NAPI_GRO_CB(p)->same_flow)
+ 			continue;
+ 
++		/* encap_mark is set here only if an inner network header
++		 * was parsed (UDP tunnels, IPIP, SIT, GRE, also when carried
++		 * over FOU/GUE). udp_hdr() then points at the inner L4
++		 * header and the network offsets describe the inner packet.
++		 * FOU/GUE carrying an L4 protocol directly clear it and
++		 * leave udp_hdr() at the outer UDP header, as for plain UDP.
++		 * Never match packets across the two cases.
++		 */
++		if (NAPI_GRO_CB(p)->encap_mark != NAPI_GRO_CB(skb)->encap_mark) {
++			NAPI_GRO_CB(p)->same_flow = 0;
++			continue;
++		}
++
+ 		uh2 = udp_hdr(p);
+ 
+ 		/* Match ports only, as csum is always non zero */
+-- 
+2.55.0
 
-pw-bot: cr
