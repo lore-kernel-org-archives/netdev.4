@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516848;
-	b=TPFVXKgHSz7fpSFBhlRDVdCVzFP2nx27AdlW/28EvQ4H523WrcHPvN2vn6OSE118C0UO
-	 oV9cL1Jfooa4Ac8w6USqwXSXSYEk/MH/MHyRsFHVmjA/rhiMuokFc0XNtEKwRL86c/bU0
-	 oe9WCJKZufQNQZDAOGRWc4j5gOIQPTPs0lxSKJxmK+AScgwxahMm6dsrk2yP4PIvV7h3o
-	 QT4cLk/TMs8BRPAzVbPCzvggu81mx3TAPEQcJqomO+YOIqC2GGGAGhTvTCBlBS2Wg5cxr
-	 my74SMwxrqGNlXYEsz/ULq0r1avv9cb2oOc7FFr+29RHGceOp9V6QtTOTcWMnP5z9gQ==
+	t=1795516857;
+	b=VnPfmhTykEUn9Czn9Ff9xib7ZK/3FO9s61IH3AtcSzU9n4fTe4rhQPWvOtwYslRUeLxV
+	 5YMs4GIDwttGzRkxPLZUGylOJBAnVSDa4BF87wZVjQZT6jSgG9yRADdICPU511Ig3PpFk
+	 MMcUpUgexcL4QfvBxVUtjG+QvOsb5eJTCYoupXGgPpf1zlC0qDa7UU21CKZL97G6sLIc8
+	 JMR2kObSF/k/3Mlsbjao3hYnPxLifoQmjgab/HkcrdX4HVsPlnVqyFJOzWMq/aA1r2Yw1
+	 ixGSGNQ/JhJBDrLkKcSYbjT/6NOciLqzmzU7XYHgI0DwKOYTUGSczGXnIP0A/JvjYww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516848;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 DKIM-Signature;
-	bh=yKXJR0+G/Op/9dWMjQ2xoOvE2F0j7mzzfhEkNXBD61g=;
-	b=fGqD/NfTJpEwJrwNjdQb+ZZYIVM8Ukc0HAVNuVB9soXIzs4Vfzdz5QqA9eyRfz+acVCx
-	 zHPWCI/eSrfcCM1zXu9dqLAtS4jmrd2RZpgct1oNwtPE4weFIr5np5BcHknCbPtJuaRnw
-	 Ph9bE1NgWRJcC051TTEAJe40gvrc+NOPRn/OdGs06P8KIYKRmJNioN8M4VL0yHfA736UA
-	 QvD9qBVOwkGxSZ7kAKiMjxAsGiGJm5I4laksyjVNgoJAMinV46TCF1cTRmPIbY58b/8i0
-	 r8mCikL1GTAfkegUTXrEiSdtD5X/mNjXQ3QshFtgNGu6vS+Pex80bE1XCb+rnK2SEYQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516857;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:DKIM-Signature:Subject:From:
+	 To:Cc:Date:In-Reply-To:References:Organization:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
+	b=ym9jD7Z/UlIajMLDO7Ly0fvDB/fizCZKDRCg+KxVIvhc/aVp3mvGwJSlIjESjKCh5rqP
+	 QXIBvj4EA7VHHd03SJIqT/4zmHy4v+sh5tsi0X/+FpY5JX/owUeoHk05rfdMR2A95GZ8l
+	 QyMRrAJ9tKLQbcOeTsdun3mIeVhxlPFBTm8GI1viM+MTDo2iUEEQf3EsXMzNjSpxpSEJW
+	 r352RuYvKxcKarYuI8pQzHFWWOKSUNyUpZQd8W1+fpFPHhbKlxD+k+4OClYd5nUK3sZhW
+	 qufnze2B+Lufnmtxcbz8gPVCopAO1YinrMZVXUCwPr96iiI5N74oz/BLkdeSTFrza8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=poczta.fm;
-	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="ONn//QBF";
-	arc=none smtp.remote-ip=217.74.67.75
-Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64492606A33A
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:40:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 64492606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=ONn//QBF
-Received: from localhost (unknown [80.68.231.31])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HfngUNTA;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Axiv8UFE;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Tue, 24 Nov 2026 11:40:43 +0100 (CET)
-From: Slawomir Stepien <sst@poczta.fm>
-To: Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S . Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Cc: bpf@vger.kernel.org,
-	netdev@vger.kernel.org,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Tianyi Gao <tianyi@cloudflare.com>,
-	Octavian Purdila <tavip@google.com>,
-	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	Magnus Karlsson <magnus.karlsson@intel.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	Slawomir Stepien <sst@poczta.fm>
-Subject: [PATCH v8 bpf 6/7] selftests/bpf: Shrink test_run frags after generic XDP ran on lo
-Date: Tue, 24 Nov 2026 11:40:15 +0100
-Message-ID: <20261124104016.532341-7-sst@poczta.fm>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261124104016.532341-1-sst@poczta.fm>
-References: <20261124104016.532341-1-sst@poczta.fm>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 61C61606A321;
+	Tue, 24 Nov 2026 10:40:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 61C61606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=HfngUNTA;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=Axiv8UFE
+Message-ID: <fd998850d10838b97a3627ac7f9eafea6752846e.camel@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795516855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
+	b=HfngUNTA+8qnIMWJ74QOqK1c2HJEfoD/qO4IzC3JDW/2tIHlXQXhHOgTqN+xXYJIvM3c5/
+	4O1NvveekJqzqBU/Y06WKA+o9dw8gcCfej164dJNWyHfYgwBUD+b52FStHhdPrz9xUWGZ+
+	y9Ou/CsqameWQnrbnhD1lfFPp1Jg+93juKOK50jwSuaW4nesCGt5zwq5QSAPI/v1Myz0Nt
+	PwbDEEQ7smN6VCih1I9mvDg/a3d0c9FYeGaC+iUCi6Q+EUGM+eVW/YbLRcMttrf8T7o1ze
+	8c50gZwaIIRlYK32XpWisI6AkSvaegWtgKplSLm8bhz9EaNxkjj5060qE6SUWw==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795516855;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rb9J0hSRc+mSsT0T6DiOfhg76UjavfvENEi0jQslYHY=;
+	b=Axiv8UFEAkx0LUy5zK8nNlC5Fu/MLL+V2QMS0NLB7kh/BQL16vXNMFOw55zcFMXv5wWH72
+	9qys7gGcmKmUOYAA==
+Subject: Re: [PATCH net-next v5 3/9] dt-bindings: net: dsa: Add SoC-e SWIP
+ switch function
+From: Vasilij Strassheim <v.strassheim@linutronix.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, Vladimir
+ Oltean <olteanv@gmail.com>,  "David S. Miller" <davem@davemloft.net>, Jakub
+ Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Russell King <linux@armlinux.org.uk>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Eric
+ Dumazet <edumazet@kernel.org>, Lee Jones <lee@kernel.org>,
+ devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org, mfd@lists.linux.dev,  Martin Kaistra
+ <martin.kaistra@linutronix.de>, Benedikt Spranger <b.spranger@linutronix.de>
+Date: Tue, 24 Nov 2026 11:40:52 +0100
+In-Reply-To: <20261122-camouflaged-pretty-camel-79f370@quoll>
+References: 
+	<20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
+	 <20261120-devel-vstrassheim-soce-dsa-ml-v5-3-5de9225715e6@linutronix.de>
+	 <20261122-camouflaged-pretty-camel-79f370@quoll>
+Organization: Linutronix GmbH
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,107 +89,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795516845; bh=yKXJR0+G/Op/9dWMjQ2xoOvE2F0j7mzzfhEkNXBD61g=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=ONn//QBFiz6XX1/HO1oT4nPQVS2Supke/o7wCBwb8pt5zD+gzsoSA/W72RlQrMpUc
-	 uK9fXqdls58H/VU8TFN842/jqRIMaz7f0oM77Rc6z5RUjSoF/ZbcZRYRns1PLNMDUF
-	 FTuspwTTkzO8lLIWsiEebmJ5gbxo0E7sC5D56bT0=
 
-bpf_prog_test_run_xdp() used the rxq info of the loopback device's
-queue 0, and generic XDP sets the mem type of that rxq info for the
-packets it handles. Run a packet through generic XDP on lo in a new
-netns, then repeat xdp_adjust_frags_tail_shrink there, which frees
-test_run frags from the program.
+On Sun, 2026-11-22 at 15:54 +0100, Krzysztof Kozlowski wrote:
+> On Fri, Nov 20, 2026 at 03:52:20PM +0100, Vasilij Strassheim wrote:
+> > +$ref: dsa.yaml#/$defs/ethernet-ports
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: soce,swip-switch-00-04-0c-10
+> > +    description:
+> > +      This compatible identifies the register layout; its suffix gives
+> > +      the offsets of the core version and feature identification
+> > +      registers (0x00, 0x04, 0x0c, and 0x10). Port counts and optional
+> > +      features depend on the FPGA synthesis configuration and are
+> > +      detected at runtime using this register layout.
+> > +
+> > +  reg:
+> > +    description:
+> > +      Register window of the IP core. Switch register blocks are locat=
+ed at
+> > +      offsets defined by the compatible. The MDIO controller and bus
+> > +      multiplexer occupy separate subregions described by sibling node=
+s.
+> > +    maxItems: 1
+> > +
+> > +  ethernet-ports:
+> > +    type: object
+>=20
+> I guess this should follow:
+> https://lore.kernel.org/r/20261120002549.1908299-7-prabhakar.mahadev-lad.=
+rj@bp.renesas.com/
+>=20
+> so: additionalProperties: true
+>=20
+> > +    patternProperties:
+> > +      '^ethernet-port@[0-9a-f]+$':
+>=20
+> and:
+> '^ethernet-port@':
+>=20
+> > +        type: object
+>=20
 
-Without the test_run fix this hits WARN_ON() in page_pool_unref_netmem()
-and leaks the frag pages; the test itself still passes, so the failure
-shows up in the kernel log (and as a panic with panic_on_warn).
+Yes, that looks good. I will do that.
 
-Signed-off-by: Slawomir Stepien <sst@poczta.fm>
----
- .../bpf/prog_tests/xdp_adjust_tail.c          | 53 +++++++++++++++++++
- 1 file changed, 53 insertions(+)
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-index 43264347e7d7..be0c36871911 100644
---- a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-+++ b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
-@@ -1,6 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0
- #include <test_progs.h>
- #include <network_helpers.h>
-+#include <linux/if_link.h>
-+#include <net/if.h>
-+#include "xdp_dummy.skel.h"
- 
- static void test_xdp_adjust_tail_shrink(void)
- {
-@@ -355,6 +358,54 @@ static void test_xdp_adjust_frags_tail_grow_64k(void)
- 	bpf_object__close(obj);
- }
- 
-+/*
-+ * bpf_prog_test_run_xdp() runs on the rxq of lo's queue 0, where generic
-+ * XDP sets the mem type of the frags it hands to its program. Let generic
-+ * XDP see a packet on lo first, then free test_run frags from the program.
-+ */
-+static void test_xdp_adjust_frags_tail_shrink_after_generic(void)
-+{
-+	struct sockaddr_in addr = {
-+		.sin_family = AF_INET,
-+		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
-+		.sin_port = htons(9),
-+	};
-+	struct netns_obj *ns = NULL;
-+	struct xdp_dummy *skel;
-+	int fd = -1, lo, prog_fd;
-+
-+	skel = xdp_dummy__open_and_load();
-+	if (!ASSERT_OK_PTR(skel, "xdp_dummy__open_and_load"))
-+		return;
-+
-+	ns = netns_new("xdp_adjust_tail_ns", true);
-+	if (!ASSERT_OK_PTR(ns, "netns_new"))
-+		goto out;
-+
-+	SYS(out, "ip link set dev lo up");
-+	lo = if_nametoindex("lo");
-+	if (!ASSERT_GT(lo, 0, "lo ifindex"))
-+		goto out;
-+
-+	prog_fd = bpf_program__fd(skel->progs.xdp_dummy_prog);
-+	if (!ASSERT_OK(bpf_xdp_attach(lo, prog_fd, XDP_FLAGS_SKB_MODE, NULL),
-+		       "attach generic XDP"))
-+		goto out;
-+
-+	fd = socket(AF_INET, SOCK_DGRAM, 0);
-+	if (ASSERT_GE(fd, 0, "socket"))
-+		ASSERT_EQ(sendto(fd, "x", 1, 0, (struct sockaddr *)&addr,
-+				 sizeof(addr)), 1, "sendto");
-+	bpf_xdp_detach(lo, XDP_FLAGS_SKB_MODE, NULL);
-+
-+	test_xdp_adjust_frags_tail_shrink();
-+out:
-+	if (fd >= 0)
-+		close(fd);
-+	netns_free(ns);
-+	xdp_dummy__destroy(skel);
-+}
-+
- void test_xdp_adjust_tail(void)
- {
- 	int page_size = getpagesize();
-@@ -367,6 +418,8 @@ void test_xdp_adjust_tail(void)
- 		test_xdp_adjust_tail_grow2();
- 	if (test__start_subtest("xdp_adjust_frags_tail_shrink"))
- 		test_xdp_adjust_frags_tail_shrink();
-+	if (test__start_subtest("xdp_adjust_frags_tail_shrink_after_generic"))
-+		test_xdp_adjust_frags_tail_shrink_after_generic();
- 	if (test__start_subtest("xdp_adjust_frags_tail_grow")) {
- 		if (page_size == 65536)
- 			test_xdp_adjust_frags_tail_grow_64k();
--- 
-2.56.0
+> Best regards,
+> Krzysztof
+>=20
+Thanks for the tip!
+Vasilij
 
