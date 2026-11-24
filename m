@@ -1,61 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.128
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500941;
-	b=o85glrL8A80ge62hQo6uusBZBc49BkoIwpagubHahwcTSaLFgR1orLL0nAQQr6GcmoGa
-	 YAQlF5Kzb9xkh2iMKaomvkDD2Xyparupcqrbr/ThbCJjDyC3Q1uS515q5hDaNoLUhXjDB
-	 vmCU/TWQz74jNLfJVCUxvsv/j6A0Re1j7K326jqtfNk6mR17IWGQhQitpoZDZt38ZC/0l
-	 dILRHoQicaeMXKIlVc1tRBaEimeqHgqLI2GZrIdT1jcLfzg+6HUEatT5Ag6RIhOF1opMM
-	 8txjIToatiy+Y1ozq8RPMExA59tBN55QISgW/H/qHSECPZUPni8Le8kyOHmP5gyJxkw==
+	t=1795500962;
+	b=OCyFLYYXhiOdyyWimTRFQ24xmXirVc1Rz9yS+JwyC4TIf1fDWe9klduMpIRD5/588tG6
+	 DWN4hyBUwXMKtgCI32Ux96yOjrywAkLMWnKJ1VX4+RbFyIYOGQrGUdeqMo5dN9iiTzCHy
+	 XF+gA+BraRK7y1B5hhDgrN1rxV1HBaP0hjykra/zR2wFzDYHTu2v0LpDL6ZV2DNA8BKJc
+	 bEVGYA7eZdsW0/dRKLI8aZir1kauREQ0JuiyrLJ9mXWf4uFEZcdImlcaCsaulvjfkH9ii
+	 +3XyxkkLScdvr97bZmjW+YMSXL2E2v2LYdjM4qXw/bcYxK2o8hfNYSYaElZWI+tpjiw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500941;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=uDZC+P4Da5jRQcoboJ4MWG9rGRlHDkVqQQb00j1n3L0=;
-	b=zZqRNaBEpZnzbwwuuJFtLTZEV9Io78qTVA18X74kPAKxdLg0ZvD7qkLKPQrioSo5YJMW
-	 WLPHQcoWtiWQQHVczmRH3ShduAKym4HhPBzgsZqfqHZWepQQXxvkF9AAOryl0gRl2QTsm
-	 HjJgi0dmk7Iq/CKdzqnbf54RISQGnWLE3x49vooWAFc61RuEZwjlYKLDtGvjjZKO1qRPz
-	 oJb68Cz9Nyp7aqKE9X/sYUF4IOG8KrDe9IWKDA0w4IueLyZ4f4t0W58yiyKxkIbFVTf4N
-	 6lM8D1JszwUZ5OIs9UFD/Z1pH7zEl+q0IwaFLy4lR64BE0qgHlTACwdOOMJmVZMui9w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795500962;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=3deHkPqpB7aHIFtQfKEsOnKFQwe46sRzUxi3JwWt7Jc=;
+	b=JY1hEqMRQbpkdKDonENl6HaQmVyIi7F02pze3y3PZWbkrPa4TcodLkULJx+VQierLB5B
+	 jyv8s8Fz1n7l6iXkAJ5DKji0MVrC2zDTodgqYyygYFbFz7DWoqM+d7WJ3ZjHFqZRP2IQj
+	 5NnnIWZNlnbXwmE8+SlhHGlPkV9+Ktn7JebYy0892NOhcsZyXAN5Gv8sYLG+bFaymerdo
+	 5epISWMO8NCVJ/cvQMUOfBuEiizNmsN6khmlallfjPsOIDQILugOVspzNZwaayvABCUyi
+	 Kd8svKYVUXQ16C6GTtP+FX9e+7SpPWlwgZvvDXMaehX31f33rHgjm/x+gq9u+3onTnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfJKbBc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="AqX/eGmV";
+	arc=none smtp.remote-ip=95.215.58.128
+Received: from mta1.migadu.com (out-128.mta1.migadu.com [95.215.58.128])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BDE65606A321;
-	Tue, 24 Nov 2026 06:15:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4406C606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:16:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4406C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LzfJKbBc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 159251F000CF;
-	Tue, 24 Nov 2026 06:15:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795500941;
-	bh=uDZC+P4Da5jRQcoboJ4MWG9rGRlHDkVqQQb00j1n3L0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=LzfJKbBc75VmXtddN4h35tQmy1W3XgVh2bw1sQMWfUYdM09kTeNCfF2C/UghRZRZD
-	 nMX8CXDQQ8lgv3kUBj/a+JwYIEauRfoXovtUZMFlmbZGojUCZJ4+vSUwve5/dZAaQR
-	 GtyT6yUr2IHGrsa9Fp7bKKYplIst7ix5a8+JFxQpX9Q1drX9Vw2UhPSK4lHToRSH+K
-	 s466FH06THGYWrjnxvfL7L9jZnhkUJA+C37N332JGTA+OMIn6hTN5khnIafNYQPG7X
-	 xzfGvgYmiXlXEjxI/kT5K3kV+v1foI7POKm9V6iPaIjVZ7qzplk6hEUvTDPkCydIUo
-	 pjKQ+k9sZsZ8A==
-Subject:
- Re: [PATCH net] ip_gre: fix stale header length after erspan version change
-From: netdev-bot+sashiko@kernel.org
-To: bsdhenrymartin@gmail.com
-Cc: dsahern@kernel.org, idosch@nvidia.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- yun.zhou@windriver.com, maoyixie.tju@gmail.com, luoxuanqiang@kylinos.cn,
- i.maximets@ovn.org, fnordahl@ubuntu.com, netdev@vger.kernel.org,
- stable@vger.kernel.org
-Date: Tue, 24 Nov 2026 06:15:39 +0000
-Message-ID: <179550093955.3135.12735380175451579748@kernel.org>
-In-Reply-To: <20261120060254.3766851-1-bsdhenrymartin@gmail.com>
-References: <20261120060254.3766851-1-bsdhenrymartin@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=AqX/eGmV
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=LA4NmeSrzCxncZ07MmMv0SrpIWpbrAp0rnNZHVKIsfI=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795500959; v=1; x=1796105759;
+ b=AqX/eGmV6096XQyrXkOjds70SO1IW+mSTfk0jip+i5MLP8gkyxpdwxScbitqacEkScBepdiy
+ krRwGdOxEHnvRJ3dlLZ/Dq1xrUL0OKwzL3pxtF2scz4q8IXbNFFIAViHnaJhlZghT8BIHXJcp4q
+ K93pnXhRBT7xy6CZg2OXQ7VE=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id e6a0bea410b7952c;
+	Tue, 24 Nov 2026 06:15:58 +0000
+X-Mizu-Trace-ID: e6a0bea410b7952c
+X-Migadu-Flow: FLOW_OUT
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+To: bpf@vger.kernel.org,
+	sdf@fomichev.me
+Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Xu Kuohai <xukuohai@huawei.com>,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH bpf 1/2] bpf, lsm: fix bpf_setsockopt() on a half set up child in inet_csk_clone
+Date: Tue, 24 Nov 2026 14:15:35 +0800
+Message-ID: <20261124061544.254586-1-jiayuan.chen@linux.dev>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,289 +86,147 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-
-Thank you for your contribution! Sashiko AI review found 7 potential
-issue(s) to consider.
-
-Critical: 0 · High: 3 · Medium: 2 · Low: 2
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] erspan_changelink() (net/ipv4/ip_gre.c:1535) takes its 'old'
-  header length from `int len = t->hlen;`.
-- [High] erspan_netlink_parms() (net/ipv4/ip_gre.c:1271) writes
-  `t->erspan_ver = nla_get_u8(data[IFLA_GRE_ERSPAN_VER])` straight into…
-- [High] erspan_calc_hlen() (net/ipv4/ip_gre.c:1361) sets tun_hlen=8 for
-  every v1/v2 tunnel without looking at t->parms.o_flags.
-- [Medium] The recompute in erspan_changelink() only runs when
-  `data[IFLA_GRE_ERSPAN_VER]` is present (net/ipv4/ip_gre.c:1534).
-- [Medium] erspan_changelink() updates fields the lockless transmit path
-  depends on in two separate steps.
-- [Low] The new `dev->needed_headroom += len;` in erspan_changelink()
-  (net/ipv4/ip_gre.c:1540) does not go through…
-- [Low] The new `dev->needed_headroom += len;` in erspan_changelink()
-  (net/ipv4/ip_gre.c:1540) is a plain read-modify-write under RTNL.
-
---
-
-ip_gre: fix stale header length after erspan version change
-
-This patch moves the ERSPAN header length calculation out of
-erspan_tunnel_init() into a new helper, erspan_calc_hlen(). The helper is
-then called from erspan_changelink() when IFLA_GRE_ERSPAN_VER is present.
-The change in t->hlen is applied as a delta to dev->needed_headroom and,
-unless IFLA_MTU is given, to dev->mtu.
-
-> diff --git a/net/ipv4/ip_gre.c b/net/ipv4/ip_gre.c
-> index 5485586fa0e62..8acaefca64dad 100644
-> --- a/net/ipv4/ip_gre.c
-> +++ b/net/ipv4/ip_gre.c
-> @@ -1351,7 +1351,7 @@ static const struct net_device_ops gre_tap_netdev_ops = {
->  	.ndo_fill_metadata_dst	= gre_fill_metadata_dst,
->  };
->  
-> -static int erspan_tunnel_init(struct net_device *dev)
-> +static void erspan_calc_hlen(struct net_device *dev)
->  {
->  	struct ip_tunnel *tunnel = netdev_priv(dev);
->  
-> @@ -1360,9 +1360,16 @@ static int erspan_tunnel_init(struct net_device *dev)
->  	else
->  		tunnel->tun_hlen = 8; /* 8-byte GRE hdr. */
-
-[Severity: High]
-Can a v1/v2 tunnel end up with tun_hlen = 8 while gre_build_header() only
-writes 4 bytes?
-
-erspan_calc_hlen() picks tun_hlen from the version alone. The number of
-bytes actually written depends on the flags erspan_xmit() passes, which
-are o_flags with KEY always cleared:
-
-net/ipv4/ip_gre.c:erspan_xmit() {
-    ...
-	__clear_bit(IP_TUNNEL_KEY_BIT, flags);
-	__gre_xmit(skb, dev, &tunnel->parms.iph, proto, flags);
-    ...
-}
-
-erspan_validate() only checks the OR of IFLA_GRE_OFLAGS and
-IFLA_GRE_IFLAGS, so o_flags can lack SEQ. Two ways to get there:
-
-- OFLAGS=KEY with IFLAGS=SEQ|KEY (iproute2 "iseq okey")
-- OFLAGS absent, where ipgre_netlink_parms() memsets parms and o_flags
-  ends up 0
-
-erspan_changelink() then copies p.o_flags into t->parms.o_flags.
-
-With SEQ missing, erspan_xmit() passes no flags. gre_build_header(skb, 8,
-...) then pushes 8 bytes but writes only greh->flags and greh->protocol.
-Bytes 4-7 are uninitialized headroom and are sent to the peer.
-
-Before this patch, a v0 -> v1/v2 changelink with such flags kept
-tun_hlen = 4. Now erspan_calc_hlen() sets tun_hlen = 8, which leads to
-the same leak the commit message describes. The same state can also be
-set up at newlink time.
-
-Would it be better to compute tun_hlen from the emitted flags, as
-gre_calc_hlen() does, or to force SEQ for v1/v2?
-
-> -	tunnel->parms.iph.protocol = IPPROTO_GRE;
->  	tunnel->hlen = tunnel->tun_hlen + tunnel->encap_hlen +
->  		       erspan_hdr_len(tunnel->erspan_ver);
-> +}
-
-[ ... ]
-
-> @@ -1524,6 +1531,19 @@ static int erspan_changelink(struct net_device *dev, struct nlattr *tb[],
->  	ip_tunnel_flags_copy(t->parms.i_flags, p.i_flags);
->  	ip_tunnel_flags_copy(t->parms.o_flags, p.o_flags);
->  
-
-[Severity: High]
-What happens to erspan_ver if ip_tunnel_changelink() fails?
-
-erspan_netlink_parms() writes the new version into the live tunnel
-before ip_tunnel_changelink() runs:
-
-net/ipv4/ip_gre.c:erspan_netlink_parms() {
-    ...
-	if (data[IFLA_GRE_ERSPAN_VER]) {
-		t->erspan_ver = nla_get_u8(data[IFLA_GRE_ERSPAN_VER]);
-    ...
-}
-
-On error, erspan_changelink() returns before it reaches the new
-erspan_calc_hlen() block:
-
-	err = ip_tunnel_changelink(dev, tb, &p, fwmark);
-	if (err < 0)
-		return err;
-
-ip_tunnel_changelink() can fail in three ways:
-
-- -EEXIST when the new parameters match another tunnel in
-  ip_tunnel_find()
-- -EINVAL on the erspan0 fallback device
-- -ENODEV while the device is unregistering
-
-Take a v1 tunnel that receives ERSPAN_VER=0 with remote/key matching
-another tunnel. It gets -EEXIST but keeps erspan_ver = 0 and
-tun_hlen = 8. erspan_xmit() then clears SEQ and KEY, and __gre_xmit()
-pushes 8 bytes but writes only 4. That sends 4 bytes of uninitialized
-headroom to the peer in every packet.
-
-In the other direction, a failed v0 -> v1/v2 changelink leaves
-tun_hlen = 4 while the larger ERSPAN header is built.
-
-Isn't this the same leak the commit message says it fixes?
-
-> +	if (data && data[IFLA_GRE_ERSPAN_VER]) {
-
-[Severity: Medium]
-Should this recompute run on every changelink, not only when
-IFLA_GRE_ERSPAN_VER is present?
-
-A changelink with only IFLA_GRE_ENCAP_* attributes (plus the flags
-erspan_validate() requires) still runs ip_tunnel_encap_setup(). That
-drops the ERSPAN header length from t->hlen:
-
-net/ipv4/ip_tunnel.c:ip_tunnel_encap_setup() {
-    ...
-	WRITE_ONCE(t->encap_hlen, hlen);
-	WRITE_ONCE(t->hlen, hlen + t->tun_hlen);
-    ...
-}
-
-The truncation predates this patch, but the new delta logic builds on
-it. A later changelink with only ERSPAN_VER=1 and no encap attributes
-reads the truncated baseline (8 + enc) and recomputes 8 + enc + 12. It
-then adds 12 to needed_headroom and subtracts 12 from the MTU, even
-though nothing changed.
-
-The IPv6 code cited in the commit message,
-ip6erspan_tnl_change()->ip6erspan_tnl_link_config()->ip6erspan_calc_hlen(),
-recomputes hlen and assigns needed_headroom absolutely on every
-changelink:
-
-	tunnel->dev->needed_headroom = LL_MAX_HEADER + t_hlen;
-
-Would following that model remove the dependency on the previously
-stored t->hlen?
-
-> +		int len = t->hlen;
-
-[Severity: High]
-Is t->hlen still the old ERSPAN header length at this point?
-
-ipgre_newlink_encap_setup() runs earlier in erspan_changelink(). If any
-IFLA_GRE_ENCAP_TYPE/FLAGS/SPORT/DPORT attribute is present,
-ip_tunnel_encap_setup() has already overwritten t->hlen without the
-erspan_hdr_len() term:
-
-	WRITE_ONCE(t->hlen, hlen + t->tun_hlen);
-
-erspan_calc_hlen() then adds erspan_hdr_len() back, so the delta becomes
-(tun_new - tun_old) + erspan_hdr_len(new_ver). In practice:
-
-- an unchanged v1 tunnel gains 12 in needed_headroom and loses 12 from
-  the MTU on every changelink (16 for v2), until the MTU reaches 68
-- a v1 -> v0 change applies -4 instead of -16
-
-iproute2's "ip link set DEV type erspan ..." sends all ENCAP_* attributes
-and ERSPAN_VER on every changelink, so a routine change such as ttl
-triggers this.
-
-needed_headroom is an unsigned short and the add is not clamped. After
-repeated calls it goes past the 512 cap and eventually wraps.
-erspan_xmit() then passes that value to
-skb_cow_head(skb, dev->needed_headroom).
-
-Before this patch, erspan_changelink() never changed mtu or
-needed_headroom. ipgre_link_update() avoids this problem by taking its
-delta from tun_hlen, which encap setup does not overwrite.
-
-> +
-> +		erspan_calc_hlen(dev);
-
-[Severity: Medium]
-Can erspan_xmit() see the new erspan_ver together with the old tun_hlen?
-
-erspan_netlink_parms() sets t->erspan_ver well before this call. In
-between, ip_tunnel_changelink() takes tunnels_lock, re-hashes the
-tunnel, may call ip_tunnel_bind_dev(), and runs netdev_state_change().
-
-erspan devices are lltx. The transmit path reads tunnel->erspan_ver and
-then, separately, tunnel->tun_hlen, without RTNL or tunnels_lock:
-
-net/ipv4/ip_gre.c:erspan_xmit() {
-    ...
-	if (tunnel->erspan_ver == 0) {
-		proto = htons(ETH_P_ERSPAN);
-		__clear_bit(IP_TUNNEL_SEQ_BIT, flags);
-    ...
-}
-
-net/ipv4/ip_gre.c:__gre_xmit() {
-    ...
-	gre_build_header(skb, tunnel->tun_hlen,
-    ...
-}
-
-During a v1 -> v0 downgrade, packets sent in that window have SEQ/KEY
-cleared while tun_hlen is still 8, so 4 bytes of uninitialized headroom
-leak. During v0 -> v1/v2, packets carry the new ERSPAN header with the
-old 4-byte GRE header.
-
-The window is much narrower than before. Could the xmit path compute the
-GRE length from the same erspan_ver snapshot it uses to build the
-header, the way erspan_fb_xmit() computes tunnel_hlen locally?
-
-> +		len = t->hlen - len;
-> +		if (len) {
-> +			dev->needed_headroom += len;
-
-[Severity: Low]
-Should this go through ip_tunnel_limit_headroom()?
-
-The other writers on these paths clamp the value to 512, for example
-ip_tunnel_bind_dev():
-
-	dev->needed_headroom = ip_tunnel_limit_headroom(t_hlen + hlen);
-
-ip6gre_tnl_link_config_route() on the IPv6 ERSPAN side does the same.
-
-If needed_headroom is already at the 512 cap, a v0 -> v2 change pushes
-it to 532. Combined with the wrong delta above, nothing limits how far
-this unsigned short field can grow.
-
-ipgre_link_update() already has the same unclamped pattern, but this
-patch adds a new instance on the ERSPAN path.
-
-[Severity: Low]
-Can this read-modify-write race with the transmit path?
-
-ip_tunnel_xmit() updates the same field without a lock, from BH, via
-ip_tunnel_adj_headroom():
-
-	if (headroom > READ_ONCE(dev->needed_headroom))
-		WRITE_ONCE(dev->needed_headroom, headroom);
-
-Suppose xmit reads N, changelink stores N + len, and xmit then stores Y
-with N < Y < N + len. The increase from changelink is lost. The plain
-access here is also an unannotated data race that KCSAN would report.
-
-> +			if (!tb[IFLA_MTU])
-> +				WRITE_ONCE(dev->mtu, max_t(int, dev->mtu - len,
-> +							   68));
-> +		}
-> +	}
-> +
->  	return 0;
->  }
-
+Content-Transfer-Encoding: 8bit
+
+security_inet_csk_clone() is called at the end of inet_csk_clone_lock().
+The child is locked, which is why the hook is in
+bpf_lsm_locked_sockopt_hooks, but it is not set up yet:
+icsk->icsk_ca_ops and the ipv6_pinfo still point to the ones of the
+listener, and the timers are not initialized.
+
+So bpf_setsockopt() from a lsm_cgroup prog is wrong there for:
+
+ - TCP_CONGESTION: puts icsk->icsk_ca_ops, which the child holds no
+   reference on.
+ - IPV6_TCLASS, IPV6_AUTOFLOWLABEL: write to the ipv6_pinfo of the
+   listener.
+ - SO_KEEPALIVE, TCP_KEEPIDLE: arm the keepalive timer before
+   tcp_init_xmit_timers() sets it up.
+
+Options considered:
+ 1. Remove the hook from bpf_lsm_locked_sockopt_hooks, as commit
+    5416c9aea832 ("bpf: Fix the kernel crash caused by bpf_setsockopt().")
+    did for socket_sock_rcv_skb. Not done, setting options like
+    SO_PRIORITY on the child is what the hook is used for and it works.
+ 2. Make these options work. This needs the child set up before the
+    hook, too much for a fix.
+
+So give the hook its own bpf_setsockopt() and return -EOPNOTSUPP for
+these options there. bpf_getsockopt() is left as is.
+
+For example, SO_KEEPALIVE ends up with:
+
+  Oops: general protection fault, probably for non-canonical address 0xfbd59c0000000025: 0000 [#1] SMP KASAN PTI
+  KASAN: maybe wild-memory-access in range [0xdead000000000128-0xdead00000000012f]
+  RIP: 0010:__run_timers+0x5d2/0xab0
+  Call Trace:
+   <IRQ>
+   run_timer_base+0x107/0x190
+   run_timer_softirq+0x1a/0x40
+   handle_softirqs+0x251/0xa70
+   __irq_exit_rcu+0x1a8/0x260
+   irq_exit_rcu+0xe/0x30
+   sysvec_apic_timer_interrupt+0xc2/0x110
+   </IRQ>
+
+Fixes: 9113d7e48e91 ("bpf: expose bpf_{g,s}etsockopt to lsm cgroup")
+Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+---
+ include/linux/bpf.h  |  1 +
+ kernel/bpf/bpf_lsm.c | 12 ++++++++++++
+ net/core/filter.c    | 37 +++++++++++++++++++++++++++++++++++++
+ 3 files changed, 50 insertions(+)
+
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 1dd9db16f324..207a3be3138d 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -4159,6 +4159,7 @@ extern const struct bpf_func_proto bpf_task_storage_delete_proto;
+ extern const struct bpf_func_proto bpf_for_each_map_elem_proto;
+ extern const struct bpf_func_proto bpf_btf_find_by_name_kind_proto;
+ extern const struct bpf_func_proto bpf_sk_setsockopt_proto;
++extern const struct bpf_func_proto bpf_sk_clone_setsockopt_proto;
+ extern const struct bpf_func_proto bpf_sk_getsockopt_proto;
+ extern const struct bpf_func_proto bpf_sk_setsockopt_nodelay_proto;
+ extern const struct bpf_func_proto bpf_unlocked_sk_setsockopt_proto;
+diff --git a/kernel/bpf/bpf_lsm.c b/kernel/bpf/bpf_lsm.c
+index ae23511fd811..fa71f52a055c 100644
+--- a/kernel/bpf/bpf_lsm.c
++++ b/kernel/bpf/bpf_lsm.c
+@@ -79,6 +79,15 @@ BTF_ID(func, bpf_lsm_inet_conn_established)
+ #endif
+ BTF_SET_END(bpf_lsm_locked_sockopt_hooks)
+ 
++/* List of LSM hooks that trigger on a locked child socket which is not
++ * set up yet, bpf_setsockopt is restricted there.
++ */
++BTF_SET_START(bpf_lsm_clone_sockopt_hooks)
++#ifdef CONFIG_SECURITY_NETWORK
++BTF_ID(func, bpf_lsm_inet_csk_clone)
++#endif
++BTF_SET_END(bpf_lsm_clone_sockopt_hooks)
++
+ /* List of LSM hooks that trigger while the socket is _not_ locked,
+  * but it's ok to call bpf_{g,s}etsockopt because the socket is still
+  * in the early init phase.
+@@ -282,6 +291,9 @@ bpf_lsm_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog)
+ 	case BPF_FUNC_setsockopt:
+ 		if (prog->expected_attach_type != BPF_LSM_CGROUP)
+ 			return NULL;
++		if (btf_id_set_contains(&bpf_lsm_clone_sockopt_hooks,
++					prog->aux->attach_btf_id))
++			return &bpf_sk_clone_setsockopt_proto;
+ 		if (btf_id_set_contains(&bpf_lsm_locked_sockopt_hooks,
+ 					prog->aux->attach_btf_id))
+ 			return &bpf_sk_setsockopt_proto;
+diff --git a/net/core/filter.c b/net/core/filter.c
+index 53c042b267ab..77abc4cb9db5 100644
+--- a/net/core/filter.c
++++ b/net/core/filter.c
+@@ -5938,6 +5938,43 @@ const struct bpf_func_proto bpf_sk_setsockopt_proto = {
+ 	.arg5_type	= ARG_MEM_SIZE,
+ };
+ 
++/* security_inet_csk_clone() runs at the end of inet_csk_clone_lock(), the
++ * child is locked but not set up yet: its timers are not initialized, it
++ * holds no reference on icsk_ca_ops and an IPv6 child still points to the
++ * ipv6_pinfo of the listener.
++ */
++BPF_CALL_5(bpf_sk_clone_setsockopt, struct sock *, sk, int, level,
++	   int, optname, char *, optval, int, optlen)
++{
++	switch (level) {
++	case SOL_SOCKET:
++		if (optname == SO_KEEPALIVE)
++			return -EOPNOTSUPP;
++		break;
++	case SOL_TCP:
++		if (optname == TCP_KEEPIDLE || optname == TCP_CONGESTION)
++			return -EOPNOTSUPP;
++		break;
++	case SOL_IPV6:
++		if (optname == IPV6_TCLASS || optname == IPV6_AUTOFLOWLABEL)
++			return -EOPNOTSUPP;
++		break;
++	}
++
++	return _bpf_setsockopt(sk, level, optname, optval, optlen);
++}
++
++const struct bpf_func_proto bpf_sk_clone_setsockopt_proto = {
++	.func		= bpf_sk_clone_setsockopt,
++	.gpl_only	= false,
++	.ret_type	= RET_INTEGER,
++	.arg1_type	= ARG_PTR_TO_BTF_ID_SOCK_COMMON,
++	.arg2_type	= ARG_ANYTHING,
++	.arg3_type	= ARG_ANYTHING,
++	.arg4_type	= ARG_PTR_TO_MEM | MEM_RDONLY,
++	.arg5_type	= ARG_MEM_SIZE,
++};
++
+ BPF_CALL_5(bpf_sk_getsockopt, struct sock *, sk, int, level,
+ 	   int, optname, char *, optval, int, optlen)
+ {
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120060254.3766851-1-bsdhenrymartin%40gmail.com
+2.43.0
+
