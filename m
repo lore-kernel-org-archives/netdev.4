@@ -1,108 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795479172;
-	b=0SqJ8oLP6SmrQJaB3/NVhSJVxYkXymMJzUAfFCbbqDssHjqMP4El058kGc27lJALDMo1
-	 9/8OvRpc7GTri4wgu3tpb4QqTUQ7gQ6aEdZLh0yPrcfs5P+om44hTsxl8Y/XAi4U6dwhV
-	 vMehKKXs6P50shKuZWCHxI13r6NBSpURKxGV4PgvgaFSmuSQ7fZrU4XdJ718Pyru5uFVj
-	 E+vGofaq0yRLNaTmFMP+YRtiEKg2U146NquEWeJsvVAn5YExpxZA32JKitz9BrZd8JztJ
-	 T+t5Q5GfUlT8jgHJhXVOJuyhQi51ZIZPqcLftokAzZW59/7jwv9ErSq846BJ4Szk1Fg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795479172;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795479292;
+	b=glmEfsNNU/4NGzJRad0I6uIBcsbSEhE5Gk6HzXytOGiJ0RRxHjYrXE7KG7Ck7U5L1t7A
+	 vhOZqm0Vn43PkxfAVmvXIBO3G5sKAoDuHBL7SgA7soMBbHHcFyHsZjl4d8G7yLzrjc9gv
+	 393zDNM50gJXLW2fOpY/oRDIcV+wU2D4A9A/62nMwyNRvTzCGp2kzfLuex1kXWx1lzWCv
+	 G/d2+o70NSmy53LvkluyJQ6Uv92EeGq8xVdC8EaumN84QyCHC4pNtmnICF34RRPJeABWh
+	 rpTEtgICXiNszQDwsAM0PYsYeIGo60r6+oB2HzcRTyDz6777B0+LQcTuEmS+lP4ROpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795479292;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=7bDIHXXIM4LNEtaYASA3zw1NmzIi1pMS/QPwvnMhMAg=;
-	b=vL/xaqve0d1k1nHW/dXJ9rRDEdZVd1psjtiTfts5ceg6uGc5ZLBV9bb6lb5hZ8p3lrg+
-	 g9bHQyUN320Y5+bsUi51zV/uleX3gUfppuhS+hhZtKHaNX3V1efHWjPhThipCeZptsfbj
-	 iJwTD5n2ItsgE8j3dWdw+3jdwEtPTlpKd+NG3ELEoi3v0hWslCS+bvFdI5aCaxBeQQ3/9
-	 4i5yCUCVmuAlJzFpdSMyHrd9oIp+rCvX0iCl6FuerRchQFVzzVhdieFqzOle74WpYUbIW
-	 U9IFJsZzz4MiezB8njPVYIlps8P+annhZQTPvS+5yF9VCucGgtqxJqwVPP/bHq0VqYw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+	b=hN/DOa8+m2TZQ7h1wS/kuKWO9/Tstu/kW+axP/Gk9ao0aHJBDAUl/slYvq7MZCQq4nqv
+	 xvmnFj8R5Ma/YOJn+HA1kfXK3mK3foB+RUqajGZRvqChmM0XuC1FHOc5vagGYvi7djoT1
+	 zZ83TKGD3nPwzrerKSCwedQ3oJLKdLrFpLnxtbW/rjeP6ovUY0dYs2oX2Jh9wBpDw/F7a
+	 g516FqzssCf33pm01XGy9A6KIZG2NHyaQ2btOfJbZQlm9z8S4sx2B3P3RsOKGoXcoyGoM
+	 uSlVHQMiTAALXJC3l2QQxTh0iTk9fzwDu++DyUtdHf35qxZc0/pgZvAf12lir+0MATg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=stellman-greene.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvzGf6z3;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
+	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.41
+Received: from mail-qv1-f41.google.com (mail-qv1-f41.google.com [209.85.219.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72122606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:12:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72122606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC72A606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:14:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC72A606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EvzGf6z3
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8b67f25e6e1so1866528b3a.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:12:51 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=A4QlAUdg
+Received: by mail-qv1-f41.google.com with SMTP id 6a1803df08f44-91e8a05ec5aso55304686d6.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 16:14:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795479291; cv=none;
+        d=google.com; s=arc-20260327;
+        b=fnXHnsEVPNLyEOu3jIghalNDe72zIIHTc4+Z+4c1qpx2B2kpw8Jbl6CJ2pVOJgss+f
+         0enI0vIGZtSFdvZhwhty9gdDOBi21Nxjh6W8D49oGcbBh+RsNgRtQH8Ba7ZkiaFBT1ic
+         lWbU8qaIoa2RVtd/n9SDaefEx/aCSwB/tfTiT9cPrMqYD5e0KPrXpLmNontS+VK1MGyt
+         JqwmnUga/DZWbdRNCyPExCdXSXn5emit+ucNaSVX1yChXlJ7UStEn9/TugNwu0ratRW/
+         0qriW+C6mso+mJ31yyIbWXfL43rm0iwrQ6kqb3r1suMY/GQZ3JwzJk5sf5K7+Im50if5
+         ZG9w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        fh=mwXzGv9uGBgAaVGGlAP3fLINw6Z3Cx8g4QbK6y2Ygwg=;
+        b=FH0zmO+Cfv9ty/wzrj8OmuoJgVU1J+j6VH0tMWsUWjluh3OeKGogNbA6GYiQOMVKh6
+         UBfyYiXhGBsZ2zifCqazLPpR3Tl9M4tVQia5STSR5RaUSNtdm6TZ9K5/89+6jo6Wdr4u
+         ibg+7b9dFX3JAk5h5HkAffMxsWykH7Kd7D3i/xjZXkVVTJbcfC5H6rz11QcnV9VZQVOf
+         jlSKhF1+5/tKbwH1Z7RLxHSsuYcbdFFE+hJ/BlNCA36kuo4QCsH1O1w4Wu4XacjvGvXU
+         lDFNECh0K/0wtY/OxrkhwvjntZi1f7OhH5p3d1XJy6Olph6CPGQsp9+592agqwEgojJf
+         /DlA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795479171; x=1796083971; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
+        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795479291; x=1796084091; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=7bDIHXXIM4LNEtaYASA3zw1NmzIi1pMS/QPwvnMhMAg=;
-        b=EvzGf6z3rhg+QVwRCNjiqtCEZQCgcOG6ShYMP0kcI8BIeTc+i+i1MBX1jcLv86gWPK
-         nyHsqBHq/6w7+m9DsSBPB+vW2wMewdPpAMBY2hX/Uls7uEq7FEl0qbsUwWhAxBAwrC+W
-         +S5cCZa8peiG/UWSsGfsCamGsA2WW+N0Ng8wgEG/f8tHfVjaETAJGRpi4zoOJVmSk2Fk
-         yMKdj6HtQbbkDpc8+pkb4cP7A8uDYL+GEkEZIYMBDAuTLKWDOZC5Yh+kvlrf0QrZ3MgU
-         xHDFWEv+uQAg/q+KqS+6yXIIvnoFUGR0Y1VT7IFBmxqe7g1OrYn/zB5z2DbJlOn0IIOF
-         B+dA==
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        b=A4QlAUdgzcP4QQMusPEGIU7gYufXHiTJ8so/+IqtSIsFx9qdWKy+wWPDSyd2xBim7O
+         em9Hzsbp4eF2QgZ4E/ZOCukj+tpJjX+cmpgVdlWHIUjhj1jAlb1OeGkCeyVNS4DDCAX/
+         BYFeDw8AXnCxqpICZ+V6oLllWqiAs5S/z5inSGFNlLzh11DcYuyxugkaJJCXppU809jS
+         Eva34bxzf2Ia5lO7ZiS8JMaQuPY3f6nhf4Vcby57ik8Usmh4IlaDvHJ9FU5rTZ4sczsN
+         C37xoJWsTpyn/8InYUPjfzMV3kamioT6+DwmuyZ0CLYB8W4zZfAq5/uvoamQOrjYcfV4
+         c0Wg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795479171; x=1796083971;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
+        d=1e100.net; s=20260707; t=1795479291; x=1796084091;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7bDIHXXIM4LNEtaYASA3zw1NmzIi1pMS/QPwvnMhMAg=;
-        b=hxQP1xPPIaqu8wcuTV4aZ+itZY7HKJe7jeIi25tt6OzC5ELpH8umyaP8QhOXd+GsDn
-         vg2HKboDONRFU+q5lUCjTB0+PCMSW1gnPXZN3iLwF5cQX9G1NeBO+aAkZFIM3hSVeTWo
-         HZgZoCbfvFWxOqmyis3otsS/gjVWdOgg+vK8PabLHXzo2v/b109VDRzUaxmU5chIWRLu
-         WRs76VvnKtXvITaND3arJUwv3Dfi2fGTYC+h2vkr4bawadGfsueWC4u9g/DxT9pvN72i
-         Xut3jlekiiHvH2I9ARMxJRuikBSQFFk5tNCSTriLY8CMTJFmfjuOjgIMdrFFjAFO40N0
-         YoBw==
-X-Forwarded-Encrypted: i=1; AL+hErEhiINTnKw1+TwdKxzCv2TRb7Qz9EqRcUlQ8Z2Y2OQwZ45tq7nCpTYKN4Af2iKP17HpFAaT6RQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uDDct4AQ5zWe4hCF3mqvMVqSN/nIJPv0aKtTVg0tJ4aHHuOlk
-	OuU63hfREpov9qh5NvO+li6VjMhWAnlRMSRQ4pB5ZvLrz/HJDBu8qd4e
-X-Gm-Gg: AZFdTZdo0p3q8sQ+R4FmbuFQJLbfoh2ed9QKXQ5RTNIGHikgZnuafdNDKCQ+vG27vSs
-	W5HDW3cJ9C/yYSIbLZ5I1iKVIW1v+RaXbsnbbcnTp1XM9p/uZuELELaUbDorei7MkjM30tr/HSq
-	7FZo9KABFf/tBo9Seb8mhRv2hgLdogEWQpJPJsDrCmHBZhhKW2Z9m+61A15uI1MVTjobQLjj4ak
-	XTFGW6XbwKjPZAef+MxStBONmfrb4y1YsmDWVksd/LkNtFf/SgC9Ea1uYodDeEj0QlIP0spS0c8
-	iIXWap9G8/ezBNLEwv4YMY369pOieVTDyuvAc/zlpw6L3QDiddnH/PyRrAAa9b+AoL7iEC0fktT
-	IwmU9ci9XEGRAoLuGtTkgEeT2qDKuPOzohd2JgSskDa5uvQKHjl5vgWeg1T/7YJwqUKOLC+ESRK
-	A+hdx5XJkY9RXCY/C59VcpU5I+3l9pmV8t6Wz5HzWGtgxcz6To5B2wi+AuFnmENQPIqFWqYE4Fj
-	KBDF3ql7s0E5y6aKCgXbeLha5y7VaUpjbwQ9LB00XVZSeKK6/S1CQ/hJG1o/J+Uc1lidK67TuwO
-	5jMysxMZ9YAQZmvEfRFwfQIBeV9AVucSi1xz34Chxe+ffX4YXiVNrrgxY7ryjXCjNpUAXfvrDxc
-	Ac/3bsl+73phLjXUMvizkLle/+t0kq6JoZw==
-X-Received: by 2002:a05:6a00:368b:b0:89e:b12e:7eda with SMTP id d2e1a72fcca58-8c8792c36afmr11522943b3a.7.1795479170548;
-        Mon, 23 Nov 2026 16:12:50 -0800 (PST)
-Received: from localhost ([153.61.198.243])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873b278f0sm6298093b3a.51.2026.11.23.16.12.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 23 Nov 2026 16:12:50 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Tue, 24 Nov 2026 00:12:47 +0000
-Message-Id: <DN308UHY5QHQ.8CJOFGAHVVTR@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Leon Hwang" <leon.hwang@linux.dev>, <bpf@vger.kernel.org>
-Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "John Fastabend"
- <john.fastabend@gmail.com>, "Andrii Nakryiko" <andrii@kernel.org>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Song Liu"
- <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa"
- <jolsa@kernel.org>, "Emil Tsalapatis" <emil@etsalapatis.com>, "Ihor
- Solodrai" <ihor.solodrai@linux.dev>, "Steven Rostedt"
- <rostedt@goodmis.org>, "Masami Hiramatsu" <mhiramat@kernel.org>, "Mathieu
- Desnoyers" <mathieu.desnoyers@efficios.com>, "KP Singh"
- <kpsingh@kernel.org>, "Matt Bobrowski" <matt@bobrowski.net>, "Shuah Khan"
- <shuah@kernel.org>, <linux-kernel@vger.kernel.org>,
- <linux-trace-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <netdev@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v3 0/9] bpf: Add log support for tracing
- link_create
-In-Reply-To: <20261123152743.19629-1-leon.hwang@linux.dev>
-References: <20261123152743.19629-1-leon.hwang@linux.dev>
-Content-Transfer-Encoding: 8bit
+        bh=6XVZ2NiwhlknfYaEdDrlA5ehy0/PYDAe60GW8QDF+Jg=;
+        b=Hdh90smEyroZkLU04Ivmma4HT67q9u8mtDX+U00zXfIYb2xJxyNepmOqUiJaUr5nab
+         P5EhwJS3sW76xH3jHdyzUHicI0uM+tldKuOD0qGQgNrwrx5lvmxSoiC3Utj+FPYPNinN
+         I1KNCD3IuojyTmV+6hgBm+ZKGRpALm5htYHjHYIknvwqAN4ob1jovPe5qXF3u7IdZ85M
+         JxiWsTJoDAELxojhllStvAEQEt9wkGUAmzBmkoyYYwQAIY6aB4sxZEjd1QuXc3991sW2
+         Q83Mauc18aBPqViOV6y4eGWrYVz0Wegi1glF1lYl7hCxV9oVqqH0NDkqH2Lm6/L6sYTt
+         7WKw==
+X-Forwarded-Encrypted: i=1; AL+hErGkIXfAVywbkBEu6gL2byp+0rECa0AdvFpWXltcqo7BR/oM3iqvpawBubcToHQcwPu7aA26IRM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8+yhA4qqKTeYN07O0gZVgypGpxJEEHph4C3jENZaBS7HmUDLhp
+	fJ31QVD3easZxfm9J365SlXErEvqfYGgg+oTm3ZnrUotTp6WAbZJ635o0JuMkcX/m7V9lthPtAm
+	uO1B/bJhfr6IRKTxMmaSIPbfvWekeJck=
+X-Gm-Gg: AZFdTZemOfO4NtDWxVeA8usAkZrqxVJqdq6yTbUlz1VuvjSHIzM2hLN4s4D9+yFgtyy
+	TrEQ+4zYCB4mTew/mZpFs+74mlXTXjubfIWx56ImsZmMs2SUs8Bdv8uHxUgRlGeKxRHpt8/E/el
+	qvTq/wvQ8jU3RXIzxX/ie65Fh1aXp5LOKV6HV1A1cmas5lWH2RjUOACXhJEKMwEc994RQlJK4NV
+	N6e3XwPmCuTbVpXO1lxRe5W4gHVIDGoEm2qbC1omUeWKiruQ/ypXaNrKlmKsw6zYDSAp65IhRV+
+	6rlwf6uvPoKZLkTh7aBBKfGzTU8/NUVeDFIALWHVgN0XoRuHtfSGo9F0bwdl+tyKlnefyzocdhC
+	BuNuZXcbjvOB2HdxzDNoYSN8J5tfYQPdG0wO2WTOsHPgFR5Is7IazC2LNLVgpqzHXyAJc5WXCQW
+	WeQD7Nwirri9IvG5mqaSS4tEOg3tZZkJ5VuSvoAio/BkGHO7DVWoW98QPnQVlNe7F4SIu2rqLm9
+	xH/p1WBNMKmavelUQ==
+X-Received: by 2002:a05:6214:85d4:10b0:921:2397:15c0 with SMTP id
+ 6a1803df08f44-92134aae88amr174798896d6.9.1795479290741; Mon, 23 Nov 2026
+ 16:14:50 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,99 +106,136 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261122233958.10462-1-astellman@stellman-greene.com> <179547862919.3135.6087887655063297728@kernel.org>
+In-Reply-To: <179547862919.3135.6087887655063297728@kernel.org>
+From: Andrew Stellman <astellman@stellman-greene.com>
+Date: Mon, 23 Nov 2026 19:14:39 -0500
+X-Gm-Features: Aa3M54r8LqYwCwZHSInNPFAsZl3pmCroukwtjzOFoNnEUp-H2sQ6lvQOIHcivKs
+Message-ID: <CAChPuV88P4Uf8BBxAhrM044ozX21ZCiPqn4J3-vLc-x_Gz_wiA@mail.gmail.com>
+Subject: Re: [PATCH net] tipc: free the tunnel packets when failover
+ tunnelling stops early
+To: netdev-bot+sashiko@kernel.org
+Cc: jmaloy@redhat.com, tung.quang.nguyen@est.tech, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
+	tuong.t.lien@dektech.com.au, ying.xue@windriver.com, netdev@vger.kernel.org, 
+	tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 07:27 AM Leon Hwang <leon.hwang@linux.dev> wrote:
->  .../selftests/bpf/prog_tests/cgroup_link.c    | 324 ++++++++
->  .../selftests/bpf/prog_tests/iter_link.c      | 156 ++++
->  .../selftests/bpf/prog_tests/tracing_link.c   | 741 ++++++++++++++++++
->  .../selftests/bpf/progs/tracing_link_ctx.c    |  17 +
->  .../selftests/bpf/progs/tracing_link_multi.c  |  36 +
->  .../selftests/bpf/test_kmods/bpf_testmod.c    |   5 +
-
-1279 lines of selftests for log messages ?
-This is way too much.
+Agreed: that return also skips the FAILOVER_MSG hand-over, and goto
+out is safe there since tnlq is already initialised and empty. I'll
+include it in v2.
 
 pw-bot: cr
 
-One row per attach path is enough. It checks that the log gets there.
-The base kernel leaves the log empty, so all four rows fail on it.
-Something like this:
-
-diff --git a/tools/testing/selftests/bpf/prog_tests/link_log.c b/tools/testing/selftests/bpf/prog_tests/link_log.c
-new file mode 100644
-index 0000000..4f7e71a
---- /dev/null
-+++ b/tools/testing/selftests/bpf/prog_tests/link_log.c
-@@ -0,0 +1,72 @@
-+// SPDX-License-Identifier: GPL-2.0
-+#include <test_progs.h>
-+
-+/* One row per attach path. It checks that the log gets there. */
-+static const struct {
-+	const char *name;
-+	enum bpf_prog_type type;
-+	enum bpf_attach_type attach_type;
-+	const char *func;
-+	struct bpf_link_create_opts opts;
-+	int err;
-+	const char *msg;
-+} tests[] = {
-+	{ "tracing", BPF_PROG_TYPE_TRACING, BPF_TRACE_FENTRY, "bpf_fentry_test1",
-+	  { .target_btf_id = 1 }, -EINVAL, "target_btf_id" },
-+#ifdef __x86_64__
-+	{ "tracing_multi", BPF_PROG_TYPE_TRACING, BPF_TRACE_FENTRY_MULTI, NULL,
-+	  { .tracing_multi = { .ids = (const __u32[]){ ~0U }, .cnt = 1 } },
-+	  -EINVAL, "4294967295" },
-+#endif
-+	{ "iter", BPF_PROG_TYPE_TRACING, BPF_TRACE_ITER, "bpf_map",
-+	  { .iter.len = 4 }, -EINVAL, "iter_info_len" },
-+	{ "cgroup", BPF_PROG_TYPE_CGROUP_SKB, BPF_CGROUP_INET_EGRESS, NULL,
-+	  { .cgroup.expected_revision = 2 }, -ESTALE, "revision" },
-+};
-+
-+static void run_test(int i, int cg)
-+{
-+	const struct bpf_insn insns[] = {
-+		BPF_MOV64_IMM(BPF_REG_0, 0),
-+		BPF_EXIT_INSN(),
-+	};
-+	struct bpf_link_create_opts opts = tests[i].opts;
-+	char buf[128] = {};
-+	LIBBPF_OPTS(bpf_log_opts, log_opts, .buf = buf, .size = sizeof(buf), .level = 1);
-+	LIBBPF_OPTS(bpf_prog_load_opts, load_opts,
-+		    .expected_attach_type = tests[i].attach_type);
-+	int prog_fd, fd;
-+
-+	if (tests[i].func)
-+		load_opts.attach_btf_id =
-+			libbpf_find_vmlinux_btf_id(tests[i].func, tests[i].attach_type);
-+	prog_fd = bpf_prog_load(tests[i].type, NULL, "GPL", insns, ARRAY_SIZE(insns),
-+				&load_opts);
-+	if (!ASSERT_OK_FD(prog_fd, "bpf_prog_load"))
-+		return;
-+
-+	opts.sz = sizeof(opts);
-+	opts.log_opts = &log_opts;
-+	fd = bpf_link_create(prog_fd, tests[i].type == BPF_PROG_TYPE_CGROUP_SKB ? cg : 0,
-+			     tests[i].attach_type, &opts);
-+	if (fd >= 0)
-+		close(fd);
-+	ASSERT_EQ(fd, tests[i].err, "err");
-+	ASSERT_HAS_SUBSTR(buf, tests[i].msg, "log");
-+	ASSERT_EQ(log_opts.true_size, strlen(buf) + 1, "true_size");
-+	close(prog_fd);
-+}
-+
-+void test_link_log(void)
-+{
-+	int i, cg;
-+
-+	cg = test__join_cgroup("/link_log");
-+	if (!ASSERT_OK_FD(cg, "join_cgroup"))
-+		return;
-+
-+	for (i = 0; i < ARRAY_SIZE(tests); i++)
-+		if (test__start_subtest(tests[i].name))
-+			run_test(i, cg);
-+	close(cg);
-+}
+On Mon, Nov 23, 2026 at 7:03=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The patch leaves one early exit in tipc_link_tnl_prepare()
+>   (net/tipc/link.c) that still skips the FAILOVER_MSG receive-side hand-=
+=E2=80=A6
+>
+> --
+>
+> tipc: free the tunnel packets when failover tunnelling stops early
+>
+> The three early returns inside the tunnelling loop of
+> tipc_link_tnl_prepare() now jump to a new out: label. That label purges
+> any tunnel packets left on tnlq. It then runs the FAILOVER_MSG receive
+> side hand-over (drop_point, failover_reasm_skb, deferdq).
+>
+> > diff --git a/net/tipc/link.c b/net/tipc/link.c
+> > index 6427c69f89294..2fead2f4ed0fa 100644
+> > --- a/net/tipc/link.c
+> > +++ b/net/tipc/link.c
+>
+> [ ... ]
+>
+> > @@ -2073,6 +2073,9 @@ void tipc_link_tnl_prepare(struct tipc_link *l, s=
+truct tipc_link *tnl,
+> >               }
+> >
+> >       tipc_link_xmit(tnl, &tnlq, xmitq);
+> > +out:
+> > +     /* Empty unless tunnelling stopped early */
+> > +     __skb_queue_purge(&tnlq);
+> >
+> >       if (mtyp =3D=3D FAILOVER_MSG) {
+> >               struct sk_buff_head *fdefq =3D &tnl->failover_deferdq;
+>
+> [Severity: Medium]
+> The commit message says the fix is to "go on with the hand-over" when
+> tunnelling stops early. Should the earlier exit, taken when the dummy
+> packet can't be allocated, also jump to out?
+>
+> That path in tipc_link_tnl_prepare() still returns directly:
+>
+> net/tipc/link.c:tipc_link_tnl_prepare() {
+>     ...
+>         skb =3D tipc_msg_create(TIPC_LOW_IMPORTANCE, TIPC_DIRECT_MSG,
+>                               BASIC_H_SIZE, 0, l->addr, tipc_own_addr(l->=
+net),
+>                               0, 0, TIPC_ERR_NO_PORT);
+>         if (!skb) {
+>                 pr_warn("%sunable to create tunnel packet\n", link_co_err=
+);
+>                 return;
+>         }
+>     ...
+> }
+>
+> tipc_msg_create() allocates with tipc_buf_acquire(..., GFP_ATOMIC), so it
+> can fail under memory pressure. If it fails for FAILOVER_MSG, this code
+> never runs:
+>
+>     tnl->drop_point =3D l->rcv_nxt;
+>     tnl->failover_reasm_skb =3D l->reasm_buf;
+>     skb_queue_splice_init(&l->deferdq, fdefq);
+>
+> The caller goes into failover anyway:
+>
+> __tipc_node_link_down()
+>     tipc_link_tnl_prepare(l, tnl, FAILOVER_MSG, xmitq);
+>     tipc_link_reset(l);    <- frees l->reasm_buf, purges l->deferdq
+>     tipc_link_fsm_evt(l, LINK_RESET_EVT);
+>     tipc_link_fsm_evt(l, LINK_FAILOVER_BEGIN_EVT);
+>     tipc_node_fsm_evt(n, NODE_FAILOVER_BEGIN_EVT);
+>
+> tnl->drop_point then keeps a stale value. That is 0 from link creation,
+> 1 from tipc_link_failover_prepare(), or whatever an earlier failover left=
+.
+> tipc_link_failover_rcv() then does this:
+>
+>         if (unlikely(less(seqno, l->drop_point))) {
+>                 kfree_skb(iskb);
+>                 continue;
+>         }
+>         if (unlikely(seqno !=3D l->drop_point)) {
+>                 __tipc_skb_queue_sorted(fdefq, seqno, iskb);
+>                 continue;
+>         }
+>
+> Could this drop the peer's tunnelled messages? Could it also leave them
+> in failover_deferdq for good, since drop_point only moves forward on an
+> exact match?
+>
+> tnlq is already initialised and empty at that point, and the out: block
+> only touches tnlq, l and tnl. So changing that return to goto out looks
+> safe.
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261122233958.10462-1-astellman%40stellman-greene.com
