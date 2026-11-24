@@ -1,58 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539856;
-	b=NZIfZRD7iJ7m1fGE2F8jhBx6m9C1DRvsjrNaVcKq+BO/34M4kQbEpPSD4M4zNY3vcACy
-	 FNd/R2WnanK0zCtwv0+w/cfV3nSPAthtWnJncvwlzxjQPJsTRQBAr8nuSJNf+abiGVh6/
-	 MJYtwo/7FqMCFpzaQOo+zj/urLPGF+Wj5YkiA5uzNFxrhr8EcYbXK+1JpHM00i/vy42ov
-	 q+44MurPVhsExIntAnWGnQUs+urpTmCl7Jhu5l3ku9O2LaUDDQth1fNNBObO9Bro9vjIn
-	 l12mEd/oMZKYfzGyZaN05IUghF5dfTVSaHGYi7GDmUQoi0xzoiRCUZkXHG8XtCoZNoQ==
+	t=1795539958;
+	b=M0OwZ214Ly6gVAMObne8xUR+ELd5qEd6LU0DAAiQCO1aJ9xwD/t0+cN/1jUCjr7sjIFe
+	 asEs0woA5OgfuGG5Y+OXo7t0FLxg7VA3JKNBvI6g+f2cysIJHbTm6/js+HVzE4NnwoKom
+	 m8Ffc94X/EKYop5cM2bzVBxB85vrCVM4c6M0xBW2k35+WbuUcSXD/n03135eMfqgM0uBC
+	 c2vELr7rkCTuzPHLBI3Rdjpis1p1MZprzK1ZB0gKRHXvdObzvfoEAYpxz2D1nf7oQabPh
+	 oxRFBOQ71s4vju+Qp0Z6kUWT3DwEyNSNpH00We5k5PdegZVu5gZF7SnEC0Mu5EoecFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539856;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
-	b=y6pPiTulJRcBBF4fEBToELnQ9zTFjKijwMdK0ayAx3XA4gNgsiFdaZTO6FcNdpL1TXvg
-	 B7VnsiBNj8yVhFWnx9w5psggDBAJMkgaxOlpoKHGC33gKAx7J8qzmX8E055AED3S5/leW
-	 cGMlpzN8DTKEWwp0cEHsGPEkdqNKVtqeeK6K/KNfmVtbp2XsOQ7Vmi4yNxCXkWY+yBvsC
-	 GcvE5z6q8Y8g+V1jToal2XOSZYR0lVJ8fyGNM0v6pfrmI9Sk5/ScIoxSwoo16qXj6gvtD
-	 wwyIsgnyzEkxvZX/HEb1xd/4JokU2bVARjAwI05NI7L7hDskShpaeKmvKJejaA+SNiw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539958;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=pP6aei8nqMk63mvx6QqGhhPbY7vTN/MZxXmF9vJE/J4=;
+	b=CPwSb+NJdcXRwUHQk7F5pMioQn1q58AM5fYrj5Xiqn0YwhFE93Eaygc+UjoELw7obOfY
+	 ydSwj7g8BRfDOM2xHlTczG7rjH4X47rxU+gfHugaU7HVvmrmGPQnGSH57d17bUQ3sP4Xy
+	 LkYMZoxT8MO77C325bnQYjMImeZZ8dSEMfDOpOnJK5VNp/0i+bEC1Ysvvn/COf+iu4dUA
+	 Mp8I5CcIb4NOZNuLe0ZuaSVLVoxT7aMbFau19yuYQtGamn9iILak4XDfaATDV3nT/+29J
+	 7HVClMxNPalZft/xe9dHE+KA2aTayLtof6DHjZtip3nJTX9dYX4mNSy/1bOJSypL/7g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tvGCWv1U;
+	arc=none smtp.remote-ip=209.85.219.51
+Received: from mail-qv1-f51.google.com (mail-qv1-f51.google.com [209.85.219.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A9E606A31E;
-	Tue, 24 Nov 2026 17:04:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3A9E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB5A3606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:05:57 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB5A3606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id DB5EE4E41760;
-	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 97204601E1;
-	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF96611E69AA1;
-	Tue, 24 Nov 2026 18:04:03 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795539848; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
-	b=1CAJSnG1PbsB6IH51R2E8isIa0FWlUatgjcLmzqB3rrZJuInxCWjyuqoIP+vbipsVvjL9y
-	Myh5tOCC3d8LiYptOqAkh/NtGAJ6IzNGWdFf5EByfpA3FrqnCKvXWmBT7J3XO44NLQq4yn
-	4RyRsMyARRYfFC7nVlGmOVM2sMe07oHLBwmAjm5wywTSbVLtwAmwXwMaxXNFdb9n7akzbY
-	6sJHrA+0GVBzd37/XFmEmaXGT4kSO4mFOW90HUO2RDem85ZJNNf6fOgZaQKxHcc431s7p0
-	DSiFDl9T3/rT+S5x6fTNO4PpEWgR0BbIPRYh6lTaqhIBDDYJB0L5UXQvjCyeAA==
-Message-ID: <7ff51c46-7c56-49a7-b51b-468c1df82755@bootlin.com>
-Date: Tue, 24 Nov 2026 18:04:02 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tvGCWv1U
+Received: by mail-qv1-f51.google.com with SMTP id 6a1803df08f44-91ebf4cd218so39510376d6.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:05:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795539957; x=1796144757; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=pP6aei8nqMk63mvx6QqGhhPbY7vTN/MZxXmF9vJE/J4=;
+        b=tvGCWv1U5wBBO/dy8gFun7VIptemIWgx60Jj6T3BHOosPXbLz6+izjDNNJZl2TpyGD
+         Jy4V78AottrOMXvUUkybVZLMitRuCnrquMagoGc3mb79Ksn7+jtXbQEEHbmGVyM8ZFKZ
+         1013LicX1tTGmhU2bGyohQpdeu+wBb3Wpv7YPLa1lsNXC9fUtbzvZTx+F5TwhJhUSOBk
+         KVz05TcUowGsZKT/8a1gwdBpPkIaWfX7tGGRjmtFX6cU/WOYhluDCfi/dDiP1kRlYlpT
+         Qjbxvu/k9deC76vRXwwPBVM/0L4uMiL/DbsCLjhfYIn41oWC5TyCFk9CyUldfQoIYtMF
+         XmlA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795539957; x=1796144757;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=pP6aei8nqMk63mvx6QqGhhPbY7vTN/MZxXmF9vJE/J4=;
+        b=Blj0Qf53eB6gCyBE185irOZ47lMrFywBCY0Mh9hwWzy2BeZY0rONbR7IXqCbX+huV2
+         39Cd48WklZEONTgmLBJ9Gb13afKJvxgCEx4hpkYE+9zISObgpi8F70/FKbsQv8KcZGxv
+         2eSUSY3wysp1vJoNprFhTVDyN3EzLtYhotZzPzFyZWkG+G92PKZeV6YqRjZzmWdMcAKd
+         QscWmD25oyXz5mbDcAD+d1HRSdvuMRvRLkUIIU/UNIMPgN38O/SUuanFa8A1Zakk8jCB
+         i5MX3UXiUqTV/HPkUo/GT0x+RL6JDKwetB8SSyk64JXCnUeZd2uxikHmsDpwY4vl7Qtf
+         OWZQ==
+X-Gm-Message-State: APuU4Z+lSEx4R4o4P4z/FDNaS8ofSiSTTMkk+pWL9pcPmQxKARyTixxE
+	5+qkVQNL3ARMijvXAPraH1HnCLL3PIstcyqNK8CxT2fpIALp1bDem5+nqa/Q1A==
+X-Gm-Gg: AZFdTZfe4ojwF2imuns/Gctmj0gSO1DGY+JR3qwq8j2qmrQDDYjBJbkIepgjDkrsJfs
+	lPWmYtRnZGUIDI8AWa7xuK7Jc2ggTj+Wb70q+cI6STlm3977noEOt+emm0qwRtKGULwsXbDhvQl
+	8xGjGhVYYAyTamJ4IGEW0gzD8E7HiB9g+5oTAbimG5SbKrg7+WjZQys052IDAStIvHv4I/WUm0P
+	n3W9l0veVHrIWZXH3p6wwPOwM8mWr7iYDM4geOAnlJ4oQ9TTZhLtn9QFdvuggVEFiCIiccN9a8E
+	D8I5xSpO2MqSWxCwoc2E/B3zEiRs72uf9+CpSVeV3oy6G0NG9o7EzPNE5/G66Pz4GsWgY/bjkQC
+	/i8kX14APiIdKBu2XWfp5cxOz9PS6SRSAAmrrswcu/C3tr342wtbrOpZByMNK77i7rs+LMKTg0+
+	Mf14QtFjQn3Nz4ktOp6hjvXVviVeSm2ZXBTko6dA8cmmdNSIHl3xiTpKJphNI89h83QjRbuYBkO
+	aha+pu3vFX65a4xbInax9tfHTJ7b4J+9k4QwdYZl1cxu/qf/ELgiSJzdUHZFR3AzOLu1E4hZeuH
+	C5YoodIkPnwIwwPfLrYXgccC5uUg7gfa6J06yb2CUcjRV4NVrCT67S9RQfWhQIHfRYuyxDvJjwe
+	VoWhrNbybVhYzmxOO34jIfWa0euvD1DC8d4kRrVfK1wxgOAVTGY86DZ1TkSpFd1GJkr4UbAAfFd
+	3FQQHxtpgEOA==
+X-Received: by 2002:a05:6214:4847:b0:91e:a1e1:697 with SMTP id 6a1803df08f44-92134b1828emr240407936d6.45.1795539956508;
+        Tue, 24 Nov 2026 09:05:56 -0800 (PST)
+Received: from willemb.c.googlers.com.com (15.60.86.34.bc.googleusercontent.com. [34.86.60.15])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349cdfbasm140078216d6.17.2026.11.24.09.05.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 09:05:56 -0800 (PST)
+From: Willem de Bruijn <willemdebruijn.kernel@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	elder@kernel.org,
+	Willem de Bruijn <willemb@google.com>
+Subject: [PATCH net-next 0/6] net: remove dev_validate_header() and net_device::min_header_len
+Date: Tue, 24 Nov 2026 12:05:38 -0500
+Message-ID: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
+X-Mailer: git-send-email 2.56.1.839.g22a8290db9-goog
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,139 +100,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-motorcomm: support
- Wake-on-LAN from S5
-To: Magnus Leatti <magnusleatti@kernelriot.com>, Yao Zi <me@ziyao.cc>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
- <20261120102754.778283-3-magnusleatti@kernelriot.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261120102754.778283-3-magnusleatti@kernelriot.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
 
+From: Willem de Bruijn <willemb@google.com>
 
+Remove unused link-layer header validation plumbing, clean up the
+remaining af_packet users, and drop net_device::min_header_len.
 
-On 11/20/26 11:27, Magnus Leatti wrote:
-> "wol g" is accepted, but the chip sleeps right through magic packets
-> in S5: motorcomm_init() turns OOB WoL off and nothing turns it back on
-> at power-off.
-> 
-> Turns out the chip can just arm itself. Hit it with a reset, OOB WoL
-> comes right back on, and about 2-3 s later it has the PHY up, receiver
-> running, the eFuse address loaded into the first MAC filter, and PMT
-> ready for magic packets. Timed that from userspace without a driver
-> bound.
-> 
-> So on a power-off with "wol g": remove, reset, set WOL_CTRL_PKT_EN
-> again because the reset clears it, enable PME, D3hot.
-> 
-> Notes:
-> 
->  - It wakes on the eFuse address, not the software one. Same as r8169.
->  - Magic packets only. "wol u", reboot, kexec and interface down stop
->    at the remove.
->  - Hibernation that powers off through .shutdown arms too, and resume
->    copes without a reset. Tried twice: woke on the packet, link back.
->  - After a power loss (cable out and back in, BIOS set to stay off) it
->    won't wake until the next clean shutdown. The vendor driver does
->    the same, so that's the hardware.
-> 
-> With this the box wakes on a magic packet to the eFuse address, 5 of
-> 5. Without it, 0 of 3.
-> 
-> Suggested-by: Yao Zi <me@ziyao.cc>
-> Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
+Mostly cleanup, with two user-visible changes:
 
-My PCI-fu isn't that great, but LGTM. I would have liked to test, but
-my motorcomm PCIe card let out the magic smoke yesterday :(
+- Patch 4: on devices that set hard_header_len but have no link layer
+  header (e.g., PPP), SOCK_RAW and TX_RING sends now always have
+  skb->network_header at the start of the packet, not only for short
+  packets.
+- Patch 5: on SOCK_DGRAM, the VLAN TCI of non-offloaded tags is now
+  reported on all Ethernet devices, including those with
+  hard_header_len > ETH_HLEN, and is 0 on non-Ethernet devices.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+1. Drop stale Ethernet fields (including min_header_len) in IPA modem.
+2. Remove header_ops->validate and dev_validate_header().
+3. Move af_packet TX header length checks ahead of skb allocation.
+4. Reset network header on all headerless devices via dev_has_header().
+5. Use ARPHRD_ETHER / ARPHRD_LOOPBACK and ETH_HLEN in vlan_get_tci().
+6. Remove unused net_device::min_header_len.
 
-Maxime
+Testing (under vng):
+- tools/testing/selftests/net: psock_snd.sh, psock_tpacket, and
+  txring_overwrite.
+- Custom tests for short/zero header validation (SOCK_RAW, SOCK_DGRAM,
+  SOCK_PACKET, TX_RING), non-offloaded outgoing VLAN TCI capture
+  (AUXDATA, TPACKET_V2, TPACKET_V3), and 48B/100B IPv6 TX over sit
+  (SOCK_RAW, SOCK_PACKET, TX_RING).
 
-> ---
->  .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 38 ++++++++++++++++++-
->  1 file changed, 37 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> index 63ce2301a0f6..34abbdb645ec 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> @@ -12,6 +12,7 @@
->  #include <linux/iopoll.h>
->  #include <linux/module.h>
->  #include <linux/pci.h>
-> +#include <linux/rtnetlink.h>
->  #include <linux/slab.h>
->  #include <linux/stmmac.h>
->  
-> @@ -27,6 +28,9 @@
->  #define EPHY_CTRL				0x1004
->  /* Clearing this bit asserts resets for internal MDIO bus and PHY */
->  #define  EPHY_MDIO_PHY_RESET			BIT(0)
-> +#define WOL_CTRL				0x100c
-> +/* Magic and remote wake-up packet enable */
-> +#define  WOL_CTRL_PKT_EN			BIT(1)
->  #define OOB_WOL_CTRL				0x1010
->  #define  OOB_WOL_CTRL_DIS			BIT(0)
->  #define MGMT_INT_CTRL0				0x1100
-> @@ -363,6 +367,38 @@ static void motorcomm_remove(struct pci_dev *pdev)
->  	stmmac_dvr_remove(&pdev->dev);
->  }
->  
-> +static void motorcomm_shutdown(struct pci_dev *pdev)
-> +{
-> +	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
-> +	struct stmmac_priv *spriv = netdev_priv(ndev);
-> +	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
-> +	bool wake;
-> +	u32 reg;
-> +
-> +	/* Userspace is still running and may close the interface */
-> +	rtnl_lock();
-> +	wake = system_state == SYSTEM_POWER_OFF && netif_running(ndev) &&
-> +	       (spriv->wolopts & WAKE_MAGIC) && device_may_wakeup(&pdev->dev);
-> +	rtnl_unlock();
-> +
-> +	/* The netdev is unregistered after this. priv and its mapping stay. */
-> +	stmmac_dvr_remove(&pdev->dev);
-> +
-> +	if (!wake)
-> +		return;
-> +
-> +	/* Reset re-enables OOB WoL; left alone, chip arms itself (eFuse MAC) */
-> +	motorcomm_reset(priv);
-> +
-> +	/* The reset has cleared it. Without it the chip does not wake. */
-> +	reg = readl(priv->base + WOL_CTRL);
-> +	reg |= WOL_CTRL_PKT_EN;
-> +	writel(reg, priv->base + WOL_CTRL);
-> +
-> +	pci_wake_from_d3(pdev, true);
-> +	pci_set_power_state(pdev, PCI_D3hot);
-> +}
-> +
->  static const struct pci_device_id dwmac_motorcomm_pci_id_table[] = {
->  	{ PCI_DEVICE(PCI_VENDOR_ID_MOTORCOMM, 0x6801) },
->  	{ },
-> @@ -374,7 +410,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
->  	.id_table = dwmac_motorcomm_pci_id_table,
->  	.probe = motorcomm_probe,
->  	.remove = motorcomm_remove,
-> -	.shutdown = motorcomm_remove,
-> +	.shutdown = motorcomm_shutdown,
->  	.driver = {
->  		.pm = &stmmac_simple_pm_ops,
->  	},
+Willem de Bruijn (6):
+  net: ipa: remove ethernet-specific artifacts from modem netdev setup
+  net: remove header_ops->validate and dev_validate_header()
+  packet: validate TX header length before skb allocation
+  packet: reset network header on all headerless devices
+  packet: use Ethernet header length in vlan_get_tci()
+  net: remove unused net_device::min_header_len
+
+ .../networking/net_cachelines/net_device.rst  |  1 -
+ drivers/net/ipa/ipa_modem.c                   |  4 -
+ drivers/net/loopback.c                        |  1 -
+ include/linux/netdevice.h                     | 18 -----
+ net/ethernet/eth.c                            |  1 -
+ net/packet/af_packet.c                        | 80 ++++++++-----------
+ 6 files changed, 32 insertions(+), 73 deletions(-)
+
+-- 
+2.56.1.839.g22a8290db9-goog
 
