@@ -1,114 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.153.30
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.198
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795558772;
-	b=hcfZItHsbhgUOtfe6hufHCfcS5g6kI8ZoCWRxS22dmMnvy0gGpFhc99jw312G3q+YDn9
-	 b0nGD4KHyYqX8G2l8EEE25G6CUgX8tnLxx4/XkFPL3NATCAaRQe/ncZSnVe078ClLJUxx
-	 lY+XLMqlZl+I/tIRrPINEpt7FbNIIrt/I6fkXHpxvhtBnekSOGeslHoqVfvkSKvLLZjzw
-	 sGonwcds9Rih8cwJagPi+B9G2XCYzvJUzCEH7TMramPpL5V2WrizBmsYvIxqSG85zb9L0
-	 HcN7Z25COZExiLDQQmsaTMzL7PPXp4NO2rLE4emkLasSF3+8oA21KqJslLqKFyRbBCw==
+	t=1795559083;
+	b=sj7g8YikSxpu6WHjVMCa4R9SIt5MczIa8T81geO4OC6PT50bgc94hdUm5kIZ16NPrnHP
+	 aYuQtmiNk3wD2NDDR/l8jKDumRpVzojD2NxCNlAePJ3T2sf041+sRVpSIHL52ufOcLt+P
+	 /BJwA3gPB22wYzvuuXirOInxHf7rsuzAuNztqszYUSLYWsSGk0KO8paWVA8iYz84igeKa
+	 ZqaorqKuyiTa2/WXrSagznocGUW1JToPgiUUXL6LNrWo/feYhdGGKG4k7KqknYqNdFikE
+	 YDQlNhlqEwkxGwp3/Ht6TLaDNfwGWQ6sCvahYn7qcZgXBLJRLFsfuLpd8D55JYxaVMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795558772;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:From:To:CC:
-	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version;
-	bh=j5SmxxlHeHuDubsUdf1mgIAqyrkIlAIH3ZJ7uXPrmuY=;
-	b=ex1Snee+9JCE2uAPKJe/rVPrXW3b/bBXokaIy0+ofyjSvQNvEWGgjrQlDE9ay9XN4YnL
-	 /Cr5sO/iZ/IBNC/dMu+8j6EDh7hhKmqaL19tMmxVdgE1APg2fC/lEdYw+euMbc7tMXybj
-	 SBYIMFQIMzbp1eSwYMKcSHiRMWE9e+lxfTRx96y7FZ7ExRjFZIsDUlRIoUgQrYdgo3FJP
-	 gGPXZINfHmQ1f6Kdz0P3ruGzRpMC3nXn/rmNR5WR2ETdrX2AERQx5ZJ4th1D05Mn+SpQ1
-	 8TEts3Ll9N+6Cs5+mp9gwPEsJQbJwTxCuP9b/6Ka0dBSwzs0tibGOFnSmGmB++T6zTQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795559083;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:MIME-Version:X-Received:Date:
+	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
+	 Subject:From:To:Content-Type;
+	bh=kIxtExBELn7SeoxzbJabhSlRGlT4UchM+BcTDqdeb3M=;
+	b=uvmHjFTQcicou6g0B1mqADotwBD73vCFszoOowEer/fzZBpbAriITwH8wtHbzKFRBON9
+	 5kASVkylRlFmchQi4MYiZj26IqJYKOOzmHg5Dc6BoXIoFOt+kQjMqpSKnMfL7+LRjDS5K
+	 lrKC7VuGROqCeRqcvbqCpDMmSrf7GtOZnT0+qwCnwKI9XS/tv0jG4/GoI+oSSMJo835yj
+	 +s8WKhojGJFJcFp1KA/x3jqiDtwMJSd6Dy7vI+sNlPmKid4wNoC/YQtiB+QTIhJ//U3SS
+	 k+Qjl+ayudnTdLEZ0tKcCO3pPqG4hOIMUKt+Zg9cH78LOWSE0JXqKQnOLp78shVXSGA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=meta.com;
-	spf=pass smtp.mailfrom=meta.com;
-	dkim=pass header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DZuwcYOU;
-	arc=none smtp.remote-ip=67.231.153.30
-Received: from mx0b-00082601.pphosted.com (mx0b-00082601.pphosted.com [67.231.153.30])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=fail header.from=syzkaller.appspotmail.com;
+	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
+	arc=none smtp.remote-ip=209.85.167.198
+Received: from mail-oi1-f198.google.com (mail-oi1-f198.google.com [209.85.167.198])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B21A9606A33D;
-	Tue, 24 Nov 2026 22:19:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B21A9606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=meta.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=meta.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=meta.com header.i=@meta.com header.a=rsa-sha256 header.s=pps82601-s2048-2026-q3 header.b=DZuwcYOU
-Received: from pps.filterd (m0148460.ppops.net [127.0.0.1])
-	by mx0a-00082601.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOMB8Uf1293071;
-	Tue, 24 Nov 2026 14:18:27 -0800
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=meta.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	pps82601-s2048-2026-q3; bh=j5SmxxlHeHuDubsUdf1mgIAqyrkIlAIH3ZJ7u
-	XPrmuY=; b=DZuwcYOUD+QwjhInR6UhnzosW2crPSOs20IKHGAQ7rMJFV3o/yyWi
-	sfWVBwsLkgpl4OSnFbBYx6Ab3BJrPRMzbds1hPX1JbGk6pi1YVzxx8a9CIj3SlQJ
-	WM9x58dYjUp5ZGa+JfsKogmPzH6K+T6aothBC0JanF1R3KJQy/0Ay8hSxMoSkbm9
-	1qxw/nTeHmq0zxQq7YQqKl/P+NBMjaO3l0frjpEhBhlTzxV3chPRytL1nIkG2YaB
-	6m30JocXn2ZOr0NeSq85lgwcsSUYQ/aGJ+3SJEBlsI9om2NuY4NyKxEvf3IvYYAn
-	w4KxGsS+6KzDqx+DgkLkEHF0PFFK63TuA==
-Received: from maileast.thefacebook.com ([163.114.135.16])
-	by mx0a-00082601.pphosted.com (PPS) with ESMTPS id 4j5gqwh6m8-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Tue, 24 Nov 2026 14:18:26 -0800 (PST)
-Received: from localhost (2620:10d:c0a8:fe::f072) by mail.thefacebook.com
- (2620:10d:c0a9:6f::8fd4) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.56; Tue, 24 Nov
- 2026 22:18:25 +0000
-From: Todd Freed <toddfreed@meta.com>
-To: <netdev@vger.kernel.org>
-CC: "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        =?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?=
-	<bjorn@kernel.org>,
-        Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
-	<cratiu@nvidia.com>,
-        Daniel Zahka <daniel.zahka@gmail.com>,
-        Donald Hunter
-	<donald.hunter@gmail.com>,
-        Dragos Tatulea <dtatulea@nvidia.com>,
-        Eric Dumazet
-	<edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Jamal Hadi Salim
-	<jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
-        Leon Romanovsky
-	<leon@kernel.org>, <linux-doc@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
-        <linux-rdma@vger.kernel.org>, Mark Bloch <mbloch@nvidia.com>,
-        Paolo Abeni
-	<pabeni@redhat.com>,
-        Pedro Tammela <pctammela@mojatatu.com>,
-        Saeed Mahameed
-	<saeedm@nvidia.com>, Simon Horman <horms@kernel.org>,
-        Tariq Toukan
-	<tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
-        Willem de Bruijn
-	<willemdebruijn.kernel@gmail.com>,
-        Kuniyuki Iwashima <kuniyu@google.com>, <bpf@vger.kernel.org>,
-        =?UTF-8?q?Asbj=C3=B8rn=20Sloth=20T=C3=B8nnesen?=
-	<ast@fiberby.net>,
-        Qingfang Deng <qingfang.deng@linux.dev>,
-        =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
-        Shuah Khan
-	<shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan
-	<skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>,
-        Matthieu
- Baerts <matttbe@kernel.org>,
-        David Ahern <dsahern@kernel.org>,
-        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
-        Hangbin Liu
-	<hangbin.liu@linux.dev>
-Subject: [PATCH net-next v3 08/12] selftests: drv-net: psp: test socket-less associations and the tc psp action
-Date: Tue, 24 Nov 2026 14:17:54 -0800
-Message-ID: <20261124221758.3230929-9-toddfreed@meta.com>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261124221758.3230929-1-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6B6F2606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:24:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6B6F2606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
+Received: by mail-oi1-f198.google.com with SMTP id 5614622812f47-4c55ba309c2so5765160b6e.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:24:43 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795559082; x=1796163882;
+        h=content-type:to:from:subject:message-id:date:mime-version
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kIxtExBELn7SeoxzbJabhSlRGlT4UchM+BcTDqdeb3M=;
+        b=ze2BINt23q+lukZycfFpP5gLuI60h19Yc9nYtLkbL9ytJBN1RM21v6mtqUiI7CqwcA
+         Hi5SVrtyDof9WEilU8dJy4TDqC6Q6KoTv3Ta8jfJkWdTxGOlwmA4/slEzFbndbgpq9jm
+         Bs3BILTIrpq8Y+l6lbvCsuHOpHHm2cHMAVXBUJhjTuTQdXveW3fhQQTQlTTfuZWBkQsb
+         oVt96xAFvTq1HgPh37qb05uRM8+vShjz4548fOe2c7vJvDGFMj5Qk35D1SliJjVVEdF5
+         f1rNXSFxpNTB9pCO2INuLU9QXB4H1ZDZdJIznB5/E9v7DED4NIjWxgW2B5iGtI7CEZR6
+         LdoQ==
+X-Forwarded-Encrypted: i=1; AL+hErHzmbVblqUzYZtFqFrefaSvYZl9rOa/iRfMbG1kAEROn5LY+5S+W3bmKaDEGmg2DcvflWVQHpQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/NlS4AJmcv0p/6lLwzbtOCJWVIHqA2oMi9yEQBibDA8BJlBd2r
+	XVNn2Ot3+BDyZdcLelQJWycnCVoyUHFLJkPVueR739bQZv4g5sT9a3Y0dmPQm5ZE7M9Pls4fRgR
+	hCmQhh/2WkoE0cPAqvLgY/QowNUvDzq0vQjmHxPJ5GE5y71B+bEJi8Xb/Xi4=
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,647 +58,341 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Proofpoint-ORIG-GUID: qfGFNgSZku6QjCgVAvXriGkJYP1VcNVM
-X-Proofpoint-GUID: qfGFNgSZku6QjCgVAvXriGkJYP1VcNVM
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX44/x7Tkk054a
- qPu6FZMIDz1td5RWUytpSV++itVVS+MnEgIt+bxQfSa6Iwa3ATyWuyJNmJbO549i1j56Btzq23p
- Lfk4O/Oa+e+04pom19KXmjTlKAcCK+E=
-X-Authority-Analysis: v=2.4 cv=eJyGH3p1 c=1 sm=1 tr=0 ts=6b060d32 cx=c_pps
- a=MfjaFnPeirRr97d5FC5oHw==:117 a=MfjaFnPeirRr97d5FC5oHw==:17
- a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22 a=7x6HtfJdh03M6CCDgxCd:22
- a=JnKecZnUtZousrUlYMGU:22 a=VabnemYjAAAA:8 a=Tg9yRN0CKSX-gpsRQOMA:9
- a=O8hF6Hzn-FEA:10 a=gKebqoRLp9LExxC7YDUY:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA4NyBTYWx0ZWRfX+ogG9GeckfFj
- 1EYfLL5JjkAPiAmA4AgTsl6EBN0mAAiV6qak43cG1cG1BYrUBkkAa6w/DR6/bT9+uwOy3kA8x3h
- RIJ/JIF4aqFf+iXCxdp7cJLPaf9GcDG2ODdL2l6uckUmHg5A5XN3zl95KvodQV0PPtrWckC4I4G
- IkEyU/AGORHXzfp77Pq/bxrbI7JAj6aRr1E1fkJykSs2EtM2V9kq1MN9qvEMhheXBicjqOliiiz
- HW+YfIPTcxA1zVmSS/cRiiuwD5H90H07xfiuRkt3Gpsk04SXgv3N/T/QnwtXvVDXaA2PmfKp7bk
- ljfZwbZ5Df/enJWVee6JcC7TI2+wDJwsvJahvnqlI0quHzjNcMK1BQEEFP3blI9eq5np4vTcPtO
- NRmkpTuuD6LiyFMRU3NgAxwRrGqoq0iPItBJr5IaANQQZnAwyxg87RNo1L5CzDaddJ5iiNxirRN
- SM4cdJMaHWIxVItDDEA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-24_06,2026-11-23_01,2025-10-01_01
+X-Received: by 2002:a05:6808:4f2c:b0:4d6:90f4:48b4 with SMTP id
+ 5614622812f47-57a0cae5223mr18069529b6e.54.1795559082190; Tue, 24 Nov 2026
+ 14:24:42 -0800 (PST)
+Date: Tue, 24 Nov 2026 14:24:42 -0800
+X-Google-Appengine-App-Id: s~syzkaller
+X-Google-Appengine-App-Id-Alias: syzkaller
+Message-ID: <6b060eaa.44b41460.34b83f.0040.GAE@google.com>
+Subject: [syzbot] [net?] possible deadlock in gup_fast_fallback (4)
+From: syzbot <syzbot+a248631c3876e5616b8c@syzkaller.appspotmail.com>
+To: axboe@kernel.dk, davem@davemloft.net, edumazet@google.com, 
+	edumazet@kernel.org, horms@kernel.org, jiayuan.chen@linux.dev, 
+	kartikey406@gmail.com, kuba@kernel.org, kuniyu@google.com, 
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
+	syzkaller-bugs@googlegroups.com, willemb@google.com
+Content-Type: text/plain; charset="UTF-8"
 
-Cover the socket-less PSP commands and the tc psp action.
+Hello,
 
-The data path tests connect a plain local TCP socket to a PSP socket of
-the responder, and give the local side PSP with tc and socket-less PSP:
-on ingress, flower psp_spi, psp_ver and psp_dev match what was decrypted
-with the local Rx SPI, and psp decap removes its PSP state; on egress,
-psp encap attaches the Tx association to the socket's packets, which
-the device encrypts.
+syzbot found the following issue on:
 
-Test cases:
+HEAD commit:    2388bb763e32 vsock: only deliver taps to namespaces that c..
+git tree:       net-next
+console output: https://syzkaller.appspot.com/x/log.txt?x=1494da03580000
+kernel config:  https://syzkaller.appspot.com/x/.config?x=7c6e8aa85c823ea1
+dashboard link: https://syzkaller.appspot.com/bug?extid=a248631c3876e5616b8c
+compiler:       Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
 
-  assoc_sockless_basic     rx-spi-alloc, and assoc-add / get / dump / del
-                           of a Tx association, only the SPI is ever
-                           reported
-  assoc_sockless_rotations rx-spi-alloc reports the key rotations, Tx
-                           associations are unaffected by them
-  assoc_sockless_bad       bad device, key size, missing key
-  assoc_sockless_tc        encap rejects an unknown association and
-                           takes a Tx association, decap is accepted
-                           without one
-  data_tc_basic_send       data to the responder and its ACKs back, for
-                           each PSP version and IP version
-  data_tc_no_decap         decrypted packets don't reach a plain socket
-  data_tc_assoc_del        the Tx association deleted while encap uses
-                           it, which holds it
-  data_tc_decap_match      decap only takes the packets of the filter's
-                           SPI, version and device
-  data_tc_encap_wrong_dev  packets redirected to another device drop
-  data_tc_encap_short_hdr  an IPv4 packet shorter than its header
-                           length is dropped by encap
-  data_tc_encap_too_big    packets which won't fit the MTU once
-                           encapsulated are dropped, with and without GSO
-  data_tc_encap_psp_sock   packets of a PSP socket, which are marked
-                           decrypted, are dropped by the psp encap action
-  removal_device_tc        PSP device removed while tc holds its Tx
-                           association
+Unfortunately, I don't have any reproducer for this issue yet.
 
-Note that the tc tests require a newer tc, which has support for the psp
-action and the flower psp matches. If tc is missing that support, the tc
-tests skip.
+Downloadable assets:
+disk image: https://storage.googleapis.com/syzbot-assets/b841983d2243/disk-2388bb76.raw.xz
+vmlinux: https://storage.googleapis.com/syzbot-assets/594cfcd1a79e/vmlinux-2388bb76.xz
+kernel image: https://storage.googleapis.com/syzbot-assets/40f2d7665b0c/bzImage-2388bb76.xz
 
-Signed-off-by: Todd Freed <toddfreed@meta.com>
+The issue was bisected by AI to:
+
+commit 9280e6edf65662b6aafc8b704ad065b54c08b519
+Author: Deepanshu Kartikey <kartikey406@gmail.com>
+Date:   Sun Jun 21 23:52:55 2026 +0000
+
+    nbd: don't warn when reclassifying a busy socket lock
+
+AI reasoning:   https://syzkaller.appspot.com/ai_job?id=5962c4db-cae6-420d-9065-19f85abbc6f5
+
+AI-generated root cause summary:
+Lockdep detects a circular locking dependency between `&mm->mmap_lock` and
+`sk_lock-AF_INET6` because `nbd_reclassify_socket()` in `drivers/block/nbd.c`
+silently skips reclassifying the socket's `sk_lock` class when
+`sock_allow_reclassification(sk)` returns false (i.e., when `sk->sk_lock` or
+`sk->sk_lock.slock` is held by another thread or softirq at the time
+`nbd_add_socket()` runs). Leaving the NBD socket in the generic
+`sk_lock-AF_INET6` class causes lockdep to alias it with ordinary userspace
+`AF_INET6` sockets such as kTLS sockets in `tls_sw_sendmsg()`, which acquire
+`&mm->mmap_lock` via `gup_fast_fallback()` while holding `sk_lock`.
+Additionally, because `nbd_add_socket()` does not prevent userspace from
+continuing to use the socket FD (including kTLS sockets), concurrent userspace
+`sendmsg`/`writev` and NBD block I/O under `fs_reclaim` on the same socket can
+form a real AB-BA deadlock.
+
+full analysis:  https://syzkaller.appspot.com/x/ai_root_cause?x=a248631c3876e5616b8c
+
+IMPORTANT: if you fix the issue, please add the following tag to the commit:
+Reported-by: syzbot+a248631c3876e5616b8c@syzkaller.appspotmail.com
+
+The cause commit was identified by AI and may be wrong.
+If you agree with it, please also add:
+Fixes: 9280e6edf656 ("nbd: don't warn when reclassifying a busy socket lock")
+
+======================================================
+WARNING: possible circular locking dependency detected
+syzkaller #0 Not tainted
+------------------------------------------------------
+syz.3.1126/10806 is trying to acquire lock:
+ffff88807caee540 (&mm->mmap_lock){++++}-{4:4}, at: gup_fast_fallback+0x1f8/0x27f0 mm/gup.c:3235
+
+but task is already holding lock:
+ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1743 [inline]
+ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: tls_sw_sendmsg+0x189/0x2c10 net/tls/tls_sw.c:1032
+
+which lock already depends on the new lock.
+
+
+the existing dependency chain (in reverse order) is:
+
+-> #7 (sk_lock-AF_INET6){+.+.}-{0:0}:
+       lock_sock_nested+0x41/0x100 net/core/sock.c:3911
+       lock_sock include/net/sock.h:1743 [inline]
+       inet_shutdown+0x6a/0x390 net/ipv4/af_inet.c:913
+       nbd_mark_nsock_dead+0x2cb/0x550 drivers/block/nbd.c:319
+       sock_shutdown+0x15e/0x260 drivers/block/nbd.c:420
+       nbd_clear_sock+0x24/0x170 drivers/block/nbd.c:1463
+       nbd_config_put+0x477/0x7e0 drivers/block/nbd.c:1492
+       nbd_genl_connect+0x19b8/0x1cd0 drivers/block/nbd.c:2319
+       genl_family_rcv_msg_doit+0x233/0x340 net/netlink/genetlink.c:1114
+       genl_family_rcv_msg net/netlink/genetlink.c:1194 [inline]
+       genl_rcv_msg+0x614/0x7a0 net/netlink/genetlink.c:1209
+       netlink_rcv_skb+0x226/0x4a0 net/netlink/af_netlink.c:2585
+       genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
+       netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
+       netlink_unicast+0x8ef/0xa80 net/netlink/af_netlink.c:1362
+       netlink_sendmsg+0x7f0/0xb20 net/netlink/af_netlink.c:1921
+       sock_sendmsg_nosec+0x14e/0x190 net/socket.c:800
+       __sock_sendmsg net/socket.c:818 [inline]
+       ____sys_sendmsg+0x49f/0x790 net/socket.c:2713
+       ___sys_sendmsg+0x2f8/0x3d0 net/socket.c:2770
+       __sys_sendmsg net/socket.c:2802 [inline]
+       __do_sys_sendmsg net/socket.c:2807 [inline]
+       __se_sys_sendmsg net/socket.c:2805 [inline]
+       __x64_sys_sendmsg+0x1b1/0x290 net/socket.c:2805
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #6 (&nsock->tx_lock){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       nbd_handle_cmd drivers/block/nbd.c:1143 [inline]
+       nbd_queue_rq+0x373/0xff0 drivers/block/nbd.c:1207
+       blk_mq_dispatch_rq_list+0x499/0x1990 block/blk-mq.c:2141
+       __blk_mq_do_dispatch_sched block/blk-mq-sched.c:168 [inline]
+       blk_mq_do_dispatch_sched block/blk-mq-sched.c:182 [inline]
+       __blk_mq_sched_dispatch_requests+0xd36/0x1580 block/blk-mq-sched.c:307
+       blk_mq_sched_dispatch_requests+0xd7/0x190 block/blk-mq-sched.c:329
+       blk_mq_run_work_fn+0x167/0x2f0 block/blk-mq.c:2556
+       process_one_work kernel/workqueue.c:3495 [inline]
+       process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
+       worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
+       kthread+0x38b/0x480 kernel/kthread.c:436
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+-> #5 (&cmd->lock){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       nbd_queue_rq+0xc1/0xff0 drivers/block/nbd.c:1199
+       blk_mq_dispatch_rq_list+0x499/0x1990 block/blk-mq.c:2141
+       __blk_mq_do_dispatch_sched block/blk-mq-sched.c:168 [inline]
+       blk_mq_do_dispatch_sched block/blk-mq-sched.c:182 [inline]
+       __blk_mq_sched_dispatch_requests+0xd36/0x1580 block/blk-mq-sched.c:307
+       blk_mq_sched_dispatch_requests+0xd7/0x190 block/blk-mq-sched.c:329
+       blk_mq_run_work_fn+0x167/0x2f0 block/blk-mq.c:2556
+       process_one_work kernel/workqueue.c:3495 [inline]
+       process_scheduled_works+0xc3d/0x1630 kernel/workqueue.c:3578
+       worker_thread+0xa47/0xfb0 kernel/workqueue.c:3659
+       kthread+0x38b/0x480 kernel/kthread.c:436
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+-> #4 (set->srcu){.+.+}-{0:0}:
+       srcu_lock_sync include/linux/srcu.h:261 [inline]
+       __synchronize_srcu+0xca/0x2f0 kernel/rcu/srcutree.c:1662
+       elevator_switch+0x1e8/0x7b0 block/elevator.c:576
+       elevator_change+0x2fa/0x480 block/elevator.c:681
+       elevator_set_default+0x375/0x440 block/elevator.c:754
+       blk_register_queue+0x404/0x4f0 block/blk-sysfs.c:992
+       __add_disk+0x6b8/0xdb0 block/genhd.c:531
+       add_disk_fwnode+0x100/0x3a0 block/genhd.c:600
+       add_disk include/linux/blkdev.h:799 [inline]
+       nbd_dev_add+0x733/0xb60 drivers/block/nbd.c:2026
+       nbd_init+0x168/0x1f0 drivers/block/nbd.c:2743
+       do_one_initcall+0x250/0x870 init/main.c:1419
+       do_initcall_level+0x10a/0x1a0 init/main.c:1481
+       do_initcalls+0x59/0xa0 init/main.c:1497
+       kernel_init_freeable+0x29d/0x3e0 init/main.c:1732
+       kernel_init+0x22/0x1d0 init/main.c:1622
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+-> #3 (&q->elevator_lock){+.+.}-{4:4}:
+       __mutex_lock_common kernel/locking/mutex.c:646 [inline]
+       __mutex_lock+0x197/0x15a0 kernel/locking/mutex.c:821
+       elevator_change+0x1af/0x480 block/elevator.c:679
+       elevator_set_none+0xb5/0x140 block/elevator.c:769
+       blk_mq_elv_switch_none block/blk-mq.c:5168 [inline]
+       __blk_mq_update_nr_hw_queues block/blk-mq.c:5213 [inline]
+       blk_mq_update_nr_hw_queues+0x60b/0x1b70 block/blk-mq.c:5281
+       nbd_start_device+0x189/0xb30 drivers/block/nbd.c:1530
+       nbd_genl_connect+0x167d/0x1cd0 drivers/block/nbd.c:2310
+       genl_family_rcv_msg_doit+0x233/0x340 net/netlink/genetlink.c:1114
+       genl_family_rcv_msg net/netlink/genetlink.c:1194 [inline]
+       genl_rcv_msg+0x614/0x7a0 net/netlink/genetlink.c:1209
+       netlink_rcv_skb+0x226/0x4a0 net/netlink/af_netlink.c:2585
+       genl_rcv+0x28/0x40 net/netlink/genetlink.c:1218
+       netlink_unicast_kernel net/netlink/af_netlink.c:1336 [inline]
+       netlink_unicast+0x8ef/0xa80 net/netlink/af_netlink.c:1362
+       netlink_sendmsg+0x7f0/0xb20 net/netlink/af_netlink.c:1921
+       sock_sendmsg_nosec+0x14e/0x190 net/socket.c:800
+       __sock_sendmsg net/socket.c:818 [inline]
+       ____sys_sendmsg+0x49f/0x790 net/socket.c:2713
+       ___sys_sendmsg+0x2f8/0x3d0 net/socket.c:2770
+       __sys_sendmsg net/socket.c:2802 [inline]
+       __do_sys_sendmsg net/socket.c:2807 [inline]
+       __se_sys_sendmsg net/socket.c:2805 [inline]
+       __x64_sys_sendmsg+0x1b1/0x290 net/socket.c:2805
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+-> #2 (&q->q_usage_counter(io)#49){++++}-{0:0}:
+       blk_alloc_queue+0x544/0x690 block/blk-core.c:505
+       blk_mq_alloc_queue block/blk-mq.c:4468 [inline]
+       __blk_mq_alloc_disk+0x194/0x390 block/blk-mq.c:4515
+       nbd_dev_add+0x494/0xb60 drivers/block/nbd.c:1996
+       nbd_init+0x168/0x1f0 drivers/block/nbd.c:2743
+       do_one_initcall+0x250/0x870 init/main.c:1419
+       do_initcall_level+0x10a/0x1a0 init/main.c:1481
+       do_initcalls+0x59/0xa0 init/main.c:1497
+       kernel_init_freeable+0x29d/0x3e0 init/main.c:1732
+       kernel_init+0x22/0x1d0 init/main.c:1622
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+-> #1 (fs_reclaim){+.+.}-{0:0}:
+       __fs_reclaim_acquire mm/page_alloc.c:4388 [inline]
+       fs_reclaim_acquire+0x71/0x100 mm/page_alloc.c:4402
+       might_alloc include/linux/sched/mm.h:316 [inline]
+       slab_pre_alloc_hook mm/slub.c:4673 [inline]
+       slab_alloc_node mm/slub.c:5011 [inline]
+       kmem_cache_alloc_noprof+0x5f/0x600 mm/slub.c:5047
+       mt_alloc_one lib/maple_tree.c:139 [inline]
+       mas_alloc_nodes+0x291/0x350 lib/maple_tree.c:1049
+       mas_preallocate+0x42a/0x840 lib/maple_tree.c:5080
+       vma_iter_prealloc mm/vma.h:698 [inline]
+       vma_link+0x123/0x460 mm/vma.c:1981
+       insert_vm_struct+0x439/0x840 mm/vma.c:3674
+       create_init_stack_vma+0x607/0xa40 mm/vma_exec.c:155
+       bprm_mm_init fs/exec.c:279 [inline]
+       alloc_bprm+0x507/0x640 fs/exec.c:1570
+       class_bprm_constructor fs/exec.c:1580 [inline]
+       kernel_execve+0x85/0x9a0 fs/exec.c:1976
+       try_to_run_init_process+0x13/0x60 init/main.c:1548
+       kernel_init+0xb2/0x1d0 init/main.c:1678
+       ret_from_fork+0x514/0xb70 arch/x86/kernel/process.c:158
+       ret_from_fork_asm+0x1a/0x30 arch/x86/entry/entry_64.S:245
+
+-> #0 (&mm->mmap_lock){++++}-{4:4}:
+       check_prev_add kernel/locking/lockdep.c:3209 [inline]
+       check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+       validate_chain kernel/locking/lockdep.c:3952 [inline]
+       __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+       lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+       gup_fast_fallback+0x211/0x27f0 mm/gup.c:3235
+       __iov_iter_get_pages_alloc+0x378/0xa40 lib/iov_iter.c:1111
+       iov_iter_get_pages2+0x5e/0xa0 lib/iov_iter.c:1157
+       sk_msg_zerocopy_from_iter+0x21b/0x8c0 net/core/skmsg.c:329
+       tls_sw_sendmsg_locked net/tls/tls_sw.c:889 [inline]
+       tls_sw_sendmsg+0x126f/0x2c10 net/tls/tls_sw.c:1033
+       sock_sendmsg_nosec+0x90/0x190 net/socket.c:800
+       __sock_sendmsg net/socket.c:818 [inline]
+       sock_write_iter+0x2de/0x3e0 net/socket.c:1269
+       do_iter_readv_writev+0x612/0x8c0 fs/read_write.c:-1
+       vfs_writev+0x33d/0x9a0 fs/read_write.c:1038
+       do_writev+0x154/0x2e0 fs/read_write.c:1084
+       do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+       do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+       entry_SYSCALL_64_after_hwframe+0x77/0x7f
+
+other info that might help us debug this:
+
+Chain exists of:
+  &mm->mmap_lock --> &nsock->tx_lock --> sk_lock-AF_INET6
+
+ Possible unsafe locking scenario:
+
+       CPU0                    CPU1
+       ----                    ----
+  lock(sk_lock-AF_INET6);
+                               lock(&nsock->tx_lock);
+                               lock(sk_lock-AF_INET6);
+  rlock(&mm->mmap_lock);
+
+ *** DEADLOCK ***
+
+locks held by syz.3.1126/10806: 2, on CPU#1:
+ #0: ffff8880570b10e8 (&ctx->tx_lock){+.+.}-{4:4}, at: tls_sw_sendmsg+0x14e/0x2c10 net/tls/tls_sw.c:1029
+ #1: ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: lock_sock include/net/sock.h:1743 [inline]
+ #1: ffff888036172ba0 (sk_lock-AF_INET6){+.+.}-{0:0}, at: tls_sw_sendmsg+0x189/0x2c10 net/tls/tls_sw.c:1032
+
+stack backtrace:
+CPU: 1 UID: 0 PID: 10806 Comm: syz.3.1126 Not tainted syzkaller #0 PREEMPT(full) 
+Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 11/06/2026
+Call Trace:
+ <TASK>
+ dump_stack_lvl+0xe8/0x150 lib/dump_stack.c:120
+ print_circular_bug+0x2e2/0x300 kernel/locking/lockdep.c:2087
+ check_noncircular+0x12f/0x150 kernel/locking/lockdep.c:2219
+ check_prev_add kernel/locking/lockdep.c:3209 [inline]
+ check_prevs_add kernel/locking/lockdep.c:3328 [inline]
+ validate_chain kernel/locking/lockdep.c:3952 [inline]
+ __lock_acquire+0x164c/0x2de0 kernel/locking/lockdep.c:5288
+ lock_acquire+0x115/0x350 kernel/locking/lockdep.c:5942
+ gup_fast_fallback+0x211/0x27f0 mm/gup.c:3235
+ __iov_iter_get_pages_alloc+0x378/0xa40 lib/iov_iter.c:1111
+ iov_iter_get_pages2+0x5e/0xa0 lib/iov_iter.c:1157
+ sk_msg_zerocopy_from_iter+0x21b/0x8c0 net/core/skmsg.c:329
+ tls_sw_sendmsg_locked net/tls/tls_sw.c:889 [inline]
+ tls_sw_sendmsg+0x126f/0x2c10 net/tls/tls_sw.c:1033
+ sock_sendmsg_nosec+0x90/0x190 net/socket.c:800
+ __sock_sendmsg net/socket.c:818 [inline]
+ sock_write_iter+0x2de/0x3e0 net/socket.c:1269
+ do_iter_readv_writev+0x612/0x8c0 fs/read_write.c:-1
+ vfs_writev+0x33d/0x9a0 fs/read_write.c:1038
+ do_writev+0x154/0x2e0 fs/read_write.c:1084
+ do_syscall_x64 arch/x86/entry/syscall_64.c:61 [inline]
+ do_syscall_64+0x171/0x540 arch/x86/entry/syscall_64.c:89
+ entry_SYSCALL_64_after_hwframe+0x77/0x7f
+RIP: 0033:0x7fc9e65a9519
+Code: ff c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 44 00 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 73 01 c3 48 c7 c1 e8 ff ff ff f7 d8 64 89 01 48
+RSP: 002b:00007fc9e739b028 EFLAGS: 00000246 ORIG_RAX: 0000000000000014
+RAX: ffffffffffffffda RBX: 00007fc9e6835fa0 RCX: 00007fc9e65a9519
+RDX: 0000000000000010 RSI: 00002000000007c0 RDI: 0000000000000004
+RBP: 00007fc9e6639136 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 0000000000000000
+R13: 00007fc9e6836038 R14: 00007fc9e6835fa0 R15: 00007fff87de8258
+ </TASK>
+
+
 ---
- tools/testing/selftests/drivers/net/config |   3 +
- tools/testing/selftests/drivers/net/psp.py | 511 ++++++++++++++++++++-
- 2 files changed, 509 insertions(+), 5 deletions(-)
+This report is generated by a bot. It may contain errors.
+See https://goo.gl/tpsmEJ for more information about syzbot.
+syzbot engineers can be reached at syzkaller@googlegroups.com.
 
-diff --git a/tools/testing/selftests/drivers/net/config b/tools/testing/selftests/drivers/net/config
-index 4838adf27fa1..baf1c9d0dd13 100644
---- a/tools/testing/selftests/drivers/net/config
-+++ b/tools/testing/selftests/drivers/net/config
-@@ -1,9 +1,12 @@
- CONFIG_CONFIGFS_FS=y
- CONFIG_DEBUG_INFO_BTF=y
- CONFIG_DEBUG_INFO_BTF_MODULES=n
-+CONFIG_DUMMY=m
- CONFIG_INET_PSP=y
- CONFIG_IPV6=y
- CONFIG_MACSEC=m
-+CONFIG_NET_ACT_MIRRED=m
-+CONFIG_NET_ACT_PSP=m
- CONFIG_NET_ACT_SKBEDIT=m
- CONFIG_NET_CLS_ACT=y
- CONFIG_NET_CLS_BPF=y
-diff --git a/tools/testing/selftests/drivers/net/psp.py b/tools/testing/selftests/drivers/net/psp.py
-index 67577f722b3b..936ac37dd913 100755
---- a/tools/testing/selftests/drivers/net/psp.py
-+++ b/tools/testing/selftests/drivers/net/psp.py
-@@ -15,7 +15,8 @@ from contextlib import contextmanager
- 
- from lib.py import defer
- from lib.py import ksft_run, ksft_exit, ksft_pr
--from lib.py import ksft_true, ksft_eq, ksft_ne, ksft_gt, ksft_raises
-+from lib.py import ksft_true, ksft_eq, ksft_ne, ksft_gt, ksft_ge
-+from lib.py import ksft_raises
- from lib.py import ksft_not_none
- from lib.py import ksft_variants, KsftNamedVariant
- from lib.py import KsftSkipEx, KsftFailEx
-@@ -23,9 +24,10 @@ from lib.py import NetDrvEpEnv, NetDrvContEnv
- from lib.py import Netlink, NlError, PSPFamily, RtnlFamily
- from lib.py import NetNSEnter
- from lib.py import bkg, rand_port, wait_port_listen
--from lib.py import ip
-+from lib.py import cmd, ip, tc
- 
- TCP_ULP = 31
-+UDP_SEGMENT = 103
- 
- 
- _PSP_MAX_KEY_LEN = 32
-@@ -171,9 +173,9 @@ def _req_echo(cfg, s):
-     ksft_eq(_recv_careful(s, 5), b'echo\0')
- 
- 
--def _check_data_outq(s, exp_len, force_wait=False):
-+def _check_data_outq(s, exp_len, force_wait=False, tries=10):
-     outq = 0
--    for _ in range(10):
-+    for _ in range(tries):
-         outq = _get_outq(s)
-         if not force_wait and outq == exp_len:
-             break
-@@ -938,6 +940,504 @@ def data_mss_adjust(cfg, ipver):
-     _data_mss_adjust(cfg, ipver)
- 
- 
-+#
-+# Socket-less associations and the tc psp action
-+#
-+
-+def _assoc_del(cfg, assoc_id):
-+    """ Delete a socket-less assoc, unless the test already did """
-+    try:
-+        cfg.pspnl.assoc_del({"id": assoc_id})
-+    except NlError as e:
-+        if e.nl_msg.error != -errno.ENOENT:
-+            raise
-+
-+
-+def _sockless_assocs(cfg, version=0):
-+    """ Allocate an Rx SPI and add a Tx assoc with its key """
-+    rx = cfg.pspnl.rx_spi_alloc({"dev-id": cfg.psp_dev_id,
-+                                 "version": version})
-+    tx = cfg.pspnl.assoc_add({"dev-id": cfg.psp_dev_id,
-+                              "version": version,
-+                              "tx-key": rx['rx-key']})
-+    defer(_assoc_del, cfg, tx['id'])
-+    return rx, tx
-+
-+
-+def _require_tc_psp(cfg):
-+    if not hasattr(cfg, 'tc_psp'):
-+        # tc exits with an error either way, look at what it says. The
-+        # tests need both the psp action and the flower psp keys.
-+        try:
-+            act = cmd("tc action add action psp help", fail=False)
-+            flt = cmd("tc filter add dev lo ingress flower help",
-+                      fail=False)
-+        except FileNotFoundError:
-+            cfg.tc_psp = False
-+        else:
-+            cfg.tc_psp = ("psp encap" in act.stdout + act.stderr and
-+                          "psp_spi" in flt.stdout + flt.stderr)
-+    if not cfg.tc_psp:
-+        raise KsftSkipEx("tc does not support the psp action and matches")
-+
-+
-+def _tc_proto(ipver):
-+    return "ip" if ipver == "4" else "ipv6"
-+
-+
-+def _tc_clsact(ifname, host=None):
-+    """ Add clsact to @ifname, unless it has one already: the env or the
-+    host may use it too, so only remove it if it was added here
-+    """
-+    qdiscs = tc(f"qdisc show dev {ifname}", json=True, host=host)
-+    if any(q['kind'] == 'clsact' for q in qdiscs):
-+        return
-+    tc(f"qdisc add dev {ifname} clsact", host=host)
-+    defer(tc, f"qdisc del dev {ifname} clsact", host=host)
-+
-+
-+def _make_tc_conn(cfg, version, ipver):
-+    """ Connect a plain socket to a PSP socket of the responder """
-+    _send_with_ack(cfg, b'conn psp\0' + struct.pack('BB', version, version))
-+    family = socket.AF_INET if ipver == "4" else socket.AF_INET6
-+    s = socket.socket(family, socket.SOCK_STREAM)
-+    # The stack doesn't know tc will add PSP headers (40 bytes), leave room
-+    # for them. TCP takes its options off the MSS.
-+    mtu = ip(f"link show dev {cfg.ifname}", json=True)[0]['mtu']
-+    iph = 20 if ipver == "4" else 40
-+    s.setsockopt(socket.IPPROTO_TCP, socket.TCP_MAXSEG,
-+                 mtu - 40 - iph - 20)
-+    s.connect((cfg.remote_addr_v[ipver], cfg.comm_port))
-+    defer(_tc_conn_close, cfg, s)
-+    return s
-+
-+
-+def _tc_conn_close(cfg, s):
-+    """ Close a test's connection, unless the test got to do it """
-+    if s.fileno() != -1:
-+        _close_psp_conn(cfg, s)
-+
-+
-+def _tc_psp_conn(cfg, version, ipver, decap=True):
-+    """
-+    Connect a plain socket to a PSP socket of the responder, and give that
-+    flow PSP encap using socket-less assocs and tc: decap what was decrypted
-+    with its Rx SPI, version and device on ingress, encap its packets on
-+    egress, which the device encrypts. Returns the socket and the assocs.
-+    """
-+    proto = _tc_proto(ipver)
-+
-+    # The Rx SPI and the decap rule first: once connected, the responder
-+    # waits for our key, and an error in between would leave the comm
-+    # channel out of step
-+    rx = cfg.pspnl.rx_spi_alloc({"dev-id": cfg.psp_dev_id,
-+                                 "version": version})
-+
-+    _tc_clsact(cfg.ifname)
-+    # The responder starts sending with our SPI as soon as it has our key
-+    if decap:
-+        tc(f"filter add dev {cfg.ifname} ingress pref 10 handle 1 "
-+           f"protocol {proto} flower psp_spi {rx['rx-key']['spi']:#x} "
-+           f"psp_ver {version} psp_dev {cfg.psp_dev_id} action psp decap")
-+        defer(tc, f"filter del dev {cfg.ifname} ingress pref 10 handle 1 "
-+              f"protocol {proto} flower")
-+
-+    s = _make_tc_conn(cfg, version, ipver)
-+    tx_key = _spi_xchg(s, rx['rx-key'])
-+    tx = cfg.pspnl.assoc_add({"dev-id": cfg.psp_dev_id,
-+                              "version": version,
-+                              "tx-key": tx_key})
-+    defer(_assoc_del, cfg, tx['id'])
-+
-+    # Make sure the SPI exchange got through in clear text
-+    _check_data_outq(s, 0)
-+
-+    # The comm socket goes to the same port, match on ours
-+    sport = s.getsockname()[1]
-+    tc(f"filter add dev {cfg.ifname} egress pref 10 handle 1 "
-+       f"protocol {proto} flower ip_proto tcp src_port {sport} "
-+       f"action psp encap assoc {tx['id']}")
-+    defer(tc, f"filter del dev {cfg.ifname} egress pref 10 handle 1 "
-+          f"protocol {proto} flower")
-+
-+    return s, rx, tx
-+
-+
-+def _tc_action_stats(cfg, direction):
-+    """ Stats of the psp action of the pref 10 filter """
-+    filters = tc(f"-s filter show dev {cfg.ifname} {direction} pref 10",
-+                 json=True)
-+    for flt in filters:
-+        for act in flt.get("options", {}).get("actions", []):
-+            if act["kind"] == "psp":
-+                return act["stats"]
-+    raise KsftFailEx(f"no psp action on {direction}")
-+
-+
-+def assoc_sockless_basic(cfg):
-+    """ Test socket-less Rx SPIs and Tx associations """
-+    _init_psp_dev(cfg)
-+
-+    rx, tx = _sockless_assocs(cfg)
-+    ksft_eq(rx['dev-id'], cfg.psp_dev_id)
-+    ksft_gt(rx['rx-key']['spi'], 0)
-+    ksft_eq(len(rx['rx-key']['key']), 16)
-+    ksft_eq(rx['key-rotations'], _get_stat(cfg, 'key-rotations'))
-+    # The kernel keeps no state for an Rx SPI
-+    ksft_true('id' not in rx)
-+    ksft_eq(tx['dev-id'], cfg.psp_dev_id)
-+
-+    # Only the SPI is ever reported, never the key
-+    version = cfg.pspnl.consts["version"].entries_by_val[0].name
-+    assoc = cfg.pspnl.assoc_get({"id": tx['id']})
-+    ksft_eq(assoc['dev-id'], cfg.psp_dev_id)
-+    ksft_eq(assoc['version'], version)
-+    ksft_eq(assoc['tx-key'], {'spi': rx['rx-key']['spi']})
-+    ksft_true('rx-key' not in assoc)
-+
-+    ids = [x['id'] for x in cfg.pspnl.assoc_get({}, dump=True)]
-+    ksft_true(tx['id'] in ids)
-+
-+    cfg.pspnl.assoc_del({"id": tx['id']})
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_get({"id": tx['id']})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.ENOENT)
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_del({"id": tx['id']})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.ENOENT)
-+
-+
-+def assoc_sockless_rotations(cfg):
-+    """ Test rx-spi-alloc reports the key rotations, Tx assocs survive them """
-+    _init_psp_dev(cfg)
-+
-+    rx, tx = _sockless_assocs(cfg)
-+    rotations = _get_stat(cfg, 'key-rotations')
-+    ksft_eq(rx['key-rotations'], rotations)
-+    for i in range(2):
-+        cfg.pspnl.key_rotate({"id": cfg.psp_dev_id})
-+        new = cfg.pspnl.rx_spi_alloc({"dev-id": cfg.psp_dev_id,
-+                                      "version": 0})
-+        ksft_eq(new['key-rotations'], rotations + i + 1)
-+    # A Tx assoc holds the peer's key, which the device key rotation
-+    # doesn't affect
-+    assoc = cfg.pspnl.assoc_get({"id": tx['id']})
-+    ksft_eq(assoc['tx-key'], {'spi': rx['rx-key']['spi']})
-+
-+
-+def assoc_sockless_bad(cfg):
-+    """ Test socket-less associations with bad arguments """
-+    _init_psp_dev(cfg)
-+
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.rx_spi_alloc({"dev-id": cfg.psp_dev_id + 1234567,
-+                                "version": 0})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.ENODEV)
-+
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_add({"dev-id": cfg.psp_dev_id + 1234567,
-+                             "version": 0,
-+                             "tx-key": {"spi": 1, "key": b'\0' * 16}})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.ENODEV)
-+
-+    # Key of the wrong size for the version
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_add({"dev-id": cfg.psp_dev_id,
-+                             "version": 0,
-+                             "tx-key": {"spi": 1, "key": b'\0' * 32}})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.EINVAL)
-+
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_add({"dev-id": cfg.psp_dev_id, "version": 0})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.EINVAL)
-+
-+
-+def assoc_sockless_tc(cfg):
-+    """ Test the tc psp action takes the right assoc """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    _, tx = _sockless_assocs(cfg)
-+    unknown = max(x['id'] for x in cfg.pspnl.assoc_get({}, dump=True)) + 1
-+
-+    # encap takes an existing Tx assoc. tc itself refuses decap with an
-+    # assoc, so the kernel's check of that can't be tested with tc.
-+    defer(cmd, "tc action del action psp index 101", fail=False)
-+    ret = cmd(f"tc action add action psp encap assoc {unknown} index 101",
-+              fail=False)
-+    ksft_ne(ret.ret, 0)
-+    ksft_true("PSP association not found" in ret.stderr, comment=ret.stderr)
-+
-+    defer(cmd, "tc action del action psp index 100", fail=False)
-+    for act in (f"encap assoc {tx['id']}", "decap"):
-+        tc(f"action add action psp {act} index 100")
-+        tc("action del action psp index 100")
-+
-+
-+@ksft_variants(_get_psp_ver_ip_variants())
-+def data_tc_basic_send(cfg, version, ipver):
-+    """ Test data send with socket-less assocs and the tc psp action """
-+    cfg.require_ipver(ipver)
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+    if version:
-+        _require_version(cfg, version)
-+
-+    rx_pkts = _get_stat(cfg, 'rx-packets')
-+    tx_pkts = _get_stat(cfg, 'tx-packets')
-+
-+    s, _, _ = _tc_psp_conn(cfg, version, ipver)
-+
-+    data_len = _send_careful(cfg, s, 100)
-+    _check_data_rx(cfg, data_len)
-+    # ... and the ACKs got through decap
-+    _check_data_outq(s, 0)
-+
-+    ksft_gt(_get_stat(cfg, 'rx-packets'), rx_pkts)
-+    ksft_gt(_get_stat(cfg, 'tx-packets'), tx_pkts)
-+    ksft_gt(_tc_action_stats(cfg, "ingress")["packets"], 0)
-+    ksft_gt(_tc_action_stats(cfg, "egress")["packets"], 0)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def data_tc_no_decap(cfg):
-+    """ Test decrypted packets don't reach a plain socket without decap """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    s, _, _ = _tc_psp_conn(cfg, 0, cfg.addr_ipver, decap=False)
-+
-+    # Without ACKs we can't send more than the initial window
-+    data_len = _send_careful(cfg, s, 1)
-+    _check_data_rx(cfg, data_len)
-+    # The responder's ACKs come encrypted, and get dropped
-+    _check_data_outq(s, data_len, force_wait=True)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def data_tc_assoc_del(cfg):
-+    """ Test deleting the Tx assoc while encap uses it: encap holds it """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    s, _, tx = _tc_psp_conn(cfg, 0, cfg.addr_ipver)
-+
-+    data_len = _send_careful(cfg, s, 10)
-+    _check_data_rx(cfg, data_len)
-+
-+    cfg.pspnl.assoc_del({"id": tx['id']})
-+
-+    data_len += _send_careful(cfg, s, 10)
-+    _check_data_rx(cfg, data_len)
-+    _check_data_outq(s, 0)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def data_tc_decap_match(cfg):
-+    """ Test decap only takes what the filter's PSP matches allow """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    ipver = cfg.addr_ipver
-+    s, rx, _ = _tc_psp_conn(cfg, 0, ipver)
-+    spi, dev = rx['rx-key']['spi'], cfg.psp_dev_id
-+
-+    def match(m_spi, m_ver, m_dev):
-+        return f"psp_spi {m_spi:#x} psp_ver {m_ver} psp_dev {m_dev}"
-+
-+    data_len = _send_careful(cfg, s, 10)
-+    _check_data_rx(cfg, data_len)
-+    _check_data_outq(s, 0)
-+
-+    # flower can only replace a filter with one matching the same keys
-+    def decap_filter(keys):
-+        tc(f"filter replace dev {cfg.ifname} ingress pref 10 handle 1 "
-+           f"protocol {_tc_proto(ipver)} flower {keys} action psp decap")
-+
-+    for keys in (match(spi ^ 1, 0, dev), match(spi, 1, dev),
-+                 match(spi, 0, dev + 1)):
-+        # The responder's ACKs don't match, and the socket drops them
-+        decap_filter(keys)
-+        n = _send_careful(cfg, s, 1)
-+        data_len += n
-+        _check_data_rx(cfg, data_len)
-+        _check_data_outq(s, n, force_wait=True)
-+
-+        # Once they match again, the retransmits get through
-+        decap_filter(match(spi, 0, dev))
-+        _check_data_outq(s, 0, tries=500)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def data_tc_encap_wrong_dev(cfg):
-+    """ Test packets with an assoc sent to another device are dropped """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    ip("link add psp-dummy0 type dummy")
-+    defer(ip, "link del psp-dummy0")
-+    ip("link set psp-dummy0 up")
-+
-+    ipver = cfg.addr_ipver
-+    s, _, tx = _tc_psp_conn(cfg, 0, ipver)
-+
-+    sport = s.getsockname()[1]
-+    tc(f"filter replace dev {cfg.ifname} egress pref 10 handle 1 "
-+       f"protocol {_tc_proto(ipver)} flower ip_proto tcp src_port {sport} "
-+       f"action psp encap assoc {tx['id']} pipe "
-+       f"action mirred egress redirect dev psp-dummy0")
-+
-+    def dummy_drops():
-+        dev = ip("-s link show dev psp-dummy0", json=True)[0]
-+        return dev['stats64']['tx']['dropped']
-+
-+    drops = dummy_drops()
-+    data_len = _send_careful(cfg, s, 10)
-+    _check_data_outq(s, data_len, force_wait=True)
-+    _check_data_rx(cfg, 0)
-+    ksft_gt(dummy_drops(), drops)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def data_tc_encap_short_hdr(cfg):
-+    """ Test encap drops an IPv4 packet shorter than its header length """
-+    cfg.require_ipver("4")
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    _, tx = _sockless_assocs(cfg)
-+    loc, rem = cfg.addr_v["4"], cfg.remote_addr_v["4"]
-+    _tc_clsact(cfg.ifname)
-+    # An IP protocol nothing else sends, so the filter only takes the
-+    # test's frame
-+    tc(f"filter add dev {cfg.ifname} egress pref 10 handle 1 protocol ip "
-+       f"flower ip_proto 0xfd dst_ip {rem} "
-+       f"action psp encap assoc {tx['id']}")
-+    defer(tc, f"filter del dev {cfg.ifname} egress pref 10 handle 1 "
-+          f"protocol ip flower")
-+
-+    # A 20 byte IPv4 header which claims 60 (ihl 15), and nothing after
-+    # it. Encap must not take the 40 missing bytes for header. (Its total
-+    # length check would drop it too: this covers the IPv4 length checks
-+    # together.)
-+    iph = struct.pack("!BBHHHBBH4s4s", 0x4f, 0, 60, 0, 0, 64, 253, 0,
-+                      socket.inet_aton(loc), socket.inet_aton(rem))
-+    eth = (b"\xff" * 6 + bytes.fromhex(cfg.dev["address"].replace(":", "")) +
-+           struct.pack("!H", 0x0800))
-+
-+    drops = _tc_action_stats(cfg, "egress")["drops"]
-+    with socket.socket(socket.AF_PACKET, socket.SOCK_RAW) as ps:
-+        ps.bind((cfg.ifname, 0x0800))
-+        try:
-+            ps.send(eth + iph)
-+        except OSError as e:
-+            # The drop on egress is reported to the sender
-+            if e.errno != errno.ENOBUFS:
-+                raise
-+    ksft_eq(_tc_action_stats(cfg, "egress")["drops"], drops + 1,
-+            comment="short IPv4 header dropped by encap")
-+
-+
-+def data_tc_encap_too_big(cfg):
-+    """ Test packets too big for the MTU once encapsulated are dropped """
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    ipver = cfg.addr_ipver
-+    _, tx = _sockless_assocs(cfg)
-+    port = rand_port(socket.SOCK_DGRAM)
-+    _tc_clsact(cfg.ifname)
-+    tc(f"filter add dev {cfg.ifname} egress pref 10 handle 1 "
-+       f"protocol {_tc_proto(ipver)} flower ip_proto udp dst_port {port} "
-+       f"action psp encap assoc {tx['id']}")
-+    defer(tc, f"filter del dev {cfg.ifname} egress pref 10 handle 1 "
-+          f"protocol {_tc_proto(ipver)} flower")
-+
-+    # The UDP payload which fits the MTU once the device adds UDP, the PSP
-+    # header and the ICV (40 bytes)
-+    mtu = ip(f"link show dev {cfg.ifname}", json=True)[0]['mtu']
-+    room = mtu - 40 - (20 if ipver == "4" else 40) - 8
-+
-+    family = socket.AF_INET if ipver == "4" else socket.AF_INET6
-+    dst = (cfg.remote_addr_v[ipver], port)
-+    with socket.socket(family, socket.SOCK_DGRAM) as s:
-+        s.sendto(b'x' * room, dst)
-+        with ksft_raises(OSError) as cm:
-+            s.sendto(b'x' * (room + 1), dst)
-+        ksft_eq(cm.exception.errno, errno.EMSGSIZE)
-+
-+        # GSO (UDP_SEGMENT): each segment must fit
-+        s.setsockopt(socket.IPPROTO_UDP, UDP_SEGMENT, room)
-+        s.sendto(b'x' * room * 2, dst)
-+        s.setsockopt(socket.IPPROTO_UDP, UDP_SEGMENT, room + 1)
-+        with ksft_raises(OSError) as cm:
-+            s.sendto(b'x' * (room + 1) * 2, dst)
-+        ksft_eq(cm.exception.errno, errno.EMSGSIZE)
-+    ksft_ge(_tc_action_stats(cfg, "egress")["packets"], 4)
-+
-+
-+def data_tc_encap_psp_sock(cfg):
-+    """
-+    Test psp encap drops packets of a PSP socket, which already have a crypto
-+    offload
-+    """
-+
-+    _init_psp_dev(cfg)
-+    _require_tc_psp(cfg)
-+
-+    s = _establish_psp_conn(cfg, 0)
-+    defer(_tc_conn_close, cfg, s)
-+    data_len = _send_careful(cfg, s, 10)
-+    _check_data_rx(cfg, data_len)
-+
-+    _, sl_tx = _sockless_assocs(cfg)
-+    _tc_clsact(cfg.ifname)
-+    sport = s.getsockname()[1]
-+    tc(f"filter add dev {cfg.ifname} egress pref 10 handle 1 "
-+       f"protocol {_tc_proto(cfg.addr_ipver)} flower ip_proto tcp "
-+       f"src_port {sport} action psp encap assoc {sl_tx['id']}")
-+    flt = defer(tc, f"filter del dev {cfg.ifname} egress pref 10 handle 1 "
-+                f"protocol {_tc_proto(cfg.addr_ipver)} flower")
-+
-+    n = _send_careful(cfg, s, 1)
-+    _check_data_outq(s, n, force_wait=True)
-+    _check_data_rx(cfg, data_len)
-+    ksft_gt(_tc_action_stats(cfg, "egress")["drops"], 0)
-+
-+    # Without the rule, the retransmits get through
-+    flt.exec()
-+    _check_data_outq(s, 0, tries=500)
-+    _check_data_rx(cfg, data_len + n)
-+    _close_psp_conn(cfg, s)
-+
-+
-+def removal_device_tc(cfg):
-+    """ Test removing a PSD with tc actions holding its assocs """
-+    cfg.require_nsim()
-+    _require_tc_psp(cfg)
-+    # Only look the device up: enabling PSP would register an undo for the
-+    # device which the test removes
-+    if not hasattr(cfg, 'psp_dev_id'):
-+        for dev in cfg.pspnl.dev_get({}, dump=True):
-+            if dev['ifindex'] == cfg.ifindex:
-+                cfg.psp_info = dev
-+                cfg.psp_dev_id = dev['id']
-+                break
-+        else:
-+            raise KsftSkipEx("No PSP devices found")
-+
-+    _, tx = _sockless_assocs(cfg)
-+    tc(f"action add action psp encap assoc {tx['id']} index 100")
-+    defer(tc, "action del action psp index 100")
-+
-+    __nsim_psp_rereg(cfg)
-+
-+    # The Tx assoc of the removed device can no longer be looked up
-+    with ksft_raises(NlError) as cm:
-+        cfg.pspnl.assoc_get({"id": tx['id']})
-+    ksft_eq(cm.exception.nl_msg.error, -errno.ENOENT)
-+
-+
- def _check_assoc_list(cfg, psp_dev_id, ifindex, nsid=None):
-     """Verify assoc-list contains device with given ifindex, no duplicates."""
-     dev_info = cfg.pspnl.dev_get({'id': psp_dev_id})
-@@ -1436,7 +1936,8 @@ def main() -> None:
-                                                          timeout=1)
- 
-                 cases = [data_basic_send, data_mss_adjust,
--                         rekey_rx_basic, rekey_tx_basic, rekey_both_sides]
-+                         rekey_rx_basic, rekey_tx_basic, rekey_both_sides,
-+                         data_tc_basic_send]
- 
-                 if has_cont:
-                     cases += [
--- 
-2.53.1-Meta
+syzbot will keep track of this issue. See:
+https://goo.gl/tpsmEJ#status for how to communicate with syzbot.
+For information about AI bisection see: https://goo.gl/tpsmEJ#ai-bisection
 
+If the report is already addressed, let syzbot know by replying with:
+#syz fix: exact-commit-title
+
+If you want to overwrite report's subsystems, reply with:
+#syz set subsystems: new-subsystem
+(See the list of subsystem names on the web dashboard)
+
+If the report is a duplicate of another one, reply with:
+#syz dup: exact-subject-of-another-report
+
+If you want to undo deduplication, reply with:
+#syz undup
