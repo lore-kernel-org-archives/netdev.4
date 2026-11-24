@@ -1,81 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795515539;
-	b=CP4YN1cTLEoulswlRYAz2AUFp1s2sY6m7nydt7AfY7fcpEmscBhZ9MD1go+GWoM2TrGn
-	 wPXNmrYFobr5Xt08l3CNlAVtjUEL+W2pQMZ30hS+d829bpLC9xFDlfOEhVW6lkvReXJDy
-	 Ba6HfbT4kC3yHNG94bKTdvZOkrVg/1g0YohVs5OlLCVCDkN3rzTEz/R0C3pRBujZOJty+
-	 3Dx4hrCoo+q2qW0ebY/GQ8j/YwRjnaUSaDTUM0cI7keAvySfXFIV6y+rh+jMoQZVon1Qn
-	 5P0RXr3qzAFyd1mG92n0hu2ai9ddYWQD422l4cwkJiepBLnnxj/buMa+fe+4jpcFgeA==
+	t=1795515619;
+	b=rgaBQkFusNTUDfMoaAOP7v9fJTTXXLu9HLH8GHeNYOW1UuAQhjFsVJ33mzDPlDwJxqYz
+	 Aa1IrIwkq1Ni9AacGKjzhsjHZh+XgFzm2Lyal4LTZaM2PKL13xHWkXgNEItSUSApFXTQ4
+	 V6q37UHGRwqcEvDprgsNsCg380Wk/fFf58zIBj4cBiS2NGsddEbOrYlhL/t1Y0WuJ0G7C
+	 vPS3dKkfyjKihk6QxqX4YV6tA6mJprT6cDL4baoxo45GTnpPwlzUt0Pol/5uexeWxkp90
+	 5mjUPAuOyciq6fGF2uWB2E7YgB+mY6QCBuIEoG80cCfbcLx9x7k9jyeZXCOpIqVE/XA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515539;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=vfv4q0//GszER/ZnpatsxtYNRtVSogmhUjUu6NcShzY=;
-	b=RsMHrbD695Knu7+xHUhyIcdqT4jDcro59b6Io8Sp0AWHf4lt9+jCDZ3CG5SaekxtA67K
-	 I9OXtPlNubkfN8fUbTXJqvyEhpRa/9cJMccyJjjF6OSTBUZCMbABMNRbPqdPxwaMTlMrJ
-	 xYml4SKvvrgEk3iCXvDad08slSOZucONNTLRz58WJCexKA9sD1da8DaTdTgraoovqY3xs
-	 JIg0yKL2pijuSB2+bDf9JNBCOrzmvyldyL8tCShvAxH1kr6TuoSMFid7EtJSMEww1tr8g
-	 4Lu6aXqFxE2fojYHFWYYRFVyzJw550Umt/yPurIHdt/xhH8BqFoTnvIa7JiANUfnv8Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515619;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Subject:Cc:To:
+	 From:X-Mailer:References:In-Reply-To:X-Last-TLS-Session-Version;
+	bh=GsnROFcsYXomd+mYJ2qpR3czAnhWQbAw0bqGUw9Qmzg=;
+	b=vJVxaKAsOFJ0VoItvFIO9kG0luGTzCR7Fy/5qSdAvblFesgV2e3lmGmABhOYtasx+xJe
+	 baIUmMLz3PpWou87e1uC3UhDWFQSA5EgzvvvQsEicohIZJAkG4BXsSopwumSb81iE08zi
+	 iRmYVX8BaHKlH6nYnR7eZ29t53/ir2BlIjzvplNKxL+2mkO9VycZywUkH02TnpbcKj4IW
+	 vAHcdXFPx9ankYkkynTOuIkFp0FOYPsxD4WqGnBvEFYZpwT6tY55dPDxOdV5G7yiXNXhf
+	 zI4X52MeGMwNgo+uOS/NrL0emfT4O0cCGkqTjARbs6dqnJT0tP5eQcI/Lnh9RZRxSfg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=bW5WUsXI;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2bHQ0P7W;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C44D606A321;
-	Tue, 24 Nov 2026 10:18:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C44D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E029C606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:20:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E029C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=bW5WUsXI
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 2AAE520704;
-	Tue, 24 Nov 2026 11:18:56 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id CMbiIDYVN85C; Tue, 24 Nov 2026 11:18:55 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 841A6201E5;
-	Tue, 24 Nov 2026 11:18:55 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 841A6201E5
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795515535;
-	bh=vfv4q0//GszER/ZnpatsxtYNRtVSogmhUjUu6NcShzY=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=bW5WUsXIadFR9+sYne1FwD6UIG7UhVv2WK8vEFzgoNZKrRKQz/Trgy4tsk08bfn6Q
-	 XPx9IQbJ2PA8jZvquxqfv6Al3TS+BDKoWPlGjz/9VMqzCYtSZOsGvQatutAANeK9QP
-	 diAx9C/+8EM+o/Ce+eAcHHRoNmDjTSTSlaxOPB5mCw8pXXjKAWQzIz7gYeJzHLYiic
-	 JFbTTy5007q8U6TUYRjHJ1ytxjFudsY1Qg9LIStCI7QDmozFBLg2iUiovzyIf1Mnhw
-	 C1uEBdOYvNmvTVf3jatJJQtnTUpNxCdkLFBA92eFRVBVSvgaecCVEQjPLUxULDfJen
-	 7m/3M5Qy4UMuw==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 24 Nov
- 2026 11:18:53 +0100
-Received: (nullmailer pid 3475634 invoked by uid 1000);
-	Tue, 24 Nov 2026 10:18:52 -0000
-Date: Tue, 24 Nov 2026 11:18:52 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Sabrina Dubroca <sd@queasysnail.net>
-CC: Kyuwon Cho <kyuwoncho18@gmail.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
-	<fw@strlen.de>, Hui Peng <benquike@gmail.com>, <netdev@vger.kernel.org>,
-	<ipsec@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH ipsec] xfrm: allow route optimization mode only for
- DSTOPTS and ROUTING states
-Message-ID: <awVkjNfRV9ywdmGH@gauss4>
-References: <179550330841.535592.4607028415857424638@gmail.com>
- <awVjQipfDmyOZZtw@krikkit>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=2bHQ0P7W
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-03.galae.net (Postfix) with ESMTPS id 063A74E41698;
+	Tue, 24 Nov 2026 10:20:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id B68A6601E1;
+	Tue, 24 Nov 2026 10:20:15 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1ECD411E6A5DB;
+	Tue, 24 Nov 2026 11:20:04 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795515609; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=GsnROFcsYXomd+mYJ2qpR3czAnhWQbAw0bqGUw9Qmzg=;
+	b=2bHQ0P7W/l8TeEHSYVfNyc61BbMDMmiECw2bz8pf3ROEwZVhsmOdXj1vt6oR6e6AjZQ/DU
+	0OfKU6xtl9MuTk1MXuhOs4MuZppKuBlTAxdsI8nx+yReWa6SWjK23T+wA92RkFqFFXKcE+
+	iGI874x9lmpNdRIeBkXfv80YCoAXTxWbebSf0DmyfpMEpTZRWtkW/z7ZgjlIa5tcdTBnSD
+	2LBaflyeaLKBbCsBZ3QlKO/Y+0Hs3CIk0Wg7uBV0dko6BZs5/j3g7D4kLXRCcckjppNl5B
+	fLycFdOb5674zhQ8fql3DWm94n0COu75XWh8UBb+jXh9WceQhcjKrSe/yKQ5kQ==
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,51 +58,142 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <awVjQipfDmyOZZtw@krikkit>
-X-ClientProxiedBy: EXCH-03.secunet.de (10.32.0.183) To EXCH-01.secunet.de
- (10.32.0.171)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Tue, 24 Nov 2026 11:20:04 +0100
+Message-Id: <DN3D5TEGSJJK.2RDM2BPVIQF1B@bootlin.com>
+Subject: Re: [PATCH net] net: macb: don't disable an IRQ wake that was never
+ enabled
+Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, "Eric Dumazet" <edumazet@kernel.org>, "Jakub
+ Kicinski" <kuba@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>, "Conor
+ Dooley" <conor.dooley@microchip.com>, "Sergio Prado"
+ <sergio.prado@e-labworks.com>, <netdev@vger.kernel.org>, "Dom Cobley"
+ <popcornmix@gmail.com>
+To: "Nicolai Buchwitz" <nb@tipi-net.de>
+From: =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>
+X-Mailer: aerc 0.22.0-0-gc2f86b7abde3
+References: <20261123-nb-macb-irq-wake-net-v1-1-ccdd60a9a1bc@tipi-net.de>
+ <DN2R8R6SGV27.DU4IEVFTHBC0@bootlin.com>
+ <36b47d8ba8e6c52ac3ccdeea0f057e06@tipi-net.de>
+In-Reply-To: <36b47d8ba8e6c52ac3ccdeea0f057e06@tipi-net.de>
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Tue, Nov 24, 2026 at 11:13:22AM +0100, Sabrina Dubroca wrote:
-> 2026-11-24, 16:08:56 +0900, Kyuwon Cho wrote:
-> > verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION with any
-> > protocol. esp6_init_state() treats a mode it does not know as
-> > transport, so an ESP state in that mode is created, and the first
-> 
-> nit: I'd say it doesn't really "treat" it as transport, it accepts
-> everything and doesn't adjust header_len.
-> 
-> > packet through it hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
-> > xfrm_inner_mode_input(), which assume that route optimization never
-> > comes with ESP:
-> 
-> Looking at the list of available modes (include/uapi/linux/xfrm.h),
-> what about XFRM_MODE_IN_TRIGGER?
-> 
-> >   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0
-> >   RIP: 0010:xfrm_state_mtu (net/xfrm/xfrm_state.c:3264)
-> >   Call Trace:
-> >    <TASK>
-> >    xfrm_bundle_create (net/xfrm/xfrm_policy.c:3992 net/xfrm/xfrm_policy.c:2785)
-> >    xfrm_resolve_and_create_bundle (net/xfrm/xfrm_policy.c:2885)
-> >    xfrm_lookup_with_ifid (net/xfrm/xfrm_policy.c:3114 net/xfrm/xfrm_policy.c:3245)
-> >    xfrm_lookup_route (net/xfrm/xfrm_policy.c:3344 net/xfrm/xfrm_policy.c:3355)
-> >    ip6_dst_lookup_flow (net/ipv6/ip6_output.c:1299)
-> >    udpv6_sendmsg (net/ipv6/udp.c:1699)
-> > 
-> >   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50
-> >   RIP: 0010:xfrm_input (net/xfrm/xfrm_input.c:449 net/xfrm/xfrm_input.c:705)
-> >   Call Trace:
-> >    <IRQ>
-> >    xfrm6_esp_rcv (net/ipv6/xfrm6_protocol.c:119)
-> >    ip6_protocol_deliver_rcu (net/ipv6/ip6_input.c:479)
-> > 
-> > Accept the mode only for the Mobile IPv6 protocols, as IP-TFS mode is
-> > already limited to ESP.
-> 
-> This is reasonable, but I think we should instead (or maybe "also")
-> add mode filtering to each ->init_state.
+On Tue Nov 24, 2026 at 7:12 AM CET, Nicolai Buchwitz wrote:
+> On 23.11.2026 18:09, Th=C3=A9o Lebrun wrote:
+>> On Mon Nov 23, 2026 at 4:38 PM CET, Nicolai Buchwitz wrote:
+>>> @@ -6589,7 +6590,11 @@ static int __maybe_unused macb_suspend(struct=20
+>>> device *dev)
+>>>  		}
+>>>  		spin_unlock_irqrestore(&bp->lock, flags);
+>>>=20
+>>> -		enable_irq_wake(bp->queues[0].irq);
+>>> +		err =3D enable_irq_wake(bp->queues[0].irq);
+>>> +		if (err)
+>>> +			netdev_warn(netdev, "Unable to enable IRQ %d as a wake source=20
+>>> (error %d)\n",
+>>> +				    bp->queues[0].irq, err);
+>>> +		bp->pm_data.irq_wake_enabled =3D !err;
+>>>  	}
+>>=20
+>> Your error handling is surprising to me: if we get asked to be a wakeup
+>> source and fail doing so, we should refuse and error out. This will in
+>> turn abort the system-wide suspend.
+>>=20
+>> The risk is that we might be the only wakeup source. We'd sleep for a
+>> really long time.
+>
+> Agreed. This also would match the WAKE_ARP check, which already aborts
+> suspend. We could arm the IRQ before touching the hardware and return=20
+> the
+> error, so the flag goes away too?
 
-I suggested to do it this way, but we also can do it on both sides.
+About the irq_wake_enabled flag: yes it can go away.
+
+But for the error handling, I still prefer my suggestion that was later
+in the previous email, of moving enable_irq_wake() into macb_set_wol().
+ - One less error path in our suspend callback.
+ - Signaling early to userspace that WoL isn't doable.
+
+>> What's the behavior on the platform you noticed the issue? I can think
+>> of two reasons that still make it work:
+>>  - you have another wakeup source or
+>
+> Yes, the bootloader / rtc alarm / power button. The GIC is off as it is=
+=20
+> on
+> rp1 too, which is in reset I guess. This makes WoL IMHO impoissible.
+
+It all depends on your platform and kernel! There are so many types of
+suspend and the one you do is dependent on your hardware design and
+your software implementation. Nothing prevents you from doing WoL on
+PCI MACs.
+
+ - For proper suspend-to-RAM (S2R) you want your full SoC to be off,
+   meaning your wakeup source must be signaling directly to the PMIC.
+
+ - Otherwise you are stuck in a compromise of keeping your SoC partially
+   active so that it can route the signal to the PMIC. That can still
+   be labeled as S2R.
+
+ - For suspend-to-idle (s2idle), you could have a setup where both the
+   SoC and RP1 are still active, but PCI link is down. But again this
+   needs to be hardware designed: wakeup signal routed so that the PCI
+   link can go down, and an endpoint that has its power supply separate
+   to the PCI link.
+
+ - Or lastly you can do s2idle with the PCI link still runing. Here not
+   many things are suspended (but it is also the fastest to resume). At
+   this point you are pretty close to cpuidle, but with most
+   peripherals disabled (if drivers implement it).
+
+I kind of have been carried away; I know a guy who gave some talks about
+suspend if you want to hear even more about it.
+
+Part 1 (suspend, runtime PM, their interactions)
+Video:  https://www.youtube.com/watch?v=3D_jb6U40ZCZk
+Slides: https://bootlin.com/pub/conferences/2024/eosseu/lebrun-pm/lebrun-pm=
+.pdf
+
+Part 2 ("how to reason about PM", RPM advanced features, power domains, PM =
+QoS)
+Video:  https://www.youtube.com/watch?v=3DG0Ji-XKRzUg
+Slides: https://bootlin.com/pub/conferences/2025/elce/tleb-pm2.pdf
+
+>>  - some other interrupt (PCI related) is your wakeup path.
+>>=20
+>> In my mind, we should instead propagate the enable_irq_wake() error in
+>> macb_suspend().
+>>=20
+>> To go even further, we could move the enable_irq_wake() into
+>> macb_set_wol() to report early to userspace that WoL isn't supported.
+>
+> There is another downstream patch I plan to upstream, which sets=20
+> MACB_CAPS_NO_WOL
+> for rp1. As this in kinda feature I planned for net-next and just fix=20
+> the bug in net
+
+Can we rely on enable_irq_wake() to fail at set_wol request? That is one
+less capability flag to worry about.
+
+>> Lastly, if this is indeed a PCI related topic, then we need to
+>> special-case the enable_irq_wake() call. From my LLM report, many PCI
+>> MAC drivers only call device_set_wakeup_enable() at the set_wol
+>> request. Then everything is handled at the bus level at suspend: a
+>> pci_enable_wake() call made if the device is on the wakeup path.
+>
+> macb is a platform device behind rp1, which is a mfd. PCIe is down in S3=
+=20
+> anyway?
+
+See above. :-) It probably is on the downstream (#7514) as that is by
+far the simplest option, but it isn't the only one.
+
+Thanks,
+
+--
+Th=C3=A9o Lebrun, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
+
