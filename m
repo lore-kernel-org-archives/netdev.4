@@ -1,85 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.7
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509591;
-	b=REufwqU1Sk2LBddc/0afTbJIT7fj8gMkVdk2ELdFDo2DmBUDOshzZ78uYSHl/gkceePn
-	 LLl4X6ZmYfWQBpPnY8ENnbLuRCguPGgjc/yI7E08pl+kO48ojJhj4KsQE7pcfUdONtULS
-	 Swdlzt1YDP3spVS6wkqsa99IOL5/MnKUEZ+SBAtyWGyhwoflgaBIUthG99eI9MzvCcA2n
-	 MwxoGJgXmkZ7oTPpXEdUhdCqy8gYK29UJpGkxgB4qf08GkbiNbSQkaSK5Wp1Udcl3Eqso
-	 +Y9cCPR19AWjyruQtek2Gy/Jh/s8kHHFynM+Dcqb4UkWck8VLCQQBhSjYOOqBWWkVSA==
+	t=1795509652;
+	b=awbBUYl1WjZSFNc2EFRAa0lKsMmkLLBDW0jR3ZJLWxNR9DPKeHCnGMXv3jAiXnmaFHIq
+	 ZYcaV9NNhaOPgemXY15ujUpnQ8B3HsjdC5UUdVHYdZfpAvQpCV5kfHILYcy4nqAZ250Xr
+	 n+Nixa2XwaSoW2Ief1bTwY2HqTnjR2966kVt+frV4GBzUj6SghjtFyx8Lzta5dfG8mJhm
+	 cqIznfjZZ7BUYcrNSCUr6zujJ4D+k6b1o0ZneSHWfS5B9MWKyvapYlICd4Szw9r5/DVmP
+	 oVYYl1xnFomMVq72/VowCZ/aFFomH6X5r6I7UAV4VNPRvhZ2JL1o7Nd8db2mdEQbEAA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509591;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=ZrV3PsIVthQWvR94PJOjcLJ8y8KziKokZCXJS0PC7Ck=;
-	b=0i8skLEMa19m7d7i7HGv4pzR1aRbp8d3OEMvYGA3A0MbWqqCEq8ELkAgvT+xQ/DWU//k
-	 CIqEcW5jeOdqs+oZvLicv7p24hxChghk7No5wa1ZGPXhADzHsHSQLrienn+qx1xZhfMdl
-	 sFDcA41gvHB/GUsdjnVw84vq4ntnANKhieo3w6A5mruohkJfcbHOu9SHonXhoXwTkw6sy
-	 FOjgBi6nTOcQDHiSZJoJ6rmqbcUbLpQgw2QeiFkQRMYaHVnYp3f5H0BAxObWRX/cEl2Mr
-	 Zq14RnmWC2/+IfQARa28/HnDd6PD4+dM1gEPutLjLa9kQN/CI+eUAYVfQbQNTls6KoA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509652;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=yBAvRyWbL7QUO9pLfGWUQb/VkfBPAgOVLK0jSI/x4B0=;
+	b=TwnnrdYDcPYm8tSaW3o4yoYe4QVBGEcv5lGFC3fkepIYkvhHRD4nBL9we0XJ3EM8TqYs
+	 53A3mcRi4CNn4hO8cBGrty53O57w8fl9pirVz6/o8vtwmEc/tT5mxOTTPhBK3yfEk1JZj
+	 ZV5flpKScWUdLOV0vO4MO09QtLvD+vw9xF4m6M4DuAOBva+re3/7q0gbbIJs4SH61qUAF
+	 pmMAOFco/NWzhQfGIIqsZaNPsNDIBFrC/5Nu2pVJxHdUmW9ZxHhKllr7NWAdAKuavp0HX
+	 BdzZG7u36frHCVL4sHv9vKrncyitiVXUWO3tHyHv19jjeWDVPwRMc/HpBZw//f5GbvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=YdT+6NAZ;
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=126.com;
+	spf=pass smtp.mailfrom=126.com;
+	dkim=pass header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=mlAKOURw;
+	arc=none smtp.remote-ip=220.197.31.7
+Received: from m16.mail.126.com (m16.mail.126.com [220.197.31.7])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6365B606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:39:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6365B606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E480606A334;
+	Tue, 24 Nov 2026 08:40:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E480606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=126.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=126.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=YdT+6NAZ
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-48e20ed3b9dso3755700f8f.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 00:39:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795509590; x=1796114390; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=ZrV3PsIVthQWvR94PJOjcLJ8y8KziKokZCXJS0PC7Ck=;
-        b=YdT+6NAZdu89kXGvVdYfI1paVgPLnZM/MDU4MbGkFqcJMCJDH2xOp8f+0Lrw5l7cq4
-         +Ro+KhuJRmBjFpVNiWxfEWFi3tl9Z6mEZ/0Lhg2+eVCeftjZUjHs8tJ5381Ttg3Vo8iL
-         f32MW6AAwDpO+c3Ib1Iy+sH+d7AfKhqRFGrwDPjjnimXGP/ZPQvq2bktZ1ZSNHrgkoHV
-         0tjox3jufzNg3/ajK+oq/awp091RMYStiLBc0+zfbKRkJR/zkjiSgyu7/nrwmaTVBn/b
-         MdfuY4QUKIYGm/ODGmKO7wAVKql1FpkSiK8dwlX0c4Bd66v3s+Q+2yOxE+qYZWkqAonv
-         8thQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795509590; x=1796114390;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ZrV3PsIVthQWvR94PJOjcLJ8y8KziKokZCXJS0PC7Ck=;
-        b=2e4uNBCSBrDt6izLXwnezOBRMoKbuTcRZMZWNo/2lyorovQaacfvXNVgbZYlgQGlG9
-         tvVv6KSVj1BVCY553SneSBvnnlI6bEH/Gs7LyaHdsQw8oWgwjHppxCNYKaExO5d458Z0
-         6LKlWRpQTmZ+LXN0iPr4Ymccv8eksjw2jMmninyT7jjThiJvvqTF9ek8QN4aup8mqSu/
-         yCqrPN+9H4gbYpm2A78Ykftuw/RdhwAalaIxB5m8XTTkWxGDYj/j3saOeV7tE35ZYU3W
-         bWWTSwTWmuorkBiTEMNMWY6bCVSQ7N2shOEi9+0Vk/mUoS4hypQhhduoUj3t29QIrEz0
-         qmrA==
-X-Gm-Message-State: APuU4Z++CEJTisWt5qFUk6aLU+XsDiCjRo5XT5dRVOwFu7bKKOc/Dx4w
-	crTneypgOB2WOSzUs6ro7pI7tZPqwzU9cKvNGcDKxRvB9o/MUA4T0jd56ae2rqUCWZY=
-X-Gm-Gg: AZFdTZfaQfler5Ko/BqP7Odkr842dKB350QMWSBCyV+EOZHwmDe+iunjFOHQTNOaDHI
-	vnc4eU+H1gGI0jdthYG4TnUhw7jAJvsnxZQU4fc9+c+V3jxf081HLqSout56quMFVZz7SPXtBxg
-	Ci0ly4xJCDH5dDlz2/U6yyIvmp1v99oUnnUiMnAlUuP4TUU3eqRu22qOYAFRQoRQeTvX5/7LShz
-	o7Kk1YW08IGX6AXstWl7rbGsVChptiw7QkLu7CMbYZhxpmbtX/HXyvNYaaM+ahYU0FZC9y/K5Ao
-	scMSn1LtvdvyUfDePhBmwPfz86ibXXzKaKaZr5oI/Bf6UuqTCxcPLYQUFjxXdQuK0EMElmJvq0y
-	n4yTaxaxNieuPyheF/csgUo48Ea4bR3GYuyqLwQVOoUvSiPu4HJUBcAjBhWMLl8KWNZaoS65RaJ
-	eBcyQnKO48ZK5qGXiUyLQXEhFJ3pISkXr9Ny5+Pii/SNuB+avZD8cjz0NdA3N8h1WlCjLbvhA9a
-	Le/Pw4esQStRkySy811zWqSKWjSy9lZ80/f8pGAT3KvW+sPuvYAtc2l8/7lTPLRsbMla1bZOu2W
-	dIxT7qJ2xD05XN0bPuqWkVx4X0EZzai8cBzI/Dy+uQIBFBKI6pehmnncqK4=
-X-Received: by 2002:a5d:64c9:0:b0:4b3:f000:1bdc with SMTP id ffacd0b85a97d-4b3f0001c13mr8456154f8f.45.1795509589524;
-        Tue, 24 Nov 2026 00:39:49 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b9add26sm26878482f8f.44.2026.11.24.00.39.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 00:39:49 -0800 (PST)
-Message-ID: <38460544-04f5-41e0-b267-39c155bb08bb@blackwall.org>
-Date: Tue, 24 Nov 2026 10:39:47 +0200
+	dkim=pass (1024-bit key, unprotected) header.d=126.com header.i=@126.com header.a=rsa-sha256 header.s=s110527 header.b=mlAKOURw
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=126.com;
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=yB
+	AvRyWbL7QUO9pLfGWUQb/VkfBPAgOVLK0jSI/x4B0=; b=mlAKOURwjdkYdHmb4C
+	V5KSIpAysT9gwBPfcYINCZOLAIuVoU1bbiwtB7WLp/cxNYauEIxkJJTCq9UPD5Ca
+	yfmZzXaEpmto3g8T2IxGXznnnhFeAoLS50dkfNccFhb0SdmVZWhJxJZLHsSzj2WD
+	So9rYMF0Ky+6v6if7UspVbO6M=
+Received: from localhost.localdomain (unknown [])
+	by gzsmtp4 (Coremail) with SMTP id PykvCgDnz8ZaTQVrdmcGEA--.40280S2;
+	Tue, 24 Nov 2026 16:39:55 +0800 (CST)
+From: Linkui Xiao <xiaolinkui@126.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	rosenp@gmail.com,
+	jacob.e.keller@intel.com,
+	daniel.machon@microchip.com,
+	chunkeey@gmail.com,
+	kees+treewide@kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Linkui Xiao <xiaolinkui@kylinos.cn>
+Subject: Re: [PATCH net v2 2/2] net: ibm: emac: read the fixed-link status before adjusting the link
+Date: Tue, 24 Nov 2026 16:39:52 +0800
+Message-Id: <20261124083952.2480442-1-xiaolinkui@126.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <e20245d2-f771-4708-89f3-46c9de1d2d81@lunn.ch>
+References: <20261123093201.770552-1-xiaolinkui@126.com> <20261123093201.770552-3-xiaolinkui@126.com> <e20245d2-f771-4708-89f3-46c9de1d2d81@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,143 +73,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: keep skbs with a prefetched socket out of
- gro_cells gro
-Content-Language: en-US, bg
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, ast@kernel.org,
- kafai@fb.com, joe@wand.net.nz, daniel@iogearbox.net, bpf@vger.kernel.org
-References: <20261121160204.4024204-1-razor@blackwall.org>
- <179548941922.3135.9577858774980848901@kernel.org>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <179548941922.3135.9577858774980848901@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:PykvCgDnz8ZaTQVrdmcGEA--.40280S2
+X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
+	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU05rcDUUUU
+X-CM-SenderInfo: p0ld0z5lqn3xa6rslhhfrp/xtbBlRuFXGsFTVthlgAA3Y
 
-On 24/11/2026 05:03, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 1 · Medium: 0 · Low: 0
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [High] The fix is incomplete.
-> 
-> --
-> 
-> net: keep skbs with a prefetched socket out of gro_cells gro
-> 
-> This patch makes gro_cells_receive() send skbs that carry a prefetched
-> socket from bpf_sk_assign() to netif_rx() instead of the GRO cell. The
-> goal is to stop GRO from clearing skb->sk and skb->destructor on merged
-> skbs, which leaks one socket reference per merged skb.
-> 
->> diff --git a/net/core/gro_cells.c b/net/core/gro_cells.c
->> index 31352cac355ce..4e8b9c3cd7da0 100644
->> --- a/net/core/gro_cells.c
->> +++ b/net/core/gro_cells.c
-> 
-> [ ... ]
-> 
->> @@ -26,7 +27,8 @@ int gro_cells_receive(struct gro_cells *gcells, struct sk_buff *skb)
->>   
->>   	skb_unset_transport_header(skb);
->>   
->> -	if (!gcells->cells || skb_cloned(skb) || netif_elide_gro(dev)) {
->> +	if (!gcells->cells || skb_cloned(skb) || netif_elide_gro(dev) ||
->> +	    unlikely(skb_sk_is_prefetched(skb))) {
-> 
-> [Severity: High]
-> Is matching only skb->destructor == sock_pfree enough here? An skb that
-> got its socket from bpf_sk_assign() can still reach gro_cells_receive()
-> with a different destructor that owns one sk_refcnt reference per skb.
-> 
-> One path: bpf_sk_assign() at tc ingress attaches a non-refcounted socket,
-> such as a TCP listener or a UDP socket. It sets sock_pfree and takes no
-> reference. ip_rcv_core() keeps it. Then an NFQUEUE rule matches the outer
-> ipip/gre/esp packet, and __nf_queue() converts it:
-> 
+Hi Andrew,
 
-Oh well the bot seems right even though it's a weird case, I'd suggest to change
-the check and orphan on any skb->sk set, i.e.: || unlikely(skb->sk)
-instead of unlikely(skb_sk_is_prefetched(skb)), that is cache hot too as
-skb->dev is read before and will catch
+Thanks for the review. Both of your mails arrived after v2 went out, so
+2/2 still carried the phy_read_status() that the other one rules out.
 
-Also tried asking an LLM if I'm missing something and the only case it could come up
-that will not be aggregated is:
-"the only correct aggregation that's lost is software ESP over veth or netdevsim in tunnel mode"
-IMO that is ok.
+> As i said in the comments to the previous version, this is wrong.
 
-What do you think?
+2/2 is dropped in v3 and the series is one patch again, keeping the
+phy_disconnect() / of_phy_deregister_fixed_link() teardown from v2 1/2.
+The link status is now read by the phylib state machine rather than by
+the driver.
 
-> net/netfilter/nf_queue.c:__nf_queue() {
->      ...
-> 	if (skb_sk_is_prefetched(skb)) {
-> 		struct sock *sk = skb->sk;
-> 
-> 		if (!sk_is_refcounted(sk)) {
-> 			if (!refcount_inc_not_zero(&sk->sk_refcnt))
-> 				return -ENOTCONN;
-> 
-> 			/* drop refcount on skb_orphan */
-> 			skb->destructor = sock_edemux;
-> 		}
-> 	}
->      ...
-> }
-> 
-> After an NF_ACCEPT reinject, the packet is decapsulated. With !xnet,
-> skb_scrub_packet() does not orphan it, so the skb arrives here with
-> skb->sk set and destructor == sock_edemux. skb_sk_is_prefetched() now
-> returns false, and the skb is queued for GRO.
-> 
-> skb_gro_receive() then clears both fields on each merged skb without
-> calling sock_edemux():
-> 
-> net/core/gro.c:skb_gro_receive() {
->      ...
-> 	/* sk ownership - if any - completely transferred to the aggregated packet */
-> 	skb->destructor = NULL;
-> 	skb->sk = NULL;
->      ...
-> }
-> 
-> The frag_list merge path in the same function does the same thing.
-> gro_list_prepare() still allows the merge because p->sk == skb->sk.
-> 
-> Wouldn't each merged skb then leak the reference that __nf_queue() took?
-> That is the same socket and netns teardown leak described in the commit
-> message.
-> 
-> The tree already has a general rule for this in skb_prepare_for_gro():
-> 
-> include/net/sock.h:skb_prepare_for_gro() {
-> 	if (skb->destructor != sock_wfree) {
-> 		skb_orphan(skb);
-> 		return;
-> 	}
-> 	skb->slow_gro = 1;
-> }
-> 
-> veth_xdp_rcv_skb() calls it before napi_gro_receive(). Could
-> gro_cells_receive() divert or orphan any skb that still has skb->sk set
-> with a destructor other than sock_wfree, rather than checking for
-> sock_pfree only? Checking skb->sk directly would be one way to do it.
-> 
-> Separately, the "sk ownership - if any - completely transferred to the
-> aggregated packet" comments in skb_gro_receive() look wrong for
-> destructors that hold one reference per skb (sock_pfree on refcounted
-> sockets, sock_edemux, sock_efree).
-> 
->>   		res = netif_rx(skb);
->>   		goto unlock;
->>   	}
-> 
+Answered in more detail in my reply to your other mail.
+
+Thanks,
+Linkui
 
