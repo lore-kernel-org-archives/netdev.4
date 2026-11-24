@@ -1,74 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.151
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795483926;
-	b=FHY0mmoCIEPww2443oD532SeOHisDMaT6dKOQSnFSGax+P4SgzBv5WaNGYT+JhoeMkV9
-	 2eiw5/wC/8QcYvK1R6a9SIiPVDB9NdZ7f7+PvUvJMfQ2dA6AKJeyB2BnMsn9KfXl2OPlj
-	 9To+pWBMe2NRKoalNSAGOt3oHr/zMWdgo/OayJTRYMm3DnjEUIqPDMMmPRL2wBNevhFSo
-	 /tTNa2HkbQp8Fswpu+pLvE1eVSNspdvmsoR8pCQ+PO826MtXjqxFovjPG37nYP+ZdRCmJ
-	 lAkqOONqWqH4OTMkIpSZL0DdJBWB1tfdSKYg4yHxwjai9HgueDdG9v4DM7UwNHJ9O7A==
+	t=1795483931;
+	b=qFQEPXzx/JK3XhAlUxh3YBBuJ+ghPfJcocBRUxA6indbk0ghkjNc6Ud1+A3zSJboAFxE
+	 qgufFR2yA6dq5cLgCdBxQEKokcLiDxTEpzUqb9RpNcglIw9gzR1Pox3R2z3ONjKM0oQU2
+	 hi2lNPLKSNPQ0R5YNRdTCegwNQ8B+LUIMmQeCUqjle3nDb8yWz4MBUQzJqJTnyGZxujOS
+	 Ch5X8ptzbtrsaamfzXNVflNjHHtoiVWxV+ZQeh8H80d20dHx6PxJ9+2+3WSyufhHHQL+5
+	 ZT2LIumx7mttY+PC62+ntLy4+zaNpTwxwmPEBWwsY+cIE2PQJJTSzQqU/l/ZE+JynYg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795483926;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=lWYIIShJOlJiI3HAIOOlkWjUg5h7k/nHaxRbuLK/H7c=;
-	b=KK2OZtbdhVhMmJwqe6Jw3mMJc0IyI9wItf/xZNXDsoVRuPeCrTq92hY4kt7f8Mis3ZMU
-	 yojUWtyrvF38N7k0Mw3IUTqDTsNtGRzzucp4YIAAK1wyan1pSx/8VLSd4AzaKPt8zLFtS
-	 8NFWOInPyf6HaXGLi+2s92eyxBarvqokQKqk4TSzfD/R5Z1mZjVnoOqBbpym9/TuTX7s1
-	 s8YcGS2eEznm1nVT4HUzOW0zNRdWl+5hbEfE+CmK2Owyd64Vg597RvrRRHKoMG/cqYQ+i
-	 wcto50eQ31YJpcYwsxeewbVskRMhZyqhxmW/CPQvIKYaAKE9IBtTn9hNmddgYQPi9Ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795483931;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=DXlOmlmxKZLAkagXzw74NiSKxdqa+vwVh+OnB+/BACM=;
+	b=qRbAvKwDt4uDfTROD60l3HHiTS30wuNhh/owdqn4JZBbSetmu0H/FDf6MObpMCbkB6rR
+	 7Or/GrfUER0+IIcI5W/LHWaeQwMLwsOXjX93KWD0CUvUUJWPlIsKWznCN/X6NAmxFGAcZ
+	 ckvZvWCBi5gD+6vVKPdL0t++jx9QWKzy2q+49jJoPPimhXcqy8Rl4KFR1gU0QBQdFeeRK
+	 NcTqoykYr0nWhRGmGcXn+XdVSEm3SIJdrHw4pTdqvZludc4MKSayLx1mIG75f3nTEa9FS
+	 uBKqINyDLBpHQiNeo//nNyxCGtsoMGATvMs8F+XnGW7GHE37J4mgF4SvbLwz8S0OBxw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=T8T9I30W;
-	arc=none smtp.remote-ip=111.22.67.151
-Received: from cmccmta8.chinamobile.com (cmccmta8.chinamobile.com [111.22.67.151])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 418D8606A335;
-	Tue, 24 Nov 2026 01:32:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 418D8606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MCeFt0Ur;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEF75606A691
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:32:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=T8T9I30W
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=T8T9I30WfKIzaLz2jpqG+PmJ8n7dwBhT7PJgU5HB35tzKRJpyJc6a5tUTImZ46p44u8trDFWR7BpE
-	 UPOUsswYb6u9iOouXGI27H6A3af8hnMY4cMIgSxc03820jI7lguGDZdCVL8QOKZIPs6uO3xeOfJ3CT
-	 5nYLyr1y8/QRcIPo=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app06-12006 (RichMail) with SMTP id 2ee66b04e90dfa5-0e478;
-	Tue, 24 Nov 2026 09:31:57 +0800 (CST)
-X-RM-TRANSID:2ee66b04e90dfa5-0e478
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[104.224.130.48])
-	by rmsmtp-syy-appsvr02-12002 (RichMail) with SMTP id 2ee26b04e8edf00-0e05f;
-	Tue, 24 Nov 2026 09:31:57 +0800 (CST)
-X-RM-TRANSID:2ee26b04e8edf00-0e05f
-From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next 1/6] ipip: Enable BIG TCP packets
-Date: Mon, 23 Nov 2026 17:31:19 -0800
-Message-ID: <20261124013124.3693-2-yanhaishuang@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MCeFt0Ur
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D03C11F000C0;
+	Tue, 24 Nov 2026 01:32:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795483931;
+	bh=DXlOmlmxKZLAkagXzw74NiSKxdqa+vwVh+OnB+/BACM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=MCeFt0Uraqh/LGe8aptARqG7zC6TLl4UnR9O6ADmQ5TJ9W0Fx9Brp4hnMhil8qqlt
+	 Y8q3pCsjmmCuYp0yzdUtTFTubutHMshx0UBapnYcUk2iVANgPx5Mtrabv8AvPdIUG2
+	 UodUf8kEPidLGFmc8WBKuTkvtsOGU5EaFa9Gphygu5553WbXPwunsk7ZKKq4Y0zdz8
+	 JT+Loz26sBG7OEl+sjFoypFOgX6GjOHAgzumAAYZUc6t5I2Y5y2R6C0feCEkJIcnBt
+	 RDmfwP9mR7TK62V7Db4zxt6bwsdBaFi9iFZe/nVUYHQ9JJFgEZgl35rx4lkmDHlkp6
+	 D3WNo+GohCwDQ==
+Date: Mon, 23 Nov 2026 17:32:10 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Cc: netdev@vger.kernel.org, magnus.karlsson@intel.com, stfomichev@gmail.com,
+ pabeni@redhat.com, tushar.vyavahare@intel.com, kerneljasonxing@gmail.com,
+ bjorn@kernel.org
+Subject: Re: [PATCH v5 net-next 13/13] selftests: xsk: document generic and
+ hardware endpoint runs
+Message-ID: <20261123173210.1cbcb9dd@kernel.org>
+In-Reply-To: <20261119164636.1071385-14-maciej.fijalkowski@intel.com>
+References: <20261119164636.1071385-1-maciej.fijalkowski@intel.com>
+	<20261119164636.1071385-14-maciej.fijalkowski@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,49 +61,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-on UDP tunnels. ipip can carry BIG TCP packets as well: the outer IPv4
-header gets its total length from iph_set_totlen() on output, the GSO
-and GRO paths already handle IPv4 BIG TCP, and FOU and GUE encapsulation
-set the UDP length with udp_set_len() since commit 47282504ad21 ("udp:
-Support BIG TCP GSO packets where they can occur").
+On Thu, 19 Nov 2026 17:46:36 +0100 Maciej Fijalkowski wrote:
+> +``xsk.py`` starts one ``xskxceiver`` process on the local interface and
+> +one on the remote interface for each case, and owns the TAP results. It
+> +starts the local endpoint first. That one listens on a TCP control port
+> +(``--listen``) on the local address, and the remote endpoint connects to
+> +it over the tested link. The listener reports on ``KSFT_READY_FD`` once it
+> +listens, so ``xsk.py`` starts the remote endpoint without polling for the
+> +port. The listener waits 10 seconds for its peer. 
 
-Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-with ipip. The default gso_max_size and gso_ipv4_max_size stay at 64KB,
-so nothing changes unless they are raised explicitly.
-
-iperf3 TCP over ipip between two netns connected by veth, without
-encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8 vCPUs
-on an Intel Core i7-14700 host:
-
-  gso_max_size/gso_ipv4_max_size 65536:   94.2,  97.4,  97.2 Gbit/s
-  gso_max_size/gso_ipv4_max_size 196608: 133.7, 128.5, 130.5 Gbit/s (+36%)
-
-A later patch in this series extends big_tcp_tunnels.sh to cover ipip
-without encapsulation, and with FOU and GUE.
-
-Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
----
- net/ipv4/ipip.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/net/ipv4/ipip.c b/net/ipv4/ipip.c
-index 15189e1fa06..74af06b1d94 100644
---- a/net/ipv4/ipip.c
-+++ b/net/ipv4/ipip.c
-@@ -416,6 +416,7 @@ static void ipip_tunnel_setup(struct net_device *dev)
- 	dev->addr_len		= 4;
- 	dev->lltx		= true;
- 	netif_keep_dst(dev);
-+	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
- 
- 	dev->features		|= IPIP_FEATURES;
- 	dev->hw_features	|= IPIP_FEATURES;
--- 
-2.43.0
-
-
-
+This README is a pile of auto-generated slop. This is how most two-host
+tests work :/ Please trim the doc down just to what is unusual about the
+test. And preferably load that up into the doc section of the Python
+file (at the top)? We plan / hope / dream of rendering the python
+docstrings as "test information" somewhere on the web.. one day..
