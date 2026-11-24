@@ -1,58 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537395;
-	b=Orlbc4bpkref+CKeIFGdl/L77/4HDOcPo+xYzIxEULjUhEv712JWUVh95+MSA+BQitYU
-	 ssQitFoTRWZXgT+MOneRILMn89b2mLLB2Ms3nZSk+ill6+ekpthPM2sh9RGhM+ZKs5NbJ
-	 iENb9bf52QRzCUzaX7qee3Vc2IDVEB1bnnVresiysv4FSObskfQ8N65F8lwalioobZtSG
-	 gLjonPveUrWTMuvCgrqkiWUz3gdJADfwRm/sAavbNfWoarHlqZC5gh7mKPDKHh4HQBGcc
-	 e++HN1i4yitaBvdvWnkIWeNlBl9GPYXAY3Cct0uR4PLQR8OuxWmWtmsGfQuXF0A5CTQ==
+	t=1795537580;
+	b=GE/cblFcI0CJ4pyMkcgzd+8UqY09EqBysxk+7+ty8ljlJlAYFAC3AjQrtUeOb1x6AzEC
+	 WAQf6uEV3yKjN5qcshotGQ5Wa7TJ7unY7cmvMT2o2EbHeMsYmLJLTR/negLrEOYhNbrM2
+	 QxKH5kp+lNJhIu3HQxZj328g5XnETBZDOVFtFDEMXg7Rt8x4xV8I+o9YbSSQuPh36t1W+
+	 WIP3SFdgchHeogsrh9ED6FbocNOAg8QK8UrzH9jeLFybdyQtypm7D2hAAzrJ1AR3SCMbT
+	 zKKqvolRN5uxGKWe9UB6M9b4xvVajwzcxiW/u5Kv7ywBfPXymV6XCwKhE7R7mqJ8AGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537395;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537580;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
 	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
 	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
 	 X-Last-TLS-Session-Version;
-	bh=/fAyJeLPX6psmcLu3bRtntJrGTBMuzXSqMGDafrQVq4=;
-	b=UDOzMt+E4AfTVWEsVddxCgoa3DK2nKF7Wp0fQsFc6jimbZNCLZH3B9Enh71v61dIRO89
-	 6B4iSy7uE9nVX1/84VphBTYZjypqgpRgtl8KnaWnUsSwIO/D2Skp0wJ2RgGxbvAh2GRbu
-	 dB7pUAvNPeuu9dnjChJMDfwZX59oep5nmvuGXxunhE3PQonbvT5E0z8Y83Z3YxiCNNDOZ
-	 FMYfyp4CoVC0MpzpK2AksQGXfdryk/Vpb5XhTXZPJDjYhcHAb0HU+SS00/8AmWcobWERW
-	 38dvHcq+9ihm+6q0UlkjwRssb4ymQE4jQ8rbTZfZplNcBYSyjMjZLUL1FudkOVpZ+6A==
+	bh=hvvEzw5j2uSFoxzLpQOwPs9N5Vu5l+tcKwqV86A5ZE8=;
+	b=Xza9PLLNhrYrn4r8BiiRatStrLyNCIuC9CKKQ740ge7CWKOLlT8+rrX6kW+Wl75/yIS+
+	 PTjNBVQN/HtYoF974nEqvTNK54wTlzT+ZZoYNvVryPiBOk97l2otF+QZlNiy97oIEUtC7
+	 t81NLviODlB8OvI49fkOB1z5ejhBj5LWXMBvI33iGScIDklhDQGtsym1MAIuzlyRA2qdz
+	 n6ZrYeEA8IOf8VBSF+OTsbK7LcKM/GsrLaJRuUaVA+qzHoGYbwO/6of4ZgnQljLBPlBsc
+	 WnpmfLgIoZjKeaXgJOvyi8jAKNaitIxppvxKInzkFXQggVibaCuSUM1XFPIfPuepTSg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X7Ugrn8W;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Ywr8FHFJ;
 	arc=none smtp.remote-ip=185.246.84.56
 Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C160E606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:23:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C160E606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 837A2606A31E;
+	Tue, 24 Nov 2026 16:26:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 837A2606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=X7Ugrn8W
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=Ywr8FHFJ
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 29E3C1A17A6;
-	Tue, 24 Nov 2026 16:23:12 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id C95671A16F5;
+	Tue, 24 Nov 2026 16:26:17 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E82E7601E1;
-	Tue, 24 Nov 2026 16:23:11 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 29D3111E69A5A;
-	Tue, 24 Nov 2026 17:23:03 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 9DC13601E1;
+	Tue, 24 Nov 2026 16:26:17 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 722DD11E685A3;
+	Tue, 24 Nov 2026 17:26:12 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795537387; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795537576; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=/fAyJeLPX6psmcLu3bRtntJrGTBMuzXSqMGDafrQVq4=;
-	b=X7Ugrn8Woddfokr6FLA20qbzDK2NELl4DQDx+HPPXRfk/l8yWbz11HRU+N8n6PDS8Oepap
-	umVsvpBz6qia0hLPmeEwLkIHawgA3+FXb45ikrpmTAVQIO+eQH+XX7GMs6fUl5zjSRs7jS
-	YMk+zRR1fZcF4HS9/IytPMFK8vyDkhWqVsmSASsAiLwOP+SNiPHrCkubDGFo1LDafaoXde
-	8qkGXCsYZurAGUNPPLmlS1iGSh97K/jzDT7Q/JRriSfRhneLQDsXijDLeYXP9jPxXUGw3q
-	BtlZOsLo9J3IrYAF5pzd2gas1FtJFxJ5nerJMiccqOrGEU60u9wIYfLvoLcZUA==
-Message-ID: <1498b3ff-c43a-4087-a108-016fda1a5b03@bootlin.com>
-Date: Tue, 24 Nov 2026 17:23:03 +0100
+	bh=hvvEzw5j2uSFoxzLpQOwPs9N5Vu5l+tcKwqV86A5ZE8=;
+	b=Ywr8FHFJT7jYFD4Ih0SyslTF2nfcg8jy6ZYSjIwscLBG/OcrDE53A73Ww78ik/zR4g31Jy
+	KpxW8lf1vQ3kvyDupNJJ4GH66oRHpUlumN27vPW1YOR6DmzL88tRcEJqk6m+xK3ZdqmAfu
+	m8NEYAKYI3vDgCD7ok+Z/nn78FPLqH9Co8t5twc08Y74PvKaaOBVzvVjwaIvw0SqFbDOKS
+	3h/dSiajXQtgoYBXpoSWpOgZWMs7WC0KBjo1sRDX8Vn9NTO+fDYeFFRKj1dAg3C/5nlwRL
+	TkwfhokXTsNv7bsQVURn71oUbDjz0o87Wv4CdxVheo76ZHkl0D46H7xQ0V3AHw==
+Message-ID: <39d50105-c550-4925-bf63-6f0fcbb897c3@bootlin.com>
+Date: Tue, 24 Nov 2026 17:26:09 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,61 +63,78 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] net: stmmac: fix uninitialized axi_blen array
-To: Jisheng Zhang <jszhang@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Russell King <rmk+kernel@armlinux.org.uk>
-Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20261124150144.7505-1-jszhang@kernel.org>
+Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
+ from the remote side
+To: Matthieu Baerts <matttbe@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
+ Willem de Bruijn <willemb@google.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
+ Shuah Khan <skhan@linuxfoundation.org>,
+ Bobby Eshleman <bobbyeshleman@meta.com>, Stanislav Fomichev
+ <sdf@fomichev.me>, Breno Leitao <leitao@debian.org>,
+ thomas.petazzoni@bootlin.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
+ <4148e81b-ec5b-4374-b74f-4f5cba175c7b@kernel.org>
+ <fb92bc0b-ab3f-49ac-b4a5-5368c87b3a7e@bootlin.com>
+ <bd804c6d-0294-40b9-a6eb-2b1ab2ad357e@kernel.org>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <20261124150144.7505-1-jszhang@kernel.org>
+In-Reply-To: <bd804c6d-0294-40b9-a6eb-2b1ab2ad357e@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
 
 
 
-On 11/24/26 16:01, Jisheng Zhang wrote:
-> If platform doesn't provide "snps,blen" property, the axi_blen[] array
-> will contain random value from stack, then the array will be converted
-> to mask which will be written to DMA_AXI_BUS_MODE reg later. Fix it by
-> initializing the array.
+On 11/24/26 17:15, Matthieu Baerts wrote:
+> On 24/11/2026 15:28, Maxime Chevallier wrote:
+>> On 11/24/26 12:29, Matthieu Baerts wrote:
+>>> Hi Maxime,
+>>>
+>>> On 23/11/2026 21:14, Maxime Chevallier (Netdev Foundation) wrote:
+>>>> The logic used to detect if the kselftest remote we're interacting with
+>>>> is directly connected to us uses link renegotiation to flap the link,
+>>>> that way we know if there's a switch between the remote and the DUT.
+>>>>
+>>>> However the current logic is racy. It triggers a link renegotiation,
+>>>> wait for the link to come back up locally, and looks on the remote if
+>>>> the link flap counter changed.
+>>>>
+>>>> It's possible that this entire cycle happens locally before the peer
+>>>> reports the link flap, in which case it reports that we're not directly
+>>>> connected to the peer when we actually are.
+>>>>
+>>>> Solve that by reversing the logic : Trigger a link renegotiation on the
+>>>> peer, and check if we see the link flap locally. The current
+>>>> wait_for_aneg() already waits for a full "up - down - up" cycle, so
+>>>> it doens't really matter which side of the link flaps first here.
+>>>>
+>>>> This was found in the stmmac CI setup, between an Intel I350-T4 card and
+>>>> an iMX8mp + KSZ9131 board. The Pause test was failing seemingly at
+>>>> random, due to the link flap occuring either on the host or the remote
+>>>> first.
+>>>
+>>> Thank you for the fix, but it looks like it is introducing new issues on
+>>> BCM57508:
+>>>
+>>>
+>>> https://netdev.bots.linux.dev/branch_deltas/net-next-hw-2026-11-24--08-00.html
+>>
+>> Arg seems that on this setup, the remote (I don't know which one it is) doesn't
+>> support 'ethtool -r', damn :(
 > 
-> Fixes: efd3c8cc52bb ("net: stmmac: remove axi_blen array")
-> Signed-off-by: Jisheng Zhang <jszhang@kernel.org>
+> These hosts are running Fedora 44. They have ethtool 7.0. I can upgrade
+> to the latest from F44 repos (7.2) if it can help.
 
-Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Looks like it's rather the HW or driver that doesn't support this :(
 
-I let you answer the bot on how that was found, etc. (it's better
-to put that in the commit log anyway)
+But that's OK, I think we should ask the least possible features from the
+remotes, the rest of the selftest should already handle the missing capabilities
+just fine,
 
-Thanks,
+Thanks :)
 
 Maxime
-
-> ---
-> since v1:
->  - fix subject title
-> 
->  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> index b3e06aa58fe5..29ead405f449 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-> @@ -96,7 +96,7 @@ static struct stmmac_axi *stmmac_axi_setup(struct platform_device *pdev)
->  {
->  	struct device_node *np;
->  	struct stmmac_axi *axi;
-> -	u32 axi_blen[AXI_BLEN];
-> +	u32 axi_blen[AXI_BLEN] = {};
->  
->  	np = of_parse_phandle(pdev->dev.of_node, "snps,axi-config", 0);
->  	if (!np)
 
