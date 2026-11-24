@@ -1,101 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529549;
-	b=29Ghb48dqs6xg5wZwkXjpu8wug+trjFK0k2F54qIDvSYyr6ammBvgO2FYF4AS9qZjmdR
-	 zIPT0hXGLHTyvEOrrasFXEd05HCl2q9g046/kbGIuzb/xkv3CmH4WX7svsswHBtZOjq3a
-	 zV65ofn1T/4lI3eiqSfTacnGBDYzIpZRYXslsl7wf+4ZWZhnZfqIVmQHn6tEY8EO1TQi3
-	 AoDdLSaNfU0aDS1mmjLZtNaw+OwkO3HUOsmPUpuaK2oLaQqoqgxvkUnue+h8kEvt91K63
-	 EFsJOUmJoYB/3ZH0xNZma5lq2NQciTeeHq8xKa5myq1Gsydg7GfaF8eRNr7U8+baDmg==
+	t=1795529661;
+	b=B3Brwjdda+ZwN8G+RD4mql3Lje3S0wPhC0ImOZo9chl+DrkRw6lvNxxkFvXh4ssVhMgv
+	 1SGGQp8JjfkAVUdcL5DE5UChC6tZohWhMruqSJsQ40nGZMW/6gr2KEkzLAjitjf9PhYbY
+	 KvCCDy2i58tq+GGA+4VtSP9uK48rVnWXPDumEBFeynFhC/nS8p1NsjhitQ52QX9uF4F4t
+	 ah7IeZM4ZD3mqM8ukOFYITm+9P5L4kMVFJnQlv6vtOuuhRG5AAOeCfvJdtOdJ/zniofui
+	 9Um3GrQ/2dMq5WFg9m9umOZTJUg64Arb7fo7zV2Rjo37DD6ExJ0OdWJMAr9j255/PtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529549;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
-	b=hvurp9SRrSFDnW2h373c1UjeqWaB4sGY4WiWG/nkqBWmPWFlofVOlyyKuYAZQkSsKHxW
-	 Ow0RPsUqi4Oyv5iENpWELxtRcVRZjkVSqPkGCHK3qj3A+Dujf0ocutzoK//QDyTH0kEdu
-	 WqHxSvy3Mr/pfb4LQNXhNyXJ/6JdE1KNSEC3yYzWs1VbFvgHXRfrd5vYcVuDArx5A6Uit
-	 wTHjidAkHhclMFClzqppHnXz7WgWZKIEMRZL2dDD2LeKSrK27rVfOxuVhyOkDC5nR+qFB
-	 ninsGVexccd06fUgsUUdOsOcw2o82iDJIVAbZrp6PLcNFh5IOpK24429vHCLQ2U3XQg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529661;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LvJWJlf5iq1bxTZ/Pi7wnqUYZw6hL5app7P3pS/MwcY=;
+	b=dHsm5ibZMom+RU6fwMEb1PxZnRcCM2GVHu5oQ5FQkWDtuE0CXjgG7F3CPid6u0EMqImm
+	 VgmKZjAdayZHYgweQrrSuxeX2zNGM8oEUkjbbNZu2nbmXjETB2++SOf5OQN6XBcmpEqAk
+	 fs22KEItQCE/modhJ30xBNRIrPb4zyyEyqW7tXSp0l1kstkqjm/tEKtHe0vy232NGxMbO
+	 Pi/vGqRGRJvwITN+hdhWBid5Wz5zYEj+XQJwThScgH21vVUfBJLg2ZTvJ8MkMM7ej3PCR
+	 XFJszthixJtyPNNkWyNF5igUIj9MHZZrrJbjSIez7X/TFEEF785+9nj4FABDMb5Fx2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=fkdJxOgB;
-	arc=none smtp.remote-ip=209.85.208.50
-Received: from mail-ed1-f50.google.com (mail-ed1-f50.google.com [209.85.208.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aEfj7T8Q;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99F7A606A339
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:12:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 99F7A606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0786606A321;
+	Tue, 24 Nov 2026 14:14:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=fkdJxOgB
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-6b87a92c17eso6391365a12.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:12:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795529548; x=1796134348; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
-        b=fkdJxOgBoaXmx4Uq9NG2pEj1ki5zp2qhfGRNWrw2H1/hqJNoO42DJuCwjp9+3dUvd+
-         jtK/UW2Yz+IZw9v8/dbVAQ8Ezm+jDWLtIPTewtA9CItm7vc1j71Ct0XTM47g6pAS/STj
-         LPRz222/rN7lrLxtqb/sIKRnW5rHmyxgIj3bE=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795529548; x=1796134348;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=I8cSuoiKKCPOnavUZXK09ITL4vjs3EgWF257jgW01Gs=;
-        b=jFX1G7n6xvnI2+xtLqq2iRb0RXNzEghstVj1mwLNaO2At0GVuT0m0oNinWH0TQ7wI7
-         vIdW6crm9RDQSjzEKdLVLw4zYDCRGtLCMbnzMqbdqvyi9IjS9ayXq1nrgH9nNVq20/0A
-         qooPPTSdxs0ugOflEJgQHJC6C9935TaA5YZdJz9zGniQx9ACb/1yj4f2Ti11L4fV5gYk
-         HkQsKrVchyZ31zjr3EzBf9mCajhQeUtfBBFUF4bkrncCJ2qUxgIOnMiPG2QWlPd87E9M
-         fUNj1f2IYkyNxk/eeWaYo0MU4kuXiyBPRD8I9HhuN3h4513nWRYnrniO3H7sxvK71+CW
-         jMNg==
-X-Gm-Message-State: APuU4Z+cA3glzh4C8/qIVhrRqsuQB5BBXY0ZfCJ+lt+ntnSbdw0O8sZl
-	dro2Vg44gLUYd5sBFpF3aOAHEtn1uUDu8l8zxTdvX7rsMuJTAdSEwDr0kPx76hbY/e9KSmFgRXF
-	PeBc=
-X-Gm-Gg: AZFdTZf/MppH3XfuuI8jwobsP+a2/6uuc0tiSsuLLaELRRSIht6tr8H9/86HKMhROfO
-	lSI1LEq2DwcPpercZ/6+C3nWYX8yit0yKP3ivVEgK8t+8Jz0EdzNVoWjFDrdWgIXUGI1C+WT7Db
-	U82AXd6jyWDIlTzo22OwHkWLiP3g+RpTzAfQneOvemLxmnoxgYO7748b/IJyoQC2sqrynN3fPv6
-	MDzJg+i75pRXQoKuY2zcFLaYbPD/Bz3xTwF+t401qP8DASViHqq1b+OH2unNpKHYZbl2TsbX65W
-	cM5Smoh2x2FK3xH4btPEfYrn7Yh/UvHg1o//yh1bJlWfB+tkj2VCfXMhNexTZJLl64/bNkCHxwk
-	9D9MmdsIyu7r3GuOMotPliVtocDXPbUJuYvdROaydzIvFJXHYKJaIGH/t7YVPy/1eHaj6lZCphZ
-	cfjb1dd8kiT0mJtwmBsvWlClhIqGKZhVJc74UkeOXAu4iAZ4RiqDK0OTA5pk6zvqqbXbamkOlN2
-	cwPQJrrHb5fl268oPAlWPnokrqKJvFtbtshEB3PCYdC2sjwgGc0EWjmxH0qi1IoycCvDvQQk20e
-	8qhon1PIW16+ow7r91Q43dPzYQN+F9U7g7FkpKGCUw5XIMwTOgrJE+EirVCeieCnGvE/jWX99a0
-	=
-X-Received: by 2002:a05:6402:210a:b0:6ba:a7d7:4e21 with SMTP id 4fb4d7f45d1cf-6baa7d75253mr5685496a12.35.1795529547924;
-        Tue, 24 Nov 2026 06:12:27 -0800 (PST)
-Received: from mbili.waya ([64.203.83.2])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba7b9570e9sm5032739a12.36.2026.11.24.06.12.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:12:27 -0800 (PST)
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-To: netdev@vger.kernel.org
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Victor Nogueira <victor@mojatatu.com>,
-	linux-kselftest@vger.kernel.org,
-	Po Liu <Po.Liu@nxp.com>
-Subject: [PATCH net v4 3/3] selftests: tc-testing: act_gate: cover the new cycle time and interval limits
-Date: Tue, 24 Nov 2026 09:12:10 -0500
-Message-Id: <ACT-WEXM.v4.r0.20261124074514-3@mojatatu.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
-References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aEfj7T8Q
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB7501F000D2;
+	Tue, 24 Nov 2026 14:14:19 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795529660;
+	bh=LvJWJlf5iq1bxTZ/Pi7wnqUYZw6hL5app7P3pS/MwcY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=aEfj7T8Q1koa+ivp6riQSUXgnghMoIf8OrXc18aP+SnH9YPunS31TqKlIca2tcrQO
+	 ZN+KFI4NyZTpdVZdPJJaqfrC6WW8eObQevwGWRcdxVAxHrjNiME5wa3fSQyRyvwEIq
+	 6VFWSmLDQh8jJisv0KKaA6R6gWhCRf5gKjegRoAZiep1PQkZ1ah4iofTKlbPys8WdI
+	 Gq2byWrBdw/k0lx2jFEp73wx9YJ8RSdR0k/vHjGgZO1tKTseYqm6nyIQ3y+sseAwjk
+	 dG980EP41GAHloUklPP53zRbiW8iTic8zlSFtyewARrALVxCEcH8VUJ7+FCZmfKiYr
+	 Q3WTnEqckC9OQ==
+Subject: Re: [PATCH net v2 1/2] net/smc: bound the failover cursor catch-up by
+ what is outstanding
+From: netdev-bot+sashiko@kernel.org
+To: piyus@iiitd.ac.in
+Cc: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com,
+ sidraya@linux.ibm.com, mjambigi@linux.ibm.com, netdev@vger.kernel.org,
+ tonylu@linux.alibaba.com, guwen@linux.alibaba.com, linux-rdma@vger.kernel.org,
+ linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kapil@presceralabs.ai, stable@vger.kernel.org, kuba@kernel.org
+Date: Tue, 24 Nov 2026 14:14:19 +0000
+Message-ID: <179552965941.3135.8878591105354373466@kernel.org>
+In-Reply-To: <20261123135327.3953509-1-piyus@iiitd.ac.in>
+References: <20261123135327.3953509-1-piyus@iiitd.ac.in>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,234 +65,208 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The tests:
-The gate action now bounds the base time and the cycle time at KTIME_MAX
-and refuses a schedule entry shorter than 10 us.  Cover the four
-refusals, both ends of the cycle time range and both sides of the
-interval boundary.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-The refusals:
-A base time or a cycle time of 2^63 is above KTIME_MAX, so it is refused
-as out of range; a base time of -1 reaches the kernel as the largest u64
-and is refused the same way.  An entry interval of 9999 ns is below the
-floor and is refused as an invalid argument.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-The accepted values:
-An entry interval of exactly 10000 ns installs and reads back with the
-interval it was given, and so do a base time and a cycle time of exactly
-KTIME_MAX.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Context note:
-tc does not pass the action path's extended acknowledgment back to the
-caller, so the negative cases re-run the failing command and match the
-kernel's own error text instead of relying on the exit code alone.
+- [High] The new bound in smc_switch_cursor() reads sndbuf_space, then
+  advances tx_curs_fin and sndbuf_space.
+- [Low] In smc_switch_cursor() (net/smc/smc_core.c:1080-1081), the new
+  bound is stored in a variable named `sent`, and the comment calls it…
+- [Low] When the new clamp in smc_switch_cursor() lowers diff below the
+  cons - fin gap the peer reported, local_tx_ctrl.prod and…
 
-Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
----
- .../tc-testing/tc-tests/actions/gate.json     | 189 ++++++++++++++++++
- 1 file changed, 189 insertions(+)
+--
 
-diff --git a/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json b/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
-index db645c22ad7b..1c910e07c41c 100644
---- a/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
-+++ b/tools/testing/selftests/tc-testing/tc-tests/actions/gate.json
-@@ -347,5 +347,194 @@
-         "teardown": [
-             "$TC action flush action gate"
-         ]
-+    },
-+    {
-+        "id": "c873",
-+        "name": "Add gate action with the minimum schedule entry interval",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+           "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate sched-entry close 10000ns index 100",
-+        "expExitCode": "0",
-+        "verifyCmd": "$TC action get action gate index 100",
-+        "matchPattern": "interval 10us",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "2c35",
-+        "name": "Reject gate action with a schedule entry below the minimum interval",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+           "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate sched-entry close 9999ns index 100",
-+        "expExitCode": "255",
-+        "verifyCmd": "$TC action add action gate sched-entry close 9999ns index 100 2>&1",
-+        "matchPattern": "RTNETLINK answers: Invalid argument",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "92b8",
-+        "name": "Reject gate action with a base time above S64_MAX",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+           "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate base-time 9223372036854775808 sched-entry close 10000ns index 200",
-+        "expExitCode": "255",
-+        "verifyCmd": "$TC action add action gate base-time 9223372036854775808 sched-entry close 10000ns index 200 2>&1",
-+        "matchPattern": "RTNETLINK answers: Numerical result out of range",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "8265",
-+        "name": "Reject gate action with a cycle time above S64_MAX",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+           "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate cycle-time 9223372036854775808 sched-entry close 10000ns index 300",
-+        "expExitCode": "255",
-+        "verifyCmd": "$TC action add action gate cycle-time 9223372036854775808 sched-entry close 10000ns index 300 2>&1",
-+        "matchPattern": "RTNETLINK answers: Numerical result out of range",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "7d1f",
-+        "name": "Add gate action with the maximum base time",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+            "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate base-time 9223372036854775807 sched-entry close 10000ns index 201",
-+        "expExitCode": "0",
-+        "verifyCmd": "$TC action get action gate index 201",
-+        "matchPattern": "index 201",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "9f10",
-+        "name": "Add gate action with the maximum cycle time",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+            "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate cycle-time 9223372036854775807 sched-entry close 10000ns index 301",
-+        "expExitCode": "0",
-+        "verifyCmd": "$TC action get action gate index 301",
-+        "matchPattern": "index 301",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-+    },
-+    {
-+        "id": "5c47",
-+        "name": "Reject gate action with a negative base time",
-+        "category": [
-+            "actions",
-+            "gate"
-+        ],
-+        "plugins": {
-+            "requires": "nsPlugin"
-+        },
-+        "setup": [
-+            [
-+                "$TC actions flush action gate",
-+                0,
-+                1,
-+                255
-+            ]
-+        ],
-+        "cmdUnderTest": "$TC action add action gate base-time -1 sched-entry close 10000ns index 401",
-+        "expExitCode": "255",
-+        "verifyCmd": "$TC action add action gate base-time -1 sched-entry close 10000ns index 401 2>&1",
-+        "matchPattern": "RTNETLINK answers: Numerical result out of range",
-+        "matchCount": "1",
-+        "teardown": [
-+            "$TC actions flush action gate"
-+        ]
-     }
- ]
+net/smc: bound the failover cursor catch-up by what is outstanding
+
+This commit clamps the diff that smc_switch_cursor() uses to advance
+tx_curs_sent and tx_curs_fin and to credit sndbuf_space during SMC-R link
+failover. The bound is sndbuf_desc->len - sndbuf_space. The goal is to stop
+a forged peer consumer cursor from pushing sndbuf_space past the send
+buffer size, which leads to an out-of-bounds write in smc_tx_sendmsg().
+
+Link: https://lore.kernel.org/all/20261122053223.2497832-2-piyus@iiitd.ac.in/
+
+> diff --git a/net/smc/smc_core.c b/net/smc/smc_core.c
+> index a3164201c1420..436a702f3d8de 100644
+> --- a/net/smc/smc_core.c
+> +++ b/net/smc/smc_core.c
+
+[ ... ]
+
+> @@ -1069,6 +1070,16 @@ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
+>  		 * fin above, so now prod is smaller than cons. Fix that.
+>  		 */
+>  		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
+> +		/* The peer's consumer cursor is taken as it arrives, so this
+> +		 * difference is a value the peer chose.  An honest peer cannot
+> +		 * have consumed more than this side has outstanding, so bound
+> +		 * the catch-up by that: sndbuf_space then keeps the invariant
+> +		 * the tx path relies on, and the cursors advanced below stay
+> +		 * within the send buffer.
+> +		 */
+> +		sent = conn->sndbuf_desc->len - atomic_read(&conn->sndbuf_space);
+> +		diff = min_t(int, diff, max_t(int, sent, 0));
+> +
+
+[Severity: High]
+
+Does this bound keep sndbuf_space <= sndbuf_desc->len on the DELETE_LINK
+path, given that the old link's CDC completions can still run?
+
+smc_switch_conns() calls smc_switch_cursor() with only conn->send_lock
+held:
+
+	spin_lock_bh(&conn->send_lock);
+	smc_switch_link_and_count(conn, to_lnk);
+	rc = smc_switch_cursor(smc, pend, wr_buf);
+	spin_unlock_bh(&conn->send_lock);
+
+CDC send completions on the old link go through smc_cdc_tx_handler(),
+which holds only bh_lock_sock():
+
+	bh_lock_sock(&smc->sk);
+	if (!wc_status && sndbuf_desc) {
+		diff = smc_curs_diff(sndbuf_desc->len,
+				     &cdcpend->conn->tx_curs_fin,
+				     &cdcpend->cursor);
+		...
+		atomic_add(diff, &cdcpend->conn->sndbuf_space);
+		...
+		smc_curs_copy(&conn->tx_curs_fin, &cdcpend->cursor, conn);
+
+In smc_llc_process_cli_delete_link(), the old QP is still live when the
+connections are switched. It is moved to error and drained only later, in
+smcr_link_clear():
+
+	if (smc_link_downing(&lnk_del->state))
+		smc_switch_conns(lgr, lnk_del, false);
+	smcr_link_clear(lnk_del, true);
+
+So completions for CDCs already posted on the old QP can run during or
+after smc_switch_cursor().
+
+In the concurrent case, smc_switch_cursor() snapshots sent as
+prep - fin_old. The old-link handler then credits C - fin_old and sets
+tx_curs_fin to C. smc_switch_cursor() then credits up to prep - fin_old
+more and adds diff to the tx_curs_fin that has already moved. The total
+credit is more than prep - fin_old.
+
+In the late completion case, a peer forges cons so that the clamp moves
+tx_curs_fin all the way to prep. A completion for an older cursor C then
+arrives on the old QP. If C.wrap != prep.wrap, smc_curs_diff() looks only
+at the wraps:
+
+	if (old->wrap != new->wrap)
+		return max_t(int, 0,
+			     ((size - old->count) + new->count));
+
+It returns (len - prep.count) + C.count, which is larger than len, so
+sndbuf_space moves toward 2 * len. If the wraps are equal, the credit is 0
+but tx_curs_fin moves back to C. The next completion on the new link then
+credits prep - C again.
+
+Either way sndbuf_space ends up above sndbuf_desc->len. The second chunk
+in smc_tx_sendmsg() then writes past the send buffer:
+
+	rc = memcpy_from_msg(sndbuf_base + chunk_off,
+			     msg, chunk_len);
+
+The commit message says:
+
+  For a lying one sndbuf_space keeps the invariant that
+  smc_tx_sendmsg(), smc_tx_prepared_sends() and SIOCOUTQ in smc_ioctl()
+  all depend on
+
+Does that still hold on this path? The follow-up patch "net/smc: bound the
+DMB-nocopy send-buffer credit as well" only changes the SMC-D DMB-nocopy
+credit in smc_cdc_msg_recv_action(), so it doesn't cover this case.
+
+Do the old link's TX completions also need to be quiesced or serialized
+with the switch? Two options: drain them before smc_switch_cursor(), or
+take the same lock and ignore completions whose cursor is behind
+tx_curs_fin.
+
+[Severity: Low]
+
+Is sent the right name for this value? Does "what this side has
+outstanding" in the comment describe it accurately?
+
+sndbuf_desc->len - sndbuf_space is the amount prepared but not yet
+confirmed (tx_curs_prep - tx_curs_fin). smc_tx_sendmsg() lowers
+sndbuf_space when data is copied in, not when it is RDMA-written:
+
+	atomic_sub(copylen, &conn->sndbuf_space);
+
+The real pre-switch send position is already lost at this point, because
+smc_switch_cursor() starts with:
+
+	smc_curs_copy(&conn->tx_curs_sent, &conn->tx_curs_fin, conn);
+
+So a lying peer can still move tx_curs_sent and tx_curs_fin up to
+tx_curs_prep. Bytes that sendmsg() accepted but never wrote are then
+counted as confirmed and never sent. The clamp also hides the protocol
+violation: out_of_sync is not set and the connection is not aborted.
+
+Without a race, sndbuf_space and the cursors stay in range. But the
+variable name, the comment, and the commit message's "bound the catch-up
+by what is outstanding" all describe a tighter bound than the code
+applies. Could they be adjusted to match?
+
+>  		smc_curs_add(conn->sndbuf_desc->len,
+>  			     &conn->tx_curs_sent, diff);
+>  		smc_curs_add(conn->sndbuf_desc->len,
+
+[Severity: Low]
+
+When the clamp makes diff smaller than the cons - fin gap the peer
+reported, where does local_tx_ctrl.prod end up?
+
+prod was set to fin earlier, and this branch runs only when cons > fin.
+Further down, prod and local_tx_ctrl_fin move forward only by the clamped
+diff:
+
+	smc_curs_add(conn->peer_rmbe_size,
+		     &conn->local_tx_ctrl.prod, diff);
+	smc_curs_add(conn->peer_rmbe_size,
+		     &conn->local_tx_ctrl_fin, diff);
+
+That leaves prod behind local_rx_ctrl.cons, which is the state the
+existing "now prod is smaller than cons. Fix that." comment says this
+block repairs.
+
+The next statement recomputes peer_rmbe_space from that inverted pair:
+
+	atomic_set(&smc->conn.peer_rmbe_space, smc_write_space(conn));
+
+and smc_write_space() computes:
+
+	space = buffer_len - smc_curs_diff(buffer_len, &cons, &prod);
+
+If the wraps are equal, smc_curs_diff() returns 0 and peer_rmbe_space
+becomes peer_rmbe_size. If cons.wrap == prod.wrap + 1, it returns
+(size - cons.count) + prod.count. For example, size=100, prod=(0,90) and
+cons=(1,10) give space = -80.
+
+With a negative peer_rmbe_space, smc_tx_rdma_writes() returns early on
+every call:
+
+	if (rmbespace <= 0) {
+
+Later CDCs in smc_cdc_msg_recv_action() only add diff_cons on top of that
+wrong base, so the value never recovers and the connection stops sending.
+
+Should the clamp firing be treated as a protocol violation that aborts the
+connection, rather than continuing with inconsistent flow-control state?
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123135327.3953509-1-piyus%40iiitd.ac.in
