@@ -1,63 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795521770;
-	b=AbAwkqm075XM45LHCLsnnQcffPDdmBhQVJrb/1MSU1zY9TVagaea9xkQBCja0klxZbE8
-	 3Et+6edF5jetXsF/qf1rQEql0WxyMuwFF82V/M9GDcvWLhFMF8UqqSWWQUortkqSE31Mk
-	 iXEdfI4zCMQqdOP5ImwbhG69LUiEWGz1sBqM+fMaoiS1bCzhl+crNr7+pVT0sdGuQ3FeE
-	 EOyhkpnXpb+Xy4TevVK0m6idSE9+vXDxuQIkACxlMr/DG33weh01bOdh6cznrhGv8oDGn
-	 I5kUx8LjjG3AG+PSr82qdb0H/oBl/vTOcDU8M1QWBthWe5KOWfHOf6NqE6CYIIPAXaA==
+	t=1795521783;
+	b=DIM0rPcZurVjzXdcOUvxnYoB+0vLfTgfI41DaRdD1CNQ1XrVD2FPBBkLeqZ0+YFbu5q3
+	 nEgEON4AVjHH0Xygsy+i5IARpbVwc91mRk3FZ/u7wewXitUAVW1G3ObOj3jgrHsojddEO
+	 kp7UVETX+Y9gvHvHkJrwEIz5Nsb2P3RfTeUc4i250YNMaKAXu+/Wk0NtyxWF8ITScPBsT
+	 j9ipWkvUU8ksnJWL5hvlVVgAF7ZpMSt2GLcqrH65pQ5sUjKaI6h1bIebJ+tNboOE+dhvG
+	 G+AC6HrR6sFBeNHLMCJ6LDpBHsx23tEhH910ZUyac2kacW4vrU5y/lz2Ct5ANo64lGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795521770;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=J/hgjS5wptIfTKZPK4+3uy6djn7gSRXd68ZCyUQWT1s=;
-	b=bs9XFgvdI3Gdvl3pMJCmOsHzODNCAhWRm5maTZblgOoywAqGK+MK3fK0WguuKlpac3q3
-	 Q/POUiZpnhbAzLmUhq+kImkmc/zcY08mWiqkNTvV3U7vRtpRWSW3JQY2hs1ryFHfXJYzu
-	 Qgnq+cJJ+YwUo4dQdkqAtliC0ba/zpVoDJQQP10L8NDeyifycBkPUS4kwxoWy9HReVc1L
-	 X68s8DXtGEmr7fE43IqpOR2Sh0CU8Zx24Lgd6cgN6OsoXjdQvdNL+coq7f/7i09ADvfB7
-	 z4vKhfT1ruB0ofVntjFngSnlvU0ZJGa6d6bYlK4cYERMTAIPzyvOnFlefZ19tIToJ2Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795521783;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:From:To:CC:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=g2qkyx16iUL/TYtI7M4gJvUrCZfQL5EGjEwdbL91fHw=;
+	b=X/+Gz1BL7X7Zeb3k5Jg/IJHfde2a5YfmurTiY0Go/uPDy8YVdKydTXy24qnw/t2qmiGX
+	 DOUQX2+lcWHdEHo2PvLvl532RM2hDBzP1DAtrx9/Qj4Ld4aZLGBRS3D2FEj1XLPwegRDs
+	 le1EvCcUURjZZDzK29nfJDCm9uTPMAvO2p2M66VIDPRjq7nhpOUEjYf1xq/sAA8pdnfes
+	 XMqLpZ8o7E3vFOgQ5nhj9+rfDBRWyJT/uyahZ1D1X4UxG2qev1GV0nxlpKwgamOzYG08w
+	 W21rLTEJINOIeKFM0Tse6Ea3MpIgH0TOOSLyYfBKhRwBLuvlDOrwLKQNtRWX/5E/dZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ioGCE0az;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=RIP7Df3M;
+	arc=none smtp.remote-ip=113.46.200.221
+Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5BA24606A321;
-	Tue, 24 Nov 2026 12:02:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2506F606A32E;
+	Tue, 24 Nov 2026 12:03:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2506F606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ioGCE0az
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 00F871F000C4;
-	Tue, 24 Nov 2026 12:02:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795521770;
-	bh=J/hgjS5wptIfTKZPK4+3uy6djn7gSRXd68ZCyUQWT1s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ioGCE0azlO5MsbLAhAXe/NpXCbQDZ92w4JnRZeMVu3HYXUQ2KNxvTbKgzGIvAaxXY
-	 KTLw3obuzH8WxJLY65CurHw8fBhzCpnGxFUsOKF5rvZcTLXaSJlJg6RYp5B+ReLQko
-	 V7VoH1U5nYGURcrvgDjZacqo9x3mXZxd6tlXKigt0PydZDF1TAOrkjLoS3x9YUEM+R
-	 NGaiQ/aUwST2MrCbHxJ30xOcEmd8EPpyxdJHWFdZZ+NKb+2YUxodn73hXR9xDgWBVW
-	 q/d5bDgwa9m3Vukzx6ab2a+cyd1mMlFxGg4IGDxcPzcrU7Ekfw0QSNQjjVKeQvDMyH
-	 avl9oHLBArTkQ==
-Subject: Re: [PATCH net-next v3 5/7] net: phy: adin1100: Skip the soft reset
- on ADIN1110/ADIN2111
-From: netdev-bot+sashiko@kernel.org
-To: iustin.stolniceanu@analog.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, parthiban.veerasooran@microchip.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, marcelo.schmitt@analog.com,
- alvin.sipraga@analog.com, ciprian.regus@analog.com,
- Selvamani.Rajagopal@onsemi.com, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 12:02:48 +0000
-Message-ID: <179552176854.3135.14043257413847529020@kernel.org>
-In-Reply-To: <20261123115743.29523-6-iustin.stolniceanu@analog.com>
-References: <20261123115743.29523-6-iustin.stolniceanu@analog.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=RIP7Df3M
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=g2qkyx16iUL/TYtI7M4gJvUrCZfQL5EGjEwdbL91fHw=;
+	b=RIP7Df3MxVhZPJBLKgTabYmwo7I4bpKq28+KQT/UfwYra59XppCRWM+8KLQxf0ycflH9bVgWm
+	8HT1Y9ZyAV9WHqV/zZtb7BGSui5k0q6rvk6ghZT9gHawA52PAOkh8tCS8hLiQkIoHPfd/xM9mJl
+	DNC0At4pYcExIvczhMHaXog=
+Received: from mail.maildlp.com (unknown [172.19.162.140])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jYhJb6Cf4zRhW3;
+	Tue, 24 Nov 2026 20:02:39 +0800 (CST)
+Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
+	by mail.maildlp.com (Postfix) with ESMTPS id 0828520333;
+	Tue, 24 Nov 2026 20:02:58 +0800 (CST)
+Received: from localhost.localdomain (10.50.85.93) by
+ whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Tue, 24 Nov 2026 20:02:56 +0800
+From: JiangJieHua <jiangjiehua1@huawei.com>
+To: <netdev@vger.kernel.org>
+CC: Jay Vosburgh <j.vosburgh@gmail.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Hangbin
+ Liu <liuhangbin@kylinos.cn>, Changzhong Zhang <zhangchangzhong@huawei.com>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
+Date: Tue, 24 Nov 2026 21:01:02 +0800
+Message-ID: <20261124130102.18807-1-jiangjiehua1@huawei.com>
+X-Mailer: git-send-email 2.33.8
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,145 +71,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ whupemp200008.china.huawei.com (7.152.184.21)
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
+and returns early, but does not clear bond->usable_slaves.
 
-Low priority / nit picks for your consideration:
+A mode change requires the bond to be down with no slaves.  When the
+last slave is removed in balance-xor, balance-tlb or balance-alb,
+bond_update_slave_arr() publishes an empty usable array, and later mode
+changes do not clear it.  If the bond is switched to broadcast, the
+stale pointer remains: bond_miimon_inspect() sees count == 0 and
+ignores updelay for slaves enslaved while the stale array remains, and
+bond_uninit() leaks the array.
 
-- [Low] The commit message claims the whole-chip reset done by
-  CRSM_SFT_RST "is not an issue with the generic SPI protocol" because…
-- [Low] The patch justifies dropping .soft_reset with "The MAC driver
-  already resets the chip before attaching the PHY".
+Clear bond->usable_slaves when the mode is changed to broadcast.  The
+bond is down and has no slaves at that point, so the array can be freed
+and set to NULL before the bond is brought up again.  Broadcast never
+publishes usable_slaves, so it stays NULL.
 
---
+The issue was discovered by an AI code review agent and confirmed by
+manual code inspection.  It was reproduced on mainline with virtme-ng;
+no kernel modifications or error injection were needed.  With a dummy
+slave and miimon=1:
 
-net: phy: adin1100: Skip the soft reset on ADIN1110/ADIN2111
+  ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
+  ip link add dummy0 type dummy
+  ip link set bond0 up
+  ip link set dummy0 master bond0
+  ip link set dummy0 nomaster
+  ip link set bond0 down
+  ip link set bond0 type bond mode broadcast
+  ip link set bond0 up
+  ip link set dummy0 master bond0
 
-This commit removes .soft_reset from the ADIN1110 and ADIN2111 entries
-in the adin1100 PHY driver. On these chips CRSM_SFT_RST resets the whole
-MAC-PHY, not only the PHY. The change prepares for OPEN Alliance TC6
-support, which configures the device before the PHY is attached.
+After the final enslavement, dummy0 comes up within 50 ms despite
+updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
+none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
+selftest passes on the same kernel.
 
-> This is not an issue with the generic SPI protocol, where the adin1110
-> driver configures the MAC in ndo_open, after phy_connect(). The OPEN
-> Alliance TC6 protocol support, added in a following patch, configures
-> the device in oa_tc6_init() before the PHY is attached, and the
-> configuration would be lost.
+Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
+Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
+---
+ drivers/net/bonding/bond_options.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-[Severity: Low]
-Is this accurate for the existing generic SPI driver? After ndo_open,
-phylib can still call phy_init_hw() -> drv->soft_reset on at least two
-paths.
-
-The first path is system resume. adin1110 has no PM callbacks and does
-not set phydev->mac_managed_pm, and adin_suspend is set. With WoL off
-this gives:
-
-mdio_bus_phy_suspend()
-  ...
-mdio_bus_phy_resume()
-  phy_init_hw()
-    adin_soft_reset()
-
-On ADIN2111 this happens once for each PHY.
-
-The second path is an SIOCSMIIREG write of BMCR_RESET while the
-interface is up:
-
-adin1110_ioctl()          /* only when netif_running() */
-  phy_do_ioctl()
-    phy_mii_ioctl()
-      phy_init_hw()
-        adin_soft_reset()
-
-On both paths the whole-chip reset would wipe the setup done in
-adin1110_net_open():
-
-	ret = adin1110_write_reg(priv, ADIN1110_CONFIG2, ADIN1110_CRC_APPEND);
-
-It would also wipe the IMASK1 interrupt enables and the MAC
-address/filter slots. The interface would stay broken until it is
-reopened.
-
-If that's right, this patch also fixes a runtime problem for current
-generic SPI users. Could the commit message describe that, and add a
-Fixes: tag so the change can be considered for stable? .soft_reset has
-been set for these PHY IDs since the IDs were added.
-
-> diff --git a/drivers/net/phy/adin1100.c b/drivers/net/phy/adin1100.c
-> index a69c3228961e9..bc7214b735057 100644
-> --- a/drivers/net/phy/adin1100.c
-> +++ b/drivers/net/phy/adin1100.c
-> @@ -341,7 +341,6 @@ static struct phy_driver adin_driver[] = {
->  		PHY_ID_MATCH_EXACT(PHY_ID_ADIN1110),
->  		.name			= "ADIN1110",
->  		.get_features		= adin_get_features,
-> -		.soft_reset		= adin_soft_reset,
->  		.probe			= adin_probe,
->  		.config_aneg		= adin_config_aneg,
->  		.read_status		= adin_read_status,
-> @@ -357,7 +356,6 @@ static struct phy_driver adin_driver[] = {
->  		PHY_ID_MATCH_EXACT(PHY_ID_ADIN2111),
->  		.name			= "ADIN2111",
->  		.get_features		= adin_get_features,
-> -		.soft_reset		= adin_soft_reset,
->  		.probe			= adin_probe,
->  		.config_aneg		= adin_config_aneg,
->  		.read_status		= adin_read_status,
-
-[Severity: Low]
-The commit message says "The MAC driver already resets the chip before
-attaching the PHY". On the generic SPI path, does anything wait for that
-reset to finish?
-
-adin1110_probe() checks only the return value of the SPI write, then
-registers the MDIO bus and connects the PHYs:
-
-drivers/net/ethernet/adi/adin1110.c:adin1110_probe() {
-    ...
-	ret = adin1110_write_reg(priv, ADIN1110_RESET, ADIN1110_SWRESET);
-	if (ret < 0)
-		return ret;
-
-	ret = adin1110_register_mdiobus(priv, dev);
-    ...
-	return adin1110_probe_netdevs(priv);
-}
-
-There is no STATUS0 RESETC poll and no delay here. The 90 ms fsleep in
-adin1110_check_spi() only runs with the optional reset GPIO, and it runs
-before the SWRESET.
-
-Before this patch, adin_soft_reset() polled ADIN_CRSM_STAT for
-ADIN_CRSM_SYS_RDY, for up to 30 ms, before any PHY register write at
-attach time. With .soft_reset now NULL, the attach path is:
-
-adin1110_probe_netdevs()
-  phy_connect()
-    phy_attach_direct()
-      phy_init_hw()
-        adin_config_intr()   /* read IRQ status, RMW IRQ mask */
-      phy_resume()
-        adin_resume()        /* writes CRSM_SFT_PD_CNTRL */
-
-The commit message itself says MDIO data is stale until the reset
-completes. Could these writes race with the unconfirmed SWRESET and be
-lost?
-
-The impact today looks limited:
-
-- phy_start() calls __phy_resume() again at ndo_open, so adin_resume()
-  runs a second time.
-- The adin1110 mii_bus leaves irq[] at PHY_POLL, so the IRQ mask write
-  has no functional effect.
-- Before this patch, the MDIO bus scan and the adin_get_features()
-  reads already ran right after the SWRESET without any wait.
-
-Still, any PHY configuration added at attach time for these IDs could be
-silently lost. Should adin1110_probe() wait for the reset to complete
-before calling adin1110_register_mdiobus()?
-
+diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
+index 9efadeff6a22..f65916444fa1 100644
+--- a/drivers/net/bonding/bond_options.c
++++ b/drivers/net/bonding/bond_options.c
+@@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
+ 	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
+ 	WRITE_ONCE(bond->params.mode, newval->value);
+ 
++	if (newval->value == BOND_MODE_BROADCAST) {
++		struct bond_up_slave *usable;
++
++		usable = rtnl_dereference(bond->usable_slaves);
++		RCU_INIT_POINTER(bond->usable_slaves, NULL);
++		kfree_rcu(usable, rcu);
++	}
++
+ 	/* When changing mode, the bond device is down, we may reduce
+ 	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
+ 	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123115743.29523-1-iustin.stolniceanu%40analog.com
+2.33.8
+
