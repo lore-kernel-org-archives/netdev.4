@@ -1,107 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795514558;
-	b=mIRGhu6MkrK5hTESqmdbGl962JTp2TdSW/E2Pm8hLmPlWTBMrWyMNvLgXWuoovyJeI3q
-	 7gfNx1T8l25rWhtGtUrrUA8qHhTLzWGKyFfnNQiBP9/FviIcngwRVHlgF3JRP/v0KEVT/
-	 Rn5stAKXb27y3FChHm2wkxFdGWLxYNq20xUSuezXhsuyMkgDjbE6I7YP+XkKujEZzTpHJ
-	 hsnJTnq8o3wAOOkMCEmsWpSzJtO1pkmmVOh43FQPL+0402YxW9qwY5lM2+JvrGalZ6hNv
-	 vwyi5oJt6YEBhFUtrvZoGrineGSnueoBLmp1p+ogYKfS4z5uNbrdNylxSM5h1t1Rspw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795514558;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kYC3nDclTU++iCEu00r8ilR77hTAQu3xG5/0UeDTOes=;
-	b=ZPypYUtNyxteGyK1qPoTEMhv5tWSpiXsN+0jn2wEWauO1ICcNwL0ph30u6FqB7pNsFVk
-	 732OFV7tzURfASr76QmFc4u5OzlgwLSpU8EyewNK3CRt+kYQReCCS8VQWMvEFefRu7WZy
-	 SCuzkFe56xKXqYWcX4y/dUUhZmXKGEjY2yg7yz2lMAyXXSwO/otqBMg8ZRWP4c6CaOqcT
-	 +b2L655FcB5DlifABqqiEOEDyhDdJ+M9sRg9cQmDNVVWL2G/tu8XYEadTRZlfjsDf7mQt
-	 l6daGFHTNIED+3ePYI2w2z2xRd/VjQT9mIb60UdfrAujBqvDQ5+TgpTfeBdsnozhuXQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=cN+mCw+Y;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=X3CcaHaA;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.174
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795514621;
+	b=irUsA7At7zr7Cl6oPAK0RMb/ADZR2dZSq6LA7DgrEsiLrc05Gs7fSIrDlUIQs38lIbbi
+	 7dVnPrmhhP0agWXNAyJ65nckevFvDPi2sJhh0WyXvcgEYX46QggK09i7+agXN2k3K6/nk
+	 93yBJG+yfVei4sI+7BRI4CBoh3BmHuBJRtd5HuShhXjpyxUxvafkT1qEjX84z8xSHnVAM
+	 yTxh7Lyz/HBhTb2pEVcEqqNrxGgPRk+r2Sk/GNaLWt+Uxyp+XSUq0dOdNWITKRGhUYmdm
+	 7s+eZPIe5ibkGHLSy8swbCWuIcXRxrJhFtJA6Oq4D31QpdjS8Bso12bfx5LTPCi0rdg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514621;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=cGN5g9PtUGCG+wcdSVJumY3ZUtFUe8Es3+mlikmGYwY=;
+	b=t+Mz2CdrgdjkoM0+GlIvb+6FHpByRDHPa6V7CZgtOmydiv4VK+jY7EMPWiyzjs4Qkdvw
+	 jB70AYWqH9spIaIPPcJyX8oaecSJfRcz0OHwlirvMPtzhSSQ7RMfEEk3DCPRgYwGLHpQ5
+	 fe+1oTXu/D+8SvkSbX5Hi9YGuB6a4X4i+s0hY7zWWCJ86DsukpwYZ4pigcsTv9DGRL5W8
+	 A5pb7uD52MikQ4A7aCrlyZAyXKXf+xj9R0MlSM4MzGTMlBDz10umIvzFOiAR2mE2R+jZz
+	 VF+oce0/Sy73aeLTaqQqWUgNGz3ZWHmZWdRSemFxsAhpoG9tF9tt69v+2Z20BGfB7IA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=VmWAs86N;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 966D3606A332
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:02:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 966D3606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E01F5606A334
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:03:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E01F5606A334
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=cN+mCw+Y;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=X3CcaHaA
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795514556;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=kYC3nDclTU++iCEu00r8ilR77hTAQu3xG5/0UeDTOes=;
-	b=cN+mCw+Yaf3ffMiNxpgC3NEJeVFoWR7pI2hKBqZMc4UeasiO1X0/S2loaWbiGJMlPSBe9i
-	otOqypQK0NC7ELg0/tMOw98XK7G2HzoZPgsQ+BatI+s+Zf/++44lpe47j4a2Kf3DohpPVg
-	yo3fxuvOnnJvVl+3ZmfMLVxOfoHl2b4=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-79-Xn4os_ftMgOh6YVvYXyeaA-1; Tue, 24 Nov 2026 10:02:34 +0000
-X-MC-Unique: Xn4os_ftMgOh6YVvYXyeaA-1
-X-Mimecast-MFC-AGG-ID: Xn4os_ftMgOh6YVvYXyeaA_1795514553
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4bb8ae35aeaso35499445e9.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 02:02:34 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=VmWAs86N
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a07078200fso2167559b3a.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 02:03:40 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795514620; cv=none;
+        d=google.com; s=arc-20260327;
+        b=cf908cJTNmdgZ/YYfyNijXHTm2QqeR8lJ0q89EsZPVAyFx9tBfUH98Ip8w4gr8Fbuy
+         QYUzBrEn26BgHIHkUSFjdmm+r3CJUXGwWv1usmcM8v8gQ7iYJNl8Jv01ZwxOlhenSmbM
+         YPu3oIVk6Z1z66EtG+dZGAbKQQarTKyYfIzkOb+kfSL9ZjE6C/tkCZQgSPRVLAXM0Q58
+         lwMsoUXtk/5sLKlwIaIApMVbaV6pLNMQ5vmZRrC+XSeoyqHJmlerCIB51+GcSuuDmakd
+         yLzfl9/OZgvuklhIinvhA0M66B3sR+hE7Fc8IfvpgrYVsrUVHySmXsRwHppLlWMyL9wX
+         bCJA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=cGN5g9PtUGCG+wcdSVJumY3ZUtFUe8Es3+mlikmGYwY=;
+        fh=SFrKRQP+HRDSRmJEXihgh/NXoC+4gUlunPXU5aEAkH8=;
+        b=rH3UCLysX35jNRvwBRefgnE7N3TxrBRiAtNJK/9rAJrWpIRw16VniSvwjM8nNhwWLf
+         t6QSaw4O0Q+PIztQIMcTAMmUmeI9TOXLs29Dn0k1RdedLVtglVtROiHQ/9DUmm0nMy5l
+         3muUV9zjkbVEcRZ/tx0om7RQTtcD7XISRnbryrYhzVHmsa+bkgq6+PGmjUAAdJKXllZs
+         2pvBwfV/cw8HmKOkoc6yAxUEr7QbfHqGVxC++rLB7WFzhJXzt+eV2Lpk5DJxx4fdssW2
+         dgD+irzkMJ0yTyUdU5gYGohaBQUwIDUmD/VrheUOnJC/ohKsxRpVHR6+fQ/shZyRl740
+         xmSw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795514553; x=1796119353; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kYC3nDclTU++iCEu00r8ilR77hTAQu3xG5/0UeDTOes=;
-        b=X3CcaHaAMp0bRfVLlV6WNVr8+viCTRrmBUelOGqI966bebxxY2kOI8SfLtWWX5uWrC
-         50v//1Mufitsiq8om/VLS+2n5Je+uR4Pp3f+5bnUMf2tofuqDhlnpwcfTVp/Z0ncA/Yo
-         Zs1T5Drp7qNWnxL1QsGH3FSTPOm/+h4zHe57H9OevJntTewldPmYNbbCJSc4yIp4MuML
-         91o9G+jskj/YDoHXu8U1XJzesMIm+FKlwkYzWEYGgOEV7jCo76xW37oLVDXI+wrdfiEr
-         UsrEefDpnxraUknAwTXHV80bkJfmZN5TSjDN/behvMZL3+ueFvfufaJuTbTgWhmsRlJP
-         glxA==
+        d=mojatatu.com; s=google; t=1795514620; x=1796119420; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=cGN5g9PtUGCG+wcdSVJumY3ZUtFUe8Es3+mlikmGYwY=;
+        b=VmWAs86Nz7sib60O4izbmOD6cZh1oJHcY4TIr9SaP6pD5C0G2T6As0XqGlZXCid52l
+         D7UokUSGtJok+76yw43RikasNHy7al4rTLqNt+q+izWEJlO4nwef7uYHHiWgKe9yWWTM
+         I5j2coA6k1F5B5uggw7O4grg7Mi+N5CcJvy20=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795514553; x=1796119353;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=kYC3nDclTU++iCEu00r8ilR77hTAQu3xG5/0UeDTOes=;
-        b=FxW8rETRJbdZrQIZ27rZxtNHCZDm4IN9eULvBssPn0EVMhZkBWX+/Pz0uQV7j1gcnO
-         SFL5RaHIAPtyObc6oOdee5NBsp2HvtndzA9DWUyJ15CEKxrvnGv0dtqg/60VIbelpJt2
-         sb5w8cbSCuhhDxuEEzupvCf5u0Fp1aRvSSy7MtbARWpt3XOGES6olOo0089C58WAhEnV
-         R4BiF4nok03IPsjWL02cSz17hNtTGT+VerdRo5ueLeClipZVr7H5FP5iUiEmde/w3Fi/
-         tnVCPDrqEbwtc0AkLbtR9D0ay1IX8fwTLoOzmzCubpq9a+iGU3QVs3LcEkV3UPG4fpH6
-         uwZA==
-X-Gm-Message-State: APuU4Z8tXcDDvMHNxPGxkW8oXYBy8vm+DgO9EWE78MUrs0fn923pLUv6
-	WkGBJZ4t0RIHeKG35nK3CniDzfTL07N82euzMK2xbsZ2k3SQtasKOBOKf6BQA6zSU/R5+oIpLr3
-	DaOCk8h+9O69QeTcZOfg68Zs7w+CSlHAaMqz2FDcUetaL0Is3uMoaAr0ofg==
-X-Gm-Gg: AZFdTZfX3ljEPSveYYU2dICfKdvom2X79Mvunvr3izobgx+X1eH7uZuAZrLvnLwI9nE
-	WZCaTAq1+WOJolAJCrfZ2SQxci6PmUqkS/jZgy3gGIK5Z5x/ArUlDYEH3Tmw3m3/WT/94p8XUnT
-	N6nZnkj20jYgsvpLb+7xlSSNYVmIvnFacvIfJZoDsJK0poiVXnfZbEZdm+WRchQDXxbAIJJpHst
-	Nqymt76DdZyrqrYYUvFtfhMEx32s+043dMjhXSUZHHTPAwO+ymyfFYLVyMp1icPczHzr3Jh6ETg
-	k9Izh4uycOYyu7WuCRvPU8LazxFIQ6MXDfofgnNbum3P5J/Tt7bgYAjb/TMPE2zUIfMKy0ero/w
-	YEox2fIlwes17JUueFlG/C9IGL5Bv2201THwSJ4nGOitRj6iQ9l0Q26c33luf4PpXAOnarYxcgA
-	A/+xkKCtLeleV2cet9zDoVPR6L7GaKG33DHNwPWpfc1qP4
-X-Received: by 2002:a05:600d:1c:b0:4bb:685e:cc41 with SMTP id 5b1f17b1804b1-4bb8c526ac4mr241277135e9.8.1795514553274;
-        Tue, 24 Nov 2026 02:02:33 -0800 (PST)
-X-Received: by 2002:a05:600d:1c:b0:4bb:685e:cc41 with SMTP id 5b1f17b1804b1-4bb8c526ac4mr241276635e9.8.1795514552823;
-        Tue, 24 Nov 2026 02:02:32 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm222653865e9.1.2026.11.24.02.02.31
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 02:02:32 -0800 (PST)
-Message-ID: <3071ab77-670d-46d1-aa5b-f01274b5f7cf@redhat.com>
-Date: Tue, 24 Nov 2026 11:02:31 +0100
+        d=1e100.net; s=20260707; t=1795514620; x=1796119420;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cGN5g9PtUGCG+wcdSVJumY3ZUtFUe8Es3+mlikmGYwY=;
+        b=v+5m9tWk4PJX/qgtG42f7HcyX6YX+BOzKsPSED9FxYTARD2pq9/yO92eQy2cD9Yfno
+         bBqtMqLLHHsKt2Fn9bl4NZzsiTF2rpMZCosqcSyzUZcby16/1cfvzeWfA9ebLDDt8Ggk
+         cZ4vtVzqt8dHN0+oWSPyegkzyu60eBXLt6bAj3uLjuOAJ9Gsa6lPvXMe9YgSfvXLqxY2
+         Me83wODCOpu5s3mRtGlfzxNSTjpKFD9bWZQA0WyDd6zLqSZrkm8aK79/uwC/qTWqEkJp
+         U4eC/2TDT+gyKCZgSIt8MBYEAh/+Q9+rVHkUCoFzAvV6Sit65jW0PPTUfc+sHy871e8D
+         N1mA==
+X-Forwarded-Encrypted: i=1; AL+hErHdoKuw4cVdtdtypv7rVHQzTYNbWJ6xUDzPXuHhlfnMYrUfuMzcGvNxzG1tlKeDIEMgUwQ37ec=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/dB872+XHSGHERw4mXHSalTHCtSea27X1qQIyPRV5Lg0mOD9an
+	0/j6pqww4dIVab9WhcV6pippWlDV3JJjG1QON5cmMXyRWU8Z4MB7sCFEGFlm7y/QRefTY/DzXRW
+	5hGyHyxUWOu9gzRXeN/i82JH2Hd5pe+uaC7ZzzMdw
+X-Gm-Gg: AZFdTZcWSsMxuPikYheZ0HBH+WL9WuANJPTJU9dywcn5GcgdFYKi6gUFFMVEPoAdRRW
+	WYT9sAZXOwlmVKHRQJLHbltOoR60rbbpVRgIQ1DzBj/RWxIrWg+y+VIRLf7posvuveUDVGITNly
+	KbAEkZrtrxb3iC72BEyy7s7FXKOXR/Zkun5BBbhuDgksUAJ3g1n2WWY0CX6ENugVcY2rdpHtx3p
+	cQJBjX8KkyYPyHuFICv7g/4e3C0e0duof/dVzuiIWXWoqf83NR6SAXUtF4MTN/plHhhXDcU31eM
+	UA5fBd7BfZtPb3RQfKAFkFBfbFSGVBezy0zarjdygzhaNMMirNKl4eyxXcpSqKLWfRm3+aGHREg
+	dHFfQalkmlo2GU0tpZ6Rbsl7xPFNwjT3wknamY1TBa1WCXTYUS92fjUS/opBHuIvo+v3Q3cP8Gp
+	73FUhtiTrKWXiuDBRyGYQP
+X-Received: by 2002:a05:6a00:3c84:b0:89e:ba55:119a with SMTP id
+ d2e1a72fcca58-8c87d123bd5mr13499490b3a.47.1795514620227; Tue, 24 Nov 2026
+ 02:03:40 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,46 +102,121 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 7/7] eth: bnxt_en: restart Rx queues when
- their IRQ moves to another NUMA node
-To: Jakub Kicinski <kuba@kernel.org>, davem@davemloft.net,
- michael.chan@broadcom.com
-Cc: netdev@vger.kernel.org, edumazet@google.com, andrew+netdev@lunn.ch,
- horms@kernel.org, pavan.chebbi@broadcom.com, bjorn@kernel.org, joe@dama.to
-References: <20261120035214.369158-1-kuba@kernel.org>
- <20261120035214.369158-8-kuba@kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261120035214.369158-8-kuba@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <6b051681.58b41460.7037.0590.GAE@google.com> <DN37NBGPJJG9.2DSVDCKS3UYTV@gmail.com>
+In-Reply-To: <DN37NBGPJJG9.2DSVDCKS3UYTV@gmail.com>
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+Date: Tue, 24 Nov 2026 05:03:29 -0500
+X-Gm-Features: Aa3M54qvcfjcRlRGJK01N9tkR68vSDtEhX-HABSVQSN3K_q0am-4DoB8x5iA1ls
+Message-ID: <CAM0EoMnVa=xGD3uiZKuzMfFL6oZNd=Umb0U7+_QUrTK7Ej-BYg@mail.gmail.com>
+Subject: Re: net: act_gate bug. was: [syzbot] [tomoyo?] [mm?] INFO: rcu
+ detected stall in security_file_ioctl (9)
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: syzbot <syzbot+b6f8640465bdf47ca708@syzkaller.appspotmail.com>, 
+	akpm@linux-foundation.org, andrii@kernel.org, bpf@vger.kernel.org, 
+	brauner@kernel.org, daniel@iogearbox.net, jack@suse.cz, jmorris@namei.org, 
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-mm@kvack.org, linux-security-module@vger.kernel.org, 
+	netdev@vger.kernel.org, paul@paul-moore.com, 
+	penguin-kernel@i-love.sakura.ne.jp, serge@hallyn.com, 
+	syzkaller-bugs@googlegroups.com, takedakn@nttdata.co.jp, 
+	tomoyo-users_en@lists.sourceforge.net, viro@zeniv.linux.org.uk
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On 11/20/26 04:52, Jakub Kicinski wrote:
-> Rx queue memory is allocated on the node of the CPU servicing the queue
-> when the device is opened. On a running device it only follows IRQ
-> affinity changes if TPH is enabled, as a side effect of the queue
-> restart which applies the new TPH Steering Tag.
-> 
-> Schedule the affinity update work whenever the device supports the
-> queue API, not just when TPH Steering Tag changed. Queue restart places
-> all the memory it reallocates, other than the ring page tables, on
-> the page pool's node, so compare the page pool's nid to decide if
-> the queue has to move. Only consider queues whose IRQ affinity was set
-> from the outside, so that moving one IRQ doesn't restart other queues
-> just because CPU hotplug shifted our default spread.
-> 
-> Since we need queue state of the currently allocated queue to compare
-> nid - check that the device is still up after errors.
-> 
-> Reviewed-by: Björn Töpel <bjorn@kernel.org>
-> Reviewed-by: Joe Damato <joe@dama.to>
-> Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-Sashiko feedback looks relevant.
+On Tue, Nov 24, 2026 at 1:00=E2=80=AFAM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
+>
+> On Mon, Nov 23, 2026 at 08:45 PM syzbot <syzbot+b6f8640465bdf47ca708@syzk=
+aller.appspotmail.com> wrote:
+> > rcu:           hardirqs   softirqs   csw/system
+> > rcu:   number:     5264          0            0
+> > rcu:  cputime:      138      52351           25   =3D=3D> 52490(ms)
+>
+> It's not tomoyo, mm or bpf. Looks like act_gate.
+> Zero new softirqs in 52 sec, so one hrtimer_run_softirq() doesn't return.
+>
+> > RBP: ffff88807ed35538 R08: ffffffff91be1bbf R09: 1ffffffff237c377
+> > R10: dffffc0000000000 R11: fffffbfff237c378 R12: ffff8880b8228600
+> > R13: ffffffff89fd0480 R14: ffff8880b8228600 R15: 1ffff1101704514a
+>
+> The registers with lockdep struct sizes:
+>
+>   reg       value             points to
+>   --------  ----------------  --------------------------------------
+>   R14       ffff8880b8228600  cpu_base
+>   R15 << 3  ffff8880b8228a50  clock_base[HRTIMER_BASE_TAI_SOFT].seq
+>   RBP       ffff88807ed35538  kmalloc-512 + 0x138, tcf_gate->hitimer
+>
+> act_gate has the only soft hrtimer that can be on CLOCK_TAI.
+> bpf_timer_init() rejects that clock.
+>
+> TCA_GATE_CYCLE_TIME is an unchecked u64. In gate_timer_func():
+>
+>   n =3D div64_u64(ktime_sub_ns(now, base), cycle);
+>   close_time =3D ktime_add_ns(base, (n + 1) * cycle);
+>
+> With base =3D 0 and cycle =3D U64_MAX, n is 0 and close_time is -1.
+> The timer restarts in the past and __hrtimer_run_queues() runs it again.
+> It's there since
+> commit a51c328df310 ("net: qos: introduce a gate control flow action").
+>
+> Jamal,
+> taprio's INT_MAX limit doesn't fit. tdc uses cycle-time of 600 sec.
+> The diff saturates the sum instead.
 
-On top of that, some systems (many?) have irqbalanced enabled by default,
-and that will move around NIC irqs routinely (!!!). I'm wondering if it
-make sense some flag private flag to make this behavior optional?
+Looks familiar - i will take a look.
 
-/P
-
+cheers,
+jamal
+> Here is a potential fix:
+>
+> diff --git a/net/sched/act_gate.c b/net/sched/act_gate.c
+> index 711cf24..5422d60 100644
+> --- a/net/sched/act_gate.c
+> +++ b/net/sched/act_gate.c
+> @@ -45,8 +45,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
+>                                 const struct tcf_gate_params *param,
+>                                 ktime_t *start)
+>  {
+> -       ktime_t now, base, cycle;
+> -       u64 n;
+> +       u64 cycle =3D param->tcfg_cycletime;
+> +       ktime_t now, base;
+> +       u64 rem;
+>
+>         base =3D ns_to_ktime(param->tcfg_basetime);
+>         now =3D gate_get_time(gact);
+> @@ -56,10 +57,9 @@ static void gate_get_start_time(struct tcf_gate *gact,
+>                 return;
+>         }
+>
+> -       cycle =3D param->tcfg_cycletime;
+> -
+> -       n =3D div64_u64(ktime_sub_ns(now, base), cycle);
+> -       *start =3D ktime_add_ns(base, (n + 1) * cycle);
+> +       /* cycle is an unchecked u64, the sum must not wrap into the past=
+ */
+> +       div64_u64_rem(ktime_sub(now, base), cycle, &rem);
+> +       *start =3D ktime_add_safe(now, cycle - rem);
+>  }
+>
+>  static void gate_start_timer(struct tcf_gate *gact, ktime_t start)
+> @@ -107,15 +107,8 @@ static enum hrtimer_restart gate_timer_func(struct h=
+rtimer *timer)
+>
+>         now =3D gate_get_time(gact);
+>
+> -       if (ktime_after(now, close_time)) {
+> -               ktime_t cycle, base;
+> -               u64 n;
+> -
+> -               cycle =3D p->tcfg_cycletime;
+> -               base =3D ns_to_ktime(p->tcfg_basetime);
+> -               n =3D div64_u64(ktime_sub_ns(now, base), cycle);
+> -               close_time =3D ktime_add_ns(base, (n + 1) * cycle);
+> -       }
+> +       if (ktime_after(now, close_time))
+> +               gate_get_start_time(gact, p, &close_time);
+>
+>         gact->next_entry =3D next;
+>
