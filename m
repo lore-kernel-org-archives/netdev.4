@@ -1,81 +1,122 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795517634;
-	b=n9VkFlXUfczL5pG85PHh529HMiZ+QGmEys86STFiZWkHsh+LULNLc0yIUw9bTUUY4fmm
-	 4IRMSyUiLaKoGqHzUNF21ro32b8TdtpAMCx5P5nvb+WgqO/zXkBZHtd18Yo6fc+WbWh8R
-	 ZsntMYHJdx+slPBASdCZzjAsgLlSLmPvnE9I8q/KpzQOMNGPP3g7madb2RiiflSYgstHU
-	 RBi9e8yKcJrVAW2T5kA/Ii4EhgvcJUgs+lUHu5YOyzOZBik5KAwRSaTsVW4ha91QDFeiT
-	 1NDFMQpkP5r+NMm4jLVu2qsIIU7KHAbshgTIwbwPw/2vkrcTmEJF16rrNp3TCrHW+Xw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795517634;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=ImEtvNWvzTOvpmwvm5vtIEFBJqDak/XudWlCPtKGMAk=;
-	b=JXMMiFtpuktQctAtsWmQmvK+km1EnaJLDdHU0HvSPKV8negMO3Qli0UD8I035hPQ3IkC
-	 yG+XZvw3EzGoJ4K5G1qGZRXQyPPhiEyZA9xFoJZrrDJkCWQupuHprHX1MlSzJMVYj78ds
-	 b7CqngUS/BeOOc4yO69hWTN7oVUzhdQL7d/vorMMX0CeGTB/j1kzj+t6Tesqh6G3b9XE4
-	 KGBcJlHnGboebZ/6LoDabHPI9ZaT4JrJyHlTffl4XWZIx6QaEuinQG9XVOqJ4rDT0YVrV
-	 FHndk1fgG7XW9Hn7JVuX1g1tQFdtWQzon/r+Hz7q7+/5eUmVH6V6UGgXCeCltiiJ3pQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=L0qltyPl;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795517815;
+	b=KdEWFqqrO0LT1v1YcW3Xm6mXY+gJgqcPCjbqL1THcC28eKRspcc2LGRnGHfhuyGfqa5+
+	 Ox/kVYUotYHfFGVVZk/HrQL2up9QX9zCyvPfphLQ0lZ4C738O1UjElQcrsPs8+XaJCwKm
+	 H/H24VauvIPoKr7ZYnu/rmp5NsneKA7E3yWQWeNmLM0UvltJbZ8XGFtzLMjeAsds+tkxF
+	 7VNlRaHgQsqdoijlmlUht0ENE2kJhUd56000UT7UNw+uCyeWBmhKufz/FbwRurWZe9ynN
+	 d38ahVNlBnx6ulPy4P26o19WV5wIaLJjpvmw+PrkyH8IYvcd3QG3skMS8V8HHXaeGKA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795517815;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:From:In-Reply-To:References:MIME-Version:Date:
+	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
+	bh=vDS/jS4MsyU8dKC6AMUz/M/v6mO2eBfnVuVFitaUJyw=;
+	b=Oneu4fLtZ823eAzM1CQetK16Lb/yad3+VTH+A8k+2NCmC1AL8cdZ3dKA4a0osETBfx8w
+	 L5EydgQbgT9w1siRTJDYZsCKmP5W6BC4X14c168Nubadc+/4rcl0DNy2WeES0DocmjNgH
+	 qGs8SGBDtBsEEX9alHNsyR6jdSsD4x1+DkD1+hhRFihHwe9R0xftL8xScaK7Cb5Heb99k
+	 z/fdExJd9qFcTwPDf9mIX8K6Uer/7yYv5CZzDXOzBco/0OYGnIJIjumhksVi2AMNn6Am1
+	 56DAy/KVYGEOCkBpJ2iDg7nHiGCGG3CRfbkxAYJjAn3mPHh+F4cX0w07iNUH4VxIHCg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jIz2efb7;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=XCVcePqS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6E207606A330;
-	Tue, 24 Nov 2026 10:53:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6E207606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25558606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:56:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25558606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=L0qltyPl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795517633; x=1827053633;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=NZzJfpuCc0e5y8fSi2MKme7usMgFTjTUHJjCebFAsCY=;
-  b=L0qltyPlBICzKiZo8g/IbB7xEOf2KhSbfZ4HFS0ZeieadJa2ABU76VKO
-   mllGONZrurLgT8+3Pvq/VDbVoHtmUd1DmjJ5BZK+OCHhB1+1xVIlUIuyv
-   +C8Ssqw+HgxO0g/MPeg+3/ORiEkUKBi4hHKoUNem8cHthy8pBd5wTkoWg
-   5Tb0vDw3h/y37OyQ4th9XaKlt9uEpZuVK2lpeSf6EJ9j3m7FylCBt/le2
-   PtCwsZ2xiKeOIB4D9xJdiOWq4nMwh/A5xQYaIhcBcBKqHKcGVXA6nTqV8
-   zSTZst1qZqsdoN792WTzbQllfuSnCeMC/rUIP9bx5AWSQMZYu1vJn3hCQ
-   g==;
-X-CSE-ConnectionGUID: L0NeTWWgQbm+cZHMMZTvlw==
-X-CSE-MsgGUID: qJCY95cSQCmx17tDJg7K0g==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="67206422"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 03:53:47 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex2.mchp-main.com (10.10.87.31) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.56; Tue, 24 Nov 2026 03:53:46 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 03:53:44 -0700
-Date: Tue, 24 Nov 2026 11:53:43 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 1/9] net: sparx5/lan969x: stop the FDMA
- channels properly
-Message-ID: <20261124105343.fm6oddjcnxaly7or@DEN-DL-M70577>
-References: <20261120-sparx5-mtu-change-v3-1-55c272fe1acc@microchip.com>
- <179544589189.3135.16381181122597988250@kernel.org>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jIz2efb7;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=XCVcePqS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795517814;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vDS/jS4MsyU8dKC6AMUz/M/v6mO2eBfnVuVFitaUJyw=;
+	b=jIz2efb7kfzn3tVsUYgofhmPVjMZK0z8tdr/Rm1ubVtaUqvAJZEF2KEMjuwZh4wDij5k6S
+	uY63qfVpQIoaB760fHNmLKiDKC8Ehi8iFmCcR2RbsdyY1F1RhJ1sbgVK0iQimQa4c0PTSs
+	dtbT8GoEDeIDQhvEQOw3Ra+eSwt9OGc=
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com
+ [209.85.219.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-231-4ibF4pipN0ay6s97uAwjLw-1; Tue, 24 Nov 2026 10:56:52 +0000
+X-MC-Unique: 4ibF4pipN0ay6s97uAwjLw-1
+X-Mimecast-MFC-AGG-ID: 4ibF4pipN0ay6s97uAwjLw_1795517812
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-9211d51dd37so98951176d6.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 02:56:52 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795517811; cv=none;
+        d=google.com; s=arc-20260327;
+        b=mY6OlZzvIS5SoYDgjLG3Z0rsBhMmdQ/+l+Fle7y53YmwBHCq8PhKPk+vWihw0KjYNP
+         eKC1fWpV3XO0phfSuhkbS2cawXYSwmD2y1YhunNS3o3aSDfUqbb+mkwh+VNdkKbBrREL
+         F2I1YkC/Du4gL1QM56JsMD9q1gC3KPmJSeaF3CPM619ynAUlhGpV/UT1N5N8cgjZaphj
+         uy0E5rWNl0giUAZOEpltg7nCUZ2oYVu2aAOSX2eY7idsp+ek7980lr84OF0qNRjA/3BF
+         zAGZo7df+CosdvmUFFH6QRma/0VBaVBxzCxXcmWiJQw+gj3U1OIYLFPHbpmNP4od+Jut
+         Smew==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
+         :from:dkim-signature;
+        bh=vDS/jS4MsyU8dKC6AMUz/M/v6mO2eBfnVuVFitaUJyw=;
+        fh=dystiRtVXnjA/43a71QSAs4qv4Z/QH6/vc5a9iUhWWQ=;
+        b=Wv18h2K8m78xI+y5A+Xe0nYxpYQyjZVaI1fPtKAvotYNWJ3p7NqJeJrr/+L8uD8Z/h
+         C7taApF129xWjLQzmLYlaxRSHDMdt0Ne0ZQVEfOA3+VTCN2yjB67B+h3s/ilNDGwOGkx
+         59M8FjdQpjAiy/V5IK6sq0q80y8qFx/iwS+G+tWvI8zUbkEXTIaX9uL0xRvqyh5O7GWi
+         +ZWOolrRz4lKpA8NtiHnGrPWzDMjFnXjZA3ExSo5YrISGw6fHXx3o1PDKbQNf0k2na0I
+         2fj74zGC/3YBqYlSSJkti1VzLQQIck9i99BzXCJWDZ/v0kaHo9ydCjvPrsZiOcfam7+G
+         4gyg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795517811; x=1796122611; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vDS/jS4MsyU8dKC6AMUz/M/v6mO2eBfnVuVFitaUJyw=;
+        b=XCVcePqSOUks3iIbGZ00QwC40XUdVxy17wLPAYSX88ePVNfa1iJPCrf0+pYXMtqeR/
+         91UhYgkPYMu2o3QBmXuB76LBiV9lmtnIotgwOn2k72zIJLGMuhpqcjXL4bv0E/Eq1w5R
+         JRRiRR6pllV76XhOmu3Kosi1OFRyRAHjLUdEUVqenkRib9G1/4mjXvm25fjcx3QrfBvX
+         g6xF4sG4qjMxTQNkJG3OrwTPswOLZZQm8sJGN6TYSZ0cRumOgPkIyZ5B3cYF3uz+5D1H
+         1f3K/i6ilH9DoTb8SpGnngglJ+xhkAJAPG2iQn6IP1rPLW+vSGmLawvcLsaJd/THVhnh
+         NGjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795517811; x=1796122611;
+        h=content-type:cc:to:subject:message-id:date:mime-version:references
+         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vDS/jS4MsyU8dKC6AMUz/M/v6mO2eBfnVuVFitaUJyw=;
+        b=FZCVM1srh1h3/XdZCMEuDWjg/Hbvs2OC+o/LhPXBCbyv/0FBBJm0n5Gp/W+X4c4l1m
+         rAVNu0Z+h3sRznDozGw5gPbzvnWkphyHLoAOI3I5NR7KdRWqIKYrSgLl6B3dX0LBDHrj
+         LZmOdtv6SXNqlIKTfUM8t+Y9Wq/X3MWwdMlAOaytIxdrNCkBk21uC5bwLajdLqx6bX1b
+         m7SFevkMZhZKFRO3yaTr/Y8F40Je5dnBS8F9CCxKMW7iA4csE2agdA1LeZ1fiWXVYKLx
+         cJzFP6JjBe/+zOxMQZqH/FSzbjYaL+ibMjG9E65ElywaqTGvJ0D6dp5/k77ffp/sysVQ
+         W+Iw==
+X-Forwarded-Encrypted: i=1; AL+hErEbnYuACeCmj9BEtO8kYigc9nNC+v5c60DaJ/lJXJwzVYOTnLusZkidy0kAtP8QitW9NEtMtxY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8xk3LaJDKOPuJaS7LFzxqn5HVPruSmeHpheCPhdSZijZatRPEZ
+	XReJpML3VsbqnKxvkfJ0Ly/WNOu4/H6OS8sguMdH/dufDBN6SE1WRGmrCHcOZtZ6LwyQxO3I5dr
+	V7YaJzkoGrXuqKd5LDonYq4vXxOjwRWzxYY0ks5KfXa5xTtvgyCOggYsHH4tVi/jWiwd7hdnTZZ
+	LOCWG8QMrIXXaHXManF1m13+hekaflHvbS
+X-Gm-Gg: AZFdTZe9k9pbXPFI58L3jekgfVQRKuOz+E0FIGxtcsRlUza/tz6M5oO48nMOjc/Xovn
+	eA6pErA6XYqHV456+B1aQ5XD43807VEHjZSQgzC8rItQi0rofeoiDg/TITWBy8dj3FLE19CBjL8
+	M3sSOaWrbnpjzFIF8D/4ybvx6KGpnDy6p9kupooP90u/V586HFyPfX3Fo=
+X-Received: by 2002:a05:6214:226d:b0:921:37ed:5d0 with SMTP id 6a1803df08f44-92137ed0715mr242412936d6.48.1795517811527;
+        Tue, 24 Nov 2026 02:56:51 -0800 (PST)
+X-Received: by 2002:a05:6214:226d:b0:921:37ed:5d0 with SMTP id
+ 6a1803df08f44-92137ed0715mr242412426d6.48.1795517811018; Tue, 24 Nov 2026
+ 02:56:51 -0800 (PST)
+Received: from 753933720722 named unknown by gmailapi.google.com with
+ HTTPREST; Tue, 24 Nov 2026 04:56:49 -0600
+From: Sergio Lopez Pascual <slp@redhat.com>
+In-Reply-To: <20261120174540.37d152de@kernel.org>
+References: <20261117-vsock-vmci-netns-isolation-v2-1-d6f35e86416a@redhat.com> <20261120174540.37d152de@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,201 +126,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179544589189.3135.16381181122597988250@kernel.org>
+Date: Tue, 24 Nov 2026 04:56:49 -0600
+X-Gm-Features: Aa3M54oXKMFlMM1Oml5R3p9TM3DnPWFPNqxfUYAgRUMjL9U7VfA3l26fuKvgEVA
+Message-ID: <CAAiTLFVC-oxH-7N=FOCdVNcJEEVMU7WFV_k5t+g51Ce3ZdrO-Q@mail.gmail.com>
+Subject: Re: [PATCH v2] vsock/vmci: reject datagram binds in local network namespaces
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+	Stefano Garzarella <sgarzare@redhat.com>, Bobby Eshleman <bobbyeshleman@meta.com>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, linux-kernel@vger.kernel.org, 
+	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
+	stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The new sparx5_fdma_stop() disables both channels
->   (FDMA_CH_DISABLE) and waits for FDMA_CH_ACTIVE to clear.
-> - [Medium] sparx5_fdma_stop() now detects when the RX/TX channels fail to
->   go inactive within 10 ms (SPX5_FDMA_STOP_TIMEOUT_US).
-> - [Low] This commit fixes bugs that already exist in sparx5_fdma_stop(),
->   but it is framed as preparation for a feature and carries no Fixes:…
-> 
-> --
-> 
-> net: sparx5/lan969x: stop the FDMA channels properly
-> 
-> This commit changes sparx5_fdma_stop() so that it disables the RX and TX
-> channels through FDMA_CH_DISABLE and waits for FDMA_CH_ACTIVE to clear.
-> The old code cleared bits in FDMA_CH_ACTIVATE, which has no effect. The
-> commit also stops the injection port with INJ_STOP, fixes the inverted
-> XTR_BUF_IS_EMPTY poll, and adds the FDMA_CH_ACTIVE register definition.
-> 
-> > The stop sequence is used by the FDMA deinit, and by the FDMA buffer
-> > resize added later in this series.
-> 
-> [Severity: Low]
-> The patch is presented as groundwork for the resize later in the series.
-> But the commit message also says the current stop sequence never stops the
-> channels, and that the XTR_BUF_IS_EMPTY wait always runs until it times
-> out.
-> 
-> Both of those problems seem to date back to:
-> 
-> Fixes: 10615907e9b5 ("net: sparx5: switchdev: adding frame DMA functionality")
-> 
-> The existing deinit paths free DMA memory right after the stop.
-> sparx5_fdma_deinit() calls fdma_free_phys() on the DCBs, and
-> lan969x_fdma_deinit() frees the coherent rings and the page_pool. So on
-> current kernels, unbind or probe-failure teardown frees DCB memory while
-> the channels are still active, and every stop stalls for 10 ms.
-> 
-> Should this carry a Fixes: tag and go to net on its own, rather than as
-> part of the net-next MTU series? Without the tag, stable kernels will not
-> pick it up.
-> 
-> Could the commit message also mention the risk of the device doing DMA
-> into freed memory?
-> 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > index 8675702bf1504..8a847ec067de6 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> 
-> [ ... ]
-> 
-> > @@ -474,20 +477,39 @@ int sparx5_fdma_start(struct sparx5 *sparx5)
-> >  
-> >  int sparx5_fdma_stop(struct sparx5 *sparx5)
-> >  {
-> > +	u32 channels = BIT(sparx5->rx.fdma.channel_id) |
-> > +		       BIT(sparx5->tx.fdma.channel_id);
-> >  	struct sparx5_rx *rx = &sparx5->rx;
-> >  	struct sparx5_tx *tx = &sparx5->tx;
-> >  	u32 val;
-> >  
-> >  	napi_disable(&rx->napi);
-> >  
-> > -	/* Stop the fdma and channel interrupts */
-> > +	/* Disable the channels, and wait for them to finish the current DCB */
-> > +	spx5_wr(FDMA_CH_DISABLE_CH_DISABLE_SET(channels), sparx5,
-> > +		FDMA_CH_DISABLE);
-> > +
-> > +	if (read_poll_timeout(sparx5_fdma_ch_active,
-> > +			      val,
-> > +			      !(FDMA_CH_ACTIVE_CH_ACTIVE_GET(val) & channels),
-> > +			      SPX5_FDMA_STOP_SLEEP_US,
-> > +			      SPX5_FDMA_STOP_TIMEOUT_US,
-> > +			      false,
-> > +			      sparx5))
-> > +		dev_warn(sparx5->dev, "Failed to stop FDMA channels\n");
-> 
-> [Severity: Medium]
-> What happens to the DMA memory if this times out? The timeout only causes a
-> dev_warn(), and sparx5_fdma_stop() still returns 0. The deinit callers then
-> free everything without checking the result:
-> 
-> sparx5_fdma_deinit() {
-> 	sparx5_fdma_stop(sparx5);
-> 	fdma_free_phys(&sparx5->rx.fdma);
-> 	fdma_free_phys(&sparx5->tx.fdma);
-> 	...
-> }
-> 
-> lan969x_fdma_deinit() {
-> 	...
-> 	sparx5_fdma_stop(sparx5);
-> 	fdma_free_coherent(sparx5->dev, &tx->fdma);
-> 	fdma_free_coherent(sparx5->dev, &rx->fdma);
-> 	lan969x_fdma_free_pages(rx);
-> 	page_pool_destroy(rx->page_pool);
-> 	...
-> }
-> 
-> After the next patch in the series, sparx5_fdma_deinit() also calls
-> consume_skb() on the RX skbs.
-> 
-> If a channel is still active after the 10 ms SPX5_FDMA_STOP_TIMEOUT_US,
-> can the extraction engine write received frame data and DCB status words
-> into freed and reused memory? Can the injection engine also keep reading
-> freed memory?
-> 
-> For comparison, lan966x uses the same CH_DISABLE/CH_ACTIVE sequence with
-> a READL_TIMEOUT_US of 100 s rather than 10 ms.
-> 
-> Later in the series, sparx5_fdma_pause() follows this stop with an
-> FDMA_CTRL_NRESET reset, which covers the resize path. At the end of the
-> series, both deinit paths still have no reset and no error handling.
-> 
-> Would it work to reset the FDMA (FDMA_CTRL_NRESET 0 then 1) after the stop
-> in the deinit paths? Another option is to return the timeout from
-> sparx5_fdma_stop() and not free the DMA memory when it fails.
+Jakub Kicinski <kuba@kernel.org> writes:
+
+> On Tue, 17 Nov 2026 20:01:52 +0100 Sergio Lopez wrote:
+>> VMCI already rejects datagram sends from local network namespaces, but a
+>> datagram bind still creates a receive handle in VMCI's global port space.
+>> A VMCI sender outside the namespace can therefore deliver to the local
+>> socket. Its handle also prevents a global-namespace socket from binding
+>> the same port.
 >
+> Looks like someone (silently) applied v1 :(
+> 00f445721c7f ("vsock/vmci: reject datagram binds in local network namespaces")
+> Could you send an incremental fix?
 
-This was already dismissed on v2 [1].
+Is it worth it? The change between v1 and v2 is merely aesthetic.
 
-[1] https://lore.kernel.org/netdev/20261113075155.srvezxa2arqti64e@DEN-DL-M70577.microsemi.net/
+Thanks,
+Sergio.
 
-> > +
-> > +	/* Stop the fdma and the RX channel interrupt */
-> >  	sparx5_fdma_rx_deactivate(sparx5, rx);
-> >  	sparx5_fdma_tx_deactivate(sparx5, tx);
-> >  
-> > -	/* Wait for the RX channel to stop */
-> > -	read_poll_timeout(sparx5_fdma_port_ctrl, val,
-> > -			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val) == 0,
-> > -			  500, 10000, 0, sparx5);
-> > +	/* Wait for the extraction buffer to be empty */
-> > +	read_poll_timeout(sparx5_fdma_port_ctrl,
-> > +			  val,
-> > +			  FDMA_PORT_CTRL_XTR_BUF_IS_EMPTY_GET(val),
-> > +			  SPX5_FDMA_STOP_SLEEP_US,
-> > +			  SPX5_FDMA_STOP_TIMEOUT_US,
-> > +			  false,
-> > +			  sparx5);
-> 
-> [Severity: Medium]
-> Can this wait succeed if the extraction buffer is not already empty?
-> 
-> Both channels, including the extraction channel, are disabled and polled
-> until inactive first. Only after that does sparx5_fdma_rx_deactivate() set
-> XTR_STOP:
-> 
-> sparx5_fdma_rx_deactivate() {
-> 	...
-> 	/* Stop RX fdma */
-> 	spx5_rmw(FDMA_PORT_CTRL_XTR_STOP_SET(1), FDMA_PORT_CTRL_XTR_STOP,
-> 		 sparx5, FDMA_PORT_CTRL(0));
-> }
-> 
-> During the disable window XTR_STOP is still 0, so the extraction port can
-> keep moving frames into the FDMA extraction buffer. Once the extraction
-> channel is inactive, nothing writes that buffer out to memory.
-> 
-> In that case the wait runs for the full 10 ms. Its return value is then
-> dropped without a warning. FDMA_PORT_CTRL_XTR_BUF_RST is also never used.
-> 
-> Would the expected order be to set XTR_STOP, wait for XTR_BUF_IS_EMPTY
-> while the channel is still active, and then do CH_DISABLE and wait for
-> CH_ACTIVE? Resetting the buffer with XTR_BUF_RST could be another option.
-> 
-> Later in the series, sparx5_fdma_pause() drains the CPU queues before
-> calling this stop, and runs FDMA_CTRL_NRESET plus sparx5_xtr_flush() after
-> it. That lowers the risk on the resize path. sparx5_fdma_stop() itself
-> is unchanged at the end of the series, though, so this wait still does
-> not do what the comment and the commit message describe.
-
-The datasheet only requires the channel to be disabled before its DBs are
-discarded, so disabling it before XTR_STOP is fine. No issues observed about
-this ordering in our tests.
-
-> 
-> >  
-> >  	return 0;
-> >  }
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
