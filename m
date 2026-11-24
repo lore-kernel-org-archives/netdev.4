@@ -1,92 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.62.57.87
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795505359;
-	b=pEh4Ypo6o7ZYOHMuv0/DAOFNopEg0Cgu8sF2OzqPaxrRk1NQycPjCGwQXxn3KxJJ94VH
-	 xB6omQWTOdLNQZMEEGtIKNY131Uy2lB4RXjI8rhMtN1/PPMORsMvI/IEUT5gLHtJoBhGj
-	 KWAQnq1sR+xb8jENk8dcW7MDLLzXbpleUqZo1Kr/6ODcxCn9qNxo1SzIb7jL1EcY/BzfV
-	 8ECsldKL9VTqeijqVZDFzo7ozfjEJJdDQQJn1z9sE0o72ZA1xk1+HfEwFpYSU/Llcg8BI
-	 F9t63fH/YSBJj/t+A1z9BCiFkkKBfIX3zSDR30tLcq6CQ6kPByt20wxhZek9mpfnsfg==
+	t=1795505665;
+	b=WAeX1xtkVNjgZ5i+4Gr0Qaa7E3jlTo3vEP2fuLXOoqY1j6oQC6g4afSM3ElfF/eObxSy
+	 HL1ok5568wiRAk45DXsST6Iglcz17vU7Audz/FNfeQuXT3EDg4CCQDtu1Q+cFFsUadyTz
+	 rrHAn2iwMR+aufx3a9XzDvtstze6cdlddETF45ar96QxTbS87TksdiH/ArJy0b3ycUu9x
+	 k4hPaFmmbaKojuvyBbCBkwitRbMBUiS/7swsjoyudg0xc245tRM3Fn2hhuxCgbODvlR8q
+	 BUajxYKO5ZV/Ru01gIjNCAZVDkt9saflG3xGmNgfFZ69scZHmefRbLZDcdrh50/+kjg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795505359;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ff/cIHvuBVZnx7utLGrJmn640e8Haj+dm0NKl1pXUuU=;
-	b=3tQj4AXx7B4nZYgxf1Yss5xTTfFFUXsfoBvKyR9G+E3aoRhloEtzpV0hybPd+Cy4ffXD
-	 yve7CVBUq3xL3YUAWGEg3HDTdisuXhORhIxuFHB7tkQrmLrSXA2+xqjBIi7TQdVaIvbf5
-	 5J+xZSutXH1CpLe2MGw6mN6D+B2AJqX+MBSNlpLk5sn+uh2SzFyVPBzJoKRSQ67cqaBig
-	 JlUfPR2HQqK4hjyAZwn30zLjj/K7OSgzQ7gMuUh4d1lQuVwjkmbSCNiYS2BzK7UkN/epH
-	 7qRCxsTYb3BhGtw8I6RVfnO8TOd38UW+LYdmX/zCqtYwa/Exh97z2KlM7ZDY8oKQuYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795505665;
+	h=DMARC-Filter:DKIM-Signature:Received:X-QQ-mid:Message-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:From:To:Cc:Subject:Date:X-OQ-MSGID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=vfZOBxspxDQ7P2IBuHoXzQ0XfImR3bOjFKTPJX2P9/I=;
+	b=E+H3PW1LmAjSA7CSdK0NQXfTU+f79LQOqX325OWhCAEokr0ZxD9rjCqAdLtqIaHTd7IS
+	 rshC6Y2NUK+glEbOsDkvqjSOJMIIuTfE+FH/xN+4jHFZMnTw9iBLVq0jb1gUy1z6THgy+
+	 r58OA/oCPuyoxPY2nqPqe0MIFsc6MqjrlyNidSs6dqCWmsmM5pWgephY25KCbrR1iXH3D
+	 rOyvugEALlFqdFwGZfzZs5gT6m2w4EQUWiUtqfw15RkjdHaQXeP5el9qbYjEYq6VAw1dy
+	 7UY9TZBiErzXC5Ik5TuyBfNIyJ50MG3k8prBFLpPSORrdzazbYQBiJGwb/bxo6xla6Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ucmqpqnc;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=qq.com;
+	spf=pass smtp.mailfrom=qq.com;
+	dkim=pass header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Bfrnk6I6;
+	arc=none smtp.remote-ip=162.62.57.87
+Received: from out162-62-57-87.mail.qq.com (out162-62-57-87.mail.qq.com [162.62.57.87])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F99A606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:29:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F99A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7C89F606A321;
+	Tue, 24 Nov 2026 07:34:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7C89F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=qq.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=qq.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Ucmqpqnc
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cdb2893531bso2214557a12.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 23:29:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795505358; x=1796110158; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Ff/cIHvuBVZnx7utLGrJmn640e8Haj+dm0NKl1pXUuU=;
-        b=Ucmqpqnccjbj9PdQI0KJdYkmVPKb+A5q5QJjFGTEwbdad1o7vHAeliODepnaNiZQYw
-         NJWztHrCr7wSYoNJTuSbQaFeF+vXmScRy5evJUEYUlZitg1QD75jY/bEN8NzqewwEfyp
-         4/EkxePwiIse+km5wckl8e4xHoOaTyKL2PakL+UIyU1hTDRJkwmup9w/SwyCA+k0JKuT
-         S7b/EtLoVLdTn5IgnxBxP/ARnxYNQlSsr+YhvMDc95IIphEtfxbE/CMKA6Xu9+/r7iLd
-         jAQRASOlUP24itkMrQMxQ2sIzsMKi+FCMHfXqTnNrA2AJalwpf7DKQQgNF/Eso7sL6M1
-         X+VQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795505358; x=1796110158;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Ff/cIHvuBVZnx7utLGrJmn640e8Haj+dm0NKl1pXUuU=;
-        b=tqFsv80ZdqOuIeys3xJ/d0pi4olJLZH6sjW5tBDHa8Zj+ZcNy2q5QptieLJ0eD0P0+
-         Sqn13s8VSj3GPsaEGCLEpzQrnLzZ9J0itA5abxQ0rhLNfp5c8Yr25fpVBRtCuW++rr0+
-         0lF2hyzzBOgs4gkBIxYYSD7l85WQLUCHTETd/lQYBgQC7PsKBT+NLGj+x7Kz6mtlsm5q
-         GUsKCiu2tNBvZcDJdAlvo8N2f/fYKFbRZH9pjWVY/d/bxDHTx2fiXRg6+ucd2BcSaX0e
-         sx8/f/rcExBup70DZbPqcckoWKKHyTWVHEqUxaCuUxVbb6+tTEPUE0idzODly0ZdeoRA
-         NXKQ==
-X-Forwarded-Encrypted: i=1; AL+hErGkxei13mz69VaVh4SSDPYEHg+BtjHaUxpZQ0f1wmANMCbQn4CsSzbYpHxCuoG6OIYke+feh+0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+V9VcXWEoE2Tl9smWmHmrujb/N5lALo2cdnYFj/QBndKUctS/r
-	BkFjDVCtZ/N3tLnEM9fVL0w3nmacPUFKZ5sxPwuLUQSGy1DfbqfmQ8WB
-X-Gm-Gg: AZFdTZdmj8Lt9aK9XDRG2ON5GaL4IurvAwM0yxumlVHimZGr3Tnen1j6hj2/rXoxu7n
-	wYVbL7OTu9i9KQPg4nSGT/PJRy8LnirHIP1o1gYTGshNdWiNZ2gVjoKx0/z5c0T/5mZ8LQXZ5L3
-	GunAhOla+KtEDAk3KFAJpnsNG3NUoYl0C7YgHXSHETG0ooe67wkVcqsepA51wz3UhuU+haEQuWN
-	JkWMAdhL7iJ+5LV5PxK2zte1XfDxS+47W/jTn/b0jmBuF74NfkU4/Y6duST2TTgkSmGZtTBVOSD
-	rFr1Xn3+71lcnOq0HLJZF2EFi1DiZtl7dSXA+AuKGn9HTOUPqCPGtsa+IhzWqq5Qz18IffZtAXA
-	QmE2I2hlG+eDAGL0GD51yVkl+puEDF0jS8x8pltlvLhoSRRQRF0SaIKe2yh+xNFkCpUf9hRps2w
-	POMpROC7Uxawf3jymfaAYSMtefL/F7scClK5PRzDEcEsD4jmX4rPX+Fv4FRgIbOBI2C+tEIfBFs
-	MOJtauXuDTzpvLla0bo9nYydmMW4lRqGdeduz2hV9fmTwoXpqWqhAyW6xSQx1Uxcxl4ooLSduVv
-	b5h615CIUatORbhLvwn0rN+7aKLAfNvVk1wB8re2jOat/GL1CoGRIAUjBXxOelv8etR47CX3jD6
-	DMeFgiTAdXS6aWhXke7nVLmmrlHqtxjT9ZcpW
-X-Received: by 2002:a17:90b:2c87:b0:3b0:9e42:b67c with SMTP id 98e67ed59e1d1-3b41c96ed40mr12458674a91.61.1795505357803;
-        Mon, 23 Nov 2026 23:29:17 -0800 (PST)
-Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([43.224.245.233])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b0f482bdsm5930398a91.14.2026.11.23.23.29.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 23 Nov 2026 23:29:17 -0800 (PST)
-From: Qican Ma <goonsomeway@gmail.com>
-To: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com, sidraya@linux.ibm.com, mjambigi@linux.ibm.com
-Cc: tonylu@linux.alibaba.com, guwen@linux.alibaba.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org, netdev@vger.kernel.org
-Subject: [PATCH net v2] net/smc: serialize clcsock release against CDC receive path
-Date: Tue, 24 Nov 2026 15:29:11 +0800
-Message-ID: <179550535135.21127.16258389542236461283@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=qq.com header.i=@qq.com header.a=rsa-sha256 header.s=s201512 header.b=Bfrnk6I6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qq.com; s=s201512;
+	t=1795505652; bh=vfZOBxspxDQ7P2IBuHoXzQ0XfImR3bOjFKTPJX2P9/I=;
+	h=From:To:Cc:Subject:Date;
+	b=Bfrnk6I6U2mvxm5Mjhm8vQJ0/wibSXzSESlMOUAkgnbAKOiUcmwc3DNTfTYLWxral
+	 L6idzxjG2/E7y7JXEaiVoY+e/pdCtz2GLvaN1h2SnYhpzi1b53oEZyRJnboHGyQ7Fy
+	 PFPy21w22x5NwIi5NthL827xJlMyZDtCon2sn1AY=
+Received: from localhost.localdomain ([182.239.88.62])
+	by newxmesmtplogicsvrszc43-0.qq.com (NewEsmtp) with SMTP
+	id 889B8CA3; Tue, 24 Nov 2026 15:34:09 +0800
+X-QQ-mid: xmsmtpt1795505649tadbfw6cp
+Message-ID: <tencent_0D3F10E667CD8029160DC031D700756D480A@qq.com>
+X-QQ-XMAILINFO: MFkgsonL4eTu5KvOdqr1InTDIm87MbpIypxts8D6DA3ODrhYoz8PFxiZEw7UPK
+	 lUnoeK6NM/2AVBD0Mwc1eHiM+bGhxtlBxr/mfYnoxwWR1fYNHVi/cRiwlOcTau91Hgfd0Y/RX8EJ
+	 YKLCK4yz9cygkw8WIgUDloxaO4C0kwU4CgJHhVQzNnAvBb7IsuqJ2xb74FEmQ9mreAIiIb5I7xVE
+	 FVTnZ9+DLUYWCxTsClvvLhPwxIw26pDH/5lXgnVPJozNXgFCCeAro3CPND7BycEafjTH7/9zE7MF
+	 v2gCcz0BM0bdenR02DdjVtyBn/aj8AWOF+fFoInqxVrnQEvPyqZ5gWl6ay5i/5khb8Na/9Vd7QPc
+	 6z2GTwh817lcENBRAV9hqnmVbnwHehZe4uAMccKyLwTlayVFdIM8sGfP+w8tP/F/TOeXoJjtX+9w
+	 7bKkiRQZgr6gKryv1Kx3MmcLKxQfuYOMAKcRzHFlVHUFhS72Btm16J8dinQ0ny+I0szpPLI7jKoG
+	 5y1kwA7d4Z7we3fLKhxUY2U/DHIPS8D0jVEMSZ+/ZVcl6eZez0fXUWpia+JupOJ8YL+yH8zxcEr+
+	 5+M49Bi3/T2NcRr7TUITzFoROg4dkiRYG8l/JJJs52kLo8us5j86FSLNHBW4h6QopOiNJYYW71b0
+	 yhx2Ja8gYWD7FJCMESjnMqg0eK8W0aWxufM0U231GpDM5Cuyu3/rsEv61txW2SUOTWo9ENct/aYk
+	 UaLpI1AR6bM58+EstJde+IF5K/lZZcxZVZzWs8/4x1jg4f/jbMSX9ajL6j8vkzuFfY6cOsi0BFTw
+	 VG7qWuINg97uLUuSD9bwePU5BYJfbRyvRGz0EXMETli4V0vk4wW3MZOtm6NBQrv1Cp9ghvwukivD
+	 FO62Lf4/YhFvPmD7UcwnqszaB7ys85oZJUYl4BO0j2H3qo7aDf771zzlAECs4ojj1let+HkLSfOX
+	 5mTDP4b/ZbxtygD0SJOXekDozsYawRKxckI1O/wLfeVSq/NZUHM/INMlVjt4htxhCiMn+lEP2/M2
+	 2rEfo3WrhLwa8ivGT3In0kQ+auxXfSziA/IA+3izmCCT7If2K4yAR8/cTKZIMitc16QmbiCw==
+X-QQ-XMRINFO: MPJ6Tf5t3I/ylTmHUqvI8+Wpn+Gzalws3A==
+From: Ma Xinmeng <1564938642@qq.com>
+To: Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>
+Cc: netfilter-devel@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Phil Sutter <phil@nwl.cc>,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH nf v3 0/1] netfilter: nf_tables: only disable tables on a dormant transition
+Date: Tue, 24 Nov 2026 15:33:11 +0800
+X-OQ-MSGID: <20261124073351.1562-1-1564938642@qq.com>
+X-Mailer: git-send-email 2.49.0.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,75 +79,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-In smc_cdc_msg_recv_action(), receiving a close or senddone flag writes
-RCV_SHUTDOWN to smc->clcsock->sk->sk_shutdown while holding only
-bh_lock_sock(&smc->sk). Meanwhile __smc_release() drops the socket lock
-and calls smc_clcsock_release() (which clears smc->clcsock and calls
-sock_release() under clcsock_release_lock) before calling
-smc_conn_free(&smc->conn). Even on paths that call smc_conn_free() first,
-an in-flight SMC-R softirq that already looked up the connection in
-smc_cdc_rx_handler() can still enter smc_cdc_msg_recv() concurrently with
-smc_clcsock_release() and dereference or write through a freed clcsock.
+Hi,
 
-Free the SMC connection before releasing clcsock in __smc_release(),
-matching smc_close_active_abort() and smc_close_passive_work(). Because
-smc_conn_free() sets conn->freed = 1 while lock_sock(sk) is held and
-release_sock(sk) synchronizes on sk->sk_lock.slock before
-smc_clcsock_release() runs, checking !smc->conn.freed under
-bh_lock_sock(&smc->sk) in smc_cdc_msg_recv() guarantees that no CDC
-handler accesses smc->clcsock once smc_clcsock_release() can start.
+This is v3 of the fix. v2 included a selftest in the kernel tree; review
+asked to move it to nftables.git as a shell test under
+tests/shell/testcases/transactions/, where run-tests.sh already handles
+the tainted-kernel check. v3 keeps only the one-line kernel fix; the test
+is sent separately as [PATCH nft] (0052dormant_table_adopt_0).
 
-Found with an LLM-assisted code review tool and verified by inspection on
-v7.4-rc4 (b6a9fa34ce4). Build-tested only; not runtime-tested due to lack
-of an SMC-R/SMC-D setup.
+The problem is unchanged. A dormant table has no registered basechain
+hooks. Re-owning an already dormant PERSIST orphan sets
+__NFT_TABLE_F_UPDATE because of the adoption, and nf_tables_commit()
+used to call nf_tables_table_disable() for it. That cleared DORMANT,
+walked the chains, and unregistered a hook that was never registered,
+triggering WARN_ONCE("hook not found") in __nf_unregister_net_hook().
 
-Fixes: b38d732477e4 ("smc: socket closing and linkgroup cleanup")
-Cc: stable@vger.kernel.org
-Signed-off-by: Qican Ma <goonsomeway@gmail.com>
----
-v2: resend via direct SMTP to fix line-wrapping corruption in v1;
-    verified clean git am on net/main both standalone and on top of
-    Bryam Vargas's v9 CDC cursor bounds series.
+v3 only changes the NEWTABLE commit path to check
+__NFT_TABLE_F_WAS_AWAKEN, which records a real awake-to-dormant
+transition:
 
- net/smc/af_smc.c  | 4 ++--
- net/smc/smc_cdc.c | 3 ++-
- 2 files changed, 4 insertions(+), 3 deletions(-)
+- if (table->flags & NFT_TABLE_F_DORMANT)
++ if (table->flags & __NFT_TABLE_F_WAS_AWAKEN)
+      nf_tables_table_disable(net, table);
 
-diff --git a/net/smc/af_smc.c b/net/smc/af_smc.c
-index bfc0c7e71a1..1d8a602729c 100644
---- a/net/smc/af_smc.c
-+++ b/net/smc/af_smc.c
-@@ -313,13 +313,13 @@ static int __smc_release(struct smc_sock *smc)
- 	sk->sk_prot->unhash(sk);
- 
- 	if (sk->sk_state == SMC_CLOSED) {
-+		if (!smc->use_fallback)
-+			smc_conn_free(&smc->conn);
- 		if (smc->clcsock) {
- 			release_sock(sk);
- 			smc_clcsock_release(smc);
- 			lock_sock(sk);
- 		}
--		if (!smc->use_fallback)
--			smc_conn_free(&smc->conn);
- 	}
- 
- 	return rc;
-diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
-index 32d6d03df32..499a2473b79 100644
---- a/net/smc/smc_cdc.c
-+++ b/net/smc/smc_cdc.c
-@@ -428,7 +428,8 @@ static void smc_cdc_msg_recv(struct smc_sock *smc, struct smc_cdc_msg *cdc)
- {
- 	sock_hold(&smc->sk);
- 	bh_lock_sock(&smc->sk);
--	smc_cdc_msg_recv_action(smc, cdc);
-+	if (!smc->conn.freed)
-+		smc_cdc_msg_recv_action(smc, cdc);
- 	bh_unlock_sock(&smc->sk);
- 	sock_put(&smc->sk); /* no free sk in softirq-context */
- }
+The WARN was found by FuzzAnything's AI-assisted kernel fuzzer while
+fuzzing nftables netlink messages in a user and network namespace, and
+I reproduced it at runtime on 7.3.0-rc4, 7.3.1, 7.4-rc1, 7.4-rc2, and
+7.4-rc3. The v2 code was A/B tested on 7.4.0-rc3: baseline WARN, patched
+no WARN, and a real awake-to-dormant transition still disables the hook.
+
+Changes in v3:
+- drop the kernel selftest; no change to the one-line fix
+- move the test to nftables.git as a separate [PATCH nft]
+- keep Fixes: 31bf508be656 ("netfilter: nf_tables: Implement table adoption support")
+
+Link: https://lore.kernel.org/all/tencent_19A48DA487BBFCFD990AC5A8010C663EA007@qq.com/
+
+Thanks,
+Ma Xinmeng
+
+Ma Xinmeng (1):
+  netfilter: nf_tables: only disable tables on a dormant transition
+
+ net/netfilter/nf_tables_api.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
 -- 
-2.50.1 (Apple Git-155)
+2.56.0.windows.4.niugit
 
