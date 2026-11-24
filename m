@@ -1,58 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795523437;
-	b=CDkaOKeyf/jtF8UBtiSyhTWIf2Doj0QmI7C+iUHkDB6kpxM5E3xolLzvRShVM05+l23h
-	 CRIfHW9LdzktU8aleIABcLmxPDKTtA3Moc6e477BI9gnhVqQVzaAc3toHF4Sy5YL+RWAh
-	 tA06Rx4oyf93MzwoW2KzTiJupZGE02rR4FfKro794RPJ2SIMv8eBMdmbd/rv+aiHxVXag
-	 UOUsYnaxQ7G/4nIUOfqen2hd8WtmE6EYp+mWYe/ZcDM2HbLzvNV4xoT9gydN4UHrPgLH7
-	 MTLF3DFAPzWyJp6mJT21Xt/7qHisGF/VfAzHomfHGotKgSv2rh7ItE6hj5DLPJTxJNA==
+	t=1795523519;
+	b=oCAsOSLapPlIadCqHz7nfeB+60fT7G/x9xDUq8vav8CG4g75TdKF0Gj6pc1O79bX2yGQ
+	 MxjADflND6Ivfwv4PZEu8+RkkLezHt7yKH7fxnr+t8VseoHAHugZwXGQz36t/AJKvxe+k
+	 FyP1zghLgxpj4YPVIUHmAqpoAYMMAeqhHArxdTgvpXV8y7rr9haMXPqsAO8HY67/Txm4A
+	 6u6iwGXBq05+Myjkbof5whY/WhPNoibQpq962gJlCo53r+l8etBb13z7pDa6MB+UgJg/F
+	 0nt5CEzjMxu+Ilqj5oGekjtD2H2EQb8dPNQVDeY0u0tR4DQ3aHT19QBZB+zOMJ5go/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795523437;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=DMPNZchYUXAtwehIK7vlljCTJPCza5ZwhkvTZtKsMCs=;
-	b=Tpme4ShFxiC/xVJLFC6Sfeee6hx80ZjhcACAiGFH4SmBJZsgF37EZVPWt1KpuPQ8RTgh
-	 0XI2AUhV5uXEDCmWIAeOzshDywnHKe3L2I1UeRDCeNsLyEB5Ydo61wr0agpJ7fk2JrDdM
-	 yFJZSgAIHnCTlVr5t+COj1hLsculWHHoLQ4dsnIGEywwxjZ7kupgkMN0JZULJ42GSmUg+
-	 Y3+/b//CLPbHpxlKI5P2639OTNnajcHVQiY5RxWyvwwZ7O2Z8xUt7NjcjXK53gxQBGc+u
-	 p4iohCg0Rev17rQ5PE55gDiMQVym+y0jEdKETFRo4ZadEwafEADNMfvsleXiUyJLWaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795523519;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
+	b=dqWJ6gtarfMqBaLdP1l14hL8LX2glLl424/oyo0zkq0K/VPT3ptR84e6ScIaWXvC4vzU
+	 ndHBUj94i/TfGzxjXXd9aKDHMGhKI8iR4LeeYeBSRWBy93aSkk4Rynl1UKWgvchmLzpUk
+	 E/jrDpFIfJY6OkJJBHJayDLubE6yuUkMORlNCzTZWwLU8t+EEOgJlezMw52OFIM2JtPLC
+	 G3Z5Mf76BWY7s40de+vboPsW4H0Dkruyvb3DhYCXNwinNOBvQB/bFpzf0cf6jItwrZ5OX
+	 moSvW4AlX6QIVxBYcfqhQGBFXqeeRdfPgUJ+f7g0KWTWYzu+7dV2dhIgL/re6573VGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddjD9Lta;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wjCUpmNl;
+	arc=none smtp.remote-ip=209.85.208.51
+Received: from mail-ed1-f51.google.com (mail-ed1-f51.google.com [209.85.208.51])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 302C1606A32C;
-	Tue, 24 Nov 2026 12:30:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2325606A322
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 12:31:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2325606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ddjD9Lta
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 311301F000E1;
-	Tue, 24 Nov 2026 12:30:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795523436;
-	bh=DMPNZchYUXAtwehIK7vlljCTJPCza5ZwhkvTZtKsMCs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ddjD9LtaKuCVkbyojVHPhNS4t+pc55bD4CUt6VEN1qwQhxvzSRKM1oI7yFCfQlNme
-	 hEeDcowmUheWXIIiTXTk5YSG5WeoiWo1QFQ/VW76y8vl1m2rpuZzlmPZE2+c0ZjiWV
-	 2cKXHfoiPP3AyoQySMWUAd19CJsdSvaLakRVxz/BVAYig15XmJVT8odLnXFa0JhY+R
-	 u5LheZ3nyc7ldOIKxmPY5i9visrPOXSz68/V7aBCJrvdYkolQG/cMXGRa+ZHCFlH15
-	 bMz8Q8O11rx10h+n62Kd7KxjnyKV7EvOBl5CORhghTQFACIEFqVyaUoW6qBjuAC9pK
-	 u/ZTp38una2eQ==
-Subject: Re: [PATCH net] r8152: do not (un)register the PM notifier under RTNL
-From: netdev-bot+sashiko@kernel.org
-To: yuanhsinte@chromium.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, hayeswang@realtek.com,
- linux-usb@vger.kernel.org, netdev@vger.kernel.org, yuanhsinte@google.com
-Date: Tue, 24 Nov 2026 12:30:35 +0000
-Message-ID: <179552343569.3135.5205506648034787768@kernel.org>
-In-Reply-To: <20261123-r8152-pm-notifier-rtnl-v1-1-31e011a2ee51@google.com>
-References: <20261123-r8152-pm-notifier-rtnl-v1-1-31e011a2ee51@google.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wjCUpmNl
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-6ba38c41804so5071002a12.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:31:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795523517; x=1796128317; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
+        b=wjCUpmNl+mRVvplDoEgumYPE3g2vqJKQo580YWEMbgKWCwgMLPfczJbnJxQ2Lx6fJS
+         yMpi0u2vJaALSnXWBIHszPeiqA8DCjAM+BWjq6vY+ps/NaGroZjTsfuQgmP7K4h+36Qz
+         tQUPmLxV+LEfU1HxNxDFfHAgAqiFd4ma61hQXlKn1wGEgaZaDUk6pSN5v6EIgXxgMe3t
+         npl0OXnPrxY6k3giZUxQ58l7irS7XvjxWs1BVUZvTke76E5MjqYYNGj9HMBsQwvf+U3l
+         9EdajxbwknzTCJQr6V2FnxbYW82Nsi7Bp338o/4kSx+7Bzf7mU9y9WbTXxn2OZQzyleL
+         bErw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795523517; x=1796128317;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=VAGi8ADLbe1nwsDdtMJUG+mqysismIkmi3QPANzknRE=;
+        b=VJfG3nCFK8q1BpkdV6/VVVy4PP9mRLpqHIpbwyyjAuoLy9r42IYTSiHxMix4MPpUIs
+         LQ+Bi0bkh/vrnl4eNxdX1yBUjZbocj+aIMWwimZaRic6MTHXHw4aCxDtXjv8MW9f/Jb2
+         zN9xKqo9AJQ+L6gt2TTqBOM3kLTgjpXQB6ERyiPctDLcSE7JPJ5glMf+rIFqcY976vhO
+         Ib+aHFNDWDOQko9KT8ujU9wcRzamij+dvSr6LT5XJFhslyLqwvFTGYHGvadVflTbWZZB
+         Hols83TWD+AHKqnEM51zFB4vFggZHyCO31M+66WqxKh45AVoAXuhqcP8jo2Et3/DKnXM
+         Dw8w==
+X-Forwarded-Encrypted: i=1; AL+hErEe3MvIso/yiI9byb3j3nmp6Tt6wPR0Ewweta8Hw46nPhr9cMO3WAFH1c97R1D7lLI0UqCIw+M=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/swR2ZHDVIJadKQd413HN4eR3lfcvUcpKReTZU4GN7KdKSbtZR
+	BXYxiDBcU66meh810kOp3N/1MLAaH5XuW3FAMDm6pDuDDFJtvatBV5qX
+X-Gm-Gg: AZFdTZdhKAvhMThe5ZXNEk+1KjBEuTPVuTTtCYpg00dR9ynb0Ibq/7NtGIW7CxbTKbe
+	245pxSAiq9PzNIuFb/ciWcuObgyGAcNzKD5MzF0gDxzWDU071CbqytwJXW/XYtOeQ/2/vEpBnc5
+	t74xjR4v7HWRMfQgkWFe4Jiv44NQNaR/R6oKrUh3UGP26Rfjgc5lXEHz7jZyfXN0yeLDRgYPO72
+	mq8cDqviFF5Ydtzfowq1ARRYhpPXyoNIjHWDdJrOfIN7SxIBjbYWWIhvLn4VvLTCQGnquhVBjKB
+	ZRyLOkx4Dpu+Hjj9clUEVWS1Tpq5sXi3rfL4NkkwO5Ehd0euAYrBDdjYFqzc9xZs0YEADWtlZcJ
+	DvehC7kRDwB0T0f8Gj4i/5JUBQQ+SjaHAi3HGOLfnDkl5SGDYKkE3FfHyG93jYOBVDWmAlChxRI
+	8XjaIeiKYEznS7RzeTy85G959t+rKb8buUzrYmN/sBbKOKXKWxKNOGQJpALOGXPDItxRNv0jbLJ
+	jTdbeUCtVAeCQbmrZs/C+vEkDNE7VydF9a47FXAVkp9PchEmd5xxDVa+Ixl7oJqfpwl1N0c+4Ul
+	MEV5TJ1+i2vlpUySdD9K98fI4JWk/fcPR+VdUapviDp7QRQOpqLgbHTlNWWrvBV3SH4JVAQwh8y
+	frYdRNV2kQV2MTCH81PccRQL05+GCrvqHUDSO2zrB92ykj/MSJ1S/jsDZSdOisH7kzs2ZY5WmIt
+	zI62B4OSIADCitxfF0trY5PoSCCXg7EFHw8yqP9+ZmqUdBkp5GI6qiFAsZj9GFOu8=
+X-Received: by 2002:a05:6402:ea9:b0:6ba:eb4c:487a with SMTP id 4fb4d7f45d1cf-6baeb4c48ccmr1907009a12.22.1795523516710;
+        Tue, 24 Nov 2026 04:31:56 -0800 (PST)
+Received: from [192.168.100.100] (87-205-15-91.static.ip.netia.com.pl. [87.205.15.91])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba854bed08sm4675512a12.30.2026.11.24.04.31.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 04:31:56 -0800 (PST)
+Message-ID: <02419845-bab8-4e36-9a98-6830761da1b9@gmail.com>
+Date: Tue, 24 Nov 2026 13:31:55 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,130 +94,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net/x25: fix invalid lock_sock() usage in
+ x25_kill_by_neigh()
+To: netdev-bot+sashiko@kernel.org, syzbot@kernel.org
+Cc: syzkaller-bugs@googlegroups.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, linux-x25@vger.kernel.org,
+ ms@dev.tdt.de, netdev@vger.kernel.org, pabeni@redhat.com,
+ duoming@zju.edu.cn, horms@kernel.org, linux-kernel@vger.kernel.org,
+ syzbot@lists.linux.dev, ngocthang2710.1999@gmail.com
+References: <00f667e3-a158-4fb5-84a3-9ecda4718ce8@mail.kernel.org>
+ <179551432467.3135.11868205229731190547@kernel.org>
+Content-Language: en-US
+From: Krystian Kaniewski <krystianmkaniewski@gmail.com>
+In-Reply-To: <179551432467.3135.11868205229731190547@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, 24 Nov 2026 09:58:44 +0000, netdev-bot+sashiko@kernel.org wrote:
+> - [Medium] When the new softirq path finds a socket owned by a task, it
+>   only sets a flag and leaves the dead call usable until release_sock().
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 1
+Agreed. While a task owns the socket, the flagged call keeps its LCI
+binding until release_sock(). __x25_find_socket() still returns it, so
+frames that arrive after the restart go to its backlog and are processed
+in the old state before x25_release_cb() runs. The owner can also still
+transmit on the old LCI, and after a LAPB disconnect this brings the
+link back up.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+This patch follows the same design as Thang's patch from October [1].
+In that thread Martin confirmed both effects in a test on 23 November
+and announced a v2 which skips flagged sockets in __x25_find_socket()
+and returns early from x25_kick() and x25_write_internal() for them.
+That covers this finding, so please drop this patch in favour of his
+series. I will not send a v2 of it.
 
-- [High] Moving unregister_pm_notifier() out of rtl8152_close() removes
-  the only thing that kept rtl_notifier() from racing ndo_stop.
-- [Low] The commit author address does not match the Signed-off-by
-  address.
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but it is still
+>   reachable after it.
 
---
+Agreed as well. x25_disconnect() clears x25->neighbour since commit
+4becb7ee5b3d ("net/x25: Fix x25_neigh refcnt leak when x25
+disconnect"), and x25_sendmsg() and x25_output() dereference it after
+they take the socket lock again. Martin wrote that he has a separate
+fix for this.
 
-r8152: do not (un)register the PM notifier under RTNL
+x25_recvmsg() has the same kind of window, and the review did not
+report it. If x25_disconnect() runs after skb_recv_datagram() has
+dequeued a packet and before lock_sock() returns, x25_recvmsg() then
+calls x25_check_rbuf() on a socket without a neighbour.
+x25_disconnect() does not clear x25->condition, so with
+X25_COND_OWN_RX_BUSY still set and sk_rmem_alloc below half of
+sk_rcvbuf, x25_check_rbuf() sends an RR through x25_write_internal(),
+which dereferences x25->neighbour. I found this by reading the code and
+have not reproduced it, but it may be worth covering in the same fix.
 
-This patch moves register_pm_notifier() and unregister_pm_notifier() out
-of the ndo_open and ndo_stop handlers. They now run in
-rtl8152_probe_once(), its error path and rtl8152_disconnect(), which
-avoids a deadlock between RTNL and the PM notifier chain rwsem. It also
-adds a PM_NOTIFIER_AUTOPM_HELD flag, so the runtime PM reference taken
-by rtl_notifier() is only dropped if it was actually taken.
+Martin, syzbot tracks this report separately from the one in Thang's
+patch (extid 9faa82ae2e94c5c7d2ef). Could you also add the Reported-by
+and Closes tags for 300375dfd44665f063a6 to the series, so that syzbot
+closes this one too?
 
-> Fixes: 5ee3c60c8d3b ("r8152: fix the wake event")
-> Signed-off-by: Hsin-Te Yuan <yuanhsinte@google.com>
+I am happy to test the series with the syzbot reproducer once it is
+posted.
 
-[Severity: Low]
-The Author line uses yuanhsinte@chromium.org, but the only Signed-off-by
-uses yuanhsinte@google.com. Should these match?
+[1] https://lore.kernel.org/all/20261001150118.128470-1-ngocthang2710.1999@gmail.com/
 
-checkpatch reports this as FROM_SIGN_OFF_MTCH ("From:/Signed-off-by:
-email address mismatch").
-
-> diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
-> index d3bb7ee9c9bf3..fea47a8924149 100644
-> --- a/drivers/net/usb/r8152.c
-> +++ b/drivers/net/usb/r8152.c
-
-[ ... ]
-
-> @@ -7155,9 +7158,6 @@ static int rtl8152_close(struct net_device *netdev)
->  	struct r8152 *tp = netdev_priv(netdev);
->  	int res = 0;
->  
-> -#ifdef CONFIG_PM_SLEEP
-> -	unregister_pm_notifier(&tp->pm_notifier);
-> -#endif
->  	tasklet_disable(&tp->tx_tl);
->  	clear_bit(WORK_ENABLE, &tp->flags);
->  	usb_kill_urb(tp->intr_urb);
-
-[Severity: High]
-Can rtl_notifier() now race with rtl8152_close()?
-
-Before this patch, rtl8152_close() started with unregister_pm_notifier(),
-which does down_write(&pm_chain_head.rwsem). That call waited for the
-whole PM_SUSPEND_PREPARE chain to finish, including the synchronous
-runtime resume started from rtl_notifier():
-
-rtl_notifier()
-  usb_autopm_get_interface()
-    rtl8152_resume()            /* takes tp->control */
-      rtl8152_runtime_resume()
-
-The notifier now stays registered for the whole lifetime of the device.
-Nothing seems to stop this path from overlapping ndo_stop.
-rtl8152_runtime_resume() checks netif_running() once and then does:
-
-	tp->rtl_ops.autosuspend_en(tp, false);
-	napi_disable(napi);
-	set_bit(WORK_ENABLE, &tp->flags);
-	...
-	napi_enable(napi);
-	...
-	usb_submit_urb(tp->intr_urb, GFP_NOIO);
-
-At the same time, __dev_close_many() holds RTNL, clears
-__LINK_STATE_START and calls rtl8152_close(). That function does the
-following without tp->control or an autopm reference:
-
-	tasklet_disable(&tp->tx_tl);
-	clear_bit(WORK_ENABLE, &tp->flags);
-	usb_kill_urb(tp->intr_urb);
-	cancel_delayed_work_sync(&tp->schedule);
-	napi_disable(&tp->napi);
-
-If the napi_disable() in close runs first, would the napi_disable() in
-rtl8152_runtime_resume() loop forever? NAPI stays disabled until the
-next open. The resuming task holds tp->control and holds
-pm_chain_head.rwsem for read.
-
-rtl8152_close() would then block in usb_autopm_get_interface(), waiting
-for that resume while still holding RTNL. That looks like the same
-suspend/RTNL hang the commit message describes.
-
-If the napi_disable() in the resume path runs first, close waits for its
-napi_enable(). The resume path then sets WORK_ENABLE and resubmits
-tp->intr_urb, which undoes the teardown. Close then continues into
-rtl_ops.down() and free_all_mem():
-
-free_all_mem()
-	usb_free_urb(tp->intr_urb);
-	tp->intr_urb = NULL;
-
-	kfree(tp->intr_buff);
-	tp->intr_buff = NULL;
-
-Is the interrupt URB still queued at the HCD at that point? If so,
-intr_callback() would read the freed tp->intr_buff and resubmit the URB.
-That would be a use-after-free, with DMA into freed memory.
-
-Other autoresume sources, such as remote wakeup or hw_phy_work, can
-already race close this way. The PM notifier, though, is a new trigger
-added by this change.
-
-This needs an interface that is up but runtime-suspended, and an ifdown
-that runs at the same time as the start of system suspend or
-hibernation. PREPARE notifiers run before tasks are frozen, so these two
-can overlap.
+pw-bot: cr
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-r8152-pm-notifier-rtnl-v1-1-31e011a2ee51%40google.com
+Krystian Kaniewski
