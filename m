@@ -1,81 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795518311;
-	b=4L9O7HDfCbWyUY/rPk+4GtbzVc5mGfasS+FlAB68xzkm5PzDLxswPP3hQfwDpRrmjfMX
-	 0/3sQ6VqlI7uFmugDWp7kUAtetnMn9Xa/bTGzYy0cjCLQY7GCj1PIyhc4Br5jeOqOjuA4
-	 rRiEOcuzcK3Kkoxvfkh2YUqA9b1hfIdDFYwWnfm2NI+WMhBkkHFkMvNbVLzuRNYLhMs+y
-	 /Acc2k8W6bMeuM8uoRp+MxtEw/Zy2lkdlfHhBhZgGmWP95/A25SBMYKqwwDaIpOvnCAQo
-	 aOQMupe3SA6XK9Cg4KE/S5ZfIJZl7ANyzXkS8/QohkaQ39PVZshx3TfrQohZmKBnxug==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795518311;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=cMYYBh43HY5xutvnzofxwE95gQWfanq+WzepalGdUdE=;
-	b=Cit8Bz916nHQuX2HSsFdYPuX+7nmcFCPZvynCq6NaPBRlPODz9bo221nYS9o2gi2OpF8
-	 avxGmCj40+FYtqVFQXtXuejBir9IbgwHbOjVEwIzPjmhetHtkEyvQixS1zhlhhc5yq8Qi
-	 za4bg/2mL72DlUMgWCODgIhgLUR8Va6moLi7YhP60VJAs+OtP+rYkYeXD1+96/1jg+ffj
-	 +j06o1+VlnISbzV16hcidNDF4pU2uow3Lup4Rfaz8Ckjoaq26QUU/Q6bAg/rJw2Mnr2ee
-	 +5W9Q4CgbEficR30z7cIm+R+eEK8r8hLN/pgQ8QgCMAmHebwJeeRaz2eabvXHAHlf2g==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS;
-	arc=none smtp.remote-ip=68.232.154.123
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.27
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795518415;
+	b=S9dpGk//cPnMzYihFOiQYahwLRAVNAievc0zZQbyaMKozvdCN3M9EQg9RS0hWZzEOgJe
+	 +/NT3zQFKsvRDmxoOegttleza29GwDTRnsKneqvPZ7+jaU7BCT25hXO5oTzREWkIgtEQN
+	 XEBMLT1CA8IKMU2qXcWrepTCWjeeUS0mF1VK70UdOtz8flzseW3nhuxyBL2jGO0QuHQ+j
+	 5GrAfXq5gIbVvg3tuLBGH1DEa0fgT5aglrpOSjmhLNh7updMWaHwnhRdL1iL6dNSimsDz
+	 ZKGTYgpUiTVx+v+ejx+0aTJtQsQuyVM34EiJsK8N3hts+/3zFDj8O+yaGpz627cqUiw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795518415;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=5FfJ0+Y+nzh3rgacx4KX0cX/eSKbNbcNtoud14zOhlk=;
+	b=KUxPLzzyB+lkkLrbysUBm1nPTlHcMODsD+NY5CxR/2X9Ot3uC0YLaDizDA7gSfcIwTxY
+	 4ZusZ9BF2xE/3mtv8OZvjM93LzZGSHIuKRhmbCFN20vZ7ulEibkhHoRrnQ9ln/tThqnS8
+	 8k0AGvM75WY3dVEa79yq8FeV5/4pKZJOVLoJJlLQbZ0EGHpJMvSgdncP41ST3MttNkvGz
+	 2Cf9HcE6JWshKlL8eXGYo/mxPwbB1Yv07/D4+kwkj2P7cKOyNVerNq7vkDNAcTn+Jkrl4
+	 SSCpwD6/rzZubjRMktPGLeBp3yd1mPzKGtD4oKW/eQ8SWmhL9l78W9LwZebnLBQSzbw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tgxBcHWZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.201.27
+Received: from CY3PR05CU001.outbound.protection.outlook.com (mail-westcentralusazon11013027.outbound.protection.outlook.com [40.93.201.27])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7E68606A334;
-	Tue, 24 Nov 2026 11:05:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7E68606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8802E606A321;
+	Tue, 24 Nov 2026 11:06:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8802E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=kIFlonZS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795518310; x=1827054310;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=Of+dCjox0s9BBeFJuiYkmvAKAj13vw6zap47XQbk6Oo=;
-  b=kIFlonZSgM4/72v39DA+gSAhGW8JDIJvVTafxBRe4y/ut0FR5ukriyRV
-   i0Hu0U3+s3vekG7pVUh7mmSznZ1DuXsDhAtMr/+ZB+VeQLtqM+/Kfmted
-   YEugnSJ6HFQ8USGnWIWLd8jrKAl0NjydEpHcD7qyK+PzOLua8jxmdE0Qv
-   j1y6zg6Asy05qCCr/svs2r4rHWV7tgaFssv8ZUI9ijl8j98Y3ObRDjW1+
-   4kqYrjm1IqKcQQsejV8l94GU1TMMXyGhO8w1YJB2plOnWhaVmn8wppuhf
-   TykY4PekDYl7XTwyx4p0XOD1Yb3Rk7J+hwFOFBsokpmHzcmoTiUfs2Chd
-   w==;
-X-CSE-ConnectionGUID: RdIhBla4TTmUq7KP99ZVFQ==
-X-CSE-MsgGUID: RG/anjkeS4Gk78FY/ubCuQ==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="234021366"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Nov 2026 04:05:09 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 24 Nov 2026 04:05:09 -0700
-Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex01.mchp-main.com
- (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 04:05:06 -0700
-Date: Tue, 24 Nov 2026 12:05:05 +0100
-From: Daniel Machon <daniel.machon@microchip.com>
-To: <netdev-bot+sashiko@kernel.org>
-CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <Steen.Hegelund@microchip.com>,
-	<UNGLinuxDriver@microchip.com>, <richardcochran@gmail.com>,
-	<linux@armlinux.org.uk>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<robert.marko@sartura.hr>, <horatiu.vultur@microchip.com>,
-	<jensemil.schulzostergaard@microchip.com>, <horms@kernel.org>
-Subject: Re: [PATCH net-next v3 5/9] net: sparx5/lan969x: size the FDMA
- buffers from the port MTUs
-Message-ID: <20261124110505.66k7x7qluhxcnm62@DEN-DL-M70577>
-References: <20261120-sparx5-mtu-change-v3-5-55c272fe1acc@microchip.com>
- <179544589573.3135.16010204842375196022@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tgxBcHWZ
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CacvzLm854VnO64LQvZxGHPj4ycrFNEaGq0D+Eyl6s//6Kv9PCMn0+8DOT1jItPlKJFfhOCBaB4Rsn4TrVFqOwVEej2+4r1lHd4V3E1Bl1ZGkJPxbeI1kei9sJ04iPUcXCHatCYfl3NQ6VKJCewye6CVrvtgFyFwjIEyOMTENPp7XMQ6r5+Er1umF6nFjh8IeDdNvyaqvX6idJ9qnKTmIaJY84prPwNBI8CrJZqAbhGR0y01fHl7RiZ4Zsf5aQDnv0xLqMc+Qlw8EgEooqLHflSMUw/n+yiRzk3AqcSDibp5glKKV+Zv/53OsLOJiiPO2IS2tXtRSYTt6HGrVMMnHA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5FfJ0+Y+nzh3rgacx4KX0cX/eSKbNbcNtoud14zOhlk=;
+ b=svYvTOfIjZcPNe1Hv1exaY0ajSXarm0voarl9I9yV9VsC6FKpF2XLr2X8J9PP3Olj/BOlGeiAJvmbgs32u6CfUyZzOiS2b/tIv/DLsmEtpSJEMgO4YgztTtgl3X04GCabHkS/wX2N2laOkMpGx6RTxMexqC6rucdKbbkHq73kG7zIEHuj9Xa/0qPpY3wahscNTzmBRUdpH9mDCJ70IjrIuv0xGiiZNC+/cJr91WcpoNsa+8zVuNd79AX6xjxBuZj9LU8agUS+rDZBP4SEZ+VzwUlA2XZ0pscpTFdReiVpSlK2tfxev1502E8WaX48KPPvoIOWX+oLPwh4shD5fdJUA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5FfJ0+Y+nzh3rgacx4KX0cX/eSKbNbcNtoud14zOhlk=;
+ b=tgxBcHWZfmHo32iI+/DZy+FSSciZKHqV2GfaQ6mUKKBKzzVNmAjyRcRZZMwSZYn5O7K9xykIW3m7xCUF9jeX+m6VWZS+kmQMg9//U7q6I3ROjV1/Wep51vDXinJSBpThsbqid7fREqJAqMIZI1WmTVV4IMrnIUPscpmGsU0PaV3KXeeGOnjRCKFoBjFPuzvYXd2Lcrcagcrrv2gQ3Rn153GP1du1etd2CB4y+joQHt8w34YWJdAHKuyRJZ755qpvDMOFAfGk9sXSDJGezPg6TPLgzjQZ/tYeUu9s4DtQFtByFmQUKmzWJ32vGZac8+fzDjDKHe2PGFEvD+Iy77K7Dg==
+Received: from CH0PR07CA0030.namprd07.prod.outlook.com (2603:10b6:610:32::35)
+ by BL3PR12MB6379.namprd12.prod.outlook.com (2603:10b6:208:3b2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
+ 2026 11:06:49 +0000
+Received: from LV8PEPF0000005E.namprd02.prod.outlook.com
+ (2603:10b6:610:32:cafe::58) by CH0PR07CA0030.outlook.office365.com
+ (2603:10b6:610:32::35) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.5 via Frontend Transport; Tue, 24
+ Nov 2026 11:06:48 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ LV8PEPF0000005E.mail.protection.outlook.com (10.167.245.138) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 11:06:48 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 03:06:28 -0800
+Received: from [10.125.204.85] (10.126.231.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 03:06:22 -0800
+Message-ID: <933d7cef-d995-479b-a24e-9c53d256290c@nvidia.com>
+Date: Tue, 24 Nov 2026 13:06:19 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,15 +104,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next V2 5/5] net/mlx5: LAG, enable LAG over functions
+ that do not represent a physical port
+To: <netdev-bot+sashiko@kernel.org>, <tariqt@nvidia.com>
+CC: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, <pabeni@redhat.com>,
+	<agoldberger@nvidia.com>, <gal@nvidia.com>, <jgg@ziepe.ca>,
+	<leon@kernel.org>, <linux-rdma@vger.kernel.org>, <mbloch@nvidia.com>,
+	<moshe@nvidia.com>, <ohartoov@nvidia.com>, <saeedm@nvidia.com>
+References: <20261120075959.2533702-6-tariqt@nvidia.com>
+ <179550917403.3135.6078772385370645877@kernel.org>
+Content-Language: en-US
+From: Shay Drori <shayd@nvidia.com>
+In-Reply-To: <179550917403.3135.6078772385370645877@kernel.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179544589573.3135.16010204842375196022@kernel.org>
+X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PEPF0000005E:EE_|BL3PR12MB6379:EE_
+X-MS-Office365-Filtering-Correlation-Id: 417cb936-07de-496b-854f-08df4a1b090b
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|36860700016|1800799024|82310400026|7416014|376014|261028144727099003|261102123227099003|261102130727099003|261021121427099003|261021135927099003|261026140227099003|261026121527099003|261022115727099003|261022105027099003|5023799004|11063799006|4143699003|56012099006|10067099003|261022075727099003|261009223027099003|18002099003|22082099003|6133799003;
+X-Microsoft-Antispam-Message-Info:
+	GJ2G+6eIWoD6tOudMiFDGfG3uSlp5QchZiEBXkjyLkItj3vftrCqK/Lan0bFkvgva3PYyQ58bsACwHkLnEWgDZkZH7UazTrQOD8NAINX8QZwqGEYydDk93XeJSlQUiwVWGJ3wFHsJtcVXJGRk6spV7Gnr8dA7sQwlipHBw1tDo0Uo2/LlGZmdMAQ+emSheIMcFEuJnbfziv8ZeMmbOcuxD+UEW3JjikMEwmz2i6jahRlDb2g46Yw6PU4cbCSOMxbDSKjuMTJEsU+nIGSGcy4QLScqqqeZovYQxR7anoE1bdhsN7VL60dAd7DfR443w4Zvk0gJQQmTTuXGaCRCgrA90VsGUlLl36B30pkRKUVEkND2n0tbeP1+KyOVZIK+DSXwJQ9oOjRcSicHGfHSX3VUsU86Ga+tRGliFOsMTq51GEuKVqcuYuIlde3KXJinPO7pqbAstfILNH71sUQUuP0lqHZ4V3iCEQaNpytVXuQx5Q9HlpFcMwAFZzK2DK2JHOKT695u229/uKd/RtdUmZrRYFvVgy3dAudwrYB5IvIQSGcpxNxUuSOo4Hxs1CZv9CnC1bmjqp+Nxl3XpInfCKoFOIwEpgRLqBo7lxVfcT++nr9a5teIje821f1hV7pYWGhWWTaEMtqMw6QKXBAtYWQQtSNRZ9BPfESbXYoR84+zBWkRq1eBJ1XmqUVSGigveb3JunyHXphrln+/QSzCvpR4A==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(1800799024)(82310400026)(7416014)(376014)(261028144727099003)(261102123227099003)(261102130727099003)(261021121427099003)(261021135927099003)(261026140227099003)(261026121527099003)(261022115727099003)(261022105027099003)(5023799004)(11063799006)(4143699003)(56012099006)(10067099003)(261022075727099003)(261009223027099003)(18002099003)(22082099003)(6133799003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	f4MAYSAgrleOdYqfTCj7jpA0KiNHGXX7yoEq8LQEwyFIWRjrccJ917OzwfZdLzcyZiIGoiVG3o0u1CwD/PxVeyZvPCtg0IFdF3Y3oWsQvSuyBw8m/EKuslEaJYAH1aTyuL8CMGel9lnCIuUKYDCUcrooHwkJE6ZbXKeUvSaunEOVBx42DKp2WMnqvwIjEaqae8X8phXaXt/viMzMU0SDFYEvZ0a9aaYJNe50DxtZNsIBJrXLsOu7tVyymxMZmv51Bi2j5DvRkRRxqwb1CjyBpuuFFbdh/vVr7VejG7T7/fGvq5GsDHz3PN2JgGBWfoLopNqxUuxwDd0Ug0D5EtFF3b2B4LoT2A8Hy6PYr9u6eXxHNUK4nyOoxe/MAKUiAFdbve3IrWv+fLn+Of9BAdRqcg56Wy0gqPHPQPeJkG3D8HDigwcK2sZRY4950gGSLWOS
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 11:06:48.4516
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 417cb936-07de-496b-854f-08df4a1b090b
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	LV8PEPF0000005E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6379
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
+
+
+On 24/11/2026 10:32, netdev-bot+sashiko@kernel.org wrote:
+> External email: Use caution opening links or attachments
+> 
+> 
+> Thank you for your contribution! Sashiko AI review found 4 potential
 > issue(s) to consider.
 > 
-> Critical: 0 (1) · High: 1 · Medium: 0 · Low: 0
+> Critical: 0 Â· High: 0 Â· Medium: 2 Â· Low: 2
 > 
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
@@ -101,160 +166,207 @@ In-Reply-To: <179544589573.3135.16010204842375196022@kernel.org>
 > know by including "pw-bot: cr" as a separate line at the end of your reply
 > (one such reply per series is enough).
 > 
-> - [High] net: sparx5: UAF of two-step PTP skb on TX drop in
->   sparx5_port_xmit_impl()
-> 
-> Pre-existing issues:
-> - [Critical] Use-after-free and double free of two-step PTP skbs on the
->   Sparx5 TX drop path.
+> - [Medium] mlx5_lag_add_mdev() now lets any VF/SF that passes
+>    mlx5_virt_lag_is_supported() into the LAG, and nothing caps how manyâ€¦
+> - [Medium] net/mlx5: LAG, empty debugfs member list in members_show() for
+>    virt_lag
+> - [Low] For a virt LAG, vport speed aggregation does nothing at all.
+> - [Low] The commit message does not mention that the exported
+>    mlx5_lag_is_mpesw() changes meaning.
 > 
 > --
 > 
-> net: sparx5/lan969x: size the FDMA buffers from the port MTUs
+> net/mlx5: LAG, enable LAG over functions that do not represent a physical port
 > 
-> This commit sizes the Sparx5 and lan969x FDMA buffers from the largest port
-> MTU plus the Ethernet header, FCS, IFH and two VLAN tags, rather than a
-> fixed single page. On Sparx5 the RX and TX DB size is that length rounded
-> up to 128 bytes, and sparx5_fdma_xmit() now drops frames that do not fit.
-> On lan969x the page_pool page order is derived from the max frame size.
+> This patch lets VF/SF functions that sit behind a multi_uplink_eswitch
+> (num_lag_ports < 2) join a LAG, using mlx5_virt_lag_is_supported() to
+> detect them. Such members are not marked as ports. They do not register
+> the PORT_CHANGE, netdev or multipath FIB notifiers, and they do not add
+> netdevs to the LAG.
 > 
-> > diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > index 537c945409bba..b92d249777f0b 100644
-> > --- a/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
-> > +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_fdma.c
+> The patch also widens mlx5_lag_get_filter() and mlx5_lag_is_mpesw() for
+> virt LAG, makes mlx5_lag_get_num_ports() return at least 1, and stops
+> RDMA from assigning a TX port affinity for these functions.
+> 
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+>> index 193fbe47fef15..2cd2319f93189 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/lag.c
 > 
 > [ ... ]
 > 
-> > @@ -224,6 +223,10 @@ int sparx5_fdma_xmit(struct sparx5 *sparx5, u32 *ifh, struct sk_buff *skb,
-> >  	struct fdma *fdma = &tx->fdma;
-> >  	void *virt_addr;
-> >  
-> > +	/* Drop frames that do not fit in the TX buffers */
-> > +	if (unlikely(IFH_LEN * 4 + skb->len + ETH_FCS_LEN > fdma->db_size))
-> > +		return -EMSGSIZE;
-> > +
+>> @@ -2398,7 +2404,7 @@ int mlx5_ldev_add_mdev(struct mlx5_lag *ldev,
+>>        fn->group_id = group_id;
+>>        dev->priv.lag = ldev;
+>>
+>> -     if (group_id)
+>> +     if (group_id || ldev->virt_lag)
+>>                return 0;
+>>
+>>        xa_set_mark(&ldev->fns, idx, MLX5_LAG_XA_MARK_PORT);
 > 
-> [Severity: High]
-> This is a pre-existing problem in sparx5_port_xmit_impl(), but the
-> new -EMSGSIZE return makes it much easier to hit. What happens to a
-> two-step PTP skb that fails here?
+> [Severity: Medium]
+> Does this early return also leave the lag/members debugfs file empty
+> for every virt LAG device?
 > 
-> sparx5_port_xmit_impl() calls sparx5_ptp_txtstamp_request() before
-> ops->fdma_xmit(). For two-step PTP, that puts the skb on
-> port->tx_skbs with skb_queue_tail() without taking an extra
-> reference. It also increments sparx5->ptp_skbs and port->ts_id.
+> mlx5_lag_add_mdev() now lets virt-LAG capable functions through. On
+> success it calls mlx5_ldev_add_debugfs(dev), which creates the lag
+> directory, including the members file.
 > 
-> If fdma_xmit() then returns anything other than -EBUSY, the code
-> jumps to the drop label, which only calls dev_kfree_skb_any(skb).
-> Only the busy label calls sparx5_ptp_txtstamp_release(port, skb). The
-> freed skb is therefore still linked on port->tx_skbs.
+> members_show() in lag/debugfs.c lists the members with:
 > 
-> Later walks of port->tx_skbs happen in
-> sparx5_ptp_txtstamp_old_release(), in the sparx5 and lan969x PTP IRQ
-> handlers, and in sparx5_ptp_deinit(). These read SPARX5_SKB_CB() from
-> freed memory, call __skb_unlink() through stale list pointers, and
-> call dev_kfree_skb_any() on the same skb again. Isn't that a
-> use-after-free and a double free?
+>          mlx5_ldev_for_each(i, 0, ldev)
+>                  seq_printf(file, "%s\n",
+>                             dev_name(mlx5_lag_fn(ldev, i)->dev->device));
 > 
-> sparx5->ptp_skbs is also never decremented for these skbs. After
-> SPARX5_MAX_PTP_ID such drops, sparx5_ptp_txtstamp_request() returns
-> -EBUSY forever, and two-step TX timestamping on the switch stalls.
+> mlx5_ldev_for_each() uses MLX5_LAG_FILTER_PORTS, so
+> mlx5_get_next_lag_func() only walks entries marked with
+> MLX5_LAG_XA_MARK_PORT. A virt-LAG member returns here before
+> xa_set_mark() runs, so no entry in ldev->fns carries the mark.
+> Reading lag/members on such a device then always prints nothing, even
+> when the LAG has members.
 > 
-> Before this patch the Sparx5 TX DB was PAGE_SIZE. The drop path could
-> only be reached through the -EINVAL ring-full return here, or through
-> the -ENOMEM DMA mapping failure in lan969x_fdma_xmit(). With the
-> default MTU of 1500, db_size is now
-> ALIGN(1518 + 36 + 8, 128) = 1664. Any two-step frame with skb->len
-> above 1624 now takes the drop path every time.
-> 
-> Such frames can still reach a 1500 MTU port, for example through tc
-> mirred or bpf_redirect from a device with a larger MTU. They can also
-> arrive when the MTU is lowered while larger skbs are already queued,
-> which becomes possible later in this series.
-> 
-> The commit message relies on this drop path. Should the drop label in
-> sparx5_port_xmit_impl() release two-step PTP skbs the same way the
-> busy label does? Or would you rather check the length before
-> sparx5_ptp_txtstamp_request() is called?
+> This patch already switched mlx5_lag_get_filter() to
+> MLX5_LAG_FILTER_ALL for virt LAG because its members are not marked
+> as ports. Should members_show() use the same per-device filter, or
+> MLX5_LAG_FILTER_ALL when ldev->virt_lag is set, so the file reports
+> the real members? Or is the members file not meant to exist for a
+> virt LAG?
 
-This is pre-existing. The drop path already misses the PTP release before this
-series, e.g when the TX ring is full, so the handling of the PTP tx_skbs is
-broken regardless of this check. I have two WIP patchsets for lan966x and
-sparx5/lan969x that will rework the PTP tx_skb handling. These will be submitted
-in the near future.
+Left as is for now, since all VFs in the system share the LAG.
 
 > 
-> [Severity: Critical]
-> This is a pre-existing issue, but this new return gives a second,
-> deterministic way to hit it. What happens to a two-step PTP skb that gets
-> -EMSGSIZE here?
+> [Severity: Low]
+> Because of this early return for virt_lag, no virt-LAG member ever gets
+> MLX5_LAG_XA_MARK_PORT or the PORT_CHANGE notifier. Does that leave vport
+> speed aggregation doing nothing for a virt LAG?
 > 
-> By this point, sparx5_port_xmit_impl()->sparx5_ptp_txtstamp_request() has
-> already put the skb on port->tx_skbs without taking a reference:
+> mlx5_lag_enable_mpesw() calls mlx5_lag_shared_fdb_create() with
+> MLX5_LAG_FILTER_ALL, and that function then does:
 > 
-> sparx5_ptp.c:sparx5_ptp_txtstamp_request() {
->     ...
-> 	skb_queue_tail(&port->tx_skbs, skb);
-> 	SPARX5_SKB_CB(skb)->ts_id = port->ts_id;
-> 	SPARX5_SKB_CB(skb)->jiffies = jiffies;
+>          if (filter == MLX5_LAG_FILTER_PORTS || filter == MLX5_LAG_FILTER_ALL)
+>                  mlx5_lag_set_vports_agg_speed(ldev);
 > 
-> 	sparx5->ptp_skbs++;
-> 	port->ts_id++;
->     ...
-> }
+> mlx5_lag_set_vports_agg_speed(), mlx5_lag_get_devices_oper_speed() and
+> mlx5_lag_get_devices_max_speed() all iterate with mlx5_ldev_for_each(),
+> which only visits PORT-marked entries. For a virt LAG the summed speed
+> is 0, and the loop that calls mlx5_lag_modify_device_vports_speed() runs
+> zero times.
 > 
-> Back in sparx5_port_xmit_impl(), only -EBUSY goes through
-> sparx5_ptp_txtstamp_release(). Any other negative return frees the skb
-> while it is still on the list:
+> The skipped notifier, mlx5_lag_mpesw_port_change_event(), is the only
+> place that queues speed_update_work. So nothing would refresh the speed
+> later either.
 > 
-> sparx5_packet.c:sparx5_port_xmit_impl() {
->     ...
-> 	if (ret == -EBUSY)
-> 		goto busy;
-> 	if (ret < 0)
-> 		goto drop;
->     ...
-> drop:
-> 	stats->tx_dropped++;
-> 	sparx5->tx.dropped++;
-> 	dev_kfree_skb_any(skb);
-> 	return NETDEV_TX_OK;
-> busy:
-> 	if (skb_shinfo(skb)->tx_flags & SKBTX_HW_TSTAMP &&
-> 	    SPARX5_SKB_CB(skb)->rew_op == IFH_REW_OP_TWO_STEP_PTP)
-> 		sparx5_ptp_txtstamp_release(port, skb);
-> 	return NETDEV_TX_BUSY;
-> }
+> Other virt-LAG paths in this series were moved to MLX5_LAG_FILTER_ALL
+> (for example mlx5_lag_get_devcom_comp()). If speed aggregation is not
+> meant to apply to virt LAG, should mlx5_lag_shared_fdb_create() skip the
+> call explicitly? If it is meant to apply, should the speed helpers and
+> the refresh trigger cover all members?
+
+Right, for a virt LAG mlx5_lag_shared_fdb_create() should skip
+mlx5_lag_set_vports_agg_speed() explicitly. Today the call has no
+effect: virt LAG members are not PORT-marked, so no vport speed is
+modified.
+I think the explicit skip can be a follow-up cleanup rather than
+respin.
+
 > 
-> The next two-step request then walks the list in
-> sparx5_ptp_txtstamp_old_release():
+>> @@ -2547,7 +2553,7 @@ void mlx5_lag_add_mdev(struct mlx5_core_dev *dev)
+>>   {
+>>        int err;
+>>
+>> -     if (!mlx5_lag_is_supported(dev))
+>> +     if (!mlx5_lag_is_supported(dev) && !mlx5_virt_lag_is_supported(dev))
+>>                return;
+>>
+>>        if (mlx5_lag_register_hca_devcom_comp(dev))
 > 
-> 	skb_queue_walk_safe(&port->tx_skbs, skb, skb_tmp) {
-> 		if time_after(SPARX5_SKB_CB(skb)->jiffies + SPARX5_PTP_TIMEOUT,
-> 			      jiffies)
-> 			break;
+> [Severity: Medium]
+> Can the retry loop below this check spin forever once a virt LAG has 255
+> members?
 > 
-> 		__skb_unlink(skb, &port->tx_skbs);
-> 		dev_kfree_skb_any(skb);
+> mlx5_lag_add_mdev() gives up only on -EOPNOTSUPP:
 > 
-> Does this read the cb of the freed skb and then free it again? The TX
-> timestamp IRQ handler can also find the stale entry. ptp_skbs and ts_id
-> also stay incremented, so can the PTP ID pool run out?
+>          if (err == -EOPNOTSUPP) {
+>                  mlx5_lag_unregister_hca_devcom_comp(dev);
+>                  return;
+>          }
+>          if (err) {
+>                  msleep(100);
+>                  goto recheck;
+>          }
 > 
-> This path could already be reached through the -EINVAL return when the
-> next TX DB is not done, i.e. when the TX ring is full.
+> The devcom match key comes from mlx5_query_nic_sw_system_image_guid().
+> It is the system image GUID plus the load_balance_id and VF/SF flag
+> bytes. So every virt-LAG capable SF (or VF) of the same NIC in the same
+> netns would join the same ldev through __mlx5_lag_dev_add_mdev().
 > 
-> With this patch and the default MTU of 1500, db_size goes from 4096 to
-> ALIGN(1518 + 36 + 8, 128) = 1664. A two-step timestamped frame longer
-> than 1624 bytes used to be sent, but now it always takes the drop path.
-> Such frames can still reach a 1500 MTU port, for example through tc
-> mirred or bpf_redirect from a device with a larger MTU.
+> mlx5_ldev_add_mdev() allocates the slot with:
 > 
-> The commit message says it will "make sparx5_fdma_xmit() drop frames that
-> do not fit", so it depends on this drop path. Should the drop label in
-> sparx5_port_xmit_impl() call sparx5_ptp_txtstamp_release() for two-step
-> PTP skbs, the same way the busy label does? sparx5_port_xmit_impl() is
-> still unchanged at the end of the series.
+>          err = xa_alloc(&ldev->fns, &idx, fn, XA_LIMIT(0, U8_MAX - 1),
+>                         GFP_KERNEL);
 > 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-sparx5-mtu-change-v3-0-55c272fe1acc%40microchip.com
+> After 255 members this returns -EBUSY, and __mlx5_lag_dev_add_mdev()
+> passes it back unchanged. This happens when MPESW is not yet active;
+> otherwise the late-joiner -EOPNOTSUPP check returns first. The xarray
+> stays full between iterations, so mlx5_load() for the 256th function
+> would sleep and retry until some other member unloads.
+> 
+> An earlier patch in this series ("net/mlx5: E-switch, add match-metadata
+> allocator for nested VF/SF eswitches") already mentions the 0-254 slot
+> limit from this xa_alloc(). Before this patch, only vport_group_manager
+> PFs with 2..MLX5_MAX_PORTS lag ports reached this path, so the limit
+> could not be hit.
+> 
+> Should a permanent capacity error end the LAG join the same way
+> -EOPNOTSUPP does, instead of being retried like a transient error?
+
+The retry loop is pre-existing: mlx5_lag_add_mdev() retried every error
+before this series as well, and no HW exposes this yet; -EBUSY can only
+be returned by future HW. The fix will be sent to net as a separate
+patch.
+
+> 
+> [ ... ]
+> 
+>> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c b/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
+>> index 2d3e61541d8a1..0ef2d13d00968 100644
+>> --- a/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
+>> +++ b/drivers/net/ethernet/mellanox/mlx5/core/lag/mpesw.c
+>> @@ -336,7 +336,7 @@ bool mlx5_lag_is_mpesw(struct mlx5_core_dev *dev)
+>>        struct mlx5_lag *ldev = mlx5_lag_dev(dev);
+>>
+>>        return ldev && ldev->mode == MLX5_LAG_MODE_MPESW &&
+>> -            __mlx5_lag_dev_is_port(ldev, dev);
+>> +            (ldev->virt_lag || __mlx5_lag_dev_is_port(ldev, dev));
+>>   }
+>>   EXPORT_SYMBOL(mlx5_lag_is_mpesw);
+> 
+> [Severity: Low]
+> This isn't a bug, but the commit message does not say that the exported
+> mlx5_lag_is_mpesw() now returns true for every virt-LAG member, not only
+> for port-marked ones.
+> 
+> It also does not mention the change in mlx5_lag_get_filter():
+> 
+>          if (fn && (fn->group_id || ldev->virt_lag))
+>                  return MLX5_LAG_FILTER_ALL;
+> 
+> With this change, mlx5_lag_get_dev_seq(), mlx5_lag_get_next_peer_mdev()
+> and the related helpers walk all members of a virt LAG.
+> 
+> Several places call mlx5_lag_is_mpesw():
+> 
+>    - eswitch_offloads.c (uplink destination type)
+>    - en_tc.c
+>    - en/tc_tun.c
+>    - ib_rep.c
+>    - a devlink parameter getter in eswitch.c, which reports the value to
+>      user space
+> 
+> Their behavior for VF/SF functions now changes. Could the commit message
+> describe these two changes?
+> 
+> --
+> Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120075959.2533702-1-tariqt%40nvidia.com
+
