@@ -1,107 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.49
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528074;
-	b=r9LX9mYgw2ze+oLAnyFEBYpvbseTQNgsOjeowKj8T7TFk31d/x4w8yinpsSN/xBKSEkP
-	 OmDeWzThQc+ZfgK9ynxyBPBh1d1zzBctkMaCZSEf8WQ2Czea0nr3BOi8ISLsKFCgR2ROe
-	 p8TR7N0+/O807tc32BxL4Csa/+UC/taHFkAFg0uOBkO8iV8BWFGigwiK6tds+y3zUnl66
-	 rsL0KAlqzIeSjeTJ+MmdGE9v0CfhwOsMer/C3AkFJpVU0Tqot+PsE4HTSy1FMAY/0+ZFx
-	 C8xJpGKlmdqwFMyujXStuHnv7/WFrnYfMv6LGv4BgDVyTOnJU6sj+JJgu7MTN0lT3NQ==
+	t=1795528091;
+	b=CdSm0CSeXN7IfCSyns4cs9ks6xV7aAORegQA2+UJwSJmh8o6VH5F7K9eCCwVp75Ebpp9
+	 OdSIIxUfikWL5H6E+G/hPv5Hs+i2OPO4Awdf3qwBd5odJIaZ/sRcsXYN5NRUPpMgPME+W
+	 JFtrjsqfjPvRXNuWcuYb2TYp+jUyQiSCpV4px1r3V528/39UKo6rhgMhRQAf7xaMFx3AX
+	 CxA9sXvaBna9NG/8qbSuQl0YZ9LCqzhEQvyNOLJDITxIOjovqn1rM9+bioL2+io+29aKH
+	 nHG9bUakWgxPiIjLzLw/ANV74muVCT3hJrH+wwGBa2hyIMUIlthmWxc+K1bVmxcTuVg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528074;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=vMDqbnU1JcZRjV4iBwiOSDccQES6fNfvp7K7cXvvapM=;
-	b=XM5yISIeI0KmxJH839YD1AIfSzngKseCq4jxemJ3mwM8Axw3HO02qwc8TQOcw35sp6rf
-	 MvBPN3QdF2oNeIw7N2rFuxRD/UuNcnu5ATBxOfgq8dIaFGTBZ+182OPe1zpqLtRrD1qiM
-	 HpZleSWKGY/Akm58mjzH/M0q1hoM8w2/9wqNRltm/AZSi1XHoOnl96cG7Sufy0nDpD+rg
-	 Lmd0JMcRT+sKjCrwokHviyON1wrNuawMg66WtAoM1VW2KViifJivfIUYtkp8EJYZ1Fx6l
-	 Q6xAAHkn+n+lDi/d8fOoyuaLgDO5qE/pByMMoTpLKdSmVdqP0yoke97UVl3eM/u90lA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528091;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=kvpRMvQvERjBXr1WTspn+MSqC4VvEDkjayqY6xSgQmpUKKOpfPf1Izloy1tJBCF2/ndq
+	 FabJteeozMnIX80z4gyxT9ERbEtGVHLFse5aTTl9mLU13JIgOe+PeKExXjuywD3UTqIKq
+	 UNEcbN3DV6gKeMR0SF6Q0aUE3NYiSb+X952cFlr9Q9yoKVEUgUPFjqBpu++Nd5hSLG283
+	 UkDDvH0yJJ3XrU5JLHTGEI0xUYF0Ob0t/WAW5C5ZN9kcg4YMEh86AiIdgSfXoPY/UJhy1
+	 YnnyChMaUqqCzYaCXYykcgMuqnJ8164ApJewc8DoB1LFFxbxpEm7pQJ7irN4aUJ0azA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=NdQ+RUQL;
-	arc=none smtp.remote-ip=209.85.219.49
-Received: from mail-qv1-f49.google.com (mail-qv1-f49.google.com [209.85.219.49])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNLXjrZK;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2546B606A335
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:47:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2546B606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21FB4606A31E;
+	Tue, 24 Nov 2026 13:48:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=NdQ+RUQL
-Received: by mail-qv1-f49.google.com with SMTP id 6a1803df08f44-91c1f548f87so63270816d6.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:47:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795528073; x=1796132873; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vMDqbnU1JcZRjV4iBwiOSDccQES6fNfvp7K7cXvvapM=;
-        b=NdQ+RUQLLl9NE7pcsTGsPyFo0JDIEwqHUWUTh6FGstCQlXDqQGm4bzmVpn7NrOMNN/
-         nUmwzw+7AXCwCOB0lNWa/4gs7ETmEy+gpNc4PFSFMZjW/XN/5hCSia7u7LYeQBThBZ1s
-         DiCl/4CxtrHD+AkQegWdE2/heCv5J50ilql3Jbj6NtTeAwCS2NgW2snsnz8shWgS8ORA
-         4CjgkakkgOFF7v6BRpaIBjQ1evzQr94a4nFlmL3Ecij589zRHBuiOv2HWEgE4nsYg3jw
-         CvQ9uEbdjNe/2RQk5kPtL5ExT9kibh7OEtq6HLk6gebbjDW0HErvE5oB55F0r55nzcPm
-         FDDg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795528073; x=1796132873;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=vMDqbnU1JcZRjV4iBwiOSDccQES6fNfvp7K7cXvvapM=;
-        b=rXo2tpnw2sr8b8qyX5Zp5LyXHlipdCEAV/mO0fEtGV7ptnzTHJwMO0bZUER2qs2So6
-         9vugg0keL+FaEptwV3fH1ntDelTB6o3zGwmkkzdCBTxPWJyDTLtSD14MWClf5cQVJenv
-         iutIxEJFDQndJzBp5/7PQROKVZcb99dZqty/5UceWZhj3FXwawO6RUxaxvJoBO5/j6Tm
-         WJ2CbUzBd3dW6SM75eAOkoxnt4Z57m2MEygWh1TvdyOLFf11nDYEDWqQdMpvRuKouR09
-         fdufD4mjRANUOpQkxxweCNuw/rZpthi6jvWUAtoSnMXaXMt5nR4PMyFIEC+OL0kH2Hs6
-         Vtig==
-X-Forwarded-Encrypted: i=1; AL+hErF0iW/3bfWETPSYSSV5QmqOvtDGY5PaVOr3dwWUp6UuEnImm4dGFXR55n2jLxlZO7ETsMXDyOE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+Eew6rCeYZ480n3DuxnfpOej9BjMcMhgB4aH27j8tgp1fVKFyN
-	edv5LSi2MNmafZ2pC7YJE/Dm/mtdYNBCUXALPHCXpGrzwzOmsQXfhr31k8v9B1zwUrQ=
-X-Gm-Gg: AZFdTZfSoovQykbiKVpbnv8qsQJjpDOG3LlwAo/C3sTTXr8tmbdypGm2YNmreFA/JQo
-	+bWKXI+Em8AcFsMj9Nv0YYOaiY5a4LRKwmWhWDc6LXQ9aleLeoIujyoT2xYc5CpImRnzTepHl5y
-	mKFdjRA3A9RcObWdng0Ok0Mro93OmgW8YqRQSFITMlJKvyZrIPWmXZ3e5OX50VIcK9kU0pdFVAs
-	pZGg8oVPvgMnO2jzV1trKvTEiWffwJtULuvl9B0KEwyU6qbnp9UHfJEMvD+g6bwAcLPC4QrvTNn
-	HkTAoA/tZs/YfHisb0iKIieqgpzjxBd0ONotJsl9gjcHQLEDMIe8SilMp2n982/XVF2/+vEGeoI
-	tDs/chJyOZfVAFR8YbKDhOhuYCScS8QOgAh4SlUeTJCE+mhmrJcW8KcF8npI8lln/qq4xDehIhH
-	ZJ1/QACcmUJFZv5iyMVcgkpnUgfuhyB2fhRzH4b+XjDRJs0XHd0TNXp+bL4DDy6CBJO3yyzfqF4
-	s8gGE5Z+Qm7AKW2mYwddQ8HlBmzJjZ6goKGl/0pxmed5HoDL2Sli104ZdAI8eP1K65FRkiOOo78
-	F9Oohw==
-X-Received: by 2002:ad4:5c86:0:b0:921:3a31:64c7 with SMTP id 6a1803df08f44-9213a316546mr238701036d6.13.1795528073118;
-        Tue, 24 Nov 2026 05:47:53 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b081csm132608436d6.7.2026.11.24.05.47.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:47:52 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xVqsB-00000000QLY-46Ib;
-	Tue, 24 Nov 2026 09:47:51 -0400
-Date: Tue, 24 Nov 2026 09:47:51 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Yishai Hadas <yishaih@nvidia.com>, linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
-	mbloch@nvidia.com, kuba@kernel.org, pabeni@redhat.com,
-	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-	dtatulea@nvidia.com, moshe@nvidia.com, maorg@nvidia.com
-Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
- adversarial mode via GET_CONTEXT
-Message-ID: <20261124134751.GJ9566@ziepe.ca>
-References: <20261117170914.27410-1-yishaih@nvidia.com>
- <20261117170914.27410-22-yishaih@nvidia.com>
- <20261122073156.GA12665@unreal>
- <761ca80e-a772-41f3-b8e9-cc332e4ba5d9@nvidia.com>
- <20261124125327.GR14811@unreal>
- <20261124125950.GC9566@ziepe.ca>
- <20261124133353.GT14811@unreal>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nNLXjrZK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A49261F000CA;
+	Tue, 24 Nov 2026 13:48:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795528090;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=nNLXjrZKU0KPp5cCUzh35q0ds0kxGrTKVZIKVDO798cpN7n0kwTAOkUDiHn7kCGF+
+	 NqRftmVVcX9z6FvIgiCSXAB1JKwZjHmOOSCI40Ssr11O0vbwmvDIMdJ6+JqgxcqSbO
+	 Fy2qxB3d093ltYsDpfHerjlVk4GwAAVEnHFnwzNN3h7BLOQ1JQQaZ9ckh6ATwe/MZu
+	 N0SprfwBmQwbM2S3a+bIFcYXl/TG48mGrCEtNFuDLqjV5CZ9nIu3RsKmzyQC/J+IGU
+	 NMgvjz7gW3SiRudfb9OzsT1Qw+mpNFdDoMXXnXdXET2yXBvNyXF6vNVBwM2z31yZuM
+	 D7a2lldDpU9nA==
+From: netdev-bot+sinfo@kernel.org
+To: Hangbin Liu <hangbin.liu@linux.dev>
+Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Stanislav Fomichev <sdf@fomichev.me>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Subject: Re: [PATCH net-next] bonding: check XDP support before enslaving
+ changes state
+Date: Tue, 24 Nov 2026 13:48:09 +0000
+Message-ID: <179552808917.3294.9587885907238376998@kernel.org>
+In-Reply-To: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
+References: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,46 +68,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20261124133353.GT14811@unreal>
 
-On Tue, Nov 24, 2026 at 03:33:53PM +0200, Leon Romanovsky wrote:
-> On Tue, Nov 24, 2026 at 08:59:50AM -0400, Jason Gunthorpe wrote:
-> > > > RDMA/core: Report and enforce adversarial mode via GET_CONTEXT
-> > > > 
-> > > > In adversarial mode the NIC is not trusted. As the kernel protects its
-> > > > own code from it, user space has to protect its own area, e.g. the data
-> > > > path that polls CQEs directly from the HW.
-> > > > 
-> > > > Hardened user space might use a different data path, with extra checks,
-> > > > and support a smaller surface. This isn't needed for a trusted NIC, so user
-> > > > space must know when a device is in adversarial mode.
-> > > 
-> > > This information is part of trust level series. Why is this a “must” in RDMA UAPI? 
-> > 
-> > Userspace has to work differently if the kernel driver is in the
-> > adversarial mode, and the kernel should not permit an old non-supporting
-> > rdma-core from loading to prevent a security downgrade.
-> 
-> I understand the first part of the sentence above, but the second part is
-> unclear. Why should this prevent it? In adversarial mode, the kernel simply
-> isolates that device from the others.
+Hi!
 
-Userspace needs to do it too or it is not a complete defense.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-> Moreover, the kernel cannot determine whether rdma-core has actually been
-> adapted. A locally cloned version of rdma-core can set the new adversarial
-> flag without changing the old, legacy version.
-> 
-> Once that flag is set, the kernel allows the patched rdma-core to proceed.
-> Therefore, saying that it “should not permit” this makes no sense.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-If someone makes a non-official version of rdma-core that doesn't work
-securely then I don't care one bit.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-I care that the official versions are not improperly mismtached to
-give something insecure.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Jason
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
