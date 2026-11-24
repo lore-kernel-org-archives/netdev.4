@@ -1,60 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541994;
-	b=QomspLbbJhKL1yDdIId9Bq9M9hi5xDfm/Ved7JBefQtMyMEfzAHlM9ig7XHjAs7DiJbd
-	 i4VmSz8kxgKYY7Lko+t5uOTMy8YRl9Rv3K+APVq2TJw0VdqeAYPvCUMwOfVOC1+uJFf0g
-	 N5MepAr/yeQIso/DR0RIQH6HKFfmYHrydrzy+NYGG8pXggorCE8QsTqPqGcgIBnczwiJN
-	 vSYKCps2I0QCtHRuIMq81hzoeSrE3a6rv4Thw/UjriGU2OeSzRgwJWX38KrSPTtIEOIhY
-	 T9abDo8C2qwxrVuHeuAjBv5hE76LH7mot793CUCDD+1n6e6q8ztBQAmDzFX0Qq1di5g==
+	t=1795542132;
+	b=t+LW1I4ZsBsgW8+bzFIYDRvBJFc3Y5MffwNIFjNyBsxHYBUFfFrhCAD2JhC+xjOb3y8P
+	 nuRz8gPEqFWH+28NXKat6VHpXZlEOhlnG/mmp5/8cVqODq0BGvVC7K1FKuw2RZVm7eFSF
+	 p1ADMg5ndFh7AsP9kNOZKo1ZRFCqVbaoLwwZwBMynsTmS20mat1riusbWPNVPpe6hWEP0
+	 owSUJx7Mk1vyEq+qgBrzGhSTKVdaRTwAvL2Ze8qJMZho8YSHyA4S0X6YQDwpm242IOs53
+	 HedTO7R9BaUMlUaVZkEyrJ48VcOh3wVA2eWw28C7R5QPetYiZe1v/d+4D6VAn1HLEiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541994;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=RN3pxnhCJYpGp3xiHRqRfmEucdv+kIWIunOXN3qEkkk=;
-	b=yosrjpHDXUFFAQqLDcavPDq+do+EN9tE3VmS/0x0+QjjnIjdL2ONkbDi+G/FJeqr38Kz
-	 MMJP/06rV/U9VghnBbHb5Xrtvyu9ljrL6I7RJOm3pgRE7JmE7m5x98lf69Dfd8C8I5RHT
-	 mvBe0Qf+bK5XnSkV0RRdndAI1qdhgGX2NPc/1O1H8q9n4ez3B1ipAYFJ1ilaKvRZoYSnH
-	 jvK5qFv/zdZ0ur5KWpooqBZg1f0e0B1yk9L2Uf2BpWdyteefMoVKmygCuwXCS0bPqAmLv
-	 HdizKr/x4x+X/vMcSIzPtygLX5Oadh/03IDUkFC+GTGL8jrXzj/mJNJdAndfg/fUr6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542132;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=s/lcQA/s9xHO7cX/SO8wHmLzwp+w6vb11tKVHN0S3os=;
+	b=upNtC6K4fUgt391EYGvqzvC5kHCw+8exz6lzPSVIuPuZDACpJ5sAIM+ygbykyIQ3+7/Y
+	 SW96ngjZQfN8r7jzzTrgcn5k8Y2b2maSnaFnzEMuejOb6ega6v51yFeZvQ1HHdU8yYntI
+	 yD9UzWQyKNcKsLYO+rusuWJsjAXC7ddwYjL0pV9egTwnZ5YrfuNVnNkM4gF0SpNQwDreD
+	 o24DVD0d+LrzV5YY/2kQRq5L7HhJC1pJkQtd9XcEZvYbwIZb50tWL4UGu5W5Lz0Z8TuWW
+	 Gkl6aYhJMZKVeqDhlM1fp3ZdwDzGPk8r+UViOHDezOX9JqxfOb7GEsJ8mTJTRWpVzbg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLNRfofh;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="uKhFLbF/";
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA7C2606A31E;
-	Tue, 24 Nov 2026 17:39:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EA96606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:42:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EA96606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLNRfofh
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E5351F000C0;
-	Tue, 24 Nov 2026 17:39:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795541994;
-	bh=RN3pxnhCJYpGp3xiHRqRfmEucdv+kIWIunOXN3qEkkk=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MLNRfofhpzhbJogdT7qZlkES1pV+8p0B6u67WTjvMY0hNkkD7jsesA7K1ulp84url
-	 m1PxRVKVDnJA7MtrWbBrejqs86EYnGFDBtQR/opyX+JjFWVnzxfc9TcDuGoJBF4ooi
-	 VrtNz5qgpR38jbD3BzZrlyUV+ZjgwRUXVxIJHQ2ini0Crq7l2oK281FcQFbPphc1r2
-	 GeeL/b+uLvzWhuLSyhsZDj0LIxw9wkGUyYkqXEPnU6C7/nF3dRU8sI1KLEkYpsEEw1
-	 W77Ycds/xLhWzS+DA7f0fH3ikuNg074UDMOoWv7sG5FNOLJoPbRUfBaBWzAq0h0vKB
-	 e4JwUHbtZvROA==
-Subject: Re: [PATCH net] net: hix5hd2_gmac: do not release the RX ring on
- interface close
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, stable@vger.kernel.org, shenjian15@huawei.com,
- shaojijie@huawei.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- zhangfei.gao@linaro.org
-Date: Tue, 24 Nov 2026 17:39:52 +0000
-Message-ID: <179554199298.3135.9008055481061380435@kernel.org>
-In-Reply-To: <20261120173702.1551838-1-mmyangfl@gmail.com>
-References: <20261120173702.1551838-1-mmyangfl@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uKhFLbF/
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38431138772so6200896eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:42:12 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795542131; x=1796146931; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=s/lcQA/s9xHO7cX/SO8wHmLzwp+w6vb11tKVHN0S3os=;
+        b=uKhFLbF/79pe20rqz6mUEvaVUGruQP8CL7mbCospCk0hnLdPQEaL5/d4fQ2hteXc90
+         h+dQCWkrFAvaVjIaJ3ZvE56N2E2SywubTkrKmuw6oii450B8SBS1bL6IuiHrItc1fpZv
+         iN4xrqUk+0BseqFnkLG+jKkKeODXaqd3zhGJiwyLrSyDe1fNRqA6G8scppBltg2Ca6tH
+         2Wvk2FqbVnmtoL0DE1AihNFuIgJdK/bmysqdgcfphx7h38rVFYTg7/gUWAdBhGp4pswI
+         JVxAF8ARrHhiNhaeiP5M9hFh1CEf0WQp4B+BzxQh7XgFSbQzEhflq5mNnEtxLZe+CM7T
+         N+ww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795542131; x=1796146931;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=s/lcQA/s9xHO7cX/SO8wHmLzwp+w6vb11tKVHN0S3os=;
+        b=kcUHfjo71CT0SfqmtXNnK8UiGMmKpOZL0i93hunwF9yWlhWUnt4a1afqPGUr9Gn7fi
+         vwR46Ed7mlv3o6V6u4aL6B0z64CPunX5G0DeUfOgwXybEW5yIhgjXv28kvM7G+IuBbMo
+         rZLW7uUOzvoHLByWQJtdFs6k8aHrdTrvumhiq/hd5dGSfN8meetdKazhLxXaE6p3CTIN
+         aQVEzrtgPMEubx29LjJzww8PHuUBzL6mN1RsMVqq7HZg6njhRYU9TJxNDiZOkLtK1MTu
+         +qiOzVhhmoARknPkP46jYTBOPr+V4UW+UhZMm9yzRF21ZY5qUI93jaUB5CXYPIwf4Fzn
+         Uyiw==
+X-Forwarded-Encrypted: i=1; AL+hErG/S3tlJmRYcuV5fdAbodhG65w3rnUQlPH7EM0hZ3XVY/00QpAUXNSl/4JvzTVbAgrfGUVCrCY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9xxUtfzITWI+w3OsRmlXhwmoUP5o+PaI1axOBE3eq8sOnGQe9n
+	yIFwdqZFY5zKdkhaDcclVwfaO4CYsQ9SqdnCDUHpdZxY+TpwXIoPuvww
+X-Gm-Gg: AZFdTZcVcIZzCrxs3FSklVDYEydROqXNT++5B9VdUmvspLIN/FJ6c7fagU3Zu9YedRx
+	rx3qdP6TAZibakw8S33QwPlmrTgrivuxd/tfloQnAwYsgTimVyMPskyRRg6lpVK/0xu3BEqBBnd
+	FmX4Y7lS4NUFBMiDjaOgdVGb7GjTe8JIUM4jKGLZegwslz5qKoEMx8h07KIfvZcy5bduu9oYuK6
+	DZm1Shxnu3ovjQ6pM+66CpKCljsxxrMlTiQUEOIYv2TugfWr7w7twhHhM4J0sH+IAPk/CVvsu34
+	vo6L0DscJJLKseVAn9wsO0uDD/jsgRolNVoGl7cosnhnWa5bT/ghZu8RHVml1HqiedUkwnyE1dq
+	3HxmkLxv6VlLgiGg/WisThhS9q5VlgM1+pVJsYuHs3ro4xreGYyyCGa/qDf7MzzL5evDbNakOOW
+	1NBUMEm/xADcQ1ssz9T0sE6aJikoo3vOJ8F7ueb9QXtRzD6UISXf0RoEfXBpvXEMPMVIQChkWqN
+	OUl0dY7dzSgn2dEzzLirCsNybXt1+3SEVQSnaWnMXZbgtN8uR+t3LDJ7/HqwlicKny/XoHK18GE
+	Q/ztCpPKoyHl6Xtz6P1bhWuGzORO3AG35jzhjQXFEAaApNB3nXFUIBW4LXSJOww5RzWdJZrOY8+
+	BbvigLwWDOpLyKX0T
+X-Received: by 2002:a05:7300:b089:b0:386:9c9f:83d8 with SMTP id 5a478bee46e88-3869c9f86bbmr12212592eec.17.1795542131349;
+        Tue, 24 Nov 2026 09:42:11 -0800 (PST)
+Received: from ?IPV6:2a03:83e0:1151:15:c24:4ad9:f660:1904? ([2620:10d:c090:500::4:a974])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b1965c02sm17577013eec.27.2026.11.24.09.42.10
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 09:42:10 -0800 (PST)
+Message-ID: <8e5ec49c-2610-415e-bd92-c0be9727243c@gmail.com>
+Date: Tue, 24 Nov 2026 09:42:09 -0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,233 +93,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 1/4] eth: fbnic: restart queues in place when
+ fbnic_queue_stop() fails
+To: netdev-bot+sashiko@kernel.org
+Cc: davem@davemloft.net, alexanderduyck@fb.com, kuba@kernel.org,
+ kernel-team@meta.com, andrew+netdev@lunn.ch, edumazet@kernel.org,
+ pabeni@redhat.com, willemb@google.com, horms@kernel.org, bjorn@kernel.org,
+ bobbyeshleman@meta.com, almasrymina@google.com, daskald@meta.com,
+ netdev@vger.kernel.org
+References: <20261121033215.1020506-2-dimitri.daskalakis1@gmail.com>
+ <179552362260.3135.14543564146944003534@kernel.org>
+Content-Language: en-US
+From: Dimitri Daskalakis <dimitri.daskalakis1@gmail.com>
+In-Reply-To: <179552362260.3135.14543564146944003534@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On 11/24/26 4:33 AM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] fbnic_queue_stop()'s new error path relies on a hardware
+>   guarantee that is never written down or checked.
+> 
+> --
+> 
+> eth: fbnic: restart queues in place when fbnic_queue_stop() fails
+> 
+> When the idle wait in fbnic_queue_stop() times out, this patch no longer
+> runs fbnic_nv_enable() and fbnic_nv_fill() on the error path. A new
+> helper, fbnic_nv_reenable(), sets the ring enable bits back without
+> resetting anything, so the hardware and the driver's ring state resume
+> in place. The fbnic_nv_enable()/fbnic_nv_fill() calls move from
+> __fbnic_nv_restart() into fbnic_queue_start().
+> 
+>> diff --git a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> index 381831b7e1080..c0fe89425430d 100644
+>> --- a/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> +++ b/drivers/net/ethernet/meta/fbnic/fbnic_txrx.c
+>> @@ -2326,6 +2326,50 @@ fbnic_nv_disable(struct fbnic_net *fbn, struct fbnic_napi_vector *nv)
+> 
+> [ ... ]
+> 
+>> +static void
+>> +fbnic_nv_reenable(struct fbnic_net *fbn, struct fbnic_napi_vector *nv)
+>> +{
+>> +	int j, t;
+>> +
+>> +	for (t = 0; t < nv->txt_count; t++) {
+>> +		struct fbnic_q_triad *qt = &nv->qt[t];
+>> +
+>> +		if (qt->cmpl.size_mask) {
+>> +			fbnic_ring_wr32(&qt->cmpl, FBNIC_QUEUE_TIM_MASK, 0);
+>> +			fbnic_ring_wr32(&qt->cmpl, FBNIC_QUEUE_TCQ_CTL,
+>> +					FBNIC_QUEUE_TCQ_CTL_ENABLE);
+>> +		}
+>> +		fbnic_reenable_twq(&qt->sub1, FBNIC_QUEUE_TWQ1_CTL);
+>> +		fbnic_reenable_twq(&qt->sub0, FBNIC_QUEUE_TWQ0_CTL);
+>> +	}
+>> +
+>> +	for (j = 0; j < nv->rxt_count; j++, t++) {
+>> +		struct fbnic_q_triad *qt = &nv->qt[t];
+>> +		u32 bdq_ctl;
+>> +
+>> +		fbnic_ring_wr32(&qt->cmpl, FBNIC_QUEUE_RIM_MASK, 0);
+>> +		fbnic_ring_wr32(&qt->cmpl, FBNIC_QUEUE_RCQ_CTL,
+>> +				FBNIC_QUEUE_RCQ_CTL_ENABLE);
+> 
+> [Severity: Medium]
+> Does this in-place resume rely on hardware behavior that is not
+> documented or checked anywhere?
+> 
+> The driver keeps all of its ring state across the disable/enable toggle.
+> That includes head/tail, the TCQ deferred_head, the TWQ0 deferred_meta,
+> and the partly built Rx frame in qt->cmpl.pkt.
+> 
+> For that state to stay correct, two things have to be true:
+> 
+>   - The device keeps its internal ring pointers and frame-assembly state
+>     when ENABLE goes 1->0->1 with no RESET.
+>   - Completion writes that were in flight when the CQ was disabled are
+>     held back or finished, not dropped.
+> 
+> Nothing on the disable side seems to ensure the second point.
+> __fbnic_nv_disable() turns off the CQs in the same burst as the
+> WQs/BDQs, without waiting for the upstream queue to drain:
+> 
+> fbnic_disable_tcq():
+> 	fbnic_ring_wr32(txr, FBNIC_QUEUE_TCQ_CTL, 0);
+> 
+> fbnic_disable_rcq():
+> 	fbnic_ring_wr32(rxr, FBNIC_QUEUE_RCQ_CTL, 0);
+> 
+> Also, err_restart in fbnic_queue_stop() is only reached when an idle bit
+> did not assert before fbnic_wait_queue_idle() timed out. That is when
+> the device is most likely in the middle of a descriptor or a frame.
+> 
+> On Rx, fbnic_clean_rcq() picks up from pkt = rcq->pkt. Suppose the RDE
+> had written the HDR_AL/PAY_AL completions for a frame, but its META
+> completion was lost while the RCQ was disabled. Would the next frame's
+> PAY_AL frags then be appended to the stale pkt?
+> 
+> The next frame's HDR_AL would also hit this check in fbnic_pkt_prepare():
+> 
+> 	WARN_ON_ONCE(pkt->buff.data_hard_start);
+> 
+> pkt would then be overwritten, leaking the old page references.
+> 
+> On Tx, the cumulative head in the TCDs makes this partly self-healing.
+> Even so, could the Tx buffers, DMA mappings and BQL bytes stay stuck
+> until another completion arrives?
+> 
+> The commit message says the HW "resumes from where it stopped". However,
+> fbnic_csr.h only defines RESET and ENABLE for these CTL registers.
+> 
+> The injected tests cover "HW is idled, but waiting for queues to idle
+> fails" and "HW never stops (rings left enabled, and wait skipped)".
+> Neither covers a CQ that was disabled while a completion was actually in
+> flight.
+> 
+> Could this behavior be confirmed against the hardware documentation and
+> described in a comment? If that is not possible, other options would be
+> to disable the CQs only after the WQs/BDQs have gone idle, or to drop
+> the partial qt->cmpl.pkt state before resuming.
+> 
+> The later patches in this series ("net: add netif_disable_subqueue()",
+> "eth: fbnic: wait for in-flight xmit in fbnic_queue_stop()" and "eth:
+> fbnic: wait for both TWQs of a Tx queue to go idle") do not seem to
+> change fbnic_nv_reenable() or the disable ordering.
+> 
 
-Critical: 0 · High: 1 (1) · Medium: 2 · Low: 0
+The device keeps its ring state when we disable the ring. Only a reset
+clears the device state. The device will finish inflight completions,
+and when the driver restarts the queue we fire the interrupt which
+schedules the napi, so Rx/Tx does not get stuck waiting for a
+new completion.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+If for some reason the device truncates an Rx packet, then it will report
+an error via a metadata descriptor. The driver will purge the pkt data
+accordingly and move on.
 
-- [High] The patch does not remove the use-after-free it describes.
-- [Medium] Parts of the commit message do not match the code.
-- [Medium] The whole fix rests on the claim that the block 'has no reset
-  feature' and that prefetched RX descriptors 'cannot be expelled'.
+I don't think it's worth a re-spin to document this behavior.
 
-Pre-existing issues:
-- [High] This patch keeps the RX buffers across close because the MAC
-  keeps its queue state and descriptors it has already fetched.
-
---
-
-net: hix5hd2_gmac: do not release the RX ring on interface close
-
-This patch splits hix5hd2_free_dma_desc_rings() into RX and TX helpers.
-hix5hd2_net_close() now frees only the TX buffers. The RX buffers are
-released in hix5hd2_destroy_hw_desc_queue() when the device goes away, so
-the MAC keeps ownership of the RX addresses it may have prefetched.
-
-> Do not release the receive buffers, their descriptors and the queue
-> pointers on the close, until the device goes away, so the block keeps
-> ownership of every address it prefetches.
-
-[Severity: Medium]
-Is this description accurate?
-
-Before this patch, hix5hd2_net_close() called
-hix5hd2_free_dma_desc_rings(), which only freed rx_skb[] and tx_skb[].
-The coherent descriptor rings were already freed only in
-hix5hd2_destroy_hw_desc_queue(). Nothing in the driver ever resets the
-RD/WR pointer registers.
-
-The only change in behaviour seems to be that the RX skbs and their DMA
-mappings are no longer freed on close.
-
-> The sibling hisi_femac has the same defect and resets the port before
-> freeing its ring, as in commit d54b21d82430 ("net: hisilicon:
-> hisi_femac: Stop the receiver before releasing the RX ring"); this one,
-> however, has no reset feature and has to keep them alive across a close.
-
-Does this block really have no reset feature?
-
-hix5hd2_dev_probe() requests an optional "mac_core" reset and pulses it
-through hix5hd2_mac_core_reset(). hi3798cv200.dtsi wires it up:
-
-    reset-names = "mac_core", "mac_ifc", "phy";
-
-So the GEMAC_V2 parts that this patch also changes do have one.
-
-Even on Hi3716cv200, clk_ether_prepare() in
-drivers/clk/hisilicon/clk-hix5hd2.c pulses the MAC core/IF reset bits on
-every prepare:
-
-    val |= clk->ctrl_clk_mask | clk->ctrl_rst_mask;
-    writel_relaxed(val, clk->ctrl_reg);
-    val &= ~(clk->ctrl_rst_mask);
-    writel_relaxed(val, clk->ctrl_reg);
-
-The commit message also leaves out two changes users can see:
-
-- rx_skb[] and the hardware pointers now survive a close. At the next
-  open, hix5hd2_rx() will pass RX BQ entries left over from the previous
-  session to napi_gro_receive().
-
-- The full RX ring of MAC_MAX_FRAME_SIZE skbs stays allocated and
-  DMA-mapped while the interface is down.
-
-Could the changelog be updated to describe these?
-
-> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index 12a5657653f85..8c67a0670cbb2 100644
-> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-
-[ ... ]
-
-> @@ -873,7 +880,10 @@ static int hix5hd2_net_close(struct net_device *dev)
->  	hix5hd2_irq_disable(priv);
->  	napi_disable(&priv->napi);
->  	netif_stop_queue(dev);
-> -	hix5hd2_free_dma_desc_rings(priv);
-> +	/* free rx buffers when device goes away, not when interface closed;
-> +	 * the hardware prefetches rx descriptors and cannot be expelled
-> +	 */
-
-[Severity: Medium]
-Is "cannot be expelled" known to be true for this block? The driver
-already defines stop and flush controls for the queue DMA, and nothing
-uses them:
-
-    #define STOP_CMD            0x05e8
-    #define BITS_TX_STOP        BIT(1)
-    #define BITS_RX_STOP        BIT(0)
-    #define FLUSH_CMD           0x05eC
-    #define BITS_TX_FLUSH_CMD   BIT(5)
-    #define BITS_RX_FLUSH_CMD   BIT(4)
-
-The TX/RX FLUSH_FLAG_UP/DOWN status bits are defined there too.
-
-hix5hd2_mac_core_reset() is only called from probe. The reset pulse in
-clk_ether_prepare() has no delay between assert and deassert.
-hix5hd2_port_disable() is just two posted writes, with no wait for the
-DMA engine to go idle.
-
-Suppose STOP_CMD/FLUSH_CMD, or a properly timed core reset, does what
-the names suggest. Would the more complete fix then be to do this in
-hix5hd2_net_close():
-
-- stop and flush RX/TX
-- poll the flush flag
-- resync the RD/WR pointers
-
-That would also cover the TX and remove/re-probe paths raised below.
-
-There is also a possible regression in the other direction. On some
-parts, the reset pulse in clk_ether_prepare() or the mac_core reset may
-clear the queue RD/WR pointers. The RX FQ write pointer would then point
-back at a slot whose rx_skb[] this patch kept, and hix5hd2_rx_refill()
-stops right away:
-
-    for (i = 0, pos = start; i < num; i++) {
-        if (priv->rx_skb[pos]) {
-            break;
-
-Could the FQ then never be refilled, so RX starves after a close/open?
-
-These register semantics are not documented in-tree, so it may be worth
-checking them against the SoC manual or the vendor driver.
-
-> +	hix5hd2_free_tx_buffers(priv);
-
-[Severity: High]
-This isn't a bug introduced by this patch, but doesn't the TX side of
-hix5hd2_net_close() have the same problem as the RX side fixed here?
-
-hix5hd2_free_tx_buffers() unmaps and frees every non-NULL tx_skb[]
-right after hix5hd2_port_disable(). There is no TX stop, flush or idle
-poll first. This includes skbs whose descriptors are still posted in
-TX_BQ, and skbs already completed in TX_RQ but not yet reclaimed.
-
-hix5hd2_hw_init() only writes DEPTH and START_ADDR. So at the next open
-the TX_BQ/TX_RQ RD/WR pointers are unchanged, and hix5hd2_port_enable()
-writes 0xf to DESC_WR_RD_ENA.
-
-If the MAC resumes the still-posted TX_BQ descriptors, can it DMA-read
-the freed buffers and send whatever memory now lives there?
-
-Any leftover TX_RQ entry also points at a slot where tx_skb[pos] is now
-NULL. hix5hd2_xmit_reclaim() then stops without advancing
-TX_RQ_RD_ADDR:
-
-    skb = priv->tx_skb[pos];
-    if (unlikely(!skb)) {
-        netdev_err(dev, "inconsistent tx_skb\n");
-        break;
-    }
-    ...
-    if (pos != start)
-        writel_relaxed(dma_byte(pos), priv->base + TX_RQ_RD_ADDR);
-
-With pos == start, no completion is ever reclaimed again.
-hix5hd2_net_xmit() eventually hits a non-NULL slot and returns
-NETDEV_TX_BUSY, and the queue is never woken.
-
-The watchdog path hix5hd2_net_timeout()->hix5hd2_tx_timeout_task()
-calls dev_close()/dev_open(). It runs exactly when TX_BQ descriptors are
-outstanding and resets nothing, so it does not look able to recover
-from this either.
-
-Would it make sense to handle TX in the same fix?
-
->  
->  	if (dev->phydev) {
->  		phy_stop(dev->phydev);
-
-[ ... ]
-
-> @@ -985,6 +995,8 @@ static void hix5hd2_destroy_hw_desc_queue(struct hix5hd2_priv *priv)
->  {
->  	int i;
->  
-> +	hix5hd2_free_rx_buffers(priv);
-> +
-
-[Severity: High]
-Doesn't this just move the use-after-free from ndo_stop to the remove
-path?
-
-hix5hd2_dev_remove()
-    unregister_netdev()
-        hix5hd2_net_close()          <- port disable + clock gate only
-    hix5hd2_destroy_hw_desc_queue()
-        hix5hd2_free_rx_buffers()    <- unmap + free every rx_skb[]
-        dma_free_coherent()          <- all four rings
-
-The commit message itself says the close sequence leaves the MAC's
-prefetched FQ descriptors and queue pointers in place. Here, the buffers
-they point to are freed.
-
-On a rebind (sysfs unbind/bind or rmmod/insmod), the only reset in
-hix5hd2_dev_probe() is hix5hd2_mac_core_reset(). That returns early
-when the optional "mac_core" reset is absent:
-
-    if (!priv->mac_core_rst)
-        return;
-
-hisi-x5hd2.dtsi (Hi3716cv200) has no resets property, and
-hix5hd2_hw_init() rewrites only DEPTH and START_ADDR.
-
-Could the first open after a rebind enable the port while the MAC still
-holds the RX addresses of skbs freed at remove? Received frames would
-then be DMA-written into memory that may have been reused.
-
->  	for (i = 0; i < QUEUE_NUMS; i++) {
->  		if (priv->pool[i].desc) {
->  			dma_free_coherent(priv->dev, priv->pool[i].size,
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120173702.1551838-1-mmyangfl%40gmail.com
