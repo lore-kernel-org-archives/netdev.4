@@ -1,62 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795555359;
-	b=fD473f98KeFH0RFY+kpAHaAxoQXEuFH2ahE/dmVKoegvG92W5mqqrWXt/d2EBDhBapfi
-	 Af9AVtanA5//MuTVf9Ti5BanieuR5QHXhrnXJbwL25s9F2e22n7Umxv33aHOVTzu/B8zd
-	 EI/56MKtchd8Wh814I0d6vXnhnRV7e9nY3OZ1eGnbYNkJxzbOmb8+thQllIka1yc8O+9A
-	 71+anbYh2+aMM1YVqs4UrtkIj3fBibB7rSq8hnSQ9cuuUZ68/OMI/AI3x7H8R1CFOeQQh
-	 ags/R/JVRxefyxK3QTdM4N4SReKn+ZH3kiVhiiOx0+U+pFF6jj998FxV9z1HidjXG/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795555359;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=pGcu5j1GrDoghOCWLQcX5pghJ8d+cz79M1yHJzlwXC8B3lQCvMvVk3P/j7gTUijVsktn
-	 evO2DKhNC8tETMSvq12/CSXgT4Q1icvuD/RePXJpQtQ1xwnxygFGaR4xzb7FmEMEpErJV
-	 O0p011N3YWI6PF0nRn/WrEZ39tLjXaL+WTB9K4AY/Hu4u+zAOpiRrd4MtsdhZc87EhTjR
-	 ui1VMG8sv/UUPDndEAbrq8qTH5pN0KFYKWXhtfHGyDaoWLohLwODCEnx70XIznJOd9cws
-	 HgpnnoWnnNA9FpSm61OI20k56ZKd1/wyaeeaiGmvXjJiJp2ABSgc83pMYW6x5Dza6OA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j4TZ1vYD;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795555884;
+	b=n8xmwPO26xnp/DZSkMPeYj5jGHA6MfYDL17kAAk5i1QgHhLmJlziEongC0lHhUy2vfWI
+	 uqIM3q9NbQTZ593b9vRU5fWM1X9WvaWq3HYUmSFsnxI22fkN66IWwU6ULUrCZkuk8TO0a
+	 TYOvPEBmqhO49UpKsBi7IDV0G8JeQt4Bf6cv2hXo8v83I+ZrAAHpEulm1UpPLoGkDHHQd
+	 05h3oA/o9ak5p9eodJCe2aZaIyVdEhG0dAxCIedwFgwvfBQM0Y5cxnvF69jrlKuWRfBN6
+	 IYfENeBqrx3S08m6Cc8xlmjvXjPduQCBENPaHwl5eb8mo2UHuffnU8ZMm2TuVeMaZ5g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795555884;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=2ZZ0i6HlDHdHe4CdRACxk5+gA57bus4KuijYTBcB6nE=;
+	b=YE3nONpTNMbekaZZfcEcbVWx4vcSD8lcQR7mOaHoqQfqnSEZeRnl2mImxTvQP8i/Ui7U
+	 XR1b7LmQnQanBSj2RKvRWz0Vj8nQgbvViPYQRVywWPUGeRBKtuyc5wupFD0sVvj4PVLTi
+	 ZpJgQBYT2GGUYU1ZrW5DxOYorCi86PjctmmUu0bhbT3aRz2Hv6FETScDLRR90HEfKlh/u
+	 6KdmjAqMfDtNbUqB+gaM/iMDlbY2Gwo+i/d/Y7dz3cZrg0qFVbn4gznqjXug7kkBxwHbh
+	 uQwh72YH+3KNXJq0+s8sRzykHf2SMuJd58rhvQxE1QoBSkK0AwPJjXjoA8TYtX5QtjA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=iav.lv;
+	spf=pass smtp.mailfrom=iav.lv;
+	dkim=pass header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=Xg0gjWbS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=136.143.169.15
+Received: from sender-op-o15.zoho.eu (sender-op-o15.zoho.eu [136.143.169.15])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D5DB606A327
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:22:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A9C0D606A683;
+	Tue, 24 Nov 2026 21:31:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A9C0D606A683
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iav.lv
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iav.lv
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j4TZ1vYD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 425F61F000C6;
-	Tue, 24 Nov 2026 21:22:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795555358;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=j4TZ1vYDVYabHKM8Agx5PvcY2sXR95/I9jIzEbLwukF6G9WDwT1C2L4l2GB4eKsMP
-	 xeszGZcMVcl/EpZn6wppZu4jq3uuBTFcb5N/4b9XF34xh925GZnHqUCM9mZp5HdsqI
-	 Hd2WYBMvRPsnSL4fbjef1kNJVx8B4pPoVGaCYwzleczdf6MR+2MR0CIwNl1uQZRJIW
-	 FyrW1II8bS96svkY8HBx0JaW+urE5PnvUgi0ZGf631ZzNF8mvPzp26WOFCdADPNUMm
-	 WIjgWpu9ukA2oGZf7v9H6c8LSaQ46QXVov3zsoxTYNR3Nai6D2w9BpJ0k35/lVEcPn
-	 3vIw/BFpWfBpQ==
-From: netdev-bot+sinfo@kernel.org
-To: Yuxiao Zhang <yuxiaozhang@google.com>
-Cc: Samuel Mendoza-Jonas <sam@mendozajonas.com>,
+	dkim=pass (1024-bit key) header.d=iav.lv header.i=@iav.lv header.a=rsa-sha256 header.s=zoho header.b=Xg0gjWbS
+ARC-Seal: i=1; a=rsa-sha256; t=1795555829; cv=none; 
+	d=zohomail.eu; s=zohoarc; 
+	b=gFavRAac8duItiIcuykCC4U61BDDEiC8fP2KB+VUJuuLNRtEiTFH5vHKze6UuNxk3eOL63Wwbetql5b1pbTeENhh9U4bNVFQyggwysLatnKMx6S/2OEVimaIEE1ZHCEHkTvQUnVO28gfLVl6sdEYg5J/NXn5wjqjpd3QqbsmfjI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.eu; s=zohoarc; 
+	t=1795555829; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=2ZZ0i6HlDHdHe4CdRACxk5+gA57bus4KuijYTBcB6nE=; 
+	b=iDo5Tt4apH7dCuqFXUmkAkaL2RlWPK4dG6HvucfGlm3ZZB0yL607G7RFH8Qy3trdPw/dNa5IBzNPbcYthVo+cyLef86+BBPiz9LEHx6CSPGc83xV1qKZZExECgFSSykQdQ9gSDNJztSnyJvuccg5jbomyzle2QhdzX1ugMH6krM=
+ARC-Authentication-Results: i=1; mx.zohomail.eu;
+	dkim=pass  header.i=iav.lv;
+	spf=pass  smtp.mailfrom=iav@iav.lv;
+	dmarc=pass header.from=<iav@iav.lv>
+DKIM-Signature: a=rsa-sha256; b=Xg0gjWbSOrN3ih4nu1jb8196N6p51fu/BEXKP8u/Rt9ERiF00e1NNOkZCidAxfVQj1WAd+XEnTNTIhf7J0q2Hb1rwIfo/7ZtxrJo2l8QG6CU64eep+f5yKCQTTofb+0GcULk/4UpgZehAdaGO9pFh0FJZZR41XaDUwZewmqxGFw=; c=relaxed/relaxed; s=zoho; d=iav.lv; v=1; bh=2ZZ0i6HlDHdHe4CdRACxk5+gA57bus4KuijYTBcB6nE=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zoho.eu with SMTPS id 1795555827111698.0393064779806;
+	Tue, 24 Nov 2026 22:30:27 +0100 (CET)
+Date: Tue, 24 Nov 2026 23:30:25 +0200
+From: Igor Velkov <iav@iav.lv>
+To: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Russell King <linux@armlinux.org.uk>,
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Willem de Bruijn <willemb@google.com>, Paul Fertser <fercerpav@gmail.com>,
- Simon Horman <horms@kernel.org>, Peter Delevoryas <peter@pjd.dev>,
- Patrick Williams <patrick@stwcx.xyz>, netdev@vger.kernel.org
-Subject: 
- Re: [PATCH net] net/ncsi: validate GMCMA address_count against packet length
-Date: Tue, 24 Nov 2026 21:22:37 +0000
-Message-ID: <179555535780.3294.15453808391107962582@kernel.org>
-In-Reply-To: <20261124211830.3298822-1-yuxiaozhang@google.com>
-References: <20261124211830.3298822-1-yuxiaozhang@google.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+ Neil Armstrong <neil.armstrong@linaro.org>,
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>,
+ Lucas Tanure <tanure@linux.com>,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org,
+ iav@iav.lv
+Subject: Re: [PATCH net v2] net: mdio: mux-meson-g12a: keep the MAC data path when switching MDIO
+Message-ID: <20261124-re-martin-g12a-mux-t7@iav.lv>
+In-Reply-To: <CAFBinCALe-8oB5Mwpyx-B_7dKJ-WZcMCjycHv=xH+JasRBOaPw@mail.gmail.com>
+References: <20261117-g12a-mux-data-path-v2-1-fc56db5973af@iav.lv>
+ <CAFBinCALe-8oB5Mwpyx-B_7dKJ-WZcMCjycHv=xH+JasRBOaPw@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,26 +74,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
 
-Hi!
+Hi Martin,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On Tue, Nov 24, 2026 at 9:50 PM Martin Blumenstingl
+<martin.blumenstingl@googlemail.com> wrote:
+> I have just reviewed Lucas patch [0] which adds Ethernet support for the T7 SoC.
+> He kept the internal MDIO mux path disabled by default, so boards
+> using it will have to enable it.
+> Have you tested that approach as well? If not: it would be great if
+> you could investigate the pros/cons of your approach vs. Lucas'
+> approach.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Not on hardware. By the code it works: mdio-mux registers only the
+available child buses, and the g12a driver writes CNTL2 only from
+switch_fn. With int_mdio disabled the internal bus never exists, so
+CNTL2 only ever gets the external setting.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+But that avoids the bug rather than fixes it. The MDIO source and the
+data path are separate CNTL2 bits; the driver switched them together.
+Disabling int_mdio only keeps that path from running, and only on
+boards whose DT does it. The G12A/G12B/SM1/S4/C3 dtsi enable int_mdio,
+and ten boards use the internal PHY relying on that. Changing the
+default touches all of them, and existing DTBs keep the bug.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+The driver change removes the coupling: the data path follows the PHY
+the MAC attaches, with any DTB. For a new SoC like T7, int_mdio
+disabled in the dtsi is ordinary DT practice, and the two combine. If
+one has to pick, the driver change: it fixes the cause.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+Igor
