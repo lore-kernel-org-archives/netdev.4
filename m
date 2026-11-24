@@ -1,102 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795543399;
-	b=MjMUnKPN5SMR0HuNS4fOsto1eY2AnZcPWEbHzHoWxlS7NyL0XWPUi2w8g3ySmik1X9za
-	 WA/TYMxcLkLDg2CECw5pg16SKh7G93m5s5pkKGc9fBvAPcE36liNATLBhPmNVaNPx3KBZ
-	 Je1lv0uUQZpYCHoaCWAo1arA/CUhskay9pj5wadTFbqjf29J7HRjXUHvfu+WhdlirFucK
-	 dEziNdRvIMdIjSUIKQCdjY2CjBTI7IUJhj9r8RpblrfTHMOMO8g7fqbOcaZEKszCuMnfc
-	 J/7QpS4Wp1NmNw8DM9iJM1lNCIpNR7C0XuOylYSsHdYBAUJwyeuGMMV//AX7jIEoUag==
+	t=1795543435;
+	b=AOluJpP8w0qsr7F3YfFklUQJWpWlaC8Y8d1T383gPJJe/NOOhytZGdKtdwsTMFKaUwVR
+	 XNXUckb2LWoPYsTVYX/3DdmCdhpCbFGkyJ1rKoP/iu0tV9k6Ob9SJd8nCDsWJGJ+s8uB8
+	 496WscVPRZcc66ds8YUHpgEYi1ZUeQtZymueUiMW7vq8fh9B/nvfEbAr0u0q7nOC7Fw+n
+	 sqaeblRPXsCx6oIRYrBOwuqlJ2SKyAOk/KF9PYyAZM6PkPtYZLFRaMkAGNsPw1o50IiDJ
+	 XcR7TmJOC5qbdIb2UqKaEP3orfNHozbhkaw7YxNJGniwhhqfyheOvTduaEV4MNzUesQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795543399;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-	b=Px/uRtX6LrmF6q16SD5Ueqb6YVQF99LMF1ESxzsI0QE6gVoCb4JKWzDJSj2pRtX9aCJ3
-	 uBR0GgunVZG1/TsskZ8t8zyXDNFuQue5gjO9aOZIuYGbx8kWmaDAY3t7qCV8ybB8FyY76
-	 UBlctJxXlEuuQwr0+627jq5a60mZ5llNZHWqljEEixGnttEknNUCFnyRYQa5VdoFqULay
-	 mZAxMelvVMiVoMHXOy0Lr+pSi8b9s0V4/tVeVkCMlIutWDtOqo9/0YnfK2Ut9rTam2S1E
-	 6qsxKSW0kh0dh1skC0fJoYVSN/GUtIgSmeokSgHbDgqAaHLkL8RYs9di/rOyKRNp33g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795543435;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=TF0c1n1qmDgcnQcm1xackrdRCsureoDJdb+lSA5CUB8=;
+	b=4JA64KFnb7Ceb8V08O0coe8BmhE0jKy5ISI98J0+xTNrDbXvqi/qiKRaEeSGrFmLOow4
+	 9yBwSF+SURcpNVQM5n6cHg+xfS62Cw1JQPrVWTZY4TwExGD/2nTul97RM6vCFFpEx6fp8
+	 6TSMnvIWwoprhdhPOOpEdHhW9RKgAsShGbeMQbd3IFEy7bto1cNUdyAwbQHB8jX6P5cyW
+	 /eZmthLW3hXa/FvT9/0ulMIOWdwAtDC5BFiK5QqRsfmDQ5+G8vnkwVWTGUoUVDzxGK7HZ
+	 cGNcwljcop6vndsX/emFnq+2dqqSrZigchLuH4ft5ZCFWCmXW/Dil+8AnqEJxnP2MtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=dz9t0zlm;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IbuzabuD;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jQWYmbiZ;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CBD36606A32C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:03:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CBD36606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8B90606A681
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:03:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8B90606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=dz9t0zlm
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f04e3bf46dso34358755ad.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:03:12 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=IbuzabuD;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=jQWYmbiZ
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AOHQWb42852878
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:03:54 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	TF0c1n1qmDgcnQcm1xackrdRCsureoDJdb+lSA5CUB8=; b=IbuzabuDgb2kb6Bg
+	QCtKn0wVWujh0ZSZGgtE2XOMW8TcY05NGK57bG009UWhIc0AxuRmZAONJxIYH4g5
+	pYH4OgkmAA57QFg6Bzkv5DZQ8YVYKxqGmn0S01LhpDeEC+dY7Fp3ewcmND3aRAcv
+	OkNljZt1ZkVbSqDYRAHV/BDSRX937mYjPImiWYqzY1r0gdYPGzTar2ueU1nAlCLZ
+	bbWeejHzTqQr+NA2YvuxlqZYWSi840nmhy2u/NYJwpQqwM86bN4H33RNWTvzFIGD
+	BWP5VxyLIsHNufXTGhOydZGd7+lrpThm7CHYMa4z/Xcjz8MhyUML2YbNraTqjcQQ
+	cvjBCA==
+Received: from mail-dy1-f198.google.com (mail-dy1-f198.google.com [74.125.82.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5f00g5eg-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:03:54 +0000 (GMT)
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3869accaac2so2849126eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:03:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795543392; x=1796148192; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-        b=dz9t0zlmm8R2fkO7mnxJ3INo/OsP6/g1LMXAS2NmXszuoqB5yL09fiBO9x907+5kac
-         /bHB+8+X/mTELSy4Jo5xKmd2yaCvrEIPNCc8H0h1vvR9qkxwOOqoLCH1zl3lyQ2UyzLg
-         /ABrNBByraMRdUHgcdov2HegrLy81ZaSVPj1Q=
+        d=oss.qualcomm.com; s=google; t=1795543433; x=1796148233; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=TF0c1n1qmDgcnQcm1xackrdRCsureoDJdb+lSA5CUB8=;
+        b=jQWYmbiZ1dqMkBZcb64cxcnQuPd/zyHMpTjEcLq0eQ7PgEyJkG7j+0fE2Y6tfksQjC
+         VPJoH6mkQQBiG11oLjAuX0krLAThiJLTbUN8xaWMzhNlUJtNHWS+vJBfIuQsAb78OBEl
+         SGEqxxLKGfJJsn3H1yrC+fFYECdN3qQ/exGRJAtMMR59taWqi486vGkjBBI8vzH0g9jF
+         LFPkFRIGDkzUqV7nR3YYnBHyNnD1KUZXUdj+oM6+62VYzlSApKXO9sSdA2+UI6LNaJfI
+         fDgSRtLUOo8iE7Qu0WVS9catSg+8tFvjrdfXj8Axsjon42HJhR3F7ICkl0wHgnQe4eLb
+         P54w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795543392; x=1796148192;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fp+A2IBIJBhlc95VqLzwi8xXI2svbhFRA1unILMyFZE=;
-        b=cIftFiYZtxYSuXWhsxSKQvneZL48SzhncxQdMPsfbZlIQnk5TJ/VuPv3xoq/TZt0Qn
-         k8APODsS6UGvypY4CvHYDbDPUvcI3o2dcM15u61r/MaRKMOayl6CfeGdk3lNDlNXEyHt
-         /sQbxw5JjwS49XiTUHA5/lh2TuT+PcL9a/+zfrcD05gV4f9OFQWhBv5+oIVroTbOPZio
-         PqYBYVy10bCTlbohK0aa1Fdr4fJPCKvYXj8LslMsuujhR1MzvlC2/pxrrddGFmIr13US
-         w/IfgTTWzf8tWrWbGkspEA2KRJx5ig0LTJP4rGj4XeyWYQmWE3rxsTg56PpJTjL7G68V
-         yjQA==
-X-Gm-Message-State: APuU4Z+yVJ2lFKYDZpFK8p+o1yo7owwxfwkCylF5yvkcYHquruI9KZ8w
-	hvMqbjtoUGgPrfmQs2K3Uf6oxbJDkaNuuNLEphUYsl30okBay4KN0W7RJ/I8gf1Uj7U=
-X-Gm-Gg: AZFdTZeW9Hht/vRZqzO9eNUvnACX3i5vmMbAzBuA/kI8mMlMevLdvpkaCz2SoocZnrA
-	/K0lVZTnZF0FylypdxNGOHTHlZFb8hi8FmGzJg9Y7Z/crLCOrsK2BHJCvbvi6iU5HQKt1EP+5QU
-	vOr9Ryu+3GStUIusaOHqD8SqTffs2Um6YiHbwcFcW8EkVgYfF2OUtZ68+CICV8M1WNkwvufYpJh
-	CYfk24tJBIFJQnOsISDPuQTXK8VVI0ejfBx2J5bWZCZTzh2v8DApV+EUs6cnHT2Rj92Fl8ewBt8
-	VJFWpic0deVzW5QWbcpwk6+kBC9Pe4mJ/CsliRMaGpec13poA8ZmN2azRXMmmSDlmPUnO3ee6pd
-	OOj4SvOJos5t9+ZWWA4Q+DgMQf4Ws+/EpCwe/NE6TGD7sUiZH3WSWqfYfyVe0FG6dU04fBMWNdL
-	LHvDcuOaKZoTxWFmcdGOCAqV8Uh3DJGR9M/6vcipd4IQ16EfYZraVJYCbt8K1CmL14TZOy/SDNT
-	4nVtILAkn0ncEFtl5iBN1pnVlaN4ubBj0psFgBq4DNjlcE3pWFlpl/9oR4C0yLM4h8r7vat2Ow2
-	iPhHZjNJF+luRMXB9pPQQfkUZSHSJvoTODqFL93yNrX4bLd6wJr7qLs3M5ns0sgEGXvB6pQCev4
-	qYwT2wDfb7/s/H65g0XTqgioAhhDiciA3O1t4vMD3wuBKa93QCG8jdVH82OPaUdkq
-X-Received: by 2002:a17:902:e847:b0:2ed:3d74:b640 with SMTP id d9443c01a7336-2f03f26b691mr143912525ad.59.1795543392125;
-        Tue, 24 Nov 2026 10:03:12 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dc0ebsm70508185ad.33.2026.11.24.10.03.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 10:03:11 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net v2 2/2] net/smc: bound the DMB-nocopy send-buffer credit as well
-Date: Tue, 24 Nov 2026 23:33:05 +0530
-Message-Id: <20261124180305.622194-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179552966151.3135.8162716126718648323@kernel.org>
-References: <179552966151.3135.8162716126718648323@kernel.org>
+        d=1e100.net; s=20260707; t=1795543433; x=1796148233;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TF0c1n1qmDgcnQcm1xackrdRCsureoDJdb+lSA5CUB8=;
+        b=y+AmOjFs2zMkSPl9PXmBdkoFdHZCwcgnYXqtgnPNlSr+tapj5lCRzobL9ui4MyJro2
+         UhekAQE/7FM9OETNRlK0gubOSOPgq1l09kskQ1W9KFcG7K77Tl3nCBTFdK2GMiDLEEhd
+         2/Fndk1eku3cja4M5Sgx8wI5bFRwTYcH2xF9VplmWiVmi6zsxr+m08dUVycJpOIQfopP
+         Qo7ZhKH34SUwXGCnuBVlBzwa0OSP2DfbwkUcPeuHfJNEtDiGURsDKZKetIxN9WkLz9RO
+         BF02Vv/hwqHWOVek/fnxcmQza6zLLdv6paWMMgpWOE+e5f73Fy21w1EdKffYRXwFb6AO
+         Eofg==
+X-Forwarded-Encrypted: i=1; AL+hErHxYVfr/633j0xljkNTYrY7cidgp3QPPSZaPopG4zndiN7wmQjIT0r1dpCDdYT3p9YMpFHJm+c=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+z+H6YtAbC0xamCHFrsXECSndVNpOAJJGQoSqyAyzXdhzhhjru
+	AMcXVyLyBPuuA5/HfY8Fzvf3fw9R3Bmr/GRGOQgOaKh1VtzT9rg8ptT84QZKduO54Rqzi2lGqsD
+	8yO5XUMbUUVDsKnw75hCEEhOP+xPGgzNjuJTQnajg1fOyGCgag8/aWi210Ho=
+X-Gm-Gg: AZFdTZcLUhRINkj+a2m9mKxagD/DeFlWqVMHTFj76vVTKw1hHdDFGLUZbKqaxEvMTGX
+	VY7TEid72mvtL5RKx+cnAx2Y4yWlpvOSxkuPFg3FCQOMpE8BipCewcGm/q4D5KcVvWy5LC/zJ+6
+	8zZSajX8nXpQr0sulXXw6ofO59yjeqhLt9AdbxwHgcxO9IgfVqi5CkbV17pdEO6YiirMCAFmT3x
+	YDmsQJiodV+yIaCKf79WBpX2K9Wsn3iO9s2czo2Jw7Qal97wN5hEN6Y/SKT6ko3HjSo/yllOfpO
+	TfKrmsHzzgIt3uSKmHXSdR9/g+kCa7l7/NIrViAWIUaLLvmuiTsN+zJQxhrDLdjoIjT55vSo4Hy
+	Tp/TefutMvoHP2+aFyECE2xjxZ9xneCkO52zx1ow6XV0PWpZnh6v83EfrX1rMGNiJiMvP9lTKw8
+	yAdVpFBBcOhF/fbEK8HqWXJ2d+mkg+KHc=
+X-Received: by 2002:a05:7301:8616:b0:385:9424:5c08 with SMTP id 5a478bee46e88-38594245c66mr17360559eec.4.1795543433275;
+        Tue, 24 Nov 2026 10:03:53 -0800 (PST)
+X-Received: by 2002:a05:7301:8616:b0:385:9424:5c08 with SMTP id 5a478bee46e88-38594245c66mr17360522eec.4.1795543432590;
+        Tue, 24 Nov 2026 10:03:52 -0800 (PST)
+Received: from [10.226.48.50] (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386b9bdafb5sm13598889eec.9.2026.11.24.10.03.51
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 10:03:52 -0800 (PST)
+Message-ID: <487aa76c-9eeb-4342-9877-8c5d0a342ddf@oss.qualcomm.com>
+Date: Tue, 24 Nov 2026 11:03:50 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,108 +116,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/4] accel/qaic: Add callbacks for DRM RAS netlink
+ telemetry
+To: Rodrigo Vivi <rodrigo.vivi@intel.com>
+Cc: dri-devel@lists.freedesktop.org, netdev@vger.kernel.org,
+        riana.tauro@intel.com, aravind.iddamsetty@linux.intel.com,
+        raag.jadav@intel.com, simona.vetter@ffwll.ch, airlied@gmail.com,
+        kuba@kernel.org, ogabbay@kernel.org, lizhi.hou@amd.com,
+        karol.wachowski@linux.intel.com, jeff.hugo@oss.qualcomm.com,
+        carl.vanderlip@oss.qualcomm.com, troy.hanson@oss.qualcomm.com,
+        youssef.abdulrahman@oss.qualcomm.com
+References: <20261117233442.407877-1-zachary.mckevitt@oss.qualcomm.com>
+ <20261117233442.407877-5-zachary.mckevitt@oss.qualcomm.com>
+ <awWrm4Q543mvU318@intel.com>
+Content-Language: en-US
+From: Zack McKevitt <zachary.mckevitt@oss.qualcomm.com>
+In-Reply-To: <awWrm4Q543mvU318@intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: dpjipQcX4LmCt4i1yiYBm8MYwmpm0mlY
+X-Proofpoint-GUID: dpjipQcX4LmCt4i1yiYBm8MYwmpm0mlY
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA3MCBTYWx0ZWRfXyMFqSQEQnUjU
+ /VCWUleChjNF+l5so0YYr9ts1gwYxRP4qqlQd1up9ZZ+d4T31LMCKcqpjkZ6MoqC+VBB1fLwqkK
+ glWwNNxk8Yq7taqh7yT9s4A/4CW+U1Y=
+X-Authority-Analysis: v=2.4 cv=JqtkP84C c=1 sm=1 tr=0 ts=6b05d18a cx=c_pps
+ a=wEP8DlPgTf/vqF+yE6f9lg==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
+ a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22
+ a=EUspDBNiAAAA:8 a=BKpwa6Id5kTLf_hP8D8A:9 a=QEXdDO2ut3YA:10
+ a=bBxd6f-gb0O0v-kibOvt:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA3MCBTYWx0ZWRfX1F0aDhWfrV12
+ hkJkJwjmRFIKkwwlEgmX29ROwZGujvbQFo/Y27+ZpxCnztLBH0fChwjF/VXtVlZJpId1R3vPI6z
+ 2aEWQ904u8BezRnb9OVJOJtUR6Ve+DkcVfF5rO/AgtugEPbeG1fs9X2ycRwaB6P9CR2O/CKcedu
+ sfvSoNjkzzNbv0UjskNEoJOl8VVXX0N9CSyhuhM4rH+yaf/04LuUSrVsMf3ivF9vgFC1VXz4ZIe
+ AVKBQo76498XsW/A+pvMsUTr5/TFElmPfuzx1ZOHWVJE9V+AYHXwLmdAp7wmDObtzW3qKnYRjbz
+ qjRPRLb0uPfZw4JnRr2vNtMaJtelV3MqFAqmtwLijKtsvXM1uPvzxm8yqCo2MRXKI0Njn9bJWQ+
+ FpChlYFd5CswZbFxDJNcTmmwNdfriIqtmedCYxJatGwji9XZZnd4BcItUH7LzMYxOab61F3kDjD
+ dfESCdVqWiYj+pRGmpQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-24_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 suspectscore=0 impostorscore=0 spamscore=0
+ priorityscore=1501 malwarescore=0 adultscore=0 clxscore=1015 phishscore=0
+ bulkscore=0 classifier=typeunknown authscore=0 authtc= authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611240070
 
-Thank you - both of these were worth the mail.  The first changed the patch:
-the bound is now the one you suggest.  The second is pre-existing, as you
-say, and I have answered its two questions below rather than fold an
-unrelated counter into this one.
+On 11/24/2026 8:22 AM, Rodrigo Vivi wrote:
+> On Tue, Nov 17, 2026 at 03:34:34PM -0800, Zack McKevitt wrote:
+>> Use the DRM RAS netlink infrastructure to perform device telemetry.
+>> During MHI probe, create a DRM RAS node with DRM_RAS_NODE_TYPE_TELEMETRY
+>> type and add callbacks to telemetry_request for read and write operations.
+>>
+>> Co-developed-by: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+>> Signed-off-by: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+>> Reviewed-by: Jeff Hugo <jeff.hugo@oss.qualcomm.com>
+>> Signed-off-by: Zack McKevitt <zachary.mckevitt@oss.qualcomm.com>
+> 
+> Can I take this and the rest through drm-misc-next?
+> 
+> I have another series that will conflict...
+> 
 
-v3 of this patch is posted as a separate thread:
-
-  [PATCH net v3] net/smc: bound the DMB-nocopy send-buffer credit by what
-                 was sent
-
-Each patch of the v2 series drew its own review, so each is respun in its own
-thread; the other one is answered where it was reviewed.  The v3 changelog is
-under the --- line with a Link: back to the v2 posting.
-
-
-1. Is len - sndbuf_space the right bound here?
-
-> The peer can only consume up to the producer cursor it was given.
-> smc_tx_rdma_writes() advances that cursor together with tx_curs_sent. A
-> consumer cursor that claims more than tx_curs_sent is therefore clamped
-> only to prep - fin. The smc_curs_add() above can then move tx_curs_fin
-> past tx_curs_sent.
-> Would that break the fin <= sent <= prep ordering implied by the
-> tx_curs_sent ("sent data") and tx_curs_fin ("confirmed by peer") field
-> comments in smc.h?
-
-It is not the right bound, and yes it would.  The ordering is what those
-comments say:
-
-	union smc_host_cursor	tx_curs_prep;	/* tx - prepared data */
-	union smc_host_cursor	tx_curs_sent;	/* tx - sent data */
-	union smc_host_cursor	tx_curs_fin;	/* tx - confirmed by peer */
-
-and nothing else in this branch moves tx_curs_sent, so the clamp was the only
-thing standing between a forged cursor and fin > sent.  Your consequence
-follows too: once fin is past sent, a later smc_tx_sendmsg() can wrap out of
-tx_curs_prep into [tx_curs_sent, tx_curs_prep) and overwrite data that has
-been queued but not yet advertised - on this path, in the peer's DMB.
-
-v3 uses the bound you give:
-
-	unconfirmed = smc_curs_diff(conn->sndbuf_desc->len,
-				    &conn->tx_curs_fin, &conn->tx_curs_sent);
-	diff_tx = min_t(int, diff_tx, unconfirmed);
-
-The honest-peer case is unchanged: a cursor that reflects real consumption
-cannot be past the producer cursor the peer was given, so it is at most
-tx_curs_sent and the bound does not bind.  smc_curs_diff() already returns 0
-rather than a negative value, so the max_t() that guarded the subtraction is
-gone with it.  The variable is no longer called "sent", and neither the
-comment nor the commit message says "outstanding" any more - as you note,
-that described a tighter bound than the code computed.
-
-Your reading of smc_switch_cursor() is right as well: it rewinds tx_curs_sent
-to tx_curs_fin and then advances both, so the order holds there even with the
-longer distance.  That patch has a review of its own and v3 of it stops
-clamping altogether - a cursor that claims more than was prepared is treated
-as a protocol violation and the connection is dropped - so the two patches no
-longer share a formula.
-
-
-2. peer_rmbe_space is credited with no bound (pre-existing)
-
-> With a forged cursor, can peer_rmbe_space exceed peer_rmbe_size here?
-> That would make the comment false.
-
-Yes.  diff_cons is bounded only by peer_rmbe_size, since that is the size
-passed to smc_curs_diff(); the atomic_add() applies no clamp, and the only
-thing that lowers peer_rmbe_space is smc_tx_rdma_writes() as it writes.  So a
-cursor that reports consumption this side never produced raises it without
-limit, and the "guarantee 0 <= peer_rmbe_space <= peer_rmbe_size" above it is
-not a guarantee.  It runs for every SMC-R and SMC-D connection, as you say,
-not only the nocopy ones.
-
-> Would an inflated peer_rmbe_space mean the urgent data sender is never
-> woken through that path?
-
-Through that path, yes.  The wake-up tests equality:
-
-	if (diff_cons && conn->urg_tx_pend &&
-	    atomic_read(&conn->peer_rmbe_space) == conn->peer_rmbe_size) {
-
-so while the counter sits above peer_rmbe_size the test cannot become true
-and urg_tx_pend stays set.  I have not traced whether another route clears it
-in practice, so I would not claim more than that the condition here can no
-longer be met.
-
-And your point that the two counters can now disagree is fair: after this
-patch sndbuf_space and tx_curs_fin are bounded while peer_rmbe_space still
-takes the full diff_cons, and the comment above the nocopy branch does speak
-of both being updated because "peer has already consumed the data".
-
-I have left it out of this patch rather than fixed it quietly.  It is a
-different counter with a different Fixes: tag, it is not confined to the
-loopback-only branch this patch is about, and the natural bound is a
-different quantity - the distance from cons_old to the producer cursor the
-peer has actually been given, rather than anything derived from the send
-buffer.  Getting that wrong would stall flow control on every connection, and
-we have no SMC-R setup here to exercise it on; the route to this patch's
-branch is loopback-ism, which is why this one is hardening rather than a fix.
-So I would rather post it on its own, or leave it to the SMC maintainers if
-they would prefer to take it.  Either way it should not be lost - it is the
-same class of bug on a path that every connection uses.
+Sent out a v5 with minor fixes, including moving mode from u8 -> uint. 
+Should be good to go on our end.
