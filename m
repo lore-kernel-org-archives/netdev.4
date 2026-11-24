@@ -1,49 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795563606;
-	b=UynYIfw8wdVEwN64pNGyuzka8z1rPGgaDi7tSO9iggRHYV+TEyvkUoCO2Gzxm4SD/08o
-	 tMOaUecZHwewQ5gGZ9Xm+khX/vt4GzYz5MWVMdmrYIyxegRrVrAzsAVzngfFZMrsGmC2K
-	 pGfGedeZ6pDD+X5uDIkEcm5YWEfNgsvJnm8ZM0X/3yaLbEEU9GfExbunosSz2IDvQX6Tb
-	 C8J1Id2sP2eysq4DzCFCFFCe/ZRYyG2PPRISTa6XbAhF81d9du3Oq7518fi5dlO4pEGoL
-	 Wjf/CkVDgU1fRUbTh0ibHMGfY+FfKxc0OXEyHl2cEIYJxA+WP8Di0hJsAbfuxlv8rZA==
+	t=1795564436;
+	b=FyrQIKRK0ZP2Pohcaatz1inuDhiFBERwrfxCdTFI8aE6XXjEc4eFRewtgmRzQXZrH2/v
+	 mi7BMjZvajQQybVzP1F3cQrbrT6aCvCxgkYwBhIygWFfMGCi9hIRakJdn5iIyYpxa10c9
+	 1uvcSXMnpa0oDRnyhY1lfpPMyUS0i8VPZqblfIWZOY+ptsoK3bJktC0nh5AENFPhaarAL
+	 WgOjh+aM4sK4nfxNZu06Y/M/oc5N6Jqx0xpdKUe6yinNx9ptyxRq1ALLsvPO2ogd472s0
+	 XK4d1x+silchm2tNeX2kaskvNEoThudgt2Uaj/Q2biyvD4U2FRKLvhnmsEaMCXnh0yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795563606;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=OilXcVwWhH2/4ei4wSv+KY1qkLy6rCbfdcZz+Lmnyxc=;
-	b=EzLXIAMu240YUcPKxZEnTbLbH/JACV1JtOoopqKq7EL6M4zZ6/JBdALxWG9wEa4oq9zE
-	 wIBDg9Sj+k+L1q+HG1X8si+NwxIdBg7TDRUyqW9ATENxgSai7zIpqs3YJ1krYjlFx/0Mz
-	 i4LxZ7MQXWtJL9nNK+6PUKRVR3RBu1Vy74NyGK6IAMFGZneqaLB/V7fxLLJYeeTGs8xl2
-	 t9QRWzm4ZP0JxXRX8BHI3mI/QVKCYVXxucEpOI9EW2x7NM2VH9H6xg0iyMf/kYKOidIZx
-	 wC/XV+2DYxrM/2ROjBVjm1J+2PcbutfCYh9LjO4vmAfak4IuzNN09FbFB8UJkw6c34Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795564436;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
+	bh=KICHrHoVBC5ChiNKe6AnJDa0EDKDsz+p/ePjDWX3ai8=;
+	b=HLZvX3RCNMyHheX9KHxjmRugmGB2SaHjPrHgIAqIHW/go9lQrDbeFSaa4YuLODExcoKm
+	 vkpFpTzX9EhCqLZV02yeUtvEVDIayV5mr6D4zymP0hkoyOhkJaj1JMMv4bOiy/gMCBz0z
+	 Xs9MYcB8Xh5hyQPI+aLXs0LABxyQmKxIZBBBHfQUktWhiL00dpM9Wo8OEKeqpC0pRgczV
+	 lUUZRMacIIXeutWbR1SCV3prEE7yVytBLTZSyx0rOUGXIWDdmEJ238+gnlxW3LT465E3E
+	 y4TI/XDe2/jV145N5E8UTzztVy0tkvKb4vYBvkdgP21LYL3M/IGgw2UnkhhL+fAbQiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GaqMZID0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=netfilter.org;
+	spf=pass smtp.mailfrom=netfilter.org;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=adV8GWA9;
+	arc=none smtp.remote-ip=217.70.190.124
+Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C2D0606A31E;
-	Tue, 24 Nov 2026 23:40:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id EAAC9606A31E;
+	Tue, 24 Nov 2026 23:53:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EAAC9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GaqMZID0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BED521F000C6;
-	Tue, 24 Nov 2026 23:40:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795563605;
-	bh=OilXcVwWhH2/4ei4wSv+KY1qkLy6rCbfdcZz+Lmnyxc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=GaqMZID0eKkWY1QqMIEKtGoJhwlQAulGZYVaORZwemvbVcM/EZaSDhFdDgUegDUUN
-	 F7TGMvzjnWeh93BGrCdIwuGJWxZdPOn2EAYRyYiWetfXgWl+NnrjHvalpJMkpmyrE9
-	 rfwA3j1EZQ+V2cAxsRYnAcDWx6XnWh3i3wvZX70r2kXZ8FX4cwBgymZVWaYbUroviC
-	 jBG2Qrjt1Lko8jhCJxiiUXyPQGFzSst1F+s9Ly+NXuycGcGiatxED3tB5Wjbo1X6UB
-	 GU+8mvPP36u8bch2VfiTgG26dRoNRN1+lb8ov/4ojtOe4563sPO157LEiF4OOs410p
-	 0G/KejHafsftw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B43D43808209;
-	Tue, 24 Nov 2026 23:40:05 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=adV8GWA9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1795564434;
+	bh=KICHrHoVBC5ChiNKe6AnJDa0EDKDsz+p/ePjDWX3ai8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=adV8GWA9VXyZwVHUT3pbNlDYzzjahyq6rNb8VhINLP9oR2/L2yuUVi0Pbup1TLmOJ
+	 xcpIwgCxvObkCvAyHU4zYsPgPLzI/gek5I/EpXf+vMCxfIeiPb12qYIT5EAAiiSUmD
+	 Hr303zLHM1d5BqWg07cn+UDXsPWyAXwU92Yza0xqzhRWvQNlFiprz1DAy1PflZqZmQ
+	 R8B+fYkZlZe1urVhwcErPumMSCvCDtf5R4XK2Tgn3CEFZdzGID7+a+s+mFYoo/oJJ1
+	 RWK6PYmVOtTT+sL3ubXdf5c+9fxuiEBCIqDb71O/N5deP0fGqnUPjW5AkbuMPpA+hd
+	 5T7r4N3X3t9Fg==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 30D6E60074;
+	Wed, 25 Nov 2026 00:53:54 +0100 (CET)
+Date: Wed, 25 Nov 2026 00:53:51 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Florian Westphal <fw@strlen.de>
+Cc: netdev@vger.kernel.org, netfilter-devel@vger.kernel.org
+Subject: Re: [PATCH net] MAINTAINERS: don't CC netdev on netfilter patches
+Message-ID: <awYjjwhty6TeH_Mr@chamomile>
+References: <20261124152635.26769-1-fw@strlen.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,46 +62,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3] net: dsa: motorcomm: Resync SMI slave before
- register access
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179556360453.119376.7882110407417172723.git-patchwork-notify@kernel.org>
-Date: Tue, 24 Nov 2026 23:40:04 +0000
-References: <20261119183539.1028929-1-mmyangfl@gmail.com>
-In-Reply-To: <20261119183539.1028929-1-mmyangfl@gmail.com>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261124152635.26769-1-fw@strlen.de>
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Willem de Bruijn <willemb@google.com>:
-
-On Fri, 20 Nov 2026 02:35:35 +0800 you wrote:
-> A register access over MDIO is 4 frames: 2 address writes followed by
-> 2 data reads or writes. The SMI slave tracks the phase in a state
-> machine, so an access interrupted between frames, e.g. on an MDIO bus
-> error, leaves the machine in an unknown state, and every following
-> access fails or acts on a stale address until the machine is realigned.
+On Tue, Nov 24, 2026 at 04:26:35PM +0100, Florian Westphal wrote:
+> Netfilter patches are handled by the netfilter maintainers and the
+> netfilter-devel list, yet scripts/get_maintainer.pl also suggests the
+> netdev maintainers and netdev@vger.kernel.org for them, because the
+> NETWORKING [GENERAL] entry matches net/ and include/net/ as a whole.
 > 
-> The driver has so far assumed every access succeeds, and relied on
-> manual resetting when the state machine wedged. However, without a
-> dedicated reset line, the reset itself goes through the same SMI
-> interface, causing a chicken-and-egg problem.
+> Add exclusion entries for every path already listed in the NETFILTER
+> entry.  This is done to reduce the mailing list load on netdev@,
+> which does not need to be Cc'd on netfilter changes. Patches merged
+> into either nf or nf-next tree will still be passed on to the net
+> maintainers.
 > 
-> [...]
+> Signed-off-by: Florian Westphal <fw@strlen.de>
 
-Here is the summary with links:
-  - [net-next,v3] net: dsa: motorcomm: Resync SMI slave before register access
-    https://git.kernel.org/netdev/net-next/c/bc686737f555
+Acked-by: Pablo Neira Ayuso <pablo@netfilter.org>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+> ---
+> 
+>  MAINTAINERS | 10 ++++++++++
+>  1 file changed, 10 insertions(+)
+> 
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 7336600952c8..8348b298e40d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -19170,21 +19170,31 @@ X:	Documentation/networking/batman-adv.rst
+>  X:	Documentation/networking/mac80211-injection.rst
+>  X:	Documentation/networking/mac80211_hwsim/
+>  X:	Documentation/networking/regulatory.rst
+> +X:	include/linux/netfilter*
+> +X:	include/linux/netfilter/
+>  X:	include/net/bluetooth/
+>  X:	include/net/cfg80211.h
+>  X:	include/net/ieee80211_radiotap.h
+>  X:	include/net/iw_handler.h
+>  X:	include/net/mac80211.h
+> +X:	include/net/netfilter/
+>  X:	include/net/wext.h
+> +X:	include/uapi/linux/netfilter*
+> +X:	include/uapi/linux/netfilter/
+> +X:	net/*/netfilter.c
+> +X:	net/*/netfilter/
+>  X:	net/9p/
+>  X:	net/batman-adv/
+>  X:	net/bluetooth/
+> +X:	net/bridge/br_netfilter*.c
+>  X:	net/can/
+>  X:	net/ceph/
+>  X:	net/mac80211/
+> +X:	net/netfilter/
+>  X:	net/rfkill/
+>  X:	net/wireless/
+>  X:	tools/testing/selftests/net/can/
+> +X:	tools/testing/selftests/net/netfilter/
+>  
+>  NETWORKING [IOAM]
+>  M:	Justin Iurman <justin.iurman@gmail.com>
+> -- 
+> 2.56.1
+> 
+> 
