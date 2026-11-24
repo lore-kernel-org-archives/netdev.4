@@ -1,60 +1,48 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.75.44.102
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795523887;
-	b=C7lk3/WtmnmokPj4eCkLWNlDf/2+2KGtwc5W8lOYnKRSPJncKNCSEf/7jXcNBpjm9FOC
-	 rvFmDEddNvQk6daAAzq6nZaG9COwxelUMr7LOXDQJ5EZ8sUDP9AH7OC5jm9fcNUd5hUvm
-	 AxfBGT+x4nC0A1wyJG1r+cl9XkYL0h4mKZA18LN2N7LInUmDCJ17BSybC6GL1sfNqkD5s
-	 u8oe8tHbE2NjNN2J3U6n7P4681Tey/evdcN0U/tD8GycPAL7ne3709RV90FNvXMiVNrji
-	 dFqvj+CRDH25GFTK6LQw1XPDUmbEdz5SpXEjyQqFSFvs4kWQoqdR03SQPXtIJAE/0cg==
+	t=1795524498;
+	b=LZnmwe3mTD6pq9xlrHAoiIy5ndkbxPzK89dVr1N5Z94bX2FLqwwdQFOPo0/yM0ZkCQAd
+	 gBjyGSFJQ0ozc9tmgFR4Gg+mEWCuZ85ee/MFO9rNK+0VEYfh3jKHVmFIaPcuKgL/TB9i1
+	 mdu8wH8Kz2YifO4TOYUQEspBpooYPcsa/FsHN+TfYgEFOJiMjaONiZ/XsmUhh3S0xfEXB
+	 eL8TgXsaRml1glrdT5KtmEWYtvZKsG2xZVn0Arz58gs9e8KM56jK8UmzQE08pi9e3qgjV
+	 xDf6VdWnZVozQ+kuut5EnMVePFze4QlTGIQ19iBNUL979CDoiLLIgIKkMhEZSgMf9Qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795523887;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=sGQWHvfvNuR4bDcafpCJrAsVYXAgtgvxZYv6zee4x7SsMj6SyIwEHlIu97ppO86/Wxct
-	 OcVVhFRJKFfgktYjDNFk3gDhNmdcBtaZBotoQThJV2AgLqWAuPSyjz4Cc340Km+GuJ6IY
-	 8vnA25faWO4aek/SpRoY7NZULZVBDvxZ1GodLDSL5aYEoJ+4K5XsRIbbg0DhJG6lXNmK+
-	 yRS3N+5EqVCFHfRR4VBR9cv8uRJXq3I6gl0QwD80ed/1rGxS32YZsfpd2dFMRRpBX6Mma
-	 sz/60df3dYwwYoUf2+FrZc437tksudmJfl07XoDjRlMMCTo8xF1pMb7ze2qRkkbP92g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795524498;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=/PWd18l0eDqXOlcuoD9UjIb4JghxABihIehp2sykkVE=;
+	b=LxjTU9V+TRWK30wirVLSHnee5miwILpmfVt2PPUqDdkQfRNyu2GJrWLa1YlD3D9Hyht0
+	 64W4QQin+6UwpRMzx5jcUGGKN6QGlPeKGV79JSg+DIwZpgOk39rcCgTQ1YzI+DsYeK9Ah
+	 MkGSluDfdRc3YRIAceKdO3lPkMcF8FpbR6tQ2DJVWTfxS+HAewxB8lWvEqC6gJSkE6nY0
+	 t5F/oElUtF9Dk613V2uMycDcS6F/vt3Ltf3cPx5b5RfV4lV98X3ScWhKCTFLURprYRLoi
+	 OVR1gdto+0rbLrjEUxy6onAwEnXDyIPN8wmxgDV2xIBOg+rvlZgEGN8HM2CrMjOuw2Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2IRfZkb;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05635606A31E;
-	Tue, 24 Nov 2026 12:38:06 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2IRfZkb
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1931E1F000C6;
-	Tue, 24 Nov 2026 12:38:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795523886;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=m2IRfZkbevR2dQCYVTzfY+xTtZIikKF1nJQVqzV8G2zJbdGdOkyRwt7Fnn8hcnGKo
-	 79sOajCbX6w6Tq0kZ3N447flt3Byp2AjW6bHGzclsCCKgtdbDQrdJGH8mef4j2sZKy
-	 niwhgZz7/INN7LunfFuAocJWa58bdroj2t2KugbOAOvyQqOH6mMRn0kMYZsaTiVzGQ
-	 zAM1Rk8M9oFTJTb3xWP5GYxRIyeEQkUDf+2SSpr+CW5heJQt0NSQQk4erPrfDvt09x
-	 LTevUAzIu6uk+aJ+q6SscUUWqZbuKtdRNvuzj/2MSj96E+2ZbVwxeukWMlFU95unMf
-	 +ZxcQc6LdXSVQ==
-From: netdev-bot+sinfo@kernel.org
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: 
- Re: [PATCH net-next] bonding: roll back fail_over_mac if enslave fails
-Date: Tue, 24 Nov 2026 12:38:05 +0000
-Message-ID: <179552388563.3294.14587394953378202358@kernel.org>
-In-Reply-To: <20261124-bond_fail_over_mac-v1-1-9caee319331f@kylinos.cn>
-References: <20261124-bond_fail_over_mac-v1-1-9caee319331f@kylinos.cn>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dmarc=pass header.from=stu.xjtu.edu.cn;
+	spf=pass smtp.mailfrom=stu.xjtu.edu.cn;
+	arc=none smtp.remote-ip=13.75.44.102
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.75.44.102])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 2DB22606A32C;
+	Tue, 24 Nov 2026 12:48:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DB22606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=stu.xjtu.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xjtu.edu.cn
+Received: from fxxowodeMacBook-Pro.local (unknown [10.181.177.214])
+	by app2 (Coremail) with SMTP id NAGowADHd5SChwVrDrZ9AA--.16351S2;
+	Tue, 24 Nov 2026 20:48:04 +0800 (CST)
+Date: Tue, 24 Nov 2026 07:47:56 -0500
+From: "Zhenrong (Daniel) Gu" <zrgu@stu.xjtu.edu.cn>
+To: Julian Anastasov <ja@ssi.bg>
+Cc: lvs-devel@vger.kernel.org, netdev@vger.kernel.org,
+	Xing Feng <xingfeng@stu.xjtu.edu.cn>,
+	Peng Zhang <p-zhang@xjtu.edu.cn>
+Subject: Re: [BUG] ipvs: new connection on a reused port goes to the previous
+ real server during conn_tab resize
+Message-ID: <awWHfO0EgdLoOxLi@fxxowodeMacBook-Pro.local>
+References: <avx0_13w3xGNdZP8@fxxowodeMacBook-Pro.local>
+ <d876f5ef-982a-0ddb-5e75-3434453c2ccf@ssi.bg>
+ <av7f6F123V2WDd_u@fxxowodeMacBook-Pro.local>
+ <a5aa2a54-d8ea-bbe1-3a72-d672d6fd92c4@ssi.bg>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,26 +52,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <a5aa2a54-d8ea-bbe1-3a72-d672d6fd92c4@ssi.bg>
+X-CM-TRANSID:NAGowADHd5SChwVrDrZ9AA--.16351S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7tFyUArWDtr1xtFWxWr4xXrb_yoW8ArW8pF
+	WqkryYyw47JFyfWwsYkw4UCr18AFs3Xw15Xrn0ga42g390grnavFWFga4DJayUZrZ3ur1j
+	vFWYqwsIv3Z8AaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUvl1xkIjI8I6I8E6xAIw20EY4v20xvaj40_Wr0E3s1l1IIY67AE
+	w4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxSw2x7M28EF7xvwVC0I7IYx2
+	IY67AKxVW5JVW7JwA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwA2z4x0Y4vEx4A2
+	jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x0267AKxVW0oVCq3wAS0I0E0xvYzxvE52
+	x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWU
+	GwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4
+	x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AKxVWUAVWUtwCY02Avz4vE-syl42xK
+	82IYc2Ij64vIr41l42xK82IY6x8ErcxFaVAv8VW8Cr1UJr1l4I8I3I0E4IkC6x0Yz7v_Jr
+	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
+	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcV
+	C0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
+	6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvj
+	DU0xZFpf9x0JUBVbkUUUUU=
+X-CM-SenderInfo: 5hqgt5hwuh2iqrsqq2dwxo5ylwxovvfxof0/
 
-Hi!
+Hello Julian,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On Fri, Nov 20, 2026 at 06:55:07AM +0200, Julian Anastasov wrote:
+> 	Appending a RFC version for testing. It is for the net
+> tree because it contains all recent fixes for IPVS.
+> 
+> [PATCH RFC net] ipvs: fix connection reuse with the resizable hash tables
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Thanks for the patch. We tested it on the net tree (af6737b90,
+7.4.0-rc3) in a KVM guest with 8 vCPUs, using the reproducer from the
+report:
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+  mode      kernel    reused-port   misrouted     answered     failed
+                      connections   connections   > 100 ms
+  force     net         13289          413          333        35 reset
+  force     net+RFC     15634            0            0             0
+  grow      net         15584            7            5         1 reset
+  grow      net+RFC     15678            0            0             0
+  noresize  net          7841            0            0             0
+  noresize  net+RFC      7834            0            0             0
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+(force: 60 s, conn_lfactor written every 100 ms; grow: 60 s, all
+defaults; noresize: 30 s, conn_lfactor=8.)
+
+With the patch no packet of a reused-port connection went to another
+real server than its SYN, and the client saw no delayed or failed
+exchanges.
+
+To check for regressions we also ran, on both kernels:
+
+- tools/testing/selftests/net/netfilter/ipvs.sh: PASS on both.
+- Rolling updates with drained and deleted real servers, and reused
+  ports with conn_reuse_mode=0, in a NAT setup with kube-proxy's
+  sysctls: same results on both kernels.
+- Master/backup sync with reused-port traffic and forced resizes: the
+  backup's entries for the reused ports matched the master's on 20 of
+  20 ports with the patch, 22 of 30 without.
+- Persistent service (-p 60) with reused ports and forced resizes:
+  every connection reached the same real server, on both kernels.
+
+We did not construct the case of a late packet from the old real
+server (e.g. a retransmitted FIN) after its connection was marked
+reused.
+
+Tested-by: Zhenrong (Daniel) Gu <zrgu@stu.xjtu.edu.cn>
+
+Thanks,
+Zhenrong Gu
+
