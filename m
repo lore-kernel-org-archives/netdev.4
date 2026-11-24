@@ -1,49 +1,50 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.84.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=57.103.84.197
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795534662;
-	b=cqnxx4RmrhOqsTs0kpyHBy/U9bn/M6QeDsAnRR1nBYWmBeWiussPUCNh29wFUMGxKilz
-	 j0a9hrH9Tg0+4MYycBwx26NzSxCXN6U8zB0lJb/9DiINvf+SUICTOo/pdTjBAx0gHcQfd
-	 hpWsdfarWWJB1XBgLJCyKBW8oR729sIky764VSAbgDjaRMfyG8R/QnZ/N/kj7DyXlHJzu
-	 gkcGpZf4atGg9n20wcJbzIyjXkV/lHrBpnJyAGO7iinwOKMJFGDRpDdcIytuknNNPucgX
-	 XzouYouFiR/2jcljUwScUWXZHxdzgWTwKpEk+3b4nqdX8Sizx55OOPNPq7Y1XQE9aLA==
+	t=1795534663;
+	b=EyeLVHW6Wa/qZ2CAOojSWC4GWT9tituSMquHINIlWw0xEGqrVz/LreLUovZaoye/j7NF
+	 BobE9QZ2kCfhCEFmviY+tK7xvDwVuqMCnss0ZZcgmMamdHLXlLuYNZaV4SbtH33fTOEOm
+	 e7j7PYeDtdKNZGO5fIVPnEDAkzroGCAxUZh/ZSR++BYdFLs3MXeMqIlectM6cknRRUkHq
+	 5m+YcaHLqmB0xqsv/7m70zCxApaOLDpHF5s9N8E330ZLC1DjFVNFRJZo5GylHLsp35w4p
+	 UQ8zqdx4guuccTkl88Kbd4WEpi7XpT7GVijUK17WsSpcXd/HoJq1BvYxA13BiOLrNeQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795534662;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795534663;
 	h=DMARC-Filter:Received:X-ICL-RepId:Dkim-Signature:
 	 mail-alias-created-date:Received:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-ORIG-GUID:X-Authority-Info-Out:X-Proofpoint-GUID:X-JNJ;
-	bh=bhdf1v0wsj9CrCELMW0lI9u0r3QAMP4ACiMym1bga+s=;
-	b=azpbL4lYILHBDY688Xhnhs/yy7ZQQtlSVqJ9ktxmWjf8OAupMRDuY1HUUGqrDXXl2ue8
-	 JFau8SWKbAPAGDUOR5MrTuU4jGnNIQhi3ZhmtuORWK9gnFdKJ242Rx6Y8tH0gbgjZ/iIh
-	 YzY3bOdFP16URRdyB5IakNuGiLnB8JbcSCGzRZ0JcGrQSYBkU9A4CYaQwCzZX+KQRQQlV
-	 VSBWnBs4E6dMsRGTPCqOEioOM3jpwt+6hbOMozDgij8dsPRX7YIe4k48T+mZvtE4azwPF
-	 +PHhNahcohzJvNFWbMLXn0KBu+SEjvtRB6n6+qarlizf9EUYtHNemE0LtkfYQyuy6NA==
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:
+	 X-Authority-Info-Out:X-JNJ;
+	bh=a4/TKQ+wKHrlBE/R2BQwO1pp5Mk2i+jmrSZqyGVPftI=;
+	b=RscoJl3sHY18fCmUQw22pVTzqkpyZuiRx2h17Rhn/cbz/XtAKT3+WyFgc+C2wWT00vzq
+	 OG0lW112py59VJ0RhoEcAkEPoM2CITK/bP1r7jSxFHy4CV9lJvXa7y22C+A6NEhRgXQPC
+	 WHGCbYSEKTNX6tF9HqtdWEv2eZlXWcOiw4sOL1WLabAl2PKelOx8vLdiX20RlmDIrRXHv
+	 xOxv+/mTgvvDpBWhi57jUWI5NNFOvKuhpEPpK6nS0SMDHtpTiB0RW/YQjkR+mVQN7vAcM
+	 u1rZWZaZhVj7cIpUAnvLKzY7wFamSFMDrO44MvSxrgm/HNEb0Px2XDsx8r+FkvQnK1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=verdict.gg;
 	spf=pass smtp.mailfrom=verdict.gg;
-	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=d9dK6ZBC;
-	arc=none smtp.remote-ip=57.103.84.198
-Received: from outbound.qs.icloud.com (qs-2007g-snip4-7.eps.apple.com [57.103.84.198])
+	dkim=pass header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=NuMEq1tH;
+	arc=none smtp.remote-ip=57.103.84.197
+Received: from outbound.qs.icloud.com (qs-2007g-snip4-6.eps.apple.com [57.103.84.197])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06A1F606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:37:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 06A1F606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7565606A32E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:37:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7565606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=verdict.gg
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=d9dK6ZBC
+	dkim=pass (2048-bit key, unprotected) header.d=verdict.gg header.i=@verdict.gg header.a=rsa-sha256 header.s=sig1 header.b=NuMEq1tH
 Received: from outbound.qs.icloud.com (unknown [127.0.0.2])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPS id 3C47018000AF;
-	Tue, 24 Nov 2026 15:37:39 +0000 (UTC)
-X-ICL-RepId: 01a20e34-9e0a-7265-99b5-b11fd6108611
-Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1795534659; x=1827070659; bh=bhdf1v0wsj9CrCELMW0lI9u0r3QAMP4ACiMym1bga+s=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=d9dK6ZBCepl4FyWf92pEB9Ds0cGQ55ZJjidU9VQh4+bS7JiepsDiRLWNiPCaFo/j06bQSkZYB0O/xjujgbags78q784U8B/TGFiWfkoeeXvb194rAMJs0/0SC01F/6soxc5ARtNuJt8PwngMnaqSmjVwNRr2YKhy6erGgT5LXC16bUrsFSceflJAw+oKKezEszU7ae6y4PtRVE3LO62O09zEf01iOXAMYY2pDTeHBgljZPP+MW3xy3RDHV/trt/kn1XKabEP8xr7LqunjDNPQAFvo3fNWZQ2kLYMgutnSvL3JxyJGTB7cte6loqwGyX3cc7X8mELpjpbqCJUhG0MRQ==
+	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPS id 1D245180029C;
+	Tue, 24 Nov 2026 15:37:41 +0000 (UTC)
+X-ICL-RepId: 01a20e34-a5e7-7768-926c-09d915193913
+Dkim-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=verdict.gg; s=sig1; t=1795534661; x=1827070661; bh=a4/TKQ+wKHrlBE/R2BQwO1pp5Mk2i+jmrSZqyGVPftI=; h=From:To:Subject:Date:Message-ID:MIME-Version:x-icloud-hme; b=NuMEq1tHQtL2bFMonP/ptefWz59VB80MfCvlN1ik5Uw3c9sAuy27/EpJWFUgYjPsMTYyFgLAFwRBpvFnxqG5ChrJX/HLFkptxA3IRMni65qtvLPbmZJADMCFZ5TCRJMhF2i352+DjuqkJbuiir76xD94AaaqsU3D3Vq+TrqM2yByuWWB90BIPdORAW8hw/qps5rdYcS6JK4jO2apnpYYqPsZz4/6dMsfqSPIrX2YbomnVAhJSBNYetAcb+UwuYVTXzJuzzJ5oCUdenF2Hln1qFsnoVUlDkXbQbqZIJxeCIkPcbypCURHleNj1le5BECng83/l64o87wDGt5l8Iv2SQ==
 mail-alias-created-date: 1621344842221
 Received: from DelNac.mail.msk (unknown [17.57.155.37])
-	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPSA id 2F57818001B6;
-	Tue, 24 Nov 2026 15:37:37 +0000 (UTC)
+	by p00-icloudmta-asmtp-us-east-2d-60-percent-9 (Postfix) with ESMTPSA id 2210318002A7;
+	Tue, 24 Nov 2026 15:37:39 +0000 (UTC)
 From: Vladimir Vdovin <deliran@verdict.gg>
 To: David Ahern <dsahern@kernel.org>,
 	Ido Schimmel <idosch@nvidia.com>,
@@ -56,10 +57,12 @@ To: David Ahern <dsahern@kernel.org>,
 Cc: netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	Vladimir Vdovin <deliran@verdict.gg>
-Subject: [PATCH net-next 0/2] ipv4: Don't cache a pmtu above the device mtu of a path
-Date: Tue, 24 Nov 2026 18:37:28 +0300
-Message-ID: <20261124153730.56549-1-deliran@verdict.gg>
+Subject: [PATCH net-next 1/2] ipv4: Don't cache a pmtu above the device mtu of a path
+Date: Tue, 24 Nov 2026 18:37:29 +0300
+Message-ID: <20261124153730.56549-2-deliran@verdict.gg>
 X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261124153730.56549-1-deliran@verdict.gg>
+References: <20261124153730.56549-1-deliran@verdict.gg>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,63 +73,64 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfX2vpYCWwzXMWS
- /Rp+7EzZKL0yghKTVLbdTmjB43nCyqAHUzFJ2cxu+0q5uSmZL3f0YP9INqAiCT2Oi7mnjFLtZdp
- P/R0frCuTZJBgSkpm0Vge29ssJih56CsJyLCtVQPURnRw3ci5+8ELkzp/3xXlRf24/aLbVFcDCa
- SJQVQGS4450CsCKCFeIVMZo0KOLWogt/9o4fUQ+nQUspmhamBDVxGRweH8dPpW3proD2dbeKRNj
- Y2GgL9ldWtAePtmsarFhmZ2S7xJw4ONBpbIWE4RSp5/0g6QVKLZgW4JHTDLZ95fjt+IZFrLwLuz
- BDJzHb1/rmx5yxRinfSKa55klTDsbzcgcaICyFo5ZY+3yFyl2hCJWnwNY2ucyM=
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfXyIqq/SPVx9pK
- 23IDZxMKUjZfExNYJKFVQRjbdKXi8g+07HGqcj9TeZlM/Fz5vt4tMaJdsuB9XixbLIZUZZvuGcL
- wrtZvYkMp6GJBf8yQSgagNdSpz8cuKQ=
-X-Proofpoint-ORIG-GUID: r0cUl477dfX7Q1oQfRxqCpOnZL34K4pe
-X-Authority-Info-Out: v=2.4 cv=GMidgeNK c=1 sm=1 tr=0 ts=6b05af43
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfX6bwSdr7J+Bsz
+ OOHEog9q3oEMVQB80nAfbkFg/9jkFkVNVQUT6iza1uIQeN+8r9PX7OK9bcQrspSTw5KuD7v76FG
+ T1mrrz5hsVl0qiVBKIt63jxiTHGqpnCPiZdr1byvlLj0r9+MzllqEnVFxJQDm2Qwg2YsKLliUet
+ ZTwS2P9lEcafUTZx+KwRRm9fxlrtLipd6QRL1DQVgi8hau9BTQJWeeRd3eZw3CGmkigajSbsTzy
+ B0NZsU4Sx1n3GwCUCScRxvIzwmRHekh96cy529467+/hHhYnltf7OCekibmrk4lVHn1PezVpzGc
+ 1QPV75RQIwz3cyUYCMJZbjzFZOS+xwHu/70FXa77zGEXMuMKnlxMfI4DO80szg=
+X-Proofpoint-GUID: Ss7ZWyaXy2Gg7w-tLdGV8P_0Nu8TGoxK
+X-Proofpoint-ORIG-GUID: Ss7ZWyaXy2Gg7w-tLdGV8P_0Nu8TGoxK
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI0MDA2MSBTYWx0ZWRfXzUtRMhFdQcLz
+ FKGBtJ7lAQ9m0rKl89LryayFObVQupLR7i2ar5tR/03Ko3TtH6ty1O2pYbqyxkOedFOVOT1LCwi
+ /BwelpDe98j0123b1PqAPNefqCpFjx8=
+X-Authority-Info-Out: v=2.4 cv=XZAcX455 c=1 sm=1 tr=0 ts=6b05af45
  cx=c_apl:c_pps:t_out a=bsP7O+dXZ5uKcj+dsLqiMw==:117
  a=bsP7O+dXZ5uKcj+dsLqiMw==:17 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=wbbCu9YnSpm8ZdSLOl1R:22 a=-FrFFRAKu6jp7n_x08k1:22 a=VwQbUJbxAAAA:8
- a=Xk5isCVez12B1eOcoLAA:9
-X-Proofpoint-GUID: r0cUl477dfX7Q1oQfRxqCpOnZL34K4pe
-X-JNJ: AAAAAAABdV++j2it7lugkEsVkWEmktGwlpJtWqKnRTU4bP2aL3hcfLX+147rfKBByeeBjo
- +SXOik3ZymrmjBQqUikVv7iODmBvrMkHxWRQeR8vD46LrnJrxtnUlYg4+TzPbcqbj7HJ6X
- Wvt/z3bEdA1Df1EC9K1NhjgOuBqtqkPlQUMR0wUfQFRa5eKYPFVhYzJScVyuCwuk//n5nC
- tbhrhTTO0x98g74tn4MHJ0oAsCyXb/GULj2HLBNsfmarnNyTykA+iuZLZBrkY7PFFslg1O
- tyPdcDHM9wkwc7dpGQRU9yl76VdaCvKFp5HZobBgIN6NUIQskxkOet4dLs5TAH4JOkFW08
- ZCtImolhb3d8fJ5LDoKTf/uP6NPA9dgfJiCwxihjoK6Ck5nqCrfXflbSWU6b0jsDxMpXDN
- UCltkELOpCUCBRh7MlDD0bR4aQdrYjSVb+kPRVIjG0/C+YuTlZ5485V+mxZczTrl6FdK8g
- bJRqr28ACqHcXqyQ9itvPWK6iCaWxDBhaZtiTOqeXVrBqQUIRJgrdZsUpEwgz1lSUGltxg
- YZN8/uPTjYXXxkG72YXIyNoeIAatkXMKvskldxlr2s87t+hznIGNB8v1kLZG19016vtI0j
- RvJI4nMxJC69eVmjmMu5FtXQvlRb8s4jARUx2V5IGmlusv/QUtHszQvWJyP0CTKZJJ7Y0F
- mYiV5NshNExnjDWXXZx2+3fU0tz89XFEE0weA5DfOkxDB/zowhYO+Lt5jQtQAzoUSB7zNZ
- h2GDhLV7kDliNiAQMVztneua6jxcXOUJpOpA6kuOehc7VU5L06PvpMjGIW3rDnchzHCv1K
- aE+u4OPXpU5Y83u8CLPw7Td2X8xGkcV0augcsCazQ9tp45hQK5tdIhw+AM2STkJZXyKNdx
- ph7EbahqaG/s8ZtZ2pCJNU5t30IEqfPaRIwr9Ki2/q2EHMbD9WWZqQvNhYDtTOb4rrc+qe
- SZNl+DRBG3F1uWXtBFI2Ze/1l7XoMCakPUOiSNbiiQUbaXkqMzwNMFfKP3OBbq9ywy1eEP
- 8npHeU9+AsfyGAJZewFvI/9UFzCYua6hRQbDmZHjBiwg06fu6o85/imZRyDLjPjsFrX+AU
- FzHXl15RHPPpKWuj69bdIAzoKzHmJF7WYc+/EAkaK5wWxPwEB08SSLlypO2KpinMHEfI+0
- 6zf2SOAGbcvlYawRgGxBZog54GEKAnUTEs28pUPxVacsRrx1m/4ARHfqRMFhLKaycrbNwc
- czLOkuA6xm7OcPxK3hAF4kvSBb1EyM5TFg5bua2kgcHcxvz/tqMhe+3mLiAcnUH6xw==
+ a=wbbCu9YnSpm8ZdSLOl1R:22 a=_mclknXjrhVi08tC7Eh6:22 a=Ikd4Dj_1AAAA:8
+ a=nEgrKjKUNF7mAgnr5RMA:9
+X-JNJ: AAAAAAABTQRjrQ40IhbTpkO4CXHNIgwj9RwaoKJMn7w7dn8l9Kc0Wc5xhumSxLVSdXSABa
+ 6VaRf9BHfaTVmF3Oxo5SyxCRYUU8qrVgMu8PqhANLSn3zk8EVqv7SyrHo3t3hN6WkfpaZX
+ RdDOCwx7nVaL502DwF0BsZjYp/+M7t9E/0QD1Iuu7Ev6vI6qGsPd+HYCsd5s7FNsAqd9AO
+ diwVO0ZjrYXNoCXSl7ibVmoBPIuapTgNVcYSt3dYarHwKGBFLbTkT6Ax2mCtwvnLbl0ng2
+ rzn2NHlMibaPV0ROXg04jrffDk2QH6QeldGRJgK9+U4nImGmA26az58MNwOJF1RO22mW/Q
+ UE0bc0iFTh+6inYLhueKVhsQ740+HjCNnVD+OS1EzrCKjk2pRosuqAreXPZhWxCKdFESUL
+ GwhPGqQH1Eo7n6j5pABKsJqIpNbGjtc1nOQ3obtxU3RmIe3MUR1S0bpIwK2DQpNBjXakbQ
+ IddQ6IzGkTkAyH7i2ph+B8huuzBYH/D1EsPa2hHGnOPFBDwoy+vx8zrvE2alWpPlp0nW3W
+ why5q5/1nA8K0Q0W8ANQW29VSiXKzu10fZxH+CrCCZM4r+YN5bJBa0ocAurE+ypQ1lI/BT
+ 2YMMO1FlIn83JVKzCaxSZG2C5EybFrM/A0o26731Hvc6HZY2SiGXKIQD2GNIHm9PSy3n+7
+ B9EkFZ1w5INJBhdv5pUJvpDPRPcWMvQV3C85uuaDiPXwCo1+J1c2pwxLRUYQtRrWZCRMLh
+ EdAHGxiNbxcblRGdgsEvKTvopxK2MxLCQQW7yx9nAf9OcPSVJq/ZOYTPS6P6Tomt6Iv+gX
+ tK44SVwDTrWvE6RB2tMj25xjkwEFyZAOMw==
 
 The mtu of a Fragmentation Needed is cached on every path of a multipath
-route, but checked against the looked-up path only. A path whose device
-mtu is lower gets a pmtu above what it can carry, and its flows
-blackhole until the exception expires. Patch 1 skips such a path, patch
-2 adds a test for it.
+route, checked against the path the lookup picked only. A path whose
+device mtu is below it gets a pmtu it can't carry: packets above the
+device mtu pass the pmtu check and are dropped at the device, no ICMP
+comes back, and the flows on that path blackhole until the exception
+expires.
 
-Split out of [1] with Ido's suggestion; the IPv6 part follows once this
-is in.
+Skip such a path.
 
-[1] https://lore.kernel.org/netdev/20261117193141.27004-1-deliran@verdict.gg/
+Suggested-by: Ido Schimmel <idosch@nvidia.com>
+Signed-off-by: Vladimir Vdovin <deliran@verdict.gg>
+---
+ net/ipv4/route.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-Vladimir Vdovin (2):
-  ipv4: Don't cache a pmtu above the device mtu of a path
-  selftests: net: pmtu: Add a multipath test with paths of different MTU
-
- net/ipv4/route.c                    |  2 +
- tools/testing/selftests/net/pmtu.sh | 74 ++++++++++++++++++++++++++++-
- 2 files changed, 75 insertions(+), 1 deletion(-)
-
-
-base-commit: 2388bb763e323442f4dd8189238ac0c5f334c4a0
+diff --git a/net/ipv4/route.c b/net/ipv4/route.c
+index d0930ae4c5ae..0d992dc46c60 100644
+--- a/net/ipv4/route.c
++++ b/net/ipv4/route.c
+@@ -1094,6 +1094,8 @@ static void __ip_rt_update_pmtu(struct rtable *rt, struct flowi4 *fl4, u32 mtu)
+ 				nhc = fib_info_nhc(res.fi, nhsel);
+ 				if (!nhc)
+ 					break;
++				if (mtu > READ_ONCE(nhc->nhc_dev->mtu))
++					continue;
+ 				update_or_create_fnhe(nhc, fl4->daddr, 0, mtu, lock,
+ 						      jiffies + net->ipv4.ip_rt_mtu_expires);
+ 			}
 -- 
 2.56.0
 
