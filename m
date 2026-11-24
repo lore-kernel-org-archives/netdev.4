@@ -1,67 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.72.192.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795551660;
-	b=x/UHJxMUcrp+4GG9pQbgnnUP4BVQqbHBAZSKnIBRG5VecYhm0QUNyJWmq0fabA6gnqHl
-	 +4t/5iTO/CMxR7irdBRWvVEeQ5Qsaa8beboJDWFdGUSccQcu/zzSerZ+kHvPUSB2vA4cN
-	 tO7uCQRRy0H3jBzrFNpRqWcJRzcZjmGTsVXE/IMaTlKqrtjY6R+X0Z1JfK5eDlXDmvHFq
-	 MYTkhUkS3C9CMZBBxJW0o85o5dvpCZXWi2Plj2c0AMI3+zPqcch0JbTc/Un759Agje4Op
-	 1r/aLcHFNATnSfgEQtuqHdHcSLF4DyOFP/n8qGOt2QgXPxMZmq2AzSKPm4wUdIfdfEQ==
+	t=1795552145;
+	b=33V9X8izDp0egK/XApMcFRdNTIIxz+LHSX1ypwmZDEd7Gwp/zpikmv0aQ7uSTJ41x2xZ
+	 MMd6leoKDGiRCbGK+s6l2XgLRQsTCgomru2q0oyUoS+nN+hscH/nevv48AiJwSlj9oXzJ
+	 8jP46oNkABY/1y6mM26912WbO7faEkXc4YsRxKQOzHROgTNcjN60KbuNN+LYl6oOHFN/+
+	 31GjHeQ5VYqYMBomExo2/HmRMk6zb2IAYd0wJNePfvZwcszxH0gFm2+MZVfVXcGRlwNeC
+	 yll8pNirTFjw2b7BGqY9s4EO4f9QfDtSh1kcFDybbYU8vKPkDHlWJJ28snQ/MlWTDPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795551660;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-WP-DKIM-Status:X-WP-MailID:X-WP-AV:X-WP-SPAM;
-	bh=LngivN6bGM3oqMrJFfOdunk1LzoqXr0HRbY0lCFpZQM=;
-	b=tRfOK/OKgEujgNplAHg+pdstoQxc7q7vwhzbbkztrdR8yjj1ocUB1SC6r7Wz0HlRJqsb
-	 qe9WlTYnO3OB9DQ7vqe3Ly94flvfvlO7l29WKEZARW+hV2Lw9C4VsftP1qdPbwJJMDV0l
-	 vGyWMV2Cl4rw7VPt+IJ+JTK490NohgzEJ15QH8sy/6K4/DSUCdZ9/skhNllf+pnFD5MRI
-	 JNQWZjduAAnWgyqRHwvlIdL0rplOo2yaXUgwmr2gIjGEZAofP58JS4o5coXcG/UIudVIG
-	 OGroeyvau1ylFJXDZwzsMrvnMctWJfcsKSMNIqoq1ZhxqpV0aShYK2bRScV2HmYhYmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552145;
+	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
+	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
+	 UI-OutboundReport;
+	bh=E2PGpUuBykPWhpXaMeZ3+HNEc09htxMLL2pYV7H2q1c=;
+	b=aeBpQNcfb8X5XgfzI2aTApeg7hAfqqsT3C/d0JxL0Q0BSbZQI26doEaz8we6ZzJDoySx
+	 SpEivtyJjNdcjx0IQDmQekqgYWH0BqUsEW8r5NNE7oziqCA5KTZDG10bLoO3/QQ7f4uNC
+	 x0vTYvPI9Augik9X3v8ePzb7vD0Rv+NBqGdMbkyOZjl3eIXWzNudko88kZB0Y/3lxXh7i
+	 v7bBMXQ2qclmr4/7BS7lntXZF6UyoJDF7ydM+g5VxPwAZWCpZp+hYEmlZUDALi9hYNWOb
+	 UXO9kdM35+PyVElkGXMahMvV5DMZxjr4J3VvuxX7NglPe6YPeZ4HFuxjMw/cbOL/0ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wp.pl;
-	spf=pass smtp.mailfrom=wp.pl;
-	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=FViQ53Ie;
-	arc=none smtp.remote-ip=212.77.101.11
-Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.11])
+	dmarc=pass header.from=web.de;
+	spf=pass smtp.mailfrom=web.de;
+	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=gqSGd5UK;
+	arc=none smtp.remote-ip=217.72.192.78
+Received: from mout.web.de (mout.web.de [217.72.192.78])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 66304606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 66304606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E095606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:29:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E095606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=FViQ53Ie
-Received: (wp-smtpd smtp.wp.pl 28417 invoked from network); 24 Nov 2026 21:20:56 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
-          t=1795551656; bh=LngivN6bGM3oqMrJFfOdunk1LzoqXr0HRbY0lCFpZQM=;
-          h=From:To:Cc:Subject;
-          b=FViQ53IeyEkusi1JVRrD8BH4anQ24EQpRJsriJqYH/Mzy3amVYh7yWxAsTetcLevt
-           sfaePQyZ37Bq667t5YYqasOiRCHFQbDhMwzzA5QorSuXpNVYtQfTJHLapn0fkMsSen
-           5ZMp0j4hc6mcHxxMPL7AMPFts0/5VnzcXNPX8z2s8Y95LqitIHxvYY7JiVLfHi8+2r
-           Mgt+ous7BK2mR6YNlkgJFiAcyr0wVAnIpea7kCv+WcINjIqM/u2LqvE7hq3yE3jG3w
-           zlR0kdZgBaLky1+HyMyFihV/I5Wkpp/N7CBIMLEO0kUvXjPByHqKjY6g8VT+PyHQtY
-           I6SMMgVkfpHGw==
-Received: from abajkowski.home (83.5.167.37.ipv4.supernova.orange.pl [83.5.167.37])
-          (envelope-sender <olek2@wp.pl>)
-          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
-          for <skyline@mail.ru>; 24 Nov 2026 21:20:56 +0100
-From: Aleksander Jan Bajkowski <olek2@wp.pl>
-To: skyline@mail.ru,
-	andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	netdev@vger.kernel.org
-Cc: Aleksander Jan Bajkowski <olek2@wp.pl>
-Subject: [PATCH net-next v4] net: phy: marvell: add support for PHY LEDs polarity modes
-Date: Tue, 24 Nov 2026 19:11:35 +0100
-Message-ID: <20261124202054.1070702-1-olek2@wp.pl>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=gqSGd5UK
+DKIM2-Signature:  i=1; m=1; t=1795552142;
+ mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
+ rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+ d=web.de;
+ s=s29768273:rsa-sha256:WguTRmFEESzHdJaq6zGQ/VCBDGtn
+   8H8ONXlxsT01ljjea9hqW7dPU6/CdcP6OjntUvk3VqoOfvRTPwTmFdf3WmmIJUMp46YI11HQynK
+   yWQpiWPGsGaOSUV/AtZ+lL1BteambhP3gdzKSoIeXZLMZw/V33IQtpdgmPIxRvr3QZLQzh5cZW+
+   flOk37gcp2EjxY1v4YC+P3m2cGnYFtM5ZREYD+sms10lnMuXMzl6WiR0M4TSQwVkk1WwZgC0fpN
+   NCwOHseJymFqqZ/rhMvlEuM1FU0y2cYojVYO2rJXZiAnuovVs68AOkVjfxbxfAPz1LsctVDJylZ
+   ddHgCdt0SB51yQ==;
+Message-Instance:  m=1;
+ h=sha256:
+   HRiK+DU0Ss8R88n2HlfxrUW9c6FDP8TVS3HAwB5e1d8=:
+   fZhgWQKuGCiWR07knMGFI916GAUVaUYv23wfLbsufpY=,
+  sha512:
+   jhCDZWtlg035Py8eSJDtXliWWhfqTjBH2hIM6yYOHVijgkISmL9OYpjVnFpz5Xv2hSJzxmuQFpc+B8PlUa2wNg==:
+   +8e6kq5QdwIwsN5WJRWBxHQnGznE9NCAm23frB+mX7jAiPOsBnElWWCBsH6i64OSSmT8tbNbZe99JvxI7994Tg==;
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1795552122; x=1796156922; i=markus.elfring@web.de;
+	bh=E2PGpUuBykPWhpXaMeZ3+HNEc09htxMLL2pYV7H2q1c=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
+	 References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:cc:content-transfer-encoding:
+	 content-type:date:from:message-id:mime-version:reply-to:subject:
+	 to;
+	b=gqSGd5UKmsDkTRJCvfY8caVpBur0ll/jpsVdcyIzSqumiCxcwqnEpHraI/sK+EF+
+	 0aczgld1vHNfOkdZiU0F2uTi+9wlyDbzdxAtgzWcavV7hpAOcBYpOlXUMt8Bqoa4r
+	 ZhTFt+iJbf1NIOqb3W5MDSw9TTnvfEc8rnCTVPNXipTkR7eyaYwjCPXWxqHb7l1bN
+	 ixt+v1fppVbSNhFofau/ct6sg0wZQClhyYppzEOTxxtdbZ0LXze0GpHF2eUaoYH+t
+	 L6HlDjGpy6eQpcK9q+QxW4WCw5KNPD0eoNBs3+sTohOrLgCICy7DGBKETmP7MxKIA
+	 K+FEbqk45LWdMNCWhg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from client.hidden.invalid by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MW9vU-1y3O0O0PCk-00XDYy; Tue, 24
+ Nov 2026 21:28:42 +0100
+Message-ID: <5ce205a1-598d-4292-9e2e-39f077e4aca9@web.de>
+Date: Tue, 24 Nov 2026 21:28:37 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,125 +81,157 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-WP-DKIM-Status: good (id: wp.pl)                                                      
-X-WP-MailID: baaecd49899a60453421d37e01a1a4f7
-X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
-X-WP-SPAM: NO 0000000 [UUPc]                               
+User-Agent: Mozilla Thunderbird
+Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
+To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org,
+ Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
+ <awXxloPuhUUw8ISZ@ashevche-desk.local>
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <awXxloPuhUUw8ISZ@ashevche-desk.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:zYxIUKkWUP8hKnin+sVqIdNS6UQPaio5SI39xhRwi9nqreK8Paw
+ Iti511DC2YjT4euCpwpUWAWsxURsfZNJSTgzJK38/ajcIxFUm+eCoLrwGyvrbX2ViGhFjaX
+ O0ZxuR9k8FErga8kXv9FpqMdUb4US7AaX9gghtElSNpSvzv3YLhtAVT7bxHts9SU0V4DUo+
+ LCfaVmQrsjK56JKQwHz/g==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:YLxpBucjbc8=;M33qzC7GWa3kCCElHhC/TW4zCcK
+ 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
 
-Add the led_polarity_set callback for setting LED polarity. Implement
-this callback for the 88E1116R, 88E1318 and 88E1510 PHYs. This should
-also work on other Marvell PHYs, but I don't have access to the TRM or
-the hardware.
+> ...
+>=20
+>> -	/* disable hw block clocks */
+>=20
+> Why drop this comment?
+>=20
+>>  	clk_disable_unprepare(priv->phy_clk);
+>> -	clk_disable_unprepare(priv->mac_clk);
+>=20
 
-Tested on Adapteva Paralella board with Marvell 88E1318 PHY.
+I propose to handle these clocks differently for the affected Linux driver=
+.
+https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/broa=
+dcom/bcm63xx_enet.c#L1902-L1934
 
-Signed-off-by: Aleksander Jan Bajkowski <olek2@wp.pl>
----
-Changes in v4:
- - Throw out restiring polarity setting after hardware reset
-Changes in v3:
- - Restore polarity settings after hardware reset
- - Enable polarity control on 88E1116R
-Changes in v2:
- - Add support for PHY_LED_INACTIVE_HIGH_IMPEDANCE mode
----
- drivers/net/phy/marvell.c | 40 ++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/marvell.c b/drivers/net/phy/marvell.c
-index 87f66dfa92dd..00ce215bb71b 100644
---- a/drivers/net/phy/marvell.c
-+++ b/drivers/net/phy/marvell.c
-@@ -146,6 +146,9 @@
- #define MII_88E1318S_PHY_LED_FUNC_ON		(0x9)
- #define MII_88E1318S_PHY_LED_FUNC_HI_Z		(0xa)
- #define MII_88E1318S_PHY_LED_FUNC_BLINK		(0xb)
-+#define MII_88E1318S_PHY_LED_POL		0x11
-+#define MII_88E1318S_PHY_LED_POL_ACT_HIGH(idx)	BIT(2 * (idx))
-+#define MII_88E1318S_PHY_LED_POL_HIGH_IMP(idx)	BIT(2 * (idx) + 1)
- #define MII_88E1318S_PHY_LED_TCR		0x12
- #define MII_88E1318S_PHY_LED_TCR_FORCE_INT	BIT(15)
- #define MII_88E1318S_PHY_LED_TCR_INTn_ENABLE	BIT(7)
-@@ -301,6 +304,8 @@
- #define NB_FIBER_STATS	1
- #define NB_STAT_MAX	3
- 
-+#define M88E1318S_MAX_LEDS	3
-+
- MODULE_DESCRIPTION("Marvell PHY driver");
- MODULE_AUTHOR("Andy Fleming");
- MODULE_LICENSE("GPL");
-@@ -3625,7 +3630,7 @@ static int m88e1318_led_hw_control_get(struct phy_device *phydev, u8 index,
- {
- 	int mode, reg;
- 
--	if (index > 2)
-+	if (index >= M88E1318S_MAX_LEDS)
- 		return -EINVAL;
- 
- 	reg = phy_read_paged(phydev, MII_MARVELL_LED_PAGE,
-@@ -3638,6 +3643,36 @@ static int m88e1318_led_hw_control_get(struct phy_device *phydev, u8 index,
- 	return marvell_get_led_rules(index, rules, mode);
- }
- 
-+static int m88e1318_led_polarity_set(struct phy_device *phydev, int index,
-+				     unsigned long modes)
-+{
-+	u16 val = 0;
-+	u32 mode;
-+
-+	if (index >= M88E1318S_MAX_LEDS)
-+		return -EINVAL;
-+
-+	for_each_set_bit(mode, &modes, __PHY_LED_MODES_NUM) {
-+		switch (mode) {
-+		case PHY_LED_ACTIVE_LOW:
-+			break;
-+		case PHY_LED_ACTIVE_HIGH:
-+			val |= MII_88E1318S_PHY_LED_POL_ACT_HIGH(index);
-+			break;
-+		case PHY_LED_INACTIVE_HIGH_IMPEDANCE:
-+			val |= MII_88E1318S_PHY_LED_POL_HIGH_IMP(index);
-+			break;
-+		default:
-+			return -EINVAL;
-+		}
-+	}
-+
-+	return phy_modify_paged(phydev, MII_MARVELL_LED_PAGE,
-+				MII_88E1318S_PHY_LED_POL,
-+				MII_88E1318S_PHY_LED_POL_ACT_HIGH(index) |
-+				MII_88E1318S_PHY_LED_POL_HIGH_IMP(index), val);
-+}
-+
- static int marvell_probe(struct phy_device *phydev)
- {
- 	struct marvell_priv *priv;
-@@ -3886,6 +3921,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
- 		.led_hw_control_set = m88e1318_led_hw_control_set,
- 		.led_hw_control_get = m88e1318_led_hw_control_get,
-+		.led_polarity_set = m88e1318_led_polarity_set,
- 	},
- 	{
- 		.phy_id = MARVELL_PHY_ID_88E1145,
-@@ -3971,6 +4007,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
- 		.led_hw_control_set = m88e1318_led_hw_control_set,
- 		.led_hw_control_get = m88e1318_led_hw_control_get,
-+		.led_polarity_set = m88e1318_led_polarity_set,
- 	},
- 	{
- 		.phy_id = MARVELL_PHY_ID_88E1510,
-@@ -4005,6 +4042,7 @@ static struct phy_driver marvell_drivers[] = {
- 		.led_hw_is_supported = m88e1318_led_hw_is_supported,
- 		.led_hw_control_set = m88e1318_led_hw_control_set,
- 		.led_hw_control_get = m88e1318_led_hw_control_get,
-+		.led_polarity_set = m88e1318_led_polarity_set,
- 		.attach_mii_port = m88e1510_attach_mii_port,
- 	},
- 	{
--- 
-2.55.0
-
+Regards,
+Markus
