@@ -1,111 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795515177;
-	b=APumEvXoZY5XY4i/BIW8DtTm/KJ6jvg3ksX/yWPnekzYB4STq9bmN9pv/AaL7rou8Zcc
-	 bH0w7V5lkprBzUWQ8qj+Ok2yAO8gfIEIiF0jr5OWtNGskPLeGNoV6GQy0uyN8vUTFQs9+
-	 nEkg/VvJRtNsJmyp5W+de7jlmpWgL12B1HnJSxglXUffkLpUHGe3qkhBKnjRiuhGgksJK
-	 kL+52fCg8OGQ9gXCDAl6e+ddnDTVBluCsEPgsckjr8laJChwM3dEitGHGFDPayp7FQTMc
-	 aBOUed8ej/t+ryZL/GlfgqkmamVq/gL1J5XjhHWwmG6ozruO3gBYPT5+FC6oY63NrTw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795515177;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
-	b=TJMaS3+x+hknfOzkW8AMX0mreu9HgVwqImehM8KaN0h25bhQY7brq+2zybjXreSKcYR5
-	 +uqL9oP64HcPCUsMv7AP1ceLId+YKW+jTgdPNjOWKJykxuWHFg6Hkp7UNz8iARVvHqsiB
-	 jxa4OgUz1dsHB5KySd9k/k0YpwAmSYSbGaTNt1904hQ7rfawQlTR6RgF4MDAzjnf929Uw
-	 Ni0ARbcOJQeNOgEcT2lsHkTEzPP3sUS9Y5SP1t2M46OVmFUCr2FuhVpIJwaWlIb1RF9AI
-	 xuCs4j8El/0CSu7qRTq9Jpn0fFBUdg0FPJmQ46LqocVcKUNAtcSYO7rhk1BO82mVNJw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jabil.com;
-	spf=pass smtp.mailfrom=jabil.com;
-	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=XpzPLph6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.25
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010025.outbound.protection.outlook.com [52.101.193.25])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.154
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795515208;
+	b=bHs7gUz3138HQoiNB7qZxGLKxvReJpbO1nHekhh7NyWTIK5QGiFyj6BuCpulOCiAqcJH
+	 3Vib4Lm0vAsqMVdowXpxyZ+m8iASvqPDjoyRIGTyi9XIYW/7AOvYQ7euagEuAqMLisjZz
+	 Dyx+6KD4oVftGvzpZN0V/5+S9pHpAZLIwWKjZ3iG2665g3phPCer9T/2RyDEedviKFm/X
+	 KQMZKO1KyRXiLXZFPk0JEk2drJOR/Pv6kXkOTdZrHWHX7jEbPjSKNL6CdMubC6NyHyDvy
+	 n2RRUjOT6tf1NRWvj+I3wYAgsSN6yFzOWrXbtULdxEWT+4h6zAfy72zSalPRHo1yOWQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795515208;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RCdWiz4M1U=;
+	b=Pd9j4g0AjUfcJXixQosFLNlu9dct7d2H/JSYsTRHI+5N8eF1twQZUabjyGR/QlKVwcLi
+	 DnuAp9AVwDl6INvPe5hZzRqxX7fVBxvXd738VThVevrgslbjAEZtGbDzkAT4P8lFmxyLU
+	 RTy9MDiJaHUfHP1h9N7pkbtW+EuopqA9oHK7i6nKLu5Sd0a7G6/xW0YS60Dsw4wpefh85
+	 C6nWSyfx523qd3/n6GTtXko4scOCz0lqb9LDwoB/HvvEOW1u/dAHuwPMgH6ANeLw3Rjxe
+	 XimnqDBLVZBqbD7BcoeDrHPrtg79S9gUG3QbmiNdFI9DRAb0ltPVI+HabaGLaE8mYbA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b="Nj/0y5s+";
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=L9zegxUP;
+	arc=none smtp.remote-ip=103.168.172.154
+Received: from fhigh-a3-smtp.messagingengine.com (fhigh-a3-smtp.messagingengine.com [103.168.172.154])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 72C26606A690;
-	Tue, 24 Nov 2026 10:12:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 72C26606A690
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AA681606A68E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:13:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AA681606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=XpzPLph6
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DzLf7IA+NwtlmnuMqCIBCL7m99pef9i1RrWpYsX/5ezyky4X836gwQ6nW3Qmgmhkxq8OyJB9GxUP6DR1VrehUwgpBWS5hv22FH0ool/IeXsTCv3Xt41wufW6tPXzcZkDLBqn2DiipvmDGaIN0aMNtzBJjYZ5ye/q91nHSGy03+C/2Picet452LVqaqlfnpAbwunyl/RGqPsw9L0eYa4C4QfWXZ2BWJd6X+hH0SVh3DKRiUWGVlf26SSH7j5QzMw5H5QFnhrVla0V9KX8DYGcSQnFA5uEUeSVn7X8P57arPYMZO7r+mSuQ0RqQ34meq8Gr4HbDxhEC1KxMC/AZkRwoA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
- b=Ie0MEOe7nEP9cbCDgRR778UilL7JXVzXQFRAbC3EOOl/NuGZ5hxHxEnH9tkqXk3TS3tmPHuW8+78BGCYYVbOkasiIHBJAZPvkzpZKqm+5D+dPQh1fPiaICg3XIS5PZUeHnX5LCpjvbWRgpf3moMDbO8lvw1xZFqRUVGJHgpYBX/or7ociwduR4kskM35Nxob5qd58Efa5XiR0tVrITsbpnaqWDoo8jABM5kO+GOHLS6PAFcReQD7P48s2w4FPZaAP87Ov5rBN9e21P5BN6x6iSDB7wFMCaWqLvx1rn0KgVnJtliqV0rbxjpiyYvcL32IARh/qBeucD9i9OED/QfBIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 69.31.5.41) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=jabil.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=jabil.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=VKC+C8ybzGYMaCz02wqAguW/gdEv3GswSoOixLdvuEU=;
- b=XpzPLph6ZKN46vOXXiDqTh9+6D5PEsgD1poosT9B9RsfKzwOnY+d/fULN5BpoT9s2sDJZlpxLQJz8wDp5EdYnuZ95bvNxzrBJ2ucY8RgqvhaRZTri6cdtkhQfLPP2eHcb2nNNxxg9ip3WquYszr3SPZx3bMvUVAtKQQ7lM46pNQglzxraHiOJ6khzeYF4HKCmmxEbV/vmzab9nOOyL7JtMRWCS2YdoRVcpai85ZrT053S3Q/a8qO3yB1IHbvsyYkvqG25+1M+MsVSSktNEMHveSLdyFUYA65vM6+TcxR9aHKYWL54Hhfrxc24M6trjhHp04lxYZ7a7qr0f4PzwCEFw==
-Received: from MN0PR02CA0012.namprd02.prod.outlook.com (2603:10b6:208:530::9)
- by PH0PR02MB8470.namprd02.prod.outlook.com (2603:10b6:510:10e::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Tue, 24 Nov
- 2026 10:12:43 +0000
-Received: from IA0PEPF00000039.namprd03.prod.outlook.com
- (2603:10b6:208:530:cafe::6f) by MN0PR02CA0012.outlook.office365.com
- (2603:10b6:208:530::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Tue, 24
- Nov 2026 10:12:43 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 69.31.5.41) smtp.mailfrom=jabil.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=jabil.com;
-Received-SPF: Pass (protection.outlook.com: domain of jabil.com designates
- 69.31.5.41 as permitted sender) receiver=protection.outlook.com;
- client-ip=69.31.5.41; helo=jabil.com; pr=C
-Received: from jabil.com (69.31.5.41) by
- IA0PEPF00000039.mail.protection.outlook.com (10.167.249.70) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Tue, 24 Nov 2026 10:12:42 +0000
-Received: from USPLND0HUB81.staging.JABIL.ORG (10.11.24.250) by
- USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.49; Tue, 24 Nov 2026 05:12:41 -0500
-Received: from USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) by
- USPLND0HUB81.staging.JABIL.ORG (10.11.24.250) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Tue, 24 Nov 2026 04:12:41 -0600
-Received: from 0BMCAMI.corp.JABIL.ORG (10.11.27.252) by
- USASHC0HUB02.corp.JABIL.ORG (10.11.24.125) with Microsoft SMTP Server id
- 15.2.2562.49 via Frontend Transport; Tue, 24 Nov 2026 05:12:38 -0500
-From: Kenny Hsieh <kenny_hsieh@jabil.com>
-To: <netdev@vger.kernel.org>, Jeremy Kerr <jk@codeconstruct.com.au>, "Matt
- Johnston" <matt@codeconstruct.com.au>
-CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, <stable@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: [PATCH net v5] mctp i2c: fix double free of midev on netdev register failure
-Date: Tue, 24 Nov 2026 18:12:37 +0800
-Message-ID: <20261124101237.3884438-1-kenny_hsieh@jabil.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=Nj/0y5s+;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=L9zegxUP
+Received: from phl-compute-02.internal (phl-compute-02.internal [10.202.2.42])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id B64D914001ED
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:13:26 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-02.internal (MEProxy); Tue, 24 Nov 2026 05:13:26 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1795515206; x=
+	1795601606; bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RCdWiz4M1U=; b=N
+	j/0y5s+8e4TttaMsjjhWwCTX3fh7I0Gt7wAEGkZulRXhOP5V9yK5p3IgpiZWQepG
+	8ufiplg+hTA4HLPmfx4JgLNBo9g9Bhw5UamsO3vqpQpFz1zcuVMPx+9XUDD2ydmQ
+	bjQwARIE0LyThXLW9GlMuUQ/2mgnZsHTmpo0o70BPMqdDzeO1kJlB2alT0eYNBDf
+	uoVd88m0ptHoDtZKvSStRb/SDXfksUHZGshqnL/BWuVJMoGRDWcyM7eaHfRfvMyd
+	SCjr367dMhfN5IXsOy5mAoZpvm0qmR+upH/MKIpuysGwtNvx6c/Gb+tB+CdxYQZ2
+	ZN6bzsVRXSrZ9CdLP3z7w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795515206; x=1795601606; bh=LUiapgFv2s7Cz91vipT+eU0P1TswhGJ/9RC
+	dWiz4M1U=; b=L9zegxUPFQWRnhYK7uVgP2l50bye/IJOUCVAvSxtR+Dot14/wes
+	8BbOkI3yBdtfDKQI7gxtLkROaJRIrOdBxh/Tk95f/nbG42jpEsZZ39inSm45W0ar
+	I46MTrQroiVrGlh4kg3qD6MJl7PIVIf13cnY8k+ZKzMY0qPwoFCTumjVhfj0EF45
+	u5u8bJPb5MhU5ViuxAZtU7zLPBzVvRu79sGiRDQ7wOCCpHcetrn89urkyczqvOVJ
+	G8YpZ/s6ODzRBt0A4bPK0Vsleureq7rkr03UIDvrZ2f0OtHr9hId2D+fr5JrODSq
+	2MkJimEwvbt9u1v5hJbFf+WQRxOQeRpryIg==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795515206; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:W6ECtq5DZdxGHZqW+Ufg39Y/jBSGeAAtlUKX82PYAd7ucuv
+	AHNBkkgMWvVWjvi4Apsan0HwV7vEFiCeh03h2ET9rAGnfnqQ+ZSBzHF8XyiAzwDW
+	wKT7/cia9VWVY4tqy7nzRB1IbPrzRC2Ok6J9TBW/6r9pmSKrtFMA8HO8DHbZaKZv
+	sCgWKDP9S9/7BY5xAe5z0P0rI08YuNo9jBGPQZKRJwkx98QLFc+ekZXp8LTsE83h
+	IBvOOW0QLXljSSMhvGqdyI2akhKYVxg0/WrZz0C3lrXM1yPtkLzKCZ/Oaz7oRcjR
+	ii5Leu0dC/gkv965MCcYc7d/5uk0kPhUR//Cdkw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:XGq7YO4qTM0jBsvucew+q+U6y8Y67SvxXoyOifFsYnY=:K6Iy10X/R67a2aBlW39K1qryiE9RLNi0DyRWhcYeBPc=;
+X-ME-Sender: <xms:RGMFa6uZHQYR-AaDbWk50DAjjuDCRfk-QDB6TYsqWU566q5mkXjKRw>
+    <xme:RGMFa0pXzlblCw5NybEkqUQ7wVYbzx-WZM4gEtp_MZ2eeJLedQDK960WYLMW_nfL3
+    psZbCoPQxZJT0Rajjp0sFOcPxWhCoCKFJtnu27ZgB6A90-BOIkyVfc>
+X-ME-Received: <xmr:RGMFa5Iu6htMmy-PKSZnelOGs88Ahyzb1m3djuUfJaudXK0bKPrgV7VLEzE>
+X-ME-Proxy-Cause: dmFkZTGmhsSiOGHtwbWTJ7RXoFsZWmzIF9cXlWwfaL/dh9WORGxQtof0HdyIt3cLmdUuJ8
+    VsOAGmm7+V3c5JyXAZ/yigVQUYNf6o0hNZqJJnZ9XmbeJaAyTTnJUpPYOckWNfKNVes6Mr
+    gr4HWTmYoFlBNeBNvu14FgO+RbLIIRR6wWxPcTmJPz3FHdXR3H+QHanIDZWH38qbbm5yx2
+    eql/7WnABytDiZuWfe9NtU7xNCTN3eate9S2tVozDRmigqmwgsPCGyLDjW89meOAwy9i+C
+    YSHMiS6QOem3k3KKTaUbsyZ8Xx3M7NvQBGqfzd9DnGX4/bnY2KUwR7rYyd9Y5K7/CvXkNL
+    vZJbpJOFw0hmGpL/mm3/8GGTPAESAKZhHT1iTr5tOIlGqdvLJmovp85uKxkC5PNAxwnrZK
+    AhPR+IpYHFw7aFxmNaySJhqP2hTuDpCpAyWszk6s7anBUksTwyCW99FTyxtnM6W9XU6tEd
+    4SszOEMw/GgryseHVRnTuNQEMexElNoEJkdufN38bAXGWSs+fqnh5kaUSP9kgJo/Vi3A6c
+    pSWr6b18TeahYFAJZVcMe68tHnLegyl6BTXvXC3p50THOVX+K4kdeMGc6/VIGgKIv8cxC4
+    LchfkwpM8QCFkI0InHHHOARusFZrXHlt2I6znASTQo/2CEi7FFr8YrIQrF3A
+X-ME-Proxy: <xmx:RGMFa0s_Q3HRezrimIll11g8GX53109HCykwpzw8TTjcHZpPXIlzhQ>
+    <xmx:RGMFa2DoHurVpOZj0Bpu9mynMyAYUWQnX8L8rYRHiYeScLARIyeuvg>
+    <xmx:RGMFa86wTy1NVapjcF0IRfzMS9me0CNDn1iwOUD0LFQQbHF6Q_zulQ>
+    <xmx:RGMFa-DsasiP_rTnXi_YrfDrl2Wm6Xsl4siJ4pV51i-8j6acpoJ5Ag>
+    <xmx:RmMFa1Edqks_cuBp6BmHwTk_K5arWLy7MdY_TVxqiciAgz-IiCzFElaN>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
+ 24 Nov 2026 05:13:24 -0500 (EST)
+Date: Tue, 24 Nov 2026 11:13:22 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Florian Westphal <fw@strlen.de>,
+	Hui Peng <benquike@gmail.com>, netdev@vger.kernel.org,
+	ipsec@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH ipsec] xfrm: allow route optimization mode only for
+ DSTOPTS and ROUTING states
+Message-ID: <awVjQipfDmyOZZtw@krikkit>
+References: <179550330841.535592.4607028415857424638@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,213 +129,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PEPF00000039:EE_|PH0PR02MB8470:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0d450710-eadb-42e6-9b64-08df4a1379fc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|36860700016|376014|7416014|1800799024|82310400026|10067099003|11063799006|5023799004|56012099006|261021121427099003|261026121527099003|261026140227099003|261022105027099003|261022075727099003|261021123027099003|261102123227099003|261028144727099003|261009223027099003|18002099003|6133799003|13003099007;
-X-Microsoft-Antispam-Message-Info:
-	Ge91guC5V7IRtds0871ez9gH2m3lgrjoQBQmjscSeB/K65q5rWG1oOwDwV9bvNVr5izvvM6y6Sa3/FCO5UFa16Af4lnu6xZQdzP/pL2VmTn4sS3pw+9eT2cxmcNcetz7GZ8Bjkd7Z9It0aPr0sS9CIBf/nnlovvj0kp8P2hYWcZxmEL48EW3Xj6c/iica0D4tAUHpNEFCS1L7cQTblE3fqBhMTByOu1l/BuFMfazhGxsFvaclpsHVslOmg9w2SaZE17ttz+NrYuKJTVFhwPOPEyLIw3RXVFoGhZF3gjjlYzlZYyhfCOEzV3RJctv/lIaydzlwBjb6sxaS4ZM6nMhCwVEHLkTA5TT+NdO4s/eUpFsfZaerylMb55nhOIwpypGvP04HpBu9CfY4DvhEn/kYhFTu18iWmWjfGHkbSdUCh3dVQxL3JMrhJAWP0PoOaJ1KI10Fpk+8/UgJQD4H+tK3Y6UZkrQY/d50TNtbgmMtwvyCVxKN0latfwELww18gPrhm/9GTKRT9qIPEY8NRVA/stuHqy58uiSgbqY0KoI/hnIvmW/Cs62wc0j1oa4cCsXeCXNd0G1P6bDPcloFC2JgAEVjec4UgVsSkfErM1baZlaqEOiPJaltfHyZRuV9Dhpb6K6k/oEZiIM129I4/WQaQ==
-X-Forefront-Antispam-Report:
-	CIP:69.31.5.41;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:jabil.com;PTR:ErrorRetry;CAT:NONE;SFS:(13230040)(23010399003)(36860700016)(376014)(7416014)(1800799024)(82310400026)(10067099003)(11063799006)(5023799004)(56012099006)(261021121427099003)(261026121527099003)(261026140227099003)(261022105027099003)(261022075727099003)(261021123027099003)(261102123227099003)(261028144727099003)(261009223027099003)(18002099003)(6133799003)(13003099007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	5tkS5sXWcN06Qg5orNCDzZTseyaA9O+UFO+eMGtFrjVSK8MqX7mZnM/tKje4EZVA9jerirKfxOfKAtU9hspe92zORN3lgYbLau7Kfl+VTxdutBq3rMezFe88mwyV1O+oUAIP3/gfQpKQ2pnzc/Zdl8CxA/MnZrVgKu+gOL/LS2V6Lw3dcXDA7dYGw7OpV73pQXMagRWPkJz7FrVVwr+l4byRoal/LV2h/Qo6vsDhuaOr6TjyF8XtkO36/PdqSViePVFZjQIsruMlub6DxXMNWm0qCxWfwdNnCa93xLaSYoAQi1c2UtmQvvF8Ad84zxhkCMllowVlrxzVKMrnnLUcRpFrv2UAS/Q6kLUO5e2YFm+4aQYbetJJi55bb8QMBTtBJG1XKjmir19aeueNOUqNU/orvcwxB9b/p+AkDcxKQXInlM2w496XMsnkxq6q3Jgf
-X-OriginatorOrg: jabil.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 10:12:42.1185
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0d450710-eadb-42e6-9b64-08df4a1379fc
-X-MS-Exchange-CrossTenant-Id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=bc876b21-f134-4c12-a265-8ed26b7f0f3b;Ip=[69.31.5.41];Helo=[jabil.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	IA0PEPF00000039.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR02MB8470
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179550330841.535592.4607028415857424638@gmail.com>
 
-mctp_i2c_add_netdev() frees midev if mctp_register_netdev() fails, but
-register_netdevice() may already have freed it through ndo_uninit,
-mctp_i2c_ndo_uninit(). midev is then freed twice: list_del() runs on a
-poisoned entry, and the adapter and client lose a second reference.
+2026-11-24, 16:08:56 +0900, Kyuwon Cho wrote:
+> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION with any
+> protocol. esp6_init_state() treats a mode it does not know as
+> transport, so an ESP state in that mode is created, and the first
 
-Free midev only where it was set up: in the add_netdev() error path,
-and in mctp_i2c_unregister() before free_netdev().
+nit: I'd say it doesn't really "treat" it as transport, it accepts
+everything and doesn't adjust header_len.
 
-ndo_uninit no longer frees midev. It still stops the tx thread, drops
-mcli->sel's reference and purges tx_queue before the core waits for
-the last netdev reference, also when a NETDEV_REGISTER notifier
-fails, and each step is safe to repeat.
+> packet through it hits the WARN_ON_ONCE()s in xfrm_state_mtu() and
+> xfrm_inner_mode_input(), which assume that route optimization never
+> comes with ESP:
 
-Freeing after unregister exposes two more things the old order hid.
-Flows released while the netdev unregisters queue the unlock marker,
-which is embedded in midev and must not reach kfree_skb() through the
-purge, so the purge takes the marker off and splices the queue out
-under one hold of the queue lock. And the bus lock, an rt_mutex taken
-by the tx thread, was released by whoever called kthread_stop(); the
-tx thread now drops it itself before exiting.
+Looking at the list of available modes (include/uapi/linux/xfrm.h),
+what about XFRM_MODE_IN_TRIGGER?
 
-The double free was pointed out by the Sashiko AI review of a pending
-mctp-i2c change, as a problem that predates it. None of this was hit
-on hardware: it takes a late register_netdevice() failure, or a flow
-key race during unregister.
+>   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0
+>   RIP: 0010:xfrm_state_mtu (net/xfrm/xfrm_state.c:3264)
+>   Call Trace:
+>    <TASK>
+>    xfrm_bundle_create (net/xfrm/xfrm_policy.c:3992 net/xfrm/xfrm_policy.c:2785)
+>    xfrm_resolve_and_create_bundle (net/xfrm/xfrm_policy.c:2885)
+>    xfrm_lookup_with_ifid (net/xfrm/xfrm_policy.c:3114 net/xfrm/xfrm_policy.c:3245)
+>    xfrm_lookup_route (net/xfrm/xfrm_policy.c:3344 net/xfrm/xfrm_policy.c:3355)
+>    ip6_dst_lookup_flow (net/ipv6/ip6_output.c:1299)
+>    udpv6_sendmsg (net/ipv6/udp.c:1699)
+> 
+>   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50
+>   RIP: 0010:xfrm_input (net/xfrm/xfrm_input.c:449 net/xfrm/xfrm_input.c:705)
+>   Call Trace:
+>    <IRQ>
+>    xfrm6_esp_rcv (net/ipv6/xfrm6_protocol.c:119)
+>    ip6_protocol_deliver_rcu (net/ipv6/ip6_input.c:479)
+> 
+> Accept the mode only for the Mobile IPv6 protocols, as IP-TFS mode is
+> already limited to ESP.
 
-Suggested-by: Matt Johnston <matt@codeconstruct.com.au>
-Fixes: f5b8abf9fc3d ("mctp i2c: MCTP I2C binding driver")
-Closes: https://lore.kernel.org/netdev/179239912623.3135.11352652156626817288@kernel.org/
-Cc: stable@vger.kernel.org
-Assisted-by: Claude:claude-opus-5-5
-Signed-off-by: Kenny Hsieh <kenny_hsieh@jabil.com>
----
-v5:
- - Take the unlock marker off and splice tx_queue out under one hold of
-   the queue lock. With two holds, release_flow() could queue the marker
-   again in between, and the purge would kfree_skb() it. Found by
-   Sashiko on v3.
- - Dropped the unlock_reset() in mctp_i2c_midev_free(). The tx thread
-   already drops the bus lock when it stops, so it did nothing.
- - Dropped the early detach in mctp_i2c_unregister(), added in v2.
-   ndo_uninit does it before the refcount wait, so sel is now moved at
-   the same point as upstream.
- - Stop the tx thread at the start of ndo_uninit. On a failed
-   register it was still running, and could select midev again after
-   the detach, keeping a netdev reference that blocks the unwind.
-   Found by Sashiko on v4.
+This is reasonable, but I think we should instead (or maybe "also")
+add mode filtering to each ->init_state. Most already do it
+(interestingly, ah6_init_state does but not ah_init_state, can AH4
+also land in the same WARNs?), I think it's just ah4 and esp{4,6}
+missing those.
 
-v4: https://lore.kernel.org/netdev/20261119094307.3864679-1-kenny_hsieh@jabil.com/
-v3: https://lore.kernel.org/netdev/20261118090515.3390034-1-kenny_hsieh@jabil.com/
-v2: https://lore.kernel.org/netdev/20261027053715.1623087-1-kenny_hsieh@jabil.com/
-v1: https://lore.kernel.org/netdev/20261022031704.2295541-1-kenny_hsieh@jabil.com/
-
- drivers/net/mctp/mctp-i2c.c | 76 +++++++++++++++++++++++++++----------
- 1 file changed, 56 insertions(+), 20 deletions(-)
-
-diff --git a/drivers/net/mctp/mctp-i2c.c b/drivers/net/mctp/mctp-i2c.c
-index b02476d338bbf..ef095028143a8 100644
---- a/drivers/net/mctp/mctp-i2c.c
-+++ b/drivers/net/mctp/mctp-i2c.c
-@@ -628,8 +628,11 @@ static int mctp_i2c_tx_thread(void *data)
- 	unsigned long flags;
- 
- 	for (;;) {
--		if (kthread_should_stop())
-+		if (kthread_should_stop()) {
-+			/* Only the rt_mutex owner may release the bus lock */
-+			mctp_i2c_unlock_reset(midev);
- 			break;
-+		}
- 
- 		spin_lock_irqsave(&midev->tx_queue.lock, flags);
- 		skb = __skb_dequeue(&midev->tx_queue);
-@@ -782,32 +785,59 @@ static struct mctp_i2c_dev *mctp_i2c_midev_init(struct net_device *dev,
- 	return midev;
- }
- 
-+/* Removes midev from the parent i2c client and moves sel off it.
-+ * Safe to call more than once.
-+ */
-+static void mctp_i2c_midev_detach(struct mctp_i2c_dev *midev)
-+{
-+	struct mctp_i2c_client *mcli = midev->client;
-+	unsigned long flags;
-+
-+	spin_lock_irqsave(&mcli->sel_lock, flags);
-+	if (list_empty(&midev->list)) {
-+		spin_unlock_irqrestore(&mcli->sel_lock, flags);
-+		return;
-+	}
-+	list_del_init(&midev->list);
-+	if (mcli->sel == midev) {
-+		struct mctp_i2c_dev *first;
-+
-+		first = list_first_entry_or_null(&mcli->devs, struct mctp_i2c_dev, list);
-+		__mctp_i2c_device_select(mcli, first);
-+	}
-+	spin_unlock_irqrestore(&mcli->sel_lock, flags);
-+}
-+
-+/* The unlock marker is embedded in midev, so keep it from kfree_skb() */
-+static void mctp_i2c_tx_purge(struct mctp_i2c_dev *midev)
-+{
-+	struct sk_buff_head tmp;
-+	unsigned long flags;
-+
-+	__skb_queue_head_init(&tmp);
-+	spin_lock_irqsave(&midev->tx_queue.lock, flags);
-+	if (midev->unlock_marker.next)
-+		__skb_unlink(&midev->unlock_marker, &midev->tx_queue);
-+	skb_queue_splice_init(&midev->tx_queue, &tmp);
-+	spin_unlock_irqrestore(&midev->tx_queue.lock, flags);
-+
-+	__skb_queue_purge(&tmp);
-+}
-+
- /* Counterpart of mctp_i2c_midev_init */
- static void mctp_i2c_midev_free(struct mctp_i2c_dev *midev)
- {
- 	struct mctp_i2c_client *mcli = midev->client;
--	unsigned long flags;
- 
- 	if (midev->tx_thread) {
- 		kthread_stop(midev->tx_thread);
- 		midev->tx_thread = NULL;
- 	}
- 
--	/* Unconditionally unlock on close */
--	mctp_i2c_unlock_reset(midev);
--
- 	/* Remove the netdev from the parent i2c client. */
--	spin_lock_irqsave(&mcli->sel_lock, flags);
--	list_del(&midev->list);
--	if (mcli->sel == midev) {
--		struct mctp_i2c_dev *first;
-+	mctp_i2c_midev_detach(midev);
- 
--		first = list_first_entry_or_null(&mcli->devs, struct mctp_i2c_dev, list);
--		__mctp_i2c_device_select(mcli, first);
--	}
--	spin_unlock_irqrestore(&mcli->sel_lock, flags);
--
--	skb_queue_purge(&midev->tx_queue);
-+	mctp_i2c_tx_purge(midev);
- 	put_device(&midev->adapter->dev);
- 	put_device(&mcli->client->dev);
- }
-@@ -828,7 +858,7 @@ static void mctp_i2c_unregister(struct mctp_i2c_dev *midev)
- 	wait_for_completion(&midev->rx_done);
- 
- 	mctp_unregister_netdev(midev->ndev);
--	/* midev has been freed now by mctp_i2c_ndo_uninit callback */
-+	mctp_i2c_midev_free(midev);
- 
- 	free_netdev(midev->ndev);
- }
-@@ -837,11 +867,17 @@ static void mctp_i2c_ndo_uninit(struct net_device *dev)
- {
- 	struct mctp_i2c_dev *midev = netdev_priv(dev);
- 
--	/* Perform cleanup here to ensure that mcli->sel isn't holding
--	 * a reference that would prevent unregister_netdevice()
--	 * from completing.
-+	/* Stop tx first, or it can select midev again after the detach */
-+	if (midev->tx_thread) {
-+		kthread_stop(midev->tx_thread);
-+		midev->tx_thread = NULL;
-+	}
-+
-+	/* Drop sel's reference and queued skbs before unregister waits
-+	 * for the last netdev reference. midev is freed elsewhere.
- 	 */
--	mctp_i2c_midev_free(midev);
-+	mctp_i2c_midev_detach(midev);
-+	mctp_i2c_tx_purge(midev);
- }
- 
- static int mctp_i2c_ndo_open(struct net_device *dev)
 -- 
-2.50.1
-
+Sabrina
