@@ -1,73 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.195
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530358;
-	b=XOGtOQZQguhQ/seQGANjIc+Sib5A9pVUpqfHzeTL0y9qwlqEctpaq7U7Plpvbt2G5yi9
-	 AkxJGCe81wNDaWG1rvu6MyDYuxpYDTs35ajvjRZslccnGlwijKMS/Vnddh3pL2vCp+5c/
-	 J/UlOPjIcF57PcAcIkVQmF/o/sfRFR4N92HlyI1p5nkhayIlcT7bKSqNSgl7lrC9p/MC4
-	 TNlSySBBfDWxDjUDWEs27IgAKts65zk4ZJoD/K+T1wNwC60zItpUD+ncGWt7Z7fhROAlc
-	 sPbg8gOac59dxYXPvHVN2vE3bQnjaGS8hmcsh9l0Ppy8WJQ0dOtpW3CGituWn51jfiw==
+	t=1795530413;
+	b=m7aP1Yyc8iJDoPUbRVy+mAI5BGZt5ZWswMa7+mZuuvTnXLrfODsT3Xglp4PoOSiI7/Dt
+	 u2nBW1NDu/LIxMkX1RTHqZ8OpMrr7lr/VjDjwgo1VqpA3o3/qa+gVUBbCgGT/Z73ZD4r4
+	 fEGPML7RDFHO6/h8B4XCZP3GSZG6/JljWmXVuC4LC5OTEK45ehwDGmDlDx3h5InLOuP29
+	 flPP6f+cx4xevpnhFjfD7tRDHRHUrA/dji/f6fjo6mt7Y8vglpqgXjOY4jRGYZL82STK0
+	 JGqrZPFZDuEPXFHkUD51ddow3U+ONjrEvWw0OUncSONlKXU4SfQDP2ky9n9OIPWxXnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530358;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=h2pLve9CfbYUk4h9BNGefRcEfHbuM+avbXOhKVZvFdU=;
-	b=ce7exwkguv3RTENpMA68ElEEAtYkbEfkezxoUqS8OoX5jv4plsh4E1DVPJMCQM2rf8kS
-	 wNhDY29jDikXpjioiN5FufE9ZfNIyU7WYizlP1mQVCPVTdutLtIeTvFaVauy1Ql/fxSTJ
-	 m8JMMADJJLgQsawpA3A5ydC3EIPxY1ZhW8H8K00V7vfCEz0nwMislhhQ06UQDYQWI1JXg
-	 xkCBrvwAX8NJZct1xBMW/cos6FsVud93QDBGoB00zv/g9/PaM+DRKn6SCuBRXFezmFacl
-	 fCDW3DZin9XecFwGFV8hITsdKg+isS2L0oscyT4Sb/HgzCukAdxZnPPgoxrF5Pr/M8w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530413;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mTwBFRyFSROWCnCFCSSel89ouxGBgoxE6b1oZnyUXq4=;
+	b=wE9dX2kk6M7avozW0o+Je6gCmHzmv3nUHYQDmOd1jNQ/aOq5blqh/ga/HVa2m8G81rnP
+	 3mzvVTZod9Chl1W3imuj9pVCdcdZ2xmM5VnF31jYqLjpg+VO7BkPYYGmpGfoszkZWt7JF
+	 1+6qyrcMdeULMG7rguLLTnMYgpPG10sgJnWZCYuON8R5h+LTyfC4yEahES8V747GU3Etq
+	 h2DD6VNHJwCbZwDyUMK7k2Ea5mzQ7M46KKnES5XCP55TVwF3S+jdxaeyQvncjiCmyljvJ
+	 yWSvt07nvnzlm9y1Sfm5wKdmfo10++Ryn4vOQodfxDmvUsB7YYQ0/6iazu/WvJ9v1IQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oWj94Es+;
-	arc=none smtp.remote-ip=95.215.58.195
-Received: from mta1.migadu.com (out-195.mta1.migadu.com [95.215.58.195])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5UEACMU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B016C606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:25:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B016C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 99B17606A321;
+	Tue, 24 Nov 2026 14:26:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=oWj94Es+
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=wtciEf4k1Kp/fzHfdEXxKaqAhqAQ0xFfSaOuMZuKKiQ=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795530355; v=1; x=1796135155;
- b=oWj94Es+UZrjTPx0iYjnwSS2OgB3YOINseLV7PztbqWHNGsyighPuCIStvofjcSny1+YmqkA
- 4I2KFQVfQvg9wzwDV8edtaerxiyEWLkAJo0ubnWi9kWf6aeCKq3mxCdygkH1LERwb3uPRGHyt8Y
- UbKgC7jAAyQA82xeIvr7FiKg=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 55d229cec49dac67;
-	Tue, 24 Nov 2026 14:25:55 +0000
-X-Mizu-Trace-ID: 55d229cec49dac67
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: netdev@vger.kernel.org
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Kenneth Lee <kennethbwlee@snu.ac.kr>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	Wang Zhan <wang.zhan@smartx.com>,
-	Martin Karsten <mkarsten@uwaterloo.ca>,
-	bpf@vger.kernel.org
-Subject: [PATCH net v3] net: xdp: fix generic XDP on skbs without an Ethernet header
-Date: Tue, 24 Nov 2026 22:25:39 +0800
-Message-ID: <20261124142545.221584-1-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=n5UEACMU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0CC91F000C6;
+	Tue, 24 Nov 2026 14:26:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795530413;
+	bh=mTwBFRyFSROWCnCFCSSel89ouxGBgoxE6b1oZnyUXq4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=n5UEACMURgjfpgLFKrsVZFmC2awe4D2PQaskzHFD4iJKlNUhanPH9qPBzrspXZY91
+	 baGS4Fj1wT/jhTrGgr7T1gMIx0J3gfqmR77tS6normc8sU1b6DqOcRfcJJ1YgxX9hb
+	 OT5lNHfWt0gW3ayaKFpt/Pi55o0akAfLOAe+1s/I8SRbMktmNzMAKx+UwcCA264ZtM
+	 snimwJfXoSB3HZeOoF5i+K2nfaLIteU4laOZv3YWc3kyo8xdD0g6i3XmkehtZMxa+U
+	 Es/BMhvxtxpu3zTaohOPN1BTmL0Kh67iz83EfFLMYmRWG0r5WehR6lLFK3cG4Cbvgf
+	 kTEwORPTf0lYg==
+Subject: Re: [PATCH net 04/10] mptcp: fix use-after-free of the subflow
+ context on the delegated list
+From: netdev-bot+sashiko@kernel.org
+To: matttbe@kernel.org
+Cc: edumazet@kernel.org, davem@davemloft.net, kuba@kernel.org,
+ pabeni@redhat.com, willemb@google.com, horms@kernel.org, martineau@kernel.org,
+ geliang@kernel.org, cpaasch@openai.com, fw@strlen.de, netdev@vger.kernel.org,
+ mptcp@lists.linux.dev, dcaratti@redhat.com, mason@kernel.org,
+ stable@vger.kernel.org, ncardwell@google.com, kuniyu@google.com, kafai@fb.com,
+ daniel@iogearbox.net, ast@kernel.org, martin.lau@kernel.org,
+ bpf@vger.kernel.org
+Date: Tue, 24 Nov 2026 14:26:51 +0000
+Message-ID: <179553041150.3135.10012593386905502123@kernel.org>
+In-Reply-To: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-4-278042217e8d@kernel.org>
+References: <20261123-net-mptcp-misc-fixes-7-4-rc5-v1-4-278042217e8d@kernel.org>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,101 +67,107 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Kenneth Lee reported a bug [1]:
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-  skb_vlan_push got skb with skb->data not at mac header (offset 14)
-  WARNING: net/core/skbuff.c:6474 at skb_vlan_push+0x5ec/0x8a0
-   ____bpf_skb_vlan_push net/core/filter.c:3239 [inline]
-   bpf_skb_vlan_push+0x216/0x8b0 net/core/filter.c:3229
-   bpf_prog_run_data_pointers+0x17c/0x240 include/linux/filter.h:917
-   tcf_bpf_act+0x31c/0x940 net/sched/act_bpf.c:50
-   tcf_action_exec+0x2c1/0x720 net/sched/act_api.c:1147
-   tcf_classify+0x6e4/0x1080 net/sched/cls_api.c:1860
-   tc_run+0x31c/0x5d0 net/core/dev.c:4411
-   sch_handle_ingress net/core/dev.c:4486 [inline]
-   __netif_receive_skb_core+0x141b/0x2ec0 net/core/dev.c:6054
+Low priority / nit picks for your consideration:
 
-bpf_prog_run_generic_xdp() reads xdp->data as an Ethernet header. On an
-L3 device like sit0 there is none, so the "did the program change the
-header" check compares garbage, and the fixup:
+- [Low] The comment in the sock_owned_by_user() branch of
+  mptcp_napi_poll() (net/mptcp/protocol.c) is now wrong for the case…
 
-	__skb_push(skb, ETH_HLEN);
-	skb->pkt_type = PACKET_HOST;
-	skb->protocol = eth_type_trans(skb, skb->dev);
+--
 
-leaves mac_len == 0 with skb_mac_header(skb) == skb->data - ETH_HLEN.
-tc ingress then can't get skb->data back onto the mac header.
+mptcp: fix use-after-free of the subflow context on the delegated list
 
-XDP is Ethernet only, so refuse to attach a generic XDP program to a
-device that is not ARPHRD_ETHER.
+This fixes a use-after-free. subflow_ulp_release() frees the subflow
+context with kfree_rcu() while the context is still linked on the per-CPU
+delegated napi list. A new MPTCP_DELEGATE_DEAD bit hands the free to
+mptcp_napi_poll() when the subflow is scheduled, skips delegated actions
+for dead contexts, and moves delegated_status out of struct_group(reset).
 
-The one exception is lo. Its type is ARPHRD_LOOPBACK, but it uses
-eth_header_ops and eth_type_trans() like any Ethernet device, so its
-skbs do carry an Ethernet header. Generic XDP on lo works today and the
-BPF selftests rely on it (xdp_attach, xdp_devmap_attach, check_mtu,
-...), so keep allowing it.
+> diff --git a/net/mptcp/protocol.c b/net/mptcp/protocol.c
+> index 50c294d925b0c..23d35f43b566e 100644
+> --- a/net/mptcp/protocol.c
+> +++ b/net/mptcp/protocol.c
 
-Rejecting the attach is not enough on its own, dev->type can change
-after the program is attached. An empty bond or team takes the type of
-its first port, and TUNSETLINK lets a tun device change its type.
-dev->hard_header_len is no help either, it is what the driver wants
-reserved on TX and many Ethernet drivers make it larger than ETH_HLEN.
-So also skip the program for skbs that have no ETH_HLEN sized mac
-header.
+[ ... ]
 
-[1]: https://lore.kernel.org/bpf/20260812043643.808295-1-kennethbwlee@snu.ac.kr/
+> @@ -4803,10 +4803,13 @@ static int mptcp_napi_poll(struct napi_struct *napi, int budget)
+>  	delegated = container_of(napi, struct mptcp_delegated_action, napi);
+>  	while ((subflow = mptcp_subflow_delegated_next(delegated)) != NULL) {
+>  		struct sock *ssk = mptcp_subflow_tcp_sock(subflow);
+> +		long status;
+>  
+>  		bh_lock_sock_nested(ssk);
+>  		if (!sock_owned_by_user(ssk)) {
+> -			mptcp_subflow_process_delegated(ssk, xchg(&subflow->delegated_status, 0));
+> +			status = xchg(&subflow->delegated_status, 0);
+> +			if (!(status & BIT(MPTCP_DELEGATE_DEAD)))
+> +				mptcp_subflow_process_delegated(ssk, status);
+>  		} else {
+>  			/* tcp_release_cb_override already processed
+>  			 * the action or will do at next release_sock().
+> @@ -4814,11 +4817,15 @@ static int mptcp_napi_poll(struct napi_struct *napi, int budget)
+>  			 * CPU that scheduled it.
+>  			 */
+>  			smp_wmb();
+> -			clear_bit(MPTCP_DELEGATE_SCHEDULED, &subflow->delegated_status);
+> +			status = set_mask_bits(&subflow->delegated_status,
+> +					       BIT(MPTCP_DELEGATE_SCHEDULED), 0);
 
-Fixes: 297249569932 ("net: fix generic XDP to handle if eth header was mangled")
-Reported-by: Kenneth Lee <kennethbwlee@snu.ac.kr>
-Closes: https://lore.kernel.org/bpf/20260812043643.808295-1-kennethbwlee@snu.ac.kr/
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
-v2 -> v3:
- - Only handle skbs with an ETH_HLEN mac header in generic XDP. This
-   also skips VLAN devices with reorder_hdr off.
+[Severity: Low]
+This isn't a bug, but is the comment above this branch still accurate
+once MPTCP_DELEGATE_DEAD is set?
 
-v1 -> v2:
- - Generic XDP does not support L3 devices, as discussed on v1. Reject
-   the attach and skip skbs without an Ethernet header, instead of
-   running the program on them.
- - Target net instead of net-next.
+The comment says tcp_release_cb_override "already processed the action or
+will do at next release_sock()". However, every path that reaches
+mptcp_subflow_free_ctx() runs after mptcp_subflow_ops_undo_override() has
+restored ssk->sk_prot to plain tcp_prot/tcpv6_prot:
 
-v2: https://lore.kernel.org/netdev/20261123121540.275576-1-jiayuan.chen@linux.dev/
-v1: https://lore.kernel.org/netdev/20260813113229.381136-1-jiayuan.chen@linux.dev/
----
- net/core/dev.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+net/mptcp/subflow.c:subflow_ulp_release() {
+    ...
+	mptcp_subflow_ops_undo_override(ssk);
+	if (release)
+		mptcp_subflow_free_ctx(ctx);
+}
 
-diff --git a/net/core/dev.c b/net/core/dev.c
-index 1a63f6b939f7..4a4e030d93b6 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -5844,6 +5844,10 @@ static u32 netif_receive_generic_xdp(struct sk_buff **pskb,
- 	if (skb_is_redirected(skb))
- 		return XDP_PASS;
- 
-+	/* XDP is Ethernet only, skip skbs without an Ethernet header. */
-+	if (skb->data - skb_mac_header(skb) != ETH_HLEN)
-+		return XDP_PASS;
-+
- 	/* XDP packets must have sufficient headroom of XDP_PACKET_HEADROOM
- 	 * bytes. This is the guarantee that also native XDP provides,
- 	 * thus we need to do it here as well.
-@@ -10869,6 +10873,12 @@ static int dev_xdp_attach(struct net_device *dev, struct netlink_ext_ack *extack
- 			NL_SET_ERR_MSG(extack, "XDP program already attached");
- 			return -EBUSY;
- 		}
-+		/* lo is ARPHRD_LOOPBACK but uses Ethernet framing. */
-+		if (mode == XDP_MODE_SKB && dev->type != ARPHRD_ETHER &&
-+		    dev->type != ARPHRD_LOOPBACK) {
-+			NL_SET_ERR_MSG(extack, "Generic XDP only supports Ethernet devices");
-+			return -EOPNOTSUPP;
-+		}
- 	}
- 
- 	/* don't call drivers if the effective program didn't change */
+mptcp_subflow_drop_ctx() reaches the same undo through
+subflow_ulp_fallback(). __mptcp_close_ssk() only calls
+mptcp_subflow_free_ctx() when icsk_ulp_ops is already NULL.
+
+So for a dead context, the next release_sock() calls tcp_release_cb()
+rather than tcp_release_cb_override(). Any pending action bits are dropped,
+and the commit message says that is intended ("the pending actions must not
+run").
+
+A dead context can reach this branch. __mptcp_close_ssk() holds
+lock_sock_nested(ssk) across this chain:
+
+__tcp_close()->inet_csk_destroy_sock()->tcp_cleanup_ulp()->
+    subflow_ulp_release()->mptcp_subflow_free_ctx()
+
+That means a concurrent mptcp_napi_poll() can see sock_owned_by_user(ssk)
+after DEAD has been set.
+
+Could the comment be updated to say that dead contexts have their pending
+actions discarded here? It could also mention that status is captured so
+the context can be freed with kfree_rcu() after bh_unlock_sock() and
+sock_put().
+
+>  		}
+>  		bh_unlock_sock(ssk);
+>  		sock_put(ssk);
+>  
+> +		if (status & BIT(MPTCP_DELEGATE_DEAD))
+> +			kfree_rcu(subflow, rcu);
+> +
+>  		if (++work_done == budget)
+>  			return budget;
+>  	}
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-net-mptcp-misc-fixes-7-4-rc5-v1-0-278042217e8d%40kernel.org
