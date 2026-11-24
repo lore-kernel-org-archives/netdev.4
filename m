@@ -1,59 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795486428;
-	b=ciEI0LRJVYqWmeUsoxneGEMBKiwbe5R03q4KYEtzq0wFDqrKCZoJ7yY7nP2RjnG9erx3
-	 SmbjRWCQnSKMhnOvlVv18nRQa9zNljE0W4ELBy75ECEZhGu9Nx9uBJNftfuWHT8EeUF7E
-	 nsSFx++dEEU2Qt/HV4MbaISBj5oTODADL+FCHHP6l+PPI7/4wEguKV967f1+KCy6rpRkb
-	 dhx67j0HefZrXDbwIx9boOxXWPTBQ063YvMrBXBfohU0QPetqsotWwpLpib2Mnzl/KEUy
-	 a+dQ6a81BEhQUKM2mVd2359TMWzPowwaJire9r98IPuV98bXkZVV+6U+bX6GGUmXlbQ==
+	t=1795486534;
+	b=j72c07jFWyO8xB1WLf2tZqV8uUhJ24Tsib6NI36ANTvpT7u6rL9IltyL38zjgGdDfA2y
+	 j0RtBvON3hcuUnKmWgKm5+yKI/NWI3RQhMaLPiylScy5PaflchjAUMOprjLqiDNm6/usZ
+	 h3q0o/LRSaH+WKYoxJPrFWzBSIVZCZV4R32a6KErnG6GsA11x0GjKsuCvfei98+6jdM4O
+	 jwb0KAG/Gl5qzgfAiT5B46mWHeAqhjS7QqstQG16+UQnKcLsQLgBP9tgYlA3cQpQZU47r
+	 66CnxG/YJlVhz1AxMkW7b7IJPIRTd3JfhuB8WiTev20qihkDR3Xx5gXP2PaP0JX6pfQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795486428;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795486534;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=iG76FGe81ThjV+MovbjEJeBgKtdQS9FtFDDtexgCiYw=;
-	b=TKbr6n4o+37GS21zdE+2nguJ42ppH7JoPiCcy9diPkkZxLsgBopo1ZvwkUvdYNkpzz8n
-	 t1wR5O5XbdbH/thn4MdxiNcDyfOOduu6EDhKhWmNiJOQv2coj8YHKBiTik9vBdhmCAZ7j
-	 fR+qKvGCeQQXjQkwKEi7DBvzq/lrNA3JQ+SWID4R6xcmF88j+WemaOwnHVYQ7PELkHRN1
-	 I/ggo+rUMVTrxsrv3K+oXJdxaKqs1B85/BMPN0aKdrhDLo8FcjEFXCxtcnfshiU19ERTB
-	 vRGYRuek2D3CDltDzEE5pk8rXZ8i/xZR8ox/ChPA4c2aXGKgWVRMIfX8/4DsAK4Mdgg==
+	bh=uUs9GSPSgpK2xdpILx772ilrW07fhOJy+bZ7K9nnqYw=;
+	b=drXPqV/1CrjbaTnk0LMY+efDLKqZ0zkmAlk6f6MeGkO6Ju4Rgtu4gouKnEXYaKDlPTip
+	 AMXtOo5xwD3heY+ixL6E0O2CeOy7ISwlm1oLmHGHlhpp6/9IFYxLuD94NVHw9zLNGldwt
+	 T6bLLxsPRr+xfsRYTwDu6sJjn/dN9QVKHmOI+DCiRLxtG0hRJFJJ5IGMe65ZNwTmy1Uf2
+	 AdMkFevyWTkTYp3x99uNpCRUyPl3FRjDcnT76lAOhddwORM3NDcqS6oulAuzRysOLKqmm
+	 y/2N8bwoBhvAxAsGQZJa/Axd/GHWLAEiSisv4bZBndUqUKc9dYN1YvhT7HICE+Ao/1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HCwEqIcE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxfKsjya;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62C52606A689;
-	Tue, 24 Nov 2026 02:13:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 20D4C606A321;
+	Tue, 24 Nov 2026 02:15:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=HCwEqIcE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 584611F000CA;
-	Tue, 24 Nov 2026 02:13:47 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bxfKsjya
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 970651F000C0;
+	Tue, 24 Nov 2026 02:15:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795486427;
-	bh=iG76FGe81ThjV+MovbjEJeBgKtdQS9FtFDDtexgCiYw=;
+	s=k20260515; t=1795486533;
+	bh=uUs9GSPSgpK2xdpILx772ilrW07fhOJy+bZ7K9nnqYw=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References;
-	b=HCwEqIcEAMMMWCCWWlS/tldOhuh/rRcy0oYH+/1XbYzOavxDQRI2vHIFjQLtgzEK/
-	 /RIsR2B22d8dCLoID/WL0Fa7h4VF6ZeXxq79fsgYDrapfHkMm9Ik9z0JTuk9eAtwvY
-	 o8UuI9im5oODW60Zvq8qq9dXvQRwDdJCxoi7xMU0N3djdhgaeWQtBa1u275YVq1DaQ
-	 BHgxs0gGDGKwVvBADgwePNJ+JmLZ6hOTNlVvf2B9Wq8cINIpervegrQogTi7erE3zT
-	 DPa4QutDvEWvjJHCnrbnLD/RmHA3M0sIPtQlBqMdpcAacvMOrZePlMsXOhpxwmhicR
-	 kc/l3SeFnNApQ==
-Date: Mon, 23 Nov 2026 18:13:46 -0800
+	b=bxfKsjyaGK4aKNzoI5HaOm34uiHXZzxo33ft3izLVeNPrI3/g3pUWN+hYPvpVWAXF
+	 oq6GFS6FJi+LlSDQZuVcpZuyHBGdkQGoNXcviitsW8TTs4lRteyYiRfaMRSxcXOTft
+	 TiGFJouM0AODBMCn5pPMWqpkOSh+4lRITJ14FWy4O/+H5yKuL9xn7hG3bYRGdkzy8x
+	 92paAcjTCa22wMf9BCikleK5Dv2zmkqsahgpGtYN4ClvCCumlXjuoJygpfwBhmWnHu
+	 6jyjrmLPsMWtiyXpCOwFIbpiS8FnTUyTtbMY7FqjClD5h7Qq8pIXyI1gKS/7o6RejM
+	 WKoDVRlY2eijA==
+Date: Mon, 23 Nov 2026 18:15:33 -0800
 From: Jakub Kicinski <kuba@kernel.org>
-To: saeed bishara <saeed.bishara.os@gmail.com>
-Cc: evostrov@amazon.com, netdev@vger.kernel.org, David Arinzon
- <darinzon@amazon.com>, Shay Agroskin <shayagr@amazon.com>, Arthur
- Kiyanovski <akiyano@amazon.com>, Gal Pressman <gal@nvidia.com>, Michal
- Kubiak <michal.kubiak@intel.com>, Paolo Abeni <pabeni@redhat.com>, Eric
- Dumazet <edumazet@google.com>, Kuniyuki Iwashima <kuniyu@amazon.com>, Shai
- Brandes <shaibran@amazon.com>, linux-doc@vger.kernel.org
-Subject: Re: [RFC] net: ena: use tx-push-buf-len while tx-push is off
-Message-ID: <20261123181346.383390ae@kernel.org>
-In-Reply-To: <CAHfVqdVw9OQ4OPmpLp4pJQhFw_9E7SLwNDjYXYuuGkU95=gGdg@mail.gmail.com>
-References: <20261118041238.14396-1-evostrov@amazon.com>
-	<CAHfVqdVw9OQ4OPmpLp4pJQhFw_9E7SLwNDjYXYuuGkU95=gGdg@mail.gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>, Henry Martin
+ <bsdhenrymartin@gmail.com>
+Cc: David Heidelberg <david@ixit.cz>, "David S . Miller"
+ <davem@davemloft.net>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, oe-linux-nfc@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, stable@vger.kernel.org
+Subject: Re: [PATCH] nfc: llcp: walk the accept queue under the socket lock
+Message-ID: <20261123181533.629f0389@kernel.org>
+In-Reply-To: <CAL4Wiir7GS+-0tSH6D49f+xZv6njk+sbc-_E45_qnqgHe6V4TQ@mail.gmail.com>
+References: <20261118083811.1721010-1-bsdhenrymartin@gmail.com>
+	<CAL4Wiir7GS+-0tSH6D49f+xZv6njk+sbc-_E45_qnqgHe6V4TQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,48 +65,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 
-On Sun, 22 Nov 2026 10:32:31 +0200 saeed bishara wrote:
-> > - We still need to tell the device how many header bytes to pull.  
-> Just to be clear, the device eventually will read (pull) the entire packet
-> I think  tx-push-buf-len should have been called tx-inline-header-len,
-> as this is about how many bytes of the packet's header get written by
-> the driver into the Tx ring descriptor.
-> IMHO, we better introduce a new parameter, that is agnostic to
-> push/pull mode, we can choose to deprecate the current one in the long
-> term.
+On Wed, 18 Nov 2026 12:05:01 +0100 Eric Dumazet wrote:
+> Next time, please specify the target tree in the subject ([PATCH net]).
 
-Agreed on new param, not sure about "agnostic to config mode".
-Or if we can deprecate the old one since its uAPI.
-
-The driver can store both values in one tho, effectively forcing 
-them to be in sync.
-
-All the new one tx-hdr-depth ? max-hdr-len would be more logical
-but we use "max" to indicate the max value for a param.
-
-You can add this to uAPI of ethtool or a driver-specific devlink param.
-
-> > - We want to use tx-push-buf-len for this, with tx-push off.
-> >
-> > ENA is the only in-tree driver that uses tx-push-buf-len, so this does
-> > not change any other driver.
-> >
-> > Example on a device that supports pull mode:
-> >
-> > ethtool -G <dev> tx-push off tx-push-buf-len 224
-> > ethtool -g <dev> -> TX Push: off, TX push buff len: 224
-> >
-> > The core already allows this. net/ethtool/rings.c checks only the
-> > capability bit and that the length is not above the max. It does not tie
-> > tx-push-buf-len to tx-push.
-> >
-> > In a 2023 review Gal Pressman suggested using tx-push-buf-len only when
-> > tx-push is on. That was never added as code or written as a rule.
-> > Link: https://lore.kernel.org/netdev/30cb3990-80ce-ca07-6d73-cdc00d0ad7b8@nvidia.com/
-> >
-> > Request: Please confirm this is fine or if not can you please suggest another
-> > way of achieving the pull mode len setup functionality.
-> >
-> > Thank you
-> >  
-
+FWIW we don't take nfc patches directly. So [PATCH nfc] I guess
