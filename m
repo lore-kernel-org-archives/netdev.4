@@ -1,62 +1,105 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=213.160.73.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.170
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795552435;
-	b=wr2QZ1dx88mVJOpCOFuCv8//6O72WaQB1KyDSOGaeAxW5b/oQl5Vg9ODtf2mTZcwMGaS
-	 sa4pwYfe7fucNgoMiuRXcnP7DvmByYWD5bxdkNbwpoWt2lpxqDQDPsb9RlizGvYF8H1y4
-	 6Z4byJg/owaVtMaa3fNGsAL5NvwheRbPnQT7rYCMGp80/eqTq8bq9YkCWDLwfAb64ebYK
-	 VKs19A50TwsbHGSd9Mb7sawyq2QUa+3vbE7VGplbhpMMxkFfwaZUfbHQXdfDnVIuzS4w9
-	 vgMfJZZIz9DGBehHCZ3yzMCctY7XuaRPE/Dhbss8qaEbFQSgUkuCEBksu4eNTbKb0gA==
+	t=1795552475;
+	b=cV+YPN/fe5ImF/6uLD8Bplu6n1mtI/As5c8jzp3JTPST+CvZW6UPKDs2kH9XpO2LDymb
+	 q1bFNg5zeU6wvgNJFwVIxUwkIqZXc5xk2cKEfVUfefb891gRzOc96mu+oxSjKAOxdNUj2
+	 8bDClpwDMjacXZwmpibdU80FaVM7ax9Hnvpn/fNxWy2ALywX9i1f04tpfEWnofW3iwESH
+	 HUaUhEAs+FLA4CZKgGK9b1VfIWTXnCfcKNP0kFJD7T0s7AwYJ8HFE9DKZRezXNZEHe//l
+	 dPRHYh/FkMoZdfID06kb0iEMHuC3n3GfR3sckyqFdibxpoC2z5Yoh85eo5UNEiaM5Gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795552435;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type;
-	bh=c2MHqh4y5WDPKpOHCTYLK4aLHvmoORxaMjltvDY0H5s=;
-	b=G5V0rEjbYmlBeSFaUveZPYAi8zHR+C69hdxgKGiLxrQ+Cc85Ap1Pu6c8wTaG/Vb/vpsA
-	 IIZzxqUFqNL47GwbWTbFVHW/L+DI1s2WOD6QueYQxibJIOdU9CCisfLIfvfmqLhwdoZoU
-	 GAD2lq8cMed0rrxtCfmubIO9oL1vpoG4nf7oHkV23/53oBhMKUOB+hFd+fHhri8tnpevG
-	 Wcqtd3kphsul8I6AsDdsj6JV6DYWtS21gkF8gsUvFV1Jz6PdUuhAceRNl9wFp+OP7ulxp
-	 ZCAhPUarMhMLh19Q2ICOUypClH+OWMYM+jyuKkW2EgwP/5Nbk/h6qKR/gclWpgDyTkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795552475;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+	b=xbzih/IU8GixaBO/PKOT+GVjOzyIO40j3nezCo5jwIu2OD/xroeqUw6SRIRH9swuqZbw
+	 xAGrwer+Zvo33ToNph8pW1T1gdwhVbzJr/rgdMNKYg5Ev04QBz80mmN3dXgu2Zec5ZuYW
+	 hqFwroRxX9OtaomzWAzg7cPbxE9vOJwNzJy7GA55LcA60cW6IKUu/A8a8rqqOMAowM4rE
+	 adE2KDKeyaYucxL9mjf+q8x5XRHxZqWRXQCB6VQwo7MCQHTyCgPJ+cJAFOiomwjiuieam
+	 sqcYlpnD9E1ypdOSRF76fL+p4jElJxdGHW5eQEzhGAADn7y2rYGutPBFGlC62Z+Y9nA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=narfation.org;
-	spf=pass smtp.mailfrom=narfation.org;
-	dkim=pass header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=Kk7aX5n7;
-	arc=none smtp.remote-ip=213.160.73.56
-Received: from dvalin.narfation.org (dvalin.narfation.org [213.160.73.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IWFzJg6x;
+	arc=none smtp.remote-ip=209.85.210.170
+Received: from mail-pf1-f170.google.com (mail-pf1-f170.google.com [209.85.210.170])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 138D1606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:33:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 138D1606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=narfation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=narfation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C576F606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:34:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C576F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=narfation.org header.i=@narfation.org header.a=rsa-sha256 header.s=20121 header.b=Kk7aX5n7
-Received: by dvalin.narfation.org (Postfix) id 5BE672026D;
-	Tue, 24 Nov 2026 20:33:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=narfation.org;
-	s=20121; t=1795552432;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=c2MHqh4y5WDPKpOHCTYLK4aLHvmoORxaMjltvDY0H5s=;
-	b=Kk7aX5n7S10xJ7PJRCV186lqIz3a7ff6GoQED937p6ZtDyMf8eTzBh6y4KxTW4eES/xXFv
-	PF1Aoecz27L8gbQEyUZ98lX4ON2+n747mdGp6n/UlKEuF+1Avsag+NoFW3Ov47Iz7l0fVZ
-	hxQWAVqkq5gptquRT2ZAqIdAN19Aaxk=
-From: Sven Eckelmann <sven@narfation.org>
-To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- b.a.t.m.a.n@lists.open-mesh.org
-Subject:
- Re: [PATCH net-next 13/15] batman-adv: tt: commit only the announced local
- changes
-Date: Tue, 24 Nov 2026 21:33:49 +0100
-Message-ID: <4550986.ejJDZkT8p0@sven-desktop>
-In-Reply-To: <179554084776.3135.15585552473847641901@kernel.org>
-References:
- <20261123171827.3294525-14-sw@simonwunderlich.de>
- <179554084776.3135.15585552473847641901@kernel.org>
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=IWFzJg6x
+Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-8b600fae14dso1683418b3a.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 12:34:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795552474; x=1796157274; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+        b=IWFzJg6xpnqE4fcFC7weA1Yt35QZia/OaODNyYpNfPHlDKe0Py4VliVOwLl30ZXM/Y
+         N+YBqMG8efYJZB6sQZYB5qvsE/372NF6ZWJc+K38zWbYDIpeixDJY7E0J3KLm9BOj8hG
+         WaKLpRnlE3VQ2Bct0Ay2E9OiYX50z8SfFs5kPD2gwmTnopgePSS7rSSy64a80RZgJqdH
+         Zmv4/W4qoZ1rAffs7KAl8Q8ltprdw6EeCJ/ZAoUznQCkqUJo/gzMs9G4tYd0k3KSphVv
+         n4W7wLHLm45uGgX1eC0sljKcuI6sFhWrGX3MFAMQgehHHvoY6IfeNWyWy/2r7yCsKbFz
+         2+eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795552474; x=1796157274;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=0gGPj4kTELj+B35v7ZlhFCknxenwumFRIKQjKFG/xkU=;
+        b=1PDeMIY1sPZyMJot2ehEN/SIewYENfYkTizolJBNhC9ep1+H/m6E46O2Pf6XP9Jp22
+         CeK7GvX9ZAJmlBBfaXgmQ4kwYbdLevaqPOZ3Q92GGi1TJjykzdOK3jdTm8EeD0tyXLak
+         ebuVqxDM7BOPaNDxXND02TXBkyqv5lnwakW0lqVYyDlRfRLxUC/B0BjVOub5cRhJczHX
+         kQ5QrXHMr4BOh3Q7PvdyPB4syKS6aX6R0iQqy/YJIRE0RaKUoR76NpOHcN4Qy7WcrKu/
+         r/bXYrVG0LENRIshf8x/whBCecw56hOFBRMtjuF761E0GxVScjJL/FHf/v3tnEa8Zmqe
+         qQ6Q==
+X-Forwarded-Encrypted: i=1; AL+hErEtn6e4Zd4uny4n8PkPWWzDSzph+aOwibFGf7CJdxIBIxUAMCG0uFmxmdnvtU4GpeZijjiWoY8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/OxorSaOevwVkUvwjiVM8Jddsq1SQJQl60ftnIpgi5wQlOnANY
+	/abN2hlesuBdZbJXKjNSCKPuM3Urtim7MilnxOn1AtFDhBBUTyQNO+e7x+iLKpmOSbc=
+X-Gm-Gg: AZFdTZe0wutXP5KOcKVJU0O170XvgXhtCFehwM0W01ESvBdFoaP4ocF2lGH3xv9JwXL
+	R+VQNJF+Sw6uFr2AHksGOzp5lEsLpr/tHLVcdW39yjQffewOQKHswoC9awH5VhQrBeJAHNWWvUN
+	HTIR6u1Vb+4XOqIA8RgdixZZS1KI+RmV5Ma7StwSfSsGdIaKjOlWPacl2pYCCGc1bJFzBwfjBNt
+	7G3KY3iEznEnRzb9DCWqg8Bk/ZrapI7bqeMbUsQc6zemYSW3Bb06nL8uoFMMHpQRc2W5ugmPTwc
+	wJeUMOFKixq2CDnhs7d+gW0aas9/6l74/CtPgrRVSPdNgxV5f8KmxttnVv/c/3Z7ljXSQr8lJLs
+	suzAWtlsdmUWhga4L4qiZv/btKxUfZmYLLJ2G4I8N5nH0cC2LP/8p42ZQAln6T7XDUnE/c73SBw
+	7Sq/QXANj508Hsn7EdVwjlYYWFEt+BXCL+ABKPbumd/TjJtsYn7xOZaO1JtlLR954QrFUhOpFgf
+	fD8cZ482wjvWhKynfQnkX+8eh6fk8qCAE/Eq+dj7UIdSrmJkeYIzLz5CdILsnwLao2qXFQ/BxRq
+	PwdMdjEsUS+7wT8od4l+P4VliDiXskeLFEIlnNAbBd4=
+X-Received: by 2002:a05:6a00:4518:b0:89e:f2d2:1eab with SMTP id d2e1a72fcca58-8c87cf2a12amr12263594b3a.42.1795552474083;
+        Tue, 24 Nov 2026 12:34:34 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:4b::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87343f726sm8048209b3a.36.2026.11.24.12.34.32
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 12:34:33 -0800 (PST)
+Date: Tue, 24 Nov 2026 12:34:31 -0800
+From: Joe Damato <joe@dama.to>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Narcisa Vasile <narcisav.kernel@gmail.com>,
+	netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next] eth: bnxt: report TX HW GSO queue stats
+Message-ID: <awX01xqN2suPZqE1@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Narcisa Vasile <narcisav.kernel@gmail.com>,
+	netdev-bot+sashiko@kernel.org, michael.chan@broadcom.com,
+	pavan.chebbi@broadcom.com, andrew+netdev@lunn.ch,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261116204313.23023-1-narcisav.kernel@gmail.com>
+ <179499144094.3136.198428718668517773@kernel.org>
+ <av/RAwaDfiQnPmbF@gmail.com>
+ <20261120154835.0f56c410@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,139 +109,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; boundary="nextPart2295529.Mh6RI2rZIc";
- micalg="pgp-sha512"; protocol="application/pgp-signature"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261120154835.0f56c410@kernel.org>
 
---nextPart2295529.Mh6RI2rZIc
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"; protected-headers="v1"
-From: Sven Eckelmann <sven@narfation.org>
-To: sw@simonwunderlich.de, netdev-bot+sashiko@kernel.org
-Date: Tue, 24 Nov 2026 21:33:49 +0100
-Message-ID: <4550986.ejJDZkT8p0@sven-desktop>
-In-Reply-To: <179554084776.3135.15585552473847641901@kernel.org>
-MIME-Version: 1.0
-
-On Tuesday, 24 November 2026 18:20:47 CET netdev-bot+sashiko@kernel.org wrote:
-[...]
-> > diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
-> > index 2a7f50de70fc8..b03d6c74732f4 100644
-> > --- a/net/batman-adv/translation-table.c
-> > +++ b/net/batman-adv/translation-table.c
+On Fri, Nov 20, 2026 at 03:48:35PM -0800, Jakub Kicinski wrote:
+> On Thu, 19 Nov 2026 20:48:03 -0800 Narcisa Vasile wrote:
+> > > [Severity: Medium]
+> > > Can this over-count wire packets for GSO skbs that were sent through the
+> > > TX push path?
+> > > 
+> > > This block runs before the is_push early-out. It treats every completed
+> > > skb with skb_is_gso() && !is_sw_gso as segmented by the hardware.
+> > > However, the push path gate in bnxt_start_xmit() does not exclude GSO
+> > > skbs:
+> > > 
+> > > 	if (free_size == bp->tx_ring_size && length <= bp->tx_push_thresh &&
+> > > 	    skb_frags_readable(skb) && !lflags) {
+> > > 
+> > > The push BDs never set TX_BD_FLAGS_LSO or tx_bd_mss, so the NIC sends
+> > > the skb as a single frame.
+> > > 
+> > > Take an idle ring with tx_push_thresh at 164 and a GSO skb of 164 bytes
+> > > or less. Two examples are TCP with a peer-advertised MSS of 48 and 96
+> > > bytes of payload, or UDP_SEGMENT with gso_size=8 and 80 bytes of
+> > > payload. Either skb would be counted as 1 hw_gso_packet plus gso_segs
+> > > hw_gso_wire_packets, even though only one frame went on the wire.
+> > > 
+> > > tso.py reads these counters, so could this give misleading results
+> > > there? Fixing the push path issue described below would also fix this.
+> > 
+> > This couldn't give misleading results there, since no GSO skb in tso.py
+> > can be 164 bytes or less, so none can take the push path.
 > 
-> [ ... ]
-> 
-> > @@ -1876,9 +1882,8 @@ batadv_tt_local_set_pending(struct batadv_priv *bat_priv,
-> >   *
-> >   * All checks and modifications happen under the hash bucket list_lock and the
-> >   * flags_lock of the entry. This prevents a concurrent
-> > - * batadv_tt_local_purge_pending_clients() from removing the entry,
-> > - * batadv_tt_local_transition_new() from clearing BATADV_TT_CLIENT_NEW and
-> > - * batadv_tt_local_refresh() from modifying the entry after it was checked.
-> > + * batadv_tt_local_commit_change() from removing the entry and
-> > + * batadv_tt_local_refresh() from modifying it after it was checked.
-> >   */
-> 
-> [Severity: Low]
-> Should batadv_tt_local_purge_pending_clients() still be listed here?
+> Fair, but UDP segmentation may sneak in there. I will check with Joe.
+> Either way, I agree that this is orthogonal.
 
-Will adjust it in a follow up patch:
+I think this is a bug, yea.
 
-diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
-index ede6c15581242dc3fe6ecdb1ba0fab3ab601faa7..22197827fa5d220850d57e6697393ac098d0cd03 100644
---- a/net/batman-adv/translation-table.c
-+++ b/net/batman-adv/translation-table.c
-@@ -2001,8 +2001,9 @@ batadv_tt_local_set_pending(struct batadv_priv *bat_priv,
-  *
-  * All checks and modifications happen under the hash bucket list_lock and the
-  * flags_lock of the entry. This prevents a concurrent
-- * batadv_tt_local_commit_change() from removing the entry and
-- * batadv_tt_local_refresh() from modifying it after it was checked.
-+ * batadv_tt_local_commit_change() or batadv_tt_local_purge_pending_clients()
-+ * from removing the entry and batadv_tt_local_refresh() from modifying it after
-+ * it was checked.
-  */
- static void
- batadv_tt_local_remove_entry(struct batadv_priv *bat_priv,
+I think HW USO can hit it. A small gso_size with UDP_SEGMENT can fit under the
+push threshold and that skbw ould go out unsegmented. I think this would
+affect Thor2 devices that have HW USO.
 
+I don't think SW USO is affected, though, since it segments before the push
+path.
 
-[...]
-> On a related note, the comment in batadv_tt_local_unhash() is no longer
-> accurate:
-> 
->     /* An entry which still carries BATADV_TT_CLIENT_NEW was never counted
->      * and must not be uncounted here.
->      */
->     if (!(tt_common->flags & BATADV_TT_CLIENT_NEW))
->         batadv_tt_local_size_dec(bat_priv, tt_common->key.vid);
-> 
-> batadv_tt_local_commit_change() can now set NEW again on an entry that
-> was already counted, and it uncounts that entry with
-> batadv_tt_local_size_dec(). The accounting is still correct, because NEW
-> means "not counted right now". But "was never counted" is wrong for such
-> entries. Could this comment be updated too? Later patches in the series
-> change neither comment.
+I'm gonna update uso.py to test a small MSS which should trigger this on a
+thor2 nic.
 
-Will adjust it in a follow up patch:
-
-diff --git a/net/batman-adv/translation-table.c b/net/batman-adv/translation-table.c
-index 2c15890bc56fe195d361e51faaea602e9d37a51c..ede6c15581242dc3fe6ecdb1ba0fab3ab601faa7 100644
---- a/net/batman-adv/translation-table.c
-+++ b/net/batman-adv/translation-table.c
-@@ -1897,8 +1897,8 @@ static void batadv_tt_local_unhash(struct batadv_priv *bat_priv,
- 	hlist_del_init_rcu(&tt_common->hash_entry);
- 	atomic_inc(&hash->generation);
- 
--	/* An entry which still carries BATADV_TT_CLIENT_NEW was never counted
--	 * and must not be uncounted here.
-+	/* An entry which carries BATADV_TT_CLIENT_NEW is currently not counted
-+	 * because its ADD was not committed yet. It must not be uncounted here.
- 	 */
- 	if (!(tt_common->flags & BATADV_TT_CLIENT_NEW))
- 		batadv_tt_local_size_dec(bat_priv, tt_common->key.vid);
-
-> [ ... ]
-> 
-> > +/**
-> > + * batadv_tt_local_commit_change() - apply a committed change to the local table
-> > + * @bat_priv: the bat priv with all the mesh interface information
-> > + * @change: the change which is announced with the new ttvn
-> > + *
-> > + * The CRC and the full table responses of a ttvn must reflect exactly the
-> > + * changes announced with it. Only the entry affected by a committed change is
-> > + * therefore modified. An entry which was added or marked for removal after the
-> > + * change set was taken stays in its current state until its own change is
-> > + * committed with a later ttvn.
-[...]
-> [Severity: Medium]
-> Does this fully meet the invariant in the kernel-doc above ("must
-> reflect exactly the changes announced with it") when flags change?
-> 
-> The CRC-relevant flags BATADV_TT_CLIENT_WIFI and BATADV_TT_CLIENT_ISOLA
-> are in BATADV_TT_SYNC_MASK. They are still written to the live entry
-> when their ADD is queued, not when that ADD is committed. That happens
-> in batadv_tt_local_refresh_locked(), reached through
-> batadv_tt_local_add()->batadv_tt_local_refresh().
-
-Yes, this is a known limitation (already a problem before this patch) and 
-there is currently no solution for it.
-
-Regards,
-	Sven
---nextPart2295529.Mh6RI2rZIc
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part.
-Content-Transfer-Encoding: 7Bit
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQS81G/PswftH/OW8cVND3cr0xT1ywUCawX0rQAKCRBND3cr0xT1
-y+i5AQCgUGBIbkpisvyzL1r0r90uel7EiTPu3WI7SXqY0LDT8wD9HAPO4VUiADmC
-LDascDZeo9MranIFLWiQlQToz6QESg8=
-=WIOJ
------END PGP SIGNATURE-----
-
---nextPart2295529.Mh6RI2rZIc--
-
-
-
+Narcisa were you planning to send a fix for this bug? If not, I can, but I
+didn't want to step on your toes if you were about to send something :)
