@@ -1,71 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.153.233
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795510682;
-	b=w1pltPshovvg0gGmIKSx7M9EdKxxZl/XL5i/CcMLc5qj76DvoY3kzhFKvUFvx4t5UTFB
-	 pmZAItxlpb2ZuaTU95tZvcokPQQCi6ChGFt22O5dGXiSzkD59KQP4mgF7KC2CGgndjipZ
-	 pQVFU4ocUOF+gcEFG6c7oFu03F35UuAOA/X1KoMpPAQhE2829dxEF+JkWlDkIGH7x4ca2
-	 oINtfuLrNjWTZFXXbsU1R+9PZ6aq7Ys9MHd7JBJ7neDnsS4txXWeHv3A73BUVQmiBSs+O
-	 L7xbXV4hy2DgkfbaqqobjUKahP1aijXaF1g0q/hxHZIjwM9YBR8tTGa64r+mbt5p8tg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510682;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-ID:References:In-Reply-To:To:CC:X-Mailer;
-	bh=/qFa1O8vLOtR4YvjqkdMvi36Z4o8H2m460vWgq1RVbA=;
-	b=GbUYVdFcUvBldGb/jNI4206poln75jZVv7bZ9WvqNkMYx0Fer8F273LPajYX4p1IxgA7
-	 0JcUULs+jYZ6njD2dVf2NbtO5nPxZN8gAAARAGHjmWc6cKdAecF8Bw7tucsaxSQcbEmlo
-	 K8kIAK1GAuq1Fh7EdKoPYUOdHW3Rd4xapa2nOIkHuF231MKgL7bQusHWqksc+MYvt4thb
-	 ZcAvsnsy0GlhVMshHdWYF7wp+h2DS6tFcTftQYP2gIAOuSg7VjXcj3/tAD52bXhVr+sRC
-	 IrRPhjha9CMvLgploSVfVeokeBwftJUD67HIj0AIQBdtTw2bUkb4ZXQS8YnUrpYKOqw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=microchip.com;
-	spf=pass smtp.mailfrom=microchip.com;
-	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=asjtSzQD;
-	arc=none smtp.remote-ip=68.232.153.233
-Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.153.233])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795510687;
+	b=ebD39gwHQE0zM3x1ql5bL/h49qXl3HpAdTQOJ+0FgAim+dltUedDZElnT5zkfHy1DteK
+	 nduM1I52ER0jnxBMFypivDv48Iw0bRUuPpBJj5h6YhLAzEToDrJIDfNVEV/wi0vwhUjAg
+	 juAgUMu4ThIxyXbj8u624Vo56LClmnENUUh0O4VDA4G7GZjfZTnM7/1ogGOEP4vkLJSno
+	 tuOrXp/KF1rqymiqRrnwQ96TdldN65A8/T3Xcp1LkQr3Ynod+UuOAXJEmzAoxymOJ6o+q
+	 YoFANN3Y6+VIWcR/J8cVr0qav5C+1CydbADGkp0fchOYLdVNvXWvtSyosGkLGKWK0vg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510687;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=76uqXxjlsjHRjkNzBtvYUvH+0OqjU/qj/joPKtF1TNo=;
+	b=sI774QVXdDqafB8XhnPsmkxc2PZ9ukELxcnnObqeJd0is4A4L264i4tT7kMuOR9ZyeHm
+	 CnY6fopYtsRwW0J+lPhrmuxxtz2cnc8B6A1+gMkE9S8c0yv7i2JitKZbQanbQA6GTJbTX
+	 Q14lwIHBGX1VCyxqKa/jJfB9TfPydtmUXDHcd2F9i0aadUvfYYOEtL76rNLvfzBt9L8AV
+	 KKGjzM69cC0qcM6gqSs+KyQzqUlvxZLfYocFkZ83kF+fmv2QoEWp5KjaIbV5GSSd1xBQw
+	 WEe7dMV5qWGf2FZCj/H7Vb9yeGwnRpYYKidUn6SIvP/rU5+11TDR9H52k4eZMyjiErg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Mz3zak1W;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18157606A688;
-	Tue, 24 Nov 2026 08:57:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18157606A688
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4257606A336;
+	Tue, 24 Nov 2026 08:58:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4257606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=asjtSzQD
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1795510677; x=1827046677;
-  h=from:date:subject:mime-version:content-transfer-encoding:
-   message-id:references:in-reply-to:to:cc;
-  bh=INdDh1YNRzoYMmEi0WV5FyymYa3ei+n7l2LBJuG2mys=;
-  b=asjtSzQDbcbzdpstvghUWqLdimEVoBftt1f/8rZ1/RtesxUmTY2LCwd+
-   8vuRAwFH0SsqRrvArE35AazDYRof0zzWL/AvKFHXFgeDfhx+0uSHsptHa
-   yU9wbWrTdT4eau8eJ94QMtsbYvpmsfTGoS8SK4i0GaMflrWLafaFoujPQ
-   pG5Rin4LQj/m7Jfp380EG/WtXa/pxrC/zmZP7Iq+oHYhS/hge2twd5F9i
-   O8d1FsU9wKeeqagt76p3VhRv+7nEB9k//YYZVHkVVKz8T8v1BHIJfDlE9
-   j8nnatjtEw50yAcSM6+Bqy3Q3pK8eC7Dh7RgYLBEfIAnQQwITyD5GXiIp
-   w==;
-X-CSE-ConnectionGUID: bhEfkTUYQGetrok10EnLRw==
-X-CSE-MsgGUID: jyBF56u5Twi6z3zhynrRQQ==
-X-IronPort-AV: E=Sophos;i="6.27,230,1787036400"; 
-   d="scan'208";a="298378279"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 24 Nov 2026 01:57:56 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Tue, 24 Nov 2026 01:57:54 -0700
-Received: from [127.0.0.1] (10.10.85.11) by chn-vm-ex02.mchp-main.com
- (10.10.85.144) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
- Transport; Tue, 24 Nov 2026 01:57:52 -0700
-From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-Date: Tue, 24 Nov 2026 09:57:11 +0100
-Subject: [PATCH net-next 5/5] net: dsa: lan9645x: add bridge support
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Mz3zak1W
+Received: from pengutronix.de (p20030102af17cb00d2e697ee776c6466.dip0.t-ipconnect.de [IPv6:2003:102:af17:cb00:d2e6:97ee:776c:6466])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 474742024BE;
+	Tue, 24 Nov 2026 09:58:05 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795510685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=76uqXxjlsjHRjkNzBtvYUvH+0OqjU/qj/joPKtF1TNo=;
+	b=Mz3zak1WmUOJNiDzAQzo7oZHpYFQyFse3oZ+X035R6aX394itf+tbxF7G7NKLmYUI2FVqe
+	S/xZvDszRbBOHd2+M0qbUdZ26oAXFEkz28d8aI0omZSGYcux83Gx68ss6//ZPKku/I1ySj
+	b8fgtHuzlw0xskgxjLYOkaqjXZZDTpr+DZPSx/SmjCtJAyI3uJp1yiBBQ4RAbQVijEKKw2
+	6GIPEzHxCI4SbxZ2VjqnTycrVJhuFWpRLvTW/uAhpyaLJ0040AY1sJddqfPW2oWm03EnnW
+	1VSFwgy9DlB5UoxPheNpma6w4sdeqBG/cf6aD3hNmJ2wsMuoFJhEMqH1ocTdrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795510685;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=76uqXxjlsjHRjkNzBtvYUvH+0OqjU/qj/joPKtF1TNo=;
+	b=V2MTHbbnk08tabwbyd1ZUyNsfmtpLRdjPSfGO1vgr7PzN1IQqSuVpDPNIVal1IegHEq8Jx
+	EPd9kUggF5X8cnEri2qFknHdp5/X3Ftyic7O4lYDIijjLKA6hBU/VGNjY6KCcYap+2+/vg
+	oAWhnV987at1W4ZoUU0ID0MDsZsTpdVCEU7Er/XSlm6VZYwp9RaEvo22FfT7N6rRIkIYuS
+	Jarc7sKNhQ+UzHZwOFYtb+hXwDlkfsAx3esK/Gm5J1HMkZDZFzEmgMQ6tzFnR30+6FqGvi
+	dLIEqUDELxRscfCzC7uSrBt7Yjjk1b5fSQ0SD1DoFwzXIjYZRcUDuYuM/Ttj0Q==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510685; a=rsa-sha256;
+	cv=none;
+	b=B7gxxw21EyH9/4UPh0tfSXRoPZ58xOwRxD7vsUJ/TQ0AKs/ihP4z9wkFKtU6ipg6Vr5S+O
+	9OYtim7xIGFx+xoQAkGNDrsEkdanIQhAfxoJdaf8rWPDrQ3IjWVyxbj+z9G84wdfVK8S1D
+	2JZgLrdRD6mgFgRcKqecQkry4api1yWqTOtyiDRXKqBZ5qb1nrSZIeH4Hha4Gn0mQzJFO8
+	dLmj0vLyaIanB1rgaedWF1C7wiVODkjdv5piYfuUH5A++2swavRUYgUQfnPDtA/iz1C3LE
+	A6FPe8AQAzgZ92LTm94UXnMXG0cVSdVHnk4n7yTl/my31iSlLzh59XYXk+W5rw==
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
+	linux-can@vger.kernel.org,
+	kernel@pengutronix.de,
+	Oliver Hartkopp <socketcan@hartkopp.net>,
+	stable@vger.kernel.org,
+	Marc Kleine-Budde <mkl@pengutronix.de>
+Subject: [PATCH net 02/12] can: bcm: do not remove the procfs entry in bcm_notify()
+Date: Tue, 24 Nov 2026 09:51:29 +0100
+Message-ID: <20261124085757.1093632-3-mkl@pengutronix.de>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20261124085757.1093632-1-mkl@pengutronix.de>
+References: <20261124085757.1093632-1-mkl@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,473 +95,134 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-ID: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-5-b930a1dae700@microchip.com>
-References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700@microchip.com>
-In-Reply-To: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700@microchip.com>
-To: <UNGLinuxDriver@microchip.com>, Andrew Lunn <andrew@lunn.ch>, "Vladimir
- Oltean" <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Russell King <linux@armlinux.org.uk>
-CC: <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	=?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
-	<jensemil.schulzostergaard@microchip.com>
-X-Mailer: b4 0.15-dev
 
-Add support for hardware offloading of the bridge. Up to 8 bridges can
-be offloaded, and each VLAN-unaware bridge uses its own reserved VID.
-The source port masks only forward between forwarding ports of the same
-bridge.
+From: Oliver Hartkopp <socketcan@hartkopp.net>
 
-At most one bridge can be VLAN-aware, since the MAC table has no other
-way to keep the FDB domains of two bridges with the same VIDs apart.
-Joining a second VLAN-aware bridge or enabling VLAN filtering on a
-second bridge is refused.
+bcm_notify() removes the procfs entry of a CAN_BCM socket that is bound
+to a vanishing CAN device with remove_proc_entry() while holding RTNL.
+remove_proc_entry() waits for all running readers of this entry. A
+reader of /proc/net/can-bcm/<inode> that stalls in its copy to user
+space, e.g. on a FUSE backed mapping, therefore blocks RTNL on the
+unregistration or namespace change of the bound CAN device.
 
-The CPU port module is no longer in the unicast and multicast flood
-masks by default. It is added through .port_set_host_flood while any
-port is promiscuous or allmulti. The flood masks are global and not per
-ingress port, so one port requesting host flooding makes unknown unicast
-or unregistered multicast from every port reach the CPU.
+The entry has been removed in bcm_notify() so that a later
+bcm_connect() of the unbound socket can register it again without a
+"proc_dir_entry already registered" warning.
 
-Mac entry ageing can be configured with a 2s granularity, and a
-requested time is rounded down. An ANA_AUTOAGE.AGE_PERIOD of 0 stops the
-analyzer from ageing at all, which is the opposite of the software
-bridge with an ageing time of 0. So ds->ageing_time_min and
-ds->ageing_time_max let the DSA core reject unsupported configurations.
+The CAN_BCM socket itself stays usable after a NETDEV_UNREGISTER:
+bcm_notify() only unbinds it and reports ENODEV, so the application can
+connect() the socket again, e.g. to a re-created CAN device. The name
+of the procfs entry is the inode number of the socket, which does not
+change until the socket is closed.
 
-Signed-off-by: Jens Emil Schulz Østergaard <jensemil.schulzostergaard@microchip.com>
+Keep the procfs entry until bcm_release() instead, which removes it
+after the socket has left the notifier list and without holding RTNL.
+bcm_connect() only creates the entry, if it does not exist yet.
+bcm_proc_show() reports an unbound socket as "unbound" instead of
+showing the cleared ifindex as "any".
+
+As bcm_proc_show() can now run while the socket is bound or unbound, it
+reads bo->ifindex locklessly with READ_ONCE() and the writers use
+WRITE_ONCE(). The NETDEV_DOWN handling in bcm_notify(), which runs
+without lock_sock(), reads bo->bound and bo->ifindex with READ_ONCE()
+as well. bo->ifindex is still only modified under lock_sock(). A
+concurrent bind or unbind may show an intermediate state in the procfs
+output, which is acceptable for this debug information.
+
+Fixes: 76fe372ccb81 ("can: bcm: Remove proc entry when dev is unregistered.")
+Cc: stable@vger.kernel.org
+Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
+Link: https://patch.msgid.link/20261120-can-bcmlock-memcg-v7-2-f6b84f5257b1@hartkopp.net
+Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- drivers/net/dsa/microchip/lan9645x/lan9645x_main.c | 317 ++++++++++++++++++++-
- drivers/net/dsa/microchip/lan9645x/lan9645x_main.h |   7 +
- drivers/net/dsa/microchip/lan9645x/lan9645x_vlan.c |   9 +
- 3 files changed, 322 insertions(+), 11 deletions(-)
+ net/can/bcm.c | 33 +++++++++++++++------------------
+ 1 file changed, 15 insertions(+), 18 deletions(-)
 
-diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-index de432772f639..a78410efb973 100644
---- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-+++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-@@ -285,19 +285,15 @@ static int lan9645x_setup(struct dsa_switch *ds)
+diff --git a/net/can/bcm.c b/net/can/bcm.c
+index 3f4c8d828337..1595b7720c98 100644
+--- a/net/can/bcm.c
++++ b/net/can/bcm.c
+@@ -219,11 +219,16 @@ static int bcm_proc_show(struct seq_file *m, void *v)
+ 	struct net *net = m->private;
+ 	struct sock *sk = (struct sock *)pde_data(m->file->f_inode);
+ 	struct bcm_sock *bo = bcm_sk(sk);
++	int ifindex = READ_ONCE(bo->ifindex);
+ 	struct bcm_op *op;
  
- 	lan9645x_port_cpu_init(lan9645x);
- 
--	/* Multicast to cpu and all front ports */
--	lan_wr(BIT(lan9645x->num_phys_ports) | front_ports, lan9645x,
--	       ANA_PGID(PGID_MC));
-+	/* Multicast to all front ports */
-+	lan_wr(front_ports, lan9645x, ANA_PGID(PGID_MC));
- 
--	/* IP multicast to cpu and all front ports */
--	lan_wr(BIT(lan9645x->num_phys_ports) | front_ports, lan9645x,
--	       ANA_PGID(PGID_MCIPV4));
--	lan_wr(BIT(lan9645x->num_phys_ports) | front_ports, lan9645x,
--	       ANA_PGID(PGID_MCIPV6));
-+	/* IP multicast to all front ports */
-+	lan_wr(front_ports, lan9645x, ANA_PGID(PGID_MCIPV4));
-+	lan_wr(front_ports, lan9645x, ANA_PGID(PGID_MCIPV6));
- 
--	/* Unicast to cpu and all front ports */
--	lan_wr(BIT(lan9645x->num_phys_ports) | front_ports, lan9645x,
--	       ANA_PGID(PGID_UC));
-+	/* Unicast to all front ports */
-+	lan_wr(front_ports, lan9645x, ANA_PGID(PGID_UC));
- 
- 	/* Broadcast to cpu and all front ports */
- 	lan_wr(BIT(lan9645x->num_phys_ports) | front_ports, lan9645x,
-@@ -306,6 +302,20 @@ static int lan9645x_setup(struct dsa_switch *ds)
- 	ds->mtu_enforcement_ingress = true;
- 	ds->assisted_learning_on_cpu_port = true;
- 	ds->fdb_isolation = true;
-+	ds->max_num_bridges = ds->num_ports;
-+
-+	/* ANA_AUTOAGE_AGE_PERIOD is a seconds-based field and entries are
-+	 * aged after 2 * AGE_PERIOD, giving (2 * FIELD_MAX) seconds of
-+	 * maximum aging and 2 seconds of minimum aging.
-+	 *
-+	 * An AGE_PERIOD of 0 stops the analyzer from aging at all, which is
-+	 * the opposite of what a bridge ageing_time of 0 means. The bridge
-+	 * expires every dynamic entry immediately in that case and floods, so
-+	 * reject it rather than keep learned addresses forever.
-+	 */
-+	ds->ageing_time_min = 2U * MSEC_PER_SEC;
-+	ds->ageing_time_max = 2U * MSEC_PER_SEC *
-+			      FIELD_MAX(ANA_AUTOAGE_AGE_PERIOD);
- 
- 	dev_info(lan9645x->dev,
- 		 "SKU features: max_ports=%d\n",
-@@ -325,6 +335,275 @@ static void lan9645x_port_phylink_get_caps(struct dsa_switch *ds, int port,
- 	lan9645x_phylink_get_caps(ds->priv, port, config);
- }
- 
-+static int lan9645x_set_ageing_time(struct dsa_switch *ds, unsigned int msecs)
-+{
-+	struct lan9645x *lan9645x = ds->priv;
-+
-+	/* Entry must suffer two aging scans before it is removed, so it is
-+	 * aged after 2*AGE_PERIOD, and the unit is in seconds.
-+	 */
-+	lan_rmw(ANA_AUTOAGE_AGE_PERIOD_SET(msecs / (2 * MSEC_PER_SEC)),
-+		ANA_AUTOAGE_AGE_PERIOD,
-+		lan9645x, ANA_AUTOAGE);
-+
-+	return 0;
-+}
-+
-+static int lan9645x_port_pre_bridge_flags(struct dsa_switch *ds, int port,
-+					  struct switchdev_brport_flags flags,
-+					  struct netlink_ext_ack *extack)
-+{
-+	if (flags.mask &
-+	    ~(BR_LEARNING | BR_FLOOD | BR_MCAST_FLOOD | BR_BCAST_FLOOD))
-+		return -EINVAL;
-+
-+	return 0;
-+}
-+
-+static void lan9645x_port_pgid_set(struct lan9645x *lan9645x, u16 pgid,
-+				   int chip_port, bool enabled)
-+{
-+	u32 reg_msk, port_msk;
-+
-+	port_msk = ANA_PGID_PGID_SET(enabled ? BIT(chip_port) : 0);
-+	reg_msk = ANA_PGID_PGID_SET(BIT(chip_port));
-+
-+	lan_rmw(port_msk, reg_msk, lan9645x, ANA_PGID(pgid));
-+}
-+
-+static void lan9645x_port_apply_learning(struct lan9645x_port *p)
-+{
-+	struct lan9645x *lan9645x = p->lan9645x;
-+	bool ena;
-+
-+	lockdep_assert_held(&lan9645x->fwd_domain_lock);
-+
-+	ena = lan9645x_port_is_bridged(p) && p->learn_ena &&
-+	      (p->stp_state == BR_STATE_LEARNING ||
-+	       p->stp_state == BR_STATE_FORWARDING);
-+
-+	lan_rmw(ANA_PORT_CFG_LEARN_ENA_SET(ena), ANA_PORT_CFG_LEARN_ENA,
-+		lan9645x, ANA_PORT_CFG(p->chip_port));
-+}
-+
-+static void lan9645x_port_set_learning(struct lan9645x *lan9645x, int port,
-+				       bool enabled)
-+{
-+	struct lan9645x_port *p = lan9645x_to_port(lan9645x, port);
-+
-+	mutex_lock(&lan9645x->fwd_domain_lock);
-+	p->learn_ena = enabled;
-+	lan9645x_port_apply_learning(p);
-+	mutex_unlock(&lan9645x->fwd_domain_lock);
-+}
-+
-+static int lan9645x_port_bridge_flags(struct dsa_switch *ds, int port,
-+				      struct switchdev_brport_flags f,
-+				      struct netlink_ext_ack *extack)
-+{
-+	struct lan9645x *lan9645x = ds->priv;
-+
-+	/* DSA core does not call this for the CPU port */
-+	if (f.mask & BR_LEARNING)
-+		lan9645x_port_set_learning(lan9645x, port,
-+					   !!(f.val & BR_LEARNING));
-+
-+	if (f.mask & BR_FLOOD)
-+		lan9645x_port_pgid_set(lan9645x, PGID_UC, port,
-+				       !!(f.val & BR_FLOOD));
-+
-+	if (f.mask & BR_MCAST_FLOOD) {
-+		bool ena = !!(f.val & BR_MCAST_FLOOD);
-+
-+		lan9645x_port_pgid_set(lan9645x, PGID_MC, port, ena);
-+		lan9645x_port_pgid_set(lan9645x, PGID_MCIPV4, port, ena);
-+		lan9645x_port_pgid_set(lan9645x, PGID_MCIPV6, port, ena);
-+	}
-+
-+	if (f.mask & BR_BCAST_FLOOD)
-+		lan9645x_port_pgid_set(lan9645x, PGID_BC, port,
-+				       !!(f.val & BR_BCAST_FLOOD));
-+
-+	return 0;
-+}
-+
-+static u32 lan9645x_port_bridge_fwd_mask(struct lan9645x *lan9645x,
-+					 struct lan9645x_port *p)
-+{
-+	struct lan9645x_port *q;
-+	struct dsa_port *dp;
-+	u32 mask = 0;
-+
-+	dsa_switch_for_each_user_port(dp, lan9645x->ds) {
-+		q = lan9645x_to_port(lan9645x, dp->index);
-+		if (q != p && q->bridge_num == p->bridge_num)
-+			mask |= BIT(dp->index);
-+	}
-+
-+	return mask & lan9645x->bridge_fwd_mask;
-+}
-+
-+static void lan9645x_update_fwd_mask(struct lan9645x *lan9645x)
-+{
-+	struct lan9645x_port *p;
-+	struct dsa_port *dp;
-+
-+	lockdep_assert_held(&lan9645x->fwd_domain_lock);
-+
-+	/* Updates the source port PGIDs, making sure frames from p
-+	 * are only forwarded to ports q != p, where q is relevant to forward
-+	 */
-+	dsa_switch_for_each_available_port(dp, lan9645x->ds) {
-+		u32 mask = 0;
-+
-+		p = lan9645x_to_port(lan9645x, dp->index);
-+
-+		if (lan9645x_port_is_bridged(p) &&
-+		    (lan9645x->bridge_fwd_mask & BIT(dp->index)))
-+			mask = lan9645x_port_bridge_fwd_mask(lan9645x, p);
-+
-+		lan_wr(ANA_PGID_PGID_SET(mask), lan9645x,
-+		       ANA_PGID(PGID_SRC + dp->index));
-+	}
-+}
-+
-+static void lan9645x_port_set_host_flood(struct dsa_switch *ds, int port,
-+					 bool uc, bool mc)
-+{
-+	struct lan9645x *lan9645x = ds->priv;
-+	int cpu = lan9645x->num_phys_ports;
-+	bool uc_ena, mc_ena;
-+
-+	mutex_lock(&lan9645x->fwd_domain_lock);
-+
-+	if (uc)
-+		lan9645x->host_flood_uc_mask |= BIT(port);
+ 	seq_printf(m, ">>> sock inode %s", bo->procname);
+ 	seq_printf(m, " / dropped %lu", bo->dropped_usr_msgs);
+-	seq_printf(m, " / bound %s", bcm_proc_getifname(net, ifname, bo->ifindex));
++	if (READ_ONCE(bo->bound))
++		seq_printf(m, " / bound %s",
++			   bcm_proc_getifname(net, ifname, ifindex));
 +	else
-+		lan9645x->host_flood_uc_mask &= ~BIT(port);
-+
-+	if (mc)
-+		lan9645x->host_flood_mc_mask |= BIT(port);
-+	else
-+		lan9645x->host_flood_mc_mask &= ~BIT(port);
-+
-+	uc_ena = !!lan9645x->host_flood_uc_mask;
-+	mc_ena = !!lan9645x->host_flood_mc_mask;
-+
-+	lan9645x_port_pgid_set(lan9645x, PGID_UC, cpu, uc_ena);
-+	lan9645x_port_pgid_set(lan9645x, PGID_MC, cpu, mc_ena);
-+	lan9645x_port_pgid_set(lan9645x, PGID_MCIPV4, cpu, mc_ena);
-+	lan9645x_port_pgid_set(lan9645x, PGID_MCIPV6, cpu, mc_ena);
-+
-+	mutex_unlock(&lan9645x->fwd_domain_lock);
-+}
-+
-+static int lan9645x_single_vlan_aware_bridge(struct dsa_switch *ds,
-+					     const struct net_device *br,
-+					     struct netlink_ext_ack *extack)
-+{
-+	struct net_device *other;
-+	struct dsa_port *dp;
-+
-+	dsa_switch_for_each_user_port(dp, ds) {
-+		other = dsa_port_bridge_dev_get(dp);
-+		if (other && other != br && br_vlan_enabled(other)) {
-+			NL_SET_ERR_MSG_MOD(extack,
-+					   "Only one VLAN-aware bridge is supported");
-+			return -EBUSY;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int lan9645x_port_bridge_join(struct dsa_switch *ds, int port,
-+				     struct dsa_bridge bridge,
-+				     bool *tx_fwd_offload,
-+				     struct netlink_ext_ack *extack)
-+{
-+	struct lan9645x *lan9645x = ds->priv;
-+	struct lan9645x_port *p;
-+	int err;
-+
-+	if (!lan9645x_bridge_vlan_proto_ok(bridge.dev)) {
-+		NL_SET_ERR_MSG_MOD(extack,
-+				   "Only 802.1Q VLAN-aware bridges are supported");
-+		return -EINVAL;
-+	}
-+
-+	if (br_vlan_enabled(bridge.dev)) {
-+		err = lan9645x_single_vlan_aware_bridge(ds, bridge.dev, extack);
-+		if (err)
-+			return err;
-+	}
-+
-+	p = lan9645x_to_port(lan9645x, port);
-+
-+	mutex_lock(&lan9645x->fwd_domain_lock);
-+
-+	p->bridge_num = bridge.num;
-+	lan9645x_vlan_port_set_bridge_vid(p, !p->vlan_aware);
-+	/* DSA sets the bridge port flags before the STP state. Start disabled,
-+	 * so the inherited BR_LEARNING does not enable learning in between.
-+	 */
-+	lan9645x->bridge_fwd_mask &= ~BIT(p->chip_port);
-+	p->stp_state = BR_STATE_DISABLED;
-+	lan9645x_vlan_clear_hostmode(p);
-+
-+	mutex_unlock(&lan9645x->fwd_domain_lock);
-+
-+	/* Forwarding is updated by .port_stp_state_set(), which the core
-+	 * invokes after this returns:
-+	 * dsa_port_bridge_join() -> dsa_port_switchdev_sync_attrs() ->
-+	 * dsa_port_set_state()
-+	 */
-+
-+	return 0;
-+}
-+
-+static void lan9645x_port_bridge_stp_state_set(struct dsa_switch *ds, int port,
-+					       u8 state)
-+{
-+	struct lan9645x *lan9645x;
-+	struct lan9645x_port *p;
-+
-+	lan9645x = ds->priv;
-+	p = lan9645x_to_port(lan9645x, port);
-+
-+	mutex_lock(&lan9645x->fwd_domain_lock);
-+
-+	p->stp_state = state;
-+
-+	if (state == BR_STATE_FORWARDING)
-+		lan9645x->bridge_fwd_mask |= BIT(p->chip_port);
-+	else
-+		lan9645x->bridge_fwd_mask &= ~BIT(p->chip_port);
-+
-+	lan9645x_port_apply_learning(p);
-+	lan9645x_update_fwd_mask(lan9645x);
-+	mutex_unlock(&lan9645x->fwd_domain_lock);
-+}
-+
-+static void lan9645x_port_bridge_leave(struct dsa_switch *ds, int port,
-+				       struct dsa_bridge bridge)
-+{
-+	struct lan9645x *lan9645x = ds->priv;
-+	struct lan9645x_port *p;
-+
-+	p = lan9645x_to_port(lan9645x, port);
-+
-+	mutex_lock(&lan9645x->fwd_domain_lock);
-+
-+	lan9645x_vlan_port_set_bridge_vid(p, false);
-+	p->bridge_num = 0;
-+
-+	lan9645x_vlan_set_hostmode(p);
-+	lan9645x_port_apply_learning(p);
-+	lan9645x_update_fwd_mask(lan9645x);
-+
-+	mutex_unlock(&lan9645x->fwd_domain_lock);
-+}
-+
- static int lan9645x_port_vlan_filtering(struct dsa_switch *ds, int port,
- 					bool enabled,
- 					struct netlink_ext_ack *extack)
-@@ -332,6 +611,7 @@ static int lan9645x_port_vlan_filtering(struct dsa_switch *ds, int port,
- 	struct net_device *br = dsa_port_bridge_dev_get(dsa_to_port(ds, port));
- 	struct lan9645x *lan9645x = ds->priv;
- 	struct lan9645x_port *p;
-+	int err;
++		seq_puts(m, " / unbound");
+ 	seq_printf(m, " <<<\n");
  
- 	if (enabled && !lan9645x_bridge_vlan_proto_ok(br)) {
- 		NL_SET_ERR_MSG_MOD(extack,
-@@ -339,6 +619,12 @@ static int lan9645x_port_vlan_filtering(struct dsa_switch *ds, int port,
- 		return -EINVAL;
+ 	rcu_read_lock();
+@@ -1866,19 +1871,9 @@ static void bcm_notify(struct bcm_sock *bo, unsigned long msg,
+ 
+ 		/* remove device reference, if this is our bound device */
+ 		if (bo->bound && bo->ifindex == dev->ifindex) {
+-#if IS_ENABLED(CONFIG_PROC_FS)
+-			if (sock_net(sk)->can.bcmproc_dir && bo->bcm_proc_read) {
+-				remove_proc_entry(bo->procname, sock_net(sk)->can.bcmproc_dir);
+-				bo->bcm_proc_read = NULL;
+-			}
+-#endif
+-			/* Paired with the lockless fast-path check in
+-			 * bcm_sendmsg(); bo->ifindex itself is only ever
+-			 * accessed under lock_sock() so it needs no
+-			 * annotation.
+-			 */
++			/* pairs with the lockless check in bcm_sendmsg() */
+ 			WRITE_ONCE(bo->bound, 0);
+-			bo->ifindex = 0;
++			WRITE_ONCE(bo->ifindex, 0);
+ 			notify_enodev = 1;
+ 		}
+ 
+@@ -1892,7 +1887,8 @@ static void bcm_notify(struct bcm_sock *bo, unsigned long msg,
+ 		break;
+ 
+ 	case NETDEV_DOWN:
+-		if (bo->bound && bo->ifindex == dev->ifindex) {
++		if (READ_ONCE(bo->bound) &&
++		    READ_ONCE(bo->ifindex) == dev->ifindex) {
+ 			sk->sk_err = ENETDOWN;
+ 			if (!sock_flag(sk, SOCK_DEAD))
+ 				sk_error_report(sk);
+@@ -2013,7 +2009,7 @@ static int bcm_release(struct socket *sock)
+ 	/* remove device reference */
+ 	if (bo->bound) {
+ 		WRITE_ONCE(bo->bound, 0);
+-		bo->ifindex = 0;
++		WRITE_ONCE(bo->ifindex, 0);
  	}
  
-+	if (enabled && br) {
-+		err = lan9645x_single_vlan_aware_bridge(ds, br, extack);
-+		if (err)
-+			return err;
-+	}
-+
- 	/* DSA core does not call this for the CPU port */
- 	p = lan9645x_to_port(lan9645x, port);
- 	mutex_lock(&lan9645x->fwd_domain_lock);
-@@ -541,6 +827,15 @@ static const struct dsa_switch_ops lan9645x_switch_ops = {
- 	.port_change_mtu		= lan9645x_change_mtu,
- 	.port_max_mtu			= lan9645x_get_max_mtu,
+ 	sock_orphan(sk);
+@@ -2060,16 +2056,17 @@ static int bcm_connect(struct socket *sock, struct sockaddr_unsized *uaddr, int
+ 			goto fail;
+ 		}
  
-+	/* Bridge integration */
-+	.set_ageing_time		= lan9645x_set_ageing_time,
-+	.port_pre_bridge_flags		= lan9645x_port_pre_bridge_flags,
-+	.port_bridge_flags		= lan9645x_port_bridge_flags,
-+	.port_bridge_join		= lan9645x_port_bridge_join,
-+	.port_bridge_leave		= lan9645x_port_bridge_leave,
-+	.port_stp_state_set		= lan9645x_port_bridge_stp_state_set,
-+	.port_set_host_flood		= lan9645x_port_set_host_flood,
-+
- 	/* VLAN integration */
- 	.port_vlan_filtering		= lan9645x_port_vlan_filtering,
- 	.port_vlan_add			= lan9645x_port_vlan_add,
-diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.h b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.h
-index caad6871a657..90cde5e2ecda 100644
---- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.h
-+++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.h
-@@ -192,12 +192,16 @@ struct lan9645x {
- 	struct dsa_switch *ds;
- 	struct regmap *rmap[NUM_TARGETS];
+-		bo->ifindex = dev->ifindex;
++		WRITE_ONCE(bo->ifindex, dev->ifindex);
+ 		dev_put(dev);
  
-+	u16 host_flood_uc_mask;
-+	u16 host_flood_mc_mask;
-+
- 	/* NPI chip_port */
- 	int npi;
+ 	} else {
+ 		/* no interface reference for ifindex = 0 ('any' CAN device) */
+-		bo->ifindex = 0;
++		WRITE_ONCE(bo->ifindex, 0);
+ 	}
  
- 	u8 num_phys_ports;
- 	struct lan9645x_port **ports;
- 
-+	u16 bridge_fwd_mask; /* Mask for ports in STP forwarding state */
- 	/* lock forwarding configuration and vlan table */
- 	struct mutex fwd_domain_lock;
- 	struct mutex mact_lock; /* serialize mac table register access */
-@@ -220,6 +224,8 @@ struct lan9645x_port {
- 	struct lan9645x *lan9645x;
- 
- 	u8 chip_port;
-+	u8 stp_state;
-+	bool learn_ena;
- 
- 	unsigned int bridge_num;
- 	bool vlan_aware;
-@@ -388,6 +394,7 @@ int lan9645x_vlan_port_add_vlan(struct lan9645x_port *p, u16 vid, bool pvid,
- 				struct netlink_ext_ack *extack);
- int lan9645x_vlan_port_del_vlan(struct lan9645x_port *p, u16 vid);
- void lan9645x_vlan_set_hostmode(struct lan9645x_port *p);
-+void lan9645x_vlan_clear_hostmode(struct lan9645x_port *p);
- 
- /* MAC table: lan9645x_mac.c */
- int lan9645x_mact_flush(struct lan9645x *lan9645x, int port);
-diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_vlan.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_vlan.c
-index 3ad9afc27b45..0aa711b68825 100644
---- a/drivers/net/dsa/microchip/lan9645x/lan9645x_vlan.c
-+++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_vlan.c
-@@ -360,6 +360,15 @@ void lan9645x_vlan_port_set_bridge_vid(struct lan9645x_port *p, bool member)
- 	lan9645x_vlan_hw_wr(lan9645x, vid);
- }
- 
-+void lan9645x_vlan_clear_hostmode(struct lan9645x_port *p)
-+{
-+	lockdep_assert_held(&p->lan9645x->fwd_domain_lock);
-+
-+	p->lan9645x->vlans[HOST_PVID].portmask &= ~BIT(p->chip_port);
-+	lan9645x_vlan_hw_wr(p->lan9645x, HOST_PVID);
-+	lan9645x_vlan_port_apply(p);
-+}
-+
- int lan9645x_vlan_init(struct lan9645x *lan9645x)
- {
- 	u32 all_phys_ports, all_ports;
-
+ #if IS_ENABLED(CONFIG_PROC_FS)
+-	if (net->can.bcmproc_dir) {
++	/* create the procfs entry once, it is removed in bcm_release() */
++	if (net->can.bcmproc_dir && !bo->bcm_proc_read) {
+ 		/* use unique socket inode number as filename */
+ 		snprintf(bo->procname, sizeof(bo->procname),
+ 			 "%llu", sock_i_ino(sk));
 -- 
-2.52.0
+2.53.0
 
