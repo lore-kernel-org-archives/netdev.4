@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513559;
-	b=BQh6sH10T9yfYyGJVJ29jmHEYzBVlsOgzRcKPAFnh3jhbzLqxa1PSOGMkRnMWoWwd4av
-	 BhPThkJj7zZcurilANF6rt6GQdiqKBdWyrw0ITMchQTn11BreisIwfBGBrE32/jjWp1lG
-	 m8eNtWaAxcNPW5FGyQkcM5oY8bObgzYIL4SiMPWk/fO28bRtNPNC19GKHxDWWSPZQp9IA
-	 +YUWY956PA0G1rILcrmShgnPOmWJ4OUbjvJXOzgYduYhW5CE+/HaX7naOpgxUc6IEFF/B
-	 ilmcCXhdOw8/Ne9c80Muy7VcXS3xzxI7tBlGe6TRbTaeoOHKVTkefnQdADC8UpVXRcQ==
+	t=1795513581;
+	b=dcV0t1gXsxCEbYYMNlLv86XCa5p/p+9b9klznUxxyreAA02Kw+GS7GgWkR8h7IuSI8Ky
+	 7aWfHA75JNZNb8aSJGth2L9BFny5AbDfoH1Oes26ifSN1oWm4jElOIZqjXeUAS1ct0pFm
+	 sfn5/ZJ65OCzCqD/oxiigRjx3GAidOYHp5Sp4xdjiGnUfGAkaWRDDLdAfH87q2y3rIS/k
+	 CREod4f3jiut/tsZ9Cz/A6l5Lseoou16aSqlnRyZY7cQFv6EhFL4FIl4qDknAnlvrpJLJ
+	 JP+Wc8/5nXKkeqNwJc7qgjuAr7qJY3pSdokaX4I5mgbyjmlSTYpBwa3v5i6Qv/h9o3g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513559;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513581;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Type:X-Mailer:
 	 Content-Transfer-Encoding;
-	bh=0ocO3hzxDXP5J+wMv8np8RM3eAnwMTJFFeAUpb5CWAI=;
-	b=x0H7YX5e/0dzv8pRGx4dVHVaInTJyWVCoisQk+FFzFKVbvSpmUnu+7LIaDuX6VBNdGC8
-	 ff/nRh5UbBs5vo6Vr413oX2j+kEM4YIMMkplYGEc1nBVcFcPAbszUxahZRVcV0Kd1ViY9
-	 rcpXVS9NNOA3CzD8TIyutwfZzVJ0mshXFP9lgQ5ewXcf7tVdUCmdtT7OpOe7VGsnaiuz0
-	 68s0Y74T0Bylud+v2lGZkx2HzIg0tQHkNyHQfpbyY5fxMcugDN+MAYBwH6SNgjaTTjGYI
-	 owSyPQLw5+HZGoTqJ54aiK/KBc9R2WYylG72UUf8xcYLR+eKWiH2Hq/aL9dH0RBb/bQ==
+	bh=cZ7tXZ0snSmUYYrntTWkC0yJTVn4BQWhNo2OO8FL8SQ=;
+	b=uHWOtT3IccASRVB/XirRz8X5H4ArtiVJpgcQeBWchYGVEDKqiVzql8lLfenOjx7kKbRa
+	 /asqZSatyJ8BjJB9mLVm54OCcEU54cCiFe5JazLI88/xJzLnGrjAHNuudlVXgXb/zqXh/
+	 lmE8QEn6gNL5hznh8ueGiEZzPypa31Pgjc5zRQtBlBpjauGj+koHq04bvbIcn6w6qYK08
+	 8SMDIKlT4xn0zeUM7xQXBdd0e6ba42ds+nxcnD8UXbb3CYAkjBznOLPXzxZfxQZyxrugy
+	 tTMfkvQEsMkZrIzjO5az61/Phw1bWxYsGRJzQAPcrKbEhUOruGhlR/+kRxTKoDZ13wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AtRBTbcF;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cj7GCUjK;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82F75606B033;
-	Tue, 24 Nov 2026 09:45:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46A8C606B712;
+	Tue, 24 Nov 2026 09:46:20 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AtRBTbcF
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 69F391F000D4;
-	Tue, 24 Nov 2026 09:45:58 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cj7GCUjK
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF1BB1F000CF;
+	Tue, 24 Nov 2026 09:46:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795513559;
-	bh=0ocO3hzxDXP5J+wMv8np8RM3eAnwMTJFFeAUpb5CWAI=;
+	s=k20260515; t=1795513580;
+	bh=cZ7tXZ0snSmUYYrntTWkC0yJTVn4BQWhNo2OO8FL8SQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=AtRBTbcFtUyiPTchVF40SgM0rK31T4QwRREUs/Yc8+5PG+SU/7QMKuPH3fhhsLDjq
-	 0KwoHAqW5wrwPaiMgSrMdD7uwRBlSWOXsCUUTkyrkyS6fQ58nZpB39E5RgeyIqVDjh
-	 ProYd+7lblyTrOA7lkRJ2HvBvL9BoxWNcv/gCzVOfs5W0qvc8OgBwbGmCEQAg2S85m
-	 p0F0pYMg44HEHOSEeJMvfw2da2/oCaRHp3ch6mz9LDsvXd7C/LL3dGdCw+ppeL4+eH
-	 v1tV0f0XZB5j7ckmku60Rwj4AAlp88jH2WXsLgHGN2EVGA4KUGBbgFBER4EmZGFL6T
-	 ctaAi8z6GXEww==
+	b=Cj7GCUjKkjBryFVJ1f0N3P0z5iruapeuXWw3CX5jd7POtlsRqk21/9+HAGPb/KJ7M
+	 Cr+TMjMmW/AzVV2Iy1ik2xCCSFx1UAlUFwtjjrZv5UdC42NnJjwqKLMbNA9F47GZ3G
+	 ANnRdg0uPGQD1zDcn0yJ7kRaKs9i7Gkt8cCMSzfd5oPuCATaQap56nUqDNFKOSncMR
+	 BsBdgHvjVH4nkyaObMGLA87onmRyfd96VqBOOvhtUSJK484hvMjdn/JS0c2Ps1w9ca
+	 77QqoFOvQ6lsB1devY/Xej4+nqJ02m+BgkBCOIIlS6tl+dd3G8hdLyEX0Jlszjj6C7
+	 K9BqrqCzfokYQ==
 From: Leon Romanovsky <leon@kernel.org>
 To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	"Rafael J. Wysocki" <rafael@kernel.org>,
@@ -100,9 +100,9 @@ Cc: linux-kernel@vger.kernel.org,
 	Greg Kroah-Hartman <gregkh@suse.de>,
 	linux-sound@vger.kernel.org,
 	Jason Gunthorpe <jgg@ziepe.ca>
-Subject: [PATCH v4 20/33] USB: Drain usbfs when a device is unregistered
-Date: Tue, 24 Nov 2026 11:43:51 +0200
-Message-ID: <20261124-device-trust-core-v4-20-037eb0d17b1f@nvidia.com>
+Subject: [PATCH v4 30/33] driver core: Allow driver attachment with the device lock held
+Date: Tue, 24 Nov 2026 11:44:01 +0200
+Message-ID: <20261124-device-trust-core-v4-30-037eb0d17b1f@nvidia.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
 References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
@@ -121,73 +121,101 @@ Content-Transfer-Encoding: 8bit
 
 From: Leon Romanovsky <leonro@nvidia.com>
 
-Only the generic USB device driver tells usbfs that a device is gone.
-A device without that driver bound, such as one unbound through sysfs,
-is unplugged without any notification. usbdev_open() does not check for
-a driver, so a process can open such a device and sleep in poll() on its
-idle descriptor. The unplug never wakes it or sends its disconnect
-signal.
+USB authorization needs to keep driver attachment and its configuration
+result under the same device lock. Dropping the lock to call
+device_attach() would let another request change that result before the
+authorizing caller can inspect it.
 
-Drain usbfs from usb_disconnect() before device_del(). The device is
-already marked as not attached, so no new user can open it. The later
-drain from the generic driver finds nothing left.
+Provide synchronous attachment for callers that already hold the device
+lock. Keep asynchronous scheduling outside the lock in the existing path.
 
-Fixes: 782da727b0d59 ("usbcore: make usb_generic a usb_device_driver")
 Signed-off-by: Leon Romanovsky <leonro@nvidia.com>
 ---
- drivers/usb/core/devio.c | 4 ++--
- drivers/usb/core/hub.c   | 3 +++
- drivers/usb/core/usb.h   | 1 +
- 3 files changed, 6 insertions(+), 2 deletions(-)
+ drivers/base/dd.c      | 34 ++++++++++++++++++++++++++++++----
+ include/linux/device.h |  1 +
+ 2 files changed, 31 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/usb/core/devio.c b/drivers/usb/core/devio.c
-index 1491ba015bcd8..a881f06361bfa 100644
---- a/drivers/usb/core/devio.c
-+++ b/drivers/usb/core/devio.c
-@@ -2862,7 +2862,7 @@ const struct file_operations usbdev_file_operations = {
- 	.release =	  usbdev_release,
- };
+diff --git a/drivers/base/dd.c b/drivers/base/dd.c
+index 4c4723384dc66..2f45b53e5ba91 100644
+--- a/drivers/base/dd.c
++++ b/drivers/base/dd.c
+@@ -1222,12 +1222,11 @@ static void __device_attach_async_helper(void *_dev, async_cookie_t cookie)
+ 	put_device(dev);
+ }
  
--static void usbdev_remove(struct usb_device *udev)
-+void usbfs_notify_remove(struct usb_device *udev)
+-static int __device_attach(struct device *dev, bool allow_async)
++static int __device_attach_locked(struct device *dev, bool allow_async,
++				  bool *async)
  {
- 	struct usb_dev_state *ps;
+ 	int ret = 0;
+-	bool async = false;
  
-@@ -2889,7 +2889,7 @@ static int usbdev_notify(struct notifier_block *self,
- 	case USB_DEVICE_ADD:
- 		break;
- 	case USB_DEVICE_REMOVE:
--		usbdev_remove(dev);
-+		usbfs_notify_remove(dev);
- 		break;
+-	device_lock(dev);
+ 	mutex_lock(&dev->p->driver_lock);
+ 	if (dev->p->dead) {
+ 		goto out_unlock;
+@@ -1265,7 +1264,7 @@ static int __device_attach(struct device *dev, bool allow_async)
+ 			 */
+ 			dev_dbg(dev, "scheduling asynchronous probe\n");
+ 			get_device(dev);
+-			async = true;
++			*async = true;
+ 		} else {
+ 			pm_request_idle(dev);
+ 		}
+@@ -1275,6 +1274,16 @@ static int __device_attach(struct device *dev, bool allow_async)
  	}
- 	return NOTIFY_OK;
-diff --git a/drivers/usb/core/hub.c b/drivers/usb/core/hub.c
-index 199d3f535a891..372bd6368cc94 100644
---- a/drivers/usb/core/hub.c
-+++ b/drivers/usb/core/hub.c
-@@ -2379,6 +2379,9 @@ void usb_disconnect(struct usb_device **pdev)
- 	if (udev->usb4_link)
- 		device_link_del(udev->usb4_link);
- 
-+	/* usbfs is otherwise notified only by a bound generic driver */
-+	usbfs_notify_remove(udev);
+ out_unlock:
+ 	mutex_unlock(&dev->p->driver_lock);
++	return ret;
++}
 +
- 	/* Unregister the device.  The device driver is responsible
- 	 * for de-configuring the device and invoking the remove-device
- 	 * notifier chain (used by usbfs and possibly others).
-diff --git a/drivers/usb/core/usb.h b/drivers/usb/core/usb.h
-index 1b2de58fd6cef..cbee731837471 100644
---- a/drivers/usb/core/usb.h
-+++ b/drivers/usb/core/usb.h
-@@ -195,6 +195,7 @@ extern const struct file_operations usbdev_file_operations;
++static int __device_attach(struct device *dev, bool allow_async)
++{
++	bool async = false;
++	int ret;
++
++	device_lock(dev);
++	ret = __device_attach_locked(dev, allow_async, &async);
+ 	device_unlock(dev);
+ 	if (async && !async_schedule_dev_nocall(__device_attach_async_helper, dev)) {
+ 		put_device(dev);
+@@ -1284,6 +1293,23 @@ static int __device_attach(struct device *dev, bool allow_async)
+ 	return ret;
+ }
  
- extern int usb_devio_init(void);
- extern void usb_devio_cleanup(void);
-+void usbfs_notify_remove(struct usb_device *udev);
- 
- /*
-  * Firmware specific cookie identifying a port's location. '0' == no location
++/**
++ * device_attach_locked - try to attach a driver with the device locked
++ * @dev: device to attach
++ *
++ * Synchronous device_attach() with the device lock held by the caller.
++ * When called for a USB interface, the parent lock must also be held.
++ * The device lock remains held on return.
++ *
++ * Return: 1 if bound, 0 if no driver bound, or a negative error.
++ */
++int device_attach_locked(struct device *dev)
++{
++	device_lock_assert(dev);
++	return __device_attach_locked(dev, false, NULL);
++}
++EXPORT_SYMBOL_GPL(device_attach_locked);
++
+ /**
+  * device_attach - try to attach device to a driver.
+  * @dev: device.
+diff --git a/include/linux/device.h b/include/linux/device.h
+index 5c86e7a19e47b..3857545f67df3 100644
+--- a/include/linux/device.h
++++ b/include/linux/device.h
+@@ -1337,6 +1337,7 @@ int __must_check device_driver_attach_unrestricted(
+ int __must_check device_bind_driver(struct device *dev);
+ void device_release_driver(struct device *dev);
+ int  __must_check device_attach(struct device *dev);
++int __must_check device_attach_locked(struct device *dev);
+ int __must_check driver_attach(const struct device_driver *drv);
+ void device_initial_probe(struct device *dev);
+ int __must_check device_reprobe(struct device *dev);
 
 -- 
 2.56.1
