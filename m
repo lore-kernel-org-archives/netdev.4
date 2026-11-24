@@ -1,102 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541476;
-	b=p2hEmeOiCVVpq17bzAIvYyT7E1nDpVV2UL58P2hoQVb8SKAbSENmmSKcAD20I+7QLc5B
-	 9zWDMgUDuEuVWOjh9ghaGhSfYvYex80pRKqQMuBIq09PEUM6GKsFtJAMEMjEF0Een4cVX
-	 FjR9fjSqIda4W/ZojnEadSK6uZzhrrQSN14XmMjh/jXs6+QDMjh07rsP7DZW7CaJpnWbE
-	 hh3TRSX13Y1tMXdU5/yoJ84VyjAk6iYG8HoHZJHVrKAzHcnWTBG7GvgleN3fkU02/iM+x
-	 vGry89Vc7X4PTxd/wiCUybNFOLY2xTbNohCGABYH9dAlhN7NnUJJWosgtJVebmev/pg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541476;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.176
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795541692;
+	b=32DiyfSn2AkcW8jqZpN6OysZhVqx5mS/1NqHeUPfrB6YE2kFOIdv6SSoOKtKbfsxKC/Z
+	 +JbECNBZqq3FKAEcVq2CxZjmf/zTe9UmrBKHxVBH3X8CeX7GQf+VWvqAi8wlxurQu8kM8
+	 SEVLZCoxzYuKHEbIH5Z2YLJ0iiuAqgYdglD6tNxpZFBGkOjRvPNGUBDSTE7BERyARAg1S
+	 tsq9tIysvjIB9hizlmvI5kN22pciFRMucyyL0h7I6P4Q0x37Am90dKhoKHs3PBtsEjKCq
+	 gOr0bbaT8jkH5IuwZ7DG9+IvHFEahJxTl8yliFdJeGl5/5WnigTOYTyD3x6nhmmei6g==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541692;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=xVtmIflReLy/gkCKLxUSoKRO9sGvrYDFgb1ifl0wJKQ=;
-	b=pq6G6dB/4fYdBlTpeQRHzP1Cu9EVwBSGTm8kmn2AWKjEXQ4mNlroooi58AtyjN7ytr8a
-	 IydebfbYGP6pCxJzLmrPn9XcXkI2FWoJVR8+HuQfh9i1r0MG+HazHZyaI9WyMPvNGhwis
-	 pDKQSOCOQG4jGFuTcAOIk9yCuwpayZcHF9ajtOZJrxxvuTOO8q/XszJK2HjfSUlso7wEb
-	 0NIPhpK4QL3lVcXpgC0/kJF+J9GguVuZcfiIWZ1JE61fRl3mAqe6UwqRRaqNhVVntsyWf
-	 gBy2zMdATH9hWRjwVDxXF4NyPRnvZFHDmMYE5jFwzzjSN7mClcT74jAafPGItlvK2Jg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=jZg2tuDA;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
+	b=jk/SEJdomfIJdARDAUthXsugZiKoPOv9/Qp/5pry+Gw+1CX4NiOJnUb5w+WMo4qzMQCi
+	 tv5ULrG9EEH2PZTlYcQlEzOgKQ0RsqggDjYqjsdCKCy8JB8YP6f0e33sXJUR56Su4kEKX
+	 t2+0SoXVuU4SXqRYq4UncrBduUV5U47ypR2m7uUVW/ZkXB7ESARk+L+4aheISLFemhu21
+	 MK5nHQK+iwox8JALum70TxBmZ1jy+6SzjBFgEj1U6Tu5seoQZZ52HoXUsvbTAWbQ52jXg
+	 H7Z1E2Yf6tEqid3VmlSjGRvGtYK9W1QMcgZYlcJvbmRVP4pR8w1L02dmeSDxG7Btkrw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=paul-moore.com;
+	spf=pass smtp.mailfrom=paul-moore.com;
+	dkim=pass header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=HHrCeQgK;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9667E606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:31:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9667E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2835606A32A
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:34:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2835606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=paul-moore.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=paul-moore.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=jZg2tuDA
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8c700d6cc0bso2956701b3a.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:31:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=paul-moore.com header.i=@paul-moore.com header.a=rsa-sha256 header.s=google header.b=HHrCeQgK
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f04ad2c46dso28653285ad.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:34:51 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795541691; cv=none;
+        d=google.com; s=arc-20260327;
+        b=p1s16Eong5JMcRdhW1k2p4mlMT228jeHyMD+BNRweHrTOJAPEdnt518UEXIo3NGBGj
+         yviJbi8QhJeqHu2tHqY3gr6p3U+W2WN7wwahvm48ojo+jyNWzsi4vIDjdx4OpIGkp6Bw
+         UDLVt5pXtW59bo/ILctS80EuVMWVwNL+WYaZcPx2v8jVYb/2ZSYx9yq9OrbuWhI7f/NQ
+         N9SpSp6gLMHemcco4/fdmEM55pH2aEShUbhhk3CK/5/4DPsEhBocgCz5E6koQ2t/wse/
+         jblHruDmPbCwYAa3nQjAVijGoXaOLFb0zi9nWkfKoF3mOGpOsSPTR9U5ITbY1s56Tjbg
+         Tj+Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
+        fh=T28RvhLxr1l9NSG8sMHJwoxGBbPy8Xu7Dd/G35VfKWA=;
+        b=rrpXfKXVwSS78DJV7M45cgkxEUcfjzw/9JIAbfu1AX6H765hJ0wB4zozOAvP1pgR/K
+         lD522EMFt9za8j1VztFMk4ltyi15wHVX8NAzcm7sHCZoX+IYlytoOHVtgy4EIPyiRXf3
+         we08etu8WayOWyp04EVS3tXx0HEKjYFRMIc0fjQrHkf0HJGD1rZrwr4Nh6VbqUV0be/0
+         9rr1JrGoO//J4XXNTPepU8ZBq79K4zKkOzQmqm0t/zsvKgkhPJMIf+fBqe/pSRkx5PAM
+         MzSBpY9lzfM9VMtf/4iDlbep6LQ0z6C9CG0ERsWIJZ/WKWL5s/cEe7wJuQ8DcaXNonkv
+         7IEA==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795541460; x=1796146260; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xVtmIflReLy/gkCKLxUSoKRO9sGvrYDFgb1ifl0wJKQ=;
-        b=jZg2tuDAsbL1GQYiCmf+mug2LJyrBbSesSduO+aoMC1LTEXvytDDT92LNysScbRUIJ
-         Gf6A7xebjzFe/XDX247TbTmV3OGHcSGwyrvrB+LMF8dNWh45g06ioi408pjgSnopSI+w
-         YnhTqckafu1y7Cz3fVUN3cfJI4gDFkDqgzdXM=
+        d=paul-moore.com; s=google; t=1795541691; x=1796146491; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
+        b=HHrCeQgK/kBXJZ90aRHYJCoHRDaE82HsZ115cJLDYso+RPO71e0P2oCB3lgCU0MEgS
+         vqh6phVdkz6ulUaoDB6e0l9qXvOSEIoCNR8KSiDiVRPP1eH/PJFHDDwfunnlA2EdZlpl
+         IBc1H1MQCifglg++qUTABRftlRuR/pBz23mq1/edbPJ07HpWcQ/nQ99/W7hJb+mJamiF
+         iS+HRsAVyYIlrP5fvIffCfiB9wn7spnsPetVxVjsy7/oH/YZVmk3MDTVudG9t+lq4Vov
+         ZiT59zFmbR/7glqKQYhrwI/SlcgE56F6BJH34DFmhgVPkJwjU4EUv4gXctECwbp9F3xP
+         kl4A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795541460; x=1796146260;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=xVtmIflReLy/gkCKLxUSoKRO9sGvrYDFgb1ifl0wJKQ=;
-        b=0gcI5Sax4KRalfYO4pfMkiVElWmaaRj7nOdaebqffGgWjhNgJUjDrkr52dtED/RY+C
-         NvI6EjV1dRggpLcO1j89lB1910GuAfzmEw/2VTKXTlJ/Bo44UgneAiAOJATLCpUmil5n
-         VE5819JqZ3CIU/VtMj6y4ZEA/VZo2q4JZBGPNno1m/g2A4D0u3e6ThCMWW+DOJeLyvSY
-         AuU2FliZiLkNujse15LWi1P1CH5NmMX1IpqqplS3K8pfAfejdbQ1JOBTxejEVzS+bvni
-         razsS6SzwncScvRIIpV8j924n+9OUhyr5oTMgBVLkXaIoT3D1Tmh1GzMhksT4NglqsRh
-         v7Jg==
-X-Gm-Message-State: APuU4Z9kz1DktrhQIXKjCLDtH4XPe/Trh0l2QTod9mkYYe+u30XxK55Q
-	d6ybsu1YBaXxe252h8PKiaynyAqHXay5RYnUD/TVmNm++cW45QeQKBh26VTB4IA98QM=
-X-Gm-Gg: AZFdTZeBwRgoVgmjXBeReqYldFqsuHhce1GG5JIlJRMUJ8p+zNLfzTOmSS1yq23UJhM
-	/CENXrIEy2OCari7KwieKsMoQhHcYM2mV6T1InyFWTImiwjansHbivHvjraLCK9/t7iNy9ZOxJS
-	VEAbbu+sXKixt5Mf604foq9DoO+tKV7B+gEb0auuZGneJ4SrKIZGRNlYOTAHeKWUsnY8NhOCD5C
-	HglHxgD7wBjGsM4/JX8c3DLR+MaclzR9DLTvrpbqHo9UUw0RDaJz5N2p4V9CveTYONYSkf0CLDR
-	bcDpCpxsCv7Nhm1rByfIuAjHqM3tfEOV5FvJVQ/31X50aSUHCP1j+QJJ6pWLS+ADLsLoiTq9AkG
-	enXUUXk4F8+b6+u8QNvK4d22Z5KWHstl8thyKXcSZrhGrw2STaMp+wYzF41kG8Ms93S66Zb1ivN
-	IH0+gwkuzEEyxeXxbgAXgEAhB8jbIYVNLbqP+FrlG1R9YoA5VVsv4tbTScW/FeG/HX9a3Sd9sg8
-	0KZIsuRZ+21OOA0YgFGV5n59DkDaTxHOst1rGvehatiXrNFbLVtGxTvmxIwDEcR3Mzd7B2wcS4M
-	v1g194PAJIO4NQK84Lam4Ucp4RBzfcQmJdNerhgDfEN2Auz0jcrOYgc9a7SrQjFjEE2dWhYbnr0
-	AHzsgzYBX8hN891IRFkEAm44b9L3l0poqALk8hULWWG+VXj1fApG7LGBvnXUfUBnT
-X-Received: by 2002:a05:6a20:170a:b0:401:e4c3:7fbe with SMTP id adf61e73a8af0-401e4c38036mr7387644637.32.1795541459865;
-        Tue, 24 Nov 2026 09:30:59 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077fe3fsm7779374b3a.4.2026.11.24.09.30.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 09:30:59 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] net/smc: bound the failover cursor catch-up by what is outstanding
-Date: Tue, 24 Nov 2026 23:00:52 +0530
-Message-Id: <20261124173052.592080-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <179552965941.3135.8878591105354373466@kernel.org>
-References: <179552965941.3135.8878591105354373466@kernel.org>
+        d=1e100.net; s=20260707; t=1795541691; x=1796146491;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=XBmnC24W8AXYN+2O9rvqWHkGjrVBXCobhK+i3wuM79I=;
+        b=GRw5tGNcQACVzEgAR9XeNO6FbdiMzop8O69UGdQDoLIcIyd6H2NUU3hfbaSUC8ZI5R
+         vfPDkjAqSfIxoFORzXuM5ZpacAsXHSrgOwL31Fy46gjhjTh2YwHsh2GzQXuqkU4uP9Ty
+         JCmGVRGzevikP/5pTvuO0XmaPtIOiY+GvwSxDhvpIIoq4SK5ACHqjY+UPG8zm2/qP6uo
+         Nx7XVyG6o/NsJkWWzTWWcQlvNStSxQqOXOHc3UQqYYdJDKKpHuRLElrfADOTTx2rVvZI
+         vbOUlZmdTcOgN6iVktaFbFLUf8BwLN0Z6iO6gc7ET6Ynn/4e+OmrW5w4gTmDwTqdJALL
+         EhKg==
+X-Forwarded-Encrypted: i=1; AL+hErFe1t7VS+PxQb2mFuw0iT2+qcZMJt5bFwUOasP9vx+mwKoy0VXNQW525TOn2csbopDQKK9XJ3o=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8FwM4ULr6zpSRic93bk/9miGWQ1hvr9ghti/pgg9L2OborT3oJ
+	vqS/n/+50JJmAbwXhq69/sW9DhD/87SEfPZvwTp1kJOtwBvXkzPlmNyR95EaEDOn0J/V170MR5q
+	AtnHsdFWmmOmVCCVeg8muxm6YK04VVdG62+vF6juM
+X-Gm-Gg: AZFdTZeSsTCZAHbOcqcsl+IF9puILuGnaT3BjEJlyFIz+eRyatYIfiZEftAXAJupKJ1
+	z2D07R58so+oTMb4qD5NWaEPYvt6WNE2n3Jr0W7qwivDKlHmH8jM2+aofgj8EytHBr6xBdGwLte
+	LLRbmSlHz139RyAmurg5K716imJzdHhp5Eff3nt9jBj/nbmkrKg6sWdJScaMtcA+XIQpQ9MT81T
+	FzbIXiqUrPWwXr0AnfTBvSslkV10Q2ZKuR+2WjCsESHsTyhWDPMXurO4ltdSngAlP2Oj/xkFtKZ
+	OqpEHU5O7oue+U+G2ByILggUl4gRpWJ6of/RlnrsJI07skLk9V1QS3WXt8Z3gZcN7yMskh8m0GO
+	/3GuRtlClDBdXFJ+sJJBsuf1M0Yy+zkdAdhpl/RW+tDlq/10S+KxjP3lPZaQCcxRXf1TJ
+X-Received: by 2002:a17:902:dacc:b0:2db:3b35:1ac6 with SMTP id
+ d9443c01a7336-2f03ef5a25amr159510795ad.5.1795541691316; Tue, 24 Nov 2026
+ 09:34:51 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,148 +104,45 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20261123-x25-v1-1-4432d3892f8b@gmail.com> <c70bad57add6ff8cd52125c698f3f54a@dev.tdt.de>
+ <CAHC9VhTLg2FLNf3sLe3+A=q5Mo4gKs+gB7zi5sQT1jizsOPuNQ@mail.gmail.com> <CA+X8SdjoyJT1i1Rf08psCsLQyPQ+yU_tAH0rCQPXpkm4DF_=Nw@mail.gmail.com>
+In-Reply-To: <CA+X8SdjoyJT1i1Rf08psCsLQyPQ+yU_tAH0rCQPXpkm4DF_=Nw@mail.gmail.com>
+From: Paul Moore <paul@paul-moore.com>
+Date: Tue, 24 Nov 2026 12:34:38 -0500
+X-Gm-Features: Aa3M54qCAAAH8qnzn7NrvXOlemcU2WyGsLTrIJLHcpwId-DXnie5s0o5cb3103Q
+Message-ID: <CAHC9VhSY5_NLka8n-yDVwv2FmXj9DF9PWWxomGv1_-mFzZ3Pmw@mail.gmail.com>
+Subject: Re: [PATCH net] net/x25: inherit the listening socket's security
+ label on accept
+To: Wong Steve <shyckless@gmail.com>
+Cc: Martin Schiller <ms@dev.tdt.de>, davem@davemloft.net, kuba@kernel.org, 
+	edumazet@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	linux-x25@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-security-module@vger.kernel.org, stevewong@hust.edu.cn, 
+	kaixuan.li@ntu.edu.sg
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for the review.  All three points were checked against net.git at
-af6737b90668 before answering, and two of them changed the patch rather than
-its wording: the clamp is gone, and v3 drops the connection instead.  The
-third is real but is a pre-existing bug independent of this patch, and I
-would rather not fix it blind alongside it - details below.
+On Tue, Nov 24, 2026 at 12:19=E2=80=AFPM Wong Steve <shyckless@gmail.com> w=
+rote:
+> > the x25_make_new() function is called by
+> > x25_rx_call_request(), which as far as I can tell is on pretty
+> > analogous to an accept() operation, is that correct?
+>
+> Yes. x25_rx_call_request() runs in the receive path
+> (x25_lapb_receive_frame() -> x25_receive_data()) when a Call Request
+> arrives for a listening socket. It is the X.25 counterpart of TCP
+> creating the child socket for an incoming connection:
+>
+> - x25_find_listener() finds the listening socket,
+> - x25_make_new() creates the new socket and copies the listener's
+>   settings,
+> - the new socket is queued on the listener's receive queue, and
+> - x25_accept() later takes it off the queue and grafts it onto the
+>   socket that accept() returns.
 
-v3 of this patch is posted as a separate thread:
+Great, thanks.
 
-  [PATCH net v3] net/smc: drop the connection when the peer's failover
-                 cursor is impossible
+Reviewed-by: Paul Moore <paul@paul-moore.com>
 
-Only this patch is respun; 2/2 of the v2 series is unchanged and is being
-answered separately.  The v3 changelog is under the --- line with a Link:
-back to the v2 posting.
-
-Point by point.
-
-
-1. [High] Old-link CDC completions racing the switch
-
-> Does this bound keep sndbuf_space <= sndbuf_desc->len on the DELETE_LINK
-> path, given that the old link's CDC completions can still run?
-> Do the old link's TX completions also need to be quiesced or serialized
-> with the switch?
-
-No, it does not, and yes, they do.  The locking is exactly as you describe:
-
-  smc_switch_conns()
-    spin_lock_bh(&conn->send_lock);
-      smc_switch_cursor()
-        atomic_add(diff, &conn->sndbuf_space);
-        smc_curs_add(len, &conn->tx_curs_fin, diff);
-
-  smc_cdc_tx_handler()
-    bh_lock_sock(&smc->sk);
-      atomic_add(diff, &conn->sndbuf_space);
-      smc_curs_copy(&conn->tx_curs_fin, &cdcpend->cursor, conn);
-
-Two writers of sndbuf_space and of tx_curs_fin, under two different locks,
-with no lock in common.  That is true before this patch as well: the
-unpatched smc_switch_cursor() performs the same atomic_add() and the same
-tx_curs_fin advance under send_lock alone.  The late-completion arithmetic
-you give - (len - prep.count) + C.count exceeding len when the wraps differ -
-is likewise reachable without the patch, since the unpatched code moves
-tx_curs_fin by an unbounded diff and so can place it at or beyond prep.  So
-this is a second bug on the same path, not a consequence of the change.
-
-What this patch is for is the route that needs no race at all: a forged
-cons on an otherwise quiet connection inflates the credit deterministically.
-v3 closes that by dropping the connection rather than crediting anything.
-
-On the race itself, the shape of the fix looks like the drain, not a new
-lock: smc_cdc_wait_pend_tx_wr(conn) in smc_switch_conns() before the
-send_lock is taken, in the region whose comment already says it may sleep
-("pre-fetch buffer outside of send_lock, might sleep").  I have not put it
-in this series for two reasons.
-
-  - It is a different bug with a different Fixes: tag and a different
-    trigger - it needs a completion to land in the window, not a hostile
-    cursor - and netdev asks for one logical change per patch.
-
-  - I cannot test it, and I think it may be wrong as stated.
-    smc_cdc_wait_pend_tx_wr() waits for conn->cdc_pend_tx_wr to reach zero.
-    On the smcr_link_down() path into smc_switch_conns() the old QP may
-    already be dead, and those completions arrive only once the QP is moved
-    to error and flushed in smcr_link_clear(), which happens after the
-    switch.  A drain there would then stall on exactly the path it is meant
-    to protect.  Ignoring completions whose cursor is behind tx_curs_fin,
-    your second suggestion, has no such problem, but it changes the meaning
-    of a counter three call sites rely on.
-
-We have no multi-link SMC-R group with two RDMA devices here - the route to
-smc_switch_cursor() in this patch comes from reading the code, as the commit
-message says - so I would be shipping an untested locking change bundled
-with a memory-safety fix.  I am happy to post it separately if the drain is
-the right shape, or to leave it to the SMC maintainers, who can exercise
-failover.  Either way it should be recorded; it is a real hole.
-
-
-2. [Low] "sent" is the wrong name for sndbuf_desc->len - sndbuf_space
-
-> Is sent the right name for this value?  Does "what this side has
-> outstanding" in the comment describe it accurately?
-
-It is not, and it does not.  The value is tx_curs_prep - tx_curs_fin -
-prepared and not yet confirmed - because smc_tx_sendmsg() lowers
-sndbuf_space when data is copied in, not when it is RDMA-written.  v3 names
-it unconfirmed and says so:
-
-  /* ... It cannot honestly exceed what this side has prepared and not yet
-   * had confirmed, which is sndbuf_desc->len - sndbuf_space:
-   * smc_tx_sendmsg() lowers sndbuf_space as data is copied in, and
-   * smc_cdc_tx_handler() raises it again as the peer confirms. ... */
-
-The subject and the commit message no longer claim to bound the catch-up by
-"what is outstanding" either.
-
-Your related observation is also right and is why v3 stops trying to repair
-the state: smc_switch_cursor() opens with
-
-	smc_curs_copy(&conn->tx_curs_sent, &conn->tx_curs_fin, conn);
-
-so the pre-switch send position is already gone by the time the check runs.
-There is nothing reliable left to rebuild a correct cursor from, which makes
-"carry on with a smaller number" the wrong answer in principle.  And you are
-right that the clamp hid the violation: out_of_sync stayed 0 and the
-connection was not aborted.  v3 sets out_of_sync and peer_conn_abort and
-queues abort_work, as smc_cdc_msg_validate() does for a sequence number
-that cannot be honest.
-
-
-3. [Low] Where local_tx_ctrl.prod ends up when the clamp fires
-
-> Should the clamp firing be treated as a protocol violation that aborts the
-> connection, rather than continuing with inconsistent flow-control state?
-
-Yes.  This is the point that replaced the patch, and the arithmetic holds as
-you give it.  With diff clamped, prod = fin + clamped_diff stays behind cons,
-which is the inversion the "now prod is smaller than cons. Fix that." comment
-exists to repair.  smc_write_space() then computes
-
-	space = peer_rmbe_size - smc_curs_diff(peer_rmbe_size, &cons, &prod);
-
-over that inverted pair.  Equal wraps give 0, so space becomes the whole
-buffer - wrong, but harmless.  cons.wrap == prod.wrap + 1 gives
-(size - cons.count) + prod.count: for size 100, prod (0,90) and cons (1,10),
-space = 100 - 180 = -80.  smc_tx_rdma_writes() returns early on
-
-	if (rmbespace <= 0) {
-
-for every later call, and smc_cdc_msg_recv_action() only adds diff_cons on
-top of that base, so it never recovers.  The clamp traded an out-of-bounds
-write for a connection that is memory-safe and permanently mute.
-
-v3 therefore drops the connection and leaves every cursor alone.  There is
-no partially-advanced state to be inconsistent, nothing to name wrongly, and
-for a correct peer the branch is not reached at all.
-
-
-Thanks again - two of these were defects in the patch, and the third is a
-bug in the path that was there before it.
-
-pw-bot: cr
+--=20
+paul-moore.com
