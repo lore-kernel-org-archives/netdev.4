@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519548;
-	b=fCdKKDBgp+YvQJS1B9n0U1XmTyfqbs5dicMRIW5pOfL7bBFr+MOBdwflT45IILmdQvGY
-	 X9ZLQwOdn1YzBib4efXcROTnxFAdDu8H/hhhiMtVF1bM4M7PLScg1qsVTArF6sFzxMUs6
-	 JuhHoKvsQp0RToD0ceA/omif1KixjCuS5O0CCw6jXYT/+KT6POUAJ7Ms9fUUIFG7a8gPl
-	 GfReIPfCSANbza5Z+ZiRXUNGi8d38dHOTUwJv45XCmmgxUJpv6rIxOBuss4X6JMnx7Fg3
-	 uSvY1TFtRz53P1Ufb2lm9jkvPDvxumUYsvHfnKOrzjtX5dRqStCeZ5TYhxWRNTPvKEg==
+	t=1795519549;
+	b=RvFotbSSWuln6xE/K8Im3ZvnCfdpmjx2D0zQFctwNmRYyPLJhh9yhhMcUAGBTsNxI1Dj
+	 u18kYy3fs7Tlf/SR8/sau+Wp7o/NfpXs33bu+qmr1VJogg9sdR4DVnR4J2t1zMywWXb4d
+	 nlyLmJeUzFKGQV3jRomtAinsT5OlH7uXCA2IzGv770t/Dne3c6T2PzSOcizfYESg28Fmy
+	 8bjMY+5V1eEv1+cxwGgtTSelCrej9aZKLV5QTVYmt00UlYw+4z75LlcY3Z2BOeQiXaU+r
+	 Y0m5Nx5N23aVUI/rXihs9HCiRFFk/TGbooYUa/73HhMcLhOi42iBOnKkaz7RR7LKlzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519548;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519549;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=XDAKh+D0XmIxEFYmIESn8fAn/tPHI1EioV1RjonpdrQ=;
-	b=rpCZNMjRrFLhRpM6c9YTgngrWnE1wO9eRhawAFAhgiT/1qJIKtCZYaLBEp73DNzQw/Kc
-	 B53/k0cp/whuNPBGdZ7ZxBZvc8UVyg+rvUa4wmW8Ce1BhSk58ufd0JymbHCSPRzUaqvTQ
-	 GSiEDkGnDY7q4HWdn5OgQkCQvwv0BMP50lfP8jF9rKxeoE6hl2N67YKe6pVdBe17+ax9F
-	 vrogI68V0s9BxhvU8DgQ1LxFYBhVSkX2j9+/3+cITAxRu9A/C0OxIM5gXsa3Lr7zrIk/B
-	 FOezVKiJuJy0E6SqfNmZlkY+C2ao9H0P5KYVf9byxvu9HQrkP2T/iC3n5ubpYGS6Tag==
+	bh=RyVQK1Z+Oz5x+uKppSMePQcKarmzk5xoKypeygjKN4g=;
+	b=XFlGNFK/LqUJjSeYsn3rGWbADXQnH6Z2x9pJbYFIxhQF8VWfPq8umnvlRXcJtVyGCNx2
+	 /ZKnRSGYPsAvA2GtZoHkiUEiVqcG21Uk22L/xVSCUrEq/5h+GIGf99cj+frDCbLMCNOap
+	 hoFUo4P8L6AHmel3/P0xNGLnm78rdRXDFuhgg4UcSS4PPANtAU7SI+590fu009+WitYd2
+	 bxwW2uDGX+SiWWzpjpUSw1NJC+iB56cKhHmhK+MLJekKYo4BFlsTbj1Uhl7zXXiuQduge
+	 eoaTmseA/9TEkprQPoyRlzKCqv2j+y+GUDsojjlPfdpgPgfRh67oFoYoOEp82naM/aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PYTWMvUk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GYNlunbE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33C55606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:25:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCB86606A33C
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:25:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PYTWMvUk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C550D1F000D1;
-	Tue, 24 Nov 2026 11:25:46 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GYNlunbE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DF271F000D1;
+	Tue, 24 Nov 2026 11:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795519547;
-	bh=XDAKh+D0XmIxEFYmIESn8fAn/tPHI1EioV1RjonpdrQ=;
+	s=k20260515; t=1795519549;
+	bh=RyVQK1Z+Oz5x+uKppSMePQcKarmzk5xoKypeygjKN4g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PYTWMvUksvuPtgOdfusYDpn7aU45WB+cD4BmXPND8pHasKaKmnowq9QdXQ0YHbG1X
-	 I1wbc+BC+HQdJUCIYn9icyskzVRdrtIXNH4tVdfm3pg2aEuNBbbSxYBRCXIoSW9MyH
-	 v4vZc+pkFMrdnzOXV+uE4ef48cUj17+/wkvala/WVVStuzxDVReseTRE4pKJeI3Tu6
-	 jJdroJkYs1blYWZAkCKdr0wn3dUBnGkCKSBCbJfo16Yo19Y/fQgiTEcsGRcCYb4vhd
-	 jOBCtWdZ5ng5VwfVKT3pIqnARSNlO3u+aODs94d1Bs2lVPFvM5MyqCyxsOljXYlFrh
-	 6Aw5G6ZcSkmQA==
-Subject: Re: [PATCH net-next v11 6/8] hsr: Assign a socket for cloned skbs
+	b=GYNlunbEpSoWhCRsZGPURE98FyAM8lHc0IK+SiK/kcbkS9ir5NianC8r+fcwb6wAM
+	 JFth4v4usiu2LKy9ztJXmqJyexFyvsfce5d+c6PXLwBD5sUdfFSVIpB7/TFs/OP+ip
+	 o/qMt7Jm3p1fTNFl/hrpZovhz7zUlOZ33Eb5uSf7VgP+lycpEK71ksYOnQ62ni/Rfe
+	 PmNd0twLnGmjF0dP+rbgKKWkueMs/UJ4KsyRD6vHrD56UsKsYjmtIwPct3e5D7ZT/8
+	 7lGyRs+JppoxXKUR3JIrl09lhboiEkEuI1drF7VYnsxvxDmrEhkctfKab6pELbAcxb
+	 U7boGGfQRU/Cg==
+Subject: Re: [PATCH net-next v11 8/8] selftests: hsr: Add test for the inline
+ PTP header on HSR
 From: netdev-bot+sashiko@kernel.org
 To: bigeasy@linutronix.de
 Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
@@ -49,11 +50,11 @@ Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
  pratheesh@ti.com, richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
  willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
  edumazet@kernel.org
-Date: Tue, 24 Nov 2026 11:25:46 +0000
-Message-ID: <179551954638.3135.17764236163562432199@kernel.org>
-In-Reply-To: <20261120-hsr_ptp-v11-6-264c88f4f1d0@linutronix.de>
-References: <20261120-hsr_ptp-v11-6-264c88f4f1d0@linutronix.de>
-X-sashiko-severity: Low
+Date: Tue, 24 Nov 2026 11:25:48 +0000
+Message-ID: <179551954823.3135.2068695558133971717@kernel.org>
+In-Reply-To: <20261120-hsr_ptp-v11-8-264c88f4f1d0@linutronix.de>
+References: <20261120-hsr_ptp-v11-8-264c88f4f1d0@linutronix.de>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -66,142 +67,131 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
-- [Low] The commit message does not say how narrow the change is.
-- [Low] The patch fixes socket ownership in only one of the two
-  implementations of proto_ops->create_tagged_frame.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Neither hsr_ptp.sh nor hsr_ptp_test checks whether the running
+  kernel supports the HSR inline PTP header, which was added earlier in…
+- [Low] The file-header comment of
+  tools/testing/selftests/net/hsr/hsr_ptp_test.c (lines 2-11) says the…
+- [Low] The commit message credits the idea only in prose ("Test
+  suggested by Felix Maurer.") and has no 'Suggested-by: Felix Maurer…
 
 --
 
-hsr: Assign a socket for cloned skbs
+selftests: hsr: Add test for the inline PTP header on HSR
 
-This patch assigns the original skb's socket to the clones built in
-hsr_create_tagged_frame() and in the has_hsr_header path of
-hsr_forward_do(), using skb_set_owner_w(). Without it, skb_tstamp_tx()
-cannot return the requested TX timestamp to the sender, because
-skb_clone() clears skb->sk and hsr_forward_skb() frees the original skb.
+This adds a selftest for the HSR inline PTP header used with ETH_P_1588.
+hsr_ptp_test sends four PTP frames through the HSR device with the inline
+header. Each frame requests port A or port B, with or without a
+caller-supplied HSR header, and the test checks that it shows up only on the
+requested slave with the expected contents. hsr_ptp.sh sets up a three-node
+HSR ring and runs the test in each namespace.
 
-> diff --git a/net/hsr/hsr_forward.c b/net/hsr/hsr_forward.c
-> index 1d1d75ed8cd06..9cb3297a8640a 100644
-> --- a/net/hsr/hsr_forward.c
-> +++ b/net/hsr/hsr_forward.c
+> Test suggested by Felix Maurer.
+
+[Severity: Low]
+This isn't a bug, but should this credit be a Suggested-by: trailer instead
+of body text, as described in Documentation/process/submitting-patches.rst?
+
+> diff --git a/tools/testing/selftests/net/hsr/hsr_ptp.sh b/tools/testing/selftests/net/hsr/hsr_ptp.sh
+> new file mode 100755
+> index 0000000000000..23379b1ce7a56
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/hsr/hsr_ptp.sh
+> @@ -0,0 +1,109 @@
+> +#!/bin/bash
+> +# SPDX-License-Identifier: GPL-2.0
 
 [ ... ]
 
-> @@ -347,6 +348,9 @@ struct sk_buff *hsr_create_tagged_frame(struct hsr_frame_info *frame,
->  	if (!skb)
->  		return NULL;
->  
-> +	if (frame->req_tx_port != HSR_PT_NONE && frame->skb_std->sk)
-> +		skb_set_owner_w(skb, frame->skb_std->sk);
+> +run_ptp_hdr_tests()
+> +{
+> +	echo "INFO: Running PTP-header tests."
 > +
+> +	ip netns exec "$ns1" ./hsr_ptp_test -H hsr1 -A ns1eth1 -B ns1eth2
+> +	ret=$?
+> +	stop_if_error "PTP header test failed (ns1)."
+
+[Severity: Medium]
+What happens when this runs on a kernel without the inline PTP header
+support added earlier in this series? Does it fail where it should skip?
+
+On such a kernel, hsr_dev_xmit() has no hsr_ptp_parse_header() call. The
+inline header is not stripped, and the frame goes out as an ordinary standard
+frame. Its destination address comes from the first 6 bytes of struct
+hsr_inline_header (req_tx_port, has_hsr_header and __pad0).
+
+raw_recv() skips that frame because the destination is not p2p_dst_mac. It
+then times out after 100ms and returns 0, and recv_verify() reports:
+
+	if (port == HSR_INLINE_HDR_PORT_A && ret == 0) {
+		printf("Error: Missing packet on portA\n");
+		error = 1;
+	}
+
+main() returns EXIT_FAILURE, and stop_if_error exits with 1 instead of
+$ksft_skip.
+
+check_prerequisites in hsr_common.sh only checks for the ip tool.
+hsr_prp_redbox.sh in this directory already has a feature gate that skips
+when the kernel lacks support.
+
+Could this test probe for the feature and exit with $ksft_skip, so that
+mainline selftests run cleanly on older stable kernels? The commit message
+also doesn't say that this kernel feature is required.
+
+[ ... ]
+
+> diff --git a/tools/testing/selftests/net/hsr/hsr_ptp_test.c b/tools/testing/selftests/net/hsr/hsr_ptp_test.c
+> new file mode 100644
+> index 0000000000000..e2c2da56138ae
+> --- /dev/null
+> +++ b/tools/testing/selftests/net/hsr/hsr_ptp_test.c
+> @@ -0,0 +1,496 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Simple test to verify the usage of the inline header used for HSR with
+> + * ether type ETH_P_1588.
+> + * The inline header has to be stripped, the sent packet must only appear on the
+> + * specified port and the interface needs to accept a foreign HSR header and
+> + * prepend its own header.
 
 [Severity: Low]
+Is this the right description of the has_hsr_header case? The kernel doesn't
+seem to prepend its own header when the caller supplies one:
 
-This isn't a bug, but the subject is "hsr: Assign a socket for cloned
-skbs" and the body says:
-
-  Assign the socket of the original skb to the clone so the timestamp is
-  forwarded to the user.
-
-Should the commit message say that this only covers frames that carry the
-PTP inline header?
-
-The new skb_set_owner_w() only runs when frame->req_tx_port !=
-HSR_PT_NONE. req_tx_port and has_hsr_header are only set in
-hsr_ptp_parse_header(), and only for ETH_P_1588 frames that carry the
-HSR_INLINE_HDR magic:
-
-net/hsr/hsr_device.c:hsr_ptp_parse_header() {
+net/hsr/hsr_forward.c:hsr_forward_do() {
     ...
-	*has_hsr_header = hsr_inline_hdr->has_hsr_header;
-	*req_tx_port = hsr_inline_hdr->req_tx_port;
-	if (*req_tx_port != HSR_PT_SLAVE_A && *req_tx_port != HSR_PT_SLAVE_B)
-		return -EINVAL;
+		/* If this TX frame already has a HSR header then forward the
+		 * frame with it and don't add one.
+		 */
+		if (frame->has_hsr_header && frame->skb_std) {
+			skb = skb_clone(frame->skb_std, GFP_ATOMIC);
+			...
+			goto inject_into_stack;
+		}
     ...
 }
 
-Every other caller of hsr_forward_skb() passes HSR_PT_NONE and false.
-So a normal socket that uses SO_TIMESTAMPING on hsr0 still gets clones
-with skb->sk == NULL.
+hsr_xmit() also skips source address substitution in that case:
 
-The restriction looks deliberate. Without the guard, both slave clones
-share skb_shinfo()->tx_flags, so each would report a timestamp and each
-would charge sk_wmem_alloc. Could the message state the restriction and
-the reason for it?
+	if (frame->port_rcv->type == HSR_PT_MASTER && !frame->has_hsr_header) {
 
->  	if (port->dev->features & NETIF_F_HW_HSR_TAG_INS)
->  		return skb;
->  
-> @@ -582,6 +586,8 @@ static void hsr_forward_do(struct hsr_frame_info *frame)
->  		 */
->  		if (frame->has_hsr_header && frame->skb_std) {
->  			skb = skb_clone(frame->skb_std, GFP_ATOMIC);
-> +			if (skb && frame->skb_std->sk)
-> +				skb_set_owner_w(skb, frame->skb_std->sk);
->  			goto inject_into_stack;
->  		}
+The fwd_hsr checks in raw_recv() match the kernel, not this comment. They
+expect a single HSR tag that carries the caller's own sequence number
+(hsr_seq - 1) and the caller's flipped source MAC.
 
-[Severity: Low]
-
-HSR and PRP devices both use this branch. On a PRP device, does a
-timestamped inline-header frame get the socket only when has_hsr_header
-is set?
-
-hsr_dev_xmit() and hsr_ptp_parse_header() accept the inline header
-without checking hsr->prot_version. On a PRP master with
-has_hsr_header=0, the frame takes this path:
-
-hsr_dev_xmit()
-  hsr_forward_skb()
-    prp_fill_frame_info()
-      handle_std_frame()
-    hsr_forward_do()
-      prp_create_tagged_frame()
-
-prp_create_tagged_frame() never sets skb->sk again:
-
-	} else if (port->dev->features & NETIF_F_HW_HSR_TAG_INS) {
-		return skb_clone(frame->skb_std, GFP_ATOMIC);
-	}
-
-	skb = skb_copy_expand(frame->skb_std, skb_headroom(frame->skb_std),
-			      skb_tailroom(frame->skb_std) + HSR_HLEN,
-			      GFP_ATOMIC);
-	return prp_fill_rct(skb, frame, port);
-
-hsr_forward_skb() then frees the original skb_std. skb_tstamp_tx() has
-no socket to report to, so the TX timestamp is silently dropped.
-
-With has_hsr_header=1 on the same PRP device, prp_fill_frame_info()
-ignores the flag and skb_std is set. That frame takes this patched
-branch and does get the socket.
-
-The commit message says "This does not consider PRP part of the stack".
-The kernel still accepts the inline header on PRP masters, though. Since
-"hsr: Add a magic header for sending PTP packets" it also requires the
-header for ETH_P_1588.
-
-Would it be better to reject the inline header on PRP devices in
-hsr_ptp_parse_header()? Another option is to apply the same ownership
-rule in prp_create_tagged_frame().
-
-The frame->skb_hsr branch at the top of hsr_create_tagged_frame() has a
-similar gap:
-
-	if (frame->skb_hsr) {
-		...
-		return skb_clone(frame->skb_hsr, GFP_ATOMIC);
-	}
-
-This returns a clone without the socket even when req_tx_port !=
-HSR_PT_NONE. One example is an inline-header frame with has_hsr_header=0
-that carries ETH_P_HSR, or ETH_P_PRP on HSRv0.
+Should the comment say that a supplied HSR header is forwarded unchanged, and
+that the device only adds its own header when none was supplied?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-hsr_ptp-v11-0-264c88f4f1d0%40linutronix.de
