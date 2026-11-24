@@ -1,57 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795547249;
-	b=2APqKMlSZUgbi+ityB0uEVLB/pzbCszCj3DyzuTPVcyqdk/xTSaluTteYyAjdhaudXRs
-	 /sLRY3Bdlw8RIToA1iOvhEhdvcg7N0Tan2Fu7VJfo8QW5GKc4Ecxnpt7ek5VTCFrJZQcp
-	 1JD+JrFb6zhA7nyHp1K8ztub8x+MA9bF4L8fX6S36dEKSl4BxJDeJ7i6lXu3ZgqH0idR/
-	 AHRugfvt7zyuQsFkaEqnblnUrjCBkLf/T17IhwN7BfPg3z0+DFrbZyW7YgJHnoPskpi/U
-	 MmZ7dhSNeQK3fr6FFdNeFG9kmQjKSju3u7SsvUD1Spm0Q8gmHqtu1JT7z7HjnUVeNeg==
+	t=1795547245;
+	b=h8ggtq0tJemysG8waQuYzKA/WB4RVrI0JWGlK/rgCy+u7o/tJjjHxu9kytjqlWicWqUM
+	 K8BXfj/RhJ8iZ8o7vNSZ5Zvp4Nq4VDxwlSRRIR6XD5ERWGChKEg4a8sXZxUKvQ8pTn7rb
+	 XE7Knk/T/DsKls3/8uapZvCxUCpUqexbXJ9gMHrG+TZ6ZkCPnNTBFEzInwf8S5JaAiMV2
+	 Rk9MOWx+XRV1AfYmfTZqZAO27+OUEbgL+6TTgbGKbw66po0xi1BGgX81Pq2zs+SvoJ3RA
+	 vpZcQXtiuEP4DTweKLZC9PeGvlY4N4tmm7XOOGKxIBJeOws3KZV/cx+O+zkj538XtkQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795547249;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795547245;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=CJanrJs7yvb1YJUtPV1YKZ7EHe5Q1L9dfnGc1BuHClg=;
-	b=C8mnqFNub6ywr5moZXeMhfQJ8fhKeAJo7XQfmQBSX4yj2jKdKBxNIOxWAQaiD4hIZto/
-	 V7swpiyMm0hmXIAiYzjYlqQNqKcTUhvg6KEXEWzl11EzFwVgXLAn9FqwJaPI5u9sBI3HQ
-	 XrBlyp+Vn3seqSYVmfft6fmggjLkk7WuNe7PNvNRui0hG9HBDZkWR7pPRjPq75t4Um78e
-	 hMTOXg9ipwFpaM2R/MKPw3LM/YjCOjnIalVyWckVaMe7B4J3HqjyMmxTAArIdQMugj+2I
-	 NQA6rk4EuUrp2NleIxcZQtrAL8ieWCuykiGGke945NjNRO23OavyGrft5xsMGiroJ9A==
+	bh=DgGrkzJmFZWQtPibLYb2wzpNsiS5IONW5wJ5P8ZexXg=;
+	b=SUR9Wp9yjvmvVLlsft6tSRRSnt0lSgZEhMMRYK+Frxfnx2mprY/YuPl032shM2qRTTlc
+	 MAxtCfPcGrSPlxok1ICE17y7iaGwZqMCViivuUckJggiaVOIB6isSybG6vJN4iJVkkb6m
+	 EXa23mm4O9eAbutsvDaKqAelopv8DWH3HZnio5wuS75lKQtJATY87cEzaUvB/CuEJoMS5
+	 ppVH4zpDvF5IVub77isZ0e0Gw6XRMuj4cmRGDEqkOsHqMZ+kz+zHPWs8MdcpH5+57Qe3/
+	 EXv4b9V+3Pta5T8j0xeTWDFvpKHJrHp9zN79p2dgj/nytSCn4KP4XykP35TrFfdC8gg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RxaVxQSJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="PQYQDj/+";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FCDB606A33D;
-	Tue, 24 Nov 2026 19:07:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AB70606A31E;
+	Tue, 24 Nov 2026 19:07:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RxaVxQSJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7ACE61F000D3;
-	Tue, 24 Nov 2026 19:07:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQYQDj/+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BC441F000C4;
+	Tue, 24 Nov 2026 19:07:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795547249;
-	bh=CJanrJs7yvb1YJUtPV1YKZ7EHe5Q1L9dfnGc1BuHClg=;
+	s=k20260515; t=1795547244;
+	bh=DgGrkzJmFZWQtPibLYb2wzpNsiS5IONW5wJ5P8ZexXg=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=RxaVxQSJcH6bKP5rkh6k+DOLFTTgJcsY2PWxjpD6tz1wUXzxAJLsDV74+KJ49wu4o
-	 JeXBFzbpq60p2oJA6DqJEfBNYZU2RC4Lt0rQ1yt9RogATf8LkjK3w3p1ZTVhQZjqFw
-	 c1GhKFYPJp3NpsOm+qKWqTbjFhfxVzo7TNOgnT8ba2n2hmsY9FuMojNjvUc8eRwJWW
-	 3E1PbbWdYVThx4fls29o4uE+zASBiF6COJbOa5S5WLb5VPaUGKauptSxBeIQztxyAj
-	 P5EfcfBsTwc2DkduT/YVw7e2K70StKnS/cztH8+xIuvkZEC8S6J7egaIPR5brJjpLG
-	 tl4faJaG5OIrA==
-Subject: Re: [PATCH net-next 2/3] net: mdio: Add Cortina CS7542 bus controller
+	b=PQYQDj/+4pQgYpzPl6xOnSmGkgNxV/ryCOcW3JEXxVs5ZN3SHvDylHc2wwiJoN8Hv
+	 F8D+SFd0uaLbceiilkOyWJestNHyUE/dZWwWmKWNM4H5/QSvlSblwHps021N4vFUIg
+	 2pyOk1/C5NTYJn/bNjK2MGgsCrEVI1xgoTsDgEKqwiTgTGLuk631LED18sAJpXYnzW
+	 SO3C1zHYQu5jtXgCdPd/WZ2JGRksHn1SAWmj1vuiPUpLzOxlN7Jv3rcHENQYVLC3EB
+	 Mt60YFutqCZDXGjfHqDfKK9VezTnOE2gFuDzSPBxEusXsaigCyewh9ASX4evMj2Y6i
+	 56wEP0wJP89nA==
+Subject: Re: [PATCH net v3] net: stmmac: preserve RX checksum capability when
+ offload is disabled
 From: netdev-bot+sashiko@kernel.org
-To: filipp.dunsky@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
- andrew+netdev@lunn.ch, netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Tue, 24 Nov 2026 19:07:28 +0000
-Message-ID: <179554724805.3135.16586449147336941619@kernel.org>
-In-Reply-To: <20261123-b4-cs7542-mdio-v1-2-626d0a0e3b4d@gmail.com>
-References: <20261123-b4-cs7542-mdio-v1-2-626d0a0e3b4d@gmail.com>
+To: james.hilliard1@gmail.com
+Cc: netdev@vger.kernel.org, maxime.chevallier@bootlin.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, peppe.cavallaro@st.com, wens@kernel.org,
+ jernej.skrabec@gmail.com, samuel@sholland.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-sunxi@lists.linux.dev
+Date: Tue, 24 Nov 2026 19:07:22 +0000
+Message-ID: <179554724297.3135.12604093728631257002@kernel.org>
+In-Reply-To: <20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380@gmail.com>
+References: <20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380@gmail.com>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +68,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 2
+Critical: 0 · High: 0 · Medium: 2 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,203 +79,225 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] In drivers/net/mdio/mdio-cs75xx.c, a single transaction
-  timeout can leave the MDIO bus permanently unusable.
-- [Medium] cs75xx_mdio_probe() sets MDIO_CFG_MANUAL while keeping all
-  other firmware CFG bits (lines 105-108).
-- [Low] In drivers/net/mdio/mdio-cs75xx.c, cs75xx_mdio_wait() polls with
-  readl_poll_timeout_atomic() (1 us udelay steps, 10 ms timeout).
-- [Low] In drivers/net/mdio/Kconfig, `config MDIO_CS75XX` is added after
-  both `endmenu` lines (lines 292-293).
+- [Medium] When RXCSUM is wanted but the MAC never accepts the IPC
+  enable, the reset-time reconcile goes through ndo_set_features.
+- [Medium] Toggling RX checksum offload on a running interface
+  (stmmac_set_features() -> stmmac_set_rx_csum()) flips the MAC IPC bit…
+- [Low] The patch changes the stmmac_ops::rx_ipc contract in hwif.h to
+  "Configure RX checksum offload and return whether the checker is…
 
 --
 
-net: mdio: Add Cortina CS7542 bus controller
+net: stmmac: preserve RX checksum capability when offload is disabled
 
-This adds a platform MDIO bus driver for the Cortina CS7542. It does
-Clause 22 reads and writes and keeps the firmware-programmed prescaler
-while it switches the controller to manual mode. Transactions are polled
-with a bounded timeout, and a pending flag makes the driver wait for a
-timed-out frame before it programs the next one.
+This patch keeps the detected RX COE type when the IPC bit reads back as
+clear, and adds an enable argument to the rx_ipc callback. If an enable
+fails, it masks NETIF_F_RXCSUM in feature negotiation until the next MAC
+reset. It also splits stmmac_hw_setup() so open and resume can reconcile
+RX checksum features before RX is started.
 
-> diff --git a/drivers/net/mdio/Kconfig b/drivers/net/mdio/Kconfig
-> index d44278f26fabe..a20fec8058da9 100644
-> --- a/drivers/net/mdio/Kconfig
-> +++ b/drivers/net/mdio/Kconfig
-> @@ -291,3 +291,16 @@ config MDIO_BUS_MUX_MMIOREG
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 2ece7ba9dd73b..d7dd6c5d95d47 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -699,7 +699,7 @@ static void sun8i_dwmac_get_umac_addr(struct mac_device_info *hw,
+>  }
 >  
->  endmenu
->  endmenu
-> +
-> +config MDIO_CS75XX
-> +	tristate "Cortina Systems CS7542 MDIO controller"
-> +	depends on OF_MDIO && HAS_IOMEM
+>  /* caution this function must return non 0 to work */
+> -static int sun8i_dwmac_rx_ipc_enable(struct mac_device_info *hw)
+> +static int sun8i_dwmac_rx_ipc_enable(struct mac_device_info *hw, bool enable)
+>  {
+>  	void __iomem *ioaddr = hw->pcsr;
+>  	u32 v;
 
 [Severity: Low]
-Should this entry go inside the "MDIO controller drivers" menu instead of
-after both endmenu lines?
 
-Where it is now, it falls outside that menu and its "depends on PHYLIB",
-and also outside "MDIO Multiplexers". So it shows up directly under
-"Network device support" in menuconfig. PHYLIB still applies, but only
-indirectly through OF_MDIO.
+The new rx_ipc comment in hwif.h says the callback should "Configure RX
+checksum offload and return whether the checker is enabled". The body
+here still ignores the new enable argument:
 
-The Makefile entry is also added after the mux entries rather than with
-the other controllers:
+sun8i_dwmac_rx_ipc_enable() {
+	...
+	v = readl(ioaddr + EMAC_RX_CTL0);
+	v |= EMAC_RX_DO_CRC;
+	writel(v, ioaddr + EMAC_RX_CTL0);
 
-obj-$(CONFIG_MDIO_CS75XX) += mdio-cs75xx.o
+	return 1;
+}
 
-This Kconfig hunk also leaves a trailing blank line at the end of the file.
+On sun8i, running ethtool -K rx off on a running interface goes through:
 
-Sibling platform controllers (MDIO_AIROHA, MDIO_SUN4I, MDIO_XGENE,
-MDIO_ASPEED) also use "depends on ARCH_xxx || COMPILE_TEST". No ARCH
-symbol for this SoC exists in the tree yet, so that gate can't be copied
-directly.
+stmmac_set_features()
+  stmmac_set_rx_csum(priv, 0)
+    stmmac_rx_ipc(priv, priv->hw, false)
+      sun8i_dwmac_rx_ipc_enable(hw, false)
+
+That call sets EMAC_RX_DO_CRC and reports the checker as enabled. The RX
+path won't mark packets verified, because hw->rx_csum is 0. However, the
+hardware checker stays on.
+
+Should this clear EMAC_RX_DO_CRC when enable is false, so the requested
+setting actually reaches this MAC as the commit message describes? The
+notes below the --- defer the sun8i changes to a separate net-next series,
+and that series isn't in this tree.
 
 [ ... ]
 
-> diff --git a/drivers/net/mdio/mdio-cs75xx.c b/drivers/net/mdio/mdio-cs75xx.c
-> new file mode 100644
-> index 0000000000000..0761d3cefaa4f
-> --- /dev/null
-> +++ b/drivers/net/mdio/mdio-cs75xx.c
-> @@ -0,0 +1,136 @@
-
-[ ... ]
-
-> +static int cs75xx_mdio_wait(struct cs75xx_mdio *priv)
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> index f256244ce0d11..88abac5afa0a3 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> @@ -3727,25 +3727,51 @@ static bool stmmac_tso_channel_permitted(struct stmmac_priv *priv,
+>  	return !(priv->dma_conf.tx_queue[chan].tbs & STMMAC_TBS_AVAIL);
+>  }
+>  
+> +static int stmmac_set_rx_csum(struct stmmac_priv *priv, unsigned int rx_csum)
 > +{
-> +	u32 val;
 > +	int ret;
 > +
-> +	ret = readl_poll_timeout_atomic(priv->base + PER_MDIO_CTRL, val,
-> +					val & MDIO_CTRL_DONE, 1,
-> +				       CS75XX_MDIO_TIMEOUT_US);
-
-[Severity: Low]
-Is the atomic poll variant needed here?
-
-The only path to cs75xx_mdio_wait() is through the bus->read and
-bus->write callbacks, called from __mdiobus_read() and __mdiobus_write().
-Those assert that bus->mdio_lock (a mutex) is held and must not be called
-from interrupt context, so sleeping is allowed here.
-
-On a timeout this spins in udelay() for the full 10 ms while holding the
-mutex. Because of the pending handling in cs75xx_mdio_read() and
-cs75xx_mdio_write(), every later access spins another 10 ms before it
-returns -ETIMEDOUT. A bus scan or phylib polling repeats that.
-
-Most other drivers in drivers/net/mdio/ (aspeed, hisi-femac, ipq4019,
-bcm-unimac, iproc, pic64hpsc) use readl_poll_timeout() or
-read_poll_timeout() instead.
-
-> +	if (!ret) {
-> +		writel(MDIO_CTRL_DONE, priv->base + PER_MDIO_CTRL);
-> +		priv->pending = false;
+> +	if (!rx_csum) {
+> +		WRITE_ONCE(priv->hw->rx_csum, 0);
+> +		stmmac_rx_ipc(priv, priv->hw, false);
+> +		return 0;
 > +	}
-> +	return ret;
-> +}
 > +
-> +static int cs75xx_mdio_read(struct mii_bus *bus, int phy, int reg)
-> +{
-> +	struct cs75xx_mdio *priv = bus->priv;
-> +	int ret;
-> +
-> +	/* A timed-out frame must finish before programming another address. */
-> +	if (priv->pending) {
-> +		ret = cs75xx_mdio_wait(priv);
-> +		if (ret)
-> +			return ret;
+> +	ret = stmmac_rx_ipc(priv, priv->hw, true);
+> +	if (ret <= 0) {
+> +		WRITE_ONCE(priv->hw->rx_csum, 0);
+> +		priv->rx_csum_failed = true;
+> +		return ret ?: -EIO;
 > +	}
-
-[Severity: Medium]
-Can one timeout leave the bus permanently unusable?
-
-priv->pending is set before MDIO_CTRL_START is written.
-cs75xx_mdio_wait() clears it only when it sees MDIO_CTRL_DONE, so after
--ETIMEDOUT it stays true.
-
-Every later cs75xx_mdio_read() or cs75xx_mdio_write() takes this branch
-first. If that wait also times out, the function returns before it
-touches PER_MDIO_ADDR or PER_MDIO_CTRL, so no new frame is ever started.
-
-Nothing else clears pending: there is no bus->reset, no retry limit and
-no controller re-arm. Suppose the controller never reports DONE for the
-timed-out frame (START not latched, frame dropped, MDC stopped). Then every
-access to every PHY on this bus fails with -ETIMEDOUT after a 10 ms spin,
-until the driver is unbound and rebound.
-
-A Clause 22 frame normally takes tens of microseconds, so a 10 ms timeout
-probably means DONE will never arrive. That is exactly the case where
-this guard turns one failure into a permanent one. The hardware
-documentation doesn't say whether a completion can be lost.
-
-The Kconfig help text says:
-
-  Transactions use bounded polling and recover from late completion.
-
-That covers a completion that arrives late, but there doesn't seem to be
-any recovery when it never arrives. cs75xx_mdio_write() has the same
-pre-wait. The other patches in the series (dt-bindings and MAINTAINERS)
-don't touch the driver, so this is still present at the end of the
-series.
-
-> +	writel(MDIO_CTRL_DONE, priv->base + PER_MDIO_CTRL);
-> +	writel(MDIO_ADDR_READ | FIELD_PREP(MDIO_ADDR_REG, reg) |
-> +	       FIELD_PREP(MDIO_ADDR_PHY, phy), priv->base + PER_MDIO_ADDR);
-> +	priv->pending = true;
-> +	writel(MDIO_CTRL_START, priv->base + PER_MDIO_CTRL);
-> +	ret = cs75xx_mdio_wait(priv);
-> +	if (ret)
-> +		return ret;
-> +	return readl(priv->base + PER_MDIO_RDDATA) & 0xffff;
+> +
+> +	WRITE_ONCE(priv->hw->rx_csum, rx_csum);
+> +	return 0;
 > +}
 
-[ ... ]
-
-> +static int cs75xx_mdio_probe(struct platform_device *pdev)
-> +{
-
-[ ... ]
-
-> +	cfg = readl(priv->base + PER_MDIO_CFG);
-> +	/* The firmware configures the MDC rate; retain its prescaler. */
-> +	cfg |= MDIO_CFG_MANUAL;
-> +	writel(cfg, priv->base + PER_MDIO_CFG);
-> +	writel(MDIO_CTRL_DONE, priv->base + PER_MDIO_CTRL);
-
 [Severity: Medium]
-What happens if a frame is still in flight when probe runs?
 
-Probe sets MDIO_CFG_MANUAL and clears DONE once. It leaves priv->pending
-at its zero-initialized false and never checks that the controller is
-idle.
+Does this fully handle the running interface case? stmmac_set_features()
+calls this under RTNL only, while RX DMA and NAPI keep running. Nothing
+quiesces or drains the RX ring around the IPC toggle.
 
-A frame could still be outstanding in two cases:
+On enable, once the readback succeeds and rx_csum is published, the next
+stmmac_rx() poll takes a single snapshot:
 
-  - a firmware-driven or non-manual mode, which MDIO_CFG_MANUAL implies
-    exists
-  - a previous driver instance that was unbound after a timeout
+	int coe = READ_ONCE(priv->hw->rx_csum);
 
-The first cs75xx_mdio_read() then skips the drain step. Suppose the old
-frame completes after the DONE clear at the top of cs75xx_mdio_read() but
-before the poll. readl_poll_timeout_atomic() would then see the old
-frame's DONE, and the function would return that frame's PER_MDIO_RDDATA
-as the value for the new phy/reg.
+That snapshot is then applied to descriptors that were written back
+while IPC was still off. Those descriptors don't carry csum_none. For
+example, dwmac4_wrback_get_rx_status() only sets csum_none on
+RDES1_IP_HDR_ERROR or RDES1_IP_PAYLOAD_ERROR. RDES1_IP_CSUM_BYPASSED
+only increments a counter. So stmmac_rx() reaches:
 
-That could give a wrong PHY ID during the of_mdiobus_register() scan, or
-a wrong BMSR value.
+		if (unlikely(!coe) || !stmmac_has_ip_ethertype(skb) ||
+		    (status & csum_none))
+			skb_checksum_none_assert(skb);
+		else
+			skb->ip_summed = CHECKSUM_UNNECESSARY;
+
+Can this mark frames that the checker never examined as
+CHECKSUM_UNNECESSARY?
+
+On disable, a poll that already cached a non-zero coe keeps marking
+frames as verified after IPC is cleared, up to the NAPI budget.
+stmmac_dispatch_skb_zc() has the same per-call snapshot.
+
+On Type-1 COE cores, enh_desc_get_rx_frame_len() subtracts 2 bytes based
+on the current software coe, not on the IPC state when the frame
+arrived. stmmac_rx_buf1_len() and stmmac_rx_buf2_len() also re-read
+rx_csum for each descriptor. Could frames in flight across a toggle end
+up with lengths that are off by 2 bytes?
 
 The commit message says:
 
-  After a timeout, wait for the outstanding frame before programming
-  another address so a late completion cannot be mistaken for the next
-  transaction.
+  Check the result of an enable before allowing RX to mark packets
+  CHECKSUM_UNNECESSARY, including when the checker is first enabled on a
+  running interface.
 
-Should probe also make sure the controller is idle, so the first
-transaction after probe gets the same protection?
+A similar window existed before this patch. It was wider, because
+rx_csum was published before IPC was written. The patch only orders the
+register write against the flag update.
+
+Would RX or NAPI need to be quiesced around the toggle for the statement
+above to hold?
+
+> +
+> +/* Recheck the wanted features if this reset clears or uncovers a failure. */
+> +static bool stmmac_init_rx_csum(struct net_device *dev)
+> +{
+> +	struct stmmac_priv *priv = netdev_priv(dev);
+> +	bool was_failed = priv->rx_csum_failed;
+> +	unsigned int rx_csum;
+> +
+> +	priv->rx_csum_failed = false;
+> +	rx_csum = dev->features & NETIF_F_RXCSUM ? priv->plat->rx_coe : 0;
+> +	if (stmmac_set_rx_csum(priv, rx_csum))
+> +		netdev_warn(dev, "RX IPC Checksum Offload disabled\n");
+> +
+> +	return was_failed || priv->rx_csum_failed;
+> +}
+
+[Severity: Medium]
+
+What happens on later resets if the MAC never accepts the IPC enable
+while NETIF_F_RXCSUM stays in wanted_features?
+
+On the first open:
+
+__stmmac_open()
+  stmmac_init_rx_csum()
+    stmmac_set_rx_csum(priv, rx_coe) fails, rx_csum_failed = true
+  netdev_update_features()
+    stmmac_fix_features() masks NETIF_F_RXCSUM out of dev->features
+
+On the next open, MTU reopen or resume:
+
+__stmmac_open() or stmmac_resume()
+  stmmac_init_rx_csum()
+    rx_csum_failed = false
+    rx_csum is taken from dev->features, which no longer has RXCSUM
+    stmmac_set_rx_csum(priv, 0) succeeds
+    returns true because was_failed was set
+  netdev_update_features()
+    stmmac_fix_features() no longer masks NETIF_F_RXCSUM
+    stmmac_set_features() with RXCSUM on, netif_running() is true
+      stmmac_set_rx_csum(priv, rx_coe) fails again, returns -EIO
+    __netdev_update_features() logs "set_features() failed (-5) ..."
+    and returns -1, so netdev_features_change() fires
+
+netif_running() is true here because __LINK_STATE_START is set before
+ndo_open, and stmmac_resume() only gets this far when the interface is
+running.
+
+Is it intended that every later open, MTU reopen and resume prints this
+core netdev_err and sends a NETDEV_FEAT_CHANGE notification? The
+driver's own "RX IPC Checksum Offload disabled" warning is not printed
+again on those resets.
+
+There is a related problem in stmmac_set_features() when a live enable
+fails:
+
+	if (running && rx_csum != priv->hw->rx_csum) {
+		ret = stmmac_set_rx_csum(priv, rx_csum);
+		if (ret)
+			return ret;
+	}
+
+This returns before hw_vlan_en is updated and before
+stmmac_set_hw_vlan_mode() is called, so the core rejects the whole
+request. With a command like "ethtool -K eth0 rx on rxvlan off", is the
+VLAN stripping change dropped for that request?
+
+The commit message says:
+
+  This leaves unrelated changes, such as VLAN stripping, available even
+  when RXCSUM is still requested.
+
+The v3 notes also say "Keep a failed enable from blocking unrelated
+feature changes". That only seems to hold for later requests, not for
+the request in which the enable fails.
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-submit-stmmac-rx-checksum-capability-v1-v3-1-e9e1fd85f380%40gmail.com
