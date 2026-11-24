@@ -1,95 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795510692;
-	b=ZxiEZGWLChv9rkqYibWvA5G+VIGDbuETA0OSkST43rkrCk1B6g1y14WOgkQqOFmQ0XHi
-	 DAVjgW4+7V12RqYp96eUET06jnxXfOP8wZjncskASAG8v0lRbSVaBbnpJJW+KX1goKxE7
-	 9GGkfY2A7G1D09lJC0KMyac5PjW7sLBbfbcvCZo35XtSTb3urxwNWIm/txX83tWnW8Ldm
-	 VNzlsD+cwjO5XfxwcDZmFcjSPydcXcu4ii7GoF++VqabykxHkyKW5/4D95IxzhM6BEZ0v
-	 qaoS3VbHdAOx/da9MAh8JPU0sSAMsI+ldE3B8CcX+MgtSuKhdqIPFObNRsUs+PFmI5A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510692;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.16
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795510761;
+	b=YoBOFkR0dOCcJ3Zca2HdL90SN+0eCx2tUry2N+uv4XE6ZgDySDZ/x7XWQTx9aCNbgULa
+	 Qls9OX3rPJULYKM/jZ6ALeNHhfgYblK8WdIepIbzVB2nQRuQ/G6t4tdoZHVei8flSLcVn
+	 PnKUIoX/hZu+Mg4F2bLix93UdKSx/V9rnM/BLYNHbX9/k2QNQOSsJRzCE4SvCnNfmXqDl
+	 Yv4rU1uFnvXGVXwh80GuGkeZuKm3N6NheqT5H+S+7c0D2RvY3rfb28AbG+OEQ0dIEZW5t
+	 Wbzno0SPidrxeGcPnAYUXYZvWuXEvjSh0AASm0x3yHu6J+MrialZznfpxuknJ5bv26A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510761;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=sfW2tbmWaZxyyxEoA1wluudOlezM1GvW473v8XzFwrY=;
-	b=5e7aqs3fCredezDQ+Br2DMglu5ZRgkzuQMmiec6pSSghh57zT1lkOOO13wEyRWp02DfQ
-	 wHatazOyAECRfiA5VM7afA3d8TxZZ3Bwb3DSIzuJ10A1n2CYnckjy7Lt4w0/3Aj/CTiTY
-	 aGMGCK1+lPae0CqRLMVh6VNSYsp4Ha6mueN7o8kFdrkL4s9iD9ltZrhRODaRLUqTfjvC5
-	 1dZvkcT1p/d2gl6mbWL2n/bJrVNnTsk6H/by7ODP0yVFBwR8apsp3Ma75GBcEF1TgCTZD
-	 2iKMQo7SxjlG2wzPE1WDwaamg2+tSr7Ddhqv69slJVCsOlp4t+m1rapMwBOJEPFfbaw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pengutronix.de;
-	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=gxUwHuuI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	bh=cvD88Dpew8SVgiv7VcJ/DUMXSWbUpGirQIgCbhBQH3c=;
+	b=0GW1j5h2A/Y/dk4eBHfgexfaYT8kapnDr0iBFkZkNTVUpQVRT2flxcIReW5HaIW4Vqb+
+	 CESmdTSnuDGy30S/NHOIfyDv9I1NtRqnxjg4VwNpy9yqq00LIaunrTkHCEud9vAqkMp97
+	 y+NMzyXqrPaXBazhLVvxPHy1De36ksxIbu4e0+IuKi4qy6kBAX+fuzGrjhfIM1wpJgB7a
+	 7xayLy2MeeHKKvJgPTg2d3WGEn5sXgfsYnp7yprEF67qbXWWYsHLFd1+dx9jX4SI6mIzN
+	 2+hoOYwLMPnrAOg3wgxTUcPoFb5aYscsytXLnpilexLV0EjH6/ccpX/mJkmMg2u9WoQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=mr2vrmtnaff5xnycedqfvl3d34.protonmail2 header.b="N7WYfqm/";
+	arc=none smtp.remote-ip=185.70.43.16
+Received: from mail-4316.protonmail.ch (mail-4316.protonmail.ch [185.70.43.16])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7640060A260F;
-	Tue, 24 Nov 2026 08:58:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7640060A260F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 274C6606A322;
+	Tue, 24 Nov 2026 08:59:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 274C6606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=gxUwHuuI
-Received: from pengutronix.de (p20030102af17cb00d2e697ee776c6466.dip0.t-ipconnect.de [IPv6:2003:102:af17:cb00:d2e6:97ee:776c:6466])
-	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id EE949205A2F;
-	Tue, 24 Nov 2026 09:58:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sfW2tbmWaZxyyxEoA1wluudOlezM1GvW473v8XzFwrY=;
-	b=gxUwHuuIQjXpzBbnK7dEC4y9ET/0t264+tkISBXjGvhmDQS3ha69GganwgZ9q4QE7DMkav
-	fJHB/bmzE4nMqlxdHiLi3RZgaImWQEk+MdpDoArdHmLMBxESixXK/iqFAnS1ju0+MEA9lp
-	+H7Saa6VAX2xCuRenDFneKgg/wXNWsasSkDfj/0OEAvyazU0j5/QWl/OVnxCmQMYerqyXK
-	vIQ3IpKDMOVExOj/guAy+ouaLBmGzAEScmJ7HGn45AAAFMhwZ/+rizu8ovUw21eg8wh7SA
-	ByJowxES5qZNaoEy5GvmDtzG4GrB3FNJ24IRL3PqP4P/0Wp4ivN5T0G9WT6YAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510688;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=sfW2tbmWaZxyyxEoA1wluudOlezM1GvW473v8XzFwrY=;
-	b=LLV+lGfc0qFGaK89XW4KRoFqjUAnFAUxSgwGD5GCWENHxBDPOvk3fsxAsK4ZjIWuegimgl
-	slOev00Z8czo/2FTesp8p8GtaXj1IjBMdGhSgmdrRAnmyLOZF+MiqGMk5SyjzIufxxJu71
-	hoIDd9y+2ahad2LYIs449FM9tvyzt1LEV/lGhSzHHUh6bb++tOYjk6m4ebBmLJUDkWeAUw
-	5wZ+GHgvHzQn7byrnoslk0FgoA2ybDW+6icfdaL4ShOzViao4T87OEeIvxdVzzj7HUsy+8
-	gwmX7QY19qWNFGXfKKwufRMc80P8ErC2cud9M+AJxdodXjOGPXBvY/tERvpKww==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510688; a=rsa-sha256;
-	cv=none;
-	b=IYunNs0FVJugs65FXGx52CsvWwaFdHi5IYxnu3qtZc87s8P0eEZNbC5Luc8pyFrUMkAgOz
-	qAVQL9BSNlUtAX46cm1F/IgbdbiuFfJR4gLqBhccRtt2snBo2F5G6eAoGZowc1sh41REyp
-	j3xvjwqRBfKipFEgj2+n0YsZOu2MvcjH7EFg1FHENJ54LQr54xptod04bhZVzbmR/yNo/V
-	1dMTgykNYhU/dFKl4Znwe5nxfifm+23yNi/YnD7jl6GoICD2/Jc87bANIhtuMKkaBP57qv
-	nBORz3Q9pBKfkFM/+umdHMXX9mck2vzRliQVtYC9kZKbnLqM25p6Ujoe/oah9Q==
-From: Marc Kleine-Budde <mkl@pengutronix.de>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	linux-can@vger.kernel.org,
-	kernel@pengutronix.de,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig=20=28The=20Capable=20Hub=29?= <u.kleine-koenig@baylibre.com>,
-	stable@vger.kernel.org,
-	Vincent Mailhol <mailhol@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Marc Kleine-Budde <mkl@pengutronix.de>,
-	linux-kernel@vger.kernel.org,
-	Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Subject: [PATCH net 12/12] can: flexcan: Fix probing for m68k/coldfire
-Date: Tue, 24 Nov 2026 09:51:39 +0100
-Message-ID: <20261124085757.1093632-13-mkl@pengutronix.de>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261124085757.1093632-1-mkl@pengutronix.de>
-References: <20261124085757.1093632-1-mkl@pengutronix.de>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=mr2vrmtnaff5xnycedqfvl3d34.protonmail2 header.b=N7WYfqm/
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=mr2vrmtnaff5xnycedqfvl3d34.protonmail2; t=1795510758;
+	x=1795769958; bh=cvD88Dpew8SVgiv7VcJ/DUMXSWbUpGirQIgCbhBQH3c=;
+	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
+	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
+	b=N7WYfqm/1lxMWASa2LEgxlIPJ98H89+IfFp+c9JNemTadYZRCUs1PXYbgH8WdT6Qh
+	 IARqvzGLcAqlKChdSga/XV8/Ixc/1u53fmZHQt0tK8PD3tB+bEnk6JDvqm53Lm6+Jh
+	 a0F1s+5cxtbbs+KEe1DRcaTc5rzYxqqhgpo6jsqs7wk7qCNp1R3Vi0wP/HF4AIQJ+D
+	 77EKN4u5HevdLoGMfdluQ0+8I8BP3ueypo4C45H7AP0UZBvaAmV7f7PRmpGrU+mk9A
+	 +ruWYiSyKzLcpyQtfd1XcPY28an35i3YjSYyykGw+mFmX6zUymQ9hgMjMY4n72axco
+	 Blrdh3P9rnbAQ==
+Date: Tue, 24 Nov 2026 08:59:12 +0000
+To: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com
+From: Lee Keon-Hyeong <leegun25@proton.me>
+Cc: linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+Subject: [PATCH net v2 1/2] mac802154: free a replaced child
+Message-ID: <20261124085905.710751-1-leegun25@proton.me>
+Feedback-ID: 167971190:user:proton
+X-Pm-Message-ID: f8386f8f6079089f21f416f011df4b4613755928
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,71 +61,56 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-From: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
+When an associated child retransmits an ASSOC REQ, the coordinator
+removes the old entry from the list but never frees it.  It also
+increments wpan_dev->nchildren even though the number of children
+has not changed.
 
-When determining the device details was reworked in commit 5e6c3454b405
-("net: can: Use device_get_match_data()") there was no replacement for
-the previous handling of non-of instantiated devices via the device's
-id_entry which then results in a NULL pointer exception. The only
-in-tree provider of such a device is arch/m68k/coldfire/device.c.
+Free the old entry and increment nchildren only when adding a new child.
 
-Given the id_table only contains a single entry just hardcode the result
-of `platform_get_device_id(pdev)->driver_data` and drop the unused
-assignment to .driver_data from the table.
+With alloc_addr=3D0 the lookup in cfg802154_device_is_child() matches:
+300 retransmissions from one peer leak 300 kmalloc-32 objects and make
+the association table look full.
 
-While touching the id table, drop the unusual comma after the terminator
-entry.
+I found this during an LLM-assisted code review and reproduced it with
+mac802154_hwsim.
 
-Fixes: 5e6c3454b405 ("net: can: Use device_get_match_data()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Uwe Kleine-König (The Capable Hub) <u.kleine-koenig@baylibre.com>
-Link: https://patch.msgid.link/20260618140147.142489-2-u.kleine-koenig@baylibre.com
-Cc: Vincent Mailhol <mailhol@kernel.org>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>
-Cc: linux-can@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org
-Cc: Jean-Michel Hautbois <jeanmichel.hautbois@yoseli.org>
-Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
+After 501 retransmissions, the kmalloc-32 object count stayed at 840
+with the series applied.  On the unpatched kernel it rose from 780 to
+1260.  Kernel selftests were not run.
+
+Fixes: 601f160b61b2 ("mac802154: Handle association requests from peers")
+Signed-off-by: Lee Keon-Hyeong <leegun25@proton.me>
 ---
- drivers/net/can/flexcan/flexcan-core.c | 12 ++++++++++--
- 1 file changed, 10 insertions(+), 2 deletions(-)
+v2: Drop the added comment and move the lookup fix to patch 2/2.
+v1: https://lore.kernel.org/r/20261121133101.240921-1-leegun25@proton.me
 
-diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-index 86b40abe9e76..e9b822678213 100644
---- a/drivers/net/can/flexcan/flexcan-core.c
-+++ b/drivers/net/can/flexcan/flexcan-core.c
-@@ -2077,10 +2077,9 @@ MODULE_DEVICE_TABLE(of, flexcan_of_match);
- static const struct platform_device_id flexcan_id_table[] = {
- 	{
- 		.name = "flexcan-mcf5441x",
--		.driver_data = (kernel_ulong_t)&fsl_mcf5441x_devtype_data,
- 	}, {
- 		/* sentinel */
--	},
-+	}
- };
- MODULE_DEVICE_TABLE(platform, flexcan_id_table);
- 
-@@ -2148,6 +2147,15 @@ static int flexcan_probe(struct platform_device *pdev)
- 		return PTR_ERR(regs);
- 
- 	devtype_data = device_get_match_data(&pdev->dev);
-+	if (!devtype_data)
-+		/*
-+		 * If the device was instantiated via the traditional platform
-+		 * mechanisms (i.e. not by device tree), device_get_match_data()
-+		 * returns NULL. The only remaining such device is mcf_flexcan0
-+		 * (defined in arch/m68k/coldfire/device.c). Pick the right
-+		 * device type for that.
-+		 */
-+		devtype_data = &fsl_mcf5441x_devtype_data;
- 
- 	if ((devtype_data->quirks & FLEXCAN_QUIRK_SUPPORT_FD) &&
- 	    !((devtype_data->quirks &
--- 
-2.53.0
+ net/mac802154/scan.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/net/mac802154/scan.c b/net/mac802154/scan.c
+index d393b1f4e74e..943641702646 100644
+--- a/net/mac802154/scan.c
++++ b/net/mac802154/scan.c
+@@ -888,10 +888,12 @@ int mac802154_process_association_req(struct ieee8021=
+54_sub_if_data *sdata,
+ =09=09dev_dbg(&sdata->dev->dev,
+ =09=09=09"Child %8phC was already known\n", &ceaddr);
+ =09=09list_del(&exchild->node);
++=09=09kfree(exchild);
++=09} else {
++=09=09wpan_dev->nchildren++;
+ =09}
+=20
+ =09list_add(&child->node, &wpan_dev->children);
+-=09wpan_dev->nchildren++;
+=20
+ unlock:
+ =09mutex_unlock(&wpan_dev->association_lock);
+--=20
+2.56.0
+
 
