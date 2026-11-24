@@ -1,102 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.170
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532922;
-	b=oV4+69vmxY1ncRd15erPs71VRXW6aGyTeMEl/CXHkrfXibzn0DgVGdCj7JFt5ef7pdu6
-	 B0HV//7kfnTXaZj59NxWWvxf6lreSnKegPZO5kzBLf2vElAcSXhG9yPBeO4VktFztcLWM
-	 NKkR8pTbNJmKeMCjP+CKvg6nnjnjr7jqdJV4iPVSpK3d2MF0FwTfTUlhpEW7VIBPXdFQE
-	 kKYt9KstV738UPmstpCG9I74maFTzLrXsq3frK0X7zht1cIg1OXQZEp3YDTp8GR8w4YpX
-	 2Q1yCpXBRXuw7DO02sVYYwUYdY9si5ZpB8+FKlIsPxXvl05uOpDh76BMwPFhXWWCMyg==
+	t=1795532950;
+	b=21UBOQ8OPMC9tCwvnC8sOt3eFpDubynllUJ4yp3H09uB4R+FfKVIu5BPEKscNbS3FROD
+	 le48DfS84EDozOwlSE7OLlbxRQy4BTDyPeA8ZO+SkerEQkJVB0yP25uGL/zrVpDAKWTR8
+	 vQE4U6+V+tQ3P3AQ7Cw/jKJ6PuBLL1z9KtgF1FTg+e1nzQYWGxaS97598wN4929dmpD0n
+	 QzAePvbtrjIxdMp1COoRUGV1NHrtPLPT1gBYl0iKf7jWtB05hISgwCVaULHP9O1WpTbqK
+	 /DQEnLuNRj7IHf9h47CC41cphAB6cxrLocS1nrS73GAgYTzK42uNKWogrsD4kPeHeqA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532922;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532950;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=reEA74XZwlnOotKR58gA6rmFKPKX5xL4fy8QD9BPNy4=;
-	b=K8riJP8PmPFIKectwKRRV0bqbKt9YJRoBk+JGUA6+u1s6VFQLbPWOweeNidvwkjAXGPm
-	 aGdO6/3AMLQMV1PXol3ix6LeaqAjvyAasYlQfvyoIoJnvHRn4zhA9zJRT2vqsi9o54riA
-	 /7pkn7ol/3U6WPRXnGwlL9MSB9a3wQpcilBTYQODUwMsez+oGCwC39iSQd9z2eJaUrgDJ
-	 p873zpHiO3SCn6kj+i7EgmEo8wW0XtubbSEAedY9/rvOHj0y/MH01ywkvxeZCxhCLUu2F
-	 2hXJ3M4ApW0TKn2bDBOjYrbQ5Zz1WmKz9O6UpROIr+rLGl0/Axi/wu5S4SBlMwVHdkg==
+	bh=PY9hbO0H3/9Weo+ZvlM781HxAXOkUPjKw95mENwVI2g=;
+	b=Q6EEZwIATwLC7XqzaETAUfkMEqaUxSfdIEVHj2vfec81yM9jPziHB5f9YlDGQJ2Kf1H4
+	 Zs6owtr4slcdX8lzh8Kh442TkGLIMsiO8Ofa89b3k+mKJgjGKwWILDxYWOpStXsftuGXG
+	 5tK7VsLP4wRLHCYQgXV8y23VCPF6j/BiQ3JMR+FjyhJqCLa8JldWo1wpYRKAB23LjEzlG
+	 fJ4OHux/ZjTzfEnS3hsTXC9t5Nkpg02H+oUPXFAbLEqYXSEZTGPLiPA+FGiQr87v+jhxi
+	 xvK+YTGnyC1z+0apE3F+5aHvI0elKvbEFOpveo51Ii/6njXAApDmFTfGlFDtZJVQrhA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YuEQ6pEw;
-	arc=none smtp.remote-ip=74.125.82.170
-Received: from mail-dy1-f170.google.com (mail-dy1-f170.google.com [74.125.82.170])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=scRf2kPO;
+	arc=none smtp.remote-ip=74.125.229.135
+Received: from mail-dl2-f7.google.com (mail-dl2-f7.google.com [74.125.229.135])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E5B16606A327
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:08:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E5B16606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC3EA606A323
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:09:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC3EA606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YuEQ6pEw
-Received: by mail-dy1-f170.google.com with SMTP id 5a478bee46e88-3863db981d4so6375508eec.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:08:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=scRf2kPO
+Received: by mail-dl2-f7.google.com with SMTP id a92af1059eb24-13985f8229aso3805501c88.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:09:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795532921; x=1796137721; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=reEA74XZwlnOotKR58gA6rmFKPKX5xL4fy8QD9BPNy4=;
-        b=YuEQ6pEwoRuqaFxdKJIp6/MdJx2ZXKUzM0MNo8iEk0Teg17Gh7n4kb1tMUptOFiREA
-         9oeeQHwujEMxH0TPai1mD1U7HIVzkbn48d3QDKd4sK1Ef0/TzT3RBnM3tfg2awUSFoM+
-         IRB8HBBuIE8PYZVWZdiJ7JrVT6MSXrXhb9r4tnp3ObK+jvEG0Iq1C1tZGhL44MO/av/e
-         V+KcxuwDwgsrTkJG/z5TfBhDgOl4FOwQiRD82CeDRFYC4fB60vXyr+SF20kbI23zV/QW
-         ds3DnIEq2TC9nzOC4mSDu9K0B9Md0wdoB7ya0s9Y/QRGhhiI7byauyG/+xVks8EkcTOB
-         NylA==
+        d=gmail.com; s=20260707; t=1795532948; x=1796137748; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=PY9hbO0H3/9Weo+ZvlM781HxAXOkUPjKw95mENwVI2g=;
+        b=scRf2kPO5CX1dswZDhU4WN+rGAOiiYWyt3ugXdL86J8eESEPjTPE7HcffnpwOx/pAx
+         kicP64H82kSNkbY6vrCH5lzcB1PUzc+s7dsS+/bbA3AJmf2jIfQoD+0QP7uE9Oko4Wx7
+         jr/PNrbO8gpTbEni80+wTERIGzfbYScwUF70lAGxPPaN1qXLdkf6xhmPx4c2dyRArfaz
+         SwpWZk7yHMoYJ1Ewt+TSKgy0gWQSKVtfnOhFJOSvvcrYsEm7yO8bHO/vqGSsVU+pVlEz
+         Kht6GstcSDvQIv4YGY4v5yDxbj4N+t7w6rrpLLk3qObf9J/nyntXdS1j/K6sCF40jKyr
+         0mzw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795532921; x=1796137721;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=reEA74XZwlnOotKR58gA6rmFKPKX5xL4fy8QD9BPNy4=;
-        b=d8kZ9zNJPd6eNYxs2QZsHbuKpPbB3BXBwhtlOjO1bOHH2ZJCtojdj9z8FTRbX190X/
-         T7xrw96rA41tY8cLK1GFcitNiLtU/LamXaEXUg51iwM2FqaaRv/4NlTQkP3Pa+cfRxcm
-         E3w5nOoov/c8xqzWeb3c0Ol7yT9OTs7qcf0lBIEVeSQ5iYgsBPrCou2BE40LTpT5aTn5
-         DgRXaAf48zoIdvwnScZbiW4tYqlz45w+WTr+dV8vI8BMG+r0E/YsRViNY93t88swe/qA
-         7rLkiobPmLuHHc9AExvoDnPNvOSEk6WTvrarBPPq3njeHM3ekmskezPutQakad2VSpTd
-         nYgA==
-X-Gm-Message-State: APuU4Z+JQ91ngeNB8+/u/Cgl5MgE85TfwJw4PB4ONzOkP68hMenKN/Hm
-	Tj5CcOfJBtjE8BSHKuZI/x+E5X4kzsXhcx1ayc6O3SMKLvOujJFnmJxnVjAVh8no+Xo=
-X-Gm-Gg: AZFdTZdEudI/bAG+An5KqMyN9m43Rr/YOMymL3sNNf36vdLRA8zehe/P7ti3+tFOcmW
-	cw+B3tTTYRqInqk3+P0n27BZGh1/BjkbJQZQSVjCzfc9r8K2IP+SsokzrOUg1DlinsuS6sVrCRb
-	e5bp/s4Dl/Im5uoKYkQnrzITlc5KzBgz+PVUNPG2Fhv3HLd5WlQV9N1D0E1Ilk4k92FiXRYVMyX
-	rOC/NM/UE6AKEXITCAa41RRjE31h2OyMyqz6aLZSNuvzw9yTb9uCtH6l4sVXEqpqBA8Fd/HPYq3
-	R+q7Vw+kMnA4anBY9G5RBrJhgn0Jr0xpNZkFk9KyjZPYfPLkdBHahF1DO/zZNuS4UYjqPoHRU3D
-	FpE9H19w2Asfch7Ul58EBmi+40hgTtq4V8mN9Q3Kiqy6eY5d4PWtlU0Us33fkzV9+Y/4Rs8i+Pt
-	zNpWmTZsmbgfrueTxeCFK/webLla/PijnXoSKC0rBy70CtB1+11GS4jIZrBYzOKWYV9C7oq7UDH
-	FRbfwIPciVbsVzZ+be0rIrsOuLwHt+aPCiBkUy5eNPU2S2eLCZ1oJDS2ZcQyuVt6NzT8x273F7O
-	8sVEeXWSHfs5gmRJmObe2NQSvcVcI51GP5/3FSmU1o5VYTCc3UbFxjEufQrO
-X-Received: by 2002:a05:7301:6408:b0:36a:270:ce76 with SMTP id 5a478bee46e88-38570f2b27dmr15845090eec.33.1795532920671;
-        Tue, 24 Nov 2026 07:08:40 -0800 (PST)
-Received: from houminxi ([61.170.225.237])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm3964123eec.17.2026.11.24.07.08.36
+        d=1e100.net; s=20260707; t=1795532948; x=1796137748;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=PY9hbO0H3/9Weo+ZvlM781HxAXOkUPjKw95mENwVI2g=;
+        b=ifdmklHspolmJVkrFqP3GQDM4NP+cwbWoPc/ce3bsdDn1wMCkoJJVcEw2fQlxUevXg
+         hWQQMFG66Gtoz+kHjFHFQ6cAr/713iV5xNvUQ5+LmY77HJTipwqlOWzDGNVD+cSrFC1t
+         IWPxAdQQvnFgsV1NlLn7e1ngXlUgvptgXCxQnZK83XSPkxKCsFHMGkAeEMkIVLpNKg+h
+         dQprreElkHqb4buHuqmeBp3LgtsTBjjEMobkhWpBlCk+q98jeu7eTqhbnB9vNV0DqB5W
+         1ztR7+IDzOX8k0UiHPF7G5KqcIlYIBAIP3+dJiPHh6COHCr8yLwG50XdDnfTsz0YfJC7
+         skfg==
+X-Forwarded-Encrypted: i=1; AL+hErH+ynQs/3OoJrN6Yvp6fODD7/cIzpfjqd/o/XE84iH4FVgHes6k5+wbGVvn1ZiT5Tyi6B8u+sE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+tLuD9/6a6S5jaeqB27twQHgfJzp/o9cIHTijTRFSHLDih+1m9
+	qVnCdmAxgG4cgUS9TFxk0t0wyGDWi3hicFKLiFu4sDsCZe3j1dMlr64=
+X-Gm-Gg: AZFdTZdoKDjxuBDZmAzH/8zGtxkOja42rQ5hwfG4gV2aSebKpsg+dWASoclPcVsKmZL
+	UN4mqMlhg2YP1kXCQ3UoROS7upE9ODg7WsWOH6jh+LWb89Dng48xarb7g0oFm53CF+BelM3NMQ7
+	xQFwlDiXO0sL3CCga2SHorCk5CSI6ntWXLzIMrRkAwvnFDeJuF/pz6Ol4a0T2BhOCMvJ8qOjVJD
+	96QZz0XbVUTZJ75//7sHDu1dY46NP2RiAzYgt9i8E8GbZI/Yd5Pyzo7BrF5xnkbjkQo0zHCdlHU
+	LsCqyPFtTlCsNlGywMXY/VTWwZF4/66Srb2QU6nnGMFbyCrFwON0UBo+olnrnINYjoKzfTgTx3b
+	b63AyTzn80d/uuWqbjY18YXRQvdCrO82NJNb1GdLWGohYHmi7IKR4M9HG5O7QxD5un7f/64lRV2
+	eLbiX8bmGlT2oxi3UmASzQRWhZ8oCphIJrt4mucegnbDlBvev7Xs37GYwDe8ntVDsFfG6RejyAt
+	71thoh1VUSLnuS5M6HHXmGHZyXCavrWauq2vHi+BPRViXT5yO1zEC2KVb3G1UHleIN5bGcB5GG4
+	BkByBOavviLHGqxQT5tqcQ1JEQ==
+X-Received: by 2002:a05:701b:2096:10b0:151:2e62:fe5b with SMTP id a92af1059eb24-1b5568eb642mr16907521c88.22.1795532947433;
+        Tue, 24 Nov 2026 07:09:07 -0800 (PST)
+Received: from localhost ([2a09:bac1:36c0:1f38::1c5:14c])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567e2bd1sm34675941c88.3.2026.11.24.07.09.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 07:08:40 -0800 (PST)
-From: Minxi Hou <houminxi@gmail.com>
-To: netdev@vger.kernel.org
-Cc: dev@openvswitch.org,
-	aconole@redhat.com,
-	echaudro@redhat.com,
-	i.maximets@ovn.org,
-	davem@davemloft.net,
-	edumazet@google.com,
+        Tue, 24 Nov 2026 07:09:06 -0800 (PST)
+From: Murali Krishna <muralikrishna2444b@gmail.com>
+To: mani@kernel.org,
+	shuah@kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
 	horms@kernel.org,
-	matttbe@kernel.org,
-	shuah@kernel.org,
-	netdev-bot+sinfo@kernel.org
-Subject: Re: [PATCH net v6 0/3] net: openvswitch: fix a feature leak on a failed change
-Date: Tue, 24 Nov 2026 10:08:25 -0500
-Message-ID: <20261124150825.1001973-1-houminxi@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <179553193708.3294.13977466604609033873@kernel.org>
-References: <179553193708.3294.13977466604609033873@kernel.org>
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Murali Krishna <muralikrishna2444b@gmail.com>
+Subject: [RFC net-next] selftests: net: add tests for the QRTR socket family
+Date: Tue, 24 Nov 2026 20:37:53 +0530
+Message-ID: <20261124150753.115914-1-muralikrishna2444b@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,48 +105,734 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Both answers, per patch.
+net/qrtr has no test coverage in tools/testing/selftests, although the
+behaviour it exposes to userspace is well defined and testable without
+Qualcomm hardware: the local node always exists, and CONFIG_QRTR_TUN
+lets a test act as a QRTR endpoint.
 
-1/3, the single read of dp->user_features:
+Add tools/testing/selftests/net/qrtr with two programs.
 
-Found by manual code inspection of how the datapath features are read:
-queue_userspace_packet() decides from OVS_DP_F_UNALIGNED whether to copy
-with skb_zerocopy(), and pad_packet() reads the same field again after
-the copy.  The second read comes from aea0bb4f8ee5.
+qrtr_sock covers the AF_QIPCRTR socket contract: the ephemeral port
+range and the CAP_NET_ADMIN boundary documented above
+qrtr_port_assign(), the bind() rule that an address must name the
+socket's own node, rebinding (which moves the port and releases the old
+one), EADDRINUSE on a taken port, auto-bind on send, and local datagram
+delivery including the source address reported to the receiver.
 
-Not triggered.  The window needs an OVS_DP_CMD_SET to land between the
-head room decision and the padding of the same upcall, which is a race I
-could not turn into a deterministic test, so there is no trace to show.
-What the code gives is the order of the two reads and the assert itself:
-skb_put() asserts the skb is linear, and skb_zerocopy() leaves it
-nonlinear when the bit is cleared between them.
+qrtr_endpoint covers frame validation in qrtr_endpoint_post() by writing
+crafted frames to /dev/qrtr-tun: length alignment, unknown protocol
+versions, headers truncated below the v1 and v2 minimums, a zero or
+over-long declared payload size, a size that disagrees with the frame
+length, control types whose payload is too small to hold a struct
+qrtr_ctrl_pkt, control types addressed to an ordinary port, and the
+legacy 16-bit control port number. Each frame is malformed in exactly
+one way so a failure names the check that regressed.
 
-2/3, the features recorded on a failed change:
+Both programs skip cleanly when CONFIG_QRTR is not available, and
+qrtr_endpoint also skips when /dev/qrtr-tun cannot be opened, so the
+suite is harmless on non-Qualcomm configurations.
 
-Found the same way, by reading ovs_dp_change() against
-ovs_dp_set_upcall_portids(), and then triggered from user space with no
-privileges on the host: the datapath lives in a network namespace owned
-by a user namespace, which is all CAP_NET_ADMIN there needs.
+Assisted-by: LLM
+Signed-off-by: Murali Krishna <muralikrishna2444b@gmail.com>
+---
+This is an RFC rather than a submission: net/qrtr has no selftests at
+all, and I could not tell from
+Documentation/process/maintainer-netdev.rst whether a test-only series
+is wanted on its own, since it describes selftests as travelling with a
+code change. If the shape is wrong, or you would rather tests arrived
+only alongside functional patches, please say so and I will drop it.
 
-The recorded-features half has a running symptom.  On 2a324a58a084, the
-parent of this series, the selftest added in 3/3 reports:
+Questions I would most like answered: whether the split between the
+socket-contract tests and the frame-validation tests makes sense, and
+which behaviours are worth covering next.
 
-  # the rejected set changed the features
-  TEST: ovsdp: failed set keeps bits                        [FAIL]
+Testing: built and run on x86_64 against net-next (a4c450594).
+qrtr_sock passes 12/12 as an ordinary user; qrtr_endpoint passes 12/12
+as root with qrtr-tun loaded. Both skip cleanly when CONFIG_QRTR or
+/dev/qrtr-tun is unavailable, and the suite builds with no warnings
+under -Wall -Wextra. I have no Qualcomm hardware, so only the tun
+endpoint and the local node are covered; the SMD and MHI transports are
+untested.
 
-ovs-dpctl set-dp with an empty per-cpu-pids asks for the dispatch bit
-along with a pids list the kernel rejects with -EINVAL, and the datapath
-still reports the features that the failed request asked for.  With this
-series the same command leaves the features as they were and the test
-passes.
+checkpatch --strict reports four things I believe are expected, and I
+have left them alone:
 
-The reference half is not triggered.  A datapath that holds
-TC_RECIRC_SHARING without the tc skb extension reference, then cleared,
-drops a reference that was never taken, and a disable on a count of zero
-warns from static_key_dec_not_one().  I did not build the sequence that
-reaches it, so that part rests on the code and not on a trace.
+ - three "Prefer __packed over __attribute__((packed))" warnings.
+   __packed is a kernel-internal macro that is not available to a
+   userspace selftest, and existing selftests use
+   __attribute__((packed)) in the same way.
+ - an unrecognized-email-address error for 'LLM', and a non-standard
+   signature warning for the Assisted-by trailer. checkpatch does not
+   know that tag, although
+   Documentation/process/coding-assistants.rst asks for it and
+   specifies it as the word LLM followed by optional tool names, with
+   no address.
 
-Neither patch comes from syzbot or from a static analysis tool.  The
-review that found them was done with an LLM assistant, and the
-recorded-features half was then confirmed by running the new selftest
-against the unfixed parent.
+The tests were written with the help of an LLM coding assistant, from a
+prompt asking for selftests covering the AF_QIPCRTR socket contract and
+qrtr_endpoint_post() frame validation; hence the Assisted-by tag. I
+have read and run every test and can explain what each one checks.
+Writing them corrected two assumptions I had got wrong: that bind()
+treats sq_node == 0 as "any node", and that rebinding an already bound
+socket fails.
+
+ MAINTAINERS                                   |   1 +
+ tools/testing/selftests/Makefile              |   1 +
+ tools/testing/selftests/net/qrtr/.gitignore   |   3 +
+ tools/testing/selftests/net/qrtr/Makefile     |  11 +
+ tools/testing/selftests/net/qrtr/config       |   2 +
+ .../selftests/net/qrtr/qrtr_endpoint.c        | 275 ++++++++++++++++
+ tools/testing/selftests/net/qrtr/qrtr_sock.c  | 298 ++++++++++++++++++
+ 7 files changed, 591 insertions(+)
+ create mode 100644 tools/testing/selftests/net/qrtr/.gitignore
+ create mode 100644 tools/testing/selftests/net/qrtr/Makefile
+ create mode 100644 tools/testing/selftests/net/qrtr/config
+ create mode 100644 tools/testing/selftests/net/qrtr/qrtr_endpoint.c
+ create mode 100644 tools/testing/selftests/net/qrtr/qrtr_sock.c
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 97308edec..cce309b30 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -23174,6 +23174,7 @@ S:	Maintained
+ F:	include/trace/events/qrtr.h
+ F:	include/uapi/linux/qrtr.h
+ F:	net/qrtr/
++F:	tools/testing/selftests/net/qrtr/
+ 
+ QUALCOMM IPCC MAILBOX DRIVER
+ M:	Manivannan Sadhasivam <mani@kernel.org>
+diff --git a/tools/testing/selftests/Makefile b/tools/testing/selftests/Makefile
+index c55d7792b..3d0916b60 100644
+--- a/tools/testing/selftests/Makefile
++++ b/tools/testing/selftests/Makefile
+@@ -97,6 +97,7 @@ TARGETS += net/openvswitch
+ TARGETS += net/ovpn
+ TARGETS += net/packetdrill
+ TARGETS += net/ppp
++TARGETS += net/qrtr
+ TARGETS += net/rds
+ TARGETS += net/tcp_ao
+ TARGETS += nfsd
+diff --git a/tools/testing/selftests/net/qrtr/.gitignore b/tools/testing/selftests/net/qrtr/.gitignore
+new file mode 100644
+index 000000000..cc2ea8a2b
+--- /dev/null
++++ b/tools/testing/selftests/net/qrtr/.gitignore
+@@ -0,0 +1,3 @@
++# SPDX-License-Identifier: GPL-2.0-only
++qrtr_endpoint
++qrtr_sock
+diff --git a/tools/testing/selftests/net/qrtr/Makefile b/tools/testing/selftests/net/qrtr/Makefile
+new file mode 100644
+index 000000000..0e22f4047
+--- /dev/null
++++ b/tools/testing/selftests/net/qrtr/Makefile
+@@ -0,0 +1,11 @@
++# SPDX-License-Identifier: GPL-2.0
++top_srcdir := ../../../../..
++
++CFLAGS += $(KHDR_INCLUDES) -Wall -Wextra -Wno-unused-parameter
++
++TEST_GEN_PROGS := \
++	qrtr_endpoint \
++	qrtr_sock \
++# end of TEST_GEN_PROGS
++
++include ../../lib.mk
+diff --git a/tools/testing/selftests/net/qrtr/config b/tools/testing/selftests/net/qrtr/config
+new file mode 100644
+index 000000000..0bdb8a4c5
+--- /dev/null
++++ b/tools/testing/selftests/net/qrtr/config
+@@ -0,0 +1,2 @@
++CONFIG_QRTR=m
++CONFIG_QRTR_TUN=m
+diff --git a/tools/testing/selftests/net/qrtr/qrtr_endpoint.c b/tools/testing/selftests/net/qrtr/qrtr_endpoint.c
+new file mode 100644
+index 000000000..47dc57c4d
+--- /dev/null
++++ b/tools/testing/selftests/net/qrtr/qrtr_endpoint.c
+@@ -0,0 +1,275 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Tests for QRTR frame validation in qrtr_endpoint_post().
++ *
++ * /dev/qrtr-tun (CONFIG_QRTR_TUN) lets userspace act as a QRTR endpoint:
++ * a write() is handed straight to qrtr_endpoint_post(), so every length and
++ * header check in that function is reachable from here with no Qualcomm
++ * hardware. A rejected frame makes write() fail with EINVAL; an accepted one
++ * returns the full length.
++ *
++ * The frames below are deliberately malformed in one way each, so a failure
++ * names the specific check that regressed.
++ */
++
++#include <errno.h>
++#include <fcntl.h>
++#include <stdint.h>
++#include <string.h>
++#include <unistd.h>
++
++#include <linux/qrtr.h>
++
++#include "../../kselftest_harness.h"
++
++/* From net/qrtr/af_qrtr.c */
++#define QRTR_PROTO_VER_1	1
++#define QRTR_PROTO_VER_2	3
++#define QRTR_PORT_CTRL_LEGACY	0xffff
++
++/* A node id for the test endpoint, distinct from the local node (1). */
++#define TEST_SRC_NODE		5
++
++struct qrtr_hdr_v1 {
++	__le32 version;
++	__le32 type;
++	__le32 src_node_id;
++	__le32 src_port_id;
++	__le32 confirm_rx;
++	__le32 size;
++	__le32 dst_node_id;
++	__le32 dst_port_id;
++} __attribute__((packed));
++
++struct qrtr_hdr_v2 {
++	uint8_t version;
++	uint8_t type;
++	uint8_t flags;
++	uint8_t optlen;
++	__le32 size;
++	__le16 src_node_id;
++	__le16 src_port_id;
++	__le16 dst_node_id;
++	__le16 dst_port_id;
++};
++
++/* One header plus one control packet: the smallest realistic valid frame. */
++struct v1_frame {
++	struct qrtr_hdr_v1 hdr;
++	struct qrtr_ctrl_pkt pkt;
++} __attribute__((packed));
++
++static void v1_init(struct v1_frame *f, uint32_t type)
++{
++	memset(f, 0, sizeof(*f));
++	f->hdr.version = QRTR_PROTO_VER_1;
++	f->hdr.type = type;
++	f->hdr.src_node_id = TEST_SRC_NODE;
++	f->hdr.src_port_id = QRTR_PORT_CTRL;
++	f->hdr.size = sizeof(f->pkt);
++	f->hdr.dst_node_id = 0;
++	f->hdr.dst_port_id = QRTR_PORT_CTRL;
++	f->pkt.cmd = type;
++}
++
++FIXTURE(tun)
++{
++	int fd;
++};
++
++FIXTURE_SETUP(tun)
++{
++	self->fd = open("/dev/qrtr-tun", O_RDWR | O_NONBLOCK);
++	if (self->fd < 0) {
++		if (errno == ENOENT)
++			SKIP(return,
++			     "no /dev/qrtr-tun: modprobe qrtr-tun, or CONFIG_QRTR_TUN=n");
++		if (errno == EACCES || errno == EPERM)
++			SKIP(return, "/dev/qrtr-tun needs root");
++		ASSERT_LE(0, self->fd);
++	}
++}
++
++FIXTURE_TEARDOWN(tun)
++{
++	if (self->fd >= 0)
++		close(self->fd);
++}
++
++/* Baseline: a well formed HELLO to the control port is accepted. */
++TEST_F(tun, valid_hello)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++
++	EXPECT_EQ((ssize_t)sizeof(f), write(self->fd, &f, sizeof(f)));
++}
++
++/* A length that is not a multiple of four is rejected before anything else. */
++TEST_F(tun, unaligned_length)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f) - 1));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* Only protocol versions 1 and 3 exist. */
++TEST_F(tun, bad_version)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.version = 2;
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.version = 0xff;
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* A frame shorter than the version 1 header cannot carry one. */
++TEST_F(tun, truncated_v1_header)
++{
++	struct v1_frame f;
++	size_t len;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++
++	for (len = 4; len < sizeof(struct qrtr_hdr_v1); len += 4) {
++		EXPECT_EQ(-1, write(self->fd, &f, len));
++		EXPECT_EQ(EINVAL, errno);
++	}
++}
++
++/* A frame shorter than the version 2 header cannot carry one. */
++TEST_F(tun, truncated_v2_header)
++{
++	struct qrtr_hdr_v2 hdr = {};
++	size_t len;
++
++	hdr.version = QRTR_PROTO_VER_2;
++	hdr.type = QRTR_TYPE_HELLO;
++
++	for (len = 4; len < sizeof(hdr); len += 4) {
++		EXPECT_EQ(-1, write(self->fd, &hdr, len));
++		EXPECT_EQ(EINVAL, errno);
++	}
++}
++
++/* A declared payload size of zero is rejected. */
++TEST_F(tun, zero_size)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.size = 0;
++
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* A declared size larger than the frame is rejected: it would over-read. */
++TEST_F(tun, size_exceeds_frame)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.size = sizeof(f) + 64;
++
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* The frame length must be exactly the header plus the padded payload. */
++TEST_F(tun, size_does_not_match_length)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	/* Fits in the frame, but leaves four unaccounted trailing bytes. */
++	f.hdr.size = sizeof(f.pkt) - 4;
++
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/*
++ * NEW_SERVER and RESUME_TX are parsed as a struct qrtr_ctrl_pkt, so a
++ * payload too small to hold one must be rejected rather than read past.
++ */
++TEST_F(tun, control_payload_too_small)
++{
++	struct {
++		struct qrtr_hdr_v1 hdr;
++		uint32_t body;
++	} __attribute__((packed)) f;
++
++	memset(&f, 0, sizeof(f));
++	f.hdr.version = QRTR_PROTO_VER_1;
++	f.hdr.src_node_id = TEST_SRC_NODE;
++	f.hdr.src_port_id = QRTR_PORT_CTRL;
++	f.hdr.size = sizeof(f.body);
++	f.hdr.dst_port_id = QRTR_PORT_CTRL;
++
++	f.hdr.type = QRTR_TYPE_NEW_SERVER;
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++
++	f.hdr.type = QRTR_TYPE_RESUME_TX;
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/*
++ * Only DATA and RESUME_TX may be addressed to an ordinary port. A control
++ * message aimed at a normal port is rejected.
++ */
++TEST_F(tun, control_type_to_normal_port)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.dst_port_id = 0x4321;
++
++	EXPECT_EQ(-1, write(self->fd, &f, sizeof(f)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* The legacy 16-bit control port number is still understood. */
++TEST_F(tun, legacy_control_port)
++{
++	struct v1_frame f;
++
++	v1_init(&f, QRTR_TYPE_HELLO);
++	f.hdr.dst_port_id = QRTR_PORT_CTRL_LEGACY;
++
++	EXPECT_EQ((ssize_t)sizeof(f), write(self->fd, &f, sizeof(f)));
++}
++
++/* A version 2 header is accepted on its own terms. */
++TEST_F(tun, valid_v2_hello)
++{
++	struct {
++		struct qrtr_hdr_v2 hdr;
++		struct qrtr_ctrl_pkt pkt;
++	} f;
++
++	memset(&f, 0, sizeof(f));
++	f.hdr.version = QRTR_PROTO_VER_2;
++	f.hdr.type = QRTR_TYPE_HELLO;
++	f.hdr.size = sizeof(f.pkt);
++	f.hdr.src_node_id = TEST_SRC_NODE;
++	f.hdr.src_port_id = (uint16_t)QRTR_PORT_CTRL;
++	f.hdr.dst_port_id = (uint16_t)QRTR_PORT_CTRL;
++	f.pkt.cmd = QRTR_TYPE_HELLO;
++
++	EXPECT_EQ((ssize_t)sizeof(f), write(self->fd, &f, sizeof(f)));
++}
++
++TEST_HARNESS_MAIN
+diff --git a/tools/testing/selftests/net/qrtr/qrtr_sock.c b/tools/testing/selftests/net/qrtr/qrtr_sock.c
+new file mode 100644
+index 000000000..592e4e429
+--- /dev/null
++++ b/tools/testing/selftests/net/qrtr/qrtr_sock.c
+@@ -0,0 +1,298 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Tests for the AF_QIPCRTR socket address family.
++ *
++ * These exercise the port assignment contract documented above
++ * qrtr_port_assign() in net/qrtr/af_qrtr.c, the bind() address rules in
++ * qrtr_bind(), and local datagram delivery between two sockets on the local
++ * node. No QRTR endpoint and no Qualcomm hardware is required: the local
++ * node always exists.
++ */
++
++#include <errno.h>
++#include <string.h>
++#include <unistd.h>
++
++#include <linux/qrtr.h>
++#include <sys/socket.h>
++
++#include "../../kselftest_harness.h"
++
++/* From net/qrtr/af_qrtr.c. Ports below the ephemeral range are privileged. */
++#define QRTR_MIN_EPH_SOCKET	0x4000u
++#define QRTR_MAX_EPH_SOCKET	0x7fffu
++
++FIXTURE(qrtr)
++{
++	int fd;
++	__u32 node;	/* this socket's own node id */
++};
++
++FIXTURE_SETUP(qrtr)
++{
++	struct sockaddr_qrtr sq = {};
++	socklen_t len = sizeof(sq);
++
++	self->fd = socket(AF_QIPCRTR, SOCK_DGRAM, 0);
++	if (self->fd < 0 &&
++	    (errno == EAFNOSUPPORT || errno == EPROTONOSUPPORT))
++		SKIP(return, "AF_QIPCRTR not supported (CONFIG_QRTR=n?)");
++	ASSERT_LE(0, self->fd);
++
++	/*
++	 * A fresh socket already knows which node it lives on; bind() insists
++	 * on being given that same value, so every test needs it.
++	 */
++	ASSERT_EQ(0, getsockname(self->fd, (struct sockaddr *)&sq, &len));
++	self->node = sq.sq_node;
++}
++
++FIXTURE_TEARDOWN(qrtr)
++{
++	if (self->fd >= 0)
++		close(self->fd);
++}
++
++static int qrtr_bind_port(int fd, __u32 node, __u32 port)
++{
++	struct sockaddr_qrtr sq = {
++		.sq_family = AF_QIPCRTR,
++		.sq_node = node,
++		.sq_port = port,
++	};
++
++	return bind(fd, (struct sockaddr *)&sq, sizeof(sq));
++}
++
++static __u32 qrtr_port(struct __test_metadata *_metadata, int fd)
++{
++	struct sockaddr_qrtr sq = {};
++	socklen_t len = sizeof(sq);
++
++	ASSERT_EQ(0, getsockname(fd, (struct sockaddr *)&sq, &len));
++	return sq.sq_port;
++}
++
++/* A socket is unbound until it is bound: getsockname() reports port 0. */
++TEST_F(qrtr, getsockname_unbound)
++{
++	struct sockaddr_qrtr sq = {};
++	socklen_t len = sizeof(sq);
++
++	ASSERT_EQ(0, getsockname(self->fd, (struct sockaddr *)&sq, &len));
++	EXPECT_EQ(sizeof(sq), (size_t)len);
++	EXPECT_EQ(AF_QIPCRTR, sq.sq_family);
++	EXPECT_EQ(0u, sq.sq_port);
++}
++
++/*
++ * bind() requires the address to name the socket's own node. Unlike most
++ * families, zero does not mean "any node".
++ */
++TEST_F(qrtr, bind_foreign_node_rejected)
++{
++	EXPECT_EQ(-1, qrtr_bind_port(self->fd, self->node + 1, 0));
++	EXPECT_EQ(EINVAL, errno);
++
++	if (self->node != 0) {
++		EXPECT_EQ(-1, qrtr_bind_port(self->fd, 0, 0));
++		EXPECT_EQ(EINVAL, errno);
++	}
++}
++
++/* A too-short or wrong-family address is rejected. */
++TEST_F(qrtr, bind_bad_addr)
++{
++	struct sockaddr_qrtr sq = {
++		.sq_family = AF_QIPCRTR,
++		.sq_node = self->node,
++		.sq_port = 0,
++	};
++
++	EXPECT_EQ(-1, bind(self->fd, (struct sockaddr *)&sq, sizeof(sq) - 1));
++	EXPECT_EQ(EINVAL, errno);
++
++	sq.sq_family = AF_INET;
++	EXPECT_EQ(-1, bind(self->fd, (struct sockaddr *)&sq, sizeof(sq)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++/* Binding port 0 assigns an ephemeral port inside the documented range. */
++TEST_F(qrtr, bind_ephemeral_in_range)
++{
++	__u32 port;
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, 0));
++
++	port = qrtr_port(_metadata, self->fd);
++	EXPECT_LE(QRTR_MIN_EPH_SOCKET, port);
++	EXPECT_GE(QRTR_MAX_EPH_SOCKET, port);
++}
++
++/* A port at or above the ephemeral range may be claimed by any user. */
++TEST_F(qrtr, bind_unprivileged_port)
++{
++	const __u32 want = QRTR_MIN_EPH_SOCKET + 0x1000;
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, want));
++	EXPECT_EQ(want, qrtr_port(_metadata, self->fd));
++}
++
++/*
++ * A port below the ephemeral range requires CAP_NET_ADMIN. As a normal user
++ * this must fail with EACCES; as root it must succeed. Both directions are
++ * checked so the test says something either way.
++ */
++TEST_F(qrtr, bind_privileged_port)
++{
++	int ret = qrtr_bind_port(self->fd, self->node, 0x100);
++
++	if (geteuid() == 0) {
++		EXPECT_EQ(0, ret);
++	} else {
++		EXPECT_EQ(-1, ret);
++		EXPECT_EQ(EACCES, errno);
++	}
++}
++
++/* Two sockets cannot hold the same port. */
++TEST_F(qrtr, bind_port_in_use)
++{
++	const __u32 port = QRTR_MIN_EPH_SOCKET + 0x2000;
++	int other;
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, port));
++
++	other = socket(AF_QIPCRTR, SOCK_DGRAM, 0);
++	ASSERT_LE(0, other);
++
++	EXPECT_EQ(-1, qrtr_bind_port(other, self->node, port));
++	EXPECT_EQ(EADDRINUSE, errno);
++
++	close(other);
++}
++
++/*
++ * Rebinding is permitted: the socket moves to the new port and releases the
++ * old one, which another socket may then take.
++ */
++TEST_F(qrtr, rebind_moves_port)
++{
++	const __u32 port_a = QRTR_MIN_EPH_SOCKET + 0x2100;
++	const __u32 port_b = QRTR_MIN_EPH_SOCKET + 0x2200;
++	int other;
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, port_a));
++	ASSERT_EQ(port_a, qrtr_port(_metadata, self->fd));
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, port_b));
++	EXPECT_EQ(port_b, qrtr_port(_metadata, self->fd));
++
++	/* The first port must have been released. */
++	other = socket(AF_QIPCRTR, SOCK_DGRAM, 0);
++	ASSERT_LE(0, other);
++	EXPECT_EQ(0, qrtr_bind_port(other, self->node, port_a));
++	close(other);
++}
++
++/* Binding the port a socket already holds is a no-op, not an error. */
++TEST_F(qrtr, rebind_same_port)
++{
++	const __u32 port = QRTR_MIN_EPH_SOCKET + 0x2300;
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, port));
++	EXPECT_EQ(0, qrtr_bind_port(self->fd, self->node, port));
++	EXPECT_EQ(port, qrtr_port(_metadata, self->fd));
++}
++
++/* A datagram sent to a port on the local node is delivered to that socket. */
++TEST_F(qrtr, local_datagram)
++{
++	struct sockaddr_qrtr peer_addr = {};
++	static const char msg[] = "qrtr";
++	struct sockaddr_qrtr from = {};
++	char buf[sizeof(msg)] = {};
++	socklen_t fromlen;
++	__u32 self_port;
++	int peer;
++
++	peer_addr.sq_family = AF_QIPCRTR;
++	peer_addr.sq_node = self->node;
++	fromlen = sizeof(from);
++
++	ASSERT_EQ(0, qrtr_bind_port(self->fd, self->node, 0));
++	self_port = qrtr_port(_metadata, self->fd);
++
++	peer = socket(AF_QIPCRTR, SOCK_DGRAM, 0);
++	ASSERT_LE(0, peer);
++	ASSERT_EQ(0, qrtr_bind_port(peer, self->node, 0));
++	peer_addr.sq_port = qrtr_port(_metadata, peer);
++
++	ASSERT_EQ((ssize_t)sizeof(msg),
++		  sendto(self->fd, msg, sizeof(msg), 0,
++			 (struct sockaddr *)&peer_addr, sizeof(peer_addr)));
++
++	ASSERT_EQ((ssize_t)sizeof(msg),
++		  recvfrom(peer, buf, sizeof(buf), 0,
++			   (struct sockaddr *)&from, &fromlen));
++
++	EXPECT_EQ(0, memcmp(msg, buf, sizeof(msg)));
++	EXPECT_EQ(sizeof(from), (size_t)fromlen);
++	EXPECT_EQ(AF_QIPCRTR, from.sq_family);
++	EXPECT_EQ(self->node, from.sq_node);
++	EXPECT_EQ(self_port, from.sq_port);
++
++	close(peer);
++}
++
++/* An unbound sender is auto-bound by sendto(), inside the ephemeral range. */
++TEST_F(qrtr, autobind_on_send)
++{
++	struct sockaddr_qrtr peer_addr = {};
++	static const char msg[] = "auto";
++	__u32 port;
++	int peer;
++
++	peer_addr.sq_family = AF_QIPCRTR;
++	peer_addr.sq_node = self->node;
++
++	peer = socket(AF_QIPCRTR, SOCK_DGRAM, 0);
++	ASSERT_LE(0, peer);
++	ASSERT_EQ(0, qrtr_bind_port(peer, self->node, 0));
++	peer_addr.sq_port = qrtr_port(_metadata, peer);
++
++	/* self->fd was never bound. */
++	ASSERT_EQ(0u, qrtr_port(_metadata, self->fd));
++
++	ASSERT_EQ((ssize_t)sizeof(msg),
++		  sendto(self->fd, msg, sizeof(msg), 0,
++			 (struct sockaddr *)&peer_addr, sizeof(peer_addr)));
++
++	port = qrtr_port(_metadata, self->fd);
++	EXPECT_LE(QRTR_MIN_EPH_SOCKET, port);
++	EXPECT_GE(QRTR_MAX_EPH_SOCKET, port);
++
++	close(peer);
++}
++
++/* sendto() with a wrong-size or wrong-family address is rejected. */
++TEST_F(qrtr, sendto_bad_addr)
++{
++	static const char msg[] = "x";
++	struct sockaddr_qrtr sq = {
++		.sq_family = AF_QIPCRTR,
++		.sq_node = self->node,
++		.sq_port = QRTR_MIN_EPH_SOCKET,
++	};
++
++	EXPECT_EQ(-1, sendto(self->fd, msg, sizeof(msg), 0,
++			     (struct sockaddr *)&sq, sizeof(sq) - 1));
++	EXPECT_EQ(EINVAL, errno);
++
++	sq.sq_family = AF_INET;
++	EXPECT_EQ(-1, sendto(self->fd, msg, sizeof(msg), 0,
++			     (struct sockaddr *)&sq, sizeof(sq)));
++	EXPECT_EQ(EINVAL, errno);
++}
++
++TEST_HARNESS_MAIN
+-- 
+2.43.0
+
