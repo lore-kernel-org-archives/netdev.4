@@ -1,80 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795561306;
-	b=sIzGx5YYD0WSl+0uYWLGUgVuhkI9Gd8BQoGxAfJsq34DeCI5E7Di21BxQEj3lqTFG2Cy
-	 w0DvxARh3zMs7DcUvaytoFqmdc1g044yhVC3wYA58U8t+ngKua3uCvBXitpJ7vnbKjmzk
-	 xeKMUWeUy30KqWs5mJKVhsyttqSqmbA4j2VngNw9LJEwuIjvn5QR2I30Mb3AFrXECJvS9
-	 O9Imqbe4ca2YN7C1Q/fWY/a4dap/3DUlzdLNHYuNba+hpptQAcySrPkmirLVHUwR6984S
-	 yoyeqwAccN21n20JbRg0qVdLl2yYU5f5iHPzra+QcHm7v73GOnSHEiCC8WCjBlhlaQg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795561306;
-	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received:X-Original-From:Reply-To;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	b=df+6Q4sM06gwcw8us0pjwD9Zh/DpSD4zpyFAAXrXu1/J31Sks6gBFvqjyYrqljZXb7na
-	 SCnYhGqyw7QkbLIMzSaoHKnAoBtmnbC/Cm0/aRhPqWb6IuQtRumeguWRajKkcbfJHXH+7
-	 pFk60xeBETxSSCWqCKKWJIOkDxCY3yESitH11+rKgB/LfnL3sAigNLGSISQSoPr+btKHk
-	 SIXEZKPSnTZeoXgJHDxAagw2vASNQzXR6oDG0cyS7Z3kcqlLdK/+tOEz+lEHjjwzae3EV
-	 4DquEPWIQa1SArbeN5XoPLFVXkwySbUrvexhWZq2C0VnavL34MHYz874OIF+72RpSGw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="YO2pQ4n/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6044E606A321;
-	Tue, 24 Nov 2026 23:01:46 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YO2pQ4n/
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795561305;
-	b=P+LtR59+uSCrhgOVj0bqUNQ/kKauaJSnliIG7FyyPEebmFIySRg2+dWdd3QhPYQptKJb
-	 PtdJL+Npxj6FQ0gRyBnBCUo2V299YcCn81D4CVjP9agLwehKzHSQuNwYbQYcLGfv49f2i
-	 lqp57wpNx9/GbQ8OJdyaoSyRCyYW/+DqU0I+Yutk6mptTxo0GsYL5TippaWgVc60nLm6x
-	 MaNoDi4+sUqi/x87HIF+XtX6R9vyFfYzNCpRcY5OnsxkAKcFaZiDb+PuehUH3BDpB5QRU
-	 3DxqB7FA8SBUnnPu2QHCgewx1n7PNTJLgb6r9Ie2XEvu5gcTy5ggYnm/JjTiCSZ0wBQ==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795561305;
-	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
-	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	b=KCDAvs4k2l2r+Q6cVDT09kMyYl70n8ADC36y94C5+MbmtpAevAvAO57X2TRKbyyvQBGp
-	 f0QrpfpB0zfS9vbnMBmSk5mgObdUJpkPEB04g18lfga73f0SFwIfCnTfzej0utQh4ASlF
-	 Aredbd/UCM+yJqQygHLbtZUcTsgULR/osWk1X+c2RrIGfHp1FsQdqwVN0JGw5KbVkpQtM
-	 23JWvHs/bldnBGBiT1Rj1jNJlXygmDwi+E01X/B25J35PPcrnWwtdIzXTM326TLLxpiop
-	 e5X7Gn0meY1T519nkg5kExI2DEe3Z+JIlpiVboBqssGR3dtRGw6i35fV/IxCf28G9Eg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795561356;
+	b=cSI/50R/pX3OCuF0S07wuBX4SfUJtR7PHUmcS1KFyBUndJUsDvu/4SUv+U6zZ4O5brKt
+	 yBs0Jvw/nTjh65PeLy9Zu1FuBvvNjB3Upo9mUUeDmHxi2uIXC9mUnFbUN8CGDeqq/8gSP
+	 wSQxMIZxQ/j2AW4TiQhupFMLnBUZqAVPgn19cta61RRzBOeryCPHjFzKSlv99aYDAKBH7
+	 pb4DmFWTTzwDu6jfm/3XgCI8aXQR7HjnWuGXvfhJutnovM3ztO8yG/KRmtbzJ8lfOexBZ
+	 77T+i+soeJYJ6c9EPDCX6V6KvJlesoi+2/FpjNsBAFBxmx4dl6jDDUJX4odMgjQGN7Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795561356;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+	b=dE6L+BlvdTD1xIQC1e4Yoe2laySUpv2M4z4SNuYToB+jqRwLiIvfmpVkUtW3O7rOip8G
+	 2FQk6Og5tdTtoJgLpA7kIaSra5EDEpkEaxBp6BZBrlo7HXaU3wI1YuFdfydzJ1Rb5l5d0
+	 8LGhBYlWnJD78XqBzX26+IkzRjecIM8AwC/TIAGG06BhlyAH46eepYK+AY8jIAwuWAdS3
+	 l2et9enJUEQReH+d0Oi8POt5Tspmw7PeYpui3bvH8RmQw2IusEVWQwkS0U9BbFsUe44d6
+	 VyFz0Lpys23eF9e+x+/dzhnlRc86psbPt6jd63i7/rgj7oVQBo6rmyqh3t03igV7Mug==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Xyip/I4C";
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 1253B1F000E1;
-	Tue, 24 Nov 2026 23:01:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795561305;
-	bh=WwRGi9/gboonDby6o+AqgHp8QwWUxtuqcvbTxyROofo=;
-	h=From:Subject:Date:To:Cc:Reply-To;
-	b=YO2pQ4n/zfmbIZS9Vx+2GwQDrlxpZw9l6p5wNlFNu4QhqRo2TLjcqg5nm3bd9k674
-	 wmJzye1ajqpt+OBCRIEHD1QztMhty6+kAqhH5O3BGlDlalPp9lKHTNDW+wCfUXhdO6
-	 9Ait6mp1YLMQY4OfY8NeTjqdjxdYq+mXFee7KdKXQLToLSVa3p+1QuBAk8OzhmfhBD
-	 mDHwQF2WPKN2xqokDY4VnMUy5QV7SfpZ282A4b3NDnkj6LwhzcKE8Mtp0gFgsx7KUK
-	 CBPZQQZi12mazgqYPOv8XW4AUIii8Nl5hJvsZHB9S2Aja+SSJfHdKm09Xh3/xBeoDv
-	 INJX+6Oicy3SQ==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 691D14CC30;
-	Tue, 24 Nov 2026 23:01:35 +0000 (UTC)
-From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
-Subject: [PATCH net-next 0/3] net: ipa: add Qualcomm SC8180X (IPA v4.1)
- support
-Date: Wed, 25 Nov 2026 00:01:32 +0100
-Message-Id: <20261125-qcom-ipa-sc8180x-v1-0-48a889acbe6b@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 474B0606A32A
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:02:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 474B0606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Xyip/I4C
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-385d8a00598so7465137eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:02:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795561355; x=1796166155; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+        b=Xyip/I4CJjOX79oknp9xnxqH8tk7ypjlRD+iGVEGJhXc1Q78Z0uyTgA7aine8/XIdk
+         u4cGGtKJxpG5CHBu0FUISUpWRuMSTxqFwiGqnMOgB0J5J282mZWz3MYJpKm6Ui2AnnZn
+         QsHovNmRZs6jMvcBr9BQ+uyJ2GWtF1yryusczyPgenGxiO/SScygAAcq0Dq0imjZ7Jce
+         wx/x5AVqjyhbNuFwTTKv0J3MYajKHMAo1Z513kotdbsU7rnQX2upFbTYZ+IbRdyVeVMM
+         DNDwT1z0nSrpBU9SnaVwzwXSaQNTHxkD/TNtoQvDCWXB1oogCnpD0WKIvTp1zLBPyvYL
+         4WxQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795561355; x=1796166155;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D5BPfe091LT3dmDUExK7fHms4x6j0arLEPQECwd2AVo=;
+        b=0WRB45+1PnZJgTYiDIbMCHsCFwNQaD8y0XvvBQMkS+muRzYf+3ChS/hKVKJQw+BMSC
+         hbAT+oM8X+0pMXvQGQaGgmr858+5M4pCod/VUHOcy0mp9hO2yHSfP6oy8WMQ4bzntkuI
+         QJa2arwNIKJKZuQybkYNNypM4eFVIrZUNiUsV1clVj+qugDpYtLK66Ysq3eCjxAxjne1
+         LId2W1Lny1h2VCzOehuaOq2Euym9uDv6c2G9vLF13Oj1lIPdFVaOFH5mvq7EhLMbTjdf
+         DEZfUVQpjg7tAwMMDxqYYC43rrBs3P+birtm6oPi1tGlb5lbZrVJmshd+LgRtbsH/hKJ
+         YT5w==
+X-Forwarded-Encrypted: i=1; AL+hErH7p50YalYV32S238tYmgaUTtnHkzd5oGaoG4DI18+HbgXmeGC3+gp00hyJNWhUyfjUGV0trAs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xfCNSvv22KBJDWAiCzuFp7aeaD5chj5Qj+sMjwT5Tcwejtcwm
+	2JREvc0oxZCqNnomYVW4NCQTMm4rmGsDFnM/8s/d/OeTUS4b3hD4GRAc
+X-Gm-Gg: AZFdTZdvZY9QyEPoat5TJTRoU/hUDIXfXlOMnD8McEHcLi1bxGIrZ1N4WDs4I8ZvwB/
+	W3SHpsBEP6gQjwTBbrr9K3NUA62AOZYlHRmpHZjbGRwdnp0FS69vVnoImlP+QlzQsZzWa95BVWB
+	YSO/TNkKHzIyB3TqwovpmPmkJluyzeHfKbXroUDyzvOWXCyU/juLsdTDxkx7UEQ0kFCUm/hgswB
+	hSva8LA6JBIph7DHSn35pGZ6DAgoDnAQAsw3vKunMtxVBAETSi7KUiOZCuUcpIO45qRcRY3d98s
+	Q1fB3ev/MQ9D+64saOtB6+x5k0NfUTYgaR2xiggumfQiSxhFl6sy66i0lmqdH5lIXzMsDoFHiQS
+	r7we+aoFBs3vvjXbR1EiWVcdB8JsvgEC6pgV8AG6TXdSGeI7nGGjOWP18vctWrz1GA/155vBEJo
+	TUp0zbmvArXGDcgFaSlIS+ZtMK/dcJw+rh2sUIKq4seO93XzCoW/V8u6mC2tpuN9QbR3zylyl43
+	EeU8Vr0ZCF/YKv5/IIpxYJcKjk3+PccYqTYx5MwM3F5bya3GNzvfgtfxYlVBa13Qb32SnyRsipG
+	U324M05ipswE6sBmHbkLWJSNxTi4piiRq0M5rGwMH8vs+SiDsA==
+X-Received: by 2002:a05:7300:7316:b0:386:c5d3:7300 with SMTP id 5a478bee46e88-386c5d37603mr3417710eec.12.1795561355161;
+        Tue, 24 Nov 2026 15:02:35 -0800 (PST)
+Received: from localhost.localdomain ([112.170.44.210])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385666e99fdsm59747187eec.5.2026.11.24.15.02.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 15:02:34 -0800 (PST)
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+To: Eric Dumazet <edumazet@kernel.org>,
+	Neal Cardwell <ncardwell@google.com>
+Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
+	Gwanhyun Lee <gwanhyunlee@gmail.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Jakub Sitnicki <jakub@cloudflare.com>,
+	Jiayuan Chen <jiayuan.chen@linux.dev>,
+	netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] tcp: avoid NULL skb dereference in zerocopy receive with sockmap
+Date: Wed, 25 Nov 2026 08:02:27 +0900
+Message-ID: <20261124230228.3868519-1-graypanda.inzag@gmail.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,69 +106,70 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCMAwAf2Xk2cAaik5/RXzoskwj2M2mSmHs3
- +3c43HcLWCSVAwuzQJJvmo6xQru0AA/QrwL6lAZqKWjc+TxzdMLdQ5o3LmuLcjn0dMpCPmhh5r
- NSUYt/+UVomSMUjLcdmOf/imctyOs6w+7508EfgAAAA==
-X-Change-ID: 20261124-qcom-ipa-sc8180x-c9f427ae24db
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Robert Ijtsma <robertijtsma@gmail.com>
-X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795561294; l=1671;
- i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
- bh=B0CIwbvN+2fYF0mDco/OQwdk/RBQil8KeHGz3LsDY8I=;
- b=d/sW/21nAhnGYf05i9driPQgnzDMyy2gs1OBsU6vDu3+5t812nTY/rv9PzsBMmM8kd1E17kDT
- 0Ob3TPx0sGMCyoYZlJfzu8znlC4uDwzoSZp9ZC9dAdhZ+wI5jGbQuLh
-X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
- pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
-X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
- auth_id=1604
-X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
-Reply-To: robertijtsma@gmail.com
+Content-Transfer-Encoding: 8bit
 
-Add Devicetree binding documentation, IPA v4.1 register definitions, and
-SC8180X configuration data for the Qualcomm IP Accelerator v4.1 present
-on the SC8180X SoC.
+A sockmap SK_SKB verdict can remove receive skbs through tcp_read_skb()
+without advancing tp->copied_seq. tcp_inq() then reports unread bytes
+while sk_receive_queue is empty. Deleting the socket's sockmap entry
+does not repair the sequence mismatch.
 
-Register layouts, resource group limits, and shared/IMEM regions were
-cross-referenced against the downstream Qualcomm msm-4.14 poipu/sm8150
-IPA v4.1 driver and SC8180X devicetree definitions. The corresponding
-sc8180x.dtsi node will be submitted separately via the Qualcomm SoC
-tree.
+TCP_ZEROCOPY_RECEIVE uses tcp_inq() before inspecting the native receive
+queue. A small request enters tcp_zc_handle_leftover(), where
+tcp_recv_skb() can return NULL. A page-sized request can reach the
+mapping loop with the same empty queue and dereference a NULL skb.
 
-Tested end-to-end on Microsoft Surface Pro X SQ2 (SC8180X) with the
-integrated Snapdragon X24 LTE modem over rmnet_ipa0 (QMAP / MAPv4).
+Check tcp_recv_skb() before using its result in both paths. Also stop
+before advancing beyond the last skb in sk_receive_queue. Neither
+check consumes data in the sockmap ingress queue.
 
-Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+A custom LLM agent developed by the author found this issue. The author
+manually reviewed the root cause and tested the reproducer and fix.
+On net/main with KASAN, a privileged SOCKMAP SK_PASS reproducer
+triggered NULL dereferences with both small and page-sized requests.
+A map-delete variant also triggered the small-request fault. All
+completed without a KASAN report after this change. A non-sockmap TCP
+baseline still copied one byte. An adapted tcp_mmap -z selftest, with
+only its transfer size reduced from 32 GiB to 64 MiB, passed before
+and after the fix.
+
+Fixes: e5c6de5fa025 ("bpf, sockmap: Incorrectly handling copied_seq")
+Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
+Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
 ---
-Robert Ijtsma (3):
-      dt-bindings: net: qcom,ipa: add qcom,sc8180x-ipa compatible
-      net: ipa: add IPA v4.1 register definitions
-      net: ipa: add SC8180X (IPA v4.1) configuration data
+ net/ipv4/tcp.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../devicetree/bindings/net/qcom,ipa.yaml          |   1 +
- drivers/net/ipa/Makefile                           |   4 +-
- drivers/net/ipa/data/ipa_data-v4.1.c               | 319 ++++++++++++++
- drivers/net/ipa/gsi_reg.c                          |   1 +
- drivers/net/ipa/ipa_data.h                         |   1 +
- drivers/net/ipa/ipa_main.c                         |   4 +
- drivers/net/ipa/ipa_reg.c                          |   2 +
- drivers/net/ipa/ipa_reg.h                          |   1 +
- drivers/net/ipa/reg/ipa_reg-v4.1.c                 | 475 +++++++++++++++++++++
- 9 files changed, 806 insertions(+), 2 deletions(-)
----
-base-commit: 4843f6873f7c4835e62f2c73ba0fd538e57a2f22
-change-id: 20261124-qcom-ipa-sc8180x-c9f427ae24db
+diff --git a/net/ipv4/tcp.c b/net/ipv4/tcp.c
+index 418842a2dfd9..fa3b4bcbc726 100644
+--- a/net/ipv4/tcp.c
++++ b/net/ipv4/tcp.c
+@@ -2072,6 +2072,8 @@ static int tcp_zc_handle_leftover(struct tcp_zerocopy_receive *zc,
+ 		offset = *seq - TCP_SKB_CB(skb)->seq;
+ 	} else {
+ 		skb = tcp_recv_skb(sk, *seq, &offset);
++		if (!skb)
++			return 0;
+ 		if (TCP_SKB_CB(skb)->has_rxtstamp) {
+ 			tcp_update_recv_tstamps(skb, tss);
+ 			zc->msg_flags |= TCP_CMSG_TS;
+@@ -2274,10 +2276,14 @@ static int tcp_zerocopy_receive(struct sock *sk,
+ 			if (skb) {
+ 				if (zc->recv_skip_hint > 0)
+ 					break;
++				if (skb_queue_is_last(&sk->sk_receive_queue, skb))
++					break;
+ 				skb = skb->next;
+ 				offset = seq - TCP_SKB_CB(skb)->seq;
+ 			} else {
+ 				skb = tcp_recv_skb(sk, seq, &offset);
++				if (!skb)
++					break;
+ 			}
+ 
+ 			if (!skb_frags_readable(skb))
 
-Best regards,
---  
-Robert Ijtsma <robertijtsma@gmail.com>
-
+base-commit: 37fa509e43ba59d7c329025436e8ea64bdf089d7
+-- 
+2.43.0
 
