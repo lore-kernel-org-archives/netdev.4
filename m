@@ -1,61 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795529663;
-	b=gqyKr0a4TnLUghVJp39MtLvdmJWHhXfIarjjcgZIPqg5yl9zTxuAceNhS/TmVn0FYuLv
-	 JIGtAXJDFAPNpFqsZr5qncHz89UdhRnvj/uWXPLaG6ku8HK3rU+RVFDJp/I5sFt1I8zvk
-	 tKTyJEPdMtJIj5w+Y4MK5P3sl4m6QVGf6Hm67aEMWTCR2Jzi4e5j147fVaQ4LqLdYtzPD
-	 noOXqB8AxfsmsgiFZ8Ac7aMUtVMy4gaRNabY1W/44EiLmT8MZHOwoFHaibZTnsKlN+I7r
-	 QrCPQgJj72vnFkzUxJfo6A9RtUp7zwOpE7P/TaJa2+y5Hx9L911UpBHtL1BY2/Mo3Sw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795529663;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=QJkEoPSyNyr4Whek43Q0LFVoTI67yife7jFNatawwd8=;
-	b=azP3qvDhliidKM5rN6CNeDwtg1TxUrWoo2+9kk0Ji6W21rpuNXbxBbpo8GdvxQRvix5N
-	 i05GAeK9BDsvR1vMwGdP179IhzZn2BKTGbIJI3+rWgy6IKlcSfhCSq333ofqNrPg11LDy
-	 jOPLuHZ46H2d0QtSYijuC1+nBH9NhBLDTk4Bgyb3rB63p5pNtlxZGKhnEYC2+rxk1D5zD
-	 cfnbBPZIZil2GMBb0/B5Zd7nu9mD0WGuMwQ0G7LfgjwR5xlHlfJjcI5e42wqKmIzp3CGK
-	 Yn6rB9tuO4uZVbZB0z5CI5kgc097X+B0IwLys57te9e9rIbEaU7wQjsNOk6QjSsebvw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfb6ZTHw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795529805;
+	b=sPUhzYROU04ih25Y+/dxwYrpCMc/rM427gQIEOwBvxpxrglNEowzVsOKF6BJdUItYBPi
+	 IkZU6l77uGBjyluPHqfJ6xKEv5AKrOiaiIhy5/wpjE+ekwlM4txtVSA6lmNsT5/lqx17N
+	 pCwmsmDEDK9xjjcPJTVXb1OhkwSJIjJwjzRX/9mIgOKylz/h0sByeMUpNdDLuuSJLeJ5e
+	 QvxFvGf86n6cBvWgf4hxbhp98USXOZPWCf4G9Ok1VhqS+xnTrAeDeNwrtacVYV2gNQ+E6
+	 7IMMWiFPeb+o6s87bE/VQqXNahjd9Syo+zEKZJeXlYn4veC5Yz8URm99afchqPLMhoA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795529805;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=L/y4bV9sg4YOxw1y8ENYHV1fp3m5L4dzAun12g4rsko=;
+	b=1FuLlGLvD8KgAEdN68g1L1Y9T4XZS58Bs9BiI2wl0Z7X/pxixgmRHMcZY2ccl6K23sQl
+	 P8V8KSVarMy7MpgykBGTly/SjPcy3iiiBfh5ly0cht5Vv/v8TSFGhM4gE6snSicmAfikw
+	 3ixvQAkkfAjc0yW6hNHT0LxRu7cO8AfVq19xg6X0Lhql1bZwOgJ70eCeKBfhEVfFnVk+i
+	 lMKijUC7sCL/xottdN9zyafZtYb6d7O06CkgxDWCilw0cx/8FSfLvoBQUM6a6pNqw/3KI
+	 xEHrlmMMi99vFE+dtNJiGMEuRCioeaFwBz5QtkCk8Pqffg5P60MkfQ+Ynd8N+eB5vIQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=weQ92RIT;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.180
+Received: from mail-pf1-f180.google.com (mail-pf1-f180.google.com [209.85.210.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 06658606A337;
-	Tue, 24 Nov 2026 14:14:22 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6100606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:16:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6100606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mfb6ZTHw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2A301F000EC;
-	Tue, 24 Nov 2026 14:14:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795529662;
-	bh=QJkEoPSyNyr4Whek43Q0LFVoTI67yife7jFNatawwd8=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mfb6ZTHwo06Ake6CsvbWC38ZlieUQ9g+uf+9HOs6pDgLJG+KxxLS3jGkQ4qwB38Oi
-	 zLhiIAcokxXGxGQUAigpXKT9gQQ1MB1JQG7xMTgnDRnG8oKfUK4YiJqoDR9VPXFmQc
-	 +zSd7+DFi1qympJdT1hX1iu47KwRec6gC45dAgDQ6bg58fqQUvmpT2KTPwibmeRQR9
-	 dFPJqTvDqr5I4BY/Qe/6Yr15cg1MbyKXa0dhQRuBXYBA7KiRlMdYxWTKVXg9DPMVID
-	 W6tX1ntGdDw2iznTuuKN+ZYTo3kS3JslSfCQyZHvHryXu3Cjbe/iaawrlY7L2qvY/4
-	 OlVxiAdbQ9+cw==
-Subject: Re: [PATCH net v2 2/2] net/smc: bound the DMB-nocopy send-buffer
- credit as well
-From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com,
- sidraya@linux.ibm.com, mjambigi@linux.ibm.com, netdev@vger.kernel.org,
- tonylu@linux.alibaba.com, guwen@linux.alibaba.com, linux-rdma@vger.kernel.org,
- linux-s390@vger.kernel.org, linux-kernel@vger.kernel.org,
- kapil@presceralabs.ai, stable@vger.kernel.org, kuba@kernel.org
-Date: Tue, 24 Nov 2026 14:14:21 +0000
-Message-ID: <179552966151.3135.8162716126718648323@kernel.org>
-In-Reply-To: <20261123135327.3953509-2-piyus@iiitd.ac.in>
-References: <20261123135327.3953509-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=weQ92RIT
+Received: by mail-pf1-f180.google.com with SMTP id d2e1a72fcca58-8b66d1a08ccso3213899b3a.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:16:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795529804; cv=none;
+        d=google.com; s=arc-20260327;
+        b=GE/rjVudxTGEi/NxQ9JfoJ4XvKw5mJSIIKEUfA8iP7SMM8Cws1pOUh96StmKMqMAfS
+         wydKczOVyGxV7XC01NU6vM/LpJEuJGUtml8zDUAgCBFWp7l4zbG+Eo7wTSkLDoN526Wo
+         a/3cxsKFz6mJ38BjseTykYQzvKA+tIq1aRwULVqbaoK58/g9p4Zj9Q83yuwEQUytKe5/
+         4OzmZjsehh1pcXvGNsQee5+bR0J7Dboiyr+FPbUySvpP6AjRLO5QMg+qVGYm1YoGP3Cq
+         bXGoL1vzLv2hxvxXdySo+GIajHo/fgAwVVD4FIG0tapBan0OCiHzkPxAq38ggsOQ728V
+         VzXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=L/y4bV9sg4YOxw1y8ENYHV1fp3m5L4dzAun12g4rsko=;
+        fh=jCkvnuPOoXUc6CeN7RQFIjUTkf2tb6of0sqkdAD7IhI=;
+        b=SnwvXOVcBnQ7xAn3sFEYTxEkB85hiYIsjCu8c/l/b8dzYFxYpgu3iRQ8fjsCAR1fRJ
+         x9H45h7MunY0/AzMlyVPP5MAIG5q3Wcc1Ilh2CWd1mALFhlWI6SEUbFmNdkfSbYwUCxn
+         5d5ONNzJ1jL8b+y6FFszHsf0gE2jyjGdSDJUHDMnZY1eQIDjuRd6kIwZ1uVOPOQtc1BY
+         25anLD6u4pWoDCGp7vOIk415/AAj3pjvE8im2GioTqZ4azvgDTjr7pdnm/g/G1RS8Zur
+         Y6kllbn0NHqCvb07y0d7ul5zmif77udjNVxm17wyT29CeGhIFhfnUiIolSzzMSz4G4Wv
+         MSAw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795529804; x=1796134604; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=L/y4bV9sg4YOxw1y8ENYHV1fp3m5L4dzAun12g4rsko=;
+        b=weQ92RITyg7JmS1ykhrmtx4rlzxrZ8f1H1jsn5wV5Al9jkvd8yL1HAtKWhLsplTmtP
+         4UL7LauOKi3Ccq5BbdE6mSY6U0Cgxi/paZI+iqEv8X3XOgQGITF6ixm9aJOwWDfx3fg3
+         wxWYuWesUJnEGfgEsDueZuPB0LjIq1kjRtkgyleFN1mJa/Mh3rX6cfYN7QSyvNYvClDL
+         q3D97ZPX6erhS4ivNSE2ZS+2pr2eZledrjKcBQDPZf+3L9QFotwb/INCmvCBb/Z2WGhL
+         3H2xdE71U3IjonoBsdTPjvPsax2cfwPIM4XfNArI18KPUkycKWNcgdxeDyFlWU6n9/ZW
+         A9lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795529804; x=1796134604;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=L/y4bV9sg4YOxw1y8ENYHV1fp3m5L4dzAun12g4rsko=;
+        b=gq7IqP815V6znHk2Xkm6xK0HfzodwYlRGMpidaaBJk8BR7tVz9eKL19m2/pEu6RcDS
+         1o7f8re2dYIaJZmyASfHu7AoJu3VJ8K9BMCiAHviIvJm76RAfYwRsHbhLZt89M3PS0c7
+         QVyjPpUh8AxNkeqn5bQkaXDzSwQYPl27lyYC0h0GuGM3GoEzksBOk03S3CkZnbDbDIs3
+         veIyfbBFc8AjSTd1kxFopYKByR960qUfPHtdJsB+GZMf6Wa7KcIRwbTKRypCIbkA94uh
+         W7VMsg4dowKW4SN1XiT9YmVn5e7huPTl2dBFWQz44izlmjlB89Ge7VDvJOyXIByl7MWP
+         R8+A==
+X-Forwarded-Encrypted: i=1; AL+hErHXADfhQeaayD2XL7L5RBLJl4J4xiQLz4GMaiSMviE+TJzQozpeF1L6H7nnuQPLIrHKUoBO5tk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+O7Q4GOKIz7ybVSmrVMXU199bAAiwmNbfK83Sujhpx3hUbeh/P
+	lJusA1aSek8aaNzFB5FF/Ma2EzM8Y38gdU8JHjnWGb6GwvxhspxwGE0mk/J6tS5qmNdckH4OK1w
+	+wiX+1FrtvjhnPK0iKQiHlUtKQrosCRQ=
+X-Gm-Gg: AZFdTZcF06aPjq3qWXsXEU7diXKJf8eMNXmFa4kx42112rKPbbxAzpr0f3TRM63CQok
+	oPfVoUFZisAtZqDerqdqSWYVq6mb5SkMFd7fY4WSv2kG7vQd+TmI3ahdXq2u182s9QFIEE3+9UU
+	1uDV/Bb02+Ded5fVcXSJeAN197YGph2TlwcXT3DBBlomqFjOpyFMfbUS43GlBPZ4024AdfTNR02
+	7+yDG+5Ftzf61g/rq6Mhg7Ofuzo6Ka3E9dJc0+uMEzoLiiD04D/BYunHh6Llu3l9LUhCPPRppF+
+	jNBYPO4aA6sgkU1LoXmBoIxZUxkX67+SAuhp73aqBZQQtEPioKBLeDG6Nbz6hfI1BAYtBpcpnj/
+	OLbDS2PqqHFFLriPOLN5w6lIY95ntifqWAfrvxi0++1n2XxRsxIwgv6M/kDjMZ6ueK5dG8QCLFr
+	x+wN3UbQEeXvsSMwB7+NGig//8+fiY+Xk1pDy0y3UTutz4YuREi3rCQnr3o4HU
+X-Received: by 2002:a05:6a00:1382:b0:882:7bed:3b3b with SMTP id
+ d2e1a72fcca58-8c87c481e1cmr12587650b3a.36.1795529803877; Tue, 24 Nov 2026
+ 06:16:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,157 +105,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <179542222978.3276016.1235014191109840927@gmail.com>
+In-Reply-To: <179542222978.3276016.1235014191109840927@gmail.com>
+From: Xin Long <lucien.xin@gmail.com>
+Date: Tue, 24 Nov 2026 09:16:32 -0500
+X-Gm-Features: Aa3M54qTcW6bjqprusjNBKAhplLWpxLKJ9CCK3e-KLDt8tRi922IzPjzhVFOK78
+Message-ID: <CADvbK_d1QSJ3sDjLY1G4etCgsnrdzu-nXnxJoDvGR7gTot95iA@mail.gmail.com>
+Subject: Re: [PATCH net] sctp: pick the AUTH key by the data chunk type that
+ is sent
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Neil Horman <nhorman@tuxdriver.com>, linux-sctp@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+On Mon, Nov 23, 2026 at 3:26=E2=80=AFAM Kyuwon Cho <kyuwoncho18@gmail.com> =
+wrote:
+>
+> sctp_datamsg_from_user() takes the chunk key only when the peer asked
+> to authenticate DATA, but with stream interleaving the message is sent
+> as I-DATA chunks, and _sctp_make_chunk() marks those for AUTH when the
+> peer asked for I-DATA. If the peer lists I-DATA but not DATA, the chunk
+> has auth set and no key, and bundling the AUTH chunk dereferences it:
+>
+>   KASAN: null-ptr-deref in range [0x0000000000000018-0x000000000000001f]
+>   RIP: 0010:sctp_packet_append_chunk (net/sctp/output.c:264)
+>   Call Trace:
+>    <TASK>
+>    sctp_packet_transmit_chunk (net/sctp/output.c:189)
+>    sctp_outq_flush (net/sctp/outqueue.c:1112 net/sctp/outqueue.c:1218)
+>    sctp_do_sm (net/sctp/sm_sideeffect.c:1826)
+>    sctp_primitive_SEND (net/sctp/primitive.c:163)
+>    sctp_sendmsg_to_asoc (net/sctp/socket.c:1919)
+>    sctp_sendmsg (net/sctp/socket.c:2086)
+>    __sys_sendto (net/socket.c:2283)
+>
+> In the opposite case, DATA listed and I-DATA not, the chunks carry a
+> key but no AUTH, and room for an AUTH chunk is reserved for nothing.
+>
+> Ask about the chunk type that will actually be built.
+>
+> Fixes: 0c3f6f655487 ("sctp: implement make_datafrag for sctp_stream_inter=
+leave")
+> Reported-by: Sashiko AI review <netdev-bot+sashiko@kernel.org>
+> Closes: https://lore.kernel.org/netdev/179540440300.3135.8565987128928534=
+228@kernel.org/
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+> ---
+> The Sashiko review of our earlier SCTP report pointed this out. We
+> reproduced it with a test that enables AUTH and interleaving on both
+> ends of a loopback association and has the listener ask for AUTH on
+> I-DATA only: the first send() oopses. The test also works as an
+> unprivileged user in its own user and network namespace, where
+> net.sctp.auth_enable and net.sctp.intl_enable can be set.
+>
+> The patch was written with LLM assistance; we reviewed and tested it.
+> With it, the test runs clean.
+>
+>  net/sctp/chunk.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/net/sctp/chunk.c b/net/sctp/chunk.c
+> index 5b889e89e9f2..0ed251421cda 100644
+> --- a/net/sctp/chunk.c
+> +++ b/net/sctp/chunk.c
+> @@ -183,7 +183,8 @@ struct sctp_datamsg *sctp_datamsg_from_user(struct sc=
+tp_association *asoc,
+>          * we need to account for bundling of the AUTH chunks along with
+>          * DATA.
+>          */
+> -       if (sctp_auth_send_cid(SCTP_CID_DATA, asoc)) {
+> +       if (sctp_auth_send_cid(asoc->peer.intl_capable ? SCTP_CID_I_DATA =
+:
+> +                                                        SCTP_CID_DATA, a=
+soc)) {
+>                 const struct sctp_hmac *hmac_desc =3D
+>                         sctp_auth_asoc_get_hmac(asoc);
+>
+> --
+> 2.43.0
+>
 
-Low priority / nit picks for your consideration:
-
-- [Low] In net/smc/smc_cdc.c:smc_cdc_msg_recv_action(), the new DMB-
-  nocopy clamp uses `sent = conn->sndbuf_desc->len -…
-
-Pre-existing issues:
-- [Low] This problem wasn't introduced by this patch, but in
-  net/smc/smc_cdc.c:smc_cdc_msg_recv_action() peer_rmbe_space is still…
-
---
-
-net/smc: bound the DMB-nocopy send-buffer credit as well
-
-On the SMC-D DMB-nocopy path, smc_cdc_msg_recv_action() credits
-sndbuf_space from the peer's consumer cursor. This patch limits that
-credit to the number of bytes this side has outstanding. It also moves
-tx_curs_fin forward by the limited amount instead of copying the
-peer-reported cursor into it. The commit message calls this hardening,
-because only dibs_loopback provides support_mmapped_rdmb() today.
-
-Link: https://lore.kernel.org/all/20261122053223.2497832-2-piyus@iiitd.ac.in/
-
-> diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
-> index 32d6d03df3214..9ffa3e422aa1f 100644
-> --- a/net/smc/smc_cdc.c
-> +++ b/net/smc/smc_cdc.c
-
-[ ... ]
-
-> @@ -361,13 +362,26 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
->  			diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
->  						&conn->tx_curs_fin,
->  						&conn->local_rx_ctrl.cons);
-> +			/* This difference comes from the cursor the peer
-> +			 * reported, which is taken as it arrives.  A peer
-> +			 * cannot have consumed more than this side has
-> +			 * outstanding, so bound it by that and advance
-> +			 * tx_curs_fin by the bounded amount rather than
-> +			 * assigning the reported cursor: the invariant below
-> +			 * then holds by construction, and tx_curs_fin stays
-> +			 * inside the send buffer.
-> +			 */
-> +			sent = conn->sndbuf_desc->len -
-> +			       atomic_read(&conn->sndbuf_space);
-> +			diff_tx = min_t(int, diff_tx, max_t(int, sent, 0));
-> +
->  			/* increase local sndbuf space and fin_curs */
->  			smp_mb__before_atomic();
->  			atomic_add(diff_tx, &conn->sndbuf_space);
->  			/* guarantee 0 <= sndbuf_space <= sndbuf_desc->len */
->  			smp_mb__after_atomic();
-> -			smc_curs_copy(&conn->tx_curs_fin,
-> -				      &conn->local_rx_ctrl.cons, conn);
-> +			smc_curs_add(conn->sndbuf_desc->len,
-> +				     &conn->tx_curs_fin, diff_tx);
-
-[Severity: Low]
-Is len - sndbuf_space the right bound here?
-
-smc_tx_sendmsg() lowers sndbuf_space when data is prepared, not when it
-is sent:
-
-net/smc/smc_tx.c:smc_tx_sendmsg() {
-    ...
-		atomic_sub(copylen, &conn->sndbuf_space);
-    ...
-}
-
-On the nocopy path, smcd_cdc_msg_send() returns before it credits
-sndbuf_space, so this function is the only place that adds to it. That
-makes len - sndbuf_space the distance from tx_curs_fin to tx_curs_prep.
-This distance includes bytes that are prepared but not yet sent.
-smc_ioctl() uses the same expression for SIOCOUTQ and describes it as
-"not send + not acked".
-
-The peer can only consume up to the producer cursor it was given.
-smc_tx_rdma_writes() advances that cursor together with tx_curs_sent. A
-consumer cursor that claims more than tx_curs_sent is therefore clamped
-only to prep - fin. The smc_curs_add() above can then move tx_curs_fin
-past tx_curs_sent.
-
-Would that break the fin <= sent <= prep ordering implied by the
-tx_curs_sent ("sent data") and tx_curs_fin ("confirmed by peer") field
-comments in smc.h?
-
-If so, a later smc_tx_sendmsg() could wrap from tx_curs_prep into
-[tx_curs_sent, tx_curs_prep). It would then overwrite queued data before
-that data is advertised. On the nocopy path this buffer is the peer's
-DMB. Today this needs a forged consumer cursor, since only loopback-ism
-reaches this branch.
-
-The memory-safety goals do look met: sndbuf_space stays <= len, and
-tx_curs_fin.count stays below len. However, the new comment ("A peer
-cannot have consumed more than this side has outstanding"), the variable
-name sent, and the commit message ("credits nothing beyond the
-outstanding bytes") seem to describe a tighter bound than the code
-computes.
-
-smc_switch_cursor() in smc_core.c uses the same formula. It advances
-tx_curs_sent together with tx_curs_fin, so the ordering holds there.
-Here only tx_curs_fin moves.
-
-Would a bound like this match the comment, and leave the honest-peer
-case unchanged?
-
-	sent = smc_curs_diff(conn->sndbuf_desc->len, &conn->tx_curs_fin,
-			     &conn->tx_curs_sent);
-
->  
->  			smc_tx_sndbuf_nonfull(smc);
->  		}
-
-[Severity: Low]
-This is a pre-existing issue, not one introduced by this patch. Earlier in
-smc_cdc_msg_recv_action(), peer_rmbe_space is still credited from the
-same peer-reported consumer cursor with no bound:
-
-net/smc/smc_cdc.c:smc_cdc_msg_recv_action() {
-    ...
-	diff_cons = smc_curs_diff(conn->peer_rmbe_size, &cons_old,
-				  &conn->local_rx_ctrl.cons);
-	if (diff_cons) {
-		...
-		atomic_add(diff_cons, &conn->peer_rmbe_space);
-		/* guarantee 0 <= peer_rmbe_space <= peer_rmbe_size */
-    ...
-}
-
-With a forged cursor, can peer_rmbe_space exceed peer_rmbe_size here?
-That would make the comment false. This path runs for all SMC-R and SMC-D
-connections, not only nocopy ones.
-
-After this patch, the nocopy path bounds sndbuf_space and tx_curs_fin,
-but peer_rmbe_space still takes the full diff_cons. The two counters
-describe the same shared buffer, so they can now disagree. The comment
-above the nocopy branch says both are updated "since peer has already
-consumed the data".
-
-smc_tx_rdma_writes() uses peer_rmbe_space to compute write_blocked and
-the transmit length. The urg_tx_pend wake-up at the end of this function
-also requires:
-
-	atomic_read(&conn->peer_rmbe_space) == conn->peer_rmbe_size
-
-Would an inflated peer_rmbe_space mean the urgent data sender is never
-woken through that path?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123135327.3953509-1-piyus%40iiitd.ac.in
+Acked-by: Xin Long <lucien.xin@gmail.com>
