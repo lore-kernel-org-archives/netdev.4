@@ -1,85 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.210
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795500976;
-	b=Q8N3H4tKqvIW6izEj3oHKPctxMgQvBe9PoMOzo7AjU45hwf+vWBQHhmj+6xCntZ2SXcP
-	 ly0C7QMT6qMRCeU+zwdwYHsU6ZPw6bUhCx3XgcNYcRXC9/mmbmxTGTBNkzlicbNx8DD0U
-	 y0xlYz6eQgX+bWnQDmRweNJrYzYlOFTaIN513faAJxbxdi1h1h/uwSRrt348f4i5Ce9+H
-	 XoiLZtIMu8X3JzIxZETRsqVUrpVdSOGax+SoJgf9m8jCa+u/5BiYcynH9L0SPe2mA/K9k
-	 39w8z4QVC4kKEWzUd89eNYhkZqI3QHGnuS54mc8Iw1X7XMu4fpSmy6Ipu2ALO5R4Y5w==
+	t=1795501077;
+	b=y17DMe6+4mCwogLvStZczhGe3uRWqjPJMN82e7crEG8TRYyJPtOZ8WfKa5Q7TTteDd/B
+	 NTVneVWRJaNXGdjPAI8QOL3so00OhXZewoBu8qhqZKWUGYZS4OFSkA0KUQ8fnR5o3ML4z
+	 BDi5cuaJcUfjkG61LeiVGx0P1MSn2Db05tzIkXbnlJMA0NjIP7PUGY19cTrwBCi5558DD
+	 TeB4R/nLTPzQSpbevy6iCaDuA8n6fJVPwWcyAqPdbGXUafrh/wHYo2wyAUncAwwBN7YOU
+	 Tpm4BunRHwbs8Ip5hjp4kXFXw0qeHyp3dU9OYITdFaI71aG1zps5fwXMUn/baOElUbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795500976;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=bJG1Ph17o2sFqd0hCacoT7m8G7WDzIuzW3UzXnp5Ges=;
-	b=Euh3DveKZc0SzqlZ+6riKbFgC1CVAF1wudJYlkgPO7Si2dvutoWGRuJ/6ywJs4HOZ6jA
-	 4jOs2X25rgeXpHJyOkQpyPieaZ4ATUxUWxgMqKNNT+espAiWlaQnX5nEcMThqgomnPyaa
-	 67s8boY24YTbpORrVoAy+U5EmXB9LeprMntVVF0Sb24fFFZ3UJVCG09ULS4JI7bVupUau
-	 JttJYk0jD9FIH2y8ZpVi//9rXJjv/p9hvEp0RdjE6Td8OZ3lmHhLA3W0k1vaW1epawjJJ
-	 +7mnxDXpoXL65FbdvGBWI3HDFXEuCxuWuvr3RHqVxXFb4EaCdYTxreTHtJS//p3A8tA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795501077;
+	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
+	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 X-ClientProxiedBy;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	b=qHuJfeb+JirhuzX7H+573cDeeDRUggI4y+F3i2KOAQwzisgLexcol5a+i0kmiH/4/YO3
+	 0eucuuL0QX3J3vHk9Tfl0U1Qud+eoAcfYW5ja96Qz9tAG2D3UiWOOnnux3PXZKAbQ4wRC
+	 bwXY/bASJIthUss1KXQ2TEsXU1wr+GyPIuLawKS7GnL8wpp3TuJaJgIGfhrkMdKCAYHfe
+	 LGHz+O0pADslJ9r4zcYGKDx0zKTiM4CwSoJBxmQL02/5SqUmP74YZNHYHKbKkdVEnVX/K
+	 NzGz/UwUBtWGXrSoq4sSMRafrDjP8PSRLYtAXBmFcP2p3RuSj3JeA8kLqpf0soOBuqQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qu57ktkC;
-	arc=none smtp.remote-ip=91.218.175.210
-Received: from mta0.migadu.com (out-210.mta0.migadu.com [91.218.175.210])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=secunet.com;
+	spf=pass smtp.mailfrom=secunet.com;
+	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk;
+	arc=none smtp.remote-ip=62.96.220.36
+Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A039606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:16:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A039606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3425D606A321;
+	Tue, 24 Nov 2026 06:17:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3425D606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=qu57ktkC
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=SMHX9yHMBQBinyf989UO8I8j+ewwygMpJYQnpQd16VM=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795500974; v=1; x=1796105774;
- b=qu57ktkC6JhQEqyjc7YD2/vC+MKeXEsM/fDhNP/vKmlByx4udH3qa46aIxhmPnpKxf2Yih6+
- peFvLjt2izbvjh48e/wKwaq8a/4clCK3jMemAuw2CW1mkKVhi2DDtcJ5PuDYOgDVWVfqZbAwC3F
- ZZ32HSxAkXv5rzgizgLQrnv8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id fec14db3be421640;
-	Tue, 24 Nov 2026 06:16:14 +0000
-X-Mizu-Trace-ID: fec14db3be421640
-X-Migadu-Flow: FLOW_OUT
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-To: bpf@vger.kernel.org,
-	sdf@fomichev.me
-Cc: Jiayuan Chen <jiayuan.chen@linux.dev>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	Song Liu <song@kernel.org>,
-	Yonghong Song <yonghong.song@linux.dev>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Emil Tsalapatis <emil@etsalapatis.com>,
-	Ihor Solodrai <ihor.solodrai@linux.dev>,
-	KP Singh <kpsingh@kernel.org>,
-	Matt Bobrowski <matt@bobrowski.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Xu Kuohai <xukuohai@huawei.com>,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH bpf 2/2] selftests/bpf: test rejected bpf_setsockopt() in inet_csk_clone hook
-Date: Tue, 24 Nov 2026 14:15:36 +0800
-Message-ID: <20261124061544.254586-2-jiayuan.chen@linux.dev>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261124061544.254586-1-jiayuan.chen@linux.dev>
-References: <20261124061544.254586-1-jiayuan.chen@linux.dev>
+	dkim=pass (2048-bit key, unprotected) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=CuMNmgBk
+Received: from localhost (localhost [127.0.0.1])
+	by mx1.secunet.com (Postfix) with ESMTP id F0989206D0;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+X-Virus-Scanned: by secunet
+Received: from mx1.secunet.com ([127.0.0.1])
+ by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id 72SRn53h-tJp; Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+	(No client certificate requested)
+	by mx1.secunet.com (Postfix) with ESMTPS id 580BD201C7;
+	Tue, 24 Nov 2026 07:17:53 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 580BD201C7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
+	s=202301; t=1795501073;
+	bh=Fns5KSeLA1lAqdtuoDUdCMp8WJ8wrSCmXQUe1et8xFI=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
+	b=CuMNmgBkP7qTfM6MdxNUQ6ZyVyFsrN51hj1M1RaCrS/5jRfJkAFbqvLG2UzS3NtM/
+	 Lcg5KAuLcfVffLvgrX+EcXiVUgPrMB6Oenm9MyxVshBWaox4J5C6JNKRglv9dctAQw
+	 5XJ0IxPDsK3bZEa1qDH/MWmz5iQF78pJFMvPRjp6bhKCFczY1u3b4ZqDbBkBs36oj/
+	 BPhB8a9Ix0gI/uXi8R6tdQuT0h5c/Jv99Q6w98eIRyNkIEnzvHc1E5Wk2hf08UOwYJ
+	 yQjiFDbvwvAA225xSuKdx17rxcb50t8f3ugwLxr2wZh0t7xClgswJGTE+v3rjaB3ev
+	 Bkv3vBs4jrdSA==
+Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Tue, 24 Nov
+ 2026 07:17:51 +0100
+Received: (nullmailer pid 3202217 invoked by uid 1000);
+	Tue, 24 Nov 2026 06:17:52 -0000
+Date: Tue, 24 Nov 2026 07:17:52 +0100
+From: Steffen Klassert <steffen.klassert@secunet.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+	<horms@kernel.org>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+Subject: Re: [BUG] xfrm: ESP SA in route optimization mode hits WARN_ON_ONCE
+ in xfrm_state_mtu() and xfrm_input()
+Message-ID: <awUsEE7XZIFwc0Ws@gauss4>
+References: <179493154245.3969421.1349059390749040254@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,59 +83,96 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <179493154245.3969421.1349059390749040254@gmail.com>
+X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
+ (10.32.0.171)
 
-Check in the lsm_cgroup/inet_csk_clone prog that SO_KEEPALIVE,
-TCP_CONGESTION and IPV6_TCLASS are rejected with -EOPNOTSUPP.
+On Tue, Nov 17, 2026 at 08:05:46AM -0800, Kyuwon Cho wrote:
+> Hi Steffen, Herbert,
+> 
+> While testing v7.4-rc3 with an LLM-guided test generator that we are
+> developing as a research prototype, we found that XFRM_MSG_NEWSA accepts
+> an ESP state with mode XFRM_MODE_ROUTEOPTIMIZATION, and that one packet
+> through it hits two WARN_ON_ONCE()s. An unprivileged user can do this
+> from its own user and network namespace. Sending the packet:
+> 
+>   WARNING: net/xfrm/xfrm_state.c:3264 at xfrm_state_mtu+0x239/0x3d0, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Not tainted 7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_state_mtu+0x239/0x3d0
+>   Call Trace:
+>    <TASK>
+>    xfrm_bundle_create+0x1560/0x2340
+>    xfrm_resolve_and_create_bundle+0x158/0x2d0
+>    xfrm_lookup_with_ifid+0x483/0x18e0
+>    xfrm_lookup_route+0x1e/0x180
+>    ip6_dst_lookup_flow+0x196/0x1e0
+>    udpv6_sendmsg+0x163b/0x2d70
+>    __sys_sendto+0x2b1/0x3c0
+>    __x64_sys_sendto+0xdb/0x1b0
+>    do_syscall_64+0x116/0x630
+>    entry_SYSCALL_64_after_hwframe+0x77/0x7f
+>    </TASK>
+> 
+> and receiving it:
+> 
+>   WARNING: net/xfrm/xfrm_input.c:449 at xfrm_input+0x2176/0x5f50, CPU#1: test/107
+>   CPU: 1 UID: 65534 PID: 107 Comm: test Tainted: G        W           7.4.0-rc3 #1 PREEMPT(lazy) 
+>   RIP: 0010:xfrm_input+0x2176/0x5f50
+>   Call Trace:
+>    <IRQ>
+>    xfrm6_esp_rcv+0x83/0x1c0
+>    ip6_protocol_deliver_rcu+0xc71/0x13d0
+>    ip6_input_finish+0x192/0x3f0
+>    ip6_input+0xcb/0x220
+>    __netif_receive_skb_one_core+0x114/0x1b0
+>    process_backlog+0x3c6/0x12c0
+>    __napi_poll.constprop.0+0x9c/0x5c0
+>    net_rx_action+0x48e/0xe30
+>    handle_softirqs+0x22d/0x980
+>    do_softirq+0x43/0xa0
+>    </IRQ>
+> 
+> verify_newsa_info() accepts XFRM_MODE_ROUTEOPTIMIZATION for any
+> protocol; only IP-TFS is limited to ESP. esp6_init_state() treats every
+> mode other than BEET and TUNNEL as transport:
+> 
+> 	switch (x->props.mode) {
+> 	case XFRM_MODE_BEET:
+> 		...
+> 	default:
+> 	case XFRM_MODE_TRANSPORT:
+> 		break;
+> 
+> so the state is created. The ESP paths then reach code that assumes
+> route optimization never comes with ESP. xfrm_state_mtu() has no case
+> for it and falls to:
+> 
+> 	default:
+> 		if (x->mode_cbs && x->mode_cbs->get_inner_mtu)
+> 			return x->mode_cbs->get_inner_mtu(x, mtu);
+> 
+> 		WARN_ON_ONCE(1);
+> 
+> and xfrm_inner_mode_input() has
+> 
+> 	case XFRM_MODE_ROUTEOPTIMIZATION:
+> 		WARN_ON_ONCE(1);
+> 		break;
+> 
+> The packet is dropped on input, so the effect is the warnings, which
+> panic a machine with panic_on_warn. Both WARN_ON_ONCE()s date from the
+> 2019 xfrm mode cleanup (c2d305e51038, c7b37c769d2a).
+> 
+> Accepting XFRM_MODE_ROUTEOPTIMIZATION only for the Mobile IPv6 types
+> (IPPROTO_ROUTING and IPPROTO_DSTOPTS) in verify_newsa_info(), as it
+> already limits IP-TFS to ESP, or rejecting it in esp6_init_state()
+> (route optimization exists only for IPv6 states), should avoid it. We
+> have not tested either change.
 
-Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
----
- tools/testing/selftests/bpf/progs/lsm_cgroup.c | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+I think adding a guard to verify_newsa_info() makes sense. Can you
+submit a fix?
 
-diff --git a/tools/testing/selftests/bpf/progs/lsm_cgroup.c b/tools/testing/selftests/bpf/progs/lsm_cgroup.c
-index 3bfa479104be..f4e3278d46d1 100644
---- a/tools/testing/selftests/bpf/progs/lsm_cgroup.c
-+++ b/tools/testing/selftests/bpf/progs/lsm_cgroup.c
-@@ -23,6 +23,10 @@ extern bool CONFIG_SECURITY_APPARMOR __kconfig __weak;
- #define EPERM 1
- #endif
- 
-+#ifndef EOPNOTSUPP
-+#define EOPNOTSUPP 95
-+#endif
-+
- struct {
- 	__uint(type, BPF_MAP_TYPE_CGROUP_STORAGE);
- 	__type(key, __u64);
-@@ -168,7 +172,9 @@ int BPF_PROG(socket_alloc, struct sock *sk, int family, gfp_t priority)
- SEC("lsm_cgroup/inet_csk_clone")
- int BPF_PROG(socket_clone, struct sock *newsk, const struct request_sock *req)
- {
-+	char cc[] = "reno";
- 	int prio = 234;
-+	int one = 1;
- 
- 	if (!newsk)
- 		return 1;
-@@ -184,6 +190,17 @@ int BPF_PROG(socket_clone, struct sock *newsk, const struct request_sock *req)
- 	if (prio != 234)
- 		return 1;
- 
-+	/* The child is not set up yet, these are rejected. */
-+	if (bpf_setsockopt(newsk, SOL_SOCKET, SO_KEEPALIVE, &one,
-+			   sizeof(one)) != -EOPNOTSUPP)
-+		return 1;
-+	if (bpf_setsockopt(newsk, SOL_TCP, TCP_CONGESTION, cc,
-+			   sizeof(cc)) != -EOPNOTSUPP)
-+		return 1;
-+	if (bpf_setsockopt(newsk, SOL_IPV6, IPV6_TCLASS, &one,
-+			   sizeof(one)) != -EOPNOTSUPP)
-+		return 1;
-+
- 	/* Can access cgroup local storage. */
- 	if (!test_local_storage())
- 		return 1;
--- 
-2.43.0
+Thanks!
 
