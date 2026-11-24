@@ -1,57 +1,59 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795545001;
-	b=Lu74YvbxVzPwHvDZ7dt1JLsYkFbSu166ovoheSrr1J3y1W2AHDnDMPvVmelXAKe7Lmk/
-	 mEpI1foUGknzp5iXzWHvMNUuKARXrJBRr/aMh20DbT1pMh3ofFd4IJwX6LSTx+0tYcgVw
-	 AQPEC8DOP9Kp6AArBpNcrxSpiu7Ege0oUNsVlb2cG2/txnNfvhTdsdshlQAMm9bt0haSP
-	 DWS6hejAy1XJ854YSJt7K5vwUKaefzrL37ikVNiZWUpI+DrsI7GXDYrdjXXXQ/yUyqaLk
-	 TBIeI9JG1z/OddAr20rtFYdKcwsol95uDDElBR2JF8QgsaQUV2aEk9ONZEPO0EU1mNA==
+	t=1795545004;
+	b=W2Gf8tykwhGW0SnmdOMF2FNJcTQ2w9MvTiZfQY3j5zWExnq2rmouG9BNE4YbTjBitAGn
+	 tNEl2lURG6X/ev3tQDDHyCrOJgJmXhQ4RxOygOig9T70mFT6SKP11aZcn4JNLh51zl2/z
+	 yMnw0o9nIXiFYMIgA19dUu2zvDtO4p3GcA/+nBGb4ZrWqJnqfyq/NuETJdYVtDZskLR+w
+	 EdkM94iHXpCbaUUSAqr29f4aEIA8hc2Ewt0ezry5/E0wUMbJOPSdwT/M9a4s1aOYRuA8a
+	 01+bq/yDuIeWj497KB3pUou+NQi+lonaThAyvodsw1bguPyw8VYzR8XJKHbHkThzeSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795545001;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795545004;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=BS/hITMY8CNZEdrwqncFX9F0WLUeVKA8pCahN++pnZI=;
-	b=5AB4KWgJNY7UybWrzIqi9Sj1aI+NR/1tgFosBaYlGJnjjmsuQn0dW2kadkTvfxywIz/R
-	 oW1DThqghHT2tPNNsn+yrwWk55Hc62WsmDspEeIfPt5rrrAjdnGJhnWyj3OgWenSmMh9Y
-	 LfdX84ECHbjKLdGG+E3+6XDScR+AUJfkrPWtduj3y/TsrK/mT3e1K9tzw82SAkfJI+GHm
-	 VfBJCxG6o9LjdBD4aYpl26tFXa7QXE9iJZ4lZuLgfwE5tJ9+OBJBIKfLKZb4eLrD2JImB
-	 m8EHyjMFdIwQJktmHo25HN1GwYgaQclxP6TU93A2nkzkLAu3DBj84bWrJAZ+kCMaL0w==
+	bh=DbMNuqLBralp6JqQQXwQMiUu0oCpgkS443CYex4YaM0=;
+	b=1RPA/o+afrRNLgwl6aP9l1iwqS/ql2boAnf4VKhgKDuyJzDp4t3ZxQ1HQYDJHyvuMvKD
+	 +sVu7xrl0pHWBv6N3P6WcFbYRSIZQ3wN29AVVirPBkNI7xRtiDqZp9RF/AR8LA9zEymdU
+	 srC2uvhDLdxYkGof+XSrhaStCsXSIYmsQ+CM23vMIQArRYOQlZOhnS5uDg8HKn7rZu8u1
+	 KOToBvGperos/bjwwg9tIEJLBWkhtCterynUXcR2PY93zf7U8ZtZPagxLMugaqqc/xIy3
+	 eqwwVKGTKYuv9Cg/h49q+UYiMJ9ajElbuuDM6wtEWtoj6VWTkT4IAOtslGajj4xl1YQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IsPxC8rq;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ll91411+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B679606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:30:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9078F606A31E;
+	Tue, 24 Nov 2026 18:30:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IsPxC8rq
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57BA51F000C6;
-	Tue, 24 Nov 2026 18:30:00 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ll91411+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1183B1F000C6;
+	Tue, 24 Nov 2026 18:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795545000;
-	bh=BS/hITMY8CNZEdrwqncFX9F0WLUeVKA8pCahN++pnZI=;
+	s=k20260515; t=1795545003;
+	bh=DbMNuqLBralp6JqQQXwQMiUu0oCpgkS443CYex4YaM0=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IsPxC8rqBBC4dX+zfcMEmRzggPF725JHxuPQd6ZunJMYzyXt4/494EwgAIg1Zk7Df
-	 5WKUtrPmwxAOZd54PwAXpyoVUp0jiL/nPuFPlaVOl74oAqXcNWwhVI2CXoKM61eH7j
-	 bkg08XAZtzSGwSWAJ5A90cOqtRANwf6rxbSiisQBUj6mcfd+fASQmLQ4kHNvSdAj1I
-	 NFrR17kZi2yzY5YHbEhmejO0twelYlEcdXrsj2ugJzsKMmMrMaAtB6ZXXTicdx6pFY
-	 4cLaxA1w8i4nrbHkdLET5z8Mag+cdBdh5DPfJTIw5DwfEZ7nVFB4y6ZiXJc7VaSE9D
-	 3XCWORxNiqDmg==
-Subject: Re: [PATCH net-next v9 13/14] net: ethernet: cortina: Release partial
- RX frames on stop
+	b=Ll91411+oopHN4Rwuq7hcIHToDhESzFrZSScQ7ullShnMnif+HUBeBc27kK2qiRqi
+	 GQSVM9rLyznnR4eBu4GtwurJhw+H2C0pG/CF7dHO5OPl0KeFVGug7zwaZKKTS4vnVU
+	 D7jdjUSkBMwEfOs3qQiWiWmCW+2JuJn0QHxd5Zn5JDm31+/P0k9MmiHFi4X2/eJkYB
+	 zwmkcZLo175i/Hi0AAiEgDsvepjYEsP2fLA+v/78ZMQ6hHdGum6yiOb1gdHROKNjW1
+	 iJEek1ihMW54dftJh/3mUYwZsOJ+xhXSNxhtTM31464p+EJsImvS/OydVWxhYCA6Hz
+	 idLSSJ+v1kdDg==
+Subject: Re: [PATCH net 2/4] udp: Keep the bound device on disconnect unless
+ connect() set it
 From: netdev-bot+sashiko@kernel.org
-To: linusw@kernel.org
-Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
- mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:29:59 +0000
-Message-ID: <179554499959.3135.10353219127658240816@kernel.org>
-In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-13-298671d799d5@kernel.org>
-References: <20261120-gemini-ethernet-fixes-3-v9-13-298671d799d5@kernel.org>
-X-sashiko-severity: Low
+To: juanagusnicco@gmail.com
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, kuniyu@google.com,
+ willemdebruijn.kernel@gmail.com, willemb@google.com, e@erig.me,
+ shuah@kernel.org, linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Tue, 24 Nov 2026 18:30:02 +0000
+Message-ID: <179554500253.3135.7129341529911265513@kernel.org>
+In-Reply-To: <20261120174341.35873-3-juanagusnicco@gmail.com>
+References: <20261120174341.35873-3-juanagusnicco@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,130 +66,208 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-- [Low] The commit fixes a real lifetime bug but has no Fixes: tag.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it sits in the
-  stop path the patch changes.
+- [Medium] The commit message says that clearing sk_bound_dev_if on
+  disconnect "is only safe for a device that connect() set", and…
+- [Low] The committed message leaves out or blurs user-visible behaviour
+  changes of a Cc: stable patch.
+- [Low] __udp_disconnect() now does an unlocked read-modify-write of
+  sk->sk_userlocks: `WRITE_ONCE(sk->sk_userlocks, sk->sk_userlocks &…
+- [Low] __udp_disconnect() takes a snapshot (`u8 userlocks =
+  READ_ONCE(sk->sk_userlocks)`) and later uses it to decide whether to…
 
 --
 
-net: ethernet: cortina: Release partial RX frames on stop
+udp: Keep the bound device on disconnect unless connect() set it
 
-This patch frees a partially assembled RX skb held in napi->skb when
-gmac_stop() runs, so a reopened interface does not get the stale skb back
-from napi_get_frags(). The dropped frame is counted in rx_dropped under
-the RX stats seqcount, using the irqsave update helpers.
+This patch adds a SOCK_CONNECT_DEV flag to sk_userlocks. The flag records
+that __ip6_datagram_connect() set the bound device on a socket that had
+none, and SO_BINDTODEVICE and SO_BINDTOIFINDEX drop it. __udp_disconnect()
+now clears sk_bound_dev_if only when the flag is set, which stops a socket
+from clearing a device that the user or a cgroup program set.
 
-> diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index 5f8f220ad9d73..3d121eec88733 100644
-> --- a/drivers/net/ethernet/cortina/gemini.c
-> +++ b/drivers/net/ethernet/cortina/gemini.c
-> @@ -2269,12 +2269,19 @@ static int gmac_open(struct net_device *netdev)
->  static int gmac_stop(struct net_device *netdev)
->  {
->  	struct gemini_ethernet_port *port = netdev_priv(netdev);
-> +	unsigned long flags;
->  
->  	hrtimer_cancel(&port->rx_coalesce_timer);
-
-[Severity: High]
-This isn't a bug introduced by this patch, but it is in the stop path this
-patch changes. Can the RX coalesce timer be re-armed after this
-hrtimer_cancel()?
-
-The RX interrupt is not masked until gmac_enable_irq(netdev, 0) and
-free_irq() run later in gmac_stop(). An RX interrupt in that window goes
-through gmac_irq():
-
-	if (val & (DEFAULT_Q0_INT_BIT << netdev->dev_id)) {
-		gmac_enable_rx_irq(netdev, 0);
-
-		if (!port->rx_coalesce_nsecs) {
-			napi_schedule(&port->napi);
-		} else {
-			...
-			hrtimer_start(&port->rx_coalesce_timer, ktime,
-				      HRTIMER_MODE_REL);
-		}
-	}
-
-In that case ndo_stop returns with the timer still queued.
-gmac_set_coalesce() sets rx_coalesce_nsecs to rx_coalesce_usecs * 1000
-with no upper bound, so the timer can stay queued for up to about 4.29
-seconds.
-
-If the interface is reopened during that time, gmac_open() calls
-hrtimer_setup() on a timer that is still queued. Could that corrupt the
-hrtimer timerqueue?
-
-If the device is removed instead, could gmac_coalesce_delay_expired()
-fire after the netdev private area is freed and call napi_schedule() on
-freed memory?
-
-gmac_open() has a related ordering problem. request_irq(),
-gmac_enable_irq(netdev, 1) and gmac_enable_tx_rx() all run before
-hrtimer_setup(). gmac_set_coalesce() has no netif_running() check, so
-coalescing can be set before the first open.
-
-On that first open, an early RX interrupt would call hrtimer_start() on a
-zero-initialized hrtimer whose timer->base is NULL. Would that oops in
-lock_hrtimer_base()?
-
-Would it make sense to set up the hrtimer once, at probe or ndo_init
-time, and to cancel it only after the RX interrupt is masked or the IRQ
-is freed?
-
->  	netif_tx_stop_all_queues(netdev);
->  	gmac_disable_tx_rx(netdev);
->  	gmac_stop_dma(port);
->  	napi_disable(&port->napi);
-> +	if (port->rx_skb) {
-> +		napi_free_frags(&port->napi);
-> +		flags = u64_stats_update_begin_irqsave(&port->rx_stats_syncp);
-> +		port->stats.rx_dropped++;
-> +		u64_stats_update_end_irqrestore(&port->rx_stats_syncp, flags);
-> +	}
->  	port->rx_skb = NULL;
+> This changes connect(AF_UNSPEC) for UDP, ping, raw and L2TP sockets,
+> which all use __udp_disconnect(): a device that connect() did not set
+> is now kept, so changing it afterwards needs CAP_NET_RAW, as on a
+> socket that never disconnected.
 
 [Severity: Low]
-Should this patch have a Fixes: tag?
+Does this paragraph cover all of the behaviour changes?
 
-The port->rx_skb = NULL assignment here was added by commit 06937db21ee3
-("net: ethernet: cortina: Make RX SKB per-port"). Before that commit, the
-static skb in gmac_rx() kept its value across stop and open. The next SOF
-descriptor then freed the leftover frame in gmac_rx():
+In __ip6_datagram_connect(), connect() to a link-local peer can replace
+a VRF master M with a slave S. old_dif is non-zero there, so
+ip6_datagram_connect_dev() does not set SOCK_CONNECT_DEV. Disconnect now
+keeps S, where it used to reset the device to 0, and binding back to M
+then needs CAP_NET_RAW.
 
-			if (skb) {
-				napi_free_frags(&port->napi);
-				port->stats.rx_dropped++;
-				skb = NULL;
+So a device that connect() did set is now kept, and the sentence above
+doesn't cover that. The change is only described in the notes below the
+--- line, and those notes won't be in the commit that stable backporters
+read.
 
-Since 06937db21ee3, that check no longer fires after a reopen.
-gmac_skb_if_good_frame()->napi_get_frags() then returns the stale
-napi->skb.
+__udp_disconnect() is also called from raw_abort() in net/ipv4/raw.c and
+from udp_abort() (SOCK_DESTROY and bpf_sock_destroy). Those paths now keep
+a device set by the user or by a cgroup program as well.
 
-Commit ebd8ec2b309e ("net: ethernet: cortina: Carry over frag counter")
-later added port->rx_frag_nr = 0 to the same stop path, and the gap
-remained.
+Could the commit message mention the VRF change and the abort paths?
 
-06937db21ee3 has its own Fixes: tag and was merged through net, so it is
-probably in stable trees. This change only touches gmac_stop() and does
-not appear to depend on the earlier free-queue rework in the series, so
-it could be backported by itself. Would this tag fit?
+> diff --git a/net/ipv4/udp.c b/net/ipv4/udp.c
+> index 446729b41d661..9f1f45afee532 100644
+> --- a/net/ipv4/udp.c
+> +++ b/net/ipv4/udp.c
+> @@ -2195,6 +2195,7 @@ static int udp_connect(struct sock *sk, struct sockaddr_unsized *uaddr,
+>  
+>  int __udp_disconnect(struct sock *sk, int flags)
+>  {
+> +	u8 userlocks = READ_ONCE(sk->sk_userlocks);
 
-Fixes: 06937db21ee3 ("net: ethernet: cortina: Make RX SKB per-port")
+[Severity: Low]
+Can this snapshot be stale by the time it is used to clear
+sk_bound_dev_if?
 
->  	port->rx_frag_nr = 0;
->  	port->rx_dropping = false;
+Ping and raw sockets use __udp_disconnect() as their ->disconnect, and
+l2tp_ip6_disconnect() calls it. All of them get there from
+inet_dgram_connect(AF_UNSPEC) without lock_sock(). Only udp_disconnect()
+takes the socket lock.
+
+Take an IPv6 ping, raw or L2TP socket connected to a link-local peer, so
+it has device X and SOCK_CONNECT_DEV set:
+
+thread B: __udp_disconnect()
+    userlocks = READ_ONCE(sk->sk_userlocks);   /* has SOCK_CONNECT_DEV */
+
+thread C: __udp_disconnect() completes
+    sk_bound_dev_if = 0, SOCK_CONNECT_DEV cleared
+
+thread A: setsockopt(SO_BINDTODEVICE, Y)
+    sock_bindtoindex_locked()
+        /* device is 0, so no CAP_NET_RAW check */
+        sk_bound_dev_if = Y, SOCK_CONNECT_DEV cleared
+
+thread B resumes:
+    if (userlocks & SOCK_CONNECT_DEV) {
+        WRITE_ONCE(sk->sk_bound_dev_if, 0);
+
+Disconnect then clears the device that SO_BINDTODEVICE set. For ping, raw
+and L2TP this contradicts "a device that connect() did not set is now
+kept". The result matches the pre-patch behaviour, and the window is
+small.
+
+>  	struct inet_sock *inet = inet_sk(sk);
+>  	/*
+>  	 *	1003.1g - break association.
+> @@ -2204,15 +2205,19 @@ int __udp_disconnect(struct sock *sk, int flags)
+>  	WRITE_ONCE(inet->inet_daddr, 0);
+>  	inet->inet_dport = 0;
+>  	sock_rps_reset_rxhash(sk);
+> -	WRITE_ONCE(sk->sk_bound_dev_if, 0);
+> -	if (!(sk->sk_userlocks & SOCK_BINDADDR_LOCK)) {
+> +	if (userlocks & SOCK_CONNECT_DEV) {
+> +		WRITE_ONCE(sk->sk_bound_dev_if, 0);
+
+[Severity: Medium]
+The commit message says clearing the device "is only safe for a device
+that connect() set", and this still clears it without a bind conflict
+check. Does that hold for L2TP/IPv6?
+
+For UDP, the next patch in the series ("udp: Ignore a connect()-set device
+in the bind conflict check") makes udp_lib_lport_inuse() and
+udp_lib_lport_inuse2() treat a SOCK_CONNECT_DEV device as 0. That patch
+only changes udp.c, and __l2tp_ip6_bind_lookup() still compares the raw
+device:
+
+net/l2tp/l2tp_ip6.c:__l2tp_ip6_bind_lookup() {
+    ...
+		bound_dev_if = READ_ONCE(sk->sk_bound_dev_if);
+		if (bound_dev_if && dif && bound_dev_if != dif)
+			continue;
+    ...
+}
+
+l2tp_ip6_connect() goes through __ip6_datagram_connect(), and
+l2tp_ip6_disconnect() calls __udp_disconnect(). An l2tp_ip6 socket needs
+no capability, because inet6_create() checks CAP_NET_RAW only for
+SOCK_RAW. The module also loads automatically through
+MODULE_ALIAS_NET_PF_PROTO_TYPE().
+
+Could an unprivileged user do the following?
+
+1. attacker: bind conn_id X with no device, which holds X on every device
+2. attacker: connect(fe80::1%eth1), so the device becomes eth1 and
+   SOCK_CONNECT_DEV is set
+3. victim: SO_BINDTODEVICE(eth0), bind conn_id X. This succeeds because
+   the attacker's eth1 is skipped.
+4. attacker: connect(AF_UNSPEC), which puts the device back to 0 with no
+   conflict check
+5. attacker: connect() to the victim's real peer G. The peer is not
+   scoped, so the device stays 0, and l2tp_ip6_connect() moves the socket
+   to the head of l2tp_ip6_bind_table.
+6. l2tp_ip6_recv() takes the first match, so the attacker gets G's L2TP
+   packets for conn_id X that arrive on eth0
+
+Without this sequence, the victim's bind in step 3 would fail with
+EADDRINUSE.
+
+A related point: l2tp_ip6_bind() never sets SOCK_BINDADDR_LOCK. So
+__udp_disconnect() always calls inet_reset_saddr() on L2TP sockets, and
+the bound address gets wider too.
+
+There is also a VRF case that this patch introduces. Take a socket bound
+to VRF master M that connects to a link-local peer on slave S. It gets
+device S without SOCK_CONNECT_DEV because old_dif is non-zero, and it now
+keeps S after disconnect instead of going back to 0.
+
+Another VRF socket's bind of M:P is then allowed, because S != M in
+udp_lib_lport_inuse(). Before this patch, that bind conflicted with the
+socket's device 0.
+
+__udp_disconnect() doesn't clear sk_v6_daddr. So for datagrams from its
+former peer, the S-bound socket then scores higher than the M-bound one.
+
+Is the series meant to handle the L2TP/IPv6 and VRF cases as well?
+
+> +		WRITE_ONCE(sk->sk_userlocks,
+> +			   sk->sk_userlocks & ~SOCK_CONNECT_DEV);
+
+[Severity: Low]
+Is this read-modify-write of sk_userlocks safe without the socket lock?
+
+For ping, raw and L2TP sockets this runs from inet_dgram_connect(AF_UNSPEC)
+-> prot->disconnect without lock_sock(). Other code updates the same u8
+with plain read-modify-writes under the socket lock, and that lock doesn't
+exclude this path. Those writers include SO_SNDBUF in sk_setsockopt():
+
+    sk->sk_userlocks |= SOCK_SNDBUF_LOCK;
+
+The others are SO_RCVBUF, SO_BUF_LOCK, sock_bindtoindex_locked() and
+ip6_datagram_connect_dev().
+
+An update that lands between this load and store is lost or undone. A
+SOCK_SNDBUF_LOCK that was just set can vanish. A buffer lock bit that
+SO_BUF_LOCK just cleared can come back. A SOCK_CONNECT_DEV set by a
+concurrent connect() can be dropped.
+
+The plain sk->sk_userlocks load inside WRITE_ONCE() also races with those
+writers, so KCSAN is likely to flag it.
+
+Before this patch, the unlocked path only read sk_userlocks. The notes
+argue that a lost update cannot cause a bind overlap. Does that argument
+also cover the other bits in this byte?
+
+>  	if (!(userlocks & SOCK_BINDADDR_LOCK)) {
+>  		inet_reset_saddr(sk);
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5%40kernel.org
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120174341.35873-1-juanagusnicco%40gmail.com
