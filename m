@@ -1,71 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795541418;
-	b=5geNndxAFdeLvs8tEVFgL7D6pPVy6Ge/nY4LuYcFNJjSUp87rUW2Vp1agMV0h8sy8ld+
-	 0ce+gEXE8d5l5KbSPXBlkFbr9brkG8DyC/xRKZH8uX28QOgFy0cAiTy4ANTBwEzmrvNkO
-	 BMgCokO/EtQEaUK4Fd+IywMsnwe3WmajJ0fEbca3BJsDlA6Ag0d3kdp4xFOQX2ZLsdNuK
-	 I/TmVHLTRwot1FlUiO5xrvYA7cLGrlQSj2MGbhtqxSJyoyIukUN4LaC8g12uo78Crvutq
-	 w2mabPeMUF59HyFRwRiVv3XWcDBXnuc+m6jwkWL+W/y/E1nxccPIOqKiUDWNwmLXMew==
+	t=1795541470;
+	b=egeVK4u9Xn3O4CWpStUlVekFe7NGtK6UykLmAEutg3S/u+eMDyea6/FRIz3YI2g1zoHQ
+	 a77qb7V88YcgHLd+KEVWZelaBjQC2UOjeCMb5G0BNCZX1sGaefmAr9ZVq8Y4BlaQjEIXU
+	 DsxEWjaw7mfxM7Cx0LU9px4QbiDaju79UEk/DevibC3r6451Rj/fMD3+yP+RrdIHh2N4w
+	 IDla/ba0oiPeTG0fybV6vy8I4Wupz3H6rdNTkMIciFH7lsAI/y20CJhiHgu2LstjEefz2
+	 ZbqEfR/kNO3jWFtutXv145ew9P3bLR2/o5+2PbLk+Y1CYTdSY/HhITMReiw+Yg1a7lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795541418;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=HsGkEro8HuxBLRoCIFXQ+xehN2F2sy5GeuRlei0vFA4=;
-	b=QvHi/rHSmW0vGbkh6Qvkg292MPd/ahm4oL/dQJK85tgujf+nAkUBiqf0ZVmB/m5/CoPW
-	 PeqebP+hFFEhVApidPmnyHwafg5BjdKkxk267F95JVqqJ1vSQdO5cP1N9uat4+TaMxUaG
-	 AEq3hmwQ7kSrpcTNIdGWZH8oQCRTTCshgXgrfZse9RqzSsQFWsCiebDv5n6oKPVtChJX7
-	 lZpzKj6MWxvCpzJBG/P1bukJbqBUQsxu8++roEhEZo6PymgwrDqzGBC7JLR16umPX8Snw
-	 7/7xX7Ztki/jXlOG0OcYJ43Lm/MbEZVKM4oW+ienYklH72vS90N7Qq6OPMhBahy7rOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795541470;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
+	b=2LYBvQGmvr6JM7cMAITvdb5BtSayLr+bmoENRYsqXtcoF0CbnaMu/P59o/A83sYhzTmr
+	 zVkcZCFrTGWQLDa6kx57l64s4fyCEIRB7KvVy7+nnl2LaFhmMg8v1jQT4chN/qI1GpPHJ
+	 A7pjIJ86X0xgcPaJBz8iiMU6JVGj2vCit1S4FIQ/7DbnGDENh6EiL6ztIdB8pUjNTaVpZ
+	 xVQBcZp929qeb32szlcMf0/2FFz6si/wDU8bmHpjFbhxUuX92Sd2lHL7DEGHYyPwyMcn7
+	 SZUnAxL3YOX0VmKKu150mSevJYDbHFjiWkfYd+DhnXnpcFXRUuI5ruy11fbPIfgnmBg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Ba042zpi;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Aa6JGeOV;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB4DE606A329;
-	Tue, 24 Nov 2026 17:30:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EB4DE606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00202606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:30:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00202606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=Ba042zpi
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=HsGkEro8HuxBLRoCIFXQ+xehN2F2sy5GeuRlei0vFA4=; b=Ba042zpiCWyA7HYpeKbS2Izc+w
-	g0lHU4hBdilPyzNu3D/wEXntRxs1Smf7rsiVKHZ/2HumSkpiFSYj6ssdbOUGuwZZm3rTqqzQqEW1a
-	cGyYDPsm0s16UADVk+kNFCedn556kpcjSK3a1ln4vua0eMitQynRrHCW6N7O11nKWFF8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVuL9-0017Dr-0x; Tue, 24 Nov 2026 18:29:59 +0100
-Date: Tue, 24 Nov 2026 18:29:59 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: Matthieu Baerts <matttbe@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-	davem@davemloft.net, Eric Dumazet <edumazet@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Bobby Eshleman <bobbyeshleman@meta.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Breno Leitao <leitao@debian.org>, thomas.petazzoni@bootlin.com,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net] selftests: drv-net: pause: detect the link partner
- from the remote side
-Message-ID: <ea5f29db-dd1f-4476-9766-1453e92234a5@lunn.ch>
-References: <20261123201406.479904-1-maxime.chevallier@bootlin.com>
- <4148e81b-ec5b-4374-b74f-4f5cba175c7b@kernel.org>
- <fb92bc0b-ab3f-49ac-b4a5-5368c87b3a7e@bootlin.com>
- <bd804c6d-0294-40b9-a6eb-2b1ab2ad357e@kernel.org>
- <39d50105-c550-4925-bf63-6f0fcbb897c3@bootlin.com>
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=Aa6JGeOV
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b4c8b51b58so2736040b3a.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:30:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795541452; x=1796146252; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
+        b=Aa6JGeOVqgmBHeyX+CVHplahTzuhVl0rCOAqE63zoW/1gMj5sgVfQP4M/KQSltCw12
+         KvG79kdzE1xh+zyzMhOhOz+XgyACK0vAmnofsMbkan46pRx64ah6a/Ua7sBgxA4pfnlR
+         KeQg9O4XwM0HuhBkzFzbbaQnezPzAuUXfJLQ8=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795541452; x=1796146252;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0RR5LvreyxciSo64ec1mUeCjNpiSiP2wPe91sNz/dzI=;
+        b=ljEIgtw0YclmXh38x36aNWgpvrbGybJNduES5ospAQDXb2dOz+6D8PkSlSSHLQ0U1f
+         TXp+l4AMMMZjO+zKUAo0GSWoarzJf66HJ01sUZdFha78OSktc172XL8v40RJwE5qidXr
+         QlsM7tKl0Cgmfp4rqjeIvaxitIfz4i2j6/nBlqvrDCnNu34soQk9NgOssuJ0K4GPu3kn
+         Ig7HjvCVVYE8uP3Z3bFG88QsVN8Z1jSMM/ga5MNb35Og4H1L6NDkOMXsr2BZkoTx/IRB
+         sUi5rhPRjsmzIp0jS0yTwnRB1eXcoZ5o8/bpbn7LXcEjAhIDYDJerISKK0r5El0D60gF
+         8Sxg==
+X-Gm-Message-State: APuU4Z+v3yX79i2dygqbRKN0sFTs6dd2DIiS3TsfSMn9E5oH8VS0er9X
+	SswdlaPgeHaSPn2KlUE2ebALjjXSvKVpqIrHJYjQ2cLqdMfR4fMR8olyg+SIOvQpLHY=
+X-Gm-Gg: AZFdTZekN3oQv6qMWRqVq02pdxHCbWx8eRwi0DAdQxaM2u/9MV0V8lFBjLiRX+xZwDY
+	HDXda8/tMYHa7+pPYD7aG6fN4QDBSo80S/eKqnSaCbVbYX7f60tXt9NiMbZyh0hrTsCOZ2KYNPZ
+	215Fl5n4tEGkxcKVuN2wBhpja/JjKupfWvuL/TGNoyPqGsigHBTXWk3XgELsJpePRJxPSHg36Lo
+	eNcioKQHfkvwIQp7yXn+lHHoHb92JFnh/7+qK7N1xzjHWVklBfMb4ew5b4kC+Mohy7BbzKa1g0o
+	vd972YDWJzFDPjmYzGeoqEuNIdMO5AJFfdh9P9KGy/0PONNJBGorS+g0IQNaC2R3I9N5kuNm0mA
+	A749C9j4IOXcbrwp01NMNOgSqVqSUvweW3RaNEgJ+U7GDbVNsbS2q0Ht2M6HItZNEmyWYIgZ8ur
+	BVXrw1/qMHgoQ4jiBZSVsL+q2ainIe9GUa0Dr2UJPm8M04yt2r4ZT+XhOfP8fSZ6p6bZdCAkFs9
+	wYsNiO2a31nOSZBoRZlEb700cS7Zx/lfX4mFBBOwKkrsYyQ8Q6SJfrx8Z5/3UcZ9LqqeCygLiA6
+	zbcEz0ar0Ev0ar62AZldZUOCAePXNuez0xnDRmHd+9NycGz8ofext8ExV4dDC+X4rEa6LmNzDCv
+	NM/HyFncHlBrikgtGsTHcKuGw/SNYTb+GLeWluZ31Zk6bErBtrejinmLqnybYAre0
+X-Received: by 2002:a05:6a20:e614:b0:3e2:a849:64bc with SMTP id adf61e73a8af0-4014a271f0cmr15099410637.9.1795541452264;
+        Tue, 24 Nov 2026 09:30:52 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87285ccf4sm7249487b3a.12.2026.11.24.09.30.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 09:30:51 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: wenjia@linux.ibm.com,
+	jaka@linux.ibm.com,
+	alibuda@linux.alibaba.com,
+	tonylu@linux.alibaba.com,
+	guwen@linux.alibaba.com
+Cc: netdev@vger.kernel.org,
+	linux-s390@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	kapil@presceralabs.ai,
+	stable@vger.kernel.org
+Subject: [PATCH net v3] net/smc: drop the connection when the peer's failover cursor is impossible
+Date: Tue, 24 Nov 2026 23:00:44 +0530
+Message-Id: <20261124173044.591937-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,22 +102,188 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <39d50105-c550-4925-bf63-6f0fcbb897c3@bootlin.com>
+Content-Transfer-Encoding: 8bit
 
-> Looks like it's rather the HW or driver that doesn't support this :(
-> 
-> But that's OK, I think we should ask the least possible features from the
-> remotes, the rest of the selftest should already handle the missing capabilities
-> just fine,
+smc_switch_cursor() credits conn->sndbuf_space from the consumer cursor
+the peer reported, with nothing bounding the amount:
 
-Supporting nway_reset is trivial, at least for drivers using
-phylink/phylib. So we should encourage it.
+	smc_curs_copy(&cons, &conn->local_rx_ctrl.cons, conn);
 
-So i would say if the device we are trying to test does not support
-it, the test should fail. If the link peer does not have it, then i
-would be more forgiving, we don't want a developer to be forced to
-hack on somebody else driver in order to get their own driver to pass.
+	if (smc_curs_comp(conn->peer_rmbe_size, &cons, &fin) < 0) {
+		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
+		smc_curs_add(conn->sndbuf_desc->len,
+			     &conn->tx_curs_sent, diff);
+		smc_curs_add(conn->sndbuf_desc->len,
+			     &conn->tx_curs_fin, diff);
 
-     Andrew
+		smp_mb__before_atomic();
+		atomic_add(diff, &conn->sndbuf_space);
+
+local_rx_ctrl.cons is whatever arrived in the peer's last CDC message.
+smc_cdc_cursor_to_host() drops only a cursor that moves backward within
+one wrap, so a peer can advance cons.count by nearly peer_rmbe_size and
+report consuming data this side never sent.  diff becomes that amount and
+sndbuf_space ends above sndbuf_desc->len, breaking the
+"0 <= sndbuf_space <= sndbuf_desc->len" that smc_cdc_tx_handler() states
+and the tx path reads as free room in the send ring:
+
+	writespace = atomic_read(&conn->sndbuf_space);
+	/* not more than what user space asked for */
+	copylen = min_t(size_t, send_remaining, writespace);
+
+The first chunk of a two-part write is clamped against the buffer, the
+second is not, so memcpy_from_msg() copies past the end of the send
+buffer.  The two cursors advanced beside the credit can also leave the
+ring: smc_curs_add() subtracts the size only once, so a diff of two
+buffers or more leaves tx_curs_sent.count at or above sndbuf_desc->len,
+and smc_tx_rdma_writes() uses that count as a source offset.
+
+A peer reaches this path on an SMC-R link group with a second link by
+asking for the active one to be deleted:
+
+  smc_llc_rx_delete_link()
+    smc_llc_process_cli_delete_link()
+      smc_switch_conns()
+        smc_switch_cursor()
+
+An honest peer cannot have consumed more than this side has prepared and
+not yet had confirmed, which is sndbuf_desc->len - sndbuf_space.  A peer
+that reports more than that has broken the protocol, so drop the
+connection the way smc_cdc_msg_validate() does for a sequence number that
+cannot be honest - out_of_sync, peer_conn_abort, abort_work - and leave
+the cursors alone.
+
+Capping diff at that value instead was tried and is worse than it looks:
+the cap keeps sndbuf_space and the cursors in range, but it leaves
+local_tx_ctrl.prod behind local_rx_ctrl.cons, which is the state this
+block exists to repair.  smc_write_space() then computes
+peer_rmbe_size - smc_curs_diff(size, &cons, &prod) over an inverted pair;
+with cons.wrap == prod.wrap + 1 that is negative, smc_tx_rdma_writes()
+returns early on "rmbespace <= 0" for every later call, and the
+connection stops sending for good.  Dropping the connection has no such
+state to get wrong, and for a correct peer neither path is reached.
+
+How this was found: by AI-driven fuzzing built on top of syzkaller.  It
+reached the overflow through the other writer of sndbuf_space, the
+DMB-nocopy credit patched next, on a loopback-ism connection with the
+peer's consumer cursor forged by a debug patch: KASAN reported an
+869056-byte write past the send buffer in smc_tx_sendmsg()
+(use-after-free in _copy_from_iter).  The failover route above was then
+found by reading the other writers of that counter; we do not have a
+multi-link SMC-R group with two RDMA devices, so that route comes from
+the code and not from a run.
+
+Fixes: c6f02ebeea3a ("net/smc: switch connections to alternate link")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+---
+Link: https://lore.kernel.org/all/20261122053223.2497832-2-piyus@iiitd.ac.in/   
+
+v2 was a two-patch series.  This is a respin of the first patch only, which is
+the one the review covered; the second ("net/smc: bound the DMB-nocopy
+send-buffer credit as well") is unchanged and is being answered separately.
+
+Changes in v3, all from the review of v2:
+
+ - Replaced the fix.  v2 capped diff at sndbuf_desc->len - sndbuf_space and
+   carried on.  The review pointed out where that leaves local_tx_ctrl.prod:
+   behind local_rx_ctrl.cons, which is the inversion the block exists to
+   repair.  smc_write_space() then computes peer_rmbe_size -
+   smc_curs_diff(size, &cons, &prod) over an inverted pair - for size 100,
+   prod (0,90) and cons (1,10) that is -80 - and smc_tx_rdma_writes() returns
+   early on "rmbespace <= 0" for every later call, so the connection stops
+   sending for good.  The cap traded an out-of-bounds write for a permanently
+   mute connection.  v3 drops the connection instead and leaves every cursor
+   alone, which has no partially-advanced state to get wrong.
+
+ - The bound is no longer called "sent", in the code or in the subject.  It is
+   tx_curs_prep - tx_curs_fin, prepared and not yet confirmed, because
+   smc_tx_sendmsg() lowers sndbuf_space when data is copied in rather than
+   when it is written; the review was right that "outstanding" described a
+   tighter bound than the code applied.
+
+ - The violation is now visible: out_of_sync and peer_conn_abort are set and
+   abort_work is queued, as smc_cdc_msg_validate() does for a sequence number
+   that cannot be honest.  v2 silently continued.
+
+Not addressed here, deliberately: the review also found that
+smc_cdc_tx_handler() updates sndbuf_space and tx_curs_fin under
+bh_lock_sock() while smc_switch_cursor() updates both under
+conn->send_lock, so the old link's completions can race the switch.  That
+is true before this patch too - the unpatched smc_switch_cursor() does the
+same atomic_add() and the same tx_curs_fin advance under send_lock alone -
+and it needs a completion to land in the window rather than a hostile
+cursor, so it is a separate bug with its own Fixes: tag.  It is answered in
+the reply to the review rather than fixed blind here: we have no multi-link
+SMC-R group with two RDMA devices, and the obvious drain
+(smc_cdc_wait_pend_tx_wr() before the send_lock) may stall on the
+smcr_link_down() path, where the old QP's completions arrive only after
+smcr_link_clear() flushes it.
+
+Measured, and not: the overflow was measured on a loopback-ism connection
+with the peer's consumer cursor forged by a debug patch - KASAN reported an
+869056-byte write past a 65504-byte send buffer - and with the bound in place
+no report at forged cursors of 100000, 1000000 and 2000000, with ordinary
+SMC-D traffic unaffected (SMC_DIAG mode=2, fb_reason=0x0).  The LLC
+DELETE_LINK route to smc_switch_cursor() has not been exercised here; it
+comes from reading the code.  smc_core.c builds clean and checkpatch
+--strict reports nothing.
+---
+ net/smc/smc_core.c | 33 +++++++++++++++++++++++++++++++++
+ 1 file changed, 33 insertions(+)
+
+diff --git a/net/smc/smc_core.c b/net/smc/smc_core.c
+index a3164201c142..ccfc3b1dc849 100644
+--- a/net/smc/smc_core.c
++++ b/net/smc/smc_core.c
+@@ -1055,6 +1055,7 @@ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
+ {
+ 	struct smc_connection *conn = &smc->conn;
+ 	union smc_host_cursor cons, fin;
++	int unconfirmed;
+ 	int rc = 0;
+ 	int diff;
+ 
+@@ -1069,6 +1070,38 @@ static int smc_switch_cursor(struct smc_sock *smc, struct smc_cdc_tx_pend *pend,
+ 		 * fin above, so now prod is smaller than cons. Fix that.
+ 		 */
+ 		diff = smc_curs_diff(conn->peer_rmbe_size, &fin, &cons);
++		/* The peer's consumer cursor is taken as it arrives, so diff
++		 * is a value the peer chose.  It cannot honestly exceed what
++		 * this side has prepared and not yet had confirmed, which is
++		 * sndbuf_desc->len - sndbuf_space: smc_tx_sendmsg() lowers
++		 * sndbuf_space as data is copied in, and smc_cdc_tx_handler()
++		 * raises it again as the peer confirms.  A larger diff credits
++		 * sndbuf_space past the end of the send buffer - breaking the
++		 * "0 <= sndbuf_space <= sndbuf_desc->len" that the tx path
++		 * depends on - and pushes tx_curs_sent out of the ring, which
++		 * smc_tx_rdma_writes() then uses as a source offset.
++		 *
++		 * Simply capping diff is not enough: the cap would leave
++		 * local_tx_ctrl.prod behind local_rx_ctrl.cons, which is the
++		 * state this block exists to repair, so smc_write_space()
++		 * could return a negative peer_rmbe_space and the connection
++		 * would stop sending for good.  A peer that reports consuming
++		 * what was never prepared has broken the protocol, so drop the
++		 * connection, as smc_cdc_msg_validate() does for a sequence
++		 * number that cannot be honest.
++		 */
++		unconfirmed = conn->sndbuf_desc->len -
++			      atomic_read(&conn->sndbuf_space);
++		if (diff > max_t(int, unconfirmed, 0)) {
++			conn->out_of_sync = 1;	/* prevent any further receives */
++			conn->local_tx_ctrl.conn_state_flags.peer_conn_abort = 1;
++			smc_wr_tx_put_slot(conn->lnk,
++					   (struct smc_wr_tx_pend_priv *)pend);
++			sock_hold(&smc->sk); /* sock_put in abort_work */
++			if (!queue_work(smc_close_wq, &conn->abort_work))
++				sock_put(&smc->sk);
++			return 0;
++		}
+ 		smc_curs_add(conn->sndbuf_desc->len,
+ 			     &conn->tx_curs_sent, diff);
+ 		smc_curs_add(conn->sndbuf_desc->len,
+-- 
+2.34.1
+
