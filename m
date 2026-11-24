@@ -1,57 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795531181;
-	b=ywvF2f3E7U3Bt28s3SGqUIwl3c7J8Cs2aC12xm5n9cXvTz0i17z5XlBrLkZjyadIXREv
-	 lGVEHXQbZIBPsbQQHgZXTN5QaJBNOOSy6OoYcdg3QkUCcrF99TAakY95VLiVaNJDNZrS0
-	 UcvI+NBvQeeDTWiffA988/gnvjg3+hDHKG2TzWN4V8ep+ESzWPGW8k5asqzW2r0hUPCJn
-	 YA935veoTDCq3wRRtSCnDsX8Vux2x/b2o609uC5ZEmdWg7ciuly+K3ce4cFwul74AZ/Ty
-	 d3Q7wTYRnoVBLkmC4pSb9yB8QCcgdeYGaaXgx7y4K+LIxvRqkHhf2LtL2Qo+xHNPyng==
+	t=1795531270;
+	b=UYLnMCGiGy8J+y2adlSqi7Afik3+xdHEv/w7r/FYPesyLu0IXSHZ0OTAEtMg0p04kCyl
+	 8TYREEOir60zq1/5fIwhubItAm1YWyInsR8GFshFgC4AGJa46BN3urbQyUScmvx8Oqrf0
+	 aO7YUIUcTaNoF7UzYN9cM9MiDldgAi7nprBZi+uRJm2Wo/VtbJbqVGPFgJHVZrxB9Cd+k
+	 SiG7jAuoNWMKIOGRDM0cqBGvbSB+uoFOV05tZbzBfX0K7yJQrvDhhnXv+LVpk21lEpuBc
+	 2XP72ibr/f8WTmnG8ZfWQC0xFV439/TMxQ0fJmci8sKxsOQCQ0N1VHXRVemv2sy979A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795531181;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795531270;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=y/YwJv+gXI6fpEcbWhqqW6ovhW7wwFrXf6WmrynW4fs=;
-	b=BPOhAce+ENUzpxOvUAE4UPTz5mHUOC5gCQL4UT+emIlJw5vTJVdXrGjgFSp7RIL/Bkr0
-	 Q/r9LAJ85TQhRqKMqd+EQpub+KF98WJIcaLMvWbsg+A8I0jd4+TEjAw3tsegyC9THO+GD
-	 KptHGWsunyR8QsxVve2Doho8NPZvudLyBJKr28LkwCs0QjPO4FEZYY2hOFtUr7ojrR7gz
-	 rTAt/HKDrcg3E1mzpkLWulJCvglYtxqIrd3wnFrPqHXt0ZynYV2wwnwQgid4IDw2wAw5B
-	 RGR0nkQnSAoZL+PLIkg6q8/VkAIym65KlkS53Wr+zVrwetOCXd4Lr5Sgi3Rb0TMM4Kg==
+	bh=q4aixxSA4YbX+AKyocTUx+s1rBXdCvRgd5mhuqNcLf4=;
+	b=CbHEqS+Gn+kV+kp+/5bMcE/jeWPXC1pTTl7wNxHmbTng6aysVTCEjIhkm3tI5vNppbS9
+	 +ecRkTjkq6gmdnzXQf1AtsD5RoiqSxEURO8AlIoobdQHgdcUt3y+pJxNX6P1BP3iJtEUD
+	 qG/JW623HlyIiL6Qphym8UYw3qXb7k8Lm7yzzDlVBZK85ubWxiKorCV+dz/iafJjmqSVh
+	 WZq+llokntOSasm59nnuT1vSWqCrMc94kKsvm8H1xB9X6ihrBVSB5swYv78PD9u5xB0du
+	 WgCxIH38/34+tBd50ri8Y7EIznfr5vYVT2axZeCPOvC7PzC6lFNXO7P5K21ZSnGLWHw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MXjqjylr;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0NnDrGy;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9F8E606A336;
-	Tue, 24 Nov 2026 14:39:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87335606A31E;
+	Tue, 24 Nov 2026 14:41:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MXjqjylr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A39321F000D2;
-	Tue, 24 Nov 2026 14:39:40 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0NnDrGy
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 27BAF1F000C0;
+	Tue, 24 Nov 2026 14:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795531181;
-	bh=y/YwJv+gXI6fpEcbWhqqW6ovhW7wwFrXf6WmrynW4fs=;
+	s=k20260515; t=1795531269;
+	bh=q4aixxSA4YbX+AKyocTUx+s1rBXdCvRgd5mhuqNcLf4=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MXjqjylrHM6Q0bzi8NKUwXbMj1QdWPSM/7yEy99OVOaHUuieeW+nWb+1+EsrxSVry
-	 bACBDJMK7IuUiJUPT2gQ9SVz9OUP1olQTt/PY2l0G/BCFA7qpRVQz62v5ARMysAZhV
-	 n0LQSVTImLdlhxwAHK8KIkTnAAyeVUzR2DfOphd3BcYxz9G8s88peslux7+AVyN7/R
-	 Pvf7rXwa3FiZow1IWcAzmZRbd0ptWAJLgjbJAkrNIRsSzMfUe7MKyR0tJBN9olm+R5
-	 2P2kFg175Ge+IEjTEe8Pzl0ztbqp0M00t5Y6ZOrEXZld4VwsUHFL8Lh1+Z2LpFNcT4
-	 btbZNW624fI5g==
-Subject:
- Re: [PATCH net-next 10/15] rhashtable: Add rhashtable_flush_and_free helper
+	b=h0NnDrGyCWmdpe+8fZjohb5qyZj9Ta5CecJ4+LBfz7rH2vlFnB7IlpQosDH14XyE9
+	 IMtsi20dEaEhEst/d6Pfm7p63Vddhxr0ZnWPfoiJfS6iOHmPQV0tg6Yxi3he28oYn5
+	 bs6VtNWo27+jYXN/VifsGmf9pzl90O2zc4INw2tutIWxQ5+FMMyY/2SApVEEg7tgKZ
+	 Q+X4bDbHtimFiiJadVW+ZWVrx+VxfW6f/ww5zEbxleehpuxpxVl1pVnDQi8Ntpchkj
+	 ud/hp5PGJl1jrjiFfOOU+DcbkbN7uUOezhC7kEvkZL9pTuZ3esn9t5Ug449hNCA1nV
+	 dWFwcXbVnkJAg==
+Subject: Re: [PATCH net] can: j1939: do not pass a NULL session skb to the
+ socket layer
 From: netdev-bot+sashiko@kernel.org
-To: pablo@netfilter.org
-Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
- netdev@vger.kernel.org, kuba@kernel.org, pabeni@redhat.com,
- edumazet@kernel.org, horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Date: Tue, 24 Nov 2026 14:39:40 +0000
-Message-ID: <179553118024.3135.15522891902677497463@kernel.org>
-In-Reply-To: <20261123135726.3940688-11-pablo@netfilter.org>
-References: <20261123135726.3940688-11-pablo@netfilter.org>
-X-sashiko-severity: Low
+To: piyus@iiitd.ac.in
+Cc: robin@protonic.nl, o.rempel@pengutronix.de, socketcan@hartkopp.net,
+ mkl@pengutronix.de, linux-can@vger.kernel.org, netdev@vger.kernel.org,
+ kernel@pengutronix.de, linux-kernel@vger.kernel.org, kapil@presceralabs.ai,
+ stable@vger.kernel.org, kuba@kernel.org
+Date: Tue, 24 Nov 2026 14:41:08 +0000
+Message-ID: <179553126874.3135.14817947057284289051@kernel.org>
+In-Reply-To: <20261123143625.4021586-2-piyus@iiitd.ac.in>
+References: <20261123143625.4021586-2-piyus@iiitd.ac.in>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,269 +65,150 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-- [Low] When rhashtable_free_and_destroy() is split into the new
-  rhashtable_free() helper in lib/rhashtable.c, the patch deletes the…
-- [Low] The kernel-doc for the new flush helpers is wrong in places and
-  leaves out the new error behaviour.
-- [Low] rhashtable_next_key() (lib/rhashtable.c:775) is documented as
-  returning ERR_PTR(-ENOENT) "if prev_key was concurrently deleted and…
-- [Low] rhashtable_flush_and_free() handles a walker differently
-  depending on whether it is parked or active, and the rhashtable_walk_*…
-- [Low] bucket_table_alloc() still calls rcu_head_init(&tbl->rcu)
-  (lib/rhashtable.c:215).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The commit message gives the wrong cause for the NULL, and the
+  real cause is not fixed.
+- [Low] When se_skb is NULL, the new branch in j1939_session_completed()
+  still ends the receive session as a success.
 
 --
 
-rhashtable: Add rhashtable_flush_and_free helper
+can: j1939: do not pass a NULL session skb to the socket layer
 
-This adds rhashtable_flush_and_free() and rhltable_flush_and_free(). They
-swap in a new empty bucket table, briefly leaving ht->tbl NULL, and then
-free the elements of the old table. The rest of rhashtable is updated to
-handle a NULL ht->tbl, and rhashtable_walk_stop() now checks a new
-tbl->dying flag instead of calling rcu_head_after_call_rcu().
+This patch adds a NULL check on the skb returned by
+j1939_session_skb_get() in j1939_session_completed(). A receive session
+that completes without a matching skb no longer passes NULL to
+j1939_sk_recv(). The session is still deactivated as before.
 
-> diff --git a/lib/rhashtable.c b/lib/rhashtable.c
-> index 500c45cd13048..7b33dd046f677 100644
-> --- a/lib/rhashtable.c
-> +++ b/lib/rhashtable.c
+> j1939_session_skb_get() returns the skb covering the session's current
+> offset, or NULL when the queue holds none, and j1939_sk_recv_one() then
+> dereferences it on its first statement:
 
 [ ... ]
 
-> @@ -779,6 +781,8 @@ void *rhashtable_next_key(struct rhashtable *ht, const void *prev_key)
->  		return ERR_PTR(-EOPNOTSUPP);
+> A peer reaches this by completing a transport session that has no data
+> queued - an EOMA for a connection whose data packets never arrived:
+
+[ ... ]
+
+> Test the skb before using it, as the two other callers of the getter in
+> this file already do (j1939_session_tx_dat() returns -ENOBUFS, and
+> j1939_xtp_rx_dat_one() warns and cancels the session).
+
+[Severity: Medium]
+Is this the actual trigger?  For a receive session, the queue does not
+seem able to be empty while the session is alive.
+
+j1939_xtp_rx_rts_session_new()->j1939_session_fresh_new()->
+j1939_session_new() queues one skb:
+
+net/can/j1939/transport.c:j1939_session_new() {
+    ...
+	skb_queue_head_init(&session->skb_queue);
+	skb_queue_tail(&session->skb_queue, skb_get(skb));
+    ...
+}
+
+j1939_session_fresh_new() then sizes that skb to the full message:
+
+	/* alloc data area */
+	skb_put_zero(skb, size);
+
+Only j1939_session_skb_drop_old() and j1939_session_destroy() remove skbs
+from the queue. drop_old() returns early when fewer than two are queued.
+
+j1939_session_skb_get() looks up the skb by the DPO window, not by
+offset 0:
+
+	offset_start = session->pkt.dpo * 7;
+	return j1939_session_skb_get_by_offset(session, offset_start);
+
+So for a receive session it returns NULL only when pkt.dpo * 7 is at or
+past total_message_size.
+
+For a receive session, pkt.dpo is only written in j1939_xtp_rx_dpo_one().
+That function stores the 24-bit value from the peer without checking it
+against pkt.total:
+
+	/* transmitted without problems */
+	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
+
+j1939_xtp_rx_dat_one() does reject packet > session->pkt.total before it
+does its lookup.
+
+That means the splat needs an ETP RTS, then an ETP DPO with an
+out-of-range offset, then an EOMA. An EOMA alone with dpo == 0 finds the
+zero-filled skb. It then delivers zero or partly filled data to the
+matching sockets, both before and after this patch.
+
+Could the commit message describe the DPO trigger instead?
+
+Would it also make sense to fix the cause? j1939_xtp_rx_dpo_one() could
+reject or cancel the session when the DPO is >= pkt.total. Another option
+is to fetch the RX message at offset 0 in j1939_session_completed(). The
+NULL check would then stay as a second guard.
+
+One more point: j1939_session_tx_dat() and j1939_xtp_rx_dat_one() both
+call j1939_session_skb_get_by_offset(), not j1939_session_skb_get(). The
+only other caller of j1939_session_skb_get() appears to be
+j1939_simple_txnext().
+
+> diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
+> index 8fcfd13e5e6f8..af54e6a6bd714 100644
+> --- a/net/can/j1939/transport.c
+> +++ b/net/can/j1939/transport.c
+> @@ -1243,9 +1243,11 @@ static void j1939_session_completed(struct j1939_session *session)
 >  
->  	tbl = rht_dereference_rcu(ht->tbl, ht);
-> +	if (!tbl)
-> +		return NULL;
-
-[Severity: Low]
-Is NULL the right return value here when prev_key is non-NULL?
-
-The kernel-doc for rhashtable_next_key() says:
-
- *   - If prev_key was concurrently deleted and is not present in any
- *     in-flight table, returns ERR_PTR(-ENOENT).
- *
- * Returns entry of the next element, or NULL when iteration is exhausted,
-
-While rhashtable_flush_and_free() has ht->tbl set to NULL, a caller in the
-middle of an iteration is told the iteration finished normally. If the same
-call runs just after the new table is installed, it returns
-ERR_PTR(-ENOENT), because the new table doesn't contain prev_key.
-
-A caller that restarts on -ENOENT, as kernel/bpf/hashtab.c does, would stop
-instead. None of the current next_key users call the flush helper, so for
-now this only conflicts with the documented contract.
-
-Should this return ERR_PTR(-ENOENT) when prev_key is set?
-
->  	do {
->  		he = __rhashtable_next_in_table(ht, tbl, prev_key);
->  		if (!IS_ERR_OR_NULL(he))
-
-[ ... ]
-
-> @@ -1091,7 +1100,7 @@ void rhashtable_walk_stop(struct rhashtable_iter *iter)
->  	ht = iter->ht;
->  
->  	spin_lock(&ht->lock);
-> -	if (rcu_head_after_call_rcu(&tbl->rcu, bucket_table_free_rcu))
-> +	if (tbl->dying)
-
-[Severity: Low]
-This isn't a bug, but this removes the last rcu_head_after_call_rcu() user
-in lib/rhashtable.c. bucket_table_alloc() still does:
-
-	rcu_head_init(&tbl->rcu);
-
-rcu_head_init() only exists to support rcu_head_after_call_rcu(), so that
-call now looks dead.
-
-Also, tbl->dying is never explicitly initialized. It is only false because
-both bucket_table_alloc() and nested_bucket_table_alloc() pass
-__GFP_ZERO.
-
-Could the rcu_head_init() be dropped, or replaced with an explicit
-tbl->dying = false?
-
->  		/* This bucket table is being freed, don't re-link it. */
->  		iter->walker.tbl = NULL;
->  	else
-
-[ ... ]
-
-> @@ -1223,45 +1232,12 @@ static void rhashtable_free_one(struct rhashtable *ht, struct rhash_head *obj,
->  	} while (list);
->  }
->  
-> -/**
-> - * rhashtable_free_and_destroy - free elements and destroy hash table
-
-[ ... ]
-
-> -void rhashtable_free_and_destroy(struct rhashtable *ht,
-> -				 void (*free_fn)(void *ptr, void *arg),
-> -				 void *arg)
-> +static void rhashtable_free(struct rhashtable *ht, struct bucket_table *tbl,
-> +			    void (*free_fn)(void *ptr, void *arg), void *arg)
->  {
-> -	struct bucket_table *tbl, *next_tbl;
-> +	struct bucket_table *next_tbl;
->  	unsigned int i;
->  
-> -	irq_work_sync(&ht->run_irq_work);
-> -	cancel_work_sync(&ht->run_work);
-> -
-> -	/*
-> -	 * Do NOT take ht->mutex here. The rehash worker establishes
-> -	 * ht->mutex -> fs_reclaim via GFP_KERNEL bucket allocation under
-> -	 * the mutex; callers on the reclaim path (e.g. simple_xattr_ht_free()
-> -	 * from evict() under the dcache shrinker for shmem/kernfs/pidfs
-> -	 * inodes) would otherwise close a circular dependency
-> -	 * fs_reclaim -> ht->mutex.
-> -	 */
-
-[Severity: Low]
-Was dropping this comment intentional?
-
-Commit 09ae540e1d5c added it as part of a lockdep fix. The commit message
-explains why the "Re-arm via @run_work" comment in rht_deferred_worker()
-goes away, but it doesn't mention this one.
-
-The remaining kernel-doc only says the tables "can be walked without
-ht->mutex held". It no longer says that taking the mutex here would create
-a lock cycle with reclaim.
-
-The new rhashtable_flush_and_free() does take ht->mutex, and its kernel-doc
-only says it "may sleep".
-
-Could this comment stay next to rhashtable_free_and_destroy()? Could the
-rhashtable_flush_and_free() kernel-doc also say that it must not be called
-from reclaim paths?
-
-> -	tbl = rcu_dereference_raw(ht->tbl);
->  restart:
->  	if (free_fn) {
->  		for (i = 0; i < tbl->size; i++) {
-
-[ ... ]
-
-> @@ -1362,3 +1368,79 @@ struct rhash_lock_head __rcu **rht_bucket_nested_insert(
->  
->  }
->  EXPORT_SYMBOL_GPL(rht_bucket_nested_insert);
-> +
-> +/**
-> + * rhashtable_flush_and_free - detach and discard all current elements
-> + * @ht:		the hash table to flush
-> + * @free_fn:	callback to release resources of an element, may be %NULL
-> + * @arg:	pointer passed to free_fn
-> + *
-> + * Swaps the bucket table backing @ht for a new, empty table.
-> + *
-> + * The detached table is then walked and every element found is
-> + * unlinked, and, if @free_fn is given, handed to it for release.
-> + *
-> + * Unlike rhashtable_destroy(), @ht is left fully initialized and may
-> + * continue to be used for lookups, insertions, and removals.
-
-[Severity: Low]
-Is this kernel-doc accurate?
-
-rhashtable_free() doesn't unlink anything. It walks each bucket, passes
-each element to free_fn while it is still chained, and then calls
-bucket_table_free().
-
-The rhltable_flush_and_free() kernel-doc in include/linux/rhashtable.h
-also describes @hlt as:
-
- * @hlt:	the hash list table to destroy
-
-That text appears to be copied from rhltable_free_and_destroy(), but this
-function keeps the table alive.
-
-As for "may continue to be used", this is what happens while ht->tbl is
-NULL:
-
-- __rhashtable_insert_fast() and rhashtable_try_insert() return
-  ERR_PTR(-ESTALE). This new errno propagates through
-  rhashtable_insert_fast(), rhashtable_lookup_insert_fast(),
-  rhashtable_lookup_get_insert_*() and rhltable_insert*(). None of their
-  kernel-docs mention it.
-- __rhashtable_remove_fast() and rhashtable_replace_fast() return -ENOENT
-  for an object that is still linked in the detached table and will later
-  be passed to free_fn.
-- Lookups return NULL for every key.
-
-Could the doc list which operations fail during the flush and with which
-errno? Could it also say that elements are passed to free_fn while they
-are still linked?
-
-> + *
-> + * This function may sleep, it cannot be called from atomic context or
-> + * RCU read-side critical sections.
-
-[ ... ]
-
-> +	/* Detach walkers from the old hash table. */
-> +	tbl = old_tbl;
-> +	spin_lock(&ht->lock);
-> +	do {
-> +		tbl->dying = true;
-> +		list_for_each_entry(walker, &tbl->walkers, list) {
-> +			struct rhashtable_iter *iter = container_of(
-> +				walker, struct rhashtable_iter, walker);
-> +
-> +			walker->tbl = NULL;
-> +			iter->end_of_table = true;
-> +			iter->p = NULL;
+>  	if (!session->transmission) {
+>  		se_skb = j1939_session_skb_get(session);
+> -		/* distribute among j1939 receivers */
+> -		j1939_sk_recv(session->priv, se_skb);
+> -		consume_skb(se_skb);
+> +		if (se_skb) {
+> +			/* distribute among j1939 receivers */
+> +			j1939_sk_recv(session->priv, se_skb);
+> +			consume_skb(se_skb);
 > +		}
+>  	}
+>  
+>  	j1939_session_deactivate_activate_next(session);
 
 [Severity: Low]
-Should parked and active walkers get the same result here?
+When se_skb is NULL, the receive session still ends as a success. Is
+user space told anything at all?
 
-A parked walker is one on tbl->walkers, for example between
-rhashtable_walk_stop() and the next start. This loop sets its
-end_of_table, so the next rhashtable_walk_start_check() returns 0 and
-rhashtable_walk_next() returns NULL. The walk ends without any error and
-never visits the new table.
+j1939_session_deactivate_locked() sets session->state to
+J1939_SESSION_DONE and leaves session->err at 0. j1939_session_destroy()
+only queues an abort for a receive session when err is set:
 
-An active walker is one between start and stop.
-rhashtable_walk_start_check() already removed it from the list, so this
-loop doesn't see it. When it reaches rhashtable_walk_stop(), tbl->dying is
-set and only walker.tbl is cleared:
+	} else if (session->err) {
+			j1939_sk_errqueue(session, J1939_ERRQUEUE_RX_ABORT);
+	}
 
-	if (tbl->dying)
-		/* This bucket table is being freed, don't re-link it. */
-		iter->walker.tbl = NULL;
+Sockets using the error queue have already seen J1939_ERRQUEUE_RX_RTS and
+J1939_ERRQUEUE_RX_DPO for this session. After that they get neither the
+data nor J1939_ERRQUEUE_RX_ABORT.
 
-The next rhashtable_walk_start_check() then reloads ht->tbl and returns
--EAGAIN, as documented for resizes.
+The peer gets no abort frame either, because j1939_session_cancel() is
+never called on this path.
 
-A walker entered while ht->tbl is NULL stays at end of table for good,
-because rhashtable_walk_enter() does:
+j1939_xtp_rx_dat_one() handles a NULL lookup differently. It jumps to
+out_session_cancel, which sets err, sends an abort, and later queues
+RX_ABORT.
 
-	iter->end_of_table = !iter->walker.tbl;
-
-So whether a walk that overlaps a flush ends or rewinds depends on whether
-its rhashtable_walk_stop() runs before or after dying is set. A
-multi-callback netlink dump, such as the ipset list dump that parks its
-walker between callbacks, would end with no -EAGAIN to signal that it was
-interrupted.
-
-Could this behavior be made consistent, or documented in the
-rhashtable_walk_*() kernel-docs?
-
-> +
-> +		tbl = rcu_dereference_raw(tbl->future_tbl);
-> +	} while (tbl);
-> +	spin_unlock(&ht->lock);
+The commit message says cancelling was left out on purpose. Could it also
+mention that error-queue users are left with a transfer that never
+completes or aborts?
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123135726.3940688-2-pablo%40netfilter.org
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123143625.4021586-2-piyus%40iiitd.ac.in
