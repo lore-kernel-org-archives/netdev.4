@@ -1,70 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.139
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795484072;
-	b=awaj7VdWOIm2VTlHE0WM3c2o4VQRCys3BJUKnO7UEbm8K7OhBDqDa1WBcu2KNawdZBjn
-	 RZAhEMhI0FJoQophnt4zgnpcw29H4uROvG+v9I7Cc7ZwwJ7di1ScGb1PL2yiiB1X20y8/
-	 D4RswXVUPdJTubK1krmiGD5y+4c1+FSyiucxoe4hv/Vjw0AlKdaBujdO4d/GJPClL5GT7
-	 tOuU1LK0s/ReNY1dnNJfGkw/WjjkkiKg/4w4rj/B866hyMTDIsKng+qynUnf+q6mfGbiA
-	 oqdR/263k1Xe2Q9fpTwL2wsndXAzm4Nxmc/rLoX3yJzZy2ide9iAc874Ia56aTDqQUA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795484072;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=oB91cvLVv77J9+Q8wIXKUGWmJ4awD5QCFhfn5x2IOY4=;
-	b=Ktc0zQcWzMGtFoLkO9PfxaoUNc9evJrs+IkxkZcLdCXhkm2aONqVmCr7M5StujYl5APg
-	 7NZVktJFlD96KxkRVWO6xOJKJhme7+MpGJS0cczzZFCDjTrcyRQQ2mlicG3E16HdtLamJ
-	 GiO1uiew6RFNx4d5Dm93F/WMjQm8Aq09AwMffDBSAoeHHewu5hnuqURIrmyrptRJXHAZj
-	 9XPkxa2VPioLthcODQUT1inwjNjUpX1BlSjN+mMm3BaENdglB/dR5cJQMTzSexs9O15Is
-	 sFvOXDkU9wb3Wwz+JzWQJoajSxepBpGsJQ3A5bpEFu4YFkJqRBeCRp1lkRDNaKHUDIg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D92YFggw;
-	arc=none smtp.remote-ip=111.22.67.139
-Received: from cmccmta6.chinamobile.com (cmccmta6.chinamobile.com [111.22.67.139])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5BB37606A322;
-	Tue, 24 Nov 2026 01:34:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5BB37606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.218.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795484287;
+	b=cxxxDWIHak59OZJe71pZ3+EY07uI050nOX0DLK65Mju7buu6k+Jlyc4EkxzzAL2dIEhU
+	 1AuLuD3dQYBt9dJCdGMtO1G+oaI+XZHJ/vDZ0ZCNhuHfG+hQu+7B5DAR1qtvdQjRY1LFt
+	 Q2FOf4GmiFP6aUaIxQGdqidnXhbM0SH+eVyZ/KZ+v6yiw1PwyJYxsuiY349F0vrxLgxzp
+	 wrTehJHUS6/8ohB7Rw1zr9ohjf78dBELgMOMO8wxgHz05SoELPEi5rcvfENH0kRD4p4zn
+	 qoEFWK5h21YDSw2VkoPBq+pWW4nqall8WyOeRZpD0+uT3T/OxrLAAdMYc43tp6Y/cKw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795484287;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
+	b=uT18mPoK1gp7IsjXsT7eN6g27o0Nm/3k9T6G7Un3adMsscbUf5G7f7CHm2qxILZsoLAL
+	 Ap86fCxT6aAJIRV9MtXB2+cNDVy0jvz1Q0oRJkYGU/gYIdJebUWXUfPhrBOvjNXUEWdcA
+	 4zFMxlsmr6qOLwDnQSEL5NUQM6MrvdWeWX6zQiFEEvjHf2FEylUk2rzIsgGS1LST2XeyS
+	 zyY6ep87RKrukk6zYMUPJpcg3YWy7vUD7eKxHcMkQfbrSrqUapGMu+I5yjtxaijxkn37C
+	 i9ieaxmVQMCqQj4BEpS12fACgtS8KakwOeHb14jOY+B1A1rzSUo6M+bX8YI45NMwcZQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzpexupX;
+	arc=fail smtp.remote-ip=209.85.218.52
+Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E82606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:38:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E82606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=D92YFggw
+	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzpexupX
+Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50e26763a4so734845466b.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:38:06 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795484285; cv=none;
+        d=google.com; s=arc-20260327;
+        b=e5mx7lpIE8vSYoTjatlIKEViGW8UuyUmF0BXXyhUu1Xxq7sl5DsrkFsd2kmEeFdrqt
+         RWvY6gwMkBIfV7lqH2i18g2f7GCTf2cADA4YGicnGjWHcctv/Gbpa5WeAXzNkuzGWyH6
+         bKTytiZ7TOwkfWZvNLs0eZzu0e1erlVNwE0j6/iljGU/ZqvX4IEpzY4DlHfLf/4J9MAl
+         PAXymg2+ZxFI/TLaRdl/DCQn7gayByahwXJVfnS6uQ0hpQR6tNKHQcDHyTg8ZcytX8wc
+         ATSQDfU2ZczZT3TKw9F9ytR8u/pWH/tjM6qzwXatnHcBnmDLcJ7nuHRyQlfTr+seVjE0
+         f89w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
+        fh=26w0nYLISU5uwluFqUm9I3mXEUZtW2SQ1h+nNc4enys=;
+        b=DDMXvVCe/em/ImUlB4uhy7O5rEIW4mX9kiRQ4nW2CxfD8h8k6G+IiJeTlfUgNfhjvK
+         /Wb+qgFlu8iXdnPb5TNrFyY77KLAltreIelVfMupPqbEl15iWH1O+EwaQggigFYRgGSI
+         LBAs6XFOrMv3cVEpuaT8BBkhDxTEicKh0hj77UhNJPsOLJIBjr6XLemdmSTIjq9XlL7f
+         NOtWFRLA/wMK6dBpW3Umu1DY4XrS3RwM4kzaNzG8VcavgjwL12dlfLrOd+ruCPTrUBTj
+         fOPzdst9r7Wltd1yl2O/8AmtGplMoJsNxWGFQt1gc+Tky7E+OikRkESYi3cO8uPFYsRi
+         y4Zg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=D92YFggwGQGjrgPVGdskHxrKIIwlhRMut53NQc7gUWDTrK8T8iwti0gwOrLQd+H6zLlOsoqf/Dgvj
-	 mekEyQPcl8zusaOfEMOGqZn7E+FqNq23zc+YhN9sggUcYEnl1QSx2mO3KWmxzAUlhJxFMv9Bpy89Hg
-	 m1KhVoQJ83AwBdpY=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app01-12001 (RichMail) with SMTP id 2ee16b04e99fc52-1d9e1;
-	Tue, 24 Nov 2026 09:34:24 +0800 (CST)
-X-RM-TRANSID:2ee16b04e99fc52-1d9e1
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b04e99cf57-0e044;
-	Tue, 24 Nov 2026 09:34:23 +0800 (CST)
-X-RM-TRANSID:2ee46b04e99cf57-0e044
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: chester.a.unal@arinc9.com
-Cc: daniel@makrotopia.org,
-	andrew@lunn.ch,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org,
-	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-Subject: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and
- unwind on error
-Date: Tue, 24 Nov 2026 09:34:21 +0800
-Message-ID: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
+        d=gmail.com; s=20260707; t=1795484285; x=1796089085; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
+        b=ZzpexupXNdSMdJcbsGzEAl2ynnn1WqZ8YCPaIIpBdWXNJr6VOnrYrLu0RLtAiNpqSd
+         TV7EEKD1Ev2i+u5k9Hd2Sd0hwyP7OjWA48PGYYlgIC3YgW+HU446L72VieDpHRGF20qp
+         XlcSqtiNYMHlVImQ9SfwlXds+4e2gFsQbRKX/mlw0PZOKA6/0c7Rgo1wEy8uBIozcOgb
+         V21xTABJbjVrNd2cmN2mB8OEAbmmmj9S/TRWA2gzQ6o2i4XQB8GIig/HAJqCTIiT8/Os
+         LwGsegnHZW63Q5T3tY26MBQWJ6eie5UqO7cj6S1rc1++9eeVPCIfi6rYHwMMEoD9Fdma
+         b2Mg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795484285; x=1796089085;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
+        b=XyCCiSJpIgLDIO0l7mCanv52gIpNlrSOvBaMvyDcOaJRx0y89zH74Q6625gN+kycym
+         KGq3IooqlOsuL/D6NXL/SbxO7VuQGXidc+WObLLaZ/8nNX4z4dLJe+vrySioL8Y+835R
+         oy9/wTcvQsuftM1T0ntntZymJ++dfpQJcPzcmLuTD3QAWr2Z/1tBIj9RBf+4UcGgIdSq
+         Q1klTR5secHRFmLJbcy+zj3fiRgS1qfaJpO7eGYm5l83XPhcYkEjwZeP83OiHBQA+KKo
+         Rb4RR6RYCUApFpexMGxdXKt4ad9b5SXCNbg0lROOadX0//HDX1sQpDujbltt6tcNRvAa
+         aURg==
+X-Forwarded-Encrypted: i=1; AL+hErEKm4sWxUcDPUJeM6cQdEeO5own62ECnQVMGvWNx29q7t8cOi0kkqyF6xj/j22N5EHqLhSGtlE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/LPmlFpotDGaz1/sDpoiO8oRuArItI1d0LggybF+0DtFKSNpVA
+	P8L2u9OXU87P0RtBUjmrF8UICfXd0EbG/du/OJkfKh0Yg0elhR4HbNjdyzlKnvPMOwpIIlBt6Te
+	AwY9bwQVYLAZNvb3GwHKEkORfeJ3dMbs=
+X-Gm-Gg: AZFdTZcdk/Hpd7YesgErRZZMnocMSQZy7MMz0fbwQIvnOsoDC727uttOPQ8pzSmFZBm
+	+WprdFAxFrUFmWpuDMAUn4dy4rwj9NdmNQ4plq9oTpruZbLrlcZUiheQJB+nloPDdBHUqNvROIm
+	tf+jogZz94y8Ln36ZZorCC56u22MDy8I2GyDGaHoCsn4BVLK7uQAwdHbl+hcczE1jHA9V6klOE+
+	EffBOBUXgB9+utrRue8z2X69VGZLkF1SX+TEiU4CZcTX0TKUnY1eca0+FaoEP+P5wX38BoxZh3F
+	Ryp/hGtTtpax2Q8rNAd+NWtWQnK3DPi36IiadCzreu4fe8YWLYvDW0741BtBA68BjJGzlLMkpj3
+	hhqZp80LqvvEOrla02l57wg1QCNnFaThkMBWuscbhnIUR1xS3wSNYs0pKcpx47hwPQm1X/+Cj/J
+	XjjdcHKPvAhbwHiLZ/4qgG3sWym8Ocmdl8EIXqaeWPzCf0QBzxAZtDkVSxNvF32fmUeXMmC29zP
+	E8KdVCxXOvoNcS3fIE98gtlQvZMQmOCu1oZjjuw90itKu8xbUTE12kDztk7
+X-Received: by 2002:a17:907:3e89:b0:c51:3bfa:8d3b with SMTP id
+ a640c23a62f3a-c513bfa8f32mr1086885566b.37.1795484285405; Mon, 23 Nov 2026
+ 17:38:05 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,153 +105,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
+References: <20261123034047.56745-1-dennylin0707@gmail.com>
+In-Reply-To: <20261123034047.56745-1-dennylin0707@gmail.com>
+From: Dmitry Safonov <0x7f454c46@gmail.com>
+Date: Tue, 24 Nov 2026 01:37:54 +0000
+X-Gm-Features: Aa3M54qHippd-OgCM6-bCpivi302Ub78TymwXFLdPF0aHrFSViGlxdqBunnR_j0
+Message-ID: <CAJwJo6a8ERv3ua02u4hU++zENBUFftDX4KrabX91Py0LGPF9Kw@mail.gmail.com>
+Subject: Re: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments
+ on IPv6 listeners
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com, 
+	davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	horms@kernel.org, fruggeri@arista.com, noureddine@arista.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-mt7530_setup() enables the core and io regulators of the MT7530, but the=0D
-only matching regulator_disable() calls live in mt7530_remove(), which=0D
-never runs when the probe fails.  A failure anywhere between the enables=0D
-and a fully registered switch - the remaining steps of mt7530_setup(),=0D
-the IRQ chip or MDIO bus registration in mt753x_setup() (both can also=0D
-return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -=0D
-therefore leaves both regulators enabled.  The devm-acquired handles=0D
-are then released with a non-zero enable_count, which triggers the=0D
-WARN_ON() in _regulator_put(), and each probe deferral grows the count=0D
-further.=0D
-=0D
-Move the enables to mt7530_probe(), right after the regulators are=0D
-acquired, and unwind them with plain error labels if a later step in=0D
-the probe fails.  mt7530_setup() and mt7530_remove() keep their original=0D
-shape, so the enables and disables stay balanced in every combination of=0D
-probe, setup and unbind: a failed probe always unwinds, and a switch=0D
-that stays bound is always disabled exactly once by mt7530_remove().=0D
-=0D
-Enabling the supplies this early is safe.  Nothing accesses the switch=0D
-between the enables and dsa_register_switch(): the reset line has been=0D
-asserted since it was acquired in mt7530_probe() with GPIOD_OUT_LOW, so=0D
-the rails come up while the chip is held in reset, and mt7530_setup()=0D
-still releases the reset afterwards, unchanged.  MT7621 does not have=0D
-these supplies and is skipped by the priv->id =3D=3D ID_MT7530 guards, and=
-=0D
-the MT7988 MMIO variant has no regulators at all.=0D
-=0D
-Found by code inspection; the issue has not been triggered at runtime=0D
-and no MT7530 hardware was available for testing.  The in-tree boards=0D
-that wire these supplies (the MT7623 boards mt7623n-bananapi-bpi-r2=0D
-and mt7623n-rfb-emmc via mt7623a.dtsi) connect them to switchable=0D
-MT6323 PMIC outputs, so on those boards a failed probe would leave the=0D
-supplies on and trip the WARN_ON(enable_count) splat when the devm=0D
-handles are released.=0D
-=0D
-Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 sw=
-itch")=0D
-Suggested-by: Andrew Lunn <andrew@lunn.ch>=0D
-Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>=0D
----=0D
-=0D
-Changes in v4:=0D
-- Drop the devm_add_action_or_reset() approach and unwind the regulators=0D
-  with plain error labels in mt7530_probe(), and restore the explicit=0D
-  disables in mt7530_remove(), as requested by Andrew Lunn.=0D
-- Extend the commit message: explain why enabling the regulators=0D
-  early in probe() is safe, and state which boards are affected.=0D
-=0D
-Link: https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinam=
-obile.com=0D
-=0D
- drivers/net/dsa/mt7530-mdio.c | 38 ++++++++++++++++++++++++++++++++---=0D
- drivers/net/dsa/mt7530.c      | 18 -----------------=0D
- 2 files changed, 35 insertions(+), 21 deletions(-)=0D
-=0D
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c=
-=0D
-index 0be107dc6..b1daefc90 100644=0D
---- a/drivers/net/dsa/mt7530-mdio.c=0D
-+++ b/drivers/net/dsa/mt7530-mdio.c=0D
-@@ -210,18 +210,50 @@ mt7530_probe(struct mdio_device *mdiodev)=0D
- 		priv->io_pwr =3D devm_regulator_get(&mdiodev->dev, "io");=0D
- 		if (IS_ERR(priv->io_pwr))=0D
- 			return PTR_ERR(priv->io_pwr);=0D
-+=0D
-+		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
-+		ret =3D regulator_enable(priv->core_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable core power: %d\n", ret);=0D
-+			return ret;=0D
-+		}=0D
-+=0D
-+		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
-+		ret =3D regulator_enable(priv->io_pwr);=0D
-+		if (ret < 0) {=0D
-+			dev_err(&mdiodev->dev,=0D
-+				"Failed to enable io pwr: %d\n", ret);=0D
-+			goto err_disable_core_pwr;=0D
-+		}=0D
- 	}=0D
- =0D
- 	rc.lock_arg =3D &priv->bus->mdio_lock;=0D
- 	priv->regmap =3D devm_regmap_init(priv->dev, &mt7530_regmap_bus,=0D
- 					priv, &rc);=0D
--	if (IS_ERR(priv->regmap))=0D
--		return PTR_ERR(priv->regmap);=0D
-+	if (IS_ERR(priv->regmap)) {=0D
-+		ret =3D PTR_ERR(priv->regmap);=0D
-+		goto err_disable_powers;=0D
-+	}=0D
- =0D
- 	if (priv->id =3D=3D ID_MT7531)=0D
- 		priv->create_sgmii =3D mt7531_create_sgmii;=0D
- =0D
--	return dsa_register_switch(priv->ds);=0D
-+	ret =3D dsa_register_switch(priv->ds);=0D
-+	if (ret)=0D
-+		goto err_disable_powers;=0D
-+=0D
-+	return 0;=0D
-+=0D
-+err_disable_powers:=0D
-+	if (priv->id =3D=3D ID_MT7530)=0D
-+		regulator_disable(priv->io_pwr);=0D
-+=0D
-+err_disable_core_pwr:=0D
-+	if (priv->id =3D=3D ID_MT7530)=0D
-+		regulator_disable(priv->core_pwr);=0D
-+=0D
-+	return ret;=0D
- }=0D
- =0D
- static void=0D
-diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c=0D
-index 7781a63b4..b669a94d4 100644=0D
---- a/drivers/net/dsa/mt7530.c=0D
-+++ b/drivers/net/dsa/mt7530.c=0D
-@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)=0D
- 	ds->ageing_time_min =3D 2 * 1000;=0D
- 	ds->ageing_time_max =3D (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;=0D
- =0D
--	if (priv->id =3D=3D ID_MT7530) {=0D
--		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);=0D
--		ret =3D regulator_enable(priv->core_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev,=0D
--				"Failed to enable core power: %d\n", ret);=0D
--			return ret;=0D
--		}=0D
--=0D
--		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);=0D
--		ret =3D regulator_enable(priv->io_pwr);=0D
--		if (ret < 0) {=0D
--			dev_err(priv->dev, "Failed to enable io pwr: %d\n",=0D
--				ret);=0D
--			return ret;=0D
--		}=0D
--	}=0D
--=0D
- 	/* Reset whole chip through gpio pin or memory-mapped registers for=0D
- 	 * different type of hardware=0D
- 	 */=0D
--- =0D
-2.50.1.windows.1=0D
-=0D
+On Mon, 23 Nov 2026 at 03:41, Hungyu Lin <dennylin0707@gmail.com> wrote:
+>
+> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+> behalf of a listener by the address of the peer. It takes that address
+> from the IPv6 header whenever the listener is an AF_INET6 socket, also
+> when the segment is an IPv4 one that arrived on a dual-stack listener.
+> The address is then read from the middle of the IPv4 header, the key of
+> the peer is not found and the reset is not sent.
+>
+> The v4-mapped check that follows does not help: it looks at
+> sk->sk_v6_daddr, which is the unspecified address for a listener, and
+> it runs after the address has been picked.
+>
+> Take the family and the address from the protocol of the segment
+> instead of the family of the socket.
+>
+> Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
 
+Acked-by: Dmitry Safonov <0x7f454c46@gmail.com>
 
+Thanks! IPv4 on dual-stack sockets historically got less test
+coverage, unfortunately. Eric's proposal to cover it with selftests in
+net-next would be ideal, unsure how easy it would be to add not only
+IPv6- and IPv4-centered tests, but also the mixed ones.
+
+Thanks,
+             Dmitry
