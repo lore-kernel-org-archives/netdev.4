@@ -1,52 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=132.226.202.154
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.161.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795508843;
-	b=lWgwwjSdc0Is2G55lJV/MKU1cT9OvwkxfYTD98bMIsRR3Vdvc8p5S5FRo0dynKrmR6p+
-	 so6iRKV4oYhpezH6mqcjxcFFUHwgobPfVAFCeuvG5wlQSvVXdX2e/+tWrB+YKbPahlsSN
-	 Qu56l1/CdHih9WQOZQN7DmhGiJH/niuQuBTKvCOkywvg1Ch12xtHjrgjn14hcrbhapKa+
-	 D0370A7tt+nZB7Cmz5Z71UUUquQuDKq4AmHNRzHF3jht/jLVWeAffKv+czyCpSuvvLAEi
-	 m8wNzj2QfSUueBD0+muRRzfj5i9fSJ41rM6aoHxyhRU4yROecx1KsOKzaZOB2yZ3soQ==
+	t=1795508860;
+	b=tQzHtp1GtjnddkZs8PqHZojJpGrsT+YUHLheCqHt3SqbFBlmj3sPHaupJnhgnLpikM8h
+	 WT5V/xqiVoMx+1EctsEEANi6tSgHtOlLcpdBvQzR9mH4rfSbi7X2kqVlET/KALadx7lWl
+	 zfHg5j0uvW+x2ShQL2Dyvo7jqhnPSw09Ic2udKOfS34TD48+UBdpIlSlvKmK2rf6U3mDF
+	 f1GrQVM8HxCdaCFwTU+3HQO8XLTTeBnkyfgfUqWIziwta74h7P5+mKQPZGrvkqle89Fra
+	 DD8fT55f6tpfhh2TuSo05u45qR+GMmp2jRPRhyKWMZ1D9XOAT3RbvqzISnj2VFEqEcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795508843;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795508860;
 	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
 	 X-CM-SenderInfo;
-	bh=a6ICK4FXQIh2L5/mytbLTap2GRa0tIY/nWGOF7Su888=;
-	b=eA6yxr0p1TsK1qYzg4pefAMP01xZ06pozPbUh4IIEmexZEBrsXrNbldoW5xhdE3XvD0q
-	 bZRWJU5Xq15VLzX6pPfVRupHk8J9IjoRBoanbQt14gj8rSMc0Gc3653js7A6KRoW/OX60
-	 ZIIkJycmF86Mg4tsaRaZeS37zoPuMngZ756VU7VnkB4HzRW8xT4RwiW7gdv7k2ZL7KbwV
-	 JdrzbCLWXu4TfOtKJueF5MfkFVzZLY9UkSdKsxUDt6fScyPX7X0xfP1eqcD3/dGNzhLjq
-	 1GkpHERvzpLnq8Tk12RucN4FIJZzvR1MkZqtkGfn3iGmxELSTuVlCpvlwy0pJovZtlA==
+	bh=SHQD7/yk1kc5LIzMqPgYiZblY3LzJCrNlaOhDTO3yRk=;
+	b=T5FZTy+U8CA9/MjICMkPIuKDPq9pjpoLcEQsvUPi4g9vFPa7YGUbXH+1WX6WbtNlbcrO
+	 Fu3SCZgHnSdlBNMw6z5dJhVKTDVgvBE8GINYIQ2QMaSRHmtBqUL2gGgXaAeDFjDSSp4Vr
+	 w2xrOAxQXlYi9aydDb8fzy4M/Wzd9rZiUSg7+fLXIiblYnSjF0p23drSkucynkpB4bv6c
+	 aQmQZA7JQBG7EfnEyAVjGW6pzKT1lwO8MPGrs1gsTSjt3FE9Z1wT2bOpHNnQAq7P4EDu3
+	 DD+HN+5Db+couS1U7uZbX4o5LeAgCUr26pUy48i1I/0s5N4nBnEuHhYFpMyWEqkydhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=mail.zgclab.edu.cn;
 	spf=pass smtp.mailfrom=mail.zgclab.edu.cn;
-	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=TugWUPBE;
-	arc=none smtp.remote-ip=132.226.202.154
-Received: from fraori-sdnproxy-3.icoremail.net (fraori-sdnproxy-3.icoremail.net [132.226.202.154])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id DC8AF606A687;
-	Tue, 24 Nov 2026 08:27:21 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC8AF606A687
+	dkim=pass header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=MrPP42qm;
+	arc=none smtp.remote-ip=162.243.161.220
+Received: from zg8tmtyylji0my4xnjeumjiw.icoremail.net (zg8tmtyylji0my4xnjeumjiw.icoremail.net [162.243.161.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id E0619606A6A8;
+	Tue, 24 Nov 2026 08:27:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E0619606A6A8
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mail.zgclab.edu.cn
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=TugWUPBE
+	dkim=pass (1024-bit key) header.d=mail.zgclab.edu.cn header.i=@mail.zgclab.edu.cn header.a=rsa-sha256 header.s=dkim header.b=MrPP42qm
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
 	d=mail.zgclab.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
 	Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
-	Content-Transfer-Encoding; bh=a6ICK4FXQIh2L5/mytbLTap2GRa0tIY/nW
-	GOF7Su888=; b=TugWUPBEREMTnrAISy6UiAQ5q9rXJJtErjTEvXHuBaDZCjQI/w
-	/UcXFI+2Fa8DlSNJ3j1XccffBtIGcCz+dScI7+DnjZ6E+T4uH9QtofI2NXj61kwi
-	MrrrEmZsXyXeUkC/5MWxM2edN1jkBocVkYDkiye1nM0xO2eejcCvgCzy0=
-Received: from mt7530_series_01.eml (unknown [58.206.202.11])
-	by web2 (Coremail) with SMTP id yQQGZQD3JWpJSgVrxLNjAQ--.26356S2;
-	Tue, 24 Nov 2026 16:26:49 +0800 (CST)
+	Content-Transfer-Encoding; bh=SHQD7/yk1kc5LIzMqPgYiZblY3LzJCrNla
+	OhDTO3yRk=; b=MrPP42qmI+mfYCKON9L0qHcSluwY1bsa5f3uZIHqAE/fZ1Mcq4
+	0BHJEjGbtqN9rKdmGVjn4nFOd5IXFuPKbz0O/EmwkTj1pA/POSDC+a4enDoWBG8w
+	a/JYD7GSm3Xhl1EjfhIZQOsnuxwtUDb26Hp2SoD31C9CD2N8RnTjFhHgE=
+Received: from mt7530_series_05.eml (unknown [58.206.202.11])
+	by web4 (Coremail) with SMTP id ywQGZQD3sgBkSgVrlGxJAg--.14120S2;
+	Tue, 24 Nov 2026 16:27:16 +0800 (CST)
 From: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 To: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch, olteanv@gmail.com
 Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: [PATCH net 1/5] net: dsa: mt7530: disable regulators on switch teardown
+Subject: [PATCH net 5/5] net: dsa: mt7530: disable regulators on mt753x_setup() failure
 Date: Tue, 24 Nov 2026 16:25:57 +0800
-Message-ID: <179550875789.4156.10993765506582806373@mail.zgclab.edu.cn>
+Message-ID: <179550875790.4156.14185923394520188230@mail.zgclab.edu.cn>
 In-Reply-To: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
 References: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
@@ -60,101 +60,84 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:yQQGZQD3JWpJSgVrxLNjAQ--.26356S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxZF15XF4kur47Wr4xGF18Grg_yoW5Jw1DpF
-	y7ZF9ayrWUZa4UKa17Ca18ZFy5X3ykGa4Igan7W3yFqw1ayF17tr1kKFyUZFyrKrWrta1S
-	yF98AFn7CFZ5XaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Kw4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+X-CM-TRANSID:ywQGZQD3sgBkSgVrlGxJAg--.14120S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ur1furW8ur1DAw48WFyrtFb_yoW8AFykp3
+	yUZa40krWvgF1UWa97Cw4UZas8ArZ3Ga4UGFZ7KwsIkw4ayrn09F18ta4q9rnxtr4rtw4S
+	y395AFWruFsrZaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBCb7Iv0xC_tr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
 	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
-	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
-	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r106r
-	15McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IY64vIr41l
-	FIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r43Mx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU5vPftUUUUU==
-X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAQUBD2sFSI8DnQAAs9
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Cr0_Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4
+	vEx4A2jsIEc7CjxVAFwI0_Gr1j6F4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE
+	52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUAV
+	WUtwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48J
+	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8Zw
+	CF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j
+	6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64
+	vIr41lIxAIcVC0I7IYx2IY67AKxVWUCVW8JwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Cr0_
+	Gr1UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42
+	IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxUcR6wDUUUU
+X-CM-SenderInfo: pzdqwxbusqjlo62juzldeovvfxof0/1tbiAgQBD2sFSC8E2AAAsd
 
-mt7530_setup() enables the core and io regulators, so they should be
-disabled by the matching teardown callback, not by the driver remove
-callback. teardown is the counterpart of setup and runs for every switch
-that was successfully set up, whereas remove() only runs when the whole
-driver is unbound.
+mt753x_setup() calls the per-variant sw_setup() (mt7530_setup() for the
+MT7530), which enables the regulators, but the steps that follow returned
+on error without disabling them. The common case is mt7530_setup_irq()
+returning -EPROBE_DEFER, which leaves the rails on and re-enables them on
+every re-probe.
 
-Move the regulator disable from mt7530_remove() to mt753x_teardown(),
-after the stats polling work is cancelled so that no poll can run against
-an unpowered switch. This is a plain code movement, with the error
-reporting kept for now and cleaned up in a later patch.
-
-A switch in a multi-switch tree whose sibling fails to set up is torn
-down without its driver reaching remove(), so its regulators were left
-enabled until now.
+Route all failure paths after sw_setup() to a shared error label that
+disables the regulators, and move the mdio irq teardown there instead of
+handling it inline.
 
 Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
 Signed-off-by: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
 ---
- drivers/net/dsa/mt7530-mdio.c | 14 +-------------
- drivers/net/dsa/mt7530.c      | 13 +++++++++++++
- 2 files changed, 14 insertions(+), 13 deletions(-)
+ drivers/net/dsa/mt7530.c | 18 +++++++++++++-----
+ 1 file changed, 13 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-index e85ef2aceee5..faefbcad293f 100644
---- a/drivers/net/dsa/mt7530-mdio.c
-+++ b/drivers/net/dsa/mt7530-mdio.c
-@@ -227,23 +227,11 @@ static void
- mt7530_remove(struct mdio_device *mdiodev)
- {
- 	struct mt7530_priv *priv = dev_get_drvdata(&mdiodev->dev);
--	int ret = 0, i;
-+	int i;
- 
- 	if (!priv)
- 		return;
- 
--	if (priv->id == ID_MT7530) {
--		ret = regulator_disable(priv->core_pwr);
--		if (ret < 0)
--			dev_err(priv->dev,
--				"Failed to disable core power: %d\n", ret);
--
--		ret = regulator_disable(priv->io_pwr);
--		if (ret < 0)
--			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
--				ret);
--	}
--
- 	mt7530_remove_common(priv);
- 
- 	for (i = 0; i < 2; ++i)
 diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-index d5a199293f78..c2f12ae2c6d7 100644
+index 1ac4ac1a0566..963d14534175 100644
 --- a/drivers/net/dsa/mt7530.c
 +++ b/drivers/net/dsa/mt7530.c
-@@ -3237,9 +3237,22 @@ static void
- mt753x_teardown(struct dsa_switch *ds)
- {
- 	struct mt7530_priv *priv = ds->priv;
-+	int ret;
+@@ -3223,11 +3223,11 @@ mt753x_setup(struct dsa_switch *ds)
  
- 	if (priv->bus)
- 		cancel_delayed_work_sync(&priv->stats_work);
+ 	ret = mt7530_setup_irq(priv);
+ 	if (ret)
+-		return ret;
++		goto err_disable_pwrs;
+ 
+ 	ret = mt7530_setup_mdio(priv);
+ 	if (ret)
+-		return ret;
++		goto err_disable_pwrs;
+ 
+ 	/* Initialise the PCS devices */
+ 	for (i = 0; i < priv->ds->num_ports; i++) {
+@@ -3239,15 +3239,23 @@ mt753x_setup(struct dsa_switch *ds)
+ 	if (priv->create_sgmii)
+ 		ret = priv->create_sgmii(priv);
+ 
+-	if (ret && priv->irq_domain)
+-		mt7530_free_mdio_irq(priv);
++	if (ret)
++		goto err_free_irq;
+ 
+-	if (!ret && priv->bus) {
++	if (priv->bus) {
+ 		mt7530_stats_refresh(priv);
+ 		schedule_delayed_work(&priv->stats_work,
+ 				      MT7530_STATS_POLL_INTERVAL);
+ 	}
+ 
++	return 0;
 +
-+	if (priv->id == ID_MT7530) {
-+		ret = regulator_disable(priv->core_pwr);
-+		if (ret < 0)
-+			dev_err(priv->dev,
-+				"Failed to disable core power: %d\n", ret);
++err_free_irq:
++	if (priv->irq_domain)
++		mt7530_free_mdio_irq(priv);
++err_disable_pwrs:
++	mt7530_disable_pwrs(priv);
 +
-+		ret = regulator_disable(priv->io_pwr);
-+		if (ret < 0)
-+			dev_err(priv->dev, "Failed to disable io pwr: %d\n",
-+				ret);
-+	}
+ 	return ret;
  }
  
- static int mt753x_set_mac_eee(struct dsa_switch *ds, int port,
 
