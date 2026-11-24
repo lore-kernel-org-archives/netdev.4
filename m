@@ -1,89 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795510698;
-	b=VZIgdib2YyMeaPhOgA25cFhwFoW1IC8r9DfbllikK/jk7JDnTIL+FKgYjLJIYYvI5MQR
-	 bjOFhwfs1QIx/WuuWS3MwtpJ+jmqafe+Sjmyp4mYTDN3YHXk7nZjZLdX3lTGU53Jx+cG5
-	 m87l1RfCyEltBrGJGxHP+HjvlDxunVXIVnz4Zak7RpFYvdRkXO22TIAN7icDdS1XfDLwg
-	 GbWXIVLfJcXnQPo/pExmLwHcazmjneGva0GLfBloaLhwrcDP7WXjcI+AKoGymKVf4+4R1
-	 y8eKL9sMIAUsUY9+wOKKCFb4h+m7iNeaBjsGaVsqZ7H3z39Q9TwlVzd6q1EyqeLDQyQ==
+Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
+	t=1795510694;
+	b=NRhXQ1tnM1WLSAHBwj1ZpbkpaEoI9Z5UZdeh52QjK/rtKbv6CkFtkhknjOUkaW0x1W9A
+	 TOmrO6wKGMSgqZIeEJUT4AizqWq9BvApi1pojCVTCfd8ShWOqEtM8jcoN3pbOkPQ5nDoN
+	 SAndqIeCYz8niHa3xseWVgVSbio4QvAk6axFQaKzS0G2XGw68lGMDNmZGdyPDKqpk36UP
+	 8CLv0om/KvY7Cjsn6jp0GVHFSE/tVz8V2k0ZsgejA4MzIfXuKAySSWAkf/IKsNmYAPWJ0
+	 sUlNSAR3kBOxUnRYfmyfUjuqPhqpYizUfcCNgcVAeDopZviAwy2M67GO9eUypGQT3Fg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795510698;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795510694;
 	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=9zywkjszLE/9ltEvJUfp+fkwkpacqMgHzmbP6X2blTA=;
-	b=1BoF/UghbWKGqBb6M5dk5MHz9FsVX+oWPEIFJYq5CzJyuQeNLOil8e0+Q5EXZDHD+DuJ
-	 njYtoBSb8XEpcnhK5gseoEYaAXOF4FJx1fxXdbDT22n+VwGM2kajYWlsyqCYe4xkJu+cJ
-	 jbV2pPOcMse4es990wyXtIVtBQdXl4Ux8PZpZ7Y9+gm9zFYHtRM8RVsV/v1/Dt1i8JDfv
-	 +lRUeLWX1UDxEpTxfOCY+SuPmHw9lrbiXGTs6Ixxs7II8FGnwcYUI1YJW0bRHK9+rLp/B
-	 F7fJE4w9iLoPksAUAJ7trBdRA8roo6JYNyYprcZodGCP7le74mbxnpOEmv+ea7hSaxA==
+	bh=tzEQeW/wuuJvqekiey+fKvjmkJWG3WIcbMSJ7WBzTE0=;
+	b=i1zk3azkgiTVxSr9CIcxe5KrbEeQIrrdyazuY5ILswoKGpkQxFl78qk4wWYrbHD1ArUm
+	 cxwU2/wQYnqDC4EH7PqtVtJS9tSErSanc8rk5UcFGgnocqnn3DzPdVsb05bOkYZE7RIkY
+	 s4SMwtaBZUZBlQPyMkvVQRB4+2tOQG694E2840AA0SSznb2GF7lWc/beBd20t6vL5L5BY
+	 NiPssly5dWp5Bg0jI6CwZ9neIwDKm/GuqJNvJa4rFwbXnJLbtKutKxZxyWS73BEUNr74X
+	 1l6CNPi1BymZqB+pWASP2uKLV3CoFhspTzlsoL0SiX6pvTSt7/eMSdgCA9yQKWap9Uw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="H4/eYFgz";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Fi5o5H7r;
+	arc=fail smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D33760A2606;
-	Tue, 24 Nov 2026 08:58:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1D33760A2606
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7530606A6AB;
+	Tue, 24 Nov 2026 08:58:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7530606A6AB
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=H4/eYFgz
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=Fi5o5H7r
 Received: from pengutronix.de (p20030102af17cb00d2e697ee776c6466.dip0.t-ipconnect.de [IPv6:2003:102:af17:cb00:d2e6:97ee:776c:6466])
 	(Authenticated sender: mkl@pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 87687205A2C;
-	Tue, 24 Nov 2026 09:58:07 +0100 (CET)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 2D845205A23;
+	Tue, 24 Nov 2026 09:58:06 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510687;
+	s=20260414; t=1795510686;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9zywkjszLE/9ltEvJUfp+fkwkpacqMgHzmbP6X2blTA=;
-	b=H4/eYFgzGe9BxNHfa1OcqQgwYtj6uyWtznZBsQgysvCcRF94/LwMNwJB78UiYApAMP3jSg
-	7BnRffatWc4ZE0YTTurUiGAFSKUnhaG6GrE9+w8PPHP7HkhY7uXEdrS7IUsv8dDzOm9v41
-	0dsGftkfRnvGvd7dgDvkbMFpLPaBPgwdaGz90YUJUdI2lcXBldMPnhMXqlwF4A+1QTtkvY
-	6fpmsKgrbpbHGVraGEEc4WLmiYyMoAtYqE4Ew/fh15Kh65ZW0NiAoEa3WBrXyVo0OkhoEs
-	lMw7Ck6wZNGurmuIik8i1rhF5Oz+eC/AR7JOhLl4PUoUERCRxwLQVKiPVKkdHg==
+	bh=tzEQeW/wuuJvqekiey+fKvjmkJWG3WIcbMSJ7WBzTE0=;
+	b=Fi5o5H7rFhHZw9eMbm9eBG0DvzGD20YtbyRvEABgKYPa6Cg+lvyEhQf+s25fFNWapowFGf
+	4r8TwZBiMagGijP+f+UUcR3vfDLr8FXMPpB33uyn5LdOFbE4N0CKu9o/u/qcRMCJHKv9p0
+	AOFt8vOGi/fVnh0/PmMh2T2j/TgdYDWNQayxi2kRTUgOEqHgpiek1yroLPFwk+7swulFjK
+	P4RgVx8dMHZMxW2P3TS3D4Qi5Q1eRhfN9yF1T61OZ+I1wq4Lh4SNjLR+Kjo9/snQv2NvQF
+	BVoUVk2kZ57MBuIpaQMTWvWEMpK0bnBDcIPNiv7RSqF5JSXXix6depfPynrZzw==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
-	s=20260414; t=1795510687;
+	s=20260414; t=1795510686;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=9zywkjszLE/9ltEvJUfp+fkwkpacqMgHzmbP6X2blTA=;
-	b=RibEFsvNqI93Hqpk1gxRFRjEoQ8Yky2xEKNWK7ABkigFcmPRqztAxrpsv92XoNEioshV7V
-	BbgcHCpCmoFE+Ltzjvytg9F57qPMv28NctPjioMFD6UaHWteR6kQeC7A2v8QW5PIIm0z5w
-	SrTvKPnEnG8vLSI2y/Ur/JMzrOiNFedTafrU+uRmsPQzJIItuCrSSaKaMXip0RqXtoFzce
-	M8CMl8FUNeL3YEEd4asAjZbYs7+/7xOfvuWuAjMoHECSP8neV3hayiKie9gxgwoGavUvl1
-	yGsz1yNjCJhtyvkFSe8HxSavG7EkLChEVBoF0g7d7b0YAkLCRiWpcSPNUFvBZw==
+	bh=tzEQeW/wuuJvqekiey+fKvjmkJWG3WIcbMSJ7WBzTE0=;
+	b=MbQoVxnZmgSdZkGeUt5KsPx3PBqr73kQRkYlEd/IYz9zTV5cQsY6j8A3TVgNQNVfRlz9hk
+	FAg9g1eVHJc2AspyP8EV5NcpcOByxp5A8msb9CPlv5u0uTaGk7g0k3+j0oIKXGpAddXRdM
+	jMm5HEKOzBUjC7M9gdTy6GDCIVX325zGbuap9aPK5wv1pZgrEeB3AIjEyUI+k/bCp2cHmK
+	DDXHw+Gp0WIm8atZ/WV8RaZbuRNHQt21B9e48ZDJpgZ0QmA9/zIR62y4DYkMeH6gE5AWe/
+	NzhgLU22q9Uu9mIeP3mTX+AFSxqoCJGd+OKeTS+vIW8ifP7BqaHps1vDtDNvow==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
-ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510687; a=rsa-sha256;
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795510686; a=rsa-sha256;
 	cv=none;
-	b=K+ia8J4/909k0Z6+Wqz1OxVBvYdBEGGrYnJkTLYTk3wq/Iu8MkWBt7zdAvjDLYpaOe62++
-	ffcC37BL7/WfQIbOsGWXYvMyTtaB6BbBZbSrMjMghWtNOh4spWt1orcNGNk8F8AW664H2q
-	DKwmkwgMekAmD35qX1q3CJC0QpZom05dvppp7oIdl3pwCF9a7w+gIjJN5ive/p83ZLttAj
-	gl8ZNJ2JriOQWgHfVkXzM2ezSt5K+ObwEVDDulvyYtC1DQExE8ZOGR/8oURcK01ekInFg4
-	ShSszEDpGEIzufu97IuUBSR+3t0ZGO15YzpEG+zau1Xb53wwVjeH43Ou5O+zsQ==
+	b=GJQX46WAKErDyatg8cpkjY+ngh791NnAWdUW3Zz+h/PvUtq29GKRQAwpJTO3oXPYSZvTI/
+	2+RlPLve0nq/0ypbQoiLtvwlE1y2Fv+vjaewXT0D7xdMIS56IOqTmc+tglVMSzLJ1WbvrS
+	rB6IZoaJLQoh8sfOfrpnAqfYAMV16agpsgJPoyDWz6QUGpqC5X5TBlqpKtjwHJJ0qXH41R
+	S8nf5JKwnPwfVyMBJalIeIDNomP7xV0kgnjn3Z5M7net6uSWrGuOS9r3sTico6D+ausUJ+
+	1JxLrWponpZ9CLn+p6l2wX9OBMkyGYpEfBPZg+nxdA/RVSRevdYFUgqMJMrJ1Q==
 From: Marc Kleine-Budde <mkl@pengutronix.de>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
 	kuba@kernel.org,
 	linux-can@vger.kernel.org,
 	kernel@pengutronix.de,
-	Zhu Ling <zhuling0805@qq.com>,
+	Oliver Hartkopp <socketcan@hartkopp.net>,
 	stable@vger.kernel.org,
 	Sashiko <sashiko-bot@kernel.org>,
 	Marc Kleine-Budde <mkl@pengutronix.de>
-Subject: [PATCH net 10/12] can: netlink: fix CAN XL PWM attribute sizing
-Date: Tue, 24 Nov 2026 09:51:37 +0100
-Message-ID: <20261124085757.1093632-11-mkl@pengutronix.de>
+Subject: [PATCH net 06/12] can: isotp: always start the rx timeout in ISOTP_WAIT_DATA state
+Date: Tue, 24 Nov 2026 09:51:33 +0100
+Message-ID: <20261124085757.1093632-7-mkl@pengutronix.de>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261124085757.1093632-1-mkl@pengutronix.de>
 References: <20261124085757.1093632-1-mkl@pengutronix.de>
@@ -98,57 +98,131 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: Zhu Ling <zhuling0805@qq.com>
+From: Oliver Hartkopp <socketcan@hartkopp.net>
 
-can_pwm_fill_info() emits the PWM capability limits whenever pwm_const is
-present, regardless of whether TMS is enabled. In contrast,
-can_pwm_get_size() currently returns 0 when TMS is disabled. It
-therefore underestimates the required netlink message size by the nested
-attribute header and 6 u32 attributes.
+The rx timeout is only started at the end of isotp_send_fc() and for
+consecutive frames inside a block in isotp_rcv_cf(). So so->rx.state
+can stay in ISOTP_WAIT_DATA without a running rx timeout:
 
-Always account for the PWM capability attributes when pwm_const is present,
-and account for the 3 runtime PWM values only when TMS is enabled.
+- isotp_send_fc() returns early, when it can not allocate the skb or
+  does not find the CAN device anymore
+- isotp_rcv_ff() does not send a flow control frame in listen mode
+- isotp_rcv_cf() has stopped the rx timeout and does not restart it at
+  the end of a block, when the flow control frame is not sent
+- isotp_rcv_cf() has stopped the rx timeout before it drops a
+  consecutive frame with an invalid length (reported by Sashiko)
 
-Fixes: 46552323fa67 ("can: netlink: add PWM netlink interface")
+On a bound socket the next first frame or single frame resets the
+state. But when the CAN device has been removed, no further CAN frame
+is received and so->rx.state remains in ISOTP_WAIT_DATA. isotp_bind()
+then rejects a new binding with -EAGAIN until the socket is closed.
+
+Start the rx timeout in isotp_rcv_ff() and isotp_rcv_cf() whenever the
+reception continues in ISOTP_WAIT_DATA state, before a flow control
+frame is sent. isotp_send_fc() restarts the rx timeout as before. All
+this runs under so->rx_lock, so the order of the rx timeout start and
+the transmission of the flow control frame does not matter.
+
+In listen mode a first frame that is not followed by consecutive
+frames now leads to ETIMEDOUT, like a missing consecutive frame inside
+a block already does. So a listening socket reports a missing
+consecutive frame consistently, independent of its position in the
+PDU.
+
+Check the length of a consecutive frame first in isotp_rcv_cf(), so
+that an invalid frame is dropped without stopping the rx timeout. An
+invalid frame also no longer updates the timestamp for
+CAN_ISOTP_FORCE_RXSTMIN.
+
+Fixes: e057dd3fc20f ("can: add ISO 15765-2:2016 transport protocol")
 Cc: stable@vger.kernel.org
-Signed-off-by: Zhu Ling <zhuling0805@qq.com>
-Link: https://patch.msgid.link/tencent_9A525E0656A4F7D4CA9CFA1AB1A4BFC6D706@qq.com
 Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://sashiko.dev/#/bug/linux-3924d490-baed-49dc-880a-6fd1163cf08d
-Reviewed-by: Marc Kleine-Budde <mkl@pengutronix.de>
+Closes: https://lore.kernel.org/linux-can/179504035916.3136.12986898667697830880@kernel.org/
+Signed-off-by: Oliver Hartkopp <socketcan@hartkopp.net>
+Link: https://patch.msgid.link/20261120-can-bcmlock-memcg-v7-6-f6b84f5257b1@hartkopp.net
 Signed-off-by: Marc Kleine-Budde <mkl@pengutronix.de>
 ---
- drivers/net/can/dev/netlink.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ net/can/isotp.c | 37 +++++++++++++++++++++----------------
+ 1 file changed, 21 insertions(+), 16 deletions(-)
 
-diff --git a/drivers/net/can/dev/netlink.c b/drivers/net/can/dev/netlink.c
-index 10e7ccaf40fb..7f597c975c6f 100644
---- a/drivers/net/can/dev/netlink.c
-+++ b/drivers/net/can/dev/netlink.c
-@@ -791,7 +791,7 @@ static size_t can_pwm_get_size(const struct can_pwm_const *pwm_const,
- {
- 	size_t size;
+diff --git a/net/can/isotp.c b/net/can/isotp.c
+index 8229b6a69ecd..0b7db1ead7a9 100644
+--- a/net/can/isotp.c
++++ b/net/can/isotp.c
+@@ -634,6 +634,10 @@ static int isotp_rcv_ff(struct sock *sk, struct canfd_frame *cf, int ae)
+ 	so->rx.sn = 1;
+ 	WRITE_ONCE(so->rx.state, ISOTP_WAIT_DATA);
  
--	if (!pwm_const || !pwm_on)
-+	if (!pwm_const)
++	/* start rx timeout, isotp_send_fc() restarts it */
++	hrtimer_start(&so->rxtimer, ktime_set(ISOTP_FC_TIMEOUT, 0),
++		      HRTIMER_MODE_REL_SOFT);
++
+ 	/* no creation of flow control frames */
+ 	if (so->opt.flags & CAN_ISOTP_LISTEN_MODE)
+ 		return 0;
+@@ -650,6 +654,17 @@ static int isotp_rcv_cf(struct sock *sk, struct canfd_frame *cf, int ae,
+ 	struct sk_buff *nskb;
+ 	int i;
+ 
++	/* CFs are never longer than the FF */
++	if (cf->len > so->rx.ll_dl)
++		return 1;
++
++	/* CFs have usually the LL_DL length */
++	if (cf->len < so->rx.ll_dl) {
++		/* this is only allowed for the last CF */
++		if (so->rx.len - so->rx.idx > so->rx.ll_dl - ae - N_PCI_SZ)
++			return 1;
++	}
++
+ 	if (READ_ONCE(so->rx.state) != ISOTP_WAIT_DATA)
  		return 0;
  
- 	size = nla_total_size(0);			/* nest IFLA_CAN_PWM */
-@@ -803,9 +803,11 @@ static size_t can_pwm_get_size(const struct can_pwm_const *pwm_const,
- 	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO_MIN */
- 	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO_MAX */
+@@ -662,6 +677,7 @@ static int isotp_rcv_cf(struct sock *sk, struct canfd_frame *cf, int ae,
+ 		so->lastrxcf_tstamp = skb->tstamp;
+ 	}
  
--	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMS */
--	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWML */
--	size += nla_total_size(sizeof(u32));		/* IFLA_CAN_PWM_PWMO */
-+	if (pwm_on) {
-+		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWMS */
-+		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWML */
-+		size += nla_total_size(sizeof(u32));	/* IFLA_CAN_PWM_PWMO */
-+	}
++	/* stop the rx timeout only for valid CFs (checked above) */
+ 	hrtimer_cancel(&so->rxtimer);
  
- 	return size;
- }
+ 	/* isotp_rx_timer_handler() may have raced us for so->rx.state
+@@ -670,17 +686,6 @@ static int isotp_rcv_cf(struct sock *sk, struct canfd_frame *cf, int ae,
+ 	if (READ_ONCE(so->rx.state) != ISOTP_WAIT_DATA)
+ 		return 1;
+ 
+-	/* CFs are never longer than the FF */
+-	if (cf->len > so->rx.ll_dl)
+-		return 1;
+-
+-	/* CFs have usually the LL_DL length */
+-	if (cf->len < so->rx.ll_dl) {
+-		/* this is only allowed for the last CF */
+-		if (so->rx.len - so->rx.idx > so->rx.ll_dl - ae - N_PCI_SZ)
+-			return 1;
+-	}
+-
+ 	if ((cf->data[ae] & 0x0F) != so->rx.sn) {
+ 		/* wrong sn detected - report 'illegal byte sequence' */
+ 		sk->sk_err = EILSEQ;
+@@ -726,13 +731,13 @@ static int isotp_rcv_cf(struct sock *sk, struct canfd_frame *cf, int ae,
+ 		return 0;
+ 	}
+ 
++	/* start rx timeout, isotp_send_fc() restarts it */
++	hrtimer_start(&so->rxtimer, ktime_set(ISOTP_FC_TIMEOUT, 0),
++		      HRTIMER_MODE_REL_SOFT);
++
+ 	/* perform blocksize handling, if enabled */
+-	if (!so->rxfc.bs || ++so->rx.bs < so->rxfc.bs) {
+-		/* start rx timeout watchdog */
+-		hrtimer_start(&so->rxtimer, ktime_set(ISOTP_FC_TIMEOUT, 0),
+-			      HRTIMER_MODE_REL_SOFT);
++	if (!so->rxfc.bs || ++so->rx.bs < so->rxfc.bs)
+ 		return 0;
+-	}
+ 
+ 	/* no creation of flow control frames */
+ 	if (so->opt.flags & CAN_ISOTP_LISTEN_MODE)
 -- 
 2.53.0
 
