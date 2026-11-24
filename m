@@ -1,79 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.225
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513795;
-	b=0guby4Uc/hcPPRNlgKSFNuE5dhjVyOZG2CyPNhmnZWiIJ53I2QqoWz3qya8IDCvjNqJ2
-	 /E1SNBm9gtxiFpcVMVEUDUb03bmwkvMRvKOfUul+i4pBGLsacfnitJTNSkih+z50k2Xa6
-	 5cjkj/4IM+Jyj01REe4gGQy7DjdN+tQnzsyPhSpziMXxhgZfjgR4wlMxx0cRIn7Qzyj0v
-	 FOcN6sk78d7e02bOgJSJny3j1KVEvahMJKU9ysHflNPY3zYFvaJwPj8hx2WHvnnbRvDeM
-	 h06bqzXIdDM3dbvmQ4bwNJekYFQXSmgoBRE0DCVNEQQYdfbnJSNutYPT9x6Bubx1p+w==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513795;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Received:From:
-	 To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=Recr7Luy6JCjQb+6v924yNz7tbc+i7rrSi7oqTbC9pQ=;
-	b=HRETxu9RgV9Uy4RtyaccseTS+lsLhLDHJhaHlJaBFrHr7fxxIFzc26UHVNeE98XIa2rW
-	 JIpxrzs3P5kT7sC/Tfvy9t9ZfKDNFgYdrnOXxkf3zAucyoYaXXqg0AXtiy7FydhzuHnoN
-	 xhU2sFBx0ajx1QeKI7Rcl3cDVTSExeMCYqmGo4IpLgeRVN7bYB+1fcshvYjhk0bU4O76K
-	 n6bZ+LOeOVapqw0Yc6/gaTzJbyRz0uBuxgUIkmb08ll7VuCozJ0+55G3xQvDUvAK+Ry34
-	 jBWqaJqazdpiYDUDyQ4Yk3+Vylhj2+bfkTE3OycmfL2jRxFSwjEhezH9TlvPaTzuYvw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XkNxYKpP;
-	arc=none smtp.remote-ip=113.46.200.225
-Received: from canpmsgout10.his.huawei.com (canpmsgout10.his.huawei.com [113.46.200.225])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795514265;
+	b=ZtWmFtsd963hWU/zYDPS498E2ct9ztLi816uOuNnDBSGXVB2zD9lwMX8q9v2fp+TZWdk
+	 E9EsIKKK1SWt3mYVeTCRnG3wM86UoyM6GD/uboVcuZpzY3OeGryl10Xg8CpD0M7i38QMW
+	 AmAJ9Boz9Nnn9DNWFYVgZ8JKxZcQaQy29PMHtuG2cGEvGPChIgZGHeb+GzpX5lzrr3GHG
+	 vdgrL3gY1c8eLu7EMnmjpz+PQzO4HpEgGJPGoiDZ3AHM+g9ed6B0r0RA/r4k2KcJn+SI0
+	 Kf86YsaMc6wkOJ73QvI2CkGdL2z8pyOpx5ZXIpbsF1NhZ5xYqJpMVGgYBwTWVT0ut9w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795514265;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	b=04HfPCgdPjPCzNMBq1LH8Nzr88bHmzx0nwC4q4n4VLntX87g/+y+lnA1n3Wxy0dsYkOh
+	 3XO8jRjaihf8wge3tcUsixGo19v0zserQlHL9O+InQAB4mkY67zdu38axXmzaOKy3iMUD
+	 374Mw2/JUIxkJBsPXVnpvsqSD/HtM0ZNMZtx2Xw3IQKssQwqaLo8rHJEAmiEDqJUOWeiN
+	 OsNZh/imtwBjFBx3Da/Pf+sWQEPQqgU0zdRx7K/fScTxSJp5nPpfxRx4U1OsxAvAM0WV2
+	 DdevtGI5PZGQlaBIu6roO9jT06jg7kP1OaDW33eKrp9DmfLzmGU+mxsitI99hWKmOMQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CuxgHJnw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CCBD2606A321;
+	Tue, 24 Nov 2026 09:57:45 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CuxgHJnw
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795514265;
+	b=VK13NTVx6kXXcM5DW+xCdZpRNwE3449tDCqeYyGC4CiuilO/nDj1L/JWkvkas5DqAyKC
+	 xRsidGAGZT31G5e5XdlWfyl1MRGHlm3WrgwHdho28CBNSaNfggfWZ5RbjmjuUiXZbQg6k
+	 bP5PuyQixGTWjQzE32ejTFTIdgXOoCUfB/1qhhli3QoeNxwq85ypDtNSS4GEE4P3Zrbgg
+	 TUrPBYhIdAv67yvjTv/5hKdX7zEkc36ANx87BAqSDS2b4tR5aXyljFE8sbm/opsIWMSFf
+	 xGV829m8/8pfNGyfKYB569mz/WamYbSzeIO5ZtA/yNMj4+wuuVj+AzcAx9SrebaUSPQ==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795514265;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	b=gxps7Vu0NSUItf/cOrsO/xwo2/tIIEVtaXv1KPJlVJcNqJ9cQE8t2rfmgoaX2k2lh2yD
+	 t1JSGq9+sbcrsZnWVrdvmXCVfedoIBUlbvL2rKruw91YrgWjpT7KeZrzr6YODH7QUwNmy
+	 8pMvGQLhByvY0jaNyQSb1GtTTN6qyjUoR7+48Rim1dZvec0xO7yCw2cKPs09V2I7+fM6N
+	 q/2kl9YJ7CYeWw1AOkFjUz8QOZMqAY8ZH8H+W4+iWwxyk/5qC4Al3Q3zfyEFuiYR/A7MW
+	 By+aKjSj65hZGRKNpNN1lWsit85pbQ3TRF8et0L//tzXPXz1ecIs1JicDo9+kvbqwMA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B799A606A860;
-	Tue, 24 Nov 2026 09:49:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B799A606A860
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=XkNxYKpP
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Recr7Luy6JCjQb+6v924yNz7tbc+i7rrSi7oqTbC9pQ=;
-	b=XkNxYKpP0SfCabZGWnLSS5rRFW1SE6Ncx7WrPIpkt5LB0NaFNb4dOepAyTIa04orR6xOD45hR
-	y/fQJDfdjgdQbiZWitbXKVdOdVhaI7x7TX6YYpFQDo48Y9kuIgyjSNW0B1c7Dt2lOpnu2e6Dasb
-	PgTj1YN1zKbzUVv705LE9mA=
-Received: from mail.maildlp.com (unknown [172.19.162.92])
-	by canpmsgout10.his.huawei.com (SkyGuard) with ESMTPS id 4jYdLv1sFVz1K9Zg;
-	Tue, 24 Nov 2026 17:49:27 +0800 (CST)
-Received: from dggpemr200008.china.huawei.com (unknown [7.185.36.59])
-	by mail.maildlp.com (Postfix) with ESMTPS id A0B4C40586;
-	Tue, 24 Nov 2026 17:49:44 +0800 (CST)
-Received: from whupemq100015.china.huawei.com (7.152.185.230) by
- dggpemr200008.china.huawei.com (7.185.36.59) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.46; Tue, 24 Nov 2026 17:49:34 +0800
-Received: from DESKTOP-62GVMTR.china.huawei.com (10.174.174.76) by
- whupemq100015.china.huawei.com (7.152.185.230) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Tue, 24 Nov 2026 17:49:32 +0800
-From: Fan Gong <gongfan1@huawei.com>
-To: Fan Gong <gongfan1@huawei.com>, Wu Di <wudi234@huawei.com>, Teng Peisen
-	<tengpeisen@huawei.com>, <netdev@vger.kernel.org>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
-	<horms@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, Ioana Ciornei
-	<ioana.ciornei@nxp.com>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Mohsin Bashir <mohsin.bashr@gmail.com>, Dimitri Daskalakis
-	<dimitri.daskalakis1@gmail.com>, Harshitha Ramamurthy
-	<hramamurthy@google.com>, Larysa Zaremba <larysa.zaremba@intel.com>, "Vadim
- Fedorenko" <vadim.fedorenko@linux.dev>
-CC: <linux-kernel@vger.kernel.org>, <linux-doc@vger.kernel.org>, Zhou Shuai
-	<zhoushuai28@huawei.com>, Wu Like <wulike1@huawei.com>
-Subject: [PATCH net-next v07 1/1] hinic3: Fix the RX stalls in hinic3_rx_poll()
-Date: Tue, 24 Nov 2026 17:49:25 +0800
-Message-ID: <25a468fd19a251cc95940108503a12479c8a6f6a.1795514513.git.gongfan1@huawei.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <cover.1795514513.git.gongfan1@huawei.com>
-References: <cover.1795514513.git.gongfan1@huawei.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 671E41F000D4;
+	Tue, 24 Nov 2026 09:57:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795514265;
+	bh=2yaoy14/Vvt6FTb4EA6lxT957AxrMasB8RChP9otngI=;
+	h=From:Date:Subject:To:Cc:Reply-To;
+	b=CuxgHJnwTK07smQPlJSX8Gyxjvo13kuxymzsapvcLeVecC8GAM//IAOb6zq1HnVEy
+	 RDbH18N8s/powdZmLGODQT0QS1WdAMnR+zHt3OUfmWCiCqzfqcfXKJ1YSQ8dRXjyxZ
+	 gkXLJTez13rATWzdlLDoBPprcBYoRO8OFXkVEjftnmtnAiB0fG8C6bwsX5hPe1XZFz
+	 07RpHdSR/g9AhFsaO8PIv0r+VcIUKbl+qcAsQ/xZuSlf6oCKw5yILFEoHnpNrmrqXz
+	 A/YKcb9olr8HdZdY/RCqqHWoGHWZkS4S0dMGIErdPb14doeZDpmwPpOm6CNcqs8QyP
+	 /U3nBupXm6ZOQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id BC3F54C99A;
+	Tue, 24 Nov 2026 09:57:36 +0000 (UTC)
+From: Suyuan Wang via B4 Relay <devnull+shyckless.gmail.com@kernel.org>
+Date: Tue, 24 Nov 2026 09:57:36 +0000
+Subject: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
+ multicast group
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,302 +83,113 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- whupemq100015.china.huawei.com (7.152.185.230)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAI9fBWsC/yWMwQrCMBAFf6W8swtmrbX6K+IhxlVXbAzZWAql/
+ 27U4wzMzDDJKoZDMyPLqKavWIFXDcLdx5uQXiqD19w5xy09uSQagrdCSfJAftP3vOu2+5YdapW
+ yXHX6HY+IUnD6S3ufHxLK94Vl+QAGclJueAAAAA==
+X-Change-ID: 20261124-l2tp-mcast-perm-a38827659421
+To: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net, 
+ edumazet@kernel.org
+Cc: netdev@vger.kernel.org, maoyixie.tju@gmail.com, 
+ anilkaushikwireless@gmail.com, stephen@networkplumber.org, 
+ linux-kernel@vger.kernel.org, horms@kernel.org
+X-Mailer: b4 0.15.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795514255; l=3479;
+ i=shyckless@gmail.com; s=default; h=from:subject:message-id;
+ bh=b8Zf/qow/0DrC6IfxZ7GE0dxZpPJKUEKTCMj81fhw0k=;
+ b=tdQFEPeV4B/PyXWBJ+HPGKmRisjKqFCKlazcLG93B0jtoHXtzuOGVGHO1yywQbySbWxKnMTdP
+ /QB3UIF+ZCFCPOg5cQwhHo4b6fGLQdgCe2M09h6fuGE7rYdKNpMiMG4
+X-Developer-Key: i=shyckless@gmail.com; a=ed25519;
+ pk=pMtccVGiWES3bV+7YBFuBclkvq2n2HBHQ5azaBrK2lY=
+X-Endpoint-Received: by B4 Relay for shyckless@gmail.com/default with
+ auth_id=1498
+X-Original-From: Suyuan Wang <shyckless@gmail.com>
+Reply-To: shyckless@gmail.com
 
-hinic3_rx_poll() leaves the loop early in three cases, and hinic3_poll()
-then completes NAPI and re-enables the edge triggered MSI-X interrupt:
+From: Suyuan Wang <stevewong@hust.edu.cn>
 
-  - a large LRO packet consumed enough WQEs to cross lro_replenish_thld;
-  - napi_alloc_skb() failed in recv_one_pkt();
-  - hinic3_rx_fill_buffers() posted fewer WQEs than rxq->delta - 1 because
-    page_pool_dev_alloc_frag() failed.
+The l2tp generic netlink family sends a notification on its "l2tp"
+multicast group whenever a tunnel or session is created, modified or
+deleted. The message is built by the same l2tp_nl_tunnel_send() and
+l2tp_nl_session_send() helpers as the replies to TUNNEL_GET and
+SESSION_GET, so it carries the tunnel and session IDs, the addresses
+and ports, the statistics and, for L2TPv3 sessions with cookies
+configured, the local and peer cookies.
 
-In the first case a completed CQE still sits at the head of the ring, so
-nothing re-arms the queue when no further packet arrives.  A failed
-napi_alloc_skb() leaves a completed CQE at the head as well, with no WQE
-consumed and no state advanced, so the next poll would retry the same
-CQE.  A short refill is different: the ring ends up without posted WQEs,
-and once the device has consumed the rest it writes no CQE and raises no
-interrupt either, so the queue stays dead until the interface is reset.
+The tunnel and session commands, including the GET commands, need
+CAP_NET_ADMIN in the user namespace owning the network namespace
+(GENL_UNS_ADMIN_PERM), but generic netlink lets any user join a
+multicast group by default. So an unprivileged user in the same network
+namespace can read all of this by joining the group. Configured cookies
+help an L2TPv3 endpoint reject blindly injected packets, and leaking
+them weakens that.
 
-Return budget for the LRO case so that hinic3_poll() skips
-napi_complete_done() and NAPI runs again immediately; every pass consumes
-CQEs, so the polling terminates.
+Commit ed267f783c0c ("l2tp: send netlink notifications in the tunnel's
+net namespace") already noted that a listener needs no privilege, but
+only stopped the notifications from reaching other network namespaces.
+This patch handles listeners in the tunnel's own namespace that join
+the group after the l2tp family is registered.
 
-Doing the same for the two allocation failures would keep NAPI retrying
-the same CQE, or an empty ring, until the allocator recovers, which spins
-a CPU under prolonged memory pressure.  Keep NAPI out of that loop
-instead: record the affected queue in a per-queue bitmap and re-arm NAPI
-from a delayed work 250ms later, independent of the hardware interrupts.
-The work calls napi_schedule() for every queue that failed.  When the
-interface is not up yet it keeps the bits and tries again, since
-hinic3_open() sets HINIC3_INTF_UP only after the vport is enabled, and
-the teardown path disables the work so that it cannot outlive the
-channel.
+Mark the group with GENL_MCAST_CAP_NET_ADMIN, as was done for gtp in
+commit db627e71b6da ("gtp: Require 'CAP_NET_ADMIN' when joining the gtp
+multicast group"). genl_bind() then requires CAP_NET_ADMIN in the user
+namespace owning the network namespace, the same capability and
+namespace as the tunnel and session commands.
 
-The bitmap is allocated together with the Tx/Rx queues and freed once the
-work is disabled.  The work starts disabled and hinic3_qps_irq_init()
-enables it.  hinic3_qps_irq_uninit() cancels it before the NAPI instances
-are torn down and disables it after they are gone, and the rollback path
-of hinic3_qps_irq_init() disables it as well, so no poll can queue it
-once the channel is torn down and it never dereferences a freed irq_cfg.
-The bitmap is cleared when the queues are brought up, so a queue that is
-brought up again does not inherit a stale bit.
+genl_bind() only checks the flag for a group ID that a registered
+family owns. A socket that joins the ID before the l2tp family is
+registered, for example before l2tp_netlink is loaded, keeps getting
+the notifications. This affects every family that uses
+GENL_MCAST_CAP_*, including gtp, and is fixed separately in genetlink
+[1]. Backports need that fix too to cover this case.
 
-Fixes: 17fcb3dc12bb ("hinic3: module initialization and tx/rx logic")
-Co-developed-by: Wu Di <wudi234@huawei.com>
-Signed-off-by: Wu Di <wudi234@huawei.com>
-Co-developed-by: Teng Peisen <tengpeisen@huawei.com>
-Signed-off-by: Teng Peisen <tengpeisen@huawei.com>
-Signed-off-by: Fan Gong <gongfan1@huawei.com>
+Found with a static analysis tool and checked by hand.
+
+Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwireless@gmail.com/ [1]
+Fixes: 33f72e6f0c67 ("l2tp : multicast notification to the registered listeners")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Kaixuan Li <kaixuan.li@ntu.edu.sg>
+Signed-off-by: Suyuan Wang <stevewong@hust.edu.cn>
 ---
- .../net/ethernet/huawei/hinic3/hinic3_irq.c   | 10 +++
- .../net/ethernet/huawei/hinic3/hinic3_main.c  | 63 ++++++++++++++++++-
- .../ethernet/huawei/hinic3/hinic3_nic_dev.h   |  3 +
- .../net/ethernet/huawei/hinic3/hinic3_rx.c    | 26 ++++++--
- 4 files changed, 96 insertions(+), 6 deletions(-)
+Tested in QEMU (x86_64): three listeners join the "l2tp" group, then
+root creates an L2TPv3 tunnel and a session with a cookie.
 
-diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_irq.c b/drivers/net/ethernet/huawei/hinic3/hinic3_irq.c
-index e7d6c2033b45..4ff5c97639e8 100644
---- a/drivers/net/ethernet/huawei/hinic3/hinic3_irq.c
-+++ b/drivers/net/ethernet/huawei/hinic3/hinic3_irq.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
+Before:
+  root: joined, gets TUNNEL_CREATE and SESSION_CREATE (with the cookie)
+  root without CAP_NET_ADMIN: same
+  nobody: same
+
+After:
+  root: joined, gets both notifications
+  root without CAP_NET_ADMIN: EPERM
+  nobody: EPERM
+
+Changes in v2:
+- Say in the commit message that joining the group ID before the family
+  is registered is not covered here, and that backports also need the
+  pending genetlink fix (Sashiko).
+
+v1: https://lore.kernel.org/all/20261120-l2tp-mcast-perm-v1-1-22dbffa88655@gmail.com/
+---
+ net/l2tp/l2tp_netlink.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
+index a07009d4cb00..c442e953df66 100644
+--- a/net/l2tp/l2tp_netlink.c
++++ b/net/l2tp/l2tp_netlink.c
+@@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
+ static const struct genl_multicast_group l2tp_multicast_group[] = {
+ 	{
+ 		.name = L2TP_GENL_MCGROUP,
++		.flags = GENL_MCAST_CAP_NET_ADMIN,
+ 	},
+ };
  
-+#include <linux/bitmap.h>
- #include <linux/dim.h>
- #include <linux/netdevice.h>
- 
-@@ -205,6 +206,9 @@ int hinic3_qps_irq_init(struct net_device *netdev)
- 	u16 q_id;
- 	int err;
- 
-+	bitmap_zero(nic_dev->rx_oom_bitmap, nic_dev->max_qps);
-+	enable_delayed_work(&nic_dev->rx_oom_work);
-+
- 	for (q_id = 0; q_id < nic_dev->q_params.num_qps; q_id++) {
- 		msix_entry = &nic_dev->qps_msix_entries[q_id];
- 		irq_cfg = &nic_dev->q_params.irq_cfg[q_id];
-@@ -264,6 +268,8 @@ int hinic3_qps_irq_init(struct net_device *netdev)
- 		disable_work_sync(&irq_cfg->rxq->dim.work);
- 	}
- 
-+	disable_delayed_work_sync(&nic_dev->rx_oom_work);
-+
- 	return err;
- }
- 
-@@ -273,6 +279,8 @@ void hinic3_qps_irq_uninit(struct net_device *netdev)
- 	struct hinic3_irq_cfg *irq_cfg;
- 	u16 q_id;
- 
-+	cancel_delayed_work_sync(&nic_dev->rx_oom_work);
-+
- 	for (q_id = 0; q_id < nic_dev->q_params.num_qps; q_id++) {
- 		irq_cfg = &nic_dev->q_params.irq_cfg[q_id];
- 		qp_del_napi(irq_cfg);
-@@ -288,4 +296,6 @@ void hinic3_qps_irq_uninit(struct net_device *netdev)
- 		hinic3_release_irq(irq_cfg);
- 		disable_work_sync(&irq_cfg->rxq->dim.work);
- 	}
-+
-+	disable_delayed_work_sync(&nic_dev->rx_oom_work);
- }
-diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_main.c b/drivers/net/ethernet/huawei/hinic3/hinic3_main.c
-index 0a888fe4c975..a288957a9412 100644
---- a/drivers/net/ethernet/huawei/hinic3/hinic3_main.c
-+++ b/drivers/net/ethernet/huawei/hinic3/hinic3_main.c
-@@ -1,6 +1,7 @@
- // SPDX-License-Identifier: GPL-2.0
- // Copyright (c) Huawei Technologies Co., Ltd. 2025. All rights reserved.
- 
-+#include <linux/bitmap.h>
- #include <linux/etherdevice.h>
- #include <linux/netdevice.h>
- 
-@@ -33,6 +34,8 @@
- #define HINIC3_RX_PENDING_LIMIT_LOW   2
- #define HINIC3_RX_PENDING_LIMIT_HIGH  8
- 
-+#define HINIC3_RX_OOM_POLL_MS         250
-+
- static void init_intr_coal_param(struct net_device *netdev)
- {
- 	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
-@@ -76,6 +79,43 @@ static void hinic3_free_intr_coalesce(struct net_device *netdev)
- 	kfree(nic_dev->intr_coalesce);
- }
- 
-+static void hinic3_rx_oom_work(struct work_struct *work)
-+{
-+	struct hinic3_nic_dev *nic_dev =
-+		container_of(work, struct hinic3_nic_dev, rx_oom_work.work);
-+	struct hinic3_rxq *rxq;
-+	u16 q_id;
-+
-+	if (!test_bit(HINIC3_INTF_UP, &nic_dev->flags)) {
-+		/* hinic3_open() sets the flag after the vport is enabled and
-+		 * hinic3_close() clears it before the channel goes away, so
-+		 * keep the pending queues and retry.  The teardown path
-+		 * disables the work, which bounds the retries.
-+		 */
-+		schedule_delayed_work(&nic_dev->rx_oom_work,
-+				      msecs_to_jiffies(HINIC3_RX_OOM_POLL_MS));
-+		return;
-+	}
-+
-+	for (q_id = 0; q_id < nic_dev->q_params.num_qps; q_id++) {
-+		rxq = &nic_dev->rxqs[q_id];
-+
-+		if (!test_and_clear_bit(q_id, nic_dev->rx_oom_bitmap))
-+			continue;
-+
-+		napi_schedule(&rxq->irq_cfg->napi);
-+	}
-+}
-+
-+void hinic3_rx_oom_schedule(struct net_device *netdev, u16 q_id)
-+{
-+	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
-+
-+	set_bit(q_id, nic_dev->rx_oom_bitmap);
-+	schedule_delayed_work(&nic_dev->rx_oom_work,
-+			      msecs_to_jiffies(HINIC3_RX_OOM_POLL_MS));
-+}
-+
- static int hinic3_alloc_txrxqs(struct net_device *netdev)
- {
- 	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
-@@ -94,14 +134,29 @@ static int hinic3_alloc_txrxqs(struct net_device *netdev)
- 		goto err_free_txqs;
- 	}
- 
-+	nic_dev->rx_oom_bitmap = bitmap_zalloc(nic_dev->max_qps, GFP_KERNEL);
-+	if (!nic_dev->rx_oom_bitmap) {
-+		dev_err(hwdev->dev, "Failed to alloc rx oom bitmap\n");
-+		err = -ENOMEM;
-+		goto err_free_rxqs;
-+	}
-+	INIT_DELAYED_WORK(&nic_dev->rx_oom_work, hinic3_rx_oom_work);
-+	/* The work starts disabled; hinic3_qps_irq_init() enables it and
-+	 * hinic3_qps_irq_uninit() disables it again.
-+	 */
-+	disable_delayed_work(&nic_dev->rx_oom_work);
-+
- 	err = hinic3_init_intr_coalesce(netdev);
- 	if (err) {
- 		dev_err(hwdev->dev, "Failed to init_intr_coalesce\n");
--		goto err_free_rxqs;
-+		goto err_free_rx_oom_bitmap;
- 	}
- 
- 	return 0;
- 
-+err_free_rx_oom_bitmap:
-+	bitmap_free(nic_dev->rx_oom_bitmap);
-+	nic_dev->rx_oom_bitmap = NULL;
- err_free_rxqs:
- 	hinic3_free_rxqs(netdev);
- err_free_txqs:
-@@ -112,6 +167,12 @@ static int hinic3_alloc_txrxqs(struct net_device *netdev)
- 
- static void hinic3_free_txrxqs(struct net_device *netdev)
- {
-+	struct hinic3_nic_dev *nic_dev = netdev_priv(netdev);
-+
-+	cancel_delayed_work_sync(&nic_dev->rx_oom_work);
-+	bitmap_free(nic_dev->rx_oom_bitmap);
-+	nic_dev->rx_oom_bitmap = NULL;
-+
- 	hinic3_free_intr_coalesce(netdev);
- 	hinic3_free_rxqs(netdev);
- 	hinic3_free_txqs(netdev);
-diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_nic_dev.h b/drivers/net/ethernet/huawei/hinic3/hinic3_nic_dev.h
-index 9502293ff710..5d6710f13b2c 100644
---- a/drivers/net/ethernet/huawei/hinic3/hinic3_nic_dev.h
-+++ b/drivers/net/ethernet/huawei/hinic3/hinic3_nic_dev.h
-@@ -112,6 +112,7 @@ struct hinic3_nic_dev {
- 	struct hinic3_dyna_txrxq_params q_params;
- 	struct hinic3_txq               *txqs;
- 	struct hinic3_rxq               *rxqs;
-+	unsigned long                   *rx_oom_bitmap;
- 
- 	enum hinic3_rss_hash_type       rss_hash_type;
- 	struct hinic3_rss_type          rss_type;
-@@ -126,6 +127,7 @@ struct hinic3_nic_dev {
- 
- 	struct workqueue_struct         *workq;
- 	struct delayed_work             periodic_work;
-+	struct delayed_work             rx_oom_work;
- 	struct work_struct              rx_mode_work;
- 	/* lock for enable/disable port */
- 	struct mutex                    port_state_mutex;
-@@ -145,6 +147,7 @@ void hinic3_set_netdev_ops(struct net_device *netdev);
- int hinic3_set_hw_features(struct net_device *netdev);
- int hinic3_qps_irq_init(struct net_device *netdev);
- void hinic3_qps_irq_uninit(struct net_device *netdev);
-+void hinic3_rx_oom_schedule(struct net_device *netdev, u16 q_id);
- 
- void hinic3_set_rx_mode_work(struct work_struct *work);
- void hinic3_clean_mac_list_filter(struct net_device *netdev);
-diff --git a/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c b/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
-index 309ab5901379..ad6b65fce9c9 100644
---- a/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
-+++ b/drivers/net/ethernet/huawei/hinic3/hinic3_rx.c
-@@ -555,6 +555,8 @@ int hinic3_rx_poll(struct hinic3_rxq *rxq, int budget)
- 	struct hinic3_nic_dev *nic_dev = netdev_priv(rxq->netdev);
- 	u32 sw_ci, status, pkt_len, vlan_len;
- 	struct hinic3_rq_cqe *rx_cqe;
-+	bool poll_again = false;
-+	bool oom = false;
- 	u32 num_wqe = 0;
- 	int nr_pkts = 0;
- 	u16 num_lro;
-@@ -571,8 +573,10 @@ int hinic3_rx_poll(struct hinic3_rxq *rxq, int budget)
- 
- 		vlan_len = le32_to_cpu(rx_cqe->vlan_len);
- 		pkt_len = RQ_CQE_SGE_GET(vlan_len, LEN);
--		if (recv_one_pkt(rxq, rx_cqe, pkt_len, vlan_len, status))
-+		if (recv_one_pkt(rxq, rx_cqe, pkt_len, vlan_len, status)) {
-+			oom = true;
- 			break;
-+		}
- 
- 		nr_pkts++;
- 		num_lro = RQ_CQE_STATUS_GET(status, NUM_LRO);
-@@ -581,12 +585,24 @@ int hinic3_rx_poll(struct hinic3_rxq *rxq, int budget)
- 
- 		rx_cqe->status = 0;
- 
--		if (num_wqe >= nic_dev->lro_replenish_thld)
-+		if (num_wqe >= nic_dev->lro_replenish_thld) {
-+			poll_again = true;
- 			break;
-+		}
-+	}
-+
-+	if (rxq->delta >= HINIC3_RX_BUFFER_WRITE) {
-+		u32 free_wqebbs = rxq->delta - 1;
-+
-+		/* Refill stops at the first failed allocation, so a short
-+		 * refill may leave the ring without any WQE posted.
-+		 */
-+		if (hinic3_rx_fill_buffers(rxq) != free_wqebbs)
-+			oom = true;
- 	}
- 
--	if (rxq->delta >= HINIC3_RX_BUFFER_WRITE)
--		hinic3_rx_fill_buffers(rxq);
-+	if (unlikely(oom))
-+		hinic3_rx_oom_schedule(rxq->netdev, rxq->q_id);
- 
--	return nr_pkts;
-+	return poll_again ? budget : nr_pkts;
- }
--- 
-2.43.0
+
+
+
 
