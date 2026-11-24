@@ -1,57 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.96
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.208
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525686;
-	b=PR9dpTVuCG4CuNQ84zoiJc5YgqRVX2AOTE+1uzQ/9qJrbMkce2MhbN9peB2D5gVmz6K6
-	 G1c4Y6+wxmbcMYIdLlPGeZqrlsR13w5xcX2hKshuEfAgc8v/URGS6+LzJlSu1SA3iIe2T
-	 w7o/E0YIcypnh7KPZz6WaHDiQ7KXFitF27eBAEzxJQ9Qk2q3CE0Bz5QKseS9WQl7vnK7+
-	 ltKDmvAvt5JyZrOM4XkDea5u5ePOuLyEIR1Oe0O0ml2zBFIgnIbZjyGmaurhNwZDyiNNa
-	 Vkx51qQb4jUHk4sydKhAU/kARPrWoXa8M1GfenFpNYoCWwZC3UBzitETzcvGlllDhGg==
+	t=1795525696;
+	b=c5TqiJpGzxnozmnfPwQR5JE/YQMRo46mbCTEQG0QBoL+KEJ5u9ls9i6EUpsE5LYGHn6+
+	 Y4ARNKsa5t+8bwXKpw3lhANwgSNZgpCGlX5WZqQObT87HW6TT8gS0QIaCtqcOO+Y1ubBa
+	 U6yg0jQMna6VU7cN2J1MBZ7iM48MFISwHJ8bCPuLafP1LXwDLXPshnMBPUgatvFl0xuFb
+	 OzNuWg65HYAXdUIkO3fbTeQsgO7f8MSr1qByRIsxuqr7MCW/W4PqaLGbipoXETyPSja1r
+	 XPTerBJ7gW+VO/a5gvC6Qn43ZYqm5I3CAQ5sBuNV208t3wo6LDqYEgUdrzedkAlNKGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525686;
-	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
-	 Feedback-ID:X-Pm-Message-ID:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525696;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=oosESyXixnnHbF5S3HtNOAGe+FND+MwLVsS8CF2PbEQ=;
-	b=wXxIe8Becf2LmLRKFzNKE4auzhjuc62/pxc25Su4AtRE7s2zPe58Ulj1e2lkr+9le7w9
-	 kEfhJx7jyCDf1cICSyzOfNoqP4mqB/HMAVcNAGVqsbyPR8IC2TuhAwD0tODuomp9NdNtY
-	 jU6Tl0wEu2nByGQFKmXFdV9VOTDK3LDivPpFgvmVP8Ok7lr5BLm0HcrNjdubdcYx9zBkm
-	 7GpqUqEbRuH+7msQuPPyil2DkidPHx9Jwu40TQdzWHnqFl4qdLrTPrhExGRZDwKd+zwKG
-	 Rl/TsRtQptlFgEe2xqpJqg/pSA0DPwSDjtTn8tD+Gludojwch/fkbW/b2lqCOGJoztQ==
+	bh=Gbwli+3jGR+ys5kSnBS4mEXqow+bmaiRcBn2LYzp6yA=;
+	b=O2GW46XNLTq5REBHisv5SMWftKCm1Pqn4jXI0nXaDb3gHj+CTddwa/AOQHmkewEcj+p/
+	 HZY+1tYgdBYGQ+ow6KcI+M/l6GXK+qy5KbX6WzoOLZakwp60tbYE8WLySJBBGdR06wt24
+	 O51sMNq9KLSV8Z3en98bT6qMi+/oRFAtKeWGpSmFbk5josRN1okL9XTbWA224Mo78qvOk
+	 igSco/FPPt6hDoaw57U/Dc5YvNTrnpeT2w1aXbcnMbnENAnQxj6/8oxCkPxtHdLKkCrnm
+	 jaD5Dek1G7f5CiO51hZ457QUwTa0f/F6IvmiVpsf8iOa/AAaDmvM36wBW6VgS0qqCtw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=protonmail.com;
-	spf=pass smtp.mailfrom=protonmail.com;
-	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=SruTvaOe;
-	arc=none smtp.remote-ip=79.135.106.96
-Received: from mail-10696.protonmail.ch (mail-10696.protonmail.ch [79.135.106.96])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RuyPA1g3;
+	arc=none smtp.remote-ip=95.215.58.208
+Received: from mta1.migadu.com (out-208.mta1.migadu.com [95.215.58.208])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 202BA606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:08:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 202BA606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC3B5606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:08:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC3B5606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=SruTvaOe
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
-	s=protonmail3; t=1795525683; x=1795784883;
-	bh=oosESyXixnnHbF5S3HtNOAGe+FND+MwLVsS8CF2PbEQ=;
-	h=Date:To:From:Cc:Subject:Message-ID:Feedback-ID:From:To:Cc:Date:
-	 Subject:Reply-To:Feedback-ID:Message-ID:BIMI-Selector;
-	b=SruTvaOeebrocGlxZ2tOtwCoU2ayhMIcI83h6HePrGbFaqdLDx/b6LBp8twcf+8tQ
-	 TOIJRjHR0/lLjOTVspX/FdPWLYBJMRqMn3URc9PydAr+aqO+U6+IVksBtyqZhaZWiS
-	 UNxgImkqF1r0FpBbboEkZ2YdnFA71G8zWGYkv0I22HZXbDuyfFF4TsnXYzW8KMBYcZ
-	 KSDoWIH8NHloluCTOLg5cbU3RfT1T9KUl7UzVDGQl+Zu/MiAIbt9Ni2k6tXXBvt7IM
-	 883s1Sr1dKMw1QsK1upR+OxmO+Gk7QlSMXb81P/QPj9hE/hXHnNKEPD9oUXoGpiL7f
-	 7lIR+wTAQO+QQ==
-Date: Tue, 24 Nov 2026 13:07:58 +0000
-To: Linux Networking <netdev@vger.kernel.org>
-From: Turritopsis Dohrnii Teo En Ming <teo.en.ming@protonmail.com>
-Cc: "ceo@teo-en-ming-corp.com" <ceo@teo-en-ming-corp.com>
-Subject: Configuring Sophos APX 530 Access Points APs with Sophos XGS136 firewall (also function as a Wireless LAN Controller)
-Message-ID: <O2ZNaA5qh3aKRNQrbKpZQr4erGR2bXqU2jOL6AUNwDcZYwYQ8TMImWq1a_VDaZD3_GUMWKdjCm4b2i1EGPUY5xYy-Az4vk8An15qFOp7Gy0=@protonmail.com>
-Feedback-ID: 39510961:user:proton
-X-Pm-Message-ID: ca3dafe0a8b2c800da4fb0640b268a49230b8a76
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=RuyPA1g3
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=1OtbO6cAmhEg7HnV0uuoWP9DuSDGmj8P3KgcqLq16Kc=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795525694; v=1; x=1796130494;
+ b=RuyPA1g3jj2oOv0KjQwAWoO4GQkYn8Ka4XNqbvhO6RvR9WQcv/cIz5MDJk8uqFBdstrtYnFa
+ F/MOoEQguV0FqHaavFdCoj/c/F0cCazNwD0Orq15/0d0gaqqsWkayNCCZuaZX4huzs7Kv83fgAi
+ oER8y/gpCgAOJ5yx1IGvtQbg=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 04409754ab00363b;
+	Tue, 24 Nov 2026 13:08:14 +0000
+X-Mizu-Trace-ID: 04409754ab00363b
+X-Migadu-Flow: FLOW_OUT
+From: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+To: netdev@vger.kernel.org
+Cc: "David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Matthieu Baerts <matttbe@kernel.org>,
+	Mat Martineau <martineau@kernel.org>,
+	Geliang Tang <geliang@kernel.org>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Neal Cardwell <ncardwell@google.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>,
+	Phil Sutter <phil@nwl.cc>,
+	bpf@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	mptcp@lists.linux.dev,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+Subject: [PATCH net-next v1 4/6] net: avoid stack canaries in skb_try_coalesce() callers
+Date: Tue, 24 Nov 2026 22:06:29 +0900
+Message-ID: <20261124130631.1886963-5-xuanqiang.luo@linux.dev>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,72 +98,225 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Subject: Configuring Sophos APX 530 Access Points APs with Sophos XGS136 fi=
-rewall (also function as a Wireless LAN Controller)
+From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 
-Good day from Singapore,
+skb_try_coalesce() returns the stolen head indication and the truesize
+delta through pointers to locals of its callers.
 
-Author: Mr. Turritopsis Dohrnii Teo En Ming
-Date: 24 Nov 2026 Tuesday=20
-Country: Singapore
+With CONFIG_STACKPROTECTOR_STRONG=y, this forces a stack canary in
+all of them, some are in TCP receive fast paths.
 
-Connect DATA-1 PoE network switch to Port 5 on Sophos XGS136 firewall (spec=
-ific subnet requirement 192.168.125.0/24).
-Port 5 is also part of LAN zone.
+Rename it to __skb_try_coalesce(), and return its results by value in
+a small structure.
 
-Connect Sophos APX 530 access point to DATA-1 PoE network switch.
+skb_try_coalesce() is now an inline wrapper, callers do not change.
 
-DATA-1 network switch is PoE+ capable (IEEE 802.3at).
+A successful merge never has a negative delta, so that a negative value
+can be used to report a failure.
 
-Login to Sophos XGS136 firewall (TCP port 4444).
+$ scripts/bloat-o-meter -t vmlinux.old vmlinux.new
+add/remove: 2/2 grow/shrink: 1/8 up/down: 1303/-1677 (-374)
+Function                                     old     new   delta
+__skb_try_coalesce                             -    1255   +1255
+tcp_data_queue                              4393    4425     +32
+__pfx___skb_try_coalesce                       -      16     +16
+mptcp_recvmsg                               2108    2092     -16
+alloc_skb_with_frags                         534     518     -16
+__pfx_skb_try_coalesce                        16       -     -16
+tcp_try_coalesce                             386     359     -27
+skb_copy_ubufs                              1645    1613     -32
+__mptcp_move_skbs_from_subflow              1215    1167     -48
+tcp_add_backlog                             1576    1527     -49
+mptcp_try_coalesce                           235     168     -67
+inet_frag_reasm_finish                       672     598     -74
+skb_try_coalesce                            1332       -   -1332
+Total: Before=24067978, After=24067604, chg -0.00%
 
-Go to Wireless > Access Points > Pending access points
+Signed-off-by: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+---
+ include/linux/skbuff.h | 35 +++++++++++++++++++++++++++--
+ net/core/skbuff.c      | 50 +++++++++++++++++++++++-------------------
+ 2 files changed, 60 insertions(+), 25 deletions(-)
 
-Select the access point and click Accept
-
-A. Enable Sophos Wireless Protection
-
-Navigate to Wireless =E2=86=92 Wireless Settings.
-1. Enable Wireless Protection.
-2. Under Allowed Zones, select LAN.
-3. Click Apply.
-4. Under Administration =E2=86=92 Device Access, ensure the appropriate LAN=
- management and wireless services are permitted, if that option is availabl=
-e in your firmware.
-
-Sophos documents LAN as a supported zone for AP registration.
-
-B. Create the Wi-Fi network
-
-Go to Wireless =E2=86=92 Wireless Networks =E2=86=92 Add.
-
-Setting |=09Recommended configuration
-Name:=09Server and Printer
-SSID:=09Server and Printer
-Security mode:=09WPA2-Personal
-Encryption:=09AES
-Password:=09Strong unique password
-Client traffic:=09Bridge to AP LAN
-Frequency bands:=092.4 GHz and 5 GHz
-
-Save, then go to Wireless =E2=86=92 Access Points and assign "Server and Pr=
-inter" SSID to all Sophos APX 530 access points.
-
-Do not create a separate bridge interface on the Sophos XGS136 firewall. So=
-phos specifically confirms that external APX access points using Bridge to =
-AP LAN do not require a firewall bridge interface.
-
-That's all.
-
-Regards,
-
-Mr. Turritopsis Dohrnii Teo En Ming
-Republic of Singapore
-24 Nov 2026 Tuesday 9.02 pm Singapore Time
-
-
-
+diff --git a/include/linux/skbuff.h b/include/linux/skbuff.h
+index 55ab6392301a..bbdf64811aed 100644
+--- a/include/linux/skbuff.h
++++ b/include/linux/skbuff.h
+@@ -1370,8 +1370,39 @@ void __consume_stateless_skb(struct sk_buff *skb);
+ void  __kfree_skb(struct sk_buff *skb);
+ 
+ void kfree_skb_partial(struct sk_buff *skb, bool head_stolen);
+-bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+-		      bool *fragstolen, int *delta_truesize);
++
++/* Result of __skb_try_coalesce(). */
++struct skb_coalesce_res {
++	int	delta_truesize;	/* negative if not coalesced */
++	bool	fragstolen;
++};
++
++struct skb_coalesce_res __skb_try_coalesce(struct sk_buff *to,
++					   struct sk_buff *from);
++
++/**
++ * skb_try_coalesce - try to merge skb to prior one
++ * @to: prior buffer
++ * @from: buffer to add
++ * @fragstolen: pointer to boolean
++ * @delta_truesize: how much more was allocated than was requested
++ *
++ * Return: true if @from was merged into @to, false otherwise.
++ */
++static __always_inline bool skb_try_coalesce(struct sk_buff *to,
++					     struct sk_buff *from,
++					     bool *fragstolen,
++					     int *delta_truesize)
++{
++	struct skb_coalesce_res res = __skb_try_coalesce(to, from);
++
++	*fragstolen = res.fragstolen;
++	if (res.delta_truesize < 0)
++		return false;
++
++	*delta_truesize = res.delta_truesize;
++	return true;
++}
+ 
+ struct sk_buff *__alloc_skb(unsigned int size, gfp_t priority, int flags,
+ 			    int node);
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index e5b0209aec1c..1da20a7a0bb4 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -6602,23 +6602,26 @@ void kfree_skb_partial(struct sk_buff *skb, bool head_stolen)
+ EXPORT_SYMBOL(kfree_skb_partial);
+ 
+ /**
+- * skb_try_coalesce - try to merge skb to prior one
++ * __skb_try_coalesce - try to merge skb to prior one
+  * @to: prior buffer
+  * @from: buffer to add
+- * @fragstolen: pointer to boolean
+- * @delta_truesize: how much more was allocated than was requested
++ *
++ * Helper for skb_try_coalesce(), returning its results by value so that
++ * callers do not need a stack canary.
++ *
++ * Return: @delta_truesize is negative if @from was not merged.
+  */
+-bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+-		      bool *fragstolen, int *delta_truesize)
++struct skb_coalesce_res __skb_try_coalesce(struct sk_buff *to,
++					   struct sk_buff *from)
+ {
++	const struct skb_coalesce_res fail = { .delta_truesize = -1 };
+ 	struct skb_shared_info *to_shinfo, *from_shinfo;
+ 	unsigned int len = from->len;
++	bool fragstolen = false;
+ 	int i, delta;
+ 
+-	*fragstolen = false;
+-
+ 	if (skb_cloned(to))
+-		return false;
++		return fail;
+ 
+ 	/* In general, avoid mixing page_pool and non-page_pool allocated
+ 	 * pages within the same SKB. In theory we could take full
+@@ -6627,14 +6630,14 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 	 * rare, so not worth dealing with.
+ 	 */
+ 	if (to->pp_recycle != from->pp_recycle)
+-		return false;
++		return fail;
+ 
+ 	/* All frags in an skb must either all be struct page-backed or all
+ 	 * belong to the same memory provider instance; do not coalesce skbs
+ 	 * that would mix them.
+ 	 */
+ 	if (skb_frags_readable(from) != skb_frags_readable(to))
+-		return false;
++		return fail;
+ 
+ 	if (len <= skb_tailroom(to) && skb_frags_readable(from)) {
+ 		if (len) {
+@@ -6642,41 +6645,40 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 						   skb_tail_pointer(to),
+ 						   len))) {
+ 				DEBUG_NET_WARN_ON_ONCE(1);
+-				return false;
++				return fail;
+ 			}
+ 			skb_put(to, len);
+ 		}
+-		*delta_truesize = 0;
+-		return true;
++		return (struct skb_coalesce_res){ .delta_truesize = 0 };
+ 	}
+ 
+ 	to_shinfo = skb_shinfo(to);
+ 	from_shinfo = skb_shinfo(from);
+ 	if (to_shinfo->frag_list || from_shinfo->frag_list)
+-		return false;
++		return fail;
+ 	if (skb_zcopy(to) || skb_zcopy(from))
+-		return false;
++		return fail;
+ 
+ 	if (skb_headlen(from) != 0) {
+ 		if (to_shinfo->nr_frags +
+ 		    from_shinfo->nr_frags >= MAX_SKB_FRAGS)
+-			return false;
++			return fail;
+ 
+ 		if (skb_head_is_locked(from))
+-			return false;
++			return fail;
+ 
+ 		delta = from->truesize - SKB_DATA_ALIGN(sizeof(struct sk_buff));
+ 	} else {
+ 		if (to_shinfo->nr_frags +
+ 		    from_shinfo->nr_frags > MAX_SKB_FRAGS)
+-			return false;
++			return fail;
+ 
+ 		delta = from->truesize - SKB_TRUESIZE(skb_end_offset(from));
+ 	}
+ 
+ 	/* @from claims more data than it has memory for.  Leave @to alone. */
+ 	if (WARN_ON_ONCE(delta < 0 || delta < len))
+-		return false;
++		return fail;
+ 
+ 	if (skb_headlen(from) != 0) {
+ 		struct page *page = virt_to_head_page(from->head);
+@@ -6685,7 +6687,7 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 		offset = from->data - (unsigned char *)page_address(page);
+ 		skb_fill_page_desc(to, to_shinfo->nr_frags,
+ 				   page, offset, skb_headlen(from));
+-		*fragstolen = true;
++		fragstolen = true;
+ 	}
+ 
+ 	memcpy(to_shinfo->frags + to_shinfo->nr_frags,
+@@ -6708,10 +6710,12 @@ bool skb_try_coalesce(struct sk_buff *to, struct sk_buff *from,
+ 	to->len += len;
+ 	to->data_len += len;
+ 
+-	*delta_truesize = delta;
+-	return true;
++	return (struct skb_coalesce_res){
++		.delta_truesize = delta,
++		.fragstolen = fragstolen,
++	};
+ }
+-EXPORT_SYMBOL(skb_try_coalesce);
++EXPORT_SYMBOL(__skb_try_coalesce);
+ 
+ static void skb_ext_scrub(struct sk_buff *skb)
+ {
+-- 
+2.43.0
 
