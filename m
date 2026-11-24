@@ -1,60 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532212;
-	b=XyDnA6BCQDceP/JU+uNSmsDpmQ692+xBNk6iNzi4a28te+sWBxtt8x5J2IGqCKvEM4FB
-	 wMee0zAS8mI4TmIZtOD2/MvgNEBrkae1BmaIZlx6MbfssT/wLDEvfzQmQe/Q1DWgnwv1a
-	 33gVpTSTBq9eA0ktmSNR7iS5R2qbCq0R1z4N5b+u6ADVVZhM/v9/iHJVJC0tyNwerA6+p
-	 lycdjvE+tbw05Wb0YCYNl5kid8khv7ZMww5xEd0RhavHxYTO3JsXPMryh8Lqp0N0yS/Ec
-	 fASGsDLZ0CCob18IwkP9c9jmQM1DShQhXfQhhmdGr+4xHgcfSCg3aikM85P6RUxnu6w==
+	t=1795532218;
+	b=DDvGCd4dw7ataMXKCU1IUJI60j7hRGn4tDReZ0DHQY97LtXWPIy6Q6rE6c7IhcftuYis
+	 33pTLtMIietoPAWDaKAA2B7VNJUPDxYIzJBayjtxDTEbn6Iv8t0hJPZwO4qlhidxXUy1n
+	 geZGclRPlJXV1fbvZsSgRatsvqOAE78ieP8rfa6hqEi+Ds+NmzRwhk/7oQABsGDFaFQpX
+	 NgMO5R5PSAknZfBe6Ta1u9gB/32hmX6zWU2/oh35B/d0Z8klZ7wadwiiKNKXxHJHPC4wn
+	 lclmZNLTVHqKcc5V/H6wZtUdE65bIn75/SsANJx7KGwKqxPU3GTkQhp+xOqDIxjTFpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532212;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=BQO4GuYRTzS7IoSSUhSiErH0mQkmSCba+xRrKEQIFL4=;
-	b=caNLXoDpIdMUzBhgd0KzeaR4xMKI6F4It+Z3KjaYunBYknDuPM7UWv2G/8AQW+9uNK0O
-	 wN2wZeh1cn4E7oVACPfRjHGF8ZWRpWMgandONj5mCsCBdWw+96eKzw8KRi/pzFaBfxaR2
-	 aHM/Uiz4C3IhS7sY2pserUWs/bi/hYbl/Z5c2hAMkp7QUs1tGRZKUS4uVEJVvYBRnyPu3
-	 Suml+L+dXGrmTqvX3fhkhR4d57CxI4gnuUR6XG2oFlHsOv+4i1yDy3ekZfncvGTqmnNj2
-	 68Bf8AnaP6w8wLXoGOzSCh62Uzdz0oOno5zQYkHOtB8hJud0IWTq1am39fVpG7P2+sQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532218;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mh/yVqw5w3cdbkpA2iej9q/2ol5jZwPriRpNWVPGSqw=;
+	b=ICzylDF5NPxNEObt1TcYt+7Wamb4LBCz4qzHYTbUmCVgIckdtoIVuMmWOrNnUW5P6X4C
+	 HYqDJ67zB8MF9y0U4WyYUVdBOMbea5hUfNbjXSBPXG4suvNO+NLhKcJlgOUhK3Ob0Sye8
+	 4i4l5MkoRz6qc+gRvaoqgI4FnpViYTeayvR+iR/PSArnE1sx21l6TSs7wVVFarww1CxxW
+	 wuAZ24k0ZPwxzIDqwR/9XtAZnUHfj5gGQkNfM2e43QCCZoHCN/JVI77k0ywOQ+v8ZC8A9
+	 AKKm/+G97XR6glk27Ce5jueEGDHGVPKUO1sSzcZKDwDCjeLi/jNNYydxtmlhf1WzWCg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fD+K6Gky;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUtJxRBa;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id ECFE2606A33D;
-	Tue, 24 Nov 2026 14:56:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64F63606A32E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:56:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fD+K6Gky
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7D3CB1F000D3;
-	Tue, 24 Nov 2026 14:56:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUtJxRBa
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 693A71F01573;
+	Tue, 24 Nov 2026 14:56:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795532211;
-	bh=BQO4GuYRTzS7IoSSUhSiErH0mQkmSCba+xRrKEQIFL4=;
-	h=From:To:Cc:Subject:Date;
-	b=fD+K6GkyuhS3ITuF17cS5fVX8PLihmTRwXUS3CVmV66f3VoZwoGZSE0cvJH+xlXKY
-	 JiZu6RWeWKIzsNbw4V4TyrJhq/GH3x1Kih80Wk9oF9wbfaQ4HaGr6oLVp7s50gIrmJ
-	 AWURxa3wb2LEZ8VWZ9AaUn1ZtmjalGKqHOJO/ZD7NA1cTkh7imxqX8haSzhSooTNtz
-	 VW8go9zOIAqlpuo7AvWt9GXKXnxMi7n/Uf5YJCVimPSTMAPqPGAUjwkveeZTSr9nTJ
-	 GqSfmtyYhNhIUke+qW/B4Gmpx358kWAo00S13IppgdQtlMjFUfr3MFfNfH5rDcxSlH
-	 4jUsbSd3QtFQg==
-From: Sasha Levin <sashal@kernel.org>
-To: Mark Brown <broonie@kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Antonio Quartulli <antonio@mandelbit.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	netdev@vger.kernel.org,
-	Linux Next Mailing List <linux-next@vger.kernel.org>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>
-Subject: linux-next: semantic conflict between the net and net-next trees
-Date: Tue, 24 Nov 2026 09:56:49 -0500
-Message-ID: <20261124145649.3656145-1-sashal@kernel.org>
-X-Mailer: git-send-email 2.53.0
+	s=k20260515; t=1795532218;
+	bh=mh/yVqw5w3cdbkpA2iej9q/2ol5jZwPriRpNWVPGSqw=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=KUtJxRBap81WBZxh0syX5xcKWiubLKw4vGS/0Cjp7Fjk+8dRAd/FrmEw5zj7sok5A
+	 Npdls3qRh2JKVUyF5hdk0RQdcOJ0DDuLtDHSkNvUrhn9ApcbkteSyfSEbzWi43lvfI
+	 ud8OHWevznazs6zobdmOKqaaOyK0Bb/br7TEGH0qx9BBpX7Y1JCbgYCjRRwg8DJU9X
+	 YJ40L6/x1slVzjZOgz3gWeisqLh6jn0KMrNw9IVgqvcEKS8m4dgtLiZ7qf41czfuZ3
+	 tyJKD6YIee70O0Cca6Nahod6UcwkoAm4yqFahya+VKiWUbJAFsQaBMlk0qCLtAfcXD
+	 zL7i/C0l50RBw==
+Subject:
+ Re: [PATCH net] net: sparx5/lan969x: remove MDB entries on last bridge leave
+From: netdev-bot+sashiko@kernel.org
+To: daniel.machon@microchip.com
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, Steen.Hegelund@microchip.com,
+ UNGLinuxDriver@microchip.com, casper.casan@gmail.com, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, haoxiang_li2024@163.com
+Date: Tue, 24 Nov 2026 14:56:56 +0000
+Message-ID: <179553221699.3135.13151285770716836389@kernel.org>
+In-Reply-To: <20261123-sparx5-mdb-bridge-leave-v1-1-40b50d7b7a1c@microchip.com>
+References: <20261123-sparx5-mdb-bridge-leave-v1-1-40b50d7b7a1c@microchip.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,40 +64,150 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Hi Mark,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-The current net tree has a semantic conflict with the net-next tree
-that breaks the build:
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 1
 
-  drivers/net/tun.c:1881:11: error: no member named 'ops' in 'struct ubuf_info'
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-3896ae4adf5f ("tun: complete the zerocopy buffer of packets consumed by
-XDP") in the net tree calls uarg->ops->complete() in tun_get_user(), and
-ecca9bb2c855 ("net: skbuff: replace ubuf_info ops ptr with type id") in
-the net-next tree removes ubuf_info::ops. The fix uses
-net_zcopy_complete(), as ecca9bb2c855 does for the same call later in
-tun_get_user():
+- [Medium] The patch makes host-joined MDB groups disappear from hardware
+  when the last sparx5 port leaves a bridge that stays up, and nothing…
+- [Low] sparx5_mdb_flush() ignores the return value of
+  sparx5_mact_forget(), which can be -ETIMEDOUT from…
 
-diff --git a/drivers/net/tun.c b/drivers/net/tun.c
---- a/drivers/net/tun.c
-+++ b/drivers/net/tun.c
-@@ -1875,11 +1875,8 @@ static ssize_t tun_get_user(struct tun_struct *tun, struct tun_file *tfile,
- 			goto drop;
- 		if (!skb) {
- 			/* consumed by XDP, after copying */
--			if (msg_control) {
--				struct ubuf_info *uarg = msg_control;
--
--				uarg->ops->complete(NULL, uarg, false);
--			}
-+			if (msg_control)
-+				net_zcopy_complete(NULL, msg_control, false);
- 			return total_len;
- 		}
- 	} else {
+Pre-existing issues:
+- [Medium] MDB entries leak when the driver is unbound while ports are
+  bridged.
+
+--
+
+net: sparx5/lan969x: remove MDB entries on last bridge leave
+
+This patch fixes a NULL pointer dereference in sparx5_handle_port_mdb_del()
+that happens when a bridge with a permanent MDB entry on one of its ports is
+deleted. When the last port leaves the bridge, all MDB entries are now
+flushed before hw_bridge_dev is cleared. MDB adds and deletes are ignored
+while no bridge is offloaded.
+
+> diff --git a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
+> index dac4dd833127a..65ce225baa023 100644
+> --- a/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
+> +++ b/drivers/net/ethernet/microchip/sparx5/sparx5_switchdev.c
+> @@ -172,6 +172,30 @@ static int sparx5_port_attr_set(struct net_device *dev, const void *ctx,
+
+[ ... ]
+
+> +static void sparx5_mdb_flush(struct sparx5 *sparx5)
+> +{
+> +	struct sparx5_mdb_entry *entry, *tmp;
+> +
+> +	mutex_lock(&sparx5->mdb_lock);
+> +	list_for_each_entry_safe(entry, tmp, &sparx5->mdb_entries, list) {
+> +		if (entry->cpu_copy)
+> +			sparx5_cpu_copy_ena(sparx5, entry->pgid_idx, false);
+
+[Severity: Medium]
+Can flushing the host-only entries here leave the hardware out of sync
+with the bridge? This would happen when the bridge stays up and a port
+rejoins it later.
+
+After the last port leaves, the bridge still holds the host group (an
+entry with cpu_copy set and an empty port_mask).
+br_multicast_del_port() only deletes the leaving port's groups from
+port->mglist, so mp->host_joined stays true. br_multicast_host_join()
+only notifies when host_joined goes from false to true.
+
+When a port rejoins, sparx5_port_bridge_join() passes no notifier blocks:
+
+	err = switchdev_bridge_port_offload(ndev, ndev, NULL, NULL, NULL,
+					    false, extack);
+
+so br_switchdev_mdb_replay() returns early:
+
+	if (!nb)
+		return 0;
+
+Nothing adds the MAC/PGID entry with CPU copy back. This sequence looks
+like enough to hit it:
+
+  ip link add br0 type bridge
+  ip link set p1 master br0
+  ip link set br0 up
+  bridge mdb add dev br0 port br0 grp 239.1.1.1 permanent
+  ip link set p1 nomaster
+  ip link set p1 master br0
+
+Afterwards the bridge still lists 239.1.1.1 as host-joined, but the
+switch no longer copies the group to the CPU. Dynamic host joins look
+the same, because later host reports only refresh the timer.
+
+Before this patch, sparx5_port_bridge_leave() did not touch the MDB list
+or the hardware entries, so this leave/rejoin case kept working. The
+commit message says:
+
+  "Host groups added before the first port joins the bridge are not
+  offloaded either, so this matches the existing behaviour."
+
+Does that hold for the leave/rejoin case as well?
+
+Could the flush keep the host-only entries? Another option is to pass
+notifier blocks to switchdev_bridge_port_offload() so the bridge replays
+its MDB. lan966x_port_bridge_join() does this with &lan966x_switchdev_nb
+and &lan966x_switchdev_blocking_nb.
+
+> +		sparx5_pgid_clear(sparx5, entry->pgid_idx);
+> +		sparx5_mact_forget(sparx5, entry->addr, entry->vid);
+> +		list_del(&entry->list);
+> +		sparx5_pgid_free(sparx5, entry->pgid_idx);
+
+[Severity: Low]
+sparx5_mact_forget() can return -ETIMEDOUT from
+sparx5_mact_wait_for_completion(). Is it safe to ignore that and still
+return the PGID to the pool?
+
+If the UNLEARN did not complete, the MAC table could still have an entry
+pointing at this PGID. sparx5_pgid_alloc_mcast() hands out the lowest
+free index first, so the next group would probably get this PGID.
+
+This needs a MAC table engine timeout. sparx5_handle_port_mdb_del()
+already frees the PGID unconditionally after sparx5_mact_forget() in the
+same way.
+
+> +		kfree(entry);
+> +	}
+> +	mutex_unlock(&sparx5->mdb_lock);
+> +}
+
+[Severity: Medium]
+This is a pre-existing issue, not one introduced by this patch, but are
+the MDB entries still leaked when the driver is unbound while ports are
+bridged?
+
+mchp_sparx5_remove() unregisters the notifiers before the netdevs:
+
+	sparx5_unregister_notifier_blocks(sparx5);
+	sparx5_unregister_netdevs(sparx5);
+
+The CHANGEUPPER sent when the bridge ports are removed therefore never
+reaches sparx5_port_bridge_leave(), and sparx5_mdb_flush() never runs.
+The deferred switchdev MDB deletes are not delivered either.
+
+sparx5_mact_deinit() does not walk sparx5->mdb_entries:
+
+	cancel_delayed_work_sync(&sparx5->mact_work);
+	destroy_workqueue(sparx5->mact_queue);
+	mutex_destroy(&sparx5->mact_lock);
+
+So the sparx5_mdb_entry allocations are never freed, and mdb_lock is
+never destroyed.
+
+[ ... ]
 
 -- 
-Thanks,
-Sasha
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-sparx5-mdb-bridge-leave-v1-1-40b50d7b7a1c%40microchip.com
