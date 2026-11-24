@@ -1,47 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795519036;
-	b=jgduD51jOSid2QSwCSyY/D7+9CSkN8ib4AvoVAfOe0wddI9bzTA1osPn3XuY7Mmyd8Xy
-	 dg9g3D1F4dFvQuM38kqgHBTXcOC8r53o9fh0AnpsHzPwD+GgemuEpHNsLqZjufY6RnXfz
-	 SyNrc2KBeCI0610LT/Lf9g79/jAEqxCZRysWS2B13lFLDeyWrKEiNFsztHjgTLRW70Nwj
-	 rzpQGA/PYusuMouJ1E1+exM6MZdOk3aTnxocHhNuraQ4JUbiPvbvU5zeQ1CiMpAFwdGf0
-	 scIr5BbnnvJrWWjKEc+7ZF2Vr4TMQptBpn5kUnBc7YPy2ZgW54yWKwJvJFkB3AAknzg==
+	t=1795519416;
+	b=mVG+XHydMqrHYmQNRAzikKX1NxfxjI3vGEQr3aOncJ8gPiGsKJiCa8m0K/KsK56Y1K7d
+	 wNiXyLa8pau8Q3lum2rL4wS0PT1VX5mesUXou7fRrDF56hZjnlCK8LAzZ7YmP6SGHbt5g
+	 9FpSvrARgRPFFv1bYR2YEoDWKI6JbQ+7nyYOEYr8JtynxWg58BviYaYAy8jfE5gQsq9Se
+	 T7HN1vWsohrScd1zcdF6veqyTUX2hHAf/ijtx/TQEfYNDphOzUMSlPvgfALtr+2CzUWHW
+	 fbWoDOmiWZGF0FGFlk/ZE21o0vjYRVw9D3XEHvH2D3iD9XLG0jyFuI+1EblSA3H4iww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795519036;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=9b0baDy1DGNiSmksJk8Tx9Zd3z3NuWwMptXJp6zFIqA=;
-	b=tQNVwalL1pnHiJ4SYq3Eeog8glprMLJDymnwOEcdQkoKJtFtIvIG0tjGw/qstGsdGc66
-	 cazPDuzy07FlBP7Uqs/CmDlU4gP5DawZKa+WycZt4diZ+6YWNpr1S0Z+/D6X1RYLOkWzb
-	 HVfKsHIms38/LWoKp/d+8YpA8oj0a6YLGgtAEE1Gw8y8ywm7SCde9AF4RG5sY+CqTmnZK
-	 6uVy+w9Ytr9A3pMpOvktTwZI2pn7b/qUwhDBPwaEaDVW/6MMGfOpwvOzlvS5z/Fc2FGqr
-	 GGAeHesTBXueqlRRlARHJ8BH4gnvYApTwQYG2ZSH4p6MbZBDBbnbK+J6FVYPCOx/o9A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795519416;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=DgIESJx/OzNSi+XE4Kpwkpt4Xh11qzjNFJ3vOR9mBNE=;
+	b=hGmYq5byaisxT2gGgATiwJWPIqLvcutAhkNdeXvVdwdBAq25TPH40Is7XrQ2aYM3jQSK
+	 VzEin5W1Vb84AfBawpD+yxUdsCODyScGdVzuUTkP0bt1bhzLa5qTNO38yIsyOqCXw7JJA
+	 Nd6RjFCt2hKLLl52mvTe/W5KzabUyCj5RwVGTKpEIylK4vhWDSoHn/feXKuRhFOGz71Ry
+	 E2Sfm8Y0rCKTCw8wuLbtmdg1jFdfX3q68WGD+6z/PpmwTfFAVqc0C31dHrcLd6d0g85lV
+	 syxzc2kdqDBuS1kU5iAVCOax4HhewtSUokyFezBl81HZEcyhTqXbgGY8+PQAINntcjg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WgZS1Q4h;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Baw1Jfta;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0AA45606A31E;
-	Tue, 24 Nov 2026 11:17:15 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90D48606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:23:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WgZS1Q4h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83D201F000D3;
-	Tue, 24 Nov 2026 11:17:13 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Baw1Jfta
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82CB41F000C4;
+	Tue, 24 Nov 2026 11:23:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795519035;
-	bh=9b0baDy1DGNiSmksJk8Tx9Zd3z3NuWwMptXJp6zFIqA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=WgZS1Q4hhutTQF9SnsFjOgHtBLtKdJ9TlSBT2lBaIotBuKGkWk4jkQ/nIOHc8txNJ
-	 12jRKuTZ6J9LGppXFjWgTzGQfsaoE3Q/8PTErZvEfZz0ckoxqPVZB1udNZNjxntUY0
-	 9Op9NZSxXMx/TWy5fOgfrChJbDc6+zkkZ/TrsiL/rgr/Rn3wWVBItfPYzfvdPSfoIb
-	 tQBD3PWtlmfux4o94jHEgOX3MdkSuwAsqop628V9SgBRmREic6nahFUdyV2/5SmYzG
-	 eku5aINkwB6yPSuvqknVhU8bRkGFGW4PApMM/TvQBT+7QshlPGxlOvWuIAcd8tpIMB
-	 eMHNuslHozZfA==
-Message-ID: <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
-Date: Tue, 24 Nov 2026 12:17:10 +0100
+	s=k20260515; t=1795519415;
+	bh=DgIESJx/OzNSi+XE4Kpwkpt4Xh11qzjNFJ3vOR9mBNE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Baw1Jftaikr/WrOzMwe/s65Q1RJJZPRnm0ndgukey6IUwYscpgglnrDkHYy3cYXBX
+	 CNp6pZqvuvgyIvpzfcPenetFWWF/MEK376SnDKGOW6s91lyn2taaeKSkDbZbBFMpDJ
+	 A6/oKA1uF/PfDg6ZHQ3Jkb6njcRjxpuIH41gu6J7EHjwEGcd6f2uBjIfiIp9pB43xI
+	 fg1XSrRC0cjBEThzMXhHZt0F8wdOpRRhm2bAbyqb0wYBJpQeWmNskeWRFlyiutPa0t
+	 f1uFR7u1PG6mu7Hps2ElG8FPQRuO4tneQba80zdKzoz3XxUqmhu7O24TjiQF8bJciu
+	 s5s0KkTnBx4BQ==
+Date: Tue, 24 Nov 2026 11:23:30 +0000
+From: Simon Horman <horms@kernel.org>
+To: Mengyuan Lou <mengyuanlou@net-swift.com>
+Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
+	duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, hramamurthy@google.com,
+	jacob.e.keller@intel.com, przemyslaw.kitszel@intel.com
+Subject: Re: [PATCH net v8 1/2] net: wangxun: protect ring accesses with RCU
+Message-ID: <20261124112330.GI31322@horms.kernel.org>
+References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
+ <20261118081329.39551-2-mengyuanlou@net-swift.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,106 +60,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
- CAP_NET_ADMIN
-Content-Language: fr
-To: Dominik Maier <dmnk@google.com>
-Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, mptcp@lists.linux.dev,
- netdev@vger.kernel.org, dmnk+artist@google.com,
- Kalpan Jani <kalpan.jani@mpiricsoftware.com>
-References: <20261119192159.2646113-1-dmnk@google.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261119192159.2646113-1-dmnk@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118081329.39551-2-mengyuanlou@net-swift.com>
 
-Hi Dominik,
-
-(+cc Kalpan)
-
-On 19/11/2026 20:21, Dominik Maier wrote:
-> In net/mptcp/diag.c, subflow_get_info() restricts MPTCP sequence-related
-> subflow attributes (rel_write_seq, map_seq, map_subflow_seq, ssn_offset)
-> to callers holding CAP_NET_ADMIN in the network namespace.
+On Wed, Nov 18, 2026 at 04:13:28PM +0800, Mengyuan Lou wrote:
+> In the Wangxun driver family, ring pointers in wx->rx_ring[] and
+> wx->tx_ring[] can be published, cleared, or replaced during interrupt
+> scheme teardown, channel reconfiguration (e.g. via ethtool -L), or TC
+> setup.
 > 
-> However, mptcp_diag_get_info() unconditionally exports mptcpi_write_seq,
-> mptcpi_snd_una, and mptcpi_rcv_nxt via INET_DIAG_INFO because
-> .idiag_get_info does not receive the caller's net_admin status. Any
-> unprivileged local user can therefore dump or query cross-UID MPTCP
-> sockets by token via SOCK_DIAG_BY_FAMILY and read live 64-bit MPTCP Data
-> Sequence Numbers.
+> Various lockless readers, including stats gathering, PTP watchdogs,
+> and flow control checks, access per-queue ring structures without
+> formal RCU annotations. Although q_vector memory lifetime is managed
+> via kfree_rcu(), the ring array accesses themselves lack explicit RCU
+> dereference semantics and barriers.
+> 
+> Annotate the ring arrays and convert their readers and writers to RCU
+> primitives. Move the queue-to-register index calculation from the
+> post-allocation wx_cache_ring_rss()/wx_cache_ring_vmdq() pass into per-ring
+> allocation via wx_get_reg_idx(). Initialize each ring's reg_idx before
+> publishing its pointer so lockless readers cannot observe an uninitialized
+> value.
+> Use rtnl_dereference() in control paths protected by RTNL, and RCU
+> read-side critical sections for lockless readers.
+> 
+> The ring arrays are managed by wx_alloc_q_vector() and
+> wx_free_q_vector(), reached through wx_init_interrupt_scheme() and
+> wx_clear_interrupt_scheme(). The probe paths call
+> wx_init_interrupt_scheme() before the netdev is registered; the
+> allocation path only publishes rings with rcu_assign_pointer(), so no
+> RTNL is needed there. wxvf_resume() defers rebuilding the interrupt
+> scheme to wxvf_reopen_subtask(), which runs under RTNL. wxvf_suspend()
+> holds RTNL across wxvf_close() and wx_clear_interrupt_scheme(),
+> protecting control-path readers and serializing teardown against the
+> reset subtask. The service timer and work are drained before the PCI
+> device is disabled.
+> 
+> ngbe_dev_shutdown() keeps RTNL held across the WoL setup as well.
+> That matches the locking of the other wx_configure_rx() callers and
+> keeps the WoL configuration from racing with a channel reconfiguration,
+> which re-creates the interrupt scheme. wx_clear_interrupt_scheme() has
+> already zeroed the queue counts before wx_configure_rx() runs, so its
+> ring loops do not access the ring arrays on this shutdown path.
+> 
+> wx_xmit_frame() also needs to handle teardown racing with transmission:
+> wx_free_q_vectors() can zero wx->num_tx_queues while the netdev remains
+> registered, which could otherwise cause a modulo-by-zero, and the ring
+> slot can be NULL. Bail out on either condition and account the dropped
+> skb. Also account for the carrier-off path and skb_put_padto() failure;
+> the latter frees the skb on error, so only the counter can be updated on
+> that path.
+> 
+> Fixes: 3f703186113f ("net: libwx: Add irq flow functions")
+> Signed-off-by: Mengyuan Lou <mengyuanlou@net-swift.com>
 
-Thank you for this patch!
-
-> Emit INET_DIAG_INFO from an .idiag_get_aux callback in mptcp_diag (which
-> already receives net_admin from inet_sk_diag_fill(), while msk never
-> sets icsk_ca_ops so netlink attribute ordering is unchanged) and zero
-> mptcpi_write_seq, mptcpi_snd_una, and mptcpi_rcv_nxt when !net_admin.
-> getsockopt(SOL_MPTCP, MPTCP_INFO) for the socket owner and token-based
-> lookup in mptcp_diag_dump_one() remain unchanged.
-
-Oh, that's a good idea, I didn't think about .idiag_get_aux callback.
-
-Kalpan was trying to fix the same thing:
-
-
-https://lore.kernel.org/20261123054324.561321-1-kalpan.jani@mpiricsoftware.com
-
-@Kalpan: what do you think of this? If it looks good to you, and you
-tested it, can you send your Tested-by tag?
-
-We can add:
-
-Closes: https://github.com/multipath-tcp/mptcp_net-next/issues/445
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
+Reviewed-by: Simon Horman <horms@kernel.org>
 
