@@ -1,83 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795530715;
-	b=n85KnPwmDNlyx8cWLjGIqDIanm788AJe9InLXi0HupczRucejJJDvrcJouAeNI3COaPJ
-	 rst1x6MY6bnf1znHs60XXCwvOL2CuZnHfYWx0Qrm36fRb6R5ZXQAi9WrQgWWmTGwyjEWi
-	 NiBVneEUHirZa/898zRkXBYBrPtL0+qe/3pD3Ef8H3nmmF3qloUk1kCMEhTbxckwE9SMF
-	 TZzkYsEGs/s82ooDptOrElmAKRMUQB5AmIAYgX/cBcBHmSC106JoCe43ZFODQx7iy2x4H
-	 3tTpq3AJWj0iDQR3rvsC541qS98x4xvSqndamCX0O2tDcRIBIVcS1HGrZbWS6Em8ENA==
+	t=1795530722;
+	b=JpmGzCXMsAJKJs5J62qWuKZr/5WQqiNAjXD1qHzntXfXJxYJ9dZUii/z1xyuX6UrGsrP
+	 Ip8WSnq/xrE3N0DPAaU+YBHBqzvcxzMBp3bTGg4NuBTWoI9/tmiqSpMaeafLvBlYVy63u
+	 0PEIBEh7JQ4fWHesGi79Y08AVj0puszW0YtFBfHjwnjBAxznUB19PaQjCbdFC6ceHZ6Bl
+	 MyKN8GX92OWleuSQE60cAGTDWYjFZPXDj93MIX1mSZXOkVyS/Kn4ScYoDjm8Y0mbWqKsa
+	 1s56iAGQMNgrG8YJOcSbl1duTMbM49EbXvChPqvAudRXQoYk6Gzw7TNqrUY4nMzYYng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795530715;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795530722;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=uZ2nv19VYG29QEUsKhjFZiIjPyzoB2HzMjwa1gkZtBE=;
-	b=rvJzCCqPwXEQImZUReFI/hGK7Qu6/iupOY31gAjh10apWNsZ8EGadAwFKWL57fLniT9A
-	 NSIt0CWt1DNVxmLxpLsl+tZ41UpAFLlTf7a71PoOFEE0LyLmnnolrH8wquBhzaVbrsk3m
-	 MZnRfLyyRcisNm1ar7aTMDyoopUqcKLS9waLTd/FL3YuazVmRa/ZArIdAcuPcORshQKhw
-	 Eze0wIL1bpoYjwLGMm5k5DX8nQone6v9b59PcXmYAPvQpQVIW7TjKn8GQ9PPxGyRZCw03
-	 O+M7U1N7j901sb8oxwKZIFTMb7REOlpELW+F1JtGjl1H2TH4lHEF8S9Dsxr7NbVYjTg==
+	bh=dAalStsyfXudMpg2j2V+fdfxbWvoIc3klIPMOpbgtew=;
+	b=CXrPAj5wfLF3Jw6EU++3lW9FUh4nH0ZAU5+lC1b8HuLw+qkxe4fQpP/Qp/zarDIF6D5Y
+	 U0KKjp/aetgoXiE4oF+SM2a5BcrlIbCiYIVPoyEZqgtOqlanfOBJLKk5zwA+8mYLOZtTf
+	 rwmQqTKWbOQL1izBh4bOE0g/kbnMzvzu3lobCLuucXqp7mFcZSBMeV0JY5s5vp11UCDq9
+	 vPbg8tmHzh2CYr2fcjg8zSOZoDUfvoO5mk3nGUY18fp4S3LuYIuWYi/0lFmRu1tCx53Xv
+	 1Ld3COiNm0VzVhQGyqbk8rdsp5YmXWbZlCwTUslqsY6vLHs7NJHhrZ3t3AMiM2K+c9A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eZFPSpwn;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cN6AA1Jo;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 347AD606A327
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:31:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 347AD606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ADCB606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:32:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ADCB606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eZFPSpwn
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b155f50c24so3727334a91.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:31:55 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=cN6AA1Jo
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8ca6a12efd9so1291514b3a.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:32:02 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795530714; x=1796135514; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795530722; x=1796135522; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=uZ2nv19VYG29QEUsKhjFZiIjPyzoB2HzMjwa1gkZtBE=;
-        b=eZFPSpwn+EWv3WI7oq8FlcFGbwsio7In32Q9BXJj5JT7LzvUi+kuUNm1OptvAjCIym
-         aF8gEZ7GN0JzTzjRlSQ3RzWTQdd1+ELxeIAcrsblcQ1cDQsbrRnXpt+qp6NBBwMlAAlI
-         8dmX7Soe+UgAiA/D0pjjKxJ71j8a3BiSOsVHvYDirhOXjv2CCz65FPRAx2J+gZxPH3X/
-         Wfji9sW+KxmqfmoK0xns6FC+klWB+WlypOLzUqUiwa+utnziBtEUEndtzhsyOeCrhJMH
-         CUAU99cpqBKX1trCjELPtos3AEXJ5UWjnA8HDPZIaR5qYjzl/vWzUSFJR2woUvkguqGi
-         L9hQ==
+        bh=dAalStsyfXudMpg2j2V+fdfxbWvoIc3klIPMOpbgtew=;
+        b=cN6AA1Jo5PTed4Fuh1Z32tEBYOm+rwHdXRbPRhYueW20CqSPtk5CMVk+ar2L4h8YfR
+         YDfoP1ddutTvohm8JkfBJLQP0L/rIc9rfdbeXoNlv3i9kStKCiUWl/2Sh+S6aZ7Oh0nI
+         uiHQ6sCsJF7cXiyTzuRvHbYEFWH8L0zvTYAIn9VvopHd/ImDLgymUzizDWmswczd6OoC
+         95DbOCDWTgzTefd+29AaCAuvjTrJjaRcqjUhesHuJlSjw/59rnscG053hvpwnIKHtUp4
+         uROQuVFyxnBuPUVhEMOF6213D+8WP86Q6TxVERdTqqEF4/BA1Jq46UwVUH0b+LX+qI2s
+         r32g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795530714; x=1796135514;
+        d=1e100.net; s=20260707; t=1795530722; x=1796135522;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=uZ2nv19VYG29QEUsKhjFZiIjPyzoB2HzMjwa1gkZtBE=;
-        b=vDBOrHGacb6JuXi3iMvQyd5nGlGgGC4dBLaF6kwSMNVGS8WJH2GkeZNEX4W71/FgfM
-         Vg8xuCRlZ3oxap1v/RKGyHIBh3Goy8Xv6isQkgxDhLfOPXS2J/+b5O4c+BMM+JzUZ5kf
-         rpDEeQWQb8PGkQNUghndpabATpRwAasmD9KJstFrY4EwdW8DeEBXEq2nOt1Yj5pn2vgz
-         RQmfSuVMK/kdtQurXfdZBsE17x7e8vfmYRHirXBmvvZaQxBecn04F5uaFLFdlaovM6dy
-         UO3Hb5QtC73HwTwp0MQw1TQmCzJIVgoYt93Yb/FMF7EpDeZZnB7em/W7GuDbH4t4djtB
-         LPjg==
-X-Forwarded-Encrypted: i=1; AL+hErGpI/rPzwILOwXD07Sn6Kq5B4aZa4PGQzmjdr3IqX1Dwpltlqs6/9NQE/s7owjZJrlgE/xAQHk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uPhlvGFT6yct/eUoM800DaZfxK+mRo8+aRDdq188ZGlZYht9B
-	CbMa9jJ5kKf4qXpMrCMe0SnhNF7mducxMt9n0T2FAWFQDPtPo/lrIWRh
-X-Gm-Gg: AZFdTZeBUTaeA+wAQtQR551SFhiPQSMYmK7dNgweSz+qGVWJJaRT3vlLvXVlVdsMapq
-	zJhx+OdMj5H8voyUK12Hy6v4r4FgSzMaZKTqoAnJSNwEtpEHt/PL+/1ww9cJhlIucIf06/gW1c8
-	c/rwKTnty4ilyn/3tKzxWtqVy9hNZsPTr9hR/qvodRi6/FKY0aBF2At74JvqG2FL4m+h9REMFFm
-	AveiTqMS1wQbpmwoiFtss03mxc5bMUWWxUADbW5i6ZMl/z3WZRAHhZAc+2x+7RN7QOHdDEvRrO2
-	f6gx1SfaHJzGk3ab9reZrvbhtos9NcatArHjOEXVg8w/w+3KUo9W2Gn9x5UVA3UAc6cA5fInTPB
-	vxzCEPPAP8DhqxoonbqAzmZde9HUyKV8tgAJP14UrePBL2iogFTzj5H9P5cU55duPA92rlUNbgT
-	2i9ofaUAvKz2p0gqLxH6EprfxYbxtcbZZ1a0rntuURRJOSPZy3v9FyAI8T0/RE2mhVx/tLSNKlx
-	yjmehCHSTeIKVBuXrdOc7+GoUctTrKOHndCVl1JltntlYtiRPlaWsYxm5wCtpdke39BJnlv9dfB
-	ODG/NVapLr3Yv6Ti+HQ6Y3T6ibH1xnjU1mg9TIwGrWVqYjz5j9/xL8SGndtvzvOY
-X-Received: by 2002:a17:90b:4ad2:b0:3a4:7730:33dd with SMTP id 98e67ed59e1d1-3b41c99525fmr14250279a91.58.1795530714346;
-        Tue, 24 Nov 2026 06:31:54 -0800 (PST)
+        bh=dAalStsyfXudMpg2j2V+fdfxbWvoIc3klIPMOpbgtew=;
+        b=IBf3nHd065AguDUdr8p9pqf/fQeh/GwON6rRMpM/uUML63CMvj6iazISSM+s1+zYlX
+         mjSjoqJP9GbzAGv0VEoNF11Su5sMIxNmqhXBNoxpgdFNIV1Ur9y5hzuFTSJuLstMZsXv
+         4kKQ20Z+Sn+iwr9zgDv+3cqxcKbg2IL+yvbQQakgA6tQ4NyIVcfzHPUpb9vmzh+l6yWD
+         4IRjehTRIht+nPjVnF+8rUbT6/Lqt+RhJbu33U7aD0/Ay5/HOcCS3jK31cJMNdM1UZ/s
+         2a670MG9FXVBie4FGW6SXlx/RXDT7zgoD9EA939aFJzK5NvBAGjLo7gNa8g+K+raQ07j
+         uXFw==
+X-Forwarded-Encrypted: i=1; AL+hErH17erDZ9Ozy5/a0MQ35zHY7DlPP6ZP/mfU5OOVfKLdCTYLcbjGTesGGTt7UJpfiXXq3nGX/68=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9pibklVuOQdxyJjEZMNL/UArsKlt9ELna9xb5+0k8NZiYnoudT
+	jy5Z/T0BMhVa0nkPKN95bxen8mPm3a2hI5He1ZIpRYXBC/Bs9Z9cZeJU
+X-Gm-Gg: AZFdTZcvqVqsdc8rAbgbLXYYSoWf8/S5pKml5/vDiaSBDQkPW7GTGi3rmILkp22+g9+
+	EQbTju5KmaPTMtI7am8thpoIpHhe0UXdxFeqmZwZZqr5ekGI4AzJQ9uyxQPct0yzV1yX0lnTc3S
+	giqlsZdhxGKPswUP3PyFZ5zgkGxzuktEQcY37CQbcN7w/c/DKqHWAFVL4xPMHSEZ8ZaI4lH57CC
+	MM49ADogTxpGaY6CTGnMb5m5vPV7vNEsCm0kBkLWwR4qBop8Yyjuue7WRREMH4weAgnvC7F70Jz
+	grM9c1soyfDOR5YlxkV6j5d55a5ypni2WUVBZsRVTwkIHR54F9zUtH6hiTCk1It7G+JaLVqpWw+
+	3shxTeTXJyOXvPoRi5VuqCCU7YsoiWo+5Xbwmu7yzYghaZqqKStj9NEhuNopm0EmChZO9fOhlAQ
+	RwPyL3TQ4d4TzKtSIFS0HKcHIn8McQOPTxVGfGO7C1KMZxY4+dfWa3DQGZXwY6r9cwhss1IkNbt
+	khrIhk792hjGGDRnOwxDWTgFGHmV/JbbH9o9pAAF/Hp2EhhfGsfsoBrB+pU+6Y+2xEnEIcixNOx
+	7lBmw1RYRJfmGcxAfsQz9Qo4lzpwNCCbQhjDNBgIyd0g8H7zg7JwD8JxULgz5ogsvP6Gw8qfYHl
+	H7wfq/g08kA==
+X-Received: by 2002:a05:6a20:a107:b0:3de:b0cc:b0ed with SMTP id adf61e73a8af0-4014c94a7aemr14594290637.18.1795530721628;
+        Tue, 24 Nov 2026 06:32:01 -0800 (PST)
 Received: from cps-manycore-1 ([147.46.174.222])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc8829sm7171737a12.8.2026.11.24.06.31.47
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfc8829sm7171737a12.8.2026.11.24.06.31.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 06:31:53 -0800 (PST)
+        Tue, 24 Nov 2026 06:32:01 -0800 (PST)
 From: Sechang Lim <rhkrqnwk98@gmail.com>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -104,9 +105,9 @@ Cc: "David S . Miller" <davem@davemloft.net>,
 	netdev@vger.kernel.org,
 	linux-rdma@vger.kernel.org,
 	linux-s390@vger.kernel.org
-Subject: [PATCH bpf 2/3] bpf: net_sched: Reject sleepable programs in bpf qdisc
-Date: Tue, 24 Nov 2026 14:31:14 +0000
-Message-ID: <20261124143123.1182108-3-rhkrqnwk98@gmail.com>
+Subject: [PATCH bpf 3/3] net/smc: bpf: Reject sleepable programs in smc_hs_ctrl
+Date: Tue, 24 Nov 2026 14:31:15 +0000
+Message-ID: <20261124143123.1182108-4-rhkrqnwk98@gmail.com>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261124143123.1182108-1-rhkrqnwk98@gmail.com>
 References: <20261124143123.1182108-1-rhkrqnwk98@gmail.com>
@@ -121,29 +122,30 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-A bpf qdisc program can be loaded with BPF_F_SLEEPABLE, but enqueue and
-dequeue run with the qdisc root lock held and BH disabled.
+An smc_hs_ctrl program can be loaded with BPF_F_SLEEPABLE, but
+smc_call_hsbpf() calls syn_option and synack_option under
+rcu_read_lock().
 
-bpf_Qdisc_ops has no check_member, so nothing rejects such a program.
-Add one that rejects sleepable programs.
+bpf_smc_hs_ctrl_ops has no check_member, so nothing rejects such a
+program. Add one that rejects sleepable programs.
 
-Fixes: c8240344956e ("bpf: net_sched: Support implementation of Qdisc_ops in bpf")
+Fixes: 15f295f55656 ("net/smc: bpf: Introduce generic hook for handshake flow")
 Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
 ---
- net/sched/bpf_qdisc.c | 11 +++++++++++
+ net/smc/smc_hs_bpf.c | 11 +++++++++++
  1 file changed, 11 insertions(+)
 
-diff --git a/net/sched/bpf_qdisc.c b/net/sched/bpf_qdisc.c
-index 5691c13781a8..3dbe52a04fa2 100644
---- a/net/sched/bpf_qdisc.c
-+++ b/net/sched/bpf_qdisc.c
-@@ -356,6 +356,16 @@ static const struct bpf_verifier_ops bpf_qdisc_verifier_ops = {
- 	.gen_epilogue		= bpf_qdisc_gen_epilogue,
- };
+diff --git a/net/smc/smc_hs_bpf.c b/net/smc/smc_hs_bpf.c
+index 063d23d85850..66cf5143109a 100644
+--- a/net/smc/smc_hs_bpf.c
++++ b/net/smc/smc_hs_bpf.c
+@@ -82,6 +82,16 @@ static void smc_bpf_hs_ctrl_unreg(void *kdata, struct bpf_link *link)
+ 	smc_hs_ctrl_unreg(kdata);
+ }
  
-+static int bpf_qdisc_check_member(const struct btf_type *t,
-+				  const struct btf_member *member,
-+				  const struct bpf_prog *prog)
++static int smc_bpf_hs_ctrl_check_member(const struct btf_type *t,
++					const struct btf_member *member,
++					const struct bpf_prog *prog)
 +{
 +	if (prog->sleepable)
 +		return -EINVAL;
@@ -151,17 +153,17 @@ index 5691c13781a8..3dbe52a04fa2 100644
 +	return 0;
 +}
 +
- static int bpf_qdisc_init_member(const struct btf_type *t,
- 				 const struct btf_member *member,
- 				 void *kdata, const void *udata)
-@@ -446,6 +456,7 @@ static struct bpf_struct_ops bpf_Qdisc_ops = {
- 	.reg = bpf_qdisc_reg,
- 	.unreg = bpf_qdisc_unreg,
- 	.validate = bpf_qdisc_validate,
-+	.check_member = bpf_qdisc_check_member,
- 	.init_member = bpf_qdisc_init_member,
- 	.init = bpf_qdisc_init,
- 	.name = "Qdisc_ops",
+ static int smc_bpf_hs_ctrl_init_member(const struct btf_type *t,
+ 				       const struct btf_member *member,
+ 				       void *kdata, const void *udata)
+@@ -130,6 +140,7 @@ static struct bpf_struct_ops bpf_smc_hs_ctrl_ops = {
+ 	.unreg		= smc_bpf_hs_ctrl_unreg,
+ 	.cfi_stubs	= &__smc_bpf_hs_ctrl,
+ 	.verifier_ops	= &smc_bpf_verifier_ops,
++	.check_member	= smc_bpf_hs_ctrl_check_member,
+ 	.init_member	= smc_bpf_hs_ctrl_init_member,
+ 	.owner		= THIS_MODULE,
+ };
 -- 
 2.56.1
 
