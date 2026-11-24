@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795557661;
-	b=rPvcjfZEFd98OwUm1gJqPpbwosCWI3br3xeB6BbBvqYprslo/cMstlgmxoQ4AhLuKvEu
-	 LNbe+vi73FFUyzVCkxv2f1k/HqajGFeSQ1Ztmdc7wcgRSB9sDgzgV13fvFIom5Q69nQLG
-	 Z27zZNj1Xjvsb1D0FmB5n0n9mmaHyAnIMHN+2/9Llx3OEkpo/yeSwIFDVbqNWA8n86eu+
-	 CyqDQ5LSP1rIlcvoR51AUB/qIBesRrNN1QG1+cf4GHMcenYZVAxjgjQR+xWZC3HhAQYrT
-	 kBnDIcWKRVL+g6mD8/xmiuAuD0fTDr9/KnXWSIlIcfLyx7/xuNJ+M3eXD4jnrlbaZTA==
+	t=1795557663;
+	b=MGEYGfOjviNxVOxAknUiH3/WztqvOo5FZwVa6zOcJjsWRUB5MNKnFTplHRgNRrBFNomf
+	 agw5ZT8UhHIDb6h2M0/euJLi6tVs0sLPG9PXjcMEuAoUcP819OSizLalN++joUCXPr5mK
+	 fKWELAUYAh9q+4ybx7goafpiYYPwgRbvPybPmrXfWRx+3cXm4wXQ7B/XNRez2m8+BVHWF
+	 FxJ8cBmuDOKk42x+7ielqJO2bok5Jib9h8iZdKi7cmlONWXvXW3ppOTOXKPvhaY5MisQe
+	 bjjcdKFLmsYrF6BcMlZZU5p6VgRChTusp0L8tLekBLltRq/bbvMGKTKQOeZh/Sr8kmw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795557661;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795557663;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=6jp3KZaz/ZkpXanQNjztnEQ/fib+E6gVes7nAHr09uQ=;
-	b=hJNyApiK3onOpyL6w+Z8eJTlrnvFxweU46NM/g08zvusKMHGstP4kikx240TCiQMrOYv
-	 KjEs6Fx1NfquKB5VpbxrMpRXsAGT/4J1QqXraiuofUxtJdyYixuRwTSbJl2veV2yf1Eet
-	 Is5rwXphRmNoLm7FLY6ebIFTHAyg1nynMrL/d8pC05QE7oQOgfBRK92+OWxENh39Z82SN
-	 ZXoMQN0CaVIBOhz9SV837ZpqpfbgXILBRVayJuyJLHpTCJYT6HHU3aJmQ6jPMCvTQ7C2X
-	 73o1EsAau8aOhFT3dxY4fZvjrMp6AdBOW3PCDdzPRaUMbHYgZOaCMEIXjEagenILI0g==
+	bh=7Iw06C0uAQE8VpS3U2wauc0pen/95IfFi8+ybk4rgMc=;
+	b=yZDvQmRaztFyqDs2IHudCMXlniwAlHWueNUnwfIKyFY+AERyCgfYeB8I8jfbmSHmNHEV
+	 mPfMiKeprg7EISAY4dfMJyDxkG7qyYrovaROp/H2g7eJhJ+JOQrxLhywsba/DVgpr6h7n
+	 aTSxR14LQWfG7lqjA72BnokAl501qwss6fdfa63OimW7X1EhpocSGOXMda1LYNjc8bgWs
+	 CJQfHZqPmKhRElnDmsytCKqVqrIwNnJWpuBhZZvhoxMAd5gXItawi4Selnj6QzgOoYkdz
+	 33BnJWur8rrmkc7qoopNj5GH78DBqgf/oHMyEHSOKGXFV7dYFx/UsthOMDyCJ9H46Bw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0IPc98z;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Mxy//ikf";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 890BF606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:01:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09DD9606A32D
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:01:03 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=h0IPc98z
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE3D31F000D1;
-	Tue, 24 Nov 2026 22:00:59 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mxy//ikf
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF19F1F000D1;
+	Tue, 24 Nov 2026 22:01:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795557661;
-	bh=6jp3KZaz/ZkpXanQNjztnEQ/fib+E6gVes7nAHr09uQ=;
+	s=k20260515; t=1795557662;
+	bh=7Iw06C0uAQE8VpS3U2wauc0pen/95IfFi8+ybk4rgMc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=h0IPc98zFNLt508xyXDf01QaH/NZff1oyjH5Nh4BEzZhRbdcN86dMEo61YEL3S/VV
-	 f/IBj6v0Z9dlk0ftURfXqF7E6fG337o4UAYL6Yw3FNHVDNArfoffSRzoSYBQlU5gzM
-	 sQm8r/gTe2rLDngfNK/xMsL39fXfzy+C9lrcxswBpD49+B50gDCSmdVnyYBGiIWQ/a
-	 ZyT1jydF8VSOmS2drmr9qbDhps0Jy3RMYfcj2jrPWHkLTj7Dn5JHOMZPhpOVx0RIP4
-	 adioNzOmMXYwpE0wYdZ1hsBLenWYFcvOxVn/yH6uw0XsEnTY3ZmkZydIgQFo6eIvSy
-	 hsSt1Hlu14L7w==
+	b=Mxy//ikf1Ou6fUU2MPhl3ecbDRa5FYHxpNUsM30uAxf1nleYNuRlLyANEdkS5CCP3
+	 gk/umybYRk+LQZo9OIt+XBpNlvs0aW9Bxn4v2Yt79ktoGxPFChG4JLRLPmojX93Z9Z
+	 SB2Ms4w8HH4FK1lZ/INKRcLB6dIAjNkna5zWmatdJWDV3tIlBM8RYLb1Uwgt9of4ah
+	 VDTwXFgsVh2k9ammxTR1zZBbZGuhzGsuYlfWNi/JTdeTKtBv3QYoSx9suVtGAolqJv
+	 MwnpIOjtzVNShiCchzfL1sigAy/3PpaQzU+bozAUFcThdQxhPRME/k/GlaRxIVhy4G
+	 N9ooQ7KnLsVcw==
 Subject:
- Re: [PATCH net 3/4] ixgbevf: fix link speed reporting for Hyper-V E610 VFs
+ Re: [PATCH net 4/4] net: fm10k: shut down the service timer during removal
 From: netdev-bot+sashiko@kernel.org
 To: anthony.l.nguyen@intel.com
 Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
@@ -50,11 +50,11 @@ Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
  xiaolinkui@126.com, runyu.xiao@seu.edu.cn, horms@kernel.org,
  marcin.szycik@linux.intel.com, przemyslaw.kitszel@intel.com,
  rafal.romanowski@intel.com
-Date: Tue, 24 Nov 2026 22:00:59 +0000
-Message-ID: <179555765941.3135.17127854838678149583@kernel.org>
-In-Reply-To: <20261120220022.3133664-4-anthony.l.nguyen@intel.com>
-References: <20261120220022.3133664-4-anthony.l.nguyen@intel.com>
-X-sashiko-severity: High
+Date: Tue, 24 Nov 2026 22:01:01 +0000
+Message-ID: <179555766132.3135.9591349459787272243@kernel.org>
+In-Reply-To: <20261120220022.3133664-5-anthony.l.nguyen@intel.com>
+References: <20261120220022.3133664-5-anthony.l.nguyen@intel.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,301 +67,143 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 7 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 1 · Medium: 5 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+- [Low] The commit message gives the wrong reason why timer_delete_sync()
+  is not enough.
 
-- [High] The new Hyper-V E610 path in ixgbevf_hv_check_mac_link_vf()
-  (drivers/net/ethernet/intel/ixgbevf/vf.c:998-1011) decodes the value…
-- [Medium] The patch adds a `default:` case to
-  ixgbevf_hv_check_mac_link_vf() (vf.c:1008-1010).
-- [Medium] The commit message only says VFLINKS "does not carry valid
-  link speed" on Hyper-V E610, which implies the VFLINKS link-up bit is…
-- [Medium] ixgbevf_hv_read_links_e610() (vf.c:923-927) refuses to read
-  offset 0x209 unless CONFIG_PCI_MMCONFIG is set, and the commit…
-- [Medium] ixgbevf_get_link_ksettings() (ethtool.c:91) treats a device as
-  a Hyper-V E610 VF based only on `adapter->pdev->subsystem_device ==…
-- [Medium] The patch adds a second writer of adapter->link_speed and
-  adapter->link_up.
-- [Low] The commit message says that, to avoid transactions on every
-  watchdog cycle, the driver reads the PCI config register on demand…
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the service
+  work item has the same lifetime bug as the timer this patch fixes, and…
 
 --
 
-ixgbevf: fix link speed reporting for Hyper-V E610 VFs
+net: fm10k: shut down the service timer during removal
 
-This commit changes ixgbevf_hv_check_mac_link_vf() so that E610 VFs read
-link status from emulated PCI config space at offset 0x209 instead of the
-VFLINKS register. On Hyper-V E610 VFs, ixgbevf_get_link_ksettings() now
-forces a fresh link check, and the config space read is gated on
-CONFIG_PCI_MMCONFIG.
+This commit changes fm10k_remove() to stop the service timer with
+timer_shutdown_sync() instead of timer_delete_sync(). After the change, the
+timer cannot be rearmed once teardown starts, so it is not left pending
+after free_netdev().
 
-> diff --git a/drivers/net/ethernet/intel/ixgbevf/ethtool.c b/drivers/net/ethernet/intel/ixgbevf/ethtool.c
-> index 537a60d5276f0..5d0fb4f4d9a33 100644
-> --- a/drivers/net/ethernet/intel/ixgbevf/ethtool.c
-> +++ b/drivers/net/ethernet/intel/ixgbevf/ethtool.c
-> @@ -83,6 +83,18 @@ static int ixgbevf_get_link_ksettings(struct net_device *netdev,
->  				      struct ethtool_link_ksettings *cmd)
->  {
->  	struct ixgbevf_adapter *adapter = netdev_priv(netdev);
-> +	struct ixgbe_hw *hw = &adapter->hw;
-> +
-> +	/* Hyper-V E610 VFs: read current link speed from PCI config space
-> +	 * on every link speed query.
-> +	 */
-> +	if (adapter->pdev->subsystem_device == IXGBE_SUBDEV_ID_E610_VF_HV) {
-
-[Severity: Medium]
-Should this check also match the device ID? Another option is
-hw->mac.type == ixgbe_mac_e610_vf, which is the check vf.c uses.
-
-At probe time the HV board is identified by the device ID and the
-subsystem ID together, in ixgbevf_pci_tbl[]:
-
-	PCI_VDEVICE_SUB(INTEL, IXGBE_DEV_ID_E610_VF,
-			PCI_ANY_ID, IXGBE_SUBDEV_ID_E610_VF_HV),
-	.driver_data = board_e610_vf_hv,
-
-Take a native 82599/X540/X550 VF whose subsystem ID is 0x00FF. This
-block forces get_link_status = true and then runs
-ixgbevf_check_mac_link_vf(). If no PF message is pending, mbx->ops.read()
-fails there:
-
-	if (mbx->ops.read(hw, &in_msg, 1)) {
-		if (adapter->pf_features & IXGBEVF_PF_SUP_ESX_MBX)
-			mac->get_link_status = false;
-		goto out;
-	}
-
-get_link_status then stays true and link_up comes back false. Could a
-read-only ethtool or sysfs speed query drop the carrier until the PF
-sends its next mailbox message?
-
-No non-E610 board with subsystem ID 0x00FF exists in the tree today.
-
-> +		spin_lock_bh(&adapter->mbx_lock);
-> +		hw->mac.get_link_status = true;
-> +		hw->mac.ops.check_link(hw, &adapter->link_speed,
-> +				       &adapter->link_up, false);
-> +		spin_unlock_bh(&adapter->mbx_lock);
-
-[Severity: Medium]
-Can this race with the watchdog writing adapter->link_speed and
-adapter->link_up back?
-
-ixgbevf_watchdog_update_link() copies both fields before it takes
-mbx_lock and writes them back after it releases the lock:
-
-	u32 link_speed = adapter->link_speed;
-	bool link_up = adapter->link_up;
-	...
-	spin_lock_bh(&adapter->mbx_lock);
-	err = hw->mac.ops.check_link(hw, &link_speed, &link_up, false);
-	spin_unlock_bh(&adapter->mbx_lock);
-	...
-	adapter->link_up = link_up;
-	adapter->link_speed = link_speed;
-
-ixgbevf_watchdog_link_is_down() also writes adapter->link_speed = 0
-without the lock.
-
-One possible interleaving:
-
-service task                        ethtool
-link_speed = 10G (copy)
-check_link(), get_link_status
-  is false, keeps 10G
-                                    check_link() reads 1G from 0x209
-                                    into adapter->link_speed,
-                                    get_link_status = false
-adapter->link_speed = 10G
-
-get_link_status is now false, so later watchdog cycles don't re-read the
-register. The stale 10G stays until the next ethtool query.
-
-In the same way, the watchdog could write back a stale link_up = true
-after ethtool saw link down. ixgbevf_watchdog_subtask() would then keep
-the carrier on for an extra cycle.
-
-The fields are read again below, after spin_unlock_bh(), without the
-lock. Could ethtool report link_up and link_speed from two different
-updates?
-
-> diff --git a/drivers/net/ethernet/intel/ixgbevf/vf.c b/drivers/net/ethernet/intel/ixgbevf/vf.c
-> index f6df86d124b9e..a84b62641e9bc 100644
-> --- a/drivers/net/ethernet/intel/ixgbevf/vf.c
-> +++ b/drivers/net/ethernet/intel/ixgbevf/vf.c
-
-[ ... ]
-
-> @@ -901,6 +904,40 @@ static s32 ixgbevf_check_mac_link_vf(struct ixgbe_hw *hw,
-
-[ ... ]
-
-> +static s32 ixgbevf_hv_read_links_e610(struct ixgbe_hw *hw, u32 *links_reg)
-> +{
-> +	struct ixgbevf_adapter *adapter = hw->back;
-> +	u8 data[IXGBE_HV_LINK_STATUS_SIZE];
-> +
-> +	if (!IS_ENABLED(CONFIG_PCI_MMCONFIG)) {
-> +		dev_err_once(&adapter->pdev->dev,
-> +			     "cannot read link status, PCI_MMCONFIG is required for Hyper-V\n");
-> +		return -EOPNOTSUPP;
-> +	}
-
-[Severity: Medium]
-Is CONFIG_PCI_MMCONFIG actually needed for this read? The commit message
-says:
-
-  Guard the PCI config space read with IS_ENABLED(CONFIG_PCI_MMCONFIG),
-  since accessing offsets above 256 requires MMCONFIG support.
-
-A Hyper-V VF sits on the pci-hyperv bus. Its config accessor,
-_hv_pcifront_read_config(), serves the whole 4K config page through the
-vPCI window or through hypercalls:
-
-	} else if (where + size <= CFG_PAGE_SIZE) {
-
-		spin_lock_irqsave(&hbus->config_lock, flags);
-		if (hbus->use_calls) {
-		...
-
-PCI_MMCONFIG is x86-only and optional on X86_64. PCI_HYPERV also
-supports ARM64.
-
-On arm64 Hyper-V guests, and on x86_64 guests built with
-PCI_MMCONFIG=n, this function always returns -EOPNOTSUPP. As a result,
-ixgbevf_hv_check_mac_link_vf() reports *link_up = false on every
-watchdog cycle.
-
-Before this patch the link-up bit came from VFLINKS, so the carrier came
-up in those configurations. Does this leave the VF link down permanently
-there? netvsc only sends through the VF when netif_carrier_ok(vf_netdev)
-is true, so TX through the VF would be lost.
-
-The same guard already exists in ixgbevf_hv_reset_hw_vf(), so those
-builds already lack the host-provided MAC address. Before this patch,
-though, the link still came up.
-
-[ ... ]
-
-> @@ -926,8 +964,16 @@ static s32 ixgbevf_hv_check_mac_link_vf(struct ixgbe_hw *hw,
->  	if (!mac->get_link_status)
->  		goto out;
->  
-> -	/* if link status is down no point in checking to see if pf is up */
-> -	links_reg = IXGBE_READ_REG(hw, IXGBE_VFLINKS);
-> +	if (mac->type == ixgbe_mac_e610_vf) {
-> +		if (ixgbevf_hv_read_links_e610(hw, &links_reg)) {
-> +			*link_up = false;
-> +			*speed = IXGBE_LINK_SPEED_UNKNOWN;
-> +			return 0;
-> +		}
-> +	} else {
-> +		links_reg = IXGBE_READ_REG(hw, IXGBE_VFLINKS);
-> +	}
-> +
->  	if (!(links_reg & IXGBE_LINKS_UP))
->  		goto out;
-
-[Severity: Medium]
-The commit message says VFLINKS "does not carry valid link speed". That
-suggests the VFLINKS link-up bit is still valid. Is it intended that
-link-up detection for E610 also moves to offset 0x209, with no fallback
-to VFLINKS?
-
-Suppose a Hyper-V host doesn't provide link status at 0x209, for
-example because reads there return 0. IXGBE_LINKS_UP is then never set,
-get_link_status stays true, and the VF never gets carrier.
-
-The patch has a Fixes: tag. Could it be backported to guests running on
-hosts that don't provide this interface?
+> The fm10k service timer rearms itself from its callback. During PCI
+> removal, timer_delete_sync() waits for a running callback but does not
+> prevent a callback or another service path from rearming the timer. This
+> can leave the timer referencing the fm10k_intfc after free_netdev().
 
 [Severity: Low]
-The commit message says:
+Is the callback self-rearm really why timer_delete_sync() falls short here?
 
-  To avoid generating unnecessary VMBus transactions on every watchdog
-  cycle, read the PCI config register on demand when ethtool or sysfs
-  queries link speed, rather than polling it periodically.
+timer_delete_sync() already handles a timer that rearms itself from its own
+callback. __timer_delete_sync() keeps retrying while the callback runs:
 
-Does this match the code? ixgbevf_watchdog_update_link() calls
-check_link() on every service cycle. Whenever get_link_status is true,
-this path does four pci_read_config_byte() calls per cycle. That covers
-link down, after ixgbevf_up(), after the mailbox interrupt, after a
-detected reset, and after a failed config read.
+kernel/time/timer.c:__timer_delete_sync() {
+    ...
+	do {
+		ret = __try_to_del_timer_sync(timer, shutdown);
+		if (unlikely(ret < 0)) {
+			del_timer_wait_running(timer);
+			cpu_relax();
+		}
+	} while (ret < 0);
+    ...
+}
 
-Only the steady link-up state avoids the periodic reads. Could the
-commit message describe this more precisely?
+fm10k_service_timer() calls mod_timer(&interface->service_timer,
+(HZ * 2) + jiffies). After the callback returns, the next pass of this loop
+detaches the timer that call just armed.
 
-[ ... ]
+The rearm that timer_delete_sync() cannot stop looks like it comes from
+fm10k_up():
 
-> @@ -956,6 +1005,9 @@ static s32 ixgbevf_hv_check_mac_link_vf(struct ixgbe_hw *hw,
->  	case IXGBE_LINKS_SPEED_100_82599:
->  		*speed = IXGBE_LINK_SPEED_100_FULL;
->  		break;
+drivers/net/ethernet/intel/fm10k/fm10k_pci.c:fm10k_up() {
+    ...
+	/* kick off the service timer now */
+	hw->mac.get_host_state = true;
+	mod_timer(&interface->service_timer, jiffies);
+}
+
+fm10k_up() is reached through fm10k_open(), both from ndo_open and from
+the service task reset path:
+
+fm10k_reset_subtask()->fm10k_handle_reset()->fm10k_open()->fm10k_up()
+
+Both can run between the timer delete and
+fm10k_stop_service_event()/unregister_netdev() in fm10k_remove().
+fm10k_down() does not delete the timer, so a timer rearmed this way is
+still pending after free_netdev().
+
+The code change itself looks correct, since timer_shutdown_sync() turns
+those later mod_timer() calls into no-ops.
+
+Could the commit message name fm10k_up() and the fm10k_open() paths
+instead of the callback self-rearm? That way stable backporters see the
+mechanism that actually needs the fix.
+
+> diff --git a/drivers/net/ethernet/intel/fm10k/fm10k_pci.c b/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
+> index afe939f8f4efe..c830417b112ce 100644
+> --- a/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
+> +++ b/drivers/net/ethernet/intel/fm10k/fm10k_pci.c
+> @@ -2243,7 +2243,7 @@ static void fm10k_remove(struct pci_dev *pdev)
+>  	struct fm10k_intfc *interface = pci_get_drvdata(pdev);
+>  	struct net_device *netdev = interface->netdev;
+>  
+> -	timer_delete_sync(&interface->service_timer);
+> +	timer_shutdown_sync(&interface->service_timer);
+>  
+>  	fm10k_stop_service_event(interface);
 
 [Severity: High]
-The commit message says offset 0x209 uses the VFLINKS register format.
-If so, should this switch also check IXGBE_LINKS_SPEED_NON_STD for E610?
-The PF driver decodes the same layout in ixgbe_check_mac_link_generic():
+This is a pre-existing issue, not one introduced by this patch, but does
+service_task have the same lifetime problem the timer had?
 
-	case IXGBE_LINKS_SPEED_10G_82599:
-		if ((hw->mac.type >= ixgbe_mac_X550) &&
-		    (links_reg & IXGBE_LINKS_SPEED_NON_STD))
-			*speed = IXGBE_LINK_SPEED_2_5GB_FULL;
-		else
-			*speed = IXGBE_LINK_SPEED_10GB_FULL;
-		break;
+Only bit flags guard the work item. fm10k_service_event_schedule() tests
+DISABLE, and then, as a separate step, does test_and_set_bit(SCHED) and
+queue_work():
+
+void fm10k_service_event_schedule(struct fm10k_intfc *interface)
+{
+	if (!test_bit(__FM10K_SERVICE_DISABLE, interface->state) &&
+	    !test_and_set_bit(__FM10K_SERVICE_SCHED, interface->state)) {
+		clear_bit(__FM10K_SERVICE_REQUEST, interface->state);
+		queue_work(fm10k_workqueue, &interface->service_task);
 	...
-	case IXGBE_LINKS_SPEED_100_82599:
-		if ((hw->mac.type >= ixgbe_mac_X550 ||
-		     hw->mac.type == ixgbe_mac_e610) &&
-		    (links_reg & IXGBE_LINKS_SPEED_NON_STD))
-			*speed = IXGBE_LINK_SPEED_5GB_FULL;
-		else
-			*speed = IXGBE_LINK_SPEED_100_FULL;
-		break;
+}
 
-The ixgbevf defines.h has no NON_STD mask and no 2.5G or 5G link speed
-constants. ixgbevf_get_link_ksettings() only maps 10G, 1G and 100M.
+fm10k_msix_mbx_pf() calls this from the mailbox IRQ. That IRQ stays
+registered until fm10k_mbx_free_irq(), which fm10k_remove() calls well
+after fm10k_stop_service_event(). cancel_work_sync() leaves the work
+enabled when it returns, so it can be queued again:
 
-E610 supports 2.5G and 5G. Would a Hyper-V E610 VF linked at 2.5G show
-10000 Mb/s, and one linked at 5G show 100 Mb/s?
+CPU1 (mbx IRQ)                      CPU0 (fm10k_remove)
+fm10k_service_event_schedule()
+  test_bit(DISABLE) == 0
+                                    fm10k_stop_service_event()
+                                      set_bit(DISABLE)
+                                      cancel_work_sync()  /* idle */
+                                      clear_bit(SCHED)
+  test_and_set_bit(SCHED) == 0
+  queue_work(service_task)
 
-That looks like the same "stale or incorrect link speed" the commit
-message says this patch fixes.
+fm10k_service_task() never checks __FM10K_SERVICE_DISABLE, and
+fm10k_remove() never cancels or flushes service_task again.
 
-> +	default:
-> +		*speed = IXGBE_LINK_SPEED_UNKNOWN;
-> +		break;
->  	}
+Can the work then run at the same time as unregister_netdev(),
+fm10k_iov_disable(), fm10k_clear_queueing_scheme() and the iounmap()
+calls? If the worker is delayed, can it even run after free_netdev() has
+freed the fm10k_intfc that holds the work_struct?
 
-[Severity: Medium]
-After this default case, the code below still sets
-mac->get_link_status = false. The caller therefore sees link up with
-*speed == IXGBE_LINK_SPEED_UNKNOWN.
+fm10k_tx_timeout_reset() and fm10k_msix_mbx_vf() appear to have the same
+window between the check and the queue_work().
 
-ixgbevf_get_link_ksettings() has no case for that value:
+Would calling disable_work_sync(&interface->service_task) in
+fm10k_remove() close this? Cancelling the work again after
+fm10k_mbx_free_irq() might also work.
 
-	if (adapter->link_up) {
-		__u32 speed = SPEED_10000;
-
-		switch (adapter->link_speed) {
-		...
-
-Wouldn't ethtool and sysfs then report 10000 Mb/s full duplex?
-ixgbevf_watchdog_link_is_up() prints "unknown speed" for the same value.
-
-Speed bits 00 are the LINKS encoding for 10M on newer parts
-(IXGBE_LINKS_SPEED_10_X550EM_A in the PF driver). E610 supports 10M, so
-an E610 HV VF on a 10M link could hit this.
+>  	fm10k_stop_macvlan_task(interface);
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120220022.3133664-1-anthony.l.nguyen%40intel.com
