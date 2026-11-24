@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795487178;
-	b=XtWoeouQzlF/FWnsnRXLaw//n/iKvUB0ObOHiZJaO3HC0EDA91RZH9Cz6FUMILs5Bchy
-	 vFv4UGtRAurfgCGx+chyHcA1LTX0Qj9CI7nJVHexeygoXj1Qdy4Z9qSpdB5YZ0FPJokQ8
-	 r17ps6KNj3fVby2m7carAg/VL73Tul/KiXd9gNURCUqoTBb1nd4uTiuU92+e5hdImgXJt
-	 tGrh46fCgQxUhK/O5f8dQbDORzpcQSWntRlDXkUu5R/X0Ol/qipH+tQ6Wx3ztLqj3DUBH
-	 TOLhkHhESvoFYkOsqhZH+nWKpYl8WUFkNG6ggpnm4SxOUBHNxKKZ39HhfC9MuTxmqfQ==
+	t=1795487184;
+	b=gZIWw5oItU1AqK3MXA66E49FlbEyt+ndHk+GuiKdB/MDLxZJdlzApnFHrvvaAgX5HmJs
+	 0iFi7Bt7JttFPPIL+PMKapYPLxGNJw+DOZyxVcW3mddg9PQhwyNRdQzcHNPZhUVHn6ksN
+	 FiS+V/tGUQuLDscc+vWjzhGKpdhyKNRLn50XOmBZUkiEhiJlNiClsYhJoo5NvRyBrnNZp
+	 dnFxcU5HvDV3SmaF3uXqcyE4RDiQeETO7QyMCumkgs3Mk8q2f9h6sBUoHxeqg1Ut6NW+P
+	 o+N1poICQk07LCi460fuQc650OteKBC4x4e85+NL1VDTQyRElVO0V7VKpy2uxe1kKpQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795487178;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795487184;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=HaUHhbx9+vVUTZE0J6iQm8zAlFYDpmTDUbLyer0bb4s=;
-	b=UJ0TxCPF5WQwuwGHYGIYa7yNDftmAmAosa88wIo8mdIv6FzO9ZlGhqiu05VZ6CrFk0dH
-	 eAaT37xq3xla77txAl1/IpvbgV9xuVHiJ7P+Ci9NXBzMkG8ERRhOdYzVRuadmMdepNcu0
-	 SFfjzZTbf+6wUFzpM66OjiDqVGNCbs9C647o98T5WUlbaBCFMXZu52Z0OnkqjXgUX4ERA
-	 oExNghyPcvxWya+hvipw58dyNv5bQtqtaybUMst0FAfxcxqzGZPpjfgVErbzkW3a9daB4
-	 zR4LEFciM9tyULplbJUVnEp0noG3GXVlgDHD5R8UPKBVSMoDSNDjm1h/j21UihaRP4A==
+	bh=dkKUxZiILvLL+d+t8iprkOu9f16cw3LDGzCnoisw70w=;
+	b=x4wS2O1EdI7xv/oL9UpbYe25+cSgWWhbwJjxS3h2CBm8Y7xP+sSczasPwG85cKA2WdhS
+	 jig3RnGIh2qWLv9VrrvdNAp45NF8jwONJBJ24EZCcLr1oj4sZwVRSrhXh61/+gr84h+Kp
+	 vLlyAbXO2q54EmBjaCkXO6l6macM/OTEYe9Pb+orDkUA2xcrZ4LQYtYr0tOYmdETJP1Cp
+	 ZTbR7TCJa71OZ4hhchu3qeBJvoWqr0yFwXBVbwpn3PS941etLAihyI3eIfdRXEMLGtak/
+	 3O076g4HzIWuGuUd+AZ4y2RfM0b64hosTkRd5gFbNl6VhBoyF+Ce1RNP3KztLyPGJ1A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJODuCEE;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+iuh2KX;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68F6A606A31E;
-	Tue, 24 Nov 2026 02:26:18 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4522606A32C;
+	Tue, 24 Nov 2026 02:26:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IJODuCEE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 833F81F000C4;
-	Tue, 24 Nov 2026 02:26:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=P+iuh2KX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D67F1F000C6;
+	Tue, 24 Nov 2026 02:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795487178;
-	bh=HaUHhbx9+vVUTZE0J6iQm8zAlFYDpmTDUbLyer0bb4s=;
+	s=k20260515; t=1795487184;
+	bh=dkKUxZiILvLL+d+t8iprkOu9f16cw3LDGzCnoisw70w=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=IJODuCEE0MC7ztvYJqZcf2g7HMP3b5lps3+WKKEFk58XM44OgvRuhMmuWOXWQ1/Kf
-	 wlOdsJoXcU2/jg8ztOvZ7eLJJHM67gXGCr9BqP0TCDlE/5HM2xduIjxOkXdmQHKOb4
-	 p91NJ3jh+SHYJfIKfrUjjOOKFFvJsyjTaFFM+fPfjw6sypJDxtSFLJvQi1hFBdXHDs
-	 R0vyNvuOIBQRB7AA6JKki4pqWl5hcWssc+vtIj82b1oq8RhAt4uWecDUW/NoNuRzKT
-	 25e5d4wQkWxu24BS8iwUv7ehhSmVTES4I7lXeFrjoc2G5ybmRMD2QySITe8TXFQkVG
-	 464YVEXgU/CoQ==
-Subject: Re: [PATCH net-next v5 02/24] net: dsa: tag_rzn1_a5psw: Add RZ/T2H
- ETHSW tag protocol support
+	b=P+iuh2KX6oubpuQ8lzvmYXA4cSD/7bQTyZ8p/G9CfUnxoH54jSogQTt/s/rJvT3Xb
+	 9G821UakFqLms36i5B01g/fkIS2Kv3unI6HQth8k2zUX6DZin9eDSxYnHphhApwyCX
+	 MG80MqxgnDgn79AYBz9aTh++IwhrYSSGE7s+ZQjeq31OXCHRIpGS7L3Am0I3A+AEDj
+	 ZZ4x0G2B2pEQ6Mip8brEvhqBe7BYhDcAsbMRofrg5OoVtpY/BNFcMKsqNrigcZufS+
+	 TKctFCypSzAW+uUY27lOwU0lF398hpkvDY9rnyZhJuKnkkBskHjKsT6Vn8vukb0W4x
+	 23AvTo4fOAAQA==
+Subject: Re: [PATCH net-next v5 07/24] dt-bindings: net: dsa:
+ renesas,rzn1-a5psw: Add RZ/T2H and RZ/N2H ETHSW support
 From: netdev-bot+sashiko@kernel.org
 To: prabhakar.csengg@gmail.com
 Cc: clement.leger@linux.dev, andrew@lunn.ch, olteanv@gmail.com,
@@ -54,10 +54,10 @@ Cc: clement.leger@linux.dev, andrew@lunn.ch, olteanv@gmail.com,
  devicetree@vger.kernel.org, prabhakar.csengg+renesas@gmail.com,
  biju.das.jz@bp.renesas.com, fabrizio.castro.jz@renesas.com,
  prabhakar.mahadev-lad.rj@bp.renesas.com
-Date: Tue, 24 Nov 2026 02:26:16 +0000
-Message-ID: <179548717602.3135.2246188557259866304@kernel.org>
-In-Reply-To: <20261120002549.1908299-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20261120002549.1908299-3-prabhakar.mahadev-lad.rj@bp.renesas.com>
+Date: Tue, 24 Nov 2026 02:26:22 +0000
+Message-ID: <179548718283.3135.16421455472482043498@kernel.org>
+In-Reply-To: <20261120002549.1908299-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
+References: <20261120002549.1908299-8-prabhakar.mahadev-lad.rj@bp.renesas.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,103 +77,70 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] net/dsa/tag_rzn1_a5psw.c now registers two tag drivers through
-  module_dsa_tag_drivers(): 'a5psw' (DSA_TAG_PROTO_RZN1_A5PSW) and…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but the patch
-  moves the line and copies its pattern for the new tagger.
+- [Low] This patch adds `interrupts` and `interrupt-names` to the top-
+  level `required:` list in…
 
 --
 
-net: dsa: tag_rzn1_a5psw: Add RZ/T2H ETHSW tag protocol support
+dt-bindings: net: dsa: renesas,rzn1-a5psw: Add RZ/T2H and RZ/N2H ETHSW support
 
-This commit adds a new DSA_TAG_PROTO_RZT2H_ETHSW tag protocol for the
-RZ/T2H ETHSW. It uses the same tagged frame layout as the RZ/N1 A5PSW,
-but a different ControlData bit layout. Both taggers are now registered
-from net/dsa/tag_rzn1_a5psw.c through module_dsa_tag_drivers().
+This patch extends the A5PSW DSA binding to cover the ETHSW variant found
+on the Renesas RZ/T2H and RZ/N2H SoCs. It adds dedicated compatible
+strings, with RZ/T2H used as the fallback for RZ/N2H, plus per-variant
+constraints on interrupts, clocks, resets and port numbers. It also adds
+a co-maintainer.
 
-> diff --git a/net/dsa/tag_rzn1_a5psw.c b/net/dsa/tag_rzn1_a5psw.c
-> index aab0ec143c77c..3dff661fa58cb 100644
-> --- a/net/dsa/tag_rzn1_a5psw.c
-> +++ b/net/dsa/tag_rzn1_a5psw.c
-
-[ ... ]
-
-> @@ -111,8 +112,24 @@ static const struct dsa_device_ops a5psw_netdev_ops = {
->  	.rcv	= a5psw_tag_rcv,
->  	.needed_headroom = A5PSW_TAG_LEN,
->  };
-> +MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_A5PSW, A5PSW_NAME);
-
-[Severity: High]
-This is a pre-existing issue, not one introduced by this patch. Since the
-line is being moved anyway, should the token be DSA_TAG_PROTO_RZN1_A5PSW?
-
-MODULE_ALIAS_DSA_TAG_DRIVER() in net/dsa/tag.h appends _VALUE to the token
-and stringifies the result:
-
-#define MODULE_ALIAS_DSA_TAG_DRIVER(__proto, __name) \
-	MODULE_ALIAS(DSA_TAG_DRIVER_ALIAS __name); \
-	MODULE_ALIAS(DSA_TAG_DRIVER_ALIAS "id-" \
-		     __stringify(__proto##_VALUE))
-
-DSA_TAG_PROTO_A5PSW_VALUE is not defined anywhere. include/net/dsa.h only
-has:
-
-#define DSA_TAG_PROTO_RZN1_A5PSW_VALUE		26
-
-So the module gets the literal alias
-"dsa_tag:id-DSA_TAG_PROTO_A5PSW_VALUE" instead of "dsa_tag:id-26". It also
-doesn't match .proto = DSA_TAG_PROTO_RZN1_A5PSW in a5psw_netdev_ops above.
-
-When the RZ/N1 switch driver returns DSA_TAG_PROTO_RZN1_A5PSW from
-get_tag_protocol(), the lookup goes:
-
-dsa_port_parse_cpu()
-  dsa_tag_driver_get_by_id()
-    request_module("%sid-%d", DSA_TAG_DRIVER_ALIAS, tag_protocol);
-
-This requests "dsa_tag:id-26". No alias matches, so tag_rzn1_a5psw.ko is
-not loaded. dsa_port_parse_cpu() then turns the -ENOPROTOOPT into a probe
-deferral:
-
-	if (PTR_ERR(tag_ops) == -ENOPROTOOPT)
-		return -EPROBE_DEFER;
-
-Won't the RZ/N1 switch keep deferring its probe until someone loads the
-tagger module by hand? multi_v7_defconfig sets CONFIG_NET_DSA_RZN1_A5PSW=m,
-so the tagger is built as a module in a stock config.
-
-The new ETHSW alias added by this patch does resolve, because
-DSA_TAG_PROTO_RZT2H_ETHSW_VALUE exists. After this patch, ID-based
-autoloading of the shared module works for RZ/T2H but not for RZ/N1.
-
-The DSA_TAG_PROTO_A5PSW token predates this series. Commit 94793a56b3df
-("net: dsa: provide a second modalias to tag proto drivers based on their
-name") changed this line and kept the token. It is still there at the end
-of the series.
-
-> +DSA_TAG_DRIVER(a5psw_netdev_ops);
+> diff --git a/Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml b/Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml
+> index 30f25b06d62c4..c087291361760 100644
+> --- a/Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml
+> +++ b/Documentation/devicetree/bindings/net/dsa/renesas,rzn1-a5psw.yaml
 
 [ ... ]
 
-> +module_dsa_tag_drivers(dsa_tag_driver_array);
->  
->  MODULE_DESCRIPTION("DSA tag driver for Renesas RZ/N1 A5PSW switch");
+> @@ -86,6 +158,46 @@ required:
+>    - clock-names
+>    - power-domains
+>    - ethernet-ports
+> +  - interrupts
+> +  - interrupt-names
 
 [Severity: Low]
-This isn't a bug, but should MODULE_DESCRIPTION() be updated as well? The
-module now also registers the "ethsw" tagger for RZ/T2H, but the
-description still mentions only the RZ/N1 A5PSW.
+Should this change to RZ/N1 be mentioned in the commit message?
 
-A later commit in the series, "net: dsa: Kconfig: Expand config description
-to cover RZ/T2H and RZ/N2H ETHSW", updates the NET_DSA_TAG_RZN1_A5PSW
-Kconfig prompt. No patch in the series changes MODULE_DESCRIPTION().
+interrupts and interrupt-names are added to the top-level required list,
+not to the RZ/T2H then: block. That makes them mandatory for the existing
+renesas,r9a06g032-a5psw / renesas,rzn1-a5psw compatibles too.
 
->  MODULE_LICENSE("GPL v2");
-> -MODULE_ALIAS_DSA_TAG_DRIVER(DSA_TAG_PROTO_A5PSW, A5PSW_NAME);
-> -module_dsa_tag_driver(a5psw_netdev_ops);
+The commit message only talks about adding the ETHSW compatibles, the
+RZ/N2H fallback and the co-maintainer entry. It does not say that the
+RZ/N1 schema gets stricter.
+
+drivers/net/dsa/rzn1_a5psw.c does not request any IRQ, so no driver
+depends on this. The in-tree r9a06g032.dtsi already has all five
+interrupts and their names, so in-tree dtbs_check still passes. An RZ/N1
+DT without these properties used to validate, but it would fail now.
+
+Could these two entries go into the RZ/T2H then: required: list next to
+resets? Or, if requiring them on RZ/N1 is intended, could the commit
+message say so, or could it be split into its own patch?
+
+> +
+> +allOf:
+> +  - $ref: dsa.yaml#/$defs/ethernet-ports
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: renesas,r9a09g077-ethsw
+> +    then:
+
+[ ... ]
+
+> +      required:
+> +        - resets
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120002549.1908299-1-prabhakar.mahadev-lad.rj%40bp.renesas.com
