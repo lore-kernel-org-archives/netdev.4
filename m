@@ -1,84 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.238.174.39
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795527991;
-	b=P/nOZV0ZBg6XL9n5BQL+/RPCc+DQZxvi4R+FZN8CLbU5qJc7zMoi8AM4Vq+cIHvwohFc
-	 Pse81k5GCuBJ896jvCojVUJ3bRHsPwAa20v71wz6hWXwb9sr+QOL8wU1eTdtR8YIh7Piu
-	 2+oveB9I2+2NFqu8cfV2Ta3xxQonPTkAOtxdaKggNdTQ4wCMbqpAmsY1/xPRtzOuhTbnV
-	 5KF6BvlddlEnaRWvUL5PXvaIswDOHq7Q40aOaH3eLQMlrSsMeHR+I/f2XKRc8dnT06kwz
-	 VKLZ9Q2kMRQbu+SDufH9x2C75nqIMmjZEKMdX2hGJUEXHgBZ7XUp6M0C8W5wlKwGYmw==
+	t=1795528072;
+	b=MZ0TueacFA/uwWgdvr8ILO/WMU3kl41WIS2aUlbqjpB6vDFP3ZKHuQVDtwrp15UcLaN2
+	 +dJyd9kHi1BfiyGLRr8xUXhqlSKf3lPA3i20grC3RJMUuX88Gho0Cvx9/RgZE0SiIRBcf
+	 MYeCv7MX7ePi/QHvrVAqNMOHrEUElDPR6uddz3di71lJaN7DD9NqF+WQiOXDm26d6FqnQ
+	 zpmug9opczEGtUa0KBpiWs4E92amx6qvbkIIig3uYg3mX7nBztWbuHCArH7ZPt4pQIULB
+	 JTpv8hasHHISBKiLKKMoMKQRdlwpUJmeu6GEFp5CvrCR3p9lXURMGjRZk1BqOkTIBJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795527991;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:Date:
-	 From:To:cc:Subject:In-Reply-To:Message-ID:References:MIME-Version:
-	 Content-Type;
-	bh=ZiUQPSPqBbX0yaOGXpiqmIhuEj+1E9hKrqAwIjuoBrI=;
-	b=BQT4vCNm1nMFzzHf4rIvfM+P/NL2AKz1SybqW2QYM1t9sHwOw+9/zYFy2/9m9FiEBPr1
-	 EbvaIdhzUtInsN1FmgLVXPBslnWf4ezjSM1NGlO3IcZoQoGZn85IkKgwZuEf1MMXaQwDO
-	 BNqJoU4AIUhLmtUCiBmQv9aUnnNi9FPZhVs7Qrcq4M00TM0xU7sDMfOh8BeelnHsZwnLr
-	 hmJYoHCH2hBGweNxBrnpngqLDHZfVJju8UIld/32zxadbKRX2OetXAw8/xbp6AeDihUe8
-	 HDodNFeLCAoinTgdX1XI+Yarde+z0Yn/FQ8Ud/xdhr1PgJQ6OdktuYFncEPnfh4A7/w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528072;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=vHjTkySiFKXus94DhefzL4/420JVXKmOAhnRz8n+Tt4=;
+	b=yHxO+2kg7C2T1E88hUQ/7wOSXa4XBVrToGTyckUgeZSFpKk1hSlrN3LayK9dws01slpb
+	 zA/mQNw29gnu+iaEEA5DGWQ2QDoQfDBmZ69inj6j6JKqacwXSg4YfvqzTc4KITkubMoXZ
+	 AHEs7OnG1I7jmrYN32K/+Xlu2Z4+MMPBst5uOmlrItFYjRMFhYsafYCGYeJKmOwU/KNVG
+	 X9I+tUtsn/bTs2GRrfm7aUnJMKKgVeEGVSgYyaZOGJY1d02Q8gxoCLziXC5G3K5jnNU1+
+	 p2FwfqrSLyc/xxd46gGWx7TfJPxoua6bgUIkzE02+OXmML79Px+nCI0QbSKjx7aSmxQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ssi.bg;
-	spf=pass smtp.mailfrom=ssi.bg;
-	dkim=pass header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=5ZIn1CK9;
-	arc=none smtp.remote-ip=193.238.174.39
-Received: from mx.ssi.bg (mx.ssi.bg [193.238.174.39])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ka558X0q;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ArrzaBJl;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53687606A334;
-	Tue, 24 Nov 2026 13:46:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53687606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=ssi.bg
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ssi.bg
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19C68606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:47:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19C68606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (4096-bit key, unprotected) header.d=ssi.bg header.i=@ssi.bg header.a=rsa-sha256 header.s=ssi header.b=5ZIn1CK9
-Received: from mx.ssi.bg (localhost [127.0.0.1])
-	by mx.ssi.bg (Potsfix) with ESMTP id 2778121FCE;
-	Tue, 24 Nov 2026 15:46:22 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ssi.bg; h=cc:cc
-	:content-type:content-type:date:from:from:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=ssi;
-	 bh=ZiUQPSPqBbX0yaOGXpiqmIhuEj+1E9hKrqAwIjuoBrI=; b=5ZIn1CK9CYAS
-	d/9rC8lAoBrYNO4WMJjFjxnwwGPvQF7lY7znmMUbTYktV+F84r/SbN+dEH6Bna1k
-	MTpyrI9ojg+NbBu7yuPFo8F4slpSZKkGKSlsHIyfsaeK3zpVAKdbQrhHHXQfjv7v
-	BqdgaPEcMPmnKDotIxKJiDvV6UYJhz7a8kIAUJd+Aji7DY+QI2dJ3mTrPd3UDsfT
-	Bwg574hJ8bZ++YF+GD/OrbI/RyLXp4w7vsh5fcWYpX61eFmM6E6PszKJTpyDyi+w
-	P3Z3QZ5uUTRfgK4FeUixhZrLz9EvVDIHDYRbxLoMtsw3d8M4mClQsD1ImfUhKD3e
-	SjRQsKMTlmrXzu01tcO/6JksJip20g9TFWAJaG56c/DIXX1mTSruahkbVGmyYx8N
-	eYCcirsK8+RxfPMZiyEEtEoYA35yYX7Nepke9I3kG2/cPp57nuwlE7dMtY6/q1A3
-	QFqp/gxJSwEH4iQqof0LiUeh13mdhuPFLbY0i+n3zQsPjhLFLXgBX4T8qhUHofiJ
-	t61n31ev+ex9vjM4sXgJ3Q6La1I4KUiRUePPMUvWKwtbyjKtq1ZGu9MPpaIfgrVd
-	Rpi6DQCTIQKbWVK3dktAgJoWZJeyCq6sNLNTJMdKwnR0hDgwWjrIPBsoMXXQ+r2r
-	0BjWDZOoLmUIyupMMHnpxxmV0fscNMA=
-Received: from box.ssi.bg (box.ssi.bg [193.238.174.46])
-	by mx.ssi.bg (Potsfix) with ESMTPS;
-	Tue, 24 Nov 2026 15:46:21 +0200 (EET)
-Received: from ja.ssi.bg (unknown [213.16.62.126])
-	by box.ssi.bg (Potsfix) with ESMTPSA id AD65360E20;
-	Tue, 24 Nov 2026 15:46:21 +0200 (EET)
-Received: from localhost.localdomain (localhost.localdomain [127.0.0.1])
-	by ja.ssi.bg (8.18.2/8.18.2) with ESMTP id 6AODkCPe076447;
-	Tue, 24 Nov 2026 15:46:12 +0200
-Date: Tue, 24 Nov 2026 15:46:12 +0200 (EET)
-From: Julian Anastasov <ja@ssi.bg>
-To: Star Chang <starchang@google.com>
-cc: "David S . Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
-        Simon Horman <horms@kernel.org>, David Ahern <dsahern@kernel.org>,
-        Ido Schimmel <idosch@nvidia.com>,
-        Johannes Berg <johannes@sipsolutions.net>,
-        Jonathan Corbet <corbet@lwn.net>,
-        Shuah Khan <skhan@linuxfoundation.org>,
-        Randy Dunlap <rdunlap@infradead.org>, netdev@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        wangroger@google.com
-Subject: Re: [PATCH net v7] arp: Do not update neighbours from ARP in L2
- multicast/broadcast frames
-In-Reply-To: <20261123144535.155300-1-starchang@google.com>
-Message-ID: <dba6db1a-7a30-97a8-f610-132cc7544d2f@ssi.bg>
-References: <20261123144535.155300-1-starchang@google.com>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Ka558X0q;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ArrzaBJl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795528071;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=vHjTkySiFKXus94DhefzL4/420JVXKmOAhnRz8n+Tt4=;
+	b=Ka558X0qeEWbteC5u6hcD7tJnkkK+dy3JDc3j4EjPy/UUJTMP4VDwEsZFZUHy3CS09jkys
+	wdDMOTdYMKP/hlpUWaI6GvB1aPXRQr4LyUr8Nf5YwdTOiu9gtNhgRCO8+g/pi22POvTsk0
+	dJ83vVrfd76loOf86IlY+xzIwTVQfHM=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-264-Qs9F_O3CPdiUmxu1TIvXCw-1; Tue, 24 Nov 2026 13:47:49 +0000
+X-MC-Unique: Qs9F_O3CPdiUmxu1TIvXCw-1
+X-Mimecast-MFC-AGG-ID: Qs9F_O3CPdiUmxu1TIvXCw_1795528068
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-49034831bb3so2810518f8f.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:47:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795528068; x=1796132868; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vHjTkySiFKXus94DhefzL4/420JVXKmOAhnRz8n+Tt4=;
+        b=ArrzaBJlogyiXM1AD76+wJEfFi8xXOggsQYo1Sxb0e7/x3QEzZLwO5YAJApIeQ9fas
+         cBFg6lue27VBGJigf+uKTOUwWTtohtqMpXyd2atQ8x3Ss4vrb9I4Th1JF6UlXlukHDpA
+         0N2NrLMmUa/JwDDGkMD8469Ol490+vWVz7fuTyBzICyFK4fpaMVCjIYi7twkGR4LUANG
+         9tbjNBsCPB7Z7rpMGnKKr/bPd+c88uAWaECp9a3Y7vwQ4d4NG94PXVlRcmtEx8FPBJFh
+         3LmBACtHmsb4jYtyyJRAxMvebSqBSb687YO4pWMG3z4nmfPf0ZXLhZdBRvotnVHtEU7h
+         SdRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795528068; x=1796132868;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=vHjTkySiFKXus94DhefzL4/420JVXKmOAhnRz8n+Tt4=;
+        b=hhocFmhtKkUu3Qr/lma6xT6U4U8NglvqaWz0KAYDPIyReJE6Jkad9FZNNOSyFQ8nhN
+         zd6vcxo16nrYLnNOuMkNODbClr9jMBJv49VdGO9HpRPj6NDa1wbjGTYkNU5L/Bg0Dbda
+         wq/DLUpobYQ7Y8XnCPKiQ/4GMnoB3wCqZRELYd1ivgvoTHkckq8/HM7Nl+CXn8NRiTAj
+         3R0V0RSXuoAdY1CrTz8nr9vm3weq+jgDZzZDRNd8FLRPybCMwYgAiqiwhXWKIThpTVwy
+         1GkMSo+KCaMvCp3xabvLYbSnTz7zwsdSoPvNCLyE0B84/Yx9jRaTV44rnKYTctoot6I1
+         SoIg==
+X-Forwarded-Encrypted: i=1; AL+hErFHPi90630m+4B2nbLwFtWzbfZTnlZSkjO8hE4RLJJYQUFvtawKdyH19cDpoXHKpzBeAlL2l/8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9IqLcFQG6xJ3d1EzKafD2R+QV0NyKWpCDQwRlcApCobADbievS
+	tI1UkJuHrBTSyQC/psWKce96PdpOWF9ti7UU+woBwDt/ILjUDq2WKYFSMkn1wOmOqYdlwvU6bQC
+	NOx7DKmBpBFnKCEB+QMXcnKlSpbyolabAfREU1akIsV+kYRSe44PL8hJvbQ==
+X-Gm-Gg: AZFdTZf3cyrFYnQtkz0TLwsQxIG9AFoAt7gpX+d9I6WH1MTU4GWMnGuaOAGHIAS00DH
+	Qwep8PsTYLsqhrmnvO4JZjy/00hAsI5lJrCWlZtbtWvZcuWUwVfd3Ts0N1JplIjQin0spHaDerv
+	QJIv8723lZjA2EsY6olmu6ME2DRM2OWF0PU6nKgDQMWFMSdP93tdoPCUjNlJlg82FWIz/+XlPbM
+	nAu0Y7LoxLkBnNJE/Ix01ZiHXmrZ0B05D0X0wClkjpVhzAe0bUAra+bGv1EyuydsRNVsd4zEHLF
+	H6dEtjMcIJIudhwFMjniz+xCtStKr9MKftWrYJePYqaUE5gAQ3qw1AKA3sEKwLVL2fGfRzlPGMJ
+	4s8bjFpAI6LHBttvLaIIcOAIGd8lpWrTkrsDs573DqQ5zCwTf+xlfR0DXFCGP8FzezosFvgxXiF
+	b1yOHsKzNs+bDGIa4wlIKUGwwoaV9HGk/hioX7YvpWMQPJ
+X-Received: by 2002:a05:600c:3ba5:b0:4b0:a307:46f8 with SMTP id 5b1f17b1804b1-4bb8880f29bmr339494895e9.10.1795528067757;
+        Tue, 24 Nov 2026 05:47:47 -0800 (PST)
+X-Received: by 2002:a05:600c:3ba5:b0:4b0:a307:46f8 with SMTP id 5b1f17b1804b1-4bb8880f29bmr339494285e9.10.1795528067293;
+        Tue, 24 Nov 2026 05:47:47 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb88442693sm385064995e9.1.2026.11.24.05.47.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 05:47:46 -0800 (PST)
+Message-ID: <e7a9c532-d063-4eb4-bbcb-39b4ef80a51a@redhat.com>
+Date: Tue, 24 Nov 2026 14:47:45 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,167 +112,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next,v2 00/15] Netfilter updates for net-next
+To: Florian Westphal <fw@strlen.de>
+Cc: Pablo Neira Ayuso <pablo@netfilter.org>, netfilter-devel@vger.kernel.org,
+ davem@davemloft.net, netdev@vger.kernel.org, kuba@kernel.org,
+ edumazet@kernel.org, horms@kernel.org, ja@ssi.bg
+References: <20261123135726.3940688-1-pablo@netfilter.org>
+ <8e69f35e-73fb-4558-910b-45f5e723c64a@redhat.com>
+ <awWEtyMI_-VEreFq@strlen.de>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <awWEtyMI_-VEreFq@strlen.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-
-	Hello,
-
-On Mon, 23 Nov 2026, Star Chang wrote:
-
-> The drop_unicast_in_l2_multicast sysctl drops unicast IP packets that
-> are received in link-layer multicast or broadcast frames. On Wi-Fi this
-> protects against the "Hole-196" attack, where any station that knows
-> the group key injects frames as group-addressed traffic.
+On 11/24/26 13:36, Florian Westphal wrote:
+> Paolo Abeni <pabeni@redhat.com> wrote:
+>> Unfortunately a couple of in-flight nf patches prevent the CI from
+>> picking this series:
+>>
+>> https://lore.kernel.org/all/20261120111910.67379-1-juny24602@gmail.com/
+>> https://lore.kernel.org/all/20261121212037.149722-1-omermetekaya0@gmail.com/
+>>
+>> Could you please re-post it? thanks!
+>>
+>> (Do I recall correctly that guidance for nf patches is to not CC netdev?)
 > 
-> ARP is not covered. A broadcast ARP request or reply with sip set to
-> the gateway address and sha set to the attacker MAC still creates or
-> updates the gateway neighbour entry, so the attacker can poison the
-> ARP cache of other stations. ARP requests are legitimately broadcast
-> and cannot be dropped, and drop_gratuitous_arp only catches sip == tip.
+> CC'ing netdev@ provides no extra value to us.  Quite the opposite as
+> seen here, this means another delay to a backlogged subsystem.
 > 
-> This was found in an internal security review and reproduced in a lab
-> on a WPA2-PSK network: a group-addressed ARP reply injected by another
-> station changed the victim's gateway neighbour entry to the attacker
-> MAC. There are no kernel messages, only the wrong neighbour entry.
+> This is coming from get_maintainer.pl, which for these patches gives:
 > 
-> When drop_unicast_in_l2_multicast is set, do not pass ARP packets
-> received in L2 multicast/broadcast frames to neigh_event_ns() or
-> neigh_update(), so they can neither create nor change neighbour
-> entries. Requests for local and proxied addresses are still answered;
-> neighbours are learned from unicast replies to our own requests.
+> Pablo Neira Ayuso <pablo@netfilter.org> (maintainer:NETFILTER,commit_signer:11/16=69%)
+> Florian Westphal <fw@strlen.de> (maintainer:NETFILTER,commit_signer:9/16=56%,authored:3/16=19%,added_lines:168/436=39%,removed_lines:73/217=34%)
+> Phil Sutter <phil@nwl.cc> (reviewer:NETFILTER,commit_signer:1/16=6%)
+> "David S. Miller" <davem@davemloft.net> (maintainer:NETWORKING [GENERAL])
+> Eric Dumazet <edumazet@kernel.org> (maintainer:NETWORKING [GENERAL])
+> Jakub Kicinski <kuba@kernel.org> (maintainer:NETWORKING [GENERAL])
+> Paolo Abeni <pabeni@redhat.com> (maintainer:NETWORKING [GENERAL])
+> Simon Horman <horms@kernel.org> (reviewer:NETWORKING [GENERAL])
+> Jozsef Kadlecsik <kadlec@netfilter.org> (commit_signer:11/16=69%,authored:10/16=62%,added_lines:264/436=61%,removed_lines:139/217=64%,blamed_fixes:1/1=100%)
+> Yifan Wu <yifanwucs@gmail.com> (commit_signer:1/16=6%,authored:1/16=6%)
+> David Lee <david.lee@trailofbits.com> (authored:1/16=6%)
+> netfilter-devel@vger.kernel.org (open list:NETFILTER)
+> coreteam@netfilter.org (open list:NETFILTER)
+> netdev@vger.kernel.org (open list:NETWORKING [GENERAL])
+> linux-kernel@vger.kernel.org (open list)
 > 
-> Fixes: 12b74dfadb5a ("ipv4: add option to drop unicast encapsulated in L2 multicast")
-> Suggested-by: Julian Anastasov <ja@ssi.bg>
-> Signed-off-by: Star Chang <starchang@google.com>
-
-	The patch looks good to me, thanks!
-
-Reviewed-by: Julian Anastasov <ja@ssi.bg>
-
-> ---
-> v7:
->  - Rebase on net, arp_process() changed (Julian)
->  - Add an empty line before out_free_skb (Julian)
->  - Mention how the issue was found in the commit message
-> v6: https://lore.kernel.org/netdev/20261123063608.3665186-1-starchang@google.com/
->  - Instead of dropping L2 BMC ARP replies, skip neigh_event_ns() and
->    neigh_update() for any ARP received in L2 BMC frames, which also
->    covers broadcast requests with sip = gateway (Julian)
->  - Drop the frame and release reply_dst on that path (Julian)
-> v5: https://lore.kernel.org/netdev/20261030031136.607720-1-starchang@google.com/
-> v4: https://lore.kernel.org/netdev/20261027015619.1745984-1-starchang@google.com/
-> v3: https://lore.kernel.org/netdev/20261026150539.1357037-1-starchang@google.com/
+> ... which is waaay too much, IMO.
 > 
->  Documentation/networking/ip-sysctl.rst |  4 ++-
->  net/ipv4/arp.c                         | 39 +++++++++++++++++++-------
->  2 files changed, 32 insertions(+), 11 deletions(-)
+> Would you mind a patch that alters this to only suggest:
 > 
-> diff --git a/Documentation/networking/ip-sysctl.rst b/Documentation/networking/ip-sysctl.rst
-> index d3523c9064a2..fd2ffb2d2812 100644
-> --- a/Documentation/networking/ip-sysctl.rst
-> +++ b/Documentation/networking/ip-sysctl.rst
-> @@ -2302,7 +2302,9 @@ promote_secondaries - BOOLEAN
->  
->  drop_unicast_in_l2_multicast - BOOLEAN
->  	Drop any unicast IP packets that are received in link-layer
-> -	multicast (or broadcast) frames.
-> +	multicast (or broadcast) frames. ARP packets received in such
-> +	frames are not used to create or update neighbour entries,
-> +	but ARP requests for local addresses are still answered.
->  
->  	This behavior (for multicast) is actually a SHOULD in RFC
->  	1122, but is disabled by default for compatibility reasons.
-> diff --git a/net/ipv4/arp.c b/net/ipv4/arp.c
-> index 3bc8db6ccd68..cc69ea07fc2d 100644
-> --- a/net/ipv4/arp.c
-> +++ b/net/ipv4/arp.c
-> @@ -715,6 +715,7 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	struct neighbour *n;
->  	struct arphdr *arp;
->  	struct rtable *rt;
-> +	bool bmc_no_learn;
->  	__be32 sip, tip;
->  	int addr_type;
->  
-> @@ -794,6 +795,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	    (!IN_DEV_ROUTE_LOCALNET(in_dev) && ipv4_is_loopback(tip)))
->  		goto out_free_skb;
->  
-> +	bmc_no_learn = (skb->pkt_type == PACKET_BROADCAST ||
-> +			skb->pkt_type == PACKET_MULTICAST) &&
-> +		       IN_DEV_ORCONF(in_dev, DROP_UNICAST_IN_L2_MULTICAST);
-> +
->   /*
->    *	For some 802.11 wireless deployments (and possibly other networks),
->    *	there will be an ARP proxy and gratuitous ARP frames are attacks
-> @@ -853,14 +858,19 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  			if (!dont_send && IN_DEV_ARPFILTER(in_dev))
->  				dont_send = arp_filter(sip, tip, dev);
->  			if (!dont_send) {
-> -				n = neigh_event_ns(tbl, sha, &sip, dev);
-> -				if (n) {
-> -					arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-> -						     sip, dev, tip, sha,
-> -						     dev->dev_addr, sha,
-> -						     reply_dst);
-> -					neigh_release(n);
-> +				n = NULL;
-> +				/* Do not learn the sender from a BMC frame */
-> +				if (!bmc_no_learn) {
-> +					n = neigh_event_ns(tbl, sha, &sip, dev);
-> +					if (!n)
-> +						goto out_consume_skb;
->  				}
-> +				arp_send_dst(ARPOP_REPLY, ETH_P_ARP,
-> +					     sip, dev, tip, sha,
-> +					     dev->dev_addr, sha,
-> +					     reply_dst);
-> +				if (n)
-> +					neigh_release(n);
->  			}
->  			goto out_consume_skb;
->  		} else if (IN_DEV_FORWARD(in_dev)) {
-> @@ -869,9 +879,11 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  			     arp_fwd_pvlan(in_dev, dev, rt, sip, tip) ||
->  			     (rt->dst.dev != dev &&
->  			      pneigh_lookup(tbl, &tip, dev)))) {
-> -				n = neigh_event_ns(tbl, sha, &sip, dev);
-> -				if (n)
-> -					neigh_release(n);
-> +				if (!bmc_no_learn) {
-> +					n = neigh_event_ns(tbl, sha, &sip, dev);
-> +					if (n)
-> +						neigh_release(n);
-> +				}
->  
->  				if (NEIGH_CB(skb)->flags & LOCALLY_ENQUEUED ||
->  				    skb->pkt_type == PACKET_HOST ||
-> @@ -890,6 +902,10 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  		}
->  	}
->  
-> +	/* ARP received in L2 BMC frames must not change the neighbour table */
-> +	if (bmc_no_learn)
-> +		goto out_drop_dst;
-> +
->  	/* Update our ARP tables */
->  
->  	n = ipv4_neigh_lookup(dev, &sip);
-> @@ -953,6 +969,9 @@ static int arp_process(struct net *net, struct sock *sk, struct sk_buff *skb)
->  	dst_release(reply_dst);
->  	return NET_RX_SUCCESS;
->  
-> +out_drop_dst:
-> +	dst_release(reply_dst);
-> +
->  out_free_skb:
->  	kfree_skb(skb);
->  	return NET_RX_DROP;
-> -- 
-> 2.56.1.750.gf70dc682cf-goog
+> Pablo Neira Ayuso <pablo@netfilter.org> (maintainer:NETFILTER,commit_signer:11/16=69%)
+> Florian Westphal <fw@strlen.de> (maintainer:NETFILTER,commit_signer:9/16=56%,authored:3/16=19%,added_lines:168/436=39%,removed_lines:73/217=34%)
+> Phil Sutter <phil@nwl.cc> (reviewer:NETFILTER,commit_signer:1/16=6%)
+> Jozsef Kadlecsik <kadlec@netfilter.org> (commit_signer:11/16=69%,authored:10/16=62%,added_lines:264/436=61%,removed_lines:139/217=64%,blamed_fixes:1/1=100%)
+> Yifan Wu <yifanwucs@gmail.com> (commit_signer:1/16=6%,authored:1/16=6%)
+> David Lee <david.lee@trailofbits.com> (authored:1/16=6%)
+> netfilter-devel@vger.kernel.org (open list:NETFILTER)
+> coreteam@netfilter.org (open list:NETFILTER)
+FWIW, LGTM!
 
-Regards
+The only delta I can see is that patches landing on netdev currently get
+clashiko review, which could (or could be not) a positive thing.
 
---
-Julian Anastasov <ja@ssi.bg>
+But in the long term we should have hopefully clashiko-like reviews
+everywhere.
+
+/P
 
