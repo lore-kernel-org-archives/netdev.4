@@ -1,92 +1,104 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795560751;
-	b=AmHES3MRbTNpkBJU7rOk61BSIP8q1RP7cGNnmqIAlPqqzHC6nqgpDcRk44h7Lww76ndU
-	 rnv3e1xUZFQDIFUrbSBqtxm3OzkzWsnd1NXOF8JWsSv2QFnzopwZSNhT/Vc1orMcdIIGk
-	 xjcvq9Xtjn8L6AMzROwdktdsyDaEa3safDp66E2h0fwT6oV7ssznz2uykBUo/ITLQmFWY
-	 2R5Lb/C2zqv5aajMwfRBjem3kH1Xw3Qh31qb6REgQCPIj4BlCktT9kRAv4zbmstGvinRi
-	 6egstc+Wuo8NUgny5Ik/jiGXFzIZwF78P14+KKC7kuXNVgHUucOkDIHuSEpkEkxGEmg==
+	t=1795560755;
+	b=Bx1ju+8tbOYt3b0Rz9uUJ5Tjid13Wtxhh2LmIUpOjzaG4qw2yTO1hylksv96F9HIFouO
+	 E8fyvjTLucwWpwcOtoOOMYlDxhvLMcdMwT1I3oQEC2mhYsVl4ivieBSLWfMg7F4IYAXUB
+	 g646a6UfmwB2IZkYT6U4riCW3T1VcMzyX1J/bJBcyuUl7r5HTL2kzKOrKw4/pV81Vj+UC
+	 Fn4ri10S8TkvChj3niAAGxX6SsEsMuOnMW8EXhIEjRNrTyen9dRkWzZl/RvJYGi39QpYv
+	 tFdQQT0BVxBoFgvAFRdAzwFzOGD3fktLMdDJouiZllmioKM9rurit42rWO1c8himKvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795560751;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795560755;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
-	b=XmkzdQZb2jFzBIYRjQv6xYVHHBfLtgYIOM4qhIkTbRnvkmWBVTuh2QF0pu05flcgUgPd
-	 vPF1msJ2UgNiROeXSjxZzRpRpaKYq06zz0cDXUxEWOmrq4SAOSzpwaXqpA6BaOXefUUTg
-	 r5l9HX3TdIdfGhw1g2NEjq97XtmrucNRS+5VyL8Mvj+OfC9fIUBLkHemp31ekSF9ugPa+
-	 qs20Rpb5n7IfHbrR/o8qKEEr8nGjV2SneXrROlru3Q/TOyYjbpjoE6Avsaca4csnWWffg
-	 NQsmunfzS62nP81jwGovr0ql97+3UaG/e72BUClGxQp6jPcnTUQBKnYj4BvxW+r/gug==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=/SyEXi/OQvzWoBSBKmQ6Lt30X45cD3FNvhUqDKHa2tk=;
+	b=rqkHfhSzwyswKNaBCWOOvwCdSObyr+OCIWq4uHDoSD6J6gPBBTDR916FcJEA+SMLAdwl
+	 MdZSRaLBqikGAb4zGR7GZzn1y0WqLEkQAqwvTEMHqCatTqGOhChOntTe+6H/2DGTEez2e
+	 J2/CzWliQjR/Wfc2lxLzaOQoI7clLI8btZQXPTRwfN1gUvzqnhpveLh/LrvggOQLZnsZG
+	 sAETxoO6h1Mx7hCu9CrUuoOqKrYCBOv3Y5wjPpUScyMigzZ/dkdeTFPbXur5QfPsbq6cp
+	 udxFpW70RyE+dvkXY6E7EmtJyqAj7uruxirCtNwNCT+kg+K4Ed9jhdPVg1zFmxf532w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E9+SWYpR;
-	arc=none smtp.remote-ip=74.125.82.48
-Received: from mail-dl1-f48.google.com (mail-dl1-f48.google.com [74.125.82.48])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wYub2fvf;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9076D606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:52:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9076D606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA52A606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:52:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BA52A606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E9+SWYpR
-Received: by mail-dl1-f48.google.com with SMTP id a92af1059eb24-1b3acec6677so7510268c88.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:52:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=wYub2fvf
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-380c28f9e35so6242926eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 14:52:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795560750; x=1796165550; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
-        b=E9+SWYpRPDEsfq+0U/uJAo2engtzlYuz3sY9Je4smTBPQZ17qdzRGQHN1hA4CvLPCQ
-         Hlk95vLZF2tmrI9HkNPQffMC6AE3L9UwQJ3PLbuXfLH5IkOREsJUG303F031930SyFtt
-         keFRZGnUdlezx3g7J9ONM0DoMzwyukZ8Nm5xFtOqr3uMCys8n6urLRcBUYNmIGW5+9Mj
-         QZ9LcotNACDvnw/5kGWx0J3c8yGYHbbUtjNnpf4pAYr76W7aF21Lxd8gIWRM8ZIJsAKG
-         biyTBq5B3M50Q0GYV142Xdk1dMnzUjhCXVWM6nPcCXeUTZzfTuFJxvUa6gF2QqMMt2Dx
-         aYxg==
+        d=gmail.com; s=20260707; t=1795560754; x=1796165554; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/SyEXi/OQvzWoBSBKmQ6Lt30X45cD3FNvhUqDKHa2tk=;
+        b=wYub2fvf8lYYUpWuZKqpj2o1n/PyO3afpBhUA9MF1qrc3L0qOGMYQHFbi1slxGBCh2
+         hA62nsRHZCDZ9IpcAYFp1j95wnzs8dUxCY1/kXLcY5ZryDWnD2tuirqSR50+r89YkDIE
+         1lKa4Dy+qUpqOcUuO82DlaLvJgi0c+kHBQO5po0byAiUzXQffuFpJQ2T59AOfus8ABuK
+         w1z5ssJjqEOtUY2wSWPiATnF1TQurVbf1D05vnxtH7wD1sX1WkhuLJxmUS/vUsKgIXeM
+         dxJeA/UyBFXHt6rH5VzFx51Un1bFMxZrkEpppUZ+qgzQkEURUHgLRoRx9Y9NXMUNEbiQ
+         /5mQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795560750; x=1796165550;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=2igVG5RklVUD8y322B3VKO8NTww9xtgX73vhc/aUyRM=;
-        b=T7X7hzsfVPXZZqQ0MdHZO+cPYM7MTr/HTPfj3nBKNYLvGk0dTER+snPoxVlwij3F1Z
-         YZxbSTWBU0+JzX1Obv3Z6sMBqefyiqdZ5s5eYyZ3hDM9lBXdJQbkFgcQr2IeGpY/bgZc
-         Sb1SyMwUAPxuu0ZRjJ/36EkJUOx6+LtGxQ/IuEyiF+MhkQIU9SubCQ5IK7jh9BEhYDfB
-         NuLVqp9pyp8W4NbKfs2dQ+3zqDxj4LSC2ojBP8ObosUOA06TbYh+V+UEvHc9zVo0Ni88
-         DC/2Kb9DMgSEbvF4JoRLyIphb1wsAvtXvglvPCEZ0k9v3F6rPMgexuhnbx/+95mALLPT
-         RQ7g==
-X-Gm-Message-State: APuU4Z8cSEQp+rzOFhl/JSL6juG+dEwefyBoSOuahAH5+yNT+gOgvMrU
-	Jtjf/zXbfGnSgZMugLC8s4Lyh0JAU71F6Lb5ge81jAPfrBp1nPh7d1eZgpk9dg==
-X-Gm-Gg: AZFdTZdX/C5sCTdRPqBxrblXYKi3/fL4Lxo9S7RG7C/DSou5jMHrpUxMpJ+7PKhcuJb
-	Hn/+xWCSfEHhH3H74/GwGF0oLwALEniwsmCI6Fummmo9z5wl/MSHMmkjxMPjmS4IzRkvokSUe71
-	q6LFtRhyXVdrsBDAhftLDqcjWnxY3+jX3R3bIFjbDHcMCINpB7Wj5lvpVuaXROqIuvReiBvObWW
-	tsaPbhO4XfHf/Py2nAK209KfTzrYuxEM6GE9s5X6qUe5EXOjKzvndEa4ytzm6N57d4bPO7Slq40
-	veEwxULg96cbYPNh4H2Jjw9K5g1M1aWXdacO6ccoJn5xs35lIP6d7HCCjOQGcSUEtoBpR1bNuMt
-	CNmSFjJXUsUJKfcC1i8oN4dbZd5wetOhw6kPz4NMMldTSczn36s3URzMo7PfHQopacEKi2Jb2YE
-	fSJo4WZF/nZnIuqsUpuG7cjmg9BbSkB/8x5vfKuwTBy5Zb7FNw61RNpwzKDah1K1Eyp0Hytx59I
-	AZoOd0Ld9s/FlIU0uPZJePhnousNyQHtd9brfeQDgAkiJSu4ZcqUzp4YYD6oEgkgJrEmV2wsRr1
-	KnTb+wdIN48T8PKQeSKln0yB6/w3C8bvGkmCQCdY7WP2YSVHFYXC1t6JLfN98l0PXpphvUqoz7W
-	nxdmIQhjgDs7UFspJF5PmTX54OU3A/hAT3RVQeAgqUVeL/c5kY5/Uhn6Wua/0ISB4Eg==
-X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr17412085c88.10.1795560749548;
-        Tue, 24 Nov 2026 14:52:29 -0800 (PST)
-Received: from l ([2603:8002:ea00:6800:e2af:cae4:df96:350])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556847fdasm42648144c88.13.2026.11.24.14.52.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 14:52:29 -0800 (PST)
-From: Dave Seddon <dave.seddon.ca@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Dave Seddon <dave.seddon.ca@gmail.com>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	David Ahern <dsahern@kernel.org>,
-	Paolo Lungaroni <paolo.lungaroni@uniroma2.it>,
-	Frank Dressler <frank@dressler.pro>
-Subject: [PATCH iproute2] seg6local: accept lblen and nflen in either order
-Date: Tue, 24 Nov 2026 14:52:27 -0800
-Message-ID: <20261124225227.3795875-1-dave.seddon.ca@gmail.com>
-X-Mailer: git-send-email 2.56.0
+        d=1e100.net; s=20260707; t=1795560754; x=1796165554;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/SyEXi/OQvzWoBSBKmQ6Lt30X45cD3FNvhUqDKHa2tk=;
+        b=x8NV2N6aULjzRwKilWHgDK67cAxN0o0LoDH/DKF4zJcmEjI6DUinAVogL7wjirHcXi
+         PyoW3M22EJTombR1aMOjmbuq3vWF99P9CY50phff9vtMPPOoMEy8OipgYKIEEoAGpQQr
+         F5shQSB43Y06dLcJSMPegma3SVPNFAm4xZIhU8b6XrQQGDyJv6PGlxi0BgVdgY0WDU4Q
+         osTrn/SwcGzmEjiMhcY6jWibTOf+12LOaJVVNMKsCS8blNhnnpEx7AV6G6IpBM8J1P2q
+         WzGvParzHgwPC01mPLenfIipKJpP+IoXcxkAighjs5rWoRdPrRntQ9wTvncH3SBpOeMm
+         MsTg==
+X-Forwarded-Encrypted: i=1; AL+hErF0kPASPQKo82xOUZvViShjO/iv/LCNnGy26UXuhn3xApdVRaztfkxVGHS2Alx1haIJlXY8CI0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/GFj+8yHXRnDn6AG3ZtS79BUsk2xk9oVE3lM0ZuAc9sJfIeD56
+	23U0140pQ6uStNnMHNY8Y1NZ3izMWpis2vT5kW3d7AW4mw/47OQ1Q6pvNjLkYnjL
+X-Gm-Gg: AZFdTZdJVNfOVIyKet569R+xPTfsE1tywa6jwQVSdIqgC6ahFzhjpbHIDd60HilvdTn
+	tOww9/iMwoSIIkDvv9arRzpNOTGZfoucbYenpGOTFTcSG3GE9OATnqH/BTZ3lxv8Z3nvQ1KydDR
+	q58hvakrXbup5zzrRbjIxeQ7r3B7RyU/UQFJtUiUK7x4WVyAr3R0yJ2OwwCm2Bsaqo3tEZnLbY9
+	IhWr6WsQL1DQ6B4IrTLfX5We+XUklbPCZESc8qAMagV5hcVzNuYS5AKC+fEdxJrb+1Yk8VPIpG8
+	n+3yGvrnbWpMv6ZvJzVDi1FyLtYHJ3IeDzCkQ1khFrQkip6sUPK94lyinCmX3UHsE7nIOYLNzpG
+	FgxUJy9MUhyzdpz7kvZqdM3iDE+Zsry8Gxs+wDMdPqW0COHAz0YNRm4SsUzCBeaXstv6uk4d6bE
+	hmzbv5Cxj7vTcRNWk/WVA5MfWX1nc3JO4NvJ3r1BMgfQHRci5a/suvHBMME2I4HO82TFqnhOo8e
+	MwlYI69qDx9+Yj6lv+C0n+E4l7h7Kg1qRMOCR/nfrGU5BnZztT5lNNXMjBbM3sRwYmsFfYZy9vx
+	ztrhE94zZX8Tou0L5nDZ0ksBcH2NCYGRqyo9JyntG7ZGLDzXPDVFCiVcK4NrLgINHL+NTo936NS
+	pM45qsOHhEQstEHz8q1NJcFx+4axWbrGLazyAAswNStzeNepIDVANRIKueg3gGZ8MeVyaKXEJ
+X-Received: by 2002:a05:7301:d804:b0:386:b076:a940 with SMTP id 5a478bee46e88-386b076a9e4mr7629466eec.26.1795560753628;
+        Tue, 24 Nov 2026 14:52:33 -0800 (PST)
+Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm58306497eec.11.2026.11.24.14.52.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 14:52:30 -0800 (PST)
+From: Ahmad Byagowi <ahmadexp@gmail.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch,
+	arkadiusz.kubalewski@intel.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	jiri@resnulli.us,
+	kuba@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com,
+	richardcochran@gmail.com,
+	rmk+kernel@armlinux.org.uk,
+	vadim.fedorenko@linux.dev,
+	vladimir.oltean@nxp.com
+Subject: Re: [PATCH net v3 1/4] ptp: disable all timestamp channels after removing the user interfaces
+Date: Tue, 24 Nov 2026 14:52:29 -0800
+Message-ID: <20261124-timecard-common-v5-tests-r1-ahmadexp@gmail.com>
+In-Reply-To: <179555822342.3135.3643426123083976487@kernel.org>
+References: <20261120-timecard-common-v3-33316bf475-1-ahmadexp@gmail.com> <179555822342.3135.3643426123083976487@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,82 +108,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-The man page lists lblen and nflen as flavors attributes in no fixed
-order, but ip only accepts lblen first:
+Thank you for the detailed review. These are valid concerns with v3.
+The current eight-patch v5 series includes the runtime and SJA1105
+prerequisites, and I have now published the test fixtures and results.
 
-  ip -6 route add 2001:db8:2::/64 dev lo encap seg6local action End \
-    flavors next-csid nflen 16 lblen 32
-  Error: either "to" is duplicate, or "lblen" is garbage.
+> Does this widen the race on pps_req_map at runtime? Before this patch, a
+> disable on an already empty map returned early. Now it falls through to
+> the register disable:
 
-Parse them in a loop.
+> The pps_req_map read-modify-write is not serialized against the register
+> writes:
+>
+>   - extts_enable_store() and pps_enable_store() in ptp_sysfs.c call
+>     ops->enable() without any lock.
+>   - ptp_extts_request() and ptp_enable_pps() hold only ptp->pincfg_mux,
+>     which the sysfs paths never take.
+>   - ptp_ocp_enable() takes no driver lock.
 
-Fixes: 04a6b456bf74 ("seg6: add support for flavors in SRv6 End* behaviors")
-Suggested-by: Frank Dressler <frank@dressler.pro>
-Assisted-by: Claude:claude-fable-5-2
-Signed-off-by: Dave Seddon <dave.seddon.ca@gmail.com>
----
-This applies on top of "seg6local: fix crash when next-csid ends the
-command", as discussed in that thread.
+Agreed. Fixing only teardown did not serialize those runtime callers.
+V5 patch 1 takes the existing pincfg_mux around the EXTTS, PPS and PEROUT
+sysfs enable callbacks, matching the ioctl paths. That mutex covers the
+driver's subscription update, register programming and sleeping IRQ
+drain. It avoids adding a second driver lock or a spinlock.
 
- ip/iproute_lwtunnel.c | 41 ++++++++++++++++++++++-------------------
- 1 file changed, 22 insertions(+), 19 deletions(-)
+Four controlled interleavings pass in 100 source-derived runtime runs
+with ASan/UBSan. Three KUnit cases call the actual sysfs stores under
+mutex contention in QEMU with KASAN and lockdep. Removing each store's
+lock makes its negative test fail at a runtime assertion.
 
-diff --git a/ip/iproute_lwtunnel.c b/ip/iproute_lwtunnel.c
-index 53004b5f..3a6bf7c0 100644
---- a/ip/iproute_lwtunnel.c
-+++ b/ip/iproute_lwtunnel.c
-@@ -1433,27 +1433,30 @@ static int seg6local_parse_flavors(struct rtattr *rta, size_t len,
- 		return ret;
- 
- 	if (flavors & (1 << SEG6_LOCAL_FLV_OP_NEXT_CSID)) {
--		NEXT_ARG_FWD();
--		if (argc > 0 && strcmp(*argv, "lblen") == 0) {
--			NEXT_ARG();
--			if (lbl_ok++)
--				duparg2("lblen", *argv);
--			if (get_u8(&lbl, *argv, 0))
--				invarg("\"locator-block length\" value is invalid\n", *argv);
--			ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCBLOCK_BITS, lbl);
--			NEXT_ARG_FWD();
--		}
--
--		if (argc > 0 && strcmp(*argv, "nflen") == 0) {
--			NEXT_ARG();
--			if (nfl_ok++)
--				duparg2("nflen", *argv);
--			if (get_u8(&nfl, *argv, 0))
--				invarg("\"locator-node function length\" value is invalid\n", *argv);
--			ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCNODE_FN_BITS, nfl);
-+		while (NEXT_ARG_OK()) {
- 			NEXT_ARG_FWD();
-+			if (strcmp(*argv, "lblen") == 0) {
-+				NEXT_ARG();
-+				if (lbl_ok++)
-+					duparg2("lblen", *argv);
-+				if (get_u8(&lbl, *argv, 0))
-+					invarg("\"locator-block length\" value is invalid\n",
-+					       *argv);
-+				ret = rta_addattr8(rta, len, SEG6_LOCAL_FLV_LCBLOCK_BITS, lbl);
-+			} else if (strcmp(*argv, "nflen") == 0) {
-+				NEXT_ARG();
-+				if (nfl_ok++)
-+					duparg2("nflen", *argv);
-+				if (get_u8(&nfl, *argv, 0))
-+					invarg("\"locator-node function length\" value is invalid\n",
-+					       *argv);
-+				ret = rta_addattr8(rta, len,
-+						   SEG6_LOCAL_FLV_LCNODE_FN_BITS, nfl);
-+			} else {
-+				PREV_ARG();
-+				break;
-+			}
- 		}
--		PREV_ARG();
- 	}
- 
- 	rta_nest_end(rta, nest);
--- 
-2.56.0
+V5 patch 3 retains Vadim's direct-channel teardown: remove the user
+interfaces and drain active ioctls, then issue EXTTS disables for each
+advertised channel followed by PPS. The final empty-map drain has a
+separate reason: an empty software subscription map does not establish
+that the source was initially idle, since IRQ registration does not
+reset it. The prearmed state is injected in the model, not an observation
+of a physical card.
 
+> This switches a pin that is running PEROUT into EXTTS input mode, and
+> rewrites the AVB params table over SPI.
+
+> Is this reconfiguration intended?
+
+No. V5 patch 2 makes sja1105_extts_enable() select the pin function only
+when enabling EXTTS. Disable still clears extts_enabled and synchronously
+deletes the polling timer, but does not reconfigure the pin. The fixture
+executes the actual functions with stubbed configuration writes: 14
+chip/direction cases, repeated disable, enable and error paths pass in
+100 runs. Restoring the unconditional pin change fails the negative test.
+
+> Where can these tests be found? They are not part of this patch or the
+> series, and drivers/ptp/ has no KUnit infrastructure.
+
+> Could the changelog name the hardware that was used, or state that
+> ptp_ocp was not tested on hardware?
+
+The public package, pinned to a Git commit, is here:
+https://github.com/Time-Appliances-Project/Time-Card/tree/c889b25e9ea175f64dd811457f8f2c3d29512e45/DRV/Linux/tests/common-v5
+
+It contains the source-extraction runners, complete C fixtures, KUnit
+source, Makefile integration patch, KUnit configuration, build commands,
+the submitted v5 patches, checksum manifest and result logs. These are
+out-of-tree review fixtures; the integration patch supplies the missing
+PTP KUnit build entry. The documented source preparation checks the
+complete resulting tree against the exact submitted v5 tree.
+
+The original run passed all eight QEMU KUnit cases, four targeted
+x86_64/i386 allmodconfig/allyesconfig PTP/SJA1105 builds with
+W=1 KCFLAGS=-Werror, and 100 cleanup/shared-PPS model runs. I also reran
+the published model runners and all 20 negative variants on macOS and
+Linux. A fresh checkout of the pinned public net base plus the supplied
+v5 patches reproduces the tested source tree, and all eight QEMU KUnit
+cases pass there too. No physical OCP/Time Card or SJA1105 hardware was
+tested for these fixes. The userspace models stub MMIO, IRQ and timer
+behavior; KUnit uses a synthetic clock. No physical unbind/rebind,
+PCIe interrupt timing or SPI validation is claimed. V5's messages state
+the software-only testing limits explicitly.
+
+V5 series:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com
+Patch 1, runtime serialization:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-1-ahmadexp@gmail.com
+Patch 2, SJA1105 prerequisite:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com
+Patch 3, timestamp teardown:
+https://lore.kernel.org/r/20261123-timecard-common-v5-d669cfa034-3-ahmadexp@gmail.com
+
+I have kept andrew+netdev@lunn.ch copied here. The v5 series used
+andrew@lunn.ch; sorry for missing the netdev alias in that posting.
+
+Ahmad
