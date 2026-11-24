@@ -1,94 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.56
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795528520;
-	b=U+rQEEFwv9VXw92Qw1gtsPo0UDmweVNCs24OEtBC+eYZ2ZYwdddbjuhlcc+GdnGtCNwS
-	 /rZj5yQ+t1nTP5YJVinKyGBv59ZUKL+KiR94pTX9pW090xgHCIKHjeXk1yVkBWF77Y2FA
-	 wNk90RqlCRrL6aClXBW9E1E9EjvoGUEEWujIE4Fte3fV7vp/1Tf1cLCXE3LtTY32J/JAb
-	 ShgGksxwkwPSs2sLLqAE2xK2Bh+Q7n3hw7wRLkuOZBi1mD1fB/ZMHhMkxoLuDcJEdAQJ7
-	 XfyFphwS46qrY6Gp1LB/B3grKu/6Gy18n8XOVytMXzG9spj3iavLzhv86+39qiIT7BA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528520;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:Content-Type:Content-Disposition:
-	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=OCVPCWRhci0rtmjRqh+iK/91nx30d3Qmj4pm8HL30xY=;
-	b=elXD5R+7w1BrtBPIBQp6MSlE2U6oPPUgHKND4zQKSjxz4lVNpCwoRfQ6E+rbTNKT11Q9
-	 GVLbiKEVF7Me1nEN6JUd8pnwBzExOFs0q4Tv9B7kWXpZH6Faqd+3xlXM9gzlNVfdDyvgO
-	 lC9Sdlu5g4KdCQjzWh+9cy9CNHkZhlPJhKGm1upEBcL8riRfP9y3ih5I5VFE0L/q6gS/b
-	 bsXXwlWUxCqxw1yCwl0TTXT8Pk2k2UFMdA5MWW6fSVwpPecCIbMdlPQF5b2O2na31XuIL
-	 F6WIS5pzosxEZl6u6dGOFRs66+LB9MTKl3SaCW1tsXTGugMOE4WOvDfPkzAZWxqZoPA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="HQE/lxZC";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.56
-Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010056.outbound.protection.outlook.com [52.101.193.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795528530;
+	b=ZZRLSdKCEr0gs4JUFOk2Xta/xPdjGWE/Gp365IMnHCnhc1Q7ap80YT5EO9XFm8bNUsZN
+	 Y5Opdy04i1T58RRulYt4leW8hftYcwuycv9S5ygUDWGW3nWVVLGMlF6hGh0UnS6l0daNS
+	 67xnsJmvxidYmdEQj7wBrPgFgBLwgS0N8UPbkjFN1oPbCBYuNY1ENqH1zkWK1vlsLt8Am
+	 /zJmnlmyrTJGr8m4Cqn7GJOdznu+wnmV/71+d415MEwuf4FkdNhGto1E4ISH4sgUaBG/e
+	 gZ/hBSIrlZ1anX6SzbbxfwyPvur4/cYbWrl8SZbPQYwRaCJSLAee34mqf3KInnEMlvA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528530;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Reply-To:Subject:To:Cc:References:From:
+	 Content-Language:Organization:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=I1beTTuDkHcJrFtkrdIEDwGOge1ar4jfKSDiYm+SAes=;
+	b=G3SL2ykWynZhI9oRNxZyKcxEyavb+93o5Olpo6z9RzMfhJeh6Y4lSfy0uW4Iw7JBXSvT
+	 iujDQ5pPr2rz0kXesOfoq80XUaDeLFQJ0OqRRvRwNjdygwLSqLDQGz7cBLzSagnUUJqoP
+	 67lB/IpYff+cUENZIu/3RQU0RTsUZlwsItIFIFfzl7KTQB/rT4hiu8RFlBlW/XldUJpn0
+	 N6CqInhCS4xtOdpTev6VqrEoSd0QETlwSyFIt2pOLQ8eheuwbVM83jzo9BtcIa5jA8dB6
+	 xWmmiU9fjBxLL36aYfiTzlKhAXgaCQTo4qJfQwaBFtFieuv35WffpsPEqdK4aRVNzVQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=6wind.com;
+	spf=pass smtp.mailfrom=6wind.com;
+	dkim=pass header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=Y2bsdeUG;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6140E606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:55:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6140E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C811C606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:55:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C811C606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=6wind.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=6wind.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HQE/lxZC
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wIwj4csW2uzVivddRAH6LeMiQOtmbojBv111J+kfXBRuKSS/nYD3QY/6qroCwGBjNiX5wl5XcewNfyVThb2gk4ke7rdcXCzCqLHvk8lz21y+9MiClFSmU3wrfGwKC39ef+Q84QFnDiy2+qJOc0+r/N7pc2duotCFlWks9ZOCvQtXYsCcHeJbiZeZxtKWGklJd85eRu/LB4FTHvwFyC6jdr31Av6f22F8bQWKtIyT2SiFn5wD+KOhLG5vGOQudqlfcpsHYLvdPN69Fjo9EGumzk5pikaie1Kg0sAFdMheep+oRBXdWvEC0O7Lff4zrwrgaZVMJ3qfoYfLlbx8IVwGgA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OCVPCWRhci0rtmjRqh+iK/91nx30d3Qmj4pm8HL30xY=;
- b=uboSdxdjMBsClaECXmwM843iPQblNW0jhAEfxryigyMc1f8ySsNNnmJ7tMJj2DIp8bHdRSXjZkkR+9iWwWOWKgHmpZHyjihexfBKSPS2m06gnbewoozmwlqHWhE1CutECrww1E1vHLRhAiVb9ABWiVXN4x4elbxP7ok/lIh9afdsbLG5dCWgr4UgUtmSWHVTDfYRSWP1RwFttxGke0HGfYX7JBCmkj4T4eOYuwXmxkyqS4sBfUb1ch4M+KODk8vBxz5w9W06FSXvRY1V8JTODK6QV2aN3h2oQ506GAMtiR71a1hAHOQJmA+YuO4l5FVD4GfwECufXSqxZB/vQkAexg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OCVPCWRhci0rtmjRqh+iK/91nx30d3Qmj4pm8HL30xY=;
- b=HQE/lxZCHs2X1jNvYu6Zq3cOXqrwP6qA9coy3c0RIgsbjjP/mFqqgtM0tojFby37ULW+TLp1XWRIUHsjOWnButUm4n9l//J32qkTSX4gXx9RkJbudUVE3bYD9LYfV1x1mxRPhw6Bjy/AljspUA9qvcPGF2MNuvyVqnNB8tANBklx4c21cUGrgynYG4v/WMStvWAdVVLLOJif46R8U6FrsBsdJl8uidVIQzvdFg69q3b7Cpn0tPmPPemgEtVD6CkWiZIHbvavyZhdyVu7AYxG7OW0sBTZ9RSayuNd5OdGk/4EgkBzSyFwhFwNK4FXuL0s0uC7GMze3/CKJXPrUCnhVw==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from CYXPR12MB9385.namprd12.prod.outlook.com (2603:10b6:930:e2::13)
- by CY5PR12MB6250.namprd12.prod.outlook.com (2603:10b6:930:22::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Tue, 24 Nov
- 2026 13:55:15 +0000
-Received: from CYXPR12MB9385.namprd12.prod.outlook.com
- ([fe80::f8b:8279:83a9:3591]) by CYXPR12MB9385.namprd12.prod.outlook.com
- ([fe80::f8b:8279:83a9:3591%3]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 13:55:15 +0000
-Date: Tue, 24 Nov 2026 15:55:06 +0200
-From: Ido Schimmel <idosch@nvidia.com>
-To: Nikolay Aleksandrov <razor@blackwall.org>
-Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, bridge@lists.linux.dev
-Subject: Re: [PATCH net-next 0/3] net: bridge: optimize vlan multicast
- forwarding
-Message-ID: <20261124135506.GA3882860@shredder>
-References: <20261123102833.924427-1-razor@blackwall.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261123102833.924427-1-razor@blackwall.org>
-X-ClientProxiedBy: TL2P290CA0009.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::10) To CYXPR12MB9385.namprd12.prod.outlook.com
- (2603:10b6:930:e2::13)
+	dkim=pass (2048-bit key) header.d=6wind.com header.i=@6wind.com header.a=rsa-sha256 header.s=google header.b=Y2bsdeUG
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c408e21e8acso74159066b.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:55:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=6wind.com; s=google; t=1795528527; x=1796133327; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=I1beTTuDkHcJrFtkrdIEDwGOge1ar4jfKSDiYm+SAes=;
+        b=Y2bsdeUGRkhvEwUU7zA+Ccwi7nQaUwSHzxZBaZ4811Twitth90vemfuauNp3AqPTj5
+         FzQ2ayO2yIqj2+f5itd7nxfGgGmg46Y42OdYNwLVeKI1BvNLReA7ROzQg5P5QM1jfE+x
+         ERu6bMFz1PNLPKVM/wxS0Z1Ggk2SW9lhivGplwZnVpSMC5fdYcuB/Cn9qGdq4URirwED
+         van4HZN7J1SKjJ9KU/JspZfLnbHYMonP2cokgyoMnPREAQDWLkuFpvMwLbwyKFxv/WZy
+         DH7TB2xui6Lg3bS8WmzuzW2wxpA7MXXUCrNaKcxy+XTz28I3PPQMyWL6amYPir4Ud9ax
+         32Kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795528527; x=1796133327;
+        h=content-transfer-encoding:content-type:in-reply-to:organization
+         :content-language:from:references:cc:to:subject:reply-to:user-agent
+         :mime-version:date:message-id:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=I1beTTuDkHcJrFtkrdIEDwGOge1ar4jfKSDiYm+SAes=;
+        b=y3c9APobbxmxt6Vq1Dq0ZOSOoW95FUJj58SJ8MlomSBtF+XxBW24D72SySo6mqhB7m
+         d8C+7Ac9oNlIfw4ZCyfIu51WKwCVLvh6uoOOLaDW610JXTNyQlk3RfXwxNthgMoeRKQ5
+         Abyh+/d4XT+mUrDrfmQraBKOXAUV54fQEf6pTYJPdujHR23R/cqOxP8r3Kzx8eERPXfT
+         tcQaqTfSdlUz/9+AfYAPRG7OpfKQ7kvoFHAZHRTpzWt8BKw217/SZwAYaHchqaqdImuu
+         hT6LZ+wKShobbKwI43clSLwdxP/YLjh2fKOGjzMhLvw1NuK8ILTJgB92o6Z8H2kG6voh
+         OWOQ==
+X-Gm-Message-State: APuU4Z8y8XSx5WFYtlXqcb2X9idfsrYNMIRO+ayeY7Uuu2Ut+uHQ5SzA
+	OwkGzwlORUsOmog90WA+02l39yjtzyQTwRtL1j0shAsYsJunpNVMi7DsTmM2rzQ0HLaKPKQ6obb
+	fSnTK4pU=
+X-Gm-Gg: AZFdTZcKk/zFVZD9gukGte8M2GhGhuSPInuZxJmvh8KqbKyvJetDv2xf2FPT4hH4KLN
+	FxShHJYbd0pWn0P0xqqdXnz5WQ/LguGlCdVgWx7XPxJsiP1f9l7ape5wLeURSNkj7/RTn7qzVJe
+	Iz6kTzPauGdLQHKOpp/4PChkWzrDynO7oUyzCcHG26P6GPypOv+o5NN+FOLpELyjqldmGUi9bHe
+	CuPKq+Wbl7ppG6hI7SuI2Y+pJc+MPbltj4pTPaxmLwmTX+d1v/nLp9TCc0AmlN1ual9c47D20Rj
+	YymqpyKsGhIbkwdjzM4UztTgxSg6tuC7CeQm8t8gaEoFbFPxYmAhG0IX8AOTadh310JdkhGrZXk
+	RExYfwgi25aUCYJuofZFIKAqbfiObgAlDVmYIhLh4C1fjFD26AM9tGIEcl33DEjlUT4dJLqY0wY
+	EQrRSumla2GWaTbdjAEcLoB64nYB3O9GpMmRZXGVIoBiCXKWtndCT9HM2eOHbaedn/LblkX2sve
+	2MMsH9i/CqlODNykngK1XF74oi19c9umL79y82H0lVvnXyLYaloiEuS/BaNrMhCzfRkBt3xACKh
+	UBUJMWlzuHUm8gEwckBdb10T4nFVXRIRLB8+ZQOmYPQoDt0S+OfpHT3BsH17KOsyEHle74QNi1v
+	grCkSOQCnt1bd0ojGRqqJfQUkjwg=
+X-Received: by 2002:a17:906:2b5b:b0:c29:4634:5c8f with SMTP id a640c23a62f3a-c513a284994mr1056327766b.0.1795528527042;
+        Tue, 24 Nov 2026 05:55:27 -0800 (PST)
+Received: from ?IPV6:2a01:e0a:ab7:2110:6a1d:efff:fe52:1959? ([2a01:e0a:ab7:2110:6a1d:efff:fe52:1959])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513ad01afbsm518330366b.5.2026.11.24.05.55.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 05:55:26 -0800 (PST)
+Message-ID: <8f0c4cb5-8754-4636-abdd-ccec7ad5d932@6wind.com>
+Date: Tue, 24 Nov 2026 14:55:25 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,74 +93,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CYXPR12MB9385:EE_|CY5PR12MB6250:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b956afb-2c2e-45d1-de32-08df4a3290e8
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|366016|1800799024|376014|23010399003|22082099003|18002099003|11063799006|56012099006|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info:
-	u0PT32YSZUecQ8SFzu2CkEuytwfujLfXkbKfwpM/LZLH3e+1USLAn2+MzWceum4atIHGacYw2r8biRJxfrAo+7po3yr0G4MPi5qsxNz8fCr4qdGx7gcr4QYPCvgQhVrCXoDX9tSNIzD7M/zdEu/JdzuTkikboEus/SZ7DNc0pcEDzYuHb2AU8ealF8eK4kobjZ3TS/wVzGnQkZRhTSfxH9IEnLuuhmOCRe1xnR2c+OAiPj6Zul9Ho/yB07lhCZPRTM7hsURbviL3XWzIZ5BKzEa99/htBvpt9zkJovf8pqgpDClKuL8UsXPZaQIQtVjg2ZAXwSbxT/EImnVJZ4fBxlrx1zf2JTVesY4cbo0uLprs6TWfI3wZx53N2LDHRRL7p+DwAaBdE4yWUmUHWs8LsCu7F7Ohq6hvSBCzeVInxramuInj8LC3rr9cb2tH/S/FIi0fB2aq9kXPFBwp0IF0kqKNoPpCvD763IAA+kjo4a1tPGBqqtXWQNd5ZTrAo3BKVugrf1ONJiqqVTs3mWv7a4Ii8a4a3/haN94QJjfgDkL0KCH81FHMaaVuD9icglk/TpM2Xn4sWY68HoQXRHGH9H91fRHqgKBKy1LxAm2HkDwZ8O5Z1xAZYcq66vPigVfeXex6s51royGevzQWsajZ0zzIWbl6dfNH01h3KDHsR3I=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CYXPR12MB9385.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(23010399003)(22082099003)(18002099003)(11063799006)(56012099006)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?v1aqGRNLgmbJ9YmM3iqYBYXRdv9h1CLCvihChvDQBL6jCVYtUVHt7I++dNQn?=
- =?us-ascii?Q?Ivo1wVEMzD8BLJJYcWWGNqUw+LJ0tSIoXiqDDv6Axz6C+vC59xwvWb1swxw0?=
- =?us-ascii?Q?1Rw2Eh/RGEmZsfsTD1WmbVbmlkMSwQQWq7QO4F835FcGGmC5QJusgKVrBeIh?=
- =?us-ascii?Q?f8Pzcs9k4mUUzbdIYT1yaERCBQOCnkVhbawLOoIrqplL8lZCYUKNbD8krYCt?=
- =?us-ascii?Q?97cvDikGFRZE2Vlp+oiIoO11M7XTyxzL+QZ7n2ruoq8rV6KVln74vlZILEkD?=
- =?us-ascii?Q?LXYaOBBwr9rGk28NjNzCVm8OwvGoLBnXIxm+qgn1F0Vy4bdlJWlmPOEW3yKL?=
- =?us-ascii?Q?WADV9SNweMQr7EFSz72DNanT3kg4Z4q7/9Hm6Zw0buTVHsWEkXfx33oo3SEL?=
- =?us-ascii?Q?+HzXCUNIipm+V9uX1qJLevdwvbXsZJdBoK5GevJug4ZNi0maQzh5UHLXr6CI?=
- =?us-ascii?Q?gFnyTZvWAbPzwRuLWbWbY+yyoBHFzQaxieMKW/zGIIc6k8Q4MFwvcXl+kmFl?=
- =?us-ascii?Q?R8Ah+irrYtyE0qvIYsQX0P9TJXypRwnkCpNyh02elNtJOb1p+SgG6Q9ZIUC/?=
- =?us-ascii?Q?JVhWf75y2YX/5pAXYWx4zkDEAJFkwbmq7phZg0qUjOMVRBa9m5KuJyUjMgt2?=
- =?us-ascii?Q?2B0VSWgN/h9Ibjqb2LCINlEYGlZuiuuEtyHNOnRMGkuhUy44Rh4dHnt2PP1r?=
- =?us-ascii?Q?bja4uEImAPtJRczyelOHiM2HNmRXXrV86t/AEKYNeJ/A/DUiqffN4+Txy1WV?=
- =?us-ascii?Q?T8rhuqAWsfaHyOhYTTCGyhl9gpwTCcuZwYDcf6F/bdPI5ai2BB5eq3Ktc0gb?=
- =?us-ascii?Q?UVjAoC9sBaN7zBmm3t8ZKAIrckhC5f9ls4CZQjlHvYgiGCYOus7S+RrnB1RK?=
- =?us-ascii?Q?TK/92YSbXwy2GimWAX1uzMEBiaqu0HTcu0Q68FNHkuAObxECZGMDvd2ZGk8t?=
- =?us-ascii?Q?Y/RXUmEA9WvEol6gzCwZOpNEJ84yyFhYYzgUXfzbf1uSMme7+fZNxvjA6DDG?=
- =?us-ascii?Q?Ngsd6ETxlJ1T3M5RwHM21S2W2r7c4PMEmJGGbodsVAKFoqGR+irDj/1da9io?=
- =?us-ascii?Q?CF+OLMhFtaqL1QMBwGyhccWfa5BBTHMEpACYtPdfvyNBtbhV8VCf6KRzy32p?=
- =?us-ascii?Q?wN4NHS4U6/Nehwy+qFj6OOsEnwXFiQOuTc8Q5x1skdaSXIWornMR/6mA1Brc?=
- =?us-ascii?Q?Q2uac14ZTLJnnG7wdFjZgF/3IEafR24rX3Yb/BtD16uT6ObDJVpdL5NAiHq1?=
- =?us-ascii?Q?MWDmmx6BT/Uv3HUTEnv41uEK4opnDLDnX2TfMlHET2/n6/ECsV9eY88zTYJq?=
- =?us-ascii?Q?oxLDLkcNvYqKmpC7DOW1Iw5+cINsTUh9ZZApD1kj+teZLey2P0QPkIk34mcO?=
- =?us-ascii?Q?SejFTiablS2oNrKDWQBuC+muDRyRc52PfqR7Zm+DonZEfitkPSshUFc0x6+I?=
- =?us-ascii?Q?44VeBExVqWb7gC/XGbTc4NcpnfQnZPxseZNtrGcaFH03SYDQl3bfvPyEzQ3p?=
- =?us-ascii?Q?fKbVDnqilwEId6J09PR8+TgbyFsUckaWCJ4fJWCCC3FCcWikRZrgLOhoH/0D?=
- =?us-ascii?Q?0GXmjBVMJL1NoSJq7I2KdzkbK6teKvpjxrmSt8nZK4KTdDEx1Uzt+wnidQZd?=
- =?us-ascii?Q?O2ZEvWSj8O2xNX90FHtEOSnqMfF3mJfl3bxwTgnVY6ikNjzEkuKwYNyNDDXZ?=
- =?us-ascii?Q?f8avaHmSyXClQPiO2bCkLpnzsTTkUqTIf/LSB4tvnhtYjhg7?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b956afb-2c2e-45d1-de32-08df4a3290e8
-X-MS-Exchange-CrossTenant-AuthSource: CYXPR12MB9385.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 24 Nov 2026 13:55:15.1646
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: N70cpkjnucQwb5edAZPDmCGSC7E4+znyQKF/cbOtWgEXHW4HYEWEfMLhYmU/ETRXe2je9fEGoG2XVPESmLC8gw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6250
+User-Agent: Mozilla Thunderbird
+Reply-To: nicolas.dichtel@6wind.com
+Subject: Re: [PATCH net 1/2] ipv6: check the scope of the best source address
+ candidate in a VRF
+To: vjardin@free.fr, David Ahern <dsahern@kernel.org>,
+ Ido Schimmel <idosch@nvidia.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
+ Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ stable@vger.kernel.org
+References: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-0-f667ab150ade@free.fr>
+ <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-1-f667ab150ade@free.fr>
+From: Nicolas Dichtel <nicolas.dichtel@6wind.com>
+Content-Language: en-US
+Organization: 6WIND
+In-Reply-To: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-1-f667ab150ade@free.fr>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On Mon, Nov 23, 2026 at 12:28:30PM +0200, Nikolay Aleksandrov wrote:
-> Hi,
-> This is the last part of the patch-sets that optimize forwarding by caching
-> VLANs. It adds the forwarding optimizations to the bridge multicast code
-> and also optimizes vlan range add (see tables below).
+Le 23/11/2026 à 15:30, Vincent Jardin via B4 Relay a écrit :
+> From: Vincent Jardin <vjardin@free.fr>
 > 
-> Patch 01 - use the vlan already stored in the in per-VLAN router context
-> Patch 02 - use a small hash (64 entries) to find the port vlan groups
->            without walking all
-> Patch 03 - cache the port-VLAN destination in mdbs to avoid egress VLAN
->            lookups
-
-LGTM. Patch 3 would have been a bit easier to review if it was split
-into a control path patch (adding / updating pg->dst) and a data path
-patch which decodes pg->dst while forwarding.
-
-Reviewed-by: Ido Schimmel <idosch@nvidia.com>
+> When a packet is sent through a device of a VRF, ipv6_dev_get_saddr()
+> first checks the addresses of that device and of the VRF device.
+> It stops there when the best of them has a scope that fits the
+> destination.
+> 
+> Since the commit abb9a68d2c64 ("ipv6: take care of scope when
+> choosing the src addr"), that is what the scopedist of the best
+> candidate is tested for.
+> 
+> scopedist is only written when the rule scope compares 2 candidates.
+> With a single candidate, the rules stop at the first one, which only
+> tells that there was no candidate yet, then scopedist is read without
+> having been written.
+> 
+> It is 0 with CONFIG_INIT_STACK_ALL_ZERO, which passes the test:
+> a device that only has an IPv6 link-local address sends to
+> global destinations with that link-local address,
+> although another device of the VRF has a global address.
+> 
+>   # ip link add site2 type vrf table 30
+>   # ip link set site2 up
+>   # ip link add dummy0 type dummy
+>   # ip link set dummy0 master site2 up
+>   # ip addr add fd00:91::1/64 dev dummy0 nodad
+>   # ip link add dummy1 type dummy
+>   # ip link set dummy1 master site2 up
+>   # ip -6 route add fd00:93::/64 vrf site2 dev dummy1
+>   # ip -6 route get fd00:93::1 vrf site2
+>   fd00:93::1 dev dummy1 table 30 src fe80::5cb7:13ff:fe96:87ac metric 1024 pref medium
+> 
+> When the scope rule does run, scopedist is negative, whether the scope
+> fits or not: the test fails, and the other devices of the VRF are
+> checked too. One of their addresses can then win on a later rule,
+> the longest matching prefix for instance, over the address of the VRF
+> device, which the first lookup is meant to prefer.
+> 
+> So let's compare the scope of the best candidate with the scope of the
+> destination instead.
+> 
+> This issue was found for a development of a UDP tunnel device with
+> IPv6 addresses in a VRF selecting an IPv6 link-local source
+> address for a global destination: then it was confirmed with the
+> fib_tests.sh case of the next commit, whose first two checks fail without
+> this fix on a CONFIG_INIT_STACK_ALL_ZERO=y kernel.
+> 
+> Fixes: abb9a68d2c64 ("ipv6: take care of scope when choosing the src addr")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Vincent Jardin <vjardin@free.fr>
+Reviewed-by: Nicolas Dichtel <nicolas.dichtel@6wind.com>
