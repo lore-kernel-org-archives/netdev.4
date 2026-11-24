@@ -1,71 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=52.187.6.220
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795484336;
-	b=nTkpxPfUjgho+aPA681c4NQo49UHoRktbSgQPZWBXY8B1+OxgTBTJ9kUNRM2ShhqXxY1
-	 sUI+vWvS9IuNhqiQJCJMlc/FHZK31YnJ2G9VBJa4jGc5s3y5xoNYOm/qQUIivZF4cuxwb
-	 U6pdAE3KHBIgFfiw8wr+RBKrrBF1EawsJsqhbm95Wt8aLSrx8zzkV1lqfYsEOoAZxkgyp
-	 euAVJ3uEifT3dMQ8sMC4n1Dih3zfvUVSOhwm7tm+foNRTYJ4gVSWeaJ2774fNdIs1vccS
-	 X6SaQ1HOTHsw38VXCwsnJQY1YweA6nEDRs65LHXkLxnTO92UeLYfFA/KiVonNn/twjQ==
+	t=1795484605;
+	b=jjE7riQsuJ1hp2wz8iB+40PtMn6SXtZh/PRk+iGNELTNCkG+pCjE81SrIklh1zr6xhYz
+	 X61LOCn3Wqh+1F+m2aW/HaELW6TQ9b2LrQcofOkaExMBroYMHMfWdwcmtiS+AnzTPyB7d
+	 iX+mR6jJcZNQSJi2ofejzzRY+fCoGxehKTPBVj4t6FF39nrBlLUPQzyhL6sK6+8YMn6xm
+	 bD4+k9BmLwGqriwJfBPIA9LJbgyLmU+Z0qLEnkVPT5g8UUViAAyihCvZY7LB+LtjaFbxN
+	 zI6J3YkUuSxgUWQ/SNKIKk/v+UH5NvtSBpMftUxV0U+uZr1ZWQ/9ZBkuUbNwcd3hUQQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795484336;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=UrsxTwQWNnPxqy/+u/D6/SODCBpmj/qInDB3Yqh00ck=;
-	b=UIRjDMZ6vhCXPm33XvyxJYa+yWOe0V4yEz5KaSMbDaYdjdwsTiLHwXM/OGgwVvE3p2Kx
-	 In2DLRYG0G63gbA11KhZh8ogQDT0k0i31b++CQVb9ZdTsQB8nzex+5a4/iPBxbkhJFcxM
-	 s68eu/g423h5ZpgIbrFLHXdMO2rFNzMLYUTK16MWJZHrqxkWRNfyMZz4CNj/cu0gbUONN
-	 hSAB0QYkx0gPvW05vLHkVV9Txhl45kGzF1SHzfasCs9+IlvK/p5MmW5kXLDFZeoHg8BIS
-	 N5lucpVGhGG49fsj2Sbp3CgzUy932ypPiLjt0gG5JCM2i0VJUOqMVvbqTAE25jlEaLg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795484605;
+	h=DMARC-Filter:Received:Received:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-CM-SenderInfo:
+	 X-CM-DELIVERINFO:X-Coremail-Antispam;
+	bh=jrkyD4ckKisxzlyAtHxzTitUA1mJ/aXH0LLP9Ky9BdY=;
+	b=gxoZP4oSC+eJqxDO5mayFy9YoSPMA5WSLMTzDKIkN1C1wiPHNOxRQOrBLn9mExqwwVAX
+	 4SLxXuEG9PoanemM3eQamCdMoj8IEAASGyywWwgXQGiso6roV01JOLr8aOJyli7TQEp1F
+	 xFcB9VpBCpC4bNblstBF1iZkj3aTqq/n/IYtLtUj8BvSDalUrc6nCDeEYlJdIvRQTO7bA
+	 gLoRzhIhB3lZsQ7HPDDzQwhl4Ed0+uexItxNYUT8bKDAUYUAaKeWi6Zpf4JQjblW2Bs6Z
+	 inkErA5O1VVQf152K7t84YREyYe/8CUKIqRcEQ4+zVmxnkL2dOMhmVR7fdu9aiQP+uA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=z4MjaWR9;
-	arc=none smtp.remote-ip=111.22.67.137
-Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 663C5606A31E;
-	Tue, 24 Nov 2026 01:38:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 663C5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=z4MjaWR9
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=z4MjaWR90MXKBH3gOd6AZHLAwhyV7lkVPn4IkseHF4mAG0sspcNNXj7l5PyCIsLucjcgCIeIo/yy+
-	 Fgh0BU6iQZBAVQrhtA+TiomwiUvj9UUmfD2zc1HFnGHi5WpTC4dOZEMJC41SkhD5lniiAWkdYqLzXm
-	 uFKzTHZD5kn96bJM=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b04eaac59b-e1ec6;
-	Tue, 24 Nov 2026 09:38:53 +0800 (CST)
-X-RM-TRANSID:2ee86b04eaac59b-e1ec6
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
-	by rmsmtp-syy-appsvr04-12004 (RichMail) with SMTP id 2ee46b04eaab172-0e260;
-	Tue, 24 Nov 2026 09:38:53 +0800 (CST)
-X-RM-TRANSID:2ee46b04eaab172-0e260
-From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
-To: andrew@lunn.ch
-Cc: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>,
-	chester.a.unal@arinc9.com,
-	daniel@makrotopia.org,
-	olteanv@gmail.com,
-	sean.wang@mediatek.com,
+	dmarc=none header.from=zju.edu.cn;
+	spf=pass smtp.mailfrom=zju.edu.cn;
+	arc=none smtp.remote-ip=52.187.6.220
+Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [52.187.6.220])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 5929E606A322;
+	Tue, 24 Nov 2026 01:43:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5929E606A322
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=zju.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=zju.edu.cn
+Received: from zju.edu.cn (unknown [123.60.231.41])
+	by mtasvr (Coremail) with SMTP id _____wA3MH+n6wRrUrkvAg--.6271S3;
+	Tue, 24 Nov 2026 09:43:04 +0800 (CST)
+Received: from ubuntu2404-234226.. (unknown [123.60.231.41])
+	by mail-app4 (Coremail) with UTF8SMTPSA id zi_KCgAnOaCi6wRrdtn0AA--.15511S4;
+	Tue, 24 Nov 2026 09:42:59 +0800 (CST)
+From: Lin Ma <linma@zju.edu.cn>
+To: netdev-bot+sashiko@kernel.org
+Cc: David Howells <dhowells@redhat.com>,
+	Marc Dionne <marc.dionne@auristor.com>,
 	netdev@vger.kernel.org,
+	linux-afs@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	netdev-bot+sashiko@kernel.org
-Subject: Re: [PATCH v3] net: dsa: mt7530: manage the core and io regulators with devm actions
-Date: Tue, 24 Nov 2026 09:38:51 +0800
-Message-ID: <20261124013852.1101-1-laixiangwu@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.50.1.windows.1
-In-Reply-To: <426c9bff-1928-4829-a3e0-dc021e4c783e@lunn.ch>
-References: <426c9bff-1928-4829-a3e0-dc021e4c783e@lunn.ch>
+	Lin Ma <linma@zju.edu.cn>
+Subject: Re: [PATCH net] rxrpc: Fix missing lower bound in rxrpc_resend_tlp()
+Date: Tue, 24 Nov 2026 09:42:08 +0800
+Message-ID: <20261124014208.4145069-1-linma@zju.edu.cn>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <179544218224.3135.17101952241323509354@kernel.org>
+References: <20261122135515.3989708-1-linma@zju.edu.cn> <179544218224.3135.17101952241323509354@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,60 +58,49 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:zi_KCgAnOaCi6wRrdtn0AA--.15511S4
+X-CM-SenderInfo: qtrwiiyqvtljo62m3hxhgxhubq/1tbiAwAMEmryeh4flAA9sX
+X-CM-DELIVERINFO: =?B?QZVQRwXKKxbFmtjJiESix3B1w3tPqcowV1L23Bze5QtIr9Db75bEBiiEybVhThS0pI
+	APHnkvfpsecr7gZmVpD/pedGedjdVxmRfghIOn9fHVZS57XVpGu+XGS3B+/7X9ScIUU+Gl
+	RlgHvBPCFfoGbpgiFIvf6+PTO2ODNQDeBCya8nctNquLKLixujjCyQ7sWCspgA==
+X-Coremail-Antispam: 1Uk129KBj9xXoW7XF1DCw15tr1Dur1rAw1kJFc_yoWDXFX_Wa
+	4Fk34qqw48XrW7Kwn09a1UurWSk3yUKr95JryrJr93Xa48ZFsxuF9YgrZY9w1kKrs8Krnx
+	CwnYqayakw17XosvyTuYvTs0mTUanT9S1TB71UUUUUUqnTZGkaVYY2UrUUUUj1kv1TuYvT
+	s0mT0YCTnIWjqI5I8CrVACY4xI64kE6c02F40Ex7xfYxn0WfASr-VFAUDa7-sFnT9fnUUI
+	cSsGvfJTRUUUbsxYFVCjjxCrM7AC8VAFwI0_Gr0_Xr1l1xkIjI8I6I8E6xAIw20EY4v20x
+	vaj40_Wr0E3s1l1IIY67AEw4v_Jr0_Jr4l8cAvFVAK0II2c7xJM28CjxkF64kEwVA0rcxS
+	w2x7M28EF7xvwVC0I7IYx2IY67AKxVWDJVCq3wA2z4x0Y4vE2Ix0cI8IcVCY1x0267AKxV
+	W8Jr0_Cr1UM28EF7xvwVC2z280aVAFwI0_GcCE3s1l84ACjcxK6I8E87Iv6xkF7I0E14v2
+	6rxl6s0DM2AIxVAIcxkEcVAq07x20xvEncxIr21l57IF6xkI12xvs2x26I8E6xACxx1l5I
+	8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AK
+	xVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7xvr2IYc2Ij64
+	vIr40E4x8a64kEw24l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2Iq
+	xVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r
+	126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY
+	6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67
+	AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r1j6r4UYxBIdaVFxhVjvjDU0xZFpf9x
+	07jj7KsUUUUU=
 
-Hi Andrew,
+Hi,
 
-Thanks for the review of "[PATCH v3] net: dsa: mt7530: manage the core
-and io regulators with devm actions"
-(https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com).
+Thanks for the review.  Both points are valid.
 
-> > Move the enables to mt7530_probe(), right after the regulators are
-> > acquired
->
-> Please add an explanation why this is safe. Since the original code
-> did not do this, there might be a reason it is done later.
+The High issue is correct: the new lower-bound check only covers the TLP
+fast path, while the root cause is that rxrpc_transmit_fresh_data()
+commits tx_qtail and tx_top before rxrpc_send_data_packet() has
+succeeded.  If the wire header allocation fails, tx_transmitted lags
+behind, and the next iteration can index a new segment with a stale seq;
+the LAST-packet case can also leave the remaining range unsent.  I will
+fix the tx window state update/rollback rather than only guarding one
+consumer.
 
-Done in v4.  The short version: nothing accesses the switch between
-the enables and dsa_register_switch().  The reset line has been
-asserted since it was acquired in mt7530_probe() with GPIOD_OUT_LOW,
-so the rails come up while the chip is held in reset, and
-mt7530_setup() still releases the reset afterwards, unchanged.
-MT7621 has no such supplies (skipped by the ID_MT7530 guards) and the
-MT7988 MMIO variant has no regulators at all.  I could not find a
-reason in the history of b8f126a8d543 why the enables were done in
-setup rather than probe - it just grew there when the driver was
-originally written.
+The Critical issue is also real: ACKALL rotates the Tx window and frees
+txbuf slots up to tx_transmitted while tx_qtail still covers them, and it
+does not update acks_hard_ack, so TLP can still select a freed slot even
+with the new check.  I will cover that path as well, either by keeping
+the Tx window state consistent on ACKALL or by making
+rxrpc_retransmit_data() tolerate a missing txbuf, and will send a v2
+series.
 
-> This is maybe one case where devm is the wrong solution. Please keep
-> with the normal way of doing cleanup.
-
-Understood - v4 drops the devm_add_action_or_reset() calls.  The
-enables stay in mt7530_probe(), but a later failure now unwinds with
-plain error labels, and the explicit disables in mt7530_remove() are
-restored.  This keeps every failure path balanced: a failed probe
-always unwinds (including -EPROBE_DEFER retries), and a switch that
-stays bound is disabled exactly once by mt7530_remove().
-
-> > Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
->
-> Who does this bother?
-
-Honestly: nobody has reported it.  I found the leak by code inspection
-and have no MT7530 hardware.  In-tree, the boards that wire these
-supplies are the MT7623 ones (mt7623n-bananapi-bpi-r2 and
-mt7623n-rfb-emmc via mt7623a.dtsi), and they connect them to switchable
-MT6323 PMIC outputs, so there the leak would keep the supplies on
-after a failed probe and trip the WARN_ON(enable_count) in
-_regulator_put() when the devm handles are released.  It is a
-robustness fix rather than a fix for an observed failure.  If you
-prefer, I am happy to drop the Fixes tag so it does not go to
-stable - your call.
-
-v4 is here:
-  [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and unwind on error
-  https://lore.kernel.org/r/20261124013422.1408-1-laixiangwu@cmss.chinamobile.com
-
-Best regards,
-Xiangwu Lai
-
+pw-bot: cr
 
