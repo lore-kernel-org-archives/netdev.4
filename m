@@ -1,67 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795528264;
-	b=3zCTe2m7oC1TwJLxgg142I9JPPkcAiaAGr5qxCEXass9kJswp/RQ2tZCKC/WZ2nfyMjz
-	 QYbC0ArUW8k+91JHoT0nTXGm7Ny1qtTq7WgMrD4u+VdbY7Hmy3AxwcupyeC4h3h6x5KF/
-	 CeRWrnKDX2g4kgSreaWkiqaYO5Tl47M6/IPAPUTpbV3FT5HGbfLBxbff/6wUJbBJYle5U
-	 5M4jh/W/7y5VB9plQHhaaKbYC5BWBNOnXWKWc/mnDy9NsZejMLGArYLrHRjN8HRbfg0ng
-	 YQbPLhG95V7ymWKPWXDGrTRDk7mpWJuaiXNQS6A2hlnGZwJl4OW1+4001DNcTiyPRKA==
+	t=1795528301;
+	b=z80BdZRE3HHwlBCZbNk0rnje7N6FGBOC7o9oAMIFvNbcu8fM6hGN68PnqD5r/MsLraD2
+	 2jeW5cHju63NqwlEckMZ364sReMzTPD6bygYd2o0HfcKVQQw/W2HVA7MHqzcq4GIC3jX4
+	 dvbUPrY/aKR9lYxHr9QSNQbJ2dzFfqno94eJNfbqDTwHtMmYyqyJX6S2LiwUt+OcuxofO
+	 6AjTpHwJ2mcULb2efkTjRt2Yf8GauP1s/s9bSOnX7J06USnjHCAywWMf+FxvTAb6aRlkM
+	 1vRD8XiuJNzDdGBe2evL48f8n67HXhtHYmW4cpenmFo5iNB+GC2T73nJ+ch+6BfMCdw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795528264;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=r2LxYg3lr6AkPLjCWfB98rOcBXwTYzjK29rCQX7Co1s=;
-	b=otvSebhBxel3KYogRGgozqshJZkpDBAQTT2xe3gJYLRxMGT0xDI9JsCV3HTtjzjVvDEA
-	 qmULH/iVwd6LeyEHpKRBjFebi/7XHs7h3WGtBJRScjOLv07poI9KAHVFsCznkS9SqiUIa
-	 NvGkjM8kdsVcDfQ1Tu8e2oVbEJv6Mw522xVAKKz+QjtB7SOIFUV/zotKkLAg3EaoQ9UUG
-	 Hzr9HnnYjNpOiUeZJeXaPyNaVXvgYa8JU9ou922RuwLu5SVzdIFwZXPVpVawn+Slq1Iju
-	 cNGmQQbbXKRoM+nuH3/24d3TXICBfnzjHPjEFWI5xXGy6GKt2fag3An3sIJrNkXFqzg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795528301;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=wG3ZtixJaFFhkZXxYdcnHox9YkW7VVSHInEX8jMe+5w=;
+	b=xMj/Q1VcelD0TV0GOLfhxulp4H8Be/vmtQAmSVc0JSNPxI6hnj03cOoUnTWgKeCy2IyA
+	 D/uF+bzdXNY/sEb72fxOVbDqIF4ARDj/ao28hkIrML3FJC8S/r9vLSoAoczk/lJhyFxdO
+	 Ld1oFn3wOsfVtSwIqdox4+QvNzCoDRxGZJ8XblX4XpJm2rwZ6KdPEFwZp3iJ58ND19hXh
+	 LCGJ2JvFmilXQMCmZ+7RaJyEkgX4VMV11H3FQpfKNVbd619akUR4Fwv05KHEEGqgXO4Is
+	 QGv6iOUY232uyd2bACNEvLDsN0q7WzFYZqQuocS9iJFyF6JSwC4cJsN7vA/UaIRHpDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=3gydEa4I;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKhJ5xLI;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2AAE606A31E;
-	Tue, 24 Nov 2026 13:51:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2AAE606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 506D4606A31E;
+	Tue, 24 Nov 2026 13:51:41 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=3gydEa4I
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=r2LxYg3lr6AkPLjCWfB98rOcBXwTYzjK29rCQX7Co1s=; b=3gydEa4IgZ42A/hmt5iMxG00GU
-	pLwHh7K8LmbVxaYp0hevaw63LF8tyOsU+0ynoZY6ogzA3pjgnpUM3oPZBaUzLTNrMAJ6upgu06Vph
-	Tzc3hIN9G+ZnU4+WQs5TRTrHAu3nHAhPD7OvIR7ga4E2WivII7/CFoBNiYY3lfnzmFFk=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xVquv-0013W4-7G; Tue, 24 Nov 2026 14:50:41 +0100
-Date: Tue, 24 Nov 2026 14:50:41 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Linkui Xiao <xiaolinkui@126.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rosen Penev <rosenp@gmail.com>,
-	Christian Lamparter <chunkeey@gmail.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Kees Cook <kees+treewide@kernel.org>,
-	Daniel Machon <daniel.machon@microchip.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org, Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link
- PHY
-Message-ID: <7057d70b-033d-49cd-9fc7-d6b9b39ffc84@lunn.ch>
-References: <20261124083941.2480237-1-xiaolinkui@126.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BKhJ5xLI
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 160D31F000C0;
+	Tue, 24 Nov 2026 13:51:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795528300;
+	bh=wG3ZtixJaFFhkZXxYdcnHox9YkW7VVSHInEX8jMe+5w=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=BKhJ5xLI57wn3jcdh+k3UYMM+UZH/iP3LwGv3HpcYTAoS7feQKOPpAaR9qn3kUsth
+	 vhoY/yvQd+Vbke+6trVtFw2wfac1ic3ibsn1lKpZ7h7zWG3Re5RfpxKcYWb+fRhbSO
+	 vkrIYcEg0evcjLmDX6Qs24X0cPCxS5NYQ100VdjZ3HPx1rc39UbHRgyth/e+hZ3oSl
+	 tDQpsNq+vvcfGOQu95049GJxDBFm2NcxzC17vmRGtf/8cZ2hyUHR7Nhko/L4bdnUUP
+	 ef5f2Me+jA6dLerR0uj8pREuFrxw43n0k6GOh71YtVQ+XClfgJBkVFlbWZo6YZujpe
+	 zBcg8RxjFwkkw==
+Date: Tue, 24 Nov 2026 13:51:29 +0000
+From: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>
+To: "Michael S. Tsirkin" <mst@redhat.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, kvm@vger.kernel.org, 
+	virtualization@lists.linux-foundation.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	2312891301@qq.com, blum@kernel.org, co+6dcbccedc9ec6452@bugs.sh, 
+	eperezma@redhat.com, fangxy@xiaopeng.com, jasowangio@gmail.com, 
+	kmehltretter@gmail.com, linfeng.sun.dev@gmail.com, lirongqing@baidu.com, 
+	longpareto@gmail.com, oss.patchbox@gmail.com, p@1g4.org, phx0fer@gmail.com, 
+	physicalmtea@gmail.com, sergiiushakov@google.com, shubham@octane.security, 
+	stable@vger.kernel.org, stjepan.poljak@gmail.com, 
+	syzbot+13df72e0dc4be5c62215@syzkaller.appspotmail.com, tavhadia@gmail.com, tjdqudcks0424@naver.com, tz2294@columbia.edu, 
+	xieyongji@bytedance.com, xmei5@asu.edu, yuz08559@gmail.com, zenghui.yu@linux.dev, 
+	zhaimingbing@cmss.chinamobile.com, zhangjiao2@cmss.chinamobile.com
+Subject: Re: [GIT PULL] vhost,virtio,vdpa: bugfixes
+Message-ID: <awWOpS3HR_2FTN3I@gremlin>
+References: <20261104081535-mutt-send-email-mst@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,25 +67,32 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261124083941.2480237-1-xiaolinkui@126.com>
+In-Reply-To: <20261104081535-mutt-send-email-mst@kernel.org>
 
-On Tue, Nov 24, 2026 at 04:39:41PM +0800, Linkui Xiao wrote:
-> From: Linkui Xiao <xiaolinkui@kylinos.cn>
-> 
-> emac_init_phy() sets ndev->phydev by hand for a fixed link, so
-> phy_attach_direct() never runs. The PHY is missing from the netdev's PHY
-> link topology and ETHTOOL_MSG_PHY_GET dereferences the NULL link_topo in
-> phy_prepare_data().
-> 
-> Attach it with of_phy_connect(), as this driver already does for the
-> phy-handle case and as gianfar, fec, davinci_emac and nixge do, and start
-> it with phy_start().
+On Wed, Nov 04, 2026 at 08:15:35AM -0500, Michael S. Tsirkin wrote:
+> chenglong.ma (1):
+>       vduse: fix VA/PA confusion in the coherent page fault path
 
-There is also a call to phy_start() in emac_mdio_init_phy(). If that
-is how a real PHY is started, a fixed link PHY should be started in
-the same way.
+This has landed as commit bb2e6f166547 ("vduse: fix VA/PA confusion in the
+coherent page fault path") but I don't see the patch anywhere on lore (off-list
+security report?)
 
-However, this code is a horrible mix of phylib and mii. It really
-needs a rewrite to make it pure phylib, or ideally phylink.
+Anyway, clearly nobody actually _ran_ this code in 7.4, not even claude, as
+it's completely broken.
 
-      Andrew
+Commit 99fd6bf43d5d ("mm/vma: enforce that mm-managed mappings may not set
+VMA_IO_BIT") literally made setting VM_IO incorrectly, like this patch does, a
+WARN_ON error on mmap(), i.e. it _refuses_ to mmap it :)
+
+It looks like it doesn't need VM_IO anyway, the other changes in the patch
+make it redundant AFAICT, so you should send something like the below with
+a Fixes pointing at bb2e6f166547:
+
+--- a/drivers/vdpa/vdpa_user/iova_domain.c
++++ b/drivers/vdpa/vdpa_user/iova_domain.c
+@@ static int vduse_domain_mmap(struct file *file, struct vm_area_struct *vma)
+-       vm_flags_set(vma, VM_IO | VM_DONTDUMP | VM_DONTEXPAND);
++       vm_flags_set(vma, VM_DONTDUMP | VM_DONTEXPAND);
+
+--
+Cheers, Lorenzo
