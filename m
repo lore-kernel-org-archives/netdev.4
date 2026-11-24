@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544991;
-	b=3TXBdVHETfsu2x3im/A2D3pVTszfw88lRMz0R1dU8mPwPTX3v2XV9Ij3iJ1FxwiXupnu
-	 0VfGIhWRAW9ZfG+LYEzwfKGIO8jHMINSgRg3pncOFRxmAPwhTtbUEBJqc7P5QSUX7aWEI
-	 dZB/p24WZxCFg3sXkBupwBLtMN3nyd9t4zXM5MtH82v+LziD0nYylibyl7XmNWZPSQQgN
-	 1Xm+Dlx515diWWozO5v4XBCJZKXBeUYlEXMDFHKQ+MN/DbiORfMQZN2PVEYlWPtRBFnPS
-	 Tz8SFQJeDClS50JmamYj5rILNYzrAfSHFqozq1soPf2uxLRVn6Q6HQjNSjZnYWn6dAw==
+	t=1795544992;
+	b=Os+b/ho90td/BZtJS8Sl+ylT0ySdGH3jUHUVAjb2KvzR7lo0qpS+P5JtMbINmvtIbTOB
+	 AYJ83HaAsFqAIyQhGeV2Afm1hD+wjzFX2wNMbW+TZ5rJnSoSjN+sXKuRD0TR7aLl8/Rwm
+	 x8G+hra3iKsysT5m2RsB7q5B/iWeB7gAWmeGiXxAax6H3i79PlYI0jCgudhx+nqM4fqQ9
+	 kILzbnW/EnpSzGySDJo+yRd3bmdEykmslh1phUDQR6QF03e5yO24L0iD5Hu0OYiX2Kw/q
+	 jj9jybwFnpzH1cs2vRxOKppznM8ppUCsz+MREw4hpwN9nB2OMjCReAQ7w7u4onY679A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544991;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544992;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=mEybJTeTW7fhanFZgaX2CxNkC7ge/phSzZ/0fxePoD8=;
-	b=E0BJZFo7DCC9XsDDxUpXBxxi2JOUE7ZZ2eBkyT/b6xbUwECI3e64Nui05oS3FenYGbKf
-	 0CpfkA19tlg61z+Kl5mHNPZ9fYagQDWt8Ny/NIfs2NcPVzPMgkqMQf0kTxhRaRnFMYzqh
-	 +ZwGiasQUdmFjAlWABz91jZB71AroRfUB/p/P51vCfNJA8WigfmYRGVlSYBY8MaM2GMyb
-	 BgGKb8UMpWqJHWRmkU1A0/LhSYRsfixAfaDnT+GESEf92KUjl3tRHHn8WfP2N2d8W3FVd
-	 HZ7Ngv6TBbRh/2C7cuoVFoyJcao3vZDPEbBP+AHUdmKU6zs4Cp9PlutxjQRZuH1yNRg==
+	bh=CpDRI2KX2DLDuf63UR7B6P74f5SCQjbk+q32avF+F2A=;
+	b=zJ2ls61IfAlkTHrvs/3963EKqy9LTA3BpX9PMqe8tooWpeBdFyI2jd6S2sNypiENqE+A
+	 pikQWYBPLICTXUtiYSDXnf+jb1KDB7KQOO68cV5tBAzaTgbnUniPY47B6KxIqp6PS6fHb
+	 09XFDiMJHKtICdX0KpQcOFeRnnJdYNTicOzoDiz09OkRGXUjrKD4pmOfnKTa1RbEkKiC0
+	 mjSj+h401PzxjbAN51GwOjeFjzCOR53crrgvL/AaHSbd4EmtERKVXjUX+GQxks31QCMM5
+	 3l958fy1sweWvb6Uep4TI+VURWl2D2SqxTKwVyxQnQ+NjcyTtDef4/LXv6z7dRi6ntw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="dGVD1V/y";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lr5kZp05;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F47A606A32C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2437606A332
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dGVD1V/y
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B70F91F000D8;
-	Tue, 24 Nov 2026 18:29:50 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lr5kZp05
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 03DF51F000D8;
+	Tue, 24 Nov 2026 18:29:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795544991;
-	bh=mEybJTeTW7fhanFZgaX2CxNkC7ge/phSzZ/0fxePoD8=;
+	s=k20260515; t=1795544992;
+	bh=CpDRI2KX2DLDuf63UR7B6P74f5SCQjbk+q32avF+F2A=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=dGVD1V/yUukJDBLiR3NvH25jn2DW56E1uDhNVFxtuws/wA/G+cd/JzSLp75E/Y2/n
-	 hBGPS4kzZ8TUi+Q5E1kZOyvkGTKiFe+DIiOTajwJfFgTdZKqCXlLs6FeJpP8JYFLPY
-	 0hToBaF2tZv37BrNEtaqhdqWSeKzgbQyKSwko7nApfWYs8SHMzB4kNd/XD5typvXO9
-	 AzciYxobM/NSy8ZIVTShJBCDq06El0RohUUOeB5hoHzJjeonITDCaszGPB5s4TkHEu
-	 seOrPFqJwjp80JGaPSI9D2KiUJTkg0QBnC1ommfbOYPARKV1OwhY93ygaW6AbLxwRQ
-	 X6P1ETw/KOlJw==
-Subject: Re: [PATCH net-next v9 03/14] net: ethernet: cortina: Drain free
- queue IRQ before resize
+	b=lr5kZp05ZMlhF8f4bQmBJDPNtk4XjJA5iSyawvPu4vLKa1YanIsUJrX2x+KfSesxN
+	 WuyKxZuyd6ZiQd0laYUCEH7d0bUSfr+xNh3QnYFMCmnKtrlaYhukSgmKKRbMWMGyhl
+	 CUHcDQziqumXEamR9udB5jJDiCRcbby/LMyWo34ZIlxrNf53IpMgmAQ3F7IaBN93z+
+	 K0keu4XvQ8X/Z9ztDS38+9JQJbTW2iZ+CVg1YLbRxTx+83w0toV8dqhi15lugoSCI7
+	 2Yx+uBEsJpb3pAxSO1oJKjViAEoMIs3NpulD8gMS+M+Oy4Ds3pO52DlOKmo1sbXKcL
+	 FqTMsEc0wfaIA==
+Subject: Re: [PATCH net-next v9 04/14] net: ethernet: cortina: Normalize free
+ queue pointers on rebuild
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:29:50 +0000
-Message-ID: <179554499027.3135.325003720698088138@kernel.org>
-In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-3-298671d799d5@kernel.org>
-References: <20261120-gemini-ethernet-fixes-3-v9-3-298671d799d5@kernel.org>
+Date: Tue, 24 Nov 2026 18:29:51 +0000
+Message-ID: <179554499156.3135.8516338457129003935@kernel.org>
+In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-4-298671d799d5@kernel.org>
+References: <20261120-gemini-ethernet-fixes-3-v9-4-298671d799d5@kernel.org>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -70,255 +70,147 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] This patch fixes a real memory-safety race but has no Fixes: tag
-  and no Cc: stable.
-- [Low] This patch makes gemini_port_irq() return IRQ_NONE
-  unconditionally when !port->id (line 2417).
+- [Low] The commit has no Fixes: tag, but it fixes a memory-safety bug.
 
 Pre-existing issues:
-- [High] At the target revision, geth_cleanup_freeq() runs `while
-  (page_ref_count(gpage->page) > 0) put_page(gpage->page);` (lines…
-- [High] At the target revision, geth_cleanup_freeq() only sets wptr =
-  rptr and zeroes GLOBAL_SW_FREEQ_BASE_SIZE_REG (lines 1047-1049).
-- [Medium] At the target revision, geth_freeq_alloc_map_page() maps each
-  page with dma_map_single(..., PAGE_SIZE, ...) at line 856.
-- [Medium] gmac_enable_irq() enables GMAC0_IRQ4_8 << (dev_id * 8) in
-  GLOBAL_INTERRUPT_ENABLE_4_REG (line 1430), which includes…
+- [High] This problem wasn't introduced by this patch, but the patch's
+  own premise exposes it.
 
 --
 
-net: ethernet: cortina: Drain free queue IRQ before resize
+net: ethernet: cortina: Normalize free queue pointers on rebuild
 
-This patch disables the port 1 Linux IRQ for the whole of
-geth_resize_freeq(). An already woken free queue IRQ thread is therefore
-drained before the ring and page metadata are freed. The free queue source
-is re-enabled only after a successful setup, freed queue state is cleared,
-and gemini_port_irq() now ignores the interrupt on port 0.
+The hardware keeps the free queue read pointer when the queue is rebuilt
+at a smaller order. This patch masks the page indices in
+geth_fill_freeq() to the active order and sets the software write
+pointer from the retained read pointer in geth_setup_freeq(). It also
+stops geth_resize_freeq() from shrinking the ring below the size needed
+to hold the retained pointer.
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index 4f27a48908b1a..5e9dd2aea4077 100644
+> index 5e9dd2aea4077..66984c78a7cd4 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
-> @@ -1019,6 +1019,8 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
->  	}
+> @@ -920,6 +920,7 @@ static unsigned int geth_fill_freeq(struct gemini_ethernet *geth, bool refill)
 >  
->  	kfree(geth->freeq_pages);
-> +	geth->freeq_pages = NULL;
-> +	geth->num_freeq_pages = 0;
->  err_freeq:
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but the error path just above
-unmaps each page using frag_len as the size:
-
-geth_setup_freeq() {
-    ...
-	mapping = geth->freeq_ring[pn << fpp_order].word2.buf_adr;
-	dma_unmap_single(geth->dev, mapping, frag_len, DMA_FROM_DEVICE);
-    ...
-}
-
-geth_freeq_alloc_map_page(), however, maps the whole page with PAGE_SIZE.
-geth_cleanup_freeq() has the same frag_len size mismatch.
-
-There is a related problem in the replacement branch of
-geth_freeq_alloc_map_page(). By the time the old mapping is read back, the
-descriptors have already been overwritten with the new mapping:
-
-geth_freeq_alloc_map_page() {
-    ...
-	gpage = &geth->freeq_pages[pn];
-	if (gpage->page) {
-		mapping = geth->freeq_ring[pn << fpp_order].word2.buf_adr;
-		dma_unmap_single(geth->dev, mapping, frag_len, DMA_FROM_DEVICE);
-    ...
-}
-
-Doesn't this unmap the new buffer that was just posted to the hardware,
-and leak the old page's mapping? geth_fill_freeq() takes this branch
-whenever page_ref_count(page) > 1.
-
-This looks to be resolved later in the series by "net: ethernet: cortina:
-Correct free queue DMA mappings". After that patch, every unmap site uses
-gpage->mapping with PAGE_SIZE.
-
-> @@ -1059,20 +1061,37 @@ static void geth_cleanup_freeq(struct gemini_ethernet *geth)
->  	}
->  
->  	kfree(geth->freeq_pages);
-> +	geth->freeq_pages = NULL;
-> +	geth->num_freeq_pages = 0;
-
-[Severity: High]
-This is a pre-existing issue, but the loop just before this kfree() in
-geth_cleanup_freeq() keeps dropping page references until the count
-reaches zero:
-
-geth_cleanup_freeq() {
-    ...
-	gpage = &geth->freeq_pages[pn];
-	while (page_ref_count(gpage->page) > 0)
-		put_page(gpage->page);
-    ...
-}
-
-Can this drop references owned by RX skbs that were already delivered to
-the stack? After the final put_page(), the loop also reads the refcount of
-a page that has already been freed.
-
-The path is gmac_open() or gmac_set_ringparam() -> geth_resize_freeq() ->
-geth_cleanup_freeq(). It runs when the peer netdev is down and the order
-changes, which can happen while skbs that reference free queue pages are
-still queued in sockets.
-
-This looks to be fixed later in the series by "net: ethernet: cortina:
-Preserve in-flight free queue pages". After that patch,
-geth_freeq_release_pages() drops only the driver-owned references.
-
->  
->  	dma_free_coherent(geth->dev,
->  			  sizeof(*geth->freeq_ring) << geth->freeq_order,
->  			  geth->freeq_ring, geth->freeq_dma_base);
-> +	geth->freeq_ring = NULL;
-> +}
-> +
-> +static void geth_set_freeq_irq(struct gemini_ethernet *geth, bool enable)
-> +{
-> +	unsigned long flags;
-> +	u32 val;
-> +
-> +	spin_lock_irqsave(&geth->irq_lock, flags);
-> +	val = readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-> +	if (enable)
-> +		val |= SWFQ_EMPTY_INT_BIT;
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but when SWFQ_EMPTY fires,
-gemini_port_irq() clears the RX overrun enables for both GMACs:
-
-gemini_port_irq() {
-    ...
-		en &= ~(SWFQ_EMPTY_INT_BIT | GMAC0_RX_OVERRUN_INT_BIT
-					   | GMAC1_RX_OVERRUN_INT_BIT);
-		writel(en, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-    ...
-}
-
-gemini_port_irq_thread() restores only SWFQ_EMPTY_INT_BIT, and so does
-geth_set_freeq_irq(geth, true) here. Only gmac_enable_irq() enables the
-overrun sources again, and it runs only on open.
-
-Won't RX overrun interrupts for both ports stay masked after the first
-free queue refill, so that rx_fifo_errors stops counting? This still seems
-to be present at the end of the series.
-
-> +	else
-> +		val &= ~SWFQ_EMPTY_INT_BIT;
-> +	writel(val, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-> +	spin_unlock_irqrestore(&geth->irq_lock, flags);
->  }
-
-[ ... ]
-
-> @@ -1120,13 +1137,8 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
->  	if (geth->freeq_ring && geth->freeq_order == new_order)
->  		return 0;
->  
-> -	spin_lock_irqsave(&geth->irq_lock, flags);
-> -
-> -	/* Disable the software queue IRQs */
-> -	en = readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-> -	en &= ~SWFQ_EMPTY_INT_BIT;
-> -	writel(en, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-> -	spin_unlock_irqrestore(&geth->irq_lock, flags);
-> +	disable_irq(geth->port1->irq);
-> +	geth_set_freeq_irq(geth, false);
+>  	rw.bits32 = readl(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+>  	pn = (refill ? rw.bits.wptr : rw.bits.rptr) >> fpp_order;
+> +	pn &= m_pn;
 
 [Severity: Low]
-This change closes a use-after-free. Before it, gemini_port_irq_thread()
-could run geth_fill_freeq() on freeq_pages and freeq_ring while
-geth_cleanup_freeq() was freeing them. It could also set
-SWFQ_EMPTY_INT_BIT again after teardown.
+Should this patch have a Fixes: tag?
 
-Should the patch carry a Fixes: tag and Cc: stable so it can be
-backported? The mask-only sequence in geth_resize_freeq() and the
-unconditional re-enable in gemini_port_irq_thread() both appear to come
-from the original driver:
+Before this change, geth_fill_freeq() used the unmasked pn to index
+geth->freeq_pages[pn], and then dereferenced gpage->page through
+page_ref_count() and page_ref_add(). If the free queue was rebuilt at a
+smaller order, for example via ethtool -G (gmac_set_ringparam() ->
+geth_resize_freeq()), pn could be >= num_freeq_pages.
+
+The unmasked code seems to date back to:
 
 Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
 
+The commit message also says that a following patch, which decouples
+the RX buffer budget from descriptor geometry, is needed to avoid an
+allocation approaching 64 MiB. Would it help to add a note about that
+dependency for stable backporters?
+
+>  	epn = (rw.bits.rptr >> fpp_order) - 1;
+>  	epn &= m_pn;
 >  
->  	/* Drop the old queue */
->  	if (geth->freeq_ring)
-> @@ -1136,14 +1148,10 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
->  	geth->freeq_order = new_order;
->  	ret = geth_setup_freeq(geth);
-
-[Severity: High]
-This is a pre-existing issue, but geth_cleanup_freeq() only copies rptr
-into wptr and zeroes GLOBAL_SW_FREEQ_BASE_SIZE_REG. The hardware rptr
-therefore still holds an index from the old ring geometry.
-
-geth_setup_freeq() then calls geth_fill_freeq(geth, false) with the new
-freeq_order, and the rptr it uses is not masked:
-
-geth_fill_freeq() {
-    ...
-	pn = (refill ? rw.bits.wptr : rw.bits.rptr) >> fpp_order;
-	epn = (rw.bits.rptr >> fpp_order) - 1;
-	epn &= m_pn;
-    ...
-}
-
-Suppose ethtool -G shrinks the ring, or an open picks a smaller order,
-while the hardware rptr is at or above the new ring length. Can
-freeq_pages[pn] and freeq_ring[pn << fpp_order] then be indexed out of
-bounds? The hardware rptr would also point past the end of the new
-descriptor ring.
-
-This looks to be fixed later in the series by "net: ethernet: cortina:
-Normalize free queue pointers on rebuild". That patch masks rptr and wptr
-with the ring mask, and resize rejects rings that cannot contain the
-retained rptr.
 
 [ ... ]
 
-> @@ -2406,6 +2414,9 @@ static irqreturn_t gemini_port_irq(int irq, void *data)
->  	irqreturn_t ret = IRQ_NONE;
->  	u32 val, en;
+> @@ -991,6 +993,10 @@ static int geth_setup_freeq(struct gemini_ethernet *geth)
+>  		if (!geth_freeq_alloc_map_page(geth, pn))
+>  			goto err_freeq_alloc;
 >  
-> +	if (!port->id)
-> +		return IRQ_NONE;
+> +	/* Match the software pointer to the retained hardware pointer. */
+> +	rptr = GET_RPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG);
+> +	SET_WPTR(geth->base + GLOBAL_SWFQ_RWPTR_REG, rptr & (len - 1));
 > +
 
-[Severity: Low]
-gemini_ethernet_port_probe() still registers the free queue handler and
-thread for both ports:
+[Severity: High]
+This is a pre-existing issue, not one introduced by this patch, but the
+premise here seems to apply to the per-port SW TX queue too. gemini.h
+describes the SW TX queues as the same TOE DMA queue type as the SW
+free queue.
 
-gemini_ethernet_port_probe() {
+gmac_setup_txqs() copies the retained hardware read pointer into the
+write pointer and cptr without masking it to the new txq_order:
+
+drivers/net/ethernet/cortina/gemini.c:gmac_setup_txqs() {
     ...
-	ret = devm_request_threaded_irq(port->dev,
-					port->irq,
-					gemini_port_irq,
-					gemini_port_irq_thread,
-					IRQF_SHARED,
-					port_names[port->id],
-					port);
+		r = readw(rwptr_reg);
+		rwptr_reg += 2;
+		writew(r, rwptr_reg);
+		rwptr_reg += 2;
+		txq->cptr = r;
     ...
 }
 
-With this check, the port 0 handler never claims an interrupt and its
-thread can never be woken. It is still called on every interrupt on the
-shared port 0 line, and it still shows up as an "ethernet0" handler.
+gmac_set_ringparam() lets the user shrink txq_order while the interface
+is down. After the next gmac_open(), the ring and skb_tab hold only
+1 << txq_order entries, but r can still be any value from the old,
+larger ring.
 
-gemini_ethernet_init() routes SWFQ_EMPTY to int1 through
-GLOBAL_INTERRUPT_SELECT_4_REG, so this isn't a functional bug. Would it
-be cleaner to skip registering the free queue handler for port 0 rather
-than register one that does nothing?
+On the first transmit, gmac_map_tx_bufs() uses the raw w before its
+first mask:
 
->  	geth = port->geth;
->  	spin_lock(&geth->irq_lock);
->
+drivers/net/ethernet/cortina/gemini.c:gmac_map_tx_bufs() {
+    ...
+		if (frag == last_frag) {
+			word3 |= EOF_BIT;
+			txq->skb[w] = skb;
+		}
+    ...
+		txd = txq->ring + w;
+		txd->word0.bits32 = buflen;
+    ...
+		w++;
+		w &= m;
+    ...
+}
+
+Can this write past the kzalloc'd skb_tab and past the coherent
+descriptor ring?
+
+gmac_clean_txq() has the same pattern with the unmasked cptr:
+
+	while (c != r) {
+		txd = txq->ring + c;
+		...
+		if (word3 & EOF_BIT)
+			dev_kfree_skb(txq->skb[c]);
+
+		c++;
+		c &= m;
+
+One possible trigger is ethtool -G <if> tx 64 while the port is down,
+after the TX rptr has moved past 64 at the default order of 8. Bringing
+the interface up and sending a packet would then hit this path.
+
+The RX default queue may have a similar problem. gmac_setup_rxq() still
+treats writel(0, port->rxq_rwptr) as a pointer reset. The testing
+described in this commit shows that a 32-bit zero write does not clear
+the hardware-owned half. gmac_rx() also compares the masked software r
+with the unmasked hardware w:
+
+	r = rw.bits.rptr;
+	w = rw.bits.wptr;
+
+	while (budget && consumed < desc_limit && w != r) {
+
+If the retained w is >= 1 << rxq_order, could r never reach it? Could
+the hardware also DMA RX descriptors past the new rxq_ring?
+
+Were the TX and RX default queues considered along with the free queue?
+
+>  	filled = geth_fill_freeq(geth, false);
+>  	if (!filled)
+>  		goto err_freeq_alloc;
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5%40kernel.org
