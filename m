@@ -1,108 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795532562;
-	b=vBcM6GPbmXqAkxfG6iee/7fPQdkxxFn9ep9gxXp95MLiaNpizk/EwdJ+fHmwadp8U9Wo
-	 Vs7NuqxGNqbI1QGuhm+ZUUSGcS9/7PNQxmv/RDZXi2nXWwjuLS0utakkRjtcSBh4cpwTb
-	 G6hOL20bwPpgy0Moj933XGymfU7c3SrkQqi14cAXZnynYfcrBrHXtdmHzGCT0PRKqEUjG
-	 n9MGThWGeAcjjaAsVp3MuGvuGfYfKglbhfHxLYOdM6bZaH+Dk82Rpvf21N6+HfZ3Ke7tl
-	 qTMpDzi0jcx+CfUH5qXEE92EReAN8CG8Pwv+NE1z+yv+FKJGmiP6z+ddY9LaRts2L+A==
+	t=1795532598;
+	b=vdA83L2FSx7d/gnUbEnNZp9+c6tk3xIpNvkQTaGt0cmcubuczPu5t8M9EiPocjUA0iF0
+	 54dG6iWtAL5uQtsht8WV9jLBAss6GmkLxAtv1LDOpGlELBOoVzYsVMNqep9nzW6cAOUeR
+	 SkzGpmzTks5RSmcd/tTVhNvvsMXzH/pnTOcQ5ZfPHgwL7nVFrxJEKPYG6eQHs6tXXrrPB
+	 ERywawrmi1AAnTd+rP5rGMJrGqktWxM/kwaWRz/KgHO/DeepGeDqq5HN8s4txqOiQ28wE
+	 kpHGBY7YT8OlTYUuECBel6KGFjf7BbN6cgXxAE/JiZFJWG8yT4F3KAsfiNFPfYKRnGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795532562;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=ih9iFH4k5c5mFLYN9MmHm03X7lzR9NOg68oId4RPs2s=;
-	b=GR4lCdh9gR/lch127CZReJRpiRrOtLyWmgAn7AG+htKObt3+e7P+de5NEn8yFZk0ZQ8p
-	 LVobuWrmeKh6L/0Xm8nhu5JZ+ckKXm2ey5MwA7WIHNHr0ld4P4GsR+TNSNoHepTVcS0SB
-	 1BLK82sYzWCPbiRgz1BVWQcpKLRAabc72u/ZN/ciCN0GpG/WzAGEaDYl3um2I6SrGp4pb
-	 p9tkD93tciymKwG+uiSjQTavRpgQ+Spz9sFk65/APhI9Be1F0FSGXGRbhboqvLvGTWpHb
-	 bgun2OqgZqctsO/JzE0XSvJWftQjUhbvApPLL0re9pMkyVslttjDILhSDnpt8cT6CSA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795532598;
+	h=DMARC-Filter:Date:DKIM-Signature:DKIM-Signature:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=Hj2oIAg/Oikwn651Fyh4q9U2RC7vgdERs66OlXM3pIc=;
+	b=Zt+V24XPJX4IYzA+a1SsxwHK/GStml8m4Fe86G6TrY+cK7imZ4N18Y9yQl1+cPeoBIqc
+	 I5QzUfpW6CjdyIVLSvl+5iSyEogSSYgfUrXfVcWqseYN41kMFJeyqHCSnwDx+9KRmZgoN
+	 ii0IG+sBa62C8Tua83exTSMCLmDUrPgN1v6rgx9mlzAaZHgVQ2YJgy7GcSUIEfKVKFOkp
+	 ZFLZ+AiuXdcbhExY4qErI1+GhCWYAgYUkAXbSXnbRbWUl34tn+UQg4BfFXsAp1aZUDVmW
+	 YrZbEm8L2KKmNIdznMQVaFNeTdu2Tk+0rrFQbHHAVD4emG24Pzo4NVVLXi/aUveMjVA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="RlX4Jb1/";
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=tycqwjFR;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=EIhEWQjF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=vPAMfW5p;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7BD7E606A329
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:02:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7BD7E606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 58044606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:03:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 58044606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=RlX4Jb1/;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=tycqwjFR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795532560;
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=EIhEWQjF;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=vPAMfW5p
+Date: Tue, 24 Nov 2026 16:03:11 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795532593;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=ih9iFH4k5c5mFLYN9MmHm03X7lzR9NOg68oId4RPs2s=;
-	b=RlX4Jb1/97PVpz1E9QuukQ+l010K9dY+vnSGJyQnVSmaHmFKQaJ8h+6xtZ1f43L8O7TEh8
-	gAinSxEQUtg6UKu/ZQy0vXLNmlzLIfxKnbqV8YDX1WWjsgpNn0lsBPCI5DtxRxkhZHKxix
-	aP+O3zx6GGQT2X+TLFxCIFHZuvl3IMI=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-564-x_-5toPYMrSqSfEUc9LFbA-1; Tue, 24 Nov 2026 15:02:37 +0000
-X-MC-Unique: x_-5toPYMrSqSfEUc9LFbA-1
-X-Mimecast-MFC-AGG-ID: x_-5toPYMrSqSfEUc9LFbA_1795532557
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-4925ef75fc4so2882229f8f.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:02:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795532557; x=1796137357; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ih9iFH4k5c5mFLYN9MmHm03X7lzR9NOg68oId4RPs2s=;
-        b=tycqwjFR839qqlL51G7UyHfZEPtRHZ4srWw+dYx8z0eWV4xCeB9GoGvpcpG3zeh17O
-         40O6H4MuaDdpn/u/ov+z4CHU0mqT9nNhkdt9DLVx0ej8oLQ365U5JzmzUxwiR4wCNu8c
-         Nf8euUjlHAAygTo8xkaXp39dMz0fMrwj/K7kM96hGRwcCm2tVOXTW852N9hjjN/TbZ7z
-         QQ5bMb09uAaynh3ddHr1G6A0zrurqW6lqqIVbM1O9Kt/RfeH1syq8DUVjVhNDgHPFyEg
-         9y84Mpst7C3xP2WA9/U94YQhlKTs/6hIk7X8EtobCUajy/r/q9sDCdYoFuLI9mPmrrfq
-         4uww==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795532557; x=1796137357;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ih9iFH4k5c5mFLYN9MmHm03X7lzR9NOg68oId4RPs2s=;
-        b=hNPDpwWXG2jra1z+LexnOafPIvadS9upiFfadyi1EelbtQAS47eburkrHRfJ0yzlUc
-         vJLeMkSC8kNOBzf/l6pgh6ur+8SEP2yEh6K0Fq6fK6et5GO5fvHJ0eKlm9oc5z5WFplz
-         knQ3yPnbSpAbbNGpA3N2USqKlL9vIRg89ebLGxxq/wJNQebc+GlH8Ms51JETwvIaFaxt
-         WnZYt/75iwbEfZXJtmS8hHysXStSC0NO8DX7oaZrBJxw3KvzBQvPhXt838DYNrV/ni4l
-         6OJLXM+m1oX7/rGeeeD4PA0gBZPjxAdJm3AkSqZgxw4cYxhpt/kpvvSVDHUn91OYJ0ff
-         9gRQ==
-X-Forwarded-Encrypted: i=1; AL+hErGylJwJkYnVN6YNdekFSYPzQeVJIZT8+RKRweJ6VuQKTeHpOMmQWnccLt707uzrgXVMj+epG/Q=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+wcuUXWdNtf28+vzIwRTntg55UEImf4I9t3AN1xcyptffc0ZOe
-	8q6JYdbBI4P/RNXHV+r9i77xA0Wy2vPYWZJCeRYeScRCMbNQYAFKHfS0RZHa93xYm1KFwoWqOw1
-	mz0NJW6KaNzTVeCj/Q6o5Y8tsnUvEIn5C2uCe8fyeFwLOXek4XD5uJEM3qA==
-X-Gm-Gg: AZFdTZcj9IUGNHAcSNEpbZUV3txQXoXjkP6NnfhuguZw8qSiLQA84tSKtXPdWcOeXpT
-	ASTcJkCEz8Nbgh95tsLD9EXzcZcjbUX3/QL5XOJ17MbAGkDfnMJapYBwDgFAD0tKFU+lHnMlQ05
-	bfnlKDB4/iLUznOu2E5ss7iM76FaVmqO32eO3RsbBbXapTKJjkqwjbvkHllvXDNVBH9yyQ16GgM
-	0Z3nqZg07OiHg4ayc8C3SgGh89TXKjbuA336o8sAl6ZLica9XrJ9vZ04HuL+4Yj4DKhcZrN4ZRP
-	PGpbJBBC9paoB2K5OvC9vVQDeH/NNjuBlZrD2VVWpLo2OCQeqh4Uc0XdAVWVn2nnnsZj7D6wSVZ
-	djtDoDap07RBUlzjty+85GjCkKWWihyQl7Z8JG0sO2ljthUnoFWBUD+QPcNQQU8ARpvwjJVAXB5
-	hgJhfJ+IpTCOkdn1TQ7KvWEtd4bt2e9WQs04/fE2iTjgt0
-X-Received: by 2002:a05:6000:4812:b0:48d:b650:69aa with SMTP id ffacd0b85a97d-4abb55185e4mr28569269f8f.50.1795532556506;
-        Tue, 24 Nov 2026 07:02:36 -0800 (PST)
-X-Received: by 2002:a05:6000:4812:b0:48d:b650:69aa with SMTP id ffacd0b85a97d-4abb55185e4mr28569192f8f.50.1795532555837;
-        Tue, 24 Nov 2026 07:02:35 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab9cf005f2sm23387637f8f.45.2026.11.24.07.02.34
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 07:02:35 -0800 (PST)
-Message-ID: <c6082ed0-cb7c-4e8b-83bf-a85aa3d43eac@redhat.com>
-Date: Tue, 24 Nov 2026 16:02:33 +0100
+	bh=Hj2oIAg/Oikwn651Fyh4q9U2RC7vgdERs66OlXM3pIc=;
+	b=EIhEWQjFsGYdbRqZrGt3Qli9LWhdzUd/jQHpNXxIEvpLxcNm1bao7B7Cbjh6QD6G8IaOo1
+	GJTOJLa9MGqSn2efy4URFB1tazc0up2spOEHcCHC2yTU4Z8lV2464CCQNe90lZP88ykM6Z
+	rGgqV6ijh3+lCZ11CYRDMnrc1xnYh0urNP6NX5QBttF8SjatjxmB/+q9pkNPmz1ch2j0vi
+	Ng5skfrVUJZZQa44S2CfCBL7Y2fTDWucZn+CXfg2c8tc5irDmZwltPLQhKyn1lKAsii9l7
+	Wby42LzFL1jkptxbatYPhEtc9DD9J5VSX+uJMD0tLO2UmweVZo8JvHOMfJXNoQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795532593;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Hj2oIAg/Oikwn651Fyh4q9U2RC7vgdERs66OlXM3pIc=;
+	b=vPAMfW5pzbwAWIg9C64eBV+6J1mf9fNFRN6r4HDUTSU+D7C0doGP1SrQb1RtaFmxZsWqRM
+	fOrKjtH6WF7K8kCQ==
+From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
+	danishanwar@ti.com, d-qiu@ti.com, davem@davemloft.net,
+	fmaurer@redhat.com, kuba@kernel.org, neelima@ti.com,
+	pabeni@redhat.com, praneeth@ti.com, pratheesh@ti.com,
+	richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
+	willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
+	edumazet@kernel.org
+Subject: Re: [PATCH net-next v11 3/8] hsr: Add a magic header for sending PTP
+ packets
+Message-ID: <20261124150311.YE8m6onh@linutronix.de>
+References: <20261120-hsr_ptp-v11-3-264c88f4f1d0@linutronix.de>
+ <179551953943.3135.5171650811556628454@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,141 +80,119 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 1/2] net: sfp: add 2500base-X quirk for ODI
- DFP-34X-2C3
-To: netdev-bot+sashiko@kernel.org, github@bumblecito.com
-Cc: linux@armlinux.org.uk, andrew@lunn.ch, hkallweit1@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261118162323.436219-2-github@bumblecito.com>
- <179520946109.3135.2775052387986633073@kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <179520946109.3135.2775052387986633073@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <179551953943.3135.5171650811556628454@kernel.org>
 
-On 11/20/26 22:17, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
+On 2026-11-24 11:25:39 [+0000], netdev-bot+sashiko@kernel.org wrote:
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 3
+=E2=80=A6
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The only test reported is a 2500 Mb/s link brought up after
->    speed and duplex were forced and autonegotiation was disabled by hand.
-> - [Low] The patch adds SFP_QUIRK_S("ODI", "DFP-34X-2C3",
->    sfp_quirk_2500basex) to sfp_quirks[] in drivers/net/phy/sfp.c (lines…
-> 
-> --
-> 
-> net: sfp: add 2500base-X quirk for ODI DFP-34X-2C3
-> 
-> This commit adds an entry to sfp_quirks[] that applies
-> sfp_quirk_2500basex to the ODI DFP-34X-2C3 XPON module. It was tested on
-> a Horaco ZX-SWTGW2C8F switch, with speed and duplex forced and
-> autonegotiation disabled.
-> 
->> diff --git a/drivers/net/phy/sfp.c b/drivers/net/phy/sfp.c
->> index 915156743701b..960ac89cc2a0b 100644
->> --- a/drivers/net/phy/sfp.c
->> +++ b/drivers/net/phy/sfp.c
->> @@ -614,6 +614,9 @@ static const struct sfp_quirk sfp_quirks[] = {
->>   	SFP_QUIRK("Lantech", "8330-265D", sfp_quirk_2500basex,
->>   		  sfp_fixup_ignore_los),
->>   
->> +	// ODI DFP-34X-2C3 XPON stick can operate at 2500base-X
->> +	SFP_QUIRK_S("ODI", "DFP-34X-2C3", sfp_quirk_2500basex),
-> 
-> [Severity: Low]
-> What does this module actually report in its EEPROM?
-> 
-> sfp_module_parse_support() in drivers/net/phy/sfp-bus.c can already turn
-> on 2500base-X without a quirk in two cases. One is the FC speed bits
-> with br_nominal >= 31. The other is the bit-rate fallback:
-> 
-> drivers/net/phy/sfp-bus.c:sfp_module_parse_support() {
->      ...
-> 	if (linkmode_empty(modes) && br_nom) {
-> 		...
-> 		if (br_min <= 3200 && br_max >= 2500) {
-> 			phylink_set(modes, 2500baseX_Full);
-> 			__set_bit(PHY_INTERFACE_MODE_2500BASEX, interfaces);
-> 		}
-> 	}
->      ...
-> }
-> 
-> So the quirk is only needed if the EEPROM falls outside both rules. A
-> typical case is an xPON stick that reports 1000BASE-LX at about 1300MBd.
-> 
-> Most of the nearby xPON entries record this as "can operate at
-> 2500base-X, but reports <X> in its EEPROM". Examples are Huawei MA5671A,
-> Hisense LXT-010S-H, Hisense ZNID-GPON-2311NA, HSGQ, FS GPON-ONU-34-20BI
-> and Alcatel G010SP. The OEM SFP-2.5G-BX10-D/U and LH03-B/LH20-A entries
-> have no such comment, though.
-> 
-> Could the commit message and the table comment say what the module
-> reports for nominal bit rate, BR min/max and compliance codes? The
-> vendor name and PN strings would help too, for example from ethtool -m.
-> The strings matter because sfp_lookup_quirk() needs an exact vendor/part
-> match after trimming.
-> 
-> The later commit "net: sfp: sort OEM and Turris SFP quirks" does not
-> change this entry.
-> 
+=E2=80=A6
+> - [Medium] In hsr_dev_xmit() (net/hsr/hsr_device.c:282-284), every skb
+>   with skb->protocol =3D=3D htons(ETH_P_1588) must start with a struct=E2=
+=80=A6
+> - [Medium] Inline-header parsing in hsr_dev_xmit() is triggered only by
+>   skb->protocol =3D=3D ETH_P_1588.
+=E2=80=A6
 > [Severity: Medium]
-> Does the link come up with this entry under the default phylink
-> configuration?
-> 
-> The commit message says the link was established "with speed and duplex
-> forced and autonegotiation disabled". sfp_quirk_2500basex() only adds
-> the link mode and the interface:
-> 
-> static void sfp_quirk_2500basex(const struct sfp_eeprom_id *id,
-> 				struct sfp_module_caps *caps)
-> {
-> 	linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseX_Full_BIT,
-> 			 caps->link_modes);
-> 	__set_bit(PHY_INTERFACE_MODE_2500BASEX, caps->interfaces);
-> }
-> 
-> It leaves the Autoneg bit that sfp_module_parse_support() always sets:
-> 
-> 	phylink_set(modes, Autoneg);
-> 
-> sfp_quirk_oem_2_5g(), by contrast, calls sfp_quirk_disable_autoneg().
-> 
-> With this entry, the default path looks like this:
-> 
->    1. sfp_module_parse_support() sets Autoneg.
->    2. sfp_quirk_2500basex() adds 2500base-X and keeps Autoneg.
->    3. phylink_choose_sfp_interface() picks 2500base-X.
->    4. phylink_sfp_set_config() uses mode = MLO_AN_INBAND.
->    5. phylink_pcs_neg_mode() takes the Base-X without a PHY branch. When
->       the PCS reports no inband caps, or reports both enable and disable,
->       the advertised Autoneg bit selects in-band negotiation:
-> 
-> 		else if (linkmode_test_bit(ETHTOOL_LINK_MODE_Autoneg_BIT,
-> 					   advertising))
-> 			neg_mode = PHYLINK_PCS_NEG_INBAND_ENABLED;
-> 
-> Suppose the module's 2500base-X SerDes does not do clause 37 style
-> in-band negotiation. On such hosts, would users need to run
-> ethtool -s ... autoneg off to get a link after inserting the module?
-> 
-> Could the entry also disable autoneg? Alternatively, could the commit
-> message confirm that the module links up with in-band AN enabled?
-> Several accepted xPON entries also use sfp_quirk_2500basex with Autoneg
-> left set, so this may be fine if the module does negotiate.
+> Every skb with skb->protocol =3D=3D ETH_P_1588 now has to start with a st=
+ruct
+> hsr_inline_header. If it doesn't, tx_dropped is incremented and the frame=
+ is
+> freed, while hsr_dev_xmit() still returns NETDEV_TX_OK. Before this patch
+> these frames were forwarded into the ring.
 
-I think the above should be explicitly debated or addressed.
+This is intended, packets without the header should not be injected into
+the ring.
 
-/P
+> Can this drop PTP frames from senders that have no way to add the inline
+> header? A few cases:
+>=20
+>   - AF_PACKET SOCK_DGRAM senders. The device's own header_ops build a pla=
+in
+>     ethhdr, where bytes 6-9 are h_source, so the magic check can never pa=
+ss:
+>=20
+>     static const struct header_ops hsr_header_ops =3D {
+>     	.create	 =3D eth_header,
+>     	.parse	 =3D eth_header_parse,
+>     	.parse_protocol =3D eth_header_parse_protocol,
+>     };
+>=20
+>   - Unmodified SOCK_RAW senders bound to ETH_P_ALL, such as linuxptp.
+>     packet_parse_headers() sets skb->protocol to ETH_P_1588 from bytes
+>     12-13.
+>=20
+>   - VLAN devices stacked on hsr0. hsr_dev_setup() advertises
+>     NETIF_F_HW_VLAN_CTAG_TX, so the tag stays in hwaccel and skb->protocol
+>     is still ETH_P_1588 in front of a plain ethhdr.
+>=20
+>   - PTP frames forwarded into hsr0 by a bridge, tc mirred or OVS.
+>=20
+> The commit message does say the header is "expected and mandatory if the
+> ether type is ETH_P_1588". The reason it gives for dropping is "the
+> requested PTP timestamp is not routed to the sender", which only covers
+> local senders that want a TX timestamp. Forwarded and stacked-device fram=
+es
+> never ask for one.
+>=20
+> Is it intended to drop those as well? No later patch in the series touches
+> hsr_device.c, so this is still the behaviour at the end of the series.
 
+Yes. The header was optional but then during the review it was asked why
+not make it mandatory. Since there was no reason why sending a PTP
+packet without a timestamp would make sense, it has been made mandatory.
+
+> [Severity: Medium]
+> Can a remote host reach this parser? The only trigger is skb->protocol.
+> Nothing checks where the skb came from, for example skb->sk, a socket
+> option or a cmsg.
+>=20
+> For a frame redirected into hsr0 from another interface, eth_type_trans()
+> set skb->protocol from bytes 12-13. Those are exactly the inline header's
+> eth_type bytes.
+>=20
+> Suppose tc mirred, OVS or nft fwd/dup forwards untrusted traffic into hsr=
+0.
+> A remote sender could transmit a frame laid out as:
+>=20
+>   byte 0       1 or 2 (req_tx_port)
+>   byte 1       has_hsr_header
+>   bytes 2-5    0
+>   bytes 6-9    af:48:53:52
+>   bytes 10-11  0
+>   bytes 12-13  0x88f7
+>=20
+> hsr_ptp_parse_header() would accept this, strip the outer 14 bytes, and
+> forward the inner frame with the req_tx_port and has_hsr_header the sender
+> chose.
+>=20
+> Later in the series, has_hsr_header =3D 1 makes hsr_fill_frame_info() and
+> hsr_forward_do() send the inner frame unchanged on the chosen slave.
+> hsr_xmit() also skips the h_source substitution:
+>=20
+> hsr_xmit()
+>     if (frame->port_rcv->type =3D=3D HSR_PT_MASTER && !frame->has_hsr_hea=
+der) {
+>=20
+> Wouldn't that let a remote sender inject HSR-tagged frames into the ring
+> with a forged source MAC and sequence number, and pick the egress port?
+>=20
+> The Linux bridge path doesn't appear to be affected. br_handle_frame() dr=
+ops
+> frames with a multicast h_source, and 0xaf has the multicast bit set. tc
+> mirred and OVS don't do that check.
+
+I don't think forwarding untrusted traffic (from outside) into a hsr
+network is a good idea. Also if this comes from a non-HSR network then
+it misses a HSR header. That means the admin would expect to add
+system's HSR header while sending it to the ring. There is a "redbox"
+for this (sending an receiving packets to/from a HSR network).
+It looks like an odd setup, not something one would consider.
+Also, worst thing is that a received forget packet would be sent
+further.
+
+Sebastian
