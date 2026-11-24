@@ -1,104 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795513762;
-	b=CRQnRb7yEnKkh6ikWdkMMxQv0g1klCRQ7AY4saRDX0pBVqWhndqhAFtKuQ84p3+S3V58
-	 UfmlXO0l3aXfS3aSe5iX5RtdB3TTnuOPIpMU2SH1uf/AuVAYLfnjPUyxONs68XWxJ/y8w
-	 w3fFGam/WlEj7OTLbP5YEWyeyb0hZhMx7K/jY+SnL7hIdm6JwSywjeasZr0x1UIlQFwBz
-	 lY5nlXduO+mm7TNzkjHITkMZGOAYbsZRGTCqhJls425HeAr1JEGeMqFemmrNfuGMJLzbI
-	 aIzf0NRZAtOUJmosAfG9LatGbMTwWubXpF904OICpdAFT7Rc/DSFokMbAWEWVV0zmAg==
+	t=1795513763;
+	b=5Vf+AvgaR5R69pBlr+QpQs+z3ciHzANPffr0FyiJERJlhWSohNYChqW/iy/fd8VjDqeU
+	 8lF3NGYmG3el2CaaqEfJEMep/QPCO+nXpI+xHwDowy7zRqT9Atmsy3zrbu0nWKrFuzceE
+	 l+dEERl8GUrOk7BYMt0TyuhrcXzGnAWWEGEJd/PEwV15VDqhfddPtfdpDxhNsEBjAgN/m
+	 Qu8q1Uo750jr87+jyhi9KpdevHVfHT4N0yNVxpBKlJojcTStqHeF0ZP7t3V2FiiKi55Yw
+	 8W66OX+ZZ75qrhmrWYNK+qRjj1tqT9kXrCxB4wC8Y69mr4a+IbdG278oIHsqPEeeKqQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795513762;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795513763;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
-	b=shFBtKJvkjLRmPTevZ2FqWExxFd7KFqLedY4SI9M/2xEbxZ6LaNyr7UnXH6GmhUxAKs1
-	 94QAToDT1t0bSbUiTNWHFWPzzQfaY2vlWPxVJLbt1IHWtNiLjZQlD8Pa2DIfn8e4BU9zd
-	 mKhq3Ex3vMELruTx41NiYDxd+j04hIMs6rBlWeCtAcfHYvXm80UdjMQjWuCSvH203IhrH
-	 IvwgpSknlmBNXI3ZrM3vRmKczQx9dLtmVa+WVj/+NXHORbgnWquPe2NpSULNKrxGIbqG/
-	 DiI1jDF/F02JEn8qymd+WhNJc+ldrNMg/nz8AtM97/x8sNUKyeHEU3oG4gp6noM73dg==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=slkJzzrrK3r3R+tM7uOPwQJ/dVKmERj9wH5MODddrAY=;
+	b=wp1Jc6HTaodL9EcKGoPfANa3QRGkUucXWq2EI3dD6gouX2f+3pfpM6eK1n+2FvjUf5G3
+	 cSwqcJSEVhrZzB0GIIGBQVEiYV+HO/fbmq4iAF+KdWYRrx92a4GXSCmNRtvQgaihDC5IR
+	 NoWYoPO0IuEKaWIzDWOEe2GnQbqYvyJFaJYHEizam/C4t/hH3mVaukKh/28/WkVmo+W2d
+	 hRD2Nw+CRytbM9h7yCnlYyXf3/0SnPs4QccWmRdNcCBUxFqoBMO1864mP9lx1NiHKqmZy
+	 lgCx+2pJnZpsNA5keUmeAD9kdfahXZLJY13IDZTUZ14w3RkEb4vdfkXH03Y8dn8ZASA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="JejtrES/";
-	arc=none smtp.remote-ip=209.85.208.171
-Received: from mail-lj1-f171.google.com (mail-lj1-f171.google.com [209.85.208.171])
+	dmarc=none header.from=mojatatu.com;
+	spf=none smtp.mailfrom=mojatatu.com;
+	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=Q5p1wtQa;
+	arc=none smtp.remote-ip=209.85.219.46
+Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 05DCE606A86C
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:49:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 05DCE606A86C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3665606A867
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 09:49:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3665606A867
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JejtrES/
-Received: by mail-lj1-f171.google.com with SMTP id 38308e7fff4ca-3ab3b29a1d4so33376901fa.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:49:19 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=Q5p1wtQa
+Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-921342fae7eso47610506d6.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:49:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795513758; x=1796118558; darn=vger.kernel.org;
+        d=mojatatu.com; s=google; t=1795513758; x=1796118558; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
-        b=JejtrES/lnVMjmjUdXjmQXLRPKx7lAtzYlK28LW0y/7fmrMUltLhAlEO2z9BJY4BH5
-         lmtqOc8KpsbwBYUI4eUM9n+yO8zEKvLaXIINlJckyZnsvVuL6ZnKBS4CpuREkZSQiBg/
-         bWsBaFlmm5HSgXbuO2DpbgO+Hkym1r88ylUmWj42VW8bBmBRKvItKfLms9Ynn3ESa+/e
-         q6R5/NfHWkDZpm1jW67w59K8rVSWui3PPJD03CPAoWoUxpotM5sFauyIn2x1ogmhM+3L
-         AEXZT/+ly9zqautC7XDkEE45IFQy00pvT4FvVRHEEQMzTQ4ZG7Wf6N3dym7ThosSWjg+
-         hPjA==
+        bh=slkJzzrrK3r3R+tM7uOPwQJ/dVKmERj9wH5MODddrAY=;
+        b=Q5p1wtQaGTLJdx6sfSr7iRMFSa3XfzZLzupibUB9JB3S3pOtnB80RyXskBPJPszIx7
+         LK0EZWtO9UYgwtiMc+N5Uiz7r/jWhpmQmRcjHqqraNPnrp69mZvyq46IsQFgx6Tf9wPN
+         6gniXBsYdxhCrMyHCoRTmd7R25IunOofg7erE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20260707; t=1795513758; x=1796118558;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=rX7X115JgfakFeoi0yaVLbpqCl54/vBNVgzXw3d6i5Y=;
-        b=txWL8bqGwQmfKlLZimJS2FXJI8Vp4Beywqlns0z7+uhZYd5WNpwLHWqm8IdvJF+8KE
-         BB1GS1YzgcBt1ncQk2OG9lhtsMyFRMuU4v/Vq9RU0qFMYMP6ELzzS/C+pjzpxgKMiai6
-         HKs/v6aAwBTvXH50oPdnt+HVzl8jLBoT14X6hQ7KqyakXY7osb7y4gLbQ34CDHBrQL6U
-         qLkNpBwsic0XSCif6Np8KwdHtNe6ioqUaPsA7+uoXzA17u/Mdb4fqm2EafCZs3cIAJIp
-         xnow2vbb9Hov9jbvdX/VGct88vDf1MMie623DEZEYilvJCKbyak8ke39A5BkR/NUsduU
-         SCeA==
-X-Forwarded-Encrypted: i=1; AL+hErFeVb0yhlP9DqRG2awZOjlJaSKfRhFZbDEbk8QGjVI2kAFwY2gF6YIrE8Z9f6sNg9FSbKIsrG4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9rdWL0cRzXGrUtz26mhBRRIDmAbcUju3HGhFyquoXRcB546nRv
-	85xei2bFp62RB5LDqdaEbl5h0hHxEP9csLxcizNPX2OC+66O/JRVuNCs
-X-Gm-Gg: AZFdTZdmfQHJQ3VgkEB/ZGOHtabWblljTCbDGOkC0bbB2ALLKdU4S718gPl4Sy+3zgm
-	FLKcjEPpajATG552eT6WeYMUhfpBw9lCettBzzO8ZG0j7nNMReNDH+sKsqbkJtiRz38ro+X5aAK
-	wtJfiO0SvpUxUiEtBGkQWIdvou2DWnRNJDj0evXH5SZqb19cVwdHONzOmVaLtXaZ/IeJRwgtfwX
-	2lhSpzkAufLd76pQNMn27LRvPGNL0NQ2GbzgkU0wwHIANvsnv4g4pxYCXMgzdWJeX98406BaOw1
-	M2OIQLHCujHQYvdbrmLOpIfan/xTsH/tsNujBa3gHCawReqEUEQcsEkQDWq6fNBEknT+3BSebsn
-	6TrEvwltF5WBBhPGruyUgWNcO8EIWY+yBhu4B2WOWJMrszlDJP6oMBJ376Srk4pcpqEtSTv1W4E
-	zJ++GzVLJGYBJ6GIMgLtJ5C/Jy++AzYZl42YVV/+BQwdLCww8I+FQ9FAfcjo9XXXQ3SEE9xXXKA
-	rDR+/4yDa+oaqEwvWap5p+r1UASAuHpGYDvMwbPGvvrF/I5GHGRL4tlTL54UfnlTenPChwyBHvh
-	24G/6+hd/AZs0h+007TlDAy5kcr2lw4JRoXAG3RG3/6G434=
-X-Received: by 2002:a2e:a98e:0:b0:3ac:ee2a:ce63 with SMTP id 38308e7fff4ca-3ae7fa13056mr38666771fa.18.1795513757928;
+        bh=slkJzzrrK3r3R+tM7uOPwQJ/dVKmERj9wH5MODddrAY=;
+        b=LZFtveqb75nUVGq+MLlJsBkhEl3+Y//xgzK7qRNsavMt4ACQNgE69Tl6hRXxWwQEyl
+         AkNQcWqEjvLVlqcj5Quv8tk79D2T4DcefVlONOgZ/8T0yF5+bbc+KXWFajHXr/Igkogi
+         z4j1Tca17VKAhBxHQYjxfshAYVSgIniQ65Egscu//ZkkiOgF2BcPF2/dacj+8mBF6gaK
+         x6BjsFrAQhcfIXfghmu5cJ2YkytE8xlAjptLnpI6Jnu9hE5Ve6iuC389s+ou3X5JNNVs
+         hOC6S+vDVEm9WzhFyDjWzfiO+/MrLlnELmKguNyLyhVgS4gkO9eIwM18uLqKEFTUrCXV
+         juZg==
+X-Gm-Message-State: APuU4Z+YqHUqVIWNQkOCXzkYfsLjzex2+fhILbXdxCTff804PYQSmPRR
+	9Nv8IcSE7Rg/5nHTwwCtjZ/uJ4villJXxWVei0gYcVoi1puJlIJ/RinTfB2VA6LkpUUHQNL0sKZ
+	FmTE=
+X-Gm-Gg: AZFdTZfUWv8WK+3tQIonKOkJDxdsn+9yCOoRxRiRzlsFl3YPctqPlFyiPyedB4Tp/f4
+	6Ftt2e1Y+Y/UA+cvtQ39JxKgsHgUCU+VvY2ZHKbRJg38D0lmy9EClj867Pe5ZggVGGCr+NbsNOy
+	XfGQnAAW0HzAWbRDscToVF2u9dwOMIjk5C3QZmvZTuwxj3u0Ha2ve0++053SPVxurtWaW6PnHny
+	zDYK/iJlbCLmIIunKGzgEUfInunB2xmICOKCmaeOWYN8pJNZaQyeMGiAsXgUmBqy4HTKGBIPHpO
+	lnpN328AUO4B7v+M0Pb98DnO5U0r51+k9akRY5U4ppXW7s85L2ZdfHz8pqTCy0iCMr8QjdI4ftr
+	z99GXEa63aZOSlLsaUIPMyq/CEVkJ7ZteoZiCcsiZAv2Bo95ytzjZJnkM7EwoRkyu2Icc/gQTVu
+	zmXEVjYDEvLC4O9TjQJW8dYyvVSueLhQsF+PVFzqVexrPUflHU84DNU2C990ybBlPZC0xmTHXTz
+	+deIbDZoy6prHtumwz30+tFTMqM6q/seaD3Zxk2iHjdQq2ucsCaRAY/1quqi4s/A2cQ9G79nleq
+	wuw2NH37k2zoyQVbE4rjw8ka0fCNTfden0/QzdrW9Gqmt5U0rbUk9kCqlVdByptKt+vWMvqEatE
+	AlZJE
+X-Received: by 2002:a05:6214:124e:b0:921:2a6:c6d9 with SMTP id 6a1803df08f44-92134ade7cbmr264015476d6.51.1795513757772;
         Tue, 24 Nov 2026 01:49:17 -0800 (PST)
-Received: from NB-6746.corp.yadro.com ([188.243.183.76])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-3ae8051bfbfsm38756431fa.20.2026.11.24.01.49.16
+Received: from majuu.waya ([184.147.180.207])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349ec64csm130484506d6.28.2026.11.24.01.49.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Tue, 24 Nov 2026 01:49:17 -0800 (PST)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com,
-	pavel@ucw.cz
-Cc: Artem Shimko <a.shimko.dev@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH net-next v5 0/3] net: phy: dap8211r: add LED control support
-Date: Tue, 24 Nov 2026 12:49:09 +0300
-Message-ID: <20261124094914.2993988-1-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
+From: Jamal Hadi Salim <jhs@mojatatu.com>
+To: netdev@vger.kernel.org
+Cc: Jamal Hadi Salim <jhs@mojatatu.com>,
+	Victor Nogueira <victor@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	stable@vger.kernel.org,
+	sashiko-bot@kernel.org
+Subject: [PATCH net v7] net/sched: sch_teql: unshare the header before writing and fix retry strip
+Date: Tue, 24 Nov 2026 04:49:04 -0500
+Message-Id: <QDISC-6HS9.v7.r0.20261123194720-1@mojatatu.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,120 +102,190 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hello,
+This is a followup of commit dc4b95b8fee9 ("net/sched: sch_teql: restore
+skb->dev on the slave failure path") as reported by Sashiko.
 
-This series adds support for LEDs on the DAP8211R
-Gigabit Ethernet PHY.
+The issue:
+teql_master_xmit() writes the slave's link header into the skb in
+teql_resolve() and on retry pulls it back with __skb_pull().  Two bugs:
 
-The first patch fixes mistakes in function comments about locking mdio.
-The second patch documents the optional "leds" node in the Device Tree
-binding. 
-The third patch introduces a small helper to write extended
-registers, since the LED registers are accessed indirectly via
-EXT_ADD/EXT_DATA and implements the three LED callbacks
-required by the PHY library.
+1. When the skb's header is cloned (e.g. a tc-mirred action on a
+   physical device's clsact egress redirects to the teql master), the
+   write corrupts the other clone.  Call skb_cow_head() first.
 
-$ make dt_binding_check DT_SCHEMA_FILES=Documentation/devicetree/bindings/net/dptel,dap8211r.yaml 
-  SCHEMA  Documentation/devicetree/bindings/processed-schema.json
-  CHKDT   ./Documentation/devicetree/bindings
-  LINT    ./Documentation/devicetree/bindings
-  STYLE   ./Documentation/devicetree/bindings
-  DTEX    Documentation/devicetree/bindings/net/dptel,dap8211r.example.dts
-  DTC [C] Documentation/devicetree/bindings/net/dptel,dap8211r.example.dtb
-$ yamllint Documentation/devicetree/bindings/net/dptel,dap8211r.yaml
-$ grep -i "dap8211r" Documentation/devicetree/bindings/processed-schema.json
-    "http://devicetree.org/schemas/net/dptel,dap8211r.yaml": {
-        "$filename": "/home/a-shimko/patchwork/linux/Documentation/devicetree/bindings/net/dptel,dap8211r.yaml",
-        "$id": "http://devicetree.org/schemas/net/dptel,dap8211r.yaml#",
-        "title": "DAPU Telecom DAP8211R(I) Gigabit Ethernet PHY",
+2. The pull always removes skb_network_offset() bytes.  For an
+   AF_PACKET/SOCK_RAW frame with no dst entry, teql_resolve() adds no
+   header, so the retry strips the user-supplied one.  Pull back only
+   the length this slave added.
 
-Required:
-CONFIG_NEW_LEDS=y
-    CONFIG_LEDS_CLASS=y
-    CONFIG_LEDS_TRIGGERS=y
-        CONFIG_LEDS_TRIGGER_NETDEV=y
+The Fix:
+Unshare the header before the neighbour is asked to send the skb, so the
+skb is private whether the neighbour writes the link header at once or
+parks it on its arp_queue and writes it when the entry resolves.  Start
+every attempt from the network header, as neigh_resolve_output() does,
+so an skb that arrives with link-layer bytes in front of its network
+header is given one link header rather than a second one.  Track the
+added length per iteration; an AF_PACKET frame retries with its header
+intact.
 
-Testing:
-$ ip link set eth1 up
-$ ls /sys/class/leds/
-stmmac-1:01:amber:lan  stmmac-1:01:green:lan
-$ echo netdev > /sys/class/leds/stmmac-1:01:green:lan/trigger
-$ echo eth1 > /sys/class/leds/stmmac-1:01:green:lan/device_name
-$ echo 1 > /sys/class/leds/stmmac-1:01:green:lan/link_1000
-$ cat /sys/class/leds/stmmac-1:01:green:lan/offloaded
-$ ip addr add 192.168.5.100/24 dev eth1
-$ ping -I eth1 192.168.5.1
+Conditions to recreate the bug:
+CONFIG_NET_SCH_TEQL=y and CONFIG_VETH=y, run as root. A teql master with
+two veth slaves, the first slave returning NETDEV_TX_BUSY without
+consuming the skb so that teql retries the frame on the second one:
 
-$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo eth1 > /sys/class/leds/stmmac-1:01:amber:lan/device_name
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
-$ cat /sys/class/leds/stmmac-1:01:amber:lan/offloaded
+  ip link add vethBAD type veth peer name vethBADp
+  ip link add vethGOOD type veth peer name vethGOODp
+  ip link set vethBAD up;  ip link set vethBADp up
+  ip link set vethGOOD up; ip link set vethGOODp up
+  tc qdisc add dev vethBAD root teql0
+  tc qdisc add dev vethGOOD root teql0
+  ip link set teql0 up
 
-$ echo none > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/brightness
+Send a SOCK_RAW frame that carries its own link header on teql0 and
+capture it on the second slave's peer. A veth transmit does not return
+NETDEV_TX_BUSY on its own; to hold the skb pending this reproduction used
+a test-only IFF_DEBUG accelerator in veth_xmit(), which is not part of
+this patch and was applied to both the unfixed and the fixed build.
 
-$ echo netdev > /sys/class/leds/stmmac-1:01:amber:lan/trigger
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/tx
-$ echo 1 > /sys/class/leds/stmmac-1:01:amber:lan/rx
-$ ip addr add 192.168.5.100/24 dev eth1
-$ ping -I eth1 192.168.5.1
+On the unfixed tree the captured frame arrives with its header stripped
+(176 of the 208 bytes sent, starting at the payload) because the retry
+pulls skb_network_offset() bytes while this slave added none. With the
+patch the frame arrives intact.
 
---
-Best regards,
-artem
+The shared headroom case needs a second reference to the skb to survive
+the transmit. A PF_PACKET tap on the master whose socket is never
+drained keeps one alive; a kprobe on eth_header then reports cloned=1
+without the patch and cloned=0 with it. The parked path needs the
+unshare before the queue: a tc-mirred mirror on a physical device's
+clsact egress parks the clone on the teql slave's unresolved neighbour,
+so hold the original frame in a netem delay on that device and then
+resolve the slave's neighbour through a changed lladdr. Without the
+unshare the arp-queue drain writes the new link header over the original
+frame's first bytes, and a listener on the peer sees a frame addressed
+to the new lladdr instead of to itself; with the patch the queued frame
+keeps its own destination address.
 
-ChangeLog:
-  v5:
-    - Drop redundant $ref to common.yaml and inner unevaluatedProperties: false
-    from the led@[0-2] subnode, as they are already inherited from
-    ethernet-phy.yaml.
-    - Move write of LED_x_CON first and clear FORCE_EN afterwards in
-    dap8211r_led_hw_control_set().
-    - Report TRIGGER_NETDEV_LINK instead of individual speed flags in
-    dap8211r_led_hw_control_get() when all three link speed bits are set, as
-    netdev trigger rejects reporting them together. Based on [1].
-    - Add checking of DAP8211R_LED_ACT_BLINK alongside TX/RX bits in
-    dap8211r_led_hw_control_get().
-    - Add -EOPNOTSUPP in dap8211r_led_hw_control_get() if unsupported
-    hardware bits are set in LED_x_CON.
-    - Link: [1] https://lists.infradead.org/pipermail/linux-arm-kernel/2026-September/1172246.html
-  v4:
-    - squash extended register write helper into the LED control patch to
-    fix netdev/build_32bit, netdev/build_allmodconfig_warn, netdev/build_clang
-    fails (patchwork.kernel.org)
-    - add andrew+netdev@lunn.ch to Cc of dt-bindings patch to fix
-    netdev/cc_maintainers warning (patchwork.kernel.org)
-    - Link: https://lore.kernel.org/all/20261122131900.2951586-4-a.shimko.dev@gmail.com/T/#u
-  v3:
-    - fix kernel-doc comment for DAP8211R_LED_FORCE_MODE_ON and
-    DAP8211R_LED_FORCE_MODE_MASK
-    - use FIELD_PREP() for DAP8211R_LED_FORCE_MODE_ON 
-    - Link: https://lore.kernel.org/all/20261120081106.2919010-1-a.shimko.dev@gmail.com/T/#t
-  v2:
-    - add a commit fixing kernel-doc comments for dap8211r_read_ext() and dap8211r_modify_ext()
-    - move LED child node down below tx-internal-delay-ps in dptel,dap8211r.yaml
-    - add blank lines in dptel,dap8211r.yaml
-    - restrict LED reg index to 0..2 and fix schema properties in dptel,dap8211r.yaml
-    - fix kernel-doc comment for dap8211r_write_ext()
-    - add LED brightness (force mode) support to driver
-    - remove rules == 0 statement
-    - add TRIGGER_NETDEV_LINK to DAP8211R_LED_SUPPORTED_TRG for dap8211r_led_hw_is_supported()
-    - clean up switch (index) statements
-    - Link: https://lore.kernel.org/all/CAOPX74709XiLXLoioDJStTSzzhstC2sHpM4GieAO=3-37E18pw@mail.gmail.com/T/#u
-  v1:
-    - Link: https://lore.kernel.org/all/20261113110546.173624-1-a.shimko.dev@gmail.com/T/#t
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Reported-by: Sashiko (gemini) <sashiko-bot@kernel.org>
+Closes: https://sashiko.dev/#/patchset/20260824115928.4099988-1-victor@mojatatu.com
+Reported-by: Sashiko (nipa) <sashiko-bot@kernel.org>
+Link: https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-6HS9.v4.r0.20261111094338-1%40mojatatu.com
+Link: https://lore.kernel.org/netdev/20260824115928.4099988-1-victor@mojatatu.com/
+Link: https://lore.kernel.org/netdev/20261110101908.2e64e8e9@kernel.org/
+Link: https://lore.kernel.org/netdev/DN09UU4NHKLV.29WR92GGDPBP5@gmail.com/
+Link: https://lore.kernel.org/netdev/179543888086.3135.17583427226707859195@kernel.org/
+Cc: stable@vger.kernel.org
+Reviewed-by: Victor Nogueira <victor@mojatatu.com>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Jamal Hadi Salim <jhs@mojatatu.com>
+---
+v6 -> v7:
+- the code is unchanged.  Patch 2/3 and patch 3/3 of the v6 series are
+  held back for net-next: 3/3 depends on a neighbour guard that is still
+  in review, and 2/3 has no effect without it.  This patch is therefore
+  reposted on its own.
 
-Artem Shimko (3):
-  net: phy: dap8211r: fix kernel-doc comments for extended register
-    helpers
-  dt-bindings: net: dptel,dap8211r: add LED nodes
-  net: phy: dap8211r: add PHY LED control support
+ net/sched/sch_teql.c | 30 +++++++++++++++++++++++++-----
+ 1 file changed, 25 insertions(+), 5 deletions(-)
 
- .../bindings/net/dptel,dap8211r.yaml          |  41 +++
- drivers/net/phy/dap8211r.c                    | 261 +++++++++++++++++-
- 2 files changed, 300 insertions(+), 2 deletions(-)
-
+diff --git a/net/sched/sch_teql.c b/net/sched/sch_teql.c
+index dc21cd9704a2..44730a5e8917 100644
+--- a/net/sched/sch_teql.c
++++ b/net/sched/sch_teql.c
+@@ -262,7 +262,7 @@ static int teql_qdisc_init(struct Qdisc *sch, struct nlattr *opt,
+ static int
+ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+ 	       struct net_device *dev, struct netdev_queue *txq,
+-	       struct dst_entry *dst)
++	       struct dst_entry *dst, int *hlen)
+ {
+ 	struct neighbour *n;
+ 	int err = 0;
+@@ -292,6 +292,18 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+ 		n = mn;
+ 	}
+ 
++	/* Unshare the head before the neighbour can write or queue it. */
++	if (skb_cow_head(skb, LL_RESERVED_SPACE(dev)) < 0) {
++		err = -ENOMEM;
++		goto out;
++	}
++
++	/* Each attempt starts from the network header, as
++	 * neigh_resolve_output() does.
++	 */
++	if (skb_network_offset(skb) > 0)
++		__skb_pull(skb, skb_network_offset(skb));
++
+ 	if (neigh_event_send(n, skb_res) == 0) {
+ 		char haddr[MAX_ADDR_LEN];
+ 
+@@ -299,9 +311,12 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+ 		if (dev_hard_header(skb, dev, ntohs(skb_protocol(skb, false)),
+ 				    haddr, NULL, skb->len) < 0)
+ 			err = -EINVAL;
++		/* The bytes prepended above skb->data, pulled back on retry. */
++		*hlen = skb_network_offset(skb);
+ 	} else {
+ 		err = (skb_res == NULL) ? -EAGAIN : 1;
+ 	}
++out:
+ 	neigh_release(n);
+ 	return err;
+ }
+@@ -309,11 +324,13 @@ __teql_resolve(struct sk_buff *skb, struct sk_buff *skb_res,
+ static inline int teql_resolve(struct sk_buff *skb,
+ 			       struct sk_buff *skb_res,
+ 			       struct net_device *dev,
+-			       struct netdev_queue *txq)
++			       struct netdev_queue *txq,
++			       int *hlen)
+ {
+ 	struct dst_entry *dst = skb_dst(skb);
+ 	int res;
+ 
++	*hlen = 0;
+ 	if (rcu_access_pointer(txq->qdisc) == &noop_qdisc)
+ 		return -ENODEV;
+ 
+@@ -321,7 +338,7 @@ static inline int teql_resolve(struct sk_buff *skb,
+ 		return 0;
+ 
+ 	rcu_read_lock();
+-	res = __teql_resolve(skb, skb_res, dev, txq, dst);
++	res = __teql_resolve(skb, skb_res, dev, txq, dst, hlen);
+ 	rcu_read_unlock();
+ 
+ 	return res;
+@@ -335,6 +352,7 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
+ 	struct Qdisc *start, *q;
+ 	unsigned long flags;
+ 	int nores;
++	int hlen;
+ 	int busy;
+ 
+ restart:
+@@ -361,7 +379,7 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
+ 			continue;
+ 		}
+ 
+-		switch (teql_resolve(skb, skb_res, slave, slave_txq)) {
++		switch (teql_resolve(skb, skb_res, slave, slave_txq, &hlen)) {
+ 		case 0:
+ 			if (__netif_tx_trylock(slave_txq)) {
+ 				unsigned int length = qdisc_pkt_len(skb);
+@@ -408,8 +426,10 @@ static netdev_tx_t teql_master_xmit(struct sk_buff *skb, struct net_device *dev)
+ 			nores = 1;
+ 			break;
+ 		}
++		/* Pull back only the header this slave added. */
++		if (hlen > 0)
++			__skb_pull(skb, hlen);
+ 		skb->dev = dev;
+-		__skb_pull(skb, skb_network_offset(skb));
+ 	} while ((q = rcu_dereference(NEXT_SLAVE(q))) != start);
+ 
+ 	if (nores && skb_res == NULL) {
 -- 
 2.43.0
 
