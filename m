@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795538058;
-	b=u8eW7Esth8w+OKHOyoH0iXhHXEDqodgdicVHDr7wRpHAXk6vj7Zi2s3o/ADbHDECz3jF
-	 75XeWD2CN9YnyLgEDtMX7OGe1l5KCwjD7C7r5ATyumpJsv3LrR5tuXFiwLt7GKR33h/OE
-	 qrOtAEk7aryIFhR35BG32CQGxyHIzHqXyAZqLoDkha4pcVmNtvGKIuxomi+wUQI+NywnO
-	 UXprJ6f4YLe4VRkNvZGaO/+xDBqq3YkZhHUTF3oDk9l9LJkFj2rrReRA6rNgw3c4hk5+f
-	 6aZlx0fA0/YXlGHdUQwVrUzDyiNpSpxP+yoMcvVfM5FCWkvy1MHIcdINBFyxFB2WMjA==
+	t=1795538061;
+	b=Tlb+U3SNW/vh8IyJvAEHLVt5P3g3gKLqRKpW6Oz/owWrkaVaEarfmLAnaoKnu8KwoRBk
+	 66htxbqZYxMBVT7lbHTc7G+8kexh3abWxKbqJ73hlXSQw/xE3LP4LQd0fn0m6PVOxdNZI
+	 MRkvUtRU8ljrAFWWj8WK6nGxPffgUPoueVslnRQnmyaNSyKlEdyzc9Cl2RAwKx695O0jd
+	 yR6HrY24hN44tuOI/OLIb3TPSLWMpyltaM69BQgKgDDlFKTVPFMnA6ESkXqwaFTxXrh0R
+	 H5SpjWtZLIQXgNVSc7o+L+QgVofshnGxry0t7G2lLbXnQpWCUftyTBM5wwkP5NQwndA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795538058;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795538061;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=EClMfCqKxctT9skZzSuSsDAw5vjSAOlPEZZuifK4nb0=;
-	b=STuL13NK786qi4enxoCqmvFu6dIeBvmSMJk7fM7J72dkF54g0gGopOzJ7UkjN7GdhsJ9
-	 02yoQdAnaVZ+E83MqwnJMmrxo26iwTwTCvYYxlmkgCZkVSjLOkQObZ+QX4uUhgP1JfYla
-	 xXPlbunQRS2mHR9BQlJCCZnXO2fo54z+RUQuHkaeCibxr5hpzCvrysYKA8/2Yy2BcgPoB
-	 CH26cnyqULtVrsyOlswHSy0iIgRJxNeSR6pZR9NhhwBfUwGuj5VQ3BOVkZP1lTCh6v7m1
-	 UxcYJVjD7BRl2fJHLpxE5z7hd+8NZAL2uSwXxlHJNMzs8oAZYNZho2dj7JaJJqofVig==
+	bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
+	b=I/1i1bG2Ij45hjeCV+9nb2uwQAD1thXbutbwSDlH2Zv3khsy+AVNTOen6cqHnCu/VcsN
+	 s9EKdLl4XqhyezX8UztLP9hAoiu2Qg1EY2AdRTki2+7EiBLs7zn6ahuC/uNVid1SS8UmE
+	 r4wDj5zInpBRyCn7J4hnratunGs6ymEUA37RStSPWTaplmU5RGECNr5HHjY1MUDEiKmHK
+	 RKudqexWQ4Al86PsJ5nWoWOIHKwpIoiqHnKTdkAyzh4J7JQJDTjXRL8/5Zv5Y9j9+it3v
+	 tXZCT+mQDcvjBTT1XofyDbRLIDZuPyUuayncpCdDs0cSbOecKoN6Bi0uRrSPCQmSB2A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vplGpSjU;
-	arc=none smtp.remote-ip=209.85.208.47
-Received: from mail-ed1-f47.google.com (mail-ed1-f47.google.com [209.85.208.47])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tWrCri4C;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 87876606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:34:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 87876606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0989C606A333
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:34:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0989C606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=vplGpSjU
-Received: by mail-ed1-f47.google.com with SMTP id 4fb4d7f45d1cf-6bab10844b5so4112082a12.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:34:18 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tWrCri4C
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c516a192844so391847866b.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:34:20 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795538057; x=1796142857; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795538059; x=1796142859; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=EClMfCqKxctT9skZzSuSsDAw5vjSAOlPEZZuifK4nb0=;
-        b=vplGpSjUzq5nA05ZXtp0+d4qNIGETg5PGo/+jwYBGHLGfxXOE9kuPm1k4bU0n6PGHf
-         phySykTltY2tE/ciXeMdFk1u/roMNHJoMSjtqfinSoxbEFvoZBwwJIDSja/0ROaKz3sm
-         TOAUzu1bwY35s7C665lv7zdzsEI8rypJi4Rfjdgy4pm8cL5lJrci1DIXatGk8eERpp8H
-         jaKA1v33WD5KbpbVjpQL+5H38olWDQPHWE0dmUSLlC9oUwwouDtoM8Olc4Rnska/9lBZ
-         8sxfVe5H1k6dtxCPICmkviTq7Taya4m+JGjBhb7Ec5+kqigkF/3r6DLyCWc735M/sD6N
-         wFFw==
+        bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
+        b=tWrCri4CWnTG22uOM9C+jp/befCVypiSR14ss4Hhuw4nQttam+vHWjhBIEnqPCrADa
+         C2HDs9OgrZ8A+wz8/LswPqpENVfLvEEj0/oiOOEXqx1cxSvUS/4S0h/rL3nNJNNBJS3D
+         Sl56mCRN+MPh+Zn8aGmIT1KZn8UvzbDcxXBgYKE6Gkysp3v0RpXILpd6khsmXaUtiP7K
+         Yi9cjmvBEHJJrBPiA1eBfTVO+82+19L3Fb1dECfEpUAdjvDHhBsX8BE/DyJGpcWosNw5
+         wp2pQXVv2LFi4pqSkz1xoLVMxRw2ur7RzNe8WfvBZMLZh3gVTNaJSJuEOL5yGS8b216x
+         HXGw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795538057; x=1796142857;
+        d=1e100.net; s=20260707; t=1795538059; x=1796142859;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EClMfCqKxctT9skZzSuSsDAw5vjSAOlPEZZuifK4nb0=;
-        b=IOw62EdLTidG+ZAZHpo8EZ6kdoEnzV+xNbS4W1hwoZMmdAsfDzqJl3DE/Te/3VDEci
-         VPqGN//6H3IiKmWACuH5aGzBrzqdcpM2q3pTYXrA1aXBqh2AJxK7aBBQj2JSCL2Nnx5r
-         nzVW1s5jHSumPs7VE2X+YQBBbU6H1OBPXyHRgEifogsBPlVySZf5OLrQDxGretOC+947
-         5H4ww79+DPr0PFYod/meAMaUzaIN/IDt+HCcj7S1KJzobLZhnQzEBUn3MzY3NarUANYi
-         6L7ALDhD50irrFLhyt1T6BsMxQM/zBzvCDeykqXaQXfPstcZ+vXe56pQnTdmzroqHeHG
-         Z42A==
-X-Forwarded-Encrypted: i=1; AL+hErEFjEaVy9r07T2x8HHuZUmxjo88HmNN/1tYHnH93fPHfQ5jGb3J2ceOGELTQUdqwFD2K6ET1Fg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/SGWDajSXT0YEE+tLgOPXe1qiyttTwhLlpT6eyM6O2qzCsbm7v
-	vPIEUzqj3eRYGOBTy6plyw4Fz8O4o9VLDOAPNzGlNO8yF9alG98T1VsA
-X-Gm-Gg: AZFdTZdQVQ8nHAFALA8RWcT+nNgDUJqqrTBD8U4QsAKwtIlQA/1BjDbbEwTCKZ6g9WJ
-	oQTgGyPzbfTRvXDWd50RQKPc1N/JviqHzj+09PL3eMxAB5d4PagW9YQFRuq+QoloDLUERBsaXJM
-	qSu+QtWrzM/+4wYjW4Dnmyv+1TJK2JfdEvzb+EUrAfnfMbqShk4iFQHTFV7rpd1I6umuFBi+tLZ
-	b4DghYzpr6KHwUjPhD4/bhm7qxA7vfEN5RNC1+XF1Kuolve98Ruk9ulC99forckC6PDfgjOqiAP
-	/1oWGaW9C3fRbyNtssW4Wn9X7ya0qhTTGfuvrWjvs0/XCYrWd5moeqhuPHfULmi6saRC1/m2KuG
-	9POSXs+f9bwGoa0EYEGeCX6kAwETXtiovhXd6E9JtCEbxRagKwjuqOV1vzonIOsSRkQ3QySJoVg
-	VkmEZ3EPrP2TL5uxg9UIuvMuITYCQt4nxwZ6SbjOoND4kizlekREDfN/1rdqVx/+TqEnuB0gI0o
-	GNZd9Zk9HGUhTnU5Gc3qy5+CTKX+WX7tfDRc23ZwYs12csIg8bsD/FYp0rGIih2QNCoZ2QqLEmf
-	Ivq6qo4gdf5hmgOuNONDeiNh9RJSuK89a/0RVLehcNhoa77NKOcIp0ucqWV9fwjlDymWBnELno/
-	t
-X-Received: by 2002:a17:907:1c8f:b0:c50:9412:93f0 with SMTP id a640c23a62f3a-c51317e3208mr1338763266b.8.1795538056751;
-        Tue, 24 Nov 2026 08:34:16 -0800 (PST)
+        bh=qBpX9eD/Y1u/lvzmHcfOgzl+QJm/PvOjVer0pSOyAQ4=;
+        b=MniISPyq2xSb71Lm3bn7Ndjl6CNiXqbFZ+XnrpO8YC4TXZymDyPQ5C0UHcAXC+cd3k
+         UkbHt1bOEclsDT/yy4C6rRvqQgOCSMwrjZNIDswQc4sYQE2FosmSokcRnAqsiQdAZQab
+         X3RQDrBXyLMKajAmbsVoCI6reHpuE9dUG+wfhlj3/SmjysHGsyiAtZDznE1qrcZOy/3k
+         Rn+b8GurLby0PAJ1WB7hx32r/SpsbTyyovC/emP+Eh/Tb+8KIbGXrCjC7Z03xEVFrZiA
+         kVKZxNA5/G/ZDl0jRsx9J7HzXMA8ctP5d22dKPTFlSNEN7LMOOLctQVc8kqraX5uGott
+         suKQ==
+X-Forwarded-Encrypted: i=1; AL+hErFz09PD1fWdbrb5COlZGPBzP2j6+/Exk7iYvDfHQOeWyfu6JXeN7FOZXarZszA2FF1cglyaXFw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/HEbfkpXFGPaWDwIETMGziJTtAZPvp2wVH9CFcukII+4FnEHIO
+	VxNg7wmSJrlOdD7jZ4PYq0GHzWbrge4tiVye6AX6URojiT2Dw67BRXXF
+X-Gm-Gg: AZFdTZc445WzpZbBLG571e6zbPxBviPuJ5g+APsstyd+ZGK0n+c/fIyTOU/yWYPUdzg
+	kQUG8/a4PgR93lNDxqd8QF+arKxNl0Eb7sq7GbaFLysvdShDnaCh1Ap66Ct/iubaxy+tIwhPOu3
+	4uCa+MHcY7iSosf81WFP8FuVszOipzaEDT/st1UUugrcA5gcitEvygDjTHhHExI9A94+hOmYiLs
+	uZMnH282P632IX0exEcifA8Cp1+OgLwzbaip9g/4j1NM/DGSc+FuzBqc5Ey51g0uTZko9LzjuOQ
+	ccc82tqtdNuQ0QSFQuVohIBwSDNaPlsaKmGNGUMmx1sE0NyfEECxv68PaYjHDqF2fiEPzFwaVhb
+	3fJUhbkYAyyn24Lf/sMcapOQnLeyx4WffKw2ZEuu1leicJzsJxWSBz1JDgeAetyEheJAWaf7pWD
+	rK2rpHlb4vFtI2K3FG79NI3mSswn4Iq5/MU3Acm/2+OTmHbjfLMPjUafxlDCrcEJLAKwjMOEYdi
+	Ftt50t4zudsJ4LlsyJgkdQn9+wDR4jzUkpTrWfUQCYfC1td+EGH6MxPjNpvbVYJ3T+v+TKjrb6E
+	8MlcO+Bc3253tL/jAHHvYbcUkce71RG8JQEf7jLWhQZoVrK4fCa52xo=
+X-Received: by 2002:a17:906:7944:b0:c50:564b:c63 with SMTP id a640c23a62f3a-c513a43559cmr1313486866b.6.1795538059334;
+        Tue, 24 Nov 2026 08:34:19 -0800 (PST)
 Received: from theodors-laptop.dotcomltd.ru ([5.255.118.7])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afeca8dsm542032866b.75.2026.11.24.08.34.15
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afeca8dsm542032866b.75.2026.11.24.08.34.18
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 08:34:16 -0800 (PST)
+        Tue, 24 Nov 2026 08:34:19 -0800 (PST)
 From: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
 To: "David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
@@ -92,9 +91,9 @@ Cc: Simon Horman <horms@kernel.org>,
 	netfilter-devel@vger.kernel.org,
 	coreteam@netfilter.org,
 	Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
-Subject: [PATCH net v3 1/2] netfilter: nf_dup: do not duplicate packets from br_netfilter
-Date: Tue, 24 Nov 2026 19:33:57 +0300
-Message-Id: <20261124163358.755345-2-theodorlarionov@gmail.com>
+Subject: [PATCH net v3 2/2] net: unset the mac header of a pskb copy that points into headroom
+Date: Tue, 24 Nov 2026 19:33:58 +0300
+Message-Id: <20261124163358.755345-3-theodorlarionov@gmail.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20261124163358.755345-1-theodorlarionov@gmail.com>
 References: <20261124163358.755345-1-theodorlarionov@gmail.com>
@@ -109,84 +108,44 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-nf_dup_ipv4() and nf_dup_ipv6() copy the skb with pskb_copy(). If the
-skb came through br_netfilter, the copy keeps the bridge netfilter info,
-and its mac header points into headroom that pskb_copy() did not
-initialise.
+__pskb_copy_fclone() copies the data from skb->data onwards but keeps
+the mac_header offset, so if the link-layer header was pulled, the
+copy's mac header points into uninitialised headroom. With nft dup, a
+link-layer payload load on the copy at LOCAL_OUT or POST_ROUTING reads
+those bytes, and a set element hands them to userspace:
 
-A tcp reset reject of the copy on LOCAL_OUT then takes the bridge path
-in nf_send_reset() or nf_send_reset6() and builds the RST's Ethernet
-header from those bytes:
+  BUG: KMSAN: kernel-infoleak in _copy_to_iter
 
-  BUG: KMSAN: kernel-infoleak in _copy_to_iter+0x1c9/0x2650
-  ...
-  Uninit was stored to memory at:
-   eth_header+0xbe/0x150
-   nf_send_reset+0x15e4/0x1850
-   nft_reject_ipv4_eval+0x1b5/0x2b0
+Unset the mac header in that case. Callers that use the copy's mac
+header push the link-layer header before copying, as
+maybe_deliver_addr() in the bridge does, so the header is copied and
+stays valid.
 
-Skip skbs that carry bridge netfilter info. br_netfilter only drops the
-info when the bridge transmits the skb, so this also disables dup for
-packets that came in on a bridge port and are delivered locally or
-routed.
+Depends on "netfilter: nf_dup: do not duplicate packets from
+br_netfilter"; without it, a tcp reset reject of a bridged dup copy
+reads out of bounds.
 
-Fixes: affe759dbaa9 ("netfilter: ip[6]t_REJECT: tcp-reset using wrong MAC source if bridged")
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 Suggested-by: Florian Westphal <fw@strlen.de>
 Cc: stable@vger.kernel.org
 Signed-off-by: Theodor Arsenij Larionov Trichkine <theodorlarionov@gmail.com>
 ---
- net/ipv4/netfilter/nf_dup_ipv4.c | 6 ++++++
- net/ipv6/netfilter/nf_dup_ipv6.c | 6 ++++++
- 2 files changed, 12 insertions(+)
+ net/core/skbuff.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/net/ipv4/netfilter/nf_dup_ipv4.c b/net/ipv4/netfilter/nf_dup_ipv4.c
-index 9a773502f10a..a4ad26a564a4 100644
---- a/net/ipv4/netfilter/nf_dup_ipv4.c
-+++ b/net/ipv4/netfilter/nf_dup_ipv4.c
-@@ -11,6 +11,7 @@
- #include <linux/route.h>
- #include <linux/skbuff.h>
- #include <linux/netfilter.h>
-+#include <linux/netfilter_bridge.h>
- #include <net/checksum.h>
- #include <net/flow.h>
- #include <net/icmp.h>
-@@ -53,6 +54,11 @@ void nf_dup_ipv4(struct net *net, struct sk_buff *skb, unsigned int hooknum,
- {
- 	struct iphdr *iph;
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index 85d5caa08887..e38d0de59e06 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -2278,6 +2278,8 @@ struct sk_buff *__pskb_copy_fclone(struct sk_buff *skb, int headroom,
+ 	}
  
-+#if IS_ENABLED(CONFIG_BRIDGE_NETFILTER)
-+	if (nf_bridge_info_exists(skb))
-+		return;
-+#endif
-+
- 	local_bh_disable();
- 	if (current->in_nf_duplicate)
- 		goto out;
-diff --git a/net/ipv6/netfilter/nf_dup_ipv6.c b/net/ipv6/netfilter/nf_dup_ipv6.c
-index 6da3102b7c1b..ba8243bcd56a 100644
---- a/net/ipv6/netfilter/nf_dup_ipv6.c
-+++ b/net/ipv6/netfilter/nf_dup_ipv6.c
-@@ -9,6 +9,7 @@
- #include <linux/percpu.h>
- #include <linux/skbuff.h>
- #include <linux/netfilter.h>
-+#include <linux/netfilter_bridge.h>
- #include <net/ipv6.h>
- #include <net/ip6_route.h>
- #include <net/netfilter/ipv6/nf_dup_ipv6.h>
-@@ -47,6 +48,11 @@ static bool nf_dup_ipv6_route(struct net *net, struct sk_buff *skb,
- void nf_dup_ipv6(struct net *net, struct sk_buff *skb, unsigned int hooknum,
- 		 const struct in6_addr *gw, int oif)
- {
-+#if IS_ENABLED(CONFIG_BRIDGE_NETFILTER)
-+	if (nf_bridge_info_exists(skb))
-+		return;
-+#endif
-+
- 	local_bh_disable();
- 	if (current->in_nf_duplicate)
- 		goto out;
+ 	skb_copy_header(n, skb);
++	if (skb_mac_header_was_set(n) && skb_mac_offset(n) < 0)
++		skb_unset_mac_header(n);
+ out:
+ 	return n;
+ }
 -- 
 2.34.1
 
