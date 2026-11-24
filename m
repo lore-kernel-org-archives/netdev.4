@@ -1,55 +1,54 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542183;
-	b=c0kxd6uM5uDxUrDZmOI+UGjuFpDMcqBOvKukLcLK0y8gje+q7iKJgToKyV0jH/zcZwcR
-	 j+4xdqJHu6ZLZizpKaxO0y/86th3AR6keJQjXcg4uv2UteZNRLQlvjUA2e4zg5aPfl+9o
-	 aLkTwZw7T0SiigM/HNfAEvKWH/66QhY49m3so+varxpUTo6ssyXXFIDwVhjLtI0mXsq0G
-	 Gr9vg/ScXrxKmoaTnh8Nt8eFvNEBmGbB5o50kXrBbc7b1+LL5JZyLqK8Zm4HGwff4egt5
-	 ZwLcZcl8QM9P1MGvMgZ0P2SeiKvaoeK1wbtaWVa4d+iUzOXB2CZo+KWdknTEx17nbTA==
+	t=1795542184;
+	b=UcKVB7Gfppm0hFZ7HVAkbQqIweavpSQ4eavvOnwWRQE869ffBsPty/jqpKMCGX2onT1b
+	 Dr5LSF/Z0R7JvNses8M3sw/XAT0um2R3c/Fae+UVQG0R3ccQ5719jC24Kbx5nGadMEUej
+	 hRhBBvfxquwPVTXHKAuuih/bo7Oy51ZuftAcADMom9jU6nRlSK9xG7XjvZS6mbT8QxPOa
+	 jXanph5dQrHFqtyFH0gwJdXK7/jPkOEY8y+TC2jp8N8k5XxBQJgBAZKpTRmEn8t1Et5VF
+	 Xa2XLJRkP8kybYddxyB7XllDx3O1CCD3VSau8cD+92pailuunICUt8r9kkjfV6jVucQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542183;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542184;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=VksyioOuiR2X3CLr4BcOFUMBPgzZy3r3sJ76Pa906yU=;
-	b=AyNV3OxjGxfJuloI8BbMWZSdJgLOPMAqzBerssuk1xTKysIK1m051KJPUy5WFHUKyjd7
-	 ac4kxaub4VuEuL5ebMQkCrYIQwuEC6CE5y21I8I1BHgPAV8LrQxD2r4jmF6ozdQgIU1pO
-	 NnRRglrWGY7dT0tj29d9rkdvVbIuVrLVJ91b2OUJjVRp393xGolOlCUG1nZs5J+LIS8nc
-	 kYQLfkMmW4epdddtAbHrK7hrbJcwEzaBkCI3GF/1fjf7R626iuwtODn5iwRtCzAG+HOXx
-	 KHXFL66o80TjJD0Nr8XCcVtU7IvxOvoVWXCqW5HlWZ3CPld529I8jrrxWVlToyGmxRw==
+	bh=h1h4yHjmlBs3vGOFXi6iqSSsWYYmwiIUlQRsrgTKDBk=;
+	b=B6N3VBC+Il0lJZ6MPQYLifaUcsSukwPHlkXjTFh+zPscIQozIp3mkmpd4QGzYbB2HQY6
+	 N8x4L27nrxKyL3j4R+9uYYthz4dfAQJGNS+wXX96HhKZF4eoZwCa5QM7sK4RMHXqy1gmq
+	 HmNH7cZcsKVBUXk4kfloCw/1wclQ5IZS+tiCkBh9hUMPnHTs5u9btV7AunpYkGOPeaLVk
+	 Hhskn3IJrtRF6kz9gWSEeMU4zxjQRDOORFb+GHALTvRl3RAopejqKeVFvIQBjWVGY5WvG
+	 3nDi9kRujuD3kwJJZGc6Vy1w1uWZDZm9sxahCExoAvrbngDI+ETfTd8Nein6qrhN6ZQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kGb83NcK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps3KWkG3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC644606A332
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:43:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3D7606A32A
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:43:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=kGb83NcK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC0921F000C0;
-	Tue, 24 Nov 2026 17:43:02 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps3KWkG3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17E871F000C0;
+	Tue, 24 Nov 2026 17:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542183;
-	bh=VksyioOuiR2X3CLr4BcOFUMBPgzZy3r3sJ76Pa906yU=;
+	s=k20260515; t=1795542184;
+	bh=h1h4yHjmlBs3vGOFXi6iqSSsWYYmwiIUlQRsrgTKDBk=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=kGb83NcK8zpC7Nxg3q9J+2f8+jw/u/MJKchAz/zjZI7L+KR8WkZO7WtUcFGIqv9XZ
-	 kdyzQLVkgNThvHan98NJcdXgoDXTFB1bMeBFsQqHYpoakNycb9BsTiliAHRq3hDLcu
-	 TQuxHS4Cws3YuOqjUC8JTMqX0V7AsP5fN4NEbQvhcplNgdD23P6qF+ObtsY+fcEmIG
-	 UhmOudUSP+eTM29WGtIpH6RXJ+3L6NZlCE0IEHoEvCr3CzlfU3BKgV0bv1oMESSiky
-	 6i1vRdp1qrE5l3/YKqNbHCurFHI678lpIPr97RCRcrL/OQK5lV7/YXXRLzev5Knvta
-	 r/O8euH7Bc0uA==
-Subject: Re: [PATCH net-next 2/4] selftests: drv-net: add a closed-loop
- request-response test
+	b=Ps3KWkG3XHtXCF7cxxhNPGQjQJ76eJddx6cnN6bxZdZOUrEuQKX0v9mQaLzFMMoi6
+	 pctTi0DAIDM8Nim0YRkbRIwUBDqnrUcEzvgfQGL7X2cxRVyo+I+fQaZRGYhssyJj+9
+	 RsKIFTNIQqIFI2Cdn+tAwr+3H/erDmQMqn/BS8f74DFFqlylcp/jFzKSRLbs28exwR
+	 K5Q/jt4zVSbvNnqSaKbdMhW6sUcNDtVtvVyKvxQW0gN10LfX+NmwsfPtSVhNFgpdbc
+	 WEll5w/qQ3tUU4RQy80uHvr/dzJ05T5ukwhX+rulF2W7TpQrjky2dz+8Q6CmUJZh4e
+	 hmnwxBptWpkKw==
+Subject: Re: [PATCH net-next 3/4] selftests: drv-net: add a kperf stream test
 From: netdev-bot+sashiko@kernel.org
 To: sdf.kernel@gmail.com
 Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
  kuba@kernel.org, pabeni@redhat.com
-Date: Tue, 24 Nov 2026 17:43:02 +0000
-Message-ID: <179554218233.3135.9733987891875533759@kernel.org>
-In-Reply-To: <20261123174120.505808-3-sdf@fomichev.me>
-References: <20261123174120.505808-3-sdf@fomichev.me>
+Date: Tue, 24 Nov 2026 17:43:03 +0000
+Message-ID: <179554218364.3135.5016659919665552355@kernel.org>
+In-Reply-To: <20261123174120.505808-4-sdf@fomichev.me>
+References: <20261123174120.505808-4-sdf@fomichev.me>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -74,103 +73,75 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] rr.py's closed_loop()/_report() pass the request-response
-  fields of KperfResult (rate, p25, p50, p90, p99, p999, p9999, lat_max)…
-- [Low] The commit author is 'Stanislav Fomichev <sdf.kernel@gmail.com>',
-  but the only Signed-off-by is 'Stanislav Fomichev <sdf@fomichev.me>'.
+- [Medium] In tools/testing/selftests/drivers/net/perf/stream.py, the
+  "zerocopy" variant of tcp() passes ["--msg-zerocopy", "--zerocopy-rx"]…
+- [Low] The commit author address (Stanislav Fomichev
+  <sdf.kernel@gmail.com>) does not match the only Signed-off-by…
 
 --
 
-selftests: drv-net: add a closed-loop request-response test
+selftests: drv-net: add a kperf stream test
 
-This adds rr.py to the drv-net perf selftests. It runs kperf over one
-connection with 1 KiB requests and responses, then reports the
-transaction rate and kperf's latency percentiles and maximum as ksft
-metrics.
+This adds stream.py, which uses kperf to measure the throughput of one TCP
+connection. It runs a copy variant and a zerocopy variant (MSG_ZEROCOPY on
+the sender, TCP_ZEROCOPY_RECEIVE on the receiver), and reports the result
+through ksft_metric().
 
 > Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
 
 [Severity: Low]
-This isn't a bug, but the author address and the sign-off address do
-not match:
+This isn't a bug, but the Author: address (sdf.kernel@gmail.com) does not
+match the Signed-off-by: address (sdf@fomichev.me). checkpatch reports this
+as FROM_SIGN_OFF_MISMATCH. The other patches in the series have the same
+mismatch.
 
-  Author: Stanislav Fomichev <sdf.kernel@gmail.com>
-  Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
-
-The body has no in-body From: line either, so checkpatch will report
-FROM_SIGN_OFF_MISMATCH. The other patches in the series have the same
-mismatch, including "selftests: drv-net: kperf: support
-request-response tests", "selftests: drv-net: add a kperf stream test"
-and "selftests: drv-net: remove the iperf performance test".
-
-Could the author and the Signed-off-by use the same address?
-
-> diff --git a/tools/testing/selftests/drivers/net/perf/rr.py b/tools/testing/selftests/drivers/net/perf/rr.py
+> diff --git a/tools/testing/selftests/drivers/net/perf/stream.py b/tools/testing/selftests/drivers/net/perf/stream.py
 > new file mode 100755
-> index 0000000000000..1dff0c4763909
+> index 0000000000000..4ed9d64dfa320
 > --- /dev/null
-> +++ b/tools/testing/selftests/drivers/net/perf/rr.py
+> +++ b/tools/testing/selftests/drivers/net/perf/stream.py
+> @@ -0,0 +1,40 @@
 
 [ ... ]
 
-> +def _report(result) -> None:
-> +    ksft_metric("rate", result.rate, goal="higher")
-> +    ksft_metric("latency_p25", result.p25, goal="lower")
-> +    ksft_metric("latency_p50", result.p50, goal="lower")
-> +    ksft_metric("latency_p90", result.p90, goal="lower")
-> +    ksft_metric("latency_p99", result.p99, goal="lower")
-> +    ksft_metric("latency_p999", result.p999, goal="lower")
-> +    ksft_metric("latency_p9999", result.p9999, goal="lower")
-> +    ksft_metric("latency_max", result.lat_max, goal="lower")
-> +
-> +
-> +def closed_loop(cfg) -> None:
-> +    """Measure back-to-back transactions."""
-> +    with KperfRunner(cfg) as runner:
-> +        _report(runner.run(RR_ARGS))
+> +@ksft_variants([
+> +    KsftNamedVariant("copy", []),
+> +    KsftNamedVariant("zerocopy", ["--msg-zerocopy", "--zerocopy-rx"]),
 
 [Severity: Medium]
-Can closed_loop() pass even though it never measured a rate or any
-latency?
+Does the zerocopy variant exercise TCP_ZEROCOPY_RECEIVE page mapping on a
+default NIC configuration?
 
-In KperfResult in drivers/net/lib/py/kperf.py, the request-response
-fields default to None:
+tcp_zerocopy_receive() only maps frags that pass can_map_frag() in
+net/ipv4/tcp.c:
 
-    rate: Optional[float] = None
-    p25: Optional[float] = None
-    ...
-    lat_max: Optional[float] = None
+	if (skb_frag_size(frag) != PAGE_SIZE || skb_frag_off(frag))
+		return false;
 
-KperfRunner.parse() only fills them through rr.setdefault() when
-_RPS_RE or _LAT_RE matches a line in the Source section. Its only
-completeness check covers throughput:
+Without header-data split and HW GRO, payloads usually sit in sub-page
+frags at non-zero offsets. In that case nothing gets mapped and the data is
+copied, or kperf fails, depending on how it handles this.
 
-        if not all(throughput.values()):
-            raise ValueError("incomplete kperf result")
+The commit message says the test runs "with the same settings as devmem.py
+otherwise". However, devmem.py's kperf() turns on rx-gro-hw through
+_enable_hw_gro() and configures the rings with:
 
-        return KperfResult(sum(throughput["Source"]),
-                           sum(throughput["Target"]), **rr)
+        "tcp-data-split": "enabled",
 
-Suppose kperf-client prints the Source Tx and Target Rx Gbps lines but
-no "N RPS" line and no pXX:Nus or max:Nus tokens. That could happen
-with a kperf build whose output does not match the regexes, or one
-that ignores --time-stats 2. Each field passed to ksft_metric() is
-then None.
+It also sets hds-thresh to 0 where the driver supports it. stream.py does
+none of this.
 
-ksft_metric() uses json.dumps(..., allow_nan=False), which rejects
-only NaN and Inf. None is written as "value":null without an error.
-Metrics also do not affect the test result, so closed_loop() is
-reported as ok.
+The only output of tcp() is ksft_metric(), and metrics do not affect the
+result. So nothing shows whether zerocopy receive actually took place, and
+the zerocopy number depends on the driver's default HDS setting.
 
-Consumers of the metric output then see null, while the ksft_metric()
-docstring ("value - the measured number") and README.rst promise a
-number. The later patches in the series do not change rr.py or
-KperfRunner.parse(), so this is still the case at the end of the
-series.
+Could the same HDS and HW GRO setup from devmem.py be applied for this
+variant, with a skip when it can't be enabled?
 
-Would it make sense to check each field with ksft_not_none(), or to
-raise KsftFailEx or KsftSkipEx when a field is None, before reporting
-it?
+> +])
+> +def tcp(cfg, mode_args) -> None:
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123174120.505808-1-sdf%40fomichev.me
