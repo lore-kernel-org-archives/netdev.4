@@ -1,60 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.153
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795499110;
-	b=SW/hWYBczWZeWDi6nuRTEPkgIkT0u9qlUu7BsplCyeOb7dyOOzJvc+QenGc2DHkgA9Gs
-	 Pb3QjWfgOG5tc1O7qJ5YOxQl/XbJES+vIcvDRWnj98aXTzLsv9W00HoItr9fSOsxZ5O2B
-	 iMONbSLB4OYWChREgMG4ecNmgMonVVZ4ViVwxVavKHRfR35Fqn7jLtWAwF/vPU3i8cot0
-	 ZTDam4HUh/yHti24KJAKv5oGUobVYJWk9l9jmoc9PXMTUMkOjUSseK7iV4q8PsONatF3L
-	 9zMIyZSKvHzVi6zGxGXw/ebNMfU3XDBEJ7DynYeOjJY2OPVOJ91U4Nqm+cGxyE01wlw==
+	t=1795499263;
+	b=ypRPA2Zu5iYmT5HpJiO48nNm2PA3q0G82BWWHmIccRInR9Be5NOlQimWzfMpWZnZOV6Z
+	 rRcixgsNpJC+/+Bqp+bxqdTLTT9HGzOQ3qqrdL3+hBVMItcbOn86cpt99lGZYZsTxsDAx
+	 4bRhRkWXCi860r/S/GJwhB/IaihJ1iiWK+viIcMWFVAMqj32x1r5Wa13UNcYzzaEk0vgV
+	 UneOJwQfyaMcJf0b6L44MhTBkZG8oQlyiG5scK7tMFsr8Os7CZ8GOmeZ6bAmNnf1qQUpk
+	 bTJejviaxZJZTd+xFgoIx2ZU9764fCanIqwxkWV2Eu0rur25ceYXqMlCR8VsnrD25pQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795499110;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=b7hzx4hdT/aWGEHT3B9cp/wHj65qJWImONpb6FDPul4=;
-	b=u/zsycF9hspY3XuYZ7XsjiBKw7Hy4GmU4CrkfaJwtuPcnHxISkeXKgDWEcraWmuO+cQR
-	 RcUKA/U29xeHz0+48Y2w/X0W+P0p2cOBS1HReKMuMmBlcCsM+ztr+EHS3cRZZRyqSJkxl
-	 6kVbraDEalsQa+Q726Vue3vozthm1r1aMyEbSEqCROrx1vciaRtOzIqqcWxjLdHAx3Dl+
-	 x78NhElnZgH31djSKArnWUCiTU6GfSxlrR5RNqKELkP0GaHA6wLgbknFiqBEItsg0yV7q
-	 wPuYOB/aln6KGVgSPEgCJPSGjQHxp3OnzfuDUsnK6XTRCDbMhwbW9Sg81o5t7ITTZbw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795499263;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=2942f0EcNrAJjC2YXD+QtpsaftZMjyCf5nWFdFWQhug=;
+	b=wy2LP1ITUBRn2PnbrA1kO+9lAVhMGAwEv9d41bcZ1fXK9XgTfVVWyg3Q0154/wliHZ5k
+	 N79Zs3bm/w+F0kkOc0U1XcOJIbBedogYmFM65zwy6PSAhrnms2XCig1qQCS402FIwu5kH
+	 Q0F5qSoBuWj4noC59+xpUyxXqfYcrMWs1grPhi2cDSfVJApq0DFTC2PVo23b6l2/YwDw0
+	 HQRZDxIRVsJuuEqhgKtuOjfovl2MuExlU34Aq2Ap1PntFLl/haY1YAbVwpu3v2xQVx+5z
+	 AC2e7qG5e+/Vegsr5S+eqZ4K6P4sL0SB1JDE75/XMGXrwYKUgRYB+PZzuEymG1tWO0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vrcodb3p;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="V2O/dY+m";
+	arc=none smtp.remote-ip=91.218.175.153
+Received: from mta0.migadu.com (out-153.mta0.migadu.com [91.218.175.153])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7A7C606A333;
-	Tue, 24 Nov 2026 05:45:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13AD0606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:47:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13AD0606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vrcodb3p
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBBA81F000C0;
-	Tue, 24 Nov 2026 05:45:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795499110;
-	bh=b7hzx4hdT/aWGEHT3B9cp/wHj65qJWImONpb6FDPul4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Vrcodb3pExD7IvnRJ++M28lf/71cgaIy6O2yMrMX+tiJ+/bLMLI4faFbjLWyK86Ks
-	 46creBgmZY87nJiZm6InSM58VnczzVQRyMZ6FR9fRN8e9yyxkPHRH+5pBUvlIf6pyJ
-	 CdWf5m9tTKjNw3f52dmZ/LXNNqW5esRVeGZFwh5sm7eOG9L/Ds5caUNvGYUncpvPIN
-	 tSAKk/EE48riNy34lxLJwcjgyNYj+BoJC8xztgprVFN7ilYuYbY20BvyXW4nobZcuz
-	 1Cza7+lCS0pN7x4ldEVOBTIFr33kuZ2WGJF7OnLEiq4/X34p8gmiYAvZYQZE+Gez9z
-	 ZdRYQNxKRNRHg==
-Subject:
- Re: [PATCH net v12 2/2] selftests: net: add TAP socket filter attach tests
-From: netdev-bot+sashiko@kernel.org
-To: clementwei90@163.com
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org,
- willemdebruijn.kernel@gmail.com, jasowangio@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, kuba@kernel.org, ast@kernel.org,
- alexei.starovoitov@gmail.com, andrii@kernel.org, weirongguang@kylinos.cn
-Date: Tue, 24 Nov 2026 05:45:09 +0000
-Message-ID: <179549910931.3135.4958196655811648969@kernel.org>
-In-Reply-To: <20261123054209.89946-3-clementwei90@163.com>
-References: <20261123054209.89946-3-clementwei90@163.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=V2O/dY+m
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=55+Ze73XLUGRyfH+eSGT9jj/xqUX21ySQEW4J4NGZB4=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795499259; v=1; x=1796104059;
+ b=V2O/dY+mtQLQd61d4OlBgccq1V9R/pNc3w/4aVAo1U+fTFwGSm3ITeq7YDRkDUCQlcrvzthB
+ 4yhRYzihDcnis45/tWbBcsGnQINmOZoN5bIpqg9/UOhe2JYOVsFOQHzo6P/cEgTPv+XdQxVJEkv
+ +8uPrtSDqJ+CewMoA8umFmY8=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id 9ce4ce6d35c60903;
+	Tue, 24 Nov 2026 05:47:38 +0000
+X-Mizu-Trace-ID: 9ce4ce6d35c60903
+X-Migadu-Flow: FLOW_OUT
+Date: Tue, 24 Nov 2026 13:47:29 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Andrea Mayer <andrea.mayer@uniroma2.it>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	Hangbin Liu <liuhangbin@kylinos.cn>,
+	Stefano Salsano <stefano.salsano@uniroma2.it>,
+	Justin Iurman <justin.iurman@gmail.com>,
+	Andrea Mayer <andrea@common-net.org>
+Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
+ for SRv6 End.X
+Message-ID: <20261124054729.GA14932@Liu-laptop>
+References: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
+ <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
+ <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
+ <4717cab46b8eec796eb97799240cd6ab92d8c1ed@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,182 +75,84 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4717cab46b8eec796eb97799240cd6ab92d8c1ed@linux.dev>
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Mon, Nov 23, 2026 at 01:40:27PM +0000, hangbin.liu@linux.dev wrote:
+> November 23, 2026 at 12:09 PM, "Andrea Mayer" <andrea.mayer@uniroma2.it> wrote:
+> > 
+> > On Thu, 19 Nov 2026 21:55:21 +0800
+> > Hangbin Liu <hangbin.liu@linux.dev> wrote:
+> > 
+> > > 
+> > > [snip]
+> > >  @@ -1031,6 +1187,25 @@ setup_end_flv_psp()
+> > >  SETUP_ERR=0
+> > >  }
+> > >  
+> > >  +setup_endx_flv_psp()
+> > >  +{
+> > >  + SETUP_ERR=1
+> > >  +
+> > >  + setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
+> > >  + setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
+> > >  +
+> > >  + # The same SRv6 policies with setup_end_flv_psp except using End.X
+> > >  + setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
+> > >  + setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
+> > >  +
+> > >  + setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
+> > >  + "3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
+> > >  + setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
+> > >  + "4>3,3>1,1>h:next-csid,psp:End.X"
+> > >  +
+> > >  + SETUP_ERR=0
+> > >  +}
+> > > 
+> > On v3, Sashiko asked whether the End.X tests would pass with End.X
+> > working as End. In this topology, the nh6 of each End.X is also the
+> > next hop that a lookup of the new DA gives, and the tests pass in both
+> > cases. An unreachable route in table 90 for the next SID, on rt-4 for
+> > (i.a) and on rt-3 for (i.c), would make End fail and leave End.X
+> > working. This is close to what Sashiko suggested on v3. What do you
+> > think about adding these two routes to the End.X scenario, each with
+> > its defer?
+> > 
+> 
+> Oh, for i.a), do you mean add an unreach rt-2 SID on rt-4?
+> e.g. fcfcff:2::/32 unreachable? If yes, based on
+> 
+> #   (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the   
+> #         extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes
+> #         it. 
+> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2        
+> #   (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the  
+> #         extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes
+> #         it.
+> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
+> 
+> I think we should add the unreach rt-4 SID on rt-3, e.g. fcff:4::/32 and fcbb:4::/32,
+> because we need to use the neighbour route on rt-4 to redirect packet to rt-3 after
+> End action. What do you think?
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+ (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the
+       extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes it.
+       Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
+ (i.b) hs-2 -> hs-1: on the packets with DA=fcff:1::0af1, rt-2 inserts the
+       extra SRH with SID List=fcff:3::e,fcff:1::0af1, and rt-3 consumes it.
+       Path: hs-2 -> rt-2 [ -> rt-3 ] -> rt-1 -> hs-1
+ (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the
+       extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes it.
+       Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2
+ (i.d) hs-2 -> hs-1: on the packets with DA=fcbb:0:43a9:31a9:10a9::, rt-2
+       inserts the extra SRH with SID List=fcff:3::e,fcbb:0:43a9:31a9:10a9::,
+       and rt-3 consumes it.
+       Path: hs-2 -> rt-2 [ -> rt-3 ] -> rt-4 -> rt-3 -> rt-1 -> hs-1
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Ah, add unreach rt-4 SID (fcbb:0:4000::/36) on rt-3 will break the path for (1.d)
+testing, as we use End action on rt-3 and redirect via the route. Can we just
+add the unreach route (fcff:4::/32) on rt-3 for (1.a) ?
 
-- [Medium] The selftest misses the half of the bug where the queue is
-  left unpublished.
-- [Low] None of the new tests check whether the cBPF program actually
-  runs on packets.
-
---
-
-selftests: net: add TAP socket filter attach tests
-
-This commit adds kselftests in tools/testing/selftests/net/tun.c for
-TUNATTACHFILTER and TUNDETACHFILTER on a multi-queue TAP device. They cover
-re-attaching a queue after the original filter buffer becomes unreadable,
-bad lengths and bad programs with and without attached queues, a filter
-set before any queue is attached, and IFF_NOFILTER handling. Every check
-is made through TUNGETIFF and TUNGETFILTER.
-
-> diff --git a/tools/testing/selftests/net/tun.c b/tools/testing/selftests/net/tun.c
-> index 34de2580e32ec..ac326193867b0 100644
-> --- a/tools/testing/selftests/net/tun.c
-> +++ b/tools/testing/selftests/net/tun.c
-
-[ ... ]
-
-> @@ -548,6 +550,362 @@ TEST_F(tun, reattach_close_delete)
->  	EXPECT_EQ(tun_delete(self->ifname), 0);
->  }
->  
-> +/* accept: return skb->len.  Three instructions on purpose, so that the
-> + * length read back through TUNGETFILTER tells it apart from a rejected
-> + * program that is shorter.
-> + */
-> +static const struct sock_filter filter_accept[] = {
-> +	BPF_STMT(BPF_LD | BPF_W | BPF_LEN, 0),
-> +	BPF_STMT(BPF_ALU | BPF_ADD | BPF_K, 0),
-> +	BPF_STMT(BPF_RET | BPF_A, 0),
-> +};
-
-[Severity: Low]
-
-Do any of the new tests check that the classic filter actually runs on
-packets?
-
-filter_accept is the only valid program the tests use. It returns
-skb->len, so it can never show a drop or a trim. None of the new tests
-write a frame to the TAP fds or read one back.
-
-Every assertion reads either the IFF_NOFILTER bit from TUNGETIFF or the
-fprog header from TUNGETFILTER. TUNGETIFF builds that bit from its own
-expression in tun_chr_ioctl():
-
-	if (tfile->nofilter || !rcu_access_pointer(tun->cbpf_prog))
-		ifr.ifr_flags |= IFF_NOFILTER;
-
-The companion commit "tun: run the socket filter from tun_net_xmit()" adds
-the execution site as a separate check in tun_net_xmit():
-
-	prog = rcu_dereference(tun->cbpf_prog);
-	if (prog && !READ_ONCE(tfile->nofilter)) {
-		len = bpf_prog_run_clear_cb(prog->prog, skb);
-		if (!len || pskb_trim(skb, len)) {
-
-Would these tests still pass if tun_net_xmit() never ran cbpf_prog, ran it
-on IFF_NOFILTER queues, or ignored its verdict or trim length?
-
-The test comments say a queue "still gets the filter", "must not get the
-filter", or is covered by it. reattach_filter_without_user_buffer already
-says its checks "cannot tell an installed filter from no filter". That
-limit applies to the other new tests as well.
-
-A test could send a frame through a rejecting or truncating program on a
-TAP queue, then read it back or confirm it was dropped. That would cover
-the datapath and the IFF_NOFILTER bypass.
-
-There is also a smaller inaccuracy. The comment above
-attach_filter_clears_nofilter_queue says:
-
-  A later TUNATTACHFILTER covers every queue of the device, including one
-  that was attached with IFF_NOFILTER.
-
-tun_attach_filter() only clears nofilter for the active queues:
-
-	for (i = 0; i < tun->numqueues; i++) {
-		tfile = rtnl_dereference(tun->tfiles[i]);
-		WRITE_ONCE(tfile->nofilter, false);
-	}
-
-A queue opened with IFF_NOFILTER and then detached keeps nofilter set.
-TUNGETIFF keeps reporting IFF_NOFILTER for it until TUNSETQUEUE attaches
-it again. Should the comment refer to the active queues only?
-
-[ ... ]
-
-> +	/* The queue gets that program again, from the device */
-> +	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-> +
-> +	flags = tun_get_iff_flags(self->fd);
-> +	EXPECT_GE(flags, 0);
-> +	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-> +}
-> +
-> +/* A program configured while no queue is attached must cover the queues that
-> + * are attached afterwards.
-> + */
-> +TEST_F(tun, attach_filter_without_queues_then_attach)
-> +{
-> +	short flags = 0;
-> +
-> +	EXPECT_EQ(tun_detach(self->fd, self->ifname), 0);
-> +	EXPECT_EQ(tun_detach(self->fd2, self->ifname), 0);
-> +
-> +	ASSERT_EQ(filter_attach(self->fd, filter_accept,
-> +				ARRAY_SIZE(filter_accept)), 0);
-> +
-> +	EXPECT_EQ(tun_attach(self->fd, self->ifname), 0);
-> +
-> +	flags = tun_get_iff_flags(self->fd);
-> +	EXPECT_GE(flags, 0);
-> +	EXPECT_EQ(flags & IFF_NOFILTER, 0);
-> +}
-
-[Severity: Medium]
-
-Should attach_filter_without_queues_then_attach also check
-IFF_DETACH_QUEUE after the re-attach?
-
-The companion commit "tun: run the socket filter from tun_net_xmit()"
-describes two failure modes of the old check in tun_attach(). In the
-first, a failed read of the user buffer attached the queue without a
-filter. In the second, "a successful read returned early and left the
-queue unpublished".
-
-reattach_filter_without_user_buffer is the only test that checks
-IFF_DETACH_QUEUE. Its buffer is PROT_NONE, so it only exercises the
-failed read case.
-
-In this test filter_accept is in readable .rodata. On the baseline
-kernel, TUNSETQUEUE(IFF_ATTACH_QUEUE) therefore takes the early return in
-tun_attach():
-
-	/* Re-attach the filter to persist device */
-	if (!skip_filter && (tun->filter_attached == true)) {
-		lock_sock(tfile->socket.sk);
-		err = sk_attach_filter(&tun->fprog, tfile->socket.sk);
-		release_sock(tfile->socket.sk);
-		if (!err)
-			goto out;
-	}
-
-That path returns 0 before tun_enable_queue() and before tun->tfiles[] is
-published. TUNGETIFF then reports IFF_DETACH_QUEUE set, because
-tfile->detached is still set. It also reports IFF_NOFILTER clear, because
-sk_filter is set.
-
-Doesn't that let all three assertions here pass on the unfixed kernel
-while the queue stays disabled?
-
-The final re-attach in attach_filter_bad_keeps_program_without_queues has
-the same gap. That test still fails on the baseline kernel, but only
-because of its earlier bad length and bad program checks.
-
-Adding this after the tun_attach() helper call in both tests would cover
-the unpublished queue case:
-
-	EXPECT_EQ(flags & IFF_DETACH_QUEUE, 0);
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123054209.89946-1-clementwei90%40163.com
+Thanks
+Hangbin
