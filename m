@@ -1,49 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795496265;
-	b=GdpobZVDDZ8upCptzrjv1Y5GPZy5U6uUwyPWJ70B3i4DV8FHoYG25mMKVYyuYulBrDi4
-	 R+ZZGmaYnBDWfz4YDZNBpIDVE6tzAI1IgZ7vTIgsd4RLXfCAkL3qhZwQLTwxlCVmCX6Sq
-	 CnNutduLNyOXXdFzkuTPU7n9nt0QeJDZWUNNblVo/0RGX+dSId5bDG+lknBSwt9M7Ixg7
-	 VhK+/ScECrnuZO5GNtIagB4JYhckyN4r/cqpEvrRlcoqyVUeand0a7XtW1m1psLECcpHb
-	 pYZL4soqTKswPg2NpT6bMgt79oMWHFfi0ySuVg9ws11N/0nGky9WgZc+yk43e1lVKqw==
+	t=1795497192;
+	b=h3JGRa67dwJOKmQ1G9lqJTEbOyz8AmN4AEyj2BPil+0vlIAVlR65JUbciZF+/+cTnvUy
+	 lw+9iPpbFJEZhUimmk0QJCJax/ndgtnYI5NnxuldG4GGgX6in88aBr6VSr0yKwBa50zf/
+	 84q2d1gfTHhf+MwbcK/UidK+kbF2dKCl1XnptFi+7mhVg28p1oglllNq+b/cTFGEJ3Buf
+	 4XxdNLllyMQKF7rpTMxseCfLbLsMsxiuUPaBeeOhlHfMcfZytC6EMJkWMI611p6gRpSr1
+	 mSVueBouqAa2xHsMe8Fe0PV64LbgOleKVUzZvqFwlpxcv4sPWVqIULl7Ttsl7fkbhOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795496265;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=cooFJK8G2ydt42Nd2Iv2R9B/Oq1zVhrUhV5l7JceOdg=;
-	b=pYJenZ7GZsWPEjjMm6CDuYBDtKfl+BOrbufoI5O5WAvEgkQTooFI2EiASjsRQj3Z2Uu6
-	 /NdwZVRSsc5T/HZEXRC7/+EaYcFB2brNBILMl/syRxsxGQuhzOTqL7yMOdaeSBF2kqkEi
-	 ySszKdocRU6MCSePjjy6r1bMUqC+xJIg6EqzqoEdmcH9BX9dD/KCfCMIrK12u7fl8KWgB
-	 +klAUGI6lNl59TiTwG+FC/KSfCpWMRezBGQO7e05uUQwP9iygHHzEIAUS3NWqBHxvt4q5
-	 7961CTqCwVlnjARxyiqoBqGWs1W/YZg84ay2PiWC+qCZJdv1T+LQcPdigpDz/wnIuXQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795497192;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
+	b=W5w5wWBiGwj2QdocTNQo4+155mRQ3kGqOxIjibJF3rASBxijvtTMPEEN855TZFvgkrE+
+	 SnoZT4qtI5VosROQ/TxdS2Qi1Vg4gb24694FyNEOxvNAD87oK1ICEzWaplX6elSJ4A746
+	 gtDKmxLpJ6ro73leVgp/VQLKrZvc5lPuIjUUdQ/z4/Ed9g04K2rafOYlmzxTgupFlvspM
+	 v6MYrSXaO85m5T4zi3jNa1FyqyazDWXtUoamrCRPb+j5Ds9hWaDz0YNgH61em1TYsy+q8
+	 Ry2OyG0esHvmQyFuK40gGF7lm9BwJF5psRdpcvnCfl3IDGLUnPuaXdUtUzClXDtGX0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b="Z/dRd1f0";
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3ED34606A321;
-	Tue, 24 Nov 2026 04:57:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3ED34606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khgue2PP;
+	arc=none smtp.remote-ip=209.85.215.176
+Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4AD5606A332
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:13:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4AD5606A332
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=Z/dRd1f0
-Received: from [10.26.7.43] (unknown [4.213.232.18])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 7B75D20B7167;
-	Mon, 23 Nov 2026 20:57:35 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 7B75D20B7167
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795496260;
-	bh=cooFJK8G2ydt42Nd2Iv2R9B/Oq1zVhrUhV5l7JceOdg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Z/dRd1f07VxE6zEy9nZ2x8AxUd3aX/c5gjwWH1eSe+lzK1kkTtYaS+jKAG6MRrZN5
-	 EDQF6JUEmMe+sgY00PvbuejB8UULveSKyWsxAJ3BL75co8WaIJVaRW4xbcvOKiPkMZ
-	 7ynHyuglFEGH2GqyXVnyWNtKgeCgQUXutUVkbKoA=
-Message-ID: <c8f26062-3d88-4efb-8548-f233a6c234bd@linux.microsoft.com>
-Date: Tue, 24 Nov 2026 10:27:37 +0530
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=khgue2PP
+Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso2265915a12.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 21:13:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795497191; x=1796101991; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
+        b=khgue2PPaBrP38DxFon8dyZrSoodrFVtzOFF7wWddeLQdJ7Ue4YQwRyvzkzhw6kf1V
+         GuhObaTkdhOBlgwFkdf1mXMb9aCMDEhqyL4GLaUKCp8ZEzQy8Zw3I3wtEznxAcSyHP49
+         N/T5nX66bQa/ufdmfIAFd6oxBtpTaYCbnfu/XbZd5E0tZjVhhcyX3PUhpUl1JbHzSjBn
+         KsVhp+bCup+IUsOSHtwU05gERVtqQeRUfGyJg0ryVDMZU4kw70dy08UqZsFc/XfqAcZ1
+         WAV5BwAtx2cC8iJxMbx8P4B9k4XXgL8alQT4Ypt5A03RlYKmDgaKWG0yKZtWeibWixhV
+         VMOQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795497191; x=1796101991;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ChElyjeOV56VhhhS6y+bmoegOQ219Y3F4kqbJHEklmc=;
+        b=WnoSzJFYPzjURT+iZOwiC7XRVWsKt6yJNLAG6g6VpovaMwmjXx38rKzF8xaNshUpRT
+         RPlXzS5ikbTRIwydKV9m1wdr+QiAhnGE1kVjt0tgy9x2F73TibycA2t9v1EXVFXpse1K
+         89+UOMjYU6Y8mK6Dbl6BYuZpCzoVWamgod1cb7nWFquIarWq4BgdipgtNmL5r124yjuR
+         7m52nCybKwbvC5BycvCQo3WpF/thySoQwZXd/yhqOe05bwVxCIJ2x49pT4D11UZwgAry
+         a8dhGujT5z1I3EFih4Ynte0r5XJ0JUxhgbNyyPHDMFwfNucPMDIzVO1Mmd9c4ieU1IIp
+         yIhQ==
+X-Gm-Message-State: APuU4Z9NzzSwXXBb1i+vO9bRRkoLf1v3jeRXkJCUIuAMd4pDZm2s38gM
+	0GgxDlwMgCacxskEmmfrOeDUb25T3yIBcKpe3uD5D+fTDLwcpPN+dW4ZiLrDvzN0
+X-Gm-Gg: AZFdTZelWZ/KXwHT3bXPRg2KNlwzCUAp+V1x5gaVkD9VakaK3BwqpSq4l454VlKeIEl
+	KQH+sndy5Mgo0lVkCWcpqrccK+JAjc3f24xykWRcZ4xq9XjTOlZkZslj3Tm1EIO9C97HbpRe4aT
+	8gbSdSqDYgqzBHQiiar24v062cNsXvdLCTczDb4US3gOzjVsl8+g3Q+Rjr4L/w/AwSJe4EZ1vxN
+	CPMrdFu6EGotqR4guLevr9zRwCiT0Mu/vNiinreTeXIU8YS3SJoYGni4x03OnjPT6L/TJ+xbW0T
+	snGEJ9QsppJsmwJySNaztgDvvAGDVcdjobM/OP4Jh3CVRWXRrJZGLmuCnfQB2qQ/uCdtck90pMb
+	4v4JK9b4Fl5lkWIraiaSRTvR/4qS6vcRUVl1gsvltJjbLETvukpFQ6Kb91R1FwQaeSxH3SpfIuI
+	pk05mbZPVhU+XaUHrq7GCAvSHKniXL1584L4LA76Ghc+W+0S09aQ81QdP9yfdMBHi1t18BWcgZq
+	yrQHb7UoqWsFUwFjLAOCZ5rGzHD6F2rUDAhlFbpaXyY1N9yU/RQQaM/qXutTm/nMp9ZWnZ6Z5YF
+	4NYacsx3POK/AD/PbPzlQ2FJMv4sSNu2mBFyPjqAxPZRGu4+oCnuCc/SdxvYrKJk02Y=
+X-Received: by 2002:a17:90b:5289:b0:3b0:9bfa:72ac with SMTP id 98e67ed59e1d1-3b41c908147mr9432607a91.21.1795497191050;
+        Mon, 23 Nov 2026 21:13:11 -0800 (PST)
+Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b704cfesm7500992a91.1.2026.11.23.21.13.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 23 Nov 2026 21:13:10 -0800 (PST)
+From: Kyuwon Cho <kyuwoncho18@gmail.com>
+To: netdev@vger.kernel.org
+Cc: Jay Vosburgh <jv@jvosburgh.net>,
+	Hangbin Liu <hangbin.liu@linux.dev>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v4 1/1] bonding: keep non-Ethernet slaves out of 802.3ad bonds
+Date: Tue, 24 Nov 2026 14:13:03 +0900
+Message-ID: <179549697473.218888.6814133305133689781@gmail.com>
+In-Reply-To: <179549697473.218888.8044828119056769556@gmail.com>
+References: <179549697473.218888.8044828119056769556@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,227 +102,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4] net: mana: Avoid waiting on dead HWC after device
- reset
-To: netdev-bot+sashiko@kernel.org
-Cc: haiyangz@microsoft.com, wei.liu@kernel.org, decui@microsoft.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, kotaranov@microsoft.com,
- horms@kernel.org, ernis@linux.microsoft.com, gargaditya@linux.microsoft.com,
- mawasthi@linux.microsoft.com, kees+treewide@kernel.org,
- schakrabarti@linux.microsoft.com, leitao@debian.org,
- linux-hyperv@vger.kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- stable@vger.kernel.org
-References: <20261118091436.3985155-1-sahilchandna@linux.microsoft.com>
- <179534285205.3135.17134166045415765008@kernel.org>
-Content-Language: en-US
-From: Sahil Chandna <sahilchandna@linux.microsoft.com>
-In-Reply-To: <179534285205.3135.17134166045415765008@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On 22-11-2026 15:50, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] In mana_dealloc_queues()
->   (drivers/net/ethernet/microsoft/mana/mana_en.c), the patch cuts the…
-> - [Low] When mana_gd_dev_reset() fails in mana_dealloc_queues(), hwc_dead
->   is deliberately left clear, and v4 dropped the hwc_timeout reduction…
-> 
-> --
-> 
-> net: mana: Avoid waiting on dead HWC after device reset
-> 
-> This commit replaces the 120 second sleep-based TX drain in
-> mana_dealloc_queues() with synchronous CQ polling. Each queue gets about
-> 300 ms, and the device is reset if sends are still outstanding after that.
-> After a successful reset a new hwc_dead flag is set, so that
-> mana_hwc_send_request() fails fast with -ETIMEDOUT, and mana_fence_rqs() and
-> the SHM teardown handshake are skipped.
-> 
->> diff --git a/drivers/net/ethernet/microsoft/mana/mana_en.c b/drivers/net/ethernet/microsoft/mana/mana_en.c
->> index 7e9223143fc75..5e4379107b457 100644
->> --- a/drivers/net/ethernet/microsoft/mana/mana_en.c
->> +++ b/drivers/net/ethernet/microsoft/mana/mana_en.c
-> 
-> [ ... ]
-> 
->> @@ -3774,19 +3780,24 @@ int mana_attach(struct net_device *ndev)
->>  	return 0;
->>  }
->>  
->> +#define MANA_TX_DRAIN_RETRIES	3
->> +
->>  static int mana_dealloc_queues(struct net_device *ndev)
->>  {
-> 
-> [ ... ]
-> 
->> @@ -3799,31 +3810,79 @@ static int mana_dealloc_queues(struct net_device *ndev)
->>  	 * to false, but it doesn't matter since mana_start_xmit() drops any
->>  	 * new packets due to apc->port_is_up being false.
->>  	 *
->> -	 * Drain all the in-flight TX packets.
->> -	 * A timeout of 120 seconds for all the queues is used.
->> -	 * This will break the while loop when h/w is not responding.
->> -	 * This value of 120 has been decided here considering max
->> -	 * number of queues.
->> +	 * Drain the in-flight TX completions for each queue. TX is already
->> +	 * stopped, so pending_sends can no longer grow. For each queue,
->> +	 * disable NAPI so it cannot run at the same time as this drain,
->> +	 * then poll its CQ for up to 300 ms. If sends are still missing,
->> +	 * the hardware is not responding: reset the device and mark the
->> +	 * HWC dead so that later HWC commands fail fast.
->>  	 */
->>  
->>  	if (apc->tx_qp) {
->>  		for (i = 0; i < apc->num_queues; i++) {
-> 
-> [ ... ]
-> 
->> +				tx_cq->budget = 0;
->> +				for (retry = 0; retry <= MANA_TX_DRAIN_RETRIES;
->> +				     retry++) {
->> +					do {
->> +						tx_cq->work_done = 0;
->> +						mana_poll_tx_cq(tx_cq);
->> +					} while (tx_cq->work_done);
->> +
->> +					if (!atomic_read(&txq->pending_sends) ||
->> +					    trigger_flr ||
->> +					    READ_ONCE(hwc->hwc_dead))
->> +						break;
->> +					if (retry < MANA_TX_DRAIN_RETRIES)
->> +						msleep(100);
->>  				}
->> -				break;
->> +			}
->> +
->> +			pending = atomic_read(&txq->pending_sends);
->> +
->> +			if (!trigger_flr && pending > 0) {
->> +				trigger_flr = true;
->> +				flr_txq_id = txq->gdma_txq_id;
->> +				flr_pending = pending;
->> +			}
->> +		}
-> 
-> [Severity: Medium]
-> Before, the driver waited up to 120 seconds for completions before deciding
-> the device was unresponsive. Now it waits about 300 ms per queue. Is 300 ms
-> a safe threshold for a function-wide reset?
-> 
-The 300 ms budget rests only on testing which shows pending CQs can be
-drained in this time.
-> mana_dealloc_queues() runs during routine operations. These include
-> mana_close(), mana_change_mtu(), mana_set_channels(), mana_set_ringparam(),
-> mana_set_priv_flags(), mana_xdp_set() and the per-port queue reset work.
-> 
-> Suppose a device works but is slow, and a TX completion is still outstanding
-> after the fourth poll. Then trigger_flr is set and mana_gd_dev_reset() runs:
-> 
-> drivers/net/ethernet/microsoft/mana/gdma_pci.c:mana_pci_dev_reset() {
-> 	return pcie_flr(to_pci_dev(gc->dev));
-> }
-> 
-> On CDX this is cdx_dev_reset() instead. Both reset the whole function. That
-> hits every vPort on the gdma_context and any mana_ib user, not just the port
-> being torn down. Also, pcie_flr() here does not save and restore config
-> space.
-> 
-> A successful reset sets hwc->hwc_dead. Nothing clears it until
-> mana_hwc_destroy_channel() frees the hwc and a new one is allocated. Until
-> then mana_hwc_send_request() fails at once:
-> 
-> 	if (READ_ONCE(hwc->hwc_dead))
-> 		return -ETIMEDOUT;
-> 
-> Wouldn't the mana_attach() that follows mana_detach() then fail and leave
-> the interface down?
-> 
-> On PCI, recovery seems to happen only when mana_gf_stats_work_handler()
-> sees -ETIMEDOUT and schedules a service reset.
-> 
-> The CDX bus_ops have no schedule_serv_work callback, so
-> mana_schedule_serv_work() returns -EOPNOTSUPP there. Would a CDX device stay
-> down until the driver is rebound?
-> 
-> The commit message says the budget "is not based on a hardware limit". It
-> also says that in testing the late completions had all arrived "by its
-> second poll", which comes after the first 100 ms sleep. That is about a 3x
-> margin for a decision that resets the whole device, in a patch marked for
-> stable.
-> 
-This patch changes only how long the driver waits before deciding for
-reset, not what it does afterwards.
-mana_attach() failing after the reset is also what happens today: after
-the FLR, HWC commands time out (the first after the full hwc_timeout,
-the rest after 1 ms), attach fails, and on PCI the port comes back
-through the gf_stats worker and the service reset. With this patch the
-same thing happens without the long waits.
-The CDX has no schedule_serv_work, so a CDX port stays
-down after the reset. That is even true without this patch.
->> +
->> +		if (trigger_flr && !READ_ONCE(hwc->hwc_dead)) {
->> +			/* Completions never arrived: the device is
->> +			 * unresponsive. Issue device reset and
->> +			 * mark the HWC dead so subsequent HWC commands
->> +			 * fail fast instead of each waiting the full
->> +			 * hwc_timeout.
->> +			 */
->> +			err = mana_gd_dev_reset(gd->gdma_context);
->> +			if (err) {
->> +				netdev_err(ndev, "device reset failed %d with %d pkts pending in txq %u\n",
->> +					   err, flr_pending, flr_txq_id);
->> +			} else {
->> +				WRITE_ONCE(hwc->hwc_dead, true);
->>  			}
->>  		}
-> 
-> [Severity: Low]
-> Two comments here say that missing sends lead to a reset and to the HWC
-> being marked dead so later commands fail fast. One is the block comment at
-> the top of the drain, the other is the comment just above
-> mana_gd_dev_reset(). But hwc_dead is only set when the reset succeeds. Do
-> these comments match the error path?
-> 
-> If mana_gd_dev_reset() fails, hwc_dead stays false and hwc_timeout is not
-> changed (v4 dropped the step that lowered it). The next call is
-> mana_disable_vport_rx()->mana_hwc_send_request(). It passes both hwc_dead
-> checks, posts MANA_CONFIG_VPORT_RX, and then waits:
-> 
-> 	timeout = READ_ONCE(hwc->hwc_timeout);
-> 	if (!wait_for_completion_timeout(&ctx->comp_event,
-> 					 (msecs_to_jiffies(timeout)))) {
-> 
-> That wait uses the full firmware value, 60s on the tested system.
-> mana_fence_rqs() also still runs on this path and sleeps 100 ms per RX queue
-> on error. pcie_flr() can itself block in pci_dev_wait() before it fails.
-> 
-> This is still shorter than the old 120s drain plus 60s wait. Item 2 of the
-> commit message also says that posting teardown commands after a failed reset
-> is intentional.
-> 
-> Could the comments and the commit message say that RTNL can still be held
-> for the full hwc_timeout on this path?
-> 
-> [ ... ]
-> 
-If the reset fails, hwc_dead is not set and the next HWC command still
-waits the full hwc_timeout. Lowering the timeout in that case was
-dropped on purpose: the device may still be alive, and timing out its
-destroy commands after 1 ms would free CQs the hardware may still own. I
-will fix both comments and the commit message.
+bond_open() adds the 8-byte lacpdu_mcast_addr to every slave of an
+802.3ad bond with dev_mc_add(), which copies the slave's addr_len bytes.
+A slave with a 16-byte address, such as an ip6tnl device, makes it read
+past the array:
 
-pw-bot: cr
+  BUG: KASAN: global-out-of-bounds in __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+  Read of size 16 at addr ffffffff878a2940 by task test/114
+  Call Trace:
+   <TASK>
+   __hw_addr_add_ex (net/core/dev_addr_lists.c:102 net/core/dev_addr_lists.c:157)
+   dev_mc_add (net/core/dev_addr_lists.c:1036 net/core/dev_addr_lists.c:1054)
+   bond_open (drivers/net/bonding/bond_main.c:4405)
+   __dev_open (net/core/dev.c:1762)
+   __dev_change_flags (net/core/dev.c:10022)
+   netif_change_flags (net/core/dev.c:10087)
+   do_setlink.isra.0 (net/core/rtnetlink.c:3294)
+   rtnl_setlink (net/core/rtnetlink.c:3633)
+
+Commit c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet
+devices") rejects such a slave only when enslaving it changes the
+bond's type. A bond keeps the type of its last slave after that slave
+is released, so a bond that once had an ARPHRD_TUNNEL6 slave can be set
+to 802.3ad and take another TUNNEL6 device. A slave that is itself a
+bond can also change its type after it was enslaved, when a
+non-Ethernet device is enslaved to it.
+
+Check that an 802.3ad slave is an Ethernet device before the type
+handling, for every slave, and refuse NETDEV_PRE_TYPE_CHANGE for a
+slave of an 802.3ad bond, as team does for its ports. Other modes still
+allow the type change, as bond-eth-type-change.sh expects.
+
+Fixes: c84fcb79e5db ("bonding: limit BOND_MODE_8023AD to Ethernet devices")
+Suggested-by: Jay Vosburgh <jv@jvosburgh.net>
+Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
+---
+ drivers/net/bonding/bond_main.c | 17 +++++++++++------
+ 1 file changed, 11 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+index 776afdb9df43..cf67104777d0 100644
+--- a/drivers/net/bonding/bond_main.c
++++ b/drivers/net/bonding/bond_main.c
+@@ -1951,6 +1951,13 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 		return -EPERM;
+ 	}
+ 
++	if (slave_dev->type != ARPHRD_ETHER &&
++	    BOND_MODE(bond) == BOND_MODE_8023AD) {
++		SLAVE_NL_ERR(bond_dev, slave_dev, extack,
++			     "8023AD mode requires Ethernet devices");
++		return -EINVAL;
++	}
++
+ 	/* set bonding device ether type by slave - bonding netdevices are
+ 	 * created with ether_setup, so when the slave type is not ARPHRD_ETHER
+ 	 * there is a need to override some of the type dependent attribs/funcs.
+@@ -1960,12 +1967,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+ 	 */
+ 	if (!bond_has_slaves(bond)) {
+ 		if (bond_dev->type != slave_dev->type) {
+-			if (slave_dev->type != ARPHRD_ETHER &&
+-			    BOND_MODE(bond) == BOND_MODE_8023AD) {
+-				SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+-					     "8023AD mode requires Ethernet devices");
+-				return -EINVAL;
+-			}
+ 			slave_dbg(bond_dev, slave_dev, "change device type from %d to %d\n",
+ 				  bond_dev->type, slave_dev->type);
+ 
+@@ -3992,6 +3993,10 @@ static int bond_slave_netdev_event(unsigned long event,
+ 	slave_dbg(bond_dev, slave_dev, "%s called\n", __func__);
+ 
+ 	switch (event) {
++	case NETDEV_PRE_TYPE_CHANGE:
++		if (BOND_MODE(bond) == BOND_MODE_8023AD)
++			return NOTIFY_BAD;
++		break;
+ 	case NETDEV_UNREGISTER:
+ 		if (bond_dev->type != ARPHRD_ETHER)
+ 			bond_release_and_destroy(bond_dev, slave_dev);
+-- 
+2.43.0
+
