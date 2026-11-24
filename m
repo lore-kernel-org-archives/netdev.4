@@ -1,55 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795542184;
-	b=UcKVB7Gfppm0hFZ7HVAkbQqIweavpSQ4eavvOnwWRQE869ffBsPty/jqpKMCGX2onT1b
-	 Dr5LSF/Z0R7JvNses8M3sw/XAT0um2R3c/Fae+UVQG0R3ccQ5719jC24Kbx5nGadMEUej
-	 hRhBBvfxquwPVTXHKAuuih/bo7Oy51ZuftAcADMom9jU6nRlSK9xG7XjvZS6mbT8QxPOa
-	 jXanph5dQrHFqtyFH0gwJdXK7/jPkOEY8y+TC2jp8N8k5XxBQJgBAZKpTRmEn8t1Et5VF
-	 Xa2XLJRkP8kybYddxyB7XllDx3O1CCD3VSau8cD+92pailuunICUt8r9kkjfV6jVucQ==
+	t=1795542186;
+	b=UCAWf3erFex0GWInzWgJ12jeSfwfgf6YljgBTGkG4fg46wxvNAk3K1Bw4U2qbmaxzhxP
+	 ikbaq2IrYmaOEC3UWdF24vy4dLqGrqkJTC0wEchtb51B+H7NtvwlLh5wIkiw95UdKCjPl
+	 dAE566IwHrHEt+DoodadjgEcZR6OFrySyoT0jwoG/5TyZsEEJcG3n+24B4ZsuiU5W4qQT
+	 keYLQna0rIasQplxvVHl46rCj92Xk1iHG0h/w+Gxkq82oLBhwJgy69OmXHJN8mlSA2ypp
+	 XNdJvnMlg1406XlcK1WSi1Z4zsBlQygQISn5EEgQ57WGd45TUzuqlrEP6/1Z+pHjVLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795542184;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795542186;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=h1h4yHjmlBs3vGOFXi6iqSSsWYYmwiIUlQRsrgTKDBk=;
-	b=B6N3VBC+Il0lJZ6MPQYLifaUcsSukwPHlkXjTFh+zPscIQozIp3mkmpd4QGzYbB2HQY6
-	 N8x4L27nrxKyL3j4R+9uYYthz4dfAQJGNS+wXX96HhKZF4eoZwCa5QM7sK4RMHXqy1gmq
-	 HmNH7cZcsKVBUXk4kfloCw/1wclQ5IZS+tiCkBh9hUMPnHTs5u9btV7AunpYkGOPeaLVk
-	 Hhskn3IJrtRF6kz9gWSEeMU4zxjQRDOORFb+GHALTvRl3RAopejqKeVFvIQBjWVGY5WvG
-	 3nDi9kRujuD3kwJJZGc6Vy1w1uWZDZm9sxahCExoAvrbngDI+ETfTd8Nein6qrhN6ZQ==
+	bh=R3vZhtZB0lPAijKxMqdgnTzdmzTahv2cqayjlfLzb9g=;
+	b=ByNKXw6vgfLdFa8th3j9NKM3n4gNAiLlV1VJOpN6APKx5qFxaEIGmb/agh4CQHe315u0
+	 W6oTy0S94EMwtNNJaqnu0udhwhjBuPBunmKGH99YCCvvF7lDB4uqPOTKxgAeLIcfwXpea
+	 KhiV7dI119djqchLVPwaOpeggXOkTiFW26VFKnnCtbgfzuuSfEwLCzdllx7Sxd/ko8o4E
+	 Dod5LfCnhjKChDTVXMfeI/jCiOJu2IemkJqC/ucxK6z3aKFWjvq5Ffv77r/AFqCm948m7
+	 1a8m9uIt8wU4cckDk/JxyGoBBi+v+oJlQLqJSq8mnoxs5UwZTU1Ur4H1baMP9m4yZTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps3KWkG3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IZr0nQac;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3D7606A32A
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:43:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A486606A32A
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:43:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Ps3KWkG3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 17E871F000C0;
-	Tue, 24 Nov 2026 17:43:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IZr0nQac
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A02F91F000F4;
+	Tue, 24 Nov 2026 17:43:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795542184;
-	bh=h1h4yHjmlBs3vGOFXi6iqSSsWYYmwiIUlQRsrgTKDBk=;
+	s=k20260515; t=1795542185;
+	bh=R3vZhtZB0lPAijKxMqdgnTzdmzTahv2cqayjlfLzb9g=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Ps3KWkG3XHtXCF7cxxhNPGQjQJ76eJddx6cnN6bxZdZOUrEuQKX0v9mQaLzFMMoi6
-	 pctTi0DAIDM8Nim0YRkbRIwUBDqnrUcEzvgfQGL7X2cxRVyo+I+fQaZRGYhssyJj+9
-	 RsKIFTNIQqIFI2Cdn+tAwr+3H/erDmQMqn/BS8f74DFFqlylcp/jFzKSRLbs28exwR
-	 K5Q/jt4zVSbvNnqSaKbdMhW6sUcNDtVtvVyKvxQW0gN10LfX+NmwsfPtSVhNFgpdbc
-	 WEll5w/qQ3tUU4RQy80uHvr/dzJ05T5ukwhX+rulF2W7TpQrjky2dz+8Q6CmUJZh4e
-	 hmnwxBptWpkKw==
-Subject: Re: [PATCH net-next 3/4] selftests: drv-net: add a kperf stream test
+	b=IZr0nQaclXhg/fz6MBhvcdyvOhz94CCkxvM3QtHBbR3qlVSpV4Z3CGmjo5+v513jq
+	 OsqlFu2nHlrivHkFfsHwoWzzfzAWyptp71gbhxso3OhwubU1nUdlIEgA7M0VVuvQK2
+	 xL97W/6fRlBroITGdMV5VJ7/r/i2h5JMJQsNGIANeawvKfzF09syFbH4Av+tbUF0pJ
+	 32Ui1zOwLZJYoVf5hXo0Lmnpb5P8Tw21vCe7CFcjxFqvyDAxFvXmEqmPdkiofMBjNZ
+	 Ldo15GE3rI1eH5a890UynyIZPUe5hqCeaX4vf3g3Fg7PzpG2s5EDmndg6mxpSkmCvD
+	 0prEbsipvkXxg==
+Subject: Re: [PATCH net-next 4/4] selftests: drv-net: remove the iperf
+ performance test
 From: netdev-bot+sashiko@kernel.org
 To: sdf.kernel@gmail.com
 Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
  kuba@kernel.org, pabeni@redhat.com
-Date: Tue, 24 Nov 2026 17:43:03 +0000
-Message-ID: <179554218364.3135.5016659919665552355@kernel.org>
-In-Reply-To: <20261123174120.505808-4-sdf@fomichev.me>
-References: <20261123174120.505808-4-sdf@fomichev.me>
-X-sashiko-severity: Medium
+Date: Tue, 24 Nov 2026 17:43:05 +0000
+Message-ID: <179554218522.3135.16126993421700976202@kernel.org>
+In-Reply-To: <20261123174120.505808-5-sdf@fomichev.me>
+References: <20261123174120.505808-5-sdf@fomichev.me>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -62,86 +63,57 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In tools/testing/selftests/drivers/net/perf/stream.py, the
-  "zerocopy" variant of tcp() passes ["--msg-zerocopy", "--zerocopy-rx"]…
-- [Low] The commit author address (Stanislav Fomichev
-  <sdf.kernel@gmail.com>) does not match the only Signed-off-by…
+- [Low] The author and the sign-off use different email addresses.
 
 --
 
-selftests: drv-net: add a kperf stream test
+selftests: drv-net: remove the iperf performance test
 
-This adds stream.py, which uses kperf to measure the throughput of one TCP
-connection. It runs a copy variant and a zerocopy variant (MSG_ZEROCOPY on
-the sender, TCP_ZEROCOPY_RECEIVE on the receiver), and reports the result
-through ksft_metric().
+This commit removes the iperf.py throughput test from the drv-net perf
+selftests and drops it from TEST_PROGS in the Makefile. The commit
+message says single-stream iperf3 results vary by about 10% between
+back-to-back runs, and that stream.py with kperf covers the same case.
 
-> Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
+> Author: Stanislav Fomichev <sdf.kernel@gmail.com>
+[ ... ]
+>     Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
 
 [Severity: Low]
-This isn't a bug, but the Author: address (sdf.kernel@gmail.com) does not
-match the Signed-off-by: address (sdf@fomichev.me). checkpatch reports this
-as FROM_SIGN_OFF_MISMATCH. The other patches in the series have the same
-mismatch.
+This isn't a bug, but the author address and the Signed-off-by address
+don't match. The author is sdf.kernel@gmail.com, and the only sign-off
+uses sdf@fomichev.me. There is no in-body From: line either.
 
-> diff --git a/tools/testing/selftests/drivers/net/perf/stream.py b/tools/testing/selftests/drivers/net/perf/stream.py
-> new file mode 100755
-> index 0000000000000..4ed9d64dfa320
-> --- /dev/null
-> +++ b/tools/testing/selftests/drivers/net/perf/stream.py
-> @@ -0,0 +1,40 @@
+The names are the same and the addresses differ, so the
+FROM_SIGN_OFF_MISMATCH check in scripts/checkpatch.pl sets
+$authorsignoff = 4:
 
-[ ... ]
+scripts/checkpatch.pl:
+	} elsif ($email_name eq $author_name) {
+		$author_sob = $ctx;
+		$authorsignoff = 4;
 
-> +@ksft_variants([
-> +    KsftNamedVariant("copy", []),
-> +    KsftNamedVariant("zerocopy", ["--msg-zerocopy", "--zerocopy-rx"]),
+That leads to this warning:
 
-[Severity: Medium]
-Does the zerocopy variant exercise TCP_ZEROCOPY_RECEIVE page mapping on a
-default NIC configuration?
+	"From:/Signed-off-by: email address mismatch"
 
-tcp_zerocopy_receive() only maps frags that pass can_map_frag() in
-net/ipv4/tcp.c:
+Nothing in the tree links the two addresses. .mailmap maps only
+sdf@google.com and stfomichev@gmail.com to sdf@fomichev.me:
 
-	if (skb_frag_size(frag) != PAGE_SIZE || skb_frag_off(frag))
-		return false;
+Stanislav Fomichev <sdf@fomichev.me> <sdf@google.com>
+Stanislav Fomichev <sdf@fomichev.me> <stfomichev@gmail.com>
 
-Without header-data split and HW GRO, payloads usually sit in sub-page
-frags at non-zero offsets. In that case nothing gets mapped and the data is
-copied, or kperf fails, depending on how it handles this.
+The earlier commit c1d2b8e89a29 ("selftests: drv-net: add an iperf
+performance test") has the same mismatch and was merged anyway.
 
-The commit message says the test runs "with the same settings as devmem.py
-otherwise". However, devmem.py's kperf() turns on rx-gro-hw through
-_enable_hw_gro() and configures the rings with:
-
-        "tcp-data-split": "enabled",
-
-It also sets hds-thresh to 0 where the driver supports it. stream.py does
-none of this.
-
-The only output of tcp() is ksft_metric(), and metrics do not affect the
-result. So nothing shows whether zerocopy receive actually took place, and
-the zerocopy number depends on the driver's default HDS setting.
-
-Could the same HDS and HW GRO setup from devmem.py be applied for this
-variant, with a skip when it can't be enabled?
-
-> +])
-> +def tcp(cfg, mode_args) -> None:
-
-[ ... ]
+Could the author be changed to sdf@fomichev.me, or a matching
+Signed-off-by be added for sdf.kernel@gmail.com? A .mailmap entry would
+also link the two addresses.
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123174120.505808-1-sdf%40fomichev.me
