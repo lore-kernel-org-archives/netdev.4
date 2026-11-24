@@ -1,100 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.176
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795535405;
-	b=pj5KCH2ghUh+0yYeuI3cuFShMbZRitjeJ/SizX7Glbkm2myDsT+0R1WExosFnvl2e25k
-	 g1M5rqpuzYfEuMucsscQtV+L/lSx8jRgT0TAocBTGrfiWQsrdLBlzIO//BScvR8DVS/Wp
-	 Zwpw6SZvJdbkn0tMrYXpEZ9U7LqeyCDOyhCtCagKD0GWz7wcFYCsobXo/go+eCEfStCUo
-	 PK/3Q2mCPb1+NMhzKMVbas04cspnUH06nK7Jjb6PEy1t6oJzbRwzc4tBZutrGipyDdCjH
-	 kMfnMQVawEka583XAWJGUH3lBtmzsdsXCB/pO5CXEnQbNrwIznRAIsTsNXOGtLLbzgA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795535405;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=RV67tSyDZn0xZW7mF0uAthhaVtVBN7CmTIVclI2472Q=;
-	b=ZsEZuM4cRZuVGGG4jgCat8R2+JT8V7avq13cgYHrG40SWGiID+v7qjIMxiFQ/yp4pxWf
-	 ljPB4ufompxv4sjVUPRp0wkEpybCVotveVQmbgEotRhU/D6JMZ+vHdb457/WpLkapgspJ
-	 ehhwFEFMJeBcNLPVkG0dNXZdTkunOnXxhQv8s3fZ8iiQLuq5kMDAkpp/rIlP1d5W+NOxU
-	 GOAIvqNG3tmC+YybsSgrtFW2H/9mLYtSj9osKIbVxL3V+EoM0DjyC0WTbPcQ3CmnwfaoA
-	 8pGyQJNs+bkB9XnlW6RJPm+DGDWWnO18cmL7DKmNB0o+C7vGB/DaXAa6x+kbUxjZBRw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tpvzfX62;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.176
-Received: from mail-vk1-f176.google.com (mail-vk1-f176.google.com [209.85.221.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795535608;
+	b=HkUmkyWLLQcznT2DOrSnp0tQWejyj9X+dR1vgOfkHzEOpz2mMXsmJ6hgIGnpt3HCcEjs
+	 +tJJPaGG//8sXFozYsuYLlBSmHl50fbTWcgv1LwKlzpbLeymNZl7RkYO2Nt4ZQq8z7R9W
+	 07+6PrRMjn/lnzOSi78JUQ6D8SDm4eDDBEKHIir7eSYGdx2PgepZMVOBrot0p7niuk+RW
+	 wVvDPX+8OcBqfuYqdRb+14n6NDLOglmIPe9Eqa9pZJhtfxeemB3S8NjN33zFsMz1gxccj
+	 G61fWTMmlhizlWygiqAavsfUCsBa1sicfdEoCX6UeJ2BzSquwDj+6L+uOityUVkGsmg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795535608;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=HAbaKpAXtfda70HEA8mpf5g5mt2TC8wb/qxPCub+us0=;
+	b=Lis8dyEfex7xSO6oOYFwxc78etUG78YGZNKlHb5sKrbg8dfvzAYn69g+mt12hCzrGolH
+	 OH7SpfL2ZM+W7K9vb7/pfeXrQb+1Phk8MC/JgMS2kd3mv8TsVMWc9AjCIatDohYA6MbqI
+	 zec8W+QGcRBuaqs1nLKZmLF0nNLCKM5SrGEryzLVrgbVCT1015nDpI5fz+GH00yJR2ww6
+	 dGeD5OQzNmtJFqV5cJNJ9fNhFPSdYg07jtOl7nm+fDNF1kzJUEhzL2piEqbBu4lcLum1k
+	 q8Kn8e4n1keSe4pwFV2rfjVkh+8OzzONW0/BGrhu9UPTChlniDdYDjG8hDb2LwvMpjA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2cYmcZM;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7ACA4606A321
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:50:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7ACA4606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46906606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 15:53:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tpvzfX62
-Received: by mail-vk1-f176.google.com with SMTP id 71dfb90a1353d-5ecd9a400cbso2840252e0c.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 07:50:05 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795535404; cv=none;
-        d=google.com; s=arc-20260327;
-        b=IULHL5/5ibXwaeuAUGjKowx95KjO8gqKa7we/RrKj11lumcSWxih81k7IYpER38Xi2
-         If7P/rJF9AxrAMftEj8TyuiQUKNjjx5JfjjSVzNvGdd49spiMARcD/tI+lch01XUB2Ga
-         1OwXy9AxyQMJUeVWUx3ChCKq2YHIRxYOKHSFLYNek/g2TiS1BOGXAQW38Yu543LH96BF
-         SV5h8Ecz71kx77aCpKcRoeOIj5RBp/pj+wcGUF981CjwhJuHWQO29yMRZP97AMZFxjcq
-         oRd0PfuBd9wuwmvoGlHcNHb0RDDH24iBSKQgY+Q9ZV+PH8GvUcKVwb+GodjSzvlg+ieX
-         ue6A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=RV67tSyDZn0xZW7mF0uAthhaVtVBN7CmTIVclI2472Q=;
-        fh=hmXngdu0Xr0aCzuWtPuWhRZej2OQgztQTyz38XdXv0I=;
-        b=TnARXvP/2tlZSpOfC7hOj7V9T8qL+4NVtC9u2VUjIeujGnaHekrq17p6U7yo/Ytrpp
-         QZE5A7xtYaMl85fj3lX18rCCF4pYZjRz7r/kdd+enBPzwV75VlnM0pJMHVot6MGJ9Sdg
-         BRdQhJU8cn7lsjqwwvlU78j7cflrzpgDAQOg9hr/rqOGN/zNydjydMjIuCxWGvofbL9J
-         D9nV2Qv8jvKBcXQ7qlb3MWwAH8plSeACw8V3ynIud0sbEridVpokng0y4dcxHfO6yW7v
-         vJhWDP1IdzU1dOA360yNVjyVfQWakKanilSSuCqdvRBCgB8lvd4xPFe42jQg1JKu1dCS
-         FUJw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795535404; x=1796140204; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RV67tSyDZn0xZW7mF0uAthhaVtVBN7CmTIVclI2472Q=;
-        b=tpvzfX62PIzNzokRcG5NmsnWakxto1N3TzhM2ftdLhXZHi8SvOKdrw+3wgkH75LU+Y
-         AA8VkTK61xnBQ0OzC+oyjo2vkQTGWgOf2NzLrOGXt1yOQxgKTzn444w7M25Ofc+0NLTz
-         GmoXUBafQ75I+7PY65nwTBXf2VTNbXjNTYMvR7cAmDZpXqD0tdi/9YJXXmBCownmBxpA
-         R7OSfA02voezIiyXBs8Rc53xV321PkF3Q26vkduZlqrev1hCGSnEzM0/FxX7L6Xq5l6F
-         MzXRiE5px9Irt7majSmfIrOjGRbd9YW3VaWnL+yjaMS23tsOEuxfue/n7+Nhr+pdVVWc
-         6gQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795535404; x=1796140204;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RV67tSyDZn0xZW7mF0uAthhaVtVBN7CmTIVclI2472Q=;
-        b=YSA7Y+PjgitBJlwvqgY51KuqkQl7ZVlGsKQDX4VkPtvr2ZHF4XvrlQglBxiKKD9HX6
-         aFfuj+X98nCIfPZ5iqB43ZBqGSfhRcNgZXa9OjGWClZ0WdqGy769q4sVqUeQvqOKQr0R
-         GIel7k/7ifl57Whiv5015DqXI0uMKLPNmT80rhzjtRtxCMFkjAayRqHRJzFpZNseGg6b
-         XdcL0E+JsicUd/EM1r9K6PJtgQElgdwSrQD6wWlQ1zmOU05DCq8R/4EhkBQTGMfggbVa
-         xv9CXFojlEfpal86FiWuJ8r7nIiAoEUssakbqisn5xAjJyUGl3KKtPLxnOM4riq2HswB
-         wRTw==
-X-Gm-Message-State: APuU4Z+M9k6JlS8KrLUf1OSw6uD76emvs2JuHIqOGXoO0jDG8/078c80
-	/maeFv/6Yj4wMS0YaGYMADPma9Ov//Ez5O/8gSgKGPtNFj1PrK/Kd/gjblQoQRR0uH52Tn6JGKT
-	KQRXDWO651lndQaFKyxKRJMetwnn5qXM=
-X-Gm-Gg: AZFdTZcJqACLPiJXl0SCrVDlFmkFwJdmzu7J7XlMqzR21OC7IfvxUo7skV6motqawLM
-	cZ3g74vk2nvkbddhA2sfvGhLTAjVbEVEoVzwpvIWTwoEKws8jzqOZC8EyIWsZYjtakBs3cL3Nh9
-	jCbHei6MyCWQY+ZlM/kJaSHKpfiZPsT/AoCnsvH0EciB8keikYQHQhNWd+vH0WS4TFL7lMCd8lI
-	V+RcPwhWTv+JpJwdbBEl+0wN8IJ31J43IUBqem6e9sV3EtICis13mWz+cwkSd5/4evygQ+XYIiM
-	2N12BCznpxKHctVYO69LBuAxuSjjmhS1qZ4Qk3/WGwqWYAUqEw0N8rEteOOpOkhSUUZ8ywmWdAZ
-	HeGQ887W+OCXk3uxFydnD9bCSBYFTu1NZcZS32nCTFuxG1mGAzxEhd3IhlecU933N8gO04VQGGU
-	1l8Rb4Gs8owTRi/bxW8GWHkIYlaMNhS1M5vI2FwA==
-X-Received: by 2002:a05:6122:3b84:b0:5ea:ea07:b119 with SMTP id
- 71dfb90a1353d-5ee8af7df7bmr8866936e0c.16.1795535403955; Tue, 24 Nov 2026
- 07:50:03 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M2cYmcZM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D9DD11F000D2;
+	Tue, 24 Nov 2026 15:53:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795535607;
+	bh=HAbaKpAXtfda70HEA8mpf5g5mt2TC8wb/qxPCub+us0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=M2cYmcZM49nCQSs51/O+Rr4P8a3xyGcFFYP52A4hg8XLyHsHlGGrfHB+5aV1MBzQD
+	 8V9GyNeGhL+/FOK6EuBAfJ/Y/KhnNlz7GAnVhdGf4lplLQ/0JD9NWGIkMI/7kjAJ9R
+	 wFF5DSvNBkffuxKtmdL8TI1X/rtiMxVTtbaR7NZsABOHCPKk6qF7/wOnnvHcFpZD2r
+	 BCa7ukQawMOSQJ+Wcs9ZSMl7u6n3MMOkFwCVajKpJbCXuyTTwBFl2lmEL9EW8uNN1v
+	 msm+Jrs9L93kJfPvVUVQl10r5khik+hdh2veC8JQYqSlnQWwPkhjfeEqR5HKeEG/mZ
+	 DBKeBG5szqHwQ==
+Subject: Re: [PATCH net-next v2] tools: ynl-gen: avoid shadow local variable
+ declarations
+From: netdev-bot+sashiko@kernel.org
+To: horms@kernel.org
+Cc: donald.hunter@gmail.com, kuba@kernel.org, davem@davemloft.net,
+ edumazet@kernel.org, pabeni@redhat.com, ast@fiberby.net, cel@kernel.org,
+ netdev@vger.kernel.org
+Date: Tue, 24 Nov 2026 15:53:26 +0000
+Message-ID: <179553560643.3135.4325165389540156144@kernel.org>
+In-Reply-To: <20261123-ynl-scope-v2-1-f5b8c6bb31c1@kernel.org>
+References: <20261123-ynl-scope-v2-1-f5b8c6bb31c1@kernel.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,195 +63,112 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <48580ca6a02b588e9c24444801109506da11a9d2.1795396989.git.lucien.xin@gmail.com>
- <179548588251.3135.10014340190099201603@kernel.org>
-In-Reply-To: <179548588251.3135.10014340190099201603@kernel.org>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Tue, 24 Nov 2026 10:49:50 -0500
-X-Gm-Features: Aa3M54osN_faTySIAtHk7Iwt6hDIqaWDaoWsCgd8DBofHvamK0vLPqfo9enUAFk
-Message-ID: <CADvbK_fYFGtLq2H0-7p9J=nM8wVAH51SvVhzgMXzivn+YdXYfw@mail.gmail.com>
-Subject: Re: [PATCH net-next] sctp: copy endpoint settings to accepted and
- peeled-off sockets
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net, 
-	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	marcelo.leitner@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-On Mon, Nov 23, 2026 at 9:04=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 2
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] In sctp_auth_ep_copy() (net/sctp/auth.c), the per-key copy is
->   incomplete: the source key's `deactivated` flag is not copied.
-> - [Low] The commit message says the change only affects restart
->   negotiation and lists PR-SCTP, ECN, RECONF, ASCONF, I-DATA and AUTH.
-> - [Low] The commit fixes a wire-visible bug: an association restart on an
->   accepted or peeled-off socket negotiates capabilities (PR-SCTP, ECN,=E2=
-=80=A6
->
-> --
->
-> sctp: copy endpoint settings to accepted and peeled-off sockets
->
-> This patch makes sctp_sock_migrate() copy the feature flags and AUTH
-> configuration from the listening socket's endpoint to the new endpoint.
-> Association restarts on accepted and peeled-off sockets then negotiate th=
-e
-> same capabilities as the listener. It adds sctp_auth_ep_copy(), which
-> deep-copies the HMAC list, the chunk list and the shared keys.
->
-> > As gomaja noticed, when accept() or SCTP_SOCKOPT_PEELOFF creates a new
-> > socket, sctp_endpoint_new() initialises the new endpoint from the netwo=
-rk
->
-> [ ... ]
->
-> > Signed-off-by: Xin Long <lucien.xin@gmail.com>
->
-> [Severity: Low]
-> This fixes a restart negotiation problem that is visible on the wire.
-> There is no Fixes: tag to tell stable tooling which commit introduced it.
-> Could one be added?
->
-> The reporter is credited in prose ("As gomaja noticed"), but there is no
-> Reported-by: or Closes: trailer. Should one be included?
->
-> > diff --git a/net/sctp/auth.c b/net/sctp/auth.c
-> > index cbeb8a87a17a7..e075297b9ead1 100644
-> > --- a/net/sctp/auth.c
-> > +++ b/net/sctp/auth.c
-> > @@ -1056,3 +1056,50 @@ void sctp_auth_free(struct sctp_endpoint *ep)
-> >       ep->auth_hmacs_list =3D NULL;
-> >       ep->auth_chunk_list =3D NULL;
-> >  }
-> > +
-> > +int sctp_auth_ep_copy(struct sctp_endpoint *dst,
-> > +                   const struct sctp_endpoint *src, gfp_t gfp)
-> > +{
-> > +     struct sctp_shared_key *sh_key, *new_key;
-> > +
->
-> [ ... ]
->
-> > +     key_for_each(sh_key, &src->endpoint_shared_keys) {
-> > +             new_key =3D sctp_auth_shkey_create(sh_key->key_id, gfp);
-> > +             if (!new_key)
-> > +                     goto nomem;
-> > +             new_key->key =3D sh_key->key;
-> > +             sctp_auth_key_hold(new_key->key);
-> > +             list_add_tail(&new_key->key_list, &dst->endpoint_shared_k=
-eys);
-> > +     }
->
-> [Severity: Medium]
-> Should sh_key->deactivated be copied into new_key here too?
->
-> sctp_auth_shkey_create() returns a zeroed container. Only key_id, refcnt
-> and key_list are set, and this loop never reads sh_key->deactivated.
->
-> For endpoint keys, sctp_auth_deact_key_id() leaves the key on
-> ep->endpoint_shared_keys and only marks it:
->
-> net/sctp/auth.c:sctp_auth_deact_key_id() {
->     ...
->         key->deactivated =3D 1;
->     ...
-> }
->
-> After accept() or peeloff, a key that was deactivated on the listening
-> socket therefore looks active again on the new endpoint. This check in
-> sctp_auth_set_active_key() no longer fires for it:
->
->         if (!found || key->deactivated)
->                 return -EINVAL;
->
-> An endpoint-level SCTP_AUTH_ACTIVE_KEY for a retired key id returns
-> -EINVAL on the listener but succeeds on the new socket. That lets
-> newep->active_key_id point at the retired key. Associations created later
-> on the new endpoint, for example on restart, would then inherit it.
->
-> Would something like this be needed?
->
->         new_key->deactivated =3D sh_key->deactivated;
->
-Makes sense, will add it as suggested.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-And also target this at net.git as a fix.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-pw-bot: cr
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-> sctp_auth_asoc_copy_shkeys() also drops this flag when it copies keys
-> into associations. That part is existing behaviour, not something this
-> patch adds.
->
-> [ ... ]
->
-> > diff --git a/net/sctp/socket.c b/net/sctp/socket.c
-> > index bc68af88e2710..bfd87be8ed54c 100644
-> > --- a/net/sctp/socket.c
-> > +++ b/net/sctp/socket.c
-> > @@ -9623,6 +9623,23 @@ static int sctp_sock_migrate(struct sock *oldsk,=
- struct sock *newsk,
-> >       if (err)
-> >               return err;
-> >
-> > +     /* Copy the endpoint's feature flags and AUTH settings from the o=
-riginal
-> > +      * endpoint so that restarts on the accepted or peeled-off socket
-> > +      * negotiate the same capabilities.
-> > +      */
-> > +     newep->prsctp_enable =3D oldsp->ep->prsctp_enable;
-> > +     newep->ecn_enable =3D oldsp->ep->ecn_enable;
-> > +     newep->reconf_enable =3D oldsp->ep->reconf_enable;
-> > +     newep->asconf_enable =3D oldsp->ep->asconf_enable;
-> > +     newep->intl_enable =3D oldsp->ep->intl_enable;
-> > +     newep->strreset_enable =3D oldsp->ep->strreset_enable;
-> > +     newep->sndbuf_policy =3D oldsp->ep->sndbuf_policy;
-> > +     newep->rcvbuf_policy =3D oldsp->ep->rcvbuf_policy;
->
-> [Severity: Low]
-> The commit message only covers restart negotiation of PR-SCTP, ECN,
-> RECONF, ASCONF, I-DATA and AUTH. It doesn't mention these last three
-> copies.
->
-> sndbuf_policy and rcvbuf_policy are not negotiated. sctp_endpoint_init()
-> sets them only from net->sctp.sndbuf_policy and net->sctp.rcvbuf_policy.
->
-> Once sctp_assoc_migrate() sets asoc->ep =3D newep, the live association
-> reads them in these functions:
->
->   sctp_wspace()
->   sctp_wake_up_waiters()
->   sctp_assoc_rwnd_decrease()
->   sctp_ulpevent_make_rcvmsg()
->   inet_sctp_diag_fill()
->
-> If the sysctls changed between creating the listener and accept() or
-> peeloff, this changes which buffer accounting model the migrated
-> association uses.
->
-> strreset_enable is also copied without mention. New associations inherit
-> it, and getsockopt(SCTP_ENABLE_STREAM_RESET) reports it.
->
-> Could the commit message describe these copies as well?
->
-> [ ... ]
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/48580ca6a02b588e9c24444801109506da11a9d2.1795396989.git.lucien.xin%40gm=
-ail.com
+- [Medium] In `_multi_parse()` (tools/net/ynl/pyynl/ynl_gen_c.py), the
+  patch moves the per-attribute counter declarations `unsigned int…
+- [Low] In `_multi_parse()`, the patch removes the block-local
+  `ri.cw.p('unsigned int len;')` from the multi-attr string branch but…
+
+--
+
+tools: ynl-gen: avoid shadow local variable declarations
+
+This commit moves the block-scoped len declarations in _multi_parse() to
+function scope, using the set-based mechanism from commit 099902fc66f8. It
+also renames the size_t variant of len to size, so two variables with
+different types don't share a name in the same scope.
+
+> diff --git a/tools/net/ynl/pyynl/ynl_gen_c.py b/tools/net/ynl/pyynl/ynl_gen_c.py
+> index 4aca51396a9e2..80b541619df49 100755
+> --- a/tools/net/ynl/pyynl/ynl_gen_c.py
+> +++ b/tools/net/ynl/pyynl/ynl_gen_c.py
+
+[ ... ]
+
+> @@ -2218,7 +2218,14 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+>      all_multi = indexed_arrays | multi_attrs
+>  
+>      for arg in sorted(all_multi):
+> -        local_vars.append(f"unsigned int n_{struct[arg].c_name} = 0;")
+> +        aspec = struct[arg]
+> +        var_set.add(f'unsigned int n_{struct[arg].c_name} = 0;')
+> +        if aspec.type == 'binary' and 'struct' in aspec:
+> +            var_set.add('size_t size;')
+> +        elif aspec.type == 'string':
+> +            var_set.add('unsigned int len;')
+> +
+> +    local_vars += list(var_set)
+
+[Severity: Medium]
+
+Can this make the generator output differ from run to run?
+
+The n_ counter declarations used to be appended in sorted(all_multi)
+order. Now they go into var_set. The order of list(var_set) follows
+Python's set iteration order, which depends on the randomized str hash
+(PYTHONHASHSEED).
+
+After that, CodeWriter.write_func_lvar() only does:
+
+        local_vars.sort(key=len, reverse=True)
+
+That sort is stable and uses only the length. Declarations of equal length
+keep whatever order the set gave them.
+
+This looks reachable in-tree today. In Documentation/netlink/specs/nfsd.yaml,
+the server-stats-get dump reply has the multi-attr members proc2-ops,
+proc3-ops and proc4-ops. They generate:
+
+    unsigned int n_proc2_ops = 0;
+    unsigned int n_proc3_ops = 0;
+    unsigned int n_proc4_ops = 0;
+
+All three have the same length. Their order in the generated nfsd-user.c
+parse function can change between runs on the same spec. That hurts
+reproducible builds of the YNL user library. It also defeats the
+filecmp.cmp() check in CodeWriter that skips rewriting unchanged output.
+
+The n_ names are already unique per attribute, so they don't need
+deduplication; only len and size do. Would it work to keep
+local_vars.append() for the n_ counters, or to use
+local_vars += sorted(var_set) instead?
+
+The commit message also doesn't mention that the n_ declarations now go
+into the set.
+
+>  
+>      ri.cw.block_start()
+>      ri.cw.write_func_lvar(local_vars)
+> @@ -2304,13 +2311,12 @@ def _multi_parse(ri, struct, init_lines, local_vars):
+
+[ ... ]
+
+>          elif aspec.type == 'string':
+> -            ri.cw.p('unsigned int len;')
+>              ri.cw.nl()
+>              ri.cw.p('len = strnlen(ynl_attr_get_str(attr), ynl_attr_data_len(attr));')
+
+[Severity: Low]
+
+This isn't a bug, but should the ri.cw.nl() be removed along with the
+declaration?
+
+This branch is emitted right after block_start() opens the
+if (ynl_attr_type(attr) == ...) block. CodeWriter.p() writes the pending
+newline before the next line, so the generated C now has a blank line
+right after the opening brace. checkpatch flags that ("Blank lines aren't
+necessary after an open brace").
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-ynl-scope-v2-1-f5b8c6bb31c1%40kernel.org
