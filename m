@@ -1,59 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795546127;
-	b=mRbMdGs+FXtnPrheNQjGIHcMLXxKfRdwESuJtGn8DuPzvrvdlLOyfkmKsR0aHxlNBOka
-	 K3lHntVJwbKb5WvQojpN9tcrzA2NTXQC4zw2wq0SWAw+JRRbouuqatc6g0RtQtnro9spo
-	 0lGGHriYV6TOMoROn81xDQaEhSnMAjH1qGenauL4qd16I/htyPljH3Nt0eYoighH1gI6T
-	 a6vdjZoXIupPn9z3rEv7HfxlgdXOmRu3d9GTWKCZPkJ5+dcjdSDzWw4Bhq4PRj6UgpmdP
-	 PB2WuvTMoR3p9Y9jtIYLqZ4RO52T0fE34PM8BW1uTKQZztDkLQQrlT0UezpxnSSM6JA==
+	t=1795546262;
+	b=Y6OpPAdVfdu35QrreiQ3tWXy0YsH1brxrDOV9fpDTeSA8MPSR3/ZtyJeCY9vVOo+6GXq
+	 5zy6Y3tnU8FFaAd3iOvcZ6fJUpUn6pJEJnZQ7G1S82JXhFk2A8njbyVvMDR/JWacCdhr7
+	 MeIBVHoz43kYM+ZjgHCs1kyqliwgeSVD8mzlaA2BV43mc8MiyrAP7DmHECm8ChXeuBgzC
+	 Lw1r4bnEwCMVRseFx/qtowrc9kgx2Vw4f7DbjwGaj7qV4yZsJ5FBPuBsCSQNjl1ITYt2K
+	 2673Cw2hmT8865O5EtlYOGbxPT2mYNB60a7fJHQ66e2sGKYLX6rj8L8/dvbjN44mPpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795546127;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Dc+VwRig8VSn4wpYWTZ82flxuN19bvjXSOBz/lbecMM=;
-	b=Xci1oFMybLg0/Z3P2jDK5R6i/O+eDLam1FdwT4s5FbKGpIm/QsfqQAbQRRKdhhX2KObO
-	 KwXliHGVd1BaQ9gXhUQfeUXtArTbahPiVcE6fqPs32a1c9QRWg1kFqYZw24U8uvfCzxEw
-	 TkN1XrPvdER3m6CwVlCjbylXb4DmDci0UkSRG+NdTV39hWX30XHm9amTOZ6EqNO3+gWDD
-	 sq3UIcvY6CO3G/d7RwSnUlFjmW2duzoLECbXdOgaJBIQ4+8tZ2qxOeNOXhWhlyIGCMQLf
-	 +5tHYLS0ByuGOpzNgOqf7N5HG5P1oJXz4nbJQakSiMfhWDzS58tMgqpwstWJ2InfWAw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795546262;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=BB4dvpr20SC5e/Tv9sGOQ+I4hmkO5OM8JeoWCYxHvq4=;
+	b=QMf2Z6WeeIwOITFb04eqtaoMP9akBuDm2kb0LjtkN3Z0P3Jh3Dw74tiatAmYQu6RtT77
+	 5VzNuyomqoek1z+BSG8PAxl4rDrs1UlHfdszldp1ep4HjVq6WKH/EH8HYuQuP2ji6duvU
+	 KywRwXZESVJYHARtd4zlwEWkAnOVzJEdosNjJi0qdvV0JcRHloDLBTOXM9JyHfaH3qX1j
+	 mxlUxLgT/4A2LtLzXZKRHPqJPv/hDc5SFbe1RS3sKe3eCO2bVL4qQoCzIlMin00NioK79
+	 +b5h6/6OcFMwbL5h0GzUhaXAzYiWBvC6FnTuzX3HPccooUHuIBH+K1dTCdERwuWeZKA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPhRu7wG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ddPmOKDQ;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15C95606A323
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:48:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB49E606A31E;
+	Tue, 24 Nov 2026 18:51:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB49E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WPhRu7wG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D7D41F000CF;
-	Tue, 24 Nov 2026 18:48:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795546126;
-	bh=Dc+VwRig8VSn4wpYWTZ82flxuN19bvjXSOBz/lbecMM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=WPhRu7wGW/JaWITdY49J/pYDBVrL2ggA16OBYkEmgNbFOI4qzXz4Eji9rNBzXZTaj
-	 HaYWW6Ynu6cxeZbMxtgSkdCoQrO/kuteupznaUKqbvhM2rS30Z9DvqTAVWgeutetdR
-	 TTeAaKVWD0/0bFVkiWUAH1qLBxFkwsoyvC+yg39hVY4rZLhkxJNArB+VMgdZb8bNWK
-	 bfFvq560mchjlysJMTvHEzn11OcmI2E8MMYDkT6DOdBAiFEFEYmpPdU1qd4BLp/jtc
-	 GxgsTbWimu1uMf18NW33RKXObLmU+/ck9/OQPxhEyHg+fBtl6xZVWsqRhkava/UVJ2
-	 nqI77FRpmxmsA==
-Subject: Re: [PATCH net] net/sched: fq_pie: clear memory_usage and flow
- backlog in fq_pie_reset()
-From: netdev-bot+sashiko@kernel.org
-To: edumazet@kernel.org
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- willemb@google.com, horms@kernel.org, netdev@vger.kernel.org,
- jhs@mojatatu.com
-Date: Tue, 24 Nov 2026 18:48:45 +0000
-Message-ID: <179554612514.3135.4817357528010046097@kernel.org>
-In-Reply-To: <20261123184602.386372-1-edumazet@kernel.org>
-References: <20261123184602.386372-1-edumazet@kernel.org>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ddPmOKDQ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=BB4dvpr20SC5e/Tv9sGOQ+I4hmkO5OM8JeoWCYxHvq4=; b=ddPmOKDQV22XD0M6C23IL+CB1f
+	+JA+iNr/RylCv39jhqyB6O04Xk459XyUrGmsVeylTKN7zcKoT8UJWDtnPfC+O5JRCJlcgD3nHQ34O
+	88QAtZm1AHXtUt0JJsmbf+0ESdJISO+1iN0tH03TQPKP4m5KaQiNCkAb+AcfDx+RHBik=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xVvbH-00189o-VW; Tue, 24 Nov 2026 19:50:43 +0100
+Date: Tue, 24 Nov 2026 19:50:43 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, olteanv@gmail.com,
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+	pabeni@redhat.com, matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net 5/5] net: dsa: mt7530: disable regulators on
+ mt753x_setup() failure
+Message-ID: <cb1f5ec5-61f9-4513-a80a-c07a37e20e36@lunn.ch>
+References: <179550875789.4156.361477684651496992@mail.zgclab.edu.cn>
+ <179550875790.4156.14185923394520188230@mail.zgclab.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,104 +67,24 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179550875790.4156.14185923394520188230@mail.zgclab.edu.cn>
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Tue, Nov 24, 2026 at 04:25:57PM +0800, Haoran Wang wrote:
+> mt753x_setup() calls the per-variant sw_setup() (mt7530_setup() for the
+> MT7530), which enables the regulators, but the steps that follow returned
+> on error without disabling them. The common case is mt7530_setup_irq()
+> returning -EPROBE_DEFER, which leaves the rails on and re-enables them on
+> every re-probe.
+> 
+> Route all failure paths after sw_setup() to a shared error label that
+> disables the regulators, and move the mdio irq teardown there instead of
+> handling it inline.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+From an architecture side, this is not great. We have a per-variant
+sw_setup() function. To keep things symmetric, there should be a
+per-variant sw_teardown() function.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+    Andrew
 
-- [High] This patch leaves the problem it gives as its reason for
-  clearing `flow->backlog` in place for the default configuration.
-
---
-
-net/sched: fq_pie: clear memory_usage and flow backlog in fq_pie_reset()
-
-This commit makes fq_pie_reset() clear q->memory_usage, matching
-fq_codel_reset(), so tc statistics and the overmemory counter stay correct
-after a non-empty qdisc is reset. It also clears flow->backlog, since
-fq_pie_timer() keeps passing it to pie_calculate_probability() for flows
-that no longer hold packets.
-
-> diff --git a/net/sched/sch_fq_pie.c b/net/sched/sch_fq_pie.c
-> index 5982847df8f85..a5e2a83efb679 100644
-> --- a/net/sched/sch_fq_pie.c
-> +++ b/net/sched/sch_fq_pie.c
-> @@ -547,10 +547,12 @@ static void fq_pie_reset(struct Qdisc *sch)
->  		/* Removes all packets from flow */
->  		rtnl_kfree_skbs(flow->head, flow->tail);
->  		flow->head = NULL;
-> +		flow->backlog = 0;
->  
->  		INIT_LIST_HEAD(&flow->flowchain);
->  		pie_vars_init(&flow->vars);
-
-[Severity: High]
-Is clearing flow->backlog enough to stop fq_pie_timer() from feeding stale
-per-flow state into pie_calculate_probability()?
-
-With the default dq_rate_estimator=0, pie_calculate_probability() does not
-derive the delay from the backlog argument. It reads the cached values:
-
-net/sched/sch_pie.c:pie_calculate_probability() {
-    ...
-	} else {
-		qdelay = vars->qdelay;
-		qdelay_old = vars->qdelay_old;
-	}
-    ...
-	delta += alpha * (qdelay - params->target);
-	delta += beta * (qdelay - qdelay_old);
-    ...
-}
-
-In that mode backlog only gates update_prob when qdelay is 0.
-
-pie_vars_init() only resets burst_time, dq_tstamp, accu_prob, dq_count and
-avg_dq_rate. It leaves vars->qdelay, vars->qdelay_old, vars->prob and
-vars->backlog_old as they were.
-
-When the dequeue-time estimator is off, pie_process_dequeue() is the only
-place that writes a fresh vars->qdelay. The reset frees the packets without
-going through it. If the flow was congested at reset time, vars->qdelay
-therefore keeps the last sojourn time of the purged queue.
-
-adapt_timer is only stopped in fq_pie_destroy(), so it keeps running after
-a reset such as:
-
-linkwatch -> dev_deactivate() -> dev_deactivate_many() -> dev_reset_queue()
-  -> qdisc_reset() -> fq_pie_reset()
-
-If the stale qdelay is above target, can each tupdate round compute a
-positive delta and keep raising prob for as long as the flow is idle? The
-decay branch for qdelay == 0 && qdelay_old == 0 never runs in that case.
-prob is only clamped when the u64 wraps, so it looks like it can grow past
-MAX_PROB.
-
-When traffic hashed to that bucket comes back, the 150ms burst_time runs
-out. After that, pie_drop_early() no longer takes this early return:
-
-	if ((vars->qdelay < params->target / 2) &&
-	    (vars->prob < MAX_PROB / 5))
-		return false;
-
-Would that flow then see almost every packet dropped once its backlog
-reaches 2 MTU? It looks like this would last until prob decays, which can
-take seconds or longer depending on how long the flow was idle.
-
-Should the reset path also clear vars->qdelay, vars->qdelay_old, vars->prob
-and vars->backlog_old? That could go either in fq_pie_reset() or in a
-full-reset helper. pie_reset() in sch_pie.c appears to have the same gap.
-
->  	}
-> +	q->memory_usage = 0;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123184602.386372-1-edumazet%40kernel.org
