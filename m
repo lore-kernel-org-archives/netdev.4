@@ -1,58 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795539671;
-	b=DA2F4ITiuSF6DQLGc/FBhDIl33z6YaV9Eq9cujH8xeUsYhb3b92pgHG91OdW2wg1K59j
-	 EpFqkiz0t517vDhweZqTo3BC0+TridgC+AygKUc/79/WIbjTfDatA14+DOGGHEJJb9ljZ
-	 cF2lL9Mwqvm7cHi1/A5ilUbiW1MGhoYaBAdd/jvd32ctKasjpqc1KlgSQcKjYmBN7H27n
-	 0z6JZifdNTti8nTZ3sws/vsV0U4Rwb27uc6pGycEN+pZcclWVXfzku6cbsvuf+csNMcU5
-	 MSNGfBAbaxSFL6tGyWi40jUr+xQLTBIQ08h0RIeJSVlEOEAnz0WSNQrk8gepUFti8UA==
+	t=1795539856;
+	b=NZIfZRD7iJ7m1fGE2F8jhBx6m9C1DRvsjrNaVcKq+BO/34M4kQbEpPSD4M4zNY3vcACy
+	 FNd/R2WnanK0zCtwv0+w/cfV3nSPAthtWnJncvwlzxjQPJsTRQBAr8nuSJNf+abiGVh6/
+	 MJYtwo/7FqMCFpzaQOo+zj/urLPGF+Wj5YkiA5uzNFxrhr8EcYbXK+1JpHM00i/vy42ov
+	 q+44MurPVhsExIntAnWGnQUs+urpTmCl7Jhu5l3ku9O2LaUDDQth1fNNBObO9Bro9vjIn
+	 l12mEd/oMZKYfzGyZaN05IUghF5dfTVSaHGYi7GDmUQoi0xzoiRCUZkXHG8XtCoZNoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795539671;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795539856;
 	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
 	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
 	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
 	 X-Last-TLS-Session-Version;
-	bh=osciUjLQZdt7MjSZGYTDWwPTvV0Ioddqf9NzVSgW9yA=;
-	b=auTOABZqoUXuunTcSF2AKFUgxu4pYqiiz9seLd4fW62Jh7VCXyodgN1IqnfJc9jVKQ+B
-	 xojk1Z5pfJlc8uOscX1ibIB9f8Ir2jw32K8MISH9EzJaM90coH6+y5GpArXJIt3g94WRl
-	 b6ojZSbS+Pm/l5rCTVjKANfLFvOuz+Yp8dmNcXf0l28pmLKbT06Lqa48fvHOJUVuJh9+L
-	 Dj0u89qweaETWwaB+ashiFAt49++vB58dg/o4fzZjGcOJHuHGqG9lMVpsB4Ggsihl7ZOo
-	 CHUs+wM8zPFhKD5dVHqITjB8PqNkDxEMy+LtYrriTj4QmgmlScrKJx8Drew1VgEpPog==
+	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
+	b=y6pPiTulJRcBBF4fEBToELnQ9zTFjKijwMdK0ayAx3XA4gNgsiFdaZTO6FcNdpL1TXvg
+	 B7VnsiBNj8yVhFWnx9w5psggDBAJMkgaxOlpoKHGC33gKAx7J8qzmX8E055AED3S5/leW
+	 cGMlpzN8DTKEWwp0cEHsGPEkdqNKVtqeeK6K/KNfmVtbp2XsOQ7Vmi4yNxCXkWY+yBvsC
+	 GcvE5z6q8Y8g+V1jToal2XOSZYR0lVJ8fyGNM0v6pfrmI9Sk5/ScIoxSwoo16qXj6gvtD
+	 wwyIsgnyzEkxvZX/HEb1xd/4JokU2bVARjAwI05NI7L7hDskShpaeKmvKJejaA+SNiw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tXPzzdC2;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1;
+	arc=none smtp.remote-ip=185.246.85.4
+Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 49586606A31E;
-	Tue, 24 Nov 2026 17:01:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 49586606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3A9E606A31E;
+	Tue, 24 Nov 2026 17:04:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3A9E606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=tXPzzdC2
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=1CAJSnG1
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id AE3881A17A4;
-	Tue, 24 Nov 2026 17:01:09 +0000 (UTC)
+	by smtpout-03.galae.net (Postfix) with ESMTPS id DB5EE4E41760;
+	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 76ED6601E1;
-	Tue, 24 Nov 2026 17:01:09 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3EEF511E69A87;
-	Tue, 24 Nov 2026 18:01:01 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 97204601E1;
+	Tue, 24 Nov 2026 17:04:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BF96611E69AA1;
+	Tue, 24 Nov 2026 18:04:03 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795539668; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	t=1795539848; h=from:subject:date:message-id:to:cc:mime-version:content-type:
 	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=osciUjLQZdt7MjSZGYTDWwPTvV0Ioddqf9NzVSgW9yA=;
-	b=tXPzzdC211i3SbKqbZRiAboCnxT82UlwM5+F9yUN0/Q/oBTHNyOmnY+pH1n7hTWlWviKM8
-	H52A47MkSX29iUAtmHxVANiLmG4X7WiWyaBjAC7KboaWQNYpN+XTo+EnggbmybOPMhiqUm
-	WogmMOaVloip7b7acwX9KOfRPs2APxAPo8RjJcP88GPig+au/A99VNvrtvE9IYJab1on3k
-	2WPImDv4nivLj/Z258sihz4WUMEy5vunt9J+GPEhCEelwUWPjGZLEKQgYgu1jEbmozrtUY
-	dBCE1PUvj/2Ea0g6oPkvmWsnch9RsiV5jHJNhiddbrXpQL+qvwXaBjUWNuM4LQ==
-Message-ID: <1209f1bb-99a3-4329-a234-59da708870a0@bootlin.com>
-Date: Tue, 24 Nov 2026 18:01:00 +0100
+	bh=c1HOxMuYKuoArDY4hj9EKVaYu4WN3Ht8vy7fCi0dpLY=;
+	b=1CAJSnG1PbsB6IH51R2E8isIa0FWlUatgjcLmzqB3rrZJuInxCWjyuqoIP+vbipsVvjL9y
+	Myh5tOCC3d8LiYptOqAkh/NtGAJ6IzNGWdFf5EByfpA3FrqnCKvXWmBT7J3XO44NLQq4yn
+	4RyRsMyARRYfFC7nVlGmOVM2sMe07oHLBwmAjm5wywTSbVLtwAmwXwMaxXNFdb9n7akzbY
+	6sJHrA+0GVBzd37/XFmEmaXGT4kSO4mFOW90HUO2RDem85ZJNNf6fOgZaQKxHcc431s7p0
+	DSiFDl9T3/rT+S5x6fTNO4PpEWgR0BbIPRYh6lTaqhIBDDYJB0L5UXQvjCyeAA==
+Message-ID: <7ff51c46-7c56-49a7-b51b-468c1df82755@bootlin.com>
+Date: Tue, 24 Nov 2026 18:04:02 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,8 +63,8 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 1/2] net: stmmac: dwmac-motorcomm: remove the
- device at shutdown
+Subject: Re: [PATCH net-next v2 2/2] net: stmmac: dwmac-motorcomm: support
+ Wake-on-LAN from S5
 To: Magnus Leatti <magnusleatti@kernelriot.com>, Yao Zi <me@ziyao.cc>,
  Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
  <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
@@ -75,10 +75,10 @@ Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>,
  linux-stm32@st-md-mailman.stormreply.com,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
 References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
- <20261120102754.778283-2-magnusleatti@kernelriot.com>
+ <20261120102754.778283-3-magnusleatti@kernelriot.com>
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Content-Language: en-US
-In-Reply-To: <20261120102754.778283-2-magnusleatti@kernelriot.com>
+In-Reply-To: <20261120102754.778283-3-magnusleatti@kernelriot.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-Last-TLS-Session-Version: TLSv1.3
@@ -86,32 +86,114 @@ X-Last-TLS-Session-Version: TLSv1.3
 
 
 On 11/20/26 11:27, Magnus Leatti wrote:
-> No .shutdown here, so reboot, kexec and power-off leave the MAC and
-> DMA running. This chip keeps its registers through S5 too.
+> "wol g" is accepted, but the chip sleeps right through magic packets
+> in S5: motorcomm_init() turns OOB WoL off and nothing turns it back on
+> at power-off.
 > 
-> Hook .shutdown to stmmac_dvr_remove(): interface closed, DMA and MAC
-> stopped, PHY dropped.
+> Turns out the chip can just arm itself. Hit it with a reset, OOB WoL
+> comes right back on, and about 2-3 s later it has the PHY up, receiver
+> running, the eFuse address loaded into the first MAC filter, and PMT
+> ready for magic packets. Timed that from userspace without a driver
+> bound.
+> 
+> So on a power-off with "wol g": remove, reset, set WOL_CTRL_PKT_EN
+> again because the reset clears it, enable PME, D3hot.
+> 
+> Notes:
+> 
+>  - It wakes on the eFuse address, not the software one. Same as r8169.
+>  - Magic packets only. "wol u", reboot, kexec and interface down stop
+>    at the remove.
+>  - Hibernation that powers off through .shutdown arms too, and resume
+>    copes without a reset. Tried twice: woke on the packet, link back.
+>  - After a power loss (cable out and back in, BIOS set to stay off) it
+>    won't wake until the next clean shutdown. The vendor driver does
+>    the same, so that's the hardware.
+> 
+> With this the box wakes on a magic packet to the eFuse address, 5 of
+> 5. Without it, 0 of 3.
 > 
 > Suggested-by: Yao Zi <me@ziyao.cc>
 > Signed-off-by: Magnus Leatti <magnusleatti@kernelriot.com>
+
+My PCI-fu isn't that great, but LGTM. I would have liked to test, but
+my motorcomm PCIe card let out the magic smoke yesterday :(
 
 Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
 Maxime
 
 > ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c | 1 +
->  1 file changed, 1 insertion(+)
+>  .../ethernet/stmicro/stmmac/dwmac-motorcomm.c | 38 ++++++++++++++++++-
+>  1 file changed, 37 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> index 42f0b11a7b60..63ce2301a0f6 100644
+> index 63ce2301a0f6..34abbdb645ec 100644
 > --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
 > +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-motorcomm.c
-> @@ -374,6 +374,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
+> @@ -12,6 +12,7 @@
+>  #include <linux/iopoll.h>
+>  #include <linux/module.h>
+>  #include <linux/pci.h>
+> +#include <linux/rtnetlink.h>
+>  #include <linux/slab.h>
+>  #include <linux/stmmac.h>
+>  
+> @@ -27,6 +28,9 @@
+>  #define EPHY_CTRL				0x1004
+>  /* Clearing this bit asserts resets for internal MDIO bus and PHY */
+>  #define  EPHY_MDIO_PHY_RESET			BIT(0)
+> +#define WOL_CTRL				0x100c
+> +/* Magic and remote wake-up packet enable */
+> +#define  WOL_CTRL_PKT_EN			BIT(1)
+>  #define OOB_WOL_CTRL				0x1010
+>  #define  OOB_WOL_CTRL_DIS			BIT(0)
+>  #define MGMT_INT_CTRL0				0x1100
+> @@ -363,6 +367,38 @@ static void motorcomm_remove(struct pci_dev *pdev)
+>  	stmmac_dvr_remove(&pdev->dev);
+>  }
+>  
+> +static void motorcomm_shutdown(struct pci_dev *pdev)
+> +{
+> +	struct net_device *ndev = dev_get_drvdata(&pdev->dev);
+> +	struct stmmac_priv *spriv = netdev_priv(ndev);
+> +	struct dwmac_motorcomm_priv *priv = spriv->plat->bsp_priv;
+> +	bool wake;
+> +	u32 reg;
+> +
+> +	/* Userspace is still running and may close the interface */
+> +	rtnl_lock();
+> +	wake = system_state == SYSTEM_POWER_OFF && netif_running(ndev) &&
+> +	       (spriv->wolopts & WAKE_MAGIC) && device_may_wakeup(&pdev->dev);
+> +	rtnl_unlock();
+> +
+> +	/* The netdev is unregistered after this. priv and its mapping stay. */
+> +	stmmac_dvr_remove(&pdev->dev);
+> +
+> +	if (!wake)
+> +		return;
+> +
+> +	/* Reset re-enables OOB WoL; left alone, chip arms itself (eFuse MAC) */
+> +	motorcomm_reset(priv);
+> +
+> +	/* The reset has cleared it. Without it the chip does not wake. */
+> +	reg = readl(priv->base + WOL_CTRL);
+> +	reg |= WOL_CTRL_PKT_EN;
+> +	writel(reg, priv->base + WOL_CTRL);
+> +
+> +	pci_wake_from_d3(pdev, true);
+> +	pci_set_power_state(pdev, PCI_D3hot);
+> +}
+> +
+>  static const struct pci_device_id dwmac_motorcomm_pci_id_table[] = {
+>  	{ PCI_DEVICE(PCI_VENDOR_ID_MOTORCOMM, 0x6801) },
+>  	{ },
+> @@ -374,7 +410,7 @@ static struct pci_driver dwmac_motorcomm_pci_driver = {
 >  	.id_table = dwmac_motorcomm_pci_id_table,
 >  	.probe = motorcomm_probe,
 >  	.remove = motorcomm_remove,
-> +	.shutdown = motorcomm_remove,
+> -	.shutdown = motorcomm_remove,
+> +	.shutdown = motorcomm_shutdown,
 >  	.driver = {
 >  		.pm = &stmmac_simple_pm_ops,
 >  	},
