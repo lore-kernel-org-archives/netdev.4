@@ -1,99 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.41
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795490464;
-	b=GBOTY8rEb0cx1IItkfISHE788M4H4CqMLPnPDqwZOh22Uun7BOQjNL7y1ZDYEamwCZ1x
-	 kUnqf/ICNectP8ZDwhqbg9YJbR+bw3ow6N86KTRxu+WdaTLH8ypSgaA+Auet+jS2r5Szp
-	 Dr6fgbYFQRmUyqWAL6orF663QOAzOXbvLbhRwkO6l12JY9GYJpHL5LlqEskMV5bkV+M+c
-	 Vwc4OZZTQOXrbnIesLlJ/SwIg2/Dt4/mNTFmYmp4XTe4NISmi7DDG6+AQzu7A6p0mgIzm
-	 7pofasbAxKHBfBWg3G9+wQreaM03pm14KM80s+pdj8Lu3suMl8Hf7Vz23SnLJS+9XdA==
+	t=1795490468;
+	b=GaXMm2HhXlmtto1+qNVpSltr5DXDr4iZVp0pzPN3FRbK1tH9OGYW8Dh+6qanE1vHG1Ux
+	 4Ft+ggmnNoJ49O1dDsW/RHsvjeczTDnxUvqAIhanlwb8kZaF7KwFK8dIoL29L7DTLO/bY
+	 mxJhhrDICxFNPI8p86swcKHWDbFtdLttoJKWZ+bGZ2JpQuirzocR0NlMaW13F0FOogqyu
+	 ku1oYUSkX3/djbp0CCWu3wBEFCwQXHbVT1R30+i9Lm71XYGzh03mLpL6X+nXgHmEYV5EC
+	 nZsn53BvSoqjgs0eX2pc2fR3eOblQA7IWCx7IAPfkeBwbD6OhTsbr2AqdMXcheuPsiA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795490464;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795490468;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:MIME-Version:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
 	 Content-Type;
-	bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
-	b=D7AVY++uOrEMuj6IKo+oIzlJnyESir4CRZ3dV4vdN77u8hWFBvM1vvWcBJKMKCV7qGae
-	 x1/ogRiKv9AQ30Do0q4mYkO+wRDx5EYfXI9WTiI02l+oUkXzWpAOhaKIvfHUFYthloqwE
-	 lrxp93LH3L3UJJDpkB6QfCsSOJwG/K2ueC4vvGolQeKKp0hkKwNz7RcBPZTXJTVo6okEw
-	 k320tqGiBLpD4gMYIgNmWWvFVkv9hIH5YxltgwNKASgf5VMBZv5ZLdO7lov5FNq2Bi9Nf
-	 Zi2SmlXfoqDy6a6rS0s9Rd70+3Q8f9u3k7YJ9VJQKhbmpbLYLPEhQEcxsaWv7EVfMWw==
+	bh=ZWDg+cYEzmZ1vYvzbJGAnTzFCORxgLKMXanTjf9ODFg=;
+	b=B68k7qcCuEymDqtCzL1zReAuWXRFIVVXn53vkg4uuqkrrCeZ2RTBcGZ/JkE0P/xoyqWD
+	 IZ2t2xmPQiRG67B8WUb2NmaN7qySkegOkMPK1BHdmOfLeoa/RLcmNPTFtw+np6SoGinfU
+	 gR12Uv1p0cmHNkESISLRgTaMXTQpUwSRoxpknOvUeyyPyPBaisw4LenVkz5WvPk2L7ynZ
+	 vr2ZhvUwKMlHScKvl6qJTQg2NdcEm0Tmf/Eq4WEW5GWBoJEv8JYpokq4XLj44MXSppGTX
+	 Nbasq9ky9dkMdJ/PLoQ38Y+gp8e+4qQDvGaGw50cyiz9eYwlEZcXwL/57eUGOcx+seA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Tn6/6sCB";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.46
-Received: from mail-yx1-f46.google.com (mail-yx1-f46.google.com [74.125.224.46])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZA4ozIKd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=74.125.224.41
+Received: from mail-yx1-f41.google.com (mail-yx1-f41.google.com [74.125.224.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB15A606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:21:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB15A606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C979606A321
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 03:21:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C979606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tn6/6sCB
-Received: by mail-yx1-f46.google.com with SMTP id 956f58d0204a3-67921b515a7so4297758d50.2
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:21:03 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795490462; cv=none;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZA4ozIKd
+Received: by mail-yx1-f41.google.com with SMTP id 956f58d0204a3-677d35fd1d2so4039227d50.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 19:21:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795490467; cv=none;
         d=google.com; s=arc-20260327;
-        b=KOtBzhT7dJT0YuRQ4Qwox5IBG2hjUZFu9u7MEGE4EXkAWWlKysbI5+HMH2F/Kuq0/4
-         XzulU1jb+xLH5vHODjO1V90raSvBfYvnSF8MnMwRnVAk042Un1ZlUcPROFSM9hZgHIUB
-         dk2xjrmVFkIaDs2pubPxlP7wFDNUQI/Rl8m/UjkMgBiIwLlJJ9ruMyfk1qlhnbdc/TAy
-         xuy2/FpIpu1hT6bwHhEFcZcJleg51Pz+is27O3c7IUtLu50XKY29y2HF1bDFEZ2FqIXI
-         niTCqocBUhui8h9QKO3expMNxxMFfz+5a7HB9mXqf1lW4GH9i/Ee+87xSwz7lWeIgYiU
-         KSdg==
+        b=du1MA2IpqyJt/8NnBI7cfItx28j7yvcbGme7I7iR3O3utJX0u4eYBUvgghLGg0rUZz
+         x6mklxY7sw49NkFA8rxeHRlDq7BTuP1+7ZInCbi8u73Sdibw8/xWcE9hO0bxBDFsR1oU
+         ok8nZ7dORR62FCvyD8oO6dWTVmLrR0xx8c9kZ7EUg/zv2yEW4cozUjEPVAAdfqhWiESQ
+         N+j87RRwuAAVXaonqWJhW7NQnAs9oXtwe5D+eZ6k0FB/GX688AtKOK2w54iMxYecfiHI
+         xdK1IiTJmNYPFq0fv7ajW4FP79lwe9yhySnVp7I7kS8gYyHqGDncRH1peerTxBDJrWox
+         kuTA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
         h=cc:to:subject:message-id:date:mime-version:from:dkim-signature;
-        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
-        fh=2KpoSw4Kt2zHAcQBzv2N6yqVuAW7K4dw9/foNYpZiDE=;
-        b=Buw2BmDfTakAZJdM0yCz5ZfNA1WpQzFaWUgqxWBFdOAdBgEPvH0mrYWQEP+tucehup
-         mCkUjpHSG7/WhQSuwGvn8b3K6Qq3Uj7QPeiLGISQ0pjkpVsXp1iNsF+b44aKySLbxXNq
-         TeFeejuh/aaY7+96+6zw1nFkTzUCDIe6j10Rx62oWCL1ecLKSSYidjRhLgcOs7JjaCmu
-         d3Fe4Wn7UYXaqD9OUilMVnLcmB/OSS2PK46F3VEuneXo4GA+0qocsN7Qalus5pOC+P79
-         mu9Fu5Sa8dqhOqHN6ewjayX0u0oPswzty0ZBjX14SSMvnRRWrcgGYaZBJ41qHH8DlZd3
-         9pSA==;
+        bh=ZWDg+cYEzmZ1vYvzbJGAnTzFCORxgLKMXanTjf9ODFg=;
+        fh=CeSRxtqQLuAvMNkzUmYbcZpUM6ItZsCts3lHI+XZSx4=;
+        b=bm9ZWubTbuKrS0HTW6G8omb17n0nLbacMhqMRWVGznb4yBSsjeGdoE5yL0Im9jKGlx
+         8EfFIMEpo+v6IMskDQ2iuNzsaN+zN1/APFpps6naGEDrUT/u2A5udqwI7mafT4kco8OR
+         dBvGNvDZbfkP0tNsXV5HslFq3I0H0yH8w0GXQSkpHWAdZWmEdG4Q3TePc4hAlHPqZZJx
+         N0BsHaspXKdt/sg3ireqN5BNlGPEXRZLm/EWmmWAN5OQCTRQrlipbq2EwKIcngvHSs/o
+         MkC5QVfcLk8U/5ofQTNftmdoWqXqJVT9uUJK/+DrdwQ0ZhOUr2O3c/7EoWs5kVgPAPNk
+         WPHw==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795490462; x=1796095262; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795490467; x=1796095267; darn=vger.kernel.org;
         h=content-type:cc:to:subject:message-id:date:mime-version:from:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
-        b=Tn6/6sCBM2z1QteltRHf3JVlPrQx1QfFDpcq+nFYZCZOKfU26pOIEZmHkWQ1/o4261
-         qdQ+84gC352gwLnCNCXBHpyQ++5rL/jtxYpVIUg55znQSOluEglySt5ZPpldLzDWyFWy
-         T9f4enOw8u5dhqq0D/t50vJbPiQ9pvbbRazOfxhn7PsfGv3fDBmXs8ctnCnLjyNOLmZM
-         lIjBjfwnpEjS4bE1RyTmnt0CrR9FKrZY7593C3axqBGAkiBatP6piioC7cK0GCBmtjt/
-         GSAlWY87t8KPhPEZsjagLz68eiKKxgQsDPVHb/F/C//99as/rjt6n/Zuobk6Ln3ZY9k3
-         /8hg==
+        bh=ZWDg+cYEzmZ1vYvzbJGAnTzFCORxgLKMXanTjf9ODFg=;
+        b=ZA4ozIKdl81b1ff899siClY9b3FPWUK+FeslD9UvwKLAjcj3ZhON1AYyzagGeCHFnt
+         82vZuTYRetYc5UdSeMtg20/XLuI74Kal1khr92UKfyMTnsqKq7hWmSNMKVJrm+g+Biel
+         VjlzUV48TlPKI3/q7LWDDslWbXDJiVjPTr00k2tpdeDahIRxQcdf4bbkFI9rAwIu17KV
+         jr80iJfN0LW9LqFMkYdxPJRMNylOmXAaaTpgOpnPHF9B4Ua6H1SymjsQw73LcGMdmkrp
+         a85vYd+owM3tsi1JzmQaHeszwNwLSXQROcIxONXG87X31pGky31cVpgxrIWEFMfGOZRV
+         Q+bQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795490462; x=1796095262;
+        d=1e100.net; s=20260707; t=1795490467; x=1796095267;
         h=content-type:cc:to:subject:message-id:date:mime-version:from
          :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to:content-type;
-        bh=dQLdeF9jwjKOm16H9Rh/oCI9s4JuYbrfLxFcAqEQOUI=;
-        b=2Ue/slvxSquekmTEbmMvPRFxD8N7+JakZu39Z0dobS7M2fXTIZ5VbRDmpQGfelfCb1
-         wzGD3Ce8QTj1u9O4Fo3WiA2iJTo/DLxUhCiJZkqQBB3ZKDSZmld0bKG03Wn2WIWPAD8U
-         ngYcX8vF7pK9kd4rZheor+b+72M0cDVD4I9k9qWaALyFm7Kz/aHql/nXBPQ7580V+Hrf
-         6m2uM3Xn1nvITw4ijv+ed40Izek+yOv8nHLcVUNRw9z/fUNmFfWHnM64v85os1P4zEej
-         3LlOc8rIcr+1dh79egckzt6895G0h4rf8nS4cX3nUKMueTnRws7E4IKPJHAJOuxE9prb
-         7ZWw==
-X-Forwarded-Encrypted: i=1; AL+hErFUnUwlGAcqUcuB91b6YL3tkiQ4hj0dz4d9aq5fCorhhapfKpUKfyTeGJfZFQhyr7k3GQ2lRJo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+02ieCpLANaysK7RXXTXUHBRh7hdQKD/KXEHHGe+PhNHE4GXOK
-	FVI3DbirxUEEbd+wtjsvPKyoV1+bADZp0nJHrJt+xYngYHO5qR7vPqP1R1kD4ACuSSl9acHw5Uy
-	GhejHzkJBZ5VqIdX8ZuZ2rwc6Q+9ZiGY=
-X-Gm-Gg: AZFdTZcRYkjbEZoLz0A6FAL9e7Zq4nfjZvhcEjlNvIxC4XvBI/xojdbT1iLkWpLO2r4
-	TwLRpNcZ31CdMFxY/cAloMZoAqizTgnpFvTOKDIVgvhv8ZMyG6YVaLfdejx7dYEKY6W3cOqF6jP
-	92Zc/6v8LAdVtYn8TMPwRBGRXas/1m53WiDPtjhQaMlt9/QYccvD/0rlPeW9bWX0tyF/k7w8fGa
-	EHHD/rr6l2Knz2m8/JrHpjBXJ8gW8bDMRD3YPZT95ZQ3xwGVOFJeToYV04RvQc5NoRpquUPUOJY
-	mnsArkqtfC5voauTIi7ny/yRXQf8kv4ildL8x5Qkazq1tuURHtnWB3Bu7MmKfzzU0FzwK8s42nw
-	NS8DdcuUMr2mGfac3aHyXBN+8ni9AK70HF0KW
-X-Received: by 2002:a05:690e:4852:10b0:67c:664a:9006 with SMTP id
- 956f58d0204a3-67df442350bmr3743774d50.64.1795490462283; Mon, 23 Nov 2026
- 19:21:02 -0800 (PST)
+        bh=ZWDg+cYEzmZ1vYvzbJGAnTzFCORxgLKMXanTjf9ODFg=;
+        b=HmjIkzZg8csq0qK6DYYPTKSgQaz1/vNUOYnqOsLyfmEJoPESy6P+mzbQEe1ZH2rW9M
+         VkSMjFx/VAinsB0UNwZV7RHWnyO8opOgI6cMI3QhKhGhY2VVBbo1UqwncxZgU1dJLlF6
+         I/OGyvjLwb6GBMR+H/7gtWRXXBNSpmvxTbi0UGzejPPmkb/5JB02InqGBQdFLl84+/J9
+         8RpQmm6pob/SRKBwCeZ6wq/oa+l3YkcOYjZzQs7oLy+/gcRTP2vF4rbVQQD74TZBtruV
+         O5qpoKYF2L6kAWWR9Wp3Z9yEymI2IT0a17jKpLt91D9r1tnWJkqVEZgYr1MP02oT6fld
+         OgQg==
+X-Forwarded-Encrypted: i=1; AL+hErH2uf7XqqU4dYbHs6P9xUhMoNapGQpVFzw7aiqWAqxJDMLoMUd8xO4D5X+1EM/bh+pbRwSnDxo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8s3HlFD+FQb1TxRFeBJ/RVum8PqRHqmsKoIa//yRPgQmdllBiR
+	wcMwKEW+h6gHZW+CwI/0KRdc78e09JKy4/J+hSeQcucn6sUhlYEBGImKZYmI6w1BSxpCN4QxI8n
+	0EzE8ZaSurZLafXOLBbIC1SuVeSs/FrA=
+X-Gm-Gg: AZFdTZd5C/L4ADa0ANrwvvlRSyFixytn3uf5Lc1BheY/mI++AbjXb2ui4DrEiQwimhJ
+	u1MpvgOn3uaaZxH2ly7d0eNhMps+wkKCp+KllgDFR8ImGgbKqIYckdVhKx7qXOijfgbPdu8yr3l
+	Tr0idHHewJo1uH6Ra3u5+iRf6VdhzFJnGDkWaGmu94MJhhv9ATEsIqlbSAvcrokwqUm7qooMOPk
+	v2mZG93MPyu33D99SouqIRXdC6vXaDGws33bSCaUWJotW3pSr4rF7D7ZqxGyfBrzdHZ9Ah1AVG/
+	6HQXhShRo7MKrCq3LJ5IcslTXe/GADWfg33J9kmGdBmeJTH+JAi8KrADRojd7nr0/HxrpBDWeox
+	QCwc35mcJtGah6ujD5rL1JEDFaojeJJEINh0REL8UDVr53Rbw7lwv4L5sSA==
+X-Received: by 2002:a05:690e:1905:b0:67b:e67a:da38 with SMTP id
+ 956f58d0204a3-67df4423620mr4510969d50.21.1795490467284; Mon, 23 Nov 2026
+ 19:21:07 -0800 (PST)
 Received: from 723974502065 named unknown by gmailapi.google.com with
- HTTPREST; Mon, 23 Nov 2026 19:21:01 -0800
+ HTTPREST; Mon, 23 Nov 2026 19:21:06 -0800
 From: Qican Ma <goonsomeway@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -104,11 +104,10 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Mon, 23 Nov 2026 19:21:01 -0800
-X-Gm-Features: Aa3M54o-isdJh2GWELyKgDAhaVRdXLz0zHe-XJNinNk_CrP5_D5lsQjTiIb73Yw
-Message-ID: <CA+OT+ON4Lt9mLvWPK8rUaHKZ01_p0fGCiCsWHwXWzT1sGaTtLA@mail.gmail.com>
-Subject: [PATCH net] net/smc: validate peer CDC cursors against buffer bounds
- and window
+Date: Mon, 23 Nov 2026 19:21:06 -0800
+X-Gm-Features: Aa3M54oi5W3hts7IvD6RqrKWmrg1C4_Je8YHGmDB5ytcVLRAJrf4yW87opup_rg
+Message-ID: <CA+OT+OPkNsk2QHczVmb6KVJ+z_1tpH9DXm8JmACc5E6x-YFwPA@mail.gmail.com>
+Subject: [PATCH net] net/smc: serialize clcsock release against CDC receive path
 To: alibuda@linux.alibaba.com, dust.li@linux.alibaba.com, 
 	sidraya@linux.ibm.com, mjambigi@linux.ibm.com
 Cc: tonylu@linux.alibaba.com, guwen@linux.alibaba.com, davem@davemloft.net, 
@@ -117,108 +116,70 @@ Cc: tonylu@linux.alibaba.com, guwen@linux.alibaba.com, davem@davemloft.net,
 	netdev@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 
-smc_cdc_cursor_to_host() only checks cursor monotonicity and
-smcd_cdc_msg_to_host() copies peer cursors without any validation. Neither
-verifies that prod.count < conn->rmb_desc->len or
-cons.count < conn->peer_rmbe_size, nor that the resulting cursor deltas
-stay within available buffer capacity. A malformed or malicious peer CDC
-message can therefore:
+In smc_cdc_msg_recv_action(), receiving a close or senddone flag writes
+RCV_SHUTDOWN to smc->clcsock->sk->sk_shutdown while holding only
+bh_lock_sock(&smc->sk). Meanwhile __smc_release() drops the socket lock
+and calls smc_clcsock_release() (which clears smc->clcsock and calls
+sock_release() under clcsock_release_lock) before calling
+smc_conn_free(&smc->conn). Even on paths that call smc_conn_free() first,
+an in-flight SMC-R softirq that already looked up the connection in
+smc_cdc_rx_handler() can still enter smc_cdc_msg_recv() concurrently with
+smc_clcsock_release() and dereference or write through a freed clcsock.
 
-1. Drive conn->urg_curs.count past conn->rmb_desc->len in
-   smc_cdc_handle_urg_data_arrival(), causing an out-of-bounds read from
-   conn->rmb_desc->cpu_addr exposed via recvmsg(MSG_OOB).
-2. Inflate conn->bytes_to_rcv past conn->rmb_desc->len (either via an
-   out-of-range prod.count or repeated wrap increments), causing the
-   second chunk iteration in smc_rx_recvmsg() to copy past the end of
-   rcvbuf_base.
-3. On SMC-D dmb_nocopy links, inflate conn->sndbuf_space past
-   conn->sndbuf_desc->len, causing the second chunk iteration in
-   smc_tx_sendmsg() to write past the end of sndbuf_base.
-
-Decode incoming CDC messages into a temporary smc_host_cdc_msg and verify
-both cursor offsets and their deltas against rmb_desc->len,
-peer_rmbe_size, and (for dmb_nocopy) sndbuf_desc->len before committing
-the update to conn->local_rx_ctrl.
+Free the SMC connection before releasing clcsock in __smc_release(),
+matching smc_close_active_abort() and smc_close_passive_work(). Because
+smc_conn_free() sets conn->freed = 1 while lock_sock(sk) is held and
+release_sock(sk) synchronizes on sk->sk_lock.slock before
+smc_clcsock_release() runs, checking !smc->conn.freed under
+bh_lock_sock(&smc->sk) in smc_cdc_msg_recv() guarantees that no CDC
+handler accesses smc->clcsock once smc_clcsock_release() can start.
 
 Found with an LLM-assisted code review tool and verified by inspection on
 v7.4-rc4 (b6a9fa34ce4). Build-tested only; not runtime-tested due to lack
 of an SMC-R/SMC-D setup.
 
-Fixes: 5f08318f617b ("smc: connection data control (CDC)")
+Fixes: b38d732477e4 ("smc: socket closing and linkgroup cleanup")
 Cc: stable@vger.kernel.org
 Signed-off-by: Qican Ma <goonsomeway@gmail.com>
 ---
- net/smc/smc_cdc.c | 46 +++++++++++++++++++++++++++++++++++++---------
- 1 file changed, 37 insertions(+), 9 deletions(-)
+ net/smc/af_smc.c  | 4 ++--
+ net/smc/smc_cdc.c | 3 ++-
+ 2 files changed, 4 insertions(+), 3 deletions(-)
 
+diff --git a/net/smc/af_smc.c b/net/smc/af_smc.c
+index bfc0c7e71a1..1d8a602729c 100644
+--- a/net/smc/af_smc.c
++++ b/net/smc/af_smc.c
+@@ -313,13 +313,13 @@ static int __smc_release(struct smc_sock *smc)
+ 	sk->sk_prot->unhash(sk);
+
+ 	if (sk->sk_state == SMC_CLOSED) {
++		if (!smc->use_fallback)
++			smc_conn_free(&smc->conn);
+ 		if (smc->clcsock) {
+ 			release_sock(sk);
+ 			smc_clcsock_release(smc);
+ 			lock_sock(sk);
+ 		}
+-		if (!smc->use_fallback)
+-			smc_conn_free(&smc->conn);
+ 	}
+
+ 	return rc;
 diff --git a/net/smc/smc_cdc.c b/net/smc/smc_cdc.c
-index 32d6d03df32..fd5e296e8be 100644
+index 32d6d03df32..499a2473b79 100644
 --- a/net/smc/smc_cdc.c
 +++ b/net/smc/smc_cdc.c
-@@ -332,14 +332,48 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
+@@ -428,7 +428,8 @@ static void smc_cdc_msg_recv(struct smc_sock *smc,
+struct smc_cdc_msg *cdc)
  {
- 	union smc_host_cursor cons_old, prod_old;
- 	struct smc_connection *conn = &smc->conn;
--	int diff_cons, diff_prod, diff_tx;
-+	struct smc_host_cdc_msg rx_ctrl = {};
-+	int diff_cons, diff_prod, diff_tx = 0;
-
- 	smc_curs_copy(&prod_old, &conn->local_rx_ctrl.prod, conn);
- 	smc_curs_copy(&cons_old, &conn->local_rx_ctrl.cons, conn);
--	smc_cdc_msg_to_host(&conn->local_rx_ctrl, cdc, conn);
-+	rx_ctrl.prod = prod_old;
-+	rx_ctrl.cons = cons_old;
-+	smc_cdc_msg_to_host(&rx_ctrl, cdc, conn);
-+
-+	if (rx_ctrl.prod.count >= conn->rmb_desc->len ||
-+	    rx_ctrl.cons.count >= conn->peer_rmbe_size)
-+		return;
-
- 	diff_cons = smc_curs_diff(conn->peer_rmbe_size, &cons_old,
--				  &conn->local_rx_ctrl.cons);
-+				  &rx_ctrl.cons);
-+	if (diff_cons > conn->peer_rmbe_size - atomic_read(&conn->peer_rmbe_space))
-+		return;
-+
-+	if (diff_cons && conn->lgr->is_smcd &&
-+	    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
-+		if (rx_ctrl.cons.count >= conn->sndbuf_desc->len)
-+			return;
-+		diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
-+					&conn->tx_curs_fin, &rx_ctrl.cons);
-+		if (diff_tx > conn->sndbuf_desc->len - atomic_read(&conn->sndbuf_space))
-+			return;
-+	}
-+
-+	diff_prod = smc_curs_diff(conn->rmb_desc->len, &prod_old,
-+				  &rx_ctrl.prod);
-+	if (diff_prod > conn->rmb_desc->len - atomic_read(&conn->bytes_to_rcv))
-+		return;
-+
-+	conn->local_rx_ctrl.common.type = rx_ctrl.common.type;
-+	conn->local_rx_ctrl.len = rx_ctrl.len;
-+	conn->local_rx_ctrl.seqno = rx_ctrl.seqno;
-+	conn->local_rx_ctrl.token = rx_ctrl.token;
-+	smc_curs_copy(&conn->local_rx_ctrl.prod, &rx_ctrl.prod, conn);
-+	smc_curs_copy(&conn->local_rx_ctrl.cons, &rx_ctrl.cons, conn);
-+	conn->local_rx_ctrl.prod_flags = rx_ctrl.prod_flags;
-+	conn->local_rx_ctrl.conn_state_flags = rx_ctrl.conn_state_flags;
-+
- 	if (diff_cons) {
- 		/* peer_rmbe_space is decreased during data transfer with RDMA
- 		 * write
-@@ -355,12 +389,6 @@ static void smc_cdc_msg_recv_action(struct smc_sock *smc,
- 		 */
- 		if (conn->lgr->is_smcd &&
- 		    smc_ism_support_dmb_nocopy(conn->lgr->smcd)) {
--			/* Calculate consumed data and
--			 * increment free send buffer space.
--			 */
--			diff_tx = smc_curs_diff(conn->sndbuf_desc->len,
--						&conn->tx_curs_fin,
--						&conn->local_rx_ctrl.cons);
- 			/* increase local sndbuf space and fin_curs */
- 			smp_mb__before_atomic();
- 			atomic_add(diff_tx, &conn->sndbuf_space);
+ 	sock_hold(&smc->sk);
+ 	bh_lock_sock(&smc->sk);
+-	smc_cdc_msg_recv_action(smc, cdc);
++	if (!smc->conn.freed)
++		smc_cdc_msg_recv_action(smc, cdc);
+ 	bh_unlock_sock(&smc->sk);
+ 	sock_put(&smc->sk); /* no free sk in softirq-context */
+ }
 -- 
 2.50.1 (Apple Git-155)
