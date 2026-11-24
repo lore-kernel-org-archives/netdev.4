@@ -1,103 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795525446;
-	b=b6+38Dv5s6n8UqXVnlLli2g1dITFJB4O3xlyXZ3R8bHH9YlGAmxew8hoZYkcqEGJyQwg
-	 +pzK1jEOl6S8aR0T2Hvtn7pNCe06nIwM0FVtIZzveb6BiBgUBFefSRjjKJ8CWE/JmWLB1
-	 l5nI8VNYJYagDdEPifbVGktIA7y/HM+VYWr4Vuy0DPiyVAP/z67JVOrQuTS1n32549FPf
-	 NWh9Ye3+7B3MP9TqqFusUTAPTTiLyep7xgb/LztQaxywWJlLhNbyTDFPEu0QRiXM0T5l5
-	 y64jM5FNfyF2hx5IZYhiKZkrg1JOULaaRnfC2QUeCdl9BjZS8wmRFcaiuDwgydyuCQA==
+	t=1795525451;
+	b=QS7cOWVQI70I1wm7RWUsH/xVSScaY/r1bMUrUtZEvgGPMvRmTPsffQo5+GxDD0nmtN/m
+	 Inq6YeCyxF6VTns2mfBZsAqqwU5tbBtazg2fxk0vl0cl3QXD7fMluZuRpSL8MLI/rni0r
+	 eEkNzpH6x8Lxkwn7CqZwar2IvM3EY8uExxbcPGm3YttnyX/Wp+zEI+Zd+8d+wUj5kk/6k
+	 vPS6rBTWpUIS5wEgwjk5xev7xiXsaaAwvHXO+fMx67wZoRNoUHfpPafhQQOT97LH1NgDP
+	 laHB5KI+o6e+m1ro5vXUz2Q9WolKz1V/3XfiKmlJgJHA38/G8Hbrjss1NJUYG1P+CAg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795525446;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795525451;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=+rKxb7dU0UMEzCyAusf6VPpzW2HyfM8DXyzbe16sF6o=;
-	b=M+jDAIj1Lp/IWdPrK+u5pVuMKqrjkpW81vEHwsAPaMkN+A7Me3UGU45loJ6h4pw2qa2j
-	 mCGjceekIcJhNw9I1RBdmn7by7uG/FSnw7BcAoy24LQhLb6+HmEzqlYNWVUlTomfYTUXT
-	 yg5RmTFSlDgI6VDYnnIj7YeLCMnN23ggt1ePmKQRCZQI8Zf2WGfnfJ2vfz5y5woiLDUAL
-	 2wyepBXdfQeik7M8uU8OvUvqnx+TqL0UPgv/Hc9SPr/SnJXLZ0b4MiBuLAC1mM6mvBhMR
-	 BzczncZu7ZE+0OOj6DTsvfXbgliOYqhw2OUss8Als8hxYGAU3BmEW30j6aHFJTf0UJw==
+	bh=O4bBg3eU3rRTqv+pJaj5O4MQi6+ijSTSzFjKAyAoK48=;
+	b=MqAYTJgrLSq57R2yDrKc84QYELm9+ojXmwc/Moa8N7UKM2SqQZYDDOY5mtAiFypwcaGD
+	 Eo0QW8tFszVH9F1ZCUYyhwq8m9aVhP1q0DFZ4Z7gQA0srLKdfTaxRdCr+Ux58ODihKH0t
+	 FAt3JNt+xMrnEN4ATgDxO4d491SQJ5liDdnZ/SKHAYaggCWKykQiC0pqU5+DG/ouC48Jw
+	 oSX3iurSoG6zAO0mshZw7XQyHHEhk7uChs8dkXw1WzEIfYDBlm74PKN0p7gHYZ3zRJb0J
+	 kTkjp2vkHOT6XEWOUoq1iZvkVZMOwAUPdwGlmG+neas0JjOajSssJwHUwxfYPm45yRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="I+N/sQ09";
-	arc=none smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hmN0aDBj;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59E4C606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:04:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59E4C606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1485A606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 13:04:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1485A606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I+N/sQ09
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b3577deeb0so1939455b3a.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:04:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=hmN0aDBj
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cde4b4e936fso2425320a12.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 05:04:10 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795525446; x=1796130246; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795525450; x=1796130250; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+rKxb7dU0UMEzCyAusf6VPpzW2HyfM8DXyzbe16sF6o=;
-        b=I+N/sQ09fQuEQXJ9fyOuMfHGIQhhtYbdQQDKkIKriD2d/WQsO6T3VxQv+IRpSS9W3t
-         bQGCb0qtr8bc94vBDzm6kOAtFgmzqOZM/i8oroHGAXR0hGtW4Fj0cq35JB6NhDBmS9uR
-         x6oA84jtUd+1jvyOWLoWa7vEQg4euFUJ5LIUMvKnt6q1UanGPTNGcDMRvSPLsGXg85XO
-         DfZ6uDgXDyXj5wJOD9ClSQPEOsLjpfg2Lu7q+2nmeVjyHxKAp/xQOItLtJfwKWmzkqpQ
-         1Fe8CVOcnYGT62DLvBRxI5bIVljfJX1fc5sJuR3bEsOaCQ3H/dYavYYb2aPjl46jbpbr
-         VqLA==
+        bh=O4bBg3eU3rRTqv+pJaj5O4MQi6+ijSTSzFjKAyAoK48=;
+        b=hmN0aDBjn8nHH+s33uG4ndgXtb73UDVk5D9aZBdgknah6f1/8tRNtJM622LQLyaAKB
+         FLxGimquB1TbeA+dBMChB2Un26Hybj+jwiHw+gWJFB5sh0swwBd5hP/XrdjtRjMV20PW
+         fcj40DrvVuuHTSfyfL/UKwvkwkvPev0mhTLJculKDMkgz/NKeROn1gbIgL3U2wp2sCLV
+         xU7Jq6Y3RRShPbe63X07JuWHSshjux5Nd20J+ow6t+O6IbI8odimUijRp3MmNROYoNCm
+         DhBu7KJriHJgt95PDGaUKb76GHKto3owbSdmaRGSn5RWNJRFAHmUrwq8JbIjtz3YcnbM
+         b4Rg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795525446; x=1796130246;
+        d=1e100.net; s=20260707; t=1795525450; x=1796130250;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=+rKxb7dU0UMEzCyAusf6VPpzW2HyfM8DXyzbe16sF6o=;
-        b=xVkp2cc8AAYrX88VIAqJ8b4ogYgUeUvSj64RAKfQPzO6aRo2B1Xtn/iKLUsWAo+9zl
-         9ju2i8hywrPJLqJsbLM2J3RyuYcEfkJG7XVo997ScdN/psos8augJ6lsbuBepEK2OHHR
-         zoElBxCPdlDYrBftzDOb2Lbl8T+dwHrJr7OWlFlxF+VAporFRUm3zUDXlan8AEA7GVaD
-         C510wDf5b0AJHvbFwITeo2hBv6OZ9M8dfQtsBzTV+IlzvtkkPlAVkGOPSo0nnWw1FK0n
-         0ZNVimLUGSZrC3vGmvGf3OioGbcV92VvNKUpdVZRfRPaWsfeqVrTGwe+GRK7edH7mJJr
-         yKVQ==
-X-Forwarded-Encrypted: i=1; AL+hErFMhaoS+Q0sfPZuQUCuSDVCwQvdUzB82mIg4pcwbbmauXwr66W9KvyQjXM0ELNDS6hlFDikTr0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/pJDC54Uyr/bxB/3dStDPY7hjY402g22kqzLB/+ms+wwAgHQzR
-	gjqfTQjVX+ILMfqYx2IkKtawCHmuyX2KAzwIiR/cbtvHYyYgFni6POl6
-X-Gm-Gg: AZFdTZd4FTtpRNADFxcIvtTxt6hvMnSg1C8RoTy40kaTxss5cRk74EYdF9SGYMpyvDc
-	2pP5RKmdofY1HuJE1gQb0jYT4XWuNndlENMXObgAAo2Ioh0ENWWDnKRpx4TyKGOKFIxj1eNkS9f
-	F6U1PAZ74oqn8C1Ln8JmeWB5KMy9GmL8Y+DT4TlRIVa5vxrv6sDWBER8fuNQtGC75RwlU84dZGQ
-	z6u4OtdXqbq+S58PpF5pgtKDj8+h5lBVXnuKgRjLDhboH39e+3MssicLlg6QX8gZiUMd0CYi5JN
-	aODT+D0bkjQZBLjtsKeoK1DEEv6AjCMja80ldRXgljvGU9IExdEmZeL48cpTP2t5lmzLA2L/kt2
-	rUADN/0f19DeU2Qm9E9ek4fx06dHQa2lQgsFacDv7pwGUwD1lGAt2JTj9WIvY+5m53svnsiwNrg
-	vfIAr9tHlcHHDz9UVMhEZ+0VZT553y99Dko5MZMbNYy2ec6UMaUx4K6EEsdkh0683GVH5RQg0YC
-	strx2vkQIGqGml9MhiQlTMLECUgVBQHnhu9G3WjwxcfB/6L+//8HmaKo4mIfz3ULJW04/ZAGpmB
-	k4ghpg283s0yjVVFFp7xYyZEjstPfOWB3soEE7kI0PFhd3ut8GeDNPX7BkiOXFMYOZgpG2VtHcW
-	PIRc8Qi2FEH1Q
-X-Received: by 2002:a05:6a20:c992:b0:3e1:88d6:60e6 with SMTP id adf61e73a8af0-4014a27f154mr12795163637.10.1795525445647;
-        Tue, 24 Nov 2026 05:04:05 -0800 (PST)
+        bh=O4bBg3eU3rRTqv+pJaj5O4MQi6+ijSTSzFjKAyAoK48=;
+        b=fj6Sf1G5fxi5ri+0zE/oZye0olcvVb7nxOeDK8ZqU37OUia/sbpr0SaceIYikAWj/L
+         Pv8PdxTd4fnD6tLniYETQ9h3m6JTCdMKOy6p22fRyenN7aXfsR5JUfw/Vjmhkr+zkNaE
+         HwnD3py2qNifkFrv03bCb9scnAgX8dv2ngTP3Cqzxm/8dYbFqWnXF0Szpuuh+PRPjMYC
+         86WqM24Dyp9QllCFGLiJyktZTRaFZ7yIrOaLQLRe0+UsMPx2IqunpDyMxmLr6d8PrP+6
+         GRX3h2gVyVXmAhGOGsJRU3UHTo64MUqvbQ3m9maa3lhW13c39/fiVToKI3dtVJ35lhPi
+         a0ag==
+X-Forwarded-Encrypted: i=1; AL+hErGsZuYOCb02lHWxaQRPC8M5VInUKRc+EO9ouX2ScYpb6t9WcgmHUJk5Z1ektlAPZHFNu3Cbssw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IG0MSUnHBYrKPEHLje3GcqegEuEKJ2xi+zTb2ZRiz4rCEvVbe
+	WvkS+3FtQRevrNwd8Vrec5pkHXUKkWZ5kuq4aeaEKd8IrTDE7v4gTcTb
+X-Gm-Gg: AZFdTZfmj9sqByOv1sWkROsJH4qOCBMIsqVOJETMuhRK6FlWssvWSFh8do3ABK99qFR
+	8wUICmwuWyXUyq5xSUWEQ8cFd0urcbpr+QCMwmuUSUtlLwTIvzJslyk1eDc6EJHTARywEFBo2L6
+	bbenWqDFPVLB8YF+gjehdkKTRrXzyb1af5Wb/Y/e2fTfOTOHcUnlzRDJJ2VSVY/G8GH0+A8pHlM
+	Oi6NAzdWrRjvEQsRum1bjf3PJd/xNPyP64PcOJoHuPw824rNMwvFEDaIvTAPfWQ59hNyo4mAqHS
+	CWV5sF/i0VpEfCXhscRm4FhgYnOSjYxF0mBfWPdDsqtD6VWNrJwuSBidERJoCGFfG4b1U/ZtQA7
+	e1gdH9JBo5d8rZX+Vt34R/mp3uvjXQba0GlruPGbyAR/6qygBhZ5WzkdnMZexIL6XlMhb3wqpcp
+	oA0zMGYjvHK5/G2A5O1PqzrCqaaRQq1O76SaQ4UjfLdzwg+2Hf8tF+WLk53GbNF1IWS4uOy8HyW
+	8CI9SjyJKJIP8EauZTrU0fB2LWaNAUpBwFoMScUCBhvFTshq7m5jh3skyNs6KUdvMH95Hxc3p12
+	UI1u/lCCjBiq/SdXGk6t4MgIcO4X5jmofo2gkYiatJK6YI4WugmMSsGaKsheXi6ced8=
+X-Received: by 2002:a17:90b:2cce:b0:3ac:928a:68ce with SMTP id 98e67ed59e1d1-3b41c95e0ecmr9391109a91.33.1795525450258;
+        Tue, 24 Nov 2026 05:04:10 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm7194090b3a.31.2026.11.24.05.04.01
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcfe23sm22832150a91.15.2026.11.24.05.04.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 05:04:05 -0800 (PST)
+        Tue, 24 Nov 2026 05:04:09 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Stanislav Fomichev <sdf@fomichev.me>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
+To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Stanislav Fomichev <sdf@fomichev.me>,
 	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH bpf] xsk: keep the charged page count when pinning a umem fails
-Date: Tue, 24 Nov 2026 22:03:59 +0900
-Message-ID: <179552079829.1290967.12345053263834529704@gmail.com>
+	netdev@vger.kernel.org
+Subject: [PATCH net] vlan: drop the promisc/allmulti references on the real device on delete
+Date: Tue, 24 Nov 2026 22:04:06 +0900
+Message-ID: <179552079831.1290967.13072162433438626338@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,110 +100,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-xdp_umem_reg() charges umem->npgs pages to the user's locked_vm before
-it pins the umem. When pin_user_pages() pins fewer pages than asked,
-xdp_umem_pin_pages() overwrites umem->npgs with the pinned count so that
-xdp_umem_unpin_pages() releases only those, and xdp_umem_unaccount_pages()
-then gives back only that many. The rest of the charge is never returned.
+Since commit 27b918007d96 ("net: vlan: don't propagate flags on open"),
+vlan_dev_change_rx_flags() passes IFF_PROMISC and IFF_ALLMULTI changes
+on to the real device whether or not the VLAN device is up, and
+vlan_dev_open()/vlan_dev_stop() no longer take or drop those references.
+Nothing drops them when the VLAN device is deleted, so the real device
+stays promiscuous or allmulti for good:
 
-A short pin happens when the tail of the umem area is not mapped. With
-RLIMIT_MEMLOCK at 16 pages, three registrations of an 8-page area whose
-last 4 pages are unmapped leave the user able to register only 4 pages,
-for as long as the user has a process running.
+  ip link add link veth0 name vlan10 type vlan id 10
+  ip link set vlan10 promisc on
+  ip link del vlan10
+  ip -d link show veth0    # promiscuity 1
 
-Unpin the pinned pages directly and leave umem->npgs as charged.
+Drop them in vlan_dev_uninit(). The device flags are still set there,
+and no instance lock is held, so this does not bring back the recursive
+locking that the commit above removed.
 
-Fixes: c0c77d8fb787 ("xsk: add user memory registration support sockopt")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260421172951.A7052C2BCB5@smtp.kernel.org/
+Fixes: 27b918007d96 ("net: vlan: don't propagate flags on open")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
 The issue was found by an LLM-guided test generator that we are
-developing as a research prototype; Sashiko had flagged the same leak
-in its review of an AUTOSEL backport. A reproducer, which runs as any
-user:
-
-#define _GNU_SOURCE
-#include <errno.h>
-#include <linux/if_xdp.h>
-#include <sched.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <sys/resource.h>
-#include <sys/socket.h>
-#include <unistd.h>
-
-static int reg(char *addr, long len)
-{
-	struct xdp_umem_reg mr = {
-		.addr = (unsigned long)addr, .len = len, .chunk_size = 2048,
-	};
-	int fd = socket(AF_XDP, SOCK_RAW, 0);
-	int ret = setsockopt(fd, SOL_XDP, XDP_UMEM_REG, &mr, sizeof(mr)) ? -errno : 0;
-
-	close(fd);
-	return ret;
-}
-
-int main(void)
-{
-	long pg = sysconf(_SC_PAGESIZE);
-	struct rlimit rl = { 16 * pg, 16 * pg };
-	char *a;
-
-	/* no CAP_IPC_LOCK, CAP_NET_RAW for AF_XDP */
-	if (unshare(CLONE_NEWUSER | CLONE_NEWNET) || setrlimit(RLIMIT_MEMLOCK, &rl))
-		return perror("setup"), 1;
-
-	for (int i = 0; i < 3; i++) {
-		/* 8 pages, the last 4 unmapped: pin_user_pages() pins 4 */
-		a = mmap(NULL, 8 * pg, PROT_READ | PROT_WRITE,
-			 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-		munmap(a + 4 * pg, 4 * pg);
-		printf("short umem: %s\n", strerror(-reg(a, 8 * pg)));
-		munmap(a, 4 * pg);
-	}
-
-	a = mmap(NULL, 16 * pg, PROT_READ | PROT_WRITE,
-		 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-	printf("16-page umem: %s\n", strerror(-reg(a, 16 * pg)));
-	return 0;
-}
-
-Without the patch, the 16-page registration fails with ENOBUFS: the
-three short ones leave 12 of the 16 pages charged. With it, it
-succeeds.
+developing as a research prototype. The commands above reproduce it as
+any user under "unshare -Urn", after
+"ip link add veth0 type veth peer name veth1". Our test also covers
+allmulti and a VLAN that is up when the flag is set or the device is
+deleted.
 
 The patch was written with LLM assistance; we reviewed and tested it.
+With it, both counts return to 0 in every case, with lockdep enabled
+and quiet.
 
- net/xdp/xdp_umem.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ net/8021q/vlan_dev.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/net/xdp/xdp_umem.c b/net/xdp/xdp_umem.c
-index cd8643360eb3..15ef424e2765 100644
---- a/net/xdp/xdp_umem.c
-+++ b/net/xdp/xdp_umem.c
-@@ -109,17 +109,14 @@ static int xdp_umem_pin_pages(struct xdp_umem *umem, unsigned long address)
+diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
+index bca0a3693636..5286c7918871 100644
+--- a/net/8021q/vlan_dev.c
++++ b/net/8021q/vlan_dev.c
+@@ -647,6 +647,13 @@ void vlan_dev_free_egress_priority(const struct net_device *dev)
  
- 	if (npgs != umem->npgs) {
- 		if (npgs >= 0) {
--			umem->npgs = npgs;
--			err = -ENOMEM;
--			goto out_pin;
-+			unpin_user_pages(umem->pgs, npgs);
-+			npgs = -ENOMEM;
- 		}
- 		err = npgs;
- 		goto out_pgs;
- 	}
- 	return 0;
+ static void vlan_dev_uninit(struct net_device *dev)
+ {
++	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
++
++	if (dev->flags & IFF_ALLMULTI)
++		dev_set_allmulti(real_dev, -1);
++	if (dev->flags & IFF_PROMISC)
++		dev_set_promiscuity(real_dev, -1);
++
+ 	vlan_dev_free_egress_priority(dev);
+ }
  
--out_pin:
--	xdp_umem_unpin_pages(umem);
- out_pgs:
- 	kvfree(umem->pgs);
- 	umem->pgs = NULL;
 -- 
 2.43.0
 
