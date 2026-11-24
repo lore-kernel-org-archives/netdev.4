@@ -1,157 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.27
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795497665;
-	b=d30JkR2hrGcVQN0+SyDrLulF/7T4GdCnlkl2u+SvwF/KpJOYruN+YP+jtwjq3cQyFeiX
-	 q7LsrDmqB7x3XHCC9+kJZ3vGRQ59+WF1oYdKPphihZ3V5W3aGh8aQ7IoECoj+Vy3Vgczi
-	 XTfqnd+Z/JUJ1G/NUjKWpeTSsAicTMdItDz8p2mZbXcwRCQMmgHIRrsvYSFkj3Tju4hqe
-	 8P3KYm5qpFb6/TxGHc/bT5dOEugKM2GvcygANVt2s4wKcex1iStIsYpw998XpQbWzxeLt
-	 CmodUQ1IhwxxYWjQM+Oo/p3DhDiWlaw4T8/Fmj/5df/AaBaJg8eBBbS/0Mqf18DRA4g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795497665;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:Content-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
-	b=mp3rZ60K4aKmtW5O9Au04LLq+o3VwByLSJzXsZgUrXZXDZb3QAf9LvVqIhJ9Ik1HvuCx
-	 /NVZzeaSxzVoGv9DFsAfDGLGOQSdu31NkHolqUL5kKYIi+6oEgOJwhkDjeG2XhYBt+AVd
-	 g8YnuSWcKVdd/WaRSbWffiDhNVaSPbu25KQ6Q0Sa42R4dn2Fe7jHhqVFzzC85Kmh65tuJ
-	 q40E26q2Xzjvw/JxPjL67fsMaj2vOR3AeXPAMnse/SsGfOcyI/oISeBpmvbMrs4Bm8agg
-	 +dr9IR673imEHY4Z4Qm8dcrZloyLKh0FiTzuAAhO8V8XURy7dRfW3Qz/v1GwBKWadTQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=jabil.com;
-	spf=pass smtp.mailfrom=jabil.com;
-	dkim=pass header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=cjIkLQTD;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.27
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010027.outbound.protection.outlook.com [52.101.201.27])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795498738;
+	b=SvgmPHRKKJ8MU9XKMF7ZlBLFOUixH2XOCUec0IeVsmUrlO/tkm6y22C4JixwX1eC+CGJ
+	 IoNUAbPIgdGbPtGtiJIzzz4Sf4/PeM0l68PBXZpgRSY4MWavQa8OgAuOJiAC6QPHzusP5
+	 OKAnpEFFEfG4CHla+XI8Z3vGHX9PAPkkJo82vadRf4qq8zcRh660f4TNCKqlQW6TejcBs
+	 GPxfx7uPtbUx1h0Tqu66VquMzjbAxIr4rFpAaAVycAoCYhkH0hbvrm/upbrg7qk1vbUkp
+	 IYjri4iHTlCCaivyQbe1AuEylErryMT/7xPsn0ggKK2v+0V7chlOa5EPBGoUqo7hA/A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795498738;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=lUhyx8LQWnjIInAaRIg9z9hjcTi/e66UaFQJ4bM0G+o=;
+	b=plDGwa6TtUHLJ9EhAMmvr9Meadb62at6F7Vyi0/lhJwM8ohHHPwk1huhkVXkJUE+Asru
+	 EMeRwbEWR7ty3rCuZgKhQIbjIQhl29Lgf5DfSHG/J+hYEs25WDY0cthFu7Bsyl+wLYTZw
+	 iFXzn8m5W7Hq5teLYY1uOqhUbFCtuWoDI47is0i3XH1/EFhaLpEPMjSEjTgyLqLnlFetl
+	 6J5dPC21jKln+Vsb+ohRdLUPFZ0ho9Y/CadQL8U8Xjt3uGkfuUsMctMGUb3Ok7UlxCYWH
+	 0lCasTNbIkhVygpI0Z4i0DxDMyqwQYz17DdH+UMCvQlpF2HjqjLn/HvWPryB42isKng==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzRAwNko;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C83F8606A31E;
-	Tue, 24 Nov 2026 05:21:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C83F8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=jabil.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jabil.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D958C606A31E;
+	Tue, 24 Nov 2026 05:38:58 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jabil.com header.i=@jabil.com header.a=rsa-sha256 header.s=selector1 header.b=cjIkLQTD
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=U1YB1DLu7LQZz4fOrMv1oaTCGVWMIStRKpxD4ayW3dwY1NRcPLSxs6IwAqrmvAgRwALA23Sxsy3dfJMm82J5BlTPLPqStF5fS5RT64gDB1LgEIVlTeb00cwEvNGNgzUMxV+3zuHiE/qPO1dCB4R9tIUeitlqfIvZBBnsXdaQoYD/FIZIACBizxXIIiEM4U4Cs36yjK7Me4ziG3MP5pJUS5gdhik6XfWXrRQabr4S2RV7xH4ozPzB6f7Z+Fr0ehJyS7EWOYixz9AWfMkZuN9KHL99apiB4eDrceJRj3/wnYfiJAPE6ekQwb3AIFwQ/BL58sb61Rk78SAjnMxl5301Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
- b=M4suE2/3vaYyJ8w7xGf2ouNQHpvtAXHBylcBtNO8MjzkZwZ23i5eKGUM6rpIVDv4jNfCsqTRWe0JcapSbJGJPhXUeZ2nzVZ7931Rcb29nmHXrRQWBSR98e9wuDzzTtbBP1V9LTtm7+7kPKlfsuJfkRUdPOf/WsAwzwOjMGV/iqtTbbKJUDndMWMWqJzib701F/SrigRj+V6lkUZVqg5ILV2bCfGOmOsHKtsFsZkGrhoEpvH41xtr1uBOc05K+iIvEJcJyBi7Qa2yV9CcDu/7wPWEavjqxG/TVw8e2B/XZG8f9R60Sp5hhORd8cFzQUFiQf+i099StNf6qindUM92vA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=jabil.com; dmarc=pass action=none header.from=jabil.com;
- dkim=pass header.d=jabil.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jabil.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lRHaZcdmXWFZ9t88hM7KMaBfU12XjvD5woYbDt1JVJc=;
- b=cjIkLQTDvdAJ8EWlFpXShRFvYFepXYdmR1n4B6wRT+2jUh7aG0SSwt50+ti4BVQop5dSzpfI3BMaAcYkgNr/KMB0oIYgkkkhDPY4emO5pKz9k3qhiMgh1odP+nAPPjp0M0BVSyEeJbg1n2gxwp5pc7+v35fvCJ30CFz4b6hzTcbL9HVHYwjgQzgC+A83nHUlISO3klAuYTD9gOO2dQApLOw4ftUPi6K+KzgOp2wzCa6x/nRpetPHROLkX6hSDmNwllqkj884Cpubg4yfWpE53DV4GabFRVyBB0p4rTG2QMwV2IFKbxDCHRNW1GKce3H/E0nrCOzKB66bYbUc51LlEA==
-Received: from DM8PR02MB8087.namprd02.prod.outlook.com (2603:10b6:8:1b::11) by
- LV8PR02MB10215.namprd02.prod.outlook.com (2603:10b6:408:203::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Tue, 24 Nov
- 2026 05:21:01 +0000
-Received: from DM8PR02MB8087.namprd02.prod.outlook.com
- ([fe80::6e40:b3cf:7280:6497]) by DM8PR02MB8087.namprd02.prod.outlook.com
- ([fe80::6e40:b3cf:7280:6497%7]) with mapi id 15.21.0639.012; Tue, 24 Nov 2026
- 05:21:00 +0000
-From: Kenny Hsieh <kenny_hsieh@jabil.com>
-To: "netdev-bot+sashiko@kernel.org" <netdev-bot+sashiko@kernel.org>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"jk@codeconstruct.com.au" <jk@codeconstruct.com.au>,
-	"matt@codeconstruct.com.au" <matt@codeconstruct.com.au>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@kernel.org" <edumazet@kernel.org>,
-	"kuba@kernel.org" <kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>,
-	"stable@vger.kernel.org" <stable@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH net v4] mctp i2c: fix double free of midev on netdev
- register failure
-Thread-Topic: [PATCH net v4] mctp i2c: fix double free of midev on netdev
- register failure
-Thread-Index: AQHdezCyUYUkxQqQZEKDnyQV1Qg0Bbc8sLHw
-Date: Tue, 24 Nov 2026 05:21:00 +0000
-Message-ID:
- <DM8PR02MB80874F4F75254E2C19665EB98E442@DM8PR02MB8087.namprd02.prod.outlook.com>
-References: <20261119094307.3864679-1-kenny_hsieh@jabil.com>
- <179542769062.3135.9147379725438179456@kernel.org>
-In-Reply-To: <179542769062.3135.9147379725438179456@kernel.org>
-Accept-Language: en-US, zh-TW
-Content-Language: zh-TW
-X-MS-Has-Attach:
-X-MS-TNEF-Correlator:
-authentication-results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=jabil.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM8PR02MB8087:EE_|LV8PR02MB10215:EE_
-x-ms-office365-filtering-correlation-id: 5d22bf04-f062-452a-a51e-08df49eaba6c
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam:
- BCL:0;ARA:13230040|376014|7416014|1800799024|366016|23010399003|38070700021|56012099006|10067099003|11063799006|4143699003|261026140227099003|261022105027099003|261026121527099003|261028144727099003|22082099003|18002099003;
-x-microsoft-antispam-message-info:
- 95cRVbij2jqjDLSv7opt6yBUytPadJbJ5ISQAUqt8FWezgxfo2O7rVe5fv+dp4+XJOGLD0fi8bS8SmfvPY5LAWrva5XPKosznDtkx55b00Hzwj8msBE1t37bilHZwZblF9WhtEGCDvj5kBbAUXax5bd1aju82QQ67E62V//b02jUSzSDHkzVz+6V3Pv3X5LYwnKMcCnyTrD7JDL/IPSVZLtwechuNpZuSfZCVosphWjrd3v6w50O7BiIbZ4dcObQ5ZZw6eniOMAVZobxf4k9V5tOBaa/tQpI+ajRa7xVY9Tri+CTiOJxNaXN63QsrQiD4AI7kd1c7+avU9kYBV2KAlxZP+3LHNAEEYgHpCM+1/vhZOGS8wdl6D3QIDnsZDXbiuBhFkY8dZ4sZ2HnnkUCHRoNsoFBMbm39LUPuaag0XiboGLHmOUYSgwzGtdeoyZdfsdoCX3CVObNFAW6FuwkrpYZZk+2I52jcdX/gblOtCku9agnDCdBf348P3K+u+udG/Zbo8bmiVQuAZAWW4gVDomqGdIgX0+kGaOrudJ0SdEWz3qL1I437w04jkv9wShdMAONDUHACxt+4jYU9u0Gru36K5GAqV90U9Y6NdqFUU/U+uqv5KAfEeYLSKa+XGL/QItKSi8hpHVDk67jWsqZVG2hS2316sKkbXU9BkCevkKqk4KJ9dR1w3fCePQCSrRND8A98vtoHMcOQE/YPPVGX7J905n1UJkKkfSjCuId8h4=
-x-forefront-antispam-report:
- CIP:255.255.255.255;CTRY:;LANG:zh-tw;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM8PR02MB8087.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(23010399003)(38070700021)(56012099006)(10067099003)(11063799006)(4143699003)(261026140227099003)(261022105027099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0:
- =?utf-8?B?Qm4weGZsa0doZUxxZFJoeEJOM09KV3ZZeXFkTXJjbXQ1NXRzcUpUc2dVbUxX?=
- =?utf-8?B?WkZEV0RoL05kbXYvaVIvaDY3NGZCd0tpUzh1YnZ1c3JNWFVpL2VrZHphbklm?=
- =?utf-8?B?Uzh3SmY1Nll4NEtEeUV2aDN6enRFZjJaRElpQWdLNW8xejV5S0FpY1h4dUVY?=
- =?utf-8?B?U2xUbFVkTm1SQlM2T2g1eFpHVmRHeVR5WEUwTi8xelFPVnBuQ3NNWktZVlRP?=
- =?utf-8?B?UUVDOC9LQ3QwbUpDWC8vQXRRRzJpV2J0QmF0Vlp1RmlrR0xZZTF0UHpPTWND?=
- =?utf-8?B?dmltMGs5WHAycUU3eFJ5TjM3VUxTa3g5SDRROUE0cGZkTTNuSjNuamJsckVa?=
- =?utf-8?B?QUZuYnlOSXdwRkNJTlgxR2tVUDVqUzZLVnNselNHbmNMSGFIU0pWaC9Pbnlq?=
- =?utf-8?B?WkV1MzkyRjdQV2pLSzMrMEZva1VqMVh0bHJLYTZGUE1pb0F2MGk2MzhEd0tT?=
- =?utf-8?B?VjRtNkI4dEQvbU4yR0xQZmdnN0R3S1JDMXpQakY4MGdiNmJRQk9kSmNTMHhP?=
- =?utf-8?B?eU1SeFlNVW9JS2Y3Y0Y4QmVYNkFCSjdFa3FvNVIxdFM4N3ptazlCQ2ZINnZn?=
- =?utf-8?B?cDJJQ3BPRmtaRWNLbzFkbkZFM3R4UkdkaThCanZRSmk3a014eVJJNWZhOFNJ?=
- =?utf-8?B?eVRvNzBwYm9sVTNOWjBibHphbE1GY29KS0paQ3ZwQmRzaS9sZ09RNkJQVVpX?=
- =?utf-8?B?MDVUUmN3TXd5RGxyeVFzVHNZeWpPdGVWVUh3K1IxRVByUlZVY0tWWHNhcmtL?=
- =?utf-8?B?cGo4azhyVENYSjZ0SmxwQUxkalplL2FvdlBUSXFIRk9keWxJemtOaWdlVkYv?=
- =?utf-8?B?Um1QdEhQd0RRd1FlazhyZURJcDRpOEphcEUzU2dDSmxNWm1ZZ3VyMGtqdVZz?=
- =?utf-8?B?a1gzT1ltQVp1STUvbmtnUm4vOXpRRm9kcld5TXk1NUVreGFGZHFuakM3dEZr?=
- =?utf-8?B?OFc1U3JaRWkxZTRDd1czYTN4S1NURjBaMXBYRUh4MDhGMEtEd1J4dkdGSkpJ?=
- =?utf-8?B?V0l4RThiaFh5Uk5qL20zTnFVczg0cUd0Z0dxWXJkcW10TURIdys1VEk5Mytq?=
- =?utf-8?B?WW91aWhOQzR0bFVEemNxU2c1ZUNpbkV5SjVoam9lRHgzejBITWN1NVZiTzVT?=
- =?utf-8?B?YjlzUzlSZ09kZlRpTDBxQXBKcXpLZmxIQTF0YkRMU05Yc3J4SXQzdkZJQ2JD?=
- =?utf-8?B?bHQzL2RNRSt3SVBMUkpWUHFseDdrT09VcTRNQ2Q2bEFvYmUvTk4zN3BqUnpS?=
- =?utf-8?B?VVQ2aENMUVh6c2tjWkRwa1A3RHR5RWRsVENrclFLSWFnU2JrNGx2bUQ4eXVx?=
- =?utf-8?B?bGU1TU45c0F5emZlSm13SlNqSmNBWkU0RUxyWm5RSW1wZjl2QklTc3lyMDlj?=
- =?utf-8?B?RXQyM2NJV0Y4RjF2b3drTC92MEJRM0tNQUcxMHNNTXNYeVMvNVpybnJZbzdE?=
- =?utf-8?B?amZNQnFIZ3c0U1ZZUGRPVEt1cTEweFptUEhzc3h4VEZSV2xxTUdsdDI0VStJ?=
- =?utf-8?B?Zm12ZU94bEU4aHNnK1hTbjhUK3hOUVBhR3hUZjNhcFJNdUpPM2RxZU92N3dx?=
- =?utf-8?B?TWxIS25ydEdXbWtUVTFzcXpEdXk0WjRHS3M3eFozS0dwYlZ3VU5xRjhnM2k0?=
- =?utf-8?B?cXNJS0RvYkQrNUFtQTVCTWFwN1NnSU1ONXdDZWVkZ3gvVjRIU1FhdWRqb3BW?=
- =?utf-8?B?c2xXbzV4SEI0blMyODlPRHJEWm9zaTB4UkJ6Qzd2ODVEZXFPeCtXaDBsclBI?=
- =?utf-8?B?NjQwM1daVGZFQUZTREpxR1ZKRjNHczg2YVdtSHlDU3lwaVlmY1BGQU5xK3Nq?=
- =?utf-8?B?VEVEY0ZrcVg4aDhJSEFKYTVuZm0yWDNIZHM2VU9sSWpTcUFXTHN6RDFtcjBj?=
- =?utf-8?B?QzJXa1lPQnp1ZXFiMGlmdld4eERVaHN1Z3VuRE55OHdOWi96eVVGaWhISTJY?=
- =?utf-8?B?Y3B2Y3NPMmNlcDEyUFI2NVJMUlI4K1lteExsTnozK0YyMkpXUkpGZlM4UHlr?=
- =?utf-8?B?eWpGZ1hzTDhoSUhwbFhEekVCQUFJZUJQeWtqbS96azhDK3ZLTDVqNGlnUUVq?=
- =?utf-8?B?VVg1TFpJcXRqT0xhcHJDWTBnNjhCZ29XNEgvdDdJaE1BNytoZzF6SEd4VHVV?=
- =?utf-8?B?SnFieTdLemoweEFPOThXd3VKdEtnOUUyNFJaYXNBT2RPZnE5cllCZVcvWkZS?=
- =?utf-8?B?V29PTU4rd0JteTBCMzdxczBWUUF4TjdZRnFZVmdvUFhmSHdSV1oraW0wSmRy?=
- =?utf-8?B?aWVVSzJPVVRpazJ3SG1mWlczV0tNVjYvK2V6L0tuWlBGa3hpUUVTQ1FPMURO?=
- =?utf-8?B?Z0NYTzJhaHo2ZmpiMzBNQ0dXTTZXbE9iL2tTZjN3RThVRHRHY014QT09?=
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=jzRAwNko
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D68B81F000C4;
+	Tue, 24 Nov 2026 05:38:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795498738;
+	bh=lUhyx8LQWnjIInAaRIg9z9hjcTi/e66UaFQJ4bM0G+o=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=jzRAwNko4mj0T6asS7q+9Ckw7Psi1CrpRaX/blwRL9JhtR+YBRaiSemGE1qqIo1G1
+	 Ys0iHWI6e3ux6LUA8+GdJ0SvVy7Q6dNSW3Xrh6M2kBksF2ZojqNPjtrk4q4CkB/Sel
+	 V7/0Iocjh/r2colmuTYIX1EC/57iNaPuIYpEgzeovAd65NndegVgNqXqWtG2oL+W70
+	 TRLeoM+znDuoGGqJ3hczR6ypxF/+JozyNtr2JFaoQTEuASy2Ur6EqDrQ5tLvW3w2hj
+	 BPds43ZDbgv56S9HA6tZID+gnSWac6yel6rOccZadxnrOo3mE/b3E3wrUhV3kCuTnN
+	 jAz4E8ymhIWWA==
+Subject: Re: [PATCH net-next v4 1/4] net: phy: Map C45 probe read errors to
+ -ENODEV during bus scan
+From: netdev-bot+sashiko@kernel.org
+To: florian.fainelli@broadcom.com
+Cc: netdev@vger.kernel.org, carlos.soto@broadcom.com, justin.chen@broadcom.com,
+ opendmb@gmail.com, nb@tipi-net.de, bcm-kernel-feedback-list@broadcom.com,
+ andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux-kernel@vger.kernel.org, kudzo51@gmail.com
+Date: Tue, 24 Nov 2026 05:38:57 +0000
+Message-ID: <179549873735.3135.6221350265873603736@kernel.org>
+In-Reply-To: <20261120051653.1433677-2-florian.fainelli@broadcom.com>
+References: <20261120051653.1433677-2-florian.fainelli@broadcom.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -161,26 +65,251 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-OriginatorOrg: jabil.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM8PR02MB8087.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5d22bf04-f062-452a-a51e-08df49eaba6c
-X-MS-Exchange-CrossTenant-originalarrivaltime: 24 Nov 2026 05:21:00.8481
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: bc876b21-f134-4c12-a265-8ed26b7f0f3b
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 4py20g2MZ1VC47TfIEZRlc/Yc2sg8nxGS1SZ7LPnPF+zRdBVXEuRKdxJ23yzMovXmE4Qx+in6JMSqbh4h6GJtQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR02MB10215
 
-VGhlIHRocmVlIG1jdHAtaTJjIG9uZXMgYXJlIHJpZ2h0LiB2NSB3aWxsOg0KDQogIC0gdGFrZSB0
-aGUgdW5sb2NrIG1hcmtlciBvZmYgYW5kIHNwbGljZSB0eF9xdWV1ZSBvdXQgdW5kZXIgb25lIGhv
-bGQNCiAgICBvZiB0aGUgcXVldWUgbG9jaywgc28gcmVsZWFzZV9mbG93KCkgY2FuJ3QgcmVxdWV1
-ZSBpdCBpbiBiZXR3ZWVuDQogIC0gc3RvcCB0aGUgdHggdGhyZWFkIGF0IHRoZSBzdGFydCBvZiBu
-ZG9fdW5pbml0LCBzbyBvbiBhIGZhaWxlZA0KICAgIHJlZ2lzdGVyIGl0IGNhbid0IHNlbGVjdCBt
-aWRldiBhZ2FpbiBhZnRlciB0aGUgZGV0YWNoDQogIC0gZHJvcCB0aGUgdW5sb2NrX3Jlc2V0KCkg
-aW4gbWN0cF9pMmNfbWlkZXZfZnJlZSgpLCBzaW5jZSB0aGUgdHgNCiAgICB0aHJlYWQgYWxyZWFk
-eSBkcm9wcyB0aGUgYnVzIGxvY2sgd2hlbiBpdCBzdG9wcw0KDQpUaGUgbWN0cC1pM2MgaXNzdWUg
-YW5kIHRoZSBtY3RwX2RldiBsZWFrIGluIG1jdHBfcmVnaXN0ZXJfbmV0ZGV2aWNlKCkNCmFyZSBv
-dXRzaWRlIG1jdHAtaTJjLCBzbyBJJ2xsIGxlYXZlIHRoZW0gb3V0IG9mIHRoaXMgc2VyaWVzLg0K
-DQpwdy1ib3Q6IGNyDQo=
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
+
+Critical: 0 · High: 0 · Medium: 2 · Low: 3
+
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] When a C45 package does not answer on the first MMD it probes,
+  get_phy_c45_ids() stops probing (drivers/net/phy/phy_device.c:860-873).
+- [Medium] phy_get_c45_ids() is exported.
+- [Low] The subject ("... during bus scan") and the body describe only
+  the mdiobus_scan_bus_c45()/__mdiobus_register() path.
+- [Low] The kernel-doc rewritten for get_phy_c45_ids()
+  (phy_device.c:826-828) and phy_get_c45_ids() (around 1104-1110) says…
+- [Low] get_phy_c45_devs_in_pkg() (phy_device.c:785-801) issues
+  MDIO_DEVS2 and then MDIO_DEVS1 to the same MMD, and now returns the…
+
+--
+
+net: phy: Map C45 probe read errors to -ENODEV during bus scan
+
+This patch makes get_phy_c45_devs_in_pkg() return the raw bus error. In
+get_phy_c45_ids() it maps -EIO and -ENODEV to -ENODEV, both in the MMD loop
+and in the MMD 0 fallback, so that mdiobus_scan_bus_c45() keeps scanning
+past empty addresses. A failed devices-in-package read in the MMD loop now
+skips the remaining MMDs and goes straight to the MMD 0 probe.
+
+> net: phy: Map C45 probe read errors to -ENODEV during bus scan
+
+[Severity: Low]
+The subject and the body only describe the mdiobus_scan_bus_c45() and
+__mdiobus_register() path. get_phy_c45_ids() is also reached outside the bus
+scan.
+
+fwnode_mdiobus_register_phy() calls get_phy_device(bus, addr, true) for
+"ethernet-phy-ieee802.3-c45" nodes, and of_mdiobus_register_phy() goes
+through it. Before this patch, an -EIO from a devices-in-package read made
+__of_mdiobus_parse_phys() take the goto exit path, and the bus was
+unregistered. Now it gets -ENODEV, which is only logged:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_parse_phys() {
+    ...
+		if (rc == -ENODEV)
+			dev_err(&mdio->dev,
+				"MDIO device at address %d is missing.\n",
+				addr);
+		else if (rc)
+			goto exit;
+    ...
+}
+
+As a result the bus registers without the PHY. The exported
+phy_get_c45_ids() changes too, so gpy_probe() now fails with -ENODEV
+instead of -EIO.
+
+The patch carries a Fixes: tag. Could the commit message mention these
+non-scan behaviour changes?
+
+> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+> index b39e945cebd73..79f3fa1e9a036 100644
+> --- a/drivers/net/phy/phy_device.c
+> +++ b/drivers/net/phy/phy_device.c
+
+[ ... ]
+
+> @@ -789,17 +789,30 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>  
+>  	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS2);
+>  	if (phy_reg < 0)
+> -		return -EIO;
+> +		return phy_reg;
+>  	*devices_in_package = phy_reg << 16;
+>  
+>  	phy_reg = mdiobus_c45_read(bus, addr, dev_addr, MDIO_DEVS1);
+>  	if (phy_reg < 0)
+> -		return -EIO;
+> +		return phy_reg;
+
+[Severity: Low]
+Suppose the MDIO_DEVS2 read above succeeds and this MDIO_DEVS1 read then
+fails with -EIO. get_phy_c45_ids() passes the error through
+get_phy_c45_probe_err() in the same way as a failure on the first contact.
+Should that count as "nothing answered at this address"?
+
+The successful DEVS2 read already shows that a device at this port address
+and MMD drove the bus. With the new code, the loop breaks with devs_in_pkg
+forced to all Fs. The MMD 0 read will usually fail the turnaround as well,
+and get_phy_c45_ids() returns -ENODEV. mdiobus_scan_bus_c45() then skips
+the address without logging anything:
+
+			phydev = mdiobus_scan_c45(bus, i);
+			if (IS_ERR(phydev) && (PTR_ERR(phydev) != -ENODEV))
+				return PTR_ERR(phydev);
+
+In gpy_probe(), the same path turns a real bus error into a rejected match.
+
+Before this patch, the same case made the whole bus registration fail.
+get_phy_c22_id() also handles a PHYSID2 failure after a successful PHYSID1
+read this way. So the main cost here is lost diagnostics.
+
+>  	*devices_in_package |= phy_reg;
+
+[ ... ]
+
+> @@ -810,8 +823,9 @@ static int get_phy_c45_devs_in_pkg(struct mii_bus *bus, int addr, int dev_addr,
+>   * the PHY identifiers for each device. Return the "devices in package"
+>   * and identifiers in @c45_ids.
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid or no device responds.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * if no MMD responds (including when the bus reports -EIO or -ENODEV for the
+> + * reads that look for a device), or %-EIO on any other bus access error.
+
+[Severity: Low]
+Is the "%-EIO on any other bus access error" part accurate? Further down in
+get_phy_c45_ids(), the identifier loop still returns the raw error from
+phy_c45_probe_present() for the vendor MMDs:
+
+		if (i == MDIO_MMD_VEND1 || i == MDIO_MMD_VEND2) {
+			...
+			ret = phy_c45_probe_present(bus, addr, i);
+			if (ret < 0)
+				return ret;
+
+phy_c45_probe_present() returns whatever mdiobus_c45_read() returned. That
+means -ETIMEDOUT, -EBUSY or a raw -ENODEV can reach callers of
+get_phy_device() and phy_get_c45_ids().
+
+If a raw -ENODEV arrives here, a device has already answered, yet
+mdiobus_scan_bus_c45() ignores it silently.
+
+The commit message says something similar: errors from the per-MMD
+identifier reads "are still reported as -EIO". The phy_get_c45_ids()
+kernel-doc repeats the same wording.
+
+>   */
+>  static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  			   struct phy_c45_device_ids *c45_ids)
+> @@ -844,8 +858,20 @@ static int get_phy_c45_ids(struct mii_bus *bus, int addr,
+>  				continue;
+>  		}
+>  		phy_reg = get_phy_c45_devs_in_pkg(bus, addr, i, &devs_in_pkg);
+> -		if (phy_reg < 0)
+> -			return -EIO;
+> +		if (phy_reg < 0) {
+> +			ret = get_phy_c45_probe_err(phy_reg);
+> +			if (ret != -ENODEV)
+> +				return ret;
+> +
+> +			/* The MMD did not answer: treat it like a read of all
+> +			 * Fs, which is what controllers that do not check the
+> +			 * turnaround return, and go straight to the MMD 0
+> +			 * probe below. Do not probe the remaining MMDs, each
+> +			 * one costs two bus reads on a slow bus.
+> +			 */
+> +			devs_in_pkg = 0xffffffff;
+> +			break;
+
+[Severity: Medium]
+The comment says a failed read is treated "like a read of all Fs". Do the
+two cases behave the same?
+
+After an all-Fs read, the loop condition still holds, so the loop moves on
+to MMD 2..29 and to the vendor MMDs after their presence check. This break
+ends the search at the first MMD that fails. The only probe left is the
+MMD 0 fallback, and most C45 PHYs do not implement MMD 0.
+
+Take a controller whose read_c45 returns -EIO on a turnaround failure, such
+as cavium_mdiobus_read_c45() today, or UniMAC once read_c45 is added later
+in the series. Would these packages now come back as -ENODEV and be skipped
+silently by mdiobus_scan_bus_c45()?
+
+  - packages without MMD 1, whose lowest MMD is PCS, PHY XS, DTE XS, AN
+    and so on
+
+  - packages where MMD 1 answers with Devices-In-Package = 0 (the loop
+    already allows for this with devs_in_pkg == 0) and the next MMD, for
+    example WIS (MMD 2), is not implemented
+
+In the second case, the device has already answered at this address.
+
+A controller that does not check the turnaround would find both kinds of
+package. So whether the PHY is found now depends on the controller.
+
+Before this patch, these cases made the bus registration fail. This is a
+gap in the fix, not a regression from the old behaviour.
+
+> +		}
+>  	}
+
+[ ... ]
+
+> @@ -1077,8 +1104,9 @@ EXPORT_SYMBOL(phy_device_remove);
+>   * phy_get_c45_ids - Read 802.3-c45 IDs for phy device.
+>   * @phydev: phy_device structure to read 802.3-c45 IDs
+>   *
+> - * Returns zero on success, %-EIO on bus access error, or %-ENODEV if
+> - * the "devices in package" is invalid.
+> + * Returns zero on success, %-ENODEV if the "devices in package" is invalid or
+> + * no MMD responds (this includes a bus read failing with -EIO or -ENODEV while
+> + * looking for a device), or %-EIO on any other bus access error.
+>   */
+>  int phy_get_c45_ids(struct phy_device *phydev)
+
+[Severity: Medium]
+phy_get_c45_ids() is exported and is used outside bus scanning. Is -ENODEV
+the right result for a bus read error here?
+
+Its only in-tree caller, gpy_probe() in drivers/net/phy/mxl-gpy.c, returns
+the value directly from its probe callback:
+
+	if (!phydev->is_c45) {
+		ret = phy_get_c45_ids(phydev);
+		if (ret < 0)
+			return ret;
+	}
+
+This phydev was already found over C22, so a C45 read failure is a real
+fault, not an empty address. Take a read_c45 that returns -EIO on a
+turnaround failure. The MMD 1 read fails and the loop breaks. The MMD 0
+read then fails too, and get_phy_c45_probe_err() returns -ENODEV.
+
+call_driver_probe() in drivers/base/dd.c treats that as a rejected match
+and logs it only at debug level:
+
+	case -ENODEV:
+	case -ENXIO:
+		dev_dbg(dev, "probe with driver %s rejects match %d\n",
+			drv->name, ret);
+		break;
+	default:
+		/* driver matched but the probe failed */
+		dev_err(dev, "probe with driver %s failed with error %d\n",
+			drv->name, ret);
+
+Before this patch, the -EIO produced the dev_err() line. The PHY still ends
+up on genphy at attach time, but nothing visible says why.
+
+Could the -ENODEV mapping be limited to the scan path?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120051653.1433677-1-florian.fainelli%40broadcom.com
