@@ -1,111 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.159
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795520346;
-	b=u+CMgCONcI+dWAnPZym5cGl4f7+h0wJEbasOg1mnsza/6zs17Xd6JTNJniJL2NUZhoNH
-	 XfyJJlvGJl480vetSpj4QUMDenxMXni4I1bD/6hE+pFlPfDh2h0f4r71qVdFbDH7fI2R6
-	 D63FOczW5097/PuWKkXKJDJCMCL0FPUzWiosWYd8i1G/EA2VFMdFWLwPjk7+M1K/dLMNc
-	 NNsae248gDobC+wrbqKxVOIw4lj1QVvEJ32O2HdVLdBxcZIvJrpe0weMy/D/TU7SY5joi
-	 YXwUJpWCL1tjBnOPSC2qM7dfkum7lMmPEJ5ruKDcpDfVWWDWfsbRjXMX1S4HceHptUg==
+	t=1795520624;
+	b=s24JD4YnhyiQO9xYoa5f6pe0lEfVL2s8JgcCxO56o53Te91kymc688ElePGBVdS+XEwI
+	 IgxL6BjDJ3xbpWuGODxYeLjv6aSVrejKyN5peOos5G9F9P40baoLiJBOAi+X+SS8lSBhZ
+	 uAgcSTCIKegjLfgihn01JahC9aGgUv/bMcsD+yInEBsiuArLX54kP24uYjZBdhWgmhNlm
+	 rk+gbbhe200R3Z/piKZoeaCNt5NMFFLyndMEKjb8xsp8zbjMxrXxy5QcXE++ZTEUX5sQO
+	 Q9JoRSp6e0yDRi8Lm0xGG8/U5XTHIQadLVJf8gQwOj8VB0YewQp9gZSqQJMAbW4jYFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795520346;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
-	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
-	 Subject:Content-Type:Content-Transfer-Encoding;
-	bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=;
-	b=xH17DltS4LAwWrWQFPBgqIMjQJ9lzFYY6+BMokFpqsg1kC5NSyejRDBkUrX+3NCiXeai
-	 z3h2zamVOVIlLy/Mdb/p6K6oT87AAq/BEWEFbf9BX0FUHXmdUWVWDzxU1YjV9i9VBU7+m
-	 u7n08HAQRIKj0J7pXaX9rHA7hfjjTLp6MCyPEcL++/eXss76rHKBt3qmcclqhZnm0bDfa
-	 wcKDHjxn0m+Z82kDhIBMY00QWsS5nj44OGOSxqj4+QB78g1EXQkxenoQOBFFlZbAogjND
-	 P3YA6tGAcUDuRio0giROWTQH3uvltVWaSMOWu4hWyN1/DCNQTkG8LWYp9QT8zCdzftg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795520624;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=6qu+7Lmy3A39iDT57VU11u0Vh7SIl/5fOSeCu4xBzcw=;
+	b=22nqsgiCW5X8UIkk8mY7ee6qxjLaRKWEM8Zd8neXVTB1otKN+HgJ6jzaD3FvKoFXtm/w
+	 u5AEet5vLCKzkX89fXlsNzdo6TKsojcoq6GlAp6CDn4sdC5qrItLOAS8gV+UlFvnVgque
+	 +hE0YC3K31yk2df9FcBX4xmrgg0lG5e4gw0tL9qO/h357YB9Byzk73FROxeIUG167yjpz
+	 GKJ7dIhlrxtDsyFMGk668GwJfeYSrF9UB2v36Vg4FTv636vNfkth+XLcdy2PpSXlOvmNO
+	 ibP1v8rskbUZX07g0Z1bkyBaB+1nQxoGH2WBwTBdm2Z/dJ97RAHMWD1Z+HlA1C+Z+Nw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=fastmail.im;
-	spf=pass smtp.mailfrom=fastmail.im;
-	dkim=pass header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=glyhEjdW;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=27ptkXp6;
-	arc=none smtp.remote-ip=103.168.172.159
-Received: from fhigh-a8-smtp.messagingengine.com (fhigh-a8-smtp.messagingengine.com [103.168.172.159])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gwzg+NUO;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7927F606A322
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:39:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7927F606A322
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.im
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.im
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0381A606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 11:43:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=glyhEjdW;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=27ptkXp6
-Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 7ACC1140026F
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 06:39:05 -0500 (EST)
-Received: from ams-imap-19 ([10.64.2.39])
-  by ams-compute-01.internal (MEProxy); Tue, 24 Nov 2026 06:39:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.im; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1795520339;
-	 x=1795606739; bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=; b=
-	glyhEjdWlOripV3KEgNEl3DrvKMz/KC6wKxEf0U4LZPNNXmmiMrxeP7gwghxAxgr
-	pj45S3ynLBHgMLhslPbnI4KTJfDLpNGsHXBia3Mt+WEBkIBaKTUKH8HgtpwksYZX
-	6yvP4SLN9o/G94KxNz3TYjdKtwjpZIlVejsBRrmfMPp3Cis0TZ1RQIv49j4bbKi/
-	EIP8h/8gPg5+eLeeI+GfH3k1TmGYQNeVUNF6AJVgTcbTeoojWY3Nh8Qp5Ogcflcw
-	wEyp25QbF4n5ebGkMroPsTOGWW3Q5itnZJ98nVeXzP4LozoBn02tPpHOOYs53ldu
-	x4/+cxbaFQ6rV6kc7J0dUQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795520339; x=
-	1795606739; bh=vAgyY33rGyhoxd7++6dPjFy8c6kIItEzdXI6nMt/QAU=; b=2
-	7ptkXp6Rn/pT0b8wppZnpxGadJcdDDazp/MWrusEiJ1ebOf9GjBlEtQxcMqsAXgt
-	upb8iw2j5WGiqAPGC9aF7kmhw3xzNpLUZVH8vllZeayuV2UAmS20PjkCvB1BoVXj
-	ZAg/7uruvWosqc85D/UpsZfL3E1sCFqixKdwEquyK/Vfc5BjRmM8HBAAtzxpEidL
-	4JIuAdK+t0OydvXlvLFuLoI7q1M1kSJzK0HliYfG9fiyRp5FaLLBEcNUoMg8eiC7
-	Lt2t3CnHbZwPI1vSQWvmt+v+gCbAhzOATRtoM7O+rQtK3fXk/+4xAm5AGR/lAjxi
-	lZO2oVNn1ezZRI7QwCVtw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=fastmail.im a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795520339; d=fastmail.im;
-	mf=PGFsaWNlLmtlcm5lbEBmYXN0bWFpbC5pbT4=;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm3:rsa-sha256:ak0b857N72p6utWGGeA26Zl8o7UMqTsNFhhfeTvzoqyA4ne
-	quJ/QVV8wp+nzz+4pxvdu3ZiDJILjtWlr6RvIuBNRsfWtDocU2+4oVig3hH6NuUy
-	B16fXDRaWpg9webegAjj/Z8dtYMY0mNChRnD+nCf1vMJmXmGSOB8sRa5X10uyqBX
-	ECeQ9hvkLzZ9Iek0a7+Z4z2ppE8pqsdgmVLXWa16RVnnjage+0ZNHWrtySrTu7Ka
-	cQMVhdGTfOftIOvpxSJzROf28+uv+JYDsWo85Z+8iXSj/tyBlsu87PTy4vvuou4m
-	W0hwqogbMriJMMDfmmgtA+CqOhkJw9mAf3rAQPA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:ALW9321OHBLiiL5SPsMumePA4d5xqqytp1VQGRM4k80=:dZY2KiK9PYfCfg7JMV7eBqXPw4kds7QQXD6ueU583vo=;
-X-ME-Sender: <xms:TncFa38cNUHB-U-p2ro8Zz3RJUOavie1mhiXXnAGjmBnodMyh8a-cg>
-    <xme:TncFa-gP2r01wxsJ1Hkz9qasjspcYeIAWp3-a5nFWRZs87U_xxsBGyXyqQI8T1mc3
-    1GRkKP0mHjCTz8Jyqyu-BtUIkIKSo7NCMrdJHAkD63Xf6H-CW6_D7Y>
-X-ME-Proxy-Cause: dmFkZTGGKQ38id+eRgJdj+g/UOJo3vPtsb5ZGc3CTeQs6u6bt9K70NIT1LuxDKr4LkF+Sd
-    XCj6mSYhEw6D3l1pSVUFKwRY89ot5WQpCU9AwgH4/A+HzaE2dTAcuf3zDDI62Y3vduKk8m
-    6BLE/i0DiZUMjjhhlWWbQ53EsjQlhgquAQgLyIOp0jUZIJKioZ+wTptlDFYUKuhXdu702L
-    khwKqjG3RFdMybZlR0IrgXPDASsJKNq+fYoAEknqNwayVpF0TJuCM68ZL5u+jvP2kSJzNb
-    uzEL92YYUhy3WTFz5OeVGhFev0RoxpMHTkkKoJW05Y7hAdAmzEcJlTbvwpOHTvLhVHOcXK
-    NFxq9luxS70aEA7UmQP5VBScPJ6mb9VjOUGPO8tfFVXuDmjRu1PhFb3ygA52AL64uurtb9
-    KhkQdfYv4lANOAn+MnCvTycdOHoWduwolJU82ULFPHWUYncprDLFNvl/RNfy5PC0gyVFCK
-    6Cy8ND2QIC4wk0iBJZCAxqZBIT1hEtwZg6OYDtgEBhjC6hRjs5/flLerQo2En8XAMtmnPR
-    /Bi0koRiNGfZzM5x8NZJ1GnXquVShnGDJ7/ONDaOTph89nLlZ+XGJEqlGrBOWYxB40GGOf
-    Mh8HXQwpidDm9408oeuDzjVXHpsMIw7rHAKtj0zg/GU0Mo7qZwM57bIiVHzA
-X-ME-Proxy: <xmx:UHcFa1_f312RZgYXqEMrnTw4AmkKMTxWxKr5sc4nvCobE9jZchmziw>
-    <xmx:UHcFazyAfwGsVXdBGE1tgdybf3aLPfNRWkCSlDtm1chEn9LEDIS-pA>
-    <xmx:UHcFa3_NeX3wtksN-MP8zAWPIHg0KttBrCbY0T_2bIE3dCNYcq73rA>
-    <xmx:UHcFaxN8fuh0tYdYOB868r4nFHZAXZ44-57dpvA7t7ahobSId8YynA>
-    <xmx:U3cFa7swwRahoueDmCOlHnNi2Hql5VtQirr4vRt82r2n9IAERyRjHful>
-Feedback-ID: i559e4809:Fastmail
-Received: by mailuser.ams.internal (Postfix, from userid 501)
-	id 6CBDE2F8005C; Tue, 24 Nov 2026 06:38:54 -0500 (EST)
-X-Mailer: MessagingEngine.com Webmail Interface
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gwzg+NUO
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDD141F000C0;
+	Tue, 24 Nov 2026 11:43:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795520623;
+	bh=6qu+7Lmy3A39iDT57VU11u0Vh7SIl/5fOSeCu4xBzcw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gwzg+NUO7SgLCjrwJ6NpI8racz8Wzlgb82u6xrOXHGKvj9roTswRt4c4eHbJHfoXm
+	 6VfXTtBDGtgzSslTc0FslGupQNukg7dYt69yM2V6rxEJ2F3wArZQFHBjHSiAgintBR
+	 EryVVugMWdZmFwGdbW3yDE991gIYio81IuB6uTsrTQxxaDO/0/Fw+cW2+r5p7HXuFQ
+	 GrbM3TdHQlS4ps8Vv0lxg9GD0ftC5bz0BSxCPRXCZ4npPIG0zZSF4j814HFhaj8mlh
+	 rsk1ElBNSR4q8ofKxIXsZPCYFxOvXPYiYtugXinhYeZyEO9ttjD+OmtOPOalsky7EX
+	 bScRzL7s/t8zw==
+Date: Tue, 24 Nov 2026 11:43:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Pavan Chebbi <pavan.chebbi@broadcom.com>
+Cc: michael.chan@broadcom.com, kuba@kernel.org, andrew+netdev@lunn.ch,
+	andrew.gospodarek@broadcom.com, davem@davemloft.net,
+	edumazet@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com,
+	Rui Salvaterra <rsalvaterra@gmail.com>
+Subject: Re: [PATCH net v3 1/3] tg3: Don't fail probe if 31-bit coherent DMA
+ mask is unsupported
+Message-ID: <20261124114338.GK31322@horms.kernel.org>
+References: <20261118105408.1076095-1-pavan.chebbi@broadcom.com>
+ <20261118105408.1076095-2-pavan.chebbi@broadcom.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,74 +60,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Tue, 24 Nov 2026 13:38:26 +0200
-From: "Alice Mikityanska" <alice.kernel@fastmail.im>
-To: "Haishuang Yan" <yanhaishuang@cmss.chinamobile.com>,
- netdev@vger.kernel.org
-Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
- "David S. Miller" <davem@davemloft.net>,
- "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
- "Paolo Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>,
- "Shuah Khan" <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Message-Id: <274a4204-8a35-4550-a6e2-dff96aaee55a@app.fastmail.com>
-In-Reply-To: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
-Subject: Re: [PATCH net-next 0/6] ip tunnels: Enable BIG TCP packets
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261118105408.1076095-2-pavan.chebbi@broadcom.com>
 
-On Tue, Nov 24, 2026, at 03:31, Haishuang Yan wrote:
-> Following vxlan and geneve, this series allows BIG TCP on ipip, gre,
-> gretap, sit, ip6tnl, ip6gre and ip6gretap, which also covers their FOU
-> and GUE encapsulation. The UDP length of FOU and GUE is already handled
-> since commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they
-> can occur").
->
-> Each driver patch bumps tso_max_size to GSO_MAX_SIZE in the setup of
-> the device, like vxlan and geneve do. The default gso_max_size and
-> gso_ipv4_max_size stay at 64KB. vti, erspan and ip6erspan are left
-> alone.
+On Wed, Nov 18, 2026 at 04:24:06PM +0530, Pavan Chebbi wrote:
+> Commit 614f4d166eee ("tg3: Set coherent DMA mask bits to 31 for
+> BCM57766 chipsets") lowered the coherent DMA mask to 31 bits as a
+> workaround for a spurious address overflow error in the hardware.
+> The result of dma_set_coherent_mask() is fatal to probe, so on
+> platforms that cannot satisfy such a mask the device fails to probe:
+> 
+>   tg3 0000:01:00.0: Unable to obtain 64 bit DMA for consistent allocations
+>   tg3 0000:01:00.0: probe with driver tg3 failed with error -5
+> 
+> This was reported on a Mac mini (Macmini6,2, BCM57766) running a
+> kernel built without CONFIG_ZONE_DMA and with IOMMU passthrough as
+> the default. Without CONFIG_ZONE_DMA, dma_direct_supported() only
+> accepts a mask narrower than 32 bits if it covers the highest
+> physical memory address, so with direct mapping a 31-bit coherent
+> mask is rejected whenever memory extends above 2GB.
+> 
+> Treat the 31-bit mask as best effort.  If it is refused, warn and fall
+> back to the mask used before 614f4d166eee, so that the device still
+> probes.  Platforms that accept the mask are unaffected.  Where it is
+> refused, 614f4d166eee never protected the device, it only stopped it
+> from probing, so this restores the behaviour of kernels before that
+> commit.  Warn when a status block lands at an address matching the
+> pattern described in 614f4d166eee, so that a resulting TX timeout can
+> be identified.
 
-Thanks for your patches!
+Hi Pavan,
 
-Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
+I am not following how a BCM57766 device can be used on a system that
+rejects a 31-bit mask. Is the idea that TX timeouts are infrequent
+and can be lived with in such an environment?
 
-> Patch 6 extends big_tcp_tunnels.sh, which already covers vxlan, geneve
-> and bareudp, to check that BIG TCP packets go through all these devices,
-> without encapsulation and with FOU and GUE, with and without veth tx
-> checksum offload. sit is only checked with checksum offload, as GRO does
-> not build sit packets larger than 64KB.
+> 
+> Fixes: 614f4d166eee ("tg3: Set coherent DMA mask bits to 31 for BCM57766 chipsets")
+> Reported-by: Rui Salvaterra <rsalvaterra@gmail.com>
+> Link: https://lore.kernel.org/netdev/CALjTZvYKHWrD5m+RXimjxODvpFPw7Cq_EOEuzRi1PZT9_JxF+g@mail.gmail.com/
+> Signed-off-by: Pavan Chebbi <pavan.chebbi@broadcom.com>
 
-Do you know why GRO doesn't aggregate >64K with sit? I had patches to
-enable BIG TCP on IP tunnels too, but I've never submitted mine because
-I didn't have a chance to investigate this specific failure. It would be
-interesting to lift this limitation of GRO with sit, as it aggregates
- >64K just fine in all other cases.
-
-> With iperf3 over veth in a KVM guest, raising gso_max_size from 64KB to
-> 196608 gives +20% to +39% depending on the tunnel, see the commit
-> messages for the numbers.
->
-> This work was done with the help of an AI coding assistant.
->
-> Haishuang Yan (6):
->   ipip: Enable BIG TCP packets
->   gre: Enable BIG TCP packets
->   sit: Enable BIG TCP packets
->   ip6_tunnel: Enable BIG TCP packets
->   ip6_gre: Enable BIG TCP packets
->   selftests: net: big_tcp_tunnels: Cover IP tunnels
->
->  net/ipv4/ip_gre.c                             |   2 +
->  net/ipv4/ipip.c                               |   1 +
->  net/ipv6/ip6_gre.c                            |   2 +
->  net/ipv6/ip6_tunnel.c                         |   1 +
->  net/ipv6/sit.c                                |   1 +
->  .../testing/selftests/net/big_tcp_tunnels.sh  | 131 +++++++++++++++++-
->  6 files changed, 135 insertions(+), 3 deletions(-)
->
->
-> base-commit: eb6d6c80d35449c27471b1874f13066c09a8964d
-> -- 
-> 2.43.0
+...
