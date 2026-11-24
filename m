@@ -1,43 +1,43 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795516845;
-	b=1D7rRmzIBlpcGBKiVwOTcFLaBewQmbaMIielGKxar6E2rDwuvm2m0I6dfOExRS1f0Sz6
-	 9YxmqXn5F91O777WVMBp0zqBPlweXErngKS1XkMwnIUkn89+4cNy5zsIPcwIhDnxRUSh5
-	 84TWf7KTIaAVMJoUxAkHgDojqUNY7S4ZmSxDMF6YabitQm0kWQo+jUkmS9b7cbUw6VFug
-	 slP90+ZImVk7OnNOOGVSJlgXdJvKzZ8swFTiHW1I2Wc+3n+IklcJIqShMCj3rwmdQz+kD
-	 eEXposrp+0nCLmSflbQuM4bKLVE5q90G2QMTwtkh6/GQqMlvGNY8qIc/OfPm4X3bBrQ==
+	t=1795516852;
+	b=eNqZsF2eusQJprUQ1b17PRYsDJUA2/65hAL/7b+n81TVKF53ZJ6IFNIOsJG75LQHTDIK
+	 q1R7ORO6oBEbpiCsSejpcXLXd6oK9SYg7nlV2WakTdGrzDvmd7CsdLbutBTRpPDyvH5fd
+	 hZDDMoc+526FyTvexBb8Cy4CYMcmisGPilDonXBFpNIB3qqwx7o36+dQbpLDAEkwRvdGV
+	 Q/yV6XSqjGEFGmJ5Tf7GQTU58bwNzHYvhgaQZteSgOwgDW42wIMK0OQgJl0wWQCRKo0iD
+	 2DzRdfKns87KEHJAG1cKLdWOIeGMf0d1/B7dBUJoPPzjKdbOHVhSK/pp9zoWAENv8Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795516845;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795516852;
 	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
 	 DKIM-Signature;
-	bh=TTYBFpA6ANP+rywyUM8DAtQ6+CXyfuYHwjJjMX1FnNg=;
-	b=kKjgZjjLCsIqKD+sGZnXpRjh58asMBgOMh0dOi6Sk0MQPsQWFLpFEwF8L/I6D4ryoEAq
-	 syMRmbvPKhjFppjS3Bfgmbj4S9qlUtCW/snkZc21KzLNZsE513tSbS7Y06Z+VdF7X/5GX
-	 UpzVvufUK2FGLjWO2d5WGcCPYvtGRTNab/fJ8bTqEdlkmJhNiJMeZ9CW7DOYBJ6mbyKjQ
-	 IOTMTWkwSyJEn9bf9VsusKQETNSNVUAXTYt4hLlISJJtfjFrsRb15ueEeiV0TTpW7yV13
-	 TY/M4UIqrzHhB/ZaUPEIlYdGv3mxpDNKANfAaDVTQtmWwVCctSW/lSRKnA6GDcdc0zQ==
+	bh=WFelugwLNPTLGIsm1EbRuqynel4zd3FFYDI8cAMlECY=;
+	b=5tvOqYbwGRjeBGmzPNer/WvBp0P/i3TZX5e9QFanViwrQazoRdHwHdzyqUC79jzgxt5F
+	 ey++VNcKS8SFvtLqqU2oLuWZgafGIJvEFqVhFUalvXFySLaZu4MZzPwyIrc/qhbHxuR9E
+	 2WwER3t0xatgY/S42o9MF+jip2Pxr6cW/hAaal7pfJ2V/CXCKnWY7OKvqRw6KBs/jIC79
+	 LY6vTCS8LoOfCtdySbVFQcGuIeCkwnjSsQCXzr03mQXLtlkUFvVSM3oWT2O/aS6nYW0u3
+	 GT6vgAN77zCTW9Sz9xEsIFyb4i65EKDqoYACydflYEWlTXEbX2u86s6BwFzjkDqH8Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=poczta.fm;
 	spf=pass smtp.mailfrom=poczta.fm;
-	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=vExjUJ8w;
-	arc=none smtp.remote-ip=217.74.67.75
-Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=STm0VC+e;
+	arc=none smtp.remote-ip=217.74.67.49
+Received: from smtpo49.interia.pl (smtpo49.interia.pl [217.74.67.49])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4CEEA606A693
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:40:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4CEEA606A693
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1634C606A327
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 10:40:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1634C606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=vExjUJ8w
+	dkim=pass (1024-bit key) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=STm0VC+e
 Received: from localhost (unknown [80.68.231.31])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (P-256) server-signature ECDSA (P-256) server-digest SHA256)
 	(No client certificate requested)
 	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
-	Tue, 24 Nov 2026 11:40:40 +0100 (CET)
+	Tue, 24 Nov 2026 11:40:46 +0100 (CET)
 From: Slawomir Stepien <sst@poczta.fm>
 To: Alexei Starovoitov <ast@kernel.org>,
 	Daniel Borkmann <daniel@iogearbox.net>,
@@ -72,11 +72,10 @@ Cc: bpf@vger.kernel.org,
 	Emil Tsalapatis <emil@etsalapatis.com>,
 	Shuah Khan <shuah@kernel.org>,
 	linux-kselftest@vger.kernel.org,
-	stable@vger.kernel.org,
 	Slawomir Stepien <sst@poczta.fm>
-Subject: [PATCH v8 bpf 5/7] veth: update mem type in xdp_buff
-Date: Tue, 24 Nov 2026 11:40:14 +0100
-Message-ID: <20261124104016.532341-6-sst@poczta.fm>
+Subject: [PATCH v8 bpf 7/7] selftests/bpf: Grow test_run and generic XDP frags after a test run
+Date: Tue, 24 Nov 2026 11:40:16 +0100
+Message-ID: <20261124104016.532341-8-sst@poczta.fm>
 X-Mailer: git-send-email 2.56.0
 In-Reply-To: <20261124104016.532341-1-sst@poczta.fm>
 References: <20261124104016.532341-1-sst@poczta.fm>
@@ -91,212 +90,226 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
-	t=1795516842; bh=TTYBFpA6ANP+rywyUM8DAtQ6+CXyfuYHwjJjMX1FnNg=;
+	t=1795516849; bh=WFelugwLNPTLGIsm1EbRuqynel4zd3FFYDI8cAMlECY=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version;
-	b=vExjUJ8wjVGR91D2H5PKU2AE0+lwG7DttRak+L2k+ST6bIsP2ni9UPmWgpFjoO1vH
-	 Q2G2Z0OnamKzFvadpamC+m8GpgNyBDpLvPfxkaqX9/LK3eSOvOhLv3E4yacSMMfYiS
-	 ThtBslTYvVZBEg1QAwH7Ve+pFxY6EPK6gw/nGBq4=
+	b=STm0VC+ek9TIpVheZ/4/x7tmiA49norvQ4c89q3dZVCOPjkQHkaqblXoWksmCvCnF
+	 S4dVfPnlFS1z6h5HhN1mbIl5UaLOaWQH+192OmRdOQU8dOBBieKbx0zh/lxx7uqynv
+	 gaDjivdClbYsufi500tdav8Pez1By1JOtJEawJ8s=
 
-From: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+Add two xdp_adjust_tail subtests for frag_size of the rxq info a
+program runs with:
 
-When skb's headroom is not sufficient for XDP purposes,
-skb_pp_cow_data() returns new skb with requested headroom space. This
-skb was provided by page_pool.
+- xdp_adjust_frags_tail_grow_ingress_ifindex grows the last frag of a
+  9000 byte test_run packet with ingress_ifindex set to a veth device.
+  test_run allocates PAGE_SIZE frags, so the grow must succeed.
 
-For CONFIG_DEBUG_VM=y and XDP program that uses bpf_xdp_adjust_tail()
-against a skb with frags, and mentioned helper consumed enough amount of
-bytes that in turn released the page, following splat was observed:
+- xdp_adjust_frags_tail_grow_lo_after_test_run does a test run, then
+  sends a UDP packet a bit larger than a page over lo with a generic XDP
+  frags program attached, or is skipped with 64K pages. Generic XDP
+  copies the packet into a page_pool head page and a frag, which can be
+  a part of a page, so growing the frag must fail with -EOPNOTSUPP. The
+  program asks for more than any tailroom, so nothing is written even
+  when the grow is allowed.
 
-[   32.204881] BUG: Bad page state in process test_progs  pfn:11c98b
-[   32.207167] page: refcount:0 mapcount:0 mapping:0000000000000000 index:0x0 pfn:0x11c98b
-[   32.210084] flags: 0x1fffe0000000000(node=0|zone=1|lastcpupid=0x7fff)
-[   32.212493] raw: 01fffe0000000000 dead000000000040 ff11000123c9b000 0000000000000000
-[   32.218056] raw: 0000000000000000 0000000000000001 00000000ffffffff 0000000000000000
-[   32.220900] page dumped because: page_pool leak
-[   32.222636] Modules linked in: bpf_testmod(O) bpf_preload
-[   32.224632] CPU: 6 UID: 0 PID: 3612 Comm: test_progs Tainted: G O        6.17.0-rc5-gfec474d29325 #6969 PREEMPT
-[   32.224638] Tainted: [O]=OOT_MODULE
-[   32.224639] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS rel-1.14.0-0-g155821a1990b-prebuilt.qemu.org 04/01/2014
-[   32.224641] Call Trace:
-[   32.224644]  <IRQ>
-[   32.224646]  dump_stack_lvl+0x4b/0x70
-[   32.224653]  bad_page.cold+0xbd/0xe0
-[   32.224657]  __free_frozen_pages+0x838/0x10b0
-[   32.224660]  ? skb_pp_cow_data+0x782/0xc30
-[   32.224665]  bpf_xdp_shrink_data+0x221/0x530
-[   32.224668]  ? skb_pp_cow_data+0x6d1/0xc30
-[   32.224671]  bpf_xdp_adjust_tail+0x598/0x810
-[   32.224673]  ? xsk_destruct_skb+0x321/0x800
-[   32.224678]  bpf_prog_004ac6bb21de57a7_xsk_xdp_adjust_tail+0x52/0xd6
-[   32.224681]  veth_xdp_rcv_skb+0x45d/0x15a0
-[   32.224684]  ? get_stack_info_noinstr+0x16/0xe0
-[   32.224688]  ? veth_set_channels+0x920/0x920
-[   32.224691]  ? get_stack_info+0x2f/0x80
-[   32.224693]  ? unwind_next_frame+0x3af/0x1df0
-[   32.224697]  veth_xdp_rcv.constprop.0+0x38a/0xbe0
-[   32.224700]  ? common_startup_64+0x13e/0x148
-[   32.224703]  ? veth_xdp_rcv_one+0xcd0/0xcd0
-[   32.224706]  ? stack_trace_save+0x84/0xa0
-[   32.224709]  ? stack_depot_save_flags+0x28/0x820
-[   32.224713]  ? __resched_curr.constprop.0+0x332/0x3b0
-[   32.224716]  ? timerqueue_add+0x217/0x320
-[   32.224719]  veth_poll+0x115/0x5e0
-[   32.224722]  ? veth_xdp_rcv.constprop.0+0xbe0/0xbe0
-[   32.224726]  ? update_load_avg+0x1cb/0x12d0
-[   32.224730]  ? update_cfs_group+0x121/0x2c0
-[   32.224733]  __napi_poll+0xa0/0x420
-[   32.224736]  net_rx_action+0x901/0xe90
-[   32.224740]  ? run_backlog_napi+0x50/0x50
-[   32.224743]  ? clockevents_program_event+0x1cc/0x280
-[   32.224746]  ? hrtimer_interrupt+0x31e/0x7c0
-[   32.224749]  handle_softirqs+0x151/0x430
-[   32.224752]  do_softirq+0x3f/0x60
-[   32.224755]  </IRQ>
-
-It's because xdp_rxq with mem model set to MEM_TYPE_PAGE_SHARED was used
-when initializing xdp_buff.
-
-Fix this by using new helper xdp_convert_skb_to_buff(). Unlike generic
-XDP, veth turns the xdp_buff into an xdp_frame on XDP_{TX,REDIRECT}, so
-the head is later released through the mem type as well and the
-helper's frags-only reasoning is not enough here. Advertise
-MEM_TYPE_PAGE_POOL only when the whole buffer was just copied into
-rq->page_pool by skb_pp_cow_data(); otherwise keep the queue's original
-MEM_TYPE_PAGE_SHARED model. An skb that skips the CoW has no frags, so
-nothing can be released through the mem type while the program runs.
-
-XDP_{TX,REDIRECT} no longer reset the mem type to the queue's original
-model before the buff is converted to a frame, as the frame has to
-carry the type chosen above. Nothing needs to be restored afterwards
-either: the previous patch makes the frame path set its own mem type
-and every skb sets it here. Add a page_pool variant of veth_xdp_get()
-so that we avoid refcount underflow when draining page frag.
-
-Frames redirected out of veth can now be MEM_TYPE_PAGE_POOL. A devmap
-egress program only releases their frags correctly since commit
-b3ca872947ef ("bpf: Use the frame mem type in devmap egress XDP"), so
-that commit has to come first when backporting, as do the previous
-three patches of this series: xdp_convert_skb_to_buff() is used here,
-dropping the restores relies on the frame path setting its own mem
-type, and test_run needs its own rxq info once the helper sets it.
-Before v6.9, generic XDP has no frags and xdp_convert_skb_to_buff()
-has to be adapted to the older bpf_prog_run_generic_xdp().
-
-Fixes: 0ebab78cbcbf ("net: veth: add page_pool for page recycling")
-Reported-by: Alexei Starovoitov <ast@kernel.org>
-Closes: https://lore.kernel.org/bpf/CAADnVQ+bBofJDfieyOYzSmSujSfJwDTQhiz3aJw7hE+4E2_iPA@mail.gmail.com/
-Cc: <stable@vger.kernel.org> # 6.4.x: b3ca872947ef: bpf: Use the frame mem type in devmap egress XDP
-Cc: <stable@vger.kernel.org> # 6.4.x
-Signed-off-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-[sst: rebased onto bpf/master; claim MEM_TYPE_PAGE_POOL only after CoW into
- rq->page_pool; take page_pool refs on compound heads via netmem helpers;
- drop the rq mem model restores as every path sets its own mem type now;
- dropped Reviewed-by as the code changed; list the backport
- prerequisites (BPF CI)]
 Signed-off-by: Slawomir Stepien <sst@poczta.fm>
 ---
- drivers/net/veth.c | 53 +++++++++++++++++++++++++++++++---------------
- 1 file changed, 36 insertions(+), 17 deletions(-)
+ .../bpf/prog_tests/xdp_adjust_tail.c          | 138 ++++++++++++++++++
+ .../test_xdp_adjust_frags_tail_grow_lo.c      |  25 ++++
+ 2 files changed, 163 insertions(+)
+ create mode 100644 tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
 
-diff --git a/drivers/net/veth.c b/drivers/net/veth.c
-index 80d3c116e757..1a14ce77e4a7 100644
---- a/drivers/net/veth.c
-+++ b/drivers/net/veth.c
-@@ -741,7 +741,7 @@ static void veth_xdp_rcv_bulk_skb(struct veth_rq *rq, void **frames,
- 	}
- }
+diff --git a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
+index be0c36871911..ead6c0be960e 100644
+--- a/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
++++ b/tools/testing/selftests/bpf/prog_tests/xdp_adjust_tail.c
+@@ -4,6 +4,7 @@
+ #include <linux/if_link.h>
+ #include <net/if.h>
+ #include "xdp_dummy.skel.h"
++#include "test_xdp_adjust_frags_tail_grow_lo.skel.h"
  
--static void veth_xdp_get(struct xdp_buff *xdp)
-+static void veth_xdp_get_shared(struct xdp_buff *xdp)
+ static void test_xdp_adjust_tail_shrink(void)
  {
- 	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
- 	int i;
-@@ -754,12 +754,36 @@ static void veth_xdp_get(struct xdp_buff *xdp)
- 		netmem_inc_ref(skb_frag_netmem(&sinfo->frags[i]));
+@@ -406,6 +407,139 @@ static void test_xdp_adjust_frags_tail_shrink_after_generic(void)
+ 	xdp_dummy__destroy(skel);
  }
  
-+static void veth_xdp_get_pp(struct xdp_buff *xdp)
++/*
++ * test_run allocates PAGE_SIZE frags, so a program may grow the last one up
++ * to the end of its page, also when ingress_ifindex picks the rxq info of
++ * another device.
++ */
++static void test_xdp_adjust_frags_tail_grow_ingress_ifindex(void)
 +{
-+	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
-+	int i;
++	const char *file = "./test_xdp_adjust_tail_grow.bpf.o";
++	struct xdp_md ctx = { .data_end = 9000 };
++	struct netns_obj *ns = NULL;
++	struct bpf_program *prog;
++	struct bpf_object *obj;
++	__u8 *buf = NULL;
++	int err, ifindex;
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.ctx_in = &ctx,
++		.ctx_size_in = sizeof(ctx),
++	);
 +
-+	page_pool_ref_netmem(netmem_compound_head(virt_to_netmem(xdp->data)));
-+	if (likely(!xdp_buff_has_frags(xdp)))
++	if (getpagesize() != 4096) {
++		test__skip();
++		return;
++	}
++
++	obj = bpf_object__open(file);
++	if (!ASSERT_OK_PTR(obj, "open"))
 +		return;
 +
-+	for (i = 0; i < sinfo->nr_frags; i++) {
-+		netmem_ref netmem = skb_frag_netmem(&sinfo->frags[i]);
++	prog = bpf_object__next_program(obj, NULL);
++	if (!ASSERT_OK(bpf_object__load(obj), "load"))
++		goto out;
 +
-+		page_pool_ref_netmem(netmem_compound_head(netmem));
-+	}
++	ns = netns_new("xdp_adjust_tail_ns", true);
++	if (!ASSERT_OK_PTR(ns, "netns_new"))
++		goto out;
++
++	SYS(out, "ip link add veth_xat0 type veth peer name veth_xat1");
++	ifindex = if_nametoindex("veth_xat0");
++	if (!ASSERT_GT(ifindex, 0, "veth ifindex"))
++		goto out;
++	ctx.ingress_ifindex = ifindex;
++
++	buf = malloc(16384);
++	if (!ASSERT_OK_PTR(buf, "alloc buf 16Kb"))
++		goto out;
++	memset(buf, 1, 16384);
++
++	/* Test case add 10 bytes to last frag */
++	topts.data_in = buf;
++	topts.data_out = buf;
++	topts.data_size_in = 9000;
++	topts.data_size_out = 16384;
++	err = bpf_prog_test_run_opts(bpf_program__fd(prog), &topts);
++
++	ASSERT_OK(err, "9Kb+10b");
++	ASSERT_EQ(topts.retval, XDP_TX, "9Kb+10b retval");
++	ASSERT_EQ(topts.data_size_out, 9000 + 10, "9Kb+10b size");
++out:
++	free(buf);
++	netns_free(ns);
++	bpf_object__close(obj);
 +}
 +
-+static void veth_xdp_get(struct xdp_buff *xdp)
++/*
++ * The frags generic XDP gets from skb_pp_cow_data() can be parts of a
++ * page_pool page, so its rxq info must not allow growing them. test_run
++ * must not change that for lo.
++ */
++static void test_xdp_adjust_frags_tail_grow_lo_after_test_run(void)
 +{
-+	if (xdp->rxq->mem.type == MEM_TYPE_PAGE_POOL)
-+		veth_xdp_get_pp(xdp);
-+	else
-+		veth_xdp_get_shared(xdp);
++	struct sockaddr_in addr = {
++		.sin_family = AF_INET,
++		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
++		.sin_port = htons(9),
++	};
++	struct test_xdp_adjust_frags_tail_grow_lo *skel;
++	struct netns_obj *ns = NULL;
++	static char payload[60000];
++	int fd = -1, lo, i, len, prog_fd;
++	LIBBPF_OPTS(bpf_test_run_opts, topts,
++		.data_in = &pkt_v4,
++		.data_size_in = sizeof(pkt_v4),
++		.repeat = 1,
++	);
++
++	/* larger than the head generic XDP copies the packet into */
++	len = getpagesize() + 500;
++	if (len > (int)sizeof(payload)) {
++		test__skip();
++		return;
++	}
++
++	skel = test_xdp_adjust_frags_tail_grow_lo__open_and_load();
++	if (!ASSERT_OK_PTR(skel, "skel open_and_load"))
++		return;
++
++	ns = netns_new("xdp_adjust_tail_ns", true);
++	if (!ASSERT_OK_PTR(ns, "netns_new"))
++		goto out;
++
++	SYS(out, "ip link set dev lo up");
++	lo = if_nametoindex("lo");
++	if (!ASSERT_GT(lo, 0, "lo ifindex"))
++		goto out;
++
++	/* a test run in this netns, before generic XDP sees a packet on lo */
++	prog_fd = bpf_program__fd(skel->progs.xdp_grow_frags);
++	ASSERT_OK(bpf_prog_test_run_opts(prog_fd, &topts), "test_run");
++
++	if (!ASSERT_OK(bpf_xdp_attach(lo, prog_fd, XDP_FLAGS_SKB_MODE, NULL),
++		       "attach generic XDP"))
++		goto out;
++
++	/*
++	 * a linear skb with little headroom: generic XDP copies it into a
++	 * page_pool head page and a frag
++	 */
++	fd = socket(AF_INET, SOCK_DGRAM, 0);
++	if (ASSERT_GE(fd, 0, "socket"))
++		ASSERT_EQ(sendto(fd, payload, len, 0, (struct sockaddr *)&addr,
++				 sizeof(addr)), len, "sendto");
++	for (i = 0; i < 100 && skel->data->grow_ret == 1; i++)
++		usleep(10000);
++	bpf_xdp_detach(lo, XDP_FLAGS_SKB_MODE, NULL);
++
++	ASSERT_EQ(skel->data->grow_ret, -EOPNOTSUPP, "grow frag on lo");
++out:
++	if (fd >= 0)
++		close(fd);
++	netns_free(ns);
++	test_xdp_adjust_frags_tail_grow_lo__destroy(skel);
 +}
 +
- static int veth_convert_skb_to_xdp_buff(struct veth_rq *rq,
- 					struct xdp_buff *xdp,
- 					struct sk_buff **pskb)
+ void test_xdp_adjust_tail(void)
  {
- 	struct sk_buff *skb = *pskb;
--	u32 frame_sz;
-+	bool pp_cow = false;
- 
- 	if (skb_shared(skb) || skb_head_is_locked(skb) ||
- 	    skb_is_nonlinear(skb) ||
-@@ -768,21 +792,18 @@ static int veth_convert_skb_to_xdp_buff(struct veth_rq *rq,
- 			goto drop;
- 
- 		skb = *pskb;
-+		pp_cow = true;
+ 	int page_size = getpagesize();
+@@ -426,4 +560,8 @@ void test_xdp_adjust_tail(void)
+ 		else
+ 			test_xdp_adjust_frags_tail_grow_4k();
  	}
- 
--	/* SKB "head" area always have tailroom for skb_shared_info */
--	frame_sz = skb_end_pointer(skb) - skb->head;
--	frame_sz += SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
--	xdp_init_buff(xdp, frame_sz, &rq->xdp_rxq);
--	xdp_prepare_buff(xdp, skb->head, skb_headroom(skb),
--			 skb_headlen(skb), true);
--
--	if (skb_shinfo(skb)->nr_frags) {
--		skb_shinfo(skb)->xdp_frags_size = skb->data_len;
--		xdp_buff_set_frags_flag(xdp);
--	} else {
--		xdp_buff_clear_frags_flag(xdp);
--	}
-+	xdp_convert_skb_to_buff(skb, xdp, &rq->xdp_rxq);
++	if (test__start_subtest("xdp_adjust_frags_tail_grow_ingress_ifindex"))
++		test_xdp_adjust_frags_tail_grow_ingress_ifindex();
++	if (test__start_subtest("xdp_adjust_frags_tail_grow_lo_after_test_run"))
++		test_xdp_adjust_frags_tail_grow_lo_after_test_run();
+ }
+diff --git a/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
+new file mode 100644
+index 000000000000..207346b14ad8
+--- /dev/null
++++ b/tools/testing/selftests/bpf/progs/test_xdp_adjust_frags_tail_grow_lo.c
+@@ -0,0 +1,25 @@
++// SPDX-License-Identifier: GPL-2.0
++#include <linux/bpf.h>
++#include <bpf/bpf_helpers.h>
++
++/* 1 until the program saw a packet with frags */
++int grow_ret = 1;
++
++SEC("xdp.frags")
++int xdp_grow_frags(struct xdp_md *xdp)
++{
++	void *data_end = (void *)(long)xdp->data_end;
++	void *data = (void *)(long)xdp->data;
++
++	if (grow_ret != 1 || bpf_xdp_get_buff_len(xdp) <= data_end - data)
++		return XDP_PASS;
++
 +	/*
-+	 * Unlike generic XDP, XDP_{TX,REDIRECT} turn the buff into an
-+	 * xdp_frame, which later releases the head via mem.type as well.
-+	 * Only claim page_pool memory when the whole buffer was copied into
-+	 * rq->page_pool above; an skb that skipped the CoW is linear.
++	 * More than the tailroom of any frag, so nothing is written: the
++	 * result only tells if frag_size of the rxq allows a grow at all.
 +	 */
-+	if (!pp_cow)
-+		rq->xdp_rxq.mem = rq->xdp_mem;
- 	*pskb = skb;
- 
- 	return 0;
-@@ -830,7 +851,6 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
- 	case XDP_TX:
- 		veth_xdp_get(xdp);
- 		consume_skb(skb);
--		xdp->rxq->mem = rq->xdp_mem;
- 		if (unlikely(veth_xdp_tx(rq, xdp, bq) < 0)) {
- 			trace_xdp_exception(rq->dev, xdp_prog, act);
- 			stats->rx_drops++;
-@@ -842,7 +862,6 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
- 	case XDP_REDIRECT:
- 		veth_xdp_get(xdp);
- 		consume_skb(skb);
--		xdp->rxq->mem = rq->xdp_mem;
- 		if (xdp_do_redirect(rq->dev, xdp, xdp_prog)) {
- 			stats->rx_drops++;
- 			goto err_xdp;
++	grow_ret = bpf_xdp_adjust_tail(xdp, 0x10000);
++	return XDP_PASS;
++}
++
++char _license[] SEC("license") = "GPL";
 -- 
 2.56.0
 
