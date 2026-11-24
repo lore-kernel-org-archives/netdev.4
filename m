@@ -1,56 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795544995;
-	b=GqiMx0BKWIuuP+79qum3DR9ghrkgNdIWw+3slFGPyr2deIY4SOvoolOQnfR3T51fL8Pc
-	 NhRko/vKtqMCdj6Nb8Av+1haZICxS4e54hWNGupOmw8azHQNiXHRMjBj+NeBVECu7X9Lv
-	 gL7wK0IYx29cIQK/D+/lPGb+3fIhUYzGDooxwRou0mdsmOjcxwpBYRHYIwWjQt3HAm7p7
-	 l6DEVV2pi+8EMFyNTogcXrugkIfksyOnBj0srVNk/lkNPUiC0oewx2Wno7L+tyAiotUx9
-	 7saa44P8yVAhKCGkiH3Ur4me8rO2G62Dxht4hv2NzGWLShv2VQFf+0tJ7BhA7MYpfmw==
+	t=1795544998;
+	b=rUktyo6fqNnjtVibVljy1fVeGVI80lHDukG8TE1odvDlPj1nYlvDWeKIyVLnDObzivGW
+	 jrsVvxfm2XkCqoUy64/Z/KDrcHCGgrIflJgVWOzwrDbLIG/69h1OBWbfVxtQkeIYYM6J6
+	 U3AEIZcSSP+xFu041LjsH3qYRBIcrrFjNt0moVNlAECn2bX06Aa+VBhb2SYNY6oLGip2d
+	 Sngy0zQF5rRZzTs6PWzYHM4ZEfETobk+GKXFohmXySTdHmKGHlA5IWZ8yXRVTtTzMGXNJ
+	 bHVvixzNNv377+SHoXMQYIjBiYfBot+H5m9j2sonCXN4VdG9fE2HFZQTL3+nYWST27g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795544995;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795544998;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Xg2JL0Unr4xXx6UCd26YLCbPv9sIkjm7WiGBoNMPRMc=;
-	b=1eEmBHHKylowDQH2fjUDohqmzikUwH+s8a5Q/00aD28xbdJn0fKebzcXxoxh1skPdMvz
-	 TwFz3xWB+SY6CK2gB+SrKLRP4zNSgKqhOx6UQaEwoT61AaJTuBApDsu2stXci0TPFWGEd
-	 s7RtClgo5nPxjByLYPe/gap+dRBXZWi1jATnEnZF23JnMUnSPqy0RWt2Z0hKDJgwzU0Tb
-	 QuPFckFypuGOGMS/yCK1gYMkw/87gZJ/S2q55beWahWH2I1mzHBYJDrUTh5sMa+eUgmuV
-	 c1FviHyG8eM5uH4xUbqfsYwq1ZmhOmTZrf/wA0Gsja+y7TF2pnMldgTW9piNP5l1kiQ==
+	bh=w654MEZNHX4phJkvMOndPvh3BoZbH198y9l2bP1SyTI=;
+	b=apLkMtJ/4C6AQZdJRcKdAy7jcR3rTuI6AVbTYcKYUwnM1hSri97HGwWqdR6JXYrPoZwy
+	 Yuf1XRdrOHwX5ZNJum2RzL+9ka67eR+6igieX41kV7CKRc6ZVstuvwAMwmDfS2ARMvi7r
+	 7NvRU0VseE6ZmW167zGmfvcwvMC0KRi3ULMhFQil2Ulxu2YE1bNEpfPSs9j1x/jYtBxBV
+	 OHYa0y1MZBRJ6Q/5/cTMUr5fC51/EW4BCvXGFTWhkkTw+lYFzVgZN53/Mbd4VZXUWhbmS
+	 Jn+AEnws9FVYMbcQ0KlkfTDFyX4FGES+IYaun2IUnXoJYUIaCu4BrCYaqnKuPMyifGQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hlyOad0n;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hPFlMbZ3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B00D8606A326
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EB8B6606A326
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:29:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hlyOad0n
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8D4C1F000C6;
-	Tue, 24 Nov 2026 18:29:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hPFlMbZ3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD7461F000C4;
+	Tue, 24 Nov 2026 18:29:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795544995;
-	bh=Xg2JL0Unr4xXx6UCd26YLCbPv9sIkjm7WiGBoNMPRMc=;
+	s=k20260515; t=1795544997;
+	bh=w654MEZNHX4phJkvMOndPvh3BoZbH198y9l2bP1SyTI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=hlyOad0njSk5x+hGw9S9Z/7To6fqIIlFABXTmh1qhJrGKO/pWzN6B5M2N86CloAum
-	 LqpTY2iuQzAQRp5EFS23Tl6tY+bgsDVIsrk75dvaAYpk64WHnC00UReHnWeO0j5n05
-	 9X9fx8cdvQ3aPao5MvEXo4j29JNNcuT9rnKh0W5pDvXV6ygf1O9f/QupSxVyHP6RFI
-	 2AkpRKRcNRf/hsI2ySp+NPODG+2UStH+mGTcHJTVTLIfKNMV8/irEiUhVxqj+d3j9F
-	 AW+XUvWn9aw5Oy41fmQ1ZR/LlnEk8P5oMxqtXlkZDx40DoaY0BOCRiM8Bx1BOZYY5Q
-	 RvD7ciBqmgALQ==
-Subject: Re: [PATCH net-next v9 07/14] net: ethernet: cortina: Preserve
- in-flight free queue pages
+	b=hPFlMbZ3FAn093p2N3dBBvlvdFtDe6MtEB/HQSRlpxbUwXaGb5TdcIG5v9WPaI2xT
+	 O67OqF0i2qOYE0Y8mKUNiC4VQbjsYr/63iBzlLpm9pB0yQz/uqPpPexHJ5Jo/Z6/Ls
+	 gJl5RJWEDaL8FYCUXWLJqinXhSN1k4yf7zDIRJJnezbMBeyGMtzJ2X3v267eNskTOE
+	 19PLiEZf1Pbhada1hToc5N/ie6E97xIMggcCdBtzog9KAHKZoNE5LUnYnz0JKUgpL0
+	 8ax8M56dbihcBsFMM5LqiEY67BDKxKaoxv+a3qQ0DkNDgU6i0KisF9cDU1bwVMzOt6
+	 mmuhj1O6Jkpkg==
+Subject: Re: [PATCH net-next v9 11/14] net: ethernet: cortina: Validate RX
+ fragment lengths
 From: netdev-bot+sashiko@kernel.org
 To: linusw@kernel.org
 Cc: ulli.kroll@googlemail.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  kuba@kernel.org, pabeni@redhat.com, mirq-linux@rere.qmqm.pl,
  mhun512@gmail.com, edumazet@kernel.org, netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 18:29:54 +0000
-Message-ID: <179554499443.3135.14488059743650071074@kernel.org>
-In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-7-298671d799d5@kernel.org>
-References: <20261120-gemini-ethernet-fixes-3-v9-7-298671d799d5@kernel.org>
+Date: Tue, 24 Nov 2026 18:29:56 +0000
+Message-ID: <179554499621.3135.11543355488056577743@kernel.org>
+In-Reply-To: <20261120-gemini-ethernet-fixes-3-v9-11-298671d799d5@kernel.org>
+References: <20261120-gemini-ethernet-fixes-3-v9-11-298671d799d5@kernel.org>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -64,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 4 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 1
+Critical: 0 · High: 0 · Medium: 1 · Low: 2
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,268 +75,153 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] After this patch, a page metadata slot is freed at runtime
-  only from geth_freeq_claim(), and only once every fragment of the page…
-- [Medium] geth_resize_freeq() used to return early when the free queue
-  already existed with the same order (`if (geth->freeq_ring &&…
-- [Medium] The patch now rebuilds the shared free queue on every open
-  with the peer down, and says the purpose is to reclaim fragments that…
-- [Low] This patch fixes an RX mapping-lifetime bug that has been user-
-  visible since the driver was first added, and its commit message…
+- [Medium] The patch treats two descriptor layouts inconsistently.
+- [Low] The patch fixes descriptor-length bugs that date back to the
+  driver's initial commit, but it has no Fixes: tag and no Cc: stable.
+- [Low] net: ethernet: cortina: double-counted RX stats on err_drop in
+  gmac_rx()
 
 --
 
-net: ethernet: cortina: Preserve in-flight free queue pages
+net: ethernet: cortina: Validate RX fragment lengths
 
-This patch stops indexing free queue page metadata by ring position.
-Metadata slots now come from a pool tracked by a bitmap, and each
-fragment's DMA address stays in the XArray until an RX descriptor claims
-it. Pages are now allocated and mapped outside the free queue lock, and
-the shared free queue is rebuilt on every open while the peer port is
-down.
-
-> The following "Recycle claimed free queue pages" patch restores recycling
-> independently of queue position. Backport both changes together with
-> their prerequisites, including "Index free queue fragments with XArray".
-
-[Severity: Low]
-The commit message asks for a backport, but neither this patch nor any
-other patch in the series has a Fixes: tag or a Cc: stable. Should one be
-added?
-
-This patch replaces the refill logic that was indexed by queue position.
-In that code, geth_fill_freeq() called geth_freeq_alloc_map_page(geth, pn)
-once page_ref_count(page) > 1, which erased the old page's XArray entries.
-That logic appears to go back to:
-
-Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
+This patch adds bounds checks on RX descriptor lengths in gmac_rx(), so a
+fragment can no longer underflow or run past the posted free queue
+fragment or the page. Zero-length non-final descriptors are now dropped.
+An EOF descriptor that carries no new data now completes the frame that
+has already been assembled.
 
 > diff --git a/drivers/net/ethernet/cortina/gemini.c b/drivers/net/ethernet/cortina/gemini.c
-> index fdf8c0e2f29e6..1693a136d7343 100644
+> index 8431f0a2e34a4..fe23ef8be9e51 100644
 > --- a/drivers/net/ethernet/cortina/gemini.c
 > +++ b/drivers/net/ethernet/cortina/gemini.c
 
 [ ... ]
 
-> @@ -768,15 +773,32 @@ geth_freeq_mapping_index(const struct gemini_ethernet *geth,
->  	return (unsigned long)(mapping >> geth->freeq_frag_order);
->  }
+> @@ -1864,6 +1865,9 @@ static unsigned int gmac_rx(struct net_device *netdev, unsigned int budget,
+>  			if (!skb)
+>  				goto err_drop;
 >  
-> -static struct page *geth_freeq_lookup(struct gemini_ethernet *geth,
-> -				      dma_addr_t mapping,
-> -				      unsigned int *page_offs)
-> +static int geth_freeq_alloc_slot(struct gemini_ethernet *geth)
-> +{
-> +	unsigned int slot;
+> +			if (frag_len < NET_IP_ALIGN)
+> +				goto err_drop;
 > +
-> +	lockdep_assert_held(&geth->freeq_lock);
-> +
-> +	slot = find_first_zero_bit(geth->freeq_page_bitmap,
-> +				   geth->num_freeq_pages);
-> +	if (slot == geth->num_freeq_pages)
-> +		return -ENOSPC;
-> +
-> +	__set_bit(slot, geth->freeq_page_bitmap);
-> +
-> +	return slot;
-> +}
+>  			page_offs += NET_IP_ALIGN;
+>  			frag_len -= NET_IP_ALIGN;
+>  			frag_nr = 0;
 
-[ ... ]
+[Severity: Low]
+Should this patch have a Fixes: tag, and possibly Cc: stable?
 
-> @@ -795,6 +817,21 @@ static struct page *geth_freeq_lookup(struct gemini_ethernet *geth,
->  	if (!valid)
->  		goto err_unlock;
+According to git blame, all of the following come from the initial driver
+commit:
+
+- the unchecked frag_len -= NET_IP_ALIGN above
+- the frag_len = frame_len - skb->len underflow at EOF
+- the skb_fill_page_desc() append of zero-length or oversized fragments
+
+So the tag would be:
+
+Fixes: 4d5ae32f5e1e ("net: ethernet: Add a driver for Gemini gigabit ethernet")
+
+Without the tag, stable tooling cannot tell which trees need this fix.
+
+> @@ -1872,15 +1876,33 @@ static unsigned int gmac_rx(struct net_device *netdev, unsigned int budget,
+>  			goto err_drop;
+>  		}
 >  
-> +	dma_sync_single_range_for_cpu(geth->dev, page_mapping,
-> +				      mapping - page_mapping, frag_len,
-> +				      DMA_FROM_DEVICE);
-> +	xa_erase(&geth->freeq_mappings, index);
-> +	if (!--gpage->fragments) {
-> +		slot = gpage - geth->freeq_pages;
-> +		dma_unmap_single_attrs(geth->dev, page_mapping, PAGE_SIZE,
-> +				       DMA_FROM_DEVICE,
-> +				       DMA_ATTR_SKIP_CPU_SYNC);
-> +		gpage->page = NULL;
-> +		gpage->mapping = 0;
-> +		__clear_bit(slot, geth->freeq_page_bitmap);
-> +		put_page(page);
-> +	}
+> -		if (word3.bits32 & EOF_BIT)
+> +		if (word3.bits32 & EOF_BIT) {
+> +			if (frame_len < ETH_ZLEN ||
+> +			    frame_len < skb->len)
+> +				goto err_drop;
+>  			frag_len = frame_len - skb->len;
+> +		}
+> +
+> +		if (!frag_len) {
+> +			if (word3.bits32 & EOF_BIT) {
+> +				put_page(page);
+> +				page = NULL;
+> +				goto complete_frame;
+> +			}
+
+[Severity: Low]
+Does this count rejected frames twice in the interface statistics?
+
+gmac_skb_if_good_frame() is called on the SOF descriptor. On success it
+falls through to update_exit, which does:
+
+	port->stats.rx_bytes += frame_len;
+	port->stats.rx_packets++;
+
+That happens before gmac_rx() runs any of the new checks. The chain can
+still be rejected afterwards by one of them:
+
+- frag_len < NET_IP_ALIGN on the SOF descriptor
+- frame_len < ETH_ZLEN or frame_len < skb->len at EOF
+- a zero-length non-EOF descriptor
+- frag_len running past the free queue fragment or the page
+
+In each case the code goes to err_drop. That frees the skb with
+napi_free_frags() and increments port->stats.rx_dropped. The earlier
+rx_packets and rx_bytes increments are left in place.
+
+So the same frame shows up as both received and dropped. rx_bytes also
+includes a byte_count that gmac_rx() has just judged inconsistent.
+
+The commit message says descriptor inconsistencies are now accounted as
+drops, but they are still counted as received as well.
+
+Should the rx_packets and rx_bytes accounting move to the complete_frame
+path? Then it would only happen once the frame is actually handed to
+napi_gro_frags().
+
+The existing MAX_SKB_FRAGS drop and the restarted-SOF drop already have
+the same problem. This patch adds several more ways to reach it.
 
 [Severity: Medium]
-Is geth_freeq_claim() the only place that clears a bit in
-freeq_page_bitmap at runtime? It does so only after every fragment of the
-page has been claimed through an RX descriptor.
+Are these two EOF cases handled consistently?
 
-The hardware can take a fragment from the free queue and never return it
-with a valid buf_adr. Such a fragment is never claimed, and the commit
-message itself refers to "fragments that never returned a usable RX
-address". In gmac_rx(), the zero mapping path and the "could not find
-mapping" path both go to err_drop without claiming anything:
+The empty EOF path delivers the frame when frame_len == skb->len at EOF.
+For a valid frame, this seems possible only if two things are true:
 
-gmac_rx() {
-    ...
-		if (!mapping) {
-			if (net_ratelimit())
-				netdev_err(netdev,
-					   "rxq[%u]: HW BUG: zero DMA desc\n",
-					   r);
-			goto err_drop;
-		}
-    ...
-}
+- the GMAC writes trailing bytes that byte_count does not count (probably
+  the 4-byte FCS) into the free queue buffers
+- buffer_size in the earlier descriptors includes those bytes
 
-Each lost fragment keeps its slot bit set, along with its DMA mapping, its
-page references and its XArray entry.
+If the hardware works that way, the trailing bytes could also straddle a
+buffer boundary. gmac_start_dma() sets:
 
-geth_freeq_page_slots() sizes the pool as the ring's pages plus
-1 << rxq_order for each port, so there is no headroom for lost
-fragments. The only reclaim is geth_cleanup_freeq() during a rebuild, and
-geth_resize_freeq() skips the rebuild whenever the peer port is running.
+	dma_ctrl.bits.rd_insert_bytes = NET_IP_ALIGN;
 
-Once leaked slots fill the bitmap, won't geth_freeq_alloc_slot() return
--ENOSPC every time? geth_fill_freeq() would then map a page, unmap and
-free it, and break without posting anything. The shared free queue would
-drain, and RX would stop on both ports until both interfaces are taken
-down.
+Take 2048-byte fragments and a jumbo frame with byte_count 2044. The first
+buffer would be full: buffer_size is 2048, and frag_len is 2046 after the
+NET_IP_ALIGN adjustment, which includes 2 FCS bytes. The other 2 FCS bytes
+land in the EOF buffer.
 
-gemini_port_irq_thread() also ACKs and re-enables SWFQ_EMPTY whether or
-not the refill posted anything:
+At EOF, frame_len (2044) < skb->len (2046). Wouldn't this valid, CRC-good
+frame then go to err_drop and be counted in rx_dropped?
 
-gemini_port_irq_thread() {
-	geth_fill_freeq(geth);
-	...
-	writel(irqmask, geth->base + GLOBAL_INTERRUPT_STATUS_4_REG);
-	irqmask |= readl(geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-	writel(irqmask, geth->base + GLOBAL_INTERRUPT_ENABLE_4_REG);
-	...
-}
+Could the last appended fragment be trimmed by skb->len - frame_len, and
+the frame completed, instead?
 
-Could that become an interrupt loop that makes no progress?
+Frames only span several descriptors with jumbo MTUs. The driver supports
+them: max_mtu is MTU_SIZE_BIT_MASK - VLAN_ETH_HLEN, and
+gmac_pick_rx_max_len() allows 9212 and 10236. Testing at the default MTU
+would not hit this case.
 
-The old refill could not stall like this, because it always replaced the
-page at a given position. The problem also remains at the end of the
-series, since "Recycle claimed free queue pages" only recycles slots whose
-fragments have all been claimed.
+If the hardware does behave this way, a 3-byte window of frame sizes just
+below each 2048-byte boundary would always be dropped. Whether buffer_size
+counts bytes that byte_count leaves out is defined only by the Gemini
+datasheet.
 
-[ ... ]
-
-> @@ -854,32 +891,22 @@ static void gmac_cleanup_rxq(struct net_device *netdev)
->  			  port->rxq_ring, port->rxq_dma_base);
->  }
->  
-> -static struct page *geth_freeq_alloc_map_page(struct gemini_ethernet *geth,
-> -					      int pn)
-> +static int geth_freeq_map_page(struct gemini_ethernet *geth,
-> +			       struct page **pagep,
-> +			       dma_addr_t *page_mappingp)
->  {
-
-[ ... ]
-
-> -	lockdep_assert_held(&geth->freeq_lock);
-> -
-> -	/* First allocate and DMA map a single page */
->  	page = alloc_page(GFP_ATOMIC);
->  	if (!page)
-> -		return NULL;
-> +		return -ENOMEM;
-
-[Severity: Medium]
-geth_freeq_map_page() now runs outside freeq_lock. Does the setup path
-still need GFP_ATOMIC here?
-
-geth_resize_freeq() no longer returns early when the queue already exists
-with the same order. With the peer down, every open and every rx
-ethtool -G now tears down and rebuilds the free queue. On single-port
-boards other_running is always false, so this happens on every ifup:
-
-gmac_open()
-  geth_resize_freeq()
-    geth_cleanup_freeq()
-    geth_setup_freeq()
-      geth_fill_freeq()
-        geth_freeq_map_page()
-          alloc_page(GFP_ATOMIC)
-
-geth_setup_freeq() now fails unless every usable entry is filled:
-
-	expected = len - (1 << fpp_order);
-	filled = geth_fill_freeq(geth);
-	if (filled != expected)
-		goto err_freeq_bitmap;
-
-With the default rings, a down/up that used to reuse the existing pages
-now allocates about 1023 pages (4 MiB) without direct reclaim, taking them
-from atomic reserves. Under memory pressure on a small Gemini system,
-could the fill fall short and make gmac_open() fail where it used to
-succeed?
-
-This path runs in sleepable process context under RTNL, so could the
-setup fill use GFP_KERNEL instead? The final state of the series still
-uses GFP_ATOMIC here, and still rebuilds on every open with the peer down.
-
-[ ... ]
-
-> @@ -1200,8 +1282,19 @@ static int geth_resize_freeq(struct gemini_ethernet_port *port)
->  	new_order = max_t(unsigned int, new_order, fls(rptr));
->  	dev_dbg(geth->dev, "set shared queue to size %d order %d\n",
->  		new_size, new_order);
-> -	if (geth->freeq_ring && geth->freeq_order == new_order)
-> -		return 0;
-> +	if (new_order <= PAGE_SHIFT - geth->freeq_frag_order)
-> +		return -EINVAL;
 > +
-> +	/* Rebuild an idle queue to reclaim fragments which were never claimed. */
-> +	if (geth->freeq_ring && other_running) {
-> +		page_slots = geth_freeq_page_slots(geth, geth->freeq_order);
-> +		if (geth->freeq_order >= new_order &&
-> +		    geth->num_freeq_pages >= page_slots)
-> +			return 0;
-> +	}
-> +
-> +	if (other_running)
-> +		return -EBUSY;
+> +			if (net_ratelimit())
+> +				netdev_err(netdev,
+> +					   "Received fragment with len = 0\n");
+> +			goto err_drop;
+> +		}
 
-[Severity: Medium]
-Is it safe to free the fragments that were never claimed during this
-rebuild? The hardware consumed these fragments (rptr moved past them) but
-never wrote them into an RX descriptor, so we don't know whether it still
-holds their addresses.
-
-geth_cleanup_freeq()->geth_freeq_release_pages() unmaps each such page and
-drops all of its outstanding references, so the page goes back to the
-page allocator:
-
-geth_freeq_release_pages() {
-    ...
-		dma_unmap_single_attrs(geth->dev, gpage->mapping, PAGE_SIZE,
-				       DMA_FROM_DEVICE,
-				       DMA_ATTR_SKIP_CPU_SYNC);
-		while (gpage->fragments) {
-			put_page(page);
-			gpage->fragments--;
-		}
-		put_page(page);
-    ...
-}
-
-Nothing in the teardown appears to reset the per-port RX DMA engines:
-
-  - gmac_stop_dma() only clears rd_enable and td_enable.
-  - geth_cleanup_freeq() only sets wptr to rptr and writes 0 to
-    GLOBAL_SW_FREEQ_BASE_SIZE_REG.
-  - The hardware rptr is deliberately kept across the rebuild.
-
-Suppose the GMAC RX DMA keeps a free queue buffer address it has already
-fetched, which could explain why those fragments never come back. Would
-it then write the next received frame to that address once gmac_open()
-calls gmac_start_dma() and gmac_enable_tx_rx()?
-
-That page may already belong to someone else by then, and Gemini has no
-IOMMU to catch the write.
-
-Before this patch the queue was only rebuilt when its order changed. A
-plain close and reopen kept those pages owned by the driver.
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120-gemini-ethernet-fixes-3-v9-0-298671d799d5%40kernel.org
