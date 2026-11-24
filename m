@@ -1,101 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.218.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795484287;
-	b=cxxxDWIHak59OZJe71pZ3+EY07uI050nOX0DLK65Mju7buu6k+Jlyc4EkxzzAL2dIEhU
-	 1AuLuD3dQYBt9dJCdGMtO1G+oaI+XZHJ/vDZ0ZCNhuHfG+hQu+7B5DAR1qtvdQjRY1LFt
-	 Q2FOf4GmiFP6aUaIxQGdqidnXhbM0SH+eVyZ/KZ+v6yiw1PwyJYxsuiY349F0vrxLgxzp
-	 wrTehJHUS6/8ohB7Rw1zr9ohjf78dBELgMOMO8wxgHz05SoELPEi5rcvfENH0kRD4p4zn
-	 qoEFWK5h21YDSw2VkoPBq+pWW4nqall8WyOeRZpD0+uT3T/OxrLAAdMYc43tp6Y/cKw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795484287;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.173
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795484296;
+	b=3szaKUcx7KEhD/x/p/vYY7zgKNFOJykcFHjNVUOnVQChUVcxr+q0zf7atr+wzNXDKdxt
+	 oq/yloBoDLyeOzf7YoLGGWfx0XloYSJ2WOdgSJDicMNIR8m/0fmmb3pO7M92WzEzG8UBv
+	 ALeg0cM48+7c/mKx0lIdcB4cKxB+w9sgG3CqwJDvPt947T3RF8rRLoqFlXoVlPyCaqtbB
+	 E2j7gYFP4u3jg7DgIupZpyeOD0q8coQoZArS20yDMO6Lf75KOHKqf1sXxh1spax55uA62
+	 MC5wcQFoTb4UHz9yqVXY6Nkzx49TUpHmMf1SwhtVlRhzfW6qXKLwo9PzlxssxlJZtSA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795484296;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
-	b=uT18mPoK1gp7IsjXsT7eN6g27o0Nm/3k9T6G7Un3adMsscbUf5G7f7CHm2qxILZsoLAL
-	 Ap86fCxT6aAJIRV9MtXB2+cNDVy0jvz1Q0oRJkYGU/gYIdJebUWXUfPhrBOvjNXUEWdcA
-	 4zFMxlsmr6qOLwDnQSEL5NUQM6MrvdWeWX6zQiFEEvjHf2FEylUk2rzIsgGS1LST2XeyS
-	 zyY6ep87RKrukk6zYMUPJpcg3YWy7vUD7eKxHcMkQfbrSrqUapGMu+I5yjtxaijxkn37C
-	 i9ieaxmVQMCqQj4BEpS12fACgtS8KakwOeHb14jOY+B1A1rzSUo6M+bX8YI45NMwcZQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
+	b=pDWGNPeJNQ2oIa+ij2+KzI6zVf6h7nwaBPr7e9P0APlVPGcHZUJgHYV5igmKDw6G6H66
+	 0PQUTYYTA3iAmIokQVJHCmeFlr3VF2Wu12cF9xJxdM7Itclts8RuzQqIYi1HuoxbdwY75
+	 54LoovoX/wD8xT3Lq5z4JF6+eISvdDBKL5MnPvXHC/1zjyBxQeWVD0qH9k2HrfN1ubEL6
+	 RClBtROM8L5M67ZKofXxvZBGMhsnyHvfS9r59lwYYuRuR0Zjw+O0BBDacWnSwffiYkw9d
+	 +KgNEnDh4Cgli58OxGxlGuiZwyFcTtxVOJOaxyc43eEawYTTJb5yg4CTp6N8twWrBdw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzpexupX;
-	arc=fail smtp.remote-ip=209.85.218.52
-Received: from mail-ej1-f52.google.com (mail-ej1-f52.google.com [209.85.218.52])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HalbCFD1;
+	arc=none smtp.remote-ip=209.85.128.173
+Received: from mail-yw1-f173.google.com (mail-yw1-f173.google.com [209.85.128.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 31E82606A31E
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:38:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 31E82606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2BBA606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 01:38:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2BBA606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZzpexupX
-Received: by mail-ej1-f52.google.com with SMTP id a640c23a62f3a-c50e26763a4so734845466b.1
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:38:06 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795484285; cv=none;
-        d=google.com; s=arc-20260327;
-        b=e5mx7lpIE8vSYoTjatlIKEViGW8UuyUmF0BXXyhUu1Xxq7sl5DsrkFsd2kmEeFdrqt
-         RWvY6gwMkBIfV7lqH2i18g2f7GCTf2cADA4YGicnGjWHcctv/Gbpa5WeAXzNkuzGWyH6
-         bKTytiZ7TOwkfWZvNLs0eZzu0e1erlVNwE0j6/iljGU/ZqvX4IEpzY4DlHfLf/4J9MAl
-         PAXymg2+ZxFI/TLaRdl/DCQn7gayByahwXJVfnS6uQ0hpQR6tNKHQcDHyTg8ZcytX8wc
-         ATSQDfU2ZczZT3TKw9F9ytR8u/pWH/tjM6qzwXatnHcBnmDLcJ7nuHRyQlfTr+seVjE0
-         f89w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
-        fh=26w0nYLISU5uwluFqUm9I3mXEUZtW2SQ1h+nNc4enys=;
-        b=DDMXvVCe/em/ImUlB4uhy7O5rEIW4mX9kiRQ4nW2CxfD8h8k6G+IiJeTlfUgNfhjvK
-         /Wb+qgFlu8iXdnPb5TNrFyY77KLAltreIelVfMupPqbEl15iWH1O+EwaQggigFYRgGSI
-         LBAs6XFOrMv3cVEpuaT8BBkhDxTEicKh0hj77UhNJPsOLJIBjr6XLemdmSTIjq9XlL7f
-         NOtWFRLA/wMK6dBpW3Umu1DY4XrS3RwM4kzaNzG8VcavgjwL12dlfLrOd+ruCPTrUBTj
-         fOPzdst9r7Wltd1yl2O/8AmtGplMoJsNxWGFQt1gc+Tky7E+OikRkESYi3cO8uPFYsRi
-         y4Zg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=HalbCFD1
+Received: by mail-yw1-f173.google.com with SMTP id 00721157ae682-8b4c685c751so34091737b3.1
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 17:38:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795484285; x=1796089085; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
-        b=ZzpexupXNdSMdJcbsGzEAl2ynnn1WqZ8YCPaIIpBdWXNJr6VOnrYrLu0RLtAiNpqSd
-         TV7EEKD1Ev2i+u5k9Hd2Sd0hwyP7OjWA48PGYYlgIC3YgW+HU446L72VieDpHRGF20qp
-         XlcSqtiNYMHlVImQ9SfwlXds+4e2gFsQbRKX/mlw0PZOKA6/0c7Rgo1wEy8uBIozcOgb
-         V21xTABJbjVrNd2cmN2mB8OEAbmmmj9S/TRWA2gzQ6o2i4XQB8GIig/HAJqCTIiT8/Os
-         LwGsegnHZW63Q5T3tY26MBQWJ6eie5UqO7cj6S1rc1++9eeVPCIfi6rYHwMMEoD9Fdma
-         b2Mg==
+        d=gmail.com; s=20260707; t=1795484295; x=1796089095; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
+        b=HalbCFD1Lw2UXPOv9DcbVAZIgTEpte5A7w0gB77Ia2AhhvTFnr+Cavmw04K6IXkBis
+         gK/IW/J4QWjG1qGtWv6eIxLs0IhA6CR6s/oKp9ufURlCQcxuI6uDqx6DvLgI53F9E7aY
+         m4c4zLFVzR5BW4DG5w+DBrp8KQ4VulJq2ihZ4T+ovhanQdgKA1SzBBVbcxPyv234pXhR
+         YQBVwVjB5p5L5KgA0AffA2ScuCMwuul7g3vv26euOWsnMD9GmsT+grXBZDZZkaIV21Gh
+         g0EQPgOTVAFOMQhJw22qn0uXQJzPOrGhFz2ka3EBMQcSNSp4eqjzTNb8vwFzinaH9ap+
+         dOug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795484285; x=1796089085;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=CeBZ+wB4osLNJC9vxHHe7mdPF1D6RlCzCGZmdvMDBkY=;
-        b=XyCCiSJpIgLDIO0l7mCanv52gIpNlrSOvBaMvyDcOaJRx0y89zH74Q6625gN+kycym
-         KGq3IooqlOsuL/D6NXL/SbxO7VuQGXidc+WObLLaZ/8nNX4z4dLJe+vrySioL8Y+835R
-         oy9/wTcvQsuftM1T0ntntZymJ++dfpQJcPzcmLuTD3QAWr2Z/1tBIj9RBf+4UcGgIdSq
-         Q1klTR5secHRFmLJbcy+zj3fiRgS1qfaJpO7eGYm5l83XPhcYkEjwZeP83OiHBQA+KKo
-         Rb4RR6RYCUApFpexMGxdXKt4ad9b5SXCNbg0lROOadX0//HDX1sQpDujbltt6tcNRvAa
-         aURg==
-X-Forwarded-Encrypted: i=1; AL+hErEKm4sWxUcDPUJeM6cQdEeO5own62ECnQVMGvWNx29q7t8cOi0kkqyF6xj/j22N5EHqLhSGtlE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/LPmlFpotDGaz1/sDpoiO8oRuArItI1d0LggybF+0DtFKSNpVA
-	P8L2u9OXU87P0RtBUjmrF8UICfXd0EbG/du/OJkfKh0Yg0elhR4HbNjdyzlKnvPMOwpIIlBt6Te
-	AwY9bwQVYLAZNvb3GwHKEkORfeJ3dMbs=
-X-Gm-Gg: AZFdTZcdk/Hpd7YesgErRZZMnocMSQZy7MMz0fbwQIvnOsoDC727uttOPQ8pzSmFZBm
-	+WprdFAxFrUFmWpuDMAUn4dy4rwj9NdmNQ4plq9oTpruZbLrlcZUiheQJB+nloPDdBHUqNvROIm
-	tf+jogZz94y8Ln36ZZorCC56u22MDy8I2GyDGaHoCsn4BVLK7uQAwdHbl+hcczE1jHA9V6klOE+
-	EffBOBUXgB9+utrRue8z2X69VGZLkF1SX+TEiU4CZcTX0TKUnY1eca0+FaoEP+P5wX38BoxZh3F
-	Ryp/hGtTtpax2Q8rNAd+NWtWQnK3DPi36IiadCzreu4fe8YWLYvDW0741BtBA68BjJGzlLMkpj3
-	hhqZp80LqvvEOrla02l57wg1QCNnFaThkMBWuscbhnIUR1xS3wSNYs0pKcpx47hwPQm1X/+Cj/J
-	XjjdcHKPvAhbwHiLZ/4qgG3sWym8Ocmdl8EIXqaeWPzCf0QBzxAZtDkVSxNvF32fmUeXMmC29zP
-	E8KdVCxXOvoNcS3fIE98gtlQvZMQmOCu1oZjjuw90itKu8xbUTE12kDztk7
-X-Received: by 2002:a17:907:3e89:b0:c51:3bfa:8d3b with SMTP id
- a640c23a62f3a-c513bfa8f32mr1086885566b.37.1795484285405; Mon, 23 Nov 2026
- 17:38:05 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795484295; x=1796089095;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9ttHp2mukC/tGMOBmjKlOmnQPb5GQ9cwK7fnwbrYrro=;
+        b=dAFY6DVT6lxT6YWOulUee9SuhdQYnC9dQEei7qHaXfdqDM4jcTGDElt4gq7/zEmzKL
+         16J4W0iSb8SC1vLnOLbV9XSDE6+F6PaLE5Z+qktelwj9kVqNNTp65bGqRqHYAyBUKMZ1
+         yJvV3vl7eC8C7RUpis0N10TqT7OmGUjgaFEcmRF2fuJtIsKeF4KwtRaCemF3Vg0+RhhF
+         fHzqUh6tbGAZB1Y1mqfMSecBcxtM9jApK8NCosMBWlwfUWL0CZOosXIJbJ8dFjgb+UQo
+         uaUr3CW1Wd2q9c8rJgTYKOOHnLYDpZzmTqWf2mYZxmqZR4qLBqq9PdEfK/2BJpB0ksfD
+         2ccw==
+X-Gm-Message-State: APuU4Z9U+LQkY581DhdUwoFtvCIMHdC5y82Skeeg5l7EZlbDpLpUduZj
+	75qSI/xcPKSAnI3YM4ii2/5jp3fP2CMGXMZosLtELKgF9JQ/tI6L9GLZxi37qKFO
+X-Gm-Gg: AZFdTZfJc681qJISkhXrfo1xvSN/GtqM7WhFeDS3JqNct8fk2OG/q6yII4d/JaC0b9u
+	UUIOlu5QS+drTMM/ygcTGTWMqyRfOx/9ArfoOPX716Topp1sTSgLj2cI19+zILUk2qrqnw+/yHk
+	36/f3uFOVQiKRoPm/QeWOuKityX20rkjHDp9vRqMroJcIcR26R65ESDoVUgqmqZ3ELwt9VuWHG3
+	f+jPOfKQfcCI2vXDOM8fGswdiUaLnkXh2BnpP0ny4bDF3j/PKujGLtBrxGWLKm0n0HhIpzybAwR
+	ZXX5+swoltGL3a8trnta62A2F3szWKN2BEIjDTMgWPSSo+rIxiiUR7sNtOR9Wklqla0XKCcYep8
+	RbC1KA4+purQ9fVhwTa2fxQHIT8XLK6Ul8hn6RXlJB0PZFNN4zxS8tiEpEF3v/aBO6sUv7WBpD6
+	f7wvIDP8TRHsmsNWyZm3STQkKkNeNJMDgalIDPtUe+MpYUCVeKm6QtuiiMehOGTlaDPpqam7xuQ
+	73n0jlHSbnXO2SSYr2J8PJfqS+0+PsZhKN+yTkoksm14vr0jZtldvDgRaSqKUTcfAsEKbgk5vo8
+	rfDfvGDpPxGWa47eJ3YpXm3JoGrRiZrRWYAx//wT+iLWMSswueBxkNYJV5K+fzVLsBjxjIQmCr4
+	EzSdJuSKhmygcAr8HxljRu6G2HVx7rhK9ARZ3GKoiUlketqX94t0l+9WF9OPPlfvkQMU+SLpqMD
+	UHSNhIE5SgQNg7txCvVRIgvd32
+X-Received: by 2002:a05:690c:4a02:b0:8b0:f1c0:60b1 with SMTP id 00721157ae682-8b5204a7d4bmr41571617b3.60.1795484294996;
+        Mon, 23 Nov 2026 17:38:14 -0800 (PST)
+Received: from localhost.localdomain ([2600:1702:7bd1:1ca0:6d54:522c:b8ac:678d])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df3353258sm6455451d50.9.2026.11.23.17.38.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Mon, 23 Nov 2026 17:38:13 -0800 (PST)
+From: Aviral Srivastava <aviralyash27@gmail.com>
+To: netdev@vger.kernel.org
+Cc: netdev-bot+sashiko@kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	willemb@google.com,
+	horms@kernel.org
+Subject: Re: [PATCH net] udp: gro: do not match tunnel-processed and plain packets
+Date: Mon, 23 Nov 2026 17:38:04 -0800
+Message-ID: <20261124013804.96778-1-aviralyash27@gmail.com>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <179545921450.3135.6404804724515356262@kernel.org>
+References: <20261122183951.73210-1-aviralyash27@gmail.com> <179545921450.3135.6404804724515356262@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,47 +103,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261123034047.56745-1-dennylin0707@gmail.com>
-In-Reply-To: <20261123034047.56745-1-dennylin0707@gmail.com>
-From: Dmitry Safonov <0x7f454c46@gmail.com>
-Date: Tue, 24 Nov 2026 01:37:54 +0000
-X-Gm-Features: Aa3M54qHippd-OgCM6-bCpivi302Ub78TymwXFLdPF0aHrFSViGlxdqBunnR_j0
-Message-ID: <CAJwJo6a8ERv3ua02u4hU++zENBUFftDX4KrabX91Py0LGPF9Kw@mail.gmail.com>
-Subject: Re: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments
- on IPv6 listeners
-To: Hungyu Lin <dennylin0707@gmail.com>
-Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com, 
-	davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, fruggeri@arista.com, noureddine@arista.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-On Mon, 23 Nov 2026 at 03:41, Hungyu Lin <dennylin0707@gmail.com> wrote:
->
-> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
-> behalf of a listener by the address of the peer. It takes that address
-> from the IPv6 header whenever the listener is an AF_INET6 socket, also
-> when the segment is an IPv4 one that arrived on a dual-stack listener.
-> The address is then read from the middle of the IPv4 header, the key of
-> the peer is not found and the reset is not sent.
->
-> The v4-mapped check that follows does not help: it looks at
-> sk->sk_v6_daddr, which is the unspecified address for a listener, and
-> it runs after the address has been picked.
->
-> Take the family and the address from the protocol of the segment
-> instead of the family of the socket.
->
-> Fixes: 06b22ef29591 ("net/tcp: Wire TCP-AO to request sockets")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Hungyu Lin <dennylin0707@gmail.com>
+Thanks for the review. Both points lead to changes, I will send a v2.
 
-Acked-by: Dmitry Safonov <0x7f454c46@gmail.com>
+[Medium] Fixes tag covers only the out-of-bounds read
 
-Thanks! IPv4 on dual-stack sockets historically got less test
-coverage, unfortunately. Eric's proposal to cover it with selftests in
-net-next would be ideal, unsure how easy it would be to add not only
-IPv6- and IPv4-centered tests, but also the mixed ones.
+Agreed. The port match through udp_hdr(p) dates from e20cf8d3f1f7 and
+the merge does not depend on 4b0ebbca3e16. I checked it on v6.6.162,
+which does not have 4b0ebbca3e16 (arm64 QEMU, KASAN, netns over veth):
 
-Thanks,
-             Dmitry
+- vxlan with inner TCP, UDP_GRO socket on the port, plain datagram
+  with the same outer TTL, TOS and DF as the vxlan packet: 2000 of
+  2000 datagrams end up inside the inner TCP segments on the vxlan
+  device, none reach the UDP socket. No KASAN report.
+- Same with consecutive IP IDs and no DF: 2000 of 2000.
+- Same with the plain datagram's TTL off by one: 0 merged. Differing
+  ports, no tunnel device, GRO off: 0 merged.
+- With the v1 hunk applied to v6.6.162: 0 merged in every case, and
+  UDP in vxlan/geneve still aggregates.
+
+On v6.6 the L3 gate is the flush/flush_id state from 5babae777c61,
+computed on the two real outer headers, so ordinary header values are
+enough there. v2 carries both tags, e20cf8d3f1f7 first, and Cc: stable.
+The hunk applies to 6.6.y, 6.1.y, 5.15.y and 5.10.y as is.
+
+[Low] encap_mark is cleared by FOU/GUE
+
+The observation is right and the comment and changelog in v1 are wrong
+on this. I do not think an is_fou comparison is needed, though:
+
+- When FOU/GUE carry IPIP, SIT or GRE (or vxlan), the inner handler
+  sets encap_mark again and the transport header moves to the inner L4
+  header. Those are covered by the v1 check: they give the same KASAN
+  report against plain UDP before the patch and none after.
+- When FOU/GUE carry UDP directly, encap_mark is 0, but nothing moves
+  the transport header or the network offsets, so udp_hdr(p) is the
+  outer UDP header, the same layer as for a plain packet. A plain
+  datagram with those ports resolves to the FOU socket itself in the
+  GRO lookup, so it does not reach udp_gro_receive_segment().
+
+I ran held plain UDP followed by FOU/GUE-direct UDP with matching inner
+ports, and the reverse order, with a wildcard, a single-tunnel and a
+connected FOU socket, with a UDP_GRO socket, rx-udp-gro-forwarding and
+rx-gro-list: no cross merge and no KASAN report, with or without the
+patch. The only merge with differing is_fou I could produce needs the
+FOU port to be deleted while a packet is held; it is at the same header
+layer and in bounds.
+
+v2 keeps the code and rewords the comment and changelog to say what
+encap_mark guarantees at that point.
+
+Separately, UDP carried directly in FOU/GUE never aggregates in
+udp_gro_receive_segment(), because the inner header is compared with
+the held packet's outer one. That is not a regression and not changed
+by this patch.
+
+The v1 notes also said "28 and 29" KASAN reports. That was the dmesg
+ring limit, the console logs of those runs have 1023 and 308. And the
+changelog said the merged datagram is not seen by the forward and
+egress netfilter hooks; the hooks do see the aggregate, what is skipped
+are rules matching the datagram itself. Both are corrected in v2.
+
+pw-bot: cr
