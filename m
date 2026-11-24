@@ -1,65 +1,66 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795509844;
-	b=oO/3B5c/lhtUvnW8r4xMaJByLeU0raHKcRbLNC45mX84uThL/sievTRILUYOdjlopxUV
-	 YymtuwC1fbwqkJA1dbEpKszArp9uiI5OdUmTN8IzCQpmeHVd8+M+14X8azKI2yCefTPnP
-	 5KX/B7zQknVeLeqVhbWP6cowTSIZ0shciGcDMR0O19SSgBd4itIwLxDkkD7fHox8+Rj1G
-	 QzaILv8TOv2lC7nqvpO6/BMeIFIomPvLzzeuWWe2bEnTKMT1OkzEPS9HgOTEkYABXPav6
-	 ckpHxZH4VCFQtStcxQBtaTMefZj5bouxs1NDtHqIaNwwQiWraZYQ9hWbhILzBH7ERTg==
+	t=1795509877;
+	b=03bLmSJ2PQIhLO5/y8rLHXHB8KVnqECo5ye3DDteV5RrEVV28/NXn3Q+GFrxQkDmCM30
+	 SzWC3JMWm2dQg57ic4+tTWDSPf2+7ewZGPLaAIojVZSdOSDhWopiCS5qCRoDMu97bHj6V
+	 ksDHex8M5OEOkkkTEMik0489ubrnjrdU3kvoxjcKDL73KJR3mC/DsBTlQ7XXijvc0v8s0
+	 g32mA5T4xmkTFpW0aT2MjbxWnJiV6MdbIjK9qOdoK2YdpLJ9E8w3offbJrlo0qbdHQbyt
+	 9UQgJKscq2SoEcMZXfKSO/bd2asblJ0eg8rn4rDeuQfzGghkT0vbm4KClk8pOcX2ILg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795509844;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	b=w9Kr8rH22TFgRbfHmb/G0vQSCP5YtFDMW42H4QBiXpunVLJkPXKuDBHuJ9+Lpcce3BF0
-	 jYHQmGUAN3ZRCnAvbJT9mXmXwFbNViXGrZUlxlP7vpK0XkRoNBgigVOM66I2DSG8lQh+r
-	 UBwfHtPn/Tx34TZcDhlrrI+xEQwAHUWgFMV6C1p4OifUoSXci1L/wOKqbLtAKpirwZ1bD
-	 etkVYuzSWkZBJUY3wS+4EiSDDym0f8o3qbiz5Dng8Wyxl9ezj6bfh8BZOFIBMjcs/xQTa
-	 2ajePegeqaNbKWNhEbKbLhSXbA55pf75YSWf8jn3nm1E/1lRIMuugu6JwbKTMr/IjEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795509877;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=Xk20DCYaE3oWRw+FuIOMjIvTivy8uTfU+jEz728D46Q=;
+	b=e8xve/toDsSpD/j55Q/vzfeZhGXp2ePgwgIfzx33nk+bFsrZ2nK03yB3DnofXGN+qiqO
+	 X+yM2J8b2R+qgNRlREc4nM8EaFuYjRT/ucFjbrDfBV42znAwZACeTGTOhKFFmhhA6iTzD
+	 vLIjnCefu/adJvrHeRCH/FxPLZJhZ/KvmsNM1hlBYzAvy/bWS0RCZJaAzZDtLxWUve76i
+	 h+FELtO0n4wLwmRioNU0anjeUaLzJobVOMlChpKxYbHJ85pngQSMmQHg9DUxX+aBk9NBT
+	 SCIeQPCmONeeyRP3ybIu7+SN1PqnZe+MXWi2LSZQtX59Qg/jFdBeZgyf/dYPP54CItw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RfFQX5pY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=R99bj9eQ;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D5DE5606A322;
-	Tue, 24 Nov 2026 08:44:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA3FA606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 08:44:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA3FA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RfFQX5pY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63A3D1F000E1;
-	Tue, 24 Nov 2026 08:44:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795509844;
-	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=RfFQX5pYywzWwIExCsg/N1VM5J6whAGFsS4b7TEkiIEaSGLmFGbrgbt8m0KS5iTqW
-	 YvMa9Kddg6Wxv4NsPwnGy/pTBNR0F41ZSvW/AaI5IvF+ofXFW5Y/lOyKuUgwe8t6bP
-	 hl88zXnQaGtO/spIPIkwWGxjcpNvxL/81T0De3ePMzfe1chqSLW8zx+PksLhrBTjwT
-	 9pT+dQki0K6QUTO99gNX4BU2ETjFBA2/ruTCEm+3hOM0HUB8hpP1L+voSM3pdyaru5
-	 u8lOKAmBhjZ4XBtNMZQY9dm2X2h2YjGxNXvr9HfW4s0tyFpxLvsA+OwxMiiiqDxWMS
-	 tGWJ1iLCofe2A==
-From: netdev-bot+sinfo@kernel.org
-To: Linkui Xiao <xiaolinkui@126.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
- Andrew Lunn <andrew@lunn.ch>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rosen Penev <rosenp@gmail.com>,
- Christian Lamparter <chunkeey@gmail.com>,
- Jacob Keller <jacob.e.keller@intel.com>, Kees Cook <kees+treewide@kernel.org>,
- Daniel Machon <daniel.machon@microchip.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, linux-kernel@vger.kernel.org,
- Linkui Xiao <xiaolinkui@kylinos.cn>
-Subject: 
- Re: [PATCH net v3] net: ibm: emac: attach and start the fixed-link PHY
-Date: Tue, 24 Nov 2026 08:44:02 +0000
-Message-ID: <179550984290.3294.12688015521683223828@kernel.org>
-In-Reply-To: <20261124083941.2480237-1-xiaolinkui@126.com>
-References: <20261124083941.2480237-1-xiaolinkui@126.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=R99bj9eQ
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=Xk20DCYaE3oWRw+FuIOMjIvTivy8uTfU+jEz728D46Q=; b=R
+	99bj9eQQ2ezmEUh/iXl7x+SipO48SAfnnIoQp+q6nDTAQ+AC3TVsdVxcqHcQUdo2
+	9/e4c2ml/jzLxDgaHEmevGZNxFVleUnxu/IuG/a20CuCEtftQeI0wxE1ULez4UEe
+	iqbaw2HlvYf2Ju6rh1fu03B2vEQW2DX6sDNfitiH9Q=
+Date: Tue, 24 Nov 2026 16:43:59 +0800 (CST)
+From: "Lange Tang" <lange_tang@163.com>
+To: "Jiaming Fan" <fan.jiaming@hotmail.com>
+Cc: "mst@redhat.com" <mst@redhat.com>, "Jakub Kicinski" <kuba@kernel.org>,
+	"Eugenio Perez" <eperezma@redhat.com>,
+	"jasowangio@gmail.com" <jasowangio@gmail.com>,
+	"xuanzhuo@linux.alibaba.com" <xuanzhuo@linux.alibaba.com>,
+	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"Tang Longjun" <tanglongjun@kylinos.cn>
+Subject: Re:Re: [PATCH v2 0/3] virtio_net: introduce an RX queue watchdog
+ for stuck detection
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <OS3PR01MB10251CFF97E32B1E7B71D497CE7472@OS3PR01MB10251.jpnprd01.prod.outlook.com>
+References: <20261120071826.198604-1-lange_tang@163.com>
+ <OS3PR01MB10251CFF97E32B1E7B71D497CE7472@OS3PR01MB10251.jpnprd01.prod.outlook.com>
+X-NTES-SC: AL_Qu2SB/mbtkAo7yadZOkfmUgRg+c/XsK4svUj24VVOJF8jCLp+DAKRVFkMFj68MSsEweXrCCTSQJo+MZ4UoV4b7gk0mLu7geXI+pTNs1UqygAJQ==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,22 +70,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Message-ID: <413a69a4.746a.1a20cb9e72c.Coremail.lange_tang@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:bCgvCgC3vwRPTgVrrdl0AA--.2496W
+X-CM-SenderInfo: 5odqwvxbwd0wi6rwjhhfrp/xtbC-Q-C8GsFTk9+cAAA3h
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-Hi!
-
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
-
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+QXQgMjAyNi0xMS0yMSAxNjoyNzoyNywgIkppYW1pbmcgRmFuIiA8ZmFuLmppYW1pbmdAaG90bWFp
+bC5jb20+IHdyb3RlOgo+SGkgTG9uZ2p1biwKPgo+SSBkb24ndCB0aGluayB0aGlzIHJlYXNvbmlu
+ZyBob2xkcy4gWW91IHNhdyBhbiBSWCBzdGFsbCwgYnV0IHRoYXQKPmRvZXNuJ3QgbWVhbiBpdCB3
+YXMgY2F1c2VkIGJ5IGEgbG9zdCBpbnRlcnJ1cHQuIE1hc2tpbmcgdGhlIGludGVycnVwdAo+aW5q
+ZWN0aW9uIG9ubHkgY3JlYXRlcyB0aGUgc2FtZSBzeW1wdG9tLCBpdCBkb2Vzbid0IHJlcHJvZHVj
+ZSB3aGF0Cj5oYXBwZW5lZCBpbiBwcm9kdWN0aW9uLgoKQSBsb3N0IGludGVycnVwdCBpcyBlbm91
+Z2ggdG8gc3RhbGwgdGhlIFJYIHF1ZXVlLCBhbmQgdGhpcyBjYW4gYmUgc2VlbiAKZnJvbSB0aGUg
+Y29kZTogdGhlIHJpbmcgaXMgb25seSBkcmFpbmVkIGZyb20gdGhlIG5vdGlmaWNhdGlvbiBwYXRo
+LAp2cmluZ19pbnRlcnJ1cHQoKSAtPiBza2JfcmVjdl9kb25lKCkgLT4gdmlydHF1ZXVlX25hcGlf
+c2NoZWR1bGUoKSAtPgp2aXJ0bmV0X3BvbGwoKS4gSWYgdGhhdCBub3RpZmljYXRpb24gaXMgbG9z
+dCwgdGhlIHVzZWQgcmluZyBpcyBub3QgZHJhaW5lZCwKYnVmZmVycyBhcmUgbmV2ZXIgcmV0dXJu
+ZWQsIHRoZSBkZXZpY2UgcnVucyBvdXQgb2YgZGVzY3JpcHRvcnMgYW5kIHN0b3BzCnB1Ymxpc2hp
+bmcsIHNvIG5vIGZ1cnRoZXIgbm90aWZpY2F0aW9uIGNvbWVzLiBUaGUgcXVldWUgc3RheXMgc3R1
+Y2suCgo+Cj5NaWNoYWVsIHBvc3RlZCBhIHBhdGNoIGZvciBhIHNpbWlsYXIgUlggc3RhbGwgcmVj
+ZW50bHk6Cj5odHRwczovL2xvcmUua2VybmVsLm9yZy9uZXRkZXYvYWQ3NDg4NmE4NDI5YTg2MmMw
+MGQxZTQyZjFkYzc0NmYyOTI0Yjc1Zi4xNzk1MTA4MzQxLmdpdC5tc3RAcmVkaGF0LmNvbS8KPgo+
+U28gZGlkIHlvdXIgZ3Vlc3QgaGF2ZSBJUlEgZGVmZXJyYWwgZW5hYmxlZCAobmFwaV9kZWZlcl9o
+YXJkX2lycXMgYW5kCj5ncm9fZmx1c2hfdGltZW91dCk/IElmIHNvLCB5b3UgbWF5IGhhdmUgaGl0
+IHRoZSByYWNlIE1pY2hhZWwgZml4ZWQuIEl0Cj5zdGFsbHMgdGhlIHF1ZXVlIHRoZSBzYW1lIHdh
+eSB3aXRob3V0IGxvc2luZyBhbnkgaW50ZXJydXB0LgoKSSBsb29rZWQgYXQgTWljaGFlbCdzIHBh
+dGNoIGFuZCBteSBjYXNlIGRvZXMgbm90IG1hdGNoIGl0OiBhdCB0aGUgdGltZSAKb2YgdGhlIHN0
+YWxsIHRoZSBjYWxsYmFja3Mgd2VyZSBlbmFibGVkLCBhbmQgSVJRIGRlZmVycmFsIHdhcyBub3Qg
+ZW5hYmxlZAoobmFwaV9kZWZlcl9oYXJkX2lycXMgPSAwLCBncm9fZmx1c2hfdGltZW91dCA9IDAp
+Lgo=
