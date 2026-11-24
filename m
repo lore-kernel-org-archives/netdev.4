@@ -1,62 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.77.101.11
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795550653;
-	b=nzRqLVyo4mkd6umsN3JX/1+yNTFuHR7bCShh6kHeKFi0n05RYwC7xTXp9Yd25KiK40st
-	 q4c6e8nCbMlFVoakfnBMeo+CGXf9iOogS742ATaTwlb6XigsLVgcBsnxYi2jsazNhHsks
-	 04Et911BckUUC37hzEARRaeZrBqo3UD9mdL8lWSFHTnTTVykItUJKU/DzGEqthsEFaCKR
-	 OaxnJ7u/KKkNWnUCqNThnvEPCvM4/iArCXiyCs6lULyAIcUnGtfUXVokAhOkn2l7EkMqI
-	 MS3gqdvTvu3+LHQCKWdQwHpV0QLD2EcpMZnSIUGjMlPvglCMdpErgvsDIhTK/1mlDQg==
+	t=1795550914;
+	b=AocNUuUqBv3b5sy0tjUIK0qbDmKXe2bL9uv30IOHKLWu4KiSjQcoJ0doojRnchL//+bk
+	 L27B0HnN6kiaOI+1uk7G+wtntgUq2AcnQBWWD/AJW7RGonq1lMCbz0cieMODx1krx2EXV
+	 UvPZ0Bah0B2EQO2Hrsc25T2uFvJosf04lCtNo9w3BO+ib7edQs62bicoFGjFCYOU8vV/K
+	 KL75YyEETc6riwqZlzCpi7P7opj1SKf1R13twhrgtvp1uD+1FBPOYSdHRWry6cY8uAnU7
+	 6/nZLs0KIEQH2OPydM6c51d/gBoP3aMQxBczk993a/DqdAWWyi1RZ/bTg/5OE/Zguvg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795550653;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=7ipmu1RjM6Rh1EJ3Z3e0jsQckbhS/99owpow7ZIHu9I=;
-	b=HoWJR/Uz3rwqzdfhxOv1OLQgmbqVPj14Qi8xQcpqjstNZ80QQxgOGwC51kFpgvRipoLp
-	 FmYBwarnP2J3K7P2b4GJJfmeFjKFzbLwcsKLouSazmjNwmPfqz/RyVGI0M4fNO10jf+/9
-	 vWfbSJ/p/RtvLYi0MWj/WofzrlOZ4CiVYSL6xLQemUAD32bxad9qjHvMVjPcv8hBM1hLY
-	 MggniMwLps9wex5mLoFheFs4ySD28LaAsHfmDNgfP0kZATGJ67zrqzS15PYphdKgfRNZ3
-	 ii9UCLDzVlR8iDJHIKZNl8kB0kAfZRxx+QVU0amvRtA6RrSHA/7I8v727loHJnXj65g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795550914;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Message-ID:Date:
+	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
+	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding:X-WP-MailID:
+	 X-WP-AV:X-WP-SPAM;
+	bh=z2zaibnJukNuiC5JwXZOB/K5mbPDbWJDM8nKChrkxvY=;
+	b=HOG6GZ6s9lMrBuYuYn77isO6i+p4DvYKLNRLsuHsMvIMVEWkjSE/Ba5rUXk6TlX/JKR0
+	 Wmzy/m2KP8I/6wIVXYtzib+1CRwzBHqRWA0DhsYWKckz102oAYK9VveHcam9GP9GPgZvF
+	 iN2B/aP36jTqovsqKJWgybtRiDyIHMu1RgBRKgPhzQ7s3WjKAw2beIsxj0LQJUln98+Gn
+	 Bu/k/99v8pxIPiVWDecvCRvM17DnFkJIrlIlw68Up75XB9lk5JSeASrEJrWGJ4qUPK82D
+	 w49SZXupPA7+q1eCUSL+WU2z0ujrZsJLD6s/PWaKyS/Q4Ph8ZlswthQNxVvTfEQs3Rw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EClf+Go4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=wp.pl;
+	spf=pass smtp.mailfrom=wp.pl;
+	dkim=pass header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=icpQTCG1;
+	arc=none smtp.remote-ip=212.77.101.11
+Received: from mx4.wp.pl (mx4.wp.pl [212.77.101.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E69A606A336;
-	Tue, 24 Nov 2026 20:04:12 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 68947606A31E
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:08:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 68947606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=wp.pl
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wp.pl
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EClf+Go4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09D361F000D4;
-	Tue, 24 Nov 2026 20:04:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795550652;
-	bh=7ipmu1RjM6Rh1EJ3Z3e0jsQckbhS/99owpow7ZIHu9I=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EClf+Go4PVg7a8mggnTHsDhnMlCNx1v/2yrevK6okbCl9HDr6P09yg7a7ShNqYVIK
-	 oo3sGprNkQANpmIcmONSiZUTDQmWmhQdCdMkJtyZEj6QvdmCxl1PXgtZ52FHb5W7AX
-	 iOvissy8R4TuqZdAntpszbkhEEcNJFvrSpfLzZ/eewuxmie53/sxnh/8RcTh/svyF7
-	 FQHQzCzDjuWYRPZ9wDQv5IPShaxk4BvMf5q1vSx+M+/KOTPnRQsfSuphZ9lGxI3i60
-	 gOWHrSYrcMr3z26K9JdRy5qgyFObpophQlvhrsKvIFHkFwnDILlIdOYYWoglgY5ZVl
-	 QktbBcP5Q5UwQ==
-Subject: Re: [PATCH net-next v5 3/4] net: mdio: mdio-bcm-unimac: Poll for
- completion at 1us granularity
-From: netdev-bot+sashiko@kernel.org
-To: florian.fainelli@broadcom.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, nb@tipi-net.de,
- carlos.soto@broadcom.com, opendmb@gmail.com,
- bcm-kernel-feedback-list@broadcom.com, hkallweit1@gmail.com,
- linux@armlinux.org.uk, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, linux-kernel@vger.kernel.org,
- kudzo51@gmail.com
-Date: Tue, 24 Nov 2026 20:04:11 +0000
-Message-ID: <179555065159.3135.7257809284035507896@kernel.org>
-In-Reply-To: <20261120194318.3952487-4-florian.fainelli@broadcom.com>
-References: <20261120194318.3952487-4-florian.fainelli@broadcom.com>
-X-sashiko-severity: Low
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=wp.pl header.i=@wp.pl header.a=rsa-sha256 header.s=s20261001 header.b=icpQTCG1
+Received: (wp-smtpd smtp.wp.pl 17810 invoked from network); 24 Nov 2026 21:08:19 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wp.pl; s=s20261001;
+          t=1795550899; bh=z2zaibnJukNuiC5JwXZOB/K5mbPDbWJDM8nKChrkxvY=;
+          h=Subject:To:Cc:From;
+          b=icpQTCG1YoURKiCWt2nEAeqitFSP5H98//xyEWy1XYbiHy3mBPV9ZMg36KlriNUlf
+           4YYvYd+6vlEDNgpCYFb5i+lRAi80m5FKuYSXUQuOU5KYwbKtWlpOkzQeMMsLSMqzUa
+           1B/r5bJkxUAsv8uh59UOqZQvmvR2J93kmf5z+1b1vAkYTcbZoMfiGW/vzh0EB53EQU
+           tVhdiWypa2ziEV0Wynj8szZX3Tj+4ePPfTtojAZwXdwmJnhpVrl43/rbEC9LsQJJcc
+           E+4kycviCk0OK+3ekGhIOLyrXwimHtLEJ+sULzZ3jwiZ2bnm3GZAnUWI/uoIhT7cR1
+           1QSiZXp0nCQsA==
+Received: from [192.168.3.224] (83.5.167.37.ipv4.supernova.orange.pl [83.5.167.37])
+          (envelope-sender <olek2@wp.pl>)
+          by smtp.wp.pl (WP-SMTPD) with TLS_AES_256_GCM_SHA384 encrypted SMTP
+          for <andrew@lunn.ch>; 24 Nov 2026 21:08:19 +0100
+Message-ID: <4dd66fbe-4528-4e88-91d4-87e147aa71cd@wp.pl>
+Date: Tue, 24 Nov 2026 21:08:13 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,75 +59,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v3] net: phy: marvell: add support for PHY LEDs
+ polarity modes
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: skyline@mail.ru, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, netdev@vger.kernel.org
+References: <20261122213034.548858-1-olek2@wp.pl>
+ <992ef2e7-4334-4b0e-b1ea-5ac1360fefea@lunn.ch>
+Content-Language: pl
+From: Aleksander Jan Bajkowski <olek2@wp.pl>
+In-Reply-To: <992ef2e7-4334-4b0e-b1ea-5ac1360fefea@lunn.ch>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-WP-MailID: a678dafce487f5e36b6837f41410cc96
+X-WP-AV: skaner antywirusowy Poczty Wirtualnej Polski
+X-WP-SPAM: NO 000000A [IfME]                               
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi Andrew
 
-Low priority / nit picks for your consideration:
+On 22/11/2026 22:55, Andrew Lunn wrote:
+> On Sun, Nov 22, 2026 at 10:28:55PM +0100, Aleksander Jan Bajkowski wrote:
+>> Keep the LED polarization settings and restore them after a hardware
+>> reset. This modification is actually only necessary on devices with a
+>> wired PHY reset line and a driver that resets the PHY during the
+>> link-up/link-down events. I found a single DTS file in OpenWRT
+>> (armada-385-fortinet-fg-5xe.dtsi) that matches this hardware configuration.
+> Mainline does not really care about OpenWRT. However, why does
+> armada-385-fortinet-fg-5xe.dtsi do this? Is it because of an errata in
+> the PHY? Such an errata we might care about.
 
-- [Low] Concern: the commit message and the new comment in
-  unimac_mdio_poll() (drivers/net/mdio/mdio-bcm-unimac.c) describe…
+This is not an errata. This is a direct response to sashiko's report[1]:
 
---
+Take a board with a PHY reset GPIO and a MAC driver that connects the PHY
+in ndo_open and disconnects it in ndo_stop. Wouldn't each "ip link set
+down" followed by "ip link set up" put the LED pins back to their reset
+default polarity and drive state?
 
-net: mdio: mdio-bcm-unimac: Poll for completion at 1us granularity
+This is actually a widespread  issue. PHYs from various vendors restore the
+default state of the registers after a hardware reset. Phylink does not
+restore triggers later.
 
-This commit drops the fixed 30us udelay() and the 2ms sleeping poll in
-unimac_mdio_poll(). It now busy-polls MDIO_START_BUSY every microsecond
-with read_poll_timeout_atomic(), and the timeout goes from 100ms down
-to 1ms. The goal is to cut per-access latency before Clause 45 support
-is added.
+1. 
+https://sashiko.dev/#/message/179032601295.2160803.13373677668767022640%40kernel.org 
 
-> diff --git a/drivers/net/mdio/mdio-bcm-unimac.c b/drivers/net/mdio/mdio-bcm-unimac.c
-> index 5f79f31220f26..f8e5c1811d96b 100644
-> --- a/drivers/net/mdio/mdio-bcm-unimac.c
-> +++ b/drivers/net/mdio/mdio-bcm-unimac.c
+>
+>>   static int marvell_config_init(struct phy_device *phydev)
+>>   {
+>> +	struct marvell_priv *priv = phydev->priv;
+>> +	int err;
+>> +
+>>   	/* Set default LED */
+>>   	marvell_config_led(phydev);
+>>   
+>> +	/* Restore the LED polarity settings after a reset. */
+>> +	if (priv->led_polarity_mask) {
+>> +		err = phy_modify_paged(phydev, MII_MARVELL_LED_PAGE,
+>> +				       MII_88E1318S_PHY_LED_POL,
+>> +				       priv->led_polarity_mask,
+>> +				       priv->led_polarity_val);
+> This does not make much sense to me. If you have lost polarity, you
+> have also likely lost the LED blinks modes. So you are only restoring
+> part of the state?
+>
+> And this is for a device which does not even exist in mainline.
+>
+> I suggest KISS, throw this out.
 
-[ ... ]
+That makes sense. I'll throw it out in the next iteration. We may
+return to this topic once someone adds an dts upstream that requires
+such a modification.
 
-> @@ -79,14 +86,15 @@ static int unimac_mdio_poll(void *wait_func_data)
->  	struct unimac_mdio_priv *priv = wait_func_data;
->  	u32 val;
->  
-> -	/*
-> -	 * C22 transactions should take ~25 usec, will need to adjust
-> -	 * if C45 support is added.
-> +	/* A frame should take ~25 usec. A C22 transaction is a single frame,
-> +	 * a C45 transaction is an address frame followed by a data frame and
-> +	 * each of them is waited for separately.
->  	 */
+Best regards,
+Aleksander
 
-[Severity: Low]
-This isn't a bug, but the new comment in unimac_mdio_poll() describes C45
-address and data frames that are waited for separately. At this commit
-there is no C45 path yet. unimac_mdio_probe() only sets bus->read and
-bus->write, and only MDIO_RD_C22/MDIO_WR_C22 are defined.
-
-The next patch in the series, "net: mdio: mdio-bcm-unimac: Add Clause 45
-support", adds unimac_mdio_addr_c45() and unimac_mdio_do_read()/do_write().
-Each of these calls unimac_mdio_wait(), so the comment is accurate once
-the series is applied. Would it be clearer to add this comment in that
-patch, or to word it so it makes sense for this commit on its own?
-
-The 100ms to 1ms timeout reduction for existing C22 users is stated in
-the commit message. The numbers hold up: the largest divider allowed by
-MDIO_CLK_DIV_MASK is 128, which gives about 1.95MHz from a 250MHz
-reference clock and about 32.8us per 64 bit frame. That is well under
-MDIO_POLL_TIMEOUT_US.
-
-> -	udelay(30);
-> -
-> -	return read_poll_timeout(unimac_mdio_readl, val, !(val & MDIO_START_BUSY),
-> -				 2000, 100000, false, priv, MDIO_CMD);
-> +	return read_poll_timeout_atomic(unimac_mdio_readl, val,
-> +					!(val & MDIO_START_BUSY),
-> +					MDIO_POLL_DELAY_US,
-> +					MDIO_POLL_TIMEOUT_US, false, priv,
-> +					MDIO_CMD);
->  }
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261120194318.3952487-1-florian.fainelli%40broadcom.com
