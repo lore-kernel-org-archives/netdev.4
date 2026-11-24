@@ -1,57 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795537658;
-	b=B4OlMVMr4o97QPYoDWjK99c6ifM7J8u8wJ2dSAQaZrKPBIrEqSAeAk/D1nZqojOJB4Vp
-	 p4Mlfqzec0bHaX3ReqJY97WLgSxpN3YOg8mxePrSie64WGpoin8xt4fSnMSfs5BQrBLaa
-	 54kXex6fDqeohzj8YMj6TnY1WzEp4CDmjrm6xSeUQUEeOF7cpnJEbiLcI9bTBzyQuhB6n
-	 WeF8ENPs+/ZTzM9AcOqHEZQN/QrKeAskCBoB2S3yfKEiZ5u+Xu1dDTpQ/VfCo4Cm5QPSD
-	 gPBfGbSsadSLm8beTGYI30G6MHb7Vir3tglxf3lzVxodKAOrdQYvfPYHP64Bt9gTzKw==
+	t=1795537654;
+	b=prqTA/hgFjEjNhU4514tO2pfk3iWAGHf6JrTu46tUKsTqxw2/yQGweyryztZioMsu5C7
+	 vgQKy6hkKUTAvbZPF64ljIhP1riGYTtI+spCuzdsvl8SnmSliL6D5xgoIdpPLDw/gnEvh
+	 0WcS/5zgjZSNybQ0+hdQllrPtPYZGX0Iq+T1dXw1D+mK//m6373SGSk0eoDhfzQnGKnHL
+	 kBGHuyQetqS4XPdcZ5DxBgws7eZE7uhrY9CSbJHZITbKE4uzTlzl8RiqFRG0RZnICJqHl
+	 5yB+ytVakZS/xy6VTZM2UGbBxIM7LaHPWbbpjbl4KkyjgagEdc8JSSOqHTtjd1l/9Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795537658;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=4L1pAx1aJ9UiuZlP1S95Mk5NDr/KAS3Rr/m1DST9u5I=;
-	b=1bp0fHkNz8eBv+B4nV6om9m2IJBsoIkjobEnwgFITXOyN5OhCOhGoCs6jbuDxpU/zeUI
-	 r1sJZdGHQekCWKfVIO+JjmQjIfMORtsPgjiqn0ixm8PCn4lzq4EcNUIxEtQpzHd61A71U
-	 Qv0Q/7lHB5D2fTGVPIc+1OVOF4Fh+MLrWV9UDk3twVGjUcR/m48ftbds8vFxeJpmG/hPI
-	 /sxc34rewC3FXUs9v2ll+tNxp8ShA499A2ZaQW0qWCT2kxaqqsP/dmHO6942sF8u/7187
-	 TtNL+Of5gWzr+iXru7etwV9HmYDKf8lFGihurAJvPscQ1hpHKKj1zyIlTvt8ii66byg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795537654;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=72DsguPX3SxJiTs5bSAHIvajccwjl55CWuZ9hwooaCw=;
+	b=VCSV8xNr0oeMwvQ9bYygLk0oEX1tlS6wwGbeasOEge9FMTLOTbt5z9n5eF0U4l0sA87f
+	 WEXCOmmn7WcYe41qxXl5I7LVa0FNjcPCoHn+5VcezywozWfMQClhwV0tb5zTZZPJkxJSY
+	 KByb/8TlcuA8lQZBDvxiGDOCCxP/ZjQZ+fIxkcSxTNbvKL7qbJRGm2YS4VmEuG0hcW53W
+	 o9uk/qM2AkYyfEjMHRV+YdJmYnTJ362wzz0BgejjlTb9qllWZsTEiAYoCV1Hw/FMlm7sX
+	 pj0TrpK8XKWrEY93OWuYKB68wUyC2gMS3oKPI9Y82PZ17nEWntjtAHX6OUS3LSfP5Ow==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="MKor/yir";
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=r90umDw1;
+	arc=none smtp.remote-ip=195.10.208.42
+Received: from mout-b-112.mailbox.org (mout-b-112.mailbox.org [195.10.208.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B146606A338
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:27:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36AA8606A32C;
+	Tue, 24 Nov 2026 16:27:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36AA8606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MKor/yir
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 816371F000F2;
-	Tue, 24 Nov 2026 16:27:37 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795537658;
-	bh=4L1pAx1aJ9UiuZlP1S95Mk5NDr/KAS3Rr/m1DST9u5I=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=MKor/yirXmDmsFP8rvn0bTvpo2dhVP9mVLnTLa1oyYuB2yX8DHQWuGHClb7yNK9AD
-	 81Z2/7JhkR36t4Hx+6b+mn2Zdgw+UihDv6x0jOKIcXBYW8Do0KD+Kh8UuqtccJ2QLB
-	 sp0ueZRr2kz5PQ69dSVOa+fHTaSt9V11ssMkfMMT6Y1v7PCwrExfgZzwQdTt/sycYV
-	 Tj1XHyqhtCX/QghfIU5syUydYcEnakt2THXxwFeUF0SlkI03suw8YIH3BiYleiozj2
-	 fJZVzBNwy8NDm4qoIgydaeP2CMMXf3D+jjdtOewjgxj7ti3EGqXVFPmU+oiLtTtu+7
-	 ghXynh5HevS9A==
-Subject: Re: [PATCH net-next] tcp: use order-0 page frags in tcp_collapse()
-From: netdev-bot+sashiko@kernel.org
-To: edumazet@kernel.org
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com, kuniyu@google.com,
- ncardwell@google.com, horms@kernel.org, netdev@vger.kernel.org
-Date: Tue, 24 Nov 2026 16:27:37 +0000
-Message-ID: <179553765702.3135.10078888309251944054@kernel.org>
-In-Reply-To: <20261123154708.360226-1-edumazet@kernel.org>
-References: <20261123154708.360226-1-edumazet@kernel.org>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=r90umDw1
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-112.mailbox.org (Postfix) with ESMTPS id 4jYpB908Xzz5xPJ;
+	Tue, 24 Nov 2026 17:27:29 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795537649;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=72DsguPX3SxJiTs5bSAHIvajccwjl55CWuZ9hwooaCw=;
+	b=r90umDw1oHvl/Yl3C/MhO9iRQ1lhoV9eOCRGByg2jX+O5taxB6kA2IGTJBDIWlbkPheupX
+	P55Uldyb4FR+lItIkuum9JI7kyKxsYiJ2I4POKOrEczstA9FJesj5oz8Fy2OrEipnHatWk
+	ugpS4OI4BGMQ9ZbIgg61/ssHFkVlnAfYUVdhMNh63K9qv/J3RuDUMdmHdEstvQY9yBRwGo
+	M7fIhcGY/Pzdyc2VwuqhBCDWE8haAqR8R6fg2tBdYRbwxbjFtwiNuP+ROFiED4x/80m+R/
+	7rv5GInBHQ+QxjsB5BKPDvAU8BTU/k97TNRtEf6/G7eRx1tNqUMcMy190efp5A==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: Ralf Lici <ralf@mandelbit.com>,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Sagarika Sharma <sharmasagarika@google.com>,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Florian Westphal <fw@strlen.de>,
+	Xia Yan <yanxia@cmss.chinamobile.com>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Antonio Quartulli <antonio@mandelbit.com>,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v5 2/4] ipv6: advance the serial after rebalancing in fib6_ifup and fib6_ifdown
+Date: Tue, 24 Nov 2026 17:27:08 +0100
+Message-ID: <66b34fd272dce584863f6aabfd2e85c9d8017dbc.1795537128.git.ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <cover.1795537128.git.ralf@mandelbit.com>
+References: <cover.1795537128.git.ralf@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,126 +88,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jYpB908Xzz5xPJ
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+fib6_ifup and fib6_ifdown update the node serial before calling
+rt6_multipath_rebalance. A lookup that runs between the two can select a
+nexthop using the old ECMP upper bounds and read the new serial as its
+cookie. The cached dst then passes dst_check although it was selected
+from the old state, until the next relevant change.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Update the serial after rt6_multipath_rebalance, so that it is published
+only after the routing state it describes. fib6_new_sernum allocates the
+serial with a fully ordered atomic_try_cmpxchg, which orders the
+rebalance before the serial update. The invalidation scope is unchanged:
+fib6_ifup still updates the node and its ancestors, fib6_ifdown only the
+node.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The lookup stamps introduced later in this series rely on this order: a
+lookup that reads the new generation must also observe the routing
+change it describes.
 
-- [Medium] tcp: linear head in tcp_collapse() prevents
-  TCP_ZEROCOPY_RECEIVE
+Reported by Sashiko while reviewing an earlier revision of this series.
 
---
+Fixes: d7dedee184e7 ("ipv6: Calculate hash thresholds for IPv6 nexthops")
+Fixes: 4bc852006b62 ("ipv6: update route serial number on NETDEV_CHANGE")
+Signed-off-by: Ralf Lici <ralf@mandelbit.com>
+Reviewed-by: Xia Yan <yanxia@cmss.chinamobile.com>
+---
+Changes since v4 https://lore.kernel.org/netdev/363e8614dfd168dcaf90cf7f158e12d587ec8355.1795166508.git.ralf@mandelbit.com/
+- Reword the reference to the lookup stamps.
 
-> diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-> --- a/net/ipv4/tcp_input.c
-> +++ b/net/ipv4/tcp_input.c
-> @@ -5983,34 +6034,47 @@ tcp_collapse(struct sock *sk, struct sk_buff_head *list, struct rb_root *root,
->  	    sub_end - start >= TCP_COLLAPSE_MAX_TOTAL_SIZE)
->  		goto skip;
->  
-> -	/* Third, check if the new skbs have high density. */
-> -	nskbs = (sub_end - start) / TCP_COLLAPSE_MAX_SIZE;
-> -	new_truesize = nskbs * SKB_TRUESIZE(TCP_COLLAPSE_MAX_SIZE);
-> -
-> -	remainder = (sub_end - start) % TCP_COLLAPSE_MAX_SIZE;
-> -	if (remainder) {
-> -		nskbs++;
-> -		new_truesize += skb_head_truesize(remainder, GFP_ATOMIC);
-> -	} else {
-> -		remainder = TCP_COLLAPSE_MAX_SIZE;
-> -	}
-> +	/* Third, check if the new skbs have high density.
-> +	 *
-> +	 * Payload is stored in order-0 page frags: one sk_buff can hold
-> +	 * up to MAX_SKB_FRAGS pages, and truesize stays close to the
-> +	 * payload size.
-> +	 *
-> +	 * What does not fill a page is stored in the linear part of
-> +	 * the first new skb, unless a page is cheaper.
-> +	 */
-> +	size = sub_end - start;
-> +	linear = size & ~PAGE_MASK;
-> +	if (linear > TCP_COLLAPSE_MAX_SIZE)
-> +		linear = 0;
-> +
-> +	npages = DIV_ROUND_UP(size - linear, PAGE_SIZE);
-> +	new_truesize = skb_head_truesize(linear, GFP_ATOMIC) +
-> +		       npages * PAGE_SIZE;
-> +	if (npages > MAX_SKB_FRAGS)
-> +		new_truesize += (DIV_ROUND_UP(npages, MAX_SKB_FRAGS) - 1) *
-> +				skb_head_truesize(0, GFP_ATOMIC);
->  
->  	if (old_truesize <= new_truesize)
->  		goto skip;
->  
-> -	while (nskbs--) {
-> -		nskb = alloc_skb(nskbs ? TCP_COLLAPSE_MAX_SIZE : remainder,
-> -				 GFP_ATOMIC);
-> +	while (size > 0) {
-> +		int len = min_t(int, size - linear, MAX_SKB_FRAGS * PAGE_SIZE);
-> +
-> +		nskb = tcp_collapse_alloc_skb(linear, len);
->  		if (!nskb)
->  			goto end;
->  
->  		__skb_queue_tail(&pool, nskb);
-> +		size -= linear + len;
-> +		linear = 0;
->  	}
->  
->  	while (before(start, sub_end)) {
-> -		int copy = min_t(int, TCP_COLLAPSE_MAX_SIZE, sub_end - start);
-> +		int copy;
->  
->  		nskb = __skb_dequeue(&pool);
-> +		copy = nskb->len;
->  		memcpy(nskb->cb, skb->cb, sizeof(skb->cb));
->  		TCP_SKB_CB(nskb)->has_rxtstamp = false;
->  		skb_copy_decrypted(nskb, skb);
+New in v4
+- Split out of v3 2/3 (David):
+  https://lore.kernel.org/netdev/7af19082325ce83699c5fd82de4925e52ed7dff2.1794906743.git.ralf@mandelbit.com/
+- Add Fixes tags.
+- Carry Xia's Reviewed-by from v3 2/3, the code is unchanged.
 
-[Severity: Medium]
-The changelog says the collapsed page frags can be used by
-TCP_ZEROCOPY_RECEIVE. Putting the sub-page remainder in the linear
-part of the first new skb seems to defeat that for the whole skb.
+ net/ipv6/route.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-When 1 <= linear <= TCP_COLLAPSE_MAX_SIZE, tcp_collapse_alloc_skb()
-builds an skb with skb_headlen(nskb) == linear, followed by up to
-MAX_SKB_FRAGS full pages.
-
-In tcp_zerocopy_receive(), a read offset inside the head makes
-skb_advance_to_frag() return NULL. The loop then breaks with nothing
-mapped, and zc->recv_skip_hint is left at skb->len - offset. That is
-the entire collapsed skb, not just skb_headlen(skb) - offset.
-
-Without a copybuf, userspace is told to copy the whole skb. With a
-copybuf, tcp_zc_handle_leftover() copies min(copybuf_len,
-recv_skip_hint). That copy runs past the head into frags[0] and
-leaves copied_seq at a non-zero offset_frag. Every later
-TCP_ZEROCOPY_RECEIVE call on that skb then bails out on the
-offset_frag check as well.
-
-The tcp_rcv_collapse_bloated.pkt example from the changelog hits
-exactly this case. 30000 bytes gives linear == 1328 ahead of the 7
-pages, so none of those pages can be mapped. Any multi-page range
-whose remainder fits in TCP_COLLAPSE_MAX_SIZE behaves the same way,
-which is most of the non page-aligned ones.
-
-This is not a regression compared to the old all-linear skbs. But
-the zerocopy benefit claimed in the changelog mostly does not
-materialise.
-
-Would it be better to keep the remainder out of the head of a paged
-skb? For example, it could go in a partially used last page frag, or
-in its own small linear skb. That trades a little truesize for a
-layout zerocopy can use. Or is zerocopy not a goal here, so the
-changelog claim should be dropped?
-
+diff --git a/net/ipv6/route.c b/net/ipv6/route.c
+index bbe6d67bb696..98e3ca0644ab 100644
+--- a/net/ipv6/route.c
++++ b/net/ipv6/route.c
+@@ -4913,8 +4913,8 @@ static int fib6_ifup(struct fib6_info *rt, void *p_arg)
+ 	if (rt != net->ipv6.fib6_null_entry && !rt->nh &&
+ 	    rt->fib6_nh->fib_nh_dev == arg->dev) {
+ 		rt->fib6_nh->fib_nh_flags &= ~arg->nh_flags;
+-		fib6_update_sernum_upto_root(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum_upto_root(net, rt);
+ 	}
+ 
+ 	return 0;
+@@ -5017,8 +5017,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+ 			}
+ 			rt6_multipath_nh_flags_set(rt, dev, RTNH_F_DEAD |
+ 						   RTNH_F_LINKDOWN);
+-			fib6_update_sernum(net, rt);
+ 			rt6_multipath_rebalance(rt);
++			fib6_update_sernum(net, rt);
+ 		}
+ 		return -2;
+ 	case NETDEV_CHANGE:
+@@ -5026,8 +5026,8 @@ static int fib6_ifdown(struct fib6_info *rt, void *p_arg)
+ 		    rt->fib6_flags & (RTF_LOCAL | RTF_ANYCAST))
+ 			break;
+ 		rt->fib6_nh->fib_nh_flags |= RTNH_F_LINKDOWN;
+-		fib6_update_sernum(net, rt);
+ 		rt6_multipath_rebalance(rt);
++		fib6_update_sernum(net, rt);
+ 		break;
+ 	}
+ 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123154708.360226-1-edumazet%40kernel.org
+2.56.0
+
