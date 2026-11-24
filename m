@@ -1,81 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795495357;
-	b=rqZ9F3axfFqAn19CEQbNNS/10P2ppiCTNmnr11yUYdEAttDCGCjwjDYbIdkM7qXOrkqv
-	 QO74SDa+Cir1s1DmmoGJIF95T5ElYktMhrXtwLexw/TuGQmrwbHJ79Iv18HJWmechS0hk
-	 DuneVRs1qhe89IWTC2csqfdavoEQb7l65dbEGA9LdaQTpOB+Gom4FoQgK2oYkd+u49DE7
-	 1dzdRd4KtW4Wy4+F4wtwkBEq3ImktMMF1ZgIsWdOCEp+YkzmEGGneYod4aCl/0/dbm7mx
-	 JmymYyIpWMBn2NFRXD1GMsBIkQq6GrNcXCTFMC04h9dYylDnIqo+yTwy6m4IsQ0HweQ==
+	t=1795495364;
+	b=SXW17c9AGBdiz8owmmploq8MUoaNb3UawkCtDFfVC64t0xBpwQar5eim0uXMgehgWHuM
+	 b7CylsmTD6eTO231bEjs/jPk2yJ2sqEmerGtl5hYpYJGwZMcyjEQzPfKGpxAPLv/GmZq0
+	 gsFiy0YHGKEBdB+PLLg9JCqxg5Mo9H2pcZ9QPB7W/PRUV4k4OQpl6/3i5iynRew2ZyGbb
+	 GF3drBBSiljYSClB8wUn8hR4PuLsbgkEtQn0JhhpIGnjsTyYkJOWLgrPvq4352WTNbdzm
+	 8C3sl5+Xndqu4aiao7D6rH8tFNp/gF7RGmlMuL2MrivG8QiqGrTor1yWJIfLS0at+MA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795495357;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795495364;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
-	bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-	b=F1khple7rvQjrkRweeirWOLIPo42G/yjWYmKs8ovufhB0O/q0GIksb47YlVCkfjoZDsd
-	 XKSdXOubFnA9gKKsafNo6p8xB/2W4TBliT6GvoNIKZ49ygivQ9VM1pM46elww4lEFoZ3g
-	 T2UpVnULNxAf05rWCOMt9fL/P+u58zyKKab4GYODrI//xGik96ENnBTMmLKyqBn+LJ7Lx
-	 cAbShj5a/yq/jGVZDp41qyVOFWTBMFy3x/R3ZSQtpHKUvMhh4qRrsbYYTDdzjA2NNIwOj
-	 fYnui7ZtXVS2Zqqk3U3wrweLKWUdDxhnz2CsrU1+0fOeI3CPrAl9eBiydh1yq18tD/A==
+	 Date:Message-ID:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=fWOnOBEQw3Mc5eS9Nnm/2nFl0bvr0BQf6G+Wl52nhnc=;
+	b=oMBe4FhNvQkST3rl2sAN3ET0FyQQ/Rki1kMma3qsmG/L4hqrM7NnP2t4ObxjfkSxHBON
+	 /P52LdI3GrNGApoFIyZh/R8AdSmsgkD71RMeLzdGOy92hNjNQ5QH5ajf8TD+RfeDRItFe
+	 idAA6H/ezOr5GVIYZgk4B7KP1K7V6NKOmgGuXg9fjXNRcPjkTXvgPVmq1tJIl0IW53EMC
+	 96b8nev/2/YaOZwmWbKYWXQYDfvzqr4jN9I1Fn97bvTq5U4YDlQCAK+HyizVsr2aO+kkO
+	 7XyQzW3iFMCnWFRffAUsrdsFtiYDNvsz3MsXGCz9lJwuFfWlcLIubtZSyDZrwTkkp3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C5jhZZ7R;
-	arc=none smtp.remote-ip=74.125.82.45
-Received: from mail-dl1-f45.google.com (mail-dl1-f45.google.com [74.125.82.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k6Z7yLPw;
+	arc=none smtp.remote-ip=74.125.82.181
+Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1AF2606A33A
-	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:42:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1AF2606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01DF1606A338
+	for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 04:42:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01DF1606A338
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=C5jhZZ7R
-Received: by mail-dl1-f45.google.com with SMTP id a92af1059eb24-1a2af4c8d00so861242c88.0
-        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:42:36 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=k6Z7yLPw
+Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38587f3de36so4947949eec.0
+        for <netdev@vger.kernel.org>; Mon, 23 Nov 2026 20:42:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795495356; x=1796100156; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-        b=C5jhZZ7RORotJuBdPyW8ypLkIqh6ota24QYMFEFFsWhWNjO5w9jCxRqwhWUfJEEo2h
-         GwRLuAAP2P7w4L1bPTWCXQSoJBoNxGtlXJ4nn5TQYMshckH53ZyvSdE5GZmKk0MOClp+
-         fOzThMGkog0ECS3rgjhN2iXxZ0HjiJZC32sE5hWOZpo737hKxrLkEtsi2CMFUyI1MaHT
-         /jwv5RAZ9v0QX4tKfHOectCVWJXgFrNz0dgdpFErPE5sLZctGbrbX2ysFBdnT95+uhJ/
-         ZAkWfrWm4IVfbON6lwepCctBGR2uh1k8yTzgrPGZZwNUaWswlQu49uY0/9TUQAwYsn9r
-         Ih8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795495356; x=1796100156;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795495363; x=1796100163; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IgI0m4pAxHEcjSpExF12okiRR9Quf+zHia2X8idMp2Q=;
-        b=knYPSO3JjsquSdLNZE2HHcu7872/sDox3la1jz2d9QgUcwztWcqIM0QXUvfpV/AcgI
-         m6X1UJ/uAsODxhgE7RDVcuH12CBbeVo9Iu3X69ddWGRLKN9urqWongRwLmE61NHakNAR
-         wvZYT4ZGW2aIruo7Nf61BIanxeiM6aIVnY6DJzSk/1j4KK5FbN16Uf0N17I6+Hjc9Xd/
-         mcgXT+BYUcNrg0kklsQMTHUVd7gncoQffKozNByphm37cipcK2fqsJ9speW5Y7g65Sfr
-         BGBLwZvkNpRjR+yoKbhlKrZ2iDgazsnjLA0A6S9By9FtgJ/ZbUOKRiSZQ/NYy8xB/Kzc
-         TTvg==
-X-Gm-Message-State: APuU4Z+RWfWYvNek6CbkwjieGN58lEI5jpvI+WgZf3xL8YYvX1OuKyrP
-	uWtjNKTymAlJCUGYYyIJVVy1QG4pbd+u5NUD9Io0gCPWcLWgvgLiVd+1/ECEVBs2
-X-Gm-Gg: AZFdTZdfX2SMLlaDe3yfmRjFZpQdtT1ITfUOSIIwFNzMLUZdT7U5hzJN/Xsmsy7MmVx
-	K67CI21w1ttn43jjXExpXQJA9HuwtgjgMXwFL32hVar9WCUrOSWDJkvnalaC0KTSrDXk6gK3MlP
-	q0anZLOS7Ud0RrJyP6yv7rsrBR42DIq+UaMQIHxw43TiG3Onu1HB+6YzKjDEhxL1JQXQz5HU59q
-	pdnftdKna5obqKZUj2CPP9megIO2DCLdPB4X8FVCEJn/1laPpm1QGqdSR4Od2/H2YmDOML/HcRp
-	xSfN454VgTSSkKnwpNTNxXYIibzPxnovPo+IiWUD8k9VNrempbLILLhlefKztPNhpaGA/eQeQld
-	wrbR2FcEMmlWOTM9mFYiDfQ1FvQxU+5KpFdjMptwOjfy5rsPnMzkvZISsHxBujmovYEOlTwYiAY
-	4xaYvkIwYHjfZ54ubLmx87d11u7AIAyma5uLDsHZES2DCZDHTKsduWv7LJ5qfEUctiA3X9dgoz3
-	lWpsiLLsgUoR3aN58tJ2pj5k3cVcNRRoxUJf9R+lkueXC8ozy+AoZ2S1Uj/LGJNRKBvSkAfks7L
-	X3ZU7h7cfxWeQac5aVeygtV38Vyu/mwAfzBdEYpUnQ7OTAMLWJPiXWIGu8GLXZ8GJ3h7PCKPJ8A
-	IGFFdy3qzAfv7HnUOA0dLTDQKQ21AWsFyEJRmsxnJZeaody/+yi+cktvS6yTEWJOqnYtc8K4g
-X-Received: by 2002:a05:701b:260e:b0:1a9:c52f:655c with SMTP id a92af1059eb24-1b556900476mr15545901c88.36.1795495356004;
-        Mon, 23 Nov 2026 20:42:36 -0800 (PST)
+        bh=fWOnOBEQw3Mc5eS9Nnm/2nFl0bvr0BQf6G+Wl52nhnc=;
+        b=k6Z7yLPw9Ol9IGIW7w6aFHsPAokjVyWORBR5Ld9qK2NVSXJE3jtpaz5umF4afPkrFH
+         E79yef5PnfYbhTgzpxIJtA2UcK6efHvbqX4a+WGujDQAO0hd6VcexWnrrobyvSSSFvvq
+         MbTco1HQH378bx6z1b/32F9Yhghx85X1qckxpDqYW3HfT0fSwKg4Kx6RZQ3fBImJhyMQ
+         hKLJkgc9rnZBxPesCgkh8NXX6eyU9VLASL0v1uJ0VCHTksxK/b97NHPRmLbSLwoM2k9q
+         CycsV982sGLD8pCjHm6b1JXy7lATfnFQJtS8ADWTI/M2P/nijuw4KkyS1OGHbyxSf1f7
+         toQQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795495363; x=1796100163;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fWOnOBEQw3Mc5eS9Nnm/2nFl0bvr0BQf6G+Wl52nhnc=;
+        b=OvtGrRdjAwRRaOpayopXQLUkN8D+GpjBsNEf1AiGPMJoov++Tx3OuT1UHmhhNL2DbY
+         PXGnF1rK3AOXzTka1qrwlaf0XVgBew3SLIv7Za3kQChPchUBC5gbok2LXf8CNbmmC/gx
+         YWo5MYb/4rO6z5pGWT+5n9y658+8pTgYWW1pYEe+5xEchKEuamQAn9gBS3NbCwTS1Jdh
+         xEZ/S06SW++oVUINVzJJYijzkOqOGyzMf5Kk01O6vLQHpGWxvOjorpraHT50nfeEunVD
+         YZHAOG9tGCafV7gODG0Q1mJoRaAgDQC8gYUL83AhCjOPH+V+lknIFZmSXEmXPw4C4DJD
+         EwtA==
+X-Gm-Message-State: APuU4Z9g02W2lfCWZxNkywjLjU7oZuNj1i48IbxuBlJooEMExw99sip3
+	CGjkA0hiIo1JvcnH+JZJ/hguqD9uVewkShAMw5XUpgCHfBS7SAf0t+GOYxj5fpIb
+X-Gm-Gg: AZFdTZenPqBmLbpDj5w1bcrK8lrpHrH+GnwghuHSBPXWYvdFgGIGu4SF2lMWzGE6JF/
+	LwcIv+81uocw3N9UTGKdRmtLMCVnehcJ0IJpe3Us2fvTs010xE/OqjK7E3794uUFIagJqJ06rmP
+	W3GSCY1AJCmB9i4ufkuEsO53PMqiNZn3mPQWbY7KyjGOWWxr8x1Vk+3OcV0vyncxqNVkzK4zXBn
+	LZ/C7MxxyVS2db1P6285xDbOd2GyKrQ5zwQor+1YKMx8Oz47d3dD9MC245kEqxZfmD86mBCq5Vk
+	LK/i36lwvw4dUYME/CtxvT/ZD8Fm2ofAWC/svQFzx+MNY9hB1fvw7YYujHKWuwPb/MsVhkkH9Ua
+	T2oHCeML/Y/8zv6VaPgkiJNe8/ze0TnKp+imrMBrwIPdZ8XlqjL5utsUCdak7CmFl1Jy7lKnyOR
+	sZVYNsucXZ7Z9vO//hLRJcSYEk9XhA/JqPCe98P1dQalQngLdslYF234EbS2YAmZSS8H/cowuGe
+	oiIjSBuix7C+XDpexMc4DXX8MLGcXFbmVf4Gwg0RJLHaVeGshB0FGOXRAJwZo9NkHJpzQGi/eUK
+	Q33kgicKn0XrHjG6QNDH9lfVxN78/0+ucW91IIy1XnUPCJvvAZnSmOyYw/oPWY/1mvUrRT1+Had
+	YWyffSU+EjzJTpH4PveYQGYfDRvrBU9FLQoh0xlmW71dP06jbU6AxpwC/mwfz/mnEj3vsBY8G6w
+	==
+X-Received: by 2002:a05:7300:8807:b0:369:5583:bf4c with SMTP id 5a478bee46e88-3856ff5bb62mr14355293eec.28.1795495362923;
+        Mon, 23 Nov 2026 20:42:42 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm52424647c88.9.2026.11.23.20.42.34
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567abb870sm34172134eec.25.2026.11.23.20.42.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 23 Nov 2026 20:42:35 -0800 (PST)
+        Mon, 23 Nov 2026 20:42:42 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: andrew@lunn.ch,
@@ -93,9 +96,11 @@ Cc: andrew@lunn.ch,
 	richardcochran@gmail.com,
 	rmk+kernel@armlinux.org.uk,
 	vadim.fedorenko@linux.dev
-Subject: [PATCH net v5 0/8] ptp: fix request serialization, teardown and SMA reporting
-Date: Mon, 23 Nov 2026 20:42:33 -0800
-Message-ID: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
+Subject: [PATCH net v5 3/8] ptp: disable all timestamp channels after removing the user interfaces
+Date: Mon, 23 Nov 2026 20:42:40 -0800
+Message-ID: <20261123-timecard-common-v5-d669cfa034-3-ahmadexp@gmail.com>
+In-Reply-To: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
+References: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,81 +112,121 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-This series fixes PTP request serialization and timestamp shutdown, and
-corrects OCP SMA/DPLL reporting. It is based on net at 4392bb809812.
-It contains no WiWi board support or LED driver changes.
+PTP_EXTTS_REQUEST and extts_enable can enable channels without assigning
+a PTP_PF_EXTTS pin. ptp_disable_all_events() only visits assigned pins,
+so those channels can still generate events after the clock is released.
+ptp_ocp exposes six timestamp channels but only four SMA pin descriptors;
+the internal GNSS and PHC timestamp sources do not need an SMA assignment.
 
-The first two patches address prerequisites identified in v4 review:
-serialize all three sysfs enable callbacks with the ioctl paths, and
-prevent SJA1105 EXTTS disable from switching its shared pin to input.
-Patch 3 preserves Vadim's requested teardown design: after removing the
-user interfaces, send direct disable requests for each advertised EXTTS
-channel, followed by PPS. Do not use a pin-function helper for channel
-indices, alter pin assignments, or add a driver stopping flag or spinlock.
+Disable each advertised external timestamp channel, followed by the
+existing PPS disable, after posix_clock_unregister() has removed sysfs
+and drained active ioctls. Issue PTP_CLK_REQ_EXTTS requests directly for
+timestamp channel indices. Do not use the pin-function helper or require
+a pin assignment. Keep that helper for changes to actual pin configuration.
 
-The remaining patches handle hardware selector values and combined input
-routes, recover disabled SMA state on bind, report disabled inputs as
-zero Hz, and correct the DCF77 and ART 10 MHz frequencies. Rebind recovery
-is now separate from DPLL reporting, with the earlier b2c4f0ac53f3 Fixes
-tag, so kernels without DPLL support can receive that correction.
+Remove ptp_ocp's preliminary timestamp-disable loop. It runs before the
+user interfaces are removed and can race with an enable: the enable sets
+pps_req_map, detach clears it and disables the source, then the enable
+rearms the source. With shutdown delegated to the core, requests finish
+before the final disables and IRQ drains. Keep the existing resource
+cleanup for probe failures without a clock.
 
-Changes since v4:
-- New patch 1 takes pincfg_mux in extts_enable, pps_enable and period.
-  All callback errors and existing permission checks are preserved.
-- New patch 2 changes the SJA1105 pin function only on EXTTS enable.
-- Patch 3 has unchanged code. Its message no longer presents the runtime
-  sysfs/ioctl race as remaining after patch 1. It explains why an empty
-  software subscription map is not proof of initially idle hardware.
-- Old patch 3 becomes patches 5 and 6, with separate Fixes tags. Correct
-  the incremental ADVA X1 description: patch 4 already makes its zero
-  input selector return zero Hz rather than -EINVAL.
-- Patches 4, 7 and 8 retain their v4 code and messages. Preserve Vadim's
-  Reviewed-by on the unchanged DCF correction only.
+Do not skip the shared PPS source's register disable when the final
+subscription map is empty. The map tracks software subscriptions, not
+the hardware's initial state: ptp_ocp_register_ext() requests the IRQ
+without resetting the source. An already active source must also be
+masked and drained before releasing the clock. Preserve the shortcut
+while another PPS or EXTTS subscription remains. The preceding sysfs
+serialization fix prevents runtime enables from overlapping disables;
+the SJA1105 prerequisite prevents an EXTTS disable from changing its pin.
 
-Validation of this revision:
-- Reproduced v4's shared-PPS runtime race and SJA1105 pin side effect with
-  actual extracted functions, controlled scheduling and stubbed hardware.
-- 100 removal/shared-PPS model runs; 100 runtime serialization runs, each
-  with four controlled interleavings; 100 SJA1105 runs, each with 14
-  chip/direction cases. All passed under ASan/UBSan.
-- Eight local KUnit cases passed in x86_64 QEMU with KASAN, lockdep and
-  DEBUG_ATOMIC_SLEEP. These exercise real PTP register/unregister and
-  real sysfs stores with a test clock, not physical OCP/SJA1105 hardware.
-- x86_64 and i386 allmodconfig and allyesconfig builds passed for the PTP
-  subtree and SJA1105 PTP object with W=1 and KCFLAGS=-Werror.
-- SMA/DPLL tests cover 4,669 input combinations, 243 retained-mux rebind
-  states, ART accessors, disabled-input re-enable and X1 direction change.
-- Twenty deliberately broken variants were rejected by runtime assertions.
+Source-derived tests with stubbed MMIO and IRQ operations reproduce the
+early-disable/map race and exercise an empty-map prearmed source. Core
+unregister tests pass in QEMU with KASAN and lockdep. These are software
+tests, not observations of a prearmed physical card.
 
-The review fixtures are local validation material, not new upstream test
-interfaces. No physical card or switch was tested for this revision.
+The issue was reported by the Sashiko review. Codex assisted with the
+code, tests and changelog in response to that report and Vadim's review.
 
-The reports came from the public review thread. Codex assisted with the
-code, regression tests and submission text; the commit messages identify
-the reports and distinguish modeled tests from hardware observations.
+Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
+Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
+Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
+Link: https://lore.kernel.org/r/4e42134b-b017-4836-9772-9c1915b16e77@linux.dev
+Link: https://lore.kernel.org/r/08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev
+Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
+Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
+---
+Changes in v5:
+ - Keep the v4 code and Vadim's direct channel-disable approach unchanged.
+ - Add sysfs serialization and SJA1105 prerequisites before this patch.
+ - Explain the empty-map shutdown independently of the now-fixed runtime
+   race, and distinguish modeled prearmed hardware from a physical test.
 
-Previous revision:
-https://lore.kernel.org/r/20261122-timecard-common-v4-e0db4ab1aa-0-ahmadexp@gmail.com
+Testing: 100 removal/shared-PPS suite runs and all eight local PTP KUnit
+cases passed. Seven cleanup mutations fail at runtime. No physical card
+was used; the review-only fixture is not part of this patch.
 
-Latest review reports:
-https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
-https://lore.kernel.org/r/179548551472.3135.11972018356692852897@kernel.org
+ drivers/ptp/ptp_chardev.c | 14 +++++++++-----
+ drivers/ptp/ptp_ocp.c     | 17 ++---------------
+ 2 files changed, 11 insertions(+), 20 deletions(-)
 
-Ahmad Byagowi (8):
-  ptp: serialize sysfs requests with the ioctl paths
-  net: dsa: sja1105: leave the pin function unchanged on EXTTS disable
-  ptp: disable all timestamp channels after removing the user interfaces
-  ptp: ocp: handle hardware selectors and combined DPLL input routes
-  ptp: ocp: recover disabled SMA inputs when binding the driver
-  ptp: ocp: report zero frequency for disabled SMA inputs
-  ptp: ocp: correct the DCF output frequency
-  ptp: ocp: correct the ART 10 MHz input frequency
-
- drivers/net/dsa/sja1105/sja1105_ptp.c |  8 ++--
- drivers/ptp/ptp_chardev.c             | 14 ++++---
- drivers/ptp/ptp_ocp.c                 | 58 ++++++++++++++++++---------
- drivers/ptp/ptp_sysfs.c               |  9 +++++
- 4 files changed, 62 insertions(+), 27 deletions(-)
-
-
-base-commit: 4392bb809812ac79449cd0cf1f5e00469ee102d1
+diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
+index f63b45f5ee6a..5835c01cddb4 100644
+--- a/drivers/ptp/ptp_chardev.c
++++ b/drivers/ptp/ptp_chardev.c
+@@ -53,11 +53,15 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
+ 	unsigned int i;
+ 
+ 	mutex_lock(&ptp->pincfg_mux);
+-	/* Disable any pins that may raise EXTTS events */
+-	for (i = 0; i < info->n_pins; i++)
+-		if (info->pin_config[i].func == PTP_PF_EXTTS)
+-			ptp_disable_pinfunc(info, info->pin_config[i].func,
+-					    info->pin_config[i].chan);
++	/* EXTTS requests do not require a pin assignment. */
++	for (i = 0; i < info->n_ext_ts; i++) {
++		struct ptp_clock_request req = {
++			.type = PTP_CLK_REQ_EXTTS,
++			.extts.index = i,
++		};
++
++		info->enable(info, &req, 0);
++	}
+ 
+ 	/* Disable the PPS event if the driver has PPS support */
+ 	if (info->pps) {
+diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+index 625a85b2dc7e..b16d36c3305f 100644
+--- a/drivers/ptp/ptp_ocp.c
++++ b/drivers/ptp/ptp_ocp.c
+@@ -2559,8 +2559,8 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
+ 		else
+ 			bp->pps_req_map &= ~req;
+ 
+-		/* if no state change, just return */
+-		if ((!!old_map ^ !!bp->pps_req_map) == 0)
++		/* Skip the register update while a subscription remains. */
++		if (old_map && bp->pps_req_map)
+ 			return 0;
+ 	}
+ 
+@@ -5755,19 +5755,6 @@ ptp_ocp_detach(struct ptp_ocp *bp)
+ 	ptp_ocp_detach_sysfs(bp);
+ 	ptp_ocp_attr_group_del(bp);
+ 	timer_delete_sync(&bp->watchdog);
+-	/* Disable interrupts on all timestampers */
+-	if (bp->ts0)
+-		ptp_ocp_ts_enable(bp->ts0, 0, false);
+-	if (bp->ts1)
+-		ptp_ocp_ts_enable(bp->ts1, 0, false);
+-	if (bp->ts2)
+-		ptp_ocp_ts_enable(bp->ts2, 0, false);
+-	if (bp->ts3)
+-		ptp_ocp_ts_enable(bp->ts3, 0, false);
+-	if (bp->ts4)
+-		ptp_ocp_ts_enable(bp->ts4, 0, false);
+-	if (bp->pps)
+-		ptp_ocp_ts_enable(bp->pps, ~0, false);
+ 	if (bp->ptp)
+ 		ptp_clock_unregister(bp->ptp);
+ 	kfree(bp->ptp_info.pin_config);
