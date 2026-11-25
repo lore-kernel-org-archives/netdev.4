@@ -1,71 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.31.204.67
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597696;
-	b=Fo0ZR3hNHbPytt30U5pkYlSHB/LWhRLN+QLqOrO9seFHzXWXlV/9Nk5LdZnBa+69xeYy
-	 qUARpm0elyScdQphRs8sjc89qsligq7eRsqRt7HC3020YsQ5jF3XjRGQQGZPcezJQP6eD
-	 vALa6eibo8PMb8il952V2rXjHH3o7C8XWn+ET9BYFEsvqx+fDe/xG6vckdvDbQTnmlHTX
-	 U81s3gZ28gaWPJQzhhsTxUIXGT/jJIXTjTT7Kcqp/JJijl+gXopfVC5/KXysF8Oq1Qfxv
-	 lVQ6SfYLRzt3IHHw7hj9I86xBWdCN3V/8RgvaxpRS9qEaD7Za51vn6Jf/JplGL82mQw==
+	t=1795598119;
+	b=VAlGPN2lYihikkB6/4p+s25tMVBpxWWmMBWCzHq4HrYyThSJaF8AS+hlArfEkLD6aKXP
+	 z7B+7k1Rfa1Zzz02QKBpTEF7bUzmB5M0MjuZQSfeUkWRI1g4ziC6GfsSYx4P8ZT/4dz4I
+	 P6uYq02buzZKBXEcVMu6z7BLmVsOKR2wfPsMo9o7hFC++Snotvuf57+Qkz5mvHMWwWKXi
+	 SuB756E5zn9s9SPvuSrK6uI7Tnw0SmVZkyB2EDSMVGzH7v6juFy9KZWkJq0iiWeM/1+EW
+	 y38u8OKLXzLcrjYSvQbkJ86XRd0aj5749BmMXdFucifYD9tn+en9MsrfpXfYTYDteYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597696;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Rspamd-Queue-Id:
-	 X-Rspamd-Server:X-Rspamd-Action:X-Spamd-Result:X-Spam-Status:
-	 X-Spamd-Bar;
-	bh=Q0sU2hNYXS1gcKYA7ILDP9h/a5LTgZV8RiA6UOSgIkg=;
-	b=AUQ/XB5mNiMYqKJlGbpOfA4wMuK8KH6OGhT0hP4PrWZPOIBLTjf+n1Qcjru12K4wTXaW
-	 S3bBQwM2D8C3sZoDZ6OTgxWCv7f9ouAd/QB2v1tfxeqpl2r8wXG77ca+kUSHhUn9pM8zN
-	 zSqeaofXNr5BiRQD+UB22ko9y5YDT3p6Vw5gCLtuWaKPzgR83q//vv9rX8rRlfbKPOz0i
-	 GSNHPV7MUxVCXh0F0l51ivJNAsMrQPytJ/gm/ltxSC8xyE7FZI9uVJwpFGspVdIr9Th8b
-	 eLzWhmSAykawnogEG357Folf1LHMdKVJz8ZKwO+nVWJdoQ37X3s3x0Pe2crWfoRrymQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598119;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
+	b=ZaObDTpAQslR6KqUjonqTifuCJAYD4axPS+Oab5Zjdcda9iVpAC2uXzgGAGl/B4YZThq
+	 PAJp77DWQiqRo2NgnErYJUPfhheNFN654m/Q+QC+DBFKJnu0Yn33makNBGzd3T7NSn8Cs
+	 FXmHXSCz/aKjYRQlO2zsUxkeuCjBq5yF1kzd3KQeJ2zxy0UjtHpCmkxOfMmV64NEspPbu
+	 5HpAbh3JcDzPBT9/h2OzEtcHnK25cpSbgOH/5B8gEL+MREbQSxA0SYa2GlUP9pUqFhLoN
+	 kmy6766hO3QGUdKILtf43pU4VRUM5hfpT1rd4Q7LMJo3gzOgNW4vcwNbvdJvA6Ku/hA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nic.cz;
-	spf=pass smtp.mailfrom=nic.cz;
-	dkim=pass header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b=ESjGovea;
-	arc=none smtp.remote-ip=217.31.204.67
-Received: from mail.nic.cz (mail.nic.cz [217.31.204.67])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90A68606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:08:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90A68606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nic.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nic.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76B35606A33A;
+	Wed, 25 Nov 2026 09:15:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b=ESjGovea
-Received: from solitude (unknown [172.20.8.51])
-	by mail.nic.cz (Postfix) with ESMTPS id B45841C0607;
-	Wed, 25 Nov 2026 10:08:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nic.cz; s=default;
-	t=1795597692;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Q0sU2hNYXS1gcKYA7ILDP9h/a5LTgZV8RiA6UOSgIkg=;
-	b=ESjGoveazVVEQF3MUym2Mz605P1TD/ClAWpIHQQwhF+e3TYWuyQWq9c/HsZWsEoGJ/Mh3k
-	tmfg0nCfRkDYqjU0VKrS9LGZ78ylxmIh3roxvBeaab3LWe4gZoo6S15KtOR9FU4SDqPUPn
-	FqJ2AHfp9KlzZOM6HerjyYnRwcV8eA8=
-Authentication-Results: mail.nic.cz;
-	none
-Date: Wed, 25 Nov 2026 10:08:11 +0100
-From: Marek =?utf-8?B?QmVow7pu?= <marek.behun@nic.cz>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, hkallweit1@gmail.com, 
-	linux@armlinux.org.uk, netdev@vger.kernel.org, andrew+netdev@lunn.ch, 
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	horms@kernel.org, petr.wozniak@gmail.com, maxime.chevallier@bootlin.com, 
-	olek2@wp.pl, szymon.datko@gmail.com
-Subject: Re: [PATCH net-next v4 2/2] net: sfp: skip PHY probe on bridge-less
- OEM SFP-10G-T revisions A and B
-Message-ID: <awalC0J9fjVgVLdk@solitude>
-References: <20261121091235.1447291-1-pawlik.dan@gmail.com>
- <20261121091235.1447291-3-pawlik.dan@gmail.com>
- <awWkbH3O8IrMYiSF@solitude>
- <20c5e53b-e2f5-45c2-9d64-d279cb884870@lunn.ch>
- <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QQVEFCae
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98DEF1F000CF;
+	Wed, 25 Nov 2026 09:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795598119;
+	bh=At1d4DsGvoBkrkeqmLrpO5m115sUYRFdd0heKIcaWwI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=QQVEFCaevC7OTekhbBH2fgLn4bFnpcyHnzmYrRUGMUcC5JrLTKUIxKjfqOj6VPeg3
+	 LTXhE4pmeFxRUkpOluQWzi6TDDsfzXAfeUT+fLVZ+ovCyKffXaTIm/kLqEBHDL6JM6
+	 MTxr7UOGEI5GVWqAY/LonJF9cdbdWEof0Xc3rPwNJLTQi1NB+muhq6qViOsqiW3uH4
+	 yaUK/haeqkqCJDEYjt61wNoMxmdD/DYMYUj4GwXtUAeQ+VFTPZmQJ0K/Xfu6aVoWKP
+	 J8mcQEsbf0ni5BgSbLUyy5ILwP8q1f206/aWTNEXSLqHCpPGdSjBvl5wpSYtnJ+Edu
+	 STtAhutLpek8A==
+Message-ID: <16abfc2d-daf1-477b-87a0-7a6993370b6f@kernel.org>
+Date: Wed, 25 Nov 2026 10:15:13 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,71 +51,105 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
-X-Rspamd-Queue-Id: B45841C0607
-X-Rspamd-Server: mail
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [1.64 / 16.00];
-	INTERNAL_NETWORKS(-3.00)[172.20.8.51];
-	BAYES_SPAM(2.74)[98.45%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	LOCAL_OUTBOUND(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	ARC_NA(0.00)[];
-	TAGGED_RCPT(0.00)[netdev];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[15];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	FREEMAIL_CC(0.00)[lunn.ch,gmail.com,armlinux.org.uk,vger.kernel.org,davemloft.net,kernel.org,redhat.com,bootlin.com,wp.pl];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FROM_HAS_DN(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	DKIM_SIGNED(0.00)[nic.cz:s=default];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,wp.pl]
-X-Spamd-Bar: +
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [BUG] mptcp: pm: WARNING in mptcp_check_listen_stop() when listen
+ fails on a new endpoint listener
+Content-Language: fr
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: Mat Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Simon Horman <horms@kernel.org>, mptcp@lists.linux.dev,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <179502042942.2742790.17887994424282536144@gmail.com>
+ <5d651146-b21d-44da-9f15-860f0c9c2dc5@kernel.org>
+ <179502653236.3033236.9177220287548482679@gmail.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <179502653236.3033236.9177220287548482679@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 06:56:38PM +0100, Daniel Pawlik wrote:
-> On Tue, Nov 24, 2026, Marek Behún wrote:
-> > It would be much better to somehow check for RollBall protocol.
+Hi Kyuwon,
+
+On 18/11/2026 19:31, Kyuwon Cho wrote:
+> Hi Matt,
 > 
-> Agreed, that is nicer than matching revisions - it covers every
-> bridge-less variant without a list. Two problems with the snippet as
-> written, though:
+> On 18/11/2026 19:18, Matthieu Baerts wrote:
+>> Please always decode stacktraces with ./scripts/decode_stacktrace.sh.
 > 
-> - i2c_mii_read_rollball() maps a poll timeout to 0xffff, so
->   mdiobus_c45_read() never returns -ETIMEDOUT here.
-> - Returning 0 skips the PHY probe retry loop, so a genuine module
->   whose bridge is still booting at the first read would lose its PHY
->   for good. That is what got 8fe125892f40 reverted in b521003c27eb.
+> I'll keep that in mind and decode them in my next reports.
 > 
-> What about this instead (with Andrew's MDIO_MMD_PMAPMD/MDIO_CTRL1):
+>> Out of curiosity: if your LLM has already analysed the root cause and
+>> has a reproducer, why not ask to generate a fix and send this patch
+>> instead of the bug report?
 > 
->     case MDIO_I2C_ROLLBALL:
->         /* mdio-i2c reports a RollBall command timeout as 0xffff,
->          * both for a bridge that is still booting and for a module
->          * without a bridge. Retry after one cheap read instead of a
->          * full PHY probe, which times out on every register under
->          * rtnl_lock.
->          */
->         err = mdiobus_c45_read(sfp->i2c_mii, SFP_PHY_ADDR_ROLLBALL,
->                                MDIO_MMD_PMAPMD, MDIO_CTRL1);
->         if (err == 0xffff)
->             return -ENODEV;
+> I'm more used to communities like LLVM, which are cautious about
+> LLM-generated patches, and I was hesitant to send a fix for code I
+> don't know well, made in a way I couldn't fully judge. So I only sent
+> the root cause analysis. Thanks for explaining; I'll send a tested
+> patch with later reports when I can.
 
-Hmmm. It is possible that some RollBall modules contain a PHY that,
-even after booted, will contain the value 0xffff in the
-MDIO_MMD_PMAPMD.MDIO_CTRL1 register.
+Thanks!
 
-Maybe instead we should read some other register, like PHY ID?
+> For this one we do have a small candidate fix, tested with the
+> reproducer: it puts the MPTCP socket back to TCP_CLOSE when
+> __inet_listen_sk() fails. Since you already have a fix for v2, would it
+> still help if we posted it, or should we leave it to your series?
 
-Andrew?
+In the meantime, I guess you saw the patch I sent to the MPTCP ML:
 
-Marek
+
+https://lore.kernel.org/20261121-mptcp-cmason-fixes-v2-36-00327fd1de1f@kernel.org
+
+If the fix was different and your reproducer still see the WARN with the
+patch I sent, feel free to share yours.
+
+Cheers,
+Matt
+-- 
+Sponsored by the NGI0 Core fund.
+
