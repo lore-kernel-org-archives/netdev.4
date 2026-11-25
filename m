@@ -1,50 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.75.44.102
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587762;
-	b=UhMlkl6lp5DxG2xY0JuXkcg4Q5XiXHyvVMiQ9HcpXxx4RkM7szRUNrNYYCva8wbjXaDl
-	 3MrCXXwTYP/VSwVNzvs7peg94gBJmOoh90bp7NfkwzNDe2bzM9BJfjPlDpMtxcUi6gZPD
-	 Mak3vJpjynADS9QS1YKTdEtFnvL7yAWHvV1IjDhP+jrnSfvS9bASszg/pKJmaw9dBSOvy
-	 8O2Ipp5wfv4oTQ9SkebHpeFJlOorgH3yAjNdx6XBMK2vrC/f9w8Z7G0agCaQwFDEmOyS/
-	 CtpFSRlvF+pWH1U2ipvROjtODvRI/3NXmnxmNZVgWgpuIVQraqSqQVQBtP9OTohwEgw==
+	t=1795587874;
+	b=MkM++dQNjbKTfHA2qcUi3gqZRTkosLP2Ms0cbor8q7h0gk13Rw7iZrGN3Owx0yCBp7Ql
+	 hGZFQ93hH7P5IJFk2B71Nqx3kc+CtGFNFvhYQsYcWRv47lIFgc7doJXcu4qWUJUc3Lscd
+	 EG0vDZiTinZnxlObLr88cSJRxAeVqgzvEgVSvCnXu5SZeIgV+PVchrW06qCDMxAqwyhFd
+	 qMSIl+kISs7ckz0XCtGQhzDu0LlHfO2EqCYSwftyYkYbkwe5WW/YtCmLpX43rH+3cxb6N
+	 X43s0c49KPPIxrzhzMQBfe1DYTzsyOFupLSUrruZaD/RWPFV7mhF15tDZ5rrToUHV/w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587762;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=ukAnIx9CIIZ9kjRSJQFLi2KYR1rvbJhbQwVVFeyyRFQ=;
-	b=4YbhKejN782lphbMwDO6d/v2ELM6Kx4uSjtD/J+mQAEJd7ei0Ntq+QuTyBNXQPiJeBHo
-	 8gJ1KazgMVdv3NpE3UyhvOK/1flkR/c2YAFo5XWW+GtysRKCRxKQZflzUFizAIahU3Mwp
-	 YG6NRHqp9nbhI+rTVSFc8y1wL4FrdbudWEMuYblHByVrn75vZTjTxxHhd/Z3eu4Xd11pU
-	 Do2XG0QlMfcfwY91iFulqRXBEPy6DWpf/fGGATe0NC26umeDRzN0vc0ABuDLLWpSFAeTl
-	 SI/udM9R3Ij/I9k0cYGUDaNN+BTbfSgnQOucO4Ur94fi/OOkRTysdWWIRPJN4fYAKsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795587874;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=ZQsWRLmOjI6MWITE5i2BHhTTEhDrYVeR825HJ9sXg2s=;
+	b=H3ZAOil2mn9WPE/ghFiPVtAr8WyHujqANEbFJu5/CPPn16fkFqe0Ib7mxK4E3ahyDVXz
+	 ZZ4Pyrl5PbPSbUXs4ljtARH8UZNnKvJWVtEPXoZ1EGN11h+195/YeyFG2t0mUUC/maBeg
+	 JXwVQBBVKwllfkM5rD7YeUz1a9HEZX4RZeAECWXrljypL4nuToMak93NUqZ/AgFY7SIGY
+	 af8PjpDE7swH5xtx8saGIzN1FIbExtklkG3NJI2OKetMgkXvJ9o2RGE1YwfTIQCTZAmJT
+	 qxEYulAQv/dsFq5FTVB95dMKyhY1NUGIXqJWqOOgCjWlY1KZKHxixvViAvCMghN/j2g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xjtu.edu.cn;
-	spf=pass smtp.mailfrom=stu.xjtu.edu.cn;
-	arc=none smtp.remote-ip=13.75.44.102
-Received: from azure-sdnproxy.icoremail.net (azure-sdnproxy.icoremail.net [13.75.44.102])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 81790606A32C;
-	Wed, 25 Nov 2026 06:22:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81790606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=stu.xjtu.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xjtu.edu.cn
-Received: from fxxowodeMacBook-Pro.local (unknown [10.181.177.214])
-	by app2 (Coremail) with SMTP id NAGowAB3KZasfgZrTAqDAA--.38917S2;
-	Wed, 25 Nov 2026 14:22:37 +0800 (CST)
-Date: Wed, 25 Nov 2026 01:22:31 -0500
-From: "Zhenrong (Daniel) Gu" <zrgu@stu.xjtu.edu.cn>
-To: Julian Anastasov <ja@ssi.bg>
-Cc: lvs-devel@vger.kernel.org, netdev@vger.kernel.org,
-	Xing Feng <xingfeng@stu.xjtu.edu.cn>,
-	Peng Zhang <p-zhang@xjtu.edu.cn>
-Subject: Re: [BUG] ipvs: new connection on a reused port goes to the previous
- real server during conn_tab resize
-Message-ID: <awZ-p0v7Cr2hBfon@fxxowodeMacBook-Pro.local>
-References: <avx0_13w3xGNdZP8@fxxowodeMacBook-Pro.local>
- <d876f5ef-982a-0ddb-5e75-3434453c2ccf@ssi.bg>
- <av7f6F123V2WDd_u@fxxowodeMacBook-Pro.local>
- <a5aa2a54-d8ea-bbe1-3a72-d672d6fd92c4@ssi.bg>
- <awWHfO0EgdLoOxLi@fxxowodeMacBook-Pro.local>
- <4da25158-cbab-1186-b948-e17b13262bc3@ssi.bg>
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ArV2ryvm;
+	arc=none smtp.remote-ip=209.85.215.180
+Received: from mail-pg1-f180.google.com (mail-pg1-f180.google.com [209.85.215.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C2B39606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:24:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C2B39606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=ArV2ryvm
+Received: by mail-pg1-f180.google.com with SMTP id 41be03b00d2f7-cdac6d19ddaso2115396a12.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:24:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795587868; x=1796192668; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ZQsWRLmOjI6MWITE5i2BHhTTEhDrYVeR825HJ9sXg2s=;
+        b=ArV2ryvm/qDFsW/4BJC0tMGbCOx2gT6SWvkk2itkNge9rQIPDAYUHGyHGeLQquK14z
+         LtDohwxclssuBm09UuyCAuokUt0RIRpXxuQ/zzqQgRqvdMzHfLuW7Q4N8iyTcfVwiaoi
+         +WpcIhYtD7BqMB49/MS4wypCCURlt2ttyZUO4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795587868; x=1796192668;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=ZQsWRLmOjI6MWITE5i2BHhTTEhDrYVeR825HJ9sXg2s=;
+        b=OqwGw5PSzz58skH0VmFLNj3ocZSeFkg45X0WGPHKvhLRyapVE+5um7eEvmUr721rZQ
+         zJ1VKli04be0NsDUKISiz7n/SSrW5l+KFAjeEiWKaTqH66qRRfiLCpFb7GI7bKUPMC1r
+         iBGNSQphJ/H7oiAUdbjxZAeD/H0qrMIamjfkwPmPtbB+nXxXJw/n7cFw9wzjOnkLypLj
+         xCib4hdWM3QtdjaAhcSPUUn+tVzfB2bF85DCTU/oFxxVN8jJQbECslT0PduMbgfuARNu
+         AFqFi8k/ywEVb6ZbfyhQ3nIZXRCOH3cB56htC9+N25hqKMYw/e8Qxf/j8M3KoYzOxWL4
+         DOGw==
+X-Forwarded-Encrypted: i=1; AL+hErEG5/BOibl1fDfxCGN8NbNEmwz992zPtxZZbGF1E7J+RVcnB5xgid3RtWqGqb/iMbpJkYqHrMk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9UrpLh++ys3z3YOjyf3Xpr8X2sO2/BVH0IU9ZBZEtgnmcSKmpl
+	HsgJ/ZGnxQAXudchrNZ/P+aB/zxF9CkIXBBMgys50ABhwzkO+dZGnVwVg3e9fc95Z+M=
+X-Gm-Gg: AZFdTZf6pNFKyoEWKse46ZTYfJRQcDNQmmK2TlY/BK+mXvkgfU5MaeNCq51UxuLnm+o
+	MnDTj3xeodeBwquRJkZAc7AGDiWNYpuN/4/62MX+3lnYnkrEYhXyHXeLmiowBR+FCjaFzMZKUlt
+	1SUaQNDme8rQDrq4b9NNpCeh/2RYpop8soQZE4oxE9bks0mjxOYoDtqomHZnfbfAqYEUwmuUCco
+	sWoUP8TwqogIDI8YrCWDZn1yOMuqDtQEwe3tVR6FmKxLWkYZyXPrMVDmqUmawI6urgNNnMPUvEm
+	fL9TIg3umCcE4W1AgoX8Ex3dKZgmCqe2z0dmknHbXI6jD9q5IeymFgs6iGjNjJMdwZ1slwxmbT3
+	xZz1J3fwUFW9Pp368GKNwjAdFKf0wb9DSJbBWZOH6jEwL3+vSgoorqzZyjZAcRO9C6nDAmI7TbW
+	lOFeTChbGRkRLhKEXGztouatOT0tg0mB7ErNCXHVjwNnH2FcLNwGCAFr5P+cs19x8OHulOmkT08
+	tQKhN8RSIml3dxQj4yqk9YI55FBjvr3KspkkXGWwEEz+v6uuU10tldatLwfUaBD2yoym99xV2MR
+	dptxbKUu2Lmqzc7Hj2+TAhkOUf9vTLEQH7uNdG50NP6bWWH3N4orA7lSNmBrN4aLeLIHHywKhNC
+	vkXc1bTa4G+T/e2i4G+IIQ8tbgZQWAUAQYil2D1vn1tZLGRYX4aeeUyG5MeD8bB9xDIij4+Ver3
+	voVuEX4MNVsw==
+X-Received: by 2002:a17:90b:3d4d:b0:3b3:b71e:b2f3 with SMTP id 98e67ed59e1d1-3b41c95967emr16704304a91.45.1795587868123;
+        Tue, 24 Nov 2026 22:24:28 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm29191820a91.15.2026.11.24.22.24.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 22:24:27 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: johannes@sipsolutions.net
+Cc: kapil@presceralabs.ai,
+	linux-kernel@vger.kernel.org,
+	linux-wireless@vger.kernel.org,
+	netdev@vger.kernel.org,
+	piyus@iiitd.ac.in,
+	stable@vger.kernel.org
+Subject: Re: [PATCH wireless 1/2] wifi: mac80211: do not copy the mesh RSN IE twice into the beacon
+Date: Wed, 25 Nov 2026 11:54:22 +0530
+Message-Id: <20261125062422.948748-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <ac39fb1720fc03069317f8a74aa0f34d86db2e30.camel@sipsolutions.net>
+References: <ac39fb1720fc03069317f8a74aa0f34d86db2e30.camel@sipsolutions.net>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,55 +100,13 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4da25158-cbab-1186-b948-e17b13262bc3@ssi.bg>
-X-CM-TRANSID:NAGowAB3KZasfgZrTAqDAA--.38917S2
-X-Coremail-Antispam: 1UD129KBjvdXoWruw1kKrWDKw13CFyfZF17GFg_yoWDtFc_ur
-	WfWF97Ca1qyay8Ca18AF1rArn3Ga4UWrZrZFn0yrWftFyDGayDCF4kWFWS9wn3X34fJF1a
-	yrs0ga4akry29jkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbVxFc2x0x2IEx4CE42xK8VAvwI8IcIk0rVWrJVCq3wAFIxvE14AK
-	wVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK021l84ACjcxK6xIIjxv20x
-	vE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j6F4UM28EF7xvwVC2z280
-	aVAFwI0_Cr1j6rxdM28EF7xvwVC2z280aVCY1x0267AKxVWxJr0_GcWle2I262IYc4CY6c
-	8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JF0_
-	Jw1lYx0Ex4A2jsIE14v26r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrw
-	ACjI8F5VA0II8E6IAqYI8I648v4I1lc7CjxVAaw2AFwI0_JF0_Jw1lc2xSY4AK6svPMxAI
-	w28IcxkI7VAKI48JMxAIw28IcVCjz48v1sIEY20_GF4UJr1UMxC20s026xCaFVCjc4AY6r
-	1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CE
-	b7AF67AKxVWUAVWUtwCIc40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0x
-	vE2Ix0cI8IcVCY1x0267AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAI
-	cVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa
-	73UjIFyTuYvjfUeTmhDUUUU
-X-CM-SenderInfo: 5hqgt5hwuh2iqrsqq2dwxo5ylwxovvfxof0/
+Content-Transfer-Encoding: 8bit
 
-Hello Julian,
+Hi Johannes,
 
-On Wed, Nov 25, 2026 at 07:04:57AM +0200, Julian Anastasov wrote:
-> 	Thank you for the testing! Due to the Sashiko concerns [1]
-> I'll post new version later today:
-> 
-> [1]
-> https://sashiko.dev/#/patchset/20261124160226.103532-1-ja%40ssi.bg
-> 
-> 	Here is the v2 that I'll post, in case you want to do
-> the main test again. The difference is that we do not mark
-> the connection as reused early because a retransmitted SYN
-> should hit the old connection while it is using confirmed
-> conntrack and is not expired yet (2nd SYN comes before the
-> expiration):
-> 
-> [PATCH RFC nf v2] ipvs: fix connection reuse with the resizable hash tables
+Thanks for the review, and apologies for the delayed response. We have posted an updated version of the patch addressing the netdev-bot+sashiko feedback here: https://lore.kernel.org/all/20261125043805.883952-1-piyus@iiitd.ac.in/
 
-Thanks for the update. We reran the tests on v2 (same net tree
-af6737b90, 7.4.0-rc3+ in the 8-vCPU KVM guest). All previous
-tests continue to pass, and in addition, we ran a 30s force
-mode test with net.ipv4.vs.conntrack=1 and active nf_conntrack
-(7438 reused-port connections): 0 misrouted, delayed, or
-failed connections.
+We also plan to send a follow-up revision shortly to clarify and rewrite the commit message more concisely. Please let us know if you have any other feedback on the changes.
 
-Tested-by: Zhenrong (Daniel) Gu <zrgu@stu.xjtu.edu.cn>
-
-Thanks,
-Zhenrong (Daniel) Gu
-
+Best regards,
+Piyus
