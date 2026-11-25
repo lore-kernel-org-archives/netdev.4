@@ -1,51 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.136.29.106
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616447;
-	b=JzF/4ZL99/TVR7htLquFWalC1nBTn0I74k5WvXydX7+/LKXH/E1fn6KhVohDPWnULFIf
-	 Dj35tib3sBgezSvBXtuB9OYZjUyPKiafL+PdOKFSSnjILmocEtCQcQWpddUBTyevkQgwI
-	 ZH1RwZtQTRhpSlCK0g0jZyS4WVImLWbimDm7wWGx2Hw3GIypMOHsWY3lkjtPoZFR6tlJ1
-	 gAX94IA6XscaWsf6ae+M5InWnb4ggCgevT1QGm6aDKFefmYyk5/4M+T7s9yOugAYhocau
-	 jedas5UaV/d5z9KN+w0KFneX4scVNlJOylTQyD52q+xHWBg+PWT0Qi9mbx2D6CwPQAA==
+	t=1795616487;
+	b=Qg/7D4qYabtmR78VFoTDg774kn4UAZYbxYBLMMpuJ5OGE/IOsex4IRBgflYPY7X+eOqk
+	 sFOgJOnRmFFv87/3lPn8pCDPqUlwYkp23vJgwt0hp2aj04VfLnZyJTeJD+f8Bzn936TDc
+	 IvWFo/cUDvArtNrmUxJXk/qslwoRT5DHZ9cO/k8Fl1r6dDDWs/HyaG7Ij1VM0JH+vW2yk
+	 hsFIMTj788az5PGppQIc+t6VxR0E8RSc/GnvJc1WoTC1HEg5M/BjILPHXcJqDkdIo8Bn2
+	 vgKjfuOQcChKSD2pNpA4dbpVFWVXqqokrWGH2VLi+lspXRlecibrj5tD2g/E3rD/MRQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616447;
-	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:User-Agent:
-	 X-Bm-Milter-Handled:X-Bm-Transport-Timestamp;
-	bh=CqPZkR6s9fvAZktok9XJEnxIWf3C/I6wGKX26MKaVkk=;
-	b=uM8oGe4mkfGYuQEzAjl7/meT+tbXNcdmqGg3l5mulg1PCohupP4xXH9tze3auA1Ppree
-	 x7YECkn2YHxQMF61DPfSy2cg3lQMME7bImk+UVatxvKRCn1OUHvrpCesQ4YyttmTza8Nf
-	 wc7swZgH+bOdi+tqaSLBIAUZCDRatrP/QjwrSaEKQVPz/irPRUNDf8YfVxW7Yza7X+D1N
-	 jKyznRw7y/jPn5RhIcpn76I4Ph6PbNuEJuGMYs46xHkw4mhODjmvjO2zsIjIRnAJDcKrB
-	 ZXHqN8YO/vZmy6muJl99YEk1MkJQIii+S53p5tbT5nzBXP4zhpp58/8EHqF5B7L0vqg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616487;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=Z8rkgdmWzQ5tc6mLgq08LFXko5v7opLhcj8Wj763hEQ=;
+	b=Qgjiy5p3ugNnBAsXawgySiE2+Y0UV9jW8sZR5kZRa1eMjDvYBaWgPTyWfnZPDFUPKguF
+	 CsOIcDeboHnBWVSuoRQLip3noK2jw8G89WRmzblNtRbq3Xfr99MJIGXb54LxPkeOfKCer
+	 fU6QLxhXZUv43aOQfNiVFJaGWvFqqVFCFX37fVoOcmICELjEMfW3fIANaSV/76mFeqto+
+	 ezKkuJ2SmLpolV1nN6ATdA0IxO4jj74ofyEPI0fRcpylrqooGFqQli+YNf2q3wcgEUf9A
+	 SPQ/VwUAmiRNZFDijOOEf//o+z+mB+8OpfmsJZvqhIGVCkUBBqe3yMwDBX9Vyo7KG/w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=proxmox.com;
-	spf=pass smtp.mailfrom=proxmox.com;
-	arc=none smtp.remote-ip=94.136.29.106
-Received: from proxmox-new.maurer-it.com (proxmox-new.maurer-it.com [94.136.29.106])
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=iqVcN25q;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 095D6606A321;
-	Wed, 25 Nov 2026 14:20:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 095D6606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=proxmox.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proxmox.com
-Received: from proxmox-new.maurer-it.com (localhost.localdomain [127.0.0.1])
-	by proxmox-new.maurer-it.com (Proxmox) with ESMTP id 5B39F42D01;
-	Wed, 25 Nov 2026 15:20:38 +0100 (CET)
-Date: Wed, 25 Nov 2026 15:20:36 +0100
-From: Gabriel Goller <g.goller@proxmox.com>
-To: Vincent Jardin via B4 Relay <devnull+vjardin.free.fr@kernel.org>
-Cc: David Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Nicolas Dichtel <nicolas.dichtel@6wind.com>, Shuah Khan <shuah@kernel.org>, netdev@vger.kernel.org, 
-	linux-kselftest@vger.kernel.org, Vincent Jardin <vjardin@free.fr>, stable@vger.kernel.org
-Subject: Re: [PATCH net 0/2] ipv6: fix IPv6 scope check of the source address
- in a VRF
-Message-ID: <awbuXn2EYlusghUb@luna.proxmox.com>
-References: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-0-f667ab150ade@free.fr>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB8F9606A33C;
+	Wed, 25 Nov 2026 14:21:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB8F9606A33C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=iqVcN25q
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=Z8rkgdmWzQ5tc6mLgq08LFXko5v7opLhcj8Wj763hEQ=; b=iqVcN25qb1t7uOLUUJoVtFnFeF
+	f/dsKXucFRBKUrWMKJBnTeCZ93gJS/I3sBjxDlEXA0x8wX3Ft59H/UONxxu5uLKSjNcoWkwLtpb0j
+	7X1sQiTann5p6yuAp2duoNKCK024ENeLS8FBX9Omjv5UA0IAzOj7utOhPFRj6KHxBcnw=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWDro-001KiR-HS; Wed, 25 Nov 2026 15:21:00 +0100
+Date: Wed, 25 Nov 2026 15:21:00 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Ryan Leung <untilscour@protonmail.com>
+Cc: Alexey Charkov <alchark@flipper.net>,
+	Srinivas Kandagatla <srini@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from
+ the CPU ID
+Message-ID: <2f8da604-36af-4944-8168-02b046e97699@lunn.ch>
+References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
+ <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+ <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,18 +80,25 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261123-for-upstream-ipv6-vrf-saddr-scope-v1-v1-0-f667ab150ade@free.fr>
-User-Agent: NeoMutt/20260616
-X-Bm-Milter-Handled: 55990f41-d878-4baa-be0a-ee34c49e34d2
-X-Bm-Transport-Timestamp: 1795616437643
+In-Reply-To: <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
 
-Gave it a spin, consider:
+> > +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int index,
+> > +				 unsigned int offset, void *buf, size_t bytes)
+> > +{
+> > +	char cpuid[ROCKCHIP_CPUID_LEN * 2];
+> > +	u8 digest[SHA256_DIGEST_SIZE];
+> > +	u8 *mac = buf;
+> > +
+> > +	if (!id || strcmp(id, "mac-address"))
+> > +		return 0;
 
-Tested-by: Gabriel Goller <g.goller@proxmox.com>
-Reviewed-by: Gabriel Goller <g.goller@proxmox.com>
+I don't know OTP drivers. But to me, a function called
+rockchip_otp_cpuid_pp() which does not actually return the CPU ID is
+architecturally wrong.
 
-Thanks,
-Gabriel
+I would probably not mangle the CPU ID in the OTP driver, but in the
+MAC driver. The MAC driver should ask for the CPU ID and then hash it.
 
+    Andrew
