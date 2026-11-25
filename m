@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599586;
-	b=gWNdSgld9WwTcSmIRy6+hlsShyC1B9QW53fLlZoVZH1863b/vIhwBR6zEygOCm8ahBf0
-	 eNHCrpD94Zw34YGRKNKRsRr0hPkFH1490V+wp1lCxhyTeg5zt6ZlOQuXkY2BB87OCUjiY
-	 Xcpw7+MQtEC2WsHXl+hwQix33r2V+4bRCwUCfhP14QULKzZdnP40exP3Uhn1XP+hHB4Th
-	 QImQmD4p0wMCd8jhVZftZgb/cPJmby+C/TnG5cmLkO7522gy0IMsry3dIYH8atwI+d2B4
-	 mtW8CJlMyUs9wxesfQSFS70eQCo3K/do3QBMNTeT5JxadWFqIn1UQDHVsgB+U2+k/Kg==
+	t=1795599588;
+	b=LfO2U433Vb4smCtaHuuuXy8fTOr+XeZkEDmgDjKWLhhn1MD4mR3RYjv0JuzoYLTRVIbK
+	 0DVfzbBgfQiZm0JdPEliEAJZmoSvKI6yvpXW6o3M24YLlXy1rQ/HYvb0az6i16cKktiX8
+	 5kc8y9M8BzjWBmn2WYdNu5dcoVt1YwGyucPo9bsnifkmFcUnd9aX7O8kCp7peH3uJW4CC
+	 CdN+kvkxzAMm3PtdCRtMN+BgkyXTH9NCEIh5R3Px1JesdwLf/gNtuV6Zs2R+nEDl5SoPe
+	 rxImwW6iTyCuNGwBvpLymbrqenUxeR2ai+EmYh95LPdEGTuyCXrrtCc266xwRpEzttg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599586;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599588;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
-	b=sAgc2uYVyozzpDXUfvVrhFvxhuJfG2/Xcf39ARyOAheFczt0Pey0rUXRTv7wAhXUgyzR
-	 YyHlN1+He3OWOA+DNhD1xUpCxGE7dQkJu+G3swknlu5sYTxu9G5ArfFgOjUgdqHE2TBqr
-	 XQ3Nbluvb5A0MUEBYV5b6sCa7RHHLVF6hlJTBBxqMygRquECQN1gkz+qz+EhQZ299kq6N
-	 NhNXQzDwjops7i1+U+C1+5ijng8pvBe9aZk34W6DBVzOoUUzuYzEH3PqvGFe3Hi/31GQ3
-	 4ikY6HdoXKNUWQNvulD8dSyWherPjXzockHI11tzTjJIYoiCYCLvGpamRPlhq/RE1qA==
+	bh=rrie8qOVDRuHFMz/FkqXnHLhbfl/qqS8bONc++uaYkE=;
+	b=oPOzVuOnJROQ2jKHzvaUoH/apC5lU56yB78taUhb7INSzVH48M1aoWKOBKjbr7hV6Nz2
+	 h3pgysbAip/AAvFAMUgf0888RN5M7pSdwcm1uh8jyH9YvDLX12Qf93zNPnzYPAwbPWIEX
+	 XnzmPAqbxA+IvLOBVs7SWdCGy3RH+rddtjet5Ea/QjwNyiTMra5G3eKovHszqsE9X6zRa
+	 ByTgYbb9TP1HisHbnJiGPmGdIi7uu1+yjoaqby9UcTnkte5jaPMM5s9+AchDzVFOyp1pu
+	 08dB3wf81T/vQG2/NBiGVO7ZPcWXfF5oNsf52gwKV8yh8yJgIHPFzQy7wv3x0o8o6CQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxZvidaM;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F9C4606A31E;
-	Wed, 25 Nov 2026 09:39:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B99C606A32D;
+	Wed, 25 Nov 2026 09:39:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0ED1F00A00;
-	Wed, 25 Nov 2026 09:39:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxZvidaM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1B01F000C6;
+	Wed, 25 Nov 2026 09:39:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795599586;
-	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
+	s=k20260515; t=1795599588;
+	bh=rrie8qOVDRuHFMz/FkqXnHLhbfl/qqS8bONc++uaYkE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=JuXjMaQAgtW+23ndec+YBpf9mustSxcIDFqa8NqigCYVVbmoc++Lq4fUc3AdT+2kO
-	 4BOAUb2pFVRIQOayDWscCE6qPe8jcEyUVDG161ZU1xvJ2fXSoUpQvrRxa3XDp3zspe
-	 e6W2bEnCPPdXUK3f77Fzl6ncH4k4h7yc/cTlz+z9ycs47by3NAYIXEr3Kf1Znjd93Q
-	 7Wdk0d8TGSFVLnyOfUyeNtIPktugER+LnmDcQPpgA0vz3TJgwex/InyAaZLAwNPMt/
-	 /y/2wyBtHI35x6GrXoNt+mxeLo6RqpYThI/OQ4htJjSsvq1RuAGoStpL+fUgQLkY7f
-	 q1kY6hWSN06OQ==
-Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
+	b=GxZvidaMVBBGAA+Te4M76X9GcvWrPzmPS5nLZHscpiHx+gyp6MjHqwhrphG2M4UdT
+	 4QhRJbleegOL74Il9iULWiYeutOrh79islSbB70xkWqwICatzbAO0ZscOBgrHLj/l6
+	 6hXQ9EOOhHjSU+UYijB1C+ibpf8DXDYl9G67DUR++ev6KzxwzBkgGz8BL4RCfalfrW
+	 WlSWTsKGbseDxAEpli9cveEsfybSpQaY+4csuZikVHAL+6Dy6dzHI+VX7kZX3zGi4K
+	 cKH1qibwDGGkjPKwaQENgq6UZ2mcmMvOb79s51JDqTMamSeZshhKNzibNHAWTO1J/p
+	 lGP/yGYay3ONA==
+Subject:
+ Re: [PATCH net v2] net: x25: shut down T20 timer before freeing neighbour
 From: netdev-bot+sashiko@kernel.org
-To: bage@debian.org
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 09:39:45 +0000
-Message-ID: <179559958516.3135.11607042178143215952@kernel.org>
-In-Reply-To: <20261121092933.186731-1-bage@debian.org>
-References: <20261121092933.186731-1-bage@debian.org>
+To: f3lix.dev@gmx.de
+Cc: linux-x25@vger.kernel.org, ms@dev.tdt.de, netdev@vger.kernel.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, linux-kernel@vger.kernel.org, willemb@google.com
+Date: Wed, 25 Nov 2026 09:39:47 +0000
+Message-ID: <179559958721.3135.5593816176235018299@kernel.org>
+In-Reply-To: <20261124093922.39573-1-f3lix.dev@gmx.de>
+References: <20261124093922.39573-1-f3lix.dev@gmx.de>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -65,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 5 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 2
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -76,209 +75,115 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] Regression in an exported API: PHYs registered through
-  of_mdiobus_phy_device_register() no longer honour "broken-turn-around".
-- [Medium] of_mdiobus_register_phy() now sets BIT(addr) in
-  mdio->phy_ignore_ta_mask unconditionally, before…
-- [Medium] The fix only partly covers DSA switches, which the commit
-  message names as the motivating case.
-- [Low] The commit message frames the change as a bug fix: mdio.yaml
-  documents broken-turn-around for any '@[0-9a-f]+$' MDIO child, but…
-- [Low] net: mdio: duplicated broken-turn-around parsing in of_mdio.c
+- [Medium] The new skb_queue_purge(&nb->queue) runs in
+  __x25_remove_neigh() (net/x25/x25_link.c:303).
+- [Low] The kernel-doc for __x25_remove_neigh()
+  (net/x25/x25_link.c:292-298) still describes only list removal:…
 
 --
 
-net: mdio: handle broken-turn-around for non-PHY MDIO devices
+net: x25: shut down T20 timer before freeing neighbour
 
-The commit moves parsing of the "broken-turn-around" DT property out of
-fwnode_mdiobus_phy_device_register() and into the static helpers
-of_mdiobus_register_phy() and of_mdiobus_register_device(). The aim is to
-also honour the property for non-PHY MDIO devices such as DSA switches.
+This commit makes __x25_remove_neigh() call timer_shutdown_sync() on the
+T20 timer, so a callback that is already running can't rearm the timer
+after the neighbour is freed. It also purges nb->queue before the
+list-owned reference is dropped. That restores the cleanup removed by
+commit 7eed751b3b2a.
 
-> Non-PHY devices, such as DSA
-> switches, are registered through of_mdiobus_register_device(), where the
-> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
-> still treat the turn-around/read failure as an error.
-
-[Severity: Low]
-This describes broken behaviour that users can see, but there is no Fixes:
-tag and nothing says whether this is meant for net or net-next.
-
-Should a Fixes: tag be added for the commit that introduced non-PHY
-registration through of_mdiobus_register_device() (or the binding change)?
-If not, should the commit message say this is new functionality for
-net-next?
-
-> diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
-> index ba70915182654..129481e8a910a 100644
-> --- a/drivers/net/mdio/fwnode_mdio.c
-> +++ b/drivers/net/mdio/fwnode_mdio.c
-> @@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
->  		phy->irq = mdio->irq[addr];
->  	}
->  
-> -	if (fwnode_property_read_bool(child, "broken-turn-around"))
-> -		mdio->phy_ignore_ta_mask |= 1 << addr;
-> -
+> diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
+> index d1e8cd81c2143..b9f290616e3a8 100644
+> --- a/net/x25/x25_link.c
+> +++ b/net/x25/x25_link.c
+> @@ -299,6 +299,8 @@ void x25_link_device_up(struct net_device *dev)
+>  static void __x25_remove_neigh(struct x25_neigh *nb)
+>  {
+>  	if (nb->node.next) {
+> +		timer_shutdown_sync(&nb->t20timer);
+> +		skb_queue_purge(&nb->queue);
 
 [Severity: Medium]
-With the parse removed here, what happens to PHYs registered through the
-exported of_mdiobus_phy_device_register()?
+Is this the right place for the purge? __x25_remove_neigh() only drops the
+reference that x25_neigh_list owns. The neighbour is actually freed by
+whoever calls x25_neigh_put() last, and that function only calls kfree():
 
-drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
-	return fwnode_mdiobus_phy_device_register(mdio, phy,
-						  of_fwnode_handle(child),
-						  addr);
+include/net/x25.h:x25_neigh_put() {
+	if (refcount_dec_and_test(&nb->refcnt))
+		kfree(nb);
 }
 
-This wrapper never goes through of_mdiobus_register_phy(), so it never
-reaches the new parse.
+Anyone still holding a reference after list removal can add frames to
+nb->queue through x25_transmit_link() while nb->state is 0, 1 or 2:
 
-Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
-registers the port 1 PHY from a DT child node:
+net/x25/x25_link.c:x25_transmit_link() {
+	case X25_LINK_STATE_0:
+		skb_queue_tail(&nb->queue, skb);
+	...
+	case X25_LINK_STATE_1:
+	case X25_LINK_STATE_2:
+		skb_queue_tail(&nb->queue, skb);
+}
 
-		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
+A socket is one way to get there. On NETDEV_DOWN, x25_device_event() calls
+x25_link_terminated()->x25_kill_by_neigh() before x25_route_device_down().
+A non-blocking x25_connect() running at the same time can find the route
+and take the reference after x25_kill_by_neigh() has already walked the
+socket list:
 
-and does not set phy_ignore_ta_mask itself.
+	x25->neighbour = x25_get_neigh(rt->dev);
 
-ethernet-phy.yaml documents broken-turn-around for every PHY node. Would
-the property on a port 1 node now be ignored without any warning? On a bus
-that checks the mask (mdio-bcm-unimac, mdio-pic64hpsc, mdio-bitbang), reads
-from that PHY would then return -EIO or 0xffff.
+That socket is never disconnected. It sends CALL_REQUEST, which moves nb
+to X25_LINK_STATE_1, then returns -EINPROGRESS and keeps the reference.
 
-This also means the two exported OF PHY registration paths now disagree on
-whether the property is honoured.
+NETDEV_UNREGISTER then runs x25_link_device_down()->__x25_remove_neigh().
+That purges nb->queue and drops the list reference, but the socket still
+holds nb. Later, either T21 expiry in X25_STATE_1 or close() queues
+another frame:
 
->  	/* Associate the fwnode with the device structure so it
->  	 * can be looked up later
->  	 */
-> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
-> index b8d298c04d3ff..c03fcf34b3a62 100644
-> --- a/drivers/net/mdio/of_mdio.c
-> +++ b/drivers/net/mdio/of_mdio.c
-> @@ -46,6 +46,9 @@ EXPORT_SYMBOL(of_mdiobus_phy_device_register);
->  static int of_mdiobus_register_phy(struct mii_bus *mdio,
->  				    struct device_node *child, u32 addr)
->  {
-> +	if (of_property_read_bool(child, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
-> +
->  	return fwnode_mdiobus_register_phy(mdio, of_fwnode_handle(child), addr);
->  }
+x25_do_timer_expiry()
+    x25_write_internal(sk, X25_CLEAR_REQUEST)
+        x25_transmit_link()
+            skb_queue_tail(&nb->queue, skb)
 
-[Severity: Medium]
-The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
-checks whether anything answers at addr. Is it intended that nothing clears
-it when registration fails?
+When x25_disconnect()->x25_neigh_put() later drops the last reference,
+won't nb be freed with that skb still on nb->queue? x25_forward_data() and
+x25_forward_call() follow the same pattern: take a reference, transmit,
+then drop it.
 
-For PHY nodes without a reg property, the auto-scan loop in
-__of_mdiobus_register() calls this helper for every unregistered address
-and expects -ENODEV for most of them:
+The commit message says:
 
-			if (of_mdiobus_child_is_phy(child)) {
-				...
-				rc = of_mdiobus_register_phy(mdio, child, addr);
-				if (!rc)
-					break;
-				if (rc != -ENODEV)
-					goto put_unregister;
-			}
+    Also purge queued frames before releasing the neighbour
 
-If such a node has broken-turn-around, every empty address scanned before
-the real PHY keeps the ignore-TA bit for good. If no PHY is found, every
-unregistered address keeps it.
+As written, this only covers frames queued before the list reference is
+dropped. Would it be more robust to purge nb->queue in x25_neigh_put()
+before kfree()? At that point nobody else can add to the queue, and
+skb_queue_purge() is safe in atomic context.
 
-Before this patch, the bit was set in fwnode_mdiobus_phy_device_register().
-That only runs after get_phy_device() or phy_device_create() has succeeded.
-
-With those stale bits, unimac_mdio_read() returns the latched data instead
-of -EIO:
-
-	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
-		ret = -EIO;
-
-pic64hpsc_mdio_c22_read() behaves the same way. get_phy_c22_id() used to
-map -EIO to -ENODEV and skip the address. Now any latched value that does
-not match the (*phy_id & 0x1fffffff) == 0x1fffffff check counts as a valid
-ID.
-
-Could this register a phantom PHY at the lowest empty address? The loop
-breaks on the first success, so the real PHY would never be found.
-
-It would also hide real read errors at those addresses from later users of
-the bus. That conflicts with the phy.h description of phy_ignore_ta_mask:
-"PHY addresses to ignore the TA/read failure".
-
-The same applies, more narrowly, to the reg-based paths. When
-of_mdiobus_register_phy() fails, the bit stays set. The same is true when
-of_mdiobus_register_device() fails, either on the IS_ERR() return after
-mdio_device_create() or on the mdio_device_free() error path. In both cases
-no device was registered.
-
->  
-> @@ -56,6 +59,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
->  	struct mdio_device *mdiodev;
->  	int rc;
->  
-> +	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
-> +		mdio->phy_ignore_ta_mask |= BIT(addr);
-> +
+>  		list_del(&nb->node);
+>  		x25_neigh_put(nb);
+>  	}
 
 [Severity: Low]
-The commit message says the property is now parsed "in one place for
-both PHYs and other MDIO devices". The patch actually adds two copies
-of the same check in of_mdio.c. One is in of_mdiobus_register_phy() and
-the other is in of_mdiobus_register_device().
+This isn't a bug, but the kernel-doc above __x25_remove_neigh() still
+describes only the list removal:
 
-The two copies also read the same DT node with different accessors.
-The PHY helper uses of_property_read_bool(child, ...). The device helper
-uses fwnode_property_read_bool(fwnode, ...). For an OF node they should
-give the same answer today. A reader cannot tell why the two paths
-differ, though, and the copies can drift apart later.
+ *	__x25_remove_neigh - remove neighbour from x25_neigh_list
+ *	@nb: - neigh to remove
+ *
+ *	Remove neighbour from x25_neigh_list. If it was there.
+ *	Caller must hold x25_neigh_list_lock.
 
-Could this be handled once in a shared place instead? One option is a
-small static helper in of_mdio.c that both functions call. Another is
-to handle it where the MDIO core already deals with per-device firmware
-properties, for example in mdiobus_register_device() once the fwnode is
-attached to mdiodev->dev. If the ordering works out, that would also
-cover callers of the exported of_mdiobus_phy_device_register(). It
-would also set the bit only after a device really exists at the
-address. Would that work for the cases you have in mind?
+Could it say that the function now shuts down T20 for good and purges
+nb->queue? It could also note that timer_shutdown_sync() may wait for a
+running callback while the caller holds x25_neigh_list_lock.
 
-If you prefer to keep the two call sites, please reword the commit
-message so it no longer says the property is handled in one place.
+The rule that x25_t20timer_expiry() must never take x25_neigh_list_lock
+is currently written down only in the commit message. If the callback
+ever took that lock, x25_link_device_down() and x25_link_free() would
+deadlock.
 
-[Severity: Medium]
-The commit message gives DSA switches as the motivating case. Is the DT reg
-address alone enough to cover the bus addresses such a switch actually
-uses?
-
-Broadcom b53 switches include the BCM53125, which mdio-bcm-unimac names as
-not releasing the line during turn-around. For these, b53_mdio_probe()
-accepts either address 0 or 30:
-
-	if (mdiodev->addr != BRCM_PSEUDO_PHY_ADDR && mdiodev->addr != 0) {
-
-However, all switch register traffic in b53_mdio_op() and the
-b53_mdio_read*/write* helpers goes to BRCM_PSEUDO_PHY_ADDR (30), whatever
-mdiodev->addr is. b53_mdio_probe() also reads the ID from address 0:
-
-	phy_id = mdiobus_read(mdiodev->bus, 0, 2) << 16;
-
-bcm47094-linksys-panamera.dts describes a BCM53125 as switch@0. If that
-node had broken-turn-around, only BIT(0) would be set. Reads at address 30
-would still fail the TA check (-EIO on unimac/pic64hpsc, 0xffff on
-bitbang), and b53 would store those values as register contents.
-
-The reverse is also true. With reg = <30>, the ID read at address 0 during
-probe is not covered.
-
-Does this leave the b53 case that the commit message describes still
-broken?
-
->  	mdiodev = mdio_device_create(mdio, addr);
->  	if (IS_ERR(mdiodev))
->  		return PTR_ERR(mdiodev);
+Separately, this one is pre-existing: the if (nb->node.next) guard can't
+detect an entry already removed with list_del(), because LIST_POISON1 is
+non-NULL. Today the function is only called while iterating the list.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121092933.186731-1-bage%40debian.org
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124093922.39573-1-f3lix.dev%40gmx.de
