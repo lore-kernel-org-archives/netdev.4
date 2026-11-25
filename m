@@ -1,92 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=160.80.4.34
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795574274;
-	b=yjP8fhEnXF/rnMLmkhUmM++Oj98ayfAcrT72XqH+6LwcQotneAEdVBWyqH+yo4/rHV4g
-	 0eEVLv9romkhqFPSfUmy5eLuLq0xCXitI3zP0JKIPmkoSswsLsqoJ/88uWv8w/rs2ONOQ
-	 tkZ4W4b5ypfGJaUJLcm2zGjEVfdK4VS0XHPG0raTj/kKB6IK2T65sZOCeOT3AccwRiYEz
-	 YqxLd4x8LYFwAOSdEB+RdIf+2PKOMjBQNrb0DrcGpf//BqK6d6s4k8xMNw8qnBXOmkCkh
-	 kaZRroJDSzyu+Ng1WRFLp4x4N3RkoosLFHhcrzj8r24Av1DRhpSzxMEiIuWMZyCe9Cg==
+	t=1795574407;
+	b=slTvx72svJ08Q0YUOBvmuIpHmb37oksZsKHQVqK5vWVkToxlgx9qI3ThuhtWV+fVW2RZ
+	 1VO6eDvgUEGNSLSANNuGnOdQCXFsG/0Q9YPUr801GJ26C7s9ihmtx6tBfCs2sv/NhuO5Y
+	 XQvonS4QVfOuwRlNsK8NAFae8vGXHCDLgxIXdHL7GCkGHN2gFOFYeKrY44qB43SBBNRid
+	 5OLe27hT4kIZy8jSoBVRO4TVdML4NWaZIHJoRwo00bV1O6cyB4mdiP0QuX1zyHIWoooNP
+	 SV7svlRmnyFhaSgFhlbqXWtF+N0FsBsWxalSKdVRTRYUyCnrgmgN8K9nSYxzrTPYvAQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795574274;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:Date:
-	 From:To:Cc:Subject:Message-Id:In-Reply-To:References:X-Mailer:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding:X-Virus-Scanned:
-	 X-Virus-Status;
-	bh=yJmvTEU3nNq7h11f5fmJF+pToRotl3L0Q/2BG+vSC7k=;
-	b=Y6cHsjZ2SR+MpidPhGMhTUui512GVRojdr4p3BTRFqHPf3W7D8E9CxGnkTsxFS9nKjl6
-	 A1dpp/pZMyzdIro7YiKmjLMDF4+yf3bC2wNXCb4fotdqGRBrVUjhtyYf4car+if2GqiuQ
-	 i9RRDZ0DOkCMHKfy55OqMjTUCcjVo5YNkqktwd3HKmjvB7CD0Ds1xoPZsU+77t2WK2+xw
-	 wM9rEMPM32JyGNGqJShQnHwHU/LjB51xHo7WFXhOcQuNHjL9E+s9+rpuuQL21jkbxF/NL
-	 SqLHp8lL4gWdqMxG4X1RfABfeC8GRJpSx4Ohcm2ebd8KdriQkSAVf7xR0qoqyt6YGzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795574407;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=2psxhemLwWePLKMkwXTMskyCXNpmQmIq5wJPjFBPrXU=;
+	b=drS6D8BSYcij+C5nzUvxhbDLtNvNvKuQR/AEFtXe8sbaxrkHFy13A30WGuCK3lvmPxvK
+	 xOkR7rLc4mQgWR1SJz9uDyHltG16c/hbCRRTjVnp1YI0rKOKrFqopTFVqaJMdT6GImhMU
+	 MEhK6hxdBcSgWHN7D1pejKmJH3z0uvciRCiMBFJNQhnBEC2fdrZk+NhJExEScOoflUX0e
+	 0FFiHjF6ME2KG9HT/GAyoSXnB5EhWu8OsMagCxJLnkDOaH+KT8cKk6usBbBtSARbbs67W
+	 6pdwI42ToaV53nPRF3biL34s/R9ldHfirQxWSF1Rm73qA0dwZKZRCNG7tVhXKgUJrQw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=uniroma2.it;
-	spf=pass smtp.mailfrom=uniroma2.it;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=4HuzLRW2;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=WhXd40dW;
-	arc=none smtp.remote-ip=160.80.4.34
-Received: from smtp.uniroma2.it (smtp-2015.uniroma2.it [160.80.4.34])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 0602D606A31E;
-	Wed, 25 Nov 2026 02:37:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0602D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniroma2.it
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniroma2.it
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liAyDYO8;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98399606A31E;
+	Wed, 25 Nov 2026 02:40:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass header.d=uniroma2.it header.i=@uniroma2.it header.a=ed25519-sha256 header.s=ed201904 header.b=4HuzLRW2;
-	dkim=pass (2048-bit key, unprotected) header.d=uniroma2.it header.i=@uniroma2.it header.a=rsa-sha256 header.s=rsa201904 header.b=WhXd40dW
-Received: from smtpauth-2019-1.uniroma2.it (smtpauth.uniroma2.it [160.80.5.46])
-	by smtp-2015.uniroma2.it (8.14.4/8.14.4/Debian-8) with ESMTP id 6AP2b0Ge009728;
-	Wed, 25 Nov 2026 03:37:05 +0100
-Received: from lubuntu-18.04 (unknown [160.80.103.126])
-	by smtpauth-2019-1.uniroma2.it (Postfix) with ESMTPSA id C5435120065;
-	Wed, 25 Nov 2026 03:36:54 +0100 (CET)
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=uniroma2.it;
-	s=ed201904; t=1795574215; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yJmvTEU3nNq7h11f5fmJF+pToRotl3L0Q/2BG+vSC7k=;
-	b=4HuzLRW2AQeB+oapeQlKxMV/kIGOqYLPt06KM2QzeavXTrWVpEdwfyyESjHt0qDf0t8Pl2
-	Rm3zAj/ULfzxvCAA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniroma2.it; s=rsa201904;
-	t=1795574215; h=from:from:sender:reply-to:subject:subject:date:date:
-	 message-id:message-id:to:to:cc:cc:mime-version:mime-version:
-	 content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yJmvTEU3nNq7h11f5fmJF+pToRotl3L0Q/2BG+vSC7k=;
-	b=WhXd40dWj6laZ+hVpXYyArqfE79JPmMUyzLqqaum8HP9ucYJQ4dlRUVuhfH/usOG0WVW6h
-	JoaoDJIJuepRpi4F2nREmXYWFohvarcDkHBE4azHPPBZnknzUkzUjIvd3rv7NJUtLaX3dQ
-	pnkRWQzlJIrC83cMLezr453lzu6dvwS+JwmqYKOPm8jOdJiL+BGrVXK8EgT/hYjgu5zrRU
-	oB08Wl1P2oPH8ac3KhXSxH3m8O6+0el+ltfZFdYFNaQNPLC6wpYXP4nqWgzyQQ5t44vb8k
-	f+JKhdTnqvi2c4s00Lfu4XdbugqRB70Khfsw6aYxa/+UdG2FMHaBDxnCbm74gQ==
-Date: Wed, 25 Nov 2026 03:36:49 +0100
-From: Andrea Mayer <andrea.mayer@uniroma2.it>
-To: Hangbin Liu <hangbin.liu@linux.dev>
-Cc: "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni
- <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
-        Shuah Khan
- <shuah@kernel.org>, netdev@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-        Hangbin Liu <liuhangbin@kylinos.cn>,
-        Stefano Salsano <stefano.salsano@uniroma2.it>,
-        Justin Iurman
- <justin.iurman@gmail.com>,
-        Andrea Mayer <andrea@common-net.org>,
-        Andrea
- Mayer <andrea.mayer@uniroma2.it>
-Subject: Re: [PATCH net-next v4 5/5] selftests: seg6: add PSP flavor testing
- for SRv6 End.X
-Message-Id: <20261125033649.b15d6071421a730269d64735@uniroma2.it>
-In-Reply-To: <20261123100908.GA11364@Liu-laptop>
-References: <20261119-srv6_flavors_endx-v4-0-284cdb484eee@kylinos.cn>
- <20261119-srv6_flavors_endx-v4-5-284cdb484eee@kylinos.cn>
- <20261123050952.21dc46abdf5fe4fa235bb68d@uniroma2.it>
- <20261123100908.GA11364@Liu-laptop>
-X-Mailer: Sylpheed 3.5.1 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=liAyDYO8
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 091C71F000C6;
+	Wed, 25 Nov 2026 02:40:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795574407;
+	bh=2psxhemLwWePLKMkwXTMskyCXNpmQmIq5wJPjFBPrXU=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=liAyDYO8srVd5ct5gTi2CBiSgtmgSFCEdBgoV7K9+Mkm0qMvDPp2yQQr6eSg1ODXj
+	 3qwDJ3wrs1beyRODV7IhScVv0GOBwm6leE2ZsRN1jx4F5lKT9CQYoPOc5mXtGJ8Vu0
+	 dvzlvDr254TuiS2RODv4dp+RH04qjoG+TPPdwNYcdhu/T65PmulK0g8tj0hBS4eqZt
+	 t8cRCwjXsqrh+78ywWGEOMFwz9yFiDip2Vlsw5VQS5C23i3md1jHl+eAaLLVxu+jft
+	 gxD+jKIvJmD/EUHABLzqJc1uxFbSqmd1QXUzRw614QafyDlsX2QA0h5dyC0eowdAZ6
+	 n2owtdtWi1G0g==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15A13808209;
+	Wed, 25 Nov 2026 02:40:06 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,292 +52,55 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Virus-Scanned: clamav-milter 0.100.0 at smtp-2015
-X-Virus-Status: Clean
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net v2 0/5] net: bcmgenet, systemport: DIM and Rx discard
+ fixes
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179557440577.178200.16007627750203770675.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 02:40:05 +0000
+References: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+In-Reply-To: <20261120-nb-genet-dim-stats-net-v2-0-1a7cece7dd1a@tipi-net.de>
+To: Nicolai Buchwitz <nb@tipi-net.de>
+Cc: opendmb@gmail.com, florian.fainelli@broadcom.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ justin.chen@broadcom.com, pgynther@google.com,
+ bcm-kernel-feedback-list@broadcom.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
 
-On Mon, 23 Nov 2026 18:09:08 +0800
-Hangbin Liu <hangbin.liu@linux.dev> wrote:
+Hello:
 
-Hi Hangbin,
-thanks for going through all the comments.
+This series was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-> On Mon, Nov 23, 2026 at 05:09:52AM +0100, Andrea Mayer wrote:
-> > > [snip]
-> > > +# Given the description of a router as an input, the function returns its
-> > > +# adjacent route id, or 0 if a host adjacent.
-> > > +# i.e. input: "1", output: ""
-> > > +#      input: "1>2", output: "2"
-> > > +#      input: "1>h", output: "0"
-> > > +__get_srv6_adjacent_id()
-> > > +{
-> > > +	local adjacent="${1#*>}"
-> > > +
-> > > +	[[ "${adjacent}" == "${1}" ]] && return
-> > > +	[[ "${adjacent}" == "h" ]] && adjacent=0
-> > 
-> > Nit, a style preference: I would use if blocks here, as in the rest
-> > of the selftest. With cut -s -d'>' -f2, this function could also read
-> > the ">" as you already do in __get_srv6_node_id().
+On Fri, 20 Nov 2026 23:42:34 +0100 you wrote:
+> Sashiko has flagged a few genet bugs over time. I'll work through them
+> as time permits, fixing the ones that seem worth it.
 > 
-> I plan to use
+> DIM on genet and systemport wants running totals but gets per-poll
+> counts, so it picks bogus profiles from the wrong numbers.
 > 
-> 	echo "${element}" | cut -s -d'>' -f2 | sed 's/h/0/'
-
-Makes sense to me. A malformed node would be refused first by the regex
-check below.
-
-> [snip]
-> > 	for node in $(echo "${nodes}" | sed 's/,/ /g'); do
-> > 		rt="$(__get_srv6_node_id "${node}")"
-> > 		param="$(__get_srv6_param "${act}" "${node}")"
-> > 
-> > 		case "${act}" in
-> > 		"End")
-> > 			if [ "${node}" != "${rt}" ]; then
-> > 				echo "${element}: End takes no parameter"
-> > 				return 1
-> > 			fi
-> > 			;;
-> > 		"End.X")
-> > 			if [ -z "${param}" ]; then
-> > 				echo "${element}: End.X needs an adjacency"
-> > 				return 1
-> > 			fi
-> > 			;;
+> The series also fixes DIM getting stuck after a down/up or suspend and
+> resets the Rx discard count with the ring.
 > 
-> This check seems not enough with error config like "4>2h:psp:End.X".
-> Should we limit the param to 0-4?
+> [...]
 
-Good point. My check was for the structure of the element, node by node,
-not for a typo like "2h". Catching it widens the scope, and that is fine
-with me. Instead of a limit on the param, the check could look at the
-syntax of each node, with a regex for each behavior. Just as an idea,
-__check_srv6_rtcfg() could keep its first part, up to the NEXT-C-SID
-check, and the loop could become:
+Here is the summary with links:
+  - [net,v2,1/5] net: bcmgenet: keep DIM from getting stuck after close or suspend
+    https://git.kernel.org/netdev/net/c/aa5a537ec43c
+  - [net,v2,2/5] net: bcmgenet: accumulate the DIM packet and byte counters
+    https://git.kernel.org/netdev/net/c/a15079369636
+  - [net,v2,3/5] net: bcmgenet: reset the Rx discard count with the ring
+    https://git.kernel.org/netdev/net/c/e99faa3a1620
+  - [net,v2,4/5] net: systemport: restart DIM from the default profile on start
+    https://git.kernel.org/netdev/net/c/8e428e263fa4
+  - [net,v2,5/5] net: systemport: accumulate the DIM packet and byte counters
+    https://git.kernel.org/netdev/net/c/3e7e20beef4e
 
-	local node_re
-	...
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-	case "${act}" in
-	"End")
-		node_re='^[1-4]$'
-		;;
-	"End.X")
-		node_re='^[1-4]>([1-4]|h)$'
-		;;
-	*)
-		echo "${element}: ${act} is not a behavior"
-		return 1
-		;;
-	esac
 
-	for node in $(echo "${nodes}" | sed 's/,/ /g'); do
-		if [[ ! "${node}" =~ ${node_re} ]]; then
-			echo "${element}: ${node} is not valid for ${act}"
-			return 1
-		fi
-	done
-
-With cut -f2, "4>2>3" gives "2", as "4>2" does, and a limit on the
-param would accept it. The regex refuses it before __get_srv6_node_id()
-and __get_srv6_adjacent_id() read it.
-
-A case like "2>2" would still pass, but that is more a check of the
-topology than of the syntax. I think the regex is enough for now, but
-other ideas are welcome.
-
-> [snip]
-> > > [snip]
-> > > @@ -1031,6 +1187,25 @@ setup_end_flv_psp()
-> > >  	SETUP_ERR=0
-> > >  }
-> > >  
-> > > +setup_endx_flv_psp()
-> > > +{
-> > > +	SETUP_ERR=1
-> > > +
-> > > +	setup_hs_lo_addr 1 1 "${ENDX_CSID_PSP_FUNC}"
-> > > +	setup_hs_lo_addr 2 2 "${ENDX_CSID_PSP_FUNC}"
-> > > +
-> > > +	# The same SRv6 policies with setup_end_flv_psp except using End.X
-> > > +	setup_rt_policy_ipv6 2 1 "3>4:noflv:End.X 4>2:psp:End.X 2>h:psp:End.X"
-> > > +	setup_rt_policy_ipv6 1 2 "1>h:psp:End.X"
-> > > +
-> > > +	setup_rt_policy_ipv6 "2:${ENDX_CSID_PSP_FUNC}" 1 \
-> > > +		"3>4:next-csid,psp:End.X 4>2,2>h:next-csid,psp:End.X"
-> > > +	setup_rt_policy_ipv6 "1:${ENDX_CSID_PSP_FUNC}" 2 \
-> > > +		"4>3,3>1,1>h:next-csid,psp:End.X"
-> > > +
-> > > +	SETUP_ERR=0
-> > > +}
-> > 
-> > On v3, Sashiko asked whether the End.X tests would pass with End.X
-> > working as End. In this topology, the nh6 of each End.X is also the
-> > next hop that a lookup of the new DA gives, and the tests pass in both
-> > cases. An unreachable route in table 90 for the next SID, on rt-4 for
-> > (i.a) and on rt-3 for (i.c), would make End fail and leave End.X
-> > working. This is close to what Sashiko suggested on v3. What do you
-> > think about adding these two routes to the End.X scenario, each with
-> > its defer?
-> 
-> Hmm, we add the SIDs with End.X action, and the address also has parameters.
-> e.g. for (1.a) we add fcff:4::2af1, which unreachable route should we add
-> then? Cause we don't use fcff:2::ef1 at all.
-> 
-> BTW, is there any reason we add the unreachable route on rt-4 for (i.a) and on
-> rt-3 for (i.c)? In the consumed SRH testing, we can only add the extra on
-> ingress route. e.g.
-> 
-> #   (i.a) hs-1 -> hs-2: on the packets with DA=fcff:3::400a, rt-1 inserts the   
-> #         extra SRH with SID List=fcff:4::e,fcff:3::400a, and rt-4 consumes
-> #         it. 
-> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2        
-> #   (i.c) hs-1 -> hs-2: on the packets with DA=fcbb:0:34a9::, rt-1 inserts the  
-> #         extra SRH with SID List=fcff:4::e,fcbb:0:34a9::, and rt-4 consumes
-> #         it.
-> #         Path: hs-1 -> rt-1 [ -> rt-4 ] -> rt-3 -> rt-4 -> rt-2 -> hs-2  
-> 
-> Which means we need the end action on rt-4.
-
-I meant the End.X Policies (i.a) and (i.c) themselves, not the consumed
-SRH tests. The End on rt-4 that consumes the extra SRH is not affected.
-It sets the DA back to the End.X SID of rt-3, fcff:3::400a or
-fcbb:0:34a9::, and looks up this SID, while the route on rt-4 is for
-fcff:2::0af1.
-
-The idea is to make End fail and leave End.X working. Each route is for
-the new DA that an End.X sets, on the router of that End.X. End looks up
-this DA, while End.X looks up its nh6. The routes would be:
-
-  (i.a) rt-3, End.X 3>4 without flavors
-        [DA fcff:3::400a -> fcff:4::2af1]
-        unreachable fcff:4::2af1 in table 90
-        End.X: looks up its nh6 fcf0:0:3:4::4 -> rt-4         OK
-        End:   looks up the DA fcff:4::2af1   -> unreachable  FAIL
-
-  (i.a) rt-4, End.X 4>2 with PSP
-        [DA fcff:4::2af1 -> fcff:2::0af1]
-        unreachable fcff:2::0af1 in table 90
-        End.X: looks up its nh6 fcf0:0:2:4::2 -> rt-2         OK
-        End:   looks up the DA fcff:2::0af1   -> unreachable  FAIL
-
-  (i.c) rt-3, End.X 3>4 with NEXT-C-SID and PSP
-        [DA fcbb:0:34a9:: -> fcbb:0:42a9:20a9::]
-        unreachable fcbb:0:42a9:20a9:: in table 90
-        End.X: looks up its nh6 fcf0:0:3:4::4     -> rt-4         OK
-        End:   looks up the DA fcbb:0:42a9:20a9:: -> unreachable  FAIL
-
-Without the routes, from what I can see, End would reach the same router
-through the underlay, and the tests would pass in both cases. The route
-on rt-3 for (i.a) is the idea of your other mails, with an exact route
-in place of the /32. My other reply explains why. The three routes could
-go in setup_endx_flv_psp(), each with its defer.
-
-> > > [snip]
-> > >  test_kernel_supp_or_ksft_skip()
-> > > [snip]
-> > >  	if ! ip -netns "${test_netns}" -6 route \
-> > >  		add "${IPv6_TESTS_ADDR}" encap seg6local \
-> > > -		action End flavors "${flavor}" dev "${DUMMY_DEVNAME}"; then
-> > > -		echo "SKIP: ${flavor} flavor not supported in kernel"
-> > > +		"${policy[@]}" dev "${DUMMY_DEVNAME}"; then
-> > > +		echo "SKIP: ${action} flavor ${flavor} not supported in kernel"
-> > 
-> > A note on this probe. On older kernels this add can succeed without
-> > the flavor, and the tests then fail instead of being skipped. This
-> > happens with End.X on v6.5, and with End on v6.0. I was thinking of
-> > sending a separate patch that reads the route back, for the End and
-> > the End.X probe. There is no need to wait for it. Does it work for
-> > you?
-> 
-> OK, I will add a checking for the added route.
-
-OK, thanks.
-
-> > > [snip]
-> > > +if test_kernel_supp_or_ksft_skip End.X psp; then
-> > > +	test_endx_flv
-> > > +fi
-> > 
-> > When the probe finds no End.X PSP, the End.X tests do not show up in
-> > the summary. The v4 skips only that scenario, as suggested on v3,
-> > which is good. On my patch that added the consumed SRH tests, you
-> > suggested to return at once when the srh match is missing. I kept the
-> > check in each test because log_test_skipped() then logs each test and
-> > counts it in "Tests skipped". IMHO the End.X scenario could do the
-> > same, to be consistent. Does it sound reasonable to you?
-> 
-> Sorry, I didn't get what you mean here. Do you want to run
-> the check before each end.x testing and report skip one by one?
-> 
-> e.g.
-> 
-> 	if test_kernel_supp_or_ksft_skip End.X psp; then
->         	host_srv6_end_flv_psp_tests "End.X"
-> 	else
-> 		echo "SKIP..."
-> 	fi
-> 
-> 	if test_kernel_supp_or_ksft_skip End.X psp; then
-> 	        host_srv6_end_flv_next_csid_psp_tests "End.X"
-> 	else
-> 		echo "SKIP..."
-> 	fi
-> 
-> 	if test_kernel_supp_or_ksft_skip End.X psp; then
-> 	        host_srv6_endx_flv_consumed_srh_tests
-> 	else
-> 		echo "SKIP..."
-> 	fi
-
-Sorry, my comment was not clear. The probe would still run only once.
-Looking at it again, for the End.X tests one skip for the whole scenario
-fits better. Without the srh match, only the consumed SRH tests are
-skipped, and check_and_log_consumed_srh() already skips each one.
-Without End.X PSP, the End.X scenario cannot pass, because each End.X
-Policy has End.X SIDs with PSP. A skip for each test would need more
-code (such as a flag in the helpers that the End tests use too).
-
-The v4 already skips only that scenario, as suggested on v3, but an echo
-"SKIP..." is not counted in "Tests skipped". log_test_skipped() counts
-the skip and prints a [SKIP] line with the name of the scenario.
-
-To avoid the exits after the trap that Sashiko reports, the End.X probe
-could run next to the End probe, before "trap cleanup EXIT", in a
-function like check_srh_match_support(), for example:
-
-	HAS_ENDX_PSP=false
-
-	check_endx_psp_support()
-	{
-		if test_kernel_supp_or_ksft_skip End.X psp; then
-			HAS_ENDX_PSP=true
-		fi
-	}
-
-	test_kernel_supp_or_ksft_skip End psp
-	check_endx_psp_support
-	check_srh_match_support
-
-test_endx_flv() can then skip the scenario with one log_test_skipped(),
-for example:
-
-	test_endx_flv()
-	{
-		if ! ${HAS_ENDX_PSP}; then
-			log_section "SRv6 connectivity test hosts (h1 <-> h2, End.X)"
-			log_test_skipped "SRv6 End.X tests, no End.X PSP in the kernel"
-			return
-		fi
-
-		defer_scope_push
-		...
-	}
-
-What do you think?
-
-Thanks,
-Andrea
