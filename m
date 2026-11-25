@@ -1,111 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795580751;
-	b=Oh8jW5HM+QNKBuZc6O1Y2275ud27g/oaM7C9kx+U40IfB6g1kTjfNQw87NW/t54dz1u9
-	 tKSgtgfV0yKxskF7z8vAT4b4PU5pomLOG+CiiTvOqYvRMkSLL6MXduENZaAzg841GmE8k
-	 FsaFOA4xz3e5yJLp+X4tJtN47CJbdZsSCyeBjAEBNg5ffuStGaMYMawLA1mZcnVa0tVTg
-	 fdSLyBw1siLLB2uREUw1DrPQqjva1I3oG7VPZatj4DcutrsjYdnxX5YNtxVA8iovy5Ojn
-	 nANsyZL3Rinw4+DAvuquafdNCJE0nMzvl8/0gqW+djtqHT6ESt2E5ixDPg9NDla+EQw==
+	t=1795580821;
+	b=nI15a7arSmGYZMJaYpHb+GaUkfzHTGi0EUKX3Osx8etpC0RApiSaVKuyuDncZ1wW+0XC
+	 65146KTQL/smB/HDDujbFFRUx9P8LtcYWGQBkDjqjrXovehLiXsaxP76lytFvD2+scXOi
+	 uj458czovSBVfPKBsViOXbrLmb95PGxldYSiWf29g2uGVxa4I0v+p6rVFtk3YCETDWRDG
+	 EiR0vKZc4IkG4tXtWaVcTKs2K89vFGx4wDkxk34Pv+G8Wfnw+d2moXj4HHQcaaflgBL94
+	 5FGEzwxVwfIjsHruzvES5w3dPTyRpGpwQFM7JG0QLfAeLpBdKoBAh/DOKHuB27rIk8w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580751;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
-	b=JjTQv/amoL7DB93FIqH4JCsozLsXNL1wksmFWlIlOoFb7I63VY4ltPU+nXTMl2GyWVnw
-	 j2LqAV94AN+zXBLpmdZ8hSb/ttpLcIfEexo5DR6Ecr6VExlU85PGuknbmvg4OPd97BDv4
-	 wAHD60lTtQ2/Rz5ZQhloPFPtBsjMWxYeiBnklAknjwIN9KIZElNNOxax/s1zIyge3ZaBs
-	 I5f64vsv4SavJq6NIqNjWvD/Hb6xJcLxInYUHzeBSTYfHHpY6OOqWA7jlpj/1DkiughZM
-	 mcGhbdPUPcZ4cYQlWomviF9RmnmNMDrMy5GqQ9Y3Vet9O14G1FjGrPOyq7+L4txjZGw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580821;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=e78M0hAWs4AXyy0FAF89iDFDRgCJxEzujt5ZqNraYHBqa4gr6v5erHIWRnV+uf3WhEK8
+	 mRQbY491M036b5eFJlw97HFQqDPFO0bIsIZtjY0T4mMYFWSjTiyzPaFoVJq4MoBOcs0Ax
+	 fvn6ra23klTabQnJV0I93eWWLr9/ETm54yGWBh6xal0WVbO5dCTrSnZOClKQSxgew+599
+	 GZo042voRTpr4eyCHbRhzGO/EYj585oOjID8G9PHUn6ehluReHaeeU1nVTp/Z3hRsh9Wl
+	 U2TggRhi9tA3yK4o4Z8FohT2xOiPhJ8wcWDcqs2BFkJCzKC/qe3q7E4/qjUADHLKyyQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Gc/xVqLD";
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cg8GVxw0;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ADE3606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:25:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9ADE3606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33844606A31E;
+	Wed, 25 Nov 2026 04:27:00 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gc/xVqLD
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2efe591a1f6so17878315ad.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:25:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795580750; x=1796185550; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
-        b=Gc/xVqLDzTMXlMMy9RXVPwR6yGVCRvStDyMXKzkOR0PF3xSvURHhVvLNDljr9xvj47
-         x54+Q9cjP8acT2wc3VD5t+D6r01sF8CUke8mIc8KlV86JE4o9pM00cwmhVbDCAU0RJMI
-         6Ta8e+FJxpaxr+o1AI0N1WOXke1t4llTQKR2aeZQmewULXJwum0cVH7eMSgNeCcJNh9m
-         a6NtyYKXz60t/C2+VcL95LLgZU+pB09T+CKY07w2ifY6Dz/Jzwz+s2iElKtwpjvJzbGf
-         +PMLT6flnLTpqOWhsHDoUIHm6zx9rb7H2Cx7OI7elfMNYzlS4cl58dQiFUT1qUuv7e6F
-         hxFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795580750; x=1796185550;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
-        b=t7yJ4Y3vxs22/py9mjQzRtfDmaGxmpKcsYTmgulLpNxGYrPdGXiLc4ilgBiOV7iNak
-         0ZezG440r0D0MoiCzkzMFz1m0neNgZ/tOMq1lzRx49NSBMehVHw7qwC0Q3cjy/oJUPmh
-         iJTic5FJfJX2z3yq67WRb+NoibCeNfleVQJqNxnLRaaSHv54owrnZBu2FY/8N58bfwMa
-         MUd51GBQialg+LhMLGsjK1bhV0RdNwoK7xZczGtbCHZ+1QmTXhcLSomTyv9BDAPNbSwr
-         Zrzl2bTB/rrxBWaSyYNx+XUAhpnRnsFFRLaGTdAAUzoAvTjeYMfGxJ24/+yhRRCGZK1V
-         lKtg==
-X-Forwarded-Encrypted: i=1; AL+hErHTdnlG3bxIVODt/ZIE1FGWE5nImXDzhskvjyQ+vGtqhNnSJh7fPnsAAXvh0MiBdZrZ1Mxhe3w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z803iop9mYTJwDcDRPTPmx3KHtkSjN9DfCWkOQltkTt0s6ebqEG
-	ju8i3jHSwJoA3ltmQVzx6ileZAk/vZGItOY23rcHmTmCV2I6QsIyQOS4
-X-Gm-Gg: AZFdTZd4YOz/qiXYKkuPCSYIEega90+5wYFV1OD3i1O/KlEZ04OsKOT87+Q87jBZuLx
-	fstwLoFX01hXzTBkG+m3Hm/9GKI4NRjkDMNZ38ShgNSsWWcApcVtIvUKgd07GVOcZSgdsm4ZoZM
-	UMFmnSEGHStmqICFCtod4Rs7csQLPtISAPBrZ+qlgpj5vjIOqNchT4LLQBKR/Ffv4JIIHelyOvZ
-	OwHWChsWUb0jpNdGgDMKrvM4twXliAMTOmm0U46AKvxwK2ndHnP79/PbXjsjVFyN5tQcARO+dSm
-	bv8Rl41AFuDPV06FJ2nhorrdfen6eKfOOWatAnOFCkooQu3dZiFTw4BG2cDd3sCGKqT06HuiwYG
-	2lQdiZr2/56KvLk9ijPZ2KL7whAV/jlwQbX5h8Z7EDYKKYQUMY5NMEFltjZIJVdR7EmHIKVtcW6
-	AAty5ZAkCU/vdEAvOE7VmHdDbbVEDKnWlHWIJvH0rExNEmfg9PJxw+GBoDg+eWdWSlP1UwYzQij
-	nKbkdtCb3zoUGKyk8HSyHr5HqQ8oxqQPcJYZdYZL7vQACOLI4Vrs9G2kvm475bEqR83rOmkG+E/
-	hUU8FxaokhKcYvPSkPF8OXz2DHnGMgHSv4k6Nvw8okAlNpx7+I4hVA==
-X-Received: by 2002:a17:903:f83:b0:2df:8f19:5db8 with SMTP id d9443c01a7336-2f03f1d09e3mr160319915ad.59.1795580749927;
-        Tue, 24 Nov 2026 20:25:49 -0800 (PST)
-Received: from srsys1 ([147.46.174.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215d7sm76117185ad.65.2026.11.24.20.25.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 20:25:49 -0800 (PST)
-Date: Wed, 25 Nov 2026 04:25:41 +0000
-From: Sechang Lim <rhkrqnwk98@gmail.com>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Daniel Borkmann <daniel@iogearbox.net>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Martin KaFai Lau <martin.lau@linux.dev>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
-	Amery Hung <ameryhung@gmail.com>,
-	Cong Wang <xiyou.wangcong@gmail.com>,
-	Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
-	"D . Wythe" <alibuda@linux.alibaba.com>,
-	Dust Li <dust.li@linux.alibaba.com>,
-	Sidraya Jayagond <sidraya@linux.ibm.com>,
-	Mahanta Jambigi <mjambigi@linux.ibm.com>,
-	Tony Lu <tonylu@linux.alibaba.com>,
-	Wen Gu <guwen@linux.alibaba.com>, David Vernet <void@manifault.com>,
-	bpf@vger.kernel.org, netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org
-Subject: Re: [PATCH bpf 0/3] bpf: Reject sleepable struct_ops programs in
- atomic context
-Message-ID: <awZjRcsJ30sLFpc2@srsys1>
-References: <20261124143123.1182108-1-rhkrqnwk98@gmail.com>
- <DN3QWUNLDYAP.1RWBZ8RJH1QSY@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Cg8GVxw0
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86BCA1F000C4;
+	Wed, 25 Nov 2026 04:26:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795580820;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=Cg8GVxw0vXNERVu5H03nZ5SGWGXUfS+8Z8Tgwor0XpZzirEBmWGSa2MHp1/HkVrw0
+	 1ZshAqoOUDR/k7wnr0lIZfWkFQyZ/2j8/bqXVvGnjNRRQbP3Sbcde9L2J7VkPRZZis
+	 LuElyCdErt0/eSWkdpikYfX8wuGSxOimv2+rQWt5NzOGiPlPSCSOK9q07og5w45GHS
+	 FOi3uIQQ8J+sA2LPuMCKSrnZCs1MVM9P0Wx5R59Hdrl5dEdq6F+tpMUJP6NpBzmDow
+	 kl9ezb28yuxdPj2N5odJ3gBJhkbIbCg51gVdI/4ZsVlL/K3BNSjvnD8BCMaquWZg65
+	 8dLpUdlhU3dbQ==
+From: netdev-bot+sinfo@kernel.org
+To: Ziyu Zhang <ziyuzhang201@gmail.com>
+Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org,
+ linux-kernel@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, roid@nvidia.com,
+ baijiaju1990@gmail.com
+Subject: 
+ Re: [PATCH net] net/mlx5e: Fix deadlock when parsing flow actions fails
+Date: Wed, 25 Nov 2026 04:26:59 +0000
+Message-ID: <179558081909.3294.6309023646562728639@kernel.org>
+In-Reply-To: <20261125042323.88050-1-ziyuzhang201@gmail.com>
+References: <20261125042323.88050-1-ziyuzhang201@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,143 +65,30 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <DN3QWUNLDYAP.1RWBZ8RJH1QSY@gmail.com>
 
-On Tue, Nov 24, 2026 at 09:06:37PM +0000, Alexei Starovoitov wrote:
->On Tue, Nov 24, 2026 at 06:31 AM Sechang Lim <rhkrqnwk98@gmail.com> wrote:
->> atomic context. tcp_congestion_ops, Qdisc_ops and smc_hs_ctrl have no
->> check_member, although the kernel calls their members in softirq, under
->> a spinlock or under rcu_read_lock(). A sleepable program attached there
->
->Not all of them. Qdisc_ops init and destroy run under rtnl and can sleep:
->
->  qdisc_create_dflt()
->    qdisc_alloc()                 kzalloc_node() with GFP_KERNEL
->    ops->init(sch, NULL, extack)  no lock taken in between
->  __qdisc_destroy()
->    ops->destroy(qdisc)           fq_codel_destroy() takes a mutex here
->
->A sleepable init is valid today. bpf_arena_alloc_pages() uses GFP_KERNEL
->there instead of alloc_pages_nolock(). Patch 2 rejects such progs.
->
->> This series adds a check_member that rejects sleepable programs to each
->> of them, like bpf_tcp_ops does.
->
->That makes four copies of one function. The default is the bug.
->bpf_tcp_ops v2 and blk-iocost v1 missed the same check:
->https://lore.kernel.org/bpf/20260623175006.3136053-12-ameryhung@gmail.com/
->https://lore.kernel.org/bpf/178889947167.2.9168058946538747939@kernel.org/
->
->Fix it once in check_struct_ops_btf_id(). Patches 1 and 3 go away.
->sched_ext, hid, io_uring, binfmt_misc and bpf_dummy_ops have
->check_member already, so they keep their sleepable progs.
->A struct_ops with check_member still has to test prog->sleepable itself.
->
->In place of the series.
->
->diff --git a/include/linux/bpf.h b/include/linux/bpf.h
->index 1dd9db1..f7c7380 100644
->--- a/include/linux/bpf.h
->+++ b/include/linux/bpf.h
->@@ -2209,7 +2209,8 @@ struct btf_member;
->  * @check_member: When defined, a callback invoked by the verifier to allow
->  *		  the subsystem to determine if an entry in the struct_ops map
->  *		  is valid. A nonzero return value means that the map is
->- *		  invalid and should be rejected by the verifier.
->+ *		  invalid and should be rejected by the verifier. When not
->+ *		  defined, the verifier rejects sleepable progs.
->  * @init_member: A callback that is invoked for each member of the struct_ops
->  *		 map to allow the subsystem to initialize the member. A nonzero
->  *		 value means the member could not be initialized. This callback
->diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
->index 01a74e1..42a90c7 100644
->--- a/kernel/bpf/verifier.c
->+++ b/kernel/bpf/verifier.c
->@@ -22244,6 +22244,10 @@ static int check_struct_ops_btf_id(struct bpf_verifier_env *env)
-> 				mname, st_ops->name);
-> 			return err;
-> 		}
->+	} else if (prog->sleepable) {
->+		verbose(env, "member %s of struct %s cannot be sleepable\n",
->+			mname, st_ops->name);
->+		return -EINVAL;
-> 	}
->
-> 	if (prog->aux->priv_stack_requested && !bpf_jit_supports_private_stack()) {
->diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
->index 2ba73dd..4e54165 100644
->--- a/net/ipv4/bpf_tcp_ops.c
->+++ b/net/ipv4/bpf_tcp_ops.c
->@@ -301,16 +301,6 @@ static int bpf_tcp_ops_init_member(const struct btf_type *t,
-> 	return 0;
-> }
->
->-static int bpf_tcp_ops_check_member(const struct btf_type *t,
->-				    const struct btf_member *member,
->-				    const struct bpf_prog *prog)
->-{
->-	if (prog->sleepable)
->-		return -EINVAL;
->-
->-	return 0;
->-}
->-
-> static int bpf_tcp_ops_init(struct btf *btf)
-> {
-> 	return 0;
->@@ -329,7 +319,6 @@ static const struct bpf_verifier_ops bpf_tcp_ops_verifier = {
-> static struct bpf_struct_ops bpf_tcp_ops = {
-> 	.verifier_ops = &bpf_tcp_ops_verifier,
-> 	.init_member = bpf_tcp_ops_init_member,
->-	.check_member = bpf_tcp_ops_check_member,
-> 	.init = bpf_tcp_ops_init,
-> 	.validate = bpf_tcp_ops_validate,
-> 	.name = "bpf_tcp_ops",
->diff --git a/net/sched/bpf_qdisc.c b/net/sched/bpf_qdisc.c
->index 5691c13..61a1971 100644
->--- a/net/sched/bpf_qdisc.c
->+++ b/net/sched/bpf_qdisc.c
->@@ -356,6 +356,24 @@ static const struct bpf_verifier_ops bpf_qdisc_verifier_ops = {
-> 	.gen_epilogue		= bpf_qdisc_gen_epilogue,
-> };
->
->+static int bpf_qdisc_check_member(const struct btf_type *t,
->+				  const struct btf_member *member,
->+				  const struct bpf_prog *prog)
->+{
->+	u32 moff = __btf_member_bit_offset(t, member) / 8;
->+
->+	switch (moff) {
->+	case offsetof(struct Qdisc_ops, init):
->+	case offsetof(struct Qdisc_ops, destroy):
->+		break;
->+	default:
->+		if (prog->sleepable)
->+			return -EINVAL;
->+	}
->+
->+	return 0;
->+}
->+
-> static int bpf_qdisc_init_member(const struct btf_type *t,
-> 				 const struct btf_member *member,
-> 				 void *kdata, const void *udata)
->@@ -446,6 +464,7 @@ static struct bpf_struct_ops bpf_Qdisc_ops = {
-> 	.reg = bpf_qdisc_reg,
-> 	.unreg = bpf_qdisc_unreg,
-> 	.validate = bpf_qdisc_validate,
->+	.check_member = bpf_qdisc_check_member,
-> 	.init_member = bpf_qdisc_init_member,
-> 	.init = bpf_qdisc_init,
-> 	.name = "Qdisc_ops",
->
->Pls target bpf-next.
->
+Hi!
 
-Thanks, that's cleaner. I'll move the check into check_struct_ops_btf_id()
-and send v2 against bpf-next tree.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-Thanks,
-sechang
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
+
+ - What hardware the change was tested on. For driver fixes please
+   mention the device (and if relevant firmware version) used for
+   testing, or say that the change was not tested on real hardware.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
