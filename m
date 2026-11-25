@@ -1,90 +1,128 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=121.127.44.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795643082;
-	b=At5KMsXLKK5ZEvh1LxVv1qGK2QJXh2M/XXYgmIWYlJp3El+ERnULBTRLo1/UjmnexGal
-	 qTPvdssvkYM27X99pDRi6Gb9tAE9zP2cI5CBVZD0lFwIfewlTKitieE+DStcFu4TFcGzg
-	 sdTFXGAdD2HEm+Wx9mSO5xUqyjHbbX1of8ewAaGwHkfOB7bm6sYpDGdY1kg/Doo50Vr7m
-	 FBVyXVGN2ht/aa7SjWSr3SnZmy4kr8K+dW93OCuXIdqflPmC/t8CEjcI78aJrlFhAUCPk
-	 ABCvE7zcC45mSPAGZBf4gk5SrDJYpgd+seTK7zCmC0Q15AZdFb7526XqZW+a1HcJ+eg==
+	t=1795643171;
+	b=3Zjn5xEDh9ZWlo7t437Sn4a9uOHry2HU+s0jlTS6UEMAAfYZeWGKOFN2vpqzMbPj6He8
+	 hQSabqxr4wt88taw8PVSUS5/YZ3xaWCD/66H9iTrTnKKVu9ZomRS4PgzgsibCova2M+XW
+	 uzJf3XSSa+e5HHPfZ9E6hLBwzSj9WxAU5na/R3hwQapfmJzXdIrdI2LeePYo/LXx3rkFI
+	 PkX/qInHr9f+87GwfsMktvXVULdDo48zx3kDclOvQgmrWFS/zdOwix/BTIrshk2LSufoG
+	 /hAnDJKVEM2QY6rrod9OdiC8qjFohvui2MDyhmn7cRTkUEn6ilotbAEzhi3reNUyfkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795643082;
-	h=DMARC-Filter:DKIM-Signature:DKIM-Signature:CFBL-Feedback-ID:
-	 CFBL-Address:X-Forward-Email-ID:X-Forward-Email-Sender:
-	 X-Forward-Email-Version:X-Forward-Email-Website:X-Complaints-To:
-	 X-Report-Abuse:X-Report-Abuse-To:From:To:Cc:Subject:Date:Message-ID:
-	 X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FpXmptbkbwo/bwiG/kkFqS2jwf6h529xaHUA82ZDwKY=;
-	b=1lFsvAcqoVdNYzHnmhtvCgaijCS3KEEQ4Lm7QbyLnPfvZjKGlnsBdvlPV3dfHD5yh5FD
-	 dSESg31+HHv4qmsKeTauikW30MdZ+vMsp1tqkLZkbypfpLSVt+1nyxW63cMhvtptmIIEK
-	 YuwQLRVXElVrBZl4ksPaQYDm28hWbhMTULmlrbAhgKOHFhQ+ZsKkYPXRnxPqOzzQEVsPv
-	 t2boeoUssPYuTpYO/cXdO81CJfOMneR+UBIhDlPx+7521dnDtLhJ7d96hLjzIp3XtCER9
-	 eBNaREDXYJp4acIceNozfC1xyR3dTDAUYd+OJ9xtYOWepdt06mjY+5mCCO3E0rAVEOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795643171;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=sN/vvPChvRjnihCjXMx+GKZD5EpsDE0bEFaTBUovVHA=;
+	b=QXZW8xKbiOSkSoEaxLgmc92vM1KAyDQIe54qDJnkDO7MTC95pyOmxteIUhOZuIOwaKd+
+	 P9NpDBQFf+/2yeywGE8Jv6hQ6LGHM/vHGQCS9bnYygoUCFiCvisqPuqvOcJ8TnBbFdeT6
+	 andXLulY/qsz5YulQ4uSTzcXMVRF42Z4uFDK/CgkH7SvpYjai1WkyuRWXMHYl7CpnuRyN
+	 6J0h+9J6EzZhKp0wB03sRJLwgtLFSgB+1YRBEWWZl5xS4w0AkNNTykbSF6JLBo9I8+u+8
+	 +xvNYKujrrbZCD8rb+AdPUfKsb+BNpI5WiDSqK38avaxBDhHtv2MOJoi9m1FQ8AWAlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=kwiboo.se;
-	spf=pass smtp.mailfrom=fe-bounces.kwiboo.se;
-	dkim=pass header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=zLmfNjOH;
-	dkim=pass header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b="M2Xhb/V+";
-	arc=none smtp.remote-ip=121.127.44.73
-Received: from smtp.forwardemail.net (smtp.forwardemail.net [121.127.44.73])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FROQxim7;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AkkPJYKD;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E448606A330
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 21:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E448606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kwiboo.se
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fe-bounces.kwiboo.se
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46FF1606A326
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 21:46:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46FF1606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kwiboo.se header.i=@kwiboo.se header.a=rsa-sha256 header.s=fe-e1b5cab7be header.b=zLmfNjOH;
-	dkim=pass (1024-bit key) header.d=forwardemail.net header.i=@forwardemail.net header.a=rsa-sha256 header.s=default header.b=M2Xhb/V+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
- q=dns/txt; s=fe-e1b5cab7be; t=1795643075;
- bh=FpXmptbkbwo/bwiG/kkFqS2jwf6h529xaHUA82ZDwKY=;
- b=zLmfNjOHjZu//wVMrgjh1atykCFQQUJpP0ebIkVZKuvuoxuyaWcKCQe6gcCWxGEvq8CJb6x8w
- uBJsr7ceeW8gjzsuor9jW+nNzEKZps+RVTKl6GjwGc+ncbBgUsvyWfawsQbEdKoOyvGY4ePHgd9
- rGTvWY/DTHmob7hnb2OQl/sTOYD+SW0T1ecliSK4FxdDE2T0Dz0VS9ELWGzquWVm3vzcfBhyui6
- bapMS60swwE6hp/d419/pPiXkDe4G+PfdiUVrCsfUQYYQKOewVgCAAJt2sJPOm2ox0WaHDUb7Yg
- OoK7fbb5SEiRVXhGRwu8vTeLR4NGvSdJLUnGQRNWb+qg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=forwardemail.net;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From: CFBL-Address: CFBL-Feedback-ID;
- q=dns/txt; s=default; t=1795643075;
- bh=FpXmptbkbwo/bwiG/kkFqS2jwf6h529xaHUA82ZDwKY=;
- b=M2Xhb/V+zCKaziN6XONz7JdTeemVdccnUBRdR6Gff2EbP2yMWLajFUjSZPt8tqVNZtzcyydUo
- EraeFnI9BOeJ4hnHuOuABq/MeX40bRplj3DjgPuccATu0URuGISbJKzpDqBeyYfKlnK4akNbmfs
- pr35LonUfiuzDaYntuHZPVY=
-CFBL-Feedback-ID: 6b0756c2f930f38bf754f981:61066b39b092c60cb0c95fa967a85cea
-CFBL-Address: abuse@forwardemail.net; report=arf
-X-Forward-Email-ID: 6b0756c2f930f38bf754f981
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 2.19.39
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Andrew Lunn <andrew@lunn.ch>,
-	netdev@vger.kernel.org
-Subject: [PATCH v3 2/6] ARM: dts: rockchip: Add support for RK3506
-Date: Wed, 25 Nov 2026 21:44:14 +0000
-Message-ID: <20261125214421.1580359-3-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125214421.1580359-1-jonas@kwiboo.se>
-References: <20261125214421.1580359-1-jonas@kwiboo.se>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FROQxim7;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=AkkPJYKD
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795643170;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=sN/vvPChvRjnihCjXMx+GKZD5EpsDE0bEFaTBUovVHA=;
+	b=FROQxim7NhQq+Igk9ska8V9PCoSaQWMMVnpPTDxKEvD1UQ/UztBW4kKSFiYb7uyeMGWi/Y
+	DB/NrgxUw9jeLc888Wojkub6/V16GnnRTzgmKFAN9lD7oF6grwx728L/iGQT6vaM32r4pW
+	ODBUz6kMVQaOjU7E2w/EmpdiqfiY3Rs=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-189-bD1e4IwnPNO58jhnEBrfgA-1; Wed, 25 Nov 2026 21:46:08 +0000
+X-MC-Unique: bD1e4IwnPNO58jhnEBrfgA-1
+X-Mimecast-MFC-AGG-ID: bD1e4IwnPNO58jhnEBrfgA_1795643167
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4bb6517ed8bso7750535e9.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:46:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795643167; x=1796247967; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=sN/vvPChvRjnihCjXMx+GKZD5EpsDE0bEFaTBUovVHA=;
+        b=AkkPJYKDIXBVrVw2QNrytGIe1fLO+fFEnatpFNjpK+MFFD0PzOyztg3dFKSuBJphAZ
+         rUGNfarsUuMP1DvvQe432mVWldoZLMpMRmsd2zHfbisipNWsJjFsdACoscR+lmAfl6o5
+         xiRypMxkiSfOvk/18zg2fCkBXZFE0K1iBZkWGxaZSjsfVwC05GCFOBHg/R0ET+NLUjUg
+         ctGAtp6YKkHM9mgKPg82orvPOGZ4vMFXSOmzz0IqgtvG8FIycUmQ+8rXWAz3Y3o2afip
+         4ydLEGBJ8Ra3mV4AH6vlnAsuDAEAqIfpTMzqmnRGG81U3IR1wTk5F+/TlbvgoSlxrg01
+         G1eQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795643167; x=1796247967;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=sN/vvPChvRjnihCjXMx+GKZD5EpsDE0bEFaTBUovVHA=;
+        b=AUrgdmGerCZu4H5VzxhXP+erS1RbetLwdJxcBts35zMjt5nnat/rqG6BIS9jSzWgKQ
+         YYt4aYD4Q4K9Hyr91vEtGDDNpA8ZL5FyOxIoR3IktolmubddtI8l8Aq61LzifXseE/g8
+         1FlvmuXjC89ER77i0RScckSyTgPxfv7BDasulPPk3J6koDKNIRKIBCbrnW0QkToxXMQr
+         o+MIz0V9dxn+p7EltMWpr80A/v1OtFik1wKXJ5acTn85clatDR4pPToXZn61dJcZ/e5Y
+         P583pmr4aU5BSwD0kWOdDlL1z2oiY30Sa3WTmj62ShX+K3QuOCzN6wtjr4C58988nD61
+         VHJg==
+X-Forwarded-Encrypted: i=1; AL+hErGhY7e7lDTIyR64+neh3Y0RKT8a6z5JfXOzz+ZXHM4kgVCmtNnrqHdAKlNPhBpT7/DYn1FYhGQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/SziMRUveFmhttl1ixk3TLcEcCEr2tprwO25pOOT0VeGst1MxY
+	hsRVxDkvKi4dEYG2Y/Igrq7QQV5KGWrkLrvVKwH2SaYOEhizPgk68SDlGApeQcVk8w7blCr86fn
+	yrCV7IDDPyGrqcvhQr/Xm7ZlDvtcchM8s8hZikCqUbvAKzgV9ZqwfFEzysQ==
+X-Gm-Gg: AZFdTZfju7+mUtOsaYxSguWWK/1C3HMGqgxZVdqgxIO575VRlo2oCioZ7CjFtLuQW+0
+	NaWlRJG8iyfUWwCcm/IVF2mqF8idiWOrzfwgDPDeBUkconWhBMfJAAWuDshNe3gbyYrWbKrduC+
+	9QOqT5/lQLxycnG+qcA17hUjb8kVAUpxP3hFlDlcBFek5D0k1/JsaniVaj8y26ZX1iCXzWnwsF9
+	79/ssRjw5vU2xkoyPm/geSYHPMOzdnEiDoHp63CKCcHmPBSzeoPU0QBbYB8/64B9mPziexA0EHP
+	tWt1BauDHU0KBsoYoMd40lO62RNrEUrVYfPkCT26FBSTsEgQNh2EuYk/py8cUg9fGcjTnx5S8d1
+	/+1ku6zHKXNun38NpMvt1gQeO5iK1GB2UkT7IRXGEXeI=
+X-Received: by 2002:a05:600c:3491:b0:4a2:c2b:a91b with SMTP id 5b1f17b1804b1-4bb8880014dmr398711325e9.10.1795643166759;
+        Wed, 25 Nov 2026 13:46:06 -0800 (PST)
+X-Received: by 2002:a05:600c:3491:b0:4a2:c2b:a91b with SMTP id 5b1f17b1804b1-4bb8880014dmr398710875e9.10.1795643166098;
+        Wed, 25 Nov 2026 13:46:06 -0800 (PST)
+Received: from redhat.com ([2a0d:6fc0:1529:2e00:86ec:bef7:c309:ba1f])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm38309168f8f.29.2026.11.25.13.46.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 13:46:04 -0800 (PST)
+Date: Wed, 25 Nov 2026 16:46:00 -0500
+From: "Michael S. Tsirkin" <mst@redhat.com>
+To: Paul Moses <p@1g4.org>
+Cc: "Lorenzo Stoakes (ARM)" <ljs@kernel.org>,
+	"chenglong.ma" <longpareto@gmail.com>,
+	Linus Torvalds <torvalds@linux-foundation.org>, kvm@vger.kernel.org,
+	virtualization@lists.linux-foundation.org, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, 2312891301@qq.com, blum@kernel.org,
+	co+6dcbccedc9ec6452@bugs.sh, eperezma@redhat.com,
+	fangxy@xiaopeng.com, jasowangio@gmail.com, kmehltretter@gmail.com,
+	linfeng.sun.dev@gmail.com, lirongqing@baidu.com,
+	oss.patchbox@gmail.com, phx0fer@gmail.com, physicalmtea@gmail.com,
+	sergiiushakov@google.com, shubham@octane.security,
+	stable@vger.kernel.org, stjepan.poljak@gmail.com,
+	syzbot+13df72e0dc4be5c62215@syzkaller.appspotmail.com,
+	tavhadia@gmail.com, tjdqudcks0424@naver.com, tz2294@columbia.edu,
+	xieyongji@bytedance.com, xmei5@asu.edu, yuz08559@gmail.com,
+	zenghui.yu@linux.dev, zhaimingbing@cmss.chinamobile.com,
+	zhangjiao2@cmss.chinamobile.com
+Subject: Re: [GIT PULL] vhost,virtio,vdpa: bugfixes
+Message-ID: <20261125162710-mutt-send-email-mst@kernel.org>
+References: <20261104081535-mutt-send-email-mst@kernel.org>
+ <awWOpS3HR_2FTN3I@gremlin>
+ <20261125060533.1296-1-longpareto@gmail.com>
+ <awbTgufgR4Uge1kJ@gremlin>
+ <s1xGKGqyb3Uk_gDZmeWG7nVEq4_m00HsO9pS1RL3cUnIdr4GMgH5OEBifQIl-30ZdUu7_uUoe-TxhMQd2GuW2sWKzY6UUGSWXKaqMz_XeEE=@1g4.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,1246 +132,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <s1xGKGqyb3Uk_gDZmeWG7nVEq4_m00HsO9pS1RL3cUnIdr4GMgH5OEBifQIl-30ZdUu7_uUoe-TxhMQd2GuW2sWKzY6UUGSWXKaqMz_XeEE=@1g4.org>
 
-Add the initial devicetree for Rockchip RK3506 SoC.
+First, thanks for your quality bug reports. I saw a fair share of these!
+To answer your questions:
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch> # Ethernet node
----
-Changes in v3:
-- Collect r-b tag
-Changes in v2:
-- Add default pinctrl to fspi node
-- Add display_subsystem, vop, dsi and dsi_dphy nodes
-- Add osc_clk_out and ref_clk0_out to pinctrl
----
- .../arm/boot/dts/rockchip/rk3506-pinctrl.dtsi | 594 +++++++++++++++++
- arch/arm/boot/dts/rockchip/rk3506.dtsi        | 614 ++++++++++++++++++
- 2 files changed, 1208 insertions(+)
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
- create mode 100644 arch/arm/boot/dts/rockchip/rk3506.dtsi
+On Wed, Nov 25, 2026 at 09:21:01PM +0000, Paul Moses wrote:
+> There appears to be a recurring problem with how previously reported 
+> vulnerabilities are being handled in this subsystem.
+> 
+> Yu Zhang publicly reported the VDUSE VA/PA confusion on August 7, 
+> including runtime evidence and a proposed fix:
+> 
+> https://lore.kernel.org/r/20260807022657.11318-1-yuz08559@gmail.com
+> 
+> Nearly three months later, bb2e6f166547 was merged with attribution to 
+> Claude Code, but without any acknowledgment of Yu's earlier report.
 
-diff --git a/arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi b/arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
-new file mode 100644
-index 000000000000..72cebe2428f8
---- /dev/null
-+++ b/arch/arm/boot/dts/rockchip/rk3506-pinctrl.dtsi
-@@ -0,0 +1,594 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <arm64/rockchip/rockchip-pinconf.dtsi>
-+
-+&pinctrl {
-+	aupll-clk {
-+		/omit-if-no-ref/
-+		aupll_clk_in: aupll-clk-in {
-+			rockchip,pins =
-+				/* aupll_clk_in */
-+				<0 RK_PC4 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	cpu {
-+		/omit-if-no-ref/
-+		cpu_avs: cpu-avs {
-+			rockchip,pins =
-+				/* cpu_avs */
-+				<0 RK_PC5 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	eth-clk0-25m {
-+		/omit-if-no-ref/
-+		eth_clk0_25m_out: eth-clk0-25m-out {
-+			rockchip,pins =
-+				/* eth_clk0_25m_out */
-+				<0 RK_PC4 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	eth-clk1-25m {
-+		/omit-if-no-ref/
-+		eth_clk1_25m_out: eth-clk1-25m-out {
-+			rockchip,pins =
-+				/* eth_clk1_25m_out */
-+				<0 RK_PC3 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	eth-rmii0 {
-+		/omit-if-no-ref/
-+		eth_rmii0_clk: eth-rmii0-clk {
-+			rockchip,pins =
-+				/* eth_rmii0_clk */
-+				<2 RK_PB2 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii0_miim: eth-rmii0-miim {
-+			rockchip,pins =
-+				/* eth_rmii0_mdc */
-+				<2 RK_PB6 1 &pcfg_pull_none>,
-+				/* eth_rmii0_mdio */
-+				<2 RK_PB7 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii0_rx_bus2: eth-rmii0-rx-bus2 {
-+			rockchip,pins =
-+				/* eth_rmii0_rxd0 */
-+				<2 RK_PB0 1 &pcfg_pull_none>,
-+				/* eth_rmii0_rxd1 */
-+				<2 RK_PB1 1 &pcfg_pull_none>,
-+				/* eth_rmii0_rxdvcrs */
-+				<2 RK_PC0 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii0_tx_bus2: eth-rmii0-tx-bus2 {
-+			rockchip,pins =
-+				/* eth_rmii0_txd0 */
-+				<2 RK_PB3 1 &pcfg_pull_none>,
-+				/* eth_rmii0_txd1 */
-+				<2 RK_PB4 1 &pcfg_pull_none>,
-+				/* eth_rmii0_txen */
-+				<2 RK_PB5 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	eth-rmii1 {
-+		/omit-if-no-ref/
-+		eth_rmii1_clk: eth-rmii1-clk {
-+			rockchip,pins =
-+				/* eth_rmii1_clk */
-+				<3 RK_PB0 2 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii1_miim: eth-rmii1-miim {
-+			rockchip,pins =
-+				/* eth_rmii1_mdc */
-+				<3 RK_PB4 2 &pcfg_pull_none>,
-+				/* eth_rmii1_mdio */
-+				<3 RK_PB5 2 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii1_rx_bus2: eth-rmii1-rx-bus2 {
-+			rockchip,pins =
-+				/* eth_rmii1_rxd0 */
-+				<3 RK_PA6 2 &pcfg_pull_none>,
-+				/* eth_rmii1_rxd1 */
-+				<3 RK_PA7 2 &pcfg_pull_none>,
-+				/* eth_rmii1_rxdvcrs */
-+				<3 RK_PB6 2 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		eth_rmii1_tx_bus2: eth-rmii1-tx-bus2 {
-+			rockchip,pins =
-+				/* eth_rmii1_txd0 */
-+				<3 RK_PB1 2 &pcfg_pull_none>,
-+				/* eth_rmii1_txd1 */
-+				<3 RK_PB2 2 &pcfg_pull_none>,
-+				/* eth_rmii1_txen */
-+				<3 RK_PB3 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	fspi {
-+		/omit-if-no-ref/
-+		fspi_bus4: fspi-bus4 {
-+			rockchip,pins =
-+				/* fspi_d0 */
-+				<2 RK_PA2 1 &pcfg_pull_none>,
-+				/* fspi_d1 */
-+				<2 RK_PA3 1 &pcfg_pull_none>,
-+				/* fspi_d2 */
-+				<2 RK_PA4 1 &pcfg_pull_none>,
-+				/* fspi_d3 */
-+				<2 RK_PA5 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		fspi_clk: fspi-clk {
-+			rockchip,pins =
-+				/* fspi_clk */
-+				<2 RK_PA1 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		fspi_csn: fspi-csn {
-+			rockchip,pins =
-+				/* fspi_csn */
-+				<2 RK_PA0 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	jtag {
-+		/omit-if-no-ref/
-+		jtagm0: jtagm0 {
-+			rockchip,pins =
-+				/* jtag_tck_m0 */
-+				<3 RK_PA4 2 &pcfg_pull_none>,
-+				/* jtag_tms_m0 */
-+				<3 RK_PA5 2 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		jtagm1: jtagm1 {
-+			rockchip,pins =
-+				/* jtag_tck_m1 */
-+				<0 RK_PC6 2 &pcfg_pull_none>,
-+				/* jtag_tms_m1 */
-+				<0 RK_PC7 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	osc-clk {
-+		/omit-if-no-ref/
-+		osc_clk_out: osc-clk-out {
-+			rockchip,pins =
-+				/* osc_clk_out */
-+				<0 RK_PD0 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	ref-clk0 {
-+		/omit-if-no-ref/
-+		ref_clk0_out: ref-clk0-out {
-+			rockchip,pins =
-+				/* ref_clk0_out */
-+				<0 RK_PD0 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	ref-clk1 {
-+		/omit-if-no-ref/
-+		ref_clk1_out: ref-clk1-out {
-+			rockchip,pins =
-+				/* ref_clk1_out */
-+				<0 RK_PC2 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sai0 {
-+		/omit-if-no-ref/
-+		sai0_lrck: sai0-lrck {
-+			rockchip,pins =
-+				/* sai0_lrck */
-+				<0 RK_PA0 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_mclk: sai0-mclk {
-+			rockchip,pins =
-+				/* sai0_mclk */
-+				<0 RK_PA2 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sclk: sai0-sclk {
-+			rockchip,pins =
-+				/* sai0_sclk */
-+				<0 RK_PA1 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sdi0: sai0-sdi0 {
-+			rockchip,pins =
-+				/* sai0_sdi0 */
-+				<0 RK_PA4 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sdi1: sai0-sdi1 {
-+			rockchip,pins =
-+				/* sai0_sdi1 */
-+				<0 RK_PA5 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sdi2: sai0-sdi2 {
-+			rockchip,pins =
-+				/* sai0_sdi2 */
-+				<0 RK_PA6 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sdi3: sai0-sdi3 {
-+			rockchip,pins =
-+				/* sai0_sdi3 */
-+				<0 RK_PA7 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai0_sdo: sai0-sdo {
-+			rockchip,pins =
-+				/* sai0_sdo */
-+				<0 RK_PA3 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sai1 {
-+		/omit-if-no-ref/
-+		sai1_lrck: sai1-lrck {
-+			rockchip,pins =
-+				/* sai1_lrck */
-+				<0 RK_PB2 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_mclk: sai1-mclk {
-+			rockchip,pins =
-+				/* sai1_mclk */
-+				<0 RK_PB0 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sclk: sai1-sclk {
-+			rockchip,pins =
-+				/* sai1_sclk */
-+				<0 RK_PB1 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sdi: sai1-sdi {
-+			rockchip,pins =
-+				/* sai1_sdi */
-+				<0 RK_PB3 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sdo0: sai1-sdo0 {
-+			rockchip,pins =
-+				/* sai1_sdo0 */
-+				<0 RK_PB4 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sdo1: sai1-sdo1 {
-+			rockchip,pins =
-+				/* sai1_sdo1 */
-+				<0 RK_PB5 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sdo2: sai1-sdo2 {
-+			rockchip,pins =
-+				/* sai1_sdo2 */
-+				<0 RK_PB6 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai1_sdo3: sai1-sdo3 {
-+			rockchip,pins =
-+				/* sai1_sdo3 */
-+				<0 RK_PB7 1 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sai2 {
-+		/omit-if-no-ref/
-+		sai2m0_lrck: sai2m0-lrck {
-+			rockchip,pins =
-+				/* sai2_lrck_m0 */
-+				<3 RK_PB1 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m0_mclk: sai2m0-mclk {
-+			rockchip,pins =
-+				/* sai2_mclk_m0 */
-+				<3 RK_PB6 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m0_sclk: sai2m0-sclk {
-+			rockchip,pins =
-+				/* sai2_sclk_m0 */
-+				<3 RK_PA7 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m0_sdi: sai2m0-sdi {
-+			rockchip,pins =
-+				/* sai2m0_sdi */
-+				<3 RK_PA6 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m0_sdo: sai2m0-sdo {
-+			rockchip,pins =
-+				/* sai2m0_sdo */
-+				<3 RK_PB0 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m1_lrck: sai2m1-lrck {
-+			rockchip,pins =
-+				/* sai2_lrck_m1 */
-+				<1 RK_PB3 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m1_mclk: sai2m1-mclk {
-+			rockchip,pins =
-+				/* sai2_mclk_m1 */
-+				<1 RK_PC1 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m1_sclk: sai2m1-sclk {
-+			rockchip,pins =
-+				/* sai2_sclk_m1 */
-+				<1 RK_PB2 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m1_sdi: sai2m1-sdi {
-+			rockchip,pins =
-+				/* sai2m1_sdi */
-+				<1 RK_PC2 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai2m1_sdo: sai2m1-sdo {
-+			rockchip,pins =
-+				/* sai2m1_sdo */
-+				<1 RK_PC3 6 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sai3 {
-+		/omit-if-no-ref/
-+		sai3_lrck: sai3-lrck {
-+			rockchip,pins =
-+				/* sai3_lrck */
-+				<2 RK_PB5 3 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai3_mclk: sai3-mclk {
-+			rockchip,pins =
-+				/* sai3_mclk */
-+				<2 RK_PC0 3 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai3_sclk: sai3-sclk {
-+			rockchip,pins =
-+				/* sai3_sclk */
-+				<2 RK_PB4 3 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai3_sdi: sai3-sdi {
-+			rockchip,pins =
-+				/* sai3_sdi */
-+				<2 RK_PB6 3 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sai3_sdo: sai3-sdo {
-+			rockchip,pins =
-+				/* sai3_sdo */
-+				<2 RK_PB7 3 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sdmmc {
-+		/omit-if-no-ref/
-+		sdmmc_bus4: sdmmc-bus4 {
-+			rockchip,pins =
-+				/* sdmmc_d0 */
-+				<3 RK_PA2 1 &pcfg_pull_up>,
-+				/* sdmmc_d1 */
-+				<3 RK_PA3 1 &pcfg_pull_up>,
-+				/* sdmmc_d2 */
-+				<3 RK_PA4 1 &pcfg_pull_up>,
-+				/* sdmmc_d3 */
-+				<3 RK_PA5 1 &pcfg_pull_up>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sdmmc_clk: sdmmc-clk {
-+			rockchip,pins =
-+				/* sdmmc_clk */
-+				<3 RK_PA0 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		sdmmc_cmd: sdmmc-cmd {
-+			rockchip,pins =
-+				/* sdmmc_cmd */
-+				<3 RK_PA1 1 &pcfg_pull_up>;
-+		};
-+	};
-+
-+	spi0 {
-+		/omit-if-no-ref/
-+		spi0_clk: spi0-clk {
-+			rockchip,pins =
-+				/* spi0_clk */
-+				<0 RK_PC0 2 &pcfg_pull_none_drv_level_3>,
-+				/* spi0_miso */
-+				<0 RK_PC2 2 &pcfg_pull_none_drv_level_3>,
-+				/* spi0_mosi */
-+				<0 RK_PC1 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+
-+		/omit-if-no-ref/
-+		spi0_csn0: spi0-csn0 {
-+			rockchip,pins =
-+				/* spi0_csn0 */
-+				<0 RK_PC3 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+
-+		/omit-if-no-ref/
-+		spi0_csn1: spi0-csn1 {
-+			rockchip,pins =
-+				/* spi0_csn1 */
-+				<0 RK_PB7 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+	};
-+
-+	spi1 {
-+		/omit-if-no-ref/
-+		spi1_clk: spi1-clk {
-+			rockchip,pins =
-+				/* spi1_clk */
-+				<0 RK_PB0 2 &pcfg_pull_none_drv_level_3>,
-+				/* spi1_miso */
-+				<0 RK_PB2 2 &pcfg_pull_none_drv_level_3>,
-+				/* spi1_mosi */
-+				<0 RK_PB1 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+
-+		/omit-if-no-ref/
-+		spi1_csn0: spi1-csn0 {
-+			rockchip,pins =
-+				/* spi1_csn0 */
-+				<0 RK_PB6 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+
-+		/omit-if-no-ref/
-+		spi1_csn1: spi1-csn1 {
-+			rockchip,pins =
-+				/* spi1_csn1 */
-+				<0 RK_PA7 2 &pcfg_pull_none_drv_level_3>;
-+		};
-+	};
-+
-+	spi2 {
-+		/omit-if-no-ref/
-+		spi2_clk: spi2-clk {
-+			rockchip,pins =
-+				/* spi2_clk */
-+				<2 RK_PB0 2 &pcfg_pull_none>,
-+				/* spi2_miso */
-+				<2 RK_PB3 2 &pcfg_pull_none>,
-+				/* spi2_mosi */
-+				<2 RK_PB2 2 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		spi2_csn: spi2-csn {
-+			rockchip,pins =
-+				/* spi2_csn */
-+				<2 RK_PB1 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	test-clk {
-+		/omit-if-no-ref/
-+		test_clk_out: test-clk-out {
-+			rockchip,pins =
-+				/* test_clk_out */
-+				<3 RK_PA3 2 &pcfg_pull_none>;
-+		};
-+	};
-+
-+	uart0 {
-+		/omit-if-no-ref/
-+		uart0_xfer: uart0-xfer {
-+			rockchip,pins =
-+				/* uart0_rx */
-+				<0 RK_PC7 1 &pcfg_pull_up>,
-+				/* uart0_tx */
-+				<0 RK_PC6 1 &pcfg_pull_up>;
-+		};
-+	};
-+
-+	uart5 {
-+		/omit-if-no-ref/
-+		uart5m0_ctsn: uart5m0-ctsn {
-+			rockchip,pins =
-+				/* uart5m0_ctsn */
-+				<3 RK_PB2 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		uart5m0_rtsn: uart5m0-rtsn {
-+			rockchip,pins =
-+				/* uart5m0_rtsn */
-+				<3 RK_PB5 1 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		uart5m0_xfer: uart5m0-xfer {
-+			rockchip,pins =
-+				/* uart5_rx_m0 */
-+				<3 RK_PB3 1 &pcfg_pull_up>,
-+				/* uart5_tx_m0 */
-+				<3 RK_PB4 1 &pcfg_pull_up>;
-+		};
-+
-+		/omit-if-no-ref/
-+		uart5m1_ctsn: uart5m1-ctsn {
-+			rockchip,pins =
-+				/* uart5m1_ctsn */
-+				<1 RK_PB1 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		uart5m1_rtsn: uart5m1-rtsn {
-+			rockchip,pins =
-+				/* uart5m1_rtsn */
-+				<1 RK_PD1 6 &pcfg_pull_none>;
-+		};
-+
-+		/omit-if-no-ref/
-+		uart5m1_xfer: uart5m1-xfer {
-+			rockchip,pins =
-+				/* uart5_rx_m1 */
-+				<1 RK_PD3 6 &pcfg_pull_up>,
-+				/* uart5_tx_m1 */
-+				<1 RK_PD2 6 &pcfg_pull_up>;
-+		};
-+	};
-+};
-diff --git a/arch/arm/boot/dts/rockchip/rk3506.dtsi b/arch/arm/boot/dts/rockchip/rk3506.dtsi
-new file mode 100644
-index 000000000000..6e4d735bd32f
---- /dev/null
-+++ b/arch/arm/boot/dts/rockchip/rk3506.dtsi
-@@ -0,0 +1,614 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+
-+#include <dt-bindings/clock/rockchip,rk3506-cru.h>
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+#include <dt-bindings/reset/rockchip,rk3506-cru.h>
-+
-+/ {
-+	compatible = "rockchip,rk3506";
-+
-+	interrupt-parent = <&gic>;
-+	#address-cells = <1>;
-+	#size-cells = <1>;
-+
-+	aliases {
-+		gpio0 = &gpio0;
-+		gpio1 = &gpio1;
-+		gpio2 = &gpio2;
-+		gpio3 = &gpio3;
-+		gpio4 = &gpio4;
-+	};
-+
-+	xin24m: clock-xin24m {
-+		compatible = "fixed-clock";
-+		clock-frequency = <24000000>;
-+		clock-output-names = "xin24m";
-+		#clock-cells = <0>;
-+	};
-+
-+	cpus {
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+
-+				core2 {
-+					cpu = <&cpu2>;
-+				};
-+			};
-+		};
-+
-+		cpu0: cpu@f00 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7";
-+			reg = <0xf00>;
-+			clocks = <&cru ARMCLK>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu1: cpu@f01 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7";
-+			reg = <0xf01>;
-+			clocks = <&cru ARMCLK>;
-+			enable-method = "psci";
-+		};
-+
-+		cpu2: cpu@f02 {
-+			device_type = "cpu";
-+			compatible = "arm,cortex-a7";
-+			reg = <0xf02>;
-+			clocks = <&cru ARMCLK>;
-+			enable-method = "psci";
-+		};
-+	};
-+
-+	display_subsystem: display-subsystem {
-+		compatible = "rockchip,display-subsystem";
-+		ports = <&vop_out>;
-+		status = "disabled";
-+	};
-+
-+	pinctrl: pinctrl {
-+		compatible = "rockchip,rk3506-pinctrl";
-+		rockchip,grf = <&gpio234_ioc>;
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		gpio0: gpio@ff940000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0xff940000 0x200>;
-+			clocks = <&cru PCLK_GPIO0>, <&cru DBCLK_GPIO0>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			interrupts = <GIC_SPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			rockchip,grf = <&gpio0_ioc>;
-+		};
-+
-+		gpio1: gpio@ff870000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0xff870000 0x200>;
-+			clocks = <&cru PCLK_GPIO1>, <&cru DBCLK_GPIO1>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+			rockchip,grf = <&gpio1_ioc>;
-+		};
-+
-+		gpio2: gpio@ff1c0000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0xff1c0000 0x200>;
-+			clocks = <&cru PCLK_GPIO2>, <&cru DBCLK_GPIO2>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			interrupts = <GIC_SPI 8 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio3: gpio@ff1d0000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0xff1d0000 0x200>;
-+			clocks = <&cru PCLK_GPIO3>, <&cru DBCLK_GPIO3>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			interrupts = <GIC_SPI 12 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+		};
-+
-+		gpio4: gpio@ff1e0000 {
-+			compatible = "rockchip,gpio-bank";
-+			reg = <0xff1e0000 0x200>;
-+			clocks = <&cru PCLK_GPIO4>, <&cru DBCLK_GPIO4>;
-+			gpio-controller;
-+			#gpio-cells = <2>;
-+			interrupts = <GIC_SPI 16 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <2>;
-+		};
-+	};
-+
-+	pmu-a7 {
-+		compatible = "arm,cortex-a7-pmu";
-+		interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 122 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>;
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0", "arm,psci-0.2";
-+		method = "smc";
-+	};
-+
-+	timer {
-+		compatible = "arm,armv7-timer";
-+		clock-frequency = <24000000>;
-+		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(3) | IRQ_TYPE_LEVEL_HIGH)>,
-+			     <GIC_PPI 14 (GIC_CPU_MASK_SIMPLE(3) | IRQ_TYPE_LEVEL_HIGH)>,
-+			     <GIC_PPI 11 (GIC_CPU_MASK_SIMPLE(3) | IRQ_TYPE_LEVEL_HIGH)>,
-+			     <GIC_PPI 10 (GIC_CPU_MASK_SIMPLE(3) | IRQ_TYPE_LEVEL_HIGH)>;
-+	};
-+
-+	soc {
-+		compatible = "simple-bus";
-+		#address-cells = <1>;
-+		#size-cells = <1>;
-+		ranges;
-+
-+		dmac0: dma-controller@ff000000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0xff000000 0x4000>;
-+			clocks = <&cru ACLK_DMAC0>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+			interrupts = <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
-+			arm,pl330-periph-burst;
-+		};
-+
-+		dmac1: dma-controller@ff008000 {
-+			compatible = "arm,pl330", "arm,primecell";
-+			reg = <0xff008000 0x4000>;
-+			clocks = <&cru ACLK_DMAC1>;
-+			clock-names = "apb_pclk";
-+			#dma-cells = <1>;
-+			interrupts = <GIC_SPI 118 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			arm,pl330-periph-burst;
-+		};
-+
-+		i2c0: i2c@ff040000 {
-+			compatible = "rockchip,rk3506-i2c",
-+				     "rockchip,rk3399-i2c";
-+			reg = <0xff040000 0x1000>;
-+			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
-+			clock-names = "i2c", "pclk";
-+			interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c1: i2c@ff050000 {
-+			compatible = "rockchip,rk3506-i2c",
-+				     "rockchip,rk3399-i2c";
-+			reg = <0xff050000 0x1000>;
-+			clocks = <&cru CLK_I2C1>, <&cru PCLK_I2C1>;
-+			clock-names = "i2c", "pclk";
-+			interrupts = <GIC_SPI 41 IRQ_TYPE_LEVEL_HIGH>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		i2c2: i2c@ff060000 {
-+			compatible = "rockchip,rk3506-i2c",
-+				     "rockchip,rk3399-i2c";
-+			reg = <0xff060000 0x1000>;
-+			clocks = <&cru CLK_I2C2>, <&cru PCLK_I2C2>;
-+			clock-names = "i2c", "pclk";
-+			interrupts = <GIC_SPI 42 IRQ_TYPE_LEVEL_HIGH>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		uart0: serial@ff0a0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff0a0000 0x100>;
-+			clocks = <&cru SCLK_UART0>, <&cru PCLK_UART0>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac0 4>, <&dmac0 5>;
-+			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&uart0_xfer>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart1: serial@ff0b0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff0b0000 0x100>;
-+			clocks = <&cru SCLK_UART1>, <&cru PCLK_UART1>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac0 6>, <&dmac0 7>;
-+			interrupts = <GIC_SPI 35 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart2: serial@ff0c0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff0c0000 0x100>;
-+			clocks = <&cru SCLK_UART2>, <&cru PCLK_UART2>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac0 8>, <&dmac0 9>;
-+			interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart3: serial@ff0d0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff0d0000 0x100>;
-+			clocks = <&cru SCLK_UART3>, <&cru PCLK_UART3>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac0 10>, <&dmac0 11>;
-+			interrupts = <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		uart4: serial@ff0e0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff0e0000 0x100>;
-+			clocks = <&cru SCLK_UART4>, <&cru PCLK_UART4>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac1 12>, <&dmac1 13>;
-+			interrupts = <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		spi0: spi@ff120000 {
-+			compatible = "rockchip,rk3506-spi",
-+				     "rockchip,rk3066-spi";
-+			reg = <0xff120000 0x1000>;
-+			clocks = <&cru CLK_SPI0>, <&cru PCLK_SPI0>;
-+			clock-names = "spiclk", "apb_pclk";
-+			dmas = <&dmac0 0>, <&dmac0 1>;
-+			dma-names = "tx", "rx";
-+			interrupts = <GIC_SPI 43 IRQ_TYPE_LEVEL_HIGH>;
-+			num-cs = <2>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&spi0_csn0>, <&spi0_csn1>, <&spi0_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		spi1: spi@ff130000 {
-+			compatible = "rockchip,rk3506-spi",
-+				     "rockchip,rk3066-spi";
-+			reg = <0xff130000 0x1000>;
-+			clocks = <&cru CLK_SPI1>, <&cru PCLK_SPI1>;
-+			clock-names = "spiclk", "apb_pclk";
-+			dmas = <&dmac0 2>, <&dmac0 3>;
-+			dma-names = "tx", "rx";
-+			interrupts = <GIC_SPI 44 IRQ_TYPE_LEVEL_HIGH>;
-+			num-cs = <2>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&spi1_csn0>, <&spi1_csn1>, <&spi1_clk>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		wdt0: watchdog@ff260000 {
-+			compatible = "rockchip,rk3506-wdt", "snps,dw-wdt";
-+			reg = <0xff260000 0x100>;
-+			clocks = <&cru TCLK_WDT0>, <&cru PCLK_WDT0>;
-+			clock-names = "tclk", "pclk";
-+			interrupts = <GIC_SPI 107 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+		};
-+
-+		wdt1: watchdog@ff268000 {
-+			compatible = "rockchip,rk3506-wdt", "snps,dw-wdt";
-+			reg = <0xff268000 0x100>;
-+			clocks = <&cru TCLK_WDT1>, <&cru PCLK_WDT1>;
-+			clock-names = "tclk", "pclk";
-+			interrupts = <GIC_SPI 108 IRQ_TYPE_LEVEL_HIGH>;
-+			status = "disabled";
-+		};
-+
-+		grf: syscon@ff288000 {
-+			compatible = "rockchip,rk3506-grf", "syscon",
-+				     "simple-mfd";
-+			reg = <0xff288000 0x4000>;
-+		};
-+
-+		sdmmc: mmc@ff480000 {
-+			compatible = "rockchip,rk3506-dw-mshc",
-+				     "rockchip,rk3288-dw-mshc";
-+			reg = <0xff480000 0x4000>;
-+			bus-width = <4>;
-+			clocks = <&cru HCLK_SDMMC>, <&cru CCLK_SRC_SDMMC>;
-+			clock-names = "biu", "ciu";
-+			fifo-depth = <0x100>;
-+			interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
-+			max-frequency = <150000000>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>;
-+			resets = <&cru SRST_H_SDMMC>;
-+			reset-names = "reset";
-+			status = "disabled";
-+		};
-+
-+		fspi: spi@ff488000 {
-+			compatible = "rockchip,sfc";
-+			reg = <0xff488000 0x4000>;
-+			clocks = <&cru SCLK_FSPI>, <&cru HCLK_FSPI>;
-+			clock-names = "clk_sfc", "hclk_sfc";
-+			interrupts = <GIC_SPI 85 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&fspi_bus4>, <&fspi_clk>, <&fspi_csn>;
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+			status = "disabled";
-+		};
-+
-+		gmac0: ethernet@ff4c8000 {
-+			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
-+			reg = <0xff4c8000 0x2000>;
-+			clocks = <&cru CLK_MAC0>, <&cru CLK_MAC0_PTP>,
-+				 <&cru PCLK_MAC0>, <&cru ACLK_MAC0>;
-+			clock-names = "stmmaceth", "ptp_ref",
-+				      "pclk_mac", "aclk_mac";
-+			interrupts = <GIC_SPI 66 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 69 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq", "eth_wake_irq";
-+			phy-mode = "rmii";
-+			resets = <&cru SRST_A_MAC0>;
-+			reset-names = "stmmaceth";
-+			rockchip,grf = <&grf>;
-+			snps,axi-config = <&gmac0_stmmac_axi_setup>;
-+			snps,mixed-burst;
-+			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-+			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-+			snps,tso;
-+			status = "disabled";
-+
-+			mdio0: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			gmac0_stmmac_axi_setup: stmmac-axi-config {
-+				snps,blen = <0 0 0 0 16 8 4>;
-+				snps,rd_osr_lmt = <8>;
-+				snps,wr_osr_lmt = <4>;
-+			};
-+
-+			gmac0_mtl_rx_setup: rx-queues-config {
-+				snps,rx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+
-+			gmac0_mtl_tx_setup: tx-queues-config {
-+				snps,tx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+		};
-+
-+		gmac1: ethernet@ff4d0000 {
-+			compatible = "rockchip,rk3506-gmac", "snps,dwmac-4.20a";
-+			reg = <0xff4d0000 0x2000>;
-+			clocks = <&cru CLK_MAC1>, <&cru CLK_MAC1_PTP>,
-+				 <&cru PCLK_MAC1>, <&cru ACLK_MAC1>;
-+			clock-names = "stmmaceth", "ptp_ref",
-+				      "pclk_mac", "aclk_mac";
-+			interrupts = <GIC_SPI 70 IRQ_TYPE_LEVEL_HIGH>,
-+				     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq", "eth_wake_irq";
-+			phy-mode = "rmii";
-+			resets = <&cru SRST_A_MAC1>;
-+			reset-names = "stmmaceth";
-+			rockchip,grf = <&grf>;
-+			snps,axi-config = <&gmac1_stmmac_axi_setup>;
-+			snps,mixed-burst;
-+			snps,mtl-rx-config = <&gmac1_mtl_rx_setup>;
-+			snps,mtl-tx-config = <&gmac1_mtl_tx_setup>;
-+			snps,tso;
-+			status = "disabled";
-+
-+			mdio1: mdio {
-+				compatible = "snps,dwmac-mdio";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+			};
-+
-+			gmac1_stmmac_axi_setup: stmmac-axi-config {
-+				snps,blen = <0 0 0 0 16 8 4>;
-+				snps,rd_osr_lmt = <8>;
-+				snps,wr_osr_lmt = <4>;
-+			};
-+
-+			gmac1_mtl_rx_setup: rx-queues-config {
-+				snps,rx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+
-+			gmac1_mtl_tx_setup: tx-queues-config {
-+				snps,tx-queues-to-use = <1>;
-+				queue0 {};
-+			};
-+		};
-+
-+		gpio234_ioc: syscon@ff4d8000 {
-+			compatible = "rockchip,rk3506-ioc234", "syscon";
-+			reg = <0xff4d8000 0x8000>;
-+		};
-+
-+		uart5: serial@ff4e0000 {
-+			compatible = "rockchip,rk3506-uart", "snps,dw-apb-uart";
-+			reg = <0xff4e0000 0x100>;
-+			clocks = <&cru SCLK_UART5>, <&cru PCLK_UART5>;
-+			clock-names = "baudclk", "apb_pclk";
-+			dmas = <&dmac1 14>, <&dmac1 15>;
-+			interrupts = <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&uart5m0_xfer>, <&uart5m0_ctsn>,
-+				    <&uart5m0_rtsn>;
-+			reg-io-width = <4>;
-+			reg-shift = <2>;
-+			status = "disabled";
-+		};
-+
-+		saradc: adc@ff4e8000 {
-+			compatible = "rockchip,rk3506-saradc",
-+				     "rockchip,rk3528-saradc";
-+			reg = <0xff4e8000 0x8000>;
-+			clocks = <&cru CLK_SARADC>, <&cru PCLK_SARADC>;
-+			clock-names = "saradc", "apb_pclk";
-+			interrupts = <GIC_SPI 57 IRQ_TYPE_LEVEL_HIGH>;
-+			#io-channel-cells = <1>;
-+			resets = <&cru SRST_P_SARADC>;
-+			reset-names = "saradc-apb";
-+			status = "disabled";
-+		};
-+
-+		gic: interrupt-controller@ff581000 {
-+			compatible = "arm,gic-400";
-+			reg = <0xff581000 0x1000>,
-+			      <0xff582000 0x2000>,
-+			      <0xff584000 0x2000>,
-+			      <0xff586000 0x2000>;
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <3>;
-+			#address-cells = <0>;
-+		};
-+
-+		vop: vop@ff600000 {
-+			compatible = "rockchip,rk3506-vop";
-+			reg = <0xff600000 0x200>, <0xff600a00 0x400>;
-+			clocks = <&cru ACLK_VOP>, <&cru DCLK_VOP>,
-+				 <&cru HCLK_VOP>;
-+			clock-names = "aclk_vop", "dclk_vop", "hclk_vop";
-+			interrupts = <GIC_SPI 59 IRQ_TYPE_LEVEL_HIGH>;
-+			resets = <&cru SRST_A_VOP>, <&cru SRST_H_VOP>,
-+				 <&cru SRST_VOP>;
-+			reset-names = "axi", "ahb", "dclk";
-+			status = "disabled";
-+
-+			vop_out: port {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				vop_out_dsi: endpoint@0 {
-+					reg = <0>;
-+					remote-endpoint = <&dsi_in_vop>;
-+				};
-+			};
-+		};
-+
-+		dsi: dsi@ff640000 {
-+			compatible = "rockchip,rk3506-mipi-dsi",
-+				     "snps,dw-mipi-dsi";
-+			reg = <0xff640000 0x10000>;
-+			clocks = <&cru PCLK_DSI_HOST>;
-+			clock-names = "pclk";
-+			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
-+			phys = <&dsi_dphy>;
-+			phy-names = "dphy";
-+			resets = <&cru SRST_P_DSI_HOST>;
-+			reset-names = "apb";
-+			rockchip,grf = <&grf>;
-+			status = "disabled";
-+
-+			ports {
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				dsi_in: port@0 {
-+					reg = <0>;
-+
-+					dsi_in_vop: endpoint {
-+						remote-endpoint = <&vop_out_dsi>;
-+					};
-+				};
-+
-+				dsi_out: port@1 {
-+					reg = <1>;
-+				};
-+			};
-+		};
-+
-+		gpio1_ioc: syscon@ff660000 {
-+			compatible = "rockchip,rk3506-ioc1", "syscon";
-+			reg = <0xff660000 0x10000>;
-+		};
-+
-+		dsi_dphy: phy@ff670000 {
-+			compatible = "rockchip,rk3506-dsi-dphy";
-+			reg = <0xff670000 0x10000>;
-+			clocks = <&cru CLK_REF_DPHY_TOP>, <&cru PCLK_DPHY>;
-+			clock-names = "ref", "pclk";
-+			#phy-cells = <0>;
-+			resets = <&cru SRST_P_DPHY>;
-+			reset-names = "apb";
-+			status = "disabled";
-+		};
-+
-+		grf_core: syscon@ff840000 {
-+			compatible = "rockchip,rk3506-core-grf", "syscon",
-+				     "simple-mfd";
-+			reg = <0xff840000 0x4000>;
-+		};
-+
-+		grf_pmu: syscon@ff910000 {
-+			compatible = "rockchip,rk3506-pmu-grf", "syscon",
-+				     "simple-mfd";
-+			reg = <0xff910000 0x4000>;
-+		};
-+
-+		gpio0_ioc: syscon@ff950000 {
-+			compatible = "rockchip,rk3506-ioc0", "syscon";
-+			reg = <0xff950000 0x10000>;
-+		};
-+
-+		cru: clock-controller@ff9a0000 {
-+			compatible = "rockchip,rk3506-cru";
-+			reg = <0xff9a0000 0x20000>;
-+			clocks = <&xin24m>;
-+			clock-names = "xin";
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+		};
-+	};
-+};
-+
-+#include "rk3506-pinctrl.dtsi"
+Mostly what happened is that Jason left RH, and at the same time a wave
+of vuln reports hit, and this one got some "critical" sashiko reviews.
+Which I didn't look closely at, but at the same time, the reporter
+really could have responded to, but instead ignored. The patch was not
+Cc stable, even. I could have looked at the patch more closely and
+noticed there's a reported security problem and tracked it.
+
+> As 
+> Lorenzo has now pointed out, the accepted patch also breaks the driver's 
+> mmap path.
+
+yea, not good.
+
+> This is particularly concerning given my own experience with the vDPA 
+> netlink double-free.
+> 
+> I reported the issue in March, submitted a patch at your request, provided 
+> runtime evidence, and received repeated assurances that my patch would be 
+> applied. Nearly eight months later, a different Claude-assisted implementation 
+> was merged instead after I reported it to security list a second time.
+> 
+> I acknowledge that I eventually received a Reported-by tag. That does not explain 
+> why a known and acknowledged memory-safety defect remained unfixed for nearly eight 
+> months.
+
+I don't at this time remember why it took a lot of time or why I chose that patch at
+this point, sorry.
+
+> I have no objection to the use of AI-assisted development. I do object to a process 
+> in which previously submitted security fixes remain unresolved for months, only to 
+> be replaced by AI-assisted implementations, particularly when those implementations 
+> introduce regressions that basic functional testing would have caught.
+> 
+> Why was Yu Zhang's earlier report not acknowledged?
+
+Because the reporter didn't follow the process.
+
+> And what is being done to ensure that previously reported vulnerabilities are not left 
+> unresolved until they are rediscovered?
+> 
+> Thanks,
+> Paul
+
+Following the process helps. You did good by pinging repeatedly and the
+problem was fixed as opposed to rediscovered. Thanks a lot for that.
+
+
+I'm not as quick as I'd like to be. Make mistakes, too (
+If more people can pitch in and help review patches, that will help a lot!
+
 -- 
-2.56.1
+MST
 
