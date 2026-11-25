@@ -1,82 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572295;
-	b=Gq2vOj7CFn7diGbGs1e6XWhA1LKdvdZ825La0yt9bLyKUJnudq7rjGQMImCgVbEJ62EL
-	 YBzWHiyKQWvCzB9YvRTPKMsflR4z+mMzerS0wauBMsRGLUn2ssKemzZt9Wi4yhliECG4O
-	 RyoqGDoVmr4VttXwpuogU9DqsnIgg/oq+sOAtadC0GpH9bqrt5hCM4d0tRigz7u/SN1tM
-	 aPSZhBG4EozqRf5FFK/X+Od8nJ2nhHQHKTJ0guoCbdQDzTLlXrNHBvW3p6e/Yq5RXPzSB
-	 TrKP3Xvzwz/8yFiY7BDDLszSZSXNK72oSVPIRv25FOE1o2T9vDdKT99dtIylmnNJMbA==
+	t=1795572308;
+	b=mbNSRNkah1YYVfrJ3Nf8KsJZDAOwXMB068jPL2TS/VfHLII3ppIXGHrgkZ9Sj5j96muU
+	 nKD+OAb+VYtI5iyQGQZLbt22LnT3mPSFkqZ1WR/+pUNf0/XVtLZ5p6CxRP8kAm6pNrjoS
+	 VZIO55ILxthS48VRzqF84wekytZ56dVLjzd5ZRxlXljCffD+QaT9b1h1eX/ol1cW0kFow
+	 UOZrfleJB+Vmb7YZvM1idjlf9Cg9hAOPBaAy/2Pmuj5NOxUDsCbcNmlEx1x4ftz/vX+0U
+	 MKZaEWgRVH1+QDloUibJCKJirTqp7QzKzr/b04F30DXDNIXVmleoBVfhJJSZazvzfMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572295;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572308;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
-	b=yRJnp+9syMjJyAmRFdRTtxpIH6TNqICywHwa0k5NJEoHwx3QS/DVAUr+9KHkN4y9OcZv
-	 MB1FUYw8UHNfhtaFXVozmYd6zV04SzrCTu2/BP5ICki+B6qN0HDpU4M7JRpDRy60xxWEa
-	 GcbcHNWFvNuOqkQ9TuCUFoWK2+NPvyHNKZ+xgbAxMKmZQZp+dL7QhvaNZ5jS8X6YFNr8H
-	 RuH5asR44jUM73ucx2zbClPZu6LwPVKu3lSXok0rO3GqrEO2Kztc7KfpnnDxINThmq934
-	 Z3GEVOmYfgmsyrI7U/bHPiahy0cmkfJro6wQaqhQ/BTD+dS+Ia/RyvfsPiCjrBaklyA==
+	bh=Jed9YGiJC9dQOx/9Evqtoev7hBIhjML3OUaG83yESDI=;
+	b=lwyrxq2uvP/2E9+Ve/vxRfXo+FPxck116rFRj8AhY8nXweKMirQ41U+L/TxW5qIwIK/a
+	 6QuYXb6J5cs9FRnWOo3mgC8Bxl8+KqvsfuOQWmZwT4EyRHEEdAkPz3GNQ/Pf8hDUiJWa8
+	 IZMC3HLUh4D+D3gpNYdwGTx/pMEvM+xwArm5Z/NhuAqJ6/l67gLmlmssWrwAilU7kDWb5
+	 Bn+mUfBuscJrDLc4Lh3oJYec2CuP2JBiM6lm/ERMK6VOhnO84o/5HTukuOsOBwGijvxY0
+	 5bMm0N2t+jZS1x+I2WDI2fEfeCEklRGn7pPPtYn3l9GAM9pvvfA9vSYgpPYHwjbmSoQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OujSzYU8;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=exH8vgS9;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23BC4606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:04:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23BC4606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 88DC4606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:05:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 88DC4606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OujSzYU8
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f046b0adc0so28545215ad.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:04:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=exH8vgS9
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f06ff94acfso20481315ad.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:05:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795572294; x=1796177094; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795572308; x=1796177108; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
-        b=OujSzYU8ZqBCZBdGtmxlxflIFQHkmB3wKsr5lC/zXSjpuwndrApIjDbDWXasaTv8rp
-         aKO+kI4cY/XWfFnZck4G/aF02T0rWLxnhD3/YVJmHGcJBXQ7FCzn8WbeX5RwfGZPk7jb
-         fCQEvJOVFnQETHRdnFOeNjmHJf1e34tgH2LvpMvS6Qmd70QDxduK+LILxa+eDaZQ0PJx
-         QKY7ssNbv8McNVZG3EgfEhs+pZhAFtS0B5OfeN/5JleJ8Df9xZXmyAHkvAevYvk3WYEC
-         HkWis7Mr+L5iohnSWr03nbOjz+QZ+euLjt070dC4BJ25WlwtPxcqezYIFWso0qRC8Gip
-         8iEQ==
+        bh=Jed9YGiJC9dQOx/9Evqtoev7hBIhjML3OUaG83yESDI=;
+        b=exH8vgS9DqqE9M8IIRqHtMcatwzxJPFDDXOUEXK46/DtFg1HFdSjcj/Z5wNA+26gkd
+         Ird9efseZ71gekrcNZ/mQakB9vdzs9SOPwzDwu80Gm3tKbPPyb1zw01oNxV/dXeKRZkh
+         H6zBihF8KXbM1zKZc5xU8eGzhZgoPwg+Sc7Y69IphfCkMkvQh6u7apAoAXIgFp7ASBMv
+         zR/eZYhv6rNXm3MGD4zltZc5Shr83wRtwin6kvdVphBmngrL4OOC+IHX7yzCBK47YUW1
+         U26xl1uXQ1BTjuSIj2uAVkFTBE+xYLozGFUqHeDXBc3pgTBStvIy6vftOQ7i46JCcPzM
+         Lg8Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795572294; x=1796177094;
+        d=1e100.net; s=20260707; t=1795572308; x=1796177108;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
-        b=qFtWm7cA5KRuDdAnxfpkFT5kk+RgrOXl5Sj0t6I/ZnBbW85m9KF79WBUoG+cMy7uU+
-         OxUNRGr4QgYNGxwelOElIDHvUTcJR7fUQUxnPjrBTOOz0bTfIdU3+HUoIDD/6OHJgygm
-         D/2RMqgBj/j5hPM7CUCnofGw+uQZZtUCrlXwiF1ACbaPMaAOhpBif2EsVx35vRIZikmG
-         fv9QZpZvSkBRw4JePehF8hAP3R+Q98isrUmx9/IdIIQZHhko/amHI0LWV6V5B3oLEPaG
-         N2KZybFu4IKNuWGkugrWA6jZVog435NiSFqmLehMEoK1nMZTYN50Y3ai81tu14lwo1rT
-         lQ1w==
-X-Forwarded-Encrypted: i=1; AL+hErFcrLmjML2fGUBJH4/bL50J4xnU02CddKxCrkVALqIlGm/fxZ98dtiPe66NRR60Dinquwl2ako=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2pjPiREXE/dgUlWSkMDLPYN7H56xgZXmAm5Z9b8jGL7kextv2
-	7v94xx0HBzlpEQJq1wJ0wLbsBjSGoPTqksmPrgB+VlG12gZhVGxsOwhrnfuzaZq4
-X-Gm-Gg: AZFdTZfuOT3wNpInQCE49WUTWF5nkDi787FW6Gr5FaxTkHcfT3+/tpzXDLv3NY2W+75
-	3hZ4ycUGcABsOmilaIifaYMeRYp2PMIVOj1+YGkVLaegY0sQMpfqqTAW+ePEu86r6MMiEtyN/FI
-	6zCKcOdozR/y++0BBwVxnb6+h+mGkf+VDm3fwa1Raj0ohcmJfYs24aRkrYR3yO1bO3j1SQm3FqM
-	YveXEh5XdQUf9qzu3ItkRENnMTA50Ia98w7PTl0WQ8NKjEfurBRaA+TmlpD3qMVAfKjoo9olXfm
-	gniUHrxrFw60+EttEu4tOkb6v4LMHK2SyCqzXOXwp5rGe794dmLIOWgRCeBusPS/VGqXi6N/JXJ
-	9JFuppin1aKQn/zmtcpOqk2o1YQmtJiM5jCGP8sHxpBPzkSl4nHSVY9pTom2NBWck7/C/ytv5MC
-	lvcgqxkTiLX1EshPWHvTjvXnS1qfdOcmzsz/+O6lqMXB1+rM+JJK9N+M3JWBTBN7Rgd3ESEKPV/
-	xYdJBFEivoct/KQhAF16wbBkIMkZNoM46YS5vxfrxUrD/ZuXhFyvPWpM1qy68qeW+g28dRV0dBM
-	zMjDYyfXy6HsXrojL6KaIALGtHzA3p5wR5nA2GkLDo8vr74uvIJO5c2O50wp4Rom6u0=
-X-Received: by 2002:a17:902:e811:b0:2ed:3f47:96a3 with SMTP id d9443c01a7336-2f03f169628mr159139275ad.42.1795572294458;
-        Tue, 24 Nov 2026 18:04:54 -0800 (PST)
+        bh=Jed9YGiJC9dQOx/9Evqtoev7hBIhjML3OUaG83yESDI=;
+        b=ydkDg48IieDjHHB/Hchm00Dsg25ftA8uUGzJokj+bos0R2kuoGZRUP8gLL9NMAO9Gw
+         AIYPbp5lqfFYnM5lPn4qpsqKt6al2jOsJAXgd5W+fwh1rO/UO9UKpr6u6lyTP1kNNoVf
+         6nsMS/fqq+OPE63aQbkAKL5fuHPAEpcCX7r8KmTpR0jhVt+APAgQfryABKQraBUXo/5a
+         iiD/E2axOUxnNslR51ILu4VKIAHvIq31ZLOPNAVpHyMJ8SIilVS1VwgvH2SHt5v7pLLQ
+         Ub6fJ9SzBtfvS9ptknRbNZDrGUOpXzW1SWiU+ckjR4K0C2UD0REmbrsOxIMkYSru/CNn
+         KJmQ==
+X-Forwarded-Encrypted: i=1; AL+hErGVh1Peg4koXpd7uF8NujwTFvZ6qzUhd2NT/tNg89Eh36BGhmX+LVmGTw4D9ZYY3ZYcHEImns4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+M2r/CRgTsRN0CqSE851v1pT/Zfp1R/H9xLZ15fswX2Oj78RCs
+	kWF3umr5Zec/VBHqzdMjWg0oFM7Na5NwjCtmiKASppbDTbjL+/0QgXBi
+X-Gm-Gg: AZFdTZcljzj7Dae9i+zlarVhNfHjtKRN4vYugNj+gNsCsi8CBR4szcM6MMEZmWZE1wV
+	vF1pnWFlppMoRQ/wCjxfa98CHLiDDrlcLIGkU1CbqgGTntSgRzdTmiIs9xsXC5RXwi5fKKKToJo
+	9XCQ+MeZsn7iHMYy7E4y2cOhwHK0cPH6RgfsLUv5JDuY36PBmgNrHTyY7ZHxB5KjHpbM5Vzc3OC
+	z581yzKOzotatywVzrqiN5diiZS1PsR3wKol1DCBWQAn9mAS30NsmocxcBJKTZv1yU9Wqh9umFS
+	gslP2HWYIJCk0ZlR5/vyIYC/exsBvhGdS5iACoHEDYjTEWiTWY+fJlYzM2AFBWB5weKF99Pm5iV
+	NXuGg4S99vuEXqJyIw1sE1VKw8PAHFsGy8IcByuaQ3DVnUZhp744Fk2pVveaSTjK5Pz/LrzUgSX
+	UTtMdpOIQsVTV8pfxI+JtHH2DPZ1yt9cw50Ob7BpAbrhvT+NG5scQCcixhsnnyRTn1Jt03MKqu7
+	YffjTFjy3UKcQOeV/+d5n5Qpdioe0LebiEgRnWEhatSfjrBECkXRzCp5VU7K/BtaELmoZ/vsxkK
+	Xa60y0KVnwj9YCbCasrXs2qr1vzmkgNjUfdTAF3EPTlQc2hKfBNwMxPTfKJyqD53X+ETPqfuh+d
+	MXPFU73OULTnR
+X-Received: by 2002:a17:90b:2e8c:b0:3ad:d4aa:8559 with SMTP id 98e67ed59e1d1-3b41c8e105bmr13782987a91.17.1795572307707;
+        Tue, 24 Nov 2026 18:05:07 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm77161585ad.57.2026.11.24.18.04.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41adcafe0sm26868511a91.16.2026.11.24.18.05.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:04:54 -0800 (PST)
+        Tue, 24 Nov 2026 18:05:06 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
 To: Jon Maloy <jmaloy@redhat.com>,
 	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
@@ -89,9 +90,9 @@ Cc: "David S. Miller" <davem@davemloft.net>,
 	Ying Xue <ying.xue@windriver.com>,
 	netdev@vger.kernel.org,
 	tipc-discussion@lists.sourceforge.net
-Subject: [PATCH net] tipc: check the monitor record length before reading it
-Date: Wed, 25 Nov 2026 11:04:50 +0900
-Message-ID: <179553307368.1670514.4694378910047786259@gmail.com>
+Subject: [PATCH net] tipc: initialize the whole connect retry delay
+Date: Wed, 25 Nov 2026 11:05:02 +0900
+Message-ID: <179553307367.1670514.861086873017775410@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,93 +104,85 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-tipc_mon_rcv() reads member_cnt, gen, ack_gen and len from the domain
-record before it checks that dlen covers the record header. A node
-whose monitor is not active sends its STATE messages without a record
-(tipc_mon_prep() leaves dlen at 0), which is the normal case in a
-cluster below the monitoring threshold, so the receiver reads these
-fields past the end of every such message:
+When a connecting socket gets TIPC_ERR_OVERLOAD and still has its SYN,
+tipc_sk_filter_connect() schedules a retry after a random delay:
 
-  BUG: KMSAN: uninit-value in tipc_mon_rcv (net/tipc/monitor.c:499)
-   tipc_mon_rcv (net/tipc/monitor.c:499)
-   tipc_link_proto_rcv (net/tipc/link.c:2301)
-   tipc_link_rcv (net/tipc/link.c:1773)
-   tipc_rcv (net/tipc/node.c:2174)
-   tipc_udp_recv (net/tipc/udp_media.c:389)
-   udp_queue_rcv_one_skb (net/ipv4/udp.c:2433)
-  Uninit was created at:
-   __alloc_skb (net/core/skbuff.c:716)
-   tipc_msg_create (net/tipc/msg.c:104)
-   tipc_link_build_proto_msg (net/tipc/link.c:1857)
-   tipc_link_proto_rcv (net/tipc/link.c:2311)
+	get_random_bytes(&delay, 2);
+	...
+	delay %= (tsk->conn_timeout / 4);
 
-Read the fields only after the dlen check.
+delay is an unsigned long, so only two of its bytes are random and the
+rest are whatever was on the stack:
 
-Fixes: 35c55c9877f8 ("tipc: add neighbor monitoring framework")
+  BUG: KMSAN: uninit-value in tipc_sk_filter_rcv (net/tipc/socket.c:2244)
+   tipc_sk_filter_rcv (net/tipc/socket.c:2244 net/tipc/socket.c:2379)
+   tipc_sk_backlog_rcv (net/tipc/socket.c:2422)
+   __release_sock (net/core/sock.c:3344)
+   release_sock (net/core/sock.c:3941)
+   tipc_wait_for_connect (net/tipc/socket.c:2559)
+   tipc_connect (net/tipc/socket.c:2658)
+   __sys_connect (net/socket.c:2185)
+  Local variable delay.i created at:
+   tipc_sk_filter_rcv (net/tipc/socket.c:2207 net/tipc/socket.c:2379)
+
+Use get_random_u16(), which gives the same range.
+
+Fixes: 6787927475e5 ("tipc: buffer overflow handling in listener socket")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
 The issue was found by an LLM-guided test generator that we are
-developing as a research prototype. Any link between two nodes below
-the monitoring threshold shows it, for example, as any user:
+developing as a research prototype. A reproducer, which runs as any
+user:
 
-unshare -Urn sh -e <<'END'
-unshare -n sleep 30 &
-sleep 1
-ip link add v0 type veth peer name v1 netns $!
-ip addr add 10.0.0.1/24 dev v0
-ip link set v0 up
-nsenter -t $! -n ip addr add 10.0.0.2/24 dev v1
-nsenter -t $! -n ip link set v1 up
-tipc bearer enable media udp name b localip 10.0.0.1 remoteip 10.0.0.2
-nsenter -t $! -n tipc bearer enable media udp name b localip 10.0.0.2 remoteip 10.0.0.1
-sleep 5
-tipc link list
-END
+#include <linux/tipc.h>
+#include <sys/socket.h>
+#include <unistd.h>
 
-Without the patch, KMSAN reports the uninit-value above as soon as the
-link exchanges STATE messages; with it, it does not, and the link comes
-up as before.
+int main(void)
+{
+	struct sockaddr_tipc a = {
+		.family = AF_TIPC,
+		.addrtype = TIPC_SERVICE_ADDR,
+		.scope = TIPC_NODE_SCOPE,
+		.addr.name.name = { .type = 18888, .instance = 1 },
+	};
+	int srv = socket(AF_TIPC, SOCK_STREAM, 0), rcvbuf = 1024, tmo = 3;
+
+	/* a listener that is overloaded at once */
+	setsockopt(srv, SOL_SOCKET, SO_RCVBUF, &rcvbuf, sizeof(rcvbuf));
+	bind(srv, (void *)&a, sizeof(a));
+	listen(srv, 0);
+	for (int i = 0; i < 96; i++) {
+		int fd = socket(AF_TIPC, SOCK_STREAM, 0);
+
+		setsockopt(fd, SOL_TIPC, TIPC_CONN_TIMEOUT, &tmo, sizeof(tmo));
+		connect(fd, (void *)&a, sizeof(a));
+	}
+	sleep(1);
+	return 0;
+}
+
+Without the patch, KMSAN reports the uninit-value above during the
+connects; with it, it does not.
 
 The patch was written with LLM assistance; we reviewed and tested it.
 
- net/tipc/monitor.c | 17 +++++++++--------
- 1 file changed, 9 insertions(+), 8 deletions(-)
+ net/tipc/socket.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/net/tipc/monitor.c b/net/tipc/monitor.c
-index 0164a034b57e..9a8b3e5010c1 100644
---- a/net/tipc/monitor.c
-+++ b/net/tipc/monitor.c
-@@ -485,21 +485,22 @@ void tipc_mon_rcv(struct net *net, void *data, u16 dlen, u32 addr,
- 	struct tipc_mon_domain dom_bef;
- 	struct tipc_mon_domain *dom;
- 	struct tipc_peer *peer;
--	u16 new_member_cnt = mon_le16_to_cpu(arrv_dom->member_cnt);
--	int new_dlen = dom_rec_len(arrv_dom, new_member_cnt);
--	u16 new_gen = mon_le16_to_cpu(arrv_dom->gen);
--	u16 acked_gen = mon_le16_to_cpu(arrv_dom->ack_gen);
--	u16 arrv_dlen = mon_le16_to_cpu(arrv_dom->len);
-+	u16 new_member_cnt, new_gen, acked_gen, arrv_dlen;
- 	bool probing = state->probing;
--	int i, applied_bef;
-+	int i, applied_bef, new_dlen;
- 
- 	state->probing = false;
- 
- 	/* Sanity check received domain record */
--	if (new_member_cnt > MAX_MON_DOMAIN)
--		return;
- 	if (dlen < dom_rec_len(arrv_dom, 0))
- 		return;
-+	new_member_cnt = mon_le16_to_cpu(arrv_dom->member_cnt);
-+	new_dlen = dom_rec_len(arrv_dom, new_member_cnt);
-+	new_gen = mon_le16_to_cpu(arrv_dom->gen);
-+	acked_gen = mon_le16_to_cpu(arrv_dom->ack_gen);
-+	arrv_dlen = mon_le16_to_cpu(arrv_dom->len);
-+	if (new_member_cnt > MAX_MON_DOMAIN)
-+		return;
- 	if (dlen != dom_rec_len(arrv_dom, new_member_cnt))
- 		return;
- 	if (dlen < new_dlen || arrv_dlen != new_dlen)
+diff --git a/net/tipc/socket.c b/net/tipc/socket.c
+index 65cc0c4964b3..e84168b29df9 100644
+--- a/net/tipc/socket.c
++++ b/net/tipc/socket.c
+@@ -2237,7 +2237,7 @@ static bool tipc_sk_filter_connect(struct tipc_sock *tsk, struct sk_buff *skb,
+ 		/* Prepare for new setup attempt if we have a SYN clone */
+ 		if (skb_queue_empty(&sk->sk_write_queue))
+ 			break;
+-		get_random_bytes(&delay, 2);
++		delay = get_random_u16();
+ 		if (tsk->conn_timeout < 4)
+ 			tsk->conn_timeout = 4;
+ 		delay %= (tsk->conn_timeout / 4);
 -- 
 2.43.0
 
