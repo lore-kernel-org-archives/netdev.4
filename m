@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619432;
-	b=JLu78O2WhUK/174pBY/CGaU0NjCg9ZbvsLEYRdRADoKrRPiaJRMDjZgj5o2A9zKHm32u
-	 SsVqGUcOf35pNoZgEgVaaZmn9SVl2v2Vnxy+abRMNIyPY3G2jN0YW8ZVWLrvCOCe3ydSU
-	 Zuu64EGiRVxP7wXFL8fi3CZfzH9rZYXoDqlP21yv4XoOHvgsbK7UZ5bnTev4BmVoP6XwL
-	 qSmyPu2puYA/KGWtFCh8HqiFNfA2Ck2Zb6DXsSUij8vYLBcPReVOH8WUiw1tE6Oiiwhej
-	 3paEA5oPXK2SV6r+KcBXY/Hgm7MdNYWd16KH6Vlz0x/VrCxJUUTTevSRHlJ4Rmi1WSg==
+	t=1795619434;
+	b=DY1m79a4+oOPD5HkIgk53w5BKdfVAainLUf1ezUzK7NDWtR2U9LjZFJR1sxNyCKIUa/x
+	 sWBjA7n+/l9/uq3klX6T1nJkMcAKZ/Kw1EIJ76AQ7N2jJdvWXv2JUIUpix+ziQaCwYEXH
+	 XOFu3TRaza6W9TtVfv50Om5E3wbLZn45HKYLaeMCYla6X+qiG21vggcmFSGdS42vKaz0T
+	 Uaat/6Ntg0dc76hbaHczn62PWGw1xFyVDLfQ62aZ1ME1TqrKzx/kP+uZTU70HIX1cj7cJ
+	 Qee08/Ujpl1/8OY7nPGOsWC2bJ3aulLVcZ5s9jP/CjQ1yTncy2r8v794iydheUA7qLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619432;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619434;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=GiXPKBrZhlKiza0lYXApFCrNfx3oQ+fQzITI0X6eNmY=;
-	b=W5DntXBcRaWI36iSMZ6hVZ2mdw29SjSKeXPNdjGj2QKWC3UnqOwybDGqAVKsZW2GxsV1
-	 rPU9vaPk9qgsAc3NwHBq9m4JYuk69QDmNbzhyNcScLhuYH9B50Z0Tb/dEac8XgTaR5u6J
-	 1WN8l+VmXsJUAWSPYEcpmyc0rfggD0C8584knL1MrF8XE+YTVWqi5gOqpPVWjxvCz297p
-	 Er6Air8K/ax6WCMQGlTyXipbfmH9JtrcEoLwFNLkcyGWWsJVsA6LnycoX3UA0jPACGarV
-	 4TcPgf05eaGLKOz5ASgnk1+4vDjlxQ/g1fUO36knJWsAivnkvNjIrFJt2rvNLFqmNJw==
+	bh=ZbE6/xbsj/Ta26P/SdRAHznnPHVS39Jy37MF9dpc3/M=;
+	b=wBZW4q3uM9TYXkEKuoZNJHMx+wv9BLdRfwg0OHc4VJB4uOHd3t/EAjrX76v7fmgh2HA1
+	 eK/9b0duTzLql3jtiacWvzcWuddRIlb8byQO0BC8cLea/ETaamA7BnC/315AZlEW2ptWp
+	 6XM4Wk03+aZIlbiptaVbgJDMr8Yg/XS7sYvllmbRZaJRzTIDOEogmwJhdP1EELPjGLj93
+	 1hvIgcQ/QCfDLgc8R5omRg/e9ky1In7AVuXXLaausVkdY6B6Amt+N5W5mJL3Dnf72DHJr
+	 tWwzt2N6PUBEZYCp2t0EBMxYaqM4UThzKABw2sUP1MMKOUvBia7d9JlQzgb89FIldpQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQebbPqB;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CxNebb0+;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6A49606A332;
-	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 463AD606A33E;
+	Wed, 25 Nov 2026 15:10:34 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQebbPqB
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8058A1F000C0;
-	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CxNebb0+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 082571F000C6;
+	Wed, 25 Nov 2026 15:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619432;
-	bh=GiXPKBrZhlKiza0lYXApFCrNfx3oQ+fQzITI0X6eNmY=;
+	s=k20260515; t=1795619434;
+	bh=ZbE6/xbsj/Ta26P/SdRAHznnPHVS39Jy37MF9dpc3/M=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=bQebbPqBjS4InVz1gKFSikuQN4abyzopqtmBDsFA/xR0ZUWc6OO+KGzFRKtnk2Gss
-	 deGkbVFpS/49UeRWwflwbIhcO2jPjF7rOpUfXKISTHXZ5x/tnlF7V2A+4NPqhHVTCB
-	 AUmVYpHMxZyQ+IwkfpIjJbMJVnJvEA/EqSErSLUDVwuc4UcJ6KZpGdZjM2poxDVIZM
-	 aftU1HZ8p3ITWgs9lEYG9BxZ77QpOTkZT7huGbkxf/dMpGjmo43kscSX0j8WaUV/GK
-	 ClaSq/2uZtalGZi8uFu6ibGoIGyRPt9pbKInEfCHOKxPP3AUPCwOh8IQT0l+R3SpHt
-	 zm2eHyUhDTdfQ==
+	b=CxNebb0+yh4Xtop77pwqnBTWUjjLCNFoVtu0uHyV4zO28wXBHM1mzEvodXQVb+N8C
+	 elo5J02lrMUHdl9JHXyi9ewU1dNsM9wIeaIY0EF6CqHVV1IexlT0Su/w0dSM1taCJH
+	 0fJllGNytqOmRPVBm6xr45UkNPfiXCU/Q5bq0CAo3UE+kz8vp8tXUxMSbRegjRUdqd
+	 3mOGM/NGI+9hw4xPM8Wbp9kh9IIiOJw5JroGX/eWAPkCPX9JTRVIY9nMCByL69thmb
+	 CJgAq7HNZFl+pkSeevBtT6cDZ2M2BPkiuFKoAjig6foHvIRZ9DGNnEZq6uHsNSoYaD
+	 J0mvXN7z54+2g==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773C53808209;
-	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F15183808209;
+	Wed, 25 Nov 2026 15:10:33 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,57 +54,41 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v6] net: dsa: motorcomm: Add devlink info and
- resources
+Subject: Re: [PATCH net-next 0/2] net/mlx5: Declare no DMA segment boundary
+ restriction
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179561943101.592665.13746917343838856671.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Nov 2026 15:10:31 +0000
-References: <20261119171528.681819-1-mmyangfl@gmail.com>
-In-Reply-To: <20261119171528.681819-1-mmyangfl@gmail.com>
-To: David Yang <mmyangfl@gmail.com>
-Cc: netdev@vger.kernel.org, jiri@resnulli.us, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
- andrew@lunn.ch, olteanv@gmail.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
+ <179561943251.592665.7058769841730060658.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 15:10:32 +0000
+References: <20261120081819.2538191-1-tariqt@nvidia.com>
+In-Reply-To: <20261120081819.2538191-1-tariqt@nvidia.com>
+To: Tariq Toukan <tariqt@nvidia.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, gal@nvidia.com,
+ leon@kernel.org, linux-rdma@vger.kernel.org, mbloch@nvidia.com,
+ moshe@nvidia.com, saeedm@nvidia.com, yishaih@nvidia.com
 
 Hello:
 
-This patch was applied to netdev/net-next.git (main)
+This series was applied to netdev/net-next.git (main)
 by Paolo Abeni <pabeni@redhat.com>:
 
-On Fri, 20 Nov 2026 01:15:06 +0800 you wrote:
-> Expose the ASIC model via devlink info (ASIC_ID), and register devlink
-> resources for ACLs and meters. Document the devlink support.
+On Fri, 20 Nov 2026 10:18:17 +0200 you wrote:
+> Hi,
 > 
-> Signed-off-by: David Yang <mmyangfl@gmail.com>
-> ---
-> v6:
->  - add devlink document
-> v5: https://lore.kernel.org/r/20261116121627.1182631-1-mmyangfl@gmail.com
->  - minor stylistic fixes
-> v4: https://lore.kernel.org/r/20261112002031.1475005-1-mmyangfl@gmail.com
->  - remove FDB-related changes
-> v3: https://lore.kernel.org/r/20261109163117.1792478-1-mmyangfl@gmail.com
->  - remove the buggy sub-resources
-> v2: https://lore.kernel.org/r/20261108094512.1285796-1-mmyangfl@gmail.com
->  - fix issues reported by sashiko
->  Documentation/networking/devlink/index.rst  |   1 +
->  Documentation/networking/devlink/yt921x.rst |  37 +++++++
->  MAINTAINERS                                 |   1 +
->  drivers/net/dsa/motorcomm/Makefile          |   1 +
->  drivers/net/dsa/motorcomm/chip.c            |   8 ++
->  drivers/net/dsa/motorcomm/devlink.c         | 107 ++++++++++++++++++++
->  drivers/net/dsa/motorcomm/devlink.h         |  18 ++++
->  7 files changed, 173 insertions(+)
->  create mode 100644 Documentation/networking/devlink/yt921x.rst
->  create mode 100644 drivers/net/dsa/motorcomm/devlink.c
->  create mode 100644 drivers/net/dsa/motorcomm/devlink.h
+> This series by Yishai declares that the mlx5 devices have no DMA segment
+> boundary restriction.
+> 
+> Regards,
+> Tariq
+> 
+> [...]
 
 Here is the summary with links:
-  - [net-next,v6] net: dsa: motorcomm: Add devlink info and resources
-    https://git.kernel.org/netdev/net-next/c/4cd558c2f1de
+  - [net-next,1/2] net/mlx5: Declare no DMA segment boundary restriction
+    https://git.kernel.org/netdev/net-next/c/0ef669aa10e6
+  - [net-next,2/2] net/mlx5: Declare no DMA segment boundary for data direct device
+    https://git.kernel.org/netdev/net-next/c/7e25d974eb36
 
 You are awesome, thank you!
 -- 
