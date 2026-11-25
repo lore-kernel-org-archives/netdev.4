@@ -1,61 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617512;
-	b=Ut1NZl4TSkAFNQKZcfHLpv8fCXRpiUSePMgWiFqezzKuTBrki9kOwdXEC/KHP8BZvoCe
-	 tnMi+orAJyDtUXADHCUdjH2nRdUtOQcwFi6SzzRnYXasOP+UVI2Tt8LM8I5taAUoKoOO6
-	 pGBhsTpyI0vAux0zJ2S6ESVEAyWGk6ymF958iabNrlqeFgZ+lD7B4e48laOn+wz+c9/+5
-	 b/YkUiokOhdokrWj0/s79mnfPylGr7qGPxIQz4UqqsDe4JP7r3cy5Xw4PfMp6lf0KsS67
-	 m8Z7ZO3L/Awcqn8z/rWk8eHwwbjItDBgCzXJvSZWNyj5D7wkljXlGYwfuBqcU2hfEzg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617512;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=;
-	b=4ClVz8S03W/BGrjNkaQj+c8egoFYoNwqgCWR9aca3UoXDa3oKFidV4bBGjfCUWVp+tDU
-	 nmL+wrNQwOAXKhKNlCyROxADFBDOMXKqWC5VLLzF69lnslOFy0SQ1D+aD1wNFWKg/uFmm
-	 SZjL65zPMm97hVnFPRymND7xuGq3w2GQ3toC0u9Qz2v3ltP9P1hVUb28ZB+K2QwogDMAb
-	 5rbyS6kWEUydvWcBYMO1/5WodBnDT4iDkUWA97VG85xJp7yxYMLkohOMzRvizMnGcWTEr
-	 aHzZpWerLbw8It9BBOenx9sNhu4INJuYDdMO8F7Ox+47F1B9e+TdWWP9HtpjSdBIxEw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795617716;
+	b=ruGj/DH3Y0VTT99shXi2OkVn7iRNG3lS0FA5U09q6VuF0luaCTN/m9WJSaL1/r4UzZFm
+	 LpAdnLA3tN9NDWuvz6z50iLfZQZvX3+xBvw4L4HoWNCiYiW9cMlJq9rivnaRf1dW4mPtV
+	 RyI/emhI/WM5TiTYO5KvfE2NMbO6hOEewa3cvCz+2B4xFC778Z7QhD32GgnfuyNO5vxG2
+	 tQ2hmbZ/uu8ZizMZobE0m/lLLl2BdHBccXOEDJxsCYXRbSqRscDl1bUFu278G1pRabB7k
+	 zUggqKTqaILBGxKyOUMkqcx+UXMHe79STNY3FDszw6VD/TLnTsgSbukkP5FS4R2SeeQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617716;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=mLjx3CTEUXIT2f/3aLm5eAmD1Nrm0DwEfALNNSAoscU=;
+	b=AmnetQNkRus0XQO/qT3LyukO1x85yozQ+71lZ7I3N9CiAeWc70cRpL56lQ8ahIqarLS6
+	 NVDn9FDrsr8AsvtdK4OF2tRahB7O2PktchiqQY5ILvN33KLx9NFj/Q+XzJO8iVleeAb3x
+	 CTl97CmP4kqNQD6sDWlIzUU+LS8ieLac86+013KZ99lb9kO89WTBTfP6RL+A/PzgUecZl
+	 Xa1Re+jZoufGPU+p8CrGXyok7cvP2odH929uDncdtpL9yaRovAOz43Oi3VDyLKVmE4cTy
+	 IO0QAl27bt/sp+wRnzKCA9JUAq1KfX+QeCukBvKTT081WoNTz2ZLnFlhNin6WiqhCjg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=odAjoK9l;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E35B7606A32C;
-	Wed, 25 Nov 2026 14:38:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E35B7606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4D36606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:41:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D4D36606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=VFdECZ89
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=fGqs6DcowK7IKELkXO0xayWMouuFNPphuLHx5fvxESQ=; b=VFdECZ89cA0wOPVai4rKvdeZMH
-	huumJAyMPj04D0JrdIBzMDD377FHoM+MvRMPgp71oziXnP5HdhOGtgj1U9EohQ7wd1R11H2yHe4A+
-	EUnZiTQdpqeM0ZaqWu0fdjw1tQV24x3lZ8URtrUxfRAW+w4rFM0pdH7tindq8nIh8FTw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWE8Y-001KyU-HX; Wed, 25 Nov 2026 15:38:18 +0100
-Date: Wed, 25 Nov 2026 15:38:18 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: netdev-bot+sashiko@kernel.org
-Cc: bage@debian.org, hkallweit1@gmail.com, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
- non-PHY MDIO devices
-Message-ID: <630d6b8e-917c-4213-b3b8-fa785ad33816@lunn.ch>
-References: <20261121092933.186731-1-bage@debian.org>
- <179559958516.3135.11607042178143215952@kernel.org>
+	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=odAjoK9l
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c515319dd89so83592266b.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:41:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795617714; cv=none;
+        d=google.com; s=arc-20260327;
+        b=J2oyDsHqv37vmD5CB/CasHxUIVbl6cmrTe9PwIkC7ZaDiCoDyaCsa0g9B69xmlH1D3
+         22+03SQr+DODgB5eInvBeEGYbLr+1i00s3vbJEtWj66XJkaClazSeyEANrERlrKIn4fV
+         xYu//Kq7VVcX/fYfJJl8wa0FNaUKCk+RrTSblZ2q946qfK/6eubsiEZfdwCP8m6GHvP2
+         xsT7h3XxyXbAheS83SDGpNSCexk6k75aS0I7jYedWhw2jUYqbs/w7G4hR5zSCY0RQ6po
+         iNMv/EnBtC3CBiPvRIkDplESBt1e/V7SBrKbeeKu0PLEqDpezoo4lwTfdHlmT7+JFmMi
+         Gnww==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=mLjx3CTEUXIT2f/3aLm5eAmD1Nrm0DwEfALNNSAoscU=;
+        fh=YzRnIjTaGJaIlZjHXeCBgregWKDKQMOh4LGJL6LlDm4=;
+        b=VgeRBTC1MXT0WoMg8cc75c+erUmXr31NwP+gZdu6zOotCW9wSQEWXdzBTOpscnY9cH
+         BhmGW29DOTGJPG1h5cTwPRVe8sTRS8c9c6DZu4oC5UECZitMiXajX17pew0NXk8cL58U
+         otNoaD6Rb+lRCMHJFY/jqrXrF3e/BPsX4lRpork1x29ObVTjIHkkfPkxfwliAeUiqwiY
+         HUF8di8KOJrTjqIjTaE72AGb1NNAI7qyIsMJrmfQVjQSbZmm4CRmPraoc6r/xeEUjZ2H
+         kxgdqGjdXZLEN1LvYWsu9lb69ZIRQta/CqYJwppGKVAmPoc69D79rXtpJ+cDLodH+E9/
+         bS+A==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=flipper.net; s=google; t=1795617714; x=1796222514; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=mLjx3CTEUXIT2f/3aLm5eAmD1Nrm0DwEfALNNSAoscU=;
+        b=odAjoK9l/53NSwRmFiM24jvPCeeXxp/4vOc3k3GMNxbsBQBZi6TJxTLdHUroGvseN3
+         vK+7WVGukF1Pw8D8F3SHepUtK9+iku92Ic62HRdxe+CE1Xt6C1n/QKzfSoNlyVrD/HHx
+         1XBF76bqvwnNeSYplJwR4LfoEdgs8W2rAbHYNLe7KCxulvyoD33XQpFdv5HkF3lHN/pR
+         c3KGrr1LXL6Th9ppIfY3ZwS7hLZJYIqUSXgBaNWlnvK/lDcgEGoMz9BQ1z74C4UAPLic
+         dN9BXhAuvPxQNHoogynsDFop0FHAmOfWCSunp+TpXx0NdRPykNVSHPUgQ4abiLX9lPax
+         0p4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795617714; x=1796222514;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=mLjx3CTEUXIT2f/3aLm5eAmD1Nrm0DwEfALNNSAoscU=;
+        b=0MRPSQNiK70r3nUOKNezx4X/9entPJENJFFe3mwor4eTxw71DXL8l3j40xaMWTpEd5
+         hyZQ12nW7jc9z01a1/aC6IV+VEnm8ZM8Z4By7pgPOKO6OYNSSfRoxo9DJUv7H4lY+yNM
+         gQ5qlFu2spcFv5RmPHRdme5bja5FuyFF+rikHvGt9D3OSWlhmv5EBGKhlXlSIt/KwWSc
+         pSeOb4wD/TFY1PfUHO4sn/t/JXQxnmrEiPQhRz0YshCLzHY80kzgY1zMOYurKPkeo5pg
+         HynJPofjJrbIpjlPpWmmtDHNcXckQirXT081o/k/hIE4Tcvq4eIZ+0Tzc/CkLxzcj/Ov
+         ecBw==
+X-Forwarded-Encrypted: i=1; AL+hErG9aQtptQillE6sjg8S+x23eoMIZhLlUnwoHh6Mmz+UkUNK7kJslXVIMyvkbCyZuzJEhrOduzc=@vger.kernel.org
+X-Gm-Message-State: APuU4Z90xafLIHJ5Rdj3/o7LypqF3xWtB/yxpCqkOqXAJKLVUwrWK9xk
+	k8K0cTcy8Dr93AIJJiaNR1/8iU1OiuV10p1PB5L62+iDo8r4+4PU3ENJ9qFSGokJa0DPXjJNQiZ
+	5PKiX06kEP5keFY9KSE0swEtfNvmsFOHrQTi9r7XVFA==
+X-Gm-Gg: AZFdTZdXU0v01sSbvFACXpDeOPJPw4aC0y6ObwIPADRoHZUxTx3M5MUXZJVEKr6Z3r5
+	HphBVzOF5b15jZhS7Nc4d9TLj7AvNBXrhI9tQFsqqgIdBZZf+d43G3Dj4Th1r+9FGP6UTYUYp5p
+	b4Q7mFDQLmv1uEFM1PcZ1mtusnJ5H0CsUPAPCwIpqE/4+mr32GpfalJ7ARW8aXuLpj1bmTzGxv8
+	DoJ1PG0EFBJoWUBf4JPJ0v0u1Frnv4mf6rML/Oxgs1YMmAOfgC4bUlQkFxsR7TKmSyQpkmfzvML
+	b5Yn966IP9b095ZAab8wmlhk5WSHT2Mv/nMhYERankJKzxygdkSDXpQoRxOunoX6L48WJhH1hy2
+	A7qOnAX2Yh8kJLqMqGqg6aQc73kpORK2B0JpKcNaLELesrD7k01IbLLGtYDDvDkLhYC/odextrJ
+	/LenB9/rRSvBbUuA==
+X-Received: by 2002:a05:6938:e04f:20b0:c2e:8eb7:53dd with SMTP id
+ a640c23a62f3a-c513ab1349cmr1102866166b.42.1795617714171; Wed, 25 Nov 2026
+ 06:41:54 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,44 +105,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179559958516.3135.11607042178143215952@kernel.org>
+References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
+ <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+ <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+ <2f8da604-36af-4944-8168-02b046e97699@lunn.ch>
+In-Reply-To: <2f8da604-36af-4944-8168-02b046e97699@lunn.ch>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 25 Nov 2026 18:41:42 +0400
+X-Gm-Features: Aa3M54p30Iatdogoy58JfnAd55Gl1tkvrMVT9GbSbV-cJhdMvMKH6OgZsz2cLWQ
+Message-ID: <CAKTNdwG1sSBVKcKpHBj24nFCdc6WVKabV5=K4sJFucWpTLqRQQ@mail.gmail.com>
+Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from the
+ CPU ID
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Ryan Leung <untilscour@protonmail.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-> [Severity: Medium]
-> With the parse removed here, what happens to PHYs registered through the
-> exported of_mdiobus_phy_device_register()?
-> 
-> drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
-> 	return fwnode_mdiobus_phy_device_register(mdio, phy,
-> 						  of_fwnode_handle(child),
-> 						  addr);
-> }
-> 
-> This wrapper never goes through of_mdiobus_register_phy(), so it never
-> reaches the new parse.
-> 
-> Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
-> registers the port 1 PHY from a DT child node:
-> 
-> 		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
-> 
-> and does not set phy_ignore_ta_mask itself.
+On Wed, Nov 25, 2026 at 6:21=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> > > +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int ind=
+ex,
+> > > +                            unsigned int offset, void *buf, size_t b=
+ytes)
+> > > +{
+> > > +   char cpuid[ROCKCHIP_CPUID_LEN * 2];
+> > > +   u8 digest[SHA256_DIGEST_SIZE];
+> > > +   u8 *mac =3D buf;
+> > > +
+> > > +   if (!id || strcmp(id, "mac-address"))
+> > > +           return 0;
+>
+> I don't know OTP drivers. But to me, a function called
+> rockchip_otp_cpuid_pp() which does not actually return the CPU ID is
+> architecturally wrong.
 
-It feels like we are putting in too much effort for a feature which
-has no in kernel users.
+There is precedent for this at least in IMX [1], [2]. To me the
+interpretation is "Rockchip CPU ID used as a MAC address base with
+offset X", which is exactly what the derivation does. IMO, this is
+less clunky than the alternatives (e.g., a custom NVMEM layout which I
+used in v1-v2; a "virtual" NVMEM driver referencing the real cell and
+returning the processed one, which Ryan proposed in v2 discussion, or
+caller-side processing).
 
-You solution is not 100% correct, it has some corner cases, but i'm
-happy with the basic architecture of doing it once at a higher
-level. If a new user comes along and lands in one of those corners,
-let leave it to them to fix.
+[1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-ocot=
+p.c#L224-L238
+[2] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-ocot=
+p-ele.c#L115-L129
 
-> [Severity: Medium]
-> The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
-> checks whether anything answers at addr. Is it intended that nothing clears
-> it when registration fails?
+> I would probably not mangle the CPU ID in the OTP driver, but in the
+> MAC driver. The MAC driver should ask for the CPU ID and then hash it.
 
-If the device comes to life later, it still has broken turn around, so
-this is not a problem.
+This would then tie the address derivation logic to a specific MAC
+driver, rather than to the platform, and it won't work for boards
+using other MACs (such as PCIe connected ones).
 
-     Andrew
+Best regards,
+Alexey
