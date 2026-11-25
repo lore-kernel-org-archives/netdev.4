@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795614546;
-	b=H7tAkdnmt2+z1ZTsP+QH85bbKpgD795V/5wOkv9kWV696Aby4PvOsN/rEVPXKUXHBn7a
-	 Lb1IHS6uWt4n4wMmaVsk7UuGTXnNtZGHpexXu8sPd4Za93WCG/Wj8zX/pocK5mbMhXhyM
-	 o8n6iF6RtvHpd9lYvnM+OXx8ez/i9HVHBfdMergl/BfTL4YQzBWuOufS2tOx/1BOYkfY+
-	 iHLXMbNZI1Z0vOwqyxEFwcl9gnruBTDx3X+E3gS4+uegYwabfw8g5soZ1gqny6p4Yp4uH
-	 u82m4+nJXDGOob48U5gNKap/ZtycnKmyCHun4cZgLvdrxB671cKdY3Bvz7b8F5agLLQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614546;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795614576;
+	b=HauWtg2e0ky8UMtJVyYNarwJMSlKVAJLNH3LnikxYtlt8yWvnxen/gDqfGeKTBIsTSpK
+	 uA1p5i2Ugak8Oxmp78Pnf7VE4MGb9PELvzEOywXncAxiRZFd+jM/JQJ6zzQsChRrELKO9
+	 G0L8IUKuhz4DeJnTZ/B7Jp3gdHlk9voWZYkT7l2tYIHefQMEk8qvp6Mpt2uyPwiyHv2EI
+	 bzltFj2UbL8xkC67LYm6gvmJEl6fU9hWR21cwhA3Dqpjlvt89pX0hM1lUs+yEdAAriMYJ
+	 s/D4HPKwM8U5nG71fArjcvoW0Vra77Id29XX/857H7yO0J+3Lbb96YdwG+jModm3tDw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614576;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=q+TEqk3BrCSLG9dvbIoNPDzAN/9pi420Wcl40rHqq+o=;
-	b=qNLlsyalEtcduTenyjeNj1Ug4Ux/gQz5POY63giIwlCZo5y3QspY8h3/SaGrVLyDWPjF
-	 JDgWQmnSo6PUCVG4VglSG9lyLSgV2RyhCzTMxmrssFKe9VPkojdUEdOAIa9f1RCysWVYP
-	 uZnqC51hrJIfmF4HmGegGDwrfgp5vij0sVTPYjm69XhHfB/0Gg7yhDRh2iogiBqcne/ic
-	 EP9Mw7G24dd8ZXR47OE/ieD7ihQ0EZG0nV6tP0ri3mgv62p2sr8IDLW6XphRvs+YnBocS
-	 rR8JxDEIrJF2ZDO7LW2PusgSjYc7yXYHV+VxWOjwOZsTdiGMUniidvLvl9i5iOmtvMA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
+	b=3wNaRu7nv7SzapETT9vdF14HKIbGST+k72GACRu36MvzTXeyE5h5qQgvGhdvkofPbPnq
+	 DeEIX9fNYPyU2rc6csyC3EsFVWOKoYOcZi30Wd6BGxYYaKWiQg25DwkFKuFZ+0LkK7UYf
+	 Go9rfEtq8rEQQ3XxUwaxFSD707dJl8LBQJr+GSJZgr/QKqnUvhquIMh9c+VLugtfLPxSj
+	 KWMtGZSnveQzvXV7tP7J/6Ugvg5SWWNKFYUcVWw/fhO6HcfgDLM+ylFWvLOTBoJPLAhUL
+	 FcXOLzbU/nnsOZbTeSDUrq1VlX6BzWKMMqtq3kw07oRcZyK7YydhTwYRickM6Siaorg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GBRswj5m;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I0zfAss9;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08EA8606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:49:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08EA8606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B4DF606A33D
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:49:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B4DF606A33D
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GBRswj5m
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-386cf1041cdso1425997eec.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:49:05 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I0zfAss9
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c50737c64c8so56985866b.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:49:35 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795614574; cv=none;
+        d=google.com; s=arc-20260327;
+        b=G7It8G/vr7N2tXIr74ofY0wayT/fC9KrlsYhCcZ78IDCAb60KvWdZkkvFfAlXmlvw3
+         t+xAl9BldAEl6zN9lu5gdWBeI1UNE7f8jKt/QZyQoYmNhiJa+wDqsCNCGmJdZralonHy
+         XhykmjDgVJWUnYSBijwxT0UbWGXZukkG76yDsQTODg/C9odvNXOhbZ1PPd9mNNuscnaB
+         lLxPxWKU+h8LJWX1nbw+tjxaHyQi2VKeToP0857SZTCcYW6Ej387+qahnBm4KCBB81Og
+         j5N5suVXUiXp7KSdxVx2CpwUP4AQZGypTfs9JQRyZufJUQiYDhikwYnrWRdLf+oAxqge
+         euzA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
+        fh=MO64O7FT/OPfQBn9FRTJmPix1XvaBWBdqLbqndGtoUE=;
+        b=TbEE7QllOFGiExiZJ9o9ze/guQgDla8BLd8azQXyY+pqbzXsJ2c8f91zHxDPIlX+KA
+         f5JbXlS9ombTlB86R+zgrgIuNZ3dY94lot4jifOIM53riUl8EfH3xMwx56yej+M5juQ/
+         v1E3kcC7sKjgtsbZaXorTHVWNBR8LpOyCLNPuZ6Lho9AnkLiyn+Ur1NGzQ2LK/mbS6i6
+         UoH4kOXRdWoIMFkec1MAqFCOzEVDMCLzY9zg/OVLri8FNbEkHSrMO3oCDgz2MK2KzXVT
+         oGnnZpF3lFqj24QlUsSrGVl0nwvdfmJjmJ9+dguuIpXWErvtg9OqE1kgbX5o5JLp+rFP
+         wGyg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795614545; x=1796219345; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q+TEqk3BrCSLG9dvbIoNPDzAN/9pi420Wcl40rHqq+o=;
-        b=GBRswj5mjNzJLymR8dayJW2ojhT2B30cBwmTXtrjzjIB6rH4miof2IkwnmfCPkZ+tE
-         OB8BdB5RSDtOUYv+Nk7IBRHQbisa0gKrP2h+nrf3xSyeKgJjlzFbpG92Cj+OimTgatH6
-         Kx4RZuCHUqHH9PhjA2seW3rWWhHvHiojuZE3rhzQ4R4cxB2dy05jQZFE8CFCn1GUcMxD
-         NSKUdGQnSZ3cwaPMmoaXsOcSvGdpo+iV9TdPa6spZLj82SV6FJR9sjey6hNSZaBMyPFz
-         n7fSLN7vkfRCIliZpNdyR/8hh2uy4l9O1Uo8hOmiccsxRQGcSMH+2qa6e7ioM+0zsLol
-         6yXQ==
+        d=gmail.com; s=20260707; t=1795614574; x=1796219374; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
+        b=I0zfAss933T2aZFzZOZeqt+KQGjS64WXuipW3lDFcjC3q2u9VUHAZ9hAdQkQ+OWfpk
+         SDhsPi615KXwUHyTmQ8DT7XIXBZqUwB+cfM8wLIP1qbl8lLOAySsdhNZQfe2TDMIe1wF
+         1PY1URlF7lJOSPm9lx/oJ3o0m4RlszSnXFQ575y4OWt+lZ29mCS2WufRwsFDNL8a3aIq
+         ognNuxa3VK5kVqdhJ3VF/GBBGJDDlR6tK9E7yNzhbjHHn3PJNDfjFmZG1RjH3drh72NU
+         ubXswZelAVprkr1i03aLmK+8KGWEqEA2eGMlLZol/SBWztj4dqlIWMDqupKPNpFlz5qZ
+         5TEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795614545; x=1796219345;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=q+TEqk3BrCSLG9dvbIoNPDzAN/9pi420Wcl40rHqq+o=;
-        b=vYezKb0fAohunWTUmwTAUbSKuNByTCCjfEfynSRVctU3VoTiNFwfZrqkttuNhuRUPO
-         W7tew7DsJEZCdm3MWvqli2O+wkK85wESxFYQaiRJYu4kPDPjjUiCQzDyMG2wz1j3ExPr
-         1ttuAn/BQtXIsK2b89ZrumZ02s4B3Kwi3rulqYJRjgwTKHlp5v1lf1qcRhJXBNokiVlt
-         yxUbSPyzogU8SU2tIXq3GTziEAoLafi4hfl59Mw4YHB/nv8Be19jRkfeTnwbmSdXRPv+
-         A9z/lIR4oiKiYajZOrQt0CHPX7bOuwwsLg4QIMoR1YsiqI9hko+HaAJfeozlfyOCZo52
-         hdHw==
-X-Forwarded-Encrypted: i=1; AL+hErG6RvM/303fobg9+TBdaUhb8sb2DwF+pcn2gY0fgvOoCyiR8+lnPsj3gMwEu6RvuZvUxC5ETqM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8OezxEzXzvThS1syF8Drq9f8BxeKykk/WD1M5UJhQ5nPH+uH8Q
-	jKIeyDKAfrdZ9ZSOQR/utqsqI12RzItx7H9wFaFkDBEM1XfLVBLVoNDB
-X-Gm-Gg: AZFdTZcsMUCF21HAeNcIjV1fCEpMIj2qEJINM7sv9EjPUNVwjkG5aXq9z597WhzIam0
-	YmkIxiYSyGYQb5FqkzIUlpB54RLyeR3QOPoaAZcernOflcdiEQPs99mfG+MzU461X8SzXSRBlqn
-	MgTewb7m7p6Or7KmANcDZqfISRGDsm/iMlvwbGIOiCtAHtOGiXxIj5YIiuAdTB0ZWXWPORYU6+W
-	+F7VbHmy/goM1Y3sqjOgeBmSCdF92bmSgK89koHxz47gIBaS63aIzyuDucrW/BouSEH3hOUpFXg
-	MpjAjro9p/xMKAx8T1z817YxUqwIHqcGzVJsYnEctgQ2SamkePAk2JVNueWylT+BP3nBnqjJrwd
-	8jsx93ZuDVy/Nt3TxXyE5iUOtiegdkjPGDRN3aayYbO6ZGaoTV1qBsL6Gsv+F/YUxeMf4aik5hM
-	8niA/ZFmHVs+zjF5iUBBAvcE4NM/MU8Gdu2TqAs+jgPXoSTMshcQc0eh1zfU+6aUisXz/daVm+7
-	z1iV5Rp/uj1ugOJhyt2Cn92BgXtKw1i77Rlwcuc9Xbeaxos060yqCcm0kgRtMR9Shy874l1Ajgy
-	+WsStggEmweaw+1ntGFibUxgMNR3fm1y9fD2ohPJtlYLqHvMM+ijR7whksGdokfts4rLQD9eODg
-	UfvE6WHi6O78e
-X-Received: by 2002:a05:7301:7107:b0:386:b494:8642 with SMTP id 5a478bee46e88-386b494879amr8586265eec.13.1795614544884;
-        Wed, 25 Nov 2026 05:49:04 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm66740398eec.4.2026.11.25.05.49.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 05:49:04 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>,
-	Xin Long <lucien.xin@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Neil Horman <nhorman@tuxdriver.com>,
-	Mao Wenan <maowenan@huawei.com>,
-	linux-sctp@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: [PATCH net] sctp: keep the port of a bound socket when adding an address fails
-Date: Wed, 25 Nov 2026 22:49:00 +0900
-Message-ID: <179560159232.2963157.3418291084812904092@gmail.com>
+        d=1e100.net; s=20260707; t=1795614574; x=1796219374;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
+        b=hgOGEnMABUm9j28AR17oTHp6Pyy72HZ2TevwSRhB8iNO+2tZ0f47Ndx6NWtUax+x2F
+         YXyZbcAz+gu5rsHHRRZVbl3FkZN331ni0tdhs54iU/trbm4ec4OB6iJ4rTUUCWrUCRGx
+         jGzu9xlmGUGmAm7MZjfO3GLeY3eGsNijbJ8+qHuUmEFyVRz/syESY/RnjWjrqlWK2Jcg
+         UFs9Y5KsHLNKtqiEY0oV3oi4ZMTaDWouqZR/xZVTBV2M14B54Qy4nk8HWN+bKHhap0xd
+         MH7jByC5haD/w4FngpRlAHScIM+XSNh5SV8lIkFrFYgWaqgbCtaBMiO3FMvQzPGjMzjY
+         upQA==
+X-Gm-Message-State: APuU4Z9ryxE3gZmlzU3rJlPEiPi3/vKBkvpNZ6dIq3Y2o4hz2EmaYTmU
+	0Az5IijGVreQL46w9FYOPfQZxwGnTJiwjWZQXhcOV43arMII061QOo0QsNxTdQsmE4ymIis4HVW
+	c7bkbm9U9+YbmKSGuonnXnupC7gxEmLQ=
+X-Gm-Gg: AZFdTZc6quM0WTRHx+Rdrvtn8nF4R6fnVFgXiGau39fPLxYKJFX+phY/EshhOCnew2K
+	e6MUBWYf6CJeT+Tkyxnx02D9IUeOAnxCAzy7sMeBdk1U7ymSOaXX8Eb+cSFlBMPcYP0w0Dt3ajr
+	//TTo46TN1076VOFLSmNsgB43TxyLHM/LyJTrnaTopFAftH00ET/8xgtg7EgH+xj0nLdDEjeL16
+	FMIUDFIj0qJjqqRpBUqxwDs2PYfD73C5fRfE2r1jzg39JO94eavbNA+Yf0RDtqiyMS7VhvNHInb
+	CqVHMr0ic1Z43I/lMKVQUOy5uj/z6QWHG6YULGSVfkdz8UnyXB1blL4ypBBhUHfMJr0r6QJh8uF
+	oNLPhYKVtNXNKtI1N82E5jgvDPySje34z4BvWOIYmS+eahUWmLIxJJYoMyS0O0zB7afQjCrLh3C
+	pu1tWWZ+mg4ogt7IBR5W0NHtbJ/dewkSaxS4l/bKB8jF9f4hgeLKp6hmJ1zAlPMMvE5batI6w=
+X-Received: by 2002:a17:906:a11a:b0:c42:e6c8:e45a with SMTP id
+ a640c23a62f3a-c513a5f7605mr1339666666b.3.1795614573695; Wed, 25 Nov 2026
+ 05:49:33 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,116 +104,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <CAPM+r-+-QVUkh5JmSP-Ud4G0fExM_=dp929NXCBZhqyLbbuX2w@mail.gmail.com>
+ <09c26dab-505c-4126-b45d-a2128b0755c4@redhat.com>
+In-Reply-To: <09c26dab-505c-4126-b45d-a2128b0755c4@redhat.com>
+From: Johan ter Mors <johan.termors@gmail.com>
+Date: Wed, 25 Nov 2026 14:49:22 +0100
+X-Gm-Features: Aa3M54oDeZWNTqYazfgPUeLFaDUTt3713b1FiE8TFL0130WIirb2FW1BpdxA08g
+Message-ID: <CAPM+r-+-=3H1uN5=dim5O4cuFCWmx9agh88ERnMAN+fet7J2Pw@mail.gmail.com>
+Subject: =?UTF-8?Q?Re=3A_TCP=3A_RFC_5961_challenge=2DACK_budgeting_and_unpace?=
+	=?UTF-8?Q?d_RST_emission_on_closed_ports_=E2=80=94_lab_measurement_=2B_consist?=
+	=?UTF-8?Q?ency_question_=286=2E12=2C_loopback=2Donly=29?=
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org, Kuniyuki Iwashima <kuniyu@google.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Since commit 29b99f54a8e6 ("sctp: destroy bucket if failed to bind
-addr"), sctp_do_bind() releases the port when sctp_add_bind_addr()
-fails. sctp_bindx_add() also calls it for each extra address of a
-socket that is already bound, and possibly listening. There
-sctp_get_port_local() takes no new reference, but the failure path
-still calls sctp_put_port(), which unhashes the port and clears
-bind_hash and inet_num while the socket keeps its other addresses and
-stays listening. listen(0) then writes through the NULL bind_hash, and
-accept() of a pending association oopses in sctp_clone_sock():
+Op wo 25 nov 2026 om 11:30 schreef Paolo Abeni <pabeni@redhat.com>:
+>
+> On 11/24/26 23:49, Johan ter Mors wrote:
+> > Hi netdev,
+> >
+> > I am running a defensive-security evaluation of the TCP stack (authoriz=
+ed
+> > lab; all traffic between my own namespaces/loopback, kernels 6.12.117 a=
+nd
+> > 5.10.134). While calibrating the RFC 5961 challenge-ACK mechanism again=
+st
+> > a blind-SYN storm, I measured two related behaviors that I would like t=
+o
+> > have confirmed as intended, and one consistency question. I do NOT clai=
+m
+> > this is a bug, a crash, or a memory-safety issue, and I claim no
+> > exploitability =E2=80=94 this is a measurement and a design-consistency=
+ question.
+> >
+> > # Observed (lab measurement, 6.12.117, loopback/netns only)
+>
+> Why using an old kernel? You should run the current last release.
 
-  KASAN: null-ptr-deref in range [0x0000000000000000-0x0000000000000007]
-  RIP: 0010:sctp_inet_listen (net/sctp/socket.c:8723)
-  Call Trace:
-   __sys_listen (net/socket.c:2016)
-   __x64_sys_listen (net/socket.c:2021)
-   do_syscall_64 (arch/x86/entry/syscall_64.c:61)
+Point taken. My lab targets the 6.12 LTS line (currently at .119 upstream;
+my guest runs .117) and the host distro's 5.10 kernel. Both PoCs are single
+C files (no dependencies, ~1 minute per run, loopback-only), so I am
+rebuilding the guest on the current stable release (7.3.6) with the same
+lean config and will report the levering numbers for both PoCs back in this
+thread.
 
-Release the port only when this call took it, that is, when the socket
-had no bind_hash before.
+>
+> >
+> > 1. Challenge-ACK levering holds. Under sustained blind-SYN pressure
+> >     (synthetic storm against closed ports, aggregate ~500 pkt/s in the
+> >     calibrated run; levering verified 100% up to the raw-socket EPERM
+> >     gate in the high-rate run), challenge-ACK responses keep arriving =
+=E2=80=94
+> >     I could not induce the challenge-ACK latency degradation itself on
+> >     Linux.
+>
+> It's totally unclear to me how many ack/sec per socket are you observing.
+> Since 6.0 challenge-ack limit is on a per socket basis.
 
-Fixes: 29b99f54a8e6 ("sctp: destroy bucket if failed to bind addr")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-The issue was found by an LLM-guided test generator that we are
-developing as a research prototype. A reproducer, which runs as any
-user with CONFIG_FAILSLAB:
+I should have separated the two paths =E2=80=94 thank you for asking. The ~=
+500
+pkt/s aggregate was the closed-port RST storm; no socket is involved in
+that path, so there is no ack/sec-per-socket figure for it. The
+per-socket challenge-ACK experiment in my evaluation ran on kernel
+5.10.134: two concurrent victim sockets, 60 out-of-window probes each;
+each socket independently received 30 challenge-ACKs (A 60/30 and
+B 60/30), no cross-socket suppression. One precision: on 5.10 the active
+mechanism is the per-netns random bucket (the 2016-5696 fix), not
+per-socket granularity =E2=80=94 that arrived in 6.0. I will re-run the sam=
+e cell
+on the current release, where the limit is per socket, and include
+per-socket ack/s curves at fixed probe rates.
 
-#define _GNU_SOURCE
-#include <arpa/inet.h>
-#include <fcntl.h>
-#include <net/if.h>
-#include <sched.h>
-#include <stdio.h>
-#include <sys/ioctl.h>
-#include <sys/socket.h>
-#include <unistd.h>
+> > # Questions
+> >
+> >     a. Is the absence of a shared band between challenge-ACK emission a=
+nd
+> >        RST emission intended policy on Linux (i.e., Linux deliberately
+> >        couples neither to the ICMP/badport-style rate limit the way
+> >        FreeBSD's badport_bandlim() does)?
+>
+> Intended AFAICS.
 
-#define SCTP_SOCKOPT_BINDX_ADD	100
+Thank you =E2=80=94 I have registered this in my evaluation notes as vendor
+confirmation.
 
-/* needs CONFIG_FAULT_INJECTION and CONFIG_FAILSLAB; runs as any user */
-int main(void)
-{
-	struct ifreq lo = { .ifr_name = "lo", .ifr_flags = IFF_UP };
-	struct sockaddr_in a = {
-		.sin_family = AF_INET,
-		.sin_port = htons(30114),
-		.sin_addr.s_addr = htonl(INADDR_LOOPBACK),
-	};
-	int s, one = 1, nth = open("/proc/thread-self/fail-nth", O_WRONLY);
+>
+> >     b. Paced-mirror experiment: when we pace the RST/challenge offer do=
+wn
+> >        (7 tiers, 32.6-2086.7 pkt/s), levering is 100% at every tier =E2=
+=80=94 the
+> >        same experiment on FreeBSD 14.4 shows a hard plateau (~126-138
+> >        responses/s). Is any pacing/bandlim intended for the unpaced RST
+> >        path, or is "RST levering effectively unlimited by default" the
+> >        documented/expected posture?
+>
+> RST on closed port are intentionally not rate-limited.
 
-	if (unshare(CLONE_NEWUSER | CLONE_NEWNET))
-		return perror("unshare"), 1;
-	s = socket(AF_INET, SOCK_STREAM, IPPROTO_SCTP);
-	ioctl(s, SIOCSIFFLAGS, &lo);
-	bind(s, (void *)&a, sizeof(a));
-	listen(s, 5);
-	setsockopt(s, SOL_SOCKET, SO_REUSEADDR, &one, sizeof(one));
+Thank you as well =E2=80=94 noted as the expected posture. That makes the
+cross-stack asymmetry deliberate on both sides (FreeBSD's shared
+badport_bandlim() budget vs Linux's unlimited levering), useful context
+for the FreeBSD report I am preparing for their secteam (coordinated
+disclosure, separate thread).
 
-	/* fail the allocation in sctp_add_bind_addr() */
-	a.sin_addr.s_addr = inet_addr("127.0.0.2");
-	if (write(nth, "1", 1) != 1)
-		return perror("fail-nth"), 1;
-	printf("bindx add: %d\n",
-	       setsockopt(s, IPPROTO_SCTP, SCTP_SOCKOPT_BINDX_ADD, &a, sizeof(a)));
+No bug claim anywhere in this thread; kernel log clean over all runs, no
+traffic outside my own namespaces. Artifacts available on request.
 
-	printf("listen(0): %d\n", listen(s, 0));
-	return 0;
-}
+Thanks and regards,
+Johan ter Mors =E2=80=94 independent researcher
 
-Without the patch, listen(0) oopses as above; with it, it returns 0,
-and in a variant that accepts a pending association, accept()
-returns the new socket.
-
-The patch was written with LLM assistance; we reviewed and tested it.
-
- net/sctp/socket.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/net/sctp/socket.c b/net/sctp/socket.c
-index bc68af88e271..519063833aac 100644
---- a/net/sctp/socket.c
-+++ b/net/sctp/socket.c
-@@ -420,6 +420,7 @@ static int sctp_do_bind(struct sock *sk, union sctp_addr *addr, int len)
- 	struct sctp_bind_addr *bp = &ep->base.bind_addr;
- 	struct sctp_af *af;
- 	unsigned short snum;
-+	bool bound;
- 	int ret = 0;
- 
- 	/* Common sockaddr verification. */
-@@ -467,6 +468,7 @@ static int sctp_do_bind(struct sock *sk, union sctp_addr *addr, int len)
- 	 * The function sctp_get_port_local() does duplicate address
- 	 * detection.
- 	 */
-+	bound = sp->bind_hash;
- 	addr->v4.sin_port = htons(snum);
- 	if (sctp_get_port_local(sk, addr))
- 		return -EADDRINUSE;
-@@ -484,7 +486,8 @@ static int sctp_do_bind(struct sock *sk, union sctp_addr *addr, int len)
- 				 SCTP_ADDR_SRC, GFP_ATOMIC);
- 
- 	if (ret) {
--		sctp_put_port(sk);
-+		if (!bound)
-+			sctp_put_port(sk);
- 		return ret;
- 	}
- 	/* Copy back into socket for getsockname() use. */
--- 
-2.43.0
-
+>
+> @Kuniyuki: please correct me as needed.
+>
+> /P
+>
