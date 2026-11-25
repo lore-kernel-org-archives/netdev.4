@@ -1,105 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593201;
-	b=iByWd5y0dbqKCWLaA+cnGF4LjS489THVG8LtSRcXzeJD+XBxyMS1itCRHoP47R5MwnBN
-	 gvs1ajo2/YuMxa4ubORzB3xwpHeU9Pf8jY+eKi2LxwHXZfxZlx8tlq77E8wjBlak/PxRQ
-	 7Kx/iNcV0jKrZlh6W+BJxG4rXg8ef2vHBGCMiC4ppDAmArv5SLpV6f32lfDRWVSTx03fx
-	 8nECTkIaUVDt2pNR8U210MKAAqc+efQk+2pi7/tPS2UULxAacO+UWHPu1JwP1Ezz6i9KS
-	 80vX1xwPVyMKDG9739gd0hJT5LkIIOKiHDVkHuKtLicaLaGp2PjqiUZ7/IbSQMhhxog==
+	t=1795593209;
+	b=eLps+hM4UJ8cFolgYSXQLKy59xKAheIlh/drOUX0+p4jnbn2YtEIHSjIslvxWh6DM2Bi
+	 zoFWBbs785VYCvP7Hpbtr6qCLdapBZzW0sRVudH0THnMMuVmM18SNTiUOA1ItUXT6C1IP
+	 2dkgXtsdbfTM0ZDiGEvahXipfeb20lfETxE7Fo/myfSskg2Pz4lK5wXXbdIPn6uz6NQm7
+	 9WyjIIeYDMDg+Qh57XOsIh6U5/BUduLg+YaBCA59a/IVY6ASSPExoxk4+7QyWo1DgCYUo
+	 O4vIgUH80/vb4wJkc8rA53c1gVefOOIiX7n817wwCSevHlInHvIuZW8nqbloGqm6oGw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593201;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=CGefND4gzGTszWXRJgmWXMeV4b965wnEKkDAEyQnj58=;
-	b=UX8fJTwAOy5lLwlHH5ZyFo3fL1+/LUJ1/xQTobmvvGW/p3ucuzqoqhfmlDFQbDFhzNEH
-	 ADJpJZsJn3OFgSBOHKaZ18pZoAmQuZo3jE/Jk0PvmZz7UZeXv/NqG41OslPuwjRO0MJ7H
-	 g6wq9pMFKsYHfdjCqb2tpEdVw0dH6B+9tZqLkQstxyuXlfQIM5sJlt5RYSHY21XUqNxXQ
-	 guoe5HUDLZYXCE/sFz0I2kVOJKtV3htEE8RKhMwMQYa7TLmv6Du2OZ0N0nL0XxJv2vh59
-	 GKa6W5WipoBitheqF7QEDY1epUxseLJpW0+EIGI1oH0oFqDJqFANQdsHYPSaJXqTEXA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593209;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
+	b=O/soh0EYgq7MJInzZHCfToCKaVtkH3bbp4hEYA/dTTqiuHynHMEWKXi0lxuY1gGb7u4u
+	 lgXAtdcSlN982dwgTIyLQRkeKZDq3C/8u6trhcunmOdxiocNI2qZcJOd6OMmASqI7tBfs
+	 eImrJ4Ax/YMCZ/XkwbiAaXFfWcOjUhKR/LZSXAm9kM/jxaKwHk7Pp50T2TvOL8DqX+8ey
+	 jrEx9SZaxsvZ/eZzQgIRjHYOybeQZYic6PwjRMONEZOr6bFaT1ZhNeAvuIBBaPKmKT4PE
+	 j6eHWTpuqmaH/5ybOyvn59tezwquagqOnl4JfYIOzhGG/4Jdh0VYfRABTgemkyhsduw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="r9Pz/jTv";
-	arc=none smtp.remote-ip=209.85.221.43
-Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 160FF606A330
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:53:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 160FF606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E169606A321;
+	Wed, 25 Nov 2026 07:53:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=r9Pz/jTv
-Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so3812305f8f.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:53:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593199; x=1796197999; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=CGefND4gzGTszWXRJgmWXMeV4b965wnEKkDAEyQnj58=;
-        b=r9Pz/jTvu8nlaajttnts3gXhr3rmwU8DPLsLhMj+ZbhCTIdvsA1/zMkJhnnUR/pemd
-         Isxmrixd//XcHlSLSRzcXNyBI3DBPLIWc68W8he6Qf/OB9sygbWlgUgUeeITxqbRdTar
-         qdQZdXeX+xLIRU9dQ7qpVmUDaDbGu5nf4n2LSIl9xjpc2MRM4apyMWj/T1FLYSltzPXT
-         TufFGBuZ0H1b7Ng+PGR8HB0ihRVr5j5BGTSSXk8NtlMEOr72cE+DbUqvgUO8rxn9Izlj
-         l/cdVaxrvpSmzaNdqUuctDMKA6ifuUO79V5t/CqIesqvOQNfZm/1cSA07yjRQ+JU/Mlx
-         1iKg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593199; x=1796197999;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=CGefND4gzGTszWXRJgmWXMeV4b965wnEKkDAEyQnj58=;
-        b=iXbqrp25OrZy+8Aqral9F+HHLJLD7+Yh314y/dl0H+Cvkc0yNC80fSrTbi6EOGTnLA
-         x8LcP/X+i6J9hHYIeHB4FzTAvyLiBzbt49RQcuXc58MlOAllAQb3sVa9uqySmKetm/N2
-         vkc1ufODPN3yOl2sXqw9aNshgkC1RJpHTo0WozO4ZnIa+pJLwrSXguxtVnJ2CZ5vUOt9
-         0PWYkFpxaejGV8EvP92W44UlwfLd52PbdvvWyqtk2L7WK96jTl/DRgJtmRA33P2sfQeQ
-         Jls8+XaKEbJyBaeNODRbCpBhWBQaiT2dV2rWtB6VsQIfatkYO5odPzGRCvPBl/9Itmec
-         H3lw==
-X-Gm-Message-State: APuU4Z85KVUIYPDWUw0fvDlCvBm2Ut0iWmoNYE7BKZ21iO99G+GztTgD
-	yxBdN8VY0tjuuGJimyJvd+kXoFeOu4UGyCLbG7KiQZsNBD9L6S/nz0kj
-X-Gm-Gg: AZFdTZd2dqe0ao5YkVgIw0k/Q6EXtshh/zaYIhfYc6nb+qPS2rl/rCPM4HbXLFsoeHa
-	f3HEwTo2jZdaOWULRxhQFvODK+uAu0jKF+np/CuOLI0yFqFtqcldTp6nc7TJfZRHBLbQ4Y68qvO
-	SqerZP2U4IkBLFUajs3/kdUOAnaDzdSBuXnWtq0HI9gjVYrMY9w/2Xl3TYQDjXJY6FDcazc2ksg
-	jZoXibrnHXvUFrHnJjTaegmJq3xYy+MNR4ZEUKKG+wZ5vRphbVMIw95jqqLos4s6BHP/yAj1Gzm
-	yxlQPi/Ch3/YzPyE/NffBrpkOKCaTCypH+rX0J4/sdGk4NNADyfPMDmp7J8spi++gW5+2Z2cROx
-	14oigtwMMS+mMTcpc4oGEWGAfD1rdKnxsgXJlD8lG/2iriR0Ww4j3bDwpnGRu+eQ/6Ifs+Y4nDG
-	kNt3IuFzLywkQFdU+fnLTrZCySkZV2Jj2W7miTPGAyKkI2qVYwR4b9HBkBVLmEmOdnykBYcWqB5
-	Sv00mQgiv3+ix5t3xLklY3U+1LsKxYKqXteqX7/5ecaCOEHOWWZZ+vQNtRfc9bYDFQFkMOJHZYc
-	8k6PaI9Aboc58rwbU7Uc/QOUFJhLcmU6tmUUUd0=
-X-Received: by 2002:a5d:5888:0:b0:48d:f488:f32a with SMTP id ffacd0b85a97d-4abb55183b4mr32368217f8f.56.1795593199308;
-        Tue, 24 Nov 2026 23:53:19 -0800 (PST)
-Received: from Philipp-PC ([91.227.186.127])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680483sm33001138f8f.28.2026.11.24.23.53.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:53:19 -0800 (PST)
-From: Philipp Sudakas <filzador@gmail.com>
-To: ronak.doshi@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com
-Cc: netdev@vger.kernel.org,
-	bpf@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	ast@kernel.org,
-	daniel@iogearbox.net,
-	hawk@kernel.org,
-	john.fastabend@gmail.com,
-	sdf@fomichev.me,
-	u9012063@gmail.com,
-	Philipp Sudakas <filzador@gmail.com>
-Subject: [PATCH net v3 5/5] vmxnet3: keep the XDP program across device resets
-Date: Wed, 25 Nov 2026 10:52:55 +0300
-Message-ID: <20261125075255.1517-6-filzador@gmail.com>
-X-Mailer: git-send-email 2.56.0.windows.4
-In-Reply-To: <20261125075255.1517-1-filzador@gmail.com>
-References: <20261125075255.1517-1-filzador@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24F5F1F000E1;
+	Wed, 25 Nov 2026 07:53:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795593208;
+	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=bkYtNNeXnbcRSV1hUxf42xU6Ba9CPJEBbGlyH3DbeNlfe9Caz59rNZxIhKSHaRgb6
+	 B2kmw+qxnTlAZWVtnAxmXzwQXs4wDgxaLwMM13ONtXuLAjqxP1839ac/NPTS/njthS
+	 ge7BGDVDcJEBtr2/v9vOJoRRHUaYBfOGkfx3BkIzja+RsUjOoVGK9u7rlsFt3Z8wQq
+	 Ktgt5cQWoeS4efAkx1qh3BVzF2Nkui0/OgOY+1qnjpx+1JoJARqSirNwQ5eKInYMUK
+	 zLKGS7a39N2wTHaNu77td4dduWIIzd7SyPqB1vrh+H78tK+YCokTH2vUUZFX9G+fJO
+	 Zlk3bIUwKVGiA==
+Subject:
+ Re: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
+From: netdev-bot+sashiko@kernel.org
+To: jure.rebernik@luxonis.com
+Cc: hkallweit1@gmail.com, nic_swsd@realtek.com, netdev@vger.kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, sgoutham@marvell.com,
+ jacob.e.keller@intel.com, linux-kernel@vger.kernel.org,
+ stable@vger.kernel.org
+Date: Wed, 25 Nov 2026 07:53:27 +0000
+Message-ID: <179559320769.3135.10021676764558133789@kernel.org>
+In-Reply-To: <20261121073652.410916-1-jure.rebernik@luxonis.com>
+References: <20261121073652.410916-1-jure.rebernik@luxonis.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,64 +65,169 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-vmxnet3_rq_cleanup_all() clears adapter->xdp_bpf_prog. It is called
-from vmxnet3_quiesce_dev(), so on every MTU change, down/up, ring
-resize, reset work and resume. After that the driver no longer runs
-XDP, while the core still reports the program as attached, and the
-driver's reference to the program is never dropped: a later detach
-finds xdp_bpf_prog already NULL and returns early.
+Thank you for your contribution! Sashiko AI review found 3 potential
+issue(s) to consider.
 
-Seen on 6.12.117 and 7.2.12: after "ip link set dev X mtu 1400",
-"ip link set dev X down; ip link set dev X up" or
-"ethtool -G X rx 512", the attached program is no longer called, and
-each detached program stays loaded.
+Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-Do not clear the pointer there. The program is exchanged and released
-by vmxnet3_xdp_set(), which also runs when the device is unregistered,
-and which since an earlier patch of this series leaves the driver and
-the core in agreement on failure. Rx rings are then recreated in XDP
-mode after a reset, as vmxnet3_xdp_enabled() stays true.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Since the program now survives an MTU change, reject an MTU above
-VMXNET3_XDP_MAX_MTU while XDP is attached, as vmxnet3_xdp_set()
-already refuses to attach a program at such an MTU.
+- [High] In rtl8169_poll()
+  (drivers/net/ethernet/realtek/r8169_main.c:5673-5680), RxOverflow is…
+- [Low] The changelog says "On this tree the patch was only built, not
+  run; rtl8169_poll() is the same here as in v7.2." That is wrong.
+- [Low] r8169_init_napi() registers rtl8169_poll() for every device with
+  irq_nvecs <= 1.
 
-The problem was found and analysed, and this patch drafted, with the
-help of an AI coding assistant. It was reproduced and tested on the
-reporter's lab systems as described in the cover letter.
+--
 
-Fixes: 54f00cce1178 ("vmxnet3: Add XDP support.")
-Signed-off-by: Philipp Sudakas <filzador@gmail.com>
----
- drivers/net/vmxnet3/vmxnet3_drv.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+r8169: clear RxOverflow before unmasking interrupts
 
-diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-index 234897a..bc56b0f 100644
---- a/drivers/net/vmxnet3/vmxnet3_drv.c
-+++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-@@ -2111,7 +2111,6 @@ vmxnet3_rq_cleanup_all(struct vmxnet3_adapter *adapter)
- 
- 	for (i = 0; i < adapter->num_rx_queues; i++)
- 		vmxnet3_rq_cleanup(&adapter->rx_queue[i], adapter);
--	rcu_assign_pointer(adapter->xdp_bpf_prog, NULL);
- }
- 
- 
-@@ -3670,6 +3669,11 @@ vmxnet3_change_mtu(struct net_device *netdev, int new_mtu)
- 	struct vmxnet3_adapter *adapter = netdev_priv(netdev);
- 	int err = 0;
- 
-+	if (vmxnet3_xdp_enabled(adapter) && new_mtu > VMXNET3_XDP_MAX_MTU) {
-+		netdev_err(netdev, "MTU %d too large for XDP\n", new_mtu);
-+		return -EINVAL;
-+	}
-+
- 	/*
- 	 * Reset_work may be in the middle of resetting the device, wait for its
- 	 * completion.
+The patch clears RxOverflow in rtl8169_poll() once NAPI completes, just
+before interrupts are re-enabled. Without this, the RTL8125B stays stopped
+after it runs out of RX descriptors. That stall comes from 6994520a3328,
+which removed RxOverflow from the interrupt sources.
+
+> On this tree the patch was only built, not run; rtl8169_poll() is the
+> same here as in v7.2.
+
+[Severity: Low]
+
+Is this statement accurate? In this tree, parts of rtl8169_poll() come
+from the multi-queue rework:
+
+36af5aac9545 ("r8169: prepare for multi irqs and napi")
+5df447aee076 ("r8169: refactor RX path to prepare for multi-queue")
+
+For example, rtl_rx() now takes a pointer to a single RX ring:
+
+	/* rtl8169_poll() is used only when there is a single RX ring. */
+	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
+
+Also, rtl_ack_events() now has an irq_nvecs > 1 branch that writes
+ISR_VEC_MAP_REG.
+
+The single-vector path still writes IntrStatus_8125/IntrStatus as before,
+so the logic looks functionally equivalent. However, the A/B results were
+measured on different code than what is submitted.
+
+With Cc: stable and Fixes: 6994520a3328, the context line above does not
+exist in any stable tree, so each backport will need to be adapted by
+hand.
+
+Could the changelog say that the code that was tested differs from the
+code submitted here?
+
+> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
+> index f151ab6813932..99b0a410f58e4 100644
+> --- a/drivers/net/ethernet/realtek/r8169_main.c
+> +++ b/drivers/net/ethernet/realtek/r8169_main.c
+> @@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
+>  	/* rtl8169_poll() is used only when there is a single RX ring. */
+>  	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
+>  
+> -	if (work_done < budget && napi_complete_done(napi, work_done))
+> +	if (work_done < budget && napi_complete_done(napi, work_done)) {
+
+[Severity: High]
+
+Should the RxOverflow ack depend on napi_complete_done() returning true?
+
+napi_complete_done() returns false early while busy polling:
+
+net/core/dev.c:napi_complete_done() {
+	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
+				 NAPIF_STATE_IN_BUSY_POLL)))
+		return false;
+    ...
+}
+
+It also returns false while defer_hard_irqs_count > 0 and a
+gro_flush_timeout is set.
+
+With threaded busy-poll enabled on the NAPI instance, napi_threaded_poll()
+keeps NAPI_STATE_IN_BUSY_POLL set while the kthread polls:
+
+net/core/dev.c:napi_threaded_poll() {
+    ...
+		want_busy_poll = val & NAPIF_STATE_THREADED_BUSY_POLL;
+		in_busy_poll = val & NAPIF_STATE_IN_BUSY_POLL;
+    ...
+		if (want_busy_poll != in_busy_poll)
+			assign_bit(NAPI_STATE_IN_BUSY_POLL, &napi->state,
+				   want_busy_poll);
+    ...
+}
+
+In that mode, rtl8169_poll() is called in a loop and never reaches
+rtl_ack_events(tp, RxOverflow) or rtl_irq_enable().
+
+The first interrupt has already masked interrupts:
+
+rtl8169_interrupt() {
+    ...
+	rtl_irq_disable(tp);
+	napi_schedule(napi);
+out:
+	rtl_ack_events(tp, status);
+    ...
+}
+
+So the interrupt handler, the only other code that acks status bits, does
+not run again.
+
+If the 256-entry ring overruns in this mode, does the RTL8125B latch
+RxOverflow and stay stopped until busy-poll is turned off or the interface
+is reset? Every incoming frame would be counted in rx_missed.
+
+Socket busy polling (napi_busy_loop()), defer_hard_irqs/gro_flush_timeout
+and irq-suspend look like they cause the same stall. In those cases it
+only lasts until the busy-poll or deferral window ends.
+
+The descriptors are already back with the NIC whenever rtl_rx() stops at
+a NIC-owned descriptor (work_done < budget), whether or not NAPI completes.
+
+Could the ack be tied to work_done < budget and moved out of the
+napi_complete_done() condition?
+
+> +		/* After running out of RX descriptors the chip does not
+> +		 * receive again until RxOverflow is cleared. The ring is
+> +		 * empty now, so clear it before unmasking.
+> +		 */
+> +		rtl_ack_events(tp, RxOverflow);
+
+[Severity: Low]
+
+This isn't a bug, but the comment presents this as general chip behavior.
+The changelog only describes and tests RTL8125B.
+
+r8169_init_napi() registers rtl8169_poll() for every single-vector device:
+
+	} else {
+		netif_napi_add(tp->dev, &tp->rtl8169_napi[0], rtl8169_poll);
+
+get_max_irq_nvecs() only allows more than one vector for
+RTL_GIGA_MAC_VER_80. So this extra IntrStatus write now happens on every
+NAPI completion for RTL8169/8168/8101/8125/8126 as well.
+
+6994520a3328 was tested on RTL8168h, on the premise that running out of
+descriptors needs no special handling.
+
+Could the changelog and the comment say whether this RxOverflow behavior
+is specific to RTL8125B or also applies to older chips? Could they also
+say that the change affects all chip generations but was tested only on
+RTL8125B?
+
+>  		rtl_irq_enable(tp);
+> +	}
+>  
+>  	return work_done;
+>  }
+
 -- 
-2.47.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121073652.410916-1-jure.rebernik%40luxonis.com
