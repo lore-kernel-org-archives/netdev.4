@@ -1,108 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.125
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617125;
-	b=NcqD6MehP9JZx6B+jGcCD7KmoNFsCbz2rLQHxusekYMoDhwNtCVddY9mt3hegt/mT6Q5
-	 GHGvWbCLnSjnvGXhsRsNiOG9NO2QZH1k5FpR47CdSQb6g/A9JRQTvh9Gi1RPJ+oAFTyfS
-	 C8heaQLz9WIRXktAI/R3/v3p4z9mv87aa08a1MgtisODJxsUntTF2I+tQB38Ljjvlgzgz
-	 Ya+bxFmOVrphZWpdZ4FfM3cKc7XHIZ0EQNyLd4mSICLMy14pmT8Xhb5QeUcQpv2UPOG7e
-	 wuGSwQkpbAoUsmcKHJgz4F4gAfPuk5f6/qLUCcrK2/VWMYFH8mQ0MM68LW/AVcLJIyA==
+	t=1795617131;
+	b=dHGBVVOsrGy544nEAfCod9xx2/M84tIlQHS8DHmVp8q5SS/Ff47gegrSPBs0PWJN0ReN
+	 lMIbxvNJkwbNmlfucT5rU2HzgMQJh3Mpa2YX4Wyn4dhmNXK7aNjZS4X1ZLgWuAGFwzY6d
+	 bbSkxGodJW25/zIWqrBeAtLxwGcu7vOPtbcM3ioWmPIZSSS1BcnyWXo4hQG4P3x1PCvOK
+	 wdwrBnS1CnBxxqMJ7WnTtQopEAK6p+DiNZ4NEgMiO8+2OzT/Q9wmVClKslTmX+t9+M1TD
+	 RWb4b2XxqpPlGQ/w48U8qRQyFNXApxHSqu9CqUTHmFQ/IuX2cJ/mte0pPOB7SG/ggtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617125;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617131;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=Y9M4mZ1sXqBnAt7gUxOS/kbwMdJhgsv3SyZWvfyQ2Ug=;
-	b=LBj3o9u6+D1TUkw7xlVq6zCy/6Exy3MkFuaLtjQlyxKu0jWMAJiCisVTRL6a2+27WxfP
-	 zyfPvornR2LDjZaZyc+OMOGcpp+EOL+izhE7dEsldQGDw1zMhrNttkOpMD9910uBOqenY
-	 gK2GnnBxddWkywo2w7c4/BKxMrtRlbDMnUPEZhfQwmY29/z3g+9KHzQZKQiebOBvUDlsq
-	 NyO5oG+/fyegePMl4mYGnyFr0Eo6VW0987YKmJhnvC+cQNLwv6dDj7yN6eSdr6aLXyMZ8
-	 f+WJAU0vt68j56GWa1rnkMKWFwbRvLJ17syOIJ7a0QCT0tWtTwS20Kw7HWpIb/tj+QA==
+	bh=yQQL3gyd8CW7DlD4k26iWlQKDEVvRToVQNJWvHpMxCY=;
+	b=pFJfEmRqFHlhjuqOJP4v1LIR7tC9iS2K3ddTJgcYf4mfPWLGgPTX9j/XpMge03IGMAhw
+	 NyO7u9UDar7eRNwE+UpG4uzLYv8yeUCPkeRmpiQRLopFZyAcKkNkrR5b++aj0tqpD0v24
+	 9f47GZzdzzp6ul7wjGZjBk+POJGXmGwq3KwBRlG0yquYZGrFqM4ZE9QJAD96Ibt/+q+ka
+	 8KttPLH8VLrq8XjKr4ChVZvOE++HThpP8mjB7VkD09sWxxgI1ckp4KUf658+xwHYtzTeY
+	 aZcFhDY+9pchk4CC1Tt7biPLzrwJYcW6TAKY3RQQWWITneT6/ocpvbiyWYxpyx4RXiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Pk9LZwaQ;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rst8sXcQ;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mq5z2mmU;
+	arc=none smtp.remote-ip=91.218.175.125
+Received: from mta0.migadu.com (out-125.mta0.migadu.com [91.218.175.125])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3DB3606A335
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:32:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B3DB3606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11CF9606A329
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:32:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 11CF9606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Pk9LZwaQ;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rst8sXcQ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795617123;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Y9M4mZ1sXqBnAt7gUxOS/kbwMdJhgsv3SyZWvfyQ2Ug=;
-	b=Pk9LZwaQ2+g/0dcs7vL3nS9GSAOKXf2OGUP4gXeVHPeiEM3bAidVvCslxyMrHtUE146um3
-	MHePkNpnpHa8TUcA/FEZlfkk4zqp7n15TxLT5aNN7y+cQ8tOhJFzz6M/vL98jhNHZvUA4w
-	56ULbMUgUxJUxbZM/1/14RI6ur0digc=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-633-Dgtg0qxwMMmR2FgzTrXFSA-1; Wed, 25 Nov 2026 14:32:01 +0000
-X-MC-Unique: Dgtg0qxwMMmR2FgzTrXFSA-1
-X-Mimecast-MFC-AGG-ID: Dgtg0qxwMMmR2FgzTrXFSA_1795617120
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4b9fde3044dso41867225e9.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:32:01 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795617120; x=1796221920; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Y9M4mZ1sXqBnAt7gUxOS/kbwMdJhgsv3SyZWvfyQ2Ug=;
-        b=rst8sXcQ4ZLlyc618K0YgyoBvkOQ7ylopU26y8HcJHM6OyJPUCl7D99AMEtglTMSTh
-         kgkm/shE8hGo2zOKf9Xy5+0Vl8aWbIvJxNXtFgKNaHXertWesY/sG4q4haubyYlDu6Qz
-         apDRpXrp1WCYbKZwntwZYtXts/p7ke+EHwoKuyhb0LKs2mQaIxokbAkTn/s0XNE9eGo9
-         L9llm1XNGfX+E9yH98bs8ySJq5se87nr1Iu1zcyHXdnwxwCXfhGXeMsxoICr9mZfg1fa
-         Wc5TS4/uFm1cgjap09olqnxS27G9h6/PpXkq6QVK2wqgC2VKx+tTw+PPebpV0UUkXiTf
-         59dA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617120; x=1796221920;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Y9M4mZ1sXqBnAt7gUxOS/kbwMdJhgsv3SyZWvfyQ2Ug=;
-        b=RNk5rcDJqNYIdWsvVLAZrhJr793FU3IK/nCQfy2+x89dgetsg5al9t/uhdF4diE2Iv
-         RWdwvM3PuzdcbIaE8cO2ajow/EMEMiY03rcfKSsUX7LLASztTSjf+m/XAM72+HB5QanR
-         xzJwjr6pdQECy1T5yWAn613SrWtZNS10TtP+62c+fvKEnUCBHXZsRW1f5xckSq1FgJnc
-         0LttyI5RH4nGBXeAEPqN/jENQ/BddhSymvSKiosGN2Yb4QS+yywi2S/6w4IRJ6nskCMm
-         Hfms8qUUd2gT1be8rXEwp5GF357q2gwrhmy7Y91xoJ5bf1BmpJUKO/TPPK152yp2UIt+
-         UBKw==
-X-Forwarded-Encrypted: i=1; AL+hErGUvUVP94B1UXeB7HhYLADTR4QRUvhbiWofVMGkHTcigx/uMXuugOI1PC2gakFDPAvw/37f3Ic=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/Tk1+MlXdiCaELpmu7mfnbqDxnOMh/OkzrdyuehPPe7f3WmV8t
-	9h1pOtiEarYwZd2nDF5PNSM5AQy2liqDcDykL4Sl6+ODhcFwFAiXl1VaDD+pm8Ov/ZCYbiC20Qz
-	tCm77USJZiqDFUvdSFZiHaferrbOgUgSMZdNSDCe3mhBd1VTchgiXsfpGzA==
-X-Gm-Gg: AZFdTZc8N3AC6kPnouX2VuBklP8z8v++k77QUXxuJgRg2IJSpX7+6d2VGuLX4jKU96d
-	rc0+Ma89ntvnxhwgiuIZehgUk2AlxsihQ4ANyaPkOeNIE8KthegjG6zbRXV0EpZC2XAYvC0dmwI
-	VBqUhgmo3Jl1G1/QdIS14ajCYjEk0A6Md7vsqgsti6ytXkfG0dQF+7bN96D9FSJ/WkXVbHgouDC
-	DxVPgk3fxBJGMpB5x49xJyUePJY/dkcVU/UaGWFB058UmmrBEGaA6hWn7KTgIBGG1ZF5CdGlSnc
-	67wiCitOEF/b9K6ZvO1UPk9fLL13ZeSsUpnM1hSmbheE/vzaGXZTmgeF1cnuxJwVmuzSQrBbCVl
-	qI5axfbkgBlzBjrHnGIBNSsh/K6ozoY5bMFU454Z23y6R0VD6wX825M+3LHMMeW7trQ+nkjPq8d
-	2SRH8WqshK7wYMGVs4FWI4wQuRXp88GjGaDJk/wvhYT0fz
-X-Received: by 2002:a05:600c:64c8:b0:4a0:1c0e:b057 with SMTP id 5b1f17b1804b1-4bb887e2380mr338242245e9.4.1795617120308;
-        Wed, 25 Nov 2026 06:32:00 -0800 (PST)
-X-Received: by 2002:a05:600c:64c8:b0:4a0:1c0e:b057 with SMTP id 5b1f17b1804b1-4bb887e2380mr338241515e9.4.1795617119786;
-        Wed, 25 Nov 2026 06:31:59 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110d56sm33434554f8f.40.2026.11.25.06.31.58
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 06:31:58 -0800 (PST)
-Message-ID: <3766f988-9ea9-4ead-870f-fab0549e15b6@redhat.com>
-Date: Wed, 25 Nov 2026 15:31:57 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=mq5z2mmU
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=A51LVE8ARFXdFPOnaqjHmDUaNZ9Awjjx/UE7RAnCKvM=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795617127; v=1; x=1796221927;
+ b=mq5z2mmUxrEwKdKxB7um5ifLoylY34l5TIRgcBdO6E3JqT3u12QDaPPasmMffj9kcVqL7Ohr
+ rFXz7lgikOi9uFyIpUPTEHClot1rDMcbg27RafPPJewfC5G9CmVCaWFLvnNyAJKytvJ/qPN3cuV
+ HaYnJn4q1DgRJdaNYWb1MU/o=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id a1f901dc2722dfb2;
+	Wed, 25 Nov 2026 14:32:07 +0000
+X-Mizu-Trace-ID: a1f901dc2722dfb2
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v4 1/6] bpf: Add log support for tracing link_create
+Date: Wed, 25 Nov 2026 22:31:33 +0800
+Message-ID: <20261125143138.47174-2-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
+In-Reply-To: <20261125143138.47174-1-leon.hwang@linux.dev>
+References: <20261125143138.47174-1-leon.hwang@linux.dev>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,70 +87,158 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with
- full hardware rx queue
-To: Jijie Shao <shaojijie@huawei.com>, netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- andrew+netdev@lunn.ch, shenjian15@huawei.com, liuyonglong@huawei.com,
- chenhao418@huawei.com, yangshuaisong@h-partners.com, ningwei15@huawei.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261118130330.3026625-4-shaojijie@huawei.com>
- <179535384062.3135.791733868582964041@kernel.org>
- <a727a596-2718-4aaa-8baf-69b1aee9df43@huawei.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <a727a596-2718-4aaa-8baf-69b1aee9df43@huawei.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-On 11/23/26 08:33, Jijie Shao wrote:
-> on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
->>> @@ -4489,10 +4519,15 @@ int hns3_clean_rx_ring(struct hns3_enet_ring *ring, int budget,
->>>        * FBD number with head pointer
->>>        */
->>>       if (unused_count > 0)
->>> -        failure = failure ||
->>> -              hns3_nic_alloc_rx_buffers(ring, unused_count);
->>> +        failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
->>> +
->>> +    if (unlikely(failure))
->>> +        hns3_ring_set_oom_state(ring);
->> [Severity: Medium]
->> Can rx_oom_cnt be incremented twice in a single NAPI poll here?
->>
->> The commit message says the counter is "incremented for each NAPI poll
->> that hits an RX allocation failure". When the fraglist napi_alloc_skb()
->> fails in hns3_add_frag(), the path looks like this:
->>
->> hns3_clean_rx_ring()
->>    hns3_handle_rx_bd()
->>      hns3_add_frag()
->>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ */
->>        return -ENXIO;
->>    goto out;
->>    failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
->>    if (unlikely(failure))
->>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ again */
->>
->> -ENXIO doesn't match the new err == -ENOMEM check. But failure can still
->> be true, either from a failed exit refill or from an earlier failed
->> in-loop refill. Under the memory pressure that caused the fraglist
->> failure, the refill is likely to fail too.
->>
->> hns3_ring_set_oom_state() has no per-poll dedup, so in this case the
->> counter goes up by two for one poll.
-> 
-> The second increment only happens when a second allocation actually
-> failed.  hns3_add_frag() counts its failed napi_alloc_skb() and returns
-> -ENXIO, which doesn't set `failure`, so the exit refill still runs and
-> bumps the counter again only if it fails too.  Two increments mean two
-> failures.  I agree "for each NAPI poll" can read as at most once per
-> poll, that's just imprecise wording.
-I agree another repost is not needed here. However patch 1, 2 and 4
-are net-next material and only patch 3 is borderline net material.
+Tracing BPF_LINK_CREATE returns errors for invalid attach parameters
+without explaining which check failed.
 
-To avoid a repost and splitting, I would apply everything to net-next.
+Report parameter and reattachment errors through the link creation log.
+Pass the log to bpf_check_attach_target() so freplace attachment to a new
+target also reports target-check failures.
 
-/P
+Acked-by: Jiri Olsa <jolsa@kernel.org>
+Signed-off-by: Leon Hwang <leon.hwang@linux.dev>
+---
+ kernel/bpf/syscall.c  | 22 +++++++++++++++++-----
+ kernel/bpf/verifier.c |  6 ++++--
+ 2 files changed, 21 insertions(+), 7 deletions(-)
+
+diff --git a/kernel/bpf/syscall.c b/kernel/bpf/syscall.c
+index ec8e78792911..b563ff5b5736 100644
+--- a/kernel/bpf/syscall.c
++++ b/kernel/bpf/syscall.c
+@@ -3677,7 +3677,8 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 				   int tgt_prog_fd,
+ 				   u32 btf_id,
+ 				   u64 bpf_cookie,
+-				   enum bpf_attach_type attach_type)
++				   enum bpf_attach_type attach_type,
++				   struct bpf_verifier_log *log)
+ {
+ 	struct bpf_link_primer link_primer;
+ 	struct bpf_prog *tgt_prog = NULL;
+@@ -3714,6 +3715,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	}
+ 
+ 	if (!!tgt_prog_fd != !!btf_id) {
++		bpf_log(log, "target_fd and target_btf_id must be both set or both unset.\n");
+ 		err = -EINVAL;
+ 		goto out_put_prog;
+ 	}
+@@ -3726,12 +3728,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 * attach_tracing_prog flag is set.
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_EXT) {
++			bpf_log(log, "target_fd is only allowed for freplace prog.\n");
+ 			err = -EINVAL;
+ 			goto out_put_prog;
+ 		}
+ 
+ 		tgt_prog = bpf_prog_get(tgt_prog_fd);
+ 		if (IS_ERR(tgt_prog)) {
++			bpf_log(log, "Invalid target_fd.\n");
+ 			err = PTR_ERR(tgt_prog);
+ 			tgt_prog = NULL;
+ 			goto out_put_prog;
+@@ -3786,11 +3790,14 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 */
+ 		if (prog->type != BPF_PROG_TYPE_TRACING &&
+ 		    prog->type != BPF_PROG_TYPE_LSM) {
++			bpf_log(log,
++				"Re-attach of freplace prog needs target_fd and target_btf_id.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+ 		/* We can allow re-attach only if we have valid attach_btf. */
+ 		if (!prog->aux->attach_btf) {
++			bpf_log(log, "Cannot re-attach a prog that was attached to a bpf prog.\n");
+ 			err = -EINVAL;
+ 			goto out_unlock;
+ 		}
+@@ -3806,7 +3813,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 		 */
+ 		struct bpf_attach_target_info tgt_info = {};
+ 
+-		err = bpf_check_attach_target(NULL, prog, tgt_prog, btf_id,
++		err = bpf_check_attach_target(log, prog, tgt_prog, btf_id,
+ 					      &tgt_info);
+ 		if (err)
+ 			goto out_unlock;
+@@ -3846,6 +3853,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	 */
+ 	if (prog->type == BPF_PROG_TYPE_EXT &&
+ 	    prog->aux->kprobe_write_ctx != tgt_prog->aux->kprobe_write_ctx) {
++		bpf_log(log, "Only one of freplace prog and its target writes to pt_regs.\n");
+ 		err = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -3859,6 +3867,7 @@ static int bpf_tracing_prog_attach(struct bpf_prog *prog,
+ 	     tgt_prog->type == BPF_PROG_TYPE_TRACEPOINT ||
+ 	     tgt_prog->type == BPF_PROG_TYPE_SYSCALL) &&
+ 	    prog->aux->max_ctx_offset > tgt_prog->aux->max_ctx_offset) {
++		bpf_log(log, "Freplace prog accesses more ctx than its target.\n");
+ 		err = -EINVAL;
+ 		goto out_unlock;
+ 	}
+@@ -4383,7 +4392,7 @@ static int bpf_raw_tp_link_attach(struct bpf_prog *prog,
+ 			tp_name = prog->aux->attach_func_name;
+ 			break;
+ 		}
+-		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type);
++		return bpf_tracing_prog_attach(prog, 0, 0, 0, attach_type, NULL);
+ 	case BPF_PROG_TYPE_RAW_TRACEPOINT:
+ 	case BPF_PROG_TYPE_RAW_TRACEPOINT_WRITABLE:
+ 		if (strncpy_from_user(buf, user_tp_name, sizeof(buf) - 1) < 0)
+@@ -5927,11 +5936,13 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 					      attr->link_create.target_fd,
+ 					      attr->link_create.target_btf_id,
+ 					      attr->link_create.tracing.cookie,
+-					      attr->link_create.attach_type);
++					      attr->link_create.attach_type,
++					      log);
+ 		break;
+ 	case BPF_PROG_TYPE_LSM:
+ 	case BPF_PROG_TYPE_TRACING:
+ 		if (attr->link_create.attach_type != prog->expected_attach_type) {
++			bpf_log(log, "attach_type is not expected_attach_type of the prog.\n");
+ 			ret = -EINVAL;
+ 			goto out;
+ 		}
+@@ -5949,7 +5960,8 @@ static int link_create(union bpf_attr *attr, bpfptr_t uattr, struct bpf_common_a
+ 						      attr->link_create.target_fd,
+ 						      attr->link_create.target_btf_id,
+ 						      attr->link_create.tracing.cookie,
+-						      attr->link_create.attach_type);
++						      attr->link_create.attach_type,
++						      log);
+ 		break;
+ 	case BPF_PROG_TYPE_FLOW_DISSECTOR:
+ 	case BPF_PROG_TYPE_SK_LOOKUP:
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index e7013ed8cadd..67a7bffbdbd7 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -24346,7 +24346,7 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if (bpf_prog_is_dev_bound(prog->aux) &&
+ 		    !bpf_prog_dev_bound_match(prog, tgt_prog)) {
+-			bpf_log(log, "Target program bound device mismatch");
++			bpf_log(log, "Target program bound device mismatch\n");
+ 			return -EINVAL;
+ 		}
+ 
+@@ -24606,8 +24606,10 @@ int bpf_check_attach_target(struct bpf_verifier_log *log,
+ 
+ 		if ((prog->aux->saved_dst_prog_type || prog->aux->saved_dst_attach_type) &&
+ 		    (!tgt_prog || prog->aux->saved_dst_prog_type != tgt_prog->type ||
+-		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type))
++		     prog->aux->saved_dst_attach_type != tgt_prog->expected_attach_type)) {
++			bpf_log(log, "Target differs in type from the target at load time\n");
+ 			return -EINVAL;
++		}
+ 
+ 		if (tgt_prog && conservative) {
+ 			/*
+-- 
+2.55.0
 
