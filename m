@@ -1,105 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636662;
-	b=ancamQpTVWv3TUPLU5dSukRDFGAqLxboLXitEiceKkXrRwqyhd8IpDYkhvr0obXexY7t
-	 +NgY9nsyRg5pDPsd7kAyrY6/vnjzgvlCrDDfta6IOZFqqPuRhSteRXzw0nDsTZwH+Zny+
-	 wIRv9fuNEilKUmOAr+ZsC6rxqDphsuRbh+r/+Qr+b75hbuOJ6vDXO7nhvI6EUWfUVeSOd
-	 Vjwu4MpXJHLJEFaWX582UmRs6+6CnroULhm60XQNLMdfasPGk66E30MNqCS3m6Z33VpZH
-	 y15tgkiV5Ntx8YUAXJ0CZQ+KMHPHoGiP1VsDW95SnkmQbptVFZ26dhUNU42rRBAKChQ==
+	t=1795636663;
+	b=MZ7lz/z0SQNqJxWz51Tc8glCE/oJeeLTxAVHcwoFKLupkkCSsIWUvcTbUnBvPynFDyl/
+	 IopYIXSmrPYcaGkolpfCoT4wL++EKRFlpE6Jet6+kRFkXWnYXcDB8R5fv8OFrPyfz2sIe
+	 5uOfIy5Z8JCrJPk6Urenk1AvvG1XV0jHGqyAxwnEcLIAPeOvCg2f53I7hGjrpuDmSChEc
+	 mflPrucx6Ipy1B1tYIL0y+Kv6x4YIa6NyWnZL1GsdtYcOZGtx0Ww2jUZFSiKwP/7mhl0o
+	 sPNQHVzyWVwwaz9cZS8Gqbm3q8dPIht8sxg+gpVlQLxP+Kqwuy+t/v5dX84ResjL+Mw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636662;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795636663;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=FnWutwVHAzlegSMVJ4Kfkk7OIUcj8sfxBwSeQGcqrD4=;
-	b=AHANiR1dTmK4mAQDDRdfcMPOrQHz35eDBfR+mUmY403rm8WQqj9Dr1Yitt8CijkJUUE7
-	 Y8/UEWEz6d+1du15JpS2gBqgomzJy2SvSQjswhTwjACIIes4r2lBEMUSQkBwlH1clrjqD
-	 e11A94N1lvX/ghBpxBAWW4dzyzrnFMgTRIAZ4/87Iq3ID5gMGK34eIochpbbkG7qsDMrp
-	 ODBpT2+R1bLYpi1x8r7EVpx5KUh8nrFGsQapVk4+ILi8Ik2AYFKIZCQUYco3KPJ86jer6
-	 KF0puim0Zqe3KOJVBBWCFFvjV1JIclvkWY/gfmFeCZGXXzZ2nnxxB6Hv6BmJSxicoDA==
+	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=z1Ch7toSay5RAO59Zv8Z5BnunRVmaYyzvcole42LG4w=;
+	b=MTrer0SctyR/EYApH5AKpVAz+6l0tjb7RLb+71weTYissOwaNFGr6ncoTYHxDGKRrg4p
+	 6DIAYqzVXq6MVluib7KRq6DO/gHM7kzF96KkpR35ztuso3REOs73+sNljuWvwF8eDQhYG
+	 gW51zLpVyOJrkB2AJbkORZ65QNI4cy2DIkZZG+XBcdRqFjWS9mjr7moTe+hPVMaEGDlQp
+	 zCrdZn2COmKN+isaAlgynNV9rVxE1r21TZX++XLgg5Kn5/t44CZFwqY+pMAb+ncVpyX8Z
+	 1rZ8K2tAIwUmo/aw4G/n9ZfuDb9jym1sHvB7KBK3VLx3Qerri2+NMEKCXPGS47zk/kQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=trailofbits.com;
 	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=BJIbTReu;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
+	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=gLTfcdye;
+	arc=none smtp.remote-ip=74.125.82.50
+Received: from mail-dl1-f50.google.com (mail-dl1-f50.google.com [74.125.82.50])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7710606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:57:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7710606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19FF3606A332
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:57:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19FF3606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=BJIbTReu
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1a2761c69fbso7857979c88.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:57:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=gLTfcdye
+Received: by mail-dl1-f50.google.com with SMTP id a92af1059eb24-1b546061d58so14142655c88.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:57:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795636661; x=1796241461; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=FnWutwVHAzlegSMVJ4Kfkk7OIUcj8sfxBwSeQGcqrD4=;
-        b=BJIbTReuQbMD2EPqIi2oK/iI7IFqoFFIRB9NyHmHtd8O/sYk+ilqqcXO+oJxkErXNl
-         4COQpCv+xRboHxL7oaaxZD0ziFIbxVOQXAeQkX10BXPdjfohhc85+DcaIdix42cjc+dg
-         hcD7MK9kaOZa0zLM+lf1pLuzJt/7d6BOAJT6XL/4s+HG7twLRzsd1FXwk5lUhwNbpStb
-         6rHUpptWd4sg+WjHPTAXkzTKUARYoFyN4LUTDd+tTGasG1rZ0Q7Ymvp03iFPI73IbtJ6
-         9GfKH9RhotXSZ+Vo9coboFv4S0eQVoRgtbUahK8EaQQeALr2X93QgVx+GwhD2Z3yo+RV
-         KLCw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795636661; x=1796241461;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=trailofbits.com; s=google; t=1795636662; x=1796241462; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=FnWutwVHAzlegSMVJ4Kfkk7OIUcj8sfxBwSeQGcqrD4=;
-        b=XNvNUYhatjP8Pnxo8Ue6zyFROem3Nmm1CQjPhAj9bbgGTGvWl+tmUFwd0ZYzLVqk/N
-         H2AbFxbeTQ9wjV24LT5aNyPB9w6OQcWe2sVGi70FRE08bEXw63POslWbF7c2ng9jPK4B
-         MA9n8FehAL8Jkng/wpPGGvc77qtX7Goa2oKAnoJI/rplaJITCQ03SyeKuSZ+WklQOsNQ
-         f47nkV21ey04TTPehTun9+ax/G+3gwZ5GJVLA5nMH7Wbg6jG8K7CXt093GFLo6nU/LNz
-         OTs9rQvg6k9K5Zx08BJlfPQRyiHsWPvWOSvXJJ2bqqhJMAHsFBOO8HUqX32KdrHexV19
-         bCig==
-X-Forwarded-Encrypted: i=1; AL+hErFJJ0aluPbvnkRjFNjRC36VB7YkVjg+nW3fjcG4jnB3EWhTzSgWirQpTH5sjd79zFGEP+pb1DI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8/9raQiX7OyPghmZ/iUCF6Jy3Vx+Qa9Am0N1fdJDpMOi1f17Wc
-	xIccVfg/8sM7oNixo/qND/8a9YRrN8yDqPq5M97DczyN5yLo3c7270hL+BymibJAln8=
-X-Gm-Gg: AZFdTZdTivhA0W2XR0RknlxmRJjzNdbSJB2+pOWpOA76ZYVDWE6EFGvxhiwfZeDtkup
-	say2Qg5QyOqlruwNLYRewK08/tJxU7Tn0KuG6P6d0GgEuLjUXXc1pUowQhvmL7oe/yOAlSn+3UU
-	uwgtg1r+IJK6EKFLYNWXNG7Qdx2Ee4jUYUR9lP42moX383OmCnQmTANlAhWDc5fTi3+/kiHH5DH
-	WByzXa+U5oRjQOjJMVVgPnCmuriB08kdfAY3HsqFjnwszQ7feq7sv7xwc2VTq2SGo5xkQ0hhmox
-	i9LvmFQoFyGhClxzuybWuqicWTGPTk4MqRkuzdXVyoV7WdhjlmA+X99STHV3Uk+iaTPqET/INLp
-	gFPPFnc8N9HG028GCXOXAbE+r6llnR0B+qfSjb8uMRkz4SSjxdKzz6DSQi8BecxeWKwZfBKG9bl
-	Pxxnw2pwxPt/fCmgPL+cSfp5grerV3FJcPdYYd03v0fgyYPIgOdlYnDPSa+pKXIt/SegpekyOhJ
-	WyLvQ4kJEv2QG7kq0obWFFo5kfcTnePuMSmUvBzqGuiHYY/KSTIrB+LbDHKtXoPjJSnNDft/Mx4
-	O2a829dQytdstCG7zT463g2nGBmcHiocV1ktmeYntb2eEfxzOczfJZITfOMNydo40bHS1cD81pk
-	i+/woiC1wYZf6n8n5jHTePECg8cR1LPpzEWM8WChhHzNDpfo=
-X-Received: by 2002:a05:7301:3a82:b0:374:ea35:9069 with SMTP id 5a478bee46e88-3856fb67380mr17732201eec.39.1795636660967;
-        Wed, 25 Nov 2026 11:57:40 -0800 (PST)
+        bh=z1Ch7toSay5RAO59Zv8Z5BnunRVmaYyzvcole42LG4w=;
+        b=gLTfcdyeliU/SIidmo2Q2PGx6AFjKRsUwtBbq3c9NxKgDz42m+T4bgGqZ+DyDy15la
+         KRvi57AXHY44tFkHqpqhRS9xSgEhEERs1/HsqhKHlfJYr2uPa5zshTkMlT3RKIkM3Eo0
+         1CIKE41Eiubwc3L6p9mKeTth3O6RWXBnDjzS8XzyNFFP7jAxJuNbqkgSZO114T9vIU4n
+         tR8H6XGjr8Ob//tNrYCJ0CETIvvzvl0vFELkU+x2b6RBCKj/CTgYLjr65iXQpE0iybzX
+         DlhomEGjt3jgxOuL6OsCCm6m8TBXaEAlIN0CVUBzfP0ca7itmKNpx0NlA4pmlHxJ9SpA
+         bJCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795636662; x=1796241462;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=z1Ch7toSay5RAO59Zv8Z5BnunRVmaYyzvcole42LG4w=;
+        b=f09tlmiHCkCHCwlVZ1XJS7cSz2Rm/PfkfGpNwZkV3YsnITt1HDHdjApewAi/k2lrHV
+         Tjghb6EilMjlRmN7Pts9fXDCknK1gCsqp/AaDioApBhf+F1NY1Q/6Yf2cZ2GNcMZv0fT
+         aRcLhaprOh82t5HdWtHJadevr2Wt14iDjm89mynZsc1Dbuua9J71/V4eTgXlS1UEITZ1
+         qzSxo/X6Bm5/yOoJu3nXJOIbv8FI5pN1MCZinzDMpCtiP8KXhOFbQdVhTeDSRzXFTBkq
+         vEE0M/xWg/hXTI4Q8YrTkE7yd0B5guO4iqyYAVbAJq0tr0906XOZTUjVx+O55Vn7Op1N
+         Md3Q==
+X-Forwarded-Encrypted: i=1; AL+hErEdBCHBPLrJ56jZs3vS4UOnGMFTBDrkg9C6MRFrYwlh6cexXUuJEbwvnmqxpx07GZ2wgzcf+1I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3iz4M6ZVFyHTw8itPpADy5arBDhBclT138u90pTBG2CIy3BmC
+	JHHarZsR3CLZ5wBEXvZiOTG2OWFcG3Icl4aPBGSLqQjOEJvsQESYGIQkP+HxGUDfT/A=
+X-Gm-Gg: AZFdTZcfnsEhnsnY8HEbFUpFq3dnOBBsR7fxnUXR7kKPi9wNSvT61w21xEJbkVNdzPo
+	f4FYg6O9PthZjLIRV3D9OOoR5jLApXdtJ9B7kqx8qoiv2mrjLn6NRcw5k7vrG5CYQfxb0/kIskq
+	R3rkyO9dnty6KmdCCN535bFdys+JfMpYKLu9YGgqGYXgEMsIa9Fptc3qHk9EGM/WRfgP4qLnKYw
+	mBgx258QdtVPlvFgF69VNWCBwdWJ0OLMocbIgBl7svd5ZMgaLwmcaccDvoggBQHE/zwSku3/n+J
+	IY/bPzPryMmAjqnq+iad/rjRzsXj9Z3qwUnhXNmHs2Yma83IUr116dSXZ9QR7shlnb8s9ydGVSN
+	k5h1dFi1+dnAZ8tjzd95AShEEVV/J/Ac3iyqs6dyciaB1qrUIUFjpz3xg3ZJBsFfBibCL6rBWi9
+	dJpQdi2ZBshWtIv7BlTgdao1XAId5P69l3C4lkM1JBilY+kyxpnXMMP/iIR85L2lq4X5RhdMcxx
+	4hJKf3iie7gFxwYK3kXE7U0t1f1hluZy7mNyK0WJKJ32iRt5Oe68Se2gBP0G1S0jKuGTmaJRx+r
+	KIq42YUwNIoBhgf3GqC/SI3+0C4kxMHD2lUeAcURsZI/LIy+e8ORS5YgiJDlD2STnc1sJtUdhwt
+	jo6sL/YlXsVj5japzXobz3DMtsQ==
+X-Received: by 2002:a05:7300:8811:b0:386:d86d:d445 with SMTP id 5a478bee46e88-386d86dd49amr1569803eec.36.1795636661951;
+        Wed, 25 Nov 2026 11:57:41 -0800 (PST)
 Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm59596522eec.14.2026.11.25.11.57.39
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm59596522eec.14.2026.11.25.11.57.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 11:57:40 -0800 (PST)
+        Wed, 25 Nov 2026 11:57:41 -0800 (PST)
 From: Artem Dinaburg <artem@trailofbits.com>
 To: stable@vger.kernel.org
-Cc: ast@kernel.org,
-	cratiu@nvidia.com,
-	davem@davemloft.net,
+Cc: davem@davemloft.net,
 	edumazet@kernel.org,
-	herbert@gondor.apana.org.au,
 	horms@kernel.org,
-	ipsec@lists.linux.dev,
-	jhs@mojatatu.com,
-	joe@dama.to,
 	kuba@kernel.org,
-	mst@redhat.com,
 	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	shawnq1@163.com,
-	steffen.klassert@secunet.com,
-	willemb@google.com
-Subject: [PATCH 6.18.y 0/5] net: validate GSO headers and preserve XFRM inner offsets
-Date: Wed, 25 Nov 2026 14:57:30 -0500
-Message-ID: <20261125195735.57472-1-artem@trailofbits.com>
+	pabeni@redhat.com
+Subject: [PATCH 6.18.y 1/5] net: init shinfo->gso_segs from qdisc_pkt_len_init()
+Date: Wed, 25 Nov 2026 14:57:31 -0500
+Message-ID: <20261125195735.57472-2-artem@trailofbits.com>
+In-Reply-To: <20261125195735.57472-1-artem@trailofbits.com>
+References: <20261125195735.57472-1-artem@trailofbits.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,38 +105,41 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 
-Hi,
+From: Eric Dumazet <edumazet@google.com>
+Date: Fri, 21 Nov 2025 08:32:44 +0000
 
-Please apply these five patches to 6.18.y. Patch 2 fixes CVE-2026-53091;
-the others are its prerequisite and the upstream fixes that followed it.
+[ Upstream commit be1b70ab21cbe8f8bb8ecf39eb34880882252773 ]
 
-1/5 be1b70ab21cb initialises shinfo->gso_segs for SKB_GSO_DODGY
-    packets. Patches 2 and 4 build on it. It applies unchanged.
-2/5 7fb4c1967011 pulls GSO headers into the linear area before
-    transmit accounting uses them and drops malformed packets. It
-    needed adaptation; see its backport note.
-3/5 fa90a3145c03 stops xfrm from overwriting inner header offsets set
-    by a tunnel. Without it, patch 2 drops VXLAN-over-IPsec GSO traffic.
-    It applies unchanged.
-4/5 c6648c9f3b51 bounds the segment count and accounted length of
-    untrusted GSO packets. Only its context differs from upstream.
-5/5 35d2d6e5ac0d rejects a negative TCP header offset in the code
-    added by patch 2. It applies unchanged.
+Qdisc use shinfo->gso_segs for their pkts stats in bstats_update(),
+but this field needs to be initialized for SKB_GSO_DODGY users.
 
-Patch 2 is in 6.6.160, 6.12.114 and 7.0.10, and in mainline since 7.1.
-It does not cherry-pick onto 6.18.y (checked on 6.18.57 and 6.18.65)
-because 6.18.y predates the qdisc_pkt_len_segs_init() rename and its
-pkt_segs accounting. Patch 5 is also in 6.6.163 and 6.12.118. All five
-changes are in 7.3.6.
+Signed-off-by: Eric Dumazet <edumazet@google.com>
+Link: https://patch.msgid.link/20251121083256.674562-3-edumazet@google.com
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+Stable-dep-of: 7fb4c1967011 ("net: pull headers in qdisc_pkt_len_segs_init()")
+Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+---
+ net/core/dev.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-Compiled net/core/dev.o, net/core/skbuff.o and net/xfrm/xfrm_output.o
-with CONFIG_WERROR=y on 6.18.65 with the whole series applied, from a
-cumulative x86_64 tree, with and without the current queue-6.18
-patches. The intermediate patches were not built separately. No kernel
-boot or runtime test was performed.
-
-An LLM was used to prepare these backports and to check applicability
-and stable-queue history; I reviewed the result.
-
-Thanks,
-Artem Dinaburg
+diff --git a/net/core/dev.c b/net/core/dev.c
+index e4216b78a1a4..97a6ea8fcede 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -4126,7 +4126,7 @@ EXPORT_SYMBOL_GPL(validate_xmit_skb_list);
+ 
+ static void qdisc_pkt_len_init(struct sk_buff *skb)
+ {
+-	const struct skb_shared_info *shinfo = skb_shinfo(skb);
++	struct skb_shared_info *shinfo = skb_shinfo(skb);
+ 
+ 	qdisc_skb_cb(skb)->pkt_len = skb->len;
+ 
+@@ -4167,6 +4167,7 @@ static void qdisc_pkt_len_init(struct sk_buff *skb)
+ 			if (payload <= 0)
+ 				return;
+ 			gso_segs = DIV_ROUND_UP(payload, shinfo->gso_size);
++			shinfo->gso_segs = gso_segs;
+ 		}
+ 		qdisc_skb_cb(skb)->pkt_len += (gso_segs - 1) * hdr_len;
+ 	}
