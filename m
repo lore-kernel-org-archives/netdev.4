@@ -1,74 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638421;
-	b=Me7mkCFW0TbipoyusOjbRVunP//QqkM5KAhR7pKGw+Cd6FoADep3ws44s251KHsIdBfZ
-	 7zflJ7ow6CgFqzEU9Yf9YF6exmupB7dgwpahU/CjJlTLQrYJDPedTX/+7mvyEtRYRb3Da
-	 kIHizHMVf0HBxJbz8H/tC10vPM+hWVxtMuGGewQkjlUtCjYkFs7RytBwyLxLkq1Pjy79B
-	 Eo+34zzPdmpfQAtiG0+MQrFRZFTugqpfaPN3ZpAiH5zOmqPjkSSBb4CL0FBA5XXOgZyDF
-	 TJ5DFlFYoyGdTfpyEWq0ZnE1iEZskegUQ8xX0JKjmAfo7g1XCYkLjMlbKv9yHMOizYw==
+	t=1795638615;
+	b=ipkZ3MkuA0SvQcKexBM/lNsPgWCTDfj1HlfkpS/Ea/VJNI7NEVn10YwdDpiTI59dmL+u
+	 OrwdRRL6hWCZH9BN4fxEAU1KKYbKsMNTsTwsg1kVP8NIkmlXJyWqPTSP4j+AYpcf7HLr7
+	 +PH9XUuDXXUJy6W5Xi18PbivY5sVq+IDx6eFh9Bp7/ydKxcvQr6+tayH7Cz7+Gh9pOlyn
+	 LjByiWmtHG+rd1i/IPB/IdecwZL6XkVRxMHYeBxDsl3AHRQj/Bg8jGNridyJCwkSVg7sg
+	 qT8fI9AH4GSGUJ9cuGOc9p1a6cvvFxBaYTVP71MhE3PhGSz4a0klraZSiC+7v+Ka9bw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638421;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ZeI0AGTd97czsolzOlbnXFbpYQc5tCXGUex9w6md5FQ=;
-	b=P9T8Mdv/PFRBUYHbSO8+rK/5uwl3cRt2J38Y34KZzJMR70uf1rhgpM/18PWEhav1c9ma
-	 lyVKFh23BF4+rO27VfWnCumCkkEUghYGoKINm9SxmcWwAjvNiFy1mdPUG+DXfyEeoaBIU
-	 0UZ/Fb4MNAFV3FkfWeuynV93AnfruX/GXu/LCiHO6/f6wX7yxWDbEe/JDlOZU6DFtEKtC
-	 TaVk+tmGoAx1qQlP8etjDQlORi+DawFc8IWkkkhWnPduyxtrmcLU7S4At7VCmF7Uxg75l
-	 FASJ1X7HbELUe9h0KxRXg8sjLmEcCu70d8dGN3mEODuyI8d1qrEV7hoZWhYO0FXkrsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795638615;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=dB/Y0pBg3NHRJt+bh9ZKtMxsQux3tgEshsYt64sRnfQ=;
+	b=DyyRbedBdBZoc1ZUgoTNgBc6PPIpFEwIrJJ/LGfp2cTfCQW9sTMiY28RPSrIPBeg4x8r
+	 1aLwN+QqswxwmF4+zMYKZfH1igunduegMfuo3I8RKnQzBSOGuuRVCV6PHgq46l+8d0P6+
+	 BEKJ4CEnnwDBZZN68kQ5/Q4BmCkmqFvN0bcK+uYhoMOKUBID9Ceo0IpLQu+KPxWSczKQq
+	 ItN3HE6s55tmtJy3rrO358v5DYwBwC6eK3uHhMt6SdT6jyEoEoSiv68sIwi18JE7ZXdf5
+	 YSqRNCf1+4t6kVE66sGETzQnVx1+GSaekfcJfmovuWzKtN65p9HOOl5nQ/lylPEPb0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PGCAiqT+;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=trailofbits.com;
+	spf=pass smtp.mailfrom=trailofbits.com;
+	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=TcYUDEhy;
+	arc=none smtp.remote-ip=74.125.82.177
+Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFA90606A326;
-	Wed, 25 Nov 2026 20:27:01 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25392606A32A
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:30:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 25392606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PGCAiqT+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C08D1F000CF;
-	Wed, 25 Nov 2026 20:27:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638421;
-	bh=ZeI0AGTd97czsolzOlbnXFbpYQc5tCXGUex9w6md5FQ=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=PGCAiqT+Cr5Xm0z7RchrnJVJTmAuvoCt1912rq67bQoYYP49MbcqJOVi/26A3yxLz
-	 lIdHVQpfxG8x5xvZsRWYpbNIy7gi/aleII8GzT3ZwcTD2O0yxnesqm2uD4pOnnk3/n
-	 TOESmUGnCN56BM42n3VPVq6+Jd3ZdbjDwqPKyJ8WrjOwDiZKsunTKTP1vns8YhvmGd
-	 kBkFXuLpJIjimllwtg/vtO7iHbvr4iw/k5TEfNUy5TDS23Djq8BEA8SkzySC85lW+J
-	 yrg8YVOI28GEKO1e7koCSvd1H/v7B1yMUD3GMX/SGqkXZc5jf5/5BsHaZKkvAs+0go
-	 cHG9eak9Gi37A==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
- shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
- stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
- almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- rdunlap@infradead.org, kernel-team@meta.com,
- dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
- mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
- maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
- vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
- jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
- dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 12/15] eth: mlx5e: Receive into XDP-only memory
- providers
-In-Reply-To: <179561570896.3135.8953893024403211017@kernel.org>
-References: <20261124125654.183091-12-bjorn@kernel.org>
- <179561570896.3135.8953893024403211017@kernel.org>
-Date: Wed, 25 Nov 2026 21:26:57 +0100
-Message-ID: <87tsl4lkry.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=TcYUDEhy
+Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38190551625so12307343eec.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:30:14 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=trailofbits.com; s=google; t=1795638614; x=1796243414; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=dB/Y0pBg3NHRJt+bh9ZKtMxsQux3tgEshsYt64sRnfQ=;
+        b=TcYUDEhyNYGx9ZCVdd9jWCvae+xbhMvmA2kaSonRJUzheZgzJMjniD9glNn9uZqtWP
+         ZZuZxcEhzShN1+Z0iu+R5Fq1NRCQTlbXbLFc206SZ0ZKc7uEp38imHOnBmwI5qw7HUyy
+         dBFcvENsJe/1bCX//G/GLY1wNGgN8XBEIwKwKiUkWHnk4m2tMOcbiqNaDYcyLzgfBWDk
+         564Bi/iSVBXfw3G5zbHmVdo9jXaThedM1F2AHna/ay4KPokp2Faw53vJTiu8K4YKhzGr
+         NiTX94IvMnjNaI0C81AXpFX6MCaekZi8dv5x8Cbh+wbo5sAL/5kypo0jYxk0i0BTSCBJ
+         3vjQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795638614; x=1796243414;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=dB/Y0pBg3NHRJt+bh9ZKtMxsQux3tgEshsYt64sRnfQ=;
+        b=GlVyK6NPpjAVyLaOy65cmfw9+UL9ZgZeQ3AFBRAUy6sNN1UHrFbe+efm+IedSRjlrj
+         lIGFBumvqBOXPvJqErj2Ve1yXDFYBdP4XUqG1jmtTEhpShWhjTQ9ehP1+HeAFihaE3mn
+         Nyu7iodB1ZHrCMXMbjqs9Ge3vhKhx9c/75RdizwzU14W6UVqM2J/nM+CW53AbIhmg0rf
+         W9GYCRLoUiPM3JSkS+YJ034CQrAp+awgKZTizLmvspstXMoGnyeJ2eoRvFOaYSFThiNs
+         mN0P8+5A6kLA3b6n55tr3G1PNnShbr5o0VOmlb+cGF8XAIZK6+xCMZgzAst6hZT53Pt9
+         o4oQ==
+X-Forwarded-Encrypted: i=1; AL+hErG0cJbtGr6MoPHkfFP20/yiWCUllYuJfcAp1G4wNS9ysLGH4EJ1kfbvR8bp0aEA+1PqIh3bhBs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8cMI66OLZX3XMeGw6BKtxzT6a10HS5kkwFkwaDIJlkTT7XNfUk
+	qkGUo74HNVFUvy1NVikOi4igkCBH2xFlAcRqVchpADc+LeeaTKOExcv8ryAFSdQGPQs=
+X-Gm-Gg: AZFdTZdEsqzZnYpV/2A8r6opUb+tabBDR6NsLnD9UXJKFHIGfPVs0id6H9Pqrfvnprv
+	PWjV3lvPd98aNsQSl67ge4CC/VovoSm4iy/cF3CkdrpNLWEYUN3rYyK8lHYTKeUqkeJMQaZoMFS
+	oAtpOb3Vgrp5y+CVGZtsuYabUSolVvexRuPdUc8e3H/kOt85SYfy+P0iTPFvRuK32+ww1xQL06H
+	qsqFMgEr2Tkjstt11/UTPvR1k4KpFNPEgOqdUH5BygDBmFEeCfeKVydZJXUR8LEXirSBUo0Gq48
+	WEofOtM/A9PBd0CZ1MWmBVgDwQloAZiS6FGtjYLbLaBWCTZZLoK9huqIl37b/WSdC47hmICmiVh
+	tSvdoGRpsKgO3fWkWvf+wasB6hDKODcUnWX26mIXB/10EjLEpF8KLiH0MuT7Y4vdEcBSZl9DXhF
+	BQZHhyCgIkSRzfRIZxTkTLV6SISA/fDemYWsS8S09QzPV/1oQaPjv+PInBOU8E8BeAONcjCWkTI
+	swdQmqN7eOKRqCHR5lI+spDpGAAYWO221uQfsC0BfNUp+IyxBD+t0SfHcVAaK+O9gXFHKijcCtl
+	8N/TVMF8fO5u71NNLLLA2suDioxYcJoXWcAyz5iJgXrBVtumkgEx8EH/HOGtrBeEzcE2inafonM
+	x9I49HQJ5HqROjVnSOxA9RTSDSHM=
+X-Received: by 2002:a05:7301:1402:b0:36e:b3e6:ebe7 with SMTP id 5a478bee46e88-3857025f297mr17717038eec.26.1795638613970;
+        Wed, 25 Nov 2026 12:30:13 -0800 (PST)
+Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm47972746eec.19.2026.11.25.12.30.12
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 12:30:13 -0800 (PST)
+From: Artem Dinaburg <artem@trailofbits.com>
+To: stable@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	jeremy.jean@oss.cyber.gouv.fr,
+	kuba@kernel.org,
+	linux-sctp@vger.kernel.org,
+	lucien.xin@gmail.com,
+	marcelo.leitner@gmail.com,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com
+Subject: [PATCH 6.18.y] sctp: validate cookie AUTH state before use
+Date: Wed, 25 Nov 2026 15:30:10 -0500
+Message-ID: <20261125203010.67858-1-artem@trailofbits.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,198 +103,188 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 
-netdev-bot+sashiko@kernel.org writes:
+From: Jérémy Jean <Jeremy.Jean@oss.cyber.gouv.fr>
+Date: Tue, 4 Aug 2026 20:00:42 +0000
 
-> Thank you for your contribution! Sashiko AI review found 3 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 2 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [High] net/mlx5e: deferred close in mlx5e_switch_priv_channels()
->   starves XDP-only MP
-> - [High] net/mlx5e: NAPI busy loop and refill rollback in
->   mlx5e_post_rx_wqes()
-> - [Medium] The mlx5 patch lets the nonlinear striding RQ take an XDP-only
->   (AF_XDP sink) provider, but the commit message only describes the=E2=80=
-=A6
->
-> --
->
-> eth: mlx5e: Receive into XDP-only memory providers
->
-> This patch lets the page pools of mlx5 RQs that run an XDP program take
-> XDP-only memory providers such as the AF_XDP sink. It also allows queue
-> restarts while a program is attached, and it skips the minimum posted
-> WQE wait for provider-backed RQs. Buffer addresses are now taken with
-> xdp_netmem_address() so XDP-only net_iovs are covered.
->
->> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c b/drivers=
-/net/ethernet/mellanox/mlx5/core/en_main.c
->> index 06a8a4be4be7c..a8d46508b6fc3 100644
->> --- a/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
->> +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_main.c
->> @@ -1012,6 +1012,9 @@ static int mlx5e_alloc_rq(struct mlx5e_params *par=
-ams,
->>=20=20
->>  		pp_params.order     =3D pool_order;
->>  		pp_params.flags     =3D PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV;
->> +		/* Trap and PTP RQs use queue 0 too, without a program */
->> +		if (params->xdp_prog)
->> +			pp_params.flags |=3D PP_FLAG_ALLOW_XDP_ONLY_NETMEM;
->
-> [Severity: Medium]
-> How does this behave for the nonlinear striding RQ? The flag is also set
-> there, but the commit message only talks about the linear striding RQ:
->
->     The RQ keeps its layout. A stride of the linear striding RQ still
->     holds the shared info of the skb that XDP_PASS builds, ...
->
-> The nonlinear striding RQ is used with XDP when the program is frags
-> aware and the MTU is above the linear XDP limit. With a program attached,
-> mlx5e_skb_from_cqe_mpwrq_nonlinear() builds an empty head in the linear
-> page:
->
-> drivers/net/ethernet/mellanox/mlx5/core/en_rx.c:mlx5e_skb_from_cqe_mpwrq_=
-nonlinear() {
->     ...
-> 	if (prog) {
-> 		...
-> 		va =3D mlx5e_mpwqe_get_linear_page_frag(rq);
-> 		...
-> 		linear_hr =3D XDP_PACKET_HEADROOM;
-> 		linear_data_len =3D 0;
->     ...
-> }
->
-> mlx5e_mpwqe_linear_page_refill() allocates that linear page from
-> rq->page_pool. With this flag set, the page is a UMEM chunk taken from
-> the socket's FILL ring, and it is only ever used for empty heads.
->
-> mlx5e_fill_mxbuf() calls xdp_prepare_buff(..., true), so the program can
-> call bpf_xdp_adjust_meta() into that headroom. When an empty head
-> reaches the sink, xsk_sink_rcv() does this:
->
-> net/xdp/xsk_sink.c:xsk_sink_rcv() {
->     ...
-> 	if (!hlen) {
-> 		/* An empty linear part, as mlx5 builds for nonlinear RQs */
-> 		empty =3D niov;
-> 		headroom =3D 0;
-> 	} else {
->     ...
-> 	if (metalen > headroom)
-> 		goto drop;
->     ...
-> }
->
-> Won't every packet on this RQ type whose program wrote metadata (RX hash,
-> timestamp and so on) be dropped and counted in rx_dropped? The same
-> program works on the linear striding RQ and on the cyclic RQ.
->
-> That also seems to contradict the documentation added in this series,
-> which says bpf_xdp_adjust_meta() and the RX metadata kfuncs work as with
-> pages.
->
-> Should the commit message and docs describe the nonlinear striding RQ
-> case, both the dropped metadata and the UMEM chunks spent on empty heads?
-> Or should this mode be handled differently?
+[ Upstream commit 3dbb44d88b1e94dd31fe43588af7437b34b44d56 ]
 
-Will fix, and document. Metadata must work!
+When cookie authentication is disabled, COOKIE_ECHO restores fixed-size
+AUTH fields directly from peer-controlled cookie bytes.  A forged RANDOM
+length, HMAC list, or CHUNKS list can then reach association consumers
+with lengths or identifiers that were never validated against the local
+backing arrays.
 
->>  		pp_params.pool_size =3D pool_size;
->>  		pp_params.nid       =3D node;
->>  		pp_params.dev       =3D rq->pdev;
->
-> [ ... ]
->
->> @@ -3050,6 +3053,14 @@ static int mlx5e_wait_channels_min_rx_wqes(struct=
- mlx5e_channels *chs)
->>  		if (test_bit(MLX5E_CHANNEL_STATE_XSK, c->state))
->>  			continue;
->>=20=20
->> +		/* An RQ that an XDP-only provider backs fills from the FILL
->> +		 * ring of its socket, which stays empty until the socket
->> +		 * gets its chunks back, so a queue that restarts under a
->> +		 * slow reader would never meet the bound.
->> +		 */
->> +		if (netif_rxq_has_xdp_only_mp(c->netdev, c->ix))
->> +			continue;
->> +
->>  		err |=3D mlx5e_wait_for_min_rx_wqes(&c->rq, timeout);
->>=20=20
->>  		/* Don't wait on the XSK RQ, because the newer xdpsock sample
->
-> [Severity: High]
-> How does this behave on a cyclic RQ? The flag is set for both RQ
-> types, and mlx5e_skb_from_cqe_linear() and
-> mlx5e_skb_from_cqe_nonlinear() now take XDP-only net_iovs. A provider
-> can therefore back an RQ that runs with striding RQ disabled through
-> the priv flag, or on a device that lacks it.
->
-> There, rq->post_wqes is mlx5e_post_rx_wqes(), which asks
-> mlx5e_refill_rx_wqes() for the whole missing part of the ring as one
-> wqe_bulk. The FILL ring of the socket may hold fewer chunks than
-> that, which is the normal case at bind time and under a slow reader.
-> mlx5e_alloc_rx_wqes() then stops short, and mlx5e_refill_rx_wqes()
-> jumps to err_free. It frees everything it allocated with
-> mlx5e_free_rx_wqes() and returns 0.
->
-> mlx5e_post_rx_wqes() then sees count !=3D wqe_bulk and sets busy
-> regardless of rq->xsk_pool. mlx5e_napi_poll() returns the full budget
-> without calling napi_complete_done(). NAPI keeps rescheduling itself
-> in softirq, posts nothing to the hardware, and never parks to wait
-> for the socket to wake it. If the UMEM has fewer chunks than the
-> ring, the bulk can never be satisfied and the CPU spins
-> indefinitely.
->
-> The striding path posts what it got and only reports busy when
-> rq->xsk_pool is set, so it idles until xsk_sink_wakeup(). Should the
-> cyclic path do the same for a provider-backed RQ, posting partial
-> bulks and not reporting busy? Or should
-> PP_FLAG_ALLOW_XDP_ONLY_NETMEM be limited to the striding RQ until it
-> does?
+A forged RANDOM length can cause out-of-bounds reads during key-vector
+construction.  A forged HMAC identifier also caused a 32-byte write past
+a zero-length AUTH chunk, providing a primitive for a local privilege
+escalation chain.
 
-Yeah, bind on cyclic RQ will fail in the next version.
+Validate the cookie's RANDOM, HMACS, and CHUNKS parameters at the cookie
+trust boundary before copying them into the association.  Reject invalid
+types, malformed lengths, unsupported HMAC identifiers, HMAC lists
+without SHA1, and forbidden chunk ids.
 
-> [Severity: High]
-> Can the new RQ end up with no posted WQEs at all when the channels
-> are switched while a provider is bound? Before this change, the wait
-> here would at least time out and queue rx_timeout_work. Now the RQ is
-> skipped silently.
->
-> On devices with tis_tir_td_order, mlx5e_switch_priv_channels() only
-> deactivates the old channels. mlx5e_close_channels_xsk() then closes
-> just the RQs that have MLX5E_CHANNEL_STATE_XSK set. The regular RQ of
-> old_chs and its page_pool stay open while
-> mlx5e_activate_priv_channels() activates the new channels and
-> mlx5e_trigger_napi_icosq() runs their first refill.
-> mlx5e_safe_switch_params() closes old_chs only after that.
->
-> The chunks that the old page_pool has taken from the provider keep it
-> as their owner. When the new RQ refills, sink->released is still
-> empty. A chunk from the FILL ring that the old pool owned is put back
-> into the old pool's ring rather than handed to the new one. The
-> allocation fails. mlx5e_post_rx_mpwqes() posts nothing and returns
-> false, since rq->xsk_pool is NULL, and NAPI completes.
->
-> When mlx5e_close_channels(old_chs) later destroys the old pool, its
-> chunks move to sink->released, but nothing schedules NAPI on the new
-> channel. No RX WQEs are posted and no UMR is in flight on the ICOSQ,
-> so no completion will arrive to wake it. The queue stops receiving.
->
-> This is reachable from MTU changes, ethtool ring and channel changes,
-> priv flag changes, and mlx5e_safe_reopen_channels() during recovery.
-> Should the RQ that a provider backs be closed before the new channels
-> are activated, as is already done for the XSK RQ? Or should NAPI on
-> the new channel be kicked once old_chs is closed?
+Fixes: bbd0d59809f9 ("[SCTP]: Implement the receive and verification of AUTH chunk")
+Fixes: 1f485649f529 ("[SCTP]: Implement SCTP-AUTH internals")
+Signed-off-by: Jérémy Jean <Jeremy.Jean@oss.cyber.gouv.fr>
+Acked-by: Xin Long <lucien.xin@gmail.com>
+Link: https://patch.msgid.link/20260804200042.2412009-1-Jeremy.Jean@oss.cyber.gouv.fr
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
-Hmm... I think you're right. Let's try that.
+[ Backport to 6.18.y: context adjusted in include/net/sctp/auth.h, where
+  6.18.y still declares sctp_auth_init_hmacs(), and in
+  sctp_unpack_cookie(), where 6.18.y still sets retval->c.peer_addr
+  after copying the cookie. No code changes. ]
+Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+---
+Hi,
+
+Please apply this backport to 6.18.y. It fixes CVE-2026-74752.
+
+The fix is in 6.6.160, 6.12.114 and 7.1.10, and in mainline since 7.2.
+It carries no stable tag; it reached those series through the
+Fixes-based selection but was not queued for 6.18.y. A three-way
+cherry-pick conflicts in include/net/sctp/auth.h, and the plain upstream
+diff also fails on context in sctp_unpack_cookie(). The code change is
+identical to upstream.
+
+Compiled net/sctp/auth.o and net/sctp/sm_make_chunk.o for x86_64 with
+CONFIG_WERROR=y, both on 6.18.65 and on 6.18.65 with the current
+queue-6.18 patches (stable-queue 0fdc4475764). No kernel boot or runtime
+test was performed.
+
+An LLM was used to prepare this backport and to check applicability and
+stable-queue history; I reviewed the result.
+
+Thanks,
+Artem Dinaburg
+
+ include/net/sctp/auth.h  |  3 ++
+ net/sctp/auth.c          | 75 ++++++++++++++++++++++++++++++++++++++++
+ net/sctp/sm_make_chunk.c |  3 ++
+ 3 files changed, 81 insertions(+)
+
+diff --git a/include/net/sctp/auth.h b/include/net/sctp/auth.h
+index 3d5879e08e78..fe45c8df210f 100644
+--- a/include/net/sctp/auth.h
++++ b/include/net/sctp/auth.h
+@@ -22,6 +22,7 @@ struct sctp_endpoint;
+ struct sctp_association;
+ struct sctp_authkey;
+ struct sctp_hmacalgo;
++struct sctp_cookie;
+ 
+ /* Defines an HMAC algorithm supported by SCTP chunk authentication */
+ struct sctp_hmac {
+@@ -72,6 +73,8 @@ struct sctp_shared_key *sctp_auth_get_shkey(
+ int sctp_auth_asoc_copy_shkeys(const struct sctp_endpoint *ep,
+ 				struct sctp_association *asoc,
+ 				gfp_t gfp);
++bool sctp_auth_verify_cookie_params(const struct sctp_endpoint *ep,
++				    const struct sctp_cookie *cookie);
+ int sctp_auth_init_hmacs(struct sctp_endpoint *ep, gfp_t gfp);
+ const struct sctp_hmac *sctp_auth_get_hmac(__u16 hmac_id);
+ const struct sctp_hmac *
+diff --git a/net/sctp/auth.c b/net/sctp/auth.c
+index fbbfa0c27955..95c272948c60 100644
+--- a/net/sctp/auth.c
++++ b/net/sctp/auth.c
+@@ -377,6 +377,81 @@ int sctp_auth_asoc_copy_shkeys(const struct sctp_endpoint *ep,
+ 	return -ENOMEM;
+ }
+ 
++static bool sctp_auth_chunk_id_forbidden(__u8 chunk_id)
++{
++	switch (chunk_id) {
++	case SCTP_CID_INIT:
++	case SCTP_CID_INIT_ACK:
++	case SCTP_CID_SHUTDOWN_COMPLETE:
++	case SCTP_CID_AUTH:
++		return true;
++	default:
++		return false;
++	}
++}
++
++/* Verify AUTH parameters copied from a state cookie before they are restored
++ * into an association.  When cookie authentication is disabled these fields
++ * are peer-controlled, so they must satisfy the same constraints as locally
++ * generated AUTH parameters.
++ */
++bool sctp_auth_verify_cookie_params(const struct sctp_endpoint *ep,
++				    const struct sctp_cookie *cookie)
++{
++	const struct sctp_paramhdr *random;
++	const struct sctp_hmac_algo_param *hmacs;
++	const struct sctp_chunks_param *chunks;
++	u16 hmacs_len, chunks_len;
++	u16 n_hmacs, n_chunks, i;
++	bool has_sha1 = false;
++
++	if (sctp_sk(ep->base.sk)->cookie_auth_enable || !ep->auth_enable)
++		return true;
++
++	random = (const struct sctp_paramhdr *)cookie->auth_random;
++	if (random->type != SCTP_PARAM_RANDOM ||
++	    ntohs(random->length) != sizeof(*random) + SCTP_AUTH_RANDOM_LENGTH)
++		return false;
++
++	hmacs = (const struct sctp_hmac_algo_param *)cookie->auth_hmacs;
++	hmacs_len = ntohs(hmacs->param_hdr.length);
++	if (hmacs->param_hdr.type != SCTP_PARAM_HMAC_ALGO ||
++	    hmacs_len < sizeof(struct sctp_paramhdr) +
++			sizeof(hmacs->hmac_ids[0]) ||
++	    hmacs_len > sizeof(cookie->auth_hmacs) ||
++	    (hmacs_len - sizeof(struct sctp_paramhdr)) %
++			sizeof(hmacs->hmac_ids[0]))
++		return false;
++
++	n_hmacs = (hmacs_len - sizeof(struct sctp_paramhdr)) /
++		  sizeof(hmacs->hmac_ids[0]);
++	for (i = 0; i < n_hmacs; i++) {
++		u16 hmac_id = ntohs(hmacs->hmac_ids[i]);
++
++		if (!sctp_hmac_supported(hmac_id))
++			return false;
++		if (hmac_id == SCTP_AUTH_HMAC_ID_SHA1)
++			has_sha1 = true;
++	}
++	if (!has_sha1)
++		return false;
++
++	chunks = (const struct sctp_chunks_param *)cookie->auth_chunks;
++	chunks_len = ntohs(chunks->param_hdr.length);
++	if (chunks->param_hdr.type != SCTP_PARAM_CHUNKS ||
++	    chunks_len < sizeof(struct sctp_paramhdr) ||
++	    chunks_len > sizeof(cookie->auth_chunks))
++		return false;
++
++	n_chunks = chunks_len - sizeof(struct sctp_paramhdr);
++	for (i = 0; i < n_chunks; i++) {
++		if (sctp_auth_chunk_id_forbidden(chunks->chunks[i]))
++			return false;
++	}
++
++	return true;
++}
++
+ 
+ /* Public interface to create the association shared key.
+  * See code above for the algorithm.
+diff --git a/net/sctp/sm_make_chunk.c b/net/sctp/sm_make_chunk.c
+index 3518f997a7b8..5d894b18ec39 100644
+--- a/net/sctp/sm_make_chunk.c
++++ b/net/sctp/sm_make_chunk.c
+@@ -1867,6 +1867,9 @@ struct sctp_association *sctp_unpack_cookie(
+ 	/* Set up our peer's port number.  */
+ 	retval->peer.port = ntohs(chunk->sctp_hdr->source);
+ 
++	if (!sctp_auth_verify_cookie_params(ep, bear_cookie))
++		goto malformed;
++
+ 	/* Populate the association from the cookie.  */
+ 	memcpy(&retval->c, bear_cookie, sizeof(*bear_cookie));
+ 	retval->c.peer_addr = paddr;
