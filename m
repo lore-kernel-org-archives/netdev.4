@@ -1,59 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570501;
-	b=KGVWkNZGuxhc0w/aNaxEaWjkr6NZQ6Nwq3nb8bgwvsnfJOBiVCrGtH4kBTn9+g12t2Hd
-	 tB3PoWH3lvE3SqI+lHfVmEsjSY1k/ZtO8urzfd+yN9g6QICZgryPkPmieIVRlZAT6OQUA
-	 sQ40NoEIwLYRL0RjqBbL0RxrRtd9F0HcpNBZvwxuDl00AvQhjke9CwoyHiXhODE9XyEcq
-	 hns6XzkohdEXsbdJPDoe75gc04wWuaUUDK4ODxEuQKSmQdw9rzyLPRef2GyP4/fp9Cibs
-	 ysY29o3CFhHdGu08oGQ/ZlOjNTmoC3RbyXPm2Vf/nG05ldPE+1AXeHg795tgjlMZ7Iw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570501;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ey/DdBZK0AxrIh+FVZDhFw46AU3tmy5ylGTvhSh6jPs=;
-	b=Ip7HCDWeC91bn3HyQe1gJieymAYTfAtWycX7B4RFP390FpzfUEWuua69rbLePpyin3eA
-	 tzexrUAuhG8LkEbTJ9DDVoPXN3S0vjmxyNPTLakvTl9gnK2d+ey4blidoVBI3MT36poLn
-	 tVFJaHScABxOC4aDDXvUD1/QfgqmbGHNPk/0/AftpkIc0JApwb2cKNyTpHYBvMSzCao6P
-	 oXW7r9gkfDQTOk7CHPl9t9OKRx3KZNh3Rdv5mWSX3FtBCwsFIQS8JY6f/bHb5oPi5SNyh
-	 mkydB1qHMTf/BF1+OZCHMaMoL2YKrYE17yBvmNsz6UgypMJ5TjiNSjK2+Ca+RIhXoJQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U19h06pE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795570502;
+	b=pnq4kMyCk7AS6s1hpR0dAt2TBPJQnO9i40SUyh6b185UyMBWnx7qN8lsFY93V+gDoyC0
+	 1+VRn1b1C9+CK8QCiFag4fB9VsCVU0PbBcAuoq0MhU4JcRMxuejx8F8z4FRsrcqQsIOKp
+	 C09w2bzD0cPsVw2KiOM6sY9j/K8ZUpSEtTTBlFfxdkTgOIweLshlDRG/6B9dU9XoR35iQ
+	 qy7BZUDUaaEGgUioWLcm1fAQuGyb0j2SSicGGgWdqtMRLx+JMOwj8SzCZB0kV1aZQ2Zj8
+	 4NbPBLTgJFjEEcqe1XR9mwOxeXRUvdUgUaBsyZP4ygFoTCi1GsJGpRzHq3ieGj8td1Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570502;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
+	b=CBiiBY/atPg7CxjaBEHkn6+Wx7eADLOxMS2xbfHKewOrtbygtVoJDhN2doho95khZVM8
+	 zXxC4fwKyE5HEEC3P2EJDi4Z9lDw1+7aRQLy7kwjji/AaORgpxUjRxJ7IP4Xm/plhAetN
+	 g7TRgxeDOhfW5LpsqBPv8B8sokLIoaN8QQLJMSROBqkSNSb1L5jO85XB/9fSLB5Q1crTV
+	 /ikBcq4KFV1pRBIOf0ADiWU4cwzHBN8b6wRPYXWYHj0MXWB6ZF4OJAIslctPHfWPxB8Xw
+	 QBsFxi+JkS+VlkVdFu4Z0IM5u8IEUoeVNiiF2E51HncWJfZc5Q64GxmlYGH2fm64B4w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010061.outbound.protection.outlook.com [52.101.201.61])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 016D0606A6B1;
-	Wed, 25 Nov 2026 01:35:00 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3228460A2604;
+	Wed, 25 Nov 2026 01:35:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3228460A2604
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=U19h06pE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A01B1F000C0;
-	Wed, 25 Nov 2026 01:34:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570500;
-	bh=ey/DdBZK0AxrIh+FVZDhFw46AU3tmy5ylGTvhSh6jPs=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=U19h06pEB0hVaqkSAAb8SaMRxbmgkb0uLm2pXBkMG1g7dr6gUjwg4QQGteXPOWAkh
-	 Iad/LhuFWhGIWi06fYRUGbblbaQIZykKW9I8AKMRa/1mtsduJQ8sKnMEW3dqn047Yq
-	 Drm1jAUDXvstPQw+P7tjU3y2zS35gtTsZGQhHxsdjy97np7GFquTelMsuiM27RwrJD
-	 t1A5W6JRsaC7VV5U4jCoxn8LNo5C3Bk085dVGod1bT1xOt5uRF4Ye2LO9aTBvlwleu
-	 iHQ4YvvM0gF52vaBZ2OmV+a0hvJ5XazEtZ28JrFDzbDGeOgHpJYVLdmVs8fq9A9wHC
-	 9rVV5vxekqXLw==
-Subject: Re: [PATCH v4] net: dsa: mt7530: enable the regulators in probe() and
- unwind on error
-From: netdev-bot+sashiko@kernel.org
-To: laixiangwu@cmss.chinamobile.com
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, sean.wang@mediatek.com, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, netdev-bot+sashiko@kernel.org, kuba@kernel.org
-Date: Wed, 25 Nov 2026 01:34:59 +0000
-Message-ID: <179557049962.3135.7449288288799250763@kernel.org>
-In-Reply-To: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
-References: <20261124013422.1408-1-laixiangwu@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=MVRFWp6ABlem/sDAk9bZrHihTI5+5z9krceBGD/r2EDeiqGD2/XjUx/PrVcSiU9p34M5UZjtWz1sVw++fCzkO5+uVs0+AQs0qeZJzogIkDJW3/i/pcOMIdlyCgyItvalRMcGCnc85NXExZZ80uXRFvyMA3FzXoLgJ0GWncaJLdEVk3XdbI7VYe/G9YT5pXxg0ULPnm74qBYFpX/LNAC/uxm2e20SQXxintNHc/TXCJWAyRTVZ5WS9nkmN2vV/AbEVY4mPq84ILb+zwfKSCeLYeWjrtXIzASqQe9cBGGQ5eYRRpEx89XSobApHCy6d+W7Oqi+AdRP2JZp5CVoNkXeFQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
+ b=bzWiokRKJAWi/r0X81/T00FkPs4tjZs5PQGQupMyBSCgaRgdiekT61rjaR6ZYHPvglc6ZvDPLx6/iQJn9+1QY0Wq44Qex0ad0dSUa+4sxCAJSLkqCB3pB9VPGgcMyQAHI5HrJ4ChpnPtZa6AghcB+v5FegPNINUOtFKJ5kO0SZ7TQD5fsCH/y1/PFp2XDL8Ju/NT/rnSfsiAB1ChtTWRiqcDBYZrXvEdasUXZh9rgTUzcMzw3wEGIfCZVY18qvL107sBnPmRfuB16bQkdZMmj0AdqHKeo+5Zz7H/lZgkKkohTJudqxN1kRjWnXOwO5kY0SHCQ5iB17Jf++PSmevQog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
+ b=PGSR2PTj+CH5V8cgLiyQd36k3hSuJyeWcRrZL3URZB63tmjMCFuc6SDK0iiNhZGEWeUuT4an/eu5SeeXlbP1TgRIXzhLXUHa8X5wQKhUbmdMAiQEymIH16KxdOOy/tlBGMEDH8aw4RwFrUYrROWlZ6Q1Mc7NtpCVEXBQDi3ZRzLDLQ+OwnbCoF2ejarIogldTQb5KDYfNomFpQ+2uXZj8S7u3lc9kseaRs+83stLr0MThR8jI8N64oasvTFcVhD6BYuAxIMyEVSbVN5pvlMp5hE/XDL38kexG4Ob8gT4fAIC4R20vD+iOWKLdDl5kd/DmujNaEaraTlZuHljMMOj1g==
+Received: from BL1PR13CA0196.namprd13.prod.outlook.com (2603:10b6:208:2be::21)
+ by PH7PR12MB7140.namprd12.prod.outlook.com (2603:10b6:510:200::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
+ 2026 01:34:51 +0000
+Received: from BL2PEPF000352D2.namprd02.prod.outlook.com
+ (2603:10b6:208:2be:cafe::6a) by BL1PR13CA0196.outlook.office365.com
+ (2603:10b6:208:2be::21) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 25
+ Nov 2026 01:34:51 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL2PEPF000352D2.mail.protection.outlook.com (10.167.254.9) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:51 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:32 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:32 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 17:34:28 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
+	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
+	<jianbol@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>
+Subject: [PATCH ipsec 3/4] xfrm: Wait for an RCU grace period before freeing device state
+Date: Wed, 25 Nov 2026 03:34:11 +0200
+Message-ID: <20261125013412.1123866-4-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
+In-Reply-To: <20261125013412.1123866-1-jianbol@nvidia.com>
+References: <20261125013412.1123866-1-jianbol@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,166 +118,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL2PEPF000352D2:EE_|PH7PR12MB7140:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|376014|7416014|22082099003|18002099003|56012099006|261026121527099003|11063799006|261028144727099003|261021121427099003|261026140227099003|261022105027099003|261021123027099003|261009223027099003|10067099003|261102123227099003;
+X-Microsoft-Antispam-Message-Info:
+	asMm/wblHMuTDuuqCKGzPcx8d656DSuI4Lv3rWPotmhASOS/CkSgS2AhHcDi0JgSASAA9loC+2KgfQMx5X4x7EK8aW6Bsy1jkhs5sMlsOqlwrR0bzxzXVPullE+IMYQ02IB5D5DmkRVhoVcQptNJBhWAWunuYDDcplh0BDC9GqKxRdOp/Kc53aotkZJLsWDTwQ3TyzyeV/iA9R9wquWytwFSCshRK1Jtm/wJbVzBwIckZK2Pf2lK3NGOMr9tdXkvs+cFCZVA8p40L/1zF2JvCsJlHX8836hEvYHyAd3UEpDvx/wG2JmtG1i43o1Ynj9Yw8MDcsOjchz/sJ5m57OvvbDkA5pEM2eoqpWWBJbdwxeMcL89gm8aAUZKqRBTfA0JL6h5ys59dygMFthAYKG07E1kaofiXYMRVe35bzZGVuQvn/Rg4UiI3TIx3er2Fq+EhCPx8mEl+juDiUFy1HOjr6rjnYr4WspC4m13HFx0PzR6dKmjOWH2YwIpscv2DtmvannXcJa8qz+cc7m93UD6S4UBP+t+m5XfIZJf9f1hebs7QD3rzdL/VnHTQswsn93LKTF0BxDv7HaV5e3uGHOAeHeTfjBcy6WVu6jVq2ZmeK4wBfrPq7NRheB3ANx2kYko6FNABztN5Tfy/iCqcgr722YdwzPrLFn5MeA23vpIBjWMUtRTcMghxWbQ4AijDg1DZimW27MsRQd8z47X3+rLNw==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(376014)(7416014)(22082099003)(18002099003)(56012099006)(261026121527099003)(11063799006)(261028144727099003)(261021121427099003)(261026140227099003)(261022105027099003)(261021123027099003)(261009223027099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	G/xosg3PdbrSlxUx2c16nuaeph1jrujJjbUfdIUDkz/AHQARNyZZoS/fQQe2j2Jtz69S3FifMvh/N1GpzSC9achfCHLbQI4LqAvV/kno0gpzGpUiInrs+cuWU7L+buT0dC4ekvPBo+VeA0O2585PyCLu1fqUDc0L028GOWsS0/+n3JJ4DTvbnFTf8nCfzz10kLsDlKDvrV14xSl8GtvAikkqopsh1TGbuCVhdlCtnO080YtdPXPjmt+y1libk6hNKSh28GvkDYi2wvZtn21otbnXdqM5XtibiBzMUURKurHnnQTNxrhv4fxByaGqEoGGVTYm1g40d+waX9hMyt4AUdYkaTtF9l6NdEprMdPU6FVpKFDGTyfeXMkwQ58Hg/CnfU8j2tTT/+HypS2n4o9cOYrCgIfJ7ZeW7dJqIQDeS/FcTOpYnMOHqeiw+1Zp5zt/
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:51.4134
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BL2PEPF000352D2.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7140
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+xfrm_dev_state_flush() can call xdo_dev_state_free() immediately after
+xdo_dev_state_delete(), without waiting for pre-existing RCU readers
+of the driver's SA state to complete.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+The normal state GC path waits for an RCU grace period before
+destroying the state, but the device flush path does not.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Remove the immediate xfrm_dev_state_free() following
+xfrm_state_delete(). The delete path queues the state on
+xfrm_state_dev_gc_list. The subsequent collection pass picks it up if
+a reference is left. If the flush dropped the last one, the state GC
+frees it after its own grace period and xfrm_flush_gc() waits for it.
 
-- [Medium] The commit message's safety argument for enabling the supplies
-  early in mt7530_probe() does not hold on the in-tree boards that run…
-- [Low] The new error labels in mt7530_probe()
-  (err_disable_powers/err_disable_core_pwr, lines 247-253) cut the core…
+Wait for one RCU grace period after collecting the states and before
+freeing them. This establishes the required
+xdo_dev_state_delete() -> synchronize_rcu() -> xdo_dev_state_free()
+ordering while using a single grace period for the whole flush.
 
---
+Fixes: 07b87f9eea0c ("xfrm: Fix unregister netdevice hang on hardware offload.")
+Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
+Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
+---
+ net/xfrm/xfrm_state.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
 
-net: dsa: mt7530: enable the regulators in probe() and unwind on error
-
-This moves the MT7530 core and io regulator enables from mt7530_setup()
-into mt7530_probe(). It also adds error labels that disable the supplies
-again if regmap init or dsa_register_switch() fails. The aim is to stop a
-failed or deferred probe from leaving the regulators enabled.
-
-Link: https://lore.kernel.org/r/20261123022415.433-1-laixiangwu@cmss.chinamobile.com
-
-> diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
-> index e85ef2aceee56..2de5e26edad61 100644
-> --- a/drivers/net/dsa/mt7530-mdio.c
-> +++ b/drivers/net/dsa/mt7530-mdio.c
-> @@ -209,18 +209,50 @@ mt7530_probe(struct mdio_device *mdiodev)
->  		priv->io_pwr = devm_regulator_get(&mdiodev->dev, "io");
->  		if (IS_ERR(priv->io_pwr))
->  			return PTR_ERR(priv->io_pwr);
-> +
-> +		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
-> +		ret = regulator_enable(priv->core_pwr);
-> +		if (ret < 0) {
-> +			dev_err(&mdiodev->dev,
-> +				"Failed to enable core power: %d\n", ret);
-> +			return ret;
-> +		}
-> +
-> +		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
-> +		ret = regulator_enable(priv->io_pwr);
-> +		if (ret < 0) {
-> +			dev_err(&mdiodev->dev,
-> +				"Failed to enable io pwr: %d\n", ret);
-> +			goto err_disable_core_pwr;
-> +		}
->  	}
-
-[Severity: Medium]
-Does the safety argument in the commit message hold when the switch is a
-multi-chip module? The commit message says:
-
-    the reset line has been asserted since it was acquired in
-    mt7530_probe() with GPIOD_OUT_LOW, so the rails come up while the
-    chip is held in reset
-
-When mediatek,mcm is set there is no reset GPIO. mt7530_probe() only gets
-a handle to the reset control, and getting the handle does not assert it:
-
-    if (priv->mcm) {
-        ...
-        priv->rstc = devm_reset_control_get(&mdiodev->dev, "mcm");
-
-The first assert happens in mt7530_setup(). That function only runs from
-dsa_register_switch() during tree setup:
-
-    if (priv->mcm) {
-        reset_control_assert(priv->rstc);
-        usleep_range(5000, 5100);
-        reset_control_deassert(priv->rstc);
-
-With this patch the switch is powered, out of reset and running on its
-power-on defaults from probe until mt7530_setup() runs. Before the patch,
-the reset pulse came right after the enables.
-
-The window now covers all of dsa_register_switch() up to setup. It
-repeats on every -EPROBE_DEFER retry. It can also last indefinitely when
-dsa_register_switch() returns 0 for a multi-switch tree that is not yet
-complete.
-
-Non-MCM boards without reset-gpios are affected the same way, because
-devm_gpiod_get_optional() returns NULL there.
-
-The list of affected boards also looks wrong:
-
-    The in-tree boards that wire these supplies (the MT7623 boards
-    mt7623n-bananapi-bpi-r2 and mt7623n-rfb-emmc via mt7623a.dtsi)
-
-mt7623n-bananapi-bpi-r2.dts and mt7623n-rfb-emmc.dts include mt7623n.dtsi,
-not mt7623a.dtsi. They set reset-gpios and the supplies inline.
-
-The boards that get mediatek,mcm plus core-supply and io-supply from
-mt7623a.dtsi are mt7623a-rfb-emmc.dts and mt7623a-rfb-nand.dts. Those are
-the boards where the chip is not held in reset while the rails come up.
-
-Could the commit message be corrected? Is the longer powered but
-unconfigured window on these boards intended?
-
->  
->  	rc.lock_arg = &priv->bus->mdio_lock;
-
-[ ... ]
-
-> -	return dsa_register_switch(priv->ds);
-> +	ret = dsa_register_switch(priv->ds);
-> +	if (ret)
-> +		goto err_disable_powers;
-> +
-> +	return 0;
-> +
-> +err_disable_powers:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->io_pwr);
-> +
-> +err_disable_core_pwr:
-> +	if (priv->id == ID_MT7530)
-> +		regulator_disable(priv->core_pwr);
-> +
-> +	return ret;
->  }
-
-[Severity: Low]
-Is this teardown order safe when dsa_register_switch() fails after
-mt753x_setup() has already run? Some ways this can happen:
-
-    - mt7530_setup_mdio() returns -EPROBE_DEFER after the IRQ chip was
-      added
-    - create_sgmii fails
-    - a later step in the DSA core fails
-
-In that case, devm resources created during setup are still registered
-on mdiodev->dev:
-
-    mt7530_setup_irq()
-        devm_regmap_add_irq_chip_fwnode(...)
-
-    mt7530_setup_mdio()
-        devm_of_mdiobus_register(dev, bus, mnp)
-
-mt753x_teardown() only cancels stats_work. The IRQ chip and the internal
-MDIO bus are therefore released by devres_release_all() after
-mt7530_probe() returns, which is after these labels have already cut the
-supplies.
-
-If the threaded regmap-irq handler runs in that window, it reads
-MT7530_SYS_INT_STS from an unpowered chip.
-
-mt7530_setup() has also already deasserted the reset with
-gpiod_set_value_cansleep(priv->reset, 1). Nothing reasserts it before
-power is removed here.
-
-Would it help to register the disables with devm right after the
-enables? The other option is to reassert reset and release the setup
-resources before disabling the supplies.
-
+diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
+index 8465ae064742..9883fb3545f8 100644
+--- a/net/xfrm/xfrm_state.c
++++ b/net/xfrm/xfrm_state.c
+@@ -1000,7 +1000,6 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ 				spin_unlock_bh(&net->xfrm.xfrm_state_lock);
+ 
+ 				err = xfrm_state_delete(x);
+-				xfrm_dev_state_free(x);
+ 
+ 				xfrm_audit_state_delete(x, err ? 0 : 1,
+ 							task_valid);
+@@ -1038,6 +1037,9 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ 	spin_unlock_bh(&xfrm_state_dev_gc_lock);
+ 	mutex_unlock(&xfrm_state_gc_mutex);
+ 
++	if (!hlist_empty(&flush_list))
++		synchronize_rcu();
++
+ 	hlist_for_each_entry_safe(x, tmp, &flush_list, gclist) {
+ 		hlist_del_init(&x->gclist);
+ 		xfrm_dev_state_free(x);
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124013422.1408-1-laixiangwu%40cmss.chinamobile.com
+2.39.3
+
