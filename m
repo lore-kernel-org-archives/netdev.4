@@ -1,107 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.78
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620926;
-	b=dE+cFwc65nYUTF1eqtqeoHxF2RyASwp3KVBf6X+jvmIEGY6uP8XjK4Zb7YRIAlzPj/kz
-	 mda/iirA5LsBNlyRvWl/9GJbcWz39h+IinItVmpIRAWkr0QIMPVJeO193hBAkq0r73hvF
-	 gtzoZyFYVzQQnZcfSolCUDkl4a1o06R1+CGxLCz7RDmubO/JEAakZiv+QAbQKFjJDYU7Q
-	 7SEOzpXkZPTcqsbiNW4a5ML/J5rT35XeANc+nceh7GSL4myxJnPH7kEpndGH15NobUYXH
-	 kFd6HdLP5sjir0Uw1zGkG9I8M8kTv124Eqk2SEDwwTFTe3hKHa2fLPosP88yv8MBYJQ==
+	t=1795620943;
+	b=hgYxjGWJs2CvFA9yVCO3HkntwCnNW1nwDaRkbI8k6hrne/1aF1qNLbgIJdPRUT1Jm9Y2
+	 R62zbRD9ikqwsC7knCOKQoNzFkBkDztbLuOaxc32pSPg+OdVqJ+kEljefpcZ2iAi+Wueh
+	 yriN8V6omcemFTKefBVRc5FEVf0/4Cwt/ANIPzU9pRYua4HV7kTnRZbX+mhA0yua22kNO
+	 c2LIJ8czzDhgvsQM3/L9BLzgE2CniujHwzzi7ok3OVmwQcjlprYDWwQYLkje9gZVTKh08
+	 DYZ8xCw6ARZn6QmJzU5dgHiQOFdWzBEB/azTBqntCc7RIyC//bzJFm5GLkMh37JiY8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620926;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=RaW8x3wy2dy9KRWxzMBJFya20NKzKWRFujyB0bIcDJk=;
-	b=XZSspJfCbsQIOkrcvH30+xA3UCmeJdoW49nhC1WLqh4mU9y/55n8BxeC98jFh/96Fj9p
-	 rgx3huHjdU3hnb5JswC6yFBNp3NdM4eHQU5+d5oCMiqMRe6+Qni8eZcbrT7vBh8PgV85d
-	 VWnGs05qW2hrQHiuemkG2aMN3LNE7QH1aD251biCYZNG9J12doHqaGoJqWojVoXpDnWtX
-	 DtcoE1XwCynIhTEjVxH4QJWOz6mrwDJWDTl5tHe0QyEAJqpFotJyZJFQOvcz/lHDNGenk
-	 m/kqqQoVlwvgLrofdcE/p3F1cWBK8SnoBwQcmmRCyrNv2X2x1d8wnpSwCYA2me6uHOA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620943;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
+	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
+	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:
+	 X-Outbound-Client-TLS:X-Outbound-SMTP-Client:X-Outbound-Node;
+	bh=HNEMSZJAc5ZY/I5OCWZFyMD+f72xZEg6/7MEZH6zPa8=;
+	b=DOAKbJTKUcXNlGob/znpWE95JOhQyj4eJd1180eZ3fK1X0IyQXQJjWT8LSb4HB3fsWhY
+	 cz4/K/p7UHxuV8IXAVPyHWATFt0D+XtWVQrb9zdHXdrTTTlzZteU8ro37D2R/GTis1sfC
+	 hhRwNNhn1KFF1kOoygJmE7xLNzRVSf8X3gZwT++odqQIrFqG8uBdTCljzjNHKgQQGuHQy
+	 i0gMW6XK5RlZRBUnix/MoDjIxqPDHOyhqEkwNmq+FNMMbApLc8sfoWQacb7jIoOB6il7h
+	 7O++85CcI3b2q6v9QplEN33DvApXxR3pAMVjsVXW1uUGV1ubWdLWO89aHoKHmM4HxRw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linbit.com;
-	spf=pass smtp.mailfrom=linbit.com;
-	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=rjIL0cbT;
-	arc=none smtp.remote-ip=209.85.128.43
-Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=cisco.com;
+	spf=pass smtp.mailfrom=cisco.com;
+	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b="WZ7/LCcy";
+	arc=none smtp.remote-ip=173.37.86.78
+Received: from rcdn-iport-7.cisco.com (rcdn-iport-7.cisco.com [173.37.86.78])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE579606A334
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:35:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DE579606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D20A606A335;
+	Wed, 25 Nov 2026 15:35:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D20A606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=rjIL0cbT
-Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb64ef5a14so60630695e9.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:35:24 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=WZ7/LCcy
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linbit.com; s=google; t=1795620923; x=1796225723; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RaW8x3wy2dy9KRWxzMBJFya20NKzKWRFujyB0bIcDJk=;
-        b=rjIL0cbT0oNZNA2goGo6xIOOUyHMaIJc3CCNC0cQ9u3F8Ll2tMJuAW03iB3ZwRv5eR
-         pkEIwRRc9XJrttGZTRAR/aadihv8X4HXW435F4AfkAppOFQf/Z6qg1zZfSSZeiLsC5gx
-         xsCeb1MVAXDrkPWqYH74GOtfIPa9DBsgGxuyn2oVIVh26jIv8Nbx/ecSKyjhSuJees+v
-         gBL9I/MLVZMs30lUZfDuEKMUQc4pzhnkZsjZZQbaZ+a9aIEAiq4idPMsBQeIwCu+HL3d
-         XlYiT1Qfv0Rtsx95kwkXSJ0qEYsEcFWtJAOKrHMT/uY0KPwKPWruO1wmUSektPsfEInw
-         Kcdw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795620923; x=1796225723;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RaW8x3wy2dy9KRWxzMBJFya20NKzKWRFujyB0bIcDJk=;
-        b=GZbbvIEQSJOcJW011z/EmjxCYwd5B1FBPljcdCJKFGxraAD/FmbRnbVdq4h7HH8Gua
-         V1Wx7/RWIc1WTQyE05lOWIb5qivmIWeuZ+dH0XpLOep+tTmkkVTr8vK1gwfWNhy+AACb
-         dLkU9vGsFGZg5GnkNsuDMgmHjvfLQJxyisKGQGbBPdqorjfyK1q243F7Ynx3fbV0B0iX
-         V5BNt/M7rKEF8l6YsVrYr9vtIHhlnTvV6Ie3vktho2uHGBOCW7iQqT8SgWTuw9vvqJlO
-         gcWBTqmcqmX4ZVZB2Mh1JUGkbILxPuiQr3mgTBLtaCff0CySvRCbCDDmm305PkBQOoTf
-         27FQ==
-X-Forwarded-Encrypted: i=1; AL+hErH9hH1/On6IwDcuMoerQTYBCeMcLRDH7ge3GY2x2HkLyqpjZS3tZEcvKeBb2kQH3MDwyfPj6YU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8WWVcle1u2VFvSQGW66R8g7mRSeabDZgdI+f7ycrvXscbIslGB
-	IPpqCZWcZpIQ3rML7/hU4orNdK9UABnrct8X79Y2fjVX2rg1ooiy8+N4yEni6H+p4Fc=
-X-Gm-Gg: AZFdTZebZGEy4SanRevs3X/CYI5N/Uy2sd1Nf0F/sqog86+ZlQdUnM7p18PwMsFTENR
-	v5hMF+ekIGvWRH0+NfdBz7lXfXPS3g5QFHgYgSualBfRbvVjdzvF7GDVXMUFhR5b51k3hFy6hAO
-	zCQ1f44uG8EUuv9KMfUz8MM41lMrzt7IHZV8+boDAY70dpD0JmhPNfBP+U3xk2PrjVdMTM/NZ5k
-	GP+jv40iX6OYJ1kDNQOwN68plnN5U+VP0q13bUynuZihZl7/xsJE7nySrzYb2+TyKb9wX/xJC/K
-	FWRXildNO1cHgTYSdD52sxiM6DDp8JumsPinguYII4xtquftaFVpe8VWHtM2bUvE58vycGk7lej
-	NM/RUZvBsIghnH7RPzviq7GyTim+zLSeCqC+VtDegMIc9Wxs3n0NMVQ7kGZ8AF2L1U92wRUSNVX
-	hUSmKR1XKVDzY1qgP2gFKhjcnDHIDEJ52AZ/SMLopMZU0GtZn9jYYG9tZSqIzrvn5LKBmW5hKrA
-	SQE9xdK6fRTgzdxxQ7rV/k449LJI6cZ0UM9LcfO3QHCSXNcqjwZuOhBJFi+lzQiLeU+A1hX34b6
-	1RvHlSuUXE5MZw9ZKdD2wddy4Hac0EDCl6HXdOAi9YID9mp7Cm1AAdlLz3eUEO/czOrEApAYQ6P
-	kfzRqC74T3odrXf3UAWw=
-X-Received: by 2002:a05:600c:3b8c:b0:4b7:6c16:7b43 with SMTP id 5b1f17b1804b1-4bb8881d019mr364067455e9.10.1795620922993;
-        Wed, 25 Nov 2026 07:35:22 -0800 (PST)
-Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm35816275f8f.3.2026.11.25.07.35.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:35:22 -0800 (PST)
-From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
-To: Jens Axboe <axboe@kernel.dk>
-Cc: drbd-dev@lists.linux.dev,
-	linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Philipp Reisner <philipp.reisner@linbit.com>,
-	Lars Ellenberg <lars.ellenberg@linbit.com>,
-	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>,
-	Chuck Lever <cel@kernel.org>,
-	kernel-tls-handshake@lists.linux.dev,
+  d=cisco.com; i=@cisco.com; l=174; q=dns/txt;
+  s=iport01; t=1795620942; x=1796830542;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=HNEMSZJAc5ZY/I5OCWZFyMD+f72xZEg6/7MEZH6zPa8=;
+  b=WZ7/LCcywGG1q/irSKPfjK7MwDbya8TbvQh4WlBHfU3WOkAB0RYGf1yJ
+   3A3uMRboDk8QQtx4kf1JhMCNwOs72/lPhA810Yu8HHqo6Pp0gGLIpvLy+
+   pobhsbv8lgPt5yBHEVD/7SXM7JQeub6QTVoS+UoI9wIOFtRT/8CsqKMTF
+   yNdr4ZtQYU261c+Ga8U1IXyphoO0gTdes79c1RhhREe9ueqEpQTpmbFbS
+   F6TZQdNYLvbY+qgpzmZg7zKZd6A08JBNvLtjtvazYMYKcevvwzM/foUH/
+   LKWdaIQY1rZbuOpwR3jfcOrrBSu6CANWRN8pKnv4mq3+wU7Cef2HHqZWi
+   w==;
+X-CSE-ConnectionGUID: d7a10+XlQzCDn42VvBL0zw==
+X-CSE-MsgGUID: VInHqL63QpKsLcfRbT7Aig==
+X-IPAS-Result: =?us-ascii?q?A0AaBADL/wZr/47/Ja1aglmELEO1QIF+DwEBAQ9RBAEBh?=
+ =?us-ascii?q?HsBCQKOIgImNQgOAQIEAwIDAQEBAQEBAQEBAQEBCgEBBQEBAQIBBwWBDhOGX?=
+ =?us-ascii?q?JATAgEDMgFGEAtGVgYBgxSCdQO4VoIsgQHeSYF0FYE4hXSHc3YbhGMnG4FJR?=
+ =?us-ascii?q?IEVgnsxPosJBIIigQyZBEgKgRQDWSwBVRMNCgsHBYElEDMDIAoLEhIYFQIUD?=
+ =?us-ascii?q?RASDwQWBS0dcAwnEikXEXYbBgUSICpAQzArgRKBA12BKyhdAQIfRi0VgXUCg?=
+ =?us-ascii?q?lGBI10CAUlBDgdFUwklQxJHJCIIEgkBExosCoEaNTwJJj8VDFsMCAMaBRomA?=
+ =?us-ascii?q?h8IAgsCDHQoERATHRwkLwUZJjwbCoEMJx0eGQ4CKQYWIQs0GA1IESw3Bg8ZB?=
+ =?us-ascii?q?D5uB5Y8giaBOjQrpg6hEYQrgWifdhozg3EBEo0UmVuZCCOkOYRqgWoCOCuBL?=
+ =?us-ascii?q?jMaCBsVgyNSGQ+hYQG/HSZvAQEHAgcOAwuBaJF+AQE?=
+IronPort-Data: A9a23:1l+pAqnMp4OfWTLGb5q3bATo5gxTJ0RdPkR7XQ2eYbSJt1+Wr1Gzt
+ xIaWDuFPfyKamH8edgiO4y190sP7JKAxtZmHVNtrCBkH1tH+JHPbTi7wugcHM8zwunrFh8PA
+ xA2M4GYRCwMZiaC4Errav6x9yQUOZigHtLUEPTDNj16WThqQSIgjQMLs+Mii+aEu/Dha++2k
+ Y20+ZK31GONgWYubDtNsf/b8nuDgdyr0N8mlg1mDRx0lAe2e0k9VPo3Oay3Jn3kdYhYdsbSb
+ /rD1ryw4lTC9B4rDN6/+p6jGqHdauePVeQmoiM+t5mK2nCulARrukoIHKZ0hXNsttm8t4sZJ
+ OOhGnCHYVxB0qXkwIzxWvTDes10FfUuFLTveRBTvSEPpqHLWyOE/hlgMK05FYFH878vQlFKz
+ O4zBDZRNC6drcbu0q3uH4GAhux7RCXqFJkUtnclyXTSCuwrBMieBa7L/tRfmjw3g6iiH96HO
+ JFfMmUpNkmdJUQTYD/7C7pm9AusrmL2bzxDqFGVjaE2+GPUigd21dABNfKIJ4TSGZQJzhzwS
+ mTuwUX/Igg+aoem0Rme1nmivOXzwgr6V9dHfFG/3rsw6LGJ/UQfAQMbUHO3qOe0j0q5Vc4ZL
+ UEIkgIjobU3/V6mUvH+Uge+rXrCuQQTM/JQFPc/8ymOx7DS7gLfAXILJhZCddYvnMw7Xzon0
+ hmOhdyBLTVpvKeYVjGb+6uYoC2aPTUTKykJZUcsVQIP7t/iiJs+ghLGUpBoF6vdptn0Hyzgh
+ jOHti4zg50NgsMRkaa251bKh3SrvJehZgg4+gnaQEq74Q5jIo2ofYql7R7c9/koEWqCZkOKs
+ H5Bn42V6/oDSMnQ0ieMW+4KWrqu4p5pLQHhvLKmJLF5nxzFxpJpVdk4DO1WTKuxDvs5RA==
+IronPort-HdrOrdr: A9a23:y9cNo6DdsNkfmVblHemM55DYdb4zR+YMi2TDGXocdfUzSL39qy
+ nAppomPHPP4gr5HUtQ+uxoW5PwJE80l6QV3WB5B97LNzUO+lHYTr2KhrGM/9SPIUDDH5ZmtZ
+ tIQuxZFMD6C0R8gILR5Qm1FMtl/fy8mZrY4ts3CxxWPHhXg2YK1XYeNjqm
+X-Talos-CUID: =?us-ascii?q?9a23=3AvdiVW2q0FCQGM6fMVtk0s0jmUcx6eySFj0fUGl2?=
+ =?us-ascii?q?TJWA1EoOLY3vI6rwxxg=3D=3D?=
+X-Talos-MUID: =?us-ascii?q?9a23=3A+Y5W7w/xxv4B7wCPFmmnGcCQf/lJ5YS3LB5WqI0?=
+ =?us-ascii?q?loO2POxZ6B2i0jTviFw=3D=3D?=
+X-IronPort-Anti-Spam-Filtered: true
+X-IronPort-AV: E=Sophos;i="6.27,233,1787011200"; 
+   d="scan'208";a="550049482"
+Received: from rcdn-l-core-05.cisco.com ([173.37.255.142])
+  by rcdn-iport-7.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 25 Nov 2026 15:35:35 +0000
+Received: from satishkh-l-mj0bbv6x.cisco.com (unknown [10.25.129.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by rcdn-l-core-05.cisco.com (Postfix) with ESMTPS id BC97518000201;
+	Wed, 25 Nov 2026 15:35:34 +0000 (GMT)
+From: Satish Kharat <satishkh@cisco.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org
-Subject: [PATCH v4 06/21] net/handshake: allow the DRBD TCP transport to enable NET_HANDSHAKE
-Date: Wed, 25 Nov 2026 16:34:56 +0100
-Message-ID: <20261125153511.3060599-7-christoph.boehmwalder@linbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
-References: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
+	Simon Horman <horms@kernel.org>
+Cc: Satish Kharat <satishkh@cisco.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Sesidhar Baddela <sebaddel@cisco.com>,
+	Aravind Dhanasekaran <aradhana@cisco.com>,
+	Reese Faucette <rfaucett@cisco.com>
+Subject: Re: [PATCH net-next v3 0/6] enic: add V2 VF receive control over MBOX
+Date: Wed, 25 Nov 2026 07:35:26 -0800
+Message-ID: <20261125153530.1716749-1-satishkh@cisco.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
+References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,36 +119,15 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_SHA384;256
+X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
+X-Outbound-Node: rcdn-l-core-05.cisco.com
 
-NET_HANDSHAKE is available only to the subsystems it lists: the SUNRPC
-client and the NVMe/TCP host and target. The DRBD TCP transport uses
-the handshake API for TLS-encrypted replication in the same way as
-NVMe/TCP: its BLK_DEV_DRBD_TCP_TLS option selects NET_HANDSHAKE.
+Hi,
 
-Add BLK_DEV_DRBD_TCP to the list, as NVME_TCP is there for
-NVME_TCP_TLS. Otherwise that select would enable NET_HANDSHAKE with
-an unmet dependency.
+Please hold off on applying this v3 series - I'm working on a v4 that will
+address some of the AI review (Sashiko) comments, and post it shortly.
 
-Signed-off-by: Christoph Böhmwalder <christoph.boehmwalder@linbit.com>
----
- net/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/Kconfig b/net/Kconfig
-index 76ab44aa439a..db53f7474b7f 100644
---- a/net/Kconfig
-+++ b/net/Kconfig
-@@ -92,7 +92,7 @@ source "net/xdp/Kconfig"
- 
- config NET_HANDSHAKE
- 	bool
--	depends on SUNRPC || NVME_TARGET_TCP || NVME_TCP
-+	depends on SUNRPC || NVME_TARGET_TCP || NVME_TCP || BLK_DEV_DRBD_TCP
- 	default y
- 
- config NET_HANDSHAKE_KUNIT_TEST
--- 
-2.56.0
-
+Thanks,
+Satish
