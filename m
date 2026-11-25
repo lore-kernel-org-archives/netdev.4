@@ -1,65 +1,91 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615793;
-	b=GftX91jR455GUvGDDm9EZFlrVHRqNtUUFDK0Zrt5nnpAsUKE0VMJvbFvelvE54+wdi6k
-	 4fHikrG7t/fSzeBPDebuZLKSHZtDga5wkxvfw7n3d/qQU7ELI7Hs/Usq055OOcIY3Tf5R
-	 YYDCtb8i1DN77oIQ7KxkcldikFrL33wA1jvfOiu/JKz0kxpSweFucII9j7LVv+eWXJZ14
-	 9kPj0J0Y2GfupJDIomjrgxJiykC8VUwHC9I90oLBKbf5fuOFqB/2mMubs/4KpdfIVCopM
-	 rxx9d6JzNVeMkBebwxT9z69ETK5cFjLuY1HXKNyESDqAeGCFURGQGz0JQ5+C5CZo54g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615793;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=MEDiE0EtY6Ww+VSau1jpIn77kDb/DjLU14yNGzDHLWU=;
-	b=uelUOCzGmv6SFOGA91L18Fma7iP2I+tFqCbT28PTtyzqxNpg7Z0ocWBU/p/0UWJ9Zhfs
-	 tIlF0ZyhZ8z2AzdmS2oKyxV7jXLcBURC0A41B8nVW8pheZ1XAZoyhCCo1I2yWCYha/xQN
-	 0uuoXmc4maDE14Xh7DCy+D5RUFuPt7aZ46P97au+rgVcWJ/oTuQtLaqq2K8gp0VuPNMTn
-	 /jk2TU3rp0cm7uwqbKVSJXXaF1O7A5ynGkk84JhbRTw/ai3yy8xyCq4ar2sqd2dXFR880
-	 UTBr1pGiukTf1bEC5pDN+zFFiHihczrCbHkH7hBDz5Pd6Unzv7fx/1h0jXi/iCH7wYA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=kN2n7W4y;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795615882;
+	b=q2PqwMUNZLD/HSnLioue2Xrn3+GixzR6VDByJMLTgtBh2MotIRHWW8JLrCcd4hiODv1F
+	 9BCBU3CmqlkOmVfQ2VrygoJGGhIF6zh/4ip3dKJhd+bID8jPrJPWFVPfGpylHi4GiLuuF
+	 esYlwqSuz1ZO/EEQXIaIZvfb+RjuJWWRg5p1ZLDZq0JeSbJvire1mMJiKzidiNLCpKWYl
+	 mn9eTRf8uWvETQ/Iz1BcIVJtYFLU1SVRZO+yVkW1hHN3O8StufqtDdMesi0fwK/n/1Qci
+	 G01upeArGiQZ3UIq3Escho/UJZfIlmMuq6iEcUv82TdjApsb4R3WOb1uqUtpKYtbMYA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615882;
+	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
+	b=M8g7tvK4zZQY0w78qBgOJlmEimJwaMh6cqwubWe+NxjqpVzJxKpRA8RMvk3np0PbDMtv
+	 YfU14FK3wHF5hktquhOocsZmcuH5AU3FAoJ1j+Xbl9p3UIQyv5Q0NcEPI5EB9A0r6c98o
+	 Hp7baJtMyZxQZ+yjcEvXn8UZfSctK4mxMeIj2/5vLxEDHalWr4skg3ImbwJt8tku9HTn7
+	 7rYcJxkVwInxcPCaznl2v38s5mvPwC6tU8lksFcpyTASZe+3ADtjsgW4wD+OHTU4oBv4l
+	 dVQ1SBVSzUFD61D/pl3RVSdeDjaqCQ4RlzCM/LqeYJ5w6c6cpnTA+EFgzvXSucRSTEQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=hartkopp.net;
+	spf=fail smtp.mailfrom=hartkopp.net;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GCxszM0i;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=lUEVA81y;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
+Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07D7E606A337;
-	Wed, 25 Nov 2026 14:09:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07D7E606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC31606A68E;
+	Wed, 25 Nov 2026 14:11:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC31606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=kN2n7W4y
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=MEDiE0EtY6Ww+VSau1jpIn77kDb/DjLU14yNGzDHLWU=; b=kN2n7W4y0544Knr65YDO/WCCDs
-	C6DoCtCMNfqYiB+3Jq3vxcCoLa2ubFOo4FvUGaU75DyfEfiLPr6jGlrhJ50B0QTAM/SaWZ6wKPRJt
-	OJxLth2pYKn0eREVHF0v9f3WSI+jyb5Xt4Xex4B5cVRFinpxwNX8s+K4qb13D2WedYm8=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWDgq-001KcA-3s; Wed, 25 Nov 2026 15:09:40 +0100
-Date: Wed, 25 Nov 2026 15:09:40 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Artem Shimko <a.shimko.dev@gmail.com>
-Cc: hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	maxime.chevallier@bootlin.com, pavel@ucw.cz,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-leds@vger.kernel.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next v5 3/3] net: phy: dap8211r: add PHY LED control
- support
-Message-ID: <2a0b5242-ff8a-4612-95a6-da008ee6f22f@lunn.ch>
-References: <20261124094914.2993988-1-a.shimko.dev@gmail.com>
- <20261124094914.2993988-4-a.shimko.dev@gmail.com>
- <977f8fec-4cae-4003-b878-a7eb5aeee48c@lunn.ch>
- <CAOPX746TNm7m6d6G-WyUzDptEVRJR0AuUzKa_Hg=P7s8CchhHw@mail.gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GCxszM0i;
+	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=lUEVA81y
+ARC-Seal: i=1; a=rsa-sha256; t=1795615875; cv=none;
+    d=strato.com; s=strato-dkim-0002;
+    b=YPqfqNPwHdchRqWNLp9+np4h6olf22ag6CwhHpy/AthGQ5NeHsy5uJ8jqR72G0SGxN
+    47/jAyTuvgYPws2x8+QRWpuLivI5ntFjgQxGcA+6ud/sj8JxBN+nyJew66DNJWtlrMGh
+    8ZmmQKKPUfJvbzNEJMsMLIroQb8Ft+/oum7k/1BSCX54i1ZSYdHXlPiiIXMLJedjSuIu
+    deQfsL/D1R66mz7+V4m5vpPXztp9p0fOnYMPiwjZFseluXNUSWTVnbpwdsiMDmebtQH2
+    UBRm0RJvJOSd0e9lAeTY6hi4p1RxXfzfH3z8jptgqrEBoGzlAuQJqyQgWbvlZBCDkRTx
+    u6Ng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795615875;
+    s=strato-dkim-0002; d=strato.com;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
+    b=k5bImQBDtMRhcxV56Fb4yq0nvg81HoQKQicDW5Z2pmGE5WBoAuPqP16j6VFyXyZzug
+    F9iivtd+NuRoMAdo3RToe2ZdOI1NjOP3OtqHn31y5Td6G/0CVo2TaIdBOi5HMjtsTSgA
+    QwuFZXEMvZK1i4gmK5ewSQGQDQO0DHYRnUThhZhHM/UPnWsyJZWkD596FXnBpsSx+B80
+    IpIvHItU4MW56uA+lGHI471e9I1uCtVsndLcbENOlp6h9hUrWyiwWafijKfO2v3BvwNK
+    KQHq7tzIAlNSpqx637h4XKLCNJ64Z65MdtORv1Al2tZl+b39ow6Kst8b1HDl15YiT5if
+    iR9g==
+ARC-Authentication-Results: i=1; strato.com;
+    arc=none;
+    dkim=none
+X-RZG-CLASS-ID: mo01
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795615875;
+    s=strato-dkim-0002; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
+    b=GCxszM0iLix2Oe+mwPU5REdaBKH3DRz8gRYa+bSF0iSBK1GLkBomQKRp/x7yGCpqqv
+    EwNnq1Sc3jxkthORQDsWIh43dmqF6O5vX3CMhRo0d4bF9i69FnPrnabVfo2VhV5Vg+oH
+    nTRiOTOrVPqhofozhrM2H0ugJvvAk7VhaFoKLdy5QteJmz908JP9ROt5U55VUDyXoynX
+    QlvwJt+VLcFNb0UlVIMO3QjGLZKysTe1zgwyWSHeMVG2fKTWVWpyF3tG5xFMbB3Sr9+t
+    pgXHHbAhhFvC/YElSfnehvEyVEnFRdf2+Q4UVOScfwAskNc5X89qlwlxHJIgPtADxRUl
+    T3rQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795615875;
+    s=strato-dkim-0003; d=hartkopp.net;
+    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
+    From:Subject:Sender;
+    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
+    b=lUEVA81yFhsxoGeZbImLI7VMKzcSOpi4CRGmgLDp066QMrpBQaz3VerzLOYEEoDjU3
+    puheeCGvKEbJBEuyl4Cw==
+X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tRkI16oOSW1Ti/f4Kp38="
+Received: from [192.168.20.237]
+    by smtp.strato.de (RZmta 55.6.3 SBL|AUTH)
+    with ESMTPSA id Kfdf2a2APEBDnDG
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
+	(Client did not present a certificate);
+    Wed, 25 Nov 2026 15:11:13 +0100 (CET)
+Message-ID: <a582ed1d-67c6-461e-b82d-4fa13f31888d@hartkopp.net>
+Date: Wed, 25 Nov 2026 15:11:08 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,20 +95,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAOPX746TNm7m6d6G-WyUzDptEVRJR0AuUzKa_Hg=P7s8CchhHw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 01/12] can: bcm: copy the CAN frames outside of
+ lock_sock()
+To: Marc Kleine-Budde <mkl@pengutronix.de>, netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ linux-can@vger.kernel.org, kernel@pengutronix.de, stable@vger.kernel.org
+References: <20261124085757.1093632-1-mkl@pengutronix.de>
+ <20261124085757.1093632-2-mkl@pengutronix.de>
+ <179551104023.3294.3966794215800671203@kernel.org>
+ <20261125-lavender-pig-of-imagination-fe91b5-mkl@pengutronix.de>
+Content-Language: en-US
+From: Oliver Hartkopp <socketcan@hartkopp.net>
+In-Reply-To: <20261125-lavender-pig-of-imagination-fe91b5-mkl@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-> May i keep your Reviewed-by tag on
-> v6, given that this is a small, targeted fix?
 
-Yes.
 
-I have somewhat changed how i do reviews now that we also have LLM
-reviews. I look more at the architecture, is the general solution
-correct, and a bit at coding style etc. Your patch has passed my
-criteria for that, and it is unlikely you are going to mess that up
-fixing an LLM report.
+On 25.11.26 15:01, Marc Kleine-Budde wrote:
+> On 24.11.2026 09:04:00, netdev-bot+sinfo@kernel.org wrote:
+>> This is an automated message. This series looks like a fix, but its
+>> commit messages seem to be missing some information:
+>>
+>>   - How the issue was discovered, e.g. hit in production, hit during
+>>     development, syzbot report, manual code inspection, LLM or static
+>>     analysis tool scan.
+> 
+> The issues in the CAN protocols BCM, RAW and ISOTP fixed in patches
+> #1...#7 were found by LLM review. They can lead to block the RTNL by an
+> unprivileged user, but have not been observed in the wild.
 
-       Andrew
+Just a nitpick: We had no user feedback on those now solved RTNL lags.
+But to check the implementations of these patches, some locking stress 
+tests were created that proved we had a problem here.
+
+Best regards,
+Oliver
+
+> 
+> Patch #8 fixes problem with configuration of certain classes of older
+> CAN-FD hardware, found by LLM, not observed in the wild.
+> 
+> Patches #9...10 fix problems with the netlink attribute sizing, found by
+> LLM, not observed in the wild.
+> 
+> Patch #11 fixes a information leak of up to 8 bytes of kernel memory to
+> out USB URBs, found by LLM.
+> 
+> Patch #12 fixes a probe failure on of a driver on m68k/coldfire, found
+> by human review, not observed in the wild.
+> 
+>>   - Whether the issue was actually triggered, or is only theoretical
+>>     (e.g. found by LLM and not proven at runtime). If it was triggered
+>>     please include the symptoms, like the stack trace or kernel messages.
+>>
+>> Please do not repost the series just to address the above. Instead,
+>> reply to this email with the missing information, so that reviewers
+>> can take it into account.
+>>
+>> *IMPORTANT*: If you do repost (for other reasons) - please include
+>> the relevant info in the cover letter or commit messages.
+> 
+> regards,
+> Marc
+> 
 
