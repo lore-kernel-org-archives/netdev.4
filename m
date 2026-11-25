@@ -1,153 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634657;
-	b=xYazT3guuQrC4oq7UmWYLvJX1pI+FPra8Bmysqon7Ul4hfHNgb1ZPZEcdIby4ItDLrRl
-	 FkAUST3crWskBlIw4uFDd4qnLtZegx9aA1ENqZWvDoedzQLKa/RIyHSc8f1vcMhPTUa/D
-	 3eWo44g6s/QOF4sIKjJ4MYILUQ31XRAenMnXbS+tOUBjPABQQQ+baqqTXHuVKk7Ck39/Q
-	 ahLnXiklSLymelNXJDMRlXFLfZCkixven7xPaNeeQLkVInJRJ1JU0E6nRKyG89szOdeH4
-	 Y/OmzmCQyse4XJ+UCNSjD4OwQvNXQOYSW96oufU3p9W3GTFEyO4tUYRmqXDIbK6q0rw==
+	t=1795634736;
+	b=RyljMavKGJ9zwNRnXXOIFBt6L8jrcFvceB2H7Rhn2z7IB46NCt0YVsn7ixG6g0LJ793/
+	 JpjvtI6oYFOHifR0lx4yhUpkrg/u6QsR0h+C9zLLAzxmb0DB6FmH3965lHChaYBlyXec2
+	 4ve132Z1EjU9/H5/OzrQdgxhNm0+VldP+EWLwrt4gQkpkle2PSiK02HsWPshu+sNUXIRH
+	 6BYhr1BxqcTatSuMQA4EWQZsg+ezhma/HDRbJ+GdYYnWkM+7RFW/ZzhrVdJhdi6Z9FdAS
+	 HmzLiicM6gIyJz7gxBQvT7jXraykQwbblQ7FoI2ssM+/5W0paNi3LzWJNBSwf8rg9zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634657;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
-	b=KjbFLN//Pa87bwDPOKfszTZ40B6tWojqTSxgqZD8P0F6S7+lI776r4O/tLDmRMu4+isD
-	 OL57VItUg6XJyZJlrpIpOtfKyMZEKfnbLdIPA12jU/So9PRq/Vr+cesj1ZPLu8e/8P2wj
-	 Lvt2Lyk2vRTDZ73Q431u4hIg2xrwVYOjYqi6CiNmgeyjdxhmWvGonKFxTVZiH68EesY+D
-	 NfOMNO420dAAy/cU+oTDzSQ/23ag8vcwiDxy644/jm3H4C3Kwari2WLmx1Hm5WBldGmlf
-	 2EN5Vs8UrHAv0eT3UNfsb51VyVmUMIvs4fVdDTaC/h/KxwpcvLekKrHk5vcf+SLKvpw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634736;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Gm-Message-State:X-Gm-Gg:
+	 X-Received:X-Received:Received:From:To:Cc:Subject:Date:Message-Id:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+	b=MhZKQ94gqJZV321TjzlnqE4sxctbLHfOyH8Ye/W9A4N/FDXZ4Jvua2RUJOI2ZVKeFIYk
+	 DlDXBrMxNNOdVMgWiX73Kfrb50OB4aVKWvy4Z9tWHZRh9ICMl3+YjyX64mD/AsFIE9HfW
+	 dXd8MBcKGpUYU6wrgnHqA/Orgi+Nld3oARjPFzeM2ziwXMgKzPv5fHnQ800oBxvGA4dSS
+	 bzZYQ4xSHoq+SO8USozcv6CbP5chQlZkijOxq5j8HMINdsEznqcZbH17lg2WPGiD5cSCx
+	 85q5kPUj7xaJBhEKcPNqJBCLxFpZvZrKpgQoNd+VCSl9GmG52VqyYWtj2/PJ7JO1mRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oCGp0YcP;
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Leh8WXRt;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=i38nKeuC;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C88606A685
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:24:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C88606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C77C4606A32E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:25:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C77C4606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oCGp0YcP
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so3290963b3a.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:24:16 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=Leh8WXRt;
+	dkim=pass (2048-bit key, unprotected) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=i38nKeuC
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APJAwOc3593868
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:25:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPR
+	rRtBfFBA=; b=Leh8WXRt5l7hIe7RtKjlc5O4uK+nTw3iOGPprVdaxO9Wigx3D/j
+	yseENXSby6OKQIaWjOibcQI4z6ZjpdRZ7tFGzg33to60FU6kTUT8z3afSAgYeWjI
+	5FhrOLjTDxITtVOUIsKra7Msfm52YhkkD6Xt/nvqJg1mtroD4J3sNMWJ2jUmbXDJ
+	mHsuaEIdJpr5aXCQCWV8Y2rv/qNGTAHeAokCP189kMSKNkmPlY3yWQaMVPzzcqOV
+	SDqPwLCepzTVBQujZPAe8worS+Q6CW7b2d5FR3WJceX+47miYTFXBzwYvCuCKdiv
+	ePFT52KlwU9/XN39stnSQVwMP2YfpgzR02Q==
+Received: from mail-oi1-f200.google.com (mail-oi1-f200.google.com [209.85.167.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5nu6c5f2-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:25:34 +0000 (GMT)
+Received: by mail-oi1-f200.google.com with SMTP id 5614622812f47-4fb73e868aaso6519690b6e.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:25:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795634656; x=1796239456; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
-        b=oCGp0YcPvUHi0mkvNJzYjDzOqfg0gHs6ETaxOw6iHkwvvSF4tYjvsaGjV95aPOdQou
-         dmAQRQLqlhN3jiNznQ2pOjzWEW/G2t/wbqDp6HuYWHKE0XMdFq9FvURpTwt3LZNjNOiI
-         XwXkQTulincExFaiUQD3ExWzaLJgh5f90EbERJvf+q5dn2l8/In7F6eLtSCHApz045QY
-         AGa84JuoW96MF2RwV40xmLUxu2P+/+qEsF28w8+r12XoJqwGJeCssnVaJxVXWHGiUXGn
-         ECyAOK186fme41Oi47Fv+x2wiNPNPpqw/d4+KhlG9F3LQdPCn4i+tof3zaLzJI7SrBz8
-         moaw==
+        d=oss.qualcomm.com; s=google; t=1795634734; x=1796239534; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+        b=i38nKeuCZvZrS9PstHZLOonhmz9vURpO0ke/tlEc6M0mjXwYns0r/eV4+Ihlf67xjb
+         z4QtwlYLBk6IRg57erg/PErNC9b1/wUQ0N75T/5ARJF9ENiINwZBLlC3qa7q0dWlq23f
+         oqiQZedevnvZrErfmj92whzucU2DBb+nh9tXWxnZSOfChp7egrHyRytAfie+WoydcFsk
+         LhkKVK9St39xWUbfpE54ljHFfnQaHpOhkvd+xe59HPOgr74Txc6zNFY16BlwSR0Nubx3
+         GXHDHk+tw/jSMR6FiOdaMwRr6T+wm8KGsyTdCReTZGlYzlI5dX6MXh0bsqV1fVwVZbSO
+         riBg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795634656; x=1796239456;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
-        b=wEZYk//0SyuRTHEXlKSZHVEt/kLh84EXJ1ELItPcIWSzKXQLBnhKwPP1fW12qxBfwd
-         59m+yfu2GAKwbdFeaCEPNZbTVCzuqyeqz8RHyT0NFQQtqaaeVrjPsOGkmo/VaFScROKr
-         PKzF5ykC/vnVmv5bYcWuSZf8DvX+aTpxcw9KCu+e+Y9G8z84JvwzOAaykCb7N0ONsWmJ
-         nfn1dkS48RV2foOay90cMfdnUBoucavFdLV7FJ1mtTEmjPutRRC6WLL5gcVkCVvX00aY
-         f/1pa54QyXOaXkw/XveYjatQ9ufa/6Bng2l5YYeOVAJ5hYXJ9pLRPCur0DK6qG3q9dVM
-         0pSg==
-X-Forwarded-Encrypted: i=1; AL+hErGhcWv5KmcYDkjTelbvP4k32dHvCJVzcN8Obe5ZOibqFtWAtxjMTSkjhGgQt6gs7TDg0hzj0EI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9E8Rf1YAsCNxYMOc4bML1dmgwDACa4qDs7bTD6dQdq1siRZhqy
-	3cdwVQ4L3J4nZ+zDFmFBA1gfhL7Yp6a6pOKfu5/5+Mv2MvfSeD5mRtjlbtNSuQJW6Q==
-X-Gm-Gg: AZFdTZc7xKy9cyBtJL83evw/m7Z7kH2xc1wzq++uBv1JKgmYfu4tN+eRbVWnE9MOISD
-	IYF238WQPDU+UifWp/EGqHLbQBYV0sYcX8HBRynq2CX22o9AOHEUMJOdj9cgKOeFz6NtVhRY+TT
-	DiQ3DJHBV3Cy7yMUaXCO8okTS8rLTq43VeddQ6Djqbuv+KRstvCT0lEKetnLY1CnRmRl3eEIEsC
-	iUTF/zBWEtIce4sUiPljIRd/s3XBaST5AbBgLnsKyJQU4MLT/iyaE88Lf7WAOWmTW7GWUUEfD8D
-	h30lcwduh3z7zIvd5UW21v22eDWdga4f3gZVNJzrNNwaxIJBJpKwSevCtOAwC1XoG+ZUHHHZU5Y
-	ygDNPNuCORCS0rirBCwSiBXNSL2Y0z8/fjybDSmWPVehH4qpVOMKsK0JUZW14GTlPO7VR7GqWWQ
-	zpPVZ352N7n0pZX1SbiaiERrEW/taUcaMnw4naMnRFW1Y2VUuvYwj7LCeFoJEXFpqH+Mr874AJb
-	txSggosf7CewV9yXdr2iiYpjvIE99vvKW0DHlOqE3UcsgJrk58up/TvC7Js8LtJ4QJmZxSoDk2s
-	U2Gb3R9ttq35BhyMGVoBHKpKj1Q/vX0+X+MBQfcaCLSfd66DA4KkD8tirBXfdEpXOKDFpke6Ega
-	5Hmrjm9kQIpVY4KAOQ3WxlhgKN6NTtK6VhXnvspUEp649O0yVJ/ksy4F9iKRGKmfx8ZtxjEfVyR
-	6sBxfMBkN2MQ==
-X-Received: by 2002:a05:6a00:a908:b0:886:773d:a6a with SMTP id d2e1a72fcca58-8c87c199463mr15925448b3a.28.1795634654761;
-        Wed, 25 Nov 2026 11:24:14 -0800 (PST)
-Received: from google.com (196.126.197.35.bc.googleusercontent.com. [35.197.126.196])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bc47sm9717494b3a.6.2026.11.25.11.24.13
+        d=1e100.net; s=20260707; t=1795634734; x=1796239534;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=YY7KokTVNQdRG2xnhQVkzSDE4zg2oGNcCPRrRtBfFBA=;
+        b=K/baCxWimrzxK92numRJ9N79KR/eGwuUK6seMPFxyz+BvRObEX84tvRpEpcm9YZAfz
+         QquSLjM/UGWvJbzmc8XDx6/rLshIKcieWVcn9Wq9scfXGAm6Ub/rKqo/lKXQ1cmpwzJ5
+         CJsWUF5S8IQoIYEuYrKYOWgnjyGuonptdxl/0IxKmle62n13203bx1S3wAsslkTEyYFZ
+         5+WmWlIGofUlWbaeDUuZHERPlq1sExCYA1opFFa/00gRDPOP8f2lNsR6+6zHYyzkHaJ+
+         4xrp2fbcOcRNfYx05YmCEocdBHIMpm0npg0po8uFh5zFH2pe6L3z1laS5+ZVlBvb4KxK
+         MOWQ==
+X-Gm-Message-State: APuU4Z/ZsHNLgejvypQmJ00evIMnEsTDHx8SLm7XiRLyqvKtroxY9Bee
+	sfW6A121Ilv+HvU6eeRkGhsgEwG8CCpy9GxGd/CMRuBy2Iduq6xogyS8FxCG83ucZkOKWMixxPP
+	M75wAsF11t05ZIGPm/xHwuChJMvKf3a69ARWY9r4nNML8Nc4u1csMCk173QU=
+X-Gm-Gg: AZFdTZe8zIgpE5UhVMDEPe8CxgSyDEP05grWT0VTEDLytoqJtGPadz3uwYZm8p0vKs9
+	DHI5fffv57Va3gz2a1HjCwAQS+unQGa532L0Gmd9bkh+ePfYvChugSetyvE17xRpr7vru/wsAdJ
+	RV5u7g18PWY22RR1+UXtZIruczrieRj6mRa0MHnLx8zcbzY20nRpmcOHmYbSCQfK0li8sKN3PG8
+	gd6+G7NlV+4ZjwguvRF0+VWozXmQZd1K4+gA3ZnWLoe+V3730LK2hwWkKv3roNRCCRTXDVxkM7A
+	++z3SEpm3PcdIFyIzkaabLwN/Je6MXERBc2olNrGHdFAYIwxAx53XWDkrUcbhzfyvGmwUk3v4XU
+	6u6RoQEp0nOYPvFf3MCSYLMH2gHbG2HomybBkgLp8/3Vs2vIMXsBcpP7+EDroyaFzy4dP8/luB5
+	0IJqsVRMaQ6lBD/HnwDe/bFouONpRqBcsocQBf
+X-Received: by 2002:a05:6808:23c3:b0:56a:7702:b341 with SMTP id 5614622812f47-57a0c4b9064mr20422922b6e.68.1795634734043;
+        Wed, 25 Nov 2026 11:25:34 -0800 (PST)
+X-Received: by 2002:a05:6808:23c3:b0:56a:7702:b341 with SMTP id 5614622812f47-57a0c4b9064mr20422896b6e.68.1795634733588;
+        Wed, 25 Nov 2026 11:25:33 -0800 (PST)
+Received: from hu-scheluve-lv.qualcomm.com (Global_NAT1.qualcomm.com. [129.46.96.20])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bd3008160dsm18125768fac.16.2026.11.25.11.25.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:24:13 -0800 (PST)
-Date: Wed, 25 Nov 2026 11:24:10 -0800
-From: Benson Leung <bleung@google.com>
-To: Randy Dunlap <rdunlap@infradead.org>
-Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
-	David Hildenbrand <david@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Jason Gunthorpe <jgg@nvidia.com>,
-	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
-	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
-	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
-	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	MPT-FusionLinux.pdl@broadcom.com,
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
-	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Zhihao Cheng <chengzhihao1@huawei.com>,
-	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-usb@vger.kernel.org, Juergen Gross <jgross@suse.com>,
-	Stefano Stabellini <sstabellini@kernel.org>,
-	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>,
-	"Michael S. Tsirkin" <mst@redhat.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Sean Christopherson <seanjc@google.com>,
-	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
-	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
-	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
-	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
-	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
-	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
-	linux-f2fs-devel@lists.sourceforge.net,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Benson Leung <bleung@chromium.org>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	amd-gfx@lists.freedesktop.org,
-	Jani Nikula <jani.nikula@linux.intel.com>,
-	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
-	Rodrigo Vivi <rodrigo.vivi@intel.com>,
-	Tvrtko Ursulin <tursulin@ursulin.net>,
-	intel-gfx@lists.freedesktop.org,
-	Matthew Brost <matthew.brost@intel.com>,
-	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
-	intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v3 11/12] docs: ioctl-number: update platform entries
-Message-ID: <awc12oWB5WDJi8XZ@google.com>
-References: <20261125061340.3402300-1-rdunlap@infradead.org>
- <20261125061340.3402300-12-rdunlap@infradead.org>
+        Wed, 25 Nov 2026 11:25:33 -0800 (PST)
+From: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+To: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        Jose.Abreu@synopsys.com
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+        linux-kernel@vger.kernel.org, lorenzo.bianconi@oss.qualcomm.com,
+        hongmei.xu@oss.qualcomm.com, abhishek.chauhan@oss.qualcomm.com,
+        sarosh.hasan@oss.qualcomm.com,
+        Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+Subject: [PATCH net] net: stmmac: xgmac: fix RX split header length on multi-descriptor frames
+Date: Wed, 25 Nov 2026 11:25:31 -0800
+Message-Id: <20261125192531.1940982-1-sagar.cheluvegowda@oss.qualcomm.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -157,90 +122,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="Kk3dCghKBQNrocaf"
-Content-Disposition: inline
-In-Reply-To: <20261125061340.3402300-12-rdunlap@infradead.org>
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-ORIG-GUID: A7j1H7DBVofz15o7wPCYLgNp7CftYq31
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA3NyBTYWx0ZWRfX0E2dbeMTlI5x
+ 3Fdjr/jBLLQJmeutjb5GPsJMoT8wzVbg16Y2wQK+WZ+CjcmO/PpzT+oBB5PNS4sazAmDEegG7lL
+ EPzoPmp2lTKZc3PdDhBx+dGkuKJt4hU=
+X-Proofpoint-GUID: A7j1H7DBVofz15o7wPCYLgNp7CftYq31
+X-Authority-Analysis: v=2.4 cv=Vra2kO2n c=1 sm=1 tr=0 ts=6b07362e cx=c_pps
+ a=AKZTfHrQPB8q3CcvmcIuDA==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=DJpcGTmdVt4CTyJn9g5Z:22 a=VwQbUJbxAAAA:8
+ a=EUspDBNiAAAA:8 a=ojtf-fZehEoJ8Fw7nBAA:9 a=pF_qn-MSjDawc0seGVz6:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA3NyBTYWx0ZWRfX71rudWAWmDA6
+ KaXTwGA1BuxsU3KrSsjN3wl0CXzFOQODBjlgb7hQs4MuojnHXDhGGBTrHOXd1sKKRyWZJUPdns6
+ RRGvVOR8rH6DP4OY5unjRdHOvN6saxhSwgKszIhpxmbl88Z6UqzLsXOydNz8KjokRLwTt8llCKc
+ +rTTuF3X8V1Fig3CuakPo90acKQ5Fy7OI2kCKXim95bavpWlb0GjMK4GiWf4V2KImcpJUsssrwI
+ pSEoEg8Pfkmu0rMB+upBDUD9wgn94V3ixvgOVbcdxK7hYrrt7uoYOP66vZf7OdjK4atV14TmR5P
+ yhFvnr6ekKj82NlagDihnkKVK1JnZOx3yjCkjSw9xxsxTr8z9IC/3IzlXwBtmgzceJVddHCgAWN
+ +7Qytxaz4hI/5YFoH8I4teFzlPtiFktS7AHuqE0H6DIZ6SHvcNbgfzxD5U02ELMDU+AtnMJZS+O
+ IbRjQy0NXptk3IQmDNQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 malwarescore=0 clxscore=1015 adultscore=0 phishscore=0
+ bulkscore=0 spamscore=0 priorityscore=1501 impostorscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250077
 
+dwxgmac2_get_rx_header_len() only reads the split header length (HL)
+from RDES2 when RDES3.L34T is non-zero. L34T, like all RDES3 status
+fields other than bits [31:28], is only valid on the last descriptor
+(LD set). HL, on the other hand, is only valid on the first descriptor
+(FD set), and the databook's "Header Length Availability in RDES2"
+table states that HL is available in RDES2[9:0] when FD=1 and LD=0,
+without any dependency on L34T.
 
---Kk3dCghKBQNrocaf
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+A frame spans multiple descriptors when it is larger than the RX buffer
+size. This can happen at any MTU, as XGMAC_CORE_INIT_RX sets GPSLCE and
+WD with GPSL = XGMAC_JUMBO_LEN (16368), so the MAC accepts frames up to
+16368 bytes while dma_buf_sz is only 1536 at an MTU of 1500.
 
-On Tue, Nov 24, 2026 at 10:13:38PM -0800, Randy Dunlap wrote:
-> Update the list of platform/ files where ioctls are defined and update
-> the ranges of function numbers that are used.
->=20
-> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
-> Acked-by: Tzung-Bi Shih <tzungbi@kernel.org> # cros_ec
+For such a frame, the first descriptor has FD set and LD clear, and
+L34T is not valid there. When it reads as zero, hlen stays 0 and
+stmmac_rx_buf1_len() falls through to the rx_not_ls path, which counts
+buffer 1 as a full dma_buf_sz although it only holds the split header.
+The frame length accounting is then wrong and the skb is built with
+the wrong data.
 
-For cros_ec as well:
+Read HL whenever the first descriptor is not also the last one, and
+keep the L34T check for single-descriptor frames. Also return early
+when FD is not set, as HL is not defined there. The caller already
+ignores the header length for non-first descriptors, so this part
+does not change the current behaviour.
 
-Reviewed-by: Benson Leung <bleung@chromium.org>
+Fixes: 96147375d49f ("net: stmmac: xgmac: Only get SPH header len if available")
+Co-developed-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Signed-off-by: Abhishek Chauhan <abhishek.chauhan@oss.qualcomm.com>
+Co-developed-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sarosh Hasan <sarosh.hasan@oss.qualcomm.com>
+Signed-off-by: Sagar Cheluvegowda <sagar.cheluvegowda@oss.qualcomm.com>
+---
+This fix was split out of the net-next L2 split header series after
+review of v5, where the multi-descriptor case was pointed out to be
+reachable with the current GPSL setting and to need a separate fix.
+The net-next patch will be reposted on top of this once it is in
+net-next.
 
+v5 of the net-next patch:
+https://lore.kernel.org/netdev/20261120005243.3724402-1-sagar.cheluvegowda@oss.qualcomm.com/
+Review comment:
+https://lore.kernel.org/netdev/179548403438.3135.1804854034587814346@kernel.org/
 
-> ---
-> v2: no change
-> v3: rebase
->=20
-> [Since having multiple maintainers trying to merge these would
-> cause some conflicts, it would be more manageable for Jon to
-> take all of these through the docs-next tree.]
->=20
-> Cc: Jonathan Corbet <corbet@lwn.net>
-> Cc: Shuah Khan <skhan@linuxfoundation.org>
-> Cc: linux-doc@vger.kernel.org
-> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
-> Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadc=
-om.com>
-> Cc: Tzung-Bi Shih <tzungbi@kernel.org>
-> Cc: Benson Leung <bleung@chromium.org>
->=20
->  Documentation/userspace-api/ioctl/ioctl-number.rst |    3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
->=20
-> --- linux-next-20261123.orig/Documentation/userspace-api/ioctl/ioctl-numb=
-er.rst
-> +++ linux-next-20261123/Documentation/userspace-api/ioctl/ioctl-number.rst
-> @@ -434,6 +434,7 @@ Code  Seq#    Include File
->  0xBA  00-0F  uapi/linux/liveupdate.h                                   P=
-asha Tatashin
->                                                                         <=
-mailto:pasha.tatashin@soleen.com>
->  0xC0  00-0F  linux/usb/iowarrior.h
-> +0xC4  00-1F  platform/raspberrypi/vchiq-interface/vchiq_ioctl.h
->  0xCA  00-0F  uapi/misc/cxl.h                                           D=
-ead since 6.15
->  0xCA  10-2F  uapi/misc/ocxl.h
->  0xCA  80-BF  uapi/scsi/cxlflash_ioctl.h                                D=
-ead since 6.15
-> @@ -446,7 +447,7 @@ Code  Seq#    Include File
->  0xDD  00-3F                                                            Z=
-FCP device driver see drivers/s390/scsi/
->                                                                         <=
-mailto:aherrman@de.ibm.com>
->  0xE5  00-3F  linux/fuse.h
-> -0xEC  00-01  linux/platform_data/cros_ec_chardev.h                     C=
-hromeOS EC driver
-> +0xEC  00-02  linux/platform_data/cros_ec_chardev.h                     C=
-hromeOS EC driver
->  0xEE  00-09  uapi/linux/pfrut.h                                        P=
-latform Firmware Runtime Update and Telemetry
->  0xEF  00-0F  uapi/linux/ntfs.h                                         N=
-TFS
->  0xF3  00-3F  drivers/usb/misc/sisusbvga/sisusb.h                       s=
-isfb
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h       | 1 +
+ drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c | 9 ++++++++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
---Kk3dCghKBQNrocaf
-Content-Type: application/pgp-signature; name=signature.asc
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+index f8ab347f7b5b..0cdc0bc695c2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2.h
+@@ -437,6 +437,7 @@
+ #define XGMAC_RDES3_OWN			BIT(31)
+ #define XGMAC_RDES3_CTXT		BIT(30)
+ #define XGMAC_RDES3_IOC			BIT(30)
++#define XGMAC_RDES3_FD			BIT(29)
+ #define XGMAC_RDES3_LD			BIT(28)
+ #define XGMAC_RDES3_CDA			BIT(27)
+ #define XGMAC_RDES3_RSV			BIT(26)
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+index 6719ac6e395b..ed38aa358642 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_descs.c
+@@ -292,7 +292,14 @@ static int dwxgmac2_get_rx_hash(struct dma_desc *p, u32 *hash,
+ 
+ static void dwxgmac2_get_rx_header_len(struct dma_desc *p, unsigned int *len)
+ {
+-	if (le32_to_cpu(p->des3) & XGMAC_RDES3_L34T)
++	u32 rdes3 = le32_to_cpu(p->des3);
++
++	/* HL is only defined on the first descriptor */
++	if (!(rdes3 & XGMAC_RDES3_FD))
++		return;
++
++	/* L34T is only valid on the last descriptor */
++	if (!(rdes3 & XGMAC_RDES3_LD) || (rdes3 & XGMAC_RDES3_L34T))
+ 		*len = le32_to_cpu(p->des2) & XGMAC_RDES2_HL;
+ }
+ 
+-- 
+2.34.1
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQQCtZK6p/AktxXfkOlzbaomhzOwwgUCawc12gAKCRBzbaomhzOw
-wuvSAP9FFr45oXAv5Psc3n5xsSYyPFouusI/XwRnWy3tYxQspAD+KIeOTWQfcOeC
-TWeqyAANog5rg68r7xNPxeH8I/R6xAQ=
-=Fk2v
------END PGP SIGNATURE-----
-
---Kk3dCghKBQNrocaf--
