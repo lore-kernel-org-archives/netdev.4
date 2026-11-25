@@ -1,49 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795642770;
-	b=PRFNSbMHBojbE35sjhn5TRrI0UUc/VGkNnx9SpOOkVflFxJrPGBArCHkR5bg1lMV9/GK
-	 oW5GPonQRYWJXS+uvgEexDKGfg+F6v8hl9YQaUkoo6s5WLC4xNSdzsPID94KeB+HQMEkw
-	 Qu4NXcoToK7IZPHYiTGUda3INiRBKelXR8A+MmjGMivFGLClKdIUf7AXp0QOH2mn5uoDd
-	 zhqFRfReuxLDNITwwu8uY7+RkiyhQrYLQj+BOqTDA/sb6w1yX+lOoViEJWDpoE1E0LmYU
-	 jPz0NVMl7jrviktOigbv+eXlbjVOl0lCxJsoWWEpWyR3vkyg4YOj0fKhssnMXw6r8WQ==
+	t=1795642778;
+	b=yV7Sp+RHTmY0mWyJ7RIQKYy3uqHLisnwDTErmHpe24BGNwAJxDY9+zsO4Nvs+WkIm8hQ
+	 Eb6/BOQgviy1Q7+cfWvVzi1zqyBcQT1NR1tqvfQ2gTGHvA55j9XNkhozAzwKTxHG8eTYu
+	 Axq5czUrHCVtSGucBVdix+XtAwOnrSLWeB6SPdUPdAYKCAyGBtiDvj4SMHJ0agx9HH5wK
+	 MEQyNNiILR7hDDkOPvpvcRZeNyzHafKhXSlayDz6IlzKu47TaRqmu6ER3cDyVaAvpN+Zy
+	 VNRYtmHXz3a80smQlHJIgEF+ONQJh03YOxus/cpmHixHqUDD2ns1IqGEk8fDrvyxfKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795642770;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795642778;
 	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer;
-	bh=uchKMQEbun1KGuNSoqThhgELpVgiokvVWjr9mK1k/A4=;
-	b=IXCQbRAEYnUjs0asrdJjcgga38CR81EWAursB4jY4Xsr7NYwPQb7W2OdKtBVjLOdgp7M
-	 qUQyXPrT/Sgnr/UyrdGFMtecIXFpB1ctUNU9DrMJusQ1dd3Jo5YtY3VUcVAbyPVtnM2zQ
-	 pWSWzOyIDG4e/SvGIUYOLoycLPA53cdOeJBvl+JtrQC/oCLNjVlBgzW+7IZLsN7nHqueE
-	 4/wmwsBEtJRqFuY60l6WkWA0A99DM4C+49Zgo+hxeiM1Mx48izVD0AY7tQL1rkQ/xN5xS
-	 BUCrD38u3vV4aZhBCH1L+Sdo09uQ8LpTJGwJzoRQg4l2f/X8IJuNP/JH0ODtlRrtlqw==
+	bh=vEcqqNm19OuH8f10/Y2MYPCdnWCdxBstah0njeHlZsU=;
+	b=IBMpy5U/oKSIQWvulpDeecf3FvfE4m5r4xa080EoGZgb9zgb3fzNwWk0iMjtdbm0hZ3t
+	 zPb4ZFXB5RfHm9y4FmnQQKVwOASSjlDD427V3iawxNWRZ5h7xp82AuQGGP3kM5Z0a8n5+
+	 qefDSOQEHKRWHh4N9fxpjcVdhHYgXf3+T9gCYPuf/FLz599g5t84WoM3Mb22Isbgk4aQE
+	 Y+xyw0VVdTpws6mFUDr7bS2dZlBLmUOQrxyktqwwC1FCLanq55oZvyr6y7d9xeEr5f9kM
+	 TkWbpcJS+ll96y3OAi7KdQchWW8RkqPAKkRMlShNq7G+9AmTtCMbSN+CGLt/vangHKQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnxwhmZD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJ7DXGEs;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E01D4606A323;
-	Wed, 25 Nov 2026 21:39:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD96F606A323;
+	Wed, 25 Nov 2026 21:39:38 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cnxwhmZD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FC941F000EB;
-	Wed, 25 Nov 2026 21:39:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JJ7DXGEs
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFE611F0089F;
+	Wed, 25 Nov 2026 21:39:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795642769;
-	bh=uchKMQEbun1KGuNSoqThhgELpVgiokvVWjr9mK1k/A4=;
+	s=k20260515; t=1795642777;
+	bh=vEcqqNm19OuH8f10/Y2MYPCdnWCdxBstah0njeHlZsU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=cnxwhmZDXM+Gsf0EhyO5VD88+p/C9GrSlfOXwoM8uURHlT5OqfIyp2Rk5t4izPM3P
-	 UUx1iGYMBxTWs0cL3dCa2FA04NGRrpI4ftwFOBvtbII2klixx84KhPEvfJOjk+TwJo
-	 DFc6Qi1OlbLb6T2cbEG1CRPNtaCZk/R58jMv+IibTCsr8BptHZoUgMiJ2jnJbsExBK
-	 Q+MoCouRcesMmoAwbmZrOxAbLuJxUupraT9lUd2s7+j6/4EPjYtXHaUu0/aXvLlyvR
-	 SEBhBNJRRsmdB4Q6buLNKRmyi35fpFhzWJhgqoKVgCyvDfHsSFNTIFHNt4CE5+GaCp
-	 TsEGvbU9H6XSA==
+	b=JJ7DXGEs5MKX+mzY34S5pcC47lEO+Z3xW5ExnajvXeyp6B4cTkEBKBLKwRfYJ30Fz
+	 lLNpO7huIkAceYpnk7nrSIDfc3PjICL3cqJQOiLMp7p5bm9TWqZxiN8Ef/M95VULzT
+	 fHuKQo0NOfAybTCSxsCbnnpdX681msyNEwt4gK3mAOyU7j1c+c+DPuJH8a/Ket8aRT
+	 gbr4kXFfaBWZDxC3OE8WLPrq1UI42pL+JEsiyxGoNQ/cgvNany+6roREwPJkRXgvWA
+	 wEQW3ZqS1Ng6/z3Q84rN0+87qHe/dj7XUTNrb7i4h4TviMkgm/tk1TPgKT9zYetvzs
+	 wkLns7a/xnjJA==
 From: "Harry Yoo (Meta)" <harry@kernel.org>
-Date: Wed, 25 Nov 2026 21:37:11 +0000
-Subject: [PATCH slab/for-next v2 10/14] fanotify: specify SLAB_MAY_ACCOUNT
- for event caches
+Date: Wed, 25 Nov 2026 21:37:12 +0000
+Subject: [PATCH slab/for-next v2 11/14] smack: specify SLAB_MAY_ACCOUNT for
+ smack_rule cache
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,7 +55,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-10-7c680f02a734@kernel.org>
+Message-Id: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-11-7c680f02a734@kernel.org>
 References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
 In-Reply-To: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
 To: Vlastimil Babka <vbabka@kernel.org>, 
@@ -92,48 +92,39 @@ Cc: Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>,
  Eric Dumazet <edumazet@kernel.org>
 X-Mailer: b4 0.16.0
 
-fanotify events are allocated with GFP_KERNEL_ACCOUNT and charged to
-the memcg of the listener. Specify SLAB_MAY_ACCOUNT when the object
-may be charged to a memcg. __GFP_ACCOUNT without SLAB_MAY_ACCOUNT
-will not be allowed.
+smk_copy_rules() allocates rules with the gfp passed from
+security_prepare_creds(), which is GFP_KERNEL_ACCOUNT. Specify
+SLAB_MAY_ACCOUNT when the object may be charged to a memcg.
+__GFP_ACCOUNT without SLAB_MAY_ACCOUNT will not be allowed.
 
-Path: fsnotify() -> fanotify_handle_event()
-  -> fanotify_alloc_event(GFP_KERNEL_ACCOUNT)
-  -> kmem_cache_alloc(fanotify_{fid,path,perm,mnt}_event_cachep)
+Path: fork() -> copy_creds() -> prepare_creds()
+  -> security_prepare_creds(GFP_KERNEL_ACCOUNT) -> smack_cred_prepare()
+  -> smk_copy_rules() -> kmem_cache_zalloc(smack_rule_cache)
 
-Cc: Jan Kara <jack@suse.cz>
-Cc: Amir Goldstein <amir73il@gmail.com>
-Cc: linux-fsdevel@vger.kernel.org
+Cc: Casey Schaufler <casey@schaufler-ca.com>
+Cc: Paul Moore <paul@paul-moore.com>
+Cc: James Morris <jmorris@namei.org>
+Cc: "Serge E. Hallyn" <serge@hallyn.com>
+Cc: linux-security-module@vger.kernel.org
+Reviewed-by: Casey Schaufler <casey@schaufler-ca.com>
 Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 ---
- fs/notify/fanotify/fanotify_user.c | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+ security/smack/smack_lsm.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/fs/notify/fanotify/fanotify_user.c b/fs/notify/fanotify/fanotify_user.c
-index 63c9759fc3b0..3575c681abc1 100644
---- a/fs/notify/fanotify/fanotify_user.c
-+++ b/fs/notify/fanotify/fanotify_user.c
-@@ -2184,14 +2184,16 @@ static int __init fanotify_user_setup(void)
- 	fanotify_mark_cache = KMEM_CACHE(fanotify_mark,
- 					 SLAB_PANIC|SLAB_ACCOUNT);
- 	fanotify_fid_event_cachep = KMEM_CACHE(fanotify_fid_event,
--					       SLAB_PANIC);
-+					       SLAB_PANIC|SLAB_MAY_ACCOUNT);
- 	fanotify_path_event_cachep = KMEM_CACHE(fanotify_path_event,
--						SLAB_PANIC);
-+						SLAB_PANIC|SLAB_MAY_ACCOUNT);
- 	if (IS_ENABLED(CONFIG_FANOTIFY_ACCESS_PERMISSIONS)) {
- 		fanotify_perm_event_cachep =
--			KMEM_CACHE(fanotify_perm_event, SLAB_PANIC);
-+			KMEM_CACHE(fanotify_perm_event,
-+				   SLAB_PANIC|SLAB_MAY_ACCOUNT);
- 	}
--	fanotify_mnt_event_cachep = KMEM_CACHE(fanotify_mnt_event, SLAB_PANIC);
-+	fanotify_mnt_event_cachep = KMEM_CACHE(fanotify_mnt_event,
-+					       SLAB_PANIC|SLAB_MAY_ACCOUNT);
+diff --git a/security/smack/smack_lsm.c b/security/smack/smack_lsm.c
+index 3a4a33568297..f4454dc8e232 100644
+--- a/security/smack/smack_lsm.c
++++ b/security/smack/smack_lsm.c
+@@ -5359,7 +5359,7 @@ static __init int smack_init(void)
+ 	struct cred *cred = (struct cred *) current->cred;
+ 	struct task_smack *tsp;
  
- 	fanotify_max_queued_events = FANOTIFY_DEFAULT_MAX_EVENTS;
- 	init_user_ns.ucount_max[UCOUNT_FANOTIFY_GROUPS] =
+-	smack_rule_cache = KMEM_CACHE(smack_rule, 0);
++	smack_rule_cache = KMEM_CACHE(smack_rule, SLAB_MAY_ACCOUNT);
+ 	if (!smack_rule_cache)
+ 		return -ENOMEM;
+ 
 
 -- 
 2.54.0
