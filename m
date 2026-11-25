@@ -1,97 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795578083;
-	b=cUhnFNp8jbYSDUVS5k3sr7sxk4DnFqFb4BhbkEBWaCdGqGoL7hkEM6S0rqO2TOySKSMu
-	 nR4Jw3kOLiHkcQkCJ9saM3/OcwHMo5kwC95HzG4ydbszzdaPgVQv7+TSDvIMIe7YB/D5/
-	 mJjPxIUP6FSHAbyLVCbK4P4kqyfg2IP695MraN+uzNttKKCpvGOXxQ05MBn4LG68KF72V
-	 n4fa3dTbTeHIKHkN6DHTNwnKW49HG4XVWlQtKZwspKNAWzNY22FRf4iM78kImyE6xhfds
-	 IwFflLo2QZ/jMdWPUCGquacvfcQ3p6aO9AmplA20FDMmz4LZ1nnj3Gp/9fr1WNtauIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578083;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:From:Subject:
-	 Message-ID:To:Cc:In-Reply-To:References:Date:Content-Type:
-	 Content-Transfer-Encoding:X-ClientProxiedBy:
-	 X-Microsoft-Original-Message-ID:MIME-Version:
-	 X-MS-Exchange-MessageSentRepresentingType:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=uLwJmtMNRVbFSciTZpwkTI2KrkLEaxtyws44pWjXcnQ=;
-	b=XuqxGSwrllVM5yiNVknQNYYrWgisaK3gDctYzUYnzHDqBHyIUShOrWVOiDpA+Lx5jwZL
-	 pIfr7mYVG/MupelKTf+DTNNoBew2CyON1lq42bJzDD7AfdtxvOAMiYjWrGjxu/dIUvjK/
-	 bHYteN3WVQDngpe6sYfxw88Jz0w463Zm2cpO5aEQXGOle42LfUX4DzfClweJ7OeZ8sySm
-	 qqJdYAUFnjfaeZc+7ME2io55p0XlIcFgQvjYV+71AnTOQsZFW1iO7kPT52215i+4WWuVJ
-	 LbX9SbqVySUT1GsTwP+E2tO5jX/2foOtP8mwIu+7CuIzzVlEi4u0iThh9FoacYmKCYg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hotmail.com;
-	spf=pass smtp.mailfrom=hotmail.com;
-	dkim=pass header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b="H/5fJ/UZ";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.103.66.13
-Received: from OS0P286CU010.outbound.protection.outlook.com (mail-japanwestazolkn19011013.outbound.protection.outlook.com [52.103.66.13])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795578182;
+	b=AcDlJxv+cSvVXhqAkDzvgz5Itl+OjzXhlm4wF6Ui8rkkYL4OQhWb6QT3DVLxvDoVI7mZ
+	 V4d6XPnjJskqmD/2pjS6SaHQW4NlSut7PPSLeOTEaRna3Te1yD9Vw/tTNJr0zMK4yvu/9
+	 I0StXyHmFDiociJ2LyX7s5Z5ExZpqjgvBxoFvXmQHuxKvfH/dceGj6tZ0wZPSQZBgrsm3
+	 f6ryCtuAJIiQ4jVWBE06680HxxlZmfCRL6dtDEwglSMh3f45fYrpeQYzQQ5HrOwxltZ7f
+	 uhU+0hkH6WS+AQCW2f+OzJnKP5Nw+Qe5Kyc9YZe4Xnoy+eCOkk8qkCrTOxK3vv46baw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795578182;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=ul0o0fK+M6bhC+slboHiiBrOpN16L5i412q4HPatJZ0=;
+	b=t38WiMHM9942RIw6Ur6UMYWYPks7UMs+8EPcjE1mypiy2wevLWT8GFaNlq3hDEFlYunF
+	 OVUsFO8QR35UiT1ucwyjqtoshc0q7T7E2evLAt7hFk3m8nb8B7B1wMDvyn1bm4E1lMfPB
+	 5MUekNtLEC2un2icLxwv/P4x/Kt1H/vRxMU15y8BWKmBbTNYQ5nvjRV1SyCDueHtLMwe/
+	 bsxhFycaogjwQCdDnCcfMcj/DfWbFptIjRkQfcI8bAaa6EWBq2vJnAQv8G2ANbgo+rbAO
+	 xHHTg8B4TrRLwpUm9/E3mZRdvvuLaUqCN66d51ToYK+KaaXQTC5/nRDU+D5lr1lFydg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTfteHRN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 71A9A606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:41:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 71A9A606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=hotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=hotmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FEA606A31E;
+	Wed, 25 Nov 2026 03:43:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hotmail.com header.i=@hotmail.com header.a=rsa-sha256 header.s=selector1 header.b=H/5fJ/UZ
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SBKugKPp40r/l9I4k2NnJkcuQ9E0X2W81VpgKO8XYOwJYQF2EhELUdCloataDh3G5H/SkwvsUYH5aMZ5puV5KKHHcEJi7O8MTUpGCzkLwcvj1uzqvE7VqZlByK5KJX44CW1oGQ6EcHuplI9StXm6hEcAi0jT6/maLVws8mqyixYXidtiaU6tlAOhN3JDkQNEtt3+MtkmpmhsseXNBjpCNOt99Z0qCcnX9XcvI60knwOg8AfxGteAmlFNgIlwKeBZs704Qht7ABVCSQFBrz3Kh6UMJDxLEcG9tURuprhhh4SdCGwh+CJhFPmm00tDNBM1wSRrtK+Ru9/3NFZKUYxisg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=uLwJmtMNRVbFSciTZpwkTI2KrkLEaxtyws44pWjXcnQ=;
- b=FhBIiVhaO/OTiOXavz6qFNeHDKg8rX16SIpr26+HbaUuzjEpZJKI7QL6/EJk1OG3nAAVzd+9xUF4eXaBsjFoDrF1ESak7+/LavjIgN2onJFiK60zGRzbC2/7XzDKXJW+a5vAyeZAPIGyZ4ocVW6PBix6x6qQAw5orND/r0lqglKIJ07pxUztXqTonv+s+qnymuoJtdfLx0LVQNUOgXTH/JZ5bGiNF1uqCQ50EV2tAb9R90MtUQqjqLGmf/EX6gpWbd9rt/Vw5pSL9Kt8qC02xJcfx/EG27rLhgKfDygqYrCoaiFYYBuFbXR48Es+uiE4FrlRn6pJr4OXuCDC/c6yrw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=hotmail.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=uLwJmtMNRVbFSciTZpwkTI2KrkLEaxtyws44pWjXcnQ=;
- b=H/5fJ/UZyiEoEi8WckWTHunedKHf2mF4W1K9GkyM6QeUKgz7kyk/ukC/qNdxgJ8u1YIYTihhh3lE1J568uol7/O3cWO51E5tFI8IwtHguXCm3bjbv7q6YbmLnb+hf4yK8XDlJldy7YSc7rvq1ow/bgXZe+2l29+ryKyyYH85sFGuRE/5y0Dw24OfcAUivbkv89u0gksnXlkXoTdaJMpui36xPaKPekGu4V9z4LxhJXIw8ijfsruH8XfZRVQlTZvRJcIlmuxHaPLENaIYC18DcAZ7JX2e7uGHxcC8VRjWnwZmkJpERthH1zzV02ipqZTATqGGc+ho8vblkPNiuVZwew==
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com (2603:1096:604:1e1::9)
- by OS9PR01MB16853.jpnprd01.prod.outlook.com (2603:1096:604:2ba::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 03:41:18 +0000
-Received: from OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9]) by OS3PR01MB10251.jpnprd01.prod.outlook.com
- ([fe80::7edc:2a40:7b8f:56f9%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 03:41:18 +0000
-From: "Jiaming Fan" <fan.jiaming@hotmail.com>
-Subject: =?us-ascii?Q?Re:Re:_[PATCH_v2_0/3]_virtio=5Fnet:_introduce_an_R?=
-	=?us-ascii?Q?X_queue_watchdog_for_stuck_detection?=
-Message-ID:
- <OS3PR01MB10251FF1A3BCDD5A03090CD19E7432@OS3PR01MB10251.jpnprd01.prod.outlook.com>
-To: "Lange Tang" <lange_tang@163.com>
-Cc: "mst@redhat.com" <mst@redhat.com>, 
-	"Jakub Kicinski" <kuba@kernel.org>, "Eugenio Perez" <eperezma@redhat.com>, 
-	"jasowangio@gmail.com" <jasowangio@gmail.com>, 
-	"xuanzhuo@linux.alibaba.com" <xuanzhuo@linux.alibaba.com>, 
-	"virtualization@lists.linux.dev" <virtualization@lists.linux.dev>, 
-	"netdev@vger.kernel.org" <netdev@vger.kernel.org>, 
-	"Tang Longjun" <tanglongjun@kylinos.cn>
-In-Reply-To: <413a69a4.746a.1a20cb9e72c.Coremail.lange_tang@163.com>
-References: <413a69a4.746a.1a20cb9e72c.Coremail.lange_tang@163.com>
-Date: Wed, 25 Nov 2026 03:41:10 +0000
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XTfteHRN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8CDD1F000C4;
+	Wed, 25 Nov 2026 03:43:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795578181;
+	bh=ul0o0fK+M6bhC+slboHiiBrOpN16L5i412q4HPatJZ0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=XTfteHRNIElAJXGUMTtRJ9ldwK2NRwyNdIXHko8tdRlhCkU1TTEPc8Il9S+7yUaYL
+	 oyjlI0Ty3Q9BQuSeaPSklXz1BcgNR7SNGxLAgfh8EahayFzvG4KhVT+HMu9EOA69FG
+	 OXZtTk6QLNljKwS5y/TbkLm0/6P/Yq0h2ov02PN67XjIDT/WZ0bCTLpdAeKQzno5pJ
+	 VqJPJOxacYrxIyK/Jp/V188g0NmS2CY5x5XGETstnZtGW3tFTZk687ipJ+7YEF143F
+	 Wzmz+C0XwKo89vzE4dWHOdz3Th+3h2yI6e1ji4PAXAWt1OByRK5Mz/Um4zLbi8RCCd
+	 m20HHtbBLFHbg==
+Subject: Re: [PATCH net v2] bonding: unbind 802.3ad slaves on enslave failure
+From: netdev-bot+sashiko@kernel.org
+To: ljp1205831794@gmail.com
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ sfeldma@cumulusnetworks.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, jiapenglin@tencent.com, corvus@tencent.com
+Date: Wed, 25 Nov 2026 03:43:00 +0000
+Message-ID: <179557818044.3135.12445495570412161226@kernel.org>
+In-Reply-To: <20261124024319.52145-1-ljp1205831794@gmail.com>
+References: <20261124024319.52145-1-ljp1205831794@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
-X-ClientProxiedBy: TPYP295CA0007.TWNP295.PROD.OUTLOOK.COM
- (2603:1096:7d0:9::12) To OS3PR01MB10251.jpnprd01.prod.outlook.com
- (2603:1096:604:1e1::9)
-X-Microsoft-Original-Message-ID:
- <9655d6a0-7dd1-4560-9391-51824e172897@milk.local>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,107 +63,290 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: OS3PR01MB10251:EE_|OS9PR01MB16853:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8d7fc3dc-486c-49bc-4724-08df4aa5f670
-X-Microsoft-Antispam:
-	BCL:0;ARA:14566002|41001999006|6090799003|5072599009|24121999003|12121999013|15080799012|23021999003|24021099003|55001999006|25031999004|22091999003|8022599003|25010399006|19110799012|8060799015|3412199025|440099028|3071699003;
-X-Microsoft-Antispam-Message-Info:
-	=?utf-8?B?QlFwQUMrNDlSelRTdWpyUmxPdEgyUDlIWmNyYU85bVlDaW9CS2ZyUGpOTXN3?=
- =?utf-8?B?dDJ6MDEvTktyR3lNZEdkbWxFL3hEWWpPbTEzZ0ZrRzZBdG9OcERDZ1d6NzIr?=
- =?utf-8?B?d0Yyd2FmRnA1RmdtN1hNNnhmUkZTcFhyS200VFY2K1B0ZkVLQ3NkbGM4cHA4?=
- =?utf-8?B?YUtXV05QQUFTamxhZDNKZ1Z2a29GcktNMHJPTzZNdncycnpHbHRXWG5raDBW?=
- =?utf-8?B?NmIyYm1tSjNhNmJ2TDl4WmcrdGJzWE5OS0lSelR4YVpLTGNZTlZEN3dMeThu?=
- =?utf-8?B?eGlQSU5Cank1eHlYN2VLZWdlTU1aZ052ZEpIL1E5bVRnR3BCZCtVMHJoV0Z5?=
- =?utf-8?B?SXhpODZRRFpQcTltTzJPZktGeFU2eU53VkNHdU44bUlwTFA2VG45b2h1WU9k?=
- =?utf-8?B?RXRMZW5qN0xEM2ZpdmJHRTVidnkxaVFZWExrVE9YRzBYcEFOTTBPWFkyaXNT?=
- =?utf-8?B?c0NPSFpqeHFEOXlra1BKaktZV1NIN1Jab293aUlDbG1XdjlzU29hOTRod3JI?=
- =?utf-8?B?dktTcjlLK293UkZXYjBjSlhmUDVWcHhjT1Q2NldWbkJiWTkvbEdPb2VsRGNL?=
- =?utf-8?B?MjFpNFErVHhGMjZLZ045dXRLOVBlOW0vUGxVUVVuTm1pZG52RmRJcFFCdVN5?=
- =?utf-8?B?b01aL3pBeEU3OWtkeHF6ZHRNNFo2TSs4OXkzNUFDdm5lS0dwUUdFeVBlbFda?=
- =?utf-8?B?VWtzQ1NWeUVjMy9Oa3VvR1Nack1Zano1d0FtVEhZUHN0WmZ3NEhYS0txNnV4?=
- =?utf-8?B?V2xGMitnN1ZRdGxaTnBpVXBtS3AyWVorZ0o3N2Vmb2w0WHJYbWhPNENuNjRW?=
- =?utf-8?B?dnBGOS9yQnQ0Y1RvUVdVTTNlRUV1UUV3RFhicDRBOHpJSDFySVgraFRvWnhW?=
- =?utf-8?B?bVo1TWJLMURQT1BrdU8zbVBMVzhEaWdvLzN1MFcvTkFRblhmbFlrM3RraHU0?=
- =?utf-8?B?SEV3OUVmVDNPc2F4SVJ1TDg0eXhaODdQMGNaOGpQSVNvTHo2Y1B0RDloMUtm?=
- =?utf-8?B?WW5paEFLRmZIQjRDU0ZuYUZOSjZ0VU1vMzdMWjdNYWxFbGl2YnhuTXZUQ2Vv?=
- =?utf-8?B?cloxdVZ2NDNCTU1uWmk4aUJ1cktSUzlHOUhrZEFQVnp2U2JoNmNwNkQ1c0lU?=
- =?utf-8?B?TUd0MEFSQ1hYZmJ5aUVXWEdIRTdCbkdvQlpDRHZSSG5kZ2hZWGdwMjM3Y0Zr?=
- =?utf-8?B?UFlFTHFrcXJPb3JUQzdCZVg0WU5DMjh3aGxjTTZyMy93WTVXYzQ2VjVMOGMr?=
- =?utf-8?B?QnFrdURwQkIwQTFmYkdlb2IxYlJvQVhHcUJjSHRHRGc3V3YvTDRxdTl2OG01?=
- =?utf-8?B?QjV2R2NsT08rMWN6d3RUVTB2bGVnN2Qza21UUnFhQXNveDVMaldrZTNaa1pF?=
- =?utf-8?B?eDJGckJaUnpuUy9RVTQ2TVdEWVBkT2lRVk8xZE1ZVER2cmlUa0FxUEo2YmQ1?=
- =?utf-8?B?RXVueG5YNExKMVErWGZIbjJrUjh0NUg2TXNTeFA4YTd1N21oamtESVNJRnl4?=
- =?utf-8?B?V3lHSnRHdFJ2MlNaUUQ2SEJ4c3dMWGtnR3RVaHlXdVh2WnpsOHF3VGRxUTgx?=
- =?utf-8?B?VlY3Zz09?=
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?c0hDaytzYUdoZUxHN29OZEVBemtmYkNGSDR1YzhWNk1qbFBCTytSY2VBZk1Y?=
- =?utf-8?B?UnBaUldiOUhXdVE5bldKdkw0Q09lOXJ0WjNsVStFRjJJbU9qR3hnYkh0M1dZ?=
- =?utf-8?B?TnlsVEQ2T1pJNU4vU3Y3aDJzTXFhdkF6TXViYjRRaDNYY1VwTWJFZHRBTEt5?=
- =?utf-8?B?NGtmMlBybFd5OFVpZGtXQVVwQkVJN0hIZmhsMS9pVDYwdmhMT2NsTDRDSENN?=
- =?utf-8?B?TWlqbWdDc2dZOHBOR1NaN0JLdUF2TFhVdW5RcTAvRERJWkFDZ1krLy93b2dL?=
- =?utf-8?B?cHIzOEJLOUx4WEh4SURUN0hWdmpqTjBYUGE2KzQ0L0ZaNXhBZFhiQ1JUVHQy?=
- =?utf-8?B?eVB4Y2tFbVZXMk5HdzNZRFd5aXhwbEVOQnJCVTZFZEVTUGtlZTJ5Z1owM1g1?=
- =?utf-8?B?bXBwakVNWlAwS2d4VG1lSm1VR2gycngycVV2N0U3UzRuajJiVEp4Q2I4VDEy?=
- =?utf-8?B?b3hiV0hveDlZYVNMOTZXNkNNNms0ZER1cE92NUF5UWhSNERGMTBDNHV0S051?=
- =?utf-8?B?QnMrQkxYcEhwazR4aktoTStHVG5XV2IxYVRIMVFDNVZ0R1hVTlZKblhraDFu?=
- =?utf-8?B?dEZwRWpxdWdsbzZUcEZCMi9Yd0N0NklqaDF1dmgyL21uWU9KdjZYUWhaWVFB?=
- =?utf-8?B?ZjZha0dRVkJBV2J0aEdNUU5VNkdXTW55aHJkZ0N1SVZvTisrY1dEMzZ2VE1h?=
- =?utf-8?B?dUpzVTVneE9uZHM0NXBDcnpVTXJqVG5RbE91UXk2ck54djJoczRyc2c5dHR5?=
- =?utf-8?B?RXJYSEZBditmS1U0STZKNDNVOStuUk04UFVJTVlYMTl6UFIvaDJiYzdTaDcy?=
- =?utf-8?B?VlNwNUZTbUtHVS9uNHJ6Nm5pSkhMdUtqdSs2ODNkUUxwZ29tdFVJWVJ1TnEy?=
- =?utf-8?B?SWV1T3FsNzRZcWdSY1NmcXptMzhzWWNibnBORG5MOEd4UGdXdDhPeTBpSVZj?=
- =?utf-8?B?RlVsRk5mZklwdkpWKzdONUswa0dwWmd5VmI3eGMrajBqTVZPcE9HS2JjNDJP?=
- =?utf-8?B?d0RsVTR6cEVLQWcxeGM2VFlXQmpSdFZRZTBtRHphUU9YUW9PNm5OMW4zMyts?=
- =?utf-8?B?THpqSjcxTDhpNHR2MzkwSjRNb3Z0bWlrWVlDOFhVQXpVOVY4RE1sL0h0R0x4?=
- =?utf-8?B?azZ5dFdHd2hYY0tlQW5sVlFUeTBkNmJEc0hCUy9xbDAwYy91d2RTMDA5UVps?=
- =?utf-8?B?WEttM1RQb2U3T205ZlFSeE4zK1VNZE5jZWFQMTNMZVN5MVNXZ2FFNFVUdExU?=
- =?utf-8?B?VUI2c3I3YnV2TWZsZlJTVHVLdkJ5QlJSQ2VldGsrcnNMRTJ6N0hTaVJJQk53?=
- =?utf-8?B?VS83a3ErQWxqazR6aG1ydUZkTDRESncvTVN2ZGluQzVFNlYxbldNLzAwd2Qz?=
- =?utf-8?B?dGlLUUJwM0M4T1RGRmJRQUNxUUtqVThXNFFRdU1KTEFDWENlRzNRU1pEcStW?=
- =?utf-8?B?VU9qckdBWklUZWx1SEZWcS8vSTc4cWphY0xXcDZicUphVkJ1QjdETWt6WTIv?=
- =?utf-8?B?Q3lnYnh4U2VWekxDZnZ0SU1nUzlkdkVrOFNlSmxqWVUybEVuVzlSa2JvSXAw?=
- =?utf-8?B?MnNkRmZuUUNZZjMra3I0WTRhUWY5alJEQ0FOK2t1d0FrcHhya0V0NVBSUXZh?=
- =?utf-8?B?UzZYOTJhcU5PYXBFWFM2MEgwamt6RVFmUFhWRk15QW5idjhBRUNGRWtpS2s1?=
- =?utf-8?B?cUFrZEJ1NjFxTUt6RkxVSitNU24vKy85aHpVTk5tZUdWT3dzbkNud0cyc0U1?=
- =?utf-8?B?YWIxZlhJNVNwSlNVakRUVFVUVnFQQzdScDJDcURJcnNmWi9mcm9FU1JWTmpV?=
- =?utf-8?B?NzJBQWN2Zkk3WWRxdmUvaC9sR0NHblRvZU9KNndlUUwycmwrbTdWMk11Wk1t?=
- =?utf-8?Q?WVYAQi2wD0zR8?=
-X-OriginatorOrg: sct-15-20-9412-3-msonline-outlook-b83fc.templateTenant
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8d7fc3dc-486c-49bc-4724-08df4aa5f670
-X-MS-Exchange-CrossTenant-AuthSource: OS3PR01MB10251.jpnprd01.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 03:41:18.3300
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg:
-	00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: OS9PR01MB16853
 
-> If that notification is lost, the used ring is not drained,
-> buffers are never returned, the device runs out of descriptors and stops
-> publishing, so no further notification comes. The queue stays stuck.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-I agree that a lost interrupt can stall the RX queue. The point is a basic =
-one of logic: A -> B does not mean B -> A.
-Observing a stall does not establish that an interrupt was lost.
-At least in the earlier messages, I didn't see evidence that an interrupt w=
-as actually lost in production.
-You explained what would happen *if* the notification was lost, not how you=
- determined that it was.
+Critical: 0 · High: 0 (2) · Medium: 2 · Low: 2
 
-> I looked at Michael's patch and my case does not match it: at the time
-> of the stall the callbacks were enabled, and IRQ deferral was not enabled
-> (napi_defer_hard_irqs =3D 0, gro_flush_timeout =3D 0).
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I appreciate the clarification. That addresses the IRQ deferral scenario I =
-suggested.
+- [Medium] bonding: unbind after upper unlink in bond_enslave() on link
+  failure
+- [Medium] bonding: carrier left ON after 802.3ad enslave rollback in
+  bond_enslave()
+- [Low] The commit message has no Signed-off-by: trailer.
+- [Low] The patch adds bond_3ad_unbind_slave(new_slave) at err_unregister
+  (bond_main.c:2364-2367).
 
-Adding a watchdog may only take a few lines of code, but once it's in, we h=
-ave to account for it whenever the queue changes state, including when it i=
-s stopped, reset, or resized.
-That's a long-term maintenance cost.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but balance-tlb
+  and balance-alb have the same kind of dangling-slave bug through the…
+- [High] This problem wasn't introduced by this patch, but
+  __bond_release_one() has the same ad_agg_selection_logic/aggregator…
 
+--
+
+bonding: unbind 802.3ad slaves on enslave failure
+
+When enslavement fails after bond_3ad_bind_slave(), this patch now
+unbinds the 802.3ad slave from the LAG state machine in the
+bond_enslave() error unwind. It first unregisters the RX handler, then
+unbinds, then rebuilds the slave array. The aim is to stop
+ad_slave_info from being freed while it is still attached to an
+aggregator.
+
+Link: https://lore.kernel.org/netdev/20261113130454.63032-1-ljp1205831794@gmail.com/
+
+> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave devices.")
+> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+> Link: https://lore.kernel.org/netdev/20261113130454.63032-1-ljp1205831794@gmail.com/
+
+[Severity: Low]
+This isn't a bug, but the trailer block has no Signed-off-by: line.
+Documentation/process/submitting-patches.rst requires the DCO sign-off.
+
+Could the patch be resent with this line above the --- separator?
+
+  Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index e9f5e753f6770..7ca948bb27d01 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -2355,10 +2355,21 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  	bond_sysfs_slave_del(new_slave);
+>  
+>  err_upper_unlink:
+> +	netdev_rx_handler_unregister(slave_dev);
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+> +		bond_3ad_unbind_slave(new_slave);
+>  	bond_upper_dev_unlink(bond, new_slave);
+
+[Severity: Medium]
+Is it safe for the 3ad state to stay attached after new_slave has
+already dropped off the slave list?
+
+When a NETDEV_CHANGEUPPER notifier fails, __netdev_upper_dev_link()
+rolls back with __netdev_adjacent_dev_unlink_neighbour() before it
+returns to bond_enslave(). So by the time we reach err_unregister,
+bond_for_each_slave() no longer sees new_slave, but its port and
+aggregator are still attached. netdev_rx_handler_unregister() then
+sleeps in synchronize_net() before bond_3ad_unbind_slave() runs.
+bond_3ad_state_machine_handler() takes only mode_lock, so it can run
+in that window.
+
+Commit 220ade77452c ("bonding: 3ad: fix the concurrency between
+__bond_release_one() and bond_3ad_state_machine_handler()") uses the
+opposite order for release: unbind first, then unlink. With the order
+reversed here, two things look possible.
+
+First case: new_slave's port joined an existing slave's aggregator,
+and new_slave's own aggregator was the only free one. That free
+aggregator is now hidden. When the existing slave's port is
+re-selected, ad_port_selection_logic() detaches it and finds neither
+a matching nor a free aggregator. It logs "did not find a suitable
+aggregator" and returns with port->aggregator NULL. ad_mux_machine()
+runs right after and passes that NULL aggregator to
+__set_agg_ports_ready(), or reads aggregator->is_active.
+
+Second case: new_slave's aggregator was active and also held an
+existing slave's port. ad_agg_selection_logic() running in the window
+only walks the listed slaves. It activates another aggregator but
+leaves SLAVE_AD_INFO(new_slave)->aggregator.is_active at 1. When
+bond_3ad_unbind_slave() later moves that LAG to a free aggregator, it
+copies is_active across without re-running selection. The bond then
+has two active aggregators.
+
+Moving the unbind ahead of netdev_rx_handler_unregister() would only
+narrow this, since the unlink already happened inside
+__netdev_upper_dev_link(). It would also reopen the receive path race
+that v2 was trying to close. Is there a way to keep the state machine
+off new_slave's port until bond_master_upper_dev_link() has
+succeeded? Or to unbind before the notifier rollback runs?
+
+[Severity: High]
+This is a pre-existing issue, but does the same unbind-then-unlink order
+in __bond_release_one() leave a window for an aggregator use-after-free?
+
+__bond_release_one() {
+	...
+	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+		bond_3ad_unbind_slave(slave);
+
+	bond_upper_dev_unlink(bond, slave);
+	...
+}
+
+bond_3ad_unbind_slave() clears the departing slave's aggregator, sets
+port->slave = NULL and drops mode_lock. The slave stays on the lower
+list until netdev_upper_dev_unlink() runs list_del_rcu(). RCU readers
+that started earlier can still see it until synchronize_rcu().
+
+bond_3ad_state_machine_handler() takes only mode_lock and
+rcu_read_lock(), not RTNL. Suppose a port listed before the departing
+slave has lost AD_PORT_SELECTED, for example because an incoming LACPDU
+changed the partner parameters. ad_port_selection_logic() then picks
+the first aggregator that has no lag_ports:
+
+ad_port_selection_logic() {
+	...
+		if (!aggregator->lag_ports) {
+			if (!free_aggregator)
+				free_aggregator = aggregator;
+			continue;
+		}
+	...
+}
+
+It never checks whether that aggregator's owner is still bound.
+
+For example, take a slave list A, D, C, where A and C share agg_A and D
+is being released:
+
+  A detaches; agg_A still holds C and no longer matches
+  agg_D is free, so A attaches to agg_D
+  the handler reaches D, sees port->slave == NULL, jumps to re_arm
+
+Release then unlinks D and calls synchronize_rcu() and kobject_put().
+That frees D's ad_info, and agg_D with it. A's port->aggregator now
+points at freed memory. Later, ad_mux_machine(),
+ad_port_selection_logic() and bond_update_slave_arr() all dereference
+it.
+
+The enslave rollback added here doesn't hit this. The new slave is
+always last in the list, so one of the earlier slaves always has a free
+aggregator. Would __bond_release_one() need a separate fix for this
+ordering?
+
+> +	goto err_update_slave_arr;
+>  
+>  err_unregister:
+>  	netdev_rx_handler_unregister(slave_dev);
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+> +		bond_3ad_unbind_slave(new_slave);
+
+[Severity: Low]
+Is unbinding here right for every bond_master_upper_dev_link() failure?
+
+Every failure from bond_master_upper_dev_link() lands at err_unregister,
+not only the NETDEV_CHANGEUPPER rollback. __netdev_upper_dev_link() can
+return before the adjacency is linked:
+
+  -EBUSY when dev == upper_dev or a loop is found
+  -EMLINK when nesting is too deep
+  -EEXIST or -EBUSY when there is already a master
+  a NETDEV_PRECHANGEUPPER notifier veto, e.g. a switchdev or DSA driver
+  rejecting the LAG
+
+In those cases the 3ad state machine never saw the slave. But
+bond_3ad_bind_slave() already set port->slave, so
+bond_3ad_unbind_slave() passes its !port->slave check and always does:
+
+bond_3ad_unbind_slave() {
+	...
+	__update_lacpdu_from_port(port);
+	ad_lacpdu_send(port);
+	...
+}
+
+ad_lacpdu_send() increments the per-slave and bond-wide lacpdu_tx
+counters. It then calls dev_queue_xmit() on the slave device, which is
+still open. So a port that never joined the bond now sends an LACPDU
+with the bond's actor system ID. Before this patch, nothing was sent on
+this path.
+
+This also seems to contradict the commit message:
+
+  "and leave earlier unpublished failures unchanged."
+
+Could the unbind be limited to the CHANGEUPPER rollback case? Or could
+the LACPDU be skipped when the port was never attached to an aggregator?
+
+> +
+> +err_update_slave_arr:
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD &&
+> +	    bond_update_slave_arr(bond, new_slave))
+> +		bond_slave_arr_work_rearm(bond, 0);
+>  
+>  err_detach:
+>  	vlan_vids_del_by_dev(slave_dev, bond_dev);
+
+[Severity: Medium]
+Does this rollback leave the bond carrier up when it should be down?
+
+__bond_release_one() calls bond_set_carrier(bond) after it unbinds and
+unlinks the slave. None of err_upper_unlink, err_unregister or
+err_update_slave_arr do that.
+
+When the first slave is enslaved in 802.3ad mode, the state machine
+can run during NETDEV_CHANGEUPPER. It can attach the port to
+new_slave's own aggregator, and ad_agg_selection_logic() then calls
+bond_3ad_set_carrier(), which turns the bond carrier on. If the
+notifier fails, __netdev_upper_dev_link() has already removed
+new_slave from the lower list. In bond_3ad_unbind_slave(),
+__get_first_agg(port) then returns NULL and ad_agg_selection_logic()
+is skipped. Neither bond_3ad_state_machine_handler() nor
+bond_mii_monitor() updates the carrier once !bond_has_slaves(bond), so
+the bond keeps carrier on with no slaves at all.
+
+With min_links > 1 there is a second case on both err_upper_unlink and
+err_unregister. Suppose new_slave's port joined an existing active
+aggregator and brought it up to min_links, so the carrier went on.
+bond_3ad_unbind_slave() only re-runs ad_agg_selection_logic() when
+__agg_active_ports() drops to zero. With fewer than min_links ports
+left, the carrier is never re-checked.
+
+The err_dec_slave_cnt path also falls through here. By then
+bond_set_carrier(bond) has already run with the new slave counted, and
+nothing re-evaluates the carrier after the unlink.
+
+Should the rollback call bond_set_carrier(bond) once the unbind and
+unlink are done, the way __bond_release_one() does?
+
+[Severity: High]
+This is a pre-existing issue, but can balance-tlb and balance-alb leave
+a freed slave in tx_hashtbl or rx_hashtbl after these rollback labels
+run?
+
+bond_enslave() calls bond_alb_init_slave() and marks the slave active.
+After bond_master_upper_dev_link(), new_slave is on the lower list, so a
+concurrent transmit under RCU can pick it:
+
+bond_tlb_xmit()->bond_xmit_tlb_slave_get()
+  (or bond_alb_xmit()->bond_xmit_alb_slave_get())
+  ->tlb_choose_channel()
+    ->__tlb_choose_channel()
+      ->tlb_get_least_loaded_slave()    <- bond_for_each_slave_rcu()
+
+The chosen slave is then stored:
+
+__tlb_choose_channel() {
+	...
+			hash_table[hash_index].tx_slave = assigned_slave;
+	...
+}
+
+In ALB mode, rlb_choose_channel() also stores it in client_info->slave
+and bond_info->rx_slave.
+
+bond_sysfs_slave_add() can fail, or a NETDEV_CHANGEUPPER notifier can
+veto the link. In both cases, none of err_upper_unlink, err_unregister,
+err_update_slave_arr or err_detach calls bond_alb_deinit_slave(),
+tlb_clear_slave() or rlb_clear_slave(). Only __bond_release_one() does.
+
+err_free then frees the slave with kobject_put(&new_slave->kobj). The
+synchronize_rcu() in err_detach doesn't help, because the hash table
+still holds the pointer. The next transmit that hashes to that bucket
+would call bond_slave_can_tx(tx_slave) and read tx_slave->dev from
+freed memory.
+
+Should these labels also clean up the TLB/RLB state for the lb modes,
+the way __bond_release_one() does with bond_alb_deinit_slave()?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124024319.52145-1-ljp1205831794%40gmail.com
