@@ -1,62 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.37.255.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598837;
-	b=SWG+ndOj2EERXlpv2NbLAAKftVm2VK9ZqtVgyYoRiCQpicUVNHtgFIZH3B0QX5tB2gBd
-	 JDmeQkDyJkGsEJcZBk78m24oGBJWEAANT63KxJA6XJl2P92c/BUN00f8rLHNSheB2DQt1
-	 FCQE+GZmN0zxH4HZ+4pjViBJ3ThF2q6SW2dcEcRVX6b2XLQeq25EuMxrbMvsGbIbToMZ+
-	 pMrkbn5FPEmzLJXf9dRlXJGADMklW3ROmS/ZgM9LxPdWivNYuIzsnig5wEmMAoHn78ncJ
-	 ga7iIOWKJixdNFOflRGRuo3/tVM3Q82PGuecdC1cj6go4p89zJkNx8sJRw+OpVbaWkw==
+	t=1795598881;
+	b=Fk97ZwAlQvTipQ/LXlEQHctvXNZe6nGBNPbocr4iqDyWELFiKBq6MarBnYAXTl4WG5TI
+	 lG4bFI8eMEQd/rO4mFxo/cqkDBcuZDxTw9wONrN189LrsfBbjFimQUDwtQgfNExXjw+42
+	 xwwX+W1Rb34KKInBGCw2SEkHb+CHfVOgfhao2j/s3E5s0DBzu6dlWyKnluGr2nG2F3dkS
+	 3VIsSgyJbN1csmXSE+ehV/n1ax8uttGSMb+/9vDJqhK41GJyEPGL68MpVdhM2BVuSI8UW
+	 C+I+/jeWMouEZrtffnGehpP3mQC5gBeLxFEa8PLZQz4HImKnfeN65t1vXwnvhDiFVSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598837;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=4uoskY1EG7VAfNz08KwlvC9A41XTvME1bf3Oqeq2F30=;
-	b=pFjOL9QHxBHahxFA5xTtUh5TsYQopOOvCuSucuUrlb51YSdrNbtA6nmXr/LYBQCn+Xvj
-	 kD7xq7+IyfRmAyVqMww+WCzXyqLVJpOxOXkkaECwTiEIZ+XF/3fC+7eKwbsRA2egV2wAz
-	 jij4TtXGDw9QZOjzQFtGFGOzPSMT778xY7lI86LPyFUFGPWn1TKKdX1KoB4v0hVotJKZj
-	 sendYO4o9JXqlLmTWjAzrp+iWrcm7Af4Nk8nB4JnY9fSMvZzhsZvD4EIzjecHRfhc+OtT
-	 cBUYBBOkw1Qr8NG9EnUyN7MPYA0omc3tlC9Vqw6V9lhO0T2nehAmU0CHjtAVgjF6shQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598881;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
+	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
+	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
+	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate-ID:
+	 X-purgate:X-purgate-type;
+	bh=maG+ssYUFbVrGsr8p7Zk+VAC48SBPsjeb8y+qRk3j8k=;
+	b=ng4K7y7mwTfwpPbonZIu4cvLxx6NHAIa5P/9r5Z/pwdfHkvv5RoQVAFv4n6IocIiXwqE
+	 KwXwjTS9tgLxMqKEkaGLFCv9iyRCsNEu3uTidz48zVXW6wRLhKyYJqlLuvFpcBNLBHh1o
+	 pdHOkqoC3NJh8SMMXFsy5l6hloZ/HVQId41LPJEuG2df7loSXOFZAySwvSquYJe+XSrC1
+	 HScu02t6lLTc4FdpVWRyuUBD2+DKWmIojoXk/KjMTQCijmVVbugKplgje7EW+PMlc8nOv
+	 as3EZl2fPVvR9OBDzAO9Xq58x0g8SzbC8sz1uQexfarR5EBK5RzWSjVtnneMuS+LTTA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9frEIov;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=dev.tdt.de;
+	spf=pass smtp.mailfrom=dev.tdt.de;
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=PwFXVKmQ;
+	arc=none smtp.remote-ip=194.37.255.70
+Received: from mxout70.expurgate.net (mxout70.expurgate.net [194.37.255.70])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85099606A681;
-	Wed, 25 Nov 2026 09:27:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0C4FD606A321;
+	Wed, 25 Nov 2026 09:28:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0C4FD606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=K9frEIov
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85F951F000D4;
-	Wed, 25 Nov 2026 09:27:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795598837;
-	bh=4uoskY1EG7VAfNz08KwlvC9A41XTvME1bf3Oqeq2F30=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=K9frEIovzSE8Eg54wK7g6G21X9W4+yTlJ4tZtlpzS4o9SeKmc7MkZeZYt+AUWnbpZ
-	 X/ckwT7EQs1JzCGsXhW6Fu2I2Bw5x2nnVCNo+D1m7tfsW2aKMq2m2S6hi4cpW9qLk7
-	 ispD0DapAdic8h/rCUJAvf2qeUe2Pa5rWRZ+3159xjjnQlnj/OHh+4kIWbS3pTF0/0
-	 Y/2NbPfQD+p2dRYespYbGDOKuFA656Wsu28a2PNpJNV+nEj7AkcZoqNu9mg4xh80dh
-	 DMOlv7Ze4Q69IemonLRKap99Vf6F510HIySvuoeD4s4qp7NpAhwFekcj1wf8SUqD//
-	 UFu/HEFKN2nnA==
-Subject: Re: [PATCH net 5/5] net: dsa: mt7530: disable regulators on
- mt753x_setup() failure
-From: netdev-bot+sashiko@kernel.org
-To: wanghr2026@mail.zgclab.edu.cn
-Cc: chester.a.unal@arinc9.com, daniel@makrotopia.org, andrew@lunn.ch,
- olteanv@gmail.com, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, matthias.bgg@gmail.com,
- angelogioacchino.delregno@collabora.com, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 09:27:16 +0000
-Message-ID: <179559883613.3135.7444939334405682827@kernel.org>
-In-Reply-To: <179550875790.4156.14185923394520188230@mail.zgclab.edu.cn>
-References: <179550875790.4156.14185923394520188230@mail.zgclab.edu.cn>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=PwFXVKmQ
+Received: from [194.37.255.9] (helo=mxout.expurgate.net)
+	by relay.expurgate.net with smtp (Exim 4.92)
+	(envelope-from <prvs=6803393a3a=ms@dev.tdt.de>)
+	id 1xW9I8-004rQb-MJ; Wed, 25 Nov 2026 10:27:52 +0100
+Received: from [195.243.126.94] (helo=securemail.tdt.de)
+	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <ms@dev.tdt.de>)
+	id 1xW9I8-0033Ny-8I; Wed, 25 Nov 2026 10:27:52 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
+	s=z1-selector1; t=1795598871;
+	bh=maG+ssYUFbVrGsr8p7Zk+VAC48SBPsjeb8y+qRk3j8k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=PwFXVKmQl83XpJbkfUMhKlXpnoFmqtvlN014hNkUcaLfLlY3RH9/LY6/G5cpmqlVA
+	 ztwXsJwucQ3fPkzscCyHg9AhuvRStVGbXYleAF/1qdOgcqi6O7HjL4qbpa+QOcn4ts
+	 ed6KODdvAtFX9RKOY01MXivbT4Wh7fJiG9vWRyf6OtXKlaj/QnPstlhcT9rgQ6DUaT
+	 O5XIN6xVbOuNaOlLOx0ympkiTqoFt24/UrMnHBAaAvvPM9y0mEh7oAKsU2OswNX+Es
+	 o6GMPRofBQUS9EX31Vwodv//MfmQ43gc3yUySNGDB/BIIRFZw6M9ccK0z+4DXO8UCc
+	 Ng+G/1xmXo28Q==
+Received: from securemail.tdt.de (localhost [127.0.0.1])
+	by securemail.tdt.de (Postfix) with ESMTP id ABF13240041;
+	Wed, 25 Nov 2026 10:27:51 +0100 (CET)
+Received: from mail.dev.tdt.de (unknown [10.2.4.42])
+	by securemail.tdt.de (Postfix) with ESMTP id 977C5240036;
+	Wed, 25 Nov 2026 10:27:51 +0100 (CET)
+Received: from mail.dev.tdt.de (localhost [IPv6:::1])
+	by mail.dev.tdt.de (Postfix) with ESMTP id 3C23329D20;
+	Wed, 25 Nov 2026 10:27:51 +0100 (CET)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,168 +71,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+Date: Wed, 25 Nov 2026 10:27:51 +0100 (CET)
+From: Martin Schiller <ms@dev.tdt.de>
+To: Yu Gao <SuperSkidder@qq.com>
+Cc: netdev@vger.kernel.org, linux-x25@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>, Xie He <xie.he.0141@gmail.com>,
+	Hillf Danton <hdanton@sina.com>,
+	syzbot+059a2795ad4cff2a2695@syzkaller.appspotmail.com,
+	syzbot+8328573e4d0514392471@syzkaller.appspotmail.com
+Subject: Re: [PATCH net 1/2] net: lapbether: don't hold up_lock while
+ calling into LAPB
+Organization: TDT AG
+In-Reply-To: <tencent_81EE31BA79E5206415DCD8EE76690A171D08@qq.com>
+References: <20261125045909.77644-1-SuperSkidder@qq.com>
+ <tencent_81EE31BA79E5206415DCD8EE76690A171D08@qq.com>
+Message-ID: <a68d70362e0db1de4c1243fb7bca1ef2@dev.tdt.de>
+X-Sender: ms@dev.tdt.de
+User-Agent: Roundcube Webmail/1.3.17
+X-purgate-ID: 151534::1795598872-6ECB512C-C32C0398/0/0
+X-purgate: clean
+X-purgate-type: clean
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The cover letter and the patches are not threaded together: the mail
+server seems to have replaced the Message-IDs, so both patches point
+to a cover letter ID that doesn't exist. My ack on the cover letter
+therefore doesn't reach the patches, so here it is per patch.
 
-Critical: 0 · High: 1 (1) · Medium: 0 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] In mt753x_setup() (drivers/net/dsa/mt7530.c), the new error
-  paths turn off the MT7530 core/io regulators while devm still keeps…
-- [Low] net: dsa: mt7530: inaccurate Fixes tag for mt753x_setup()
-  regulator leak
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but it sits on the
-  failure path the patch reworks.
-
---
-
-net: dsa: mt7530: disable regulators on mt753x_setup() failure
-
-This patch sends the failure paths in mt753x_setup() that come after
-sw_setup() to a shared error label. That label disables the MT7530 core
-and io regulators. The mdio irq teardown after a create_sgmii() failure
-moves into the same error path.
-
-> diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
-> index 1ac4ac1a05664..963d145341759 100644
-> --- a/drivers/net/dsa/mt7530.c
-> +++ b/drivers/net/dsa/mt7530.c
-> @@ -3223,11 +3223,11 @@ mt753x_setup(struct dsa_switch *ds)
->  
->  	ret = mt7530_setup_irq(priv);
->  	if (ret)
-> -		return ret;
-> +		goto err_disable_pwrs;
->  
->  	ret = mt7530_setup_mdio(priv);
->  	if (ret)
-> -		return ret;
-> +		goto err_disable_pwrs;
-
-[Severity: Low]
-Is b8f126a8d543 the right commit for the Fixes tag?
-
-In b8f126a8d543, mt7530_switch_ops.setup pointed straight at
-mt7530_setup(). There was no mt753x_setup() wrapper and nothing ran
-after sw_setup(). The wrapper came with 88bdef8be9f6 ("net: dsa:
-mt7530: Extend device data ready for adding a new hardware"), and
-at that point it only did:
-
-	return priv->info->sw_setup(ds);
-
-This patch now unwinds the fallible steps after sw_setup(), which are
-mt7530_setup_irq() and mt7530_setup_mdio(). Those steps seem to have
-come in with ba751e28d442 ("net: dsa: mt7530: add interrupt support").
-That commit is where the early returns that leave the regulators on
-were added.
-
-With the Fixes tag pointing at the initial driver, the stable tooling
-will try to apply this to kernels that have neither mt753x_setup() nor
-these failure paths. Should the tag be this instead?
-
-Fixes: ba751e28d442 ("net: dsa: mt7530: add interrupt support")
-
-[Severity: High]
-Can these new gotos power off the switch while things that need power
-are still registered?
-
-When mt753x_setup() reaches this point, mt7530_setup() has already
-returned 0. If the DT node has "gpio-controller", the GPIO controller is
-already published:
-
-mt7530_setup()
-    mt7530_setup_gpio()
-        return devm_gpiochip_add_data(dev, gc, priv);
-
-Suppose mt7530_setup_irq() then fails, for example with -EPROBE_DEFER
-from of_irq_get(). The commit message calls this the common case. In
-that case mt7530_disable_pwrs() turns off the rails and the gpiochip
-stays registered.
-
-If mt7530_setup_mdio() fails instead, the regmap-irq chip from
-devm_regmap_add_irq_chip_fwnode() in mt7530_setup_irq() also stays
-registered. Its parent IRQ stays requested and TOP_SIG_CTRL_NORMAL stays
-set.
-
-Nothing on these paths unregisters them. Only devres unwinding removes
-them:
-
-- With a single switch, devres unwinds after dsa_register_switch() fails
-  and probe returns.
-- In a multi-switch tree, this switch's probe may already have returned
-  0 and the tree setup runs from a sibling's probe. Then devres never
-  unwinds here, and the switch stays bound against unpowered hardware.
-
-The earlier patch in this series, "net: dsa: mt7530: register the GPIO
-controller last in setup", says:
-
-    This becomes important in the next patch, where
-    the failure paths disable the regulators and return an error, so the
-    controller must not be registered across a failed setup.
-
-Doesn't this patch make that state reachable again on the
-mt7530_setup_irq() and mt7530_setup_mdio() failure paths? Only ID_MT7530
-is affected, because mt7530_disable_pwrs() returns early for the other
-variants.
-
-Could the regulator-dependent registrations (the gpiochip, and ideally
-the irq chip and MDIO bus) happen after every fallible step in
-mt753x_setup()? Alternatively, could they be undone explicitly before
-mt7530_disable_pwrs() is called?
-
-[ ... ]
-
-> @@ -3239,15 +3239,23 @@ mt753x_setup(struct dsa_switch *ds)
->  	if (priv->create_sgmii)
->  		ret = priv->create_sgmii(priv);
->  
-> -	if (ret && priv->irq_domain)
-> -		mt7530_free_mdio_irq(priv);
-> +	if (ret)
-> +		goto err_free_irq;
-
-[Severity: High]
-This is a pre-existing issue, but it sits on the failure path this patch
-reworks. Can a failed create_sgmii() leave priv->ports[5].sgmii_pcs
-dangling, and then have it freed a second time?
-
-Take mt7531_create_sgmii() in drivers/net/dsa/mt7530-mdio.c with
-p5_sgmii set, where port5 succeeds and port6 fails:
-
-	if (ret && i)
-		mtk_pcs_lynxi_destroy(priv->ports[5].sgmii_pcs);
-
-	return ret;
-
-This frees the port5 PCS but does not clear the pointer. Port6 can fail
-in devm_kzalloc_obj(), in devm_regmap_init(), or when
-mtk_pcs_lynxi_create() returns NULL.
-
-With a single switch, probe fails and devres frees priv.
-
-In a multi-switch tree, the MT7531 can register before the tree is
-complete, so its probe returns 0. mt753x_setup() then runs later from a
-sibling's probe via dsa_tree_setup()->dsa_switch_setup(). If
-create_sgmii() fails there, the MT7531 stays bound with the stale
-pointer. On a later unbind this runs:
-
-mt7530_remove()
-	for (i = 0; i < 2; ++i)
-		mtk_pcs_lynxi_destroy(priv->ports[5 + i].sgmii_pcs);
-
-Is the port5 PCS kfree()d a second time here? Setting
-priv->ports[5].sgmii_pcs = NULL after the destroy in
-mt7531_create_sgmii() would avoid it.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179550875789.4156.361477684651496992%40mail.zgclab.edu.cn
+Acked-by: Martin Schiller <ms@dev.tdt.de>
