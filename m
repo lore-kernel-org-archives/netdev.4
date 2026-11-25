@@ -1,59 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590979;
-	b=ht2UapiQza0mM6r6LDGBZ7q5a93Ui9hFDs0GHWiXDoFpGE5E4FJ2sBOc+Fkir6g4gG8q
-	 UQUrpIs6Fd8d/gdWPR/s2/KcYyDEZXSfCf5UmiBLqBm0srv2JlL+fibYT8RNSRl2P8KmR
-	 rw8m6UH/ZYafs5RkhpQIxAuAhwItkYvFI+UcuoDUTbep80kB/auMz3f56uiX5UpgCCNrI
-	 AGBlpp1+ezEREfmZWZQbvEu8ole8WonASUKWz69EHTHtRP1CGdbjsueXrk7MuPYeeD8Ow
-	 IJfswU8Goj6bYGaTZRR+79NxuLp/a4yOVYzPH39kII+I7ooJpRFyVr6vHhl0/JQt+uQ==
+	t=1795591028;
+	b=CRyZkD5fizRMS3gVWBdkla4KmoWIKFKhuaL8sU8n6JXn6Yzj3fr0xO+nNhddz1XGW7L4
+	 iMdSCMx9y+ZJVITTQdPs//kWpy4LzglBPTgrsf4vbaolrK+sz3QB7vo7Qov+gzJm9MSsk
+	 QjjTfSBLpqeJBD1XCbsr1TpYfiBDzLV50GkMdNYpbruV501vzpWKcTUy2oKBQgllqyiM/
+	 EAYIxLHBZcMYr/KhA/R5Vz7utUyVx0EtzMOaFRWrtaPSBKHPP/iVfHuMVuZuhzGqizSuO
+	 gOfalbeMwkVyFeS2PU9kLJ/1d8DVeWhWiZDD5mMxZcqGqBwA1Me90OOOr8awKxC24vA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590979;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=PBcxJs4YJ9Kl1J7kvgU+nHQpIaFyg5LVBkk9xBDYPhg=;
-	b=Erl2yfQhOhyjKnPz/BrhBIO2Kgld2KfGjM+xrm26KL4ALlKjK7GQBan4fr0EdEvQxRs7
-	 K+xCStKTVbBqeh7U+7JntSn5hAPJYFzugOmhkk0DDVTwnVPSm62GEHAUXBB2jCUPDcYKx
-	 d1gC9xoTcKKaMJNq1D9Zh0FUy0M4QRT3vf9H9LLAN0z+yCGtGCmunLw2L4BvUwsZZaYRp
-	 WlRkcXZB76VB6GIn9LrYetY0Hu0+NqiB+uyI2Gd0UXSrk+Niwor2mnEt9ZYwI6p8Hbs6w
-	 NXAdmsCLdO54PSNwt1b5NAhMHo9RbKlatOLpw6+RvloTtcrOk5mjWwkaKLu/svmKGCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795591028;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=+dHH22/mmXUjEV/FuacR65AgUd54J9CothzajbpQVaM=;
+	b=qFdpBtb4NKJ4IgsZZTa/GnNF6XtDbhq32WOn1KBJeA2JStyTX0d4C/ucsHCUdS/bpaap
+	 SZYLxoAySt0rhjr0AExBluay7XV2Rxv4+eS9bkwp6vJr+Wm6ITX8PuGF9LfFQLJU2RXLu
+	 67X2hhouF80FzwonnQ04B2Ot1INalsOpQEauT+8PyGlK6eqKZwRWfaOxgAiaeEdTIrxOa
+	 Kps7mXs9g3IyyYpyLPLcr7ah+OwTd6mSo0ioZ+GU86TZ+TcNCmSyfHuRvyaNMTRlBcb+P
+	 iBy2MsOTXq2CrjtosKpvlOGzlPG6jjICfAdpDeizDEFEUTzVD95WUc34/JeUGjcogqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mxz3oYUY;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yy1SWnH1;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 942B3606A6A7;
-	Wed, 25 Nov 2026 07:16:19 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D27C7606A68C
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:16:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D27C7606A68C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Mxz3oYUY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC9AC1F000C4;
-	Wed, 25 Nov 2026 07:16:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795590979;
-	bh=PBcxJs4YJ9Kl1J7kvgU+nHQpIaFyg5LVBkk9xBDYPhg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Mxz3oYUYhhDxwTdP2KvTBZLCtg3uZ6xpdGtkvxlOf/AXQrdbcOuuqiIjKAxpm6vI/
-	 hlw/YcisvZ/io+dy/e9J/yCPVia6QIXujsOCFxoGwuneHxEUR2lL4PgaxvzXQnT/9r
-	 xlNkPzyNy3CFnKkxmeDY2Z2Eg4h3GyC1gixZxasgBJRSjSVx4HdUVYUVRRnNNaw+0e
-	 ZpisdRuHM3mWSH9r7nNhdrY61zjSRhPKumYTMSFZLI2xoJU4/GloBApVd6f7pdyA4N
-	 DmJR4gcqq0ho4N567vu2IwQ1c4MoR5x5V6k31uAjjOlZbjaHhGlzAb/I1P0oQETrQr
-	 j0jJLx9IUcIMg==
-Subject: Re: [PATCH net v4] net/ncsi: fix use-after-free of ncsi_channel in
- ncsi_remove_channel()
-From: netdev-bot+sashiko@kernel.org
-To: 18983559317@163.com
-Cc: sam@mendozajonas.com, fercerpav@gmail.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:16:18 +0000
-Message-ID: <179559097851.3135.4122236304109940542@kernel.org>
-In-Reply-To: <20261121065625.27934-1-18983559317@163.com>
-References: <20261121065625.27934-1-18983559317@163.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=yy1SWnH1
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0458cc9easo42810875ad.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:16:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795591018; x=1796195818; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=+dHH22/mmXUjEV/FuacR65AgUd54J9CothzajbpQVaM=;
+        b=yy1SWnH1JMhl/jB92k7bZENjX4+Dz17Qm5cgEsXs7nyICV22dfbCY3HPJKiMlKp3mZ
+         pcmQQT+cb1hPjvtvHS2Jb8VsunTC7QlUSk8Sqyf3+6vWh/w9H2W4AL6HCo+VAdwdyDVP
+         mlsNG5Qt39ISoMepaKRwWAAqndt442eLnT+Qqf64s43WRkYQx0Y8oqeg1HRtTtqjlN1G
+         OI/GaANjrcCbffDX7dnVd95A3NxwN1lscyicE3mETl71fJg5Hyyk9GqOlt0LUnzM5M/1
+         5g6HV9pDAg6nULbn/LmEz5VeE0d9D5aBb41DAomIUi09+UjLBwdYFi9qQ0dyzSdXK+ON
+         OHZA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795591018; x=1796195818;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=+dHH22/mmXUjEV/FuacR65AgUd54J9CothzajbpQVaM=;
+        b=K+WQ4gJx7eCf21/p9/BzlXLbdZZyb9crvXgwhKmKIQ3IXXzm2SiwECrFqxz6L1i4og
+         CRiWSgN8leUJvUe1p1aLI3B5uD1HLgrrNmlLQKm1La51YMxO6hlaBUh3ftbBbeS1hbpq
+         es53NcFGa0dkJ4lp96e/RXfE5qFdqVcHOQi6q1UyZ2/tueIO8oW39uvyjke7pa1Sb+nz
+         zNm8lQJVsNX2BFjOPpSqgR9PgNwoNUnzflGRBvCcCXQ2R5Bemc9+0uGzKs43u93rDScB
+         IZQCpRtT2VkAidpCCp8aOuMo4/dRajoibfcZTiOmYlsemHJ0MYwP8tOq8QSspxpqlw4M
+         K9Mw==
+X-Forwarded-Encrypted: i=1; AL+hErH58w1hs9XEGN6ylUEQBosRsJskzfwgKSXqINiajg5VCdlhy3LcsBHMvc/FSCoWnQMOOIRdSqU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8lAdx8QrRjK3yQwnsQpfqB/73xnT6Kwm2luaJALSEIRwVedVxU
+	I+vfTFoc5k77OHBVgAsO10ib5bawk3sx3BzmhpCNEYcDRI05bOMFOtul
+X-Gm-Gg: AZFdTZfYF6FAxtqAQDDGejcoFWSaNohx/VU4j+otMhDgcVEnaoCNRC3oZXWgT5j/bXl
+	TcLV2sG3N0HchVjHpWIqt28XrtgbBYB4aVs9/P8VkIS2sTFwGaOp0uOs9XrRnm/iiGDjNfU85LW
+	XGdTRzvWT0H5/6AiNZTaeZEV53woJPPwyj5k0MZdK1srWBA1YvyGnAhVuAYezbEf4pj3Anp7rQP
+	4ijBL45LRrbeF6pDSycz4rChgFPm/3N4WxExUU+rvPh6JVJ8RYVYFNeQaF0ii2PSd/5ndB5fr9b
+	J1jwHKXHQ3TTDtKga/IiU/HoYwCU8CHvzTx0mw4XBLT3RoAYLKylLy3LhxgKctIk5FVtfQmkS4r
+	0tcTb0g8CcMaylxNb465wyzVnACfskRnY6SDeq/IFiJXtTDyoytWQvY1OCQs75mbDDVgUrq8E1I
+	z/LSU1G8PuCmeYyoKDu+RJ2C3gDGJv7vPQDisOtYCY6r8zifglDw/LEeGEXykiZ55ffYNeibp9u
+	RXFw2Fa09ep+7gtWG5dCqNi48+M6JSKKALVruPoOdrEOuKgF/WbGajn+FmcBzyafh/j51LOG0Od
+	y8xoItl9DiOZ92pc1AiOLoRQI+Fmbrqy84SSPOrn2npGjsXRtTz0FjNR6DJ72pBvH6FSpeg8Vcw
+	YjfU/JLvDYuxrsw==
+X-Received: by 2002:a17:903:b4f:b0:2e4:b37a:d577 with SMTP id d9443c01a7336-2f03f1c9e52mr170295355ad.43.1795591017970;
+        Tue, 24 Nov 2026 23:16:57 -0800 (PST)
+Received: from JUNVYYANG-MC1.tencent.com ([43.132.141.20])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a8asm80681405ad.24.2026.11.24.23.16.55
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 23:16:57 -0800 (PST)
+From: Jun Yang <juny24602@gmail.com>
+To: dhowells@redhat.com,
+	marc.dionne@auristor.com
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	linux-afs@lists.infradead.org,
+	netdev@vger.kernel.org,
+	junvyyang@tencent.com,
+	corvus@tencent.com,
+	stable@kernel.org
+Subject: [PATCH net] rxrpc: Fix kvec overflow when padding a path-MTU probe ACK
+Date: Wed, 25 Nov 2026 15:16:38 +0800
+Message-ID: <20261125071652.56790-1-juny24602@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,253 +104,114 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+From: Jun Yang <junvyyang@tencent.com>
 
-Critical: 0 · High: 1 (2) · Medium: 0 · Low: 0
+rxrpc_send_ACK() pads a PMTUD PING ACK out to call->peer->pmtud_trial +
+sizeof(struct rxrpc_wire_header) by appending one PAGE_SIZE zeropage kvec
+per page.  The table it fills is call->local->kvec[], sized
+1 + RXRPC_MAX_NR_JUMBO == 47 entries so that it can also hold a
+maximum-size jumbo DATA packet.  rxrpc_alloc_ack() has already used three
+entries, so only 44 zeropage entries fit, and the loop has no upper
+bound: a probe larger than 44 * PAGE_SIZE writes past the end of the
+rxrpc_local allocation.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+pmtud_trial can be driven that large because rxrpc_assess_MTU_size()
+takes the peer MTU straight from dst_mtu().  An IPv4 output XFRM policy
+with an unresolvable ESP template makes xfrm_lookup_route() return a
+blackhole dst; ipv4_blackhole_route() points it at the loopback device
+and dst_blackhole_mtu() returns dst_dev(dst)->mtu without the
+IP_MAX_MTU clamp that ip_dst_mtu_maybe_forward() applies to ordinary
+IPv4 dsts.  With loopback's MTU raised inside a netns,
+peer->pmtud_bad = if_mtu - hdrsize + 1 becomes huge and the probe search
+in rxrpc_input_probe_for_pmtud() moves pmtud_trial far beyond 64K.
 
-- [High] The fix is incomplete.
+The XFRM policy only has to match the sport 7001 / dport 7000 that
+rxrpc_assess_MTU_size() hardcodes, so it blackholes the route assessment
+without affecting the call's own packets.  CAP_NET_ADMIN in a new netns
+is enough, which an unprivileged user obtains with
+unshare(CLONE_NEWUSER|CLONE_NEWNET).
 
-Pre-existing issues:
-- [High] This bug predates the patch.
-- [High] This bug predates the patch.
+Clamp the route MTU to the maximum size of an IP datagram in
+rxrpc_assess_MTU_size(), which keeps pmtud_bad bounded, and skip the
+probe altogether in rxrpc_send_ACK() if its padding would not fit the
+kvec table.
 
---
+BUG: KASAN: slab-out-of-bounds in rxrpc_send_ACK (net/rxrpc/output.c:333)
+Write of size 8 at addr ffff8880312f3630 by task krxrpcio/0/10441
 
-net/ncsi: fix use-after-free of ncsi_channel in ncsi_remove_channel()
+Call Trace:
+ rxrpc_send_ACK (net/rxrpc/output.c:333)
+ rxrpc_input_call_event (net/rxrpc/call_event.c:484)
 
-The patch moves the free of ncsi_channel and its filter arrays into an
-RCU callback. It also wraps the device lookup and the list walks of all
-NCSI genl handlers in rcu_read_lock() sections. Separately, it drops the
-leaked get_net() references and pins the net_device for the SEND_CMD
-error notification.
+Fixes: eeaedc5449d9 ("rxrpc: Implement path-MTU probing using padded PING ACKs (RFC8899)")
+Cc: stable@kernel.org
+Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+Signed-off-by: Jun Yang <junvyyang@tencent.com>
+---
+A KASAN reproducer for this issue is available if requested.
 
-> diff --git a/net/ncsi/ncsi-manage.c b/net/ncsi/ncsi-manage.c
-> index 1d63958c4429b..79b2a56c5a935 100644
-> --- a/net/ncsi/ncsi-manage.c
-> +++ b/net/ncsi/ncsi-manage.c
-> @@ -242,17 +242,21 @@ struct ncsi_channel *ncsi_add_channel(struct ncsi_package *np, unsigned char id)
+ net/rxrpc/output.c      | 4 ++++
+ net/rxrpc/peer_object.c | 6 +++++-
+ 2 files changed, 9 insertions(+), 1 deletion(-)
 
-[ ... ]
+diff --git a/net/rxrpc/output.c b/net/rxrpc/output.c
+index 88cad087f13b..57fae49e9ce8 100644
+--- a/net/rxrpc/output.c
++++ b/net/rxrpc/output.c
+@@ -327,6 +327,10 @@ void rxrpc_send_ACK(struct rxrpc_call *call, u8 ack_reason,
+ 
+ 		if (len > probe_mtu)
+ 			goto skip;
++		/* The zeropage padding must fit in the kvec table. */
++		if (probe_mtu - len >
++		    (ARRAY_SIZE(call->local->kvec) - nr_kv) * PAGE_SIZE)
++			goto skip;
+ 		while (len < probe_mtu) {
+ 			size_t part = umin(probe_mtu - len, PAGE_SIZE);
+ 
+diff --git a/net/rxrpc/peer_object.c b/net/rxrpc/peer_object.c
+index fa9a406e1168..310fe94d9f6c 100644
+--- a/net/rxrpc/peer_object.c
++++ b/net/rxrpc/peer_object.c
+@@ -156,6 +156,7 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
+ 	struct rtable *rt;
+ 	struct flowi fl;
+ 	struct flowi4 *fl4 = &fl.u.ip4;
++	unsigned int max_mtu;
+ #ifdef CONFIG_AF_RXRPC_IPV6
+ 	struct flowi6 *fl6 = &fl.u.ip6;
+ #endif
+@@ -179,6 +180,7 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
+ 			return;
+ 		}
+ 		dst = &rt->dst;
++		max_mtu = IP_MAX_MTU;
+ 		break;
+ 
+ #ifdef CONFIG_AF_RXRPC_IPV6
+@@ -195,6 +197,7 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
+ 			_leave(" [route err %d]", dst->error);
+ 			return;
+ 		}
++		max_mtu = IP6_MAX_MTU;
+ 		break;
+ #endif
+ 
+@@ -202,7 +205,8 @@ void rxrpc_assess_MTU_size(struct rxrpc_local *local, struct rxrpc_peer *peer)
+ 		BUG();
+ 	}
+ 
+-	peer->if_mtu = dst_mtu(dst);
++	/* A blackhole dst reports the device MTU with no IP_MAX_MTU clamp. */
++	peer->if_mtu = umin(dst_mtu(dst), max_mtu);
+ 	peer->hdrsize += dst->header_len + dst->trailer_len;
+ 	peer->tx_seg_max = dst->dev->gso_max_segs;
+ 	dst_release(dst);
 
->  static void ncsi_remove_channel(struct ncsi_channel *nc)
->  {
->  	struct ncsi_package *np = nc->package;
->  	unsigned long flags;
->  
->  	spin_lock_irqsave(&nc->lock, flags);
-> -
-> -	/* Release filters */
-> -	kfree(nc->mac_filter.addrs);
-> -	kfree(nc->vlan_filter.vids);
-> -
->  	nc->state = NCSI_CHANNEL_INACTIVE;
->  	spin_unlock_irqrestore(&nc->lock, flags);
->  	ncsi_stop_channel_monitor(nc);
-> @@ -263,7 +267,11 @@ static void ncsi_remove_channel(struct ncsi_channel *nc)
->  	np->channel_num--;
->  	spin_unlock_irqrestore(&np->lock, flags);
->  
-> -	kfree(nc);
-> +	/* Netlink walkers may still hold the channel or its filter
-> +	 * arrays; the arrays are only reachable through @nc and share
-> +	 * its grace period.
-> +	 */
-> +	call_rcu(&nc->rcu, ncsi_channel_release);
->  }
-
-[Severity: High]
-
-Only the channel free is deferred here. The package and the
-ncsi_dev_priv on the same teardown path look like they are still freed
-right after list_del_rcu(), with no grace period:
-
-net/ncsi/ncsi-manage.c:ncsi_remove_package() {
-    ...
-	spin_lock_irqsave(&ndp->lock, flags);
-	list_del_rcu(&np->node);
-	ndp->package_num--;
-	spin_unlock_irqrestore(&ndp->lock, flags);
-
-	kfree(np);
-}
-
-net/ncsi/ncsi-manage.c:ncsi_unregister_dev() {
-    ...
-	dev_remove_pack(&ndp->ptype);
-
-	list_for_each_entry_safe(np, tmp, &ndp->packages, node)
-		ncsi_remove_package(np);
-
-	spin_lock_irqsave(&ncsi_dev_lock, flags);
-	list_del_rcu(&ndp->node);
-	spin_unlock_irqrestore(&ncsi_dev_lock, flags);
-
-	disable_work_sync(&ndp->work);
-
-	kfree(ndp);
-}
-
-The synchronize_net() in dev_remove_pack() runs before any package or
-the ndp is unlinked. disable_work_sync() does not wait for RCU readers.
-
-The new rcu_read_lock() sections still walk and dereference these
-objects:
-
-  - ncsi_pkg_info_nl() and ncsi_pkg_info_all_nl() call
-    ncsi_write_package_info(). It reads ndp->package_num and
-    ndp->package_whitelist, and walks NCSI_FOR_EACH_PACKAGE() through
-    np->id, np->node.next and np->channels.
-
-  - ncsi_write_channel_info() reads nc->package->preferred_channel. The
-    channel now survives the grace period, but its parent package does
-    not.
-
-  - ncsi_set_channel_mask_nl() and ncsi_set_interface_nl() take
-    package->lock and write package fields.
-
-  - ncsi_set_package_mask_nl() and ncsi_clear_interface_nl() take
-    ndp->lock.
-
-  - ncsi_send_cmd_nl()->ncsi_xmit_cmd()->ncsi_alloc_request() takes
-    ndp->lock and writes ndp->requests[].
-
-ndp_from_ifindex() returns ndp without taking any reference on it.
-ftgmac100_remove() also calls ncsi_unregister_dev() before
-unregister_netdev():
-
-	if (priv->ndev)
-		ncsi_unregister_dev(priv->ndev);
-	unregister_netdev(netdev);
-
-So dev_get_by_index() keeps succeeding, and ncsi_find_dev() keeps
-returning ndp for the whole teardown.
-
-NCSI_CMD_PKG_INFO has no GENL_ADMIN_PERM. Can the unprivileged
-PKG_INFO vs rmmod race from the commit message still hit a
-slab-use-after-free, only now on the ncsi_package or ncsi_dev_priv
-object instead of the kmalloc-1k channel?
-
-If so, these two claims would not hold for np and ndp:
-
-  - the comment added in ncsi_pkg_info_nl(): "the walker is protected
-    by that grace period"
-  - the commit message: "All seven genl handlers now resolve the device
-    and walk the lists inside an RCU read-side critical section, so the
-    grace period of that callback protects them"
-
-Should np also be freed through kfree_rcu() or call_rcu()? And should a
-grace period (synchronize_rcu() or kfree_rcu()) come before
-kfree(ndp)?
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but ncsi_unregister_dev()
-removes all packages and channels before it calls
-disable_work_sync(&ndp->work). That means ncsi_dev_work can still run
-during this teardown.
-
-Can that leave an armed monitor timer inside a channel that
-ncsi_channel_release() then frees? Here is the sequence:
-
-rmmod
-ncsi_unregister_dev()
-  ncsi_remove_package()
-    ncsi_remove_channel()
-      ncsi_stop_channel_monitor(nc)
-      ...
-      call_rcu(&nc->rcu, ncsi_channel_release)
-
-ncsi_dev_work, running at the same time with nc == ndp->active_channel
-ncsi_configure_channel()
-  ncsi_start_channel_monitor(nc)
-    mod_timer(&nc->monitor.timer, jiffies + HZ)
-
-Nothing cancels the timer again before nc is freed. So
-ncsi_channel_monitor() could run on freed memory.
-
-The work also uses ndp->active_package and ndp->active_channel outside
-any RCU read-side section. Neither ncsi_remove_channel() nor
-ncsi_remove_package() clears them, and neither clears hot_channel or
-package->preferred_channel.
-
-Could the work then dereference a package that ncsi_remove_package()
-already kfree'd, or a channel whose RCU callback has already run?
-
-The work can be pending or running when ncsi_unregister_dev() starts.
-It can also be queued during teardown through
-ncsi_request_timeout()->ncsi_free_request()->schedule_work(). And
-ftgmac100 calls ncsi_unregister_dev() while the netdev is still up.
-
-Would calling disable_work_sync() before tearing down the packages and
-channels close this window?
-
-> diff --git a/net/ncsi/ncsi-netlink.c b/net/ncsi/ncsi-netlink.c
-> index 8cc538358f6a3..3310a9ca2de9b 100644
-> --- a/net/ncsi/ncsi-netlink.c
-> +++ b/net/ncsi/ncsi-netlink.c
-
-[ ... ]
-
-> @@ -462,23 +501,31 @@ static int ncsi_send_cmd_nl(struct sk_buff *msg, struct genl_info *info)
->  	nca.info = info;
->  	nca.payload = ntohs(hdr->length);
->  	if (nca.payload > len - sizeof(*hdr)) {
-> +		rcu_read_unlock();
->  		ret = -EINVAL;
->  		goto out_netlink;
->  	}
->  	nca.data = data + sizeof(*hdr);
->  
-> +	/* ncsi_xmit_cmd() is safe to run under the RCU read-side
-> +	 * critical section: it only uses GFP_ATOMIC command skbs,
-> +	 * spinlocks and dev_queue_xmit().
-> +	 */
->  	ret = ncsi_xmit_cmd(&nca);
-> +	rcu_read_unlock();
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but is the request timer
-that ncsi_xmit_cmd() arms ever cancelled when the device is
-unregistered?
-
-net/ncsi/ncsi-cmd.c:ncsi_xmit_cmd() {
-    ...
-	nr->enabled = true;
-	mod_timer(&nr->timer, jiffies + 1 * HZ);
-    ...
-}
-
-The only timer_delete_sync() for request timers is in
-ncsi_free_request(). That runs only when a response arrives or the
-timer fires.
-
-ncsi_unregister_dev() calls dev_remove_pack() first, so no more
-responses get processed. It then frees the packages, calls
-disable_work_sync() and does kfree(ndp). ndp embeds requests[256] and
-their timer_list objects.
-
-If a request is still in flight at that point, could
-ncsi_request_timeout() fire up to a second later on freed memory? It
-would read nr->ndp and take ndp->lock. For event-driven requests,
-ncsi_free_request() would also call schedule_work(&ndp->work). The
-pending timer_list would stay linked into the timer wheel from inside
-the freed object.
-
-This seems likely during probe, where commands to absent packages
-always wait out the one second timeout, so the insmod/rmmod cycling in
-the commit message would hit it. An outstanding monitor request, or a
-NCSI_CMD_SEND_CMD request sent from this path, can trigger it too.
-
-[ ... ]
-
+base-commit: c5de2ce2fccdb7d3b48946179634eaa3d7ce2e7e
+prerequisite-patch-id: 73dc5424c05c31bf826b8438dff12ad2acee90e4
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121065625.27934-1-18983559317%40163.com
+2.56.1
+
