@@ -1,67 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.241.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567185;
-	b=KLG3M/18fO8kE4sic/bB8EDvLyLCvnt5ijk7Yjt2rJSCkC6MMxjXaXtF29KeJkHaZNBg
-	 q5P2XBAg/bbdVqT42I1kICPSq4QFFkbvCpSoaq77VE8Z5l3OxpR0gbAzZLT9P1HxMfLYM
-	 Bjf5qv40O2WtrqC30TRdiiRVb9S5HA4nynMQT0QeCCi7XZd0T5oOewWrtfMnLEDq20AL1
-	 NyyJ/TWkdedA3m0qp0O7JMCJ8z20G1KcDyBF/v5u7vcusBUmR6yVIak/E92q40vKfLVis
-	 QerLQbERErl2sLRnVMQeBr7kuf/BTHD2hBbce4UID4x81eH/yBhq+3I3TgZtyQc72XQ==
+	t=1795567230;
+	b=IJWrHjAgLCuszG/ScGuD1RRfQOwMXgSz2CmaB04tea4ntSYMEzTcTxTBxQI9omtKcSmj
+	 ZzPHiJKbBDKqPgcI1J39bpw2q2D7DOSh6KwDz3eH/ktvyi9gZrDEYpCR8QdhASeNcW/Vi
+	 Erzj8/P3d+u8BSpXAF5ex/IQQfvVSsYiDdeXxzeV5hKbfT7ENiUAbGZrk7fS1G34P7ydy
+	 tO7egRcpxWbZk08nN98x28IvGCEcLmXMuIIz2wGSnGyPFADIiySBkbmEUhMNC7dm1rClM
+	 WyxetuN9Pz+lhaVSiYVJGcPkv8hTY5+Z3rDkThSCSUDdn70zkTlPrJ/jWguqzqQ99nA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567185;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 User-Agent:MIME-Version;
-	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
-	b=BBn8SjZDGKDDKJSM/tm3p8avdVABEjz4FFsZevnFPhDHUb3NXLSHcXdoIAvrQPSiI71j
-	 sLB2fcyegl+wNuxH0TTHIxYwyvKOyE5v7mQhuFMxF+z/N8VM2OQdrZKSMaJkA5yTra36f
-	 O3mu0WcUojSD3MDqWgoWq0tWc5SVq7q6zj7UrN7r5HP85ILb2wDo2ISUCAvNqZ5q+Vp9i
-	 QFKQ/OzV8IAxHEkrW1y4FLVF0ST9xUQCfTd9SaGfZR97EscwPF74gWyFBrwD/Sgh9dax2
-	 uUsSYvmuv+V/gEPyrZEHayhF9IoRRgAGEkNPVjhTc/KN+Awj8c/QRX2pRsleORrupvw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567230;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
+	 Content-Type;
+	bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
+	b=ySelkN3V4PLqsr7G+++BCwvrI/UbhD2uLxNpsZaQg6KsUPFqbpMed8AuD9MLSHIdUmNB
+	 LItQ0SZfb839d0N44eTfu7VM+23MnMI4rBHkNc0YuI0is8CQKTrMUvdbfHn3K5agwBnA9
+	 o5Aet67tuSKNCIyolGFYLBD7ArDYpIFVzsHyA31jK6JReWO5gIaemcnv5oR/ndFNUoBE5
+	 J+Zscnamw0qOg3DgMRYc0d1QWimLi+WHZ1ICsM+nhNBIqhKl+fKeJZow0eRP+6vq5ROLK
+	 4gyGYZJDqclUi1nGt+5Vg7ET99M0cBU242VZSEK+TzaBQCWPzgzELI/00Jm8rjWOxCw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=codeconstruct.com.au;
-	spf=pass smtp.mailfrom=codeconstruct.com.au;
-	dkim=pass header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF;
-	arc=none smtp.remote-ip=203.29.241.158
-Received: from codeconstruct.com.au (pi.codeconstruct.com.au [203.29.241.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KIQW3ubu;
+	arc=none smtp.remote-ip=74.125.82.71
+Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D74606A321;
-	Wed, 25 Nov 2026 00:39:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D74606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codeconstruct.com.au
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codeconstruct.com.au
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3085606A329
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:40:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3085606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KIQW3ubu
+Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3b45597c7so6683483c88.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:40:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=codeconstruct.com.au; s=2022a; t=1795567176;
-	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=YfcHIhAFS+V9xD/DxHFPBg3q52jU1s8sm/dpBo0DUGAPk4KTeRkfl7VSW6NDS+9CV
-	 qidG+M1pcl4ZZnnBgyAORSPE9nxYz2MYuiuj3G+mp4OJptuxgh3TeYr2u+mOFdrGxs
-	 jO2OMhbqeTlwAmcJJQIndHGFbthNc6kro/G3pJ/IZkzZFQ5UMsZVDvabFRvmj22tSn
-	 lpdbx0p3Z5izXhz9bX+iVeGzeXsajIJHWAkDJKURSUPDUbvdhOKY8vgP39CQroV3R2
-	 CEfryR7lI4y54h9XFKD+hYeGOq8kRqKbHETt2YyDpyeCS7tbYaTjWk1DMK6bYpINCV
-	 PwPJVMXEYZJtQ==
-Received: from pecola.lan (unknown [159.196.93.152])
-	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D0B8B60895;
-	Wed, 25 Nov 2026 08:39:35 +0800 (AWST)
-Message-ID: <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Subject: Re: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the
- controller limits
-From: Jeremy Kerr <jk@codeconstruct.com.au>
-To: Shubham Patil <shubhamsanjay.patil@amd.com>, Alexandre Belloni
-	 <alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>
-Cc: Matt Johnston <matt@codeconstruct.com.au>,
- linux-i3c@lists.infradead.org, 	netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	meaganlloyd@linux.microsoft.com, git@amd.com
-Date: Wed, 25 Nov 2026 08:39:35 +0800
-In-Reply-To: <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
-References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
-	 <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-0+deb13u1 
+        d=google.com; s=20260707; t=1795567229; x=1796172029; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
+        b=KIQW3ubux0cWLy0xvP/Y4srhJHZWcbz+MwQw6VUTsEMVVSAeTMb2ZPtfVyzbmMfq9T
+         NAitwxwZR9BfWzeoPxGnVIJa4mqGxBCNmd23CC0f3A+jt2IK56Xbu8cIUXGQw8pBZBlK
+         9WsHl3nLrozrL1+1aLdh6XgatMbuJE/Qn9etarX5ascsnyrxbhUrhuIGUsMZW761X1nK
+         Yk/cnHLB/wvdTxhM6oClTviDDOkQtLjY73o/LdvxRabJLVtIo5s0cnvWcJ3hQlknKpkm
+         IPz2MV2wB+7hUbHCTHxZ2ewA/luot3o7dhJhqCb61Z6OMGlS0XI3xzdqkwVkgrVnsjB9
+         NYrg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795567229; x=1796172029;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
+        b=klU4a1WCJ40XkvfaAhLd/P8hdo3BLN0HBSL6CYYPzLnLxC0QxPKyxqRPq5Yw0OxgNI
+         oR4eVhfiT0sJTZ5ly2jqbrmF0h+7ifGQOcqf5ZPJYGwZg/z2NzBu6Bw32yjKAXjh64sF
+         ZV6S9N4MsFrhHup7Es5i3nZjQwov0jjaOePqwrV5iDEGTenhAA/+2B5bHtD3h8dm6Eea
+         Wv6leAmzgjYhrep0VTWvmQBSOjHj2a3PIJcrdrJTbMNcQBzmS9ohiLIKyvDCAOEauTCJ
+         W7SG5qfIyrlBbT7IGAjsn40wZ6060CpVKZPaEUo5Zpp40p4IH9UH/1owJXX6aXGHquzT
+         kg2A==
+X-Forwarded-Encrypted: i=1; AL+hErFLUtcodIM4LCXiL1aiHugDCmmpmudpaET2yt4h3Xdjz40jE2gwYzz9ebClU1DRjCRKuYJQR5Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/+IhYJ3FgRfK/lVgqFcURbLJ8o7jFi6/Ud27WokICSHrYkFkbV
+	dsAekj0Bgxu0OACVIUE60OgsklQKqZh6RAKOPjnz7O0alpm7ogWiOGZ0YnLhhvcnzhEHi0gM1RP
+	GGNlZtB+2Sg==
+X-Received: from dleb8-n1.prod.google.com ([2002:a05:701b:4248:10b0:1a4:c892:b166])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:7f01:b0:1b2:6a01:f55e
+ with SMTP id a92af1059eb24-1b56f39c712mr7629241c88.34.1795567228466; Tue, 24
+ Nov 2026 16:40:28 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:40:27 -0800
+In-Reply-To: <179545903032.3135.12672409534586940438@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,37 +78,41 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
+Mime-Version: 1.0
+References: <20261119170623.1519909-1-irogers@google.com> <179545903032.3135.12672409534586940438@kernel.org>
+X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
+Message-ID: <20261125004027.1004762-1-irogers@google.com>
+Subject: Re: [PATCH net] niu: write back TXC_INT_MASK in niu_txc_set_imask()
+From: Ian Rogers <irogers@google.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com, 
+	Ian Rogers <irogers@google.com>
+Content-Type: text/plain; charset="UTF-8"
 
-Hi Shubham,
+On Mon, Nov 23, 2026 at 10:37 AM <netdev-bot+sashiko@kernel.org> wrote:
+>
+> [Severity: Medium]
+> With this write in place, niu_init_hw() now unmasks all six TXC sources
+> for the port:
+>
+> niu_init_hw()
+>     niu_txc_set_imask(np, 0);
+>
+> Those sources are SF_CE, SF_UE, RO_CE, RO_UE, REORDER_ERR and PKTASM_DEAD.
+> niu.h defines TXC_INT_STAT and its per-port bits, but nothing in niu.c
+> reads, decodes or acknowledges that register.
 
-> mctp_i3c_setup() takes the maximum read and write lengths straight from
-> GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
-> with a smaller limit every read can be built too large and rejected.
-> Transmit packets can similarly reach the controller even when they are
-> larger than its transmit buffer. The receive path also allocates an skb
-> for data the hardware can never deliver.
->=20
-> Use i3c_device_get_max_read_xfer_bytes() and
-> i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
-> of the endpoint and controller limits.
->=20
-> Behaviour is unchanged when neither reports a limit, as the helpers
-> return 0 exactly as the GETMRL and GETMWL fields do today.
->=20
-> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
+Good catch. Because niu.c has no TXC_INT_STAT handler (unlike ZCP, which
+masks all sources via ZCP_INT_MASK_ALL), unmasking TXC_INT_MASK = 0
+would route even hardware-corrected ECC events (SF_CE / RO_CE) into
+niu_device_error() -> -ENODEV and disable all interrupts on port 0.
 
-Looks good, thanks!
+Since I don't have Sun Neptune hardware to test TXC interrupt handling,
+please drop this patch.
 
-For the MCTP side of things:
+Thanks,
+Ian
 
-Reviewed-by: Jeremy Kerr <jk@codeconstruct.com.au>
-
-Since this depends on the new i3c helpers, which (I assume) would be
-going through the i3c tree, I assume the whole series should stay
-together?
-
-Cheers,
-
-
-Jeremy
+pw-bot: cr
