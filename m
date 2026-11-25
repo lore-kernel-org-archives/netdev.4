@@ -1,64 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=203.29.241.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566748;
-	b=RR4oyPGFmf+jVjOqnrfllYo1d4PSXlvzyStMyHO0gMzaKWpHSlWaBhUXqw0BC4k7p7Lu
-	 VtVYyrxynAjjw99eLOsJJhscrqMwmS+D9vzAqVCXR6BAJ5AOAExUXCYjvLkl1ADtIhYHR
-	 Hd+wK6aTVK/y+vxZxidHES/3VixSFe9qjdxoL3NLGmrCpwaKE6gomKTnezo2zuw1i/9RI
-	 5wrKgZcSTT7T+Qg2ghkv6EXx+5Mzjz9nHQR/UvtxWAk1FcXnz4UWLVmYwhtlcqH/yC/2B
-	 pCpArIbG9Kf0oBnrb9VaoJy1lEbKzgSxzD/gIFLKRHDIrVubph1MZIKnt9maxRIbBOg==
+	t=1795567185;
+	b=KLG3M/18fO8kE4sic/bB8EDvLyLCvnt5ijk7Yjt2rJSCkC6MMxjXaXtF29KeJkHaZNBg
+	 q5P2XBAg/bbdVqT42I1kICPSq4QFFkbvCpSoaq77VE8Z5l3OxpR0gbAzZLT9P1HxMfLYM
+	 Bjf5qv40O2WtrqC30TRdiiRVb9S5HA4nynMQT0QeCCi7XZd0T5oOewWrtfMnLEDq20AL1
+	 NyyJ/TWkdedA3m0qp0O7JMCJ8z20G1KcDyBF/v5u7vcusBUmR6yVIak/E92q40vKfLVis
+	 QerLQbERErl2sLRnVMQeBr7kuf/BTHD2hBbce4UID4x81eH/yBhq+3I3TgZtyQc72XQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566748;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=jcayB5wbddvbJv+RlR0Gq8xz5JzClNUc+dvRG47re24=;
-	b=VJu2Ym0R6Xv2TRz3rSnxpsPyiXPzg7BRS8xSoSonTsxEhjjNvqLHhd2Wh+xm3uWqgnZW
-	 5ST8TMVGDe6YqAJlAyYh80f96j7CoBsLL7VontIHeNIkdQ4hYDK9/dU3K3LlSjs2m0awH
-	 RNhnGgdQ6TYNVJylfdO2ND3NfIvQh7kranq0zUq/WusRJ72FSNlCZoPXvgs1g9C3A/zIJ
-	 dI/O0w3yPsvnYost2ljM5gSHYf50Ws8BeaHalmnyhq4K21ovHlvJN7Ms/+MHGOYCLKcOG
-	 P3xpAmpwmLzDKK7U/nypS4QRMPkbVO+rp/wXMVsgmLd53UxqTDYwBWCGlgbPjOOc5ig==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567185;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Subject:From:To:Cc:
+	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
+	 User-Agent:MIME-Version;
+	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
+	b=BBn8SjZDGKDDKJSM/tm3p8avdVABEjz4FFsZevnFPhDHUb3NXLSHcXdoIAvrQPSiI71j
+	 sLB2fcyegl+wNuxH0TTHIxYwyvKOyE5v7mQhuFMxF+z/N8VM2OQdrZKSMaJkA5yTra36f
+	 O3mu0WcUojSD3MDqWgoWq0tWc5SVq7q6zj7UrN7r5HP85ILb2wDo2ISUCAvNqZ5q+Vp9i
+	 QFKQ/OzV8IAxHEkrW1y4FLVF0ST9xUQCfTd9SaGfZR97EscwPF74gWyFBrwD/Sgh9dax2
+	 uUsSYvmuv+V/gEPyrZEHayhF9IoRRgAGEkNPVjhTc/KN+Awj8c/QRX2pRsleORrupvw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HK8UfW9N;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=pass header.from=codeconstruct.com.au;
+	spf=pass smtp.mailfrom=codeconstruct.com.au;
+	dkim=pass header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF;
+	arc=none smtp.remote-ip=203.29.241.158
+Received: from codeconstruct.com.au (pi.codeconstruct.com.au [203.29.241.158])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65B49606A31E;
-	Wed, 25 Nov 2026 00:32:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65B49606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 33D74606A321;
+	Wed, 25 Nov 2026 00:39:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 33D74606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=codeconstruct.com.au
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=codeconstruct.com.au
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HK8UfW9N
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=jcayB5wbddvbJv+RlR0Gq8xz5JzClNUc+dvRG47re24=; b=HK8UfW9N/Ll4P255xwebaLZL+A
-	upenHWed5xaZmy91K8XtHXS13Hfir36MApHVg6DZJfI6UnrTCrvi7hBG92/J1eQodY5nfeZtnLKdH
-	2JuCyFn5i8GkRGUu5PwNJAAAqk6wxD16dy+eY2qfZ5MMrk+qbDlxJOIQNdud0eeIBCwE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xW0vu-001Cc2-QP; Wed, 25 Nov 2026 01:32:22 +0100
-Date: Wed, 25 Nov 2026 01:32:22 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Chris Babroski <cbabroski@nvidia.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	bryan.whitehead@microchip.com, UNGLinuxDriver@microchip.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com,
-	linux@armlinux.org.uk, Raju.Lakkaraju@microchip.com,
-	maxime.chevallier@bootlin.com, yuiko.oshino@microchip.com,
-	nb@tipi-net.de, woojung.huh@microchip.com
-Subject: Re: [PATCH net-next v2 4/7] net: lan743x: keep the fixed link across
- reopen
-Message-ID: <e6e313c6-aff0-4110-a12d-bd26b012b6e9@lunn.ch>
-References: <cover.1795027003.git.cbabroski@nvidia.com>
- <ef118120626788ecb28b9d38283ca0130625f921.1795027003.git.cbabroski@nvidia.com>
+	dkim=pass (2048-bit key, unprotected) header.d=codeconstruct.com.au header.i=@codeconstruct.com.au header.a=rsa-sha256 header.s=2022a header.b=YfcHIhAF
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=codeconstruct.com.au; s=2022a; t=1795567176;
+	bh=ddifEJUsVQ/3k7zg20+LhtIcVvTSta6RtHRdIXEKLp4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=YfcHIhAFS+V9xD/DxHFPBg3q52jU1s8sm/dpBo0DUGAPk4KTeRkfl7VSW6NDS+9CV
+	 qidG+M1pcl4ZZnnBgyAORSPE9nxYz2MYuiuj3G+mp4OJptuxgh3TeYr2u+mOFdrGxs
+	 jO2OMhbqeTlwAmcJJQIndHGFbthNc6kro/G3pJ/IZkzZFQ5UMsZVDvabFRvmj22tSn
+	 lpdbx0p3Z5izXhz9bX+iVeGzeXsajIJHWAkDJKURSUPDUbvdhOKY8vgP39CQroV3R2
+	 CEfryR7lI4y54h9XFKD+hYeGOq8kRqKbHETt2YyDpyeCS7tbYaTjWk1DMK6bYpINCV
+	 PwPJVMXEYZJtQ==
+Received: from pecola.lan (unknown [159.196.93.152])
+	by mail.codeconstruct.com.au (Postfix) with ESMTPSA id D0B8B60895;
+	Wed, 25 Nov 2026 08:39:35 +0800 (AWST)
+Message-ID: <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
+Subject: Re: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the
+ controller limits
+From: Jeremy Kerr <jk@codeconstruct.com.au>
+To: Shubham Patil <shubhamsanjay.patil@amd.com>, Alexandre Belloni
+	 <alexandre.belloni@bootlin.com>, Frank Li <Frank.Li@nxp.com>
+Cc: Matt Johnston <matt@codeconstruct.com.au>,
+ linux-i3c@lists.infradead.org, 	netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, 	meaganlloyd@linux.microsoft.com, git@amd.com
+Date: Wed, 25 Nov 2026 08:39:35 +0800
+In-Reply-To: <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
+References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
+	 <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-0+deb13u1 
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,27 +71,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ef118120626788ecb28b9d38283ca0130625f921.1795027003.git.cbabroski@nvidia.com>
 
-On Tue, Nov 24, 2026 at 09:33:19AM -0500, Chris Babroski wrote:
-> On LAN7431 and PCI11x1x boards with no DT node and no PHY on the MDIO
-> bus, lan743x_phylink_connect() falls back to a fixed link with
-> phylink_set_fixed_link(). That switches phylink to fixed-link mode,
-> which neither phylink_stop() nor phylink_disconnect_phy() undoes.
+Hi Shubham,
 
-I can understand your fix, but architecturally, it is wrong.
+> mctp_i3c_setup() takes the maximum read and write lengths straight from
+> GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
+> with a smaller limit every read can be built too large and rejected.
+> Transmit packets can similarly reach the controller even when they are
+> larger than its transmit buffer. The receive path also allocates an skb
+> for data the hardware can never deliver.
+>=20
+> Use i3c_device_get_max_read_xfer_bytes() and
+> i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
+> of the endpoint and controller limits.
+>=20
+> Behaviour is unchanged when neither reports a limit, as the helpers
+> return 0 exactly as the GETMRL and GETMWL fields do today.
+>=20
+> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
 
-Anything which open() does, close() should undo.
+Looks good, thanks!
 
-Anything which lan743x_phylink_connect() does,
-lan743x_phylink_disconnect() should undo.
+For the MCTP side of things:
 
-So this might need you to add a phylink_unset_fixed_link() do undo
-what phylink_set_fixed_link() did.
+Reviewed-by: Jeremy Kerr <jk@codeconstruct.com.au>
 
-    Andrew
+Since this depends on the new i3c helpers, which (I assume) would be
+going through the i3c tree, I assume the whole series should stay
+together?
 
----
-pw-bot: cr
+Cheers,
+
+
+Jeremy
