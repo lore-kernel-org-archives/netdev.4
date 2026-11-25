@@ -1,58 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594220;
-	b=aJco9ibvEGN94OJh/t5/bns94e3ZGyJ5BZMj42v3e5MukQTho+AF5DgvsrutJf3oupf+
-	 df4FHcVgxteVjGa1X2LpfAm+85A0g2eMsCNC5mInUWAIbiTp2ZBkNbcBI2szHv4CoQulj
-	 MMlP/Wt4rtB6HW1ZKatqmLRO4Deiy7qGo23eeTP/TjjZXbr8Oit8k6WHHo4OtVcKiOeyt
-	 cL4K0QeTaYGY+s+2Htkl5V3PWWSohobQG/nVosbF7Cfukp9TDw5MICjFta9XmeQlGL3bl
-	 8X5a4MetHLY+D7UZhzbWl1E/bEIDxGRg4yByj3LAXp1kEpsc7hlZ44LgAKp4w9n7K9g==
+	t=1795594267;
+	b=2EYoMsOrRVzU7RmBDnSDrRDlvECsSe8fbqzVNe4Gt7Er3F5CZaeVcMdRzegfcIVoZ+SW
+	 s9CVNMq05jPCXjPzPab2RuMg8o02dgTyi57F75lL5jv0KPMhunaq5xsMNOn3yBOIPRuGB
+	 2lpc8s2bXO4fpICDi7bpX3pugPpVs9Xx5H3G6HpmABm4a2FGtqwgLDhrh2taLuZKjh0cA
+	 KduHEflAD0Q9M+e3yz6tPiS/eUaUmJswCbpjkBnT6OaxZUePDKc4XjTxHzwtyh/UCrHp3
+	 EnjbNrF61X32u84lsEgXgMQf8UkgxAPU8etbIiicRXlLdXwJkQEFsq6bO56PBa4UmnA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594220;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=EZeIddDxt24rVimWv2GYDAtePnr1zfDgT9qisCJrRAE=;
-	b=3WQK25x+2zk/NqHsOKdVyRjGJLM/0ofc6l9wh9BJioY4tFtPS8OjQNeUG4dOrnQYD+V2
-	 j0nB6YvcWODRSKgj7u3KuZKC9tHdCtrw4pAadkt6EE2wYWU6vlAIu1ITh747eojTYpDPL
-	 NWo8dA58sJw/luAr2Az8r2Niky7sp2belCxVZNUYKxRNtTneUOTAm2Dtn3OPon3oqkRXD
-	 lAaLZBgUbpYducMpGGjWjDrGiluBVLGiRi7cMEV+UN3gjUH4nncXQ/FzKlmIyKD5jccUL
-	 AcjkRibw8boMq8cnH7OJRDxNU1QFzuuceJ285Wq4Del/C2ndqCM4ep+pHvxAmHMk2pQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594267;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=MEXl7E1meHY1GYwQbEY2+aWshbsKUuiLBog0ysXIUbY=;
+	b=3KAimAZt84cpMbAyrhSxsX/S9oYc2aGAD8ue0/G8qrR70pAAFi15ZTljY4g+Rfj/YzZA
+	 7Vnm54wWhqQZTEoxtrmb0H8rVaRsxIKwKG5+/N+S8Y1EO+lcJmxuv3bvcmbYRTZQDE38Y
+	 naqjlsLDnDniELaAo7Ktc8O2QUvelGvf4E1M7lV95isBjrFtb1AMh9tRBoDU1g9Ct3YRN
+	 KEvBMOqv+wfBkpPeIvzKGMr5tGs31Bx5U39Cvr2jDVyPRHejsK0K8rR71foTQFuTsB+5I
+	 Q9SfCcSm4GxlnXevsmvD1crWtqbC63YOx7jfwGF6bAo0lZ7Su+YsjZ6j6EIug7InkuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgEfGQ43;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=N6Z+P02y;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 910ED606A323;
-	Wed, 25 Nov 2026 08:10:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 910ED606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50ED4606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:11:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50ED4606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=cgEfGQ43
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id AC7244E41762;
-	Wed, 25 Nov 2026 08:10:17 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 76E3160480;
-	Wed, 25 Nov 2026 08:10:17 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 3D2A711E69A4B;
-	Wed, 25 Nov 2026 09:10:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795594215; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=EZeIddDxt24rVimWv2GYDAtePnr1zfDgT9qisCJrRAE=;
-	b=cgEfGQ43D37X3Y47TvTD2Mgi35Eh7tmhpZFNQv+WFASJ1AzeUvt8/fGFK3HCVhWpsxJRXs
-	L0kWy8ZLOtcRSjrs4KfdcXzdyjAiavoRWckmTTN8q2uBm+aePqbYvnDxeuiRfLLnTsWOe6
-	4+2pZnwYF3Hda5PazDvAvqSWXZYk/Oic78DZgbo/7Gx7aga3OpwkdEfjNNDVG6CAFt+DRv
-	ys/5dhJJSDJ0vIzQiNciChAi+NmE6UAXcCnEGTBeV8qZh6BhRrssildDx3EojMs4S0uQ85
-	IaIlvRE+4mmORFaEziFloHa4q0BX4MjN1mhNxwsMcKRI4w4Y37D4R2FseICJTg==
-Message-ID: <d515df02-0cb7-4641-a6ed-d73f2220f5c5@bootlin.com>
-Date: Wed, 25 Nov 2026 09:10:07 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=N6Z+P02y
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ME
+	Xl7E1meHY1GYwQbEY2+aWshbsKUuiLBog0ysXIUbY=; b=N6Z+P02yOAojmtNt1t
+	+sjkhJAgqMcJv5++uvpftHuVx2zdrStMU6BA3PgyUNVed/smjE1ifK+P7TNpKAt8
+	wCUqYxQAa9XyJ4gugzjRsVv4Bajfbpj5bWCMkIKG6Oz5JefRa6y9Tev6uXLNSAB3
+	4CiwWEwhYawl5DctfBkP+menY=
+Received: from Precision-7960.. (unknown [])
+	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnb8vflwZr_PagJQ--.51381S2;
+	Wed, 25 Nov 2026 16:10:08 +0800 (CST)
+From: Hans Zhang <18255117159@163.com>
+To: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux@armlinux.org.uk,
+	netdev@vger.kernel.org,
+	Hans Zhang <18255117159@163.com>,
+	Kai Xia <503536682@qq.com>
+Subject: [PATCH v2] net: phy: defer PHY probe when running in async probe context
+Date: Wed, 25 Nov 2026 16:09:39 +0800
+Message-ID: <20261125080939.176096-1-18255117159@163.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,88 +66,101 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH] net: stmmac: Fix the problem about interrupt storm
-To: Zxyan Zhu <zxyan0222@gmail.com>, romain.gantois@bootlin.com,
- cathycai0714@gmail.com, avifishman70@gmail.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, alexandre.torgue@foss.st.com,
- netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <7732873.EvYhyI6sBW@fw-rgant>
- <20261125075716.2262174-1-zxyan0222@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261125075716.2262174-1-zxyan0222@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wDnb8vflwZr_PagJQ--.51381S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxAF18KrW7tw4DAFW8ZFW5Wrg_yoW5Zw13pF
+	s8AayYyrZ5Ww47Wa1xJrWYyFy0ga98Cw47Wrn7Cwna9a9rt3srAFyj9r4jqr1DXrW5Ja48
+	CFyDJrWrGFZ8AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pMGQ6UUUUUU=
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wB6HmsGl+A6KQAA3G
 
-Hi,
+phy_request_driver_module() synchronously calls request_module() so that
+the PHY driver is loaded before phy_device_create() returns.  That call is
+not safe from async probe context: module init may invoke
+async_synchronize_full(), which waits for the current async worker and can
+deadlock.
 
-On 11/25/26 08:57, Zxyan Zhu wrote:
-> Hello Romain, Cathy, Avi,
-> 
-> We hit exactly the interrupt-storm scenario you discussed, on a local board
-> running a PREEMPT_RT kernel, and I'd like to ask whether this series is
-> still being worked on.
-> 
-> Our setup and trigger:
-> - stmmac with dwxgmac2 (xgmac) and dwmac4 (gmac) MACs, kernel 6.18.34+
->   with PREEMPT_RT and panic_on_rcu_stall.
-> - Trigger: fault-injection of an uncorrectable MAC safety error, which
->   makes stmmac_global_err() schedule stmmac_reset_subtask(), i.e. 
->   dev_close()/dev_open().
-> 
-> Symptom:
-> About 30 seconds after the injected error the board panics with an RCU
-> stall (rcu_preempt detected stalls, rcuc starved).
-> 
-> Root cause (confirmed on-board):
-> - The main level-triggered IRQ storms at roughly 820k irqs/sec during the
->   reset window (irq count jumps from ~220k to ~23M in ~28s).
-> - stmmac_interrupt() returns IRQ_HANDLED without clearing any status while
->   STMMAC_DOWN is set -- exactly the "unconditionally returning without
->   clearing any interrupt flags" behaviour you flagged as dangerous.
-> - The level IRQ stays asserted -> infinite storm -> starves rcuc -> RCU
->   grace period never converges -> panic.
-> 
-> This matches Romain's point: the unconditional early-return in the
-> STMMAC_DOWN state is the actual storm source, not the TMOUTEN/safety
-> watchdog.
+When this path is reached from an async worker, return -EPROBE_DEFER
+instead.  The parent device probe is then retried later from the deferred
+probe workqueue, where request_module() can run synchronously and the
+guarantee that the PHY driver is loaded before device registration is
+preserved.
 
-Taking a step back, I wonder if the right move is not to just get rid
-of STMMAC_DOWN entirely.
+This fixes the WARN below and the possible deadlock, observed on an arm64
+board whose PCIe host controller uses PROBE_PREFER_ASYNCHRONOUS while
+probing an RTL8126A:
 
-It seems to me that it does not protect stuff that much, reading the
-different sites in the code where it's used... It just seems to cause
-more problems than it solves. All of them work without STMMAC_DOWN
-if I'm not mistaken.
+  WARNING: kernel/module/kmod.c:145 at __request_module+0x198/0x200, CPU#5: kworker/u49:0/77
+  Workqueue: async async_run_entry_fn
+  Call trace:
+   __request_module+0x198/0x200 (P)
+   phy_request_driver_module+0x11c/0x17c
+   phy_device_create+0x234/0x260
+   get_phy_device+0x74/0x150
+   mdiobus_scan+0x34/0x114
+   __mdiobus_register+0x1ec/0x450
+   __devm_mdiobus_register+0x70/0xe8
+   rtl_init_one+0x1350/0x16b0
+   local_pci_probe+0x40/0xa8
+   pci_call_probe+0x64/0x174
+   pci_device_probe+0xb4/0x144
+   really_probe+0xbc/0x298
+   __driver_probe_device+0x16c/0x19c
+   driver_probe_device+0x3c/0x114
+   __device_attach_driver+0xb8/0x118
+   bus_for_each_drv+0x84/0xe0
+   __device_attach+0x9c/0x194
+   device_initial_probe+0x50/0x68
+   pci_bus_add_device+0x6c/0xf8
+   pci_bus_add_devices+0x3c/0x88
+   pci_bus_add_devices+0x68/0x88
+   pci_host_probe+0x90/0x108
+   cdns_pcie_hpa_host_setup+0x300/0x684
+   sky1_pcie_probe+0x230/0x360
+   platform_probe+0x5c/0x9c
+   really_probe+0xbc/0x298
+   __driver_probe_device+0x16c/0x19c
+   driver_probe_device+0x3c/0x114
+   __driver_attach_async_helper+0x58/0xcc
+   async_run_entry_fn+0x34/0xe0
+   process_one_work+0x180/0x2dc
+   worker_thread+0x188/0x304
+   kthread+0x110/0x124
+   ret_from_fork+0x10/0x20
+   ---[ end trace 0000000000000000 ]---
 
-It's even misleading, as it's only set during a reset from the service
-reset subtask, while most of the callsites seem to assume this really
-means 'interface is down'.
+Fixes: 0fdff3ec6d87 ("async, kmod: warn on synchronous request_module() from async workers")
+Co-developed-by: Kai Xia <503536682@qq.com>
+Signed-off-by: Kai Xia <503536682@qq.com>
+Signed-off-by: Hans Zhang <18255117159@163.com>
+---
+ drivers/net/phy/phy_device.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I think this is the better lead to follow there.
+diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+index b39e945cebd7..9f88da87df97 100644
+--- a/drivers/net/phy/phy_device.c
++++ b/drivers/net/phy/phy_device.c
+@@ -10,6 +10,7 @@
+ #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
+ 
+ #include <linux/acpi.h>
++#include <linux/async.h>
+ #include <linux/bitmap.h>
+ #include <linux/delay.h>
+ #include <linux/errno.h>
+@@ -639,6 +640,9 @@ static int phy_request_driver_module(struct phy_device *dev, u32 phy_id)
+ {
+ 	int ret;
+ 
++	if (current_is_async())
++		return -EPROBE_DEFER;
++
+ 	ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
+ 			     MDIO_ID_ARGS(phy_id));
+ 	/* We only check for failures in executing the usermode binary,
 
-Maxime
-
-> 
-> Fix we validated:
-> disable_irq(priv->dev->irq) right after set_bit(STMMAC_DOWN, &priv->state)
-> in stmmac_reset_subtask(), before dev_close(). This masks the level IRQ
-> during the synchronize_net() window.
-> 
-> Results: irq count peaks at ~724 instead of ~23M.
-> 
-> Questions:
-> 1. Is anyone still working on this series, or should we revive Cathy's RFC
->    with the evidence above?
-> 2. Would a patch along the lines of "disable_irq around the STMMAC_DOWN
->    window" be acceptable, or do you prefer the more general approach you
->    suggested -- wrapping the STMMAC_DOWN set/clear in a handler that also
->    disables all interrupts?
-> 
-> Best regards,
-> Zxyan Zhu
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+-- 
+2.43.0
 
