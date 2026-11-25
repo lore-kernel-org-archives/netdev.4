@@ -1,79 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795620227;
-	b=kS2DuoDIU/uGe7rJFIJVyMYiq27r9MfaxHUr/i4ZJ7PlyPhzMqHirtxw09i+0euitMTX
-	 qv6jWZJsZGbVEk0ZPJ0GQK1bjP6Nsplh7c5yDpB7TcwIOEe8IFltjBnIogI7/bm+siAZW
-	 5q0ntk5WQSrXdF/SaHL4uJfANh/Eajmy0Urqzg7DDu1YXjQt7bKpQVqBW6bcmat0Rh3K4
-	 X3HvgQaScOgVw9EUP6eQtqggqCitur0VZXtLubvK2rPf5/tsCJRhX+RlHFU0au/uG6nSp
-	 fXxo07vg/5w4fhK84LqBs4/8/jqFUXPXVUQZeMlOv1ra0eBtkC8B4WFon34Oc8QsuoQ==
+	b=b+FI0rIelTaiD0bNpAri6NLsQ7bVVL9rfCLeJJRpNy5t1hD+yEH/Zs8yHrMKmYkvC0dc
+	 dyZWuWvsYNKymfiPLLupJky1nbLVmE+JQM/5aY9n49H/syFg8ilj9828kAYafO00m/Gwr
+	 p0KbH1rQJOH15uIFn9oCFaBao4F/m4ZpGaNJRk+IESLfvDOzVoq5CEgFx7bup/MM1JulW
+	 7MzBsUdP1OFDcddZPpqVl7nAlH4FRwTLyf08spcZvn2v8uSPWXubLemOmsBjd0LgMqr3m
+	 nqVEFxxA3eZ3SE0L+zBBYLBe1nm9jeRnLcUnuR/FCkG0a/PEEqzZaAy2SesozBI2+Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795620227;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=ThFdUoEJLgqCzj0vafLu3KqzUK86YitR/mdeY+BUk6Y=;
-	b=O+xXcelmeOGax3pfYj5WYVB/dThP1uKrm6oS+Vt7uOJk3Xx2AE4D3hWX8biEJydfPzkL
-	 o35rw7pyEYckJc9GAWFoBNoq5k4J9htn4FWRNGmLjggK8TSz1jx3+KcYggYrriRuFYtMf
-	 g4aOOW/BpXIkz43jJyilqRBRUDhCeHcYbvARXn1QjnFzPRvC8Jy3duvRLKx/GmjhPsRGK
-	 xBvJCU8lqT253/wrtnZqvoye5Ln0T5o6/WnQDmFwjubhVgkTyFFflfY4Fs/jBcKVPbuw6
-	 qJD7kZHRFhqKE2iXiQhXOSxGwDh9v4NlCbscas6DLPQO6fxOKCE/OTfxWcIV9icj68g==
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=i8WL8KVOFFwJaUNqpb8Y5QPC+4OxinZ301w/l2clA6k=;
+	b=L1PS9jrKZ094piofFM+kGtnLuRp2dLiRxLx76/E/+Kw9XzgBTEW1fr6lH4UjQRy6wmL2
+	 bsWHMb9nIYj1X190LrwETlCL4s8eN2eU8AnGa1+WGlo3gx+6JS2GikNNENnTcmMR0a/V0
+	 r65dQjDWcIpeElbK9HoKsEEZpJD5wjEBEdiGNNvSenLOjmTdjiCxc7T9JKN2lLS53gRkS
+	 gStFYY2gvlC8Hkbqwf7Jien3U/Lksb5okJy+cXJyPVH35yP4nBU1tvp+ePO8IihGyxgcJ
+	 EhEmMFHQ5Cgg8yD/z2Dp2nF6A7LPD0EMQ3qDncY9W6PlTvvuGlkO/4NeSz9IYXfVioA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b="0++rdv/U";
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=pass header.from=tu-dortmund.de;
+	spf=pass smtp.mailfrom=tu-dortmund.de;
+	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=FPnoMXV9;
+	arc=none smtp.remote-ip=129.217.128.51
+Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3F7C606A327;
-	Wed, 25 Nov 2026 15:23:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A3F7C606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6DE76606A321;
+	Wed, 25 Nov 2026 15:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6DE76606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=0++rdv/U
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
-	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
-	In-Reply-To:References; bh=ThFdUoEJLgqCzj0vafLu3KqzUK86YitR/mdeY+BUk6Y=; b=0+
-	+rdv/UzeXgKEWrxyUm2DWDbskcRohtC3uXGCMM+h/PlzgBWFEGRDttHI8k5wQ1oEwK8Yv08V7l7iW
-	MHBm4KEPc79e9TDjqWqkv079MFfabStCjmcVEjgBeTieU45uuXG/fG9O8vFg4J55ru2pLfnj7rkT+
-	bPu0p/C11Z17gtU=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWEq8-001LhM-9d; Wed, 25 Nov 2026 16:23:20 +0100
-Date: Wed, 25 Nov 2026 16:23:20 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alexey Charkov <alchark@flipper.net>
-Cc: Ryan Leung <untilscour@protonmail.com>,
-	Srinivas Kandagatla <srini@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	=?utf-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from
- the CPU ID
-Message-ID: <1defc5c8-ba61-40d2-99f3-6654f1743af1@lunn.ch>
-References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
- <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
- <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
- <2f8da604-36af-4944-8168-02b046e97699@lunn.ch>
- <CAKTNdwG1sSBVKcKpHBj24nFCdc6WVKabV5=K4sJFucWpTLqRQQ@mail.gmail.com>
+	dkim=pass (1024-bit key, unprotected) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=FPnoMXV9
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
+	s=unimail; t=1795620201;
+	bh=i8WL8KVOFFwJaUNqpb8Y5QPC+4OxinZ301w/l2clA6k=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=FPnoMXV90YdHIuiVRrB5NvAJOaRLZrtwR3WQMGS2T3cQOtnSZylxpMIlYxfEgn/n0
+	 6OFqx1iZxrs3t5pR7BUwjALRyKcnefWnuteKLxqBhsnmB9aFDb0FYAyKW0LHVFC/0O
+	 UuH/DzJw/CniCOyfQXFNriMS+yuspOB97sh8+b+g=
+Received: from simon-Latitude-5450.cni.e-technik.tu-dortmund.de ([129.217.186.207])
+	(authenticated bits=0)
+	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6APFNERQ004665
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 16:23:20 +0100 (CET)
+From: Simon Schippers <simon.schippers@tu-dortmund.de>
+To: netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
+        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Simon Schippers <simon.schippers@tu-dortmund.de>
+Subject: [PATCH net-next 3/3] veth: stop the txq as soon as the ptr_ring is full
+Date: Wed, 25 Nov 2026 16:23:11 +0100
+Message-ID: <20261125152311.805325-4-simon.schippers@tu-dortmund.de>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,57 +76,104 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKTNdwG1sSBVKcKpHBj24nFCdc6WVKabV5=K4sJFucWpTLqRQQ@mail.gmail.com>
 
-On Wed, Nov 25, 2026 at 06:41:42PM +0400, Alexey Charkov wrote:
-> On Wed, Nov 25, 2026 at 6:21 PM Andrew Lunn <andrew@lunn.ch> wrote:
-> >
-> > > > +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int index,
-> > > > +                            unsigned int offset, void *buf, size_t bytes)
-> > > > +{
-> > > > +   char cpuid[ROCKCHIP_CPUID_LEN * 2];
-> > > > +   u8 digest[SHA256_DIGEST_SIZE];
-> > > > +   u8 *mac = buf;
-> > > > +
-> > > > +   if (!id || strcmp(id, "mac-address"))
-> > > > +           return 0;
-> >
-> > I don't know OTP drivers. But to me, a function called
-> > rockchip_otp_cpuid_pp() which does not actually return the CPU ID is
-> > architecturally wrong.
-> 
-> There is precedent for this at least in IMX [1], [2]. To me the
-> interpretation is "Rockchip CPU ID used as a MAC address base with
-> offset X", which is exactly what the derivation does. IMO, this is
-> less clunky than the alternatives (e.g., a custom NVMEM layout which I
-> used in v1-v2; a "virtual" NVMEM driver referencing the real cell and
-> returning the processed one, which Ryan proposed in v2 discussion, or
-> caller-side processing).
-> 
-> [1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-ocotp.c#L224-L238
+veth_xmit() stops the txq only once a produce has failed. The skb is
+then returned with NETDEV_TX_BUSY and requeued by the qdisc. Under a
+flood every refill of the ring after a wake ends this way, with a failed
+produce and a requeue.
 
-I would say this one is different. The cell specifically contains the
-MAC address. But its endianness is wrong. Nothing about CPU ID here.
+Check under the producer lock whether the produce has filled the ring,
+and stop the txq then, as for NETDEV_TX_BUSY but with the skb sent. The
+next skb waits in the qdisc and is not requeued. NETDEV_TX_BUSY stays
+for a ring that another producer, like XDP redirect, has filled.
 
-> [2] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-ocotp-ele.c#L115-L129
+The stop is ordered as in the NETDEV_TX_BUSY path. The stop bit is set
+before the smp_mb() in __veth_xdp_flush(), which pairs with the
+smp_store_mb() in veth_poll(). Either the producer finds NAPI idle and
+schedules it, or the poll sees the stopped txq and wakes it.
 
-And this seems to be the same.
+Same setup as in the previous patch, an AMD Ryzen 9 9950X with all
+cores on the same CCX at a fixed 4.3 GHz, compared to it:
 
-As i said, i don't like the concept that a function called
-rockchip_otp_cpuid_pp() returns something which is not a CPU ID. The
-two examples you give ask for a MAC address, and they get a MAC
-address.
+  threaded NAPI     before          after           requeues
+  pktgen            1343008 pps      +0.2 +-0.4%     210594 -> 0
+  iperf3 TCP          33113 Mbit/s   +0.1 +-0.4%       4587 -> 3213
+  iperf3 UDP            363 Mbit/s   +1.2 +-0.6%         14 -> 14
 
-Does nvmem support aliases? Can you put two different names on the
-same cell? If you access the cell via the name cpu-id, it calls a
-function _cpu_id_, it gives you the CPU ID. If you access the cell via
-the name mac-address, it calls a function called _mac_address_, and it
-gives you a MAC address.
+iperf3 TCP keeps its requeues, the change is within noise. When the txq
+stops in the middle of a GSO segment list, the rest of the list goes
+back to the qdisc, and each segment counts as a requeue. The few UDP
+requeues show up with every kernel, also without this series.
 
-That way of_get_mac_address_nvmem() just works, so the MAC driver just
-needs to call of_get_mac_address() or of_get_ethdev_address().
+With softirq NAPI and a single sender the ring does not fill, and the
+only change on that path is the __ptr_ring_check_produce() check.
+iperf3 changes by -0.1% to +0.4% there, with confidence intervals of
+0.4% to 0.9%.
+pktgen is 1.4 +-0.5% slower. The patch also moves the code of net/ by
+16 bytes, as veth is linked before it, and I could not separate the
+two.
 
-      Andrew
+With the two iperf3 senders on one queue from the previous patch,
+throughput stays within 1.2% of it. The UDP requeues with threaded NAPI
+drop from 81520 to 48929 per run.
+
+Signed-off-by: Simon Schippers <simon.schippers@tu-dortmund.de>
+---
+ drivers/net/veth.c | 25 ++++++++++++++++++++++---
+ 1 file changed, 22 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+index 02ffc7ba59ab2..911da9893e82d 100644
+--- a/drivers/net/veth.c
++++ b/drivers/net/veth.c
+@@ -40,6 +40,11 @@
+ #define VETH_XDP_TX_BULK_SIZE	16
+ #define VETH_XDP_BATCH		16
+ 
++/* Returned by veth_xdp_rx() when the skb filled the ring. Internal to
++ * veth, veth_xmit() returns NETDEV_TX_OK for it.
++ */
++#define VETH_RING_FULL		0x20
++
+ struct veth_stats {
+ 	u64	rx_drops;
+ 	/* xdp */
+@@ -312,10 +317,17 @@ static void __veth_xdp_flush(struct veth_rq *rq)
+ 
+ static int veth_xdp_rx(struct veth_rq *rq, struct sk_buff *skb)
+ {
+-	if (unlikely(ptr_ring_produce(&rq->xdp_ring, skb)))
+-		return NETDEV_TX_BUSY; /* signal qdisc layer */
++	struct ptr_ring *ring = &rq->xdp_ring;
++	int ret = NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
+ 
+-	return NET_RX_SUCCESS; /* same as NETDEV_TX_OK */
++	spin_lock(&ring->producer_lock);
++	if (__ptr_ring_produce(ring, skb))
++		ret = NETDEV_TX_BUSY; /* signal qdisc layer */
++	else if (__ptr_ring_check_produce(ring) == -ENOSPC)
++		ret = VETH_RING_FULL;
++	spin_unlock(&ring->producer_lock);
++
++	return ret;
+ }
+ 
+ static int veth_forward_skb(struct net_device *dev, struct sk_buff *skb,
+@@ -388,6 +400,13 @@ static netdev_tx_t veth_xmit(struct sk_buff *skb, struct net_device *dev)
+ 		else
+ 			__veth_xdp_flush(rq);
+ 		break;
++	case VETH_RING_FULL:
++		txq = netdev_get_tx_queue(dev, rxq);
++		if (!qdisc_txq_has_no_queue(txq))
++			netif_tx_stop_queue(txq);
++		__veth_xdp_flush(rq);
++		ret = NETDEV_TX_OK;
++		break;
+ 	case NETDEV_TX_BUSY:
+ 		/* If a qdisc is attached to our virtual device, returning
+ 		 * NETDEV_TX_BUSY is allowed.
+-- 
+2.43.0
+
