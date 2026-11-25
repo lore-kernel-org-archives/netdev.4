@@ -1,72 +1,127 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795624673;
-	b=rstxnsOurbRuc1Ue6rj5CM3Lj7h4R9AflVEFwapNAPWgq2MfCx+7US8AVne93rcVGmak
-	 awmA1TcGZlGIjByzr01d3/AC9c2T16YTgHBSFuU2gpfjNaj5jFegfFdvfYOOUneRuVLL9
-	 IE1+Ua7cccUtMJa+OX78nU5ygeDDpyohoCDAZfdpykWrwXOsgkw0xNe52BhRqHku+/uyJ
-	 02u7118kgbWMKU0lDdX0ckFuanr568Yr9zAbxY6Eh3E9KliU6kcY0skbIxsbP4k3mhwnr
-	 luG1a7/Aiu+mqt9467Yky1gJ+YUQmJ4JB3NW0L2QGMJBcmXyc7NNmQNal6rUmjLgfrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624673;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
-	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=;
-	b=L7jmZoINbfM9Os5peT/Ivh5Dv5q77QepkU5Q1ojr/kIuUEDTldr0kYEYYoTRUQks5eOD
-	 FxMzECVwbNnkcZdvKABQ+iJyLbtRBQGGoxFDIfm1E4Q4vpmvq93jLTNl2pJ34Smf0RD3H
-	 51u15ysIoIMI9Nkn1FOk7GxV1uW6Gkk84j2RGdasCPENAGNAdJUtR3t4JmECfr7MPG4Sr
-	 aERULmvTxiEL4xU22jZPnd4rkOq5FaVJ436daWMM4pAhF0rqg6zw29oZw1V7DPVAc/2uj
-	 DM6tCtjb61r/ekSwrXFP3jp1wmMuSZJWkRGvyYLycvw62DGmTz90GjvTKRjGGuLas+A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=ziyao.cc;
-	spf=pass smtp.mailfrom=ziyao.cc;
-	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
-Received: from sender5-op-o12.zoho.com (sender5-op-o12.zoho.com [165.173.182.12])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.147
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795624805;
+	b=p0lmZ6mzjj+aQbcBksiNrU8MJ5f3R+62TV8Ofs+PUaQsyZHvP8P8XFeBiamIvUBljGuy
+	 Utz1k6jXnPZIMTAET6KP6AtW4PHhdTvixP7TLSS4IhlInaklelPxDdgZg+BtyWxz+d4ha
+	 FSbqc/MYBXocGxR6UA98bdjvYO1tkzij/k1sfgX1SlQmgtXSFzgJGwuMCKb2qZ1ov/lwY
+	 kIkKn3/m3LPcrsrLR6eoqYYmE8Ih0amLty2vQXGmnYvWNPwZggbz0fpXT+TivptYL/IZg
+	 2mLw1ABKP8pZRaJ1ct67v0SfyrW7yXckxYij2TNw5SZhjBWKjd4Ai470TAqrLdM2c4A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624805;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt9VzjWX80=;
+	b=fS6kFVhpLQwkOJ+s/RIa/AMWiksjPIWey7QymKtJCpIF4NBuqu9in4WB+f9CVzOgPkFO
+	 y1b17mjqfnAkDpvt09kJ05S1ESraS5xT8y+IuiJ2nMoZVvqTZx3/EMMtLtT2BSgt+1HrI
+	 9Z347cbkfIBIjqZp5TBXegJGL8GwPrAlozViJ/bLOm+JPZMO4fNGtZ+Zj7QaJZ8VIx4bn
+	 iAmnR3yu6mwlOhkE9jZnXDBUtsr9yYDXDFu21oSVKdmgLhNJ5yMmuVyJbhFZm/qudG2Nl
+	 OLC1ysrQYrss7PWRjFCkgmBRSnvr4aswGHBdhNpiSSdrOdL0VbEUSyGq0jzsHiJA1Pw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XNDHqpA8;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b="YcwCiXb/";
+	arc=none smtp.remote-ip=202.12.124.147
+Received: from fout-b4-smtp.messagingengine.com (fout-b4-smtp.messagingengine.com [202.12.124.147])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC4D606A331;
-	Wed, 25 Nov 2026 16:37:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC4D606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8436606A689
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:39:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8436606A689
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4
-ARC-Seal: i=1; a=rsa-sha256; t=1795624635; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fn8wmiECVHUD3QkyvELPPxKwwuZ9DNuC5BsZ/LyEsXtY8cg2aYjoBxEJgwLN+3JYGlUBQKiSs3HmFqpwYHfmyMXKcBzyl+8S8QravXTlQ+rw2jrUs8q5t1a7q53p7LzuUkgpSyyLv+VJAlOvU5NrIEklfwjwfx5QW2+onexAftU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795624635; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; 
-	b=kUmBJtZoJjiy/JIw5a8E5V4T6B6xWVXg7fwLLgn1GiEt4TaGh2Od91Iak/9qP4iGZNp3Zx9PBhiT7fhQ8Bk4Ky/mHZ2QlPXpfwSnSkiB4w11tIefldkFFQzddMRS+FchMJ7yvzOgdl/Bf8HkGNxast9SSTj/IRN3BYXewdCk9Eo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=ziyao.cc;
-	spf=pass  smtp.mailfrom=me@ziyao.cc;
-	dmarc=pass header.from=<me@ziyao.cc>
-DKIM-Signature: a=rsa-sha256; b=Jc6+q7o4s8WHJKTxEGWlOILKLZcb5akXj8pQFhixA8NBV12hkF+n5+8amlMh/gP12gne7slcWjdD3t+XTcJSIQZMar5ML3PLiGY75We8IDTMUCvZXteDOZmNSts4HFe3nYeuf40049rpe1P4JusK/SeIjBsqUUGo5/DqAgqRYd0=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795624633139428.14929217459655;
-	Wed, 25 Nov 2026 08:37:13 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:37:02 +0000
-From: Yao Zi <me@ziyao.cc>
-To: Magnus Leatti <magnusleatti@kernelriot.com>,
-	netdev-bot+sashiko@kernel.org
-Cc: Yao Zi <me@ziyao.cc>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XNDHqpA8;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=YcwCiXb/
+Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3B14D1D00647
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:39:59 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-11.internal (MEProxy); Wed, 25 Nov 2026 11:39:59 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-type:content-type:date:date:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1795624797; x=
+	1795711197; bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt9VzjWX80=; b=X
+	NDHqpA8OBmHA39syNiqFLQowcg2z3/AUs0x0LxBbTrHx2Te9BUlc7PLNcDIWI8oq
+	QR0mN6g8Rpm8IQ+KS8Kdu8H0gOaVc41ibJdZZCOKS8gsP7Jpq6PO1YlL0OnoEEHA
+	khMBhztDyGw2PQBRMURvD6bsWlxYEtRR5vfybcqD79KNlQeSATLSW3h6GUEv1MSz
+	n0HezIi2wzskzZzPNSB7WKz1APmXbMyRtRLxLGW8j7DSKI4NPT3AX+2h/kyoxKH9
+	J2iutpQrz2faCDBh9hfwxR+E3jvDk0k/38+7/soKzM6Eea2ELV8NgjFubgs9gCmR
+	8V4gbhsX32zoKjbo0Q5Kw==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=
+	1795624797; x=1795711197; bh=g3enkNkjVyBvG0MHM+KWIa1N7BGaXbJaNRt
+	9VzjWX80=; b=YcwCiXb/P9fn4srv59kljyBYSTJn6S7c0xfmeLHYYRj1Gs4ukEQ
+	Ts+FShPo8/6F4OvZFWkGH/OYTcvQUKo4D2leiuqyUsRavsywU6LLJQDcUHCz/CmG
+	4g9ZMMibm8nlvLwPhdZRs0JMLw71RHDNoLM36ZDeCXOrxMbnis9pzI+sH6JwCNzI
+	HTx/5BeZ4faoFHpBA2oDmpjGomG2nqISTw+4NHksPAL8JnkEXWtgq5u6VoGfZe9L
+	xRrgT2XqTxanhRPVodf4kcIAUwBCItiTFPPoITOdH27uO2xbZbvHjPjf9xDHoI7q
+	cvBNWCM+kwlilsGovj17zItnFuneuEIcMTw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795624797; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:FpMbLcJDWMgec11JQ9VS3lhYGv+RvmT24FJdzYFrMd3eyOs
+	AEpcbvg1v0LZDB7cmpV62Mkz67L//7fH934cFgEas9puSctbzfXCA52CxIVZ8klv
+	WgVkivWGS9AsJR+XeoP6IpVF8EiRiJwOn8Kcih3jtbU1/y4h9Rh8McboCutjcF91
+	zZxD8zZwhzrJoXrJtzIy0Jq3cb6mGAM79NGBnOxxkPiUkZQGAIzhzmCEbZSWPKyS
+	hDG+JFvvxasCVrtgt7uSioq1cOvPSJ3uNdryIuGzrWf/5ROfUP2DDZdDuKQGDOH4
+	QZpotM+qSvi1Kn7fFbxosnasmPqjslFTQlhG0Jw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-disposition,content-type,date,feedback-id,from,
+	in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:JUaZbP33mWNJ24OlGyehRVTiNbe7qyoaI3RQT3g4FcI=:3V7oVBdpGfdrkhgSI2whlAULFrAHua2VShOVgC0hzJY=;
+X-ME-Sender: <xms:XQ8HawK-A6iufDAXnzN4_tyHixX1tN2GQDu7OHzhKLG4rF8KKfwxyw>
+    <xme:XQ8Ha-rwq6txJBvJAYha8t5KZK9CeRkO-3BiB66lJ3TQOhmuPmbX4ZrC44ql7WjUz
+    XCtzEbIwj7z7eDtYF3Jx7PPgmr0ixW43uiNGPLaaEgIiXTMgvGo8OW4>
+X-ME-Received: <xmr:XQ8Ha3jrWwzzJddeSLiQ-Q7OTr8PlMsI0Sw69oya_8T1w3v_GVWJQyNHk3o>
+X-ME-Proxy-Cause: dmFkZTG1AIosMnXXQ3TVkZAM1xBtIcV0Q0klgVHxTUYZGoQ/5iae4eFVyvEAuo5L4ttIbh
+    85f0rterZnIAh6hOrrvviw2meX8naOhQKHUzQrqrt7pAwf4isXtdCJxwDxcsDtZsSKvxaP
+    +TCT1wfxIlw7GAEq30JaW4u8rk66lQdoshbKm751QX3Uu2JS0YCLP+4Ybcjg3m/mZOY7aR
+    /dy3nOnInYehqXtB+1vtcoDO0As8D4uQoUR9DiImcD8G0TbSHcAMwEYBd/Chy6BTxj12w3
+    6LL/A9pLtQUPIgqRkG4aG4uh6mk3n+h2cTqG+MmIst645q5BQ9nyX4AXkw8k/lfTJvvNag
+    NDOyLAS1dYqDWuFy+NyTSdg6wsvS3YC/3AHPFUB/BxpdRqAa8mJnbgf7T/TOUE91hW9T0i
+    DHjNsdzGAyOmErwcEz6VwlvFeWHTTnVqaGg4/bvYAEUvhMRrnZjbuJa8UscXWyezML2d8L
+    Lmx1vL1b6fNk3NBwNoud4HxSFY01lpXpm/NkDaPQGCgBcj25iCE9YkPH85No+uJmK6gNhG
+    3p5NbeFDAjR2M8E6XwCPF9B0CChmr2v4vC1q4tiYB6vZGh7tPY/km/KAf6AZExButntxSz
+    7pJd9glblPYAa5SpFAyChpwpzdgBJiCfm2sAQQpkYNQ2BmR3rgUXSY/yAsCQ
+X-ME-Proxy: <xmx:XQ8Ha9Zdt8xPjvupPtFXIC3Tor3p62JzssrTCoxO6g4MxatgZo5jhg>
+    <xmx:XQ8Ha_l1qM3kKSpL-Vdlau1UUyh-M-L69E23I3VA9tCwqJzcdKxNGA>
+    <xmx:XQ8HazxvfNa_1lwmwfR4OefL3jV7N_mY3ZnuaA8IBhJsQ3jEQ21RLA>
+    <xmx:XQ8Ha19K6JD0LkBCN1GmgOUgFxgik3WYPlhbuyoPvylmqqpAeEuSMQ>
+    <xmx:XQ8HawZdunWInBQdCc9j3Q376fTVDzUrzLMF-XQDe-ywPXxk6zoZDWSY>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 11:39:56 -0500 (EST)
+Date: Wed, 25 Nov 2026 17:39:54 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: Felipe Pereira Stival via B4 Relay <devnull+v0idpwn.gmail.com@kernel.org>
+Cc: John Fastabend <john.fastabend@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 1/2] net: stmmac: dwmac-motorcomm: remove the
- device at shutdown
-Message-ID: <awcOrnah0sKdqqSn@pie>
-References: <20261120102754.778283-2-magnusleatti@kernelriot.com>
- <179551786477.3135.6652175828683602957@kernel.org>
- <20261124130610.3254004-1-magnusleatti@kernelriot.com>
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, Shuah Khan <shuah@kernel.org>,
+	netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+	Felipe Pereira Stival <v0idpwn@gmail.com>
+Subject: Re: [PATCH net 1/2] tls: don't hide a queued KeyUpdate from poll()
+Message-ID: <awcPWkEtU8rgPAz-@krikkit>
+References: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-0-8e25101e7be6@gmail.com>
+ <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,41 +131,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20261124130610.3254004-1-magnusleatti@kernelriot.com>
-X-Zoho-Virus-Status: 1
-X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.600.19
-X-ZohoMailClient: External
+In-Reply-To: <20261118-v0idpwn-tls-poll-parked-keyupdate-v1-1-8e25101e7be6@gmail.com>
 
-On Tue, Nov 24, 2026 at 10:06:10AM -0300, Magnus Leatti wrote:
-> On Tue, Nov 24, 2026 at 10:57:44AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> > [Severity: Low]
-> > Should this carry a Fixes: tag?
+2026-11-18, 17:35:48 -0300, Felipe Pereira Stival via B4 Relay wrote:
+> From: Felipe Pereira Stival <v0idpwn@gmail.com>
 > 
-> No. I never saw anything break without the hook, so it's not a fix.
-> net-next, no tag.
+> When application data and a KeyUpdate are both queued, the recv() for
+> the data can also decrypt the KeyUpdate. That makes a rekey pending,
+> and the KeyUpdate is left on rx_list because its record type differs.
+> tls_sk_poll() reports no read events while a rekey is pending, so the
+> socket doesn't poll readable although a recvmsg() would return the
+> KeyUpdate. A reader that waits for a read event before each recv()
+> never reads it, never provides the new key and receives nothing more.
+> 
+> Report read events for records on rx_list while a rekey is pending,
+> since they are already decrypted. Keep ignoring the records still in
+> the strparser, so once the KeyUpdate has been read there are no read
+> events until the new key is provided, as before. Update the
+> documentation to say so.
+> 
+> Found with a level-triggered epoll reader that does one recv() per
+> read event. Without this patch it gets the data and then no read event
+> for the KeyUpdate; with it, the KeyUpdate is reported and the rekey
+> completes.
+> 
+> Fixes: 47069594e67e ("tls: implement rekey for TLS1.3")
+> Assisted-by: Claude:claude-fable-5-2
+> Signed-off-by: Felipe Pereira Stival <v0idpwn@gmail.com>
+> ---
+>  Documentation/networking/tls.rst | 7 ++++---
+>  net/tls/tls_main.c               | 6 +++---
+>  2 files changed, 7 insertions(+), 6 deletions(-)
 
-However, I do think this deserves a fixes tag, for the reason I stated
-in replies to v1 of the series[2].
-
-> > [Severity: Medium]
-> > With this change, can stmmac_dvr_remove() run twice on the same
-> > binding?
-> 
-> Only if something unbinds or unplugs the NIC *after* .shutdown ran, in
-> the middle of a power-off. funeth, otx2, nfp VF and ps3_gelic wire
-> .shutdown to their remove the same way, and it's the design that came
-> out of the v1 review [1]. Keeping it.
-> 
-> [1] https://lore.kernel.org/netdev/avsebFtnIASV-KpV@pie/
-> 
-> Magnus
+Reviewed-by: Sabrina Dubroca <sd@queasysnail.net>
 
 -- 
-Thanks,
-Yao Zi
-
-Meow-mrrp-mrow, I'm a cat.
-
-[2]: https://lore.kernel.org/netdev/avsTEglKKD_wl_Fi@pie/
+Sabrina
