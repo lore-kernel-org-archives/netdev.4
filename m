@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617429;
-	b=J0eF+olCWjMpatRQo5g0mvgoW6QSMUWaUbxGt93buk9MHI5L2vDgVFCY3W96XXQQu3x/
-	 t75o4wdmngrTSUgYjtOOTfjekpqS3KnBuHxMA40EShTbXpALPP3Bw9ZDx3NvJTCjXaIUN
-	 zu5uJtn4odFi9XgpCbALg7rcfMBVaZbWRDi2UWy9Eo/UHDu/vp2yGYKCnvSE/1JKm7je5
-	 vHEZiBuwLfPQSTudeP6W8GNT3ulO9GXNFkkrZBpIM8lwWkd/CO+5T7nU72NW8vYQYCXkQ
-	 rpHXraKZOG+RVRrmyv6e1fHm8OF7gCNcyWYjEh9pjkVs+2N+lK8Y2tb1x316oK99qnA==
+	t=1795617427;
+	b=gx9BFp3DcsgSINCj+rnthSUxG6HBJrhls5hGa4w0zH2hiXJpQy0b+uXHn1deud7GBLE6
+	 Dba1iL9a97PFTVUNTIeJDPBXeDWHo9+4E28raOFTaBWILqCtRWs9lbCPT/f0M/sFR6pSu
+	 n84tJ/8HMIG0YDdNzW8OUaYaOHufehbMy57+u/UNOpoCOO8YjhFYQ9S9eWvJfG8i3Hbiq
+	 ZJ3flwh908jNF14hn8ZM6Wyh2spetC1bs5O58rBP0SDWN7BMaSpECDBzcpDF2RAQYYB33
+	 yOUKO1tej3EndrjJtOrG3D+UfuVrNZHXlIU8srpuIEyp+TWd4LOF2h5hymp5plbP5PQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617429;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617427;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=XKlofb4mp2YjJH48h+x2W8bCswXbdvaAGXnOq1DoHEg=;
-	b=o/E1bDSSPxhWWr6IDS1rW/AJGZ1qh4yzqjstsndXkdlzdXU8Etplui/f1GiiSGDkEz26
-	 xOnmo1XLpBslPbwQQXUZCdDW5Ej2iEnJdAP3fClzTXgocnbGl0KB2wJctyrhr4YAvoEUC
-	 opNqES/Oa7kQnaWFU6EBOL4MpqLODverRJTwWtpI2vo4dJ5jN2dO02HAGKFciuNHVzRUz
-	 aWtq6oQf6w+AUl3QUQA5CtxSFFCS0UDZR3Dql+ENfQuhA0fS3vTQsrSqq8VtQU4Wgr6Wb
-	 8A1M9psEl3OhPGY6kA0Ocx/ukHZjsiGMLDi+1bC9ESM8U9+ay6OaOpZ0QdF5iBrki7w==
+	bh=UI3b/gELHVYalkRB4XyjY/BrPA924TcgWqJQg7zISQA=;
+	b=r0qCRRqTzREu23ynWKevHeYASbHKte8xpbNMFEwhoWVxt/e0nVq+X06a5Y4tPWUtnZId
+	 uDScXq66lemz0Rg2g/qZCYbeQR7qknEJsLDe5u3rALugylE8YKgSMqR7GwN3HeBAEAHwY
+	 c4dSfifQux8RgmoBdGq+o5rf1aLHPwYdk7hOG/RLATqei3P4pcygSjDSDGtV7yG87KMWA
+	 /MxTfYGAX4DGZTbR0zXUwmxZ7FjTcYnZYuxDbcdxbLlLLBim8F37MWLFfMIErViAICVl8
+	 6C/04spvq92QoHpzdkE2P0uN+UgEzgfjytM5ClcNEDv6ANO2V/Zi9HBdctyiJkoE2TA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eC5wP0aZ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6fy8wMw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A4F6606A333;
-	Wed, 25 Nov 2026 14:37:09 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eC5wP0aZ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA4A01F000ED;
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43FED606A329;
 	Wed, 25 Nov 2026 14:37:07 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m6fy8wMw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BC121F000C6;
+	Wed, 25 Nov 2026 14:37:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795617428;
-	bh=XKlofb4mp2YjJH48h+x2W8bCswXbdvaAGXnOq1DoHEg=;
+	s=k20260515; t=1795617426;
+	bh=UI3b/gELHVYalkRB4XyjY/BrPA924TcgWqJQg7zISQA=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=eC5wP0aZ58R25sb7QsgyhBiRygWlYXuvOorQ3N99XVPqbooL6DBSXQKQyFt731i0I
-	 II/gl/U7Mz9wGzLuS8R1HE0EqgGgTaXCVXYllNdBtqNIq/cBuQcdVolYt5m/qDwPct
-	 uuZ7Ya91eJtKunr/FJ1lR+KQ2MBFcI4b0TpcuIQBauI0cgQDsjnB+4mMdBRz1J0aJQ
-	 S1dc5U8mpAYAC7CVg3JXSIrsb+HWNigEaTYaRMTLqsSAKUKEmjDgyMOWlITFlkEK6Z
-	 AazmlUZorEIGa+rGbQQkn5JqQheGIRWZf5LPujkSmEAeoy7pQfGQ8+R2hIdfjRi/x2
-	 tih8Hwuk5grEQ==
+	b=m6fy8wMwRfRHQpXO1z8sDHalVp8Jd58U14fX/W2sz6Sxu7C3lcK/KP+HoDZa8/Yof
+	 RuQL5pqJ5/eTNzgFho4OdkWRO6Fmk9sQtM0SCoIS7vChGGGfjCwDI/plJ5yC6XZxhi
+	 rdp52cwpujaytJk0oU2dZl7A/3gq8fmpA7MNBAwtciPZFu8xTixkKG9IM+wIP/E4O9
+	 wTd9ZRufGaQc4G9mGjDmvzjiGUJCnoqsksXWU5ETVY1ppfnZ7vckFQFdx8/jA7L/Eu
+	 xC6T9eRvraOfAuA1PNxwKOBC2WuhbwNNHwxyQCbF1xYlYMQJCCZGTh2U2tyr94eWHl
+	 x4AqVnt9iD1+w==
 Subject:
- Re: [PATCH net-next v2 6/7] net: lan743x: reset the device on TX timeout
+ Re: [PATCH net-next v2 5/7] net: lan743x: handle a failed reopen on resume
 From: netdev-bot+sashiko@kernel.org
 To: cbabroski@nvidia.com
 Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
@@ -51,11 +51,11 @@ Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux@armlinux.org.uk, Raju.Lakkaraju@microchip.com,
  maxime.chevallier@bootlin.com, yuiko.oshino@microchip.com, nb@tipi-net.de,
  woojung.huh@microchip.com
-Date: Wed, 25 Nov 2026 14:37:07 +0000
-Message-ID: <179561742750.3135.10907427867283855252@kernel.org>
-In-Reply-To: <a6d08d5760ecabea5c77d6001a8281c820873512.1795027003.git.cbabroski@nvidia.com>
-References: <a6d08d5760ecabea5c77d6001a8281c820873512.1795027003.git.cbabroski@nvidia.com>
-X-sashiko-severity: Low
+Date: Wed, 25 Nov 2026 14:37:05 +0000
+Message-ID: <179561742562.3135.3380061250286040261@kernel.org>
+In-Reply-To: <614c536edbd2cf29e8a53076612404d1091d18c5.1795027003.git.cbabroski@nvidia.com>
+References: <614c536edbd2cf29e8a53076612404d1091d18c5.1795027003.git.cbabroski@nvidia.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,139 +68,181 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 1 (1)
 
-- [Low] A single TX timeout can trigger two back-to-back device resets,
-  because lan743x_reset_work() does not wait for a dev_watchdog() call…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] The RX-filter resync added to lan743x_pm_resume() after
+  netif_device_attach()…
+- [Low] This is a patch-structure concern: one commit bundles three
+  changes under the subject "handle a failed reopen on resume".
+
+Pre-existing issues:
+- [Low] lan743x_rfe_set_multicast() writes and validates only perfect-
+  filter slots 1..min(mc_count,32).
 
 --
 
-net: lan743x: reset the device on TX timeout
+net: lan743x: handle a failed reopen on resume
 
-This adds an ndo_tx_timeout handler to the lan743x driver. The handler
-schedules a work item that, under rtnl, detaches the netdev, closes it,
-soft-resets the DMA controller, reopens it and reattaches it. The patch
-also makes lan743x_dmac_init() return an error when the DMAC soft reset
-times out.
+This patch makes lan743x_pm_resume() check the return value of
+lan743x_netdev_open(). On failure it calls dev_close(), and a new ndo_stop
+wrapper skips the hardware close while the device is detached. It also
+skips the close in lan743x_pcidev_shutdown() when the device is already
+detached, drops lan743x_pci_cleanup() from the lan743x_hardware_init()
+failure path, and reprograms the RX filter after netif_device_attach().
 
 > diff --git a/drivers/net/ethernet/microchip/lan743x_main.c b/drivers/net/ethernet/microchip/lan743x_main.c
-> index 228b6ab539a17..3f129a22921e1 100644
+> index b226078bf3a96..228b6ab539a17 100644
 > --- a/drivers/net/ethernet/microchip/lan743x_main.c
 > +++ b/drivers/net/ethernet/microchip/lan743x_main.c
 
 [ ... ]
 
-> @@ -3381,6 +3385,12 @@ static int lan743x_netdev_close(struct net_device *netdev)
->  	struct lan743x_adapter *adapter = netdev_priv(netdev);
->  	int index;
->  
-> +	/* lan743x_reset_work() takes rtnl, so it cannot be waited for here.
-> +	 * A running one returns if the device is still down when it gets
-> +	 * rtnl, otherwise it resets the reopened device once more.
-> +	 */
-> +	cancel_work(&adapter->reset_work);
-> +
->  	lan743x_phylink_disconnect(adapter);
->  
->  	synchronize_net();
-
-[ ... ]
-
-> @@ -3485,6 +3495,57 @@ static int lan743x_netdev_stop(struct net_device *netdev)
->  	return lan743x_netdev_close(netdev);
->  }
->  
-> +static void lan743x_reset_work(struct work_struct *work)
-> +{
-> +	struct lan743x_adapter *adapter =
-> +		container_of(work, struct lan743x_adapter, reset_work);
-> +	struct net_device *netdev = adapter->netdev;
-> +	int ret;
-> +
-> +	rtnl_lock();
-> +
-> +	if (!netif_running(netdev) || !netif_device_present(netdev))
-> +		goto unlock;
-> +
-> +	netdev_warn(netdev, "resetting after TX timeout\n");
-> +
-> +	netif_device_detach(netdev);
-> +	lan743x_netdev_close(netdev);
+> @@ -4076,7 +4089,6 @@ static int lan743x_pm_resume(struct device *dev)
+>  	if (ret) {
+>  		netif_err(adapter, probe, adapter->netdev,
+>  			  "lan743x_hardware_init returned %d\n", ret);
+> -		lan743x_pci_cleanup(adapter);
+>  		return ret;
+>  	}
 
 [Severity: Low]
-Can one TX timeout cause two resets in a row here?
 
-netif_device_detach() only clears __LINK_STATE_PRESENT. It does not take
-dev->tx_global_lock. dev_watchdog() holds that lock while it checks
-presence, scans the queues, prints a message and calls ndo_tx_timeout():
+This isn't a bug, but the subject only covers part of what this commit
+does. It contains three separate changes:
 
-net/sched/sch_generic.c:dev_watchdog() {
-	spin_lock(&dev->tx_global_lock);
-	if (!qdisc_tx_is_noop(dev)) {
-		if (netif_device_present(dev) &&
-		    netif_running(dev) &&
-		    netif_carrier_ok(dev)) {
-		...
-				netdev_crit(dev, "NETDEV WATCHDOG: CPU: %d: transmit queue %u timed out %u ms\n",
-				...
-				netif_freeze_queues(dev);
-				dev->netdev_ops->ndo_tx_timeout(dev, i);
-	...
+  - the reopen failure handling (dev_close() and lan743x_netdev_stop())
+  - the lan743x_hardware_init() failure path (the present check in
+    lan743x_pcidev_shutdown(), and dropping the lan743x_pci_cleanup()
+    call that d6423d2ec39c added)
+  - the RX filter reprogram in lan743x_pm_resume()
+
+The third change runs on every successful resume, not only after a
+failed one. RFE_CTL is written only in lan743x_rfe_set_multicast().
+lan743x_rfe_open() writes only RFE_RSS_CFG. So the reprogram also
+restores RFE_CTL and the multicast filter on every normal resume.
+
+Would it be easier to review and backport these as separate patches?
+
+[ ... ]
+
+> @@ -4109,10 +4121,23 @@ static int lan743x_pm_resume(struct device *dev)
+>  	 * For instance, it is true when system wakesup after pm-suspend
+>  	 * However, it is false when system wakes up after suspend GUI menu
+>  	 */
+> -	if (netif_running(netdev))
+> -		lan743x_netdev_open(netdev);
+> +	if (netif_running(netdev)) {
+> +		ret = lan743x_netdev_open(netdev);
+> +		if (ret) {
+> +			netdev_err(netdev, "failed to reopen after resume: %d\n",
+> +				   ret);
+> +			dev_close(netdev);
+> +		}
+> +	}
+>  
+>  	netif_device_attach(netdev);
+> +
+> +	/* ndo_set_rx_mode is skipped while the device is detached */
+> +	if (netif_running(netdev)) {
+> +		netif_addr_lock_bh(netdev);
+> +		lan743x_rfe_set_multicast(adapter);
+> +		netif_addr_unlock_bh(netdev);
+> +	}
+
+[Severity: Medium]
+
+Does this resync cover unicast address changes made while the device was
+detached?
+
+__dev_set_rx_mode() returns early when the device is not present. That
+return comes before the unicast promisc accounting, not only before
+ndo_set_rx_mode():
+
+net/core/dev_addr_lists.c:__dev_set_rx_mode() {
+    ...
+	if (!netif_device_present(dev))
+		return;
+    ...
+	promisc_inc = netif_uc_promisc_update(dev);
+	if (promisc_inc)
+		__dev_set_promiscuity(dev, promisc_inc, false);
+
+	if (ops->ndo_set_rx_mode)
+		ops->ndo_set_rx_mode(dev);
 }
 
-This interleaving looks possible:
+lan743x does not set IFF_UNICAST_FLT, so it depends on the core setting
+IFF_PROMISC when dev->uc is non-empty. lan743x_rfe_set_multicast() only
+enables unicast acceptance through IFF_PROMISC:
 
-CPU0 (dev_watchdog)                 CPU1 (lan743x_reset_work)
-spin_lock(tx_global_lock)
-netif_device_present() is true
-                                    netif_device_detach()
-                                    lan743x_netdev_close()
-                                      cancel_work()  /* work is running,
-                                                        not pending */
-netdev_crit(...)
-lan743x_netdev_tx_timeout()
-  schedule_work()  /* requeues */
-spin_unlock(tx_global_lock)
-                                      netif_tx_disable()  /* waits on
-                                                  tx_global_lock */
+	if (netdev->flags & IFF_PROMISC) {
+		rfctl |= RFE_CTL_AM_ | RFE_CTL_AU_;
 
-The netif_tx_disable() call in lan743x_netdev_close() is the first point
-that serializes against dev_watchdog() through tx_global_lock. It runs
-after cancel_work(), so nothing cancels the requeued work.
+Consider this sequence:
 
-When the first reset calls netif_device_attach(), the requeued work sees
-netif_running() and netif_device_present() both true. It then runs the
-full detach/close/dmac_init/open/attach sequence a second time. That
-means a second link flap and a second PTP clock unregister and register,
-which can give the clock a new /dev/ptpN again.
+  - lan743x_hardware_init() fails on resume, so the device stays
+    detached with IFF_UP set. This patch now handles that case.
+  - A macvlan, or a VLAN with its own MAC, is brought up on top.
+  - dev_uc_add() runs on the lower device, but __dev_set_rx_mode()
+    returns early, so uc_promisc and IFF_PROMISC are never set.
+  - On the next successful resume, this resync calls
+    lan743x_rfe_set_multicast() with IFF_PROMISC still clear.
 
-The ndo_stop path does not have this window. There,
-__dev_close_many()->dev_deactivate_many()->netdev_watchdog_down() stops
-the watchdog before ndo_stop runs cancel_work(). The commit message only
-accepts an extra reset for the ndo_stop/reopen race.
+Wouldn't frames for the new unicast address be dropped until a later
+rx-mode event runs the core path? __dev_set_rx_mode() and
+dev_set_rx_mode() are not exported, so the driver cannot call the core
+path directly.
 
-Would moving cancel_work() after netif_tx_disable() in
-lan743x_netdev_close() close this window?
+The commit message says:
 
-> +
-> +	ret = lan743x_dmac_init(adapter);
-> +	if (ret) {
+    While the device is detached, the core does not call ndo_set_rx_mode, so
+    address list changes made in that window, such as IPv6 multicast joins,
+    which do not take rtnl, never reach the RX filter. Program the filter
+    again after the device is attached.
 
-[ ... ]
+The IPv6 multicast case is handled. For unicast list changes, though, the
+filter still seems to miss them after this patch.
 
-> +static void lan743x_netdev_tx_timeout(struct net_device *netdev,
-> +				      unsigned int txqueue)
-> +{
-> +	struct lan743x_adapter *adapter = netdev_priv(netdev);
-> +
-> +	schedule_work(&adapter->reset_work);
-> +}
+At this commit lan743x_hardware_init() does not appear able to fail. The
+window opens with the later commit "net: lan743x: reset the device on TX
+timeout", which makes lan743x_dmac_init() return the SWR poll error. That
+commit's reset work copies the same multicast-only resync, so it does not
+close this gap.
 
-[ ... ]
+[Severity: Low]
+
+This is a pre-existing issue, but lan743x_rfe_set_multicast() writes
+perfect filter slots 1 through min(mc_count, 32) only. It never clears
+RFE_ADDR_FILT_HI_VALID_ in slots past the current list length:
+
+			if (i < 33) {
+				lan743x_csr_write(adapter,
+						  RFE_ADDR_FILT_HI(i), 0);
+				...
+				data |= RFE_ADDR_FILT_HI_VALID_;
+				lan743x_csr_write(adapter,
+						  RFE_ADDR_FILT_HI(i), data);
+
+If the multicast list shrinks from N to M > 0 entries, can slots M+1..N
+stay valid while RFE_CTL_DA_PERFECT_ is still set? The hardware would then
+keep accepting groups the stack has already left.
+
+Nothing in lan743x_hardware_init(), lan743x_rfe_open() or
+lan743x_mac_init() invalidates slots 1..32 either. The new resume resync
+relies on this helper, so it has the same behaviour.
+
+>  	rtnl_unlock();
+>  
+>  	return 0;
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795027003.git.cbabroski%40nvidia.com
