@@ -1,55 +1,61 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619336;
-	b=hXGnubMudy2MyxctW5ccNPDhwjpvI9lD1/PQLCadgsa5LbLy66DPdVJCPfTLyVSH6vFz
-	 PIwh2AtqrNlo4utFB9isYpCW9C5zqX/atxE2ozQFlqxRQNR37pfOUVSH5nZ0oEFbiiz4m
-	 yqTAim9fTPc1NtuizJ+bpZ6A8ejxnxQGLEm3PFH6CHEMUnwJfLILzcHYSSb8XiZHu/+YO
-	 xkDqHYseF8RlCgazeoTpSSZKoDOk0xpQYygIN/XEp8G7xFT56AeQidsRnAnr6YTDFDhoZ
-	 R8ISVnTvOPnOCxkMPfseXBVR+RMC4TsbAxrQQFMWj+jFrnDh2VVOAbYszMQe3UsajZg==
+	t=1795619333;
+	b=nGAg5PxvYr1iuieJjFJWpNjgatg72dNkHbaOGEeD0tQ94l+wFKeSfca2OicWiwBhNxHP
+	 w0VKiRLIURZyF3Of9ylxBh4q0QjnnlzQJ/NQxi16J0R14wWkz1tKG+mafA+JKljAy6ayu
+	 OkStnnWLS/cWZ4+T0zSxwNgkfe5Xs+bkdJj/QtzxWdntm6f+R6zXrM83lokYCyU18k4SV
+	 y+aTwAGw7m6h/h8zNyB6KRz4PUuHy5ydMznPNhm18dWZ/jn/ypiYmxGWBXfbMtlQuz1YC
+	 pdAAWonPw5/GeTrzDBaaKTVFVYNuhYaG8D0ATMhTecSfYp8Q/e8YITkLWpsG2nJfhDg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619336;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619333;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ylUBh491hf4LFInZUCVQvpnRSa5T9z/gjbnH1xTjgQ8=;
-	b=TBwn7+ZA92neXbOqAAskCol9jvKjfhSlrLNJvL9cwl9AcwCEDblNO0ri/WgOb7l9Fwi0
-	 NnmhAA2PaVO3TSZfPk4Fg+KGCKIXa5QZz/qO0xAYHywODG+uyQrls86inTpKGU3AkOJxf
-	 2A1l7WSfCz1qazmQ/6r4ptjfe9PZCP3I1VinAhb+9HY4v1jKVUNB+ngW4eO7hE0DpiYia
-	 4HCQDii8yzf1QUEum0PSsoeAlfmwTKdA4oJMwJe/hyZk+Hsh/IeyObfIh3Dut3Ji91yak
-	 CrlUrWKEYHuGjJjQGnIOm2BgI+tS2Op+XMDZQnP6OrmpkGPF+Sh5Fb4HRDpqtLJshwQ==
+	bh=OLVnqCp6M5k/c3jqzvLSa4RVUfHpaO5qFBgd0x2mVsM=;
+	b=uMOfYB2MTpAi44Sn/RHVZ4lA/V0U0695b6aWaJVgtVaHw5tJc8RQC5jxrOHYbRGTscXM
+	 OKl5y3OaTGb9fmpDm8+Jyez5C2Hr+GIqqnkjA+Beops8B9RKk/c6F6QyES+QoDS0sdqfu
+	 YQCdzW2TdG37Y23cTPEbPhCORvmL91NDT4VnYfLUaej05MS24ZjH8yK1Oaq2eu3wOGnWp
+	 v9KtzBkQCa0Un7yP1A3x7gd0ZIsQfUxbChdtjDYyqMddFcM+MDUjYZS2fIzVG1+qq4p3m
+	 beOzpKPiYZsAwIJB9rtsyMDLsA+t83hWvd2Rh1sp1hbb4NqJ3KydvoLl/kW2Tbk98Ag==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AVhsMJl/";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXKsPirb;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9838606A337;
-	Wed, 25 Nov 2026 15:08:56 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B3605606A31E;
+	Wed, 25 Nov 2026 15:08:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AVhsMJl/
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 373141F000CA;
-	Wed, 25 Nov 2026 15:08:56 +0000 (UTC)
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TXKsPirb
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B9AD1F000C0;
+	Wed, 25 Nov 2026 15:08:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619336;
-	bh=ylUBh491hf4LFInZUCVQvpnRSa5T9z/gjbnH1xTjgQ8=;
+	s=k20260515; t=1795619332;
+	bh=OLVnqCp6M5k/c3jqzvLSa4RVUfHpaO5qFBgd0x2mVsM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=AVhsMJl/10WhWu3CinPAwSY2CdIyzYMJ1MYVhnoMSMRo9UtTWejf9x0eZbtNd04mY
-	 KEv8811SFtU1D1V9GpP42EdouN7nnSubHDLnAE4UNplwAORBmvj8ljW9TTtMdSzSVI
-	 /h8e4Vz3QcTECo1eMEq3ljyHhFEzGZ2u5UOLOQlhdSKugz4puYBx32ySoUk5DeSI0H
-	 uQYrxRKj1f3iqTm/+tfwVxfyLRrxvifumFI6w7CKS3Sx0LnLShK9et4LkrGmc0gX1v
-	 vjcva2ME7YMNrp0uO3bC/15u4285ga8opyaVxkLtWFH2ET+bDOrh0H2bpU930EMM2q
-	 7MGvccumum6oQ==
-Subject: Re: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
+	b=TXKsPirb0GlNJPk/07KbBe0c0wR5RjvIBtYr16UeF3xX69fnZ3udfv8vXpWuhKrGD
+	 WWE+N+m3G1M+QhwXI/dcsj/gB3q/ipAbd/cNVKerkVa8Ws5lNiGjQ6Y3UQzCOBrVA6
+	 viWcxku89Sj9SVccbB8CcO7m2LMIpvroG+BzRSDoxKvb00nkwnpfoaoWhIemXSwHes
+	 eTXQbSiUNZB6/HAtdTnHLSsesp4BiyL3BrW9r/0W5AoPjhjUw6yrcCqWoKyArWiRBT
+	 hqaJxF2R91gN39PtAF7AMnq7MEAgLYFa2rwTctnrhjIsLHz+yhwrzoGv8XJJ2/MMG6
+	 lz4Bj0F01IbYQ==
+Subject: Re: [PATCH net-next v9 1/2] net: ti: icssg-prueth: Add Frame
+ Preemption MAC Merge support
 From: netdev-bot+sashiko@kernel.org
-To: leegun25@proton.me
-Cc: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
- linux-wpan@vger.kernel.org, netdev@vger.kernel.org, kuba@kernel.org
-Date: Wed, 25 Nov 2026 15:08:55 +0000
-Message-ID: <179561933580.3135.16839129837492499512@kernel.org>
-In-Reply-To: <20261121150835.256812-1-leegun25@proton.me>
-References: <20261121150835.256812-1-leegun25@proton.me>
-X-sashiko-severity: High
+To: m-malladi@ti.com
+Cc: marco.crivellari@suse.com, haokexin@gmail.com, kees+treewide@kernel.org,
+ laixiangwu@cmss.chinamobile.com, arnd@arndb.de, horms@kernel.org,
+ basharath@couthit.com, parvathi@couthit.com, vladimir.oltean@nxp.com,
+ rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+ edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com
+Date: Wed, 25 Nov 2026 15:08:50 +0000
+Message-ID: <179561933095.3135.5750144040401521848@kernel.org>
+In-Reply-To: <20261121144618.180542-2-m-malladi@ti.com>
+References: <20261121144618.180542-2-m-malladi@ti.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -62,10 +68,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 11 potential
 issue(s) to consider.
 
-Critical: 0 · High: 3 · Medium: 0 (1) · Low: 0 (1)
+Critical: 0 · High: 0 · Medium: 5 · Low: 6
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -73,267 +79,423 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] The new rtnl_lock() in mac802154_process_association_req()
-  (net/mac802154/scan.c:833) makes the rx_mac_cmd worker wait on the…
-- [High] A remote ASSOC REQ can still reach
-  WARN_ON_ONCE(!netif_running(sdata->dev)) in…
-- [High] mac802154: RTNL self-deadlock on same-host association in
-  mac802154_process_association_req()
-
-Pre-existing issues:
-- [Medium] This problem wasn't introduced by this patch, but in
-  mac802154_process_association_req() (net/mac802154/scan.c:891-899) the…
-- [Low] This problem wasn't introduced by this patch, but
-  mac802154_process_association_req() checks wpan_dev->pan_id,…
+- [Medium] After a firmware restart while the link is up
+  (prueth_emac_restart(), which runs when ports join or leave a bridge…
+- [Medium] emac_tc_setup_mqprio() always finishes by calling
+  icssg_iet_change_preemptible_tcs().
+- [Medium] icssg_config_ietfpe() decides whether to program FPE by
+  reading emac->link (`if (!READ_ONCE(emac->link)) return 0;`) while…
+- [Medium] Several things here depend on firmware state the driver never
+  resets.
+- [Medium] FPE TX is turned on by the R30 command
+  ICSSG_EMAC_PORT_PREMPT_TX_ENABLE; the driver's own comment says the…
+- [Low] emac_tc_setup_mqprio() splits a single logical update into three
+  separate fpe_lock critical sections.
+- [Low] On every link-down, icssg_qos_link_state_update() writes the
+  firmware config bytes PRE_EMPTION_ENABLE_TX=0 and…
+- [Low] emac_tc_setup_mqprio() reports user-triggerable configuration
+  errors with netdev_err() instead of NL_SET_ERR_MSG_MOD(mqprio->extack,…
+- [Low] Two changes unrelated to FPE are folded into the patch without
+  mention in the commit message.
+- [Low] The register-map comment for EXPRESS_PRE_EMPTIVE_Q_MAP in
+  icssg_switch_map.h still reads "For marking Packet as priority/express…
+- [Low] icssg_qos_link_state_update() reads iet->fpe_enabled for its
+  debug message after icssg_iet_change_preemptible_tcs() has dropped…
 
 --
 
-mac802154: take RTNL around ASSOC RESP transmission
+net: ti: icssg-prueth: Add Frame Preemption MAC Merge support
 
-This commit makes mac802154_process_association_req() take the RTNL
-before association_lock. The goal is to stop the ASSOC RESP sent from the
-rx_mac_cmd worker through ieee802154_mlme_tx_locked() from tripping
-ASSERT_RTNL(). The RTNL is released after association_lock on every exit.
+This commit adds a QoS submodule to the ICSSG driver. It configures IET
+Frame Preemption in firmware, including the verify state machine and the
+express/preemptible queue mask. It also hooks mqprio offload through
+ndo_setup_tc and re-applies FPE state on link up/down from
+emac_adjust_link(). The ethtool MAC Merge ops are wired up in the
+following patch.
 
-> diff --git a/net/mac802154/scan.c b/net/mac802154/scan.c
-> index d393b1f4e74e4..49bc5d29b4ee0 100644
-> --- a/net/mac802154/scan.c
-> +++ b/net/mac802154/scan.c
-> @@ -826,6 +826,11 @@ int mac802154_process_association_req(struct ieee802154_sub_if_data *sdata,
->  		return -ENODEV;
->  	}
->  
-> +	/* mac802154_send_association_resp_locked() uses the MLME TX helpers,
-> +	 * which require the RTNL.  Take it before association_lock to keep the
-> +	 * same lock order as the netlink paths (RTNL then association_lock).
-> +	 */
-> +	rtnl_lock();
->  	mutex_lock(&wpan_dev->association_lock);
-
-[Severity: High]
-Does this turn every same-host association into a 10 second stall
-of the global RTNL?
-
-NL802154_CMD_ASSOCIATE is registered with NL802154_FLAG_NEED_RTNL, so
-nl802154_pre_doit() takes rtnl_lock() and holds it until
-nl802154_post_doit(). In between, the call chain is:
-
-nl802154_associate()
-  rdev_associate()
-    mac802154_associate()
-      mac802154_perform_association()
-        ieee802154_mlme_tx_one_locked()    /* sends ASSOC REQ */
-        wait_for_completion_killable_timeout(&local->assoc_done,
-                                             10 * HZ);
-
-The coordinator may be another interface on the same kernel, such as
-a second mac802154_hwsim radio or a second local transceiver. In that
-case its rx_mac_cmd worker now enters
-mac802154_process_association_req() and blocks in rtnl_lock().
-rtnl_mutex is global, so putting the two interfaces in different
-network namespaces does not help. The ASSOC RESP cannot be sent until
-the associating thread gives up:
-
-1. The node thread holds the RTNL and sleeps on assoc_done.
-2. The coordinator worker sleeps in rtnl_lock() for the full
-   10 * HZ.
-3. mac802154_perform_association() returns -ETIMEDOUT and clears
-   IEEE802154_IS_ASSOCIATING. nl802154_post_doit() then drops the
-   RTNL.
-4. The worker gets the RTNL, sends the late ASSOC RESP and adds the
-   node to wpan_dev->children. The node has already reported failure
-   and will drop the response.
-
-So the association fails every time. For those 10 seconds every other
-RTNL user on the system waits behind it, including link and address
-changes and other rtnetlink requests. Before this patch the same
-setup worked. ASSERT_RTNL() in ieee802154_mlme_tx_locked() only
-checks rtnl_is_locked(), and the node thread was holding the RTNL.
-
-The hwsim runs in the commit message use a monitor and a coordinator
-and never issue the associate command. Lockdep does not track
-completions either, so none of those runs would have shown this.
-
-Is the RTNL really what the response TX needs here? Could the TX path
-used from the rx_mac_cmd worker be protected by a narrower lock
-instead? Or could mac802154_perform_association() avoid holding the
-RTNL while it waits on assoc_done?
-
-[Severity: High]
-Can this rtnl_lock() stall a local associate request until it times out?
-
-The netlink associate path holds the RTNL for the whole time it waits for
-the ASSOC RESP. NL802154_CMD_ASSOCIATE has NL802154_FLAG_NEED_RTNL, so
-pre_doit takes the RTNL, and then:
-
-nl802154_associate()
-  mutex_lock(&wpan_dev->association_lock);
-  rdev_associate()
-    mac802154_associate()                /* ASSERT_RTNL() */
-      mac802154_perform_association()
-        wait_for_completion_killable_timeout(&local->assoc_done, 10 * HZ);
-
-Take two PHYs on the same host, for example the usual two-radio
-mac802154_hwsim setup. There is a coordinator interface on phy0 and a
-node on phy1 running associate:
-
-1. The node's netlink thread holds the RTNL and waits on assoc_done.
-2. phy0 receives the ASSOC REQ, and its rx_mac_cmd worker enters
-   mac802154_process_association_req().
-3. With this patch the worker blocks in rtnl_lock() until the node's
-   10 second timeout expires.
-4. The node returns -ETIMEDOUT and clears IEEE802154_IS_ASSOCIATING.
-   The ASSOC RESP that phy0 sends after that is dropped by the node's
-   rx path because mac802154_is_associating() is false.
-5. If that TX was ACKed, the coordinator still adds the node to
-   wpan_dev->children, so the two sides disagree about the association.
-
-Before this patch the cross-PHY case worked. ASSERT_RTNL() only checks
-the global rtnl_is_locked(), and the node's netlink thread was holding the
-RTNL. Each wpan_dev also has its own association_lock.
-
-There is also a same-PHY variant that already existed. Each PHY has a
-single-threaded mac_wq. If a coordinator with parent == NULL is itself
-associating, an ASSOC REQ queued ahead of the parent's ASSOC RESP blocks
-the worker that has to deliver that RESP. Before this patch it blocked on
-association_lock. Now it blocks on the RTNL first.
-
-This change also invalidates an assumption stated in commit 2f37fba846c9
-("mac802154: fix use-after-free of sdata via queued RX frames"): "A worker
-blocked in an association TX ... does not hold rtnl". The commit message
-does not mention this.
-
-The PROVE_LOCKING runs in the commit message would not catch this
-problem. Lockdep does not model completions, and the tests described
-never run the associate command.
-
-[Severity: High]
-Can a remote ASSOC REQ still reach the WARN_ON_ONCE() in
-ieee802154_mlme_tx_locked() with this change?
-
-The only running-state check is done without any lock held, in
-mac802154_rx_mac_cmd_worker():
-
-	if (ieee802154_sdata_running(mac_pkt->sdata))
-		mac802154_rx_mac_cmd(local, mac_pkt);
-
-Nothing checks it again after the RTNL is taken here. Here is a race with
-"ip link set <coord> down":
-
-1. dev_close() holds the RTNL and calls mac802154_slave_close().
-2. mac802154_slave_close() decrements local->open_count and clears
-   SDATA_STATE_RUNNING.
-3. A monitor interface may be up on the same PHY, which
-   ieee802154_check_concurrent_iface() allows. If so, open_count stays
-   non-zero.
-4. The worker passed the check before ndo_stop ran. It sleeps in
-   rtnl_lock() until the close completes.
-5. The worker then continues:
-
-mac802154_send_association_resp_locked()
-  ieee802154_mlme_tx_locked()
-	if (!local->open_count)        /* false, monitor still open */
-		return -ENETDOWN;
-	...
-	if (WARN_ON_ONCE(!netif_running(sdata->dev)))   /* fires */
-		return -ENETDOWN;
-
-With panic_on_warn=1 this is the same panic the commit message says it
-removes.
-
-Before this patch the window was a short lockless race. Now any worker
-that is waiting for the RTNL while ndo_stop runs will see the closed
-state. The rx_mac_cmd_list is also not flushed on close.
-
-Would it make sense to check ieee802154_sdata_running(sdata) and
-netif_running(sdata->dev) again after rtnl_lock(), and return -ENETDOWN
-if either is false?
-
-[Severity: Low]
-This isn't a bug introduced by this patch, but the checks at the top of
-mac802154_process_association_req() run before rtnl_lock() and
-association_lock are taken. They read wpan_dev->pan_id, extended_addr,
-short_addr and parent, for example:
-
-	if (wpan_dev->parent) {
-		dev_dbg(&sdata->dev->dev,
-			"Ignoring ASSOC REQ, not the PAN coordinator\n");
-		return -ENODEV;
-	}
-
-The writers hold those locks:
-
-mac802154_associate() {
-	...
-	wpan_dev->pan_id = coord->pan_id;
-	wpan_dev->short_addr = short_addr;
-	wpan_dev->parent = parent;
-	...
-}
-
-On the same PHY, this sequence is possible:
-
-1. The worker handles the parent's ASSOC RESP and completes assoc_done.
-2. The worker picks up a later ASSOC REQ, reads parent == NULL and
-   blocks on rtnl_lock().
-3. mac802154_associate() sets wpan_dev->parent and drops the locks.
-4. The worker accepts and records a child as if it were still the PAN
-   coordinator. It may also answer a request addressed to the old
-   pan_id.
-
-The same window existed before through association_lock. Should these
-checks be done after the locks are taken?
-
->  
->  	memcpy(&assoc_req_pl, skb->data, sizeof(assoc_req_pl));
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> index 9bb67e185a3ea..d8431132c34b0 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
 
 [ ... ]
 
-> @@ -895,6 +900,7 @@ int mac802154_process_association_req(struct ieee802154_sub_if_data *sdata,
->  
->  unlock:
->  	mutex_unlock(&wpan_dev->association_lock);
-> +	rtnl_unlock();
->  	return ret;
->  }
+> @@ -392,6 +392,8 @@ static void emac_adjust_link(struct net_device *ndev)
+>  		} else {
+>  			icssg_set_port_state(emac, ICSSG_EMAC_PORT_DISABLE);
+>  		}
+> +
+> +		icssg_qos_link_state_update(ndev);
+>  	}
 
 [Severity: Medium]
-This is a pre-existing issue, but does the duplicate-child handling just
-above the unlock label leak exchild?
+Is FPE silently lost after a firmware restart while the link is up?
 
-	exchild = cfg802154_device_is_child(wpan_dev, &tmp);
-	if (exchild) {
-		dev_dbg(&sdata->dev->dev,
-			"Child %8phC was already known\n", &ceaddr);
-		list_del(&exchild->node);
+prueth_emac_restart() runs from icssg_change_mode() when ports join or
+leave a bridge or HSR. It stops all cores and then calls
+prueth_emac_common_start(). That runs icssg_config(), whose
+memset_io(config, 0, TAS_GATE_MASK_LIST0) clears
+EXPRESS_PRE_EMPTIVE_Q_MASK and Q_MAP. It then sets emac->link to 0 and
+calls emac_adjust_link() before prueth_emac_start() has booted the
+firmware.
+
+With phydev->link set, the new hook then runs against halted firmware:
+
+prueth_emac_common_start()
+  emac_adjust_link()
+    icssg_qos_link_state_update()
+      icssg_iet_change_preemptible_tcs()
+        icssg_config_ietfpe(ndev, true)
+          icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_ENABLE)
+
+The halted firmware can't acknowledge the R30 command, so the call times
+out after 10 ms. The fallback path then clears ENABLE_TX/ENABLE_VERIFY,
+sets fpe_active = false and resets the mask to all-express. The
+unconsumed PREMPT command also stays in the mailbox.
+
+Once the firmware is running, prueth_emac_restart() only re-sends
+PORT_FORWARD:
+
+	/* Enable forwarding for both PRUeth ports */
+	ret = icssg_set_port_state(emac0, ICSSG_EMAC_PORT_FORWARD);
+	ret |= icssg_set_port_state(emac1, ICSSG_EMAC_PORT_FORWARD);
+
+emac->link is already 1, so phylib reports no change and
+icssg_qos_link_state_update() is not called again.
+
+Would preemption and the preemptible queue mapping then stay off until
+the next link flap? Meanwhile fpe_enabled stays true, so get_mm() (added
+in the next patch, "Add ethtool ops for Frame Preemption MAC Merge")
+would report tx_enabled=1, tx_active=0. This doesn't appear to be fixed
+later in the series either.
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> index df93d15c5b786..f73b8f5fca956 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
+> @@ -44,10 +44,11 @@
+>  #include "icssg_config.h"
+>  #include "icss_iep.h"
+>  #include "icssg_switch_map.h"
+> +#include "icssg_qos.h"
+>  
+> -#define PRUETH_MAX_MTU          (2000 - ETH_HLEN - ETH_FCS_LEN)
+> -#define PRUETH_MIN_PKT_SIZE     (VLAN_ETH_ZLEN)
+> -#define PRUETH_MAX_PKT_SIZE     (PRUETH_MAX_MTU + ETH_HLEN + ETH_FCS_LEN)
+> +#define PRUETH_MAX_MTU		(2000 - ETH_HLEN - ETH_FCS_LEN)
+> +#define PRUETH_MIN_PKT_SIZE	(VLAN_ETH_ZLEN)
+> +#define PRUETH_MAX_PKT_SIZE	(PRUETH_MAX_MTU + ETH_HLEN + ETH_FCS_LEN)
+
+[Severity: Low]
+This isn't a bug, but two changes here aren't related to FPE and aren't
+mentioned in the commit message: the whitespace-only change to these
+three defines, and the move of enum icssg_ietfpe_verify_states from
+icssg_config.h to icssg_qos.h. Could they be split out, or at least
+noted in the commit message?
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.c b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> new file mode 100644
+> index 0000000000000..55ddf7669530c
+> --- /dev/null
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.c
+> @@ -0,0 +1,327 @@
+
+[ ... ]
+
+> +static void icssg_iet_set_preempt_mask(struct prueth_emac *emac)
+> +{
+
+[ ... ]
+
+> +		for (tc = 0; tc < num_tc; tc++) {
+> +			if (iet->preemptible_tcs & BIT(tc)) {
+> +				for (i = qopt->offset[tc]; i < qopt->offset[tc] + qopt->count[tc]; i++) {
+> +					writeb(BIT(4),
+> +					       config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+
+[Severity: Low]
+This isn't a bug, but the register map comment for this offset in
+icssg_switch_map.h still says:
+
+/* For marking Packet as priority/express (this feature is disabled) or
+ * cut-through/S&F.
+ */
+#define EXPRESS_PRE_EMPTIVE_Q_MAP                          0x0034
+
+This function now programs the region as a preemption map. It writes the
+undocumented value BIT(4) for preemptible queues and writes 0 to all
+ICSSG_MAX_TC_QUEUES entries on every reset. That reset would also clear
+any cut-through/S&F encoding the comment says these bytes carry.
+
+Could the comment be updated, and BIT(4) given a named constant?
+
+> +					prempt_mask &= ~BIT(i);
+> +				}
+> +			}
+> +		}
+> +		writeb(prempt_mask, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +		return;
+> +	}
+> +
+> +reset_hw:
+> +	/* Reset to default: all queues as express */
+> +	for (i = 0; i < ICSSG_MAX_TC_QUEUES; i++)
+> +		writeb(0, config + EXPRESS_PRE_EMPTIVE_Q_MAP + i);
+> +	writeb(ICSSG_EXPRESS_Q_MASK_ALL, config + EXPRESS_PRE_EMPTIVE_Q_MASK);
+> +}
+
+[Severity: Low]
+Is this reset meant to run on every link-down, whatever the FPE state?
+
+The link-down branch of icssg_qos_link_state_update() always ends up
+here. It doesn't check fpe_enabled, fpe_active or preemptible_tcs, and it
+runs in every firmware mode (EMAC, switch, HSR/PRP).
+
+icssg_config() leaves EXPRESS_PRE_EMPTIVE_Q_MASK at 0 after each firmware
+start, and no init path programs it. So the byte reads 0 until the first
+link-down and ICSSG_EXPRESS_Q_MASK_ALL afterwards, even when FPE is never
+configured.
+
+The commit message says link events are handled "based on fpe_enabled
+and fpe_active flags". Would programming the default mask in
+icssg_config(), or gating these writes on FPE state, keep it consistent?
+
+> +
+> +static int icssg_iet_verify_wait(struct prueth_emac *emac)
+> +{
+
+[ ... ]
+
+> +	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
+> +				 status,
+> +				 status == ICSSG_IETFPE_STATE_SUCCEEDED ||
+> +				 status == ICSSG_IETFPE_STATE_FAILED,
+> +				 delay_us,
+> +				 timeout_us);
+
+[Severity: Medium]
+Can the first sample here be a stale SUCCEEDED left over from an earlier
+session?
+
+The firmware writes PRE_EMPTION_VERIFY_STATUS and PRE_EMPTION_ACTIVE_TX,
+and the driver never resets them. They sit above TAS_GATE_MASK_LIST0, so
+the memset_io(config, 0, TAS_GATE_MASK_LIST0) in icssg_config() doesn't
+clear them. The link-down path in icssg_qos_link_state_update() only
+clears ENABLE_TX/ENABLE_VERIFY and the software verify_status.
+
+readb_poll_timeout() checks the condition on its first read, before any
+sleep. A leftover SUCCEEDED would satisfy the poll at once, unless the
+firmware has already overwritten VERIFY_STATUS by the time it
+acknowledges PREMPT_TX_ENABLE.
+
+icssg_config_ietfpe() would then read a possibly stale ACTIVE_TX, set
+fpe_active = true and program the preemptible queues. That would happen
+before verify has finished on the new link, possibly with a different
+partner.
+
+The same applies when FPE is re-enabled while already active. It also
+applies to the no-verify path, which reads ACTIVE_TX once after
+usleep_range(100, 200).
+
+Does the firmware guarantee these bytes are cleared before the R30
+acknowledgement, or should the driver reset them before re-arming?
+
+[ ... ]
+
+> +int icssg_config_ietfpe(struct net_device *ndev, bool enable)
+> +{
+
+[ ... ]
+
+> +	lockdep_assert_held(&iet->fpe_lock);
+> +
+> +	if (!READ_ONCE(emac->link)) {
+> +		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
+> +		return 0;
+> +	}
+
+[Severity: Medium]
+Is this check actually serialized against link changes?
+
+emac_adjust_link() writes emac->link under phydev->lock from the phylib
+state machine, not under fpe_lock. It also publishes the new value and
+sends PORT_DISABLE/PORT_FORWARD before it takes fpe_lock inside
+icssg_qos_link_state_update().
+
+On link-down, something like this looks possible:
+
+tc / set_mm path                     phylib (phydev->lock held)
+mutex_lock(&iet->fpe_lock)
+READ_ONCE(emac->link) == 1
+                                     WRITE_ONCE(emac->link, 0)
+                                     icssg_set_port_state(PORT_DISABLE)
+                                     icssg_qos_link_state_update()
+                                       mutex_lock(&iet->fpe_lock) blocks
+icssg_set_port_state(PREMPT_TX_ENABLE)
+icssg_iet_verify_wait()
+
+The tc/set_mm request would fail and roll back. The PHY state machine
+would also stall for up to 3 * verify_time_ms (about 384 ms). Without
+verify, ACTIVE_TX could read 1 and set fpe_active = true, and the
+link-down branch never sends PREMPT_TX_DISABLE to undo it.
+
+On link-up, a caller that sees link == 1 could send PREMPT_TX_ENABLE and
+start verify before emac_adjust_link() has configured speed/IPG and sent
+PORT_FORWARD. That could make the request fail spuriously.
+
+The commit message says fpe_lock prevents "races between ethtool config,
+qdisc setup, and link events". Does that hold, given that the link state
+being tested is protected by a different lock?
+
+[ ... ]
+
+> +static int emac_tc_setup_mqprio(struct net_device *ndev, void *type_data)
+> +{
+
+[ ... ]
+
+> +	/* Validate parameters */
+> +	if (qopt->num_tc > ICSSG_MAX_TC_QUEUES) {
+> +		netdev_err(ndev, "Number of traffic classes (%u) exceeds hardware limit\n",
+> +			   qopt->num_tc);
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (mqprio->flags & TC_MQPRIO_F_SHAPER) {
+> +		netdev_err(ndev, "traffic shaping is not supported\n");
+> +		return -EOPNOTSUPP;
+> +	}
+> +
+> +	if (mqprio->flags & (TC_MQPRIO_F_MIN_RATE | TC_MQPRIO_F_MAX_RATE)) {
+> +		netdev_err(ndev, "per-queue rate limiting is not supported\n");
+> +		return -EOPNOTSUPP;
+> +	}
+
+[Severity: Low]
+Could these use NL_SET_ERR_MSG_MOD(mqprio->extack, ...) instead of
+netdev_err()? Users can trigger these errors, so tc only sees a bare
+-EOPNOTSUPP while the kernel log gets an error on every attempt.
+
+[ ... ]
+
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	if (ret) {
+> +		mutex_lock(&iet->fpe_lock);
+> +		iet->preemptible_tcs = 0;
+> +		memset(&p_mqprio->qopt, 0, sizeof(p_mqprio->qopt));
+> +		mutex_unlock(&iet->fpe_lock);
+> +		netdev_reset_tc(ndev);
+> +	}
+> +	return ret;
+> +}
+
+[Severity: Medium]
+Should every mqprio offload change re-run the full FPE handshake?
+
+When fpe_enabled is true, icssg_iet_change_preemptible_tcs() calls
+icssg_config_ietfpe(ndev, true). That re-sends PREMPT_TX_ENABLE and, with
+mac_verify_configure set, polls verify for up to 3 * verify_time_ms (up
+to 384 ms).
+
+This happens even when preemptible_tcs == 0 and on qdisc teardown
+(num_tc == 0). In those cases only the all-express mask needs
+programming.
+
+If the handshake fails (verify rejected, timeout, or ACTIVE_TX != 1), the
+qdisc install fails here and the TC mapping is reset. A failure on the
+link-up path leaves fpe_enabled true. So after a link flap to a partner
+that doesn't support verify, would every later "tc qdisc add ... mqprio
+hw 1" fail, even with no preemptible TCs?
+
+Each successful mqprio change also re-runs the enable sequence, which
+cycles TX preemption as a side effect.
+
+[Severity: Low]
+A related question about locking here. The publish, apply and rollback
+steps each take fpe_lock separately, and the rollback only restores
+software state.
+
+Suppose a link-up runs icssg_qos_link_state_update() between the failed
+icssg_iet_change_preemptible_tcs() and this rollback, and succeeds. Then
+icssg_iet_set_preempt_mask() would program Q_MAP/Q_MASK from the qopt and
+preemptible_tcs that are about to be rejected.
+
+After the rollback the kernel has no mqprio offload and preemptible_tcs
+is 0. Would the firmware still treat those queues as preemptible until
+the next reconfiguration or link-down?
+
+[ ... ]
+
+> +void icssg_qos_link_state_update(struct net_device *ndev)
+> +{
+> +	struct prueth_emac *emac = netdev_priv(ndev);
+> +	struct prueth_qos_iet *iet = &emac->qos.iet;
+> +	int ret;
+> +
+> +	if (!READ_ONCE(emac->link)) {
+> +		void __iomem *config = emac->dram.va + ICSSG_CONFIG_OFFSET;
+> +
+> +		/* Clear FPE active state on link-down so get_mm() reports
+> +		 * accurate tx_active and verify_status while link is down.
+> +		 * Also zero the FW preemption registers to prevent divergence
+> +		 * if a concurrent enable was interrupted by link-down.
+> +		 */
+> +		mutex_lock(&iet->fpe_lock);
+> +		writeb(0, config + PRE_EMPTION_ENABLE_TX);
+> +		writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+> +		iet->fpe_active = false;
+> +		iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+> +		icssg_iet_set_preempt_mask(emac);
+> +		mutex_unlock(&iet->fpe_lock);
+> +		return;
+> +	}
+
+[Severity: Medium]
+Should this link-down teardown also send
+ICSSG_EMAC_PORT_PREMPT_TX_DISABLE?
+
+The R30 PREMPT_TX_ENABLE command turns FPE TX on, and the firmware is
+still running at this point. This teardown only zeroes the DRAM bytes.
+
+Two later paths also skip the disable command. First, if FPE is turned
+off while the link is down (set_mm with tx_enabled=0 in the next patch,
+or clearing preemptible_tcs via mqprio), icssg_config_ietfpe() returns 0
+from its !emac->link check without touching the hardware. Second, on the
+next link-up, icssg_iet_change_preemptible_tcs() returns early:
+
+	if (!iet->fpe_enabled && !iet->preemptible_tcs) {
+		mutex_unlock(&iet->fpe_lock);
+		return 0;
 	}
 
-	list_add(&child->node, &wpan_dev->children);
-	wpan_dev->nchildren++;
+Would the last preemption command the firmware saw then stay
+PREMPT_TX_ENABLE indefinitely, while the driver and get_mm() report FPE
+as disabled? The answer depends on whether the firmware acts on the last
+R30 command or on the PRE_EMPTION_ENABLE_TX byte, which can't be seen
+from the driver.
 
-With alloc_addr == 0, the lookup finds the old entry. It is unlinked but
-never freed, and nchildren is still incremented. The count then overstates
-the list by one per re-association.
+The v9 changelog says the link-down clearing prevents HW/driver
+divergence, but the command-level state still seems to diverge.
 
-With alloc_addr == 1, which Linux nodes always set, tmp.mode is
-IEEE802154_SHORT_ADDRESSING. cfg802154_pan_device_is_matching() always
-rejects that mode:
+> +
+> +	ret = icssg_iet_change_preemptible_tcs(emac);
+> +	if (ret)
+> +		netdev_dbg(ndev, "IET FPE %s failed\n",
+> +			   str_enable_disable(iet->fpe_enabled));
+> +}
 
-	if (ext_dev->mode == IEEE802154_ADDR_SHORT)
-		return false;
+[Severity: Low]
+This is minor, but fpe_enabled is read here after
+icssg_iet_change_preemptible_tcs() has dropped fpe_lock. Later in the
+series, emac_set_mm() writes it under fpe_lock from the ethtool path.
+Could KCSAN report this plain read? The message could also describe a
+different operation than the one that failed.
 
-So duplicates pile up on wpan_dev->children and nchildren keeps growing.
-
-The other removal paths pair list_del() with kfree() and adjust
-nchildren:
-
-  mac802154_process_disassociation_notif()
-  mac802154_disassociate_child()
-  cfg802154_free_peer_structures()
-
-Repeated re-associations from one peer can push nchildren toward
-max_associations. That leads to spurious IEEE802154_PAN_AT_CAPACITY
-refusals.
+[ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121150835.256812-1-leegun25%40proton.me
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121144618.180542-1-m-malladi%40ti.com
