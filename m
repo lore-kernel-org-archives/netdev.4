@@ -1,54 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.109
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588641;
-	b=FQN98xYP9fhDRMpUYDnLm6mroE55z2PIbE0BTN2e/4TFukIAix8emIMVr27QvVkPF/uv
-	 d4vax0PZFbh/Nxcr87MRzY75qv0RuaXTf9oLig35h4xUVExu4Fb1iENyetJhLdrMMSuw4
-	 mj2Xrz2GvFlCkUa1wmPiM39F+f24oIjHjPnFu3N9Euywo0DX5omd/jdqaUCyTIorZ413E
-	 WPLPhcBU5BkWdWKL00iNIA+E6yB0pOkCHbGV1yibDSGmYGBGfYuOGXWCz7UoQvVCFwSdW
-	 drj5UyHVKSCZs7eISCYGzAnmdKhMCeO5BDCmykNN9gjygVEtHSFzGAumMv6fBWzDu8Q==
+	t=1795588877;
+	b=V8fY8GRR2V5mhNRPhO7/uJxlH/vw/his9BG5Zl17NdCgTdwCt0xGa8MR3Lkvng5L0knT
+	 wBn7XXNjZfGETImqYtBxvrmE1/BATTHt+F71J9LwJkqpnlOZlTG/xhPiFTWMJ+nkBeUDi
+	 kHBFCBU2uw0otTWv6JQT6KXdNovKZeIQWGoLXu1BwphmD8hZ9IH65VFtNrU30pFlZBRxx
+	 s7U3eIFZWrlv8nSG+Rkke9ZhU5gpvoyWJRscQ/jOfTh5TQkp1mesLgd5zqUwb+hygovbQ
+	 uo3SA0PlEwOYlEZ68pwld6YCflHp5vax5es573HvfHc0e7LdP9uxr7lQZsxVA43iMMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588641;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588877;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=q/Rj58SaH5amWTyNmer9CsZ6IqXDXPNCk/zSC3unopI=;
-	b=FrIz+dfuA1z2qetJNblXaIDAp9qkB790FUbkSEQWresoAHqkAU9lm5ZAwUSP3dfyP8bi
-	 VwwI19JgTR8/4uDxgabdERLAMaskOqhGtzfC5je153QAa8h2+D7qSEazV9pvrV3p/k7XS
-	 q4nLBC0xtYnC4sBKKFInXUrerey3heBHIz312lRvrsd7Fd69qG7cB+gNMF4BgmXRyqHCY
-	 yl/xfXBQRnSrLlpjPTG/So5SfZI5CK7EGn0WOjcPtLWRi4q0AG0+34pmS2OSQ3HTUkIkB
-	 NAZnKAz2Cg+I/1aMBbnuinGIPtIQkQR5DPgB4JF8j/TUJKk2vyg85579TD1Bfj/TzlQ==
+	bh=jXPtIz69YE1EXIfctFPM9q44zXNnKosM9rIAEAlt/gM=;
+	b=2faFralFkqWMf7O0cNKokzE+/ABo9RVLiKwIib58OXpbbUg8/JdxSWmg56iDL4+uCHFy
+	 EpnPVeRVe0iavJibu3AH9Nkx0zwbYACPweYTMBxtCb0+ouXhF6AkREhBsZ5TDE2VrEzE+
+	 3LPSf4OSMXIrVxcug7AwPPDTXRSyFgaWJ/aJpjNlSE43kGIDYPYrunHmeuJHgvkOY9ryA
+	 m4zd6BgSMdHPn/G8rltPR/tnbZ0SyM2PgSMMXh6YQHvXGRqLhd30841RyjEENPVky7UZP
+	 f5BcqACtlkJpvug4/1awVPcZSOhcehFIO/DIK345lEEG1oQDHdIZgENxwauXnYiJ1xw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR;
-	arc=none smtp.remote-ip=91.218.175.109
-Received: from mta0.migadu.com (out-109.mta0.migadu.com [91.218.175.109])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95E4A606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:37:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95E4A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=igOsq9VV;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 21037606A31E;
+	Wed, 25 Nov 2026 06:41:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21037606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=Rue6WWUDqbUiDGZQOImbpN9tuORsHUiNUGcW6y17oMA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795588638; v=1; x=1796193438;
- b=q5d6DVJRa8oAnf8vyrkzerITtkrT4wiX6G9nDh5BbJ4elSbjbcPOb0p1hagSUsbbtuAP9WWg
- +UxdMf+FdxYmKXg94zEJq2QJAiTTQdQ9Pzo3JqHN9hEZdkmjAu3uIzjd3UJWINIXtyEKktd3pqJ
- qQg7xqQdikA3H7se/iDAORhE=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 52e2bc64e5274c4c;
-	Wed, 25 Nov 2026 06:37:17 +0000
-X-Mizu-Trace-ID: 52e2bc64e5274c4c
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <663c0be8-60c8-45d6-baf6-5bc4ac0ae173@linux.dev>
-Date: Wed, 25 Nov 2026 14:37:10 +0800
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=igOsq9VV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=igOsq9VVs8hnw3xqSjKHQ7sf+qSFWDrrk42oa0SYwFySOX/lUjWFMY/UEq5SaQHT+WwXzLeLI0rQg
+	 ktF5JG5wLjBSRl6pU2GL/8uXqMM0RHKApZsG7pkgW0nEuieniPbCpSpKt3h5LMlOHY+QB5oaXTwgZD
+	 TFpU8TOPgNaKQxpg=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b06830992c-4fbb9;
+	Wed, 25 Nov 2026 14:41:13 +0800 (CST)
+X-RM-TRANSID:2ee76b06830992c-4fbb9
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from  (unknown[180.106.213.53])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b068305c60-3c15c;
+	Wed, 25 Nov 2026 14:41:13 +0800 (CST)
+X-RM-TRANSID:2ee86b068305c60-3c15c
+From: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org,
+	kuba@kernel.org,
+	edumazet@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	shuah@kernel.org,
+	willemb@google.com,
+	annaemesenyiri@gmail.com,
+	idosch@nvidia.com,
+	hangbin.liu@linux.dev
+Subject: [PATCH net-next v2 2/3] selftests: net: enable receive metadata independently of its value
+Date: Wed, 25 Nov 2026 06:41:09 +0000
+Message-ID: <20261125064110.1396439-3-xujingjing@cmss.chinamobile.com>
+In-Reply-To: <20261125064110.1396439-1-xujingjing@cmss.chinamobile.com>
+References: <20261125064110.1396439-1-xujingjing@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,183 +76,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] tcp: fix CA module refcount underflow in
- tcp_v4_syn_recv_sock()
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
- kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, fw@strlen.de, daniel@iogearbox.net,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-References: <20261124062625.264148-1-jiayuan.chen@linux.dev>
- <179558800299.3135.4905748131998876050@kernel.org>
-From: Jiayuan Chen <jiayuan.chen@linux.dev>
-In-Reply-To: <179558800299.3135.4905748131998876050@kernel.org>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
+so_rcv_listener passes the expected mark or priority to setsockopt() as
+its SO_RCVMARK or SO_RCVPRIORITY enable flag. Consequently, expecting zero
+also disables the ancillary message being tested. A zero mark or priority
+is valid, but invoking the listener with -M 0 or -P 0 fails with ENOMSG.
+
+Use a separate nonzero flag to enable reception and keep opt.val solely
+for checking the received value.
+
+This issue was found with AI-assisted source review and reproduced using
+real UDP sockets. Zero and nonzero mark/priority tests pass over IPv4 and
+IPv6 after the fix; the zero cases fail on the original helper.
+
+No kernel instrumentation or fault injection was used.
+
+Fixes: c935af429ec2 ("selftests: net: add support for testing SO_RCVMARK and SO_RCVPRIORITY")
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Signed-off-by: Jingjing Xu <xujingjing@cmss.chinamobile.com>
+---
+ tools/testing/selftests/net/so_rcv_listener.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/tools/testing/selftests/net/so_rcv_listener.c b/tools/testing/selftests/net/so_rcv_listener.c
+index bc5841192aa6..a57fff256cc2 100644
+--- a/tools/testing/selftests/net/so_rcv_listener.c
++++ b/tools/testing/selftests/net/so_rcv_listener.c
+@@ -65,6 +65,7 @@ static void parse_args(int argc, char *argv[])
+ 
+ int main(int argc, char *argv[])
+ {
++	int enable = 1;
+ 	int err = 0;
+ 	int recv_fd = -1;
+ 	int ret_value = 0;
+@@ -88,7 +89,8 @@ int main(int argc, char *argv[])
+ 		goto cleanup;
+ 	}
+ 
+-	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname, &opt.val, sizeof(opt.val));
++	err = setsockopt(recv_fd, SOL_SOCKET, opt.rcvname,
++			 &enable, sizeof(enable));
+ 	if (err < 0) {
+ 		perror("Recv setsockopt error");
+ 		ret_value = -errno;
+base-commit: 57f165ff2f30491bc3511d24a52ca516751a268b
+-- 
+2.53.0
 
 
-On 11/25/26 2:26 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] The new error path in tcp_v4_syn_recv_sock()
->   (net/ipv4/tcp_ipv4.c) jumps to clear_ca_and_exit when…
-> - [Low] The commit message presents the bug as a module refcount
->   underflow that shows up as a module_put() WARNING.
-> 
-> --
-> 
-> tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
-> 
-> The child socket inherits icsk_ca_ops from the listener without taking a
-> reference. If inet_csk_route_child_sock() fails, the child then puts the
-> listener's reference. This patch clears icsk_ca_ops on that error path and
-> makes tcp_cleanup_congestion_control() skip a socket that has no CA.
-> 
->> If inet_csk_route_child_sock() fails in between, we go to put_and_exit
->> and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
->> the reference unconditionally. The one dropped belongs to the listener.
-> 
-> [Severity: Low]
-> 
-> Is the impact larger than a refcount underflow warning?
-> 
-
-> module_put() uses atomic_dec_if_positive() and only warns when the count
-> would go negative:
-> 
-> kernel/module/main.c:module_put() {
->     ...
-> 		ret = atomic_dec_if_positive(&module->refcnt);
-> 		WARN_ON(ret < 0);	/* Failed to put refcount */
->     ...
-> }
-> 
-> While the listener still holds its reference, the child's put in
-> tcp_cleanup_congestion_control() succeeds silently and uses up the
-> listener's reference. The quoted WARN only fires after earlier occurrences
-> have already drained that reference.
-> 
-> Once that has happened, try_release_module_ref() lets rmmod of tcp_bbr
-> succeed while the listener's icsk_ca_ops still points into the module.
-> Later children read icsk_ca_ops->owner through bpf_try_module_get() in
-> tcp_ca_openreq_child(), and closing the listener calls ->release() on it.
-> Could either of these be a use-after-free?
-> 
-> If the count has dropped below the base instead, rmmod would hit
-> BUG_ON(ret < 0) in try_release_module_ref().
-> 
-> For BPF struct_ops congestion control, bpf_module_put() goes through
-> bpf_struct_ops_put() -> bpf_map_put():
-> 
-> include/linux/bpf.h:bpf_module_put() {
-> 	if (owner == BPF_MODULE_OWNER)
-> 		bpf_struct_ops_put(data);
-> 	else
-> 		module_put(owner);
-> }
-> 
-> In that case the extra put drops a struct_ops map reference while the
-> listener is still using the map.
-> 
-> Could the commit message describe this impact, for the benefit of stable
-> maintainers?
-> 
-
-It's meanless, we can't enumerate all cases‌ into commit message.
-
-
->> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
->> index e3f462f161dd6..0f99405a78b11 100644
->> --- a/net/ipv4/tcp_cong.c
->> +++ b/net/ipv4/tcp_cong.c
->> @@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
->>  {
->>  	struct inet_connection_sock *icsk = inet_csk(sk);
->>  
->> +	if (!icsk->icsk_ca_ops)
->> +		return;
->> +
->>  	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
->>  		icsk->icsk_ca_ops->release(sk);
->>  	icsk->icsk_ca_initialized = 0;
->> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
->> index 2fc92a7884fc8..8aa52376cf0aa 100644
->> --- a/net/ipv4/tcp_ipv4.c
->> +++ b/net/ipv4/tcp_ipv4.c
->> @@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
->>  	if (!dst) {
->>  		dst = inet_csk_route_child_sock(sk, newsk, req);
->>  		if (!dst)
->> -			goto put_and_exit;
->> +			goto clear_ca_and_exit;
->>  	} else {
->>  		/* syncookie case : see end of cookie_v4_check() */
->>  	}
->> @@ -1789,6 +1789,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
->>  exit:
->>  	tcp_listendrop(sk);
->>  	return NULL;
->> +clear_ca_and_exit:
->> +	/* newsk holds no reference on the inherited CA yet. */
->> +	inet_csk(newsk)->icsk_ca_ops = NULL;
-> 
-> [Severity: Medium]
-> 
-> Does this comment hold in all cases?
-> 
-
-
-
-> tcp_create_openreq_child() calls inet_csk_clone_lock(). That function moves
-> the child to TCP_SYN_RECV and then calls security_inet_csk_clone(), all
-> before the route lookup above:
-> 
-> net/ipv4/inet_connection_sock.c:inet_csk_clone_lock() {
->     ...
-> 	inet_sk_set_state(newsk, TCP_SYN_RECV);
-> 
-> 	inet_clone_ulp(req, newsk, priority);
-> 
-> 	security_inet_csk_clone(newsk, req);
->     ...
-> }
-> 
-> bpf_lsm_inet_csk_clone is listed in bpf_lsm_locked_sockopt_hooks in
-> kernel/bpf/bpf_lsm.c. A BPF_LSM_CGROUP program attached there can
-> therefore call bpf_setsockopt(TCP_CONGESTION) on the child:
-> 
-> sol_tcp_sockopt_congestion()
->   do_tcp_setsockopt()
->     tcp_set_congestion_control()
->       bpf_try_module_get(ca, ca->owner)  <- takes a reference on the new CA
->       tcp_reinit_congestion_control()
->         tcp_init_congestion_control()    <- ca->init(),
->                                             icsk_ca_initialized = 1
-> 
-
-It's not for net tree and I have already sent a fix to bpf tree. 
-
-I also intentionally mentioned it under diff stat to suppress this review
-but I think I failed:
-
-'''
-   ...
-   Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
-   ---
-   security_inet_csk_clone() -> bpf_setsockopt(TCP_CONGESTION) from a
-   lsm_cgroup prog has a similar problem, the child puts a reference it
-   never took. That one is being fixed in the bpf tree.
-   ...
-'''
 
