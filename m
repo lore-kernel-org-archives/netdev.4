@@ -1,65 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795582289;
-	b=zJQUMhJSmIjsGWtEFEENI970g64X1RikNOUU+niy2XNQkxiIP1rlVl9165yerHffalVW
-	 61FAAVGn62I9GvHFpkFZqDcb6Xvtdt+QJ7BQ0WE97edMxhsajux/pKVy71Zc+5tWBvl23
-	 CCiaL74Ugb58Qji9UeZHfI4KlckHLuzsgu9ogTWrFx9IRXxMCUD/bHtPkRvZr8DeD5+o1
-	 OoHJ/aCaW/cM2mWfNWrobczMDTcoQhIN3TuAluYZTm7+zekHI7qRvSNvLXgUyUFR35pKO
-	 cmA/BNrQP0vDm46pQJh7fOPssgNCUtsBKxY8v0cWsfGYCT3AxuvfLEKi0xsYbLinoVQ==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795582289;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Message-ID:
-	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Importance:User-Agent:X-Mailer;
-	bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=;
-	b=eCDaTeioISfTyV1RMknTAZHXP1A3WfrHXrwu9fTPyfUaNcRSIbMXRMPfvxC5anc02OUK
-	 oI9ZGxMLVZuLLuYyVJGbEboMGrOqJqUym06EfntxOCM79RmmuOEC3CH7Nqw3sERdMfGRn
-	 bkQu/eGbOCyhKnr+QpxJe7hP8yXyWBXZKugqsLDVMymtoJsePebUtjZM41dJ+YoXG9iDN
-	 Ia5S8R1KitAaPDHI6nqXpagnaqPz/btIQw+t4RslVHsPgDcjpWrJkZHGqE4Ma5u/jiYfr
-	 nLqxTnEAPmln/c66RhnJvu/Alu4YQ3BaQk2VoxHmOZ2HnMC05GFtK385xsNgDNSMEfQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=mpiricsoftware.com;
-	spf=pass smtp.mailfrom=mpiricsoftware.com;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
-Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795582297;
+	b=j/lAFr8eYcjzzl/yrf6vI9qi3jY+40FgandVdTJnx+y4FLwFot2Idf13lJxl+hxDttG+
+	 Qg7RQ+nrxNZe7gdfMn4Yp0wQjAguB33VHHENi+WHqAEOAh8qtsUJdgKUHI3XlXkr223Ph
+	 7k9c1oJWrZ+UBkWrOn5Oclhk/zMf4ZYLgQsI6UrPerAPcBXbAScsvzM08XpR345gOn3Qk
+	 5ImKSzmWnJJJGM00e8lojPKJvDux2iCYpI2tEARETW9ldNSnkdEAYyGdgm/GtFML9uGqg
+	 3h38JK3JqLZUT5LCfnh6S2cX22+dZO25EmYHU3dJUpA4EU3AF8/rGO3z1Z2uxrrer0w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795582297;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=XO4TrpK9P96uCfE9RUiQZD2WOyvv7UkLXAlskXveiYg=;
+	b=hpC8VcyV65ZHWesFKlfZITdpRD8ltn/BWkYeRivnXDjfBw14PC/30bIWMwrssm5mYHRx
+	 4yvK6MkGX7R4tqt3Ct0a7ShbnFkozj0QWcgvmwN4PUcW1lkxMNQ8iXSO4fZAD5OmkundU
+	 T4riUdlkIv7qYgIxrYYthA7Ncl3YSgpIKP/sOTp7qTiFzsYS+vwrU5GOS38DSgSGo1m5q
+	 J6qOA9lGsfGPxlU6Pqv8A8SKWKzyeAHu+hudqfv4D2VGFCHWNcbctNiYPfBAONuDGwx1Z
+	 LF12BWkYxHqs2KuggX4vJjbC+UjUt1Rz2PM0G94pxs2a0f4kV1vmAMSwoIebJDiV6+Q==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=McoupJE6;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B0B9606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:51:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B0B9606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mpiricsoftware.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mpiricsoftware.com
-ARC-Seal: i=1; a=rsa-sha256; t=1795582267; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Pfgt/5wgbuEvoK5KcGO5fNdgMt6NdKZ2mB8RkEIC87Ggt2l1YKjL6w0UO4q8aiRva2y8QJP8WYOZT5j1b50yevvIaRIqgrfcg9oXZIE9rNSf8A26Bsyhj2sUlDRvf6/magNdddzdovUDW2bhFwiCbFsw0t3d6TOkqffME+euLds=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795582267; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=; 
-	b=NgXvVaoC/N4LWjXWY4Oujo4KmvIi8pmoIUhPavMrypWRV6YLYcAdcuTTJU87sazZZkUo4VbdhJ73/UajUgMcumTKtfTe8GT1iMlJrRijTzWxGQJ7fPWN1CTcO3fTzWw0ZdKDKGhJoW4FwSDh8oukt/TJLXuFLCIs28/BRNcALEw=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=mpiricsoftware.com;
-	spf=pass  smtp.mailfrom=kalpan.jani@mpiricsoftware.com;
-	dmarc=pass header.from=<kalpan.jani@mpiricsoftware.com>
-DKIM-Signature: a=rsa-sha256; b=Mi/mG6LNUv2xLNsivOIt/JnyZLGmeOhyuz1lLHY5ikYp9fnE63HDwYDrBfJTnUrVyYctybVEmE/GeTzCXPo1cvWTwofdhCktu+RA9JSDJE4wnNiJOo9FGsZaso6tcpfZJjG04ldqNBXJOOg537GUTw8122jy2K+2cReN11jSbqk=; c=relaxed/relaxed; s=mpiric; d=mpiricsoftware.com; v=1; bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: from mail.zoho.com by mx.zohomail.com
-	with SMTP id 179558226238488.94232647218337; Tue, 24 Nov 2026 20:51:02 -0800 (PST)
-Date: Wed, 25 Nov 2026 10:21:02 +0530
-From: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
-To: "Matthieu Baerts" <matttbe@kernel.org>
-Cc: "Dominik Maier" <dmnk@google.com>,
-	"Mat Martineau" <martineau@kernel.org>,
-	"Geliang Tang" <geliang@kernel.org>,
-	"Paolo Abeni" <pabeni@redhat.com>, "mptcp" <mptcp@lists.linux.dev>,
-	"netdev" <netdev@vger.kernel.org>,
-	"dmnk+artist" <dmnk+artist@google.com>,
-	"Shardul B" <shardul.b@mpiricsoftware.com>,
-	"Mpiric Private Limited" <janak@mpiric.us>
-Message-ID: <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
-In-Reply-To: <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
-References: <20261119192159.2646113-1-dmnk@google.com> <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
-Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
- CAP_NET_ADMIN
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BC337606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:51:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BC337606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=McoupJE6
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b41e5a1719so2252196a91.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:51:36 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795582296; x=1796187096; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XO4TrpK9P96uCfE9RUiQZD2WOyvv7UkLXAlskXveiYg=;
+        b=McoupJE6wFfgw5zfTpObm4Yqn1QNI/cTFKc6lB8T6YoB0iuTcnCCjvOMj3Ch8puAnA
+         DyUDOkRXRv95zl1I73oN+tePX2MBItkbp6/x2/RhD70SiwnW2UZBU3rlFkqmDIKkfmvH
+         fxMHfYQ79v23fyyi1XvIHiN+uXteKV5jCoURlmhFsvXxRAfIr2cdchzTYPUgEdNjf40F
+         7lsKXVSVgrvWTkiRDIInkGPU3Ap9hglh5xTrgOxmBnXQTzRaIyw/bSpO1NK+F/BIu5zX
+         YBCX7iMYxRv9R+k3Tatp1CGyXzzc/0OkiIg7AnZZ/8U+gtwnIkEONyabaf2owP4oP2yr
+         +Edw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795582296; x=1796187096;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XO4TrpK9P96uCfE9RUiQZD2WOyvv7UkLXAlskXveiYg=;
+        b=IUktg6uezwap4HVONHupkwmLGidiD+rmTABKUCP5/zO5K9asWeSBV7Mhc6Tu4yHSFx
+         1v8KSY0eG2xCtDWKkR2FSAeIkDTkwkjnWrLZ/K/oHSBnOqO5+1YAo68BWtHK/0YOTN3r
+         1l6n1yElma0SO1moYkuZlcHgL+Te5l7ZckujadpmDU4qkyrhz3/c5/0J1JFlNeRyfosd
+         jUrZELUHUGFv3XKkL6+obx8QFCd3bSMLRp7l7dGa77mMyTJ5Q/AYX0de145sG0C0o4Oy
+         wQ/N7DTwuoMQRTrmkiuYW12M6mLAd7NSn67cSeK7FEfwiqMb+TR8eOC9fdkw/jMDA47G
+         SosA==
+X-Forwarded-Encrypted: i=1; AL+hErEODsbJaMrBjk6wu4oX+IfA8QJ/aWpUrTuto0ipsfdHJ7fZ5l4/QXCO7D6h9SZ1c9ArxyqNYAE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8wsKfaftTzKUAEejCx5hop7h9aKHjwhS8f+uyzutbLFjBqpUx4
+	z8vDj9Lc9kGU3igNc0S+yuISQJ8eAGQf+bDGps/Opil+hCTvmd5JVpSa
+X-Gm-Gg: AZFdTZcQwsagQ4C26ZgBe4PHbBu5YKev+lNnaKt51rqpoDTpzDulnefm24CKU9FypEt
+	o6xah4+dkT5ewjnnPfYDA1fmXFWBdzQNLnoBouNIiG6zd5KylVXpS6s6MOU7Xy1hkBSkH8BBW56
+	KK66YiatBIUlANnge8GNN0XuNJ+f6afyJE9cEC5ylbtU/UXV5eh7CGGQ9mP4JUCP2U97QYHlg00
+	mry/A8C4/tCYGjjG69RaMe5ZSkpJ4dBBuELukWGTIP+NJOlGy+Z5lOd+GnqgUpVIzUVCFscsCGd
+	/urCsJ5yjv0tg7+6/L/r0RY+Kyy+9pH/Xz+iQYmJwdtYaN0SQXG1KgE2cMvNLFh9Fe7F73jt1Tr
+	kO+OC+Hwjjq7a5I0NUv9otskbO8/zSYO9DG3sJw6t3PeS9H2q+im8sa0KoC+z0Y+UwIifBRWj9l
+	TBnRjMartR0MQfHSjMQtuQJsvuuBzvj7AKeSVDNfLpMEPZtfsCKRDOx+vZnfwaIVqyGcaFKbTlW
+	3DMP42LJz+NYjckl02uQYAH/5ehYd0DiietuqsLWKesKGhqtZpYcAw8XdlwK4Jggrc927TVTzGk
+	ej/dcSdpO+K86MRYWH0R2GuKqiZfNQ+A0S81tD6QIBjj7SdtBmPE6eUylFgyIYpb
+X-Received: by 2002:a17:90b:4ccb:b0:3b0:9183:23ef with SMTP id 98e67ed59e1d1-3b41c7b67femr15911910a91.3.1795582295961;
+        Tue, 24 Nov 2026 20:51:35 -0800 (PST)
+Received: from cps-manycore-1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4b3c71192sm9457209a91.5.2026.11.24.20.51.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 20:51:35 -0800 (PST)
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Amery Hung <ameryhung@gmail.com>,
+	Kuniyuki Iwashima <kuniyu@google.com>,
+	Cong Wang <xiyou.wangcong@gmail.com>,
+	=?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+	"D. Wythe" <alibuda@linux.alibaba.com>,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>,
+	David Vernet <void@manifault.com>,
+	bpf@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-s390@vger.kernel.org
+Subject: [PATCH bpf-next v2] bpf: Reject sleepable struct_ops programs without check_member
+Date: Wed, 25 Nov 2026 04:50:52 +0000
+Message-ID: <20261125045105.2326120-1-rhkrqnwk98@gmail.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,79 +119,133 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-Importance: Medium
-User-Agent: Zoho Mail
-X-Mailer: Zoho Mail
+Content-Transfer-Encoding: 8bit
 
-Hi Matt, Hi Dominik,
+Any struct_ops program can be loaded as sleepable, and it is up to each
+struct_ops to reject that in check_member. tcp_congestion_ops, Qdisc_ops
+and smc_hs_ctrl have no check_member, although the kernel calls most of
+their members in softirq, under a spinlock or under rcu_read_lock(). A
+sleepable program attached there is entered through
+__bpf_prog_enter_sleepable(), and lockdep reports "BUG: Invalid wait
+context".
 
-I tested the proposed change on a locally built kernel with MPTCP enabled.
+Reject sleepable programs in the verifier when the struct_ops has no
+check_member, and drop the check in bpf_tcp_ops that is now the
+default. Qdisc_ops init and destroy run under rtnl and can sleep, so
+give bpf qdisc a check_member that still allows sleepable programs
+there.
 
-Runtime testing passed for both client and server sockets:
-- Privileged Netlink requests return the actual sequence counters, matching getsockopt(MPTCP_INFO).
-- Unprivileged Netlink requests return zero for mptcpi_write_seq, mptcpi_snd_una and mptcpi_rcv_nxt.
-- Other diagnostic information remains available to unprivileged users.
+Suggested-by: Alexei Starovoitov <ast@kernel.org>
+Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
+---
+v2:
+- Fix the default in check_struct_ops_btf_id() (Alexei)
+- Keep sleepable Qdisc_ops init and destroy (Alexei)
+- Target bpf-next
 
-The full kernel build and runtime tests completed successfully.
+v1: https://lore.kernel.org/bpf/20261124143123.1182108-1-rhkrqnwk98@gmail.com/
 
-Tested-by: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
+ include/linux/bpf.h    |  3 ++-
+ kernel/bpf/verifier.c  |  4 ++++
+ net/ipv4/bpf_tcp_ops.c | 11 -----------
+ net/sched/bpf_qdisc.c  | 19 +++++++++++++++++++
+ 4 files changed, 25 insertions(+), 12 deletions(-)
 
-Cheers,
-Kalpan Jani
-
-
-From: Matthieu Baerts <matttbe@kernel.org>
-To: "Dominik Maier"<dmnk@google.com>
-Cc: "Mat Martineau"<martineau@kernel.org>, "Geliang Tang"<geliang@kernel.org>, "Paolo Abeni"<pabeni@redhat.com>, <mptcp@lists.linux.dev>, <netdev@vger.kernel.org>, <dmnk+artist@google.com>, "Kalpan Jani"<kalpan.jani@mpiricsoftware.com>
-Date: Tue, 24 Nov 2026 16:47:10 +0530
-Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on CAP_NET_ADMIN
-
- > Hi Dominik,
- > 
- > (+cc Kalpan)
- > 
- > On 19/11/2026 20:21, Dominik Maier wrote:
- > > In net/mptcp/diag.c, subflow_get_info() restricts MPTCP sequence-related
- > > subflow attributes (rel_write_seq, map_seq, map_subflow_seq, ssn_offset)
- > > to callers holding CAP_NET_ADMIN in the network namespace.
- > > 
- > > However, mptcp_diag_get_info() unconditionally exports mptcpi_write_seq,
- > > mptcpi_snd_una, and mptcpi_rcv_nxt via INET_DIAG_INFO because
- > > .idiag_get_info does not receive the caller's net_admin status. Any
- > > unprivileged local user can therefore dump or query cross-UID MPTCP
- > > sockets by token via SOCK_DIAG_BY_FAMILY and read live 64-bit MPTCP Data
- > > Sequence Numbers.
- > 
- > Thank you for this patch!
- > 
- > > Emit INET_DIAG_INFO from an .idiag_get_aux callback in mptcp_diag (which
- > > already receives net_admin from inet_sk_diag_fill(), while msk never
- > > sets icsk_ca_ops so netlink attribute ordering is unchanged) and zero
- > > mptcpi_write_seq, mptcpi_snd_una, and mptcpi_rcv_nxt when !net_admin.
- > > getsockopt(SOL_MPTCP, MPTCP_INFO) for the socket owner and token-based
- > > lookup in mptcp_diag_dump_one() remain unchanged.
- > 
- > Oh, that's a good idea, I didn't think about .idiag_get_aux callback.
- > 
- > Kalpan was trying to fix the same thing:
- > 
- > 
- > https://lore.kernel.org/20261123054324.561321-1-kalpan.jani@mpiricsoftware.com
- > 
- > @Kalpan: what do you think of this? If it looks good to you, and you
- > tested it, can you send your Tested-by tag?
- > 
- > We can add:
- > 
- > Closes: https://github.com/multipath-tcp/mptcp_net-next/issues/445
- > 
- > Cheers,
- > Matt
- > -- 
- > Sponsored by the NGI0 Core fund.
- > 
- > 
-
+diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+index 4e9a4d15af0e..95835534b065 100644
+--- a/include/linux/bpf.h
++++ b/include/linux/bpf.h
+@@ -2253,7 +2253,8 @@ struct btf_member;
+  * @check_member: When defined, a callback invoked by the verifier to allow
+  *		  the subsystem to determine if an entry in the struct_ops map
+  *		  is valid. A nonzero return value means that the map is
+- *		  invalid and should be rejected by the verifier.
++ *		  invalid and should be rejected by the verifier. When not
++ *		  defined, the verifier rejects sleepable progs.
+  * @init_member: A callback that is invoked for each member of the struct_ops
+  *		 map to allow the subsystem to initialize the member. A nonzero
+  *		 value means the member could not be initialized. This callback
+diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+index e7013ed8cadd..8c7e43220df3 100644
+--- a/kernel/bpf/verifier.c
++++ b/kernel/bpf/verifier.c
+@@ -23934,6 +23934,10 @@ static int check_struct_ops_btf_id(struct bpf_verifier_env *env)
+ 				mname, st_ops->name);
+ 			return err;
+ 		}
++	} else if (prog->sleepable) {
++		verbose(env, "member %s of struct %s cannot be sleepable\n",
++			mname, st_ops->name);
++		return -EINVAL;
+ 	}
+ 
+ 	if (prog->aux->priv_stack_requested && !bpf_jit_supports_private_stack()) {
+diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
+index 2ba73dd6c52c..4e54165a3928 100644
+--- a/net/ipv4/bpf_tcp_ops.c
++++ b/net/ipv4/bpf_tcp_ops.c
+@@ -301,16 +301,6 @@ static int bpf_tcp_ops_init_member(const struct btf_type *t,
+ 	return 0;
+ }
+ 
+-static int bpf_tcp_ops_check_member(const struct btf_type *t,
+-				    const struct btf_member *member,
+-				    const struct bpf_prog *prog)
+-{
+-	if (prog->sleepable)
+-		return -EINVAL;
+-
+-	return 0;
+-}
+-
+ static int bpf_tcp_ops_init(struct btf *btf)
+ {
+ 	return 0;
+@@ -329,7 +319,6 @@ static const struct bpf_verifier_ops bpf_tcp_ops_verifier = {
+ static struct bpf_struct_ops bpf_tcp_ops = {
+ 	.verifier_ops = &bpf_tcp_ops_verifier,
+ 	.init_member = bpf_tcp_ops_init_member,
+-	.check_member = bpf_tcp_ops_check_member,
+ 	.init = bpf_tcp_ops_init,
+ 	.validate = bpf_tcp_ops_validate,
+ 	.name = "bpf_tcp_ops",
+diff --git a/net/sched/bpf_qdisc.c b/net/sched/bpf_qdisc.c
+index 5691c13781a8..61a19713c5ec 100644
+--- a/net/sched/bpf_qdisc.c
++++ b/net/sched/bpf_qdisc.c
+@@ -356,6 +356,24 @@ static const struct bpf_verifier_ops bpf_qdisc_verifier_ops = {
+ 	.gen_epilogue		= bpf_qdisc_gen_epilogue,
+ };
+ 
++static int bpf_qdisc_check_member(const struct btf_type *t,
++				  const struct btf_member *member,
++				  const struct bpf_prog *prog)
++{
++	u32 moff = __btf_member_bit_offset(t, member) / 8;
++
++	switch (moff) {
++	case offsetof(struct Qdisc_ops, init):
++	case offsetof(struct Qdisc_ops, destroy):
++		break;
++	default:
++		if (prog->sleepable)
++			return -EINVAL;
++	}
++
++	return 0;
++}
++
+ static int bpf_qdisc_init_member(const struct btf_type *t,
+ 				 const struct btf_member *member,
+ 				 void *kdata, const void *udata)
+@@ -446,6 +464,7 @@ static struct bpf_struct_ops bpf_Qdisc_ops = {
+ 	.reg = bpf_qdisc_reg,
+ 	.unreg = bpf_qdisc_unreg,
+ 	.validate = bpf_qdisc_validate,
++	.check_member = bpf_qdisc_check_member,
+ 	.init_member = bpf_qdisc_init_member,
+ 	.init = bpf_qdisc_init,
+ 	.name = "Qdisc_ops",
+-- 
+2.56.1
 
