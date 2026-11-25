@@ -1,62 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619467;
-	b=CMP1i4MMVIZKAvUOvW3Y3QeSyWx0zfGEPm0Neg1d0OeGVXieD9nhh4DHn66gF5wk2eId
-	 2jNQruhm8HtFZ5LxNLQteb1mgEvyT12BPwzen7x3UTaNtBzu3LVnusKIlHsIr/zH/1fOr
-	 1aINZQlSs849DdubUqvkbAqvjVm0sHr/C/QFt+wiDHeM6UvFDSHbY8S+ZcB1Rt1kO7Trh
-	 lH7w44/KvF3idCwUPzoZ28zOXyoXERIabhE1TVhfcY+aM8I5sV0wiH1ST6f+L2dHhrrEl
-	 64zb76MiAn9BDy9BRTwBGjH9sLQB5p2oil9jJkUAaCGgnkv8h9HW/C50oYnoJE86+qw==
+	t=1795619714;
+	b=JtfmmbIV87DALsrAjzcCShU5xsSWEUUSHjnxWRVb0WJHN/D70JUlYCQy1LhQc2InjnHG
+	 Q3j+lpnEMreXPrfZBlJ1/XqWTXdHLzBHvDHBRObFRWxytMYcJ1YXR9YiZshOnKx0Ywa0R
+	 RCbjujAaObP0KvmlcM3xkj5Wh4VyDte+wxqSNvu7ZBsEwkrh0VIcfbcGwy4TavNY0ULbm
+	 wSkQffiCBUJANJA2MuGEVHMwBXLkjKBkpwG0h/OcGdd+giwNOmZwj7I8EiR+if8B79Rty
+	 25X4+gI0pFAU89bG4DFeSt9WyySkA0XPwu5HXaPDMEdoIdFTm0WQVsLxmM60t9YwYDQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619467;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=YuVk7FWWt2a2HgFMOsP1OlOGIeISBf3PZud268awzIs=;
-	b=fmsvX0yXL+XpERNP6OF4IQAEEtuxbroJBGkLUMdMOM57AqzXA/HKVoJM4mreQlKX/PWe
-	 WKB0Z/73LW/Hg6BGhDFax2hsZLfDoluJ/q2ZIvE1Dfqojq/KSz1nhep4fdaSpLZ4DdMCF
-	 dCESbbhBfThmtWxLGhiRmsPvRROD2396QI1oMvT9ET+vFls8Orz0DObL8p6fGM9MAoCHS
-	 tyr+T0V9cDTPRPHOGrJ9zBfXocdPSPR5LtMIYd15sWxK9J965UFQI7aw8T8VPmwwp1mCy
-	 4hhALOmEe4x7mBTSmLb4idiY7qCOqmSkEXpp4/andBOJhvYRUlrD+aK+Mu+xmkUytlQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619714;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ag1YZ4P2iBHHX0PPnVooWHiOZf/qB5w/3z66asEECLQ=;
+	b=4HrZTBk7SAXYSHhyDRqJw4V1/AJ8qW070MU9puYdWEThlVRv13OiVLDa6L3bMdHvNX64
+	 myOH8o/mK+DD5MtNhO+rum5/YRJr44jS2QcRGrRr1BWJHsgZzFiF74f6IQ3+uTFlW7tI1
+	 maxd+3mTTsh7IYN2L2t3Z+gDAN3zGv1M06zad8gwIoOc6LAwcNLpA7OCdCokwS/QGGGhU
+	 bj2/n1BFeKY1cGmp7KTYBHtGrqn0ovcOyGx1JKZK2PzXO8/Caz6l2C08Wu9BFT/gieJ6t
+	 QEJeyTl0An8Gi8LjIJ3KonkIDE+lZBm6SegcBb7kDRHKlJUHA5ANtzcknfiGTn0wuBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rbox.co;
-	spf=pass smtp.mailfrom=rbox.co;
-	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=FWhQ+OAU;
-	arc=none smtp.remote-ip=185.226.149.37
-Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDfzHkDi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2455F606A693
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:11:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2455F606A693
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1640606A680
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:15:14 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=FWhQ+OAU
-Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
-	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.93)
-	(envelope-from <mhal@rbox.co>)
-	id 1xWEe8-009RvI-6T; Wed, 25 Nov 2026 16:10:56 +0100
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
-	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
-	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
-	bh=YuVk7FWWt2a2HgFMOsP1OlOGIeISBf3PZud268awzIs=; b=FWhQ+OAUsGgkL/eYfiOLnuFkTG
-	Sz97d3d7RXubh8QvyZ8heuEk4ixRbHfNNLhaUupgSHqZPrSr+gIwFD1QaDEzHSoNS7ChmXWe28ReR
-	ZodHLx7zEyJT31KjdULG1Oa3Hq7h8cbAajd3WgbarqCHLWF7r3hToY6xE2xVJSK9kBdwQa7RoZnEP
-	oZUahagwYS4CdEGlJJPb97fo1yRADvFWNx9as1CD3PyrnHi+FO0t7yxTZqZhV41E+Rh68d6w0Whfg
-	6sHVbEPaaois8e0z79F0TYtmsUd9e/NvKL4ZjfDjjZ8mJ0e78h2jpidxD2J6CqRfiDVVV+N/7LbZP
-	heA0YrKg==;
-Received: from [10.9.9.72] (helo=submission01.runbox)
-	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
-	(envelope-from <mhal@rbox.co>)
-	id 1xWEe2-00084M-CK; Wed, 25 Nov 2026 16:10:50 +0100
-Received: by submission01.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.95)
-	id 1xWEe0-00B1cT-4T;
-	Wed, 25 Nov 2026 16:10:48 +0100
-Message-ID: <23a40881-5e6c-4c4e-86c3-97f3500438e5@rbox.co>
-Date: Wed, 25 Nov 2026 16:10:47 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PDfzHkDi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A82D1F000E6;
+	Wed, 25 Nov 2026 15:15:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795619714;
+	bh=Ag1YZ4P2iBHHX0PPnVooWHiOZf/qB5w/3z66asEECLQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=PDfzHkDicsZkuwNZeGPtOcYqpgvlQSCSZKtBds75H9Hef5BZBoZJ9Jf8gKMP3G5fR
+	 yoyhFxLDL2DWEbhBsNkLTY414P27uA/HFSYxoqQH7dcJWnSfExmnt+HeoTMAuAj6nW
+	 ppztgsk3DfWp/xthhmTu+CvNB7UGt9lJCUh6lYRSmGoJbH2IMc7X2Bd5JM7KBPYP6y
+	 1gSzGllSCo3rqUlgEWz8uz8Or7Omj0Niu3Wq370SyGzJGAxZv5I5NyM/s+uxFnjqvA
+	 uixzwRV14k5RJ3bE2TG8sSCOnoGPrYPFzLTswmOxiZW0KCOF9Fi2Lr/rPmCE9jgdmd
+	 xx4nL1MuGoy0Q==
+Subject: Re: [PATCH net v6 2/5] net: gso: segment fraglist packets with a
+ software tunnel checksum
+From: netdev-bot+sashiko@kernel.org
+To: julius@bairaktaris.de
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org,
+ idosch@nvidia.com, willemb@google.com, ncardwell@google.com,
+ kuniyu@google.com, steffen.klassert@secunet.com, nbd@nbd.name,
+ jiayuan.chen@linux.dev, mfleming@cloudflare.com, almasrymina@google.com,
+ bigeasy@linutronix.de, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
+ bsdhenrymartin@gmail.com
+Date: Wed, 25 Nov 2026 15:15:12 +0000
+Message-ID: <179561971293.3135.1414270038839047097@kernel.org>
+In-Reply-To: <c512956bc8cc74688721e3d5a52016ee85966484.1795295554.git.julius@bairaktaris.de>
+References: <c512956bc8cc74688721e3d5a52016ee85966484.1795295554.git.julius@bairaktaris.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,62 +67,153 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
- Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
- virtualization@lists.linux.dev, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
- <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
- <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
- <ca274ecf-3525-4bf0-a525-0460b5ea2d28@rbox.co>
- <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
-Content-Language: pl-PL, en-GB
-In-Reply-To: <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-On 11/24/26 21:42, Bobby Eshleman wrote:
-> On Tue, Nov 24, 2026 at 05:17:56PM +0100, Michal Luczaj wrote:
->> On 11/24/26 00:19, Bobby Eshleman wrote:
->>> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
-> 
-> [...]
-> 
->>> So the attempt never times out, and a late OP_RESPONSE connects a
->>> socket the user already shut down, overwriting SS_DISCONNECTING with
->>> SS_CONNECTED. I think that's a separate bug for a separate patch,
->>> though.
->>
->> Great, I'm all in favour of consolidation. So in the scenario above,
->> invoking vsock_connect_close() on vsock_connect_timeout() (with sk_shutdown
->> check dropped) would result in CLOSE/DISCONNECTING, and no more late
->> virtio_transport_recv_connecting(), right?
-> 
-> Right, that late response will fall through and get an RST back.  I'm
-> not 100% sure yet about how to rework the sk_shutdown check yet
-> though. I mention TCP's approach to shutdowns in my reply to Paolo and
-> I'm thinking thats probably the right way to go about it, but not 100%
-> sure yet...
-> 
-> Do we agree that touching vsock_connect_timeout() should not happen in
-> this patch? Is there anything pending on this one from your perspective
-> Michal?
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-I think we're good. Patch fixes what started the discussion.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-And if I get this right, the only unintended side-effect is that
-shutdown/connect inconsistency, but the sibling thread concludes shutdown
-handling needs rework anyway.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Reviewed-by: Michal Luczaj <mhal@rbox.co>
+- [Medium] skb_gso_tnl_csum_sw() (include/net/gso.h:87-97) is meant to
+  predict whether the tunnel segmenter will compute the outer checksum…
+- [Low] For UDP, the fix sends affected fraglist aggregates into
+  __udp_gso_segment()'s DODGY / changed-geometry fallback, and that…
 
-thanks,
-Michal
+--
+
+net: gso: segment fraglist packets with a software tunnel checksum
+
+This commit stops skb_segment_list() from segmenting fraglist GSO packets
+when a GRE or UDP tunnel segmenter will compute the outer checksum with
+gso_make_checksum(). skb_segment_list() sets no SKB_GSO_CB() checksum state,
+and gso_make_checksum() reads that state. The patch adds
+skb_gso_tnl_csum_sw(), which sets skb->encap_hdr_csum only in those cases,
+and skb_gso_list_csum_ok(), which sends such packets to skb_segment() in the
+TCP and UDP GSO handlers.
+
+> diff --git a/include/net/gso.h b/include/net/gso.h
+> index 119fc4c170e16..1cf2bf3a2b4aa 100644
+> --- a/include/net/gso.h
+> +++ b/include/net/gso.h
+> @@ -84,6 +84,30 @@ static inline __sum16 gso_make_checksum(struct sk_buff *skb, __wsum res)
+>  	return csum_fold(csum_partial(csum_start, plen, partial));
+>  }
+>  
+> +/* Whether a GRE or UDP tunnel segmenter computes the outer checksum of a
+> + * segment with gso_make_checksum(): when it does not offload it, and for each
+> + * segment that is CHECKSUM_PARTIAL, as it then sets skb->encapsulation. Every
+> + * segment of skb_segment_list() has the ip_summed of the head.
+> + */
+> +static inline bool skb_gso_tnl_csum_sw(const struct sk_buff *skb,
+> +				       bool need_csum, bool offload_csum)
+> +{
+> +	return need_csum &&
+> +	       (!offload_csum || skb->ip_summed == CHECKSUM_PARTIAL);
+> +}
+
+[Severity: Medium]
+Does this predicate match what __skb_udp_tunnel_segment() does when
+SKB_GSO_TUNNEL_REMCSUM is set?
+
+With remcsum, the segment loop clears CHECKSUM_PARTIAL before it checks
+encapsulation:
+
+net/ipv4/udp_offload.c:__skb_udp_tunnel_segment() {
+    ...
+		if (remcsum)
+			skb->ip_summed = CHECKSUM_NONE;
+
+		/* Set up inner headers if we are offloading inner checksum */
+		if (skb->ip_summed == CHECKSUM_PARTIAL) {
+			skb_reset_inner_headers(skb);
+			skb->encapsulation = 1;
+		}
+    ...
+		if (skb->encapsulation || !offload_csum) {
+			uh->check = gso_make_checksum(skb, ~uh->check);
+    ...
+}
+
+So with remcsum and offload_csum true, skb->encapsulation is never set and
+gso_make_checksum() is never called. The helper is called without remcsum
+and still returns true for a CHECKSUM_PARTIAL head. Its comment also says
+"for each segment that is CHECKSUM_PARTIAL, as it then sets
+skb->encapsulation", which does not hold here.
+
+vxlan_build_skb() sets SKB_GSO_TUNNEL_REMCSUM only when the skb is
+CHECKSUM_PARTIAL, so a CHECKSUM_PARTIAL head is the usual case for remcsum.
+
+Take this setup:
+
+  - VXLAN with REMCSUM_TX and UDP checksums on
+  - an egress device that offloads the outer checksum
+  - CHECKSUM_PARTIAL fraglist GRO aggregates
+
+Here encap_hdr_csum now gets set and skb_gso_list_csum_ok() returns false.
+Before this patch, skb_segment_list() segmented these packets correctly. Now
+tcp4_gso_segment() and tcp6_gso_segment() fall back to skb_segment(), and
+__udp_gso_segment() linearizes the whole aggregate.
+
+Is this a performance regression for a configuration that already worked?
+Could remcsum be passed to skb_gso_tnl_csum_sw(), so that remcsum with
+offload_csum counts as offloaded, and the comment updated to match?
+
+[ ... ]
+
+> diff --git a/net/ipv4/udp_offload.c b/net/ipv4/udp_offload.c
+> index 7dc85eb333aa3..fb2f63774cf6c 100644
+> --- a/net/ipv4/udp_offload.c
+> +++ b/net/ipv4/udp_offload.c
+
+[ ... ]
+
+> @@ -521,6 +521,7 @@ struct sk_buff *__udp_gso_segment(struct sk_buff *gso_skb,
+>  		 */
+>  		if ((skb_pagelen(gso_skb) - sizeof(*uh) == skb_shinfo(gso_skb)->gso_size) &&
+>  		    !(skb_shinfo(gso_skb)->gso_type & SKB_GSO_DODGY) &&
+> +		    skb_gso_list_csum_ok(gso_skb) &&
+>  		    ip_hdr(skb_shinfo(gso_skb)->frag_list)->version == (is_ipv6 ? 6 : 4))
+>  			return __udp_gso_segment_list(gso_skb, features, is_ipv6);
+>  
+
+[Severity: Low]
+For UDP, this sends the affected aggregates into the DODGY / changed
+geometry fallback just below, which linearizes the whole aggregate:
+
+		ret = __skb_linearize(gso_skb);
+		if (ret)
+			return ERR_PTR(ret);
+
+__skb_linearize() goes through __pskb_pull_tail() -> pskb_expand_head()
+with GFP_ATOMIC. A GRO aggregate can have up to 64 frag_list members. That
+means one high-order atomic allocation of around 64KB per aggregate on the
+xmit path. If the allocation fails, the aggregate is dropped with -ENOMEM.
+
+With skb_gso_tnl_csum_sw(), this fallback becomes the normal path for UDP
+fraglist traffic in a checksummed VXLAN, GENEVE or GRE tunnel in two cases:
+
+  - the egress device does not offload the outer checksum
+  - the aggregate is CHECKSUM_PARTIAL, even when the device does offload it
+
+These packets used to leave with wrong outer checksums, so nothing that
+worked before gets slower here. The commit message only says the patch
+will "segment a fraglist packet with skb_segment() when it is set". It does
+not mention the linearization in the UDP case.
+
+Could the commit message mention the UDP linearization and its cost?
+
+Alternatively, would it be cheaper to keep the skb_segment_list() fast path
+and set up SKB_GSO_CB() checksum state on each segment it builds? That would
+mean gso_reset_checksum() for CHECKSUM_PARTIAL segments and a payload
+skb_checksum() for the rest.
+
+TCP does not seem to be affected, since tcp_gso_segment() -> skb_segment()
+walks frag_list without linearizing.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795295554.git.julius%40bairaktaris.de
