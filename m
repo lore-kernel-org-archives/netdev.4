@@ -1,132 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795633628;
-	b=AIZ0bo5PYYYyuAsDGy2+VGQ8xF8TKYj+HjnkI10ZfA2pyPrnXbXrCxjFyzcM9G+i05Gy
-	 TPlAVMOJ4yBM41AmmnwJyc4K8Dx/bQgYW+GytY3QTI9dUUqVptT93A59ppCj2HyRnPekD
-	 ei8iDWm8fEbK9u13b+gZIpxwPMYOUV4Q15/3nGMyvfO/ptnwyTy1YruxRoFMwBJrrbo7H
-	 efsSf+u7oruRKmZquYSSbhZRUccGAWRAZTGrtEOaDeP704D2m3wRB0Cdvn6TYOtL4r2cH
-	 R2cFxd2WAn0GOyOEcSveSjBr82ooJw3ZamoVXlmH0l0UihRP35Lj1/MZ9ZGzSR3xAwQ==
+	t=1795634091;
+	b=V5gvsU01xsRoJ8CDZDftGEM5su58S6qTWAwZ58hZojJzqlHOM8qK2neNiTqPEQzGlL/Q
+	 OUpUeIBz49wyFAtX/kc3p88215M2EurjkPPf+V23Gux8ADbm9r69mlI3qxZUL+7ddtvE1
+	 lHO7cd8dSRJU8IiU9SYQeIwX1aH4tOGwgEyoIRK2JSwORgWk6OBL3s18xUXd3wTlhM/zE
+	 Pw91g2tNMvO1nT4NtCsqq3Q9G2qqQzNCEl0y0eQlRu/zSPNpX/ZlfToy6K4HF4i/9wTwT
+	 xRxRPYg3A4pULnzKtRbNO8WkXWaL8ybuu7w41zdIxj1882OXEzTWlEOJPT04DHcE8aA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795633628;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634091;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-	b=M4juxZEO6clFTWZ1eN/lY4g3sK/oZjatLRZcMz0JWn0N8cuhv+icRjMQ8nSJ9iAhLcGf
-	 dRpfWbzQzPY6tpYpcXCHp5cVpk9aGdVIwF5UqXrkWyBHTBcte4uJ72MBHxqfBgWK+tsQe
-	 LyIOnvoEFr1qqx3ajhzQHVpsycElacOCFmO9ZITUNtiC3etMhM0lEgjDNTStZJDcVMs+H
-	 4iRgokdBCvX4sR9k7fQSWDswmHwBTb7VvIrzMHY0j6EuBnoxzOZ0k470CoyKkOFBjiT7+
-	 /L8oGb9d5gdxh5LCiIAl+Nu+BvKSmFa9qH5Ds/4r0q+/W7SfYP5o8t7wA9vRU7FXWBQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=D8HXfWafSRT1n5y3APgGJnPwd11wZ0Y5AGGC/6XIjbI=;
+	b=G14ZpqWmx/qg4L4p1wxnFRiuIjY5zjlI/57TAq9tqCHkiJOSloEcLYWP4+ZcZkidAhmj
+	 XertJerZoFnA+zR53aHgkNqmWhQq19Odsxe4cZTrYn2KbMxXFFu4jOWB9q0SCp4k/zlWK
+	 3c8m1+9Y7X9q55KAhYR/ZwZH/D5vJYUtCGdUcDZdvY/CeO2zAPTFUZEaC3pOEB34zoQ2t
+	 tH4e5tD65BJArZJBq/RV39QoctkWwMqCdOW4sJMmDY/iPYvk7EOXLhXH8j84qTdFHRZ0Q
+	 Akawz+Nd3Hqj7dwmhvCdCv/qQ3sr4H+6IafRX2q4eGi2QdrAf6xarn6aly4QnjVBYdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FcYwuSIU;
-	arc=none smtp.remote-ip=209.85.222.182
-Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com [209.85.222.182])
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=lMo9y83d;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 36837606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:07:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 36837606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83178606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:14:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83178606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=FcYwuSIU
-Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-94962d80d34so374757385a.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:07:08 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=lMo9y83d
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f020d0169eso31153905ad.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:14:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795633627; x=1796238427; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-        b=FcYwuSIUDw5OYWXKXjcI6QMvdjmCHVjCuBBGlVf+WjZpNlD0CSOQhxBMr8usmyz0ed
-         rvtoMbTF2eX4vk9Y9h9Nl4g3xiltHQiqgKO2s4RackGmi+H09P7UFu7jXDEMWAJch8Lu
-         Bez5vSdqY2qlX/U/yq0a0mho64/iizuPGyUtu1j22nAqTe87sbuUkE5K3s0Y4oVoD3Q2
-         3aZUQ7ci3LolsgjUbNvUcckL1dOvbbGYesd0YLqXsnjyEO32+hlSIJbbGPaLcKvqzKfe
-         drPhJMtyWdGvDZ8ppj9FApzJK+zHEu9C8REXRTErfSS3i04bujQ5JM7rKTqiYFVsn08k
-         dQzw==
+        d=blockcast.net; s=google; t=1795634090; x=1796238890; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=D8HXfWafSRT1n5y3APgGJnPwd11wZ0Y5AGGC/6XIjbI=;
+        b=lMo9y83djW0oLF8fZYuvTJvVNpaAsvua5EMoD4DbETSUZY7a7bMF57WAsmsb07nA5r
+         Udl1r2m8cwKmMG2RViYqiWzFINp39DTh7UwqRjVJh5Hi5VEkzgW0GROQstdx1gHsrz5/
+         ydPGx/q1MNkGbX/HXGiq9oZEvxhjjoY8/Zp8RV9RwADaa1BFQfi+LqnYTJTWxb+PJz2M
+         /OHIogUjrs1jDZAVoaZysg0KJ5INybSvGKSx04cETPeXiHg0y+f+vAPp3JymAsMR53u/
+         919bhrqN1SEAvawILSd2u8FYz+jKUTv9TJXzuOW6FWvpiI8w/YBssN9GEnxqhfHFrpvU
+         IngA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795633627; x=1796238427;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=JisVSgs385NGuntA6erRX4QYHX+VR40SrOV715tgnK0=;
-        b=tUI8MohC3Zr56ZNcAtT2WBKv+bwneW2qQzy5M+C1N9g7PxC4kHaNzcUddxn1Md2pxU
-         HADdPErYM+DtilaryiozbrROPbTvoUc1qaXwyy1hVyzuPXWrLO73G0XacWs8FyEwFqNk
-         O96HFk4yUV0NQPSmM3vpcARAt4S4XOWKc9yy/dJ1LxDAeJ8alY0LnvWjG5UtuBuCMU6S
-         4pGfeB9JNn65qHRfSy/zbq93tGFa4NJJyddrAS51/EQreQtXqTtEGdXzrhcc726SKilN
-         8U/ezfxdG2irBpjqx7nRPe01r0Oy+ay3d5LvRqh3ovIMTVTTlTljPcGbiBmwIY+zDaVW
-         O1Kw==
-X-Forwarded-Encrypted: i=1; AL+hErHOHTcseRE2uSy25djc6Izu7bp5KS8sIy4BSoZ6edbp1S7mKRFzFTqCP90QET6ulTh/MPi11eQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8upgMeB+60GdbDu/EfOxygPdMaVziF9jnt720ndBRD+KK1VId7
-	xaVhh0bh9xYKdlNpahfto8IoASFhy3cz8pVrI/EGCYuPtXrJEFMRfLVna7/XBeDWEjU=
-X-Gm-Gg: AZFdTZfQAOczijFo2CTZV7tmLzG3zHYmnKSKQI9Unx04lIugHKosdDEY6wlqUDekBXQ
-	5kPbNfxqDh8IDdii0qYrxhWBg3YZjUaSE+vNVPgONX7hulhp9Iz3ZSq7N28g/cwU2j5CPn8pQM5
-	ElbAnOTkVxiqjx42ScfF0rrl43kzEQEKG6W/Pdo4T3lOgBjYuVDtqNasArw4yTpogZPRsS0DdC1
-	1dOIJGxB4PjUM8xC8GdcSUUaK0PI8zFKF8Ozy7cr7fOPlrrpZFYrmNSxzwAhNF3H/Fk7pr6kPik
-	SOAWRwGKTyTDe0ars44IGLUV+o7XAL7iVhmgACkJjMlv+gnlFffDCD2x1Yq7qwLV1s/ljrUC37B
-	p8a8R5Yyw4x65eUCF1eaB6bHxZ3Wxdatkpv692JSZVtaDzdTNqSxU+51XnmMp0ZUOfkwFS98ihH
-	WrLHB1NOTsVha5GW/OjYCP3NkpAkVLWFWjaaoYj946g7aFeEWP5176seU8m2Rg0I0NldcBisId0
-	ksmgk8Edm0VIm7A2+1yR1dikrubs+CGtCN9JrP4Ze1SrhzwSPmC/0tcKXUPYzcxwlxcYaN0huzr
-	qoWJ0CM=
-X-Received: by 2002:a05:620a:4543:b0:949:65fe:b727 with SMTP id af79cd13be357-949ba9b99a7mr3433826285a.26.1795633626929;
-        Wed, 25 Nov 2026 11:07:06 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-94a017cfb46sm339501085a.28.2026.11.25.11.07.06
+        d=1e100.net; s=20260707; t=1795634090; x=1796238890;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=D8HXfWafSRT1n5y3APgGJnPwd11wZ0Y5AGGC/6XIjbI=;
+        b=HIYuljXGGjVUt5/vPdcCdc5cGlKbz2xkWAH1K+pP5LgFacHgMKbeL9pcDDwwRcqWLC
+         aUotc01sMFpz+bOL9Q5UAmQn8MOvaW6ctmRU+R8gSbQZDb3nesLYO2X13FI4MvtctN8x
+         4xcoOk15LZ7yNKZ2Hijm8pePCegT8v1eiUlzytBAXeMlYxOjdNbojU26c0fPwfnQczjN
+         pFUHwWwTpHE+mhaI5LJltqqIPl+LMdKIbWSOKNvgcx5LpbsJjXdcyYAPtDg/ltG3NAJ8
+         9pmaH8A4QQpp4fGlsEJJe9D0x0X7API1uE0yFL4Y3xm2SFBtR94VV7+F9FQm4GhSGijn
+         I7HA==
+X-Gm-Message-State: APuU4Z9fFHFj+fdVwX8g+lympVx8S/zxi3MD2q0GaCMNmDMyCVRSF4w6
+	OU8bH/KuEZR4pZQq9FlplY+BAr57E8qAq5v7O4JIeYmVAvPbg0Uf099lnv3c+aVfUa/0zxhDCyO
+	psZCw1+o=
+X-Gm-Gg: AZFdTZcNej6NQVmFaiDgmxkIHAVWt31nXCa2B5BdwGRUii6vApzJnXQ5IHRawZBtknX
+	V1rQO3UiqNWLruUMKD2XilWPoPINekDdwY5FmPIx9lTLZ83NU39HV5Z94l0/GJ9TaV6HB4vaaVe
+	IzRYHNopMolBzR9/tcEI8Hw6g6Vsxzrr1DrpVDp5b/uxMUHu7AnIMFonHOH3MM3kE1n3HZ3z4wA
+	cofzeJySUpcWsLh9Vp0TDWdWkcVYshIQy4/hclBMksJBQq19i7+/LhqlvR33ofIJjw7swNqp7dT
+	rxQyvOB2sHaIt1mi8BdfbApt4A4zgBOscj4V0AZRIbPIc+xvnsq5uzJ2UZze4hdUq0esfBurn0X
+	9NltqKtIQ/tB/LSBDRa4MkwdwZCtqBeE/ZNkgxMtjZs/EpRZ9bICBlljrn8Ey0XtINqgcFQngz5
+	bdqQbhPjjMkwdRVXXEzBRMwF1weLx/l2tBb9V6ZXRhgF2et+z/6tQBUZHuWTO/ces4s6UYhIDbj
+	Lap1yV8XXLFl0OK4W7jZF/4OwjBM2NJO1WZlRylVuJCc/fWDCt5ydwavJhMcRIUeQY/ILDXNQx6
+	CugiYHN92n7yQRU3Ol9YC9GVEGmb1gupK75CWIOtiJNZrJCHRnZe1PMrEy3+6rdTIQDJthfKwEp
+	BIeHTUjvZ+66o+WOA2n8U0u7aex7QSlQ7OjjZUPUnL5j3PN1I3eE=
+X-Received: by 2002:a17:903:b4b:b0:2e9:a090:dd69 with SMTP id d9443c01a7336-2f03f1c0a06mr190199755ad.39.1795634089630;
+        Wed, 25 Nov 2026 11:14:49 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0d537a522sm20061755ad.47.2026.11.25.11.14.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:07:06 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWIKf-00000002HLZ-3ZQi;
-	Wed, 25 Nov 2026 15:07:05 -0400
-Date: Wed, 25 Nov 2026 15:07:05 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dongwon Kim <dongwon.kim@intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Felix Kuehling <felix.kuehling@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	linux-nvme@lists.infradead.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
-	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-Message-ID: <20261125190705.GN246011@ziepe.ca>
-References: <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
- <awT8prWsj11TBdmP@nvdebian.thelocal>
- <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
- <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
- <20261124194618.GC114530@ziepe.ca>
- <awZ_Os1pXelOGaFP@nvdebian.thelocal>
- <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
- <20261125155559.GL246011@ziepe.ca>
- <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
+        Wed, 25 Nov 2026 11:14:49 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [PATCH iproute2-next] iplink: amt: support an IPv6 outer transport
+Date: Wed, 25 Nov 2026 19:14:47 +0000
+Message-ID: <20261125170100.3054010-iproute2-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -136,93 +94,125 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
 
-On Wed, Nov 25, 2026 at 07:17:51PM +0100, Christian König wrote:
-> On 11/25/26 16:55, Jason Gunthorpe wrote:
-> > On Wed, Nov 25, 2026 at 12:19:08PM +0100, Christian König wrote:
-> >> The low level API which talks for example to the IOMMU driver for
-> >> creating the information how to access the buffer is simply not the
-> >> task at hand for that framework. The stuff we already handle is more
-> >> than complicated enough.
-> > 
-> > No matter what name you give it we need something in the middle that
-> > can see the phys_addr_t and the iommu_domain..
-> 
-> No, absolutely not. That should be given to the exporter so that the
-> exporter can call the DMA API to create the DMA addresses for the
-> importer.
+The amt driver can now run AMT over IPv6 (net-next, "amt: add netlink
+attributes for an IPv6 outer transport"). IFLA_AMT_LOCAL_IP6 selects
+IPv6 as the outer transport, IFLA_AMT_DISCOVERY_IP6 is the IPv6 address
+a gateway discovers its relay through, and IFLA_AMT_REMOTE_IP6 reports
+the relay address the gateway learned.
 
-I think I've said it many times, and I thought you agreed: NAK to
-giving GPU exporter drivers an iommu domain.
+Put an IPv6 local or discovery address in the new attributes, and print
+all three under the same keys as their IPv4 counterparts; a device has
+one family, so only one of each pair is present. Until now an IPv6
+literal was put in the 4-byte IPv4 attribute: older kernels quietly
+used its first four bytes as an IPv4 address, and kernels whose policy
+sets the attribute's exact length reject it.
 
-> The idea here is that the importer give all the information to the
-> exporter so that the exporter can do the mapping on behalves of the
-> importer.
+  ip link add amtg type amt mode gateway local 2001:db8:a::1 \
+          discovery 2001:db8:a::2 dev eth0
 
-No GPU driver must touch these internal details, they must only use
-standard abstracted APIs that prevent them from abusing things.
+This needs include/uapi/linux/amt.h synced with the kernel change.
 
-My fear of DRM drivers abusing the DMA process is equal and possibly
-greater than your fear of phys_addr_t :P
+Assisted-by: LLM
+Signed-off-by: Omar Ramadan <omar@blockcast.net>
+---
+ ip/iplink_amt.c       | 31 +++++++++++++++++++++++++++++--
+ man/man8/ip-link.8.in |  6 +++++-
+ 2 files changed, 34 insertions(+), 3 deletions(-)
 
-We are not giving DRM a nightmare API to continue to shoot us in the
-foot with.
+diff --git a/ip/iplink_amt.c b/ip/iplink_amt.c
+index 3a35bd9..22e935d 100644
+--- a/ip/iplink_amt.c
++++ b/ip/iplink_amt.c
+@@ -107,7 +107,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
+ 			check_duparg(&attrs, IFLA_AMT_LOCAL_IP, "local", *argv);
+ 			get_addr(&saddr, *argv, daddr.family);
+ 
+-			if (is_addrtype_inet(&saddr))
++			if (saddr.family == AF_INET6)
++				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP6,
++					  saddr.data, saddr.bytelen);
++			else if (is_addrtype_inet(&saddr))
+ 				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP,
+ 					  saddr.data, saddr.bytelen);
+ 		} else if (strcmp(*argv, "discovery") == 0) {
+@@ -115,7 +118,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
+ 			check_duparg(&attrs, IFLA_AMT_DISCOVERY_IP,
+ 				     "discovery", *argv);
+ 			get_addr(&daddr, *argv, daddr.family);
+-			if (is_addrtype_inet(&daddr))
++			if (daddr.family == AF_INET6)
++				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP6,
++					  daddr.data, daddr.bytelen);
++			else if (is_addrtype_inet(&daddr))
+ 				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP,
+ 					  daddr.data, daddr.bytelen);
+ 		} else if (strcmp(*argv, "help") == 0) {
+@@ -156,6 +162,13 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_LOCAL_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_LOCAL_IP6]);
++
++		print_string(PRINT_ANY, "local", "local %s ",
++			     format_host(AF_INET6, 16, addr));
++	}
++
+ 	if (tb[IFLA_AMT_REMOTE_IP]) {
+ 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_REMOTE_IP]);
+ 
+@@ -163,6 +176,13 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_REMOTE_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_REMOTE_IP6]);
++
++		print_string(PRINT_ANY, "remote", "remote %s ",
++			     format_host(AF_INET6, 16, addr));
++	}
++
+ 	if (tb[IFLA_AMT_DISCOVERY_IP]) {
+ 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_DISCOVERY_IP]);
+ 
+@@ -170,6 +190,13 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_DISCOVERY_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_DISCOVERY_IP6]);
++
++		print_string(PRINT_ANY, "discovery", "discovery %s ",
++			     format_host(AF_INET6, 16, addr));
++	}
++
+ 	if (tb[IFLA_AMT_LINK]) {
+ 		unsigned int link = rta_getattr_u32(tb[IFLA_AMT_LINK]);
+ 
+diff --git a/man/man8/ip-link.8.in b/man/man8/ip-link.8.in
+index 719781b..c9cf0b3 100644
+--- a/man/man8/ip-link.8.in
++++ b/man/man8/ip-link.8.in
+@@ -1616,12 +1616,16 @@ the following additional arguments are supported:
+ .sp
+ .BI discovery " IPADDR"
+ - specifies the unicast discovery IP address to use to find remote IP address.
++It must be of the same family as the
++.B local
++address.
+ 
+ .BR mode " { " gateway " | " relay " } "
+ - specifies the role of AMT, Gateway or Relay
+ 
+ .BI local " IPADDR "
+-- specifies the source IP address to use in outgoing packets.
++- specifies the source IP address to use in outgoing packets. An IPv6
++address makes the device use IPv6 as the outer transport of the tunnel.
+ 
+ .BI dev " PHYS_DEV "
+ - specifies the underlying physical interface from which transform traffic
+-- 
+2.50.1 (Apple Git-155)
 
-> > The primary issue here is the exporter *direct* call to the DMA API!
-> 
-> Why?
-
-Because we need things to be mapped in ways the DMA API will never
-support.
-
-DMA API will never support something like dma_buf_iommu_map(). I have
-no idea at all how you expect to build this if exporters are directly
-calling DMA API. It is not possible.
-
-> > We cannot disconnect this from the DMA API, ie to use an iommu domain
-> > or ualink, if exporting drivers are hardwiring calls into it.
-> 
-> Well the plan is to not disconnect it at all. The exporting drivers
-> just says to the underlying API here is my buffer please map that
-> for this importer and that result is then given back to the importer
-> through the DMA API again.
-
-DMA API will only do basic PCI DMA mappings into dma_addr_t.
-
-It will never handle iommu_domain, it will never handle ualink/etc.
-
-Give us a plan for those if you don't like any of these ideas.
-
-> > Fundamentally the need is for the driver to get the phys_addr list,
-> > exactly like today, and then pass it to an op which formats that into
-> > the right data structure for the importer. Be it dma_addr[],
-> > iommu_domain, or some ualink_addr[] - or whatever.
-> 
-> No, the phys_addr type should only ever been seen by the DMA API and
-> not by DMA-buf.
-
-Again, I don't care how you label things or what "library" they live
-in, I can't tell if we are nitpicking names or what.
-
-But there needs to be some kind of abstraction that takes in
-phys_addr_t and makes sgt, dma_addr_t, or iommu_domain depending on
-what the importer needs.
-
-Exporters must not open code that.
-
-Obviously DMABUF is involved here *somehow* since it is the only thing
-that knows an importer even exists.
-
-Would you be happy if we made a 'dma mapping for dmabuf' library that
-did all of this and DMABUF just passes its type opaquely and drivers
-just call its tightly abstracted functions?
-
-That is the component Alistair is proposing, he just prefixed it with
-dmabuf_* as the namespace because, lets be honest, only dmabuf needs
-this weird looking thing.
-
-Jason
