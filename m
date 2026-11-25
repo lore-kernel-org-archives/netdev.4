@@ -1,61 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.3
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593209;
-	b=eLps+hM4UJ8cFolgYSXQLKy59xKAheIlh/drOUX0+p4jnbn2YtEIHSjIslvxWh6DM2Bi
-	 zoFWBbs785VYCvP7Hpbtr6qCLdapBZzW0sRVudH0THnMMuVmM18SNTiUOA1ItUXT6C1IP
-	 2dkgXtsdbfTM0ZDiGEvahXipfeb20lfETxE7Fo/myfSskg2Pz4lK5wXXbdIPn6uz6NQm7
-	 9WyjIIeYDMDg+Qh57XOsIh6U5/BUduLg+YaBCA59a/IVY6ASSPExoxk4+7QyWo1DgCYUo
-	 O4vIgUH80/vb4wJkc8rA53c1gVefOOIiX7n817wwCSevHlInHvIuZW8nqbloGqm6oGw==
+	t=1795593428;
+	b=s+UAoWZhjysDZgCwJ+neV5IbPjw8qGVJXMx0ZiF8bCo3uveWYI4CdwQtAiin3v02T9X6
+	 X7vyyQhlXM7xNbjtXjraG5qvavAscBbHdP7Ztvb/mg8waHf5zQSDDV/nsE4LZY+bDfCGW
+	 SCz1PwSwE73C3HyOVpkRQqrAQgGdi/w4w/TtxsOQULzibWJ24OKwrIdEno/RZIFps853u
+	 idHtgULoTV0KWzDtJt5HSS5sV3b94VbmtdOTOdnZLEIixsDcgUY3qEuh9AHE4ATa5Wo3a
+	 Xgl3EKtmvq4ZXEfhj3CwlqHPVeOm/Rrv9xHCMCk1fvzPB51a+2rf3HTKwNt9yTFYPIw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593209;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
-	b=O/soh0EYgq7MJInzZHCfToCKaVtkH3bbp4hEYA/dTTqiuHynHMEWKXi0lxuY1gGb7u4u
-	 lgXAtdcSlN982dwgTIyLQRkeKZDq3C/8u6trhcunmOdxiocNI2qZcJOd6OMmASqI7tBfs
-	 eImrJ4Ax/YMCZ/XkwbiAaXFfWcOjUhKR/LZSXAm9kM/jxaKwHk7Pp50T2TvOL8DqX+8ey
-	 jrEx9SZaxsvZ/eZzQgIRjHYOybeQZYic6PwjRMONEZOr6bFaT1ZhNeAvuIBBaPKmKT4PE
-	 j6eHWTpuqmaH/5ybOyvn59tezwquagqOnl4JfYIOzhGG/4Jdh0VYfRABTgemkyhsduw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593428;
+	h=DMARC-Filter:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
+	 X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=km4/fIaJYD6/GnsGaA7EN0rJ86cW+MGAZJBT/seIDdE=;
+	b=3yne5rToSqHrEdK5nTdFDkNt4fNqvlUKDUVJROySVbzBQjBUUMLRGnK5tuFQ26IIOMTF
+	 enFe+kkHZ5pjKKo/7Tuq6eZrctEVp8RJQcjIBynVYoY3XDPWgZAyTlV6751UwueiPjJbQ
+	 l+2TZMvgVi5eS5eGbp3HwGcgp/2MegxbQNtHUCxBUpz1b7GhJIS4DcWQOQoUwTRUK6NzM
+	 tVlsRDCJ88iCD79lIC88CxaGtJ12Gh2mFYxTza61003/S5CJknnpEj5XG0N9co8oDvhKm
+	 T96LrDpHvubHFWRQBIAw9gG+QiO5+WRi5f+5CXwZnMx/dWGnfW/HVbaouhjudOFDMvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=CqmsujWm;
+	arc=none smtp.remote-ip=117.135.210.3
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.3])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E169606A321;
-	Wed, 25 Nov 2026 07:53:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2773606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:57:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2773606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bkYtNNeX
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24F5F1F000E1;
-	Wed, 25 Nov 2026 07:53:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795593208;
-	bh=asAIkoqL4rWRijwrcZTmejrceLoeC5xA34MCJHZUYsY=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bkYtNNeXnbcRSV1hUxf42xU6Ba9CPJEBbGlyH3DbeNlfe9Caz59rNZxIhKSHaRgb6
-	 B2kmw+qxnTlAZWVtnAxmXzwQXs4wDgxaLwMM13ONtXuLAjqxP1839ac/NPTS/njthS
-	 ge7BGDVDcJEBtr2/v9vOJoRRHUaYBfOGkfx3BkIzja+RsUjOoVGK9u7rlsFt3Z8wQq
-	 Ktgt5cQWoeS4efAkx1qh3BVzF2Nkui0/OgOY+1qnjpx+1JoJARqSirNwQ5eKInYMUK
-	 zLKGS7a39N2wTHaNu77td4dduWIIzd7SyPqB1vrh+H78tK+YCokTH2vUUZFX9G+fJO
-	 Zlk3bIUwKVGiA==
-Subject:
- Re: [PATCH net v2] r8169: clear RxOverflow before unmasking interrupts
-From: netdev-bot+sashiko@kernel.org
-To: jure.rebernik@luxonis.com
-Cc: hkallweit1@gmail.com, nic_swsd@realtek.com, netdev@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, sgoutham@marvell.com,
- jacob.e.keller@intel.com, linux-kernel@vger.kernel.org,
- stable@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:53:27 +0000
-Message-ID: <179559320769.3135.10021676764558133789@kernel.org>
-In-Reply-To: <20261121073652.410916-1-jure.rebernik@luxonis.com>
-References: <20261121073652.410916-1-jure.rebernik@luxonis.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=CqmsujWm
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Message-ID:Date:MIME-Version:Subject:To:From:
+	Content-Type; bh=km4/fIaJYD6/GnsGaA7EN0rJ86cW+MGAZJBT/seIDdE=;
+	b=CqmsujWmMXhutGQ3iIMp6LBplLavhsyykFIL30YO2oNQ7HUJqbeSnq+XJmEMP3
+	hJ5QA4CQlMGfaH3JNOmaZDKb2w9Y/5e1U5aH8Tn9LVoHULNasXj8N08pIKbj8fpm
+	tlkuIL1uZq8q9vuVOCH2lSGOaTZf1aEypPt0UpfYSrEjw=
+Message-ID: <0437f8be-41ca-4fb8-b775-ed02413ea16d@163.com>
+Date: Wed, 25 Nov 2026 15:55:44 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,169 +51,203 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] net: phy: avoid synchronous module request in async probe
+ context
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org
+References: <20261124070753.25972-1-18255117159@163.com>
+ <179559227928.3135.10596298102368144827@kernel.org>
+Content-Language: en-US
+From: Hans Zhang <18255117159@163.com>
+In-Reply-To: <179559227928.3135.10596298102368144827@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wBXz6KFlAZrZ+5FJw--.49798S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3JFyrZF4UWF4rGF18GF4Uurg_yoWxCry3pF
+	45JFWYyrZ8Xrs3Za1xJr4DuFy8u3yxJa1agr15Jw1Sga90yF9rAF9rKw15WrW7Zr4rG3W0
+	9Fs8X3s3WFyqvFJanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07U53kNUUUUU=
+X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6waiRmsGlIZh6AAA3-
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 2
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/25/26 15:37, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 3 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 1 · Medium: 0 · Low: 2
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [High] In async context, phy_request_driver_module()
+>    (drivers/net/phy/phy_device.c:643-648) now calls…
+> - [Low] The commit message presents the fix as letting the module load be
+>    'requested without blocking the async worker'.
+> - [Low] The patch fixes a user-visible boot-time WARN_ON_ONCE in
+>    __request_module() (kernel/module/kmod.c:145), and the underlying path…
+> 
+> --
+> 
+> net: phy: avoid synchronous module request in async probe context
+> 
+> When phy_request_driver_module() runs from an async worker, it now calls
+> request_module_nowait() instead of request_module(). This avoids the
+> WARN_ON_ONCE(wait && current_is_async()) in __request_module(). The warning
+> was hit when probing an RTL8126A behind a PCIe host controller that uses
+> PROBE_PREFER_ASYNCHRONOUS.
+> 
+>> Use request_module_nowait() when current_is_async() is true so that the
+>> PHY driver module load is requested without blocking the async worker.
+> 
+> [Severity: Low]
+> Could the commit message describe the actual hazard behind the warning?
+> 
+> The comment above the WARN in __request_module() describes a deadlock, not
+> just blocking:
+> 
+> 	/*
+> 	 * We don't allow synchronous module loading from async.  Module
+> 	 * init may invoke async_synchronize_full() which will end up
+> 	 * waiting for this task which already is waiting for the module
+> 	 * loading to complete, leading to a deadlock.
+> 	 */
+> 
+> do_init_module() calls async_synchronize_full() when the module has not
+> requested async probe. Before this patch, a PHY module that actually needed
+> loading could therefore hang the boot, not only warn.
+> 
+> The message also doesn't mention that the change drops the guarantee that
+> the PHY driver is loaded before phy_device_create() returns. Nothing else
+> makes up for this. mdio_uevent() only emits an OF-style MODALIAS, not a
+> PHY-ID based mdio: alias.
+> 
+>> Signed-off-by: Hans Zhang <18255117159@163.com>
+> 
+> [Severity: Low]
+> This fixes a user-visible WARN_ON_ONCE() in __request_module() and a
+> possible deadlock. Should it carry a Fixes: tag so backporters can tell
+> which kernels are affected?
+> 
+>> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
+>> index b39e945cebd73..a634b8b0c5b2d 100644
+>> --- a/drivers/net/phy/phy_device.c
+>> +++ b/drivers/net/phy/phy_device.c
+> 
+> [ ... ]
+> 
+>> @@ -639,8 +640,12 @@ static int phy_request_driver_module(struct phy_device *dev, u32 phy_id)
+>>   {
+>>   	int ret;
+>>   
+>> -	ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
+>> -			     MDIO_ID_ARGS(phy_id));
+>> +	if (current_is_async())
+>> +		ret = request_module_nowait(MDIO_MODULE_PREFIX MDIO_ID_FMT,
+>> +					    MDIO_ID_ARGS(phy_id));
+> 
+> [Severity: High]
+> Can this leave the PHY device registered without its dedicated driver?
+> 
+> request_module_nowait() is __request_module(false, ...), which only waits
+> for modprobe to be exec'd:
+> 
+> kernel/module/kmod.c:__request_module() {
+>      ...
+> 	ret = call_modprobe(module_name, wait ? UMH_WAIT_PROC : UMH_WAIT_EXEC);
+>      ...
+> }
+> 
+> phy_device_create() therefore returns before the PHY module has loaded and
+> registered its phy_driver. The async worker then continues into
+> mdiobus_scan()->phy_device_register()->device_add() with no driver bound.
+> 
+> The comment in phy_device_create() explains why this request is
+> synchronous:
+> 
+> 	 * We don't do normal hotplug because it won't work for MDIO
+> 	 * -- because it relies on the device staying around for long
+> 	 * enough for the driver to get loaded. With MDIO, the NIC
+> 	 * driver will get bored and give up as soon as it finds that
+> 	 * there's no driver _already_ loaded.
+> 
+> Take the RTL8126A from the commit message. r8169_mdio_register() checks for
+> the driver right after devm_mdiobus_register():
+> 
+> 	} else if (!tp->phydev->drv) {
+> 		...
+> 		return -EUNATCH;
+> 	}
+> 
+> If modprobe hasn't finished by then, wouldn't rtl_init_one() fail, so that
+> the NIC is never probed again? tg3_mdio_init() has a similar
+> !phydev->drv check and returns -ENODEV.
+> 
+> Some MACs attach the PHY before modprobe completes. For those,
+> phy_attach_direct() falls back to genphy:
+> 
+> 	if (!d->driver) {
+> 		if (phydev->is_c45)
+> 			d->driver = &genphy_c45_driver.mdiodrv.driver;
+> 		else
+> 			d->driver = &genphy_driver.mdiodrv.driver;
+> 
+> 		phydev->is_genphy_driven = 1;
+> 	}
+> 
+> Once genphy is bound, driver_attach() skips this device when the dedicated
+> driver registers later. Doesn't that contradict this part of the commit
+> message?
+> 
+>      The PHY driver will still bind later, when it registers and the driver
+>      core attaches it to the already-created PHY device.
+> 
+> r8169 is partly covered by MODULE_SOFTDEP("pre: realtek"), so realtek is
+> usually loaded already on the reporter's board. Other MACs have no such
+> protection.
+> 
+> Before this patch, with module.async_probe=1 or a per-module async_probe
+> option, the PHY module was loaded correctly and only the warning fired. With
+> this change, that case races instead.
+> 
+> Would it be better to keep the module load ordered before the PHY device is
+> registered? For example, the probe could be deferred, or the NIC could avoid
+> probing from async context. Either would avoid making the request
+> fire-and-forget.
 
-- [High] In rtl8169_poll()
-  (drivers/net/ethernet/realtek/r8169_main.c:5673-5680), RxOverflow is…
-- [Low] The changelog says "On this tree the patch was only built, not
-  run; rtl8169_poll() is the same here as in v7.2." That is wrong.
-- [Low] r8169_init_napi() registers rtl8169_poll() for every device with
-  irq_nvecs <= 1.
+Hello,
 
---
+Thank you for the review.
 
-r8169: clear RxOverflow before unmasking interrupts
+The High issue is correct: request_module_nowait() would make the PHY
+module load fire-and-forget and could race with phy_device_register()
+and the MAC's !phydev->drv check. I dropped that approach in v2.
 
-The patch clears RxOverflow in rtl8169_poll() once NAPI completes, just
-before interrupts are re-enabled. Without this, the RTL8125B stays stopped
-after it runs out of RX descriptors. That stall comes from 6994520a3328,
-which removed RxOverflow from the interrupt sources.
+v2 changes phy_request_driver_module() to return -EPROBE_DEFER when
+current_is_async() is true. The parent device probe is then retried on
+the deferred probe workqueue, where synchronous request_module() is safe,
+and the existing guarantee that the PHY driver is loaded before
+phy_device_create() returns is preserved.
 
-> On this tree the patch was only built, not run; rtl8169_poll() is the
-> same here as in v7.2.
+The commit message now also describes the deadlock hazard behind the
+WARN and carries a Fixes tag:
 
-[Severity: Low]
+   Fixes: 0fdff3ec6d87 ("async, kmod: warn on synchronous 
+request_module() from async workers")
 
-Is this statement accurate? In this tree, parts of rtl8169_poll() come
-from the multi-queue rework:
+Best regards,
+Hans
+> 
+>> +	else
+>> +		ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
+>> +				     MDIO_ID_ARGS(phy_id));
+> 
+> [ ... ]
+> 
 
-36af5aac9545 ("r8169: prepare for multi irqs and napi")
-5df447aee076 ("r8169: refactor RX path to prepare for multi-queue")
-
-For example, rtl_rx() now takes a pointer to a single RX ring:
-
-	/* rtl8169_poll() is used only when there is a single RX ring. */
-	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
-
-Also, rtl_ack_events() now has an irq_nvecs > 1 branch that writes
-ISR_VEC_MAP_REG.
-
-The single-vector path still writes IntrStatus_8125/IntrStatus as before,
-so the logic looks functionally equivalent. However, the A/B results were
-measured on different code than what is submitted.
-
-With Cc: stable and Fixes: 6994520a3328, the context line above does not
-exist in any stable tree, so each backport will need to be adapted by
-hand.
-
-Could the changelog say that the code that was tested differs from the
-code submitted here?
-
-> diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-> index f151ab6813932..99b0a410f58e4 100644
-> --- a/drivers/net/ethernet/realtek/r8169_main.c
-> +++ b/drivers/net/ethernet/realtek/r8169_main.c
-> @@ -5670,8 +5670,14 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
->  	/* rtl8169_poll() is used only when there is a single RX ring. */
->  	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
->  
-> -	if (work_done < budget && napi_complete_done(napi, work_done))
-> +	if (work_done < budget && napi_complete_done(napi, work_done)) {
-
-[Severity: High]
-
-Should the RxOverflow ack depend on napi_complete_done() returning true?
-
-napi_complete_done() returns false early while busy polling:
-
-net/core/dev.c:napi_complete_done() {
-	if (unlikely(n->state & (NAPIF_STATE_NPSVC |
-				 NAPIF_STATE_IN_BUSY_POLL)))
-		return false;
-    ...
-}
-
-It also returns false while defer_hard_irqs_count > 0 and a
-gro_flush_timeout is set.
-
-With threaded busy-poll enabled on the NAPI instance, napi_threaded_poll()
-keeps NAPI_STATE_IN_BUSY_POLL set while the kthread polls:
-
-net/core/dev.c:napi_threaded_poll() {
-    ...
-		want_busy_poll = val & NAPIF_STATE_THREADED_BUSY_POLL;
-		in_busy_poll = val & NAPIF_STATE_IN_BUSY_POLL;
-    ...
-		if (want_busy_poll != in_busy_poll)
-			assign_bit(NAPI_STATE_IN_BUSY_POLL, &napi->state,
-				   want_busy_poll);
-    ...
-}
-
-In that mode, rtl8169_poll() is called in a loop and never reaches
-rtl_ack_events(tp, RxOverflow) or rtl_irq_enable().
-
-The first interrupt has already masked interrupts:
-
-rtl8169_interrupt() {
-    ...
-	rtl_irq_disable(tp);
-	napi_schedule(napi);
-out:
-	rtl_ack_events(tp, status);
-    ...
-}
-
-So the interrupt handler, the only other code that acks status bits, does
-not run again.
-
-If the 256-entry ring overruns in this mode, does the RTL8125B latch
-RxOverflow and stay stopped until busy-poll is turned off or the interface
-is reset? Every incoming frame would be counted in rx_missed.
-
-Socket busy polling (napi_busy_loop()), defer_hard_irqs/gro_flush_timeout
-and irq-suspend look like they cause the same stall. In those cases it
-only lasts until the busy-poll or deferral window ends.
-
-The descriptors are already back with the NIC whenever rtl_rx() stops at
-a NIC-owned descriptor (work_done < budget), whether or not NAPI completes.
-
-Could the ack be tied to work_done < budget and moved out of the
-napi_complete_done() condition?
-
-> +		/* After running out of RX descriptors the chip does not
-> +		 * receive again until RxOverflow is cleared. The ring is
-> +		 * empty now, so clear it before unmasking.
-> +		 */
-> +		rtl_ack_events(tp, RxOverflow);
-
-[Severity: Low]
-
-This isn't a bug, but the comment presents this as general chip behavior.
-The changelog only describes and tests RTL8125B.
-
-r8169_init_napi() registers rtl8169_poll() for every single-vector device:
-
-	} else {
-		netif_napi_add(tp->dev, &tp->rtl8169_napi[0], rtl8169_poll);
-
-get_max_irq_nvecs() only allows more than one vector for
-RTL_GIGA_MAC_VER_80. So this extra IntrStatus write now happens on every
-NAPI completion for RTL8169/8168/8101/8125/8126 as well.
-
-6994520a3328 was tested on RTL8168h, on the premise that running out of
-descriptors needs no special handling.
-
-Could the changelog and the comment say whether this RxOverflow behavior
-is specific to RTL8125B or also applies to older chips? Could they also
-say that the change affects all chip generations but was tested only on
-RTL8125B?
-
->  		rtl_irq_enable(tp);
-> +	}
->  
->  	return work_done;
->  }
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121073652.410916-1-jure.rebernik%40luxonis.com
