@@ -1,60 +1,95 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565931;
-	b=05zoPls6bLwJsSETjnHPFRZeu6M/Ixcw2Ick7s53c+oGbpWltDZ0K6nRVj3yo2qUhh02
-	 OENC90sF4X3k/tNaFYjzha98lkabMSq/vhs3h/offtfiVZmCEvZsWD6lit4qv3Jqatd+7
-	 eEmvyBJIcFVquepLvCxsimr6nZ3ul9ic+PLt6OnGv/f/Ff9PuYYn4DyXQCjF+3T7tAkIV
-	 PNxF8VuRJaYXEeQVWa3hc5ebn7xTWDfil57FeZS3w5xCJcZyhT8LWalS0icLO5LGE5kJ4
-	 ie2zj/Yb0wfKMQUFk0wqvDq7xhE6qeg3aOvTkPrO1185N3Kdonm30S/CQOt+4lnh8IA==
+	t=1795566164;
+	b=tMbXNG/AvJ0pogi+3Yh5Z072KBqQyJoErCrWtZcNoUpXu34Z+Pa6TY707bvIs3COgDri
+	 x2lD9gjb009viH4GwtUiZe3zTE8wnZaotaxeGw5CGJnYdF/qLygN0oe3tH4MGFKQ1qcUv
+	 m98A1Wo96z3D9hB106b2OjnIkKC4OXEz+Ek4DHqAQNd/2jwSyMgb/V+jFNo05VLL3knp3
+	 SZtT885VEe3ylPrxdyQswqwU6nhk2cTgmEkRgw5DW2cgYD1zzGdgkMicZnyC4Y/qABeYa
+	 yymAAgiLwb0IAvg2FthTM8951R1GlDYwbZoNfd1KyjW6whxx9aNhP40hO87vVd3jXpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565931;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=e3N24i4nZ8F2OWKXy0Bm7z+tiwdFnxgOz1isOAlyjuU=;
-	b=KrP59oaehDO2Rvc3wC878yoFeeyPkutfIrsUzdkMpur0CrgMxYeSP5jx8mVPEXLBS7xh
-	 tlFPUxvCuZWhYuL2C4vIdvk2kiBtpFmbKX+Jg82fm84faTmwlAUi1ujWI1/Vi8TMV9YXD
-	 MVD/It2YfcZh3iUDElUlKEb0mZt11aGeKm0U5PukX8WEMRfWUD3vvTxspr2mnTwYE4bi0
-	 x1PaDxtOWf3gqCylvnFgkh0s2xUD9ibnLV6ZP7IDP/JKOa0Bn8Vw/Xb38tQ0bvszpZYMY
-	 qtnhZN8ggiIpkBlF3BTxnoE4y3ot24sjTVFF34KbXtr/rBYb4xDCX8kZfVsSILjPw6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566164;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=yDDEbBwiCXtAPYvUwSqi6leKCN8T0j7nwZva/lpaRX0=;
+	b=nWCHH2XSFcUU86ziHT7yqVjT/UTT32hcGjix9RXotHmzhLaljWIzY9IseqzyoXF2qpLf
+	 R5J8Lauucccqw1iSEWQfTK4RgBsJYvqj52WHaqM6ZVtyT1daSiu4ChG2npNu7APqfjgHx
+	 tWEKuF33c+osUrNpKZSuRF3DhDaghlCr0ndvwr3wP5fa9GbjxTW+ibfVges99QiiB4XG/
+	 Uoa1W1PrcyBwPfKEk7L8OWr2SSg063xYX5iikE6Xg56lsNTFLR6iTrel8E1pfaxAjttjE
+	 tI9aqPBFAs/FiSkKiQ5+qR2TBd4s1zNA31JYnLS/S3FqQNzXJJB1wPmXLCIy+2iyzng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PecvGAob;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=openvpn.net;
+	spf=pass smtp.mailfrom=openvpn.com;
+	dkim=pass header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b="gF/+bAGu";
+	arc=none smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2790E606A31E;
-	Wed, 25 Nov 2026 00:18:50 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6E48606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:22:43 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6E48606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openvpn.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openvpn.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PecvGAob
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9EC3E1F000C4;
-	Wed, 25 Nov 2026 00:18:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795565930;
-	bh=e3N24i4nZ8F2OWKXy0Bm7z+tiwdFnxgOz1isOAlyjuU=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PecvGAoboHIqjiCMCYdaddsz7Afw/VluQbP5J8emv39Jra0ecR7GSO6Ha6bpOQbTo
-	 3xel9nzvvyhbwgGZ/EEGbUmLd7t+U1K5aix6BRj65WpDfQqKmWzduLNjFTB+fbW9Mf
-	 lgBY1/vQBNS/4NKKZSQiXzx5y15+lSk1Trkefh8BPA+0Hyn9q/TMTqNyxSoz0sNjSZ
-	 gvMS/oo4UjuVXPNBh0fOaKvHvNHnWp+vfsaoyCcdKYhHkWX5eTkKx74lEEqgF4Li5Q
-	 ypMX3WJSPZHwVg5UsFWxijk8n1oiBOrjI8Tzudb6sFKy3lyoiXeeFTgL2vEFbN0ivb
-	 TJq44Y4Ozpb3Q==
-Subject: Re: [PATCH net] net: bridge: withdraw the switchdev entry of an fdb
- entry made dynamic
-From: netdev-bot+sashiko@kernel.org
-To: julius@bairaktaris.de
-Cc: razor@blackwall.org, idosch@nvidia.com, netdev@vger.kernel.org,
- bridge@lists.linux.dev, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, willemb@google.com, horms@kernel.org,
- olteanv@gmail.com, vladimir.oltean@nxp.com, jbrandeb@kernel.org
-Date: Wed, 25 Nov 2026 00:18:49 +0000
-Message-ID: <179556592915.3135.5085820048352606016@kernel.org>
-In-Reply-To: <20261121191638.1724620-1-julius@bairaktaris.de>
-References: <20261121191638.1724620-1-julius@bairaktaris.de>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=gF/+bAGu
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-490c3ae81d3so3214424f8f.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:22:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=openvpn.net; s=google; t=1795566162; x=1796170962; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=yDDEbBwiCXtAPYvUwSqi6leKCN8T0j7nwZva/lpaRX0=;
+        b=gF/+bAGujjFgABB2Ctql/5gnqR9plAJB+Wu/BJa4QorsRwfOTVJf+bhMsXRDSVdO0j
+         xgPLCmDSAbFXmyxVQaz/M8jcthOsPOeAuWpUfHNTLoqXNwBmWLY8Mt5NSiUCYYpKIGQp
+         jBeKis6OXIiYTzebnZAhs75D/BReZlRy3CmwqO5GCgiQUQU/9vIlZAfh9RkLchFu9ysl
+         AL2bST8jayUIceCcFGL83NW60EPLS3Su+6yz2knkqdKR8hqnOXLaV54jZ7g1QTst0GIb
+         j+toxypBQVw9U6zI5H0cLjAtE3QywOiehwsZqyudNsVPQD4129EtPIx+aqPL0w/fKji3
+         mfgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795566162; x=1796170962;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=yDDEbBwiCXtAPYvUwSqi6leKCN8T0j7nwZva/lpaRX0=;
+        b=Rq9B9wtEGJrDjq/TDdkBNjALGgMH5HQLDkmWG5nU9m27Qgr0hbjn2ZvaPz2nTGKjeq
+         SKNE6It8dCj+n6DI1urJ5yM8wqcV9ul144ub0ux0SSNQG/qNnJI4U+8uMAJ5sEY3knWm
+         MmU8sOhW0zzPxVlRCywcnKadTnZsK43dsVvdykuFd/mc8ahsP0uusTow7+BvIM67YSYJ
+         yR2JSED5rwjSqewOBdsy7j4YZ96nfIojEs+kODorDSAzK6EXd1WSMpOyCoDOGyItGJOU
+         ZQzk/2/0xLbr//fh40RTNDkFdXjW+GA4HLYXq1eOQG2gPeud59alUmbZdq8FMPy5G8Kt
+         sDSA==
+X-Gm-Message-State: APuU4Z/sV04GlsneUQ32QOuzUE7RWyIZ4vuyKXsgPH36LL26hxTRTgRp
+	woZIQkADnPDxm0AVYvbvX0jFcEXi7CaIAN77J5LMPUx3jOEUR3SfYfO63UaT9a3hEFMuMAN920C
+	ToP6WkJGAnNLKIR9PIUEEw9uLFr9DJCeTM9ruuYlmcYsjiChTCTLjaiKFAB+TvV7XyYo=
+X-Gm-Gg: AZFdTZdZwCO4XF8nl2RqplLTYSL2/Cruc+0sxy/bckHwcZcoEIv088MS+fdywyMnZFv
+	/wOkBkw4SnF+zrc2oxHUF2QgttDKs20GggXDhiBg/hzZeJlZEnd6jLS5IfIyAAXP98L+eBwvgzf
+	zRpCvB73R79KZHRQrIZtvAUAjtBox/s+9ta4/ZL/D1Swx3BBNhDOSDevdO8VXsrK48DTHSJobpC
+	rd1VUbp+y3NEZQu/1WnQxabFOu/fv3khXKgt1/9q4L5NVI4F1HSY1RsQ3zKafyzYGiplifhTkOD
+	EHqYqPHkxoP07e7J2NtJRSGPDFqlnVt0LTaRUDO8k2uzNViur0NiGJNWzKNMbm8ApEQ7SY/ghaS
+	SaG0UuEMM3S9MrsyY0cEafkZ3DMXr+sYy6N9Qy9J1aTirOmH1MZep1HH8kat98qZZaG6QrIw5V4
+	IV5hJmJF0TBmByRekYvrNu91pqJd4ZWgMr33VXsPDoxqeZUNUsRb/fTte+zdCMCTCw9J1i8cIti
+	e7/jfzR/NJ4GWZ58fE3GKIS/Pq6PgKps7rlTNGmesmEr+HuP+29kRgl1m7JoEEO6ub3bYYbptYW
+	bzoBPGk9cWrhJGj7ybGUWBf1sqVY0hXCQU1X1QJctU8bN2lqkktQ+Q==
+X-Received: by 2002:a05:6000:41c9:b0:48d:fdd0:6ce8 with SMTP id ffacd0b85a97d-4abaab633bcmr31756949f8f.3.1795566162219;
+        Tue, 24 Nov 2026 16:22:42 -0800 (PST)
+Received: from inifinity.homelan.mandelbit.com ([2001:67c:2fbc:1:5c82:5cd3:7bc5:2809])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm31518448f8f.16.2026.11.24.16.22.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 16:22:41 -0800 (PST)
+From: Antonio Quartulli <antonio@openvpn.net>
+To: netdev@vger.kernel.org
+Cc: Antonio Quartulli <antonio@openvpn.net>,
+	Sabrina Dubroca <sd@queasysnail.net>,
+	Ralf Lici <ralf@mandelbit.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>
+Subject: [PATCH net 0/7] pull request: fixes for ovpn 2026-11-24
+Date: Wed, 25 Nov 2026 01:22:31 +0100
+Message-ID: <20261125002239.1191542-1-antonio@openvpn.net>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,229 +99,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Hi all!
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+v2 of the ovpn fixes PR, addressing the review on v1.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+All patches fix code released since v6.16 and carry Cc: stable. Let me
+know if these should rather go via net-next.
 
-- [High] The patch balances only the event-driven notifications.
-- [Medium] fdb_switchdev_hide() (net/bridge/br_fdb.c:1003-1007) sends
-  SWITCHDEV_FDB_DEL_TO_DEVICE, and the driver removes the entry from its…
-- [Medium] The new withdrawal is not atomic with respect to the packet
-  path.
+Patches 1-6 fix issues reported by Sashiko and confirmed by code
+inspection; they are not triggered by OpenVPN userspace. Patch 7 fixes
+a selftest crash we hit on musl.
 
---
+Two of them fix crashes reachable by a CAP_NET_ADMIN user via netlink:
 
-net: bridge: withdraw the switchdev entry of an fdb entry made dynamic
+* NULL deref on TX: an IPv6 remote was accepted on an AF_INET UDP
+  socket, and ip6_dst_lookup_flow() then dereferences inet6_sk(sk),
+  which is NULL. Such remotes are now rejected and the socket family is
+  rechecked on TX (patches 3-4).
 
-Some entries become user-added dynamic entries, which
-br_switchdev_fdb_notify() no longer reports. This patch reports an FDB
-deletion to switchdev just before that happens. The two paths are
-fdb_add_entry() ("bridge fdb replace ... master dynamic") and the NTF_USE
-branch of __fdb_update() ("... master use").
+* Out-of-bounds access: a raw socket with IPPROTO_UDP could be attached
+  and used as a struct udp_sock. Only real UDP/TCP sockets are now
+  accepted (patch 2).
 
-> diff --git a/net/bridge/br_fdb.c b/net/bridge/br_fdb.c
-> index b601245ad9239..377ca83410294 100644
-> --- a/net/bridge/br_fdb.c
-> +++ b/net/bridge/br_fdb.c
-> @@ -996,6 +996,16 @@ static bool __fdb_mark_active(struct net_bridge_fdb_entry *fdb)
->  		  test_and_clear_bit(BR_FDB_NOTIFY_INACTIVE, &fdb->flags));
->  }
->  
-> +/* Called before @fdb becomes an entry that the user added as dynamic, which
-> + * br_switchdev_fdb_notify() does not report: report the deletion of the entry
-> + * switchdev was told about, if it was
-> + */
-> +static void fdb_switchdev_hide(struct net_bridge *br,
-> +			       const struct net_bridge_fdb_entry *fdb)
-> +{
-> +	br_switchdev_fdb_notify(br, fdb, RTM_DELNEIGH);
-> +}
+The others avoid UDP packets with source port 0 and fix TX accounting:
+TX bytes now account the same payload as RX, and locally dropped
+packets are no longer counted as sent nor refresh the keepalive timer.
 
-[Severity: Medium]
-Does this leave BR_FDB_OFFLOADED set on an entry that is no longer in
-hardware?
+Changes since v1:
+* patch 5: replaced, TX bytes are accounted like RX for UDP and TCP
+* patch 6: also cover TCP packets dropped from the output queue
+* patch 7: fixed Fixes: tag
+* patch 3: clarified commit message
+* rebased on current net
 
-fdb_switchdev_hide() sends SWITCHDEV_FDB_DEL_TO_DEVICE and the driver
-removes the entry, but nothing clears the offloaded bit. After the hide
-the entry is ADDED_BY_USER && !STATIC && !EXT_LEARN, so
-br_switchdev_fdb_notify() never reports it again. No driver will then send
-SWITCHDEV_FDB_OFFLOADED to correct the bit.
+v1: https://lore.kernel.org/netdev/20261022121606.732029-1-antonio@openvpn.net/
 
-The SWITCHDEV_FDB_OFFLOADED senders for bridge FDB entries only report
-offloaded=true, and only after an ADD. For example in DSA:
+Please pull or let me know of any issue!
 
-net/dsa/user.c:dsa_fdb_offload_notify() {
-	...
-	info.offloaded = true;
-	call_switchdev_notifiers(SWITCHDEV_FDB_OFFLOADED,
-				 switchdev_work->orig_dev, &info.info, NULL);
-}
+Thanks,
+	Antonio
 
-mlxsw sends offloaded=false only on its VXLAN path. On the bridge side
-the bit is only cleared in br_fdb_clear_offload() and
-br_fdb_offloaded_set().
+The following changes since commit c5de2ce2fccdb7d3b48946179634eaa3d7ce2e7e:
 
-So fdb_fill_info() keeps reporting it:
+  tcp: fix shift-out-of-bounds in inet_csk_rto_backoff() (2026-11-24 11:10:47 +0100)
 
-	if (test_bit(BR_FDB_OFFLOADED, &fdb->flags))
-		ndm->ndm_flags |= NTF_OFFLOADED;
+are available in the Git repository at:
 
-After "bridge fdb replace ... master dynamic" or "... master use",
-"bridge fdb show" would then print "offload" for an entry that only
-exists in software.
+  https://github.com/OpenVPN/ovpn-net-next.git tags/ovpn-net-20261124
 
-The commit message says:
+for you to fetch changes up to 8fca08ff62c9304549055290805f07add388816b:
 
-    The offloaded flag of the entry stays as the drivers report it.
+  selftests: ovpn: avoid calling freeaddrinfo() on NULL (2026-11-24 15:55:18 +0100)
 
-Drivers don't report un-offloading on DEL_TO_DEVICE, so does the flag just
-go stale here? Should the hide path also clear BR_FDB_OFFLOADED?
+----------------------------------------------------------------
+Included fixes:
+* fix selftest tool segfault on musl caused by calling freeaddrinfo()
+  on NULL
+* fix TCP TX accounting, which counted packets dropped locally as sent,
+  including those queued while the socket was owned by userspace, and
+  refreshed the keepalive timer for them
+* make TX byte counters account the same payload as RX: UDP relied on
+  stale skb metadata, while TCP accounted the whole encrypted packet
+* recheck the UDP socket family on TX, since userspace can still change
+  it via IPV6_ADDRFORM or IPV6_V6ONLY, and tear the peer down on
+  mismatch, ensuring the IPv6 TX path never sees a socket without IPv6
+  state
+* reject UDP remotes incompatible with the socket family, fixing a NULL
+  pointer dereference on TX when an IPv6 remote is configured on an
+  IPv4 UDP socket
+* reject sockets that are not real UDP or TCP sockets, preventing e.g.
+  a raw socket with IPPROTO_UDP from being treated as a udp_sock and
+  accessed out of bounds
+* avoid sending UDP packets with source port 0, and do not account
+  locally dropped UDP packets as sent
 
-[ ... ]
+----------------------------------------------------------------
+Antonio Quartulli (2):
+      ovpn: account TX bytes like RX
+      selftests: ovpn: avoid calling freeaddrinfo() on NULL
 
-> @@ -1048,7 +1060,12 @@ static void __fdb_update(struct net_bridge *br,
->  		}
->  	}
->  
-> +	/* Only from netlink (NTF_USE), with the user's flag in @flags */
->  	if (unlikely(test_bit(BR_FDB_ADDED_BY_USER, &flags))) {
-> +		/* After a roam the deletion was reported above */
-> +		if (!roamed && !test_bit(BR_FDB_STATIC, &fdb->flags) &&
-> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-> +			fdb_switchdev_hide(br, fdb);
->  		set_bit(BR_FDB_ADDED_BY_USER, &fdb->flags);
+Ralf Lici (5):
+      ovpn: avoid sending UDP packets with source port 0
+      ovpn: validate sockets before attaching peer transports
+      ovpn: reject UDP remotes incompatible with socket family
+      ovpn: recheck UDP socket family before transmit
+      ovpn: fix TCP TX accounting for locally dropped packets
 
-[Severity: Medium]
-Can a concurrent roam from the packet path send an ADD between
-fdb_switchdev_hide() and set_bit(BR_FDB_ADDED_BY_USER)?
-
-The NTF_USE path runs __fdb_update() under only local_bh_disable() and
-rcu_read_lock(). The packet path in br_fdb_update() updates an existing
-entry without br->hash_lock:
-
-	fdb = fdb_find_rcu(&br->fdb_hash_tbl, addr, vid);
-	if (likely(fdb)) {
-		__fdb_update(br, fdb, source, dst, flags);
-
-A possible interleaving:
-
-CPU0 (NTF_USE)                    CPU1 (RX on non-sticky port B)
-__fdb_update()
-  fdb_switchdev_hide()  /* DEL */
-                                  __fdb_update()
-                                    br_switchdev_fdb_notify(DEL)
-                                    br_fdb_dst_write(fdb, B)
-                                    fdb_notify(RTM_NEWNEIGH)
-                                      br_switchdev_fdb_notify()
-                                        /* ADDED_BY_USER still clear */
-                                        SWITCHDEV_FDB_ADD_TO_DEVICE
-  set_bit(BR_FDB_ADDED_BY_USER)
-
-The entry is now user-dynamic. Its later deletion is filtered in
-br_switchdev_fdb_notify(), so the driver keeps the entry on port B.
-
-fdb_add_entry() has the same window. It holds br->hash_lock, but that
-doesn't exclude the packet path. There the hide runs before
-fdb_update_dst() and set_bit(BR_FDB_ADDED_BY_USER).
-
-There is a variant with the extern_learn flag. CPU0 sees
-BR_FDB_ADDED_BY_EXT_LEARN set and skips the hide. Then CPU1's roam clears
-that flag and sends an ADD before CPU0's set_bit().
-
-The window is small. It needs a station roaming onto another port while
-the admin command runs. When it hits, the stale entry that this patch is
-meant to remove is left in the driver.
-
-> @@ -1262,6 +1279,10 @@ static int fdb_add_entry(struct net_bridge *br, struct net_bridge_dst dst,
->  		if (flags & NLM_F_EXCL)
->  			return -EEXIST;
->  
-> +		if (!(state & (NUD_PERMANENT | NUD_NOARP)) &&
-> +		    !test_bit(BR_FDB_ADDED_BY_EXT_LEARN, &fdb->flags))
-> +			fdb_switchdev_hide(br, fdb);
-> +
-
-[Severity: High]
-This balances the event-driven notifications, but what about the replay
-path? br_switchdev_fdb_replay_one() passes every entry in br->fdb_list to
-the driver. It doesn't apply the filter that br_switchdev_fdb_notify()
-uses:
-
-net/bridge/br_switchdev.c:br_switchdev_fdb_replay_one() {
-	...
-	br_switchdev_fdb_populate(br, &item, fdb, ctx);
-
-	err = nb->notifier_call(nb, action, &item);
-	...
-}
-
-That causes two problems.
-
-First, can an entry hidden here be installed again and then leaked? When
-a DSA port joins the bridge:
-
-dsa_port_bridge_join()
-  switchdev_bridge_port_offload()
-    nbp_switchdev_sync_objs()
-      br_switchdev_fdb_replay(..., true, ...)
-        dsa_user_switchdev_event()
-          switchdev_handle_fdb_event_to_device()
-            dsa_user_fdb_event()
-              dsa_port_bridge_host_fdb_add()
-
-The replayed item has added_by_user set, so it isn't treated as
-dynamically learned. DSA programs it, for example as a refcounted host
-address on the CPU port for an entry on a foreign veth port.
-
-A later "bridge fdb del" goes through
-fdb_delete()->fdb_notify(RTM_DELNEIGH)->br_switchdev_fdb_notify(), which
-filters it out. The entry is then gone from fdb_list, so the leave-time
-replay never sees it either. The driver keeps the hardware entry and the
-dsa_mac_addr allocation after the bridge has dropped the entry.
-
-This join-time replay leak is older than this patch; it goes back to
-927cdea5d209. It is still the outcome the commit message says is fixed.
-
-Second, does this add a double DEL? Before this patch, a learned entry
-that was made user-dynamic got one ADD (from learning) and one DEL (from
-the leave replay). With this patch it gets the ADD, a DEL from
-fdb_switchdev_hide(), and another DEL when a port leaves:
-
-nbp_switchdev_unsync_objs()
-  br_switchdev_fdb_replay(br_dev, ctx, false, atomic_nb)
-    ...
-      dsa_port_do_fdb_del()
-
-On the DSA CPU port the lookup fails:
-
-net/dsa/switch.c:dsa_port_do_fdb_del() {
-	...
-	a = dsa_mac_addr_find(&dp->fdbs, addr, vid, db);
-	if (!a) {
-		trace_dsa_fdb_del_not_found(dp, addr, vid, &db);
-		err = -ENOENT;
-		goto out;
-	}
-	...
-}
-
-dsa_user_switchdev_event_work() then logs "failed to delete ... from fdb".
-
-Another port may have added the hidden entry again through join replay.
-In that case the extra DEL drops that port's reference and deletes the
-hardware entry.
-
-Would it work better to apply the same check in both
-br_switchdev_fdb_notify() and the replay path, instead of sending an extra
-DEL from these two event paths?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121191638.1724620-1-julius%40bairaktaris.de
+ drivers/net/ovpn/io.c                       |  18 ++--
+ drivers/net/ovpn/netlink.c                  | 129 +++++++++++++++++++++-------
+ drivers/net/ovpn/peer.c                     |  19 ++++
+ drivers/net/ovpn/peer.h                     |   5 +-
+ drivers/net/ovpn/skb.h                      |   2 +
+ drivers/net/ovpn/socket.c                   |  16 ++--
+ drivers/net/ovpn/tcp.c                      |  95 ++++++++++++--------
+ drivers/net/ovpn/tcp.h                      |  10 +--
+ drivers/net/ovpn/udp.c                      |  48 ++++++++---
+ drivers/net/ovpn/udp.h                      |   4 +-
+ tools/testing/selftests/net/ovpn/ovpn-cli.c |   3 +-
+ 11 files changed, 246 insertions(+), 103 deletions(-)
