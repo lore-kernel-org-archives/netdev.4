@@ -1,57 +1,56 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566497;
-	b=QZF/kM9Ejdb7u40Z1sxWwIAKuouYfFFd+VUb+OaQXxieL75xKeHwl4Jdwwkt9Uukux3j
-	 i45jxSQ55RknHy1Syq5Se0EUDWcz7G0QFDZwYkxMQSNE2FXnA5laeQqasqCjNPUrNi8Nv
-	 UvkIXPKnnCmnEp5v6mrnB2w6P725k2Xr7K0puGJQ4Y0hy7EgqDQLvKH7lgWtDVdJiMF2y
-	 le/xE0Xm984/dLH7xZHa436sMT9f3kpDv7h85uW0qQ9Bk8+GLXy8Q8+NXD/uaPF9smC5s
-	 p9iWmeWJZ4QQf9wlTgAW8ywxyQFCvXaRD3V+SGTPqmOZcgr4SEMW8a0YHzhfKiHjQTw==
+	t=1795566501;
+	b=KRYt+P9IbPHMn2nuTfHGYVqTeWebyxVE1L5TvCibgBXhGIRMMQDq0PID/RblksBiJE1X
+	 pWEGRums9aaNkIZqpQcdKm+IoDe056Eyis+Y7gbsDwNVHYVTL4PVWx4jCKtsXCuOaiOow
+	 vmf6Mh719QgIPU7/+PUBkLWXcWAgrI2uBYPezJ4HodQUaK94TD0BXZenUXPDbup7oilIm
+	 41g6CeVcsHf0Tpf8p1wAkJdNZrMOgqaH1Bu+aCYFOoUoFvnUjqpanS9Rf+YTiC9xdVSw7
+	 cfhCwvXiRcDnrqh2yv6pVcNRqo08xhUEsL6ivTc+Uc5y+rzW2DIMrfsFUge+un1TeOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566497;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566501;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=4cYK1lEzGFvAYvDZ/avImi3mF1WEUIb3JoIJl5AZEJ4=;
-	b=mSM58L586hZuPPm7wELbPezAvQC0ftTGZRmulyelBQjEmNANmttazuAENf10cYlnW20w
-	 2oQad+g59DwEs2dkn+QeF22C3KjZdIWLjGwkzH/OOGoK9m63rmjsLfUD8QyHNs4pb0kfN
-	 v22MMR3BmqkHjSsXYODUPexc0o88Y8Bgy9IbOQOcG6VYOxp6p8v6VGDjnZOr0MfyO73jB
-	 rCLpN9F+3NirsgsO5D3UY5ptaDFDuYGKzTRHWH0fFarsAEvbYJMvzbZ5VrUEudNkyh7SG
-	 r9aYktLFm9bqKiZw18T4ezGmnBJA8Fc9HvmmzFnOC2fsjrpU/aownziqmxSXH7YRGQA==
+	bh=0Ogcn6Yj5HjgRG7LSf4omg5LzaKmfYWDCA7gXIBMrao=;
+	b=Ddf2RzmT199jTkTQW/GlmM8Th7FOIRIJB8wZYi9VeA4Es6oqXIPvyxq6JWoivndpjMub
+	 Z1xtKNJcrCi5i+R0v+6PKP/BFL48I4huQ2qPQ/UyLSDimO8M7JfVB4yGBn96l4AzhneAD
+	 UC7kkkNXTZREbvRzQ+PY/5ZY/k6dxiiVUre7iGrhWEeVwzy0OOJ8v6xu1CPGv9DBkx1Mj
+	 sezWnINE/fKgK9Ew1e8QKF4D9UddZ91Ui0GOH9tNOUVWUtaMykT4x4B+8WyjSATYqBpV1
+	 WnmkrUTkm6jL+2dG9+un+FpLaw6IS41fm1UrfQ3JrNO2YI4u6KuBOpLi4fzIKaHcYZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Bg76va/U";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FdX7KFWk;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4FCE2606A31E;
-	Wed, 25 Nov 2026 00:28:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEED1606A335;
+	Wed, 25 Nov 2026 00:28:21 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Bg76va/U
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62B811F000C4;
-	Wed, 25 Nov 2026 00:28:16 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FdX7KFWk
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE681F000C6;
+	Wed, 25 Nov 2026 00:28:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795566497;
-	bh=4cYK1lEzGFvAYvDZ/avImi3mF1WEUIb3JoIJl5AZEJ4=;
+	s=k20260515; t=1795566501;
+	bh=0Ogcn6Yj5HjgRG7LSf4omg5LzaKmfYWDCA7gXIBMrao=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Bg76va/UXXf+7TnAoEKv76ySXVUwHA/njtFfkdkEXayn1Uw3hmPMk393MKQcN9l7z
-	 5aXvOmh1eYNtyTYzOklkeOra795PEm/s7IEcwPdbjxSECyk/zHccrKQXuxGtxlNypk
-	 J/rp10/mCpp/lA7/ioBRlTv17a27suzPIvxqRmKgxlFrd0lm3dHfXQjoQRl/6ZwnBs
-	 /WQlXsy7lP+jLwIqs2b6CSTZczfQSIGW7bk5WulKfNl2U1lpNowCUDRlLtCJ+1n0nZ
-	 A9nO/LseZIAZ+O5WCAe5Vb7TKG2jAxrP0nEaPTUszQx53F3ExImEM5Smv+bikN8fvQ
-	 cvugdxjifom3A==
-Subject: Re: [PATCH net-next v3 1/5] net: hix5hd2_gmac: Use devm_ managed
- netdev and MDIO bus
+	b=FdX7KFWkdk6F3TEUkK51puLe42nJTvz8ze8Cw4uOcEn6+3T6teai6aklDGrDvmlhf
+	 JRlVKrGazV4ZMO/adLV8UBL51u98CZt5m5qbWlU+DTLCLhTj39JxvZDM4T90R4fR0u
+	 hvE6R6C8I+BfoIfmgAIikClNvwz93CY+6i1EC9HlSZo195Ad3oBMjUF1YTWxJtbLE8
+	 qINMda980WwczCA4wyo7Bu99qT+0jP64Fe96A4xgDGip7zi2w0H8dyr+C/0igUbXgf
+	 K4AiKlNx3jv/7WOm3fjvFRBWbAv98q2kVMnB49kO2TPkHKEdk1midmGQbwmooqeLjh
+	 Kjs7PG2IPE2nw==
+Subject: Re: [PATCH net-next v3 5/5] net: hix5hd2_gmac: Support fixed-link
 From: netdev-bot+sashiko@kernel.org
 To: mmyangfl@gmail.com
 Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
  edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
  krzk+dt@kernel.org, conor+dt@kernel.org, shenjian15@huawei.com,
  shaojijie@huawei.com, devicetree@vger.kernel.org
-Date: Wed, 25 Nov 2026 00:28:15 +0000
-Message-ID: <179556649591.3135.5859948318668585825@kernel.org>
-In-Reply-To: <20261124002442.19414-2-mmyangfl@gmail.com>
-References: <20261124002442.19414-2-mmyangfl@gmail.com>
+Date: Wed, 25 Nov 2026 00:28:20 +0000
+Message-ID: <179556650026.3135.16586116032189589789@kernel.org>
+In-Reply-To: <20261124002442.19414-6-mmyangfl@gmail.com>
+References: <20261124002442.19414-6-mmyangfl@gmail.com>
 X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -71,110 +70,135 @@ you want to address the nit picks below when you respin.
 
 Low priority / nit picks for your consideration:
 
-- [Low] On a probe failure, the MDIO bus is now torn down after the MAC
-  clocks are already off.
+- [Low] hix5hd2_dev_probe()
+  (drivers/net/ethernet/hisilicon/hix5hd2_gmac.c) now uses…
+- [Low] The series' binding text (hisilicon,hisi-gmac-v1.yaml, `mdio`
+  description) says: "With a fixed link, the MDIO bus is not registered…
 
 --
 
-net: hix5hd2_gmac: Use devm_ managed netdev and MDIO bus
+net: hix5hd2_gmac: Support fixed-link
 
-This commit switches hix5hd2_gmac to devm_alloc_etherdev(),
-devm_mdiobus_alloc() and devm_of_mdiobus_register(). It drops the
-manual free_netdev() and mdiobus_unregister()/mdiobus_free() calls from
-the probe error path and from hix5hd2_dev_remove().
+When the MAC node has no phy-handle but of_phy_is_fixed_link() returns
+true, this commit registers a fixed PHY from the MAC DT node. For a fixed
+link, MDIO bus registration is skipped unless an mdio child node is
+present. phy-handle takes precedence over managed = "in-band-status".
 
 > diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index 12a5657653f85..d129aeceb641e 100644
+> index a176870079e96..b787b7777e924 100644
 > --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
 > +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-
-[ ... ]
-
-> @@ -1189,21 +1189,21 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
->  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-mii", dev_name(&pdev->dev));
->  	priv->bus = bus;
+> @@ -1176,37 +1176,52 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+>  		hix5hd2_phy_reset(priv);
+>  	}
 >  
-> -	ret = of_mdiobus_register(bus, node);
-> +	ret = devm_of_mdiobus_register(dev, bus, node);
->  	if (ret)
-> -		goto err_free_mdio;
-> +		goto out_disable_clk;
-
-[ ... ]
-
-> @@ -1269,16 +1269,10 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
->  	hix5hd2_destroy_hw_desc_queue(priv);
->  out_phy_node:
->  	of_node_put(priv->phy_node);
-> -err_mdiobus:
-> -	mdiobus_unregister(bus);
-> -err_free_mdio:
-> -	mdiobus_free(bus);
->  out_disable_clk:
->  	clk_disable_unprepare(priv->mac_ifc_clk);
->  out_disable_mac_core_clk:
->  	clk_disable_unprepare(priv->mac_core_clk);
-> -out_free_netdev:
-> -	free_netdev(ndev);
->  
->  	return ret;
->  }
+> -	bus = devm_mdiobus_alloc(dev);
+> -	if (bus == NULL) {
+> -		ret = -ENOMEM;
+> +	priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
+> +
+> +	/* In the case of a fixed PHY, the DT node associated
+> +	 * to the PHY is the Ethernet MAC DT node.
+> +	 */
+> +	if (!priv->phy_node && of_phy_is_fixed_link(node)) {
+> +		ret = of_phy_register_fixed_link(node);
+> +		if (ret < 0)
+> +			goto out_disable_clk;
+> +		priv->phy_node = of_node_get(node);
+> +	} else if (!priv->phy_node) {
+> +		netdev_err(ndev, "not find phy-handle\n");
+> +		ret = -EINVAL;
+>  		goto out_disable_clk;
+>  	}
 
 [Severity: Low]
-Does this change when the MDIO bus is torn down, relative to the clocks,
-if hix5hd2_dev_probe() fails?
+Is this condition broader than intended? of_phy_is_fixed_link() also
+returns true for any managed value other than "auto":
 
-Before this patch, a failure after of_mdiobus_register() ran
-mdiobus_unregister() while mac_ifc_clk and mac_core_clk were still
-enabled. Now the error path disables both clocks and returns. Devres then
-runs devm_mdiobus_unregister() -> mdiobus_unregister() with the clocks
-off.
-
-These failures take that path:
-
-- missing phy-mode or phy-handle
-- platform_get_irq() errors, including -EPROBE_DEFER
-- devm_request_irq() failure
-- descriptor queue allocation failure
-- register_netdev() failure
-
-If the bus scan found a PHY and bound it to a driver, mdiobus_unregister()
-calls phy_remove() through device_del(). phy_remove() can do MDIO I/O:
-
-phy_remove()
-    phy_leds_unregister()
-        led_classdev_unregister()
-            led_set_brightness(LED_OFF)
-    phydev->drv->remove()
-
-The LED_OFF write happens unless the DT sets retain-state-shutdown.
-
-Those accesses go through hix5hd2_mdio_read() and hix5hd2_mdio_write().
-Both poll the MAC register window in priv->base:
-
-hix5hd2_mdio_wait_ready() {
+drivers/net/mdio/of_mdio.c:of_phy_is_fixed_link() {
     ...
-	for (i = 0; readl_relaxed(base + MDIO_SINGLE_CMD) & MDIO_START; i++) {
-		if (i == timeout)
-			return -ETIMEDOUT;
-		usleep_range(10, 20);
+	err = of_property_read_string(np, "managed", &managed);
+	if (err == 0 && strcmp(managed, "auto") != 0)
+		return true;
+    ...
+}
+
+Before this patch, a MAC node with managed = "in-band-status" and no
+phy-handle failed probe with "not find phy-handle". Now it probes and goes
+through of_phy_register_fixed_link(), which checks in-band-status first:
+
+drivers/net/mdio/of_mdio.c:of_phy_register_fixed_link() {
+    ...
+	if (of_property_read_string(np, "managed", &managed) == 0 &&
+	    strcmp(managed, "in-band-status") == 0) {
+		/* status is zeroed, namely its .link member */
+		goto register_phy;
 	}
     ...
 }
 
-With the MAC block unclocked, could these accesses time out (up to 10000
-iterations per access)? Could they read a stale ready value and lose the
-write, or stall the bus on some SoCs?
+That registers a fixed PHY with link=0. It also skips any fixed-link
+subnode, so the speed and duplex given there are ignored.
 
-Before this patch, hix5hd2_dev_remove() already called
-mdiobus_unregister() with the clocks off, because probe and ndo_stop
-both disable them. The new ordering only affects the unwind after a
-failed probe.
+hix5hd2 is a plain phylib MAC. It connects with of_phy_connect() in
+hix5hd2_net_open(), and hix5hd2_adjust_link() is the only place that
+programs port speed and duplex. The driver has no in-band status reader
+and never calls fixed_phy_set_link_update() or fixed_phy_change_carrier().
+Would the link ever come up for such a node?
 
-The same ordering is still there after the later patch in this series,
-"net: hix5hd2_gmac: Support fixed-link". Its out_phy_node and
-out_disable_clk labels disable the clocks while devres still holds the
-registered bus.
+The binding in this series only exempts fixed-link from the phy-handle
+requirement. The commit message only says phy-handle takes precedence
+over in-band-status.
+
+Should managed = "in-band-status" without a phy-handle be rejected here?
+Another option is to check for a fixed-link description explicitly.
+
+[ ... ]
+
+>  	mdio_np = of_get_child_by_name(node, "mdio");
+> -	ret = devm_of_mdiobus_register(dev, bus, mdio_np ?: node);
+> +	if (mdio_np || priv->phy_node != node) {
+> +		bus = devm_mdiobus_alloc(dev);
+
+[ ... ]
+
+> +		ret = devm_of_mdiobus_register(dev, bus, mdio_np ?: node);
+> +		if (ret) {
+> +			of_node_put(mdio_np);
+> +			goto out_phy_node;
+> +		}
+> +	}
+
+[Severity: Low]
+What happens with a MAC node that has both a phy-handle and a fixed-link
+subnode, but no mdio child?
+
+phy-handle takes precedence, so priv->phy_node points at the PHY node and
+priv->phy_node != node is true. The bus is then registered on the MAC
+node itself. __of_mdiobus_register() finds the fixed-link child, which has
+no reg, and scans every address:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_register() {
+    ...
+			/* be noisy to encourage people to set reg property */
+			dev_info(&mdio->dev, "scan phy %pOFn at address %i\n",
+				 child, addr);
+    ...
+}
+
+The fixed-link node has no compatible, so it counts as a PHY, and
+of_mdiobus_register_phy() is tried on it at each free address. This
+produces the "scan phy fixed-link at address X" output that the commit
+message says this change avoids.
+
+The binding text in this series says:
+
+    With a fixed link, the MDIO bus is not registered unless this node is
+    present.
+
+The binding does not forbid combining phy-handle with fixed-link. Should
+the binding description or this condition be changed so they agree for
+this case?
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124002442.19414-1-mmyangfl%40gmail.com
