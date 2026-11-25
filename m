@@ -1,132 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.177
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622162;
-	b=tEwotvLif4D1fCy99w/fAwM34hV0PRpmTYhNoYtjLP/y2RLn6U2nA0iFItmJibizBtl+
-	 asq8rQ+fSG8zgQ1K3ZOq38CxXeFEdnfGeaNYv1nxoCjzMIjrWy8SjQCSO5hSpmKyS+4gx
-	 grVFkwefE2dvBW+hU5PMD2RIdojZAET2V/UfLXl1lDLJHFTen9T/T91en/F+jFAK3aXMM
-	 4OR6LSNWDdZqRSN4nSNQvR0phJy0ppIwY3pfuQySsMeI5OjgAJ9JksWCycREYHEyFRXr6
-	 cK9eRV2jVDjJR1kYd1VwH2bpE0KqiWP6CZ3T30hX/ioFysNa9oSqoXJ9HXfx3cP81mg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622162;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795622339;
+	b=UkfeFdHlFV8bTEiHZd+Zu3OJPX6q8t2duhmwwVG2qSHGoZEB2YdesG6DRUt2x9Xib1Ud
+	 /3Qb3b33lRCvvabX2wmuq/Q1ZRN76nxbAzQt+Nq5vbOZtkOX+ZN+2QYdGFX31AwYZvDqG
+	 tn2QSZxn6hSdrjnOmCj43tvfdSTeDwNkBIEEtZeAVzDb9REUou3/tEGpnkW60JDBhJrPI
+	 Vh2JmcKJNZOUpc0oGpA+6PACkTaF6a/ps63xt2IJyfUSJjZhqnhCjb4DFzihbGODbO0fo
+	 /9MB667PxmD5OdeatTx6+7GD7WNzrCeb1Ze7TuqH2Mdy6SYy3RwSIs4Ho0h5QkwtYag==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622339;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
-	 In-Reply-To;
-	bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
-	b=afP2Iic/jaZE82oVySCzYAzAxjdM+RXhKdSKYq2nMV5hEfKbuoQdmWyoexvH8x06ks6K
-	 V7gvMasL079iHff5JGyvjRb7bxqttkRIlIztyen/ybV3O3ZucNcVmDaxG5MbEG//Y3T7p
-	 HOQQ+/4iUsOvp1BIPTUAnL3QOm+VLY11yfInragBgS140le65Dsa0B5CyS4ZhG3YJtLCu
-	 uZiBfiTWA2j9/3tn1bMn5oHqNKqMv/fNKLCFQRcwFy4rlx53YP8sngymeWUdmVEltwhQ+
-	 iZ946iHEBzo9fIVvLG8zLm9a8ej5mN+51h4f0g/PFxRDRIe+9w6eZ3+6y6o1BpX2/Ng==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AunkM8Nd;
-	arc=none smtp.remote-ip=209.85.160.177
-Received: from mail-qt1-f177.google.com (mail-qt1-f177.google.com [209.85.160.177])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=6hnBZan8g8LHddmledKC79LHYdm87y2KXTgu+jeeovk=;
+	b=PSMv2JvpZHT2AVCcNgr0YSDEHmU16YH2C+y4S14T9eUWoYphR8Pi5Hk2XkaV4ggzXDqZ
+	 LrFc1HZtUos1ggxKeBPBbS+vC2QXMNNTZcdS2rst7KlcyNhSjxrnID1bfyvDTTB79K3Zg
+	 arqM4wzoyC5ESAaYLlCdA7z+71ehneQzEChD/2obNMpoUEIVHdMZEvar3ZxRBldtb3ayb
+	 szLDzR7t8xdzGJq1pdkYOCoPRyelcsdbB2jxesplr5X5CkxWYNVsTvOYkg4BvyMeoTXZR
+	 1yLjnagdoWKm3lr3wCFc7J/fIjhyACEVngGdS7RarIQjZ94Ccw8hHZGPm38280f+hdw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=flipper.net;
+	spf=pass smtp.mailfrom=flipper.net;
+	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=JXLAQZKs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0B12606A33E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:56:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0B12606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A5C41606A681
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:58:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A5C41606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=AunkM8Nd
-Received: by mail-qt1-f177.google.com with SMTP id d75a77b69052e-537548b811aso49245051cf.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:56:01 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=JXLAQZKs
+Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c4cac7a7d3cso883228466b.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:58:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795622337; cv=none;
+        d=google.com; s=arc-20260327;
+        b=sLmU4HDsrxT4bNjxraOUXco3TaXa/WA9JsUF86QL+Mb+X1rQrtk00J/uhS5imHE6oU
+         JUMq0fadLLAkMin2f9bvfmTKNEByci65EIX/TM5nxLcpNmHKycIN2kd85Jywsc/75LzR
+         WLlfsGnJMUE9mcXHrwL/t0m1Tgj/bcWu1dAHt46s2qmC8k/dgj2XoRXCrAJ23eVQ6jE6
+         rzSoKa7JxZTBpwCdKKXrBAjUWnPhmt0OYisteqhPMS6eEhx1bAu8lgquZzmY/g976m85
+         D7UiLom/0g/gzwVPRKwAJcLGkddcjmEJoqXXs0hLJF+Fh+LjnCkdJDrtad6T9JAjbDts
+         hXoA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=6hnBZan8g8LHddmledKC79LHYdm87y2KXTgu+jeeovk=;
+        fh=I1odYHg2iFV3xm6CxpGCG2FDUtJZ9uikq9npElQ7jGg=;
+        b=ebFeDv1l/21ToX3LFnGozqemUKjCCPkT/f4gPb9OYgN9IE9VEMnehSsb6lkc+u0X3/
+         pPU+wOEhoiBVURWd1miOnOtSS/ot/hAFgqw7WUeL6opxUg0eHuSqGC3PRmLBPeyURJFb
+         +JQzjdU5a17S6a80vWogHaEsysmzFoe3jojHEtkaRt0ce+3iVYDh9/cxHvzbVMxyYO6+
+         s6fj2TQxZifrY6HMf3u1npnBXzs1WWgP+R/YSVYoYNtBM1FnOqVcN8BPgTwl2UhMfmsn
+         H+Po4qO4iEQSODjgmbVe8Jx/u+BTEVWT0NLFVf06fn1h1baCsgytHewfLkcjIbfSclm6
+         OuEw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795622160; x=1796226960; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
-        b=AunkM8NdkleqIXitLeobLCQ3Tftf6jih38/IsUVKvscsn0eom/XU3ykRho0PpQ0az0
-         rYvStTeGGeX8RzqZvSmkfQ8PnfZTaau/BD81gD8jksR79zy0OeqgvvaJ5S12A8sDTRmI
-         nDzgUpEThFfPpbYyy92hrIWUBiAH5NujeTowTbmHDJbrcMjsoGpU9TLndiIxQJscM2JS
-         KPSmuaAUUkGT+shzqkoybwk6wagC24/6Jh+eTluckgbUG1rf3BSFzpgbcmXYy6TNs3mH
-         xxseDQrWCjodnpd9Wzsmsn4TFh6ZehNtFTOJb0+srU8fXJGYJAlBbpVfqIml+61lRgAa
-         8/Zg==
+        d=flipper.net; s=google; t=1795622337; x=1796227137; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=6hnBZan8g8LHddmledKC79LHYdm87y2KXTgu+jeeovk=;
+        b=JXLAQZKs1ZDSjHSAx8TIgEBbtDLNlVrzKhWV108iyq08/vJa1ZilyaW+VZP+C9p89w
+         zL8opP8hxcFgBDsMLoaZdGv/ycXTCd9D3u5FVd31cobfbVoM+0NN860gnzpF1aHPqP0Z
+         1T904onxOeVaulXCOUmlEUz2LZ6eUPQRX/I7KRCCBw4WxiS7VP61fBs5ayTosbbEMFJi
+         RuOl6O/P7bshxQMQVs5WfjjkpMaHMF6K2g+KWoM+m7SVLOzUu2wMg9WPlnECrTX4gFmQ
+         xnUjMP6E0k55etqDk9vtDqWlgcGYiCU79Jsh4pEptim8BwEAjAzmuiDK4eGQjGqr4Mug
+         CwTA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795622160; x=1796226960;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=EFVYxWaHZcfOFQ3BpTu3S3Fo2WDIpYYjIvIe38jWEXE=;
-        b=xsGS56nqacMrGOG+e9+O3G7+RQBnxVz3LH+kocye0xB3tONozfKG74oEwcfTCLOmVt
-         oHrKENKqx3KIedcuEjwIrW9P1YyrtvPRHcpFVpHeUegBJGylvsvWz0Xp/vnQ5GhmUSrN
-         ZA7INn5Gc3PfM3et7lcUjFqcMRecv2V+XxP25U1In9QQEbyPdqjBggb64J2/wSxeXUa8
-         arAlo9ZA+tBeiZGa/KaZBpeW1+BMEAtTXZvYK52dyLiZbv1deXvX8HY38sO5rLcdpzs1
-         75BW5Su4do67W9e/JNjKeKMu8APd7KgmTnPQWIIjnUmVMhNiRp13PFR5Dma8TYPLrHam
-         nStg==
-X-Forwarded-Encrypted: i=1; AL+hErEHpd5wERX+66Lkbad6yGlaYBPn0RNKbKl2dawdx0UD3tbSLlszcS5Q0nYTX7+VZIbmCNLp3Bg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8e9t+WEXZADc+XEwP45mDLf+aTOy18vbt0nzCso+Kxjf4FfI9+
-	gSwOdSKDDbKTk7yxSlNJw8VXYVn6+EwY5Cq6VlhZBNpBnRBeURNmHVLSvHSaRZuHdeo=
-X-Gm-Gg: AZFdTZemnCVaP0Lsu+RbW/UWfxqTq6j+aLbCkdlaY8ULVmi0kmtPMN4hisX9ni3SbDa
-	o75UaiN+/4tQCRNwhFHFFl4e+gGxxDQR6wevqcl1woKlbejDtPEG9en3i9bbru0VF9xXUR22HxP
-	f4PaM8daZGPWsoIJjeoLhaW046cfi47T3o685k4RJ8zj9Cq5R5QpnxObvPt1MV/7IEkLV+4hezb
-	1eln3xe2dOteNAhehfn+9tuqipjekGDGRi8gj01XFEoBN4NzYo/9CSWhXX0K7VeWYrwNOv7xGN5
-	DD6RvUPw82ParcjkFcgd+5pN5CYILY1J1pdDvWWK8yNkRyEbnbazt+PEJRXLiGaG2fo4Y/q7CHj
-	PD4Ajma00G2gHhux/mqF64tmxu4Jn8YYwnpwStXDqmeiFYgsw+N6X5R+Glqo2/SID2QH/iXW3Sh
-	Ka4M4hsXT5o3eHsV43n3LCtaLhaRQ5Rwqql8LCTizIrTkgEy/iYSz4xR1GFWJjUou5SoTfzbOVq
-	PSMasqGtEHZcvtYLuat7f4+syxWMaC7cf2tPWJ3B6tLonezd7vsmXd9WwbxXB8Oq4/Nd+rqbNlY
-	6c30yyPegd+SlKYeJyGbk642Iio=
-X-Received: by 2002:ac8:5d89:0:b0:536:5696:e8c8 with SMTP id d75a77b69052e-55d769e4561mr347501161cf.28.1795622160509;
-        Wed, 25 Nov 2026 07:56:00 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d7882bf70sm160274901cf.11.2026.11.25.07.55.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:55:59 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWFLj-00000001uyg-0aUM;
-	Wed, 25 Nov 2026 11:55:59 -0400
-Date: Wed, 25 Nov 2026 11:55:59 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>
-Cc: Alistair Popple <apopple@nvidia.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Matthew Brost <matthew.brost@intel.com>,
-	Vivek Kasireddy <vivek.kasireddy@intel.com>,
-	Dongwon Kim <dongwon.kim@intel.com>,
-	Kevin Tian <kevin.tian@intel.com>,
-	Xu Yilun <yilun.xu@linux.intel.com>,
-	Karl Mehltretter <kmehltretter@gmail.com>,
-	Baolu Lu <baolu.lu@linux.intel.com>,
-	Felix Kuehling <felix.kuehling@amd.com>,
-	Alex Deucher <alexander.deucher@amd.com>,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
-	linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
-	linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
-	Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
-	Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
-	linux-nvme@lists.infradead.org,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
-	Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com,
-	treding@nvidia.com, jhubbard@nvidia.com, chaitanyak@nvidia.com,
-	Leon Romanovsky <leon@kernel.org>
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-Message-ID: <20261125155559.GL246011@ziepe.ca>
-References: <ad46d60a-189d-4dd5-9ad8-ecfd3c90f9d9@amd.com>
- <20261123165716.GM179082@ziepe.ca>
- <7ac7edd0-5c38-440a-b26a-21bcbb6f4702@amd.com>
- <awT8prWsj11TBdmP@nvdebian.thelocal>
- <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
- <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
- <20261124194618.GC114530@ziepe.ca>
- <awZ_Os1pXelOGaFP@nvdebian.thelocal>
- <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
+        d=1e100.net; s=20260707; t=1795622337; x=1796227137;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=6hnBZan8g8LHddmledKC79LHYdm87y2KXTgu+jeeovk=;
+        b=EXkUAUTGezQDjX/NvoOC1rxBlM1cqrbbtJYDEAaWPJNaIwNM9fIJN5ir+PzVxyfgp+
+         PVDOTUWRy5vpPGjdB700cmWCtTgBwp0Hpa3UdZYhNQYJ5zOkeaLh7hWK1svFdYjLqTvI
+         Hu0yy1k9DcFje7yheJZKp6/LxfKAV8ilhExelQlEdVX+Qu3gWE1hgIAhdHioNWTQU0m3
+         P3eYhwDdWHVqh6cbpZyqm1rtSEuNRUMMBTVmO7zfmQEpyT9bkR0HxYw5+T4QkfN6tBHE
+         hn0D9429jt6bIyQnnfunI+75XJtdt786l8SemUGYaVmGG3qKUHGzUNTHIY9ymnOmsHY2
+         2o4w==
+X-Forwarded-Encrypted: i=1; AL+hErGf1Os9xXjgSG4I9xyZi202SZpWQ0NBcpYxtc8mrpG9fM9z0kKy8RF53x28II/mGhJIS0QwCIo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4SBcLWC2onsyVeFJkV1bC+wiq8PUnMIrzB9t3Eb0vodn+r2rc
+	2/SHB99XoM/e2v59y92wVhHa3RNTUsS8Jxm6S2NEofI9NN80LpwuvAiwSXaXV4T+NMywyamt7aN
+	7CCnZDQ+tG+lb/8M/cEhJoHMjBg+noeTg0cbjvMRPTg==
+X-Gm-Gg: AZFdTZfxKl6kmKgTCUAeajhdl2sat2pEJWTTYiD87Nsyvj6faApE6H8YQkuIhqFlVs9
+	KA2RcnPCIh1DeezAFhrYrrBnvbTz23iUsxCP96hhePuemDJd7/KWQ2L42yON7W2k4PZYRsHIxD2
+	pSeGX3wziH2TvbcON16R8qrecOLNLrycm1L/WcBzSA9twKdK2ahelcaK2Wx9uujOl2iAEHlHt7s
+	99wV8awCL/gMhljNY+QSTLGEWmHRgoKkQFts5Wq/nnOlkH1qscft9tS3wUo81vFhmQlMj8xnmi6
+	yGkgdDr0Qu0nw0vUdfbEqD8oFmefKH2ijkNyYBvYAk/ZRQFxegHa+WzrIgGTumZ+Mgt437hIycx
+	w+p9IGB3gPu9ZP9c7jg/A5KqIbIIXSaKJVtNFNWw3UcpJ0m3rNPPVKGjhztU8hHGuMRc2
+X-Received: by 2002:a17:906:81da:b0:c51:1d9a:323c with SMTP id
+ a640c23a62f3a-c513a88b0d1mr1175280566b.15.1795622337011; Wed, 25 Nov 2026
+ 07:58:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -136,98 +104,103 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
+References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net>
+ <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+ <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+ <2f8da604-36af-4944-8168-02b046e97699@lunn.ch> <CAKTNdwG1sSBVKcKpHBj24nFCdc6WVKabV5=K4sJFucWpTLqRQQ@mail.gmail.com>
+ <1defc5c8-ba61-40d2-99f3-6654f1743af1@lunn.ch>
+In-Reply-To: <1defc5c8-ba61-40d2-99f3-6654f1743af1@lunn.ch>
+From: Alexey Charkov <alchark@flipper.net>
+Date: Wed, 25 Nov 2026 19:58:42 +0400
+X-Gm-Features: Aa3M54rEPfqgE6y_yyyGlUyi0QUCYRvYug-ToPvauBq7tha0wq3SQqIuKn74zqk
+Message-ID: <CAKTNdwFktkMtdLW2GzqzLH+LO4kF0uY0jWpnvO5vbWmd-e4iWw@mail.gmail.com>
+Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from the
+ CPU ID
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Ryan Leung <untilscour@protonmail.com>, Srinivas Kandagatla <srini@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <rafal@milecki.pl>, 
+	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+	Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 12:19:08PM +0100, Christian König wrote:
-> The low level API which talks for example to the IOMMU driver for
-> creating the information how to access the buffer is simply not the
-> task at hand for that framework. The stuff we already handle is more
-> than complicated enough.
-
-No matter what name you give it we need something in the middle that
-can see the phys_addr_t and the iommu_domain..
-
-If you don't want DMABUF to be that thing, then I'm not sure what you
-have in mind.
-
-> > If I drop the type/placement negotiation for now and focus on SGT removal I can
-> > simplify things a lot. Plan would be something like:
-> > 
-> > 1) Introduce a new C data type (dma_phys_list?) for exporters to pass physical
-> >    location info and context for mapping.
-> 
-> Something like this maybe?
-> 
-> struct {
-> 	u32	mapping_type;
-> 	u32	num_entries;
-> 	union {
-> 		dma_addr_t	*dma_addr;
-> 		u64		*generic_64bit_addr;
-> 		...
-> 	};
-> }
-> ....
-
-"phsyical location info" means phys_addr_t and related, not
-dma_addr_t. Step #3 has it as the *input* to dma_phys_list_to_sgt().
-
-The flow today has the exporter get a phys_addr_t (ie a struct page),
-build a scatterlist and directly invoke the DMA API.
-
-The primary issue here is the exporter *direct* call to the DMA API!
-
-We cannot disconnect this from the DMA API, ie to use an iommu domain
-or ualink, if exporting drivers are hardwiring calls into it.
-
-Fundamentally the need is for the driver to get the phys_addr list,
-exactly like today, and then pass it to an op which formats that into
-the right data structure for the importer. Be it dma_addr[],
-iommu_domain, or some ualink_addr[] - or whatever.
-
-This is the main issue here, disconnecting the exporters from being
-hardwired to the DMA API.
-
-That's what Alistair is explaining. This sequence:
-
-> > 2) Introduce two new dma_buf_ops - map_dma_phys_list() and unmap_dma_phys_list()
-> >    - which are replacements for {un}map_dma_buf that converted exporters use to
-> >    return a dma_phys_list instead of returning a sg_table.
+On Wed, Nov 25, 2026 at 7:23=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wrote:
+>
+> On Wed, Nov 25, 2026 at 06:41:42PM +0400, Alexey Charkov wrote:
+> > On Wed, Nov 25, 2026 at 6:21=E2=80=AFPM Andrew Lunn <andrew@lunn.ch> wr=
+ote:
+> > >
+> > > > > +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int=
+ index,
+> > > > > +                            unsigned int offset, void *buf, size=
+_t bytes)
+> > > > > +{
+> > > > > +   char cpuid[ROCKCHIP_CPUID_LEN * 2];
+> > > > > +   u8 digest[SHA256_DIGEST_SIZE];
+> > > > > +   u8 *mac =3D buf;
+> > > > > +
+> > > > > +   if (!id || strcmp(id, "mac-address"))
+> > > > > +           return 0;
+> > >
+> > > I don't know OTP drivers. But to me, a function called
+> > > rockchip_otp_cpuid_pp() which does not actually return the CPU ID is
+> > > architecturally wrong.
 > >
-> > 3) Move dma_buf_phys_vec_to_sgt() somewhere other than drivers/dma-buf and
-> >    rename it dma_phys_list_to_sgt().
+> > There is precedent for this at least in IMX [1], [2]. To me the
+> > interpretation is "Rockchip CPU ID used as a MAC address base with
+> > offset X", which is exactly what the derivation does. IMO, this is
+> > less clunky than the alternatives (e.g., a custom NVMEM layout which I
+> > used in v1-v2; a "virtual" NVMEM driver referencing the real cell and
+> > returning the processed one, which Ryan proposed in v2 discussion, or
+> > caller-side processing).
+> >
+> > [1] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-=
+ocotp.c#L224-L238
+>
+> I would say this one is different. The cell specifically contains the
+> MAC address. But its endianness is wrong. Nothing about CPU ID here.
+>
+> > [2] https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/nvmem/imx-=
+ocotp-ele.c#L115-L129
+>
+> And this seems to be the same.
+>
+> As i said, i don't like the concept that a function called
+> rockchip_otp_cpuid_pp() returns something which is not a CPU ID. The
+> two examples you give ask for a MAC address, and they get a MAC
+> address.
+>
+> Does nvmem support aliases? Can you put two different names on the
+> same cell? If you access the cell via the name cpu-id, it calls a
+> function _cpu_id_, it gives you the CPU ID. If you access the cell via
+> the name mac-address, it calls a function called _mac_address_, and it
+> gives you a MAC address.
 
-> > 4) Update dma_buf_{un}map_sgt() to call the new map_dma_phys_list() ops and
-> >    dma_phys_list_to_sgt() to create an sg_table for unconverted importers
-> >    importing from a converted exporter.
+The cells themselves can't be aliased, but what you're describing is
+pretty much what the current code does. The id field is exactly what
+the consumer used as the cell name when referencing it, and the
+postprocessor callback checks whether it was "mac-address".
 
-Effectively converts all the exporters to produce a phys_addr_t, and
-then moves the DMA mapping action into one single place in common
-code.
+Shall I perhaps just drop "cpuid" from the callback name to avoid
+confusion? The special treatment is only applied to cells with the
+compatible string "rockchip,cpuid" anyway, because only Rockchip SoCs
+use this particular algorithm for deriving addresses from cell
+contents.
 
-With one single place we can figure out how to replace it with a call
-that does an iommu_domain:
+> That way of_get_mac_address_nvmem() just works, so the MAC driver just
+> needs to call of_get_mac_address() or of_get_ethdev_address().
 
-> > 5) Add dma_buf_iommu_map() taking a IOMMU domain/iova/offset/size to be called
-> >    from iommufd for mapping an attachment into an IOMMU domain.
+They still need to relax the size check as done by patch 2/5 in this
+series, because the CPUID cell is 16 bytes long. Srinivas rejected a
+prior version of this series that attempted to return cell contents of
+different sizes depending on the use case. Currently any cell size !=3D
+ETH_ALEN gets rejected by the net core, not just < ETH_ALEN.
 
-But that relies on iommu_map having access to the dma_phys_list *which
-is true physical*
-
-> I think a whole bunch of other drivers would be really happy to use
-> that interface as well, yes.
-
-Right, that is clear now, that it is not just iommufd that wants a
-dma_buf_iommu_map()
-
-But I don't understand at all how you imagine to implement
-dma_buf_iommu_map() if you don't want this in the DMABUF core code.
-
-> That totally sounds like a plan to me.
-
-I'm confused if you agreed to what Alistair said :(
-
-Jason
+Best regards,
+Alexey
