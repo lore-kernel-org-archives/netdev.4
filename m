@@ -1,71 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.31.204.67
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596350;
-	b=CS50k+Va+ntm3IjhCVnV34LYKX0+watMkgsf1Ave+jcHUZxWHDfKp/vxIDAgH9E6H937
-	 oY5DQY8iVQxkmwdYuvUUxpTBs5y+OgrDeCqK5RNAig6AQ+FGd7wd2eSIFNvGmRaIPykZJ
-	 QNhUATy0iUgvsGVm41P/jHz3FBGbGqBlDM7XffsfRc+H980FwluQQoLs4l6vbnXeLTnv0
-	 87vkdUpSsyOiPBxezlXlAq+9DWA7/+EOuWCHqbnCudEXRNRCI4n+SVMESIAq30OpdOUsi
-	 l4SY0pzbmCbYje2NHSS8GgDHCLVFG8/nxET2RNDXrcZgO3Zg5rJGFacU+ujshqTYHyQ==
+	t=1795596559;
+	b=2KtqMyO4Iourzk2hYttn5GFPPoCKv6EmG04Z/i/GAKvjqgxT3goXnSgX9KnNTD5uRkFO
+	 My//Vf/oqyd4Wls/f5wpNa3BFWhlwAfhtmHwvVSn1qmiCAqLPxeXRjPxvwAgO57LTwaok
+	 N7ubEMqW+A4mpoCkGQ43IJD1U03rQ80p4MqKITTSbhb4+1/bHX7V3GZY+T09Er25zd8nL
+	 NAchWsVSp/pTkcB0G30HHqZFZTWe+i+5yd5gOvUV7WNvKsSlKllMesBUueYK1udpOYBcM
+	 2RfOIEFgO7tAS+gljD/+l3C/paHWuCgmlWfrTuSx0EboVo4Mo9EpjCr38YycBfv3djw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596350;
-	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Rspamd-Queue-Id:
-	 X-Rspamd-Server:X-Rspamd-Action:X-Spamd-Result:X-Spam-Status:
-	 X-Spamd-Bar;
-	bh=D4/TLcjDuQtaSzzXjuYZ9vH+2xAI7OHDM17nE/Atph4=;
-	b=JIF9U0s6Q+CAjmtdibO0DhSJE0o4HZyWTeRaOVEKxfCNvbbWies9n1uZ5qrw0NcXwpBA
-	 sFQrgrMdkBcsJ+4VYOvWeqTMWgBmZ6tLrxco6aTl+n295NOBEUmix0Eat87Iq4KDmMK33
-	 IQIocas6kwJMcxOCl6VeUn51lQMfqFoWFYD5plp9oUaODWeG5RYw/PusJTR5IL1nRjGrj
-	 28dpiYcyp2e6OzU9XzevHsXu/k2ULhf/oyzep8GH5T1nlMygSWZQe68ayZMIcUlweZvNt
-	 KSa+dbqPEqEthVKnIX7ROUWr01KAkZYN5oJWwhDKByDbXLrjFw62efxJHn33YlSs8TA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596559;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=TlND/jXIyTOutFCDB5DXoV3ddiKsYWv3HLDMVOOuvUk=;
+	b=LQE0vBSdlPqY7FItSS5Dr/dXeU+XAOTqmx3rdyr7nSCtCBSzyk+CVGhkxIp30kXbnVin
+	 XrupdkSZSCnG5UsKMEq9dDGfzH8XfCSzJGj395bQT9RH8KAQVeB2Plennd22/fmN5wamK
+	 fgztazqQ+NMWDzbq7DqS5QDQ9kEYjq1Cjb7y1ilXLolDSENXAZqF4vHKA4JJGOpbjR/Ga
+	 C39LFiRAWs1dO7X7u/FZbRC2jQtYwlvwJ0GcKUjrPjA0MW8gN8tmdVZJukSr2ZhqY358L
+	 ydb0FZvg20BMPXJIb1mwNGictZEYP2s2E3o3yE3KOdfBvHKEYjuwDJhCqypagD1+ruQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nic.cz;
-	spf=pass smtp.mailfrom=nic.cz;
-	dkim=pass header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b="tstd/pii";
-	arc=none smtp.remote-ip=217.31.204.67
-Received: from mail.nic.cz (mail.nic.cz [217.31.204.67])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CbvI696z;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8729606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:45:49 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8729606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nic.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nic.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0287606A68D;
+	Wed, 25 Nov 2026 08:49:19 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b=tstd/pii
-Received: from solitude (unknown [172.20.8.51])
-	by mail.nic.cz (Postfix) with ESMTPS id DF2891C0600;
-	Wed, 25 Nov 2026 09:45:39 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nic.cz; s=default;
-	t=1795596341;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=D4/TLcjDuQtaSzzXjuYZ9vH+2xAI7OHDM17nE/Atph4=;
-	b=tstd/piiU+1oM4cwINlWvD21K8N5fq4tNE8Zq9PITgO6V4m+eZ2wcWMxMsMDFOEpzd6Jjf
-	Gi7o68gITJw6Un5dYTaosuknttbdbqhQ4gvDMBbajc+lsI4yzPsFTYIx4M2l0u+Z+63bC1
-	WiOoB/jA3ApMySB43OcY/aCWVafNbNs=
-Authentication-Results: mail.nic.cz;
-	none
-Date: Wed, 25 Nov 2026 09:45:39 +0100
-From: Marek =?utf-8?B?QmVow7pu?= <marek.behun@nic.cz>
-To: Daniel Pawlik <pawlik.dan@gmail.com>
-Cc: Andrew Lunn <andrew@lunn.ch>, 
-	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, hkallweit1@gmail.com, linux@armlinux.org.uk, 
-	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, petr.wozniak@gmail.com, 
-	maxime.chevallier@bootlin.com, olek2@wp.pl, szymon.datko@gmail.com
-Subject: Re: [PATCH net-next v4 2/2] net: sfp: skip PHY probe on bridge-less
- OEM SFP-10G-T revisions A and B
-Message-ID: <awaf-l4FLw0TgpOn@solitude>
-References: <20261121091235.1447291-1-pawlik.dan@gmail.com>
- <20261121091235.1447291-3-pawlik.dan@gmail.com>
- <awWkbH3O8IrMYiSF@solitude>
- <20c5e53b-e2f5-45c2-9d64-d279cb884870@lunn.ch>
- <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CbvI696z
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FDEF1F00A00;
+	Wed, 25 Nov 2026 08:49:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795596559;
+	bh=TlND/jXIyTOutFCDB5DXoV3ddiKsYWv3HLDMVOOuvUk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=CbvI696zR6OtVXAPCG7g/iPy03A2oTw21RBe6JaPhJHFPRXi+H17lOBRzJrgNARtn
+	 r+fRoufm0OiktxQGgsxLm9zCVTMRoj9kPsTPBWqqSY5vGYQEAuqD+14yaCOmlKMYgF
+	 j1qfbL6ZNKLE7MMyEMUkcV3l/4FT2ZkmMgDykuG0RcIRla9mWdpv0NQJXIM+9jb3cF
+	 VJt8oZcFXReeREr1uqelf/3atuLgWEoBVmlLglOje+t6FyydCXpPAQKHBjUs9j0ERg
+	 xnHTGpj/TffLtZ2xQ+zgZOe75RLjcDXEPhX2RuZKUdYZKO2pec6w3jDkKOOwtf+v8j
+	 Gmrfe0Cs12QCA==
+Date: Wed, 25 Nov 2026 10:49:05 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Oliver Neukum <oneukum@suse.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	"David S. Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+	Dan Williams <djbw@kernel.org>, linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-input@vger.kernel.org,
+	netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-bluetooth@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v4 02/33] Bluetooth: btusb: Fix MediaTek ISO claim locking
+Message-ID: <20261125084905.GX14811@unreal>
+References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
+ <20261124-device-trust-core-v4-2-037eb0d17b1f@nvidia.com>
+ <65749362-927a-492d-8bff-573c277fe456@suse.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,68 +101,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
-X-Rspamd-Queue-Id: DF2891C0600
-X-Rspamd-Server: mail
-X-Rspamd-Action: no action
-X-Spamd-Result: default: False [1.60 / 16.00];
-	INTERNAL_NETWORKS(-3.00)[172.20.8.51];
-	BAYES_SPAM(2.70)[98.27%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	MID_RHS_NOT_FQDN(0.50)[];
-	MIME_GOOD(-0.10)[text/plain];
-	LOCAL_OUTBOUND(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	ARC_NA(0.00)[];
-	TAGGED_RCPT(0.00)[netdev];
-	MIME_TRACE(0.00)[0:+];
-	TO_DN_SOME(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[16];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_COUNT_ZERO(0.00)[0];
-	FREEMAIL_CC(0.00)[lunn.ch,kernel.org,gmail.com,armlinux.org.uk,vger.kernel.org,davemloft.net,redhat.com,bootlin.com,wp.pl];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	FREEMAIL_TO(0.00)[gmail.com];
-	FROM_HAS_DN(0.00)[];
-	ALIAS_RESOLVED(0.00)[];
-	DKIM_SIGNED(0.00)[nic.cz:s=default];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com,wp.pl]
-X-Spamd-Bar: +
+In-Reply-To: <65749362-927a-492d-8bff-573c277fe456@suse.com>
 
-On Tue, Nov 24, 2026 at 06:56:38PM +0100, Daniel Pawlik wrote:
-> On Tue, Nov 24, 2026, Marek Behún wrote:
-> > It would be much better to somehow check for RollBall protocol.
+On Tue, Nov 24, 2026 at 11:39:40AM +0100, Oliver Neukum wrote:
 > 
-> Agreed, that is nicer than matching revisions - it covers every
-> bridge-less variant without a list. Two problems with the snippet as
-> written, though:
 > 
-> - i2c_mii_read_rollball() maps a poll timeout to 0xffff, so
->   mdiobus_c45_read() never returns -ETIMEDOUT here.
-> - Returning 0 skips the PHY probe retry loop, so a genuine module
->   whose bridge is still booting at the first read would lose its PHY
->   for good. That is what got 8fe125892f40 reverted in b521003c27eb.
-
-Right.
-
-> What about this instead (with Andrew's MDIO_MMD_PMAPMD/MDIO_CTRL1):
+> On 24.11.26 10:43, Leon Romanovsky wrote:
+> > From: Leon Romanovsky <leonro@nvidia.com>
+> > 
+> > MediaTek ISO claims are performed from HCI setup work outside USB probe.
+> > Locking only the interface does not protect the claim against teardown
+> > of the parent device. Unconditionally waiting for the parent lock can
+> > deadlock with disconnect while it drains the setup work.
+> Hi,
 > 
->     case MDIO_I2C_ROLLBALL:
->         /* mdio-i2c reports a RollBall command timeout as 0xffff,
->          * both for a bridge that is still booting and for a module
->          * without a bridge. Retry after one cheap read instead of a
->          * full PHY probe, which times out on every register under
->          * rtnl_lock.
->          */
->         err = mdiobus_c45_read(sfp->i2c_mii, SFP_PHY_ADDR_ROLLBALL,
->                                MDIO_MMD_PMAPMD, MDIO_CTRL1);
->         if (err == 0xffff)
->             return -ENODEV;
+> your patch raises a question. Can usb_claim_interface() ever be
+> used safely outside probe() without this kind of locking?
 
-And the variable should be called `ret` instead of `err` in this case,
-since it also can return a value, not just error code or zero.
+No, it cannot. This is why need_parent_lock is set for every caller of
+usb_driver_claim_interface() running from .probe().
 
-Marek
+> If the answer to that is negative, should the locking be integrated into
+> usbcore?
+
+Not in the current upstream code. Currently, only two callers of
+usb_driver_claim_interface() do not run through .probe: MediaTek and usbfs.
+usbfs already holds the lock, leaving only MediaTek, which does not.
+
+Therefore, the caller should take the lock, and MediaTek is the only caller
+that needs to be fixed.
+
+Thanks
+
+> 
+> 	Regards
+> 		Oliver
+> 
