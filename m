@@ -1,96 +1,113 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.225
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795607608;
-	b=eceH+dIRXThuXsvBtMcetcwf/QG/XxXDo+0SNxReK1ARuhlp1IdQzdZTLC30SJtaTW3S
-	 U+uFOKqPXaeZNKc561vwESMwObcsI+3RcsL8+qDQEzO0cJGku4Jzmkyg6f8OPNjUSJrsb
-	 h0LHdVZ7Xvhc8/Oi/TOj/0RgJ5TfVF5fRxlG1sn+qNN3JPoCqbhLsPKqj6MasNTmQrx/J
-	 wCSL36xx67uBhZ1BBDKdOU7OLDDe1WKSNEtTUkWPty78NO/r273yBwa5wMYP1kKfWa5eH
-	 tfy2w4FBLrKHVpeOg34bKn2ThtGB+yWa3l4a0P1BVdM+UmthtRJv4Q6lhye7u/LRtMg==
+	t=1795607694;
+	b=OKQ/gTAUn3SUIkol3+MCyRc6n18Qy3PnSoGjFgj+lr6+4hSJSBfPR3gne/9pbvTnHNMu
+	 QFEZi+dGkKM7NuCpDQ96Pbjq0LC7lnIqf9/OhpPuGBJ7P42dEhYhZQtlpHygB6a6+iYyN
+	 SrX5RGjx2DsLLiyHrODoOWXGIwEVeCNpyPiJ8npaU3bl5Ipe3fdXAvQVFkUK1HDOP+MtW
+	 +1ZBn9a9MnrymbW/MXeKLjLrytxiEjXvHBTfTI/ONn09Kwx4FtBY9Z/aRxsmbIGWHOZWv
+	 FHSd/FKXddcMimq88Q/N/H2Aqje4fwW9kCxpnCpIPIIr1+RdMT8oD8c6TPpRbE7Xx/g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795607608;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
-	b=OqR+FwsHHF7Ifbz848AF4pOjSuosND+F0YJzOXktLRtxXh3EuDbXqxTLyB3fIGCFMGSs
-	 rpGTYxXfZgehqGgoqD3wWf6tO3d9G9n1v5/iadwNR7+m1OCAAUwXaNHe9JGiSo38WE2bS
-	 0FRMtUc4B0jhKBOTaDK69hFzsoFfpl5gvB3LXBs0xHY03ABjEgs6ArED07x2xP5ywO436
-	 m15ncaTF5inFvz58x4vg+dRbemA8wTa7LyVe6F0Vx3AvrXCTY4RXlb8/RWGStbxnLViLh
-	 9B/c4DLko32oCZS2OFUgl+H/i2WGTrT7QwJfcjc2eBD3ILacERVzv9rR0FPhRlTDkvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795607694;
+	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:Received:X-Relaying-Domain:X-CFilter-Loop:Received:
+	 DKIM-Signature:X-Received:X-Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-DetectorID-Processed;
+	bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
+	b=CTg2rsWs5+CE+PLNKE/P7njUSHhnXYWZQsPh432rYcSrOfoNa6cAJcNw2aBGLV3WqYDw
+	 4qopYz5VhHS4cwedP4nRv5ULfFz41/tR2EuRT8//DODRaz29/IundEhs4EZgQYjV4DQ/x
+	 fFsJh9YiBnRxbFoJg9FUqIZHHRK+lD/3HkJl6FpdVWrG0Qqk86gt98zpquPjMCq4h074j
+	 qokmlhTKnEli9uzLmGfhgVceSDVEUC17YRh0bh0dFbqyITjpa8sRBVvTx9QaDKKNKkkJD
+	 5T73iGCdtsKOFh5UYgg7cJwna34+Zz64GwMEfxTEVCPah6b5K6fzcO5e6tshESH08LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=broadcom.com;
+	spf=fail smtp.mailfrom=broadcom.com;
+	dkim=pass header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b="LbQ/GscB";
+	arc=none smtp.remote-ip=74.125.82.225
+Received: from mail-dy1-f225.google.com (mail-dy1-f225.google.com [74.125.82.225])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE6FC606A332;
-	Wed, 25 Nov 2026 11:53:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EE6FC606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4A809606A688
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:54:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4A809606A688
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=broadcom.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=broadcom.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=C8qj2Rj+
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 32D4E45844;
-	Wed, 25 Nov 2026 22:53:20 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795607600;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mlkDCg9kprZ62DwlXQd8yd+ADgwJpdD1CpbOrg8ZjiY=;
-	b=C8qj2Rj+fzKog24buY1PaEC/j3+RQMketNzOBNyqLPWLhq3UVkUmXjPujBBBfT32+Ki+0s
-	2Y6k9BKv4Xh6Cgdk4eNvSDniSQhzK5oRY5aaw8V03U/XkGaHoA8oZcgvXvXzrrwIhtpckP
-	D7e+5pVv+l6s9ImcAxTvntnCi3d2XynmKc4m8EmxMU3tg72jdrGMswbwvB8ygFYJyyf1aJ
-	HUapdsxbhWcfElKIXpTDoNlNeqEAEO3kDjc6dUakyf3z4+fSNGVWbQdDDxumfm/rnqxnz7
-	PKxPPKekc+UHvNn7g/4bNwrBoIOeaE/YpnGdebkwT26eR7KAiLcsSJcNrm1rdw==
-X-GPT-Reason: The email is classified as personal/professional
-	correspondence because it appears to be a direct reply to a technical
-	discussion. The sender domain (d-silva.org) matches the recipient's
-	known personal mailbox (alastair@d-silva.org), the subject line
-	refers to a specific technical patch (clk: sunxi-ng: a733), and
-	there are no phishing indicators, urgency tactics, or external URLs
-	present.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
+	dkim=pass (1024-bit key) header.d=broadcom.com header.i=@broadcom.com header.a=rsa-sha256 header.s=google header.b=LbQ/GscB
+Received: by mail-dy1-f225.google.com with SMTP id 5a478bee46e88-38699cf08dfso6658774eec.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:54:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795607693; x=1796212493;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
+        b=AX2/SgW17onOLBejWOGQGBZs46da9oZ/5VlXhYksjDa+qPgH+Oe7sEfx7CMEpY3hoy
+         2DCy+7Mo/W91iej5XoxBog0EbOkMw798O5fDt3+1SSgeXW9OvDxwulcziHopGWMlOrcy
+         IRdvQRw4BZEhVb98nr9iPiyTWPMVL3Hcex5141SCsNDdfl/Z+WiKA4cNeeqKHHB8F9fN
+         Xj40vv8R/89SK0qX8LSCIvnJZRtkApi4Jhd+pFumn4dUcXyLFwhrnFWdgB1+s0M6VeDS
+         BD6DteyIaZ+1t4PVluSU5A2Xv3qdqc6WSPlZGv9JdXRa2GKokHRT/hOd/ugmrAcq0LrZ
+         JEXQ==
+X-Gm-Message-State: APuU4Z+4BKjAcli0rJD7qfIrYf2gJarx+6fq3t9dUnErZh4xcsS5biGf
+	/uvKUqeCTo/9QuSmbfiv5omCHQpcZAspdFbbZCe6C9IdVNF/InJ89NrYvWstwIruw86DAFvTNJM
+	KS82VfQjts3SSB7JnPlgMW0+kF/aOY8tjBNSBMo3wARsiJSsheDrO23ZM/T4RwZ7uiHgTypDLbf
+	sQ654f7JiUo7Z1noxHTpkD/FftRHJ2bu2uEO9vbUyJHzu+tc18aKZdb2fXDBKWXoTd0AMgFKk3V
+	yR4GjN6kw==
+X-Gm-Gg: AZFdTZfhEb8tATtm7mLMhW6Cc2tl1EHk38wLck1Bd5gdf9CJ8wWwnHSvhP4zTnF8epU
+	bXQH0icSSlbUqegh1h4o7MxBguAoO5rZ/YqobudL99kiwwmxqaYpSJNLjqvY1MN5/KIclUtG1zz
+	aQBox41FZVv41szpXDnFREtSqLop8in9ajP0ytokgzhPzccY/JfzUH7MdkB4zfuJc9paEGKSOa3
+	mXsEBDoWCmRQ0OEXXkt9oUNYZxHG8GO641UacGEbnOT7uHlYYHVSpVUNcVbDZMn1tBsmYdszzhB
+	+HJwCR76yJZRgL7a+nKSPnP3MhrrQa30nJGfrijFeMzMSoyfM4Rc6AZngkqMPuDaWHnE8tf5ozJ
+	pPWEQxrn+rpoR1bXYr4aDzyriIB0LpKt+OqMGxC9FomycQmIPCGXR174Ey3Cv3UVh1fE4ogAqnD
+	n1Rh/fQoopmLPJU5qYoQCzba63RGpf3h6fEQ==
+X-Received: by 2002:a05:7301:714:b0:379:730d:db52 with SMTP id 5a478bee46e88-3857045098amr16729319eec.32.1795607693178;
+        Wed, 25 Nov 2026 03:54:53 -0800 (PST)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-28.dlp.protect.broadcom.com. [144.49.247.28])
+        by smtp-relay.gmail.com with ESMTPS id 5a478bee46e88-386c22c9eaasm949517eec.10.2026.11.25.03.54.52
+        for <netdev@vger.kernel.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 25 Nov 2026 03:54:53 -0800 (PST)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-dy1-f198.google.com with SMTP id 5a478bee46e88-3854627c1c8so8089649eec.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:54:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1795607691; x=1796212491; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=j1lK+KL8jsRcbhgEh1ZN2hINijxdBHiLPsRycSS2iUo=;
+        b=LbQ/GscBZW03uEFVwxEmtF5TL7kc0O/4yYuH9y3XXIC8pYuMVgBsiUcm7enoZdqgGm
+         q703WFe30CHd5Lm4CJ7BCrcz9mCb+EuA6mMJkBgJPVP1Qp+P/CO4LpOGOKw3GNVgpkKJ
+         IqaseVwv5mrkOPs+ywob3xtsidoNtdenD1if0=
+X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr18499557eec.24.1795607691441;
+        Wed, 25 Nov 2026 03:54:51 -0800 (PST)
+X-Received: by 2002:a05:7301:714:b0:36a:7b3c:4e0a with SMTP id 5a478bee46e88-3856fd5e4a4mr18499531eec.24.1795607690750;
+        Wed, 25 Nov 2026 03:54:50 -0800 (PST)
+Received: from H5-S1 ([192.19.203.250])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c349csm56693813eec.22.2026.11.25.03.54.45
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 03:54:50 -0800 (PST)
+From: Vikas Gupta <vikas.gupta@broadcom.com>
+To: davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	andrew+netdev@lunn.ch,
+	horms@kernel.org
+Cc: netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	netdev@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Norman Herms <dockseed@proton.me>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
-Date: Wed, 25 Nov 2026 22:53:20 +1100
-Message-ID: <20261125115320.3692954-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
-References: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech>
+	bhargava.marreddy@broadcom.com,
+	rahul-rg.gupta@broadcom.com,
+	vsrama-krishna.nemani@broadcom.com,
+	rajashekar.hudumula@broadcom.com,
+	dharmender.garg@broadcom.com,
+	ajit.khaparde@broadcom.com,
+	Vikas Gupta <vikas.gupta@broadcom.com>
+Subject: [PATCH net-next v10 00/10] add features to bnge
+Date: Wed, 25 Nov 2026 17:24:24 +0530
+Message-ID: <20261125115434.2080590-1-vikas.gupta@broadcom.com>
+X-Mailer: git-send-email 2.52.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,32 +117,120 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 
-Hi Junhui,
+Hi,
 
-On Thu, 12 Nov 2026, Junhui Liu wrote:
-> static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
-> 			  0x5c0, BIT(16), 0);
-> ...
-> static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hws,
-> 			  0x5e0, BIT(29), 0);
-
-While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
-link-up and DMA broke as soon as clk_disable_unused() ran.
-
-ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
-the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
-bus-msi-lite0 is only its register configuration clock. Referencing
-ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
-shared fabric, and gating them off breaks GMAC0 DMA.
-
-Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
-CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
-driver?
-
-Tested on OrangePi 4 Pro (Allwinner A733).
+This series adds ntuple filter, RSS context, and flow steering
+support to bnge driver.
+Patch 1 is a pure refactor (no functional change) that relocates the
+filter and VNIC related code into the appropriate files. Patch 7 drops
+the refcount usage from L2 filters, also with no functional change.
+The subsequent patches then add the ethtool commands for configuring 
+ntuple flows and RSS contexts.
 
 Thanks,
-Alastair
+Vikas
+
+v9-v10:
+    - Addressed valid comments from Sashiko
+      https://sashiko.dev/#/patchset/20261123100746.1975030-1-vikas.gupta%40broadcom.com
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123100746.1975030-1-vikas.gupta%40broadcom.com
+
+v8-v9:
+    - Addressed valid comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20261116140653.1685797-1-vikas.gupta%40broadcom.com
+
+v7-v8:
+    - Addressed valid comments from Sashiko
+      https://sashiko.dev/#/patchset/20261114074742.1484603-1-vikas.gupta%40broadcom.com	
+
+v6-v7:
+    - Addressed valid comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20261106093524.838341-1-vikas.gupta%40broadcom.com
+
+v5->v6:
+    - Addressed comments from Sashiko
+      https://sashiko.dev/#/patchset/20261103123651.442893-1-vikas.gupta%40broadcom.com
+    - Fix inline keyword use in C file.
+
+v4->v5:
+    - Addressed comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260928061307.1172344-1-vikas.gupta%40broadcom.com
+
+v3->v4:
+    - Addressed comments from Sashiko
+      https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
+      https://sashiko.dev/#/patchset/20260917064548.773334-1-vikas.gupta%40broadcom.com
+    - The patch count drops to 10 now that the HSI patches have been merged.
+
+v2->v3:
+   - Build fix.
+   - Addressed comments from Sashiko
+    https://sashiko.dev/#/patchset/20260908093053.2596020-1-vikas.gupta%40broadcom.com
+    Below Sashiko comments are not valid:
+     Patch-8: 
+                Comment under bnge_toeplitz().
+                 Explanation: bnge_toeplitz() is not used for aRFS.
+     Patch-9:
+                Comment regarding bnge_clear_usr_fltrs().
+                 Explanation:
+                  Both bnge_clear_usr_fltrs() (only invoked while the
+                  interface is down) and bnge_grxclsrule() execute
+                  under the netdev instance lock, so they are
+                  serialized and never touch the filter list at the 
+                  same time.
+      Patch-10: 
+                Comment "Does this direct dereference of the MAC
+                header need a linearization ...".
+                 Explanation: ndo_rx_flow_steer runs on the RX path
+                after eth_type_trans(), which already accesses and
+                pulls the Ethernet header.
+
+                Comment Related to bnge_cfg_ntp_filters().
+                 Explanation:
+                   bnge_cfg_ntp_filters() runs from bnge_sp_task(),
+                   which holds the netdev instance lock while executing.
+v1->v2:
+   - Build fixes.
+   - Addressed comments from Sashiko
+   https://sashiko.dev/#/patchset/20260814011435.194631-1-vikas.gupta%40broadcom.com
+
+
+Vikas Gupta (10):
+  bnge: restructure VNIC and filter code
+  bnge: add NTUPLE/ARFS VNIC
+  bnge: add helper functions for multi RSS contexts
+  bnge: add RXFH ethtool support
+  bnge: add ethtool support to manage RSS contexts
+  bnge: remove refcount from L2 filter
+  bnge: add NTUPLE filter infrastructure
+  bnge: add NTUPLE filter support in ethtool
+  bnge: add aRFS flow steering ndo support
+  bnge: add cpu_rmap support for IRQ affinity
+
+ drivers/net/ethernet/broadcom/bnge/Makefile   |    4 +-
+ drivers/net/ethernet/broadcom/bnge/bnge.h     |   28 +-
+ .../net/ethernet/broadcom/bnge/bnge_ethtool.c | 1140 +++++++++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_filter.c  |  839 ++++++++++++
+ .../net/ethernet/broadcom/bnge/bnge_filter.h  |  137 ++
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.c    |  192 ++-
+ .../ethernet/broadcom/bnge/bnge_hwrm_lib.h    |    9 +-
+ .../net/ethernet/broadcom/bnge/bnge_netdev.c  |  574 ++++++---
+ .../net/ethernet/broadcom/bnge/bnge_netdev.h  |   94 +-
+ .../net/ethernet/broadcom/bnge/bnge_resc.c    |  164 ++-
+ .../net/ethernet/broadcom/bnge/bnge_resc.h    |    3 +-
+ .../net/ethernet/broadcom/bnge/bnge_vnic.c    |  379 ++++++
+ .../net/ethernet/broadcom/bnge/bnge_vnic.h    |   96 ++
+ 13 files changed, 3294 insertions(+), 365 deletions(-)
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_filter.h
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.c
+ create mode 100644 drivers/net/ethernet/broadcom/bnge/bnge_vnic.h
+
+-- 
+2.52.0
+
