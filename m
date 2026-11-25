@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.177
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795636667;
-	b=TXUmwVfOcH852CanZvJI+26UHpaN7wCjKgjs3CineCUQL7n+My1KO4JYHOB2d2dPpB4i
-	 w3jUBzEVDIvHi8rRwsrsOp/JVLLxbBZTxmm/s7RSxdlL7ELaMfldsLu9KFgFw3WX6kE4u
-	 m0Fi8fq7Gqz9mh6AXLDxgqVxEypPZ43nJwxq0gnYKunkoQ5n6I91CiZV2QlCE7UyZb0k5
-	 yg7Sg5o8q/lLK9Y/0XkjWpbnnDrpS1t5Nox6wJANFCCsHZXTtV96DjjDV9l95YjPhEqCN
-	 bfF2OnJCXbrJSZqjK8DZ2ypg2U/QKVF5YzXHDOotP6QOOY6Ifu8vvDnzdPMH/5/iqeA==
+	t=1795636668;
+	b=kicAjUzddCYKSMdNp20AiwXWBCKb2RpVgrPb/Xnsh++OWHqAHSuD6CbV4NuxF7Vsn2bz
+	 jas1hfX+d7iEU1Z8BglSWCMOuydGBQQbjMUqjp+efg9J045xq9EkWRoghPbJSS/WAoqO7
+	 kW47g/q0yjrGg4XkvdzNLGwI+MAIQtgZhzPrFHpqh1avs6tGA8rv6zxm7u5MrP4rwZMjv
+	 3uwnD7s49oIc00eCupSBMVtguhVJrq7qyF4L0APqZ+xWaOP8VTQYPLT+aLum/7qps2RA1
+	 9bSng3b1nT0NA1PCiXxzIs6ybEcKR3nc1w6N0l3G5c5JPL8n+TlzHl/rG+Dg864cHWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795636667;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795636668;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=RW4FHxXGyZEJsJcwKbYOpf6/c9VUn9gfas8f9jTHwlA=;
-	b=aJfzyTkt3r8iY+EhavONrMQ60tk5fjSNv9KW+9koO/V1AsXVrHTG4SI+Cs8zfSY47dGW
-	 JWkZGn2kYVwr4rQvlvz0HTqxhrp1Vbn6irpbaN1V6+Un7Fcs6FTJk9JqDLvBF4ON33DoO
-	 hvBTrqrtwsgWTq+I7KPsulsW0IVmffdwayJZbmPFlZ6euqshvhy+9j/12P4SDpZ8HfoIu
-	 uU3Z23IZN7D886BmK667gU0+ahRMxSmPrtSYwGpP8FlOZIfSzUPVbmbUF/zys4RpE6D8w
-	 grD7o+0/lkyYsN1OyqMOhlavCexSmoJ7OzesRouQ/VtBzpatsjrZ4R41evRh9sYJIbw==
+	bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
+	b=04qy9rx5840mIx2Y4PR6O2nTYhTuTVFoUWpKCDuOWbW2y4rOTmD1t2T1WBvZ95IWvF8o
+	 OVwBVFplZ2iZ8SSOIPr2uYIGHVTnKMsXaozPx/ds/j57SI2xSVWBKc+9FyUo43pmnkROs
+	 3836exOMOzE3rpRJILK/aid+Txg84UXyKBwA2sDVs8aGc72ScGp6RSa75ik1phJZ9JoYy
+	 mpwgfYbPTfHsxQKhnMIPQQk2YeiDVRX2nEZ/bASUlVvPBUS2hAsPBmoxF/PJKA1XjpD6X
+	 WzGoHfnDHRBip3vFDcYeSxMQL/af6mTK03/gN5Q2h3xCaDBdFAA8ytEl7WzxJAel16Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=trailofbits.com;
 	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=Fde+FQe7;
-	arc=none smtp.remote-ip=74.125.82.177
-Received: from mail-dy1-f177.google.com (mail-dy1-f177.google.com [74.125.82.177])
+	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=hfDzQ+yb;
+	arc=none smtp.remote-ip=74.125.82.44
+Received: from mail-dl1-f44.google.com (mail-dl1-f44.google.com [74.125.82.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18CAD606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:57:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18CAD606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C408C606A331
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:57:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C408C606A331
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=Fde+FQe7
-Received: by mail-dy1-f177.google.com with SMTP id 5a478bee46e88-38431138772so8092571eec.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:57:46 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=hfDzQ+yb
+Received: by mail-dl1-f44.google.com with SMTP id a92af1059eb24-170135e43c7so9581907c88.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:57:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795636666; x=1796241466; darn=vger.kernel.org;
+        d=trailofbits.com; s=google; t=1795636667; x=1796241467; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=RW4FHxXGyZEJsJcwKbYOpf6/c9VUn9gfas8f9jTHwlA=;
-        b=Fde+FQe7ExgpmmeyCCXOU+9tIGpPvsG+QKMhmKMVtqcYZQag2JJOeD8MebKYhx88IG
-         NDiJN8lXu/eqVHH/NG+ziU3uvwaiqoh3OyiHsAqZJVppibCB1EEFsUF69Di9phUnPiPo
-         n96dmNUQ830dRQsuaeqc/7nHxHGRY6PhNfsOK8g3o20g8LvhU+FJeokKc+jO2RNOcU6I
-         xKRx6xdeyxD+krDEyxmNsCGZGiQ8cwJNawRVskv8b4ppFxj1ZXZrjBFrgKUxd1d4pddv
-         cVPW15nggdAZtG6mRVZA8cSlytqM2bQu0Ogu5rGiZsh0rZK62kB/7oncNzN3ctEGzWjA
-         1SOA==
+        bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
+        b=hfDzQ+ybCYBao8mATsVqSfsDtzTgjDs5Zq8i51yhF0Rq+t/X2RnzZ9IlGC5wPTJrHH
+         PdNokTSeSi2VH0GSVMpMTr9s8T6SI2T8dFuLMWcLBt8+MbnYnwV3+FqoR+SdvAZnNfUK
+         cyQdyEvLwStJZI2C2ghlmVaAo306eao+x3ajBItDQGhBa86E6BSSDuB4QuViexdzvumL
+         DW+/tI3+moX+8jgtH6+VDX+roNVcU4HcmgvXdTZJj+p9F+Nw/3z5nIXoDI89nq4ufmjM
+         LMx25AViHqVjSSLm41jlDPtVAEdgrPg2PX53OTb+fwCFFGA8QjzVSzLoE4bzV1iX17W+
+         dcEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795636666; x=1796241466;
+        d=1e100.net; s=20260707; t=1795636667; x=1796241467;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=RW4FHxXGyZEJsJcwKbYOpf6/c9VUn9gfas8f9jTHwlA=;
-        b=oo+RPbrT+pR7m9SoGRcfyU/YkTZg7+BIX9xQuS8gxD///8rSaDzjJnjgapbuK8Znnn
-         9aSMNrg5DdF7VlE3g2QCRhPSzCfzAk1Ft7Ly3EDVmC5ij3sqYYFjUB12CUTY3XVHd12q
-         f5VxuU65UM5NOAaxImfFK1onooJI6CO/xhiRDIsUScLdLuHOwJ7rkqhFu0SnGd54vpd2
-         p5/b8c1JeOdmrFyXIFKaFY/crJS7KniQEK5HR40W7oDwIoyAzxlp3ptMUtxML+Ir7BUk
-         AV0gVHLp40V+E+Nisvn87Vi0Sz+nGkPBj2SYmgfalB1WQcWoIidsMObn2NT+MFMjhWrX
-         Pm1Q==
-X-Forwarded-Encrypted: i=1; AL+hErHhw1gLv7UCm6HJ9pqWTpWc32IzidTyB4DiHdTl8pe32V2jwFdm18/D7j6R+sZBQRq/nTnPVXo=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9h3tJAY9GT/e+onK7pZV8V55E/d2qDir2tSufzlAEm/hk6h14d
-	vwZBpO7U03/p9ynalnl7p8oMqiXMst7UHn0lgs4WaFYuZ8E8YiXrf7/i9QDtSxa4zf0=
-X-Gm-Gg: AZFdTZelXCGzUyUt+c9GZJVb36/nFfbV6xiWWpWH/V9jWq6AJSeTqqekugrsUt6Cl+k
-	IUEVmIIBbUPFQ7CORwmxKLosBQYwQ5NKO3rEQMa9qYcIf7WNnQNTLkgBrjPtrZr+eGiz7j1ALIO
-	LlPDZN0fUMJGM7zNQSnJo9jcp67aXVb4mredVtmxlDhVE0GbmQYoGDIEL19b++eN4nO2UOcQdn6
-	AXYdosGLH2YyxoYnNTugd99Hehmc63Vpq1dTB91PmMxUm2ahvBQvJ5YSSbwir8frpofNapWoAJn
-	ckyaHnYNCjQoo6PJAGMj7yAOo4E2e+Ze7ZRCmn8/BIZx6VXri2o6iPiUEravW329O0SRlOKReTC
-	itrYrQbAF18iFsMyZqkv3rBmcofyPITSw1F6zpezHjHLd3E4pGIDVlaPXjOSJAw/j64pfphIo6a
-	N1C+VfQOOL9VAGBZxMsSrbG7Anb/pnmxpj+HGjRCmH80dvZQel979EyYlQXP67dEpV4Xm0W3LH0
-	vWiwFxMV0Zfa3Sv2UXZXv6OKa4y99rj48OCI7hrex4TQK1LfmxDBgXWMK574b4M7FdKkM9+oJ5W
-	lK9kZc3sI0g0viI/sQCxU05SpMlVpSv0zDCDdY9pNF+vYqFC9SphXH3IAjBSPV+l9YdGRLnNwQ2
-	ZXRjNAB254mvIvODsUdxowoYcUA==
-X-Received: by 2002:a05:693c:87da:10b0:386:aaac:7017 with SMTP id 5a478bee46e88-386aaac73a6mr11279980eec.26.1795636666090;
-        Wed, 25 Nov 2026 11:57:46 -0800 (PST)
+        bh=QSbicBCggixQqMOYfUZmOoYxybMhCFwsk9cNA7EU8U8=;
+        b=AjXSOOV9zB6OEc+svl4evwiaxRLZf0uZkilkhH+tSXD+zRLMiUOVzRYP9/Mmq27ybk
+         jt28KrXt0LfAs5U650h8kzPW4nlX8liKAx5mCjYZNWrnEwJqW3YMrkjcDzWuNhEM3F6J
+         ooqNCDIGiVwVBXP7PJNmcyUaY35+V1+BDOwlUgRrY+8GBBaSjOC6fkJ66KXBjlAoZts3
+         ESq/pMne6GcbwAIRn7myotQZ8AHouVfdesKpI3kxXSwilApBBYA7w3WMI6hE/IGfKIdq
+         0qjz4N4ulz49ePKoKbrd326BFY93FQNOTcZlvHCvHb2bdHcJy6eoSZzbt2rItqHG5bvv
+         VD/g==
+X-Forwarded-Encrypted: i=1; AL+hErF73p58FbhohGmsHQj6Xnl6z/8VA8IiI6HxHc3ro6HOwPtr1OLvOkdLSXLEektTCyvheCByfr8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+0gvebGflHNe6r5jCnwar/W5QHTZ7BS5Eq6oIr8yHPcipmPUCY
+	J57E1gz6poIbwRY6r57FgmLk92zGn4sURRDdyz1wxRNHJXu1zUjsFNtR+JXvfSYFyoI=
+X-Gm-Gg: AZFdTZfhehvMXBWi/t5+3x4giReZoTBIjZPH/HlU6a3s11UY6Xs+qaoUg4m9UOuCeMV
+	LzK3j9JLxdnYadYc6Zx2gz1CexA/KZX+wbQ5lIGJbgmWFrRBQtC91NwuY2qtp6+RGrwnlCPANWa
+	heapbs0bSXdWyuBCxJ7/KIRmQ3G5ax6PHBrslp3niOUT6yvYlVHmdfqclO33PeJpSCFr0qGy3v0
+	XeeA/6Y0swg2KFWBgX4JvepcQ2K7Zzr3kyiVGtU1C51rJ5as5FBag2giI1QErgS42gS2hvJ5tue
+	VvV5Wsk6OYKtUr7RMdM+IzyUSUwHBikEvRHcPcxGFlsEo0WRs+lQNV4SNnxlxBjGJSwkxWfaYgP
+	qw2ytPeliY3xk5x9XIUxjGNV2X6cYLdZZe8OyYnnLxp5GwXGzEKcdiNvg34GI2UJqMR3xdigGrV
+	eU3hPpZjEZJx+abzPe+B3b3vfgkEgpOQ/XvWXLP9VbuLynZlLhBydnaE0Z+Nyt+5pngDV3TTSrh
+	hVWlyD0qMajJLacjkSDvcQmn7oQiEA6v7d3oGSZWgaM9h/o7aAZqeGR9tQGhoDyfqZnNj4rX9il
+	2VIR5Z2JRsDbKTtqPh0+ukylOvVEBH2tu3MGRu4dQ1dI9fO06zUKx5JaiVB3a/qIlcIbBdALuGR
+	eWfBwxm6a3Xlp+9pxaBju+cJZdA==
+X-Received: by 2002:a05:693c:69d4:b0:382:90fb:4cad with SMTP id 5a478bee46e88-3856ca9db95mr17568429eec.2.1795636664223;
+        Wed, 25 Nov 2026 11:57:44 -0800 (PST)
 Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm59596522eec.14.2026.11.25.11.57.45
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566fdce48sm59596522eec.14.2026.11.25.11.57.43
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 11:57:45 -0800 (PST)
+        Wed, 25 Nov 2026 11:57:43 -0800 (PST)
 From: Artem Dinaburg <artem@trailofbits.com>
 To: stable@vger.kernel.org
-Cc: davem@davemloft.net,
+Cc: cratiu@nvidia.com,
+	davem@davemloft.net,
 	edumazet@kernel.org,
+	herbert@gondor.apana.org.au,
 	horms@kernel.org,
-	jhs@mojatatu.com,
+	ipsec@lists.linux.dev,
 	kuba@kernel.org,
-	mst@redhat.com,
 	netdev@vger.kernel.org,
 	pabeni@redhat.com,
-	shawnq1@163.com,
-	willemb@google.com
-Subject: [PATCH 6.18.y 4/5] net: harden qdisc_pkt_len_segs_init() against malicious GSO packets
-Date: Wed, 25 Nov 2026 14:57:34 -0500
-Message-ID: <20261125195735.57472-5-artem@trailofbits.com>
+	steffen.klassert@secunet.com
+Subject: [PATCH 6.18.y 3/5] xfrm: Don't clobber inner headers when already set
+Date: Wed, 25 Nov 2026 14:57:33 -0500
+Message-ID: <20261125195735.57472-4-artem@trailofbits.com>
 In-Reply-To: <20261125195735.57472-1-artem@trailofbits.com>
 References: <20261125195735.57472-1-artem@trailofbits.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -109,76 +109,112 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
 
-From: Eric Dumazet <edumazet@kernel.org>
-Date: Thu, 22 Oct 2026 17:54:36 +0200
+From: Cosmin Ratiu <cratiu@nvidia.com>
+Date: Wed, 22 Apr 2026 17:06:48 +0300
 
-[ Upstream commit c6648c9f3b51c5a8a3df470c1542b2aa378d88f9 ]
+[ Upstream commit fa90a3145c0340c3f624206a81637c542254ea1d ]
 
-An SKB_GSO_DODGY packet can carry untrusted gso_size and headers.
+On VXLAN over IPsec egress, xfrm{4,6}_transport_output() blindly
+overwrite inner_transport_header (== the inner TCP header saved in VXLAN
+iptunnel_handle_offloads() -> skb_reset_inner_headers()) with the
+current transport_header (== the VXLAN outer UDP header set by
+udp_tunnel_xmit_skb()).
 
-For instance, gso_size=1 and hdr_len=65532 for a 524275-byte frame
-makes qdisc_pkt_len_segs_init() compute an accounted length of
-about 4,294,574,091 bytes (after gso_segs silently wrapped in a u16).
+This was a latent bug, harmless until commit [1] added a doff validation
+check in qdisc_pkt_len_segs_init() for encapsulated GSO packets. With
+the wrong inner_transport_header set by xfrm, qdisc_pkt_len_segs_init()
+interprets inner_transport_header as a TCP header, reads doff=0 from the
+upper byte of the VNI and drops the packet with DROP_REASON_SKB_BAD_GSO.
 
-With DRR quantum 256, the dequeue path then needs ~16.8 million
-deficit refills before it can dequeue the skb, keeping the CPU in
-the qdisc path long enough to trigger the soft-lockup watchdog.
+Besides the use in GSO to determine the header size of segmented
+packets, inner_transport_header might be used by drivers to set up
+inner checksum offloading by pointing the HW to the inner transport
+header. A quick browse through available drivers shows that mlx5 uses
+skb->csum_start specifically for this scenario, while others either
+don't support VXLAN over IPsec crypto offload (ixgbe) or the HW is
+capable of parsing the packets itself (nfp, Chelsio).
 
-Commit 8f735d64382d ("net/sched: bound qdisc_pkt_len to prevent
-qdisc soft lockup") added QDISC_PKT_LEN_MAX to bound size table
-amplification. Use the same bound for DODGY packets:
+But in all cases, it is more correct to let the inner_transport_header
+point to the innermost header instead of overwriting it in xfrm.
 
-- Make gso_segs a u32 and drop packets whose segment count does
-  not fit GSO_MAX_SEGS, instead of silently truncating it.
+So fix this by guarding all four inner header save sites in
+xfrm_output.c (xfrm{4,6}_transport_output, xfrm{4,6}_tunnel_encap_add)
+with a check for skb->inner_protocol. When inner_protocol is set, a
+tunnel layer (VXLAN, Geneve, GRE, etc.) has already saved the correct
+inner header offsets and they must not be overwritten. When
+inner_protocol is zero, no prior tunnel encapsulation exists and xfrm
+must save the inner headers itself. The tunnel mode checks are only
+added for completion, since they aren't strictly required, as
+xfrm_output() forces software GSO in tunnel mode before encap.
 
-- Drop packets whose estimated qdisc_pkt_len() would exceed
-  QDISC_PKT_LEN_MAX.
+This makes the previously added test pass:
+ # ./tools/testing/selftests/drivers/net/hw/ipsec_vxlan.py
+ TAP version 13
+ 1..4
+ ok 1 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v4_inner_v4
+ ok 2 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v4_inner_v6
+ ok 3 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v6_inner_v4
+ ok 4 ipsec_vxlan.test_vxlan_ipsec_crypto_offload.outer_v6_inner_v6
+ # Totals: pass:4 fail:0 xfail:0 xpass:0 skip:0 error:0
 
-Fixes: 15e5a0307164 ("net_sched: better precise estimation on packet length for untrusted packets")
-Reported-by: shaos <shawnq1@163.com>
-Closes: https://lore.kernel.org/netdev/20261022144755.65025-1-shawnq1@163.com/
-Signed-off-by: Eric Dumazet <edumazet@kernel.org>
-Cc: Jamal Hadi Salim <jhs@mojatatu.com>
-Cc: "Michael S. Tsirkin" <mst@redhat.com>
-Acked-by: Michael S. Tsirkin <mst@redhat.com>
-Reviewed-by: Willem de Bruijn <willemb@google.com>
-Link: https://patch.msgid.link/20261022155436.117507-1-edumazet@kernel.org
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-
-[ Backport to 6.18.y: context adjusted; 6.18.y keeps the name
-  qdisc_pkt_len_init() and has no qdisc_skb_cb()->pkt_segs. The code
-  change is identical to upstream. ]
+[1] commit 7fb4c1967011 ("net: pull headers in qdisc_pkt_len_segs_init()")
+Fixes: f1bd7d659ef0 ("xfrm: Add encapsulation header offsets while SKB is not encrypted")
+Signed-off-by: Cosmin Ratiu <cratiu@nvidia.com>
+Signed-off-by: Steffen Klassert <steffen.klassert@secunet.com>
 Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
 ---
- net/core/dev.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ net/xfrm/xfrm_output.c | 20 ++++++++++++++------
+ 1 file changed, 14 insertions(+), 6 deletions(-)
 
-diff --git a/net/core/dev.c b/net/core/dev.c
-index 2bbbfc82d779..36375c24b993 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -4128,7 +4128,7 @@ static enum skb_drop_reason qdisc_pkt_len_init(struct sk_buff *skb)
- {
- 	struct skb_shared_info *shinfo = skb_shinfo(skb);
- 	unsigned int hdr_len, tlen;
--	u16 gso_segs;
-+	u32 gso_segs;
+diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
+index 262eea7bdea3..433ce19c2900 100644
+--- a/net/xfrm/xfrm_output.c
++++ b/net/xfrm/xfrm_output.c
+@@ -67,7 +67,9 @@ static int xfrm4_transport_output(struct xfrm_state *x, struct sk_buff *skb)
+ 	struct iphdr *iph = ip_hdr(skb);
+ 	int ihl = iph->ihl * 4;
  
- 	qdisc_skb_cb(skb)->pkt_len = skb->len;
- 	if (!shinfo->gso_size)
-@@ -4177,6 +4177,15 @@ static enum skb_drop_reason qdisc_pkt_len_init(struct sk_buff *skb)
- 		if (payload <= 0)
- 			return SKB_DROP_REASON_SKB_BAD_GSO;
- 		gso_segs = DIV_ROUND_UP(payload, shinfo->gso_size);
-+		/* shinfo->gso_segs is a 16bit field.
-+		 * Also make sure untrusted gso_size/hdr_len can not inflate
-+		 * qdisc_pkt_len() beyond QDISC_PKT_LEN_MAX, or deficit
-+		 * schedulers could spin in their refill loops.
-+		 */
-+		if (unlikely(gso_segs > GSO_MAX_SEGS ||
-+			     skb->len + (u64)(gso_segs - 1) * hdr_len >
-+			     QDISC_PKT_LEN_MAX))
-+			return SKB_DROP_REASON_SKB_BAD_GSO;
- 		shinfo->gso_segs = gso_segs;
- 	}
- 	qdisc_skb_cb(skb)->pkt_len += (gso_segs - 1) * hdr_len;
+-	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	if (!skb->inner_protocol)
++		skb_set_inner_transport_header(skb,
++					       skb_transport_offset(skb));
+ 
+ 	skb_set_network_header(skb, -x->props.header_len);
+ 	skb->mac_header = skb->network_header +
+@@ -168,7 +170,9 @@ static int xfrm6_transport_output(struct xfrm_state *x, struct sk_buff *skb)
+ 	int hdr_len;
+ 
+ 	iph = ipv6_hdr(skb);
+-	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	if (!skb->inner_protocol)
++		skb_set_inner_transport_header(skb,
++					       skb_transport_offset(skb));
+ 
+ 	hdr_len = xfrm6_hdr_offset(x, skb, &prevhdr);
+ 	if (hdr_len < 0)
+@@ -277,8 +281,10 @@ static int xfrm4_tunnel_encap_add(struct xfrm_state *x, struct sk_buff *skb)
+ 	struct iphdr *top_iph;
+ 	int flags;
+ 
+-	skb_set_inner_network_header(skb, skb_network_offset(skb));
+-	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	if (!skb->inner_protocol) {
++		skb_set_inner_network_header(skb, skb_network_offset(skb));
++		skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	}
+ 
+ 	skb_set_network_header(skb, -x->props.header_len);
+ 	skb->mac_header = skb->network_header +
+@@ -322,8 +328,10 @@ static int xfrm6_tunnel_encap_add(struct xfrm_state *x, struct sk_buff *skb)
+ 	struct ipv6hdr *top_iph;
+ 	int dsfield;
+ 
+-	skb_set_inner_network_header(skb, skb_network_offset(skb));
+-	skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	if (!skb->inner_protocol) {
++		skb_set_inner_network_header(skb, skb_network_offset(skb));
++		skb_set_inner_transport_header(skb, skb_transport_offset(skb));
++	}
+ 
+ 	skb_set_network_header(skb, -x->props.header_len);
+ 	skb->mac_header = skb->network_header +
