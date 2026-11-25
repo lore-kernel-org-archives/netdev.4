@@ -1,105 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635944;
-	b=pmO+FG0zFyBleeppjAzy/kmznwbAD8t8EL8D2ptPTD1YUTsQABwV8gWuSeuZHE2wLxMF
-	 1vlTkPAZ+nf+HtiEgI2CTqqadxQe53aHab0yAFYO33N7gEFKpmAcppOwqjLhdzECoHBrP
-	 Llwil5r8VclMk4sGvuczQ9BU+CImprecGoIalVStJSuobm3+F5hhP/2L36zfrTHRNZI/0
-	 0sI1JpiVfYDeMJlOjxBAd1BRfLK9eJXPVclFjU0hR1oW+W+eJ9QITi91X0mR8usuGKbXC
-	 7H9HB8v1oilhg0q5bHsTJ4mu4BmgzJSMMzx+w2dKX6TCpnAdjjlxGA0X0M/Tsc48S5w==
+	t=1795635962;
+	b=srOzr2v7oXAr1gUNZiShTcHXn3b6qguJm5mo0RSBhOHwWRWuGHWNY48dY43eVXaR2/pj
+	 Q2V5dBtm++VC6yegtbtXq/ZsAI9eQ0PzZyHeXPile1sTRuZBIU/xxGavqOZgsm/ueDhvT
+	 xpPnbBD0V1gp+Dk/Gh3w9YTeD04h35oCP1jiBlMPsrrBhT7SkPlAvJhDu2MY62D4VZHd/
+	 bqC3dkphqcPS4QlbESZqO9W8sAqR5fGUPXCl8j1mSZSKT+upvrT0NLDlGt21aP7t8n802
+	 vvwrIWi5sWaYbCLWWsyJFGiYVfoet2yNSGjUCfmJFL0Hc3knhtceouVGDtuiKZRXHGQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635944;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=hFd6xvy0hW/uykhyNQpUH9l2XFVSW+p2LbIu+VEJclY=;
-	b=qaBWW2uaksArrRxRGHR2w6Ok7x4eOrqGwcgRkljdTOUaBANtqCq73A+Z+jdDZGg2tdr+
-	 YpeT62gICVdlvgtYFipZDWK1KxTVCMaldolobIn+ulWo1LvmThihX84vMFTp0jrl4kojy
-	 H0Daaw8jjkwLJfA9eVztGdb+uSfG+1SHBTILYLGR61AEaPOhhSe6/SYj7IkMiDGGvfuCX
-	 heX/IVpHnwq4vtrKNWK0OOLWqJE8yGyhQTVNDfHHD2UX3mAsNWKTbOdLWnVP4JwsVevWO
-	 Gw3xAd9Q+kpJuhUrJGSwwpQ0Q+svPnR15Jn8AsFjYteJgYKJx8qp0GvcYfvBFtWiHFg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635962;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=vYrHubQhIzK/ork0V0gkVDMcpei3zJK7hFk5RZ+fCWw=;
+	b=NeCMDq18cvJgjgouYyH4mOiiQYkW+r0uFcsToZQ3KDMO0Hw5Mb8K8kY3Lov+n6xR69dS
+	 CHP8tlZE9P3riUfz1poZiZ3IviGLtOsjvWiqCNYSSsE+B+2xnsM1FqqlUut6UaumCMPJb
+	 6u6TW/QjeNKssXKqJL8VxoHSXceRrOIkvOD4XEW8ENRPWXySXicXCh0ulTF/Cw2EuGN2M
+	 tojelY7MAXsm1BpflTRTRUI3Gyzv3N6sArr4NzglQdFnc1VFtki4c08eXLMCpI4NbeTvG
+	 YJ2+EkDiRyoSf5PzUwGtyWZCn43wLwGm9EvwRf2FAdNTRHGVrGWL+uHnows4HtXwQ5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=cy44b9Al;
-	arc=none smtp.remote-ip=74.125.82.178
-Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5VgDqTH;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC6F7606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:45:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC6F7606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6321C606A323;
+	Wed, 25 Nov 2026 19:46:02 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=cy44b9Al
-Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3869f03af6aso5394833eec.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:45:38 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795635938; x=1796240738; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=hFd6xvy0hW/uykhyNQpUH9l2XFVSW+p2LbIu+VEJclY=;
-        b=cy44b9AlmneDmpHr/wymeRnnlTOofyaqYzeT7NgyNbvpSwOALzn661/w4m7F4lnjTe
-         8qO+lLe0IeNgK5ix32aVb1mmXkZGzllW0lrdNnwxqzYL3yB2DCEHteUDBwWPJxSAAcuZ
-         ml+yYK1ZOq7jsX6fsZLhkeoZC1DNHWuYGJlCu948rL/I27WU+PeBfn0bZxg0JANtSF5Z
-         H9RYvMMoQwnFukucOFr4A77vT0p/H21sv/J4OOypIiRl9iPOgzqCj5UmI3SFVWOMDCeJ
-         lkVSWhlw/hXemh7SyQ1cWEhAaiKxubKoje/ZIjjHtXiH2EyXAERRWODqYGAwrkYLJvHT
-         V4Dw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635938; x=1796240738;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=hFd6xvy0hW/uykhyNQpUH9l2XFVSW+p2LbIu+VEJclY=;
-        b=EymksgQu4MsVGM/2ZYsEWENP19MsBcp2OkgUxnyiEseyUfGlqy/U1b5/l/dxJ2zPXW
-         6p5Qd8393S0E/xYvqQHMdiSmtNhCxe1QaB+e/nNHamHy5Jpd4W0bTMn3vLQ9gYy4iU+V
-         RwcTNkkeJck6kFILTl+32860JYkVF/h06cWBQi1we59wTTIl1BMg1gydQcM8Pnmgi/JF
-         51pZaW3ybXPhf2yCpdRy5BoHTzsVzAQLDhjDlabQgyIWGPtpcCEiGztn3m3Tey1BOhPt
-         7428OqnzgXm6C229JdKmTq7nEocukmyOGOuJrKElUoKxSMxJNt/Jr6n/MlezwTu7kb37
-         V1og==
-X-Forwarded-Encrypted: i=1; AL+hErH4+XtVX0SMLhBmGuEToZ9LMc/X1XOWt/FOjBrzLKQgP1zgrmFYQDW5IOqj/UVd7+IX69wBncI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Ga6QhrBaeq0bkLY+KewLHFkO7CWQvzTIOk83P1IYOz3l6n43P
-	ChE5Pd4qbUewNN04SROuWoLiVzjyU/AsUzahR89ZHj2nqvitiYDZqt0hXoJpSnGgcwI=
-X-Gm-Gg: AZFdTZc34M25clLmiH2BA0cm+8i92CO+ye0nQY8s9sD/QhziUWVrQUe+SFlJuxdyGOu
-	FcBmKiWxhg4f61MZDL6Jh5DMn5onVBIhRC3wxhx0CPlEmVPSSmaneutsp+tCaNp/5xjrGhoJ/3B
-	zHN3p3FA80q/mfxX5XvOCFNqZOcUgxQTQXVYOiIOukoPz4Nwa7fc4GcbaHJWXD64O/pbs7RpyTW
-	g3YejZweDtS1N65ouIRl+osIGTCOYnpKPsC83Z45uLlyXhQkUKNgAQCSPRL3pJTFS4VZZLiHlKf
-	A12gy4hWaa1bgXDEvS/SBIQeZs0WdRy7wGjxNDJjsyE4Msi3Eot8OpRlc+vY4Qyw9JcvhozcB27
-	NT48KG471PQrwPGxkh3DN263CYvY8oeaG8JMBomPi2xtZjumzGZY3zTrh2HLZT/raOAAl2A0FEe
-	1jsYnpoWJ7tI1IRR2gelrLM2imKFT4ZVOmEdOYtkg0VGO1A/nJKD55EwtzSk1ytLMhhOH8//7wo
-	sr7C8R/hlsnv7ISLYipsv1NFPPU0dRG1KLtOzy3TM9JHyLcOIm5zu2V3Pz3yMOuPlAF3HSo1yUR
-	p03RdWUkqAm+tGjWyhCs5fV+70sG4LZ/e7kmKV33+mxzjSMVEefMh+yFg63arvLNf9nsqAULmhh
-	HKoXeEXuBKAWMNxQfoOXHHi9sIw==
-X-Received: by 2002:a05:693c:25cc:b0:369:f17d:efb with SMTP id 5a478bee46e88-384b3e77699mr28669992eec.10.1795635937926;
-        Wed, 25 Nov 2026 11:45:37 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm3737730eec.2.2026.11.25.11.45.36
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 11:45:37 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	bird@lzu.edu.cn,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	kuba@kernel.org,
-	n05ec@lzu.edu.cn,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	tomapufckgml@gmail.com,
-	yifanwucs@gmail.com,
-	ylong030@ucr.edu,
-	yuantan098@gmail.com
-Subject: [PATCH 6.18.y 0/2] 8021q: reclaim cleared egress QoS mappings
-Date: Wed, 25 Nov 2026 14:45:32 -0500
-Message-ID: <20261125194534.52951-1-artem@trailofbits.com>
-In-Reply-To: <2026050408-ideology-liftoff-aa01@gregkh>
-References: <2026050408-ideology-liftoff-aa01@gregkh>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A5VgDqTH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 550CF1F000E6;
+	Wed, 25 Nov 2026 19:46:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795635961;
+	bh=vYrHubQhIzK/ork0V0gkVDMcpei3zJK7hFk5RZ+fCWw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=A5VgDqTHBQBIcGWxj8ZlWowBpHDzCW7y8I+5bmgx99dahG052n5ez8Y5oLeMxv6UZ
+	 O4dpKL90vapusvkXypytmxThWxcZhZTdSlLHt6XGohKfhpLwp5dvAlHpqpGQLRhNeP
+	 pxCDCnt8cgAFaaqEA6id/VtfF06vyWsEcGRMVwxNKCBGw9BNRRx0/e3UhupBTPQd7l
+	 4SwWcBMhIAgW0lYLeJ3KJYLpN36e+Ar123CE7QVrLR5V2IjzeFDW8eH5nQJGuw7usk
+	 YjU/fJSONeysT1XOzyHxC1R68KgDf3mj+O73DAoo30030IBzmQatD4mlX5dU9AoOrT
+	 stbbXFnrwwpng==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 04/15] page_pool: Let memory providers take
+ back net_iovs
+In-Reply-To: <179561568855.3135.15810206390695616800@kernel.org>
+References: <20261124125654.183091-4-bjorn@kernel.org>
+ <179561568855.3135.15810206390695616800@kernel.org>
+Date: Wed, 25 Nov 2026 20:45:59 +0100
+Message-ID: <87bj7coft4.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,34 +78,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Hi,
+netdev-bot+sashiko@kernel.org writes:
 
-Please apply these two patches to 6.18.y. Together they fix
-CVE-2026-46153.
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] page_pool_hand_off() in net/core/page_pool.c (lines 846-851)
+>   branches on netmem_is_net_iov() and casts the netmem down to a net_iov=
+=E2=80=A6
+> - [Low] The kernel-doc for memory_provider_ops.hand_off in
+>   include/net/page_pool/memory_provider.h (lines 39-44) says a false=E2=
+=80=A6
+>
+> --
+>
+> page_pool: Let memory providers take back net_iovs
+>
+> This commit adds a hand_off() memory provider op and an mp_hand_off flag
+> in struct net_iov. When a net_iov is marked, its last put goes to the
+> provider instead of the page pool cache, and it stays charged to the
+> pool. The hook is wired into __page_pool_put_page(),
+> page_pool_drain_frag() and page_pool_free_frag(). The commit also adds a
+> provider-owned mp_state byte.
+>
+>> diff --git a/include/net/page_pool/memory_provider.h b/include/net/page_=
+pool/memory_provider.h
+>> index d52c7a450c68e..bfc2841582225 100644
+>> --- a/include/net/page_pool/memory_provider.h
+>> +++ b/include/net/page_pool/memory_provider.h
+>> @@ -36,6 +36,12 @@ enum mp_flags {
+>>  struct memory_provider_ops {
+>>  	netmem_ref (*alloc_netmems)(struct page_pool *pool, gfp_t gfp);
+>>  	bool (*release_netmem)(struct page_pool *pool, netmem_ref netmem);
+>> +	/* Takes a free net_iov marked mp_hand_off that stays charged to the
+>> +	 * pool; the provider puts it back later. Returns false to have the
+>> +	 * pool recycle it instead. Called where the pool puts netmem, outside
+>> +	 * hard IRQ context. Needed by providers that mark net_iovs.
+>> +	 */
+>
+> [Severity: Low]
+>
+> Is "Returns false to have the pool recycle it instead" true for every
+> caller?
 
-Patch 2 (upstream 7dddc74af369) deletes cleared egress QoS mappings
-instead of keeping them as tombstones that accumulate until the device
-is torn down. It depends on patch 1 (upstream fc69decc811b), which makes
-the mapping lists RCU-protected so that a node can be unlinked safely.
+You're right, at destroy a false return releases the net_iov, which is
+what a dying pool should do. I'll fix the comment.
 
-The May 4 notice in this thread reported that 7dddc74af369 failed to
-apply to 6.18.y; its prerequisite fc69decc811b had not been queued. Both
-patches differ from upstream only in one context line, because 6.18.y
-predates the kmalloc_obj() conversion.
+> [Severity: Low]
+>
+> This isn't a bug, but does this fit the netmem abstraction rules?
+> page_pool_hand_off() branches on netmem_is_net_iov() and downcasts with
+> netmem_to_net_iov() inside page_pool core. Before this patch, page_pool.c
+> had no netmem_to_net_iov() call.
+>
+> The netmem_ref kernel-doc in include/net/netmem.h says:
+>
+>   Downcasting netmem_ref via netmem_to_page() or netmem_to_net_iov() in
+>   callers is not allowed unless a code path strictly requires a specific
+>   backing type ... In such cases, add a netmem helper here that handles
+>   both page and net_iov cases
+>
+> Documentation/networking/netmem.rst also says core code should avoid
+> per-netmem-type branching. It also says new code must not assume that
+> using a memory provider implies net_iov memory.
+>
+> The mp_hand_off flag lives in struct net_iov, and the hand_off() contract
+> only covers net_iovs. So a provider that hands out page-backed netmems
+> can't use this hook.
+>
+> Would a netmem.h helper fit better here? For example, something like
+> netmem_mp_hand_off() that returns false for pages and is called from
+> page_pool core.
 
-Both commits are in 7.0.7 and in mainline since 7.1. 6.12.y and older
-stable series lack them as well; this request covers only 6.18.y.
-
-Compiled net/8021q/vlan_dev.o, net/8021q/vlan_netlink.o and
-net/8021q/vlanproc.o with CONFIG_WERROR=y on 6.18.65 from a cumulative
-x86_64 tree, with and without the current queue-6.18 patches. No kernel
-boot or runtime test was performed.
-
-An LLM was used to prepare these backports and to check applicability
-and stable-queue history; I reviewed the result.
-
-Thanks,
-Artem Dinaburg
+Yeah, let's use a helper.
