@@ -1,108 +1,89 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=45.79.88.28
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795625137;
-	b=d7PihfG8THwoBJDKt1sW+ZleRR42s30RFBmqCyjDrFAWsxuZV4Yr5eV0+TVwQfNKy76l
-	 37MmJxCButtmfr5ujtpQzyKL8CO/BRKTCQLM2IbfP19asYFiBm/7lkTNMK8s/48gFIkZJ
-	 G/MhgwC1+5cTNEcp8xesI4axVxEbe1/Wacm6n70fCji7IFATTISr+2uCuhtP5g2gRLWch
-	 OJR5qaty3Is/CwVWSgXKGO5ZnnrDSE+F+vISrjJDR3nPnYGRATofmLINqWubaHziwPAd6
-	 yGp/RMkR7ffED9cZI7QZzU1VtK1/Mwbwu19nMDCRuyXYODeJBsIpE+/SBNgGN9jIBKA==
+	t=1795625245;
+	b=FVjeDlTjNMPgrq6+gu+upO4glR9UpRfCNdgWVI5cm7tu70uiZkKvCkxZOarp4pDtaiUe
+	 7wWL9w7wWxt1sUIHd0LwEPltuupUyR3B0qSs19vhPMtp7acTUesYG4VKT3FyM3HKTF1Xg
+	 rTlc5jxcxBppZB8zUKO5kRFsm7c5a1qx/mTxsnufxVCYfMsspLI2HYIsmbzhAjj8UUTFe
+	 NZgjPG5I46eeu8PGY6DuL7DuGEfOM/4PtiQeuNflcP+jAGXL+RaMZi2xq7CF4v7Mx0SOY
+	 i0xqHGu/3xV/5lBC9q80QUGVpyKUCU9JbSHjVIoH3AFqs9/u/QF47vLYvOiqeNVUx9w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795625137;
-	h=DMARC-Filter:DKIM-Filter:DKIM-Signature:Received:From:To:Cc:Subject:
-	 In-Reply-To:References:Date:Message-ID:MIME-Version:Content-Type;
-	bh=11zt4OupvieQqDw22Q2ubqyLm0TwPHTf9uDp8UQ/aNg=;
-	b=PUsbplCsMhlqiymWe4V5Xj/NroXrL6l5nwWUHeAe+tJogdDy8zUOeEkMzFcJNRInmf+Q
-	 Zjji2Mth+x5/ypT5hjyfsZV+DJlbCDhDP9SVZavQG79hsWIvKkMekf0zhvdHPWK4Xisa7
-	 0OLHR1E8Hg7Yvzz3zEDDiiyU729leUZO7zbT0URM5MwvsfrRKVK/VaerhW82piXXxpal5
-	 YY+PM/cgeZQrO1gojlBzOuc1R85JbaT3S7vlqlDVxnKY2gXjGQXbPApahWRk9Q1nGwk6+
-	 /6wQs7SGFbO7KbnQ/Sb2YHFSFjj7A2wxpg2Rm8yyRqjng5fp+Cef4UaWGd6Cw5rmWgg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795625245;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=qenWKunPLMZk3LsufaF7OAqEkY7sY2jqJw0UtvtJ83U=;
+	b=ovVRhoBFLfJtUzRp8QMBOEprdI5pJq1NaA6tT6ygN6u+OIQ1zcLBBoUqtfZxeK2L/vhq
+	 B5/hJ89Yqq08AhRbG+At78LriK9v8H0ztWKkzbf/N3xLLGW6RNjQYRKrHKYrgwSJjuuv8
+	 jjmHOhln/OGLN4As6dMhzeLf9ye8p6quEFKB6W9/E2vmPt1K3lfcrkoUc/OvA6TN8tlQs
+	 QJ6wj4DdbGXUq3lYmy162AJsRPxRAOBEByEu3QLpIVKjR+ATGBOHuIqFNNRXLTy3RXtOd
+	 RuYnwe5oq6VGRv26zdezII6zm5qtMXplIYmACGWUpLKEEmj8oxjKXxSTYLTncWexjdg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lwn.net;
-	spf=pass smtp.mailfrom=lwn.net;
-	dkim=pass header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=gYew8w2z;
-	arc=none smtp.remote-ip=45.79.88.28
-Received: from ms.lwn.net (ms.lwn.net [45.79.88.28])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=networkplumber.org;
+	spf=pass smtp.mailfrom=networkplumber.org;
+	dkim=pass header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=PO8WFMPF;
+	arc=none smtp.remote-ip=209.85.214.175
+Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5AEEE606A327;
-	Wed, 25 Nov 2026 16:45:36 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5AEEE606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lwn.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lwn.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 67D57606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:47:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 67D57606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=networkplumber.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=networkplumber.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=lwn.net header.i=@lwn.net header.a=rsa-sha256 header.s=20201203 header.b=gYew8w2z
-DKIM-Filter: OpenDKIM Filter v2.11.0 ms.lwn.net 164CF410D0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lwn.net; s=20201203;
-	t=1795625135; bh=11zt4OupvieQqDw22Q2ubqyLm0TwPHTf9uDp8UQ/aNg=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=gYew8w2zbH6+bi/mBbqli+h0aBDamw00BioPDCMMC4Es4g+qCaaIw8gBYOLhfGAsU
-	 9mfNHzR2Wjt3eb5ezNkPplfVvqDZB4yLXc7H/uIjYl6k/R0SNrt0O4pqewchTPc4H+
-	 DoPRzU4+fJgJOU7hPx03jLkV4HVaXJMTTjxyrWRVyiE+GFkUio915W5ZUB0L5VMnbm
-	 Z5AtjEERksNhEMgjG3ZSm0ynjzhzYrKmQP0JaqQq4T6DitPDhHE0cz5cUJ9ItE/n9j
-	 Ip9FDRPDTnpXpMfA3rcqvq+BtjVyvtC+AdbQzNra/9WErFSqw5foLA7PdpN6n18WG/
-	 9pepodyHhS3sA==
-Received: from localhost (unknown [205.220.129.44])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by ms.lwn.net (Postfix) with ESMTPSA id 164CF410D0;
-	Wed, 25 Nov 2026 16:45:34 +0000 (UTC)
-From: Jonathan Corbet <corbet@lwn.net>
-To: Randy Dunlap <rdunlap@infradead.org>, linux-kernel@vger.kernel.org
-Cc: Randy Dunlap <rdunlap@infradead.org>, Shuah Khan
- <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org, David Hildenbrand
- <david@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, Jason
- Gunthorpe <jgg@nvidia.com>, Leon Romanovsky <leonro@nvidia.com>,
- linux-mm@kvack.org, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai
- <tiwai@suse.com>, linux-sound@vger.kernel.org, Jens Axboe
- <axboe@kernel.dk>, linux-block@vger.kernel.org, Marcel Holtmann
- <marcel@holtmann.org>, Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
- linux-bluetooth@vger.kernel.org, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Jason Wang <jasowangio@gmail.com>,
- David Heidelberg <david@ixit.cz>, oe-linux-nfc@lists.linux.dev, Chas
- Williams <3chas3@gmail.com>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, Helge Deller
- <deller@gmx.de>, linux-fbdev@vger.kernel.org,
- dri-devel@lists.freedesktop.org, MPT-FusionLinux.pdl@broadcom.com, "James
- E.J. Bottomley" <James.Bottomley@HansenPartnership.com>, "Martin K.
- Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org, Miquel Raynal
- <miquel.raynal@bootlin.com>, Richard Weinberger <richard@nod.at>, Vignesh
- Raghavendra <vigneshr@ti.com>, Zhihao Cheng <chengzhihao1@huawei.com>,
- linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>, Andrey
- Konovalov <andreyknvl@gmail.com>, Greg Kroah-Hartman
- <gregkh@linuxfoundation.org>, linux-usb@vger.kernel.org, Juergen Gross
- <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>,
- xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>, Arnd
- Bergmann <arnd@arndb.de>, "Michael S. Tsirkin" <mst@redhat.com>, Eugenio
- =?utf-8?Q?P=C3=A9rez?= <eperezma@redhat.com>, Sean Christopherson
- <seanjc@google.com>,
- Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
- virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
- linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
- linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
- devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>, Namjae Jeon
- <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org, Jaegeuk Kim
- <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
- linux-f2fs-devel@lists.sourceforge.net, Florian Fainelli
- <florian.fainelli@broadcom.com>, Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Tzung-Bi Shih
- <tzungbi@kernel.org>, Benson Leung <bleung@chromium.org>, David Airlie
- <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Alex Deucher
- <alexander.deucher@amd.com>, Christian =?utf-8?Q?K=C3=B6nig?=
- <christian.koenig@amd.com>,
- amd-gfx@lists.freedesktop.org, Jani Nikula <jani.nikula@linux.intel.com>,
- Joonas Lahtinen <joonas.lahtinen@linux.intel.com>, Rodrigo Vivi
- <rodrigo.vivi@intel.com>, Tvrtko Ursulin <tursulin@ursulin.net>,
- intel-gfx@lists.freedesktop.org, Matthew Brost <matthew.brost@intel.com>,
- Thomas =?utf-8?Q?Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- intel-xe@lists.freedesktop.org
-Subject: Re: [PATCH v3 00/12] docs: ioctl-number: update entries
-In-Reply-To: <20261125061340.3402300-1-rdunlap@infradead.org>
-References: <20261125061340.3402300-1-rdunlap@infradead.org>
-Date: Wed, 25 Nov 2026 09:45:27 -0700
-Message-ID: <875wxkx3ko.fsf@trenco.lwn.net>
+	dkim=pass (2048-bit key, unprotected) header.d=networkplumber-org.20260707.gappssmtp.com header.i=@networkplumber-org.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=PO8WFMPF
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f04e3bf46dso44003555ad.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:47:24 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=networkplumber-org.20260707.gappssmtp.com; s=20260707; t=1795625244; x=1796230044; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qenWKunPLMZk3LsufaF7OAqEkY7sY2jqJw0UtvtJ83U=;
+        b=PO8WFMPF0nJHKAaYJscQsQKiggVJ7DzkD0+niuq0Ez1kdTRs+jHdgmJxITYA3UVfKp
+         Mvr9giGC4fekuJdK4Qc+8AlxMtXLiEVA587k7RXm2aiQ1myqR42/DFMfa1d2/R/BQObP
+         5HILWPyjPJuYjGy//HTwZ2oK9Ff+DNwoosZnkgDU3UszxuY07qvH5vaiQy80GPCOwB+4
+         xESJQwFQqkcUT1tLbyd6MjLpLFdsTFoPXe99sp7dqkiHSpYW7LGCc43aSZyw5VVW3C7X
+         h4mDv9yOw779azUCWB2eiHI61CyIaLuGoyRP0/YDP3nPBa1ieUvxW050RU1FDoa9yfbM
+         SheA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795625244; x=1796230044;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=qenWKunPLMZk3LsufaF7OAqEkY7sY2jqJw0UtvtJ83U=;
+        b=gzVhivJIMVjCZNBQKkRQTxwdcjJ6pxyMpo9KOCEsge/SytGP3nFfKPio0uDUuRBRIb
+         S1XxPg/b1D17aXAXNvRov4aW8loJ5jP5UOX8a8lerBZKm1taWPTr+8LaQ/MibWA9lD2R
+         dd+pDsWZt0g95EnMng/0jHgh/yU9Y6w9A08yHIQpv7ugIbcreUzc3dEg2aC/wsqHr5wy
+         nJe3DAMLS2dHBnhlcEr70R7S3ld0AWmPw9aJBvwbn0SYAq9io4KWb965N8ZHfkujESoZ
+         kD4lZDBVkqjL9o9Tet1sJZlILXYlMuzqo1p6FqsG92rb7i5ULj3ShMat/nOH8zhdtgMW
+         m8yg==
+X-Gm-Message-State: APuU4Z+Eb+5kgMcemTyl5Gnd0+8gtUeMCecM3S3vKylrRrWGFZ64KGpa
+	MgLvQZhutYE4hZPgDplJWgWvlgpfqGyI3lyHONMidkK2APVx+gNbexBmw3MwnZRv/onw8HRFeNn
+	BSzdvv4U=
+X-Gm-Gg: AZFdTZeFO3ENiaeZs48zo+d3rxR0MyXyt38aBfcVs5H7zd9vxNG/wJPrfiRu46qXGOq
+	IYDn5OHAhTm2ZH6xuybw3Pb4E6659jOXC/RN4ZXp9AJn/8kyOJaJ5hqIx8Tp+779eO5IyQDKLK+
+	Ne78dzKqgCEFfOBW+FBlH6k43yNBfs+wlVvrsv6Eo5lXmqjVjTCGiORx89Slmhog8vi/9iTZ9TH
+	R00tCg+hTgqXCmoEaGN9EYES6maAeF0OYswMXJwIdvO6T5BGBKJaToGtfr6baoio5r0M1+vZF84
+	unCvf5WQLNqO1atJjUzxClmpg0FmbcmnMhbYMD1OEMh58VLcrSbOko2yGN+BsHa4LKQOmABC8/J
+	5rqvCUjPb+3Fx6z1xrsgaafOLFEiCqyYCZ2jcUZFSw10o8cxvdvDGik1eaRBh+p7jqir2cMADs6
+	Wyk8DCUcJZrRiWmYOOxc72OSdEkAy2t4rWxDd12i3gAeEqINFzaRVHBbFiRcbxlTnWQNQHp/IVn
+	E/1Rei9DHuPsbkedFS5G8UecsSKHkqSwE/lb8vC5qQ/ujp4vQeCe9a2kyiBEYTo8vZ+6GCGvzPa
+	OpjhigCRu6AeQNJXGbpPDsJtElmsV+5sdEH849d0WAeWC18IqoY7z1Zi2MIpVDtoz0Og
+X-Received: by 2002:a17:902:f652:b0:2e2:d77b:e587 with SMTP id d9443c01a7336-2f03f1cee76mr196524735ad.18.1795625243510;
+        Wed, 25 Nov 2026 08:47:23 -0800 (PST)
+Received: from phoenix.lan (204-195-112-43.wavecable.com. [204.195.112.43])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee844acsm92135315ad.2.2026.11.25.08.47.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 08:47:23 -0800 (PST)
+From: Stephen Hemminger <stephen@networkplumber.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [PATCH iproute2] names: terminate the name returned by id_to_name()
+Date: Wed, 25 Nov 2026 08:47:21 -0800
+Message-ID: <20261125164721.1942828-1-stephen@networkplumber.org>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,33 +93,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain
+Content-Transfer-Encoding: 8bit
 
-Randy Dunlap <rdunlap@infradead.org> writes:
+strncpy() does not terminate when the source is as long as the limit,
+and the tc class name from tc_cls may be up to NAME_MAX_LEN while the
+caller's buffer is IDNAME_MAX. A name of 256 characters or more filled
+the buffer with no room for the NUL, so the snprintf() that formats it
+read past the end.
 
-> Update file names that define ioctls and update the range of
-> ioctl function numbers that are used where they have changed.
->
-> [Since having multiple maintainers trying to merge these would
-> cause some conflicts, it would be more manageable for Jon to
-> take all of these through the docs-next tree.]
->
->  [PATCH 01/12 v2] docs: ioctl-number: update MM entries
->  [PATCH 02/12 v2] docs: ioctl-number: update sound entries
->  [PATCH 03/12 v2] docs: ioctl-number: update block entries
->  [PATCH 04/12 v2] docs: ioctl-number: update networking entries
->  [PATCH 05/12 v2] docs: ioctl-number: update video/fbdev entries
->  [PATCH 06/12 v2] docs: ioctl-number: update SCSI entries
->  [PATCH 07/12 v2] docs: ioctl-number: update MTD entries
->  [PATCH 08/12 v2] docs: ioctl-number: update USB entries
->  [PATCH 09/12 v2] docs: ioctl-number: update virtualization entries
->  [PATCH 10/12 v2] docs: ioctl-number: update FS entries
->  [PATCH 11/12 v2] docs: ioctl-number: update platform entries
->  [PATCH 12/12 v2] docs: ioctl-number: update DRM entries
->
->  Documentation/userspace-api/ioctl/ioctl-number.rst |   91 ++++++++---
->  1 file changed, 72 insertions(+), 19 deletions(-)
+Use strlcpy(), which always terminates.
 
-I've applied the series, thanks.
+Signed-off-by: Stephen Hemminger <stephen@networkplumber.org>
+---
+ lib/names.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-jon
+diff --git a/lib/names.c b/lib/names.c
+index 4ecae92b..697942d2 100644
+--- a/lib/names.c
++++ b/lib/names.c
+@@ -142,7 +142,7 @@ char *id_to_name(struct db_names *db, int id, char *name)
+ 		entry = entry->next;
+ 
+ 	if (entry) {
+-		strncpy(name, entry->name, IDNAME_MAX);
++		strlcpy(name, entry->name, IDNAME_MAX);
+ 		return name;
+ 	}
+ 
+-- 
+2.53.0
+
