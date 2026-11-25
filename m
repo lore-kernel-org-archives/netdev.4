@@ -1,94 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=216.40.44.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621533;
-	b=PkPhQYazjJpweQCkkoOrHUqwTF6PKgIx16YZysGdw5SNgcg73Qkwkrm7jd+KqFWIIqe+
-	 Gdw+/8LDMEQdGS4UupG+uDwnTpeku5ygqQ0Wz5jkN5iNe7WJH/uwkqxx3fpWGIEcFNII5
-	 xGMMSgcqsE7T9ZdySZEcSRSXbGsFckhCtmyMboyhHMZ0yHFobLT5SNlzUYQkmUxNhIixo
-	 uVLnYSEr9IftGo4S8NL8+9eXe5w8oRbVB2t/Z+4KCPCAtv4OqttzzQtCPC/t4PWFqLi99
-	 WrReSS8aD1QOIfV2YfXwOe03GMkwYL7ICJC/NNPTmX6+n8ZjYdFjQbFL78OqLlJdimQ==
+	t=1795621573;
+	b=y9Jn/TWbg1TxOYnA12W1Jj8jIeEGFbKyabngDaJlKXXm7gBBZkqhB2XmXqQ09NHgZzBI
+	 D/vjWQCpor+cP0Ee2ZqjZVJUck9824A5MZVaVjud8nIS8/R1XFF7SulFETuu7HTAHmYkp
+	 H19/fHdyQI1jGh59zrcASO1fsrJ94tfn2d7GHZS4Kvg5ITblNGYsyinnnGFoy68SEwgry
+	 ppv7ROvNfbazquRRxct0pL71sxQ2TbPbUeQtibZhcVQJes3H5RKpoJuGfeX/slB1yYbkd
+	 dHGJCNAW61B8I9K6ub6gJ4dyDoHYfwuCGxismF2p96FX+GGVmaJq3zxe4Q745hOP2vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621533;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=+hF8JaB+djbNpsEhW3Xi8DSX8SvBQulT2na5Z6v+Cc0=;
-	b=RiWWvnsEfaVtJ9InsypIQRRR8zR7VtKIuO2nFbZpfShZ+/zr+TI96fxbeReDgugOslun
-	 7pJS6jMnrlDk2cvOqwww7czsS8DJ12kVjerhRFODcGUvGk3abl9HIRZ4tXQsDN2WScgk5
-	 HZ9k2tdyEvC258Ss3R/8Gg9EgzPGoVP593Avd1Sun7eAKTPSGObeHQMM5FE+h2UWFc3qW
-	 F4kVmEbUKyRyIMjYRqiD3Bb+dfl2IgaEwQwbesh6yghew21sps8EuCY6076S2UUFKSMbm
-	 5ATrqjfPx8bLl1GArjjCH0oB0fgI8u3ZR2tVtRzmHgJ3PD8a3iIShszfl1YSYmasFWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621573;
+	h=DMARC-Filter:Received:Received:Date:From:To:Cc:Subject:Message-ID:
+	 In-Reply-To:References:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id:X-Spam-Status:
+	 X-Rspamd-Server:X-Stat-Signature:X-Session-Marker:X-Session-ID:
+	 DKIM-Signature:X-HE-Tag:X-HE-Meta;
+	bh=8MIZWno2npoMUIlLN3kS7mGO/9uJ/IFSOHAZr4ADfQE=;
+	b=06du/IRXy1GyIzuWeC0/ufwY5Jtjo2HN4+blqE2Z5rlIWEr+Jmccb4wh7VfU8tMLqm/d
+	 pgYE16xZp2XbuuF7UUXa1Q8PbikXrmkAkJby4ppFAy3k5lKrnb++sruQOZ1WX0y3SgAtu
+	 4CzUM6qE4oGpMYu6hHebvFSyKx0b9fXviCRSsMzvG6vvNbKMLcxI6Et5SjskTfCpHTjUQ
+	 nQmU3T4Icfw7setO7xTpnN93aF68nt+fv8bR0uPYHMRhND+RrRZLBYnNvMI+YZaQOq7l3
+	 zVZiKdAZP0PLcr8tm7rz11cnS+NucQK7MAO5Kffe0MEC7gssDtTG0E/Fcoun++gH0qA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWORzPPA;
-	arc=none smtp.remote-ip=209.85.160.176
-Received: from mail-qt1-f176.google.com (mail-qt1-f176.google.com [209.85.160.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=goodmis.org;
+	spf=pass smtp.mailfrom=goodmis.org;
+	dkim=pass header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=OavIN4WE;
+	arc=none smtp.remote-ip=216.40.44.14
+Received: from relay.hostedemail.com (smtprelay0014.hostedemail.com [216.40.44.14])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9272606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:45:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9272606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDE52606A31E;
+	Wed, 25 Nov 2026 15:46:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDE52606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=goodmis.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=goodmis.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uWORzPPA
-Received: by mail-qt1-f176.google.com with SMTP id d75a77b69052e-55d2b4a99d4so54484921cf.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:45:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795621532; x=1796226332; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=+hF8JaB+djbNpsEhW3Xi8DSX8SvBQulT2na5Z6v+Cc0=;
-        b=uWORzPPAV0CvAkCMSN+eHMpnoqkpFxACRlj4Z9VNKt1hH59qJZ0BSX+tauZdZUXrlX
-         2pQzqhsVNHRxbeyeMGtp7fRudIRZE817E0OMF+s1ikebEgvwW8n8VCsQbAQ6U6/m9Ejk
-         8OeLIViXY6TO8FfkQcjTib6YbKbxIrXUHhy2SDwqCVGRQoGC2o9qnoBsYYegxxn5jeBe
-         hl5PGqcBh0jq4hcDPGs09GTvJNkzg7JHvxm6ciqoLACPn09kc+eOb1f5EhVYl2lt9oeq
-         4gFQEHUbnIZc3HfJhOI15Nz8aBzNQ1+StsEI3z+Pbx/hWsSSSVP5LtKkpnL2PwDKOFtA
-         2oRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621532; x=1796226332;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=+hF8JaB+djbNpsEhW3Xi8DSX8SvBQulT2na5Z6v+Cc0=;
-        b=jAzTkJDVvDfuT5ViyayYViidOCo2Q68cnNZ9GCVZvCijhdZSyOjoCc8yHC1qRsQHU6
-         U7xnKRhuz5eZKY//Dw3KmUQcp3/ufQIo05jNi6qnl0PcbUbQ93H7L/7lAZYsRthPnxYs
-         pvHiknnmWcZP3yO6ZYRuX5sEC64Repkq1Y3BlJiAnf3poOlZzt3BDl2S6VGRl+FIMs9j
-         qqbd7DNR0IWTNi93oNuD1u0YZle5SbBExZqg3i9BNIF9qKSQJFFEGFrZzUcIUfPpFm+Z
-         L61C5a0LDUO1zQzKGvr+yx7J9u9z1BW6yE7vwDh2IVyZxHciDEt9d7oUyPr+TPa6Iqyn
-         ZyQw==
-X-Gm-Message-State: APuU4Z/7b9DxHeUPl0YUrbSXV+5gBRXXZFWit4VMFc/h1k0gf0yVC6Tk
-	oNDeR6aojRiOFsRqFGGzx4bq99lR1iY9bwCUxFstHze1XXKkYmM51K2kPGu7qpD/
-X-Gm-Gg: AZFdTZcUQN7n0ZLly2khQGTRSLpNACLktCKRJfbCvqlTTcJNaCTPniEMBSfONt8qs1c
-	vGTb0oULSO4MxOFqwWWD698k4PrAf/r5IZN6fU+8zfcF35VFTLYy7VFJu1sTjLB93dPl/m1+Jbo
-	kUhuSjKqgGYO/sCtgNLReXMGoU6TQD6d5CU7DjEDiO14QMwb7QYr0y+zn869WtKzawXtffWevWy
-	Vp/4lU7NdY9XMg49U9wqYN5SdFu8J4/fJrc941+5ayRkaC/G3KLc+hunyrUM3/mR/mnmjdj5FQf
-	PRVTSr0spaO2KLL+OygUXHkrZrzYtN+89KvUoEKTG5kFWs1ZegK1zZFuwFc7d72mppm+bW37Kqa
-	x/MI3nlKChWpIQ5lCa27hpJP4mov62to/xe6dkiwzzqpzADJd3vQnhu6mLeJP3GictUpEiJdIJz
-	8eJdQR9rm1qtjdEbb0QJyFN44Yj0bMsFhw6S4HnVwe4jX314YlO9u8+M+XZ253h/tMy0CpW/g+n
-	hZB+BalX20IZr0loH1wgRTsuqSKfDDcfZKb7majgXKwQ2sa9sqbFSIrJLvvP9xOdFuoth6qSO1x
-	FYYgcL1q4t01vd3Eix2d40qGJ0eBBL6z6k2s2npuZoB/WwZchNkalQsoK1vGO33Ml5tPZWg1VeK
-	XS+qxvR5joNwIEBPbVAWTK6kzqAEB0m7zZVPetRWaD8U9iDI9u76B2hXfLzBw8XrqCNv38sQ=
-X-Received: by 2002:a05:622a:4289:b0:535:2521:f07c with SMTP id d75a77b69052e-55d7690bbfcmr344909311cf.7.1795621531606;
-        Wed, 25 Nov 2026 07:45:31 -0800 (PST)
-Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-921349b0827sm164792676d6.8.2026.11.25.07.45.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 07:45:30 -0800 (PST)
-From: Xin Long <lucien.xin@gmail.com>
-To: network dev <netdev@vger.kernel.org>,
-	linux-sctp@vger.kernel.org
-Cc: davem@davemloft.net,
-	kuba@kernel.org,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
-Subject: [PATCH net v2] sctp: copy endpoint settings to accepted and peeled-off sockets
-Date: Wed, 25 Nov 2026 10:45:28 -0500
-Message-ID: <ad53ffafc3285da03f3b6a888981a9b30f8c3ff2.1795621528.git.lucien.xin@gmail.com>
-X-Mailer: git-send-email 2.47.1
+	dkim=pass (1024-bit key, unprotected) header.d=goodmis.org header.i=@goodmis.org header.a=rsa-sha256 header.s=dkim1 header.b=OavIN4WE
+Received: from omf07.hostedemail.com (lb01a-stub [10.200.18.249])
+	by unirelay08.hostedemail.com (Postfix) with ESMTP id DFD4A140DD1;
+	Wed, 25 Nov 2026 15:46:03 +0000 (UTC)
+Received: from [HIDDEN] (Authenticated sender: rostedt@goodmis.org) by omf07.hostedemail.com (Postfix) with ESMTPA id 397FE2002E;
+	Wed, 25 Nov 2026 15:45:59 +0000 (UTC)
+Date: Wed, 25 Nov 2026 10:45:57 -0500
+From: Steven Rostedt <rostedt@goodmis.org>
+To: Leon Hwang <leon.hwang@linux.dev>
+Cc: bpf@vger.kernel.org, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, John Fastabend <john.fastabend@gmail.com>,
+ Andrii Nakryiko <andrii@kernel.org>, Eduard Zingerman <eddyz87@gmail.com>,
+ Kumar Kartikeya Dwivedi <memxor@gmail.com>, Martin KaFai Lau
+ <martin.lau@linux.dev>, Song Liu <song@kernel.org>, Yonghong Song
+ <yonghong.song@linux.dev>, Jiri Olsa <jolsa@kernel.org>, Emil Tsalapatis
+ <emil@etsalapatis.com>, Ihor Solodrai <ihor.solodrai@linux.dev>, Masami
+ Hiramatsu <mhiramat@kernel.org>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, KP Singh <kpsingh@kernel.org>, Matt
+ Bobrowski <matt@bobrowski.net>, Shuah Khan <shuah@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH bpf-next v4 2/6] bpf: Add log support for tracing_multi
+ link_create
+Message-ID: <20261125104557.1f0fb120@gandalf.local.home>
+In-Reply-To: <20261125143138.47174-3-leon.hwang@linux.dev>
+References: <20261125143138.47174-1-leon.hwang@linux.dev>
+	<20261125143138.47174-3-leon.hwang@linux.dev>
+X-Mailer: Claws Mail 3.20.0git84 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,140 +71,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Rspamd-Queue-Id: 397FE2002E
+X-Rspamd-Server: rspamout08
+X-Stat-Signature: bakjba3n8hiay8ri5ncytaycwy31fqbq
+X-Session-Marker: 726F737465647440676F6F646D69732E6F7267
+X-Session-ID: U2FsdGVkX1/A9ii1UvUhkDfPAVQ+ewQptk1Gg2iKK30=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=goodmis.org; h=date:from:to:cc:subject:message-id:in-reply-to:references:mime-version:content-type:content-transfer-encoding; s=dkim1; bh=8MIZWno2npoMUIlLN3kS7mGO/9uJ/IFSOHAZr4ADfQE=; b=OavIN4WEfnNtug+3I6hEwZWTSLkq1bzW4MTbfS2GFmzt4Y8DV8PPAAvppseBfP9aHQD45kU+F/kRyzmrb1u94PGq9lZ0S3lnwkm0QpIQqMyMaIONaGiJTONVKuRnIXPIB+mgfD5XQvpMk72J2jw+4ygH8U/E+OcZJz5a6GUVl2I=
+X-HE-Tag: 1795621559-927810
+X-HE-Meta: U2FsdGVkX1/QsWFimWrlcmB8dh0NeoeGxBpXwOM3wRsvnP7Oyi0I/tsdmP5eWFht6ZXfsbL4SFtlKwz2QCkilFkCyLb5tNazmsifniUKP0ZfZaGwS4eCksT3LYK/2zK1kRct0rUE3NFlczQKLY/S4mLAZrM0h6stM08t8qlEl8ldk6RBuHqzqk1/RwmZLuzrt8UnfCx1K/NRwqf6wQ0dg7PClJhhwUSIA/9iYGDwOrFNmAxz421QDWBsQ90bs4eTDLbVn1gv0525W4zXx6BxZd7uChhkK1fHK8OMGDazZSiBVMvHjsoyRUSNNU0AQAMQPkCCTFw2SB31S6rurHCRAu70CBdPoLCkeOiX25mgqbOUOjSrN+wKB7UNoF6bTnJc
 
-As gomaja noticed, when accept() or SCTP_SOCKOPT_PEELOFF creates a new
-socket, sctp_endpoint_new() initialises the new endpoint from the network
-namespace sysctls and from the compiled-in AUTH defaults rather than from
-the listening socket's endpoint. If an association restart (RFC 9260
-section 5.2.2) arrives on the accepted or peeled-off socket, the restart
-INIT ACK is built from the new endpoint, so it negotiates capabilities
-based on the namespace sysctls instead of what the listening socket
-configured:
+On Wed, 25 Nov 2026 22:31:34 +0800
+Leon Hwang <leon.hwang@linux.dev> wrote:
 
- - Feature flags (PR-SCTP, ECN, RECONF, ASCONF, I-DATA) in the restart INIT
-   ACK follow the namespace sysctls rather than what the listening socket
-   set via SCTP_*_SUPPORTED socket options.
+> diff --git a/include/linux/trace_events.h b/include/linux/trace_events.h
+> index 321f2f3a6c8e..bb825ea5d09c 100644
+> --- a/include/linux/trace_events.h
+> +++ b/include/linux/trace_events.h
+> @@ -16,6 +16,7 @@ struct tracer;
+>  struct dentry;
+>  struct bpf_prog;
+>  union bpf_attr;
+> +struct bpf_verifier_log;
+>  
+>  /* Used for event string fields when they are NULL */
+>  #define EVENT_NULL_STR		"(null)"
+> @@ -796,7 +797,8 @@ int bpf_get_perf_event_info(const struct perf_event *event, u32 *prog_id,
+>  			    unsigned long *missed);
+>  int bpf_kprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
+>  int bpf_uprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog);
+> -int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr);
+> +int bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
+> +			     struct bpf_verifier_log *log);
+>  #else
+>  static inline unsigned int trace_call_bpf(struct trace_event_call *call, void *ctx)
+>  {
+> @@ -855,7 +857,8 @@ bpf_uprobe_multi_link_attach(const union bpf_attr *attr, struct bpf_prog *prog)
+>  	return -EOPNOTSUPP;
+>  }
+>  static inline int
+> -bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr)
+> +bpf_tracing_multi_attach(struct bpf_prog *prog, const union bpf_attr *attr,
+> +			 struct bpf_verifier_log *log)
+>  {
+>  	return -EOPNOTSUPP;
+>  }
 
- - AUTH HMAC and chunk lists revert to the kernel defaults (SHA-1 only,
-   empty chunk list) instead of what SCTP_HMAC_IDENT and SCTP_AUTH_CHUNK
-   set on the listening socket.
+Acked-by: Steven Rostedt <rostedt@goodmis.org>
 
-Copy the feature flags and AUTH configuration from the old endpoint to the
-new one in sctp_sock_migrate(). Add sctp_auth_ep_copy() to deep-copy the
-HMAC list, chunk list, and shared keys from one endpoint to another. This
-ensures that association restarts on accepted and peeled-off sockets
-negotiate the same capabilities as the original handshake.
-
-Fixes: b14878ccb7fa ("net: sctp: cache auth_enable per endpoint")
-Signed-off-by: Xin Long <lucien.xin@gmail.com>
----
-v2:
-  - Add a Fixes tag and target net.git.
-  - Copy sh_key->deactivated to new_key->deactivated in sctp_auth_ep_copy()
-    (reported by Clashiko).
----
- include/net/sctp/auth.h |  2 ++
- net/sctp/auth.c         | 48 +++++++++++++++++++++++++++++++++++++++++
- net/sctp/socket.c       | 17 +++++++++++++++
- 3 files changed, 67 insertions(+)
-
-diff --git a/include/net/sctp/auth.h b/include/net/sctp/auth.h
-index 85efa65d3912..2ef52507bf11 100644
---- a/include/net/sctp/auth.h
-+++ b/include/net/sctp/auth.h
-@@ -106,5 +106,7 @@ int sctp_auth_deact_key_id(struct sctp_endpoint *ep,
- 			   struct sctp_association *asoc, __u16 key_id);
- int sctp_auth_init(struct sctp_endpoint *ep, gfp_t gfp);
- void sctp_auth_free(struct sctp_endpoint *ep);
-+int sctp_auth_ep_copy(struct sctp_endpoint *dst,
-+		      const struct sctp_endpoint *src, gfp_t gfp);
- 
- #endif
-diff --git a/net/sctp/auth.c b/net/sctp/auth.c
-index cbeb8a87a17a..3f97e2689e5a 100644
---- a/net/sctp/auth.c
-+++ b/net/sctp/auth.c
-@@ -1056,3 +1056,51 @@ void sctp_auth_free(struct sctp_endpoint *ep)
- 	ep->auth_hmacs_list = NULL;
- 	ep->auth_chunk_list = NULL;
- }
-+
-+int sctp_auth_ep_copy(struct sctp_endpoint *dst,
-+		      const struct sctp_endpoint *src, gfp_t gfp)
-+{
-+	struct sctp_shared_key *sh_key, *new_key;
-+
-+	sctp_auth_free(dst);
-+	sctp_auth_destroy_keys(&dst->endpoint_shared_keys);
-+
-+	dst->auth_enable = src->auth_enable;
-+	dst->active_key_id = src->active_key_id;
-+
-+	if (src->auth_hmacs_list) {
-+		dst->auth_hmacs_list = kzalloc_flex(*dst->auth_hmacs_list,
-+						    hmac_ids,
-+						    SCTP_AUTH_NUM_HMACS, gfp);
-+		if (!dst->auth_hmacs_list)
-+			goto nomem;
-+		memcpy(dst->auth_hmacs_list, src->auth_hmacs_list,
-+		       ntohs(src->auth_hmacs_list->param_hdr.length));
-+	}
-+
-+	if (src->auth_chunk_list) {
-+		dst->auth_chunk_list = kzalloc(sizeof(*dst->auth_chunk_list) +
-+					       SCTP_NUM_CHUNK_TYPES, gfp);
-+		if (!dst->auth_chunk_list)
-+			goto nomem;
-+		memcpy(dst->auth_chunk_list, src->auth_chunk_list,
-+		       ntohs(src->auth_chunk_list->param_hdr.length));
-+	}
-+
-+	key_for_each(sh_key, &src->endpoint_shared_keys) {
-+		new_key = sctp_auth_shkey_create(sh_key->key_id, gfp);
-+		if (!new_key)
-+			goto nomem;
-+		new_key->key = sh_key->key;
-+		sctp_auth_key_hold(new_key->key);
-+		new_key->deactivated = sh_key->deactivated;
-+		list_add_tail(&new_key->key_list, &dst->endpoint_shared_keys);
-+	}
-+
-+	return 0;
-+
-+nomem:
-+	sctp_auth_free(dst);
-+	sctp_auth_destroy_keys(&dst->endpoint_shared_keys);
-+	return -ENOMEM;
-+}
-diff --git a/net/sctp/socket.c b/net/sctp/socket.c
-index bc68af88e271..bfd87be8ed54 100644
---- a/net/sctp/socket.c
-+++ b/net/sctp/socket.c
-@@ -9623,6 +9623,23 @@ static int sctp_sock_migrate(struct sock *oldsk, struct sock *newsk,
- 	if (err)
- 		return err;
- 
-+	/* Copy the endpoint's feature flags and AUTH settings from the original
-+	 * endpoint so that restarts on the accepted or peeled-off socket
-+	 * negotiate the same capabilities.
-+	 */
-+	newep->prsctp_enable = oldsp->ep->prsctp_enable;
-+	newep->ecn_enable = oldsp->ep->ecn_enable;
-+	newep->reconf_enable = oldsp->ep->reconf_enable;
-+	newep->asconf_enable = oldsp->ep->asconf_enable;
-+	newep->intl_enable = oldsp->ep->intl_enable;
-+	newep->strreset_enable = oldsp->ep->strreset_enable;
-+	newep->sndbuf_policy = oldsp->ep->sndbuf_policy;
-+	newep->rcvbuf_policy = oldsp->ep->rcvbuf_policy;
-+
-+	err = sctp_auth_ep_copy(newep, oldsp->ep, GFP_KERNEL);
-+	if (err)
-+		return err;
-+
- 	sctp_auto_asconf_init(newsp);
- 
- 	/* Move any messages in the old socket's receive queue that are for the
--- 
-2.47.1
-
+-- Steve
