@@ -1,107 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619319;
-	b=lfa0m+/tMSAXf7yyT28uX0JVbVKjPPYSLB6olHvaBTDdUpEQ9CMZvFFSo7rXNTLh/KtJ
-	 1fsUWd49d9mKtEhG7NPVaWiN9W+LMME65yqapi9vmkVQGUgAyytbM4EFFZQFdxvQM9oQ5
-	 M0Wbg9VZxRggsOB2hxEzH+2DM7s99Kf8tDQhs8lzXLAEjRhfqdFTPL2k77DmPuQ4HD42h
-	 FDp9SZGin3mvLBEV6in5bFZHJS9DhxvUU3qIKfiI0WQKg8l4E3r3zKIIPkeOQsscYm74E
-	 noV7kl12LR6UtBPiW6JJwzpSuVPs0b2rUJegtJxmBLHOTopPFUj89/JjyqFVjNNb/OA==
+	t=1795619335;
+	b=WOSPpgb9q1P8Dk7K1xeJziS/JLUg5pU7q64TLAVG0rLzuEulYfWJcbfI1VkU8PQo3p4M
+	 +DFvboBvgb0t+ggUDhvD2LkiNg42DJ+iND8aBykS4MC58cJtmrY0iewcBMXhk17uLFpMI
+	 7rsckR8ng/mOmck8Ht1S1vpI/NK9lTWHLOqs9TdZUiH6cZ1Co/7TL+uB1mySimKeJSGPY
+	 yElyei/18v5VY+2OiTPb6HwUo5P1gUCI7/+XV5N/IloOvQzaN8HLRTmgv1fZ6yrJik3K8
+	 RHI+sSgCd4Q/n8LPlEWNxIZFa6H+KmNpEgd+9TKaXIEs0BlZHx9xWoBAGOZ6M5fXKFw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619319;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=MZhEWgkWD3f07SEDSp2gS86vUycnUIbb45Jy+diiapU=;
-	b=e2K807RLAs88DsNqnz0C38SZ+piCofJnEafWRVpcFIwNeJPmUm3WjbA2e9wU8oTiIW77
-	 w6KZx90lyVJyk/2c5mAvfaocTeBgMtz8qIWjAhwtFfdjfg9tFjJ8DYzmwPttU9CRzF6AZ
-	 LaMxjKZ+X9Va2lCig2OCtqSmJSkM98YAZjxdDO+ieOpVro41vHSGrhP2FYJnA1dmJTtSg
-	 1CLBNQErPyr4qUgNzIOyXEkaGIAYiLXr2+6ytP2ylf2+27XhyYtAKV2EDuxZjYRjib27+
-	 OdgLTi9hpHZ7MmLz2i3UZ+zouonsyI48Ds9An0QXvz94MmRfOps5vP64gV4+iCmrjDA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619335;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=n5cF3s3N7pWU3PiKTalYfogLnqIPzbP6ZoweIi9h20U=;
+	b=PhhmeX/aJ+V0ioYQSHPqwxT8u89GQU+4Jsanp+JqCshGkNWqzBJ1vTcsitNtQF7AojSZ
+	 9BDGXyV8ki9IFmqWon61rvSQxjVXOerj27nih6dEEOUY0sDoIfWCIxRk5MKnNZXPf6zaJ
+	 XKG9GMaDm1kjoMEbcxpck44/Y54dk3lTPywYGFuf3IPZqAtbypZrwMtKqh9oIb6tdjR/Y
+	 L4l66CmjI++MW12J/OfMG0FGxExsnMK2OYbCRwg8R1C6FVJCgSFIB/1znZ4iZUABYcmQQ
+	 UUos1sdmY7eKRfUGRUIYj6Ul9L1Ugc2yB+2yPLXD4NvkkK60+pE8NtV2B/IKUA7Qucw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Moi00Ks0;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LH5BjmKW;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0Z0vJP+;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3EBD8606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:08:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3EBD8606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F56B606A33C;
+	Wed, 25 Nov 2026 15:08:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Moi00Ks0;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=LH5BjmKW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795619318;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MZhEWgkWD3f07SEDSp2gS86vUycnUIbb45Jy+diiapU=;
-	b=Moi00Ks0Pj/3khoxqdAOs3vBr9CmyKyQ9yMUD1Kv23ZwzNAF0vZCat+YoKoU1xVYgRRsxt
-	0n3bzVc37cp/U9V0YYLv4BAAq8OQ8K1wVpMol3XBZz5TFLaSX5hw1G09pqnRsJN2YgiX4c
-	fx0Uj0iafkPDBvlPeWPeQnXKx+hntBY=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-219-DLdpJnA2MjGvrXq2V9HoBw-1; Wed, 25 Nov 2026 15:08:36 +0000
-X-MC-Unique: DLdpJnA2MjGvrXq2V9HoBw-1
-X-Mimecast-MFC-AGG-ID: DLdpJnA2MjGvrXq2V9HoBw_1795619315
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-4a68703d177so2855767f8f.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:08:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795619315; x=1796224115; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MZhEWgkWD3f07SEDSp2gS86vUycnUIbb45Jy+diiapU=;
-        b=LH5BjmKWe/y9phiGSyWMW/cNyqk5lgcZUWFdUvvMV6WsUu9AN0wHVmD05R8Y9oNPrW
-         +GeBl3hibgloPlbR+VK/dsW58DfhK2qlpU1Nn6AoL4MpsIxUmRZPOG5E4H9iSTkCsLB7
-         /z+efbSULkl9xaXpjiYbgNWJAmleAah5tQs3ZgLPKx5zDDxoGZwDxuCVZV28ppOgNQvZ
-         BcgULE8W6//UMvofkYL9Or2Cbjuzz5fBP/GGBVM3huvP9+yXoiQjedtlKgixvLzIQcCU
-         3JWrrjF2sfiX9jmOUamuUa31yz7E8+aTTOJqejFn0y7YKa4LjHSszv157j8wEqWhln4i
-         kB7w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795619315; x=1796224115;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MZhEWgkWD3f07SEDSp2gS86vUycnUIbb45Jy+diiapU=;
-        b=U5qKVVrPkcFmNvGLXesDKvggLzo285CMV07dDXs7CNuwU/3KgpJcAM3g+Sf40uM2+a
-         XyPg/Z4bqPHDfJAKOovj8ogdlnfCYuxqJFPXJWbVllxegNJypsR3HEpNpxTa8ArryXK9
-         MSB1+Wzg1fSbuRe61JkfATAtKYJ7D7KMS33nUbHTrz4sVssTMive9od1aZBNlPK4WMZk
-         AFtdC8XCAYY8iWaXoLmfnaruiGr/g18fWwiWr/ob7/en/DS7xkbFCLjwxuyfybc7uwlI
-         bye6V0vPTOurvDh8TcwiFnbN0mk0u51/ArJQwboAiYVrTWB1ysulqvPxrZMIoPre/z6k
-         6PXg==
-X-Gm-Message-State: APuU4Z81IgxsL8dyz4IySKnQeeIHlb3ZTYzkQ28oNzDSNX/RiGMch44G
-	a9dmhS4e97bzDRo71gdA2jjqkjhNySX2y4MyU3RCJfZjC7IeXa9aMAgX7wawSZeWODYCpFQZHdF
-	KGSK5UreJ+RM5WBnm5tNRiymk1/9+T7vaVF7cDeT4EVnDzhANtqbWqZxxkA==
-X-Gm-Gg: AZFdTZfyHL0DR6M2W3bwmStRE8Ziq3vGCMiKnvU3fXYPp2Gwwv+aeiNLF5ZHgx+7qTx
-	nwp/YkBax3nzXa4D6ujTSmKSZQX4POefmbGLpTTDbp/kqEq6zhCeqzaLAo+yuvyf6taQGSceP0X
-	apEHG0cqXGE116f37yHj2842jLlarclv7QdshnBJ5duyRzAS5pnFLp4YkRmKgxXmRVZhgHG35RI
-	nHNDlV9oNOn9erniEGIADHyaJAv5aNwPYifdj55P2qY0/tC+reyIUTP7HHlKQ1SMbxIVewEd0u0
-	uYIbIA1nWwA92so0Ubz3icNTcufu8MgAFgZv36X8yVGsFjbrckCuGNxX6z+/BOJ3pLsqJ7+F1zL
-	DzQijke3zxR0pTkeYbmtDNsU2nHm1RxqM+DA+fOYvBpdN+uVjTO0ka38IWPijXExPdKnUCj4m5o
-	dXwBUMP3alu3iGQBM/vucwsaJbcwuulMahIeax9TPeLfs7
-X-Received: by 2002:adf:e014:0:20b0:4a6:b87:d77f with SMTP id ffacd0b85a97d-4abb0f3b5a5mr27264230f8f.12.1795619314753;
-        Wed, 25 Nov 2026 07:08:34 -0800 (PST)
-X-Received: by 2002:adf:e014:0:20b0:4a6:b87:d77f with SMTP id ffacd0b85a97d-4abb0f3b5a5mr27264195f8f.12.1795619314359;
-        Wed, 25 Nov 2026 07:08:34 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67fec7sm32762851f8f.26.2026.11.25.07.08.33
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:08:33 -0800 (PST)
-Message-ID: <9943aea5-ebaa-4003-9578-ee2ba0ec5592@redhat.com>
-Date: Wed, 25 Nov 2026 16:08:32 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0Z0vJP+
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4061F000C0;
+	Wed, 25 Nov 2026 15:08:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795619335;
+	bh=n5cF3s3N7pWU3PiKTalYfogLnqIPzbP6ZoweIi9h20U=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=k0Z0vJP+91w5m9SI1iM32YY9t2t29GdoL6p0ySqljn0L/U/lMAkExEoFCV2ScR16V
+	 QGuYf4juz5uQ+INdv83ThXFBsWhx/Ddadg5brxkgxJ6M3sLUPF/UXMtm4cBLGOcqgr
+	 GqBQ4AUnSicIDQWu2m68mWUcOLe50IDHMBC5pOx3cvId4ZzcBe3imEKbTa1yV3jqwk
+	 iSjO5OTsVC9wXRp/LWs9B1MJgsdUIK7DVmvyZgVqupmxPyVNQlI02GCHihHwn8e2Y0
+	 CkHnAOqiok+tux603ulwANecfNBFlbkzdb9RZKJvhzSrluilM+pkGc0vuxvLJ6h5xR
+	 0Tsb0dSIlJSTg==
+Subject: Re: [PATCH net-next v9 2/2] net: ti: icssg-prueth: Add ethtool ops
+ for Frame Preemption MAC Merge
+From: netdev-bot+sashiko@kernel.org
+To: m-malladi@ti.com
+Cc: marco.crivellari@suse.com, haokexin@gmail.com, kees+treewide@kernel.org,
+ laixiangwu@cmss.chinamobile.com, arnd@arndb.de, horms@kernel.org,
+ basharath@couthit.com, parvathi@couthit.com, vladimir.oltean@nxp.com,
+ rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
+ edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com
+Date: Wed, 25 Nov 2026 15:08:53 +0000
+Message-ID: <179561933355.3135.14778128780862239242@kernel.org>
+In-Reply-To: <20261121144618.180542-3-m-malladi@ti.com>
+References: <20261121144618.180542-3-m-malladi@ti.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,45 +67,369 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v8 1/2] net: wangxun: protect ring accesses with RCU
-To: "mengyuanlou@net-swift.com" <mengyuanlou@net-swift.com>,
- netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
- duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, hramamurthy@google.com, jacob.e.keller@intel.com,
- przemyslaw.kitszel@intel.com
-References: <20261118081329.39551-2-mengyuanlou@net-swift.com>
- <179533642599.3135.8576432289828139956@kernel.org>
- <AD0ED59F-3879-46FE-AA7C-E97C81CA57EC@net-swift.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <AD0ED59F-3879-46FE-AA7C-E97C81CA57EC@net-swift.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
 
-On 11/23/26 07:21, mengyuanlou@net-swift.com wrote:
->> 2026年11月22日 16:33，netdev-bot+sashiko@kernel.org 写道：
->>
->> Thank you for your contribution! Sashiko AI review found 1 potential
->> issue(s) to consider.
->>
->> Critical: 0 · High: 1 · Medium: 0 · Low: 0
->>
->> If you believe none of the issues are legitimate, please reply to each
->> issue of Medium severity or higher and explain why the AI is wrong.
->> If any of them are legitimate and you plan to respin, please let patchwork
->> know by including "pw-bot: cr" as a separate line at the end of your reply
->> (one such reply per series is enough).
->>
->> - [High] The commit message describes VF suspend/resume changes that are
->>   not in the patch, and relies on them to argue that the new __rcu /…
-> 
-> The commit about vf resume/suspend related commit, just merged into net-next,
-> but not yet merged into net.
-> https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git/commit/?h=main&id=a6c3e4c1f7032e44cf5dc897a3d328b138e770d1
-Meaning even this series must go via the 'net-next' tree.
+Thank you for your contribution! Sashiko AI review found 7 potential
+issue(s) to consider.
 
-/P
+Critical: 0 · High: 0 · Medium: 4 · Low: 3
 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] emac_get_mm_stats()
+  (drivers/net/ethernet/ti/icssg/icssg_ethtool.c) fills the u64 fields…
+- [Medium] The new .get_mm()/.set_mm() report MAC Merge state in a way
+  that breaks the ethtool MM uAPI contract.
+- [Medium] After a failed emac_set_mm() with verification enabled, the
+  driver is left with iet->fpe_enabled=false and…
+- [Medium] PRE_EMPTION_VERIFY_STATUS is firmware-owned DRAM.
+- [Low] The commit message says "emac_set_mm() programs all config fields
+  into hardware before invoking icssg_config_ietfpe()", and the comment…
+- [Low] icssg_qos_validate_tx_min_frag_size() in
+  drivers/net/ethernet/ti/icssg/icssg_qos.h re-implements the core…
+- [Low] The commit message says that on failure 'the fallback path in
+  icssg_config_ietfpe() already disables TX preemption in hardware', and…
+
+--
+
+net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
+
+This adds .get_mm(), .set_mm() and .get_mm_stats() to the icssg ethtool
+ops, along with PA stats registers for the preemption counters. It also
+moves the stat table sizes to ARRAY_SIZE(), validates tx_min_frag_size,
+and initializes verify_status to the disabled state in icssg_qos_init().
+
+> emac_set_mm() programs all config fields into hardware before invoking
+> icssg_config_ietfpe(). On failure the fallback path in
+> icssg_config_ietfpe() already disables TX preemption in hardware, so
+> only fpe_enabled is forced off; the other fields (tx_min_frag_size,
+> verify_time_ms, mac_verify_configure) are kept as programmed to keep
+> driver and hardware state consistent.
+
+[Severity: Low]
+Is this description accurate? emac_set_mm() does not touch any registers
+itself. It only assigns iet->verify_time_ms, tx_min_frag_size,
+fpe_enabled and mac_verify_configure.
+
+All register writes happen inside icssg_config_ietfpe(), and only when
+the link is up:
+
+	if (!READ_ONCE(emac->link)) {
+		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
+		return 0;
+	}
+
+PRE_EMPTION_VERIFY_TIME is written only when enable &&
+iet->mac_verify_configure. The fallback path then clears verify enable
+again:
+
+fallback:
+	writeb(0, config + PRE_EMPTION_ENABLE_TX);
+	writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
+
+So after a failure, the retained mac_verify_configure no longer matches
+hardware. The comment in the emac_set_mm() error branch ("New config
+values are already programmed in HW registers") has the same problem.
+
+Could the commit message and the comment describe what the error path
+actually does? A failed set_mm returns an error but leaves the new values
+visible via get_mm.
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> index b715af21d23ac..26892b603e1db 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
+
+[ ... ]
+
+> @@ -294,6 +297,121 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
+>  	return 0;
+>  }
+>  
+> +static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
+> +{
+
+[ ... ]
+
+> +	mutex_lock(&iet->fpe_lock);
+> +	state->tx_enabled = iet->fpe_enabled;
+> +	state->tx_min_frag_size = iet->tx_min_frag_size;
+> +	state->verify_enabled = iet->mac_verify_configure;
+> +	state->verify_time = iet->verify_time_ms;
+> +	state->tx_active = iet->fpe_active;
+> +	verify_status = iet->verify_status;
+> +	mutex_unlock(&iet->fpe_lock);
+
+[ ... ]
+
+> +	case ICSSG_IETFPE_STATE_FAILED:
+> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
+> +		break;
+
+[Severity: Medium]
+Can emac_get_mm() ever reach this case, or the VERIFYING and INITIAL
+cases?
+
+When verification fails, icssg_iet_verify_wait() stores
+ICSSG_IETFPE_STATE_FAILED in iet->verify_status. icssg_config_ietfpe()
+then goes through disable_tx to fallback and overwrites it while
+fpe_lock is still held:
+
+disable_tx:
+	icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+fallback:
+	...
+	iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
+
+emac_get_mm() reads verify_status under the same fpe_lock, so it looks
+like it can only see the disabled or succeeded states.
+
+emac_set_mm() also forces fpe_enabled to false and keeps
+mac_verify_configure set. After "ethtool --set-mm ethX verify-enabled on
+tx-enabled on" against a partner that does not support preemption,
+MM_GET would report verify-enabled on, verify status disabled,
+tx-enabled off and tx-active off.
+
+Documentation/networking/ethtool-netlink.rst says that when
+ETHTOOL_A_MM_VERIFY_ENABLED is true, the verify status should report
+something other than initial or disabled. It also describes tx-enabled
+as the administrative state, which may be inactive if verification
+failed, with tx-active carrying the operational state.
+
+The link-up and mqprio paths (icssg_qos_link_state_update() and
+emac_tc_setup_mqprio() calling icssg_iet_change_preemptible_tcs(), which
+calls icssg_config_ietfpe()) hit the same failure but leave fpe_enabled
+true. So the same hardware outcome is reported differently depending on
+the path.
+
+Should the failed status be kept for get_mm, and tx_enabled be left as
+the admin state?
+
+> +
+> +	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
+> +	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
+> +	 */
+> +	state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
+> +
+> +	return 0;
+> +}
+> +
+> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+> +		       struct netlink_ext_ack *extack)
+> +{
+
+[ ... ]
+
+> +	mutex_lock(&iet->fpe_lock);
+> +	iet->verify_time_ms = cfg->verify_time;
+> +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
+> +	iet->fpe_enabled = cfg->tx_enabled;
+> +	iet->mac_verify_configure = cfg->verify_enabled;
+> +	err = icssg_config_ietfpe(ndev, cfg->tx_enabled);
+
+[Severity: Medium]
+Is PRE_EMPTION_VERIFY_STATUS ever reset before a new verification
+starts? icssg_iet_verify_wait() only polls it:
+
+	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
+				 status,
+				 status == ICSSG_IETFPE_STATE_SUCCEEDED ||
+				 status == ICSSG_IETFPE_STATE_FAILED,
+				 delay_us,
+				 timeout_us);
+
+readb_poll_timeout() reads before it sleeps, so the first read happens
+right after icssg_set_port_state() returns. If the firmware updates this
+byte some time after acking the R30 command, a value left over from an
+earlier attempt would decide the result.
+
+A stale failed value would make the next emac_set_mm() fail at once with
+-EIO, even after the partner is fixed. A stale succeeded value (disable,
+then re-enable towards a partner that no longer supports preemption)
+would turn on preemption without a fresh verification.
+
+The non-verify branch waits usleep_range(100, 200) for the firmware to
+update PRE_EMPTION_ACTIVE_TX. The verify branch reads
+PRE_EMPTION_ACTIVE_TX right after seeing the succeeded state, with no
+settle delay.
+
+This depends on firmware behaviour that the driver can't see. Before
+this series nothing set fpe_enabled to true, so emac_set_mm() is the
+first path that lets userspace re-run this sequence repeatedly.
+
+Would writing a non-terminal value such as ICSSG_IETFPE_STATE_INITIAL to
+the status byte before sending the command avoid this?
+
+> +	if (err) {
+> +		/* icssg_config_ietfpe fallback disabled TX preemption in HW.
+> +		 * New config values are already programmed in HW registers,
+> +		 * so keep them. Only force fpe_enabled off to match HW state
+> +		 * and prevent silent re-enable on the next link event.
+> +		 */
+> +		iet->fpe_enabled = false;
+
+[Severity: Medium]
+Does leaving mac_verify_configure set here make later partial MM_SET
+requests fail?
+
+After a failed verification, emac_get_mm() reports tx_enabled=false and
+verify_enabled=true. ethnl_set_mm() builds cfg from get_mm() through
+mm_state_to_cfg() and overrides only the attributes the user supplied.
+It then checks:
+
+net/ethtool/mm.c:ethnl_set_mm() {
+	...
+	if (cfg.verify_enabled && !cfg.tx_enabled) {
+		NL_SET_ERR_MSG(extack, "Verification requires TX enabled");
+		return -EINVAL;
+	}
+	...
+}
+
+So a request like "ethtool --set-mm ethX verify-time 10" or
+"tx-min-frag-size 124" gets -EINVAL until the user also passes
+tx-enabled or verify-enabled.
+
+Should this branch also clear mac_verify_configure, or restore both
+fields together?
+
+[Severity: Low]
+Does the fallback really disable TX preemption in firmware when the
+enable command itself fails? In icssg_config_ietfpe():
+
+	ret = icssg_set_port_state(emac,
+				   enable ? ICSSG_EMAC_PORT_PREMPT_TX_ENABLE :
+					    ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
+	if (ret) {
+		netdev_err(ndev, "TX preempt %s command failed\n",
+			   str_enable_disable(enable));
+		goto fallback;
+	}
+
+This skips disable_tx, so no ICSSG_EMAC_PORT_PREMPT_TX_DISABLE command
+is sent. The fallback only rewrites the PRE_EMPTION_ENABLE_TX and
+PRE_EMPTION_ENABLE_VERIFY config bytes. icssg_set_port_state() returns
+-ETIMEDOUT after polling and leaves the posted command words in place.
+
+If the firmware was only slow and finishes the enable command later,
+could firmware preemption become active while the driver records
+fpe_enabled=false and fpe_active=false, and get_mm() reports
+tx_active=false?
+
+Whether the firmware acts on a timed-out command is not visible from the
+driver. The impact looks small, because icssg_iet_set_preempt_mask()
+with fpe_active=false keeps all queues express.
+
+Would going through disable_tx on this failure be a safer rollback?
+
+> +	}
+> +	mutex_unlock(&iet->fpe_lock);
+> +
+> +	return err;
+> +}
+> +
+> +static void emac_get_mm_stats(struct net_device *ndev,
+> +			      struct ethtool_mm_stats *s)
+> +{
+
+[ ... ]
+
+> +	spin_lock(&emac->prueth->stats_lock);
+> +	/* MACMergeHoldCount stats is not tracked by the firmware */
+> +	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
+> +	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
+> +	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
+> +	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
+> +	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
+
+[Severity: Medium]
+Does this truncate the MAC Merge counters? emac_get_stat_by_name()
+returns int:
+
+int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
+{
+	...
+			if (!strcmp(icssg_all_pa_stats[i].name, stat_name))
+				return emac->pa_stats[i];
+	...
+}
+
+emac->pa_stats[] are u64 accumulators, updated with emac->pa_stats[i] +=
+val in emac_update_hardware_stats(). Each value is cut to a signed
+32-bit int and then sign-extended into the u64 fields of struct
+ethtool_mm_stats.
+
+Once a counter passes INT_MAX, "ethtool --show-mm --include-statistics"
+would show values near 2^64. Past 2^32 the counter wraps. Holding
+stats_lock prevents torn reads, but the truncation happens after the
+read.
+
+The int return type predates this patch (the changelog says it will be
+fixed separately). However, these five call sites are the first to
+expose it through the standard MM stats uAPI.
+
+Since stats_lock is already held, could this read emac->pa_stats[]
+directly, or could the helper return u64?
+
+> +	spin_unlock(&emac->prueth->stats_lock);
+> +}
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> index 0a375c125f4b8..bb0d6e2950dfc 100644
+> --- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
+> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+
+[ ... ]
+
+> +static inline int icssg_qos_validate_tx_min_frag_size(u32 min_frag_size,
+> +						      struct netlink_ext_ack *extack)
+> +{
+> +	/* Firmware takes min_frag_size including FCS length.
+> +	 * The firmware requires the fragment size (including FCS) to be
+> +	 * a multiple of 64 bytes. Since 64 bytes = ETH_ZLEN + ETH_FCS_LEN,
+> +	 * valid user-facing values are: 60, 124, 188, 252.
+> +	 */
+> +	if (min_frag_size < ETH_ZLEN) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "tx_min_frag_size must be at least 60 bytes");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (min_frag_size > ICSSG_IET_MAX_TX_MIN_FRAG_SIZE) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "tx_min_frag_size must not exceed 252 bytes");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if ((min_frag_size + ETH_FCS_LEN) % (ETH_ZLEN + ETH_FCS_LEN)) {
+> +		NL_SET_ERR_MSG_MOD(extack,
+> +				   "tx_min_frag_size must be a multiple of 64 bytes minus 4");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+
+[Severity: Low]
+This isn't a bug, but could this use ethtool_mm_frag_size_min_to_add()
+from include/linux/ethtool.h instead? It accepts the same
+60/124/188/252 values. am65-cpsw, enetc, ocelot and stmmac all use it.
+
+The two range checks here can never fire, because net/ethtool/mm.c
+already enforces:
+
+	[ETHTOOL_A_MM_TX_MIN_FRAG_SIZE]	= NLA_POLICY_RANGE(NLA_U32, 60, 252),
+
+ethnl_set_mm() is the only caller of ->set_mm(). With the core helper,
+ICSSG_IET_MAX_TX_MIN_FRAG_SIZE would no longer be needed, and the extack
+messages would match the other MM drivers.
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121144618.180542-1-m-malladi%40ti.com
