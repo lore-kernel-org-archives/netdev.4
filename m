@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581886;
-	b=IzP3ru0OBGq/Rp5sK0GtPwXLAnH6s9yDMWdssq7JMIbm9RiGBOCGS3MYivY/S1Nk/dwH
-	 sckRqiHpK8QI0sBOsyX8NUznpx8eI0avZB+ibx5FZNcs6KOjxWp6sDoRmG1+F4jQ37o2H
-	 YmVuLrEbfzf4qDcdGDPeUVPZYktcMOe9B84mh3uEVGuYXvNh4TRZMBmzFp0CEvkmaqz2J
-	 JXDVGF7fXR+EXd6bL3o7udgDnI/mhvuBs6iIVJ4Q09ukAEXRtZD2zOhAuwyBBfdGtnPUQ
-	 YpjsxxyRjJDEklYGQ8GHNqjyjSjZW59XiEGg3E0RS/NxfvR9Y+nI6h/9Vy1zlJws4Gw==
+	t=1795581888;
+	b=qDAUy1G2rdTAQs+0f2Pl1FZHAWnKeYhyxU4FQMYPS5aDVJdAEqq3zR0HJzVsG35kpz4g
+	 oYRyXjRF6E8mesjYB6DE8yRnN7jII7zpJUAKXV+nvxDxb1z1oJwQoeYXiFuSO5aeZles7
+	 ejULdBwidWKXnyX8R4Ck4+OAAj8ZQudnSQc8fMAYl6w6gUyFH+l3q9HbhbZK4Wvv1hdMA
+	 /FRfO9FcqtUsnescBxx6m8POKHUhQnA1rS2kfVwicFbpuJOKO4Xv2MfGWGgzHs/ZRDxqv
+	 03BuChRK2Vl8R7gT3ve651sEwBGSDHQeqCywZ9xHfHapQrQJjmz32xT6KAQolIF/DsA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581886;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795581888;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=zPdoHSJZrfNjUsSTg3j0Mv6qk8YgKRtS0WU3iD70Png=;
-	b=afXDP1CTfDxbrPQQU3Szn762Bmw6SmGgwPcLc3QgKho9Ym8YY1OMAyOyyZcg441K1k1k
-	 ELhvB3rvJyxL/n4xxml3OnjoY9k9wNX8xumbpv4+zzmsaH/K49edo7KfoVg1YMukcbtJm
-	 g371EFtovLBNvbJbyw8iXaK0qRlB4RGsMYy4C8E4JBJ0kf3PiyMqK+KL6ByI6/sg3rttX
-	 6o/VIxhaB3xQOQLwbFsglr9L8Bpb3yDqhYOEPq5qn/iGTFDZYHmIRaIAxfQ/M3d6tAsyc
-	 R/1MJ2+ulkjIMiPjAJlu4Dbc0nRn8l0f51fUXYsfLnWZN6wBJmS/9URivr3JBZddHIw==
+	bh=6IdGK5WInaBvMsUprt+v9M83CkD3NbHR9SVF1D0/8Tc=;
+	b=SiFs/lof67HDcw9k9a+AqzRbpzdCdt8DtDFgMNJH//VSVxfFYb5kh6tZKPDFXPNHXJ3w
+	 IyKj34Enlf8wALygCYT4DX0P9CSw5G8ODoG+eYsrO/CGKyPes/HIzRzG3wfWgDx7wqNkj
+	 MxDwBi02ERETD9041Vg/jMU0LPBy1SjxFG1ILs8R9wkRp892ZG8FHtIVUnpcv1Rob8zru
+	 xQUjjhKTfWEpjPfz8D2vx6lawjiAPMFYF+dpc3lsjGiOLwjuAni6VF321qVzrRn9roxxG
+	 HkQm/BMleWhGk596P779S34Lxnq5tN+f4aFOWqcz9m2vcB5N6DpufWOQt207zFvhl/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQbYPGw1;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RH6YgMHi;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD82F606A31E;
-	Wed, 25 Nov 2026 04:44:46 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 62F8F606A335;
+	Wed, 25 Nov 2026 04:44:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PQbYPGw1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CFA61F000C6;
-	Wed, 25 Nov 2026 04:44:45 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RH6YgMHi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1364F1F000C6;
+	Wed, 25 Nov 2026 04:44:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795581886;
-	bh=zPdoHSJZrfNjUsSTg3j0Mv6qk8YgKRtS0WU3iD70Png=;
+	s=k20260515; t=1795581887;
+	bh=6IdGK5WInaBvMsUprt+v9M83CkD3NbHR9SVF1D0/8Tc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=PQbYPGw1oJvZxsTd9Oc3UIo0REDCbPuA7ihBSRsMnUdRc4sWEAh3IxdoeMfJQi3Mv
-	 Y0hQWbdaTsjHuwy/gS1u6pSEa1UrPPVHx7ndk9iKVuse4Jvkq8VWOYWHaZ/P6HVa/S
-	 YOR4R7em3UoF1gTQK2XURYJB+FKQNgW7DTml8OpkRsupfo72Ne1/HTwO0BvMpFOfrm
-	 Z8o1fqIcWQGYN25J/D0QUfg9ZSqb8cWPIFo1dozEy1hAxN7jn7Liuu7SdZNSf5sSgv
-	 cCSUxVJrQ2wZccb551pN9F3gMxQsRSo+O0dSYQZfekeNRHm8XQQCPaY2piDMEMZKp5
-	 U5aqkhcv6CQUQ==
-Subject: Re: [PATCH net v5 2/8] net: dsa: sja1105: leave the pin function
- unchanged on EXTTS disable
+	b=RH6YgMHiIhY4wiIG/po72R0idyuh+Xjosr0Ly02FnUcH4mdzrn0R6YU2vLzM6UlCb
+	 LXaK9wBw0GeflhsjIsB9/vbdiI4N5AZfbvco29TAubA/q3dsPV9OGkCYtCy74ijmD5
+	 3a/fy8cshHHtGS7jd5Mt7wIC1CgU33iTBSNkBeBjlZXo92Xchg5+PP/j2qR3lKgmmF
+	 imsaVyOK52aTZuMLTWm8CjcWAdgn7sjm9myYC+npMKl8lXy8FUPR1jvbGUZC+BOsg0
+	 QD5tw4jMbZ0YsvoeLbZGQepJWJYM3Nx01e8A1PpSw6ArAkWkQRYh0flgVBR21qEfDU
+	 TsygpXEUDvtCQ==
+Subject: Re: [PATCH net v5 4/8] ptp: ocp: handle hardware selectors and
+ combined DPLL input routes
 From: netdev-bot+sashiko@kernel.org
 To: ahmadexp@gmail.com
 Cc: netdev@vger.kernel.org, andrew@lunn.ch, arkadiusz.kubalewski@intel.com,
@@ -50,11 +50,11 @@ Cc: netdev@vger.kernel.org, andrew@lunn.ch, arkadiusz.kubalewski@intel.com,
  linux-kernel@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
  richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
  vadim.fedorenko@linux.dev
-Date: Wed, 25 Nov 2026 04:44:44 +0000
-Message-ID: <179558188491.3135.14757848220793182596@kernel.org>
-In-Reply-To: <20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com>
-References: <20261123-timecard-common-v5-d669cfa034-2-ahmadexp@gmail.com>
-X-sashiko-severity: High
+Date: Wed, 25 Nov 2026 04:44:46 +0000
+Message-ID: <179558188666.3135.18134824042622584333@kernel.org>
+In-Reply-To: <20261123-timecard-common-v5-d669cfa034-4-ahmadexp@gmail.com>
+References: <20261123-timecard-common-v5-d669cfa034-4-ahmadexp@gmail.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +67,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,108 +78,152 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] This patch fixes only one direction of the shared PTP_CLK pin
-  problem.
+- [Medium] Because of this patch, ptp_ocp_dpll_frequency_get() now
+  succeeds for input selectors that feed several destinations.
+- [Low] The commit message understates the impact of the SMA_SELECT_MASK
+  change in ptp_ocp_dpll_frequency_get() (drivers/ptp/ptp_ocp.c).
 
 --
 
-net: dsa: sja1105: leave the pin function unchanged on EXTTS disable
+ptp: ocp: handle hardware selectors and combined DPLL input routes
 
-This patch makes sja1105_extts_enable() switch the shared PTP_CLK pin to
-the EXTTS function only when timestamp capture is being enabled. Disabling
-EXTTS previously turned an output pin back into an input and stopped the
-periodic output.
+This commit changes ptp_ocp_dpll_frequency_set() to pass the selector
+table value to ptp_ocp_sma_store_val() instead of the table index. It
+also masks the direction enable bit in ptp_ocp_dpll_frequency_get().
+For input selectors that feed several destinations, frequency_get now
+returns a frequency, or zero, instead of -EINVAL.
 
-Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
+Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
+Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
 
-> diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
-> index 350f958dcb2af..da35805152e05 100644
-> --- a/drivers/net/dsa/sja1105/sja1105_ptp.c
-> +++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
-> @@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
->  	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
->  		return -EOPNOTSUPP;
->
-> -	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
-> -	if (rc)
-> -		return rc;
-> +	if (on) {
-> +		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
-> +		if (rc)
-> +			return rc;
+> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+> index b16d36c3305f9..df1a428eb2fed 100644
+> --- a/drivers/ptp/ptp_ocp.c
+> +++ b/drivers/ptp/ptp_ocp.c
+
+[ ... ]
+
+> @@ -5887,6 +5888,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  	int i;
+>  
+>  	val = bp->sma_op->get(bp, sma_nr + 1);
+> +	val &= SMA_SELECT_MASK;
+
+[Severity: Low]
+
+The commit message mentions this mask only briefly:
+
+  "and mask the direction enable bit before looking up the frequency."
+
+It then gives the combined-input case (selector 0x000c) as the reason
+the get-before-set step and the pin dump fail. Is that the whole impact?
+
+ptp_ocp_sma_fb_get() returns the full 16-bit half-register:
+
+	return (ioread32(gpio) >> shift) & 0xffff;
+
+ptp_ocp_sma_store_val() always adds the enable bit when the direction
+is not fixed:
+
+	if (!sma->fixed_dir)
+		val |= SMA_ENABLE;		/* add enable bit */
+
+ptp_ocp_sma_fb_init() also uses BIT(15) to work out each pin's
+direction, so that bit is normally set for the active direction.
+
+Every table value is below BIT(15). Before this patch, wouldn't a
+readback such as 0x8001 for PPS1 never match a table entry? That would
+make frequency_get return -EINVAL for every SMA pin on FB, ADVA and
+ADVA-X1 boards whose direction can change, not only for combined
+routes.
+
+If so, DPLL pin-get/dump failed for those pins. dpll_pin_freq_set()
+also stopped at "unable to get old frequency value", so frequency
+changes never ran either.
+
+Could the commit message state this more directly, since it affects
+stable backport priority?
+
+>  	tbl = bp->sma_op->tbl[sma->mode];
+>  	for (i = 0; tbl[i].name; i++)
+>  		if (val == tbl[i].value) {
+> @@ -5894,7 +5896,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+>  			return 0;
+>  		}
+>  
+> -	return -EINVAL;
+> +	if (sma->mode == SMA_MODE_OUT)
+> +		return -EINVAL;
+> +
+> +	/* Inputs can feed several destinations, including timestampers. */
+> +	*frequency = 0;
+> +	for (i = 0; tbl[i].name; i++) {
+> +		if (!(val & tbl[i].value))
+> +			continue;
+> +		val &= ~tbl[i].value;
+> +		if (!tbl[i].frequency)
+> +			continue;
+> +		if (*frequency && *frequency != tbl[i].frequency) {
+> +			*frequency = 0;
+> +			return 0;
+> +		}
+> +		*frequency = tbl[i].frequency;
 > +	}
+> +	/* Unknown destinations do not establish a frequency either. */
+> +	if (val)
+> +		*frequency = 0;
+> +
+> +	return 0;
 
-[Severity: High]
-Should sja1105_per_out_enable() in the same file get the same guard? It
-still switches the pin before it looks at on:
+[Severity: Medium]
 
-drivers/net/dsa/sja1105/sja1105_ptp.c:sja1105_per_out_enable() {
+With this change, ptp_ocp_dpll_frequency_get() succeeds for input
+selectors that feed several destinations. For example, PPS1|TS1
+(0x0005) reports 1 Hz and TS1|TS2 (0x000c) reports 0 Hz.
+
+These selectors used to return -EINVAL, so dpll_pin_freq_set() stopped
+before reaching frequency_set:
+
+drivers/dpll/dpll_netlink.c:dpll_pin_freq_set() {
     ...
-	mutex_lock(&ptp_data->lock);
+	ret = ops->frequency_get(pin, ..., &old_freq, extack);
+	if (ret) {
+		NL_SET_ERR_MSG(extack, "unable to get old frequency value");
+		return ret;
+	}
+	if (freq == old_freq)
+		return 0;
 
-	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT);
-	if (rc)
-		goto out;
-
-	if (on) {
-    ...
-}
-
-On SJA1105P/Q/R/S and SJA1110, avb->cas_master is 0 when PTP_CLK is an
-input. This is the boot default, and it is also the state after an EXTTS
-enable:
-
-drivers/net/dsa/sja1105/sja1105_main.c:sja1105_init_avb_params() {
-    ...
-	/* On P/Q/R/S, configure the direction of the PTP_CLK pin as input by
-	 * default. This is because there might be boards with a hardware
-	 * layout where enabling the pin as output might cause an electrical
-	 * clash. ...
-	 */
-	avb->cas_master = false;
+	ret = ops->frequency_set(...);
     ...
 }
 
-In that state, sja1105_change_ptp_clk_pin_func() computes
-old_func = PTP_PF_EXTTS. It then sets avb->cas_master = 1 and writes
-BLK_IDX_AVB_PARAMS. As a result, a PEROUT disable turns the pin into an
-output, and the disable branch only issues stopptpcp after that.
+Now the set runs. ptp_ocp_dpll_frequency_set() takes the first table
+entry with the requested frequency and stores only that value:
 
-Userspace can trigger this through two paths:
+			return ptp_ocp_sma_store_val(bp, tbl[i].value,
+						     sma->mode, sma_nr + 1);
 
-  ptp_ioctl(PTP_PEROUT_REQUEST) with a zero period
-    -> ptp_perout_request()
-      -> ops->enable(ops, &req, 0)
-        -> sja1105_per_out_enable(on = false)
-          -> sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT)
+ptp_ocp_sma_fb_set_inputs() and ptp_ocp_sma_adva_set_inputs() then
+replace the pin's whole 16-bit selector half:
 
-  ptp_ioctl(PTP_PIN_SETFUNC) moving pin 0 away from PTP_PF_PEROUT
-    -> ptp_set_pinfunc()
-      -> ptp_disable_pinfunc(info, PTP_PF_PEROUT, chan)
-        -> enable(PEROUT, 0)
+	reg = (reg & mask) | (val << shift);
 
-Neither path checks whether PEROUT was ever started. That means this can
-happen even on a freshly booted switch.
+Does this silently drop TS1..TS4 or FREQ1..FREQ4 routes that were set
+up through sysfs?
 
-Could the switch then drive a line that an external source, such as a PPS
-input, is also driving? Avoiding that is the reason for the boot default
-above.
+For example, after "IN: PPS1 TS1" is written to the smaN attribute, a
+DPLL pin-set to 10 MHz would store 0x0000. That removes the TS1 route,
+so EXTTS timestamping on that input stops and no error is reported.
 
-If EXTTS was active, capture also stops in hardware. However,
-priv->ptp_data.extts_enabled stays true and extts_timer keeps polling. A
-retained PTP_PF_EXTTS pin assignment would no longer match the hardware.
+The get path treats timestamp and counter destinations as not
+constraining the frequency, but the set path throws them away. Should
+ptp_ocp_dpll_frequency_set() keep the destination bits that carry no
+frequency, or reject the change when the input has a combined route?
 
-The commit message says "EXTTS and PEROUT share PTP_CLK". The same
-mechanism is still reachable through this mirror call site. No later patch
-in the series changes sja1105_per_out_enable().
-
-Would it make sense to call
-sja1105_change_ptp_clk_pin_func(priv, PTP_PF_PEROUT) there only when on is
-true, as part of this patch?
-
->
->  	priv->ptp_data.extts_enabled = on;
->
+>  }
+>  
+>  static const struct dpll_device_ops dpll_ops = {
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-timecard-common-v5-d669cfa034-0-ahmadexp%40gmail.com
