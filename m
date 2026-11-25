@@ -1,90 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795635433;
-	b=O1MtlRlgHyfMks0tzw0wJzmhPb1wfPDHF+/05nAxgFBz2xuqvFVwU3FdI6zSjIqDUl6J
-	 xAw1Agwo/O7uy6ojzQLZn64AFrTOz0SKIVLGXbXExKMiBoh1MhY/0Kk6oPdHRbbtf4tan
-	 p9UCTL1OtlP7598ATtsPBYn5Uej7AisJ2/v6V4rI6DR01gLdjvomFQ6GIsjgP4KPXCSRX
-	 CIClczeIVF1n3Z8KO1lzxOAM/c+/PKiL8ihqw8zFyvmoPMA1vNYiGk/q7rmbEoXviw/hc
-	 EAaRf2v+IpUudSDYSZjvDLf2PTxY8B69ilqsqA41X3w3MeJL8PtJqhhQ3fM5D2RJJ5Q==
+	t=1795635548;
+	b=HQUrgx+/Zb9svwvJWcgFIvMb4efxUUGG3YmtyUl0le99NPuRvMTyhUmRgj0SYF2GV0Sp
+	 e6M2lAHUJEArJDKwMT4kOANwUWuBqpMsNshCMcsJfWl0tNwRzz/ajnEQSRYEyfP/eGjdw
+	 T0vx+rgvtKnaCMyn47QI32IY/KBhZpCF/B8MbcDF+u1NA9J6vIxJiMS/JCLbDlcjiN9Qe
+	 uqUWxbi7D0ODbWIuWwriFUDKYsxabdp5AiWWs4gJquwYCauy7PW/nzj3Knas4Fh17gqxc
+	 e1E/52BAFcwrj20X6iuVuvHf4QybihRccx83UtV3kc6jZSDPXWc5kTfbML+1hn710yw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795635433;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:Date:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key;
-	bh=ogqpT8rvdF/Gm93BWuS1bNrXpPYIVQ5iqYHH/0ZaQ3I=;
-	b=MXzx+82ECJaAtv12kZb/ZiRnTHBYSQdqA4OyGVVmSTpEIGZztUoq2QlEoHxvBklxufUC
-	 50tfv9xAXNsJNNGCMXSs/+wAK4VA5wUqIal5o+zLsO96RLfOp4uNGtxJ5YMg7AgrTA2yY
-	 bs21G0Dzi7McX+3eghX/J1Sj5Ci3RqsoPllhWLTVvkLV8jUhJxBCMA9csek4dpspQ39/j
-	 fTTxI8O+qL1DdaA3+nXgHmMAAdWDToL+pxI87bD/+n5dNPt/FPIbhV0HQ9JUNaWqYz2lr
-	 hosxhW8rUAQNQWKf1ct4+q1QBLHjMQqf4ye1+7bTptfG9ivyK3BXn93bNeOnPDR9vYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795635548;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type;
+	bh=4JIpkbzf9JBuRi7wi/hXUTx/9PeRcB5EF6i+tZhvo4s=;
+	b=eWrIgM3lZBYS/dNOvlDNrDGoX3hMjdPR1osVnf320EBsk862pk+xzQIW8gZ2CDBFXhA/
+	 QTaxlBzEEm/x+i/IN28C7x+G45dWKbH26ZdrFplqJ/x3XY5VrgYXYumuk5EVO7njyOXox
+	 1stbnTuljktvuZfXj+MqXpQNAAG4HZwKrR4d+lCMze+f/ZDkuSQ1Oe/JYFps8zzTeU7r5
+	 CleLMaIudqtukPVzI6AcdwP9pAyHZGyfGxS9SQHntjz1GM6y+4tA8x3gXN2UImEUgUJVl
+	 /zh19lZ8w5Ij86IZWXOizF1t0/nq3HxFjnsmmn2aQ7E8loUpLgk+hsTg/Qq44L+0X1g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=flipper.net;
-	spf=pass smtp.mailfrom=flipper.net;
-	dkim=pass header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=FCQOFZ3d;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbuEShLi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D05F7606A337
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:37:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D05F7606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=flipper.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flipper.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E2113606A321;
+	Wed, 25 Nov 2026 19:39:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=flipper.net header.i=@flipper.net header.a=rsa-sha256 header.s=google header.b=FCQOFZ3d
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-491f34b4e0fso2849511f8f.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:37:12 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=flipper.net; s=google; t=1795635431; x=1796240231; darn=vger.kernel.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=ogqpT8rvdF/Gm93BWuS1bNrXpPYIVQ5iqYHH/0ZaQ3I=;
-        b=FCQOFZ3dUDOL/NRjLrLf4vxVHxioM6QWc4RkPMu93762gXgX8x3csZuprb1AAtJRQp
-         mJg8nPMGfsYqjw7zMkH9QdtTiPzTiPk6yBXMJcavbxbhwBY+btH7r5OIs2/n0YQHWWmt
-         3z0iBLvYD6r6jS/oQbVEQWVfSt1m9Qex34fzgUjnPgImfxY9xwUELlKY+fQTl5slqkbS
-         QV0BguKceV6bLPuNcaf6l2MPE7SBFkjImxp0qWuymUJNAneT2EsCSkwQCsYJwGubNtXe
-         23pVE0WImk5zAvA4bbsWRVEKyBAS9UhlIsxROCUFSWcbz9mBZbNVLXAKZxJ8L23hyy1H
-         rFZA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795635431; x=1796240231;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :content-type:mime-version:subject:date:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=ogqpT8rvdF/Gm93BWuS1bNrXpPYIVQ5iqYHH/0ZaQ3I=;
-        b=hXVXhTxmCOzM/u4jgdVRjU+aycmUDTZbg6UNQ8rYprLzZccZKaLSEdouUIu3ZumvmT
-         /CdSPaxTFKJCIGcbLXEGBqRygnhF7K/ZoROCA9GOkgxgv9INHVS4ClCyWqtq36MNjWTT
-         ONkgyY6nFhb9Zh5afhSEwhq5sHXWY7WZTIiytLeUKcHtvEk7ixXHsJraJ62Rvu6e0FbO
-         oe5wRU3L4FVxxycxUGujNs3nV9W3CKIVJXgKMbNHdR6H9AzKkaPO3hfbCzHGYefulcx9
-         VbZEl4IMdXZrif5U3e/TXnJQqokCy+Nr18uVXacFEk+0ORWzG17BmVluc2PBmDh14QL+
-         TH8A==
-X-Forwarded-Encrypted: i=1; AL+hErF2/bUxBnqLX6acVf3ynHyPPgtCMgznFwCRygJvKj59edvm7CBwx2Ge+Lzj+Z4riWmc6OG+7xA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/06cuJ4KtZtQvNr6M1W+Ol9jf+LTx0rrQ69iJdG1H8i9YUQScF
-	LgMBR20ZAW7xEnFUllJAuGPwJkNrlyzqm+bs6Ty321pJBgIqAUaVVm4ofwKhO7oabo0=
-X-Gm-Gg: AZFdTZep880cnmWo5Wi3NVcLSQy5ieSktSW8+5WJZtE8FFYUa7HGgF7m8JTImTHjSlt
-	mtMRkPYX2yfb/0SP9OMcY5eF2RkgGwC5J7VS1x1zGGnEim353vt9vfbUVFvJyoEJSeWixaQUq1i
-	xgfb7yu4hSYjpoQAjEZSnZNSkXLRzX3LYuyRFqiv/qgV1KNBfmBqn70sfviJZZvJH4eMJZqEcAK
-	yhEHwPPin9iJzytWp+/TZr0BIDRNKqqubhwgRt2THalUSmuaIJCleY/kt7cdOqz1SyW8kGqsIwB
-	7jG6oIXvYlWBfTvZUfzvCXPfgxcJNddGvZAhARhGVlrLjflAAdfcF+giiviM2Bb6F/eDut17oQY
-	QiiqZ7Yj9EfmPX+BuOSgjBueTyiFX8NeZHWppT6YLaIXvPDF41cPI+NypdTmBemUs8T01+Hd9WF
-	jG7qsUrZv+cNWG1QQ+1vvCYor8k+f6Q72Y7vomNRtNm/HFw4NeaQn6/rnhtB04gK2+DYBwd1ZB6
-	5xMEdBmNEqhTeCcStZdyz/OVeyj3K6PvlJ7n2JkCk9fEgjmRuBkstC0gLZiQULPwlRS6Bv55Ag+
-	CvBW+G5ZwfS8QXfG8eeC0Qk3WStf9C4XS0+fMNOlOx5lwGWN1/aErapvDmdrSbSKYWskAmRwpgP
-	5QiLBzbxAmQbbyRIf+jUYNExlPcy2KUE=
-X-Received: by 2002:a5d:64c9:0:b0:4a7:69c3:94d5 with SMTP id ffacd0b85a97d-4abb0e469cfmr35425907f8f.28.1795635431246;
-        Wed, 25 Nov 2026 11:37:11 -0800 (PST)
-Received: from alchark-surface.localdomain (bba-86-98-194-229.alshamil.net.ae. [86.98.194.229])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6baa3882sm35614063f8f.49.2026.11.25.11.37.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:37:11 -0800 (PST)
-From: Alexey Charkov <alchark@flipper.net>
-Date: Wed, 25 Nov 2026 23:36:42 +0400
-Subject: [PATCH v5 5/5] arm64: dts: rockchip: Derive GMAC MAC addresses
- from OTP on RK3576
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QbuEShLi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4EE21F000C4;
+	Wed, 25 Nov 2026 19:39:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795635547;
+	bh=4JIpkbzf9JBuRi7wi/hXUTx/9PeRcB5EF6i+tZhvo4s=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=QbuEShLi544NaqUt1tLMA3EEz4cc//Z80hoJf2oz3FNzqzd1oMQc6bu7mZPjIM3L4
+	 aPysv0MrQF5mpM3fjFSc3MzO1wpRIQP98KRBYcuP6Y8MfZd1zitnhm7W8gIj9K5XZR
+	 AxCa+Ytjhw7GZsJEpUSHLenk7kb7Uiv6eOTwsekLT01X1ipiUViZmzpQgE+cSMK2Tg
+	 wWfzRS+gFM8Y5CCIus+57t1dQZM1giVuQkMOezHnsargX42ERMy2dp+kQp4dTKLuAs
+	 ZbUerKPMxG37Rl81ezxfLltmCIUycyfjK1ziTtnQqeQPCLPw2MCu34fOxsQhmYZVKz
+	 gALHJ2T8i6w7w==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 02/15] xdp: Keep the shared info of a buffer in
+ kernel memory
+In-Reply-To: <179561567996.3135.9952128421877275714@kernel.org>
+References: <20261124125654.183091-2-bjorn@kernel.org>
+ <179561567996.3135.9952128421877275714@kernel.org>
+Date: Wed, 25 Nov 2026 20:39:04 +0100
+Message-ID: <87ld6gog4n.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,85 +78,145 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-rk3576-otp-cpuid-mac-v5-5-b3125c9a5fc8@flipper.net>
-References: <20261125-rk3576-otp-cpuid-mac-v5-0-b3125c9a5fc8@flipper.net>
-In-Reply-To: <20261125-rk3576-otp-cpuid-mac-v5-0-b3125c9a5fc8@flipper.net>
-To: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- =?utf-8?q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>, Willem de Bruijn <willemb@google.com>, 
- Simon Horman <horms@kernel.org>
-Cc: Ryan Leung <untilscour@protonmail.com>, 
- Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- Alexey Charkov <alchark@flipper.net>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2032; i=alchark@flipper.net;
- h=from:subject:message-id; bh=JAiuEnOZimha69/KVwMW0+w3glgeOUOuX9RVnjpc4yU=;
- b=owGbwMvMwCW2adGNfoHIK0sZT6slMWSzW5xrWM62Y/37+T53Hwe17wu9ny+vGuP4jmV57fU++
- Va1cysKOiayMIhxMViKKbLM/bbEdqoR36xdHh5fYeawMoEMkRZpYAACFga+3MS8UiMdIz1TbUM9
- QyMdYx0jBi5OAZjqqmWMDNfbjKIlv9QFCs1NZY+oPnLYv9+6Jm/iyitLZfmfTruxRZ3hf1DXm2i
- hwzpxLP1yR8r+vf1r9+22xYz5F1fNV5wutjFDjwkA
-X-Developer-Key: i=alchark@flipper.net; a=openpgp;
- fpr=9DF6A43D95320E9ABA4848F5B2A2D88F1059D4A5
+Content-Type: text/plain
 
-RK3576 boards without dedicated storage for a MAC address only get a
-stable one if the bootloader derives it from the CPU ID and patches it
-into the device tree, which not every boot flow does.
+netdev-bot+sashiko@kernel.org writes:
 
-Mark the CPU ID cell as such and reference it from both GMACs as their
-unique ID, so that the addresses can be derived from the device tree
-alone, whatever the bootloader. Each GMAC gets the address of its
-"ethernetN" alias, as with the bootloaders. Boards which store a MAC
-address of their own can reference it instead.
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in case
+> you want to address the nit picks below when you respin.
+>
+> Low priority / nit picks for your consideration:
+>
+> - [Low] A comment is now stale.
+>
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but the patch's
+>   commit message names it and the series leaves it open.
+>
+> --
+>
+> xdp: Keep the shared info of a buffer in kernel memory
+>
+> This patch lets an RX queue keep the skb_shared_info of its XDP buffers
+> in kernel memory, allocated by xdp_rxq_info_reg_ext_sinfo(). Buffers
+> with the new XDP_FLAGS_SINFO_EXT flag look up their shared info there.
+> For such buffers xdp_data_hard_end() reserves no tailroom, and frame
+> and skb conversion refuse them.
+>
+>> diff --git a/include/net/xdp.h b/include/net/xdp.h
+>> index 1629e347b71fb..944418111a86e 100644
+>> --- a/include/net/xdp.h
+>> +++ b/include/net/xdp.h
+>
+> [ ... ]
+>
+>> @@ -212,17 +226,27 @@ xdp_prepare_buff(struct xdp_buff *xdp, unsigned char *hard_start,
+>>  
+>>  /* Reserve memory area at end-of data area.
+>>   *
+>> - * This macro reserves tailroom in the XDP buffer by limiting the
+>> - * XDP/BPF data access to data_hard_end.  Notice same area (and size)
+>> - * is used for XDP_PASS, when constructing the SKB via build_skb().
+>> + * This reserves tailroom in the XDP buffer by limiting the XDP/BPF data
+>> + * access to data_hard_end.  Notice same area (and size) is used for
+>> + * XDP_PASS, when constructing the SKB via build_skb(). Buffers with
+>> + * %XDP_FLAGS_SINFO_EXT keep the shared info elsewhere and reserve none.
+>>   */
+>> -#define xdp_data_hard_end(xdp)				\
+>> -	((xdp)->data_hard_start + (xdp)->frame_sz -	\
+>> -	 SKB_DATA_ALIGN(sizeof(struct skb_shared_info)))
+>> +static __always_inline void *xdp_data_hard_end(const struct xdp_buff *xdp)
+>> +{
+>> +	u32 tailroom = SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+>> +
+>> +	if (xdp->flags & XDP_FLAGS_SINFO_EXT)
+>> +		tailroom = 0;
+>> +	return xdp->data_hard_start + xdp->frame_sz - tailroom;
+>> +}
+>
+> [Severity: Low]
+> This isn't a bug, but should the comment in bpf_xdp_adjust_tail() be
+> updated along with this change?
+>
+> net/core/filter.c:bpf_xdp_adjust_tail() {
+>     ...
+> 	/* Notice that xdp_data_hard_end have reserved some tailroom */
+> 	if (unlikely(data_end > data_hard_end))
+> 		return -EINVAL;
+>     ...
+> }
+>
+> xdp_data_hard_end() no longer reserves tailroom for XDP_FLAGS_SINFO_EXT
+> buffers. For those buffers this bound reaches the end of the frame, and
+> frame_sz is the only limit.
 
-Note that the GMACs then depend on the OTP memory being accessible, as
-the thermal sensors already do for their trim values.
+Yes, will fix.
 
-Signed-off-by: Alexey Charkov <alchark@flipper.net>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+>>  
+>>  static inline struct skb_shared_info *
+>>  xdp_get_shared_info_from_buff(const struct xdp_buff *xdp)
+>>  {
+>> +	/* Kernel structures stay out of memory that userspace may write */
+>> +	if (unlikely(xdp->flags & XDP_FLAGS_SINFO_EXT))
+>> +		return xdp->rxq->ext_sinfo;
+>> +
+>>  	return (struct skb_shared_info *)xdp_data_hard_end(xdp);
+>>  }
+>
+> [Severity: High]
+> This is a pre-existing issue, not one introduced by this patch. The
+> commit message gives it as the motivation:
+>
+>     Classic AF_XDP zero copy keeps it in the tail of a UMEM chunk, where
+>     userspace can rewrite it.
+>
+> Is classic AF_XDP zero copy meant to stay exposed? XSK pool buffers
+> never get XDP_FLAGS_SINFO_EXT, either here or later in the series. Later
+> in the series only xdp_sink_mark() sets the flag, and only for
+> MP_XDP_ONLY page pools.
+>
+> So xsk_buff_add_frag() still writes the fragment list into the UMEM
+> tail:
+>
+> xsk_buff_add_frag()
+>   __xdp_buff_add_frag(head, ...)
+>     xdp_get_shared_info_from_buff(head)
+>       xdp_data_hard_end(head)
+>
+> That is the tailroom that xsk_pool_get_rx_frame_size() reserves when
+> XDP_UMEM_SG_FLAG is set.
+>
+> Userspace can rewrite nr_frags and frags[] of chunks it has handed over
+> through the fill ring while NAPI builds a multi-buffer packet. Can a
+> forged nr_frags then overflow sinfo->frags[]? __xdp_buff_add_frag()
+> only checks:
+>
+> 	} else if (unlikely(nr_frags == MAX_SKB_FRAGS)) {
+> 		return false;
+>
+> With a value above MAX_SKB_FRAGS, it writes frags[nr_frags] past the
+> end of the chunk.
+>
+> On XDP_PASS, xdp_copy_frags_from_zc() in net/core/xdp.c has the same
+> problem:
+>
+> 	xinfo = xdp_get_shared_info_from_buff(xdp);
+> 	nr_frags = xinfo->nr_frags;
+>
+> 	for (u32 i = 0; i < nr_frags; i++) {
+>
+> There is no bound on nr_frags here. It indexes skb_shinfo()->frags[] of
+> the new skb and copies from skb_frag_address() of the forged frag
+> netmems. xsk_rcv_zc() also sizes its RX ring reservation from nr_frags.
+>
+> Triggering this needs a zero-copy AF_XDP socket with XDP_UMEM_SG_FLAG
+> and an attached XDP program.
+>
+> Could the commit message say that classic zero copy stays out of scope?
+> Or could MEM_TYPE_XSK_BUFF_POOL buffers use ext_sinfo as well?
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 2e83a73ddbb2..d14236c783b5 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -2070,6 +2070,8 @@ gmac0: ethernet@2a220000 {
- 			interrupts = <GIC_SPI 293 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 298 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_id>;
-+			nvmem-cell-names = "unique-id";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC0>;
- 			reset-names = "stmmaceth";
-@@ -2118,6 +2120,8 @@ gmac1: ethernet@2a230000 {
- 			interrupts = <GIC_SPI 301 IRQ_TYPE_LEVEL_HIGH>,
- 				     <GIC_SPI 306 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-names = "macirq", "eth_wake_irq";
-+			nvmem-cells = <&otp_id>;
-+			nvmem-cell-names = "unique-id";
- 			power-domains = <&power RK3576_PD_SDGMAC>;
- 			resets = <&cru SRST_A_GMAC1>;
- 			reset-names = "stmmaceth";
-@@ -2317,6 +2321,7 @@ otp_cpu_version: cpu-version@5 {
- 					bits = <3 3>;
- 				};
- 				otp_id: id@a {
-+					compatible = "rockchip,cpuid";
- 					reg = <0x0a 0x10>;
- 				};
- 				cpub_leakage: cpub-leakage@1e {
+This is older than this series, and the series does not change it.
+Classic is out of scope here.
 
--- 
-2.56.0
-
+I'll work with Magnus and Maciej to get a fix out for classic.
