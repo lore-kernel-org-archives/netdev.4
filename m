@@ -1,59 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566501;
-	b=KRYt+P9IbPHMn2nuTfHGYVqTeWebyxVE1L5TvCibgBXhGIRMMQDq0PID/RblksBiJE1X
-	 pWEGRums9aaNkIZqpQcdKm+IoDe056Eyis+Y7gbsDwNVHYVTL4PVWx4jCKtsXCuOaiOow
-	 vmf6Mh719QgIPU7/+PUBkLWXcWAgrI2uBYPezJ4HodQUaK94TD0BXZenUXPDbup7oilIm
-	 41g6CeVcsHf0Tpf8p1wAkJdNZrMOgqaH1Bu+aCYFOoUoFvnUjqpanS9Rf+YTiC9xdVSw7
-	 cfhCwvXiRcDnrqh2yv6pVcNRqo08xhUEsL6ivTc+Uc5y+rzW2DIMrfsFUge+un1TeOA==
+	t=1795566528;
+	b=KEh1e8sTGWLrg5hhzHczW7RAn/DaFStVOXNHIcNyQ2lvmoGSM3eKqLXg/cA43Fyt5PRP
+	 4iP9FmwkylkDDetJ5RgK+ualTAU1PzmWhNl/A+Zzt5N6Z64X+1XW4MzW3igiHp1oeVczB
+	 y2yvv7mgFvmDYkx6z9CoG0KYkMCkYUoBviyYm9BVWleqqlm16bOCfiVNoKzXgV/KksLT/
+	 Yk1Mw7J1ucM1vOzr3NCo767yHC4QJyG1o85Q88zZBONaF03NKjLKJaLmtusCz7rMnA4Yf
+	 RsIFZ3BbxFGK7H51x0qOlM9IbVhgTvQCJjzyZqQyM0IBSoyKA5W5i+ikarOWzxvGYsw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566501;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566528;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=0Ogcn6Yj5HjgRG7LSf4omg5LzaKmfYWDCA7gXIBMrao=;
-	b=Ddf2RzmT199jTkTQW/GlmM8Th7FOIRIJB8wZYi9VeA4Es6oqXIPvyxq6JWoivndpjMub
-	 Z1xtKNJcrCi5i+R0v+6PKP/BFL48I4huQ2qPQ/UyLSDimO8M7JfVB4yGBn96l4AzhneAD
-	 UC7kkkNXTZREbvRzQ+PY/5ZY/k6dxiiVUre7iGrhWEeVwzy0OOJ8v6xu1CPGv9DBkx1Mj
-	 sezWnINE/fKgK9Ew1e8QKF4D9UddZ91Ui0GOH9tNOUVWUtaMykT4x4B+8WyjSATYqBpV1
-	 WnmkrUTkm6jL+2dG9+un+FpLaw6IS41fm1UrfQ3JrNO2YI4u6KuBOpLi4fzIKaHcYZw==
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=0ZUvFL2FKq6LB7JSO+TH0cqVV+G54dDf+LnvqKVGABidtV82O4NY9buzuU2rWWkDyd+C
+	 2OyI3Gvdm1+BIWtxKV+a9+JjIDXU0/v6EQnKnWxN96KB9WEA7Zk5aBT2wOURceUiMRWKg
+	 tPWZACrCgH9Fd+QqrSeHuGEI8qG0pWPA+1VyYPtUSr0mmmeaDC1MgAb+sMdbt9qrErw7F
+	 9pN4ClSBQhcMH7n4CsdAqb6AbvIAksxg4k81Gxhpr5STe8h4lPO0BL0VCPULbMRQJ1d6q
+	 o2mE0GWisQFixgYhi57qW2QNz+BNiwAcr62Sfr1xLzQefG/ZunGXVjZdPVckw/WOhYA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FdX7KFWk;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RybRCxCl;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CEED1606A335;
-	Wed, 25 Nov 2026 00:28:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5892606A31E;
+	Wed, 25 Nov 2026 00:28:48 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FdX7KFWk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABE681F000C6;
-	Wed, 25 Nov 2026 00:28:20 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RybRCxCl
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CAA0F1F000C0;
+	Wed, 25 Nov 2026 00:28:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795566501;
-	bh=0Ogcn6Yj5HjgRG7LSf4omg5LzaKmfYWDCA7gXIBMrao=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FdX7KFWkdk6F3TEUkK51puLe42nJTvz8ze8Cw4uOcEn6+3T6teai6aklDGrDvmlhf
-	 JRlVKrGazV4ZMO/adLV8UBL51u98CZt5m5qbWlU+DTLCLhTj39JxvZDM4T90R4fR0u
-	 hvE6R6C8I+BfoIfmgAIikClNvwz93CY+6i1EC9HlSZo195Ad3oBMjUF1YTWxJtbLE8
-	 qINMda980WwczCA4wyo7Bu99qT+0jP64Fe96A4xgDGip7zi2w0H8dyr+C/0igUbXgf
-	 K4AiKlNx3jv/7WOm3fjvFRBWbAv98q2kVMnB49kO2TPkHKEdk1midmGQbwmooqeLjh
-	 Kjs7PG2IPE2nw==
-Subject: Re: [PATCH net-next v3 5/5] net: hix5hd2_gmac: Support fixed-link
-From: netdev-bot+sashiko@kernel.org
-To: mmyangfl@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, shenjian15@huawei.com,
- shaojijie@huawei.com, devicetree@vger.kernel.org
-Date: Wed, 25 Nov 2026 00:28:20 +0000
-Message-ID: <179556650026.3135.16586116032189589789@kernel.org>
-In-Reply-To: <20261124002442.19414-6-mmyangfl@gmail.com>
-References: <20261124002442.19414-6-mmyangfl@gmail.com>
-X-sashiko-severity: Low
+	s=k20260515; t=1795566528;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=RybRCxClnsZI12/r0IPs/JwuTHfiOksKoPM1HN+TMPmyfzsdw6MrYTbsczi4Dil97
+	 69xSPXvk8jtpBN59VF4XuxY/Tz7eK3FUvXzytNwTFSFzwqRLK8x9NoshB1bdtsjukg
+	 XD1x7ImoX26GcsDfdEBhzMDErhClRJB8uSyZOwVSVB/7dV2uBxmSsFlD2BPUTPPq3i
+	 0Qg1taruI0JLa0sS+hhpVhYqheZ/DZfZTKwCzHdcHlPs0VRXF8mBRQ4oOA2m08v7Sc
+	 MgAEqW8amv7mgdrbCYacTPYCpdK7Wjbyc/YYBNRelgBvPwTJTphWYAvlenYYIymwc8
+	 mXN3tI0wv6DCg==
+From: netdev-bot+sinfo@kernel.org
+To: Antonio Quartulli <antonio@openvpn.net>
+Cc: netdev@vger.kernel.org, Ralf Lici <ralf@mandelbit.com>,
+ Sabrina Dubroca <sd@queasysnail.net>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ stable@vger.kernel.org
+Subject: 
+ Re: [PATCH net 1/7] ovpn: avoid sending UDP packets with source port 0
+Date: Wed, 25 Nov 2026 00:28:47 +0000
+Message-ID: <179556652736.3294.18442154339903637484@kernel.org>
+In-Reply-To: <20261125002239.1191542-2-antonio@openvpn.net>
+References: <20261125002239.1191542-1-antonio@openvpn.net>
+ <20261125002239.1191542-2-antonio@openvpn.net>
+Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,141 +67,25 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Hi!
 
-Low priority / nit picks for your consideration:
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-- [Low] hix5hd2_dev_probe()
-  (drivers/net/ethernet/hisilicon/hix5hd2_gmac.c) now uses…
-- [Low] The series' binding text (hisilicon,hisi-gmac-v1.yaml, `mdio`
-  description) says: "With a fixed link, the MDIO bus is not registered…
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
---
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-net: hix5hd2_gmac: Support fixed-link
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-When the MAC node has no phy-handle but of_phy_is_fixed_link() returns
-true, this commit registers a fixed PHY from the MAC DT node. For a fixed
-link, MDIO bus registration is skipped unless an mdio child node is
-present. phy-handle takes precedence over managed = "in-band-status".
-
-> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> index a176870079e96..b787b7777e924 100644
-> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-> @@ -1176,37 +1176,52 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
->  		hix5hd2_phy_reset(priv);
->  	}
->  
-> -	bus = devm_mdiobus_alloc(dev);
-> -	if (bus == NULL) {
-> -		ret = -ENOMEM;
-> +	priv->phy_node = of_parse_phandle(node, "phy-handle", 0);
-> +
-> +	/* In the case of a fixed PHY, the DT node associated
-> +	 * to the PHY is the Ethernet MAC DT node.
-> +	 */
-> +	if (!priv->phy_node && of_phy_is_fixed_link(node)) {
-> +		ret = of_phy_register_fixed_link(node);
-> +		if (ret < 0)
-> +			goto out_disable_clk;
-> +		priv->phy_node = of_node_get(node);
-> +	} else if (!priv->phy_node) {
-> +		netdev_err(ndev, "not find phy-handle\n");
-> +		ret = -EINVAL;
->  		goto out_disable_clk;
->  	}
-
-[Severity: Low]
-Is this condition broader than intended? of_phy_is_fixed_link() also
-returns true for any managed value other than "auto":
-
-drivers/net/mdio/of_mdio.c:of_phy_is_fixed_link() {
-    ...
-	err = of_property_read_string(np, "managed", &managed);
-	if (err == 0 && strcmp(managed, "auto") != 0)
-		return true;
-    ...
-}
-
-Before this patch, a MAC node with managed = "in-band-status" and no
-phy-handle failed probe with "not find phy-handle". Now it probes and goes
-through of_phy_register_fixed_link(), which checks in-band-status first:
-
-drivers/net/mdio/of_mdio.c:of_phy_register_fixed_link() {
-    ...
-	if (of_property_read_string(np, "managed", &managed) == 0 &&
-	    strcmp(managed, "in-band-status") == 0) {
-		/* status is zeroed, namely its .link member */
-		goto register_phy;
-	}
-    ...
-}
-
-That registers a fixed PHY with link=0. It also skips any fixed-link
-subnode, so the speed and duplex given there are ignored.
-
-hix5hd2 is a plain phylib MAC. It connects with of_phy_connect() in
-hix5hd2_net_open(), and hix5hd2_adjust_link() is the only place that
-programs port speed and duplex. The driver has no in-band status reader
-and never calls fixed_phy_set_link_update() or fixed_phy_change_carrier().
-Would the link ever come up for such a node?
-
-The binding in this series only exempts fixed-link from the phy-handle
-requirement. The commit message only says phy-handle takes precedence
-over in-band-status.
-
-Should managed = "in-band-status" without a phy-handle be rejected here?
-Another option is to check for a fixed-link description explicitly.
-
-[ ... ]
-
->  	mdio_np = of_get_child_by_name(node, "mdio");
-> -	ret = devm_of_mdiobus_register(dev, bus, mdio_np ?: node);
-> +	if (mdio_np || priv->phy_node != node) {
-> +		bus = devm_mdiobus_alloc(dev);
-
-[ ... ]
-
-> +		ret = devm_of_mdiobus_register(dev, bus, mdio_np ?: node);
-> +		if (ret) {
-> +			of_node_put(mdio_np);
-> +			goto out_phy_node;
-> +		}
-> +	}
-
-[Severity: Low]
-What happens with a MAC node that has both a phy-handle and a fixed-link
-subnode, but no mdio child?
-
-phy-handle takes precedence, so priv->phy_node points at the PHY node and
-priv->phy_node != node is true. The bus is then registered on the MAC
-node itself. __of_mdiobus_register() finds the fixed-link child, which has
-no reg, and scans every address:
-
-drivers/net/mdio/of_mdio.c:__of_mdiobus_register() {
-    ...
-			/* be noisy to encourage people to set reg property */
-			dev_info(&mdio->dev, "scan phy %pOFn at address %i\n",
-				 child, addr);
-    ...
-}
-
-The fixed-link node has no compatible, so it counts as a PHY, and
-of_mdiobus_register_phy() is tried on it at each free address. This
-produces the "scan phy fixed-link at address X" output that the commit
-message says this change avoids.
-
-The binding text in this series says:
-
-    With a fixed link, the MDIO bus is not registered unless this node is
-    present.
-
-The binding does not forbid combining phy-handle with fixed-link. Should
-the binding description or this condition be changed so they agree for
-this case?
-
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124002442.19414-1-mmyangfl%40gmail.com
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
