@@ -1,74 +1,53 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795638839;
-	b=U3H6qu1w2e+Ze615wXj5xQjCOZ+ewiKsijO35Jnjj17sc2k3jPl48f983/JfQFSEMu8s
-	 ykB5lZ3vEfKb4SCfzsuwW8Uck/Mci60P3BlHO/ZnGwcpKAPo5cVp7bEbzhJxOv6cs6hA3
-	 PfAy3E1wX4XbuRkQPz1njZPt8TpJepGs7LZ6GlwywBmmFgewM4FAf9NLcuF7kl94jKYJS
-	 9OtBJ0m7QKQ39y3rKU01I7lEB+Fk7MlQR2wKfG/0PEN8GowgXv68CYTwOImzpuLHJE5tl
-	 uLXBRM6ltw8sXrSg1gJfIMuoAzReeonK3x7DGCIO3ABR/wWrJ1qVn3TvPUhLxQzJ6Vg==
+	t=1795639048;
+	b=tG9N/ZArCszPCeA0Z3cmXPQVooNCajqYAjhIijB60/zqu1aZ6fMsXZoE73+z4Lduo8Jl
+	 IRNzk7RSLX/qvFPNrPq/Xfq0rHpVBByysqhp8j1wNBVuTqpSrJbl+mYJ6hpW/38h04Cg2
+	 sutRysIn2yMH24X9QshBnWEmp6r4k1+GW/bta8paTgLoRKTa7ZvPpOYPAeu1ArYqNylyp
+	 0kL/x2zfvy9ngdghqrqvtCEmUhskOFDZ5rVJMbVt82JXjeHIyr/byc98bECIHZHaaoSCs
+	 VviixGvoRIYCVszjxjMHAfzLsD2mbutQD9C8IGGiLhxTlJ7+2CBuGE6Nbe2XANOs9iA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795638839;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=ANh8y3HJAaHJLKduPLINj2dJygHOEpMXMM0zpKq2/2Q=;
-	b=wv0zt8HHrPWqm+bsobMgkGGkUc1fvVwXzW1D5i5h/E9LYqqXg6PlcNGh7AxhyR5i0L7K
-	 C/XdRp17AmD5QhfwvajdM/RdM2OFM9x7TofijlPlKTSbWzwlFObuQidmyV3KBm5BgZGOd
-	 9s0Ae3Ln1h/b04fxe2y1+2z+RoaVDFWLUWTcdkgPJRyLuHN7vAD8cl0KNPqm75PTav91B
-	 ILcN5wOR87x+Iu16JX9XSR+YhuLfYAy2HLI7pxHiiM6eZ5ZC5FW82S7eqYg5iC/V/KSKi
-	 XLi6KxgEnxRY8bfdNLuKWVYlAg9dFbODVve8jNf1tc8KwxPmZ5+YlPPhkow0Vf2TyPw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795639048;
+	h=Received:DKIM-Signature:Date:From:To:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=pNIpR2CSCy6cZ7geSQLFo33obRtQDGl2quQIvTgUlwk=;
+	b=4v6OcMzg1blWQFQXY4zZOvFrKn5V9PwEKAhVwo27rpF00AzTuujVRDYZnTiZ6cBll68H
+	 g185Qcs4DKo1uXdMJUI2Odkd5PWnLCxPntTygGh71z5mfZ8IZUKvE1U567+cSZPj52ZnG
+	 n9+Zs1k9t3a2nvM45HIDrtS0JbJGzhSh/sYSO7Y+d2lHgy14DiDZUDFtP5IZ1/kXMra40
+	 dEmUte3yWjaj9MMlnnYOFB7MWz8VwaE1lAEqwlt1gMnRS//qJmlCUGYc62C2zi/RWtsuO
+	 VyWLcNcXZiyr7qZ1EocD8Ri0eUkUBL0eFafZdPjUcpXoM+ph8MZcXxB3DgDfJYdN6dw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHzfOI9E;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A+NqGi5F;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 547A3606A332;
-	Wed, 25 Nov 2026 20:33:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E022D606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:37:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DHzfOI9E
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABDD21F000CA;
-	Wed, 25 Nov 2026 20:33:57 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=A+NqGi5F
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 408AE1F000C4;
+	Wed, 25 Nov 2026 20:37:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795638838;
-	bh=ANh8y3HJAaHJLKduPLINj2dJygHOEpMXMM0zpKq2/2Q=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=DHzfOI9EHnabFLk9oQd27pLnF/AJFFlkbmxZbfzTPP7AMHDlnk9NXETc53fULAYCD
-	 e/p/E3D48BeVf5UgL8Lz0nZOwcGoxW7jsNQctxfzLhVjpp5/Qd+Z6bam0HF+rzbRml
-	 MQl6A4i0rpIxh6k5OTUNd9huZ8GjMRue5zvz4xKoNVpLpYJ63Ebjk9TNoisbwGm1BE
-	 p7KNG4OXoJNbYJ4sePoODXnb67SL9Y6kbRiyTKSvZc7CjOF0JQ8EEAD4TDV0CFIi/E
-	 IXiESH2MrkQYxaXEQqdxXNMSWBMfhosYP4iFmC0LZH15G1qqYyUO3I9DNFb/4TNnku
-	 3FJt2ni2k4cyg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: netdev-bot+sashiko@kernel.org
-Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
- daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
- andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
- ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
- tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
- shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
- stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
- almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
- jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
- rdunlap@infradead.org, kernel-team@meta.com,
- dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
- mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
- maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
- vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
- jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
- dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next 13/15] eth: bnxt: Receive into XDP-only memory
- providers
-In-Reply-To: <179561571294.3135.1261628874481958794@kernel.org>
-References: <20261124125654.183091-13-bjorn@kernel.org>
- <179561571294.3135.1261628874481958794@kernel.org>
-Date: Wed, 25 Nov 2026 21:33:55 +0100
-Message-ID: <87jym0lkgc.fsf@all.your.base.are.belong.to.us>
+	s=k20260515; t=1795639047;
+	bh=pNIpR2CSCy6cZ7geSQLFo33obRtQDGl2quQIvTgUlwk=;
+	h=Date:From:To:Subject:References:In-Reply-To;
+	b=A+NqGi5FDmegdoHmEJi4OAIjqiLuzKzJR4kAl2pui8dNRxwzmJCiOyXTiaKcv1pQY
+	 UqDd+cokF4gZdoUw5QD+fvF73Mahx+xwHDRg2b2TG2E59kDWthza0xTieaeeR6Ky+n
+	 vHxI5hdy+fnu87GSRQZmtJPvbMG2nVryKc4XA7/t1aDg3ZLmb5IEyvWK+RRowtlzCB
+	 LCTwldc5aLXZtgkWvN9E170y5FFtmtv57csBjO0TvsIydKkjwm/ZOdKWIgPH0KAIks
+	 amciC9fXrTv2yI6rWB3xR/AibbpAr7aOIUvV7fzP41DJ7Dm4KFXOqAeZ4F19pJ1GUD
+	 D/BtQ+q9I8KiA==
+Date: Wed, 25 Nov 2026 21:37:24 +0100
+From: Alejandro Colomar <alx@kernel.org>
+To: Joe Damato <joe@dama.to>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH] net: Add missing const
+Message-ID: <awdGuVcwtVwUc7ge@devuan>
+References: <c9d923eca5851e04589758da9043a3d507cc9bd4.1795630753.git.alx@kernel.org>
+ <awcrIkjb2jvl3gY/@devvm20253.cco0.facebook.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,83 +57,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vfq2v7le43bamzof"
+Content-Disposition: inline
+In-Reply-To: <awcrIkjb2jvl3gY/@devvm20253.cco0.facebook.com>
+
+
+--vfq2v7le43bamzof
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
+From: Alejandro Colomar <alx@kernel.org>
+To: Joe Damato <joe@dama.to>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH] net: Add missing const
+Message-ID: <awdGuVcwtVwUc7ge@devuan>
+References: <c9d923eca5851e04589758da9043a3d507cc9bd4.1795630753.git.alx@kernel.org>
+ <awcrIkjb2jvl3gY/@devvm20253.cco0.facebook.com>
+MIME-Version: 1.0
+In-Reply-To: <awcrIkjb2jvl3gY/@devvm20253.cco0.facebook.com>
 
-netdev-bot+sashiko@kernel.org writes:
+Hi Joe,
 
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
+> Date: 2026-11-25 10:38:26-0800
+> From: Joe Damato <joe@dama.to>
 >
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
->
-> - [Medium] eth: bnxt: permanent RX queue stall when XDP-only FILL ring is
->   empty at setup
->
-> --
->
->> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/eth=
-ernet/broadcom/bnxt/bnxt.c
->> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
->> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
->> @@ -3969,7 +3951,8 @@ static int bnxt_alloc_rx_page_pool(struct bnxt *bp,
->>  	pp.dma_dir =3D bp->rx_dir;
->>  	pp.max_len =3D PAGE_SIZE << pp.order;
->>  	pp.flags =3D PP_FLAG_DMA_MAP | PP_FLAG_DMA_SYNC_DEV |
->> -		   PP_FLAG_ALLOW_UNREADABLE_NETMEM;
->> +		   PP_FLAG_ALLOW_UNREADABLE_NETMEM |
->> +		   PP_FLAG_ALLOW_XDP_ONLY_NETMEM;
->>  	pp.queue_idx =3D rxr->bnapi->index;
->>=20=20
->>  	pool =3D page_pool_create(&pp);
->
-> [Severity: Medium]
-> With PP_FLAG_ALLOW_XDP_ONLY_NETMEM, rxr->page_pool can now be backed
-> by the AF_XDP sink, and the sink takes its buffers from the userspace
-> FILL ring. What happens if that ring is empty when bnxt fills the RX
-> ring?
->
-> bnxt_alloc_one_rx_ring_skb() breaks out of its loop on the first
-> bnxt_alloc_rx_data() failure. With an empty FILL ring, rx_prod is
-> left at 0, and rx_agg_prod is left at 0 by
-> bnxt_alloc_one_rx_ring_netmem(). bnxt_queue_mem_alloc() still returns
-> success, and bnxt_queue_start() rings the doorbell with nothing
-> posted.
->
-> As far as I can tell, bnxt only refills RX buffers from bnxt_rx_pkt()
-> while it handles a completion. With no descriptors posted, the NIC
-> never produces a completion. When userspace later fills the ring and
-> xsk_sink_wakeup() schedules NAPI, __bnxt_poll_work() finds no work
-> and returns without allocating, so the queue stays wedged.
->
-> This is the normal AF_XDP order: bind first, then populate FILL.
-> xsk_sink_bind() expects it by setting need_wakeup, and
-> testapp_stats_fill_empty() in this series exercises it. It can also
-> happen on netdev_rx_queue_reconfig(). There, new_mem is allocated
-> before the old queue's buffers go back to the sink, so FILL can be
-> dry at that point even if userspace keeps it topped up.
->
-> Does bnxt need a refill pass at the end of NAPI poll when the RX ring
-> is short, like mlx5 and fbnic have? Or did you have another way in
-> mind to prime the ring for an XDP-only provider?
+> On Wed, Nov 25, 2026 at 07:19:51PM +0100, Alejandro Colomar wrote:
+> > These pointers are derived from other const pointers.
+> >=20
+> > Signed-off-by: Alejandro Colomar <alx@kernel.org>
+> > ---
+> >=20
+> > Hi,
+> >=20
+> > This was found when changing some <linux/string.h> APIs to preserve the
+> > const qualifier in the return type.
+> >=20
+> >=20
+> > Have a lovely night!
+> > Alex
+> >=20
+> >  net/smc/smc_pnet.c | 4 ++--
+> >  1 file changed, 2 insertions(+), 2 deletions(-)
+>=20
+> patch seems right but i think the subject line and commit message could be
+> improved tbh
 
-This is how bnxt fills its rings today. Rings stop at the first failed
-allocation with a warning, and after that refills one buffer per
-completion.
+I kept it simple, because it's an obvious improvement, and adding more
+text felt like bloating it too much, but if you propose any improvement,
+I could incorporate it into the patch.
 
-devmem and iouring zcrx feed works the same way. A ring that starts
-empty never fills, wakeup or not. If it starts short, it stays short (I
-think!)
+>=20
+> Reviewed-by: Joe Damato <joe@dama.to>
 
-But... a sink makes an empty start likely as FILL can be dry when the
-queue restarts while bound. The docs says FILL before bind, but that
-only cover bind.
+Thanks!
 
-I'll add a refill pass for rings with page pool providers, so it covers
-devmem and iouring zcrx as well.
+
+Have a lovely night!
+Alex
+
+--=20
+<https://www.alejandro-colomar.es>
+
+--vfq2v7le43bamzof
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEES7Jt9u9GbmlWADAi64mZXMKQwqkFAmsHRv4ACgkQ64mZXMKQ
+wqm7AA/+JCflEozghJ0iJeE+9gtV7KcwtgAi9WvNkJB6BDaZ//wiy3FePgfyEhnn
+N419IJZYKL0lfQQX4PUEhzHnLLvHCxdTg6JPxJ2vQmhrhJ/4lgIeQ50qMS0BpF4i
+mA7yU8263ou5JMcMzaMY7NI1HN/7DA2krOdS2qRsdU4ufpbTu1zMjK7MtL7eDYie
+fkNncVNeAHi1VCF6mdY04sflpuV9egN7rl6F/3S3pWmdL7fX8gfrvFlGTz9qvYfk
++tnj+dPGJZag7A93tnJHDxBpefKUHzefOweLAbhnPf9aMbKD28I8tns5DOFOoLm+
+TdnlICss6m1EXMJTGQXXl/iv0AMallrGIevdtufaso8NOZspR94HY1WWqQ3V+6Pg
+MVg3g+0WR3IY0uRxiLX/ba0JkBBON54zzQC8u440daE+ManG+iyCyUPmZ0OTl8W+
+1pqyfqfutjIMN2jctnn+5EGhsLq7O9S6QbsmfrJ/zVA/VlYpW2XnnEiKOxbdI2A9
+ZoJ8U7wqx4rmzp2oWVsuz02mMf0hX5PtOqczqq8menFtWQCL+as5RCYlU7qIDB/4
+f4CfyQJqDlgwb+o3P2VG7Y/9lfz/VdQdcoXz+uU3aX+KeEagEIvG5PL4XxnKyIiF
+CmhjUn+ioyQz6khC5PSUeKethhakoNic8CDK5VxaSaVdG5tqi7I=
+=ungq
+-----END PGP SIGNATURE-----
+
+--vfq2v7le43bamzof--
