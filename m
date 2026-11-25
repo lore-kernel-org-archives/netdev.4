@@ -1,45 +1,45 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795603112;
-	b=1y1VncoSV39G7kJ/8P3/xXr4Z9qIraAf4sNZZMNjrxXHnkanj5wF0+hQM/bfowhVhOWk
-	 FMiSORwgJcHTiRbiO9KgZNM78fNQSXOGuyqghKGCftVI+d8U93L7J8e/aAtjDraVy/m0z
-	 i4sSJy3pHv6GSAQwrMKrc1UInmnzpy0aUrJ8ImMu8pbMppL9Ni3i2s8u+5AMCz5ljwB1i
-	 922Nm2QaVCZXN4SWIPcXr7HS9Qyw7kbja4xE9bC4HHpT/3XG5rQyJO58cvYqHdnIOi/uQ
-	 Zm+vqZXXwiMIqc0pSQblnEvVYlcL4za9TokNxYr81SCjC2/6SbsB8/6WWtaBgRIyEbg==
+	t=1795603134;
+	b=iWqzwHn+e9JG9hPYRVRwTmnrR66qSnccnQ0Ftd8TV5/QwmFtxn0oeb5q8Xbpx83FWenA
+	 jJeOHhNtYLr+6MIAZsWqSipwhjn4oP7IcGjKxrOI/rpFQQkTVoKcvLNaqDcQHBIF/W5LY
+	 hkWdS4NRcvDhxRSHymxNYAXttzkYs1Un3sTOCKopcLPBhbswGP/L9uzbS32wi93LxhaH3
+	 3Xt5vzStBYjAcPeWOaZJmCaQmZvhc2skW9gIbhzHSs3W/E8gAHiYTdpCj7gNPufVxI+X4
+	 RK1I8X8zKa7WvNXt21cPIkEcI03bzUzjBuGiDzSHDq9ZinBQhOb76VVaFzDXfYTP1xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603112;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603134;
 	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
 	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=DGmmdZ/+crnDPatnG/CIfOVgARayETg3HVMqTgIXG7A=;
-	b=MfADsPgToERVywdm2YYnCCugFAFLFfrvSq3qUsJZdsM4XTsPUNfpjRZ3jjewK1BkrEKP
-	 us9Cr4YJVQALEN4TqZxybauBIPAyVWDAfbFIvtxs5BgBMEHtqBg0eCAjo4lOJdjtbsmpB
-	 rOjuO5qST6w7s1fgDqgBUHhSUP0Ktx+wyYnzSYjv4XmfyGjP21YfxNvl42K+hJsszYd9l
-	 W+256hCjUG5wd6zw5o/szf3vHiuCTZvy0rO5NSh2oh0oa5LJHKvOZsMkh0hxycY/HXs6w
-	 hwlcdsEzvOE8qCMPDPl0FVHuHwKT5qh5iGvLdpkyjMSvyyZCl2r+Mt7OHaM8fU+ytTQ==
+	bh=9y7XH+PLern6auh6Gbq/rf63+INrrfk86Hf/UHK5e4U=;
+	b=vzAsqwRu3zEF0Op8wZMH/T2FKQW7EIhWqskERPga7xVHFH0ZN0WSaR5zzvq1W33Y2vnn
+	 SoaCdilfee0wSLchH642E6lKmYDELDvN4GcdIRm1rMwmPSBqtskH+ptfrw0V9es+tad7j
+	 rXUKxptOLmkpcth4duJz2h/I3MQrOZ5k71GG2qYRqH/lpMhMfQI1kDobSncBmePesGobl
+	 ArLSq6cYmu/sNv0JsCQ0FtCAiyKPGtLR/OtUX+sIHkOwMPVeJwhZboA4Wiczbc8CHGbrY
+	 JbM+6HSvMyrgRLze3lf6A38lS0c/c9gttFOgBeVh6YiwPjiGf9RQaPmSb4/+4kKpKoA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqpD1aOJ;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfZDXLZx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A97B7606A321;
-	Wed, 25 Nov 2026 10:38:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3081F606A323;
+	Wed, 25 Nov 2026 10:38:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gqpD1aOJ
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 688521F000E6;
-	Wed, 25 Nov 2026 10:38:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lfZDXLZx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 35A281F000D1;
+	Wed, 25 Nov 2026 10:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795603112;
-	bh=DGmmdZ/+crnDPatnG/CIfOVgARayETg3HVMqTgIXG7A=;
+	s=k20260515; t=1795603133;
+	bh=9y7XH+PLern6auh6Gbq/rf63+INrrfk86Hf/UHK5e4U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=gqpD1aOJnHWLGsEz/AD0gHJlL+gmPBIRDa1KO6ypl5/gYHxP60J0O212G77QC/Wba
-	 XEsPDMargv06e2KcGDqTGnEfL/ahwxNYDVHIQE4dZZ2F4PMQetG/FojN0/SY0MTolD
-	 G3spCn3alsEuJ093eHCbeu89OCowbleZ4bfRbSrBUWJNvZ1p56H8gjW/VJRfDmm9KB
-	 kk23Jb0nnV9989wYIGZpz/GR7R3PFN25bpczeeEbOGSK2iI9ol9B+GG2AZ13QsH0Ox
-	 cOVW1sKpuyOxvq3JVS70SV8A1qRtuemHtj3rzOSkSTJcWZuOa0G1PymTIWNyk/ULoE
-	 GI3c7cBD8xI1A==
-Date: Wed, 25 Nov 2026 10:38:25 +0000
+	b=lfZDXLZx/EchyFSyjJiLa54bfLNyLXwJ+6PHF0mZ0g3aOTh65AJ8bmVwThTr6s005
+	 w2iV8ERkYVL0OcXStlrpSUNotdo4HWZ4RVu1WGV1Ebsv3sLZBfZOey5MQySFoNiLqP
+	 ziTLy8G2u7+z8ptMXG+JRNGCgXCRjVMU4sCoVJfKu3Ay5xniYFgyEF0JGtTGiXtIJe
+	 c9YG7Ax1/eE6abmaRLr+uMBO8hxuvdaI7W5OYl+CuMqBKjv1k7dYhaIdac6vfa4oWf
+	 YAOuZGy7nkZxf38rz69VAmxFVL6UGhRqY2IX6UrEqjhop9JSjWGpmlxwAD5HGlcAxK
+	 tBtcICA4sGIqA==
+Date: Wed, 25 Nov 2026 10:38:49 +0000
 From: Simon Horman <horms@kernel.org>
 To: Jijie Shao <shaojijie@huawei.com>
 Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
@@ -47,11 +47,11 @@ Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
 	liuyonglong@huawei.com, chenhao418@huawei.com,
 	yangshuaisong@h-partners.com, ningwei15@huawei.com,
 	netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 net 2/4] net: hns3: fix page_pool leak in
- hns3_alloc_ring_memory error path
-Message-ID: <20261125103825.GP31322@horms.kernel.org>
+Subject: Re: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with
+ full hardware rx queue
+Message-ID: <20261125103849.GQ31322@horms.kernel.org>
 References: <20261118130330.3026625-1-shaojijie@huawei.com>
- <20261118130330.3026625-3-shaojijie@huawei.com>
+ <20261118130330.3026625-4-shaojijie@huawei.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,31 +63,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261118130330.3026625-3-shaojijie@huawei.com>
+In-Reply-To: <20261118130330.3026625-4-shaojijie@huawei.com>
 
-On Wed, Nov 18, 2026 at 09:03:28PM +0800, Jijie Shao wrote:
-> In hns3_alloc_ring_memory(), when hns3_alloc_ring_buffers() fails for
-> an RX ring, the error path jumps to out_with_desc, which frees the
-> descriptor ring but does not destroy the page_pool that was just
-> allocated by hns3_alloc_page_pool(). The page_pool and its pages are
-> leaked.
+On Wed, Nov 18, 2026 at 09:03:29PM +0800, Jijie Shao wrote:
+> NAPI polling on hns3 is driven by hardware RX interrupts. Under
+> memory pressure, RX skb and frag allocations fail, packets are no
+> longer reaped from the hardware rx ring. Once the ring fills, the
+> hardware stops generating RX interrupts and NAPI is never scheduled
+> again -- even after memory becomes available, leaving the interface
+> deadlocked.
 > 
-> Destroy the page_pool in that error path as well. The pool is torn down
-> before the descriptor ring here, which is the opposite of the order in
-> hns3_fini_ring(); that is safe because hns3_alloc_ring_buffers() has
-> already detached every buffer it attached, so hns3_free_desc() walks
-> descriptors whose dma is zero and never hands a page back to the pool.
+> Break the deadlock by adding a software recovery path that re-arms
+> NAPI via a 250ms delayed_work, independent of hardware interrupts.
+> A per-ring bitmap tracks which RX rings are in OOM state; the work
+> function schedules NAPI for the vector backing each affected ring.
+> OOM state is marked when an RX allocation failure is detected in the
+> poll path and cleared when the delayed_work fires.
 > 
-> Fixes: 93188e9642c3 ("net: hns3: support skb's frag page recycling based on page pool")
+> This supersedes the busy-poll recovery from commit 68752b24f51a
+> ("net: hns3: schedule the polling again when allocation fails"),
+> which returned budget on allocation failure to keep NAPI polling
+> and caused CPU spinning under prolonged memory pressure. Now
+> hns3_clean_rx_ring() returns recv_pkts instead of budget on
+> allocation failure, letting NAPI exit and the delayed_work take
+> over. The exit refill is still attempted for the descriptors
+> accumulated since the last refill, so the head pointer is written as
+> before; descriptors from earlier iterations are not re-armed when an
+> allocation failure short-circuits the in-loop refill.
+> 
+> Add a per-ring rx_oom_cnt ethtool counter, incremented for each NAPI
+> poll that hits an RX allocation failure. It is a diagnostic counter
+> for this recovery path, not the standard rx-alloc-fail qstat.
+> 
+> The bitmap is allocated in hns3_init_all_ring() and freed in
+> hns3_uninit_all_ring(). It is allocated after every ring is set up,
+> so a failure inside hns3_init_all_ring() leaves nothing behind, and
+> it is reused because hns3_set_ringparam() calls hns3_init_all_ring()
+> without hns3_uninit_all_ring(). The delayed_work is cancelled in
+> hns3_uninit_all_ring() before the rings and the bitmap are released,
+> and also in hns3_nic_uninit_vector_data() before the NAPI instances
+> are torn down.
+> 
+> hns3_nic_net_down() does not cancel the work, so a pending work may
+> still run after the interface goes down. If it runs while DOWN is
+> set, it clears the per-ring bits without scheduling NAPI. If the
+> interface is brought back up within the 250ms window, it sees the
+> stale bits with DOWN cleared and schedules NAPI for those rings once,
+> ending in a single extra poll round with no packet to clean. Both
+> outcomes are harmless.
+> 
+> Fixes: 68752b24f51a ("net: hns3: schedule the polling again when allocation fails")
 > Signed-off-by: Jijie Shao <shaojijie@huawei.com>
-> ---
-> Changes in v4:
->   - Name hns3_fini_ring() instead of the non-existent
->     hns3_free_ring_memory(), and drop "mirroring" because the destroy
->     order differs.  The pool is destroyed before the descriptor ring
->     here, which is safe because hns3_alloc_ring_buffers() has already
->     detached every buffer.
-> v3: https://lore.kernel.org/all/20261030095633.377289-3-shaojijie@huawei.com/
 
 Reviewed-by: Simon Horman <horms@kernel.org>
 
