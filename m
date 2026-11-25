@@ -1,108 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618368;
-	b=4IjLwdl/wxEWlRxxc3cR1ujnK0DiEIgzeXXqThcDjouuoHVIAyym8ohQ6wfErWSXUban
-	 w7+5BMEhH51NvDhJ2R0YD+X0LZBfcYw2x34JZvkEX6Gr4V5+TQqH/ZOuYAWGa6VTaWwW1
-	 gkibP9+EIQhoZUgZ5NjCJIQjRyFH3kVXcS8Q5XWxFxBEKSqGDDHIPluWlLTxs4rQDhAVE
-	 /ZVjJPpo28fpmnBe70cU0+A7UxxgBo1oZgbIwqpXUuxv6tWRqbxg2fDL6CqFOxHIzWzAt
-	 8tgTkzs0rRwE1hnbmxjMFjIezE1Lb5wELOnP27g1eV0NOQGLYBfNiDCAGGPaaZ+1C+g==
+	t=1795618375;
+	b=LYYnOjcWMmZrBFDTjZH2m8wJv6utCUUJHds6WjM5Wsotodq8wSl1m8gHn02N2JCjT+q4
+	 EuYCn8mfhg4uvmEZLBVNz+R90lAv9i//ZL9YNptL5hy+ZPuFvBxD2hkAmJNnZ0M7fHJeG
+	 62cUHJ/dx9ADjzZ0VhhCxhWDF+jkKi0ihxQFL+WX1A+mKzRHqNzJPDieDpvRFMVa4oVp+
+	 aR6jvV0h78I2h7zvbcHRcTiFOvQpqCPtMSqXHwQQ/jkKvcHI4Co9HmM0o0zRnu77lhUMM
+	 ouu+NXakHE/+ocUf0XsqvTPRMKbb+YDWH2M1+JW+Cag9WSaQUk+p8KFGW1oYlB30iTg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618368;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
-	b=4k/Oxhw8YaRti2+/k6nizqGD/cUSJ2iuerIBLkHtGzen2XlR1ifgLoOAX8Us17Cbtun8
-	 30YGHfuQz28tcMf2hTPz0oqy8wnqzlc1ej/3WsefcJvPhIve9u0nJtSrepKBNF/hjrEtE
-	 gD6Kr03PVRwb2ztToU5X/4JasGiHLWQ6GQqu7+7l0k95UYd9YZpgWQ2b+kGYI2OVE1fDT
-	 tHLy/rwvBgrEelAfcinTlWn1idSzmcjgXlCTl3qJiDmk9NciPt+yIncmcTMpmmc5YXcxA
-	 0wG0wZjMA/f8+ztgBPgG4q2ebWQlrQzB0atifQ/SQjPyiB3XQ8fO1f7WZq9tDC3KK1Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618375;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=CcswUBkdOVJ3jfZCtD7+HEJ8VJztw/DF4w3AKz5CVc8=;
+	b=sK17IhnZFScH05yHIW4fSFmCawditSHA73RuzMPlXt96gdEBgLMwJWLxGuso/Xh/Jv5t
+	 hJw8ePM2yN9/oaIU1Og+RDnu7zF2DIPNx+XnIvif+5T1cj34JWi8Qt9kjZ5ZpCubXpDfj
+	 veZ7k99gH+HkC7Q3q4vw+fNeZfg3m5x1Yhv2kNgPeIjqMVtpKoOL8xNe6j1EKAhu6hgzQ
+	 rcl0fzfp3frXRiYENHFAU08c+pVDLn9KWPKH+1k3qXfOzm3Oi5dczEQVIpwB048ipL28n
+	 7jx6ABEMkGxl9gC+L0wLxAj1DSZ5Xopuu08ZsbQXxO1wkz6AR2jrr3O0PAWztYHw9qQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=WUWK3mr3;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Og9N7t4p;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvF86e0l;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950ED606A330
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:52:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950ED606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 353D4606A321;
+	Wed, 25 Nov 2026 14:52:55 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=WUWK3mr3;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Og9N7t4p
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795618366;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
-	b=WUWK3mr3X/yDeDTYWp6t9quJxT/PQTSty8Ba9PBZSGj/v5RKwJuLWum4FZne3eCzJcm6zH
-	ufhrf7OqSVTS41e19XuhysSmWqkeFB8YTN09ypps6u0yDepwopcoO4NLuq6G4kY4KDIn8k
-	sS9ctg8qk8R3PxLlWBK3541T3c2VYNk=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-567-7Vy3DSe3OUOIljlrQq5twg-1; Wed, 25 Nov 2026 14:52:43 +0000
-X-MC-Unique: 7Vy3DSe3OUOIljlrQq5twg-1
-X-Mimecast-MFC-AGG-ID: 7Vy3DSe3OUOIljlrQq5twg_1795618362
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e011829easo3559133f8f.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:52:43 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795618362; x=1796223162; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
-        b=Og9N7t4pa7nsuRPESyV8DOMPhoeBzUPu4LoZTsTgKclqq8KPIRas3OZa47mK7ZOCmv
-         4uLYUCDtS695OaReRUhD5JFRyTInZr4ul3RqoNvKukMQde/QMgoyiRIogvLTplG0M6Bt
-         gOE6cnD65rYUBrlNx3/hfarbT7w9PurdHI54xQOcD16Y68EClBbJ8cwxDQfUCS+wexg9
-         p4p5k5LMe3v3Jrukeux0aRNe8KYfSZPRiBlZZz1anVsckp04kuifjnYj9PCAnRryzm8X
-         3nAYVV9lKpebksDXefFa4yjTRDQsLpvRzqXvP45hcLxIAYnS/JGR7GYUT+YO2pGb0Nmc
-         JmMA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795618362; x=1796223162;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
-        b=erjl+DrETp2ZUC6Ur7kdr44/xCQzlf7NxkylYSj5m179Ecwv3G88cZ7VphWktvejTc
-         eKDD02iUTz+H5gLiTe9RPK0YfyJexxYViRlZ48MS0yOZnzdrUFNM/9Q84WJF5xESWbhq
-         5LLOEeSnvzPrm1/5BaijlcdHCNIjZatJzEOnBDJg9a5e6cRcghbt836Gw4NgoV23OR3U
-         6pxKdlv+F3oq0uvg7i96OboYdTkPVGLyknEIspdn4PVieVwYpeZ8jmggGGoLwOMXbpbA
-         n6BWKDmyM5e08Z6PEFAus9fHRsNkFaS6Q1vBFIIracHkWdUDl7cB005W9iTpu6q55Ahe
-         Ec2Q==
-X-Forwarded-Encrypted: i=1; AL+hErEAVqE/vjqo2fEjdDZfk3RgCCcffYOPDF4TszolPlu7Esxy7e5xRki1XnstRC4KpCkofAhlzcw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z82UzhgJPrI8lvaTTLWZm7FlP8fk3HdaQNflYW4V0D2d4KKckjs
-	wocf7gnuOz3+If/F6dxQWaH+YmmX5F7/aZYZJlxsnrUHDbJo7MFimocsjmV41P2uCd9IQ4ufWYV
-	HUMLottzeOFmwkk+iAwBcYtx758ilYPqnwfysuXXptvgRwOWMg3w8fZdmGw==
-X-Gm-Gg: AZFdTZcSJUoPOIMEC+wCWs3M1067LUjgDt+CIfqK2WDXcsa49qHxSn4MRFz2yFzA60N
-	ma72Uc5wrM5/Rqau4ewwR+LRXwQTgtdlUBgYRkCeuBAirdMHnIZxIxEZcHSLBd1nWvdHyyFYlK+
-	CXL1uiTIO8QeXDZlYq2QrGNcA+LHX5g4zN3IuME739VldtlwdIHKy0s1yGAu2kHzH8s+KPvdAz9
-	OLwaJP+DeEYi2UAMwQeofiFvjutihkbThEr8vrAL1KuLYy/CSNldxJVZbGk2jzz9z106+99Au8o
-	lwmpXpE/VwesrVdtDl+jRR9w3pvNyNv/EWfWPDLUATOROYLa2kG0QyBZKBH1IG67GMhdUMeDQJS
-	ZJdCMTQARCzU1Uwe+b15rGJNZloEFYtHF2jJQu3jJEuyTgxDgMd3lUz9tc07X9p658Y6gECVwym
-	Nk+3BUod7d7cDtjYeaucNqrqQ49xOK4DqLp1NGpMkhHazk
-X-Received: by 2002:a05:600c:b90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb8892cb02mr359808605e9.21.1795618361983;
-        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
-X-Received: by 2002:a05:600c:b90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb8892cb02mr359808145e9.21.1795618361518;
-        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm36682773f8f.59.2026.11.25.06.52.40
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
-Message-ID: <af9b6e7d-6972-4881-9403-c8af22b449fe@redhat.com>
-Date: Wed, 25 Nov 2026 15:52:39 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WvF86e0l
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 605B31F000D8;
+	Wed, 25 Nov 2026 14:52:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795618374;
+	bh=CcswUBkdOVJ3jfZCtD7+HEJ8VJztw/DF4w3AKz5CVc8=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=WvF86e0loGSlgSCyt5HjzgqYgA6jEFMt27nx6NHaVomCm8lw7FEM8SxDBiVddEvkH
+	 lb84Zv/fNTw4s1l1CPV/ExkpUmy8hWWavhOPmlIFWO5qPODypdNPUZJ4ZtWwXi5Kty
+	 K0vN9R4ZfCsDW9oaNlxJ32+MZ/0IRS2oGfQaxwa4xZqQwq6qRmoxPPmWOidUipM1Vn
+	 0YyVq/HFEElsfl/QsPei2Ls0QDvk++/ifg02Pv6V4+ZicrlQvy45FywFp5XtVgLx7L
+	 3KSV6olFS0sFE9OEhNoVK1DUk88YeqwseVf5vsex6Ujgt2OODWA2hHorvuPZIKfhHJ
+	 YXdcas1u20V8g==
+Subject: Re: [PATCH net-next v3] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+From: netdev-bot+sashiko@kernel.org
+To: bage@debian.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 14:52:53 +0000
+Message-ID: <179561837388.3135.1742234801401474384@kernel.org>
+In-Reply-To: <20261121193655.225520-1-bage@debian.org>
+References: <20261121193655.225520-1-bage@debian.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,68 +64,200 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the last
- file is closed
-To: Chad Aldreda <ca@modelmiser.com>,
- Richard Cochran <richardcochran@gmail.com>,
- David Woodhouse <dwmw2@infradead.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>,
- Shuangpeng Bai <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org,
- stable@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261119061517.1142436-2-ca@modelmiser.com>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261119061517.1142436-2-ca@modelmiser.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-On 11/19/26 07:15, Chad Aldreda wrote:
-> vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
-> and maps the shared page with devm_memremap(), so both are released
-> when the driver is unbound, but an open /dev/vmclockN keeps using them
-> through its file state. After an unbind, read() runs on the freed
-> struct and reads through the released mapping, and a poll() in
-> progress sleeps on a wait queue in the freed struct. KASAN reports a
-> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
-> read() faulted on the unmapped page once the device had been bound
-> again.
-> 
-> Allocate the state with kzalloc_obj() and map the page with memremap(),
-> and release both on the last reference: open() takes a reference and
-> release() drops it, and a devm action drops the device's own reference
-> after vmclock_remove() has called misc_deregister(). misc_open() calls
-> open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
-> open() always runs while the device's reference is held.
-> 
-> vmclock_remove() now marks the device as removed and wakes every waiter
-> on the wait queue. A read() or mmap() on a file that is still open fails
-> with -ENODEV once it sees the mark. On a device that supports
-> notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
-> that was already waiting; it tests the mark after poll_wait(), so it
-> cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
-> because no later notification will reach a waiter that the remove-time
-> wake-up skips, such as a second epoll instance that registered the file
-> with EPOLLEXCLUSIVE. Without notifications poll() already returns
-> POLLHUP.
-> 
-> Separately from the report below, the bug was also found by a
-> Coccinelle script that reports device nodes in devm-allocated memory,
-> posted at
-> https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
-> and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
-> to EC2 hardware with this device, so the fix has only been tested in
-> QEMU. QEMU's device has no notifications, so the poll() path was tested
-> with a local change that lets poll() wait without them.
-> 
-> Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device")
-> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
-> Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271069160@gmail.com/
-> Cc: stable@vger.kernel.org # 7.0+
-> Signed-off-by: Chad Aldreda <ca@modelmiser.com>
-Applied, thanks!
+Thank you for your contribution! Sashiko AI review found 6 potential
+issue(s) to consider.
 
-Paolo
+Critical: 0 · High: 0 · Medium: 3 · Low: 3
 
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] Regression on the auto-scan path for PHY nodes that have no
+  `reg` property.
+- [Medium] Regression for PHYs registered through the exported helper
+  of_mdiobus_phy_device_register() /…
+- [Medium] The fix only sets BIT(addr) for the child's `reg` address
+  (of_mdio.c:169).
+- [Low] The patch changes when the mask bit is set for PHYs, and the
+  commit message only describes the non-PHY fix.
+- [Low] The commit author metadata is malformed.
+- [Low] The patch fixes a mismatch between binding and implementation.
+
+--
+
+net: mdio: handle broken-turn-around for non-PHY MDIO devices
+
+This patch moves parsing of the "broken-turn-around" DT property out of
+fwnode_mdiobus_phy_device_register() and into __of_mdiobus_parse_phys().
+The goal is to apply the property to non-PHY MDIO devices such as DSA
+switches as well as to PHYs.
+
+[Severity: Low]
+This isn't a bug, but the author field of this commit reads:
+
+  Author: Signed-off-by: Bastian Germann <bage@debian.org>
+
+Is the "Signed-off-by:" prefix meant to be part of the author name? It
+looks like a malformed From: line, and git am would record it as the
+author identity.
+
+> The "broken-turn-around" property is documented in mdio.yaml for any
+> MDIO device, but the MDIO core currently parses it only for PHY devices
+> in fwnode_mdiobus_phy_device_register(). Non-PHY devices, such as DSA
+> switches, are registered through of_mdiobus_register_device(), where the
+> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+> still treat the turn-around/read failure as an error.
+
+[Severity: Low]
+This paragraph describes a mismatch between the mdio.yaml binding and
+of_mdiobus_register_device(). Should the commit carry a Fixes: tag, or
+say whether it targets net or net-next? Without that, backporters can't
+tell where it applies.
+
+> diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
+> index ba70915182654..129481e8a910a 100644
+> --- a/drivers/net/mdio/fwnode_mdio.c
+> +++ b/drivers/net/mdio/fwnode_mdio.c
+> @@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
+>  		phy->irq = mdio->irq[addr];
+>  	}
+>  
+> -	if (fwnode_property_read_bool(child, "broken-turn-around"))
+> -		mdio->phy_ignore_ta_mask |= 1 << addr;
+> -
+
+[Severity: Medium]
+Does this break broken-turn-around for PHY nodes that have no reg
+property?
+
+In __of_mdiobus_parse_phys(), of_mdio_parse_addr() returns a negative
+value for such a child. The loop then hits this continue before it
+reaches the new check:
+
+    addr = of_mdio_parse_addr(&mdio->dev, child);
+    if (addr < 0) {
+        /* Skip scanning for invalid ethernet-phy-package node */
+        if (scanphys)
+            *scanphys = true;
+        continue;
+    }
+
+__of_mdiobus_register() later registers those children from its
+auto-scan loop:
+
+    if (of_mdiobus_child_is_phy(child)) {
+        ...
+        rc = of_mdiobus_register_phy(mdio, child, addr);
+
+That call goes through:
+
+    of_mdiobus_register_phy()
+      -> fwnode_mdiobus_register_phy()
+        -> fwnode_mdiobus_phy_device_register()
+
+The lines removed here were the only place this path set
+phy_ignore_ta_mask.
+
+Take a reg-less node with compatible = "ethernet-phy-idXXXX.XXXX" and
+broken-turn-around. phy_device_create() registers it without any
+register reads, so it worked before this patch.
+
+After this patch, would every later read of that PHY return 0xffff on
+mdio-bitbang, or fail on mdio-bcm-unimac and mdio-pic64hpsc?
+
+The commit message says the property is parsed "once in
+__of_mdiobus_parse_phys(), before the PHY and non-PHY registration paths
+diverge". The auto-scan path never reaches that check, though.
+
+[Severity: Medium]
+Can this also drop the property for callers that use the exported
+of_mdiobus_phy_device_register() and fwnode_mdiobus_phy_device_register()
+helpers without going through __of_mdiobus_parse_phys()?
+
+tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c walks the children
+of the TJA1102 port 0 PHY node and registers port 1 directly:
+
+    phy = phy_device_create(bus, addr, PHY_ID_TJA1102, false, NULL);
+    ...
+    ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
+
+__of_mdiobus_parse_phys() only visits direct children of the bus node
+and of ethernet-phy-package nodes, so it never sees this nested node.
+
+ethernet-phy.yaml documents broken-turn-around for every ethernet-phy
+node, but after this change it is silently ignored for TJA1102 port 1.
+Could the parse stay in fwnode_mdiobus_phy_device_register() as well?
+Setting the bit twice is harmless.
+
+> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+> index b8d298c04d3ff..fe321fa161888 100644
+> --- a/drivers/net/mdio/of_mdio.c
+> +++ b/drivers/net/mdio/of_mdio.c
+> @@ -164,6 +164,10 @@ static int __of_mdiobus_parse_phys(struct mii_bus *mdio, struct device_node *np,
+>  			continue;
+>  		}
+>  
+> +		/* Common to PHYs and other MDIO devices */
+> +		if (of_property_read_bool(child, "broken-turn-around"))
+> +			mdio->phy_ignore_ta_mask |= BIT(addr);
+
+[Severity: Medium]
+Is masking only the reg address enough for the DSA switches that the
+commit message mentions?
+
+Bus drivers check the mask against the address of each transfer. For
+example, mdiobb_read_common() does:
+
+    !(bus->phy_ignore_ta_mask & (1 << phy))) {
+
+b53_mdio_probe() accepts mdiodev->addr == 0, but b53_mdio_op() sends all
+traffic to BRCM_PSEUDO_PHY_ADDR (0x1e):
+
+    v = mdiobus_read_nested(bus, BRCM_PSEUDO_PHY_ADDR,
+                            REG_MII_ADDR);
+
+With reg = <0> and broken-turn-around, bit 0 gets set but every access
+uses address 30. Wouldn't the busy-poll in b53_mdio_op() still see
+0xffff and hit the WARN_ON(i == 5)?
+
+mv88e6xxx in single-chip mode has the same gap. It uses
+mv88e6xxx_smi_direct_read(), which calls
+mdiobus_read_nested(chip->bus, dev, reg) with port and global block
+addresses that differ from reg.
+
+For these switches, would the problem described in the commit message
+still be there?
+
+> +
+>  		if (of_mdiobus_child_is_phy(child))
+>  			rc = of_mdiobus_register_phy(mdio, child, addr);
+
+[Severity: Low]
+This also changes when the bit gets set for PHYs.
+
+Before, it was set in fwnode_mdiobus_phy_device_register(), after
+fwnode_mdiobus_register_phy() had already read the PHY ID:
+
+    if (is_c45 || fwnode_get_phy_id(child, &phy_id))
+        phy = get_phy_device(bus, addr, is_c45);
+
+Now get_phy_device() runs with TA failures ignored. A broken-TA PHY
+without an ID compatible may now be detected, where get_phy_device()
+used to return -ENODEV.
+
+The bit also stays set for an address whose registration fails in
+get_phy_device() or fwnode_find_mii_timestamper().
+
+Is this intended? If so, could the commit message mention the effect on
+PHY ID probing?
+
+>  		else
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121193655.225520-1-bage%40debian.org
