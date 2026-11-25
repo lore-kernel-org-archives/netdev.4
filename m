@@ -1,77 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593845;
-	b=wYi7z9QM8jftGpKyoTbxsM4x2PRXnIM+8wHonzwPNe3/NGzDKflXMEujpMKqN4pMArYD
-	 7WnE4eTH5uy7N9MNa0t9MxcZKMU8JFZMoZzJEgaK7jFiTx+LVPjy78TeUWU+4T2zV2icg
-	 /Z0HbvM9RQhW7lmBMFdQiwLOJa2A6Ulw9ZiPrAgcnozNBnQ37ZKQvyb6WEKKabEXz1gZz
-	 8vHpvX3lC/eQB7TFdgW7m35d1/Gfw/tJxQ+mhOQuNT/paQE/vib/soB7B82iiR5/Bw/52
-	 SaWBeOXFqUiU7chtuR9rJ4XFYa/4fnLLXJDuQumKd3CbFAaOD0MTQMFJxTCebjTkYMg==
+	t=1795593986;
+	b=wSltgDbsAccVdwEGEHnb3TFBQLgkll374jz6AxmLTBR5q7/JemsgkOXX8Y/a7kz7W9Yd
+	 lvjjrdNXmAdvwL7AtvJRpLgS+fcXjRY0JzkXqTBtzVNrWecqx2Wm1fHAZST+wHGViE4Cz
+	 FaUDAJFa3R3tdi5eHHBcQXBPCGREn7Q/FJ8IDNKshhoEXWAasEUy1pYeZoDjtILRakBFA
+	 jX1QNlb4SaRSi4hzuQ/EovSBZmgEPQKuCGU1H7qTJJn9FlgYFyoedCbd8bWaut08FaZkt
+	 DOTFPJhDDOtdyEmgNBNwW2K6UENez7kfiDrBw3ECn1SXDqn9BjnfKMNVvlGv496SpJQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593845;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=MF+BeYOYB/DDN2WqUgwsfUKlmP3/0fwiowwJ6a2JiFM=;
-	b=F3h4zdyBdQ5unaoIjyaKqe3Ei3ldk9VgE2AWGx0NGFxVgAdF8wofA00rPkYLG4IxL3le
-	 J6wJCIO7hlrPdJvizdVjJ1eIuybHhCPi5tZZXBsLMHjs/oUOtTP26siDOit7ns55mjOe8
-	 rwci8frmvayUJH+cuS2s3atC9PlvQqpzqyAEvYzWSSemLJwL+BwHf7RV3bJ/n5xcKT0kI
-	 Q1GPyttBcg4oXwvhQW9N39pzA7JZsahr7FlrVxMCjWS1/lrlqUHItcucj5jpm85r7zc1T
-	 4OwJ1QtUpRFw4Lq4jW+SCpYlYudyYyc1OjeRVRZmO2/Mo7SmFHW20W973x6QHciWVHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593986;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=qtWuoC5FN2MELDFAKVm54MaDOVUHKz/6gxfQ29IMYEs=;
+	b=Hsfs2nAM1xkpvXqykcjYZ3W4PurNyQKOBM0CTsfEjnr5F3yE8G1pgnJCjp/9X1TXnDud
+	 uqnQtnpXkseVBGYplG5wJkOIgUDDfAg5xi5AeAFwr3WVrn40cAY9rkRvdj4gwIeejCAQK
+	 WsErRjR8R2BUEI9Xo8z+2uLOCCR1HsTJXfz7HuFFpnLgGKiKzN3qdPuTvP9uBzkdg8t38
+	 WMtl78VLWKrtU98/ImDF29S2l53/SxAvG5I8CwZp1hQdD6UdR8Ylchy9ln97rmbA+7v5B
+	 sXxjP/9S7VkH/ZBJIXQDuPMb/YHo5t3GHMdmFZdgCKiKtXXo2eZ7A03gIVGiP8IUYaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=vtf9RvK1;
-	arc=none smtp.remote-ip=195.10.208.51
-Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gUIFb+z3;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43FFA606A31E;
-	Wed, 25 Nov 2026 08:04:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43FFA606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3ED1C606A31E;
+	Wed, 25 Nov 2026 08:06:26 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=vtf9RvK1
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jZByd3kPvzv2;
-	Wed, 25 Nov 2026 09:03:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795593837;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MF+BeYOYB/DDN2WqUgwsfUKlmP3/0fwiowwJ6a2JiFM=;
-	b=vtf9RvK1asx4ncEtiIjWTUSRYEpo+ytI2Va/SmnKkleHvokSqFLNTcmoOX5mpDQIbcxV0P
-	rqGsBIw9mb5sZh+LbSdvwONhnExtYNRyUHWHQVfTBY7ZoXQcG9nyg+SKFptdBoW0tTNUkH
-	oHAjl7383G92v4DcIJ7LPaJb2Q3k6EtdgHQVbNb6UDij7GR9xkmw4aG9b1/PTgxfm/Ucz7
-	pBFO5amZLmMYhXK12UahyR60tNQ9C+KvEr884HzWSMliJKuMbiMhotcqENSzJZwkb1GF1K
-	LmubKo+WnHos4+jIttgVcK64hu8Mv7m1fedsShtSZbYkcecxTWjPcWXGV4uvUw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: David Ahern <dahern@nvidia.com>
-Cc: netdev@vger.kernel.org,
-	David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gUIFb+z3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F0A421F000D4;
+	Wed, 25 Nov 2026 08:06:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795593985;
+	bh=qtWuoC5FN2MELDFAKVm54MaDOVUHKz/6gxfQ29IMYEs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=gUIFb+z3EoGY/k5hBc/4s5BAcJqoX9NRdGz5EQ6vBgq3rKgAr7rBRsJERd4dmZigO
+	 sgMEGylJulCdyIpDhHG6/2txMVQjqrlwfpZxIzCQD9ih0XAAV5jcvSffX4lkzrl50w
+	 cDOqkERHka2UohPOATjzjz7RQTUHWII6+yvEv/39m5kvL8wGeIVNx0KY9I4eCtkGIO
+	 7CyKz2J4/slnL7IdCSuRKiy7aSog5s+20Q6CNmFwovssbysi2Rs0WtFZQmgkhVyUTp
+	 WzzU5qaaMeAJRyM1mX5Ul3b1ERZi7ZWbYDbm/BGlP2UbP3Rj7THpZilyDmxSEyIYfZ
+	 j4WqRkjdYr7Qg==
+Date: Wed, 25 Nov 2026 10:06:21 +0200
+From: Leon Romanovsky <leon@kernel.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org
-Subject: Re: [PATCH net-next 00/11] ipv6: validate cached dsts against the netns route generation
-Date: Wed, 25 Nov 2026 09:03:41 +0100
-Message-ID: <20261125080341.57521-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261125003554.54371-1-dahern@nvidia.com>
-References: <20261125003554.54371-1-dahern@nvidia.com>
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	"Joerg Roedel (AMD)" <joro@8bytes.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Vasant Hegde <vasant.hegde@amd.com>, Will Deacon <will@kernel.org>,
+	Robin Murphy <robin.murphy@arm.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	Johan Hovold <johan@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Pieter Jansen van Vuuren <pieter.jansen-van-vuuren@amd.com>,
+	Chris Lu <chris.lu@mediatek.com>, Mans Rullgard <mans@mansr.com>,
+	Alan Stern <stern@rowland.harvard.edu>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Cornelia Huck <cornelia.huck@de.ibm.com>,
+	Andrew Morton <akpm@osdl.org>, Jeff Garzik <jeff@garzik.org>,
+	"Rafael J. Wysocki" <rafael.j.wysocki@intel.com>,
+	Bart Van Assche <bvanassche@acm.org>,
+	Alexander Duyck <alexander.h.duyck@linux.intel.com>,
+	Dan Williams <djbw@kernel.org>, linux-kernel@vger.kernel.org,
+	driver-core@lists.linux.dev, linux-input@vger.kernel.org,
+	netdev@vger.kernel.org, linux-wireless@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-bluetooth@vger.kernel.org,
+	linux-acpi@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-pci@vger.kernel.org, iommu@lists.linux.dev,
+	linux-coco@lists.linux.dev, Alexey Kardashevskiy <aik@amd.com>,
+	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>,
+	Greg Kroah-Hartman <gregkh@suse.de>, linux-sound@vger.kernel.org,
+	Jason Gunthorpe <jgg@ziepe.ca>
+Subject: Re: [PATCH v4 21/33] driver core: Introduce a generic device trust
+ level
+Message-ID: <20261125080621.GW14811@unreal>
+References: <20261124-device-trust-core-v4-0-037eb0d17b1f@nvidia.com>
+ <20261124-device-trust-core-v4-21-037eb0d17b1f@nvidia.com>
+ <1bc8f048-4d35-484b-af60-2d13541e683f@infradead.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,48 +101,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jZByd3kPvzv2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <1bc8f048-4d35-484b-af60-2d13541e683f@infradead.org>
 
-I'm not sure what happened here but it seems like you've sent this
-series with envelope sender dahern@KCJPDQ2QL4.localdomain. My server
-took it with a spam score of 12.9; lore says the message-ids are
-unknown, and patchwork doesn't have it (vger very likely rejected it).
-So, only the people on Cc have it, and patch 02/11 never reached even my
-mailbox.
+On Tue, Nov 24, 2026 at 04:13:16PM -0800, Randy Dunlap wrote:
+> Hi Leon,
+> 
+> On 11/24/26 1:43 AM, Leon Romanovsky wrote:
+> > diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> > index 0b3c140babd94..8a94482f0b19b 100644
+> > --- a/Documentation/admin-guide/kernel-parameters.txt
+> > +++ b/Documentation/admin-guide/kernel-parameters.txt
+> > @@ -1259,6 +1259,20 @@ Kernel parameters
+> >  	dell_smm_hwmon.fan_max=
+> >  			[HW] Maximum configurable fan speed.
+> >  
+> > +	device_trust	[KNL]
+> > +			Enable device trust with blocked as the implicit default.
+> > +
+> > +	device_trust.default=
+> > +			[KNL] Set initial trust policy for all devices, including
+> > +			hotplugged devices.
+> > +			Format: { default | blocked | adversarial | unrestricted }
+> > +			No trust options selects legacy unrestricted mode, preserving
+> 
+> By "No trust options," do you mean using
+> 	"device_trust.default="
+> or just
+> 	"device_trust", which says above means "blocked"?
+> 
+> If I want the status quo (before generic trust levels), do I need to do
+> anything? If so, what?
 
-On Tue, 24 Nov 2026 17:35:39 -0700, David Ahern <dahern@nvidia.com> wrote:
->    rebound under the global fnhe_lock (rt_bind_exception()). Narrowing
->    the invalidation back to subtrees would bring back the cookie race
->    the series removes. If the exception refresh shows up under churn, a
+I mean that if you do nothing and do not write to any device_trust*
+knob, the system will continue to work exactly as it does now. That is
+what "No trust options" means.
 
-That's not the case: my v5 [1] keeps the per-node scope and closes the
-race by sampling the node's serial during the lookup. Invalidating the
-whole netns is a matter of preference, not a requirement.
+Thanks
 
-[1] https://lore.kernel.org/netdev/cover.1795537128.git.ralf@mandelbit.com/
-
-> David Ahern (11):
->   ipv6: allocate the exception entry before removing the one it replaces
->   ipv6: keep a superseded pcpu dst working until its holders notice
->   ipv6: don't insert a PMTU exception whose MTU could not be stored
->   ipv6: invalidate the failing dst in ip6_link_failure()
->   ipv6: tell route dumps about exception inserts with a table sequence
->   ipv6: validate dsts against the netns route generation
->   ipv6: make rt_genid_bump_ipv6() a plain counter increment
->   nexthop: factor out nh_has_f6i()
->   nexthop: bump the IPv6 route generation on group changes
->   ipv6: stamp dsts with the generation sampled before the FIB lookup
->   selftests: net: pmtu: check that a deleted cached exception stays
->     deleted
->
-
-When you resend, please add Reported-by tags where the series fixes
-issues I reported in this thread: the reuse of a rebuilt pcpu dst
-(10/11), stale exceptions treated as misses (6/11), superseded pcpu dsts
-released with dst_dev_put (2/11) and, if the series addresses it, the
-bundle-child release.
-
--- 
-Ralf Lici
-Mandelbit Srl
+> 
+> > +			bus policy and existing authorization. Otherwise blocked is the> +			implicit default. An explicit value wins regardless of option
+> > +			order. default preserves bus policy; other values replace it.
+> > +			unrestricted disables runtime policy changes.
+> > +			See Documentation/driver-api/driver-model/device-trust.rst.
+> 
+> thanks.
+> -- 
+> ~Randy
+> 
