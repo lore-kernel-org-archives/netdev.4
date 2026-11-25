@@ -1,103 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572280;
-	b=S5pOc7Y3D/jQ32ViLL3MMOOIEo8c9tH4lOXVUQnvfSqzawJpLIDxcUhR1BF5Gts2eMjU
-	 a7GF1MdCW3gTL75CwM67+EF8UkTwKONoA5GvWCp9zTZ4RREjylfbY03vFI9990ljUE1R1
-	 BPZRshHHZ/x9GOhfvztgAkZ2FFvdUDgw/pizZtPcRq5CUYl9NvrrgCURfoSg6EvGlK6US
-	 PT4mw+JhoCFjk9RwCV1jNfnKq6xT+pcVSmWORqYukoe6AZOyrSTllwi0ng5rEbM54klyN
-	 6sSu0VHr9RJ+jDsOC5SR9nSdcP8NUXQ/u9JFWwRibO+Y/kwIfEtoIvmVO5riBq4FQDA==
+	t=1795572287;
+	b=L1YF5PHE09fwOgD358PO1jcneEraTfXcYEzbKxO8HzV9GQBaMHk8XK1AuuAGsKHZmls0
+	 Rty0wEOuBOSbEaMpOVmJpa9wJVJSGKDDDG7ZQXDaKS4twnWEyUt2l5a3Jejb/qxH4ogOU
+	 n9ny1Ah8i3eJznzh2kdzIkW8rpTQlJzQbEM4KIUE8In7hj0QnVS8fTa2uaAJbgrBf5yxW
+	 39JGhWtTwiJdYoXvnTreW25ScnljVI+bEYtlKNdqVp4kHVUX18vLbqMKVn9faZ0MJv1EG
+	 QtxU4AE4bJTloWinxvKMghW4a3k2pqZ+3Ch57PyAspRn9qFLBDp4m0zR4U1/aTvs9Ag==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572280;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572287;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=dGO7sulYgNHzftB46ktTIErbuIAJZjxUMAKuV9Mlo04=;
-	b=jlQAAQ4O4daUM3CWBL12T5IbovaI0FNjcEpaSnkME941PrSBMR/jxr0XwI9hytTkS/SN
-	 RHl0vzuV4+dgCebTzsjjLhP1UFQoki0o033T8YW59tQaQHidpdlqUlycOVMs9s8hkRv+m
-	 9hK0rUGyq7rDVJjSZHPmdSNd7A4mABA4pgdrkACjirgI5lsaaKw0HmW/pqYp4FWAR+ovP
-	 uKX9lt3oES84lLgjHP7RhkwWEGpZSzPYtTqCFaLmvWwTIOz/gTFqs4loAjT2eAOHLvr6H
-	 bTS59tOHs5RXRerYnxSgqUYngEd8F0Fvam7Uuvvu6tjkGUuo3J0npS0IlpBTp9l9pLw==
+	bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
+	b=k95sPm4S3z0ohIUdp5YPu63aaUHIPmpgcB2jVLfcAQxSngmfAlo7gbFGXE8O5Mh4d73A
+	 3NFuzj6rThSILrhRkqugCNCnUldcJz/VN5fKHhV6iySMKRuO3ull3IO4QghcVLP/eIk7o
+	 nj4sFbk4UGdgya/+jiR8q7BZNxPXUfBZlxm6FdBY7BHMi+YwJmHJadPAYiqgzJ5WYkuCE
+	 HzThKIePYZyG0eX4tBgTCSX+M046UswgX1VFzxzUOQ7i0GTajB7rsaTXb0oQ37lqcgcHb
+	 2bVZ4nekJXOSPvFb/0xOKuQvxeEiVeZn5664yciO6P4J3E8uALE3KPV7IbGEBGN1ykA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rlYUFt5q;
-	arc=none smtp.remote-ip=209.85.215.175
-Received: from mail-pg1-f175.google.com (mail-pg1-f175.google.com [209.85.215.175])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgTGEXWC;
+	arc=none smtp.remote-ip=209.85.214.174
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CFA87606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:04:39 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CFA87606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34D17606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:04:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34D17606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=rlYUFt5q
-Received: by mail-pg1-f175.google.com with SMTP id 41be03b00d2f7-cdb9f760337so3074734a12.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:04:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgTGEXWC
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f045b921caso29547005ad.3
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:04:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795572279; x=1796177079; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795572286; x=1796177086; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=dGO7sulYgNHzftB46ktTIErbuIAJZjxUMAKuV9Mlo04=;
-        b=rlYUFt5q/amQTeNTEEhupoVDMMMHZ2KTrYknpHb1NVRsHAK+aMtARUIpXuLsxsT9hs
-         eZM16v626XzFdgMCEVXB9eHxUcPDJPSd3d9f1rj59LooXWZ0ngWRcbWRvwNWm60VcHk6
-         pSWxYABydX5xqP1kmv9e8sSbpuY5H+MI+xNlIGiLe6HMG93+FVY4/XR5hW0LaFm7UuO+
-         Y08VkDIA6g2Q1URlTbCt/8RepAJbwzKhAubc7DNd3RUEOMZkJkCbf0tuVSa0PC43DGSH
-         PJwHh6o1WgonI+AeITs3IvfNeW0l5nvW1OfCpnY0YvKylllh5PBRoAtJGgLxSeDo8mbn
-         m0IQ==
+        bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
+        b=pgTGEXWCFRapnrRBgfjvorxW89rPGVjcp8OIaC+zN0o0gEd/bbF/3Xd6Ory9sVpPe7
+         l0+8zoFI508IZFB+S034nOqYxzho8RfAme68+mCrnDq/fo3Gv/HmzhO5HUnPjOSbRxyb
+         25OpIKucxjidTi9c0p66vsWtRIYzyrqst8ZuEEfliV/pwkW/s78HsneuVc1DFEv0S1gq
+         j3/W/fn8wMbQaPXO2gGmzNE0sBAvd96TIiRnUC9+r90IFcU+tgFFOJ2IKRDGbYxxAwxg
+         iwbcn849TK786FiLpo3eyUBwDDt4dPT/smb4lJdA0bXeLhWK6fHTnssnlUPmdyx9psCw
+         ReDQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795572279; x=1796177079;
+        d=1e100.net; s=20260707; t=1795572286; x=1796177086;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=dGO7sulYgNHzftB46ktTIErbuIAJZjxUMAKuV9Mlo04=;
-        b=b2w9XG8IGZO2fHG5+Q4byDvsXIZUpl7V8lldxUl5a/sFH6woUnU83QisopHidjqryt
-         59qsln3BEHisDwCSH1U/XKMNKQyN4ncphhUTrjJXDjkCqe1AKlkzOu7e3CS09CG88CYc
-         dYMF5rxKrd2/DZt5B+VCUKEv0u2p9S0L3WAbyoEQofo7wXbRdZiFqNqvbNjKwpNeWAtn
-         tKFTytPxWl4a4deyhRGCce7o25xdmgw5sXgVn6YXgbKizPJgroCDJwATZglcLGgXIR9m
-         cIMmnITioJ2xxbrc4j8OO/4SdSe09r1dPqQhGcNmIqEXJ1iqOw2ojvgP/738sgpcyoMk
-         89Xg==
-X-Forwarded-Encrypted: i=1; AL+hErG5kca6PvU9t5alMCq4UKqt64/dz9yj8tul3MRTg9YYro49obez7vMJn+wb6U267bE7PyfrULY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8uGlb9GAcmxXPvalJqmOfSLVXNXKNLBRkyGJ2UTZUyzDNUyNlP
-	o1W14U2JWG/QlcifnCSUS0NvNWL2I6HcSRset71iVlqxdGbPbt1XOSgi
-X-Gm-Gg: AZFdTZd79zK6wlPT/nTMf2JooCMvgmVUO9o99HWQPS9yDS7YSZg24smnrBMNMHFMjZq
-	2KyhBLqQpOZRW3Vn0Tq8IC5U6TGmWn1lmE8dnmMLKLQZuQ5XsnDirlKKHYmQGh71vtbLCcTw4hi
-	jlZD4AVGBO+xMefcjykXSBFpfk8L56QpHP7AKjPKhtRc6f9xMbDifqZm08VB0i9oPsBKeOSdQDF
-	yxL5f0beARg66cIm/kt/0OpSodIoEokBHagkBZex+SUcmeZFnQU/uN0omXgev2ztVs616ZRslaV
-	M4y9ePmQIbL89cnTZILwxG+gzmaAqQ3qH6Hmdt/o6vqcZ/dOdFoeXTJUlSFdPKut2GgUJHCOgGu
-	Brh8lKLPgfkjujaz1JQT/23G/wNh2HOozX5omSXGPD2Dq6wWCR8QJc/ST10TzWDEqIYZxovWC0E
-	Q3llw9uLpCd+JLJOsEvYZuz9yOpk4+vgzFLSxD/Dj8uEit5f2OXBkwnecFG55xYPo02zPdjKyJp
-	sTHLa7xyNROKGzmPJ4FIbIeqvJN1l5u4VPDVnxKzPbly2mA0z+bgEECVQfr6O1W+03ZX6Cbkgir
-	ecREjxu4IOEg5OPpNEbCtfEsTrdOQEVKvJNOkv64dCNViaupPEBQxjyaqGBmr0aHm49rylcAylI
-	YBg0ijV3OZazWMw==
-X-Received: by 2002:a17:90b:2e8c:b0:3ac:a6a5:5757 with SMTP id 98e67ed59e1d1-3b41c8df55amr10658482a91.11.1795572278978;
-        Tue, 24 Nov 2026 18:04:38 -0800 (PST)
+        bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
+        b=p563cJNZ3H7ayvXIjVA0j7v0uvsBH9/tDVeu1t6ehS4hNeEMU9fGd1wgsq417xOWd7
+         eic8y7tYh8AnbBvmLAos0mGTj6ivClexaUWjX3bJoRgTE8HGc2M+kI57IKy4y7rYHsr5
+         kXf/+vOKETLEVLrlwcJSd8keXZLg3nGKFBTkVyTedLAb0NwLDBZMKVH3A6wVH1yEc0XE
+         iXv1b2yL4iPV/NtfNPJ77mPKD3/MDLCEUk8TZx391ZT1NGLbaSUQnnwPfXhVr+C2I2xq
+         RePYDmvVIGobJiAMYfR3fyVQ/a3FAkczkraPFYAstx+xJcX69untqrRKIzYaDtvXtaBU
+         y0VA==
+X-Forwarded-Encrypted: i=1; AL+hErFBgxhkXGCSx9l6Ty7RE+wVLm+PZVJtVAecufzCSBmdsF2PwnmkgbZ70dGH62+slNhyWmPWqGs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9YznZoAQh3aDOU0vjgQf7eJ+v+R1k8XadJq3ACIt3DP4ebDgxC
+	uMHjE1gt1KqxIFfGI19P9sjKo3u5wyG7yNDw/OoSJzEQUGqgPF+vsl8OFZaMtwxh
+X-Gm-Gg: AZFdTZe1pwW9UdfKreieowSwQmhmBaYZu7At3fd1GqwjAn4LcJFWg1jQNB9u1SHez0v
+	3mIly2gXFySD95KChmskoC3rM+lZoxdc4swOya3S0Batvg5Id8NFPGdD8Jioew0Jk/ElcH31Bm4
+	dQatWTOgbmhv+RdQfY3peGWoASu9sYu8S970NLcK8+3RCQkIOo1GaxHgAEHVExEioPYlCFFKleU
+	7ZtZAYsm4RCeQ9BB2JG6+vzlpF9KV1yUvTW/cQdj/QIM5RF37YS3ifi9HXWh4WVHYqGw2Ruxyue
+	zdYkYu+BmM0ziDWhd9TZgmavaLY61eymtyh2eFln4bAryUblpNzse40E2CWyDqvjrqyunUGzWQv
+	X3aeXBETsDcA+8Pk3mfstt0Is6GiTbKA/Boq3VdHlzcntL3CA601z2mAqu+cx4r9U4E841GlmDC
+	JKSDrySAi1lRoksKMZEtXL9QxQF2qyCF04FgslX88ObbiOVHZJl9T8uAlsBH/Gv115+uYB2DQuS
+	F0gdxkD3rjtx1BeBVLQT9s8I/7VS8R1Jpz/PWfQahEguVoTAZeiJmtJWgCK91dv9AJ95pu96xsI
+	Pa+Z8PTrhVzA9QqnW6bDt0X0mCIe//i+TTG5yqxpd/1bNO0aKtnFfzIAg978N/ChzkE=
+X-Received: by 2002:a17:903:f83:b0:2df:8f19:5db8 with SMTP id d9443c01a7336-2f03f1d09e3mr157160895ad.59.1795572286497;
+        Tue, 24 Nov 2026 18:04:46 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm28174618a91.15.2026.11.24.18.04.35
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0bc695f31sm19489175ad.49.2026.11.24.18.04.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:04:38 -0800 (PST)
+        Tue, 24 Nov 2026 18:04:46 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Stanislav Fomichev <sdf@fomichev.me>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
+To: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
+	David Ahern <dsahern@kernel.org>
+Cc: Xin Long <lucien.xin@gmail.com>,
+	Ido Schimmel <idosch@nvidia.com>,
 	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH net v2] xsk: keep the charged page count when pinning a umem fails
-Date: Wed, 25 Nov 2026 11:04:33 +0900
-Message-ID: <179556786851.2007362.7849536379916971930@gmail.com>
+	netdev@vger.kernel.org
+Subject: [PATCH net] ip6_gre: return the full header length from ip6gre_header()
+Date: Wed, 25 Nov 2026 11:04:42 +0900
+Message-ID: <179553307366.1670514.6802805102726706751@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -109,113 +102,123 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-xdp_umem_reg() charges umem->npgs pages to the user's locked_vm before
-it pins the umem. When pin_user_pages() pins fewer pages than asked,
-xdp_umem_pin_pages() overwrites umem->npgs with the pinned count so that
-xdp_umem_unpin_pages() releases only those, and xdp_umem_unaccount_pages()
-then gives back only that many. The rest of the charge is never returned.
+Since commit 76cc0d3282d4 ("ip6_gre: skb_push ipv6hdr before packing
+the header in ip6gre_header"), ip6gre_header() pushes the outer IPv6
+header and the GRE header, t->hlen + sizeof(struct ipv6hdr) bytes, but
+it still returns t->hlen. packet_snd() copies the user's payload at the
+offset dev_hard_header() returns, so an AF_PACKET SOCK_DGRAM send on an
+ip6gre device with header_ops (remote any) writes the payload over the
+outer IPv6 header and leaves the last 40 bytes of the packet
+uninitialized. A packet tap on the device then copies those bytes to
+user space:
 
-A short pin happens when the tail of the umem area is not mapped. With
-RLIMIT_MEMLOCK at 16 pages, three registrations of an 8-page area whose
-last 4 pages are unmapped leave the user able to register only 4 pages,
-for as long as the user has a process running.
+  BUG: KMSAN: kernel-infoleak in _copy_to_iter (lib/iov_iter.c:197)
+   _copy_to_iter (lib/iov_iter.c:197)
+   __skb_datagram_iter (net/core/datagram.c:402)
+   packet_recvmsg (net/packet/af_packet.c:3573)
+   sock_recvmsg (net/socket.c:1176)
+   __sys_recvfrom (net/socket.c:2333)
+  Uninit was created at:
+   __alloc_skb (net/core/skbuff.c:716)
+   alloc_skb_with_frags (net/core/skbuff.c:6940)
+   sock_alloc_send_pskb (net/core/sock.c:3096)
+   packet_sendmsg (net/packet/af_packet.c:3023 af_packet.c:3209)
+  Bytes 68-107 of 108 are uninitialized
 
-Unpin the pinned pages directly and leave umem->npgs as charged.
+Return the length that was pushed, as ipgre_header() does. With the
+payload in place, the tap also shows that ip6gre_header() never sets
+payload_len, so set it as well.
 
-Fixes: c0c77d8fb787 ("xsk: add user memory registration support sockopt")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260421172951.A7052C2BCB5@smtp.kernel.org/
+Fixes: 76cc0d3282d4 ("ip6_gre: skb_push ipv6hdr before packing the header in ip6gre_header")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
-v2: target net instead of bpf (Alexei)
-v1: https://lore.kernel.org/all/179552079829.1290967.12345053263834529704@gmail.com/
-
 The issue was found by an LLM-guided test generator that we are
-developing as a research prototype; Sashiko had flagged the same leak
-in its review of an AUTOSEL backport. A reproducer, which runs as any
-user:
+developing as a research prototype. A reproducer, which runs as any
+user; ip6gre-tap sends 64 bytes of 0xaa through an AF_PACKET SOCK_DGRAM
+socket and prints the first 48 bytes that a packet tap on the device
+sees:
 
-#define _GNU_SOURCE
-#include <errno.h>
-#include <linux/if_xdp.h>
-#include <sched.h>
+$ cat ip6gre-tap.c
+#include <arpa/inet.h>
+#include <linux/if_packet.h>
+#include <net/ethernet.h>
+#include <net/if.h>
+#include <stddef.h>
 #include <stdio.h>
 #include <string.h>
-#include <sys/mman.h>
-#include <sys/resource.h>
 #include <sys/socket.h>
-#include <unistd.h>
 
-static int reg(char *addr, long len)
+/* send 64 bytes of 0xaa through argv[1] and print what a tap on it sees */
+int main(int argc, char **argv)
 {
-	struct xdp_umem_reg mr = {
-		.addr = (unsigned long)addr, .len = len, .chunk_size = 2048,
-	};
-	int fd = socket(AF_XDP, SOCK_RAW, 0);
-	int ret = setsockopt(fd, SOL_XDP, XDP_UMEM_REG, &mr, sizeof(mr)) ? -errno : 0;
+	unsigned char sa[offsetof(struct sockaddr_ll, sll_addr) + 16] = {};
+	struct sockaddr_ll *dst = (void *)sa, tap = { .sll_family = AF_PACKET };
+	unsigned char payload[64], buf[256];
+	int c = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
+	int s = socket(AF_PACKET, SOCK_DGRAM, htons(ETH_P_IPV6));
+	int n;
 
-	close(fd);
-	return ret;
-}
+	tap.sll_protocol = htons(ETH_P_ALL);
+	tap.sll_ifindex = if_nametoindex(argv[1]);
+	bind(c, (void *)&tap, sizeof(tap));
 
-int main(void)
-{
-	long pg = sysconf(_SC_PAGESIZE);
-	struct rlimit rl = { 16 * pg, 16 * pg };
-	char *a;
+	dst->sll_family = AF_PACKET;
+	dst->sll_protocol = htons(ETH_P_IPV6);
+	dst->sll_ifindex = tap.sll_ifindex;
+	dst->sll_halen = 16;
+	inet_pton(AF_INET6, "2001:db8::2", sa + offsetof(struct sockaddr_ll, sll_addr));
+	memset(payload, 0xaa, sizeof(payload));
+	sendto(s, payload, sizeof(payload), 0, (void *)sa, sizeof(sa));
 
-	/* no CAP_IPC_LOCK, CAP_NET_RAW for AF_XDP */
-	if (unshare(CLONE_NEWUSER | CLONE_NEWNET) || setrlimit(RLIMIT_MEMLOCK, &rl))
-		return perror("setup"), 1;
-
-	for (int i = 0; i < 3; i++) {
-		/* 8 pages, the last 4 unmapped: pin_user_pages() pins 4 */
-		a = mmap(NULL, 8 * pg, PROT_READ | PROT_WRITE,
-			 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-		munmap(a + 4 * pg, 4 * pg);
-		printf("short umem: %s\n", strerror(-reg(a, 8 * pg)));
-		munmap(a, 4 * pg);
-	}
-
-	a = mmap(NULL, 16 * pg, PROT_READ | PROT_WRITE,
-		 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-	printf("16-page umem: %s\n", strerror(-reg(a, 16 * pg)));
+	n = recv(c, buf, sizeof(buf), 0);
+	printf("%d bytes:", n);
+	for (int i = 0; i < 48; i++)
+		printf(" %02x", buf[i]);
+	printf("\n");
 	return 0;
 }
+$ unshare -Urn sh -e <<'END'
+ip link add g6 type ip6gre local 2001:db8::1
+ip link set g6 up
+./ip6gre-tap g6
+END
 
-Without the patch, the 16-page registration fails with ENOBUFS: the
-three short ones leave 12 of the 16 pages charged. With it, it
-succeeds.
+Without the patch the outer IPv6 header is 0xaa from byte 4 on and
+KMSAN reports the infoleak above. With it:
+
+108 bytes: 60 0c f6 22 00 44 2f 40 20 01 0d b8 00 00 00 00 00 00 00 00
+00 00 00 01 20 01 0d b8 00 00 00 00 00 00 00 00 00 00 00 02 00 00 86 dd
+aa aa aa aa
 
 The patch was written with LLM assistance; we reviewed and tested it.
 
- net/xdp/xdp_umem.c | 7 ++-----
- 1 file changed, 2 insertions(+), 5 deletions(-)
+ net/ipv6/ip6_gre.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-diff --git a/net/xdp/xdp_umem.c b/net/xdp/xdp_umem.c
-index cd8643360eb3..15ef424e2765 100644
---- a/net/xdp/xdp_umem.c
-+++ b/net/xdp/xdp_umem.c
-@@ -109,17 +109,14 @@ static int xdp_umem_pin_pages(struct xdp_umem *umem, unsigned long address)
+diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
+index b5d6ed8f0c36..9b30fb2f4bcf 100644
+--- a/net/ipv6/ip6_gre.c
++++ b/net/ipv6/ip6_gre.c
+@@ -1397,6 +1397,7 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
+ 	ip6_flow_hdr(ipv6h, 0, ip6_make_flowlabel(dev_net(dev), skb,
+ 						  t->fl.u.ip6.flowlabel,
+ 						  true, &t->fl.u.ip6));
++	ipv6h->payload_len = htons(t->hlen + len);
+ 	ipv6h->hop_limit = t->parms.hop_limit;
+ 	ipv6h->nexthdr = NEXTHDR_GRE;
+ 	ipv6h->saddr = t->parms.laddr;
+@@ -1415,9 +1416,9 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
+ 	if (daddr)
+ 		memcpy(&ipv6h->daddr, daddr, sizeof(struct in6_addr));
+ 	if (!ipv6_addr_any(&ipv6h->daddr))
+-		return t->hlen;
++		return needed;
  
- 	if (npgs != umem->npgs) {
- 		if (npgs >= 0) {
--			umem->npgs = npgs;
--			err = -ENOMEM;
--			goto out_pin;
-+			unpin_user_pages(umem->pgs, npgs);
-+			npgs = -ENOMEM;
- 		}
- 		err = npgs;
- 		goto out_pgs;
- 	}
- 	return 0;
+-	return -t->hlen;
++	return -needed;
+ }
  
--out_pin:
--	xdp_umem_unpin_pages(umem);
- out_pgs:
- 	kvfree(umem->pgs);
- 	umem->pgs = NULL;
+ static const struct header_ops ip6gre_header_ops = {
 -- 
 2.43.0
 
