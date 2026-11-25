@@ -1,38 +1,38 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606492;
-	b=zh3CPJrxk98SDSARN3g1TPmwqAAizxt0umHtjEDrL7hbg8Nal+YCX0MONbfS3XlI3zkh
-	 ZLV0b/i1zCvnMvqreGiuK0HImLxs72ixzMzkKT2rA/+wQ4ElpW/2CEpqVbQ1gLpzigKyh
-	 Rt75l8mXmPxJJ0LQAhQcpehgOpycxsT0HgFAk2avxsFaEvcmW8ygio4KFUQGYDTT3LvQs
-	 07w46XLngD5CiGrEiWVHOt6Lzy8l1aVMYJoJwicRH1A7s67JhbPdUztTkJ0gj+lrFrjiW
-	 ZShliG9V8hU3M1ZyfzbZSBojBXD2BMq+6PpnT16MEQUnjqkp/lQ3nZzpqj42i7WTlzA==
+	t=1795606493;
+	b=N+br72ZQaBIr0Y4PopTsXzfE3ReFMe+gcQwuH8E3xy0j/tSkUUrL56bcAsr64213wBfx
+	 MYX2UcxIOTiAZpPlW678ge3ZhejkxuFPKCxOvXrElPr+QJzHwi5W5t76qbSBcect5Hijr
+	 8vsEgENx4fhcpg11KCd+vNwI0Gvg5BLs9ucwIqmiCFKMolh/pbCN5201C6dLuHUKkyIbH
+	 75WJuFbFIOwFTmkg/PPVAoU8vBEcOBy9Nbt3thQwKo+ig7wtP2oeBzzSjbvtt5C9oVP1V
+	 CHRVtUNV5mElGok5SRMweqr4o/h7OgcqKPl9a/AtLcgUXQQGESLskpSIc879TGV5gKw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606492;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606493;
 	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Type:Content-Transfer-Encoding:
 	 Received:DKIM-Signature;
-	bh=M3LbqulHgIFHqy4xTGBwg8cD2w7pi2PiEVunDW0r8AM=;
-	b=MImOWXIu5yoD2yfvgNI2yQVxZ9xm6f6ewwbdXwig6o4fOIoYpzkLtVPm1g7fIW5LQOD7
-	 gvyfdq/j3btNLzKniu2ZR2cK3yW31NZ23kxcPMX/YEpkQ5Y5KjiIVrtZquWb+aO6It9rp
-	 x+JzfZ+iEoaNhWz96FmRpuwKpyNBG84EjcYAWZ8DpDQsDjWjNLE5CLTOjuKvLJkSwqZgS
-	 YMX0rkR7v5yZV57zHdCFiAjJkeA7sLooV9NytW/++RywEepCExBF0VRgGO9LZuUAQ00Lp
-	 7XFlylsD6sJYo8+QQuiS9s2okeinFeW/cP4iopQP+i+rR9oNX6knXT2blsTWQfPYHBA==
+	bh=xh6yLZbkfG5phrFUltitLNIUO1sbdHLrePH/xJi7t8U=;
+	b=C9osDEjxIsQ0G9yHPMbzfxQTbVHIXGBvYuxfMgvzdJcWOSW9kubAPUq6mbLyddJFI7w5
+	 liwc3ri+l4LF+IYXrzlHVp5GAC6mcAnL5cayUZLwM9LlF5UjBPcwQ1Em+l9dVSj72MiBj
+	 X9O0x2kTDttxX1vRTBJSWO/wifin5q4C74HeajXEMGOFhfrlM0W8TOtNoGXZJRf0VcKU3
+	 QMOCuKdOBB57zkW8c/jxaN7iC9OekGcjHJizgZmfVqDZvdiAwFuVPMTqXvX2JVpN53u+X
+	 6jqAG3tI7lKPEnGW1SdlYxPAX4ynFUcudMOroRR03Yu6nkCbgPsfXgozWnRtPaKTPyw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=rimpianto.com;
 	spf=pass smtp.mailfrom=rimpianto.com;
-	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=NtEpMOwn;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=Z9Jpm39s;
 	arc=none smtp.remote-ip=46.14.198.178
 Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08DDB606A321;
-	Wed, 25 Nov 2026 11:34:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08DDB606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DC6AB606A31E;
+	Wed, 25 Nov 2026 11:34:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DC6AB606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=NtEpMOwn
+	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=Z9Jpm39s
 Authentication-Results: mail.rimpianto.com;
 	auth=pass (plain)
 From: Federico Musto <federico@rimpianto.com>
@@ -47,12 +47,12 @@ Cc: Federico Musto <federico@rimpianto.com>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Subject: Re: [PATCH net v4 1/2] net: atl1c: wait for in-flight RX polls before the link-down ring reset
-Date: Wed, 25 Nov 2026 12:34:48 +0100
-Message-ID: <20261125113448.99952-1-federico@rimpianto.com>
+Subject: Re: [PATCH net v4 2/2] net: atl1c: free the RX buffer when the descriptor reports an error
+Date: Wed, 25 Nov 2026 12:34:49 +0100
+Message-ID: <20261125113449.99968-1-federico@rimpianto.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <179530311729.3135.17859147482038356358@kernel.org>
-References: <20261117225521.19689-2-federico@rimpianto.com> <179530311729.3135.17859147482038356358@kernel.org>
+In-Reply-To: <179530311840.3135.8141689247648916052@kernel.org>
+References: <20261117225521.19689-3-federico@rimpianto.com> <179530311840.3135.8141689247648916052@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,7 +65,7 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 Received: from localhost (Unknown [127.0.0.1])
-	by mail.rimpianto.com (Haraka) with ESMTPSA id FE6BF981-8671-4084-B964-A086CA6A4F2B.1
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 1557B4B4-8BAA-4169-AF81-D2364685FB51.1
 	envelope-from <federico@rimpianto.com>
 	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
 	Wed, 25 Nov 2026 12:34:49 +0100
@@ -73,64 +73,41 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
  h=Content-Transfer-Encoding: Content-Type: MIME-Version: References:
  In-Reply-To: Message-ID: Date: Subject: Cc: To: From; q=dns/txt;
  s=s20260314391; t=1795606489;
- bh=M3LbqulHgIFHqy4xTGBwg8cD2w7pi2PiEVunDW0r8AM=;
- b=NtEpMOwndgm1pz99T14/ibinvEfoVJkXgJzeywEO8nhtbV+mamLXGdiYumW3u3nkrDI6mFYG0
- bpRxKmfdOP3StKQ4ExfVeVwEdcACHZaz1LRKiKrT2MZr0Hxf+tglPXa3beRboCMs8OHimKZ8Xn6
- UxhDELZs8BSdBgIaTDBkW55CjrMZWj641Kif0nvgVWE6gcCAm22FrWTZOSJDxEWBGU6LwT0hGh4
- pRJE+iihZvgdfmhr67nXm+FgnBZWwF225rpPI+0gEBvxaZI8haDJwxVKpzjo2cqzHyIXSwt1n3X
- Pjx6xh6Ma/Rf18BCLw03GIc9yrhcnKfqHzr5adIZJM8A==
+ bh=xh6yLZbkfG5phrFUltitLNIUO1sbdHLrePH/xJi7t8U=;
+ b=Z9Jpm39shMnyRZRdj0QvqDo+21OdNPHnSsnJ7QQvxP2Y16RdrdCb7oaiP+ODDJAPq0ZKZMXys
+ lSqkDIVLyMIsmXgZSO72cbe7ar/TeDmqpeWP6l+9mGZ5cT7tBJWAE+X8uGEI92x/vSzPyP3qIcT
+ MrFdiGx9VZYLqtHlzw1kiRmMkARmd7Kpf6eGl8ciQmh5lRVYboLjKQ9SztOnrnF+y5j905tAFJ0
+ VMYTAgUzh55EbMfSYl6ycBzem24psD1Q/IWC41Ag+2jLy6WaoD3RU8TrnXcgyCMnsoyDw1/pzqL
+ h+I0fU30kNXMfc+6+fRN9b114cDyP6R612CLd7gOzbKg==
 
-Thank you for the review. A two-patch v5 addressing the findings is
-posted here:
+Thank you for the review. The findings are addressed in v5 of the
+series, posted here:
 
 https://lore.kernel.org/netdev/20261125113120.99743-1-federico@rimpianto.com/
 
-[High] "This patch does not close the RX race it claims to fix."
+[Medium] Missing dma_rmb() between the valid-bit test and word0.
 
-Correct. In v5, atl1c_rx_poll_sync() returns bool and, when __AT_DOWN
-appears while waiting, the link-down handler skips the reset entirely
-instead of proceeding without having waited. Skipping is safe: every
-setter of __AT_DOWN is a teardown path that napi_disable()s all queues
-and then runs atl1c_reset_dma_ring() itself, so the rings are reset
-with NAPI quiesced by the teardown that owns them. The handler runs
-again on the next link-change event.
+Correct, and material for this patch as argued: word0 now decides
+whether a reset is scheduled and the ring is zeroed after a reset, so
+a stale zeroed word0 would schedule a spurious reset on weakly ordered
+CPUs. v5 adds dma_rmb() after the RRS_RXD_IS_VALID(word3) test and
+before the remaining descriptor reads.
 
-On the remark that the loop "polls another context's state bit and its
-exit condition does not synchronise with the poll": the wait now pairs
-with the polling side. The handshake is a store-buffer pattern - the
-work item stores the carrier-off state and then loads
-NAPI_STATE_SCHED, while the scheduling side stores NAPI_STATE_SCHED
-(the cmpxchg in napi_schedule_prep()) and the poll then loads the
-carrier. A full barrier between store and load on each side (an
-explicit smp_mb() after netif_carrier_off() here) guarantees that
-either the work item sees the in-flight poll and waits for it, or the
-poll sees the carrier off and returns at entry without touching the
-rings.
+[High, pre-existing, new trigger] schedule_work() lifetime.
 
-[Medium] Unbounded wait with threaded busy-poll.
+Correct, and since v5 adds one more producer of common_task, the
+missing cancel in atl1c_remove() is now fixed by a separate one-line
+patch posted alongside this series:
 
-Correct. The wait is now bounded: 500 iterations of
-usleep_range(1000, 2000), about 0.5-1 s. On timeout the work item logs
-a ratelimited warning and skips the reset - it never resets under a
-possibly live poll - and re-enables interrupts, so later link-change
-events are handled. The reset is likewise skipped when __AT_DOWN
-appears (above). In both cases the rings are left to their owner and
-the link-down event falls back to the pre-5e5c0964d9b9 behaviour (no
-MAC reset), which is degraded but safe.
+https://lore.kernel.org/netdev/20261125113141.99792-1-federico@rimpianto.com/
 
-[High, pre-existing] TX side of the same reset.
+It adds cancel_work_sync(&adapter->common_task) after
+unregister_netdev(), where the IRQ is freed, NAPI is disabled and the
+TX watchdog is stopped, so nothing can queue the work again.
 
-Acknowledged and still out of scope for this series: it belongs to the
-serialisation of the work item against the atl1c_down() callers, which
-the changelog defers. Unchanged in v5, restated under the ---.
+[High, pre-existing] common_task reset path serialization.
 
-One runtime observation from the v5 hardware validation (emulated
-AR8151 on a MikroTik CCR2004-1G-2XS-PCIe): twice, about 1.3 s after an
-MTU change and immediately before the device signalled link down, the
-IOMMU blocked a DMA read from the device to an unmapped address. Both
-faults precede the link-down interrupt, so they happened before any
-code touched by this series ran for that event. I have not established
-the cause; reported here and in the cover letter as an observation
-only.
-
-pw-bot: cr
+Acknowledged and still deferred: a full fix requires reworking the
+serialisation of the work item against the rtnl holders - the same
+deadlock is why patch 1/2 does not use napi_disable(), as its
+changelog explains. Planned as a separate series.
