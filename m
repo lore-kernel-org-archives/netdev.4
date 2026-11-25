@@ -1,96 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572287;
-	b=L1YF5PHE09fwOgD358PO1jcneEraTfXcYEzbKxO8HzV9GQBaMHk8XK1AuuAGsKHZmls0
-	 Rty0wEOuBOSbEaMpOVmJpa9wJVJSGKDDDG7ZQXDaKS4twnWEyUt2l5a3Jejb/qxH4ogOU
-	 n9ny1Ah8i3eJznzh2kdzIkW8rpTQlJzQbEM4KIUE8In7hj0QnVS8fTa2uaAJbgrBf5yxW
-	 39JGhWtTwiJdYoXvnTreW25ScnljVI+bEYtlKNdqVp4kHVUX18vLbqMKVn9faZ0MJv1EG
-	 QtxU4AE4bJTloWinxvKMghW4a3k2pqZ+3Ch57PyAspRn9qFLBDp4m0zR4U1/aTvs9Ag==
+	t=1795572295;
+	b=Gq2vOj7CFn7diGbGs1e6XWhA1LKdvdZ825La0yt9bLyKUJnudq7rjGQMImCgVbEJ62EL
+	 YBzWHiyKQWvCzB9YvRTPKMsflR4z+mMzerS0wauBMsRGLUn2ssKemzZt9Wi4yhliECG4O
+	 RyoqGDoVmr4VttXwpuogU9DqsnIgg/oq+sOAtadC0GpH9bqrt5hCM4d0tRigz7u/SN1tM
+	 aPSZhBG4EozqRf5FFK/X+Od8nJ2nhHQHKTJ0guoCbdQDzTLlXrNHBvW3p6e/Yq5RXPzSB
+	 TrKP3Xvzwz/8yFiY7BDDLszSZSXNK72oSVPIRv25FOE1o2T9vDdKT99dtIylmnNJMbA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572287;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572295;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
-	b=k95sPm4S3z0ohIUdp5YPu63aaUHIPmpgcB2jVLfcAQxSngmfAlo7gbFGXE8O5Mh4d73A
-	 3NFuzj6rThSILrhRkqugCNCnUldcJz/VN5fKHhV6iySMKRuO3ull3IO4QghcVLP/eIk7o
-	 nj4sFbk4UGdgya/+jiR8q7BZNxPXUfBZlxm6FdBY7BHMi+YwJmHJadPAYiqgzJ5WYkuCE
-	 HzThKIePYZyG0eX4tBgTCSX+M046UswgX1VFzxzUOQ7i0GTajB7rsaTXb0oQ37lqcgcHb
-	 2bVZ4nekJXOSPvFb/0xOKuQvxeEiVeZn5664yciO6P4J3E8uALE3KPV7IbGEBGN1ykA==
+	bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
+	b=yRJnp+9syMjJyAmRFdRTtxpIH6TNqICywHwa0k5NJEoHwx3QS/DVAUr+9KHkN4y9OcZv
+	 MB1FUYw8UHNfhtaFXVozmYd6zV04SzrCTu2/BP5ICki+B6qN0HDpU4M7JRpDRy60xxWEa
+	 GcbcHNWFvNuOqkQ9TuCUFoWK2+NPvyHNKZ+xgbAxMKmZQZp+dL7QhvaNZ5jS8X6YFNr8H
+	 RuH5asR44jUM73ucx2zbClPZu6LwPVKu3lSXok0rO3GqrEO2Kztc7KfpnnDxINThmq934
+	 Z3GEVOmYfgmsyrI7U/bHPiahy0cmkfJro6wQaqhQ/BTD+dS+Ia/RyvfsPiCjrBaklyA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgTGEXWC;
-	arc=none smtp.remote-ip=209.85.214.174
-Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com [209.85.214.174])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OujSzYU8;
+	arc=none smtp.remote-ip=209.85.214.171
+Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34D17606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:04:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34D17606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23BC4606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:04:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 23BC4606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pgTGEXWC
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2f045b921caso29547005ad.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:04:47 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=OujSzYU8
+Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f046b0adc0so28545215ad.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:04:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795572286; x=1796177086; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795572294; x=1796177094; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
-        b=pgTGEXWCFRapnrRBgfjvorxW89rPGVjcp8OIaC+zN0o0gEd/bbF/3Xd6Ory9sVpPe7
-         l0+8zoFI508IZFB+S034nOqYxzho8RfAme68+mCrnDq/fo3Gv/HmzhO5HUnPjOSbRxyb
-         25OpIKucxjidTi9c0p66vsWtRIYzyrqst8ZuEEfliV/pwkW/s78HsneuVc1DFEv0S1gq
-         j3/W/fn8wMbQaPXO2gGmzNE0sBAvd96TIiRnUC9+r90IFcU+tgFFOJ2IKRDGbYxxAwxg
-         iwbcn849TK786FiLpo3eyUBwDDt4dPT/smb4lJdA0bXeLhWK6fHTnssnlUPmdyx9psCw
-         ReDQ==
+        bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
+        b=OujSzYU8ZqBCZBdGtmxlxflIFQHkmB3wKsr5lC/zXSjpuwndrApIjDbDWXasaTv8rp
+         aKO+kI4cY/XWfFnZck4G/aF02T0rWLxnhD3/YVJmHGcJBXQ7FCzn8WbeX5RwfGZPk7jb
+         fCQEvJOVFnQETHRdnFOeNjmHJf1e34tgH2LvpMvS6Qmd70QDxduK+LILxa+eDaZQ0PJx
+         QKY7ssNbv8McNVZG3EgfEhs+pZhAFtS0B5OfeN/5JleJ8Df9xZXmyAHkvAevYvk3WYEC
+         HkWis7Mr+L5iohnSWr03nbOjz+QZ+euLjt070dC4BJ25WlwtPxcqezYIFWso0qRC8Gip
+         8iEQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795572286; x=1796177086;
+        d=1e100.net; s=20260707; t=1795572294; x=1796177094;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=r1FsHPY/eEdw9lmKwC0RcgLAYBSGm8vaNvCwPZbTmSE=;
-        b=p563cJNZ3H7ayvXIjVA0j7v0uvsBH9/tDVeu1t6ehS4hNeEMU9fGd1wgsq417xOWd7
-         eic8y7tYh8AnbBvmLAos0mGTj6ivClexaUWjX3bJoRgTE8HGc2M+kI57IKy4y7rYHsr5
-         kXf/+vOKETLEVLrlwcJSd8keXZLg3nGKFBTkVyTedLAb0NwLDBZMKVH3A6wVH1yEc0XE
-         iXv1b2yL4iPV/NtfNPJ77mPKD3/MDLCEUk8TZx391ZT1NGLbaSUQnnwPfXhVr+C2I2xq
-         RePYDmvVIGobJiAMYfR3fyVQ/a3FAkczkraPFYAstx+xJcX69untqrRKIzYaDtvXtaBU
-         y0VA==
-X-Forwarded-Encrypted: i=1; AL+hErFBgxhkXGCSx9l6Ty7RE+wVLm+PZVJtVAecufzCSBmdsF2PwnmkgbZ70dGH62+slNhyWmPWqGs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9YznZoAQh3aDOU0vjgQf7eJ+v+R1k8XadJq3ACIt3DP4ebDgxC
-	uMHjE1gt1KqxIFfGI19P9sjKo3u5wyG7yNDw/OoSJzEQUGqgPF+vsl8OFZaMtwxh
-X-Gm-Gg: AZFdTZe1pwW9UdfKreieowSwQmhmBaYZu7At3fd1GqwjAn4LcJFWg1jQNB9u1SHez0v
-	3mIly2gXFySD95KChmskoC3rM+lZoxdc4swOya3S0Batvg5Id8NFPGdD8Jioew0Jk/ElcH31Bm4
-	dQatWTOgbmhv+RdQfY3peGWoASu9sYu8S970NLcK8+3RCQkIOo1GaxHgAEHVExEioPYlCFFKleU
-	7ZtZAYsm4RCeQ9BB2JG6+vzlpF9KV1yUvTW/cQdj/QIM5RF37YS3ifi9HXWh4WVHYqGw2Ruxyue
-	zdYkYu+BmM0ziDWhd9TZgmavaLY61eymtyh2eFln4bAryUblpNzse40E2CWyDqvjrqyunUGzWQv
-	X3aeXBETsDcA+8Pk3mfstt0Is6GiTbKA/Boq3VdHlzcntL3CA601z2mAqu+cx4r9U4E841GlmDC
-	JKSDrySAi1lRoksKMZEtXL9QxQF2qyCF04FgslX88ObbiOVHZJl9T8uAlsBH/Gv115+uYB2DQuS
-	F0gdxkD3rjtx1BeBVLQT9s8I/7VS8R1Jpz/PWfQahEguVoTAZeiJmtJWgCK91dv9AJ95pu96xsI
-	Pa+Z8PTrhVzA9QqnW6bDt0X0mCIe//i+TTG5yqxpd/1bNO0aKtnFfzIAg978N/ChzkE=
-X-Received: by 2002:a17:903:f83:b0:2df:8f19:5db8 with SMTP id d9443c01a7336-2f03f1d09e3mr157160895ad.59.1795572286497;
-        Tue, 24 Nov 2026 18:04:46 -0800 (PST)
+        bh=f5TEOsSlpu3MCVl743p8hlRAuGk8f5e8Zz385+1IMm4=;
+        b=qFtWm7cA5KRuDdAnxfpkFT5kk+RgrOXl5Sj0t6I/ZnBbW85m9KF79WBUoG+cMy7uU+
+         OxUNRGr4QgYNGxwelOElIDHvUTcJR7fUQUxnPjrBTOOz0bTfIdU3+HUoIDD/6OHJgygm
+         D/2RMqgBj/j5hPM7CUCnofGw+uQZZtUCrlXwiF1ACbaPMaAOhpBif2EsVx35vRIZikmG
+         fv9QZpZvSkBRw4JePehF8hAP3R+Q98isrUmx9/IdIIQZHhko/amHI0LWV6V5B3oLEPaG
+         N2KZybFu4IKNuWGkugrWA6jZVog435NiSFqmLehMEoK1nMZTYN50Y3ai81tu14lwo1rT
+         lQ1w==
+X-Forwarded-Encrypted: i=1; AL+hErFcrLmjML2fGUBJH4/bL50J4xnU02CddKxCrkVALqIlGm/fxZ98dtiPe66NRR60Dinquwl2ako=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/2pjPiREXE/dgUlWSkMDLPYN7H56xgZXmAm5Z9b8jGL7kextv2
+	7v94xx0HBzlpEQJq1wJ0wLbsBjSGoPTqksmPrgB+VlG12gZhVGxsOwhrnfuzaZq4
+X-Gm-Gg: AZFdTZfuOT3wNpInQCE49WUTWF5nkDi787FW6Gr5FaxTkHcfT3+/tpzXDLv3NY2W+75
+	3hZ4ycUGcABsOmilaIifaYMeRYp2PMIVOj1+YGkVLaegY0sQMpfqqTAW+ePEu86r6MMiEtyN/FI
+	6zCKcOdozR/y++0BBwVxnb6+h+mGkf+VDm3fwa1Raj0ohcmJfYs24aRkrYR3yO1bO3j1SQm3FqM
+	YveXEh5XdQUf9qzu3ItkRENnMTA50Ia98w7PTl0WQ8NKjEfurBRaA+TmlpD3qMVAfKjoo9olXfm
+	gniUHrxrFw60+EttEu4tOkb6v4LMHK2SyCqzXOXwp5rGe794dmLIOWgRCeBusPS/VGqXi6N/JXJ
+	9JFuppin1aKQn/zmtcpOqk2o1YQmtJiM5jCGP8sHxpBPzkSl4nHSVY9pTom2NBWck7/C/ytv5MC
+	lvcgqxkTiLX1EshPWHvTjvXnS1qfdOcmzsz/+O6lqMXB1+rM+JJK9N+M3JWBTBN7Rgd3ESEKPV/
+	xYdJBFEivoct/KQhAF16wbBkIMkZNoM46YS5vxfrxUrD/ZuXhFyvPWpM1qy68qeW+g28dRV0dBM
+	zMjDYyfXy6HsXrojL6KaIALGtHzA3p5wR5nA2GkLDo8vr74uvIJO5c2O50wp4Rom6u0=
+X-Received: by 2002:a17:902:e811:b0:2ed:3f47:96a3 with SMTP id d9443c01a7336-2f03f169628mr159139275ad.42.1795572294458;
+        Tue, 24 Nov 2026 18:04:54 -0800 (PST)
 Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0bc695f31sm19489175ad.49.2026.11.24.18.04.44
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f120769sm77161585ad.57.2026.11.24.18.04.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:04:46 -0800 (PST)
+        Tue, 24 Nov 2026 18:04:54 -0800 (PST)
 From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>,
+To: Jon Maloy <jmaloy@redhat.com>,
+	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
+Cc: "David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
-	David Ahern <dsahern@kernel.org>
-Cc: Xin Long <lucien.xin@gmail.com>,
-	Ido Schimmel <idosch@nvidia.com>,
 	Willem de Bruijn <willemb@google.com>,
 	Simon Horman <horms@kernel.org>,
-	netdev@vger.kernel.org
-Subject: [PATCH net] ip6_gre: return the full header length from ip6gre_header()
-Date: Wed, 25 Nov 2026 11:04:42 +0900
-Message-ID: <179553307366.1670514.6802805102726706751@gmail.com>
+	Ying Xue <ying.xue@windriver.com>,
+	netdev@vger.kernel.org,
+	tipc-discussion@lists.sourceforge.net
+Subject: [PATCH net] tipc: check the monitor record length before reading it
+Date: Wed, 25 Nov 2026 11:04:50 +0900
+Message-ID: <179553307368.1670514.4694378910047786259@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,123 +103,93 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Since commit 76cc0d3282d4 ("ip6_gre: skb_push ipv6hdr before packing
-the header in ip6gre_header"), ip6gre_header() pushes the outer IPv6
-header and the GRE header, t->hlen + sizeof(struct ipv6hdr) bytes, but
-it still returns t->hlen. packet_snd() copies the user's payload at the
-offset dev_hard_header() returns, so an AF_PACKET SOCK_DGRAM send on an
-ip6gre device with header_ops (remote any) writes the payload over the
-outer IPv6 header and leaves the last 40 bytes of the packet
-uninitialized. A packet tap on the device then copies those bytes to
-user space:
+tipc_mon_rcv() reads member_cnt, gen, ack_gen and len from the domain
+record before it checks that dlen covers the record header. A node
+whose monitor is not active sends its STATE messages without a record
+(tipc_mon_prep() leaves dlen at 0), which is the normal case in a
+cluster below the monitoring threshold, so the receiver reads these
+fields past the end of every such message:
 
-  BUG: KMSAN: kernel-infoleak in _copy_to_iter (lib/iov_iter.c:197)
-   _copy_to_iter (lib/iov_iter.c:197)
-   __skb_datagram_iter (net/core/datagram.c:402)
-   packet_recvmsg (net/packet/af_packet.c:3573)
-   sock_recvmsg (net/socket.c:1176)
-   __sys_recvfrom (net/socket.c:2333)
+  BUG: KMSAN: uninit-value in tipc_mon_rcv (net/tipc/monitor.c:499)
+   tipc_mon_rcv (net/tipc/monitor.c:499)
+   tipc_link_proto_rcv (net/tipc/link.c:2301)
+   tipc_link_rcv (net/tipc/link.c:1773)
+   tipc_rcv (net/tipc/node.c:2174)
+   tipc_udp_recv (net/tipc/udp_media.c:389)
+   udp_queue_rcv_one_skb (net/ipv4/udp.c:2433)
   Uninit was created at:
    __alloc_skb (net/core/skbuff.c:716)
-   alloc_skb_with_frags (net/core/skbuff.c:6940)
-   sock_alloc_send_pskb (net/core/sock.c:3096)
-   packet_sendmsg (net/packet/af_packet.c:3023 af_packet.c:3209)
-  Bytes 68-107 of 108 are uninitialized
+   tipc_msg_create (net/tipc/msg.c:104)
+   tipc_link_build_proto_msg (net/tipc/link.c:1857)
+   tipc_link_proto_rcv (net/tipc/link.c:2311)
 
-Return the length that was pushed, as ipgre_header() does. With the
-payload in place, the tap also shows that ip6gre_header() never sets
-payload_len, so set it as well.
+Read the fields only after the dlen check.
 
-Fixes: 76cc0d3282d4 ("ip6_gre: skb_push ipv6hdr before packing the header in ip6gre_header")
+Fixes: 35c55c9877f8 ("tipc: add neighbor monitoring framework")
 Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 ---
 The issue was found by an LLM-guided test generator that we are
-developing as a research prototype. A reproducer, which runs as any
-user; ip6gre-tap sends 64 bytes of 0xaa through an AF_PACKET SOCK_DGRAM
-socket and prints the first 48 bytes that a packet tap on the device
-sees:
+developing as a research prototype. Any link between two nodes below
+the monitoring threshold shows it, for example, as any user:
 
-$ cat ip6gre-tap.c
-#include <arpa/inet.h>
-#include <linux/if_packet.h>
-#include <net/ethernet.h>
-#include <net/if.h>
-#include <stddef.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/socket.h>
-
-/* send 64 bytes of 0xaa through argv[1] and print what a tap on it sees */
-int main(int argc, char **argv)
-{
-	unsigned char sa[offsetof(struct sockaddr_ll, sll_addr) + 16] = {};
-	struct sockaddr_ll *dst = (void *)sa, tap = { .sll_family = AF_PACKET };
-	unsigned char payload[64], buf[256];
-	int c = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ALL));
-	int s = socket(AF_PACKET, SOCK_DGRAM, htons(ETH_P_IPV6));
-	int n;
-
-	tap.sll_protocol = htons(ETH_P_ALL);
-	tap.sll_ifindex = if_nametoindex(argv[1]);
-	bind(c, (void *)&tap, sizeof(tap));
-
-	dst->sll_family = AF_PACKET;
-	dst->sll_protocol = htons(ETH_P_IPV6);
-	dst->sll_ifindex = tap.sll_ifindex;
-	dst->sll_halen = 16;
-	inet_pton(AF_INET6, "2001:db8::2", sa + offsetof(struct sockaddr_ll, sll_addr));
-	memset(payload, 0xaa, sizeof(payload));
-	sendto(s, payload, sizeof(payload), 0, (void *)sa, sizeof(sa));
-
-	n = recv(c, buf, sizeof(buf), 0);
-	printf("%d bytes:", n);
-	for (int i = 0; i < 48; i++)
-		printf(" %02x", buf[i]);
-	printf("\n");
-	return 0;
-}
-$ unshare -Urn sh -e <<'END'
-ip link add g6 type ip6gre local 2001:db8::1
-ip link set g6 up
-./ip6gre-tap g6
+unshare -Urn sh -e <<'END'
+unshare -n sleep 30 &
+sleep 1
+ip link add v0 type veth peer name v1 netns $!
+ip addr add 10.0.0.1/24 dev v0
+ip link set v0 up
+nsenter -t $! -n ip addr add 10.0.0.2/24 dev v1
+nsenter -t $! -n ip link set v1 up
+tipc bearer enable media udp name b localip 10.0.0.1 remoteip 10.0.0.2
+nsenter -t $! -n tipc bearer enable media udp name b localip 10.0.0.2 remoteip 10.0.0.1
+sleep 5
+tipc link list
 END
 
-Without the patch the outer IPv6 header is 0xaa from byte 4 on and
-KMSAN reports the infoleak above. With it:
-
-108 bytes: 60 0c f6 22 00 44 2f 40 20 01 0d b8 00 00 00 00 00 00 00 00
-00 00 00 01 20 01 0d b8 00 00 00 00 00 00 00 00 00 00 00 02 00 00 86 dd
-aa aa aa aa
+Without the patch, KMSAN reports the uninit-value above as soon as the
+link exchanges STATE messages; with it, it does not, and the link comes
+up as before.
 
 The patch was written with LLM assistance; we reviewed and tested it.
 
- net/ipv6/ip6_gre.c | 5 +++--
- 1 file changed, 3 insertions(+), 2 deletions(-)
+ net/tipc/monitor.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
 
-diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
-index b5d6ed8f0c36..9b30fb2f4bcf 100644
---- a/net/ipv6/ip6_gre.c
-+++ b/net/ipv6/ip6_gre.c
-@@ -1397,6 +1397,7 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
- 	ip6_flow_hdr(ipv6h, 0, ip6_make_flowlabel(dev_net(dev), skb,
- 						  t->fl.u.ip6.flowlabel,
- 						  true, &t->fl.u.ip6));
-+	ipv6h->payload_len = htons(t->hlen + len);
- 	ipv6h->hop_limit = t->parms.hop_limit;
- 	ipv6h->nexthdr = NEXTHDR_GRE;
- 	ipv6h->saddr = t->parms.laddr;
-@@ -1415,9 +1416,9 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
- 	if (daddr)
- 		memcpy(&ipv6h->daddr, daddr, sizeof(struct in6_addr));
- 	if (!ipv6_addr_any(&ipv6h->daddr))
--		return t->hlen;
-+		return needed;
+diff --git a/net/tipc/monitor.c b/net/tipc/monitor.c
+index 0164a034b57e..9a8b3e5010c1 100644
+--- a/net/tipc/monitor.c
++++ b/net/tipc/monitor.c
+@@ -485,21 +485,22 @@ void tipc_mon_rcv(struct net *net, void *data, u16 dlen, u32 addr,
+ 	struct tipc_mon_domain dom_bef;
+ 	struct tipc_mon_domain *dom;
+ 	struct tipc_peer *peer;
+-	u16 new_member_cnt = mon_le16_to_cpu(arrv_dom->member_cnt);
+-	int new_dlen = dom_rec_len(arrv_dom, new_member_cnt);
+-	u16 new_gen = mon_le16_to_cpu(arrv_dom->gen);
+-	u16 acked_gen = mon_le16_to_cpu(arrv_dom->ack_gen);
+-	u16 arrv_dlen = mon_le16_to_cpu(arrv_dom->len);
++	u16 new_member_cnt, new_gen, acked_gen, arrv_dlen;
+ 	bool probing = state->probing;
+-	int i, applied_bef;
++	int i, applied_bef, new_dlen;
  
--	return -t->hlen;
-+	return -needed;
- }
+ 	state->probing = false;
  
- static const struct header_ops ip6gre_header_ops = {
+ 	/* Sanity check received domain record */
+-	if (new_member_cnt > MAX_MON_DOMAIN)
+-		return;
+ 	if (dlen < dom_rec_len(arrv_dom, 0))
+ 		return;
++	new_member_cnt = mon_le16_to_cpu(arrv_dom->member_cnt);
++	new_dlen = dom_rec_len(arrv_dom, new_member_cnt);
++	new_gen = mon_le16_to_cpu(arrv_dom->gen);
++	acked_gen = mon_le16_to_cpu(arrv_dom->ack_gen);
++	arrv_dlen = mon_le16_to_cpu(arrv_dom->len);
++	if (new_member_cnt > MAX_MON_DOMAIN)
++		return;
+ 	if (dlen != dom_rec_len(arrv_dom, new_member_cnt))
+ 		return;
+ 	if (dlen < new_dlen || arrv_dlen != new_dlen)
 -- 
 2.43.0
 
