@@ -1,114 +1,109 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617876;
-	b=ZoA27utD4hmtQHtOy+QShK8TBYfWAh64bpOo07zKu3rq2N59sz0g1D0I5RdUAJkFdb23
-	 O71nw7KZFB9W8llDgvaRcQPhAydZI58XzfZsap1rn1eysHa9JcNJSOjYOWf8VqkEUwkEd
-	 Ffm6U5XmyXtu7u+yBJhakGR5heVqE5X1JpWLBFpM2WiHkufNDdEuqVnzsdPCQMsdzapXE
-	 kvC88LXoTFjNrPr4mr/R7aiFod8lLPEFl6sUuO+RUe4PlFrpyKJXW/z8n9Hpz2QADC4JI
-	 VuDBf16JmVgOo7l7kFuoqTX50GqGVNOGjx40fspZ5GNwuPgMII2bT+44AnaYir9E6CQ==
+	t=1795617924;
+	b=iaBTu0HcrekYlPFFSTJnb2pVDivFxFS3+ymmy0H9OFkxABPrL2TlhgAegQxqS3I475eM
+	 t4FV7QxHba2lEhtepaGjdYdGCdd2LNvAe7sJ9G1PowZ1x177QNlci/NOH93G0M8VNPmg8
+	 VCua4G+0414ikKcErwTZF/NBEzjMCHHIL86IUPKKKzImUbU6XrVCvyAWQuPe/ksRbpQ/G
+	 yw70G7MnNwx87Ndkg6fSshfK1mBjuXN8MzS7tyY1+k78J2EGzhPLoUKkVi7D5X27hBMHT
+	 A189F6Wj3R1tyfYXrPMsTcodUc+IMF4lK3rURlzrNTBuhalymZVi/BJU/sDV1Buel+w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617876;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617924;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
 	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-	b=iO/7vwB0kaY/vM3yjSATcFQ23JSJi1bAhC1YLTzSgLrcqo8Y6MWuP0zWamisfQ9jRvB+
-	 IuYRsTw9tb4d/dW+otlqaHgjOOhKHR/OlePXLELmRSASKb8V1Cj+Wre8IZhtQ+0brUj1q
-	 FTbde1kb6BVbLZZAe6W/CRWsqR3oRZoScQT56/7NG+K2utSp5pBgQB6U/1fegP0AtTGYD
-	 DKrcLyDejZbrsNHVuucwOcnH0jo32OIPDC3nozUDNipH3SkZJZRRuJ7FKdYJWEbIpiPJG
-	 /6qUNG+aJyB2Wv9plrbEQeBh9/PXbI3xHnTKaJej44lOiiea3BaQ8uDyXMIuDemeJlQ==
+	bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
+	b=1JI0UEOfrelVm4LWqfmXs8p0VmbYFnGy8tRgSwkWaCzjeWfV2HedB6E8D4dGmxpohwqS
+	 UlK79xbXpFTUiR+AmzXdvQufsmzmAx4Uyv9d+8iHBywcO+Lg3G8jmEe1zSKSsxCcqyFJX
+	 jQ757RDb0y7RLQ94zuubzVRottapMRHMAhD4LjpbGdlP/Z9FkhbF3rzm2x1jKqwREmVtr
+	 L02qmUee7bg39eN6ECL4yywY6I1HqmdvbackRop80FguMH/+lO38KfB4l5oCBVNQ+RPx9
+	 sWyvgXNoxj8epQW/npne5CB14IJjDEsA8xu3R1DlPANseratn/Y9TX2QgYgMVayCSNA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JJz8OA1E;
-	arc=none smtp.remote-ip=209.85.128.52
-Received: from mail-wm1-f52.google.com (mail-wm1-f52.google.com [209.85.128.52])
+	dmarc=none header.from=ziepe.ca;
+	spf=pass smtp.mailfrom=ziepe.ca;
+	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=GfHorJdx;
+	arc=none smtp.remote-ip=209.85.222.173
+Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D30F4606A329
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:44:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D30F4606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C058606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:45:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C058606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JJz8OA1E
-Received: by mail-wm1-f52.google.com with SMTP id 5b1f17b1804b1-4a56e05568aso13311285e9.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:44:35 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=GfHorJdx
+Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-94961d90b79so612599885a.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:45:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795617874; x=1796222674; darn=vger.kernel.org;
+        d=ziepe.ca; s=google; t=1795617922; x=1796222722; darn=vger.kernel.org;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-        b=JJz8OA1EX5JjC4bTAmY1z4tgzBcYDWsAGttWpwvLVZTnYuyKjKWKXVZLQAuKKWWOUD
-         OsbiqnlgZVBoHqQcNbUmmnGGiM9aN8x/5lmqNA6CoLaHaAgqI3Nuxn6m7RK4mm7NRHTs
-         qAn0Iyzdz6gAJJhr6ankYT25Fuvx45uCSCJraPFjmfOefb1wmjIcysiu2/kogHxTZQEP
-         u3qdVCypnFA7+KFuApaPnk1yIGEvzxk+ETJZJbSkhrf4h1Chzr97zkSKVFU5dru+TbCb
-         krkngx1mIiIKsDCLfzU6AxzOVLcV7XoP1nm1CkjXCr1MeYobFyXumDcouQBatquU6sbC
-         n9oA==
+        bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
+        b=GfHorJdxm/Tm/nk4NUjeAJQJeMDopYjbHRxpuzqoYvpqO3p4antAF9Co8gVV9g2PyA
+         D+jEJvpcvNWs8JcznIBLvvI6KVXvooCwh1nHS41khHRAT+PPGeO/UsbuQiLLN4qglPfq
+         QLJh+SV2O/J9aX4fleNQ/yXAxWIU21F5ryaFCt1ewGBY0rJxTkRvmr7Y+D9KNsR348Ke
+         4VMocHdeZqjkQzWEJoUCRhhNC7TEWSHXg7Jn2gULsuOvbM9z5sgLSwQqCPcsSb188vFb
+         Od3OsLXLJv9gyijuBwth+ELtyRHOI5qlbVseSdKjv8ldSPwWObeNyteRxVKytQu0/Zov
+         u9hg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617874; x=1796222674;
+        d=1e100.net; s=20260707; t=1795617922; x=1796222722;
         h=in-reply-to:content-disposition:content-type:mime-version
          :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=8ll/7pjiu26j2DN45BTUViH87j7UCm3E+vVLd5MHWxI=;
-        b=q5BBrJ+JbvnYPZWY6+inP+2oYxw1kPGTj285+wZ+GXbqyjFlkK9Il95ZXVwLv2v68j
-         M1KDncwHWNcKFQTYLXdaabpsBq4i/INCgigF7z8TDwdYfOr08hWBCt1fnuHlfFR1Uuwk
-         eFgn6Llo6rkU8ITkLrtPiAjgqnlCs7AVRXccWybgcy93rIY3ERV1jgrwm8FLI9k2Fuce
-         Me4oi2UYi1VQvbLy3x2m528uCFBtdass8hjapgb9qDeFFybJNwdUmQK600zCguKQbj5T
-         A6mAsAK9x868ByfFMQyL210eu+s7PisscaALDJjJH/pGLAcqwK/Z3ryEz3JyYePKMm7/
-         rLMA==
-X-Forwarded-Encrypted: i=1; AL+hErHF/GGN9vDxL4VLdU4aCJi6y5PScEVegd+5M9MFkLg8E1HXEsb509ZhOybvx6kt0aSqtGtHvOQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8coZ0gKIOXFp5NxIBRDRmyLyazbNTjHEf4OHvy1PmQ49Vo0BfA
-	F/zWPmSm9VARu24Q/ivcQd9ZUweL8rybVH2DFNQoOM0KX7D8ZDliSPor
-X-Gm-Gg: AZFdTZcoWaGXfBL5LmtLP3+HZwlrs6XDEb/hHYq7dcbH47HbLbFmWsh4LcIArO6jhjA
-	ohrEZE/YYVZxGVAl6gRP8yL93Tyl9fO8+Uicgc0JDaZzOBJHPLOFCP9WaLZFMTgbGyl5aRVIYNy
-	KIKQwVi80H81Jiu6zECVvzKni0cUXmW+fvO32zqLejMpJQGGvWU0jESKOnx/wrRbuPISWaEZtO7
-	xiWktyT8XiNY+GGobRh6qsa9Yu7olFP9yTEw7ytxPTCBA/udI+pDeAIY9Ey8OWeuFuIz+UQYqJU
-	NdYJb8VnLKwIbLw8EzLHLauyh2BVg9tJo1jv0xS24GEDUShyZ5qyKL7oUObaWvstAyFrrPWFWxk
-	dejjIgnrO7pTTtiNY1zKYFteHx8TIhq/9TgCg9uTcu9WUluyA1abOcjBZUzSW1H27Zr6rtrEpAV
-	XYyGH12fR57OQBRhOD/ivH3n43WP3e8AfcZ8ci8q11l48K8v3LI6xLZ7q9SnEAOyf9Q3xoL8kgI
-	QkfF2oQ4w6uaY0DTmphKYtTYeI78GGCJhgO9k9c2CFiZmf5oMj1VTIhgWYzOff+KpN3Nv2AbRhX
-	k5W57udwL80FlVJiPUlxVg==
-X-Received: by 2002:a05:600c:1088:b0:4a2:417:7db5 with SMTP id 5b1f17b1804b1-4bb887f43cdmr285531595e9.2.1795617873970;
-        Wed, 25 Nov 2026 06:44:33 -0800 (PST)
-Received: from skbuf ([2a02:2f04:d401:2601:d3cc:6bc:a861:f9da])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906e4ce6sm303747515e9.4.2026.11.25.06.44.30
+        bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
+        b=nyQR7s/9JbTT3Wb/2lSzJIgXFdNhd6DeSOdO+cI6+tFOY3vsX4K3sEL9b3uVtwC+PP
+         x9OSqNIMC8j2oV4tktFY5pLXs5N/VNIiZTUc9H+cf+cMh6VWjSB8Bzv+PYtLW8bNpuK6
+         RPUQdVlNPx420aiFDrMiZt+TTBV4zpw+Cz/0OXrWWfxI1QmlrBy+Vbvf+Y9goPQ06I6H
+         RT2/fM/rPCDB3NgvHc5YPKMyr0tBkZ/VKU5259K1/WUTsdLnNDCHkuzrtJ4vzf13MUbX
+         TGmFdSgmXRk6+FSzP5sOUvSN4HwdyHXKTUOplhAaaqdVfIzZe2T9LeM97N1818Z6s4kG
+         n4Jw==
+X-Forwarded-Encrypted: i=1; AL+hErHZ1tn2OaoQZd5zdEACRvmpZn8Yg45icGRh3ZpvgTjSXVD4cmdyiVop2QExv1PSpH9qlU0+i5k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z97hpbGI6SUJ9UH6yYKtVF2irhA2w/caIbLq4dsflmya8vmfxlL
+	Ng1Fp2SMSwnvAktVeqM+rmnQocK/emFwHDcmceIyk/vQEi1pat59PiCl+y7tyO9cnLw=
+X-Gm-Gg: AZFdTZe+VOHk8ss6jkZRSyCCZdLLQ/kcZpQcuKo0eeE4rm6M2VA9rj2ieKeQOLkqB43
+	GcXM322UVwdrvuBwPNCfEerxu5BjA+UExDvSsZW+ANU1K5tN57/ooZniPR4ts9zQOPXgaqEK4ZG
+	OmET2KQKcsTAk4JE+FbjhUPhwN07Xb4I32WxDKZGz3jbLxbpDDfZq0TtKgO0J4YhHXuPMDGZHAL
+	OouRhkZm8PkJBJs5NGZ4bEwKe+eSpV6xKifKuoonr2gG4dl2T4H+fhAn7bIejZieNCe9FAeMGWA
+	Hp829ofD4gAp5/USWeOfyepw5b37SJB7StufiNPDUwBc8C8KBc23tNvXEhuZ7dtMz1dvKhn6fLK
+	2HBj449eRD/czdTkvtcg4tDVLlcv9auyWx/W/95BNFsC7A6ED68i2cW+YGLZUoDIbXFj2sp5rFm
+	DzxYcEaGFEhnyFWwDkmFDJiDLXRp6AC+0tm2B9msw/Ju5jezE32F/ydzM8lklFN87E4LtQaptPK
+	/4vaHcniCRUESGNYPpo1SNshXoEBZUaszc0D278jNeIAtAoa2Kgz4gZxkYX7e0rIx3yyfusjM12
+	EaQMlQ==
+X-Received: by 2002:a05:620a:6487:b0:949:9a8c:7052 with SMTP id af79cd13be357-949bab1577cmr2699750285a.70.1795617922348;
+        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+Received: from ziepe.ca ([142.177.118.84])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb38319asm1327544785a.16.2026.11.25.06.45.21
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:44:32 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:44:28 +0200
-From: Vladimir Oltean <olteanv@gmail.com>
-To: jan.petrous@oss.nxp.com
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
-	NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
-	Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
-	Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	Richard Cochran <richardcochran@gmail.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-phy@lists.infradead.org, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-pci@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>, 
-	Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-Subject: Re: [PATCH RFC v4 09/15] phy: freescale: s32g: Add SerDes subsystem
- PHY
-Message-ID: <awbmvSYZ9RJ6agIu@skbuf>
-References: <20261125-s32g_serdes-v4-0-3bfe0589be8d@oss.nxp.com>
- <20261125-s32g_serdes-v4-9-3bfe0589be8d@oss.nxp.com>
+        Wed, 25 Nov 2026 06:45:21 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1xWEFN-00000001mSD-154e;
+	Wed, 25 Nov 2026 10:45:21 -0400
+Date: Wed, 25 Nov 2026 10:45:21 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Leon Romanovsky <leon@kernel.org>
+Cc: Yishai Hadas <yishaih@nvidia.com>, linux-rdma@vger.kernel.org,
+	netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
+	mbloch@nvidia.com, kuba@kernel.org, pabeni@redhat.com,
+	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+	dtatulea@nvidia.com, moshe@nvidia.com, maorg@nvidia.com
+Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
+ adversarial mode via GET_CONTEXT
+Message-ID: <20261125144521.GI246011@ziepe.ca>
+References: <20261117170914.27410-22-yishaih@nvidia.com>
+ <20261122073156.GA12665@unreal>
+ <761ca80e-a772-41f3-b8e9-cc332e4ba5d9@nvidia.com>
+ <20261124125327.GR14811@unreal>
+ <20261124125950.GC9566@ziepe.ca>
+ <20261124133353.GT14811@unreal>
+ <20261124134751.GJ9566@ziepe.ca>
+ <20261124140906.GU14811@unreal>
+ <20261124143024.GO9566@ziepe.ca>
+ <20261125090309.GY14811@unreal>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -120,68 +115,57 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125-s32g_serdes-v4-9-3bfe0589be8d@oss.nxp.com>
+In-Reply-To: <20261125090309.GY14811@unreal>
 
-Hi Jan,
+On Wed, Nov 25, 2026 at 11:03:09AM +0200, Leon Romanovsky wrote:
+> > What do you mean? This is a mechanism to help the user manage software
+> > versions by not accepting incompatible rdma-cores.
+> 
+> Please take a look at the patch.
+> User space provides that new adversarial flag.
+> 
+> +	ret = uverbs_get_flags32(&ctx_flags, attrs, UVERBS_ATTR_GET_CONTEXT_FLAGS,
+> +				 UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED);
+> +	if (ret)
+> +		return ret;
+> +
+> +	if (ib_dev->adversarial_mode &&
+> +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
+> +		return -EPERM;
+> 
+> ...
+> +	UVERBS_ATTR_FLAGS_IN(UVERBS_ATTR_GET_CONTEXT_FLAGS, u32,
+> +			     UA_OPTIONAL),
 
-On Wed, Nov 25, 2026 at 10:33:51AM +0100, Jan Petrous via B4 Relay wrote:
-> From: Vincent Guittot <vincent.guittot@linaro.org>
-> 
-> Each S32G SerDes subsystem is made of one PCIe controller, two XPCS and
-> a shared 2-lane combo PHY. The lanes carry PCIe and/or SGMII.
-> 
-> Add the SerDes subsystem driver: the PCIe PHY, the combo PHY bring-up
-> and the setup of the XPCS instances. A MAC gets its phylink PCS through
-> s32g_serdes_pcs_create(), which also creates a device link, so that the
-> MAC is unbound and suspended before the SerDes.
-> 
-> SS_RW_REG_0[SUBSYS_MODE] is derived at probe from the consumers' phys
-> references to the SerDes node, <lane type instance max-speed>: a PCIe
-> root port names its lanes, a MAC names its lane, the XPCS instance it
-> is wired to and the highest speed the lane is wired for, 1000 in this
-> series. The driver walks the tree for them, as the mux is programmed before
-> the reset is released, long before the consumers probe. Each supported
-> mode has a unique lane mux; a lane nobody references takes the function
-> it has in the first matching mode. The reference clock rate is
-> validated against the derived mode.
-> 
-> The SerDes provides one PHY for the PCIe link, whatever its width, and
-> one PHY per XPCS instance in use. The XPCS lane PHY has no operations:
-> the lane is brought up with the SerDes, and the MAC drives it through
-> the PCS, which it gets from s32g_serdes_pcs_create() with its own node.
-> 
-> After the subsystem reset is released, the PHY needs up to 5.2 ms to
-> become operational (MPLL_STATE). Poll it before any further PHY or XPCS
-> PMA access, in every mode.
-> 
-> Signed-off-by: Vincent Guittot <vincent.guittot@linaro.org>
-> Co-developed-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
-> Co-developed-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Signed-off-by: Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>
-> Co-developed-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Signed-off-by: Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>
-> Co-developed-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Signed-off-by: Ionut Vicovan <Ionut.Vicovan@nxp.com>
-> Co-developed-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Signed-off-by: Bogdan Roman <bogdan-gabriel.roman@nxp.com>
-> Co-developed-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
-> ---
+What's the issue? If the user space doesn't ACK it has the new
+software then it doesn't create the context?
 
-I am trying to spend some time to understand this design. I have a few
-basic questions:
+This is how we do every feature that needs rdma-core support, though
+more often there is a fallback in the kernel.
 
-- Simply explained, what do you gain by integrating with the Generic PHY framework?
-  The XPCS has a dummy phy_ops. Clearly this means phy_init(), phy_power_on(),
-  phy_set_mode_ext() etc will do nothing for it. Who and why is better
-  off if it exists?
+> The kernel does not care whether rdma-core is up to date. It works either
+> way, so why should we prohibit older userspace on these systems?
 
-- If you have 2 physical lanes, why do you have 3 Generic PHY objects?
-  Why not a Generic PHY object per lane?
+What do you mean?
 
-- Does the lane mux need to be programmed by the kernel driver? Does it
-  ever need to change at runtime? How do previous boot layers use the
-  SerDes? If you leave the lane mux set by a previous boot layer, and
-  make the device tree describe that configuration as read-only, what
-  doesn't work for your use cases?
+ +	if (ib_dev->adversarial_mode &&
+ +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
+ +		return -EPERM;
+
+That is not "works either way" that is requiring new software. Which
+is exactly what I want to see here.
+ 
+> > It is not a security mechanism to hard guarantee that rdma-core has no
+> > bugs.
+> 
+> It is you who talked about "... security downgrade ...".
+
+Yes, in that I want people using normal software to have a safer more
+secure experience. Meaning you need supporting rdma-core if the kernel
+is in adversarial mode, because otherwise you don't get the right
+security outcome.
+
+You took it to some absurd scenario of a user hacking their rdma-core
+to defeat the check, which is not the point at all.
+ 
+Jason
