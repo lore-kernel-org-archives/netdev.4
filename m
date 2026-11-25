@@ -1,163 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.151.120
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.148
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795629900;
-	b=NfoqOMe49DUEpuk0SOb7rtdEuBcpiANgu5Un/x3Vbpl1z+Zcnn62TTTwAlJ/3O2czSO9
-	 f4bDBhGv8cYPxWlJrzZxYnC9FMnzJxA3DjrBnvEIjhAXZ4v29mWKPA+W/tFGnNcNYv/Nw
-	 TuHUn973WroA7xc73S60MVZuDKWGDJE4+0h9hiQsnKBzE3+u/V/zWYfqD2H5KDCBomCtQ
-	 F+EoMVCoqzuC9XFQB3qDPAWWqmt3aqGippkPAW7mT2yKU49lmcsvHFQMysb2NdCfJU+es
-	 ltnivmIUKB0JE9wQFe7vnDgaTRL+0wyb3Mf8B9YRPU2pQqV5AN9b84c/0ZslsgnVAXg==
+	t=1795629929;
+	b=AOCjbWUWGthZSRRMCLWLNdKQXMBxyay6f7Aol0TgnF3sA/Bhcb7s1UjQ9LnrT2Vmbr3E
+	 YDPx0ApVEoL6zSG8Gr+M08hDGV/9d49WjJEb+qCXy/bKN4pkoh41KbeFohbpFk2CYctqQ
+	 6z93GxqXryFyXInZTLP77Vh4KYINccqKz2THOV5jgl58ZeYK1OuMSIAaCBx4AJG4d7SCd
+	 5swXiLCJI0U/4J17MeWXsx9iNJGZDlM2aGIWDkE0o1X5M1cmbv8pl0wcPzcwjvRzc3QOZ
+	 LSSBofgSqQSGrqdcCLLrDfH1t/gT0fky24j6K+uWtI0r5GROGWkhigOftCRINNWbt6Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795629900;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:CC:Subject:
-	 Thread-Topic:Thread-Index:Date:Message-ID:References:In-Reply-To:
-	 Accept-Language:X-MS-Has-Attach:X-MS-TNEF-Correlator:
-	 x-ms-publictraffictype:x-ms-traffictypediagnostic:
-	 x-ms-office365-filtering-correlation-id:x-ms-exchange-senderadcheck:
-	 x-ms-exchange-antispam-relay:x-microsoft-antispam:
-	 x-microsoft-antispam-message-info:x-forefront-antispam-report:
-	 x-ms-exchange-antispam-messagedata-chunkcount:
-	 x-ms-exchange-antispam-messagedata-0:MIME-Version:
-	 X-Exchange-RoutingPolicyChecked:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-AuthAs:X-MS-Exchange-CrossTenant-AuthSource:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-originalarrivaltime:
-	 X-MS-Exchange-CrossTenant-fromentityheader:
-	 X-MS-Exchange-CrossTenant-id:X-MS-Exchange-CrossTenant-mailboxtype:
-	 X-MS-Exchange-CrossTenant-userprincipalname:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Mimecast-Spam-Score:X-Mimecast-MFC-PROC-ID:X-Mimecast-Originator:
-	 Content-Language:Content-Type:Content-Transfer-Encoding;
-	bh=QTGMXGNfQi0tH16ROkgGJvKUzhPGHpJpVhjEu7HLZXU=;
-	b=FEKsYUpJsRZqf9l3qd8TtBPM5u0dl4CdVep8lSv8VYwrNGAt9uOR1PTgqBofcNBb7DkL
-	 V9y3uJUv/UU81tuN7K7D6IwTjQyOIr8DeclKTbexALNQxfwb6PvEpuzwBpdl46JVtD1yy
-	 HKQ3kodj9HP6z4k19/e+inDefncC8gecWysRtnvFJY5yamRR8VOAfFWW8fzFY1ftbDnL4
-	 REiPz0GkvveM1ZP67CuXgVovqi1PCWOh/WnWtxYD9DTm5UX6X8VOWojWac8TV3bsyu+VQ
-	 oJOAqZlEPCzo3zsjSs0PKs42ClGPWKP9OkgJaesFkJrGO2nRdwo2otHOMJ2r/QbOwUA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795629929;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:Received:X-Mailer:
+	 MIME-Version:Date:From:To:Cc:Message-Id:In-Reply-To:References:
+	 Subject:Content-Type:Content-Transfer-Encoding;
+	bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=;
+	b=RbyB/7d4MyWLdQOQYzVX1byKSHhQnOy7Bnk2GQBXu02CvtK4kWpTZuhNuigHn2RNpQo1
+	 2jTx7fzrmuuVUqFSiAl2yxaXr4bPkzEdgq9AMny4ZvtGsXJjBVvDGvAPNrLFnO7KyGvIK
+	 vTTT+re/J8LEizKezKsU5daG3lFPZMWuycfbA39yf2fAIwwgDT0Y5smVE83ScTJWmVSaI
+	 Mx+jlKmSCrzGypvPM4Avb2vQPrHNSB8GBE6u6TUPKO91a8qWAbTi2Z6Zwkuf/pUCwzhx/
+	 w6WwUiy3349aNhekQAdPPkxJsde8AJc1bKj1rD/c1E2AN2DpmfU3crmOgjkwuURRHRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=onsemi.com;
-	spf=pass smtp.mailfrom=onsemi.com;
-	dkim=pass header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=PCdSz4qn;
-	arc=none smtp.remote-ip=170.10.151.120
-Received: from usb-smtp-delivery-120.mimecast.com (usb-smtp-delivery-120.mimecast.com [170.10.151.120])
+	dmarc=pass header.from=fastmail.im;
+	spf=pass smtp.mailfrom=fastmail.im;
+	dkim=pass header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=LoEInkYK;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=HFn1e3OJ;
+	arc=none smtp.remote-ip=202.12.124.148
+Received: from fout-b5-smtp.messagingengine.com (fout-b5-smtp.messagingengine.com [202.12.124.148])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01AA5606A326
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:05:00 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01AA5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=onsemi.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=onsemi.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9BC2606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:05:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E9BC2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=fastmail.im
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=fastmail.im
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=onsemi.com header.i=@onsemi.com header.a=rsa-sha256 header.s=mimecast20250127 header.b=PCdSz4qn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=onsemi.com;
-	s=mimecast20250127; t=1795629899;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=QTGMXGNfQi0tH16ROkgGJvKUzhPGHpJpVhjEu7HLZXU=;
-	b=PCdSz4qnXXLZK6b9syFzJ5yp7qbUYLl1EQ6+iRfHmnI05CfxbwBcmw3SJf7HCMCvaXcgI3
-	Lmg+rjo4vafExMaNonCc1KHU2fnGRYD79iQCo05nBvu6nRFP5NWxhShGqfAqvhhJDqj7KA
-	jMEYbbMmORYcw7j0P08bkUZ4c/O2VtjpqEA6zNyqEtHPeSy6Jr2Od3sKboqmU2IDdpkciV
-	pYugbe7v3hYsEt8pplL3NKi04W+3rTc89LY5hRKOBogjqvYa39sNcCcBlFzsTaIlWyQhXi
-	AApQtT08L2hfUTbHV0mp+nFVaAA2KuEdMU7Z9N2J2+lbeLfSdr8i93nejM/iWg==
-Received: from BL2PR02CU003.outbound.protection.outlook.com
- (mail-eastusazon11011036.outbound.protection.outlook.com [52.101.52.36]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id usb-mta-65-j_nBodyZPHqjsOfdDFZ9ww-1; Wed,
- 25 Nov 2026 18:04:56 +0000
-X-MC-Unique: j_nBodyZPHqjsOfdDFZ9ww-1
-X-Mimecast-MFC-AGG-ID: j_nBodyZPHqjsOfdDFZ9ww_1795629892
-Received: from CH0PR02MB7867.namprd02.prod.outlook.com (2603:10b6:610:110::22)
- by SA6PR02MB10624.namprd02.prod.outlook.com (2603:10b6:806:434::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 18:04:49 +0000
-Received: from CH0PR02MB7867.namprd02.prod.outlook.com
- ([fe80::d722:d686:a9cb:6c2e]) by CH0PR02MB7867.namprd02.prod.outlook.com
- ([fe80::d722:d686:a9cb:6c2e%6]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 18:04:49 +0000
-From: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>
-To: Selvamani Rajagopal <Selvamani.Rajagopal@onsemi.com>, Andrew Lunn
-	<andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King
-	<linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Jakub
- Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, Parthiban Veerasooran
-	<parthiban.veerasooran@microchip.com>, Richard Cochran
-	<richardcochran@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Simon
- Horman <horms@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
-	<skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Eric
- Dumazet <edumazet@kernel.org>, Piergiorgio Beruto
-	<piergiorgio.beruto@gmail.com>
-CC: "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-doc@vger.kernel.org" <linux-doc@vger.kernel.org>, Jerry Ray
-	<jerry.ray@microchip.com>, Ciprian Regus <ciprian.regus@analog.com>
-Subject: RE: [PATCH net-next v12 06/15] net: ethernet: adi: adin1140: Depends
- on PTP_1588_CLOCK_OPTIONAL
-Thread-Topic: [PATCH net-next v12 06/15] net: ethernet: adi: adin1140: Depends
- on PTP_1588_CLOCK_OPTIONAL
-Thread-Index: AQHdfGCaQVQtoOdfLkWRnCaJOU3r/Lc/FfXg
-Date: Wed, 25 Nov 2026 18:04:48 +0000
-Message-ID: <CH0PR02MB78677068A3973BC554972B9083432@CH0PR02MB7867.namprd02.prod.outlook.com>
-References: <20261124-s2500-mac-phy-support-v12-0-3575855d99f9@onsemi.com>
- <20261124-s2500-mac-phy-support-v12-6-3575855d99f9@onsemi.com>
-In-Reply-To: <20261124-s2500-mac-phy-support-v12-6-3575855d99f9@onsemi.com>
-Accept-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: CH0PR02MB7867:EE_|SA6PR02MB10624:EE_
-x-ms-office365-filtering-correlation-id: 7a42db0b-318d-4133-bc48-08df4b1e988a
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|23010399003|366016|1800799024|7416014|376014|921020|38070700021|10067099003|11063799006|4143699003|56012099006|261021121427099003|261009223027099003|261102123227099003|22082099003|18002099003|6133799003
-x-microsoft-antispam-message-info: W0Ix+mwd5OXgZA/XBLAzaUfn72MZM2lmNCqdChNbqmQsWfANmg1SMa+UFHGlYgHBCUicuJrFutbSNy+Svw1/YIg9tdt5Wy05vxITjUMOK98PuRdIfMILoJAnQhz8fhXw4kZaTTtU/ZzUQoounCNRHUFGQ5OYypWVo5sl+4NMj6JcuX31u6n6FGk0Fe+E3ow7LAYZ2/BbhF3Yaki37dT03esOOr5PWpRdjQQubJKFjwh83liY81YrDuQ96ooPEN/wSVWfgGXzznBCcRfmPJQ2WMeEdjxYHZTraInmly38+32Pe1Ig16vqA3MKjZ69vsGD+gid+rvpK9sV6RMI2jMe4mOl+6nTid8D4CqGP5KOWlrLN8aA7Gg/jc50X+Z5dhecgWv2E3IpZUKYBpfk0X0l/OKlrkkqmY1YpRDJ5g0ViDLfKj97ACnDBxvON1gEgMkVLtdQi9QE535cEcUJ4lq6liSRacVL4lDFw4mTuYFu5126Y2e6kWM2llLKhsA+PwXyRFNWFSJkfWco6wRZ93Hs8qhG2lhxHvl3aG5P0cdNymv7XRYbe1waCwxl9lhhJbjo2Z+NnQN8jPB4Y1sB+ZSENs65d3farFhI1jKl8Dxn54dt1WElph6KGRdiYMpWgVKupOQhyPof+prBC0TeTSxlx7wGA2dF6l7AOCup8eugRe4YilCenZXIHdWqI4PTPkCqilflHc/I5yigLWjW1+s/toubhwW1vXyG6YPj1yzT/Nu3hPp1mXg1qN87gKE1n8vE
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR02MB7867.namprd02.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(7416014)(376014)(921020)(38070700021)(10067099003)(11063799006)(4143699003)(56012099006)(261021121427099003)(261009223027099003)(261102123227099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bUFNTEJsK3hjOFl0TEdaTFVSRHZsbkQxcnBtZE50SUQwRW5CZFZ3ck9pOVdP?=
- =?utf-8?B?NVRZZUVoVnp4VFRtZ003Yk9ZMW5kMTFHNVp0MHh2Y2habHVrY3RTVFhPcWVQ?=
- =?utf-8?B?OUVIVjI3MU1jRzJLRmVVZ0VBMGc1UCt4ajhCL0ZqeFJHWFA3ZzJablBUMVVI?=
- =?utf-8?B?UmJBWFdVMDhhS0UwdFk0YnFidXVJbTFZMnhLRm94ZDNkdFBsdXdIaDFJaU9t?=
- =?utf-8?B?Q1M2Kyt1WGl5eTY2N1kvU3BzbkNDRUlpaXdJdllQRGNwQkNNY0Fka01TbkEv?=
- =?utf-8?B?WkNBbzkybE1LS0tnUXNhSG1rUFFQZ0QyOHNyNFpUb3hXR1VxTTlHcExVR1l0?=
- =?utf-8?B?ZGx0TWlvNGlzZ3lOdllFQmk4aEhMcmRRaldyUDhqYlBjU1pVM1VRRUdmNEhZ?=
- =?utf-8?B?TTkzY2lzcG1DTjFvKzB1OTFPOVNKamQ0SFZWQUZ3RktIM01kSCt1MEZUZEJt?=
- =?utf-8?B?eTh4TTNsa09TVEIrM0NiMG5DZ24wYm42b0RCNDVObFVMakFvWWVEREdkU3Jn?=
- =?utf-8?B?L2lGTkNrVFRBMXN5Q0Z6SmNNRURJWGJTZ1lvYURTaW9hU0lNWmpCdUxqblpY?=
- =?utf-8?B?NnlYSjI2YlZ1R2x4UG0ybmhvVFYvZzlTSCtrSkdqS1JkRzlIMERidG1ZM21u?=
- =?utf-8?B?N3RHVktMcVlmamdHRFIwSDQ5NEpZeDlacVZieDhncERzN0lJMGtUanoyQ245?=
- =?utf-8?B?YmJWS2JPd3pLWnQxTUIzSktNY2VpQXpHcExvdFBVSlprYnU3eFBJR2VEN1Zk?=
- =?utf-8?B?ejZxY3A4NDlvc0w0Y0UyaE1COXVpK1oyS054eExqcUxXeFlQSjhGbVJmRVR3?=
- =?utf-8?B?SEsxUmgxbFZnN0VwdlppVmRSVFcyZFh6OEFDZXFwUHpBZkZMM0ExRHYrV2to?=
- =?utf-8?B?bUxvWHRsbDJYK3RoVEdIdlZ3elo5b2lXakpTZTF6NTJQWE13R0dPY3V3amtZ?=
- =?utf-8?B?d2h4S0x0TnNvcEVHVmd5V25aNkc1ZytpbEFzWGthV2R5UTFxQ3hSdk56YThM?=
- =?utf-8?B?ZXd1eFFIbzU0Y2U1UlFDYkM2akFheDBmMnRmNnBQWFk4cnJZNnRMUGcwdGlL?=
- =?utf-8?B?eVkwVmJybDg4R3lCRllWck52L0gwdEtMT1NRM2srVTdCL3kwVk02QlhDTi9t?=
- =?utf-8?B?WkJqTWhGQW9SUG9JVlNvYWxRcVAwb0dGcmJ6TU1KRkhZY24yVHZLa2RTa0Jk?=
- =?utf-8?B?ZWt5ei9PMEc0SDV5TjVmdGhqa1V3bkNVSG00SlBoRlh5d3JDV0tZMlJ2UWhN?=
- =?utf-8?B?SEthTHZadjU0blJhNjVKYWhuZEk0L0tWV0hOaks4c2FHV2p3S3NJSUNoR2F1?=
- =?utf-8?B?SUlQT2kvNGdjWWlzTzJRQlE4VlJUeEoxSm5iWEVCTHZISlB3cjBsMDd2K1dY?=
- =?utf-8?B?WEl5bmpFTEx2bHlCOG1WeDJMMjRLUXVDc3JNbU5ZZDlHL2VqY0g2MWM1UGhT?=
- =?utf-8?B?SXNoOXdGMXFRbEdrdGxjM2Npeno2bkl5L05TSFdYV0hFNXFha2g5WkZLMkFW?=
- =?utf-8?B?Z21QSTRPZC9PdUhaNFEvTlVMMnFOZkUxbnhGZ2RpYjNGT3dCeGFta3NFeXE3?=
- =?utf-8?B?amhrYmpYNTNWWFhSNmN4T2tLWGdVU1hpQ0FDMDY3Z0FQaHRTaG92djF2WThr?=
- =?utf-8?B?RVM2Y1JHZmFjVUN2aldWRjM4MURpQ0lmVGFnays5QU5sZXNiaEhNTEJCNkRR?=
- =?utf-8?B?N0xsL1I4amRwaStBUGhlZmJicllOWDdSNmtSK2pKMTJVNW92MUFDaWFOV0FX?=
- =?utf-8?B?UG5NQUFZdUtGNyt5MW41Vk5hRE5kNE91Y1FxdW9EMGovTko2UEFEUTlTRloy?=
- =?utf-8?B?ZHQ2RzZwTWVWb3lYZ2FhOTRkcEs5eThQc2VPcEUzVDUxcktPQVhYaXoybU0z?=
- =?utf-8?B?dTVZWStOSk5IQUY3UHBrQytOMDdmdHhocmgyYXoxTHE1VFBCSG54bnJXM1hO?=
- =?utf-8?B?NUxnSkJYNit2MTJ6TUU1cko1WFdwQzBqK2hHcUpRUktzb003Um1MRTFzYkRL?=
- =?utf-8?B?R0h1NU5FN2FpdmIyYW9GSmtWaTRZQjlOMWpkVzZHd28wYW1HLzhwVHNNN3lJ?=
- =?utf-8?B?VGUrcjU2a08xR2FPTGc0UUJEaXRLekk1cTh0QWpMSGJPcG1SRTBiVkw1OGw3?=
- =?utf-8?B?QXBZQ3NuUXZndDFHODdNUUF2VHR6YnhNRWhvcE80aVdndzA2SnRFSzdRM2lj?=
- =?utf-8?B?bWZTTFN0VTJFZk82ZXhKOVVvQ05kNFJzZWc5QXBnVFVBZm1qTVg1d1R6M1A3?=
- =?utf-8?B?OWZrcm5tWDhXNU45aEFPbjJieityeG5CWUlRRDhwN2sraXJ2S3pDQVc5NlNC?=
- =?utf-8?B?TUxKTERhV1dROTUvb3BvK3FUWjc2R3pkU3dwNjg3c0FyUDEvWHpJWHQvMkpY?=
- =?utf-8?Q?KQvoMx8KqnOdsDpQ=3D?=
+	dkim=pass (2048-bit key, unprotected) header.d=fastmail.im header.i=@fastmail.im header.a=rsa-sha256 header.s=fm3 header.b=LoEInkYK;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=HFn1e3OJ
+Received: from ams-compute-01.internal (ams-compute-01.internal [10.64.2.61])
+	by mailfout.stl.internal (Postfix) with ESMTP id 3C1EC1D0063A
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:05:28 -0500 (EST)
+Received: from ams-imap-19 ([10.64.2.39])
+  by ams-compute-01.internal (MEProxy); Wed, 25 Nov 2026 13:05:28 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fastmail.im; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1795629920;
+	 x=1795716320; bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=; b=
+	LoEInkYKTNn327V/ZsN+4DUhSLmhoHiZWVl+SqszlI5edoio/0SsH6yXEVPw4FKK
+	SUpda78W0L4XbEHNizhz+v7VDWBghFEQB82LlzDvuGvBq7Cm8kXSKHDBibnZOXjD
+	+GOil/fJulzrJWCZiW0KB8v9xjC0XNZhsa0ZYyuzsVETVoGz76mgwLH4r0WFa4Oq
+	SYzqgTknc/6nPBPQJD3n1pqVSNOdSokbKxKc4nHkwNbfkhmQ55NpgwUqZT2dnXqv
+	uzGWSgymCfbxWM364ijt/IVZXoAuE94S+gtc4kgIDHMszU06zpWOOhlJnaq49RWB
+	YIhsuGSCt0gBZx2Qnp3nqQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795629920; x=
+	1795716320; bh=gq3lctPAnaFDAVkMBu87KEcU4DFbiZw2CZrSkFgNdv0=; b=H
+	Fn1e3OJ5JHQBM2BjfRRMovLEl8ZlXSpPisedTf4GLuZgameMeUeT9tm8/hmt/KrR
+	wLBVtHn4t5Qmb/s2KCDKjfRNF/ybnCcb70jX0teWrSWKLE8kf6sY57ljuDTSIIPa
+	bXlOe73p64bWVJ0wlsji/31YU/06zIAwDnVfqM3L1z2OltUxHBlb+rPD9f2s/GZ2
+	pMy4p4vmZifIlzarfBa5ZJKi7z4TR6B/Nhnchhwnw9GOwceVWeY3gLDPopj93kgv
+	VY47SJ9M8evjha1YMtP0aLHTFyOhTDgYCeR2Gm1AwiHLcCJEEUnzzzW1QXdnAxCb
+	DsNyu5Muwr7zuEgbBVqjQ==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=fastmail.im a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795629920; d=fastmail.im;
+	mf=PGFsaWNlLmtlcm5lbEBmYXN0bWFpbC5pbT4=;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm3:rsa-sha256:Oh1hRuYgRPyhV3DIrkGCE8V3DgwA6EnEw6NsRXNkHYW6c1g
+	X27hUr3BvJtLUjybPfAn4DxAC7yGZ8EtH+gZ+8Lbde3kD58xXivuD2r6q5wSsS6H
+	rpWqiadh2JPAfv/9FJWtquzEY0DveB3lliWN4B1PxxIqnIXi6lwVJDYvTgqRkEiF
+	e7I8EJFVI1cyq2lvakWQJiqD8pAt7KKQWcRIfHb+xWg/+NUWqggFCFktfYlVADNk
+	r4J+g2iOIDWJf6H0caJj+FA/j5OQl8r6iF6bKkzH9UqeuMzaJK1Zbt6WuqkQM/F8
+	sw+dJ+PES/81CU2NGdQrQqy1OW8TKa5S3322Yxw==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:IEyVUc2R//xhEGEphG7IDG66ZkpiFyZ3FP6KGpVAk2g=:756KKTwRcKpirNmTmOP5ZFUYVirFIXOStTDGQD4Ad5k=;
+X-ME-Sender: <xms:WyMHaxUnJutPelKlH5b3eZF6S5gA-_Iao5j5fR5pibxsohZKEEFkTg>
+    <xme:WyMHa8ZVRn-mCxy94SJ9gjC9Om_Tyrv5eB3rluFHUwZO7rc6WrL_mceVlVnD9M-HP
+    uEJKARx0MgJ6nXBkWdlDWMHSp9uAhkKyyc_9nB3Mqwv1Nzi6Dupsr5pQA>
+X-ME-Proxy-Cause: dmFkZTG3IahGvKYf+slUa5xPUppAJQM0Tl4EtXiPI1a1U2PtkCa13BIsLl81Ygt7hPYIkN
+    3TA0vAXvoh2Bbi9WaoCpACgBTj21h9U5pue9pNSCdhrbqcMqWeKmOiL4i5guQjv5jHl+ZZ
+    qtUIo773PWtDcYvmJ09Mt+fxk3FtQ02mkJg5+I4WGaqvbxtf86Wj3v/NnObeXa7wGx3/nT
+    Aas86WiLS3I0MSKSmTRw9eSPe2RtEBLL4dhRBI9u6zqJYSloql6MMLrvXJz4Snj665b6Jk
+    WC7YRRLTkQUt6Ama4pXg/GQGPZMd9MohnnK9E4IAwxKyIVhVMUUu+J7J3QC7/mxp+1r9Dk
+    WbvyKcpWltLPx1pwSSNKkldHpLduspvQQEFYsxw+6fHeas69/LB1ozhyh0fz0z4djukHZu
+    a9T8DVnhlZz47OMPY0Boa/yAj8xyysF2Jg4PYNAKwivtct0rgysXHx8ueWP3jw0qXhoHSw
+    YHqRIVYuyRvyi7Qld+Y7lpkqaiyWNXiQMQFipIp12Vy/1ydSV/yeEF9hF7UtHAXyzI9sf1
+    SUzzvncRluQA+9a/Req+zEIJWXpkqncTYiO+X5vBWiOGMX8dQNbFuQW3f+U5Y+/fseeniG
+    F0e8gufCqLgmrP5y7W3serqPQ+h5JsNbTNLfdipNwrelJj/xli0Y/gjQ9Eeg
+X-ME-Proxy: <xmx:XSMHa7Eg50aMgG0uIYuCdLB14X9Ty6_GapR8wBXseVA28kFfArcVsQ>
+    <xmx:XSMHa-2QYd6WXyuc-9PM-g8ADPc8sbWWWszymDZxEfsGnQr1VkjBWQ>
+    <xmx:XSMHa7KtJRHkmXDMLjaGNn_EwKi_VHJNRRKV15c9lXaGoYYV507Lcw>
+    <xmx:XSMHa70s27AxGdhG_yg7lbMO07XFvj2KRqz0QokoV9C9hksjIyopuA>
+    <xmx:YCMHa0x6rD5Vy7RsiqF3DhkSaB25yh4e7iLU665XAZ8BuWcLGaeX3S8w>
+Feedback-ID: i559e4809:Fastmail
+Received: by mailuser.ams.internal (Postfix, from userid 501)
+	id 232242F8005A; Wed, 25 Nov 2026 13:05:15 -0500 (EST)
+X-Mailer: MessagingEngine.com Webmail Interface
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -167,37 +115,252 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Exchange-RoutingPolicyChecked: fcT6NGhy8eZhDrbTU1cr17L7yxhLLPpHrZ6E7XBaeUoWvZcS2mzQaDcmZCT9kaYnxdRXYvOxm3tAdugPyfiliZ/xsiAH+bvYCRW/Jvs0+jwpja8BtaHrwoGngH3+fplfdQE2MvaVLBBejdf8NAo1k2TgNfNxe7MoKKfUuAmHK9pqFnKe6W5ltgqMpBJUW1Zr+s5+nHQ6mUlosnWgbr5470PVlPEJ/k4L4EAl0p4ARCixNL8tRefl9FcKZTUH4vybnYyYKn9eO5Zps3d6E+2kRnuB+AmGatZrrscnryHWq6M3wvQ2sAhOjcKkYxYx5jSz2QujvLdSdne+f3VNT0Vdvw==
-X-OriginatorOrg: onsemi.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: CH0PR02MB7867.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a42db0b-318d-4133-bc48-08df4b1e988a
-X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Nov 2026 18:04:48.9646
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 04e1674b-7af5-4d13-a082-64fc6e42384c
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TUNP+CPIs6xC+1TYhrBXxuHAs6bFeSlA8oeSuD/7609bh7ttYA8pnVdidhvpuC44vUBTKE8JXlXZknVTIToFo1nOBnv3Q/6bhGSo3eGQAdo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA6PR02MB10624
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: d100DcKOubFRapLodXHuaKbvxje2i8GskfHOl-eqzRg_1795629892
-X-Mimecast-Originator: onsemi.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: base64
+Date: Wed, 25 Nov 2026 20:04:52 +0200
+From: "Alice Mikityanska" <alice.kernel@fastmail.im>
+To: "Haishuang Yan" <yanhaishuang@cmss.chinamobile.com>,
+ netdev@vger.kernel.org
+Cc: "David Ahern" <dsahern@kernel.org>, "Ido Schimmel" <idosch@nvidia.com>,
+ "David S. Miller" <davem@davemloft.net>,
+ "Eric Dumazet" <edumazet@kernel.org>, "Jakub Kicinski" <kuba@kernel.org>,
+ "Paolo Abeni" <pabeni@redhat.com>, "Simon Horman" <horms@kernel.org>,
+ "Shuah Khan" <shuah@kernel.org>, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Message-Id: <d95b320a-d7de-4a93-9714-192894bb5b76@app.fastmail.com>
+In-Reply-To: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
+References: <20261124013124.3693-1-yanhaishuang@cmss.chinamobile.com>
+ <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
+Subject: Re: [PATCH net-next 6/6] selftests: net: big_tcp_tunnels: Cover IP tunnels
+Content-Type: text/plain
+Content-Transfer-Encoding: 7bit
 
-Q2lwcmlhbg0KDQpBcHByZWNpYXRlIHlvdXIgZmVlZGJhY2svcmV2aWV3IG9uIHRoaXMgY2hhbmdl
-Lg0KDQpTaW5jZXJlbHkNClNlbHZhDQoNCj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0NCj4g
-RnJvbTogU2VsdmFtYW5pIFJhamFnb3BhbCB2aWEgQjQgUmVsYXkNCj4gU3ViamVjdDogW1BBVENI
-IG5ldC1uZXh0IHYxMiAwNi8xNV0gbmV0OiBldGhlcm5ldDogYWRpOiBhZGluMTE0MDogRGVwZW5k
-cyBvbg0KPiBQVFBfMTU4OF9DTE9DS19PUFRJT05BTA0KPiANCj4gDQo+IGRyaXZlcnMvbmV0L2V0
-aGVybmV0L2FkaS9LY29uZmlnIHwgMSArDQo+IDEgZmlsZSBjaGFuZ2VkLCAxIGluc2VydGlvbigr
-KQ0KPiANCj4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2FkaS9LY29uZmlnIGIv
-ZHJpdmVycy9uZXQvZXRoZXJuZXQvYWRpL0tjb25maWcNCj4gaW5kZXggYmRiOGZmN2QxNWRhLi4x
-MjBhNTJlNmIyODMgMTAwNjQ0DQo+IC0tLSBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L2FkaS9LY29u
-ZmlnDQo+ICsrKyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L2FkaS9LY29uZmlnDQo+IEBAIC0yOSw2
-ICsyOSw3IEBAIGNvbmZpZyBBRElOMTExMA0KPiBjb25maWcgQURJTjExNDANCj4gdHJpc3RhdGUg
-IkFuYWxvZyBEZXZpY2VzIEFESU4xMTQwIE1BQy1QSFkiDQo+IGRlcGVuZHMgb24gU1BJDQo+ICsg
-ZGVwZW5kcyBvbiBQVFBfMTU4OF9DTE9DS19PUFRJT05BTA0KPiBzZWxlY3QgQURJTjExNDBfUEhZ
-DQo+IHNlbGVjdCBPQV9UQzYNCj4gaGVscA0KPiANCj4gLS0NCj4gMi40My4wDQoNCg==
+On Tue, Nov 24, 2026, at 03:31, Haishuang Yan wrote:
+> Now that ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap allow BIG
+> TCP too, run the same checks over them as for vxlan, geneve and
+> bareudp, without encapsulation and with FOU, and with GUE too on an
+> IPv4 underlay.
+>
+> sit only carries IPv6, and is only run with veth tx checksum offload
+> enabled: GRO does not build sit packets larger than 64KB, so with
+> software GSO on the sender the receiver does not see any BIG TCP
+> packet.
+>
+> fou is not loaded on demand when it is built as a module, so load fou
+> and fou6 first, like pmtu.sh does.
+>
+> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+> ---
+>  .../testing/selftests/net/big_tcp_tunnels.sh  | 131 +++++++++++++++++-
+>  1 file changed, 128 insertions(+), 3 deletions(-)
+>
+> diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh 
+> b/tools/testing/selftests/net/big_tcp_tunnels.sh
+> index 9c1482b842b..9f185eb2065 100755
+> --- a/tools/testing/selftests/net/big_tcp_tunnels.sh
+> +++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
+> @@ -1,7 +1,9 @@
+>  #!/usr/bin/env bash
+>  # SPDX-License-Identifier: GPL-2.0
+>  #
+> -# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp 
+> tunnels.
+> +# Testing for IPv4 and IPv6 BIG TCP over VXLAN, GENEVE and bareudp 
+> tunnels,
+> +# and over ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap 
+> tunnels,
+> +# without encapsulation and with FOU and GUE.
+> 
+>  source "$(dirname "$0")/lib.sh"
+> 
+> @@ -17,6 +19,8 @@ CLIENT_IP6="2001:db8::1:2"
+>  CLIENT_IP4_TUN="192.168.2.2"
+>  CLIENT_IP6_TUN="2001:db8::2:2"
+> 
+> +FOU_PORT=5555
+> +
+>  # Kselftest framework requirement - SKIP code is 4.
+>  ksft_skip=4
+> 
+> @@ -71,15 +75,80 @@ setup_bareudp() {
+>  	return 1
+>  }
+> 
+> +# $1: tunnel type, $2: traffic family
+> +# Prints the IP protocol carried by FOU for this tunnel.
+> +fou_ipproto() {
+> +	case "$1" in
+> +	ipip)
+> +		echo 4
+> +		;;
+> +	sit)
+> +		echo 41
+> +		;;
+> +	ip6tnl)
+> +		if [ "$2" = 4 ]; then
+> +			echo 4
+> +		else
+> +			echo 41
+> +		fi
+> +		;;
+> +	*)
+> +		echo 47
+> +		;;
+> +	esac
+> +}
+> +
+> +# Create an IP tunnel device, with FOU or GUE encapsulation if requested.
+> +# $1: netns, $2: device, $3: tunnel type, $4: tunnel family,
+> +# $5: traffic family, $6: encapsulation (none, fou or gue),
+> +# $7: local underlay address, $8: remote one
+> +setup_ip_tunnel() {
+> +	local encap_args=()
+> +	local fou_args=()
+> +	local mode=()
+> +
+> +	if [ "$4" = 6 ]; then
+> +		fou_args=(-6)
+> +	fi
+> +	if [ "$6" = fou ]; then
+> +		ip -netns "$1" fou add port "$FOU_PORT" \
+> +			ipproto "$(fou_ipproto "$3" "$5")" "${fou_args[@]}" ||
+> +			return 1
+> +	elif [ "$6" = gue ]; then
+> +		ip -netns "$1" fou add port "$FOU_PORT" gue "${fou_args[@]}" ||
+> +			return 1
+> +	fi
+> +	if [ "$6" != none ]; then
+> +		encap_args=(encap "$6" encap-sport auto encap-dport "$FOU_PORT")
 
+Suggestion: also set encap-csum to cover correct handling of the outer
+UDP checksum (IPv4 underlay), especially for the software checksum case
+(but useful for csum offload too). encap-udp6-csum (incorrectly called
+encap-csum6 in iproute2 help) should be on by default, but encap-csum
+seems to be off by default.
+
+> +	fi
+> +	if [ "$3" = ip6tnl ]; then
+> +		if [ "$5" = 4 ]; then
+> +			mode=(mode ipip6)
+> +		else
+> +			mode=(mode ip6ip6)
+> +		fi
+> +	fi
+> +
+> +	ip -netns "$1" link add "$2" type "$3" "${mode[@]}" \
+> +		local "$7" remote "$8" "${encap_args[@]}"
+> +}
+> +
+> +# $1: tunnel type, $2: tunnel family, $3: veth tx csum offload,
+> +# and for IP tunnels: $4: traffic family, $5: encapsulation
+>  setup_tunnel() {
+> +	local name="${1^^}"
+> +
+> +	if [ "${5:-none}" != none ]; then
+> +		name="$name/${5^^}"
+> +	fi
+>  	if [ "$2" = 4 ]; then
+>  		SERVER_IP="$SERVER_IP4"
+>  		CLIENT_IP="$CLIENT_IP4"
+> -		echo "Setting up ${1^^} over IPv4, veth tx csum offload $3"
+> +		echo "Setting up $name over IPv4, veth tx csum offload $3"
+>  	else
+>  		SERVER_IP="$SERVER_IP6"
+>  		CLIENT_IP="$CLIENT_IP6"
+> -		echo "Setting up ${1^^} over IPv6, veth tx csum offload $3"
+> +		echo "Setting up $name over IPv6, veth tx csum offload $3"
+>  	fi
+> 
+>  	case "$1" in
+> @@ -95,6 +164,10 @@ setup_tunnel() {
+>  		setup_bareudp "$CLIENT_NS" tun0 "$CLIENT_IP" "$SERVER_IP" ||
+>  			return 1
+>  		;;
+> +	*)
+> +		setup_ip_tunnel "$CLIENT_NS" tun0 "$1" "$2" "$4" "$5" \
+> +			"$CLIENT_IP" "$SERVER_IP" || return 1
+> +		;;
+>  	esac
+>  	ip -netns "$CLIENT_NS" link set tun0 up
+>  	ip -netns "$CLIENT_NS" addr replace "$CLIENT_IP4_TUN/24" dev tun0
+> @@ -115,6 +188,10 @@ setup_tunnel() {
+>  		setup_bareudp "$SERVER_NS" tun1 "$SERVER_IP" "$CLIENT_IP" ||
+>  			return 1
+>  		;;
+> +	*)
+> +		setup_ip_tunnel "$SERVER_NS" tun1 "$1" "$2" "$4" "$5" \
+> +			"$SERVER_IP" "$CLIENT_IP" || return 1
+> +		;;
+>  	esac
+>  	ip -netns "$SERVER_NS" link set tun1 up
+>  	ip -netns "$SERVER_NS" addr replace "$SERVER_IP4_TUN/24" dev tun1
+> @@ -127,9 +204,22 @@ setup_tunnel() {
+>  	ip netns exec "$SERVER_NS" ethtool -K link1 tx-checksumming "$3" > /dev/null
+>  }
+> 
+> +# For IP tunnels: $1: tunnel family, $2: encapsulation
+>  cleanup_tunnel() {
+> +	local fou_args=()
+> +	local ns
+> +
+>  	ip -netns "$CLIENT_NS" link del tun0
+>  	ip -netns "$SERVER_NS" link del tun1
+> +	if [ "${2:-none}" = none ]; then
+> +		return 0
+> +	fi
+> +	if [ "$1" = 6 ]; then
+> +		fou_args=(-6)
+> +	fi
+> +	for ns in "$CLIENT_NS" "$SERVER_NS"; do
+> +		ip -netns "$ns" fou del port "$FOU_PORT" "${fou_args[@]}"
+> +	done
+>  }
+> 
+>  cleanup() {
+> @@ -240,6 +330,26 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> 
+> /dev/null; then
+>  	exit "$ksft_skip"
+>  fi
+> 
+> +# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
+> +run_ip_tunnel() {
+> +	local csum_offload
+> +
+> +	for csum_offload in on off; do
+> +		# GRO does not build sit packets larger than 64KB, so with
+> +		# software GSO on the sender there is nothing big to receive.
+> +		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
+> +			continue
+> +		fi
+> +		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
+> +		do_test "$2" "$3" "$csum_offload" || exit "$?"
+> +		cleanup_tunnel "$2" "$4"
+> +	done
+> +}
+> +
+> +# fou is not loaded on demand when built as a module
+> +modprobe -q fou
+> +modprobe -q fou6
+> +
+>  WORKDIR=$(mktemp -d)
+>  trap cleanup EXIT
+>  setup
+> @@ -254,3 +364,18 @@ for tunnel in vxlan geneve bareudp; do
+>  		done
+>  	done
+>  done
+> +for encap in none fou gue; do
+> +	run_ip_tunnel ipip 4 4 "$encap"
+> +	for traffic_family in 4 6; do
+> +		run_ip_tunnel gre 4 "$traffic_family" "$encap"
+> +		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
+> +	done
+> +	# GUE is only supported on an IPv4 underlay
+> +	[ "$encap" = gue ] && continue
+> +	run_ip_tunnel sit 4 6 "$encap"
+> +	for traffic_family in 4 6; do
+> +		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
+> +		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
+> +		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
+> +	done
+> +done
+> -- 
+> 2.43.0
