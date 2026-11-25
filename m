@@ -1,100 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795580622;
-	b=4lhK3PU7TsneiPG+PFTh0LJBEylHih3Wx7a+Yvj9KULQAIxcmjonVA+WyYFeiI5PPY+b
-	 v7XzNFaCh5ONAJcQIVTp7HUG+cADxeDYlBts1ymKDlq9DZ9G3wTpoHWY08YeQiptGCYSY
-	 rgpg8TfKEsOn/BhOQF1iFI6bFrq45Aj2QoRTWsAcBbrQ7iw4/UTuFNnznFg9XrJIV5bRP
-	 lT4j8l9YNykzQarbQrqO8FtH7Ov2rv7lmdjA8xNB3XKpuLplIHYDruGMGlm0klESaQRvC
-	 TVn9/GMEN3zyLUTmJx33npbMHqQYXprajjNnzOZY9VnDJWIM15O8J2t+1GEkfXbreqg==
+	t=1795580751;
+	b=Oh8jW5HM+QNKBuZc6O1Y2275ud27g/oaM7C9kx+U40IfB6g1kTjfNQw87NW/t54dz1u9
+	 tKSgtgfV0yKxskF7z8vAT4b4PU5pomLOG+CiiTvOqYvRMkSLL6MXduENZaAzg841GmE8k
+	 FsaFOA4xz3e5yJLp+X4tJtN47CJbdZsSCyeBjAEBNg5ffuStGaMYMawLA1mZcnVa0tVTg
+	 fdSLyBw1siLLB2uREUw1DrPQqjva1I3oG7VPZatj4DcutrsjYdnxX5YNtxVA8iovy5Ojn
+	 nANsyZL3Rinw4+DAvuquafdNCJE0nMzvl8/0gqW+djtqHT6ESt2E5ixDPg9NDla+EQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580622;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580751;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
-	b=5BtD0i5KhALGWIskSegb1pDPZRVLzadS8TsgogwPzBwxupV9MHsOLNJpKxAHHgtfYjuG
-	 B+QkYeAWUP7LCQYxTxUl42g4Q6h3oEcx7JtuDl2TCZ1RjEcAbrz2fzi6pKnpzSY57HzRg
-	 soE1iRnYCX7dPCYtefJ2J60eQ+mBeDPtNhkG675bk6TxenxjUsgU0hQv4GKlha53rwr4V
-	 9X66NZLLR4qNW4U0B6q5r8tccHrCpV6FqZgntTRUaGDUbDTTD2z4t/DLwk1SXbLpiDJoG
-	 OlIsSANI+XAcOYg0JGf1Mik7CMtrel8pxA5QclKB05+ekpQq/0eut5U9rTh54XjdZKA==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
+	b=JjTQv/amoL7DB93FIqH4JCsozLsXNL1wksmFWlIlOoFb7I63VY4ltPU+nXTMl2GyWVnw
+	 j2LqAV94AN+zXBLpmdZ8hSb/ttpLcIfEexo5DR6Ecr6VExlU85PGuknbmvg4OPd97BDv4
+	 wAHD60lTtQ2/Rz5ZQhloPFPtBsjMWxYeiBnklAknjwIN9KIZElNNOxax/s1zIyge3ZaBs
+	 I5f64vsv4SavJq6NIqNjWvD/Hb6xJcLxInYUHzeBSTYfHHpY6OOqWA7jlpj/1DkiughZM
+	 mcGhbdPUPcZ4cYQlWomviF9RmnmNMDrMy5GqQ9Y3Vet9O14G1FjGrPOyq7+L4txjZGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqdlJ73A;
-	arc=none smtp.remote-ip=209.85.216.41
-Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Gc/xVqLD";
+	arc=none smtp.remote-ip=209.85.214.169
+Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB46F606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:23:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB46F606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9ADE3606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:25:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9ADE3606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqdlJ73A
-Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b43d6c3485so607727a91.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:23:41 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Gc/xVqLD
+Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2efe591a1f6so17878315ad.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:25:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795580621; x=1796185421; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
-        b=MqdlJ73A4xj6m67NEm2/sbs/5Pi+1Cfize3YWEEqZtl4uS1+XB3qZrP+IoezQWRk5H
-         X0kWZPGewUmX97In46VFqRUWQOxyiicqb7V+RIAJ+nEY3cN9OmIZuAb9HYNbly/9P0rW
-         HjjFS9SrHg5Kk2dBUTVWS/Yq2rqn/RcACUZfYcFet9xc9xBAKweckSsrzatIR5hpHhAu
-         kjtIGHQpq2LUqf3UiFdbgfcSwnkIbZ0NEW+ndZQj+xYO3vkQHeAINyjltsOp0ek9vy75
-         FIIA30RcuawQvZp0pWmtDsluXYS13hIfGy3B7JTlRX/c31WMKUlSKHYUyeFIZ/cXpBHc
-         9dgw==
+        d=gmail.com; s=20260707; t=1795580750; x=1796185550; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
+        b=Gc/xVqLDzTMXlMMy9RXVPwR6yGVCRvStDyMXKzkOR0PF3xSvURHhVvLNDljr9xvj47
+         x54+Q9cjP8acT2wc3VD5t+D6r01sF8CUke8mIc8KlV86JE4o9pM00cwmhVbDCAU0RJMI
+         6Ta8e+FJxpaxr+o1AI0N1WOXke1t4llTQKR2aeZQmewULXJwum0cVH7eMSgNeCcJNh9m
+         a6NtyYKXz60t/C2+VcL95LLgZU+pB09T+CKY07w2ifY6Dz/Jzwz+s2iElKtwpjvJzbGf
+         +PMLT6flnLTpqOWhsHDoUIHm6zx9rb7H2Cx7OI7elfMNYzlS4cl58dQiFUT1qUuv7e6F
+         hxFA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795580621; x=1796185421;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
-        b=J0DV6hbqMYuyMyLwQ70COE22ROF5cDQPLF2EqFDEX3diEbaQ2A/AYsTUVs+S83syRH
-         WmGgtgKLjtw9FGY9hsG/TgJ8xZPdW2uNG0P0WSfS+lNWy78J4RYIjrgbbnpJtMmZkJMz
-         NT+pXiO97k+B4pJP9Se0y6Sblq5XGYNu2Wz96eClS4FKhTOctcjAl5iU2ps0zcHL0fZA
-         YAeBp1nzU1/WD+/x6r1bOt9l1xqCQYbHrTmG7UuLChANiLXA09y0eTfwpacTJywAZOgp
-         5mXY3X0/zWndljc4fqJq8k4E6NHi3Pn0Q30+uAZGqn5BWZ8cHpL/ylNY/P5YyFe4eXhS
-         RNyw==
-X-Gm-Message-State: APuU4Z9mlYv0H4GXth4D7sEgrIf7keUDFMR7q8mdQLloxJjdBM7X1jyx
-	fbSYaoX9Di142tJfi2gXuwzEOP2qOvKV5I+AGoI8Cfcz7TSfQT10nOMv
-X-Gm-Gg: AZFdTZfSe8e/9RmVVIj5StW8Emz90JVFPe2x60z8T5OTEr06rhT4zEukVPMT5Ov9UMX
-	b7qomPgfA0gUzX6gAldyEgWZmALq59xsUDYxV0VJOAVDw+5Sn2t7tydjjgexj1YlXB+sf65P3U+
-	s74qxx9e7dSvUpBZ8mDKaowiuKEU5SnJmMDLzMxChVw7S8sdJEFOxDpgW5EmOsQfI9gvo6yCDYr
-	jfvMVVAyWPAVT5qr7NALvDHr7pxfyHMGyRJZlt1/tcIi90/QRq+0rXa8cBIfXnHbX2lOHWUw7cx
-	jf0xE0qpU3r9RAP8GlIRNZq3GM9WxlYrIHk6SI6Qi2EcjU9g6KUHOF0hTNLsFA84YdH41I27gvq
-	p5hjd8s/m/0b/hN1HZZhg86isXmAqadASV9HIzDLy2ELnIvmzhIW1zJA7sJdDZrLLBCGla30yHK
-	+Yfc3R+c0WLUgq7VKCrOoHOg7K/nbFJx/Fhg4nrorq2tLkbrsUP+r+fm+V3R4Vwo9L9fZJJwHpQ
-	EEGMF/PSNmYrE5SR3YO9kilw9ftjS/rRu8G2jCyc4/OSTAaqOqWK9vpWC5Rvk1yUkF0ycAjyGOE
-	3jwyS0rkLaAf8SK9P9+DYNJ/FOjVjeYEeng2xxuWResN
-X-Received: by 2002:a17:90b:39a7:b0:3b3:cb03:8740 with SMTP id 98e67ed59e1d1-3b41c96302emr26652973a91.5.1795580620889;
-        Tue, 24 Nov 2026 20:23:40 -0800 (PST)
-Received: from gmail.com ([36.112.206.40])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm27969788a91.11.2026.11.24.20.23.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 20:23:39 -0800 (PST)
-From: Ziyu Zhang <ziyuzhang201@gmail.com>
-To: saeedm@nvidia.com,
-	tariqt@nvidia.com,
-	mbloch@nvidia.com,
-	leon@kernel.org
-Cc: netdev@vger.kernel.org,
-	linux-rdma@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	roid@nvidia.com,
-	baijiaju1990@gmail.com,
-	ziyuzhang201@gmail.com
-Subject: [PATCH net] net/mlx5e: Fix deadlock when parsing flow actions fails
-Date: Wed, 25 Nov 2026 12:23:23 +0800
-Message-Id: <20261125042323.88050-1-ziyuzhang201@gmail.com>
-X-Mailer: git-send-email 2.39.5 (Apple Git-154)
+        d=1e100.net; s=20260707; t=1795580750; x=1796185550;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=bTDEnpPeCb23WGIf+9L+jNqO6MEIQYCxGNNbBRGqPIA=;
+        b=t7yJ4Y3vxs22/py9mjQzRtfDmaGxmpKcsYTmgulLpNxGYrPdGXiLc4ilgBiOV7iNak
+         0ZezG440r0D0MoiCzkzMFz1m0neNgZ/tOMq1lzRx49NSBMehVHw7qwC0Q3cjy/oJUPmh
+         iJTic5FJfJX2z3yq67WRb+NoibCeNfleVQJqNxnLRaaSHv54owrnZBu2FY/8N58bfwMa
+         MUd51GBQialg+LhMLGsjK1bhV0RdNwoK7xZczGtbCHZ+1QmTXhcLSomTyv9BDAPNbSwr
+         Zrzl2bTB/rrxBWaSyYNx+XUAhpnRnsFFRLaGTdAAUzoAvTjeYMfGxJ24/+yhRRCGZK1V
+         lKtg==
+X-Forwarded-Encrypted: i=1; AL+hErHTdnlG3bxIVODt/ZIE1FGWE5nImXDzhskvjyQ+vGtqhNnSJh7fPnsAAXvh0MiBdZrZ1Mxhe3w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z803iop9mYTJwDcDRPTPmx3KHtkSjN9DfCWkOQltkTt0s6ebqEG
+	ju8i3jHSwJoA3ltmQVzx6ileZAk/vZGItOY23rcHmTmCV2I6QsIyQOS4
+X-Gm-Gg: AZFdTZd4YOz/qiXYKkuPCSYIEega90+5wYFV1OD3i1O/KlEZ04OsKOT87+Q87jBZuLx
+	fstwLoFX01hXzTBkG+m3Hm/9GKI4NRjkDMNZ38ShgNSsWWcApcVtIvUKgd07GVOcZSgdsm4ZoZM
+	UMFmnSEGHStmqICFCtod4Rs7csQLPtISAPBrZ+qlgpj5vjIOqNchT4LLQBKR/Ffv4JIIHelyOvZ
+	OwHWChsWUb0jpNdGgDMKrvM4twXliAMTOmm0U46AKvxwK2ndHnP79/PbXjsjVFyN5tQcARO+dSm
+	bv8Rl41AFuDPV06FJ2nhorrdfen6eKfOOWatAnOFCkooQu3dZiFTw4BG2cDd3sCGKqT06HuiwYG
+	2lQdiZr2/56KvLk9ijPZ2KL7whAV/jlwQbX5h8Z7EDYKKYQUMY5NMEFltjZIJVdR7EmHIKVtcW6
+	AAty5ZAkCU/vdEAvOE7VmHdDbbVEDKnWlHWIJvH0rExNEmfg9PJxw+GBoDg+eWdWSlP1UwYzQij
+	nKbkdtCb3zoUGKyk8HSyHr5HqQ8oxqQPcJYZdYZL7vQACOLI4Vrs9G2kvm475bEqR83rOmkG+E/
+	hUU8FxaokhKcYvPSkPF8OXz2DHnGMgHSv4k6Nvw8okAlNpx7+I4hVA==
+X-Received: by 2002:a17:903:f83:b0:2df:8f19:5db8 with SMTP id d9443c01a7336-2f03f1d09e3mr160319915ad.59.1795580749927;
+        Tue, 24 Nov 2026 20:25:49 -0800 (PST)
+Received: from srsys1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f1215d7sm76117185ad.65.2026.11.24.20.25.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 20:25:49 -0800 (PST)
+Date: Wed, 25 Nov 2026 04:25:41 +0000
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Jamal Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>,
+	Amery Hung <ameryhung@gmail.com>,
+	Cong Wang <xiyou.wangcong@gmail.com>,
+	Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+	"D . Wythe" <alibuda@linux.alibaba.com>,
+	Dust Li <dust.li@linux.alibaba.com>,
+	Sidraya Jayagond <sidraya@linux.ibm.com>,
+	Mahanta Jambigi <mjambigi@linux.ibm.com>,
+	Tony Lu <tonylu@linux.alibaba.com>,
+	Wen Gu <guwen@linux.alibaba.com>, David Vernet <void@manifault.com>,
+	bpf@vger.kernel.org, netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org, linux-s390@vger.kernel.org
+Subject: Re: [PATCH bpf 0/3] bpf: Reject sleepable struct_ops programs in
+ atomic context
+Message-ID: <awZjRcsJ30sLFpc2@srsys1>
+References: <20261124143123.1182108-1-rhkrqnwk98@gmail.com>
+ <DN3QWUNLDYAP.1RWBZ8RJH1QSY@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,113 +115,143 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <DN3QWUNLDYAP.1RWBZ8RJH1QSY@gmail.com>
 
-Neigh and route updates take encap_tbl_lock and then wait for
-flow->init_done on every flow attached to the encap entry.  The only
-complete_all(&flow->init_done) sits after mlx5e_tc_add_fdb_flow(), so a
-flow whose actions fail to parse is never announced to them.
+On Tue, Nov 24, 2026 at 09:06:37PM +0000, Alexei Starovoitov wrote:
+>On Tue, Nov 24, 2026 at 06:31 AM Sechang Lim <rhkrqnwk98@gmail.com> wrote:
+>> atomic context. tcp_congestion_ops, Qdisc_ops and smc_hs_ctrl have no
+>> check_member, although the kernel calls their members in softirq, under
+>> a spinlock or under rcu_read_lock(). A sleepable program attached there
+>
+>Not all of them. Qdisc_ops init and destroy run under rtnl and can sleep:
+>
+>  qdisc_create_dflt()
+>    qdisc_alloc()                 kzalloc_node() with GFP_KERNEL
+>    ops->init(sch, NULL, extack)  no lock taken in between
+>  __qdisc_destroy()
+>    ops->destroy(qdisc)           fq_codel_destroy() takes a mutex here
+>
+>A sleepable init is valid today. bpf_arena_alloc_pages() uses GFP_KERNEL
+>there instead of alloc_pages_nolock(). Patch 2 rejects such progs.
+>
+>> This series adds a check_member that rejects sleepable programs to each
+>> of them, like bpf_tcp_ops does.
+>
+>That makes four copies of one function. The default is the bug.
+>bpf_tcp_ops v2 and blk-iocost v1 missed the same check:
+>https://lore.kernel.org/bpf/20260623175006.3136053-12-ameryhung@gmail.com/
+>https://lore.kernel.org/bpf/178889947167.2.9168058946538747939@kernel.org/
+>
+>Fix it once in check_struct_ops_btf_id(). Patches 1 and 3 go away.
+>sched_ext, hid, io_uring, binfmt_misc and bpf_dummy_ops have
+>check_member already, so they keep their sleepable progs.
+>A struct_ops with check_member still has to test prog->sleepable itself.
+>
+>In place of the series.
+>
+>diff --git a/include/linux/bpf.h b/include/linux/bpf.h
+>index 1dd9db1..f7c7380 100644
+>--- a/include/linux/bpf.h
+>+++ b/include/linux/bpf.h
+>@@ -2209,7 +2209,8 @@ struct btf_member;
+>  * @check_member: When defined, a callback invoked by the verifier to allow
+>  *		  the subsystem to determine if an entry in the struct_ops map
+>  *		  is valid. A nonzero return value means that the map is
+>- *		  invalid and should be rejected by the verifier.
+>+ *		  invalid and should be rejected by the verifier. When not
+>+ *		  defined, the verifier rejects sleepable progs.
+>  * @init_member: A callback that is invoked for each member of the struct_ops
+>  *		 map to allow the subsystem to initialize the member. A nonzero
+>  *		 value means the member could not be initialized. This callback
+>diff --git a/kernel/bpf/verifier.c b/kernel/bpf/verifier.c
+>index 01a74e1..42a90c7 100644
+>--- a/kernel/bpf/verifier.c
+>+++ b/kernel/bpf/verifier.c
+>@@ -22244,6 +22244,10 @@ static int check_struct_ops_btf_id(struct bpf_verifier_env *env)
+> 				mname, st_ops->name);
+> 			return err;
+> 		}
+>+	} else if (prog->sleepable) {
+>+		verbose(env, "member %s of struct %s cannot be sleepable\n",
+>+			mname, st_ops->name);
+>+		return -EINVAL;
+> 	}
+>
+> 	if (prog->aux->priv_stack_requested && !bpf_jit_supports_private_stack()) {
+>diff --git a/net/ipv4/bpf_tcp_ops.c b/net/ipv4/bpf_tcp_ops.c
+>index 2ba73dd..4e54165 100644
+>--- a/net/ipv4/bpf_tcp_ops.c
+>+++ b/net/ipv4/bpf_tcp_ops.c
+>@@ -301,16 +301,6 @@ static int bpf_tcp_ops_init_member(const struct btf_type *t,
+> 	return 0;
+> }
+>
+>-static int bpf_tcp_ops_check_member(const struct btf_type *t,
+>-				    const struct btf_member *member,
+>-				    const struct bpf_prog *prog)
+>-{
+>-	if (prog->sleepable)
+>-		return -EINVAL;
+>-
+>-	return 0;
+>-}
+>-
+> static int bpf_tcp_ops_init(struct btf *btf)
+> {
+> 	return 0;
+>@@ -329,7 +319,6 @@ static const struct bpf_verifier_ops bpf_tcp_ops_verifier = {
+> static struct bpf_struct_ops bpf_tcp_ops = {
+> 	.verifier_ops = &bpf_tcp_ops_verifier,
+> 	.init_member = bpf_tcp_ops_init_member,
+>-	.check_member = bpf_tcp_ops_check_member,
+> 	.init = bpf_tcp_ops_init,
+> 	.validate = bpf_tcp_ops_validate,
+> 	.name = "bpf_tcp_ops",
+>diff --git a/net/sched/bpf_qdisc.c b/net/sched/bpf_qdisc.c
+>index 5691c13..61a1971 100644
+>--- a/net/sched/bpf_qdisc.c
+>+++ b/net/sched/bpf_qdisc.c
+>@@ -356,6 +356,24 @@ static const struct bpf_verifier_ops bpf_qdisc_verifier_ops = {
+> 	.gen_epilogue		= bpf_qdisc_gen_epilogue,
+> };
+>
+>+static int bpf_qdisc_check_member(const struct btf_type *t,
+>+				  const struct btf_member *member,
+>+				  const struct bpf_prog *prog)
+>+{
+>+	u32 moff = __btf_member_bit_offset(t, member) / 8;
+>+
+>+	switch (moff) {
+>+	case offsetof(struct Qdisc_ops, init):
+>+	case offsetof(struct Qdisc_ops, destroy):
+>+		break;
+>+	default:
+>+		if (prog->sleepable)
+>+			return -EINVAL;
+>+	}
+>+
+>+	return 0;
+>+}
+>+
+> static int bpf_qdisc_init_member(const struct btf_type *t,
+> 				 const struct btf_member *member,
+> 				 void *kdata, const void *udata)
+>@@ -446,6 +464,7 @@ static struct bpf_struct_ops bpf_Qdisc_ops = {
+> 	.reg = bpf_qdisc_reg,
+> 	.unreg = bpf_qdisc_unreg,
+> 	.validate = bpf_qdisc_validate,
+>+	.check_member = bpf_qdisc_check_member,
+> 	.init_member = bpf_qdisc_init_member,
+> 	.init = bpf_qdisc_init,
+> 	.name = "Qdisc_ops",
+>
+>Pls target bpf-next.
+>
 
-Such a flow can already be visible to the updates:
-alloc_flow_post_acts() runs post_process_attr() on each post action
-attribute, and mlx5e_tc_tun_encap_dests_set() attaches the flow to
-e->flows there.  A later failure in alloc_flow_post_acts() goes through
-free_flow_post_acts() -> mlx5_free_flow_attr_actions() ->
-mlx5e_tc_tun_encap_dests_unset() -> mlx5e_detach_encap(), which takes
-encap_tbl_lock.  The checks parse_tc_fdb_actions() runs after
-alloc_flow_post_acts() reach the same detach from mlx5e_flow_put().  An
-update that holds the lock and waits for the flow then blocks the
-cleanup that would have to wake it, and both sides hang.
+Thanks, that's cleaner. I'll move the check into check_struct_ops_btf_id()
+and send v2 against bpf-next tree.
 
-When parsing the actions fails, first delete the post action rules
-installed so far: a woken neigh update may release e->pkt_reformat,
-which those rules still use.  Then mark the flow FAILED and complete
-init_done, and only then detach the encap entries.  The neigh paths skip
-a flow that is not OFFLOADED and the route paths skip one that is
-FAILED, so a woken update leaves the flow alone.  complete_all() is
-idempotent, so the second call for a failure inside
-alloc_flow_post_acts() is harmless.
-
-Commit 37c3b9fa7ccf ("net/mlx5e: Prevent encap offload when neigh update
-is running") fixed the same lock cycle between the encap entries of a
-single attribute.  This patch only covers a failure while parsing the
-actions.  A successful setup still takes encap_tbl_lock again after a
-post action attribute attached the flow, through the encap dests of the
-main attribute or mlx5e_attach_decap_route() for TUN_RX flows, and a
-waiting update can block it there as well.
-
-Fixes: 8300f225268b ("net/mlx5e: Create new flow attr for multi table actions")
-Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
----
- .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 40 ++++++++++++++++++-
- 1 file changed, 39 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index b290beb4369a..91e04a84bf07 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -3748,6 +3748,39 @@ free_flow_post_acts(struct mlx5e_tc_flow *flow)
- 	}
- }
- 
-+/* Neigh and route updates wait for init_done while holding
-+ * encap_tbl_lock, so the waiters have to be woken before error cleanup
-+ * takes that lock again.  A flow that fails here is skipped by them: the
-+ * neigh paths check OFFLOADED and the route paths check FAILED.
-+ */
-+static void mlx5e_flow_init_failed(struct mlx5e_tc_flow *flow)
-+{
-+	flow_flag_set(flow, FAILED);
-+	complete_all(&flow->init_done);
-+}
-+
-+/* Remove the post action rules of a flow that failed to initialize.  A
-+ * woken neigh update may release the encap header they point to, so they
-+ * have to go before init_done is completed.
-+ */
-+static void
-+del_flow_post_act_handles(struct mlx5e_tc_flow *flow)
-+{
-+	struct mlx5e_post_act *post_act = get_post_action(flow->priv);
-+	struct mlx5_flow_attr *attr;
-+
-+	list_for_each_entry(attr, &flow->attrs, list) {
-+		if (list_is_last(&attr->list, &flow->attrs))
-+			break;
-+
-+		if (!attr->post_act_handle)
-+			continue;
-+
-+		mlx5e_tc_post_act_del(post_act, attr->post_act_handle);
-+		attr->post_act_handle = NULL;
-+	}
-+}
-+
- int
- mlx5e_tc_offload_flow_post_acts(struct mlx5e_tc_flow *flow)
- {
-@@ -3852,6 +3885,8 @@ alloc_flow_post_acts(struct mlx5e_tc_flow *flow, struct netlink_ext_ack *extack)
- 	return 0;
- 
- out_free:
-+	del_flow_post_act_handles(flow);
-+	mlx5e_flow_init_failed(flow);
- 	free_flow_post_acts(flow);
- 	return err;
- }
-@@ -4579,8 +4614,11 @@ __mlx5e_add_fdb_flow(struct mlx5e_priv *priv,
- 		goto err_free;
- 
- 	err = parse_tc_fdb_actions(priv, &rule->action, flow, extack);
--	if (err)
-+	if (err) {
-+		del_flow_post_act_handles(flow);
-+		mlx5e_flow_init_failed(flow);
- 		goto err_free;
-+	}
- 
- 	err = mlx5e_tc_add_fdb_flow(priv, flow, extack);
- 	complete_all(&flow->init_done);
--- 
-2.34.1
-
+Thanks,
+sechang
