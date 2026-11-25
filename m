@@ -1,58 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.207.19.206
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573989;
-	b=W88oRV7Timn3VIgP6yrJJedkGdSJ93+S+yFZuz+bhf+kYJAFDMf6jmAYMA3dmgGUzHWK
-	 SpDr4zl3vNxPJXV/5uEmmuX+FamQktxyUTcWN8oHUGQPUrtYxypgf9S2Fxt+PLAeyi7w7
-	 0OpylSSgsKw4MaQ3OY9PJe3mQ8yEi3tcwr4IKT6L7vO8xVW0VHl3ry8bYJwdU+DWN8ccI
-	 Yksrc0t3AV9xDOQWc/FSrZINa6vLCT6zIoWBiCq9cApncdoVK8Xs1jx93H1DtRgypCIg+
-	 ut2hsj4/BpNB+cv2sDZE0rWE29EleKuEAPxyxS/iEq+UW1qavl/nMDqs/pBVeqSIV6g==
+	t=1795574020;
+	b=07p/Iyml9rH830jSNSimYzf8fC5HtejjyhmK7mkg6LoZj0dudG32RYhxu2arfb4V6PxI
+	 hAZ1myXEOZG+zja1RkutrBblpV/P8kAXAGBMQBlWHmpwTFxGcLdfR6k+wv5twza0xVCHZ
+	 b0jyfpY8HEn95J2pJzsxIq5rB58+cg+BMWaCz8MOkETjgQPllmnjeM5vHSxMdCR93mI36
+	 vCse/uE/VeyQq5BopcIUu3D5QPzK/7AmRfbHgCEWFxMjqq5Ke7bDpsu6ZCmbTrIEVnCn5
+	 fqH01afsjtS2LNnYNgQ0AV+gksaNTcGFOiLxgrW8GbFcfTGamh180tvmlG/hiYKLLXQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573989;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=js9BPM5BTXEqbQvq+DaKolUDKsbhvDGYOvQDZ+0m35+YJ57zOaujsp00vGnUQxwvoGXM
-	 Z0HqjrCRULX5CfPj/XJoklCQHZ0NAFhf+slslhn3tqnwsPcq3LmHf2kLHEfwK6DRpmYMh
-	 9+I83AP4noDL3va/HqSxg8qgQ32W+S00Pgibs+yiNCOGtoFhxOpZo7z4W0vJu9ZSUa2+s
-	 xGZrUABYlVQsfKgFUcMIPrcb3x/+ZHqHvoeW+72LeQu+mEKKTs00GpmNEBly+1HgF4Jvm
-	 p1En8IDfq4f4OnG5rAfuSnIZy7+JlfD87Qj0J9pD30j8FcfJ/NRUfYjhfPv8Tv+4h9Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795574020;
+	h=DMARC-Filter:DKIM-Signature:X-QQ-mid:X-QQ-Originating-IP:Received:
+	 X-QQ-SSF:X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=a/ylpv5zb3YmJmUzNYOF/GvkMn6cziKXWyWLWdE7at0=;
+	b=R8bOwAw3WUsDWFqM7dq+cNKOLauU+06Ytu0GczYo0At2Q0yIneb/i09jE5UHe3Ai3tmX
+	 rT0UwO0E8IsQQa+I6Du/h1AqMMqbDU4Iwdco5eglRGS+5pthvmA5zLDstXBMo5YIIsIki
+	 VjvjXUvwivpGAMZEXDr1pY+lYJ8upLOXFhKeK12nrrpM/2CdTkyAlwfNQ3JmGGoBZyxQR
+	 GoWT8vfK0S3M432ORg0UKpBaBlLa4J/8iDFaARR7Lio6ns6Ixzt84B4pta4nCngqrywTH
+	 dobXH6RPqEjZ5GjMBolEnIq1Ol8MVcSust7tNV4FF+Fna2/9vlIAiPW1qFMWUZ6XBKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cM1xc3Sp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=uniontech.com;
+	spf=pass smtp.mailfrom=uniontech.com;
+	dkim=pass header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=Icd2MpPd;
+	arc=none smtp.remote-ip=54.207.19.206
+Received: from smtpbgbr1.qq.com (smtpbgbr1.qq.com [54.207.19.206])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3FF3606A321;
-	Wed, 25 Nov 2026 02:33:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3F51606A321;
+	Wed, 25 Nov 2026 02:33:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3F51606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=uniontech.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=uniontech.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cM1xc3Sp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55521F000ED;
-	Wed, 25 Nov 2026 02:33:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795573989;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=cM1xc3SpPk4qeF5Lil79/OyYyi56mtMG81SbPRxi/WvDzAUrs1cbHhNVuz9ervoDp
-	 T3sK8a7CQwIRLp0AFt8sM8g2bp+On2CpYGEqxKjsGKMuq2q2owaNRU66VBbXYJdyVa
-	 6FYiJ3+S+6oUv7LM3Ah/sWG3xDm+WNQcg0i4SDCRLEQ9LYV3nSM/HbDzag4+yTJI0p
-	 dqKvLL4l2OiNO3QdgmyuMdGbilBwvLPhc9xAcIew1TnZuUED7kJMMp0+HEBcS4CW48
-	 Mwq3VmPd4bAWb3WMrlfWDhQF6O1xEqu0mr2420RiSnns7p3WmYQTDXPJszuTD1fqld
-	 Y6tPzNO8LP+EA==
-From: netdev-bot+sinfo@kernel.org
-To: mdshahid03@gmail.com
-Cc: tariqt@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- netdev@vger.kernel.org, linux-rdma@vger.kernel.org
-Subject: Re: [PATCH] net/mlx4: fix error propagation in mlx4_load_one()
-Date: Wed, 25 Nov 2026 02:33:08 +0000
-Message-ID: <179557398838.3294.6547590085823969218@kernel.org>
-In-Reply-To: <20261125022913.205366-1-mdshahid03@gmail.com>
-References: <20261125022913.205366-1-mdshahid03@gmail.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (1024-bit key, unprotected) header.d=uniontech.com header.i=@uniontech.com header.a=rsa-sha256 header.s=onoh2408 header.b=Icd2MpPd
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=uniontech.com;
+	s=onoh2408; t=1795573970;
+	bh=a/ylpv5zb3YmJmUzNYOF/GvkMn6cziKXWyWLWdE7at0=;
+	h=From:To:Subject:Date:Message-ID:MIME-Version;
+	b=Icd2MpPd5qsX9Rta65soAoSQD5vvyK4E4J0mdjZSVyHLvYv/9GqPKbJJE9Z86Y0z2
+	 xaKnA0r4vRLsweaU16Wcbi/PUuKcM1nCmlzsK24ycgiRZzelXyLZzL0jSqrqnRqn8t
+	 VdGye0aIe+aQ6qZdEzc2Pet4BAooaCMkNhOCB4fI=
+X-QQ-mid: esmtpsz16t1795573951te2d1802d
+X-QQ-Originating-IP: VeRzoiOYtmm3VRPJOf5RgdvHIHHqXeNfLu9FkMQUW/w=
+Received: from localhost.localdomain ( [61.183.83.60])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 10:31:36 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 1
+X-BIZMAIL-ID: 14082261952295443755
+EX-QQ-RecipientCnt: 9
+From: Wentao Guan <guanwentao@uniontech.com>
+To: edumazet@kernel.org,
+	ncardwell@google.com,
+	kuniyu@google.com,
+	imv4bel@gmail.com
+Cc: martin.lau@linux.dev,
+	jiayuan.chen@linux.dev,
+	netdev@vger.kernel.org,
+	Wentao Guan <guanwentao@uniontech.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] inet: reject unhashed sockets during timewait purge
+Date: Wed, 25 Nov 2026 10:31:24 +0800
+Message-ID: <F92442AF3AAD7C83+20261125023123.4185642-2-guanwentao@uniontech.com>
+X-Mailer: git-send-email 2.47.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,30 +73,71 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: esmtpsz:uniontech.com:qybglogicsvrgz:qybglogicsvrgz3a-0
+X-QQ-XMAILINFO: ORygBKzmLOEK4HW+6/ELqV/fVl6R3oDtWVS45TWsyF7VqiAFb22veCo1
+	Xm0sU4haoQxZPnbBh6RKBXQg0Ikug1mcYn24U6CFLL3rJSr51ZQHv3KRPdthDwLFDjXueBM
+	HjHkZ6M4sWkNmCOfUwc2WOWbcFU4uFieUwrqWVgQ/zP9ss7J4wyQL3pG8oIrMMF97m9hP43
+	nkTe89DHwXHdXp6EaiULm2MEL3bLVOCTCmz/wJkyrAZGv/xk5HPylJS8ow8LA6AgrzJWVUN
+	tzjT1qclRxzZkZWcnU+EQLJOxDy8OPDyEFokx1WbQuJA+tfnoMhWVFmp7oPWAohQjz95SN2
+	3Ip+nPT2fRcWurO/qOWUwhRiUppXlSAGp50gj1Evbc/NqNU7ZB8rjK9j6CO+UNnXdeQ7H3Y
+	r21i2bFqyjafsnJqSJOsDPUKMBnqs++J8gHn141bhvxos4LdnlGqDaMdwej4yPS295l9Uc1
+	T6HsR6FgDcmxrUYGG2mgRgCQAHPOgzRZUmnethe03EYRaerGeNcVw7H4w14Xa75mIu2hQXm
+	Le8l+BYevkK/xjcXXtTH+ge42s5Qf8McGhwl1gI9QYtlgrQ70ttMmbnoqMPtwt2xeAPhmr7
+	UnrVj5Ca2x1QW+CXlavdjn7MhvFZMNkRxN2ctAmEEkPevOKLtW5RZLXMgNlpjmPIuHEi/ll
+	B36X+34jT6Qh9TMkLjq3sDYSqezjx80Sh+Ud5ks2ageCzR9dR03ZGDXz0oY/0W/xttWvB8M
+	cmMWKBGC+YAQZpNNQAQnkJBuIkuM7A1nWJ6l/NK9oDwEw320n6kCTtE/u4PZvRetqPnRsi3
+	aNYNxAKVLSvGj6sermm8VlpIXVRYic9p2CvJC8CsP5dEyARp7/pUUZxBizJHixI6CZqT9iW
+	6rKQKzL+R7E79TmmKfLrl13plu7+3MMU9ugH1BUreBALEM8Z11I+BKJ0fYFgVyT28inmX/w
+	soXziauRuHEYjthLBWpn24Br3cwP2oqEn5KkqR6CCGnGVwcjzVzyU/n03nSA6TD+GLXAuQC
+	Tt0ecH9GhkUDePNb10HnsTJ83AXK3tCYrA9kdF93fIwia/kKENYr/zrS+1jXrdDRKcLtP3Y
+	C3ynIMe064muAshXBBlW9M=
+X-QQ-XMRINFO: NI4Ajvh11aEjEMj13RCX7UuhPEoou2bs1g==
+X-QQ-RECHKSPAM: 0
 
-Hi!
+A shared ehash can retain a stale pointer that is recycled as an
+unhashed SYN-cookie request from another dead namespace. The namespace
+recheck alone accepts that request, and
+inet_csk_reqsk_queue_drop_and_put() can then operate on an uninitialized
+timer.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+This is the inet_twsk_purge() counterpart of the validation added for
+established lookups. Recheck the nulls node after taking the reference.
+If it is unhashed, drop the reference and restart the purge instead of
+operating on the recycled request.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+This was found by review
+commit 4e2b3ef19e0e ("inet: reject unhashed sockets during established lookups")
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+Fixes: 740ea3c4a0b2 ("tcp: Clean up kernel listener's reqsk in inet_twsk_purge()")
+Cc: stable@vger.kernel.org
+Reviewed-by: Kuniyuki Iwashima <kuniyu@google.com>
+Signed-off-by: Wentao Guan <guanwentao@uniontech.com>
+---
+changelog v2:
+change Fixes tag pointer by Kuniyuki Iwashima reviewed and add the reviewed-by.
+v1 link:
+https://lore.kernel.org/all/1595ACC3A3D11BB8+20261119041113.3514099-2-guanwentao@uniontech.com/
+---
+---
+ net/ipv4/inet_timewait_sock.c | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
-
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
-
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+diff --git a/net/ipv4/inet_timewait_sock.c b/net/ipv4/inet_timewait_sock.c
+index e256c55ce9f29..5601bd03b1382 100644
+--- a/net/ipv4/inet_timewait_sock.c
++++ b/net/ipv4/inet_timewait_sock.c
+@@ -333,7 +333,8 @@ void inet_twsk_purge(struct inet_hashinfo *hashinfo)
+ 			if (unlikely(!refcount_inc_not_zero_acquire(&sk->sk_refcnt)))
+ 				continue;
+ 
+-			if (check_net(sock_net(sk))) {
++			if (unlikely(hlist_nulls_unhashed_lockless(&sk->sk_nulls_node) ||
++				     check_net(sock_net(sk)))) {
+ 				sock_gen_put(sk);
+ 				goto restart;
+ 			}
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.47.3
+
