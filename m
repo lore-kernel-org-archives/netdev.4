@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588566;
-	b=ZElTV349hKy2RXGYap/9epjil5UyEyjx3kk0vjwz6j1CuNcXjKRPIthW+FIgJS+9s0aY
-	 jc3AyHoT9cxhAfQUy9aG0LWOLZG5ktAYA7y9LiUgTsAcVGUrw7uz+rfK6Se+hxlAMaN7N
-	 gY3/gVSbAnPF/STiSQm3Nzhl6/by56qaI8dvWTSCRQlHifJOPORBf+9vggGRiNkdhurJ9
-	 AJZqedYCZssbC4lwtwYb3rYhzRhrSSc22EO4accYJFDrHDo/R/nDn1vtDIptzqzP1bNQB
-	 iTthZaUU/DwBAoi354Lgl+uNEKB0llB4vmpP1dXkzKeQUmPG/UQa7kzOWRgPXgNW4CQ==
+	t=1795588567;
+	b=iaNftEoucbcXoBM/oJdQru0MgxZGL+b95/m+UOgqjNQ6OpcVfLm7esXTmW1v713He5W3
+	 L0G1fPFK6s8iaobobBXnvbGF6hVX+BvutON0/pi98ydUmt3h4zB1amJFQ2WIswH9RhWbR
+	 2W+s4RdnY4mulkzFLfFjjOVlKQyTgXycJhfxeEkzb+GBgoUgDo2OT5dHlAGeskiQYBQaT
+	 eQ/Zf7AbFlvOxybDnRyBzCbB36yW3aW9SYTlq/L7QyaFvp1tSUs53Hldb0FqvZ/Uclz1g
+	 suKdhwdvcas2EGQeRij5ADQpoHcIGZfYZFEzvO5M/CLVhsD36Dm8b13T4cPITIT4FKg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588566;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588567;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=WmUfzwma93rg6Bml2GYK77+Ze3Dw48MIC5lQRVm2SRU=;
-	b=ehKPY0uJM8gq9dtLwB2W1W3vcHSPQDbl1gGEgCrMaxKzrGF8iGmgF3Y1sZPSZnVW1gxr
-	 KEjQquhJ5XsQ8ngE8b5xj4Fc+TsuZKWX2JjtakKyGz8XxyjLrfUCvWVBTpDp2ZKNVManO
-	 vXe0PYuLAwMMqi1udbdgZED36hpx3OXcwPHpq2iYBMGj2IcBeHLjq7yG2t8yE+RhX5BZm
-	 5lclEmzS/dUY2rnZLCAI2eKK0wzBEOQ6b3UudwPkKyGHeQM4w3+iFumKfzVfLU8cqGhNI
-	 Bu4JalHMlvBMgw32HwIG2I5iHdCs2o8Tj3POJQXtMhdU85bH8vx6wF5XWDW9zexmk5A==
+	bh=ZYLJZ6q+uI9UPksDd4iVcjy9aW9Y3HRmtIfdwK4ESxI=;
+	b=XNXpvF2AmCWUEzPi6ylau+3xAWq9bXMJSJY5saM2pv/QlTeG0/zBCx/CHBCQ1mURxscE
+	 gAFI/ae2q9RTeYAF9BIMq06egvBDfiM0mF1xtJy3X0TKwWAmOk/E3TNbx5tZYPZHnUXdl
+	 phBZTILDoWdC1gqIMZmZp+b4LFfQxOMxdEXRS7lgTi3iJHboRYDrhVf+mbDJYrLssgYzW
+	 jHFaVaF9A0CflaMa6dPaiVTWqctoED5xXfDiWskl54GY9twGN4tB0vKJ3B1fQ1csTcYE+
+	 nJNOlRu2OfxY4yic2VHoXugJnuRRH4WC6wBhjseJpsBYsISSPuUuIDSsku3vtWGhPBw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XvvIjNiD;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Erf5VTqp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01CCE606A691;
-	Wed, 25 Nov 2026 06:36:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A27606A33C;
+	Wed, 25 Nov 2026 06:36:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XvvIjNiD
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64211F000D2;
-	Wed, 25 Nov 2026 06:36:04 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Erf5VTqp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A65E1F00ACF;
+	Wed, 25 Nov 2026 06:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795588565;
-	bh=WmUfzwma93rg6Bml2GYK77+Ze3Dw48MIC5lQRVm2SRU=;
+	s=k20260515; t=1795588566;
+	bh=ZYLJZ6q+uI9UPksDd4iVcjy9aW9Y3HRmtIfdwK4ESxI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XvvIjNiDHjnApn8vI9+HyWi5LD2leABp21biRKbhjWlHRQxGRDt+lVdJ0FdP4lOCH
-	 z9+cql85tVualjEmGfuqh0QnBnm0SCoN8u6rvhxAMuxiGK5rAgGjob1oKOu31TYsmK
-	 DydGTAs6eRA6HKDTCztBFFvEyCHik0+MsTJdnWqYHn15ZMypscn4z/gMPdsu3e8OKM
-	 wM2AawW8xC0xef1ODo6Fvor1Yn66OK+pdtL2IhLMWiymoQG2iSmBN5U79hjIRoizxP
-	 ZBBHwxR36hVFNFSidFc/eXHIrXyZ9SrrWyOE18Q1P0k/4AxxFwQOSJgM9zxc8ZMJ/r
-	 mOaDe0Rggs3Ig==
-Subject: Re: [PATCH net-next v3 4/5] net: rnpgbe: Allow changing the primary
- MAC address
+	b=Erf5VTqpoqaVrI6hJ90XfSP4/P/gDGaLqOGN3CknZ2RFhCOwu8LhSm5fyPMYZsjpC
+	 crAad+KIQUZofKFZD74471SgplmJ+Mml43usYfHVEG5Vfs0Nc8IN2zbZT5afhIUn4E
+	 jbKe1UQ34/L49tPaedo72v843Hcrx6Vk2h2Pq+vC+n356iWp+6mFer3eqECL/c6LMD
+	 cUcrr59/rqDR99Ajonw5wwjQYbJzuhscMsvjT+4rHvhkEX7b7JAXlCpVhqop3d+TOc
+	 fl+bpA6NU/7uPSOrVY+/W7dxDAjrSBiYz9VL17Y9AsUcsswkd2/BLR5C7k783qcsxl
+	 cGJQyCPNtqiRQ==
+Subject:
+ Re: [PATCH net-next v3 5/5] net: rnpgbe: Add hardware and queue statistics
 From: netdev-bot+sashiko@kernel.org
 To: dong100@mucse.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org, yaojun@mucse.com
-Date: Wed, 25 Nov 2026 06:36:04 +0000
-Message-ID: <179558856439.3135.10366216867025200313@kernel.org>
-In-Reply-To: <4EBB27E12BC81D8D+20261124060613.411393-1-dong100@mucse.com>
-References: <4EBB27E12BC81D8D+20261124060613.411393-1-dong100@mucse.com>
-X-sashiko-severity: Low
+Date: Wed, 25 Nov 2026 06:36:06 +0000
+Message-ID: <179558856602.3135.7505371780005583025@kernel.org>
+In-Reply-To: <DB48C65C5764A9FD+20261124060623.411536-1-dong100@mucse.com>
+References: <DB48C65C5764A9FD+20261124060623.411536-1-dong100@mucse.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,85 +64,120 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] rnpgbe_set_mac_address() in
-  drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c checks the new address…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] After this patch the driver reports two RX totals that
+  disagree.
 
 --
 
-net: rnpgbe: Allow changing the primary MAC address
+net: rnpgbe: Add hardware and queue statistics
 
-This adds ndo_set_mac_address support to rnpgbe so the primary MAC address
-can be changed while the interface is up or down. The new address is
-validated, written to the primary receive address filter (RAR0), and then
-committed to the netdev. It also wires up eth_validate_addr as
-ndo_validate_addr.
+This commit adds hardware RX CRC-error and multicast counters to
+ndo_get_stats64, accumulated from the service task. It also reports
+per-queue RX/TX packet and byte counters through netdev queue stats, and
+exposes per-queue TX DMA mapping failures through ethtool statistics.
 
-> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> index 3a2f62f0630da..f25cca98878ef 100644
-> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> index b7b0c45a0f664..fe320c4f389ba 100644
+> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
 
 [ ... ]
 
-> +int rnpgbe_set_mac_address(struct net_device *netdev, void *addr)
+> @@ -615,6 +620,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
+>  
+>  		/* probably a little skewed due to removing CRC */
+>  		total_rx_bytes += skb->len;
+> +		delivered_bytes += skb->len;
+> +		delivered_packets++;
+>  		rnpgbe_process_skb_fields(rx_ring, skb);
+>  		rx_desc->wb.cmd = 0;
+>  		napi_gro_receive(&q_vector->napi, skb);
+> @@ -626,6 +633,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
+>  	u64_stats_update_begin(&rx_ring->stats->syncp);
+>  	rx_ring->stats->packets += total_rx_packets;
+>  	rx_ring->stats->bytes += total_rx_bytes;
+> +	rx_ring->stats->delivered_packets += delivered_packets;
+> +	rx_ring->stats->delivered_bytes += delivered_bytes;
+>  	rx_ring->stats->length_errors += total_rx_length_errors;
+>  	atomic64_add(total_rx_dropped, &rx_ring->stats->dropped);
+>  	u64_stats_update_end(&rx_ring->stats->syncp);
+
+[ ... ]
+
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+> new file mode 100644
+> index 0000000000000..efd2284fd93af
+> --- /dev/null
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+
+[ ... ]
+
+> +static void rnpgbe_get_queue_stats_rx(struct net_device *netdev, int idx,
+> +				      struct netdev_queue_stats_rx *stats)
 > +{
 > +	struct mucse *mucse = netdev_priv(netdev);
-> +	struct sockaddr *sa = addr;
-> +	int err;
+> +	const struct mucse_queue_stats *queue;
+> +	unsigned int start;
 > +
-> +	err = eth_prepare_mac_addr_change(netdev, addr);
-> +	if (err)
-> +		return err;
-> +
-> +	rnpgbe_set_rar(&mucse->hw, 0, sa->sa_data);
-> +	eth_commit_mac_addr_change(netdev, addr);
+> +	queue = &mucse->rx_stats[idx];
+> +	do {
+> +		start = u64_stats_fetch_begin(&queue->syncp);
+> +		stats->packets = queue->delivered_packets;
+> +		stats->bytes = queue->delivered_bytes;
+> +	} while (u64_stats_fetch_retry(&queue->syncp, start));
 
-[Severity: Low]
-Is updating only the ETH-block RAR0 entry enough here? Would the GMAC
-station address and the firmware still hold the old MAC after this runs?
+[Severity: Medium]
+Can this leave the qstat RX totals permanently out of step with the rtnl
+RX totals?
 
-As far as I can tell, rnpgbe_hw.h defines no GMAC station address
-register, and the driver never writes one. The GMAC would then keep
-whatever address firmware programmed at reset.
+rnpgbe_get_stats64() adds rx_stats[i].packets and rx_stats[i].bytes into
+rx_packets and rx_bytes. In rnpgbe_clean_rx_irq(), the driver-drop paths
+increase those counters but leave delivered_packets and delivered_bytes
+alone. One example is the skb == NULL path at EOP:
 
-The GMAC block looks like the Synopsys DWC GMAC layout:
+	if (!skb) {
+		atomic64_inc(&rx_ring->stats->skb_alloc_failures);
+		...
+			total_rx_bytes += size;
+			total_rx_packets++;
+			total_rx_dropped++;
 
-#define MUCSE_GMAC_OFF(_n)             (0x20000 + (_n))
-#define GMAC_CONTROL_RE                0x00000004
-#define GMAC_CONTROL                   MUCSE_GMAC_OFF(0)
-#define GMAC_RX_ALL                    (BIT(31) | BIT(0))
-#define GMAC_FRAME_FILTER              MUCSE_GMAC_OFF(0x4)
+The MUCSE_RX_DROP_RESOURCE EOP path and the rnpgbe_cleanup_headers()
+failure path with size >= ETH_HLEN behave the same way.
 
-On that IP, MAC Address0 High/Low is the source address of the PAUSE
-frames the MAC generates. RNPGBE_LINK_ST reports pause state in bits
-25:24. If TX pause is active after "ip link set dev X address ...",
-could those PAUSE frames carry an address the host no longer uses?
+This callback reports only delivered_* as qstat rx-packets and rx-bytes.
+rnpgbe_get_base_stats() uses the same callback through
+netdev_stat_queue_sum() for the inactive queues. So after the first
+driver RX drop, the rtnl totals stay higher than the qstat totals. An
+skb allocation failure under memory pressure is enough to cause that
+drop. Nothing resets these counters, so the gap never closes.
 
-The mailbox command set in rnpgbe_mbx_fw.h also has only
-GET_MAC_ADDRESS and no set command. So any firmware-side copy of the
-MAC, for example for NCSI (which owns RAR entries 30-31), would also be
-stale.
+The generic selftest expects the two sets of totals to match:
 
-Receive is not affected. rnpgbe_set_link() puts the GMAC in receive-all
-mode, and filtering is done by the ETH-block RAR/MTA tables. The concern
-only covers frames the hardware generates and firmware state.
+tools/testing/selftests/drivers/net/stats.py:pkt_byte_sum()
+    # Compare stats, rtnl stats and qstats must match,
+    ...
+        if stat_cmp(rtstat, qstat) > 0:
+            raise KsftFailEx("Qstats are lower, fetched later")
 
-This is inferred from the IP family and would need to be checked against
-the Mucse datasheet or vendor driver. Later patches in the series don't
-seem to add a GMAC address register write or a firmware set-MAC command
-either.
+The commit message says the split is intentional. Even so, could both
+interfaces report the same packet and byte counters? One option is to
+use packets and bytes here. Another is to keep driver drops out of the
+rtnl rx_packets and rx_bytes totals.
 
-Does the GMAC station address need to be programmed here, or the
-firmware notified, when the address changes?
-
-> +
-> +	return 0;
+> +	stats->alloc_fail = atomic64_read(&queue->page_alloc_failures) +
+> +			    atomic64_read(&queue->skb_alloc_failures);
 > +}
 
 [ ... ]
