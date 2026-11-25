@@ -1,80 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621384;
-	b=1ly8oexck1N8OaJKpzUx2NjqcGwRWTeN4gKtgNhD2R+1ve0KG/5FXNqxV6YxfFfs/auD
-	 1Qjj/j4Smsiy/774fUkKm7S9DuRbHPWsZo/dXzM/IA6SNQlfno3q0srY4/+8/g1UTUnXb
-	 /JgU5d7vmy4HTLGjiQrQ/GlhqWehcLwGnt6svcAAkrbodvFWPqsrqxtKWJILxTGlRL0hD
-	 rWVMACbZa6zX40yVdcvA8Hi70nfjXhlePS6x4zRRf+9HHxp/FY7cLgALfIrzhPJxcxvZl
-	 ldXwvv/6SEq3ZxT8xh48Lj6YVF7qwyyQGRZymi80/NES78xkFSU5fQzhpVn1xlU1xZw==
+	t=1795621459;
+	b=c+sRnEETACEsDW7aUEPTwpRVuxkVh3wbEGnn4MT6B4sQSaPUrAsep3dz7EvT5PcQUaTU
+	 en2oVVcce48BN0jKNvAInKxBe7kk/m7m4kd92G5O9teV0yzCLkG29whDFIWIewyKw5jVN
+	 nNQZOhku4n3gBxbeZKk9nKKVgyv2+O+dYyg6ikA1v3JcggPbvaD63irk/7C5K03FFR0Ub
+	 GvHi+L03yXGsdur5QJvI4AqSROGlc6M+5LAzXeJxsRsgl2lPROEEndF5Fi1HX/33bno5u
+	 gpdbO425/JelpOlZx74tWDY0YnuSbrc0qv0GZGMTeUxHXqS2vGjxyfKYbapzhEXONug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621384;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621459;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
-	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
-	b=FTIKKW4EgjvZULVp1EDADrkJSWoIUeIzFdDI8RaFswUeiKMSk4XaSxZ7nKoHq4rHhlVJ
-	 Rng9fK74m979VrMdNqXlvH4XNWfyIsT7+xDgWBTHnEiOIZLHXhbiU7kwCQB7Oz7xBd9un
-	 ctCrxLwh8lapC+IilqultyB3WMgn9UbOhcP50gTcnzJpE1aM1/Ym7JuIVND7UIciuvEed
-	 JW7chdIY18QvVQmFp+2Unm3IRaV+la95aOworu0HSXX37//S41g8oHclJNg2xdNZrI6N+
-	 PTV4Mt3HYkEB5DCr5gVefRhRI4ujEAMrEwx1DR+RfOoC5fbKNTrCbxeYz9TJNC+xuzg==
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+	b=dT8ds0emq7XT7MO0TyM1W0V9u/AumFXCweaF6kNupYr6wogfg1stpEecn/grNRy2R04Y
+	 ySzR+NSckKP/53zl7A2q7SNXgdrLcqWy7LvyS809c2n81fvUME4zDdmn4w6Rq/ewrcflM
+	 1oYPx4P7HcSsweug69lFPTHTODI2q2QZ7ao0o+VxKpJ7oTYgosjxlZJUWQporBH4A3/SN
+	 PpiJbbYuQCv36Guty1HDpcCS/v8bi5htxrIBWf1zzQBYiKPIUUi3Tt0LXzdGzf4XAyBI0
+	 qllteG/JwuTirbr3mxoCgSMCCQOtYgN3GdN9h04XAD2UL3fxEHewldA3qQptP7BcOJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XagbwX1U;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=G4gCVeEQ;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="KX5Ys/n4";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 79770607DE88
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:43:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 79770607DE88
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3327C606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:44:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3327C606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=XagbwX1U
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=G4gCVeEQ;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=KX5Ys/n4
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795621381;
+	s=mimecast20190719; t=1795621458;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=WZPSE+/aPUgUkU5d51JstPYKeYOzV9gOp4cllrxEEKA=;
-	b=XagbwX1UXuNxbN2V7+AKagjJzaXrg4DcagCKjFzqwUDsr53reRgUsy+vv9rkNW7DF1qQsa
-	OX6eqynbAnMVv0MheQZWflZYReZHp6u6eADkrufvLbB+loHOr2tVJoo4S5Z830l2cLHaYh
-	3vzjKSJG5uaYhOlukh24fcfI5jqhcKo=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-539-qZB1CWkgOLKgBYtHZpmc2Q-1; Wed,
- 25 Nov 2026 15:42:54 +0000
-X-MC-Unique: qZB1CWkgOLKgBYtHZpmc2Q-1
-X-Mimecast-MFC-AGG-ID: qZB1CWkgOLKgBYtHZpmc2Q_1795621371
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 71FA919540E3;
-	Wed, 25 Nov 2026 15:42:50 +0000 (UTC)
-Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id C0276436;
-	Wed, 25 Nov 2026 15:42:46 +0000 (UTC)
-From: Ivan Vecera <ivecera@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Min Li <min.li@microchip.com>,
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>,
-	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Petr Oros <poros@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2] dpll: zl3073x: do not block DPLL callbacks while PTP ops wait
-Date: Wed, 25 Nov 2026 16:42:45 +0100
-Message-ID: <20261125154245.205758-1-ivecera@redhat.com>
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+	b=G4gCVeEQHR+yPVY9UxR8DARD71DmIcW9BJrZ06r73KQ4J3yMfAWyC8MrPYOH9ZA4TIj9O2
+	jebJDC1q2sVn+MJbyVQVlk2pqhWLZwQsxU8nz9r5uoHR+4aPw90O3KnaQ/HklcOWD0PI4s
+	lvz7YFic4/zxDF7fZqRWmXak5g4FWJ4=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-434-DZiR0kz-N56SaffQ8uowvQ-1; Wed, 25 Nov 2026 15:44:15 +0000
+X-MC-Unique: DZiR0kz-N56SaffQ8uowvQ-1
+X-Mimecast-MFC-AGG-ID: DZiR0kz-N56SaffQ8uowvQ_1795621450
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-499ca65ae87so2698308f8f.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:44:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795621450; x=1796226250; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+        b=KX5Ys/n49pTEdZfZdjbMiqQnSPDEpnUKjhFx1Aksr37iezPafiZW00icmLZtWoRIld
+         RFi7eK0gP8JXkcTtfq0UmnkPRxXM+YYffLWTyLbgQscto659f/FE/ZfKaFZY0EALuzo8
+         lDXXtHOClS0W1N5mUQ+eU5PL19px5ymyUzmSrDs9wsUYSMrvUnMxOQ1NJsYv2J+xie6N
+         AHrT9wNGClUOl74NEpE7IMR58LkasitOdQz31oSgxhIfRbiOU5n9hKJ8zktAk5h0qiUh
+         BEUL+JTRcW0xDX1kQ8ozi74HEzvBJdEBZLTLfcDo0+mqm0nCjRPQtuG9DZ5Pz5GbAoGI
+         1mpA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795621450; x=1796226250;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=iC7ojDwFiN7+I6mTjomu3O4mbkOEaFgiVWGSsXUSLq0=;
+        b=SgEy+6PznUxNHc4ysNxgeQWwZM+ShBVKUs+eGia6mHVxmOV2SHx16TxN01YKeS3uS2
+         3k6GfqXcy5h3nGs4r0jmGnTlrxd84bGMJPi4q3sPnDFLk34/FvmVZATLsuLI0TfKExCz
+         EhigvQJPvSNugsF3RlZ8B9X5r7DRusCKQ2bwoaisZHbsxebCUFEQ/lpghJoPSW2R3+kX
+         q3GIw+8uRAdBomU4dr68+CF9nHKZWOUdtmuh4Z4OEPQvexx90mu7hu909o9UIhAkRQhc
+         Wzta+g29/uGfZNQQwLgxsDu4M6QaOxZgf1yJUChv94Ot6w0Spa2PWC/8IecwwUel/ek8
+         wYmQ==
+X-Forwarded-Encrypted: i=1; AL+hErHG9XpEv4TOGdrd2acDZ4jAAIUMBcFRrsJLsImt50C6E8lQ6cPO6U4M8LepIu310xwVeZaVeGg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+Qgshg68FCzEYttgtEr8fEUyUvKQlQjiFx7r874TOGbz7e/ZEh
+	Q6pjj7YeEUqIiq6K3pnj+ZBBl0xkm8bJcArrRUDwryHRAGAvp7yFN7tiGzgb+ZqXLDVwEXAlMqe
+	14WHk1ZcDgxsGCy/ELhPD/6NoUAXr5ZMni8s9KChk0ycifVS1vDC86cEsIQ==
+X-Gm-Gg: AZFdTZc6YC4yHTOsg28j7Hh5SnRkMFFSpj2gCX9Y8tnWqqymEme+wYc+b0gawx5WUBA
+	Hvryp38eHadF6awkKgI8KAwCM3Z3zpROk7MJgrhigFCQMcvIvwB1vcJlMKl2ot/Z7tQl9CivHE4
+	OOAm7k7vvmRPEEoAnk2KKc9IX2a2zHE07EkonW5GJkbL4s9+UZow5+8S3tnO2ywBszzXxU7O1O+
+	NjBLOIM71klAUrCmSs1V+C9NHJ/svIbSXENLL8YN/t+KKeSpCE9+Knofj4hspxTI1vPjOwbs5H0
+	RnNJU2toqSV5maMR3gPO6nW6RJjmQcJqE9VkFzwvXFpoh/5ISoZmw9MTNvD56ci270sPKmhjsZb
+	VC6ByEl2Wfyex6lP4h8eQVCkriFWqCNxdZZ6KJHMlpHCTbYjsisCdYsU5coLvtDKHF5GOTYsNip
+	m+39HwxyhSDNyTSxc+SBvZGZyPzXBSDlOpuocIchhg9JGg
+X-Received: by 2002:a05:6000:40ce:b0:488:8347:a110 with SMTP id ffacd0b85a97d-4abafd02fa0mr38342912f8f.7.1795621450498;
+        Wed, 25 Nov 2026 07:44:10 -0800 (PST)
+X-Received: by 2002:a05:6000:40ce:b0:488:8347:a110 with SMTP id ffacd0b85a97d-4abafd02fa0mr38342866f8f.7.1795621450098;
+        Wed, 25 Nov 2026 07:44:10 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61f558sm35600520f8f.58.2026.11.25.07.44.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:44:09 -0800 (PST)
+Message-ID: <711567da-17c3-4ced-b7c6-e6e6b9376155@redhat.com>
+Date: Wed, 25 Nov 2026 16:44:08 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -84,507 +112,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] tipc: validate peer address attributes in
+ tipc_nl_peer_rm()
+To: Ian Rogers <irogers@google.com>, Jon Maloy <jmaloy@redhat.com>,
+ Tung Quang Nguyen <tung.quang.nguyen@est.tech>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>
+Cc: Simon Horman <horms@kernel.org>, netdev@vger.kernel.org,
+ tipc-discussion@lists.sourceforge.net, linux-kernel@vger.kernel.org,
+ llvm@lists.linux.dev, Elkin Cruz <elkin@google.com>
+References: <20261119170556.1518068-1-irogers@google.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261119170556.1518068-1-irogers@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-The PTP clock operations hold the channel lock while they wait for the
-device: up to 1 s for a pending ToD write to be applied on the next
-1 Hz edge, up to 1 s for a previous TIE write and up to 3 s for a
-previous output phase step. The DPLL callbacks and the periodic state
-check of the channel take the same lock, so they wait as well. The DPLL
-callbacks wait under the global dpll_lock, which stalls the requests
-for all DPLL devices in the system.
+On 11/19/26 18:05, Ian Rogers wrote:
+> tipc_nl_peer_rm() documents TIPC_NLA_NET_ADDR and TIPC_NLA_NET_NODEID as
+> mutually exclusive ways to identify the peer to remove, but implements
+> them as two independent if-blocks with no fallback check. If a
+> TIPC_NL_PEER_REMOVE netlink request provides an empty nested TIPC_NLA_NET
+> attribute (or only unrelated TIPC_NLA_NET_* attributes), 'addr' remains
+> uninitialized on the stack and is passed into in_own_node() and
+> tipc_node_find(). Conversely, if both attributes are supplied, the second
+> silently overwrites the first.
+> 
+> Return -EINVAL when both attributes are present or when neither is
+> present.
+> 
+> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
+> -Wconditional-uninitialized enabled; fix and changelog drafted with an AI
+> coding assistant. Build-tested under LLVM=1 W=1 and
+> -Wconditional-uninitialized; not runtime-tested over TIPC netlink.
 
-On a GNR-D system with a ZL30732, device-get requests for both DPLL
-channels and for a DPLL device of ice took 950 ms in median while
-settime() ran in a loop on the PTP clock of channel 0, and 2955 ms
-while adjtime() did output phase steps in NCO mode. With this change
-they take 2 ms in both cases.
+Testing your own patch is actually required. There are a few exceptions
+(i.e. h/w dependency with unavailable H/W), but this is not one of them.
 
-Only the PTP clock operations use the ToD, TIE and phase step
-registers. They need the channel lock only for the channel mode and
-the list of output pins.
+Please resubmit in a few days, after actually testing the patch.
 
-Serialize the PTP clock operations with a new per-channel ptp_lock and
-take the channel lock only to read the mode and the output pins and to
-issue a TIE write or the first phase step of an adjustment, which also
-steps the ToD. Wait for the previous TIE write or phase step before
-taking the channel lock, with tie_lock or phase_step_lock held, and
-check the mode again under it, so they are issued only in a mode that
-supports them. The phase steps for the other synthesizers move only
-the outputs and are issued in any mode, so all outputs get the same
-step even if the channel leaves NCO mode meanwhile. The lock order is
-ptp_lock, then tie_lock or phase_step_lock, then the channel lock.
+Thanks,
 
-Fixes: 1db73ce01856 ("dpll: zl3073x: add PTP clock support")
-Signed-off-by: Ivan Vecera <ivecera@redhat.com>
----
-Changes in v2:
-- issue the phase steps for the other synthesizers even if the channel
-  left NCO mode while waiting, so the outputs are not stepped partially
-  (Sashiko)
-- adjphase: check the mode before waiting for the device (Sashiko)
-- @ptp_lock kernel-doc: mention the pins list (Sashiko)
-
-v1: https://lore.kernel.org/r/20261120171800.327855-1-ivecera@redhat.com
----
- drivers/dpll/zl3073x/chan.c |  60 +++++++++----
- drivers/dpll/zl3073x/chan.h |   2 +
- drivers/dpll/zl3073x/dpll.c | 165 ++++++++++++++++++++++++++++++------
- drivers/dpll/zl3073x/dpll.h |   6 +-
- 4 files changed, 190 insertions(+), 43 deletions(-)
-
-diff --git a/drivers/dpll/zl3073x/chan.c b/drivers/dpll/zl3073x/chan.c
-index ba4d303d41b47d..3d0388f28e7bcc 100644
---- a/drivers/dpll/zl3073x/chan.c
-+++ b/drivers/dpll/zl3073x/chan.c
-@@ -460,6 +460,25 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
- 	return rc;
- }
- 
-+/**
-+ * zl3073x_chan_tie_ready_wait - wait for the previous TIE write to complete
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The TIE write operation is shared by all channels, and the device can take
-+ * up to one second to complete it.
-+ *
-+ * Context: Caller must hold zldev->tie_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->tie_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
-+				    ZL_DPLL_TIE_CTRL_OP,
-+				    ZL_POLL_TIE_WR_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_tie_write - adjust DPLL phase using TIE write
-  * @zldev: pointer to zl3073x device
-@@ -469,6 +488,8 @@ int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset)
-  * Converts nanoseconds to TIE units (0.01 ps) and writes TIE data
-  * to the specified channel.
-  *
-+ * Context: Caller must hold zldev->tie_lock and must have waited for the
-+ * previous TIE write with zl3073x_chan_tie_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-@@ -476,14 +497,7 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 	s64 tie_data;
- 	int rc;
- 
--	guard(mutex)(&zldev->tie_lock);
--
--	/* Wait for any previous TIE operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_DPLL_TIE_CTRL,
--				  ZL_DPLL_TIE_CTRL_OP,
--				  ZL_POLL_TIE_WR_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->tie_lock);
- 
- 	/* Convert ns to TIE units (0.01 ps = 10^-14 s) */
- 	tie_data = delta_ns * 100000LL;
-@@ -500,6 +514,25 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
- 				ZL_DPLL_TIE_CTRL_OP_WR);
- }
- 
-+/**
-+ * zl3073x_chan_phase_step_ready_wait - wait for the previous phase step
-+ * @zldev: pointer to zl3073x device
-+ *
-+ * The output phase step operation is shared by all channels, and the device
-+ * can take seconds to complete it.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return: 0 on success, <0 on error
-+ */
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev)
-+{
-+	lockdep_assert_held(&zldev->phase_step_lock);
-+
-+	return zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
-+				    ZL_OUTPUT_PHASE_STEP_CTRL_OP,
-+				    ZL_POLL_PHASE_STEP_TIMEOUT_US);
-+}
-+
- /**
-  * zl3073x_chan_phase_step - execute one output phase step operation
-  * @zldev: pointer to zl3073x device
-@@ -511,6 +544,8 @@ int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns)
-  * All masked outputs must use synthesizers of the same frequency since
-  * the step value is in synthesizer clock cycles.
-  *
-+ * Context: Caller must hold zldev->phase_step_lock and must have waited for
-+ * the previous phase step with zl3073x_chan_phase_step_ready_wait().
-  * Return: 0 on success, <0 on error
-  */
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
-@@ -520,14 +555,7 @@ int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 	u8 ctrl;
- 	int rc;
- 
--	guard(mutex)(&zldev->phase_step_lock);
--
--	/* Wait for any previous phase step operation to complete */
--	rc = zl3073x_poll_zero_u8(zldev, ZL_REG_OUTPUT_PHASE_STEP_CTRL,
--				  ZL_OUTPUT_PHASE_STEP_CTRL_OP,
--				  ZL_POLL_PHASE_STEP_TIMEOUT_US);
--	if (rc)
--		return rc;
-+	lockdep_assert_held(&zldev->phase_step_lock);
- 
- 	rc = zl3073x_write_u32(zldev, ZL_REG_OUTPUT_PHASE_STEP_DATA,
- 			       step_cycles);
-diff --git a/drivers/dpll/zl3073x/chan.h b/drivers/dpll/zl3073x/chan.h
-index 99c3b7088f678f..55932e950e7e6e 100644
---- a/drivers/dpll/zl3073x/chan.h
-+++ b/drivers/dpll/zl3073x/chan.h
-@@ -52,11 +52,13 @@ int zl3073x_chan_tod_write(struct zl3073x_dev *zldev, u8 ch,
- 			   struct timespec64 ts);
- int zl3073x_chan_tod_adjust(struct zl3073x_dev *zldev, u8 ch,
- 			    struct timespec64 delta);
-+int zl3073x_chan_phase_step_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_phase_step(struct zl3073x_dev *zldev, u8 ch,
- 			    u16 out_mask, s32 step_cycles, bool tod_step);
- 
- int zl3073x_chan_df_offset_set(struct zl3073x_dev *zldev, u8 ch, s64 offset);
- 
-+int zl3073x_chan_tie_ready_wait(struct zl3073x_dev *zldev);
- int zl3073x_chan_tie_write(struct zl3073x_dev *zldev, u8 ch, s64 delta_ns);
- 
- /**
-diff --git a/drivers/dpll/zl3073x/dpll.c b/drivers/dpll/zl3073x/dpll.c
-index 1cdadb8e46fb2d..e8bdba4b44d82f 100644
---- a/drivers/dpll/zl3073x/dpll.c
-+++ b/drivers/dpll/zl3073x/dpll.c
-@@ -2460,7 +2460,7 @@ static int zl3073x_dpll_ptp_gettimex64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_read(zldpll->dev, zldpll->id, false, ts, sts);
- }
-@@ -2478,11 +2478,59 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
- 	return zl3073x_chan_tod_write(zldpll->dev, zldpll->id, *ts);
- }
- 
-+/**
-+ * zl3073x_dpll_ptp_phase_step - execute one output phase step
-+ * @zldpll: DPLL channel
-+ * @out_mask: bitmask of outputs to step
-+ * @step_cycles: phase step in synthesizer clock cycles
-+ * @tod_step: also step the ToD counter
-+ *
-+ * Waits for the previous phase step without the channel lock, as the device
-+ * can take up to three seconds to complete it. A step with @tod_step is then
-+ * issued under the channel lock and only in NCO mode, the only mode where the
-+ * device expects a ToD step. A step of outputs only follows a ToD step of the
-+ * same adjustment and is issued in any mode, so all outputs get the same step
-+ * even if the channel has left NCO mode in the meantime.
-+ *
-+ * Context: Caller must hold zldev->phase_step_lock.
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- @tod_step is set and channel is not in NCO mode
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_phase_step(struct zl3073x_dpll *zldpll,
-+				       u16 out_mask, s32 step_cycles,
-+				       bool tod_step)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	rc = zl3073x_chan_phase_step_ready_wait(zldev);
-+	if (rc)
-+		return rc;
-+
-+	if (!tod_step)
-+		return zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-+					       step_cycles, false);
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_is_nco(chan))
-+		rc = zl3073x_chan_phase_step(zldev, zldpll->id, out_mask,
-+					     step_cycles, true);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+
-+	return rc;
-+}
-+
- /**
-  * zl3073x_dpll_ptp_adjtime_phase_step - adjust sub-second time via phase step
-  * @zldpll: DPLL channel
-@@ -2503,7 +2551,7 @@ static int zl3073x_dpll_ptp_settime64(struct ptp_clock_info *info,
-  * Return:
-  * * %0			- success (or partial success if a later synth group
-  *			  failed after the first was already stepped)
-- * * %-EOPNOTSUPP	- no synths available
-+ * * %-EOPNOTSUPP	- no synths available or channel is not in NCO mode
-  * * negative		- error
-  */
- static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
-@@ -2517,10 +2565,13 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 	bool tod_stepped = false;
- 	s32 step_cycles;
- 	u32 synth_freq;
--	int rc;
-+	int rc = 0;
- 	u8 i;
- 
-+	mutex_lock(&zldev->phase_step_lock);
-+
- 	/* Build per-synth output masks from registered output pins */
-+	mutex_lock(&zldpll->lock);
- 	list_for_each_entry(pin, &zldpll->pins, list) {
- 		u8 out_id, synth_id;
- 
-@@ -2540,8 +2591,11 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		}
- 		synth_mask[synth_id] |= BIT(out_id);
- 	}
-+	mutex_unlock(&zldpll->lock);
- 
--	/* Process each synth group */
-+	/* Process each synth group. The synth state is read before the PTP
-+	 * clock is registered and does not change while it is.
-+	 */
- 	for (i = 0; i < ZL3073X_NUM_SYNTHS; i++) {
- 		synth = zl3073x_synth_state_get(zldev, i);
- 		if (!zl3073x_synth_is_enabled(synth) ||
-@@ -2560,33 +2614,74 @@ static int zl3073x_dpll_ptp_adjtime_phase_step(struct zl3073x_dpll *zldpll,
- 		/* Safe for s32: max synth freq is 750 MHz */
- 		step_cycles = div_s64(delta * synth_freq, NSEC_PER_SEC);
- 
--		rc = zl3073x_chan_phase_step(zldev, zldpll->id,
--					     synth_mask[i], step_cycles,
--					     !tod_stepped);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, synth_mask[i],
-+						 step_cycles, !tod_stepped);
- 		if (rc) {
- 			if (tod_stepped) {
- 				dev_warn(zldev->dev,
- 					 "Partial phase step failure\n");
--				return 0;
-+				rc = 0;
- 			}
--			return rc;
-+			goto unlock;
- 		}
- 		tod_stepped = true;
- 	}
- 
--	if (!first_synth_freq)
--		return -EOPNOTSUPP;
-+	if (!first_synth_freq) {
-+		rc = -EOPNOTSUPP;
-+		goto unlock;
-+	}
- 
- 	/* No enabled outputs found; step ToD counter only using the
- 	 * first enabled synth's period (empty output mask).
- 	 */
- 	if (!tod_stepped) {
- 		step_cycles = div_s64(delta * first_synth_freq, NSEC_PER_SEC);
--		return zl3073x_chan_phase_step(zldev, zldpll->id, 0,
--					       step_cycles, true);
-+		rc = zl3073x_dpll_ptp_phase_step(zldpll, 0, step_cycles, true);
- 	}
- 
--	return 0;
-+unlock:
-+	mutex_unlock(&zldev->phase_step_lock);
-+
-+	return rc;
-+}
-+
-+/**
-+ * zl3073x_dpll_ptp_tie_write - adjust DPLL phase using TIE write
-+ * @zldpll: DPLL channel
-+ * @delta: phase adjustment in nanoseconds (must be in (-1s, 1s))
-+ *
-+ * Waits for the previous TIE write without the channel lock, as the device
-+ * can take up to one second to complete it. The write is then issued under
-+ * the channel lock, so it is issued only in a mode that supports TIE.
-+ *
-+ * Return:
-+ * * %0			- success
-+ * * %-EOPNOTSUPP	- channel mode does not support TIE
-+ * * negative		- other error
-+ */
-+static int zl3073x_dpll_ptp_tie_write(struct zl3073x_dpll *zldpll, s64 delta)
-+{
-+	struct zl3073x_dev *zldev = zldpll->dev;
-+	const struct zl3073x_chan *chan;
-+	int rc;
-+
-+	mutex_lock(&zldev->tie_lock);
-+	rc = zl3073x_chan_tie_ready_wait(zldev);
-+	if (rc)
-+		goto unlock_tie;
-+
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	if (zl3073x_chan_mode_supports_tie(chan))
-+		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	else
-+		rc = -EOPNOTSUPP;
-+	mutex_unlock(&zldpll->lock);
-+unlock_tie:
-+	mutex_unlock(&zldev->tie_lock);
-+
-+	return rc;
- }
- 
- /**
-@@ -2616,17 +2711,26 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	const struct zl3073x_chan *chan;
- 	bool sec_adjusted = false;
- 	struct timespec64 ts;
-+	bool is_nco, is_tie;
- 	int rc;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	/* Modes without phase step or TIE use plain ToD adjust */
-+	/* Hold the channel lock only to read the mode. The ToD, TIE and phase
-+	 * step operations below can wait for up to seconds and they do not
-+	 * have to block the DPLL callbacks for that long.
-+	 */
-+	mutex_lock(&zldpll->lock);
- 	chan = zl3073x_chan_state_get(zldev, zldpll->id);
--	if (!zl3073x_chan_mode_is_nco(chan) &&
--	    !zl3073x_chan_mode_supports_tie(chan))
-+	is_nco = zl3073x_chan_mode_is_nco(chan);
-+	is_tie = zl3073x_chan_mode_supports_tie(chan);
-+	mutex_unlock(&zldpll->lock);
-+
-+	/* Modes without phase step or TIE use plain ToD adjust */
-+	if (!is_nco && !is_tie)
- 		return zl3073x_chan_tod_adjust(zldev, zldpll->id,
- 					       ns_to_timespec64(delta));
- 
-@@ -2661,12 +2765,12 @@ static int zl3073x_dpll_ptp_adjtime(struct ptp_clock_info *info, s64 delta)
- 	}
- 
- 	/* Apply sub-second delta via phase step (NCO) or TIE write */
--	if (zl3073x_chan_mode_is_nco(chan)) {
-+	if (is_nco) {
- 		rc = zl3073x_dpll_ptp_adjtime_phase_step(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	} else {
--		rc = zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+		rc = zl3073x_dpll_ptp_tie_write(zldpll, delta);
- 		if (!rc)
- 			return 0;
- 	}
-@@ -2719,6 +2823,7 @@ zl3073x_dpll_ptp_adjfine(struct ptp_clock_info *info, long scaled_ppm)
- 	 */
- 	offset = -div_s64((s64)scaled_ppm * 67108864LL, 15625);
- 
-+	guard(mutex)(&zldpll->ptp_lock);
- 	guard(mutex)(&zldpll->lock);
- 
- 	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
-@@ -2747,20 +2852,26 @@ static int zl3073x_dpll_ptp_adjphase(struct ptp_clock_info *info, s32 delta)
- {
- 	struct zl3073x_dpll *zldpll = container_of(info, struct zl3073x_dpll,
- 						   ptp_info);
--	struct zl3073x_dev *zldev = zldpll->dev;
- 	const struct zl3073x_chan *chan;
-+	bool is_tie;
- 
- 	if (!delta)
- 		return 0;
- 
--	guard(mutex)(&zldpll->lock);
-+	guard(mutex)(&zldpll->ptp_lock);
- 
--	chan = zl3073x_chan_state_get(zldev, zldpll->id);
-+	/* Check the mode first, so a mode without TIE does not wait for
-+	 * the TIE write of another channel.
-+	 */
-+	mutex_lock(&zldpll->lock);
-+	chan = zl3073x_chan_state_get(zldpll->dev, zldpll->id);
-+	is_tie = zl3073x_chan_mode_supports_tie(chan);
-+	mutex_unlock(&zldpll->lock);
- 
--	if (!zl3073x_chan_mode_supports_tie(chan))
-+	if (!is_tie)
- 		return -EOPNOTSUPP;
- 
--	return zl3073x_chan_tie_write(zldev, zldpll->id, delta);
-+	return zl3073x_dpll_ptp_tie_write(zldpll, delta);
- }
- 
- static s32
-@@ -2926,6 +3037,7 @@ zl3073x_dpll_alloc(struct zl3073x_dev *zldev, u8 ch)
- 	zldpll->id = ch;
- 	mutex_init(&zldpll->lock);
- 	INIT_LIST_HEAD(&zldpll->pins);
-+	mutex_init(&zldpll->ptp_lock);
- 
- 	return zldpll;
- }
-@@ -2941,6 +3053,7 @@ zl3073x_dpll_free(struct zl3073x_dpll *zldpll)
- {
- 	WARN(zldpll->dpll_dev, "DPLL device is still registered\n");
- 
-+	mutex_destroy(&zldpll->ptp_lock);
- 	mutex_destroy(&zldpll->lock);
- 	kfree(zldpll);
- }
-diff --git a/drivers/dpll/zl3073x/dpll.h b/drivers/dpll/zl3073x/dpll.h
-index 993221dc63249d..1f51875007e253 100644
---- a/drivers/dpll/zl3073x/dpll.h
-+++ b/drivers/dpll/zl3073x/dpll.h
-@@ -19,10 +19,12 @@
-  * @ops: DPLL device operations for this instance
-  * @dpll_dev: pointer to registered DPLL device
-  * @tracker: tracking object for the acquired reference
-- * @lock: per-DPLL mutex serializing all operations
-+ * @lock: per-DPLL mutex serializing DPLL operations and channel state access
-  * @type: DPLL type (PPS or EEC)
-  * @lock_status: last saved DPLL lock status
-  * @pins: list of pins
-+ * @ptp_lock: serializes PTP clock operations, taken before @lock, which they
-+ *	      hold only while they use the channel state or the pins list
-  * @ptp_info: PTP clock info
-  * @ptp_clock: registered PTP clock (or NULL)
-  */
-@@ -39,6 +41,8 @@ struct zl3073x_dpll {
- 	enum dpll_type			type;
- 	enum dpll_lock_status		lock_status;
- 	struct list_head		pins;
-+	/* Serializes PTP clock operations */
-+	struct mutex			ptp_lock;
- 	struct ptp_clock_info		ptp_info;
- 	struct ptp_clock		*ptp_clock;
- };
-
-base-commit: 4d67cf2fd2352f130c42494a933ba9158b925c65
--- 
-2.56.1
+Paolo
 
