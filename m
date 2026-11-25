@@ -1,47 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606305;
-	b=xBo6MjzhjTOSNOHfDDIWKvNjiZNN+i2KrmlYiIv4AdWHQzNQ67zGf8qziB+Q4DPDGjnu
-	 KJgQykhfQ1mXdiUz8T3p1wuyiqTCfQ2+j+mcOzxtWlEQHxiNARWY2vqofJnJxJdQL05Jk
-	 EhutUeGg18uoPxydVGH1WW1Wnr/m1eBkAuHT8+9F4nZ3fRzscqA/g6taDjsZ5c216XBFC
-	 rLPO4yLBMU2W+XrxUgQicWYGvX43nyctkQI/dYiI4RjJrwV2kWgy2GE+Adt903bhMTFlt
-	 zjp0jQXZIU1/44xadQ5ijkVFjsZT9yGtN3RIleJ/WdNFIjK5H3qchfW7X/o0loQEKRQ==
+	t=1795606356;
+	b=JkCb0M8Pks1aLStMjm2Lv1M3QiNtXUIDoo8GjIf4UtEdO3/qBfPfWtbEspIvy5xqgxfs
+	 ZAXMJWXJoiydkH2PFq9Cy7l+w5OHdT6F83I7W7T8HG4ABYTwBdID8HOfSY0m+1B/3Pl5n
+	 m8RySYCk8CMFTFW5GRrAWQjI6Rgmh78ILN0TrYuEGQTD4sO9mDOh7SqdR6k7pCE7thaaQ
+	 0gbWUCpSIs7wg9M4VbYdddEtNsTE65C2J5RIPyxD6NbwvKXqe4wBD7vpMh4KoHHQQLfvS
+	 7gU+u0wylbnULlgTBvQ8rKZelmfaxSZR7qM/Llzzw6DV+OYSFaNlwRK4TDBUPTrFw5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606305;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=HGTi6niermcp+bXbJA8bBsO4tSFHNGHuZ8YGOPIWv88=;
-	b=gjMHlLv84j+nmTYt+sqczdU00Gb+Qx+CBnd35GIwmYIBM7MXVJck32jleIWHZ0nK2anq
-	 rUUV2MfxT7Ctj1w5okYBnk9wi/MsXJw5EkRKNIkyLT7YKXxg3uORJFXZik9szEDgEU9ZN
-	 as5t6mFYO43eV1coehNcd4a5qCH8I3nYkXwG0dOC1UEMqqJhOng6Lvn0nkWr8Mp3wJ/bI
-	 cnM+8LmdOe3UhydNqdHjE/dbPurSlNb/tHP/b9g9UmQeUZWD6PIX2VAQuRkRD8KkMlNPe
-	 vbGWyrGxHeQD9Ukybe6nmUsV/e9+oWAoOyoJOf0bQmqJp0X3O0oW7br4lbEXY6vymnA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606356;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Received:
+	 DKIM-Signature;
+	bh=b5/u/al/otVDeJI7AX/e/YrAlHDpoWQ4QAjq8dJ7v/s=;
+	b=WpVMjQejj0gTOLHqjSNIy/62bZbRMhRfWgVpSdFxHlkF/4WG0hGL0DMqSAawhHodaV7O
+	 7ZNX+mJ0cKi552/Aqz909HaJelUIhRO0QIXlOLgWdu8cIXpVTJ3Ah9U7Kt3+PirqR+0RH
+	 Fke11m1ubNIv7kjKqw8hknfXfkPpAbkalxfwiR/bmtR9/ZjcgL1hIFaYgbbfJoS8Aed90
+	 3pK3jDFxeXy/TFI1IymUtQOcCjxXL+/v86yKfh7hl95OsdHNlFyUJc8GGJS6Apz1Q2hHb
+	 Rj/81IrNmSHBY/D5nsPf+76Jp4rxU2N3aDgsJXSt3Bj1T5D8Xe+f7bkppVanihBVBsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDiPHOVl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=rimpianto.com;
+	spf=pass smtp.mailfrom=rimpianto.com;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b="SNEht/71";
+	arc=none smtp.remote-ip=46.14.198.178
+Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B40606A33B;
-	Wed, 25 Nov 2026 11:31:45 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F8EC606A327;
+	Wed, 25 Nov 2026 11:32:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F8EC606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GDiPHOVl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E104C1F000D4;
-	Wed, 25 Nov 2026 11:31:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795606304;
-	bh=HGTi6niermcp+bXbJA8bBsO4tSFHNGHuZ8YGOPIWv88=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=GDiPHOVlObEOZ7r2PSIjiU6Hcm8DmjWgqpK5mRnX8IDpQ3k9e3AKboCyCQQucCAe5
-	 ZOhKsJnjJV9o2cEfLXPJ7ZjXcmb72f/7N5d6bHMix3+Qsk0pcqo165m1ro6l/lu8oa
-	 0OFRJJwu6tM+doiGOcl+j1tPOO81cB3ZVGk59fNyOhPbmP2jEzhZm2uXlgsO4RZYwO
-	 WRWh4qBSW1TcJzzJnyjZ/G+kXBsNVooRJeuCjlBHGpKKkDwbqpp94+40U1XH4XYj8H
-	 mTiwNys4YnFLB78uMm0Vth4tl95LDFvKO7Z1PoOXSYNb2+VKqt0tXNjx4DoF6LfqBD
-	 MHfz6qG0MY/Jw==
-Message-ID: <10125984-a1a8-45ca-9a83-e71c2be2114e@kernel.org>
-Date: Wed, 25 Nov 2026 12:31:37 +0100
+	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=SNEht/71
+Authentication-Results: mail.rimpianto.com;
+	auth=pass (plain)
+From: Federico Musto <federico@rimpianto.com>
+To: Chris Snook <chris.snook@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Federico Musto <federico@rimpianto.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net v5 1/2] net: atl1c: wait for in-flight RX polls before the link-down ring reset
+Date: Wed, 25 Nov 2026 12:31:19 +0100
+Message-ID: <20261125113120.99743-2-federico@rimpianto.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261125113120.99743-1-federico@rimpianto.com>
+References: <20261125113120.99743-1-federico@rimpianto.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,98 +61,199 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH net-next v2 4/9] net: state the "XDP excludes HW-GRO" rule
- in the core
-Content-Language: fr
-To: Jakub Kicinski <kuba@kernel.org>, pabeni@redhat.com
-Cc: davem@davemloft.net, netdev@vger.kernel.org, edumazet@google.com,
- andrew+netdev@lunn.ch, horms@kernel.org, michael.chan@broadcom.com,
- manishc@marvell.com, joshwash@google.com, hramamurthy@google.com,
- tariqt@nvidia.com, saeedm@nvidia.com, daniel@iogearbox.net, hawk@kernel.org,
- sdf@fomichev.me, willemb@google.com, przemyslaw.kitszel@intel.com,
- bpf@vger.kernel.org
-References: <20261122010112.1471146-1-kuba@kernel.org>
- <20261122010112.1471146-5-kuba@kernel.org>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- xsFNBFXj+ekBEADxVr99p2guPcqHFeI/JcFxls6KibzyZD5TQTyfuYlzEp7C7A9swoK5iCvf
- YBNdx5Xl74NLSgx6y/1NiMQGuKeu+2BmtnkiGxBNanfXcnl4L4Lzz+iXBvvbtCbynnnqDDqU
- c7SPFMpMesgpcu1xFt0F6bcxE+0ojRtSCZ5HDElKlHJNYtD1uwY4UYVGWUGCF/+cY1YLmtfb
- WdNb/SFo+Mp0HItfBC12qtDIXYvbfNUGVnA5jXeWMEyYhSNktLnpDL2gBUCsdbkov5VjiOX7
- CRTkX0UgNWRjyFZwThaZADEvAOo12M5uSBk7h07yJ97gqvBtcx45IsJwfUJE4hy8qZqsA62A
- nTRflBvp647IXAiCcwWsEgE5AXKwA3aL6dcpVR17JXJ6nwHHnslVi8WesiqzUI9sbO/hXeXw
- TDSB+YhErbNOxvHqCzZEnGAAFf6ges26fRVyuU119AzO40sjdLV0l6LE7GshddyazWZf0iac
- nEhX9NKxGnuhMu5SXmo2poIQttJuYAvTVUNwQVEx/0yY5xmiuyqvXa+XT7NKJkOZSiAPlNt6
- VffjgOP62S7M9wDShUghN3F7CPOrrRsOHWO/l6I/qJdUMW+MHSFYPfYiFXoLUZyPvNVCYSgs
- 3oQaFhHapq1f345XBtfG3fOYp1K2wTXd4ThFraTLl8PHxCn4ywARAQABzSRNYXR0aGlldSBC
- YWVydHMgPG1hdHR0YmVAa2VybmVsLm9yZz7CwZEEEwEIADsCGwMFCwkIBwIGFQoJCAsCBBYC
- AwECHgECF4AWIQToy4X3aHcFem4n93r2t4JPQmmgcwUCZUDpDAIZAQAKCRD2t4JPQmmgcz33
- EACjROM3nj9FGclR5AlyPUbAq/txEX7E0EFQCDtdLPrjBcLAoaYJIQUV8IDCcPjZMJy2ADp7
- /zSwYba2rE2C9vRgjXZJNt21mySvKnnkPbNQGkNRl3TZAinO1Ddq3fp2c/GmYaW1NWFSfOmw
- MvB5CJaN0UK5l0/drnaA6Hxsu62V5UnpvxWgexqDuo0wfpEeP1PEqMNzyiVPvJ8bJxgM8qoC
- cpXLp1Rq/jq7pbUycY8GeYw2j+FVZJHlhL0w0Zm9CFHThHxRAm1tsIPc+oTorx7haXP+nN0J
- iqBXVAxLK2KxrHtMygim50xk2QpUotWYfZpRRv8dMygEPIB3f1Vi5JMwP4M47NZNdpqVkHrm
- jvcNuLfDgf/vqUvuXs2eA2/BkIHcOuAAbsvreX1WX1rTHmx5ud3OhsWQQRVL2rt+0p1DpROI
- 3Ob8F78W5rKr4HYvjX2Inpy3WahAm7FzUY184OyfPO/2zadKCqg8n01mWA9PXxs84bFEV2mP
- VzC5j6K8U3RNA6cb9bpE5bzXut6T2gxj6j+7TsgMQFhbyH/tZgpDjWvAiPZHb3sV29t8XaOF
- BwzqiI2AEkiWMySiHwCCMsIH9WUH7r7vpwROko89Tk+InpEbiphPjd7qAkyJ+tNIEWd1+MlX
- ZPtOaFLVHhLQ3PLFLkrU3+Yi3tXqpvLE3gO3LM7BTQRV4/npARAA5+u/Sx1n9anIqcgHpA7l
- 5SUCP1e/qF7n5DK8LiM10gYglgY0XHOBi0S7vHppH8hrtpizx+7t5DBdPJgVtR6SilyK0/mp
- 9nWHDhc9rwU3KmHYgFFsnX58eEmZxz2qsIY8juFor5r7kpcM5dRR9aB+HjlOOJJgyDxcJTwM
- 1ey4L/79P72wuXRhMibN14SX6TZzf+/XIOrM6TsULVJEIv1+NdczQbs6pBTpEK/G2apME7vf
- mjTsZU26Ezn+LDMX16lHTmIJi7Hlh7eifCGGM+g/AlDV6aWKFS+sBbwy+YoS0Zc3Yz8zrdbi
- Kzn3kbKd+99//mysSVsHaekQYyVvO0KD2KPKBs1S/ImrBb6XecqxGy/y/3HWHdngGEY2v2IP
- Qox7mAPznyKyXEfG+0rrVseZSEssKmY01IsgwwbmN9ZcqUKYNhjv67WMX7tNwiVbSrGLZoqf
- Xlgw4aAdnIMQyTW8nE6hH/Iwqay4S2str4HZtWwyWLitk7N+e+vxuK5qto4AxtB7VdimvKUs
- x6kQO5F3YWcC3vCXCgPwyV8133+fIR2L81R1L1q3swaEuh95vWj6iskxeNWSTyFAVKYYVskG
- V+OTtB71P1XCnb6AJCW9cKpC25+zxQqD2Zy0dK3u2RuKErajKBa/YWzuSaKAOkneFxG3LJIv
- Hl7iqPF+JDCjB5sAEQEAAcLBXwQYAQIACQUCVeP56QIbDAAKCRD2t4JPQmmgc5VnD/9YgbCr
- HR1FbMbm7td54UrYvZV/i7m3dIQNXK2e+Cbv5PXf19ce3XluaE+wA8D+vnIW5mbAAiojt3Mb
- 6p0WJS3QzbObzHNgAp3zy/L4lXwc6WW5vnpWAzqXFHP8D9PTpqvBALbXqL06smP47JqbyQxj
- Xf7D2rrPeIqbYmVY9da1KzMOVf3gReazYa89zZSdVkMojfWsbq05zwYU+SCWS3NiyF6QghbW
- voxbFwX1i/0xRwJiX9NNbRj1huVKQuS4W7rbWA87TrVQPXUAdkyd7FRYICNW+0gddysIwPoa
- KrLfx3Ba6Rpx0JznbrVOtXlihjl4KV8mtOPjYDY9u+8x412xXnlGl6AC4HLu2F3ECkamY4G6
- UxejX+E6vW6Xe4n7H+rEX5UFgPRdYkS1TA/X3nMen9bouxNsvIJv7C6adZmMHqu/2azX7S7I
- vrxxySzOw9GxjoVTuzWMKWpDGP8n71IFeOot8JuPZtJ8omz+DZel+WCNZMVdVNLPOd5frqOv
- mpz0VhFAlNTjU1Vy0CnuxX3AM51J8dpdNyG0S8rADh6C8AKCDOfUstpq28/6oTaQv7QZdge0
- JY6dglzGKnCi/zsmp2+1w559frz4+IC7j/igvJGX4KDDKUs0mlld8J2u2sBXv7CGxdzQoHaz
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261122010112.1471146-5-kuba@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Received: from localhost (Unknown [127.0.0.1])
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 455A4CB8-EA41-4A84-AB6F-0475A2A7EF25.2
+	envelope-from <federico@rimpianto.com>
+	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
+	Wed, 25 Nov 2026 12:31:21 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=s20260314391;
+ t=1795606281; bh=b5/u/al/otVDeJI7AX/e/YrAlHDpoWQ4QAjq8dJ7v/s=;
+ b=SNEht/71rCBfAMMscYpIupiYDUAXc9a3GxJ2NruecOOVZUynNx7CR/GRsia491DnV61jNkK1h
+ eJyIsHHeS+Q3RlvNSw8mGuWViXscmIjwRI85Q2RDsLQSFyMXVq8KA9+sGiOmkH0H9057Lu4Bqfc
+ WunUFvmTrbMYRIPUFPcGAjIQ2scKtEZd/QeqsL5rwqKU5IrcarEciRC5xehyfQrPRLlmRCpXJSt
+ IyOZORvacQ4EaFyAAzmCIhrbx4rifaG2d2+Q4DTSM1+Vh/tmvCbZ2T6n8OeoR0FDevWvQYfFG+P
+ pdHHIhiH9c5bkCa4vhy9zQTdQWZgVxvIK8Qg4BJJhmXA==
 
-Hi Jakub, Paolo,
+When the PHY reports link down, the work item calls
+atl1c_check_link_status(), which resets the MAC, frees every RX buffer
+and zeroes the ring indices through atl1c_reset_dma_ring(), then posts
+fresh buffers through atl1c_configure(). Nothing keeps the RX poll away
+while it does so: atl1c_irq_disable() masks the device interrupt and
+waits for the hard interrupt handler only, and atl1c_clean_rx() tests
+the carrier only when it is entered. A poll that passed that test before
+the carrier went off keeps walking the RRD ring on another CPU while the
+work item frees the same buffers. Both can unmap and free the same skb,
+or the poll can hand the stack an skb the work item has already freed.
 
-Thank you for this series!
+Once the carrier is off, wait until no RX poll is in flight before
+touching the rings. NAPI_STATE_SCHED is held for the whole poll, so
+observing it clear on every RX queue means no poll is running, and a
+poll that starts later sees the carrier off and returns without looking
+at the rings. NAPI does not have to be disabled.
 
-On 22/11/2026 02:01, Jakub Kicinski wrote:
-> Clear HW-GRO in __netdev_update_features(), and make sure XDP setup
-> paths refresh the features.
+The handshake is a store-buffer pattern: the work item stores the
+carrier-off state and then loads NAPI_STATE_SCHED, while the scheduling
+side stores NAPI_STATE_SCHED (the cmpxchg in napi_schedule_prep()) and
+the poll then loads the carrier.  With a full barrier between store and
+load on both sides, either the work item sees the poll or the poll sees
+the carrier off.  The cmpxchg provides it on the scheduling side; an
+explicit smp_mb() after netif_carrier_off() provides it here, so that
+the wait does not depend on how that function sets its bit.
 
-If I'm not mistaken, since this series, the HW tests are marked as
-failed because ring-reconfig-py fails on both virtio_net (virt-drv-hw
-and virt-drv-hw-dbg): with the RX ring at 1, no traffic gets through.
+napi_disable() is not used because it cannot be made safe here without
+serialising the work item against atl1c_down() first: the two can run
+concurrently (MTU change, ethtool, suspend), a second napi_disable() on
+an already disabled NAPI sleeps holding the netdev instance lock, and
+the napi_enable() of the first caller then blocks on that lock.
 
-  https://netdev-ctrl.bots.linux.dev/logs/vmksft/drv-hw/results/925126/14-ring-reconfig-py/stdout
+The same concurrency shapes the wait. atl1c_close() and atl1c_down() set
+__AT_DOWN before quiescing NAPI; if the bit appears while the wait runs,
+a teardown is under way that will napi_disable() and reset the rings
+itself, so the work item must leave them alone rather than reset without
+having waited. The wait is also bounded: a poll that never finishes
+would otherwise stall the work item with interrupts masked. In both
+cases the rings are left untouched and the handler runs again on the
+next link-change event.
 
-From what I understood, ping.py runs xdpgeneric earlier in the same VM.
-dev_disable_gro_hw() used to leave HW-GRO off for good, so
-ring_reconfig.py never ran with it on. Now HW-GRO is restored and big
-GSO frames no longer fit into the 1-entry ring. So I guess the real
-issue is in virtio_net (or the test), not in this patch. This patch just
-made it visible.
+Only the work item waits. atl1c_up() also calls
+atl1c_check_link_status(), before napi_enable(): no poll can run there,
+and a disabled NAPI keeps NAPI_STATE_SCHED set, so the wait would only
+spin. It passes false and the link-down path runs unchanged.
 
-(Also, maybe related: xsk-reconfig-py now skips on CX7 (zerocopy bind
-fails) since the same branch).
+Found by code inspection; the race has not been reproduced.
 
-Because these issues are on HW tests, and this patch seems to reveal
-existing issues, I'm not going to mark it as 'changes-requested', but
-ignore them on NIPA for the moment.
+Fixes: 5e5c0964d9b9 ("atl1c: do MAC-reset when PHY link down")
+Cc: stable@vger.kernel.org
+Signed-off-by: Federico Musto <federico@rimpianto.com>
+---
+New in v4. The Sashiko review flagged this race on v2 and again on v3 of
+the next patch: pre-existing, but made worse by a free in the same
+window.
 
-@Paolo: can you ping me if you decide to drop the series, please? :)
+v4 -> v5, after the Sashiko AI review of v4:
+ - on __AT_DOWN, skip the link-down reset instead of proceeding without
+   waiting: the concurrent teardown resets the rings after
+   napi_disable(), so the work item no longer touches them while a poll
+   may be live;
+ - bound the wait (~0.5-1 s) and skip the reset on timeout with a
+   ratelimited warning, so a threaded busy-poll (which keeps
+   NAPI_STATE_SCHED set while the interface is up) cannot hang the work
+   item with interrupts masked;
+ - wait only on the work-item path: atl1c_check_link_status() takes a
+   bool and atl1c_up() passes false, because it runs before
+   napi_enable() where a disabled NAPI keeps NAPI_STATE_SCHED set;
+ - order the carrier-off store before the NAPI_STATE_SCHED sampling with
+   an explicit smp_mb(): the handshake is a store-buffer pattern, the
+   scheduling side is ordered by the cmpxchg in napi_schedule_prep().
 
-Cheers,
-Matt
+Not addressed, both pre-existing: the TX side of the same reset
+(atl1c_clean_tx() and atl1c_xmit_frame() against atl1c_clean_tx_ring()),
+and the missing serialisation between the work item and the callers of
+atl1c_down().
+---
+ .../net/ethernet/atheros/atl1c/atl1c_main.c   | 65 ++++++++++++++++++-
+ 1 file changed, 62 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+index eddd840..afab3e1 100644
+--- a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
++++ b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+@@ -248,7 +248,52 @@ void atl1c_reinit_locked(struct atl1c_adapter *adapter)
+ 	clear_bit(__AT_RESETTING, &adapter->flags);
+ }
+ 
+-static void atl1c_check_link_status(struct atl1c_adapter *adapter)
++#define ATL1C_POLL_SYNC_TRIES 500
++
++/* atl1c_clean_rx() looks at the carrier only when it is entered.  A poll
++ * that passed that test before the carrier went off keeps walking the RRD
++ * ring.  NAPI_STATE_SCHED is held for the whole poll, and a poll that
++ * starts later sees the carrier off and returns without touching the
++ * rings, so once the bit is observed clear on every RX queue no poll is
++ * running and none can start.
++ *
++ * Only the link-change work item needs the wait: atl1c_up() calls
++ * atl1c_check_link_status() before napi_enable(), when no poll can run,
++ * and a disabled NAPI keeps NAPI_STATE_SCHED set, so waiting there would
++ * only spin.
++ *
++ * Returns false when the caller must leave the rings alone:
++ *  - __AT_DOWN is set: a concurrent close, down or suspend is tearing the
++ *    device down and resets the rings itself, after napi_disable();
++ *  - the wait timed out: a poll is not finishing (threaded busy-poll
++ *    keeps NAPI_STATE_SCHED set while the interface is up).  Resetting
++ *    under a running poll is the race this wait exists to avoid.
++ */
++static bool atl1c_rx_poll_sync(struct atl1c_adapter *adapter)
++{
++	int i;
++
++	for (i = 0; i < adapter->rx_queue_count; ++i) {
++		int tries = ATL1C_POLL_SYNC_TRIES;
++
++		while (test_bit(NAPI_STATE_SCHED,
++				&adapter->rrd_ring[i].napi.state)) {
++			if (test_bit(__AT_DOWN, &adapter->flags))
++				return false;
++			if (!tries--) {
++				dev_warn_ratelimited(&adapter->pdev->dev,
++						     "RX poll won't finish, skipping link-down reset\n");
++				return false;
++			}
++			usleep_range(1000, 2000);
++		}
++	}
++
++	return true;
++}
++
++static void atl1c_check_link_status(struct atl1c_adapter *adapter,
++				    bool sync_polls)
+ {
+ 	struct atl1c_hw *hw = &adapter->hw;
+ 	struct net_device *netdev = adapter->netdev;
+@@ -265,6 +310,20 @@ static void atl1c_check_link_status(struct atl1c_adapter *adapter)
+ 	if (!link) {
+ 		/* link down */
+ 		netif_carrier_off(netdev);
++		if (sync_polls) {
++			/* Store-buffer pattern against the poll: we store
++			 * carrier-off and then load NAPI_STATE_SCHED, the
++			 * scheduling side stores NAPI_STATE_SCHED
++			 * (napi_schedule_prep()) and the poll then loads the
++			 * carrier.  A full barrier on each side guarantees that
++			 * either we see the poll or the poll sees the carrier
++			 * off.  The cmpxchg provides it there; do not depend on
++			 * how netif_carrier_off() sets its bit here.
++			 */
++			smp_mb();
++			if (!atl1c_rx_poll_sync(adapter))
++				return;
++		}
+ 		hw->hibernate = true;
+ 		if (atl1c_reset_mac(hw) != 0)
+ 			if (netif_msg_hw(adapter))
+@@ -349,7 +408,7 @@ static void atl1c_common_task(struct work_struct *work)
+ 	if (test_and_clear_bit(ATL1C_WORK_EVENT_LINK_CHANGE,
+ 		&adapter->work_event)) {
+ 		atl1c_irq_disable(adapter);
+-		atl1c_check_link_status(adapter);
++		atl1c_check_link_status(adapter, true);
+ 		atl1c_irq_enable(adapter);
+ 	}
+ }
+@@ -2435,7 +2494,7 @@ static int atl1c_up(struct atl1c_adapter *adapter)
+ 	if (unlikely(err))
+ 		goto err_up;
+ 
+-	atl1c_check_link_status(adapter);
++	atl1c_check_link_status(adapter, false);
+ 	clear_bit(__AT_DOWN, &adapter->flags);
+ 	for (i = 0; i < adapter->tx_queue_count; ++i)
+ 		napi_enable(&adapter->tpd_ring[i].napi);
+-- 
+2.54.0 (Apple Git-157)
 
