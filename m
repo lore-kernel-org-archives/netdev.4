@@ -1,100 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.130
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795572449;
-	b=LrpOrTjeUT2FIili9/SeKxPUwBAvNejTRzvUE24g+KsYx4+xyW+cDJS8bSw54/DHNPHq
-	 I0XGr8MayFH0aJS8pn3wzx6udoacmZY8yRMPzlGZ1EbPu2VoiZtSSsPQWZos4rXuGERSU
-	 lqOBLDJRtpXQPoF0uRiFxgNGMUaBD4F2Zmigl0Pnf+8H9QkH42CHnZgNvJj6zgnYyF+kw
-	 Kr5sgygw6twzDFCTFO8gpj+rok2vTKIa9AnzlHDsfmppPG+OCL3kC/wZidVdu/dTLeAux
-	 aRYiTPo+/lNxLE380Jo1/w1BcKGl+/QgI7L1J2DnjiJRoH+9j4At4lF/dZDOI0l+VzA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795572449;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=XojWxgDr5LA3x6lFRy1QQvM1cLzWVbAOPEYLcMc398c=;
-	b=Oe+7XFBAZgHaUKrgXKjkuiFcBSyEg3eWG0A0syurdvk94vyPkrLkayS6t033NgHHSYeJ
-	 fQY/qn3oZHmk/6XcylEMgSsAWC1S1HSyC1S6Na+2jvudm8ZXsXtnWLKkd8F16artMwDQT
-	 Fo6qDeMJzTerT4sk4v+/7c/VUOgq4y0AXtrpSvPs//zdiQJAx49wfKJ5qzc/Co9AKIY3l
-	 rigIP05GyVJQGUye8S9dfhhH3FMQ2El6v5NBqQgQH4rTn9C9v+XGmXcEfBAmYLBUWKfsP
-	 GMZUgpBkZy2IMvC3+QcV99I+CQjSY8qFJCHLAxoNozjpOdzuu6x2BVdxyjztaW2rH2w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ifdWddk7;
-	arc=none smtp.remote-ip=74.125.231.130
-Received: from mail-oo2-f2.google.com (mail-oo2-f2.google.com [74.125.231.130])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.32
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795572544;
+	b=nHnRIvVxkTWdlBmYo1wTgILyJXMzzmwpIq8B5WcsfG0LuXndpRs+RzPKe+IgFrQzhJ7l
+	 uenEEXiDDen7QUm7Ivtx95V8Wgp07+ZSguho8gBM/pCtdoGUH2BrYQnZNRm7UYGMf8Ykm
+	 u1+dZgoI3vnW2YS/USRfvmHHrrlw60eMDsiot+4ReXhVABmlnPJ5d+u9EmYv/FKi5sdQE
+	 fnB8/q+pNnXKx++H6PoJCGgpet6xC3n3HibzZfHOFf4CipPF08LmnnOpked5A2FwwzaHU
+	 LB8B7YGVVXRFkNT5TNntMolIYDdTSYP67yGKolg6SuvQxrhg6deijzEh1jyN2dHqS7w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795572544;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+	b=f/hrZjke0pcUdnltbX4DlOZEC1UrLdB/PDAXDnJjkqjpriaqIUxPOng4qi4oIjlYTWjP
+	 orB+FPL6kjjdTBYMsCKIgOR8woObZ9Nq8tGbeQRvBPqPS0G42ckC9oiVeGsJ4pColzf4Q
+	 VUcW3w0ZfFCI9eyEgZqSc25QD+ROV8tQRxPsZbWgYJEs+K/KBQimQLyxK1UEQ+2lpvEjj
+	 yCQy8qzoUYVfdixjbmFSU5DcPPcMxmY/QXIrrP1Nfku0U3aRqYPmsS1eFvHbKo3hsNfHv
+	 GruxNXaETFOqSIb70SCep0G8Bs7JknESTt/M3gOINwXoFXf3yialH5DUGxWYs/KZ9Cw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=g0wZppBp;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.32
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011032.outbound.protection.outlook.com [40.93.194.32])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8744606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:07:28 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8744606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E77E9606A321;
+	Wed, 25 Nov 2026 02:09:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E77E9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ifdWddk7
-Received: by mail-oo2-f2.google.com with SMTP id 006d021491bc7-71ad760fdddso1754235eaf.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:07:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795572447; x=1796177247; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XojWxgDr5LA3x6lFRy1QQvM1cLzWVbAOPEYLcMc398c=;
-        b=ifdWddk7bS3I6p/OXqg1h68J3BzhKyr40pH80d9KuCbubboJhl7Uyufrl2DYLNL+CB
-         pgUR98RVuJ28y7BmFT0hVGWodLo/v2rOu+sfVFm/jIp37Tc7bd7rcH6C/XEGY0VU3PXk
-         2zzEqHdcbVhWwz+vaXaCDhP1AaDp9ooDxgf9TPXGHfiD7lafP0b2RGvsZS8ifWe1YeYV
-         DJqKApAaaQsafyNBgmhJfho9yTgLdZYgc447ExUvpPsMWVU8xF20McYsr5b0pB0AHtub
-         yDdSqeACat4ikZLi2rh8iMjXqNZApXAMmuIKyiwZaKECOaIFXIENYjWDjyfTxKgtUUMn
-         jgHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795572447; x=1796177247;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XojWxgDr5LA3x6lFRy1QQvM1cLzWVbAOPEYLcMc398c=;
-        b=aUep58f5gs5ARmwU/k1wAW5i8L42fOQwXydtSrCLE84+4hPiJWrR8qCKon5hq1EDjZ
-         yv6ZAT5RlvjtHqUZeHcOvaoMoztUNkSfx57/4Sw+YXHAVfif5gs2MdAmyoiywmQLLcSb
-         kvAukl2iX1cwMi6bF1vK4WTOjDH6ynqWxqx/SwI4ooyFCDspedH0upTOiE2Rwe1sGiDN
-         4YcOasQdcJPzzMLknvlydD7EBprSuDetvCcQ4SD5+YKrb7ZCkem2X1Rg7DKJvBxqQAvC
-         7EbsQ5jcBXROs0mNcm/kzU737GD8yWFT1sluD2MPjjGBtbMROOvgnFmqZC3V9vn7FhbA
-         RFCQ==
-X-Forwarded-Encrypted: i=1; AL+hErGGbSHodgEe26Z/+kCHz3Co0tPimXXmr/pnAlz2875dQ99iMqYekUCwfAi5LRjLlSfEG+FHlwU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+ifoVdcUcFZWAfn4CEUY3WAGYg8VQS2yyac4pom8/5N3hhNhpF
-	MtHzAi5cTjcNiWFoMzh4Tbf0qVwyuhzY5SOie/APjr9GksYo9TZvDoo0
-X-Gm-Gg: AZFdTZekuErVg3zj5o0z+JfhYsXLra1o+zBzvp1GCT0KRM0ZjOpDsdWV0BCjgbu0BmY
-	NOKmy/oshmQs4kBPLwI4bl6cloPqolzc8OmNWEyRrzRnoQxcxxqe/vWHv/k5HWb52vH0HO44ShL
-	rSNPufpYa6JiDzR+QoN8EOcoBljvzu9Ki9auAxTurOvi654dc8+luWhEvm6uA31M7XW1eBerEet
-	ZxYkoW2NTeCFnoiG5PADdOuaYNf5tB2bO07WYhQN1tVpk2CBY9AQhsojwLe+T0D8Gg1+HDfHKql
-	VyFFo9d4POV8sygoQpzSSlm1yEA3OGVVWPKkQwGBqGTgc2oM6VXejK+KBmZ4hkhFtvNPNi19032
-	PToIT0mYqALr9znVbprZ1CsmhEhINc7obREULZ4m2Xfr/aYE0AcQ3mZFdvl4yFRZSVg45LvDTDz
-	bCV2MXkosGCuOeXwdzHaoUvLg9qH14XpzW/N3xcWPHLWWVtr/b8DqKbcgqCVSM2ErPb2RZg6sGi
-	MyS94kO/JbIWU0CRYOz8mqZSJjuAccSk+2w/FFI4Bbf4cupexnG920C/6vdPJTEFKS9c+bUyB1t
-	C1Hg7ZXeBQFO/bH7FwagwarL+PjksxSudkp7Z5IhmSXcdSLAQQrYmbaWpKIcmlZNXkNZtZm7VSY
-	x8mfbDY0i1prEcg==
-X-Received: by 2002:a05:6820:7085:20b0:71a:ed37:d321 with SMTP id 006d021491bc7-71b3962fc62mr9616280eaf.90.1795572447458;
-        Tue, 24 Nov 2026 18:07:27 -0800 (PST)
-Received: from localhost.localdomain ([14.22.11.162])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b380b6f82sm9727568eaf.10.2026.11.24.18.07.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:07:25 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	fw@strlen.de,
-	steffen.klassert@secunet.com,
-	herbert@gondor.apana.org.au
-Cc: horms@kernel.org,
-	netdev@vger.kernel.org,
-	security@kernel.org,
-	stable@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>
-Subject: [PATCH net v3] net: fix xfrm_state refcount underflow and leak in skb_ext COW
-Date: Wed, 25 Nov 2026 10:07:17 +0800
-Message-ID: <20261125020718.261041-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=g0wZppBp
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jvEsQaXmJyeE+QQFiGby9Sq3anf7xahcLbq9X8Ozmv3zrUMggJtaMEhp2WQfvvVDZpGplDEI7zFYWQpx8OqL6RAunYdY814ACD73Pfo/dRl0f3NFi1OSiRlwhzbdsXX1RzfOdVmUoJLOfwQN7/ZKJ24FqfOdkryoKsX5hO5UZKTDJgzKfxoWP6HorzMsr5y+C3ZL2ew3qM4Q3jeJusPVJTEFiDFu3Wlbl+2kzS68pSBYhBq9yo3JVbfh78pFqboR3R7hTArkhcs248kRt4VOpSeW2MubX2A5AbuwMC2PIZrDUzdxyHBrJHM4CSKDXbt7SV2taPIgSH2JAzc9FzHtXw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+ b=R+GaEvXiP7f9mRU9zHcLEquiW0g58AVR5UcSYBo21i8PTh5e1uWCpZI2c6WA/PSMWEh95J/WDefnIAMhAis0pyHe77Ugfdb6D7qKxIsBX0Z4yCClVTajQfBdGyNUmmfsgd4dVS9pJeuKY6gjDywYuGFvNmZ/U3ReUwgoqVxoqHrv+6sQv/SuoKVpJXCo/6LYTtFdKpOEoe1CBVBCcAPkNzPbCdVY8B4HEyIYjU8qGCrrqT1jyYGOHL05zQwBDG46JSDkrtDjdI48WZzEXf4jI1w15SxDGJ3DKiHz0yrGI6W10tcmLePg7uFiWYXiizQ1/gZVAXyZ8YLS4kTk1ijkWg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ILJ73oP/q5gJIQ0+W3AJXe5gmPk7RtpCRadIP3q+2rs=;
+ b=g0wZppBpq6fKFztkPQOl8WfLJwIW8v2srU9KtWkxTmteEjM6O2crdKjF/1/5iTMYeRySLEhCtV9b4tdhsR67lKaczZGpbnuEiaKV8/qLx/FuDye/QNadrKVbrhI39Q3+wgjZmrpzodGvz54xizvdCLoWzQhqWhVMy8L7nGNftwA1LI7yVPX74lu9iQjdP105+/LoGAn+VHSErUCB6gnivr7j8nPtkq4GQ5HBZu7LKjCLspurFVAM2qpLMFUe53+oD0PjeY0HIjtF7wQaF9i57lGJ96z2hKMkWDms2yG7IFHDAZs+xKpYFFxOGPKLoSRyAIP2ugNnXzQKKGPFevqXzw==
+Received: from BN9PR03CA0898.namprd03.prod.outlook.com (2603:10b6:408:13c::33)
+ by SN7PR12MB6911.namprd12.prod.outlook.com (2603:10b6:806:261::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Wed, 25 Nov
+ 2026 02:08:59 +0000
+Received: from BN3PEPF0000B36F.namprd21.prod.outlook.com
+ (2603:10b6:408:13c:cafe::54) by BN9PR03CA0898.outlook.office365.com
+ (2603:10b6:408:13c::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 02:08:58 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ BN3PEPF0000B36F.mail.protection.outlook.com (10.167.243.166) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.0 via Frontend Transport; Wed, 25 Nov 2026 02:08:58 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 18:08:43 -0800
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Tue, 24 Nov 2026 18:08:43 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 18:08:39 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Leon Romanovsky
+	<leon@kernel.org>, Raed Salem <raeds@nvidia.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Cen Zhang <zzzccc427@gmail.com>,
+	<linux-kernel@vger.kernel.org>, Jianbo Liu <jianbol@nvidia.com>, "Carolina
+ Jubran" <cjubran@nvidia.com>
+Subject: [PATCH ipsec] xfrm: Serialize offload stats updates with x->lock
+Date: Wed, 25 Nov 2026 04:08:35 +0200
+Message-ID: <20261125020835.1132797-1-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,310 +119,336 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF0000B36F:EE_|SN7PR12MB6911:EE_
+X-MS-Office365-Filtering-Correlation-Id: 79272f6f-ce41-48df-8150-08df4a99113d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|36860700016|1800799024|23010399003|82310400026|7416014|376014|261022115727099003|261022113327099003|261026135527099003|261026121527099003|261022075727099003|261021123027099003|261021135927099003|10067099003|261022105027099003|261021121427099003|261021130227099003|261026130827099003|261102123227099003|261021133027099003|261102130727099003|261026140227099003|261028144727099003|261009223027099003|6133799003|18002099003|11063799006|56012099006;
+X-Microsoft-Antispam-Message-Info:
+	VjborZEuFLgVdj3fMD8IxdyFaIukL84A2wyW3d5Y6Vs2UnGlWg5mwNZtVpaAz0CfFjUIDrWagV6uOAS9wQr66l1q9+qXGG+C7pmnNl+xo8hV2KL5crsR47pOV9aqDdmfqa/uz651vwPQkFni90f+VgE2r+DnSy9FgPQn26KRexwK/BpG50+mNE048/QlalojtmMjp7m2IqK4sRQNqlw/or5l3OMypcIhUFx/CmhTp4rs5eVdPlaWeAidITDeOab+A14U0Nc3unM2j838f9/+/lmISyI8+ML5/uyd6EpUccfMjoYAzeyjYS7x44bi7Gj3LaivN7ILvOiU5udQozuIuInIql1+A+XdlPhILxD6OnVZ733py9AuPtmm2PXfCgmLSTKh3a6gO6mQ46HqcweQLUMdxnx3Um7jHUhLurGgY9dNXy3n7UWziutt4eOdwHXNnCekeFl+OkrZ9AjsO0Mg2N29Ednw8E8OfRlTRgyg8ymfgedpi9YE4FqCChVRAD3P5jgwN43XcyyX9ExcCklw63yyhixVGOnV0LNN5bgUvuWFui/4JWazUbz/stdyD3W7htZpWE46qXhJHX9tkSnu9TOhk7kKO0ObOZeDTDa0CebOoGQFms/gN13352qrbre0tldAHE4swySSgMTDxSnC6qhuTZVem0j9yb1ZEBhrGK3S1OUZ1uea4mUY5dX95e3HBLY0XVgxORuDt1QFOH+fEg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(1800799024)(23010399003)(82310400026)(7416014)(376014)(261022115727099003)(261022113327099003)(261026135527099003)(261026121527099003)(261022075727099003)(261021123027099003)(261021135927099003)(10067099003)(261022105027099003)(261021121427099003)(261021130227099003)(261026130827099003)(261102123227099003)(261021133027099003)(261102130727099003)(261026140227099003)(261028144727099003)(261009223027099003)(6133799003)(18002099003)(11063799006)(56012099006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	p/mIk9oBdkw2xjaGA1dUGIysDVSQ991QU72zz5AtDtPHmZPoq0T4oDMkNnT5ZD60ladniH8RzI4Ahbdz866LjqgHeTd9UEdY7VdnVul89ETJlTIICjx0akSMkk7NTgaLdhPu+XwubRnZfCO91xasmMsg65lFsoBlAZrAWim/K2CkbjMCKUFYmmHu/qRvpytMAh8n1Hw+ljho+ZfQNF59lGwMbTG2WkH7NxlahLpfaK3f6krwKJAwGAjmcwcT6b/A82fAihRf9L+JndZq5hf6YyV8Wwb2a6/U9LNEhBgnwH+cdrrJXBz9CFAiiKTf7G/GsdON7FEi/UIsVW6y7WspyK1O9w9h5qCndxzc8/rA0gope2Vcyh//vouncGdrs3Cc8qVlY0Kv+j8W6cCr2yMbOox0449M9lLDb8KN9xCOFS2hhQmTM4eJP6VQHF4DPV+h
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 02:08:58.7558
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 79272f6f-ce41-48df-8150-08df4a99113d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN3PEPF0000B36F.namprd21.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6911
 
-skb_ext_maybe_cow() re-acquires the SEC_PATH xfrm_state references for a
-copied extension chunk, gated on the source skb's active bit, while the
-release side (__skb_ext_put()) is gated on the chunk's
-offset[SEC_PATH].
+xfrm_dev_state_update_stats() calls into the driver, which adds to
+x->curlft and x->stats what the device counted since the last call.
+Callers use different locks, so two of them can refresh the same
+state at once and count the same packets twice, and a dump can copy
+the counters while another caller updates them.
 
-__skb_ext_del(SKB_EXT_SEC_PATH) on a shared chunk (refcnt > 1) only
-clears the skb's active bit: the chunk keeps offset[SEC_PATH] and
-sp->len, because the remaining sharers still use them.  A later
-skb_ext_add() COWs such a chunk; the copy carries the SEC_PATH data, but
-with the active bit clear no references are taken for it.  When the copy
-is freed, __skb_ext_put() puts sp->len references that were never
-acquired, underflowing the refcount of every xfrm_state in the sec_path.
-The state is destroyed while still hashed in the SAD and is dereferenced
-by later packet input.  On v7.4-rc4, as an unprivileged user:
+Serialize all device stats refreshes with x->lock and assert it in
+xfrm_dev_state_update_stats(). Build the SA message of a netlink
+dump, get or notification under the same lock.
 
-    WARNING: net/xfrm/xfrm_state.c:805 at __xfrm_state_destroy
-    BUG: KASAN: slab-use-after-free in xfrm_input_state_lookup
-    ...
-    Freed by task ...:
-     xfrm_state_gc_task
-     __xfrm_state_destroy
+The SA dump and xfrm_state_update_stats() walk the states under
+xfrm_state_lock, where x->lock cannot be taken: the lock order is
+x->lock, then xfrm_state_lock. Add xfrm_state_walk_batch(), which
+takes references on at most 32 states per xfrm_state_lock hold, and
+handle each state under x->lock after the list lock is dropped.
+States rejected by the dump filter count against the 32, so a filter
+that matches few states cannot keep the list lock held over the whole
+list. xfrm_state_walk() cannot give this bound: it calls back only
+for states that pass the filter. Walk markers and states being
+deleted do not count, so a call always covers 32 states or reaches
+the end of the list.
 
-The MCTP flow slot has the same take/put asymmetry, so fix both slots:
+Keep the refresh right before each state is copied, so every part of
+a multi-part dump still has current counters. When a state does not
+fit into the skb, put the walk marker back in front of it and drop
+the references, so no state stays referenced between two dump calls.
+If the state was unlinked meanwhile, skip it and go on.
 
- - skb_ext_maybe_cow(): a copy of a slot that exists but is not active
-   keeps no references (sp->len = 0, flow->key = NULL); they stay with
-   the old chunk.  The slot itself is kept, since skb_ext_add() must not
-   append a second slot for the same id.
+copy_to_user_state() cannot take x->lock itself: build_expire() calls
+it with the lock held. Move the refresh out of it and let each caller
+refresh under x->lock. PF_KEY never refreshed and does not change.
 
- - skb_ext_add(): when it reuses such a slot, the chunk is not shared,
-   so release the references the slot still owns before reusing it.
-   Otherwise secpath_set() zeroes sp->len in place and leaks them; this
-   case predates the COW path.
-
-Nothing passes SKB_EXT_MCTP to __skb_ext_del() today, so the MCTP half
-is not reachable yet, but nothing in the code enforces that.
-
-This issue was discovered by Tencent CodeBuddy Security.
-
-Reported-by: zeroday zhao <zerodayzhao@tencent.com>
-Fixes: 4165079ba328d ("net: switch secpath to use skb extension infrastructure")
-Cc: stable@vger.kernel.org
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+Fixes: c9fa320b00cf ("xfrm: copy_to_user_state fetch offloaded SA packets/bytes statistics")
+Fixes: f9f221c98fd8 ("xfrm: get global statistics from the offloaded device")
+Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
+Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
 ---
-This supersedes the one-line patch in the report of 2026-11-05.  Eric
-Dumazet described this two-part fix and asked me to take it over while he
-is out.
+Cen Zhang's "[PATCH ipsec v2 1/2] xfrm: protect offload statistics
+updates from device teardown" [1] adds x->lock around the same two
+calls in xfrm_state_netlink() and xfrm_notify_sa(), so only one of
+the two patches can be applied. This patch takes the lock in the SA
+dump and in xfrm_state_update_stats() as well.
 
-Verified on v7.4-rc4 (KASAN, unprivileged user, userns + netns):
+[1] https://lore.kernel.org/netdev/pm-xfrm-core-objects-candidate-0050-v4-3c6b8c5369a802e9be0e-1@gmail.com/
 
-  unpatched: WARNING at net/xfrm/xfrm_state.c:805, then
-             BUG: KASAN: slab-use-after-free in xfrm_input_state_lookup
-             (freed by xfrm_state_gc_task)
+ include/net/xfrm.h    | 12 ++++++
+ net/xfrm/xfrm_state.c | 87 +++++++++++++++++++++++++++++++++++++++----
+ net/xfrm/xfrm_user.c  | 45 ++++++++++++++++++++--
+ 3 files changed, 133 insertions(+), 11 deletions(-)
 
-  patched:   the same trigger sequence completes without warning or splat
-
-The skb_ext_add() reuse path needs a stale slot on an unshared chunk; the
-reproducer only reaches the COW path, so that part is covered by
-inspection.  The MCTP slot is not reachable today.
-
-v2 -> v3:
- - cover the MCTP slot too, as requested by Florian Westphal
- - factor the per-slot reference handling into skb_ext_put_slot(),
-   skb_ext_put_refs() and skb_ext_copy_refs(), as suggested by Paolo
-   Abeni, which also drops the forward declaration
- - document the invariant above skb_ext_maybe_cow()
----
- net/core/skbuff.c | 186 +++++++++++++++++++++++++++++++---------------
- 1 file changed, 127 insertions(+), 59 deletions(-)
-
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 74e9a96bc5df..dc2e1a39d46b 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -7300,6 +7300,126 @@ struct skb_ext *__skb_ext_alloc(gfp_t flags)
- 	return new;
- }
+diff --git a/include/net/xfrm.h b/include/net/xfrm.h
+index 445223a8dc6f..22e82be62556 100644
+--- a/include/net/xfrm.h
++++ b/include/net/xfrm.h
+@@ -130,6 +130,13 @@ struct xfrm_state_walk {
+ 	struct xfrm_address_filter *filter;
+ };
  
-+#ifdef CONFIG_XFRM
-+static void skb_ext_put_sp(struct sec_path *sp)
-+{
++#define XFRM_STATE_WALK_BATCH_SIZE	32
++
++struct xfrm_state_walk_batch {
++	struct xfrm_state	*states[XFRM_STATE_WALK_BATCH_SIZE];
++	unsigned int		count;
++};
++
+ enum {
+ 	XFRM_DEV_OFFLOAD_IN = 1,
+ 	XFRM_DEV_OFFLOAD_OUT,
+@@ -1718,6 +1725,9 @@ void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto,
+ 			  struct xfrm_address_filter *filter);
+ int xfrm_state_walk(struct net *net, struct xfrm_state_walk *walk,
+ 		    int (*func)(struct xfrm_state *, int, void*), void *);
++bool xfrm_state_walk_batch(struct net *net, struct xfrm_state_walk *walk,
++			   struct xfrm_state_walk_batch *batch);
++bool xfrm_state_walk_rewind(struct xfrm_state_walk *walk, struct xfrm_state *x);
+ void xfrm_state_walk_done(struct xfrm_state_walk *walk, struct net *net);
+ struct xfrm_state *xfrm_state_alloc(struct net *net);
+ void xfrm_state_free(struct xfrm_state *x);
+@@ -1742,6 +1752,8 @@ static inline void xfrm_dev_state_update_stats(struct xfrm_state *x)
+ 	struct xfrm_dev_offload *xdo = &x->xso;
+ 	struct net_device *dev = READ_ONCE(xdo->dev);
+ 
++	lockdep_assert_held(&x->lock);
++
+ 	if (dev && dev->xfrmdev_ops &&
+ 	    dev->xfrmdev_ops->xdo_dev_state_update_stats)
+ 		dev->xfrmdev_ops->xdo_dev_state_update_stats(x);
+diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
+index f4a4ddaeb9b3..041d8aa86256 100644
+--- a/net/xfrm/xfrm_state.c
++++ b/net/xfrm/xfrm_state.c
+@@ -2390,15 +2390,28 @@ EXPORT_SYMBOL(xfrm_state_check_expire);
+ 
+ void xfrm_state_update_stats(struct net *net)
+ {
++	struct xfrm_state_walk_batch batch;
++	struct xfrm_state_walk walk;
+ 	struct xfrm_state *x;
+-	int i;
 +	unsigned int i;
-+
-+	if (!sp->len)
-+		return;
-+
-+	for (i = 0; i < sp->len; i++)
-+		xfrm_state_put(sp->xvec[i]);
-+	sp->len = 0;
-+}
-+#endif
-+
-+#ifdef CONFIG_MCTP_FLOWS
-+static void skb_ext_put_mctp(struct mctp_flow *flow)
++	bool done;
+ 
+-	spin_lock_bh(&net->xfrm.xfrm_state_lock);
+-	for (i = 0; i <= net->xfrm.state_hmask; i++) {
+-		hlist_for_each_entry(x, xfrm_state_deref_prot(net->xfrm.state_bydst, net) + i, bydst)
+-			xfrm_dev_state_update_stats(x);
+-	}
+-	spin_unlock_bh(&net->xfrm.xfrm_state_lock);
++	xfrm_state_walk_init(&walk, 0, NULL);
++	do {
++		done = xfrm_state_walk_batch(net, &walk, &batch);
++		for (i = 0; i < batch.count; i++) {
++			x = batch.states[i];
++			if (READ_ONCE(x->xso.dev)) {
++				spin_lock_bh(&x->lock);
++				if (x->km.state != XFRM_STATE_DEAD)
++					xfrm_dev_state_update_stats(x);
++				spin_unlock_bh(&x->lock);
++			}
++			xfrm_state_put(x);
++		}
++		cond_resched();
++	} while (!done);
++	xfrm_state_walk_done(&walk, net);
+ }
+ 
+ struct xfrm_state *
+@@ -2822,6 +2835,66 @@ int xfrm_state_walk(struct net *net, struct xfrm_state_walk *walk,
+ }
+ EXPORT_SYMBOL(xfrm_state_walk);
+ 
++bool xfrm_state_walk_batch(struct net *net, struct xfrm_state_walk *walk,
++			   struct xfrm_state_walk_batch *batch)
 +{
-+	if (!flow->key)
-+		return;
++	struct xfrm_state_walk *x;
++	struct xfrm_state *state;
++	unsigned int visited = 0;
++	bool done = true;
 +
-+	mctp_key_unref(flow->key);
-+	flow->key = NULL;
-+}
-+#endif
++	batch->count = 0;
++	if (walk->seq != 0 && list_empty(&walk->all))
++		return true;
 +
-+/* Release the references owned by one slot of an extension chunk. */
-+static void skb_ext_put_slot(struct skb_ext *ext, enum skb_ext_id id)
-+{
-+	if (!__skb_ext_exist(ext, id))
-+		return;
-+
-+	switch (id) {
-+#ifdef CONFIG_XFRM
-+	case SKB_EXT_SEC_PATH:
-+		skb_ext_put_sp(skb_ext_get_ptr(ext, SKB_EXT_SEC_PATH));
-+		break;
-+#endif
-+#ifdef CONFIG_MCTP_FLOWS
-+	case SKB_EXT_MCTP:
-+		skb_ext_put_mctp(skb_ext_get_ptr(ext, SKB_EXT_MCTP));
-+		break;
-+#endif
-+	default:
-+		break;
-+	}
-+}
-+
-+/* Release the references of every slot of an extension chunk. */
-+static void skb_ext_put_refs(struct skb_ext *ext)
-+{
-+	enum skb_ext_id id;
-+
-+	for (id = 0; id < SKB_EXT_NUM; id++)
-+		skb_ext_put_slot(ext, id);
-+}
-+
-+/*
-+ * A COW copy carries the data of every slot, but only the slots that
-+ * are active on the source skb may own references.  For an inactive
-+ * slot the references stay with the old chunk.
-+ */
-+static void skb_ext_copy_refs(struct skb_ext *old, struct skb_ext *new,
-+			      unsigned int old_active)
-+{
-+	enum skb_ext_id id;
-+
-+	for (id = 0; id < SKB_EXT_NUM; id++) {
-+		if (!__skb_ext_exist(old, id))
++	spin_lock_bh(&net->xfrm.xfrm_state_lock);
++	if (list_empty(&walk->all))
++		x = list_first_entry(&net->xfrm.state_all,
++				     struct xfrm_state_walk, all);
++	else
++		x = list_first_entry(&walk->all, struct xfrm_state_walk, all);
++	list_for_each_entry_from(x, &net->xfrm.state_all, all) {
++		/* Callers recheck state under x->lock before processing. */
++		if (data_race(READ_ONCE(x->state)) == XFRM_STATE_DEAD)
 +			continue;
-+
-+		switch (id) {
-+#ifdef CONFIG_XFRM
-+		case SKB_EXT_SEC_PATH: {
-+			struct sec_path *sp;
-+
-+			sp = skb_ext_get_ptr(old, SKB_EXT_SEC_PATH);
-+			if (old_active & (1 << id)) {
-+				unsigned int i;
-+
-+				for (i = 0; i < sp->len; i++)
-+					xfrm_state_hold(sp->xvec[i]);
-+			} else {
-+				struct sec_path *new_sp;
-+
-+				new_sp = skb_ext_get_ptr(new, SKB_EXT_SEC_PATH);
-+				new_sp->len = 0;
-+			}
-+			break;
++		if (visited++ == ARRAY_SIZE(batch->states)) {
++			list_move_tail(&walk->all, &x->all);
++			done = false;
++			goto out;
 +		}
-+#endif
-+#ifdef CONFIG_MCTP_FLOWS
-+		case SKB_EXT_MCTP: {
-+			struct mctp_flow *flow;
-+
-+			flow = skb_ext_get_ptr(old, SKB_EXT_MCTP);
-+			if (old_active & (1 << id)) {
-+				if (flow->key)
-+					refcount_inc(&flow->key->refs);
-+			} else {
-+				struct mctp_flow *new_flow;
-+
-+				new_flow = skb_ext_get_ptr(new, SKB_EXT_MCTP);
-+				new_flow->key = NULL;
-+			}
-+			break;
-+		}
-+#endif
-+		default:
-+			break;
-+		}
++		state = container_of(x, struct xfrm_state, km);
++		if (!xfrm_id_proto_match(state->id.proto, walk->proto))
++			continue;
++		if (!__xfrm_state_filter_match(state, walk->filter))
++			continue;
++		xfrm_state_hold(state);
++		batch->states[batch->count++] = state;
 +	}
++	list_del_init(&walk->all);
++out:
++	walk->seq = 1;
++	spin_unlock_bh(&net->xfrm.xfrm_state_lock);
++	return done;
++}
++EXPORT_SYMBOL(xfrm_state_walk_batch);
++
++bool xfrm_state_walk_rewind(struct xfrm_state_walk *walk, struct xfrm_state *x)
++{
++	struct net *net = xs_net(x);
++	bool linked;
++
++	lockdep_assert_held(&x->lock);
++
++	spin_lock(&net->xfrm.xfrm_state_lock);
++	linked = !hlist_unhashed(&x->bydst);
++	if (linked)
++		list_move_tail(&walk->all, &x->km.all);
++	spin_unlock(&net->xfrm.xfrm_state_lock);
++
++	return linked;
++}
++EXPORT_SYMBOL(xfrm_state_walk_rewind);
++
+ void xfrm_state_walk_init(struct xfrm_state_walk *walk, u8 proto,
+ 			  struct xfrm_address_filter *filter)
+ {
+diff --git a/net/xfrm/xfrm_user.c b/net/xfrm/xfrm_user.c
+index 217f65faa2bd..94f73349d22d 100644
+--- a/net/xfrm/xfrm_user.c
++++ b/net/xfrm/xfrm_user.c
+@@ -1181,8 +1181,6 @@ static void copy_to_user_state(struct xfrm_state *x, struct xfrm_usersa_info *p)
+ 	memcpy(&p->id, &x->id, sizeof(p->id));
+ 	memcpy(&p->sel, &x->sel, sizeof(p->sel));
+ 	memcpy(&p->lft, &x->lft, sizeof(p->lft));
+-	if (x->xso.dev)
+-		xfrm_dev_state_update_stats(x);
+ 	memcpy(&p->curlft, &x->curlft, sizeof(p->curlft));
+ 	put_unaligned(x->stats.replay_window, &p->stats.replay_window);
+ 	put_unaligned(x->stats.replay, &p->stats.replay);
+@@ -1566,11 +1564,34 @@ static int xfrm_dump_sa_done(struct netlink_callback *cb)
+ 	return 0;
+ }
+ 
++static int refresh_and_dump_state(struct xfrm_state_walk *walk,
++				  struct xfrm_state *x,
++				  struct xfrm_dump_info *info)
++{
++	int err = 0;
++
++	spin_lock_bh(&x->lock);
++	if (x->km.state != XFRM_STATE_DEAD) {
++		xfrm_dev_state_update_stats(x);
++		err = dump_one_state(x, 0, info);
++		if (err && !xfrm_state_walk_rewind(walk, x))
++			err = 0;
++	}
++	spin_unlock_bh(&x->lock);
++
++	return err;
 +}
 +
-+/*
-+ * A slot that exists in the chunk but is not active must not own
-+ * references: they belong to the chunk and are dropped by
-+ * __skb_ext_put() when the chunk is freed, or released by
-+ * skb_ext_add() when the slot is reused.  A COW copy of such a slot
-+ * must therefore not take references for it.
-+ */
- static struct skb_ext *skb_ext_maybe_cow(struct skb_ext *old,
- 					 unsigned int old_active)
+ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
  {
-@@ -7315,23 +7435,7 @@ static struct skb_ext *skb_ext_maybe_cow(struct skb_ext *old,
- 	memcpy(new, old, old->chunks * SKB_EXT_ALIGN_VALUE);
- 	refcount_set(&new->refcnt, 1);
+ 	struct net *net = sock_net(skb->sk);
+ 	struct xfrm_state_walk *walk = (struct xfrm_state_walk *) &cb->args[1];
++	struct xfrm_state_walk_batch batch;
+ 	struct xfrm_dump_info info;
++	struct xfrm_state *x;
++	unsigned int i;
++	int err = 0;
++	bool done;
  
--#ifdef CONFIG_XFRM
--	if (old_active & (1 << SKB_EXT_SEC_PATH)) {
--		struct sec_path *sp = skb_ext_get_ptr(old, SKB_EXT_SEC_PATH);
--		unsigned int i;
--
--		for (i = 0; i < sp->len; i++)
--			xfrm_state_hold(sp->xvec[i]);
--	}
--#endif
--#ifdef CONFIG_MCTP_FLOWS
--	if (old_active & (1 << SKB_EXT_MCTP)) {
--		struct mctp_flow *flow = skb_ext_get_ptr(old, SKB_EXT_MCTP);
--
--		if (flow->key)
--			refcount_inc(&flow->key->refs);
--	}
--#endif
-+	skb_ext_copy_refs(old, new, old_active);
- 	__skb_ext_put(old);
- 	return new;
- }
-@@ -7387,8 +7491,11 @@ void *skb_ext_add(struct sk_buff *skb, enum skb_ext_id id)
- 		if (!new)
- 			return NULL;
+ 	BUILD_BUG_ON(sizeof(struct xfrm_state_walk) >
+ 		     sizeof(cb->args) - sizeof(cb->args[0]));
+@@ -1584,7 +1605,6 @@ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
+ 		struct nlattr *attrs[XFRMA_MAX+1];
+ 		struct xfrm_address_filter *filter = NULL;
+ 		u8 proto = 0;
+-		int err;
  
--		if (__skb_ext_exist(new, id))
-+		if (__skb_ext_exist(new, id)) {
-+			if (!(skb->active_extensions & (1 << id)))
-+				skb_ext_put_slot(new, id);
- 			goto set_active;
+ 		err = nlmsg_parse_deprecated(cb->nlh, 0, attrs, XFRMA_MAX,
+ 					     xfrma_policy, cb->extack);
+@@ -1614,7 +1634,16 @@ static int xfrm_dump_sa(struct sk_buff *skb, struct netlink_callback *cb)
+ 		cb->args[0] = 1;
+ 	}
+ 
+-	(void) xfrm_state_walk(net, walk, dump_one_state, &info);
++	do {
++		done = xfrm_state_walk_batch(net, walk, &batch);
++		for (i = 0; i < batch.count; i++) {
++			x = batch.states[i];
++			if (!err)
++				err = refresh_and_dump_state(walk, x, &info);
++			xfrm_state_put(x);
 +		}
++		cond_resched();
++	} while (!done && !err);
  
- 		newoff = new->chunks;
- 	} else {
-@@ -7410,31 +7517,6 @@ void *skb_ext_add(struct sk_buff *skb, enum skb_ext_id id)
+ 	return skb->len;
  }
- EXPORT_SYMBOL(skb_ext_add);
+@@ -1635,7 +1664,10 @@ static struct sk_buff *xfrm_state_netlink(struct sk_buff *in_skb,
+ 	info.nlmsg_seq = seq;
+ 	info.nlmsg_flags = 0;
  
--#ifdef CONFIG_XFRM
--static void skb_ext_put_sp(struct sec_path *sp)
--{
--	unsigned int i;
--
--	if (!sp->len)
--		return;
--
--	for (i = 0; i < sp->len; i++)
--		xfrm_state_put(sp->xvec[i]);
--	sp->len = 0;
--}
--#endif
--
--#ifdef CONFIG_MCTP_FLOWS
--static void skb_ext_put_mctp(struct mctp_flow *flow)
--{
--	if (!flow->key)
--		return;
--
--	mctp_key_unref(flow->key);
--	flow->key = NULL;
--}
--#endif
--
- void __skb_ext_del(struct sk_buff *skb, enum skb_ext_id id)
- {
- 	struct skb_ext *ext = skb->extensions;
-@@ -7449,14 +7531,7 @@ void __skb_ext_del(struct sk_buff *skb, enum skb_ext_id id)
- 	if (refcount_read(&ext->refcnt) > 1)
- 		return;
++	spin_lock_bh(&x->lock);
++	xfrm_dev_state_update_stats(x);
+ 	err = dump_one_state(x, 0, &info);
++	spin_unlock_bh(&x->lock);
+ 	if (err) {
+ 		kfree_skb(skb);
+ 		return ERR_PTR(err);
+@@ -3973,6 +4005,8 @@ static int build_expire(struct sk_buff *skb, struct xfrm_state *x, const struct
+ 	struct nlmsghdr *nlh;
+ 	int err;
  
--#ifdef CONFIG_XFRM
--	if (id == SKB_EXT_SEC_PATH)
--		skb_ext_put_sp(skb_ext_get_ptr(ext, SKB_EXT_SEC_PATH));
--#endif
--#ifdef CONFIG_MCTP_FLOWS
--	if (id == SKB_EXT_MCTP)
--		skb_ext_put_mctp(skb_ext_get_ptr(ext, SKB_EXT_MCTP));
--#endif
-+	skb_ext_put_slot(ext, id);
- }
- EXPORT_SYMBOL(__skb_ext_del);
++	xfrm_dev_state_update_stats(x);
++
+ 	nlh = nlmsg_put(skb, c->portid, 0, XFRM_MSG_EXPIRE, sizeof(*ue), 0);
+ 	if (nlh == NULL)
+ 		return -EMSGSIZE;
+@@ -4170,7 +4204,10 @@ static int xfrm_notify_sa(struct xfrm_state *x, const struct km_event *c)
  
-@@ -7471,14 +7546,7 @@ void __skb_ext_put(struct skb_ext *ext)
- 	if (!refcount_dec_and_test(&ext->refcnt))
- 		return;
- free_now:
--#ifdef CONFIG_XFRM
--	if (__skb_ext_exist(ext, SKB_EXT_SEC_PATH))
--		skb_ext_put_sp(skb_ext_get_ptr(ext, SKB_EXT_SEC_PATH));
--#endif
--#ifdef CONFIG_MCTP_FLOWS
--	if (__skb_ext_exist(ext, SKB_EXT_MCTP))
--		skb_ext_put_mctp(skb_ext_get_ptr(ext, SKB_EXT_MCTP));
--#endif
-+	skb_ext_put_refs(ext);
+ 		p = nla_data(attr);
+ 	}
++	spin_lock_bh(&x->lock);
++	xfrm_dev_state_update_stats(x);
+ 	err = copy_to_user_state_extra(x, p, skb);
++	spin_unlock_bh(&x->lock);
+ 	if (err)
+ 		goto out_free_skb;
  
- 	kmem_cache_free(skbuff_ext_cache, ext);
- }
+
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
 -- 
-2.43.7
+2.39.3
 
