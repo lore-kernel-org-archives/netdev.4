@@ -1,100 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.29
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795616396;
-	b=fQpG86NE+ow8dNtNb80wy81svhcJFzgcFZ6JFzhk1KI5QOJLsaokzCb3jDkprmcEH83h
-	 SQUdAxLwlDjEfM3c12qI0B63A0wg5wfYv4E1QwWTNREVGiM5ox5qAuZJ9oef9pb6s1H6m
-	 213RMdm8R6b0epg36+vZ/XPpAzIGP+YOluFfuVKuyECDV0n7qHiJXDEco4bCxNrWJpw5N
-	 7rAyl8TwYkxbzZtb2vEkujlfS1HN346XeIGzYl1f5JupqJ+gCye3T/59JtwbAzhh5DMxw
-	 EsJkerRUZf8gGa8XGVOZBIrRcwUn4JA1uC0ziBEZCTYX0xIO46TWXTelYEKH/B/N2uQ==
+	t=1795616432;
+	b=p3zbUmtOVPdyJaNiDrHOP23mvBko2kv435ulpDLQ1Ut7A1348bFLZ0K7w+JUY2bPpaQm
+	 Hc5JsQQWFsw2TNW3JWRaw1vylAAavEYwmjqfYZG6MUT4Zu1xVQAC9RXFDkkxegbOCaSiv
+	 EmEo0MRMEEi0U/3GwtDUNM204yLf71LgXKZE2pXFlpn37KRUdIvBKnziTHBe8LURtGALc
+	 7AITXOOiymxZRwc0iJudKqT1sMTVQpAaWQ+z1xcR08JJV+ByM0yG2AMDlsC/DBak8sKwe
+	 PTdhZAJCc8Piy07bzMmG695LVYjuT01OzW3P7JYr8MIgw27xr1N1hJlqp5cJ1i+LO+A==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616396;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=WnR3vk2y0sTvUjvPy0qhotk3V03y3uemI3XFtyVMMug=;
-	b=X+96QtHUuBXzVzbfBWMzeSRsTfkaZNaWflIMQY7S78qfwgfe4pRpmJ9MFHdlqDeEhv/0
-	 GN5RrOt3xfFU9AZRlXONCBZdYRt5lmKvNmzq3uZxvblmDQNToYrBtfpFSJlNCg56xklKI
-	 ycXxm/SRLoDbny60/u+WDVldVQw7/WNKxCt3pF10BYNVtGb2ouEtsGl5nYD+PFC8lZXoQ
-	 XlE16S7t1TKLNNhuI5JaPgL2lNlnAulyJEFlnjuuTh1cVrTVsv0HCFznA2XoJ+N7+KxbA
-	 5O5+Zlx32X8b7O5vwOHqN9DenGmVSS8fZ2vWdBInXi5cQM48Xp5SSPb01/Ka1f2a7KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795616432;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=q5TL+LPd6aWWBwTIjh+0mmnCkPqTUgTxaF5QuqaF5D8=;
+	b=XgLBNzTQHw1LTgJXjuv+Qmiudh12625M5SSO0V2C+02dlOpwUa2MUg2/MVRSAB0uiPq3
+	 +YB1gWJtiF3gDSI6c1dkqt6JPdJFLKfTTB/2twlw7YqLLXwrVY3dfkj6gVjYFSTn84r7+
+	 08ao45LuSjKn/ixcVIWx+AYZbZTNk69xYDh8ALCUICRMi9OssQtxEpGcDADIggJfNtJdT
+	 6uY0R7FVxM+PG+Qd17C7vuFh+ncqIyiZboX32B3gvB4V9ppSQE6MukNw+iIOUVOm6Fn59
+	 Pwvgak6nHe1FMuU3WJc9VSNuBPRr52rQQHGjpbL4T3hHB1QvcPJx8q3VjkQQ1ZMoPow==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M7U53k+B;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.45
-Received: from mail-ej1-f45.google.com (mail-ej1-f45.google.com [209.85.218.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ODapImrd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.29
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012029.outbound.protection.outlook.com [52.101.43.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E752606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:19:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E752606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F197606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:20:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9F197606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=M7U53k+B
-Received: by mail-ej1-f45.google.com with SMTP id a640c23a62f3a-c50c2be615dso46553866b.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:19:55 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795616394; cv=none;
-        d=google.com; s=arc-20260327;
-        b=p3FWtqSg04v+VDE96q5SkuRFblIm3E2nlLZk0c1PWduIOTv1wK8Vmb5Wm3vPw5PlVM
-         XuwAiC/L1I/Ec8w5/xx24xxUl6mtj4fEBDhKxPZM2loPeIrgp4/gRMIvrhdELozKhV5d
-         xXHSAQrkkkRuv0mR8nuc3q5T4Z5JoG+SZvTtU7jHb1XZPE6vDyTlRZYWes7nLxR3XVad
-         mtilOZVAX6WlwuRETgTz6xQCRjZ0YjoIuovd6VJv4XzN4wfXJjHiWEb46NimGdRQviyg
-         e9vrsnUzgLwvTbV6W5LWukHdRN/oImQ/FfQez70cWph1AgQvuqgpfcjuNmgMMD9KR/MR
-         F5QA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=WnR3vk2y0sTvUjvPy0qhotk3V03y3uemI3XFtyVMMug=;
-        fh=MO64O7FT/OPfQBn9FRTJmPix1XvaBWBdqLbqndGtoUE=;
-        b=k1Eq0Rr5x+64p9EQzKGgsnHjA+nNrYvfIDXSpYt2tpIUSKkzRGOWPJPqGPiKfngH6w
-         EZBqZfKRrixv0WxNcwf2qbXIBxGX4/RrtRDj3TU+7heThkowKSEPzweZWZ/EaqOFxpgq
-         +JleIy9tUp0aiKTJNIJKCw3aSgyXluQYD37c2RQDSEgVO528WzaIzAPgHY6gkr9mWg5J
-         1U1bCy8tGTcugrRP9CszipIFzHKR+p837SrCOW62PB6I1hc79WVf/FzLrVFbCSE3U5lR
-         Y2jX8Wn60MRtAE/b7uVRxoh7x6J738VEjveSKIiUfWnpJ3N44H95uD4fxjnhGIRynEc1
-         EBtQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795616394; x=1796221194; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WnR3vk2y0sTvUjvPy0qhotk3V03y3uemI3XFtyVMMug=;
-        b=M7U53k+BFlQTNbWjJJemdvu8IfJp98KUHoGSYFKI+GcUhguTMQ/enwj81g7cM0+Fxy
-         lJInGuUxqQpl3DRB3AKzpDwB8oEA51hYvRiWz1HNiL3UG0KbP7ozwcxBYWX/7eI+r0xI
-         Q2EkmKavEZak/i/gA7hAFSlFun9pW9w3r1pOQge9iEyEgbqOKELe58Pfq1ZNyYvK2FOA
-         +LDOCzNMLPKO5WqU0X5sZbik7+QLAe92kVjmvqQO/fwAVuPFTsaKebG/OIYz6Z1oo/q1
-         52KOuD9qyI20j4T81IYc69G7wnCdckqwIeVvvQPYWKd5Z0jnJWSOjPFLm1nO2CwUL0Y+
-         ZZmw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795616394; x=1796221194;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WnR3vk2y0sTvUjvPy0qhotk3V03y3uemI3XFtyVMMug=;
-        b=qT6kjBah0CkofLjTEoYUl1BYGegz26ji7+H1Otey3ThDCAxPca73C1aJTam1DEWw0E
-         t4dGK6+W5KLpqRi47Eype3n1D5rs8qh48JBAb8XL7LfgnT8eJGp2PM6Isltt3Jdud0y9
-         apSmmNaKP418c8WBiytY356JJANXzLGccM3p8Luj30UZDTG//GWBYbV6gq/fW22jae4M
-         JLvJfEoLOKf1ZRCc+1tUD5OXEs4fJiVzTmjc9qH8apfYPXivJwlLoePHYvIKYfjLTZ4Q
-         0wwLHQDwQb7QICAaw+UYWs76YKzx4npVqzv8WzUmmITL/5B1rlxx9vAAsQhScJQjC4Og
-         9W+w==
-X-Gm-Message-State: APuU4Z+EF6B1wPZ4zJwCQl3SCkJuKH3L68wQBY35GjlQgF55NhYKoNfc
-	C5y/RQBZGcktQpZWBBkBskI3rhirHLeA1v6CV7kHrZpc8HXtaj15Hwt6h+5svC/hN8X4D/tEMUx
-	a82ISDiYUkl8XYXjQMqVVocsbEQCuywvoxxvDrA8=
-X-Gm-Gg: AZFdTZf0L3KQIGT1Fzn1GGIehnDaP4c34FateYXH7RiXAbfefA9wNFkA4uilxEdYAhm
-	o4QRFqYj6I44RI9+B34FL4YhI5aDZkIZiG4laTfTQB73/Me7zQ5TXYreqNCrvsSW6pQnSpci+lE
-	cLvAOwhPaugldTa9AjGH9yAOBxXrhz/MJ92MXRxFh9oedrhhcAgdN0W2XHdWGG3gsBq46dt6R31
-	YtxiyozaafZBmq7T1la0ld1YvDTyW+iUPJQtkVs36Ve/dgwRlyoKtPqtT0jlkcvvWfW6YK5kKhT
-	hB/QXMNWaBEKAJjk+B+OsvUdrljahfimTKRhA5F7mtChTbaL+PDmgN+3mww7YlyD7z1+BqvuajE
-	t/ctW8UmrBgwhDi0wm3jq0kLHNsAknl44yQlM1XkeXtQAgXXApKJgVukkw1ww8IvdTLMt4qjCjE
-	OxyYRMAdtW/CxtjCuPlFWMj5iAwilB2GDfG1T49YCwzXHUmVPETlW4uL3e/5DgcM9NSN19og==
-X-Received: by 2002:a17:906:3e41:b0:c46:ae89:cd3c with SMTP id
- a640c23a62f3a-c513a3971a7mr1309913366b.1.1795616393801; Wed, 25 Nov 2026
- 06:19:53 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ODapImrd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FKk5A/SxaCSihtBBMw9FEpyjimrk+7TnF59Mto8ZLnbZKb3PNQ23cwKjuCTRb4kaHrLfqS2tf0sr7XbVzJkz2uld6a9N3aM7qJdTJPUSuPzRvHfucrl1uCCjBlAfxfnlzzddEx4OdUA8cpp36XoC4InRDGOcY32QhbeEYvlnIUQ45SoHIok63bfUT8rcey/d9zXHDXkdvzd3gCo/+FnSLRR7SeNBhfXQSGTLHbXhCZ+p8Do8lbKTc2mdsp/QWdzHRD4HS5hWMTxjyKetbhcDwFLN7KBp1COlRfA/fPkffmAGETkcrmrmWb9BsPOMvHzi2H8YTdOfqmBIDLfzuT/Meg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q5TL+LPd6aWWBwTIjh+0mmnCkPqTUgTxaF5QuqaF5D8=;
+ b=sRht9t+cuWhKOF+wR9HMtcs5jsEbtjj5y4mijR0Wt8l6ISdsLZUYXzh2Bm7ZyYXKXUqcucyyVCA+NdvzBfrvilf/6o0OH9DPmKIa56bTagJ6b10U8cCKxHmieovHRL2tdBIyQolavzVzn4hyJIWUAnyvcdZWHjqynAL9tfQ1Bopit/XRFioGE3QojivVkgUoZeXmoLwGPn9OvBStvopiYIW9/Nkmg+CYbR0GpwnF47HgYg6xMS1ozjGdfrdRJMNM1sCsgsnbRUa+8rzOVhMLBYjC+iBstpWbdDs2SPqh3f9NekqTJMknn6ZHpCk0wsGWYy1UhOrSQZqjtsPEv2uD6g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q5TL+LPd6aWWBwTIjh+0mmnCkPqTUgTxaF5QuqaF5D8=;
+ b=ODapImrdEy7ugwt7tNZx9aiRH4Gq4gFHgMrslpOuOQEUGSH/bGa30/39rTHFXt4ngZ8IsxbTdyqRKwL5J9xX1PeSngQmCy8bRLeKiZUMoLjf2dKS0B/3GAEpPZ+BITljHjntNwhBqPBjH0f4qx9ikCvQzpfPoIINaqvKYXZpGIRmQN6wGQMOlFQbMy6SqFv3aU61R1vgX1LyOQnNDg3wSmbhgR3Tl5wcaQTHTl226ZppbGL5uBHwXYmtVXnSqIKAzxE68wNFnMCmjOeqRMR4+1XczTdM1Ni+EexuHTmHsLr5xGE+kpj1oJ6y2qspWFVCJgHSYHqj641uDGGPmizWSA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by CY8PR12MB7491.namprd12.prod.outlook.com (2603:10b6:930:92::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.5; Wed, 25 Nov
+ 2026 14:20:28 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
+ 14:20:28 +0000
+Date: Wed, 25 Nov 2026 16:20:19 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Qiliang Yuan <qiliang.yuan@linux.dev>
+Cc: David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>,
+	Nikolay Aleksandrov <razor@blackwall.org>, netdev@vger.kernel.org
+Subject: Re: [PATCH net] ipv6: reject released nexthop object routes in
+ ip6_dst_check()
+Message-ID: <20261125142019.GA251368@shredder>
+References: <20261123-bug-net-ipv6-dst-check-released-v1-1-769d320a2470@linux.dev>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261123-bug-net-ipv6-dst-check-released-v1-1-769d320a2470@linux.dev>
+X-ClientProxiedBy: TL2P290CA0030.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:3::16) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,166 +101,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAPM+r-+-QVUkh5JmSP-Ud4G0fExM_=dp929NXCBZhqyLbbuX2w@mail.gmail.com>
- <09c26dab-505c-4126-b45d-a2128b0755c4@redhat.com> <CAPM+r-+-=3H1uN5=dim5O4cuFCWmx9agh88ERnMAN+fet7J2Pw@mail.gmail.com>
-In-Reply-To: <CAPM+r-+-=3H1uN5=dim5O4cuFCWmx9agh88ERnMAN+fet7J2Pw@mail.gmail.com>
-From: Johan ter Mors <johan.termors@gmail.com>
-Date: Wed, 25 Nov 2026 15:19:42 +0100
-X-Gm-Features: Aa3M54pMJt-OYhuEZWisz0ObNb-TQCxi4duhsv6CEP-uPo1pO5AVAmbMuZ2n3I0
-Message-ID: <CAPM+r-Kr09yu0hzxpsoyAtr3RTYw40tYnezF20r9GZ43wREEsw@mail.gmail.com>
-Subject: =?UTF-8?Q?Re=3A_TCP=3A_RFC_5961_challenge=2DACK_budgeting_and_unpace?=
-	=?UTF-8?Q?d_RST_emission_on_closed_ports_=E2=80=94_lab_measurement_=2B_consist?=
-	=?UTF-8?Q?ency_question_=286=2E12=2C_loopback=2Donly=29?=
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, Kuniyuki Iwashima <kuniyu@google.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|CY8PR12MB7491:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2da9b639-62a8-49e4-ea53-08df4aff4151
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|366016|376014|1800799024|10067099003|11063799006|56012099006|261021123027099003|261026121527099003|261022105027099003|261026140227099003|261028144727099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	ce1ELM38uGTTLLJDj8SRjfN27gKdiICmL2n++iId6UD9lG08TKkFGkSCK0eJBgtjJ/Fpbm7tHcwFMer+6RWPXct2VSjcENgDfaal7tPbvXKcoWcu172Y3DpZtkU5OM5VJ2n6YFCNm9FZZvBEtYtGDJVNzBfIvCpf8O6DQ5T/BxhPeXMPPgclv/w0WOPfmLIhtSGxp4weixIgXiPsxyBMk3YYEQ3Uu6vxHwb2zFq9zj32FWarfLXLtAdWfonmz8wnAbNl0q5dNq5gJ6FB93zT2rBTEuiUzGJiR4Y33gsLLtQ8cJTU7k9ZlJUHCGTnGuADVa+rY7LE43Yu7e1H3vQtg4MlHm+iVr/aRav+OIU9Oq0NNF6ROAHHjTOktCIdlbfwJ+ccSkvIruFhsIZg1SDKkze21H+4uAUwNYjqfo9M64VbddnaoLDcJTeakR/fqv2aBJQ307fM9LfEWhbVQX69xbnEXy8eUgOeWHXLPof4Ej/+TUz9ZVlA82LANyfX3LlNcZaax1RgOFLAyquTH2EwKjz7v5M4gj5e1ZjDwr5muAbFjo2+uYseQMmht6wUQjLL6yM8lSp/O/7jvn3xTYPTai/wyYn1uhK2RpNRXuCvwnZVosr/Xf6uzE/iNTEzLt4/xEVBKa5dVhPjpMC4zZnGoLUFfdkxe5PKQG6w/lppGjc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(366016)(376014)(1800799024)(10067099003)(11063799006)(56012099006)(261021123027099003)(261026121527099003)(261022105027099003)(261026140227099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?cuozyluGOCvQWnpkoVZSwRH5v3Cn7Kod/v1/1Yvo2sqQF4yu2TzRqfHgjxA/?=
+ =?us-ascii?Q?MJfo8IqhcXPpycnqKeUkZU/MiVClirmZAuaXxVV9odxzQqE2za5jY7KN0l2Z?=
+ =?us-ascii?Q?SlcJOvIH8IkanKCLuisCFVMj8M6K7OUnPBB81yAseIgeocKmMiRwXuS+x+3G?=
+ =?us-ascii?Q?Tilq910O1vAp6PBcBHsQIo5OHivVvqnRfcrzKEBK7lBTMjQWkfSn2ORmiZkQ?=
+ =?us-ascii?Q?dU+dOpAzObKKP01M9fH7I+0PPnOO31Xu3XWACGtSFSenU5epc3Bw91RFKqla?=
+ =?us-ascii?Q?pLCVnHnguLSd9p10KHwON2ZWmYG+pY7pZehdJ01bXeeA6vRmq/LgKERBLUAr?=
+ =?us-ascii?Q?TvvWYGYi4R7ERnsnNa6kkvyBvaPU5MggC++2Ox86ZhhHQtTU/IiimGi8/tVU?=
+ =?us-ascii?Q?AzEZaO8JCPpFCv7yJx3qjHi8mPO4JyxCqa0QIfSArOzTKJMQTNJFrA1S1Fc+?=
+ =?us-ascii?Q?+OnhvgHcXo4/40tfqdT6oLJ6pzT6kbl4frY1+tok8iEkUExJctmd3bhVXcZ8?=
+ =?us-ascii?Q?me/aYcq2KRmxJkwQzruTuqSuZy6GtO8/N3zAZDex3f3CpshW31RexppX/DAv?=
+ =?us-ascii?Q?bs60+I+Hi95kYrurunvUD/5xirsTZHRAhevcijIWwJ5ZSLB2BoebRW89AKiq?=
+ =?us-ascii?Q?xnYW0VSodBSg6WBS6AsZg5HYWdZihHAj0oBXW4AoHKFW8UEY3musmILb9KNx?=
+ =?us-ascii?Q?9nNmibCNlVe0J9iiZup+pr7683sl/B5uupDViBJaqQHAxMxiv3OQgn4jjuYj?=
+ =?us-ascii?Q?7bmObgaTBpdPwHWs3bjnzZu4ZekhKIWi+Gk/4q6tPxnVcxS0KfPTrLbxjyT7?=
+ =?us-ascii?Q?U4BpVcCP+VLBcNgNbbR/hqp53xVAK6Sjj+k8FgN5TpWEZJmfzKLMOzU1zsdw?=
+ =?us-ascii?Q?XsfRY3sv7+t4FL5VtUYS+e0xLpx6Oo0xq04A3yu5CqqYSM0KLkdizGrWFQ3K?=
+ =?us-ascii?Q?mJJOlP2tLoDg+OLSJlhwvCLT75gWnTSz+l4+8OtfceAMHgDyRyiJXmFGZuXH?=
+ =?us-ascii?Q?/xwrq4ZDYReXb0CCf3wCt4EKA0yFZJEt5QNcMObfzujcFUO5WxSo8W5oSEQw?=
+ =?us-ascii?Q?zyvkxHqf1a3h4F1VtmkSM3TZlcvr2FzDZn4ktTe+/RF6FdKohSrs+cGaduRW?=
+ =?us-ascii?Q?zmGjo63jh9N67JG4h+boE/ymqdU5fr4f4pPsUIbdhNtnp3dfLnuIdG2WhZsS?=
+ =?us-ascii?Q?ZJsAVDquCvNWfOY9emUgkKYZeHGjP3Pi1kz8uneOSvtU4gK4++f/B9ZNPj5E?=
+ =?us-ascii?Q?da+LI/ShnVPAygcNlgSo3gNsl6dWSsmXvuBmLWj0Zdo+Q/VwE12rYTaM95l4?=
+ =?us-ascii?Q?t5bTHBhRQsTR7Q8sFCuCduRbtFb/GyswsfqQoVEQNzXkh9HkqhJMrwXyS5oS?=
+ =?us-ascii?Q?XG+lyYMArJfGGZftNK0XFwf3Z+XEbSZmAkP8TZ6WsZRc/oz95+mAsES+vFNM?=
+ =?us-ascii?Q?WGFfBDNuj7OmsOuFAomDIOVA77wjYO+bwAXGSyR8WQqrmo+RqY+DfGyV6MGS?=
+ =?us-ascii?Q?vItLuu+gx3otwNXJKwjzLXEn8YU4LsKOW0PZwuX28J+BGgd2Crq5J+gMrRXK?=
+ =?us-ascii?Q?TdvWnrbNaBpntYxvDKXoN142TotpVDd9v3CyJzyxVBc/pY4ssyejXQGzcsi9?=
+ =?us-ascii?Q?kAehUeyqzq6OY8wo1kk/Ff3wLWTJUuh21gUyE45qHBB+gBodUMA8Vpr/iK03?=
+ =?us-ascii?Q?wf/akbO9LT9sqdBLU/GDV2iLX3HpJDlkjpDzhPsMUSucgaVYeag0A+ERIoEc?=
+ =?us-ascii?Q?mbas5auVaA=3D=3D?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2da9b639-62a8-49e4-ea53-08df4aff4151
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 14:20:28.5597
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 1/OmbsgqYyknkE8iaOZHKSyqgAxKrXvSY+Os9W5A+FODqnZWEPaPqUANNGra7KMSOwzERQ5C+WS10LSY7lC9yA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7491
 
-As promised earlier in this thread, I rebuilt the lab guest on the current
-stable release (7.3.6, tarball verified against kernel.org) and re-ran both
-PoCs plus the per-socket cell at fixed probe rates. All loopback/netns
-only, lab-only, and still no bug claim anywhere.
+On Mon, Nov 23, 2026 at 01:59:13AM -0500, Qiliang Yuan wrote:
+> A per-cpu IPv6 route through a nexthop object records the fib6_sernum of
+> its netns, and ip6_dst_check() accepts it as long as that value matches
+> the fib6_sernum of the netns of its device, without looking at
+> dst->obsolete as it does for per-cpu routes without a nexthop object.
+> 
+> When such a route is released with dst_dev_put(), for example when its
+> nexthop is deleted from a group or replaced in place and the old
+> nexthop is freed, it is pointed to blackhole_netdev, which belongs to
+> init_net. For a socket in init_net the recorded fib6_sernum stays
+> current until something else changes the IPv6 routes there, so the
+> socket keeps sending into blackhole_netdev: send() succeeds and every
+> datagram is dropped.
+> 
+> Reject routes that dst_dev_put() marked DST_OBSOLETE_DEAD in
+> rt6_is_valid(), as ipv4_dst_check() does, so that the socket looks up
+> its route again.
+> 
+> A connected UDP socket in init_net sends 3000 datagrams, one per ms, to
+> a route through group {nh 1, nh 2} taking nh 1, and nh 1 is deleted, or
+> replaced in place by one through the gateway of nh 2, after 1 s, with no
+> other IPv6 route change in init_net. Datagrams that arrived through
+> neither nexthop, 5 trials, median and range:
+> 
+>                before (datagrams)   after (datagrams)   change
+>   delete         2060 (2049-2064)                   0    -100%
+>   replace        2061 (2059-2065)                   0    -100%
+> 
+> Fixes: 8f34e53b60b33 ("ipv6: Use global sernum for dst validation with nexthop objects")
+> Signed-off-by: Qiliang Yuan <qiliang.yuan@linux.dev>
 
-1. Closed-port RST levering (poc_tcp_rstlad_paced.c, plus the unpaced
-   ladder inside poc_tcp_challenge_budget.c): delivery 100.0% at every
-   step =E2=80=94 paced ladder 32.6 to 2086.7 pps (real pacing within 0.3 p=
-ps of
-   target at every step, challenge_delta=3D0 throughout) and unpaced ladder
-   ~10k-20k pps in the guest. Identical to my earlier numbers on 6.12.117
-   and 5.10.134: the RST path on closed ports remains unrate-limited on
-   7.3.6 and does not share a band with challenge-ACK emission.
-
-2. Per-socket challenge-ACK budget (the cell I promised curves for): two
-   concurrent victim sockets per probe rate, 60 out-of-window ACK probes
-   per socket, challenges counted per socket by sniffing the loopback
-   responses. On 7.3.6 (challenge_ack_limit at the INT_MAX default, same
-   as my 6.12 guest) both sockets independently receive an identical
-   per-socket budget =E2=80=94 a time-based cap of ~2 challenge-ACKs per se=
-cond
-   per socket, independent of the probe rate, with no cross-socket
-   suppression. Reproduced identically across three boots:
-
-     probe rate   sock A   sock B   cap per socket
-     10/s         12/60    12/60    ~2.0/s  (6.0 s window)
-     20/s          6/60     6/60    ~2.0/s  (3.0 s window)
-     50/s          3/60     3/60    ~2.5/s  (1.2 s window)
-
-   For calibration against my earlier mail: on 5.10.134 (per-netns random
-   bucket, default limit) the same cell showed 30/60 per socket; on 7.3.6
-   the per-socket regime is directly visible as the ~2/s cap above.
-
-No bug claim, no exploitability claim; kernel log clean across all runs,
-no traffic outside my own namespaces. Artifacts available on request.
-
-KR,
-Johan ter Mors
->
-> Op wo 25 nov 2026 om 11:30 schreef Paolo Abeni <pabeni@redhat.com>:
-> >
-> > On 11/24/26 23:49, Johan ter Mors wrote:
-> > > Hi netdev,
-> > >
-> > > I am running a defensive-security evaluation of the TCP stack (author=
-ized
-> > > lab; all traffic between my own namespaces/loopback, kernels 6.12.117=
- and
-> > > 5.10.134). While calibrating the RFC 5961 challenge-ACK mechanism aga=
-inst
-> > > a blind-SYN storm, I measured two related behaviors that I would like=
- to
-> > > have confirmed as intended, and one consistency question. I do NOT cl=
-aim
-> > > this is a bug, a crash, or a memory-safety issue, and I claim no
-> > > exploitability =E2=80=94 this is a measurement and a design-consisten=
-cy question.
-> > >
-> > > # Observed (lab measurement, 6.12.117, loopback/netns only)
-> >
-> > Why using an old kernel? You should run the current last release.
->
-> Point taken. My lab targets the 6.12 LTS line (currently at .119 upstream=
-;
-> my guest runs .117) and the host distro's 5.10 kernel. Both PoCs are sing=
-le
-> C files (no dependencies, ~1 minute per run, loopback-only), so I am
-> rebuilding the guest on the current stable release (7.3.6) with the same
-> lean config and will report the levering numbers for both PoCs back in th=
-is
-> thread.
->
-> >
-> > >
-> > > 1. Challenge-ACK levering holds. Under sustained blind-SYN pressure
-> > >     (synthetic storm against closed ports, aggregate ~500 pkt/s in th=
-e
-> > >     calibrated run; levering verified 100% up to the raw-socket EPERM
-> > >     gate in the high-rate run), challenge-ACK responses keep arriving=
- =E2=80=94
-> > >     I could not induce the challenge-ACK latency degradation itself o=
-n
-> > >     Linux.
-> >
-> > It's totally unclear to me how many ack/sec per socket are you observin=
-g.
-> > Since 6.0 challenge-ack limit is on a per socket basis.
->
-> I should have separated the two paths =E2=80=94 thank you for asking. The=
- ~500
-> pkt/s aggregate was the closed-port RST storm; no socket is involved in
-> that path, so there is no ack/sec-per-socket figure for it. The
-> per-socket challenge-ACK experiment in my evaluation ran on kernel
-> 5.10.134: two concurrent victim sockets, 60 out-of-window probes each;
-> each socket independently received 30 challenge-ACKs (A 60/30 and
-> B 60/30), no cross-socket suppression. One precision: on 5.10 the active
-> mechanism is the per-netns random bucket (the 2016-5696 fix), not
-> per-socket granularity =E2=80=94 that arrived in 6.0. I will re-run the s=
-ame cell
-> on the current release, where the limit is per socket, and include
-> per-socket ack/s curves at fixed probe rates.
->
-> > > # Questions
-> > >
-> > >     a. Is the absence of a shared band between challenge-ACK emission=
- and
-> > >        RST emission intended policy on Linux (i.e., Linux deliberatel=
-y
-> > >        couples neither to the ICMP/badport-style rate limit the way
-> > >        FreeBSD's badport_bandlim() does)?
-> >
-> > Intended AFAICS.
->
-> Thank you =E2=80=94 I have registered this in my evaluation notes as vend=
-or
-> confirmation.
->
-> >
-> > >     b. Paced-mirror experiment: when we pace the RST/challenge offer =
-down
-> > >        (7 tiers, 32.6-2086.7 pkt/s), levering is 100% at every tier =
-=E2=80=94 the
-> > >        same experiment on FreeBSD 14.4 shows a hard plateau (~126-138
-> > >        responses/s). Is any pacing/bandlim intended for the unpaced R=
-ST
-> > >        path, or is "RST levering effectively unlimited by default" th=
-e
-> > >        documented/expected posture?
-> >
-> > RST on closed port are intentionally not rate-limited.
->
-> Thank you as well =E2=80=94 noted as the expected posture. That makes the
-> cross-stack asymmetry deliberate on both sides (FreeBSD's shared
-> badport_bandlim() budget vs Linux's unlimited levering), useful context
-> for the FreeBSD report I am preparing for their secteam (coordinated
-> disclosure, separate thread).
->
-> No bug claim anywhere in this thread; kernel log clean over all runs, no
-> traffic outside my own namespaces. Artifacts available on request.
->
-> Thanks and regards,
-> Johan ter Mors =E2=80=94 independent researcher
->
-> >
-> > @Kuniyuki: please correct me as needed.
-> >
-> > /P
-> >
+Reviewed-by: Ido Schimmel <idosch@nvidia.com>
