@@ -1,96 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795640218;
-	b=5s1n2qkcveJUd6oe/rY9DxpWZJQjO3ZeRVqJbHjDuDlf8u4dUywb8P/zle5so5SY3gsA
-	 0udCuwxwEsijbg9cBiGnCUdnjvP4AQzTxtMUtW/viszRinDsEbEZDzVLAXM7mYRUbtgu9
-	 fqK/yIeDkbUZRWWg/tfIxzG+6UHBlhmxG+mCjN1xii941H95C2Dy6KNrWJWHx7isUdQfa
-	 z5i9U24cn68q8gwNwTxAW/jOe27Dkp1YcdeFVDj8f98wi8qI2TUfuxM7HOBTuOf1oZNT2
-	 vs5JXAbe54NtIonFyuJCre9fvZVxhosiM7+2P5ZC1NrNhf8eeXSRkjHqzuWiWVasgcQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795640218;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
-	b=AQjJE/CgcALNbqkhT7CyYX+fKYTHXzZl75gxYHI5zkTI/sJAD89muemsrNTLkwuhf/RE
-	 vU7ulGweB2ZPzyU0ab5ApRwORPEqhGU4zpPCMWiNBDiquCzLv4rtSS50PULRUOWjcrthZ
-	 3/KGTLZrQuQPttMDmQTypMbkBRyrefmlVDXCXftfh1DJ/eZJXg+VbZvD98qJbT1Hm3ljT
-	 byCvMRAsTNLnBngcJ5VNAzNqOIZ+Zy5Eex1gdBV09hQi4Wytf8071IOKU8z5wv8PmcHCZ
-	 2NKGrI+GtBxCLwP4RV+JtLURszxX+rZvp1ivyktEPdsycVHSWWc6oB5LEJiwZWqnPjA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=ZPMkAQeT;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.29
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795640852;
+	b=uc55isqZ7H7pSODDxeJcUSzdVZ0xTHNN7h6n/wGgv/nhhpsOrx45GynxPbLkn7MlYY9j
+	 KEZKGLL2KHfryNV4tj7OY2oJpdJZvdEDUfBhzzq0PysTCRcpt4tbiFZ5Z72MTME9GdgqB
+	 ATi27u4g0f1mPOqq2lHl5/uGzcux2e/CSxY9htbdYD2JNnHRiGkBrWRLjPGQOM/mRWCsD
+	 IpKU3aSAkGtj8/9THY/GKKfpceqiiYVD4zSv46H0hG4dsBG6frPNvNV8MhZhbaFNDbUji
+	 kC6zVwzZqtEJ4o5isRN6P7swABSZuNKokH3uZ7lw6QuWdG5fhnY19seEvv5GgApbGoA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640852;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=Bg92odu+cc/7Q4gqQaN/vA3rfaBulA1BRn21Y7oRcok=;
+	b=KxFzFuiHiFTadOyVNwPlhG5N7HLIg5Do5nSeGYgJpsqsZ4jH3X7dcrxfTxFj8r9k7H9V
+	 9h+5fcMZ/J2uOyFI4P7TataSzb3xdehUWIkesBvjDV78+KbZM0vpdKlc05Xtr+ivzdOZq
+	 C6cjSNbpRyV8qN2o+rqzIwLAQh5mVVTajGUwDiEpPXpdDvYvqKhiz027THuRO55Vo4rDT
+	 A0ksDPtPo9ux982B4xho7m9othbb4uPmfc49+shgZpQrC83ViyRX4hejHPHj/gnxAN7FP
+	 5c1f+/x9x72UcNQSTGx1DC981fju9B/1rtA7ZP0xGi9lX9IlqospgC1nVauGRvElODg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SpK9CScD;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.53.29
+Received: from BL0PR03CU003.outbound.protection.outlook.com (mail-eastusazon11012029.outbound.protection.outlook.com [52.101.53.29])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69245606A336
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:56:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69245606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B7123606A31E;
+	Wed, 25 Nov 2026 21:07:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B7123606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=ZPMkAQeT
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-38431138772so8173806eec.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:56:58 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795640217; x=1796245017; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
-        b=ZPMkAQeTFHEyTJ4CMgqG1N7dy+fWmXSI99wPfaB/eEP8EdUkgJL/Upczq7+xvs66AC
-         6x3a2TE5rWp3n262l1Yua1s6PJ0nC9OKXcpFvlJ1d5o6N2WcfZ67A/j4sYP/MVg9AVaX
-         dkKuSRMSpY9RY8c7REsiDkVx+DszpyjA+NXephOzbydiCb0BPp8sBVRkbvUZ32sL0GZ4
-         rtMBiaPd6zkyhAmhAQX0zZFiMix5BAWskobmlt4niyOguB84RdCxPcinH2lmAwgjegJT
-         H6PpVyCgyOaU0L7T9ze2fHa3CkbMEFB1yiYpMuKA+yApsOXKkEhxYBrrx9ndBiNQhL91
-         +scA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795640217; x=1796245017;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
-        b=I2eqkKlQD6erlR13kY23fKWq1vYoKyUF1hrmm54WJqj/Mg4Wg520Ak25jBBAaIX1cR
-         8NsXfnUQB2kt4mLFmlotEM1AhVOlA2p3Xp8Cei/ArR0+MMe0toaKu7AQDJuBzwIyV8uH
-         py4t9n746/DJUxOFT5fiZOvK9tREOAzAlAhIb+U0SraShmwk34kJfsUSseGdtlnW4qbF
-         XiC46uivZ1lO/2NxA9ZrKKCe6YJwoFZpvSLJ3w6pSPW7xv4QokImjU1e3oSW4lVyanm6
-         gjYrr1cuR2yaLWbXxU1s0zNPUMtAWHUV4SKx1+EAt/Wn3JqfEDQC0oTvgqd4PeyMSLGo
-         FNAQ==
-X-Forwarded-Encrypted: i=1; AL+hErH2BrX0mbLH309jkDTA9Sc9W+c+7gm6lPLGrwGUrzvS5DoF7jLTQUt+6v4Ol6MSHMks6fYslv0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+4oI2qfyGoo/FnusSAzDNlRhdQyNUZv4rkQmWXdWwblIypcRwz
-	TCobzY7QiszfF8IkxiBrjSNDdUC48W78DPaKrunCAIi0E/oaeDDdz+ejPDBvAI7XDrU=
-X-Gm-Gg: AZFdTZcZYxrh6+T2l1f9vcL4sr5mQ75dVAO9NBsg+Yboy9wU8wol/KuYygYV/L5FDGK
-	PrNFYLgXXoEAqwLW2v4zHe+GzzlZhmuQ5MtsJpqPAEzjZ88r86jdQ6ZT0R4mb3AE32Xu7OgglFo
-	+qpshL9z+FrF8m8Td7vP+tIyZIX6v0i1kRSkAa16s948g/gAuwUG19ldAjp3muVleDrRbasS3aq
-	Djj+YJotim77YO17LkZW7yS29MCWl5XfGbJ77Z2/aFEbDkCegATjUou+MldYWU/g2Ovs81bloHO
-	AAzcAjfqrziGehUyKc9KWd/St3MeCsNKPKOeS1xl3UZC55I7uWjDowmv8cKN5vyod8alv46uXJM
-	OalQVSuEhHiAHG4+iUNmNAZPvE4jh+7/noo8bc+nsfWZ2ZLpB1D4xG3TQTUpehwD1cZs7ZMetMs
-	tzEKrZTEbW7a9llhqWqWVyzyOKd3mWT3TJr5CdtIYbNsJW9UZfQpxFPavhM3EedNGVuo+JMleVk
-	PNT8LcWoZ5AshVDiTPY+iftm5qFaxMRfhcdZnP/+Vu2XZboT9/HiOrnLpf0LF31tIu687nBPKUV
-	LKTJGX6wDEBVTrfNDOZTXiqllbUrRDjiiTcmwa+FPUmqLi5Y44Zw96YGi4MDcRAdvMjhRS8j2Zt
-	ztONKlJPWL8PNrVm3BqpyAl2mGQ==
-X-Received: by 2002:a05:7300:ac82:b0:385:4b9:18f2 with SMTP id 5a478bee46e88-3857093f077mr28974062eec.21.1795640217441;
-        Wed, 25 Nov 2026 12:56:57 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm63824963eec.26.2026.11.25.12.56.56
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 12:56:56 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	kris.pan@intel.com,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com
-Subject: [PATCH 6.18.y] net: flush skb_defer_nodes in dev_cpu_dead()
-Date: Wed, 25 Nov 2026 15:56:53 -0500
-Message-ID: <20261125205653.75303-1-artem@trailofbits.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=SpK9CScD
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=WjvD0WLZHvR9XwWibtTbLQrHN80G+ZTjenMPSXOiGNB2E4MQd+CWRINXb14LkgR6ZJqTTG/Qwcfxw8za/AcdAAh87YiLMJVACRNshZoc51iSh/A9WYjKyR7scjQDmyN7EGWv9JnH7EckhqesaLzAxHtzYASKL6hgMrfCDHxk9nuA52d22wiSSWj+02uQFICOv95xNqQsxRLlgk9th6fYRG2YzYuwi2+piCtHn2x7mD3rasnqLWkSUrJom9dSzxsse6udEEmXYJqjP2MZzRxZz9u2HVp8lrDiTKQ7kzHXyFdfAFcw8XeYPf/jciidUS4Uyd2MFaoX09ZGZljDLlIr/g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Bg92odu+cc/7Q4gqQaN/vA3rfaBulA1BRn21Y7oRcok=;
+ b=xpy41vJb2nNkY/Z8bt+vlG3asS7lRVZi/ajfUcd6WEhdX9mP9eJ4sqkQSzPqDfyug9HyaVUVTU5DBF7WcTRG63VrTtawQAS2hdCLchYplRdBP/tJbR7ZjDG8gVDWO14zzwwLd+3ZSXWuD6XLgVpc8sBYZ53mwFuK/ZA5mCrYg2M3dsQzrvzsnYjdglIp5k6zHO2Wpj2KD01zcy/6A1D3jqDC7BtQ3YBIWipUrM5pILWHC9RgR7L3gL7n1G8aPVWRcxDFCk5ttsFDhiUNsljF5SK1gyJkL3V4AV3E+7FHPQNpZ7vg0VHngvjLPlhdoZ0qPQK42xa8jhjT8n2HRSvfsw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Bg92odu+cc/7Q4gqQaN/vA3rfaBulA1BRn21Y7oRcok=;
+ b=SpK9CScDiIpjdnGGnwbE/5ducRV5ti4imk4V6uKEytNFt6g7+VF4teUFBk1Bk4mus3hrw2KcIESmVkzyPdaV8S+l7eSgk7OfpiA1mwZIDDFJgEVrQ5WqYpjbmiDewBnXDoWVmlbyfWJqliRW7ulTqXAEZWLue9lM+Z9xqSE5Bfsg4V/xnGdHYRM9hZxjsNNXp/1wQnAWJCn0aewsi7WInHYkRzaBa9hX2tHEPRYP9KXZM4HPGHe5U+MWCsyihz4w3V5jYMpxUNNoxpbkYGSci4NP9Menr+ibt0VA1Jw1WEYsvgppRMfdg8jcT167y3INSzM0f6oalyjNyVyfwSGRZQ==
+Received: from IA1P220CA0048.NAMP220.PROD.OUTLOOK.COM (2603:10b6:208:462::17)
+ by IA0PR12MB9048.namprd12.prod.outlook.com (2603:10b6:208:408::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Wed, 25 Nov
+ 2026 21:07:18 +0000
+Received: from MN7PEPF0000014E.namprd04.prod.outlook.com
+ (2603:10b6:208:462:cafe::37) by IA1P220CA0048.outlook.office365.com
+ (2603:10b6:208:462::17) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Wed, 25
+ Nov 2026 21:07:18 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ MN7PEPF0000014E.mail.protection.outlook.com (10.167.254.40) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 21:07:17 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
+ 2026 13:06:56 -0800
+Received: from drhqmail202.nvidia.com (10.126.190.181) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 13:06:55 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com
+ (10.126.190.181) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Wed, 25 Nov 2026 13:06:51 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>
+CC: Fernando Fernandez Mancera <fmancera@suse.de>, Gal Pressman
+	<gal@nvidia.com>, Ido Schimmel <idosch@nvidia.com>, Jianbo Liu
+	<jianbol@nvidia.com>, Kuniyuki Iwashima <kuniyu@google.com>, Leon Romanovsky
+	<leon@kernel.org>, <linux-rdma@vger.kernel.org>, Maor Dickman
+	<maord@nvidia.com>, Mark Bloch <mbloch@nvidia.com>, Nikolay Aleksandrov
+	<razor@blackwall.org>, Roi Dayan <roid@nvidia.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Shay Drory <shayd@nvidia.com>, Tariq Toukan
+	<tariqt@nvidia.com>
+Subject: [PATCH net] net/mlx5e: TC, use the owner eswitch for encap neigh updates
+Date: Wed, 25 Nov 2026 23:06:29 +0200
+Message-ID: <20261125210629.239095-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,222 +121,200 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN7PEPF0000014E:EE_|IA0PR12MB9048:EE_
+X-MS-Office365-Filtering-Correlation-Id: 263916cb-f5f7-47d5-e877-08df4b3816c0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|36860700016|23010399003|7416014|376014|18002099003|11063799006|261022075727099003|56012099006|261021121427099003|261028144727099003|261009223027099003|261102123227099003|10067099003|261021123027099003|261026121527099003|261026140227099003|261022105027099003;
+X-Microsoft-Antispam-Message-Info:
+	0dyrO1AMr2yc82XBA0tDSs6tVgeqhF0m0l6ee/TZAElYvmj+t899AxwswudoiVQHqAtgEzh00Eec9qE9eqk+wPXrR01lYuVS2jun8C80ahKfmb/qiguDSYPT4HzducJR2cg6sCXzOOsbu1v3A3GKQYKVFLE7Vu+/b0uNSWOZdaOiSzgdeMEFbsDa4GgyZUbECNnIFjMd0D3jyfpofwr3lK+BJJN1bONjEeTkP3vTe4cT6D7vWa0s1S11HWOEw1X6qBUNJ6FtXap6vBdlV04vPY4URfq4fbJgFVvnIpg+FMKOBpFFJaJC3LtEDQF2ETkUt77qZ33VGOQVT6h23uYf7vRPuK2pj9stzJ3FchthDQmwu617SAdz5nKqynTk8pFGEJyW3jca8U/LwBdceRy4JmymFoedIt8N04zVX7F7xu1eoRGqitSpoKAJVNzZqklh4KOu8TqujRP3pK8HIMFXTgBm42G2lNHVl7G8AxNF//BFI/TJOZWG4Do/dmcjN/c4GCL5cTF2z9hK6q2zE6Icb0XAkNXpyvdV4VFW0cVDlYqg7qEq7ZO7eKOZptRJ1KuEphCcLzDCztn2cjg/CvtJJTSPYO2q7SQcM6RhsopyPUSaYd911WOVCoYTMcvaegeYM3GdTG4hBREAcXOyY7C2DbIkp7h7j+0jvy45SlvnAnf44KgNEYbqJt5Y9yIf7pzGkEFyNz9LcEkorqiHc9XfYQ==
+X-Forefront-Antispam-Report:
+	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(36860700016)(23010399003)(7416014)(376014)(18002099003)(11063799006)(261022075727099003)(56012099006)(261021121427099003)(261028144727099003)(261009223027099003)(261102123227099003)(10067099003)(261021123027099003)(261026121527099003)(261026140227099003)(261022105027099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	XrCG2HDclPhKotB8hVr3HADTSOoAKP6KyLR75N2YDxopfq/Tb5miWGTys5hPy5/ZezxJiKZSEWDWtqUOsdquab2nad3CzkRU15Mdh/RxBA362EpzL6V7AUs3ZUGqDgdAaxAJT2gMqepO+a2dq17AfOlCH923RssZzyYBIhrOlyrUj3BU+13Wc5fclyAJ03yVLTb03FJuKlbcXc+7UKKMWEZ8lyK+8OD6Z1g+H9z9fLftmkpFDWCPnRM+zLlALdJIPvwXtqRuPgKrBO6dLVrFGhRTolQYi8t3cRg3oaRorBrj29psuwzWShpiQzJGtHPAQEDcIIvKgz9MfmDvvbicOgkimrTHJzB+Cp0/pj1SkU0qSB7fa+RTNCw0zZ68CEJ8tKEPwt77LRiNuWPQFj+OquDcFQ9CoCuTr677Rp5XgqkI57+TB+i7PQMXytUbZfOc
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 21:07:17.9186
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 263916cb-f5f7-47d5-e877-08df4b3816c0
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MN7PEPF0000014E.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB9048
 
-From: Eric Dumazet <edumazet@google.com>
-Date: Wed, 23 Sep 2026 13:03:18 +0000
+From: Shay Drory <shayd@nvidia.com>
 
-[ Upstream commit 06e3f54e8b22040ada01a28343badf1990b4dd7d ]
+Encap entries are kept in the encap table of the eswitch of the flows
+that use them, while the neigh hash entry is attached to the out_dev
+uplink. The neigh update and neigh-used paths took the eswitch from
+netdev_priv(e->out_dev), assuming out_dev is always the uplink of the
+owner eswitch.
 
-When a CPU goes offline, dev_cpu_dead() drains its softnet queues
-(completion_queue, output_queue, poll_list, process_queue, and
-input_pkt_queue), but leaves net_hotdata.skb_defer_nodes untouched.
+Since MPESW peer flows were added, an encap entry of one eswitch can
+route through the uplink of another eswitch. A neigh update on that
+uplink then:
+- takes the wrong encap_tbl_lock,
+- adds the slow path rule to the other eswitch's FDB chains, where it
+  shares a match with the origin flow's rule, while the flow later
+  removes it from its own eswitch chains. This unbalances the fs_chains
+  refcount ("Couldn't find table", leaked flow tables on unload) and
+  with HWS, which emulates same-match NO_APPEND rules with a single
+  pending rule, fails the origin's slow path update with -EEXIST,
+- allocates the packet reformat on the other device, which the owner
+  eswitch FDB rejects on HWS.
 
-If oldcpu goes offline while holding pending skbs in its
-skb_defer_nodes lists (e.g. below the sysctl_skb_defer_max >> 1 IPI
-threshold, or if the IPI races with CPU teardown), those skbs remain
-stranded until oldcpu is brought back online. If any of these skbs
-hold page_pool fragments, page_pool_destroy() will stall indefinitely
-waiting for inflight pages to be returned when a netdev or driver is
-torn down while oldcpu is offline.
+Record the owner eswitch uplink priv in the encap entry and use it for
+flow updates and entry release, keeping out_dev for neigh handling.
 
-Additionally, if smp_call_function_single_async() fails in
-kick_defer_list_purge() because the target CPU went offline, reset
-defer_ipi_scheduled to 0 so future IPI kicks are not blocked when the
-CPU comes back online.
-
-Also, if oldcpu was the last online CPU on its NUMA node, drain that
-node's slot across all CPUs so no skbs deferred from that node remain
-stranded on idle remote CPUs (or if the node itself is subsequently
-offlined).
-
-Finally, in skb_attempt_defer_free(), re-check cpu_online(cpu) and
-whether the caller migrated CPUs after llist_add(), flushing the node
-list if so, to close the preemption TOCTOU race against CPU/node
-teardown.
-
-Fixes: 68822bdf76f1 ("net: generalize skb freeing deferral to per-cpu lists")
-Fixes: 5628f3fe3b16 ("net: add NUMA awareness to skb_attempt_defer_free()")
-Closes: https://lore.kernel.org/netdev/20260916003430.3612956-1-kris.pan@intel.com/
-Signed-off-by: Eric Dumazet <edumazet@google.com>
-Cc: Kris Pan <kris.pan@intel.com>
-Link: https://patch.msgid.link/20260923130318.607255-1-edumazet@google.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-
-[ Backport to 6.18.y: 6.18.y loads skb->alloc_cpu in the declaration of
-  cpu and lacks the upstream skb_defer_disable_key and skb_zcopy()
-  bypasses, so my_cpu is declared separately and the remaining hunks
-  are adjusted for context. The 6.18.y flush loop has no prefetch();
-  the new __skb_defer_free_flush() helper adds it as upstream does.
-  skb_defer_free_flush() keeps the for_each_online_node() iteration
-  from commit 58fb1e2a33ea ("net: iterate online nodes in
-  skb_defer_free_flush()"), already in 6.18.y. ]
-Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+Fixes: 8ce81fc01b52 ("net/mlx5e: TC, Add peer flow in mpesw mode")
+Signed-off-by: Shay Drory <shayd@nvidia.com>
+Reviewed-by: Jianbo Liu <jianbol@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 ---
-Hi,
+ drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c    | 2 +-
+ drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c       | 3 ++-
+ drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c | 7 ++++---
+ drivers/net/ethernet/mellanox/mlx5/core/en_rep.h          | 1 +
+ 4 files changed, 8 insertions(+), 5 deletions(-)
 
-Please apply this backport to 6.18.y. It fixes CVE-2026-98558.
+---
 
-The fix is in 7.2.9 and in mainline since 7.3. It carries no stable tag
-and so far has been backported only to 7.2.y. 6.18.65 already contains
-58fb1e2a33ea (upstream 56fbbb662795), whose changelog relies on
-dev_cpu_dead() draining the deferred lists of offline nodes; this patch
-adds that drain.
+Answer to an internal sashiko comment:
 
-Compiled net/core/dev.o and net/core/skbuff.o for x86_64 with
-CONFIG_WERROR=y on 6.18.65, with CONFIG_NUMA enabled and disabled, and
-with CONFIG_NUMA enabled on 6.18.65 with the queue-6.18 patches at
-stable-queue 42799ba370. The patch also applies to the current queue
-(0fdc4475764), which was not built. No kernel boot or runtime test was
-performed.
+Could mlx5e_attach_encap() preserve the owner's initialized profile
+resources until all foreign neighbour users have finished?
+When an mpesw encap owned by uplink B routes through uplink A, unbinding
+B's eth-rep auxiliary device can overlap A's neighbour work. In
+drivers/net/ethernet/mellanox/mlx5/core/en_rep.c, mlx5e_rep_remove() reaches
+owner profile teardown through:
+    mlx5_eswitch_unregister_vport_reps()
+      -> mlx5e_vport_rep_unload()
+      -> mlx5e_vport_uplink_rep_unload()
+      -> mlx5e_netdev_change_profile()
+Unlike normal eswitch disable, this path does not first synchronously
+unpair peers. The peer flow created by mlx5e_tc_add_fdb_peer_flow() in
+drivers/net/ethernet/mellanox/mlx5/core/en_tc.c is stored on the originating
+flow's peer_flows list, rather than B's tc_ht, so B's table cleanup need
+not remove the encap.
+In drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c,
+mlx5e_rep_neigh_cleanup() drains B's work, not A's callbacks.
+mlx5e_rep_neigh_update() on A now passes this borrowed owner to
+mlx5e_rep_update_flows() in
+drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c, which dereferences
+priv->mdev->priv.eswitch.
+The callback holds the rtnl lock, but mlx5e_netdev_change_profile() in
+drivers/net/ethernet/mellanox/mlx5/core/en_main.c performs profile cleanup
+after mlx5e_uplink_rep_disable() releases that lock. mlx5e_priv_cleanup()
+then clears priv with memset(priv, 0, sizeof(*priv)).
+Can A's callback therefore dereference a cleared owner->mdev and oops,
+or access destroyed owner tc resources during profile replacement?
+mlx5e_tc_update_neigh_used_value() and mlx5e_get_next_matching_encap() in
+drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c also now use this
+owner, including for iterator release. An encap reference or a retained
+netdev allocation does not preserve those initialized profile resources.
+Could owner teardown synchronously remove these foreign encap users and
+wait for their callbacks before resetting the profile?
 
-An LLM was used to prepare this backport and to check applicability and
-stable-queue history; I reviewed the result.
+[SD] The stored priv does not add a new lifetime dependency. It has the
+same lifetime as flow->priv of the peer flows attached to the entry,
+which mlx5e_tc_add_fdb_peer_flow() creates on the peer uplink priv, and
+which the neigh update path already dereferenced before this patch,
+e.g. in mlx5e_tc_unoffload_fdb_rules() and get_mod_hdr_table(). All
+teardown paths (unload, reload, eswitch mode change, module exit)
+unpair the eswitches in esw_offloads_disable(), which removes the peer
+flows, before the owner uplink representor is unloaded. The window is
+only reachable by a manual eth-rep auxiliary unbind while paired, which
+this patch does not change.
 
-Thanks,
-Artem Dinaburg
-
- net/core/dev.c    | 46 +++++++++++++++++++++++++++++++++++-----------
- net/core/dev.h    |  2 ++
- net/core/skbuff.c | 11 +++++++++--
- 3 files changed, 46 insertions(+), 13 deletions(-)
-
-diff --git a/net/core/dev.c b/net/core/dev.c
-index e4216b78a1a4..da7818b91471 100644
---- a/net/core/dev.c
-+++ b/net/core/dev.c
-@@ -5288,7 +5288,8 @@ void kick_defer_list_purge(unsigned int cpu)
- 		backlog_unlock_irq_restore(sd, flags);
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c b/drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c
+index 6a8d8aac7d16..a93138692371 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/rep/neigh.c
+@@ -167,7 +167,7 @@ static void mlx5e_rep_neigh_update(struct work_struct *work)
+ 	 * the next one.
+ 	 */
+ 	while ((e = mlx5e_get_next_init_encap(nhe, e)) != NULL)
+-		mlx5e_rep_update_flows(netdev_priv(e->out_dev), e, neigh_connected, ha);
++		mlx5e_rep_update_flows(e->priv, e, neigh_connected, ha);
  
- 	} else if (!cmpxchg(&sd->defer_ipi_scheduled, 0, 1)) {
--		smp_call_function_single_async(cpu, &sd->defer_csd);
-+		if (smp_call_function_single_async(cpu, &sd->defer_csd))
-+			WRITE_ONCE(sd->defer_ipi_scheduled, 0);
+ out:
+ 	rtnl_unlock();
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c
+index e1ebc9b2d061..d43c1d7d5281 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/rep/tc.c
+@@ -117,7 +117,8 @@ void mlx5e_rep_update_flows(struct mlx5e_priv *priv,
+ 		/* Update the encap source mac, in case that we delete
+ 		 * the flows when encap source mac changed.
+ 		 */
+-		route_dev = __dev_get_by_index(dev_net(priv->netdev), e->route_dev_ifindex);
++		route_dev = __dev_get_by_index(dev_net(e->out_dev),
++					       e->route_dev_ifindex);
+ 		if (route_dev)
+ 			ether_addr_copy(eth->h_source, route_dev->dev_addr);
+ 
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
+index 4f9f8beffbc8..d23cf60613ea 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
+@@ -177,7 +177,7 @@ void mlx5e_tc_encap_flows_add(struct mlx5e_priv *priv,
+ 		return;
  	}
- }
+ 	e->flags |= MLX5_ENCAP_ENTRY_VALID;
+-	mlx5e_rep_queue_neigh_stats_work(priv);
++	mlx5e_rep_queue_neigh_stats_work(netdev_priv(e->out_dev));
  
-@@ -6826,24 +6827,35 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
- }
- EXPORT_SYMBOL(napi_complete_done);
+ 	list_for_each_entry(flow, flow_list, tmp_list) {
+ 		if (!mlx5e_is_offloaded_flow(flow) || !flow_flag_test(flow, SLOW))
+@@ -348,7 +348,7 @@ mlx5e_get_next_matching_encap(struct mlx5e_neigh_hash_entry *nhe,
  
--static void skb_defer_free_flush(void)
-+static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
- {
- 	struct llist_node *free_list;
- 	struct sk_buff *skb, *next;
-+
-+	if (llist_empty(&sdn->defer_list))
-+		return;
-+	atomic_long_set(&sdn->defer_count, 0);
-+	free_list = llist_del_all(&sdn->defer_list);
-+
-+	llist_for_each_entry_safe(skb, next, free_list, ll_node) {
-+		prefetch(next);
-+		napi_consume_skb(skb, budget);
-+	}
-+}
-+
-+void skb_defer_node_flush(struct skb_defer_node *sdn)
-+{
-+	__skb_defer_free_flush(sdn, 0);
-+}
-+
-+static void skb_defer_free_flush(void)
-+{
- 	struct skb_defer_node *sdn;
- 	int node;
+ 	/* release starting encap */
+ 	if (e)
+-		mlx5e_encap_put(netdev_priv(e->out_dev), e);
++		mlx5e_encap_put(e->priv, e);
+ 	if (!next)
+ 		return next;
  
- 	for_each_online_node(node) {
- 		sdn = this_cpu_ptr(net_hotdata.skb_defer_nodes) + node;
--
--		if (llist_empty(&sdn->defer_list))
--			continue;
--		atomic_long_set(&sdn->defer_count, 0);
--		free_list = llist_del_all(&sdn->defer_list);
--
--		llist_for_each_entry_safe(skb, next, free_list, ll_node) {
--			napi_consume_skb(skb, 1);
--		}
-+		__skb_defer_free_flush(sdn, 1);
- 	}
- }
+@@ -401,7 +401,7 @@ void mlx5e_tc_update_neigh_used_value(struct mlx5e_neigh_hash_entry *nhe)
+ 	 * next one.
+ 	 */
+ 	while ((e = mlx5e_get_next_valid_encap(nhe, e)) != NULL) {
+-		struct mlx5e_priv *priv = netdev_priv(e->out_dev);
++		struct mlx5e_priv *priv = e->priv;
+ 		struct encap_flow_item *efi, *tmp;
+ 		struct mlx5_eswitch *esw;
+ 		LIST_HEAD(flow_list);
+@@ -871,6 +871,7 @@ int mlx5e_attach_encap(struct mlx5e_priv *priv,
+ 	init_completion(&e->res_ready);
+ 	entry_created = true;
+ 	INIT_LIST_HEAD(&e->route_list);
++	e->priv = netdev_priv(mlx5_eswitch_uplink_get_proto_dev(esw, REP_ETH));
  
-@@ -12665,6 +12677,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
- 	struct sk_buff **list_skb;
- 	struct sk_buff *skb;
- 	unsigned int cpu;
-+	int node;
- 	struct softnet_data *sd, *oldsd, *remsd = NULL;
+ 	tun_info = mlx5e_dup_tun_info(tun_info);
+ 	if (!tun_info) {
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.h b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.h
+index bcd7b4e814d0..4be0b9fe94cd 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_rep.h
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_rep.h
+@@ -211,6 +211,7 @@ struct mlx5e_encap_entry {
+ 	struct mlx5e_mpls_info mpls_info;
+ 	unsigned char h_dest[ETH_ALEN];	/* destination eth addr	*/
  
- 	local_irq_disable();
-@@ -12725,6 +12738,17 @@ static int dev_cpu_dead(unsigned int oldcpu)
- 		rps_input_queue_head_incr(oldsd);
- 	}
- 
-+	for_each_node(node)
-+		skb_defer_node_flush(per_cpu_ptr(net_hotdata.skb_defer_nodes,
-+						 oldcpu) + node);
-+	node = cpu_to_node(oldcpu);
-+	if (node_possible(node) &&
-+	    !cpumask_intersects(cpumask_of_node(node), cpu_online_mask)) {
-+		for_each_possible_cpu(cpu)
-+			skb_defer_node_flush(per_cpu_ptr(net_hotdata.skb_defer_nodes,
-+							 cpu) + node);
-+	}
-+
- 	return 0;
- }
- 
-diff --git a/net/core/dev.h b/net/core/dev.h
-index 6a84413e673a..7e5bce3c78e3 100644
---- a/net/core/dev.h
-+++ b/net/core/dev.h
-@@ -360,6 +360,8 @@ static inline void napi_assert_will_not_race(const struct napi_struct *napi)
- 	WARN_ON(READ_ONCE(napi->list_owner) != -1);
- }
- 
-+struct skb_defer_node;
-+void skb_defer_node_flush(struct skb_defer_node *sdn);
- void kick_defer_list_purge(unsigned int cpu);
- 
- int dev_set_hwtstamp_phylib(struct net_device *dev,
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index e28802a46fd2..9cee07fc93b1 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -7312,10 +7312,12 @@ void skb_attempt_defer_free(struct sk_buff *skb)
- 	struct skb_defer_node *sdn;
- 	unsigned long defer_count;
- 	int cpu = skb->alloc_cpu;
-+	int my_cpu;
- 	unsigned int defer_max;
- 	bool kick;
- 
--	if (cpu == raw_smp_processor_id() ||
-+	my_cpu = raw_smp_processor_id();
-+	if (cpu == my_cpu ||
- 	    WARN_ON_ONCE(cpu >= nr_cpu_ids) ||
- 	    !cpu_online(cpu)) {
- nodefer:	kfree_skb_napi_cache(skb);
-@@ -7326,7 +7328,7 @@ nodefer:	kfree_skb_napi_cache(skb);
- 	DEBUG_NET_WARN_ON_ONCE(skb->destructor);
- 	DEBUG_NET_WARN_ON_ONCE(skb_nfct(skb));
- 
--	sdn = per_cpu_ptr(net_hotdata.skb_defer_nodes, cpu) + numa_node_id();
-+	sdn = per_cpu_ptr(net_hotdata.skb_defer_nodes, cpu) + cpu_to_node(my_cpu);
- 
- 	defer_max = READ_ONCE(net_hotdata.sysctl_skb_defer_max);
- 	defer_count = atomic_long_inc_return(&sdn->defer_count);
-@@ -7336,6 +7338,11 @@ nodefer:	kfree_skb_napi_cache(skb);
- 
- 	llist_add(&skb->ll_node, &sdn->defer_list);
- 
-+	if (unlikely(!cpu_online(cpu) || my_cpu != raw_smp_processor_id())) {
-+		skb_defer_node_flush(sdn);
-+		return;
-+	}
-+
- 	/* Send an IPI every time queue reaches half capacity. */
- 	kick = (defer_count - 1) == (defer_max >> 1);
- 
++	struct mlx5e_priv *priv;
+ 	struct net_device *out_dev;
+ 	int route_dev_ifindex;
+ 	struct mlx5e_tc_tunnel *tunnel;
+
+base-commit: cc7fe6e741730fef549e484379281736d32746f0
+-- 
+2.44.0
+
