@@ -1,143 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795592583;
-	b=AmifAI4FENCDe07/C3xlwu/ykqfTf2D3nkm7orsGQGpX9cefJCLcJjCYppfQws5SFYWD
-	 k+qDRDhpj2dd2vQLsF1MPR9i5USws34bMjrM3/G3GPB+sQ6/j51N4Jingnrr1HtOWTsJw
-	 NjVTkgEJJ2kbPaY/MdFsfY0Cx6XihyrXz3iQs5dQU3xBa0CK/tzWak2PSjvKBkDG0JCOC
-	 8p4k6cXPzltNpUHY77AjRW6votlKZAu2Jg9ufcsHIsW8+40vogHDq4gZvHah1h0zS4QA0
-	 QFa7mYYeo8UP72naivsRC+UR1YhDmNQoUDIKJrwxN1PscirZEiwGiOK1wk5wxKXk8KA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592583;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
-	b=MFHiGSyFvzQXxBWi24W0otwaZH/OkAO0ZpRFn2S7fZBTxMANX6RO3L4E2hlFpR52h+Pv
-	 LV7fohsJbu+DYyruejV52bpdQvaTdgEpuWxfAuEeGyA0kX/EjWK9zI/EIQBMzVfhzAEyK
-	 KWquWb0XpFRYu2MUVuv63lx5NHlOGhGG1h6/43RXKmyW99jzuii+Y7D/DZ5eC03avhesv
-	 BRW11iJ4F4YxM4V/cVTYf2a5FSo9BucXHVMS8u74/4m7ggiSfCOKuKdU0Zs/hoeGn2vj4
-	 pyHgGxwZ56gVkfEFcJPBB4vHGfEtgbXflbSiqAcz8VgpPXsOGzIgk4APkLFa+S4mJWA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=l6+j2PCJ;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=A1mje2ia;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.13
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795592652;
+	b=EfkvIO9T9Fk2ZJE2OV/8JG/p7JFtV5Xyf8cxSX3Ae5NT/2zYiGnoA2VZyPlAaJZCa1Yi
+	 tavOp3qSkZ0L2HXbiNp47zKjv+BYWR8rBqvLvuoCHZPYjIXA21+n+PsCh1wyRpBgmno7V
+	 ILXsDePiGRtQ6MWMsUIf7fMfZ6qkm0z3/zgnGViXt8HRAw0jvN810KN2JIE80/AQzl1qw
+	 554mv/mZWOf+RxgU1Y0zqMmSZs5Ja7/DzbedIeh6+zWoIESqs+WWzW8oeH5seHy60Dz4B
+	 UCEdcR2iQyfXezYFjEG4wf2brHEGZ2MxvfridYoYZVxdMcv3cMOK1Z5IRyBrp1Im6QA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592652;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=KGPByt1l/w2w5NVSgCv2fP9X+uQOLitOIGrz+voENZ4=;
+	b=aUVEq9Xinln5/52dkm9Fd6U4rgeaP1HUKnukcXunMP8rnn1cpXuMOngFLjRU4fSHkHll
+	 aG4NCqlAmLhz/5tdgY5c747d4gHuRHFue4NlQt3RfxR3sLUNNIKtCe9cM4IMvO8zO4sUh
+	 l1XXcB+GG8NpEZJjpMljjT+zWZUulxVdQszY6UFwmeo6r1VOiFY8VcRko+DJT8zxoI7gF
+	 C5I+Ne4Qe16R2ytRI9AuKdISosu/JQeH6Go8rpbq+llpniqCN489dxaeCg+6CfQtz8v0R
+	 Dak1yc+5rIGBLHsSbo94zABkjjhZvQkkVsEbaVsSgQj4iCElRB3lSFe1qpoRquOdNZw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mOTYLjeo;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75C69606A31E;
-	Wed, 25 Nov 2026 07:43:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75C69606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41EA6606A321;
+	Wed, 25 Nov 2026 07:44:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=l6+j2PCJ;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=A1mje2ia
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795592582; x=1827128582;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=H4jh2dHZJ2PCTPwex00LNkZn8oD/uK8li8jRTdUM+B0=;
-  b=l6+j2PCJ43la2dEuRS8cgBs4vccurqjAX9Rmqk/EFHoF88JVgGYrnX/e
-   l67fEPyoH4yfN2EB8yMAHTJMh/i0xJO73/g/gez6mVIGTvGKFLoBpCbep
-   cTw3NzKvWNk73H9hmzGnO7DQ4QiE6Z4bKomK7exIr3Y9Br+w7zFR72zIn
-   kNcWG1jVoMxGMf8Je5FabFbZ24H2zfjBasu7jvOsumwX2uWCL1AcztdAD
-   eI2xAt4NkEI1xGvBZXBfJ/XYDb+j+fIAB5xtje8ottFLpN8MfT/E8VsY9
-   0opGsOIwRnHra32zS64Xvdx/UPLNXqvZePKeOSiTzS7LBfONEymwBbhVb
-   g==;
-X-CSE-ConnectionGUID: DUT6nCjnTEitlXC75SY4cw==
-X-CSE-MsgGUID: rfZjmSAqSBS+5Htg9ie6qQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4435432"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4435432"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:42:45 -0800
-X-CSE-ConnectionGUID: lItwZTCURbGZvWqfcFUwgw==
-X-CSE-MsgGUID: 7EUcMzsRQVCeHXh33pikbw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11779636"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa007.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 24 Nov 2026 23:42:31 -0800
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 23:42:30 -0800
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Tue, 24 Nov 2026 23:42:30 -0800
-Received: from PH0PR06CU001.outbound.protection.outlook.com (40.107.208.54) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Tue, 24 Nov 2026 23:42:30 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dqdfBVmpQ5sWvX2JgkVZ4u/mVg8MuJYlH7XQxpeA4ggY/s+JSvcxOGVX0p39gx/2vDe7SCQ468HSDjgRJw6Jy23oLXwaVu7EethGua+4EKyiX7Iy6v1UupfJIh9QjJ/6AqiwtH5aVljfnL9BOECeKpHqubCr2UeVVr8t3iAbcCqe4oy63jAyH/qC87OuD3XgrwxHrv3QlTG4X2uIIgEyRSmVMONh0ciac+7cRO2uvjL7aDar/8YAlvbufobXWX0j4bSuLOteeWp1TVJ5k/7n95DX2aItTcglSReoSrFLlAOSAUH+BCLPbh245zNiU6SXyB9+yI+EhYzQDel/QGmD3A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
- b=zE1wGwu1vGAWRbHAtufmgSAX5msyuo0Bmpirj+t8cTdPzByeXSksfI9DxZiJJAczQYJly2REaa/FKTgbZ1PdlVH5wha1IMY9uI7kt2IGhO2e5YWvGDWjIr/CslaruA/isAALLyJ4m3iySNMONb680FQrSiFPmdT0SE0gpDWcSJ7e1FC8MeVD2uzw65aA4gKaF9tD2OiYjVQOngFs61kyEZ9+3/KxZfDccBOyyjUptX3aOG+ICRNZzDPGKgdQ6JvKnimaRsCdCJnpmTCjQtJCwaqLY2QsGaGv+sc9fx2LLbf84angaYBXV9rZeog99RbQ2a0NjJwLER+Tjd17o6BQpw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OSAsyZ7K8AdVvx0IvgIwxxj7HkfzmAAYgzja0TA9l9M=;
- b=A1mje2iaqS6H/oGynetwgc8jkUn9sSJnnW4SuXPH5oujKcAZVPkxw2GlLHrvGPNNzSZBF/7gilZUAYXvEfixOrreKx1mgjxCLMTfvEb1r/6LXgjl3GO+7mqaNXo2S7JA2yYTSrenNu+mseRMzqFhVlww6Ng2ZhhsEJc/hDa/AFc=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from SJ0PR11MB5630.namprd11.prod.outlook.com (2603:10b6:a03:3bb::6)
- by DS2PR11MB230453.namprd11.prod.outlook.com (2603:10b6:8:3c1::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.4; Wed, 25 Nov
- 2026 07:42:27 +0000
-Received: from SJ0PR11MB5630.namprd11.prod.outlook.com
- ([fe80::79de:af84:3b43:84e3]) by SJ0PR11MB5630.namprd11.prod.outlook.com
- ([fe80::79de:af84:3b43:84e3%4]) with mapi id 15.21.0662.001; Wed, 25 Nov 2026
- 07:42:27 +0000
-Message-ID: <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
-Date: Wed, 25 Nov 2026 09:42:20 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] e1000e: disable K1 by default on more MTL+ systems
-To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>,
-	<intel-wired-lan@lists.osuosl.org>, Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-CC: Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, "Paolo
- Abeni" <pabeni@redhat.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20261119001818.513503-1-acelan.kao@canonical.com>
- <20261124022233.1234651-1-acelan.kao@canonical.com>
-Content-Language: en-US
-From: "Ruinskiy, Dima" <dima.ruinskiy@intel.com>
-In-Reply-To: <20261124022233.1234651-1-acelan.kao@canonical.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0002.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::12) To SJ0PR11MB5630.namprd11.prod.outlook.com
- (2603:10b6:a03:3bb::6)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mOTYLjeo
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A1BC1F000C4;
+	Wed, 25 Nov 2026 07:44:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795592651;
+	bh=KGPByt1l/w2w5NVSgCv2fP9X+uQOLitOIGrz+voENZ4=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=mOTYLjeoSuWpYR+AWHxkzZH/8kuw+oTfJZrBa+eZH/RZg7dC8oyxWEZEOlh/1dmFr
+	 DEoR5cBmihCIzEQGG/tuNQMzU6n5c6FItNMz3+jfpKUXOI3EaONmV9aoL1+38Ewzip
+	 7ZTBg5Oq7Js+Pkt94LaeGDNslRp+C8QGRMd42PScLGVEJvMjl5wM7FzkvjaCSpiCMe
+	 WPiljurDQMF3MSqAkwcZXaxKpkCk1Bbo80MrABk8VgLJKaDZQG9k774d4n1UO/yaR5
+	 hUiNGCq8gDJdpx0sN+PoR4XP0ptEXjuGAIsuYNCVl8USZMXeQxQopUNyfAjjH6iF6C
+	 CktNrPUkcEpRA==
+Subject:
+ Re: [PATCH] selftests: netfilter: fix missing echo in nft_nat_zones.sh
+From: netdev-bot+sashiko@kernel.org
+To: zhiqizhangg@gmail.com
+Cc: pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ shuah@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+ netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 07:44:10 +0000
+Message-ID: <179559265058.3135.11860282333221465868@kernel.org>
+In-Reply-To: <20261124071926.8818-1-zhiqizhangg@gmail.com>
+References: <20261124071926.8818-1-zhiqizhangg@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -147,234 +65,117 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR11MB5630:EE_|DS2PR11MB230453:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0c7b87b1-be86-4dcf-b732-08df4ac7a719
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|23010399003|7416014|376014|366016|1800799024|10067099003|11063799006|56012099006|4143699003|261021123027099003|261022105027099003|261022113327099003|261026121527099003|261021135927099003|261022075727099003|261021121427099003|261102123227099003|261028144727099003|261026140227099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info: rJL5d5cB+fqJJtz3plIBaYwhP3Y+p6oInihGV3PM63NzdkwyM3f2AU5lgpAAWl6E6lnARuAKCG6gd4cq69/YrgmhSRD6m+tnDGwp1FICEEiL+dx2WqLYtcM3QMqrmbbqXyr7BaetMeg4gp6nIl8ZKIP1TWiB0JtgBpoSta7iWhIHC9U6sTyNwwGdjeGL1XDq8h0/H6ZyoApgnnk5Ap05Gyl9uSW6pbS17+bUeGa+7PrFtoFyjbkEpIQMSnaxeeZ71I6CeKFz+BN00c5XhfvsJ1zllEAkY2tMdZsNvaiXewG54UXUr+3t3LkOzf4UGBgW3DCqyy2o60dpci7f469BPY53JOH89aeVkIHkVTXajvoQkRaNyRE/NeeJ9AOAuAUC5G3or9LAquDLfBPoCTF9ig8gWMUTIkQJ/eKhFDLcS+sES5GCk4WUZ2KQQlG3YAIbnJhQ/rgUi4hOQcs02aqYXkJaiyf4Hxv/76qRs55QxAoxM22x8niuv9yzHa4PY7+h84RnDXkhxB2ClZPFhsUklJNtiUZY1HL39+atMi0D6Td6CabFqvzrbuzGeQ6UY4haq7ISLZGHNvKOKAyZlyKuirhBqgP6rXKnUVP6zHEqBxNj/VAJLD577xWt19rmGh13GRyj02SWWZ4gUnpu0pjPXDV8ZxH3sEfac8MATxNuNI4=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR11MB5630.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(366016)(1800799024)(10067099003)(11063799006)(56012099006)(4143699003)(261021123027099003)(261022105027099003)(261022113327099003)(261026121527099003)(261021135927099003)(261022075727099003)(261021121427099003)(261102123227099003)(261028144727099003)(261026140227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UStzQStmRVFJdGNyMWIxb1NYc0xtTXRBM1pJRzhTcy9qcTBMOVREdFQ2NnEw?=
- =?utf-8?B?MlZHVFpkcFJPNUk0blR4SzFzTVlBSDFPSlR0N3M2M0oxcmZYNm1mR0VjVkdp?=
- =?utf-8?B?S21sKzUvSFplOUQ0WElrNU5FaVNOMi9SeWp1ejd0NitaNUxlVzFpNGZMRnMy?=
- =?utf-8?B?NHhpWEM5anAzMXpJemhBUi8va1FEZDZ3UTJTYUJqR24xV0YwWFdmbUVMN0dS?=
- =?utf-8?B?OTlpM1lZY2YwOHlRc1Z5VXpTdHk4a2tvdys2QjBBUTFYUWQ4ZWRub0d6dkww?=
- =?utf-8?B?QkhVSkVWeStScHNKaThSLzdXbTRzUVJ6bGJLcm9WQnNYZEcyeFJBU0lzZElB?=
- =?utf-8?B?VzJvY09ta0JxbmhVUVA2d2tXZkVHbUVxclZPdVF4QXZ2T1FlQmo5QTVkanh2?=
- =?utf-8?B?QU54cVZhbTZpTGR1WGN0YWI2R3djREVPbWt3NVZUMTg0bEJ0d3g0SlkwQUU3?=
- =?utf-8?B?K2ZNejk5NnlxZW9LNnFYUy9HVkx3T2lMNzN2cGpoNll5OWU0TE9LWUVvQ2pw?=
- =?utf-8?B?UmtvT21HbTFmZ1V2VmlyQXpSQmx6bVV2T3FZVTVibVdFRk5wYjZrVnp4UDRE?=
- =?utf-8?B?ZHkzWjJkQy9zcUNySlhjNVJqWHBOTDAxa1VqaEVUZ1kyZkI5Q2RUTHRyWDNR?=
- =?utf-8?B?ejQzRWU0SDI5bUxtTlVKb0d4RzUyam9QMkhuVHFYZEhKd2wzbEpyYkluYmJK?=
- =?utf-8?B?NnlKQ21WUENXUFIvc2NuRFMzN2ZZMFBpUG5nczU1S3l5cnlpL3NYQUNUR2hU?=
- =?utf-8?B?dFNjRlFpTHdFSzFLR3JSamFRTHZLOVBaL241QXBRS0tCMk1IdlREaFZmY2t5?=
- =?utf-8?B?aVgzR3VGNEtlZjdpZDJuaytCQUhKbWJHc2lDS0hyZitSYVZuY0RuZlBlNFlT?=
- =?utf-8?B?ZFhVaTVTcVpwcVB5cEYrUHJzNldYejROdlY0S0dzLytlQWJoWFIxa2p2U1Z3?=
- =?utf-8?B?aHBVMld6aFRPdzhsZGx1MzdXQWJhbWFKNXlJT0ZHRVkxSCt0elVTRWI5WmRM?=
- =?utf-8?B?NE5XZDhtQ0s1eEdQQ3hwRUJzL1piTTlPcnZHZm55MHBUaGRqRVRMYitzV0x3?=
- =?utf-8?B?NHBkWkxEZ09jYTVqNkpMT1l1c1ZwM0I3ZXcrbTNxT1puQWlkNGFOdFJlYWJm?=
- =?utf-8?B?d21FVHZFZTdpNWZxQTQvdE5nbjBrVlBzVmZhOENERFpaNEFQaXFnYWk0MU1X?=
- =?utf-8?B?czhmVk1KVmRhSTNnQXVVUEg1cW1ZYjhpTFlPNVlQTXpJUGtCa0JJSXNVOFJM?=
- =?utf-8?B?ODFBTG1FWWRvUVJFU0w5SkMxdnlLcXN6WkNsbFhyMGRvTDl3aWttM09jRWpk?=
- =?utf-8?B?ZUZHdWVPbnl3a2dtejEzaFl3T1ArUXFJWTRSTFZZelJQYWNWdlhrOTk2MnBS?=
- =?utf-8?B?RVVZUkd5N0hXaVZ3V1JFZTdrWTdKdzFnT01zZzEzK0RtQmMwZjVUekZXZHdt?=
- =?utf-8?B?WkkzTWFPdVN3S1R2S1d6eDVCalZqb1JPM1U0dm15blFTcm5WaTR3VzZaN2NL?=
- =?utf-8?B?eGFvOWIrZUpQSDNucmVxKzQyakVvZEVoT3RwanRsRS9Za2pxYlhsQzJHWGNy?=
- =?utf-8?B?L2lWU0lUVDVIaFZTVnFBakJUZ3UvMHQwUm4wSHBoUWlYT2owWnFGRW5xcE5R?=
- =?utf-8?B?eFhYRFNtaGlaUEJBbEwxNGQ1dVZxemV6RVlkU2RQT0tvRzVVUnJvRmVEbFUw?=
- =?utf-8?B?RHpDeVhyd29PMFk3Qmp4Y0FyRHYwQ2pCVmFhd0E5SlZQeS9DR0FETDBNSmFP?=
- =?utf-8?B?dzNYOTB2UzFndjhrSlZuUjRGUG1hbERPRlJsMUxONWNoR3MzTHl6c1hwTFRN?=
- =?utf-8?B?Q1lvSExZd2EyVFgzY3lXS1JpRXVHNGZoSXNUK0N5bTVOK3RZaGEyZW1CcXNq?=
- =?utf-8?B?VGlzWW90a2ZhcW1MQWdZdTZtZXY1QlJvdFZac2I5eHUrMThhbGsyd0wybFJx?=
- =?utf-8?B?NzY2QVJsWUtvcnNLQWxUN1BsZy9TMjF2UkhxQmwxR3B5aUMrbGpIZHptN2wx?=
- =?utf-8?B?UngvNXljTVI1RXhuaTBhS01maGM4aDA2Yll0b0JpUHRwMDM4MWFpRW16WmFk?=
- =?utf-8?B?YnRldndrZ3pkaVllU3hGWS93bGR5eTRLdkM0Qk1yeCtjODN6MHVkZHluNEhq?=
- =?utf-8?B?MzV0cnROQ0w0WTRCUWZzdmwxb1VWNXcwdHZ0ZjJtTHdVMnJrVFpnRks0WW04?=
- =?utf-8?B?QVpCeEJtUTZkMHhSd2s2eUNPV2oyeXZwMDllUnMvNFdaWmJsWXB2aHlQRk5x?=
- =?utf-8?B?WnNsd1NoaXY2Ry90U3ZibGhHMzlORGorVHpZNkpMeWtaeVQ5eXNEQkNTcHNW?=
- =?utf-8?B?bjZNNEEyVHF3Y1dnQjZHNG1BRzVESnppZ2hIR3JFaEQ3Vk56d1JnUT09?=
-X-Exchange-RoutingPolicyChecked: n+KpOlnxWYj3weJlJcY9AJVGFfMwtKh37jMzy2DbvkmbDQPQWPlOxVQJFhjNZjI81Z7fBW1eescJHPnjK4bMxBRr48mepHtVq0uno7g4jJeJPcPK7sneHxnKFV4Dy9zZPcFPvL2bdNLlNcJrUoD6lWM8ETsVHLfgyPtLagqnXPBVliSD/OhthTt4vgZVsaRK24839jDjdCvSYhH3BdEJ/zylthAeGQUM84ohtR5v5xax3WG4/gi/lSjgnlT+6RCk4MXCW7xud+loTClxh9pkq6BnlH0LD2Uq4MZY5dnbDTy/fNH3VmaAhaU0uqwA4eIMoL9yNilIgRjlI2dDzk6mtA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0c7b87b1-be86-4dcf-b732-08df4ac7a719
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR11MB5630.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 07:42:27.3461
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7C0ZJmSDoU6tNrMbC7o+NjKYQeElCS5vkq8FmnRexR8a2RPMa/0HiMtj1YQr26PLRZ0NFU5PYtXamJamULbKMQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS2PR11MB230453
-X-OriginatorOrg: intel.com
 
-On 24/11/2026 4:22, Chia-Lin Kao (AceLan) wrote:
-> Like the Dell Pro 5 Micro P5M1260 added by the previous patch, other
-> systems with an I219 on MTL or later no longer enter S0ix during
-> s2idle since commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
-> Every suspend ends with:
-> 
->    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
-> 
-> Each unit ran 3 s2idle cycles on kernel 7.0 with the default K1
-> setting and, if all of them failed to reach SLP_S0, 3 more with
-> disable-k1 on. On the following systems the default cycles never
-> reached SLP_S0 and the disable-k1 cycles all did:
-> 
->    Dell Pro 14 PC14250                       [8086:550a, 57a0]
->    Dell Pro 3 14 P314260                     [8086:57b3]
->    Dell Pro 3 16 P316260                     [8086:57b3]
->    Dell Pro 5 14 P514260                     [8086:57b3]
->    Dell Pro 5 16 P516260                     [8086:57b3]
->    Dell Pro Max 14 MC14250                   [8086:57a0]
->    Dell Pro Max 16 MC16250                   [8086:550a]
->    Dell Pro Precision 5 14 PW514261          [8086:57b3]
->    Dell Pro Precision 5 14S PW514260         [8086:57b3]
->    Dell Pro Precision 5 16S PW516260         [8086:57b3]
->    Dell Pro Rugged 10 Tablet RA00260         [8086:550e]
->    HP ZBook 8 G1i (14/16 inch)               [8086:57a0, 57a1]
->    HP EliteBook 6 G1i (13.3/14 inch)         [8086:57a0]
->    HP EliteDesk 8 Mini G2i                   [8086:57b3]
-> 
-> Add these systems, matched by DMI vendor and product name, to
-> disable_k1_list so K1 is disabled by default. The HP entries match
-> the product family, which covers the screen size variants.
-> 
-> Cc: stable@vger.kernel.org
-> Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
-> Signed-off-by: Chia-Lin Kao (AceLan) <acelan.kao@canonical.com>
-> ---
->   drivers/net/ethernet/intel/e1000e/netdev.c | 98 ++++++++++++++++++++++
->   1 file changed, 98 insertions(+)
-> 
-> diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
-> index a8f0d3c0fd750..319c7a44f5a53 100644
-> --- a/drivers/net/ethernet/intel/e1000e/netdev.c
-> +++ b/drivers/net/ethernet/intel/e1000e/netdev.c
-> @@ -80,6 +80,104 @@ static const struct dmi_system_id disable_k1_list[] = {
->   			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 Micro P5M1260"),
->   		},
->   	},
-> +	{
-> +		.ident = "Dell Pro 14 PC14250",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 14 PC14250"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro 3 14 P314260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 14 P314260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro 3 16 P316260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 16 P316260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro 5 14 P514260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 14 P514260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro 5 16 P516260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 16 P516260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Max 14 MC14250",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 14 MC14250"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Max 16 MC16250",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 16 MC16250"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Precision 5 14 PW514261",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14 PW514261"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Precision 5 14S PW514260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14S PW514260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Precision 5 16S PW516260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 16S PW516260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "Dell Pro Rugged 10 Tablet RA00260",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Rugged 10 Tablet RA00260"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "HP ZBook 8 G1i",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP ZBook 8 G1i"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "HP EliteBook 6 G1i",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteBook 6 G1i"),
-> +		},
-> +	},
-> +	{
-> +		.ident = "HP EliteDesk 8 Mini G2i",
-> +		.matches = {
-> +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
-> +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteDesk 8 Mini G2i"),
-> +		},
-> +	},
->   	{}
->   };
->   
-Hi AceLan,
-Thank you for this investigation.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-With a list of systems this long, covering multiple generations, this 
-suggests a fundamental problem somewhere, probably not what this quirk 
-is intended to solve.
+Critical: 0 · High: 1 · Medium: 1 · Low: 0 (1)
 
-Furthemore, as I said, I am not aware of the mechanism by which enabling 
-K1 can prevent SLP_S0, and the GBE_D3_STS as a blocker seems 
-particularly strange.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-I have asked our internal validation team to investigate this, at 
-priority. First I want to understand if this is limited to Dell/HP 
-systems, and if so - why.
+- [High] The patch fixes a statement that can never run, so it does not
+  do what the commit message says.
+- [Medium] The diagnostic this patch turns into a real message, `echo
+  "FAIL: Ping failure from $cl"` on line 174 of…
 
-I would rather hold this off for a bit, while we investigate. Though, if 
-the investigation turns out complex, we may apply this patch, at least 
-temporarily, until a better solution is found.
+Pre-existing issues:
+- [Low] On the veth0 icmp counter-mismatch path in
+  tools/testing/selftests/net/netfilter/nft_nat_zones.sh, the check on…
 
---Dima
+--
 
+selftests: netfilter: fix missing echo in nft_nat_zones.sh
+
+The patch adds a missing echo to the ping failure diagnostic in
+nft_nat_zones.sh. Without it, the shell tries to run the message string
+as a command. The commit message says this makes ping failures get
+reported the same way as the script's other failure paths.
+
+> diff --git a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
+> index d935c967dd13b..f15bfd33739f1 100755
+> --- a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
+> +++ b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
+> @@ -171,7 +171,7 @@ done
+>  
+>  wait || ret=1
+>  
+> -[ "$ret" -ne 0 ] && "FAIL: Ping failure from $cl" 1>&2
+> +[ "$ret" -ne 0 ] && echo "FAIL: Ping failure from $cl" 1>&2
+
+[Severity: High]
+
+Can this echo ever run? The script is #!/bin/bash, and the loop above
+starts the pings in the background without saving their PIDs:
+
+  ip netns exec "$cl" ping -i 0.5 -q -c 3 10.3.0.99 > /dev/null 2>&1 &
+
+In bash, a bare wait with no arguments returns zero once all background
+jobs finish, whatever their exit status. The only trap in the script is
+on EXIT, so no trapped signal can make wait fail either. That means
+"wait || ret=1" never sets ret.
+
+ret is set to 0 near the top of nft_nat_zones.sh, and nothing else
+assigns it before this check. All the other ret=1 assignments come
+later. So [ "$ret" -ne 0 ] looks to be always false, both before and
+after this patch.
+
+If that's right, the "command not found" and 127 symptom described in
+the commit message can't happen on an unmodified run. A failed client
+ping would also still go unreported here.
+
+Would it make more sense to replace "wait || ret=1" with a per-PID wait?
+For example, save pids[$i]=$! in the ping loop, then call
+wait "${pids[$i]}" for each client and set ret and print the failure on
+error. nft_flowtable.sh in the same directory uses wait $lpid this way.
+
+Also, before d6905f088d2b the loop checked $? right after "ping ... &".
+That is also always 0, so it looks like ping failure detection never
+worked at this point. Backporting with the current Fixes: tag would not
+bring back any ping failure detection.
+
+[Severity: Medium]
+
+Which client will this message name? cl is the loop variable from the
+background ping loop:
+
+  for i in $(seq 1 "$maxclients"); do
+    cl=$(eval echo \$cl"$i")
+    ip netns exec "$cl" ping ... &
+  done
+
+After the loop, cl always holds the namespace for i == maxclients (100,
+or 40 with KSFT_MACHINE_SLOW=yes). A failure from client 5, for example,
+would be reported as coming from the last client.
+
+The socat failure path later in the script prints $cl inside its loop,
+so it names the correct client:
+
+  echo "FAIL: Failure to connect for $cl" 1>&2
+
+The wrong name came in with d6905f088d2b, when the message moved out of
+the loop. Since this patch presents the line as the fix for ping failure
+reporting, could the respin also report from inside a per-client wait
+loop?
+
+[ ... ]
+
+[Severity: Low]
+
+This is a pre-existing issue, and this patch did not introduce it. It is
+in the same script, outside the quoted hunk. On the veth0 icmp counter
+mismatch path, the check looks up one key and the debug dump looks up a
+different one:
+
+  if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.0.99 . \"veth0\" . 10.3.0.1 }" | grep -q ...
+      ...
+      ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.99 . \"veth0\" . 10.3.0.1 }" 1>&2
+
+Should 10.3.99 in the debug dump be 10.3.0.99, to match the key that was
+checked?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124071926.8818-1-zhiqizhangg%40gmail.com
