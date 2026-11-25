@@ -1,103 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622058;
-	b=lWvgw+SqnJzr+SCndTqbv7C7EZCvBTAV6yXMx/qmx/1fF8D3gVLC8JhBRnxAKTZJWrSN
-	 34qWo5dlZLtPPalsEF9L8EtsYC2dx0lGBIof335IWTJPcY0CHJlb8NUUXnFOI/raGEGzq
-	 mSPfTsDrqw5ZwL4LzhfFwf0zwfudVpMu5qRmLKPvgl8b7uvgMyW5YZjUUQY1CTorr9O+J
-	 gC7mvuSXhPj1ilKSD/KS4fytmjQllXZR631AA9GWVDRQjYW6x2SWa2IHKY7rBJLBoaEmY
-	 6KH41NkV9M0/37GAqLdiNTl5H6Kqe43fSPIlwAGPrWRf7aHxJ13PdxXytJx1xdy7vyw==
+	t=1795622064;
+	b=D8fJHufCm+sEm8v2Ue7llntMqWIgPSztp01VKlypmSWnhPjV5AkPCVxWcZHr3W3gLbg3
+	 82PRzIUoMUagYF79gLw7NWGn/f/ztroePkz55s5ZoY+wbFmrF9wFjntnkCBCZWn1gb3gX
+	 BSCOyDZQYNS7ENwgvEPRW9M/70Xerb+NpVHUs1IK2B9XwxyNtPbyds521peIeQf2Bhtlc
+	 3/bKuu6yU8rH/nwh+uwJLCd0HW3VSXqMLaxN2zP5IFbqp/IeaTp1r2XGI/bo1hGOF9w7V
+	 PWddAhEKv3kaRZakO6w0rYxW9Nl1R1qP0WeMt9KTGznQswAhJqQeeH8HewcdcyuNyzg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622058;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Sender:From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YHXuawiUpwNY2szoFdGgfHXE+Q4G4WBDyJMC/ImDtFE=;
-	b=IWw4GoeIHYRTJuiM5SCvwxUPMSmi6f2QoM3/6XX33GN2VnjJw6Tg4vKBnv8c8e5stXp5
-	 3V0JNCWDkIK20Y8FP5Heh64gLPRf1nCWmWPJxVPyRSpASoH7cAb3pBxWYwQWFOZGvEKHr
-	 RCJoIPnFxNA5wyYfk2r3EyQJIY0JBXw8mH3QyWl2dImtHWT5FJLVj21+Obqs3cig3NNge
-	 xN+kkrJi/ABgGcfuxzKQe9GFHAokiBOPRgHPL8AANC2cuqYx/BX0MT9MKKH4iOEkKbD6x
-	 XpqWjXXnfWiId3/bHohOeYBpuN5xRLyfsn1v3DFSWyceEmHYwNSaV4IRRdR1V2vzO/Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622064;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
+	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
+	bh=3FlJZ/CAWurtSaOLBMEz6RZ4/h9sq0M8KRdP3OxNTL4=;
+	b=2IcihRC6RWMFnJMIVd6WKPQ5G5eWryC7TgpM60o3J1UghEhKjGFjye5Rifp6jB7Ng0KX
+	 MNphWqt6EIH7ICrNKt/um4H0KP9Pbiwb13AJDgKVMGgd/PZhT3u6K6J8TGPrgdiMYIHxI
+	 B8aieAUYXB9QeSujKC3wzVYe9IV84bVfjyAvbBwdCphJNARFOEcPKlRPh8KtaTQnwaJ74
+	 YC7mSmLTsqEisRh4MOvR9LgwTQ/xQFignvmHs4UWR6VL1/jYoOT0QeTINlIPl8SITaUaN
+	 wty18e0ZpXi6Wr++rcCzjYOq888ECo9JdhqTRpHAS1klnNO7QctGpfZ59J1ULqWWcAg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EhSWb8cb;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=linux.intel.com;
+	spf=pass smtp.mailfrom=linux.intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo;
+	arc=none smtp.remote-ip=198.175.65.20
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4BBC2606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:54:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4BBC2606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EFDA5606A336;
+	Wed, 25 Nov 2026 15:54:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EFDA5606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=EhSWb8cb
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-55d2d380f6aso64771141cf.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:54:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795622057; x=1796226857; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=YHXuawiUpwNY2szoFdGgfHXE+Q4G4WBDyJMC/ImDtFE=;
-        b=EhSWb8cbvJXQkVd57RFQHhjQtapNzdaAWFC2CyPdGCtbIhojBvC3Jijq1xi1fAqSdL
-         1M2cu2J3RaOBFWG9DseMyYMogqdV8f66xC+aIVjWe2uMqmOpFlU5WIakTsXLSfF6U0Nj
-         AkctaGo5oYf8anZKgNWUWfm2AOGaKwjG8S7s4uv+BmT4x9V/J0aA0V9Xc/Hv3HE0cvZF
-         gwydHkK2HJynUavJFO9g/rdK1epdd/MnkrPtgt7OClMwEj2xbEWi5uHvk1ZtmzDUz3pO
-         cR6Jp/o0f7CjlbcXx90jY1sJgUGUiIcENgxyEEcrzztKf3hww9r26cT7fxS7WWuTPF3R
-         YwDQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795622057; x=1796226857;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:sender:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YHXuawiUpwNY2szoFdGgfHXE+Q4G4WBDyJMC/ImDtFE=;
-        b=hoQw21KTy72m4ArPmVeCIsFVhX+68A+1t0S1a/hY4W06120aTxUQdilDmGlvqjVGp1
-         NTG1fnYeLJK2cMXcrOtmloVHZauCoI0XDz+ozm4mg3no5AFZ6HGdxDA/7Gjrx9jl2vZJ
-         OBdwm3NiPlf3OQr56H0jMRrluQ/h5bkIJ+DD+oYnhpXM2LKfeQn3RS6RPyW+gg1hPfo9
-         ExM0v4jnp25EgtZQiYVcQu5rECrnoHUbhHBQkXWXJhX92D9l9N6ynvqC+xWa1qJKT533
-         OFmEZnPGjv8tX55YpL3UAWpuwXiYpWvYNB53OYlHAEGm6JvNwHs10J6hdG/psJWIBlE2
-         wmmQ==
-X-Forwarded-Encrypted: i=1; AL+hErG4kRzKDPa577aHVRwlztT3s4eZDMoUw2S9dbQO4vKJKdpcK1vLzeWFFyr79htufxreajzUxp0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+jTGIyIT5WtQczwXOqLq9NkM1o7GdsjaJUZy2/DIZ1zQwNcEVT
-	6o8+2i/RAEj0AxGakaL739uYIy90bEvoSNQDbCp8LC0qAWowkUzekVvK
-X-Gm-Gg: AZFdTZfbUNdgDo3O/4m8kKphzki8iswHAmGgqE/usN46nbpUksOE5NML1EEheKE6ntv
-	2TXRKYlXQuKaKZShf3i70z6h3FevhXxk58XYqWjSB4z6oZPSV++rX5FlxZyf/zVOmir6hwE6PiU
-	ciG0Me4GOX6TKKK0KMoaxteh1KqLfuCtN8qWLxnI6KoPwiNMykScn0jZIf8V/Ce4/SCO+UmWVz/
-	BfQahkwzg3kP5wDxFNCSOlujoMfX75KNfce1iOpjsrWFFgeGs8Ho3hfjIoBWesqT/HWpSSdHbcM
-	Bw1PUW+NRjxmOCjVsw+zEEIRYRwS+kkkst7xS2EYR4aM8lTdQWyPbsheRD7BovQuT4JJ+N0R1e+
-	q/SAi2+e4ohyQXz4qY/6NN2vqfunBDenVFweKqm8dIzlAeL41Bs2XE/YjwOgKAF+Qfzmj9p1OMH
-	UYb0n4UMXgp3Wk4Zz1FCLrDArjKBEJz48aQQ8n/q59z/H5wvipsCgGFcs+ULI59Mop2v3dxoTj6
-	Nv7liqNtnZU+IdYEj/axr64zvw9RWmLoFt/hdBF2wsnQQ3xdnMbLa0bhc1tnyAeqQaMvY0upPUI
-	1OKQMQzSRVM/3lvCGWgTYI68gABKhQQXACW8WFCGfuptUr3zWwRpU29DDRLHLUFDVNC7PlFVA9K
-	OXikGqmd7cogmlwoSSekfEl3OL4WRjDeSUHIIxxcujD/j1VzNWy019o4mVOaqjM4zd2zvJwBWXQ
-	/zcjVanrL94QBj43uRGXTzt2/z+Aw=
-X-Received: by 2002:a05:622a:178b:b0:536:6902:daea with SMTP id d75a77b69052e-55d769e0bc4mr338203191cf.23.1795622056943;
-        Wed, 25 Nov 2026 07:54:16 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:44ee:a48f:70d7:4696])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a15b99sm164776716d6.38.2026.11.25.07.54.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 07:54:16 -0800 (PST)
-Sender: Andrew Stellman <stellman@gmail.com>
-From: Andrew Stellman <astellman@stellman-greene.com>
-To: Jon Maloy <jmaloy@redhat.com>,
-	Tung Quang Nguyen <tung.quang.nguyen@est.tech>
-Cc: "David S . Miller" <davem@davemloft.net>,
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=hDk78Ybo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795622064; x=1827158064;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:content-transfer-encoding:in-reply-to;
+  bh=hjSr7SgRgTbE6i2Ru3XkpgPQfpXJyuH/UfVwCd63LqI=;
+  b=hDk78YboAlJrTCqen6UVAlItKVyKJAhOQCxbDDokc5w+6o3lJZAix+fG
+   x7ubLVvpOiZ6jtcsNBCLefbsztk9t2ZKCM5hzI2JUwlLDqJa8ZVgmFlid
+   OedPDu+slpWq4bYNOp2YtFU9SKZA4V/pGedAXxGR5XHvDONUbzpMyzoUd
+   1g+WTJCI3fvB7oYec8VirW2oN30uXXS/KnnekCxuHu+BW1YA30CmBQZjF
+   a+FkPmVGNKx2J173ZEYY4vSTDGRhHGxdk6j+CPVu+U736qGF/XvKBX4QQ
+   XuhaNt9syV89i3Y5RvQRah2cz95KM0VZHmO9edLMmisNxq7oPSbriTCGI
+   Q==;
+X-CSE-ConnectionGUID: y9tw+EBNQ/6wqbvE3mL0NQ==
+X-CSE-MsgGUID: QsFf+sV1TvSsMhnLbgPxmA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4562623"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4562623"
+Received: from fmviesa011.fm.intel.com ([10.60.135.151])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 07:33:04 -0800
+X-CSE-ConnectionGUID: ayMkt3kPQRSYl1gL5vV2Zw==
+X-CSE-MsgGUID: cogWUJDbRDWJN0vYyqCcrw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="13698255"
+Received: from black.igk.intel.com ([10.91.253.5])
+  by fmviesa011.fm.intel.com with ESMTP; 25 Nov 2026 07:33:01 -0800
+Received: by black.igk.intel.com (Postfix, from userid 1001)
+	id 3476D98; Wed, 25 Nov 2026 16:33:00 +0100 (CET)
+Date: Wed, 25 Nov 2026 16:33:00 +0100
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+To: Tobias Heath <heathtobias@gmail.com>
+Cc: Andreas Noever <andreas.noever@gmail.com>,
+	Mika Westerberg <westeri@kernel.org>,
+	Yehezkel Bernat <YehezkelShB@gmail.com>,
+	Sukhdeep Singh <sukhdeeps@marvell.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Tuong Lien <tuong.t.lien@dektech.com.au>,
-	Ying Xue <ying.xue@windriver.com>,
-	netdev@vger.kernel.org,
-	tipc-discussion@lists.sourceforge.net,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net v3] tipc: free the tunnel packets when failover tunnelling stops early
-Date: Wed, 25 Nov 2026 10:54:11 -0500
-Message-ID: <20261125155411.66090-1-astellman@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
+ s2idle
+Message-ID: <20261125153300.GI191152@black.igk.intel.com>
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+ <20261125132228.GE191152@black.igk.intel.com>
+ <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
+ <20261125143531.GG191152@black.igk.intel.com>
+ <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
+ <20261125145207.GH191152@black.igk.intel.com>
+ <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,130 +97,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
 
-tipc_link_tnl_prepare() returns from the middle of its tunnelling loop
-when a packet does not fit the tunnel link MTU and the peer lacks
-TIPC_TUNNEL_ENHANCED, when fragmenting such a packet fails, and when a
-tunnel packet cannot be allocated. The tunnel packets already built on
-the local tnlq are leaked, and for FAILOVER_MSG the receive side
-hand-over at the end of the function (drop_point, failover_reasm_skb,
-deferdq) is skipped.
+Hi,
 
-Purge tnlq on these paths and go on with the hand-over. The earlier
-return taken when the dummy tunnel packet can't be allocated leaks
-nothing but skips the same hand-over, so take the same exit there.
+On Wed, Nov 25, 2026 at 03:16:26PM +0000, Tobias Heath wrote:
+> Mika,
+> 
+> That's clarifying, thank you — I hadn't understood the two-paths
+> distinction. The behaviour I want on lid-close is Path 2 (runtime-idle S0ix
+> / Modern Standby), not Path 1 with the TB fabric preserved. My patch is a
+> workaround that patches Path 1 to behave like Path 2, rather than using Path
+> 2.
+> 
+> On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD
+> counterpart of pmc_core) to confirm whether runtime S0ix is entered when the
+> system is idle, and whether any particular device is preventing it. If Path
+> 2 can be made to work on this hardware, the TB patch is probably not needed.
+> I'll drop it in that case and keep only the atlantic fix.
 
-Reproduced on net (af6737b90668) under QEMU with kmemleak, with two
-guests joined by two TIPC eth links: MTU 9000 (active) and MTU 1500
-(standby). The receiving guest runs the same kernel with
-TIPC_TUNNEL_ENHANCED removed from TIPC_NODE_CAPABILITIES, to stand in
-for a peer whose kernel predates that capability; the sending guest's
-kernel is unmodified. The sender blocks the MTU 9000 link in both
-directions with tc, sends three 100 byte messages and one 4000 byte
-message, and waits for the link to fail. Without this patch that logs
+Yea, it's not exactly trivial to get all the ingredients right but distros
+typically have all the drivers + firmwares shipped so that may be good
+starting point and just see what is missing (if anything).
 
-  tipc: Link tunneling error, too large msg <0, 2>: 4040!
+> Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch
+> atlantic submission, or leave the series open while I investigate?
 
-In four runs without this patch, kmemleak reported three skbs (six
-objects) allocated by tipc_link_tnl_prepare() in two, five leaks whose
-details were not captured in one, and nothing in one. From one of the
-two, run on a rebuild of the same commit with debug info enabled,
-decoded and trimmed:
-
-  unreferenced object 0xff11000005117b80 (size 472):
-    backtrace (crc 539599dc):
-      __alloc_skb (net/core/skbuff.c:705 (discriminator 2))
-      tipc_buf_acquire (include/linux/skbuff.h:1441 net/tipc/msg.c:72)
-      tipc_link_tnl_prepare (net/tipc/link.c:2055)
-      __tipc_node_link_down (net/tipc/node.c:1053)
-      tipc_rcv (net/tipc/node.c:2008 net/tipc/node.c:2186)
-      tipc_l2_rcv_msg (net/tipc/bearer.c:721 (discriminator 1))
-
-In one run with this patch the same test logs the warning and kmemleak
-reports nothing. With a 1000 byte message instead of the 4000 byte one,
-all four messages reach the receiver over the tunnel with and without
-this patch. The allocation failure paths and the skipped hand-over were
-found by reading the code and were not exercised. Apart from the
-receiver's capability change, no kernel changes, fault injection, debug
-code or delays were used. There are no TIPC selftests to run.
-
-Fixes: 2320bcdae628 ("tipc: fix changeover issues due to large packet")
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-v3: decoded the kmemleak trace and moved the tool credit below the
-cut line (Tung Quang Nguyen); stated how many runs reported the leak.
-v2: also take the out: exit when the dummy tunnel packet can't be
-allocated (Sashiko review).
-v2: https://lore.kernel.org/netdev/20261124001740.83267-1-astellman@stellman-greene.com/
-v1: https://lore.kernel.org/netdev/20261122233958.10462-1-astellman@stellman-greene.com/
-
-The issue was found by Claude Opus 5.5 running Quality Playbook, an
-LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix and this changelog were drafted with Claude Opus 5.5 and
-reviewed by me.
-
-A reproducer is available on request.
-
- net/tipc/link.c | 13 ++++++++-----
- 1 file changed, 8 insertions(+), 5 deletions(-)
-
-diff --git a/net/tipc/link.c b/net/tipc/link.c
-index 6427c69f8929..ce6739d6cbba 100644
---- a/net/tipc/link.c
-+++ b/net/tipc/link.c
-@@ -1995,7 +1995,7 @@ void tipc_link_tnl_prepare(struct tipc_link *l, struct tipc_link *tnl,
- 			      0, 0, TIPC_ERR_NO_PORT);
- 	if (!skb) {
- 		pr_warn("%sunable to create tunnel packet\n", link_co_err);
--		return;
-+		goto out;
- 	}
- 	__skb_queue_tail(&tnlq, skb);
- 	tipc_link_xmit(l, &tnlq, &tmpxq);
-@@ -2035,7 +2035,7 @@ tnl:
- 				if (rc) {
- 					pr_warn("%sunable to frag msg: rc %d\n",
- 						link_co_err, rc);
--					return;
-+					goto out;
- 				}
- 				pktcnt += skb_queue_len(&frags) - 1;
- 				pktcnt_need_update = true;
-@@ -2043,19 +2043,19 @@ tnl:
- 				continue;
- 			}
- 			/* Unluckily, peer doesn't have TIPC_TUNNEL_ENHANCED
--			 * => Just warn it and return!
-+			 * => Just warn it and stop tunnelling!
- 			 */
- 			pr_warn_ratelimited("%stoo large msg <%d, %d>: %d!\n",
- 					    link_co_err, msg_user(hdr),
- 					    msg_type(hdr), msg_size(hdr));
--			return;
-+			goto out;
- 		}
- 
- 		msg_set_size(&tnlhdr, pktlen + INT_H_SIZE);
- 		tnlskb = tipc_buf_acquire(pktlen + INT_H_SIZE, GFP_ATOMIC);
- 		if (!tnlskb) {
- 			pr_warn("%sunable to send packet\n", link_co_err);
--			return;
-+			goto out;
- 		}
- 		skb_copy_to_linear_data(tnlskb, &tnlhdr, INT_H_SIZE);
- 		skb_copy_to_linear_data_offset(tnlskb, INT_H_SIZE, hdr, pktlen);
-@@ -2073,6 +2073,9 @@ tnl:
- 		}
- 
- 	tipc_link_xmit(tnl, &tnlq, xmitq);
-+out:
-+	/* Empty unless tunnelling stopped early */
-+	__skb_queue_purge(&tnlq);
- 
- 	if (mtyp == FAILOVER_MSG) {
- 		struct sk_buff_head *fdefq = &tnl->failover_deferdq;
--- 
-2.43.0
-
+I would leave the TB patch out of it because in that shape it's not
+something I'm comfortably taking as is anyway.
