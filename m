@@ -1,92 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795604651;
-	b=sF6LRUXQetbCXr6cL+aSLnjIQWqJZOBoV/fn0KSe3cikKJbi5VZyCpTySYlll88igL/U
-	 fd4fLNv1wnsRppOC2rnwW9m0Ofcug4xv/HZsg7EEUoO5+aP7QxjZKgFXKaArRkJkISyCK
-	 lZCE705GNNHVnzmcBsKwS0YL00VpLvoPCMMwclxpOjPcMcPHrLuE4lSMxOtxNZh7jbg6u
-	 UrXyvRwmQ/bWBEj27aTmKqivDBNEmSEEqW/MP00xFg0KTMK60x8gIDqIbvUwQCXafmsN/
-	 /0CmM27d/Otr4nwSGEQs7JKGXb0I3xwVFE+pixc2v9QO8H6xaY1Q7oAYyspRyQThIiQ==
+	t=1795604952;
+	b=4Zk2Jg76bfns0WC9KsEq4iqX+vxLo2Oqfi1Lf+Y3W9kEzM/YHcFmr7s7wCwKLv3+Sr5B
+	 zYKIObjNGtyCHxn8uQArO9e0H2Py4zsYexYZ8sPccvApeK+Q+VzK7+RAQjulsl6iQjpdt
+	 Xb2yl8Fm6pte36mKPNzAYEATj3yonOeLGpw/EkgGCGLufp1VMuEpdCce7mwGZLLVcd3EK
+	 hnXiMOk5Ab5MnIcx9vA2hL+4eCTdxSOw1NXGPzlArd62O8xmjqkAmy5vsl7VCMY98o1LE
+	 R2/RxPa5zQVxD1w8BgbShDqmTmFbiLLG62Wq5qbuQrqI0jzQegpsOBntYtMKbxconng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795604651;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=RI1LTDKM6gU+kRJPf9idiLjvZjawI12ooLY1rUsEH3o=;
-	b=uTgBEiIW+M2HgNFURTYlMPfseqJHSKRE7vpK52xJrhaIJwFOBoNjws1pnlsDy99KO1pJ
-	 NCWD+fRN9Mc7D8zzVT1qGT8h/WCVzPI2JrBTNf/HznnDKw1XJmT5MJ3Uc0XMh8a3xh3q3
-	 gk9nkey+tJR6l+bI8sODxKpjMyiv1pchurGByL0m4/0uJWue1HwgVkSOtPMWgbdm4A9ww
-	 sFhIoCp5P6hR6szL4XeZhCdmb+RXvOosarz4yomqkJbuY7xYYuggMJqBEcYFnSp33ZCEk
-	 Wx7le3BgebcFWd9BbZlG1LAQQSb0DrAyFfVlsLyh8cm0GKTRHSix5YrE9oK4Sji+J2g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795604952;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=bez0u8/Y0qn5lvcB023udzihcPUHRj63AD4E4YDCVhs=;
+	b=t+vhj2GqwxZ1XmN66eirX3500EInhz43z9YqayfF0bvoDIWxbuWpM1VGkgTiZx/hPsjD
+	 zZRRpsBr+jf06Y8QF9zhIjowEzPYDSTyds2Un/u10HZ+JxchPbxrQ7hgV7okuMk1ofWFq
+	 HCYENAKguL+GApg9JqB8XzVoaYKj6s6sxgm3R0yz3/wl5DumP2+NO3b+4yqnhClnXCp7w
+	 mi9ReKqlxdnBq7WOjp1y5IjOPZg20dbb1OD/xUQCaRHQEOSlqF2hPeOI/GmImFBeMIZcS
+	 sPJfolC5lv4311RdDmNM8vg7oR0YKrosGCwMoxS7u5r/WgejAvQP01XMR+yP6y+ODmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LnEjP8+p;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ec7Lskrh;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D318606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:04:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D318606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E228606A31E;
+	Wed, 25 Nov 2026 11:09:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E228606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LnEjP8+p
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b49a6e8212so1896882a91.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:04:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795604651; x=1796209451; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=RI1LTDKM6gU+kRJPf9idiLjvZjawI12ooLY1rUsEH3o=;
-        b=LnEjP8+p4UK0lWeePSgGhKWnRTKvVH9GGM5auKjqmHZVbkYUwrw1tu5WEHpvgGrOiY
-         o8sIQnpgx67Z6++oGBfDABLtXV8iOA6wHSitvFpYNfQAP/4wt+/FG08ijmJVyD4SVgzF
-         sRv3NidpNTNXBjC3a9fUP2aOihlLb93zu8q+LehWcCsjR0TKbabvJXYw45E+G4bXnV2o
-         AozNZ85bhEkFwRys0rQ9X8Mvil/wQg4Kofg7NZd2m39DnUoWiNgZhAj8LhnyTSyJ0z72
-         FgESwEn7cULNzUdN/W5WM0ZG99EIJRVEiisKJWuBvFhiE/YE/BiZKvvKLDg4xLq1VaKf
-         CdFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795604651; x=1796209451;
-        h=mime-version:content-transfer-encoding:content-type:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=RI1LTDKM6gU+kRJPf9idiLjvZjawI12ooLY1rUsEH3o=;
-        b=DV4ss+H6/IJAsS4aK+3uLYl3jYYdOtQDhRa8rJxAgbkCX4x7YA/9ZsxHbX/2Eu3ytI
-         0FOIpQ9fBf72YeZCdjHZoBvf6s+SY8TyW36ruTevqQiy6SCFiSMswHvXXXjZAUQ+jyVp
-         pDgimiV5mbGP2cTpk7WfCIsADTnsvLfvGXWIQjeQsVYqChD0vqxrTVq9yx6gYJXLaT4v
-         Dx4S+Mi73rq7729kbTQl37sEhEBkOXD1bwYLDEtkgYWn0DDBKb+gFGOgm1TC6Pumh3uc
-         bJFVNl4PrtRvPyEmNDAfh4RVhpCBq4KzufAZtK+raB8pnz4NZauMogPjYNX4Vl8h/e7t
-         x5+Q==
-X-Forwarded-Encrypted: i=1; AL+hErESL87ZFKya8CZbhOVQeTu3HtsXsCl028tnr7YnLsat76+CrlFMlr3b9ZLWSmgn6uNizJ2G16U=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ST1EoJxgbLPeMLowajZ+J3FV8pSctDdbcw/FUoWgAkaZ+Fu1G
-	2X7cPDhR+pcxYDoVIfTMTnhOEAJWl5iB/i0UaxPy1JrC3uwSfBg+9bKi
-X-Gm-Gg: AZFdTZcNRnLyM8ZXsTOp95CMhdmiCoFVZRyPN+LPZ3u33lFPH0AP/iKZUcRX78la83w
-	9gEfKaau160w7MYKeSvTbYTFAUd8qk0Oww6RstiX7sJEKA3OKznkhedSHjBDOFWRwr6ggOUu9jB
-	ByhCpo2NDT6dhVkED290biSkOET9to747U0Vn9QKV1PXWq4zqtXyFL6UidWIV4KECSte8V/ysDD
-	bmoxsA/7/hHFYBkQ5P4sBWM+CiU0x5sIVTORcMYzVbMYT87TRZgm1kIOqx2OMP3P8t0tk/PIyip
-	mZN8CtKPXA9RWCARduBdo5gYmTtgefdQvUeI005p6tO7/+7kJEGH2yYU9eEUgRp3Y5ISf6XQP+2
-	RrfL2TmJopOEl8ycmMchfqiC6EykcsFcfG+I6Ra62QhubhnPkLWCKvLGTNWP1626/OKLkNf6R/D
-	UB19Uh3knWHFvxwhE9pCoOrks1BkHWaYOxLEO+LE1Sv9XvsYRZ8t2zcX+NkO9dFZYu7hgic21q0
-	lNLT1uuGL7YkYAnZsm2A0HJy0yv9uz6nyP61LpdSKBO///L2I0MtVPJBDus19Z7KFtalpaWZVvB
-	OzAgwFpA8yE6EA0ibTYT6uVHb4uPYuhNG9bvtm4O8hpBQpQqKxlkX9q4uLcxr9iCly3GvH1dnB8
-	LIJxSrBPI0Qq4vWswBrsj4mKg2fxk7aRI+/Ck
-X-Received: by 2002:a17:90b:2e49:b0:3b4:625:3d2f with SMTP id 98e67ed59e1d1-3b41cb212bfmr15854965a91.55.1795604650485;
-        Wed, 25 Nov 2026 03:04:10 -0800 (PST)
-Received: from 1.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.ip6.arpa ([43.224.245.233])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41ad8ef99sm28178398a91.12.2026.11.25.03.04.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 03:04:10 -0800 (PST)
-From: Qican Ma <goonsomeway@gmail.com>
-To: pablo@netfilter.org, fw@strlen.de
-Cc: phil@nwl.cc, davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org, netdev@vger.kernel.org
-Subject: [PATCH nf v4] netfilter: flowtable: interlock NF_FLOW_TEARDOWN with NF_FLOW_PENDING
-Date: Wed, 25 Nov 2026 19:04:03 +0800
-Message-ID: <179560464380.44975.9475732143161255806@gmail.com>
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key, unprotected) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=ec7Lskrh
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795604951; x=1827140951;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=e+iy8X+LBbHFttGZByeKZw6Kzf6psPn49gSpJQ8bpcs=;
+  b=ec7Lskrh2xn0P+US8P3Zz12zLoyDojhK6UUz0dT3mw8TiIadbi1UuM08
+   jyjJCjXIsjiZ38r5zPs52lZLMd/JZmrZrvU//haydjFH286ZuITLmB4Nz
+   dHyPNoHdu3x3unwvzwL7jKyyNMXGZfPKKamRpUUrgsfcuTh0nNIFRgMNo
+   tltkJ7rD5umjzhOXIheq3is+5kHD9aVBUXx++cpCcDs73l/f/AOonXFU0
+   UKqq57Ygy03qT2qg/RHN/9HotpHORrJd4ZeVvibECjuesZRpRV2tuGtIc
+   Vyj3n5BYMoDXKdhGBNkubcPt92E8kyz5ez+fDSPhwF9APXS2m77nqxNdR
+   g==;
+X-CSE-ConnectionGUID: rVzxWilIT9ibD/wGZRBL3w==
+X-CSE-MsgGUID: tzg176+UQ7KKuh1LfNYYsQ==
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="234073923"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 25 Nov 2026 04:09:05 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex02.mchp-main.com (10.10.87.72) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.58; Wed, 25 Nov 2026 04:09:05 -0700
+Received: from DEN-DL-M70577 (10.10.85.11) by chn-vm-ex02.mchp-main.com
+ (10.10.85.144) with Microsoft SMTP Server id 15.1.2507.58 via Frontend
+ Transport; Wed, 25 Nov 2026 04:09:02 -0700
+Date: Wed, 25 Nov 2026 12:09:01 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Tariq Toukan <tariqt@nvidia.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Gal Pressman <gal@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
+	<linux-rdma@vger.kernel.org>, Mark Bloch <mbloch@nvidia.com>, Moshe Shemesh
+	<moshe@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>, Yishai Hadas
+	<yishaih@nvidia.com>
+Subject: Re: [PATCH net-next 1/2] net/mlx5: Declare no DMA segment boundary
+ restriction
+Message-ID: <20261125110901.xuokqcxe425fphch@DEN-DL-M70577>
+References: <20261120081819.2538191-1-tariqt@nvidia.com>
+ <20261120081819.2538191-2-tariqt@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,67 +85,36 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261120081819.2538191-2-tariqt@nvidia.com>
 
-nf_flow_offload_gc_step() checks NF_FLOW_PENDING once at entry, before
-the teardown decision that may set NF_FLOW_TEARDOWN and free the flow
-via flow_offload_del(). A concurrent caller can set NF_FLOW_PENDING and
-queue a FLOW_CLS_REPLACE work item holding a raw pointer to the flow
-after the early check but before teardown is decided, so the flow is
-freed via RCU while the queued work item can still dereference and
-clear NF_FLOW_PENDING on offload->flow.
+> From: Yishai Hadas <yishaih@nvidia.com>
+> 
+> The PCI core initialises every PCI device with a DMA segment boundary
+> mask of 0xffffffff in pci_device_add(), which forbids any segment from
+> crossing a 4GB-aligned address regardless of its length. mlx5_core
+> raises the default maximum segment size to 2GB but never overrides the
+> boundary, although the device has no such limitation.
+> 
+> Consumers such as ib_umem_get() coalesce physically contiguous pages up
+> to the maximum segment size without consulting the boundary mask.
+> Registering a large MR can therefore produce a segment that crosses a
+> 4GB-aligned address, which the DMA API debug checker reports:
+> 
+>   DMA-API: mlx5_core 0000:08:00.0: mapping sg segment across boundary
+>   [start=0x00000002ffe27000] [end=0x000000030020efff]
+>   [boundary=0x00000000ffffffff]
+> 
+> The segment is about 4MB long, well below the 2GB maximum, but it spans
+> the 12GB (0x300000000) boundary: the upper halves of start and end are
+> 0x2 and 0x3.
+> 
+> Set the segment boundary mask to ULONG_MAX so the DMA constraints
+> declared for the device match what the hardware supports.
+> 
+> Signed-off-by: Yishai Hadas <yishaih@nvidia.com>
+> Reviewed-by: Moshe Shemesh <moshe@nvidia.com>
+> Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 
-Move the NF_FLOW_PENDING check after the teardown decision and pair it
-with a full memory barrier, so a caller that sets the pending bit after
-the barrier is guaranteed to observe NF_FLOW_TEARDOWN set and bail out.
-This complements commit 0abb54363974 ("netfilter: flowtable: do not hw
-offload flows in teardown state"), which provides the caller-side
-teardown check in nf_flow_offload_refresh().
-
-Found with an LLM-assisted code review tool and verified by inspection.
-Build-tested only; reproducing the race at runtime requires a
-hardware-offloaded flowtable device.
-
-Fixes: 7c549fb7eecd ("netfilter: flowtable: generalize pending status bit")
-Cc: stable@vger.kernel.org
-Signed-off-by: Qican Ma <goonsomeway@gmail.com>
----
-v4: drop the work_alloc()-side teardown check, which duplicates the
-    caller-side check added by 0abb54363974 in net-next, per Pablo's
-    review; keep only the GC-side interlock. Generated against net-next.
-v3: rebase onto net-next with 0abb54363974 included; note how the check
-    inside work_alloc() complements the refresh-side check and why the
-    GC-side barrier is still needed. No code changes.
-v2: resend via direct SMTP without line-wrapping corruption in the diff.
-
- net/netfilter/nf_flow_table_core.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
-
-diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
-index d5652e45ee04..7b11c4935aa5 100644
---- a/net/netfilter/nf_flow_table_core.c
-+++ b/net/netfilter/nf_flow_table_core.c
-@@ -580,9 +580,6 @@ static void nf_flow_offload_gc_step(struct nf_flowtable *flow_table,
- {
- 	bool teardown;
- 
--	if (test_bit(NF_FLOW_PENDING, &flow->flags))
--		return;
--
- 	teardown = test_bit(NF_FLOW_TEARDOWN, &flow->flags);
- 
- 	if (nf_flow_has_expired(flow) ||
-@@ -596,6 +593,11 @@ static void nf_flow_offload_gc_step(struct nf_flowtable *flow_table,
- 		nf_flow_table_extend_ct_timeout(flow->ct);
- 	}
- 
-+	/* Pairs with test_and_set_bit(NF_FLOW_PENDING) in work_alloc(). */
-+	smp_mb();
-+	if (test_bit(NF_FLOW_PENDING, &flow->flags))
-+		return;
-+
- 	if (teardown) {
- 		if (test_bit(NF_FLOW_HW, &flow->flags)) {
- 			if (!test_bit(NF_FLOW_HW_DYING, &flow->flags))
--- 
-2.50.1 (Apple Git-155)
-
+Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
