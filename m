@@ -1,57 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.71.1.222
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795613985;
-	b=1+0a0F1/xOywg4joU46hfOZ2iI+/QreuhUpHHhDueTmDp4TA9/cYf6xM8mFXOtn0u8br
-	 srFjT/VPUGYNF+pd6X33LUcVaaVgFlV5R8TbYM9pIXFng32mbhGwQrDpdTgWrDuVBL1s4
-	 U2gDphfiXTKX7pmYmXMoBHv4StzI0AWUSJ7KsZriwC7DMa6GZH9QwGAs5deooalHAAm6j
-	 yKcR2UGNOzhvKsBfOL8Bc9jv0oCUWys14ixvNnAY+z8JocIBsfU/XJhJyAKY6ef6KWP81
-	 V9hix+uTvWeIOOQ41SeGD4l3kE1A64Qa42umV8/XqhBlOgFtYwAMxNwHT2ZaiUJmbQQ==
+	t=1795614250;
+	b=xPyKejkzfQvfXkeUW7hNyyzeW/PF3yRebZcWSvv/QyngyAo9kncy5d/8CezJDLoAClHW
+	 RKodMG6ytbpISOrSn148ayi4LDYF44nebxAH99yBkU6KHGQnj02n8A33AFcOth8TKx45b
+	 urHtooFZ9iUmODinai2kseOAbokHBdZqEvEeVLrL9cznLGVhY55fFNSFDhA0fJtilXoFI
+	 r0sQ+JxkjGq5ciD8nfxaClj/5eXIqSfJ8ilb7jKVyex8GhF6YiFeXIb9xVs2NSt3WNG89
+	 tApl/Bxv4DnSGRmIWnjlKioVUtvkGXaxv00UpEuXTlqkfCUmED1ebmck98wd/U3B2Ig==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795613985;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CeTkfVzE6KwXB8K1xX0sANf/8jffszjaX1cpX1GXslI=;
-	b=RjMAjpO6Qsjrr/rT86W19bw/157IUnwqaIYp+xnjJKsIr0LdHK5V5OYK/Z19UlbaWFgN
-	 cY7dP1O62o14W5ZdNwHAGk476R7zdnjWvYFBPNmE4PAyvx0yiZxlinAbJVGZpYg0Yad3K
-	 1o3JDD4P5cPGH4GKxCJT6R103HvQo9v3oP81NqQcPEEIv0rrC3DgSJo5AAzVpLcNZxSYR
-	 B7Il5UY6Ywg/dT7XZv8Y8q6tYF2yOTV1HekMzpIxLhnwyQ+I3wqwHf1BXMGQCRajCvlKO
-	 a/dHsih96iEOoS8pXRxAOcbyCeqUYYMH50Qcsf7Wgsi+jeCOLbBpz/lLK1TaQnpgpmQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614250;
+	h=DMARC-Filter:Received:X-Barracuda-Envelope-From:
+	 X-Barracuda-Effective-Source-IP:X-Barracuda-Apparent-Source-IP:
+	 Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 X-ASG-Orig-Subj:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Barracuda-Connect:
+	 X-Barracuda-Start-Time:X-Barracuda-Encrypted:X-Barracuda-URL:
+	 X-Virus-Scanned:X-Barracuda-Scan-Msg-Size:X-ASG-Debug-ID:
+	 X-Barracuda-Spam-Score:X-Barracuda-Spam-Status:
+	 X-Barracuda-Spam-Report;
+	bh=qj3qlAEWyY9IBJU457s/Ux3zGYUrpSNStMSYuv4tkRo=;
+	b=B+R9UxqimgSEj5JOkx6IP5fIQqES61MzRqPr/mzTruE9Q/giBTTxuRtLfWYyMWup8Z29
+	 UolXkS0wVY47LjU7vpbHXNaNalaLMy+xlC+gOL6Cf1O4NMRJ5NDUyPQtcSdJKCbo2vM6j
+	 ms3/BTK1w3X3huj57Cr3g99vcjrlGDxgOHlnhTcHNu5BEmu94zSiyZhJS1lB2Wbtv3Mar
+	 Bt6lTMsuZzwmHLbCqkLTflFVjG0iJ5mgqk4r9PBX6UBwAt/0Qf9g3f0qm3cUZ2HDS5yL3
+	 ZKiV7O/d5cWD0bK2hMsXYvfR2N4twjHInN/KBDGM9cajYZhg+IjzKxiRmo0nHkBhTnw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Atf85tef;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=vandijck-laurijssen.be;
+	spf=pass smtp.mailfrom=vandijck-laurijssen.be;
+	dkim=pass header.d=vandijck-laurijssen.be header.i=@vandijck-laurijssen.be header.a=rsa-sha256 header.s=default header.b=UheX4ecq;
+	arc=none smtp.remote-ip=212.71.1.222
+Received: from relay-b02.edpnet.be (relay-b02.edpnet.be [212.71.1.222])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2012606A335;
-	Wed, 25 Nov 2026 13:39:44 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF761606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:44:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF761606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=vandijck-laurijssen.be
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=vandijck-laurijssen.be
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Atf85tef
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18A8D1F000D4;
-	Wed, 25 Nov 2026 13:39:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795613984;
-	bh=CeTkfVzE6KwXB8K1xX0sANf/8jffszjaX1cpX1GXslI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Atf85tefh9bkXVmipDJVe/yKXCpOUVZfmgPBw+SiGnlS5ODWT3Qi1Ctw68pKnE4B2
-	 /JG0l3QkMnCQZq9bPO9JM8LvXEx2ZEfAgdQFuyNmw6z7ADsKe8W3pweA0e3m9728Lb
-	 W1MtQHFgO43gToB8j2AauPifWHtDfx08gD6WVUqh5bTAvS9DjVEHhjX7qbmbrNgXT3
-	 tkKZURCrOgF2oAhHq6C9THh6oLUDpn7yusmqyRJLh/zkJYNmBmtrlSZ8AJ0YWrhsqy
-	 HDlwyuLCUb/zJaL1Z694gIqhQEVVbaVIQ9hR9Qw+BjrIoe44TsXG2/rrNsL4rTZd5B
-	 mK8rzdgrF6V9Q==
-Subject: Re: [PATCH net] mac802154: fix duplicate association handling
-From: netdev-bot+sashiko@kernel.org
-To: leegun25@proton.me
-Cc: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
- linux-wpan@vger.kernel.org, netdev@vger.kernel.org, kuba@kernel.org
-Date: Wed, 25 Nov 2026 13:39:43 +0000
-Message-ID: <179561398358.3135.3017322314045036906@kernel.org>
-In-Reply-To: <20261121133101.240921-1-leegun25@proton.me>
-References: <20261121133101.240921-1-leegun25@proton.me>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=vandijck-laurijssen.be header.i=@vandijck-laurijssen.be header.a=rsa-sha256 header.s=default header.b=UheX4ecq
+Received: from srv21.vandijck-laurijssen.be ([213.219.153.140]) by relay-b02.edpnet.be with ESMTP id AgiBz5o9SnwFiOA8 (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NO); Wed, 25 Nov 2026 14:44:00 +0100 (CET)
+X-Barracuda-Envelope-From: dev.kurt@vandijck-laurijssen.be
+X-Barracuda-Effective-Source-IP: UNKNOWN[213.219.153.140]
+X-Barracuda-Apparent-Source-IP: 213.219.153.140
+Received: from fwg.vandijck-laurijssen.be (fwg.vandijck-laurijssen.be [IPv6:fd01::dab3:2fff:febd:d001])
+	by srv21.vandijck-laurijssen.be (Postfix) with ESMTPSA id 33083B389CD;
+	Wed, 25 Nov 2026 14:44:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=vandijck-laurijssen.be; s=default; t=1795614240;
+	bh=qj3qlAEWyY9IBJU457s/Ux3zGYUrpSNStMSYuv4tkRo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=UheX4ecq0duA2RB5l0GOqgtOxGqtKBuhKfa5fgjPUizdB8ti3XxcOVU4oEpG/vrG5
+	 +g6HoCJGgUoTBXQleKEHvNu5Khy0g2WRa16ouTaCQrZbOlHFWqN+939028+o1cmaQh
+	 OpLyOb1HrFEF2TeHWbpmjfkuFo6yEhvxxWprVfsJ7ub+kKbbp+jvtx9C29aIvJCQsx
+	 KFYpE2AZhgohOwzRDHzCDZLaEHtdXG5lcIkYi2TRTMGhgScW3HBqfYjsDulI/jMINt
+	 ICuvAH5GjnxaRkePLOB6wVOLXJn7VgX43BKb0c0ZGCrZdcSYYpxWuhslYL6rQoIPsn
+	 R9L5Ml5jmpbKA==
+Date: Wed, 25 Nov 2026 14:43:58 +0100
+From: Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	linux-can@vger.kernel.org, kernel@pengutronix.de,
+	Oliver Hartkopp <socketcan@hartkopp.net>
+Subject: Re: [PATCH net-next 10/12] can: remove Softing CANcard driver
+Message-ID: <awbmHl75TSW4fc1K@fwg.vandijck-laurijssen.be>
+X-ASG-Orig-Subj: Re: [PATCH net-next 10/12] can: remove Softing CANcard driver
+Mail-Followup-To: Marc Kleine-Budde <mkl@pengutronix.de>,
+	netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	linux-can@vger.kernel.org, kernel@pengutronix.de,
+	Oliver Hartkopp <socketcan@hartkopp.net>
+References: <20261118092955.1283165-1-mkl@pengutronix.de>
+ <20261118092955.1283165-11-mkl@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,172 +80,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20261118092955.1283165-11-mkl@pengutronix.de>
+X-Barracuda-Connect: UNKNOWN[213.219.153.140]
+X-Barracuda-Start-Time: 1795614240
+X-Barracuda-Encrypted: TLS_AES_256_GCM_SHA384
+X-Barracuda-URL: https://212.71.1.222:443/cgi-mod/mark.cgi
+X-Virus-Scanned: by bsmtpd at edpnet.be
+X-Barracuda-Scan-Msg-Size: 60
+X-ASG-Debug-ID: 1795614240-214fdf6fb6350990001-BZBGGp
+X-Barracuda-Spam-Score: 0.00
+X-Barracuda-Spam-Status: No, SCORE=0.00 using global scores of TAG_LEVEL=10.0 QUARANTINE_LEVEL=10.0 KILL_LEVEL=7.0 test= 
+X-Barracuda-Spam-Report: Code version 3.2, rules version 3.2.3.125474
+	Rule breakdown below
+	  pts rule name              description
+	 ---- ---------------------- --------------------------------------------------
+	
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] In mac802154_process_association_req() (net/mac802154/scan.c),
-  the duplicate lookup only runs after the capacity gate at line 848.
-- [Medium] mac802154_process_association_req() (net/mac802154/scan.c)
-  draws a fresh random short address for every accepted REQ…
-
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  cfg802154_get_free_short_addr() (net/ieee802154/pan.c:86-88) does not…
-
---
-
-mac802154: fix duplicate association handling
-
-This commit changes mac802154_process_association_req() to look up an
-already known child by its extended address, whatever short address mode
-was chosen for the new entry. It also frees the replaced child entry.
-nchildren is now incremented only for children that were not already in
-the list.
-
-> diff --git a/net/mac802154/scan.c b/net/mac802154/scan.c
-> index d393b1f4e74e4..ebef22e7e8857 100644
-> --- a/net/mac802154/scan.c
-> +++ b/net/mac802154/scan.c
-> @@ -879,19 +879,23 @@ int mac802154_process_association_req(struct ieee802154_sub_if_data *sdata,
->  		"Successful association with new child %8phC\n", &ceaddr);
->  
->  	/* Ensure this child is not already associated (might happen due to
-> -	 * retransmissions), in this case drop the ex structure.
-> +	 * retransmissions), in this case replace the ex structure.  The ASSOC
-> +	 * REQ source is always an extended address, so look the child up by it
-> +	 * regardless of the short address mode chosen for the new entry.
->  	 */
-> -	tmp.mode = child->mode;
-> +	tmp.mode = IEEE802154_EXTENDED_ADDRESSING;
->  	tmp.extended_addr = child->extended_addr;
->  	exchild = cfg802154_device_is_child(wpan_dev, &tmp);
->  	if (exchild) {
->  		dev_dbg(&sdata->dev->dev,
->  			"Child %8phC was already known\n", &ceaddr);
->  		list_del(&exchild->node);
-> +		kfree(exchild);
-
-[Severity: Medium]
-
-With alloc_addr=1, a new short address is picked and sent in the
-association response before this lookup runs:
-
-		if (assoc_req_pl.alloc_addr) {
-			assoc_resp_pl.short_addr = cfg802154_get_free_short_addr(wpan_dev);
-			child->mode = IEEE802154_SHORT_ADDRESSING;
-
-In the retransmission case named in the comment, the requester keeps
-address A from the first response.
-mac802154_process_association_resp() clears IEEE802154_IS_ASSOCIATING on
-the first matching response and returns -ENODEV for any later ones.
-
-Here the old entry holding A is freed and only the new entry, with address
-B, is kept. Won't the coordinator then reach this child at a short address
-it doesn't use? For example, mac802154_send_disassociation_notif() does:
-
-	frame.mhr.dest.short_addr = target->short_addr;
-
-Address A is then also treated as free for the next allocation.
-
-Before this patch, the newest entry B was already at the head of the list
-and lookups returned it first, so the mismatch is not entirely new.
-Now that the patch replaces the entry on retransmissions, should it reuse
-exchild->short_addr (or do the lookup before allocating)? That would avoid
-handing out a new address the peer will ignore. The commit message doesn't
-mention this behaviour.
-
-> +	} else {
-> +		wpan_dev->nchildren++;
->  	}
-
-[Severity: High]
-
-Does this count only genuinely new children while there is still room in
-the table? The duplicate lookup runs only after the capacity check earlier
-in mac802154_process_association_req():
-
-	if (wpan_dev->nchildren >= wpan_dev->max_associations) {
-		...
-			assoc_resp_pl.status = IEEE802154_PAN_AT_CAPACITY;
-		...
-	}
-	...
-	ret = mac802154_send_association_resp_locked(sdata, child, &assoc_resp_pl);
-	if (ret || assoc_resp_pl.status != IEEE802154_ASSOCIATION_SUCCESSFUL) {
-		kfree(child);
-		goto unlock;
-	}
-
-Suppose nchildren == max_associations and a request arrives from a child
-that is already in wpan_dev->children. The request gets
-IEEE802154_PAN_AT_CAPACITY, and the replace logic is never reached. The
-stale entry keeps its slot, but the peer is told it is not associated.
-
-This can happen with max_associations=2, the setup used in the commit
-message, if the peer lost its state. It can also happen after
-mac802154_disassociate_from_parent() runs on the peer: the peer frees its
-parent even when the disassociation notification was not acked, so the
-coordinator still holds the child.
-
-For a plain MAC retransmission the refusal does no harm, because
-mac802154_process_association_resp() drops later responses once
-IEEE802154_IS_ASSOCIATING is cleared.
-
-Would it make sense to do the extended address lookup before the capacity
-check, and skip the check for a known child? Then these statements from
-the commit message would also hold when the table is full:
-
-  "A retransmitted ASSOC REQ from an already known child is supposed to
-  replace the old entry"
-
-  "count only genuinely new children"
-
->  
->  	list_add(&child->node, &wpan_dev->children);
-> -	wpan_dev->nchildren++;
-
-[Severity: High]
-
-This isn't a bug introduced by this patch, but the replace logic relies on
-cfg802154_get_free_short_addr() returning unused addresses. It does not
-appear to reject addresses already used by children. In
-net/ieee802154/pan.c:
-
-	do {
-		get_random_bytes(&addr, 2);
-		...
-		list_for_each_entry(child, &wpan_dev->children, node)
-			if (child->short_addr == addr)
-				continue;
-
-		break;
-	} while (1);
-
-Since list_for_each_entry() is a for loop, the continue only advances the
-list walk and does not restart the do/while loop. When the walk finishes,
-the break runs and the colliding address is returned.
-
-The kernel-doc in include/net/cfg802154.h promises "a random short address
-expectedly unused on our PAN". mac802154_process_association_req() gives
-this address to any remote peer that sets alloc_addr, so two children can
-end up with the same short address.
-
-max_associations defaults to SZ_16K and there are only 65534 usable
-values, so collisions become likely after a few hundred associations.
-Flooding the coordinator with unauthenticated association requests makes
-them almost certain.
-
-Should the child check use a flag or a goto, so that a collision restarts
-the outer loop?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121133101.240921-1-leegun25%40proton.me
+Acked-By: Kurt Van Dijck <dev.kurt@vandijck-laurijssen.be>
