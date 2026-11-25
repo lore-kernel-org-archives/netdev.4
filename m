@@ -1,57 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588564;
-	b=Gm1A7w8BKOSLIxqw3rtfd4HOTsWJsHwdZwVKpmqVXWtjk+WNSlJltYLHmx7IY7YSVykH
-	 5vubg1PXe8lLnhRe6AByk4k+xeVvKWqwIotCoSk1NwbEDHPz5N5A6KFQ4UI5vJrK1kVzk
-	 vVEm7aXNO/Hh0zyFi95vWFiTWf6i4kcVTbM2pBfhYmqzkh4mHOBBbACRhAV9SVsFSDla/
-	 o25lHnt+GviLzeSpuH0rk8P8KsGMxPCDovJ+PxuyafsuQ42BXkejn+PHbGuf/ALg/fCaZ
-	 A/M+zg9Gcm9UrDTnZWFIEpkOvLF8tToO/L8ikJN9K3NgQnT7XO8j3korUBJwTnJ3QUg==
+	t=1795588566;
+	b=ZElTV349hKy2RXGYap/9epjil5UyEyjx3kk0vjwz6j1CuNcXjKRPIthW+FIgJS+9s0aY
+	 jc3AyHoT9cxhAfQUy9aG0LWOLZG5ktAYA7y9LiUgTsAcVGUrw7uz+rfK6Se+hxlAMaN7N
+	 gY3/gVSbAnPF/STiSQm3Nzhl6/by56qaI8dvWTSCRQlHifJOPORBf+9vggGRiNkdhurJ9
+	 AJZqedYCZssbC4lwtwYb3rYhzRhrSSc22EO4accYJFDrHDo/R/nDn1vtDIptzqzP1bNQB
+	 iTthZaUU/DwBAoi354Lgl+uNEKB0llB4vmpP1dXkzKeQUmPG/UQa7kzOWRgPXgNW4CQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588564;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588566;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=h+yinOnLq8feQloAbogI5ELmBrxeFoOULL2TXqfdUxY=;
-	b=RvIAGnmZGRcvgP/66ym+MnvyGrYtIbP1h8gRBvn79qLJSpcgDpRdNJPiNGk9hZKRtQyE
-	 XccqNPNmyqXekDr5iFy9CjWlwTejDgI5pP/vdyOUd0rykSUqy+k/FGXS3lvteVr6Mc3NU
-	 JXu0TkPDWld5ULUaZFzggE0Vww050Y/SDGO+wy5rBLYr/ZfnaEkoLVP/7UOxcXlTGQGh1
-	 9AgHO/vOEYiT8O5+q78x11BwBxh2cxdRdxRLNBypeLRHWcdHVtmsm4Hg544qO9X4/ElaU
-	 a386uDGyqbju97AUVkn9joIpDp/njEE6Ws3219c1cqun4d0J9feMliksQk1XizIcMow==
+	bh=WmUfzwma93rg6Bml2GYK77+Ze3Dw48MIC5lQRVm2SRU=;
+	b=ehKPY0uJM8gq9dtLwB2W1W3vcHSPQDbl1gGEgCrMaxKzrGF8iGmgF3Y1sZPSZnVW1gxr
+	 KEjQquhJ5XsQ8ngE8b5xj4Fc+TsuZKWX2JjtakKyGz8XxyjLrfUCvWVBTpDp2ZKNVManO
+	 vXe0PYuLAwMMqi1udbdgZED36hpx3OXcwPHpq2iYBMGj2IcBeHLjq7yG2t8yE+RhX5BZm
+	 5lclEmzS/dUY2rnZLCAI2eKK0wzBEOQ6b3UudwPkKyGHeQM4w3+iFumKfzVfLU8cqGhNI
+	 Bu4JalHMlvBMgw32HwIG2I5iHdCs2o8Tj3POJQXtMhdU85bH8vx6wF5XWDW9zexmk5A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQmZ93K+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XvvIjNiD;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6663C606A334;
-	Wed, 25 Nov 2026 06:36:04 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01CCE606A691;
+	Wed, 25 Nov 2026 06:36:06 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FQmZ93K+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A57FD1F000C0;
-	Wed, 25 Nov 2026 06:36:03 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XvvIjNiD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C64211F000D2;
+	Wed, 25 Nov 2026 06:36:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795588564;
-	bh=h+yinOnLq8feQloAbogI5ELmBrxeFoOULL2TXqfdUxY=;
+	s=k20260515; t=1795588565;
+	bh=WmUfzwma93rg6Bml2GYK77+Ze3Dw48MIC5lQRVm2SRU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=FQmZ93K+cnngjF88Ofo7ph6wZRym9S13Tpy+ZHvfBaWW76bt7dva8oD5/PMFbNlGI
-	 IPplGYqbkCRk30IxbEBi25D57sXAWHoWa5X7VAGazvyQzprFcEukCC6rCm8+Y0Kr6M
-	 u5Vvuob5oghOHp/ugxx3A2ehX4M8JNXx7cBZclUcznyHNfRXxjNRXLsSVXSMTWkSov
-	 Tc8prt0tuRtl5MUf1HAh107X46lAHOsvrO3F76291uiTgxYxFXNqcS4pOZ/0u4UeQc
-	 8qBViuiYH761XTlEWCOgFyN6wt2IFVZrZZSjhWdd3kSQKNa3GaBe4mA67BF3A1WKLH
-	 7MpW9XoJcUspA==
-Subject:
- Re: [PATCH net-next v3 3/5] net: rnpgbe: Support copper link configuration
+	b=XvvIjNiDHjnApn8vI9+HyWi5LD2leABp21biRKbhjWlHRQxGRDt+lVdJ0FdP4lOCH
+	 z9+cql85tVualjEmGfuqh0QnBnm0SCoN8u6rvhxAMuxiGK5rAgGjob1oKOu31TYsmK
+	 DydGTAs6eRA6HKDTCztBFFvEyCHik0+MsTJdnWqYHn15ZMypscn4z/gMPdsu3e8OKM
+	 wM2AawW8xC0xef1ODo6Fvor1Yn66OK+pdtL2IhLMWiymoQG2iSmBN5U79hjIRoizxP
+	 ZBBHwxR36hVFNFSidFc/eXHIrXyZ9SrrWyOE18Q1P0k/4AxxFwQOSJgM9zxc8ZMJ/r
+	 mOaDe0Rggs3Ig==
+Subject: Re: [PATCH net-next v3 4/5] net: rnpgbe: Allow changing the primary
+ MAC address
 From: netdev-bot+sashiko@kernel.org
 To: dong100@mucse.com
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
  kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
  linux-kernel@vger.kernel.org, netdev@vger.kernel.org, yaojun@mucse.com
-Date: Wed, 25 Nov 2026 06:36:03 +0000
-Message-ID: <179558856322.3135.5490844008487521629@kernel.org>
-In-Reply-To: <C0071FBC8B693BE4+20261124060602.411328-1-dong100@mucse.com>
-References: <C0071FBC8B693BE4+20261124060602.411328-1-dong100@mucse.com>
-X-sashiko-severity: Medium
+Date: Wed, 25 Nov 2026 06:36:04 +0000
+Message-ID: <179558856439.3135.10366216867025200313@kernel.org>
+In-Reply-To: <4EBB27E12BC81D8D+20261124060613.411393-1-dong100@mucse.com>
+References: <4EBB27E12BC81D8D+20261124060613.411393-1-dong100@mucse.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,98 +64,86 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] This patch adds kernel-doc to mucse_mbx_set_link()
-  (drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c, lines 216-218):…
+- [Low] rnpgbe_set_mac_address() in
+  drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c checks the new address…
 
 --
 
-net: rnpgbe: Support copper link configuration
+net: rnpgbe: Allow changing the primary MAC address
 
-This commit adds set_link_ksettings support for copper ports in the
-rnpgbe driver. Copper ports can now configure autonegotiation, advertised
-modes, forced 10/100 Mb/s speed and duplex, and MDI/MDI-X selection.
-Requests to change the media type reported by firmware are rejected, and
-PHY_LINK_SET now uses the event-coalescing mailbox transport.
+This adds ndo_set_mac_address support to rnpgbe so the primary MAC address
+can be changed while the interface is up or down. The new address is
+validated, written to the primary receive address filter (RAR0), and then
+committed to the netdev. It also wires up eth_validate_addr as
+ndo_validate_addr.
 
-> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> index 469818b83d70f..70eef8ed7f5cc 100644
-> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> @@ -210,7 +210,12 @@ int mucse_mbx_get_macaddr(struct mucse_hw *hw, int pfvfnum,
->   * @duplex: forced duplex mode when autonegotiation is disabled
->   * @mdix_ctrl: MDI/MDI-X control mode
->   *
-> - * Firmware ignores @speed, @duplex when @autoneg is true.
-> + * Firmware ignores @speed and @duplex when @autoneg is true, and
-> + * @advertising when @autoneg is false.
-> + *
-> + * Firmware acknowledges the request when it consumes it. If the ACK
-> + * wait times out, firmware will not apply the request later, so the
-> + * previous link configuration remains valid.
+> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> index 3a2f62f0630da..f25cca98878ef 100644
+> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
+> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
 
-[Severity: Medium]
-Does anything on the driver side enforce this guarantee?
+[ ... ]
 
-The request is already fully posted to firmware before the ACK wait
-starts. In mucse_write_mbx_pf_coalesce_event():
+> +int rnpgbe_set_mac_address(struct net_device *netdev, void *addr)
+> +{
+> +	struct mucse *mucse = netdev_priv(netdev);
+> +	struct sockaddr *sa = addr;
+> +	int err;
+> +
+> +	err = eth_prepare_mac_addr_change(netdev, addr);
+> +	if (err)
+> +		return err;
+> +
+> +	rnpgbe_set_rar(&mucse->hw, 0, sa->sa_data);
+> +	eth_commit_mac_addr_change(netdev, addr);
 
-	for (int i = 0; i < size_in_words; i++)
-		mbx_data_wr32(mbx, MUCSE_MBX_FWPF_SHM + i * 4,
-			      le32_to_cpu(msg[i]));
+[Severity: Low]
+Is updating only the ETH-block RAR0 entry enough here? Would the GMAC
+station address and the firmware still hold the old MAC after this runs?
 
-	hw->mbx.fw_ack = mucse_mbx_get_fwack(mbx);
-	mucse_mbx_inc_pf_req(hw);
-	mucse_release_mbx_lock_pf(hw, true);
+As far as I can tell, rnpgbe_hw.h defines no GMAC station address
+register, and the driver never writes one. The GMAC would then keep
+whatever address firmware programmed at reset.
 
-mucse_write_mbx_coalesce_event() then calls mucse_poll_for_ack(), which
-gives up after mbx->timeout_us (4 seconds).
+The GMAC block looks like the Synopsys DWC GMAC layout:
 
-On -ETIMEDOUT, neither mucse_write_mbx_coalesce_event() nor
-mucse_mbx_set_link() clears the SHM payload, rolls back the PF request
-counter or withdraws the request.
+#define MUCSE_GMAC_OFF(_n)             (0x20000 + (_n))
+#define GMAC_CONTROL_RE                0x00000004
+#define GMAC_CONTROL                   MUCSE_GMAC_OFF(0)
+#define GMAC_RX_ALL                    (BIT(31) | BIT(0))
+#define GMAC_FRAME_FILTER              MUCSE_GMAC_OFF(0x4)
 
-What stops slow firmware from seeing the incremented request counter and
-applying PHY_LINK_SET after the poll has already returned an error?
+On that IP, MAC Address0 High/Low is the source address of the PAUSE
+frames the MAC generates. RNPGBE_LINK_ST reports pause state in bits
+25:24. If TX pause is active after "ip link set dev X address ...",
+could those PAUSE frames carry an address the host no longer uses?
 
-The new runtime caller relies on this comment. rnpgbe_set_link_ksettings()
-updates the cached configuration only on success:
+The mailbox command set in rnpgbe_mbx_fw.h also has only
+GET_MAC_ADDRESS and no set command. So any firmware-side copy of the
+MAC, for example for NCSI (which owns RAR entries 30-31), would also be
+stale.
 
-	err = mucse_mbx_set_link(&mucse->hw, advertising, autoneg,
-				 autoneg ? 0 : cmd->base.speed,
-				 autoneg ? 0 : cmd->base.duplex, mdix);
-	if (!err) {
-		mucse->hw.mdix_ctrl = mdix;
-		mucse->hw.link_config.advertising = advertising;
-		...
+Receive is not affected. rnpgbe_set_link() puts the GMAC in receive-all
+mode, and filtering is done by the ETH-block RAR/MTA tables. The concern
+only covers frames the hardware generates and firmware state.
 
-Suppose firmware applies the request late. ethtool -s would have returned
-an error, but the PHY would be running the new autoneg, forced
-speed/duplex or MDI-X setting. rnpgbe_get_link_ksettings() would keep
-reporting the old advertising, speed, duplex, autoneg and
-eth_tp_mdix_ctrl values.
+This is inferred from the IP family and would need to be checked against
+the Mucse datasheet or vendor driver. Later patches in the series don't
+seem to add a GMAC address register write or a firmware set-MAC command
+either.
 
-There is also a related case. The late ACK for the timed-out request
-could arrive after the next PF command has sampled hw->mbx.fw_ack. Could
-mucse_check_for_ack_pf() then count it as the ACK for that new command?
+Does the GMAC station address need to be programmed here, or the
+firmware notified, when the address changes?
 
-Before this patch, PHY_LINK_SET was only sent from probe through
-rnpgbe_setup_default_link(), and a failure there aborts probe. With this
-patch it can be sent at runtime while firmware is busy with link events.
-
-The kernel-doc for rnpgbe_init_link_config() already says that firmware
-can be held up completing forced 10 Mb/s link setup. A slow ACK seems
-most likely in that window.
+> +
+> +	return 0;
+> +}
 
 [ ... ]
 
