@@ -1,103 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.226
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795637054;
-	b=CDuPLUU6FTLCgWHKtVtv7sJAIj1aZR/XrOMZPMDLhP5pkltBA/OfWwCE8x0gQlESNLYD
-	 56gJZR/gPo7/3r5c+D45j/dr4oRUoNIptyTmtrxbHYmf/u6Zt+Du9xbMqaNmMAr45RZvm
-	 jIsH7TFri308eIn7WWaEziIwbIN61Ef9iqRtv3T9Ja4ZwRlzoNnJjvJDT8wcOHW74RTgz
-	 ObNmZaK9MXPyjrYbwcKCBTDrMxzusFYqhjQp6wjiuIRIUI+UmfiX2AbS6cudvgeVBwEoQ
-	 Oc3LNlMdnO4aSbaFLza/HgaUE70DvugZy+OZXx2dPw7u14PjIyT8TfRbQd9+c6loKOw==
+	t=1795637172;
+	b=1e/Zc6ZSAHcUnn0edvydvPuB4vxw+khSb1Qdt16NHFvxL4H+47fxymRfVCMC1TlBq19z
+	 DKfTuQgMIdMVQ4rIg+W90kARHuVBZ+/qBWXljWYzxfiqMTB9fasbQGvKgRDS2nmL4AahN
+	 LX/xtGU33ZLYCsTSak8ooGQHcVSfB6yTKUl2GMjhS8N8VXFOXbA1tBW3mA+k64uJwV7gc
+	 Qu0OQsdEMi77vc3PfHn2lc9Pe70Tpt3t4doAOifg4uw/Zi/bTnlY+PhA7GSvKgrjYW72G
+	 tsSY9mMcuLSbCS3FvZimGPUk44BKpwyjPCZ0ZKU6/wvaq7If5htQueGLknyU4LisekQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795637054;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-	b=O4lM43DM8Kxsn5weU9+jWgdW4ELWpaTUsk74DxUDo4mqSNC5bPxjuw5fF6+QgrDmY66X
-	 cZHhsTUfivbsmxl5kgnwdIUwEITPrT5JN8QvwXBwOVtnLPNUzLFOcWJJ2YSf55FAp5RU4
-	 7VHCflvOI87Sph72w9M9AFKWfgntz29Ut7W4vtaWONi0hxYblyf80I95l5dz2/FnMgzmw
-	 4zLjYErmSg5+TlPcEILqZVCn8vbjlTXLR+M6cdZwXwDaLJ06HCreqQ6NjjdO2AaW8p4Aa
-	 ijHXf0V2xsdJENtFpa42l3KPAhikI/AGddNEoWvD+DAG08E9dHs9yeU7Ji0in1XyEAQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795637172;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=paAhnZ1B00/VYOGiEJQJittNIUN4WOaYQBUyWbu46us=;
+	b=N8BlPUDJfDYgWyiZ870pU1WEUHvcSWcDQIFt4m7cuLUBz5H6wcvv7g9qcstMJ0veqJxY
+	 U4uAwQBTiQyL/FWXTtwLdeaz7VWMWbcHYx8bvBq/Lps8Clr0XtPoJ+bVO40ZhtVc7iaKb
+	 0yJeulP3vdnJ5NrvzOnN6me1SgsHciagC8ommsFtVtgVrFtOaVJYVEnkZq5V0yv/iTFhI
+	 Tnk+SAQsHCJxuJsw77Qs1fxBBgG6YA++6H9Vnl1XCN/8XzYcfODU22Gpp6hBe9prng2tO
+	 qeaui/sRUZYnAl971eKGIbWcPm+3ELKJGZ3JC8Di8jzzAnWdIQQiHHfS3DKD5rQU1YQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=andrii.net;
-	spf=pass smtp.mailfrom=andrii.net;
-	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=X+Nmy3Pu;
-	arc=none smtp.remote-ip=209.85.215.226
-Received: from mail-pg1-f226.google.com (mail-pg1-f226.google.com [209.85.215.226])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hgy6ip4g;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 602F6606A33F
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:04:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 602F6606A33F
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D799A606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:06:12 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=X+Nmy3Pu
-Received: by mail-pg1-f226.google.com with SMTP id 41be03b00d2f7-cde84cb8803so1624345a12.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:04:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=andrii.net; s=gmail-2025; t=1795637052; x=1796241852; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-        b=X+Nmy3Puuqqf4o7Iiigbk6Dm4/3tNwm0vWiP/LoJitR3bDbsnNlDSx9ypWR+9O6MId
-         fnSShOI5dopdTEH/ymJtP9TVOqdvMM24XjAyeDmO4CJEZYSKVCvFYZLYdBpFeE3AmSFo
-         3azayYBE6wB2qIalrb0xKeV9A2iEtr972pbUQSvZdUKNkvLHC2UstIlNn2xYXqmg4ame
-         1zT6VAGwTcc9cUih4Z+Eck8hYh5qSbmkH9X934A7R8U5i1wGydFOuqkyURx37kRvJLrB
-         UvYiGu7SFNI9G7Fcqy+K16g9gdMFDn+iYFDe+TnMQGVlnBjAJvhqEnEOL7wAYnCucHLM
-         arXQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795637052; x=1796241852;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XbA8xSo/0EvP3bC+6uqk9zXWFfD3XB7Srs6wgP7XMNE=;
-        b=lSESybup0SaA3z+Jp1U//hxXw2csknW/42Zbn5ET6AY3HrDH/vVF1I1hanOyPkMT52
-         SRvky8kRhBjoxUBDWRIvwcA7NYawotzoBmz+CkrZauX2A1Avg6GGXkd6LVhmxYBZp6ft
-         0dDnwPmLyCpxaLUW1DBUmQ56q6jd/mH1MESwurh8lyEqnqK6ITaAATt7kqPi/EAe0rmU
-         Ej0QUIxd02bZ1Ba7WUskFv0LyUeS2KuM/VZabJ8x6P+EUWL8V/5cstZWmVUescsHE7tS
-         2GXKFZKI/3fayI0nwcucmGJIPX0F4a5IROzdSQP54U5jBe/tySxyZdTopIWzi3m9VQ3n
-         yeFw==
-X-Forwarded-Encrypted: i=1; AL+hErGzoM768ETIFXUZArb3OpvDi/BhqDdBKJPyIt5o9qbDuMotT7Tg1Rt2bOzvVo/zSkWdynTf/Ts=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8aJizeR1d1gSCaFKR1gUxKvNbhtq0ACCm/CwfE+AfGAfzHgI43
-	pIyXXD2FaxwIZorlfTGa9C9crkmsGLaic0EZ5aj7/UoAyAlQrcQGrwMF15uetGdalcp21nitI9p
-	KFFX6nREkuIjeP9T8pRua4CrHGj0k+SBmscxJ6cPPieu/lXSGsY8l
-X-Gm-Gg: AZFdTZfkRTXZNjTsWpFPMhr926V0CVQvXJUyxn6NMmPCQGmIicpk3PfnBvOBT4PeieM
-	qCLf5RFGKiONuT/UQXYzu7iA09kosM9qwXTIN5uVQT/gBezhlT9hq9+917O/cdkc3PotlUzEeZT
-	3I6X5oaG4NAEyGjKZDrrD7o5r7vt18RpFs0SXzwUoLomZNfC696kzoxdDmEOIL55z8ROKlvDM9c
-	1cxUcEluVQMT/KW+R6+AfeAodsvGJ9C99DelA3ZYLKdQE2ByfX7zqxFhswnPmcn1872jc7B6ioA
-	WZ2+Jri/ccVrbBzXJGWrHW0D9Xfkwsrb5V6JWobiYeZ7b+j/BGrz0SIsg39I8qFL/H2IFy1hllr
-	w5rMkYx9kHc+mjZVVA4dYfo5P7kI=
-X-Received: by 2002:a17:90b:4e83:b0:3a8:32f2:f4a5 with SMTP id 98e67ed59e1d1-3b41c956a0cmr18014294a91.53.1795637052486;
-        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
-Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
-        by smtp-relay.gmail.com with ESMTPS id 98e67ed59e1d1-3b41d224ba3sm7118846a91.1.2026.11.25.12.04.11
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 12:04:12 -0800 (PST)
-X-Relaying-Domain: andrii.net
-From: Andrii Tereshchenko <opensource@andrii.net>
-To: Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	Dmitry Safonov <0x7f454c46@gmail.com>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	netdev@vger.kernel.org,
-	ipsec@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: Re: [PATCH ipsec] xfrm/compat: pass on the translated length of a socket policy
-Date: Wed, 25 Nov 2026 12:04:09 -0800
-Message-ID: <76b0ddfc-33ff-48a0-8113-db94076f2473@mid.andrii.net>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
-References: <5249741d-fa84-4d54-bf77-45f48dbbb169@mid.andrii.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Hgy6ip4g
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E48201F000C6;
+	Wed, 25 Nov 2026 20:06:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795637172;
+	bh=paAhnZ1B00/VYOGiEJQJittNIUN4WOaYQBUyWbu46us=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=Hgy6ip4gtaD/u7rSg6A9itabA8uCxHujIrJxViXM6LLSZLAcMSgCZxqz+ZuQknUrG
+	 vw+0EyVC/IybSvgtSeMPq1rrI+INgJHj5FH7jtuNZxOhCP+WNN6pkq+HYH2qOz4URN
+	 RkH95v8IBt5ZAJyej7pksJ+93MYcpJup+8qUYD90yeeScR3Q2eYZdjU6jx/aIWRJic
+	 b8rIglp+1OmH/fPGJdeMGlc0PvHRw+C1aUaiOsbzIY69HRwAWcKvD5P7ttgCNmik6F
+	 33bXZFNPVQN34nlZzI3sKNrBl+ThHtd/WwvcfQaPNMN7bawFvtgQLpEmYjayqtn9Pm
+	 Q918PPyBa1ang==
+Subject: Re: [PATCH net-next 2/6] net: remove header_ops->validate and
+ dev_validate_header()
+From: netdev-bot+sashiko@kernel.org
+To: willemdebruijn.kernel@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ elder@kernel.org, willemb@google.com
+Date: Wed, 25 Nov 2026 20:06:11 +0000
+Message-ID: <179563717146.3135.13828888789756005056@kernel.org>
+In-Reply-To: <20261124170551.1874487-3-willemdebruijn.kernel@gmail.com>
+References: <20261124170551.1874487-3-willemdebruijn.kernel@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,43 +63,116 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-The netdev AI review [1] raised two older issues, outside this patch.
-Adding Willem de Bruijn, whom I missed in the Cc.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Sashiko (netdev AI review) wrote:
-> This is a pre-existing issue and was not introduced by this patch. Does
-> this translation also run for x32 tasks, whose layout already matches the
-> 64-bit one?
-[...]
-> Would compat_need_64bit_alignment_fixup() be the better gate here? On x86
-> it is in_ia32_syscall, and net/ethtool/ioctl.c already uses it.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0 (1)
 
-Yes, confirmed on ipsec master with X86_X32_ABI=y: x32 requests are
-translated as i386 ones, so their SA and socket policy requests are
-refused and a NEWPOLICY loses its template, leaving its traffic in
-clear text. Gating on compat_need_64bit_alignment_fixup() fixes it; the
-fix will come with the other xfrm compat fixes. x32 readers of dumps
-and notifications still get the i386 layout, which needs a separate
-af_netlink change.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Sashiko (netdev AI review) wrote:
-> This is a pre-existing issue, but should this translation be limited to
-> IP_XFRM_POLICY and IPV6_XFRM_POLICY?
-[...]
-> As a result, a compat task's PF_KEY socket policy shorter than 164 bytes
-> is refused before any key manager sees it:
-[...]
-> The gap came in with 96392ee5a13b. That commit replaced the
-> in_compat_syscall() -EOPNOTSUPP refusal for all optnames with the
-> xfrm-format translator. Could an optname check be added to this fix?
+- [Medium] In packet_sendmsg_spkt() (net/packet/af_packet.c), the
+  SOCK_PACKET send path now checks the packet length against the wrong…
 
-Yes, it should. I have that fix ready as a separate patch, which runs
-the translator only for IP_XFRM_POLICY and IPV6_XFRM_POLICY, and will
-post it with the other xfrm compat fixes rather than fold it in here,
-as it is a different bug.
+Pre-existing issues:
+- [Low] Baseline decision: false (kept only because
+  requires_validation=true).
 
-[1] https://netdev-ai.bots.linux.dev/sashiko/#/patchset/5249741d-fa84-4d54-bf77-45f48dbbb169%40mid.andrii.net
+--
 
-Andrii Tereshchenko
+net: remove header_ops->validate and dev_validate_header()
+
+This patch removes header_ops->validate and dev_validate_header(). Their
+only user, AX.25, has been removed, and so has the CAP_SYS_RAWIO bypass.
+The three af_packet callers now compare directly against the snapshotted
+hard_header_len.
+
+> diff --git a/net/packet/af_packet.c b/net/packet/af_packet.c
+> index 96c5216a9d6b4..230b16742346c 100644
+> --- a/net/packet/af_packet.c
+> +++ b/net/packet/af_packet.c
+> @@ -2060,7 +2060,7 @@ static int packet_sendmsg_spkt(struct socket *sock, struct msghdr *msg,
+>  		goto retry;
+>  	}
+>  
+> -	if (!dev_validate_header(dev, skb->data, len) || !skb->len) {
+> +	if (len < hard_header_len || !skb->len) {
+
+[Severity: Medium]
+Is this check still the same as the old one when the lookup after the retry
+returns a different net_device?
+
+packet_sendmsg_spkt() looks up the device by name twice: once before the
+skb is allocated, and again after goto retry. hard_header_len is only
+read on the first pass:
+
+	/* Keep the allocation-time header length across retry. */
+	if (!skb)
+		hard_header_len = READ_ONCE(dev->hard_header_len);
+
+The old dev_validate_header(dev, skb->data, len) read dev->hard_header_len
+from the device found on the retry. That is the device passed to
+dev_queue_xmit(). The new check uses the value from the first device.
+
+Between the two lookups the RCU lock is dropped, and the code sleeps in
+sock_wmalloc() and memcpy_from_msg(). User space can stall that copy with
+a userfaultfd or FUSE backed buffer. Meanwhile the name can move to
+another device: netif_change_name() allows renames while the device is
+IFF_UP, the device can be deleted and recreated, or the name can become an
+altname on another device.
+
+Take a name that first resolves to a tun device (hard_header_len 0) and
+then to a veth device (hard_header_len 14). A 1 byte frame now passes
+len < hard_header_len, where the old code returned -EINVAL. Can that frame
+then reach dev_queue_xmit() on the veth? If so, eth_type_trans() on the
+peer would read eth->h_proto from skb->data past skb->len.
+
+CAP_NET_RAW in a network namespace the user owns is enough to reach this.
+
+packet_snd() and tpacket_fill_skb() have a weaker version of this. They
+no longer see hard_header_len grow on the same device (for example
+through a bonding type change) during the sleeping allocation and copy.
+tpacket_fill_skb() also uses a single value for the whole tpacket_snd()
+batch. In those two paths the old live check could also go stale right
+after it ran.
+
+The commit message describes these as "direct checks against the already
+snapshotted hard_header_len". For packet_sendmsg_spkt(), though, the
+snapshot comes from a device that may not be the one sent on.
+
+Later in the series, "packet: validate TX header length before skb
+allocation" moves this check into the first-pass if (!skb) block. If I
+read it right, the device found on the retry is still never checked at the
+end of the series.
+
+[Severity: Low]
+This is a pre-existing issue, but with this check the short-header branch
+in the allocation path of packet_sendmsg_spkt() looks like dead code:
+
+		if (hhlen) {
+			skb->data -= hhlen;
+			skb->tail -= hhlen;
+			if (len < hhlen)
+				skb_reset_network_header(skb);
+		}
+
+hhlen is either 0 or hard_header_len. Any skb that takes the len < hhlen
+branch is therefore rejected by the len < hard_header_len check after the
+retry. The branch already had no effect on sent packets once AX.25 was
+removed.
+
+"packet: validate TX header length before skb allocation" removes it later
+in the series.
+
+>  		err = -EINVAL;
+>  		goto out_unlock;
+>  	}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124170551.1874487-1-willemdebruijn.kernel%40gmail.com
