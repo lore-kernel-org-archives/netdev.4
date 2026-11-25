@@ -1,54 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618222;
-	b=KIxMeYhzYZUHhj2w1LOZkiLoyMPp135NUGz7K+M71XZyC6uYTHSz4jiVFZrZeZUY3IxB
-	 zZfqj+e7kGDu8X7omGZAG12tVuGjyZR6+Nf3h0Ft3tHKP35q1suBQMohhpiQ84H/v2pJH
-	 Bw6hj8aSCLW1ZxW4k6EFXNd/Aqxn5M+t2ZCJZ41agGUVzoxfPF9l/NpEGMkjw41nICYWJ
-	 sH8nlNcM4vxylmziEY+1bQaT6ygOSKR+5TcMmHJuESSN0dBZ/ppT8vqg1qQ4Z9CZsK5Kb
-	 x8GehLFDT69BIl5rlcdVr7aWykiwnDy+GY/F1ZusLI+J6ZLwkDYFYKRvvhy4Co+oOXA==
+	t=1795618257;
+	b=TOiaH0yatrzsuX7/vRm6iXekmn6A3fpy0t0mmzIypz9FGVUosX2+ACVgwlj4jmLwz5X9
+	 6ruZAGzf4sCgqoa1PJdPSDMMq94z9bN1a8N+wu78bwc6ZQXSBPunZBZQK56M0HT0PalCm
+	 oJfX186APnwCLyNUppndVfeB+FobQxz4uZe+IE7ppYBkt/aB9+rQrlgt894NhNNYgSvvs
+	 Pg1AMAmQxzYveYt5iNP0fWVeJGFABBVLBfwNmUwbT3h6C+nzZCG3h7LKXh8gOE8xBDn14
+	 BKQ9NQndNYi/t2MGWGI5v5ZGbSVYr1cC/PDtS5v5xQs63HK7aA3UdbYwDsLRfEvahmg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618222;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=mHTWCCbITSp2cFKEOvUTQfCjXBMJ22UtuO2neDfFmQM=;
-	b=19eT0Rc/WGMYC47kTqKJk/K+SSjyIEzvE/mxh3E3fVXgfvaRtr2r1mY4U04OJCeEaw+z
-	 G0D5UtaCyJP4BmZMsduhlG1LRh5CHTPJPMQS0Df6DLcs83BfbTpqIK5IhyiYt6ZyAusWc
-	 Jv3W2S+862hqLQkmIdodXWZtfGDBMbc6SnsvVhG/f+mHkWkPOUON147/ZpnZ1T02WyQ3S
-	 hDIe2Lh7QnHEusYpj8gb5U56/VhYtOAlOU/mXbUD564ui7VFkK2/HxWohuO5ikNHaFhtw
-	 IF8LgRKGTO7YeCvjihSvpGiplJeG8yUGt3vZ4o0MTbw6IeljfPd53mLUped2Bzs9HmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618257;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=v1h9iCU9xhZRsrH1zxmZFN+lCrA1r7F9o5cGgpjpcQ0=;
+	b=rvt61Cyvq1nAihse8AzpHsIuAUP7pm4vgTnjJPRHEcTvIm5unv1DH6guwqfZU7v2Tpam
+	 Q5w9Dblz8auQDLcfMA+CBCfgeks0gYKyC31wAWjOQml+S/S7yElQ4yCo5Ec+k/IJYOhq/
+	 y4Fx3wDOGZcYZdaRo2z/7mm7SEE455JrTeOpIrhFT+kCvwIgQNwBgJ6O/2YgImbsvud54
+	 GIIwk8+LkYyP0MCx6SbI7waJXHxiBYYo8hXjkKfhSoJm6glkw/II54kEkxWhWv0K5eK5O
+	 MLa468ofC5aZlwku4sp7iel7u3nTStr+rIq8q0ud+eAeAA6RWV+zm8YTNYULGHNOysA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dSeoQDXG;
+	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=spJ2cq2i;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0DAAD606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:50:21 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51322606A31E;
+	Wed, 25 Nov 2026 14:50:57 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dSeoQDXG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 79E211F000D8;
-	Wed, 25 Nov 2026 14:50:20 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795618221;
-	bh=mHTWCCbITSp2cFKEOvUTQfCjXBMJ22UtuO2neDfFmQM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=dSeoQDXGjwjJyG1/j4RT33N15M4Jq8WX/yXBG8bsdL+a/eeLv3v08+1M2q5oAgTlL
-	 3VBbh8GVR2Xjx4yBaA5ThQzUE40f8e+DMtkLUKYIfFLqZfYqnTq1fbN6R9lr1Fngbd
-	 TFbfXtLgC5QceMP7w/I1xNEz1FbVE7SQD+hgAFaggQC2k1alLv4QQ4EteTR3CPuauV
-	 tjVOeoPm9VZW6np1rdSJFOn5XV1Gjpkks6cBs91ej2ifBXO+0h/ftlLLWpSPJ9MvLW
-	 hiwueDZMWVZJT1ueJoB0zIFwV13uPaGMEOJwG3zj/jqG27g9+UL5iPmbgtLYzMfSeJ
-	 J/MIUSgXBgV8w==
-Date: Wed, 25 Nov 2026 14:50:18 +0000
-From: Simon Horman <horms@kernel.org>
-To: Lin Ma <linma@zju.edu.cn>
-Cc: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>, netdev@vger.kernel.org,
-	linux-afs@infradead.org
-Subject: Re: [PATCH] net: rxrpc: Validate RxGK security level before
- allocating context
-Message-ID: <20261125145018.GX31322@horms.kernel.org>
-References: <20261119030622.1017012-1-linma@zju.edu.cn>
+	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=spJ2cq2i
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B19B1F000C0;
+	Wed, 25 Nov 2026 14:50:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
+	s=korg; t=1795618256;
+	bh=v1h9iCU9xhZRsrH1zxmZFN+lCrA1r7F9o5cGgpjpcQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=spJ2cq2imB1BFwaGhMwxIbEuiyZue5cpX1uLdIM/MJQ2hSTry5ToSY9UNINSqV/xX
+	 GUPN5ZY5IIw8CZBkiPIBYp4qSEZ01WC2yzOBG8r7YybVk4Gf64C7KBb8gi5s8LuoGu
+	 vbx6wP39AEa3WySIlVbX8lmcdNlrbK2Ilcovws0M=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Leo Yang <Leo-Yang@quantatw.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Jeremy Kerr <jk@codeconstruct.com.au>,
+	Matt Johnston <matt@codeconstruct.com.au>,
+	netdev@vger.kernel.org,
+	Bart Van Assche <bvanassche@acm.org>,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 7.3 0223/1005] mctp i3c: Fix locking in an error path
+Date: Wed, 25 Nov 2026 15:26:01 +0100
+Message-ID: <20261125143826.965634465@linuxfoundation.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
+References: <20261125143821.729802100@linuxfoundation.org>
+User-Agent: quilt/0.69
+X-stable: review
+X-Patchwork-Hint: ignore
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,58 +66,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261119030622.1017012-1-linma@zju.edu.cn>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 19, 2026 at 11:06:22AM +0800, Lin Ma wrote:
-> rxgk_init_connection_security() currently stores a generated transport-key
-> context before validating the token security level.  A rejected level can
-> therefore leave a context in conn->rxgk.keys[]; a retry overwrites it and
-> leaks the context and its crypto transforms.  Validate the level first so
-> failed initialization does not allocate or install a context.
-> 
-> Found by LLM-assisted manual code inspection; not runtime-triggered.
-> Related upstream fixes include commit 7e1876caa836
-> ("rxrpc: Fix leak of rxgk context in rxgk_verify_response()") and commit
-> b555912b9b210 ("rxrpc: Fix key parsing memleak").  These analogous fixes
-> support the allocation-lifetime analysis, but neither covers this path.
-> 
-> Fixes: 9d1d2b59341f ("rxrpc: rxgk: Implement the yfs-rxgk security class (GSSAPI)")
-> Assisted-by: Codex:GPT-6 <codex@openai.com>
-> Signed-off-by: Lin Ma <linma@zju.edu.cn>
-> ---
->  net/rxrpc/rxgk.c | 20 ++++++++++----------
->  1 file changed, 10 insertions(+), 10 deletions(-)
-> 
-> diff --git a/net/rxrpc/rxgk.c b/net/rxrpc/rxgk.c
-> index f9f5a2dc62ed..80fc8bea61a2 100644
-> --- a/net/rxrpc/rxgk.c
-> +++ b/net/rxrpc/rxgk.c
-> @@ -242,6 +242,16 @@ static int rxgk_init_connection_security(struct rxrpc_connection *conn,
->  	conn->security_ix = token->security_index;
->  	conn->security_level = token->rxgk->level;
->  
-> +	switch (conn->security_level) {
-> +	case RXRPC_SECURITY_PLAIN:
-> +	case RXRPC_SECURITY_AUTH:
-> +	case RXRPC_SECURITY_ENCRYPT:
-> +		break;
-> +	default:
-> +		ret = -EKEYREJECTED;
-> +		goto error;
-> +	}
-> +
->  	if (rxrpc_conn_is_client(conn)) {
->  		conn->rxgk.start_time = ktime_get();
->  		do_div(conn->rxgk.start_time, 100);
+7.3-stable review patch.  If anyone has any objections, please let me know.
 
-Hi,
+------------------
 
-I agree this is correct, but if the switch is being moved,
-it might be just as well to move it before security_ix and security_level
-are set, to avoid any unnecessary work in the error case.
+From: Bart Van Assche <bvanassche@acm.org>
 
-That notwithstanding:
+[ Upstream commit 750eb5ab457e62e221a9c8521e2274f14c85b387 ]
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+If netdev_alloc_skb() fails, mctp_i3c_read() jumps to a label that
+unlocks mi->lock although that mutex has not been locked yet. Fix this
+by returning -ENOMEM directly. This bug has been detected by the Clang
+thread-safety analyzer.
+
+Cc: Leo Yang <Leo-Yang@quantatw.com>
+Cc: Paolo Abeni <pabeni@redhat.com>
+Cc: Jeremy Kerr <jk@codeconstruct.com.au>
+Cc: Matt Johnston <matt@codeconstruct.com.au>
+Cc: netdev@vger.kernel.org
+Fixes: 2d2d4f60ed26 ("mctp i3c: fix MCTP I3C driver multi-thread issue")
+Signed-off-by: Bart Van Assche <bvanassche@acm.org>
+Acked-by: Matt Johnston <matt@codeconstruct.com.au>
+Link: https://patch.msgid.link/71e0a880ffe7a83237e501b07884bf54343e76ca.1793296780.git.bvanassche@acm.org
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/net/mctp/mctp-i3c.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/net/mctp/mctp-i3c.c b/drivers/net/mctp/mctp-i3c.c
+index 4e857dd5df642..5f225999d715e 100644
+--- a/drivers/net/mctp/mctp-i3c.c
++++ b/drivers/net/mctp/mctp-i3c.c
+@@ -111,8 +111,7 @@ static int mctp_i3c_read(struct mctp_i3c_device *mi)
+ 			       mi->mrl + sizeof(struct mctp_i3c_internal_hdr));
+ 	if (!skb) {
+ 		stats->rx_dropped++;
+-		rc = -ENOMEM;
+-		goto err;
++		return -ENOMEM;
+ 	}
+ 
+ 	skb->protocol = htons(ETH_P_MCTP);
+-- 
+2.53.0
+
+
+
