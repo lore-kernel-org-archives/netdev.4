@@ -1,103 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593444;
-	b=qxogH08AzxwGCWVLkAW+AwshXYOzg7+H5gI7ddooJNQgPaWGNJ8qp1GnaaPu9wwsmUDT
-	 H5We3EatF/FWHdnNRH5R6YhOqI/5/3RePVHDhWexSCCHEj3n3YCFr8hEl6VRbXqa6OP5h
-	 EngiuzKlnqllNxH9fDD/Md30c87fAy8+JyDXbzKaa+XaodftacfiRtRAdjIHtTJ3ugkTy
-	 9xg4oTbHAogCPYzjpHUJhzrDCkbOGnReCT40+juNUSBYp2E959jPXOmQ3PJXGnzIeTguP
-	 i572CHMlbUGKlPA97RX5X02TYnngMNkTi4HrDCHvSswsuzzo4Lffgp+wbjxr8BsuppQ==
+	t=1795593845;
+	b=wYi7z9QM8jftGpKyoTbxsM4x2PRXnIM+8wHonzwPNe3/NGzDKflXMEujpMKqN4pMArYD
+	 7WnE4eTH5uy7N9MNa0t9MxcZKMU8JFZMoZzJEgaK7jFiTx+LVPjy78TeUWU+4T2zV2icg
+	 /Z0HbvM9RQhW7lmBMFdQiwLOJa2A6Ulw9ZiPrAgcnozNBnQ37ZKQvyb6WEKKabEXz1gZz
+	 8vHpvX3lC/eQB7TFdgW7m35d1/Gfw/tJxQ+mhOQuNT/paQE/vib/soB7B82iiR5/Bw/52
+	 SaWBeOXFqUiU7chtuR9rJ4XFYa/4fnLLXJDuQumKd3CbFAaOD0MTQMFJxTCebjTkYMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593444;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=XuNfvEy1BgM6+lq/Ggcvuq6XdX7O276tu5lC+EY67b8=;
-	b=t1+GYJCrid5hzhm6JU8neLfbyFwyI7asQabmlPDW0ObPcmyNnpvClsEiSlhaLmBWfedq
-	 RWzy0OY2ytaxC0iwrbeNsxUMi3yu6JvFOHkNohvBxp5Yj7ALFdDuVtCFgnothQY/Sd4EW
-	 RVMJqEhRjw/Uaog9kndc515allEYbfsgsm/5wxpPDcY/HxRKvebWF5dgPnONs8YQ8Kn62
-	 5KMruFkc/oaIqVCQg792bUBmi5h74wpnaZ+Q9QguHGRuCdSA1HljsPOOr85WozayDfNkw
-	 OW3v0HP3NxQGtdrL6MGoNNwp2Yoo1WIt4AUbMSt+CaeEB/ECdymiDXoSrIRhw1RhDLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593845;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=MF+BeYOYB/DDN2WqUgwsfUKlmP3/0fwiowwJ6a2JiFM=;
+	b=F3h4zdyBdQ5unaoIjyaKqe3Ei3ldk9VgE2AWGx0NGFxVgAdF8wofA00rPkYLG4IxL3le
+	 J6wJCIO7hlrPdJvizdVjJ1eIuybHhCPi5tZZXBsLMHjs/oUOtTP26siDOit7ns55mjOe8
+	 rwci8frmvayUJH+cuS2s3atC9PlvQqpzqyAEvYzWSSemLJwL+BwHf7RV3bJ/n5xcKT0kI
+	 Q1GPyttBcg4oXwvhQW9N39pzA7JZsahr7FlrVxMCjWS1/lrlqUHItcucj5jpm85r7zc1T
+	 4OwJ1QtUpRFw4Lq4jW+SCpYlYudyYyc1OjeRVRZmO2/Mo7SmFHW20W973x6QHciWVHg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZFK8tmDW;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=vtf9RvK1;
+	arc=none smtp.remote-ip=195.10.208.51
+Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F116A606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:57:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F116A606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 43FFA606A31E;
+	Wed, 25 Nov 2026 08:04:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 43FFA606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZFK8tmDW
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso3272609a91.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:57:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593443; x=1796198243; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=XuNfvEy1BgM6+lq/Ggcvuq6XdX7O276tu5lC+EY67b8=;
-        b=ZFK8tmDWhCipL0grDwpXjMPOD20gczCLfVmo7aiULDHAvwARWaIiOC8ZX1wNkFuclF
-         wMtQq3G/vEWJHMGvgBUYq+stgdivQX5+iNCCJXMnhID8FsC5wrmAB7W2hVd1hFsUK+gp
-         r4k3r1kAm27vBm8wEcuL6ZCuchg/lem5eYpZ3B10Cf4AZLIHy4a1nPZlEp3Vh6v5OSjb
-         3xSwp/LK01S+cc2sZYyapeFMxruE8P90ELucOc050HgPati2I7WlSlM+xWWz5Cy/LnkH
-         1uZBVXf0ZC4iEKS5L0pMAW0vMZcvCzPPpl6/StWZ//FbX70bP1FDgIt9DnSRY7bnH0G2
-         pt1A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593443; x=1796198243;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=XuNfvEy1BgM6+lq/Ggcvuq6XdX7O276tu5lC+EY67b8=;
-        b=HuyF7Mo1ILPbcApOHAndPy0o4CxcuAXErmhZDxB6Cl5+4E+NT/na9teLzMPkur5tva
-         Tcu+j/76aeVvNi6fvvsQdyuFAn+7PgJcMsZ7U3HHz8+4n7aOWpnDvY3UgIydRFgbLpcl
-         /odK49aj86nSgOWyhsq3f6bnHyrEiz6KSHAcBu2MlokFBOUtWYC/qRfN6/UlSqMKInJ1
-         6S6/8OPbSXKbSDQntVS4U4s2oCmeTTNeqSVWES5NcHU874+sq7/UhX0774LI/Yx1w2nx
-         TtaViaxYeQ/zzBOGr5B2JlIUXi15jOPKsKn2e4nQ7dJ/JcotdsqDzBB1bT5WJKXNWzsA
-         bnjA==
-X-Forwarded-Encrypted: i=1; AL+hErHvgD7on211KMGCDziZ+uJ4jgmMXQewQtP//PyOffXboFfh0NY8vc/LtuXZxJ8wi2dPEjqca3A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8QzU7zeEgarqXTGgDSncmTEd0/z9UNBiOOc4HoZOegbnnYD5gy
-	bVD/L8L+ZJnMMiLqgBYdWRU6BCEpPCcWan7j7Hf9f1R+iyFVKOtwFoSv
-X-Gm-Gg: AZFdTZdrk5tYQsMnlEqahUbo53sTTE5LMGx6MW3ceQroqMzAByLiQCEw1BidnnULG3v
-	9hKM3L8f4dU0vAu0UoSI9pba+FCwlhAW6vjcj4Th8j+o8GQ8YpEvT/05pQxTstz4c6VnoF52pl3
-	3/hY4ceh7VmLuN85d1jmYg1ISzdCIQEsK20kjFUUNCAwMFlce5ZQcmqyXuIP+v10/18yFn6HuB1
-	honHrLPyf6ekcsMKHbf1D3ODnfl5UCUNSCSOxTpGUBz/YFhC/QNDyg430A9eTn4GqkVVBBj3pyq
-	lNM0N26joioqq3Pc70BIhE+cMwxIjAPEYW3UoR8L/yLQBtcPjW08FVTMchhFQ9w7+34uVHKXX4u
-	lAfWnCcN04rsx2NmRv6bkfQQAXrWavnUJw+P7KJe2ZmZjJoDfkH6WfJWewyaScDeES4+zTFR/Aa
-	4Dre1ZGXWPo33CuUa6G7LaAryY2U9FjN+rVpiCF4MojGHtAykTs9tweFRCdYdVfKPEpavlQxkNG
-	ME6Ff1mzWttGnHx3WYalvFIccU4FruYzbEyeyulhJk2p57+/GzkGWbPjF/5WMzn08OibBZFZBrA
-	HvXN+zvjtRsw0bD1MDtU0HK8ZLEM
-X-Received: by 2002:a17:90b:5543:b0:3a7:250:333e with SMTP id 98e67ed59e1d1-3b41c8dd197mr15969724a91.11.1795593443202;
-        Tue, 24 Nov 2026 23:57:23 -0800 (PST)
-Received: from server227.. ([39.170.101.209])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40f4312dfsm28092402a91.3.2026.11.24.23.57.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:57:22 -0800 (PST)
-From: Zxyan Zhu <zxyan0222@gmail.com>
-To: romain.gantois@bootlin.com,
-	cathycai0714@gmail.com,
-	avifishman70@gmail.com
-Cc: maxime.chevallier@bootlin.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	alexandre.torgue@foss.st.com,
-	netdev@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [RFC PATCH] net: stmmac: Fix the problem about interrupt storm
-Date: Wed, 25 Nov 2026 15:57:16 +0800
-Message-Id: <20261125075716.2262174-1-zxyan0222@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <7732873.EvYhyI6sBW@fw-rgant>
-References: <7732873.EvYhyI6sBW@fw-rgant>
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=vtf9RvK1
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jZByd3kPvzv2;
+	Wed, 25 Nov 2026 09:03:53 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795593837;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MF+BeYOYB/DDN2WqUgwsfUKlmP3/0fwiowwJ6a2JiFM=;
+	b=vtf9RvK1asx4ncEtiIjWTUSRYEpo+ytI2Va/SmnKkleHvokSqFLNTcmoOX5mpDQIbcxV0P
+	rqGsBIw9mb5sZh+LbSdvwONhnExtYNRyUHWHQVfTBY7ZoXQcG9nyg+SKFptdBoW0tTNUkH
+	oHAjl7383G92v4DcIJ7LPaJb2Q3k6EtdgHQVbNb6UDij7GR9xkmw4aG9b1/PTgxfm/Ucz7
+	pBFO5amZLmMYhXK12UahyR60tNQ9C+KvEr884HzWSMliJKuMbiMhotcqENSzJZwkb1GF1K
+	LmubKo+WnHos4+jIttgVcK64hu8Mv7m1fedsShtSZbYkcecxTWjPcWXGV4uvUw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: David Ahern <dahern@nvidia.com>
+Cc: netdev@vger.kernel.org,
+	David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH net-next 00/11] ipv6: validate cached dsts against the netns route generation
+Date: Wed, 25 Nov 2026 09:03:41 +0100
+Message-ID: <20261125080341.57521-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <20261125003554.54371-1-dahern@nvidia.com>
+References: <20261125003554.54371-1-dahern@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,51 +82,47 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jZByd3kPvzv2
 
-Hello Romain, Cathy, Avi,
+I'm not sure what happened here but it seems like you've sent this
+series with envelope sender dahern@KCJPDQ2QL4.localdomain. My server
+took it with a spam score of 12.9; lore says the message-ids are
+unknown, and patchwork doesn't have it (vger very likely rejected it).
+So, only the people on Cc have it, and patch 02/11 never reached even my
+mailbox.
 
-We hit exactly the interrupt-storm scenario you discussed, on a local board
-running a PREEMPT_RT kernel, and I'd like to ask whether this series is
-still being worked on.
+On Tue, 24 Nov 2026 17:35:39 -0700, David Ahern <dahern@nvidia.com> wrote:
+>    rebound under the global fnhe_lock (rt_bind_exception()). Narrowing
+>    the invalidation back to subtrees would bring back the cookie race
+>    the series removes. If the exception refresh shows up under churn, a
 
-Our setup and trigger:
-- stmmac with dwxgmac2 (xgmac) and dwmac4 (gmac) MACs, kernel 6.18.34+
-  with PREEMPT_RT and panic_on_rcu_stall.
-- Trigger: fault-injection of an uncorrectable MAC safety error, which
-  makes stmmac_global_err() schedule stmmac_reset_subtask(), i.e. 
-  dev_close()/dev_open().
+That's not the case: my v5 [1] keeps the per-node scope and closes the
+race by sampling the node's serial during the lookup. Invalidating the
+whole netns is a matter of preference, not a requirement.
 
-Symptom:
-About 30 seconds after the injected error the board panics with an RCU
-stall (rcu_preempt detected stalls, rcuc starved).
+[1] https://lore.kernel.org/netdev/cover.1795537128.git.ralf@mandelbit.com/
 
-Root cause (confirmed on-board):
-- The main level-triggered IRQ storms at roughly 820k irqs/sec during the
-  reset window (irq count jumps from ~220k to ~23M in ~28s).
-- stmmac_interrupt() returns IRQ_HANDLED without clearing any status while
-  STMMAC_DOWN is set -- exactly the "unconditionally returning without
-  clearing any interrupt flags" behaviour you flagged as dangerous.
-- The level IRQ stays asserted -> infinite storm -> starves rcuc -> RCU
-  grace period never converges -> panic.
+> David Ahern (11):
+>   ipv6: allocate the exception entry before removing the one it replaces
+>   ipv6: keep a superseded pcpu dst working until its holders notice
+>   ipv6: don't insert a PMTU exception whose MTU could not be stored
+>   ipv6: invalidate the failing dst in ip6_link_failure()
+>   ipv6: tell route dumps about exception inserts with a table sequence
+>   ipv6: validate dsts against the netns route generation
+>   ipv6: make rt_genid_bump_ipv6() a plain counter increment
+>   nexthop: factor out nh_has_f6i()
+>   nexthop: bump the IPv6 route generation on group changes
+>   ipv6: stamp dsts with the generation sampled before the FIB lookup
+>   selftests: net: pmtu: check that a deleted cached exception stays
+>     deleted
+>
 
-This matches Romain's point: the unconditional early-return in the
-STMMAC_DOWN state is the actual storm source, not the TMOUTEN/safety
-watchdog.
+When you resend, please add Reported-by tags where the series fixes
+issues I reported in this thread: the reuse of a rebuilt pcpu dst
+(10/11), stale exceptions treated as misses (6/11), superseded pcpu dsts
+released with dst_dev_put (2/11) and, if the series addresses it, the
+bundle-child release.
 
-Fix we validated:
-disable_irq(priv->dev->irq) right after set_bit(STMMAC_DOWN, &priv->state)
-in stmmac_reset_subtask(), before dev_close(). This masks the level IRQ
-during the synchronize_net() window.
-
-Results: irq count peaks at ~724 instead of ~23M.
-
-Questions:
-1. Is anyone still working on this series, or should we revive Cathy's RFC
-   with the evidence above?
-2. Would a patch along the lines of "disable_irq around the STMMAC_DOWN
-   window" be acceptable, or do you prefer the more general approach you
-   suggested -- wrapping the STMMAC_DOWN set/clear in a handler that also
-   disables all interrupts?
-
-Best regards,
-Zxyan Zhu
+-- 
+Ralf Lici
+Mandelbit Srl
