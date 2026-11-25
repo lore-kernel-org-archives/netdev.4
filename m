@@ -1,62 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619716;
-	b=NzE1IE/QibGDvkI9Dtodh3TwpYoAfIp8+Y+qaKVV1MzCYr4NLaJRSVN8QMY3G34+JckC
-	 e/GIzq9BDUQMEq9+Eue7oBK99Q973c5JLcKt3W/KyhDYGL7yrIn4cfD7TIVTGIeZTkPe9
-	 AMKQ0EiOxzSjRdkfXvgSFGoXSsGV0PuG/bvM3RYuyabWY8Xm9CRaj0Ca8CzqqnLbSqW1S
-	 Xoh5wa8gqrUoWsUsDFkrnWecMLnmkiGEtfoTLQDCqFa/SP6ywamY3wgb9490kgghqAItE
-	 O7lGCsJV0gOH4NNiCInfU4k+sG9B+Ch1XVV7J0SL79nbgAmCBtvHrN3bwMv7KNP7BWA==
+	t=1795619789;
+	b=nB2UFglYVrkY3OD/61ul0PPsXvbxnMnXhn/xqV52miipXi7CvWXfaanYfV5TqDcRHbjW
+	 NXk3LWlXZIulnQOFreYuAxMucXTlQtlo/UrENuRsNkhfg1AWXQTgUtntlbGBnwMZpEOPJ
+	 73B8D0Bk7VgwpaKg2TsMWESA9qhogWuObOQ2UQ5EX/cgJk315czYySEA9kDuTqQ58nHvd
+	 56TixTAsOcc3tS6Oyh6VS+2Va/qrzhnHCUGO3B9p1/TcmSCdggCq2hJXT9gIGVnh4Fes2
+	 7Z9P6DxXrHLXXz4HgFl62I858nHjbixXUktJ/fmL4a2ag2+EmAF+n2ZgZdVwO3LXpww==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619716;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=8rQDdqftQbRWfsR0J08iUtDFETao79Pu7IsBN1K8Eak=;
-	b=mOdYp7kMn4v3EZtRHFXhcCAzwUUSlSKbvMbKBuJ7wyO5UZnLhVrbu7KJXJR98vdthczV
-	 vWNfDdc6k4xW9rkX38HduSJ+d38nvnmCN9AP38tkPiy6eYkuSiOh9TOzbomMPSAe9bVwD
-	 7uhm34l2cFGrNr385FZZn2YgsbBBgGSq+xmvrPdC8ZqEVwuQ4Db0ahwLzcXKdR+3G8FvY
-	 ivtfq4VUuLS3HWuw1xVxc6DqS55qVpPhsho8fGLOHmvHEeYUSk8K0HEjPq3DnUwjgCsev
-	 i1mdq7fEYh+xitQHJBU6Y3wqkqWYvzS0t5xIKdxjZA7UeEYSwiFMX2EdLR9hV5JIGtw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619789;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
+	b=zLwZhGJxTSM4obQjBBnIx+EtK4BFwjOt/fn8FwZwO7ey9hNe4y9Eds1PYaj/L+EsJAgP
+	 J5Xx7/uupFdoMf+BLpquCtsBch7O64cGkhwY4uJGeI9u3rSHQ/4uMOW62hSHb04N+52pm
+	 ZRy1+g1sB0FHsp4b+g1WA+9lmA8XkZdtNAYGPhU2w1HZTHOC6ZXVgtuqp4h90/0c1xSlN
+	 ObP82UT+CnbJgPtnHA3Nq5tQcrQwynz/4AVj7xDKCcjbUDbgmpStazluYzghvZQjPRnUj
+	 loj7pOh3yuPmBBTPWI9vSGj3mZP+IIQdzUERuFXJ0HvMBjbhH+/O1NCM/wxN6iazjPw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ccIROgzG;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RHwphIVO;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E0A606A332
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:15:16 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 56CEA606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:16:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 56CEA606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ccIROgzG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 731921F00A19;
-	Wed, 25 Nov 2026 15:15:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619716;
-	bh=8rQDdqftQbRWfsR0J08iUtDFETao79Pu7IsBN1K8Eak=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ccIROgzGTsRWKB0Hznrujc4oDttOQ2PFLqp4k4ujG6DJBUsjtMUsUiNKmd81i5U+/
-	 tFa0QoZtaTUZfDI5DbEAhAsQ9QtrD/1JuYGHTNYlrVVWei0+iLRuiB7C/0puVHuHNs
-	 nclVygPHmn1zU0OGTxrjS4kKLY3U9cWc2KWONNSXrvxpIg4QYWp3f4Ey2rre5elw1a
-	 Df9DjIGG+yQo+6KC6sVbbZprCxIYmOggAovv8dt9X10Y90VmxrWIEa13CdRIxx4rRp
-	 N+n5bnvwXdQDganXofpmuVB1cLDBH+PDJXtKPY+bWGeWtY6jg1anZQ4cvXYO75CmFz
-	 69PCcF6D+DYfw==
-Subject: Re: [PATCH net v6 4/5] ipmr: set up GSO state for tunnel vifs
-From: netdev-bot+sashiko@kernel.org
-To: julius@bairaktaris.de
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, dsahern@kernel.org,
- idosch@nvidia.com, willemb@google.com, ncardwell@google.com,
- kuniyu@google.com, steffen.klassert@secunet.com, nbd@nbd.name,
- jiayuan.chen@linux.dev, mfleming@cloudflare.com, almasrymina@google.com,
- bigeasy@linutronix.de, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
- bsdhenrymartin@gmail.com
-Date: Wed, 25 Nov 2026 15:15:15 +0000
-Message-ID: <179561971501.3135.8394313222349713065@kernel.org>
-In-Reply-To: <ffd8ca7abd44882707fbca297889f6e43ced4a65.1795295554.git.julius@bairaktaris.de>
-References: <ffd8ca7abd44882707fbca297889f6e43ced4a65.1795295554.git.julius@bairaktaris.de>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RHwphIVO
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c5188e4980fso101028466b.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:16:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795619787; x=1796224587; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
+        b=RHwphIVOhqawxkHBNyWJGoTHoIONjZw5hdSAz7G6eZpZxXYutLRqFVyHNPqp2DVpKp
+         Vzql0LSSc14wBe/3iQ8C5qavy0zPHQmEJTHMUlNB6Kq4by58yqRIFqKJAULrdtW2oObw
+         UyGWoAUb9M33dFb/sKbWkRyC/hBX7EUKe2f/RQ1QJaPMWd4NbckoW4P263kzgPAX954R
+         oc4glW1QnHwsJ7eXrhGm7qzd8FztHw6IcH2MmSXLyqALc/7tw16xDwcSBAE0bO+PwpRe
+         pwKg+j0vnSt5Ddi0B2HJrmJD1LoPUKgchSeUrXC1XA3Dd2GTOdiUOdIfjsGM7vVPddoN
+         JKkA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795619787; x=1796224587;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fZhnpMGuy8q+jXTQK/RAHc/+Uuj/d7tbWlMf2HdxJHU=;
+        b=ixCA60syzhRmu7Aq1Y0N1bU/qKJ7q4YeWhT08WpiVZZop8fFlicPPDeJLoxpqfIPlf
+         kkZaF6hJW1wbN/6ecC6KRhRubSOUbA4KPIp22fjGzbN/VUNQb2fczS5YstxJpgENGkAz
+         qd6QvVVRVopslHaeTAlyK6qD/YTEavS1R9wKiMy3C1wWaypSQ9JlaS8kdhzjFPkkRCiy
+         3bjrEqjNQ40BWN4JyhjXgSUpGcQibEFXmzNqE/c5XgAa+alTsx0y5Iuuhy8DlJONz9r6
+         mKJ0PCC8kmnPI4sNrS60lsZB2jGHceull2lSG9XXKzJdbToH0yoB2k1xIESZNo/04ijq
+         MGkQ==
+X-Forwarded-Encrypted: i=1; AL+hErEt3ikGVLA8Xl7n0knpU91U9pk//KW4Z561N7ELwW3BjKf4hC6+Y4WdnHypWFNQV1cSz9wFi3k=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9v0yBi8wPr+LajIdvoorr2VKqbBg3sgp6vYwSVLg2eiKNUXPjD
+	j+Bho9V3qvhagqJ+pr8JnKQbiC/s5/1vmnu9XOgvEHcVQtRhOPnF/gxW
+X-Gm-Gg: AZFdTZdRb3Bq4XGX0NpOzUVmtNiFBN5hlkjTE3wxbDyDLb4JnLHeHGtJI6tjgfLXBTX
+	Nl7QLGrZJtje8KFwGjaH7cxBLDH0EGHV9CepJb9oTwvsQ4A1SbtXivrS7XaRNbk1JZbMr/Y1GDn
+	iCz88679Zd0gut+uN7F++Dzq9Eu8Ipk9CVjGfNvlSHJ02MKgbuHxrT1x736tUEVLKazyfgpaOQE
+	8sxXERuX9sIedXFWqJUSL7zJJUT+qA2O+3meuilNdsABon/vZm6yWDdcys0Tqdlqp3Ch3Ubgj+J
+	BiuH26VtF/n10Dx8VVL4BcQtEN+ESR0cOdOMlM6NxsSG+s2iqs9HE9+MPHJApgg6jU9Huveg2SW
+	RYLQC1GUISeJZ+gN7948wcRTTEcEKPsFuxYqV2fZtVZVrja0LE6ymRxyiYBqlGNiuNEr4Brij0g
+	NnDEd4v7GeNgCpgi2XrPleTu2E3g62MuhUjmJWRQQSEPpfkrFsexDDnHNGTmm4GtjbGyJLn6pix
+	6SzdPpTAZ1GjHWpUVMYWy/8aQtCCrgpcnUfm7Tc3W1NWLAFx7TVm2umEfh7lpWjBozlWfIDoNWQ
+	O7uFn1W8oyYyu5gjE560p3MZSBrPkjkoespC1wVeHNRJCN5EcXD/vt49mCcD7w1tPw==
+X-Received: by 2002:a17:906:3811:b0:c43:eae5:ee80 with SMTP id a640c23a62f3a-c513a84f5e8mr1208263466b.17.1795619787223;
+        Wed, 25 Nov 2026 07:16:27 -0800 (PST)
+Received: from [192.168.0.61] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c51beef9244sm6971166b.28.2026.11.25.07.16.26
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 07:16:26 -0800 (PST)
+Message-ID: <d05aa4e7-5c58-4311-a85e-6bfe9c31c62c@gmail.com>
+Date: Wed, 25 Nov 2026 15:16:26 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,263 +92,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
+ s2idle
+To: Mika Westerberg <mika.westerberg@linux.intel.com>
+Cc: Andreas Noever <andreas.noever@gmail.com>,
+ Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
+ <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+ <20261125132228.GE191152@black.igk.intel.com>
+ <a08cb3e1-10a0-4a35-9258-cd510b91985e@gmail.com>
+ <20261125143531.GG191152@black.igk.intel.com>
+ <8e87af01-02a8-4714-827a-62c5beb6f4e4@gmail.com>
+ <20261125145207.GH191152@black.igk.intel.com>
+Content-Language: en-US
+From: Tobias Heath <heathtobias@gmail.com>
+In-Reply-To: <20261125145207.GH191152@black.igk.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+Mika,
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 1
+That's clarifying, thank you — I hadn't understood the two-paths 
+distinction. The behaviour I want on lid-close is Path 2 (runtime-idle 
+S0ix / Modern Standby), not Path 1 with the TB fabric preserved. My 
+patch is a workaround that patches Path 1 to behave like Path 2, rather 
+than using Path 2.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
 
-- [High] The new filter in ipmr_prepare_xmit()
-  (net/ipv4/ipmr.c:1964-1966) drops an encapsulated GSO packet only when…
-- [Medium] ip_encap() (net/ipv4/ipmr.c:1873-1890) adds a new outermost
-  IPv4 header with frag_off = 0 (DF clear) to a GSO skb, but leaves…
-- [Medium] ipmr: skb_checksum_help() in ipmr_prepare_xmit() corrupts SCTP
-  CRC32c
-- [Low] The commit message says the encapsulated GRE and UDP-tunnel GSO
-  packets the patch now drops were already lost before: 'without this…
+On AMD Ryzen AI 9 HX 370, I'll inspect amd_pmc debugfs (I assume the AMD 
+counterpart of pmc_core) to confirm whether runtime S0ix is entered when 
+the system is idle, and whether any particular device is preventing it. 
+If Path 2 can be made to work on this hardware, the TB patch is probably 
+not needed. I'll drop it in that case and keep only the atlantic fix.
 
---
 
-ipmr: set up GSO state for tunnel vifs
+Would you prefer I withdraw PATCH 1/2 now and respin as a single-patch 
+atlantic submission, or leave the series open while I investigate?
 
-This commit makes ip_encap() in net/ipv4/ipmr.c set up GSO state for
-VIFF_TUNNEL vifs. It calls iptunnel_handle_offloads() and
-skb_set_inner_ipproto(), reserves one outer IP ID per segment, and sets
-the outer length with iph_set_totlen(). It also drops encapsulated GSO
-packets without SKB_GSO_IPXIP4 in ipmr_prepare_xmit(), and completes the
-pending checksum of encapsulated non-GSO packets before encapsulation.
+Thanks for the pointer — it changes the framing considerably.
 
-> GRE
-> and UDP tunnel aggregates do not: gre_gso_segment() and
-> skb_udp_tunnel_segment() take the payload type from
-> skb->inner_protocol. Drop those before the vif counts them; without
-> this change ipip_gso_segment() dropped them, as they lacked
-> SKB_GSO_IPXIP4.
-
-[Severity: Low]
-Is this accurate for devices that segment these packets in hardware?
-
-It holds when the packet is segmented in software. Some NICs list
-NETIF_F_GSO_GRE or NETIF_F_GSO_UDP_TUNNEL in hw_enc_features and accept
-an outer IPPROTO_IPIP header in ndo_features_check. On those, the old
-aggregate never reached ipip_gso_segment().
-
-mlx5 is one example. Its hw_enc_features gets GSO_UDP_TUNNEL and
-GSO_GRE, and only the _CSUM variants are in gso_partial_features.
-mlx5e_tunnel_features_check() also keeps the features for an outer IPIP
-header:
-
-drivers/net/ethernet/mellanox/mlx5/core/en_main.c:mlx5e_tunnel_features_check() {
-    ...
-	case IPPROTO_IPIP:
-	case IPPROTO_IPV6:
-		if (mlx5e_tunnel_proto_supported_tx(priv->mdev, IPPROTO_IPIP))
-			return features;
-    ...
-}
-
-So netif_gso_ok() passed and the skb was handed to the hardware, which
-most likely produced malformed segments.
-
-On such hardware, the new early return in ipmr_prepare_xmit() changes
-the result from transmitting to dropping. The drop also happens before
-any vif, device or MIB counter is updated, so nothing records it.
-
-Could the commit message describe this as a behaviour change on these
-devices rather than a no-op for all of them?
-
-> diff --git a/net/ipv4/ipmr.c b/net/ipv4/ipmr.c
-> index 836f3f95b20c4..eae382a2fadb3 100644
-> --- a/net/ipv4/ipmr.c
-> +++ b/net/ipv4/ipmr.c
-> @@ -1869,6 +1869,10 @@ static void ip_encap(struct net *net, struct sk_buff *skb,
->  	struct iphdr *iph;
->  	const struct iphdr *old_iph = ip_hdr(skb);
->  
-> +	/* skb_cow() in ipmr_prepare_xmit() leaves no header to unclone */
-> +	iptunnel_handle_offloads(skb, SKB_GSO_IPXIP4);
-> +	skb_set_inner_ipproto(skb, IPPROTO_IPIP);
-> +
->  	skb_push(skb, sizeof(struct iphdr));
->  	skb->transport_header = skb->network_header;
->  	skb_reset_network_header(skb);
-> @@ -1882,8 +1886,8 @@ static void ip_encap(struct net *net, struct sk_buff *skb,
->  	iph->saddr	=	saddr;
->  	iph->protocol	=	IPPROTO_IPIP;
->  	iph->ihl	=	5;
-> -	iph->tot_len	=	htons(skb->len);
-> -	ip_select_ident(net, skb, NULL);
-> +	iph_set_totlen(iph, skb->len);
-> +	ip_select_ident_segs(net, skb, NULL, skb_shinfo(skb)->gso_segs ?: 1);
-
-[Severity: Medium]
-What happens to SKB_GSO_TCP_FIXEDID and SKB_GSO_TCP_FIXEDID_INNER here?
-
-These bits are positional. Documentation/networking/segmentation-offloads.rst
-says "For encapsulated packets, SKB_GSO_TCP_FIXEDID refers only to the
-outer header". tcp4_gro_complete() maps them as:
-
-	BUILD_BUG_ON(SKB_GSO_TCP_FIXEDID << 1 != SKB_GSO_TCP_FIXEDID_INNER);
-	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV4 |
-			(NAPI_GRO_CB(skb)->ip_fixedid * SKB_GSO_TCP_FIXEDID);
-
-inet_gso_segment() then computes:
-
-	fixedid = !!(skb_shinfo(skb)->gso_type & (SKB_GSO_TCP_FIXEDID << encap));
-
-When fixedid is set, it does not increment the ID per segment.
-
-ip_encap() adds a new outermost header with frag_off = 0, but it leaves
-these bits as they are. Fixed IDs are common for TCP GRO aggregates:
-DF packets get ID 0, and inet_gro_flush() sets ip_fixedid when the first
-two IDs are equal.
-
-For such an aggregate, doesn't the FIXEDID bit that described the
-original header now apply to the new DF-clear ipmr header?
-
-If so, every segment would carry the same outer IP ID with DF clear, and
-the gso_segs IDs reserved by ip_select_ident_segs() would go unused. The
-original header, now at encap level 1, would be segmented according to
-FIXEDID_INNER, which described a different header. Nested IPXIP4
-aggregates would shift the same way.
-
-This seems to contradict "reserve one outer IP ID per segment as
-iptunnel_xmit() does" in the commit message. Before this patch,
-ipip_gso_segment() dropped these packets because they lacked
-SKB_GSO_IPXIP4, so this is new behaviour.
-
->  	ip_send_check(iph);
->  
->  	memset(&(IPCB(skb)->opt), 0, sizeof(IPCB(skb)->opt));
-> @@ -1951,6 +1955,15 @@ static int ipmr_prepare_xmit(struct net *net, struct mr_table *mrt,
->  	}
->  
->  	if (vif->flags & VIFF_TUNNEL) {
-> +		/* An encapsulated packet carries the inner headers of its
-> +		 * own tunnel. Only IPXIP4 GSO packets nest: their IP headers
-> +		 * are segmented by protocol field, while GRE and UDP tunnel
-> +		 * segmentation read skb->inner_protocol, which ip_encap()
-> +		 * sets for its own header.
-> +		 */
-> +		if (skb_is_gso(skb) && skb->encapsulation &&
-> +		    !(skb_shinfo(skb)->gso_type & SKB_GSO_IPXIP4))
-> +			return -1;
-
-[Severity: High]
-Can FOU and GUE aggregates get past this check and then be segmented
-with the wrong inner protocol?
-
-The check only rejects encapsulated GSO packets when SKB_GSO_IPXIP4 is
-clear. fou_gro_receive() and gue_gro_receive() clear
-NAPI_GRO_CB(skb)->encap_mark, so ipip or sit GRO can nest inside a UDP
-tunnel aggregate:
-
-  udp_gro_complete()
-    gso_type |= SKB_GSO_UDP_TUNNEL(_CSUM), encapsulation = 1
-  sit_gro_complete() / ipip_gro_complete()
-    gso_type |= SKB_GSO_IPXIP4
-  ipv6_gro_complete() / inet_gro_complete()
-    skb_set_inner_protocol(skb, ETH_P_IPV6 or ETH_P_IP)
-
-Such a packet has both UDP_TUNNEL and IPXIP4 set, so it passes this
-check. ip_encap() then overwrites the recorded payload type:
-
-	skb_set_inner_ipproto(skb, IPPROTO_IPIP);
-
-skb_udp_tunnel_segment() in net/ipv4/udp_offload.c dispatches on that
-field:
-
-	case ENCAP_TYPE_IPPROTO:
-		offloads = is_ipv6 ? inet6_offloads : inet_offloads;
-		ops = rcu_dereference(offloads[skb->inner_ipproto]);
-
-For FOU or GUE carrying 6in4 (ipproto 41), wouldn't this run
-ipip_gso_segment() and inet_gso_segment() on the IPv6 header?
-
-That would usually fail with -EINVAL and drop the packet after it has
-been counted as sent. When the traffic class and source address bytes
-happen to form a plausible ihl and protocol, malformed segments would be
-built instead.
-
-Before this patch, these aggregates segmented correctly in software. The
-outer ipip_gso_segment() accepted them because sit had already set
-IPXIP4, and skb_udp_tunnel_segment() dispatched on ETH_P_IPV6.
-
-The comment above says UDP tunnel segmentation reads
-skb->inner_protocol, which ip_encap() overwrites. Should the check reject
-GSO packets that have any of SKB_GSO_GRE, SKB_GSO_GRE_CSUM,
-SKB_GSO_UDP_TUNNEL or SKB_GSO_UDP_TUNNEL_CSUM set, instead of testing for
-the absence of SKB_GSO_IPXIP4?
-
-FOU carrying IPIP still works, but only because IPPROTO_IPIP happens to
-be the right handler.
-
->  		rt = ip_route_output_ports(net, &fl4, NULL,
->  					   vif->remote, vif->local,
->  					   0, 0,
-
-[ ... ]
-
-> @@ -1985,6 +1998,17 @@ static int ipmr_prepare_xmit(struct net *net, struct mr_table *mrt,
->  		return -1;
->  	}
->  
-> +	/* Complete the pending checksum of an encapsulated packet, as for
-> +	 * a packet sent through an ipip device. This may reallocate the
-> +	 * head: no pointer into it is used after this point.
-> +	 */
-> +	if ((vif->flags & VIFF_TUNNEL) && skb->encapsulation &&
-> +	    !skb_is_gso(skb) && skb->ip_summed == CHECKSUM_PARTIAL &&
-> +	    skb_checksum_help(skb)) {
-> +		ip_rt_put(rt);
-> +		return -1;
-> +	}
-> +
->  	WRITE_ONCE(vif->pkt_out, vif->pkt_out + 1);
->  	WRITE_ONCE(vif->bytes_out, vif->bytes_out + skb->len);
->  
-
-[Severity: Medium]
-Does this do the right thing for an encapsulated SCTP packet whose
-CRC32c is still pending?
-
-The comment and the commit message say this matches what happens to a
-packet sent through an ipip device. validate_xmit_skb() does not call
-skb_checksum_help() directly, though. It calls
-skb_csum_hwoffload_help(), which checks for SCTP first:
-
-	if (unlikely(skb_csum_is_sctp(skb)))
-		return !!(features & NETIF_F_SCTP_CRC) ? 0 :
-			skb_crc32c_csum_help(skb);
-
-skb_checksum_help() has no such check. For a non-GSO skb with
-encapsulation set, ip_summed == CHECKSUM_PARTIAL and csum_not_inet set,
-it computes a 16-bit ones-complement sum and writes it at
-csum_start + csum_offset. That overwrites half of the 32-bit SCTP
-checksum field with the wrong algorithm. It sets ip_summed to
-CHECKSUM_NONE but leaves csum_not_inet set. skb_crc32c_csum_help()
-would have written the CRC32c and called skb_reset_csum_not_inet().
-
-Such a packet can come from BPF encapsulation (bpf_skb_adjust_room(),
-bpf_lwt_push_ip_encap()) or IPVS tunnel mode on a device that
-advertises NETIF_F_SCTP_CRC. The receiver would then drop every one of
-these packets on a bad CRC, after the vif and device counters have
-recorded them as sent.
-
-The trigger needs CAP_NET_ADMIN and an unusual setup, but this is new
-behaviour added by the patch, and it does not match the parity the
-comment claims.
-
-Would calling skb_csum_hwoffload_help(skb, 0) here be the better fit?
-That is what validate_xmit_skb() ends up doing for an encapsulated skb
-on an ipip device. It falls through to skb_checksum_help() for the
-non-SCTP case and dispatches SCTP to skb_crc32c_csum_help().
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795295554.git.julius%40bairaktaris.de
+On 25/11/2026 14:52, Mika Westerberg wrote:
+> Hi,
+>
+> On Wed, Nov 25, 2026 at 02:42:58PM +0000, Tobias Heath wrote:
+>> Mika,
+>>
+>> Because s2idle is Linux's path to Modern Standby — "look off / wake instant
+>> / state preserved". From ACPI's perspective the system never leaves S0
+>> during s2idle; the tb_suspend_noirq callback fires anyway because Linux's PM
+>> core runs the full suspend chain on every s2idle. That's the mismatch I'm
+>> trying to address: the ACPI state says "we're idle in S0", but the TB driver
+>> treats the event as a real suspend and tears down the fabric.
+> Ah got it. So no it's not the same as Windows. In Linux there are two ways
+> you can get to the S0ix and you are after the second one. First is what you
+> are doing now, that's suspend-to-idle and it is pretty much the same as Sx
+> is except that the OS idles the CPUs and is in full control. All the
+> devices (not just TB) go through a full suspend/resume cycle (typically).
+>
+> Then there is the MS equivalent that happens when the system is running and
+> is sufficiently idle. All the "important" devices like graphics are runtime
+> suspended (screen is blank) then the system automatically enters S0ix due
+> to the same mechanism, CPUs are idled. This is what you want I think.
+>
+> For that you need to look that you have all the drivers loaded and the
+> necessary firmwares and there is at least on Intel debugfs files under
+> pmc_core that show what is needed and what states actually are entered.
