@@ -1,130 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.158
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648325;
-	b=DLQZGLJGZjA5i3X0Ar4bbx2EkU+d2ioAiWErmIENlJgjCAvYCC7XrZP7SU97htFp9S05
-	 7X8JJVfjxEZTlLj5cupqgPWEx2tbSlu5ol+G9JwR1JaAKzZvtaRpK+JRS2JWAcysEnXr4
-	 qX1MZpp+ZJ9XZUJS+XZFCmk/MdWnXuY1KXfYKY4/phXRLcdOmwUpIBjVInidlGiN51mp1
-	 Jo3akYZiPYmfLL2Ox7HI+QQ0JthZ2Z9sJ3jvNj1WhSKb0vOMqqzB0OyIDzQihjBdLndH9
-	 7gpUYfnScvnkTiH+p0TDtNF7aw/brubc2/qF/U3l+e74rWOZPQdcourdsSDg1EpMgsg==
+	t=1795648580;
+	b=0H5rJL/Qq1iIxTyZywhYkyddcW13eDamcXLv9kcesB+lWqckzW8vNRvUsvh0JXOE4yl+
+	 gWa0L5c1io0TSMBSPLmWKNS/GcnTcz5K1DjkBXo1JJ+9xwNoOVL4u2jG+Go/hWW+n9jxb
+	 hxqSRnnP7+3/18K73F6VFvGrKq5XJRvi4Ndsf5+0Pz7oycA/DxbHBpoWDVKysRPjHyYHt
+	 PsL6CmVjIEm/+qrlylK2fnNmE4FTHUUMHTOMpMXMpxt/f1iI5mIrEECJlZpICm+nVFDiU
+	 IOuv/0nAkD4dbQUJh1S0GzD5NZf+NvViWnWVuOuyz/GnFcNwQMXMxgHcvgArDN1KyFA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648325;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding;
-	bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=;
-	b=C4TabAffpSxLcFW5LFnbDXMyfg1iYDo/+QltORJYhSAabShXkrO7KsGCsSE4KLyBr3Ks
-	 iACnPxhA74XnsEBy/JKORa2bfz+7Rt+s/itDGlr2KT35ndubMU+vAqKk2qGPves1j38HM
-	 p6N7t0EkNjmsCCuetW1fd97fhpwpoKm+az6UfGbjjDJK9fbHhtiXWH5SW8df2g8CiVQ9C
-	 Ll+XIuWAlIw5Rgkr0tLgtuHDoD4QowwrewuWQ3YjAreq4tgcI2/I8dlY1LJQVGtlG4Xe/
-	 VGSmXIPexwhXcjra28jVjSmqVJ2wWMVzj5RDCmMuBCg8PXb4Jbwd31RHjoJ3IlUu8LQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648580;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
+	b=cJWFhFnGB2EW0abY5fEx1FEee0jOVGt3ALimQhPZ7SKb+kGM9kFLYKZ82xl62WK8lh2s
+	 DzGrWKNR17a2YMzzZD+8kgeiPJdHjlwV/3vCX8b1XOwfQ5+1hdWCCiHnSyh9PEjjMjLsQ
+	 S0m6ga/WEXIUxEiB7tSgfMRTjZMcKpgYFE35uLRb5Xsjjp4rhrISBnVvXVEjdWSPfVrSl
+	 UxOyBqG245vrajMLbKLV682CYEG9tlEKw7vdtCOhNRL4C9fx4GXhxcGFpMs/pR+oi6kB/
+	 X7Cgf0OzptaHPjR2KprPcXUiaNWxYw/VJRalKe9Ja7oH++e+RmTB2zC1SsdidxX/NWw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=flapping.org;
-	spf=pass smtp.mailfrom=flapping.org;
-	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=Ytdfc3Wt;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=e4eXdFW6;
-	arc=none smtp.remote-ip=103.168.172.158
-Received: from fhigh-a7-smtp.messagingengine.com (fhigh-a7-smtp.messagingengine.com [103.168.172.158])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jKVIZ7Dv;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CB0D606A32C
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 23:12:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CB0D606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1AA66606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 23:16:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1AA66606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=Ytdfc3Wt;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=e4eXdFW6
-Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 0C1141400416
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:12:04 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Wed, 25 Nov 2026 18:12:04 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795648323;
-	 x=1795734723; bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=; b=
-	Ytdfc3WtKqM3C5b4lUGW2YbjQf1+OfaJ0u8pdNl0dNeadsL5F1xjjc9tWXfY2lEc
-	km/kE9pXJNEkxn/Tjbz+PiA7xpQsCrqjgpYm4AE0lWLHJWapC1PJGbl4mpcS9z6d
-	/GTIWoqyDA2Lj9KPYrRboDPv2zhVP+51nkfxcw8+LYqr/s4M0FrfYXdEdg4Lq6WC
-	jzkVHTh13OMVUkchDodquoC5HKbbsDizIYK31kC6YEJcJ7AQbI5wqNM+zaXp524u
-	4GWPKeYQO48mw3U4rAi8cMML/Dc8a5dN6/lLu+EodJP4bADnqxocYJ/+VV4rHNkg
-	dk1dOR/7MBbnIehjdrN7gg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795648323; x=
-	1795734723; bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=; b=e
-	4eXdFW6xBQhKs2prfeNS2EkUICB10Yw85aRhKBIpfRCGP1u6atV+0jwCoZdulzPU
-	bgo16KIMQiqdY12RuJKXxC8TtZfgw6a4RYkwgKB8pki4h0ErZLHcZId0OWrhBb3q
-	HA+eyPmaStFojOjEgXgH2XRG9Utjz0xZEerafZvYOgrUgNjJoQp8UMW+5pkR09Nr
-	GFLi1k4cfF0BfWhL4vECPSFohMPilahfCy8b5Kv29sJjEAprbJKhE/z9vXp6BP9S
-	rStjAT9xyCkX/SGT/RhpiaOaNqtJCxrwqjPXFmcI2i9lErWsokGgJibWCDBqtZXC
-	Lszp/ywXsx19zz0hte3Yw==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=flapping.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795648323; d=flapping.org;
-	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:YEwrWayzIflnQHidtz2Bwte7pEnhsGXshWHNHge23Xm68ac
-	wzXlCNBiA1ZURXv5TKmd9FYrpZ0oWFuMxq3kCy9CTknakHyQtd7HCmpdFj6sZARR
-	1t9nEf4pdatUXUZhQFXit1iUsQDGRbo0mYtIZP7t+o6NuQI+vumuhytxp4qBHW+y
-	TwHAjFx+WSQfI/+upUUIRKLtn53EC19ISEStsrDe0oLRROsyEKw+z4WLKLDxpHS1
-	eoGzFuFsmeEUvIeNmsjlJJIUWYA+vaegw/VbsD9jo5Iy4r2gVBAt0cm4OTDtuQ3Y
-	qZF17r5BO7BQCnfWucQ4HFVtJC96r8wzAP02ccA==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:YUnLiMJtabnPyfBRjXF0Cp1S+S2sLQWyc7v33qlqgzw=:ReMT3etTEGHzj3x1XVKD+IW7FqMajtWZnVyCfA5+voA=;
-X-ME-Sender: <xms:Q2sHa6R4fkkPsyqwQyMpSC0tdGunAaSfNvgcaNC7lnreqMsyMqRKkA>
-    <xme:Q2sHa4JOscRJpAcVpNn_7PUR1EXltoAn9SJpOr8iYHyak6kbUPNHWB-tYrytlBLU1
-    mLi6AQfHf8AuEI_m5IH4gwSun-9PHoPijuqp47-Bquu9tAbjE9N2ig>
-X-ME-Received: <xmr:Q2sHa6CRo1IoqWZUEwP0oVnuaJBYn9NT5WVlMIXsSIBYVazKS223WS3O22605trJCa8-HYMmxaN5xfho4iiMDQKG>
-X-ME-Proxy-Cause: dmFkZTFkdInJTRfS+07fsGcPolMb2Cn0DmAYTwufftzh15xMEvIviqE5Az8VlMNthE41Tv
-    CDBikO5ZSU3s4zorfxRrVfgA2m/33BP/X9x69o1mmF4/Cep7E82M+yClHJGkSkXw0UPeSO
-    9lLz0ig9ySbRVyvDJKiqERxamf5Lr04BM4vd1doEoNbmEXbcoIA0FRkKkKWZgL4DKd3kVb
-    ud633an5FXbXou+pDgBPgOZaQbmLOBSTCO0UclFMp1H7KZuThiFEtl9sN7pnh+TqHT1VFJ
-    oBZ0st44s8HFCZts8DydMt+R8eGVdnJjIlBGX744qFC9MuPqJmnq0feyV+fqe3f7+i2ybZ
-    cF62s6le3Tn67GCXyJ/qC4U/KbdX+Xu0L8olXN0FhjymrOxgOrThlwynWv6fxkfKNxWmzO
-    aCRBtgeff6j/IzYRzobCm41UhNwKceijc5UdNDw31YB63OK0kA1mqvLOAKQJ76axrIW5Z3
-    WDPIsmvL9xSWlgrRfn6GnR+8AfWIDZVdopeyfcC0Dm5rVUrR5jI/IZilxUeIrzXvt+XH0y
-    XVwzRgp3mx6DuuvRMNkZiUKInLIwiQIQA0DkxCTkqinmqqb4Us9+c/yIa/REewoFFjTr8e
-    tAnK83BWTpb8a+JiXbXkzUyCojqlN7FTBC3EVCunBTuL5Z3M/C03BRyMm/lQ
-X-ME-Proxy: <xmx:Q2sHa93yWBVLDCrQxSbcU2ys8aJzWrUZ4mTEe4lSw9L4VStF4-0t9w>
-    <xmx:Q2sHa1lfn9SyO8xYhcz2VZdtbav0EZuz2defxC8VzqloJf85A2c5vg>
-    <xmx:Q2sHayfuoA_wt79TrDiF8dAPBIbZRaNl0vMlICez1IZlEnviUze7gg>
-    <xmx:Q2sHa6UaYj8OOtyUyxni-isA47DMnT5MrXvlqyyfeYKzP5SHKGkkhw>
-    <xmx:Q2sHa3DQc5is8KUEA8BR_tUK4tHCn-B0bcQW6o8X4GX-HUBsGK3ZIMpl>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 18:11:57 -0500 (EST)
-Date: Thu, 26 Nov 2026 08:11:55 +0900 (JST)
-Message-Id: <20261126.081155.1605990248496749195.tomo@flapping.org>
-To: engineer.jjhama@gmail.com
-Cc: tomo@flapping.org, andrew@lunn.ch, fujita.tomonori@gmail.com,
- tmgross@umich.edu, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, ojeda@kernel.org,
- boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
- lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
- dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
- acourbot@nvidia.com, work@onurozkan.dev, hkallweit1@gmail.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org,
- rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v3 0/3] rust: net: phy: suspend may run
- without phy_device->lock
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
-References: <20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com>
-	<20261124.215747.1090155063373507910.tomo@flapping.org>
-	<CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=jKVIZ7Dv
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3b487f44ee0so2456153a91.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:16:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795648579; x=1796253379; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
+        b=jKVIZ7DvKZtbXaP2DWsG09+5JZ3RgD/mzAYzNjFfghXqE8SLLfTjgQVYyBObvfZCIE
+         u46RPFKr8glGu10TadtWqkJSA+3yPwR6nZ7qoJY3i9sH2LNi4yvOq2SMZBS3h3J46CnL
+         CkVwe0jjwltsnc7kUiZHEkusvRGEg86aCCiucpp/NAxej67F4qRP4AsCDV7CrqXlEadi
+         I4ZJvss+NMW9r2Tp3r17lk6RoXBeo6dA/zcXSL3qyGEfzRDD6F/xUfn7zmYoNLHFv+0F
+         D1ZFxvU3E62+cAleVRJ/ZhJhKRi3GTUlH8P58M9GUwU9apVhS2soKP335BgzHyB97ApV
+         bMvw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795648579; x=1796253379;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=E8vKd1x4175mc7dp2xB6lAEMhr1F0E2ODkggdlQIUIE=;
+        b=y61L+7aHZwiyhxlCkQyg8CY6QPa1J8YLpzRXuRTDcRF4/o5J3LKGR09fPHE0sYxSD5
+         Y2zg9CdfwFBfvnyYqaxz+htzw0ZtWA2RBS/cmLv/haTPWy0dPSeAdDI3cfqMTRTMaCX8
+         rjL8WNr4+YkjZjDiG7qqOfFCx3y0wi/T0wnIcSBLRahlDzlz9+9+uVRCRaGJABK3xant
+         9E1faT9crRMDMpfg/bp3aT5V0B3ZVYHWQkp6CEnzHOVdIXCKFq1m5EEewCSNtZfoD8w7
+         YQKdRcKRwS6fRFMQfUWGLYJLWNEodqoa2gKZHOVFDNdteyuksqeICnFmdSqLxVdVar0r
+         eT3A==
+X-Forwarded-Encrypted: i=1; AL+hErHaWBVsn1AcOHe0M1BaRKpKOZITZZdGJZ0ppQijTy+b1NGiEz7GKD2ADOGbs/morrYrMgjf02U=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9oX+UuLC2kd+dNeODlbw3lKHNGYq6GAn+/AMmS9yCzzPRhw5jF
+	B0/gRetcHUkcipyNSzt4k8fARe3T8vKrPukn/ha2wwBvu68uVgMuRn+j
+X-Gm-Gg: AZFdTZflgcB+vrRy76kwb5+8zlLBQ74r2bBVEkS7y40zM9BKjrsIUG6vsl2enxTHidQ
+	uWv9mwi8uvs/KaFRWdcjTqcSVL67BwUfCtOpNAC6YjRArfgYKh3Apa38iby1DrZa4EzLjVjoRN5
+	gN3zy6bHY62zHvvjrawZxu9flhePa5jALb3Xy3fBes/ty0PWSvUwEHnFRLhI8F6VlXLI8KCRSeb
+	ZiJiynRRjP0BaCChmudd092Tvk5GkdYunrnPuG+ytLsxP/pw3DMlkt2Nty8TIzvFQzN+XVoFkte
+	7Mr34ahHCzVnTua5q6KgRBqwXhAvSkFbr4asdSY/Bp0g/lux3EOgSNWfUxYcq0HVi7Lr0AXtvhP
+	bRmjcQW/CVil3DC2+nqhJxSBEzBcQDVVzwKRdmTxGiFuPeehFJO73EpUs63A3+cop6A7SYXTYqJ
+	4rTAhtOKW7wPxWgxzsTj1bhQTObLEsm7nL4FVmN8EVqDjm070+BwC7pYGjRre6vjErxZ6XzXWcx
+	Xr0vVN26M6DCO5MDEuOIe2zkBDiv/4rWsGjfMt6J0jxsqYGKInzC0wLNDXyrCp3xdPArL4iMB09
+	UEc01U6HKGlhdZzmOE4O42YiK/A=
+X-Received: by 2002:a17:90b:2e49:b0:3b4:625:3d2f with SMTP id 98e67ed59e1d1-3b41cb212bfmr17680989a91.55.1795648579180;
+        Wed, 25 Nov 2026 15:16:19 -0800 (PST)
+Received: from archie.me ([210.87.74.117])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm29282158a91.0.2026.11.25.15.16.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 15:16:18 -0800 (PST)
+Received: by archie.me (Postfix, from userid 1000)
+	id 5F6F6420A76D; Thu, 26 Nov 2026 06:16:14 +0700 (WIB)
+Date: Thu, 26 Nov 2026 06:16:14 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
+Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v2 06/14] docs: security-bugs: do not send archives or
+ binary attachments
+Message-ID: <awdsPgHF6Y0xuSQI@archie.me>
+References: <20261114190014.17826-1-w@1wt.eu>
+ <20261114190014.17826-7-w@1wt.eu>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -133,55 +105,57 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Yd+Dybq0Bn8RY/CL"
+Content-Disposition: inline
+In-Reply-To: <20261114190014.17826-7-w@1wt.eu>
 
-On Wed, 25 Nov 2026 18:40:32 +0900
-SeungJong Ha <engineer.jjhama@gmail.com> wrote:
+--Yd+Dybq0Bn8RY/CL
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> On Tue, 24 Nov 2026 21:57:47 +0900 (JST), FUJITA Tomonori wrote:
->>
->> On Tue, 17 Nov 2026 19:36:18 +0900
->> SeungJong Ha <engineer.jjhama@gmail.com> wrote:
->>
->> > Patch 1 drops `read_mmd`, `write_mmd` and `match_phy_device`, which make
->> > the same claim but are called under other conditions, and have no users.
->> > Patch 2 makes `Device` generic over a lock context and documents when
->> > the `Locked` callbacks run without the lock, and patch 3 gives `suspend`
->> > the `MaybeLocked` one.
->>
->> Can we use &Device and &mut Device instead of the new context types?
-> [...]
-> 
-> Yes, that is simpler. I will do that in v4. Two things to check first:
-> 
-> - genphy_soft_reset() reads autoneg and writes suspended, so I would keep
->   it on &mut self. soft_reset gets &mut Device, and the SAFETY comment
->   says that the phy_mii_ioctl() path is outside the guarantee.
+On Sat, Nov 14, 2026 at 08:00:06PM +0100, Willy Tarreau wrote:
+>  Please send **plain text** emails without attachments where possible.
+>  It is much harder to have a context-quoted discussion about a complex
+> -issue if all the details are hidden away in attachments.  Think of it li=
+ke a
+> +issue if all the details are hidden away in attachments. Archives (zip, =
+tar,
+> +etc.), binary files and documents (PDF, etc.) are never acceptable: when=
+ a
+> +reproducer is too large to be placed in the message, attach its source f=
+iles
+> +as plain text, and provide scripts that generate the required files (e.g=
+=2E file
+> +system images) instead of the files themselves. Think of it like a
+>  :doc:`regular patch submission <../process/submitting-patches>`
+>  (even if you don't have a patch yet): describe the problem and impact, a=
+nd
+>  list reproduction steps, all in plain text, then provide a proposed fix =
+as
 
-Agreed.
+What if the issue can only be reproduced with specific binary files? Should=
+ I
+send it as e.g. ASCII-armored, OpenPGP-encrypted attachment or should I put
+it somewhere else on the Internet (as privately-accessed file) and share its
+link instead?
 
-> - read() and write() take the MDIO bus lock, and &Device cannot say
->   more than that the phy_device->lock state is off limits.
-> 
->   In read_mmd and write_mmd the bus lock is already held, so they
->   deadlock. A test driver whose read_mmd calls dev.read() hangs as soon
->   as the PHY binds, and lockdep reports recursive locking on
->   bus->mdio_lock. The path is phy_probe() -> genphy_read_abilities() ->
->   genphy_c45_read_eee_abilities() -> phy_read_mmd().
-> 
->   In match_phy_device they reach a device that may be bound to another
->   driver, which the netdev AI review pointed out on v1  [1].
-> 
->   Do you still want to keep these callbacks with &Device and document
->   this, or wait until they can get accessors that fit their context?
+Confused...
 
-Yes, please keep them with &Device and document it. The deadlock is not
-a soundness problem. I will add accessors for the bus-locked context,
-with a guard or a context type, as a follow-up.
+--=20
+An old man doll... just what I always wanted! - Clara
 
-For match_phy_device, &Device fixes both problems in [1]: read_paged()
-needs &mut self, and read_mmd no longer gets &mut Device.
+--Yd+Dybq0Bn8RY/CL
+Content-Type: application/pgp-signature; name=signature.asc
 
-> [1] https://lore.kernel.org/r/179454612500.2199510.688554972467066283@kernel.org
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdsPgAKCRD2uYlJVVFO
+o5lbAQCf+HFr4dpqHo/NjE5YZQjZhBumSvZxjxGVy4Bc+rJ6OwD/dQ9wDciflsw8
+W5Gcx2EYKEBwUYE42WbwBHghakXKQQc=
+=0aJI
+-----END PGP SIGNATURE-----
+
+--Yd+Dybq0Bn8RY/CL--
