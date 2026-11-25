@@ -1,98 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.43
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795583216;
-	b=e1LNUkjb0UuN0sX5i8hZzP6R2Y8amVME8l/KryBPa9k6E/rBCN2/FAj0YhxBF/JQdKMG
-	 zqwhgtyQtBFrDM7Hej2fGNzfUj48+FOjcFgnvVcAScT/qh3NW4WDqZS95r4bWE7Zr3PRN
-	 67jE11DA5OMkVf8HyV3fA85ysf1avkBP0nt8e0aF/G5qCUUaHrbSFcgXjeh825vyYD68B
-	 H9z1XQ6aJ8tf4TUjoYumDBjD9qipXiwnAbpjR0Vhp73BVi1JHkGWrtuxXAM3MKD3ylCJa
-	 4ij2tFeo49nJPbiM8m+EH8hRqcnQstF6SgcaFeVqtnkAm5mFsVy5PvCp60I+oBnSPIw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795583216;
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.217.99
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795585122;
+	b=wQf0UhoHxX7H+/YRtzgTN2cr1knMYReE9IKEa/SGvJZbm8HW75lnuJ9rQHTMRq2uRBHg
+	 VVzrphlLV9owMs1PewwLa8DRMVBYS1MtpAONr7BKNKBuowfd17PZ3FQyXqX1Rpr3dq3PQ
+	 i+Otu4Oehv/iBsy35zPrbooevnfl2Y+aRAjxdUFge5Z2MUXGoHxC+0S+0G8G5nTLvdwCs
+	 Nf+JPb6RTkBvzqja/tgHKFh/b0HxAHqTAw765tO+9Fcfq7We/+02snjV9yqwGlqXvOS0h
+	 LskAVQJ/D/U7MH0aXohs17O8vYkBnFGHSqvCQSkXWnIdGjUT8ncbiq/RhQs9nC2koKg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795585122;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=St9qGG3raKOdkDcDbquwSocgYR27/42BAaGi49zTWXE=;
-	b=oEpWR5pAlm386YVYxXMXmKaGFbV3VHwZJlhAuNB9jXTSjA6wi54Z2qCVYS4q5chjL7Er
-	 ToD9t/GlD3YRIKRVV6EwFIwjA/AyJUriuUoRQ9oAQgsNif7xlPt/eSFC43hcNWx4ITqQh
-	 zqNbaL+FyhM8nQuTWxFesEsj7nZnVZL8gNwxf6xLMERxEYB3iWihWekFWcyMCSIBCM7LG
-	 spIq+32D9i5QkX2R9HeHcXeR+bhDu29z7ke46/0szLF7AKxr5lj58aUTKXrXU3eXfY/rJ
-	 3orP2vgH7ySG9Hf80nEvBCCZEa/Ojgxt/MiTMXVDPXGaLzgoIFeeZdUTC0S6GNLmxdA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=WvCW1Bg4;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.43
-Received: from mail-ed1-f43.google.com (mail-ed1-f43.google.com [209.85.208.43])
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 X-Relaying-Domain:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+	b=0FgMEMGBF8aPfZeA9/cxacRKx4ZT1tfRdLZikJVKH1IqSLix+hrp6NxT8oPc90hrGpTU
+	 02Vis2aLJApVByWy9VJD8pNpRuWzWB+WEAh4En1CUYSfJVZsp/abBmg3UlvKdyXx3smsv
+	 baULTIUCU9bVWAPvU9nMlgDw6lYI20IErdRhx/DRrlOr0Fgbir0z4i++TzNeAs35EdbZJ
+	 Z62lEOChO2gSiO863DsG6QE7dPqmw5yj/HWC6K+4K0aRIz2Ex0vR9FpuCwllcroG/L+7U
+	 xqhu6LN+pX8aViveVssADhOTRKgI9ytX5WgyaFxGDgKeqCsmHnw+q6MZgYosPPcWXiQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=andrii.net;
+	spf=pass smtp.mailfrom=andrii.net;
+	dkim=pass header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=mfbtyNd8;
+	arc=none smtp.remote-ip=209.85.217.99
+Received: from mail-vs1-f99.google.com (mail-vs1-f99.google.com [209.85.217.99])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93024606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:06:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93024606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C36B1606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:38:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C36B1606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=andrii.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=andrii.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=WvCW1Bg4
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-6b167ffd132so8210302a12.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:06:43 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795583202; cv=none;
-        d=google.com; s=arc-20260327;
-        b=lTWOekGFU5YpYjfnjzibHUzOecuy9UzRTz/Rkladr8QAOr0/H9uPyRVZ5y+aCDWXGf
-         mSmcaouRsvj7X8yqG621ILlO2gFvyQutBJqC0Y0Tc8sgiEDcIoqC5UVBSiI/akz+Iuev
-         RPA1NoHE5Yq1ehhieAwfDwPdld5EOiNWqqGZwuPhqCO2olM3m4z+ItOiBK2HLEajwrBQ
-         JBioYIwbl2C40346ngJSs5BDitvfXaPQr1lSZIO5dadI4957UYKpTEue318KB3sm+DMF
-         PZ/NBxeaDiuSm1Ax9Oj1miI2Lt3Gl4N/53MjcMOT+pVciMW2hA2fqtgyHZIj39sleUpR
-         grjw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=St9qGG3raKOdkDcDbquwSocgYR27/42BAaGi49zTWXE=;
-        fh=i8YMUav2PbA1wbtupCM2h4xABw1fTIXtmwyWK7WMkwY=;
-        b=i9/IieNSVKJ/uGopgWPpt8JXvgJAWJlEO1ZcOPijQQ/p3FzuI3H0CQ1CeAZY1Z4pdl
-         kS2ZUQ9loFodnXEq031copbZ0rGvRmsLskW6VR6maxPeLEoK5ksz1zosyDk5LJ+O5pNm
-         zSK1zYD5M30qOlTxU8JlWzpt1cf5XIkC3jtr/1u3mB043xx2pTovZGDMzRVZtRVpwo1j
-         7qB6MsGPTEMiczUrckVeGPn3BxXdU96TtEhXIGaxYCyI39J4NQmITFI5Dyom0gyRHDES
-         aXknhF+En95oY3onh88K0CHgx0vIeZO9QInxSLuSXT/wVB8MbKYflPVzldVwMxDgetdm
-         lHQA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=andrii.net header.i=@andrii.net header.a=rsa-sha256 header.s=gmail-2025 header.b=mfbtyNd8
+Received: by mail-vs1-f99.google.com with SMTP id ada2fe7eead31-7d2db1b9bf2so1825005137.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 21:38:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795583202; x=1796188002; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=St9qGG3raKOdkDcDbquwSocgYR27/42BAaGi49zTWXE=;
-        b=WvCW1Bg4ViJubZeAEI0wYclnYXwKcIfPWWaMc9ZYTHNFKwJAVdCHcNiTzHn6PetD/3
-         myrf5RFaZ2plYTw8GPMbuKPDxhjAr/O539xfOwB3qv4OIeo/63IuHPGAvb6uMnWgI4DO
-         0LoFQkv5PtCnVQ9jmUSzUtB/4qlHMRW3ijYiQ=
+        d=andrii.net; s=gmail-2025; t=1795585119; x=1796189919; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=mfbtyNd82mrUR9u9R4zqv5bGvQvCw92QzcT2UF7nIcislwzllBPCCqPFwvCWw6ny4Z
+         WlaoXUz5cxA7ei/w2z4xUgXj4oIxypTgHewdaV2MQ35SNwsvIGQz8NFxNZSSGVBZKlOb
+         LHUJh8CwuGHEfTm7eZPsf7SNy4aIGZ6nOW4PbvBJNX+EKqQpA29m0uPKGIFu54nMknwI
+         v646MzxWCrrqRJf78CllShfspxZA8LlrmPtZVhNLiVPNTk2qnZ/Ztl6g5ha5PZqGBxRH
+         psvZvz+Uf30WhTRZIzxrERMGeo3JXoYqdas17IY1gVwJaPlmQS2cH5BlqnhohyhU/Xco
+         jbVg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795583202; x=1796188002;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=St9qGG3raKOdkDcDbquwSocgYR27/42BAaGi49zTWXE=;
-        b=MI8IwJvtmHBXp9MTbjSkJj6CpZmv0Os4W74kEs7xuDKjcAyoIypTEPBaGZV8B57N+g
-         ruCeY/eYKRp0e/2NikKR/jCvXKVgK43qVKXmtdVC6C3FhFLQ+quiNL5L4ZhvecnenUBC
-         KnJ4Paz7wr1BiFrUv0UuB8otnGyxls7OxQd53VKxwqPb0VdVSaUJamcY3dw602Alhj+w
-         BOynnCXvelIoI/2vMAbr61H4AfqA/tPvyHEUM2lg+5k2OhbJBkbn420KBtFhKMmRbTRa
-         xkIdxpYIp5g4edMA+yQIpvMAFd3gOOshnvvSdw5k8bANzVezJB8uURd1esKe/uSQj7Rr
-         Gc2g==
-X-Forwarded-Encrypted: i=1; AL+hErHi4J0gclOELwF9tnnKjOBBxJlbmzZTS6FbYcgOGOHWQmY1LIQO1aQW6VJBGKibCQk5Djpw/Ug=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8NlMm7Wz0v66gvGm7fBQRUmdLU6agE+mx1yUlffCXKbSZTbvOs
-	bVpK5ZSuG5RIzjJZzmUAcJF2VplCSxI+J1VVSQB4YT446/X7to9AAR2106ocCUNrjrXpUqYsyjd
-	eFc03Vw92GMQM54e2z9GboXg8u1Lkl+ak/0e1sWk8Xg==
-X-Gm-Gg: AZFdTZdb9qHkmCmsxWk4sTBJKbmYi3J1BCQfUJR4C7/P0X9rcyjjq+Iz1PNwB9MpqeR
-	Ri7CcMXeEpPyF4A0VKBYg2apqsDXilMEGOYy22dx2GrGN8WrW1819O4HNIPfOiv07fPZ3SiU40G
-	efHRMmijKFB96NKWKvIaF/aiXTrMEg7uQfjbpzPxUnLNic8iluOW8/O2kFwyZt6I9vbI83KZSv8
-	5BIcyofFcPuSvCnrBQayXg/vKuvn8kmt3pmjhoo8BJ5Oy8CrrkpxugivjNofxVpsQlo9SvDhFwZ
-	h0Ib4oH1azS+i2vQFxmH8hwR4od4dMYFSw5QgQEqnsQhy4jYOeYI3qhlsirfSL5ImkKDOwpf3sa
-	bISpMt1SwLkcV6Ev2gKp/HvJQTFbDisdc1BEhDDYE3FWBaF+8XFn/gZrG7rXS8BvWq85/A10iFC
-	CdsDBfHokZFV4m24oGVb9eEKqFK3u18QM8h9ZBXfHyG+o9h4X0nOnG0fI=
-X-Received: by 2002:a05:6402:504:b0:6b7:1cd4:87d6 with SMTP id
- 4fb4d7f45d1cf-6ba37d17fc4mr8799911a12.13.1795583202056; Tue, 24 Nov 2026
- 21:06:42 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795585119; x=1796189919;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=fcNis2XnhX8zZlzTY3CceXUccN8sacTSpQICWbCSpaU=;
+        b=fe2gjjiinQh2zDaPsfkJUyQxbUVtu6/niMnsk6PXo/gfwdlC+z+txonjiiKcDC/BI1
+         nDGfFDrB7HYH2UaAkpy36brd/FZNjjF2Edemi+vbB2IAod0p7jpPcMXMlbTlIZsScboT
+         ReGY7KyMzr0HGvus4JvhvMd2lz7G/fGksEwn13dKM9KYm95+8fp28znHqAhQk1NML3NZ
+         YHOPktLvjB438fjb7dgUgn87s36LdeywUzgRoSlMOTCg8WLxVv1YRT/ydc8UQYjwh31s
+         ATr1/oFYl2hGr0AxAH+dEfwwr+7kVy/Vb996PtKpLV8sPCi3Kct0oHJCHDYtXuT7GVze
+         I3qw==
+X-Forwarded-Encrypted: i=1; AL+hErHXxDNgYBcHFOlEMXcVyyG5py+nd2VhSJ0M2yEW8YuClnGByhRi8jq36vBjJSk1YTyfXbvi6G4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z96wg53k4HlmWKNhfy8h2sQfsuBbkPdzVCTi3ub+k7C8tJEy5Zl
+	9AhRphcz6kouHjQeSj2TpxY1+ymAjbVAu6EbvXV0wIoacThbbKcSiPjj9f3SFF94Fuw7jUu+edN
+	i42C6gfyOg/TVNvJufEVO9QMyQuT4LVX+xjfze6tKrDmTJbms5C7a
+X-Gm-Gg: AZFdTZezwKNBlYVkkL7hUCapuZbOoV9m/Qt/7gnumxkcPynjOsBL81vDGWL3jqwL0VT
+	hCu48JGQgcpMkcCyuYaKBsVLTYYrAywNf8COu2XtiFaBEhu7UOcgIUuU9V0EyitEi/KRAYihDWd
+	0jgM0LTyzwffYoXn5dHKCMEKyn+cUXZQAflfrxggJ/8F9puXOkcOw1QCNUJxhTo6RDAJ3sP0itr
+	9a2oBvpwQFmsQrZWkx2gprJfS9JQYGT24Ut59VFG8u0mUL4gfdMpCZJPKMgrxwPNOmdAbMTza/Y
+	cCkLB74AbmHTAZGjaOb6zfoAZ2VXAXTQXgUiaH4ebnWcnDpEaBKFurL6XVvzUUdRYMWMLJjjcYR
+	N0bLWFeHRBKaszGd+DXFuPYtAWII=
+X-Received: by 2002:a05:6102:4485:b0:7a6:cd7e:72db with SMTP id ada2fe7eead31-7d73962b3c7mr8485110137.26.1795585119506;
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+Received: from andrii.ai (mac.hestia.andrii.net. [2602:f337:ed:4865:7374:6961:204d:6163])
+        by smtp-relay.gmail.com with ESMTPS id a1e0cc1a2514c-99e6e0fe353sm1684066241.6.2026.11.24.21.38.38
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 21:38:39 -0800 (PST)
+X-Relaying-Domain: andrii.net
+From: Andrii Tereshchenko <opensource@andrii.net>
+To: Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>
+Cc: Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	netdev@vger.kernel.org,
+	ipsec@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	syzkaller@googlegroups.com
+Subject: [PATCH ipsec] xfrm: policy: avoid an undefined shift when testing the auth algorithm
+Date: Tue, 24 Nov 2026 21:38:35 -0800
+Message-ID: <928a3d63-eb17-4192-8952-a9a74a89c5f9@mid.andrii.net>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,70 +102,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261125043847.885053-1-piyus@iiitd.ac.in> <179558178888.3294.13943698848591637747@kernel.org>
-In-Reply-To: <179558178888.3294.13943698848591637747@kernel.org>
-From: Piyus Kedia <piyus@iiitd.ac.in>
-Date: Wed, 25 Nov 2026 10:36:30 +0530
-X-Gm-Features: Aa3M54oDWglR0iAUavzHNeiehG4Hg13FhPc-XMGjpMFLClMWzn6h4NFTqVwgfFs
-Message-ID: <CADq=QSx-7eYx93XbdGLTxHp4-O-=gO_6VyS6R4XgZzDXMG_ErA@mail.gmail.com>
-Subject: Re: [PATCH wireless v2] wifi: mac80211: store the mesh IE blob's
- length without truncating it
-To: netdev-bot+sinfo@kernel.org
-Cc: Johannes Berg <johannes@sipsolutions.net>, linux-wireless@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Kapil Vaswani <kapil@presceralabs.ai>, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi!
+xfrm_state_ok() tests the template's 32-bit aalgos mask with
+1 << x->props.aalgo, but digest_null's ID, SADB_X_AALG_NULL, is 251.
+A digest_null SA checked against a template that does not allow all
+algorithms then triggers a UBSAN shift-out-of-bounds report, which
+gets in the way of running with CONFIG_UBSAN_SHIFT.
 
-The bot is right, and the information is in this posting - but under the --=
--
-line, where git am drops it, so it is missing from the commit message itsel=
-f.
-Stating it here as asked, rather than reposting:
+Fix this by treating an ID that does not fit in the mask as not set,
+as aalg_tmpl_set() in af_key.c does.
 
-How it was found: by AI-driven fuzzing built on top of syzkaller.  A genera=
-ted
-program put a vendor element followed by an RSN element in
-NL80211_MESH_SETUP_IE on a mesh interface, and KASAN reported a
-slab-out-of-bounds write in ieee80211_mesh_build_beacon(), reproduced on
-mainline 7.4-rc3 and on 7.3.1.
+Made with an AI coding assistant, reviewed by the submitter.
 
-That run is what found the beacon-tail overflow fixed by the other patch of
-this series, "wifi: mac80211: do not copy the mesh RSN IE twice into the
-beacon".  The truncating "ifmsh->ie_len =3D setup->ie_len" that this patch =
-is
-about was found by reading the code around that crash, and by the review of
-v1 of this patch, which showed that v1 made the overflow reachable rather t=
-han
-fixing it.  The two routes the commit message describes - a blob length tha=
-t
-is a multiple of 256, and a 257-byte element behind a truncated stored leng=
-th
-- come from reading the code and have not been run here.
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Signed-off-by: Andrii Tereshchenko <opensource@andrii.net>
+---
+Found with syzkaller (our own run, not syzbot).
+Validated: reproduced on ipsec master with CONFIG_UBSAN_SHIFT, without
+kernel changes or fault injection:
 
-If there is a v3 for other reasons, that paragraph will be in the commit
-message.
+  UBSAN: shift-out-of-bounds in net/xfrm/xfrm_policy.c:3399:39
+  shift exponent 251 is too large for 32-bit type 'int'
 
-On Wed, Nov 25, 2026 at 10:13=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrot=
-e:
->
-> Hi!
->
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
->
->  - How the issue was discovered, e.g. hit in production, hit during
->    development, syzbot report, manual code inspection, LLM or static
->    analysis tool scan.
->
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
->
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
-> --
-> The evaluation is done by an LLM so it may be wrong, if you think
-> that is the case please reply and explain.
+Tested: with the patch the reproducer runs without a report and the
+packet is still refused (XfrmInTmplMismatch); with a template that
+allows all algorithms it is still delivered.
+
+No functional change is intended beyond the UBSAN report, and this is
+not a security fix.
+
+History, from the pre-git tree [1]:
+- 6c55c29fabc2 ("[IPSEC]: Add transform engine and AH
+  implementation.", 2002) wrote the test, against a single algos mask;
+  4a618fbe0113 ("[NET]: IPSEC updates.", 2002) split it into aalgos.
+- 3bab27b68626 ("[IPSEC]: Clean up key manager algorithm handling.",
+  2003) added digest_null and SADB_X_AALG_NULL = 251, a KAME value
+  (Jun-ichiro itojun Hagino, tech-net, 2000-07-16 [2]).
+- af_key.c guarded its copy of the test in f398035f2dec ("[IPSEC]:
+  Avoid undefined shift operation when testing algorithm ID", 2007).
+
+Until now the result for ID 251 depended on the CPU: x86 and arm64
+mask the shift count and test bit 27; 32-bit ARM, PowerPC and s390
+give 0, which this patch makes the rule everywhere. ealgos is not
+tested here, so SERPENT (252) and TWOFISH (253) don't hit this.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/tglx/history.git
+[2] https://mail-index.netbsd.org/tech-net/2000/07/16/0000.html
+
+ net/xfrm/xfrm_policy.c | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
+index d2e938d4db9aa..b980d915a24a6 100644
+--- a/net/xfrm/xfrm_policy.c
++++ b/net/xfrm/xfrm_policy.c
+@@ -3396,7 +3396,9 @@ xfrm_state_ok(const struct xfrm_tmpl *tmpl, const struct xfrm_state *x,
+ 		(x->id.spi == tmpl->id.spi || !tmpl->id.spi) &&
+ 		(x->props.reqid == tmpl->reqid || !tmpl->reqid) &&
+ 		x->props.mode == tmpl->mode &&
+-		(tmpl->allalgs || (tmpl->aalgos & (1<<x->props.aalgo)) ||
++		(tmpl->allalgs ||
++		 (x->props.aalgo < BITS_PER_TYPE(tmpl->aalgos) &&
++		  (tmpl->aalgos & (1U << x->props.aalgo))) ||
+ 		 !(xfrm_id_proto_match(tmpl->id.proto, IPSEC_PROTO_ANY))) &&
+ 		!(x->props.mode != XFRM_MODE_TRANSPORT &&
+ 		  xfrm_state_addr_cmp(tmpl, x, family)) &&
+
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
+-- 
+2.53.0
+
