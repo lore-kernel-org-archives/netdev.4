@@ -1,63 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.14
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646890;
-	b=I8WCZdD5F+ScfoiA9+XhbxWI/R35wqVnklljYAIj14FoeFFHESkLDPa+eTWrjfnYRlfs
-	 0pN/y4IhAmlJkUe6nWX2z2Vt1nDLUX4Ji2NvqAlnYFSelyO1MGENI9ciuMFM9Fst8rEcW
-	 7HvlaPa9mo3Ps4Yk/M6bjj0CqGCtAQGo1kmjprDZq//slD9KnStJmityh/PDtkrA8wfhF
-	 LVDVqZBO93GiINs9uHwCYUDzZsB83nrlP6BM0kFDgIYFGOUPqO1U9ae/CDFpIIVyzakhz
-	 rAVJOCX1n8w/7PvEIgz0AvJAOSkg6N80JPKDDYDZ66jnUNBimJTwqfpbv6ROxTpKWLA==
+	t=1795647116;
+	b=3rpafygzj2PvLkrrv4Ve39YaL0/Mxc5tmWjxFPr2BZGlPkHXd4l26GBiamd7JhIrF9Rn
+	 EyCJYbhYunQtJOmF6tZ16kEsvJwPl1ajcli8eEuvl1hS1sSVlUlAe3cdI62BI4oRFuNlB
+	 JnxfE/4ZNofNiNK21lBG37ArfNeSMMBxIlM81zFIl6al90ykyP57RNwHwZBwC8J/kqhUT
+	 06joysRwEG9sb6oLN3WAXq1csfB/gOSdWWx3AV5mtX09VI3BnQiEWjj7G9cojtwr3H2VE
+	 qVFJ0jGO2j16nS0iFM9NXmlI4q7zli5EB4Z6B3S9wx1MVNRTRBwmDhcvZ6L/YxVOu/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646890;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=XTU+vLEVKALo0xt42XXIXH8kWnlwIgoaLjR4ciutv32KHYeRbf23gzTxVBzLznS19oWt
-	 C1p+E50UuIJpf+b1Ww5hqL43jX1SWurBuaim3iV4PGmCv4iVIkqeaukQXsOfxIqlMokOZ
-	 us9JJF9zN1cJdMx92B9IAL6w3WpEB/KbhmnMpi5VRaFWew068i8ti5Da775Ak7Ll1puEz
-	 okeID/6YSv3NaQ9qJfFilHOin30MgLeruzNTritfquN8Mo1RHW9jKk0IMLhz4tsXa7Ky4
-	 HscXVmdWGJXKlwFbEqbzuvKmVZ514zJSg4rv7yspoUtznsR+fLPcDs8xaSeoj46eeHQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795647116;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=viFETnqkWBFpcncHCsQtO97OYYmjLJHZn4RSa+CUYFU=;
+	b=ZgACDXwikUTHpaf0O8HCdJmBQhptIqDzXsGYJww+/CzRMUAlco51e4CMlYqJdMn1eg31
+	 quNJibW+eCdD5J1aEfTLQscRl/zfvq7pBAAvWBvj6VVCXAnRB7x1AHIB70KyrsIdXvcpC
+	 Epwx88fmt8iyUKq8fzZsgHqSBgU8qdQ4WIAdOpZ4NyEGeYo/XCvPlqTt0CezWcKXygkXp
+	 AzwF9tdCQDwFJ+QbOyTpnjrZuP7BmQjoam9l+OjKXwUdcOajjo/zZbV7EItyGTGgUu2LH
+	 mTfRoixKYXPW6l1rZ49QgjhHThNb9JRRhI5Q4NEbeUvVCJZHG+NNhbC+CJo7vvDxswA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpqnRphu;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VeMv5KFt;
+	arc=none smtp.remote-ip=198.175.65.14
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.14])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 414ED606A6B8
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:48:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CEB8606A337
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:51:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CEB8606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpqnRphu
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DACF11F000CF;
-	Wed, 25 Nov 2026 22:48:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795646889;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=IpqnRphugbz0IsPQhNh0NReWGmoCycqBKhGoh+fECfEgKUIEf3WsE0BSyFthch6kf
-	 OC9LmV+l/rIrIvpR1R4/SLMLqDBUL0QT/iUktSOmBtV89iumvx1D3kW23zPuJ9kpFO
-	 +kQCjgKZtAucZakO45lUnZHM7E+nOWxeT1fa5BmFPUt5GEjoFZd5tZMYw0P9/cNvQQ
-	 hpj79rl2gy7kjcqHKnt00C8ZWVeliDD0l1GBB6QSkDgTyp0kdofD2KSQPm+fV3Ux4B
-	 fX2O720DgLR0r40R8RsOoRovHK6bVD1mf4GxdQB2HlZyiJ6vDir8ttdiK0VXrujo83
-	 qCUIbgPfZt5jw==
-From: netdev-bot+sinfo@kernel.org
-To: Tony Nguyen <anthony.l.nguyen@intel.com>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- edumazet@kernel.org, andrew+netdev@lunn.ch, willemb@google.com,
- netdev@vger.kernel.org, Aaron Ma <aaron.ma@canonical.com>,
- przemyslaw.kitszel@intel.com, maciej.machnikowski@intel.com,
- grzegorz.nitka@intel.com, jacob.e.keller@intel.com,
- Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
- Simon Horman <horms@kernel.org>, Ayush Singh <ayush1x.singh@intel.com>
-Subject: Re: [PATCH net 1/5] ice: restore DDP state during PFR recovery
-Date: Wed, 25 Nov 2026 22:48:08 +0000
-Message-ID: <179564688842.3294.18063823612588045366@kernel.org>
-In-Reply-To: <20261125224428.4126195-2-anthony.l.nguyen@intel.com>
-References: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
- <20261125224428.4126195-2-anthony.l.nguyen@intel.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=VeMv5KFt
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795647115; x=1827183115;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=bMzude+mzTqDZ3KoS9xLJI8VEjBHxU+G9Uwnb5Y7SbQ=;
+  b=VeMv5KFtjaN4VLSONi3Gz/19RgU0mBWeuJLHe9Q16GVkyTEtxCeWazV+
+   DWbTJDzJOnsIcQ1rHngNI0kEYw5Yrkz6NEwMpzGMUJdWLQEnslqzhWc/x
+   pr2dQTnNFG7QWpDv1lrypeOy4NbxVWhiF2TilWREzNyvzbgBbiikx4ozO
+   WjCyaOZQsu4/ovezqFGCS1kqqTPMXBw9Wj1+V89tFZLWGVakeSa0CPu8j
+   7Umeh7V8noxixgi/ZCsynP8amOWecDSkIV7itjn4dGUYTkTWgXsMl9XlJ
+   NQPAEy7mDw5b9FcZjx0nwLuycA6suYFJ373ck22BrEMcuBa3UUJgk5f0n
+   A==;
+X-CSE-ConnectionGUID: +D2s2ZipSfaW8vIaOSt4SA==
+X-CSE-MsgGUID: JkA7LKlOR1ql+M/uSH1exg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4450645"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4450645"
+Received: from orviesa007.jf.intel.com ([10.64.159.147])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:51:54 -0800
+X-CSE-ConnectionGUID: iTyorZgqQlK4NDrrDh04jA==
+X-CSE-MsgGUID: x568yNxcTfazsCpBd7mgew==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="11996930"
+Received: from anguy11-upstream.jf.intel.com ([10.166.9.133])
+  by orviesa007.jf.intel.com with ESMTP; 25 Nov 2026 14:51:55 -0800
+From: Tony Nguyen <anthony.l.nguyen@intel.com>
+To: davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	edumazet@kernel.org,
+	andrew+netdev@lunn.ch,
+	willemb@google.com,
+	netdev@vger.kernel.org
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	oss.patchbox@gmail.com,
+	tianxun.ng@bytedance.com,
+	emil.s.tantilov@intel.com,
+	richardcochran@gmail.com,
+	milena.olech@intel.com,
+	konstantin.ilichev@intel.com
+Subject: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates 2026-11-25 (idpf)
+Date: Wed, 25 Nov 2026 14:51:37 -0800
+Message-ID: <20261125225145.4126333-1-anthony.l.nguyen@intel.com>
+X-Mailer: git-send-email 2.47.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,26 +88,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Hi!
+Yuho Choi fixes memory leak of IRQ name in failure path; also returns
+-ENOMEM if name allocation fails.
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+Tian Xun Ng fixes shutdown and removal races by ignoring Tx timestamp
+and link events during teardown and keeping the mailbox active long
+enough to disable and remove vports.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Emil Tantilov resolves PTP use-after-free issues by introducing
+rxq_grps_lock to serialize rsrc->rxq_grps transitions against the worker
+and correcting unwind ordering during initialization failure.
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+The following are changes since commit 7ed616970b652ae76d99a01b468588e491021648:
+  mptcp: gate diag sequence counters on CAP_NET_ADMIN
+and are available in the git repository at:
+  git://git.kernel.org/pub/scm/linux/kernel/git/tnguy/net-queue 200GbE
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+Emil Tantilov (2):
+  idpf: fix use-after-free in the PTP auxiliary worker
+  idpf: release PTP before freeing vports on the init task error path
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
+Tian Xun Ng (3):
+  idpf: ignore Tx timestamp replies once removal has started
+  idpf: ignore link events once removal has started
+  idpf: keep the mailbox up while tearing down vports on shutdown
+
+Yuho Choi (1):
+  idpf: Fix vport IRQ name leak on request failure
+
+ drivers/net/ethernet/intel/idpf/idpf.h        | 10 ++-
+ drivers/net/ethernet/intel/idpf/idpf_lib.c    | 12 +++-
+ drivers/net/ethernet/intel/idpf/idpf_main.c   | 11 +++
+ drivers/net/ethernet/intel/idpf/idpf_ptp.c    | 16 ++++-
+ drivers/net/ethernet/intel/idpf/idpf_txrx.c   | 68 ++++++++++++++-----
+ .../net/ethernet/intel/idpf/idpf_virtchnl.c   | 49 +++++++++++--
+ .../net/ethernet/intel/idpf/idpf_virtchnl.h   |  1 +
+ .../ethernet/intel/idpf/idpf_virtchnl_ptp.c   |  3 +-
+ 8 files changed, 142 insertions(+), 28 deletions(-)
+
 -- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+2.47.1
+
