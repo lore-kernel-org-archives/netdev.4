@@ -1,59 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.206.16.166
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592281;
-	b=GSxfWnAYrC3DvAgXh3JQJY4ojJZlExiFryDjXbq1suvgs8fE6B0XDqEw1G6WlpDWr+Oo
-	 pbFb8LFKgCPzzWQuW5lHbSvEsAXtDTAAKA/jlY4qi9smLSKWk38YyD5faNpXrhhw0z24M
-	 W84we9wPhT4boXDCe54yty3mUyxIV0UEBioFT317Y3cO9J/OYylYWFzgr6rxtpQ6TcOw/
-	 ZhoXxjnBXjfujGLlUEvS6G7yUx4HU3OMEiDFR5oPhy0lA2wLKxrT9gbGWJSCHN8Hdan8e
-	 6JM1648meovEJuwBxCYcCUQG6IScPexmycOjaDLIsLMXoL3vDOv4SIwwd8i18Vx/wfQ==
+	t=1795592272;
+	b=huk+hZ+Ar8b6i3ZI0sc8pLuKfdF/Wfrd9PWjL2b7CV2eSCnQTJh0IWNyyxznqqVU6RA2
+	 IrnaAVIsxaVJ/63GkNTMXJub55jYJGJP4uaEyVL/b+WSfsHXlwltcZARLd07yQV1svKr1
+	 Awj3HwDKcxzlsqLRQbNdR5L5Qn2cgfIirihv+PFfpOBh7CaapjVUItfKHkLLsUdaawmmp
+	 ggdvXFbmknArElTvIEGdYajP3miDcfE9CTx979Z3rE0zrWbpZ37ouA59rt1G//7tSkf2p
+	 WEfz+YPKoZgCwBLuoTdoSfSQmvmOFqdxeBQUiUFCaeaZADRDdZ3YHEmKXQ+WUUUU3Jg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592281;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=txMFrZLoBMh46DRbpZdQXPCe/D7qF+CKakhaa0rXSP4=;
-	b=sxjskX5vWyynFWORrxpE5aBbd8ny4Rw4YlvNWoQr75IP8S0ZGj8rDHIQENdzUv6dQF+M
-	 v7cJ9fj5C3JPRBsLib7/pWa+Vrdy8gKtY93Eq+stReCFODutf1B7hR/jezPiYPyo/5n05
-	 dwm65vqGVi1526DbKNKtl8qS3HW3ybVQoTBAF28fW4/86Zo80epwc7VXOKXsqAL+RlE8+
-	 qHvu0XVbnCaXVo9A6xv2z3uG1VfdkSn5M0Y1KyU+MgsJcIXFhpR5iiO41zIcgECITYKA8
-	 /x4yqmiWpW1UTQ+Qj6ent3cl31GjSXgbkyllV9Un7rSNjUPBwo3wZ6BdSJpCcGr7+jw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592272;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
+	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=ZOjLaYx4Dr5j2yndCCgY4NG6T+IceZsHeZCSmK+kO8U=;
+	b=FVZl9VII9ARxrlUrYwDhg7tPWjvuIqWlNXdpev34SZ2tyx+/x2plvZi6aKZZEkv5apbC
+	 8CxnzqWFrg4c3xSlgpG0/X81oyyMh+OX7ReUI1np5XKg2qa5K4+lTB1KB3JAvBviKwLac
+	 Z2UxtxaER4ezkMCKtvXd2Xb0QcveHbsvBhZ4R02vvnGOJEafwfY3QQprMLCf3kifnihPD
+	 GnmU12PsvmwNTwlNCkSo9yLfHsQVR6ERi9CL897WHEfOmExr1+q7Kt5sWV0xoTQAXumCq
+	 NEahpVcyjWxBNjBk//SxH56veH5dNQYukIknSo28ZvBKTqDFuKVVQLQsAWx147dDi7Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DnDopUy0;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=mucse.com;
+	spf=pass smtp.mailfrom=mucse.com;
+	arc=none smtp.remote-ip=54.206.16.166
+Received: from smtpbgau1.qq.com (smtpbgau1.qq.com [54.206.16.166])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E9286606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:38:00 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DnDopUy0
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C9C2A1F000C0;
-	Wed, 25 Nov 2026 07:37:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795592280;
-	bh=txMFrZLoBMh46DRbpZdQXPCe/D7qF+CKakhaa0rXSP4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DnDopUy032Lb0Ye8XC4EcMSu+SelH1jXSCNAeSUvIgaIAH744PRSLEfywqdiPJEWO
-	 /3BtErBhWG6JHCRSVG47AcnCy8v+o03xloivOEKywu27+5tR3u1Y27pI9kJ9otDipH
-	 f7AsmHkUviJltxHY+zjmsehYzYtOEs6CXs2U3aPFphmJ7VhVw8m00LqC4GdGfmIpm7
-	 ioqTDzTWR6jiIZPiJebzM7BqC8HiAkSr9jnCBedug0w0kMbBE7X0SAqRqznPK/bDk7
-	 +pSv1DlBbkZeFPnAsOzFihVHLTgkP2JRRwVS5318iXH1g75KwO+PiORSuaxPz8SE1H
-	 lQrM9/O7lCe4w==
-Subject:
- Re: [PATCH] net: phy: avoid synchronous module request in async probe context
-From: netdev-bot+sashiko@kernel.org
-To: 18255117159@163.com
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:37:59 +0000
-Message-ID: <179559227928.3135.10596298102368144827@kernel.org>
-In-Reply-To: <20261124070753.25972-1-18255117159@163.com>
-References: <20261124070753.25972-1-18255117159@163.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF412606A68E;
+	Wed, 25 Nov 2026 07:37:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF412606A68E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
+X-QQ-mid: zesmtpsz6t1795592177tce07a167
+X-QQ-Originating-IP: LdFUREjIl4gGNQIB0sNLmdnlMtTCXCJW8v+3qq6sx10=
+Received: from localhost ( [203.174.112.180])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Wed, 25 Nov 2026 15:36:14 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 10164209693582915750
+EX-QQ-RecipientCnt: 10
+Date: Wed, 25 Nov 2026 15:36:14 +0800
+From: Yibo Dong <dong100@mucse.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	yaojun@mucse.com
+Subject: Re: [PATCH net-next v3 5/5] net: rnpgbe: Add hardware and queue
+ statistics
+Message-ID: <F283E54B74613F72+20261125073614.GC752553@nic-Precision-5820-Tower>
+References: <DB48C65C5764A9FD+20261124060623.411536-1-dong100@mucse.com>
+ <179558856602.3135.7505371780005583025@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,158 +61,164 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <179558856602.3135.7505371780005583025@kernel.org>
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
+X-QQ-XMAILINFO: NAl3ryHMp563Ees00LuXbJ7t7Sx3IZJL8l78K7f1rpQIF8+w34YbrItw
+	y8miC+IrmeoN6657dvGUv3a4GngVeAfYKZpfbOwcMo/O4oBt00ec2MJwNfXTfjusvXOqHea
+	hUt3aWwbKrI2fQFtMzoswtqPcT9HK+dBtS/IexFyyW9sc5Jg/OupHYIFgP1+4eEoBPs6QyY
+	S0hLdnzVem2mtvoXIMsCEb1H0gMDLUkWi4dpTXE6EtWautAkgQdGMnPqcVuKMD18K+PuML7
+	e12ZwIiUSSAsnAcx4GuefdbtS/tDgPquF0BMBvo7ZIuW22F0m/ePRjvEJtlyN/4B4n2HVAI
+	RC4DjLzag6Hpz3QiDHJ7BNKuIlhIKSyQWABA9SCGku8F74rTOE0AVa7G1pWCwwsi4e4kCpb
+	24d1Cd8SQBPZpLhJYF0mGtHOB7ZN/qAQpskREyvVAJFpPGLrEU78RZwA9EohLpqXVU4OMjj
+	TVvpRMuYfo/ij5nbV7sB8rXqGH/HBDAvrhpmFk1c9KMitN/50WcCC6l+DUrR/ipWMGY4+J1
+	MTWL1Boo5yeV6eAXTK5bxgAk11pST1h2q5tZtJm4QDJz4h3qYCpOUX6yZ9QSVFxL22DdLSc
+	xNGPAjsMbSDaS2CREigjHnTQfUI16u2a5pcgcO/76+OPlzniJe/TTvsB/6f4i8IXR956PXB
+	nARJN4B3gSBs9UM035uR74rkDCMfscH3AKMprsNFF5bWFqy1WSc/WpWbzd3PsNYEFyybpe/
+	ocX9r+zyYBemhECvGC4fe3pX7C32EigYMXZhXsCHL8aYaKUIMu9P2JF5VSxalsBXUFdH9Vi
+	f1kL6EM8Rhyv2yzlluGuMqAZUvBAgA21EC0zoNyB75YyLx8ZFL1712V94d9BLlyROjGZPfX
+	EmjQWX47ck3s8shMt/1kWLdOy8XjT02208jiiplqColWIPQ3se0nfcsWeCbnsYaH16lM+lK
+	8BwYTPAMTBUCqMUpjMwhpUxD2X+Cs/kzUvqlYQS76GvJaHVsjxhc1G9Q5NmDI62PM5vowfY
+	w5fjqrYvrTMHyZxRZxidzCEwhVDWq5zDVDIjFD11Tpf3+XP9zwNm2fdrGxIgm7j4XX5EWFU
+	GDJ1w/vVwa7XnXby4pWX6gw6Rdlras84Xe8revSMz5947z+egm8/KG167ThEoVp/dKFn+wI
+	w8fNCPKyFUTFJeE=
+X-QQ-XMRINFO: Mp0Kj//9VHAxzExpfF+O8yhSrljjwrznVg==
+X-QQ-RECHKSPAM: 0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On Wed, Nov 25, 2026 at 06:36:06AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 0
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] After this patch the driver reports two RX totals that
+>   disagree.
+> 
+> --
+> 
+> net: rnpgbe: Add hardware and queue statistics
+> 
+> This commit adds hardware RX CRC-error and multicast counters to
+> ndo_get_stats64, accumulated from the service task. It also reports
+> per-queue RX/TX packet and byte counters through netdev queue stats, and
+> exposes per-queue TX DMA mapping failures through ethtool statistics.
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> > index b7b0c45a0f664..fe320c4f389ba 100644
+> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
+> 
+> [ ... ]
+> 
+> > @@ -615,6 +620,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
+> >  
+> >  		/* probably a little skewed due to removing CRC */
+> >  		total_rx_bytes += skb->len;
+> > +		delivered_bytes += skb->len;
+> > +		delivered_packets++;
+> >  		rnpgbe_process_skb_fields(rx_ring, skb);
+> >  		rx_desc->wb.cmd = 0;
+> >  		napi_gro_receive(&q_vector->napi, skb);
+> > @@ -626,6 +633,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
+> >  	u64_stats_update_begin(&rx_ring->stats->syncp);
+> >  	rx_ring->stats->packets += total_rx_packets;
+> >  	rx_ring->stats->bytes += total_rx_bytes;
+> > +	rx_ring->stats->delivered_packets += delivered_packets;
+> > +	rx_ring->stats->delivered_bytes += delivered_bytes;
+> >  	rx_ring->stats->length_errors += total_rx_length_errors;
+> >  	atomic64_add(total_rx_dropped, &rx_ring->stats->dropped);
+> >  	u64_stats_update_end(&rx_ring->stats->syncp);
+> 
+> [ ... ]
+> 
+> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+> > new file mode 100644
+> > index 0000000000000..efd2284fd93af
+> > --- /dev/null
+> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+> 
+> [ ... ]
+> 
+> > +static void rnpgbe_get_queue_stats_rx(struct net_device *netdev, int idx,
+> > +				      struct netdev_queue_stats_rx *stats)
+> > +{
+> > +	struct mucse *mucse = netdev_priv(netdev);
+> > +	const struct mucse_queue_stats *queue;
+> > +	unsigned int start;
+> > +
+> > +	queue = &mucse->rx_stats[idx];
+> > +	do {
+> > +		start = u64_stats_fetch_begin(&queue->syncp);
+> > +		stats->packets = queue->delivered_packets;
+> > +		stats->bytes = queue->delivered_bytes;
+> > +	} while (u64_stats_fetch_retry(&queue->syncp, start));
+> 
+> [Severity: Medium]
+> Can this leave the qstat RX totals permanently out of step with the rtnl
+> RX totals?
+> 
+> rnpgbe_get_stats64() adds rx_stats[i].packets and rx_stats[i].bytes into
+> rx_packets and rx_bytes. In rnpgbe_clean_rx_irq(), the driver-drop paths
+> increase those counters but leave delivered_packets and delivered_bytes
+> alone. One example is the skb == NULL path at EOP:
+> 
+> 	if (!skb) {
+> 		atomic64_inc(&rx_ring->stats->skb_alloc_failures);
+> 		...
+> 			total_rx_bytes += size;
+> 			total_rx_packets++;
+> 			total_rx_dropped++;
+> 
+> The MUCSE_RX_DROP_RESOURCE EOP path and the rnpgbe_cleanup_headers()
+> failure path with size >= ETH_HLEN behave the same way.
+> 
+> This callback reports only delivered_* as qstat rx-packets and rx-bytes.
+> rnpgbe_get_base_stats() uses the same callback through
+> netdev_stat_queue_sum() for the inactive queues. So after the first
+> driver RX drop, the rtnl totals stay higher than the qstat totals. An
+> skb allocation failure under memory pressure is enough to cause that
+> drop. Nothing resets these counters, so the gap never closes.
+> 
+> The generic selftest expects the two sets of totals to match:
+> 
+> tools/testing/selftests/drivers/net/stats.py:pkt_byte_sum()
+>     # Compare stats, rtnl stats and qstats must match,
+>     ...
+>         if stat_cmp(rtstat, qstat) > 0:
+>             raise KsftFailEx("Qstats are lower, fetched later")
+> 
+> The commit message says the split is intentional. Even so, could both
+> interfaces report the same packet and byte counters? One option is to
+> use packets and bytes here. Another is to keep driver drops out of the
+> rtnl rx_packets and rx_bytes totals.
+> 
+After checking the documented semantics, I think these counters can
+legitimately differ when the driver drops a good received packet.
 
-Critical: 0 Â· High: 1 Â· Medium: 0 Â· Low: 2
+include/uapi/linux/if_link.h defines rx_packets as including good packets
+received by the host but subsequently dropped, even within the driver.
+In contrast, Documentation/netlink/specs/netdev.yaml defines qstats
+rx-packets as packets successfully received and passed to the stack.
+The corresponding byte counters follow the same distinction.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] In async context, phy_request_driver_module()
-  (drivers/net/phy/phy_device.c:643-648) now callsâ€¦
-- [Low] The commit message presents the fix as letting the module load be
-  'requested without blocking the async worker'.
-- [Low] The patch fixes a user-visible boot-time WARN_ON_ONCE in
-  __request_module() (kernel/module/kmod.c:145), and the underlying pathâ€¦
-
---
-
-net: phy: avoid synchronous module request in async probe context
-
-When phy_request_driver_module() runs from an async worker, it now calls
-request_module_nowait() instead of request_module(). This avoids the
-WARN_ON_ONCE(wait && current_is_async()) in __request_module(). The warning
-was hit when probing an RTL8126A behind a PCIe host controller that uses
-PROBE_PREFER_ASYNCHRONOUS.
-
-> Use request_module_nowait() when current_is_async() is true so that the
-> PHY driver module load is requested without blocking the async worker.
-
-[Severity: Low]
-Could the commit message describe the actual hazard behind the warning?
-
-The comment above the WARN in __request_module() describes a deadlock, not
-just blocking:
-
-	/*
-	 * We don't allow synchronous module loading from async.  Module
-	 * init may invoke async_synchronize_full() which will end up
-	 * waiting for this task which already is waiting for the module
-	 * loading to complete, leading to a deadlock.
-	 */
-
-do_init_module() calls async_synchronize_full() when the module has not
-requested async probe. Before this patch, a PHY module that actually needed
-loading could therefore hang the boot, not only warn.
-
-The message also doesn't mention that the change drops the guarantee that
-the PHY driver is loaded before phy_device_create() returns. Nothing else
-makes up for this. mdio_uevent() only emits an OF-style MODALIAS, not a
-PHY-ID based mdio: alias.
-
-> Signed-off-by: Hans Zhang <18255117159@163.com>
-
-[Severity: Low]
-This fixes a user-visible WARN_ON_ONCE() in __request_module() and a
-possible deadlock. Should it carry a Fixes: tag so backporters can tell
-which kernels are affected?
-
-> diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-> index b39e945cebd73..a634b8b0c5b2d 100644
-> --- a/drivers/net/phy/phy_device.c
-> +++ b/drivers/net/phy/phy_device.c
-
-[ ... ]
-
-> @@ -639,8 +640,12 @@ static int phy_request_driver_module(struct phy_device *dev, u32 phy_id)
->  {
->  	int ret;
->  
-> -	ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
-> -			     MDIO_ID_ARGS(phy_id));
-> +	if (current_is_async())
-> +		ret = request_module_nowait(MDIO_MODULE_PREFIX MDIO_ID_FMT,
-> +					    MDIO_ID_ARGS(phy_id));
-
-[Severity: High]
-Can this leave the PHY device registered without its dedicated driver?
-
-request_module_nowait() is __request_module(false, ...), which only waits
-for modprobe to be exec'd:
-
-kernel/module/kmod.c:__request_module() {
-    ...
-	ret = call_modprobe(module_name, wait ? UMH_WAIT_PROC : UMH_WAIT_EXEC);
-    ...
-}
-
-phy_device_create() therefore returns before the PHY module has loaded and
-registered its phy_driver. The async worker then continues into
-mdiobus_scan()->phy_device_register()->device_add() with no driver bound.
-
-The comment in phy_device_create() explains why this request is
-synchronous:
-
-	 * We don't do normal hotplug because it won't work for MDIO
-	 * -- because it relies on the device staying around for long
-	 * enough for the driver to get loaded. With MDIO, the NIC
-	 * driver will get bored and give up as soon as it finds that
-	 * there's no driver _already_ loaded.
-
-Take the RTL8126A from the commit message. r8169_mdio_register() checks for
-the driver right after devm_mdiobus_register():
-
-	} else if (!tp->phydev->drv) {
-		...
-		return -EUNATCH;
-	}
-
-If modprobe hasn't finished by then, wouldn't rtl_init_one() fail, so that
-the NIC is never probed again? tg3_mdio_init() has a similar
-!phydev->drv check and returns -ENODEV.
-
-Some MACs attach the PHY before modprobe completes. For those,
-phy_attach_direct() falls back to genphy:
-
-	if (!d->driver) {
-		if (phydev->is_c45)
-			d->driver = &genphy_c45_driver.mdiodrv.driver;
-		else
-			d->driver = &genphy_driver.mdiodrv.driver;
-
-		phydev->is_genphy_driven = 1;
-	}
-
-Once genphy is bound, driver_attach() skips this device when the dedicated
-driver registers later. Doesn't that contradict this part of the commit
-message?
-
-    The PHY driver will still bind later, when it registers and the driver
-    core attaches it to the already-created PHY device.
-
-r8169 is partly covered by MODULE_SOFTDEP("pre: realtek"), so realtek is
-usually loaded already on the reporter's board. Other MACs have no such
-protection.
-
-Before this patch, with module.async_probe=1 or a per-module async_probe
-option, the PHY module was loaded correctly and only the warning fired. With
-this change, that case races instead.
-
-Would it be better to keep the module load ordered before the PHY device is
-registered? For example, the probe could be deferred, or the NIC could avoid
-probing from async context. Either would avoid making the request
-fire-and-forget.
-
-> +	else
-> +		ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
-> +				     MDIO_ID_ARGS(phy_id));
-
-[ ... ]
-
--- 
-Sashiko AI review Â· https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124070753.25972-1-18255117159%40163.com
+The pkt_byte_sum selftest can consequently fail after such a drop.
+Changing either set of counters solely to satisfy that equality would
+conflict with its documented semantics.
+> > +	stats->alloc_fail = atomic64_read(&queue->page_alloc_failures) +
+> > +			    atomic64_read(&queue->skb_alloc_failures);
+> > +}
+> 
+> [ ... ]
+> 
+> -- 
+> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
+> 
