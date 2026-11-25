@@ -1,60 +1,74 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795636979;
-	b=SC0T+m5zOoUXpnm1JZO4Vdj4aKXRlY6wF3XJHeVHDF8dEbwspYhrq3H81mVJiwlnZ4X+
-	 C+XdSpg+owmEayeh7p+mKFirHPrfyufolxJgKYdLxhlBKn8cIg+4koE5Yp0JEhvUJ5wBJ
-	 Np6y5SUVdRIOpRkvnthjba7ZGme+n5IJBHl2dZYLMoCwWPcJBnNYvqRWSEzvpL6twvhAs
-	 TkLx2pMLfOvBBA4kfpkkqY2s5VkaJAbYghOrgHlBBqy1C9Fp9MOHJYjaIegOA3HwCNNVC
-	 UN67aFU50ebHSnb/R5dpDd93ny03pXwH/08lWr/w1/WkULr2ZZwO1mVyHypSWdylb/g==
+	b=UiK1tHEUw50KTeVAG8pYv0oHCn2AgjME9SGY+t16ev8WKcMvZb9jh93H+mA5W7Fden1L
+	 6zdjHaHjvKa+Eu55pwgkkGw9SoCx0lXOiDKbfqe5WIOdn3wttZBJHvAxGJdpYmA0YtL4J
+	 8FqRuIVwMcPeL0h1bLjH7mMzwufATfsaIF2+kCIMlIN9TuYH5D9j/CMAMqyrbpgLFkSqy
+	 c8h63QBvu/kj+TCZ6SBSl49vwQTlGIeN03xP+ZPkQkJYkYHHlq7E6E5rEIuMLzrFzvQ7e
+	 AeWdH3nKqkU5gEb/6DjkT1HtQ+hnBLMKkkUvVNIye43yHvolB8WfgIpve1dT6Q96d4g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795636979;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=qIjur6b5aQg0Uj3n7Ry6G4ux8kTyfhzUhutSKontryc=;
-	b=oVP0C7a+RTdwbgJyCyXrHz6QZPfEc3G2PMylCqPCphVYmBsK3H/RXVZuvF/GlDGp60NU
-	 a8eLUwPqHUA810Zs8iQgAKExeeIdV0y/AHzCBFGO6JMcf0OdHPe+1nzFO2gZDJoWq6LZi
-	 T3bJsJllY8VpAxgzQG/W4LviICzjMk74MHZh7TlllT+mpGppaT9haLZBwrRVibgD6Psos
-	 Rg/MUvZJ7q6md2ePkfxJBWZyS5QYjC9VdJv/GH8cPjV3c/AM1ikSH33OnKXMygpkE/OQm
-	 44WhLzUegXY/TcDExFxvejgEpxPJu94vTkyLXxI96zmlr+VbQg/88tBROiyNp6SlMfQ==
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=NV3qax3E8dMyFntuLziYflS0O+a/VnhBgje6LaQOMxM=;
+	b=LiYUhYiZ1lphylD7tO0dhAuc5SLr/jRXMmMCvvbLjr2XodrOPM3DjyRljxmSQmay/Dga
+	 jvo+v9ObQ9reAb35ljCQCfUNQfM1Zpa1A/O7zloiqD2J9CUXqn0NoZZQAWItYp46FyE2O
+	 3zMZ9jOed3eOvhDsvlH8YBMEagyNJiMNqN+AorWAyLVizA5Th4/96G1L2eNghwBOJT7Pe
+	 pw+KRd5vvTUMqgbYJSHodL2NfUTdaRELeMbRg/D8fEmF0+LrNrI1nArXqAHyvHWzYN9XV
+	 RkvpS+odSVwCerPBbbDRdnSXrpVrb6e4ve5FyjRGzwvebtoX2u+awcm21HsXZCMIlEg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DdrpOFlG;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="nySpZ5/M";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E5B3606A33A
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:02:59 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39FE9606A32C;
+	Wed, 25 Nov 2026 20:02:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DdrpOFlG
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 962461F000C0;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nySpZ5/M
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 313FD1F000C4;
 	Wed, 25 Nov 2026 20:02:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795636979;
-	bh=qIjur6b5aQg0Uj3n7Ry6G4ux8kTyfhzUhutSKontryc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DdrpOFlGop5TY4Xo2xhNkfkQRSQVOs5zzqrcly5C1wTVvqSDaXZ9hVe6CmA8fgQt1
-	 fi4wg2JgkQqupDiCAzsLzQzbVxzvNVfCL0FwJrBnJnFLahJW9RTmE0kDXjX26OvNfI
-	 lA1bbU/L0Ex0ob3D0OfQON/Tr+Z5NwTHyWZyHu7cKNnqVnZ0cSGz/Hd2u7KmgEGBu0
-	 MTutRIv0qVRSsvFNUsc63SZpRqOB3IR3dvkgVnaWNv1jsKra7aUKtBG3CJEslznxPl
-	 6Ym45RU6HF726NT+aqNp3PMXnEXSe8V5qacf9XJErg70eNOunXqcvAz4SKSajGNPp4
-	 WIEAi0XQXq5nQ==
-Subject: Re: [PATCH net-next v12 4/4] net/sched: cake: hash before segmenting
- and reject an overlong split
-From: netdev-bot+sashiko@kernel.org
-To: jhs@mojatatu.com
-Cc: netdev@vger.kernel.org, jiri@resnulli.us, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- stephen@networkplumber.org, vinicius.gomes@intel.com, victor@mojatatu.com,
- toke@toke.dk, bjorn@kernel.org, sashiko-bot@kernel.org
-Date: Wed, 25 Nov 2026 20:02:58 +0000
-Message-ID: <179563697816.3135.394553088659517643@kernel.org>
-In-Reply-To: <QDISC-BA27.v12.r0.20261120184210-4@mojatatu.com>
-References: <QDISC-BA27.v12.r0.20261120184210-4@mojatatu.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	s=k20260515; t=1795636978;
+	bh=NV3qax3E8dMyFntuLziYflS0O+a/VnhBgje6LaQOMxM=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=nySpZ5/MW6+gjcbBaeaWrhgIi8D48C1+VVcEGsZagwxO/eo2C0gGTOJnMz+N1CbDq
+	 YPx4iCKqzaih8Sb847jrdY1J7c7xoYyRdY3irUMMAqnvHWsezNgcRtjXKeSuQrVdWP
+	 LRCE4i5lj8HLFTpn8v5EbVl8NN3MJx4ZDjJud5Mr8j0r1JILUx63+84n4LvAw/pFih
+	 o5GZXoRrUmfAs5KdlmhlgIinO67I2viMQSBSRtcCPykfqG9Z5qGZXrWB8p2mNvl0Nw
+	 UT76ALR9rLcaSWyzJ5J+32No4XEAZC/sUX6+qpx2+A+f8VxAc83WpE2O9KDM8fIetf
+	 rI/kh/72JPM6Q==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: netdev-bot+sashiko@kernel.org
+Cc: magnus.karlsson@intel.com, maciej.fijalkowski@intel.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, andrew+netdev@lunn.ch, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ ilias.apalodimas@linaro.org, alexanderduyck@fb.com, saeedm@nvidia.com,
+ tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ michael.chan@broadcom.com, pavan.chebbi@broadcom.com, corbet@lwn.net,
+ shuah@kernel.org, bpf@vger.kernel.org, netdev@vger.kernel.org,
+ stuclar@meta.com, sdf@fomichev.me, horms@kernel.org, martin.lau@linux.dev,
+ almasrymina@google.com, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ rdunlap@infradead.org, kernel-team@meta.com,
+ dimitri.daskalakis1@gmail.com, bobbyeshleman@meta.com,
+ mohsin.bashr@gmail.com, kees@kernel.org, leitao@debian.org,
+ maxime.chevallier@bootlin.com, cuitao@kylinos.cn,
+ vadim.fedorenko@linux.dev, mike.marciniszyn@gmail.com, kuniyu@google.com,
+ jiayuan.chen@linux.dev, mkarsten@uwaterloo.ca, razor@blackwall.org,
+ dw@davidwei.uk, asml.silence@gmail.com, linux-rdma@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next 06/15] xsk: Lend UMEM chunks to the page pools
+ of a queue
+In-Reply-To: <179561569684.3135.6558736307763434214@kernel.org>
+References: <20261124125654.183091-6-bjorn@kernel.org>
+ <179561569684.3135.6558736307763434214@kernel.org>
+Date: Wed, 25 Nov 2026 21:02:55 +0100
+Message-ID: <87pkvsn0gg.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,200 +78,305 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+netdev-bot+sashiko@kernel.org writes:
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+> Thank you for your contribution! Sashiko AI review found 6 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 2 =C2=B7 Medium: 2 =C2=B7 Low: 2
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>
+> - [High] When a DRV_LAYOUT UMEM is shared across two queues of one netdev
+>   whose per-queue DMA devices differ, xsk_sink_bind() gives the second=E2=
+=80=A6
+> - [High] xsk: xsk_sink_take_fill() recycles old-pool chunks instead of
+>   releasing them
+> - [Medium] The 'chunk lent twice' check only works inside one sink, so a
+>   UMEM shared across queues or devices with XDP_SHARED_UMEM gets around=
+=E2=80=A6
+> - [Medium] xsk: xp_assign_dev() blocks standard zero-copy when
+>   MP_XDP_ONLY is active
+> - [Low] A DRV_LAYOUT bind accepts XDP_ZEROCOPY but delivers neither zero-
+>   copy TX nor a zero-copy report.
+> - [Low] xsk_sink_nl_fill() returns 0 and emits no attribute, so a page
+>   pool backed by an AF_XDP sink cannot be identified in page-pool-=E2=80=
+=A6
+>
+> --
+>
+> xsk: Lend UMEM chunks to the page pools of a queue
+>
+> This adds a sink memory provider. With it, the chunks of a UMEM
+> registered with XDP_UMEM_DRV_LAYOUT back the RX page pools of the bound
+> queue, and the device lays out RX buffers in those chunks as it does in
+> pages. FILL entries lend chunks to the kernel, the UMEM is DMA mapped
+> once at bind, and binding requires a held native XDP program.
+>
+>> diff --git a/net/xdp/xsk_buff_pool.c b/net/xdp/xsk_buff_pool.c
+>> index 5ec092f7cb6f7..7ece7d9e39376 100644
+>> --- a/net/xdp/xsk_buff_pool.c
+>> +++ b/net/xdp/xsk_buff_pool.c
+>
+> [ ... ]
+>
+>> @@ -211,6 +215,13 @@ int xp_assign_dev(struct xsk_buff_pool *pool,
+>>  	 */
+>>  	hlist_add_head(&pool->dev_node, &netdev->xsk_pools);
+>>=20=20
+>> +	if (pool->umem->flags & XDP_UMEM_DRV_LAYOUT) {
+>> +		err =3D xsk_sink_bind(pool, netdev, queue_id, flags);
+>> +		if (err)
+>> +			goto err_unbind;
+>> +		return 0;
+>> +	}
+>
+> [Severity: Medium]
+> After xsk_sink_bind() installs the provider on one queue,
+> dev_get_min_mp_channel_count() returns non-zero for the whole device.
+> It checks mp_params.mp_priv on every RX queue and does not skip
+> MP_XDP_ONLY providers. Further down, xp_assign_dev() still uses it to
+> gate classic zero copy:
+>
+> 	if (dev_get_min_mp_channel_count(netdev)) {
+> 		err =3D -EBUSY;
+> 		goto err_unreg_pool;
+> 	}
+>
+> So once a DRV_LAYOUT socket is bound to one queue, a regular AF_XDP
+> socket on another queue of the same device fails with -EBUSY if it
+> asked for XDP_ZEROCOPY. Without that flag it silently falls back to
+> copy mode.
+>
+> Earlier in this series, dev_mp_blocks_xdp() replaced this helper in
+> dev_xdp_install(), netif_xdp_propagate() and the ethtool rings path,
+> because an MP_XDP_ONLY provider does not stop native XDP. Was this
+> caller left out on purpose? If not, would dev_mp_blocks_xdp() be the
+> right test here? A sink on the queue being bound is already caught by
+> the earlier xsk_get_pool_from_qid() check, so the device-wide test
+> only needs to catch providers that block XDP.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Not on purpose, will fix!
 
-- [Medium] The reproducer in the commit message does not reach the new
-  split-sum rejection in cake_enqueue() (net/sched/sch_cake.c).
-- [Medium] The new split-GSO admission check in cake_enqueue() only
-  bounds cake's own backlog against bare U32_MAX.
-- [Low] The patch fixes user-visible bugs in cake_enqueue() but has no
-  Fixes: tag.
+> [Severity: Low]
+> This branch returns success without setting pool->umem->zc, so xsk_bind()
+> ends up with xs->zc =3D false. Should a bind that passes XDP_ZEROCOPY be
+> accepted here?
+>
+> xsk_sink_bind() rejects XDP_COPY but lets XDP_ZEROCOPY through:
+>
+> 	if (flags & XDP_COPY || !dev->queue_mgmt_ops ||
+>
+> TX on such a socket still goes through xsk_generic_xmit(). Also,
+> getsockopt(XDP_OPTIONS) sets XDP_OPTIONS_ZEROCOPY only when xs->zc is
+> true, so it reports copy mode even though RX is zero copy through the
+> page pool.
+>
+> So a bind that asks for forced zero copy succeeds, TX runs in copy mode,
+> and XDP_OPTIONS says the socket is not zero copy. The documentation patch
+> later in the series says these sockets transmit in copy mode. It does not
+> say that XDP_ZEROCOPY is accepted or what XDP_OPTIONS reports. Both become
+> uAPI once registration accepts the flag. Could this be made consistent,
+> either by rejecting XDP_ZEROCOPY or by reporting the RX mode?
 
---
+It should be rejected. Will fix.
 
-net/sched: cake: hash before segmenting and reject an overlong split
+> [ ... ]
+>
+>> diff --git a/net/xdp/xsk_sink.c b/net/xdp/xsk_sink.c
+>> new file mode 100644
+>> index 0000000000000..b78116f25e712
+>> --- /dev/null
+>> +++ b/net/xdp/xsk_sink.c
+>
+> [ ... ]
+>
+>> +static u32 xsk_sink_take_fill(struct xsk_sink *sink, struct page_pool *=
+pp)
+>> +{
+>
+> [ ... ]
+>
+>> +	for (i =3D 0; i < entries; i++) {
+>> +		addr =3D ring->desc[(cons + i) & mask];
+>> +		niov =3D &niovs[array_index_nospec((u32)(addr >> PAGE_SHIFT),
+>> +						 nr)];
+>> +		/* A chunk lent twice would be in two places at once */
+>> +		if (unlikely(addr >=3D (u64)nr << PAGE_SHIFT ||
+>> +			     READ_ONCE(niov->mp_state) =3D=3D XSK_SINK_LENT)) {
+>> +			fq->invalid_descs++;
+>> +			continue;
+>> +		}
+>
+> [Severity: High]
+> Once the next patch hands chunks back to userspace while they stay
+> attached to the page pool that received into them, can this branch
+> starve a new page pool on a queue restart?
+>
+> netdev_rx_queue_reconfig() calls ndo_queue_mem_alloc() and, for most
+> drivers, ndo_queue_start() before ndo_queue_mem_free() destroys the
+> old page pool. When the new pool pp first refills, every chunk that
+> userspace posts back on FILL still has the old pool as owner, and
+> sink->released is still empty.
+>
+> For each such chunk, xsk_sink_take_fill() marks it XSK_SINK_LENT,
+> consumes the FILL entry and calls page_pool_put_unrefed_netmem() on
+> the old pool. For a net_iov, __page_pool_page_can_be_recycled() is
+> always true, so the chunk lands in owner->alloc.cache or owner->ring.
+> page_pool_return_netmem(), and with it xsk_sink_release_netmem(),
+> runs only when that ring is full. The chunk never reaches
+> sink->released.
+>
+> So xsk_sink_take_fill() can consume up to PP_ALLOC_CACHE_SIZE FILL
+> entries and still return 0. xsk_sink_take_released() then finds
+> nothing, and xsk_sink_alloc_netmems() returns 0 and bumps
+> queue_empty_descs even though FILL was not empty. The driver's ring
+> fill in ndo_queue_mem_alloc() or ndo_queue_start() can then fail, or
+> the new queue comes up without buffers.
+>
+> After page_pool_destroy() runs on the old pool, the chunks still held
+> by userspace keep it inflight. Its ring is then scrubbed only from
+> page_pool_release_retry(), once every DEFER_TIME. Until that happens,
+> each refill of the new pool keeps pushing FILL chunks into the ring
+> of a pool that is going away.
+>
+> Should a chunk whose owner is not pp be released to the sink, or moved
+> to pp directly, rather than recycled into the old pool? Once a new
+> pool exists for the queue, does the old pool ever need these chunks
+> back?
 
-This patch splits cake_hash() into a side-effect-free cake_hash_keys() and
-a cake_hash_resolve() that commits the set-associative state only after the
-packet is admitted. It moves split-GSO segmentation ahead of the resolve,
-sums the segment lengths, and drops the whole segment list if the sum
-would wrap the backlog. It also reads flow_mode once with READ_ONCE() and
-sets qdisc drop reasons on the segmentation-failure and overlimit paths.
+Hmm, I'll try to address this.
 
-Link: https://lore.kernel.org/netdev/179231933068.3135.80340792633077986@kernel.org/
-Link: https://lore.kernel.org/netdev/179269577270.3135.16072065138845192450@kernel.org/
+> [Severity: Medium]
+> Does this check still hold when the UMEM is shared with XDP_SHARED_UMEM
+> across queues or devices?
+>
+> xp_assign_dev_shared() now sends DRV_LAYOUT UMEMs into xp_assign_dev()
+> with flags =3D 0. A socket that shares the UMEM on another queue or device
+> gets its own xsk_buff_pool and its own FILL ring. Then
+> xsk_sink_bind()->xsk_sink_create() allocates a separate niov array over
+> the same umem->chunks:
+>
+> 	sink->area.niovs =3D kvcalloc(nr, sizeof(*niov), GFP_KERNEL_ACCOUNT);
+>
+> The mp_state checked here belongs only to this sink, and it is checked
+> under this sink's lock. Suppose userspace posts the same chunk address on
+> both FILL rings. Each sink sees XSK_SINK_USER and lends the chunk. Two RX
+> queues then DMA into the same UMEM page, and both sockets later get that
+> chunk back as free.
+>
+> The commit message says:
+>
+>   A chunk that is lent twice, or lies outside the UMEM, counts as an
+>   invalid FILL entry, so userspace cannot make the device use a chunk
+>   twice.
+>
+> Is this guarantee meant to cover the shared UMEM case? As far as I can
+> tell, the end of the series refuses a second receiving socket only on the
+> same pool. The cross-queue branch of xsk_bind() still creates a second,
+> independent sink.
 
-> Conditions to recreate the bug:
->   ip tuntap add tun0 mode tun
->   ip link set tun0 txqueuelen 32 up
->   ip addr add 10.99.0.1/24 dev tun0
->   # hold the tun fd open without reading so the backlog persists; a stab
->   # overhead of 1048468 accounts each 92-byte packet at 1048560 bytes, so
->   # 4095 queued packets leave 65519 bytes below QDISC_MAX_BACKLOG.  A
->   # 65000-byte UDP_SEGMENT payload with a 1400-byte segment size then has
->   # a segment sum past the remaining headroom, and cake rejects the whole
->   # split.  Setup needs CAP_NET_ADMIN; the payload itself does not.
->   tc qdisc add dev tun0 root handle 1: stab overhead 1048468 \
->       cake split-gso memlimit 512Mb
+Partly. The check is per queue, but the kernel does not need more! Each
+sink has its own net_iovs, so a chunk on two FILL rings leaves the
+kernel state on both sinks consistent. Two devices then write the same
+chunk, which only correupts the application's OWN data. The kernel keeps
+nothing in the UMEM and takes no bounds from it.
 
-[Severity: Medium]
-Does this reproducer actually reach the new split-sum check in
-cake_enqueue()?
+Let's try to fix the commit message and af_xdp.rst to make it clearer.
 
-The 65519 figure assumes QDISC_MAX_BACKLOG is U32_MAX - 1 MiB. However,
-include/net/sch_generic.h defines it as:
+> [ ... ]
+>
+>> +static int xsk_sink_nl_fill(void *mp_priv, struct sk_buff *rsp,
+>> +			    struct netdev_rx_queue *rxq)
+>> +{
+>> +	return 0;
+>> +}
+>
+> [Severity: Low]
+> Should this emit an attribute that identifies the provider?
+> page_pool_nl_fill() calls:
+>
+> 	if (pool->mp_ops && pool->mp_ops->nl_fill(pool->mp_priv, rsp, NULL))
+>
+> That call is the only way a page-pool dump says which memory provider
+> backs a pool. In devmem, mp_dmabuf_devmem_nl_fill() emits
+> NETDEV_A_PAGE_POOL_DMABUF and NETDEV_A_QUEUE_DMABUF, and io_uring zcrx
+> emits its IO_URING nest.
+>
+> With this stub, a page pool backed by UMEM chunks looks like an ordinary
+> pool in page-pool-get dumps. Queue dumps still show NETDEV_A_QUEUE_XSK
+> through rxq->pool, but the page-pool side has nothing. The function is
+> unchanged at the end of the series.
 
-#define QDISC_MAX_BACKLOG	(U32_MAX - 2 * QDISC_PKT_LEN_MAX)
+Maybe add an empty xsk nest?
 
-That is 4292870143.
+> [ ... ]
+>
+>> +int xsk_sink_bind(struct xsk_buff_pool *pool, struct net_device *dev,
+>> +		  u16 queue_id, u16 flags)
+>> +{
+>
+> [ ... ]
+>
+>> +	/* The device of the queue's page pools, which may differ per queue */
+>> +	dma_dev =3D netdev_queue_get_dma_dev(dev, queue_id, NETDEV_QUEUE_TYPE_=
+RX);
+>> +	if (!dma_dev)
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	/* Without a program, drivers would build skbs from the buffers */
+>> +	if (!dev_xdp_drv_prog_held(dev))
+>> +		return -ENOENT;
+>> +
+>> +	err =3D xp_dma_map(pool, dma_dev, XSK_SINK_DMA_ATTR, pool->umem->pgs,
+>> +			 pool->umem->npgs);
+>
+> [Severity: High]
+> Can the second queue end up with IOVAs that were mapped for a different
+> struct device here?
+>
+> Take a DRV_LAYOUT UMEM shared across two queues of one netdev.
+> xp_dma_map() first calls xp_find_dma_map(), which matches only on the
+> netdev:
+>
+> 	if (dma_map->netdev =3D=3D pool->netdev)
+> 		return dma_map;
+>
+> xp_init_dma_info() then copies that map's dma_pages into the pool and
+> sets pool->dev =3D dma_map->dev, which is the first queue's device. Nothi=
+ng
+> compares dma_dev with dma_map->dev.
+>
+> xsk_sink_create() builds every net_iov DMA address from
+> pool->dma_pages[i], but stores sink->dev =3D dma_dev, the second queue's
+> device. So this check in xsk_sink_init() passes:
+>
+> 	if (pp->p.dev !=3D sink->dev || pp->p.offset + pp->p.max_len > PAGE_SIZE)
+>
+> The second queue's page pool then posts IOVAs from the first device's
+> mapping to the second device. xsk_sink_alloc_netmems() also calls
+> dma_sync_single_range_for_device(pp->p.dev, ...) on addresses that
+> pp->p.dev never mapped.
+>
+> mlx5e_queue_get_dma_dev() returns ch->pdev, which differs per channel on
+> multi-PF and socket-direct NICs. The mlx5 patch later in this series lets
+> mlx5 RQs use this provider.
+>
+> If the two functions sit in separate IOMMU domains, won't the second
+> device DMA to IOVAs that are unmapped in its domain, or mapped to
+> something else there?
+>
+> The devmem bind path already rejects queues whose DMA devices differ, for
+> this reason. Should xsk_sink_bind() do the same?
 
-With 4095 packets queued, the backlog is 4095 * 1048560 = 4293853200,
-which is already above QDISC_MAX_BACKLOG. __qdisc_calculate_pkt_len()
-clamps the stab length to QDISC_PKT_LEN_MAX, so qdisc_backlog_overflow()
-takes this branch:
+Probably. I'll try to address it.
 
-	if (likely(len <= QDISC_PKT_LEN_MAX))
-		return backlog > QDISC_MAX_BACKLOG;
+pw-bot: cr
 
-The existing guard therefore drops the GSO skb before cake_hash_keys()
-or skb_gso_segment() run.
-
-With 4094 packets queued, the backlog is 4292804640 and the skb passes
-the guard. slen is 65000 + 47 * 28 = 66316, so backlog + slen is
-4292870956. That is below U32_MAX, so the split is admitted.
-
-With a stab, the guard always leaves at least 2 MiB of headroom.
-Without a stab, slen equals qdisc_pkt_len(), which the guard already
-covers. So the new check can only fire for a segment sum above 2 MiB.
-Could the reproducer describe a case that hits the new rejection?
-
-There are two smaller wording points in the same message. The subject
-says "hash before segmenting", but the parent already called cake_hash()
-before skb_gso_segment(). The actual change is that the resolve now
-waits until the packet is admitted.
-
-This part also seems to describe an earlier revision of this patch, not
-the code being replaced, because the parent never dropped a segment
-list:
-
-  so tagging only the head left the rest with GSO scratch (a
-  headroom-sized value) as their drop reason
-
-> diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-> index 803ead499ae97..24fff15f8f7d8 100644
-> --- a/net/sched/sch_cake.c
-> +++ b/net/sched/sch_cake.c
-
-[ ... ]
-
-> @@ -1788,12 +1815,52 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
->  					 QDISC_DROP_OVERLIMIT);
->  	}
->  
-> -	/* choose flow to insert into */
-> +	/* Select the tin and extract the keys before segmenting:
-> +	 * skb_gso_segment() rewrites encapsulated headers, which
-> +	 * changes the keys.
-> +	 */
->  	b = cake_select_tin(sch, skb);
-> -	idx = cake_hash(b, skb, q->config->flow_mode, flow_override,
-> -			host_override) + 1;
-> +	cake_hash_keys(skb, flow_mode, flow_override, host_override, &keys);
-> +
-> +	if (qdisc_pkt_segs(skb) > 1 &&
-> +	    q->config->rate_flags & CAKE_FLAG_SPLIT_GSO) {
-> +		netdev_features_t features = netif_skb_features(skb);
-> +		struct sk_buff *nskb, *seg;
-> +
-> +		segs = skb_gso_segment(skb, features & ~NETIF_F_GSO_MASK);
-> +		if (IS_ERR_OR_NULL(segs))
-> +			return qdisc_drop_reason(skb, sch, to_free,
-> +						 QDISC_DROP_GENERIC);
-
-[Severity: Low]
-This fixes two existing problems in cake_enqueue(). In the old code,
-the segmentation-failure drop ran after cake_hash() had already
-committed q->tags[], the host indices and the way counters. Also,
-qdisc_drop() reported whatever drop reason was left after
-__skb_gso_segment() wrote SKB_GSO_CB at cb offset 32.
-
-Should the patch carry a Fixes: tag? The drop reason reporting comes
-from commit ff2998f29f390d ("net: sched: introduce qdisc-specific drop
-reason tracing"). The hash ordering goes back to cake's split-GSO
-support.
-
-> +
-> +		/* we never use the original skb after splitting */
-> +		consume_skb(skb);
-> +		skb = NULL;
-> +
-> +		/* The split path accounts the segment sum, not the
-> +		 * stab-adjusted qdisc_pkt_len(), so check that sum
-> +		 * against the same wrap boundary as the enqueue guard.
-> +		 */
-> +		skb_list_walk_safe(segs, seg, nskb)
-> +			slen += seg->len;
-> +
-> +		if (unlikely((u64)sch->qstats.backlog + slen > U32_MAX)) {
-
-[Severity: Medium]
-This check only bounds cake's own backlog. What happens to the ancestor
-qdiscs?
-
-Once the split is admitted, this later call passes a negative byte
-delta:
-
-		qdisc_tree_reduce_backlog(sch, 1-numsegs, len-slen);
-
-So each ancestor's backlog grows by slen - len, on top of the len it
-already counted at its own enqueue.
-
-With a root stab, __qdisc_calculate_pkt_len() clamps len to
-QDISC_PKT_LEN_MAX. Each ancestor's qdisc_backlog_overflow() therefore
-only tested backlog > QDISC_MAX_BACKLOG with the clamped length, never
-with the segment sum.
-
-Suppose cake sits under a classful parent (HTB, DRR, ...) whose other
-children hold a backlog near QDISC_MAX_BACKLOG, while cake's own
-backlog is small. Can a segment sum above about 2 MiB then wrap the
-parent's u32 sch->qstats.backlog?
-
-slen above 2 MiB is also the only case where the new check can fire.
-Without a stab, slen equals qdisc_pkt_len() and the existing guard
-already covers it. So either the check is unreachable, or the ancestor
-wrap is reachable on exactly the inputs it is meant to reject.
-
-The previous patch in the series ("net/sched: cap the accounted backlog
-before it can wrap") defers parent aggregate growth only for tbf and
-netem. It names cake's split-GSO branch as the case handled here.
-
-The comment's "same wrap boundary as the enqueue guard" is U32_MAX. The
-enqueue guard itself keeps a 1-2 MiB reserve below that and does not
-cover the ancestors.
-
-It is not proven that a GSO skb with a segment sum above 2 MiB can be
-built. The DODGY path caps it at 1 MiB in qdisc_pkt_len_segs_init().
-Non-DODGY GRO frag_list aggregates, or BIG TCP with a very small MSS,
-might still produce one.
-
-> +			qdisc_qstats_overlimit(sch);
-> +			/* __skb_gso_segment() puts SKB_GSO_CB at cb
-> +			 * offset 32, over tc_skb_cb.drop_reason; every
-> +			 * segment inherits it. Tag each one with the
-> +			 * qdisc drop reason.
-> +			 */
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/QDISC-BA27.v12.r0.20261120184210%40mojatatu.com
