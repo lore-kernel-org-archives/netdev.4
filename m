@@ -1,67 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.146.106.33
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627964;
-	b=GAkKtQAG77xQFsxq8wdnBqWXd4/bhVpTBVOxhztcjTNNFrkdI3iteuKl6gWDeNcaIjNh
-	 kX2mB6RwaOH8QpcujvbKiv4AEu+9GRSfxCMsedZo95BPpcqSt85/8BDSoKm0LN0IEMy6q
-	 +/ebNSrqqQF/pQp/jvb5TToW3jGBaN5P9vsRBxEseWqfQB9I6zXlBBlByr82MVtwhm0hv
-	 JpCxYno55o8tLWzLFjxKgS14sg3eyRP0+EhG42LDD30yjGWSpsiWZ9Nb7q7d+rmE7fkdp
-	 fEZxzMGYLNEKmVyVggYIPHbRFlmW+nQusLuevNM/QcvHtemqbdUxZPX0Piy77yXukWg==
+	t=1795628072;
+	b=A+1OQz78y2a5vzSiIsav7jIltkCZkgKYk6OSrJJeKJ299kifZIQX7PQLfQFoKsaHkLVd
+	 HNYycolAR3RpVK8AALGJlk9GfyXpCmzLeHN0CaRjloZqV+V6HbLjFgg9p66yg2jxQ+495
+	 +y17eu2DxrnQSCfLWCS2SGqPzjtdYVu06dNOFP8s66flKTsAsUIK+jK+PFNSvQm7NelLF
+	 SN9chRi4O5qKoCKxo8WSOjQWzEpg5n+1QsJtM6DnAyd3bAHuCGMkQyArGydTaCDspnFq3
+	 cXlk2IOWYNn/Vcpbo2iBhDp8m9cc5zg1TUX39pLXbB1kh1HV0/YFHAArvWUyZdYVpHQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627964;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795628072;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
 	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=WucTkONZzaXCejjf9omo6YHUpNXk7nirNn+2T8Pb3AY=;
-	b=yqSBzE5T1SXLbY4VDqkRaz+eCk221cLD/4jV0Sf6oS/RP/nRyl4lLG68lpBZUfqngwQJ
-	 ISUKhAXo0WYnswtzVk2kxk8ZJma+Tn0V1PPJqv7XyUUK7oY2JzxTCnwqkSIUt8dXzMJ/H
-	 rol5TjdCr7FnEpVk6mWNAJpQ1Ux/IJ09KxntVd6n4zZOBnhIcjEvWo9eytTAr8ZL6oegz
-	 4iYfMAPFZoIdabs42H+lpvY4q/VJGk3TvpzwgP3sVU6kXWCwDxBh7k2GhvR5v+5+ebe8z
-	 dj2KlmgAbFD/mlPGdMYLETV82Jh5T1I8HRzmBFajAQN79XSdhQenF/eKPx0Iu1gf3/A==
+	 Content-Type:Content-Transfer-Encoding;
+	bh=XGkTRreQRecpokK/FS2LMe6w1H+IZZD4gbNzNgzQEZI=;
+	b=Wmsd7hWzxgrM93T5KnmZGVQ1Pv6CwtTWDJbealVChchtvXiCg5Y27TfCYEDJGDnZ0w6x
+	 GiUPjpjHKaFPIMQgD4L/9AoqHn59OA4GKzHS+PInRaxJt5SXBX1Nm36D+8FRyiiBjNkQP
+	 EghWCf2h/eHuf2qYI5uuHFPm6e8v6A2iqnRc8xFtmwDlIzHhNHxPah+pwSWHaVWf14tqb
+	 jfBlRGqWIx9F5o+fMAhWg9xDLOp1cT3rMNKEDbsAMeJe3ux8+E1uRk7Y8CqmFR/P0PvYE
+	 k+1+iATaaZut892p0byEiSpkEy3CfgmamxGl/X8ixarNm8reOXExCJvFef101uauHrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KuzECQVJ;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=dressler.pro;
+	spf=pass smtp.mailfrom=dressler.pro;
+	dkim=pass header.d=dressler.pro header.i=@dressler.pro header.a=rsa-sha256 header.s=uddkim-202310 header.b=KNZfn5Xi;
+	arc=none smtp.remote-ip=62.146.106.33
+Received: from smtp02-ext3.udag.de (smtp02-ext3.udag.de [62.146.106.33])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6BE3F606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:32:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6BE3F606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39B51606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:34:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39B51606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dressler.pro
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dressler.pro
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KuzECQVJ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795627962;
+	dkim=pass (2048-bit key, unprotected) header.d=dressler.pro header.i=@dressler.pro header.a=rsa-sha256 header.s=uddkim-202310 header.b=KNZfn5Xi
+Received: from [192.168.0.40] (unknown [37.228.226.218])
+	by smtp02-ext3.udag.de (Postfix) with ESMTPA id DE2EAE0B10;
+	Wed, 25 Nov 2026 18:34:23 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dressler.pro;
+	s=uddkim-202310; t=1795628064;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=WucTkONZzaXCejjf9omo6YHUpNXk7nirNn+2T8Pb3AY=;
-	b=KuzECQVJ/6v2d6ioB3X7Jne0Bu6fdMASDgZmLDk2TBjoOUjOsp613M5gTVVD3oZ3X42u2e
-	7trLFuJOfL4v5qxQ4O7wNlntKGngsUnlqbHEpQhXIFgFiDqizTQA0ZUCUPfmxF5fe1VCpF
-	+WDI9f3+CBwUCSB3N6OGKyw/+DS/olM=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-364-OGthewZdO1SkU1XM02l6IQ-1; Wed,
- 25 Nov 2026 17:32:37 +0000
-X-MC-Unique: OGthewZdO1SkU1XM02l6IQ-1
-X-Mimecast-MFC-AGG-ID: OGthewZdO1SkU1XM02l6IQ_1795627956
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5AFA21800546;
-	Wed, 25 Nov 2026 17:32:35 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 5396318004FF;
-	Wed, 25 Nov 2026 17:32:32 +0000 (UTC)
-Message-ID: <b885f708-96a5-430c-b3f1-e55ef0350c1c@redhat.com>
-Date: Wed, 25 Nov 2026 18:32:30 +0100
+	bh=XGkTRreQRecpokK/FS2LMe6w1H+IZZD4gbNzNgzQEZI=;
+	b=KNZfn5XiKTo75ErEO3k2cOalXWkuU82YQU3/TONhIzKHm5hT47Fcg61IatIfHMRuTP/w8K
+	Y48pG2OcjTv9pxR+j0BhNg/2jG1U+ZrQxbg7waOz4slvPBdNOWRRQ+KmO9fzH2onPYB8Iq
+	WSfDunQmZ+CT2vkuc9T2Oi3rFfTnWz7kzzwTKbfeMel9DpkKyxkv5ECR2kTvOnBMErMd4s
+	8autt7r+4n6dBeyPuD8OhDODtKlHKNlZg/nERvDCG0bt63lL2zFzurwZTDE9xcHMs2QmPL
+	oYWJkL6/zGDlV8pcGtyS691yjxlq8El+0rLdhPqkKjeQfYvBX6X8/6KYwzmefg==
+Authentication-Results: smtp02-ext3.udag.de;
+	auth=pass smtp.auth=dressler-pro-0001 smtp.mailfrom=frank@dressler.pro
+Message-ID: <976b81bb-cee8-4c35-9bf3-0cf5d2cec95a@dressler.pro>
+Date: Wed, 25 Nov 2026 17:34:23 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -72,47 +62,54 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] dpll: send the device delete notification on the last
- unregistration
-To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- Jiri Pirko <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>,
- Milena Olech <milena.olech@intel.com>,
- Michal Michalik <michal.michalik@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>
-References: <20261125170234.294969-1-ivecera@redhat.com>
- <179562646113.3294.4642015829884997946@kernel.org>
+Subject: Re: [PATCH iproute2] ss: show the process column for -T, -Z, and -z
+To: Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org
+References: <20261121225031.106742-1-frank@dressler.pro>
+ <20261124134134.6a6ac43e@phoenix.local>
 Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <179562646113.3294.4642015829884997946@kernel.org>
+From: Frank Dressler <frank@dressler.pro>
+In-Reply-To: <20261124134134.6a6ac43e@phoenix.local>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 
-On 11/25/26 18:07, netdev-bot+sinfo@kernel.org wrote:
-> Hi!
+On 11/24/26 21:41, Stephen Hemminger wrote:
+> On Sat, 21 Nov 2026 22:50:31 +0000
+> Frank Dressler <frank@dressler.pro> wrote:
 > 
-> This is an automated message. This series looks like a fix, but its
-> commit messages seem to be missing some information:
+>> The process column was disabled unless -p was passed. However,
+>> ss with -T, -Z, and -z still collects the information, and the
+>> man page requires them to show it without -p.
+>>
+>> Fixes: 84c45b8acb30 ("Reapply "ss: prevent "Process" column from being printed unless requested"")
+>> Signed-off-by: Frank Dressler <frank@dressler.pro>
 > 
->   - How the issue was discovered, e.g. hit in production, hit during
->     development, syzbot report, manual code inspection, LLM or static
->     analysis tool scan.
-> 
->   - Whether the issue was actually triggered, or is only theoretical
->     (e.g. found by LLM and not proven at runtime). If it was triggered
->     please include the symptoms, like the stack trace or kernel messages.
-> 
-> Please do not repost the series just to address the above. Instead,
-> reply to this email with the missing information, so that reviewers
-> can take it into account.
-> 
-> *IMPORTANT*: If you do repost (for other reasons) - please include
-> the relevant info in the cover letter or commit messages.
+> The man page is not the source of truth here. Seems to me that adding another
+> column without an arg is going to upset some people.
 
-Sorry, this was discovered during manual code inspection.
+This patch would just ensure that -T alone behaves like -Tp which it did 
+until 84c45b8acb/1607bf531f (Dec 2023). It is already using that column, 
+it's just not displayed without -p. Because of the man page, people 
+might never try `-Tp`. (same for -z and -Z)
 
-Thanks,
-Ivan
+Before 84c45b8acb/1607bf531f (2023):
+(a) `ss`     displayed an empty Process column (wasting space)
+(b) `ss -p`  displayed process info in the Process column
+(c) `ss -T`  displayed thread info in the Process column
+(d) `ss -pT` same as `ss -T`
 
+The problem was (a) that the Process column was shown even when unused.
+
+After:
+(A) `ss`     hides Process column (saves space)
+(B) `ss -p`  displays process info in the Process column
+(C) `ss -T`  does not display threads (as Process column is hidden)
+(D) `ss -pT` displays thread info in the Process column
+
+I think that the author of 1607bf531f only wanted to have (a)->(A) but 
+accidentally also caused (c)->(C).
+
+Options I see:
+(1) Show the column even without -p. (this patch)
+(2) Fix the man page and require -p.
+(3) Use a separate place to display this info, similar to -i. (COL_EXT)
