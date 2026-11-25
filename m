@@ -1,78 +1,79 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795599303;
-	b=k9pE1JnP3NjyEDLdQFbvsNCestUYYKpEbnJdUvs+jnyLcwnWYgIn8ToamZMB1YZcPB50
-	 XvFnFEUSEo7uaOHwkaWLgDmAZ4SlhcRK548//8x1ehy6pmQXlgkQopsDlAmhjR31cnq7I
-	 FTWvFjlgMxqy75EcSEqvXJw0BzoEnUt6njgPUIsOWP3XSvh+YaSESwzdId1XvO+LS1svn
-	 lQtURXEq8Y8gPQ6YFIIr0VlhIHWGo6wjvd7v8Qp5+lbfsaRzUPuRfpt3s0xJX6lawoqt8
-	 GMxIUWc7W8dJpDFkRCkL4mGpLicTvUbrB2EcLZSF1tnLSKezxtyxvr49tBJ1NdnePVw==
+	t=1795599299;
+	b=ju5IOjnKzEe2byUAmE1uczFhC1cgjNAUU4R7uDYB6tmm09bbMph5esIQHnLFBMcyTuhR
+	 KxJEYVTYLAVpryUNOP/WXJ7ay75z3t9AgcjFuD5C8mxtFkbjF45UuHwhfljbz12O/vh9e
+	 r0YnsCHSF1SebpQklXp092zHAyuBlOaVLKBGfREjKYDj4yfIRSax719PZaZ1JxYzl+kfz
+	 0XpvW88cQ/HIpdjts5zR88NCIfOjrH0OZOZJXEFnoZIv14Va7e55O9LZz0qq08Leje0UI
+	 qsz9oFOmYSTFFYYLk1QF1cKX9KLwBMnWzqvTaDLbEU1g4WynV0GJ/KsvRGbWyAe1Tag==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599303;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599299;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kSlbM9hsfG7J4LPZAfgyWbr+SMYm5xmP8NU7l4J/3PU=;
-	b=jN8xvOw5vN9a95lMU0exQTCv1rrlWNbeu8IjdBwWmDHrf2ou2tTeIowws3YVs7RpzZak
-	 oeDYv9c5o2/hL3FU3DN8rhns/a6QI8tM7gAy+xhAFQI2GbCdUy43quNd+2FUx4aGKCg8Y
-	 q7dCzhNZz6HKF9toANXm5uV9OvoJ+vd0fBG/e195cL89qIWAg7Ahk8hdlcPCaF+moT+y+
-	 B94OG7R9Xo4Ub+1hQmvFNohaST9KiLGuN8JUUw5iF4R7JfuLigZL9+r9O2V9WGagj/jhr
-	 ZokWGPBYqzlXRi9/Hesodz1BJEIwIA52z57pGMMZ9utsEtftfP7MLNRpBQvqyhk7F7g==
+	bh=OizX0GEGMtRj2zTT93NEvb3rPCNKl/7VelBBlD1SYwU=;
+	b=Use87t//Gp2oWQyniRBNcUhH/lbZK877Xi5xbkyy8mnvAyxSjSw4U/cjt4BlXO0m8sid
+	 WtsULj0nY+KzWyY2rtbpcMmjxXU5l+iqDG0QH4VZXr7IK1Xcymzxc0bPu+NcFYvnfhLX2
+	 rDBaU21btUEl0UUTS0fmnuWc+fAW8gcX7WTDaSMs9CSjW08wxYr5hecGJlx4vg/HuDLtr
+	 grZOWVbyZg5HvwUL96wQjzFq6X7m2qUAzXw6Pr/CCl6YlcH4F3EIdShut4+HXFo1dve2N
+	 YdwoBs6ZIPzhCqFEbzk79QrQ+Hs45pnul0V1M6GYK20zXY2xAI8oFYjx+EnlnhOigiw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDJbb02j;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yoj3lmM9;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD2AC60A6F44;
-	Wed, 25 Nov 2026 09:35:03 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 027C760A2613;
+	Wed, 25 Nov 2026 09:34:59 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XDJbb02j
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Yoj3lmM9
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795599303;
-	b=wdG1gNVF4jUfprOl6H9FWDPxexjU4eoBKPWq0H61WFDImmxQzl4xOu2PhesKKdpJX1hp
-	 xRraoS+zSZyQdP2+iped7ooXX+KgUVO2k8hGKBZRTeA2cZDSiRhTk+69QTXAMQB97fSED
-	 zPvfHZZ4+S2B6XGfMMOvkDLPEpTgU944zzD0MYZh7sXQnlLUki9LqhEtaI/FRIjbwRuGN
-	 rNO2kFcUyIQ9l2YGTfDzyAK0WctH4Cr14YCPHFQcA3j7K3uSSDC/KF547Wh7J7pZLGK7/
-	 FYPqAW12DZyFSq3Mb1+AX4EZ1GiWpWOaGKM3Kzy6WMWhRGW5z9eTTIU4ce+Gn5tCMXA==
+	t=1795599298;
+	b=OkK9Tix9ovUFL0vOht156TFa1kDSucyMfyj8XedGIfzImY1/lEiPQCQ1c+Azdia8u4Xm
+	 aS5A/tK8jVwfnoG46dumcHv8wxfc5Rj9HLjIQJ/CEXLqyfdSwavmBeKoZmgoiyOpUsjmw
+	 RhyQLi+n+qVJpWw+jL6FSl7NNRX5beoKdOvAu5Gzu5lZgBX1qAATK+jq5SB+aJjA898on
+	 EmMYAJkZhicowY1+Vk8SAo+qrwHS9d8lmZcs6Iuw+p+SochodPt+gIB975VsM+Q4PQOAR
+	 +6oQmmTFPY7wTmZmNIbcf5MtOeIvrgmFkWHuhk0N3wZjzEIPMiA6ZMntfMJV9owAA8w==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795599303;
+	c=relaxed/relaxed; t=1795599298;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
 	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
 	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=kSlbM9hsfG7J4LPZAfgyWbr+SMYm5xmP8NU7l4J/3PU=;
-	b=YnTTzJrYJBHg37HAg5PjQS5VqeUMcuOOzXh8W5DvuV+KfROvCwwJNQKuLx7QXQnQfpxa
-	 LNFAdm1RgcuujH5CD5Ve+nUTSuvBh141D/ltqgY0WYgIGTjzErlyCenKLTj07L2fYFVZb
-	 cr4acztojjZUvbgfw0JmP9GJxf3JvXDhTRJEOV3Nubh9pnaV4U1YkdFnYzdPw/JK83/ds
-	 inaqTnQbE1N0Hrnt/2XA4FVN1yRMvGDQFPXB4uA4taAJxIe/RH/tbvm7BpJvc49wnKRVV
-	 eey04UlzXXAeQHn//5F7WphuwDj8VEl/v/BVs6ewLXSb9TQEHIX1ZjEP2WeMAY/TMVA==
+	bh=OizX0GEGMtRj2zTT93NEvb3rPCNKl/7VelBBlD1SYwU=;
+	b=hcPEPbFw1jV3AkVoOfgOG5DGCUpZ15biaIWzygkRTs8rmnNtKexRb/Fb37gJOhDSPJLS
+	 SC9d2bZM2vuoGgbwMocH04aa+nOmL2X2GtSaOOWKpZQGlv6DRzCBZ9051aKKpYPG5RGr5
+	 E3WOIEM7kRy3rgrcO+U5QUzTrQoh7HKJyoLFkV8SVIqKfFqFXpB5DFXRgzeoDCeX4rWns
+	 bGnJgUCXQwMTNf4SQCCwaV8cthpClEydE4fFtk+rUsqDkJGhYa/rMVNeEOq8FtjighOBF
+	 ZxAV8TIQxvLsfrH8GL/WNav2mFT62PkgS8LoJhaSL+iGwm5BBTO+1XLWMynU0LBMaIw==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2C9241F01564;
-	Wed, 25 Nov 2026 09:34:53 +0000 (UTC)
+	by smtp.kernel.org (Postfix) with ESMTPS id 3A7551F000EC;
+	Wed, 25 Nov 2026 09:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795599303;
-	bh=kSlbM9hsfG7J4LPZAfgyWbr+SMYm5xmP8NU7l4J/3PU=;
+	s=k20260515; t=1795599298;
+	bh=OizX0GEGMtRj2zTT93NEvb3rPCNKl/7VelBBlD1SYwU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=XDJbb02jxOyaNYEKawP2/xDpSGGnuZPbH4LcTRPNOpcWPdeJEW1hbVAOVMQdikBoR
-	 gDQRc6rG192S14LEBbukhOdZGF0HUqkUjUDPvj6CBDaCquvi2ehxcac+AKZcr+JiZI
-	 Lq17AytwVQxZCFk776NGz+euL5b4S5ZejR3eEwturwCJaNBxvVRzYelWleEkHr8DSp
-	 Zs5wnfYp0vRsVxJqul3vpXfU49pFfWTfAoZX3ChOCTyaKtNUPIQhBQC8SXOTcW9PgO
-	 6QXXhkA4e5s/ZtJEggI8/QnGuZOQhS1rLA3M/ePrlcRWPEXcScOYNUDEE/UpXgYOlG
-	 KJVQ50g9meIyQ==
+	b=Yoj3lmM9lcF7WN+6xOpKoE4qN3JZa2mFI/S6OuaHPPnwKCIWUEoV6kEbo+m5EvHzE
+	 7KECvUSjLLuTT/g0t/m5jh1lHqoAgu9jyz3bkuIHzDAIhfXdhVy6yrIpLE87MuZhQX
+	 TVASuT8PT0OAEHGoWJb55nhSJ7TfUx+Zxn3dIiRB8BqWsOZZXxCSfCCoMkeAyp2fwY
+	 x2XuniuRyXwUf3hQltQ8kvSHMiQtJ6xA5OSurP+ies+1Mk0NYAt4qOehMpYYmKk9jV
+	 zdwAnMbOe7oIkV9gRDkwVGUEdMN4fBk4GRYLf8jgyEXovf5lFD4llO4o1LZBO57ncE
+	 LhHa42on8pViQ==
 Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 0EC584CE26;
-	Wed, 25 Nov 2026 09:34:38 +0000 (UTC)
+	by lkml.kernel.org (Postfix) with ESMTP id 24E864CE0A;
+	Wed, 25 Nov 2026 09:34:37 +0000 (UTC)
 From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
-Date: Wed, 25 Nov 2026 10:33:56 +0100
-Subject: [PATCH RFC v4 14/15] arm64: dts: s32g: Add PCIe controller nodes
+Date: Wed, 25 Nov 2026 10:33:49 +0100
+Subject: [PATCH RFC v4 07/15] net: pcs: xpcs: wait for SGMII AN to complete
+ in-band
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,7 +84,7 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-s32g_serdes-v4-14-3bfe0589be8d@oss.nxp.com>
+Message-Id: <20261125-s32g_serdes-v4-7-3bfe0589be8d@oss.nxp.com>
 References: <20261125-s32g_serdes-v4-0-3bfe0589be8d@oss.nxp.com>
 In-Reply-To: <20261125-s32g_serdes-v4-0-3bfe0589be8d@oss.nxp.com>
 To: Vincent Guittot <vincent.guittot@linaro.org>, 
@@ -118,11 +119,11 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org,
  linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
  "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795599274; l=8174;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795599274; l=2657;
  i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
- bh=4hEy+CFkkzDf8s4SiBEzs7e2GrzS7v0Nc6GdSnPh+L8=;
- b=V4wC68x4C2n9U3RVLjh/krysblPQcprKZ81C/Qc6SVpZM33LH67QzUIGKMqL5qrY/TWFx+pRQ
- Zos3EQ5XTpmC9/QJhcLHWGwI8ulnX4yumEIrU7CsFWjzwGXGTIkHE2O
+ bh=/xyLv2QCrquyhEtexeBz8mg+SBUqNG1P5gZP4XIM2r4=;
+ b=erl2TTTSecbJtEkEGUMEMricIBexirLTsD7OwLnWEjO8pXSKjC8hxqv0KmBe/qhRnG4Ip/J7k
+ DsP0e/gxl52Acql2yks2XJ/rpswNxCSV2gIa1tzkf6Pa5k+FLFiszGP
 X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
  pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
 X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
@@ -133,221 +134,79 @@ Content-Transfer-Encoding: 7bit
 
 From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
 
-Add the two PCIe controllers of S32G2 and S32G3, disabled. PCIe_0 pairs
-with SerDes_0 and PCIe_1 with SerDes_1. A board device tree enables a
-controller and references the lanes of the matching SerDes from its
-root port, one phys entry per lane. The nodes of both SoCs differ only
-in the compatible.
+With in-band SGMII, the S32G XPCS keeps the previous SGMII link word in
+VR_MII_AN_INTR_STS until the next negotiation completes, so phylink can
+latch a stale speed after the link partner changes speed.
 
-The configuration space (0x5f_ffffe000 and 0x4f_ffffe000) lies above
-the 32-bit window mapped by soc@0, so the controllers sit at the device
-tree root.
-
-The root ports are labelled (pcie0_rp, pcie1_rp), so that boards and
-overlays can extend them by label.
-
-Add '#address-cells = <0>' to the GIC nodes: the PCIe interrupt-map
-entries name the GIC as their interrupt parent, and dtc warns without
-it.
+Add DW_XPCS_QUIRK_SGMII_WAIT_AN: with in-band negotiation enabled,
+report the link down until BMSR reports AN complete. Set it for S32G
+only.
 
 Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- arch/arm64/boot/dts/freescale/s32g2.dtsi | 81 ++++++++++++++++++++++++++++++++
- arch/arm64/boot/dts/freescale/s32g3.dtsi | 81 ++++++++++++++++++++++++++++++++
- 2 files changed, 162 insertions(+)
+ drivers/net/pcs/pcs-xpcs.c | 21 +++++++++++++++++++--
+ 1 file changed, 19 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/s32g2.dtsi b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-index 0b070f7b5f22..1b6affb15d03 100644
---- a/arch/arm64/boot/dts/freescale/s32g2.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g2.dtsi
-@@ -916,7 +916,88 @@ gic: interrupt-controller@50800000 {
- 			      <0x50420000 0x2000>;
- 			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_HIGH>;
- 			interrupt-controller;
-+			#address-cells = <0>;
- 			#interrupt-cells = <3>;
- 		};
- 	};
+diff --git a/drivers/net/pcs/pcs-xpcs.c b/drivers/net/pcs/pcs-xpcs.c
+index 71e5882f4b0b..65597c2d7a89 100644
+--- a/drivers/net/pcs/pcs-xpcs.c
++++ b/drivers/net/pcs/pcs-xpcs.c
+@@ -166,6 +166,11 @@ struct dw_xpcs_compat {
+ #define DW_XPCS_QUIRK_NO_SOFT_RESET	BIT(0)
+ /* VR_MII_EEE_MCTRL0/1 are not implemented */
+ #define DW_XPCS_QUIRK_NO_EEE		BIT(1)
++/*
++ * With in-band SGMII, VR_MII_AN_INTR_STS keeps the previous SGMII word until
++ * the next negotiation completes; only trust it once BMSR reports AN complete
++ */
++#define DW_XPCS_QUIRK_SGMII_WAIT_AN	BIT(2)
+ 
+ struct dw_xpcs_desc {
+ 	u32 id;
+@@ -1081,6 +1086,7 @@ static int xpcs_get_state_c73(struct dw_xpcs *xpcs,
+ }
+ 
+ static int xpcs_get_state_c37_sgmii(struct dw_xpcs *xpcs,
++				    unsigned int neg_mode,
+ 				    struct phylink_link_state *state)
+ {
+ 	int ret;
+@@ -1092,6 +1098,16 @@ static int xpcs_get_state_c37_sgmii(struct dw_xpcs *xpcs,
+ 	state->duplex = DUPLEX_UNKNOWN;
+ 	state->pause = 0;
+ 
++	if (xpcs->desc->quirks & DW_XPCS_QUIRK_SGMII_WAIT_AN &&
++	    neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED) {
++		ret = xpcs_read(xpcs, MDIO_MMD_VEND2, MII_BMSR);
++		if (ret < 0)
++			return ret;
 +
-+	/*
-+	 * The PCIe config space (0x5f_ffffe000 / 0x4f_ffffe000) lies above the
-+	 * 32-bit window mapped by soc@0, so the controllers are not under it.
-+	 */
-+	pcie0: pcie@40400000 {
-+		compatible = "nxp,s32g2-pcie";
-+		reg = <0x00 0x40400000 0x0 0x00001000>,	/* dbi */
-+		      <0x00 0x40420000 0x0 0x00001000>,	/* dbi2 */
-+		      <0x00 0x40460000 0x0 0x00001000>,	/* atu */
-+		      <0x00 0x40470000 0x0 0x00001000>,	/* dma */
-+		      <0x00 0x40481000 0x0 0x000000f8>,	/* ctrl */
-+		      <0x5f 0xffffe000 0x0 0x00002000>;	/* config */
-+		reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
-+		dma-coherent;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		ranges = <0x01000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
-+			 <0x02000000 0x0 0x00000000 0x58 0x00000000 0x0 0x80000000>,
-+			 <0x43000000 0x1 0x00000000 0x59 0x00000000 0x6 0xfffe0000>;
-+		bus-range = <0x0 0xff>;
-+		linux,pci-domain = <0>;
-+		interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "msi", "dma";
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 0x7>;
-+		interrupt-map = <0 0 0 1 &gic GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 2 &gic GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 3 &gic GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 4 &gic GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-+		status = "disabled";
++		if (!(ret & BMSR_ANEGCOMPLETE))
++			return 0;
++	}
 +
-+		pcie0_rp: pcie@0 {
-+			reg = <0x0 0x0 0x0 0x0 0x0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+			device_type = "pci";
-+		};
-+	};
-+
-+	pcie1: pcie@44100000 {
-+		compatible = "nxp,s32g2-pcie";
-+		reg = <0x00 0x44100000 0x0 0x00001000>,	/* dbi */
-+		      <0x00 0x44120000 0x0 0x00001000>,	/* dbi2 */
-+		      <0x00 0x44160000 0x0 0x00001000>,	/* atu */
-+		      <0x00 0x44170000 0x0 0x00001000>,	/* dma */
-+		      <0x00 0x44181000 0x0 0x000000f8>,	/* ctrl */
-+		      <0x4f 0xffffe000 0x0 0x00002000>;	/* config */
-+		reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
-+		dma-coherent;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		ranges = <0x01000000 0x0 0x00000000 0x4f 0xfffe0000 0x0 0x00010000>,
-+			 <0x02000000 0x0 0x00000000 0x48 0x00000000 0x0 0x80000000>,
-+			 <0x43000000 0x1 0x00000000 0x49 0x00000000 0x6 0xfffe0000>;
-+		bus-range = <0x0 0xff>;
-+		linux,pci-domain = <1>;
-+		interrupts = <GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "msi", "dma";
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 0x7>;
-+		interrupt-map = <0 0 0 1 &gic GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 2 &gic GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 3 &gic GIC_SPI 221 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 4 &gic GIC_SPI 222 IRQ_TYPE_LEVEL_HIGH>;
-+		status = "disabled";
-+
-+		pcie1_rp: pcie@0 {
-+			reg = <0x0 0x0 0x0 0x0 0x0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+			device_type = "pci";
-+		};
-+	};
+ 	/* For C37 SGMII mode, we check DW_VR_MII_AN_INTR_STS for link
+ 	 * status, speed and duplex.
+ 	 */
+@@ -1218,7 +1234,7 @@ static void xpcs_get_state(struct phylink_pcs *pcs, unsigned int neg_mode,
+ 				"xpcs_get_state_c73", ERR_PTR(ret));
+ 		break;
+ 	case DW_AN_C37_SGMII:
+-		ret = xpcs_get_state_c37_sgmii(xpcs, state);
++		ret = xpcs_get_state_c37_sgmii(xpcs, neg_mode, state);
+ 		if (ret)
+ 			dev_err(&xpcs->mdiodev->dev, "%s returned %pe\n",
+ 				"xpcs_get_state_c37_sgmii", ERR_PTR(ret));
+@@ -1535,7 +1551,8 @@ static const struct dw_xpcs_desc xpcs_desc_list[] = {
+ 		.mask = DW_XPCS_ID_MASK,
+ 		.pma = NXP_S32G_XPCS_PMA_ID,
+ 		.compat = nxp_s32g_xpcs_compat,
+-		.quirks = DW_XPCS_QUIRK_NO_SOFT_RESET | DW_XPCS_QUIRK_NO_EEE,
++		.quirks = DW_XPCS_QUIRK_NO_SOFT_RESET | DW_XPCS_QUIRK_NO_EEE |
++			  DW_XPCS_QUIRK_SGMII_WAIT_AN,
+ 	},
  };
-diff --git a/arch/arm64/boot/dts/freescale/s32g3.dtsi b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-index 0d03daa881bf..9eed2428732a 100644
---- a/arch/arm64/boot/dts/freescale/s32g3.dtsi
-+++ b/arch/arm64/boot/dts/freescale/s32g3.dtsi
-@@ -1056,6 +1056,7 @@ serdes1: serdes@44180000 {
  
- 		gic: interrupt-controller@50800000 {
- 			compatible = "arm,gic-v3";
-+			#address-cells = <0>;
- 			#interrupt-cells = <3>;
- 			interrupt-controller;
- 			reg = <0x50800000 0x10000>,
-@@ -1067,6 +1068,86 @@ gic: interrupt-controller@50800000 {
- 		};
- 	};
- 
-+	/*
-+	 * The PCIe config space (0x5f_ffffe000 / 0x4f_ffffe000) lies above the
-+	 * 32-bit window mapped by soc@0, so the controllers are not under it.
-+	 */
-+	pcie0: pcie@40400000 {
-+		compatible = "nxp,s32g3-pcie", "nxp,s32g2-pcie";
-+		reg = <0x00 0x40400000 0x0 0x00001000>,	/* dbi */
-+		      <0x00 0x40420000 0x0 0x00001000>,	/* dbi2 */
-+		      <0x00 0x40460000 0x0 0x00001000>,	/* atu */
-+		      <0x00 0x40470000 0x0 0x00001000>,	/* dma */
-+		      <0x00 0x40481000 0x0 0x000000f8>,	/* ctrl */
-+		      <0x5f 0xffffe000 0x0 0x00002000>;	/* config */
-+		reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
-+		dma-coherent;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		ranges = <0x01000000 0x0 0x00000000 0x5f 0xfffe0000 0x0 0x00010000>,
-+			 <0x02000000 0x0 0x00000000 0x58 0x00000000 0x0 0x80000000>,
-+			 <0x43000000 0x1 0x00000000 0x59 0x00000000 0x6 0xfffe0000>;
-+		bus-range = <0x0 0xff>;
-+		linux,pci-domain = <0>;
-+		interrupts = <GIC_SPI 125 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 123 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "msi", "dma";
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 0x7>;
-+		interrupt-map = <0 0 0 1 &gic GIC_SPI 128 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 2 &gic GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 3 &gic GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 4 &gic GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>;
-+		status = "disabled";
-+
-+		pcie0_rp: pcie@0 {
-+			reg = <0x0 0x0 0x0 0x0 0x0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+			device_type = "pci";
-+		};
-+	};
-+
-+	pcie1: pcie@44100000 {
-+		compatible = "nxp,s32g3-pcie", "nxp,s32g2-pcie";
-+		reg = <0x00 0x44100000 0x0 0x00001000>,	/* dbi */
-+		      <0x00 0x44120000 0x0 0x00001000>,	/* dbi2 */
-+		      <0x00 0x44160000 0x0 0x00001000>,	/* atu */
-+		      <0x00 0x44170000 0x0 0x00001000>,	/* dma */
-+		      <0x00 0x44181000 0x0 0x000000f8>,	/* ctrl */
-+		      <0x4f 0xffffe000 0x0 0x00002000>;	/* config */
-+		reg-names = "dbi", "dbi2", "atu", "dma", "ctrl", "config";
-+		dma-coherent;
-+		#address-cells = <3>;
-+		#size-cells = <2>;
-+		device_type = "pci";
-+		ranges = <0x01000000 0x0 0x00000000 0x4f 0xfffe0000 0x0 0x00010000>,
-+			 <0x02000000 0x0 0x00000000 0x48 0x00000000 0x0 0x80000000>,
-+			 <0x43000000 0x1 0x00000000 0x49 0x00000000 0x6 0xfffe0000>;
-+		bus-range = <0x0 0xff>;
-+		linux,pci-domain = <1>;
-+		interrupts = <GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupt-names = "msi", "dma";
-+		#interrupt-cells = <1>;
-+		interrupt-map-mask = <0 0 0 0x7>;
-+		interrupt-map = <0 0 0 1 &gic GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 2 &gic GIC_SPI 220 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 3 &gic GIC_SPI 221 IRQ_TYPE_LEVEL_HIGH>,
-+				<0 0 0 4 &gic GIC_SPI 222 IRQ_TYPE_LEVEL_HIGH>;
-+		status = "disabled";
-+
-+		pcie1_rp: pcie@0 {
-+			reg = <0x0 0x0 0x0 0x0 0x0>;
-+			#address-cells = <3>;
-+			#size-cells = <2>;
-+			ranges;
-+			device_type = "pci";
-+		};
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupt-parent = <&gic>;
 
 -- 
 2.55.0
