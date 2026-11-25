@@ -1,57 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.254.200.92
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590622;
-	b=eBEL/rwSgDe5CWnTJ4bKpmPb8minGSkDEShGVe29lemNxO+7GOSAoSg5qoKiweTyYJGI
-	 AJM0WLeq+BR5fLEBeoTKn4Q/xAv4aLY4H36n3wmoonBeLOWmLDo73moRuC+A4WjwNpu0m
-	 Svb1ciIYmnsP32IlrNx8ZP6A6neo0SUmIrY414zxkWxhRFxdTHoYylmGqDLs7om/0FNkA
-	 8hVWut+kq0HDYwZpaWuGNDwZDV2wHAQhJ2BME1JtsCAs1yX0daqvFoiJCdqTjpDHv4m8W
-	 MLNmnoUo8WKFcq5GH97bceA+ZNZIwKkY81mYV9Q3MNbp9qDbY727lpcMUSQtTkKM7cQ==
+	t=1795590863;
+	b=Xn0Jj3o4sRWQ30n8m6S5pXiiFr4f+FZR1db6k1ty87rKSPGbhqDTl1ZEC0QzE4/v1cL2
+	 8BHK7R7giRkoLQBLmkNe9ShALsflmTuSLT64WQjBzzqDvv0vFQLth/oL/dEUU6H0oI29O
+	 dMCy4SiQsVDI9Hq9U7aEw7Nqg+3PuhQ8Ra2K8PNIRKBTssCvNRtd7Hrb8PKkzXRmgMaeV
+	 vkwJrHmt5TvSR4LT8XQK0qi3bWkHxYnX68f0FTDfj2BdI7Q0SqxBvl6LxnT5NVoccWJGC
+	 c1PSyabLUM4wxk/cMuHzyG4C5cUybFJRBXw5yPaqWLRjvGbLom1Rtau3secayGUUwUA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590622;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-QQ-SENDSIZE:Feedback-ID:
-	 X-QQ-XMAILINFO:X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=57eU++s1Zc1LNJTTX7oA3GpgYaPKwVTViPoFYxLudKE=;
-	b=1dVDDoGEM5lBFibedTMqnuD3/D5BCizp8piTgpS+qMToBchVeSvmEtPeS2EIF6LNeXQJ
-	 Oi9gjO40Gbov4TKl4gvlXga6y+seethd2vOuiWz78dA9brDS04tNeS+6d++UglqGMH+Up
-	 C5oYRMG9lXzD/LQ5C53fKi06Nw3rNLYvBsb6PmN7jt+OOfRAjCSbcdgIzUlqEejlLnqSA
-	 PxPupPsIh2LGDMbssR7RQFYszlgOVK2KgRUfq2xxxP6oWt7eS5Q6f2RUplmZ5mvmUKbs6
-	 9teLGQ62KHpIJ+NKBx9iKtbXVwVZa+Dr0jtRo/N6I4jEjrHOp9H2YB6mtSdYyjY/X7Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590863;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=OS4S/3wgJzlNANveRHhJ0JCqQT7lj4OoQJmmJFDLZnQ=;
+	b=aK4kU8v5jaMydSiPvYw1Jii+CMvG5DDxjGG8AFI+zN40E4MXGWl476Ghs7pEJfzR4YWL
+	 u1jfxU/MiPHvt7G47fXP+dPulndFi0NHXRkeq1KBW8ZTV5JIvkFzTIiglkRE0r2HHSmDm
+	 2nScbdWfQ0vkfhiV2xW4FXqC9M/an23PhlIY0a9ofwOTNCQlidOoRj1D3GIGb5vtZrsIZ
+	 zrtyAtr8TjUzsGXcq9BPIxaIBgFdmIq1KbeIMRnD2EMy8wF3zRCltyEbM2WdqruF4/QHU
+	 4G4GUTmxwJ3sKNAL+spkpq6U2al4uv3Eghsn0OIXLtqctSjl36Be6bj1rtiSKJdkkjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mucse.com;
-	spf=pass smtp.mailfrom=mucse.com;
-	arc=none smtp.remote-ip=54.254.200.92
-Received: from smtpbgsg1.qq.com (smtpbgsg1.qq.com [54.254.200.92])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Y7d+PtKP;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8079A606A6A9;
-	Wed, 25 Nov 2026 07:10:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8079A606A6A9
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mucse.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mucse.com
-X-QQ-mid: zesmtpsz3t1795590563t9fca723d
-X-QQ-Originating-IP: N4DRq9rhFGiwKy3DeQ3eB5ukbvLcOUjmAT0waaSE3iQ=
-Received: from localhost ( [203.174.112.180])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Wed, 25 Nov 2026 15:09:20 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 5348563464092667721
-EX-QQ-RecipientCnt: 10
-Date: Wed, 25 Nov 2026 15:09:20 +0800
-From: Yibo Dong <dong100@mucse.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
-	yaojun@mucse.com
-Subject: Re: [PATCH net-next v3 2/5] net: rnpgbe: Report link settings
- through ethtool
-Message-ID: <EFD2CC62756603D7+20261125070920.GA752553@nic-Precision-5820-Tower>
-References: <32E4A50B05876D23+20261124060546.411262-1-dong100@mucse.com>
- <179558856190.3135.8838947348700309121@kernel.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D0A6606A68B
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:14:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2D0A6606A68B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=Y7d+PtKP
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb77a462c6so46883855e9.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:14:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall.org; s=google; t=1795590860; x=1796195660; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=OS4S/3wgJzlNANveRHhJ0JCqQT7lj4OoQJmmJFDLZnQ=;
+        b=Y7d+PtKPrZc9qrL8ruw1v2fnEiDIJp/Oiw2UpSegR2quLKxNQMSfHY8uFKTccIL/4R
+         LryGVJ39a7dQhuuNh96TtjzmrNy6WXtuaXlWmHSDUtsvgdqUe/iV0pQxxrUKTcdi6d/G
+         JzgjhkCIGo991kVo+5OuxAOat0SDzClE4Q7lxRlHMmYqBEdV4IJioU1kPuJyz6zX0Wjh
+         wkt2/sPUo2ko3roosjYwPxD7nOOlOm+xiYO/8xs5reM3rtyZrIj2XhlrBVNrD266dGbM
+         ycDAljyKKsdUTSXsstGvHR6kbQTTMw67gMFKXtXTLQfS6ny3OhYLy/FzBbUdHy0Yv2/+
+         Upow==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795590860; x=1796195660;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=OS4S/3wgJzlNANveRHhJ0JCqQT7lj4OoQJmmJFDLZnQ=;
+        b=nWwSiuHrvjguw8Tl8IajFOQPR0HNWckjve4N5KPwn7tZewYQKTpmXdqdtkc/l5DQI4
+         /o9seS+e0taQUcchT0SZyDVA2EjYsvJFTxFmQFDmJL6vpXsnkbxcYLLD3pxJzAFt4ouo
+         4adIodFXbOt0ewBc3mQFc8V9jo4ODbv27+2hwjJ8kBhFfwJnSBt0XirmWDWEtycCrj2N
+         nGKfHTZEpy+AsIyN+s1PldyjLgAkwqatySKSNaE0arrl1xnfEmsx1mqAZbc4R1OBIZq6
+         iklk2YlMLy9qHP4yyBvzUstHAvS37Fs2nKoXvSfK+Ut0zb5q3f2A/hkg4VJPCyG8rq+f
+         LIWw==
+X-Forwarded-Encrypted: i=1; AL+hErGWT7Gzyg1jGq9Og+J5zx4Ni+9F/AyvZaT0TOkLhY8iBf5qil12DTsceG1uNa17KwKRrV7qess=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9S2SrFm2E+hdstcNNkM6CNdBscDwi41ZGNivdO6OuPbprVClji
+	hVG/dt9uzDVXl4Fc7Xazm8M6y38gCXXSn1Ijs2ez7kMzTn/r+Nt6KSJv0e5fK70fRaE=
+X-Gm-Gg: AZFdTZeyrjVXhgMnIMis/Nd4VQ9qEHRNQqaVxqVlwhR8xlEvM+w2qG1AgSBAMn1bcPh
+	IHjpqYCqxpzx+tkMYjIOR6CFRgWBk5ym44z7kx3ww7YDv6cyHn2ttvWMIapmBwEg+VwH2q+gBDM
+	BrX3SxTwe5cSekhyfixxxrWTAcVItaHIehnBTFR2a7v6WjfjbnV4gU5t4crE/ewxuw3paupY9Ll
+	1c2Au9k2egmlxqWdJTqJfWU/d0kbnXB1Y+JTP7vCpGGZJmNVdKNaoCAynmZ9/RXdE12/EuQgxW6
+	m9WsX9FA0OHBoekDYt90YnnX6kSpDgYY2bvjjIC5rFPSRtRcOn5dkHCm3NhO3JaxOKwtJivvd1q
+	K6qlb32pc9VGOj+btpLn3hCAIxGfQc+F7VzV2yNKr0cqyHhOtxOSjVDZ0FYhow6n9uCi4grrMCg
+	UsTUxhlwqchq9Hsh/mwVBt685e8EgAwOMeFis/wqIF48XnN/h5smRHGtvqMzgFZLduzi6yhv4i+
+	J9kv+jGoJDZQUAes8qKDsZtFnxd9mjWKDbdI18R8QkRrCXfXqguJ5Jvt9edFoZjwRp4bEKenTBt
+	scv00YhfNny3Wc3GpSPkMCOGu0xqN6DEj1+wo8PscBws6AU+uR7H5yXJGD0=
+X-Received: by 2002:a05:600c:1d83:b0:4bb:687c:4fbe with SMTP id 5b1f17b1804b1-4bb88805c26mr301676605e9.8.1795590859967;
+        Tue, 24 Nov 2026 23:14:19 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb853a9846sm582103175e9.11.2026.11.24.23.14.18
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 23:14:19 -0800 (PST)
+Message-ID: <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
+Date: Wed, 25 Nov 2026 09:14:17 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,219 +91,144 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179558856190.3135.8838947348700309121@kernel.org>
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:mucse.com:qybglogicsvrgz:qybglogicsvrgz3a-1
-X-QQ-XMAILINFO: NP3iUBCWMtGbdwSNcvJpfBeeuPILOJ0v1m3HWn2bHbzHKWC+HAhdQjdr
-	KtOZT3pB7b3347rE0BQ45vggMe506kRf8trCsLYVx2/sLJvV4+J3GG3Oq8vN/AZeAqY4mIS
-	yyk0DdtUBQPuK6w4cC2be93qB/rag3v4qqXH4oTgh9Yv6tqxK3lGkeosttG+obIfEAjgAo9
-	JA7MPa6iTOgoQyezkVbYhe/EmxkcOvyldnbOnKTUHHVDNNvgvkGctWVYMmeNrJdkDWEv3vo
-	snethxOzkDqJT+5mDNegUbqMBEIaOpH5LJ8BHk1Zm1N2z67K58GY4rTD0BolEcWXYctv8oG
-	sIXecupwZqHjTX07tpyji9eVLqN3i44O9InTOK3gdPuisgBVqtlzpx/03AwYu9ETuDVQN0/
-	id3WOw7+5yVwzufIp5EEfrBkqj2e0EbQ5Oqw3GjKRsTuUO3j6ijBEha2LvgjbjShDWc5Eb0
-	kcfMWZTkNDAKQJsU5VcEjvPosoXeFMhRSJQxR59nU3RCQZ168M+CNA71k/6qEfbN3LwTH8R
-	8+CFZkyVoTi0hBd/0oO+mqSpGj86PO+OuUIfNA/IWjOMLJ7Y8tndtFEzBTroP823TLf3hQg
-	trLElpF+YRN+HHLCKsLZhwUiCZzn6zYKcinIHDD+3Tpt1trUJcggcMr+aqfD4KzA3tOniTj
-	czeTL/wUCmnBPzkVv+68PQCHsL+DdT7Oont572DGQu8wzwgijvnC3P+AzGmfIIKdYegoqLe
-	b1DXN8IiUb3dLN2gC6IMtB4A+F8Yaz9nmRfXBwd1y5AjXMmValTb9x78aGaTxyKzodvgWvd
-	/8hFg7uqMvOz5DcJmHavhexUCPgiFKN7G0qXxjbnz0sRKNIuY+SKLh6TEWPklR77+vzahKm
-	QUJCacqY/zMF/L42s2pUKsnotqYgo4IujDjOuExO5X85Il+1wQx8v0Roi9n81pJYLMStW7r
-	F7pQasvwLYKP9bmx0fEJAImtcoK1xcgtR0wRszSb5ZF3DS/EXZD9XvqaTw0Izr77Wi9PSKJ
-	cjKkXbU4gyIxT/mI8uk3VqgLhJkypiFB8H7A2IAb6hxnYMmE3B4voGfg/4DF2v7h2JaMWuy
-	mQWoeo0aWepM/YELJiBuZLVytoBgz/+cw==
-X-QQ-XMRINFO: OD9hHCdaPRBwH5bRRRw8tsiH4UAatJqXfg==
-X-QQ-RECHKSPAM: 0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] bonding: unbind 802.3ad slaves on enslave failure
+Content-Language: en-US, bg
+To: Lin Jiapeng <ljp1205831794@gmail.com>, jv@jvosburgh.net,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, sfeldma@cumulusnetworks.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Lin Jiapeng <jiapenglin@tencent.com>,
+ TencentOS Corvus AI <corvus@tencent.com>
+References: <20261124024319.52145-1-ljp1205831794@gmail.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <20261124024319.52145-1-ljp1205831794@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 06:36:01AM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 4 potential
-> issue(s) to consider.
+On 24/11/2026 04:41, Lin Jiapeng wrote:
+> From: Lin Jiapeng <jiapenglin@tencent.com>
 > 
-> Critical: 0 · High: 0 · Medium: 2 · Low: 2
+> The 802.3ad enslave path binds a slave before publishing it in the bond's
+> slave list. The periodic state machine can select the port and attach it to
+> a LAG while enslavement is in progress, including while NETDEV_CHANGEUPPER
+> notifiers are running.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
+> If enslavement fails, rollback can free ad_slave_info without unbinding its
+> port and leave later LAG processing with a dangling pointer. This affects
+> both a failed upper-link notification and later failures such as
+> bond_sysfs_slave_add(). A test-only kretprobe forces the latter to return
+> -ENOMEM, after which KASAN reports:
+>       BUG: KASAN: slab-use-after-free in ad_agg_selection_logic+0x1a0d/0x1fa0
+>       Read of size 1 by task kworker/u16:0/13
+>       Freed by task 110:
+>         kfree
+>         slave_kobj_release
+>         kobject_put
+>         bond_enslave
 > 
-> - [Medium] rnpgbe_setup_default_link() builds the PHY_LINK_SET
->   advertisement as hw->link_config.supported & RNPGBE_DEFAULT_ADV, where…
-> - [Medium] rnpgbe_add_adapter() now calls rnpgbe_init_link_config(),
->   which sends GET_LANE_STATUS (0x0610) through mucse_mbx_get_link() and…
-> - [Low] The commit message leaves out some changes in the patch.
-> - [Low] ST_STATUS_MDIX_MASK is GENMASK(11, 10), a 2-bit field that can
->   hold 0-3.
+> Drain the RX handler before unbinding so receive handlers cannot race with
+> port->slave becoming NULL. Unbind before upper unlink when the link exists,
+> and also unbind after an upper-link failure without repeating the unlink.
+> Rebuild the slave array after aggregator changes and leave earlier
+> unpublished failures unchanged.
 > 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > index dcc8233e024e1..3a2f62f0630da 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_chip.c
-> > @@ -64,12 +64,42 @@ int rnpgbe_reset_hw(struct mucse_hw *hw)
-> >   * rnpgbe_setup_default_link - Configure the default link settings
-> >   * @hw: hardware information structure
-> >   *
-> > + * The default configuration relies on GET_LANE_STATUS reporting at least
-> > + * one mode in RNPGBE_DEFAULT_ADV for TP ports and RNPGBE_FW_ADV_1000_FULL
-> > + * for fibre and backplane ports. TP ports use the supported subset of the
-> > + * default mask for autonegotiation. Fibre and backplane use fixed 1 Gb/s
-> > + * full duplex.
-> > + *
-> >   * Return: 0 on success, negative errno on failure
-> >   **/
-> >  int rnpgbe_setup_default_link(struct mucse_hw *hw)
-> >  {
-> > -	return mucse_mbx_set_link(hw, RNPGBE_DEFAULT_ADV, true, 0, 0,
-> > -				  ETH_TP_MDI_AUTO);
-> > +	u32 advertising = hw->link_config.supported & RNPGBE_DEFAULT_ADV;
-> > +	bool autoneg = hw->link_config.status & MUCSE_LINK_TP;
-> > +	u8 duplex = DUPLEX_UNKNOWN;
-> > +	u32 speed = SPEED_UNKNOWN;
-> > +	int err;
-> > +
-> > +	if (!autoneg) {
-> > +		advertising &= RNPGBE_FW_ADV_1000_FULL;
-> > +		speed = SPEED_1000;
-> > +		duplex = DUPLEX_FULL;
-> > +	}
-> > +
-> > +	err = mucse_mbx_set_link(hw, advertising, autoneg,
-> > +				 autoneg ? 0 : speed, autoneg ? 0 : duplex,
-> > +				 ETH_TP_MDI_AUTO);
+> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave devices.")
+> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+> Link: https://lore.kernel.org/netdev/20261113130454.63032-1-ljp1205831794@gmail.com/
+> ---
+> v1 -> v2:
+>    - Drain the RX handler before unbinding to avoid NULL dereferences in the
+>      802.3ad receive path.
+>    - Cover NETDEV_CHANGEUPPER failure after transient upper-link publication,
+>      without repeating upper-dev unlink.
+>    - Rebuild the 802.3ad slave array after rollback.
 > 
-> [Severity: Medium]
-> What happens if advertising is 0 at this point?
+>   drivers/net/bonding/bond_main.c | 11 +++++++++++
+>   1 file changed, 11 insertions(+)
 > 
-> The kernel-doc above states the assumption, but nothing checks it. Take
-> a TP port where firmware reports none of the RNPGBE_DEFAULT_ADV modes.
-> Autoneg is requested with advertising == 0. On ACK,
-> MUCSE_LINK_AUTONEG and advertising = 0 are cached, and probe still
-> succeeds.
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index e9f5e753f677..7ca948bb27d0 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+> @@ -2355,10 +2355,21 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>   	bond_sysfs_slave_del(new_slave);
+>   
+>   err_upper_unlink:
+> +	netdev_rx_handler_unregister(slave_dev);
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+> +		bond_3ad_unbind_slave(new_slave);
+>   	bond_upper_dev_unlink(bond, new_slave);
+> +	goto err_update_slave_arr;
+>   
+>   err_unregister:
+>   	netdev_rx_handler_unregister(slave_dev);
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+> +		bond_3ad_unbind_slave(new_slave);
+> +
+> +err_update_slave_arr:
+> +	if (BOND_MODE(bond) == BOND_MODE_8023AD &&
+> +	    bond_update_slave_arr(bond, new_slave))
+> +		bond_slave_arr_work_rearm(bond, 0);
+>   
+>   err_detach:
+>   	vlan_vids_del_by_dev(slave_dev, bond_dev);
 > 
-> Could the link then stay down forever, with nothing logged?
-> 
-> Now take a fibre or backplane port whose supported mask lacks
-> RNPGBE_FW_ADV_1000_FULL. 1000/Full is still forced and cached. Then in
-> rnpgbe_get_link_ksettings():
-> 
-> 	if (supported & RNPGBE_FW_ADV_1000_FULL)
-> 		linkmode_set_bit(mode, cmd->link_modes.supported);
-> 	...
-> 	if (cmd->base.autoneg == AUTONEG_DISABLE) {
-> 		cmd->base.speed = hw->link_config.speed;
-> 		cmd->base.duplex = hw->link_config.duplex;
-> 	}
-> 
-> Would ethtool then show speed 1000 without listing 1000baseX or
-> 1000baseKX as a supported mode?
-> 
-> The old code always advertised the full RNPGBE_DEFAULT_ADV mask,
-> whatever firmware reported. The later patch "net: rnpgbe: Support copper
-> link configuration" rejects an empty autoneg advertisement in
-> set_link_ksettings. This default path still has no such check.
-> 
-> [ ... ]
-> 
-The firmware interface guarantees at least one usable TP mode, or
-1 Gb/s full duplex for fibre and backplane ports, as documented above
-the function.
+> base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
 
-An empty usable capability mask would violate this firmware contract.
-Given that guarantee, I think it is reasonable for the driver to rely
-on it without adding an explicit check here.
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> > index 46981ef2542ad..31871b244882d 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_main.c
-> 
-> [ ... ]
-> 
-> > @@ -258,6 +260,11 @@ static int rnpgbe_add_adapter(struct pci_dev *pdev,
-> >  		dev_err(&pdev->dev, "Hw reset failed %d\n", err);
-> >  		goto err_powerdown;
-> >  	}
-> > +	err = rnpgbe_init_link_config(hw);
-> > +	if (err) {
-> > +		dev_err(&pdev->dev, "Get link capabilities failed %d\n", err);
-> > +		goto err_powerdown;
-> > +	}
-> 
-> [Severity: Medium]
-> Will the device still probe if its firmware doesn't implement
-> GET_LANE_STATUS (0x0610), or rejects it?
-> 
-> The call chain is:
-> 
-> rnpgbe_init_link_config()
->   mucse_mbx_get_link()
->     mucse_fw_send_cmd_wait_resp()
-> 
-> This returns -ETIMEDOUT if no reply with a matching opcode arrives. It
-> returns -EIO if the reply has a non-zero error_code. Either error jumps
-> to err_powerdown, so no netdev is registered.
-> 
-> There is no fallback to the old defaults, and the commit message doesn't
-> give a minimum firmware version.
-> 
-> Does every firmware version this driver binds to support
-> GET_LANE_STATUS?
-> 
-Yes. GET_LANE_STATUS is part of the baseline firmware interface and is
-supported by all firmware versions for these devices.
+This looks awful jumping around error labels and doing the same thing
+at different places. Surely you could rearrange them better, maybe
+something like this (untested, needs proper review):
+--- a/drivers/net/bonding/bond_main.c
+   +++ b/drivers/net/bonding/bond_main.c
+   @@ -1888,10 +1888,11 @@
+    int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+                  struct netlink_ext_ack *extack)
+    {
+   +     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
+         struct bonding *bond = netdev_priv(bond_dev);
+   -     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
+         struct slave *new_slave = NULL, *prev_slave;
+         struct sockaddr_storage ss;
+   +     bool upper_linked = false;
+         int res = 0, i;
+  
+         if (slave_dev->type == ARPHRD_CAN ||
+   @@ -2246,13 +2247,14 @@
+                 slave_dbg(bond_dev, slave_dev, "Error %d calling bond_master_upper_dev_link\n", res);
+                 goto err_unregister;
+         }
+   +     upper_linked = true;
+  
+         bond_lower_state_changed(new_slave);
+  
+         res = bond_sysfs_slave_add(new_slave);
+         if (res) {
+                 slave_dbg(bond_dev, slave_dev, "Error %d calling bond_sysfs_slave_add\n", res);
+   -             goto err_upper_unlink;
+   +             goto err_unregister;
+         }
+  
+         /* If the mode uses primary, then the following is handled by
+   @@ -2357,11 +2359,15 @@
+    err_sysfs_del:
+         bond_sysfs_slave_del(new_slave);
+  
+   -err_upper_unlink:
+   -     bond_upper_dev_unlink(bond, new_slave);
+   -
+    err_unregister:
+         netdev_rx_handler_unregister(slave_dev);
+   +     if (BOND_MODE(bond) == BOND_MODE_8023AD) {
+   +             bond_3ad_unbind_slave(new_slave);
+   +             if (bond_update_slave_arr(bond, new_slave))
+   +                     bond_slave_arr_work_rearm(bond, 0);
+   +     }
+   +     if (upper_linked)
+   +             bond_upper_dev_unlink(bond, new_slave);
+  
+    err_detach:
+         vlan_vids_del_by_dev(slave_dev, bond_dev);
 
-The previous driver sent a common default advertisement mask without
-first querying the port capabilities. Firmware handles settings that do
-not apply to the port. For example, on fibre ports it ignores the
-autonegotiation request and the 10/100 Mb/s advertisement bits, and uses
-fixed 1 Gb/s full duplex.
 
-This patch queries GET_LANE_STATUS to obtain the actual port type and
-capabilities, select the corresponding defaults explicitly, and report
-them through ethtool. The command is supported by all firmware versions
-for these devices; its absence from the previous driver was not due to
-a firmware compatibility limitation.
-> [ ... ]
-> 
-> > diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> > index 4a18937927514..469818b83d70f 100644
-> > --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> > +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_mbx_fw.c
-> 
-> [ ... ]
-> 
-> > @@ -435,6 +462,8 @@ static void mucse_mbx_fw_req_handler(struct mucse_hw *hw,
-> >  
-> >  		hw->speed = le16_to_cpu(req->link_stat.st.speed);
-> >  		hw->duplex = req->link_stat.st.flags & DUPLEX_BIT;
-> > +		hw->mdix = FIELD_GET(ST_STATUS_MDIX_MASK,
-> > +				     le16_to_cpu(req->link_stat.st.status));
-> 
-> [Severity: Low]
-> ST_STATUS_MDIX_MASK is GENMASK(11, 10), so the field can hold 0 to 3.
-> The comment in rnpgbe_mbx_fw.h lists only three values:
-> 
-> /* MDI-X status uses ETH_TP_MDI_* encoding: 0 on link down, 1 MDI, 2 MDI-X. */
-> 
-> The raw value is stored here without a range check.
-> rnpgbe_get_link_ksettings() then copies it into cmd->base.eth_tp_mdix:
-> 
-> 		if (status & MUCSE_LINK_TP)
-> 			cmd->base.eth_tp_mdix = hw->mdix;
-> 
-> If firmware ever reported 3, ETH_TP_MDI_AUTO would show up in the
-> resolved MDI-X status field. That value is only meant for
-> eth_tp_mdix_ctrl.
-> 
-> Should values other than ETH_TP_MDI and ETH_TP_MDI_X be reported as
-> ETH_TP_MDI_INVALID instead?
-The direct assignment therefore follows the firmware protocol.
-0 when the link is down, 1 for MDI, and 2 for MDI-X. It does not Report
-3 as a resolved MDI-X status.
-> 
-> [ ... ]
-> 
-> -- 
-> Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
-> 
+
