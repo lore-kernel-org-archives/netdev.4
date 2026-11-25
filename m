@@ -1,58 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.85.4
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795595332;
-	b=Ms4jAhwKP1jOvWvAkP1Azq/oQ5gSwV06sYTquO1J9Q3OWdRYWLR2HXBI6KXhz5otvxvz
-	 E1Z1oqTz/KN0Rp510u3jDwQ3b30EHhzs7zhbpBTarEl7VJoo1+3qdV1vOAfCapNAZlnsw
-	 X9SK0FtRFXY8POOl/DWlWOaO/rLobdlAUURADP+gW8xNKQQOsuluMwnjeUI2MfoVEW4KN
-	 UDwmVpdqobzHcwD3aYgBfuEk5xSuo33kYYHxF6cRi3434R1TjviL46k8hlsHJSXw6kZk6
-	 VfUxjNxV5x5uqVvQqQwCMqbmpPWceqRrEBx9YYzfqdb7HO4QMgbLi2VcHyVesucBc0Q==
+	t=1795595693;
+	b=azqHor4AEUguJZsFaC85OEDOw70I990WEXGvDIYfdYy52CuZsbbBReNojGnS0uHVsjKx
+	 iaTl11uFFqJTeTdKhaBL8tFrD6T6MHjJxIY0X8pBlenn+0D0oVEQNvD3sVwJDjIED1KPf
+	 jQjwxE/jKhWhSHBzRzRSQGpXOqg9611jVwMtfMyvOfiD5ahA4V1fGsb2rLZLQwJ/iU4g1
+	 qScYPT/+7cSU73R9qA1VB8c42F7E+IIMo43fO1yZ6uMwLnQXFKXyyawg4EPQnyGZ8f/7q
+	 hTM8CrMCB8FboXLIBgo4B9dB0oMQUrxs7Qsww5nesKravPF8XxWxoAncCVLnba8jgLg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795595332;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=4/x7j50MQJx15iZQDZRl//Wy8YqZBKp5oVRm2ztPBoI=;
-	b=5s2kEaUnYYa572nQPTGv0n5yX91CnHN1IgwHNM3I6nzbRUGlCePPCBMnMSWuCw1udzoE
-	 rDFSEi+5hhL4dHiMYOL0aOiSjatADtXcaKJu7TPH+BUP3KqxqmcfKfp6UivZjkeAcbD0N
-	 hdoFEPtMjvelODciM2PTVnAMfbsgaifPXsB3szHRkzqGmDze0U361uR4Mnf5SMu3c+vEn
-	 AijNT5WLaev5vXFmDRFlHwU2xK8t105P3yNXY8mWPdyy7q8BoSsbr8UMgrp5BclNHakOC
-	 RcdtDV2KX9w8maaWoPC9g5scHPNzl/WlyI/BnUH0psQlOrlPRZ2yvGwEGtcmKk2t6hQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795595693;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:Content-Language:To:
+	 Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=V24Aq6kbDrsjlo6n/xUdmssdTYaesbR21Q1hwpsxJYs=;
+	b=eDOwbtnK7oVT1BqTVXiroAI9MhCA/u6+pP7+GxN4zrqmjPKZsf/hqeiUDapA4xVVKpdW
+	 Umq7GLHdUKAQ7E/rG8drEruqtqs8sAeGa0uYWeRUE0FfJJ0OlzOXD0Qup4orhmNdxy+RD
+	 H92JE600ZL+YKztKCpT+qxfUF+KrgCBGc68MukfmG6s7xmuHK8OtTMktVjmP1feAYEswz
+	 BaP9UCcQCh+svMjpI75iIVIAm4vCjDYH78R4t/ilaLVfXyg0X3fumk6S8HCUYraZ/5dq5
+	 sj3OY54M+YuToTDjqxJONal2Y278+LTpzHmJ0fV26Kul4NxZIxsSX7kIGs69NuN+VVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=a25X4E02;
-	arc=none smtp.remote-ip=185.246.85.4
-Received: from smtpout-03.galae.net (smtpout-03.galae.net [185.246.85.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=blackwall.org;
+	spf=none smtp.mailfrom=blackwall.org;
+	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=ijlcnRHB;
+	arc=none smtp.remote-ip=209.85.221.43
+Received: from mail-wr1-f43.google.com (mail-wr1-f43.google.com [209.85.221.43])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C372606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:28:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5C372606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9E04606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:34:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B9E04606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=a25X4E02
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 8FFA84E41770;
-	Wed, 25 Nov 2026 08:28:50 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A9EF60480;
-	Wed, 25 Nov 2026 08:28:50 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id CBC2411E6993C;
-	Wed, 25 Nov 2026 09:28:36 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795595329; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=4/x7j50MQJx15iZQDZRl//Wy8YqZBKp5oVRm2ztPBoI=;
-	b=a25X4E02hlHdAZLeh5VeHxN6+rjmKkzW9i2wpZ/aAVuugJ3MhGFp/MhlILboBpFeQrLS6p
-	btaDqDM2H7xJlrfcz+RX7BjG78aD4/ETSqwQCSyqhGkrbhsHwEkozspZam4CAi6QNErfla
-	X4cZFjL4zk+R+7axwU3Lts82blj93HcjkzkiSEjLEnO8XGY6cNRu5eTaAvhT9TaGGAsCH6
-	EYOgRgkcR8ifvWMI22u/GwqXqhKoPjneZf8UAyjxbj9neMT5lNZwyFv5sqMrod0fIPcK23
-	tFEf+qgwfm2eO9AZ/3N8Hwxzz7t37W+uw5aQMybCXkIfmRgiNX5ApaBhMAAuyg==
-Message-ID: <e44876ec-4f91-4120-bbf3-3a1eb330a2dc@bootlin.com>
-Date: Wed, 25 Nov 2026 09:28:35 +0100
+	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=ijlcnRHB
+Received: by mail-wr1-f43.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso3414229f8f.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:34:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=blackwall.org; s=google; t=1795595691; x=1796200491; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=V24Aq6kbDrsjlo6n/xUdmssdTYaesbR21Q1hwpsxJYs=;
+        b=ijlcnRHBovRFXb8Uu0f+APeuFy1s/RKQLQ0QJDXZjM8Rw0dBDAat/G94mFppms3k7m
+         7MxgJea2yofi18g9cp5NZcqcKdy4R6hE0uQjcp/hIwgi61FlVgU3u517virB5MVxVF/0
+         9Wt0FaG/Co65mB19rSgSbV+hCR8RbkvYmd6XpsOKEYf7iRXHHALC/nYc8gjPU7b/+XOZ
+         SSasFRKjd62zzM1vvCDhkUKNk5ZSB2ZtJtbp2APHf+EbFRvxgPuXUtXs0BgG3gyUZ1y/
+         V7B8ZamWAh7Y86+skIAIThGT77WW4TeObQ8SL0ic18EO2Fn2x3p8+lDoSwX2ecI/5Po0
+         Iehg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795595691; x=1796200491;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:content-language:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=V24Aq6kbDrsjlo6n/xUdmssdTYaesbR21Q1hwpsxJYs=;
+        b=vuJxKwPkm66vavEDIZ+fKDV3QQGUXy4g8N4N3MbolXbir8718nCSJKsnrZozhNDDvv
+         gLLt80JKDaywSYZgzmtT0BKFhLBbmYNmgTvMzGcwsdznUQGDckjcr+qfU+LYc92cjSpj
+         ZJyoYtOg80i5y/s+2I0vdHyCuFstSWJiC1LCgqTMhBIEEixePCr7Bj0vMzSRn9nCyrOT
+         zDgKa5/+cPT1/FLsPNyV/vvoMiyySu2MZ+tnJAgrY6cYyiGJwf0VEVEdK1a0yaJkTogb
+         7nCMedZzWDa4m/Da7H8NEaVwkRI24UC3HJAjy02bJCYC8y+uUe6HAzuDldIj5DLg9hO6
+         vJPg==
+X-Forwarded-Encrypted: i=1; AL+hErFz05EnXrfpPbvJFt6RH+/IPn1fCFvzR0pSJRH8DY6R6374qwBqYJgiJsJm7Bq2cp4NNoTLwlo=@vger.kernel.org
+X-Gm-Message-State: APuU4Z89ROaJnxmWu6WPP3nbM3gqSXUCciN/dp+pYaObY9RFWhrFkzR2
+	ixP3CoIpxqzDypCdpxR0jkiepOX0X8MyhnUYojXxERWfxgLZWn3iyTMmakSjaBcNckM=
+X-Gm-Gg: AZFdTZcOIEE5F8GLKgC/gC9WYdCGmX+fpnuuhcLWKy2Mqxm9qx+vxK9eUHUsZkh1NkT
+	8BzEkbE5Wx6g/aLcq42H7WbUu1x9/+iaxoAh8KNePXMtlEfdbBR/AOXLk/cZki9xAHm/iFK+q6F
+	Ui7tGIgm05733jgEqMGYeQgr+fQwUlWv4xrvWC7sr9BnBdNezJ3V8yTs0bXg9w2rUPALH3XzDjH
+	xOYmuklSrSxG9i97UZJNbpy247fNtfLgoDa6KqVu0BgU0jUPpDL+bVPVxgSEXw/71L1sc7W3bDj
+	SSjlCpMwycnghe4unkXRciCRGrR4TA1zxHkSvT6pVr/chIml9rS+SnjTSrczNT3YSIs+BMZpqF7
+	tsJNtdR18h8hnF8x1ThRK0UXTdKtyKRVtLaI9Qes5/vfjMkl/wdepGny3+JxEqmt+fV89s20VDs
+	WFdqkNgxDktHpeDly1BakLwcbCr9RMG5H0xDGe9efSemEA2CzTQXSiwZH43CB3ZPP4rwiSxdEyR
+	UEogN64b4JT0/ErzeDbJxlU8Q0hwumGLYiETpUkAoLki0cyedSQgUIuBypemqhQbUVins4q60aB
+	cPSQwtdUoDZVjssB6NKiAIyIJviSGFsB7vlPHink3ctc1RNigYpfHV8wdAgPel1A8ugrTu5XlSB
+	OhRNI
+X-Received: by 2002:a05:6000:2906:b0:4a3:777a:a964 with SMTP id ffacd0b85a97d-4aba58de987mr32705827f8f.0.1795595690957;
+        Wed, 25 Nov 2026 00:34:50 -0800 (PST)
+Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b70c05b9desm8842930f8f.54.2026.11.25.00.34.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 00:34:50 -0800 (PST)
+Message-ID: <ec105c0a-1a6b-48ab-89ca-eae8b3f7983f@blackwall.org>
+Date: Wed, 25 Nov 2026 10:34:49 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,43 +93,149 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4] net: stmmac: program the FSM timeout timer
-To: zhu xin <zxyan0222@gmail.com>
-Cc: netdev-bot+sashiko@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, netdev@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- rmk+kernel@armlinux.org.uk
-References: <20261118025528.2703790-1-zxyan0222@gmail.com>
- <179520945915.3135.14304625182301747705@kernel.org>
- <500079e9-e626-4e4b-9880-adeea0724338@bootlin.com>
- <CAP7veT+EjJabWrvczNwcZQ16P_SyH_rAQkTz+nf1G+FjxMvgNw@mail.gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <CAP7veT+EjJabWrvczNwcZQ16P_SyH_rAQkTz+nf1G+FjxMvgNw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [PATCH net-next 00/13] net: Report requester's port ID in FDB
+ notifications
+Content-Language: en-US, bg
+To: Petr Machata <petrm@nvidia.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, bridge@lists.linux.dev,
+ Ido Schimmel <idosch@nvidia.com>, Andy Roulin <aroulin@nvidia.com>,
+ mlxsw@nvidia.com
+References: <cover.1795447450.git.petrm@nvidia.com>
+From: Nikolay Aleksandrov <razor@blackwall.org>
+In-Reply-To: <cover.1795447450.git.petrm@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-
-
-On 11/25/26 09:22, zhu xin wrote:
-> Hi Maxime,
-
-> Separately, I'd like your take on the hardcoded 1s timeout. At 10 Mb/s a
-> PAUSE frame with the maximum 0xffff quanta stalls the transmitter for
-> about 3.36s, longer than the ~1.048s NTMRMD programmed here. If the Tx
-> FSM is still timed during a flow-control stall, that would raise a
-> spurious FSM timeout and reset the interface. I don't have a 10 Mb/s
-> link locally to verify it, and the databook only hints at a large-mode
-> (LTMRMD) without being explicit. Would you prefer bumping the default to
-> 4s to be safe, or is 1s acceptable?
+On 23/11/2026 19:59, Petr Machata wrote:
+> Every netlink message carries a port ID in the nlmsg_pid header field. The
+> port ID identifies a netlink socket. In a request it is the port ID of the
+> socket that sent it. When a change that results from a request is
+> announced to the multicast listeners, the kernel puts the port ID of the
+> requester in nlmsg_pid of the notification. For changes that the kernel
+> initiates by itself, such as aging, nlmsg_pid is zero.
+> 
+> This is used by applications that both configure the kernel and listen to
+> notifications from it. By comparing nlmsg_pid to the port ID of their own
+> socket, they can tell their own changes apart from those made by someone
+> else, and ignore the former. Commit 7b8f7a402d4c ("neighbour: fix nlmsg_pid
+> in notifications") fixed this for IP neighbours, citing quagga as one such
+> application. Routes and nexthops report the port ID as well.
+> 
+> For FDB entries, the notifications (RTM_NEWNEIGH and RTM_DELNEIGH with the
+> AF_BRIDGE family) always carry zero, whoever caused them, so applications
+> that manage FDB cannot do this sort of filtering. Hence this patchset.
+> 
+> The patchset goes through the following steps:
+> 
+> - FDB notifications are generated in two places. The bridge and VXLAN
+>    drivers send their own from ndo_fdb_add, _del and _del_bulk, but these
+>    NDOs are not given the port ID of the requester. For other drivers that
+>    implement ndo_fdb_add / _del, the rtnetlink core sends a default
+>    notification on their behalf. It has the port ID at hand, but does not
+>    pass it on.
+> 
+>    The obvious way to get the port ID to the bridge and VXLAN is to add it
+>    to the NDO prototypes. But ndo_fdb_add and _del already carry many
+>    arguments, and one more would further complicate the already unwieldy
+>    prototypes, as well as require adjustments in every driver. Instead, in
+>    patch #1, convert the prototypes of ndo_fdb_add, _del and _get to take a
+>    new struct ndo_fdb_parms. ndo_fdb_get already has the port ID, but it
+>    shares most of its arguments with the other two, so it makes sense to
+>    treat them alike.
+> 
+>    A dedicated structure has the advantage that both callers and callees
+>    can refer to individual arguments by name instead of by position. Any
+>    future additions boil down to a new field in the structure.
+> 
+>    In patch #2, have ndo_dflt_fdb_add and ndo_dflt_fdb_del take the
+>    structure as well. That simplifies the drivers that use the helper, which
+>    can now just pass the structure pointer right through.
+> 
+>    In patch #3, move the port ID of ndo_fdb_get from an argument into the
+>    structure and adjust drivers.
+> 
+> - Now that the structure argument is available to the bridge driver, make
+>    use of the fact in patch #4. Instead of unpacking the structure fields
+>    and passing them on one by one, propagate the structure itself further
+>    into the driver.
+> 
+>    Then in patch #5, propagate the port ID all the way to where bridge
+>    notifications are generated.
+> 
+>    It is tempting to somehow use the parms structure more extensively in
+>    VXLAN as well, but VXLAN has its own large set of protocol-specific
+>    parameters. Passing the structure as such is not going to help that much.
+>    It looks like VXLAN would ideally need its own VXLAN-specific parms
+>    structure. But since the complexity damage here is limited to VXLAN,
+>    leave the status quo and in patch #6, just add the new parameter. The
+>    patchset is large enough as it is.
+> 
+> - Patch #7 is where the port ID in struct ndo_fdb_parms is initialized from
+>    the request. With that, notifications that the bridge and VXLAN send as a
+>    result of adding, replacing and deleting an entry carry the port ID.
+>    Notifications that are not a result of a request still carry zero.
+> 
+>    Patch #8 then adds the port ID argument to ndo_fdb_del_bulk, which does
+>    not use the newly-introduced parms structure, and has the bridge and
+>    VXLAN drivers use the now-available port ID for notifications.
+> 
+>    Finally, patch #9 converts the rtnetlink fallback helper, so that the
+>    notifications it sends on behalf of drivers that do not emit their own
+>    carry the port ID as well.
+> 
+> - Patches #10 to #13 add a selftest. Patches #10 to #12 extend the rt-neigh
+>    spec with attributes needed to build FDB delete requests, add the
+>    NLM_F_BULK flag to the YNL Python library and add an RtnlNeighFamily
+>    wrapper to the selftest library. Patch #13 then adds the test itself. The
+>    test is written in Python with YNL, because the usual shell tools cannot
+>    show nlmsg_pid.
+> 
+> Petr Machata (13):
+>    net: Introduce struct ndo_fdb_parms
+>    net: Pass struct ndo_fdb_parms to ndo_dflt_fdb_{add, del}()
+>    net: Pass portid to ndo_fdb_get through the structure
+>    net: bridge: Pass struct ndo_fdb_parms a bit further
+>    net: bridge: Pass portid through FDB notifications
+>    net: vxlan: Pass portid through FDB notifications
+>    net: rtnetlink: Report port ID in bridge and VXLAN FDB notifications
+>    net: rtnetlink: Report port ID in bulk FDB delete notifications
+>    net: rtnetlink: Report port ID in fallback FDB notifications
+>    netlink: specs: rt-neigh: Extend the delneigh request attributes
+>    tools: ynl: Add NLM_F_BULK
+>    selftests: net: lib: py: Add RtnlNeighFamily
+>    selftests: net: Add a test for port ID in FDB notifications
+> 
+>   Documentation/netlink/specs/rt-neigh.yaml     |   4 +
+>   drivers/net/ethernet/intel/i40e/i40e_main.c   |  29 +-
+>   drivers/net/ethernet/intel/ice/ice_main.c     |  43 ++-
+>   drivers/net/ethernet/intel/igb/igb_main.c     |  14 +-
+>   drivers/net/ethernet/intel/ixgbe/ixgbe_main.c |  14 +-
+>   drivers/net/ethernet/mscc/ocelot_net.c        |  19 +-
+>   .../net/ethernet/qlogic/qlcnic/qlcnic_main.c  |  38 ++-
+>   drivers/net/macvlan.c                         |  33 +-
+>   drivers/net/vxlan/vxlan_core.c                | 118 +++----
+>   drivers/net/vxlan/vxlan_private.h             |   5 +-
+>   drivers/net/vxlan/vxlan_vnifilter.c           |   6 +-
+>   include/linux/netdevice.h                     |  43 ++-
+>   include/linux/rtnetlink.h                     |   9 +-
+>   net/bridge/br.c                               |   2 +-
+>   net/bridge/br_fdb.c                           | 177 ++++++-----
+>   net/bridge/br_netlink.c                       |   4 +-
+>   net/bridge/br_private.h                       |  20 +-
+>   net/bridge/br_sysfs_br.c                      |   2 +-
+>   net/core/rtnetlink.c                          |  98 +++---
+>   tools/net/ynl/pyynl/lib/ynl.py                |   2 +
+>   tools/testing/selftests/net/Makefile          |   1 +
+>   tools/testing/selftests/net/config            |   1 +
+>   .../selftests/net/fdb_notify_portid.py        | 297 ++++++++++++++++++
+>   .../testing/selftests/net/lib/py/__init__.py  |   6 +-
+>   tools/testing/selftests/net/lib/py/ynl.py     |  10 +-
+>   25 files changed, 669 insertions(+), 326 deletions(-)
+>   create mode 100755 tools/testing/selftests/net/fdb_notify_portid.py
 > 
 
-Yup, this should do the trick. If I'm not mistaken, you'll add some
-better controls once you start upstreaming the glue for your XGMAC
-device, right ?
-
-Maxime
-
+LGTM, for the set:
+Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
