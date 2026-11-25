@@ -1,52 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=194.36.144.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795639948;
-	b=MHL686msQgEn0r+4dzL//MwbfPR1ggHozsg/XHIIUoOWzpAy9fBsSDV6NZGKzqRV5JtJ
-	 bUZwMXRnJq2yFbRSifmY7xSS86mO7kLBvGwhlCHdYG9yR6SNpcpQScKz3P4Od4zGd/t1u
-	 kF89Tyn0emoqba6ufc6dpzASVzJWsssByOTQIU+aZlDJFFT3KUZAY+ZhVUoYDdrdCH8dT
-	 epCQ7WJHr1IBWxqx78v+Zr+CGH9eSWTtot1z+8+Fkq6F3oYH35Lfbe4vSWfU+O+R7ZC5O
-	 EX8+SP2Hkzb7P3txqRm2zc1kwwAkSTF44TDMHPshUUNJdXeYI10OqzKGD7Oyc5nh95w==
+	t=1795640218;
+	b=5s1n2qkcveJUd6oe/rY9DxpWZJQjO3ZeRVqJbHjDuDlf8u4dUywb8P/zle5so5SY3gsA
+	 0udCuwxwEsijbg9cBiGnCUdnjvP4AQzTxtMUtW/viszRinDsEbEZDzVLAXM7mYRUbtgu9
+	 fqK/yIeDkbUZRWWg/tfIxzG+6UHBlhmxG+mCjN1xii941H95C2Dy6KNrWJWHx7isUdQfa
+	 z5i9U24cn68q8gwNwTxAW/jOe27Dkp1YcdeFVDj8f98wi8qI2TUfuxM7HOBTuOf1oZNT2
+	 vs5JXAbe54NtIonFyuJCre9fvZVxhosiM7+2P5ZC1NrNhf8eeXSRkjHqzuWiWVasgcQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795639948;
-	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:From:Content-Language:Autocrypt:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=SllRgyq7wiAXP35EjVVmEDLceHJ1/9Hx1EXp/YDsNQs=;
-	b=VNSVF/oElHccRvP9suVxDK2Tt5CS/9LzyhdSpma2mbbNr+JoJiZ2o3pcCK6TRFOFEdjt
-	 Q3F0JU6Bl/2btaSqeJtaQsOQQ3psGGUcVk08g81Mx+0SRHBV28J71Sklst7c6BxNhkN3X
-	 paEJWckq/TKbqEvm1yqE46USm2kn053dcuGFJT2gdhmj8Vg2LAI3kPADzZfQ2QAgWi2sk
-	 fMlKsgOK3QWUhJaSBsErwBE9Ex2hD3v9R92dhu/ri44HFLAqLK8vCPQdIdBHtcSOpl/ou
-	 kMAtDCtVzsB70je3BlLw+11QCy2pLzZToQ/yANVr2Byfyz+D3EmTBdjkipXe4lyJwcQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795640218;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
+	b=AQjJE/CgcALNbqkhT7CyYX+fKYTHXzZl75gxYHI5zkTI/sJAD89muemsrNTLkwuhf/RE
+	 vU7ulGweB2ZPzyU0ab5ApRwORPEqhGU4zpPCMWiNBDiquCzLv4rtSS50PULRUOWjcrthZ
+	 3/KGTLZrQuQPttMDmQTypMbkBRyrefmlVDXCXftfh1DJ/eZJXg+VbZvD98qJbT1Hm3ljT
+	 byCvMRAsTNLnBngcJ5VNAzNqOIZ+Zy5Eex1gdBV09hQi4Wytf8071IOKU8z5wv8PmcHCZ
+	 2NKGrI+GtBxCLwP4RV+JtLURszxX+rZvp1ivyktEPdsycVHSWWc6oB5LEJiwZWqnPjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=yoxcu.de;
-	spf=pass smtp.mailfrom=yoxcu.de;
-	dkim=pass header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=SQ9tfKJL;
-	arc=none smtp.remote-ip=194.36.144.171
-Received: from morty.yoxcu.de (morty.yoxcu.de [194.36.144.171])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=trailofbits.com;
+	spf=pass smtp.mailfrom=trailofbits.com;
+	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=ZPMkAQeT;
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 234B3606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:52:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 234B3606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=yoxcu.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yoxcu.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 69245606A336
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:56:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 69245606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yoxcu.de header.i=@yoxcu.de header.a=rsa-sha256 header.s=dkim header.b=SQ9tfKJL
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 171681D873D9;
-	Wed, 25 Nov 2026 21:52:15 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yoxcu.de; s=dkim;
-	t=1795639938; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references:autocrypt;
-	bh=SllRgyq7wiAXP35EjVVmEDLceHJ1/9Hx1EXp/YDsNQs=;
-	b=SQ9tfKJLlOLTVq18Qli5LYIyx6MBUe19M7tDd8cQM6OUptx78LIZVR5wLwPDQtM0AKxjzj
-	0LPcAoS9metNO9Mj7HUox0mgr2KbhKdcguChleWuQSZwY0ywL4tFmCh2ehY0JP0OwMIiPV
-	g7IV2wMzzuQW/NJgmQpvO5WBhx3QlLjOR6Br9+quWNHjwI+UkGxRyU/1BuEO/sSGGrenj/
-	JqxFXn9gr3NLQ3mDkLA2dF0uGmcwyZlUYLYy8qTt1KeEgwBtN8YjE85AJa2FCHG06b1nAm
-	2Wv67xh4tuVRRPGC8l1jTWWoMERqLNgLT9dgYj+ftJHZ64GmtJxMV1pIeXTGrA==
-Message-ID: <e5f9b9d5-2000-49b0-9f57-da433fd65193@yoxcu.de>
-Date: Wed, 25 Nov 2026 21:52:10 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=ZPMkAQeT
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-38431138772so8173806eec.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:56:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=trailofbits.com; s=google; t=1795640217; x=1796245017; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
+        b=ZPMkAQeTFHEyTJ4CMgqG1N7dy+fWmXSI99wPfaB/eEP8EdUkgJL/Upczq7+xvs66AC
+         6x3a2TE5rWp3n262l1Yua1s6PJ0nC9OKXcpFvlJ1d5o6N2WcfZ67A/j4sYP/MVg9AVaX
+         dkKuSRMSpY9RY8c7REsiDkVx+DszpyjA+NXephOzbydiCb0BPp8sBVRkbvUZ32sL0GZ4
+         rtMBiaPd6zkyhAmhAQX0zZFiMix5BAWskobmlt4niyOguB84RdCxPcinH2lmAwgjegJT
+         H6PpVyCgyOaU0L7T9ze2fHa3CkbMEFB1yiYpMuKA+yApsOXKkEhxYBrrx9ndBiNQhL91
+         +scA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795640217; x=1796245017;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=W6Gsf8QrffrX5EGpyvR7zzolZ5hNvKi5YdbzlZc4jQM=;
+        b=I2eqkKlQD6erlR13kY23fKWq1vYoKyUF1hrmm54WJqj/Mg4Wg520Ak25jBBAaIX1cR
+         8NsXfnUQB2kt4mLFmlotEM1AhVOlA2p3Xp8Cei/ArR0+MMe0toaKu7AQDJuBzwIyV8uH
+         py4t9n746/DJUxOFT5fiZOvK9tREOAzAlAhIb+U0SraShmwk34kJfsUSseGdtlnW4qbF
+         XiC46uivZ1lO/2NxA9ZrKKCe6YJwoFZpvSLJ3w6pSPW7xv4QokImjU1e3oSW4lVyanm6
+         gjYrr1cuR2yaLWbXxU1s0zNPUMtAWHUV4SKx1+EAt/Wn3JqfEDQC0oTvgqd4PeyMSLGo
+         FNAQ==
+X-Forwarded-Encrypted: i=1; AL+hErH2BrX0mbLH309jkDTA9Sc9W+c+7gm6lPLGrwGUrzvS5DoF7jLTQUt+6v4Ol6MSHMks6fYslv0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+4oI2qfyGoo/FnusSAzDNlRhdQyNUZv4rkQmWXdWwblIypcRwz
+	TCobzY7QiszfF8IkxiBrjSNDdUC48W78DPaKrunCAIi0E/oaeDDdz+ejPDBvAI7XDrU=
+X-Gm-Gg: AZFdTZcZYxrh6+T2l1f9vcL4sr5mQ75dVAO9NBsg+Yboy9wU8wol/KuYygYV/L5FDGK
+	PrNFYLgXXoEAqwLW2v4zHe+GzzlZhmuQ5MtsJpqPAEzjZ88r86jdQ6ZT0R4mb3AE32Xu7OgglFo
+	+qpshL9z+FrF8m8Td7vP+tIyZIX6v0i1kRSkAa16s948g/gAuwUG19ldAjp3muVleDrRbasS3aq
+	Djj+YJotim77YO17LkZW7yS29MCWl5XfGbJ77Z2/aFEbDkCegATjUou+MldYWU/g2Ovs81bloHO
+	AAzcAjfqrziGehUyKc9KWd/St3MeCsNKPKOeS1xl3UZC55I7uWjDowmv8cKN5vyod8alv46uXJM
+	OalQVSuEhHiAHG4+iUNmNAZPvE4jh+7/noo8bc+nsfWZ2ZLpB1D4xG3TQTUpehwD1cZs7ZMetMs
+	tzEKrZTEbW7a9llhqWqWVyzyOKd3mWT3TJr5CdtIYbNsJW9UZfQpxFPavhM3EedNGVuo+JMleVk
+	PNT8LcWoZ5AshVDiTPY+iftm5qFaxMRfhcdZnP/+Vu2XZboT9/HiOrnLpf0LF31tIu687nBPKUV
+	LKTJGX6wDEBVTrfNDOZTXiqllbUrRDjiiTcmwa+FPUmqLi5Y44Zw96YGi4MDcRAdvMjhRS8j2Zt
+	ztONKlJPWL8PNrVm3BqpyAl2mGQ==
+X-Received: by 2002:a05:7300:ac82:b0:385:4b9:18f2 with SMTP id 5a478bee46e88-3857093f077mr28974062eec.21.1795640217441;
+        Wed, 25 Nov 2026 12:56:57 -0800 (PST)
+Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567cafec4sm63824963eec.26.2026.11.25.12.56.56
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 12:56:56 -0800 (PST)
+From: Artem Dinaburg <artem@trailofbits.com>
+To: stable@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	horms@kernel.org,
+	kris.pan@intel.com,
+	kuba@kernel.org,
+	netdev@vger.kernel.org,
+	pabeni@redhat.com
+Subject: [PATCH 6.18.y] net: flush skb_defer_nodes in dev_cpu_dead()
+Date: Wed, 25 Nov 2026 15:56:53 -0500
+Message-ID: <20261125205653.75303-1-artem@trailofbits.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,247 +100,222 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: ipa: report TX_SUSPEND wakeups to the PM
- core
-To: Alex Elder <elder@ieee.org>, Alex Elder <elder@kernel.org>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org
-References: <20261120202930.345970-1-mick@yoxcu.de>
- <ca743abb-5ab4-4157-bb9a-b5ed97f1faa4@ieee.org>
-From: Michael Auer <mick@yoxcu.de>
-Content-Language: en-US
-Autocrypt: addr=mick@yoxcu.de; keydata=
- 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
- ShbHn51QMVl4y3nkTQ==
-In-Reply-To: <ca743abb-5ab4-4157-bb9a-b5ed97f1faa4@ieee.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
 
+From: Eric Dumazet <edumazet@google.com>
+Date: Wed, 23 Sep 2026 13:03:18 +0000
 
-On 11/25/26 6:03 PM, Alex Elder wrote:
- > On 11/20/26 2:29 PM, Michael Auer wrote:
- >> Since commit 4b2274d3811a ("net: ipa: don't bother aborting system
- >> resume") the IPA driver reports no wakeup event. [...]
- >
- > Did you bisect to determine this is where the problem started?
- > If so I suppose the wakeup event *did* get reported prior to that?
+[ Upstream commit 06e3f54e8b22040ada01a28343badf1990b4dd7d ]
 
-No, I did not bisect. I thought i found it by reading the code, and looking
-again, my commit message is wrong.
+When a CPU goes offline, dev_cpu_dead() drains its softnet queues
+(completion_queue, output_queue, poll_list, process_queue, and
+input_pkt_queue), but leaves net_hotdata.skb_defer_nodes untouched.
 
-Since 9ec9b2a30853 ("net: ipa: disable ipa interrupt during suspend")
-ipa_suspend() disables the IRQ, and ipa_resume() clears
-IPA_POWER_FLAG_SYSTEM before it enables the IRQ again. So for data
-that arrives while the system is suspended, the handler runs after
-the flag is cleared, and pm_wakeup_dev_event() was not called. As
-far as I can tell, the only case left that saw the flag set was the
-simulated TX_SUSPEND of the v3.5.1 aggregation workaround, from
-inside ipa_suspend(). So 4b2274d3811a did not change what gets
-reported for a real wakeup. I will fix the commit message.
+If oldcpu goes offline while holding pending skbs in its
+skb_defer_nodes lists (e.g. below the sysctl_skb_defer_max >> 1 IPI
+threshold, or if the IPI races with CPU teardown), those skbs remain
+stranded until oldcpu is brought back online. If any of these skbs
+hold page_pool fragments, page_pool_destroy() will stall indefinitely
+waiting for inflight pages to be returned when a netdev or driver is
+torn down while oldcpu is offline.
 
- > I really don't think you're hitting this.  However the fact
- > that your hardware has special logic related to this makes
- > me want to have someone with a newer version of IPA confirm
- > this bug (no reported system wakeup event) occurs for them
- > as well, and also confirm that your fix makes that bug go away.
+Additionally, if smp_call_function_single_async() fails in
+kick_defer_list_purge() because the target CPU went offline, reset
+defer_ipi_scheduled to 0 so future IPI kicks are not blocked when the
+CPU comes back online.
 
-Agreed, the wakeups I see come from the real interrupt. My kernel
-has no PM_SLEEP_DEBUG, so I traced the wake IRQ instead: LTE
-wakeups show the IPA IRQ, and without the patch the IPA wakeup
-source stays at 0. But v1 also counts TX_SUSPEND outside of a
-system resume: after a runtime suspend, and the simulated one (the
-sashiko review pointed this out). On one boot with v1 the wakeup
-source counted 102 events for 83 wakeups by the IPA IRQ.
+Also, if oldcpu was the last online CPU on its NUMA node, drain that
+node's slot across all CPUs so no skbs deferred from that node remain
+stranded on idle remote CPUs (or if the node itself is subsequently
+offlined).
 
- > Do you think you can find anyone who could do this, and/or
- > help by explaining to someone how exactly to reproduce the
- > scenario?
+Finally, in skb_attempt_defer_free(), re-check cpu_online(cpu) and
+whether the caller migrated CPUs after llist_add(), flushing the node
+list if so, to close the preemption TOCTOU race against CPU/node
+teardown.
 
-I only have SDM845 phones. I will ask around for a device with a
-newer IPA.
+Fixes: 68822bdf76f1 ("net: generalize skb freeing deferral to per-cpu lists")
+Fixes: 5628f3fe3b16 ("net: add NUMA awareness to skb_attempt_defer_free()")
+Closes: https://lore.kernel.org/netdev/20260916003430.3612956-1-kris.pan@intel.com/
+Signed-off-by: Eric Dumazet <edumazet@google.com>
+Cc: Kris Pan <kris.pan@intel.com>
+Link: https://patch.msgid.link/20260923130318.607255-1-edumazet@google.com
+Signed-off-by: Jakub Kicinski <kuba@kernel.org>
 
+[ Backport to 6.18.y: 6.18.y loads skb->alloc_cpu in the declaration of
+  cpu and lacks the upstream skb_defer_disable_key and skb_zcopy()
+  bypasses, so my_cpu is declared separately and the remaining hunks
+  are adjusted for context. The 6.18.y flush loop has no prefetch();
+  the new __skb_defer_free_flush() helper adds it as upstream does.
+  skb_defer_free_flush() keeps the for_each_online_node() iteration
+  from commit 58fb1e2a33ea ("net: iterate online nodes in
+  skb_defer_free_flush()"), already in 6.18.y. ]
+Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
+---
+Hi,
 
- > Are you distinguishing between system suspend and IPA runtime
- > suspend here?
+Please apply this backport to 6.18.y. It fixes CVE-2026-98558.
 
-No, v1 does not.
+The fix is in 7.2.9 and in mainline since 7.3. It carries no stable tag
+and so far has been backported only to 7.2.y. 6.18.65 already contains
+58fb1e2a33ea (upstream 56fbbb662795), whose changelog relies on
+dev_cpu_dead() draining the deferred lists of offline nodes; this patch
+adds that drain.
 
- > I do believe that the pm_wakeup_event() is meant to occur
- > only for system suspend, not "just" runtime suspend. [...]
- > So unless I'm mistaken, we'll need to add some
- > of this logic back again.
+Compiled net/core/dev.o and net/core/skbuff.o for x86_64 with
+CONFIG_WERROR=y on 6.18.65, with CONFIG_NUMA enabled and disabled, and
+with CONFIG_NUMA enabled on 6.18.65 with the queue-6.18 patches at
+stable-queue 42799ba370. The patch also applies to the current queue
+(0fdc4475764), which was not built. No kernel boot or runtime test was
+performed.
 
-Agreed. But because of 9ec9b2a30853, a flag set in ipa_suspend() and
-cleared in ipa_resume() is not enough, since the handler runs only
-after ipa_resume(). I see two ways:
+An LLM was used to prepare this backport and to check applicability and
+stable-queue history; I reviewed the result.
 
-a) In ipa_resume(), before enabling the IRQ, check whether the IPA
-    IRQ woke the system and report the event there. The PM core
-    records the wake IRQ (pm_system_irq_wakeup()), but a driver
-    cannot read it today.
+Thanks,
+Artem Dinaburg
 
-b) Do it in the PM core instead: for a wake IRQ set with
-    dev_pm_set_wake_irq(), report a wakeup event for the device when
-    that IRQ woke the system, e.g. in dev_pm_disarm_wake_irq(). Then
-    IPA needs no change, and other drivers that use
-    dev_pm_set_wake_irq() would get the same. That would be a
-    linux-pm patch.
+ net/core/dev.c    | 46 +++++++++++++++++++++++++++++++++++-----------
+ net/core/dev.h    |  2 ++
+ net/core/skbuff.c | 11 +++++++++--
+ 3 files changed, 46 insertions(+), 13 deletions(-)
 
-I tried b) on my phone, with the IPA change dropped: a wake IRQ that
-matches the recorded wakeup IRQ of a non-dedicated wake IRQ gets a
-pm_wakeup_ws_event(). In the first hour, 3 of 26 resumes were woken
-by the IPA IRQ, and the IPA wakeup source counted exactly 3. Nothing
-was counted while the system was awake.
-
-Would you be fine with b)? Then I would send that to linux-pm, with
-you on Cc, and drop this patch.
-
- > I can help with implementing your fix if I am able to
- > reproduce the problem.
-
-Thanks!
-
-pw-bot: cr
-
-Michael
-
-On 11/25/26 18:03, Alex Elder wrote:
-> On 11/20/26 2:29 PM, Michael Auer wrote:
->> Since commit 4b2274d3811a ("net: ipa: don't bother aborting system
->> resume") the IPA driver reports no wakeup event. The IPA interrupt
->> still wakes the system, but the wakeup source of the IPA device does
->> not count it, so only /sys/power/pm_wakeup_irq shows the cause.
->
-> Did you bisect to determine this is where the problem started?
-> If so I suppose the wakeup event *did* get reported prior to that?
->
-> I ask because this was a specific scenario that I was never able
-> to actually test.  I didn't find a way to cause data to arrive
-> while my test device was suspended.
->
-> A lot has changed since that commit.
->
->> User space that reads the wakeup sources cannot attribute a mobile
->> data wakeup. Plasma's powerdevil, for example, turns the display on
->> for every such wakeup.
->>
->> Report a wakeup event when handling the TX_SUSPEND interrupt. This is
->> pm_wakeup_event(), not a hard wakeup, so it does not abort a suspend
->> in progress unless user space uses /sys/power/wakeup_count.
->>
->> Found and tested on a OnePlus 6 (SDM845, IPA v3.5.1): a push message
->> over LTE wakes the phone from s2idle, and the IPA wakeup source now
->> counts it.
->>
->> Signed-off-by: Michael Auer <mick@yoxcu.de>
->
-> I am still not able to test this.
->
-> There is some special handling for the specific hardware
-> you're working with, where a quirk on IPA v3.5.1 under
-> certain circumstances (suspended while an aggregation
-> frame is open) should generate an IPA SUSPEND interrupt,
-> but it does not.  That case is treated as if that interrupt
-> did fire.
->
-> I really don't think you're hitting this.  However the fact
-> that your hardware has special logic related to this makes
-> me want to have someone with a newer version of IPA confirm
-> this bug (no reported system wakeup event) occurs for them
-> as well, and also confirm that your fix makes that bug go away.
->
-> Do you think you can find anyone who could do this, and/or
-> help by explaining to someone how exactly to reproduce the
-> scenario?
->
->> ---
->> Tested on a OnePlus 6 with an sdm845-mainline 7.1-rc1 based kernel, in
->> daily use since late September. On net-next it was only build tested
->> (W=1, arm64 and x86_64 allmodconfig).
->>
->> The event is also counted when TX_SUSPEND fires after a runtime
->> suspend while the system is running. If that is not wanted, the call
->> could be limited to system resume. I kept the version I tested.
->
-> Are you distinguishing between system suspend and IPA runtime
-> suspend here?
->
-> I do believe that the pm_wakeup_event() is meant to occur
-> only for system suspend, not "just" runtime suspend.  The
-> system normally does not need to be notified for runtime
-> resume.
->
-> Unfortunately, the flag that recorded whether we were
-> suspended as a result of system suspend was removed (right
-> after the commit that you say made wakeups no longer get
-> reported).  So unless I'm mistaken, we'll need to add some
-> of this logic back again.
->
-> I can help with implementing your fix if I am able to
-> reproduce the problem.
->
->                     -Alex
->
->
->> Tool use: the analysis, the code and the commit messages were
->> written with an LLM coding assistant (Claude Code). I reviewed all
->> of it and tested it on my phone as described above.
->>
->>   drivers/net/ipa/ipa_interrupt.c | 5 +++++
->>   1 file changed, 5 insertions(+)
->>
->> diff --git a/drivers/net/ipa/ipa_interrupt.c 
->> b/drivers/net/ipa/ipa_interrupt.c
->> index 766b094eb069..547ed67930d6 100644
->> --- a/drivers/net/ipa/ipa_interrupt.c
->> +++ b/drivers/net/ipa/ipa_interrupt.c
->> @@ -92,6 +92,11 @@ static void ipa_interrupt_process(struct 
->> ipa_interrupt *interrupt, u32 irq_id)
->>           break;
->>         case IPA_IRQ_TX_SUSPEND:
->> +        /* Data arrived for a suspended endpoint. Report it as a
->> +         * wakeup event, so user space can see what woke the system.
->> +         */
->> +        pm_wakeup_event(ipa->dev, 0);
->> +
->>           /* Clearing the SUSPEND_TX interrupt also clears the
->>            * register that tells us which suspended endpoint(s)
->>            * caused the interrupt, so defer clearing until after
->>
->> base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
->
+diff --git a/net/core/dev.c b/net/core/dev.c
+index e4216b78a1a4..da7818b91471 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -5288,7 +5288,8 @@ void kick_defer_list_purge(unsigned int cpu)
+ 		backlog_unlock_irq_restore(sd, flags);
+ 
+ 	} else if (!cmpxchg(&sd->defer_ipi_scheduled, 0, 1)) {
+-		smp_call_function_single_async(cpu, &sd->defer_csd);
++		if (smp_call_function_single_async(cpu, &sd->defer_csd))
++			WRITE_ONCE(sd->defer_ipi_scheduled, 0);
+ 	}
+ }
+ 
+@@ -6826,24 +6827,35 @@ bool napi_complete_done(struct napi_struct *n, int work_done)
+ }
+ EXPORT_SYMBOL(napi_complete_done);
+ 
+-static void skb_defer_free_flush(void)
++static void __skb_defer_free_flush(struct skb_defer_node *sdn, int budget)
+ {
+ 	struct llist_node *free_list;
+ 	struct sk_buff *skb, *next;
++
++	if (llist_empty(&sdn->defer_list))
++		return;
++	atomic_long_set(&sdn->defer_count, 0);
++	free_list = llist_del_all(&sdn->defer_list);
++
++	llist_for_each_entry_safe(skb, next, free_list, ll_node) {
++		prefetch(next);
++		napi_consume_skb(skb, budget);
++	}
++}
++
++void skb_defer_node_flush(struct skb_defer_node *sdn)
++{
++	__skb_defer_free_flush(sdn, 0);
++}
++
++static void skb_defer_free_flush(void)
++{
+ 	struct skb_defer_node *sdn;
+ 	int node;
+ 
+ 	for_each_online_node(node) {
+ 		sdn = this_cpu_ptr(net_hotdata.skb_defer_nodes) + node;
+-
+-		if (llist_empty(&sdn->defer_list))
+-			continue;
+-		atomic_long_set(&sdn->defer_count, 0);
+-		free_list = llist_del_all(&sdn->defer_list);
+-
+-		llist_for_each_entry_safe(skb, next, free_list, ll_node) {
+-			napi_consume_skb(skb, 1);
+-		}
++		__skb_defer_free_flush(sdn, 1);
+ 	}
+ }
+ 
+@@ -12665,6 +12677,7 @@ static int dev_cpu_dead(unsigned int oldcpu)
+ 	struct sk_buff **list_skb;
+ 	struct sk_buff *skb;
+ 	unsigned int cpu;
++	int node;
+ 	struct softnet_data *sd, *oldsd, *remsd = NULL;
+ 
+ 	local_irq_disable();
+@@ -12725,6 +12738,17 @@ static int dev_cpu_dead(unsigned int oldcpu)
+ 		rps_input_queue_head_incr(oldsd);
+ 	}
+ 
++	for_each_node(node)
++		skb_defer_node_flush(per_cpu_ptr(net_hotdata.skb_defer_nodes,
++						 oldcpu) + node);
++	node = cpu_to_node(oldcpu);
++	if (node_possible(node) &&
++	    !cpumask_intersects(cpumask_of_node(node), cpu_online_mask)) {
++		for_each_possible_cpu(cpu)
++			skb_defer_node_flush(per_cpu_ptr(net_hotdata.skb_defer_nodes,
++							 cpu) + node);
++	}
++
+ 	return 0;
+ }
+ 
+diff --git a/net/core/dev.h b/net/core/dev.h
+index 6a84413e673a..7e5bce3c78e3 100644
+--- a/net/core/dev.h
++++ b/net/core/dev.h
+@@ -360,6 +360,8 @@ static inline void napi_assert_will_not_race(const struct napi_struct *napi)
+ 	WARN_ON(READ_ONCE(napi->list_owner) != -1);
+ }
+ 
++struct skb_defer_node;
++void skb_defer_node_flush(struct skb_defer_node *sdn);
+ void kick_defer_list_purge(unsigned int cpu);
+ 
+ int dev_set_hwtstamp_phylib(struct net_device *dev,
+diff --git a/net/core/skbuff.c b/net/core/skbuff.c
+index e28802a46fd2..9cee07fc93b1 100644
+--- a/net/core/skbuff.c
++++ b/net/core/skbuff.c
+@@ -7312,10 +7312,12 @@ void skb_attempt_defer_free(struct sk_buff *skb)
+ 	struct skb_defer_node *sdn;
+ 	unsigned long defer_count;
+ 	int cpu = skb->alloc_cpu;
++	int my_cpu;
+ 	unsigned int defer_max;
+ 	bool kick;
+ 
+-	if (cpu == raw_smp_processor_id() ||
++	my_cpu = raw_smp_processor_id();
++	if (cpu == my_cpu ||
+ 	    WARN_ON_ONCE(cpu >= nr_cpu_ids) ||
+ 	    !cpu_online(cpu)) {
+ nodefer:	kfree_skb_napi_cache(skb);
+@@ -7326,7 +7328,7 @@ nodefer:	kfree_skb_napi_cache(skb);
+ 	DEBUG_NET_WARN_ON_ONCE(skb->destructor);
+ 	DEBUG_NET_WARN_ON_ONCE(skb_nfct(skb));
+ 
+-	sdn = per_cpu_ptr(net_hotdata.skb_defer_nodes, cpu) + numa_node_id();
++	sdn = per_cpu_ptr(net_hotdata.skb_defer_nodes, cpu) + cpu_to_node(my_cpu);
+ 
+ 	defer_max = READ_ONCE(net_hotdata.sysctl_skb_defer_max);
+ 	defer_count = atomic_long_inc_return(&sdn->defer_count);
+@@ -7336,6 +7338,11 @@ nodefer:	kfree_skb_napi_cache(skb);
+ 
+ 	llist_add(&skb->ll_node, &sdn->defer_list);
+ 
++	if (unlikely(!cpu_online(cpu) || my_cpu != raw_smp_processor_id())) {
++		skb_defer_node_flush(sdn);
++		return;
++	}
++
+ 	/* Send an IPI every time queue reaches half capacity. */
+ 	kick = (defer_count - 1) == (defer_max >> 1);
+ 
