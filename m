@@ -1,79 +1,115 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.42
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795641477;
-	b=4ho67suGHz9qs6xx1madsHmTxRftUB3nAJhQY4fOR6w6m1QMcLPRWFZwga/aJCnzhHIw
-	 u8ZJ3ry9vbE1fBg2uia3+S83CY20YCAvUd2MQeI9y8+BevWYZyWjisMfIijgSn4zgsSTk
-	 pRcFhhx4d1tCZAee4FtT4Vg3+wuuTyShG9U3HEBwGG2qo1GRnhaAktyxmnxiVp6DJmOLA
-	 C+HOiesB1jLvnHKuMnTKIKnYiAcTXQZ2lUOWyqLYwTezy1pb0yW401YIjLSpx8FFWTm8b
-	 nb4MvUiZDmsdUjEW/gUQ/aIV8uJ6qu9ZJ4kOeIuT0fcgq+uh4CZ2b7M9sxfCgtU9xOQ==
+	t=1795641668;
+	b=iWUy+huy8zArcC1mFFUwS4H2TQQluP8mA6JU/Jv0tKR7uqXvPd5WGVG25gTSDJ70uqCD
+	 mFoIUhogfyh9E4SeZVuQ/IOya6/GtxOEeG0FFbwnLC/bjcDjw4zR5kYWVWeBK2En7VyGc
+	 RwpsTVtYwASYQJiuIisIgsQIUs+nTQwFE6tdKIZQd6tTEIxvg27Fn8amfCDphiGGh+gaP
+	 pCEVUDIOOdw7VAIRVN34XcX20mEsA+MQa2Lg1pGn5vZs1LMth5H0/s6D5ABlePbs0tPHA
+	 W42g16L1atlqxFNf4gxyVzIU8Fy2Q0U1eCSUNRxXEWoLTB3kXaUw4f/cjT+i0kKbhfg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795641477;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZfcxBCdH4MqkIE9uTkekLY0Z7Le/9jIC9EoyHz4x//g=;
-	b=5NZnM7i7qn5RdLNAT521F/akMhtq4+oxiRN+7+JpYDJijR2AQZ5VCxh+3BQ7DbWbqFTv
-	 tjlVHfYXivRuT8xpmQ/crC+VBZ4iMQV5ZDRo+JcsG8v7fCE6H61+HJBagsgEubc8LoIW4
-	 fcfLkYknuf1uDuVdm/zfXgUMldOJIU7VkNilUocafx6/83buA8UxQzV8RtJlqizfkHngG
-	 ddBN23jUkHeyMf59jJKeer5LaxPsseMxeslIn3CiSQhEHYoXEdkxHKTaxCiimN3rVSHMO
-	 oSI8seqCF05/NfeluCsCfa/L41GCQB8Nkpp5rq92O77K2mM8d+G+F67J5WEsfNCo3uQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795641668;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=6MKkvT+ZnTcVhfPG45CQpxg8IQFBZdHJdTN34fDanwQ=;
+	b=ymTzorInh5Y1+Z7SqTJyJAPBNPv35RB8+7e6/kBpDcAftkNGlVDzOjeVOqJTroWweB60
+	 1VikWwF1OCuIpWHWFFSQNP01HVWz8LM7zV15N29jB4e1Zjzk3LKIs1jnpNzYO7jSNA+z8
+	 QswVUF2E9ySP/FVTaXOwwB3CjRbJauU8dyTLnKNO4YfWqB6qPMDs2KNCQF3lghU3xpsh5
+	 PsuxghOfkqDg9WztBQAyEwBlylF4OGt+3sIAbWrEI0u5vJngrxXbxhgk04xJ5uzP62RIu
+	 gMw5eib+EXKb3oYMkOWH+Aa40LArwN5PUALZv/ytE6yIAgrhV4osDgFVYVVcrdE1p9A==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c99Ulbb0;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=bvfVPCFN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.193.42
+Received: from CH1PR05CU001.outbound.protection.outlook.com (mail-northcentralusazon11010042.outbound.protection.outlook.com [52.101.193.42])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 871D7606A31E;
-	Wed, 25 Nov 2026 21:17:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90263606A31E;
+	Wed, 25 Nov 2026 21:21:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90263606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=c99Ulbb0
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795641476;
-	b=0KpwdxIn4ZhE2yEkqbCiK/AI47ER5q5agQBQJAJmIxy5eOE+KmajM9dj7UZNU93zjs+L
-	 c6mRSs5UaQkcRoEqETr9FKTcHz4QXEJpcZHdApwj2BVehXzeNjfgfpn6PuO2WrzpDMyeK
-	 0wXMwKHGXe2ZOX84nQQqM13DetTxbo+lEm5DjjGKa6X4WXWwZ6GYP5CVmF+slUk5uIF1j
-	 pkvZiF3shoJ5Cj7rp3HVdXYiBPxzeEs9F27HcNXmqLEm2lvTnMzfVbWR07LvBmXXDL/md
-	 pG7JSie+6yniUo8qQ3WJQvXOtbD+UAUcoxo1Jgjj6SqbisaetxfgytVlmVF6oqu2y3w==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795641476;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=ZfcxBCdH4MqkIE9uTkekLY0Z7Le/9jIC9EoyHz4x//g=;
-	b=vdFLfd9usGr9EgeZsDKYWKH4l4fjNPmEh5wTIGv3KLLsvm5OiNeOcsYkmAszXK0asAEK
-	 N4GAv6OEZ7CCi7PMToNYIBukvNS0PoDsEN3/9TmKcYOHhypnRAht8a/007CI8Htza9XXU
-	 hJPR1iAC520Yy5UwnQuAjqDI1Lg59levkNq0gjS49s7CM/b/zrhrr6FnKBmDnMd4ybUFI
-	 jYJvASU0RQMbnz31RkipUY/Cb2nmw2zozsbiQ9h7r4sKuURn1BC4jIJMkMaG8sFOtNDYw
-	 Z6WirhAUX6opI7f9jsRCEdkH7SpnoYp+ei6iIY5NpR8XGlk5mklYJrXiwMUydyTjYDg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 71BDB1F000D2;
-	Wed, 25 Nov 2026 21:17:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795641476;
-	bh=ZfcxBCdH4MqkIE9uTkekLY0Z7Le/9jIC9EoyHz4x//g=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=c99Ulbb0bwm8t05TLmzsHa5uhd+ILPbfLwaLgQvdaZE8wP3OW0aQ67HzA7nHUA5LS
-	 GlsI5MFbir5/b/jI2Px5Lbg6urzFiGOAbBEYtN+NcuXFU0FOTuuL6xns4emgmVuc84
-	 JJrw32NsG3Ze6laHa6RWNwy+CJAplSN8AeMx7uU4Dozj4LZlL6nxBOpasqEzOckVO4
-	 tLVh3lJa475PIQRWwvyLLSboApJkocl133ZOes5eVLMer9KhS4v8/EbGNliVbOMcwK
-	 8IfLC0cZ18XOKPUF78JQRmOTT2hUU7zAXMcuIuaszKRlECixDxRcL8zRYUsAr5OIFT
-	 YqwmGZsa7kOEw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 026314D067;
-	Wed, 25 Nov 2026 21:17:47 +0000 (UTC)
-From: Kalash Nainwal via B4 Relay <devnull+kalash.nexthop.ai@kernel.org>
-Date: Wed, 25 Nov 2026 14:17:47 -0700
-Subject: [PATCH net-next v2 2/2] selftests: net: add
- tcp_l3mdev_exempt_ports test
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=bvfVPCFN
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Yd+WTTz2haopH8orsBX9lkkoeCVu78WaqHDsFurzopLKOunQv0qHCeNZlhSh/I+gqdhtfndEeBwIf3rA2iecPNfxTFTQnzmjgJyc7pBCOnV5EMeAaXBVQ2dNlbwy8Nd0nXIedMHrTmGMJcyntmsdzryQWjfJDDlE5TzeW37icT7LeJWREsc5jKovdhLmxniso0ig5/+heJLy+u7DpTUQ7uG7rFYC+ON76m94DiRn0KE0pqrBguM4ko1bOwDuLImXJoAUocHpRQYx1fO/saPkN8f+PdY4+5UROdGMPmUDGv4OBpi+Zp4/aN2zejVZiPAGp5n8A1+r3K86vhI4d7SExQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6MKkvT+ZnTcVhfPG45CQpxg8IQFBZdHJdTN34fDanwQ=;
+ b=PQTlB22cRb4PEG3/nm2PhbGYG6Ehp6OZnkcv2bV3sJobyvaAiVOqkSuzdNHPaQU6Sf0ew+fNLlISKjwbpoOYT1mCZCwKWw4MfwtzzIpKu1vYaJllIiIsscNlAmJEgu9HXL2dyctirdR19xSWcm5galSMvD8PfZF6pVqmBwKRpZFKcLnltgqTO9ZZb8XIkKFj6dhTYFrd6pXZDCbKr3l/8psHPuWSXzvz6HQC88sppny5ELV1cj9NERQ7/vCEUBZ+e7f7vEm7Ki+h1tO5m5ZHV8SMmxND1sOtlNJc4op2XIZch2J2+GW1nlUuPzr/MXbPyZOOHe4pvtLPpVuonRPRQg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6MKkvT+ZnTcVhfPG45CQpxg8IQFBZdHJdTN34fDanwQ=;
+ b=bvfVPCFNbNpreONObyq2Z+EWx0953Taq6RBC/q/k5pPzdTYzPcncCzqFhry61OVLyZjfik6z8SlskniEi9fpiIxOhfooDnrUPk8O70+goZ+NIBt7dWad6+L/CYg102m0ZNYDBcR/jf+ItU6eY7WuNN9Tbv+c8yX0Chmr6nU7tjX7c+QGzIWKNa0I2qk3zFSUPiYTD+fNnB5IzJ2KxmbrB1wXrJ6LXvn1yJdOBY82QzHMH83C1iAedeoZmU81Y2VHv9bvmCY96nejJnX61I3d3+VUZcXhL/1etQSDHVyLJi6WQ399YLewloA7zj2gJIAqzHxJZAUl4ZoCA0KEJiq77g==
+Received: from BN0PR08CA0004.namprd08.prod.outlook.com (2603:10b6:408:142::22)
+ by DS3PR12MB999216.namprd12.prod.outlook.com (2603:10b6:8:38d::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 21:21:03 +0000
+Received: from BN3PEPF00022BD8.namprd03.prod.outlook.com
+ (2603:10b6:408:142:cafe::5f) by BN0PR08CA0004.outlook.office365.com
+ (2603:10b6:408:142::22) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 21:21:03 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BN3PEPF00022BD8.mail.protection.outlook.com (10.167.248.104) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 21:21:02 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
+ 2026 13:20:41 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
+ 2026 13:20:40 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server id 15.2.2562.57 via Frontend Transport; Wed, 25
+ Nov 2026 13:20:36 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Carolina Jubran <cjubran@nvidia.com>, Chris Mi <cmi@nvidia.com>, "Gal
+ Pressman" <gal@nvidia.com>, Kees Cook <kees+treewide@kernel.org>, "Leon
+ Romanovsky" <leon@kernel.org>, <linux-rdma@vger.kernel.org>, Mark Bloch
+	<mbloch@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>, Or Har-Toov
+	<ohartoov@nvidia.com>, Parav Pandit <parav@nvidia.com>, Saeed Mahameed
+	<saeedm@nvidia.com>, Shay Drori <shayd@nvidia.com>, Tariq Toukan
+	<tariqt@nvidia.com>
+Subject: [PATCH net-next 0/2] net/mlx5: Add controller number to SF and VF phys_port_name
+Date: Wed, 25 Nov 2026 23:20:30 +0200
+Message-ID: <20261125212032.243064-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,336 +119,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261125-tcp-l3mdev-exempt-ports-v2-2-b920f3ff8f5e@nexthop.ai>
-References: <20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e@nexthop.ai>
-In-Reply-To: <20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e@nexthop.ai>
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
- Randy Dunlap <rdunlap@infradead.org>, David Ahern <dsahern@kernel.org>, 
- Ido Schimmel <idosch@nvidia.com>, Neal Cardwell <ncardwell@google.com>, 
- Kuniyuki Iwashima <kuniyu@google.com>
-Cc: Shuah Khan <shuah@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
- netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
- Kalash Nainwal <kalash@nexthop.ai>
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=7786; i=kalash@nexthop.ai;
- h=from:subject:message-id;
- bh=pCFpBhfKIxwlyAN8/jFlV/GpuTN55VV46c1c4t1xeJk=;
- b=owEB7QES/pANAwAKAdTKslu1X9B2AcsmYgBrB1B5uhkB5G0WPoqQdg/04F3iPIWRMW545tFTO
- unK8kco5HuJAbMEAAEKAB0WIQSWKdfHnHcAucb08LDUyrJbtV/QdgUCawdQeQAKCRDUyrJbtV/Q
- dgBdC/oDWzNLGABX1uSgVBYwRzvMu8FCpnwE3t/6K/43gMs9+jGOMHP8TYy/xnO3aCuuxwCswho
- UEAC6ChSXG/GTcecIidwB6s5ghCqPJdkLErw2D+ZPDnBBnGOyNo/JIsFDqFVUvpnlDBGqsgQu/I
- BCKf6MVGZDUtdwGuW0cHHmbEAV9VpbtNYm4a0y5vyMiu7uWbiyQkfC6wIKrde3n1y0vycNZaWLB
- Gaw1+xRfxnN4LdZZ7kJmcveC9T8bfuKVyoPu3qPPLDcd6FMDh7SrCJscBSR+7ywntfSxmzYdT0b
- tVFXNZbYoMj4fIw2ajgrEHs87NT8eY9HJZDXMhql19go6aiis7WkyRuUvhaSVY572/HR5SCeQDT
- Qi6XeIzAN6oY4kebI3Gc7B8TktNAvKMKv0txAxpVXb/HBxdPUM1ewTQlcY8IjJSf1f2koEZvQ6h
- GHBiqLOCflhUeprlNBCDgPIOEBK6N0+DcKctSz+4XbtD9Bfrozdz0/uQXV67/1iyxEwIg=
-X-Developer-Key: i=kalash@nexthop.ai; a=openpgp;
- fpr=9629D7C79C7700B9C6F4F0B0D4CAB25BB55FD076
-X-Endpoint-Received: by B4 Relay for kalash@nexthop.ai/default with
- auth_id=1588
-X-Original-From: Kalash Nainwal <kalash@nexthop.ai>
-Reply-To: kalash@nexthop.ai
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BN3PEPF00022BD8:EE_|DS3PR12MB999216:EE_
+X-MS-Office365-Filtering-Correlation-Id: 30b88774-2bfe-4772-a529-08df4b3a0270
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|376014|23010399003|36860700016|6133799003|18002099003|261009223027099003|261021121427099003|261021123027099003|261022105027099003|261022075727099003|261026140227099003|261102123227099003|261028144727099003|56012099006|10067099003|11063799006;
+X-Microsoft-Antispam-Message-Info:
+	wonEK+7YX3+prvRvYdYnhtCawg1sFB9ZcdPVId9POlYpe/qOhv5rznzGBmZBtvt5xvjV3CI8uZn+vR2XZBuSiuZD7jvpHVY4sglVflc+nLDQzQc/JiYjFzdpiGDwEbqe+JeEJ+tCWdNgmz6QL2mpxo0aCYK4e9s1wixiCVqhOYhUh8eY96yKCqQX5GJwHYMY7H+TMz6vCnqFPzACOM5micQuQ+ganRumpGs2v/rpgOfd4dFvF14VWV7yZymHXdB1q6dmxIop3UwNl4A9xQcDymLMNCewCEN41MSFfcOnbiax7lHmGww7GSd12XVcQJ8wW2LQ2TLYBpm0ZOafQEGYrQwUZP2CQwm+bHD6KCvf4BV+oHLAt9BOOT3DBfKJD5u33ZnVtFIPxDzrB2S9M7cw9D+BHH2fguTUTA1ngXdQ4fg0Ell7NA/FjYVEoBekfpd/17hcunbwY2FfOEfHTqrrxQ/6BZ38KlbckmBfC849uepSQdt87PitkSp2gumRPYz1dvXN0+vtVpEHTP6LsaIQskdIVouXzZhzBgirON0sAeh8X+tI8Nc23aEp6eZhHXOB0XZ1mM4XVzIQA6Xb/ju6/kaQmwbGhclRAXss0OW2viwFexme7gGzpM8vyI3IkJIWANiMVSAhQJzxahv6/YIpJk0nkNIPQKORuAkZE5pB8rwOXrS6512pkzCfCuSCl/2TKkIdnfKaZRawM9iQWgkQpg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(23010399003)(36860700016)(6133799003)(18002099003)(261009223027099003)(261021121427099003)(261021123027099003)(261022105027099003)(261022075727099003)(261026140227099003)(261102123227099003)(261028144727099003)(56012099006)(10067099003)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	bBUoXBGvVMLyWOK9/tD1KrcDg193650f3GXkU4WTmgkqiivlP2fPuiIA4x60fKnROJEIB9q1RYg8EaM3csuufHNImAiP4u1aEQDHVqFYFKK9oQ6SlgXGG8EzbmqdiK09sfiI0iPL8CCO/U/rTCxww1hNTQhWDAO4XzhRIgG+gcxwneqdsrz/hJVBcJmvKTes4w/buZh9IoeQpDzAwC+vgtrmu5c2YunnYXLgp/geuRWneVwO+TEzi1T2/HvW9kdBhicPeMea/a/fyLCPMFFcCuo/HAc4glyKidTOreCXIMpR58bbo5TBSc92GfUWgGksV0I5PydRL7ZbynWGGA77wUGPNpfE5aVIbX+pMbUQPIdibopJydELbb17gfXeUyXy/QGlYcdVjkbwZWNP9P/fRpP2TYC3TkqRM1r6d4Gq7CdnihRzkxopR/zsMPSz0QiO
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 21:21:02.9275
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 30b88774-2bfe-4772-a529-08df4b3a0270
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BN3PEPF00022BD8.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS3PR12MB999216
 
-From: Kalash Nainwal <kalash@nexthop.ai>
+Hi,
 
-Check that with tcp_l3mdev_accept=1 and the port listed in
-tcp_l3mdev_exempt_ports, a VRF connection goes to the VRF-bound
-listener (in both listener creation orders) and is refused by an
-unbound-only listener, and that default-VRF connections still reach
-the unbound listener. Covers IPv4 and IPv6.
+This series by Chris adds the controller number to the phys_port_name of
+SF and VF representors on the non-master PCI link of a BlueField-4
+Socket-Direct topology.
 
-Signed-off-by: Kalash Nainwal <kalash@nexthop.ai>
----
- tools/testing/selftests/net/Makefile               |   1 +
- .../selftests/net/tcp_l3mdev_exempt_ports.sh       | 260 +++++++++++++++++++++
- 2 files changed, 261 insertions(+)
+Today the controller number is omitted from phys_port_name when it is 0.
+In a BlueField-4 Socket-Direct topology there are two PCI links under a
+single eswitch, and they have duplicate function numbers (pf num) and
+SF/VF numbers. As a result, SFs/VFs on the two links end up with the
+same phys_port_name, for example pf0sf0 on both, and cannot be told
+apart.
 
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index c80dabbcc90..2a0b8453bfd 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -109,6 +109,7 @@ TEST_PROGS := \
- 	stress_reuseport_listen.sh \
- 	tcp_ecmp_failover.sh \
- 	tcp_fastopen_backup_key.sh \
-+	tcp_l3mdev_exempt_ports.sh \
- 	test_bridge_backup_port.sh \
- 	test_bridge_neigh_suppress.sh \
- 	test_ingress_egress_chaining.sh \
-diff --git a/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh b/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh
-new file mode 100755
-index 00000000000..da7f20bf2e9
---- /dev/null
-+++ b/tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh
-@@ -0,0 +1,260 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Test net.ipv4.tcp_l3mdev_exempt_ports.
-+#
-+# With tcp_l3mdev_accept=1, a listener that is not bound to a device also
-+# matches connections that arrive in a VRF. For a port listed in
-+# tcp_l3mdev_exempt_ports it must not: only a listener bound to the VRF
-+# may take such a connection. Connections in the default VRF are not
-+# affected.
-+#
-+#  ns_c (client in VRF)       ns_s (server)       ns_d (client, default VRF)
-+#      veth0 ------------- veth_vrf [vrf red]
-+#                             veth_def ----------------- veth0
-+
-+# ns_s, ns_c and ns_d are assigned by setup_ns, and the test functions
-+# are called through ALL_TESTS.
-+# shellcheck disable=SC2154,SC2329
-+
-+source lib.sh
-+
-+PORT=12345
-+OTHER_PORT=23456
-+VRF=red
-+VRF_TABLE=1000
-+
-+VRF_SRV4=172.16.1.1
-+VRF_CLI4=172.16.1.2
-+DEF_SRV4=172.16.2.1
-+DEF_CLI4=172.16.2.2
-+VRF_SRV6=2001:db8:1::1
-+VRF_CLI6=2001:db8:1::2
-+DEF_SRV6=2001:db8:2::1
-+DEF_CLI6=2001:db8:2::2
-+
-+# nettest server exit code when no connection arrives before its timeout
-+SRV_TIMEOUT=2
-+
-+ALL_TESTS="
-+	unbound_listener
-+	vrf_and_unbound_listeners
-+	default_vrf_unaffected
-+"
-+
-+cleanup()
-+{
-+	cleanup_all_ns
-+}
-+
-+setup_fail()
-+{
-+	echo "FAIL: setup"
-+	exit "$ksft_fail"
-+}
-+
-+setup()
-+{
-+	setup_ns ns_s ns_c ns_d || exit "$ksft_skip"
-+
-+	if ! ip -n "$ns_s" link add "$VRF" type vrf table "$VRF_TABLE"; then
-+		echo "SKIP: VRF not supported"
-+		exit "$ksft_skip"
-+	fi
-+
-+	if ! ip netns exec "$ns_s" \
-+	     test -e /proc/sys/net/ipv4/tcp_l3mdev_exempt_ports; then
-+		echo "SKIP: net.ipv4.tcp_l3mdev_exempt_ports not supported"
-+		exit "$ksft_skip"
-+	fi
-+
-+	ip -n "$ns_s" -batch - <<-EOF || setup_fail
-+		link set $VRF up
-+		link add veth_vrf type veth peer name veth0 netns $ns_c
-+		link set veth_vrf master $VRF
-+		link set veth_vrf up
-+		addr add $VRF_SRV4/24 dev veth_vrf
-+		addr add $VRF_SRV6/64 dev veth_vrf nodad
-+		link add veth_def type veth peer name veth0 netns $ns_d
-+		link set veth_def up
-+		addr add $DEF_SRV4/24 dev veth_def
-+		addr add $DEF_SRV6/64 dev veth_def nodad
-+	EOF
-+
-+	ip -n "$ns_c" -batch - <<-EOF || setup_fail
-+		link set veth0 up
-+		addr add $VRF_CLI4/24 dev veth0
-+		addr add $VRF_CLI6/64 dev veth0 nodad
-+	EOF
-+
-+	ip -n "$ns_d" -batch - <<-EOF || setup_fail
-+		link set veth0 up
-+		addr add $DEF_CLI4/24 dev veth0
-+		addr add $DEF_CLI6/64 dev veth0 nodad
-+	EOF
-+
-+	ip netns exec "$ns_s" sysctl -wq net.ipv4.tcp_l3mdev_accept=1 ||
-+		setup_fail
-+}
-+
-+set_exempt()
-+{
-+	ip netns exec "$ns_s" sysctl -wq net.ipv4.tcp_l3mdev_exempt_ports="$1"
-+}
-+
-+# Start a server in the background. nettest sets SO_REUSEPORT on its
-+# listeners, so an unbound and a VRF-bound listener can share the port.
-+# $1: IP version, $2: "vrf" or "unbound"
-+start_server()
-+{
-+	local args=()
-+
-+	[ "$1" = 6 ] && args+=(-6)
-+	[ "$2" = vrf ] && args+=(-I "$VRF")
-+	ip netns exec "$ns_s" nettest "${args[@]}" -s -p "$PORT" -t 3 -q &
-+}
-+
-+# $1: client netns, $2: IP version, $3: server address
-+connect()
-+{
-+	local args=()
-+
-+	[ "$2" = 6 ] && args+=(-6)
-+	ip netns exec "$1" nettest "${args[@]}" -r "$3" -p "$PORT" -t 2 -q
-+}
-+
-+listeners_are()
-+{
-+	local n
-+
-+	n=$(ip netns exec "$ns_s" ss -Hltn "sport = :$PORT" | wc -l)
-+	[ "$n" -eq "$1" ]
-+}
-+
-+# $1: number of listeners to wait for on $PORT
-+wait_listeners()
-+{
-+	slowwait 2 listeners_are "$1"
-+}
-+
-+# $1: exit code of a server that must not have received a connection
-+check_timeout()
-+{
-+	[ "$1" -eq "$SRV_TIMEOUT" ]
-+	check_err $? "$2 exited with $1, expected timeout"
-+}
-+
-+unbound_listener()
-+{
-+	local ver addr pid rc
-+
-+	for ver in 4 6; do
-+		addr=$VRF_SRV4
-+		[ "$ver" = 6 ] && addr=$VRF_SRV6
-+
-+		RET=0
-+		set_exempt "$OTHER_PORT"
-+		start_server "$ver" unbound
-+		pid=$!
-+		wait_listeners 1
-+		check_err $? "listener did not start"
-+		connect "$ns_c" "$ver" "$addr"
-+		check_err $? "VRF connection failed"
-+		wait "$pid"
-+		check_err $? "unbound listener did not get the connection"
-+		log_test "IPv$ver: not exempt, unbound listener gets VRF conn"
-+
-+		RET=0
-+		set_exempt "$PORT"
-+		start_server "$ver" unbound
-+		pid=$!
-+		wait_listeners 1
-+		check_err $? "listener did not start"
-+		connect "$ns_c" "$ver" "$addr"
-+		check_fail $? "VRF connection succeeded"
-+		wait "$pid"
-+		rc=$?
-+		check_timeout "$rc" "unbound listener"
-+		log_test "IPv$ver: exempt, unbound listener gets no VRF conn"
-+	done
-+	set_exempt ""
-+}
-+
-+# Both an unbound and a VRF-bound listener on the port. The VRF connection
-+# must reach the VRF-bound one, whichever listener was created first.
-+vrf_and_unbound_listeners()
-+{
-+	local ver addr order first second pid_first pid_second
-+	local rc_first rc_second rc_vrf rc_unbound
-+
-+	set_exempt "$PORT"
-+	for ver in 4 6; do
-+		addr=$VRF_SRV4
-+		[ "$ver" = 6 ] && addr=$VRF_SRV6
-+
-+		for order in "unbound vrf" "vrf unbound"; do
-+			read -r first second <<< "$order"
-+			RET=0
-+
-+			start_server "$ver" "$first"
-+			pid_first=$!
-+			wait_listeners 1
-+			check_err $? "first listener did not start"
-+			start_server "$ver" "$second"
-+			pid_second=$!
-+			wait_listeners 2
-+			check_err $? "second listener did not start"
-+
-+			connect "$ns_c" "$ver" "$addr"
-+			check_err $? "VRF connection failed"
-+
-+			wait "$pid_first"
-+			rc_first=$?
-+			wait "$pid_second"
-+			rc_second=$?
-+			if [ "$first" = vrf ]; then
-+				rc_vrf=$rc_first
-+				rc_unbound=$rc_second
-+			else
-+				rc_vrf=$rc_second
-+				rc_unbound=$rc_first
-+			fi
-+			check_err "$rc_vrf" "VRF listener did not get the conn"
-+			check_timeout "$rc_unbound" "unbound listener"
-+
-+			log_test "IPv$ver: exempt, $first first, VRF one wins"
-+		done
-+	done
-+	set_exempt ""
-+}
-+
-+default_vrf_unaffected()
-+{
-+	local ver addr pid
-+
-+	set_exempt "$PORT"
-+	for ver in 4 6; do
-+		addr=$DEF_SRV4
-+		[ "$ver" = 6 ] && addr=$DEF_SRV6
-+
-+		RET=0
-+		start_server "$ver" unbound
-+		pid=$!
-+		wait_listeners 1
-+		check_err $? "listener did not start"
-+		connect "$ns_d" "$ver" "$addr"
-+		check_err $? "default VRF connection failed"
-+		wait "$pid"
-+		check_err $? "unbound listener did not get the connection"
-+		log_test "IPv$ver: exempt, unbound listener gets default conn"
-+	done
-+	set_exempt ""
-+}
-+
-+trap cleanup EXIT
-+
-+check_gen_prog nettest
-+setup
-+tests_run
-+
-+exit "$EXIT_STATUS"
+Patch 1 is a preparation patch. It passes a pfnum parameter through the
+SF hardware-table allocation and free call chain, and stores it on
+struct mlx5_sf. This is plumbing only: pfnum is not used for hwc
+selection yet, and the controller/pfnum validation is unchanged.
 
+Patch 2 gives the non-master PCI link its own controller number, read
+from the MLX5_PCI_PF_TYPE_QUERY_PF entry of QUERY_ESW_FUNCTIONS as
+host_number + 1, so that its SFs/VFs display the controller prefix.
+Since the self PF and a satellite PF share the same controller number,
+pfnum is used to locate the right hwc table. With this, the SF on the
+second link is named c4pf0sf0 instead of pf0sf0. A user can create an SF
+with the device controller number either specified or omitted, and any
+other controller number is rejected.
+
+Regards,
+Tariq
+
+Chris Mi (2):
+  net/mlx5: SF, Pass pfnum through the SF hardware-table allocation path
+  net/mlx5: Add controller number for SF and ECVF phys_port_name
+
+ .../mellanox/mlx5/core/esw/devlink_port.c     |  24 ++--
+ .../net/ethernet/mellanox/mlx5/core/eswitch.c | 117 ++++++++++++++++--
+ .../net/ethernet/mellanox/mlx5/core/eswitch.h |  22 +++-
+ .../mellanox/mlx5/core/eswitch_offloads.c     |  16 ++-
+ .../mellanox/mlx5/core/lag/shared_fdb.c       |  58 +++++++++
+ .../ethernet/mellanox/mlx5/core/sf/devlink.c  |  58 +++++++--
+ .../ethernet/mellanox/mlx5/core/sf/hw_table.c |  49 +++++---
+ .../net/ethernet/mellanox/mlx5/core/sf/priv.h |  12 +-
+ 8 files changed, 295 insertions(+), 61 deletions(-)
+
+
+base-commit: 612848d37e68b858e15815175f1c5e609e09d719
 -- 
-2.43.0
-
+2.44.0
 
