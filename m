@@ -1,111 +1,112 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795620641;
-	b=NKc22lQ0yJWsHUgWJ8F0b+jgmX/bHr1UhZSvCTpDDCdxBbmTdYsJf+HFKwDFKAtbyyI6
-	 /vxdK+ok8xO2n/7Fx3+qFQoLBJP7m4tghKZwrUKL7jspgWRDqVxRSo2EimiRlolBwxkL0
-	 0Fd7mpiEXMMME5En0SeBwX/jqcHIbxNgtAHfem/QPXm3/YV0bIKs5EmLpobihgxqHT/gv
-	 DHdNbwLssO2cuFiZS1SrQxeFL05UPbtJxB3kN5VshQgfm+8kDAMZM4+GoudqoBrAf1Pgj
-	 w87cqMcpq97UWKGnA2j0vDXvepImSOOzAb2uQalK0pKX664lyz7n0dJgPA4Ph5QFHMw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620641;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Transfer-Encoding:Content-Type:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-OriginatorOrg:X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-ORIG-GUID:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=x79Z+4o1mMGGgXkrJ+oQH14/uWII/xt/YDVLV87rBPE=;
-	b=tCVWulrCBoJikI59CTN+DOFtJkMWLoODCL1tdu/ClxMPX0zsKtyl3QeNnFS8+6c8EPeP
-	 QxzklRhioCAk6ppp+XK/prGd7ImBnnxf58muvcwrVP7oYyhN6MioTarq7fdgEB5NRtNHh
-	 0zuRf4zI8ExCbd7Vpzj0LoOtJN7HkZgGfUh73gaCHrTpdpB9HZnLpreY4MW8zjCSpZXmv
-	 lcmBgQ7toPfm2OiBkOlCBb7DcHNopvXZvg5SbDZuNhD+DaBB07Z6kq86SHaodjatMa7VS
-	 dcZ1Y1OK8uykkJqkhKwtfJqpApnfVZ3OB4SLXREkTX/qHpizyf+CJd2i16mCKBlF9dg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=windriver.com;
-	spf=pass smtp.mailfrom=windriver.com;
-	dkim=pass header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=YKY+zhxj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=205.220.178.238
-Received: from mx0b-0064b401.pphosted.com (mx0b-0064b401.pphosted.com [205.220.178.238])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.53
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795620918;
+	b=piQCJhfNT4ROCBNROoFVsAah+YrQV9Mbe8YrNzjcpUP5m+tOlxMqNzRYge5Mtdv3QEJR
+	 4oy7CBeTxUIOGs5ncHYxWZBCnmxxfBS9HPDwJy5gi4MtmOHLBzmhUQyaHdQHix8IDfrUX
+	 jigva0zCCVX3hwTG85Pvy/IlZN22+F2QxjkjKIYun75oWMQKVE2cKc2fgm+9sG1LMRy3c
+	 HeQfHJIow1kKO5ah+QKOqVGXkx14hSvRzopqux4l56L461sdY6OvjeQWtRQqoaK/vyvGa
+	 4o47hyXSEjeyAzxbFREWwD6sWM/LpyeJdDYnNL10dYEXZpxmA1WszpJtyxJoapw7m1A==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620918;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=heq3AsQ6ua66ixuTUqAY8bU1AMYg/OwxMrZJKDM3k1U=;
+	b=EBoJobKdNrW4hff9EZpq5Fjik9qPc0ozx/ikhGQgKQ6YkzEVNH7iJLac7mITzOlcoKpg
+	 7JiSUbG8QRcLXpOUCCMhVacyUkXsOTW7O3L7dfrwCx4JTOe0Ezhx4Q9dUtYHkl8sLTMa6
+	 Eye/fT9xWD0PhsgUXop7zf3voh/EgtIz8daeOQqOxpHi+QgXcpCCtufpGOFUEh3YUmWoU
+	 OAVP5OlGl2UK7v2aBWgkIweUb4RxVdFlW1fbhT7kDYbJ74zeYafG1PRMlmScofFy44u9c
+	 dmZm2jpxzfjwf6LsQqRHgaDQ1wGykUuxYg76v36YRTEXZHtz5OJeXr5ekHPbRcMkBDA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=linbit.com;
+	spf=pass smtp.mailfrom=linbit.com;
+	dkim=pass header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=j6CsXjPw;
+	arc=none smtp.remote-ip=209.85.221.53
+Received: from mail-wr1-f53.google.com (mail-wr1-f53.google.com [209.85.221.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08B1D606A321;
-	Wed, 25 Nov 2026 15:30:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08B1D606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=windriver.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=windriver.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 53C2F606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:35:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 53C2F606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=windriver.com header.i=@windriver.com header.a=rsa-sha256 header.s=PPS06212021 header.b=YKY+zhxj
-Received: from pps.filterd (m0250811.ppops.net [127.0.0.1])
-	by mx0a-0064b401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEOlib341146;
-	Wed, 25 Nov 2026 15:29:30 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=windriver.com;
-	 h=cc:content-transfer-encoding:content-type:date:from
-	:in-reply-to:message-id:mime-version:references:subject:to; s=
-	PPS06212021; bh=x79Z+4o1mMGGgXkrJ+oQH14/uWII/xt/YDVLV87rBPE=; b=
-	YKY+zhxjLEINkwUjodRC2r4odo1kYShmb3O+JkKqpC3AvYu8x+VrwGich40tKEn6
-	DaYGlsC545EP2vOyYNfQLywwUllDZzPaT++SerMlN/NeE1NjIZYAnjvh0QaqU+f5
-	1u9CrWGr9+tcbRI7uqEw2QPU318koqNkl1fVL+G3GLTYwQapkKyf0MhuXzKYepAs
-	GZT9+KIOOVGaxMdkxwbqOWIeBAQpoQQ75jI67KvfZQTKI+S3RtoBRu9/J8XJ/ac5
-	RGfA0QFy71kw3jSduaak0DC+BgMVKLbpJrP+qMwDrCzUz4ixaB73mbau2PjKhnuM
-	jPiBWw8RQZvu+kQkf6JI9Q==
-Received: from cy7pr03cu001.outbound.protection.outlook.com (mail-westcentralusazon11020123.outbound.protection.outlook.com [40.93.198.123])
-	by mx0a-0064b401.pphosted.com (PPS) with ESMTPS id 4j51493qtv-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 15:29:30 +0000 (GMT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=clLwH4eKhXAn8XhOSMTAnhiatpuanJm9nYRcDX58cSXoRyALWrKnTtUvCMOygBVRGsAHjKA+Zdws2fVc4+Nwf0akeAI0yES+xPl19yTpmrgqeKHoKJoyhk7ky+FEdhBBkItyRiQfeVLLG7dMNHbCQfhFh/ZYoLaAH4PSPu7g7ZKH9ao6KnLuwTzyx/ggdHE3r45J4cmDBx1sg5ntWxdb1GBTrNHf0T5WqMxltd2Bq6A+FJUXpN+FRxrvL+muTI0k8tbz2fwKxYozv0S+AG1eSJufiNibKahr4kO9gE3UAhtMKxVOTCm81c30LpTcHdSHp4vOn3y624c/ZzIeoaQ9Lg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x79Z+4o1mMGGgXkrJ+oQH14/uWII/xt/YDVLV87rBPE=;
- b=E+YfFeq0hh7NfNpqBUEXvhClrbXf0U6wfKnFmsdchEFGagYgQGDp8/5yPY1/OQ0CqIpEsfjf39Z8BFAUPRm6vGBwzSDlAeXEHZPvJCeANnuaHhrHqzIpfvyf+JGDvf43ZhZWf1tL/wrzZ+hqR+S8RhQ+m874V5lyHTKiTeRINHRttltkbtOY5iFuZwDg3GG8iVECf2sItqXX3sJO9aQ2jbMyTQddx6aZRSmXXUcDkCWCuTmmEuxVmmXvX4zoT5WZhBCKE5MGyQu05uv1yiHPSZgOlh/Plib7nQgWv4evc/wi2wW75VzZAqJNPj8BaZnc5pyKF9p457VzRN6ReJHqhg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=windriver.com; dmarc=pass action=none
- header.from=windriver.com; dkim=pass header.d=windriver.com; arc=none
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=windriver.com;
-Received: from SJ2PR11MB7546.namprd11.prod.outlook.com (2603:10b6:a03:4cc::8)
- by PH7PR11MB6498.namprd11.prod.outlook.com (2603:10b6:510:1f1::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 15:29:16 +0000
-Received: from SJ2PR11MB7546.namprd11.prod.outlook.com
- ([fe80::ca9b:dcf:8881:bced]) by SJ2PR11MB7546.namprd11.prod.outlook.com
- ([fe80::ca9b:dcf:8881:bced%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 15:29:16 +0000
-From: "Ionut Nechita (Wind River)" <ionut.nechita@windriver.com>
-To: przemyslaw.kitszel@intel.com, intel-wired-lan@lists.osuosl.org,
-        anthony.l.nguyen@intel.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-        larysa.zaremba@intel.com, maciej.fijalkowski@intel.com,
-        jacob.e.keller@intel.com, wojciech.drewek@intel.com,
-        andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-        kuba@kernel.org, pabeni@redhat.com, poros@redhat.com
-Subject: Re: [PATCH iwl-net v2] ice: release IRQs and rings in ice_dis_vsi() when the VSI is already down
-Date: Wed, 25 Nov 2026 17:28:50 +0200
-Message-ID: <20261125152850.16261-1-ionut.nechita@windriver.com>
-X-Mailer: git-send-email 2.55.0
-In-Reply-To: <dfcfedd2-7232-4949-97c3-bc51d28c6131@intel.com>
-References: <dfcfedd2-7232-4949-97c3-bc51d28c6131@intel.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: VI5PEPF0000090E.AUTP296.PROD.OUTLOOK.COM
- (2603:10a6:808:1::92f) To SJ2PR11MB7546.namprd11.prod.outlook.com
- (2603:10b6:a03:4cc::8)
+	dkim=pass (2048-bit key) header.d=linbit.com header.i=@linbit.com header.a=rsa-sha256 header.s=google header.b=j6CsXjPw
+Received: by mail-wr1-f53.google.com with SMTP id ffacd0b85a97d-492f0a1b685so4131377f8f.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:35:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linbit.com; s=google; t=1795620916; x=1796225716; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=heq3AsQ6ua66ixuTUqAY8bU1AMYg/OwxMrZJKDM3k1U=;
+        b=j6CsXjPwKBhn0D3F+YEhUqN6H+QvRV6IL5tmgWNCi5Ko0wIcE99byUo1c7gXZb7VTK
+         xk4VlZd67fJFhBVV/0yhdCGiIpT/xTv73QEeqGvVMa77Oi3ecuUMxU2Zpb0SH0L8+GfG
+         DNPAnSnr9FeW6DaLpMH95dWYzrqqgkpi5apH/uEhFhhLGnXpmWApA4Yev7zoCXv4sVOt
+         KoXFGgyS2KPDox85F+hO+FK9fyerkgOgLBLnTbFzbMzRv+omWwFggp8OcRavql6gIiep
+         vnCJ9UbUY1LpuI2aBKostHXXA4IonGlqK2Uy0JKgddDoKxN5OmIMwCktz8qn/ayXPcXQ
+         tsLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795620916; x=1796225716;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=heq3AsQ6ua66ixuTUqAY8bU1AMYg/OwxMrZJKDM3k1U=;
+        b=K35JorFZ9JeczdLJVTCVmolMwwmYid8eT9axeTjH4Q47IgnicI+1VXhOEUeCQwWvfv
+         VxbMBE65OJt4jHFFBSuxHpI6pO87IFkR/HdTAGjiSyc1r4CEzZeNOCwi8C7cqd10GUKI
+         v9U1JtkoT9Y6RjADaf4Bs17bLWQ4SjL4q6tpOjzj4Js+mh3exKIUCvZKsTtXDLQEftDp
+         7qrp2uo1R4DAoTObenXNT+O+wlSqnx0OZHFGw917D8njp+ZWs6VLt4AgveIt+qyWCbDK
+         Nloovt1/2ulOEs7Q0NOzbpZ8cU2XjH3ghz6wHIIs9/N6tfM0o1GTN9kL/j/OKB1/IKCv
+         nwsg==
+X-Forwarded-Encrypted: i=1; AL+hErEWQVUPuVyiE81tV4vv8soxBpfq4PmhNYdbBHHCJmlq1iEAhhYnUtfN60q8Y+FafiVMkbKMDnU=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9Z3XBA4s39/QZ9cTI7qveSMgyZCzLgPiyAdv4Q09sSmd424swI
+	9EnedbsostBk/QfjHbGi+97YYryfYzZBDyCqu2W+tUy0rcpo7c9Sc1Y4LV5djj61+o0=
+X-Gm-Gg: AZFdTZcTk3rGtFPYa3LSYMkX1ptfBt4UlEHGms3My7Iuq10UuT1rYA+J3Thm1Gu6NWA
+	AcmaxPz7mY3wnv3ykI+xFvSZPJCxsjadTT8h9EV87DpRWorYdkh74VjawY4oUWIEyYLKZKpwxeE
+	qcbxOPQo0d2vAHZCzhOiYWd9K11b8p+3+PbXK7bt4/YKTEumQYbN4dD7vd41jcJQBC7cIAbjfPL
+	fA45V9KCa/NKiGQH8dzMyqZ9c+fZYnBb1Re01euKrmjInm1qYpbPro7UveWt9GoNNLP0z1FixZh
+	HI2/eQRSJ66Lak1UuVtmiyZr9zErBNXOu20ZCFHq+d7pKJoR53CdfOMWJtYEECrnT2In3pKg37G
+	VuEMMhPUwYc12RIIp4LFHsbGMo08TF5qMfsat6Dmpoputo70ZE/y/f2SfCnNDithfkDANcNvNnO
+	CFCnuY/1++qhyqAu2bCaOujm3GuY64LnlMyxahjfJcsScO2QeL76bzGABshon63ALincc1HPUoI
+	L5BVBwh2Xzv9i6bS7WdGa/zpgTqzQoIsll0JYXPKkfd68uvf0DvpjqhMAL3NcnrKsHQIC+l91zZ
+	M4uNaUafsjcqL96dgSN14t9q8LqsWBeMKHTE30hELZwHiqGlwXHW8DhGOJ+0vmBBwrOhR5AvsZM
+	70Tptx05mp2kLToSvfB8=
+X-Received: by 2002:a05:6000:2489:b0:4a5:8f40:a644 with SMTP id ffacd0b85a97d-4abb1baa9eamr37631802f8f.9.1795620915562;
+        Wed, 25 Nov 2026 07:35:15 -0800 (PST)
+Received: from linbit.com (h082218129081.host.wavenet.at. [82.218.129.81])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm35816275f8f.3.2026.11.25.07.35.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:35:15 -0800 (PST)
+From: =?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>
+To: Jens Axboe <axboe@kernel.dk>
+Cc: drbd-dev@lists.linux.dev,
+	linux-block@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Philipp Reisner <philipp.reisner@linbit.com>,
+	Lars Ellenberg <lars.ellenberg@linbit.com>,
+	=?UTF-8?q?Christoph=20B=C3=B6hmwalder?= <christoph.boehmwalder@linbit.com>,
+	Chuck Lever <cel@kernel.org>,
+	kernel-tls-handshake@lists.linux.dev,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	netdev@vger.kernel.org,
+	Dan Williams <djbw@kernel.org>,
+	Vishal Verma <vishal.l.verma@intel.com>,
+	Dave Jiang <dave.jiang@intel.com>,
+	Alison Schofield <alison.schofield@intel.com>,
+	nvdimm@lists.linux.dev,
+	Jonathan Corbet <corbet@lwn.net>,
+	linux-doc@vger.kernel.org,
+	Donald Hunter <donald.hunter@gmail.com>
+Subject: [PATCH v4 00/21] drbd: DRBD 9 rework
+Date: Wed, 25 Nov 2026 16:34:50 +0100
+Message-ID: <20261125153511.3060599-1-christoph.boehmwalder@linbit.com>
+X-Mailer: git-send-email 2.56.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,145 +116,186 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR11MB7546:EE_|PH7PR11MB6498:EE_
-X-MS-Office365-Filtering-Correlation-Id: d4637d3f-a1e4-49a4-dc03-08df4b08dd7c
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|376014|7416014|52116014|366016|1800799024|11063799006|38350700014|261028144727099003|10067099003|261026140227099003|261102123227099003|56012099006|261021121427099003|261022075727099003|261026121527099003|261022105027099003|261009223027099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	EMPKupxfbwRtnS780Tpyom7KkOjuriRci/f4vKOuBwJTJVe0ggsGIxTislLHvQ3lajGo9ou/1sjfLTp238Hw0CqLcG+Qh/ZEc4jFBL/pBMy6d9hJmK6ED1ET0uAY41NKscV0gx2zASXeD58WHRWuNlr0O0tJaGn5v6ENd/8w4DIMKjDYbEYKSjWFxQm3v0btW2i4JOb7nivuk/zFsJ0dvsDV9AFf6EQ+IoWjA67/IPuTJu4VasID/2rIsaZLQY/Ug0EDxqZSePbuwPxGI/JRvgGL+V6SvkF3D7oFfmyIHcHXCZnEOFWDbk5br0YOvkHe9r5I5vAye/Ua9fyM0PHDrLaax6LOxLra2N0C6vIx3SOZb4zdD5/WJjBFKcNbuW4EfEULqZmv1cQVF0BC0RhoIyxlpI4lOsmpo5DLz6lfiFqjpM3+36fF0J3nrofPHy95yIxes2XXgBdcFuQBkkw+yttWaB0X7HUIrRwJDbij6Wv34fca0lMZIn4bGjmNeEOb1se2b2GR8DRx6ngDkLUwQq+2B1Q4kWApgq9pwVnvtmw1KqSc+rLG85t+RS5/KCjRn9DKXrrQR1q3dI5nMJ+0/vlYbTAZGXmJjnhld0yE3BImOCl+Z4goKwEOm2k+ENKsP+SOn5MEcg9psovTy+oQKO6jNpSxgfw9YTInDe2ThuCoxP/jqi29hlTl47ZlR2uBxI6h3+7pz+ETEpKJK+hY2alRMwB5eLP7htGVhsUrzR4=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR11MB7546.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(376014)(7416014)(52116014)(366016)(1800799024)(11063799006)(38350700014)(261028144727099003)(10067099003)(261026140227099003)(261102123227099003)(56012099006)(261021121427099003)(261022075727099003)(261026121527099003)(261022105027099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?us-ascii?Q?xIvN0Xd28dxjyYWNyKwaWwXbQ0J3mco0xTxaU55Rm3ez7CJQSovXgVM7j8vj?=
- =?us-ascii?Q?T9k/abhK8sP0+nmt0IrD9mYYqzvHW1RZ8Drh9sCoFs/VZqAie21jOoE++DXz?=
- =?us-ascii?Q?IxTL3MKsrmx+LLY92u6GCP/yZlYfmNGtSbpPJ8+dRIkZ3S1T/Bz5KtM0wHcv?=
- =?us-ascii?Q?rat4CEP9InOeQIdRSxnwgPlkCdh0by9gjxpqdLNYrge+vySJkCEiFxGa2hHn?=
- =?us-ascii?Q?qR7mgTqME1rHmjdqbxDkltWN+iDFojiRGS8nuA0D0WsPO76y6Y7kASspWYGU?=
- =?us-ascii?Q?xyfgOcG/v3CiYWhPuS3/qmnUHdXcuv6rosHnWUtrhvzHClsJx7wJiZYar2FT?=
- =?us-ascii?Q?inXP6+EcIe1jqM4VnggKAn88B1JtRwIbvfQVjjXxfu39o90eOCZ5hJBazY6Z?=
- =?us-ascii?Q?Uw1uJmLlba6VGjTd0/YH1Z5ZUVuAP/mAjqlaHv5i3WahHzaBO2DBTUhu0MWR?=
- =?us-ascii?Q?mFX7/OfoCfD96PPQr0sPfpfqu1/Ke9QoayRpe09C6sXHngGQDJFUROt4EoVA?=
- =?us-ascii?Q?K5D5e9CWtXakOrcklqwKBTcaqgZkN8mgAz4UXDl0KCZgXmHrilCkSIFlq9No?=
- =?us-ascii?Q?b2JULNel/P+rj+w1cZoc9qKuj/J4tOQ5dW3/7NGeIA+RSDTt/H2UKzP516eO?=
- =?us-ascii?Q?PiACrI+nC4toPDAqG5Evyx3Q/Adik8kEm0hZHR3bGCZWhDZGvwyaFqqI+/z9?=
- =?us-ascii?Q?cWgq7+QT/SdzbqytAJHHTJYDWv6ZAFL9aaeTD6authuYKv6D9UkVoSR46Fw+?=
- =?us-ascii?Q?gqwX3CYOCu/de0RXYaU6zJEDZXvB8UtYM0sQizFF4Qt3uA/khEVNRed5oRaY?=
- =?us-ascii?Q?chNPUDf8HrWSaUpz7gZPTZYRbWFY4AEYxB970scWxQeUxd1mVJbm6Q4W9JAn?=
- =?us-ascii?Q?QutkUko4BjRu7DYzkgC1LNipyZaJFx9IhLrPyR+RffHaC9hTnN14JzPoGvPK?=
- =?us-ascii?Q?Lxb3uYu2aBGnXECVtupu9BNE5+zJrgoHNV5HTWLcN2z19CeawHTKPCDxEGUG?=
- =?us-ascii?Q?aQgxi/D9twzKow9e2sr0IGCLI1sMx9b52mRojBO0XINCAeJ0i5+9Y4apnZeD?=
- =?us-ascii?Q?S8ory0oXWes9RaMnZbfmftp+t3ECuza1ICoKMojcOLRR2un9MuMcBElrIzC1?=
- =?us-ascii?Q?olmnpa9PBQFboDcCldlUEFX6EiCSvCShBQ+p3ksRKBIBHMlpFUfkUFq6cL2Z?=
- =?us-ascii?Q?n5pW88wJ4eNK95zcgZmNCndfGBqH0DI3XXV/F2xvxd0UFBpclT1Jj4I81de9?=
- =?us-ascii?Q?ZMexfzYYLZo1I9jl/hrlvMqRTPtAjMRXuukjoy18XJXUaOAwoPf/Jztd58MJ?=
- =?us-ascii?Q?KFRZjHzU6QDa1n6Y6XVaxH48XrWbJ8dc3rln2OpCb2i+t7MZCEG1tPuhpqxR?=
- =?us-ascii?Q?MH/2rBImTajE5Fyrn3K9xRoMJZ056VW3LzGKToc441BqS7DAy+NBhB6uf+ud?=
- =?us-ascii?Q?UMIx6q3nkkaDtT/uu+2ymmEJRusLRgwTp5IoXQquyQ1CNsOwS+blVpBsYcm/?=
- =?us-ascii?Q?PtKMVdbEXty3CyvZGe7vB78hFKJUanCGXr40HfbkEFBpzqtk8Heu03ogU//4?=
- =?us-ascii?Q?sVCgtAwN/Fc8vor0g8AnKQdLSGxitegQZVOJdqOY9MhrFoFYlVaaa/M6Sbbd?=
- =?us-ascii?Q?1+xeujGZJ/kr6byqWX5QmbSJjBlKpCeJUdrpWyGjF6Iq2ayk2/bRNybgorS+?=
- =?us-ascii?Q?DQf9+kMgcANrynpacLF99cJMIMat/BdKzbocOWAFVuKoW9g71IXK6evDPhVq?=
- =?us-ascii?Q?xDV6BezzClRFx2z3WhNjrun5os1/U2w=3D?=
-X-Exchange-RoutingPolicyChecked:
-	EZ6RosdGXE1BGFCUPcOCRulpjt9b255BZLyoMTMXk2J/YVGOWOnM2Fclqa8hUvBZTGFRHZ9hh0vyBIzj4WnOlJTrHl+ytOU5lTCe+nDPioFSzMv1xheKjCW+0kXTjhFJhx9Ouemt17yKdPTgqNBWKLn1S5APm1c6sTbtezS7X0+RiQJMlys9l8cI99LsY9oUvXtserWOd2AnPTLEkg5mp83OY2qsXY+bm/+Rjtr3atoS98ZlBDfB0FGu9mZQrRXBza/Jte55RmRXaMW2Khs/1FPphq7Nvy9mwLIP7E8QdwmSkclb7GXTNTA8Os0ycPAWjHu58plx41ncHpV2Ed27+Q==
-X-OriginatorOrg: windriver.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: d4637d3f-a1e4-49a4-dc03-08df4b08dd7c
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR11MB7546.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 15:29:15.9994
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8ddb2873-a1ad-4a18-ae4e-4644631433be
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: U0DQVry5d3eOjqjKsfngZh8fszOe4x9ShEqR6rHoODYFcOv3TPrVehD5LDxTTcl0LN3pA0m0x3irkwXg29FtJJhxt4otl+v8RnMI1Ffro5w=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR11MB6498
-X-Authority-Analysis: v=2.4 cv=ScJi5fRu c=1 sm=1 tr=0 ts=6b06feda cx=c_pps
- a=mLoR1drGahLtw5ViIJY7rA==:117 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19
- a=z/mQ4Ysz8XfWz/Q5cLBRGdckG28=:19 a=lCpzRmAYbLLaTzLvsPZ7Mbvzbb8=:19
- a=xqWC_Br6kY4A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=bi6dqmuHe4P4UrxVR6um:22 a=klDOsUkWDRETUCZYPvoE:22 a=GMzMhr56eme4z07Y9MEA:9
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfX4JkWQRrPwiVA
- NhrNtVIrRRhyXArOprTDxDvJ8p+c3ourxeEQw2sahE7E6FEgGu1VU5rt1YHfczgctFiMyP6toK0
- SLphyW5BgPGEXQDPMYP9ImaetKnXIH+BDHkmiJsXjrq60gpFMrHTIqcyd5xTXbiP8uU2qWkcISY
- Qa/XMhDrII0gFLAg/SD+/9q0Ga2bG54qiyAR/DaWv51XHYs+ZPouwfnXCS4ueksB9BPZVj7vymj
- 2hHLO0UKTngITPUbw5SV2fv/+VvnoE+6Z64syosgeHWOSoRayEy2esiBnd1AOe6D3JMGQ1HiPbe
- 0r1YgY6OA6TRnmE4LSnqVpkSoLBFkFZdi8jehRi91nb/5Lb5vC7pWNz1NxH8p90psmrwxFTFINN
- c6ak5FKcQhNyoDBCfxjK5rSE/HH05tPOoKal/Skdhvmt3b+oBm2K3g4+14SNrLQo7SZZ4QH10qv
- Qg0MzgQAQarrwbAIM0Q==
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA2MSBTYWx0ZWRfX3hbBbplfBxkY
- nKy8FM4y/Duy0dh0Ct4MARcZWzG+OaXJDm1+AWwlO+2kJ1B+I2Cc11AOHQP0v023FeDTPfES5zp
- Upgka4Xf40/VHtFSfFZDXPGUtD+AJYq235u0R7dDifkFfNh4Cnxt
-X-Proofpoint-GUID: atwBVGEkIbIzMNvwaTHoraW20iVnpjgX
-X-Proofpoint-ORIG-GUID: atwBVGEkIbIzMNvwaTHoraW20iVnpjgX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 phishscore=0 malwarescore=0 impostorscore=0 bulkscore=0
- lowpriorityscore=0 clxscore=1011 spamscore=0 adultscore=0 suspectscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250061
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-On 11/25/26 11:51 AM, Przemek Kitszel wrote:
-> I've run your patch through our local sashiko instance, and it reports
-> that your patch adds new problems on edge cases. The same issues were
-> reported both on your patch just on top of netdev/main and
-> tony/dev-queue+some more fixes (meaning those problems are not "already
-> resolved elsewhere"). For the first issue (DCB) both my and Petr Oros
-> patches were applied (not yet on netdev main (aka -net)).
+As discussed (context: [0]), here is our DRBD 9 rework series, intended
+for linux-next via for-7.x/drbd.
 
-Hi Przemek,
+This replays about 10-15 years of active out-of-tree development work
+[1], depending on your way of counting. The out-of-tree module has
+severely diverged from the in-tree version over the years, which is
+what we are aiming to fix now.
 
-Thank you for running it and for sharing the report.
+Hopefully that somewhat excuses (or at least explains) the massive
+diffs -- we've tried to come up with a way to group the changes by
+topic, but I realize it's still not exactly trivial to review.
 
-> [Severity: High]
-> Can this free DMA memory that enabled hardware queues still own?
+We've been polishing this series for a while now, and we have taken
+great care to make it as "upstream-presentable" as possible. That said,
+there are still probably imperfections. It's a start -- feedback
+welcome!
 
-Yes, this is right, and it makes the patch worse than the problem it
-fixes. If ice_up_complete() fails in ice_vsi_start_all_rx_rings(), it
-returns with ICE_VSI_DOWN still set, while the Tx queues are enabled by
-FW and the Rx queues may be enabled with buffers posted. Today that
-memory is leaked but stays allocated and mapped; with my patch
-ice_vsi_close() frees it without stopping the queues first, so the
-device could DMA into freed memory. Pointing to ice_stop() as the
-precedent was wrong, since it has the same hazard.
+The netlink interface has been reworked so that userspace is not
+broken: the existing "drbd" generic netlink family keeps being served
+at version 1, and this series does not touch its generated
+serialization or its UAPI header.
+Every shipped drbd-utils release therefore keeps working against this
+driver. DRBD 9's own utilities speak a new family, "drbd2", written as
+a YNL specification under Documentation/netlink/specs/ and following
+current genetlink conventions; its generated code is checked in as
+usual. The driver registers both families and translates each onto the
+same wire-neutral core, so the multi-peer administration model is only
+reachable through drbd2, while version-1 clients see the single-peer
+semantics they expect.
 
-> [Severity: Medium]
-> Can this now reach a NULL vsi->q_vectors?
+The RDMA and load-balancing TCP (lb-tcp) transports are not part of
+this series; they will be submitted separately once they have had the
+same treatment. The rdma_ctrl_rcvbuf_size
+and rdma_ctrl_sndbuf_size net options do remain in the UAPI: they are
+generic transport options that are interpreted by whichever transport is
+in use, so there is no reason to remove and later re-add them.
 
-Also right. ice_vsi_free_arrays() sets q_vectors to NULL but leaves
-num_q_vectors as is, and ice_vsi_clear_napi_queues() does not check
-q_vectors, so the already_down check was hiding this after a failed
-ice_vsi_rebuild(). My statement that ice_vsi_close() already handles
-a VSI that is down only holds for the IRQs and the rings.
+The base for these patches is for-7.5/block, which has the preparation
+patches [2] this series builds on.
 
-> [Severity: Medium]
-> Does removing the already_down check widen races with code that brings
-> the VSI down without rtnl_lock?
-
-Agreed that it widens the window, so the reasoning in the commit
-message that ICE_VSI_DOWN is still tested under rtnl_lock is not
-enough to show it is safe.
-
-So please drop v2. The underlying problem is that a failed ice_up() /
-ice_down_up() leaves the VSI half up, and ice_dis_vsi() cannot tell
-whether the queues are still enabled, so it is not the right place to
-clean this up. If I come back to it, it will be a fix on those error
-paths, tested on hardware rather than build only.
-
-Could you point me to your and Petr's patches for the DCB path? I would
-like to check whether they also cover the case I originally hit with
-the out-of-tree driver (ice_vsi_cfg_lan() failing on an E830 port
-without a module installed).
-
-Separately, the NULL q_vectors with a non-zero num_q_vectors after a
-failed rebuild looks reachable through ice_stop() already, independent
-of this patch. If you think it is worth it, I can send a small fix for
-that once I have reproduced it.
+As discussed, the goal is to get this applied to a for-7.x/drbd branch
+so it can land in linux-next via block-next. After letting it mature
+in linux-next for a while, it should go in via the block tree.
 
 Thanks,
-Ionut
+Christoph
+
+[0] https://lore.kernel.org/linux-next/899e0337-9642-4ca6-9050-aeab14fa22ef@kernel.dk/
+[1] https://github.com/LINBIT/drbd
+[2] https://lore.kernel.org/linux-block/20260923140608.1116713-1-christoph.boehmwalder@linbit.com/
+[3] https://lore.kernel.org/linux-block/20261111083505.3998706-1-christoph.boehmwalder@linbit.com/
+
+v3: https://lore.kernel.org/linux-block/20261110162646.3028472-1-christoph.boehmwalder@linbit.com/
+v2: https://lore.kernel.org/linux-block/20261006154607.3936501-1-christoph.boehmwalder@linbit.com/
+
+Changes since v3:
+- Fixed the problems that the kernel test robot and the sashiko review
+  found in v3 in code that is new with this series, mostly in the
+  version-1 netlink compatibility layer and the drbd2 family: among
+  others, string attributes longer than their buffer, the 8.4 peer slot
+  and history UUIDs in 8.4 meta-data, the peer commands before the
+  first connect, the resource-name filter of the drbd2 resource dump,
+  and the notification error paths
+- Fixed the link failures with NET_HANDSHAKE=n and with BLK_DEV_DRBD=y
+  and DEV_DAX_PMEM=m: TLS for the TCP transport is now its own option,
+  BLK_DEV_DRBD_TCP_TLS, which a new patch allows to enable
+  NET_HANDSHAKE; the DAX meta-data code now depends on FS_DAX instead
+  of the device-dax driver
+- The link failure with CRYPTO=n is in the current in-tree DRBD as
+  well; it is fixed by a separate patch [3]. This series applies with
+  and without it
+- Dropped drbd_transport_template.c, which did not compile and was not
+  built
+- Removed the userspace branches of the #ifdef __KERNEL__ blocks in
+  the protocol and meta-data headers
+- Fixed kernel-doc warnings
+- Synced with the current out-of-tree state
+
+Changes since v2:
+- Rebased onto for-7.5/block, now that the preparation patches are
+  applied there; v2 no longer applied
+- Kept the in-tree DRBD changes that went into v7.4: the explicit
+  linux/umh.h include and the conversion to sk_set_nospace()
+- Synced with the current out-of-tree state
+
+
+Christoph Böhmwalder (21):
+  drbd: mark as BROKEN during DRBD 9 rework
+  drbd: extend wire protocol definitions for DRBD 9
+  drbd: introduce DRBD 9 on-disk metadata format
+  drbd: add transport layer abstraction
+  drbd: add TCP transport implementation
+  net/handshake: allow the DRBD TCP transport to enable NET_HANDSHAKE
+  drbd: add DAX/PMEM support for metadata access
+  drbd: add optional compatibility layer for DRBD 8.4
+  drbd: add application/resync IO synchronization documentation
+  drbd: rework sender for DRBD 9 multi-peer
+  drbd: replace per-device state model with multi-peer data structures
+  drbd: rewrite state machine for DRBD 9 multi-peer clusters
+  drbd: rework activity log and bitmap for multi-peer replication
+  drbd: rework request processing for DRBD 9 multi-peer IO
+  drbd: rework module core for DRBD 9 transport and multi-peer
+  drbd: rework receiver for DRBD 9 transport and multi-peer protocol
+  drbd: rework the netlink core for DRBD 9
+  drbd: serve the "drbd" genl family at version 1 for existing userspace
+  drbd: add the "drbd2" genl family
+  drbd: update monitoring interfaces for multi-peer topology
+  drbd: remove BROKEN for DRBD
+
+ .../application-resync-synchronization.rst    |   208 +
+ .../admin-guide/blockdev/drbd/index.rst       |     1 +
+ Documentation/netlink/specs/drbd2.yaml        |  2615 +++
+ drivers/block/drbd/Kconfig                    |    63 +
+ drivers/block/drbd/Makefile                   |     9 +-
+ drivers/block/drbd/drbd2_nl_gen.c             |   815 +
+ drivers/block/drbd/drbd2_nl_gen.h             |   114 +
+ drivers/block/drbd/drbd_actlog.c              |  1419 +-
+ drivers/block/drbd/drbd_bitmap.c              |  2075 +-
+ drivers/block/drbd/drbd_config.h              |    46 +-
+ drivers/block/drbd/drbd_dax_pmem.c            |   175 +
+ drivers/block/drbd/drbd_dax_pmem.h            |    43 +
+ drivers/block/drbd/drbd_debugfs.c             |  1760 +-
+ drivers/block/drbd/drbd_debugfs.h             |     2 +
+ drivers/block/drbd/drbd_int.h                 |  4041 ++--
+ drivers/block/drbd/drbd_interval.c            |    39 +-
+ drivers/block/drbd/drbd_interval.h            |   130 +-
+ drivers/block/drbd/drbd_legacy_84.c           |   651 +
+ drivers/block/drbd/drbd_legacy_84.h           |   129 +
+ drivers/block/drbd/drbd_main.c                |  7032 +++++--
+ drivers/block/drbd/drbd_meta_data.h           |   163 +
+ drivers/block/drbd/drbd_nl.c                  | 10355 ++++++---
+ drivers/block/drbd/drbd_nl.h                  |   416 +
+ drivers/block/drbd/drbd_nl_84.c               |  4048 ++++
+ drivers/block/drbd/drbd_nl_defaults.c         |   168 +
+ drivers/block/drbd/drbd_nl_drbd2.c            |  2669 +++
+ drivers/block/drbd/drbd_nl_types.h            |   406 +
+ drivers/block/drbd/drbd_polymorph_printk.h    |    42 +-
+ drivers/block/drbd/drbd_proc.c                |   327 +-
+ drivers/block/drbd/drbd_protocol.h            |   620 +-
+ drivers/block/drbd/drbd_receiver.c            | 17563 ++++++++++++----
+ drivers/block/drbd/drbd_req.c                 |  3208 ++-
+ drivers/block/drbd/drbd_req.h                 |   332 +-
+ drivers/block/drbd/drbd_sender.c              |  4565 ++--
+ drivers/block/drbd/drbd_state.c               |  9242 ++++++--
+ drivers/block/drbd/drbd_state.h               |   334 +-
+ drivers/block/drbd/drbd_state_change.h        |    80 +-
+ drivers/block/drbd/drbd_strings.c             |   103 +-
+ drivers/block/drbd/drbd_strings.h             |     4 +-
+ drivers/block/drbd/drbd_transport.c           |   550 +
+ drivers/block/drbd/drbd_transport.h           |   516 +
+ drivers/block/drbd/drbd_transport_tcp.c       |  1828 ++
+ include/uapi/linux/drbd.h                     |   305 +-
+ include/uapi/linux/drbd2.h                    |  1046 +
+ include/uapi/linux/drbd_limits.h              |   138 +-
+ net/Kconfig                                   |     2 +-
+ 46 files changed, 63195 insertions(+), 17202 deletions(-)
+ create mode 100644 Documentation/admin-guide/blockdev/drbd/application-resync-synchronization.rst
+ create mode 100644 Documentation/netlink/specs/drbd2.yaml
+ create mode 100644 drivers/block/drbd/drbd2_nl_gen.c
+ create mode 100644 drivers/block/drbd/drbd2_nl_gen.h
+ create mode 100644 drivers/block/drbd/drbd_dax_pmem.c
+ create mode 100644 drivers/block/drbd/drbd_dax_pmem.h
+ create mode 100644 drivers/block/drbd/drbd_legacy_84.c
+ create mode 100644 drivers/block/drbd/drbd_legacy_84.h
+ create mode 100644 drivers/block/drbd/drbd_meta_data.h
+ create mode 100644 drivers/block/drbd/drbd_nl.h
+ create mode 100644 drivers/block/drbd/drbd_nl_84.c
+ create mode 100644 drivers/block/drbd/drbd_nl_defaults.c
+ create mode 100644 drivers/block/drbd/drbd_nl_drbd2.c
+ create mode 100644 drivers/block/drbd/drbd_nl_types.h
+ create mode 100644 drivers/block/drbd/drbd_transport.c
+ create mode 100644 drivers/block/drbd/drbd_transport.h
+ create mode 100644 drivers/block/drbd/drbd_transport_tcp.c
+ create mode 100644 include/uapi/linux/drbd2.h
+
+
+base-commit: aa7014f8d7565cfea117eac36a5de0a05eba65a4
+-- 
+2.56.0
+
