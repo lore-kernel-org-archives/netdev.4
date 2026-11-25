@@ -1,91 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606362;
-	b=cAcyjXgLFNcg7Z522Or87Z0ce7NBUviiXXHFs0UYQCMwjuo5Dz4Am2jfRoTNJld+5XYr
-	 H26V0u/JinfgrplBxKuFlHczhUQ4Bc6J2wyTuLJ+hz+mZxvPwRs6BVyGshkVtl8qyDNVu
-	 THllm9ZrQbq1SRqRMqB5CN8Al/8F1Zz0d7DM1fK0BFsF8cItSHxcGb5ekpzkItPeuns1Q
-	 06+yrUxRhSOgwe32CbK9eNmvfSJ36lfRnyHwFTAg81Ogewk0Bkb4NUk+12ioqcFK84grA
-	 YexeUXKjRDIM5QlPwBlqt5H3sfM+Y6TNXeqB3i6vIin4Priz93/WHptHjpFmYYsapGA==
+	t=1795606370;
+	b=I7SOKoQMjPFuXOZYHVgL8qvuTd7TkNLoSc1jmPjdhGf6zOxvPO3KAAhlHj5tA/QHoZT4
+	 IUmXv41eeGMbrfDRa5qJJ5xTZUWZELObpSvsfPCN39esk+9jgOLFnpJ3ui0/7oiuD75CI
+	 Wnu4QCrb/NK7qmc43auuvwc2jYWlg5kHwy9EbrZJXMC/SLePTG9Nw0hpUxUSTA5r+4yD3
+	 RJyqQIyjHkmSh0K+BOVfP9/E3hIN7Lg5WsdsSeV34GqfFALmVmBUPFVQlEGjIIDM9KKu6
+	 tZXUemrXJ7iM17qUuMRQEYf59QEpTM0womuogFtWwpvi3kfjXQiFXnsgKlfU71WBEsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606362;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
-	b=r+jrvqFtmRVlQPXzM5KQ4A9JlivKb2c1iSbhjDe83o4TCDKOrxnWljr9CA3EJZJrJ5PT
-	 h3zM1baVOyQbQTqBKLageoZ6H0RPG9Q827xFuLt7Kpz6GKWVNF9rnoOAn27/eJJDA8Jmg
-	 dxh52ugTMIJ9gAAH0O0ECPW776Sl28h+c6AtdPAOQTZ7wnGdB///eSvyb4d9/rUYDypM9
-	 7VdrTfYR4qI885ZBO0BGBYQIHnEItmKlb3DkvwYffdyiDD37hV2Hr3X2Nt8Q7XkyVTWZm
-	 lPxhzF0MmCajYObbkpk1u0OOaiyCuRAeQySXMLIcnPuWWJ5yhd7mRoINeYC/DcvD9Sw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606370;
+	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Received:DKIM-Signature;
+	bh=OX3EmVp8Gw0vgq2WFV4ZbEYiYU8lefr1ybECcGgZIJo=;
+	b=XXtIx7IgycAOZ6uI4fFke1N0A/5tQci4kcfaYwMcl5Efbj2z6OcV+f6CfS2OHlZfgR7G
+	 WbQNBUlBp0C9vqtqJzr1/fGn5CtDxYW8mmAy06oj07dXVlSRqStrK0lfEcgWTyoF1HUFr
+	 B7amqyeuU2J1xCOLXY4KYO8md4do9AvKgxjoEL2S908ct5mWLlYywhLOMjE1VXphjbyTU
+	 0B+qKZv8hvPsKjed8KkJN3pKgwQhFEioZCuxUnBougOmYLIhzMgw5lUJgoOfwO+rX9wIe
+	 fVE60BwcEsp1WyVXhjHlPv2QhcEucNHUOEXPGVZJIJ5HOkAnKAFG2ZPovlAYd9wFDrQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RPt1ggji;
-	arc=none smtp.remote-ip=209.85.216.46
-Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=rimpianto.com;
+	spf=pass smtp.mailfrom=rimpianto.com;
+	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hFiRBgg0;
+	arc=none smtp.remote-ip=46.14.198.178
+Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B4B606A682
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:32:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30B4B606A682
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4DA11606A31E;
+	Wed, 25 Nov 2026 11:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4DA11606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RPt1ggji
-Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b47c8930efso351425a91.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:32:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795606361; x=1796211161; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
-        b=RPt1ggjiXdimJkyKblSnhqJL9IgtT1Q+SUTHoo60I07RkTL1MO5AXwkHdza01sXsvd
-         Ni3mvlFWMWLBM3Qrh8kAEoJ+REuu4PkbZkv9TJouP0kNg3pFWJ87t+2XlMS+R4zhP+hh
-         ivVFA9S9Jt511hB9HpSWTPcrXQ/36hczJEwMyKCVhr86fdwpGc5mJoZ7svu6tmUPSL/W
-         O/3dYosqNg4JmT3HxEbSxv3138wmyGW/GvNxTf+GOUzRTGJNw6oGEp3n+OTskNF0Xui7
-         LTr8fJYyaVoh7pIXwufM4DwNs971V/jjPPRuf7tar/xDZS9ZeaUW6nMzOLkajoq8s8pg
-         2UFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795606361; x=1796211161;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
-        b=POIyOrxItJigaUoNU7Y1NP/XObtub259zGUAPc3u4xyfmfmf/jz2EtCJYvHrb5J05V
-         qWrjWU14e6XHXt2wbsh7dGJlqxecQY256J2OdDRQshD7CX1/1T8FnBEQLydLAR+NooHn
-         OMj+GJk5BU3HIkx6Z6UX0fWFTCjBIQptksI//ZUtyRm8kqcwf7AmL+YkSd5yGcBFLmfW
-         eAffjle5LuwYEAP/OfP+f/BRChC1vtyvK81khkfiHOnXnIkvXjIc0w1ngwWhZKF+jAUT
-         iczR91K4ULSMKfptYzbVwMWFuJyfObwpEajKqRDOaAEqUbRtvl8ePzVpGDqpM842f1Rv
-         Du/g==
-X-Gm-Message-State: APuU4Z+GscZkPI5rcYCcDTt4InYgL9bX5XVVjs9vyRUwHCzb7iZc1bdN
-	fpwsHhgxvnb25UBSnueD//eQqD2vLc/L1h747MJkAGV+AC3/pgejf9y+
-X-Gm-Gg: AZFdTZf+LLHgZBD+zp9XjASS35T5nSiDIxp77YWQGty2LMjYLi6trXGc4ckxqFYGyMA
-	mNi44kZ6G0qqSqT5+eflbccremNW6k4zQGERccRICNUH8f78tRhKifMMLxf50P8tQvtk/SmkpoA
-	/HbxFD3o1/pawEKAVu2AEphtIjzODEDeh6LMu8xmB0FxjB87sio63wxP+t9rUKz6nE+xFA5BhbK
-	2VIjou+tJpsvKZ9H62QZm89nhyOqiFW242ejMFeRk4rqqFIfReXugHivt4D5u/4GJhbJHitGWhb
-	+6EnfH10+cu2CnboYb7du+MvAa9Jy92JcTumb91DQ9gDiHxbgTettwCIVEij/q5NWem5KBwU61Y
-	GZlJ5n9jLzAhlpGhEz7rB8KelHeLWvKKvWdfAF6tOxlEpdBMeEE1WswMEUx+mIjAHHLpp/SzppL
-	2AYeAZVWMq5M7m+XodVJHyA+LyWQbGD5Al+kgLAGs6T2/YeloGJC7YKogDcyl9pqbV9yDWPnfU3
-	DSWr+Qm7iFrunampuqkXLIYPSEmh4Yht91Uj8mgUjJGqZnxvuhO4iR/jkX8/eEN58q2zadGi1m/
-	At0x07+I1tS+mb4gxheedNdY7I44BQ309sDicjeGaq6TWbbAPm5C
-X-Received: by 2002:a17:90b:4a48:b0:3b0:9984:18c6 with SMTP id 98e67ed59e1d1-3b41c907e3bmr26052479a91.3.1795606361341;
-        Wed, 25 Nov 2026 03:32:41 -0800 (PST)
-Received: from localhost.localdomain ([14.47.155.101])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm27132863a91.0.2026.11.25.03.32.39
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 03:32:41 -0800 (PST)
-From: Minseok Kim <kor8821@gmail.com>
-To: intel-wired-lan@lists.osuosl.org
-Cc: netdev@vger.kernel.org,
-	przemyslaw.kitszel@intel.com,
-	aleksander.lobakin@intel.com,
+	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=hFiRBgg0
+Authentication-Results: mail.rimpianto.com;
+	auth=pass (plain)
+From: Federico Musto <federico@rimpianto.com>
+To: Chris Snook <chris.snook@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org,
+	Federico Musto <federico@rimpianto.com>,
 	stable@vger.kernel.org
-Subject: [PATCH iwl-net v3] ice: reject an out-of-range CEE DCBX priority-group ID
-Date: Wed, 25 Nov 2026 20:32:37 +0900
-Message-ID: <20261125113237.48372-1-kor8821@gmail.com>
+Subject: [PATCH net] net: atl1c: cancel the common_task work in atl1c_remove()
+Date: Wed, 25 Nov 2026 12:31:41 +0100
+Message-ID: <20261125113141.99792-1-federico@rimpianto.com>
 X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -96,174 +58,69 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Received: from localhost (Unknown [127.0.0.1])
+	by mail.rimpianto.com (Haraka) with ESMTPSA id 09BE50A7-5878-49F7-83E4-1DEC254CD03B.1
+	envelope-from <federico@rimpianto.com>
+	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
+	Wed, 25 Nov 2026 12:31:42 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=s20260314391; t=1795606302;
+ bh=OX3EmVp8Gw0vgq2WFV4ZbEYiYU8lefr1ybECcGgZIJo=;
+ b=hFiRBgg0RoQTai9Pbvzc4Zml/+HSGEks0RRZy18z1AQO5M8Je1u+bm2A9m9DXlLFJui9rlRiF
+ /yyAtfOFuPRnUCxciO1gynR2jcPz7VZIYaiXaKp2jOWhqErwXd0HWZpSSDvPnQpkf6U0YCxsgwz
+ dTLahsawE2zP9wPPLF/HNBPZyTFskQpBLl9oeZOqsHfz2iOzd9pQcL0lcO/vEHHA9263CStAa4r
+ hk1MqQkoyMryIe4tD7DZCZ7NqfKKRK8hUzEgd1/Q1X75Y/vdT27jZzoVG1HkSD2UistliSwKsRL
+ hm6fuG329201u99fazsU2ezDFecas/ChYcYNZmmRy/yA==
 
-The CEE DCBX priority-group ID (PGID) is a four-bit wire field spanning
-0..15, whereas prio_table[] is sized to ICE_MAX_TRAFFIC_CLASS (8):
+atl1c_remove() frees everything the common_task work item needs - the
+register window, the netdev and with it the adapter - without ever
+cancelling the work.  A link-change interrupt can queue it right up
+until unregister_netdev() runs atl1c_close(), and even the
+cancel_work_sync() there is not the last word: it runs before
+atl1c_down() frees the IRQ, so an interrupt in between queues the work
+again.  Nothing then prevents the queued work from running after
+iounmap() and free_netdev(): atl1c_common_task() dereferences the freed
+netdev and reaches the unmapped register window through the link
+handler and atl1c_irq_enable().
 
-  #define ICE_CEE_PGID_PRIO_0_M  (0xF << ICE_CEE_PGID_PRIO_0_S)
-  #define ICE_CEE_PGID_PRIO_1_M  (0xF << ICE_CEE_PGID_PRIO_1_S)
+Cancel the work after unregister_netdev().  By then the IRQ is freed,
+NAPI is disabled and the TX watchdog is stopped, so nothing can queue
+the work again.
 
-The IEEE ETS parser in ice_dcb.c masks the equivalent nibble field with
-0x7 (ICE_IEEE_ETS_PRIO_{0,1}_M) so it cannot exceed 7.  The CEE wire
-parser does not: ice_parse_cee_pgcfg_tlv() extracts each nibble into
-prio_table[i] and inspects it to select tsatable[i], but never rewrites
-prio_table[i], so values 8..15 survive -- including the defined
-strict-priority sentinel ICE_CEE_PGID_STRICT (15), which is not a
-traffic class at all.
+Found by code inspection; the use-after-free has not been reproduced.
 
-Downstream consumers then use prio_table[i] directly as a traffic-class
-index:
-
-- ice_vc_get_qos_caps() (virt/virtchnl.c) indexes local array
-  u8 tc_prio[ICE_MAX_TRAFFIC_CLASS] via tc_prio[tc] |= BIT(i), writing
-  past the end of the stack array when tc >= 8.
-- ice_dcb_tc_contig() (ice_dcb_lib.c) accumulates used_tc |=
-  BIT(prio_table[i]) into a u8; for values >= 8, BIT() is >= 0x100 and
-  truncates to zero, causing the contiguity check to pass silently.
-- ice_vsi_cfg_netdev_tc() (ice_lib.c) indexes
-  vsi->tc_cfg.tc_info[ets_tc].netdev_tc with ets_tc = prio_table[i],
-  reading past the end of tc_info[].
-
-Validate the whole Priority Group Table at the TLV parsing level, before
-any part of the sub-TLV is applied, and reject it if a PGID names a
-group this driver has no traffic class for.  Values 8..14 have no
-meaning in the protocol, so there is nothing to translate; refusing the
-peer's PG configuration is the correct response rather than substituting
-a value it did not send.  The strict-priority sentinel 15 remains
-accepted, but is now replaced in prio_table[] once its meaning has been
-recorded in tsatable[], so it no longer reaches the consumers above.
-
-The four octets inspected by the new check are already read
-unconditionally further down the same function, so this adds no new read
-of the TLV.  The rejection is silent by design: the input is attacker-
-controlled LLDP, and the other parsers in this file do not log either.
-
-The driver already enforces this invariant when writing prio_table[] in
-ice_dcbnl_set_pg_tc_cfg_tx() and at the VF trust boundary in
-ice_vc_cfg_q_bw().
-
-Fixes: 0ebd3ff13cca ("ice: Add code for DCB initialization part 2/4")
+Fixes: 43250ddd75a3 ("atl1c: Atheros L1C Gigabit Ethernet driver")
 Cc: stable@vger.kernel.org
-Signed-off-by: Minseok Kim <kor8821@gmail.com>
+Signed-off-by: Federico Musto <federico@rimpianto.com>
 ---
-v2: https://lore.kernel.org/intel-wired-lan/20261124112631.43172-1-kor8821@gmail.com/
-v1: https://lore.kernel.org/netdev/CABBEkySNmAHTuoiC3jZqvAS31AdzMb2bHe3x0EAKQGibf0xi9g@mail.gmail.com/
+Companion to the series "net: atl1c: fix the RX buffer leak on errored
+frames": patch 2/2 of that series adds one more producer of this work
+item (schedule_work() from NAPI context when an RX descriptor is out of
+sync), which is why this pre-existing fix is posted alongside it.  The
+series itself stays at two patches.
 
-Sent stand-alone rather than in-reply-to v2, as requested.
+0aa76ce3324e ("atl1c: cancel task when interface closed") added the
+cancel in atl1c_close() but kept it before atl1c_down()/free_irq();
+this patch does not change that order, it closes the window in remove
+instead.
+---
+ drivers/net/ethernet/atheros/atl1c/atl1c_main.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-v3, all of it from Przemek's review of v2:
-
-- Reject instead of clamp.  v2 rewrote an out-of-range PGID to 0; v3
-  refuses the Priority Group Table outright.  The check runs before any
-  field of the sub-TLV is committed, so a rejected TLV leaves the
-  existing ETS config untouched instead of half-applied.
-
-- Moved entirely to the TLV parsing level.  The ice_cee_to_dcb_cfg()
-  hunk from v2 is dropped; only ice_parse_cee_pgcfg_tlv() changes.
-
-- Retagged Fixes:.  v2 cited 015307754a19, which only added the
-  ice_vc_get_qos_caps() consumer in v6.13.  The unbounded parse is from
-  0ebd3ff13cca (v5.1), so stable trees older than v6.13 need it too --
-  ice_vsi_cfg_netdev_tc() and ice_dcb_tc_contig() predate the v2 tag by
-  years.  Thanks to the sashiko.dev report for catching this.
-
-One question left open from the sashiko.dev report, deliberately not
-addressed here.  It observes that in ice_cee_to_dcb_cfg() the
-ICE_CEE_PGID_STRICT branch assigns cee_cfg->oper_num_tc - 1, which is
-out of range if oper_num_tc is 0 (underflowing to 255) or greater than
-ICE_MAX_TRAFFIC_CLASS.  That is a real gap, but its inputs come from the
-Get CEE DCBX Config admin-queue response rather than from the wire, and
-that path has no TLV parser to move a check into -- so I have left it
-alone per your "here we should have no changes".  If the AQ response is
-not considered a trusted source, I am happy to send a separate patch
-bounding oper_num_tc where it is consumed; please say which you prefer.
-
-Notes on testing and tool assistance (per
-Documentation/process/generated-content.rst):
-
-- Tool assistance: Claude Code (Anthropic) was used during static source
-  auditing of the CEE DCBX parsing paths, to draft the commit
-  description and the check, and to run build/style checks.  All
-  findings, code changes, and commit text were independently verified
-  and edited by the author, who takes full responsibility for the patch.
-- Testing: Compile-tested only on x86_64 (defconfig + CONFIG_PCI_IOV +
-  CONFIG_DCB + CONFIG_ICE) with `make W=1 drivers/net/ethernet/intel/ice/`
-  against a clean baseline build, and checked with `scripts/checkpatch.pl
-  --strict` (0 errors, 0 warnings, 0 checks).  No reproducer was built
-  and no runtime testing was performed due to lack of E810 hardware or a
-  QEMU device model; the out-of-bounds accesses are established from
-  source inspection and header constants.
-
- drivers/net/ethernet/intel/ice/ice_dcb.c | 39 ++++++++++++++++++++++++++++++--
- 1 file changed, 37 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/intel/ice/ice_dcb.c b/drivers/net/ethernet/intel/ice/ice_dcb.c
-index abea84f14658..86bdaece4cfd 100644
---- a/drivers/net/ethernet/intel/ice/ice_dcb.c
-+++ b/drivers/net/ethernet/intel/ice/ice_dcb.c
-@@ -356,6 +356,20 @@ ice_parse_ieee_tlv(struct ice_lldp_org_tlv *tlv, struct ice_dcbx_cfg *dcbcfg)
- 	}
- }
+diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+index eddd840..31272f0 100644
+--- a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
++++ b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
+@@ -2810,6 +2810,7 @@ static void atl1c_remove(struct pci_dev *pdev)
+ 	struct atl1c_adapter *adapter = netdev_priv(netdev);
  
-+/**
-+ * ice_cee_pgid_is_valid
-+ * @pgid: CEE priority-group ID as it appears on the wire
-+ *
-+ * The CEE priority-group ID is a four-bit field, so a peer can name a
-+ * priority group this driver has no traffic class for.  Only
-+ * 0..ICE_MAX_TRAFFIC_CLASS-1 and the strict-priority sentinel
-+ * ICE_CEE_PGID_STRICT are meaningful values.
-+ */
-+static bool ice_cee_pgid_is_valid(u8 pgid)
-+{
-+	return pgid < ICE_MAX_TRAFFIC_CLASS || pgid == ICE_CEE_PGID_STRICT;
-+}
-+
- /**
-  * ice_parse_cee_pgcfg_tlv
-  * @tlv: CEE DCBX PG CFG TLV
-@@ -374,6 +388,21 @@ ice_parse_cee_pgcfg_tlv(struct ice_cee_feat_tlv *tlv,
- 
- 	etscfg = &dcbcfg->etscfg;
- 
-+	/* Several consumers use prio_table[] directly as an index into
-+	 * ICE_MAX_TRAFFIC_CLASS-sized objects, so reject a Priority Group
-+	 * Table that names a group outside that range before any part of
-+	 * this TLV is applied, rather than substituting a value the peer
-+	 * did not send.  The four octets read here are already read
-+	 * unconditionally below.
-+	 */
-+	for (i = 0; i < 4; i++) {
-+		if (!ice_cee_pgid_is_valid(FIELD_GET(ICE_CEE_PGID_PRIO_0_M,
-+						     buf[i])) ||
-+		    !ice_cee_pgid_is_valid(FIELD_GET(ICE_CEE_PGID_PRIO_1_M,
-+						     buf[i])))
-+			return;
-+	}
-+
- 	if (tlv->en_will_err & ICE_CEE_FEAT_TLV_WILLING_M)
- 		etscfg->willing = 1;
- 
-@@ -403,10 +432,16 @@ ice_parse_cee_pgcfg_tlv(struct ice_cee_feat_tlv *tlv,
- 	ice_for_each_traffic_class(i) {
- 		etscfg->tcbwtable[i] = buf[offset++];
- 
--		if (etscfg->prio_table[i] == ICE_CEE_PGID_STRICT)
-+		if (etscfg->prio_table[i] == ICE_CEE_PGID_STRICT) {
-+			/* Strict priority is carried by tsatable[].  The
-+			 * sentinel is not a traffic class, so replace it
-+			 * instead of leaving it for consumers to index with.
-+			 */
-+			etscfg->prio_table[i] = 0;
- 			dcbcfg->etscfg.tsatable[i] = ICE_IEEE_TSA_STRICT;
--		else
-+		} else {
- 			dcbcfg->etscfg.tsatable[i] = ICE_IEEE_TSA_ETS;
-+		}
- 	}
- 
- 	/* Number of TCs supported (1 octet) */
+ 	unregister_netdev(netdev);
++	cancel_work_sync(&adapter->common_task);
+ 	/* restore permanent address */
+ 	atl1c_hw_set_mac_addr(&adapter->hw, adapter->hw.perm_mac_addr);
+ 	atl1c_phy_disable(&adapter->hw);
 -- 
-2.39.5 (Apple Git-154)
+2.54.0 (Apple Git-157)
+
