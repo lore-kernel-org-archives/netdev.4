@@ -1,67 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617109;
-	b=bfx4M7kuJxIU9MiyZFATyF6SRB9H0QX5hRAHk352DkET/MBrFOI7MVyZBdO9aE7g/nx3
-	 1ZOMfASx32hBbc/N6+/rJGIhhSmodETRZn5FNrr/v5wvgt4GrJOx2JiMS++IHxSx1hnri
-	 F5zgDtpd+Fiki74QcCRMro+k1qjOgkUBM7p6wlpbPoZZC8RqVSIp1wHaj0t2JEdLKmIqm
-	 rxJ9UAu4AI/lnU7Y3xZ32iYHDQLoirfR55WvbJL/wj/y8Sp8J4EpNRm7wMr4YhLuu7v7B
-	 oKTxKclmasMlI8K0YHOglt9wWFPFndZIcZq1ueK2GK0MbzHSLdFayMm7ib10doXmSvw==
+	t=1795617121;
+	b=2LY+Mph9cPzqC2hiR4y9Bmx3BMll33PrC6vY+0vqooMe/1rty5HlXnVOeb+BsoIsfhOk
+	 4R+pYIWw1hd+I0Wy29jmRQzr5IJt/oZhbftEqfvQ2Plbwr0mV4KeEMGuEMCcvrRHyE7Nd
+	 NoULX7d0jk/v5cUkBEXTYUBNvvzMv14oJWDvMIPRsN9247MN8fqdXtlKrevUWRsmxeTF2
+	 f4TrlIVVF079SDNHD+4scg4FYsxeFVJQlzvrJQkLuD6rR5kC2esE3VnvzeuvLepzmf5EI
+	 CWKMT5e90GIx8wZuZ/sr3j8vENzb9e7ErLkwUC1LtlKEEOn2kCk7QvnDHMs9KJgoTRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617109;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
-	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
-	b=5WxvbwyhdnYx6oDw+/UgcqYg/QwmKsBiPl15BwqU3HSCQ1NnZ8dMGzWUQ1vVYUXOSGBb
-	 5kDopCBnUMhnIOQq9/PJYlvOMOXYLVWNKzBJuoMzaS2CV1anO+m7TZ0uvGunRr4JR84+Z
-	 dA6AlBhPFRgz39dM9dSYdvf9qin5nUxPMVXAQ0HO3aFtKBWTmvAuxlB4RKAXvareCfXT6
-	 ssfIZfe+sJi/zmbM59ia9VadrIKbwTrf38kXSf3mF3ZFQHl5ziBSuP+UFO8FuD8uZi9pi
-	 QfaC+o5uAbp2Ue5RsfqaImsVFXFea6nFP1meZR97ufXO3r29V84PB4gAFUVR23AYUrw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617121;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:From:To:Cc:Subject:Date:Message-ID:
+	 X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=W9vKBkuf9EfCK/eG7T7fyygPvv7SG3tP86gxBxZ2fjY=;
+	b=2nQGAZcRAQkRgxcf4mP0YtZRNc1J3+HFoL6nqKtGxmTOoTLWMDmtVUdoxavUSWx8Kc4R
+	 XIHfbOSDaLdI0QAq8sovApcqheTe9gOjD9TIkcE/VyQaWq4ou+ESe3vYMtMMVQLA2drIh
+	 KnRWsXLHS+cAwHiIAjjMbxkAv/GM2vHtVLjjuym1XiCT68IGSwUZ+RvJuB81lTify3qUU
+	 WjJ2dUMVy7j9FLIruTaqBRD6fDIiHqHyK2WJ8IBT8wxUaURThZJ8vBeBuTdRgmLUvo1eB
+	 IdnR5qYWCzgAKk7WQD4xwcqzGwJdOzjNLGtqJss51RIZahRS7egI94ph/8ijkiIciDg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=egBpZ0Zo;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JeoanDhG;
+	arc=none smtp.remote-ip=91.218.175.101
+Received: from mta0.migadu.com (out-101.mta0.migadu.com [91.218.175.101])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B686606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:31:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B686606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C1C5606A682
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:31:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C1C5606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=egBpZ0Zo
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795617108;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
-	b=egBpZ0Zoc+kRvpI6yiTgXP7zovyq8XSUkEiuelyv4Y0JdluUvJ7Tn1DGfcpnj6aqcki3ke
-	Z8geIgOXnbrQa64Z2SgCmQvzGDsYbY3o97AV9+3xxAFzgV+UR0rVs3YSlhjvxqJpfWGIdp
-	GIoyUCplooWZoqB5GOdiI48l0Ps0+j8=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-324-jywuPODkNlmXYQVCdRy39A-1; Wed,
- 25 Nov 2026 14:31:43 +0000
-X-MC-Unique: jywuPODkNlmXYQVCdRy39A-1
-X-Mimecast-MFC-AGG-ID: jywuPODkNlmXYQVCdRy39A_1795617098
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E60451955F02;
-	Wed, 25 Nov 2026 14:31:37 +0000 (UTC)
-Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1024D1956045;
-	Wed, 25 Nov 2026 14:31:31 +0000 (UTC)
-Message-ID: <8dc4f480-a875-4118-b5ee-2c4716ee53bc@redhat.com>
-Date: Wed, 25 Nov 2026 15:31:30 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=JeoanDhG
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=XKKXO3M5xHnltq0mNRZ0f54bFSZ0rb5xvZeNSjm/bpw=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795617118; v=1; x=1796221918;
+ b=JeoanDhG0AgIB1oayKn+DEIIEXrxwQ5rgZPExT6gURaCwGlloVXxrJrsqBX03tpxgvZX3AFi
+ huK/JuV4xRxcPQB1KObikR+pJxKJAUPMeKTjb+hHRGTUvwEZTfF1xbya9R/LAApP0RUA1PiwArk
+ uDpqgfa2PzIRZcFSVXZ6+JaM=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id aab6a3ba64b69de4;
+	Wed, 25 Nov 2026 14:31:57 +0000
+X-Mizu-Trace-ID: aab6a3ba64b69de4
+X-Migadu-Flow: FLOW_OUT
+From: Leon Hwang <leon.hwang@linux.dev>
+To: bpf@vger.kernel.org
+Cc: Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	KP Singh <kpsingh@kernel.org>,
+	Matt Bobrowski <matt@bobrowski.net>,
+	Shuah Khan <shuah@kernel.org>,
+	Leon Hwang <leon.hwang@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: [PATCH bpf-next v4 0/6] bpf: Add log support for tracing link_create
+Date: Wed, 25 Nov 2026 22:31:32 +0800
+Message-ID: <20261125143138.47174-1-leon.hwang@linux.dev>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,165 +84,89 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-To: Jiri Pirko <jiri@resnulli.us>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
-Cc: Jakub Kicinski <kuba@kernel.org>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
- netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
- Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
- <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
- Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
- Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
- Petr Oros <poros@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
- <20261116181612.107a4b57@kernel.org>
- <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
- <20261118174424.32e9f130@kernel.org>
- <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
- <20261119133851.3f25074c@kernel.org>
- <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
- <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
- <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
-Content-Language: en-US
-From: Ivan Vecera <ivecera@redhat.com>
-In-Reply-To: <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On 11/22/26 16:54, Jiri Pirko wrote:
-> Fri, Nov 20, 2026 at 09:00:27PM +0100, vadim.fedorenko@linux.dev wrote:
->> On 20/11/2026 07:39, Ivan Vecera wrote:
->>> On 11/19/26 22:38, Jakub Kicinski wrote:
->>>> Well, I'm not convinced. The relations between objects in DPLL are
->>>> already quite hard to follow, and objects from one driver routinely
->>>> "plug" into objects from another. The explanation of the locking
->>>> rules in patch 9 does not look clean or clear. The driver facing
->>>> API needs to be much more "dummy-proof".
->>>
->>> Fair enough. The complicated part of the rules comes exactly from
->>> that: a pin registered by another driver, like the zl3073x pins that
->>> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
->>> A message about such a pin runs callbacks of both drivers. I have
->>> prototypes of the first four ways below to lock this, each with KUnit
->>> tests, and would like your opinion before going further.
->>>
->>> In all of them a domain is the set of objects created with the same
->>> module and clock_id, dpll_lock becomes an rwsem for the topology and
->>> lifetime, and a mutex per domain serializes the callbacks.
->>>
->>> A) Pin's domain (this series)
->>>
->>>      Callbacks of a pin run under the domain of the pin, whichever
->>>      driver registered them.
->>>
->>>      Pros:
->>>      * one domain lock at a time, so no lock order
->>>      * a request or a message about a pin is atomic
->>>      Cons:
->>>      * the callbacks of a foreign pin are serialized with the driver
->>>        that created the pin, not with the other callbacks of the driver
->>>        that registered it, so that driver has to protect the shared
->>>        state itself, and lockdep cannot check it
->>>      * restrictions for measured_freq_get, reference sync pairs and the
->>>        private data of a parent pin, which patch 9 has to explain
->>>
->>> B) Registrant's domain, deferred notifications
->>>
->>>      Each callback runs under the domain of the driver that registered
->>>      it. A message about a pin takes the domain locks one after another,
->>>      and notifications from callbacks are queued and sent once the
->>>      domain lock is dropped.
->>>
->>>      Pros:
->>>      * callbacks registered by one driver instance are always
->>>        serialized with each other
->>>      * one domain lock at a time, so no lock order
->>>      Cons:
->>>      * a request or a message about a pin registered across domains is
->>>        not atomic
->>>      * the most complex core: a notification queue per domain, a lock
->>>        per object to keep its messages in order, and pin setters split
->>>        into validation and apply parts
->>>
->>> C) Registrant's domain nested under the pin's domain
->>>
->>>      Pros:
->>>      * callbacks registered by one driver instance are serialized with
->>>        each other and with the driver that created the pin
->>>      * a request or a message about a pin is atomic
->>>      Cons:
->>>      * the lock order comes from the topology, so a pin of A registered
->>>        with a DPLL of B together with a pin of B registered with a DPLL
->>>        of A deadlocks, and lockdep sees it only with a lockdep class per
->>>        domain
->>>      * a stuck foreign registrant stops the domain of the pin
->>>
->>> D) Merged domains (your suggestion)
->>>
->>>      Registering a pin with a DPLL or a parent pin of another domain
->>>      merges both domains. They are not split again.
->>>
->>>      Pros:
->>>      * the rules for drivers stay as they are with the global lock
->>>        today, and lockdep checks them; the only new one is that state
->>>        shared between chips not connected by a pin needs a driver lock
->>>      * a request or a message is atomic
->>>      Cons:
->>>      * only hardware not connected by pins runs in parallel; on the
->>>        GNR-D system the zl3073x and all ice PFs end up in one domain
->>>      * a callback that waits for the hardware, like the planned resync
->>>        for up to 1 s, or for firmware still stalls all DPLL devices in
->>>        the merged domain
->>>
->>> E) Global dpll_lock, slow callbacks asynchronous
->>>
->>>      Pros:
->>>      * no change in the core
->>>      Cons:
->>>      * the resync problems from my previous mail, and a callback that
->>>        waits for firmware still stalls all DPLL devices in the system
->>>
->>> I wrote before that stretching the domains would not improve
->>> anything on that system. That holds for the ToD stall I measured,
->>> but the zl3073x does not need to hold its channel lock across the
->>> edge waits. Without that, the remaining waits are the planned resync
->>> and output state callbacks, and with D they stall only the devices
->>> wired to that chip, which depend on it anyway.
->>>
->>> So I lean towards D, as it gives drivers nothing new to get right.
->>> Would that address your concern, or do you see a better way?
->>>
->>> It would be good to hear from the other DPLL maintainers as well.
->>> Jiri, Vadim, Arkadiusz, what do you think?
->>
->> I totally agree with Jakub. Current implementation of DPLL subsystem is
->> over complicated, and all these complications came just to completely
->> model what was designed for Intel NICs, basically ice driver. But now we
->> are again back to the discussion how to complicate things further just
->> to fit what was implemented in the new generation of the same hardware.
->>
->> Maybe it's time to step back and think if we really need all this, or
->> find simpler way to express/model things?
-> 
-> Agreed.
+I'm planning to add syscall common attrs support for LINK_CREATE cmd.
 
-I fully agree with you guys... I also don't like the way how the ice implemented
-pin sharing and thinking more about Vadim's "Maybe it's time to step back...".
-I have started an effort how to model this differently without any inter-driver
-DPLL object sharing.
+This is the second series for the plan, that adds syscall common attrs
+support for LINK_CREATE of tracing prog and cgroup prog.
 
-I will send a RFC patch-set that should address hopefully all painful points.
+BTW, address Andrii's review [1] in patch 5:
+1. Change if (!OPTS_ZEROED(opts, iter_info_len)) to if
+   (!OPTS_ZEROED(opts, log_opts)).
+2. Add comment to iter_info and iter_info_len that they are
+   deprecated, and use iter.info and iter.len instead.
 
-Thanks,
-Ivan
+Links:
+[1] https://lore.kernel.org/bpf/CAEf4BzbW4zwL-9j8e2B6KNXVNwsfWyMSAo_RsGCqv-nu_yGhTg@mail.gmail.com/
+
+Changes:
+v3 -> v4:
+* Collect Acked-by tag from Jiri, thanks.
+* Change 'tgt_fd' to 'target_fd' in patch 1. (Sashiko)
+* Trim tests to 4 tests for tracing, tracing_multi, iter and cgroup links.
+  (Alexei)
+* v3: https://lore.kernel.org/bpf/20261123152743.19629-1-leon.hwang@linux.dev/
+
+v2 -> v3:
+* Add log support for bpf_check_attach_btf_id_multi().
+* Add more selftests to cover more logs for link creation failures.
+* Update some log messages in patch 1. (Alexei)
+* Add log for dst attach type check in bpf_check_attach_target(). (Alexei)
+* Update some log messages in patch 2. (Alexei)
+* Pass 'log' to btf_attach_func_proto() and btf_distill_func_proto() in
+  bpf_check_attach_btf_id_multi(). (Alexei)
+* Add a log msg in check_dup_ids() when dup ids. (Alexei)
+* Add a log msg in bpf_tracing_multi_attach() when it returns
+  -EOPNOTSUPP. (Alexei)
+* Swap function names between iter_info and iter_info_len selftests.
+  (Sashiko)
+* v2: https://lore.kernel.org/bpf/20261114150610.84507-1-leon.hwang@linux.dev/
+
+v1 -> v2:
+* Add log_opts support for bpf_program__attach_iter() API in libbpf.
+* Add test to verify the log for freplace max_ctx_offset case.
+* Update a subtest to verify the log_opts in bpf_program__attach_iter()
+  API.
+* Add log for freplace max_ctx_offset case. (bot+bpf-ci)
+* Drop unnecessary bpf_verifier.h include. (bot+bpf-ci)
+* Change log to "Invalid tracing attach_type.\n" when the link
+  attach_type is not prog->expected_attach_type. (bot+bpf-ci)
+* Change BPF_XDP to BPF_TRACE_FEXIT in tracing link_create test.
+  (bot+bpf-ci)
+* Drop dead iter.len check in libbpf. (bot+bpf-ci, Sashiko)
+* Add OPTS_ZEROED(opts, iter) check. (bot+bpf-ci, Sashiko)
+* Swap log positions of iter_info and iter_info_len. (Sashiko)
+* Update bpf_program__attach_iter() to use iter.info and iter.len.
+  (Sashiko)
+* v1: https://lore.kernel.org/bpf/20261109140816.5196-1-leon.hwang@linux.dev/
+
+Leon Hwang (6):
+  bpf: Add log support for tracing link_create
+  bpf: Add log support for tracing_multi link_create
+  bpf: Add log support for iter link_create
+  bpf: Add log support for cgroup prog link_create
+  libbpf: Add log_opts support for BPF_TRACE_ITER
+  selftests/bpf: Test tracing and cgroup link creation logs
+
+ include/linux/bpf-cgroup.h                    |  6 +-
+ include/linux/bpf.h                           |  9 +-
+ include/linux/bpf_verifier.h                  |  3 +-
+ include/linux/trace_events.h                  |  7 +-
+ kernel/bpf/bpf_iter.c                         | 27 ++++--
+ kernel/bpf/cgroup.c                           | 76 ++++++++++++-----
+ kernel/bpf/syscall.c                          | 30 +++++--
+ kernel/bpf/trampoline.c                       |  5 +-
+ kernel/bpf/verifier.c                         | 51 ++++++++---
+ kernel/trace/bpf_trace.c                      | 27 ++++--
+ tools/lib/bpf/bpf.c                           | 23 +++--
+ tools/lib/bpf/bpf.h                           |  8 ++
+ tools/lib/bpf/libbpf.c                        |  5 +-
+ tools/lib/bpf/libbpf.h                        |  3 +-
+ .../selftests/bpf/prog_tests/link_log.c       | 85 +++++++++++++++++++
+ 15 files changed, 290 insertions(+), 75 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/link_log.c
+
+-- 
+2.55.0
 
