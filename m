@@ -1,84 +1,85 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634108;
-	b=4pwKc+l90H1WHkDWjDAXHldUw8t0yGJT+M7VLP5I80o054lU+U8ir4nn+YjuW+6JjECN
-	 M7PAQDcyIYv0JQAdIbkgaYSpUcE36Zu/Z9XHwKMb33XHX4tbRiGeYI3gM6eZuCHapkB2C
-	 m7r+CPbUqHBEi68r0TNjXSd1cjjYpL0jhjkaegUNQQGxTmlQyocCICAUEK6ER8n3D0xHO
-	 0ccfa24qDJusdZSExNIgdyzc+E/t864qCxqAghykXxh0ZVsGyVbONkQqnn+6XXpRR6ngB
-	 rMX+SBwvcLywoooEPV2DoivXKYHTbe8+f9+88tjtbvcriiwrBOv43pUMHkWtkqi7U/g==
+	t=1795634110;
+	b=BGHqOwFjD9us/F6IH3eB8jPgKgUrXufTZbgzetDFfOZ8wBMNRTP2EvliEmUdzJgClbQg
+	 ZA2NMxIwEwoRfFJIIMAs9wxuXnjekCQkUZviPBD29t9WC1ha+dQkFmMcvh8WYF98X2Fo7
+	 jyRqUyrksfk88ezgAak4je1GyBnXKLdzx3Acka4SIeGnzb/sveTRjoOk1b79d9a7In7iK
+	 2Q6oS8t1i3sKekjjokNqQSdZZedT1VlOTTw0chcnHtgx/3R9k0+yJPSCLlW4vWQU3dLc5
+	 5wl290t2uW+q90710e+U7xbXKuKMAj6W4w9c3hq+jnW6zW7OTx3d4ITp85OJalAc+9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634108;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634110;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Transfer-Encoding;
-	bh=2XXDx1N+ETD9sRZ73sW75oA+drTEDlkdMhzQqYaN1Bc=;
-	b=UaiO8zp58gakBTA5TU9D3DzM/YIRAjYx+c7/ywkYiRiF6U0XKevk8BPeb/OyQ31Okx/v
-	 liaIPeMl42c5rcpLAetu6CLmG95+LpgRFoPDJTt0NRivADtavBDf8hddmlLvIUw31mmie
-	 uQyT1lJ5XdMEWflS0jyjO3R574OdKiXjlkQ0c3hTxD9ksmW1qgpyxZRiNfTaghISlhvbs
-	 XYUdgHA7qKHJZfWyIrdC81kShbawSstzIPDtqNYPm10n6jrCXP2bc+l1N33G2+xrQldKy
-	 WGbfrk593A0Cblu/M1i/USIMZ2uGzmLxvDn2r/sCHD2jvfP62dzedKOISHrHwJXC+kg==
+	bh=2jBZ+gIVoZY8TvKMdM3HQ6V1UsUxzdD7N5qWncy5pGU=;
+	b=A/0bsFIcjXv6vwDFTcP53z1tF43lxo4SOWRQQ/1ritrVGGxtbuCdkDxSarTWIY48PzJG
+	 TrAZLQF95dlJNaBths42BOFzDKkvNFnE2TJhddpwvpcajRT79RD5/VPrXx4xB/1dapDMr
+	 aLf5UXOepFKiHUTAKtm08rZkRffUuiraMcjsDZc363vKDY9XWHt3RKLOE4h8CfVD/ZaSo
+	 DmBhLQZ4t7MylAlcQy+a4LMnY9J7sC9fcpp/PPxdGzKP/5MJAGiaCbb34ktcNP0XuyyXf
+	 bCwPt6Squ7Al0dxTF3zrW7cYcOmg2ekcbovHJ6MfA7OMCVQch3nY+5QrXnWaSQudhdw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=blockcast.net;
 	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=nEC4fdqe;
-	arc=none smtp.remote-ip=209.85.214.176
-Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=ELuOEdC2;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EA30606A335
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:15:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EA30606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B21AB60A2608
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:15:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B21AB60A2608
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=nEC4fdqe
-Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2f0426a65e0so39148305ad.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:15:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=ELuOEdC2
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f07a960666so41057995ad.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:15:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795634107; x=1796238907; darn=vger.kernel.org;
+        d=blockcast.net; s=google; t=1795634109; x=1796238909; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=2XXDx1N+ETD9sRZ73sW75oA+drTEDlkdMhzQqYaN1Bc=;
-        b=nEC4fdqeLFuOx7pZ9gejzfft5pb20bd4XKtV7usvGd31fLlqVxuebaVdG/h4js03Jx
-         fV8cM/XuasDvTzoIqa73NH/HbsT5AClRxqtCuZMbit0xqFlMP0WiFQEnp6rVIl9Y+bSd
-         1aqjxSMfppqr6shrFEfjey6aC6bvF53GxCKDl7nz4K7Iyzv+SJ3Gdsg+p1F8n7Zx8G29
-         /MY2nIUJKMzWPT4cfvwySr7oyBFqun+KRqB9OchapP6GKDm0FljKD3RtXNZYOx8h9wdq
-         b8ChyynDuYMPSfp7sn8+CY89SXRzL+Yqs4tApEJw0DpqlAQpa0KkdJfvzz0gVHR1Qjpe
-         tlRQ==
+        bh=2jBZ+gIVoZY8TvKMdM3HQ6V1UsUxzdD7N5qWncy5pGU=;
+        b=ELuOEdC2jOpoq+YR79VSuInO+egjYzwrRvXSudhDjcH99KuI7UUyJ+aYHHnKKwGtCS
+         TM/4MCtoI9WLE+wbm+oZg3dyFVy30Nb0MRHX4fXgzGMFnsqmg6Fls5oIVwMie6LDXWOU
+         fbJTxsMoy9FVzT/ESlmG91C0OUwcBLUj6Q0CPLnvIzJf0VoJrxcLaTufGhlCu5E63WTx
+         Eu/w1J4nm8D+YKGFFxq5yQHc1Wr82R7R2W+wNOiG/+F4W679IhO3EnVvvde64MtdDZhO
+         Ghi9lutR6C+NNeHaR4kuBN7W6YARMmAtXqzADxqhEjQKwzIhLRXA6GCwPghimqeSYmm+
+         WM2Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795634107; x=1796238907;
+        d=1e100.net; s=20260707; t=1795634109; x=1796238909;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=2XXDx1N+ETD9sRZ73sW75oA+drTEDlkdMhzQqYaN1Bc=;
-        b=r63OoB/C0nDiHnJ9AFF5UK3ADQZqSy033sEDRgsXSKiulVZg18emKHLDUrIs+Cn1+q
-         hOYawhFHUAbdpXvYy1tmfuNel3UHWXR5xAMq21/BKn0ebxhv7w8/Jfyhc0EEmFLvvTt5
-         t00CO8/XyHRzkcvLATs6oakZVnz3skdH9wR4ubhX5z/+GHl1d/ziH8BG054Cn0LzBOs2
-         NgPavY5w6VXrVIXc2BzSAeIxo9sGtv37rXyjAzwh9tqBOSJ3/7YmgxhSi0d6lZWxJ2ck
-         tFXYayn45vc8Jdyi1fgPMmV4cGcWlmh9Y5zktZ7T7BPKkPRvIptQB530RQXRt2iyLoj9
-         /Fdw==
-X-Forwarded-Encrypted: i=1; AL+hErEWMRdlcNB2voOVI0nw7oBIhxp5uqNc0VFm1sRJGTWW1+b+SUg9nL1SNBWxelZZ/wwK0Lt5c5A=@vger.kernel.org
-X-Gm-Message-State: APuU4Z84vS4ga9MHVLO5gRja2e1cLPIcI5vUClGJc0MZT8SNcVR4eb+X
-	w1KU7bOiFKFZSE5NI0VFmG9pVR7B5vHIwsXmZSbcYQ0hz7Ih3UYprThyHfaqlqeXecY=
-X-Gm-Gg: AZFdTZetemWczrROOS0GnamxWIDAZBrDcc6ugQB0oPJmQ4oe50v3/9kVJqNUxeWjlrt
-	78TSA/gXtrUcN5nqxJpY6/nqVVzcBpMkx5tw7CdCj7Jx8HKVV62QsEYVen2ucXogzBW7JVg99kn
-	hCatORA5/QIYdtP9Lhu99EBnzQ4mMScDaqD5oaBtcWRDEEOmScpo28lw6nQsjG/3WMzNOO4wmKT
-	cabUTd9WZC8k/67v+6GgxJrr/b9CuGxPneOWMqyjzGJPunTmQ09vA5n3ykdJh0s7foBe2piwwLi
-	g5fDD0b3rGeYQkdUNYuPnwjwrd9TflVjsqtQlKqetcfY8/885umlC5/1fTQP6rgZkTCoihg+BjO
-	lN2cgKoHtGm++JIJdF4ap/hwWQuTkViC5P1omw3vabFQPqFV9xp6QY9aXQLqo2+BKbh1I2jMRra
-	edQFArHW/sDkMUJuArt+SIpZMdm/LcP48qVYFzrKdfQa8Q+jGZFCdq6wpazO/kpoBwO0Sbnvfar
-	rreI2SIuHAp2VAOPj7t1lcC/gkZbfF/qnTwHoIw1MggN6zBPt0mTShkh08ZknHlyqP5Kt8ZIr3f
-	HqdxwwHeatk2FJgQ+2BtDKSsTvOYvLLIJOli3bNVu4fa7uo9dgQ9utSKlh4LB/JJMTp88f685BK
-	hVh4SUXSTY6LBXbldVA7TFH3alr1ogldBNqghIopoMhVwTpld0HE=
-X-Received: by 2002:a17:902:e5c5:b0:2e8:4f3f:60dd with SMTP id d9443c01a7336-2f03f215a7amr145555155ad.37.1795634107510;
-        Wed, 25 Nov 2026 11:15:07 -0800 (PST)
+        bh=2jBZ+gIVoZY8TvKMdM3HQ6V1UsUxzdD7N5qWncy5pGU=;
+        b=GAYLFbf5iGSWM6KHk+xS2cMYKLvE/H+R3PtaOxw6ufJex16NC8aZlyUGJSgfq67sIU
+         J6b68QJlPnh5dsOvWDumljWGhsmxyBT/rEKJfYJpljgLSr33IWhWtBNvllL0+M6dCElN
+         6ZT3K8CUJl4Qdc0OiTcUgXkD98hbOo4Hqwaj403gp2VlSTav45KqEBCuhtO2+tA9i7mp
+         IfUfiCELHi4xxP+ztF3sLCZDKZhnkAlVi2I6aVk1VuTpD6iI8vERqMN2JITvBwl5PnSd
+         2hzD66OJA1HKXtK1cUnuXWiKMmVxBLCVZRH11uSuxKECGss/FpYsItl7vni24PDHeo+8
+         a+uA==
+X-Forwarded-Encrypted: i=1; AL+hErFqOk9dZEFEDJvtUoIpVSMPwiaHYj/2zMuitDpOKdJLzppJvD7X8MCYOxJCugdvBr/S4Ao0uTM=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9KK3vdbpn2+++xJyEK9810mob0x+prOGjC+wQI3NMvDs5K9x82
+	a29MnvV5J+SaZpusKCeVOIEDYEDVF799/VcGAXarSFnitZbg7EmrFebGGLzrg7clVl7DgKZeERl
+	7gvP5VodsJg==
+X-Gm-Gg: AZFdTZe/o8IjR6HWEOcKvGon2ZYHXn9wB7BYWwHCc1xvzsz0e4lkhBG80ssRPyRhkbU
+	+EJ0soAk4WbqjJARp6dKOYqorHZqysTouERhTYUD+q1I0A1kX6DvRF1ek6EKJUv3hR2mbeU1anZ
+	tuCLiGEzXQv4/UudMw8N1P3+uxa6O7/0jsDElD4WnTAIAK+zX6uQuFF8II5HppNRbmO3RmfopWr
+	wXQX8C64mdDKQOCliBnJrV0TApzzfWLHejmUBOFE4Tujwq1EM0qXIaHL8Naqj3fSQe/Xd5mrP+B
+	0kfggitK+YwvWlH8z10Wj3anNLFQmuIanFe3UecwTCE6csincv9bWOH0YCA4iTp+K4enGm/X/L1
+	xnHKPv08qKHoVgS/Jwj7F0CePV5NLylIK/BPMNKhKfYiKpLamt/gq9AEaw460vbGy8yPIVwRrTK
+	Wlz6Vz/k56RmOhWwp7Ms0P7ZSWhkdAw+KHM42GkcHhoEYHsUJXOTXfiMkH8WHNyHnc0cCWgoyQK
+	Hu4mXzUxbEu9pwbHzcywm5f1D4CFmY/0DLNOYVydO4MMoPOCTW/mjeZ5ZB81FW8HdY7mSdsUJF/
+	A/p/L/8RMFGgmFp1C3tdnQCfbllUmh9EBBA+WOhjBhvc0roRtV6qx/93rcQh6GKXS6f5ll5WaQQ
+	i0q3kN8RBHsZvvu07n9mj6Bb8P0utkLMkrtDMqB9s3DynnxwoP34=
+X-Received: by 2002:a17:903:2308:b0:2ef:d032:66fa with SMTP id d9443c01a7336-2f03f0fbc77mr197278685ad.10.1795634108910;
+        Wed, 25 Nov 2026 11:15:08 -0800 (PST)
 Received: from devbox.ts.blockcast.net ([69.25.95.32])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm92413855ad.51.2026.11.25.11.15.05
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f105b66sm92413855ad.51.2026.11.25.11.15.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 11:15:06 -0800 (PST)
+        Wed, 25 Nov 2026 11:15:08 -0800 (PST)
 From: Omar Ramadan <omar@blockcast.net>
 To: Taehee Yoo <ap420073@gmail.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -91,9 +92,9 @@ Cc: Simon Horman <horms@kernel.org>,
 	netdev@vger.kernel.org,
 	linux-kselftest@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 10/12] MAINTAINERS: amt: cover the amt headers and selftests
-Date: Wed, 25 Nov 2026 19:14:48 +0000
-Message-ID: <20261125191450.2497936-11-omar@blockcast.net>
+Subject: [PATCH net-next v2 11/12] selftests: net: add amt_v6.sh for an IPv6 outer transport
+Date: Wed, 25 Nov 2026 19:14:49 +0000
+Message-ID: <20261125191450.2497936-12-omar@blockcast.net>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20261125191450.2497936-1-omar@blockcast.net>
 References: <20261125191450.2497936-1-omar@blockcast.net>
@@ -108,33 +109,439 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The AMT entry lists only drivers/net/amt.c, so get_maintainer.pl does
-not find the AMT maintainer for changes to include/net/amt.h,
-include/uapi/linux/amt.h or tools/testing/selftests/net/amt.sh, and this
-series touches the first two and adds selftests next to the third. Add
-the two headers, and a glob that covers amt.sh and the new amt_*.sh
-scripts.
+amt.sh runs the gateway and the relay over IPv4; its 2001:db8:: addresses
+are inner MLD carried in that IPv4 tunnel. Nothing covers the IPv6 outer
+transport this series adds.
+
+amt_v6.sh is amt.sh with the gateway<->relay link moved to IPv6, and a
+second gateway on that link:
+
+  amtg:  mode gateway local 2001:db8:a::1 discovery 2001:db8:a::3
+  amtg2: mode gateway local 2001:db8:a::4 discovery 2001:db8:a::3
+  amtr:  mode relay   local 2001:db8:a::2
+
+The namespaces, inner addresses and smcroute (S,G) routes are those of
+amt.sh, and the scripts use the same tools, plus jq. The relay forwards
+to a tunnel only after the gateway's Membership Update, and the gateway
+sends that only after the relay's Membership Query, so the forwarding
+checks cover the whole handshake. The test checks that:
+
+ - the gateway learns 2001:db8:a::2 from an Advertisement it requested
+   through the relay's second address, 2001:db8:a::3, so the
+   Advertisement has to come from the address the Discovery was sent to;
+ - IPv4 and IPv6 multicast both reach the listener through the tunnel;
+ - IPv4 multicast also reaches a listener on the second gateway, which
+   shares the first one's /64 and gateway port, so the relay has to
+   deliver each gateway's Membership Query to that gateway and not to
+   one whose address merely begins the same way;
+ - with the relay's route MTU to the gateway lowered, an IPv6 payload
+   above the tunnel MTU earns its source a Packet Too Big, and neither
+   is the AMT datagram fragmented nor does it reach IPv6 output, where
+   it would be refused and counted in Ip6FragFails;
+ - a Relay Discovery sent to ff02::1 draws no reply at all, while the
+   same Discovery sent to the discovery address, the positive control
+   with the same capture filter, draws an Advertisement. This check
+   needs tcpdump and is skipped without it;
+ - taking amtg down clears the learned relay address, and bringing it
+   up discovers the relay again.
+
+A probe creates a throwaway IPv6 relay first. It skips when the kernel
+ignores IFLA_AMT_LOCAL_IP6 ("Local attribute is required") or iproute2
+cannot pass it, which includes an iproute2 that packs the IPv6 literal
+into the 4-byte IFLA_AMT_LOCAL_IP: this kernel refuses that, and an
+older one creates an IPv4 relay, which the probe reads back. Any other
+failure after the probe, including in setup, is a FAIL. DAD is off in
+the namespaces: the relay sends its MLD General Query from amtr's
+link-local address, which must not be tentative at that point.
+
+The script skips when /proc/net/if_inet6 is missing, that is without
+CONFIG_IPV6, before it creates any link. disc_answer() returns a distinct
+status when tcpdump fails to start or a send fails, and the ff02::1 check
+accepts only "no reply", so a broken capture cannot pass it.
+
+The iproute2 side is posted to iproute2-next separately.
 
 Assisted-by: LLM
 Signed-off-by: Omar Ramadan <omar@blockcast.net>
 ---
- MAINTAINERS | 3 +++
- 1 file changed, 3 insertions(+)
+ tools/testing/selftests/net/Makefile  |   1 +
+ tools/testing/selftests/net/amt_v6.sh | 355 ++++++++++++++++++++++++++
+ 2 files changed, 356 insertions(+)
+ create mode 100755 tools/testing/selftests/net/amt_v6.sh
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 9f1a6024f..6a028cdba 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -1506,6 +1506,9 @@ S:	Maintained
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git
- T:	git git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net-next.git
- F:	drivers/net/amt.c
-+F:	include/net/amt.h
-+F:	include/uapi/linux/amt.h
-+F:	tools/testing/selftests/net/amt*.sh
- 
- ANALOG DEVICES INC AD3530R DRIVER
- M:	Kim Seer Paller <kimseer.paller@analog.com>
+diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
+index c80dabbcc..7f98f74f9 100644
+--- a/tools/testing/selftests/net/Makefile
++++ b/tools/testing/selftests/net/Makefile
+@@ -9,6 +9,7 @@ CFLAGS += -I../
+ TEST_PROGS := \
+ 	altnames.sh \
+ 	amt.sh \
++	amt_v6.sh \
+ 	arp_ndisc_evict_nocarrier.sh \
+ 	arp_ndisc_untracked_subnets.sh \
+ 	bareudp.sh \
+diff --git a/tools/testing/selftests/net/amt_v6.sh b/tools/testing/selftests/net/amt_v6.sh
+new file mode 100755
+index 000000000..9d3e4a206
+--- /dev/null
++++ b/tools/testing/selftests/net/amt_v6.sh
+@@ -0,0 +1,355 @@
++#!/bin/bash
++# SPDX-License-Identifier: GPL-2.0
++#
++# amt.sh with an IPv6 outer transport. The gateways and the relay speak AMT
++# over IPv6, and IPv4 and IPv6 multicast are carried inside. The namespaces,
++# roles and inner addresses are those of amt.sh; the gateway<->relay link
++# differs, and a second gateway shares it:
++#
++#   LISTENER l_gw -- gw_l [br0: gw_l, amtg] GATEWAY gw_relay 2001:db8:a::1
++#                                                        | IPv6 outer
++#                                  [amtg2] GATEWAY2 gw2_relay 2001:db8:a::4
++#                                                        |
++#   SOURCE src_relay -- relay_src [amtr] RELAY br_gw 2001:db8:a::2
++#                                  [br_gw: relay_gw, relay_gw2] 2001:db8:a::3
++#
++# The relay's local address is 2001:db8:a::2. The gateways discover it
++# through 2001:db8:a::3, so the Relay Advertisement has to come from the
++# address the Discovery was sent to (RFC 7450 s5.1.2) and carry ::2.
++
++source lib.sh
++
++readonly GW6="2001:db8:a::1"
++readonly GW2_6="2001:db8:a::4"
++readonly RELAY6="2001:db8:a::2"
++readonly DISC6="2001:db8:a::3"
++SMCDIR=
++
++cleanup()
++{
++	cleanup_all_ns
++	[ -n "$SMCDIR" ] && rm -rf "$SMCDIR"
++}
++
++setup_fail()
++{
++	echo "FAIL: setup failed at line $1" >&2
++	exit "$ksft_fail"
++}
++
++amt_field()
++{
++	ip -n "$1" -d -j link show "$2" |
++		jq -r ".[0].linkinfo.info_data.$3 // empty"
++}
++
++# remote_is <addr> [<ns> <dev>]: the relay address a gateway learned.
++remote_is()
++{
++	[ "$(amt_field "${2:-$GATEWAY}" "${3:-amtg}" remote)" = "$1" ]
++}
++
++snmp6()
++{
++	ip netns exec "$1" awk -v k="$2" '$1 == k { print $2 }' /proc/net/snmp6
++}
++
++setup_links()
++{
++	local ns
++
++	# No DAD: the relay sources its MLD General Query from amtr's
++	# link-local address, which must not be tentative when it is sent.
++	for ns in "$LISTENER" "$GATEWAY" "$GATEWAY2" "$RELAY" "$SOURCE"; do
++		ip netns exec "$ns" sysctl -wq \
++			net.ipv6.conf.all.accept_dad=0 \
++			net.ipv6.conf.default.accept_dad=0
++	done
++
++	ip -n "$LISTENER" link add l_gw type veth peer name gw_l \
++		netns "$GATEWAY"
++	ip -n "$GATEWAY" link add gw_relay type veth peer name relay_gw \
++		netns "$RELAY"
++	ip -n "$GATEWAY2" link add gw2_relay type veth peer name relay_gw2 \
++		netns "$RELAY"
++	ip -n "$RELAY" link add relay_src type veth peer name src_relay \
++		netns "$SOURCE"
++
++	ip -n "$GATEWAY" addr add "$GW6/64" dev gw_relay
++	ip -n "$GATEWAY" link set gw_relay up
++	ip -n "$GATEWAY2" addr add "$GW2_6/64" dev gw2_relay
++	ip -n "$GATEWAY2" link set gw2_relay up
++	ip -n "$RELAY" link add br_gw type bridge
++	ip -n "$RELAY" link set relay_gw master br_gw up
++	ip -n "$RELAY" link set relay_gw2 master br_gw up
++	ip -n "$RELAY" addr add "$RELAY6/64" dev br_gw
++	ip -n "$RELAY" addr add "$DISC6/64" dev br_gw
++	ip -n "$RELAY" link set br_gw up
++}
++
++# An iproute2 without IPv6 AMT support either rejects the address or packs
++# it into the 4-byte IFLA_AMT_LOCAL_IP, which this kernel refuses and an
++# older one takes as an IPv4 address. A kernel without IPv6 AMT support
++# ignores IFLA_AMT_LOCAL_IP6 and asks for a local address. Skip in those
++# cases only.
++probe_v6_relay()
++{
++	local err got
++
++	if ! err=$(ip -n "$RELAY" link add amtprobe type amt mode relay \
++		   local "$RELAY6" dev br_gw 2>&1); then
++		case "$err" in
++		*"Local attribute is required"*|*"expected rather than"*|\
++		*"IPv6 address in an IPv4 attribute"*)
++			echo "SKIP: no IPv6 AMT support: $err"
++			exit "$ksft_skip"
++			;;
++		esac
++		echo "FAIL: cannot create an IPv6 relay: $err"
++		exit "$ksft_fail"
++	fi
++	got=$(amt_field "$RELAY" amtprobe local)
++	ip -n "$RELAY" link del amtprobe
++	if [[ "$got" != *:* ]]; then
++		echo "SKIP: iproute2 lacks IPv6 AMT support (read back '$got')"
++		exit "$ksft_skip"
++	fi
++}
++
++setup_topology()
++{
++	ip -n "$LISTENER" addr add 192.168.0.2/24 dev l_gw
++	ip -n "$LISTENER" addr add 2001:db8::2/64 dev l_gw
++	ip -n "$LISTENER" link set l_gw up
++	ip -n "$LISTENER" route add default via 192.168.0.1 dev l_gw
++	ip -n "$LISTENER" route add default via 2001:db8::1 dev l_gw
++	ip -n "$LISTENER" addr add 239.0.0.1/32 dev l_gw autojoin
++	ip -n "$LISTENER" addr add ff0e::5:6/128 dev l_gw autojoin
++
++	ip -n "$GATEWAY" addr add 192.168.0.1/24 dev gw_l
++	ip -n "$GATEWAY" addr add 2001:db8::1/64 dev gw_l
++	ip -n "$GATEWAY" link add br0 type bridge
++	ip -n "$GATEWAY" link set br0 up
++	ip -n "$GATEWAY" link set gw_l master br0 up
++	ip -n "$GATEWAY" link add amtg master br0 type amt mode gateway \
++		local "$GW6" discovery "$DISC6" dev gw_relay \
++		gateway_port 2268 relay_port 2268
++
++	# rp_filter off: amtg2's listener gets data from a source it has no
++	# route to.
++	ip netns exec "$GATEWAY2" sysctl -wq net.ipv4.conf.all.rp_filter=0 \
++		net.ipv4.conf.default.rp_filter=0
++	ip -n "$GATEWAY2" link add amtg2 type amt mode gateway \
++		local "$GW2_6" discovery "$DISC6" dev gw2_relay \
++		gateway_port 2268 relay_port 2268
++
++	ip -n "$RELAY" link add amtr type amt mode relay local "$RELAY6" \
++		dev br_gw relay_port 2268 max_tunnels 4
++	ip -n "$RELAY" addr add 172.17.0.1/24 dev relay_src
++	ip -n "$RELAY" addr add 2001:db8:3::1/64 dev relay_src
++	ip -n "$RELAY" link set relay_src up
++	ip netns exec "$RELAY" sysctl -wq net.ipv4.ip_forward=1
++	ip netns exec "$RELAY" iptables -t mangle -I PREROUTING \
++		-d 239.0.0.1 -j TTL --ttl-set 2
++	# Only the group: rewriting the hop limit of Neighbour Discovery on
++	# the IPv6 outer link would break it.
++	ip netns exec "$RELAY" ip6tables -t mangle -I PREROUTING \
++		-d ff0e::5:6 -j HL --hl-set 2
++
++	ip -n "$SOURCE" addr add 172.17.0.2/24 dev src_relay
++	ip -n "$SOURCE" addr add 2001:db8:3::2/64 dev src_relay
++	ip -n "$SOURCE" link set src_relay up
++	ip -n "$SOURCE" route add default via 172.17.0.1 dev src_relay
++	ip -n "$SOURCE" route add default via 2001:db8:3::1 dev src_relay
++
++	ip -n "$RELAY" link set amtr up
++	ip -n "$GATEWAY" link set amtg up
++	ip -n "$GATEWAY2" link set amtg2 up
++
++	SMCDIR=$(mktemp -d)
++	ip netns exec "$RELAY" smcrouted -P "$SMCDIR/pid" -u "$SMCDIR/sock"
++	slowwait 5 test -S "$SMCDIR/sock"
++	ip netns exec "$RELAY" smcroutectl -u "$SMCDIR/sock" \
++		a relay_src 172.17.0.2 239.0.0.1 amtr
++	ip netns exec "$RELAY" smcroutectl -u "$SMCDIR/sock" \
++		a relay_src 2001:db8:3::2 ff0e::5:6 amtr
++}
++
++test_discovery()
++{
++	RET=0
++	slowwait 10 remote_is "$RELAY6"
++	check_err $? "remote is '$(amt_field "$GATEWAY" amtg remote)'"
++	log_test "IPv6 discovery through a secondary relay address"
++}
++
++# test_forward <ns> <socat address> <port> <group> <source> <description>
++test_forward()
++{
++	local ns=$1 addr=$2 port=$3 grp=$4 src=$5 desc=$6
++	local out pid i
++
++	RET=0
++	out=$(mktemp)
++	ip netns exec "$ns" timeout 20 \
++		socat -u "$addr,readbytes=128" - > "$out" &
++	pid=$!
++	wait_local_port_listen "$ns" "$port" udp
++	for i in $(seq 15); do
++		ip netns exec "$SOURCE" bash -c \
++			"printf '%s %128s' $src | nc -w 1 -u $grp $port"
++		grep -q "$src" "$out" && break
++	done
++	wait "$pid"
++	grep -q "$src" "$out"
++	check_err $? "nothing from $src reached the listener"
++	rm -f "$out"
++	log_test "$desc"
++}
++
++# The tunnel MTU is the path MTU to the gateway less the outer headers.
++# Lower the relay's route MTU to the gateway below the payload: the relay
++# must not fragment the AMT datagram, and it must send the payload's
++# source a Packet Too Big (RFC 7450 s5.3.3.6).
++test_tmtu()
++{
++	local ptb frag fragfail i
++
++	RET=0
++	ip -n "$RELAY" -6 route add "$GW6/128" dev br_gw mtu 1400
++	ptb=$(snmp6 "$SOURCE" Icmp6InPktTooBigs)
++	frag=$(snmp6 "$RELAY" Ip6FragCreates)
++	fragfail=$(snmp6 "$RELAY" Ip6FragFails)
++	for i in 1 2 3; do
++		ip netns exec "$SOURCE" bash -c \
++			"printf '%1352s' x | nc -w 1 -u ff0e::5:6 6000"
++	done
++	[ "$(snmp6 "$SOURCE" Icmp6InPktTooBigs)" -gt "$ptb" ]
++	check_err $? "the source got no Packet Too Big"
++	[ "$(snmp6 "$RELAY" Ip6FragCreates)" -eq "$frag" ]
++	check_err $? "the relay fragmented an AMT datagram"
++	# amt_udp_xmit() clears ignore_df, so an oversized datagram that got
++	# past the tunnel MTU check would be refused by IPv6 output and
++	# counted as a FragFail rather than a FragCreate.
++	[ "$(snmp6 "$RELAY" Ip6FragFails)" -eq "$fragfail" ]
++	check_err $? "an oversized AMT datagram reached IPv6 output"
++	ip -n "$RELAY" -6 route del "$GW6/128" dev br_gw mtu 1400
++	log_test "IPv6 payload above the tunnel MTU"
++}
++
++# A second gateway in the same /64, with the same gateway port as the first.
++# The relay has to send each gateway its own Membership Query: a query sent
++# to the wrong one fails its nonce check, and the intended gateway never
++# reports, so the relay never forwards to it.
++test_second_gateway()
++{
++	RET=0
++	slowwait 10 remote_is "$RELAY6" "$GATEWAY2" amtg2
++	check_err $? "amtg2 remote is '$(amt_field "$GATEWAY2" amtg2 remote)'"
++	log_test "second IPv6 gateway on the link discovers the relay"
++
++	test_forward "$GATEWAY2" \
++		UDP4-RECV:4000,ip-add-membership=239.0.0.1:amtg2 \
++		4000 239.0.0.1 172.17.0.2 \
++		"IPv4 multicast to a second gateway in the same /64"
++}
++
++# disc_answer <dst> <filter>: send a Relay Discovery from the gateway's
++# namespace to [<dst>]:2268 and wait for gw_relay to see a packet matching
++# the tcpdump <filter>. Returns 0 if it did, 1 if none came within a few
++# seconds, and 2 if the harness failed: tcpdump did not start or stopped
++# with an error, or a send failed. Callers must not read 2 as "no reply".
++disc_answer()
++{
++	local dst=$1 filter=$2 pid i rc
++	local to="UDP6-SENDTO:[$dst]:2268,sourceport=40000"
++
++	ip netns exec "$GATEWAY" timeout 6 \
++		tcpdump -nni gw_relay -c 1 "$filter" > /dev/null 2>&1 &
++	pid=$!
++	sleep 1
++	# tcpdump stays up until it matches or times out, so it is gone here
++	# only if it failed to start.
++	kill -0 "$pid" 2> /dev/null || { wait "$pid"; return 2; }
++	# Type 1 (Relay Discovery), version 0, then a nonce.
++	for i in 1 2 3; do
++		printf '\x01\x00\x00\x00\x12\x34\x56\x78' |
++			ip netns exec "$GATEWAY" socat -u - \
++			"$to,so-bindtodevice=gw_relay" || rc=2
++		sleep 0.5
++	done
++	wait "$pid"
++	case $? in
++	0) return "${rc:-0}" ;;
++	124) return "${rc:-1}" ;;
++	*) return 2 ;;
++	esac
++}
++
++# The relay's socket is bound to ::, so it also receives a Discovery sent
++# to ff02::1. Answering it from that destination would put a multicast
++# source address on the wire (RFC 4291 s2.7), so the relay must not answer
++# it at all. The unicast Discovery is the positive control: it shows that
++# the probe and the capture work, and it uses the same capture filter.
++test_mcast_discovery()
++{
++	RET=0
++	if ! command -v tcpdump > /dev/null; then
++		log_test_skip "Discovery to ff02::1 is not answered" \
++			"tcpdump not installed"
++		return
++	fi
++	disc_answer "$DISC6" "udp and src port 2268 and dst port 40000"
++	check_err $? "no Advertisement for a unicast Discovery"
++	disc_answer ff02::1 "udp and src port 2268 and dst port 40000"
++	[ $? -eq 1 ]
++	check_err $? "the relay answered ff02::1, or the capture failed"
++	log_test "Discovery to ff02::1 is not answered"
++}
++
++test_down_up()
++{
++	RET=0
++	ip -n "$GATEWAY" link set amtg down
++	remote_is ""
++	check_err $? "relay still reported while down"
++	ip -n "$GATEWAY" link set amtg up
++	slowwait 10 remote_is "$RELAY6"
++	check_err $? "relay not rediscovered after up"
++	log_test "gateway forgets its IPv6 relay on link down"
++}
++
++for cmd in jq socat nc smcrouted smcroutectl iptables ip6tables; do
++	require_command "$cmd"
++done
++
++# Without CONFIG_IPV6 setup_links() would fail first and report FAIL.
++if [ ! -e /proc/net/if_inet6 ]; then
++	echo "SKIP: IPv6 support is disabled"
++	exit "$ksft_skip"
++fi
++
++trap cleanup EXIT
++setup_ns LISTENER GATEWAY GATEWAY2 RELAY SOURCE || exit "$ksft_skip"
++
++set -E
++trap 'setup_fail $LINENO' ERR
++setup_links
++trap - ERR
++probe_v6_relay
++trap 'setup_fail $LINENO' ERR
++setup_topology
++trap - ERR
++set +E
++
++test_discovery
++test_forward "$LISTENER" UDP4-LISTEN:4000 4000 239.0.0.1 172.17.0.2 \
++	"IPv4 multicast over an IPv6 tunnel"
++test_forward "$LISTENER" UDP6-LISTEN:6000 6000 ff0e::5:6 2001:db8:3::2 \
++	"IPv6 multicast over an IPv6 tunnel"
++test_second_gateway
++test_tmtu
++test_mcast_discovery
++test_down_up
++
++exit "$EXIT_STATUS"
 -- 
 2.47.3
 
