@@ -1,55 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.104
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795615201;
-	b=OL0LpDRrxxHQWJfbVuGtxL4MAV7gK26k4cHsdIvnIqyY0/ggMTTDeivEbICRIanoey9j
-	 ojv3bgGRpw1Ftiszvveza6+ho4gQ7pCwPQraSRUoNO+WWlwlQOn4CjKdGPY9zHCC2UWRI
-	 fRuoC4hGIzinm04SMjRUnE3IxAKWojSMKDwKL3o/BQ6su+qvEdpftjheLxH0Tr2XvO3JD
-	 MayEtNyJ+D5xXM8OQe2h37nMbqRqMf5o8iTkEMGCnSebHtKyzIAfIPzNW8dwlKu6MY5vV
-	 MUq2fkxQVoTM8AYwcFWug/nnoGiXt1AIaxnM1NX74bpfpF/oVVlhBDV2joXxj7yLyuw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615201;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:X-B4-Tracking:
-	 X-Change-ID:To:Cc:X-Mailer;
-	bh=c36F0F8p2Ddwd65oCk1NI1rN77BvZN5Hpjrmjl/Cndo=;
-	b=EjTeT2J5IvWN04Sr1tnXlDE5Mnu05C8b0fMiRIcrgOkZw6lKMupXeTea8xlfghYwP4lv
-	 xT3pfUvr2RXvA9G7j0cfQWC8aXvwGfe7JY5MAEaGwUrYDv58Ei3wBl2Z1ELYAO+H4i95q
-	 xxQdwNeh9vn3nPV1I+b3X72mK/6KmGsvRyIA2pdv4/U57iLpMq+M2d6q5fQUv2zsT13yn
-	 mhYav+EABsgwy5V+zVmsQJtO7OaQCBQ7omyibOjOycH3zDuQgY3uwQO2jU4LE/8GmVwuX
-	 MkJDmbQWkb5Qlj/VDsvADt4NhIjpyfpTRRdj4Vsm1L44lLf7rKAhLeUlnounJ58Q6SA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="P/mJ0j3B";
-	arc=none smtp.remote-ip=91.218.175.104
-Received: from mta0.migadu.com (out-104.mta0.migadu.com [91.218.175.104])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795615276;
+	b=SQ3lfPX5+uvoAtMAFyAc81j1yvxdUx71CNmbu5WT1CrxOHd5U2g6r7enkpfFBGCIPnLx
+	 qFTVcjgeJX+eGYtyPtBHh2SCUoACMDVo05dN7mlIPf+d79GpweHiW/6lTfMkag1kMvjEc
+	 HmxVDxsmKLLjRx0tzkb46CyrXiHR+mRzXfGrXpkJeSOU6rQgLKjlAcRF7AVPzy3m2PY5W
+	 +kyOzZV9B1ifIlQASahsywPKoVhVSa2paGPVq/DqiqwJiXezEaMGDTOH+DV5/oc5i/of4
+	 HsiM9DHxBYnCOmdiSuafXowq7XRXTXRclnjkr7SxZ6AGKcTL4N5NKT8NQcKJV2NNZ2w==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615276;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=xPs5f4A0Tob3CyDOsj13BsPyaIL8a+4YC+Rj1isrcw8=;
+	b=tRldjNz9MhImQxXEuyxofQIVSVSH+65eSLqEHh76Mym6o6IuQWubyLl7/BqLYby43w7s
+	 HM+U2dwPZbf4ZlesUYF61BFX02w6Y8uc74Zlb2FYepgp00b4nxjndeTJGF0mR9XGhw1bR
+	 GQs0dYkUTVGoDYxaJN4yA6BUjCbewS0VJjtlnJqzFS/Yp0IMQpkbbgMyYJfY8ZQdWLjRs
+	 Q04BAkKQ5GyX3TY9+2uYY4Bc+LcduTBHhcDT5bGKf30QlKVTHRuzS+WJeIL/bTCdFHzQ/
+	 Qy551OK00AULBfvVVpkfejULI/shDG4bFQwpqyyC05G2rGU7fsFgKWYAoQHlIptBQKg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=AVaw6qij;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47657606A32D
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:59:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47657606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FD64606A321;
+	Wed, 25 Nov 2026 14:01:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FD64606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=P/mJ0j3B
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=i4tUwqwMir5IjVvCuxmG7hNX0r3y/xTdeN3ZJkJQ49U=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795615197; v=1; x=1796219997;
- b=P/mJ0j3B/KP7b7qmuTmTf8uAkHSPmhWjbwAlkvVzCHh4HOZp/gIK2wbXC5Q6nx8WY53asR/g
- kKjo5k/5+no/wNikpjvGtQuvnypbAldbLU9auUaHi44cPckAriKEtCP8YLmaca1husWYIEzo63S
- KbDUQBjpj2ajiHJOdNRD7oUQ=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 1967e28d8d3ce78c;
-	Wed, 25 Nov 2026 13:59:57 +0000
-X-Mizu-Trace-ID: 1967e28d8d3ce78c
-X-Migadu-Flow: FLOW_OUT
-From: Hangbin Liu <hangbin.liu@linux.dev>
-Date: Wed, 25 Nov 2026 21:59:42 +0800
-Subject: [PATCH net-next] bonding: undo enslave state when XDP setup fails
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=AVaw6qij
+Received: from pengutronix.de (ptz.office.stw.pengutronix.de [IPv6:2a0a:edc0:0:900:1d::77])
+	(Authenticated sender: mkl@pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id 9788E200033;
+	Wed, 25 Nov 2026 15:01:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795615268;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xPs5f4A0Tob3CyDOsj13BsPyaIL8a+4YC+Rj1isrcw8=;
+	b=AVaw6qijL9sB64GGQtb+4AnGO4q1SMiVqVZOoY7KfgYMJQKi0EMIZzOgtVHoZvKg0VSMS2
+	9NOob1fXRkom+BJO/os73IoB7dqXLrkgAN8OGLthFxTUpcp0NpBewmx580rDANbGK2NOXU
+	BP8EypqZYy15+a+VuwOfB+x5bybQ6rZs6BClSSWEOGOXKyhQT1iatNnIA7TqbLFTyx72Tx
+	Xph8L9wBGT/xZqTzQM6s+lch0he890EXKx9SA0GrhmwJueHepz+XjSZFccDBF1CmAKetVR
+	8b71//zXKM9jiklLqyiCw9bc9FFhiQ3W0hfdwwyxR80IBINtLMjPp6+ZZaUhTQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795615268;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xPs5f4A0Tob3CyDOsj13BsPyaIL8a+4YC+Rj1isrcw8=;
+	b=dElgK/igdiYA29p0fvkQsD/K/L9c89nkgBlDHA1dnUh2JlDucAC76heyQZ1VrLLfX/RkLL
+	/n0R5zJqefUKk5Owc2x8zRIHsdkR1vTm/Fgmc+qA5lpKWZwUtwt0Our3Le1a9ayHoVVwjK
+	a+3doS1ZOPal1s29JTyXSqWmYsnm0GXnxAZ+SJyTS8eU83gaFEKL56LdKeNU+WTKqrhhSH
+	24N/8zIoaeMvRrdGvTIpaHSEl7HfTNL7aUY6wHj3R22god8oyQzAaqMZVkGQP+ZkeCLNgu
+	DtZiqnmpSB2Xl7fq1lJzPaDlUiPMWRA8yB/ezrbEEL9ptaClMxXOUPhDeNLT7A==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=mkl@pengutronix.de smtp.mailfrom=mkl@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795615268; a=rsa-sha256;
+	cv=none;
+	b=CvxV1kWrOoj0nUZq9FbqDAYIkWqoXbAy7Zij3DV7/VaBQZcG9vGG7ZO+JtGYLe2HNtcKS/
+	iN0pQFGbVCIcSD/NhEYaUVkeiyyPNzY6QLWraL0+PqCNFVJmEODFsyB8NGwMw0dpMSNkS4
+	t+FOAqqvxHrD1hdFGRxcibOVD4OmnPgz/27AHdt6q9+eaGeBbTHTPjgSetrbz3oTuGo+7N
+	qR0HAQWFB9bQabtiDAs+yahsv7D/fZoJofkna2QWGXdyla72HYKAEnJIXlYwcxCpbLOhIg
+	70D5Hic8ch8crjbvy/GbV+dsU0LxsT06z7f/ANcaXVESKDqPCl63SqhbwuXuOA==
+Date: Wed, 25 Nov 2026 15:01:08 +0100
+From: Marc Kleine-Budde <mkl@pengutronix.de>
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org, 
+	linux-can@vger.kernel.org, kernel@pengutronix.de, Oliver Hartkopp <socketcan@hartkopp.net>, 
+	stable@vger.kernel.org
+Subject: Re: [PATCH net 01/12] can: bcm: copy the CAN frames outside of
+ lock_sock()
+Message-ID: <20261125-lavender-pig-of-imagination-fe91b5-mkl@pengutronix.de>
+References: <20261124085757.1093632-1-mkl@pengutronix.de>
+ <20261124085757.1093632-2-mkl@pengutronix.de>
+ <179551104023.3294.3966794215800671203@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,92 +90,73 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261125-bond_xdp_rollback-v1-1-35dddaa337ba@kylinos.cn>
-X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWM0QrCMAwAf2Xk2cJSpxN/RWSsTdToSEdbpTD27
- 6v6eBx3CySOwgnOzQKRP5IkaAXcNeAfo97ZCFUG29ojou2MC0pDoXmIYZrc6F8GT71ve9qjPRD
- Ubo58k/J7XkA5G+WS4fo36e2e7PN3Ceu6AZbR5Ql/AAAA
-X-Change-ID: 20261124-bond_xdp_rollback-187c07d3125d
-To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
- Jesper Dangaard Brouer <hawk@kernel.org>, 
- John Fastabend <john.fastabend@gmail.com>, 
- Stanislav Fomichev <sdf@fomichev.me>
-Cc: Hangbin Liu <hangbin.liu@linux.dev>, netdev@vger.kernel.org, 
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, 
- Hangbin Liu <hangbin.liu@linux.dev>
-X-Mailer: b4 0.16.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="f24icvnqsmeicx75"
+Content-Disposition: inline
+In-Reply-To: <179551104023.3294.3966794215800671203@kernel.org>
 
-From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-If one of the XDP checks in bond_enslave() or dev_xdp_propagate()
-fails, the error path jumps to err_dec_slave_cnt. By then the
-function has already incremented the bond's promiscuity/allmulti on
-the slave and synced the bond's addresses to it, and has added the
-slave ns maddrs via bond_slave_ns_maddrs_add(). None of the existing
-error paths undo those, so a failed enslave leaves the slave with
-stale promisc/allmulti counts, synced addresses and ns maddrs.
+--f24icvnqsmeicx75
+Content-Type: text/plain; protected-headers=v1; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH net 01/12] can: bcm: copy the CAN frames outside of
+ lock_sock()
+MIME-Version: 1.0
 
-Add the missing undo steps at err_dec_slave_cnt: remove the ns
-maddrs, decrement slave_cnt, and - only for modes that do not use a
-primary slave, mirroring the code that applied them - drop the
-promiscuity/allmulti increments and flush the synced addresses from
-the slave.
+On 24.11.2026 09:04:00, netdev-bot+sinfo@kernel.org wrote:
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
 
-Remove the ns maddrs a second time at err_close. If the new slave
-was selected active before the failure, err_detach demotes it via
-bond_change_active_slave(NULL) and bond_hw_addr_swap() re-adds them
-after the first removal, leaving the addresses on the slave as it
-leaves the bond. This second call runs after that re-add; on every
-other path it is a harmless no-op, since deleting an address that is
-not on the mc list does nothing.
+The issues in the CAN protocols BCM, RAW and ISOTP fixed in patches
+#1...#7 were found by LLM review. They can lead to block the RTNL by an
+unprivileged user, but have not been observed in the wild.
 
-Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
----
-For Sashiko: please ignore the possible ndo_xdp_xmit null pointer issue in
-bond_xdp_xmit(). It will be fixed in another patch.
----
- drivers/net/bonding/bond_main.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+Patch #8 fixes problem with configuration of certain classes of older
+CAN-FD hardware, found by LLM, not observed in the wild.
 
-diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index 776afdb9df43..a3daf005b444 100644
---- a/drivers/net/bonding/bond_main.c
-+++ b/drivers/net/bonding/bond_main.c
-@@ -2364,7 +2364,16 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 
- /* Undo stages on error */
- err_dec_slave_cnt:
-+	bond_slave_ns_maddrs_del(bond, new_slave);
- 	WRITE_ONCE(bond->slave_cnt, bond->slave_cnt - 1);
-+	if (!bond_uses_primary(bond)) {
-+		if (bond_dev->flags & IFF_PROMISC)
-+			dev_set_promiscuity(slave_dev, -1);
-+		if (bond_dev->flags & IFF_ALLMULTI)
-+			dev_set_allmulti(slave_dev, -1);
-+		if (bond_dev->flags & IFF_UP)
-+			bond_hw_addr_flush(bond_dev, slave_dev);
-+	}
- 
- err_sysfs_del:
- 	bond_sysfs_slave_del(new_slave);
-@@ -2390,6 +2399,7 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
- 	slave_disable_netpoll(new_slave);
- 
- err_close:
-+	bond_slave_ns_maddrs_del(bond, new_slave);
- 	if (!netif_is_bond_master(slave_dev))
- 		slave_dev->priv_flags &= ~IFF_BONDING;
- 	dev_close(slave_dev);
+Patches #9...10 fix problems with the netlink attribute sizing, found by
+LLM, not observed in the wild.
 
----
-base-commit: a4c450594f5d1dc0fc4daacfb95d40554d99dead
-change-id: 20261124-bond_xdp_rollback-187c07d3125d
+Patch #11 fixes a information leak of up to 8 bytes of kernel memory to
+out USB URBs, found by LLM.
 
-Best regards,
---  
-Hangbin Liu <liuhangbin@kylinos.cn>
+Patch #12 fixes a probe failure on of a driver on m68k/coldfire, found
+by human review, not observed in the wild.
 
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+
+regards,
+Marc
+
+--=20
+Pengutronix e.K.                 | Marc Kleine-Budde          |
+Embedded Linux                   | https://www.pengutronix.de |
+Vertretung N=C3=BCrnberg              | Phone: +49-5121-206917-129 |
+Amtsgericht Hildesheim, HRA 2686 | Fax:   +49-5121-206917-9   |
+
+--f24icvnqsmeicx75
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSl+MghEFFAdY3pYJLMOmT6rpmt0gUCawbqIgAKCRDMOmT6rpmt
+0pNtAQCWO8ec5l2bMRKI8jYsDO5ikgamoaLdohpb5KSIkOVZ9QD9FXwWK3KWIoDM
+ZklqoUbx+3t1alr9F+qNYT/OZi1TtA8=
+=Rwxo
+-----END PGP SIGNATURE-----
+
+--f24icvnqsmeicx75--
