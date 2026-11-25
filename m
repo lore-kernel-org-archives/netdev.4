@@ -1,54 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.167.197
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795602213;
-	b=rHUV0KZ+SZnw5N3Hu60Hrh82x50ku4taj+3r7QMHD71p44THIMhrs+oRxn4h2gqVvXeN
-	 zsQyRKU7J4iaP3ZgDd2mud7pWpfVpNluG+e9U8+8Ak6e83tZhGoJ4NSDj7yVlcJ3Fwwu2
-	 a+TKe3STY8h5Gy/aAN6cBOfbY5xCA5UVqycoWOCElDYbczDihEk/a9kxYWB2Mo6U2OpLS
-	 8aZuhESugkpth/kMNZOIsUN64Vfm3nkx9l1vxWOGapS4PDYpeG7Ef+IHMPc+0LRvbKEZJ
-	 lSts8eJ6OrDryJe7zdOppHmDW70pb2R3d+byUpQ1vuWKuIN48nmN0g02NJFhcs9P7gg==
+	b=C5M+Juf0ntaaL/6Mw1yvBZo6Dmwn4b1+SCIkBH51I0NWNWnEnhxV5lhDNE7ppuwgW3Vh
+	 HIauc0z0l4n1slEE8QYFKnbOzPx6Vt27phHSaeFX2I/pWHLuFuAZdca3d57F1/ROkDrGd
+	 q1rUDsTKfVqsZCeA1R5Mcl0nK49VtNS2PrxX1g0NI6AeR9iF7tT1WuNTLkflVybtD09mH
+	 mmcWXV8w1B7ZyLuo0NAiJ+2dahLKbYbvbX5vxKqhhk04l3tOhD1D1fyjEOVfeBagf0oB6
+	 pTjBTp2A0i1eY38PKjN5TIv1zrpgp6ZA+7gxhCTYiQXOgGbKwGXFULd4fHVPEJY3hSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795602213;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:MIME-Version:X-Received:Date:In-Reply-To:
-	 X-Google-Appengine-App-Id:X-Google-Appengine-App-Id-Alias:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=nAwEpdk8W5zOz8dRUea8wq0PG12t8rrSsYABB8slUxU=;
-	b=zKpFEC0b1AdxOdkW7Chj/bHhOZhOEfwSdK3w5FDORdnM4j5IVphxTZpx1knkiBhwcPqC
-	 Z/KhKhPRHAY1paE060ip9iof174bsySwt0wSeWYsJiZRggUBugpQbfwk8E8R9/FMjXBMT
-	 qrvvjMN6Xuu+lqIMlYVkeiMozWvMDdYAdMs4VxGNmDUTuCnkpwU4r0vENysy66euRUsNj
-	 2CWgsfdjqTabxM1xZXfvimcnK6aufcpuiOHp+gAMPVuvlgQIqNdrDXBvbSRnokLCUJs83
-	 1tNq10S0jvdC4eus+scm+I9G7GRxWLTw6B6acMfaz5nEHHoUC0ho1wN5DugtxSxWypA==
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=vSO2kSZ5BAnSfO8SsZ8Q0Er3xi8mKADORooud8DCyG0=;
+	b=tOYBqDpy+CwDsJj3k/t303QF3G9zCgJK+MWmnvb1mz5V2sSG1zBwu5/2XCYnDdg/1ere
+	 371dFwXPIOMFihWAdA7WXXMYqyrDnHW7BNbmJ77g5XQ7BQYzbKmZW7gmOt9SGiC0pN/aq
+	 nZfHfB/bT6qy2wrdA127bkmsPFQDR8bg0jEtWiJzWEA+0Zu81AmVitrAPbKW54Pf3T3oq
+	 yAwbfcRswjxq9NLX3UFGk0nm/ZVvjl40/rX/tmARBG4GT2pfkFfVKYd9qgNZSt1jGPVPK
+	 hhxV9jVu9y25RLLnK3ODYamEky9BtKhkj70waiJ0jHP46OuNz3KC4ISFHDmMThYaLxg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=syzkaller.appspotmail.com;
-	spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com;
-	arc=none smtp.remote-ip=209.85.167.197
-Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="X5/YCjea";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 798C4606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:23:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 798C4606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=syzkaller.appspotmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=M3KW2WVRGUFZ5GODRSRYTGD7.apphosting.bounces.google.com
-Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-4ab8b4887d4so3936615b6e.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:23:32 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795602211; x=1796207011;
-        h=content-type:cc:to:from:subject:message-id:in-reply-to:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=nAwEpdk8W5zOz8dRUea8wq0PG12t8rrSsYABB8slUxU=;
-        b=DqkUM386R6iIoRoEDGkZNxediSOQAPi+pJkpX1ATF1ftRTzDpVy3MddYonk5dTdz9O
-         RVyqYHaDolKoE/O1M7+ax9uoI2YoUkJ17Qfj2cj5JwunTAMWUJQGZW2HhTSjTKut0GJ4
-         DDWemUc695T/TY2C+5roxcMUj8/lqiiRV6YjbD5VDobER+aKecvbVyS2gIgK8+slHTdn
-         H7DgHuKRvZ/EfdXQMeBtBk1xl+JwRItYWDrUA2ydo8N7w6DGCPWPObai3wkp+efdpUgI
-         oxSJ8x/yXoNpYbcA5AakiuztbHiVQ3KR2q1wytOarL+6jzqeas28Pv/tn4VlizrsYvIA
-         /2Fw==
-X-Forwarded-Encrypted: i=1; AL+hErG4P//9sC0byt2VbQ8KQPsuRGwqwEiHfpd60ctv4CBeBLZcGB5pu5lhjc9fvNEVaLpmIxzayhs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+PFKqsEwdTv175vqlKdOOz7ZznSX0vwikwnO90SzRy1LGBpKkA
-	lufCWPh74YWU4z/208F2n3QjmXQHQa3isDh98ZJBuEW916eb8Ms2chbEB/xkcBp1MRO46yAUZ5q
-	gDcWPLprjTSfYi3axxsLccdJ6ZxOxNpchVfAV7uhFJQpXCfk9NT52mB6Ow/U=
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A200F606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:23:33 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=X5/YCjea
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0E1401F000CA;
+	Wed, 25 Nov 2026 10:23:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795602212;
+	bh=vSO2kSZ5BAnSfO8SsZ8Q0Er3xi8mKADORooud8DCyG0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=X5/YCjeanin839K0nmvd1qm5OB7arlXb5UBuwicRI7BgvxSWFzlfu5lDad3TyTDig
+	 yj+y0Wyyj17VHE5tePYBXG4dI0Wyr5g8pLArZ3r8hamBxr6bbI2B0sY7w0OBJ4hAJY
+	 5wy7tOKFfgx3YsCfqbc0SAa/ZvL1IyaxD3PI/soyPx1f4qmDoQENgA1Gpb+9Eyd5hW
+	 wxN6x9btPFqa+825BY2z+2QosiVmK+UJcC+XOdFFLChREjdVFnI5QuhwF1u5cWADXI
+	 UFsUdvAUgnu8zlsn1JO67TI2NhQcZqlkKqXazCmFqr/2RKiFrH18vvDF+VlIauEhtO
+	 Hy1rJrG6xIuNA==
+Subject: Re: [PATCH net-next 2/2] net: dsa: realtek: rtl8365mb: offload ETS
+ strict priority scheduling
+From: netdev-bot+sashiko@kernel.org
+To: o.rempel@pengutronix.de
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, linusw@kernel.org, luizluca@gmail.com,
+ alvin.sipraga@analog.com, andrew@lunn.ch, olteanv@gmail.com,
+ netdev@vger.kernel.org, kernel@pengutronix.de
+Date: Wed, 25 Nov 2026 10:23:31 +0000
+Message-ID: <179560221157.3135.10940899213423821559@kernel.org>
+In-Reply-To: <20261124-rtl8365mb-ets-strict-v1-2-6ab01ad545c8@pengutronix.de>
+References: <20261124-rtl8365mb-ets-strict-v1-2-6ab01ad545c8@pengutronix.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,153 +64,285 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-Received: by 2002:a05:6808:c2be:b0:4d6:90f3:74b1 with SMTP id
- 5614622812f47-57a0ba5a8e4mr18256405b6e.49.1795602211468; Wed, 25 Nov 2026
- 02:23:31 -0800 (PST)
-Date: Wed, 25 Nov 2026 02:23:31 -0800
-In-Reply-To: <20261120010655.467825-1-lrizzo@google.com>
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <6b06b723.588a1920.b1e98.0003.GAE@google.com>
-Subject: [syzbot ci] Re: PISA: Pre-mapped IOVA Superpage Allocator for DMA and CoCo
-From: syzbot ci <syzbot+ci910cdb42d3006024@syzkaller.appspotmail.com>
-To: akpm@linux-foundation.org, aleksander.lobakin@intel.com, axboe@kernel.dk, 
-	brendan.jackman@linux.dev, catalin.marinas@arm.com, cl@gentwo.org, 
-	corbet@lwn.net, dakr@kernel.org, davem@davemloft.net, david@kernel.org, 
-	driver-core@lists.linux.dev, dtatulea@nvidia.com, edumazet@kernel.org, 
-	gregkh@linuxfoundation.org, hannes@cmpxchg.org, hao.li@linux.dev, 
-	harry@kernel.org, hawk@kernel.org, hch@lst.de, horms@kernel.org, 
-	hramamurthy@google.com, ilias.apalodimas@linaro.org, iommu@lists.linux.dev, 
-	jack@suse.cz, jannh@google.com, jgg@ziepe.ca, joro@8bytes.org, 
-	joshwash@google.com, kuba@kernel.org, kuniyu@google.com, liam@infradead.org, 
-	linux-api@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-block@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-mm@kvack.org, ljs@kernel.org, lrizzo@google.com, 
-	m.szyprowski@samsung.com, mhocko@suse.com, namangulati@google.com, 
-	netdev@vger.kernel.org, pabeni@redhat.com, praan@google.com, 
-	rafael@kernel.org, rdunlap@infradead.org, rientjes@google.com, 
-	rizzo.unipi@gmail.com
-Cc: syzbot@lists.linux.dev, syzkaller-bugs@googlegroups.com
-Content-Type: text/plain; charset="UTF-8"
 
-syzbot ci has tested the following series
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-[v3] PISA: Pre-mapped IOVA Superpage Allocator for DMA and CoCo
-https://lore.kernel.org/all/20261120010655.467825-1-lrizzo@google.com
-* [RFC PATCH v3 01/25] mm: Introduce CONFIG_PISA and metadata table
-* [RFC PATCH v3 02/25] mm: Add PISA allocator lifecycle and page recycle hook
-* [RFC PATCH v3 03/25] mm: Add per-NUMA-node PISA page reservoir
-* [RFC PATCH v3 04/25] mm/page_alloc: Extend alloc_pages() to __GFP_PISA and PISA block allocation
-* [RFC PATCH v3 05/25] mm: Add global cap and shrinker for PISA pages
-* [RFC PATCH v3 06/25] iommu/dma: Map PISA memory in a per-domain IOVA window
-* [RFC PATCH v3 07/25] driver core: Add per-device pisa_* sysfs attributes for PISA optin
-* [RFC PATCH v3 08/25] iommu/dma: Use PISA for coherent DMA allocations
-* [RFC PATCH v3 09/25] mm: Add per-CPU block caches to PISA allocators
-* [RFC PATCH v3 10/25] mm: Add background page scrubber for PISA allocators
-* [RFC PATCH v3 11/25] mm: Migrate user pages into PISA
-* [RFC PATCH v3 12/25] block, mm: Support PISA for disk I/O and scrub migration
-* [RFC PATCH v3 13/25] net: Cache leaf PISA TX flags on struct net_device
-* [RFC PATCH v3 14/25] net: Use per-node PISA allocators for skb_page_frag_refill()
-* [RFC PATCH v3 15/25] net: Use PISA for page_pool memory
-* [RFC PATCH v3 16/25] mm/slub: Add SLAB_CACHE_PISA_RO for PISA-backed slab caches
-* [RFC PATCH v3 17/25] net: Allocate small skb heads from PISA
-* [RFC PATCH v3 18/25] net: Migrate user pages into PISA for MSG_ZEROCOPY
-* [RFC PATCH v3 19/25] mm, iommu/dma: Support decrypted PISA pages
-* [RFC PATCH v3 20/25] arm64/mm, mm: Support decrypted PISA pages in Realms
-* [RFC PATCH v3 21/25] mm: Add PISA statistics and debugfs
-* [RFC PATCH v3 22/25] net/libeth: Use GFP_KERNEL when pre-filling RX rings
-* [RFC PATCH v3 23/25] net/gve: Use GFP_KERNEL when pre-filling RX rings
-* [RFC PATCH v3 24/25] net/gve: Use PISA memory for RX buffers
-* [RFC PATCH v3 25/25] Documentation: Add PISA architecture documentation
+Critical: 0 · High: 0 · Medium: 1 · Low: 3
 
-and found the following issue:
-WARNING in __alloc_workqueue
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Full report is available here:
-https://ci.syzbot.org/series/80fa818b-452d-4361-bfc6-33c65f928f71
+- [Medium] rtl83xx_port_setup_tc() / rtl83xx_setup_tc_ets_replace()
+  (drivers/net/dsa/realtek/rtl83xx-qos.c) never reads p->priomap and…
+- [Low] In rtl83xx_port_setup_tc() (drivers/net/dsa/realtek/rtl83xx-
+  qos.c), the TC_ETS_STATS reply decides whether a qdisc is offloaded…
+- [Low] The driver writes to the kernel log with no rate limit when a
+  user's tc configuration is refused: - rtl83xx_setup_tc_ets_replace()…
+- [Low] rtl83xx_setup_tc_ets_restore_wfq()
+  (drivers/net/dsa/realtek/rtl83xx-qos.c) sets priv->ets_handle[port] =…
 
-***
+--
 
-WARNING in __alloc_workqueue
+net: dsa: realtek: rtl8365mb: offload ETS strict priority scheduling
 
-tree:      axboe
-URL:       https://kernel.googlesource.com/pub/scm/linux/kernel/git/axboe/linux.git
-base:      20eef29b7c8465ac98d7dd6d6f2ac07a8d8056ca
-arch:      amd64
-compiler:  Debian clang version 22.1.8 (1~deb13u4), Debian LLD 22.1.8
-config:    https://ci.syzbot.org/builds/1b1679cb-3959-4df9-8546-bc04ba6e5cd3/config
+This commit adds ETS qdisc offload to rtl8365mb user ports. A root ets
+qdisc with one strict band per queue moves the port from the default
+equal-weight WFQ to strict priority, and deleting the qdisc restores WFQ.
+Weighted bands are refused, and any priomap is accepted but not applied.
 
-smpboot: CPU0: Intel QEMU Virtual CPU version 2.5+ (family: 0xf, model: 0x6b, stepping: 0x1)
-Performance Events: unsupported Netburst CPU model 107 no PMU driver, software events only.
-signal: max sigframe size: 1440
-rcu: Hierarchical SRCU implementation.
-rcu: 	Max phase no-delay instances is 1000.
-Timer migration: 1 hierarchy levels; 8 children per group; 0 crossnode level
-NMI watchdog: Perf NMI watchdog permanently disabled
-smp: Bringing up secondary CPUs ...
-smpboot: x86: Booting SMP configuration:
-.... node  #1, CPUs:      #1
-smp: Brought up 2 nodes, 2 CPUs
-smpboot: Total of 2 processors activated (11200.80 BogoMIPS)
-Memory: 5553400K/7339508K available (181131K kernel code, 30788K rwdata, 59468K rodata, 27564K init, 120564K bss, 1621204K reserved, 0K cma-reserved)
-devtmpfs: initialized
-x86/mm: Memory block size: 128MB
-Running RCU synchronous self tests
-Running RCU synchronous self tests
-Running RCU Tasks wait API self tests
-Running RCU Tasks Trace wait API self tests
-posixtimers hash table entries: 1024 (order: 5, 73728 bytes, vmalloc)
-futex hash table entries: 256 (32768 bytes on 2 NUMA nodes, total 64 KiB, linear).
-PM: RTC time: 20:32:46, date: 2026-11-24
-NET: Registered PF_NETLINK/PF_ROUTE protocol family
-audit: initializing netlink subsys (disabled)
-thermal_sys: Registered thermal governor 'step_wise'
-cpuidle: using governor menu
-NET: Registered PF_QIPCRTR protocol family
-dca service started, version 1.12.1
-PCI: ECAM [mem 0xb0000000-0xbfffffff] (base 0xb0000000) for domain 0000 [bus 00-ff]
-PCI: ECAM [mem 0xb0000000-0xbfffffff] reserved as E820 entry
-PCI: Using configuration type 1 for base access
-HugeTLB: registered 2.00 MiB page size, pre-allocated 0 pages
-HugeTLB: 28 KiB vmemmap can be freed for a 2.00 MiB page
-------------[ cut here ]------------
-workqueue: pisa is using neither WQ_PERCPU or WQ_UNBOUND. Setting WQ_PERCPU.
-WARNING: kernel/workqueue.c:6151 at __alloc_workqueue+0x1e4b/0x21d0, CPU#1: swapper/0/1
-Modules linked in:
-CPU: 1 UID: 0 PID: 1 Comm: swapper/0 Not tainted syzkaller #0 PREEMPT(full) 
-Hardware name: QEMU Standard PC (Q35 + ICH9, 2009), BIOS 1.16.2-debian-1.16.2-1 04/01/2014
-RIP: 0010:__alloc_workqueue+0x1e4e/0x21d0
-Code: 18 89 39 00 90 0f 0b 90 e9 87 fd ff ff e8 0a 89 39 00 90 0f 0b 90 e9 79 fd ff ff e8 fc 88 39 00 48 8d 3d 65 52 32 10 4c 89 f6 <67> 48 0f b9 3a 8b 5c 24 20 81 cb 00 01 00 00 e9 99 e4 ff ff e8 d9
-RSP: 0000:ffffc90000067750 EFLAGS: 00010293
-RAX: ffffffff818fa174 RBX: 0000000000000000 RCX: ffff888102aa5ac0
-RDX: 0000000000000000 RSI: ffff888162ab5d78 RDI: ffffffff91c1f3e0
-RBP: ffffc900000678a0 R08: ffff888102aa5ac0 R09: 0000000000000002
-R10: 0000000000000102 R11: 0000000000000000 R12: dffffc0000000000
-R13: ffff888162ab5c00 R14: ffff888162ab5d78 R15: ffff888162ab5d18
-FS:  0000000000000000(0000) GS:ffff8882a77e4000(0000) knlGS:0000000000000000
-CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
-CR2: 0000000000000000 CR3: 000000000ff48000 CR4: 00000000000006f0
-Call Trace:
- <TASK>
- alloc_workqueue_noprof+0xe3/0x210
- pisa_init+0x127/0x260
- do_one_initcall+0x250/0x870
- do_initcall_level+0x10a/0x1a0
- do_initcalls+0x59/0xa0
- kernel_init_freeable+0x29d/0x3e0
- kernel_init+0x22/0x1d0
- ret_from_fork+0x514/0xb70
- ret_from_fork_asm+0x1a/0x30
- </TASK>
+> diff --git a/drivers/net/dsa/realtek/rtl83xx-qos.c b/drivers/net/dsa/realtek/rtl83xx-qos.c
+> index f294222987eff..388013291d502 100644
+> --- a/drivers/net/dsa/realtek/rtl83xx-qos.c
+> +++ b/drivers/net/dsa/realtek/rtl83xx-qos.c
 
+[ ... ]
 
-***
+> @@ -208,3 +209,115 @@ int rtl83xx_port_set_apptrust(struct dsa_switch *ds, int port, const u8 *sel,
+>  					   ARRAY_SIZE(trust));
+>  }
+>  EXPORT_SYMBOL_NS_GPL(rtl83xx_port_set_apptrust, "REALTEK_DSA");
+> +
+> +static int
+> +rtl83xx_setup_tc_ets_replace(struct dsa_switch *ds, int port,
+> +			     struct tc_ets_qopt_offload_replace_params *p)
+> +{
+> +	struct realtek_priv *priv = ds->priv;
+> +	unsigned int nq = ds->num_tx_queues;
+> +	int i;
+> +
+> +	/* The qdisc must have one band per queue. */
+> +	if (p->bands != nq) {
+> +		dev_err(priv->dev, "port %d: ETS must configure all %u bands\n",
+> +			port, nq);
+> +		return -EOPNOTSUPP;
+> +	}
 
-If these findings have caused you to resend the series or submit a
-separate fix, please add the following tag to your commit message:
-  Tested-by: syzbot@syzkaller.appspotmail.com
+[Severity: Low]
+Should these prints be ratelimited?
 
----
-This report is generated by a bot. It may contain errors.
-syzbot ci engineers can be reached at syzkaller@googlegroups.com.
+This dev_err() fires on every refused root ets REPLACE. So does the
+"ETS weighted bands are not supported" one below. While hw-tc-offload is
+on, sch_ets sends REPLACE from every ets_init() and ets_change(). A loop
+like this can therefore fill dmesg without bound:
+
+    tc qdisc change dev swpN root ets bands 4 ...
+
+Every refused REPLACE also goes through
+rtl83xx_setup_tc_ets_restore_wfq(). That function adds another dev_err()
+if the register write fails.
+
+DSA user netdevs are not netns-local. Anyone with CAP_NET_ADMIN in a
+netns that owns the port can trigger this. ksz_tc_ets_validate() uses
+the same unratelimited pattern, so this is minor.
+
+Since tc_ets_qopt_offload has no extack, would dev_err_ratelimited() or a
+once-only print be a better fit here?
+
+> +
+> +	/* Only strict bands can be offloaded. */
+> +	for (i = 0; i < p->bands; i++) {
+> +		if (p->quanta[i]) {
+> +			dev_err(priv->dev, "port %d: ETS weighted bands are not supported\n",
+> +				port);
+> +			return -EOPNOTSUPP;
+> +		}
+> +	}
+> +
+> +	/* The switch does not use the priomap. */
+> +	return priv->ops->qos_set_port_sched(priv, port, nq, true);
+> +}
+
+[Severity: Medium]
+Can this report offload for configurations the hardware does not
+implement?
+
+Only p->bands and p->quanta[] are checked here. p->priomap is never read,
+and the band order is never compared with the order the hardware uses.
+Later, TC_ETS_STATS in rtl83xx_port_setup_tc() returns 0 for the stored
+handle, so qdisc_offload_dump_helper() sets TCQ_F_OFFLOADED.
+
+In sch_ets, band 0 is the highest priority strict band. The default
+priomap sends every priority to the last band:
+
+net/sched/sch_ets.c:ets_qdisc_change() {
+    ...
+	memset(priomap, nbands - 1, sizeof(priomap));
+    ...
+}
+
+The hardware maps internal priority to tc, and tc to qid through
+rtl8365mb_qos_tc_to_qid(). In strict mode it serves the higher qid first.
+The only priomap it actually implements is prio i -> band nq - 1 - tc(i).
+
+For example, with this command the software qdisc gives no
+prioritisation, because every priority goes to band 7:
+
+    tc qdisc add dev swpN root ets bands 8 strict 8
+
+The hardware still applies strict priority by internal priority. With
+"priomap 0 1 2 3 4 5 6 7", the software order is the reverse of the
+hardware order. In both cases tc shows the qdisc as offloaded.
+
+Other TC_SETUP_QDISC_ETS implementers handle the priomap:
+
+- ksz_tc_ets_add() programs priomap[] into KSZ9477_PORT_MRI_TC_MAP. It
+  also returns -EOPNOTSUPP for TC_ETS_STATS.
+- lan966x_ets_add() and the sparx5 offload reject any priomap except
+  priomap[i] == 7 - i.
+- airoha checks the priomap against its fixed layout.
+- mlxsw programs the priomap.
+
+Is the comment "The switch does not use the priomap." accurate? The
+backend has a programmable internal-priority to qid table.
+rtl8365mb_qos_qmap_init() fills it through rtl8365mb_qos_set_qmap_qid().
+That is the same kind of map ksz drives from the priomap.
+
+Would it be better to program that table from priomap[]? The other option
+is to reject priomaps and band orders that do not match the fixed
+hardware mapping.
+
+The commit message also says:
+
+    The patch uses ets, not prio. The hardware picks strict priority or
+    WFQ per queue, and ets sets the type per band.
+
+Every band with a quantum is refused, so the only accepted configuration
+is all-strict, which is what prio expresses. Does this justification only
+hold for future work?
+
+> +
+> +/* Forget the offloaded ETS qdisc of @port and put the port back on WFQ */
+> +static int rtl83xx_setup_tc_ets_restore_wfq(struct dsa_switch *ds, int port)
+> +{
+> +	struct realtek_priv *priv = ds->priv;
+> +	int ret;
+> +
+> +	priv->ets_handle[port] = 0;
+> +
+> +	ret = priv->ops->qos_set_port_sched(priv, port, ds->num_tx_queues,
+> +					    false);
+> +	if (ret)
+> +		dev_err(priv->dev, "port %d: failed to restore WFQ: %pe\n",
+> +			port, ERR_PTR(ret));
+> +
+> +	return ret;
+> +}
+
+[Severity: Low]
+What state is the port left in if qos_set_port_sched() fails here?
+
+ets_handle[port] is cleared before the call, and it stays cleared even if
+the call fails. rtl8365mb_qos_write_port_sched() programs one queue at a
+time and returns at the first error:
+
+drivers/net/dsa/realtek/rtl8365mb_qos.c:rtl8365mb_qos_write_port_sched() {
+    ...
+	for (tc = 0; tc < num_queues; tc++) {
+		...
+		if (!strict) {
+			ret = regmap_write(priv->map, wreg, weight);
+			if (ret)
+				return ret;
+		}
+
+		ret = rtl8365mb_qos_regmap_update_field(priv, reg, mask, qtype);
+		if (ret)
+			return ret;
+	}
+    ...
+}
+
+If an SMI/MDIO access fails partway through, some queues end up WFQ and
+the rest stay strict. Consider this sequence:
+
+1. qdisc A is offloaded, and the port is strict.
+2. A tc qdisc change on A fails validation. restore_wfq() runs, and a
+   register access fails midway. ets_handle[port] is now 0.
+3. tc qdisc del sends TC_ETS_DESTROY with handle A.
+   rtl83xx_port_setup_tc() then returns early:
+
+	if (ets->handle != priv->ets_handle[port])
+		return 0;
+
+The port keeps a mixed strict/WFQ scheduler with no ETS qdisc present.
+It only gets back to WFQ after another strict offload and its DESTROY, or
+after a re-probe through rtl8365mb_qos_sched_init().
+
+Would it make sense to keep the record until the restore succeeds, so
+that the later DESTROY retries it?
+
+> +
+> +int rtl83xx_port_setup_tc(struct dsa_switch *ds, int port,
+> +			  enum tc_setup_type type, void *type_data)
+> +{
+
+[ ... ]
+
+> +	switch (ets->command) {
+> +	case TC_ETS_REPLACE:
+
+[ ... ]
+
+> +		priv->ets_handle[port] = ets->handle;
+> +
+> +		return 0;
+> +
+> +	case TC_ETS_DESTROY:
+
+[ ... ]
+
+> +		 * With hw-tc-offload off, sch_ets sends no DESTROY, so the
+> +		 * port stays strict.
+> +		 */
+> +		if (ets->handle != priv->ets_handle[port])
+> +			return 0;
+> +
+> +		return rtl83xx_setup_tc_ets_restore_wfq(ds, port);
+> +
+> +	case TC_ETS_STATS:
+> +		/* Report the qdisc as offloaded. tc_ets_qopt_offload carries
+> +		 * no extack, so this mark is the only sign in tc that the
+> +		 * offload was accepted. The stats stay the software ones. They
+> +		 * count only what the host sends on this port, not traffic
+> +		 * the switch forwards.
+> +		 */
+> +		return ets->handle == priv->ets_handle[port] ? 0 : -EOPNOTSUPP;
+
+[Severity: Low]
+Can a stale ets_handle[port] mark a qdisc as offloaded that the driver
+never validated?
+
+ets_handle[port] is only cleared by a matching DESTROY or by a failed
+REPLACE. ets_offload_change() and ets_offload_destroy() both return early
+when !tc_can_offload(dev). DSA user ports also have no ndo_set_features
+hook to resync this state when NETIF_F_HW_TC is turned back on. Consider
+this sequence:
+
+1. With offload on:
+       tc qdisc add dev swpN root handle 1: ets bands 8 strict 8
+   ets_handle[port] becomes 1:0, and the port is strict.
+2. ethtool -K swpN hw-tc-offload off
+3. tc qdisc del dev swpN root
+   No DESTROY is sent, so ets_handle[port] stays 1:0.
+4. tc qdisc add dev swpN root handle 1: ets bands 8 quanta 1500 ...
+   No REPLACE is sent, so the driver never sees this configuration.
+5. ethtool -K swpN hw-tc-offload on, then tc qdisc show:
+   ets_offload_dump()->qdisc_offload_dump_helper() sends TC_ETS_STATS
+   with handle 1:0. It returns 0, so TCQ_F_OFFLOADED is set.
+
+tc then marks a weighted qdisc as offloaded, although REPLACE would have
+refused it with -EOPNOTSUPP. The hardware still runs the old strict
+setup. The same happens after a tc qdisc change on 1: while offload is
+off.
+
+The commit message and the DESTROY comment do note that the port may not
+follow tc while hw-tc-offload is off. This false offloaded mark, though,
+contradicts the STATS comment that it is "the only sign in tc that the
+offload was accepted". Is that intended?
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-rtl8365mb-ets-strict-v1-0-6ab01ad545c8%40pengutronix.de
