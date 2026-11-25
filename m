@@ -1,109 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.42
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795587919;
-	b=MqYa+ka+VJ+cPIRHZCyUHC+P2RqvXEoeNsC69cJgsbEPEFBz4pfV1FMQdgFvxWgKbkaT
-	 dOQp9SO1S+ZHsY3wXHG9uxRoE2vlff9v6n4Qy9FwGkpydrj/ei9lyCG0MDqgMgKzMLR9Y
-	 oFGE8xfv1cmt3ecChOh60dWQz34c/L6bgpV/pMiPiepMRMrOTxpA0DpcwzdFqNn69mwTq
-	 S+E5X6mdkhiRQF6uoCr/rs6ssgnEe7DW6b9Pw3c7sbJs8O3CtyWKWP3nh607zn//t1zN7
-	 T5DiD78sFgiVwsOVkRYCYILmUSiguRKO9n9b4QekFWba/mzaNFfHXT6hwZWGB/5Xl7g==
+	t=1795588004;
+	b=W5fhBvqR9p5+xHegebIxDlD+36sUGY8JrYE0+8dXWiipUYCrQ5xpoeob6lg9bSLsoMSJ
+	 VbTXHFzlqdDOC284QI4l5j6NiPPvhyNxBtf59qo6o9DNvMC4deUB6c5kAyziULKDFTR4G
+	 pllFwXBrnN5opgBygj6/wBAJ88Jge5OZSkUTlIycIwwZI0x0E1ySBxk1f/49PhK8ocIcY
+	 klGphhRwR8MCYyT6APSbAt7gMezZu1zi1lqEwK4waofCAHfVBhkopWvGWXD07djR3m9LI
+	 SK+sXPC8P+VslFkXgVMVgNWNnig49A8J50vq7NGQek6FXCZ4DzGVH6hUgZcsXe5bKIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795587919;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-	b=f7s3993mogKixXUFBd+4QO5wcZ3xhwcWAepwjG9apnKHdJb1R5sJwaWUX3dK7+KDstl2
-	 Tzp1I7WOxiTMTWoPMC0HnkFNRwRqtHcqznJmrrqfKbxQlS/r9AHOjyVha32BG4i/5dYvm
-	 JB4/nj6ASZimSqJpM+X0s9HAAtxr3aAz8Bfo+b2of15OYO2W+GS8p4O762zwyAvhZ7hMm
-	 1C1m5xO8Ng7venhVVaLjNONh4U+Z2ep7oJSLpON+Do3ONQzBWZdwlNGYJdxIOVzWUpOBM
-	 B1wtn2Q3jK80Kcspj8PxIJGdQ8P6pSTUusxsyGp82JQ7JbzwmodiP18wnN13/ZV/ZOQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588004;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Rn9PqFnfpuoHJ1p+/i18uTIImbl2FVfMSYLpDhRmrNk=;
+	b=zEspxdu0zI3qOMcbpvNGRiZ/HIiRIFZpmEjtqrBR+ZPfdOEY5FwSZRIxwB0q/38cnF0I
+	 DwNNIk5+HatKje8Iwd2hJoQoDmlN7C30yKND2xfZotRky5wX9AZSiBl/0OARqomdxh4o3
+	 vVOlST0KunjgsejRbvcZuO9z21OTkKmoqsyJ4S/NuE1M7p/YSrd9ZDtRYO+5Lhj+TvUa7
+	 XXEGjXCk+K1j+1VQcO4HMUiPtIWAh0pmwljRWYGI2c9jz9L84Y+2CzEY5/uRjQ9Y3yhwX
+	 1L2Nsy8cmQzvQla7bJ42xClHd52Xt4Rm3Z/tvwn91gL+kWi5QD8GnNDLzZhfucl8E9g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=TpoNvFtS;
-	arc=none smtp.remote-ip=74.125.82.42
-Received: from mail-dl1-f42.google.com (mail-dl1-f42.google.com [74.125.82.42])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=InkzsUGJ;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EBD3F606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:25:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EBD3F606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90844606A31E;
+	Wed, 25 Nov 2026 06:26:44 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=TpoNvFtS
-Received: by mail-dl1-f42.google.com with SMTP id a92af1059eb24-1b3acec6677so7976741c88.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 22:25:18 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795587918; x=1796192718; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-        b=TpoNvFtS12+lK8hf3bzKZIbCHJLGkCNO8QlnTkgbPcTiUsXEpwd8y6rnb9buu414Vx
-         G3EK3Tf6sVwIoNB6L+6eubiEqOUO4uPfbDlWqonLEJQDv/ZOcpVs6q804PcxXfFx7h2m
-         9cjV5s2Xlfn7bGUHMzJ44X4zquWVGVsOIhCYHIzfs8CuASW2YObI3NLx5EaYdJ/Ol9+A
-         7hNOxXVdBqYiUE67MvFKG618FL56Jnc7iy8Jdw79VW5wSmbGrVEl6573uyDaZjq4L1Dv
-         vvGBL/g3T0uTyZBD+ocHHBaUQuhMibUzD1RzV18Q/ZGce7jQDkumwn5WguktDN/OXCPT
-         VtHg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795587918; x=1796192718;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=wQqO0ZGiPSduhL/nnYRl9rtTaPzOuw285ahJlrfXT+I=;
-        b=hoV7NRFy6vrUiGEmJWGnImOlxLo2wFAUvhBBn511Q8OTrrieOVS/GcXloUKyYvbxZh
-         TrJZLoONpFrHdGmKXyB7P/xXprtBhPZY+IgOKqyEWLPq9hrYr1vREmaPcykVo34lsCm3
-         XWJsKN1XAo8XaeonmSAhQhNiLNNeYCiaIhznISJeF8VKU3I7jLKrclLSbE4UznpefT8H
-         BqydMwXAbT0ZPcdQ0/4PCIpchqyH6DBMNG35JPklUY60XP19kjUjTz1cLtmW/JwHYU6Y
-         FBgV4Sz/f2Fb+dnGyL9hdDtYZO5SG8w/CFU5hp7wtWFshF/8Zn5a1EN1jVVkjGgOMhC5
-         C+uw==
-X-Forwarded-Encrypted: i=1; AL+hErGzL/CC0zkapkb/xmuY2oV2kUpLU4rbEhBd3zgS2pQjlyX/b5paUYhNibhRgM5OuCpz1Vl2cas=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/JYrgSCYFUNk4kg8yTVSNdFNRH0am/cXjPW1EW4ly236PerzS9
-	sJ5V3Qh1NNgJ+OWJTu32DcaLq4sJbl+Gjl+ZyYOC4ozdNTvi6cA2FKVd0N1TcLaU8V0=
-X-Gm-Gg: AZFdTZf8VJz0WJpNyEvmwsbJfkOHJm7+dgHCZUT1Zkvxr3jmi6hCM2cZ9XKV1KN68BX
-	DqRLBICIO+knNc9i5u35B0HK/3nNfNhXlWyiohmhOtfDuIQsC4TZiV7C60jVDvn+vfgKzP3N+Sh
-	Up98Gt2F3gikm7J4GKh7eJ5XTSNBXulUizn2jjGZ47CvSXSc0/xcc0fdxVtTceUvq25JTIi/NgZ
-	61CxCkWmbNZemwRP1HnYUpS4mmbHQocjimnL1XuBmzOuhgmqqs0AGpYodxkSUtrEUDRuDi5a2NU
-	+NKdG+fwvZXikbBVHTlUQAtuFJoDWxjAr//y2AmPqK6Rt/0iekuo3UUVpIg4kCGouwnScwzOh2v
-	Av8I/ZtmoIOTrNrlaOACkrflPATTqrmbLhFA6vG3UjUQzc2vP/I0Jdkjbi4Spavzjkb/K76n+yI
-	1GOEu+emo2S/5KrSb8QjkJp0I0/svkkTwDIdZqHg7QbfhMN+v7S54ewlgAnyuxVInELZCoCOomh
-	ZtRy6E58papBysqbmP7eJfwUYbaRzyGvAOo5yXpyk/W7GwJ0LbJB9s6Dmu+h1/BH6DGYi1z89qt
-	Rtbs/zvBjRuWZ8F/Q+qHg9XHcjzIX7VQZ6ld0zs5jnjRlLAqgHx9hgWZRG61XZNqO521aGNdDKN
-	5RNMAUPFc8Y3hHsTU+WjmyIscgw==
-X-Received: by 2002:a05:701a:cc88:10b0:151:6e80:ba7e with SMTP id a92af1059eb24-1b5567dcec1mr15984271c88.4.1795587917888;
-        Tue, 24 Nov 2026 22:25:17 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5568592adsm38712721c88.15.2026.11.24.22.25.16
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 22:25:17 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: andrea.mayer@uniroma2.it,
-	autonomouscodesecurity@microsoft.com,
-	blbllhy@gmail.com,
-	bridge@lists.linux.dev,
-	davem@davemloft.net,
-	dsahern@kernel.org,
-	edumazet@kernel.org,
-	g.goller@proxmox.com,
-	herbert@gondor.apana.org.au,
-	horms@kernel.org,
-	idosch@nvidia.com,
-	ipsec@lists.linux.dev,
-	justin.iurman@gmail.com,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com,
-	razor@blackwall.org,
-	steffen.klassert@secunet.com,
-	xmei5@asu.edu,
-	yuya.kusakabe@gmail.com
-Subject: [6.18.y] Please pick four networking fixes
-Date: Wed, 25 Nov 2026 01:25:13 -0500
-Message-ID: <20261125062513.96901-1-artem@trailofbits.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=InkzsUGJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76B881F000C0;
+	Wed, 25 Nov 2026 06:26:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795588004;
+	bh=Rn9PqFnfpuoHJ1p+/i18uTIImbl2FVfMSYLpDhRmrNk=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=InkzsUGJgnku+74xY2cYRsa2DHkJvU6QEYWFH88gS7y1lrlP32sFQEARAcY4Z7Qc1
+	 yZLBnv2Dnm2GhIlmb/5YcwIDsAS5XWbEfltFpMr9lMLjularJMGcopm0wHzBhLrs7F
+	 FDL68Jgexg3ISJQbwf6o9wCaxGrSHEb5jc3FdG/xmzGAjYTp6MMezFjriEFwbckpqs
+	 jYMfF5GRSgrjUyyM85nSBuwLQeTZIMoggO/pVLkjgRszBR8ex9bbboamefIz8qlVGu
+	 4QksfSCIcBikFbpd3pzlGreNVgSkMKqIX1fNKgnvZ247rGB+lJC85muBLQrXUMlPPj
+	 r+UaJ1tVxrefg==
+Subject: Re: [PATCH net] tcp: fix CA module refcount underflow in
+ tcp_v4_syn_recv_sock()
+From: netdev-bot+sashiko@kernel.org
+To: jiayuan.chen@linux.dev
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, fw@strlen.de, daniel@iogearbox.net,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+Date: Wed, 25 Nov 2026 06:26:42 +0000
+Message-ID: <179558800299.3135.4905748131998876050@kernel.org>
+In-Reply-To: <20261124062625.264148-1-jiayuan.chen@linux.dev>
+References: <20261124062625.264148-1-jiayuan.chen@linux.dev>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,80 +64,164 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
 
-Hi,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Please pick the following four upstream commits for 6.18.y. None carries
-a stable tag, and so far each has been backported only to 7.2.y. They
-touch unrelated files and can be applied in any order.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-1. 2842ce397dd09882530b42f7fdb0c855767eb24e ("net: bridge: vlan: fix
-   bugs caused by switchdev deletion errors"), CVE-2026-98285
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-   When switchdev fails to delete a VLAN, __vlan_del() returns early.
-   This can leave inconsistent state, leak memory when the VLANs are
-   flushed, and cause a NULL pointer dereference on the flush error
-   path. The fix logs the switchdev error and completes the software
-   deletion. In 7.2.8 and in mainline since 7.3. Applies unchanged to
-   6.18.65.
+- [Medium] The new error path in tcp_v4_syn_recv_sock()
+  (net/ipv4/tcp_ipv4.c) jumps to clear_ca_and_exit when…
+- [Low] The commit message presents the bug as a module refcount
+  underflow that shows up as a module_put() WARNING.
 
-2. 9fa903b24b1f46b4ff5443bcd4aca23e5c57f9c1 ("xfrm: hold net_device
-   reference under RCU in bundle creation"), CVE-2026-98364
+--
 
-   xfrm_bundle_create() and xfrm_create_dummy_bundle() read dst->dev
-   without holding a reference and pass it to xfrm_fill_dst(). A
-   concurrent RTM_DELLINK can free that device first, causing a
-   use-after-free. The fix reads the device with dst_dev_rcu() and stays
-   in the RCU read-side section until xfrm_fill_dst() has taken its
-   references. In 7.2.8 and in mainline since 7.3. Applies to 6.18.65
-   unchanged apart from line offsets.
+tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
 
-3. 87cd6b717e4069dca34e0866e57eaeb44d3b173e ("net: ipv6: keep room for
-   the mac header in dst_dev_overhead()"), CVE-2026-98570
+The child socket inherits icsk_ca_ops from the listener without taking a
+reference. If inet_csk_route_child_sock() fails, the child then puts the
+listener's reference. This patch clears icsk_ca_ops on that error path and
+makes tcp_cleanup_congestion_control() skip a socket that has no CA.
 
-   The seg6, rpl and ioam6 lwtunnels reserve headroom with
-   dst_dev_overhead(), which can be smaller than skb->mac_len, for
-   example on a VLAN device with reorder_hdr off.
-   skb_mac_header_rebuild() then computes a negative MAC header offset
-   and writes past the buffer. The fix makes dst_dev_overhead() return
-   the larger of the two values. In 7.2.9 and in mainline since 7.3.
-   Applies unchanged to 6.18.65.
+> If inet_csk_route_child_sock() fails in between, we go to put_and_exit
+> and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
+> the reference unconditionally. The one dropped belongs to the listener.
 
-4. 8ae3f4067ba4ae3a15581392f6dac422e3d3def0 ("seg6: ensure packet data
-   is writable before modifying SRH and IPv6 DA"), CVE-2026-98802
+[Severity: Low]
 
-   advance_nextseg() and seg6_next_csid_advance_arg() modify the SRH
-   and the IPv6 destination address without making the packet data
-   writable. If the skb is cloned, for example by an AF_PACKET socket on
-   the ingress device, the clone sees the modified packet. The fix calls
-   skb_ensure_writable() first and reloads the header pointers
-   afterwards. In 7.2.10 and in mainline since 7.3. Applies unchanged to
-   6.18.65.
+Is the impact larger than a refcount underflow warning?
 
-   Ordering note: queue-6.18 contains
-   seg6-fix-transport-header-for-inner-ipv4-with-ip-opt.patch, which
-   adds code above input_action_end_b6(). With that patch applied, a
-   three-way cherry-pick of this commit is clean and correct, but
-   applying the upstream diff as plain text places the
-   kfree_skb_reason() hunk for input_action_end_b6_encap() in
-   input_action_end_b6() instead, which fails to build.
+module_put() uses atomic_dec_if_positive() and only warns when the count
+would go negative:
 
-Apart from that seg6 patch, no patch in queue-6.18 touches the files
-these commits change. All four cherry-pick cleanly together onto 6.18.65
-and onto 6.18.65 with the current queue-6.18 patches applied. Older
-stable series are affected by some of these bugs as well; this request
-covers only 6.18.y.
+kernel/module/main.c:module_put() {
+    ...
+		ret = atomic_dec_if_positive(&module->refcnt);
+		WARN_ON(ret < 0);	/* Failed to put refcount */
+    ...
+}
 
-Compiled net/bridge/br_vlan.o, net/xfrm/xfrm_policy.o,
-net/ipv6/seg6_iptunnel.o, net/ipv6/rpl_iptunnel.o,
-net/ipv6/ioam6_iptunnel.o and net/ipv6/seg6_local.o with CONFIG_WERROR=y
-on 6.18.65 from a cumulative x86_64 tree, with and without the current
-queue-6.18 patches. No kernel boot or runtime test was performed.
+While the listener still holds its reference, the child's put in
+tcp_cleanup_congestion_control() succeeds silently and uses up the
+listener's reference. The quoted WARN only fires after earlier occurrences
+have already drained that reference.
 
-An LLM was used to check applicability and stable-queue history and to
-draft this request; I reviewed the result.
+Once that has happened, try_release_module_ref() lets rmmod of tcp_bbr
+succeed while the listener's icsk_ca_ops still points into the module.
+Later children read icsk_ca_ops->owner through bpf_try_module_get() in
+tcp_ca_openreq_child(), and closing the listener calls ->release() on it.
+Could either of these be a use-after-free?
 
-Thanks,
-Artem Dinaburg
+If the count has dropped below the base instead, rmmod would hit
+BUG_ON(ret < 0) in try_release_module_ref().
+
+For BPF struct_ops congestion control, bpf_module_put() goes through
+bpf_struct_ops_put() -> bpf_map_put():
+
+include/linux/bpf.h:bpf_module_put() {
+	if (owner == BPF_MODULE_OWNER)
+		bpf_struct_ops_put(data);
+	else
+		module_put(owner);
+}
+
+In that case the extra put drops a struct_ops map reference while the
+listener is still using the map.
+
+Could the commit message describe this impact, for the benefit of stable
+maintainers?
+
+> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
+> index e3f462f161dd6..0f99405a78b11 100644
+> --- a/net/ipv4/tcp_cong.c
+> +++ b/net/ipv4/tcp_cong.c
+> @@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
+>  {
+>  	struct inet_connection_sock *icsk = inet_csk(sk);
+>  
+> +	if (!icsk->icsk_ca_ops)
+> +		return;
+> +
+>  	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
+>  		icsk->icsk_ca_ops->release(sk);
+>  	icsk->icsk_ca_initialized = 0;
+> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+> index 2fc92a7884fc8..8aa52376cf0aa 100644
+> --- a/net/ipv4/tcp_ipv4.c
+> +++ b/net/ipv4/tcp_ipv4.c
+> @@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>  	if (!dst) {
+>  		dst = inet_csk_route_child_sock(sk, newsk, req);
+>  		if (!dst)
+> -			goto put_and_exit;
+> +			goto clear_ca_and_exit;
+>  	} else {
+>  		/* syncookie case : see end of cookie_v4_check() */
+>  	}
+> @@ -1789,6 +1789,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>  exit:
+>  	tcp_listendrop(sk);
+>  	return NULL;
+> +clear_ca_and_exit:
+> +	/* newsk holds no reference on the inherited CA yet. */
+> +	inet_csk(newsk)->icsk_ca_ops = NULL;
+
+[Severity: Medium]
+
+Does this comment hold in all cases?
+
+tcp_create_openreq_child() calls inet_csk_clone_lock(). That function moves
+the child to TCP_SYN_RECV and then calls security_inet_csk_clone(), all
+before the route lookup above:
+
+net/ipv4/inet_connection_sock.c:inet_csk_clone_lock() {
+    ...
+	inet_sk_set_state(newsk, TCP_SYN_RECV);
+
+	inet_clone_ulp(req, newsk, priority);
+
+	security_inet_csk_clone(newsk, req);
+    ...
+}
+
+bpf_lsm_inet_csk_clone is listed in bpf_lsm_locked_sockopt_hooks in
+kernel/bpf/bpf_lsm.c. A BPF_LSM_CGROUP program attached there can
+therefore call bpf_setsockopt(TCP_CONGESTION) on the child:
+
+sol_tcp_sockopt_congestion()
+  do_tcp_setsockopt()
+    tcp_set_congestion_control()
+      bpf_try_module_get(ca, ca->owner)  <- takes a reference on the new CA
+      tcp_reinit_congestion_control()
+        tcp_init_congestion_control()    <- ca->init(),
+                                            icsk_ca_initialized = 1
+
+If inet_csk_route_child_sock() then fails, clear_ca_and_exit sets
+icsk_ca_ops to NULL. tcp_done() -> tcp_v4_destroy_sock() ->
+tcp_cleanup_congestion_control() then returns early at the new NULL check.
+
+Does this leak the module (or struct_ops map) reference on the new CA and
+skip its ->release()? Before this patch, that reference was put correctly
+on this path. Only the listener's reference, dropped by
+tcp_reinit_congestion_control(), was unbalanced.
+
+The notes below the --- say the lsm_cgroup case is being fixed separately
+in the bpf tree. However, icsk_ca_setsockopt is inherited from the
+listener, so this error path cannot tell the two cases apart.
+
+Would taking the reference in tcp_create_openreq_child(), as in the
+alternative diff in the notes, cover both cases?
+
+>  put_and_exit:
+>  	newinet->inet_opt = NULL;
+>  	inet_csk_prepare_forced_close(newsk);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124062625.264148-1-jiayuan.chen%40linux.dev
