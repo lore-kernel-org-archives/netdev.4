@@ -1,72 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620227;
-	b=3OF9W/YxNj4oMWu67bRfpD68sLNJtW/hRU2/VZiUv7vtlDhi1czIcLmTTEcnEveGMUwX
-	 O40yGdVI7LlX6Mps8PJDzAvC1LHz0e/Ig6Qzh2/jVJtjIlJDug9JGMU1uOFmZrf1Mh0pP
-	 jIxO21OQmIAXxJjZvSTAuZqHJ5IRnVcZMxx5V8am+Th+nMadwx9n807ecINX578Gw+8vC
-	 2G19QU5XMzlgMl5kbIxIUYDJuXye9+wIJYcZIjys6LbdBNtJS2lOO3rq4Ff42JpeRUvaR
-	 bTIV40sOYBnPUewjBozkJD3aXrcjdQEPLT62phWk2DhDfBkgCBp9KwPf4VpekKA7FsA==
+	t=1795620473;
+	b=W+Lx2MuN5uQHJLmvFRgVY9J6g0QjiIBoVAycQzemh0aZP6dvf1DHfOXRAAwz1m0LUupV
+	 LenbzJk0FSNLBJ5CZtYgvXtE5XltEwMYXQeYdd/fC+9Tga1YNwDgM0hNM2rhQ8tcYN2yc
+	 v67roxtm/Oxz16TPoVSRRFn1iauE3COrdI1knb5UCtYGvefFLajHub9GW3/o8MmbsNUgf
+	 MKQJskXeQyWC8ZJdqHML+ixC5VOkF5pVSaktJnoS9R/r2kD7AIGDkfnow5VssjY/0WQoI
+	 27WMkSG0Wu/gfZUP/Ld7/ifEjrt7ltpDgfxqSKaqbKZJpb5VAJl2Q3/TmqyZq1OjuRw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620227;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=7lqxMl9LQqYx+IM7aMsw8LkEd2OcKYcJGIX+toZz4gI=;
-	b=op5NpzzqFCKumc9maH+E4j1z/MdraJWug5LNr5p9y5+0SHPJ0qeU7/Sp/GKWw3G8rCqU
-	 vaIs9NH5DKSGrdNURbq9IQmYAB523zGzkR/nuiPatzGU2x8xfqdyZdQMM/laVNPuXXlz9
-	 MuYPpyQ1REncsgDfNrnluXYrwSAkkI8QC/hxbiKLtNij0TAgawLuyYVVon0HKi0z4v6gE
-	 aut46r3FKjn4iJMm7oKhJjKBwkGlfeYy1arg7c+8418hF2A1pik7vZ8iELnzNt1RyVhI/
-	 aAf0n+tst44uOs1JkaKaMqR5ZBgQnEGWwzahSVfAGZJIHShf7TqxIXtUZxzlQX/p1VQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620473;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	b=IJw3WNArco4bptSiq5jLsedLU/q6LH7m+Isi0o6csT+e7jwcxdReZY1DYHK9kaQjR5cD
+	 S893zhRgEPJCsG8FTrwJ7AhjiMusS48Lve3Q+IQgdUZ/bZFGz4sgA2b+FQUfS3/sTuKes
+	 zVf4pQMUWOQ7XqVnnremNKVpDCUGbibxwQLXiCQ9MhqwLmN/XVgwYjED8vREGXB7TVmDU
+	 yXP3+FBLYvTgxHpYC/i/hcHjbWhczR4FOvm//Awo7SmGpTsgs3IA5TZN9s75y+Xg9663I
+	 qULdHmjfDtjkofw+YxDkUJbmzhkbeIl0AByKQwEGboxl2fN5KLemF9EBmTDX7hbDj6w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tu-dortmund.de;
-	spf=pass smtp.mailfrom=tu-dortmund.de;
-	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=oMXXhGa6;
-	arc=none smtp.remote-ip=129.217.128.51
-Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8A87F606A31E;
-	Wed, 25 Nov 2026 15:23:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8A87F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B82BD606A31E;
+	Wed, 25 Nov 2026 15:27:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=oMXXhGa6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
-	s=unimail; t=1795620200;
-	bh=7lqxMl9LQqYx+IM7aMsw8LkEd2OcKYcJGIX+toZz4gI=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=oMXXhGa6Pz9YwLcLMEvsUzRfNd0vuSx8r6LH1gd0iYeAIV/qUnfZuC93MhGTMATu6
-	 j+hSIpontklgWBjGbD4qdumPffr1vHuSv71LBY8dwyzWxOijFFrShIUizV0LT/JwMM
-	 KJ/ArCASgkDC83da9jbglh3nbXCIOnJ0aTKIJ0qs=
-Received: from simon-Latitude-5450.cni.e-technik.tu-dortmund.de ([129.217.186.207])
-	(authenticated bits=0)
-	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6APFNERO004665
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Wed, 25 Nov 2026 16:23:18 +0100 (CET)
-From: Simon Schippers <simon.schippers@tu-dortmund.de>
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
-        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Simon Schippers <simon.schippers@tu-dortmund.de>
-Subject: [PATCH net-next 2/3] veth: wake the peer txq in the middle of the NAPI poll
-Date: Wed, 25 Nov 2026 16:23:10 +0100
-Message-ID: <20261125152311.805325-3-simon.schippers@tu-dortmund.de>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
-References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ijdrdMAR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 291211F000C4;
+	Wed, 25 Nov 2026 15:27:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795620473;
+	bh=TQMJOKB5egHcGgynmGG4EwUuLrxBDUpZJMqON6XcyvA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=ijdrdMARWt/P79rA/nv7dZGn4nIuZmRVHXrvsJd/KKUvyH/YKVN81Q21S58X0OyKn
+	 +VtdgAu4eTUaN/mnx2oB5zfHvyOVBMQobpiDswecyA98lyaMR4NvwDQajZp4W69MHg
+	 wJcqwbMRVkCQyyUaL89ECAwn0lPhtMpu/VIv5qpHvvzsU/JanDNGW6BHfG+zsXfge7
+	 XHdQv5GB8N99m+2j6jWcE6tPZkhu46lBdN4FF9/Es1Cg66RdHuASowVOC6VOSyutRK
+	 jao7Qf5J7ineiK1N5YgrKcfUD9rw2ki9B01JwgCJNFG1Gq3eS6wn74jHr66eCxsAxd
+	 ZfutpYoiEGAkQ==
+Subject: Re: [PATCH net v3 1/2] net: keep the TCP fixed-ID flags on the header
+ they describe
+From: netdev-bot+sashiko@kernel.org
+To: julius@bairaktaris.de
+Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, willemb@google.com, horms@kernel.org,
+ andrew+netdev@lunn.ch, dsahern@kernel.org, idosch@nvidia.com,
+ ncardwell@google.com, kuniyu@google.com, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, richardbgobert@gmail.com, ecree.xilinx@gmail.com,
+ andy.moreton@amd.com, alex.austin@amd.com, linux-net-drivers@amd.com,
+ saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ linux-rdma@vger.kernel.org, alexei.starovoitov@gmail.com, ast@kernel.org,
+ daniel@iogearbox.net, andrii@kernel.org, eddyz87@gmail.com, memxor@gmail.com,
+ martin.lau@linux.dev, song@kernel.org, yonghong.song@linux.dev,
+ jolsa@kernel.org, emil@etsalapatis.com, ihor.solodrai@linux.dev,
+ john.fastabend@gmail.com, sdf@fomichev.me, izaiahsun@gmail.com,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ shuah@kernel.org, bpf@vger.kernel.org, ipsec@lists.linux.dev,
+ linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 15:27:50 +0000
+Message-ID: <179562047069.3135.2008249679354171410@kernel.org>
+In-Reply-To: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+References: <7c74b2076dc7dee1d481d39a135e0946d5e04145.1795284858.git.julius@bairaktaris.de>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,137 +76,148 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Since commit dc82a33297fc ("veth: apply qdisc backpressure on full
-ptr_ring to reduce TX drops") veth_poll() wakes a stopped peer txq at the
-end of every poll. netif_tx_wake_queue() raises NET_TX_SOFTIRQ on the
-local CPU, and it runs right after the poll when BHs are enabled again.
-The consumer CPU then dequeues from the qdisc and refills the ring
-itself, while the producer finds the qdisc running or the txq stopped
-again. Under a flood the consumer spends that time on the refill instead
-of on consuming.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Wake the txq after PTR_RING_BATCH entries of the poll instead, if it
-was stopped when the poll started. That is 16 on 64-bit architectures
-with 64 byte cache lines. The softirq then stays pending until the poll
-ends, and the producer refills the ring on its own CPU while the
-consumer goes on. All entries consumed by then were consumed after the
-stop, so the ptr_ring has freed at least one batch of slots and the
-producer does not find it full again right away.
+Critical: 0 · High: 0 · Medium: 1 (1) · Low: 0
 
-At the end of the poll the txq is woken only when the ring has run dry,
-so that NAPI does not go idle with the txq stopped. A stop during a poll
-is picked up by the next one. Budgets up to PTR_RING_BATCH, as with busy
-polling, cannot consume a batch before the wake and keep the wake at the
-end of every poll.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-The position of the wake is what matters. Waking only at the end of a
-poll, once 128 entries had been consumed with the txq stopped, gave
-about 3% in a short pktgen test, against about 25% for the wake in the
-middle of the poll.
+- [Medium] In xfrm_output(), the new FIXEDID->OUTER copy only runs for
+  TRANSPORT/BEET mode, but skb->encapsulation = 1 is set for every…
 
-pktgen (64 byte UDP, queue_xmit) and iperf3 into fq_codel on a veth pair
-with GRO on and TSO off, so that all traffic takes the NAPI ptr_ring
-path, as with an XDP program on the peer. In a virtme-ng VM with 4 vCPUs
-pinned to isolated cores of an AMD Ryzen 9 9950X, all on the same CCX,
-at a fixed 4.3 GHz. 50 boots per kernel, 95% confidence intervals, with
-the qdisc requeues per 10 s run:
+Pre-existing issues:
+- [Medium] tcp6_gro_complete() (net/ipv6/tcpv6_offload.c:81-102) ignores
+  NAPI_GRO_CB(skb)->ip_fixedid.
 
-  threaded NAPI     before          after           requeues
-  pktgen            1078122 pps     +24.6 +-0.5%     169038 -> 210594
-  iperf3 TCP          32682 Mbit/s   +1.3 +-0.7%     579184 -> 4587
-  iperf3 UDP            362 Mbit/s   +0.2 +-0.5%         14 -> 14
+--
 
-pktgen requeues one skb per 64 packets, before and after. The next patch
-removes these requeues.
+net: keep the TCP fixed-ID flags on the header they describe
 
-With softirq NAPI and a single sender the consumer runs on the sender's
-CPU and the ring does not fill. The changes of pktgen and iperf3 there
-range from -0.7% to +0.4%, with confidence intervals of 0.4% to 0.9%.
+This patch goes back to SKB_GSO_TCP_FIXEDID describing the innermost IPv4
+header. It replaces SKB_GSO_TCP_FIXEDID_INNER with
+SKB_GSO_TCP_FIXEDID_OUTER for the outermost header of an encapsulated
+packet. The outer flag is cleared where tunnel and BPF paths add or remove
+a header, xfrm_output() sets it for ESP transport and BEET offload, and the
+mlx5 and sfc drivers are converted.
 
-With two iperf3 senders on one queue, each on its own CPU, the ring
-fills with softirq NAPI too. 40 boots per kernel, 6 vCPUs:
+> diff --git a/net/ipv4/tcp_offload.c b/net/ipv4/tcp_offload.c
+> index b84fcd07c7230..da0d8ba70c0cc 100644
+> --- a/net/ipv4/tcp_offload.c
+> +++ b/net/ipv4/tcp_offload.c
 
-  two senders       before          after           requeues
-  TCP, softirq        25798 Mbit/s  +52.1 +-0.9%    6024998 -> 799805
-  TCP, threaded       22480 Mbit/s  +16.4 +-1.8%    6741008 -> 5910785
-  UDP, threaded         701 Mbit/s  +14.4 +-0.5%     152298 -> 81520
+[ ... ]
 
-With softirq NAPI, TCP through fq_codel was 36% slower than with
-noqueue before and is 2% slower after.
+> @@ -473,9 +475,10 @@ INDIRECT_CALLABLE_SCOPE int tcp4_gro_complete(struct sk_buff *skb, int thoff)
+>  	th->check = ~tcp_v4_check(skb->len - thoff, iph->saddr,
+>  				  iph->daddr, 0);
+>  
+> -	BUILD_BUG_ON(SKB_GSO_TCP_FIXEDID << 1 != SKB_GSO_TCP_FIXEDID_INNER);
+> +	/* Bit 0 of ip_fixedid is the outermost header, bit 1 the inner one. */
+>  	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV4 |
+> -			(NAPI_GRO_CB(skb)->ip_fixedid * SKB_GSO_TCP_FIXEDID);
+> +		(((fixedid >> encap) & 1) * SKB_GSO_TCP_FIXEDID) |
+> +		((fixedid & encap) * SKB_GSO_TCP_FIXEDID_OUTER);
 
-A wake after 32 entries instead of 16 gave the same throughput, except
-for TCP with two senders and threaded NAPI, which gained only 8.3%.
+[Severity: Medium]
+This is a pre-existing issue and this patch did not introduce it. Does the
+IPv6 counterpart need the same mapping?
 
-Signed-off-by: Simon Schippers <simon.schippers@tu-dortmund.de>
----
- drivers/net/veth.c | 27 ++++++++++++++++++++++-----
- 1 file changed, 22 insertions(+), 5 deletions(-)
+Take an IPv4 outer header over an IPv6 inner TCP flow, such as 6in4/SIT or
+VXLAN over IPv4 carrying IPv6. For the outer IPv4 header,
+gro_receive_network_flush() calls inet_gro_flush() with inner=false, which
+records:
 
-diff --git a/drivers/net/veth.c b/drivers/net/veth.c
-index 2051f6e044327..02ffc7ba59ab2 100644
---- a/drivers/net/veth.c
-+++ b/drivers/net/veth.c
-@@ -912,11 +912,19 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
- 
- static int veth_xdp_rcv(struct veth_rq *rq, int budget,
- 			struct veth_xdp_tx_bq *bq,
--			struct veth_stats *stats)
-+			struct veth_stats *stats,
-+			struct netdev_queue *peer_txq)
- {
--	int i, done = 0, n_xdpf = 0;
-+	int i, done = 0, n_xdpf = 0, wake_at = 0;
- 	void *xdpf[VETH_XDP_BATCH];
- 
-+	/* Wake a stopped peer txq in the middle of the poll, so that the
-+	 * producer refills the ring while this poll goes on.
-+	 */
-+	if (budget > PTR_RING_BATCH && peer_txq &&
-+	    netif_tx_queue_stopped(peer_txq))
-+		wake_at = PTR_RING_BATCH;
-+
- 	for (i = 0; i < budget; i++) {
- 		void *ptr = __ptr_ring_consume(&rq->xdp_ring);
- 
-@@ -952,6 +960,11 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
- 			}
- 		}
- 		done++;
-+
-+		if (done == wake_at) {
-+			txq_trans_cond_update(peer_txq);
-+			netif_tx_wake_queue(peer_txq);
-+		}
- 	}
- 
- 	if (n_xdpf)
-@@ -988,7 +1001,7 @@ static int veth_poll(struct napi_struct *napi, int budget)
- 		   netdev_get_tx_queue(peer_dev, queue_idx) : NULL;
- 
- 	xdp_set_return_frame_no_direct();
--	done = veth_xdp_rcv(rq, budget, &bq, &stats);
-+	done = veth_xdp_rcv(rq, budget, &bq, &stats, peer_txq);
- 
- 	if (stats.xdp_redirect > 0)
- 		xdp_do_flush();
-@@ -1007,9 +1020,13 @@ static int veth_poll(struct napi_struct *napi, int budget)
- 		}
- 	}
- 
--	/* Release backpressure per NAPI poll */
-+	/* Release backpressure before NAPI may go idle, and after every poll
-+	 * that veth_xdp_rcv() cannot wake in the middle of
-+	 */
- 	smp_rmb(); /* Paired with netif_tx_stop_queue set_bit */
--	if (peer_txq && netif_tx_queue_stopped(peer_txq)) {
-+	if (peer_txq && netif_tx_queue_stopped(peer_txq) &&
-+	    (budget <= PTR_RING_BATCH || done < budget ||
-+	     __ptr_ring_empty(&rq->xdp_ring))) {
- 		txq_trans_cond_update(peer_txq);
- 		netif_tx_wake_queue(peer_txq);
- 	}
+include/net/gro.h:inet_gro_flush() {
+    ...
+		NAPI_GRO_CB(p)->ip_fixedid |= 1 << inner;
+    ...
+}
+
+The flow is then merged as fixed-ID. tcp4_gro_complete() now maps that bit
+to SKB_GSO_TCP_FIXEDID_OUTER, but tcp6_gro_complete() never looks at
+ip_fixedid:
+
+net/ipv6/tcpv6_offload.c:tcp6_gro_complete() {
+    ...
+	th->check = ~tcp_v6_check(skb->len - thoff, &iph->saddr,
+				  &iph->daddr, 0);
+	skb_shinfo(skb)->gso_type |= SKB_GSO_TCPV6;
+    ...
+}
+
+So the outermost IPv4 header of such a packet never gets
+SKB_GSO_TCP_FIXEDID_OUTER. When the packet is forwarded and resegmented,
+inet_gso_segment() rewrites the fixed outer IDs as incrementing ones.
+
+Should tcp6_gro_complete() set SKB_GSO_TCP_FIXEDID_OUTER from bit 0 when
+skb->encapsulation is set?
+
+>  
+>  	tcp_gro_complete(skb);
+>  	return 0;
+> diff --git a/net/xfrm/xfrm_output.c b/net/xfrm/xfrm_output.c
+> index f1f612cd7b438..927e1535c47d7 100644
+> --- a/net/xfrm/xfrm_output.c
+> +++ b/net/xfrm/xfrm_output.c
+> @@ -805,6 +805,16 @@ int xfrm_output(struct sock *sk, struct sk_buff *skb)
+>  		xfrm_state_hold(x);
+>  
+>  		xfrm_get_inner_ipproto(skb, x);
+> +		/*
+> +		 * Transport and BEET mode keep the IPv4 header and its ID, so
+> +		 * the header that SKB_GSO_TCP_FIXEDID describes is the outer
+> +		 * one as well.
+> +		 */
+> +		if (!skb->encapsulation &&
+> +		    (x->props.mode == XFRM_MODE_TRANSPORT ||
+> +		     x->props.mode == XFRM_MODE_BEET) &&
+> +		    (skb_shinfo(skb)->gso_type & SKB_GSO_TCP_FIXEDID))
+> +			skb_shinfo(skb)->gso_type |= SKB_GSO_TCP_FIXEDID_OUTER;
+>  		skb->encapsulation = 1;
+>  
+>  		if (skb_is_gso(skb)) {
+
+[Severity: Medium]
+Can a tunnel mode SA still lose the fixed IDs of the packet's only IPv4
+header?
+
+skb->encapsulation = 1 is set for every crypto offloaded SA, but the copy
+to SKB_GSO_TCP_FIXEDID_OUTER is skipped for tunnel mode.
+
+A GSO packet that was decapsulated earlier keeps a stale non-zero
+skb->inner_protocol. inet_gro_complete() sets it for encapsulated GRO, and
+neither iptunnel_pull_offloads() nor skb_scrub_packet() resets it. After
+decap, such a packet has encapsulation=0 and SKB_GSO_TCP_FIXEDID set, and
+SKB_GSO_TCP_FIXEDID_OUTER has been cleared.
+
+If the packet is forwarded into a tunnel mode SA with offload, this check
+just below fires:
+
+			if (skb->inner_protocol && x->props.mode == XFRM_MODE_TUNNEL)
+				return xfrm_output_gso(net, sk, skb);
+
+Then xfrm_output_gso()->skb_gso_segment(skb, 0)->inet_gso_segment() runs at
+encap_level 0, sees skb->encapsulation == 1, and takes the new else branch:
+
+	} else {
+		fixedid = !!(skb_shinfo(skb)->gso_type &
+			     SKB_GSO_TCP_FIXEDID_OUTER);
+	}
+
+That reads 0 for the only IPv4 header, even though SKB_GSO_TCP_FIXEDID is
+the flag that describes it. The segments get incrementing IDs although GRO
+recorded fixed ones.
+
+The baseline code was also wrong here, because it read the stale flag of
+the removed header. Is this a remaining variant of the "forwarded into an
+ESP tunnel mode SA with crypto offload" case that the commit message says
+is fixed?
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/cover.1795284858.git.julius%40bairaktaris.de
