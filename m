@@ -1,60 +1,57 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570117;
-	b=mNKVL/4L9nocLMrDak2ewk5Pv78t6qVsf8ldI0UXwc1iXjgxX8JdK5cyJ45drcD5PJ2k
-	 wS6r7XgFxkbWS4alh3CqZ0xloUoQvic+1g+kW1tfaht2ZOgGqrZ2TdWUEny9aj1928Lca
-	 OGq44l2iUga7B82ybHJIfMaTWIIb9pSzH36mj4LNo+xNgWiU2F3eGZ3AdGsSWF2g+uula
-	 hA1kd+0XBH3IOol4xcAqCLUDUPCFCFO6+V11oxckqxIyUtS4+aBogijvXLTpog/8Grqyl
-	 p6m3AMjNPswQrbVzjVZ3eLgr53R0geJPTfWoy4MIqClpO/zo2MHVsqlcyF4XBMJ6n2g==
+	t=1795570120;
+	b=zz/Apb76+cyDGXAzudK5qz67ByelP2DoYL7bOD98JNmJWnBjsAWQ0S3UqR1glkQAkvnk
+	 sO3QP+06OBL5xj0R2Szr8DY8k4qNkNp0v5CEhCkyOApEdHfzZpSkHOcaXI8pUD/iETLPP
+	 DaZLpXDaFoSbnbxyg518AMOEOIlWxtTspoP9AmsYeOgojhmfnzKZo6i//jhK8ycJHI9vQ
+	 t+ucqxjYRFOsf0gUc67C2T7qtBhTpRG4SAyqah+JoDQTBMW5u+RVjpTOrUQ6Q0qwE2GVf
+	 YZbRVqXZzeGeS4Y5Hc2OQdbuR5wpLGGJlufrOzjaAtchgFWkY2V7TbElgUVcMAhj9wA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570117;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570120;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=E8359OUvmn7QJKn1lJO3S5uy8iyHhl5y1lBMxhcGp/4=;
-	b=lK14d6iamIKXwAMIXwZWbAb6bZk4IdPBVfJ5ajx+eyL1Jpu0XLArIrYk6nKGZS+23wp5
-	 ssoy6aDHe2Rzw5XLyOBnqE9MBDGtk0KCni/6EVwRQN88Bqu1g5JOMtwVQIcz2VzQx5C4h
-	 Ol1CF84nstT7Wznfwh2q1vWdLrnLSgZ/aSHOTb2i2ZOTPNrIAO9IFUQDY6eeqiTOOpYxm
-	 488xiBdJVvaAuGzmcpj6pNCpn/ET83Fkrr1n86qXVTu09j9yaaaa5MCx7HbBXhAIGRg6z
-	 iUmtu6kcAI/8JvozImWBwS663o44q4pCKWlSGqpf5cB8KCzqvCsi/qZDSk9VBUZkHog==
+	bh=/kcw1pc7QfhqDg5XVpmffRI63tTo22+MVCJZidEBFCI=;
+	b=4Drmrq5iYcQop8OPoKSOabSA17lA7nPanjyD0jNI8rkR529iRbz0DjgZR5o4PhhgfWnp
+	 aBnRBbVFLD2yfxlb4VUFIbGXbrbPt3brHmOlJ4O9AEeDjNMmGw6rpCeTel3REwRuR/Hff
+	 WD69ppmn31jXei95AG5zXEQoo6foyx8FE+8SAtWJenMmwuiy+PYwXO1JMKGMH7jNOa8ZF
+	 Jb07sP8pxwXYbYg2ubosYHS+mARwB6z+Vxu5EjCj7mxsFk//h91FtNSS54nNifO2LP2En
+	 NCyumruvGde0griPV1uJxYMd17vd5lWlSdS3rRSSjBo4yVx6/QvU22lZ5XpeW260F0Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tu1YX3Ns;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4BMf1P3;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 167B0606A32D;
-	Wed, 25 Nov 2026 01:28:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6161606A684;
+	Wed, 25 Nov 2026 01:28:39 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Tu1YX3Ns
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CEF81F000EF;
-	Wed, 25 Nov 2026 01:28:35 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4BMf1P3
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488D31F000CF;
+	Wed, 25 Nov 2026 01:28:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570116;
-	bh=E8359OUvmn7QJKn1lJO3S5uy8iyHhl5y1lBMxhcGp/4=;
+	s=k20260515; t=1795570119;
+	bh=/kcw1pc7QfhqDg5XVpmffRI63tTo22+MVCJZidEBFCI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Tu1YX3NsWqx7GZVhU/x/EWi9ykddxSU0vLi4YUtN2CR/Few1OGJMm8eJeRsUrzZ9b
-	 F0KK80u38ALLMkT2UX5H5Kc8LZMtZdOlIWwJILa8pcEuWLt1mOyYgb7N6AGUAA/N5q
-	 zBcpNdJjZEOgfGoBoxHZNSL8yuNEfmZcpknSPQg5lzaE6FNv7oGz/o0VcsTzr+B6OZ
-	 pZXOBg0SNntd0QhtwdJkUOuwo+grnAmY1G08VupkPpuzREl0pIe9as+/D82A6wqsZr
-	 HTI/ccGQEqLYl01bJoPu5vy7HPZiTzls7hhn1o5JFXMYW22wokTvdjNj9+YDA3e5uc
-	 HvKI+01x6piJQ==
-Subject: Re: [PATCH net v4 09/10] net: au1000: keep the MAC stopped until the
- PHY link is ready
+	b=m4BMf1P3cldnyycCPFODYxzbBPzETCKba97Mx8R1iU0U4fY7CSZt6Vvac6wzLrdGQ
+	 aTEB2KZSEbzU81gdatZ+WmEYrVyOg12/4MJN0EBZAI2WpGQDrQju3iXbTocEgizfwo
+	 CVSC0AQZ1IRgAW2dYYlTnhXzYcdqXff8A0hp95DAOVSUX/T5T7xuAWyfBUZFYD3LHl
+	 L6/Dqeb0Ni2IFIg4TKNIJ5gyKP1my8G/JSDY4sztIQ1yk8gAbQU4cl7z2Wtwz5aeie
+	 rUVIzluf03jVbWe/q2O37ytK+SQbbIb0v03Y5JhBPiZ3wNP56/FXRfrdOA4HqEROib
+	 m4hw93e/h0utg==
+Subject: Re: [PATCH wireless 2/2] wifi: mac80211: widen the mesh IE offsets a
+ u8 cannot hold
 From: netdev-bot+sashiko@kernel.org
-To: f.fainelli@gmail.com
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
- linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
- runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
- linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
-Date: Wed, 25 Nov 2026 01:28:34 +0000
-Message-ID: <179557011468.3135.5568658065903608607@kernel.org>
-In-Reply-To: <20261121004809.1690280-10-f.fainelli@gmail.com>
-References: <20261121004809.1690280-10-f.fainelli@gmail.com>
-X-sashiko-severity: High
+To: piyus@iiitd.ac.in
+Cc: johannes@sipsolutions.net, linux-wireless@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kapil@presceralabs.ai,
+ kuba@kernel.org
+Date: Wed, 25 Nov 2026 01:28:38 +0000
+Message-ID: <179557011887.3135.15766992632445342222@kernel.org>
+In-Reply-To: <20261124003526.78471-3-piyus@iiitd.ac.in>
+References: <20261124003526.78471-3-piyus@iiitd.ac.in>
+X-sashiko-severity: Critical
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,10 +64,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+Critical: 1 · High: 0 · Medium: 0 · Low: 1
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -78,223 +75,159 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] net: au1000: unattached PHYs on aup->mii_bus lack mac_managed_pm
-- [Medium] Setting `phydev->mac_managed_pm = true` in au1000_mii_probe()
-  turns off phylib's MDIO-bus system-sleep handling.
-- [Medium] When au1000_resume() fails, the interface is left in a state
-  it cannot leave once it is closed.
+- [Critical] The fix rests on a false premise, and it makes the series'
+  beacon-tail heap overflow reachable for the largest RSN IEs.
+- [Low] wifi: mac80211: Fixes trailer cites 2b5e19677592 instead of
+  082ebb0c258d
 
 --
 
-net: au1000: keep the MAC stopped until the PHY link is ready
+wifi: mac80211: widen the mesh IE offsets a u8 cannot hold
 
-The patch keeps MAC RX/TX disabled until au1000_adjust_link() acknowledges
-link up. It also stops the MAC on link-down and resumes the PHY
-synchronously in au1000_open() before au1000_init(). Finally, it adds
-system sleep callbacks that manage PHY and MAC power transitions, and sets
-mac_managed_pm so phylib's MDIO bus PM is skipped.
+This patch changes the locals in mesh_add_vendor_ies() from u8 to size_t
+and the RSN element length in mesh_add_rsn_ie() from u8 to unsigned int.
+The goal is to stop values derived from the mesh IE blob length from being
+truncated. The commit message says this is not a memory-safety change,
+because the preceding patch makes the two builders cover disjoint ranges.
 
-> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
-> index ec28ed33bf698..aa5fa318b23e2 100644
-> --- a/drivers/net/ethernet/amd/au1000_eth.c
-> +++ b/drivers/net/ethernet/amd/au1000_eth.c
-
-[ ... ]
-
-> @@ -553,6 +567,7 @@ static int au1000_mii_probe(struct net_device *dev)
->  	}
+> diff --git a/net/mac80211/mesh.c b/net/mac80211/mesh.c
+> index eb54bd98f282a..4ab776e174d9c 100644
+> --- a/net/mac80211/mesh.c
+> +++ b/net/mac80211/mesh.c
+> @@ -354,7 +354,7 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
+>  			struct sk_buff *skb)
+>  {
+>  	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
+> -	u8 offset, len;
+> +	size_t offset, len;
+>  	const u8 *data;
 >  
->  	phy_set_max_speed(phydev, SPEED_100);
-> +	phydev->mac_managed_pm = true;
->  
->  	aup->old_link = 0;
->  	aup->old_speed = 0;
+>  	if (!ifmsh->ie || !ifmsh->ie_len)
+> @@ -377,9 +377,9 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
+>  int mesh_add_rsn_ie(struct ieee80211_sub_if_data *sdata, struct sk_buff *skb)
+>  {
+>  	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
+> -	u8 len = 0;
+>  	const u8 *data;
+>  	size_t prefix;
+> +	unsigned int len;
 
-[Severity: High]
-Does this cover every phy_device on aup->mii_bus, or only the one that
-gets connected?
+[Severity: Low]
+The Fixes: tag points at 2b5e19677592 ("mac80211: cache mesh beacon").
+As far as I can tell, that commit did not add the u8 locals this patch
+widens. It moved the beacon-side calls to mesh_add_vendor_ies() and
+mesh_add_rsn_ie() into ieee80211_mesh_build_beacon(), and
+mesh_plink_frame_tx() kept calling both helpers as before.
 
-mdiobus_register() in au1000_probe() creates a phy_device for every
-address that answers. However, au1000_mii_probe() only sets
-mac_managed_pm on the one it passes to phy_connect().
+The helpers themselves look like they came in with 082ebb0c258d
+("mac80211: fix mesh beacon format"). That includes "u8 offset, len" in
+mesh_add_vendor_ies() and "u8 len = 0" in mesh_add_rsn_ie().
 
-On MTX-1, mtx1_au1000_eth0_pdata sets phy_search_highest_addr because
-the LAN83C183 answers at address 0 as well as at address 31. Both
-instances bind to the PHY driver, and the loop in au1000_mii_probe()
-picks address 31. That leaves the address 0 alias unattached with
-mac_managed_pm clear.
+The truncation predates the beacon caching. It also affects the peering
+frames built by mesh_plink_frame_tx(), not only the cached beacon.
+Should the tag be:
 
-For an unattached PHY with a bound driver, mdio_bus_phy_may_suspend()
-falls through to returning !phydev->suspended. The MDIO bus PM
-callbacks therefore still act on the alias.
+  Fixes: 082ebb0c258d ("mac80211: fix mesh beacon format")
 
-The phy_device instances are added to the PM list after the platform
-device, so mdio_bus_phy_suspend() on address 0 runs before
-au1000_suspend(). Its phy_suspend() powers down the same physical PHY
-through the alias. That removes the MII clocks while MAC RX/TX are
-still enabled. Isn't that the MTX-1 hang this patch is trying to
-prevent?
+instead? There is no runtime impact, but the tag decides which stable
+trees pick this up.
 
-On the way back up, mdio_bus_phy_resume() on the alias runs after
-au1000_resume(). Its phy_init_hw() and phy_resume() go through
-au1000_mdiobus_read() and au1000_mdiobus_write(), which call
-au1000_enable_mac(dev, 0).
+[Severity: Critical]
+The commit message says:
 
-For a down interface, that leaves the MAC clocked and out of reset
-again. This undoes the au1000_reset_mac() done in au1000_suspend().
-For a running interface, it reinitializes the PHY behind the back of
-the state machine that au1000_resume() has just restarted with
-phy_start().
+  "The extra IE blob a mesh join carries is bounded by
+  IEEE80211_MAX_DATA_LEN, 2304 bytes, and ifmsh->ie_len is a size_t."
 
-Would it be better to set mac_managed_pm on every phy_device found on
-aup->mii_bus? Alternatively, could the alias be kept from being
-registered at all through mii_bus->phy_mask on boards that set
-phy_search_highest_addr?
+Is that accurate? struct ieee80211_if_mesh in net/mac80211/ieee80211_i.h
+still declares:
 
-[ ... ]
+	const u8 *ie;
+	u8 ie_len;
 
-> @@ -972,6 +1003,81 @@ static int au1000_close(struct net_device *dev)
->  	return 0;
->  }
->  
-> +static int au1000_suspend(struct device *device)
-> +{
+struct mesh_setup::ie_len in include/net/cfg80211.h is a size_t.
+nl80211_parse_mesh_setup() sets it from nla_len() of NL80211_MESH_SETUP_IE,
+and the policy allows up to IEEE80211_MAX_DATA_LEN. copy_mesh_setup() in
+net/mac80211/cfg.c then does:
 
-[ ... ]
-
-> +	rtnl_lock();
-> +	if (netif_running(dev)) {
-> +		if (!netif_device_present(dev))
-> +			goto out;
-> +		netif_device_detach(dev);
-> +		netif_tx_disable(dev);
-> +		disable_irq(dev->irq);
-> +		/* Do not depend on phylib delivering a link-down callback. */
-> +		spin_lock_irqsave(&aup->lock, flags);
-> +		if (aup->mac_enabled)
-> +			au1000_disable_rx_tx(dev);
-> +		spin_unlock_irqrestore(&aup->lock, flags);
-> +		usleep_range(10000, 11000);
-> +		if (dev->phydev)
-> +			phy_stop(dev->phydev);
-> +	} else if (dev->phydev) {
-> +		ret = phy_suspend(dev->phydev);
-> +	}
-
-[ ... ]
-
-> +static int au1000_resume(struct device *device)
-> +{
-> +	struct net_device *dev = dev_get_drvdata(device);
-> +	struct au1000_private *aup = netdev_priv(dev);
-> +	unsigned long flags;
-> +	int ret = 0;
-> +
-> +	rtnl_lock();
-> +	if (!netif_running(dev))
-> +		goto out;
-
-[Severity: Medium]
-Can the PHY miss its re-initialization when the interface is down across
-system sleep?
-
-Setting mac_managed_pm in au1000_mii_probe() makes mdio_bus_phy_resume()
-return early:
-
-drivers/net/phy/phy_device.c:mdio_bus_phy_resume() {
-	if (phydev->mac_managed_pm)
-		return 0;
-	...
-	ret = phy_init_hw(phydev);
-	...
-	ret = phy_resume(phydev);
-	...
-}
-
-Before this patch, a PHY that phy_connect() had attached but that was never
-opened stayed resumed after phy_attach_direct(). The MDIO bus PM path then
-suspended it and ran phy_init_hw() followed by phy_resume() on wakeup.
-
-Now, if the interface is down, au1000_suspend() calls phy_suspend() and
-au1000_resume() returns here without touching the PHY. The next
-au1000_open() only calls phy_resume() and phy_start(), never phy_init_hw().
-
-If the PHY loses register state over suspend-to-RAM, does it come up after
-the next ifup without its soft_reset, fixups, config_init (for example
-smsc_phy_config_init() on LAN87xx parts) and config_intr re-applied? The
-LAN83C183 on MTX-1 has no config_init or soft_reset, but other Au1x00
-boards use PHYs that do.
-
-The running-interface path below does call phy_init_hw(). Should the
-inactive path do the same, either here or in au1000_open()?
-
-> +
-> +	spin_lock_irqsave(&aup->lock, flags);
-
-[ ... ]
-
-> +	if (dev->phydev) {
-> +		ret = phy_init_hw(dev->phydev);
-> +		if (ret)
-> +			goto err_reset;
-> +		ret = phy_resume(dev->phydev);
-> +		if (ret)
-> +			goto err_reset;
-> +	}
-> +
-> +	au1000_init(dev);
-> +	enable_irq(dev->irq);
-> +	if (dev->phydev)
-> +		phy_start(dev->phydev);
-> +	netif_device_attach(dev);
-> +	goto out;
-> +
-> +err_reset:
-> +	au1000_reset_mac(dev);
-> +out:
-> +	rtnl_unlock();
-> +	return ret;
-> +}
-
-[Severity: Medium]
-What state is the interface left in if phy_init_hw() or phy_resume() fails
-here, for example with -ETIMEDOUT from au1000_mdio_read() or
-au1000_mdio_write()?
-
-The err_reset path only resets the MAC. The PHY stays in PHY_HALTED from
-the phy_stop() in au1000_suspend(), the IRQ stays disabled and the netdev
-stays detached, while netif_running() is still true.
-
-If the interface is then brought down, au1000_close() calls phy_stop()
-unconditionally. PHY_HALTED fails the check at the top of phy_stop():
-
-drivers/net/phy/phy.c:phy_stop() {
-	if (!phy_is_started(phydev) && phydev->state != PHY_DOWN &&
-	    phydev->state != PHY_ERROR) {
-		WARN(1, "called from state %s\n",
-		     phy_state_to_str(phydev->state));
-		return;
-	}
-	...
-}
-
-A later ifup then fails because the device is still detached:
-
-net/core/dev.c:__dev_open() {
-	if (!netif_device_present(dev)) {
+	if (setup->ie_len) {
+		new_ie = kmemdup(setup->ie, setup->ie_len,
+				GFP_KERNEL);
 		...
-		if (!netif_device_present(dev))
-			return -ENODEV;
 	}
-	...
-}
+	ifmsh->ie_len = setup->ie_len;
 
-Another suspend/resume cycle does not recover it either. With
-netif_running() false, au1000_resume() takes the early goto out above and
-never calls netif_device_attach().
+So the buffer holds the whole blob, but only the low 8 bits of its length
+are stored.
 
-Does this turn a possibly transient MDIO error during resume into an
-interface that cannot be used again until the driver is rebound?
+ifmsh->ie_len is never above 255, so the vendor IE case in the commit
+message (vendor IEs starting past byte 255) can't reach
+mesh_add_vendor_ies() as described. The truncation still happens, just
+earlier, at the struct field.
+
+If the blob length is a multiple of 256, ie_len becomes 0. Both builders
+then return early and a secure mesh drops its RSN IE.
+mesh_plink_frame_tx() in mesh_plink.c also sizes peering frames from the
+same u8 field.
+
+Widening offset is also not a complete no-op. When the vendor split
+overshoots the truncated ie_len, the old u8 offset wrapped and a few bytes
+got copied. Now nothing is copied.
+
+More importantly, can the wider len now overflow the beacon_data
+allocation in ieee80211_mesh_build_beacon()?
+
+validate_ie_attr() checked the element chain against the full nla_len.
+ieee80211_ie_split_vendor() steps through the blob by the real element
+lengths:
+
+	while (pos < ielen && ies[pos] != WLAN_EID_VENDOR_SPECIFIC)
+		pos += 2 + ies[pos + 1];
+
+With a truncated ielen, it can step over an element that crosses the
+truncated end. It then returns a prefix larger than ifmsh->ie_len.
+mesh_add_rsn_ie() then does:
+
+	prefix = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
+	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, prefix);
+
+Take a 257-byte RSN IE (length byte 255) followed by a 3-byte element.
+That gives nla_len = 260, ifmsh->ie_len = 4 and prefix = 257. The RSN IE
+is found, and with unsigned int len all 257 bytes are emitted. Before this
+patch, the u8 len wrapped this to 1 (and 256 to 0).
+
+ieee80211_mesh_build_beacon() only budgets the truncated length:
+
+	tail_len = ... +
+		   ifmsh->ie_len;
+
+	bcn = kzalloc(sizeof(*bcn) + head_len + tail_len, GFP_KERNEL);
+	/* need an skb for IE builders to operate on */
+	skb = __dev_alloc_skb(max(head_len, tail_len), GFP_KERNEL);
+
+The skb_tailroom() checks in the builders only bound the scratch skb. Its
+head is rounded up by the allocator, so its tailroom can be much larger
+than tail_len, for example on HE/EHT hardware with a long mesh ID. The
+copy at the end then writes past bcn:
+
+	bcn->tail_len = skb->len;
+	memcpy(bcn->tail, skb->data, bcn->tail_len);
+
+The preceding patch, "wifi: mac80211: do not copy the mesh RSN IE twice
+into the beacon", argues that the split returns an element boundary not
+past ifmsh->ie_len. That rests on the same assumption, so similar layouts
+with smaller RSN IEs look like they already overflow there.
+
+Would it be better to make struct ieee80211_if_mesh::ie_len a size_t to
+match mesh_setup and the nl80211 policy? Rejecting setup->ie_len > 255 in
+copy_mesh_setup(), or clamping prefix to ifmsh->ie_len in
+mesh_add_rsn_ie(), would also work.
+
+The "Neither is a memory-safety problem" statement in the commit message
+may also need revisiting.
+
+>  
+>  	if (!ifmsh->ie || !ifmsh->ie_len)
+>  		return 0;
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121004809.1690280-1-f.fainelli%40gmail.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124003526.78471-2-piyus%40iiitd.ac.in
