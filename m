@@ -1,61 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619335;
-	b=WOSPpgb9q1P8Dk7K1xeJziS/JLUg5pU7q64TLAVG0rLzuEulYfWJcbfI1VkU8PQo3p4M
-	 +DFvboBvgb0t+ggUDhvD2LkiNg42DJ+iND8aBykS4MC58cJtmrY0iewcBMXhk17uLFpMI
-	 7rsckR8ng/mOmck8Ht1S1vpI/NK9lTWHLOqs9TdZUiH6cZ1Co/7TL+uB1mySimKeJSGPY
-	 yElyei/18v5VY+2OiTPb6HwUo5P1gUCI7/+XV5N/IloOvQzaN8HLRTmgv1fZ6yrJik3K8
-	 RHI+sSgCd4Q/n8LPlEWNxIZFa6H+KmNpEgd+9TKaXIEs0BlZHx9xWoBAGOZ6M5fXKFw==
+	t=1795619336;
+	b=hXGnubMudy2MyxctW5ccNPDhwjpvI9lD1/PQLCadgsa5LbLy66DPdVJCPfTLyVSH6vFz
+	 PIwh2AtqrNlo4utFB9isYpCW9C5zqX/atxE2ozQFlqxRQNR37pfOUVSH5nZ0oEFbiiz4m
+	 yqTAim9fTPc1NtuizJ+bpZ6A8ejxnxQGLEm3PFH6CHEMUnwJfLILzcHYSSb8XiZHu/+YO
+	 xkDqHYseF8RlCgazeoTpSSZKoDOk0xpQYygIN/XEp8G7xFT56AeQidsRnAnr6YTDFDhoZ
+	 R8ISVnTvOPnOCxkMPfseXBVR+RMC4TsbAxrQQFMWj+jFrnDh2VVOAbYszMQe3UsajZg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619335;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619336;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=n5cF3s3N7pWU3PiKTalYfogLnqIPzbP6ZoweIi9h20U=;
-	b=PhhmeX/aJ+V0ioYQSHPqwxT8u89GQU+4Jsanp+JqCshGkNWqzBJ1vTcsitNtQF7AojSZ
-	 9BDGXyV8ki9IFmqWon61rvSQxjVXOerj27nih6dEEOUY0sDoIfWCIxRk5MKnNZXPf6zaJ
-	 XKG9GMaDm1kjoMEbcxpck44/Y54dk3lTPywYGFuf3IPZqAtbypZrwMtKqh9oIb6tdjR/Y
-	 L4l66CmjI++MW12J/OfMG0FGxExsnMK2OYbCRwg8R1C6FVJCgSFIB/1znZ4iZUABYcmQQ
-	 UUos1sdmY7eKRfUGRUIYj6Ul9L1Ugc2yB+2yPLXD4NvkkK60+pE8NtV2B/IKUA7Qucw==
+	bh=ylUBh491hf4LFInZUCVQvpnRSa5T9z/gjbnH1xTjgQ8=;
+	b=TBwn7+ZA92neXbOqAAskCol9jvKjfhSlrLNJvL9cwl9AcwCEDblNO0ri/WgOb7l9Fwi0
+	 NnmhAA2PaVO3TSZfPk4Fg+KGCKIXa5QZz/qO0xAYHywODG+uyQrls86inTpKGU3AkOJxf
+	 2A1l7WSfCz1qazmQ/6r4ptjfe9PZCP3I1VinAhb+9HY4v1jKVUNB+ngW4eO7hE0DpiYia
+	 4HCQDii8yzf1QUEum0PSsoeAlfmwTKdA4oJMwJe/hyZk+Hsh/IeyObfIh3Dut3Ji91yak
+	 CrlUrWKEYHuGjJjQGnIOm2BgI+tS2Op+XMDZQnP6OrmpkGPF+Sh5Fb4HRDpqtLJshwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0Z0vJP+;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="AVhsMJl/";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F56B606A33C;
-	Wed, 25 Nov 2026 15:08:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B9838606A337;
+	Wed, 25 Nov 2026 15:08:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k0Z0vJP+
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE4061F000C0;
-	Wed, 25 Nov 2026 15:08:53 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=AVhsMJl/
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 373141F000CA;
+	Wed, 25 Nov 2026 15:08:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619335;
-	bh=n5cF3s3N7pWU3PiKTalYfogLnqIPzbP6ZoweIi9h20U=;
+	s=k20260515; t=1795619336;
+	bh=ylUBh491hf4LFInZUCVQvpnRSa5T9z/gjbnH1xTjgQ8=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=k0Z0vJP+91w5m9SI1iM32YY9t2t29GdoL6p0ySqljn0L/U/lMAkExEoFCV2ScR16V
-	 QGuYf4juz5uQ+INdv83ThXFBsWhx/Ddadg5brxkgxJ6M3sLUPF/UXMtm4cBLGOcqgr
-	 GqBQ4AUnSicIDQWu2m68mWUcOLe50IDHMBC5pOx3cvId4ZzcBe3imEKbTa1yV3jqwk
-	 iSjO5OTsVC9wXRp/LWs9B1MJgsdUIK7DVmvyZgVqupmxPyVNQlI02GCHihHwn8e2Y0
-	 CkHnAOqiok+tux603ulwANecfNBFlbkzdb9RZKJvhzSrluilM+pkGc0vuxvLJ6h5xR
-	 0Tsb0dSIlJSTg==
-Subject: Re: [PATCH net-next v9 2/2] net: ti: icssg-prueth: Add ethtool ops
- for Frame Preemption MAC Merge
+	b=AVhsMJl/10WhWu3CinPAwSY2CdIyzYMJ1MYVhnoMSMRo9UtTWejf9x0eZbtNd04mY
+	 KEv8811SFtU1D1V9GpP42EdouN7nnSubHDLnAE4UNplwAORBmvj8ljW9TTtMdSzSVI
+	 /h8e4Vz3QcTECo1eMEq3ljyHhFEzGZ2u5UOLOQlhdSKugz4puYBx32ySoUk5DeSI0H
+	 uQYrxRKj1f3iqTm/+tfwVxfyLRrxvifumFI6w7CKS3Sx0LnLShK9et4LkrGmc0gX1v
+	 vjcva2ME7YMNrp0uO3bC/15u4285ga8opyaVxkLtWFH2ET+bDOrh0H2bpU930EMM2q
+	 7MGvccumum6oQ==
+Subject: Re: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
 From: netdev-bot+sashiko@kernel.org
-To: m-malladi@ti.com
-Cc: marco.crivellari@suse.com, haokexin@gmail.com, kees+treewide@kernel.org,
- laixiangwu@cmss.chinamobile.com, arnd@arndb.de, horms@kernel.org,
- basharath@couthit.com, parvathi@couthit.com, vladimir.oltean@nxp.com,
- rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com, kuba@kernel.org,
- edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
- linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, srk@ti.com, vigneshr@ti.com
-Date: Wed, 25 Nov 2026 15:08:53 +0000
-Message-ID: <179561933355.3135.14778128780862239242@kernel.org>
-In-Reply-To: <20261121144618.180542-3-m-malladi@ti.com>
-References: <20261121144618.180542-3-m-malladi@ti.com>
-X-sashiko-severity: Medium
+To: leegun25@proton.me
+Cc: alex.aring@gmail.com, stefan@datenfreihafen.org, miquel.raynal@bootlin.com,
+ linux-wpan@vger.kernel.org, netdev@vger.kernel.org, kuba@kernel.org
+Date: Wed, 25 Nov 2026 15:08:55 +0000
+Message-ID: <179561933580.3135.16839129837492499512@kernel.org>
+In-Reply-To: <20261121150835.256812-1-leegun25@proton.me>
+References: <20261121150835.256812-1-leegun25@proton.me>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,10 +62,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 7 potential
+Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 4 · Low: 3
+Critical: 0 · High: 3 · Medium: 0 (1) · Low: 0 (1)
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -79,357 +73,267 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] emac_get_mm_stats()
-  (drivers/net/ethernet/ti/icssg/icssg_ethtool.c) fills the u64 fields…
-- [Medium] The new .get_mm()/.set_mm() report MAC Merge state in a way
-  that breaks the ethtool MM uAPI contract.
-- [Medium] After a failed emac_set_mm() with verification enabled, the
-  driver is left with iet->fpe_enabled=false and…
-- [Medium] PRE_EMPTION_VERIFY_STATUS is firmware-owned DRAM.
-- [Low] The commit message says "emac_set_mm() programs all config fields
-  into hardware before invoking icssg_config_ietfpe()", and the comment…
-- [Low] icssg_qos_validate_tx_min_frag_size() in
-  drivers/net/ethernet/ti/icssg/icssg_qos.h re-implements the core…
-- [Low] The commit message says that on failure 'the fallback path in
-  icssg_config_ietfpe() already disables TX preemption in hardware', and…
+- [High] The new rtnl_lock() in mac802154_process_association_req()
+  (net/mac802154/scan.c:833) makes the rx_mac_cmd worker wait on the…
+- [High] A remote ASSOC REQ can still reach
+  WARN_ON_ONCE(!netif_running(sdata->dev)) in…
+- [High] mac802154: RTNL self-deadlock on same-host association in
+  mac802154_process_association_req()
+
+Pre-existing issues:
+- [Medium] This problem wasn't introduced by this patch, but in
+  mac802154_process_association_req() (net/mac802154/scan.c:891-899) the…
+- [Low] This problem wasn't introduced by this patch, but
+  mac802154_process_association_req() checks wpan_dev->pan_id,…
 
 --
 
-net: ti: icssg-prueth: Add ethtool ops for Frame Preemption MAC Merge
+mac802154: take RTNL around ASSOC RESP transmission
 
-This adds .get_mm(), .set_mm() and .get_mm_stats() to the icssg ethtool
-ops, along with PA stats registers for the preemption counters. It also
-moves the stat table sizes to ARRAY_SIZE(), validates tx_min_frag_size,
-and initializes verify_status to the disabled state in icssg_qos_init().
+This commit makes mac802154_process_association_req() take the RTNL
+before association_lock. The goal is to stop the ASSOC RESP sent from the
+rx_mac_cmd worker through ieee802154_mlme_tx_locked() from tripping
+ASSERT_RTNL(). The RTNL is released after association_lock on every exit.
 
-> emac_set_mm() programs all config fields into hardware before invoking
-> icssg_config_ietfpe(). On failure the fallback path in
-> icssg_config_ietfpe() already disables TX preemption in hardware, so
-> only fpe_enabled is forced off; the other fields (tx_min_frag_size,
-> verify_time_ms, mac_verify_configure) are kept as programmed to keep
-> driver and hardware state consistent.
-
-[Severity: Low]
-Is this description accurate? emac_set_mm() does not touch any registers
-itself. It only assigns iet->verify_time_ms, tx_min_frag_size,
-fpe_enabled and mac_verify_configure.
-
-All register writes happen inside icssg_config_ietfpe(), and only when
-the link is up:
-
-	if (!READ_ONCE(emac->link)) {
-		netdev_dbg(ndev, "cannot change IET/FPE state when interface is down\n");
-		return 0;
-	}
-
-PRE_EMPTION_VERIFY_TIME is written only when enable &&
-iet->mac_verify_configure. The fallback path then clears verify enable
-again:
-
-fallback:
-	writeb(0, config + PRE_EMPTION_ENABLE_TX);
-	writeb(0, config + PRE_EMPTION_ENABLE_VERIFY);
-
-So after a failure, the retained mac_verify_configure no longer matches
-hardware. The comment in the emac_set_mm() error branch ("New config
-values are already programmed in HW registers") has the same problem.
-
-Could the commit message and the comment describe what the error path
-actually does? A failed set_mm returns an error but leaves the new values
-visible via get_mm.
-
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> index b715af21d23ac..26892b603e1db 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_ethtool.c
-
-[ ... ]
-
-> @@ -294,6 +297,121 @@ static int emac_set_per_queue_coalesce(struct net_device *ndev, u32 queue,
->  	return 0;
->  }
+> diff --git a/net/mac802154/scan.c b/net/mac802154/scan.c
+> index d393b1f4e74e4..49bc5d29b4ee0 100644
+> --- a/net/mac802154/scan.c
+> +++ b/net/mac802154/scan.c
+> @@ -826,6 +826,11 @@ int mac802154_process_association_req(struct ieee802154_sub_if_data *sdata,
+>  		return -ENODEV;
+>  	}
 >  
-> +static int emac_get_mm(struct net_device *ndev, struct ethtool_mm_state *state)
-> +{
-
-[ ... ]
-
-> +	mutex_lock(&iet->fpe_lock);
-> +	state->tx_enabled = iet->fpe_enabled;
-> +	state->tx_min_frag_size = iet->tx_min_frag_size;
-> +	state->verify_enabled = iet->mac_verify_configure;
-> +	state->verify_time = iet->verify_time_ms;
-> +	state->tx_active = iet->fpe_active;
-> +	verify_status = iet->verify_status;
-> +	mutex_unlock(&iet->fpe_lock);
-
-[ ... ]
-
-> +	case ICSSG_IETFPE_STATE_FAILED:
-> +		state->verify_status = ETHTOOL_MM_VERIFY_STATUS_FAILED;
-> +		break;
-
-[Severity: Medium]
-Can emac_get_mm() ever reach this case, or the VERIFYING and INITIAL
-cases?
-
-When verification fails, icssg_iet_verify_wait() stores
-ICSSG_IETFPE_STATE_FAILED in iet->verify_status. icssg_config_ietfpe()
-then goes through disable_tx to fallback and overwrites it while
-fpe_lock is still held:
-
-disable_tx:
-	icssg_set_port_state(emac, ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
-fallback:
-	...
-	iet->verify_status = ICSSG_IETFPE_STATE_DISABLED;
-
-emac_get_mm() reads verify_status under the same fpe_lock, so it looks
-like it can only see the disabled or succeeded states.
-
-emac_set_mm() also forces fpe_enabled to false and keeps
-mac_verify_configure set. After "ethtool --set-mm ethX verify-enabled on
-tx-enabled on" against a partner that does not support preemption,
-MM_GET would report verify-enabled on, verify status disabled,
-tx-enabled off and tx-active off.
-
-Documentation/networking/ethtool-netlink.rst says that when
-ETHTOOL_A_MM_VERIFY_ENABLED is true, the verify status should report
-something other than initial or disabled. It also describes tx-enabled
-as the administrative state, which may be inactive if verification
-failed, with tx-active carrying the operational state.
-
-The link-up and mqprio paths (icssg_qos_link_state_update() and
-emac_tc_setup_mqprio() calling icssg_iet_change_preemptible_tcs(), which
-calls icssg_config_ietfpe()) hit the same failure but leave fpe_enabled
-true. So the same hardware outcome is reported differently depending on
-the path.
-
-Should the failed status be kept for get_mm, and tx_enabled be left as
-the admin state?
-
-> +
-> +	/* 802.3-2018 clause 30.14.1.6, says that the aMACMergeVerifyTime
-> +	 * variable has a range between 1 and 128 ms inclusive. Limit to that.
+> +	/* mac802154_send_association_resp_locked() uses the MLME TX helpers,
+> +	 * which require the RTNL.  Take it before association_lock to keep the
+> +	 * same lock order as the netlink paths (RTNL then association_lock).
 > +	 */
-> +	state->max_verify_time = ETHTOOL_MM_MAX_VERIFY_TIME_MS;
-> +
-> +	return 0;
-> +}
-> +
-> +static int emac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
-> +		       struct netlink_ext_ack *extack)
-> +{
+> +	rtnl_lock();
+>  	mutex_lock(&wpan_dev->association_lock);
 
-[ ... ]
+[Severity: High]
+Does this turn every same-host association into a 10 second stall
+of the global RTNL?
 
-> +	mutex_lock(&iet->fpe_lock);
-> +	iet->verify_time_ms = cfg->verify_time;
-> +	iet->tx_min_frag_size = cfg->tx_min_frag_size;
-> +	iet->fpe_enabled = cfg->tx_enabled;
-> +	iet->mac_verify_configure = cfg->verify_enabled;
-> +	err = icssg_config_ietfpe(ndev, cfg->tx_enabled);
+NL802154_CMD_ASSOCIATE is registered with NL802154_FLAG_NEED_RTNL, so
+nl802154_pre_doit() takes rtnl_lock() and holds it until
+nl802154_post_doit(). In between, the call chain is:
 
-[Severity: Medium]
-Is PRE_EMPTION_VERIFY_STATUS ever reset before a new verification
-starts? icssg_iet_verify_wait() only polls it:
+nl802154_associate()
+  rdev_associate()
+    mac802154_associate()
+      mac802154_perform_association()
+        ieee802154_mlme_tx_one_locked()    /* sends ASSOC REQ */
+        wait_for_completion_killable_timeout(&local->assoc_done,
+                                             10 * HZ);
 
-	ret = readb_poll_timeout(config + PRE_EMPTION_VERIFY_STATUS,
-				 status,
-				 status == ICSSG_IETFPE_STATE_SUCCEEDED ||
-				 status == ICSSG_IETFPE_STATE_FAILED,
-				 delay_us,
-				 timeout_us);
+The coordinator may be another interface on the same kernel, such as
+a second mac802154_hwsim radio or a second local transceiver. In that
+case its rx_mac_cmd worker now enters
+mac802154_process_association_req() and blocks in rtnl_lock().
+rtnl_mutex is global, so putting the two interfaces in different
+network namespaces does not help. The ASSOC RESP cannot be sent until
+the associating thread gives up:
 
-readb_poll_timeout() reads before it sleeps, so the first read happens
-right after icssg_set_port_state() returns. If the firmware updates this
-byte some time after acking the R30 command, a value left over from an
-earlier attempt would decide the result.
+1. The node thread holds the RTNL and sleeps on assoc_done.
+2. The coordinator worker sleeps in rtnl_lock() for the full
+   10 * HZ.
+3. mac802154_perform_association() returns -ETIMEDOUT and clears
+   IEEE802154_IS_ASSOCIATING. nl802154_post_doit() then drops the
+   RTNL.
+4. The worker gets the RTNL, sends the late ASSOC RESP and adds the
+   node to wpan_dev->children. The node has already reported failure
+   and will drop the response.
 
-A stale failed value would make the next emac_set_mm() fail at once with
--EIO, even after the partner is fixed. A stale succeeded value (disable,
-then re-enable towards a partner that no longer supports preemption)
-would turn on preemption without a fresh verification.
+So the association fails every time. For those 10 seconds every other
+RTNL user on the system waits behind it, including link and address
+changes and other rtnetlink requests. Before this patch the same
+setup worked. ASSERT_RTNL() in ieee802154_mlme_tx_locked() only
+checks rtnl_is_locked(), and the node thread was holding the RTNL.
 
-The non-verify branch waits usleep_range(100, 200) for the firmware to
-update PRE_EMPTION_ACTIVE_TX. The verify branch reads
-PRE_EMPTION_ACTIVE_TX right after seeing the succeeded state, with no
-settle delay.
+The hwsim runs in the commit message use a monitor and a coordinator
+and never issue the associate command. Lockdep does not track
+completions either, so none of those runs would have shown this.
 
-This depends on firmware behaviour that the driver can't see. Before
-this series nothing set fpe_enabled to true, so emac_set_mm() is the
-first path that lets userspace re-run this sequence repeatedly.
+Is the RTNL really what the response TX needs here? Could the TX path
+used from the rx_mac_cmd worker be protected by a narrower lock
+instead? Or could mac802154_perform_association() avoid holding the
+RTNL while it waits on assoc_done?
 
-Would writing a non-terminal value such as ICSSG_IETFPE_STATE_INITIAL to
-the status byte before sending the command avoid this?
+[Severity: High]
+Can this rtnl_lock() stall a local associate request until it times out?
 
-> +	if (err) {
-> +		/* icssg_config_ietfpe fallback disabled TX preemption in HW.
-> +		 * New config values are already programmed in HW registers,
-> +		 * so keep them. Only force fpe_enabled off to match HW state
-> +		 * and prevent silent re-enable on the next link event.
-> +		 */
-> +		iet->fpe_enabled = false;
+The netlink associate path holds the RTNL for the whole time it waits for
+the ASSOC RESP. NL802154_CMD_ASSOCIATE has NL802154_FLAG_NEED_RTNL, so
+pre_doit takes the RTNL, and then:
 
-[Severity: Medium]
-Does leaving mac_verify_configure set here make later partial MM_SET
-requests fail?
+nl802154_associate()
+  mutex_lock(&wpan_dev->association_lock);
+  rdev_associate()
+    mac802154_associate()                /* ASSERT_RTNL() */
+      mac802154_perform_association()
+        wait_for_completion_killable_timeout(&local->assoc_done, 10 * HZ);
 
-After a failed verification, emac_get_mm() reports tx_enabled=false and
-verify_enabled=true. ethnl_set_mm() builds cfg from get_mm() through
-mm_state_to_cfg() and overrides only the attributes the user supplied.
-It then checks:
+Take two PHYs on the same host, for example the usual two-radio
+mac802154_hwsim setup. There is a coordinator interface on phy0 and a
+node on phy1 running associate:
 
-net/ethtool/mm.c:ethnl_set_mm() {
+1. The node's netlink thread holds the RTNL and waits on assoc_done.
+2. phy0 receives the ASSOC REQ, and its rx_mac_cmd worker enters
+   mac802154_process_association_req().
+3. With this patch the worker blocks in rtnl_lock() until the node's
+   10 second timeout expires.
+4. The node returns -ETIMEDOUT and clears IEEE802154_IS_ASSOCIATING.
+   The ASSOC RESP that phy0 sends after that is dropped by the node's
+   rx path because mac802154_is_associating() is false.
+5. If that TX was ACKed, the coordinator still adds the node to
+   wpan_dev->children, so the two sides disagree about the association.
+
+Before this patch the cross-PHY case worked. ASSERT_RTNL() only checks
+the global rtnl_is_locked(), and the node's netlink thread was holding the
+RTNL. Each wpan_dev also has its own association_lock.
+
+There is also a same-PHY variant that already existed. Each PHY has a
+single-threaded mac_wq. If a coordinator with parent == NULL is itself
+associating, an ASSOC REQ queued ahead of the parent's ASSOC RESP blocks
+the worker that has to deliver that RESP. Before this patch it blocked on
+association_lock. Now it blocks on the RTNL first.
+
+This change also invalidates an assumption stated in commit 2f37fba846c9
+("mac802154: fix use-after-free of sdata via queued RX frames"): "A worker
+blocked in an association TX ... does not hold rtnl". The commit message
+does not mention this.
+
+The PROVE_LOCKING runs in the commit message would not catch this
+problem. Lockdep does not model completions, and the tests described
+never run the associate command.
+
+[Severity: High]
+Can a remote ASSOC REQ still reach the WARN_ON_ONCE() in
+ieee802154_mlme_tx_locked() with this change?
+
+The only running-state check is done without any lock held, in
+mac802154_rx_mac_cmd_worker():
+
+	if (ieee802154_sdata_running(mac_pkt->sdata))
+		mac802154_rx_mac_cmd(local, mac_pkt);
+
+Nothing checks it again after the RTNL is taken here. Here is a race with
+"ip link set <coord> down":
+
+1. dev_close() holds the RTNL and calls mac802154_slave_close().
+2. mac802154_slave_close() decrements local->open_count and clears
+   SDATA_STATE_RUNNING.
+3. A monitor interface may be up on the same PHY, which
+   ieee802154_check_concurrent_iface() allows. If so, open_count stays
+   non-zero.
+4. The worker passed the check before ndo_stop ran. It sleeps in
+   rtnl_lock() until the close completes.
+5. The worker then continues:
+
+mac802154_send_association_resp_locked()
+  ieee802154_mlme_tx_locked()
+	if (!local->open_count)        /* false, monitor still open */
+		return -ENETDOWN;
 	...
-	if (cfg.verify_enabled && !cfg.tx_enabled) {
-		NL_SET_ERR_MSG(extack, "Verification requires TX enabled");
-		return -EINVAL;
+	if (WARN_ON_ONCE(!netif_running(sdata->dev)))   /* fires */
+		return -ENETDOWN;
+
+With panic_on_warn=1 this is the same panic the commit message says it
+removes.
+
+Before this patch the window was a short lockless race. Now any worker
+that is waiting for the RTNL while ndo_stop runs will see the closed
+state. The rx_mac_cmd_list is also not flushed on close.
+
+Would it make sense to check ieee802154_sdata_running(sdata) and
+netif_running(sdata->dev) again after rtnl_lock(), and return -ENETDOWN
+if either is false?
+
+[Severity: Low]
+This isn't a bug introduced by this patch, but the checks at the top of
+mac802154_process_association_req() run before rtnl_lock() and
+association_lock are taken. They read wpan_dev->pan_id, extended_addr,
+short_addr and parent, for example:
+
+	if (wpan_dev->parent) {
+		dev_dbg(&sdata->dev->dev,
+			"Ignoring ASSOC REQ, not the PAN coordinator\n");
+		return -ENODEV;
 	}
+
+The writers hold those locks:
+
+mac802154_associate() {
+	...
+	wpan_dev->pan_id = coord->pan_id;
+	wpan_dev->short_addr = short_addr;
+	wpan_dev->parent = parent;
 	...
 }
 
-So a request like "ethtool --set-mm ethX verify-time 10" or
-"tx-min-frag-size 124" gets -EINVAL until the user also passes
-tx-enabled or verify-enabled.
+On the same PHY, this sequence is possible:
 
-Should this branch also clear mac_verify_configure, or restore both
-fields together?
+1. The worker handles the parent's ASSOC RESP and completes assoc_done.
+2. The worker picks up a later ASSOC REQ, reads parent == NULL and
+   blocks on rtnl_lock().
+3. mac802154_associate() sets wpan_dev->parent and drops the locks.
+4. The worker accepts and records a child as if it were still the PAN
+   coordinator. It may also answer a request addressed to the old
+   pan_id.
 
-[Severity: Low]
-Does the fallback really disable TX preemption in firmware when the
-enable command itself fails? In icssg_config_ietfpe():
+The same window existed before through association_lock. Should these
+checks be done after the locks are taken?
 
-	ret = icssg_set_port_state(emac,
-				   enable ? ICSSG_EMAC_PORT_PREMPT_TX_ENABLE :
-					    ICSSG_EMAC_PORT_PREMPT_TX_DISABLE);
-	if (ret) {
-		netdev_err(ndev, "TX preempt %s command failed\n",
-			   str_enable_disable(enable));
-		goto fallback;
-	}
-
-This skips disable_tx, so no ICSSG_EMAC_PORT_PREMPT_TX_DISABLE command
-is sent. The fallback only rewrites the PRE_EMPTION_ENABLE_TX and
-PRE_EMPTION_ENABLE_VERIFY config bytes. icssg_set_port_state() returns
--ETIMEDOUT after polling and leaves the posted command words in place.
-
-If the firmware was only slow and finishes the enable command later,
-could firmware preemption become active while the driver records
-fpe_enabled=false and fpe_active=false, and get_mm() reports
-tx_active=false?
-
-Whether the firmware acts on a timed-out command is not visible from the
-driver. The impact looks small, because icssg_iet_set_preempt_mask()
-with fpe_active=false keeps all queues express.
-
-Would going through disable_tx on this failure be a safer rollback?
-
-> +	}
-> +	mutex_unlock(&iet->fpe_lock);
-> +
-> +	return err;
-> +}
-> +
-> +static void emac_get_mm_stats(struct net_device *ndev,
-> +			      struct ethtool_mm_stats *s)
-> +{
+>  
+>  	memcpy(&assoc_req_pl, skb->data, sizeof(assoc_req_pl));
 
 [ ... ]
 
-> +	spin_lock(&emac->prueth->stats_lock);
-> +	/* MACMergeHoldCount stats is not tracked by the firmware */
-> +	s->MACMergeFrameAssOkCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_OK");
-> +	s->MACMergeFrameAssErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_ASSEMBLY_ERR");
-> +	s->MACMergeFragCountRx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_RX");
-> +	s->MACMergeFragCountTx = emac_get_stat_by_name(emac, "FW_PREEMPT_FRAG_CNT_TX");
-> +	s->MACMergeFrameSmdErrorCount = emac_get_stat_by_name(emac, "FW_PREEMPT_BAD_FRAG");
+> @@ -895,6 +900,7 @@ int mac802154_process_association_req(struct ieee802154_sub_if_data *sdata,
+>  
+>  unlock:
+>  	mutex_unlock(&wpan_dev->association_lock);
+> +	rtnl_unlock();
+>  	return ret;
+>  }
 
 [Severity: Medium]
-Does this truncate the MAC Merge counters? emac_get_stat_by_name()
-returns int:
+This is a pre-existing issue, but does the duplicate-child handling just
+above the unlock label leak exchild?
 
-int emac_get_stat_by_name(struct prueth_emac *emac, char *stat_name)
-{
-	...
-			if (!strcmp(icssg_all_pa_stats[i].name, stat_name))
-				return emac->pa_stats[i];
-	...
-}
+	exchild = cfg802154_device_is_child(wpan_dev, &tmp);
+	if (exchild) {
+		dev_dbg(&sdata->dev->dev,
+			"Child %8phC was already known\n", &ceaddr);
+		list_del(&exchild->node);
+	}
 
-emac->pa_stats[] are u64 accumulators, updated with emac->pa_stats[i] +=
-val in emac_update_hardware_stats(). Each value is cut to a signed
-32-bit int and then sign-extended into the u64 fields of struct
-ethtool_mm_stats.
+	list_add(&child->node, &wpan_dev->children);
+	wpan_dev->nchildren++;
 
-Once a counter passes INT_MAX, "ethtool --show-mm --include-statistics"
-would show values near 2^64. Past 2^32 the counter wraps. Holding
-stats_lock prevents torn reads, but the truncation happens after the
-read.
+With alloc_addr == 0, the lookup finds the old entry. It is unlinked but
+never freed, and nchildren is still incremented. The count then overstates
+the list by one per re-association.
 
-The int return type predates this patch (the changelog says it will be
-fixed separately). However, these five call sites are the first to
-expose it through the standard MM stats uAPI.
+With alloc_addr == 1, which Linux nodes always set, tmp.mode is
+IEEE802154_SHORT_ADDRESSING. cfg802154_pan_device_is_matching() always
+rejects that mode:
 
-Since stats_lock is already held, could this read emac->pa_stats[]
-directly, or could the helper return u64?
+	if (ext_dev->mode == IEEE802154_ADDR_SHORT)
+		return false;
 
-> +	spin_unlock(&emac->prueth->stats_lock);
-> +}
+So duplicates pile up on wpan_dev->children and nchildren keeps growing.
 
-[ ... ]
+The other removal paths pair list_del() with kfree() and adjust
+nchildren:
 
-> diff --git a/drivers/net/ethernet/ti/icssg/icssg_qos.h b/drivers/net/ethernet/ti/icssg/icssg_qos.h
-> index 0a375c125f4b8..bb0d6e2950dfc 100644
-> --- a/drivers/net/ethernet/ti/icssg/icssg_qos.h
-> +++ b/drivers/net/ethernet/ti/icssg/icssg_qos.h
+  mac802154_process_disassociation_notif()
+  mac802154_disassociate_child()
+  cfg802154_free_peer_structures()
 
-[ ... ]
-
-> +static inline int icssg_qos_validate_tx_min_frag_size(u32 min_frag_size,
-> +						      struct netlink_ext_ack *extack)
-> +{
-> +	/* Firmware takes min_frag_size including FCS length.
-> +	 * The firmware requires the fragment size (including FCS) to be
-> +	 * a multiple of 64 bytes. Since 64 bytes = ETH_ZLEN + ETH_FCS_LEN,
-> +	 * valid user-facing values are: 60, 124, 188, 252.
-> +	 */
-> +	if (min_frag_size < ETH_ZLEN) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must be at least 60 bytes");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if (min_frag_size > ICSSG_IET_MAX_TX_MIN_FRAG_SIZE) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must not exceed 252 bytes");
-> +		return -EINVAL;
-> +	}
-> +
-> +	if ((min_frag_size + ETH_FCS_LEN) % (ETH_ZLEN + ETH_FCS_LEN)) {
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx_min_frag_size must be a multiple of 64 bytes minus 4");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return 0;
-> +}
-
-[Severity: Low]
-This isn't a bug, but could this use ethtool_mm_frag_size_min_to_add()
-from include/linux/ethtool.h instead? It accepts the same
-60/124/188/252 values. am65-cpsw, enetc, ocelot and stmmac all use it.
-
-The two range checks here can never fire, because net/ethtool/mm.c
-already enforces:
-
-	[ETHTOOL_A_MM_TX_MIN_FRAG_SIZE]	= NLA_POLICY_RANGE(NLA_U32, 60, 252),
-
-ethnl_set_mm() is the only caller of ->set_mm(). With the core helper,
-ICSSG_IET_MAX_TX_MIN_FRAG_SIZE would no longer be needed, and the extack
-messages would match the other MM drivers.
-
-[ ... ]
+Repeated re-associations from one peer can push nchildren toward
+max_associations. That leads to spurious IEEE802154_PAN_AT_CAPACITY
+refusals.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121144618.180542-1-m-malladi%40ti.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121150835.256812-1-leegun25%40proton.me
