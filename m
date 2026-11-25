@@ -1,72 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597440;
-	b=brhJpeynA8BrLAPs5BWDd5MphgIptjEYQai//7ROP3zPy06sq4Sl6/T4UTWMkT+uycZ3
-	 /1UhF91mRuH0dl1LRXLX6DS/ON+xmLlSwL/0yYhJ6LecOL9m/Wyu9i/3H2g5tkW5Agtbc
-	 0TY5VjMbJNH0E0FQGaBJQloWD7Vnx2xil8SsOHb2OLiOtnF3+Z19s820SMHbnQmzs7pAD
-	 1RWYlnTImidtvyn5rkT3rlXZh1mZ7AaCLCZ3ldMBkF2vTpxhDnFuP0H9Z2nD/pHC2D3yI
-	 Rq9yIfYeGFCdhCWdYayRiyo1LBBIXJGVrSseQTHeaDr+DalGa6ASEUeR/IZzhOvDyhA==
+	t=1795597520;
+	b=u559lRSGYNf5ecqWTJcpdy5FCIE5wY4Y6kP5PkeT7YuG1H++WewKGhFaxFiT79fZ8Ojo
+	 lN/8nf00dOy/2Y2nqeV4EWlKH0ipI5cqEI47Y4MYBaYX6RTT1mNcgNsQytGWGLAHziG9Q
+	 TksHA2T9SKDLOv4y/1BtQnYYIKu5uDobbxTcJ+Xk5MqNtY0QhpNUvul6fcEqh/BxpcXVg
+	 CmXNLU4fGQVxhOaTiR6X+g/SWw7wMGGRR7+keK8GEPGuB2exFgNccn+0V0TvT+1V0vWGY
+	 klO6jSazoqUdfJemkq+Ny1zdIN63qyGMc6/QTEy8TX65IDcO1KVDaAtHsU/RAxF8xIA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597440;
-	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
-	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	bh=MVBydwRcG6MGXgYOnie0k6yGtkab2A/hQX2IXRDfl+w=;
-	b=unyyN7Sm+sVcMY9k4z8GoaRDeF5xYIW8R3JmwtQPJgK6SmxsZOr632d0UZtmaei89sl+
-	 O2nFmBNdufzRodrtaxRX+JKHECNv4Yg1wrYCgnJbj/MDDayUO3Kpf6jR2lgsQdzrDbWJE
-	 eM0/UMLgoImVmg6OtyTYLeOvpQ/Le7XWvRbxU2nABZhmuTf9bS9kRUQ5G6qiLq4KPrAbX
-	 BRxxC5PaJZto1f09P7kfP/nc9aL26dsjNB34GeLsNlBw9PrvhtCEUWdAFqRPTUi6CtNpe
-	 fXe6yxE/+d6YPrOSpKBQaM8hdh4mDjHifMRxI4Bg0zmoUEi2jUl5FqV6Y9LH1+KY//Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597520;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
+	bh=kjGcOEJ6nYNII7Jo6nONx1FrsPfS6rbEw2scGdCG8Zs=;
+	b=hoULPPW6OqrQ43zZJKh/+cf16Kk8LSp9uxQp+furS81AaGISyXWJLRtx75l1Co5pfp77
+	 XvaFaxAiKQSjuFQc+4bHvCaKTl30QhTJEU2teasAQPuF+CjJhEHMxL1cOSRfIaDyTluQz
+	 OXQ2cofQQVpYWr71EaBoAsMNf+anLzzSXxvgWcnyIgB5c9jskT1lYop27MyD/DGwW0xkj
+	 ZMz96eaBavGJlsfqXGa+/jrwuqYcYynW1GlR+DIjnl2cn9QNgXg7dsZgi/wCR8ZTQlZSm
+	 QYusdMbHJSuEOGtR8dW/3zsZrem41DndvLVCDZVHVoAiAKwwQnyqmkn4BjV+Zd8tdRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=realsil.com.cn;
-	spf=pass smtp.mailfrom=realsil.com.cn;
-	dkim=pass header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=pv5jtlwf;
-	arc=none smtp.remote-ip=211.75.126.72
-Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
+	dmarc=none header.from=netfilter.org;
+	spf=pass smtp.mailfrom=netfilter.org;
+	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=E54Xe4jf;
+	arc=none smtp.remote-ip=217.70.190.124
+Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14FE2606A32C;
-	Wed, 25 Nov 2026 09:03:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 14FE2606A32C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realsil.com.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realsil.com.cn
+	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 9E63D606A31E;
+	Wed, 25 Nov 2026 09:05:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E63D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=realsil.com.cn header.i=@realsil.com.cn header.a=rsa-sha256 header.s=dkim header.b=pv5jtlwf
-X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AP92IvxC3330654, This message is accepted by code: ctloc85258
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realsil.com.cn;
-	s=dkim; t=1795597338;
-	bh=MVBydwRcG6MGXgYOnie0k6yGtkab2A/hQX2IXRDfl+w=;
-	h=From:To:CC:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding:Content-Type;
-	b=pv5jtlwfQNYNRDrXCbPMUHNxF5DrDJRAV9y4Mj37Zd/KZODnTb6Aj4li3dEaQKjIx
-	 qkPee0dJK0pDHs7Atgk7qqelJbGSTHoqk7knrws4pAXH4ZpjNvkB6Rtry/dFTWS6qw
-	 UmMpIi72PJ9Pa470N4FtRu8fzzGjH6VgzWPU3FJeP4EKgwKSBbK09Zp1/oDqzbtRav
-	 lT4ZJbt01MwmWw2Fp2zEQOcMmEyiCZgd5F9lE5p3rZ/7MQUt94/x+eVctDOsd/+TO5
-	 0+aYn1phpjGddkTFn4zirXrEcqXBvbN0hzkgF1uJ4a81Y1q0dirIf1X1W6MwTxARqP
-	 m9XT8TKazWvPg==
-Received: from RS-EX-MBS3.realsil.com.cn ([172.29.17.103])
-	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AP92IvxC3330654
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 25 Nov 2026 17:02:18 +0800
-Received: from RS-EX-MBS2.realsil.com.cn (172.29.17.102) by
- RS-EX-MBS3.realsil.com.cn (172.29.17.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.56; Wed, 25 Nov 2026 17:02:18 +0800
-Received: from 172.29.37.154 (172.29.37.152) by RS-EX-MBS2.realsil.com.cn
- (172.29.17.102) with Microsoft SMTP Server id 15.2.2562.56 via Frontend
- Transport; Wed, 25 Nov 2026 17:02:18 +0800
-From: javen <javen_xu@realsil.com.cn>
-To: <andrew@lunn.ch>, <hkallweit1@gmail.com>, <linux@armlinux.org.uk>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <nb@tipi-net.de>, <maxime.chevallier@bootlin.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<daniel@makrotopia.org>, <vladimir.oltean@nxp.com>, Javen Xu
-	<javen_xu@realsil.com.cn>
-Subject: [PATCH net-next v4 0/3] net: phy: realtek: add PTP support for RTL8127a
-Date: Wed, 25 Nov 2026 17:02:13 +0800
-Message-ID: <20261125090217.1198-1-javen_xu@realsil.com.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=E54Xe4jf
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1795597516;
+	bh=kjGcOEJ6nYNII7Jo6nONx1FrsPfS6rbEw2scGdCG8Zs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=E54Xe4jfdP/rY9wZz1OIN+VrOtgMLTFx8pFRpveN1dH6yUs9fs0UbECGRmt7KkKp4
+	 WRw9M4AArwv51zHASR+QRV73VrGtOLzqnEk3+YPDxiBB47ry/vr45qPi69TCNwJ2bO
+	 eF3EnldLMxaQAgbqS5J1C5c/Eb89vqOle7Le5KCm2n1bb4C72TEJKiACVmSgpOijrQ
+	 TA+8Be+FEcOvBBLBoPQLIvMIeFwiJrdfBHwBi92BgKvV0LDCARODv7fpp5e2HQy6Mu
+	 jW9FzBTrQWMWU0Xym1nbaDzMvCgThR/lsF078Mk0cI/wvaPPumq1oiB2VrlCS3Yd7i
+	 bEvrmuJdFO/+g==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 50D0B60058;
+	Wed, 25 Nov 2026 10:05:16 +0100 (CET)
+Date: Wed, 25 Nov 2026 10:05:13 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Qican Ma <goonsomeway@gmail.com>
+Cc: fw@strlen.de, phil@nwl.cc, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH nf v3] netfilter: flowtable: interlock NF_FLOW_TEARDOWN
+ with NF_FLOW_PENDING
+Message-ID: <awakyVQMHrobvvAL@chamomile>
+References: <179559147736.38007.14255585896242834600@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -76,29 +66,102 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <179559147736.38007.14255585896242834600@gmail.com>
 
-From: Javen Xu <javen_xu@realsil.com.cn>
+On Wed, Nov 25, 2026 at 03:24:37PM +0800, Qican Ma wrote:
+> nf_flow_offload_gc_step() checks NF_FLOW_PENDING once at entry before
+> setting NF_FLOW_TEARDOWN and potentially freeing the flow via
+> flow_offload_del(). Concurrently, flow_offload_add() or a datapath caller
+> that looked up the flow prior to teardown can call
+> nf_flow_offload_work_alloc(), set NF_FLOW_PENDING, and queue a
+> FLOW_CLS_REPLACE work item holding a raw pointer to the flow without
+> rechecking NF_FLOW_TEARDOWN. If the pending bit is set after the GC check,
+> flow_offload_del() frees the flow via RCU while the queued work item can
+> still dereference and clear NF_FLOW_PENDING on offload->flow.
+> 
+> Interlock the two flags: in nf_flow_offload_gc_step(), check
+> NF_FLOW_PENDING after NF_FLOW_TEARDOWN has been observed or set, paired
+> with a full memory barrier; in nf_flow_offload_work_alloc(), recheck
+> NF_FLOW_TEARDOWN after test_and_set_bit(NF_FLOW_PENDING) for
+> FLOW_CLS_REPLACE and bail out if set. Restrict the teardown check to
+> FLOW_CLS_REPLACE because GC itself queues FLOW_CLS_DESTROY and
+> FLOW_CLS_STATS work on flows already marked for teardown.
+> 
+> This complements commit 0abb54363974 ("netfilter: flowtable: do not hw
+> offload flows in teardown state"), which checks the teardown bit in the
+> nf_flow_offload_refresh() caller: checking inside
+> nf_flow_offload_work_alloc() covers all FLOW_CLS_REPLACE callers,
+> including flow_offload_add(), and the GC-side barrier closes the
+> remaining window where GC reads NF_FLOW_PENDING at entry before
+> NF_FLOW_TEARDOWN is set.
+> 
+> Found with an LLM-assisted code review tool and verified by inspection on
+> v7.4-rc4 (b6a9fa34ce4). Build-tested only; reproducing the race at runtime
+> requires a hardware-offloaded flowtable device.
+> 
+> Fixes: 7c549fb7eecd ("netfilter: flowtable: generalize pending status bit")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Qican Ma <goonsomeway@gmail.com>
+> ---
+> v3: rebase onto net-next with 0abb54363974 included; note how the check
+>     inside work_alloc() complements the refresh-side check and why the
+>     GC-side barrier is still needed. No code changes.
+> v2: resend via direct SMTP without line-wrapping corruption in the diff.
+> 
+>  net/netfilter/nf_flow_table_core.c    | 8 +++++---
+>  net/netfilter/nf_flow_table_offload.c | 7 +++++++
+>  2 files changed, 12 insertions(+), 3 deletions(-)
+> 
+> diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
+> index 2aa2647ed9d..fcd37f7a37f 100644
+> --- a/net/netfilter/nf_flow_table_core.c
+> +++ b/net/netfilter/nf_flow_table_core.c
+> @@ -578,9 +578,6 @@ static void nf_flow_offload_gc_step(struct nf_flowtable *flow_table,
+>  {
+>  	bool teardown;
+>  
+> -	if (test_bit(NF_FLOW_PENDING, &flow->flags))
+> -		return;
+> -
+>  	teardown = test_bit(NF_FLOW_TEARDOWN, &flow->flags);
+>  
+>  	if (nf_flow_has_expired(flow) ||
+> @@ -594,6 +591,11 @@ static void nf_flow_offload_gc_step(struct nf_flowtable *flow_table,
+>  		nf_flow_table_extend_ct_timeout(flow->ct);
+>  	}
+>  
+> +	/* Pairs with test_and_set_bit(NF_FLOW_PENDING) in work_alloc(). */
+> +	smp_mb();
+> +	if (test_bit(NF_FLOW_PENDING, &flow->flags))
+> +		return;
+> +
+>  	if (teardown) {
+>  		if (test_bit(NF_FLOW_HW, &flow->flags)) {
+>  			if (!test_bit(NF_FLOW_HW_DYING, &flow->flags))
+> diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+> index 4365859220e..402a46e1645 100644
+> --- a/net/netfilter/nf_flow_table_offload.c
+> +++ b/net/netfilter/nf_flow_table_offload.c
+> @@ -1088,6 +1088,13 @@ nf_flow_offload_work_alloc(struct nf_flowtable *flowtable,
+>  	if (test_and_set_bit(NF_FLOW_PENDING, &flow->flags))
+>  		return NULL;
+>  
+> +	/* Pairs with smp_mb() in nf_flow_offload_gc_step(). */
+> +	if (cmd == FLOW_CLS_REPLACE &&
+> +	    test_bit(NF_FLOW_TEARDOWN, &flow->flags)) {
+> +		clear_bit(NF_FLOW_PENDING, &flow->flags);
+> +		return NULL;
+> +	}
 
-The PTP block of the RTL8127A resides in its internal PHY (RTL8261C).
-Therefore, this series adds PTP support to the Realtek PHY driver
-instead of the r8169 MAC driver.
+Not correct, this is duplicating an already existing check in
+net-next.
 
-Javen Xu (3):
-  r8169: hold MDIO bus lock while loading firmware
-  net: phy: realtek: add PTP clock support for RTL8127a
-  net: phy: realtek: add hardware timestamping for RTL8127a
-
- drivers/net/ethernet/realtek/r8169_main.c |   5 +
- drivers/net/phy/realtek/Kconfig           |  13 +
- drivers/net/phy/realtek/Makefile          |   1 +
- drivers/net/phy/realtek/realtek.h         |  25 +
- drivers/net/phy/realtek/realtek_main.c    |  25 +-
- drivers/net/phy/realtek/realtek_ptp.c     | 829 ++++++++++++++++++++++
- 6 files changed, 897 insertions(+), 1 deletion(-)
- create mode 100644 drivers/net/phy/realtek/realtek_ptp.c
-
--- 
-2.43.0
-
+> +
+>  	offload = kmalloc_obj(struct flow_offload_work, GFP_ATOMIC);
+>  	if (!offload) {
+>  		clear_bit(NF_FLOW_PENDING, &flow->flags);
+> -- 
+> 2.50.1 (Apple Git-155)
+> 
