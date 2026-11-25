@@ -1,112 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.208.48
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600327;
-	b=syaTbVYE3egwe8xSGh55xFZ5eaNJceWKHEspH3qRqXtr6gH7gR2usyiAf9tPFOmXn08y
-	 CWcM5dp3ZSnxTN+dreG4LXdVe6I72wVz+4nTlxTzRxSDJ05rnpAjQnvesvt46keSh3HE4
-	 056hFBdzTQyWMsrgUstN4GBBx3i29/2EewroKq9vSEZo+b+ytn8J2B4xTylTe3ddF1FXb
-	 NEo5vS4dvmqA1Elkrs1S1L64ZosmGhTpko1JVKwe8d9tfa3nTf5xXk6IICXDN2sSCoQs7
-	 udCyblOxZT7zRhABybW4yuaxoDzhpu39ulNaJ9RFWpKk6v2sU+0Q+SFb7CVoeXsmAGQ==
+	t=1795600337;
+	b=mGOJQiedQbUZthbYN6QFYksvZsIhP3S3rxMyV7eGZaPc7aRkePS8KNdDILhDHuosaUtn
+	 cBehFVcM5Cph9aKPIt4rxqOYgkkxjt0tJaaZchPXo6cB5c1zEkP3wte+uUG4Vf6XWAlBT
+	 6Zn8sn7p5/hjvcTkqMe0J2CY2Egiu0sN6XjoTXsVjgqR4/3jpArsXCSlXom1jY8uvoU4+
+	 6pKooJaEipb4Hb+mSvWYKDWQcwptvbqinl623e6HNnVjH77DtiN7SNohx97ZfFZ/uAu9p
+	 n+Cfmm1Abo9y4I2MuO8K2rcusKTvig2Q95L0bQ7SRMO7HUlNgoki2F2MJgNG8KBvp2w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600327;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=WXzjn+vyJIpaH9gzDIVnY/hmD1MIvRpuB4YDU1U7djk=;
-	b=iNV3xz5qIvijktbTXxgssTeDnhG3PHnqcZmfr+ixdfxGihjuJrU9/g4gD4nV7/HBc9Kp
-	 UDdyRCImpIYdGArEY49x8rDcImtUcBVTcaoC6sSA1jzrknTZpu1TJ10+b4kRlsf9+OBGJ
-	 H+iP6w2rElK8A7u2+vA82Hrstc+uBJ9Nr320NFyZz3svWDQ6jjFOzf6YeRaMj0btekilq
-	 KQyn2GOhQbQZEtgl+kKuowtZQtaVFZUwZWa+TXyb/Gc9XaJqzuzzr72VDgbEiM++11PoB
-	 pdty/j1sdTppQsuNvLOvMn57WUMCzy97vkOY8SbZUX1l3vUXiRKdfgDu2FtOuLBnHdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795600337;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=UQtEtINa9PCkeAJfrH8v1QZGUwgFpwbuvRFLidulpYI=;
+	b=ngdUcZlByynF49OrtMB/1AbWFNBusi0tZOAXGT5eVKf4Ir4Gvzn8c05+k7Ugp3mdL995
+	 xNwffGli+p17cD2nCpXHuaPvYw8k6yHk36E9txyYbkMJQGH52fkhcVeUV9LH+AqtXkUMM
+	 VSc5iN5AQJQ6IWah0/bXqrbUOaZWSxwl6vQsR0Ay7qW1K+gkeSAcNXrstctsO7+3MUVDR
+	 HfdRSVmc6Zn948AS/U2ZL1rh2t/pGaShXEIKKBfl7SBI4lFHVIPI/ttpMMnPPitz9HdGg
+	 jok7SKDiT6uPhVcpjsIg4lmLkKfDfjFg1bbsUulda7HLlpatHsOp+VYpw25XwzzU/Fw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cloudflare.com;
-	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=cRtzSrJC;
-	arc=none smtp.remote-ip=209.85.208.48
-Received: from mail-ed1-f48.google.com (mail-ed1-f48.google.com [209.85.208.48])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nx08xx2N;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CD91606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:52:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1CD91606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DE4FA606A321;
+	Wed, 25 Nov 2026 09:52:17 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=cRtzSrJC
-Received: by mail-ed1-f48.google.com with SMTP id 4fb4d7f45d1cf-6b8786bb305so6670762a12.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:52:06 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795600325; x=1796205125; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WXzjn+vyJIpaH9gzDIVnY/hmD1MIvRpuB4YDU1U7djk=;
-        b=cRtzSrJCSlUj2okpqQ3DcQMeh8Leknwfg/4W8Kc4E/DK5JBhXwh8hyP/bimNLrbF16
-         2jlmptAWPHiyUaAk4ifBpe9yJU/bjoolh2CJnJk31g9kMWjJQ4+KCA+IaPX4dhPEHR1p
-         SA3EvWdR1UikAP5PjWPivK3tXXNm05wwtGmutcy/m7kVn5f2TqHkQxvHlR7oxh/Zusr2
-         40jezT8iio7QbwCScyk+bK3Nl+cAv6NGlngqojXrrLdBgOOGxq98+uJImafYVzLOwvUt
-         iXOPbE0R82rrmDzAGHUVZBSQW41mWGF1kg9X1E+DHtcCE6dLCX25u97CujSXnlPaeHRW
-         IkGg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795600325; x=1796205125;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WXzjn+vyJIpaH9gzDIVnY/hmD1MIvRpuB4YDU1U7djk=;
-        b=sDjaVo9ITM5kSBSxVJ+bvmd2GlNsMXg8G/4/+ltPCOM2MZY41mw1leSpUadlL6UwdY
-         w2bDdQVTcjkOUncL0xeRIkNot7xq4hm+mTG1Sb40pfA4QtanCmK1VvJDvkMwFCpLffOl
-         BZ70gl7YdyBxVE6tbi1eUIWzqJCUOtbd7m5UOpku2ytYCr2YrpL4wGFkPOXoG1c0SVZ3
-         WT6qQw9sxCU9NijsQOnHXcXle0VxTz0RR1uAges5Jr5+tXJ9wpjcjHzGbvvuTG2xRild
-         JyWFzNhUP2A4RPQv6/hL5hNuE9uOBrHYAxdIjZPrzmrZiRO6mtSae8CIMWf/rn2ogj6Z
-         gFuA==
-X-Gm-Message-State: APuU4Z+Eab8dRVodpCujcmrMusgeTnecNa0pUu4BiNtEc40PjnDNA6Oq
-	ajM0fOETTq+ZmoNzJw2ZqkwX5PDk21LqOrE9Zhf3I+MCgIRceIs+/NmMUau+iS4MoKyPOCJKZ0j
-	qKgTkSiA=
-X-Gm-Gg: AZFdTZdXHL5gVVitPGHQoPkxNWxQ2tBgIhX4ubv5aUhVPh5RYwXe/8z8W9OG6XkmxRJ
-	b+4gFyXMQzNEqghGVwbg/8Y3ZyidfYOOiyDyBp/sBGI5N20qQLUw+BZuMY/RdRq97YU51H6gR0U
-	Ep7U7ARZOiOM7nG8fH6Mt8RgmR/YI/THOp51fTwqW0VM+YEEOFBMSlVx98xLtAH8rMluF1BSpfB
-	rj6Jzs0Yi0BaBNjmKvlDACPyYx2LCTgcOJPBnI1qVjWfDdfpx1TBjcB3LJS3RKhTXDPBRkti1O8
-	Q6LGFV6pWCbpl9S3TLzc/9WK+459qWAbTNMtDbBJBoPnf5Su1jLLCWWmHH0cprCGEc44Qs0lMgH
-	8haOeCGce8Wj6a5OODkIWuONfqUUiQySIspLx26PRqf7dGTOSia+IH+7RIApKZLjmmu+GR3FAUj
-	MKaQGxCRXUf1BSe6Z3bWleXzb3FyRCGKS/zOINott1GaVNVaERKXU+zONZPgFt8ZsA4m2gsGDyb
-	jCqcxjbZ6DpKOeBSQ0ooHOV4lCvxwbdFXKigkpzROuZQKBQv+MGrmFB68xFYO8uvVkMq81xclbl
-	VokJMqRGAkAWHlqwitha1hOzLA1Txdb/pxolzKAxu5jwS+P7l/MgX0PFrm8=
-X-Received: by 2002:a05:6402:42c8:b0:6ba:90b8:6584 with SMTP id 4fb4d7f45d1cf-6ba90b86c26mr7931504a12.27.1795600325287;
-        Wed, 25 Nov 2026 01:52:05 -0800 (PST)
-Received: from L9JK9NPFH9 ([104.28.20.56])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba37108c8esm8147342a12.31.2026.11.25.01.52.02
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 01:52:03 -0800 (PST)
-From: Tianyi Gao <tianyi@cloudflare.com>
-To: netdev@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Paul Greenwalt <paul.greenwalt@intel.com>,
-	Alice Michael <alice.michael@intel.com>,
-	Eric Joyner <eric.joyner@intel.com>,
-	Jesse Brandeburg <jbrandeb@kernel.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Alexander Duyck <alexander.duyck@gmail.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	bpf@vger.kernel.org,
-	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Tianyi Gao <tianyi@cloudflare.com>
-Subject: [PATCH net v2] ice: do not report CHECKSUM_COMPLETE when an XDP program is attached
-Date: Wed, 25 Nov 2026 09:52:01 +0000
-Message-ID: <20261125095201.98279-1-tianyi@cloudflare.com>
-X-Mailer: git-send-email 2.56.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nx08xx2N
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 906831F000ED;
+	Wed, 25 Nov 2026 09:52:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795600337;
+	bh=UQtEtINa9PCkeAJfrH8v1QZGUwgFpwbuvRFLidulpYI=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=nx08xx2NF1zPsS3CtNubp9nK+oLyGErFpI9Nr+2dmJoJG76Xo48Q4NdKSoYBEBUJN
+	 4hXdyjeC6LRShkL6jCzRQxJm4SecTKs5aOCaYcgTFDqY+hoPN0f6w2UdgETmZXmeJ2
+	 xLLyVmW1t6OpgIWUZelj4QHvkTwoVffCXE5jeXTtvPso1urymnEsO05NruDgTKN768
+	 BJX1MKS+Z5Zpd/i1tzrUwNflP8rGHyomyXCbI9kchPZyBt67O9NqkRQ62R6wv4w5ba
+	 JZTntTm8pHrC4wSUZcXcmKDZxh7XQjVSCXDhRvG6vQzoCbg4mP+DVoJtCth9GP1BYq
+	 BpGopFj8cfMIA==
+Subject:
+ Re: [PATCH net-next v5 3/3] net: phy: dap8211r: add PHY LED control support
+From: netdev-bot+sashiko@kernel.org
+To: a.shimko.dev@gmail.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-leds@vger.kernel.org,
+ netdev@vger.kernel.org
+Date: Wed, 25 Nov 2026 09:52:16 +0000
+Message-ID: <179560033613.3135.13122318439070700886@kernel.org>
+In-Reply-To: <20261124094914.2993988-4-a.shimko.dev@gmail.com>
+References: <20261124094914.2993988-4-a.shimko.dev@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -116,124 +66,131 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-On E830, ice reports CHECKSUM_COMPLETE with the generic checksum (GCS)
-that the hardware computes over the received frame. If an XDP program
-changes the packet and returns XDP_PASS, that checksum no longer
-matches. The stack then checks the packet again in software and calls
-netdev_rx_csum_fault().
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-On Cloudflare servers, an XDP load balancer removes the encapsulation
-of the packets that it accepts locally. Our production traffic hits
-netdev_rx_csum_fault() all the time.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Do not use GCS while the VSI has an XDP program, as mlx5 has done since
-commit 5d0bb3bac4b9 ("net/mlx5e: XDP, Avoid checksum complete when XDP
-prog is loaded"). Set ICE_RX_FLAGS_RING_GCS in ice_vsi_cfg_rxq()
-instead of ice_vsi_alloc_rings(). The flag then follows the program
-when it is attached or removed, and after a VSI rebuild. Log an info
-message when a program is attached on a port with GCS.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-E830 also sets the L3L4P and checksum error bits, so the packet gets
-CHECKSUM_UNNECESSARY or CHECKSUM_NONE, as on E810. For example, a zero
-UDP checksum over IPv6 is marked as bad and gets CHECKSUM_NONE. A zero
-UDP checksum over IPv4 gets CHECKSUM_UNNECESSARY, so the inner checksum
-is never checked, as on E810 and as on E830 before v6.15. The
-discussion in [3] concluded that CHECKSUM_UNNECESSARY only is the safe
-option with XDP for now, and that the decap case is a known problem.
+- [Medium] dap8211r_led_hw_control_get()
+  (drivers/net/phy/dap8211r.c:322-369) returns 0 with an incomplete rule…
 
-Two pending series [1][2] give XDP access to the checksum status.
-Neither of them supports CHECKSUM_COMPLETE.
+--
 
-Tested on an E830 with an XDP program that removes 16 bytes of UDP
-payload with bpf_xdp_adjust_head() and returns XDP_PASS:
+net: phy: dap8211r: add PHY LED control support
 
-- Without this patch, the changed packets got CHECKSUM_COMPLETE, and
-  the stack called netdev_rx_csum_fault() 368512 times.
-- With it, they got CHECKSUM_UNNECESSARY, and there were no calls.
-- Plain UDP got CHECKSUM_UNNECESSARY while the program was attached,
-  also after ethtool -L rebuilt the VSI, and CHECKSUM_COMPLETE again
-  after it was removed.
+This commit adds LED support for the three LEDs on the DAP8211R PHY. It
+adds a dap8211r_write_ext() helper and implements the led_brightness_set,
+led_hw_is_supported, led_hw_control_set and led_hw_control_get callbacks.
 
-On an E810, which has no GCS, drivers/net/xdp.py, ping.py and
-hw/csum.py give the same results with and without this patch.
+> diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
+> index 1fe20efd394d7..9b65b5c57de81 100644
+> --- a/drivers/net/phy/dap8211r.c
+> +++ b/drivers/net/phy/dap8211r.c
 
-Link: https://lore.kernel.org/all/20260715-bpf-xdp-meta-rxcksum-v5-0-623d5c0d0ab7@kernel.org/ [1]
-Link: https://lore.kernel.org/all/cover.1794281983.git.tianyi@cloudflare.com/ [2]
-Link: https://lore.kernel.org/all/20260721183256.6f49d6e1@kernel.org/ [3]
-Fixes: 905d1a220e8d ("ice: Add E830 checksum offload support")
-Suggested-by: Jesse Brandeburg <jbrandeb@kernel.org>
-Signed-off-by: Tianyi Gao <tianyi@cloudflare.com>
----
-Changes in v2:
-- Set ICE_RX_FLAGS_RING_GCS in ice_vsi_cfg_rxq() instead of reading
-  rx_ring->xdp_prog for each packet in ice_rx_csum() (Alexander Duyck).
-- Log an info message when a program is attached on a port with GCS
-  (Alexander Duyck).
-- Drop the paragraph about the two reads of rx_ring->xdp_prog. It does
-  not apply any more.
-- Move the test results into the commit message.
-- Drop the Acked-by of Maciej Fijalkowski, because the code changed.
-- v1: https://lore.kernel.org/all/20261121012402.84848-1-tianyi@cloudflare.com/
+[ ... ]
 
-The E810 tests ran on net. The E830 tests ran on v6.18.65 with this
-patch applied, on 8086:12d2 with fw.mgmt 7.9.5 and DDP ICE COMMS
-1.3.63.0. Without the patch, 164150 changed IPv4 packets and 154671
-changed IPv6 packets got CHECKSUM_COMPLETE in 2 s each.
+> +/**
+> + * dap8211r_led_hw_control_set() - Write the LED control register
+> + * @phydev: PHY device structure
+> + * @index: LED index
+> + * @rules: Bitmask of requested netdev trigger rules
+> + *
+> + * Disables force mode and translates the requested trigger rules into
+> + * the corresponding bit positions of the LED control register and writes
+> + * the resulting value to the PHY.
+> + *
+> + * Note that the ACT_BLINK bit (13) must be set together with TX/RX rules,
+> + * otherwise the LED will not blink on traffic if no other rule (such as
+> + * link or duplex) is active.
 
- drivers/net/ethernet/intel/ice/ice_base.c | 7 +++++++
- drivers/net/ethernet/intel/ice/ice_lib.c  | 3 ---
- drivers/net/ethernet/intel/ice/ice_main.c | 2 ++
- 3 files changed, 9 insertions(+), 3 deletions(-)
+[ ... ]
 
-diff --git a/drivers/net/ethernet/intel/ice/ice_base.c b/drivers/net/ethernet/intel/ice/ice_base.c
-index 1667f686ff75..3c44e112acf9 100644
---- a/drivers/net/ethernet/intel/ice/ice_base.c
-+++ b/drivers/net/ethernet/intel/ice/ice_base.c
-@@ -705,6 +705,13 @@ static int ice_vsi_cfg_rxq(struct ice_rx_ring *ring)
- 		}
- 	}
- 
-+	/* XDP can change the frame and make the GCS value wrong */
-+	if (ice_is_feature_supported(ring->vsi->back, ICE_F_GCS) &&
-+	    !ice_is_xdp_ena_vsi(ring->vsi))
-+		ring->flags |= ICE_RX_FLAGS_RING_GCS;
-+	else
-+		ring->flags &= ~ICE_RX_FLAGS_RING_GCS;
-+
- 	ring->xdp.data = NULL;
- 	err = ice_setup_rx_ctx(ring);
- 	if (err) {
-diff --git a/drivers/net/ethernet/intel/ice/ice_lib.c b/drivers/net/ethernet/intel/ice/ice_lib.c
-index 977cd8dd6e31..910951a17950 100644
---- a/drivers/net/ethernet/intel/ice/ice_lib.c
-+++ b/drivers/net/ethernet/intel/ice/ice_lib.c
-@@ -1532,9 +1532,6 @@ static int ice_vsi_alloc_rings(struct ice_vsi *vsi)
- 		ring->count = vsi->num_rx_desc;
- 		ring->cached_phctime = pf->ptp.cached_phc_time;
- 
--		if (ice_is_feature_supported(pf, ICE_F_GCS))
--			ring->flags |= ICE_RX_FLAGS_RING_GCS;
--
- 		WRITE_ONCE(vsi->rx_rings[i], ring);
- 	}
- 
-diff --git a/drivers/net/ethernet/intel/ice/ice_main.c b/drivers/net/ethernet/intel/ice/ice_main.c
-index 47c6798c97e8..9644b25e7935 100644
---- a/drivers/net/ethernet/intel/ice/ice_main.c
-+++ b/drivers/net/ethernet/intel/ice/ice_main.c
-@@ -2944,6 +2944,8 @@ ice_xdp_setup_prog(struct ice_vsi *vsi, struct bpf_prog *prog,
- 			}
- 		}
- 		xdp_features_set_redirect_target(vsi->netdev, true);
-+		if (ice_is_feature_supported(vsi->back, ICE_F_GCS))
-+			netdev_info(vsi->netdev, "XDP program attached, Rx CHECKSUM_COMPLETE disabled\n");
- 	} else if (ice_is_xdp_ena_vsi(vsi) && !prog) {
- 		xdp_features_clear_redirect_target(vsi->netdev);
- 		xdp_ring_err = ice_destroy_xdp_rings(vsi, ICE_XDP_CFG_FULL);
+> +	ret = dap8211r_write_ext(phydev, led_reg, led_mode);
+> +	if (ret)
+> +		return ret;
 
-base-commit: cc7fe6e741730fef549e484379281736d32746f0
+[ ... ]
+
+> +/**
+> + * dap8211r_led_hw_control_get() - Read the current LED configuration
+
+[ ... ]
+
+> + * Return: 0 on success, -EINVAL for an invalid LED index, -EOPNOTSUPP if the
+> + *         current hardware configuration cannot be represented in rules, or a
+> + *         negative error code
+> + */
+> +static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 index, unsigned long *rules)
+> +{
+
+[ ... ]
+
+> +	led_mode = dap8211r_read_ext(phydev, led_reg);
+> +	if (led_mode < 0)
+> +		return led_mode;
+> +
+> +	if (led_mode & ~DAP8211R_LED_SUPPORTED_MASK)
+> +		return -EOPNOTSUPP;
+
+[ ... ]
+
+> +	if ((led_mode & DAP8211R_LED_RX) &&
+> +	    (led_mode & DAP8211R_LED_ACT_BLINK))
+> +		__set_bit(TRIGGER_NETDEV_RX, rules);
+> +
+> +	if ((led_mode & DAP8211R_LED_TX) &&
+> +	    (led_mode & DAP8211R_LED_ACT_BLINK))
+> +		__set_bit(TRIGGER_NETDEV_TX, rules);
+
+[Severity: Medium]
+Should dap8211r_led_hw_control_get() return -EOPNOTSUPP when LED_n_CON
+holds a state that can't be expressed as rules?
+
+The only check that rejects a state is led_mode & ~DAP8211R_LED_SUPPORTED_MASK.
+That mask includes ACT_BLINK, TX and RX. As a result, two register states
+pass the check, get reported incompletely, and the function still returns 0:
+
+  - RX and/or TX set without ACT_BLINK. For example, LINK_1000 | RX | TX
+    is reported as only TRIGGER_NETDEV_LINK_1000. The comment above
+    dap8211r_led_hw_control_set() describes this as a working hardware
+    mode when a link or duplex rule is active.
+
+  - ACT_BLINK set on its own, which is reported as no rules at all.
+
+The kernel-doc for this function says -EOPNOTSUPP is returned if "the
+current hardware configuration cannot be represented in rules". The
+led_hw_control_get contract in include/linux/phy.h says the same.
+
+netdev_trig_activate() trusts a 0 return:
+
+drivers/leds/trigger/ledtrig-netdev.c:netdev_trig_activate() {
+    ...
+			rc = led_cdev->hw_control_get(led_cdev, &mode);
+			if (!rc)
+				trigger_data->mode = mode;
+    ...
+}
+
+After that, either the NETDEV_REGISTER replay from
+register_netdevice_notifier() or a later NETDEV_UP/CHANGE event runs:
+
+netdev_trig_notify()
+  set_baseline_state()
+    phy_led_hw_control_set()
+      dap8211r_led_hw_control_set()
+        dap8211r_write_ext(phydev, led_reg, led_mode)
+
+This writes the whole register with the reduced rules. Would that clear
+the RX/TX activity bits set by the reset defaults or the bootloader? It
+would also leave sysfs reporting a different mode from the one the LED
+was running before the trigger was activated.
+
 -- 
-2.56.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124094914.2993988-1-a.shimko.dev%40gmail.com
