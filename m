@@ -1,63 +1,64 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646680;
-	b=dEDKBap7PM4YBUv4CGW8GsRlNKxNXgJsw9N81+/Fd85KNRrPOUgxQboXl0LechifQ2R/
-	 nfp/boibINgHilaEgUQ4ThMFqVeLcqK8PBPqyj0zl/J1yirtHvyqixeKD2cN1Lzq45/mR
-	 JEJp1zeqo6PHYWdObbNXOauS+LC58wdWTlF/ZBmK+tIAFR6+9zIObZ2dY6B/764o9oh0O
-	 Xge12yhILj0G/qdDCoX1gNqKFwFY85U+j1Mrf25+TpQZfMCEgEwF0xBS6nSjyE7QHKbw/
-	 jUZnl3h3X8vVbxNmZC8RRxc2eyTVgI6o9fSSwcUembz+h1rkNF/343cQGB2LwEI6LKw==
+	t=1795646681;
+	b=qgkYKTHNOHzuSPrM7Mm45JVDhG2KKE4m8FqbCEAevMvNdB2ZFjYzqwtqea2N9z2PJ/pp
+	 2hdihptAjCz22B6ZP/RA//E9uWaT5nM4864KIVsYESCW0v5e/P5Yvq1Bsoh7o6HerYiC4
+	 U86hOsaom1TdMsdLPzyX5RTARlLA36lkUgd0j5MSXTqm9AF/wGmUP8fpd3dOwbByoj+Uu
+	 uwpNA8RR2GbVL6m/SPE4WdjashNrA1uGRpY0iWSVs2pE7PXuSN4RaSL78vmFA45bFIaQB
+	 DiIXOgNzJOXgxa7RoYqwwJls1k/ktvb/DC9I/hxIRrheTDHvTLUSGzq9mN3XJQLzbYw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646680;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646681;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
 	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=3/7psO+j+B1dtBowFKAKKFRUUvgxD285ZwR7JqC9Mtw=;
-	b=OYzc1l5TWVvECo/E0WXOfFEeXQ06ptd1pykb3TRp5KhtvB3hx2ug3HscpPL2Z8AKGlZG
-	 12rhU7Da86Msw3m+TI6QKBF5dqi16TydAoSq+o9cLbAlwdXXi3tBJz78YiacA4yLTClBN
-	 nwOKPuB16JjPfKLhuXORNnvZD/Axk39T7xofvMOrzplDdCIuSkI0nhZhYG3ocXh6dR2Ot
-	 4XCDtUkLVPCTX1oZvubtz5JqQdqljZZ6qKG1+nLIFyUwqjwIohFeNQQ0Q9Lk5VrLuSB6c
-	 U8HvJwjBPQr5Kh3B/koc9Nv3zXirGK2GRJC1z1alRQdYHG1vy6ZpE4vcEkdZ5TrRAjg==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=qYeLGoAwgm/cgx6pTq18obql2cDJa5frceZYseB5iP8=;
+	b=0XR6M/xjQ/pZKABQFWlnsm90rd12SWGiETeCZkogI38QrJHX+dsKOlxSr/d0Fj6Xy3cG
+	 GCg01deB2TuvcQ89A2W5ZiPhgO8yfaihh6WMEWGCF53UhEWrlTwPat98KVUPxWEvSPulY
+	 VSXFAdpQvqVOlW0U6B6BQq8iW2Ix1Bfm6BWRMDujSQ4QK1ZRqtQJ/bZ6URy2/SwSXqi0I
+	 ElFym+1m1j+/wNn7YNda/yN7F14xPm7eo3voB7mrFdYGsnDNqIG5lFPgIXOSh4sOVYrSi
+	 ZdVsAhK3A67NYA6qRVQ0RzzkzA9aSXVM4piJ5Nt34u2Hr1XMiwVzQY06bJge3ozHQmw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=intel.com;
 	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4XXdd+e;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FEHv0fN6;
 	arc=none smtp.remote-ip=198.175.65.13
 Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
 	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3A039606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:44:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3A039606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17626606A334
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:44:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17626606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=j4XXdd+e
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FEHv0fN6
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795646680; x=1827182680;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=NuS2CXH34KQrD9bIGvk1dwgROreut5F+EZWR2pebJLE=;
-  b=j4XXdd+esHskRyeGffLD1pQmQ187awr6uBmyDuv2iVhxP7yRQXHAx9X5
-   fkYKi2vI34igS8RKg/9W4ABulCaRYX1RnIB0j0RQbMi1ZhMzc5nOXXyHK
-   IKsAncrD0CIQDV/gTWFyHIfqCKSpdlQ2jyxT0fqPFjoMdSmeGdAY7pVQn
-   G34KgO2RBUHmmRGhc8SnUFrCKVqs5mTF/cY44klcTqJ2riXdyCxXeXLR9
-   0vNHSKs+oZHgsbKclBtTGnK010Q8Qz/2hNl1pqhXvTQ5MxAtwscPjPJwC
-   yCH5YClmE6PhIFsic3f84SXhDXn77Zb2UZ+tMDqMFsJ9GClb00XpRFRp9
+  t=1795646681; x=1827182681;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=LzejK4EOwQqhinmsyJ3mMLb/tyA6WLCl2ry2vCHEvXU=;
+  b=FEHv0fN6y2hlDNKeYpnvYJ/x7Jrd6RiH5NawlOUT6MnG7gPmAoOMZgGG
+   M1XJQI3Dc16DT2P4Pp/B7Rhmrbl23cbod4NFMgj+tsN+rcSEerWvT96cB
+   94m1+pb4mMFm/yFBgsTMa78S7yuXJU2Cv5Ut+4jP9vtCRK8GADdaOJlXm
+   gZzoghcMYDCA37vRW8Sh/4eLJ2I/4Ql6zcBhnC/5JbwHIhx7T+2p4Dj/i
+   D3CUXlxxYol1598myt6v4RcF3aKrAzszl1o0gkBmhCOFqMaMutGmZmvgr
+   YeQmKQy0iqd9iTl5C+OOpRqNJK/AjXK449GsNv3uHHai1N+C85m0z1Ul+
    w==;
-X-CSE-ConnectionGUID: nPHstTceRlCwZm7i5JpafQ==
-X-CSE-MsgGUID: VdrQot2kSCiwJtWrcHaHIw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4449954"
+X-CSE-ConnectionGUID: 3T9hXiToQISjd6Xmkb+zwQ==
+X-CSE-MsgGUID: VpAZhjIJQteirKfr5lIytw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4449982"
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4449954"
+   d="scan'208";a="4449982"
 Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:44:37 -0800
-X-CSE-ConnectionGUID: wdtZ4XQxSC+UdPHqApVE6w==
-X-CSE-MsgGUID: a4pr68JOTmWyuv8aNYtAyA==
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:44:38 -0800
+X-CSE-ConnectionGUID: NV8YZMZNS8OX6QQ24Azzbw==
+X-CSE-MsgGUID: mG1R7vLiSuyuU7ekUP2+2Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11862054"
+   d="scan'208";a="11862068"
 Received: from anguy11-upstream.jf.intel.com ([10.166.9.133])
   by orviesa004.jf.intel.com with ESMTP; 25 Nov 2026 14:44:37 -0800
 From: Tony Nguyen <anthony.l.nguyen@intel.com>
@@ -68,16 +69,24 @@ To: davem@davemloft.net,
 	andrew+netdev@lunn.ch,
 	willemb@google.com,
 	netdev@vger.kernel.org
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
+Cc: Grzegorz Nitka <grzegorz.nitka@intel.com>,
+	anthony.l.nguyen@intel.com,
 	przemyslaw.kitszel@intel.com,
 	aaron.ma@canonical.com,
 	maciej.machnikowski@intel.com,
-	grzegorz.nitka@intel.com,
-	jacob.e.keller@intel.com
-Subject: [PATCH net 0/5][pull request] Intel Wired LAN Driver Updates 2026-11-25 (ice)
-Date: Wed, 25 Nov 2026 14:44:19 -0800
-Message-ID: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
+	jacob.e.keller@intel.com,
+	richardcochran@gmail.com,
+	Sergey Temerkhanov <sergey.temerkhanov@intel.com>,
+	Milena Olech <milena.olech@intel.com>,
+	Simon Horman <horms@kernel.org>,
+	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+	Ayush Singh <ayush1x.singh@intel.com>
+Subject: [PATCH net 4/5] ice: remove redundant cross-timestamp PTP command
+Date: Wed, 25 Nov 2026 14:44:23 -0800
+Message-ID: <20261125224428.4126195-5-anthony.l.nguyen@intel.com>
 X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
+References: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -89,68 +98,63 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Aaron Ma fixes issues around reset; serializing PF rebuilds and clearing
-Flow Director handles to prevent stale references.
+From: Grzegorz Nitka <grzegorz.nitka@intel.com>
 
-Maciek Machnikowski stops E825 PHY/PHC clock drift by holding the PTP
-semaphore throughout PHY timer startup; protecting shared register
-access from concurrent clock adjustments.
+The cross-timestamp capture path programs GLTSYN_CMD with READ_TIME before
+starting the ART/device capture and clears it with NOP afterwards.
 
-Grzegorz Nitka removes redundant PTP command programming to prevent
-potential races with other PTP operations.
+It was assumed that this change was needed for E823 devices, which
+turned out to be not true. The hardware supported by this driver
+does not require it.
 
-Jake Keller fixes E830 ETF timestamp calculation by converting the full
-ktime value to nanoseconds to scheduled transmit times match the packet
-timestamps.
+Since GLTSYN_CMD is shared with other PTP operations, touching it here
+only adds a potential race source.
+Remove the redundant source command programming instead of adding another
+guard around it.
+
+Testing hints:
+Verify crosstimestamp path, for example with phc2sys tool, on
+E822/E823/E825/E830 devices. Please note that the phc2sys tool performs
+cross-timestamping by default when supported by the hardware. This can
+be observed when the reported delay is 0, indicating that the system
+time and PHC time were latched simultaneously.
+
+Fixes: 88c360e49f51 ("ice: Support cross-timestamping for E823 devices")
+Signed-off-by: Grzegorz Nitka <grzegorz.nitka@intel.com>
+Reviewed-by: Sergey Temerkhanov <sergey.temerkhanov@intel.com>
+Reviewed-by: Milena Olech <milena.olech@intel.com>
+Reviewed-by: Simon Horman <horms@kernel.org>
+Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
+Tested-by: Ayush Singh <ayush1x.singh@intel.com> (A Contingent worker at Intel)
+Signed-off-by: Tony Nguyen <anthony.l.nguyen@intel.com>
 ---
-Note:
-This will have merge conflicts with net-next.
+ drivers/net/ethernet/intel/ice/ice_ptp.c | 6 ------
+ 1 file changed, 6 deletions(-)
 
-Resolution is:
-diff --cc drivers/net/ethernet/intel/ice/ice_adapter.c
-index 8cb61f145d27,01b6d3f751ed..a4261568c8d5
---- a/drivers/net/ethernet/intel/ice/ice_adapter.c
-+++ b/drivers/net/ethernet/intel/ice/ice_adapter.c
-@@@ -49,6 -73,8 +49,7 @@@ static int ice_adapter_init(void *priv
-        for (int i = 0; i < ARRAY_SIZE(adapter->cpi_phy_lock); i++)
-                mutex_init(&adapter->cpi_phy_lock[i]);
-        mutex_init(&adapter->cgu_synce_lock);
-+       mutex_init(&adapter->rebuild_lock);
- -      refcount_set(&adapter->refcount, 1);
-
-        spin_lock_init(&adapter->ports.lock);
-        INIT_LIST_HEAD(&adapter->ports.list);
----
-The following are changes since commit 7ed616970b652ae76d99a01b468588e491021648:
-  mptcp: gate diag sequence counters on CAP_NET_ADMIN
-and are available in the git repository at:
-  git://git.kernel.org/pub/scm/linux/kernel/git/tnguy/net-queue 100GbE
-
-Aaron Ma (2):
-  ice: restore DDP state during PFR recovery
-  ice: clear Flow Director entries before reset cleanup
-
-Grzegorz Nitka (1):
-  ice: remove redundant cross-timestamp PTP command
-
-Jacob Keller (1):
-  ice: fix computation of ETF timestamps for E830
-
-Maciek Machnikowski (1):
-  ice: ptp: serialize E825 PHY timer start with PTP lock and incval
-
- drivers/net/ethernet/intel/ice/ice.h          |  1 +
- drivers/net/ethernet/intel/ice/ice_adapter.c  |  2 +
- drivers/net/ethernet/intel/ice/ice_adapter.h  |  3 ++
- .../ethernet/intel/ice/ice_ethtool_ntuple.c   | 26 ++++++++++
- drivers/net/ethernet/intel/ice/ice_main.c     | 37 ++++++++++----
- drivers/net/ethernet/intel/ice/ice_ptp.c      |  6 ---
- drivers/net/ethernet/intel/ice/ice_ptp_hw.c   | 48 ++++++++-----------
- drivers/net/ethernet/intel/ice/ice_txrx.c     |  9 ++--
- .../net/ethernet/intel/ice/ice_vlan_mode.c    |  2 +-
- .../net/ethernet/intel/ice/ice_vlan_mode.h    |  1 +
- 10 files changed, 88 insertions(+), 47 deletions(-)
-
+diff --git a/drivers/net/ethernet/intel/ice/ice_ptp.c b/drivers/net/ethernet/intel/ice/ice_ptp.c
+index 8908b4f3db35..db1d0e42ae52 100644
+--- a/drivers/net/ethernet/intel/ice/ice_ptp.c
++++ b/drivers/net/ethernet/intel/ice/ice_ptp.c
+@@ -2183,9 +2183,6 @@ static int ice_capture_crosststamp(ktime_t *device,
+ 	/* Snapshot system time for historic interpolation */
+ 	ktime_get_snapshot_id(ctx->snapshot_clock_id, &ctx->snapshot);
+ 
+-	/* Program cmd to master timer */
+-	ice_ptp_src_cmd(hw, ICE_PTP_READ_TIME);
+-
+ 	/* Start the ART and device clock sync sequence */
+ 	ctl = rd32(hw, cfg->ctl_reg);
+ 	ctl |= cfg->ctl_active;
+@@ -2212,9 +2209,6 @@ static int ice_capture_crosststamp(ktime_t *device,
+ 	*device = ns_to_ktime(ts);
+ 
+ err_timeout:
+-	/* Clear the master timer */
+-	ice_ptp_src_cmd(hw, ICE_PTP_NOP);
+-
+ 	/* Release HW lock */
+ 	lock = rd32(hw, cfg->lock_reg);
+ 	lock &= ~cfg->lock_busy;
 -- 
 2.47.1
 
