@@ -1,123 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795626717;
-	b=jwPf4ZH/Ro5twNg+7lTHRv59zwA8cWjjrle9QGjC9z9WHeQslfBFN5QHHbjys3VgvE/7
-	 KnVoP8vDcwWJxdFWlH5bTohjgL0nxVv/6bfZ3z9Q/nA2atGTQmPHJxqUBMkhGkI8nR2ML
-	 5V6WDFcTyRyOuQFxXsQFMuwBygVd7IUSx3HGC+R/9eFkAzHFegJYq4fHuexGaaC/u7NvF
-	 LEDzsyxBkYR+YfC+qDZNJOgW7KnXbyNu3Z1tADn489CM6Q9/7DwMIl0dts1B4rufwi1r8
-	 PlvAYQIKeQQgLvzRr7FG6ONHheHcbOyo9Pn9nYXtNZiucUCcowrs54deBPOcyGCFk9w==
+	t=1795626729;
+	b=XbYrowAt6xYgwdVfX7Es+JlvEBSRW6Y/N8elaevazrj9J2iXoLMOiE2whxSmIbqpVz+H
+	 /IBISnjsBr9fmP3qjpoy2l0tBlvz1ujYeNTf7t1QiQZDhoqM+srmvXcCGmPwiS4NKkpVv
+	 CmmtvjF/LBe99CO47EivR+vo/s7rudqeAY9HveMmD2cGoUD6edfPCtvEWxeKt7dmFsYn8
+	 pVbNvqh6zPPI44C8ZgRR6B5i+f/aA/x/1DEV5QOPDmC7twWpKAYAg+FsgrMQVZoGFtabF
+	 gwnHxqz4EOZHaL6btvy8UxnaZcdRDOBAiVM6eWVl0KFEzKkfGDp1KCJtFK2N8ERzfpA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795626717;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:From:In-Reply-To:References:MIME-Version:Date:
-	 X-Gm-Features:Message-ID:Subject:To:Cc:Content-Type;
-	bh=wMnvi84iHgMT5EehQPUOpPHMSRil6iMt6kQQwsIp6L8=;
-	b=llpqRWAkHijbb2WSI9XgtakhFshk+PZvEsn5zZOT+uumFFJQk/jKTCLdWhDQ9p7R4OSk
-	 FCn4OcRkwAOabG/hXKTsgkmhOK2S+FLM8BaQMqG9jhgjR3qKjKDMizXLiPxH0gdabFh4z
-	 Ho76CRgljI9z2X56Htwm4IWx64WG4Dd3Uq5oZmPshi7WAbcr6+ngkOiuBDTvjaqHsFyOc
-	 TCRI1oXITan2YAbGMfST1/qFLO6L7gPZmssLDXXjuuh8rzSXun/QBizA4/aTJuMEUgx4V
-	 +RdR4QyI35jOqsQTgXqHv4XhxVnFwttnpKJ0XA87UVwH6cbwiuySxq+5DylhRmngSLw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795626729;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=uu/YlG123q6ELk6fptQDq7K5NRJkGGSqpe8mSjuwiXA=;
+	b=neKXBWHuwpS3NlhQYt5JDH+eS1VnG/VycwQ6DLJFouEyBV2OYtjdm6zWp47xiBi2Ctgp
+	 9LpdfBLy0628gq7jIYQV+zBcLscnKWpxRQzo2TgEfcPZPVAJRPeX9UwYMUs6NF013L9lW
+	 qKdz6YyGazCRnObgmMGaqNhWP3wmp6xiC+hJ9Ev3BCHR7+q/aJe6SDhdudRmqmKBh2RE+
+	 DAjJexzsaXSPqoo3HCdIzLfxdWvJYp8S7/GnDyxV4YqEW30fhCUnEnuKoC9IiLwTBsJdj
+	 raW8IPQsz6S9yEEZFhiBh3OGibeSDl/SUgTva1oNIPTRcelNv8FjftESrBRX8e49MjQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Gwt1iAHU;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=D0wQeWAa;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V8e5Ggm8;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.52
+Received: from mail-ed1-f52.google.com (mail-ed1-f52.google.com [209.85.208.52])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6EC94606A332
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:11:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6EC94606A332
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A0953606A330
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:12:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A0953606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Gwt1iAHU;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=D0wQeWAa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795626715;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wMnvi84iHgMT5EehQPUOpPHMSRil6iMt6kQQwsIp6L8=;
-	b=Gwt1iAHUVMwCbOAfvitXOiEYwhojYbZJh0SyOxfUb5oytjeSTyvVWeA6ztn1EgRxVbooDN
-	Fqv0zboUdkDdYLi050ws9Pq8lmndcCDT/6Z6LDfElXiPTynVViHflp3jAFqYMW0aIN6Ykb
-	Zd2S6/0Ih4yzlLnQd81YDjRNwljUiks=
-Received: from mail-yx1-f70.google.com (mail-yx1-f70.google.com
- [74.125.224.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-211-vM0UZW76M9Gly5GsIkGxUg-1; Wed, 25 Nov 2026 17:11:53 +0000
-X-MC-Unique: vM0UZW76M9Gly5GsIkGxUg-1
-X-Mimecast-MFC-AGG-ID: vM0UZW76M9Gly5GsIkGxUg_1795626713
-Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-67d98b79858so9806179d50.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:11:53 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795626713; cv=none;
+	dkim=pass (2048-bit key, unprotected) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=V8e5Ggm8
+Received: by mail-ed1-f52.google.com with SMTP id 4fb4d7f45d1cf-6ba2bd43dd8so51786a12.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:12:08 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795626727; cv=none;
         d=google.com; s=arc-20260327;
-        b=amP5jv31uyWglPV90HJHN98zb6twfld+wLRzQL9DyLocRReW/j9Vr/HlVv9cl7v21b
-         z1Cqk6GrsSoQMCkBQEyk3O4T/msGiKxcrv3kZjd3fs2pzj6Va/onAki9//NRzFpD4++9
-         SKnjTqkRB5N9VSVikF+FJGKjSgnfgM9c/CPuwqDYHeG9N3PQl+jY/mX1ZXdLdr5NiLZh
-         dmYMbqNhjk9Iv67b49YEVjbKKDIO1XBi5MVNUH7NUfV/NAlKW6fRD+W1nFRWaDHqidT3
-         /loWD42MaPDIybEUvFTDvr4UiWo8caebF2ZepJ6Zvf6Rp9BxePbzuUpLrXTRhsVe0iVW
-         qjRg==
+        b=Rl/6xf7Ka3vCOzus+5nPmhiNIeXzbhc7PRxgVbf7+jParBiR57OB2shWiDy9y/21y2
+         xas/AdOU2ObcksPJAjnnwYdIPt4r59qnME+Wx9dMw+nOwIugkTccIIyCCdBXSZ6EdNT4
+         x/pP0LQrLxzPp0ZW2mXSlxrwR67VikivTcv8uYbeaEyP05p5yO8oA8vP/FNPMV8TmM9v
+         PIw4XLOAzDVg2XrLuMHubZbE4WVsPHm5qv9O60HOSJttDJgUcb7B07vCA8vOpXVg8RY+
+         aBQ1E2ZwQb7jhWspOrM1qy+4DcLl/FKW8cDjI+dZ9RQvDD81XD8tM9C/ms6O3bW2lXjj
+         ViUg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:mime-version:references:in-reply-to
-         :from:dkim-signature;
-        bh=wMnvi84iHgMT5EehQPUOpPHMSRil6iMt6kQQwsIp6L8=;
-        fh=4Z9NnDapjP00Hq4cle3qSOFsyTf6VLEorcF4yvHKNZQ=;
-        b=hFvJFusEwj0hsq02IVapPc3jkmG/LKyl+y8bBIPN2JDTT4yp0lFMdgBdJR+fEuOK7Z
-         48JpUUpBp/aTb7Zybn8eQtnNaG23Xx0eYfdPm1Y7S9v+oW4iIEyTqtjo2Uk+jLUWvquX
-         fLPivtxrcajVgoSyIR9nbs9oH9nPShjG6ziytzALK8WcZsRMIhmg/JzLem9mryLsxxke
-         iz+fkawW/RY88BrgFhRqzcPI8IkkxmKqs2/zn18lSHQCIVNeWjq6zFEzDTa5ytyovODX
-         SPegc/0iT5cpHsSHeKH9q+OleSfxdT6zFm3Vm8CmU2E3WYCQwCrIQb+4BNd0oucnqKpS
-         vTig==;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=uu/YlG123q6ELk6fptQDq7K5NRJkGGSqpe8mSjuwiXA=;
+        fh=QQsrqkNgQHQacntaVXLSm+SjfekpPdxNaoD28md8UiE=;
+        b=R0wFfnsyFh3NMzu2AAiauBwS8ccleBBItuKgifBYJ2ta5bs7OlGaNrfp1/0YDzihR8
+         +x4atqo4L9jBKkIOkfTzqCqeKPoUyNlJX7EVD2yecNPzhWQhWpUkssXzOgwvAhGrhP5A
+         jzifzUXXySzPmutzRVHbAbROSlqTNWEqD4G4Y/CAWZNCVNzuaUgPgiIrK7BUCF0iGlKe
+         jn3to0QhQTladZdoZ0nafWS6a0hstgEcyeHdl9oprz7bWkvTWn9Ub58MgP62SJppWlBF
+         BBbVf+H2tgIWF1Pf+NXFblw+Y9qVdr2PqUbQ1dIOZrA7GKzavOYCkbqx0luQa+5XW26d
+         c6Gg==;
         darn=vger.kernel.org
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795626713; x=1796231513; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=wMnvi84iHgMT5EehQPUOpPHMSRil6iMt6kQQwsIp6L8=;
-        b=D0wQeWAaebB28+WKLQBSOH4C2jOFLLlSZTlO04f71qF0Aa+Kyyhryv/vMtWXYnbvuT
-         k6iAnPClddwWtDpUDuQsaqXT9ZiPmBpetc/POaZJ4XLLpC7W8isgpVShvNq1LTzChtAg
-         t0Tq0bZdciT7TRUz1dmRtlu0m94iT7c0k3eQ7hoUgxj+HLNXGhBSpPqGUSo+w38U25V7
-         v1iAQAZYAd68wWaGlNRRBkdYB9MYjiJL8VkALML1ApACMyKKVRcChwhC2YrvvKf+Mk7I
-         qqCSwS+qUy6ye4DZ1arJuofB1aNTR9ShOI+a0SSfz1P5Vdsg4MabmJ73nWu6B2XzZIaE
-         MxBw==
+        d=google.com; s=20260707; t=1795626727; x=1796231527; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=uu/YlG123q6ELk6fptQDq7K5NRJkGGSqpe8mSjuwiXA=;
+        b=V8e5Ggm84inOCQAMYdSzZXXtwJhtKZGa3opq9z1u/ygc7Cgvs3z918oJs3ToJLw7oU
+         fCIdlQx3YW7fwfa3MvqmFwEVGA/cH80K5y45fHseumRQDYwVP5JL9FNBFFBkQGhyp/7+
+         CdnfXm+OFERmvEfRmZRda7WADVdA8s7Hz7Ws6kl4Uww/UlySc1XE7K8rQ2FyWXjVL5CC
+         jdXKNdR6yMG3CWPw7Oe9VxXrj72H0VOKx+H37KQtOfKyJ6zCm3qY4EMqOqLxNmwmIgN6
+         ftKr/KHB+HRvvJvBSV84Vu7yMAd4Dao5AN9X9O1+nNoSlSEsxLxzcBQ3y5VaOM0ImSyS
+         9+kw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795626713; x=1796231513;
-        h=content-type:cc:to:subject:message-id:date:mime-version:references
-         :in-reply-to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wMnvi84iHgMT5EehQPUOpPHMSRil6iMt6kQQwsIp6L8=;
-        b=1PP51D2K+a/4pyPT59COwM0XnY69Y28pPMnrqyPvk5J6B/d6yOs/v98lC1Vs0NmNPW
-         XUGba+Z+W8HarU9r3G/cQ2GXiU1SNlCYFx9Pcojc5rcfSq5QzRzTfkQe4CvbmiSVB7g6
-         P4emdluY26Aq98U2jsK4Y9q0RXLH6p0kLVnMyAIgU6pYfrA2mzSreUjt8srngrArwilj
-         PsyXGiBuwS/stoIH0Am/hSBQPeLC/Mf6wyYY0d0URYPfAkJyocx05GC85FlXJ3YD9MkB
-         0MtsUNPDk6nrsL7qvLAHvnpGeTcfe3jdLieWLYuakDwn3+PbM1DUZPGlj3NfWPFgODFt
-         0QGQ==
-X-Forwarded-Encrypted: i=1; AL+hErG02T+o5XstdJlJ40iSBq/FP5Kaoexz4IIywO6sw/TKYSUu47RYbxDHflXJ//fHxUu77IHlBSA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VQbwpDyCl4io6tq9UOf78BLBJfFNo5+XwdEOxvsG+nVeIitL2
-	PnGwYbbSFHbvPNvX4ycsJFuQcrW71j6sGGFlGfuihBGwIhIXykB/qDz28fhrYvyQtnO5VeYkHU1
-	KPgaDL4EUeYbjxxPR9ey4p2KX9n02crgQGrBkAs0L5IfPILE6r0lZzVZAfJC4bHuqkKzEBi5OMe
-	B8a4Y082p9ldmzP07Zy2X9UvUOhXa2b33R
-X-Gm-Gg: AZFdTZfabXQ40f66weIDx0vuKdCB8X1zpTE+4jRSl+aA73joz8XZMrfxEdb4qhIRfC2
-	g8M8X7fnvwhGv+GaI1xq2uD71g5gBBWrLmcz3v3nipE/tVopaj1yGOhBMXDaYNW+86hDhjydr1h
-	c8OaCoveCjQnh1Ju2RCX9LH1HjNDdB/DiRSzhuZDpWLINrh06rBGwVIfI=
-X-Received: by 2002:a53:ca02:0:b0:67d:c2d1:5f40 with SMTP id 956f58d0204a3-67df44a9f94mr7458631d50.97.1795626712835;
-        Wed, 25 Nov 2026 09:11:52 -0800 (PST)
-X-Received: by 2002:a53:ca02:0:b0:67d:c2d1:5f40 with SMTP id
- 956f58d0204a3-67df44a9f94mr7458599d50.97.1795626712243; Wed, 25 Nov 2026
- 09:11:52 -0800 (PST)
-Received: from 821463759402 named unknown by gmailapi.google.com with
- HTTPREST; Wed, 25 Nov 2026 09:11:51 -0800
-From: Sergio Lopez Pascual <slp@redhat.com>
-In-Reply-To: <aveRRt/rHQ1By6ul@devvm29614.prn0.facebook.com>
-References: <20261113-vsock-dgram-support-v3-0-1523c8e9b27e@redhat.com>
- <20261113-vsock-dgram-support-v3-7-1523c8e9b27e@redhat.com> <aveRRt/rHQ1By6ul@devvm29614.prn0.facebook.com>
+        d=1e100.net; s=20260707; t=1795626727; x=1796231527;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=uu/YlG123q6ELk6fptQDq7K5NRJkGGSqpe8mSjuwiXA=;
+        b=EVm68klWkjwJtLsvbH9Dpp+C4mByd3gYgCEWpandcKV6fPzJp5Hfvv6zTr6Nvd6bVx
+         /HUcIRKJ2/HHyz5WxBoJa0dseOmUxh51cDFf6KPAmtLG1uVnlLa8hVN1htCC6BuLRavW
+         InO7VDtxzhd3l2JBodh/ldyrQH//qHS2fPaaZPEiHiElYUbTblxmGiWhVyqtNbSHqTy+
+         iJ3gt1hNQ0n/IVn2AI8yft1v7/jz7d/FscxvaiEyZ6kR5PW6kNN3in5Wpx1b56dAC7Fm
+         N/wGqaXgxuYa1try2oECkzcWGcTNOhtzGtzWLSYftiKnUsFt2MCYOTRocU3rhyr+PTxD
+         UAFw==
+X-Gm-Message-State: APuU4Z94Xxeze5SwWz7RP41pQAaU4pd/FfqfAvTAeKZalhyMGhfjyQPY
+	hWr4mfWVN6zm0lCuqs7lyCmVAAkmDJ87d4xL6k/D47ERJ40OjoPRrXQict+HXqxQY4pmlHY0Ch/
+	77yUDjEGAWl8q/RZLkHGajv6MQD2Z+BQC1dESzFC+
+X-Gm-Gg: AZFdTZcYfhg9SxfqE3uiK6BuBCdpWWtnoq7Z/2/IW3PmUidXc5pnNl7Mhk5k67r4ykP
+	FDLGaM9b5Zh0LYqHXOQYFPArP0qZeXgk3daxvRbpyzm4xROCFIkXsVHXhXGJ4R5gkA0QXN9JSlH
+	R6z/ZDK+7RGQZlMOK5uvZIdIcwwtrXUvSnuKU2vqguoGnU3Y0Ec5BeV7tDvSQ8NzadiGQIZZKNP
+	dKevgIyRJQ94Ythciipd3zNvO3qp5j+X9MP1olvijFL0hie4W3B3krmKfI7akUWV1Efm4MI8Sns
+	qeSgKYPFXNjaW+LTCRBiZtQN8P9EamV2DfDSK7Rn/f+yWGqRSsD7I7Imx6y5LfDqvIfKl0wWrQK
+	8jX4JytomIqeSCgPhqj9DKO64iooogMFa4mFAhQ==
+X-Received: by 2002:a05:6402:1c05:b0:6b6:ee14:5096 with SMTP id
+ 4fb4d7f45d1cf-6ba6edd1421mr395825a12.10.1795626726540; Wed, 25 Nov 2026
+ 09:12:06 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -127,134 +103,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Date: Wed, 25 Nov 2026 09:11:51 -0800
-X-Gm-Features: Aa3M54rWhP6JPS6dAHPhCuA1V9j2mDkBDAmNkK_cOM-iU_dy7BMJhibPYf3kF0A
-Message-ID: <CAAiTLFWpoZu9ArNVQ_uq6RRQyiiQYvy5=uNVbhpb=6-OBJV8mQ@mail.gmail.com>
-Subject: Re: [PATCH RFC v3 7/8] vsock: fragment datagrams across receive buffers
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: Stefano Garzarella <sgarzare@redhat.com>, Alexei Starovoitov <ast@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Stefan Hajnoczi <stefanha@redhat.com>, "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
-	=?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, Haiyang Zhang <haiyangz@microsoft.com>, 
-	Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	virtualization@lists.linux.dev, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, kvm@vger.kernel.org, bpf@vger.kernel.org, 
-	linux-hyperv@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org
+References: <20261120045918.1239746-1-almasrymina@google.com> <CA+FuTSfx_MzL1v6cRReLWwpJUpUnmrzFvGmm+HiNL40uMOMAjw@mail.gmail.com>
+In-Reply-To: <CA+FuTSfx_MzL1v6cRReLWwpJUpUnmrzFvGmm+HiNL40uMOMAjw@mail.gmail.com>
+From: Mina Almasry <almasrymina@google.com>
+Date: Wed, 25 Nov 2026 09:11:54 -0800
+X-Gm-Features: Aa3M54rtHxu24NDH6LtxWg_kyJM9Tle0yl5VdSQDTOsl7lzOpGstdr23hcQlHN0
+Message-ID: <CAHS8izP3c6V_2EaQVHSXOq3hCNP4xM=gNWtBikbV1CHK_YeVgg@mail.gmail.com>
+Subject: Re: [PATCH net-next v4 0/7] net: devmem: support leased RX and TX
+ queues on netdev unregister
+To: Willem de Bruijn <willemb@google.com>
+Cc: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org, 
+	Weiming Shi <bestswngs@gmail.com>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Nikolay Aleksandrov <razor@blackwall.org>, David Wei <dw@davidwei.uk>, 
+	Stanislav Fomichev <sdf.kernel@gmail.com>, Bobby Eshleman <bobbyeshleman@meta.com>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Bobby Eshleman <bobbyeshleman@meta.com> writes:
-
-(I've just noticed I've missed replying to this review, sorry about that).
-
-> On Fri, Nov 13, 2026 at 06:15:47PM +0100, Sergio Lopez wrote:
->> The guest already uses page-sized RX allocations. A datagram can exceed
->> one RX buffer. Growing every posted buffer to hold a full datagram would
->> increase virtqueue memory use and make small queued datagrams retain large
->> backing allocations. With delayed reads, a bounded receive queue could
->> then fill after only a few messages.
->>
->> Define START and EOM flags for datagram packets. Mark outgoing messages
->> with both flags, and let vhost split a message across guest RX buffers,
->> keeping START on the first fragment and EOM on the last. When a data
->> packet meets a descriptor with no payload space, vhost returns that
->> descriptor with zero used bytes. It drops datagrams but requeues stream
->> and seqpacket data for a later buffer.
->>
->> Reassemble consecutive fragments in the guest before tap or socket
->> delivery. Bound a partial message to 64 fragments and 64 KiB. Discard
->> incomplete messages on malformed packets, a new START, a peer mismatch,
->> an intervening non-datagram packet, or virtqueue teardown. Require complete
->> framing for host and loopback ingress.
->>
->> A QEMU reproducer now delivers a 9 KiB datagram as one message and all
->> 16 messages of a delayed-read burst. Paired host/guest selftests cover
->> 64 KiB messages and the burst through both a userspace backend and the
->> patched Linux vhost backend, with stream and seqpacket controls. A nested
->> vhost-vsock guest posting header-only RX buffers also passes stream and
->> seqpacket receive tests.
->>
->> Signed-off-by: Sergio Lopez <slp@redhat.com>
->> ---
->>  drivers/vhost/vsock.c                   |  15 +++++
->>  include/uapi/linux/virtio_vsock.h       |   8 +++
->>  net/vmw_vsock/virtio_transport.c        | 115 ++++++++++++++++++++++++++++++--
->>  net/vmw_vsock/virtio_transport_common.c |  11 ++-
->>  4 files changed, 141 insertions(+), 8 deletions(-)
->>
->> diff --git a/drivers/vhost/vsock.c b/drivers/vhost/vsock.c
->> index f4fb2ac732f5..1ff4a9aff907 100644
->> --- a/drivers/vhost/vsock.c
->> +++ b/drivers/vhost/vsock.c
->> @@ -185,6 +185,19 @@ vhost_transport_do_send_pkt(struct vhost_vsock *vsock,
->>  		 * buffer, we split it using multiple buffers.
->>  		 */
->>  		if (payload_len > iov_len - sizeof(*hdr)) {
->> +			if (iov_len == sizeof(*hdr)) {
->> +				/* Connected sockets must retry with the next buffer. */
->> +				if (le16_to_cpu(hdr->type) ==
->> +				    VIRTIO_VSOCK_TYPE_DGRAM)
->> +					kfree_skb(skb);
->> +				else
->> +					virtio_vsock_skb_queue_head(
->> +						&vsock->send_pkt_queue, skb);
->> +				vhost_add_used(vq, head, 0);
->> +				added = true;
->> +				continue;
->> +			}
->> +
->>  			payload_len = iov_len - sizeof(*hdr);
->>
->>  			/* As we are copying pieces of large packet's buffer to
->> @@ -244,6 +257,8 @@ vhost_transport_do_send_pkt(struct vhost_vsock *vsock,
->>  		 */
->>  		if (VIRTIO_VSOCK_SKB_CB(skb)->offset < skb->len) {
->>  			hdr->flags |= cpu_to_le32(flags_to_restore);
->> +			if (le16_to_cpu(hdr->type) == VIRTIO_VSOCK_TYPE_DGRAM)
->> +				hdr->flags &= ~cpu_to_le32(VIRTIO_VSOCK_DGRAM_START);
->>
->>  			/* We are queueing the same skb to handle
->>  			 * the remaining bytes, and we want to deliver it
->> diff --git a/include/uapi/linux/virtio_vsock.h b/include/uapi/linux/virtio_vsock.h
->> index 27b4b2b8bf13..e1937f756eeb 100644
->> --- a/include/uapi/linux/virtio_vsock.h
->> +++ b/include/uapi/linux/virtio_vsock.h
->> @@ -101,6 +101,14 @@ enum virtio_vsock_shutdown {
->>  enum virtio_vsock_rw {
->>  	VIRTIO_VSOCK_SEQ_EOM = 1,
->>  	VIRTIO_VSOCK_SEQ_EOR = 2,
->> +	/*
->> +	 * With VIRTIO_VSOCK_F_DGRAM, START marks the first RW packet of a
->> +	 * datagram and EOM marks the last. Both are set for a datagram that
->> +	 * fits in one packet. Fragments must be consecutive on the receive
->> +	 * virtqueue. Each packet's len is its fragment length.
->> +	 */
->> +	VIRTIO_VSOCK_DGRAM_EOM = VIRTIO_VSOCK_SEQ_EOM,
->> +	VIRTIO_VSOCK_DGRAM_START = 4,
+On Tue, Nov 24, 2026 at 6:24=E2=80=AFPM Willem de Bruijn <willemb@google.co=
+m> wrote:
 >
-> Should this be 4 if VIRTIO_VSOCK_DGRAM_EOM = VIRTIO_VSOCK_SEQ_EOM = 1?
-> Seems like 3 is missing?
+> On Fri, Nov 20, 2026 at 12:50=E2=80=AFAM Mina Almasry <almasrymina@google=
+.com> wrote:
+> >
+> > Support leased RX and TX devmem bindings when either the virtual device
+> > (e.g. netkit) or the physical backing net_device is unregistered:
+> >
+> > 1. Pass struct net_device **dev_ptr to net_devmem_lock_dev() so callers
+> >    can lock either binding->map_dev or binding->bind_dev.
+> > 2. Rename binding->dev and binding->vdev to binding->map_dev (physical
+> >    DMA device) and binding->bind_dev (device passed to bind-rx/bind-tx)=
+.
+> > 3. Introduce netif_lease_valid() and guard netif_mp_open_rxq(),
+> >    netif_mp_close_rxq(), and netif_rxq_cleanup_unlease() against an
+> >    unregistering physical device reached through a queue lease.
+> > 4. Fold net_devmem_lookup_dmabuf() into net_devmem_get_binding() so the
+> >    xarray lookup, validation, device check, and reference acquisition
+> >    run under a single rcu_read_lock() section.
+> > 5. Always populate bind_dev on RX and TX bindings and handle teardown
+> >    and netdev unregistration of both bind_dev and map_dev, waiting for
+> >    synchronize_net() after clearing NET_DEVMEM_BINDING_LIVE before
+> >    unmapping bindings whose map_dev is unregistering.
+> > 6. Resolve the physical backing map_dev in netdev_nl_get_dma_dev() for
+> >    leased RX bindings, lock map_dev around net_devmem_bind_dmabuf() on
+> >    bind-rx when map_dev differs from netdev, assert both devices are
+> >    locked, and check netif_lease_valid(map_dev).
+> > 7. Add kselftests in nl_netdev.py covering leased RX and TX devmem
+> >    bindings across both virtual-first and physical-first netdev
+> >    unregistration orders.
+> >
+> > These issues were discovered during AI code review (Sashiko) of the
+> > earlier non-leased devmem unregister series (and subsequent mailing lis=
+t
+> > review) and confirmed by code inspection (not observed in production or
+> > reproduced on real hardware). Tested with the nl_netdev.py selftest on
+> > netdevsim added in this series.
+>
+> Is it perhaps possible to avoid the dual device tracking?
+>
+> AI summary so YMMV, but worth considering if the alternative is sound
+> and a lot simpler (to maintain long term too):
+>
+>   The leased RX UAF on physical NIC removal and reconfiguring a dying
+> physical queue on unlease (plus the bind-vs-unregister race) are
+>   worth fixing.
+>
+>   Before going with the dual bind_dev/map_dev tracking, have you
+> considered resolving leased RX queues to phys_dev and phys_rxq once at
+> bind-
+>   rx time instead? Since mp_params, page_pool, and dma_dev all live on
+> the physical queue anyway (and netkit doesn't store any memory
+>   provider state on virt_rxq), storing phys_dev in binding->dev and
+> phys_rxq in binding->bound_rxqs=E2=80=94plus clearing rxq->mp_params in
+>   dev_memory_provider_uninstall() and passing phys_rxq in
+> netif_rxq_cleanup_unlease()=E2=80=94would let dev_memory_provider_uninsta=
+ll()
+> and socket
+>   teardown operate directly on the physical device under netdev_lock(phys=
+_dev).
+>
+>   That would keep binding single-device (vdev stays an opaque TX-only
+> cookie), avoid most of patches 1, 2, 4, and 5 (no dual-device locking,
+>   no two-pass net_devmem_dev_unregister(), and no TX behavior change
+> when only the virtual device unregisters), and let physical-first
+>   teardown clean up directly while virtual-first unlease can unmap
+> immediately when the queue closes cleanly.
 
-Yes, those are bitmasks. But they are also part of an enum, which is
-weird and confusing. Perhaps I should prepend a patch removing the enum
-and redefining those values in the form of "1U << 0"?
+Huh, I thought dual device tracking was essential especially with
+Nvidia's upcoming Data Direct series, but my bot calls out that this
+approach works and even extends well to that series. Let me prototype
+it and see if I run into issues. Thanks for the suggestion!
 
-> Is VIRTIO_VSOCK_DGRAM_START strictly necessary? If we just received an
-> EOM from a peer, then we know that the next pkt from that peer is also
-> the start of a new dgram. We'd have to be careful to never abandon a
-> datagram partway through, but for example I think we can just requeue
-> the datagram fragment to later retry if we fail to place onto the vq?
-
-Yeah, I thought about this quite a while too. Having START makes the
-protocol less dependent on the transport semantics, allowing the guest
-to identify an incomplete datagram to resume from a known boundary. I
-think it makes the implementation more robust with a relatively small
-cost.
-
-Thanks!
-Sergio.
-
+--=20
+Thanks,
+Mina
