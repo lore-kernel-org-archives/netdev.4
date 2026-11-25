@@ -1,58 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795590047;
-	b=UGkBwWrBW49/2vDlqxKOkfJp8mMK+G1zhUthheBeZ1M756Q4GqDx6aY0WAGrdK7gYgDL
-	 9hAjSJGrS3kEvQXN42G72sBCrNGJpolXKMYFFL/2k/ScP+18HAVj1OgC3lF85G/Isz8Y7
-	 jXhZf+13a/mS7YLMRi20JIKKOF360tBb+QaOhQ/DHfw0A8LSgAjQeo5W+731ZRLUrhEe0
-	 qj3vli8Ch/8gPw1pykLfPkB46wNzSaWi5Nr8cEtajej6s6ZdUTwVYxSEKqO2m8Ypg/Bul
-	 D9CZXVJEV5sof0FHA/hFvOhahEzeZvf+2C8VGLWwssPHnvAKTcVutkixOElJrmBIntQ==
+	t=1795590051;
+	b=atTkFsoSyFZGp8EAlHcYIIHXxuywYwtXJlB+QRRTqKR5Wr7p7BPvLY3DbRDgIrVVBMFL
+	 rZmljpUK5IjdxuHazglWiIGtfICfAMptbgnQy6RAfjEFSqYLkYaaFnu6tBdDWihuwcWIl
+	 jezZVeD0ahoYbsKPwlrMaTw8MvXC1tBEpG1Lv7iXMlCV+r8tlZhV6z3FJ+UwmooknSIVc
+	 /OmGF7JCBP00mHPuCNtJ1fx3jqmLHaXggLyQ55m2AHwGyjS9a5Bt8bV+RhmvqtZWxtNhu
+	 zB5I4Mnt+BmoANG0gudM3J7U1Q9NjBF0MEMVptFrIoZUKgC8D0sfNU6q5thHo8IUkQg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795590047;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
-	b=ZtgeG6DhbZRPdoBUXigvifmrsg90wHi+3TynmBMqG5uFQ/iqh3xCI9MvnuzFWwTEmCYx
-	 Rw5tbPE/mr1kAijU/8ykY6BhQn8qYRQN6g1GObgvD003xwHwt2A+59ZPQwV913yxu4Oc+
-	 9hMfn8UQIPz8ollPaVnCVLA+uUi5UiXiN/uHnZTnPjlwaz2YNMrldpXp5ZUY6RlnQun9/
-	 n0DfgLeeZEgC4wk9Lh9TNh47pMaRs/wulHBlfRi0IkBsEOloTBVftjG18a9U8EXWf/inZ
-	 qgZq6LtpMiFz713IRgoiVA3wB3W7Yh0+rw1EJj2Smu0hwal5P85o9sxXjFzgYhnTIIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590051;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=pJzbT/2sKAu+1jUa3jEs/wpzdBrn3yrOVHZfzRy28u0=;
+	b=QUOL++ri020K1GD7IbIfQIRO7Y4kLsrKYlxSTznsyF0yLoIz7iGkcBUu+XqStXkIhpr9
+	 ARLJEeU+jLR0ZS2I86PXMpna3t2/JHIGGmPe1F90lucXjVop3koFFvCXme7Y0xIljRJbt
+	 cJ6xa/46NyRlBwjynRLsyBMq1NlgXoObJF7zwIAPHvJo2xN9A7e+/Z8XnTAUm+wG026L/
+	 +uuOmpY/RpsiyBJRec4VXXSiXzXCJmaJK2TQnBx1QStIl5CvsRfaaVmU4jHR2y65peGpL
+	 UYw2zgku1QoVtFuQQ9R7GSU4VsQdXWsguYURglgEt9rAw8Fo/pNpy/0VnrXTExpjzAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh;
-	arc=none smtp.remote-ip=113.46.200.219
-Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hxi7hmqN;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8998606A329;
-	Wed, 25 Nov 2026 07:00:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8998606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64470606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:00:51 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
-	b=5GWbwqXhtlsmZckgqSs888Rnd8UTfhq/1wGM5l1/RxArQ+p6LmQUAqS0TtYBgw62s2YAY0OeW
-	n2Cg18PIZIopLR787jRzd7VxS5PLbe4w7Vkt80f6qyD4cTBd0jTF2xyykillALnqrz5PxHpsvcs
-	YThIu/XXv2RJeveRruqwPmQ=
-Received: from mail.maildlp.com (unknown [172.19.163.0])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZ9YM1Bxrz1prqH;
-	Wed, 25 Nov 2026 15:00:23 +0800 (CST)
-Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
-	by mail.maildlp.com (Postfix) with ESMTPS id 21D3C40561;
-	Wed, 25 Nov 2026 15:00:40 +0800 (CST)
-Received: from [10.174.176.113] (10.174.176.113) by
- whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Wed, 25 Nov 2026 15:00:38 +0800
-Message-ID: <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
-Date: Wed, 25 Nov 2026 15:00:37 +0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=hxi7hmqN
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D417A1F000CA;
+	Wed, 25 Nov 2026 07:00:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795590051;
+	bh=pJzbT/2sKAu+1jUa3jEs/wpzdBrn3yrOVHZfzRy28u0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=hxi7hmqNY+OQqqv3rFXiiuxT7k3nIBw8GKpNVG8cwALof8FTwH4pd6PUsgZLY5iz6
+	 S+YanuyRswRFP32vrusmHb3Rnt80nSX6C0QF9DHxAxjHuwaaenjev7dLYYJYO+vbUk
+	 WAQ1V2LbayZSr6nipjLOYO7JFn18zwRMnrkgAbSVrw5bRHAEPz5gwsqrb44sp9BHlp
+	 Q5FJpxc2oZcthkceNbWnTJYyku4Ix/r0R/evtEyO6/iwORt2YtbjJBFNEl2TdgkDRj
+	 xsx8AdKasSdQd+jv9+l7Mk/Vz7azVvujD0NRa7f6/+uWFGXfQTxGCXbc6KACJKQe12
+	 6By+8ULHt8w7w==
+Subject: Re: [PATCH] ipv6: reject datagrams that leave no room past the
+ fragment header
+From: netdev-bot+sashiko@kernel.org
+To: 3596417740@qq.com
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ edumazet@google.com, pabeni@redhat.com
+Date: Wed, 25 Nov 2026 07:00:50 +0000
+Message-ID: <179559005040.3135.16330539313126668995@kernel.org>
+In-Reply-To: <tencent_BE8DC9842FFF55349D2FCCDE456B9C6EB709@qq.com>
+References: <tencent_BE8DC9842FFF55349D2FCCDE456B9C6EB709@qq.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,112 +62,243 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-To: Hangbin Liu <hangbin.liu@linux.dev>
-CC: <netdev@vger.kernel.org>, Jay Vosburgh <j.vosburgh@gmail.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Hangbin Liu <liuhangbin@kylinos.cn>, Changzhong Zhang
-	<zhangchangzhong@huawei.com>, <linux-kernel@vger.kernel.org>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
- <20261125012632.GB19338@Liu-laptop>
-Content-Language: en-US
-From: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
-In-Reply-To: <20261125012632.GB19338@Liu-laptop>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
- whupemp200008.china.huawei.com (7.152.184.21)
 
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-Hi Hangbin,
-On 11/25/2026 9:26 AM, Hangbin Liu wrote:
-> Hi Jiehua,
-> On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
->> In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
->> and returns early, but does not clear bond->usable_slaves.
-> 
-> Since the issue was introduced in bond_set_slave_arr(). Should we set
-> the bond->usable_slaves to NULL here before return?
+Critical: 0 · High: 1 · Medium: 2 · Low: 2
 
-Clearing bond->usable_slaves in bond_set_slave_arr() does fix the leak,
-but it is too late for updelay: bond_enslave() links the new slave via
-bond_master_upper_dev_link() before calling bond_update_slave_arr(),
-so miimon can already see the slave while the stale empty array is
-still there and skip updelay.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Clearing when the mode changes to broadcast happens while the bond is
-down with no slaves and mii_work has already been canceled, so the
-stale pointer is gone before any new slave is visible.  That fixes both
-the leak and the updelay issue.
+- [High] The fix is incomplete.
+- [Medium] The new rejection in __ip6_append_data() (`room <= trailer ||
+  room - trailer < need`) is stricter than the non-paged path needs, and…
+- [Medium] The commit message says 'The non-paged path is not affected:
+  pagedlen is zero there and the existing copy < 0 check returns…
+- [Low] The patch fixes a user-triggerable resource-exhaustion loop in
+  __ip6_append_data() (net/ipv6/ip6_output.c) that the author reproduced…
+- [Low] The new -EMSGSIZE rejection in __ip6_append_data() exits through
+  the generic `error:` label, not `emsgsize:`.
 
-Thanks,
-Jiehua
+--
 
-> 
-> Thanks
-> Hangbin
->> 
->> A mode change requires the bond to be down with no slaves.  When the
->> last slave is removed in balance-xor, balance-tlb or balance-alb,
->> bond_update_slave_arr() publishes an empty usable array, and later mode
->> changes do not clear it.  If the bond is switched to broadcast, the
->> stale pointer remains: bond_miimon_inspect() sees count == 0 and
->> ignores updelay for slaves enslaved while the stale array remains, and
->> bond_uninit() leaks the array.
->> 
->> Clear bond->usable_slaves when the mode is changed to broadcast.  The
->> bond is down and has no slaves at that point, so the array can be freed
->> and set to NULL before the bond is brought up again.  Broadcast never
->> publishes usable_slaves, so it stays NULL.
->> 
->> The issue was discovered by an AI code review agent and confirmed by
->> manual code inspection.  It was reproduced on mainline with virtme-ng;
->> no kernel modifications or error injection were needed.  With a dummy
->> slave and miimon=1:
->> 
->>   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
->>   ip link add dummy0 type dummy
->>   ip link set bond0 up
->>   ip link set dummy0 master bond0
->>   ip link set dummy0 nomaster
->>   ip link set bond0 down
->>   ip link set bond0 type bond mode broadcast
->>   ip link set bond0 up
->>   ip link set dummy0 master bond0
->> 
->> After the final enslavement, dummy0 comes up within 50 ms despite
->> updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
->> none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
->> selftest passes on the same kernel.
->> 
->> Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
->> Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
->> ---
->>  drivers/net/bonding/bond_options.c | 8 ++++++++
->>  1 file changed, 8 insertions(+)
->> 
->> diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
->> index 9efadeff6a22..f65916444fa1 100644
->> --- a/drivers/net/bonding/bond_options.c
->> +++ b/drivers/net/bonding/bond_options.c
->> @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
->>  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
->>  	WRITE_ONCE(bond->params.mode, newval->value);
->>  
->> +	if (newval->value == BOND_MODE_BROADCAST) {
->> +		struct bond_up_slave *usable;
->> +
->> +		usable = rtnl_dereference(bond->usable_slaves);
->> +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
->> +		kfree_rcu(usable, rcu);
->> +	}
->> +
->>  	/* When changing mode, the bond device is down, we may reduce
->>  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
->>  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
->> -- 
->> 2.33.8
->> 
+ipv6: reject datagrams that leave no room past the fragment header
 
+This patch adds a check inside the datalen clamp in __ip6_append_data().
+The check returns -EMSGSIZE when the space left after the fragment headers
+cannot hold the trailer plus transhdrlen and fraggap. The goal is to stop
+the paged allocation path from looping through alloc_new_skb without
+making progress until the socket wmem budget runs out.
+
+> The non-paged path is not affected: pagedlen is zero there and the
+> existing copy < 0 check returns -EINVAL.
+
+[Severity: Medium]
+Does this hold when transhdrlen and fraggap are both zero?
+
+rawv6_sendmsg() calls ip6_append_data() with transhdrlen == 0:
+
+net/ipv6/raw.c:rawv6_sendmsg() {
+    ...
+	err = ip6_append_data(sk, raw6_getfrag, &rfv,
+		len, 0, &ipc6, &fl6, dst_rt6_info(dst),
+		msg->msg_flags);
+    ...
+}
+
+Take fragheaderlen = 1272 and mtu = 1280. The clamp sets datalen to 0 and
+the non-paged branch computes copy = 0 - 0 - 0 - 0 = 0, so the copy < 0
+check does not fire. alloc_skb() then runs under the 2 * sk_sndbuf gate,
+and length -= 0.
+
+On the next pass, copy = 1280 - 1272 = 8, which is less than length. So
+copy = maxfraglen - skb->len = 0, and the code goes back to
+alloc_new_skb. This repeats until -ENOBUFS.
+
+Doesn't that mean any CAP_NET_RAW holder, including one inside a user
+namespace, can reach the loop without MSG_SPLICE_PAGES or MSG_ZEROCOPY?
+
+The new check does stop this case. The commit message also doesn't say
+that UDP and ping sends with this geometry on the non-paged path now get
+-EMSGSIZE instead of -EINVAL, which userspace can see.
+
+> Signed-off-by: Dai Wenjie <3596417740@qq.com>
+
+[Severity: Low]
+This fixes a loop that userspace can trigger, and it was reproduced on
+6.12.96. Should it carry a Fixes: tag and Cc: stable?
+
+The paged-branch arithmetic quoted in the message
+(pagedlen = datalen - transhdrlen - fraggap) comes from 736b380e28d0
+("ipv6: account for fraggap on the paged allocation path"). The clamp line
+comes from 0c1833797a5a and e57a34478586. The raw socket
+(transhdrlen == 0) version of the loop is older than both.
+
+> diff --git a/net/ipv6/ip6_output.c b/net/ipv6/ip6_output.c
+> index cb648c8394310..b9887b9d60a39 100644
+> --- a/net/ipv6/ip6_output.c
+> +++ b/net/ipv6/ip6_output.c
+> @@ -1651,8 +1651,18 @@ static int __ip6_append_data(struct sock *sk,
+>  			 */
+>  			datalen = length + fraggap;
+>  
+> -			if (datalen > (cork->length <= mtu ? mtu : maxfraglen) - fragheaderlen)
+> -				datalen = maxfraglen - fragheaderlen - rt->dst.trailer_len;
+> +			if (datalen > (cork->length <= mtu ? mtu : maxfraglen) - fragheaderlen) {
+
+[Severity: High]
+Can this branch condition still wrap, so the new guard never runs?
+
+The early check in __ip6_append_data() only rejects mtu <= fragheaderlen:
+
+	if (mtu <= fragheaderlen ||
+	    ((mtu - fragheaderlen) & ~7) + fragheaderlen <= sizeof(struct frag_hdr))
+		goto emsgsize;
+
+	maxfraglen = ((mtu - fragheaderlen) & ~7) + fragheaderlen -
+		     sizeof(struct frag_hdr);
+
+When mtu = fragheaderlen + k with k in 1..7, maxfraglen ends up as
+fragheaderlen - 8. If cork->length > mtu, the maxfraglen - fragheaderlen
+in the condition above wraps to 0xfffffff8. The condition is then false,
+so the maxfraglen <= fragheaderlen test below never runs.
+
+Without the clamp, both the paged path (MSG_SPLICE_PAGES) and the
+non-paged SG large-alloc path do this:
+
+	alloclen = fragheaderlen + transhdrlen + fraggap;
+	pagedlen = datalen - transhdrlen - fraggap;
+	...
+	copy = datalen - transhdrlen - fraggap - pagedlen;
+
+The result:
+
+- copy is 0 on every pass.
+- On later passes, copy = maxfraglen - skb->len is negative, so the code
+  goes back to alloc_new_skb.
+- fraggap grows by 8 each time and length never decreases.
+- pskb_trim_unique(skb_prev, maxfraglen) cuts each previous skb below
+  fragheaderlen.
+
+The loop only ends when the 2 * sk_sndbuf gate returns -ENOBUFS.
+
+One way to reach this is l2tp_ip6_sendmsg(). It passes transhdrlen = 4,
+ip_generic_getfrag and msg->msg_flags, so splice() sets MSG_SPLICE_PAGES.
+Set IPV6_MTU to 1284..1287 and add an unprivileged type 4 IPV6_RTHDR so
+that fragheaderlen = 1280. Then headersize + transhdrlen <= mtu passes for
+k = 4..7, and a datagram larger than mtu gives cork->length > mtu.
+
+rawv6_sendmsg() passes transhdrlen = 0, so k = 1..7 works there. That
+needs an SG device and a send length that forces
+fraglen + alloc_extra >= SKB_MAX_ALLOC.
+
+ip6_append_data_mtu() also recomputes maxfraglen for the first skb (xfrm
+transport mode) and does not compare it with fragheaderlen again:
+
+	*mtu = orig_mtu - rt->dst.header_len;
+	...
+	*maxfraglen = ((*mtu - fragheaderlen) & ~7)
+		      + fragheaderlen - sizeof(struct frag_hdr);
+
+The commit message says:
+
+    the subtractions are guarded so that neither maxfraglen - fragheaderlen
+    nor room - trailer can wrap.
+
+The copy of that subtraction in the branch condition is not guarded,
+though.
+
+Would it be better to reject maxfraglen <= fragheaderlen, together with
+the trailer and transhdrlen room check, before this condition? That would
+be right after maxfraglen is computed and after ip6_append_data_mtu().
+Another option is to evaluate the condition without unsigned wrap.
+
+There may also be a worse case that I have not verified. With MSG_MORE on
+a non-SG device, alloclen = mtu while the unclamped fraglen is
+length + fragheaderlen. Could skb_put() hit skb_over_panic() in that case?
+
+> +				unsigned int need = (unsigned int)transhdrlen + fraggap;
+> +				unsigned int room = maxfraglen - fragheaderlen;
+> +				unsigned int trailer = (unsigned int)rt->dst.trailer_len;
+> +
+> +				if (maxfraglen <= fragheaderlen || room <= trailer ||
+> +				    room - trailer < need) {
+
+[Severity: Medium]
+Is this bound stricter than the non-paged path needs?
+
+On the non-paged path, after the clamp, the existing code adds the
+trailer back for every fragment except the last one:
+
+	if (datalen != length + fraggap) {
+		/*
+		 * this is not the last fragment, the trailer
+		 * space is regarded as data space.
+		 */
+		datalen += rt->dst.trailer_len;
+	}
+	...
+	copy = datalen - transhdrlen - fraggap - pagedlen;
+
+So datalen ends up as room and copy = room - need. alloclen already
+includes trailer_len through alloc_extra, so skb_put() of maxfraglen
+fits.
+
+Before this patch, any non-paged send with room >= need fragmented
+correctly. When room < trailer, the add-back undid the unsigned datalen
+wrap.
+
+With this patch, routes with a nonzero dst.trailer_len, such as an ESP
+xfrm dst, fail with -EMSGSIZE when need <= room < need + trailer. For
+example, take an ESP GCM trailer of 21, room of 16 and a UDP need of 8.
+That used to send 8 bytes in each first fragment and is now rejected.
+Raw sends (need == 0) with 0 < room <= trailer fail the same way.
+
+Only the paged path, where pagedlen = room - trailer - need can
+underflow, needs the stricter bound. Could the trailer part of the check
+apply only there? The commit message also doesn't mention this change in
+behaviour.
+
+> +					err = -EMSGSIZE;
+> +					goto error;
+
+[Severity: Low]
+Should this rejection also report through the error queue?
+
+Every other MTU and header sizing rejection in __ip6_append_data() goes
+to the emsgsize label:
+
+emsgsize:
+	pmtu = max_t(int, mtu - headersize + sizeof(struct ipv6hdr), 0);
+	ipv6_local_error(sk, EMSGSIZE, fl6, pmtu);
+	return -EMSGSIZE;
+
+The error label never queues an error-queue entry, and it increments
+IPSTATS_MIB_OUTDISCARDS:
+
+error:
+	net_zcopy_put_abort(uarg, extra_uref);
+	cork->length -= length;
+	IP6_INC_STATS(sock_net(sk), rt->rt6i_idev, IPSTATS_MIB_OUTDISCARDS);
+
+So an IPV6_RECVERR application gets EMSGSIZE from sendmsg() or splice()
+but finds nothing on MSG_ERRQUEUE for this one failure. The drop is also
+counted in OUTDISCARDS.
+
+Jumping straight to emsgsize from inside the loop would skip the
+cork->length and uarg cleanup. Would calling ipv6_local_error()
+explicitly before the goto error keep this consistent with the other
+sites?
+
+> +				}
+> +				datalen = room - trailer;
+> +			}
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/tencent_BE8DC9842FFF55349D2FCCDE456B9C6EB709%40qq.com
