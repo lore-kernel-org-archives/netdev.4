@@ -1,102 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570736;
-	b=zgBf49vz+u4+JzWQeBdjLyiViADfaYFf/wRJru3Vet3F6ikXavvKyyxAi9TSFxvVrTlv
-	 CNaOk5ZOQ6DGK9577Vm4GZc7IINeOq/syiD8S+U6QICv2CX2H11QRWdw9iQzHJNuO6QnX
-	 g7irIqIJUnBvqAVbTT9IS44iBA53pK6iAWFfYMDK0Fzs4THFnFLRtJXfvPbd7qShuMdyy
-	 cWlQR2Q1FihPQiCDshON32YiGTYQ8rkd9iETjU1p0LNZfaW26CpxhQnuA/8vox977W1QI
-	 KJ0VasNRC12NDbU4dBkVcKGrtls9aL2dISHKCTbVgPb/fnK6Kxd9sMmzElw9dY1gVzQ==
+	t=1795570805;
+	b=Y/pvGX5uiKUbO1OeB8o8bxKXMaVFCMB6FXU5oCeFUaDyo11l5dvifidhqP+SBZmU7ypn
+	 Tj44iry67qxlUYWM+c6fl4nPJypRE1YkwYfF1qUWKVvgsp2xT4n07xuJ27Hmf5aWb09Gk
+	 jHbYkoBds0eP/PSyPOqo2PlEUG9/b3gTfioJYgZU+Nrh5T6wDU2/FArRxSxQZZxiqPG4e
+	 o/1I2jTSDNS11nHrurHeyQKg8Gyp+q3U28Jd20ghPMZsErABAHa0vf94xiXGHHdcgotqK
+	 LX5kwq4qRCyTYSmiEG4uXGSEwEzzfZPEVfhVw/eOyONfPrnZSfJJcJ4TpRoxEbeVk3A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570736;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
-	b=CXoSBclILzy0KXNnIkMTSJtx2mmvwsotss5qSLdqPsT6YVUyJXH214qaH8tDb2C59UUQ
-	 uKTVMt9j6Q6MUavYIYVjKAJMxj8pR6w9E8RVzuA3UD81JCVhD/yl/tW5gLhCeH78pcWGD
-	 Fq/2FUZKsiKXWTTTA/1ZNpY9uxYGNcGxO6RhZTRW+fzAvxv9nwLxYViMLJSzCFHDrxMeC
-	 AxmjKX9mHNkCRPHL3FYPLs+aZcUg7E1ZNCRlSY2UrHfWYJOzIb2JCMFpdfpn5c5CgEYV9
-	 NipLle8w1dZ/TdXvDcnGGIjN6BJu/fjBl2QaE6gCtmeC92ngTgvEzMRt2bBgrPnicaQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570805;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=N1054bmPlXYgbxbb4Yzcf7GzEuGZMyWrUBjTbwWOVqE=;
+	b=VKgRPZZlCxhOOuWwgH/7ndskouNfgObL+Iu4Vzc7xnAZLAJcXSCh9kfOPkOOCVTcG95u
+	 XehLWvFZPQnvpNWfnVVwxp0hqMA9/RGmgJ/JLnGRIc/Sfo7cqirkQ+ci1LgkgNt+UtKEO
+	 3GHLcIrw1ZGdK9JE7+QeObzeHd3dQliJh/LZx3R+/VmRUxtH0wn62mPxZyk4UKTuTSa/Q
+	 RMaG4PzW+IqK5myyMj843+rOwMZXbcZhTrjn07LqaHGXnCdkoMjfLXIBflDdwqXELkFj+
+	 HWb05YFp4Y0zFbTBAwx/fDz9P1ioC4+kp1n5ZdDhIDa3OgTcJaVofhlpZcRh3zXW/mQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nQ3cYOFl;
-	arc=none smtp.remote-ip=209.85.210.174
-Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ifOQru2T;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6374D606A330
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:38:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6374D606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 64BA2606A31E;
+	Wed, 25 Nov 2026 01:40:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nQ3cYOFl
-Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a05b210703so2438547b3a.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:38:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795570736; x=1796175536; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
-        b=nQ3cYOFlTRFhcuSLIWlwOPuC2LQzGSEZw3kz3m3DYrwBMqvQH5vLebKCVtGmpzqd8j
-         VwFvgPv+Qt5BK6J7fGTGjiLqAW3WgA8fQXWviz+3ekMnlQ8vJU1tRVCjP7zSds6sne67
-         7ZljZ/RCRZ7lrmaEIq2tDJNR1LvUeupfzTHD2EGted1iHScyX8uiPSluADAdJsVYE/Ri
-         fCRdU7t/vJF4aNTmF4m/BUbaob2qqKTKaX/Kx1YGhKxzRgbxNB7NQUIxsRBlKYaPglqF
-         8e42LJFvRXkxoTXx6jtCSVL8p4Pu+5/BDZ05mA1TSO9lfp4RYzMHusEuJnnwlcigTNjc
-         in0A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795570736; x=1796175536;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
-        b=joChPaw98K8RiSE2T+H3MwIT87f+i9MmuDk9krOthtxkul68AF5gdQw1MEsidCp+MQ
-         yEsazV9BWhFtmzIS+okMRGl/BLb6DyzRMJySrCInn69iYXdOkP7b/oYjBcpyQ85jcVCQ
-         KOpF2HDOtSppu+wstWPiWrt0NiYROmgxXoa3DTqI8zCF6QQiBNuhpuegBiDhc9q8+cc1
-         T1T60FEOr9ItxXpZrrQxO3nxmgGl2JpE2qbc0NKyrl6F1AXupVs3zpDNylIsiVEdaNsN
-         4rHOYHEbCKeoslxq5qHJ9MvsaifYTd1ggcPOtqCxEZHXsTLpDYwxn3EGhkpUMc4iq/1C
-         yi1w==
-X-Gm-Message-State: APuU4Z+zQ5mDfPlsPV1AUYg7E8ZH4lQgw3JNQtCH5d6qygk5XO9208Oo
-	LM3DT2LDeuRDO25X4E++mbJDVXOarT7jWTyW09/CVyvVIXoHuQoec1h8Y4Evb9/o9D7bCFkxYvI
-	81c0m
-X-Gm-Gg: AZFdTZfg8q7dgSNVUhZgq6ibqwQRfu13PNEedzMTYXIXB0zhNSZ8lgo5O6pkL94ojxm
-	bu66N/E6yeb1/yK+b0owfP2RQj9m7t4sFC1fKnFHwgrK48F7JOZmU8Ers2DJM5rv+bR7CojyYAj
-	fS4Ap7ErJdgWPeyeT7mOZob38qjgTY4SoCqRUzpiCsjrMKK+elg6tRwfMKwapHJODruZuJfg7yy
-	w4gduTvw0aVw3tgN56ZOFpquaOkEkxYJf3YtWiMh5wOoFw/RPXHnbhM4h+25JFHOc1LfjNOdVIG
-	TrQCI56D8Or5dU7fs8lXi0eYFWXYKs0OHX/74ha5wxLsv3s7DPESs7eAL8OZ+CygVfcGVMP1FZ3
-	tbn9daMgpTsZsqJ5O88BHip1LfpoohMpFRNN71lT8BaV1bcgF+q+M06rr6pv26qhCHXpLPEmUKQ
-	kOzF3H7WxyRzChZnluKWuXK28NtLLHfjVkZfQxrOEgV9/RIpXya4GYUjIPm/0JTMPxsQ7s2LlFI
-	P0l++JHDTmdhqXftaBubEiJFwdaAAVLkANki6GrHCz3KrSqfMViN3VMAZtZG0yUXuCWqSd77XKu
-	VybBHvOuZfRZWG8jmdfeeZ4T1VDJvyAzPueyKJlgBPetxe1BubEXglPL1edJDC9/
-X-Received: by 2002:a05:6300:8095:b0:3e2:83d5:191b with SMTP id adf61e73a8af0-4014c25610dmr14554528637.63.1795570735677;
-        Tue, 24 Nov 2026 17:38:55 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:54::])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8706844a0sm8133696b3a.1.2026.11.24.17.38.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 17:38:55 -0800 (PST)
-From: Joe Damato <joe@dama.to>
-To: netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Shuah Khan <shuah@kernel.org>
-Cc: edumazet@google.com,
-	horms@kernel.org,
-	narcisav.kernel@gmail.com,
-	Joe Damato <joe@dama.to>,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net-next 2/2] selftests: drv-net: uso: add small MSS variants
-Date: Tue, 24 Nov 2026 17:38:36 -0800
-Message-ID: <20261125013838.3823834-3-joe@dama.to>
-X-Mailer: git-send-email 2.53.1
-In-Reply-To: <20261125013838.3823834-1-joe@dama.to>
-References: <20261125013838.3823834-1-joe@dama.to>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ifOQru2T
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD61C1F000C6;
+	Wed, 25 Nov 2026 01:40:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795570804;
+	bh=N1054bmPlXYgbxbb4Yzcf7GzEuGZMyWrUBjTbwWOVqE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=ifOQru2Tc1x/SGYx9EZlhQcDkgzU+ts7uOW27xUUCy07s56EttYwZiie0ACsyDkI0
+	 bOTAZCxQHYiYhBdyUiLMzZT2AtVsnbiZeZxl9GfCulPE79RK9Mu1SBXIZ07MxKp5cR
+	 jfUDkHc8UErIYpzk9/uuE7JKZ6AzR+/0H7yIvKta3ILnf4QHtWdQMCCatcakCAgoVe
+	 8s33BPmJu6SqsFI6kALdF+a++suUefW83tD7dyK93BdBVGoxAYWV/jCX0p4+UfBPAg
+	 Uf4O1FRPPqbMonUh/eDwSI1PuVSr6ISX0b/xF6Zkn57FjniTDPU/g1yv1eKIO6wRq2
+	 zUWEXnIHbmLLg==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45063808209;
+	Wed, 25 Nov 2026 01:40:04 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,29 +54,42 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH] net: bcmasp: avoid refcount drain on probe
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179557080364.155974.7410172128564360840.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 01:40:03 +0000
+References: <1795076102979-9-385853cc@mail.zgclab.edu.cn>
+In-Reply-To: <1795076102979-9-385853cc@mail.zgclab.edu.cn>
+To: Haoran Wang <wanghr2026@mail.zgclab.edu.cn>
+Cc: justin.chen@broadcom.com, florian.fainelli@broadcom.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, bcm-kernel-feedback-list@broadcom.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
-Add small MSS variations to test paths in drivers where small frames are
-sent through different TX paths.
+Hello:
 
-Signed-off-by: Joe Damato <joe@dama.to>
-Suggested-by: Jakub Kicinski <kuba@kernel.org>
----
- tools/testing/selftests/drivers/net/hw/uso.py | 2 ++
- 1 file changed, 2 insertions(+)
+This patch was applied to netdev/net.git (main)
+by Willem de Bruijn <willemb@google.com>:
 
-diff --git a/tools/testing/selftests/drivers/net/hw/uso.py b/tools/testing/selftests/drivers/net/hw/uso.py
-index b0936b6b2161..be152d36cf3e 100755
---- a/tools/testing/selftests/drivers/net/hw/uso.py
-+++ b/tools/testing/selftests/drivers/net/hw/uso.py
-@@ -92,6 +92,8 @@ def _uso_variants():
-     for ipver in ["4", "6"]:
-         yield KsftNamedVariant(f"v{ipver}_partial", ipver, 1400, 1400 * 10 + 500)
-         yield KsftNamedVariant(f"v{ipver}_exact", ipver, 1400, 1400 * 5)
-+        yield KsftNamedVariant(f"v{ipver}_small_partial", ipver, 8, 8 * 10 + 4)
-+        yield KsftNamedVariant(f"v{ipver}_small_exact", ipver, 32, 32 * 3)
- 
- 
- @ksft_variants(_uso_variants())
+On Thu, 19 Nov 2026 16:15:02 +0800 you wrote:
+> bcmasp_probe() calls of_find_node_by_name(dev->of_node, "ethernet-ports"),
+> which unconditionally drops the from-node reference the caller never held.
+> Every probe or bind cycle that reaches the port scan, including ones that
+> later fail with "No ports found", drains the asp node refcount by one. Once
+> it hits zero, of_node_release() deadlocks in its error printk (%pOF on the
+> parent while holding devtree_lock with IRQs off), so the machine freezes
+> silently with nothing on the console.
+> 
+> [...]
+
+Here is the summary with links:
+  - net: bcmasp: avoid refcount drain on probe
+    https://git.kernel.org/netdev/net/c/846a6d0982be
+
+You are awesome, thank you!
 -- 
-2.53.1-Meta
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
