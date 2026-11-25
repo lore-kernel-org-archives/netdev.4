@@ -1,47 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596938;
-	b=wL5wpcEuV7lalqDVCbaRF8VP7gDG6IEH47GxVZAqtgqxJdQOB6gJF5HD2a3baPNx55dB
-	 65pMLhY2KdkB+gHG3PSDsnIXlvMOExqf0wnrtSbzSYE0ynfykQvO6XVohfaXTtZLfsEjP
-	 +uAF2hLgWfHDuC3OypjZy4KvaXTKn0jKvEiraNUcuglFn/IS9o/Ayaw2ni3752qA10bha
-	 FQvmg7NDsGq9Tn6TZRhagFRJUGx4WIoKYoCkhQXkN8SNIWqgs6Jb/8xHcwuO7MhcQOH7o
-	 5tXubkMwZZ1os22MGBEtvbKrsMp5+ZOAeYfDGt+sUgFe0xu+AaL4ls0o6DUKuAGujTQ==
+	t=1795597001;
+	b=HHob9D+Pu73H3RMuMdiUZ6BSzwHXj7mh5ABJA37NcnOCAxDSkzlPL2tgIWuqA4B2KxQ5
+	 NoXYlFSVb4vq4lk54YQCYxXOPVXQmXz3AX1MU1fDB1cicsMDlAqzODSHEjzUUBc+KW+2L
+	 G6Voj97uiNk2IaNthFT6c0RmdMMa5LvOArQrvlJUoKdSqIYFquCCINsM+fBnwyJZ0d0gF
+	 1getLXsgehcCkvxtj5/NpgnuWsjxdyC0kXsZBseGpps1DgHg4wcKq3aSnxLfwv62Ft+66
+	 lp8CU6bHyCca/cqzUgcvPrzGvb9IZP/ut6dTEr2nEQdWEePxtSB6kgtH+C09h88K+kA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596938;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=tTpUi0ILw5EG17akaEX6b7XqQuzxRpKcK9YSXdbQtZI=;
-	b=lZ4su9abbml5uYa3l8HCKd8QlD3uTlKjqREMeYDMDOeIy+tKpK9lOw7ENqf0OPoJ1402
-	 xZQ5kugvYbB8lBlN8GeaMaXvx0pH//OcX++Ok/W/xvc3RkPxZp4SemCf7Sq88KNWYkfS0
-	 iISiWFw9V9kIHInumG3E3R5XIMP7RT9ShzehYDbIDZZ502ldLm8osvvx2fI33MsmQO5h0
-	 Spoma4ha9lEbOiCROtT+10QKf4odDJkzX8/9XNEwzpo2Fh1N2CdgagqE0qYgKnpy9lZWq
-	 t6mbHMaKYGhYk7mDpvMnOmMDupCofkZLZay7RPIbhc4+qSKgIxEcVom+6JIR3yyv9+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597001;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=lWEEw8es/PxWuYSJtZRURjIYAkL2SeCqThvJh8/iqHQ=;
+	b=dzjv4424+tQ6h1iBofb4xn+Y/PBzr15CVfjOUzPqw7sjqNZ1lyzpWAquD/bV8d/zQIWI
+	 aoULLOlhrA6gvQKWfgXrUqNBfHOJt93iKNep1jr5K+zIs+SkJ6bEgb4B4SI+sM5E5YDPi
+	 wFHNBhKPikVk28zxtpd1OWu6toc8Rmgi4pD0/5djjwxJ8R1s1Gwza6Xp8b/Qxlz3ef3pj
+	 yCHNenQew/WPRnQy/4CYoENift1SJLWrPGxrdBwaKKx1zQaLUHZKDD4sA/kUHSNz5H/ZE
+	 jdHRbzC5ABAIYehzY+eKVtZ7ZenXN44llwsgZkEAWA4HzkCaD+hr5tITl3sphwU5Y4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gWq4C8zE;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LTdVtyKl;
+	arc=none smtp.remote-ip=220.197.31.2
+Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1414F606A326;
-	Wed, 25 Nov 2026 08:55:37 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF4DF606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:56:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF4DF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gWq4C8zE
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72FF01F000CF;
-	Wed, 25 Nov 2026 08:55:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795596937;
-	bh=tTpUi0ILw5EG17akaEX6b7XqQuzxRpKcK9YSXdbQtZI=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=gWq4C8zEP1i3TuB6Ew5njZ1TreqMRfk14GYmncPr9GmXeCLrGldtJWY7UN2yiBpDu
-	 YLZY7QMlub0k2l289kPwFVIcvSfMvgpqPxce5xcF10AtpTv1hIXGN3GPAYr+Yviirj
-	 3V65ENHlgjyCYkrU/thlwsNxqiA21ClysqrWUTcf2D0WmG9PxWxBWGVVHR6GK/STFs
-	 D12Tnq2qpWMpRyH5qm7Chk5tczb6oX9arPo9V36Mi2Sy7zm59AotNsHPdCbKDVuJz/
-	 hlfc4yFo0Jq6HN8GC5Yw9r3ncUt3Z5ooZzioPvL325S92OpNa2O1VdsbMjvHUbF4u8
-	 FGX+5TJzUK0SQ==
-Message-ID: <ef8ce4ac-fcb6-41fd-947e-ecdf83527a42@kernel.org>
-Date: Wed, 25 Nov 2026 09:55:34 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LTdVtyKl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=lW
+	EEw8es/PxWuYSJtZRURjIYAkL2SeCqThvJh8/iqHQ=; b=LTdVtyKlZiKCEPLjDW
+	qbcHHhOC0zex+UUkxyoHrV/AO8wasTiPh2wQXEkNXdaOdj8oFDw8Vt5AxKcNwlQp
+	axnfGr3qbQE3WillcbHagRT2V8Sos+bz4CxcEkxXkv2Bk3ckm0W60VqCoDSYfh39
+	DMyBqudRyQwViOxPgK0B/zJ/c=
+Received: from ck.. (unknown [])
+	by gzsmtp5 (Coremail) with SMTP id QCgvCgB3paRtogZrdEsbIA--.7371S2;
+	Wed, 25 Nov 2026 16:55:12 +0800 (CST)
+From: ck <mjkchengke@163.com>
+To: Frank.Sae@motor-comm.com,
+	netdev@vger.kernel.org
+Cc: andrew@lunn.ch,
+	hkallweit1@gmail.com,
+	linux@armlinux.org.uk,
+	davem@davemloft.net,
+	edumazet@google.com,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	mjkchengke@163.com
+Subject: [PATCH] net: phy: motorcomm: add downshift tunable support for YT8531/YT8531S
+Date: Wed, 25 Nov 2026 16:55:09 +0800
+Message-ID: <20261125085509.1844883-1-mjkchengke@163.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,83 +66,173 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH iproute2-next] ss: move to its own directory and split up
- ss.c
-Content-Language: fr
-To: Stephen Hemminger <stephen@networkplumber.org>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, mptcp@lists.linux.dev
-References: <20261119024049.3109143-1-stephen@networkplumber.org>
- <7da8ca7b-f985-402d-a314-454c9094eb44@kernel.org>
- <20261124165454.36367923@phoenix.local>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <20261124165454.36367923@phoenix.local>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:QCgvCgB3paRtogZrdEsbIA--.7371S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW3GFW8Wr1UAw45GFWUtw1UJrb_yoW7Aw47pr
+	WfJF97ZrZFqFsrGr4ftw4kJFWY9r4FkayUCr9rCw1Yva4YqFn3ta1rtr1UtF97CrWkWFW3
+	Wr47XFWDua47XrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJUUUUUUUU=
+X-CM-SenderInfo: ppmnux5hqjyvi6rwjhhfrp/xtbC9hAhb2sGonCDrgAA36
 
-On 25/11/2026 01:54, Stephen Hemminger wrote:
-> On Tue, 24 Nov 2026 11:41:09 +0100
-> Matthieu Baerts <matttbe@kernel.org> wrote:
-> 
->> I was surprised that you ended up with ~900 more lines, but I think you
->> missed the removal of misc/ssfilter* files.
->>
->> Cheers,
->> Matt
-> 
-> Most of the ssfilter* files are build results from flex/bison
-> so not actually in the repo.
+The YT8531 and YT8531S support Ethernet Line Speed Auto Downgrade:
+when autonegotiation fails to establish a link after a configurable
+number of attempts, the PHY downgrades to a lower speed and retries.
+The number of attempts before downgrading is configured through the
+Speed Auto Downgrade Control Register (0x14), bits 4:2, and the
+feature is enabled through bit 5 of the same register.
 
-Indeed, but in your patch, it looks like you are creating new
-ss/ssfilter{.h,.y,_check.c} files instead of moving them from the "misc"
-directory. Or maybe I missed something?
+Expose this as the ETHTOOL_PHY_DOWNSHIFT tunable, following the
+semantics used by other drivers: the tunable value is the number of
+autonegotiation attempts before downgrading (range 2-9), 0 disables
+the feature, and DOWNSHIFT_DEV_DEFAULT_COUNT restores the power-on
+default of 5 attempts.
 
-Cheers,
-Matt
+The retry-limit field stores (attempts - 2) and only takes effect
+after a software reset of the UTP register space. genphy_soft_reset()
+resets the BMCR of the currently selected register space only, and
+the YT8531S powers up with the fiber space selected, so use the
+existing yt8521_modify_bmcr_paged() helper to reset the UTP space
+explicitly.
+
+Hardware-validated on a Phytium D2000 board with a YT8531S: setting
+8 and 2 attempts, restoring the default, and disabling all commit
+correctly to register 0x14; out-of-range values are rejected with
+-ERANGE.
+
+Signed-off-by: chengke <mjkchengke@163.com>
+---
+ drivers/net/phy/motorcomm.c | 97 +++++++++++++++++++++++++++++++++++++
+ 1 file changed, 97 insertions(+)
+
+diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
+index a87e83fdf5..08bf8441fb 100644
+--- a/drivers/net/phy/motorcomm.c
++++ b/drivers/net/phy/motorcomm.c
+@@ -97,6 +97,9 @@
+  */
+ #define YTPHY_SADCR_SPEED_RETRY_LIMIT		(0x3 << 2)
+ 
++#define YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK		GENMASK(4, 2)
++#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN		2
++#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX		9
+ /* Rx Error Counter Register */
+ #define YTPHY_RX_ERROR_COUNTER_REG		0x15
+ 
+@@ -1205,6 +1208,96 @@ static int yt8521_probe(struct phy_device *phydev)
+ 					  val);
+ }
+ 
++static int yt8521_modify_bmcr_paged(struct phy_device *phydev, int page,
++				    u16 mask, u16 set);
++
++static int yt8531_get_downshift(struct phy_device *phydev, u8 *data)
++{
++	int val, cnt, enable;
++
++	val = phy_read_paged(phydev, YT8521_RSSR_UTP_SPACE,
++			     YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG);
++	if (val < 0)
++		return val;
++
++	enable = FIELD_GET(YTPHY_SADCR_SPEED_DOWNGRADE_EN, val);
++	/* The retry limit field stores (attempts - 2): the default 0x3
++	 * means 5 attempts before downgrading.
++	 */
++	cnt = FIELD_GET(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, val) + 2;
++
++	*data = enable ? cnt : DOWNSHIFT_DEV_DISABLE;
++
++	return 0;
++}
++
++static int yt8531_set_downshift(struct phy_device *phydev, u8 cnt)
++{
++	u16 mask, set;
++	int err;
++
++	if (cnt == DOWNSHIFT_DEV_DEFAULT_COUNT) {
++		/* Restore the power-on default: enabled, 5 attempts */
++		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
++		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
++		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
++		      FIELD_PREP(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, 3);
++	} else if (!cnt) {
++		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN;
++		set = 0;
++	} else {
++		/* The tunable value is the number of autoneg attempts
++		 * before downgrading, in range [2, 9]. The register
++		 * field stores (cnt - 2).
++		 */
++		if (cnt < YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN ||
++		    cnt > YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX)
++			return -ERANGE;
++
++		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
++		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
++		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
++		      FIELD_PREP(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, cnt - 2);
++	}
++
++	/* The SADCR change is only committed by a UTP-space software reset.
++	 * genphy_soft_reset() resets the BMCR of the currently selected
++	 * register space only, and YT8531S powers up with the fiber space
++	 * selected, so reset the UTP space explicitly. Both helpers manage
++	 * their own paged access window.
++	 */
++	err = phy_modify_paged(phydev, YT8521_RSSR_UTP_SPACE,
++			       YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG,
++			       mask, set);
++	if (err < 0)
++		return err;
++
++	return yt8521_modify_bmcr_paged(phydev, YT8521_RSSR_UTP_SPACE,
++					0, BMCR_RESET);
++}
++
++static int yt8531_get_tunable(struct phy_device *phydev,
++			      struct ethtool_tunable *tuna, void *data)
++{
++	switch (tuna->id) {
++	case ETHTOOL_PHY_DOWNSHIFT:
++		return yt8531_get_downshift(phydev, data);
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++static int yt8531_set_tunable(struct phy_device *phydev,
++			      struct ethtool_tunable *tuna,
++			      const void *data)
++{
++	if (tuna->id != ETHTOOL_PHY_DOWNSHIFT ||
++	    tuna->len != sizeof(u8))
++		return -EOPNOTSUPP;
++
++	return yt8531_set_downshift(phydev, *(const u8 *)data);
++}
++
+ static int yt8531_probe(struct phy_device *phydev)
+ {
+ 	struct device *dev = &phydev->mdio.dev;
+@@ -3280,6 +3373,8 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 	},
+ 	{
+ 		PHY_ID_MATCH_EXACT(PHY_ID_YT8531),
++		.get_tunable	= yt8531_get_tunable,
++		.set_tunable	= yt8531_set_tunable,
+ 		.name		= "YT8531 Gigabit Ethernet",
+ 		.probe		= yt8531_probe,
+ 		.config_init	= yt8531_config_init,
+@@ -3294,6 +3389,8 @@ static struct phy_driver motorcomm_phy_drvs[] = {
+ 	},
+ 	{
+ 		PHY_ID_MATCH_EXACT(PHY_ID_YT8531S),
++		.get_tunable	= yt8531_get_tunable,
++		.set_tunable	= yt8531_set_tunable,
+ 		.name		= "YT8531S Gigabit Ethernet",
+ 		.get_features	= yt8521_get_features,
+ 		.probe		= yt8521_probe,
 -- 
-Sponsored by the NGI0 Core fund.
+2.43.0
 
