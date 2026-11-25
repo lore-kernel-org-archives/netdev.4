@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.48
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795593191;
-	b=JFlD39v4R8amSqCQU3Oot8dqkuGzO8xPz1wly3ORyQJTA1O0rtIiA4ANK6Ko38F6Eb5w
-	 LjTIKAzXVGxuPf95MIzJcdcpTCzNcb9Z8V/3geJqkndk4iKBu/1KbnyNEHGcJnL4ZRIDe
-	 3scqkiRWF46oMjf3CUWgabjUfsKpjTltrqkSKyYJntZnhfFHCYuxxUnuK12q7Lkbgk+wg
-	 uiX2dx4BCd93L00eTm/P9VEBhe3bk/NQv9nIFBURvK+WGM57dn64BjrTEnTSdflnXy6ZP
-	 zijTAWHPvUye9oWL3DJEQ8fo3Nh7+XPtbYUDwWELVHdD3EYjqT4NY+JVP2K6L07FtOA==
+	t=1795593193;
+	b=ncawwAlHx4ZhMen39LzwVeCiri0gXiFcLbAlDaPnu/oaXWT+Kfzl9ZWPtyXBybLJQM7k
+	 rQ9JS7Sde13cEIKK+2KG2TSFUQ8LMF1z+P2tPb2o5iaj6Csl1NeVhnalx2m80UqaCheUs
+	 mrYaXyQjxHM+Me8XthGpyreWRGyBLNDbjHHMAZ6xyjMsCPEKC9Uh5HV3MTvuRWfcmoKbu
+	 GluNR3gcr8jNfqaJc8gVLKTzCore0O6n10kNLbcQ+cq421SljHj+YKJAP0jNmvh09+mIq
+	 woUeymZ/qdcd7fw5Udctd2HUk42bWFtvfNtFtEpu9B5trIwax8oZ1czRQ979kKHgfIQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795593191;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795593193;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=nAlv3xeWLjPkzwFkSmSMhDw5Up084r6SQ9sON5hrIy4=;
-	b=D3nM5uxNMbephR60ogLBmkjNhMLBPVvkhkkZ4J5uEGtiEO2UynxcLeZMRgLzJxch86G3
-	 sq2scaBUoyImbdRtuHKAnm0zeaZbVWtm71hap8o2Bxr/pI5COEIBw4jd9pUzj+LaDVKy6
-	 AWm4ZgFZkulxf0tFQCaVtUFtWttm47/E2c/Kxnra0aXu1S6aL2cjfGS6QS0SDZjkcJZAe
-	 U7IuAmQkNmpn3nRghn8G1p8vmKpVV7pGukWrXqnUbNrjyKQAZ83AYV+REQWUXPWRfp4b2
-	 X4QUF4toh4FCBsfHOpg0KrAjec5owch9beb4Vu1LpO6tZKlwSJb6XOwhQWQK609gxSg==
+	bh=XsSU7eqNTjksHlmxyRYfctDcfzFjixMJdHtfM73cHGo=;
+	b=VqOaOVJMiEgRJi9r/rSsmxYK3vgSx0qztyGxlHJLz5L7YusP3zgiqG9YwpXuxbdgO5TY
+	 qkzaOBn1pw6aOqpGOYeHd94Mw21cXHYYPOm5niU7XYIo53oVc4Hh1O4ODjMtXpUlpPiqe
+	 oQjF9QNHLyLS2J73Cg6t0Eab/3UMUEa/7FEpu4sR5X5EHsiXOzwV7u0YErDIhEzp3Ha9l
+	 HzmxM98rFb4C8CvQLpSZ/pEP/IRXyDzPF2XPG/U3DCODfY7sHnTAxdajTZQSJn27yOr05
+	 kaML5anRH+QZ7zhrnAy3VEEkKPe+umQrRq/UxYeY66hcWxZZmLLmnNkuUL9RvFT45wQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+3hBtZX;
-	arc=none smtp.remote-ip=209.85.221.54
-Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jvjv9VZ3;
+	arc=none smtp.remote-ip=209.85.221.48
+Received: from mail-wr1-f48.google.com (mail-wr1-f48.google.com [209.85.221.48])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E44D606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:53:10 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E44D606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B20A606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:53:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B20A606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=o+3hBtZX
-Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-4ac08f4a0b2so3812162f8f.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:53:10 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Jvjv9VZ3
+Received: by mail-wr1-f48.google.com with SMTP id ffacd0b85a97d-4acb44dcd7bso4692787f8f.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:53:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795593189; x=1796197989; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795593191; x=1796197991; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nAlv3xeWLjPkzwFkSmSMhDw5Up084r6SQ9sON5hrIy4=;
-        b=o+3hBtZX2n152doDdurhNK7m8sZN61nzua1l3ObMLghmRbiSkFchusywbfY07OxyoF
-         iiY5qjUE1Kkjwki21Oq7Mh4vCsTV2c1nacahE70HrosyyeeGokZCHzwTE8W/cduePNE4
-         7jTXqXt8Q56n8fec78d1Y60DXD1ruyymcI0ejJ6kGKFBKL5n4q5Lz+pFz+oIevG4CzDa
-         v6eAOugLiITw2eRP6d9dCnh+lsrnnCAT4ufDIZx+kBeGbw/vDU+OB49P6WXSjpyee4IF
-         7fju9aio5VZ3CKC1KLGAieis6n0zFlyQ8P7SAg3bD3nNs1jmS/Q5w16Y/X/iOroG9c9E
-         I7Pw==
+        bh=XsSU7eqNTjksHlmxyRYfctDcfzFjixMJdHtfM73cHGo=;
+        b=Jvjv9VZ3s5X8quh6tXtHcacxvIpDOyaKxUSiYi4XQs04Xbul4MSB9fuMGiE7mLSWe1
+         SqjfBYiv0CNquSrbCvmg6ABm5YBOC6eO8NAXbsQaRBZW+Rd9XdAVZDaNiYFnkXemgqC6
+         67N3Vb061WCInjUv99NJjE2eJiDhCeaPp7L+xJMOEBTc/5dnY/9BEidSEAdJqMGUtGNu
+         MGqO/Cc3TUu5ej1/Uab2AJ/jCx88Eo8xzcXqAyLuStLvh5Fv/Yjgk4xBD8XCDgux1K1F
+         8iE1+KXzPKu3LT+o7/wHDYTujpiAUjQqDH0NPKw8u36Syva0acTpUeJz0dLSWXFfkr3v
+         lP6g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795593189; x=1796197989;
+        d=1e100.net; s=20260707; t=1795593191; x=1796197991;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nAlv3xeWLjPkzwFkSmSMhDw5Up084r6SQ9sON5hrIy4=;
-        b=H7olODY3szDfwpDupdOsGS2BYe+9XkUgY3q0qYs+2uidX4bpdaSoc1BsyfRfKw9HKU
-         7XvSuRROwFiYFh5Npd7uW9MxeyOEVIWdQIOHsTS56EzyQx+f9yjH0WEvfjRSb0zTuzFO
-         SleFXJc0dqcjkfQOHaJ6bwxIK2UY4PcPGlslmvBJUpB5EdouYPtgwR8JXwMu15+6GmuJ
-         xPWXwNhlZATbj1tc+V4Gq0wI7Ykv1K5jeQYst25EOjQNOf1btGdVZCq+CZ/mFIVWJdIo
-         k1YARxWs+FCNlfkkDXYqTXXD773ORq5h2CWT0PyN46Y9A8ICjciKDuhEDBLzsYboXKXq
-         63xA==
-X-Gm-Message-State: APuU4Z+pvIAnWma4QT9SZDH0VTgq2IOclYBli+8j+Tse4xNFF4AoCUe2
-	O1FbMkjAeue5iNVPCV4B0utBRypLpqKw1FkmqrS4X9ZzSMjbK/pk7YTW
-X-Gm-Gg: AZFdTZfJOInQBicoHaRLjkNQSdCjO0UWLFs5J0yRtD0yEifad8hVDq8INeGxebFKLlp
-	lS6YGiGXUBZ1Izi1qy5RY5sO9e+gHRcYp05meVzq79kLB0J19srBdotM9RsJyJW92Q4LfdDG9zp
-	uPuuNBySNjZXf0bJzHLs889HiNPU76rshRPB1dZEHFaa2VPtK3wuWiFa4yV7i1SkizXOpS9fAHu
-	Xa9smhYBcptl2oK0w5K9KKEamGspYD15vhH5qgxV5f8t56+OwwIXYPjd8bqmJuL4GxYasgZ3PqJ
-	d50PtI0C3GpPuC8+Yxf5287UcPhN+aG+T9zz5Slsf0crxuOz4pbH/3ThqI/uRZCyp2CG/v6frEs
-	4NJBkTx7SpcfFzkB8kTkkeMOXNbQyfl01MEqZXRQo9cTPQkPHNrd9EosjDs5Jm+1jVjBraIqPYu
-	PGDoaprJE2IobwIV02HqBJgqzZLbckFxbAEFJTz9lS7iAaqACYa7lueJBna+o+WG1qyauKolOp5
-	Bq1onCldWrIe91z335dFhhmTGmqelr4c6AIA8cV0jyiMhQtBggAQcnZVL9bGrfMPa42qzf8HxBb
-	ETslCoKTXwDLNACIbcWBtSJRUeMa0fAITb7hQ9A7
-X-Received: by 2002:a05:600c:820c:b0:4bb:7987:fbbc with SMTP id 5b1f17b1804b1-4bb887c29b4mr303248805e9.1.1795593188856;
-        Tue, 24 Nov 2026 23:53:08 -0800 (PST)
+        bh=XsSU7eqNTjksHlmxyRYfctDcfzFjixMJdHtfM73cHGo=;
+        b=T0WzVgeygnjojxIpTlDkShahccBxBCg6g+r4s4XTdD5gmwC0FDjktn/ztFRO7NaZP4
+         JnSpkZ2UQEmpiB4tXl3NXxudrJFcZdMrP5lZlMdvCdBONFqRwx4AJpe/FQL+Z6glji0k
+         B/T2YHpv/Kf//9rq7bqGXcJi1BvEjmore0x6bJIN8Pp6ijdY33yNGUnVky506OWAR/Rc
+         Kgtq4DdHTXkgN4rkUr9SEXVTjAyUtbKsrZTXpp1JhmsFEhCQODC/PzjrtYE8iznmSO16
+         udeOjsawhzgg0lVjFB61mHBOVpZk/uuC8O0+MgKTN7Q6XmGtYC1Gi96i0d1bhXMOaNAY
+         ++FQ==
+X-Gm-Message-State: APuU4Z9jJh0n23ieTLQOKvkzCRnjZnbrSfrt8YwME4NPxWKiDEKP6z5o
+	mqlXb1buMhgS9/bPvcwsrzKWQisUP4OtrioWBYRVD7iMKlHFccaeVriC
+X-Gm-Gg: AZFdTZfJD9rT2L3jMqKEzpv9Kel8KJg38JxvjU1DWkyvv0e/eE966CJ64eQqyZnRaKn
+	eyrMmQNzvKr3dsBLTmCkSvn/Laag35OUxV5eLJo6W4pwpzuJvrU+zUWW9FwXU80p4UBJhAVvwZu
+	CcGr4DY/dOyAshwSz3Gl59OosbcDzsdoxeRpbFU7NE498ySXmHhX46X6K2H+90vYknlVhqVFOiH
+	cGf+pfICrwZT67Zg7nP3rvP3JqVk6jLECyS9qOPeVGG30eGwUOUowFnjahWkmsPlYmhFm2pDqc6
+	WIXzdvaaWbJ41XQDuwoqtno6XL3T1VwaBg4i3gcEGzqgxMlNjdxZa+gbDjO8YGYCDNFrLwUvnni
+	02yjUPLo4bftZcei+Wg0CML12UAhltmrhRgyYa8jYcuRiTuE9/Qn4EC1GqABvHqh0A34hj1IcaZ
+	ltNJUxvbc+H+LYLi32BAqSTK8h5CNqzqNtfJxl+fJLuHYHiJ1/QT7Wjm76S+BjrMiGVR5TYEiGn
+	zckyEKG5h31GjF3ARA1FK8R+VDLaNmadVansBJHd4Mm82dYEp2+v5hKIIikj4BFegxh9z2aLNhS
+	OGTku57qHFavpazcywc+C7m+bguFcUECI1tZqz3D5jBfBdZrkbQezr9QZ+xO
+X-Received: by 2002:a05:600c:a085:b0:4a2:a9:ed87 with SMTP id 5b1f17b1804b1-4bb88811c75mr366080335e9.19.1795593191278;
+        Tue, 24 Nov 2026 23:53:11 -0800 (PST)
 Received: from Philipp-PC ([91.227.186.127])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680483sm33001138f8f.28.2026.11.24.23.53.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680483sm33001138f8f.28.2026.11.24.23.53.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 23:53:08 -0800 (PST)
+        Tue, 24 Nov 2026 23:53:11 -0800 (PST)
 From: Philipp Sudakas <filzador@gmail.com>
 To: ronak.doshi@broadcom.com,
 	bcm-kernel-feedback-list@broadcom.com
@@ -94,9 +94,9 @@ Cc: netdev@vger.kernel.org,
 	sdf@fomichev.me,
 	u9012063@gmail.com,
 	Philipp Sudakas <filzador@gmail.com>
-Subject: [PATCH net v3 1/5] vmxnet3: clear rx_ctx.skb after a data ring XDP verdict
-Date: Wed, 25 Nov 2026 10:52:51 +0300
-Message-ID: <20261125075255.1517-2-filzador@gmail.com>
+Subject: [PATCH net v3 2/5] vmxnet3: fix the error path of XDP program setup
+Date: Wed, 25 Nov 2026 10:52:52 +0300
+Message-ID: <20261125075255.1517-3-filzador@gmail.com>
 X-Mailer: git-send-email 2.56.0.windows.4
 In-Reply-To: <20261125075255.1517-1-filzador@gmail.com>
 References: <20261125075255.1517-1-filzador@gmail.com>
@@ -111,40 +111,166 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-For a completion from the rx data ring, vmxnet3_rq_rx_complete() sets
-ctx->skb = rbi->skb in the sop block before running XDP on the data
-ring copy. With XDP enabled, the ring 0 head buffer is
-VMXNET3_RX_BUF_XDP and that union member holds a page_pool page, not
-an skb. On XDP_PASS ctx->skb is replaced with the new skb, but on any
-other verdict, XDP_DROP included, it keeps the page pointer.
+vmxnet3_xdp_set() publishes the new program and drops its reference to
+the old one before it recreates the rx queues and reactivates the
+device. If vmxnet3_rq_create_all() or vmxnet3_activate_dev() then
+fails, it returns -EOPNOTSUPP without rolling anything back:
 
-The stale value then belongs to no frame. If the next completion is a
-single descriptor with rcd->err set, vmxnet3_rx_error() passes it to
-dev_kfree_skb_irq(). The ring buffer XDP path already clears ctx->skb
-after a non-PASS verdict; do the same here.
+- On a failed attach, dev_xdp_install() drops the reference it took
+  for the new program, but the driver still points to it.
+- On a failed detach, the driver has already dropped the old program.
+  The core keeps it recorded as attached, except on XDP link release,
+  where dev_xdp_detach_link() ignores the error.
+- The interface stays up with NAPI disabled, IRQs freed and, if queue
+  creation failed, no rx rings. vmxnet3_suspend(), vmxnet3_resume()
+  or a pending vmxnet3_reset_work() can then hang or crash.
+
+So far the stale program pointer was mostly hidden because every error
+path of vmxnet3_activate_dev() goes through vmxnet3_rq_cleanup_all(),
+which also clears xdp_bpf_prog.
+
+On a failed attach (the old program is always NULL there, as replacing
+a program does not reconfigure the device), drop the new program, bring
+the device back up without XDP and return the error. On a failed
+detach, complete the detach and return 0, so that the driver and the
+core agree. In both cases, if the device cannot be restarted, close the
+interface with dev_close(): the device is already quiesced, with NAPI
+disabled and IRQs freed, and vmxnet3_force_close() would quiesce it
+again and free the IRQs a second time.
+
+Release the old program, and update the redirect target feature, only
+once the change is done. The feature is now also updated when the
+program is set while the interface is down, as the program now stays
+in effect when the interface comes up. Use rtnl_dereference() to read
+the current program: ndo_bpf runs under RTNL, not in an RCU read-side
+section.
 
 The problem was found and analysed, and this patch drafted, with the
-help of an AI coding assistant. It was reported by an automated
+help of an AI coding assistant. It was also reported by an automated
 review of an earlier version of this series.
 
 Fixes: 54f00cce1178 ("vmxnet3: Add XDP support.")
 Signed-off-by: Philipp Sudakas <filzador@gmail.com>
 ---
- drivers/net/vmxnet3/vmxnet3_drv.c | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/vmxnet3/vmxnet3_xdp.c | 84 +++++++++++++++++++++----------
+ 1 file changed, 58 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/net/vmxnet3/vmxnet3_drv.c b/drivers/net/vmxnet3/vmxnet3_drv.c
-index f8df83f..e8be95c 100644
---- a/drivers/net/vmxnet3/vmxnet3_drv.c
-+++ b/drivers/net/vmxnet3/vmxnet3_drv.c
-@@ -1742,6 +1742,7 @@ skip_xdp:
- 					ctx->skb = skb_xdp_pass;
- 					goto sop_done;
- 				}
-+				ctx->skb = NULL;
- 				need_flush |= act == XDP_REDIRECT;
+diff --git a/drivers/net/vmxnet3/vmxnet3_xdp.c b/drivers/net/vmxnet3/vmxnet3_xdp.c
+index 5f47049..a578667 100644
+--- a/drivers/net/vmxnet3/vmxnet3_xdp.c
++++ b/drivers/net/vmxnet3/vmxnet3_xdp.c
+@@ -33,6 +33,23 @@ vmxnet3_xdp_get_tq(struct vmxnet3_adapter *adapter)
+ 	return tq;
+ }
  
- 				goto rcd_done;
++/* Recreate the rx queues in the mode given by adapter->xdp_bpf_prog and
++ * reactivate the quiesced device.
++ */
++static int
++vmxnet3_xdp_restart_dev(struct vmxnet3_adapter *adapter)
++{
++	int err;
++
++	vmxnet3_reset_dev(adapter);
++	vmxnet3_rq_destroy_all(adapter);
++	vmxnet3_adjust_rx_ring_size(adapter);
++	err = vmxnet3_rq_create_all(adapter);
++	if (err)
++		return err;
++	return vmxnet3_activate_dev(adapter);
++}
++
+ static int
+ vmxnet3_xdp_set(struct net_device *netdev, struct netdev_bpf *bpf,
+ 		struct netlink_ext_ack *extack)
+@@ -55,46 +72,61 @@ vmxnet3_xdp_set(struct net_device *netdev, struct netdev_bpf *bpf,
+ 		adapter->netdev->features &= ~NETIF_F_LRO;
+ 	}
+ 
+-	old_bpf_prog = rcu_dereference(adapter->xdp_bpf_prog);
++	old_bpf_prog = rtnl_dereference(adapter->xdp_bpf_prog);
+ 	if (!new_bpf_prog && !old_bpf_prog)
+ 		return 0;
+ 
+ 	running = netif_running(netdev);
+ 	need_update = !!old_bpf_prog != !!new_bpf_prog;
+ 
+-	if (running && need_update)
+-		vmxnet3_quiesce_dev(adapter);
++	if (!running || !need_update) {
++		vmxnet3_xdp_exchange_program(adapter, new_bpf_prog);
++		goto done;
++	}
+ 
++	vmxnet3_quiesce_dev(adapter);
+ 	vmxnet3_xdp_exchange_program(adapter, new_bpf_prog);
+-	if (old_bpf_prog)
+-		bpf_prog_put(old_bpf_prog);
+-
+-	if (!running || !need_update)
+-		return 0;
+-
+-	if (new_bpf_prog)
+-		xdp_features_set_redirect_target(netdev, false);
+-	else
+-		xdp_features_clear_redirect_target(netdev);
+-
+-	vmxnet3_reset_dev(adapter);
+-	vmxnet3_rq_destroy_all(adapter);
+-	vmxnet3_adjust_rx_ring_size(adapter);
+-	err = vmxnet3_rq_create_all(adapter);
+-	if (err) {
+-		NL_SET_ERR_MSG_MOD(extack,
+-				   "failed to re-create rx queues for XDP.");
+-		return -EOPNOTSUPP;
++	err = vmxnet3_xdp_restart_dev(adapter);
++	if (err && new_bpf_prog) {
++		/* Attach failed (old_bpf_prog is NULL here): the core drops
++		 * its reference to the new program and keeps nothing
++		 * attached. Bring the device back up without XDP.
++		 */
++		NL_SET_ERR_MSG_MOD(extack, "failed to restart device for XDP");
++		vmxnet3_xdp_exchange_program(adapter, NULL);
++		if (vmxnet3_xdp_restart_dev(adapter))
++			goto err_close;
++		return err;
+ 	}
+-	err = vmxnet3_activate_dev(adapter);
+ 	if (err) {
+-		NL_SET_ERR_MSG_MOD(extack,
+-				   "failed to activate device for XDP.");
+-		return -EOPNOTSUPP;
++		/* Detach failed. The core may ignore an error here (XDP link
++		 * release), so complete the detach on a closed device.
++		 */
++		netdev_err(netdev, "XDP removal failed to restart, closing\n");
++		goto err_close;
+ 	}
+ 	clear_bit(VMXNET3_STATE_BIT_RESETTING, &adapter->state);
+ 
++done:
++	if (need_update) {
++		if (new_bpf_prog)
++			xdp_features_set_redirect_target(netdev, false);
++		else
++			xdp_features_clear_redirect_target(netdev);
++	}
++	if (old_bpf_prog)
++		bpf_prog_put(old_bpf_prog);
+ 	return 0;
++
++err_close:
++	/* The device is left quiesced, with IRQs freed and NAPI disabled,
++	 * as vmxnet3_close() expects after a quiesce: close the interface.
++	 * vmxnet3_force_close() would quiesce it and free the IRQs again.
++	 */
++	dev_close(netdev);
++	if (new_bpf_prog)
++		return err;
++	goto done;
+ }
+ 
+ /* This is the main xdp call used by kernel to set/unset eBPF program. */
 -- 
 2.47.3
 
