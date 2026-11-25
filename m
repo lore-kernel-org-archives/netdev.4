@@ -1,109 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.173
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795617924;
-	b=iaBTu0HcrekYlPFFSTJnb2pVDivFxFS3+ymmy0H9OFkxABPrL2TlhgAegQxqS3I475eM
-	 t4FV7QxHba2lEhtepaGjdYdGCdd2LNvAe7sJ9G1PowZ1x177QNlci/NOH93G0M8VNPmg8
-	 VCua4G+0414ikKcErwTZF/NBEzjMCHHIL86IUPKKKzImUbU6XrVCvyAWQuPe/ksRbpQ/G
-	 yw70G7MnNwx87Ndkg6fSshfK1mBjuXN8MzS7tyY1+k78J2EGzhPLoUKkVi7D5X27hBMHT
-	 A189F6Wj3R1tyfYXrPMsTcodUc+IMF4lK3rURlzrNTBuhalymZVi/BJU/sDV1Buel+w==
+	b=DUpdtG63ot1CrFTgz/rAymEWkdMAZppzzY2BjSJplw2D6QWDuFnxxV4V4PaNIRX73xfZ
+	 ElnWjOxScCeZcB7wIoW3lEsPd6n2TzTWsgs6BwkZ0Z2DaNM7VnnNTFwJmxxj2OBbR11ad
+	 6Fm2AOM6lc8cTGA3q1pWuIkvDyWztk+d1LjiRNPobZYbR7M305WU0fVVihFToHk2yf/Ul
+	 2U6HElp3Dv6v0JB7p4E8N6Apa6ImK4ZYS8iuwLLW/jrpYUKmhzx2kJ/oQPhjXyl3ZnsGn
+	 Ja1Lw27tCbgP6Q8Jh+7QuztuDDin92l1p59J6/8DBX7r+FXQ/ydlJcJBeEvmO/YKagA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795617924;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
-	b=1JI0UEOfrelVm4LWqfmXs8p0VmbYFnGy8tRgSwkWaCzjeWfV2HedB6E8D4dGmxpohwqS
-	 UlK79xbXpFTUiR+AmzXdvQufsmzmAx4Uyv9d+8iHBywcO+Lg3G8jmEe1zSKSsxCcqyFJX
-	 jQ757RDb0y7RLQ94zuubzVRottapMRHMAhD4LjpbGdlP/Z9FkhbF3rzm2x1jKqwREmVtr
-	 L02qmUee7bg39eN6ECL4yywY6I1HqmdvbackRop80FguMH/+lO38KfB4l5oCBVNQ+RPx9
-	 sWyvgXNoxj8epQW/npne5CB14IJjDEsA8xu3R1DlPANseratn/Y9TX2QgYgMVayCSNA==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+	b=N4NmPbl0BVHueIQbmpme8WbxbsIGMVwJp657hwN6HQer2qTdejJeQF/23HEmQxjzlUO8
+	 LOQK06M/NI/vpvlrZqZlzrpv5TNwG7iWY1H9YV9au/GqlhqbovZ633ttmmtxwImWfMtWM
+	 AsjvqOjp3FZDk3M0fSY7ulMyz1V/h5DKGxUq97H+PTs6SitFA92AAexFdIV7Do2jQYW95
+	 sBBd8w/cUvTNTkIitwYVPFS+uWhSES3MC3S2v6gtsUSOi3XIhS2fLQEWGAc5es1c2zwMZ
+	 xKNEgz5KgjTLOPfTLDUSquyQCqXlnQO4VAy++e0FB8y2IzMPVUCEacKBAjheX9TgiGg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=GfHorJdx;
-	arc=none smtp.remote-ip=209.85.222.173
-Received: from mail-qk1-f173.google.com (mail-qk1-f173.google.com [209.85.222.173])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C058606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:45:23 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C058606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A96E606A338
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:45:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6A96E606A338
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=GfHorJdx
-Received: by mail-qk1-f173.google.com with SMTP id af79cd13be357-94961d90b79so612599885a.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:45:23 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMmwuHsQ
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-38644aedba1so8886997eec.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:45:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795617922; x=1796222722; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
-        b=GfHorJdxm/Tm/nk4NUjeAJQJeMDopYjbHRxpuzqoYvpqO3p4antAF9Co8gVV9g2PyA
-         D+jEJvpcvNWs8JcznIBLvvI6KVXvooCwh1nHS41khHRAT+PPGeO/UsbuQiLLN4qglPfq
-         QLJh+SV2O/J9aX4fleNQ/yXAxWIU21F5ryaFCt1ewGBY0rJxTkRvmr7Y+D9KNsR348Ke
-         4VMocHdeZqjkQzWEJoUCRhhNC7TEWSHXg7Jn2gULsuOvbM9z5sgLSwQqCPcsSb188vFb
-         Od3OsLXLJv9gyijuBwth+ELtyRHOI5qlbVseSdKjv8ldSPwWObeNyteRxVKytQu0/Zov
-         u9hg==
+        d=gmail.com; s=20260707; t=1795617923; x=1796222723; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+        b=mMmwuHsQTz9kmNflAogL29vlIOmuNtu8dbedOUK2++NCoCfHO/vByKQkLx8ikeA9go
+         fnH8zjdx9zlapJlv2iSns8wdZx1jqOIejPtOPia0Kptnj2nBI2D3wuVLZPj0pnbgQpYH
+         vZFb9H+Fo2BfMY7kPYh3bDridF5wqwVs+8wccnHIabthKG1dDR01qm4MJGt9IaDBiDOH
+         POE7EuO6lGXK5NgGPYbxjOG/fuQaGP6vpNPjBX4bFm8JkBXfWRnEtzEIlV8yQ6kfT+tH
+         N8/xtSsAZnJIhUK2AvaOKbWEbozf80IwTrF7//wr4wYPLVG2kn7p8XqVyO/0ueqdL+75
+         oeiQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795617922; x=1796222722;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=GQIqrvkEuCQaYgl8JZYA17fRuuRBiz0DeFEwMWUBlxE=;
-        b=nyQR7s/9JbTT3Wb/2lSzJIgXFdNhd6DeSOdO+cI6+tFOY3vsX4K3sEL9b3uVtwC+PP
-         x9OSqNIMC8j2oV4tktFY5pLXs5N/VNIiZTUc9H+cf+cMh6VWjSB8Bzv+PYtLW8bNpuK6
-         RPUQdVlNPx420aiFDrMiZt+TTBV4zpw+Cz/0OXrWWfxI1QmlrBy+Vbvf+Y9goPQ06I6H
-         RT2/fM/rPCDB3NgvHc5YPKMyr0tBkZ/VKU5259K1/WUTsdLnNDCHkuzrtJ4vzf13MUbX
-         TGmFdSgmXRk6+FSzP5sOUvSN4HwdyHXKTUOplhAaaqdVfIzZe2T9LeM97N1818Z6s4kG
-         n4Jw==
-X-Forwarded-Encrypted: i=1; AL+hErHZ1tn2OaoQZd5zdEACRvmpZn8Yg45icGRh3ZpvgTjSXVD4cmdyiVop2QExv1PSpH9qlU0+i5k=@vger.kernel.org
-X-Gm-Message-State: APuU4Z97hpbGI6SUJ9UH6yYKtVF2irhA2w/caIbLq4dsflmya8vmfxlL
-	Ng1Fp2SMSwnvAktVeqM+rmnQocK/emFwHDcmceIyk/vQEi1pat59PiCl+y7tyO9cnLw=
-X-Gm-Gg: AZFdTZe+VOHk8ss6jkZRSyCCZdLLQ/kcZpQcuKo0eeE4rm6M2VA9rj2ieKeQOLkqB43
-	GcXM322UVwdrvuBwPNCfEerxu5BjA+UExDvSsZW+ANU1K5tN57/ooZniPR4ts9zQOPXgaqEK4ZG
-	OmET2KQKcsTAk4JE+FbjhUPhwN07Xb4I32WxDKZGz3jbLxbpDDfZq0TtKgO0J4YhHXuPMDGZHAL
-	OouRhkZm8PkJBJs5NGZ4bEwKe+eSpV6xKifKuoonr2gG4dl2T4H+fhAn7bIejZieNCe9FAeMGWA
-	Hp829ofD4gAp5/USWeOfyepw5b37SJB7StufiNPDUwBc8C8KBc23tNvXEhuZ7dtMz1dvKhn6fLK
-	2HBj449eRD/czdTkvtcg4tDVLlcv9auyWx/W/95BNFsC7A6ED68i2cW+YGLZUoDIbXFj2sp5rFm
-	DzxYcEaGFEhnyFWwDkmFDJiDLXRp6AC+0tm2B9msw/Ju5jezE32F/ydzM8lklFN87E4LtQaptPK
-	/4vaHcniCRUESGNYPpo1SNshXoEBZUaszc0D278jNeIAtAoa2Kgz4gZxkYX7e0rIx3yyfusjM12
-	EaQMlQ==
-X-Received: by 2002:a05:620a:6487:b0:949:9a8c:7052 with SMTP id af79cd13be357-949bab1577cmr2699750285a.70.1795617922348;
+        d=1e100.net; s=20260707; t=1795617923; x=1796222723;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=TZZGnQrheCo8IwMaTwJvzugJ+PAdxbUJ+yLbatzIT1U=;
+        b=wdaNDDUdmHzW+e+B4Cz0Kufl97mTe3gq+LaiOU/B+D7QgI19FfGUKwQPmXdahNJM4l
+         wnnOFnH/dqu0NtAMEWjF1bKBdXxdGFHn95jG4SlNAqqB+cPdbnLDG8fNOI5v4+iJpzPf
+         dqL92J/T4+1y53cfme4ZtkXvu75tG7Udboj2r6xPczQHdWQfhCv1qRygsLWsFii0H02e
+         +tMlfI/SxNTmYPmeRDDLgxLPlVh/vQlsPvAUJvnEjXwb+cPIMoqcEopI8E6CCDq5dMWO
+         uyo6rmQz8AbDtnWqvLoJ46i3wwqtc6jZqGvwUah8Gh37is//lNr18ibYUWx9VKYxY5cM
+         3uIg==
+X-Gm-Message-State: APuU4Z+eV/gikERZ7bmJioRYLQJFJQpiIQkOzGBLmnfdqJwYnLsdr8oj
+	mxcI6FxqhaoGJg8FVYu/mKvHPlMCwDo5NRyhKqJnl69xIf4QLQOI9pkkKojWGA==
+X-Gm-Gg: AZFdTZcJJ/i/gBGcbBaQPrGajtXUQibR5wSXf7mf7RHzBpsIBnRQ45K0xDWay2yGGPB
+	7IkHfSNZgUX0cjR7O+F+tBrodJoWJoQKp83Hze5dxTtzpagqewOEGtSPSWnY3+cwVtfNuE5ibKn
+	ABw0yi9nEFt/79ZjuIcJ2MVQL7MRt7/F2i7gEozrneSRFvy54+owckFjQgTK1s/Igdn1JN/RbfY
+	7s6BDTdtsjVdGrAIwsfkfEqTAHgNOJa6ve4ePCVNIqYj0lFznmkVxsKsDIbvnQ834rSmweoMtRr
+	93EiXNf628DmJ6ToG9aT71tsTb/lRgd2TxItaVxUqKmGUwQqYRWo8orS2Y4oFxICwFWK2x+FY3+
+	YAL8R/jwH40W9xrasOek6zQIKCbZ3a3oSxwXQ/78l9q9J4oBM4CEwlE5sFwadq/XY+fh03BYhTS
+	6i2wQWupaCNcJwH8mQcHPJUDiC9hSRbXWm4geoRIcp7ccE1KmgwnwP7S0bn6/JV8ABsEEkuLxpP
+	5fD02Keo7yeZmoukBVJYyCStINBaDM4ySggrMppa+STus4aBpYyxvr77k7jy/GE5ACeyEDm5eJ9
+	ZgA+A2IZefz2kq/oqjx8F/oMQWU5azEXZ26JZxDzHjRWQTGaMxNGj8HYdEemW1swd2ZYaXaylAY
+	hqnCBVC6/3xc0d/CuTWticvtZrOHlIubUPf2LajsAVhyhPumJITafR/9AOs86Zg3FTM1HGNLc4Q
+	==
+X-Received: by 2002:a05:693c:88d4:20b0:386:a8de:2bfc with SMTP id 5a478bee46e88-386a8de2f67mr11085085eec.6.1795617922809;
         Wed, 25 Nov 2026 06:45:22 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb38319asm1327544785a.16.2026.11.25.06.45.21
+Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38567daaf70sm57121181eec.28.2026.11.25.06.45.17
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 06:45:21 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWEFN-00000001mSD-154e;
-	Wed, 25 Nov 2026 10:45:21 -0400
-Date: Wed, 25 Nov 2026 10:45:21 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Yishai Hadas <yishaih@nvidia.com>, linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
-	mbloch@nvidia.com, kuba@kernel.org, pabeni@redhat.com,
-	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-	dtatulea@nvidia.com, moshe@nvidia.com, maorg@nvidia.com
-Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
- adversarial mode via GET_CONTEXT
-Message-ID: <20261125144521.GI246011@ziepe.ca>
-References: <20261117170914.27410-22-yishaih@nvidia.com>
- <20261122073156.GA12665@unreal>
- <761ca80e-a772-41f3-b8e9-cc332e4ba5d9@nvidia.com>
- <20261124125327.GR14811@unreal>
- <20261124125950.GC9566@ziepe.ca>
- <20261124133353.GT14811@unreal>
- <20261124134751.GJ9566@ziepe.ca>
- <20261124140906.GU14811@unreal>
- <20261124143024.GO9566@ziepe.ca>
- <20261125090309.GY14811@unreal>
+        Wed, 25 Nov 2026 06:45:22 -0800 (PST)
+From: Anil Kaushik <anilkaushikwireless@gmail.com>
+To: netdev@vger.kernel.org
+Cc: davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	idosch@nvidia.com,
+	nicolas.dichtel@6wind.com,
+	jacob.e.keller@intel.com,
+	jiri@resnulli.us,
+	fw@strlen.de,
+	martineau@kernel.org,
+	v3rdant.xiang@gmail.com,
+	aliceryhl@google.com,
+	linux-kernel@vger.kernel.org,
+	nhorman@tuxdriver.com,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org,
+	anilkaushikwireless@gmail.com
+Subject: [PATCH net v9 0/2] genetlink: Reject joining multicast groups no family owns
+Date: Wed, 25 Nov 2026 14:45:12 +0000
+Message-Id: <20261125144514.2717012-1-anilkaushikwireless@gmail.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,59 +110,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125090309.GY14811@unreal>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 11:03:09AM +0200, Leon Romanovsky wrote:
-> > What do you mean? This is a mechanism to help the user manage software
-> > versions by not accepting incompatible rdma-cores.
-> 
-> Please take a look at the patch.
-> User space provides that new adversarial flag.
-> 
-> +	ret = uverbs_get_flags32(&ctx_flags, attrs, UVERBS_ATTR_GET_CONTEXT_FLAGS,
-> +				 UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (ib_dev->adversarial_mode &&
-> +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
-> +		return -EPERM;
-> 
-> ...
-> +	UVERBS_ATTR_FLAGS_IN(UVERBS_ATTR_GET_CONTEXT_FLAGS, u32,
-> +			     UA_OPTIONAL),
+genl_bind() lets any user join a multicast group ID that no family owns.
+A family registered later can get that ID, and the socket stays a member
+without a capability check. Patch 1 makes genl_bind() return -ENOENT for
+such an ID. Patch 2 adds a selftest for it.
 
-What's the issue? If the user space doesn't ACK it has the new
-software then it doesn't create the context?
+v9:
+- In the selftest, find the initial network namespace with its fixed
+  nsfs inode number, not by comparing with PID 1, which is in the same
+  namespace as the test in a container (Sashiko).
+- Unload drop_monitor at the end of the selftest, so that the next run
+  does not skip that check (Sashiko).
+- Patch 1 is unchanged. The Sashiko point on it in v8, a family
+  unregistered during the join, is the window the commit message
+  describes. The fix for it was patch 2 of v5, which was not accepted.
 
-This is how we do every feature that needs rdma-core support, though
-more often there is a fallback in the kernel.
+v8: https://lore.kernel.org/netdev/20261123155503.2497063-1-anilkaushikwireless@gmail.com/
+- In the selftest, read the group memberships in host byte order, so it
+  also works on big-endian (Sashiko).
+- Skip the selftest outside the initial network namespace: the family
+  dump there does not list the families that are not netnsok, so it
+  could take one of their groups as free (Sashiko).
+- Close the selftest sockets, also when a check is skipped (Sashiko).
+- Skip the drop_monitor check when NET_DM gets no group ID that was
+  free, so it cannot pass without testing anything (Sashiko).
+- Rebase on net.
 
-> The kernel does not care whether rdma-core is up to date. It works either
-> way, so why should we prohibit older userspace on these systems?
+v7: https://lore.kernel.org/netdev/20261116124030.1595567-1-anilkaushikwireless@gmail.com/
 
-What do you mean?
+I used an LLM to help write and review the code, the tests and the
+commit messages of this series. I checked and tested every change
+myself.
 
- +	if (ib_dev->adversarial_mode &&
- +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
- +		return -EPERM;
+Anil Kaushik (2):
+  genetlink: Reject joining multicast groups no family owns
+  selftests: net: test joining genetlink groups no family owns
 
-That is not "works either way" that is requiring new software. Which
-is exactly what I want to see here.
- 
-> > It is not a security mechanism to hard guarantee that rdma-core has no
-> > bugs.
-> 
-> It is you who talked about "... security downgrade ...".
+ include/linux/netlink.h                      |   3 +
+ include/uapi/linux/net_dropmon.h             |   2 +
+ net/netlink/af_netlink.c                     |   6 +
+ net/netlink/genetlink.c                      |   5 +-
+ tools/testing/selftests/net/Makefile         |   1 +
+ tools/testing/selftests/net/nl_genl_mcast.py | 128 +++++++++++++++++++
+ 6 files changed, 144 insertions(+), 1 deletion(-)
+ create mode 100755 tools/testing/selftests/net/nl_genl_mcast.py
 
-Yes, in that I want people using normal software to have a safer more
-secure experience. Meaning you need supporting rdma-core if the kernel
-is in adversarial mode, because otherwise you don't get the right
-security outcome.
 
-You took it to some absurd scenario of a user hacking their rdma-core
-to defeat the check, which is not the point at all.
- 
-Jason
+base-commit: 7b0c5f0c757cb61e28dc4128633877aaa8f6f9bd
+-- 
+2.25.1
+
