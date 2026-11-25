@@ -1,100 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.45
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599196;
-	b=PxQydSdEedJhXlnxoiIadPl2gqeMXCPHsSk3ldyaCAfi58mOrNipUbl5e0bwQ+WzcB3t
-	 UEQV2bx3dTv/m5IFtRg1zmQB6p15zlyUSl1upsRNvmg2627fhEgJMeLPctzqsCHIFQhSR
-	 9D5cA/x8WC/x5FePv4gPmjAfJ5LOltklHzu49SIJ1pfctrAFpfs6P0/5XetK0svS6zuSa
-	 3vRpM3LWoibIaOQYC/XPcAuaQ62rgzQwSfm0qBpdlxe9K1Q+B17SJA8NIRmCvG9uA0XpT
-	 7tF8voLg4g0yi8xcArSLTQx3MBir7eri11BeqmK2blyMHZQk9+hUYtUqjD2fBd5DvZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599196;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=FSmYL94CLAH42+p2nURarn8jPDSqfDJDEGZWaM+zzZk=;
-	b=v8Huvh+2BfcrcZMgvZ+HFskR5rcvoT2/2uvxViF7LqOWfTSGxkoPZyzsdMae9NgEmKpp
-	 zBdpD/CWjcYwR1notDsm/q3dz1METkp2oENoBvHIOz7geGONxztswIDx4oUbkuly2z9ZL
-	 u/WjfR2SalF/sSl7BAIqjH4CraFcbDocXBc1F9H1vJixon3mfVuCZYmh+DN/Kgw3KRQkJ
-	 Kij3mhJtW98X3Z4uxsxSwiX48eeWBFnvVamGwC0sVdiB6K+osBJBb5rC330GBiKewM90Q
-	 jp5uFjptcLrcgKMZuWIXte/LuYJRUyJvpYMZEVS43+i1ZW0E6OMDvdCE8PS/hbMNXrA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="t+jv/z5h";
-	arc=none smtp.remote-ip=209.85.221.45
-Received: from mail-wr1-f45.google.com (mail-wr1-f45.google.com [209.85.221.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795599284;
+	b=jO+RPW0sYU9y/sPiy487TFRMjqDvuvax7Hitq7Tzsr5B0LBmbgx1vpZL6DOp0gerWzc5
+	 AjnAJFD7ysNY5rCEU4yrl4tvKigiYRrQBtrQBalJMVKu4Z5Mq45nGNwQY19IeoBjkWtWB
+	 qHirD1+I4FiOdDXMbMrMUiMkbDhI4sdFtxfPHZZzNrpS18ML2PvNRYOiwK8zN/8QxN+sz
+	 p0olwrSdzXDS3Zg05bBu3ek4kE+Wwc3awhKQKVrYeL+gaQS9+nac3Ap2oWHL97Oi2GIvU
+	 IakSfRoErkY9jA3G3TNIicvcY39JLWd6IT1J54uaDDiy5mBkNHEYxYX6f0DjtVH88Wg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599284;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=X668E9H92XHNdTKFMuInCqSN9Q0PiX8CUhjYVaHaffc=;
+	b=y0wzcQ12xHuotc4eSMEsedZWzFq0X2Tox0ra21E5T3/JyyZuY0U4cGcxjYqQp6a9FYfc
+	 mPfuTPTPFK47/HWvSkYc6u+bc4VJb8JtZZyCLvDvnLYUUH0bVpKz70KdBQjN3onv31daZ
+	 p0J3MKfBSnJj5dB/vnMKPVtsFLlCKu1+N+2pAC9FQdHzW6lQ3jnTftZz4rACIqrel0G33
+	 BW3Sl/rvsm+i1cKOgOZptz4C8I6MvJVuEWDit3sIlS9OrXxH4M0oDpEZdkUxsvo/dHugC
+	 mB2BdWjWfH/TKgniMMdCKqvFXgITcYmiE3cZYNsfAXIK4zDda7C/FV9L6AErBXhx5UA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEa3Fy2g;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 140DE606A31E;
+	Wed, 25 Nov 2026 09:34:43 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BEa3Fy2g
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795599283;
+	b=3eRJ9y3pNR9XWDJR8L1vMDio9PGw8olQMzbFjdu1JWI5OGZa/biWBWuLr2ugbXFAGCgb
+	 Rc7/tV1w1XPxa8AkFOHLUIiPUKU4s1L+DflrBsixjcIDsGK4iaLKp6UpU5yk0KX9UOXma
+	 eb/Vh3rhIPNwNMkt0D6FYkH6AGUQssUrDb96pix6Ob3kGMWhC4jYddwApCbCHnpW8fvPM
+	 4QQ8tjkuXeWZY0iy2xN1lObX/DUpbM8qV8qc26ersPJ4kygV/5QLxQDVL556NNyDLJpjy
+	 AORBSXKnz1hH6RYhoBu6hqD5I8JHmAuD3TmFJreihBL9tb/CFLW4Wad5VDxvuAFlAcg==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795599283;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=X668E9H92XHNdTKFMuInCqSN9Q0PiX8CUhjYVaHaffc=;
+	b=RuBw9XftQXsLSAeybD3R40BkfnJkmLg8PpxiA4a/ttcIdhzoJCXK0HilgYFRKZxAAMHq
+	 vNmmW06tbYw7JFzFvhTzI1f8iu8Y7H1X0N+JvwA3JFXojhIHL7ikD1DP4YmrEZUNNKqfk
+	 zWm+iTxBbjwjzuEVN5n6DQmwN13OyDcckfGRk8nUZfNgwAdmv0txh8apYaWDZIaUa9kzF
+	 ocqqHG0woYOkhq1iTMPm4pHLdV9DUjIpW6XUGzDpIMGqYc3X/mqD1UlqK+nBYGtZW2I6K
+	 omR6KyR6cmZvTDIjjR7XYaIz8gyuGPdzqBmbEfUsmQIxd7vxT2jfFRegNoKXG69STmA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22FD8606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:33:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22FD8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t+jv/z5h
-Received: by mail-wr1-f45.google.com with SMTP id ffacd0b85a97d-491846221ffso4710080f8f.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:33:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795599194; x=1796203994; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=FSmYL94CLAH42+p2nURarn8jPDSqfDJDEGZWaM+zzZk=;
-        b=t+jv/z5hjGeEZm/mbVnKGhsbkhkJJWeN8VnCFyULn7VO4KiVYiknQKEAtQ8MsVmYf8
-         LKvx/zvmxcc21se1l+Wa9RJLJFBNW117WZ4wfoKsn5OH5xoVeJKZs5TC5ThbYb9vRwUe
-         rBV8Njv/LcIDpW/kBFSl60hriN9wJCmov81Eejzr8mVtlDL4I8n9hnJECpQ6dVk7Gu68
-         doyBYGFzRrL4NCp/QaVBrtM75SP7fZo+GWRCWjr66yv6meracAZe3ebRVg95IqQru9tI
-         GNL0uj/OG+xDvfjUdPt6eXAOjG0Q9eNUGVizx+bnpv/A67Ch+WOYm8Ocm6jd++GL3hl4
-         eK1g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795599194; x=1796203994;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=FSmYL94CLAH42+p2nURarn8jPDSqfDJDEGZWaM+zzZk=;
-        b=toXm51HfL5tmGXEAjb35i+xlMM8cmubrXi/vvLH6YXPww8kJZx+2ts7o4nc+VxqxQ7
-         4YBun+AqtLnOdvoX+d+Xz2iSBavxKUrjciDsn9xtiN4CYQD3S9yU6+WS8kUzaPQJTlg2
-         xbyA4IDePU4xXPio1mVXhQp5pVDDkB6Aqra8SHsApkfy79HHSsl7Bvn6tXu6e8m39Kbv
-         D3wI3OXMT/PSZl/VxXV/bufQt2vyzebZQN9Bxqo3E/EIZ9y+xWdC/Ln8Bs1Wdn6HCPYQ
-         60HqeP8yYheaRiw/+3Wd1dK57DFXCEVlSeQZl9X3beOeuHlapZlPOXoRu8j34NuSsMct
-         2NTQ==
-X-Forwarded-Encrypted: i=1; AL+hErF2QnL2BcH78hZpHeE+S93no6SrKm7gJeusjcmcJIpAyMnU+b8y3tuTUFy/9Vciac9uZSBrikk=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9BP10L1hzCzsFaemmusx5It1yscIbucynTNYzSsfUenZh7Sb8w
-	FPrxoNOeJ3MpJVnTznNHk6yNCERD1WrmB/Pu8cTN650r7QDHoBj1WZNZ
-X-Gm-Gg: AZFdTZe/W65YLobIVLXPmz1ll1sWigf1+tYnqnTgZC3mXo8XZdNslIXoLJmj1N3MC9W
-	wMHeSl7T7+wty8dWBnI3DkHSejq58Drxo/CgciqPj2nnny/r7ASqp5pkv0xJAftp332hKE9KoHj
-	tLZvmNXT7QM8angJ5NLPb2G6TBBBc5n9wQ5zZpUInLrJ9DCkb3RlJqJvZFwDBmN0aHmYFEJMR4r
-	hIGR7GcZ8/nzhxL8IbSGhFABnVZcPL9swtW3BDEjwm7ZdGBBLrlCDtW2xx7m6rqRKCibXJPIISu
-	dbsPt7KkAUbmEQFOOfovBB828MMpgdsUzyJ6EB401r8uK1v8iLWrhbX9lidbuyVr6cwZeimiTFi
-	1kYhBHqd+V8V5ocrlGRXa5yXNqdQ2kYhUiElvSzio15onnjwD8ID1oZx+Gl+pG1UUMAUyQtl+Qd
-	qPEIw9D6RUNptMfK1nXlO3h0KTSANa81odlmZZNcQ3wZHOGeVLSDydP2O3eVU9qa2ggeDw9jndh
-	w6tPB0uLLxn+514AajWcEVTTquJ/Hh+zkiMgfvKVjBDsKsZHfn1a/hFW8ZbMvb+E7SMUAt73+GX
-	4IcpC4GeAzWYWaAPJpab
-X-Received: by 2002:a05:6000:491d:b0:4ab:f5b0:a7fa with SMTP id ffacd0b85a97d-4b598a60967mr13697952f8f.33.1795599194330;
-        Wed, 25 Nov 2026 01:33:14 -0800 (PST)
-Received: from fedora ([5.131.7.59])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c3csm32077607f8f.36.2026.11.25.01.33.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:33:13 -0800 (PST)
-From: Petr Vaganov <petrvaganoff@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Petr Vaganov <petrvaganoff@gmail.com>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Johan Hedberg <johan.hedberg@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-Subject: [PATCH 5.10] Bluetooth: hci_core: Fix not checking skb length on hci_scodata_packet
-Date: Wed, 25 Nov 2026 16:33:01 +0700
-Message-ID: <20261125093302.225552-1-petrvaganoff@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	by smtp.kernel.org (Postfix) with ESMTPS id CC8B51F000CA;
+	Wed, 25 Nov 2026 09:34:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795599283;
+	bh=X668E9H92XHNdTKFMuInCqSN9Q0PiX8CUhjYVaHaffc=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=BEa3Fy2gzgIzyX7n/SnelDwybXOgIanlg3hFquxbjVUsnvXpo3eoUfjwGSSG5kH6F
+	 FhgSCUQeoh83yONyTaJMvFu7A5g6LCihjIcZV4l39jxw0gL+lIm4aK+EjNULfCzddC
+	 jNL5h/Ba3I7hCLV4qsYA11rJyZzD2v6HBZ1PV2gfKg3vQDPWsqJo9WszVvmMk8eYKQ
+	 9CsaoYu9mQKgDt/jd9ma3ABmDtehGIO649UbY7snbhIfXrLCKFtmp3xKflDOtHvyUU
+	 4zve3U5yIvwvZ7j6n/oASznyWQ9jmK4PDGXPoshcc8B9dLx26f6NWfvGiU6HNhHi0d
+	 cwHuLzPK4DSkA==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 2B9D94CDF2;
+	Wed, 25 Nov 2026 09:34:36 +0000 (UTC)
+From: Jan Petrous via B4 Relay <devnull+jan.petrous.oss.nxp.com@kernel.org>
+Subject: [PATCH RFC v4 00/15] Add support for the NXP S32G SerDes subsystem
+Date: Wed, 25 Nov 2026 10:33:42 +0100
+Message-Id: <20261125-s32g_serdes-v4-0-3bfe0589be8d@oss.nxp.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,63 +83,428 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAHarBmsC/1WNwQqDMBBEf0X23EiMRTc9CYV+QK9FSjFbzaGJZ
+ ItYJP/eRXopexhmhnm7AVPyxHAqNki0ePYxiDkeChimRxhJeScejDaNthUqrs14l5EjVi3qVs6
+ RKMhiTvT06067wfVyhl7CyfM7ps/+Yan36gezf7ClVlpZ1yA2OFSEtovMZVjncogv6HPOX1+Fb
+ yCtAAAA
+To: Vincent Guittot <vincent.guittot@linaro.org>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+ Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>, 
+ NXP S32 Linux Team <s32@nxp.com>, Vinod Koul <vkoul@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+ Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, 
+ Ionut Vicovan <ionut.vicovan@nxp.com>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chester Lin <chester62515@gmail.com>, Matthias Brugger <mbrugger@suse.com>, 
+ Frank Li <Frank.Li@nxp.com>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, 
+ Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
+ netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+ linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+ "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
+ Alexandru-Catalin Ionita <alexandru-catalin.ionita@nxp.com>, 
+ Ghennadi Procopciuc <ghennadi.procopciuc@nxp.com>, 
+ Ionut Vicovan <Ionut.Vicovan@nxp.com>, 
+ Bogdan Roman <bogdan-gabriel.roman@nxp.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795599274; l=19045;
+ i=jan.petrous@oss.nxp.com; s=20240922; h=from:subject:message-id;
+ bh=0aUsGnaAZ3M1x+3YY88bRXS5e/zwDyUxtend83v9Zog=;
+ b=MxXI7F1308RktpgUd288QUjT2F68D8RzNw5JuHIlPI4RPlFy4gaSFQ7XINB9oX91gWc/a5bQB
+ ubx+M3IuDfiAWKRaPjMYprbJyAAxQk4R4I1eFLwr3AhihY+gsJ+MjU5
+X-Developer-Key: i=jan.petrous@oss.nxp.com; a=ed25519;
+ pk=Ke3wwK7rb2Me9UQRf6vR8AsfJZfhTyoDaxkUCqmSWYY=
+X-Endpoint-Received: by B4 Relay for jan.petrous@oss.nxp.com/20240922 with
+ auth_id=217
+X-Original-From: "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>
+Reply-To: jan.petrous@oss.nxp.com
 
-From: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+This series continues the S32G SerDes/XPCS upstreaming started by
+Vincent Guittot [v2], which I posted as RFC v3 [v3]. The patches
+originating from his series keep his authorship, with Co-developed-by
+and his Signed-off-by.
 
-commit 59437cbb5781227567dec226aaa88c66a09ccc5a upstream.
+The S32G SoC family has two SerDes subsystems. Each one is built from a
+DesignWare PCIe controller, two DesignWare XPCS instances and a shared
+two-lane combo PHY (PMA). The lanes are multiplexed between the PCIe
+controller and the XPCS instances, so a SerDes instance runs PCIe only,
+SGMII only, or both, depending on its working mode.
 
-This fixes not checking if skb really contains an SCO header otherwise
-the code may attempt to access some uninitilized/invalid memory past the
-valid skb->data.
+The series adds:
+ - the device tree bindings (patches 1-3);
+ - S32G support in pcs-xpcs and the S32G XPCS glue (patches 4-8);
+ - the SerDes subsystem PHY driver, which owns the shared PMA and
+   sequences the bring-up (patch 9);
+ - SGMII support in the dwmac-s32 MAC glue (patch 10);
+ - the S32G2 and S32G3 device tree nodes and two routing variants for
+   the S32G3-VNP-RDB3 board (patches 12-15).
 
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-[ Petr: add Fixes tag ]
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Petr Vaganov <petrvaganoff@gmail.com>
+In the PCIe+SGMII modes the XPCS shares the PMA with the PCIe lane, so
+the reset and bring-up ordering is driven by the SerDes PHY driver, and
+the XPCS is not a self-contained PCS platform device. The glue exposes
+each XPCS instance to pcs-xpcs as an MDIO bus over its indirect MMIO
+window. The SerDes node is a four-cell PHY provider, <lane type
+instance max-speed>: a PCIe root port references its lanes, a MAC
+references its lane, the XPCS instance it is wired to and the highest
+speed the lane is wired for, and gets its PCS from the SerDes through
+pcs-handle. The mode follows from these references.
+
+The S32G XPCS reports the generic DesignWare PCS ID; what is specific
+to S32G is the PMA integration. Following the v3 discussion with Coia
+[id], the series has no synthetic PCS ID. Patch 5 lets a glue driver
+declare the PCS and PMA IDs through struct dw_xpcs_info, and lets a
+pcs-xpcs entry name a PMA ID. The S32G glue declares the DesignWare PCS
+ID together with NXP_S32G_XPCS_PMA_ID, which selects the S32G entry of
+patch 6. The PCS ID is declared rather than read because the glue
+creates the PCS before the SerDes clocks run, so the ID registers
+cannot be read at that point. The alternative is to create the PCS
+after the SerDes bring-up and declare only the PMA ID; I would welcome
+an opinion on which is preferred.
+
+Scope: the 1.25 Gbit/s working modes only, i.e. SGMII up to 1G. The
+S32G GMAC is limited to 1G, so nothing in tree can use the 3.125 Gbit/s
+modes yet. 2500BASE-X support will follow with its first user: the S32G
+PFE Ethernet driver or the S32R47 integration. It builds on patch 5:
+the glue also declares the PMA reference clock rate, which the 2.5G
+PLL switch needs.
+
+v3 introduced a transport-agnostic NXP SerDes XPCS core, authored by
+Clark Wang, as a common base for S32G and a later i.MX9 xPCS port.
+Following the review of v3, v4 drops it in favour of pcs-xpcs. This
+does not leave i.MX9 behind: its XPCS is reached over Clause 45 MDIO,
+which pcs-xpcs supports as it is. No i.MX9 code was part of v3.
+Thanks to Clark for the shared core work.
+
+Merging: the series is meant for the PHY tree, as v2 and v3 were.
+Patches 4-8 (pcs-xpcs) and 10 (dwmac-s32) change networking code, and
+the build depends on them in order, 8 -> 9 -> 10. I would ask for Acks
+from the PCS and stmmac side on those patches, so that they can go
+through the PHY tree together with patch 9. The device tree patches
+12-15 can go through the NXP SoC tree once the bindings are in.
+
+The series is based on v7.4-rc1. Since v3, Coia Prant's RK3568 XPCS
+series [rk3568] went in: pcs-xpcs-plat.c is now its own module
+(PCS_XPCS_PLATFORM), and pcs-xpcs restarts SGMII autonegotiation in
+xpcs_config_aneg_c37_sgmii() and in xpcs_get_state_c37_sgmii() when
+the link is down with AN complete latched. The S32G glue of patch 8
+takes the same shape as the RK3568 one, an MDIO bus over the register
+window with the PCS created by pcs-xpcs. The series was retested on
+the 7.4 merge window state of 2026-10-27, see below; rc1 brought no
+change to pcs-xpcs, the SerDes PHY driver or dwmac-s32 after that.
+
+The bring-up register sequences come from the vendor driver and the
+reference manual.
+
+Tested on an S32G399A-RDB3 board, on the merge window base above,
+with the 15 patches as posted. The XPCS1 runs use the PFE
+Ethernet MACs, whose driver is not upstream yet.
+
+ - SerDes_1 in mode 3 (dual SGMII, 125 MHz): XPCS0 as a 1G fixed link
+   to the on-board SJA1110, XPCS1 with in-band SGMII to an AQR113C. 30
+   partner speed changes between 100M and 1G without a stale speed,
+   which is the path where pcs-xpcs restarts AN, with the link timer
+   that the PMA hook sets, 935/941 and 942/941 Mbit/s on the two lanes,
+   94.2 Mbit/s at 100M with no UDP loss, link down/up and driver reload
+   cycles, no kernel errors. The receive path works on both lanes,
+   which shows that the S32G entry, and with it the no-soft-reset
+   quirk, is selected through the declared IDs.
+
+ - SerDes_1 in mode 2 (PCIe x1 + SGMII, 100 MHz, internal and external
+   reference) together with SerDes_0 in mode 3 (GMAC0 over XPCS0 at 1G):
+   an Intel 82574L in the PCIe slot (Gen 1 x1, the card's maximum) at
+   901/941 Mbit/s with its BARs in the 64-bit prefetchable window, the
+   shared-lane XPCS1 at 935/941, GMAC0 at 935/941, NIC and XPCS1 at the
+   same time 898 + 935, 10/10 XPCS1 link down/up under PCIe traffic with
+   the NIC never below 893 Mbit/s, 10/10 GMAC0 down/up, no AER events.
+   The same figures on the external reference (NIC 902/941). The fixed
+   linux,pci-domain puts the slot in domain 1, so its NIC is named
+   enP1p1s0.
+
+ - The mode 1 variant of patch 15: SerDes_0 with PCIe_0 on lane 0, on
+   the internal 100 MHz reference, and GMAC0 over XPCS0 on lane 1, with
+   no phy-handle left on GMAC0. An NVMe SSD in the M.2 M-key slot trains
+   at Gen 3 x1 and reads at 511 MB/s, with the data read back intact
+   and no AER events. SerDes_1 derives PCIe x2 from its single PCIe
+   reference. The mode 3 variant brings up SerDes_0 with GMAC0 on a
+   fixed 1G SGMII link to the SJA1110. No GMAC0 traffic with the
+   variants: the plain RDB3 DT has no SJA1110 firmware loader.
+
+ - On v7.4-rc1 itself, with PHY_S32G_SERDES=m and PCIe_0 bound to a
+   SerDes_0 lane, the PCIe controller defers until the module is loaded,
+   and rmmod of the module then fails with "in use".
+
+ - The two pcs-xpcs quirks of patch 4 were verified earlier by removing
+   them (see the patch 4 note below).
+
+ - With the 2.5G follow-up on top, SerDes_1 mode 3 also passed the
+   100M/1G/2.5G partner speed cycle at 2.35/2.32 Gbit/s on the 2.5G
+   lane, with the same 1G and 100M figures as above.
+
+Not covered: suspend/resume, GMAC0 at 10M and 100M.
+
+Changes in v4:
+
+- Drop the NXP SerDes XPCS shared core (v3 patch 4) and use pcs-xpcs.
+  The S32G support becomes a pcs-xpcs entry and a platform glue which
+  owns the PMA/PLL bring-up. The review comments on v3 patch 4 no
+  longer apply.
+
+- Drop 2.5G support: no in-tree MAC can use it, and the binding only
+  describes the 1.25 Gbit/s modes.
+
+- Patch 1: the lanes are argument cells of the SerDes node,
+  <lane type instance max-speed>, instead of child nodes (Rob, v2;
+  Frank, v3). The XPCS instance is the third cell: the mux is
+  programmed before any MAC probes, and modes 1 and 2 differ only by
+  it. The cell layout is final. The fourth cell is the highest speed
+  the lane is wired for; this series takes 1000 only, and 2500 comes
+  with the 3.125 Gbit/s modes, which select other SUBSYS_MODE values,
+  reference clocks and PCIe speeds, again at SerDes probe. The driver
+  walks the tree for the references at probe. nxp,xpcs-instance vendor
+  property is gone.
+  Patches 2, 3, 9, 10, 13 and 15 follow: a MAC carries phys and
+  pcs-handle to the SerDes node, a PCIe root port one phys entry per
+  lane, and the SerDes driver provides one PHY per XPCS instance next
+  to the PCIe one.
+
+- Patch 2: phy-mode "sgmii" requires phys and pcs-handle, and each of
+  them requires the other.
+
+- Patch 3 (v3 patch 3): the example fix is dropped (Frank). What is
+  left allows two phys entries on the root port, one per lane, and
+  updates the example to the cells form.
+
+- New patch 4: quirks mask in struct dw_xpcs_desc (no soft reset, no
+  EEE). Both were checked on RDB3 by removing them. Without the first,
+  the generic BMCR soft reset of xpcs_pre_config() leaves the XPCS stuck
+  in reset on the in-band lane (BMCR_RESET never self-clears and every
+  register then reads 0x8000) and the receive path dead on the lanes
+  where it does complete; the working reset is VR_RST inside the vendor
+  bring-up, which the SerDes PHY driver owns. VR_MII_EEE_MCTRL0/1 read
+  zero and ignore writes, so the second quirk keeps the driver from
+  touching registers the integration does not have.
+
+- New patch 5: a glue driver can declare the PCS and PMA IDs through
+  struct dw_xpcs_info with xpcs_create_pcs_mdiodev_info(); with both
+  declared, no ID register is read. A dw_xpcs_desc entry can name a
+  PMA ID, and such an entry takes precedence over one for the same PCS
+  ID that matches any PMA. No functional change for existing users.
+  This replaces the synthetic PCS ID discussed in the v3 thread [id],
+  which Coia asked to avoid; the value proposed then, 0x30, is also
+  used by the Qualcomm Nord RFC.
+
+- New patch 6: S32G entry in pcs-xpcs, for the DesignWare PCS ID with
+  NXP_S32G_XPCS_PMA_ID. SGMII only, with the PMA hook in
+  pcs-xpcs-s32g.c. The hook sets the SGMII link timer to the 1.6 ms
+  that phylink_get_link_timer_ns() gives for SGMII, converted with the
+  reference manual formula, then sets CL37_TMR_OVR_RIDE, and restarts AN
+  when it is enabled, so that the negotiation runs with the new timer.
+  v3 wrote 0x7a1, the vendor 2500BASE-X value. The hook does not touch
+  the PLLs and does not flush the PCS: the lane is on MPLLA from the
+  SerDes bring-up, and the 1G sequence of the reference manual has no
+  such steps. The quirks stay on the entry: Coia suggested glue-set
+  flags, and they would move there without further change if that is
+  preferred.
+
+- New patch 7: with in-band SGMII, report the link down until AN
+  completes, as the S32G XPCS keeps the previous SGMII link word until
+  then. The v3 XPCS driver did the same. The gate also ran ungated on
+  RDB3 with the same result; it stays behind the quirk only because it
+  has been seen on S32G alone. It is independent of the AN restart that
+  pcs-xpcs now does in the same function: that one acts once the link is
+  down and AN complete is latched, this one keeps a stale link word from
+  being reported before AN has completed.
+
+- Patch 8 (v3 patch 5):
+  - PCS_NXP_S32G_XPCS is a hidden symbol, selected by the SerDes PHY
+    driver, in the "if PCS_XPCS" block that the RK3568 series added.
+  - DW_VR_RST and DW_PSEQ_ST* come from pcs-xpcs.h.
+  - The regmap is replaced by a mutex protected indirect accessor.
+    Each XPCS instance is an mii_bus, and the PCS comes from
+    xpcs_create_pcs_mdiodev_info() with the IDs of patch 5 declared.
+    The glue does not emulate the MDIO ID registers; the hardware
+    reports the generic DesignWare XPCS ID 0x7996ced0 (checked on
+    RDB3).
+  - Use MII_BMCR/BMCR_* and DW_VR_MII_DIG_CTRL1 instead of private
+    defines (Andrew).
+  - The exported bring-up steps have kernel-doc; the indirect window
+    accessors use guard(mutex); the BMCR writes before VR_RST are gone,
+    as the XPCS state is set after the reset.
+
+- Patch 9:
+  - PHY_S32G_SERDES depends on NETDEVICES, which its PCS select needs.
+  - The PCIe PHY provider is registered on the SerDes device.
+  - Return -EBUSY from set_mode while the PHY is powered on.
+  - Drop the redundant reference clock check. Print the selected mode
+    once at probe instead of on every resume.
+  - Set .owner on the PCIe PHY ops, so a bound PCIe controller pins the
+    module.
+  - Use the reference manual field names and named delays in the PCIe
+    PHY register path; drop the unused max_speed.
+
+- Patch 10:
+  - Select PHY_S32G_SERDES instead of "depends on PHY_S32G_SERDES ||
+    PHY_S32G_SERDES=n". PHY_S32G_SERDES (patch 9) now selects
+    PCS_XPCS and PCS_NXP_S32G_XPCS instead of depending on them
+    (Maxime).
+  - Store the PCS in priv->hw->phylink_pcs (Maxime).
+  - Do not add RMII and MII to the interface selector (Maxime).
+  - Keep the MAC transmit clock at 125 MHz with SGMII. The generic
+    stmmac_set_clk_tx_rate() set 25 MHz / 2.5 MHz at 100M / 10M.
+  - Look up the PCS for SGMII only; an SGMII MAC without pcs-handle
+    fails to probe.
+  - Compute the interface selector once at probe, so an unsupported
+    phy-mode fails the probe.
+  - Disable EEE with SGMII: the S32G XPCS has no EEE, but stmmac
+    assumes LPI works through any external PCS.
+
+- Patch 11: drop the shared core entry, add pcs-xpcs-s32g.c. The entry
+  and the binding name the same maintainers.
+
+- Patch 13: keep the S32G3 SoC nodes sorted by unit address.
+
+- Patch 14: fixed linux,pci-domain on both PCIe controllers.
+
+- Patch 15: the routing variants are full .dts files that include the
+  board DT, not overlays, as they drop the phy-handle of GMAC0 and
+  /delete-property/ has no effect in an overlay.
+
+- sashiko-bot review of v3:
+  - Patch 2: pcs-handle only adds maxItems: 1 to the inherited type.
+  - Patch 14: mark the window above 4 GiB as 64-bit prefetchable
+    (0x43000000), as the other DesignWare hosts do. A non-prefetchable
+    window above 4 GiB cannot be used behind the root port.
+  - Patch 9:
+    - Register the PCIe PHY provider at the end of probe, after the
+      clocks are up.
+    - Return -ENODEV for an XPCS instance which was not set up, instead
+      of deferring forever.
+    - Track the clock state, so that suspend and unbind do not disable
+      the clocks again after a failed resume.
+    - Set suppress_bind_attrs.
+    - The "sleep in atomic context" report is a false positive: noirq
+      callbacks run in process context.
+
+- Commit messages and code comments are shortened throughout. Patch
+  12 has no other change.
+
+Link: https://lore.kernel.org/all/20260203161917.1666696-1-vincent.guittot@linaro.org/ [v2]
+Link: https://lore.kernel.org/all/20260919-s32g_serdes-v3-0-9d68868c1e89@oss.nxp.com/ [v3]
+Link: https://lore.kernel.org/all/20261017054406.1828061-1-coiaprant@gmail.com/ [rk3568]
+Link: https://lore.kernel.org/all/as95JpawMfSSk+Pa@lsv051416.swis.nl-cdc01.nxp.com/ [id]
+
+To: Vincent Guittot <vincent.guittot@linaro.org>
+To: Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>
+To: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+To: NXP S32 Linux Team <s32@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>
+To: Neil Armstrong <neil.armstrong@linaro.org>
+To: Manivannan Sadhasivam <mani@kernel.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: David S. Miller <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Bjorn Helgaas <bhelgaas@google.com>
+To: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Krzysztof Wilczyński <kwilczynski@kernel.org>
+To: Bogdan Hamciuc <bogdan.hamciuc@nxp.com>
+To: Ionut Vicovan <ionut.vicovan@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+To: Philipp Zabel <p.zabel@pengutronix.de>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Maxime Coquelin <mcoquelin.stm32@gmail.com>
+To: Alexandre Torgue <alexandre.torgue@foss.st.com>
+To: Chester Lin <chester62515@gmail.com>
+To: Matthias Brugger <mbrugger@suse.com>
+To: Frank Li <Frank.Li@nxp.com>
+To: Sascha Hauer <s.hauer@pengutronix.de>
+To: Pengutronix Kernel Team <kernel@pengutronix.de>
+To: Fabio Estevam <festevam@gmail.com>
+To: Richard Cochran <richardcochran@gmail.com>
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-phy@lists.infradead.org
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: imx@lists.linux.dev
+Cc: linux-pci@vger.kernel.org
+Cc: linux-stm32@st-md-mailman.stormreply.com
+
+Signed-off-by: Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
 ---
- net/bluetooth/hci_core.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+Jan Petrous (OSS) (12):
+      dt-bindings: phy: Add NXP S32G SerDes subsystem
+      dt-bindings: net: nxp,s32-dwmac: Document pcs-handle
+      dt-bindings: PCI: nxp,s32g-pcie: One PHY per lane
+      net: pcs: xpcs: allow a PCS to opt out of soft reset and EEE
+      net: pcs: xpcs: let a glue driver declare the PCS and PMA IDs
+      net: pcs: xpcs: add NXP S32G SerDes XPCS support
+      net: pcs: xpcs: wait for SGMII AN to complete in-band
+      net: stmmac: s32: Add SGMII support
+      arm64: dts: s32g: Add SCMI reset controller
+      arm64: dts: s32g: Add SerDes controller nodes
+      arm64: dts: s32g: Add PCIe controller nodes
+      arm64: dts: s32g: Add S32G3-RDB3 SerDes routing variants
 
-diff --git a/net/bluetooth/hci_core.c b/net/bluetooth/hci_core.c
-index 60b1dd16ab0d..0ebfab2c26cb 100644
---- a/net/bluetooth/hci_core.c
-+++ b/net/bluetooth/hci_core.c
-@@ -4819,18 +4819,22 @@ static void hci_acldata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- /* SCO data packet */
- static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- {
--	struct hci_sco_hdr *hdr = (void *) skb->data;
-+	struct hci_sco_hdr *hdr;
- 	struct hci_conn *conn;
- 	__u16 handle, flags;
- 
--	skb_pull(skb, HCI_SCO_HDR_SIZE);
-+	hdr = skb_pull_data(skb, sizeof(*hdr));
-+	if (!hdr) {
-+		bt_dev_err(hdev, "SCO packet too small");
-+		goto drop;
-+	}
- 
- 	handle = __le16_to_cpu(hdr->handle);
- 	flags  = hci_flags(handle);
- 	handle = hci_handle(handle);
- 
--	BT_DBG("%s len %d handle 0x%4.4x flags 0x%4.4x", hdev->name, skb->len,
--	       handle, flags);
-+	bt_dev_dbg(hdev, "len %d handle 0x%4.4x flags 0x%4.4x", skb->len,
-+		   handle, flags);
- 
- 	hdev->stat.sco_rx++;
- 
-@@ -4848,6 +4852,7 @@ static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- 			   handle);
- 	}
- 
-+drop:
- 	kfree_skb(skb);
- }
- 
+Vincent Guittot (3):
+      net: pcs: Add NXP S32G XPCS glue
+      phy: freescale: s32g: Add SerDes subsystem PHY
+      MAINTAINERS: Add NXP S32G SerDes entry
+
+ .../devicetree/bindings/net/nxp,s32-dwmac.yaml     |   30 +-
+ .../devicetree/bindings/pci/nxp,s32g-pcie.yaml     |    6 +-
+ .../devicetree/bindings/phy/nxp,s32g-serdes.yaml   |  137 +++
+ MAINTAINERS                                        |   16 +
+ arch/arm64/boot/dts/freescale/Makefile             |    2 +
+ arch/arm64/boot/dts/freescale/s32g2.dtsi           |  116 ++
+ arch/arm64/boot/dts/freescale/s32g3.dtsi           |  116 ++
+ .../dts/freescale/s32g399a-rdb3-serdes-mode1.dts   |   65 ++
+ .../dts/freescale/s32g399a-rdb3-serdes-mode3.dts   |   40 +
+ drivers/net/ethernet/stmicro/stmmac/Kconfig        |    1 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-s32.c    |   81 +-
+ drivers/net/pcs/Kconfig                            |    7 +
+ drivers/net/pcs/Makefile                           |    4 +-
+ drivers/net/pcs/pcs-nxp-s32g-xpcs.c                |  569 ++++++++++
+ drivers/net/pcs/pcs-xpcs-s32g.c                    |   48 +
+ drivers/net/pcs/pcs-xpcs.c                         |  149 ++-
+ drivers/net/pcs/pcs-xpcs.h                         |    5 +
+ drivers/phy/freescale/Kconfig                      |   13 +
+ drivers/phy/freescale/Makefile                     |    1 +
+ drivers/phy/freescale/phy-nxp-s32g-serdes.c        | 1132 ++++++++++++++++++++
+ include/linux/pcs/pcs-nxp-s32g-xpcs.h              |   41 +
+ include/linux/pcs/pcs-xpcs.h                       |    4 +
+ include/linux/phy/nxp-s32g-serdes.h                |   25 +
+ 23 files changed, 2578 insertions(+), 30 deletions(-)
+---
+base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
+change-id: 20260918-s32g_serdes-7807070de807
+
+Best regards,
 -- 
-2.55.0
+Jan Petrous (OSS) <jan.petrous@oss.nxp.com>
+
 
