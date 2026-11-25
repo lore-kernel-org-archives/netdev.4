@@ -1,57 +1,55 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573975;
-	b=Tbo+frZUH+JJrcKJOVqneNVD+21cvvrHJYfDOFtQLMfnpa/rFRRoLqYmfnroGEren92f
-	 s5ttKXAlyjFKaEQvbRffMDgVRBpljd4Kg0EF4pyfajBEdZnQ0Qb2shrLWmqXwPyxrndMi
-	 mAAvlele/OKkp4J8r009S4kcNkYtkH1KMAXAwm7i/Qf6bCtcFU41KhWJcQZbFwVchZjWr
-	 ncOikbRPlLekOogWPhIoTv7m3GdZrCqKlwPV1iaJium0rioks/rBDbhQ01nH0YdV5cCTB
-	 rdC8H7jeyimSkl6555dBQMq/Vw6xm7hpyAGb9aBL5+OThcVeEmkxoKz2x38a6L0wJOw==
+	t=1795573989;
+	b=W88oRV7Timn3VIgP6yrJJedkGdSJ93+S+yFZuz+bhf+kYJAFDMf6jmAYMA3dmgGUzHWK
+	 SpDr4zl3vNxPJXV/5uEmmuX+FamQktxyUTcWN8oHUGQPUrtYxypgf9S2Fxt+PLAeyi7w7
+	 0OpylSSgsKw4MaQ3OY9PJe3mQ8yEi3tcwr4IKT6L7vO8xVW0VHl3ry8bYJwdU+DWN8ccI
+	 Yksrc0t3AV9xDOQWc/FSrZINa6vLCT6zIoWBiCq9cApncdoVK8Xs1jx93H1DtRgypCIg+
+	 ut2hsj4/BpNB+cv2sDZE0rWE29EleKuEAPxyxS/iEq+UW1qavl/nMDqs/pBVeqSIV6g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573975;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573989;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
 	 In-Reply-To:References:Auto-Submitted:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
-	b=ntqgk4VMWseY/j/CC41T+GzGq2U+0TVHfwohhaVISQLCaTgu8oSuA+wDtTp/GBoupHJq
-	 It2dizgwjRwAGOH0QUOVNF9VXlc/B4uAJChA/BeqrlKx2nZYPlJaoAtRwJaarZFS0YRsy
-	 5MFrhAPm/bxr/xkRqVxmt/Gx+ib2KLNKUEq1OHVww7pbtw0L59657mEzazeVNRpsaZ/lE
-	 qTg5uv+dxj3sNIwHquvPRTcVUbWW7BsjY1hG/rQGlZti8pSsZXhngRHE3p1aj34kxTQNE
-	 Sso74QBCi1o/CgznrKBgY6W5XnWODb3eiDesmH2DCVXZxqnW1t1agX/kWKIMjvpIy3Q==
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
+	b=js9BPM5BTXEqbQvq+DaKolUDKsbhvDGYOvQDZ+0m35+YJ57zOaujsp00vGnUQxwvoGXM
+	 Z0HqjrCRULX5CfPj/XJoklCQHZ0NAFhf+slslhn3tqnwsPcq3LmHf2kLHEfwK6DRpmYMh
+	 9+I83AP4noDL3va/HqSxg8qgQ32W+S00Pgibs+yiNCOGtoFhxOpZo7z4W0vJu9ZSUa2+s
+	 xGZrUABYlVQsfKgFUcMIPrcb3x/+ZHqHvoeW+72LeQu+mEKKTs00GpmNEBly+1HgF4Jvm
+	 p1En8IDfq4f4OnG5rAfuSnIZy7+JlfD87Qj0J9pD30j8FcfJ/NRUfYjhfPv8Tv+4h9Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TmYNd5oH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cM1xc3Sp;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD4B6606A323;
-	Wed, 25 Nov 2026 02:32:55 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A3FF3606A321;
+	Wed, 25 Nov 2026 02:33:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=TmYNd5oH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD7321F000C0;
-	Wed, 25 Nov 2026 02:32:54 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cM1xc3Sp
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C55521F000ED;
+	Wed, 25 Nov 2026 02:33:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795573975;
-	bh=Uwqp7Bz8a5D3/B2xkBHbhP2Bh4hQYQFs0RxyAqY1Gn8=;
+	s=k20260515; t=1795573989;
+	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=TmYNd5oHyzpLF9hzIgn2dw4pHDEAv9h8FbU/zWwDvG4P/fv47pHY+q/t0VkhCSxYn
-	 vMK/p931yicsEc1m2US8kMXdaUjaQnY934iBk0Hw1yUSnas/6ThGXDDuluj+1DXufA
-	 yq6zIwh23XUeZPiJ6ikDUIIuS6PvdTN/4lQko5M/7pYkoyabo27X56L1yqo8AVtZoh
-	 3LaUEOD9jutT2VKOd1NBhI1lhHBT7cMzXV+/PWM2dn7gnQYviwIMZjT9CSUbgjYe7b
-	 8wW0978dFATb9WsC7WVKMUAUJg65hYCHbifhnf/811s6s/Sx4k3Y3OK5vgCFqLMZ1W
-	 oJf7gJnWRQ7dw==
+	b=cM1xc3SpPk4qeF5Lil79/OyYyi56mtMG81SbPRxi/WvDzAUrs1cbHhNVuz9ervoDp
+	 T3sK8a7CQwIRLp0AFt8sM8g2bp+On2CpYGEqxKjsGKMuq2q2owaNRU66VBbXYJdyVa
+	 6FYiJ3+S+6oUv7LM3Ah/sWG3xDm+WNQcg0i4SDCRLEQ9LYV3nSM/HbDzag4+yTJI0p
+	 dqKvLL4l2OiNO3QdgmyuMdGbilBwvLPhc9xAcIew1TnZuUED7kJMMp0+HEBcS4CW48
+	 Mwq3VmPd4bAWb3WMrlfWDhQF6O1xEqu0mr2420RiSnns7p3WmYQTDXPJszuTD1fqld
+	 Y6tPzNO8LP+EA==
 From: netdev-bot+sinfo@kernel.org
-To: Vlad Banea <montrealtango@gmail.com>
-Cc: netdev@vger.kernel.org, hkallweit1@gmail.com, javen_xu@realsil.com.cn,
- nic_swsd@realtek.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
- linux-kernel@vger.kernel.org
-Subject: 
- Re: [PATCH net] r8169: recheck the TX descriptor after a vector-map interrupt
-Date: Wed, 25 Nov 2026 02:32:54 +0000
-Message-ID: <179557397423.3294.15950681362384539211@kernel.org>
-In-Reply-To: <20261125022643.1169045-1-montrealtango@gmail.com>
-References: <20261125022643.1169045-1-montrealtango@gmail.com>
+To: mdshahid03@gmail.com
+Cc: tariqt@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ netdev@vger.kernel.org, linux-rdma@vger.kernel.org
+Subject: Re: [PATCH] net/mlx4: fix error propagation in mlx4_load_one()
+Date: Wed, 25 Nov 2026 02:33:08 +0000
+Message-ID: <179557398838.3294.6547590085823969218@kernel.org>
+In-Reply-To: <20261125022913.205366-1-mdshahid03@gmail.com>
+References: <20261125022913.205366-1-mdshahid03@gmail.com>
 Auto-Submitted: auto-generated
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
@@ -69,6 +67,14 @@ Hi!
 
 This is an automated message. This series looks like a fix, but its
 commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
  - What hardware the change was tested on. For driver fixes please
    mention the device (and if relevant firmware version) used for
