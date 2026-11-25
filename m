@@ -1,100 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795614576;
-	b=HauWtg2e0ky8UMtJVyYNarwJMSlKVAJLNH3LnikxYtlt8yWvnxen/gDqfGeKTBIsTSpK
-	 uA1p5i2Ugak8Oxmp78Pnf7VE4MGb9PELvzEOywXncAxiRZFd+jM/JQJ6zzQsChRrELKO9
-	 G0L8IUKuhz4DeJnTZ/B7Jp3gdHlk9voWZYkT7l2tYIHefQMEk8qvp6Mpt2uyPwiyHv2EI
-	 bzltFj2UbL8xkC67LYm6gvmJEl6fU9hWR21cwhA3Dqpjlvt89pX0hM1lUs+yEdAAriMYJ
-	 s/D4HPKwM8U5nG71fArjcvoW0Vra77Id29XX/857H7yO0J+3Lbb96YdwG+jModm3tDw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795614576;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=79.135.106.103
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795614587;
+	b=ugk2SF7Xw9l1reCwuhM0F1LCQ5lb14Aiqe7cJnQwlCDigvyUiu0NHAlk9pjqNipoleaN
+	 wt1yBTmMEAGlUWPGbE7NEPIWV3h3u+UqSPyX+eZhtE6/paDT7YU092my+kPU7SBq+UTC1
+	 CW2o+MLgAcBeNB0ZgkXQZrewg17TgFUWqBVV6hImBlxoSbrcINqFcGolYKOHjuOCQC8DA
+	 QpKkETrao90H1ZIHlye/o4fV8bnCJO1ugRwsW5EEjBcMR8QZfRt4cTY2wC9oXzIbg5RTe
+	 2NmtvMgD1enIGCqeFsg8Xghy0EzwZ3L6bM69Cb2bKO0mYcGIaSI2xVBHd/zHfV5tO0Q==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795614587;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding;
-	bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
-	b=3wNaRu7nv7SzapETT9vdF14HKIbGST+k72GACRu36MvzTXeyE5h5qQgvGhdvkofPbPnq
-	 DeEIX9fNYPyU2rc6csyC3EsFVWOKoYOcZi30Wd6BGxYYaKWiQg25DwkFKuFZ+0LkK7UYf
-	 Go9rfEtq8rEQQ3XxUwaxFSD707dJl8LBQJr+GSJZgr/QKqnUvhquIMh9c+VLugtfLPxSj
-	 KWMtGZSnveQzvXV7tP7J/6Ugvg5SWWNKFYUcVWw/fhO6HcfgDLM+ylFWvLOTBoJPLAhUL
-	 FcXOLzbU/nnsOZbTeSDUrq1VlX6BzWKMMqtq3kw07oRcZyK7YydhTwYRickM6Siaorg==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I0zfAss9;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
-Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	bh=BuPepjdXAchlZ0/rdmklLt9a4OqDms3VeAyOyVVTjdU=;
+	b=e1KrvkW/yoVl6LPnyNszaIIxHWwYkZv25iNAv1i45jtKaOteewLyjZLU7Evk9iQqJqGv
+	 kk0f6kVYkh/9g51OqC6T4FxkzmfFNey63y7r0ZZjFGpdIYeLfnUuDuiUUvXMGU/QLiReJ
+	 zdlxU5YidSXOoC+gGqdQXnY8A7swolYBc4lRNT5RAqicPZVsjyAGuIGeXQ3gbWNilq0Wn
+	 RHEYuvH+d2QUXQpMQRX7Snry0NNa84MwMlkoks99IU0PIZ1iVSeb8CUeindrK70zBYVqA
+	 JRt8khdgTdPOB3LO/JBMyRQl327Xxuyw9MZdg5tFQocWgXzbRiWljYWrJUycRWbVgIQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=protonmail.com;
+	spf=pass smtp.mailfrom=protonmail.com;
+	dkim=pass header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VG4FDJAN;
+	arc=none smtp.remote-ip=79.135.106.103
+Received: from mail-106103.protonmail.ch (mail-106103.protonmail.ch [79.135.106.103])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9B4DF606A33D
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:49:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9B4DF606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B4B69606A33F
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:49:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B4B69606A33F
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=protonmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=protonmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=I0zfAss9
-Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c50737c64c8so56985866b.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:49:35 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795614574; cv=none;
-        d=google.com; s=arc-20260327;
-        b=G7It8G/vr7N2tXIr74ofY0wayT/fC9KrlsYhCcZ78IDCAb60KvWdZkkvFfAlXmlvw3
-         t+xAl9BldAEl6zN9lu5gdWBeI1UNE7f8jKt/QZyQoYmNhiJa+wDqsCNCGmJdZralonHy
-         XhykmjDgVJWUnYSBijwxT0UbWGXZukkG76yDsQTODg/C9odvNXOhbZ1PPd9mNNuscnaB
-         lLxPxWKU+h8LJWX1nbw+tjxaHyQi2VKeToP0857SZTCcYW6Ej387+qahnBm4KCBB81Og
-         j5N5suVXUiXp7KSdxVx2CpwUP4AQZGypTfs9JQRyZufJUQiYDhikwYnrWRdLf+oAxqge
-         euzA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
-        fh=MO64O7FT/OPfQBn9FRTJmPix1XvaBWBdqLbqndGtoUE=;
-        b=TbEE7QllOFGiExiZJ9o9ze/guQgDla8BLd8azQXyY+pqbzXsJ2c8f91zHxDPIlX+KA
-         f5JbXlS9ombTlB86R+zgrgIuNZ3dY94lot4jifOIM53riUl8EfH3xMwx56yej+M5juQ/
-         v1E3kcC7sKjgtsbZaXorTHVWNBR8LpOyCLNPuZ6Lho9AnkLiyn+Ur1NGzQ2LK/mbS6i6
-         UoH4kOXRdWoIMFkec1MAqFCOzEVDMCLzY9zg/OVLri8FNbEkHSrMO3oCDgz2MK2KzXVT
-         oGnnZpF3lFqj24QlUsSrGVl0nwvdfmJjmJ9+dguuIpXWErvtg9OqE1kgbX5o5JLp+rFP
-         wGyg==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795614574; x=1796219374; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
-        b=I0zfAss933T2aZFzZOZeqt+KQGjS64WXuipW3lDFcjC3q2u9VUHAZ9hAdQkQ+OWfpk
-         SDhsPi615KXwUHyTmQ8DT7XIXBZqUwB+cfM8wLIP1qbl8lLOAySsdhNZQfe2TDMIe1wF
-         1PY1URlF7lJOSPm9lx/oJ3o0m4RlszSnXFQ575y4OWt+lZ29mCS2WufRwsFDNL8a3aIq
-         ognNuxa3VK5kVqdhJ3VF/GBBGJDDlR6tK9E7yNzhbjHHn3PJNDfjFmZG1RjH3drh72NU
-         ubXswZelAVprkr1i03aLmK+8KGWEqEA2eGMlLZol/SBWztj4dqlIWMDqupKPNpFlz5qZ
-         5TEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795614574; x=1796219374;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=c5Jj0SHHH+2199rNq+OQYZrQv9xMAnF27D/bE3kVSOo=;
-        b=hgOGEnMABUm9j28AR17oTHp6Pyy72HZ2TevwSRhB8iNO+2tZ0f47Ndx6NWtUax+x2F
-         YXyZbcAz+gu5rsHHRRZVbl3FkZN331ni0tdhs54iU/trbm4ec4OB6iJ4rTUUCWrUCRGx
-         jGzu9xlmGUGmAm7MZjfO3GLeY3eGsNijbJ8+qHuUmEFyVRz/syESY/RnjWjrqlWK2Jcg
-         UFs9Y5KsHLNKtqiEY0oV3oi4ZMTaDWouqZR/xZVTBV2M14B54Qy4nk8HWN+bKHhap0xd
-         MH7jByC5haD/w4FngpRlAHScIM+XSNh5SV8lIkFrFYgWaqgbCtaBMiO3FMvQzPGjMzjY
-         upQA==
-X-Gm-Message-State: APuU4Z9ryxE3gZmlzU3rJlPEiPi3/vKBkvpNZ6dIq3Y2o4hz2EmaYTmU
-	0Az5IijGVreQL46w9FYOPfQZxwGnTJiwjWZQXhcOV43arMII061QOo0QsNxTdQsmE4ymIis4HVW
-	c7bkbm9U9+YbmKSGuonnXnupC7gxEmLQ=
-X-Gm-Gg: AZFdTZc6quM0WTRHx+Rdrvtn8nF4R6fnVFgXiGau39fPLxYKJFX+phY/EshhOCnew2K
-	e6MUBWYf6CJeT+Tkyxnx02D9IUeOAnxCAzy7sMeBdk1U7ymSOaXX8Eb+cSFlBMPcYP0w0Dt3ajr
-	//TTo46TN1076VOFLSmNsgB43TxyLHM/LyJTrnaTopFAftH00ET/8xgtg7EgH+xj0nLdDEjeL16
-	FMIUDFIj0qJjqqRpBUqxwDs2PYfD73C5fRfE2r1jzg39JO94eavbNA+Yf0RDtqiyMS7VhvNHInb
-	CqVHMr0ic1Z43I/lMKVQUOy5uj/z6QWHG6YULGSVfkdz8UnyXB1blL4ypBBhUHfMJr0r6QJh8uF
-	oNLPhYKVtNXNKtI1N82E5jgvDPySje34z4BvWOIYmS+eahUWmLIxJJYoMyS0O0zB7afQjCrLh3C
-	pu1tWWZ+mg4ogt7IBR5W0NHtbJ/dewkSaxS4l/bKB8jF9f4hgeLKp6hmJ1zAlPMMvE5batI6w=
-X-Received: by 2002:a17:906:a11a:b0:c42:e6c8:e45a with SMTP id
- a640c23a62f3a-c513a5f7605mr1339666666b.3.1795614573695; Wed, 25 Nov 2026
- 05:49:33 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=protonmail.com header.i=@protonmail.com header.a=rsa-sha256 header.s=protonmail3 header.b=VG4FDJAN
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=protonmail.com;
+	s=protonmail3; t=1795614584; x=1795873784;
+	bh=BuPepjdXAchlZ0/rdmklLt9a4OqDms3VeAyOyVVTjdU=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=VG4FDJANG6JEbv/1Mwb2lTT0CY6hhvcXxLMEZV0//O4YGYscqkRzEVesPF03ipVGU
+	 ECWyheGAc7f32lOi9FLmumMc5d5/tm/AxV4gllixFPjGC/BtEqh896ltoIzLBsTlpq
+	 672pBW2z6Tz4EJ49qCWEUee4dU/V1BYGkOgWnYgfzS70Oy1dUz5z+Tqp27c+1NSvVK
+	 n+iKMNmpI7kBQyXcpZsW2vc7xrzCSz7Af4e6sHwLAfptzPPQnriLnH1YNBFJsgXXs2
+	 1A/fO5Pa5RUWqZ+TUndzTLEioSB//GmSIXsPU09AbUKez8lJY5iH6U5zZcCorPB5Tg
+	 Hepbut9OX0Xjg==
+Date: Wed, 25 Nov 2026 13:49:26 +0000
+To: Alexey Charkov <alchark@flipper.net>
+From: Ryan Leung <untilscour@protonmail.com>
+Cc: Srinivas Kandagatla <srini@kernel.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, =?utf-8?Q?Rafa=C5=82_Mi=C5=82ecki?= <rafal@milecki.pl>, Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, Ricardo Pardini <ricardo@pardini.net>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 3/5] nvmem: rockchip-otp: Derive MAC addresses from the CPU ID
+Message-ID: <0aH4P5VH9HNiTXpCUTaTlvGaoUDQBnvv-0cSXtipSDkLOGjzGy96jDqsVtU0DJTWrocgoMcGFEgd0JUlF5mljVvCzGKVz4yUgDQ0s6HaDLg=@protonmail.com>
+In-Reply-To: <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+References: <20261124-rk3576-otp-cpuid-mac-v4-0-d403b8a25113@flipper.net> <20261124-rk3576-otp-cpuid-mac-v4-3-d403b8a25113@flipper.net>
+Feedback-ID: 184418679:user:proton
+X-Pm-Message-ID: 9e804900875c1d7029fee4789a2fc3b0fde23519
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,117 +64,167 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <CAPM+r-+-QVUkh5JmSP-Ud4G0fExM_=dp929NXCBZhqyLbbuX2w@mail.gmail.com>
- <09c26dab-505c-4126-b45d-a2128b0755c4@redhat.com>
-In-Reply-To: <09c26dab-505c-4126-b45d-a2128b0755c4@redhat.com>
-From: Johan ter Mors <johan.termors@gmail.com>
-Date: Wed, 25 Nov 2026 14:49:22 +0100
-X-Gm-Features: Aa3M54oDeZWNTqYazfgPUeLFaDUTt3713b1FiE8TFL0130WIirb2FW1BpdxA08g
-Message-ID: <CAPM+r-+-=3H1uN5=dim5O4cuFCWmx9agh88ERnMAN+fet7J2Pw@mail.gmail.com>
-Subject: =?UTF-8?Q?Re=3A_TCP=3A_RFC_5961_challenge=2DACK_budgeting_and_unpace?=
-	=?UTF-8?Q?d_RST_emission_on_closed_ports_=E2=80=94_lab_measurement_=2B_consist?=
-	=?UTF-8?Q?ency_question_=286=2E12=2C_loopback=2Donly=29?=
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org, Kuniyuki Iwashima <kuniyu@google.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
 
-Op wo 25 nov 2026 om 11:30 schreef Paolo Abeni <pabeni@redhat.com>:
->
-> On 11/24/26 23:49, Johan ter Mors wrote:
-> > Hi netdev,
-> >
-> > I am running a defensive-security evaluation of the TCP stack (authoriz=
-ed
-> > lab; all traffic between my own namespaces/loopback, kernels 6.12.117 a=
-nd
-> > 5.10.134). While calibrating the RFC 5961 challenge-ACK mechanism again=
-st
-> > a blind-SYN storm, I measured two related behaviors that I would like t=
-o
-> > have confirmed as intended, and one consistency question. I do NOT clai=
-m
-> > this is a bug, a crash, or a memory-safety issue, and I claim no
-> > exploitability =E2=80=94 this is a measurement and a design-consistency=
- question.
-> >
-> > # Observed (lab measurement, 6.12.117, loopback/netns only)
->
-> Why using an old kernel? You should run the current last release.
+Hi Alexey,
 
-Point taken. My lab targets the 6.12 LTS line (currently at .119 upstream;
-my guest runs .117) and the host distro's 5.10 kernel. Both PoCs are single
-C files (no dependencies, ~1 minute per run, loopback-only), so I am
-rebuilding the guest on the current stable release (7.3.6) with the same
-lean config and will report the levering numbers for both PoCs back in this
-thread.
+On Tuesday, November 24th, 2026 at 8:04 PM, Alexey Charkov <alchark@flipper=
+.net> wrote:
 
->
-> >
-> > 1. Challenge-ACK levering holds. Under sustained blind-SYN pressure
-> >     (synthetic storm against closed ports, aggregate ~500 pkt/s in the
-> >     calibrated run; levering verified 100% up to the raw-socket EPERM
-> >     gate in the high-rate run), challenge-ACK responses keep arriving =
-=E2=80=94
-> >     I could not induce the challenge-ACK latency degradation itself on
-> >     Linux.
->
-> It's totally unclear to me how many ack/sec per socket are you observing.
-> Since 6.0 challenge-ack limit is on a per socket basis.
+> Rockchip bootloaders derive stable Ethernet MAC addresses from the CPU
+> ID in the OTP memory and patch them into the device tree they pass on.
+> Kernels started any other way, e.g. straight from the SPL in Falcon
+> mode, end up with random addresses which change on every boot, even
+> though the CPU ID is just as readable from Linux.
+>=20
+> Implement the derivation for cells marked as "rockchip,cpuid", handing
+> the result to consumers which ask for the cell as "mac-address", such as
+> of_get_mac_address(). Leave the CPU ID unchanged for any other reader,
+> so that the same cell keeps serving the ID itself.
+>=20
+> Follow U-Boot's rockchip_setup_macaddr() exactly, so that both yield the
+> same addresses: hash the CPU ID's lowercase hex string with SHA-256,
+> take the first six octets as a unicast, locally administered address,
+> and XOR the cell argument into the last octet, which is how U-Boot gets
+> eth1addr from ethaddr.
+>=20
+> Put the address in the first six octets and keep the cell at the size
+> of the CPU ID, as NVMEM cells have a fixed size and MAC address
+> consumers accept a longer cell.
+>=20
+> Hooking the derivation into the OTP provider rather than a separate
+> layout means it works with any fixed layout of the OTP cells, and needs
+> no per-SoC knowledge, as the cell already gives the CPU ID's location.
+>=20
+> Signed-off-by: Alexey Charkov <alchark@flipper.net>
+> ---
+>  drivers/nvmem/Kconfig        |  4 +++-
+>  drivers/nvmem/rockchip-otp.c | 48 ++++++++++++++++++++++++++++++++++++++=
+++++++
+>  2 files changed, 51 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/drivers/nvmem/Kconfig b/drivers/nvmem/Kconfig
+> index d2f5bb236663..5776d4e4b391 100644
+> --- a/drivers/nvmem/Kconfig
+> +++ b/drivers/nvmem/Kconfig
+> @@ -448,9 +448,11 @@ config NVMEM_ROCKCHIP_OTP
+>  =09tristate "Rockchip OTP controller support"
+>  =09depends on ARCH_ROCKCHIP || COMPILE_TEST
+>  =09depends on HAS_IOMEM
+> +=09select CRYPTO_LIB_SHA256
+>  =09help
+>  =09  This is a simple driver to dump specified values of Rockchip SoC
+> -=09  from OTP, such as cpu-leakage.
+> +=09  from OTP, such as cpu-leakage. It also derives stable Ethernet MAC
+> +=09  addresses from the CPU ID, as Rockchip bootloaders do.
+>=20
+>  =09  This driver can also be built as a module. If so, the module
+>  =09  will be called nvmem_rockchip_otp.
+> diff --git a/drivers/nvmem/rockchip-otp.c b/drivers/nvmem/rockchip-otp.c
+> index 7eb834516ab4..eb91e7a34051 100644
+> --- a/drivers/nvmem/rockchip-otp.c
+> +++ b/drivers/nvmem/rockchip-otp.c
+> @@ -6,9 +6,12 @@
+>   * Author: Finley Xiao <finley.xiao@rock-chips.com>
+>   */
+>=20
+> +#include <crypto/sha2.h>
+>  #include <linux/clk.h>
+>  #include <linux/delay.h>
+>  #include <linux/device.h>
+> +#include <linux/etherdevice.h>
+> +#include <linux/hex.h>
+>  #include <linux/io.h>
+>  #include <linux/iopoll.h>
+>  #include <linux/module.h>
+> @@ -67,6 +70,8 @@
+>  #define RK3588_AUTO_EN=09=09=09BIT(0)
+>  #define RK3588_RD_DONE=09=09=09BIT(1)
+>=20
+> +#define ROCKCHIP_CPUID_LEN=09=0916
+> +
+>  struct rockchip_data {
+>  =09int size;
+>  =09int read_offset;
+> @@ -319,6 +324,48 @@ static int rockchip_otp_read(void *context, unsigned=
+ int offset,
+>  =09return ret;
+>  }
+>=20
+> +/*
+> + * Derive a MAC address from the CPU ID the same way Rockchip bootloader=
+s do
+> + * (see rockchip_setup_macaddr() in U-Boot's arch/arm/mach-rockchip/boar=
+d.c),
+> + * for consumers asking for one. Everyone else gets the CPU ID unchanged=
+.
+> + *
+> + * The address takes the first six octets of the cell, which keeps the s=
+ize of
+> + * the CPU ID. Consumers only look at those, so the rest is left as it i=
+s.
+> + *
+> + * The cell argument is XORed into the last octet rather than added to t=
+he
+> + * address, matching how U-Boot derives eth1addr from ethaddr.
+> + */
+> +static int rockchip_otp_cpuid_pp(void *priv, const char *id, int index,
+> +=09=09=09=09 unsigned int offset, void *buf, size_t bytes)
+> +{
+> +=09char cpuid[ROCKCHIP_CPUID_LEN * 2];
+> +=09u8 digest[SHA256_DIGEST_SIZE];
+> +=09u8 *mac =3D buf;
+> +
+> +=09if (!id || strcmp(id, "mac-address"))
+> +=09=09return 0;
+> +
+> +=09if (bytes !=3D ROCKCHIP_CPUID_LEN || index < 0 || index > U8_MAX)
+> +=09=09return -EINVAL;
+> +
+> +=09bin2hex(cpuid, buf, ROCKCHIP_CPUID_LEN);
+> +=09sha256(cpuid, sizeof(cpuid), digest);
+> +
+> +=09memcpy(mac, digest, ETH_ALEN);
+> +=09mac[0] &=3D 0xfe;=09=09/* clear the multicast bit */
+> +=09mac[0] |=3D 0x02;=09=09/* set the locally administered bit */
+> +=09mac[5] ^=3D index;
+> +
+> +=09return 0;
+> +}
+> +
+> +static void rockchip_otp_fixup_dt_cell_info(struct nvmem_device *nvmem,
+> +=09=09=09=09=09    struct nvmem_cell_info *cell)
+> +{
+> +=09if (of_device_is_compatible(cell->np, "rockchip,cpuid"))
+> +=09=09cell->read_post_process =3D rockchip_otp_cpuid_pp;
+> +}
+> +
+>  static struct nvmem_config otp_config =3D {
+>  =09.name =3D "rockchip-otp",
+>  =09.owner =3D THIS_MODULE,
+> @@ -328,6 +375,7 @@ static struct nvmem_config otp_config =3D {
+>  =09.stride =3D 1,
+>  =09.word_size =3D sizeof(u8),
+>  =09.reg_read =3D rockchip_otp_read,
+> +=09.fixup_dt_cell_info =3D rockchip_otp_fixup_dt_cell_info,
+>  };
+>=20
+>  static const char * const px30_otp_clocks[] =3D {
+>=20
+> --
+> 2.56.0
+>=20
+>=20
 
-I should have separated the two paths =E2=80=94 thank you for asking. The ~=
-500
-pkt/s aggregate was the closed-port RST storm; no socket is involved in
-that path, so there is no ack/sec-per-socket figure for it. The
-per-socket challenge-ACK experiment in my evaluation ran on kernel
-5.10.134: two concurrent victim sockets, 60 out-of-window probes each;
-each socket independently received 30 challenge-ACKs (A 60/30 and
-B 60/30), no cross-socket suppression. One precision: on 5.10 the active
-mechanism is the per-netns random bucket (the 2016-5696 fix), not
-per-socket granularity =E2=80=94 that arrived in 6.0. I will re-run the sam=
-e cell
-on the current release, where the limit is per socket, and include
-per-socket ack/s curves at fixed probe rates.
+Perhaps "rockchip,cpuid" could include a mention of "mac" somewhere?
 
-> > # Questions
-> >
-> >     a. Is the absence of a shared band between challenge-ACK emission a=
-nd
-> >        RST emission intended policy on Linux (i.e., Linux deliberately
-> >        couples neither to the ICMP/badport-style rate limit the way
-> >        FreeBSD's badport_bandlim() does)?
->
-> Intended AFAICS.
+Tested-by: Ryan Leung <untilscour@protonmail.com> # RK3528 NanoPi R28S
 
-Thank you =E2=80=94 I have registered this in my evaluation notes as vendor
-confirmation.
+I tested on FriendlyELEC NanoPi R28S (RK3528) with index of 100 and the MAC=
+ address was exactly as expected.
 
->
-> >     b. Paced-mirror experiment: when we pace the RST/challenge offer do=
-wn
-> >        (7 tiers, 32.6-2086.7 pkt/s), levering is 100% at every tier =E2=
-=80=94 the
-> >        same experiment on FreeBSD 14.4 shows a hard plateau (~126-138
-> >        responses/s). Is any pacing/bandlim intended for the unpaced RST
-> >        path, or is "RST levering effectively unlimited by default" the
-> >        documented/expected posture?
->
-> RST on closed port are intentionally not rate-limited.
+Looking forward to using this.
 
-Thank you as well =E2=80=94 noted as the expected posture. That makes the
-cross-stack asymmetry deliberate on both sides (FreeBSD's shared
-badport_bandlim() budget vs Linux's unlimited levering), useful context
-for the FreeBSD report I am preparing for their secteam (coordinated
-disclosure, separate thread).
-
-No bug claim anywhere in this thread; kernel log clean over all runs, no
-traffic outside my own namespaces. Artifacts available on request.
-
-Thanks and regards,
-Johan ter Mors =E2=80=94 independent researcher
-
->
-> @Kuniyuki: please correct me as needed.
->
-> /P
->
+Best regards,
+Ryan
