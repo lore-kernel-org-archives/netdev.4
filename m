@@ -1,96 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573618;
-	b=J6//gse8KcSc5Y/zYCYcO5qbVkAjO+uMoXDdgoltqtXK9xmvltcXnzM7LVWgflIa6Fie
-	 ef2EUtPC7+mD1fzjgfQ+/vFYqkTOEK/oIgsjrWudC+DtrS8UrbHNBFK6BeAnXyh7jKoLE
-	 YyME8nQVomrbBNwBgydKxSmBkTnIuDXFLc9z3HjWTVgEXwq8TtNwwHKWHEvT9w5SvCibZ
-	 EgoCkE/rbh1FTIR1JZd3wZ8I81ke8r+oexKYgJICIFGHRJ/P3sV/t6Q5bCS4kE3zBy+aO
-	 ZsGQ/ibUMN8lt63V38f8NnGK3RVXJhUsMei5xhHcFYFyBMXx4F28GPmWefjMgHihrlw==
+	t=1795573682;
+	b=RblORYvS5C/vY85El2RHW/uhYhwMtT54UtZr8YbJiXGFImOt/pvBs98EfVgxRtS+oArO
+	 /v52euFEBBDBZ11yltBI6CbSmeYJX+1r3huXIqMPbQ7y735PP+2uqIlIUHktRA6vvuKwR
+	 srSc0nX5OzDMpxd5fTQgbllvaGAD4XWdxQaII7cOHMWJrE0pAeU6tJJ52GgTuNQUJmZYh
+	 aBrNAzrvxlw43Ypv1GfX3DSG698nE+6M9srZdPTJ3INV7Khn1ACQ15i70kjQV+tyXyMlw
+	 PNvvVLIcsahKKSXTI2Y6S/NBXW0ZRSOXg8WUCfPCAPtfAGG0H+8/4FdnB/nf88Qlheg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573618;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573682;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=nxEUfGG+ty5o7s1mxmsn/WqbaAcfsDPEfFvaxrj0uA4=;
-	b=swZo/InlfcfERI+K43ssQzIjqfu7Kk2QqaVyBEisbAvw3QuPvoMY/C1RIGDW8yE2ebjT
-	 ORRqZQ5batyj6Qq+5J3cO6lTuHmemlAcx+F1Rj71ygbDvLR2LmWBdeKZT3Xmtejj4rz3A
-	 4R6vaPTbhqyxZUoeGvcjmC5MOTlpajauWPS+UTtxzdIMkXi85ReXbk1OIkh7clXYW/Nmh
-	 y1aWEqiv/wPGIyCw2xKLrJgyDpqrezDXuY0NNpLSbbGt25DW7i+b4jm9isJ+r04mRNYD1
-	 QOyfB50OCwNovXeMqqQwzbAu/3HwqLzv9XA6+KPglXMJjpNhwFoNVUl9t4CexSs7YOA==
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=gDxnzLaRy14zxoKiwsBabewsAmx6hWXhtiUNmVzNEZA=;
+	b=qb12XMEUJbHCa4u4i81eJnomT6ohHgSiRyquNxHR/e7hOhNFG9QAoqeVWOjxnf6tMrLA
+	 Qs5n3bkrq9t+3/97EOe85uh5+pFNVJI/PMsiS56RenWywFyKUaVUe8AXmf3awd7eH0MCe
+	 3m41mdja6daLaORKrFBJ3aZ2iPUhA7QlSADoDoQgOefThC3/93JZl2mpvoTaGUQYNwfYN
+	 5P2YG7gCpPLFvq7LjfxFmZbnaPiVBFMqpGZF8xvCqpB6DAPKO+GCQwTf4x0MISmXFP9VI
+	 0Jn8ZUFOEv04mzWxT4K3GFRD5G+0Ej/2ExaqaLP6gxB37cCpc1nBqr9TQD1TKLmKXlw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mam+MHs5;
-	arc=none smtp.remote-ip=209.85.160.181
-Received: from mail-qt1-f181.google.com (mail-qt1-f181.google.com [209.85.160.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZyrnBWX0;
+	arc=none smtp.remote-ip=209.85.210.172
+Received: from mail-pf1-f172.google.com (mail-pf1-f172.google.com [209.85.210.172])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 22EA8606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:26:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 22EA8606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF19C606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:28:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF19C606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mam+MHs5
-Received: by mail-qt1-f181.google.com with SMTP id d75a77b69052e-5361e313e63so70598311cf.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:26:58 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZyrnBWX0
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-8b6a88e4341so2266708b3a.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:28:01 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795573617; x=1796178417; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=nxEUfGG+ty5o7s1mxmsn/WqbaAcfsDPEfFvaxrj0uA4=;
-        b=mam+MHs5rNAX6gl67MTAXxCSp6YdeTtR4BXMQZ1d3TuSr4mxNtFPD0jpZ0qyo9AUYk
-         9Chc2u7sIS9c2qxed+yeMr0gA+edtNgt2R/HKeurFfy3DpaG8HJTIilIDrubFf9Qi7Qz
-         lUJKIbFiRz601Ax0i89VMTQCPa7bGjW0wxrfUtWisYsVsZjTM1HJTNXk7hAPozH1u/fJ
-         Rw+nlzJ+GJ6HFzsvff1TYhrWOF7xoR4N2cpceW+oqj3Zz6ACQcDMFfKJuUboaCHJNWhK
-         KfhxEMoM6YMjnyUQ7TCVaUHWHnI37JmWxoD6qvkS1RbDM2FwHg1szAfuk/2p8lZ/CS4l
-         Xl8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795573617; x=1796178417;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20260707; t=1795573681; x=1796178481; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=nxEUfGG+ty5o7s1mxmsn/WqbaAcfsDPEfFvaxrj0uA4=;
-        b=m80rF21lt6lddLN0WqFA9zs9OllYUKGAoB8HktrTMYbCRUVhpVjuDaSyQM0bR4/szb
-         P1WUsKJximPHChCmlhpFyFowEbqZP/Of9OzsWWzAJBfzySL4dXI9FlMIi0Sb0XDT/Hi1
-         UWrAnckW6Kjg5/udrtybgDyAmTOJKFgJxytxyGMGPC9J42VQ+yC7uS1ZaQCPCjJpYJkZ
-         6qLh3Z+QXKBrdyVhDEtGUty9ZpWTUSgVdFZDEXpWdAAuOOdBIA4gO1Oo3RXk735/knTR
-         fTWeEIYKJmNWLyR/9rElswJBybqXWvrjHQhW3EJtkrag4A977v39RoKeF84vB6eRkT2P
-         8BEg==
-X-Gm-Message-State: APuU4Z8JZOnoaBYFvxv7cwxsXxNrrrplvaE7yUsUzOEd83wNoQgXF9xR
-	gGKlrU1VaZv3SX8w76m6ADJKseup5ftCEdmWnpN7ks7KV0T5qlYV0SVG1WC3DWKSmg3W0efnKA=
-	=
-X-Gm-Gg: AZFdTZdrFfOXqQp1u79mi6/rJKTiYIXfTbC+RrBdGvq3DKwxCPd5dYIYXUcsCER2caF
-	QE42vA4Eh5430IKC3XrhW7lDvPtgn7NX7/tkKnLW/8mPC1i5iESgD8PIU7HcvpVSMYmSwjTMiR0
-	9jg4ScwEYM/ffiOytsgzBNnKRnMxD+0YPmVYl8H+0pmu1sDzy31n2FsJUy/FDEHyb3vDKHH/baM
-	sMvCBiY9z0o331tT03z0tCkbL9DhqB2svTKmxrQ2vdKiLw/EUL5Le7HbypawO43hUL6Il+MIto4
-	GekC8uWTyDPegNNJ62DLZ9xmSwrqA7Y/Pg1SVJQax9ZOSUwx1WNd/k/v5fchhMqpR0ZBtbILUu4
-	2DXe3uRzGHFqU26h8oeDD+sjPggB/p2Cq+Bn3ZwjzH49dkmQ8ikDqQVyTjZEhMca2h2oy9UVvUb
-	q9CwrGC8qu4Y+xBB5R6frxfS5LejTOEYXpUIeKCLi+FVqCty1mCslCCKRYUeg2sfLkvsls4VMDS
-	2EGFGpFW5FbcKTULVTvaWGdhiV1l04KyCzGyE114+Jjt63rfoWVlMc8InLml7em8u4CZCvKiHkW
-	Rgt26eJKRJyvlbhA9Bee+y6kgiBxgR2ybtQPuebfA7PfJREaXw==
-X-Received: by 2002:a05:622a:489b:b0:535:1a91:1d24 with SMTP id d75a77b69052e-55d76a203c3mr318792701cf.43.1795573617056;
-        Tue, 24 Nov 2026 18:26:57 -0800 (PST)
-Received: from Ixchel.lan ([70.49.63.180])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55d78807b5fsm141778231cf.6.2026.11.24.18.26.55
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 18:26:56 -0800 (PST)
-From: Vlad Banea <montrealtango@gmail.com>
+        bh=gDxnzLaRy14zxoKiwsBabewsAmx6hWXhtiUNmVzNEZA=;
+        b=ZyrnBWX0ttgzqFgq0xyQTuGRtOjZfjiHXe7hGWHPPsV+Kxlj403bCAD+K6BtmeRdz0
+         8nwOVbBI0bUqV8TTQj8GVoSEJZhq0rJlxVkbdavpA1pQTfIMgr+MoIsyRXh9721bGn2B
+         p3/TaY9rLLqxym8n1Wv3nMfXOSxtjRy3O48e6LCg5at1b0dLYw08k3vDNX4ISE37ZgCa
+         l7KhkJvcubBSG/XzOQa/3fEY2adfT0GGR4b+FPxYctlo+nV8SgvcJUQNhYhAEeY7I7j7
+         2wf+tx1KWOLH6DEeOhCkj5m7iCvkecStfZhZByFG/d5H4LUufAMi/Lsgfdcxv9mm1kzc
+         2SpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795573681; x=1796178481;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=gDxnzLaRy14zxoKiwsBabewsAmx6hWXhtiUNmVzNEZA=;
+        b=kUG6Vh7JO5c5XKkv+zx/Xd+jtLpfhP8B4zkMkSTvA4Wau9GKLmNIPT97wigfOv0Y3k
+         hQ5j36rXaeT9AIceujWt3ZHEveeAsHSWTgn8mNp/NBLvUuwcAaLxuJ3higfCRwAmQYPV
+         llYPCngaiKo/Fk5roSLGSoor1kxPMYElLr300MbBi2vqXgWpYlthXZON5eTWUeAWrQlD
+         6M4JkjUwVtGWFemhtPsjwHnWE9oa/ECkfEyVEwhrdTHY05Z4KfWKreoLYiGcl8kRySLv
+         ke/x+czcmeAalEYpvseXZMoC9Jo6rHRjmPm49ZFhvi9/YsGYJlhkBb/x5C2W9V5QP/R5
+         QFmA==
+X-Gm-Message-State: APuU4Z81miiWEJR5haeDoy7IFPExuuJXCaHs79ZZV2QN9wtH0GC81zXb
+	n5hPT8W9BZU/IjhDKfRFd+S+SOhnk5PIE/mU0Z2KaqzgsRsmjmtjMo7IfI8oTN9dVmxrxw==
+X-Gm-Gg: AZFdTZcVdHBpgrcqffTrCzPEyz1i/rmgW9zbIP9AFc+sKetjGd8dC6E0q94x66jpEDp
+	ApFEE2SrVZOY4AXnxzFIjwAplqiTivR3hO1tQmMewuem+XpEhGkhgB5qJWIfisL9PyxIh6Wov9E
+	RnKwgqoTTtVrCQgW3yxq+X7cGOUbgg6Kgt52p6l/EKx1RxHBp6IH/BZmFz80OJ2u7IsVFVM+5IJ
+	MEcizyQDax14ASyIswqaUSRJYI7q+pXIpgRjXmKFBimho7QNH2W4WwDy3T8mzH3cTjDDYIPdSoS
+	I/mLAtqrikR6O1E63hXbv/CW7bPJLGZMY3BsGCF6CCk3mVnR44C3F9sjr1CRVNgk+kvTjrmR48j
+	hYjicfV57p/3KgXane3XdYAc+kyVUoABj8XUKxLR13ocmzuMbOg/U2JvTwXSTWsOIJK7zifR7aa
+	tiX6j6xIOUqptAmxRoqqwQo5OqlDHV4TWpYIdT4NysQpIEHS22QIlukv7nRPd6+QngHnNOyxUO4
+	rxS2oRte/8simQwweBAxOWwFvelq+VbqDw+rdFe8zTMatrT22U99DpxrR00UmUnDmupX4GGICCn
+	eFwm5IAT1MSoe+EF+0V60Em6tED8sh4QpKVaewmUjWEhRxMF3gW4MflWn/hRn6ml2sEly9kJmu5
+	7E0yYm+my7q7UHSWKz1Q=
+X-Received: by 2002:a05:6a00:6de7:b0:892:d40c:4f7b with SMTP id d2e1a72fcca58-8c87bdb52c0mr14274341b3a.10.1795573681357;
+        Tue, 24 Nov 2026 18:28:01 -0800 (PST)
+Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad3:119::1c:2e7])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8cdfd2d2fc4sm2475115b3a.49.2026.11.24.18.27.57
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 18:28:00 -0800 (PST)
+From: Zhiqi Zhang <zhiqizhangg@gmail.com>
 To: netdev@vger.kernel.org
-Cc: hkallweit1@gmail.com,
-	javen_xu@realsil.com.cn,
-	nic_swsd@realtek.com,
-	andrew+netdev@lunn.ch,
+Cc: willemb@google.com,
+	jhs@mojatatu.com,
+	jiri@resnulli.us,
 	davem@davemloft.net,
-	edumazet@google.com,
+	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] r8169: recheck the TX descriptor after a vector-map interrupt
-Date: Tue, 24 Nov 2026 21:26:43 -0500
-Message-ID: <20261125022643.1169045-1-montrealtango@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	horms@kernel.org,
+	koen0607@gmail.com,
+	chia-yu.chang@nokia-bell-labs.com,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org
+Subject: [PATCH net v2] net/sched: dualpi2: refresh head timestamps after trimming
+Date: Wed, 25 Nov 2026 10:27:55 +0800
+Message-ID: <d6273ba14831fb2e63413a0c532ccc716512de78.1795573222.git.zhiqizhangg@gmail.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com>
+References: <20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,66 +109,64 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-With the vector-map interrupt model, the TX interrupt can arrive before
-the descriptor write-back is visible to the CPU. rtl_tx() then stops at
-a descriptor that still looks owned by the chip, and completed packets
-stay unreaped until BQL stops the queue and the watchdog resets the
-chip. The legacy handler is not affected because it reads IntrStatus
-before polling.
+Reducing limit or memory_limit in dualpi2_change() removes packets with
+qdisc_dequeue_internal(), bypassing the timestamp refresh performed by
+dequeue_packet(). The cached c_head_ts and l_head_ts can therefore refer
+to a packet that has already been removed. A drained queue keeps a
+nonzero timestamp and reports an increasing delay; a partially trimmed
+queue reports the delay of its old head. These stale delays are also
+used by the PI2 controller.
 
-If the first pending descriptor still looks owned, read a register,
-which makes the write-back visible, and check it once more.
+Refresh both cached timestamps from the internal queue heads after the
+trim loop, while still holding the qdisc tree lock. head_enqueue_time()
+returns zero when the corresponding queue is empty.
 
-Fixes: 677f8f8c4c5f ("r8169: add support for new interrupt mapping")
-Signed-off-by: Vlad Banea <montrealtango@gmail.com>
+I identified the issue and reviewed the fix. OpenAI Codex assisted with
+root-cause analysis, the fix and changelog, and automated validation.
+Local regression checks on arm64 net-tree kernels in QEMU pass three
+controls and fail eight trimming checks before the fix; all 11 pass
+with the fix. The tests use real AF_PACKET traffic in an isolated
+network namespace with HFSC shaping, without fault injection.
+
+Fixes: 8f9516daedd6 ("sched: Add enqueue/dequeue of dualpi2 qdisc")
+Cc: stable@vger.kernel.org
+Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
 ---
+Changes in v2:
+- Drop the 659-line selftest patch following review; retain the
+  regression checks for local validation. The qdisc fix is unchanged.
+- Add Chia-Yu Chang to CC and use Koen De Schepper's current primary
+  IETF address; the Nokia Bell Labs address used in v1 bounced.
+- Check the patch with --strict --max-line-length=80.
 
-Notes:
-    Javen Xu confirmed that the RTL8127A, the chip upstream uses this
-    interrupt model for, is affected:
-    https://lore.kernel.org/netdev/d672fb6d16b04fb4a1c9b3202d276662@realsil.com.cn/
-    
-    This was patch 1 of the RTL8125B RSS RFC; the rest follows for net-next.
-    Since the RFC, the second read is a continue instead of a repeated read.
-    RFC: https://lore.kernel.org/netdev/20261111220114.3863505-1-montrealtango@gmail.com/
+The local before/after tests cover C/L dequeue, complete and partial
+trimming, mixed queues, and a configuration change without trimming.
+The baseline passes three controls and fails eight trimming checks;
+the fixed kernel passes all 11. These tests are not part of v2.
 
- drivers/net/ethernet/realtek/r8169_main.c | 14 ++++++++++++--
- 1 file changed, 12 insertions(+), 2 deletions(-)
+The two-line fix and its arm64 W=1 object-build results are unchanged
+from v1. This revision does not claim a new full kernel build.
 
-diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-index f151ab681393..76b96f31017d 100644
---- a/drivers/net/ethernet/realtek/r8169_main.c
-+++ b/drivers/net/ethernet/realtek/r8169_main.c
-@@ -5228,6 +5228,7 @@ static void rtl_tx(struct net_device *dev, struct rtl8169_private *tp,
- 		   int budget)
- {
- 	unsigned int dirty_tx, bytes_compl = 0, pkts_compl = 0;
-+	bool recheck = tp->irq_nvecs > 1;
- 	struct sk_buff *skb;
+AI assistance: I used OpenAI Codex for root-cause analysis, drafting
+the fix, initial tests and changelog, and automated validation. The
+revision prompt asked to address the review of the DualPI2 patch.
+
+V1: https://lore.kernel.org/netdev/20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com/
+Review: https://lore.kernel.org/netdev/willemb.4158a0ba73d8@google.com/
+
+ net/sched/sch_dualpi2.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/net/sched/sch_dualpi2.c b/net/sched/sch_dualpi2.c
+index 4947def7c4..79eba7209e 100644
+--- a/net/sched/sch_dualpi2.c
++++ b/net/sched/sch_dualpi2.c
+@@ -938,6 +938,8 @@ static int dualpi2_change(struct Qdisc *sch, struct nlattr *opt,
+ 			break;
+ 		}
+ 	}
++	WRITE_ONCE(q->c_head_ts, head_enqueue_time(sch));
++	WRITE_ONCE(q->l_head_ts, head_enqueue_time(q->l_queue));
+ 	qdisc_tree_reduce_backlog(sch, old_qlen - qdisc_qlen(sch),
+ 				  old_backlog - sch->qstats.backlog);
  
- 	dirty_tx = tp->dirty_tx;
-@@ -5237,8 +5238,17 @@ static void rtl_tx(struct net_device *dev, struct rtl8169_private *tp,
- 		u32 status;
- 
- 		status = le32_to_cpu(READ_ONCE(tp->TxDescArray[entry].opts1));
--		if (status & DescOwn)
--			break;
-+		if (status & DescOwn) {
-+			/* The vector-map TX interrupt can arrive before the
-+			 * descriptor write-back is visible. A register read
-+			 * makes it visible; look once more.
-+			 */
-+			if (!recheck)
-+				break;
-+			recheck = false;
-+			RTL_R8(tp, IMR_CLEAR_VEC_MAP_REG);
-+			continue;
-+		}
- 
- 		skb = tp->tx_skb[entry].skb;
- 		rtl8169_unmap_tx_skb(tp, entry);
-
-base-commit: 846a6d0982be30aaba5268aac14a0c557d70cc23
--- 
-2.53.0
-
