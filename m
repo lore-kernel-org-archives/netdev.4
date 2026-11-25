@@ -1,49 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795575010;
-	b=p0JwYCu9FaMdbp+zCpZ9jcTlHo5UGKGrc1KUFc8XSl0+sUb3hJGhJUIh2G/0Dpz0TkY5
-	 tzVaKmbgzga1vvKodhv4nRiNihFGFQyoJdq6vFmaK3D1UljrQK+LG8m0sqXmfj66njeHV
-	 6Wv1AHVy292vRbqb/AaRZM2F+FD8K9flrKm6lzYy4mJg0j5qJUNHLOWB9zZ8P6p8vu3oO
-	 oZY4D9EQ3nZdVsC4m8q4HaNYomuS4be+YUbPe7FLo0vTRkJRMwWJqYGIqjS2tuONzWSVf
-	 N1XWzzwfh9g8WHgPCB/r3qpM/8k2S0fMk7BGjdUTxx9zEJSke0BELxlmzF3tVftJH+g==
+	t=1795575274;
+	b=qdRZAqf8G+BOSeIQetlH6KZgPUphKAz7QDMPoSUJbNz3vS60Xzrpu3SatROVDKpfAjva
+	 gV/oXGnwemo0t+OuNnjuFRV1z6TJUGFJyTRVKLA1Xtv/5J+Yc2j3NpI2hlHJN9BG5ob+Q
+	 1xMZJmo0PcPnQQJ3ssSJte9bAeYu6nAv7QX+PQNah7IaTvvm/6F7N4H/XmPTT+0hjzAwW
+	 DzATCpRiquYcxTfcgmqeFpW9Zt7JeLMU5zvolFT3Lm4hS6PfaqKDKC+BMY8ZpJ+ZEmzWq
+	 7hrPol4iBWppGyk0kSEGeuXjlqnltf6WBBegG7iqDSLcvFqcolHzG92VXzUjipkZcOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795575010;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=JHvutqVI3UTf5KPiqly4KEao0n0pd5IR5xQU3YvP3BY=;
-	b=14KEYAQNLER4G2Y34zOvcZBTYg9rYgVaHSBXIPf6h57dB9Mtj6Q5APeCO4Ze72ExWVUg
-	 qM/OkzY5bWagQsJIIBLK0+pfsc6Z2FtskDjXwP1ri/E1yXAbyXkUvOSYcnvsNNvSmQ7Av
-	 iYWCAZVVGuT039H9qmGk5hKgok+bjglG+/6AeLlCPu88EBoVRuOsBqivAjoCQ8au40mxE
-	 krNC+wzYC33whwIA8eb071G9kMtGGqlQ2zlELVLQBG6viPHcSrWs9rMCmT/+v/vtPJgCX
-	 UeSYNqP+mzjRcihS2q54mi0nKAkCStGlxq9rCjeRta77bOuWlR4EV4BHNQz7ECnPUNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795575274;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=nYcqetcvLyvB4381YfPzaUfE0Uw7XSF5cfIm2f1E+Ec=;
+	b=QLyMICVG2r5bYywOvxFgY014vtxH4ixgWgpL1uCuax4cPkRyYLiSO2lzlDr3M8tRnWTg
+	 4MMFJwV3f+DUYdHEWi2f042V7wiqQbyXzd6LicksyjS9PcBkbXHAOeLp5xEDydcfI5jof
+	 Jl0czR1i84KCVsU8o41UxfnNCuzvxDA2zwn735CnRcqYlyMi75YoeBvAwfpKXkdjjf6lI
+	 kBaCq0Tm93NGxelZbyhe3vgS40GMtZU4ZhyE301efDsUC1tldJXB9Kuu82mfrzaACmoce
+	 r7X+MbiB7t5/+CrpS67s6LFDeoPGi4JuvnXAPPH+POnSHm/NRBZqGNPKoLX7HustUjw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ndolS7q4;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WcmllzgS;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7578D606A321;
-	Wed, 25 Nov 2026 02:50:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7D9D606A32C
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:54:33 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7D9D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ndolS7q4
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0844C1F000D0;
-	Wed, 25 Nov 2026 02:50:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795575010;
-	bh=JHvutqVI3UTf5KPiqly4KEao0n0pd5IR5xQU3YvP3BY=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=ndolS7q4vKe6lQ3Qkr5cmwT4nBehUaxCv26jyr4sEe/BFBS+hYnoaF4WW8uli5bfb
-	 YfpdVX0CLRkAYPe9nUTUgkuXR3XloMxT6Y7fOa6VXWMtih4pxC0kmYQTTLIMBBzGZz
-	 X5zYHLP2MqDugyRx6lB1VkQeC/z5mC10bGSM5Qw6TU0YKg5dj/W86gKiFOMWSAuFYm
-	 PAQJIfDyGrdXUjNta8ABATyX8OAJP2JNBiIrVSa0HJlLe3zp8rZbV5A3uq8k3OJjwA
-	 clUnNOot1YGnJz9M/jF1fE+dr5tVXMQPL1ZZWNjHW+tFPoJkVqmeK6JsWjIKgXRH30
-	 Dk16iOSkxMLHA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14D43808209;
-	Wed, 25 Nov 2026 02:50:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WcmllzgS
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8b32bc605d9so2490942b3a.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:54:33 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795575273; x=1796180073; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=nYcqetcvLyvB4381YfPzaUfE0Uw7XSF5cfIm2f1E+Ec=;
+        b=WcmllzgSo594vVOxFhLaPKOL9Dx8MSMDfNnWzXxHEh//uKVblCF9bXBPTrI5b3DW/F
+         U+1gxp9oXGFkVAibd0ZKt/z9f5SmY4mOsU1un7Udcj8PWBX5nn5iLF7BcmwNyzgYYhhu
+         iMzVT66o7ZJ9FGHIN8ZTTGSvi9ceWVOq/KRwQix95abUbaqnZUWBuSZnKn8wYsF/5vaw
+         /wZUehFROQ47GFulqddvvc9kTr8krQ/xuYIeN8FutQjm/OxFgLz1ckyWCWSXjD4gX0Ra
+         s4xJWBnbWySGIMp6woSXCwcER/80emOiKLcnu1sTEM3uDu6w5BKDWcFgUi6hUYfVM2ln
+         L/Wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795575273; x=1796180073;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=nYcqetcvLyvB4381YfPzaUfE0Uw7XSF5cfIm2f1E+Ec=;
+        b=dN1X9gYdglWinoRRFvLbbRYJq8bb0ntrsHIZljivnT0+D9g27Crsnhd65jiVH1gJ9l
+         ocqCf+cBxcLrN+Pc7rkj8niX4+XIsOD/OdkZtqkrE8fHnlXY8KdnnH/9yn81taoTjukw
+         ouUKbEE/jmgVM+f/DiSbmoJkW5/OqqAOm3YjTZ/9kXwjml6zLY5XHrPD1XA9/e/nOCm2
+         eBIU8Zou2VxPJ+JgJFXNXwsyuvEPjYJiLRttR/mmiSH32yuLFcFKHJRooG+OuTQ22+DY
+         ZMOJ2Txw0PHyegaf57Dm4Jbk6LPRgPpC9Di3aved7W0Ze2kJx8omtbgRq03uWSJ+rMuh
+         brGA==
+X-Gm-Message-State: APuU4Z9+sulc76RCoewxduYbniMtrpZgpy0FBDGwZWAHaqlyRz9pst2H
+	3eqz2ifkl0EC2aidVfJaw1hrGPKYAxJoEaMZw+o4SlOgAFbeu2MZWiHi
+X-Gm-Gg: AZFdTZfJjiGBIaHFegj6yzkUYwczEQp8EdddVirAPMYYsgcgafIZGwIWEEDX6E3y60o
+	U2ZkMjr3AlYP0I2dbN/lY+e0j5tKQFlqTbzxnUHyJIAaX/XW71eY+yKcDBgWbTijgNSyN7Puz6s
+	PfzRoG1fTK6P2dOnLY3AkOIHEczDrzUuTKTstXedNGPjxbbvBwuqDlpoil5oFaapNLsH8xoExsR
+	tEIYWCdqm7tSiNsz+OUrqcstaWij9Z2/A9vzexcEJnDBQ2pAo+WQGN6JkdZ8IPHoULlSL1Bus06
+	1oe1STKzMmxLFwYmKE85C6wqgCZOA51TxMk2Px+KlwjHPjt44m26/FvfHS8QHBM+uDQNBhI0F6i
+	qdrnlfrr4h76Axje5+7mEcdZ0Q8lwsiIfZJtjI2MK4vSsEEKmCYXCCzRNTT9jdV725AdVDPvlZw
+	58DAhmrIW0in7trokVACvstf8m+L/1bPhtPrl3xbvLCccPgUk3dsJP707Yvg44wFpHVpECyYImk
+	H32rB07eGsXOOTQTQC6QhskAeMizzHONlYenIOJt49xvs3UQO4+R6RFlUhsYkCYcSvlGOrFIvNw
+	EIMKpFSI0IA4HRxyomNW7NBD1zS8UBlA+vvnCIYtsDbP7+cvn3pxxpMVefzk18G4lK2PD8O7bA9
+	XccQB9VsqgXsTfZJqpyXuOIxyv6jAV3vY1sOsritdasFBmXrdvP+itOuE
+X-Received: by 2002:a05:6a00:27a2:b0:8bc:686a:a54b with SMTP id d2e1a72fcca58-8c87daf2a2amr14141063b3a.56.1795575272929;
+        Tue, 24 Nov 2026 18:54:32 -0800 (PST)
+Received: from [169.254.3.1] ([143.248.188.96])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4af1fsm8118228b3a.28.2026.11.24.18.54.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 18:54:32 -0800 (PST)
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Date: Wed, 25 Nov 2026 11:54:19 +0900
+Subject: [PATCH net] net: re-notify tx_queue_len after rolling back a
+ failed change
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,51 +91,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v3 0/3] ionic: make the device command timeout
- configurable
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179557500851.181897.10642489657303885354.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Nov 2026 02:50:08 +0000
-References: <20261119-b4-ionic-cmd-timeout-v3-0-2cdb8fca15fd@amd.com>
-In-Reply-To: <20261119-b4-ionic-cmd-timeout-v3-0-2cdb8fca15fd@amd.com>
-To: Nikhil P. Rao <nikhil.rao@amd.com>
-Cc: brett.creeley@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- abhijit.gangurde@amd.com, allen.hubbe@amd.com, jgg@ziepe.ca, leon@kernel.org,
- jiri@resnulli.us, horms@kernel.org, corbet@lwn.net,
- skhan@linuxfoundation.org, rdunlap@infradead.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rdma@vger.kernel.org,
- linux-doc@vger.kernel.org, eric.joyner@amd.com, ArunKumar.Prakash@amd.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-tc1-txqlen-renotify-v1-1-6c8e9c4d0503@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANpNBmsC/yWM0Q6CMAwAf4X02SasAib+ivHBjQ5qTNGtGgjh3
+ 53yeJfcrZA5CWc4Vysk/kiWSQu4QwVhvOnAKH1hoJo656hBCw5tfj1YMbFOJnHBU+xa8v2RYu2
+ hlM/EUeb/9QLKBtdd5re/c7DfD7btC7tugPF8AAAA
+X-Change-ID: 20261124-tc1-txqlen-renotify-7f652bd32f0b
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
+ Simon Horman <horms@kernel.org>, Jason Wang <jasowangio@gmail.com>, 
+ John Fastabend <john.fastabend@gmail.com>
+Cc: netdev@vger.kernel.org, SeungJong Ha <engineer.jjhama@gmail.com>
+X-Mailer: b4 0.15.2
 
-Hello:
+If a NETDEV_CHANGE_TX_QUEUE_LEN notifier or the qdisc resize fails, the
+old tx_queue_len is restored, but notifiers that already saw the new
+one are not told. Notify them again and log if that fails, as
+netif_change_name() does.
 
-This series was applied to netdev/net-next.git (main)
-by Willem de Bruijn <willemb@google.com>:
+Discovered by a non-AI static analysis tool. The reproducer and the fix
+were written with an AI coding assistant.
 
-On Thu, 19 Nov 2026 00:32:30 +0000 you wrote:
-> ionic waits a fixed 5 seconds for device and admin queue commands, and
-> the RDMA driver gives its admin queue 2 seconds. Some commands can take
-> the firmware longer than that, for example while a PFC configuration
-> change flaps the links. The firmware is alive but slow, yet the
-> timed-out command and everything queued behind it fail, and an RDMA
-> admin queue timeout resets the RDMA LIF so that later verbs fail with
-> -ENODEV.
-> 
-> [...]
+Reproduced on an unmodified kernel with error injection (failslab in
+pfifo_fast_change_tx_queue_len()): "ip link set tun0 txqueuelen 100"
+on a tun device with a pfifo_fast qdisc fails, yet the tun ring keeps
+100 slots and the last RTM_NEWLINK reports 100, while tx_queue_len is
+back to 500.
 
-Here is the summary with links:
-  - [net-next,v3,1/3] ionic: make the command timeout per device
-    https://git.kernel.org/netdev/net-next/c/243b74542587
-  - [net-next,v3,2/3] RDMA/ionic: Use the ionic command timeout for the admin queue
-    https://git.kernel.org/netdev/net-next/c/54b7ae13fea9
-  - [net-next,v3,3/3] ionic: add devlink param for command timeout
-    https://git.kernel.org/netdev/net-next/c/1ea3c5d90fa5
+With this patch both are reverted. Selftests were not run.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Fixes: 08294a26e15d ("net: introduce NETDEV_CHANGE_TX_QUEUE_LEN")
+Signed-off-by: SeungJong Ha <engineer.jjhama@gmail.com>
+---
+netif_set_mtu_ext() does the same re-notify but ignores the result.
+This follows netif_change_name(), which also logs a failed rollback.
 
+I found this with a static analysis tool I am developing.
+
+The reproducer and the fix were written with Claude Code (Claude Opus
+5.5) from the analyzer report. I reviewed all of it and re-ran the
+reproducer myself.
+---
+ net/core/dev.c | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+diff --git a/net/core/dev.c b/net/core/dev.c
+index cd0796a1dbfd..56c2bb08a53b 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -10196,7 +10196,7 @@ EXPORT_SYMBOL(netif_set_mtu);
+ int netif_change_tx_queue_len(struct net_device *dev, unsigned long new_len)
+ {
+ 	unsigned int orig_len = dev->tx_queue_len;
+-	int res;
++	int res, err;
+ 
+ 	if (new_len > S16_MAX)
+ 		return -ERANGE;
+@@ -10217,6 +10217,11 @@ int netif_change_tx_queue_len(struct net_device *dev, unsigned long new_len)
+ err_rollback:
+ 	netdev_err(dev, "refused to change device tx_queue_len\n");
+ 	WRITE_ONCE(dev->tx_queue_len, orig_len);
++	/* Notify everyone again so that they have a chance to revert. */
++	err = call_netdevice_notifiers(NETDEV_CHANGE_TX_QUEUE_LEN, dev);
++	err = notifier_to_errno(err);
++	if (err)
++		netdev_err(dev, "tx_queue_len rollback failed: %d\n", err);
+ 	return res;
+ }
+ 
+
+---
+base-commit: 4392bb809812ac79449cd0cf1f5e00469ee102d1
+change-id: 20261124-tc1-txqlen-renotify-7f652bd32f0b
+
+Best regards,
+--  
+SeungJong Ha <engineer.jjhama@gmail.com>
 
