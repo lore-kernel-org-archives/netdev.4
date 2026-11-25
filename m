@@ -1,62 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795617167;
-	b=szOOLQtnWKYsSFan/4VLAbStlmobZdnL8FLpQkfrVZKNo+3dc+Yw4jINKk1r44/p5D4u
-	 2nlhLo0sWLNCw4DrhifmGYT6Y2GXvPumlCgnyWVxAsQdoNPXkfR6/x/IRuNGvmg+9l7iF
-	 dyf10FXqcIN2WHU/CqHArlAFvSzLWNePYWw1s+Au/T3Bv8rev5UCyivFDNrYmoXp9CpTV
-	 JT9J/5r5Dvl0OnaOumGDeOQCe9Xsagk/q89i//zvzL+LGZcSluCIjGrMJ3l5TXDJGJp7H
-	 ejsnKoC/48EWNFyxAQ2KeFuxZj5Iv3FHPDOZPRVI0Ln70tgzSN1L68GLvQ66qZH2DEQ==
+	t=1795617169;
+	b=paZHBIyek4H6SbTec+EN8Tlc026Rdry4vQp2bDaCkiXLarl6X9ZShIoRbCMSbuxJSoTj
+	 eT5kQGhyCIMdY4lyPGab19ajeIXr/M7Jjbn2h1fn+xnNANhQNXFlmKJ4Xlx6YsyRbSTVN
+	 Ha1VCTBO6uZb1ixcw7j25Pqv0UDrYUfxYCInv/PZ16zK1OT5y68+H/VgIA8JAx9eTzcDO
+	 KFk+Zpq4RsZJfEnatKYP+88osWkR1WhSwa9WfCGnDPVaVNeoec4mAAB515lHFB8aYWpgh
+	 DlDDeXnrNu1CwovcfwNa7q2HNaY0sHxnTx4AYHvoqDOkdoR9cYuhAUtDrgWuwL8qikA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617167;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617169;
 	h=DMARC-Filter:From:DKIM-Signature:DKIM-Signature:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=bWopGS2bI8XROBBmCVM7t13PvuhBwV4YLrZxWgs14Oc=;
-	b=uhEU72AagnIQ6N6cuBvIDwC0zrAoGIVHXK7hC5x3cFfm5ghqFXLrwTK8ByZfBrUnbEct
-	 gb0pO9+sJvWaQsUrpUfiX2d+grkriggugr+xp3U4VHryD+EFUXmgbH4/yC7CJycxQFs/1
-	 efsdsLqHM6GPiX9C4xfE4nmUdf4IfPcs5427ZoaEJD9L3vzZ2fB2I42RIJwwnUcQBnQwR
-	 caxP6MdXndL7JU+mLxbOJbm3e4QXziv4OBuhRKf2zYX8vmCTqVS0r97dNKtJ9nx0kCqf2
-	 l4lVCYIvPtN3J4OZZnzXdkQCj8XiPoQM0pabRwVKUaoU3qFQ6B/YP0xZOxMXkXBp34Q==
+	bh=a1vfiGzFNRXe6902xRshxQVZfYj8xk1vt1J8I928uCs=;
+	b=WpqhECuZM4z2nV5jZHnRHPrpmcnDcVw2e2WD9nryX8tlV5B0AyIP9JvvzJpRnjc38tVV
+	 ZawJmUUOjFown9uG52Ezymb7F29dG9tIyOLZlndLGNO7NWmInuq0TLNRedR6sAV9WJ8is
+	 t/0ZqxV80uNMQpVKrgwgtWvcHeM378prNh2KpF7sKt3T/h1gdbp19PqhLwtkhrW9RD0ac
+	 mnaaNAUTxt537JRIHGjN/lnmPz3xsktPEwDYwTQUO20b+onzDX7DEtpZu6rHZk/vkG4rD
+	 E83louAts2kNZfGkf/NRFqPm98V8NsUPktpTtH6RZjineYDRYfSYfMeltAtcYrPoI/Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linutronix.de;
 	spf=pass smtp.mailfrom=linutronix.de;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=bhMe5AAk;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ecVdoKbE;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=cOagc6JR;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=zxukkFa4;
 	arc=none smtp.remote-ip=193.142.43.55
 Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9D0D6606A32D
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:32:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9D0D6606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 91D70606A32A
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 91D70606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=bhMe5AAk;
-	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=ecVdoKbE
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=cOagc6JR;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=zxukkFa4
 From: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1795617164;
+	s=2020; t=1795617165;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bWopGS2bI8XROBBmCVM7t13PvuhBwV4YLrZxWgs14Oc=;
-	b=bhMe5AAkTms0mOchI367tms+xNpTCN6G9liYTXJCtbhwLMZ7+RVCZK43UrEgbWAVwTPZzd
-	xEma9498zh1RrDCw1AvFBgrpHbToi41IEfRGvuna1oymtVb9qBdZVy8XAKRqFKx2HLzRet
-	gecwqO1IwuAJl/keDtf5TcUN//YQdLFv3a2niGLVB2f4GeIsCrBJj8w5Ir7kwS1aR768/l
-	9ej/9ycJyAFvAHD3oU0W4ToNenx0awM6HVUOXxQB2peUJGCaXku7MARQVWtWcKLE3YFLYN
-	d8rcCT7fBZTXRExt09mAY1Zj07nM6na/hq7313GS0sk4bpyufHzaTl6KxAV7mw==
+	bh=a1vfiGzFNRXe6902xRshxQVZfYj8xk1vt1J8I928uCs=;
+	b=cOagc6JRRtGzez59Iuk59qzzwvgw+2kwmAeFofNvWIqYCjmv6fugpaVXO3Uq6LtxCXJ/qH
+	9uM/3SWgfFwfH3XkZnT0P7tfV7McKXR1dlshAsx2Q9d1A4EQq/ZtB0/kSzZDc5YeNQZVqh
+	XHiIhDQS3jGpBjyxNuJSb8mYSwHlH13MqPbFEBb3v6Imjd+Z+0CSMX6goRPyc0DPX7vPaW
+	KRDHkAblvfobsxdpuMnKdUFPqPK8sUNymNivc6Vomd4h2k4y0geVW8agNlk6MND6zAa0VY
+	3ZSURn0OGiO9z4r+9d4aNF9n4reA/3uRdU0MLphNWW59uHVAid2/LijD8jfaQg==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1795617164;
+	s=2020e; t=1795617165;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bWopGS2bI8XROBBmCVM7t13PvuhBwV4YLrZxWgs14Oc=;
-	b=ecVdoKbEBD4c7A3uGh6zpNOpQ1xJsXAsctL7uTe5YDEdtMgdKEAwQFnglgacCa05pQSnDw
-	phtlq/dvMq0Vs5BA==
+	bh=a1vfiGzFNRXe6902xRshxQVZfYj8xk1vt1J8I928uCs=;
+	b=zxukkFa4JtadpTTJH9Ndm34pLFXOtRHzSDTHq9UYJHOp5N12LeLJO1kNaVvM2pqYZmK/Iz
+	HQqNIkyhOLSItVAg==
 To: netdev@vger.kernel.org
 Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	"(JC), Jayachandran" <j-rameshbabu@ti.com>,
@@ -76,9 +76,9 @@ Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
 	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
 	Daniel Machon <daniel.machon@microchip.com>,
 	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next v12 2/8] hsr: Use skb_clone() while adding the HSR header
-Date: Wed, 25 Nov 2026 15:31:45 +0100
-Message-ID: <20261125-hsr_ptp-v12-2-9ddd2a73cb90@linutronix.de>
+Subject: [PATCH net-next v12 3/8] hsr: Add a magic header for sending PTP packets
+Date: Wed, 25 Nov 2026 15:31:46 +0100
+Message-ID: <20261125-hsr_ptp-v12-3-9ddd2a73cb90@linutronix.de>
 In-Reply-To: <20261125-hsr_ptp-v12-0-9ddd2a73cb90@linutronix.de>
 References: <20261125-hsr_ptp-v12-0-9ddd2a73cb90@linutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
@@ -93,96 +93,249 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: quoted-printable
 
-hsr_create_tagged_frame() creates a new skb where the HSR header can be
-prepended via __pskb_copy(). This does not copy the skb_shared_info part
-of the original skb so any timestamp request is lost.
+Sending PTP packets (ETH_P_1588) via the HSR stack is pointless in its
+current shape because the requested PTP timestamp is not routed to the
+sender. It also needs to be distinguished on which port the message
+should be sent and whether or not a HSR header should be attached.
 
-An alternative is to use skb_clone() where the skb_shared_info part is
-shared and then skb_cow_head() to make the header part writeable. This
-avoids touching manually the tx_flags and tskey members.
-Using skb_clone() allows also return early (after the clone) in the
-offloaded case so this can be unified a bit.
-The clone case does not need manual adjustment of sk_buff::csum_start
-because by using skb_cow_head() the head does not move relative to the
-payload. Should the head need expansion then pskb_expand_head() will
-move it and update sk_buff::csum_start accordingly. The clone also
-preserves metadata (if available) so skb_postpush_data_move() is used
-instead of memmove() to move both. Finally skb_reset_mac_len() is added
-to set the new length of the header after expansion.
+To pass this information, a custom header (struct hsr_inline_header) is
+introduced. This header is expected and mandatory if the ether type is
+ETH_P_1588. To avoid any wrong usage, there is a magic field to ensure
+it really is the header.
 
-This is a preparation for PTP handling where timestamps are requested.
+The inline header is just prepended containing the port and header
+parameter. After the header, a regular packet follows. It is ensured that
+the inline header and the following ethernet or HSR header is linear
+and can be accessed. Given that this information is important for how
+PTP is used, PTP packets missing this information will be dropped.
+
+The two retrieved parameters are passed to hsr_forward_skb() and will be
+used later.
 
 Reviewed-by: Daniel Machon <daniel.machon@microchip.com>
 Signed-off-by: Sebastian Andrzej Siewior <bigeasy@linutronix.de>
 ---
- net/hsr/hsr_forward.c | 30 ++++++++++++++++++------------
- 1 file changed, 18 insertions(+), 12 deletions(-)
+ MAINTAINERS                  |  1 +
+ include/uapi/linux/hsr_ptp.h | 20 +++++++++++
+ net/hsr/hsr_device.c         | 83 +++++++++++++++++++++++++++++++++++++---=
+----
+ net/hsr/hsr_forward.c        |  3 +-
+ net/hsr/hsr_forward.h        |  3 +-
+ net/hsr/hsr_slave.c          |  4 +--
+ 6 files changed, 97 insertions(+), 17 deletions(-)
 
-diff --git a/net/hsr/hsr_forward.c b/net/hsr/hsr_forward.c
-index 44f6d9c83180a..b183358207506 100644
---- a/net/hsr/hsr_forward.c
-+++ b/net/hsr/hsr_forward.c
-@@ -331,7 +331,6 @@ static struct sk_buff *hsr_fill_tag(struct sk_buff *skb,
- struct sk_buff *hsr_create_tagged_frame(struct hsr_frame_info *frame,
- 					struct hsr_port *port)
- {
--	unsigned char *dst, *src;
- 	struct sk_buff *skb;
- 	int movelen;
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 44540a1eb2b80..f41ce40c9e306 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -12307,6 +12307,7 @@ F:	drivers/net/usb/hso.c
+ HSR NETWORK PROTOCOL
+ L:	netdev@vger.kernel.org
+ S:	Orphan
++F:	include/uapi/linux/hsr_ptp.h
+ F:	net/hsr/
+ F:	tools/testing/selftests/net/hsr/
 =20
-@@ -342,33 +341,40 @@ struct sk_buff *hsr_create_tagged_frame(struct hsr_fr=
-ame_info *frame,
- 		/* set the lane id properly */
- 		hsr_set_path_id(frame, hsr_ethhdr, port);
- 		return skb_clone(frame->skb_hsr, GFP_ATOMIC);
--	} else if (port->dev->features & NETIF_F_HW_HSR_TAG_INS) {
--		return skb_clone(frame->skb_std, GFP_ATOMIC);
- 	}
-=20
--	/* Create the new skb with enough headroom to fit the HSR tag */
--	skb =3D __pskb_copy(frame->skb_std,
--			  skb_headroom(frame->skb_std) + HSR_HLEN, GFP_ATOMIC);
-+	skb =3D skb_clone(frame->skb_std, GFP_ATOMIC);
- 	if (!skb)
- 		return NULL;
--	skb_reset_mac_header(skb);
-=20
--	if (skb->ip_summed =3D=3D CHECKSUM_PARTIAL)
--		skb->csum_start +=3D HSR_HLEN;
-+	if (port->dev->features & NETIF_F_HW_HSR_TAG_INS)
-+		return skb;
+diff --git a/include/uapi/linux/hsr_ptp.h b/include/uapi/linux/hsr_ptp.h
+new file mode 100644
+index 0000000000000..95e905441ebdc
+--- /dev/null
++++ b/include/uapi/linux/hsr_ptp.h
+@@ -0,0 +1,20 @@
++/* SPDX-License-Identifier: GPL-2.0+ WITH Linux-syscall-note */
++#ifndef __UAPI_HSR_PTP_H
++#define __UAPI_HSR_PTP_H
 +
-+	/* Ensure the cloned skb has enough headroom to fit the HSR tag */
-+	if (skb_cow_head(skb, skb_metadata_len(skb) + HSR_HLEN))
-+		goto err;
-=20
- 	movelen =3D ETH_HLEN;
- 	if (frame->is_vlan)
- 		movelen +=3D VLAN_HLEN;
-=20
--	src =3D skb_mac_header(skb);
--	dst =3D skb_push(skb, HSR_HLEN);
--	memmove(dst, src, movelen);
-+	/* The entire header area needs to be linear */
-+	if (!pskb_may_pull(skb, movelen))
-+		goto err;
++#include <linux/types.h>
 +
-+	skb_push(skb, HSR_HLEN);
-+	skb_postpush_data_move(skb, HSR_HLEN, movelen);
-+	skb_set_network_header(skb, HSR_HLEN + movelen);
- 	skb_reset_mac_header(skb);
-+	skb_reset_mac_len(skb);
-=20
- 	/* skb_put_padto free skb on error and hsr_fill_tag returns NULL in
- 	 * that case
- 	 */
- 	return hsr_fill_tag(skb, frame, port, port->hsr->prot_version);
-+err:
-+	kfree_skb(skb);
-+	return NULL;
++#define HSR_INLINE_HDR  0xaf485352
++#define HSR_INLINE_HDR_PORT_A	1
++#define HSR_INLINE_HDR_PORT_B	2
++
++struct hsr_inline_header {
++	__u8 req_tx_port;
++	__u8 has_hsr_header;
++	__be32 __pad0;
++	__be32 magic;
++	__be16 __pad1;
++	__be16 eth_type;
++} __attribute__ ((packed));
++
++#endif
+diff --git a/net/hsr/hsr_device.c b/net/hsr/hsr_device.c
+index 59df647d2fd45..7e79d5b34e8bb 100644
+--- a/net/hsr/hsr_device.c
++++ b/net/hsr/hsr_device.c
+@@ -12,6 +12,8 @@
+ #include <linux/etherdevice.h>
+ #include <linux/rtnetlink.h>
+ #include <linux/pkt_sched.h>
++#include <uapi/linux/hsr_ptp.h>
++
+ #include "hsr_device.h"
+ #include "hsr_slave.h"
+ #include "hsr_framereg.h"
+@@ -221,26 +223,81 @@ static netdev_features_t hsr_fix_features(struct net_=
+device *dev,
+ 	return hsr_features_recompute(hsr, features);
  }
 =20
++static int hsr_ptp_parse_header(struct sk_buff *skb, bool *has_hsr_header,
++				enum hsr_port_type *req_tx_port)
++{
++	struct hsr_inline_header *hsr_inline_hdr;
++	struct ethhdr *eth_hdr;
++	unsigned int hdr_len;
++
++	BUILD_BUG_ON(sizeof(struct hsr_inline_header) !=3D sizeof(struct ethhdr));
++
++	skb_reset_mac_header(skb);
++	if (!skb->sk)
++		return -EINVAL;
++
++	/* need to access the magic header */
++	if (!pskb_may_pull(skb, sizeof(struct hsr_inline_header)))
++		return -EINVAL;
++
++	hsr_inline_hdr =3D (struct hsr_inline_header *)skb_mac_header(skb);
++	if (hsr_inline_hdr->magic !=3D htonl(HSR_INLINE_HDR))
++		return -EINVAL;
++
++	*has_hsr_header =3D hsr_inline_hdr->has_hsr_header;
++	*req_tx_port =3D hsr_inline_hdr->req_tx_port;
++	if (*req_tx_port !=3D HSR_PT_SLAVE_A && *req_tx_port !=3D HSR_PT_SLAVE_B)
++		return -EINVAL;
++
++	if (hsr_inline_hdr->__pad0 !=3D 0 || hsr_inline_hdr->__pad1 !=3D 0)
++		return -EINVAL;
++
++	hdr_len =3D ETH_HLEN;
++	if (*has_hsr_header)
++		hdr_len +=3D HSR_HLEN;
++
++	/* Ensure the real header after the stripped one can be
++	 * accessed
++	 */
++	if (!pskb_may_pull(skb, sizeof(struct hsr_inline_header) +
++			   hdr_len))
++		return -EINVAL;
++
++	eth_hdr =3D skb_pull(skb, sizeof(struct hsr_inline_header));
++	skb_set_network_header(skb, hdr_len);
++	skb->protocol =3D eth_hdr->h_proto;
++	return 0;
++}
++
+ static netdev_tx_t hsr_dev_xmit(struct sk_buff *skb, struct net_device *de=
+v)
+ {
++	enum hsr_port_type req_tx_port =3D HSR_PT_NONE;
+ 	struct hsr_priv *hsr =3D netdev_priv(dev);
++	bool has_hsr_header =3D false;
+ 	struct hsr_port *master;
+=20
+ 	rcu_read_lock();
+ 	master =3D hsr_port_get_hsr(hsr, HSR_PT_MASTER);
+-	if (master) {
+-		skb->dev =3D master->dev;
+-		skb_reset_mac_header(skb);
+-		skb_reset_mac_len(skb);
+-		spin_lock_bh(&hsr->seqnr_lock);
+-		hsr_forward_skb(skb, master);
+-		spin_unlock_bh(&hsr->seqnr_lock);
+-	} else {
+-		dev_core_stats_tx_dropped_inc(dev);
+-		dev_kfree_skb_any(skb);
+-	}
++	if (!master)
++		goto drop;
++
++	skb->dev =3D master->dev;
++	if (skb->protocol =3D=3D htons(ETH_P_1588) &&
++	    hsr_ptp_parse_header(skb, &has_hsr_header, &req_tx_port))
++		goto drop;
++
++	skb_reset_mac_header(skb);
++	skb_reset_mac_len(skb);
++	spin_lock_bh(&hsr->seqnr_lock);
++	hsr_forward_skb(skb, master, req_tx_port, has_hsr_header);
++	spin_unlock_bh(&hsr->seqnr_lock);
+ 	rcu_read_unlock();
+=20
++	return NETDEV_TX_OK;
++drop:
++	rcu_read_unlock();
++	dev_core_stats_tx_dropped_inc(dev);
++	dev_kfree_skb_any(skb);
+ 	return NETDEV_TX_OK;
+ }
+=20
+@@ -362,7 +419,7 @@ static void send_hsr_supervision_frame(struct hsr_port =
+*port,
+ 		return;
+ 	}
+=20
+-	hsr_forward_skb(skb, port);
++	hsr_forward_skb(skb, port, HSR_PT_NONE, false);
+ 	spin_unlock_bh(&hsr->seqnr_lock);
+ 	return;
+ }
+@@ -430,7 +487,7 @@ static void send_prp_supervision_frame(struct hsr_port =
+*master,
+ 		return;
+ 	}
+=20
+-	hsr_forward_skb(skb, master);
++	hsr_forward_skb(skb, master, HSR_PT_NONE, false);
+ 	spin_unlock_bh(&hsr->seqnr_lock);
+ }
+=20
+diff --git a/net/hsr/hsr_forward.c b/net/hsr/hsr_forward.c
+index b183358207506..f49d962337f8b 100644
+--- a/net/hsr/hsr_forward.c
++++ b/net/hsr/hsr_forward.c
+@@ -771,7 +771,8 @@ static int fill_frame_info(struct hsr_frame_info *frame,
+ }
+=20
+ /* Must be called holding rcu read lock (because of the port parameter) */
+-void hsr_forward_skb(struct sk_buff *skb, struct hsr_port *port)
++void hsr_forward_skb(struct sk_buff *skb, struct hsr_port *port,
++		     enum hsr_port_type req_tx_port, bool has_hsr_header)
+ {
+ 	struct hsr_frame_info frame;
+=20
+diff --git a/net/hsr/hsr_forward.h b/net/hsr/hsr_forward.h
+index 206636750b300..662dd369c7df2 100644
+--- a/net/hsr/hsr_forward.h
++++ b/net/hsr/hsr_forward.h
+@@ -13,7 +13,8 @@
+ #include <linux/netdevice.h>
+ #include "hsr_main.h"
+=20
+-void hsr_forward_skb(struct sk_buff *skb, struct hsr_port *port);
++void hsr_forward_skb(struct sk_buff *skb, struct hsr_port *port,
++		     enum hsr_port_type req_tx_port, bool has_hsr_header);
  struct sk_buff *prp_create_tagged_frame(struct hsr_frame_info *frame,
+ 					struct hsr_port *port);
+ struct sk_buff *hsr_create_tagged_frame(struct hsr_frame_info *frame,
+diff --git a/net/hsr/hsr_slave.c b/net/hsr/hsr_slave.c
+index a546f70f9cc8b..5274ba6dd36e6 100644
+--- a/net/hsr/hsr_slave.c
++++ b/net/hsr/hsr_slave.c
+@@ -78,10 +78,10 @@ static rx_handler_result_t hsr_handle_frame(struct sk_b=
+uff **pskb)
+ 	 */
+ 	if (port->type =3D=3D HSR_PT_INTERLINK) {
+ 		spin_lock_bh(&hsr->seqnr_lock);
+-		hsr_forward_skb(skb, port);
++		hsr_forward_skb(skb, port, HSR_PT_NONE, false);
+ 		spin_unlock_bh(&hsr->seqnr_lock);
+ 	} else {
+-		hsr_forward_skb(skb, port);
++		hsr_forward_skb(skb, port, HSR_PT_NONE, false);
+ 	}
+=20
+ finish_consume:
 
 --=20
 2.55.0
