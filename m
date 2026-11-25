@@ -1,47 +1,71 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.31.204.67
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596349;
-	b=uD2NooDx9RUUWADKsfmMmhJAyKN0FkH966GaxfyzlaUNkf/1uJoReTSl4h2Rp1rKIdUA
-	 aQLVG3afnpcIf5oF7xGKAlFXT5IP7bTpInlt2VMZRwTDl1X510a6BiCRZEC+CV4C7H0uI
-	 fm/a2263ss1qP4ZaSNaRwK77XV4zcPK3S0CCst9UenLqcq25SOZ+CF97gC9UYEA+szspO
-	 RgcenQGQ9posGOZUMgStMzagq2GAMNMA9W5yVbCZhVIIS3qxb5d2sv5QgEqac/x5jj8jZ
-	 LdGAuh3tTifsvltldIYqAGGUQj8aKCxSAm0Ww+IkTUq0fabGQIl87F0nm/70tpjobZQ==
+	t=1795596350;
+	b=CS50k+Va+ntm3IjhCVnV34LYKX0+watMkgsf1Ave+jcHUZxWHDfKp/vxIDAgH9E6H937
+	 oY5DQY8iVQxkmwdYuvUUxpTBs5y+OgrDeCqK5RNAig6AQ+FGd7wd2eSIFNvGmRaIPykZJ
+	 QNhUATy0iUgvsGVm41P/jHz3FBGbGqBlDM7XffsfRc+H980FwluQQoLs4l6vbnXeLTnv0
+	 87vkdUpSsyOiPBxezlXlAq+9DWA7/+EOuWCHqbnCudEXRNRCI4n+SVMESIAq30OpdOUsi
+	 l4SY0pzbmCbYje2NHSS8GgDHCLVFG8/nxET2RNDXrcZgO3Zg5rJGFacU+ujshqTYHyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596349;
-	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=ryoqsrjoXubEgpswsBR+23g/2lrkh3bv49o6yJigIik=;
-	b=CbtD5683e5IQnL7iHRx+kxkQ1APV5ixDwxFJjabwVV34y9XfzVr9O+AXNYsWENCP1cyx
-	 wK+Sy77uVQZFN7K5rxUCZ9mz/HvqlZkPmKpbaKirSofR9LPEuiUWGJ7EtOX6XZdE40LG6
-	 DFMQOn/5YPBTlSVio6xxalx7/Jvq2qMHIxkS/LYDMv/TkDLDBllPrFt+9J2HwOV9NCj0u
-	 K8JiaSNaln7Ec/0U4mhjNuD+OKnLKwL0lEUGRpR1NqwhQFCXZulaV6t0WGdgg0mgXfkWT
-	 VUZ4+caWpPa+v/yyeKpxFeJxqEAAqBhdFdnzjfk8CooDQtc4e8B5VugAbz4WDs1PMcg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596350;
+	h=DMARC-Filter:Received:DKIM-Signature:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To:X-Rspamd-Queue-Id:
+	 X-Rspamd-Server:X-Rspamd-Action:X-Spamd-Result:X-Spam-Status:
+	 X-Spamd-Bar;
+	bh=D4/TLcjDuQtaSzzXjuYZ9vH+2xAI7OHDM17nE/Atph4=;
+	b=JIF9U0s6Q+CAjmtdibO0DhSJE0o4HZyWTeRaOVEKxfCNvbbWies9n1uZ5qrw0NcXwpBA
+	 sFQrgrMdkBcsJ+4VYOvWeqTMWgBmZ6tLrxco6aTl+n295NOBEUmix0Eat87Iq4KDmMK33
+	 IQIocas6kwJMcxOCl6VeUn51lQMfqFoWFYD5plp9oUaODWeG5RYw/PusJTR5IL1nRjGrj
+	 28dpiYcyp2e6OzU9XzevHsXu/k2ULhf/oyzep8GH5T1nlMygSWZQe68ayZMIcUlweZvNt
+	 KSa+dbqPEqEthVKnIX7ROUWr01KAkZYN5oJWwhDKByDbXLrjFw62efxJHn33YlSs8TA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7azc6BU;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=nic.cz;
+	spf=pass smtp.mailfrom=nic.cz;
+	dkim=pass header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b="tstd/pii";
+	arc=none smtp.remote-ip=217.31.204.67
+Received: from mail.nic.cz (mail.nic.cz [217.31.204.67])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CEE0606A31E;
-	Wed, 25 Nov 2026 08:45:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8729606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:45:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D8729606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nic.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nic.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7azc6BU
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C151F000CA;
-	Wed, 25 Nov 2026 08:45:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795596348;
-	bh=ryoqsrjoXubEgpswsBR+23g/2lrkh3bv49o6yJigIik=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=M7azc6BUPwINZU77PSf79ayyBtOJ9PbEQJ3Klaj8/Y+qcl+idFE7qRwwbRdYEfYyv
-	 P6Z5Xlzyb/+y0D4BbO0jiMisEGZpKuuq0+qT6bW3Wp6OwiQ5iFZi+4baAMeeUjr0ko
-	 5xU887gtjgTM15EeuH/gESoJnTK+c1Kjzz9wpVBSGubyx/rBOj+FOJw/+BtbCfVhsP
-	 Q/Wrg99Utw9o8Wyd2GzW3Oo3Ytfv2+j+alTqMZBFFs/ic4WSS28rrNDW1BLQDKRapS
-	 9Mj9aqmHz3kIrWxeo2fgIXMfFtpuez4Kdv3rQia/q4YH78Z5joENdHmwKuEWc05nFC
-	 6IxGmLZ2bZmRg==
-Message-ID: <b2d353ed-d684-4327-a2e7-5042a07a2927@kernel.org>
-Date: Wed, 25 Nov 2026 09:45:42 +0100
+	dkim=pass (1024-bit key, unprotected) header.d=nic.cz header.i=@nic.cz header.a=rsa-sha256 header.s=default header.b=tstd/pii
+Received: from solitude (unknown [172.20.8.51])
+	by mail.nic.cz (Postfix) with ESMTPS id DF2891C0600;
+	Wed, 25 Nov 2026 09:45:39 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nic.cz; s=default;
+	t=1795596341;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D4/TLcjDuQtaSzzXjuYZ9vH+2xAI7OHDM17nE/Atph4=;
+	b=tstd/piiU+1oM4cwINlWvD21K8N5fq4tNE8Zq9PITgO6V4m+eZ2wcWMxMsMDFOEpzd6Jjf
+	Gi7o68gITJw6Un5dYTaosuknttbdbqhQ4gvDMBbajc+lsI4yzPsFTYIx4M2l0u+Z+63bC1
+	WiOoB/jA3ApMySB43OcY/aCWVafNbNs=
+Authentication-Results: mail.nic.cz;
+	none
+Date: Wed, 25 Nov 2026 09:45:39 +0100
+From: Marek =?utf-8?B?QmVow7pu?= <marek.behun@nic.cz>
+To: Daniel Pawlik <pawlik.dan@gmail.com>
+Cc: Andrew Lunn <andrew@lunn.ch>, 
+	Marek =?utf-8?B?QmVow7pu?= <kabel@kernel.org>, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, petr.wozniak@gmail.com, 
+	maxime.chevallier@bootlin.com, olek2@wp.pl, szymon.datko@gmail.com
+Subject: Re: [PATCH net-next v4 2/2] net: sfp: skip PHY probe on bridge-less
+ OEM SFP-10G-T revisions A and B
+Message-ID: <awaf-l4FLw0TgpOn@solitude>
+References: <20261121091235.1447291-1-pawlik.dan@gmail.com>
+ <20261121091235.1447291-3-pawlik.dan@gmail.com>
+ <awWkbH3O8IrMYiSF@solitude>
+ <20c5e53b-e2f5-45c2-9d64-d279cb884870@lunn.ch>
+ <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,95 +75,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird Beta
-Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
- CAP_NET_ADMIN
-Content-Language: fr
-To: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
-Cc: Dominik Maier <dmnk@google.com>, Mat Martineau <martineau@kernel.org>,
- Geliang Tang <geliang@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- mptcp <mptcp@lists.linux.dev>, netdev <netdev@vger.kernel.org>,
- dmnk+artist <dmnk+artist@google.com>,
- Shardul B <shardul.b@mpiricsoftware.com>,
- Mpiric Private Limited <janak@mpiric.us>
-References: <20261119192159.2646113-1-dmnk@google.com>
- <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
- <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
-From: Matthieu Baerts <matttbe@kernel.org>
-Autocrypt: addr=matttbe@kernel.org; keydata=
- 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
- lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
-Organization: NGI0 Core
-In-Reply-To: <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CALC2AphzUqBjgx+JqLTQU8=EizXoR+EKTJjakjKbP29exNNH0g@mail.gmail.com>
+X-Rspamd-Queue-Id: DF2891C0600
+X-Rspamd-Server: mail
+X-Rspamd-Action: no action
+X-Spamd-Result: default: False [1.60 / 16.00];
+	INTERNAL_NETWORKS(-3.00)[172.20.8.51];
+	BAYES_SPAM(2.70)[98.27%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	MID_RHS_NOT_FQDN(0.50)[];
+	MIME_GOOD(-0.10)[text/plain];
+	LOCAL_OUTBOUND(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	ARC_NA(0.00)[];
+	TAGGED_RCPT(0.00)[netdev];
+	MIME_TRACE(0.00)[0:+];
+	TO_DN_SOME(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[16];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_ZERO(0.00)[0];
+	FREEMAIL_CC(0.00)[lunn.ch,kernel.org,gmail.com,armlinux.org.uk,vger.kernel.org,davemloft.net,redhat.com,bootlin.com,wp.pl];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	FREEMAIL_TO(0.00)[gmail.com];
+	FROM_HAS_DN(0.00)[];
+	ALIAS_RESOLVED(0.00)[];
+	DKIM_SIGNED(0.00)[nic.cz:s=default];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com,wp.pl]
+X-Spamd-Bar: +
 
-Hi Kalpan,
-
-On 25/11/2026 05:51, Kalpan Jani wrote:
-> Hi Matt, Hi Dominik,
+On Tue, Nov 24, 2026 at 06:56:38PM +0100, Daniel Pawlik wrote:
+> On Tue, Nov 24, 2026, Marek Behún wrote:
+> > It would be much better to somehow check for RollBall protocol.
 > 
-> I tested the proposed change on a locally built kernel with MPTCP enabled.
+> Agreed, that is nicer than matching revisions - it covers every
+> bridge-less variant without a list. Two problems with the snippet as
+> written, though:
 > 
-> Runtime testing passed for both client and server sockets:
-> - Privileged Netlink requests return the actual sequence counters, matching getsockopt(MPTCP_INFO).
-> - Unprivileged Netlink requests return zero for mptcpi_write_seq, mptcpi_snd_una and mptcpi_rcv_nxt.
-> - Other diagnostic information remains available to unprivileged users.
+> - i2c_mii_read_rollball() maps a poll timeout to 0xffff, so
+>   mdiobus_c45_read() never returns -ETIMEDOUT here.
+> - Returning 0 skips the PHY probe retry loop, so a genuine module
+>   whose bridge is still booting at the first read would lose its PHY
+>   for good. That is what got 8fe125892f40 reverted in b521003c27eb.
+
+Right.
+
+> What about this instead (with Andrew's MDIO_MMD_PMAPMD/MDIO_CTRL1):
 > 
-> The full kernel build and runtime tests completed successfully.
-> 
-> Tested-by: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
-Thank you for having tested that and your previous work!
+>     case MDIO_I2C_ROLLBALL:
+>         /* mdio-i2c reports a RollBall command timeout as 0xffff,
+>          * both for a bridge that is still booting and for a module
+>          * without a bridge. Retry after one cheap read instead of a
+>          * full PHY probe, which times out on every register under
+>          * rtnl_lock.
+>          */
+>         err = mdiobus_c45_read(sfp->i2c_mii, SFP_PHY_ADDR_ROLLBALL,
+>                                MDIO_MMD_PMAPMD, MDIO_CTRL1);
+>         if (err == 0xffff)
+>             return -ENODEV;
 
-Dominik's patch looks good to me:
+And the variable should be called `ret` instead of `err` in this case,
+since it also can return a value, not just error code or zero.
 
-Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
-
-@netdev maintainers: I see this patch is still listed on Suie, can you
-please apply it in -net directly?
-
-Cheers,
-Matt
--- 
-Sponsored by the NGI0 Core fund.
-
+Marek
