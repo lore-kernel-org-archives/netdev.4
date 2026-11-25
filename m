@@ -1,54 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.142
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599835;
-	b=ARQpNwnJN1OZ3AW7XLFg3OJSH36G5jmFzmVlava0vBVxTnZibPlt0f2ANrP3TYJ86POb
-	 VA+5rT0A/4/FyVLuE30tTqDGEx5HvtTlOfLCsstq+ULRJHJOHkfh2AR1RHbsRN+bv16D5
-	 KwDvXEovCejOgPfr+pETjFJK8mmNgzxwGXBBHIeR/XdZcVyUGEWaZVey8TTg2XZ5hh4X/
-	 pqM+UoU8kx5s57UhArWVZC95QcvsdiGCIczmChMfHS4HYS5X+3Uo5A1Igx1veYVLnvXkR
-	 zm9CUOuv5KQRxgmLtAkyIk9ixCwpGd/LAC7n/6QTp0gwBvxZO/5b/uQEjsBJyvIHzRw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599835;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=1OTNmmlRFI4IiW7oTjJxi+qqQOpcconks9Ec5b83YZk=;
-	b=H0cJFBmzGQJ9nnC7yZNvqqoss3kdxNRVXawsiL19FGSI6/VI5/HtA/XZa16314H4avXp
-	 XWzszNS9Q6MXH20EwOc1e6L6AdHSwfr8y8dx5P6+Uokp/M8RpTphFtSn2amCJfoJH5MJD
-	 0iSLOUIaM3peJJz41ISEHDfa9lwqrAwp8zEuRkCEKwG+S+b2T3psqSRYpifAdr21c6cLO
-	 jNkQ0QeW7Svkx1VnoP+Sjxlmc56fJ8aM3y+isJr007am+LD78M9J/dglN1n0+J50KzhPJ
-	 dMh61aKLwJ2ZC3BP58CrbgM525iVADMMyK8Wehq6hCMNjm2G2DukR06IaGNpZ20ilzg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vHDa0fDQ;
-	arc=none smtp.remote-ip=95.215.58.142
-Received: from mta1.migadu.com (out-142.mta1.migadu.com [95.215.58.142])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.50
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795599846;
+	b=IyJhPUS7hiPE3nCvx3JjAhWfxN3p1VVDF6cDfchlFMqH/Yi84zNahNGwbDWiJdNv5r3b
+	 5b3DMHYbC5XxvBQMWekzRxpHIro+M4BhafnF87DJIs469pDUJ3cYx5hJYdvkcoF4IEY9r
+	 I6SRckeBnDHA8rm5V6s0YIfAXZ7HbcVOuB86Vm28uGHqlI2Z9GdnGSE2//sa5U4VSh7Ts
+	 jHZ7bP8ZEZEDh0nGaiXm8ZIwrqEe58+J5BANkynOTj0JS+sG2K3dfaxcjwXCQFS6XNnIc
+	 Mo65e25U5LHb+ygpKyrvH4WgJRaFtFJlKs6EXO9t2ulrGE/u/9GC6yskStA2+qGDJ8A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599846;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=EUq3l0cL1Vkwxf7vKGtZYzbcN/Dl7f21vDMrNhol36Q=;
+	b=LXfbyNRhGVyhnYjRi/QfG9dyaYsZssSf55yGSaTeQgB19AdeEmbQj13wieeGzyv3saqS
+	 xpGFPU30es8uTcBVEV25QMifsAhBUGpCoDTMp6NPu0meY7KVaDfiPt/d9XgRcnoPyiVV7
+	 lASecQfBd6/ABxk2LYa4TDZ/x2lB8oqh7G2R3EJeYE+P+yNqqKdUmhjKDjHJfmODXIOE+
+	 /JwpVta0PUYq5dzYDfYBPL8iNBH90XCLL1Ne5B7lQN/v8tAmLCD2DDbXmKfDlHqMg4RuC
+	 V6DJBLDxpONaqepsdzqmBrjt+d1BikwwxTTiUnKyd28h1qHEzT3R8VZH9kXTlYIXBNg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nxp.com;
+	spf=pass smtp.mailfrom=nxp.com;
+	dkim=pass header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=RBuaSnpI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.159.50
+Received: from OSPPR02CU001.outbound.protection.outlook.com (mail-norwayeastazon11013050.outbound.protection.outlook.com [40.107.159.50])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C116606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:43:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C116606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3CAE606A31E;
+	Wed, 25 Nov 2026 09:44:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3CAE606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nxp.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nxp.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=vHDa0fDQ
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=1EhSj1j2PP/s+IY3mJwWKcW0LKLzpZQAbwBrk+amRLA=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795599832; v=1; x=1796204632;
- b=vHDa0fDQ9HIy80majcW9gtFgYFLAwV2XVHz0BXsjBZ6d7MlwMj9uHgtejMhmj8AfKgqZxExJ
- 9ZS8OKyESKk8kyDxCcS3+PYy7aukI25cBv/8zsGIVSwCzh8Sr0zdI3nbCSR+bN0q3iny5jxxt06
- grEEyE0NyN94ZjBWakgluZO8=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by smtp.migadu.com with ESMTPS id 356b86b2f565593b;
-	Wed, 25 Nov 2026 09:43:52 +0000
-X-Mizu-Trace-ID: 356b86b2f565593b
-X-Migadu-Flow: FLOW_OUT
-Message-ID: <5d6416ea-d927-40ac-9424-dade40191373@linux.dev>
-Date: Wed, 25 Nov 2026 09:43:50 +0000
+	dkim=pass (2048-bit key, unprotected) header.d=nxp.com header.i=@nxp.com header.a=rsa-sha256 header.s=selector1 header.b=RBuaSnpI
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k5YPWLeBvRD5rcQXjQTdcAFIwxcaceD2KXcmlGJHgQepnxxvZED/Ep900gVlRqd4nTaj4pYL/+c1YfBvD4HZkkeUlhGf54rPOfGf9m0RmWPPRof8POONn6N0PlhF4TP/H9Xo/6hbtb0LYOqyJpiR6k503+OnGTBxc3O+bzNl+RA1rSPuTcRky8URCZzNKbBLSpF3TN2EpKf9ewmSuYN9Kchhqjo8EwZoLFG3+BWKvXysQPzs+xXQidgeDxuMENQPxC8eMEhZqcS6Vvymj8la6QNPKcbeM4Jq+XUo9+4XiINR3yZ4JB9DculS3VR2x26lW2WDf/iz9yx4J7wQ+af3RA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EUq3l0cL1Vkwxf7vKGtZYzbcN/Dl7f21vDMrNhol36Q=;
+ b=f2szVO9f6nIVe4tdSgVrUhtHSx4pAf3p31X+7j1C4DjCuilOCRAetjBKgaaobckkod7ga+AhmQBNVC+EHO2F1CF+Mo4K7JXYLmDFiaKUBcact9M/YHITV1n1/OfGIschVOkyKb7l1ht2/0kOaxk/XrbmBOdipn1YkgIYqKgc5Rxjg+wKAVGDYaQ3OhN+fBNSbFgYE2VIh0Thy6X+tHQnVRJ2q/KoUao2IGUFs2UrmSgVgHNRwRpfxNlzaWuzfIkWTd/d3PwPPQ79BkDE2DUFQ3oqO5BaTMwMypi+Fbsa3oRlaGkhBDnU/AlVInbnePn93qurz2CK+a6UN8Qi2vkFwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EUq3l0cL1Vkwxf7vKGtZYzbcN/Dl7f21vDMrNhol36Q=;
+ b=RBuaSnpIucdaboKhB1yIxTwTnYhMoFw5rZGnoJWxn9dhOGs3OUtSTW14OrkOgTOTvsMTQbUj5Qd/Y3iGUqN8W5wh+wAsx9wgAFtzsL/9XJFUy2GO4Tr+F+YtTF+1Vhl9dk2cGRVa0jGhTvIVNrVH3Lpyr+j4gyCNROInJHH3PKFcUGxpbq+DYeKURtsWnHqlZqJ9OWq6nLrMQIswZnrbj3LnIzWOZTYHTlXy9TztVfBYK3tMobtST+v9zXGpTUq1hQBUUMBYQ4Qw4KAOI7ybqh7xJDjNlGCpp9aABMlv4m6uYcQkKx+e2G2ZUk27kCs0yS2079bSbUfkwrN1jaOa8w==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB6902.eurprd04.prod.outlook.com (2603:10a6:20b:107::20)
+ by VI2PR04MB11194.eurprd04.prod.outlook.com (2603:10a6:800:291::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 09:43:54 +0000
+Received: from AM7PR04MB6902.eurprd04.prod.outlook.com
+ ([fe80::6d09:9d2a:f8c2:25e6]) by AM7PR04MB6902.eurprd04.prod.outlook.com
+ ([fe80::6d09:9d2a:f8c2:25e6%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 09:43:54 +0000
+Date: Wed, 25 Nov 2026 11:43:51 +0200
+From: Vladimir Oltean <vladimir.oltean@nxp.com>
+To: javen <javen_xu@realsil.com.cn>
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk, 
+	davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, 
+	nb@tipi-net.de, maxime.chevallier@bootlin.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, daniel@makrotopia.org
+Subject: Re: [PATCH net-next v4 3/3] net: phy: realtek: add hardware
+ timestamping for RTL8127a
+Message-ID: <awathfkR13ZQH6g9@lxl00025.wbi.nxp.com>
+References: <20261125090217.1198-1-javen_xu@realsil.com.cn>
+ <20261125090217.1198-1-javen_xu@realsil.com.cn>
+ <20261125090217.1198-4-javen_xu@realsil.com.cn>
+ <20261125090217.1198-4-javen_xu@realsil.com.cn>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125090217.1198-4-javen_xu@realsil.com.cn>
+ <20261125090217.1198-4-javen_xu@realsil.com.cn>
+X-ClientProxiedBy: FR4P281CA0388.DEUP281.PROD.OUTLOOK.COM
+ (2603:10a6:d10:f7::17) To AM7PR04MB6902.eurprd04.prod.outlook.com
+ (2603:10a6:20b:107::20)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -58,145 +101,63 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v5 3/8] ptp: disable all timestamp channels after
- removing the user interfaces
-To: Ahmad Byagowi <ahmadexp@gmail.com>, netdev@vger.kernel.org
-Cc: andrew@lunn.ch, arkadiusz.kubalewski@intel.com, arnd@arndb.de,
- davem@davemloft.net, edumazet@kernel.org, jiri@resnulli.us,
- john.stultz@linaro.org, jonathan.lemon@gmail.com, kuba@kernel.org,
- linux-kernel@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
- richardcochran@gmail.com, rmk+kernel@armlinux.org.uk
-References: <20261123-timecard-common-v5-d669cfa034-0-ahmadexp@gmail.com>
- <20261123-timecard-common-v5-d669cfa034-3-ahmadexp@gmail.com>
-Content-Language: en-US
-From: Vadim Fedorenko <vadim.fedorenko@linux.dev>
-In-Reply-To: <20261123-timecard-common-v5-d669cfa034-3-ahmadexp@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB6902:EE_|VI2PR04MB11194:EE_
+X-MS-Office365-Filtering-Correlation-Id: cdd3eb09-3d60-41c6-4a3d-08df4ad89eac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|19092799006|366016|1800799024|23010399003|7416014|376014|10067099003|18002099003|22082099003|56012099006|11063799006|4143699003;
+X-Microsoft-Antispam-Message-Info:
+	4lhw6bdgGJqNeR/t+awffLIr/tDG+Nux9r/O8Cw8zs1hEV+7ZDPe2ho0ZKQeiGiNbaf7Bob7gtmZpq3qtOxOolOtpza2iI73JxtOf8Eo4sVueqhiUFf7vRmsxVuCtY3if1mOuK53k1TQgtPQbLnfyR50X8JHHxkcMQk/NkjJbuMObFcrnFnP7i7L4edWZaBp73NyUfzEI19Gxui+OBKE1rGqoxws+14W4HDW8ZM90vmP7yPkL4uWKYc1g/h0KWFPcny6TgqrWejnCZS5fCANW0rrhHCRUKQmeBv2CyLgZGRlYfx8wXpOO9mLgWndnbHDnPHBtpYXuvqnwh3IWAQQM00ShZghmJjkcDzoBONFYm8NiSPSE3clJim0RQPdpeDLNCitZvF0AHjG+wbe2toBDYydN3bmGL9RlRfqHlTFflyicrionX/HfqsQBn030MY+/vIw6w7j0kdeimt/4JM+dZXIlEr1X1KXadmvFWUR0GIQE/0VdsrW0wuGP3Zx56l21/qNUKh0ASuPzJpDhtkbpXCg5EBBi4tOW8KSjbc/VdlzdrLBC7v4or3eYuIvwXPYfpH7HIrJWDyhqKLMKLD0Bos0JM9HIZqybv3b7MTaQOxzQsk5VUjKWukBJNKjMVDa8D5nvKwqnqJ+WeGdshHT2Jg1BA1cblc1LmOu1Y0MHmc=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB6902.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(1800799024)(23010399003)(7416014)(376014)(10067099003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?A4vPpggJZA2ipnTk+IBqwkGWEWou9cwFyLcIXAJngNTc8Xc+6P0xFcb2Fmyg?=
+ =?us-ascii?Q?b8BKQRFqeV7KB/pmPAqNL/VZPh+UVitep8jLPi4iM/2oUBTJ9gZnEPBipGP6?=
+ =?us-ascii?Q?brXN/qZUpnyJ1p5C/Cu1uuygIY4oYk2Lk0bMdWcF+xK2zwqWLWvcQtvYK4mX?=
+ =?us-ascii?Q?emOZetrX7MNGEN/BMEpwXHPW0jBXE5IXfFmi3vlo1DEEjV4VigTKpDOUO8Yp?=
+ =?us-ascii?Q?I4qIwPoqJnQwOcVuo20QOGFLaYUlAoq4s5VraZ3qgdE2ZCQdFH9ukOk6dO6b?=
+ =?us-ascii?Q?TZK1v89++qF5T0tA77FAhd3ZDZthw3NvZc0acszk93tPilFBOba1YEHHMwjz?=
+ =?us-ascii?Q?5avwXi0M9BdlR5P5z/BbvU1gb42LeEmvuZlII2y6XKuIucJ4ZPmQ9PfZfmIF?=
+ =?us-ascii?Q?abTaXsb7gFc4ALC0Ojku0zvWH75y/t8HnKr3sUc6wJkrtObB9hu31a04p9nK?=
+ =?us-ascii?Q?tg0TzbPIqEq4P+RZoUnFjwJMmUCeMzcB7S7RqWQLQtgcsTX1f+rr1xH/dVY2?=
+ =?us-ascii?Q?VZgw8WZ9cUPVoLAuvnBiGlKFzRgZibAAFx05v/ek7LYfZdzM+1Q3WhTgxMKd?=
+ =?us-ascii?Q?QoC5F7ykowHyxKjPQOj/ygQ2dltClo2bepo6fposDKnmyRGApOGCO8NMh96t?=
+ =?us-ascii?Q?nFQglH+tltQlqMh5OLd7q9JTBbEB4gxeSd2wSVsK29ukg95mfCKsaDZdT+pG?=
+ =?us-ascii?Q?u+NNcUsQ3P5hUibhiiyiVQWOa7VW+p3xPimW6/Vz9kDAvXtK/Vr/K7nOTRy3?=
+ =?us-ascii?Q?rPwk4r5MhDSr8BQHFdrS23TktFbcYbcK+YV17Fb/1hz/kUbayL/IvgtFtQTa?=
+ =?us-ascii?Q?qlrCBuasjod86Fn/rpW2QUv7XFGbhv3E6Y7Y95JZW37bRLZrT4IHc38BAcfl?=
+ =?us-ascii?Q?wg39duPP121Yg1Q/ULut7N+cCyv0qUUWzcr8nDU+jQhl5+3Fy2Aai+I0ey5q?=
+ =?us-ascii?Q?wX57B7k61+16Yr+oS5SxDlQ5EWrjNoAGIFU321+IEhrG88VfUAJx9ko80702?=
+ =?us-ascii?Q?CQHVlricgqgKEDd3/RjNK9nAniqsyqyNhsgbo3MngfYNUK3F/JL0kqqhT2px?=
+ =?us-ascii?Q?7gfwV7mA5PiMrwDbMNgUkQcSyeDhJAgAIIN0n5+i6V5/yX8ZdGh6g+c+aIs/?=
+ =?us-ascii?Q?jKRJkbwcr91rUJOrlQU6ytr68S5CcvVC+hykRL1pjBp4pCvi1miV8gV2PWqN?=
+ =?us-ascii?Q?dzyxYflXJoX7vQR/ISzxJYpuKGSoeHiLsmp0Xf/EREb3huCimCwAae1O0WVg?=
+ =?us-ascii?Q?ccwc/oOVD66voi+sRqD+ot76qX/MOUbmnZEI0fmZgbvIKG9Zhcy6/Vc5uE0f?=
+ =?us-ascii?Q?aUNqqSxvDs5GkG05Q5gDYKWWWMsSoLl8aKiwEJSzWcZrh1fVM22dylW9Oge7?=
+ =?us-ascii?Q?AxvZzsb7zimkWwr9bzggXHFUHj7JCoCm6vAebP3a7VvHAJ0d9F7rLDaKb0Hm?=
+ =?us-ascii?Q?tBKB5N30CwnTDTHG6g53BexYT9/dUxaLP/85+qqfsdrOywp8ANHlZ1BnqgnV?=
+ =?us-ascii?Q?gBhyoALzGTEpJhD6P6Jw2Z5MtfJthXoSp28vmzzp2/6LZEegY36KQF8eBion?=
+ =?us-ascii?Q?nA6+FXeraMaBIqzQEfMakG3n9CmsI6XP1zMmN7cBedjdkZpWaiT2RLVqnaU4?=
+ =?us-ascii?Q?j5pEQL+T0Zl1DX2DC0C/9yLYC0pwTwPaU1lEiiQlslZkJaXkxbW6HA6sDVD5?=
+ =?us-ascii?Q?5i6m6DNkGUxwY7ozrdac3ft4nFyjJ9vJxfQPXh4wrmxGH0uL3ZXRHcPpLlwa?=
+ =?us-ascii?Q?uInrSYoQ+g=3D=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cdd3eb09-3d60-41c6-4a3d-08df4ad89eac
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB6902.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 09:43:54.7298
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HCg+zHxHavjQ6hhxlPqWrU1S46hfkeJsK7rYK4zT0rC8aBwiGweH7uZS6LfZYY/OYctV9kBfUkbBNMbY4/yQ4w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11194
 
-On 24/11/2026 04:42, Ahmad Byagowi wrote:
-> PTP_EXTTS_REQUEST and extts_enable can enable channels without assigning
-> a PTP_PF_EXTTS pin. ptp_disable_all_events() only visits assigned pins,
-> so those channels can still generate events after the clock is released.
-> ptp_ocp exposes six timestamp channels but only four SMA pin descriptors;
-> the internal GNSS and PHC timestamp sources do not need an SMA assignment.
-> 
-> Disable each advertised external timestamp channel, followed by the
-> existing PPS disable, after posix_clock_unregister() has removed sysfs
-> and drained active ioctls. Issue PTP_CLK_REQ_EXTTS requests directly for
-> timestamp channel indices. Do not use the pin-function helper or require
-> a pin assignment. Keep that helper for changes to actual pin configuration.
-> 
-> Remove ptp_ocp's preliminary timestamp-disable loop. It runs before the
-> user interfaces are removed and can race with an enable: the enable sets
-> pps_req_map, detach clears it and disables the source, then the enable
-> rearms the source. With shutdown delegated to the core, requests finish
-> before the final disables and IRQ drains. Keep the existing resource
-> cleanup for probe failures without a clock.
-> 
-> Do not skip the shared PPS source's register disable when the final
-> subscription map is empty. The map tracks software subscriptions, not
-> the hardware's initial state: ptp_ocp_register_ext() requests the IRQ
-> without resetting the source. An already active source must also be
-> masked and drained before releasing the clock. Preserve the shortcut
-> while another PPS or EXTTS subscription remains. The preceding sysfs
-> serialization fix prevents runtime enables from overlapping disables;
-> the SJA1105 prerequisite prevents an EXTTS disable from changing its pin.
-> 
-> Source-derived tests with stubbed MMIO and IRQ operations reproduce the
-> early-disable/map race and exercise an empty-map prearmed source. Core
-> unregister tests pass in QEMU with KASAN and lockdep. These are software
-> tests, not observations of a prearmed physical card.
-> 
-> The issue was reported by the Sashiko review. Codex assisted with the
-> code, tests and changelog in response to that report and Vadim's review.
-> 
-> Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
-> Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
-> Link: https://lore.kernel.org/r/179502617840.3136.12704245716223038161@kernel.org
-> Link: https://lore.kernel.org/r/4e42134b-b017-4836-9772-9c1915b16e77@linux.dev
-> Link: https://lore.kernel.org/r/08537eb6-3f85-4a46-b3be-46796998eda4@linux.dev
-> Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
-> Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
-> ---
-> Changes in v5:
->   - Keep the v4 code and Vadim's direct channel-disable approach unchanged.
->   - Add sysfs serialization and SJA1105 prerequisites before this patch.
->   - Explain the empty-map shutdown independently of the now-fixed runtime
->     race, and distinguish modeled prearmed hardware from a physical test.
-> 
-> Testing: 100 removal/shared-PPS suite runs and all eight local PTP KUnit
-> cases passed. Seven cleanup mutations fail at runtime. No physical card
-> was used; the review-only fixture is not part of this patch.
-> 
->   drivers/ptp/ptp_chardev.c | 14 +++++++++-----
->   drivers/ptp/ptp_ocp.c     | 17 ++---------------
->   2 files changed, 11 insertions(+), 20 deletions(-)
-> 
-> diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
-> index f63b45f5ee6a..5835c01cddb4 100644
-> --- a/drivers/ptp/ptp_chardev.c
-> +++ b/drivers/ptp/ptp_chardev.c
-> @@ -53,11 +53,15 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
->   	unsigned int i;
->   
->   	mutex_lock(&ptp->pincfg_mux);
-> -	/* Disable any pins that may raise EXTTS events */
-> -	for (i = 0; i < info->n_pins; i++)
-> -		if (info->pin_config[i].func == PTP_PF_EXTTS)
-> -			ptp_disable_pinfunc(info, info->pin_config[i].func,
-> -					    info->pin_config[i].chan);
-> +	/* EXTTS requests do not require a pin assignment. */
-> +	for (i = 0; i < info->n_ext_ts; i++) {
-> +		struct ptp_clock_request req = {
-> +			.type = PTP_CLK_REQ_EXTTS,
-> +			.extts.index = i,
-> +		};
-> +
-> +		info->enable(info, &req, 0);
-> +	}
->   
->   	/* Disable the PPS event if the driver has PPS support */
->   	if (info->pps) {
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 625a85b2dc7e..b16d36c3305f 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -2559,8 +2559,8 @@ ptp_ocp_ts_enable(void *priv, u32 req, bool enable)
->   		else
->   			bp->pps_req_map &= ~req;
->   
-> -		/* if no state change, just return */
-> -		if ((!!old_map ^ !!bp->pps_req_map) == 0)
-> +		/* Skip the register update while a subscription remains. */
-> +		if (old_map && bp->pps_req_map)
->   			return 0;
->   	}
+On Wed, Nov 25, 2026 at 05:02:16PM +0800, javen wrote:
+> +	phydev->default_timestamp = true;
 
-Please, don't mix changes to the core and a single driver in the same
-patch. More of it - the chunk above changes behavior, it was explained
-previously, why do you still keep it??
-
->   
-> @@ -5755,19 +5755,6 @@ ptp_ocp_detach(struct ptp_ocp *bp)
->   	ptp_ocp_detach_sysfs(bp);
->   	ptp_ocp_attr_group_del(bp);
->   	timer_delete_sync(&bp->watchdog);
-> -	/* Disable interrupts on all timestampers */
-> -	if (bp->ts0)
-> -		ptp_ocp_ts_enable(bp->ts0, 0, false);
-> -	if (bp->ts1)
-> -		ptp_ocp_ts_enable(bp->ts1, 0, false);
-> -	if (bp->ts2)
-> -		ptp_ocp_ts_enable(bp->ts2, 0, false);
-> -	if (bp->ts3)
-> -		ptp_ocp_ts_enable(bp->ts3, 0, false);
-> -	if (bp->ts4)
-> -		ptp_ocp_ts_enable(bp->ts4, 0, false);
-> -	if (bp->pps)
-> -		ptp_ocp_ts_enable(bp->pps, ~0, false);
->   	if (bp->ptp)
->   		ptp_clock_unregister(bp->ptp);
->   	kfree(bp->ptp_info.pin_config);
-
+Enabling new instances of phydev->default_timestamp is not an option
+that you have. Did you research why it exists?
