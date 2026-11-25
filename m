@@ -1,69 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.198.224.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601203;
-	b=k+nZMZ4BasJNu5h6LjuKNYVGYZVEdL/ahVAxJ9JIsoNyhUua0DitGwS1FlD/+I4iAFOV
-	 xxCDuL12XTZy88EWElp60qKO9cdiqwFuAuvdbZfXAgP9x1YptYvR1azP9jf5cnqb3ngw/
-	 MMFGjQphHXpuCIdlsOUcJ5AJJHxWc+cawbd3QecH1FS9jyKKEKfxTBkFvObvlxCwpVp0R
-	 SFwGtmm6z3I+BPXmaaPeJNsigQfdlAh7YEWlBe8qcrKCH1ntcsWPcAE/2qjf3+RVEVQSn
-	 HN/QGoa/rTxu5iwJBjP79bVG/DhaoAbHi6fz8PrrQ8DfPO1uwqXGlkckjT+ntrIdGmg==
+	t=1795601297;
+	b=Puj7sMaiVXAGOhW6DKteNfD2yErPnQecg0c5jz2SXI0ChRpwH1FKtmdHAqjdctKoFGsp
+	 xsCc33ijnkt0ZuarSXZCmOVfNsLyVuMLOMJzvNIOVVHt3H2nHV5vFvQkYwpt/ApKOrJ0k
+	 8ZqH9Xl4Et4W0oUCRJ+9VaQa0Hi9tByx0NLbL8LByHY+0xQ0+o/s5SxOAx0fA82C9E9Wt
+	 9ua6L5NoycxtGblNIELzh0oAJZ/5vUxCg2hza5wOqARQIFC2cnvIUvaLpoTWV+mqbuXmD
+	 apSyrp+hjTbsrEWlka1du6rOD2sGRq/qzHH+DGbKcxz4cI4VS00oJCc+yne5dzxQa3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601203;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:Received:Received:
-	 Received:MIME-Version:Content-Type:Content-Transfer-Encoding:Date:
-	 From:To:Cc:Subject:Organization:In-Reply-To:References:Message-ID:
-	 X-Sender:User-Agent:X-Spam-Status:X-Spam-Checker-Version:X-purgate:
-	 X-purgate-ID:X-purgate-type;
-	bh=Nb9j7n4VMoBo0nPcTqnB3tMTmYPQkVLcITR8atKeMWY=;
-	b=jQqM9ztE7nUEwbZtg+KqAkmp+Tn8OMGMrRKP1wq2yK4mEpUGlTJ4ZtEaF78yLXk4OgOu
-	 A4Z5AFco+S97yqqxfOGLNiQ1wcDJ+UG5LBEyS2tsAGTO0yLI4sxhoIQCNTW7ujqF8Wykv
-	 g0E4I29GCyYme7j1WiDFx9Df1+caRaB/betBXt3pAcdxmZqdyxP5kgyi80T8ewJ6p15d0
-	 4rybw8+ESc7hiR8rVne7pqFDIVdgaCA/Y779AeBSB8uX9DMor3OK8vNX4XmS+hyPyx+Q1
-	 m8qegtm335iciYBUCrhHkBu9VpVavybGvPqFv2mwOuPLK9CofFM1Pl5rMfhjY1cQ4hA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601297;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:Date:From:To:CC:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=huWNQd8f5dKBY/anqpOcIdlAG1pqKmrF0SOJUgi2ST4=;
+	b=FWppv1hC43lhW15hrcIp+1iEjazQ+cgI7m1FYrUQBidyN4tSELC5A3kZ/J5jPv0K+Sem
+	 vSaUP2gbaJEWKm+EMW5tF5iPbiZ4qedxTD8j6LuLO9z1L6KMsd5HEhbYopMoiA9wPlb4b
+	 nAqN7lMQTCDbe988/3y198hhlmWhBG9A8XDkFDNyMtIbR8kcRTHlul91R3+hKL2KegtUE
+	 PMFlicuqtbN9XYLjB19otcbL7JaVl23dZaVtXScyt+5VQegCyzimnK1Uxjwd0p49gATNh
+	 VtuHAHeqdCQPq5zKtO5+XQOAz7JXDjEEYSmS5kPP615zNLl0Yy4uVRcLFIaICcgjolA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=dev.tdt.de;
-	spf=pass smtp.mailfrom=dev.tdt.de;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=HYuSPXnR;
-	arc=none smtp.remote-ip=91.198.224.70
-Received: from mxout70.expurgate.net (mxout70.expurgate.net [91.198.224.70])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b="vKwm/ysx";
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F347B606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:06:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F347B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=dev.tdt.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=dev.tdt.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1FB7606A31E;
+	Wed, 25 Nov 2026 10:08:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F1FB7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=temperror header.d=dev.tdt.de header.i=@dev.tdt.de header.a=rsa-sha256 header.s=z1-selector1 header.b=HYuSPXnR
-Received: from [194.37.255.9] (helo=mxout.expurgate.net)
-	by relay.expurgate.net with smtp (Exim 4.92)
-	(envelope-from <prvs=6803393a3a=ms@dev.tdt.de>)
-	id 1xW9th-008TLr-04
-	for netdev@vger.kernel.org; Wed, 25 Nov 2026 11:06:41 +0100
-Received: from [195.243.126.94] (helo=securemail.tdt.de)
-	by relay.expurgate.net with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <ms@dev.tdt.de>)
-	id 1xW9tg-003MdG-Ho
-	for netdev@vger.kernel.org; Wed, 25 Nov 2026 11:06:40 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=dev.tdt.de;
-	s=z1-selector1; t=1795601200;
-	bh=Nb9j7n4VMoBo0nPcTqnB3tMTmYPQkVLcITR8atKeMWY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=HYuSPXnRM2CBM1IbXAuD4yqDicVHktqHnTxWIqONZujCvug2JTbudY/7FCGhYoaxf
-	 8AHixpF80OjtZEaiNB67/NDtbsSSVW0vxg3+srEWvZxvobVc8T/tBBcgmlvMwf1Tax
-	 v3EpCJeK6gHvYH2s+NYZIxtRj9WIEVavRLlDMGUw1E2K5WcJkC/JCRvPQ3Ymk/KuMg
-	 CeOX6z7FD/DuB1fzrveDdd/phhl4immNgF/mhT7QY7sEp+Py+5ek9e1MC5oWz+DMho
-	 WswOmAOirkKDYMBpVJNgGrKr5yetSYfpWuVcP7teMP12+q1i6rDc6UINTbO0v4OAfX
-	 NI52QcRmQqWDQ==
-Received: from securemail.tdt.de (localhost [127.0.0.1])
-	by securemail.tdt.de (Postfix) with ESMTP id 20526240040
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:06:40 +0100 (CET)
-Received: from mail.dev.tdt.de (unknown [10.2.4.42])
-	by securemail.tdt.de (Postfix) with ESMTP id 0E24A240036;
-	Wed, 25 Nov 2026 11:06:40 +0100 (CET)
-Received: from mail.dev.tdt.de (localhost [IPv6:::1])
-	by mail.dev.tdt.de (Postfix) with ESMTP id DA2E929D20;
-	Wed, 25 Nov 2026 11:06:39 +0100 (CET)
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=vKwm/ysx
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795601296; x=1827137296;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+oxUsbUUI6wl3gb8tpPgl9CfUst6l9KNJvinAj8Kgvs=;
+  b=vKwm/ysxVXX9zi6zv35geIpf2tJo7KP57OnDegUpUr7Yz2pmaYfJXpez
+   OUkl1Xbe676k1x3KIpyeQibhir2OohMNHOqGXKah1mrX4gRIwf5VVi3yC
+   IkUphVI1GkvPaq1FJ1cFZuwzxP6i+Uy7+m8XxgUSZOW57APNbbIRY0gGX
+   WELkdIkuM/rrsduQm+tFgg53xCrbHfE/y0d5gGiBN+Lfx0uBit5UZCPFk
+   ncXRimQc1hdAa3OW3ld3rHtbCXJbAQYEPQ5LnrcOdtHs1oOVPWrhvPXl0
+   f5gsazogc23ccdAMQ9U/j8Bwdg+KHaNtagOn7wxYQnwaC2KXSlot7+Drr
+   A==;
+X-CSE-ConnectionGUID: VvsAXqvMTYyfMnYDI+mTpA==
+X-CSE-MsgGUID: 8cOewiq1R/u3NMQhgpJddA==
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="234072207"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 03:08:16 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.87.72) by
+ chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Wed, 25 Nov 2026 03:08:15 -0700
+Received: from DEN-DL-M70577.microsemi.net (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.58 via Frontend Transport; Wed, 25 Nov 2026 03:08:13 -0700
+Date: Wed, 25 Nov 2026 11:08:12 +0100
+From: Daniel Machon <daniel.machon@microchip.com>
+To: Ian Rogers <irogers@google.com>
+CC: <netdev-bot+sashiko@kernel.org>, <horatiu.vultur@microchip.com>,
+	<UNGLinuxDriver@microchip.com>, <andrew+netdev@lunn.ch>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <llvm@lists.linux.dev>, <elkin@google.com>
+Subject: Re: [PATCH net] net: lan966x: Free skb when PTP TX timestamp request
+ fails in xmit
+Message-ID: <20261125100812.gywdqx7zkjelinu4@DEN-DL-M70577.microsemi.net>
+References: <20261119170729.1524516-1-irogers@google.com>
+ <179545939880.3135.6341792822211409455@kernel.org>
+ <20261125004031.1005034-1-irogers@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,43 +84,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-Date: Wed, 25 Nov 2026 11:06:39 +0100 (CET)
-From: Martin Schiller <ms@dev.tdt.de>
-To: f3lix.dev@gmx.de
-Cc: linux-x25@vger.kernel.org, netdev@vger.kernel.org, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	horms@kernel.org, linux-kernel@vger.kernel.org, willemb@google.com,
-	netdev-bot+sashiko@kernel.org
-Subject: Re: [PATCH net v2] net: x25: shut down T20 timer before freeing
- neighbour
-Organization: TDT AG
-In-Reply-To: <179559958721.3135.5593816176235018299@kernel.org>
-References: <20261124093922.39573-1-f3lix.dev@gmx.de>
- <179559958721.3135.5593816176235018299@kernel.org>
-Message-ID: <e9d12b5647f149f2133068c2b254afdd@dev.tdt.de>
-X-Sender: ms@dev.tdt.de
-User-Agent: Roundcube Webmail/1.3.17
-X-purgate: clean
-X-purgate-ID: 151534::1795601200-38ED3C46-5566F8FF/0/0
-X-purgate-type: clean
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261125004031.1005034-1-irogers@google.com>
 
-On Wed, 25 Nov 2026 10:39:47 +0100, netdev-bot wrote:
-> Would it be more robust to purge nb->queue in x25_neigh_put() before
-> kfree()? At that point nobody else can add to the queue, and
-> skb_queue_purge() is safe in atomic context.
+On Tue, Nov 24, 2026 at 04:40:31PM -0800, Ian Rogers wrote:
+> On Mon, Nov 23, 2026 at 10:43 AM <netdev-bot+sashiko@kernel.org> wrote:
+> >
+> > [Severity: Medium]
+> > Will this tx_dropped increment ever reach userspace? lan966x sets
+> > .ndo_get_stats64 = lan966x_stats_get. dev_get_stats() adds only
+> > dev->core_stats on top of what that callback returns, so legacy
+> > dev->stats is never reported.
+> 
+> Good point - dev_core_stats_tx_dropped_inc(dev) is needed so
+> dev_get_stats() reports the software drop alongside lan966x_stats_get(),
+> and it avoids an unlocked increment on dev->stats.tx_dropped as well.
 
-I agree. A socket that takes the neighbour in the window before
-x25_route_device_down() can still queue frames after the list
-reference is gone, so the purge belongs where the neighbour is freed.
-The timer shutdown is fine where it is, as nothing can rearm a timer
-after timer_shutdown_sync().
+Yes, only HW counters are reported, and the tx_dropped will not even show, so
+converting to dev_core_stats_tx_dropped_inc() is right. There are 7 other call
+sites that also need updating - let me pick that up for my series.
 
-Felix, could you send a v3 that moves the purge into x25_neigh_put()
-and documents the timer shutdown in the comment above
-__x25_remove_neigh()? As the netdev bot asked, please also say in the
-commit message how you found the issue and how you reproduced it.
-Please drop my Acked-by for it, I'll look at the v3 again.
+> 
+> Daniel, let me know if you'd like me to send a v2 with
+> dev_core_stats_tx_dropped_inc(dev) (and netdev_tx_t return types for
+> lan966x_port_ifh_xmit() / fdma_xmit) standalone, or if you prefer to
+> fold it into your upcoming lan966x PTP TX series.
 
-pw-bot: changes-requested
+Please go ahead with a v2 with dev_core_stats_tx_dropped_inc(). The netdev_tx_t
+change is hardly net material, so it also fits well within my series, please
+drop that change. I will make sure to credit you on that patch.
+
+> 
+> Thanks,
+> Ian
+
+pw-bot: cr
