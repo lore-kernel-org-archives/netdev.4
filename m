@@ -1,95 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.176
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795624629;
-	b=xbA9xpwxkW2V1Il+CNn8snyVt2x1XNz4SqEZQaNTdpAv7JYHnK33avfRafHAUEpciXfV
-	 rxx0hfvK0V9P0mDnRkQUpPoBfrQYrSbDqbN8/pTOfLOc0MQAdhdwBbJFL9sQ5EcR1y+uR
-	 r/wjaGQ5UdchEQbaIzkjb6djdRTmT8luOiS4ud/KqLULvVeujGi3X0Zyn4PMzkv2ibPrB
-	 R1AFW9eIkF5t8G1ZSR5uSeVTXeC19xAEIOly0NQXn+Uv9SJeoWIwA94/rOU5+jG0SqUK0
-	 WkBXiJa41yZealzhAJgozSG6DSTCnpbPzMU+S6o8jZjpfwoJZpOTTDJMN+nNLylc5vw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795624629;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=3bgGou21FxpI4EDMO6qhehKoksRIFoYov0W5b2M559Y=;
-	b=u2/2hKFp9Ce7sGpuBAjy9OrJE2hCj94r/tyHOldy6w50o38nENBiG18u8O4elj6+2tIy
-	 MbHI38CTHqm9tB9Zyy7FxISfCI4OpDA0k6vYlJzH91l4723vxMQxs22dVd/t+aWFPwzBe
-	 ZOekIcfxgRULdSRhy3ygkUsf5HWqJejTyhFWLFS8qe3CzfeLG+3p1Hya9I4ULg8Z38E5R
-	 dmR2sohm3wRDfNZ++tj7fmgkOxT840cyChKPj9Q3oGQcPR+cqro9MKlWgrdy+ryTQ4vYu
-	 sMQJjB7uhMlTsqAc7g8aKcmc4jOgZhy1O/yAyamlwSogPk12MS1frJW/8QcqpNfSgSw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t6JHYkOE;
-	arc=none smtp.remote-ip=209.85.215.176
-Received: from mail-pg1-f176.google.com (mail-pg1-f176.google.com [209.85.215.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795624673;
+	b=rstxnsOurbRuc1Ue6rj5CM3Lj7h4R9AflVEFwapNAPWgq2MfCx+7US8AVne93rcVGmak
+	 awmA1TcGZlGIjByzr01d3/AC9c2T16YTgHBSFuU2gpfjNaj5jFegfFdvfYOOUneRuVLL9
+	 IE1+Ua7cccUtMJa+OX78nU5ygeDDpyohoCDAZfdpykWrwXOsgkw0xNe52BhRqHku+/uyJ
+	 02u7118kgbWMKU0lDdX0ckFuanr568Yr9zAbxY6Eh3E9KliU6kcY0skbIxsbP4k3mhwnr
+	 luG1a7/Aiu+mqt9467Yky1gJ+YUQmJ4JB3NW0L2QGMJBcmXyc7NNmQNal6rUmjLgfrg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795624673;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Zoho-Virus-Status:X-Zoho-AV-Stamp:X-ZohoMailClient;
+	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=;
+	b=L7jmZoINbfM9Os5peT/Ivh5Dv5q77QepkU5Q1ojr/kIuUEDTldr0kYEYYoTRUQks5eOD
+	 FxMzECVwbNnkcZdvKABQ+iJyLbtRBQGGoxFDIfm1E4Q4vpmvq93jLTNl2pJ34Smf0RD3H
+	 51u15ysIoIMI9Nkn1FOk7GxV1uW6Gkk84j2RGdasCPENAGNAdJUtR3t4JmECfr7MPG4Sr
+	 aERULmvTxiEL4xU22jZPnd4rkOq5FaVJ436daWMM4pAhF0rqg6zw29oZw1V7DPVAc/2uj
+	 DM6tCtjb61r/ekSwrXFP3jp1wmMuSZJWkRGvyYLycvw62DGmTz90GjvTKRjGGuLas+A==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=ziyao.cc;
+	spf=pass smtp.mailfrom=ziyao.cc;
+	dkim=pass header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.12
+Received: from sender5-op-o12.zoho.com (sender5-op-o12.zoho.com [165.173.182.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00597606A685
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:37:08 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00597606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1EC4D606A331;
+	Wed, 25 Nov 2026 16:37:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1EC4D606A331
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=ziyao.cc
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziyao.cc
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=t6JHYkOE
-Received: by mail-pg1-f176.google.com with SMTP id 41be03b00d2f7-cdd9d0c9bbdso3401682a12.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:37:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795624628; x=1796229428; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=3bgGou21FxpI4EDMO6qhehKoksRIFoYov0W5b2M559Y=;
-        b=t6JHYkOEUXxyKZ0B4k95QPq0CFLQBtV9BBIcRe/awPz1hVZ77/HEmpVC7LX/ZPQOBZ
-         lDMBRGW6pwTEem749cF6uNfyQA+OldMzM8fLls2BWQ6Bqee0MrRGGWq5fhv8CCsHWUFi
-         unRxdhP6LWIX6dPLTpaZdso9PqnR6FbEprK2wHccijRAA4Tv7yXF3BBrdfw+TsUT3z16
-         ZI2DCf3exI8MRosluPoqRE0VYoacfIkdblpNzD2zsC2pN4SdQrIPpTNdsVxEqEsQwztb
-         tJaKNqM7Zq0SIAjrcAYWcoYXPZ0u347XO+jPBnaIMCwAXSi+E1RomO4l8jQF63QRs3Js
-         9CRA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795624628; x=1796229428;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=3bgGou21FxpI4EDMO6qhehKoksRIFoYov0W5b2M559Y=;
-        b=pZHOkQABwL8yxdSLSfoPm6pxrWZCgbBEBIIixDS4cKoKomfzLraH/cRagp5MTCfBtE
-         Kcsglc+l/It3mRCW4kZsRZ6DOv5g/tDo9amJ50lQuw30zJzwffJpM23L3TVRhM0Rc7lU
-         8TKWTzP/usD/xeuFHI31BvTL3rhEW5BCyIEpJceCwazrSyEM7tyNPjl+IoflZUp8qqbr
-         22cHOh3BR3TciQsVdfX3MDFdZqipxBMzo0ZdOd7hg+47eIK2LrVU+bIo26Uq5ESndp+/
-         ZhUufLn74nz+ldIrCnpK6VdiAf3h7G0Gko0Ulw9wOPXvEEY8reuulFRxVN36QultdhAp
-         Ookw==
-X-Forwarded-Encrypted: i=1; AL+hErFBo0ZtoXb2fqC1hYSTIbZQDthzTF8FnXczfA4ySART/2CetfElJoBBc+iDOKChYLB4xy+ho1E=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9J+8d+5+fxL6Thuez4ln/SM79OyCu+GwUgwKf0jwZJ75K3dUU9
-	eFTh2vdGu29/r1WKAwYTM8vkyBYsvGmH/Tu8DmHEx3lWHUv628ZkXAP/
-X-Gm-Gg: AZFdTZc9L+/k8s4N0QYRVlFYNDvj5c3ts8pLDX/Uf8k1U0HDp0tNw6oxR0t0CUO7+Ye
-	BLyi9lVDHSOPWaQsz4yjVCpRWW7oE+4rGsECjr78ZgZTRgVPGm0VG0Q7Y5yArgIEgbv1VFuPSkt
-	ArQOwEmVaFQGRLlFrBfb2Mx0ghMQw+9OX41Cd3k72UA1Ykf8m4lna6FMFg3wPLGC0phaj8PGrSO
-	DFdnXYpZnUVxiu1KGg45pljsfR8YUgBirqV2hR1HE0aT/GxB/YsKt01UHrbP7fAm9mBqQ7/59It
-	egkMFdcQ/K0m4g9vpnuwUQn6wyXdHA9pHI3PTn9NFmRHHNp8z8QFx9kaIRUU2AaoZkT4cdhniGn
-	zblqyf0zQnixDZ1M0cytEoIq9l0Pk1eVka38ph7Ee4lHsGPNdP1Q6aRjlPWlEabEjlVDU8VIPid
-	aPAtfFdD/3iIOklEwikgzqBedHVKV4eeqWPbKzQkwAZDK9ger03DvOA5jz5aAW20ZE2LhH/3ijt
-	WHzJK8pht0Ao6dAgVLOrS5HhasUSQHLB767J6DUOmvpSgBdbNpbW83my/sLwJMrkDscccWgZpoc
-	iwuL44mD+3lwpZcCeJyhcR0vgrs+ydwlEUHF2BsdmPA0vGnL/s8AVrovLY8pOVi23u0=
-X-Received: by 2002:a05:6300:2209:b0:401:367e:c5f with SMTP id adf61e73a8af0-4014ca44812mr19684662637.12.1795624628152;
-        Wed, 25 Nov 2026 08:37:08 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm8895570a12.21.2026.11.25.08.37.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 08:37:07 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Stanislav Fomichev <sdf@fomichev.me>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
+	dkim=pass (1024-bit key) header.d=ziyao.cc header.i=@ziyao.cc header.a=rsa-sha256 header.s=zmail header.b=Jc6+q7o4
+ARC-Seal: i=1; a=rsa-sha256; t=1795624635; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=fn8wmiECVHUD3QkyvELPPxKwwuZ9DNuC5BsZ/LyEsXtY8cg2aYjoBxEJgwLN+3JYGlUBQKiSs3HmFqpwYHfmyMXKcBzyl+8S8QravXTlQ+rw2jrUs8q5t1a7q53p7LzuUkgpSyyLv+VJAlOvU5NrIEklfwjwfx5QW2+onexAftU=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795624635; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; 
+	b=kUmBJtZoJjiy/JIw5a8E5V4T6B6xWVXg7fwLLgn1GiEt4TaGh2Od91Iak/9qP4iGZNp3Zx9PBhiT7fhQ8Bk4Ky/mHZ2QlPXpfwSnSkiB4w11tIefldkFFQzddMRS+FchMJ7yvzOgdl/Bf8HkGNxast9SSTj/IRN3BYXewdCk9Eo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=ziyao.cc;
+	spf=pass  smtp.mailfrom=me@ziyao.cc;
+	dmarc=pass header.from=<me@ziyao.cc>
+DKIM-Signature: a=rsa-sha256; b=Jc6+q7o4s8WHJKTxEGWlOILKLZcb5akXj8pQFhixA8NBV12hkF+n5+8amlMh/gP12gne7slcWjdD3t+XTcJSIQZMar5ML3PLiGY75We8IDTMUCvZXteDOZmNSts4HFe3nYeuf40049rpe1P4JusK/SeIjBsqUUGo5/DqAgqRYd0=; c=relaxed/relaxed; s=zmail; d=ziyao.cc; v=1; bh=wZU6CfzaUrTUM9Uw9d24QCgARMhh95qEdCVI0vhQmpg=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795624633139428.14929217459655;
+	Wed, 25 Nov 2026 08:37:13 -0800 (PST)
+Date: Wed, 25 Nov 2026 16:37:02 +0000
+From: Yao Zi <me@ziyao.cc>
+To: Magnus Leatti <magnusleatti@kernelriot.com>,
+	netdev-bot+sashiko@kernel.org
+Cc: Yao Zi <me@ziyao.cc>, Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
-	netdev@vger.kernel.org
-Subject: [PATCH RESEND net v2] vlan: drop the promisc/allmulti references on the real device on delete
-Date: Thu, 26 Nov 2026 01:37:04 +0900
-Message-ID: <179562437889.3453587.11037378125876087336@gmail.com>
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Giuseppe Nespolino <g.nespolino@gmail.com>, netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 1/2] net: stmmac: dwmac-motorcomm: remove the
+ device at shutdown
+Message-ID: <awcOrnah0sKdqqSn@pie>
+References: <20261120102754.778283-2-magnusleatti@kernelriot.com>
+ <179551786477.3135.6652175828683602957@kernel.org>
+ <20261124130610.3254004-1-magnusleatti@kernelriot.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -99,116 +76,41 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261124130610.3254004-1-magnusleatti@kernelriot.com>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-0.2.13.1.5.4/295.600.19
+X-ZohoMailClient: External
 
-Since commit 27b918007d96 ("net: vlan: don't propagate flags on open"),
-vlan_dev_change_rx_flags() passes IFF_PROMISC and IFF_ALLMULTI changes
-on to the real device whether or not the VLAN device is up, and
-vlan_dev_open()/vlan_dev_stop() no longer take or drop those references.
-Nothing drops them when the VLAN device is deleted, so the real device
-stays promiscuous or allmulti for good:
+On Tue, Nov 24, 2026 at 10:06:10AM -0300, Magnus Leatti wrote:
+> On Tue, Nov 24, 2026 at 10:57:44AM +0000, netdev-bot+sashiko@kernel.org wrote:
+> > [Severity: Low]
+> > Should this carry a Fixes: tag?
+> 
+> No. I never saw anything break without the hook, so it's not a fix.
+> net-next, no tag.
 
-  ip link add link veth0 name vlan10 type vlan id 10
-  ip link set vlan10 promisc on
-  ip link del vlan10
-  ip -d link show veth0    # promiscuity 1
+However, I do think this deserves a fixes tag, for the reason I stated
+in replies to v1 of the series[2].
 
-Drop them in vlan_dev_uninit(). The device flags are still set there,
-and no instance lock is held, so this does not bring back the recursive
-locking that the commit above removed.
+> > [Severity: Medium]
+> > With this change, can stmmac_dvr_remove() run twice on the same
+> > binding?
+> 
+> Only if something unbinds or unplugs the NIC *after* .shutdown ran, in
+> the middle of a power-off. funeth, otx2, nfp VF and ps3_gelic wire
+> .shutdown to their remove the same way, and it's the design that came
+> out of the v1 review [1]. Keeping it.
+> 
+> [1] https://lore.kernel.org/netdev/avsebFtnIASV-KpV@pie/
+> 
+> Magnus
 
-After that, stop passing flag changes on to the real device. When a
-VLAN and a VLAN stacked on it are deleted in one batch
-("ip link del group N"), the upper VLAN's vlan_dev_uninit() can run
-after the lower one's and clear its IFF_PROMISC or IFF_ALLMULTI, which
-would drop the real device's reference a second time.
-
-Fixes: 27b918007d96 ("net: vlan: don't propagate flags on open")
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-Resent with netdev and the other recipients in Cc; the first posting
-reached only the four net maintainers (Paolo).
-
-v2: stop passing flag changes on to the real device after
-    vlan_dev_uninit(), so that a VLAN stacked on it and deleted in the
-    same batch does not drop the reference again (Sashiko,
-    https://lore.kernel.org/all/179561249161.3135.16028121153100336999@kernel.org/)
-v1: https://lore.kernel.org/all/179552079831.1290967.13072162433438626338@gmail.com/
-
-The issue was found by an LLM-guided test generator that we are
-developing as a research prototype. The commands above reproduce it as
-any user under "unshare -Urn", after
-"ip link add veth0 type veth peer name veth1". With only the
-vlan_dev_uninit() change, a batch delete of two stacked VLANs wraps the
-count instead:
-
-  ip link add link veth0 name v1 type vlan id 10
-  ip link add link v1 name v2 type vlan id 20
-  ip link set v2 promisc on
-  ip link set v1 group 5
-  ip link set v2 group 5
-  ip link del group 5
-  ip -d link show veth0    # promiscuity 4294967295
-
-Our test also covers allmulti, a VLAN that is up when the flag is set
-or the device is deleted, and the stacked VLANs deleted one at a time.
-
-The patch was written with LLM assistance; we reviewed and tested it.
-With it, both counts return to 0 in every case, with lockdep enabled
-and quiet.
-
- include/linux/if_vlan.h |  2 ++
- net/8021q/vlan_dev.c    | 10 ++++++++++
- 2 files changed, 12 insertions(+)
-
-diff --git a/include/linux/if_vlan.h b/include/linux/if_vlan.h
-index c863cdf60f01..c0cfb87d6682 100644
---- a/include/linux/if_vlan.h
-+++ b/include/linux/if_vlan.h
-@@ -168,6 +168,7 @@ struct netpoll;
-  *	@vlan_proto: VLAN encapsulation protocol
-  *	@vlan_id: VLAN identifier
-  *	@flags: device flags
-+ *	@uninit: the promisc/allmulti references on @real_dev were dropped
-  *	@real_dev: underlying netdevice
-  *	@dev_tracker: refcount tracker for @real_dev reference
-  *	@real_dev_addr: address of underlying netdevice
-@@ -184,6 +185,7 @@ struct vlan_dev_priv {
- 	__be16					vlan_proto;
- 	u16					vlan_id;
- 	u16					flags;
-+	bool					uninit;
- 
- 	struct net_device			*real_dev;
- 	netdevice_tracker			dev_tracker;
-diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
-index bca0a3693636..401ae08f16f4 100644
---- a/net/8021q/vlan_dev.c
-+++ b/net/8021q/vlan_dev.c
-@@ -520,6 +520,8 @@ static void vlan_dev_change_rx_flags(struct net_device *dev, int change)
- {
- 	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
- 
-+	if (vlan_dev_priv(dev)->uninit)
-+		return;
- 	if (change & IFF_ALLMULTI)
- 		dev_set_allmulti(real_dev, dev->flags & IFF_ALLMULTI ? 1 : -1);
- 	if (change & IFF_PROMISC)
-@@ -647,6 +649,14 @@ void vlan_dev_free_egress_priority(const struct net_device *dev)
- 
- static void vlan_dev_uninit(struct net_device *dev)
- {
-+	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
-+
-+	if (dev->flags & IFF_ALLMULTI)
-+		dev_set_allmulti(real_dev, -1);
-+	if (dev->flags & IFF_PROMISC)
-+		dev_set_promiscuity(real_dev, -1);
-+	vlan_dev_priv(dev)->uninit = true;
-+
- 	vlan_dev_free_egress_priority(dev);
- }
- 
 -- 
-2.43.0
+Thanks,
+Yao Zi
 
+Meow-mrrp-mrow, I'm a cat.
+
+[2]: https://lore.kernel.org/netdev/avsTEglKKD_wl_Fi@pie/
