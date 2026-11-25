@@ -1,57 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570118;
-	b=cWw2M8dZZx6GLUG94nZNoDwLdJiu1NnmcMMNxwhY3OsFMYoQPqgv+yN6uxuRtYKdu3Li
-	 c6oxJBFTiMXBmjwmDugFa514MgXUUemu666MBP0f28EXoUNXzLQ6AeyhCDRzQdUpandX9
-	 T/w+bPXFeXClCkqhZMJG59sAdzizf8pFaXHg3DlsWWXrosCve0FgY91gcvZicGdobVFS9
-	 fWgdt4P1iEti6JMnuQ4c4mTjq8TtlGc9GlvIYimqlUzN8HQejNHIQ73kwI+oz401QXIhT
-	 NRQAl8PtHi2NtTHfA/evAIltEpAGhNJanm/4PlOawmUAGsq6VLLXfPGX1C9i/ZWyL1A==
+	t=1795570308;
+	b=GM3HACFl9Gffirai7JLW05bp18UJOPAeCmqZiu8BfWAAlOfOLqboG13iDOa+qthnhbC1
+	 UZsyoyeifP3EB4KwbZt9YARjzbjBJL3XYpxDb2wvXamXh3ZBpIDDNPxW1MMXu96uuuxKN
+	 NC8JX7HeHjARbNEtkodKIWZ84ZqrrQLbBPHdcIJPlXg4LYoXutbBSe4hMh4m3Jo03Um0e
+	 PFB/VTeOMtcqbMc/EbCKtw062HKp44EqYchni3a6hivNp7+wpNq9jeoagVpkhha8J2+fg
+	 y07rAc8CeHhY1u9NVPXDgwFoMP4hTiE5P5Zuyhtm+Ny4jVakBZwwyqyC/KDKZOg03+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570118;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570308;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=g38NS2tn5bzijWNoYQJMRKGYeSXZqe81uw8xtM3+/X8=;
-	b=3Y4S/yT+Px5k+1MxJ6oa8sPXlKaXwalfFmJp+QlVY899g5HMz1iMeW1ObUQLMpJFisd0
-	 M3lPQ1F5rVzwF8zWTIrB8Ch4nOrDHsQ+q7EtAtAHttrPZtVf0S9XK+oKDO3kJkp2tCQxS
-	 OOqEQuD5OCJOGLQZKuCHXVHgqdi+299llxetOAexnchb709qrquvWCxYLyVvowqrTDPAo
-	 z/ezWbxTwk2y121Qf1IqR8ynIQ/Lg3fCxI0VYEtJBSN1gL3UX6pImr4GRF203iHjJ0uZ3
-	 mwJj1qLeyXm0pnmLOHMljfZqEDSGlTZykiQzhDfu9cyjbxOOkLK8pE+luKgbm8TH/iw==
+	bh=4cplUSvV4RzevwKXbQHAWViX7j4Dnhd0DaCgBfc6NyI=;
+	b=RZ2XbDX7Tcang2a9S1BM0+/7TdIYWn9H0z5RGgFt3RslN1zC8xdeCorit+vg90r+Q30T
+	 8nBcCTNHStWjLRzPYrBewVDqgSKBosDDUBzmSgQ3oMjVbd/sOwKEQvrAnZjLI5xR8TUV7
+	 0zHL0rDvs5+ckobgyScb7Lz2rzntU2GIwnpsw4yC8EVhJh3FJmLXMqy/oIgt9zon71D/V
+	 fa6Y0ZzwgVVS3qadsrZlB0KyvGcHEq+Jw/N/FfM60/W/lim7eT4x25aNb6DchQWwgsxnC
+	 fFEOtPYnOw1Gf/P6PvaMmtYHnQFK0bNRd7MRjsGRcFD4ggPyR/k2xi52IDUWBUURNeQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Z2gQC/Cp";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxTNfU0P;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDD1C606A327;
-	Wed, 25 Nov 2026 01:28:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ABC7606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:31:47 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Z2gQC/Cp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 158A21F000EF;
-	Wed, 25 Nov 2026 01:28:38 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxTNfU0P
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8B171F000C6;
+	Wed, 25 Nov 2026 01:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570118;
-	bh=g38NS2tn5bzijWNoYQJMRKGYeSXZqe81uw8xtM3+/X8=;
+	s=k20260515; t=1795570307;
+	bh=4cplUSvV4RzevwKXbQHAWViX7j4Dnhd0DaCgBfc6NyI=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Z2gQC/Cp+Ou5Py4Se8Q/mXBPUPlvxebFINdaRKG1h7/9ZV9TwGDYJTyaOcXy10bFu
-	 aw+DHOasQR+pIb1PHFad4Ym31yoKNBTzdY4V1RjU1BGg20AdPhZuRnNit+C3wtWzRN
-	 8aNnMr0YCH8Viec5bljXmXAHwtF+x/jbdlS++IRHvLPAIeV/xD2j6wJKZkTEsKTo+8
-	 SG085vE18HBIlBsO5IizzEQjKycbJCTebRkCnYec/nZf7JG5IG4y9Y/ITVSLdnmR1P
-	 s0nUkJdF2pqybOAdgIoe9bqaEAMswAD7bHL1yRSiq8p6Ex2DVqEHBWoCGWc462BDYM
-	 pIK5NoR3uskdQ==
-Subject: Re: [PATCH wireless 1/2] wifi: mac80211: do not copy the mesh RSN IE
- twice into the beacon
+	b=OxTNfU0PB4VOXw6VmkjAKZ+jX0pk9TCOSH8iHgcRNxBGAzWEicIaN0di0EZqpFBOD
+	 pfaeBPVWW/bqjZT7u+fJWg/7POq7w1sAwG5yH+4obDhzhlseXShiKnt4Cbb4npRCT3
+	 8s8Yc5rT7cw2WRAJCrzRkg4Sy04ymPIJ55UP9i/CWlnFwY77xfAtky/K7uUQN8y6Pv
+	 aTzWNGnxysMxTp/RGqhty+0sd1DUlicuRdU00ZQETTMsjLb/5s/vgPDEfRLjG3vzwz
+	 KviZGy5kBopPxc/U4MgtSDsMDLMa1rXJjBdFm11IRMq0mMvZKar0xslU6VVvErSY0M
+	 6utvEiZ4pc+tg==
+Subject: Re: [PATCH net v4] net: bgmac: fix RX frame length check
 From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: johannes@sipsolutions.net, linux-wireless@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kapil@presceralabs.ai,
- kuba@kernel.org
-Date: Wed, 25 Nov 2026 01:28:37 +0000
-Message-ID: <179557011763.3135.4931211502666684623@kernel.org>
-In-Reply-To: <20261124003526.78471-2-piyus@iiitd.ac.in>
-References: <20261124003526.78471-2-piyus@iiitd.ac.in>
-X-sashiko-severity: Critical
+To: rosenp@gmail.com
+Cc: rafal@milecki.pl, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, nbd@openwrt.org,
+ horms@kernel.org, florian.fainelli@broadcom.com,
+ bcm-kernel-feedback-list@broadcom.com, zajec5@gmail.com,
+ netdev@vger.kernel.org
+Date: Wed, 25 Nov 2026 01:31:46 +0000
+Message-ID: <179557030640.3135.10674609230944180812@kernel.org>
+In-Reply-To: <20261121005009.59491-1-rosenp@gmail.com>
+References: <20261121005009.59491-1-rosenp@gmail.com>
+X-sashiko-severity: High
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -67,7 +68,7 @@ MIME-Version: 1.0
 Thank you for your contribution! Sashiko AI review found 3 potential
 issue(s) to consider.
 
-Critical: 1 · High: 0 · Medium: 0 · Low: 2
+Critical: 0 · High: 1 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -75,159 +76,184 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Critical] This patch adds a new out-of-bounds write into the mesh
-  beacon buffer.
-- [Low] The commit message names the wrong netlink attribute as the
-  trigger: "One NL80211_CMD_JOIN_MESH carrying such an NL80211_ATTR_IE…
-- [Low] Changing mesh_add_rsn_ie() also changes Mesh Peering Open/Confirm
-  frames, which the commit message does not mention.
+- [High] The multi-descriptor skip logic in bgmac_dma_rx_read()
+  (drivers/net/ethernet/broadcom/bgmac.c) never runs when the…
+- [Medium] The patch lowers the receive limit in a way the commit message
+  does not mention, and frames that used to be delivered are now dropped.
+- [Medium] In bgmac_dma_rx_read(), the skip count for continuation
+  buffers comes only from the 4-bit DC field in the RX header flags…
 
 --
 
-wifi: mac80211: do not copy the mesh RSN IE twice into the beacon
+net: bgmac: fix RX frame length check
 
-This commit limits the RSN IE search in mesh_add_rsn_ie() to the part of
-the user's mesh IE blob that comes before the first vendor IE. That part
-is found with ieee80211_ie_split_vendor(). The goal is for
-mesh_add_rsn_ie() and mesh_add_vendor_ies() to cover disjoint ranges, so
-their combined output fits the ifmsh->ie_len budget reserved in
-ieee80211_mesh_build_beacon().
+This patch limits the RX length check in bgmac_dma_rx_read() to the real
+buffer size and adds a lower bound. It also checks the RX header error
+and descriptor count flags, and skips the continuation buffers of
+multi-descriptor frames. UMAC_MAX_FRAME_LEN is now programmed from the
+MTU plus a VLAN header and FCS, and max_mtu is lowered to match.
 
-> One NL80211_CMD_JOIN_MESH carrying such an NL80211_ATTR_IE is enough.
-
-[Severity: Low]
-Is this the right attribute? nl80211_join_mesh() doesn't seem to read
-NL80211_ATTR_IE. The blob that ends up in ifmsh->ie comes from
-NL80211_MESH_SETUP_IE, which is nested inside NL80211_ATTR_MESH_SETUP:
-
-net/wireless/nl80211.c:nl80211_parse_mesh_setup() {
-    ...
-	if (tb[NL80211_MESH_SETUP_IE]) {
-		struct nlattr *ieattr =
-			tb[NL80211_MESH_SETUP_IE];
-		setup->ie = nla_data(ieattr);
-		setup->ie_len = nla_len(ieattr);
-	}
-    ...
-}
-
-The attribute also matters for the analysis further down, because the
-NL80211_MESH_SETUP_IE policy allows up to IEEE80211_MAX_DATA_LEN bytes.
-
-> An RSN IE placed behind a vendor IE is still emitted, as part of that
-> verbatim vendor range; nothing that a well-formed configuration sends is
-> dropped.
-
-[Severity: Low]
-mesh_plink_frame_tx() in net/mac80211/mesh_plink.c also calls
-mesh_add_rsn_ie(), so this patch changes Mesh Peering Open/Confirm frames
-as well as beacons. Should the commit message say so?
-
-In mesh_plink_frame_tx(), mesh_add_rsn_ie() runs right after the extended
-supported rates. mesh_add_vendor_ies() runs at the end of the frame:
-
-	    mesh_add_rsn_ie(sdata, skb) ||
-    ...
-	if (mesh_add_vendor_ies(sdata, skb))
-		goto free;
-
-Before this patch, an RSN IE placed behind a vendor IE appeared twice in
-peering frames: once in its normal position and once in the trailing
-vendor block. After this patch it appears only in the trailing vendor
-block, after the Mesh ID, Mesh Config, MPM, HT, VHT, HE and EHT elements.
-Beacons get the same reordering.
-
-Could the commit message describe the peering frame change, and explain
-why it is fine to move the RSN element out of the standard element order?
-
-> diff --git a/net/mac80211/mesh.c b/net/mac80211/mesh.c
-> index 8f88141253758..eb54bd98f282a 100644
-> --- a/net/mac80211/mesh.c
-> +++ b/net/mac80211/mesh.c
-> @@ -379,12 +379,19 @@ int mesh_add_rsn_ie(struct ieee80211_sub_if_data *sdata, struct sk_buff *skb)
->  	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
->  	u8 len = 0;
->  	const u8 *data;
-> +	size_t prefix;
->  
->  	if (!ifmsh->ie || !ifmsh->ie_len)
->  		return 0;
->  
-> -	/* find RSN IE */
-> -	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, ifmsh->ie_len);
+> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
+> index 9ef7307edd41e..d72e9c8577c41 100644
+> --- a/drivers/net/ethernet/broadcom/bgmac.c
+> +++ b/drivers/net/ethernet/broadcom/bgmac.c
 
 [ ... ]
 
-> +	prefix = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
-> +	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, prefix);
+> @@ -435,6 +436,13 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+>  		dma_addr_t dma_addr = slot->dma_addr;
+>  		u16 len, flags;
+>  
+> +		/* The rest of a multi descriptor frame that was dropped */
+> +		if (ring->rx_skip) {
+> +			ring->rx_skip--;
+> +			bgmac_dma_rx_poison_buf(dma_dev, slot);
+> +			goto next;
+> +		}
+> +
+>  		do {
+>  			/* Prepare new skb as replacement */
+>  			if (bgmac_dma_rx_skb_for_slot(bgmac, slot)) {
 
-[Severity: Critical]
-Can prefix end up larger than ifmsh->ie_len here?
+[Severity: High]
+What happens to the continuation buffers if this replacement allocation
+fails while a multi-descriptor frame is at the head of the ring?
 
-The commit message relies on "the split returns an element boundary that
-is not past ifmsh->ie_len". However, ieee80211_ie_split_vendor() moves
-forward one whole element at a time:
+The failure path recycles the slot without reading the RX header:
 
-	while (pos < ielen && ies[pos] != WLAN_EID_VENDOR_SPECIFIC)
-		pos += 2 + ies[pos + 1];
+	if (bgmac_dma_rx_skb_for_slot(bgmac, slot)) {
+		bgmac_dma_rx_poison_buf(dma_dev, slot);
+		break;
+	}
 
-So it returns pos > ielen whenever ielen ends in the middle of an element.
+As a result, the BGMAC_RXF_DC_MASK check further down is never reached,
+and that check is the only place ring->rx_skip gets set.
 
-That can happen because ifmsh->ie_len is still a u8 in struct
-ieee80211_if_mesh, while the policy allows NL80211_MESH_SETUP_IE up to
-IEEE80211_MAX_DATA_LEN (2304) bytes:
+netdev_alloc_frag() in bgmac_dma_rx_skb_for_slot() is an atomic
+allocation in NAPI context and can fail under memory pressure.
+dma_map_single() can fail too. bgmac_dma_rx_enable() sets
+BGMAC_DMA_RX_OVERFLOW_CONT and errored frames are not discarded, so an
+oversized frame still spills into the next 1..15 descriptors.
 
-	[NL80211_MESH_SETUP_IE] =
-		NLA_POLICY_VALIDATE_FN(NLA_BINARY, validate_ie_attr,
-				       IEEE80211_MAX_DATA_LEN),
+With rx_skip left at 0, would each of those continuation slots go
+through the normal path, with len and flags read from payload bytes the
+sender controls?
 
-copy_mesh_setup() in net/mac80211/cfg.c kmemdup()s the full blob, then
-does:
+A sender could make those bytes look like a clean header: no DC or
+error bits, and a length between ETH_HLEN + ETH_FCS_LEN and 1536. The
+fake frame would then go to napi_gro_receive(), along with stale
+page-frag contents from the rest of the buffer.
 
-	ifmsh->ie_len = setup->ie_len;
+That looks like the problem the commit message says it fixes:
 
-This truncates the length modulo 256. validate_ie_attr() checked element
-framing only against the full nla_len, so the truncated length can fall
-inside an element.
+  bgmac_dma_rx_read() consumes only the first descriptor and parses the
+  continuation buffer as a new frame
 
-For example, take a 257 byte blob: an RSN element with a 253 byte body
-(255 bytes in total), followed by a 2 byte non-vendor element. It passes
-validate_ie_attr(), and ifmsh->ie_len becomes 1:
+Could the header flags also be read on the allocation failure path? The
+dma_sync_single_for_cpu() in bgmac_dma_rx_poison_buf() would make the
+DC bits readable before the buffer is re-poisoned. Another option is to
+do the DC check before the replacement allocation.
 
-ieee80211_mesh_build_beacon()
-    tail_len = ... + ifmsh->ie_len;               /* 1 byte budget */
-    mesh_add_rsn_ie()
-        prefix = ieee80211_ie_split_vendor(ie, 1, 0);   /* 255 */
-        data = cfg80211_find_ie(WLAN_EID_RSN, ie, 255); /* offset 0 */
-        skb_put_data(skb, data, 255);
-    mesh_add_vendor_ies()                  /* nothing, 255 >= 1 */
-    memcpy(bcn->tail, skb->data, bcn->tail_len);
+> @@ -460,10 +468,34 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
+>  				break;
+>  			}
+>  
+> -			if (len > BGMAC_RX_ALLOC_SIZE) {
+> +			/* The frame did not fit in one buffer. The following
+> +			 * buffers hold the rest of its data, not RX headers.
+> +			 */
+> +			if (flags & BGMAC_RXF_DC_MASK) {
+> +				ring->rx_skip = FIELD_GET(BGMAC_RXF_DC_MASK, flags);
+> +				put_page(virt_to_head_page(buf));
+> +				bgmac->net_dev->stats.rx_length_errors++;
+> +				bgmac->net_dev->stats.rx_errors++;
+> +				break;
+> +			}
+> +
 
-The builder skb comes from __dev_alloc_skb(max(head_len, tail_len),
-GFP_KERNEL). Rounding up to the kmalloc bucket gives it slack, so the
-skb_tailroom() checks pass.
+[ ... ]
 
-Wouldn't the final memcpy() into bcn->tail then overrun the
-kzalloc(sizeof(*bcn) + head_len + tail_len) allocation? That is the same
-place the KASAN report in the commit message points to.
+> +			if (len < ETH_HLEN + ETH_FCS_LEN ||
+> +			    len > BGMAC_RX_MAX_FRAME_SIZE) {
+>  				if (net_ratelimit())
+> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
+> -						   ring->start);
+> +					netdev_err(bgmac->net_dev, "Found packet with invalid length %u at slot %d, DMA issue!\n",
+> +						   len, ring->start);
+>  				put_page(virt_to_head_page(buf));
+>  				bgmac->net_dev->stats.rx_length_errors++;
+>  				bgmac->net_dev->stats.rx_errors++;
 
-Before this patch the search was bounded by ifmsh->ie_len, so it could not
-return an RSN element that extends past the budget. The sender controls
-the residue of the length modulo 256 and where the RSN element straddles
-it, so the overrun can reach about 253 bytes.
+[Severity: Medium]
+Should this branch also set ring->rx_skip when len is above
+BGMAC_RX_MAX_FRAME_SIZE?
 
-The follow-up commit "wifi: mac80211: widen the mesh IE offsets a u8
-cannot hold" doesn't appear to fix this. Its commit message says
-"ifmsh->ie_len is a size_t", but the field is still a u8 at the end of
-the series, and prefix is still not clamped.
+A length above 1536 means the frame could not fit in one RX buffer. But
+the skip count comes only from the 4-bit DC field. The hardware could
+report such a length with DC == 0, either because the field is
+unreliable or because the frame spans more than 16 descriptors, which 4
+bits cannot represent. The next slot would then be parsed as an RX
+header taken from sender-controlled payload, the same as in the
+allocation failure case above.
 
-Would prefix = min(prefix, ifmsh->ie_len) fix this? It would also need
-either ifmsh->ie_len changed to a size_t, or NL80211_MESH_SETUP_IE capped
-in the policy at what mac80211 can store.
+b43 and brcmsmac use the same dma64 engine. Their dma_rx() functions
+work out the number of continuation buffers from the reported length,
+not from a flags field. Commit 6a6c708469c9 ("bgmac: add check for
+oversized packets") also shows that the MAC does report over-length
+headers in practice.
 
->  	if (!data)
->  		return 0;
->
+Would something like this be safer here, capped at the ring size?
+
+	max(DC, DIV_ROUND_UP(len + BGMAC_RX_FRAME_OFFSET,
+			     BGMAC_RX_BUF_SIZE) - 1)
+
+[ ... ]
+
+> @@ -1110,6 +1144,13 @@ static void bgmac_enable(struct bgmac *bgmac)
+>  	}
+>  }
+>  
+> +/* The MAC counts the FCS in the maximum frame length. */
+> +static void bgmac_set_max_frame_len(struct bgmac *bgmac, int mtu)
+> +{
+> +	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN,
+> +			 mtu + VLAN_ETH_HLEN + ETH_FCS_LEN);
+> +}
+
+[Severity: Medium]
+Does this cause frames that were delivered before this patch to be
+dropped?
+
+Before this patch, bgmac_chip_init() set UMAC_MAX_FRAME_LEN to 32 +
+ETHER_MAX_LEN, which is 1550. Now it is 1522 at MTU 1500. Also,
+bgmac_dma_rx_read() now drops any frame with BGMAC_RXF_OVERSIZE set:
+
+	if (flags & BGMAC_RXF_ERR) {
+		put_page(virt_to_head_page(buf));
+		...
+		if (flags & BGMAC_RXF_OVERSIZE)
+			bgmac->net_dev->stats.rx_length_errors++;
+
+Frames of 1523 to 1536 bytes still fit in one RX buffer, and they used
+to reach the stack. Some examples:
+
+- QinQ frames with a 1500 byte payload (1526 bytes)
+- double-tagged frames on a DSA conduit at MTU 1504 (1530 bytes, above
+  the 1526 limit)
+- any frame larger than MTU + 22 when the MTU is set below 1500
+
+bcm4908_enet.c programs the same UniMAC register with mtu +
+ENET_MAX_ETH_OVERHEAD. That is a 32 byte overhead, including room for a
+Broadcom tag and some padding, which suggests the old 32 bytes of slack
+was deliberate. ENET_MAX_MTU_SIZE in bcmgenet also leaves room for a
+tag.
+
+Would setting the limit to BGMAC_RX_MAX_FRAME_SIZE still keep every
+accepted frame in one RX buffer, without rejecting sizes that worked
+before?
+
+If the tighter limit is intended, could the commit message say so? The
+Fixes: tags mean this will be backported to stable.
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124003526.78471-2-piyus%40iiitd.ac.in
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121005009.59491-1-rosenp%40gmail.com
