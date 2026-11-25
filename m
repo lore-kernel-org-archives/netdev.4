@@ -1,100 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.170
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795641432;
-	b=4tvI7Pn1GbnYMOxtvn/MhnaanLa/BgL8VVF5b62L2AeC2ETBSoLXZ8AmmxVguld2NPDT
-	 ZmfJJrS0HypQXJNKEAWTncoKRk+96/GlJ96ILeR493CVqmgCwBGFVd6Tnj0yJQdVT97iW
-	 XW7UBAPbI3TelWn6AM/PMcaz3GdWChzR10iztkPcSnHMKKOmfSRVJrpRPPxyMh1erHTNM
-	 cep14lAnbWNUi4Bec1j01Hbp2Fc40Iy3n/5TgaPJvcUsCdUPQv6cww7ukxrIebnDrZVG+
-	 hzPWoGrWTtd8u/+8xcHXbM1bExYH+5qoK+oQOTUXUy+dyuNMniuNfv674EgNvEO6yFA==
+	t=1795641477;
+	b=j9dFAyMj4ELnQfyY2vEeU/JuR3/G3i3o49p2z36gDmjX/45mKJ0UhDxO282qpcwL1cIm
+	 NuXJGOSK0lI11YuxKgjMhqFPryQfo47WjcI5G2+m66mglvKGv0AhAP8W4OLOBAPRc3uVo
+	 KrXgOsIjm5tAk/qHGjTrobWSVJe9tHlnA4fqK4izo2fQeRpvovQDQ3Jg5mxV2MDUg9X+w
+	 rSbgfvx5Mb380qxbgtDPDIaTYcFG/kdukB24IugsYaQhcP5SQOhAVtz0sB7kzEo6zGRpF
+	 BticeRDfaU2HpaWIrf9pHcREnvmJMyH//KEXFxZMh/Eq3y2h9Mbhx0Uwtpo86NUVLZQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795641432;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=Xpq+0pwaGJzipp07jmvO3ANvw3Qwr0iR1BtMYGqpL5Y=;
-	b=IVBGNhYYrGGFSu6gpBDhfnUX/5ITefhL3NCuyaca6EMLkV+IPIwd5mGRCru7osr5T/v1
-	 JKGFxx2xCnd9GiTs15xzd0Y3Mxcpo0cff7i2Vgv0lPewbxgjT3H1Rh47tfS5/ElR7iJyn
-	 WnTixhta8/hL3b5QonAbm9VZHcC3crDzhqYot0tzWlFfYvKr2FrVL+0zBQp8Rt1ivZukE
-	 XTrRNgoWqWv+8tVH+EvVrfuJ53pIykfiNsF/VnsgPx7Q/Lwr11ZXNnEGac4wI3oJPc5SJ
-	 iiVqOFMow0abtc3ugC7ybtf//jrOPyAWNcqYJlKlqNdp0SIyXbwg9GvJ/ulkkc1DJ5A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795641477;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
+	b=ix6OU71SzJIFUIZAgC70w6oQWqfth+s/3yIYzU0M6LMFHiHCkN+X9HIMA9K2g8yFoWYs
+	 zidKxfTnV3QNAQaF8IIjcMgnYF8wjiAJuuiQxjUWY+wQfTcbpuJafi1OiP+MkT2IjJ2Yy
+	 Gf6ezVpLQ2NKUR4F2tmdGXtG8TAGl0xerp7dAhCjuK0NeAiuG1fYeVaz/0SZHBhuUrrgH
+	 rrDa+VQz7IDM5EpcHMvrnqC0MnNq380I1n531Yqczf1FiRND4vaAxu2qN9jfvUpmdQZVi
+	 8KYGLiW6p0e4dI1mhcynXDTalkOgp7HvXOOP8sPVrA0qgPw9T9TnKQ0jbfCl8z/yqFg==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nexthop.ai;
-	spf=pass smtp.mailfrom=nexthop.ai;
-	dkim=pass header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b="ikCqdo/J";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.170
-Received: from mail-yw1-f170.google.com (mail-yw1-f170.google.com [209.85.128.170])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YyMW2j68;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA689606A32A;
+	Wed, 25 Nov 2026 21:17:57 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YyMW2j68
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795641477;
+	b=E7EvnVMkS/uuRmwl9oAL60IdVOzZil5wBNAzr2j6uLIHZpqO8UsyxZh9okudltXziTXb
+	 GroD/NpSTDOyBReNCGwzeGbcw6iz9fxYKQkzSv+ZDGTnpe47nvEMbxbrD8GkWJzTStucZ
+	 6OVoBJ1qlWmiGXEkeB06bwtup59QOlVgsmvGsXxrDyZz4Fcw/8F/K89qPVMzomalxek4D
+	 RDmK4OehAdB6m2f/Gs5m6srKPE55/HxG1Hbm4JlD9B+3yi3nuqV0aJUKGpwL/OOnMcnyZ
+	 5TyaL7EQuCHO7ar/stI5aqWYU8/nTbXXxhwSZW7m4ra+oTkZm2IifDyTSTTMPXNQCdA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795641477;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
+	b=HKHNYgBNknSjsfxETZsoArSY4DpMYFz0pj+vwjJKGkTju4512MFDDydJiI3A4tY0Rd6U
+	 3vb88N6/LJFRlmz1JGrN9leh+SVl+JKddUnByRSVcSfhuxb8P2fN0QdwiSKsYzjIgUbnK
+	 /KSRnl09cy7mg47Lh5jGvKipjsUKNxVSsrrmkyQjaDrD6Jn+6QiyY3s7K7bBXHEoDPdP3
+	 kyoa34AfUp7yN1PVIiUOdqOQwlNgsEQhdfxrwfJNXm0qIarM77XqbJA0TVWvztoTSBHY9
+	 9MshzAVxc1AkQ3Z1YLZcU43xjKq5UL/fj/3qFEtaX0q9Zb5OSIfEg+hS6eHUsImNB+w==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D7B0C606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 21:17:11 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D7B0C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=nexthop.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nexthop.ai
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nexthop.ai header.i=@nexthop.ai header.a=rsa-sha256 header.s=google header.b=ikCqdo/J
-Received: by mail-yw1-f170.google.com with SMTP id 00721157ae682-8b4d07494b0so72957547b3.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:17:11 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795641430; cv=none;
-        d=google.com; s=arc-20260327;
-        b=CNKzi01+ru4ejjrCdRumgdglLb0ae8qn/Ii3xnB2+afd5Q65C/HFySt9y6Pi/RMcZC
-         Idasyuq+go9xnP87WAqRMSZ3dFl6kFf8r+O5ElhISWjWKaGEklbKRD/uOkOkCrJRW9gI
-         R8LcD+tZX8qFUFLofDUvcvwGhgo7B5RuzdrWUmHEsqTY9+qa/s7g06Ghan3NzCJlaXuc
-         c4VGDzNZab6ytplucqW/MjqsdhEZ9ZCDbq8jH29C7MLWrEzRF1auSeBeoUFr+DoprXbr
-         B+8zZB0yU4+vBv2b3I9SiATIGzzs0CJVjUFAscW1BLyL0lnG3zbCUVfz0jVCW2pudPv0
-         s6ZA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=Xpq+0pwaGJzipp07jmvO3ANvw3Qwr0iR1BtMYGqpL5Y=;
-        fh=2bfAKzd5fmjbhTIdcItRAxRKdd65ZVyxNrYvfBbnq1k=;
-        b=oOl09unWqOYBzG8jbhbmXvgWlM+Zs2vqJlv82Nu8ZVmaUyB6eXHWpdScbxFmakpQgY
-         K2ujmJ1OCnkruDJLPA2cUOVHPqonk+pDFpQhVELCPYIMdxluyPYJ3GkRkTVjWdr+YTPV
-         ITjBeP9LOnG+oHOXV2nk36hk9EHG9aSUid6H8eoxpYzDn3qnVQkmFdVKAtLFSnxlPPPE
-         N1z5xSebQrOx6HIqzqPId7yoZO8R8qJULAd4c3o+1fPrT8MYfjUgRpoQjhAy2Bowy21T
-         hfsrihx137WXMwqjNHKAvAQ65oJQ+6OpgLA/CQE18LNPgHrOxRoDDJF0K9gyDKyE7pat
-         jkuw==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nexthop.ai; s=google; t=1795641430; x=1796246230; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=Xpq+0pwaGJzipp07jmvO3ANvw3Qwr0iR1BtMYGqpL5Y=;
-        b=ikCqdo/Js06OZnjno0W+kIv1CiD0oR8ObGMHXOscIUzGqP28wgQViOHE7omuITw0BX
-         0k6cs0KjS+RXzmw6xE3ijiInaPQr2YTNUkoruz+Xsr5SXXKxLYZsAHzv/bm/il9q5gD7
-         hd+2fQw+XlkJZL1mT+6udr4PlowS0oxRoTFtBpOFHp5ZCTuFSxpI9tH1kYrhjWRUC+Op
-         LsBmuYcllItowU4p2kLnw+34e7kDcgDwdlGhTL+r2AIPOoNm25DfC5QaHYR6/00Dke38
-         oh3XTh0v2gEbor9gNFvPrq4rZGrpFqfZH+KDVveZM2Mj4dQB27ephNT789CrGGk0cooX
-         LjnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795641430; x=1796246230;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Xpq+0pwaGJzipp07jmvO3ANvw3Qwr0iR1BtMYGqpL5Y=;
-        b=ItqwExJqH+ERM7JqdAhIrB0kump3HWIBedor2N6WZny2K7u6FXMej6KmFMVcJvTnJE
-         ee+5LLHutAh+xC/D+QXZZlAtOhLG0kk1eDJJ6SY5QQQtUg9CEogjO2itbxsRNvhajE9y
-         AQa0c+YNDP0RaR6GbKTbYTJLLZpYPNeSrxbvr2/E5W/oUttYIeLSqKf9v1oaeDftaRUz
-         TOZoo1kCnVmX8kk/KEA7Wi4iKr9VU27BnwdQvv/u6fzWpVdSNg7vynGdjXG7NY+sJ+RO
-         HMAyNzUND51EafxPJfDEmL9op9hPN108b/VydMOHH05/SkvFtZgNE0WP4pVz0HPJrdOm
-         riJg==
-X-Forwarded-Encrypted: i=1; AL+hErHPuUCnfKGABnvpmfbtSamzR8+kYX/wjJ0qO3+JEhNsSfkLhIwKehyHDwMwzgAyo0NLw4NWfzE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9eiWs8fwd3RjpWEex+k5hUKh9VEj45UxjReN1cqnRHeOhM5Uq+
-	wc26PRhbQ1zL71oHXvLzguF+WIrgsAQPI9nNy5dTjM0RJ+5KSuC7hOBnFbd/sjg5I+rYovXYMri
-	Ypun7O/08KCzq4LTFMm5D3jsdLmQwiCj/AJuv8KT56Q==
-X-Gm-Gg: AZFdTZeD6HJHOWkrU9s0i7p/m4wWA3F3MXD8uAV5R+c1P3ItY+bO1J7ARmhep/yLhyK
-	vsWP7N/A4nzimBDLVe4y0ntRoXm2TV2E6m//3t+JTxbNVrMiot57clWc4kcKS+Mpxekpes3CDUH
-	sbT1mwlsiws81iURQ+rl1BwPOI4OoyD+lW3EgPVkqkxj9TCktJwB6I6t7Xx5WiJv0xo3FMRdTgV
-	QvFm6ToE+K7YobHrXAuk8G3F9j5AT9dhP+DVWef1pw3ro4/Z4ZdrkCr/LAdN4f/SRt1NGaYdhpK
-	D9GERDyiwivYhB4HjJIUCRs7CKBSPV66IebQoxcA4VaFtmxJvhAHxBKaTFikRRhlzDdfNr38OiO
-	ykRohN8+CHWPX3MrAn5XTZXjyYJmId9qa8OcnIlWIXnhk+6AJLvmM/+/B1SNYW+YtRbxX
-X-Received: by 2002:a05:690c:6e8b:b0:8b4:c69d:17e3 with SMTP id
- 00721157ae682-8b520501322mr76798817b3.32.1795641430719; Wed, 25 Nov 2026
- 13:17:10 -0800 (PST)
+	by smtp.kernel.org (Postfix) with ESMTPS id 612291F000D0;
+	Wed, 25 Nov 2026 21:17:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795641477;
+	bh=Q3LohTUTvTDKTOnmMCdsVFV7yA521KeB7VGeO+9OdHQ=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=YyMW2j689EtMMJMQysPk5Dbu05K41zBDSuU+1czCBdQPK2xbYgFCv2FfskS/n+qST
+	 IhMyTcDJxNqMUwEpnwuqi/1UIb1IvaJtFcDku72CCoFusdAskTZpPnU9KcV4g6EV/y
+	 DH0W4PLRV3Yfw50aFwRjPUkk/2aWms/Q7oZam+YM0N+UZGHMC58TTV6Kurxsb5D0iR
+	 +WwtRHPLM0+z+3AVxGs29TacwHGjW10q1qQQ5pbvC11f/an3CN+rhM4VGcEyUSZNQw
+	 obHbhe/yqf2qpBjfZq5Ce5BVdH05h67qyLevyECFrg5pXUb+Y2u/+3dIah3IJfIJvn
+	 AQxCYIrd06iZg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id B72D14D04F;
+	Wed, 25 Nov 2026 21:17:46 +0000 (UTC)
+From: Kalash Nainwal via B4 Relay <devnull+kalash.nexthop.ai@kernel.org>
+Subject: [PATCH net-next v2 0/2] tcp: add net.ipv4.tcp_l3mdev_exempt_ports
+ sysctl
+Date: Wed, 25 Nov 2026 14:17:45 -0700
+Message-Id: <20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e@nexthop.ai>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,54 +84,139 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120-tcp-l3mdev-exempt-ports-v1-2-ccc2a3a6cd09@nexthop.ai> <179556272812.3135.6671930746959900620@kernel.org>
-In-Reply-To: <179556272812.3135.6671930746959900620@kernel.org>
-From: Kalash Nainwal <kalash@nexthop.ai>
-Date: Wed, 25 Nov 2026 14:17:00 -0700
-X-Gm-Features: Aa3M54qAjb6VOUA_FXJBwfwYAI4hdIT50Z_FnPsv-oL5ve_wAb0briVt4LVCUPY
-Message-ID: <CAAv61uR_cfj-tcqjf2q1KYDVxENmwJmjfR0M08Jk65iiQaj2Mw@mail.gmail.com>
-Subject: Re: [PATCH net-next 2/2] selftests: net: add tcp_l3mdev_exempt_ports test
-To: netdev-bot+sashiko@kernel.org
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, 
-	pabeni@redhat.com, horms@kernel.org, corbet@lwn.net, 
-	skhan@linuxfoundation.org, rdunlap@infradead.org, dsahern@kernel.org, 
-	idosch@nvidia.com, ncardwell@google.com, kuniyu@google.com, 
-	netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAHlQB2sC/4WOQQ6CMBREr2L+2m/aEkhw5T0Mi/L7kRppm7Y2G
+ MLdBTyAy8nMm5kFEkfLCa6nBSIXm6x3m1DnE9Co3YPRmk2DEqqRUgnMFPBVTYYL8sxTyBh8zAm
+ pHWozcM9V3cBGh8iDnY/mOzjO6HjO0P2c9O6fTHkv3rOjTdnHz3GiyIP4u1ckCiQipSvdkBHtb
+ R8YfbhoC926rl+pVAgu2wAAAA==
+X-Change-ID: 20261120-tcp-l3mdev-exempt-ports-c9f5dfebe356
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+ Jonathan Corbet <corbet@lwn.net>, Shuah Khan <skhan@linuxfoundation.org>, 
+ Randy Dunlap <rdunlap@infradead.org>, David Ahern <dsahern@kernel.org>, 
+ Ido Schimmel <idosch@nvidia.com>, Neal Cardwell <ncardwell@google.com>, 
+ Kuniyuki Iwashima <kuniyu@google.com>
+Cc: Shuah Khan <shuah@kernel.org>, Joel Granados <joel.granados@kernel.org>, 
+ netdev@vger.kernel.org, linux-doc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+ Kalash Nainwal <kalash@nexthop.ai>
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4398; i=kalash@nexthop.ai;
+ h=from:subject:message-id;
+ bh=gL/eOMgLt2xrx8fI3Mk4bs+cV56GAlBQ2KWpr+GQrDw=;
+ b=owEB7QES/pANAwAKAdTKslu1X9B2AcsmYgBrB1B5M7xrqSbAKxNuP3sEOE16/RtTSoroHMNR/
+ dacFmbMmzaJAbMEAAEKAB0WIQSWKdfHnHcAucb08LDUyrJbtV/QdgUCawdQeQAKCRDUyrJbtV/Q
+ dhpTC/9MGgLNn849nJhgPys67rtFmcKAntVW9pYhI5Cbws2z2r8JbXw7CL6VSBWDUgSFkYBdgKv
+ 8XT4Rzule/r1wEpFYOLTEaaWKsU7Kjup6ixO01BvoseO3Fsfyt5kObIu6+xTVbp2cnLOOdRASFs
+ 7Vq60grwUc5MVKxVt6s21hHW72ySCZ7rLhMG2+YQqDB4dzS21vPZrHyNN6Z/oH0ipAUJszkCvmK
+ uL1V87t/jiQUkrFHMIJSBqaX+ibuAQ9qiSEgMiInSNH9RPBBlhqUIH9V/mLMQDnlEXe6eVFXgMi
+ CtgoQHKMMROHcdo+qccg2HciMfSqis9due22AczJ04AQYSan3xa67/jJf6y/Rdkn6f6kZCbQdHw
+ /zup3MtEL+HUjDjmlAfCxtjuXoKE6GAcBI6n9ED//+NJJ70NwwQb/rReQbv/vaJ8ksHx6EbnPE0
+ MWtnSodiwtxc5RGZ0qvkvgfrb1liARaOLEWFt15glHY6Y91pqJ94t1Ci8zZAmXbjOMV90=
+X-Developer-Key: i=kalash@nexthop.ai; a=openpgp;
+ fpr=9629D7C79C7700B9C6F4F0B0D4CAB25BB55FD076
+X-Endpoint-Received: by B4 Relay for kalash@nexthop.ai/default with
+ auth_id=1588
+X-Original-From: Kalash Nainwal <kalash@nexthop.ai>
+Reply-To: kalash@nexthop.ai
 
-On Tue, Nov 24, 2026 at 4:25=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 5 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 3
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] vrf_and_unbound_listeners() in
->   tools/testing/selftests/net/tcp_l3mdev_exempt_ports.sh waits for the=E2=
-=80=A6
-> - [Medium] selftests: net: missing VRF and l3mdev prerequisite checks in
->   setup()
-> - [Low] The negative checks treat any non-zero exit from nettest as the
->   expected 'did not get the connection' result.
-> - [Low] In unbound_listener()'s 'exempt, VRF conn to unbound listener
->   rejected' subtest (lines 117-125), the server is started in the=E2=80=
-=A6
-> - [Low] selftests: net: tcp_l3mdev_exempt_ports.sh bypasses lib.sh
->   helpers
->
+With net.ipv4.tcp_l3mdev_accept=1, an unbound TCP listener also accepts
+connections that arrive in a VRF. When a VRF-bound listener exists on
+the same port and both use SO_REUSEPORT, the lookup does not prefer the
+VRF-bound one: inet_lhash2_lookup() returns the reuseport pick of the
+first socket that beats the current best score, and the two sockets
+are in different reuseport groups. The winner depends on bucket order,
+and AF_INET6 reuseport listeners are added at the tail while AF_INET
+ones are added at the head, so IPv4 and IPv6 behave differently.
 
-Thanks. All of these are fixed in v2: the test waits for the listeners
-with ss, skips when VRF is not supported, fails if setup fails, requires
-a timeout from the listener that must not get the connection, and uses
-ALL_TESTS and check_gen_prog.
+We hit this with a BGP daemon that has a TCP-MD5 key on its VRF-bound
+:179 listener and none on its unbound :179 listener. IPv6 VRF peers
+reached the unbound listener and came up without MD5. Setting
+tcp_l3mdev_accept=0 is not an option because other services on the
+host need it.
+
+Patch 1 adds a per-netns port list, net.ipv4.tcp_l3mdev_exempt_ports,
+modeled on ip_local_reserved_ports. For a listed port, an unbound socket
+does not match VRF traffic. The check runs only for VRF traffic
+(sdif != 0) on unbound sockets, so other lookups are unchanged.
+
+Patch 2 adds a selftest.
+
+Testing:
+- New selftest on net-next in virtme-ng: all 10 cases pass. Without the
+  port listed, the first listener in the bucket wins (IPv4 fails when
+  the VRF-bound listener is created first, IPv6 when the unbound one
+  is).
+- The same change on 6.12, with a BGP daemon over a VRF with TCP-MD5 on
+  hardware: the IPv6 VRF session now uses the VRF-bound MD5 listener.
+
+Why a sysctl rather than changing the default lookup: with both
+listeners present, existing setups get a result that is stable but
+depends on creation order and address family. Making the VRF-bound
+listener always win would change that for every tcp_l3mdev_accept
+user, so this series keeps the default and makes the new behavior
+opt-in per port. If changing the default is preferred, I can rework it
+that way.
+
+Alternatives considered: a BPF sk_lookup program can do this, but needs
+a loader attached in every netns that runs the daemon.
+
+---
+Changes in v2:
+- Patch 1: only build the sysctl with CONFIG_NET_L3_MASTER_DEV, next to
+  tcp_l3mdev_accept.
+- Patch 1: say in the docs that only listener lookup changes, and that
+  a listener bound to the receiving device also matches.
+- Patch 1: add the field to net_cachelines/netns_ipv4_sysctl.rst.
+- Patch 2: wait for the listeners with ss instead of a fixed sleep.
+- Patch 2: skip if VRF is not supported; fail if setup fails.
+- Patch 2: require a timeout from the listener that must not get the
+  connection.
+- Patch 2: use ALL_TESTS and check_gen_prog; fix shellcheck warnings.
+- Wrap lines at 80 columns.
+- Link to v1: https://patch.msgid.link/20261120-tcp-l3mdev-exempt-ports-v1-0-ccc2a3a6cd09@nexthop.ai
+
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Simon Horman <horms@kernel.org>
+To: Jonathan Corbet <corbet@lwn.net>
+To: Shuah Khan <skhan@linuxfoundation.org>
+To: Randy Dunlap <rdunlap@infradead.org>
+To: David Ahern <dsahern@kernel.org>
+To: Ido Schimmel <idosch@nvidia.com>
+To: Neal Cardwell <ncardwell@google.com>
+To: Kuniyuki Iwashima <kuniyu@google.com>
+To: Shuah Khan <shuah@kernel.org>
+Cc: netdev@vger.kernel.org
+Cc: linux-doc@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-kselftest@vger.kernel.org
+
+---
+Kalash Nainwal (2):
+      tcp: add net.ipv4.tcp_l3mdev_exempt_ports sysctl
+      selftests: net: add tcp_l3mdev_exempt_ports test
+
+ Documentation/networking/ip-sysctl.rst             |  24 ++
+ .../net_cachelines/netns_ipv4_sysctl.rst           |   1 +
+ include/net/ip.h                                   |  15 ++
+ include/net/netns/ipv4.h                           |   3 +
+ net/ipv4/inet_hashtables.c                         |   5 +
+ net/ipv4/sysctl_net_ipv4.c                         |  21 ++
+ net/ipv6/inet6_hashtables.c                        |   4 +
+ tools/testing/selftests/net/Makefile               |   1 +
+ .../selftests/net/tcp_l3mdev_exempt_ports.sh       | 260 +++++++++++++++++++++
+ 9 files changed, 334 insertions(+)
+---
+base-commit: 2208ab00f4f213ade91ab775e7f8c4dacdcc856e
+change-id: 20261120-tcp-l3mdev-exempt-ports-c9f5dfebe356
+
+Best regards,
+--  
+Kalash Nainwal <kalash@nexthop.ai>
+
+
