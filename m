@@ -1,99 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610539;
-	b=Vwj2TT1VkkF77WlR4NsY5Vm2nRo9C+JSY8vz1fRQ4FCP5zLdB07Bp8w7j7HyTlFWe73d
-	 SR89Oy7F0QGID841MCJET8bsVakPlDCKEhu4xc5ZvtqL/YBkYlvEWskvwEp2JuDGf0lHa
-	 leyq2A2kPMV2LD2L0d9/lprhbUSPSkpCnwYkVHk18rBCU/aK2PEU4bHm9L/IhFuP3EMnD
-	 bBOc5oqYBSZlutvRalVZWv+OJDycHxBnNQWwWrSMMPUmUa+nIOuWa+ySCmozVn43an5Hi
-	 pxeDe6z8AKzfrjLlyoFsniHgSy1aQl4fLaxqPyOnRll5qG1h/LWC1/tfcyYiwG001Pg==
+	t=1795610739;
+	b=lQf2rOc4a2RMXUvz4/9TDOKFmV1lJf90RHT2XeesiqrHZ8HDBpfY9hcYrB/b0YJ6ASfO
+	 CvNqgIPZGGBRzoRG44kUTazACumq7AOud28DLE7RmmOTA/jNd+vE8b4zIlGYhJ+z+sCl7
+	 gSPiZ4dQMClGW/hYBsnXEcGkJ+Sx0Q7Gx01STJXtFZTW+g2TfWxQOekGAXtnaDvJhUujF
+	 G3s0ijGlC3yVGcsHCtpHExP9Mz5SiTEUVLfxwKP4xQ0R2Wd1oNs1pJCG0JBZY8tI+fwOc
+	 zEbuVkaKZWlig1EDBXbuwoM8jL0RsuYyfvK3DK9wZQyAnf+GUwNmG+n4Yc+cPP2/b5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610539;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610739;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Fz1HrHRhCPEILfFit7EgeydABb/j/p9kGIL6sGWoE88=;
-	b=NUqg2xKSQct1V3l9OW8Ez85hilnTSfJgBfvIgLiryxGXpdMj123rXN/UN14iW8hrvNT1
-	 Rb0aYcaRdPTLzWd0t9EhuKj9vh8zwlzywV8K53xtIS1HD6tUM1/yukGj1uKBhDTEgNDk1
-	 W5mkqstMsf9Vsv7BxQJR1gOYE2X9iONxrgBd9FceMn7Ksa/TdsKvoahcStwwjmyIW7NaL
-	 XVHgl1kUnNvSkU80eBLBcEHMFhixAKZQXE0cDgq0ybDJJj4v5Y0J/cZ1o0IhxBxE4m0E/
-	 yGNTlmlR1lflwP8nHf5/qI01fnuvuFD7XtuKUKMFmhgy8/j9cVxZax9muwW+mlp8cwg==
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
+	b=Dp4Au7CBlFbRNFE749UpYo10No/XT23oZZjihlHHv/S2XE1KnEo8t8I3jZyiiq7n9WhL
+	 druMHnw84dhj9oyKq2EsjP0gA7+MK5YfYuKT7oFzHRXCcPMWckmMdN48hW+klvCLVs1/c
+	 /Wt6rYZE+/oTtg5VFx9NhmpNWTp3pQr9lK6zZyJLztlSOeoDRJ/1FCzL3zYzKnsR9aLq5
+	 2gfHqtMZZSgznHLzieSDjJPvfwqnCAqCenIZcKtoLnX3Ln6Xt/hV5htRvzEAXRbr4LUhr
+	 OpxrvNp655M/S/YxYez96kBgArQXxasMCJbVACNeq25KXN0fjQbyYwXbkKvZv0xLT5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GHV8uFYW;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vud2LTlg;
+	arc=none smtp.remote-ip=209.85.128.51
+Received: from mail-wm1-f51.google.com (mail-wm1-f51.google.com [209.85.128.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37BE7606A32D
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:42:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37BE7606A32D
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83A03606A332
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:45:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83A03606A332
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=GHV8uFYW
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-3863db981d4so7960175eec.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:42:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Vud2LTlg
+Received: by mail-wm1-f51.google.com with SMTP id 5b1f17b1804b1-4a9a8d6cea8so73673535e9.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:45:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795610538; x=1796215338; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fz1HrHRhCPEILfFit7EgeydABb/j/p9kGIL6sGWoE88=;
-        b=GHV8uFYWATG6RH123GTMku2BDs1rhKCmw9ndUPvy6nQTokgKOKcwk2TeFVyKVWpUv4
-         g9Npy1QIgamKzL6ZIL2UmDgMfFLJo1ch6LoM4/RybjaT6LP0zUls7VCbqDymuF1lVjpT
-         L0kQnC966QcIH+l0AGg1tfpD1cgrKRdiCYt60N1hpWJqGNOcHjBlQpl38X/hWaflMHFj
-         BgCQwikZVorLmWhoV/ahGEDU8B9f9cazTIFLXftBwBJIwj7xrPMJY6MvXF6pt6VfhkI3
-         uE1ahApK8jIZFKbxBy6ZV2MLc9MZnuR7JgY5u5bx56visACnasTg11kXOCeR5tZB9+PU
-         Zvbg==
+        d=gmail.com; s=20260707; t=1795610738; x=1796215538; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
+        b=Vud2LTlg4bg+1/37o+Cst/0aGdxrJ6W3Tp/rVd6l2vVhvG4dFi3TP84W8UhlkRa4td
+         +64nQiKhh/jBsVID2R3Ud4zwks1TJP6oDt30N+qHCzT7MVd87U31fZ4WGJNYfoMeJbPT
+         Ngz+Ro6FI0edvNEiJG8sPHIy0I+c7lBshMWlM+cFNaE223Obwrrw4tCKFAzjrb65gl8H
+         AGdXlyrHueMZb+UvN4yF81GbdMCB5yp2LgksHKzQRhb84YCQvkzwLfAsvJqs29CoqD8i
+         zmuPB6WrWXVF7E9jyFuyNI1PXxER2zZcT4WaM33KpCL2qby8Y+Iq1UHJpjx8ZeLoVtcF
+         PlQA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795610538; x=1796215338;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795610738; x=1796215538;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fz1HrHRhCPEILfFit7EgeydABb/j/p9kGIL6sGWoE88=;
-        b=cvY5WN/HfmoUIdMEHoGTmUFI/L1O2rtDWlpqlzfefFUP8pPz4ryiiNO/oXuGlVnKal
-         PLDWfkCgjbQ9HvZH+MzTFDqbl10nXZiQfX8HlzLnLECfe2C2LjrfNeWhj7+eoPUFaOyz
-         IaCtcyWgpfxZZGWDknpRsdAg8E2qXUb7U3PAdLbhLhl3HBir4bjpOmFnClhF17yr0fDA
-         nFU0UiKUM7DOElPggdq3eICqAqS+hB76o5y9UJ2AZCIu+fQHKCJ/ANpwHMHY5mm48DHE
-         75kLR9wYqLQlAZz8dlqo95Vh7CVYQtP/9PTgY2AVJtgDQsDH5NhOLZ2JKgZNUshXRo+a
-         D0lg==
-X-Forwarded-Encrypted: i=1; AL+hErEEfSQw99jy1ERSD7c2ib0Znbvn+F6/D66DcUKxf5IAC91aX8VtjCCL0F3o4FqL4tWYGgPsrH8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z89crBGJJ4QwYrl3plAxSXw22JZ6Yy4W/VnMx3kH8t8RmIY12Ig
-	UK5hNKHCHXB8ONR1O/JK/WkHBsLBW3WaDO32w4vCmGuNmWsS3SVVUHM1
-X-Gm-Gg: AZFdTZejJ4N9z49s4VSSkw1Lnm0s2Eiv8YT40UKWHyclPygWF2zIHIr2sohU4ILiM/m
-	vscnF/Ijk/9fGNgDH+1ulUdhvw9nGvZqxDcJ37mbGHeh6xkQeKP9k+q3AbLAC5Cb6H2fshHSlDS
-	Syuha53ByDz8D7zaI5cyabbkoEeMHGdnTUOSmdVY1QVb8LSY1UEFFsyHDnDcB7GZD8ttFcSCN89
-	B6aQgE7TzZQ22Qx3vSf0c2YTT7VT0gb/wVLh4B/+b+6sWlH3CqyM+DFcnzNibiQ7WFnyi5Qg7hC
-	YBlWLo0uH0SBbbpyVXvGuxZ1BOmjSfHHrG1Vyn00GujQDQDapR85CAQmpqEAzMYk7EMnEyGrpD8
-	ppqD/Fovs6reh36JnNdBmlrciiwMeUboprXxpDPBigkNwd6EwvjFL20lm8BWy1mTgxiUztEHEw4
-	LDVYcbl1JYOPzUEgVPqDALHhBE9RLtCKr+6eFGlzBmujgV3qYzfgOnebemL0qXh4CRDCOYJaP1Z
-	iOvN5NtN4SY1l3MnCFGqWvpJLoTAyNfz+9kAOQ5bTsm+tXLafkvWlUHegF+4hnLUrL65vnX83kc
-	Lsy94epE0M4GuRyPygF4mcZiY+j8uVSM0TNBVD4RMPT6lklRBg==
-X-Received: by 2002:a05:7300:cf8f:b0:386:a728:6c12 with SMTP id 5a478bee46e88-386a72873femr11019596eec.8.1795610538260;
-        Wed, 25 Nov 2026 04:42:18 -0800 (PST)
-Received: from localhost.localdomain ([112.170.44.210])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm2132195eec.2.2026.11.25.04.42.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 04:42:17 -0800 (PST)
-From: Junyoung Jang <graypanda.inzag@gmail.com>
-To: Eric Dumazet <edumazet@kernel.org>,
-	Neal Cardwell <ncardwell@google.com>
-Cc: Junyoung Jang <graypanda.inzag@gmail.com>,
-	Gwanhyun Lee <gwanhyunlee@gmail.com>,
-	Kuniyuki Iwashima <kuniyu@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Mina Almasry <almasrymina@google.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net] tcp: do not BUG on an unreadable urgent byte
-Date: Wed, 25 Nov 2026 21:42:11 +0900
-Message-ID: <20261125124212.4145820-1-graypanda.inzag@gmail.com>
-X-Mailer: git-send-email 2.43.0
+        bh=qCN9DtRdE/+gcLb8xRI6LYPt6eU/gxBRp9uUHYDGFwU=;
+        b=CJY33rSCWxLlepVq5qGZN1rPLs/XyqQcsMJeFKloG+fv49G97L/7HDAJ3ms31Vab4r
+         RoQTKPlSsCfBNSUS6rP69kKhL9wlpXhlH47VUVC/DdoouuOljfAee3U/pnhi2dhXcFKA
+         ke6dHIRrN7PKzATsgGh+YEB3UUoRMUklB6HJxYJJx/ZIlBqCOpX0FQo6hxDaOgG+10RS
+         g6hZxk90JqrUfALw/tyeiXUOEdBfet7pq935WtuSfu807sBjFuLNw/hzpWYRclgfWk9Z
+         9M/DIPqH2wHKeckq/t8qp7sV51WZcycT8utTTgmr/ZJ3KNPS8inZzq92kOFthELNfQ07
+         DWSQ==
+X-Forwarded-Encrypted: i=1; AL+hErEjT5SUGcViYpdHQdZYpNhYmgAnB/j1MixUnnbFnSa7sb/kW2c2zGnby3IKnWkFohKcTewFFEQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8EkvzFwr03coq8rAidAl7X6a6T9idfxcbLnediIVqeQd0md/HC
+	S0aA2p8m3nuI+/PpIa7taiko69wRWnVa6+Oqho8+yzA0HXh4AB/5yuJ0
+X-Gm-Gg: AZFdTZcFf/6nMEbIWIs4UKMod4IA/dEq6qry//Isd0WA6MhoWyu/PUwhbWvCjkLR6Rp
+	rpCjv39aE+hKPnnDsP6z0jnq6q3d22bkd1S6uHddCddv+QJzgd1Vu4ACP/3ynbME9IwjPG0t9ER
+	IBnCxkpAMenlWJAQK9vTmv02nDNjulKXwCMFk3j92ZvefHhpiq3/QFGcPFSGeyEzIxvZcB/X1QL
+	x+RckH1LQgKywqfECJZaVDBWmuXkTTIWLFjAVX7yfRjdmeMb5UHHjwulTR2q4PfYlSWKfxS0KtK
+	KjI6gWflZBQZfUK2Z/yD//4Q1bIK03zmBxSM3hcYtIAqLJwbvpU3K3P64MFEwwoMIhwhNKFzCET
+	WSamSCwX+UhhXwBrJ94TpUgo+FMi00GrHE6ZS1W6cWxnaGIVQybkcuW8RWlcCsKKSqRUDhoh2GT
+	CagJWgF19Se1GWp49X8rICT/3niiDuxuve7lU52D9WR4g+3AwNgnt+/eMJNST51zbt0pDV0680Y
+	EY41t9863orhAe+3I9YH9evN6XFpbdSW4KQWvR5edFu13TdPCEnwPD24jJ608aJR+0Ycmb5r3/C
+	kXXf7nzb47tpjrrYBCLUhCEyQ9bG4cFi108ZUNf3OutEHnm09u/zlkvr6PX3vhSAIbzQRcheJBy
+	6QfO+2uA10q8=
+X-Received: by 2002:a05:600c:8905:b0:4bb:6816:127c with SMTP id 5b1f17b1804b1-4bb861468cdmr344483245e9.8.1795610737633;
+        Wed, 25 Nov 2026 04:45:37 -0800 (PST)
+Received: from [192.168.0.36] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab65cb4341sm34358805f8f.4.2026.11.25.04.45.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 04:45:37 -0800 (PST)
+Message-ID: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Date: Wed, 25 Nov 2026 12:45:36 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,59 +91,154 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across s2idle
+From: Tobias Heath <heathtobias@gmail.com>
+To: Andreas Noever <andreas.noever@gmail.com>,
+ Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
+ <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+Content-Language: en-US
+In-Reply-To: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-tcp_urg() checks that the urgent byte offset is within skb->len and
-then calls skb_copy_bits(). The byte can still lie in an unreadable
-Device Memory fragment. In that case skb_copy_bits() returns -EFAULT
-and tcp_urg() calls BUG().
+The current implementation of tb_switch_suspend() / tb_switch_resume()
+writes ROUTER_CS_5 SLP into each USB4 switch on entry to s2idle and
+rebuilds the tunnel on resume, independently of whether the host router
+and connected switches actually need that teardown. On AMD USB4 host
+controllers (verified on Ryzen AI 9 HX 370; same expected on Phoenix /
+Strix generation hardware), the switch config survives D3hot intact,
+and the mandatory rebuild produces an entirely avoidable re-enumeration
+cascade on wake:
 
-Mark the byte as TCP_URG_READ when the copy fails. Leaving
-TCP_URG_NOTYET pending lets a later segment retry the old urgent
-pointer: the unsigned offset can wrap into that segment's TCP header
-and return a header byte through MSG_OOB. Clearing urg_data instead
-would drop the urgent-byte hole and make ordinary recvmsg() hit
--EFAULT on the unreadable byte. TCP_URG_READ prevents the retry and
-lets the receive path skip the hole until copied_seq passes urg_seq.
+  * Every downstream USB device goes through USB disconnect + fresh add,
+    device numbers increment, open file descriptors onto those devices
+    are invalidated (audio streams interrupted, filesystem mounts
+    unmounted-and-remounted by udisks, etc.).
+  * PCIe hot-plug fires for the dock-side bridges.
+  * The dock's PD controller is reset, producing a 1 - 2 s
+    ADP1 ONLINE=0 blip that interferes with any userspace relying on
+    AC state at wake time (for instance systemd's HibernateOnACPower=
+    policy).
+  * resume_devices takes ~2 - 5 s of avoidable work.
 
-A custom LLM agent developed by the authors found this issue.
-The author manually reviewed the root cause and tested the reproducer
-and fix. A test-only netfilter module put a loopback MSG_OOB byte
-in an unreadable skb fragment. On a 7.4.0-rc2 KASAN kernel, the
-original code hit BUG(). The return-only fix avoided the BUG but let
-a later MSG_OOB read return a byte from the next TCP header. With
-this fix, that read returned -EINVAL, and a normal MSG_OOB control
-still returned its byte. A test-only KUnit case seeded TCP_URG_READ
-on a synthetic NET_IOV_DMABUF skb and confirmed that a successful
-MSG_SOCK_DEVMEM read clears it. Device Memory hardware was not tested.
+Add a module parameter, thunderbolt.s2idle_preserve (default: off), which
+skips both the tb_switch_suspend() teardown on suspend_noirq and the
+tb_switch_resume() + tb_tunnel_activate() rebuild on resume_noirq, when
+the sleep target is PM_SUSPEND_TO_IDLE. S3 and hibernate paths are
+unaffected.
 
-Fixes: 65249feb6b3d ("net: add support for skbs with unreadable frags")
-Co-developed-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Gwanhyun Lee <gwanhyunlee@gmail.com>
-Signed-off-by: Junyoung Jang <graypanda.inzag@gmail.com>
+Measured on GPD Win Max 2 with CalDigit TS5 Plus dock:
+
+  Default upstream:  resume_devices = 2.6 s; USB storm per wake; AC blip.
+  s2idle_preserve=1: resume_devices = 0.2 s; zero re-enumeration events;
+                     AC stable; downstream connections (audio, storage,
+                     keyboard) survive unchanged.
+
+The opt-in gate is deliberate. Where the TB tree is not preserved by
+hardware across s2idle (e.g. some Intel generations under specific
+firmware configurations), enabling this would leave the kernel with
+stale state at wake; users are expected to test on their own hardware
+before enabling.
+
+One known caveat: a wake event originating from a USB input device on
+the host's own xHCI (not routed through the dock), while a TB dock is
+connected and preserve is active, can produce a quiet resume hang on
+some hardware. The resume path appears to enter but never completes;
+no DPM watchdog or softlockup fires. We were unable to capture a panic
+or stack for this case. Workaround for affected users: route input
+devices through the dock. Likely root cause: tb_switch_set_wake() is
+not called on dock-side routers when preserve skips tb_switch_suspend,
+leaving the dock's routers unaware of a wake coming from elsewhere on
+the system bus; a future refinement might split wake-arming from the
+teardown path.
+
+A second, more serious caveat is the reason the companion atlantic
+patch exists: unplugging a Thunderbolt device during a preserved s2idle
+window surfaces a pre-existing atlantic / pciehp deadlock that panics
+the kernel after 120 s on DPM watchdog. See the cover letter.
+
+Signed-off-by: Tobias Heath <heathtobias@gmail.com>
 ---
- net/ipv4/tcp_input.c | 6 ++++--
- 1 file changed, 4 insertions(+), 2 deletions(-)
+ drivers/thunderbolt/tb.c | 35 +++++++++++++++++++++++++++++++++++
+ 1 file changed, 35 insertions(+)
 
-diff --git a/net/ipv4/tcp_input.c b/net/ipv4/tcp_input.c
-index d9a66a1342ef..50c0da17923e 100644
---- a/net/ipv4/tcp_input.c
-+++ b/net/ipv4/tcp_input.c
-@@ -6390,8 +6390,10 @@ static void tcp_urg(struct sock *sk, struct sk_buff *skb, const struct tcphdr *t
- 		/* Is the urgent pointer pointing into this packet? */
- 		if (ptr < skb->len) {
- 			u8 tmp;
--			if (skb_copy_bits(skb, ptr, &tmp, 1))
--				BUG();
-+			if (skb_copy_bits(skb, ptr, &tmp, 1)) {
-+				WRITE_ONCE(tp->urg_data, TCP_URG_READ);
-+				return;
-+			}
- 			WRITE_ONCE(tp->urg_data, TCP_URG_VALID | tmp);
- 			if (!sock_flag(sk, SOCK_DEAD))
- 				READ_ONCE(sk->sk_data_ready)(sk);
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 57c11ba13..f48c365be 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -11,6 +11,7 @@
+ #include <linux/delay.h>
+ #include <linux/pm_runtime.h>
+ #include <linux/stringify.h>
++#include <linux/suspend.h>
 
-base-commit: 37fa509e43ba59d7c329025436e8ea64bdf089d7
+ #include "tb.h"
+ #include "tb_regs.h"
+@@ -49,6 +50,22 @@ MODULE_PARM_DESC(asym_threshold,
+ 		"threshold (Mb/s) when to Gen 4 switch link symmetry. 0 disables. (default: "
+ 		__stringify(TB_ASYM_THRESHOLD) ")");
+
++/*
++ * Experimental: on s2idle entry, skip the tunnel teardown so the host router
++ * and downstream switches keep their state across Modern Standby. The TB
++ * switches stay in D3hot with their config registers intact; on wake no
++ * re-enumeration or tunnel rebuild is needed and downstream USB devices do
++ * not re-appear with new device numbers. Applies only when the sleep target
++ * is PM_SUSPEND_TO_IDLE; S3 and hibernate are never affected.
+Runtime-writable.
++ * The suspend-time value is latched for the matching resume.
++ */
++static bool s2idle_preserve;
++module_param(s2idle_preserve, bool, 0644);
++MODULE_PARM_DESC(s2idle_preserve,
++		"preserve TB tunnels across s2idle (default: 0, off)");
++
++static bool s2idle_preserve_active;
++
+ /**
+  * struct tb_cm - Simple Thunderbolt connection manager
+  * @tunnel_list: List of active tunnels
+@@ -3109,6 +3126,15 @@ static int tb_start(struct tb *tb, bool reset)
+ static int tb_suspend_noirq(struct tb *tb)
+ {
+ 	struct tb_cm *tcm = tb_priv(tb);
++	bool is_s2idle = (pm_suspend_target_state == PM_SUSPEND_TO_IDLE);
++
++	s2idle_preserve_active = is_s2idle && s2idle_preserve;
++
++	if (s2idle_preserve_active) {
++		tb_dbg(tb, "s2idle-preserve: skipping tunnel teardown on suspend\n");
++		tcm->hotplug_active = false;
++		return 0;
++	}
+
+ 	tb_dbg(tb, "suspending...\n");
+ 	tb_disconnect_and_release_dp(tb);
+@@ -3175,8 +3201,17 @@ static int tb_resume_noirq(struct tb *tb)
+ 	struct tb_cm *tcm = tb_priv(tb);
+ 	struct tb_tunnel *tunnel, *n;
+ 	unsigned int usb3_delay = 0;
++	bool latched = s2idle_preserve_active;
+ 	LIST_HEAD(tunnels);
+
++	s2idle_preserve_active = false;
++
++	if (latched) {
++		tb_dbg(tb, "s2idle-preserve: skipping switch_resume and tunnel
+re-activate\n");
++		tcm->hotplug_active = true;
++		return 0;
++	}
++
+ 	tb_dbg(tb, "resuming...\n");
+
+ 	/*
 -- 
-2.43.0
-
+2.56.1
