@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566168;
-	b=slgUhoEIqnflNmRlnEPxnlA4sHxBE5KBPdn6L7uQjChAQJqjkS+6d2zCp6fUlNgnFY1O
-	 6Hyg7NM6oZWop8BsC1jiC3P2WS9Nha1wdWXoUrl0sLncmkMyWeUMVbPta03+m+lFf91K+
-	 lDVJyrLUfY+Uczgjvt69UliiJph6WtB432UBcYnLoX6W74hO6yJ+sOHUPI5axnRsbXOU9
-	 LPL6eTTMcNNUaCzFSAN3erD6QyLUoQCmA4gqdcHGdCr4nN6mAyyYvrzGFhLO4LdvyUMhf
-	 2CkySrCnYeZSf7c4sgVx7DR3pwG81KT8abJeMW9GJq1tetbP9X8UCfa+YkIy9kBSeUA==
+	t=1795566171;
+	b=c8K5otChmApQAjwrx30+fsVeyO3w43QsQmDdg5+xT2rkI+XfE17/i23QxNtJdmonuP53
+	 /ZjXDP0hw8AN75ZlfZb3CpuQfkpb2hnT60F+JqvTzsn8OwQIjJBuU8VdcHmdstJQX3CEG
+	 Q3qX9CSM6/fdKEThmyECL8xKRCoLCtSd2oxJr+7ss83FdFUSpTzjmLT+ROs2hA45+qGmo
+	 7QoI6OVNsk+iPvr1HAapb6aF7DVpE8ASRe68Mzg/KxlF9Qe/ino+/e/uWZanjjg6WuGo+
+	 0xO6A0nlr25U4qWYczfUN5FE+60RqQjWiuu3yaHMyM7DvILgwuTgFq1wuydvdrKegoQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566168;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566171;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=fFHXo58/fNBdfaSZCGyJqa/5U7TOcz5+BW067Fe/1IU=;
-	b=xRJbckOM8iV1oXah8n1rWRgOrxtyqaT0qFKmNepKtZ+D5lyJQN/H5oYqoOUZyJyRMKtu
-	 E8QQUV/1Kv3FzQpXJlAx4seop5xEu6JH1AlWEAyCPC7e03FUnBsx0phdeXIqa3xsmKOss
-	 MfPkp6GzLaMegV/jpMQZ5tFBiW03PS5lms8wYLPX8h8oEQeanTycDW+uTuKDnOi7WlgSf
-	 +CTzTf73AgfdC/jK7kB2C0LGxCErqdUa/IzK4Pq6iIX4mSpiwKb3Q/TJ0pHxQ4GpBgAbq
-	 T5XY6arxAtjeXKibRxoZd5b9OMx+Os1Z2qT/RN5Vs4cikL6xvfkkNpqGfTcDdhGOPpg==
+	bh=KHHHr0SM/T2s4jZq5GOtf7zF3qLtJzGFhWPknayndBg=;
+	b=qPVr8dAA+MpNFFxQmzyioi2gQEMbh3D86RHNfA1XuCysDMo712PU/g0xWPoP1+4aNvjm
+	 BngG4jnDWK0Ki/B0hm18JKTiSyhZrFORhhEWODyUEAjyt1LOX6MtxTCihk75JdLRm8+S4
+	 w5OxRDAfPwkLzdQarPnruIrn0FqMormqes1IFHFHD7uwfkJ8td1U7DhaGrXqSB0P5NFgT
+	 WeQi0mJJl70oLMh1lCwYbTmVyFBUV16rYE8Tnp24pJts5JDVyVc7NCHI9JXoHnnJCqqS2
+	 rw1WYPIVR+qyaV2yjAikgWF3t7lH1RkjecHZ5nVipaxcM1B8Va5qqxAYmIN87PmG6eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=openvpn.net;
 	spf=pass smtp.mailfrom=openvpn.com;
-	dkim=pass header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=Q84vMVwo;
-	arc=none smtp.remote-ip=209.85.221.50
-Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	dkim=pass header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=RSX1gcpR;
+	arc=none smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AE73606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:22:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AE73606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F125606A333
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:22:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8F125606A333
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openvpn.net
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openvpn.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=Q84vMVwo
-Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a357b1c649so3003370f8f.3
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:22:48 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=RSX1gcpR
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-48e09aa5264so2942418f8f.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:22:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openvpn.net; s=google; t=1795566166; x=1796170966; darn=vger.kernel.org;
+        d=openvpn.net; s=google; t=1795566169; x=1796170969; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=fFHXo58/fNBdfaSZCGyJqa/5U7TOcz5+BW067Fe/1IU=;
-        b=Q84vMVwoDZNQgAzJNZlilxcv/iQ1Cb0dv+hHwqGihFxDMueuznGGRUB2dCzO2eaxKJ
-         7z8J8NltHhMnbgeRlqLj+XMxqPynj9OdOgEN+34A5kLCaFVUXpqqKPTmD0Drwk9qdwsz
-         a35Xe6Vi/fpJmRZpA4mWfUJ4J1iWLqi8doVmg2yj4bHGOtZRmu/gk+mQqz1Dfo5Zm3JK
-         46XZMqAHy2ls6Q+BR+PxLtPe2WUnXCUt0EDQj7N439y7sST1rd5TWzJeQrbw/7ZnuZZ1
-         uFKHJvLX2jSFgVVlbE0MtrxT/1Cy/3o9h9c23pXwbW8SJArZkS8wnnGFyFmEz/o93V/N
-         /dTw==
+        bh=KHHHr0SM/T2s4jZq5GOtf7zF3qLtJzGFhWPknayndBg=;
+        b=RSX1gcpRmM7s3A2Kg1OlCVI7K4wBkx9MR48RV4sItwz5qwf84r/nNC84xr6MRBuNha
+         efLo/ufp1Cxdnp5WACLGGsVqPQKLvYv58zqstfw3BEZkjAD22OyMacbTOaEyDi0wSYWm
+         PzCK03MhNXaGSkjEL+rpTJbqlDI/veguqarYGSIJCu/J3c5M9ssdturir9cGKZ4jmoO5
+         p3DHLiHZ+QvRl8wRF3dAEKrDcGnNRoaDPZLLdERec2q/u8oELURPBBF8Wj9KuGTxQXLo
+         Mo9LgKlmG6iWjiszTrmKfADAuKoastPxx7eDgElUNiTXeJrWUG1+3U6+qmz45HfzN4NT
+         cGAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795566166; x=1796170966;
+        d=1e100.net; s=20260707; t=1795566169; x=1796170969;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=fFHXo58/fNBdfaSZCGyJqa/5U7TOcz5+BW067Fe/1IU=;
-        b=gveYLQ4k8sHBXhQZyTgSUoZoAy9PXg6Ib+fcn4kRnLLVSZA+/wr3Tvy8GNeXyau15h
-         0cGmgsmNXMsXGbnAaRrsdUG0gWxu7IiHq/uj3/LD9/JtMFKNgOFjsp7Sj4opDBuZfanF
-         Xm6MbJ/1+7x6Nq61SisyR0fdSYv4TNOHKImcoszokDQ2ggyNVMUjDsXNqvmrcTMwILMn
-         u+uLqlz2wRIP3tGul4TlnfiA2ytn4S3zu7Jepryma7znVPSH7AOQB4p7bhvvKkWuL80p
-         XCEYirK4FEdYmIQobajsJJiRmtxeWDpp6IQgUbAsxaqaisgGH3F/9c5Cijxw9ldjHhRI
-         u8tA==
-X-Gm-Message-State: APuU4Z8URtOJ3YePJTalWZaF02e/gBB7UuqA+PHef5CcihP2PG3y8xIQ
-	BNU5zJ9tecVi/gf3KURUQV2hyy/56douNpNef/ofkrvkqj5ZYphMTO7DknFeJsBHXEGdbyKqaiT
-	kpTJtNSdNkb9c82REGQ+ZNdvMsh14sJ7VmVtCbpfTqM3E4bLy4pe/UdwIIthb7Ob2X5Q=
-X-Gm-Gg: AZFdTZfFioP0C/QTJ65nRE1JUc0oSDCs65B3+FAkUtKZZl97EwRib4XqQ4idfnsaCh5
-	hi0GcaWipnuFIpUhH4JqTZrLol3HKCx4WMcW/bXC0b1fw/uwHrz8T1p/y3GUys+nIEiaPWqij5S
-	RiLrgNsXtPyINLRVcjHHin89tRPt0v75BtaenHRsRB98tNGEmkK6IDeLK5TYBSzIgLtHZN0ifwa
-	gjmokojdUwRv5I98zEwYIo31Bixonbk3qZm8NHJ05l9pYKHB0Y0jXi5dA3X4KyeglqH6BNspg/Z
-	fsag/kDbzDDT6nY6KroZ/63G+owPETXjOA0mOoXL5ibH3YRPnELi8sqKCdmCraFgyEw2EmNfT6Q
-	fP/2wU4iRpiHexSEukbtuNn2RRMmRtEwDXZWbbwhUMS4IhSWTwwteGp4chRn2dN0KjxIf5S5Mtd
-	tMNQHTxf6wxqfjVAzuJBwQ6kr/oCYqBwu0cQslo14GWFaJVWYeNRI0zM1e/yKiH8XGl9D8vvu/W
-	zW4HrZzeWacvhr3t2wj6hvekqLXoqE8YKKiyTO+HnIGaPS/S300OlsdGEIUoDpeRsAnwa3KFp+k
-	1zQG36Q7ZgRiqTHnR9wghGXnpnIkUxrzRYAdC/qUiCUeVU4vYMYb
-X-Received: by 2002:a05:6000:4028:b0:4a6:bc53:246c with SMTP id ffacd0b85a97d-4abb3956374mr33601207f8f.42.1795566166626;
-        Tue, 24 Nov 2026 16:22:46 -0800 (PST)
+        bh=KHHHr0SM/T2s4jZq5GOtf7zF3qLtJzGFhWPknayndBg=;
+        b=I1h902jpULcwOpXVvxTfKGIxiWRC+70088ZBhcOELx0d6edCE40zFOcHMm5MaclMHw
+         SxDxM8qie2mrXlsLHXqfTny9TzUKYcfV8jG2htkEO0IVCP0iQBZN/jtWAwiUxPf1+yiv
+         hd4zlC17Q1tosBkA8aurGJwTKPK/3Psh5uMGAr3Cw0Xhe8kuQG0P+5gijGKMuDQxV+TQ
+         PquaH7sOkfSTDdPEkIVzCSbZZ4Pbghc+kmkRgn8i62ElsgZYyQ8xiA+SOvxj3WZTMTig
+         OItweFKp8P64XEJEnCW1VOXrRgB6PcthexOpDQyqDAHwRtrCmm6O9Th1U4eFBcgOYEcG
+         f0xg==
+X-Gm-Message-State: APuU4Z87P5L82a/swXNxVXvCtRJl0w3q6YDjTaeZrevcA130F8/YKaWy
+	3WCECajcN/URE+S4MC0Z4Uz8meEzytttUShu69Jyq0eK300AB12WZTAfIqpGD0QTkbKclXIuHWQ
+	jF1S1IB9VjxpXCYljljKnWht1tESksMErX9vj7Bfvqzm7gYRUrIZmK5OxrHx3urBlNVU=
+X-Gm-Gg: AZFdTZd6/7ar+XoM+Fi2xOHyBlbNkfL1AjbUxZu8n+JJXT4vOxJg+TZn0PtB4qO+tlG
+	eHVa5s03jvgJtf2nZJsI6ZUhxbxI96PUpSUZDV0O/gjSDQDgjyFomb55CqFhez3FkUYw3KREbvK
+	fz4misf7ZbDcjBEl53CDRNOATEsiWrjp7jb9TSStgC6K7RjgeOkZ1Xzw94LLXTQfwC7272KG8eb
+	kdSRhdIUm/VGvlV34u2HR8go7H3+u3A1Is1evm2PG3HuhhRIv3A43cI5WB9e3+imWkmYzTHYhi/
+	O/ECdJmaj6NCevBcT/xV/K6vVSVX2TTHuZRt0GM1eqBmX+xq/FszIE4qbDLwlKkdHTqLsux7S36
+	opXmLqzjiDHgyvIMa1q16abXMgfU3CdSH+agUMUtM2yMUev/9D71rOPRqfTrKygqG0ZLBLCpwjf
+	CK1XkoajPU87hkF2mMoX/vVsDXKN6GtBWy6W7iIlVpk67lgnXDwhLOuPgLnJahv7Hb5wUclIitn
+	XHQbLL/uNq4D724xLofgC4OgOh9k+Ap3OuL46x9UB85KovIiCr/dmoBOOyQ6UNvACafDheXFh6z
+	L3aGQRPPACFrddDItnXZLr+MSCT8/LgxO5AHJt4Lg/RRmIPmcw0Z
+X-Received: by 2002:a05:6000:200e:b0:4aa:76ce:4b9f with SMTP id ffacd0b85a97d-4abb6746af3mr31641905f8f.56.1795566168947;
+        Tue, 24 Nov 2026 16:22:48 -0800 (PST)
 Received: from inifinity.homelan.mandelbit.com ([2001:67c:2fbc:1:5c82:5cd3:7bc5:2809])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm31518448f8f.16.2026.11.24.16.22.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm31518448f8f.16.2026.11.24.16.22.46
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 16:22:45 -0800 (PST)
+        Tue, 24 Nov 2026 16:22:47 -0800 (PST)
 From: Antonio Quartulli <antonio@openvpn.net>
 To: netdev@vger.kernel.org
 Cc: Ralf Lici <ralf@mandelbit.com>,
@@ -89,9 +89,9 @@ Cc: Ralf Lici <ralf@mandelbit.com>,
 	Eric Dumazet <edumazet@google.com>,
 	stable@vger.kernel.org,
 	Antonio Quartulli <antonio@openvpn.net>
-Subject: [PATCH net 2/7] ovpn: validate sockets before attaching peer transports
-Date: Wed, 25 Nov 2026 01:22:33 +0100
-Message-ID: <20261125002239.1191542-3-antonio@openvpn.net>
+Subject: [PATCH net 3/7] ovpn: reject UDP remotes incompatible with socket family
+Date: Wed, 25 Nov 2026 01:22:34 +0100
+Message-ID: <20261125002239.1191542-4-antonio@openvpn.net>
 X-Mailer: git-send-email 2.56.1
 In-Reply-To: <20261125002239.1191542-1-antonio@openvpn.net>
 References: <20261125002239.1191542-1-antonio@openvpn.net>
@@ -108,131 +108,258 @@ Content-Transfer-Encoding: 8bit
 
 From: Ralf Lici <ralf@mandelbit.com>
 
-ovpn accepts a userspace-provided socket and attaches transport-specific
-state to it. The current checks use sk_protocol to select the UDP or TCP
-attach path, but sk_protocol alone does not identify the socket layout.
-For example, a raw socket can have sk_protocol set to IPPROTO_UDP while
-its storage is not a struct udp_sock. Passing such a socket to the UDP
-attach path would make ovpn read and write udp_sock fields on the wrong
-object, potentially accessing memory beyond the actual socket storage.
+ovpn accepts a userspace-provided socket and a peer remote endpoint
+through netlink. For UDP peers, the remote endpoint family selects the
+transmit path used later by ovpn_udp_output.
 
-Reject sockets unless they are real UDP datagram or TCP stream sockets
-before attaching them to ovpn in the peer creation path. This lets
-netlink report a clear error before calling the socket attach helper.
+Reject UDP peer remotes that are incompatible with the socket state when
+they are configured through netlink. An IPv4 UDP socket cannot be used
+with an IPv6 remote endpoint, and an IPv6-only UDP socket cannot receive
+from an IPv4 remote endpoint. Reporting this at setup time gives
+userspace a clear extack and avoids installing a peer that cannot work.
 
-Also switch ovpn_socket_new to sk_is_tcp and sk_is_udp, matching the
-netlink validation performed before the helper is called. This does not
-change the accepted socket types, but makes the helper's assumptions
-explicit.
+Accepting an IPv6 remote on an AF_INET socket is also unsafe. On TX,
+ovpn_udp6_output() hands the socket to ip6_dst_lookup_flow(), which
+dereferences inet6_sk(sk), e.g. to read srcprefs in
+ip6_route_output_flags() when no local address is set. inet6_sk() is
+NULL for AF_INET sockets, therefore the first packet sent to such a
+peer triggers a NULL pointer dereference.
 
-Fixes: f6226ae7a0cd ("ovpn: introduce the ovpn_socket object")
+This validation only covers the socket state visible while the netlink
+request is handled. The socket remains owned by userspace after it is
+attached to ovpn, so userspace can later change properties such as
+IPV6_V6ONLY or IPV6_ADDRFORM. The transmit path therefore still has to
+re-check socket/remote compatibility before sending.
+
+Parse the remote endpoint once in the peer new/set paths and reject UDP
+remotes when the provided socket cannot send to them. Pass the parsed
+endpoint into the common peer modify helper so the validation and the
+stored endpoint use the same normalized sockaddr.
+
 Fixes: 1d36a36f6d53 ("ovpn: implement peer add/get/dump/delete via netlink")
 Cc: stable@vger.kernel.org
 Signed-off-by: Ralf Lici <ralf@mandelbit.com>
 Signed-off-by: Antonio Quartulli <antonio@openvpn.net>
 ---
- drivers/net/ovpn/netlink.c | 15 +++++++++++++--
- drivers/net/ovpn/socket.c  | 16 +++++++++-------
- 2 files changed, 22 insertions(+), 9 deletions(-)
+ drivers/net/ovpn/netlink.c | 128 ++++++++++++++++++++++++++-----------
+ 1 file changed, 92 insertions(+), 36 deletions(-)
 
 diff --git a/drivers/net/ovpn/netlink.c b/drivers/net/ovpn/netlink.c
-index 5432bc2eb8e8..1af7e0e624ba 100644
+index 1af7e0e624ba..bf27a7a89f76 100644
 --- a/drivers/net/ovpn/netlink.c
 +++ b/drivers/net/ovpn/netlink.c
-@@ -448,10 +448,21 @@ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
+@@ -310,15 +310,17 @@ static int ovpn_nl_peer_precheck(struct ovpn_priv *ovpn,
+  * @peer: the peer to modify
+  * @info: generic netlink info from the user request
+  * @attrs: the attributes from the user request
++ * @remote: remote address, if provided
+  *
+  * Return: a negative error code in case of failure, 0 on success or 1 on
+  *	   success and the VPN IPs have been modified (requires rehashing in MP
+  *	   mode)
+  */
+ static int ovpn_nl_peer_modify(struct ovpn_peer *peer, struct genl_info *info,
+-			       struct nlattr **attrs)
++			       struct nlattr **attrs,
++			       const struct sockaddr_storage *remote)
+ {
+-	struct sockaddr_storage ss = {};
++	struct sockaddr_storage empty_remote = {};
+ 	void *local_ip = NULL;
+ 	u32 interv, timeout;
+ 	bool rehash = false;
+@@ -326,15 +328,15 @@ static int ovpn_nl_peer_modify(struct ovpn_peer *peer, struct genl_info *info,
+ 
+ 	spin_lock_bh(&peer->lock);
+ 
+-	if (ovpn_nl_attr_sockaddr_remote(attrs, &ss)) {
++	if (remote) {
+ 		/* we carry the local IP in a generic container.
+ 		 * ovpn_peer_reset_sockaddr() will properly interpret it
+-		 * based on ss.ss_family
++		 * based on remote->ss_family
+ 		 */
+ 		local_ip = ovpn_nl_attr_local_ip(attrs);
+ 
+ 		/* set peer sockaddr */
+-		ret = ovpn_peer_reset_sockaddr(peer, &ss, local_ip);
++		ret = ovpn_peer_reset_sockaddr(peer, remote, local_ip);
+ 		if (ret < 0) {
+ 			NL_SET_ERR_MSG_FMT_MOD(info->extack,
+ 					       "cannot set peer sockaddr: %d",
+@@ -372,7 +374,7 @@ static int ovpn_nl_peer_modify(struct ovpn_peer *peer, struct genl_info *info,
+ 
+ 	netdev_dbg(peer->ovpn->dev,
+ 		   "modify peer id=%u tx_id=%u endpoint=%pIScp VPN-IPv4=%pI4 VPN-IPv6=%pI6c\n",
+-		   peer->id, peer->tx_id, &ss,
++		   peer->id, peer->tx_id, remote ?: &empty_remote,
+ 		   &peer->vpn_addrs.ipv4.s_addr, &peer->vpn_addrs.ipv6);
+ 
+ 	spin_unlock_bh(&peer->lock);
+@@ -383,12 +385,45 @@ static int ovpn_nl_peer_modify(struct ovpn_peer *peer, struct genl_info *info,
+ 	return ret;
+ }
+ 
++/**
++ * ovpn_nl_udp_remote_compatible - check if a UDP socket can use a remote
++ * @sk: UDP socket to validate
++ * @remote: remote endpoint to validate against the socket
++ * @extack: netlink extended ACK for reporting validation errors
++ *
++ * Return: 0 if the remote endpoint is compatible with the socket or a negative
++ * error code otherwise.
++ */
++static int ovpn_nl_udp_remote_compatible(const struct sock *sk,
++					 const struct sockaddr_storage *remote,
++					 struct netlink_ext_ack *extack)
++{
++	const unsigned short sock_family = READ_ONCE(sk->sk_family);
++
++	if (sock_family == AF_INET && remote->ss_family == AF_INET6) {
++		NL_SET_ERR_MSG_FMT_MOD(extack,
++				       "UDP socket is IPv4 but remote is IPv6");
++		return -EAFNOSUPPORT;
++	}
++
++	if (sock_family == AF_INET6 && ipv6_only_sock(sk) &&
++	    remote->ss_family == AF_INET) {
++		NL_SET_ERR_MSG_FMT_MOD(extack,
++				       "UDP socket is IPv6-only but remote is IPv4");
++		return -EAFNOSUPPORT;
++	}
++
++	return 0;
++}
++
+ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
+ {
+ 	struct in_addr vpn_addr4 = { .s_addr = htonl(INADDR_ANY) };
++	const struct sockaddr_storage *remote = NULL;
+ 	struct in6_addr vpn_addr6 = IN6ADDR_ANY_INIT;
+ 	struct ovpn_priv *ovpn = info->user_ptr[0];
+ 	struct nlattr *attrs[OVPN_A_PEER_MAX + 1];
++	struct sockaddr_storage ss = {};
+ 	struct ovpn_socket *ovpn_sock;
+ 	struct socket *sock = NULL;
+ 	struct ovpn_peer *peer;
+@@ -459,26 +494,34 @@ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
  		goto peer_release;
  	}
  
-+	/* sk_protocol is not enough to determine if this is a real UDP or TCP
-+	 * socket
-+	 */
-+	if (!sk_is_udp(sock->sk) && !sk_is_tcp(sock->sk)) {
-+		NL_SET_ERR_MSG_FMT_MOD(info->extack,
-+				       "socket is not TCP or UDP");
-+		sockfd_put(sock);
-+		ret = -EOPNOTSUPP;
-+		goto peer_release;
-+	}
+-	/* Only when using UDP as transport protocol the remote endpoint
+-	 * can be configured so that ovpn knows where to send packets to.
+-	 */
+-	if (sk_is_udp(sock->sk) &&
+-	    !attrs[OVPN_A_PEER_REMOTE_IPV4] &&
+-	    !attrs[OVPN_A_PEER_REMOTE_IPV6]) {
+-		NL_SET_ERR_MSG_FMT_MOD(info->extack,
+-				       "missing remote IP address for UDP socket");
+-		sockfd_put(sock);
+-		ret = -EINVAL;
+-		goto peer_release;
+-	}
++	if (ovpn_nl_attr_sockaddr_remote(attrs, &ss))
++		remote = &ss;
+ 
+-	/* In case of TCP, the socket is connected to the peer and ovpn
+-	 * will just send bytes over it, without the need to specify a
+-	 * destination.
+-	 */
+-	if (sk_is_tcp(sock->sk) &&
+-	    (attrs[OVPN_A_PEER_REMOTE_IPV4] ||
+-	     attrs[OVPN_A_PEER_REMOTE_IPV6])) {
++	if (sk_is_udp(sock->sk)) {
++		/* Only when using UDP as transport protocol the remote
++		 * endpoint can be configured so that ovpn knows where to send
++		 * packets to.
++		 */
++		if (!remote) {
++			NL_SET_ERR_MSG_FMT_MOD(info->extack,
++					       "missing remote IP address for UDP socket");
++			sockfd_put(sock);
++			ret = -EINVAL;
++			goto peer_release;
++		}
 +
- 	/* Only when using UDP as transport protocol the remote endpoint
- 	 * can be configured so that ovpn knows where to send packets to.
- 	 */
--	if (sock->sk->sk_protocol == IPPROTO_UDP &&
-+	if (sk_is_udp(sock->sk) &&
- 	    !attrs[OVPN_A_PEER_REMOTE_IPV4] &&
- 	    !attrs[OVPN_A_PEER_REMOTE_IPV6]) {
++		/* can the socket be used with this remote? */
++		ret = ovpn_nl_udp_remote_compatible(sock->sk, remote,
++						    info->extack);
++		if (ret < 0) {
++			sockfd_put(sock);
++			goto peer_release;
++		}
++	} else if (remote) {
++		/* In case of TCP, the socket is connected to the peer and ovpn
++		 * will just send bytes over it, without the need to specify a
++		 * destination.
++		 */
  		NL_SET_ERR_MSG_FMT_MOD(info->extack,
-@@ -465,7 +476,7 @@ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
- 	 * will just send bytes over it, without the need to specify a
- 	 * destination.
- 	 */
--	if (sock->sk->sk_protocol == IPPROTO_TCP &&
-+	if (sk_is_tcp(sock->sk) &&
- 	    (attrs[OVPN_A_PEER_REMOTE_IPV4] ||
- 	     attrs[OVPN_A_PEER_REMOTE_IPV6])) {
- 		NL_SET_ERR_MSG_FMT_MOD(info->extack,
-diff --git a/drivers/net/ovpn/socket.c b/drivers/net/ovpn/socket.c
-index 6cbeb2caaeec..4765f4063b71 100644
---- a/drivers/net/ovpn/socket.c
-+++ b/drivers/net/ovpn/socket.c
-@@ -126,13 +126,15 @@ static int ovpn_socket_attach(struct ovpn_socket *ovpn_sock,
+ 				       "unexpected remote IP address with TCP socket");
+ 		sockfd_put(sock);
+@@ -504,7 +547,7 @@ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
  
- /**
-  * ovpn_socket_new - create a new socket and initialize it
-- * @sock: the kernel socket to embed
-+ * @sock: the kernel socket to embed; must be a real UDP or TCP socket
-  * @peer: the peer reachable via this socket
-  *
-  * Return: an openvpn socket on success or a negative error code otherwise
-  */
- struct ovpn_socket *ovpn_socket_new(struct socket *sock, struct ovpn_peer *peer)
- {
-+	const bool tcp = sk_is_tcp(sock->sk);
-+	const bool udp = sk_is_udp(sock->sk);
- 	struct ovpn_socket *ovpn_sock;
- 	struct sock *sk = sock->sk;
- 	int ret;
-@@ -142,7 +144,7 @@ struct ovpn_socket *ovpn_socket_new(struct socket *sock, struct ovpn_peer *peer)
- 	/* a TCP socket can only be owned by a single peer, therefore there
- 	 * can't be any other user
- 	 */
--	if (sk->sk_protocol == IPPROTO_TCP && sk->sk_user_data) {
-+	if (tcp && sk->sk_user_data) {
- 		ovpn_sock = ERR_PTR(-EBUSY);
+ 	rcu_assign_pointer(peer->sock, ovpn_sock);
+ 
+-	ret = ovpn_nl_peer_modify(peer, info, attrs);
++	ret = ovpn_nl_peer_modify(peer, info, attrs, remote);
+ 	if (ret < 0)
  		goto sock_release;
+ 
+@@ -533,8 +576,10 @@ int ovpn_nl_peer_new_doit(struct sk_buff *skb, struct genl_info *info)
+ 
+ int ovpn_nl_peer_set_doit(struct sk_buff *skb, struct genl_info *info)
+ {
++	const struct sockaddr_storage *remote = NULL;
+ 	struct ovpn_priv *ovpn = info->user_ptr[0];
+ 	struct nlattr *attrs[OVPN_A_PEER_MAX + 1];
++	struct sockaddr_storage ss = {};
+ 	struct in6_addr vpn_addr6;
+ 	struct in_addr vpn_addr4;
+ 	struct ovpn_socket *sock;
+@@ -568,17 +613,28 @@ int ovpn_nl_peer_set_doit(struct sk_buff *skb, struct genl_info *info)
+ 		return -ENOENT;
  	}
-@@ -150,7 +152,7 @@ struct ovpn_socket *ovpn_socket_new(struct socket *sock, struct ovpn_peer *peer)
- 	/* a UDP socket can be shared across multiple peers, but we must make
- 	 * sure it is not owned by something else
- 	 */
--	if (sk->sk_protocol == IPPROTO_UDP) {
-+	if (udp) {
- 		u8 type = READ_ONCE(udp_sk(sk)->encap_type);
  
- 		/* socket owned by other encapsulation module */
-@@ -212,11 +214,11 @@ struct ovpn_socket *ovpn_socket_new(struct socket *sock, struct ovpn_peer *peer)
- 	/* TCP sockets are per-peer, therefore they are linked to their unique
- 	 * peer
- 	 */
--	if (sk->sk_protocol == IPPROTO_TCP) {
-+	if (tcp) {
- 		INIT_WORK(&ovpn_sock->tcp_tx_work, ovpn_tcp_tx_work);
- 		ovpn_sock->peer = peer;
- 		ovpn_peer_hold(peer);
--	} else if (sk->sk_protocol == IPPROTO_UDP) {
-+	} else if (udp) {
- 		/* in UDP we only link the ovpn instance since the socket is
- 		 * shared among multiple peers
- 		 */
-@@ -237,9 +239,9 @@ struct ovpn_socket *ovpn_socket_new(struct socket *sock, struct ovpn_peer *peer)
+-	/* when using a TCP socket the remote IP is not expected */
++	if (ovpn_nl_attr_sockaddr_remote(attrs, &ss))
++		remote = &ss;
++
+ 	rcu_read_lock();
+ 	sock = rcu_dereference(peer->sock);
+-	if (sock && sock->sk->sk_protocol == IPPROTO_TCP &&
+-	    (attrs[OVPN_A_PEER_REMOTE_IPV4] ||
+-	     attrs[OVPN_A_PEER_REMOTE_IPV6])) {
+-		rcu_read_unlock();
+-		NL_SET_ERR_MSG_FMT_MOD(info->extack,
+-				       "unexpected remote IP address with TCP socket");
+-		ovpn_peer_put(peer);
+-		return -EINVAL;
++	if (sock && remote) {
++		if (sk_is_udp(sock->sk)) {
++			ret = ovpn_nl_udp_remote_compatible(sock->sk, remote,
++							    info->extack);
++			if (ret < 0) {
++				rcu_read_unlock();
++				ovpn_peer_put(peer);
++				return ret;
++			}
++		} else if (sk_is_tcp(sock->sk)) {
++			/* when using a TCP socket remote IP is not expected */
++			NL_SET_ERR_MSG_FMT_MOD(info->extack,
++					       "unexpected remote IP address with TCP socket");
++			rcu_read_unlock();
++			ovpn_peer_put(peer);
++			return -EINVAL;
++		}
+ 	}
+ 	rcu_read_unlock();
  
- 	ret = ovpn_socket_attach(ovpn_sock, sock, peer);
- 	if (ret < 0) {
--		if (sk->sk_protocol == IPPROTO_TCP)
-+		if (tcp)
- 			ovpn_peer_put(peer);
--		else if (sk->sk_protocol == IPPROTO_UDP)
-+		else if (udp)
- 			netdev_put(peer->ovpn->dev, &ovpn_sock->dev_tracker);
+@@ -607,7 +663,7 @@ int ovpn_nl_peer_set_doit(struct sk_buff *skb, struct genl_info *info)
+ 			goto unlock;
+ 	}
  
- 		sock_put(sk);
+-	ret = ovpn_nl_peer_modify(peer, info, attrs);
++	ret = ovpn_nl_peer_modify(peer, info, attrs, remote);
+ 	if (ret < 0)
+ 		goto unlock;
+ 
