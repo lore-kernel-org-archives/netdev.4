@@ -1,102 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795573101;
-	b=NcgKrrZWohmqARr8O4jIrEK9GCRU//PzcteZnnZTjAUaiifEXKMYeT7Fpg219wC4BmOi
-	 kG2/VcIIf0ZFrPWLmYSfcbzXDgKeNhu7Ul0PEpyjs+7hwNymg1h8e3aZD8zYYBbxSJOHW
-	 yUE/MqQxRibX5E2xauT8KOcJHHSQyDPYzvejdJCUEq3/7+UZCMa3Z5v4NdACh6ukb3KDv
-	 lPvCjqqHx5PkBoO2PR55AsXbL7mrUb9yqs7NiTPcZXjUgp5nqhvGl1jFwSFYT/LdKfWpH
-	 VVbULlvTNWrpqRyFKj7dX7zOu+uWqrCzlCAeOw0tXbMG7ad+mqBtEQMOXpr/uUYTpig==
+	t=1795573358;
+	b=NX1dEzq78+yJLiyll1U7/R4OaWDn19ne6mTw0r4XGP1+VBcOAfgf0JedNOWWH8UA0/JZ
+	 uckYEYScVGPLyF+fNSK1QvAkwLdAWCj4OwTwAx0ve0cFbwbHrXtnFMjtK/pe4bruYMVkN
+	 Y2f/MujAgfa2Gt2K8b8VaEw9r34LwsZHz4nCha/pUWqF4p+ChbHWQg9VM0KXYAmlxKWSo
+	 4P5pcyw+8XCPO4ge3nRnUItn2vmeGKGpgxSecS89E+HDsZNKgSM6HtPjadZvWtZSuoCPA
+	 HRg3lpbUTJVifns4U8yckj17BqswZFIVINxpReILTlYubAvfBAXd0vO0VPehXhATUPw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795573101;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 Content-Type:MIME-Version:Content-Transfer-Encoding;
-	bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-	b=M0UyDNj1uYvK5pE68Fg8hCAGZCFbglY5siBPiI6OvH5ZNPp9kAI5vpycdc/PliqeRS1N
-	 k4NdJR3WSSMb9g3o0LCgluTtC8iXjDx4w3V5TTOsT+RlJtspU4EhfGZAJdLdi65y1LCX9
-	 9ifuRfXO7Ij1bFcdaEKLhI3xedZpYS/yEP5/pTv1mTIPS2KQjT5Qs55eq6xWZVoTUZM0W
-	 kzZVp89sdfdHhchIjmXgKynZH4NCNQ95Wyeiso5OYsVbo2DTtXgWIoKfU8X37kM9V6zvg
-	 9QZ7vK0S/i17DhSFNKDMKQvstBahqnx/9RH9Alvx9mooetImcPy3ZSTaGW1OytcRdkQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795573358;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=VZUPOUml8Z7QMmIQLAEErFWrTkqLYi47llUNz2Msvxc=;
+	b=hhnx7mwj7SYamZHLKBidF29JvsEvNPda7Ax8lo5z2/k5R3iiBXrd7V4sHNH/t1udD6v2
+	 GW6z9oUhy48TmQN/GkxvEyyyBsKobKUlE63hSjjbHtj1ELAg0svzK8h7kScTXBhJa76AH
+	 XouNrX9kH4h5gOmITOQPYM2Xwn+iv5VOIelRDWy/HFUpmNcAIz1FUOk2nMOJRbTMSuMPs
+	 Pehb/diQZ9duqQMImFYJF2gLHW+tdhGGpj6TRxy668rcZ0CDtyFXsRTaoXFI3Jk1jv5dn
+	 /yslL/m+yJddSLt8LMlbIXD7saE+oGP/JlSKEOEv2qxd2Fj2ECwrA6yhaLhDO66pz3g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc;
-	arc=none smtp.remote-ip=209.85.210.178
-Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F05B6606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:18:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F05B6606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e;
+	arc=none smtp.remote-ip=111.22.67.135
+Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 16C50606A329;
+	Wed, 25 Nov 2026 02:22:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16C50606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=mMUfAWXc
-Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8c4cc85a315so3612115b3a.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 18:18:20 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=AE2PYD0e
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795573100; x=1796177900; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-        b=mMUfAWXcVM1xIZ/sjsn1fq08fH4cNvvV+oUQ3eA29ZMZ7A+eR49KLC6qpO8DNy1F2r
-         gkd92auy0Mt4Zky/nz7SbVEL/AGIvelnKaoFgD+J+iDepSfvxxqWY0+T0Z39kxdHTzTY
-         eMscrxm14uebLO9hUbvAA+qdI7KIr5bdpvPWPLiyqQe+mp5hQH4oZ5Ub3qD3qJ74mSua
-         sFJIhhKkRaV9B23MWw4rMZLzDyZ7CbJxvlRCJ6Qpqb1m64EzWOGlB1eu9cvA2wprbAwF
-         KXWhsJVnHVM8dnPdGTgKarfqJIVO7dc6UBO0xheja2CQ0m0G+8S0YM5Dy4YVRFWmMctE
-         dIxg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795573100; x=1796177900;
-        h=content-transfer-encoding:mime-version:content-type:references
-         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=BfBc2nl/+x1jei32QWJml8gTyYfpGpADR+dK5QnbKzw=;
-        b=Tp3FUQiG3dAx3h++hlHCV8ICZQLPgmX0hI/aGapLm9/INRRs2Z4TIUY3nu0me+g9XO
-         a6VGSMUNE4//xhxzvmjaAho5OFtX4KAg6u0LbFsdLjx/ZVHdVpzwyEv67GWhancBEmmD
-         ZZ/ePsiadMtYoERj0o3q7WN97FqxQC9SBH+TMRWh4CxoNdDA1PWbfqZywNlCrnK5Pv9a
-         IofpucmMDFTI3q5whOn91FtqFLI/Zu6wgnskM0tvZT1k8qOKQbFrix5c+YYMccnGWohH
-         HvezNYZXxUZP5Hw+YGkRe0Ppphu87waqFxBZU+1P5lHm/+UqBL+hBUMJlGyWCC8CrDO8
-         gSBQ==
-X-Forwarded-Encrypted: i=1; AL+hErFB4BYD+AQZoP+mea5PQw7JrDXH01/344Kt8frLIFZhlCxSUfJoEr693plz/oDw7ZQ/1HVFZvc=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+AVYyhhPWYy9I1QAEvb0wBRRTLjQf/hKlBoJ//+51MEG6lyRGO
-	uZ9RjiVb1p/tlHysJkOqhLIMxX0VdQixVmJwhwGPqvC+doVFW6klob7q
-X-Gm-Gg: AZFdTZdPJ9FDCEe2kZbhRfqwXwYVURGrfjO2fiM2UoevBiDP9EdCE+3ZLS9z5eIEAla
-	4ZEcm33UNHiHrea6Kq3f3i8ZZWxfWPAmeK4MwoDok1NBGa0Ri0GnOWpncNGyygl3bpnaGjctyC8
-	qt2uPOpT4OpoFpiajuKDxoYmNJFl7IAFHYR/FlWFBst0sOAOXWBg1c9PZ8dXtz4Td1NgP4UKQvE
-	PNVioq9TEYfHYY87rFU57qAMWngyNKvip1g9m157eMNFzvzBNWa2kf358gJkjEAX0hDMI+W2CkL
-	J9barYmG8Bp92r0URvEDypIqWynEDnJHE4VyJLphi1o6ek1t4qPLi+kGYyoCRJo46pH9pWgzIZt
-	WGXDwkBUP3dNHAHVk1klmN8rToqTsEc9c4V/vKCw9ItzCWA1MXUNm25iLFW+i7beT7CeTXIu7Zt
-	aN5dluKyqLgegM7M8E83FGpzKEFHS3oYugrZ7gYBj6OSzIBPgvVxCeGiLbW+4pPeCHZwHapSCEJ
-	LSJVksUt6UCBLqrXr3E6Ln87ounKBK+ASmCyQjWxGGZZ72vPXNZvaWLoGzscUqSgcvVO4FUW8LX
-	n7xpv74vVBlx61z5N71KzJKwJg3DswGmhyF8DLQpDn1rw+gejkp6d3oqmahfIE5nH6sTFTNUTIH
-	LDVAuudvliGH3mekUZjItCi8CR+DOZcen4BLQTP2YusIzSBa/lpIpkldzyqAloCDEzw==
-X-Received: by 2002:aa7:88cf:0:b0:8b6:594d:7030 with SMTP id d2e1a72fcca58-8c87ca51fe7mr14842703b3a.42.1795573100263;
-        Tue, 24 Nov 2026 18:18:20 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([180.166.22.226])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e45eccsm8048734b3a.31.2026.11.24.18.18.17
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Tue, 24 Nov 2026 18:18:19 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: akpm@linux-foundation.org
-Cc: linux-kernel@vger.kernel.org,
-	kunit-dev@googlegroups.com,
-	pablo@netfilter.org,
-	lfinke@student.ethz.ch,
-	netfilter-devel@vger.kernel.org,
-	jhs@mojatatu.com,
-	jiri@resnulli.us,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH v2 0/2] lib/ts_fsm: preserve patterns across tc dump and restore
-Date: Wed, 25 Nov 2026 10:18:14 +0800
-Message-ID: <20261125101335.7868acd102b6-ts-fsm-ping-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261109103454.50617-1-zhiqizhangg@gmail.com>
-References: <20261101081736.51803-1-zhiqizhangg@gmail.com> <20261109103454.50617-1-zhiqizhangg@gmail.com>
-Content-Type: text/plain; charset="utf-8"
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=AE2PYD0eraeDlLOYUxzctfs7qLEwOmOqlhLCD5sID96ASmIpkE6dmw9zmWCNdIfSV44R6gNsX1fVA
+	 X0hGk17CmtCx7sFcwtdXxZNtlGKpEgM+YQ9o4SdpurV3F/NP/DLx+Oqxtp87lg0vUoQ77uXQPo+Bds
+	 Qgv37vDlcWGUZxBw=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app07-12007 (RichMail) with SMTP id 2ee76b064668378-4d5fe;
+	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
+X-RM-TRANSID:2ee76b064668378-4d5fe
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from DESKTOP-3K8GUTQ (unknown[223.108.79.98])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b064667cc8-35135;
+	Wed, 25 Nov 2026 10:22:33 +0800 (CST)
+X-RM-TRANSID:2ee16b064667cc8-35135
+From: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+To: chester.a.unal@arinc9.com
+Cc: daniel@makrotopia.org,
+	andrew@lunn.ch,
+	olteanv@gmail.com,
+	sean.wang@mediatek.com,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netdev-bot+sashiko@kernel.org,
+	Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+Subject: [PATCH v5] net: dsa: mt7530: enable the regulators in probe() and unwind on error
+Date: Wed, 25 Nov 2026 10:22:31 +0800
+Message-ID: <20261125022231.1936-1-laixiangwu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.50.1.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,24 +75,166 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Hi Andrew and all,
+mt7530_setup() enables the core and io regulators of the MT7530, but the
+only matching regulator_disable() calls live in mt7530_remove(), which
+never runs when the probe fails.  A failure anywhere between the enables
+and a fully registered switch - the remaining steps of mt7530_setup(),
+the IRQ chip or MDIO bus registration in mt753x_setup() (both can also
+return -EPROBE_DEFER), the SGMII PCS creation, or the DSA core itself -
+therefore leaves both regulators enabled.  The devm-acquired handles
+are then released with a non-zero enable_count, which triggers the
+WARN_ON() in _regulator_put(), and each probe deferral grows the count
+further.
 
-A follow-up ping on this two-patch series, sent on November 1:
+Move the enables to mt7530_probe(), right after the regulators are
+acquired, and unwind them with plain error labels if a later step in
+the probe fails.  mt7530_setup() and mt7530_remove() keep their original
+shape, so the enables and disables stay balanced in every combination of
+probe, setup and unbind: a failed probe always unwinds, and a switch
+that stays bound is always disabled exactly once by mt7530_remove().
 
-https://lore.kernel.org/all/20261101081736.51803-1-zhiqizhangg@gmail.com/
+On the boards that hold the switch in reset with a GPIO
+(mt7623n-bananapi-bpi-r2 and mt7623n-rfb-emmc, which wire the supplies
+inline), the reset line has been asserted since it was acquired in
+mt7530_probe() with GPIOD_OUT_LOW, so the rails come up while the chip
+is held in reset.
 
-It fixes a userspace-visible issue where restoring a tc FSM text ematch
-from its dump can change which packets the filter matches, or fail with
-EINVAL.
+On the MCM boards (mt7623a-rfb-emmc and mt7623a-rfb-nand, which get
+mediatek,mcm and the supplies from mt7623a.dtsi) there is no reset
+GPIO; the reset control handle is only acquired in mt7530_probe() and
+the first reset pulse still happens at the top of mt7530_setup().  With
+the enables moved to probe, the chip therefore runs on its power-on
+defaults during the window between the probe and that pulse.  The
+window spans dsa_register_switch() up to the switch setup, it repeats
+on every -EPROBE_DEFER retry, and it is unbounded while a multi-switch
+tree waits for its other members.  The pulse at the start of
+mt7530_setup() re-initializes the chip, so the window behaves like a
+cold boot whose external reset arrives late; no configuration is lost.
 
-v2 describes that impact, splits the fix from the KUnit tests, adds the
-exported-pattern equality assertion, and includes Cc: stable on the fix.
+All of these boards connect the supplies to switchable MT6323 PMIC
+outputs, so a failed probe would otherwise leave them on and trip the
+WARN_ON(enable_count) splat when the devm handles are released.  MT7621
+does not have these supplies and is skipped by the priv->id ==
+ID_MT7530 guards, and the MT7988 MMIO variant has no regulators at all.
 
-Could you please advise which tree should carry this series, and whether
-any further changes are needed before it can be picked up? I would also
-appreciate guidance on MAINTAINERS coverage for the new
-lib/tests/textsearch_fsm_kunit.c file. I can prepare a follow-up revision
-once the intended coverage is clear.
+Found by code inspection; the issue has not been triggered at runtime
+and no MT7530 hardware was available for testing.
 
-Thanks for your time,
-Zhiqi
+Fixes: b8f126a8d543 ("net-next: dsa: add dsa support for Mediatek MT7530 switch")
+Suggested-by: Andrew Lunn <andrew@lunn.ch>
+Signed-off-by: Xiangwu Lai <laixiangwu@cmss.chinamobile.com>
+---
+Changes in v5:
+
+- Rewrite the commit message safety argument.  The previous version
+  claimed the reset line is always asserted since probe, which is only
+  true for the boards with a reset GPIO.  On the MCM boards the reset
+  control is only acquired in probe and the first reset pulse still
+  happens at the start of mt7530_setup(), so the chip runs on its
+  power-on defaults between probe and setup; this window is now
+  described as it is instead of being masked by a wrong claim.
+- Fix the list of affected boards: mt7623n-bananapi-bpi-r2 and
+  mt7623n-rfb-emmc include mt7623n.dtsi and wire the supplies and the
+  reset GPIO inline; the boards that get mediatek,mcm and the supplies
+  from mt7623a.dtsi are mt7623a-rfb-emmc and mt7623a-rfb-nand.
+
+No code change; the diff is identical to v4.
+
+Link: https://lore.kernel.org/r/20261124013422.1408-1-laixiangwu@cmss.chinamobile.com
+
+ drivers/net/dsa/mt7530-mdio.c | 38 ++++++++++++++++++++++++++++++++---
+ drivers/net/dsa/mt7530.c      | 18 -----------------
+ 2 files changed, 35 insertions(+), 21 deletions(-)
+
+diff --git a/drivers/net/dsa/mt7530-mdio.c b/drivers/net/dsa/mt7530-mdio.c
+index 0be107dc6..b1daefc90 100644
+--- a/drivers/net/dsa/mt7530-mdio.c
++++ b/drivers/net/dsa/mt7530-mdio.c
+@@ -210,18 +210,50 @@ mt7530_probe(struct mdio_device *mdiodev)
+ 		priv->io_pwr = devm_regulator_get(&mdiodev->dev, "io");
+ 		if (IS_ERR(priv->io_pwr))
+ 			return PTR_ERR(priv->io_pwr);
++
++		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
++		ret = regulator_enable(priv->core_pwr);
++		if (ret < 0) {
++			dev_err(&mdiodev->dev,
++				"Failed to enable core power: %d\n", ret);
++			return ret;
++		}
++
++		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
++		ret = regulator_enable(priv->io_pwr);
++		if (ret < 0) {
++			dev_err(&mdiodev->dev,
++				"Failed to enable io pwr: %d\n", ret);
++			goto err_disable_core_pwr;
++		}
+ 	}
+ 
+ 	rc.lock_arg = &priv->bus->mdio_lock;
+ 	priv->regmap = devm_regmap_init(priv->dev, &mt7530_regmap_bus,
+ 					priv, &rc);
+-	if (IS_ERR(priv->regmap))
+-		return PTR_ERR(priv->regmap);
++	if (IS_ERR(priv->regmap)) {
++		ret = PTR_ERR(priv->regmap);
++		goto err_disable_powers;
++	}
+ 
+ 	if (priv->id == ID_MT7531)
+ 		priv->create_sgmii = mt7531_create_sgmii;
+ 
+-	return dsa_register_switch(priv->ds);
++	ret = dsa_register_switch(priv->ds);
++	if (ret)
++		goto err_disable_powers;
++
++	return 0;
++
++err_disable_powers:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->io_pwr);
++
++err_disable_core_pwr:
++	if (priv->id == ID_MT7530)
++		regulator_disable(priv->core_pwr);
++
++	return ret;
+ }
+ 
+ static void
+diff --git a/drivers/net/dsa/mt7530.c b/drivers/net/dsa/mt7530.c
+index 7781a63b4..b669a94d4 100644
+--- a/drivers/net/dsa/mt7530.c
++++ b/drivers/net/dsa/mt7530.c
+@@ -2411,24 +2411,6 @@ mt7530_setup(struct dsa_switch *ds)
+ 	ds->ageing_time_min = 2 * 1000;
+ 	ds->ageing_time_max = (AGE_CNT_MAX + 1) * (AGE_UNIT_MAX + 1) * 1000;
+ 
+-	if (priv->id == ID_MT7530) {
+-		regulator_set_voltage(priv->core_pwr, 1000000, 1000000);
+-		ret = regulator_enable(priv->core_pwr);
+-		if (ret < 0) {
+-			dev_err(priv->dev,
+-				"Failed to enable core power: %d\n", ret);
+-			return ret;
+-		}
+-
+-		regulator_set_voltage(priv->io_pwr, 3300000, 3300000);
+-		ret = regulator_enable(priv->io_pwr);
+-		if (ret < 0) {
+-			dev_err(priv->dev, "Failed to enable io pwr: %d\n",
+-				ret);
+-			return ret;
+-		}
+-	}
+-
+ 	/* Reset whole chip through gpio pin or memory-mapped registers for
+ 	 * different type of hardware
+ 	 */
+-- 
+2.50.1.windows.1
+
+
+
