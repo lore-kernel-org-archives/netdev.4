@@ -1,64 +1,130 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=51.159.59.229
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795648322;
-	b=qUVsdE2cGGeMg7qBsVyry34kHLF9YhBg4hXR5HSZoNyX2VNAC+b0VezOM3MUpyRHUJ0l
-	 +JnQY5m81o1qa9HvqsF8X1sKFxUexbstx4NZ57Ov83W19vLjal9KlFQ8i6lNfTuV8CSbp
-	 CP327raY1p4jdhW3r1PeTBK47bNPD0ih1XLAOyQko1gxH1+hwQSvnSt2dhgocs7inQ+Ym
-	 Jey5yLCbDjjGvwUNEkuMF5S2sof1kB4mhOu6DVS9/gbALkOAzOz2OspE9qh3oSm1K8Umk
-	 Jx5EM9fkfGaD4sDaVK+Le2GjQvYrPvH5aX5yNDepFIXWJ5KwOhKRmyLLYFMI9P+YV4g==
+	t=1795648325;
+	b=DLQZGLJGZjA5i3X0Ar4bbx2EkU+d2ioAiWErmIENlJgjCAvYCC7XrZP7SU97htFp9S05
+	 7X8JJVfjxEZTlLj5cupqgPWEx2tbSlu5ol+G9JwR1JaAKzZvtaRpK+JRS2JWAcysEnXr4
+	 qX1MZpp+ZJ9XZUJS+XZFCmk/MdWnXuY1KXfYKY4/phXRLcdOmwUpIBjVInidlGiN51mp1
+	 Jo3akYZiPYmfLL2Ox7HI+QQ0JthZ2Z9sJ3jvNj1WhSKb0vOMqqzB0OyIDzQihjBdLndH9
+	 7gpUYfnScvnkTiH+p0TDtNF7aw/brubc2/qF/U3l+e74rWOZPQdcourdsSDg1EpMgsg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795648322;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=WoJMC9k45nXduaeGWiikgSM0h/+EJXvbBhCZ69eOchM=;
-	b=WBoTPlzAe76jg+BgS8BRolOGmjt67UE1++xd5JMMSSCuf1VVPeLzg9UllO7j6gBwfwyj
-	 yC+B75L/0/LviSdjUagQWYeCrluxHmNU/X4+7rL95iHZUOekz+XfW7DX/LVbRWhjSY5ZY
-	 jNZndVVRHE6OyCuXcwsi0KIyuz3G6DUF1v0q3o20VBVX+O2simIarjbMLx66S1NXif6v+
-	 he4kGJaBNzweYdp/ytj3bgYUHDvw5AK84U56XHG4/rW9VYAArSM3Vhh7QQPQ992UVSzQ4
-	 ewVpPnulCu0f5vgIT00ZZLv0GBxSeAZ0OGxaw9pXDYatfnsPSR89FQ51JBo+AF9035Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648325;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
+	 Mime-Version:Content-Type:Content-Transfer-Encoding;
+	bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=;
+	b=C4TabAffpSxLcFW5LFnbDXMyfg1iYDo/+QltORJYhSAabShXkrO7KsGCsSE4KLyBr3Ks
+	 iACnPxhA74XnsEBy/JKORa2bfz+7Rt+s/itDGlr2KT35ndubMU+vAqKk2qGPves1j38HM
+	 p6N7t0EkNjmsCCuetW1fd97fhpwpoKm+az6UfGbjjDJK9fbHhtiXWH5SW8df2g8CiVQ9C
+	 Ll+XIuWAlIw5Rgkr0tLgtuHDoD4QowwrewuWQ3YjAreq4tgcI2/I8dlY1LJQVGtlG4Xe/
+	 VGSmXIPexwhXcjra28jVjSmqVJ2wWMVzj5RDCmMuBCg8PXb4Jbwd31RHjoJ3IlUu8LQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=1wt.eu;
-	spf=pass smtp.mailfrom=1wt.eu;
-	dkim=pass header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b="Wl/eduvZ";
-	arc=none smtp.remote-ip=51.159.59.229
-Received: from mta1.formilux.org (mta1.formilux.org [51.159.59.229])
+	dmarc=none header.from=flapping.org;
+	spf=pass smtp.mailfrom=flapping.org;
+	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=Ytdfc3Wt;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=e4eXdFW6;
+	arc=none smtp.remote-ip=103.168.172.158
+Received: from fhigh-a7-smtp.messagingengine.com (fhigh-a7-smtp.messagingengine.com [103.168.172.158])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 922B5606A326;
-	Wed, 25 Nov 2026 23:12:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 922B5606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=1wt.eu
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=1wt.eu
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0CB0D606A32C
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 23:12:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0CB0D606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=1wt.eu header.i=@1wt.eu header.a=rsa-sha256 header.s=mail header.b=Wl/eduvZ
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=1wt.eu; s=mail;
-	t=1795648319; bh=WoJMC9k45nXduaeGWiikgSM0h/+EJXvbBhCZ69eOchM=;
-	h=From:Message-ID:From;
-	b=Wl/eduvZLVdy8IHIaB5qrLv64bYycFfEYyWVUbPAYUW/eT6/m1NvOmh5doisIiEB/
-	 VXwQf+znWQnPVdwLZPI56VVWgN/mXhe0ivSSHy0r8oNOseL6AJx01vsMvaxD4RF3I8
-	 0lzeeunpPOoShcqmBUOYcCQ3/FkQ8hkBQBIuEKa4=
-Received: from 1wt.eu (ded1.1wt.eu [163.172.96.212])
-	by mta1.formilux.org (Postfix) with ESMTP id 25E86C0701;
-	Thu, 26 Nov 2026 00:11:59 +0100 (CET)
-Date: Thu, 26 Nov 2026 00:11:58 +0100
-From: Willy Tarreau <w@1wt.eu>
-To: Bagas Sanjaya <bagasdotme@gmail.com>
-Cc: Jonathan Corbet <corbet@lwn.net>, skhan@linuxfoundation.org,
-        Randy Dunlap <rdunlap@infradead.org>, workflows@vger.kernel.org,
-        linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
-        netdev@vger.kernel.org, gregkh@linuxfoundation.org,
-        Johan Hovold <johan@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
-Subject: Re: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix
- that can be applied
-Message-ID: <awdrPui-KI-SK_5N@1wt.eu>
-References: <20261114190014.17826-1-w@1wt.eu>
- <20261114190014.17826-6-w@1wt.eu>
- <awdqgBF62SOKaU0Q@archie.me>
+	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=Ytdfc3Wt;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=e4eXdFW6
+Received: from phl-compute-06.internal (phl-compute-06.internal [10.202.2.46])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 0C1141400416
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:12:04 -0500 (EST)
+Received: from phl-frontend-03 ([10.202.2.162])
+  by phl-compute-06.internal (MEProxy); Wed, 25 Nov 2026 18:12:04 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
+	cc:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm2; t=1795648323;
+	 x=1795734723; bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=; b=
+	Ytdfc3WtKqM3C5b4lUGW2YbjQf1+OfaJ0u8pdNl0dNeadsL5F1xjjc9tWXfY2lEc
+	km/kE9pXJNEkxn/Tjbz+PiA7xpQsCrqjgpYm4AE0lWLHJWapC1PJGbl4mpcS9z6d
+	/GTIWoqyDA2Lj9KPYrRboDPv2zhVP+51nkfxcw8+LYqr/s4M0FrfYXdEdg4Lq6WC
+	jzkVHTh13OMVUkchDodquoC5HKbbsDizIYK31kC6YEJcJ7AQbI5wqNM+zaXp524u
+	4GWPKeYQO48mw3U4rAi8cMML/Dc8a5dN6/lLu+EodJP4bADnqxocYJ/+VV4rHNkg
+	dk1dOR/7MBbnIehjdrN7gg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795648323; x=
+	1795734723; bh=pGLjl7j/SBb86fKn90UOENSPBdsbSFo/tf5AbXyjbKY=; b=e
+	4eXdFW6xBQhKs2prfeNS2EkUICB10Yw85aRhKBIpfRCGP1u6atV+0jwCoZdulzPU
+	bgo16KIMQiqdY12RuJKXxC8TtZfgw6a4RYkwgKB8pki4h0ErZLHcZId0OWrhBb3q
+	HA+eyPmaStFojOjEgXgH2XRG9Utjz0xZEerafZvYOgrUgNjJoQp8UMW+5pkR09Nr
+	GFLi1k4cfF0BfWhL4vECPSFohMPilahfCy8b5Kv29sJjEAprbJKhE/z9vXp6BP9S
+	rStjAT9xyCkX/SGT/RhpiaOaNqtJCxrwqjPXFmcI2i9lErWsokGgJibWCDBqtZXC
+	Lszp/ywXsx19zz0hte3Yw==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=flapping.org a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795648323; d=flapping.org;
+	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm2:rsa-sha256:YEwrWayzIflnQHidtz2Bwte7pEnhsGXshWHNHge23Xm68ac
+	wzXlCNBiA1ZURXv5TKmd9FYrpZ0oWFuMxq3kCy9CTknakHyQtd7HCmpdFj6sZARR
+	1t9nEf4pdatUXUZhQFXit1iUsQDGRbo0mYtIZP7t+o6NuQI+vumuhytxp4qBHW+y
+	TwHAjFx+WSQfI/+upUUIRKLtn53EC19ISEStsrDe0oLRROsyEKw+z4WLKLDxpHS1
+	eoGzFuFsmeEUvIeNmsjlJJIUWYA+vaegw/VbsD9jo5Iy4r2gVBAt0cm4OTDtuQ3Y
+	qZF17r5BO7BQCnfWucQ4HFVtJC96r8wzAP02ccA==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=12;
+	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
+	from,in-reply-to,message-id,mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:YUnLiMJtabnPyfBRjXF0Cp1S+S2sLQWyc7v33qlqgzw=:ReMT3etTEGHzj3x1XVKD+IW7FqMajtWZnVyCfA5+voA=;
+X-ME-Sender: <xms:Q2sHa6R4fkkPsyqwQyMpSC0tdGunAaSfNvgcaNC7lnreqMsyMqRKkA>
+    <xme:Q2sHa4JOscRJpAcVpNn_7PUR1EXltoAn9SJpOr8iYHyak6kbUPNHWB-tYrytlBLU1
+    mLi6AQfHf8AuEI_m5IH4gwSun-9PHoPijuqp47-Bquu9tAbjE9N2ig>
+X-ME-Received: <xmr:Q2sHa6CRo1IoqWZUEwP0oVnuaJBYn9NT5WVlMIXsSIBYVazKS223WS3O22605trJCa8-HYMmxaN5xfho4iiMDQKG>
+X-ME-Proxy-Cause: dmFkZTFkdInJTRfS+07fsGcPolMb2Cn0DmAYTwufftzh15xMEvIviqE5Az8VlMNthE41Tv
+    CDBikO5ZSU3s4zorfxRrVfgA2m/33BP/X9x69o1mmF4/Cep7E82M+yClHJGkSkXw0UPeSO
+    9lLz0ig9ySbRVyvDJKiqERxamf5Lr04BM4vd1doEoNbmEXbcoIA0FRkKkKWZgL4DKd3kVb
+    ud633an5FXbXou+pDgBPgOZaQbmLOBSTCO0UclFMp1H7KZuThiFEtl9sN7pnh+TqHT1VFJ
+    oBZ0st44s8HFCZts8DydMt+R8eGVdnJjIlBGX744qFC9MuPqJmnq0feyV+fqe3f7+i2ybZ
+    cF62s6le3Tn67GCXyJ/qC4U/KbdX+Xu0L8olXN0FhjymrOxgOrThlwynWv6fxkfKNxWmzO
+    aCRBtgeff6j/IzYRzobCm41UhNwKceijc5UdNDw31YB63OK0kA1mqvLOAKQJ76axrIW5Z3
+    WDPIsmvL9xSWlgrRfn6GnR+8AfWIDZVdopeyfcC0Dm5rVUrR5jI/IZilxUeIrzXvt+XH0y
+    XVwzRgp3mx6DuuvRMNkZiUKInLIwiQIQA0DkxCTkqinmqqb4Us9+c/yIa/REewoFFjTr8e
+    tAnK83BWTpb8a+JiXbXkzUyCojqlN7FTBC3EVCunBTuL5Z3M/C03BRyMm/lQ
+X-ME-Proxy: <xmx:Q2sHa93yWBVLDCrQxSbcU2ys8aJzWrUZ4mTEe4lSw9L4VStF4-0t9w>
+    <xmx:Q2sHa1lfn9SyO8xYhcz2VZdtbav0EZuz2defxC8VzqloJf85A2c5vg>
+    <xmx:Q2sHayfuoA_wt79TrDiF8dAPBIbZRaNl0vMlICez1IZlEnviUze7gg>
+    <xmx:Q2sHa6UaYj8OOtyUyxni-isA47DMnT5MrXvlqyyfeYKzP5SHKGkkhw>
+    <xmx:Q2sHa3DQc5is8KUEA8BR_tUK4tHCn-B0bcQW6o8X4GX-HUBsGK3ZIMpl>
+Feedback-ID: i51fe4b43:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 18:11:57 -0500 (EST)
+Date: Thu, 26 Nov 2026 08:11:55 +0900 (JST)
+Message-Id: <20261126.081155.1605990248496749195.tomo@flapping.org>
+To: engineer.jjhama@gmail.com
+Cc: tomo@flapping.org, andrew@lunn.ch, fujita.tomonori@gmail.com,
+ tmgross@umich.edu, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, ojeda@kernel.org,
+ boqun@kernel.org, gary@garyguo.net, bjorn3_gh@protonmail.com,
+ lossin@kernel.org, a.hindborg@kernel.org, aliceryhl@google.com,
+ dakr@kernel.org, daniel.almeida@collabora.com, tamird@kernel.org,
+ acourbot@nvidia.com, work@onurozkan.dev, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, netdev@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v3 0/3] rust: net: phy: suspend may run
+ without phy_device->lock
+From: FUJITA Tomonori <tomo@flapping.org>
+In-Reply-To: <CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
+References: <20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com>
+	<20261124.215747.1090155063373507910.tomo@flapping.org>
+	<CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,34 +133,55 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <awdqgBF62SOKaU0Q@archie.me>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 06:08:54AM +0700, Bagas Sanjaya wrote:
-> On Sat, Nov 14, 2026 at 08:00:05PM +0100, Willy Tarreau wrote:
-> > +Most fixes sent along with reports cannot be applied as-is because they were
-> > +damaged by the mailer or lacking a commit message, forcing maintainers to ask
-> > +for a resend. A fix must be applicable using ``git am``, which is most easily
-> > +achieved by letting git produce and send the messages (see
-> > +Documentation/process/submitting-patches.rst).
-> > +
-> > +When the fix is meant to only be sent privately, the preferred method is to
-> > +send the report as a cover letter of a series, followed by the fix::
+On Wed, 25 Nov 2026 18:40:32 +0900
+SeungJong Ha <engineer.jjhama@gmail.com> wrote:
+
+> On Tue, 24 Nov 2026 21:57:47 +0900 (JST), FUJITA Tomonori wrote:
+>>
+>> On Tue, 17 Nov 2026 19:36:18 +0900
+>> SeungJong Ha <engineer.jjhama@gmail.com> wrote:
+>>
+>> > Patch 1 drops `read_mmd`, `write_mmd` and `match_phy_device`, which make
+>> > the same claim but are called under other conditions, and have no users.
+>> > Patch 2 makes `Device` generic over a lock context and documents when
+>> > the `Locked` callbacks run without the lock, and patch 3 gives `suspend`
+>> > the `MaybeLocked` one.
+>>
+>> Can we use &Device and &mut Device instead of the new context types?
+> [...]
 > 
-> Documentation/process/submitting-patches.rst guidelines also applies to
-> privately-sent fixes, no?
+> Yes, that is simpler. I will do that in v4. Two things to check first:
+> 
+> - genphy_soft_reset() reads autoneg and writes suspended, so I would keep
+>   it on &mut self. soft_reset gets &mut Device, and the SAFETY comment
+>   says that the phy_mii_ioctl() path is outside the guarantee.
 
-Yes, why this question ?
+Agreed.
 
-> > +
-> > +  $ git format-patch --cover-letter -1
-> > +  (edit 0000-cover-letter.patch and replace the subject and text with the
-> > +   report's subject and text)
-> replace the subject and message body placeholder as appropriate for the report
+> - read() and write() take the MDIO bus lock, and &Device cannot say
+>   more than that the phy_device->lock state is off limits.
+> 
+>   In read_mmd and write_mmd the bus lock is already held, so they
+>   deadlock. A test driver whose read_mmd calls dev.read() hangs as soon
+>   as the PHY binds, and lockdep reports recursive locking on
+>   bus->mdio_lock. The path is phy_probe() -> genphy_read_abilities() ->
+>   genphy_c45_read_eee_abilities() -> phy_read_mmd().
+> 
+>   In match_phy_device they reach a device that may be bound to another
+>   driver, which the netdev AI review pointed out on v1  [1].
+> 
+>   Do you still want to keep these callbacks with &Device and document
+>   this, or wait until they can get accessors that fit their context?
 
-That's a wording detail / preference, not going to respin a series for that!
+Yes, please keep them with &Device and document it. The deadlock is not
+a soundness problem. I will add accessors for the bus-locked context,
+with a guard or a context type, as a follow-up.
 
-Thanks,
-Willy
+For match_phy_device, &Device fixes both problems in [1]: read_paged()
+needs &mut self, and read_mmd no longer gets &mut Device.
+
+> [1] https://lore.kernel.org/r/179454612500.2199510.688554972467066283@kernel.org
