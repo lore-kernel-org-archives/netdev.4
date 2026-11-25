@@ -1,70 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.208.142.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627828;
-	b=ZRFCvzfBAxETHXbzP+/NSjrMZkv4qlxowATrtqmnWpZeIcZl7MTtof5I5haJPt5Hh3yi
-	 Tf+f1s0ri9ISKZoeyXM6n8e0rQVMBQ3k4QPr1VDTla0zVHSmqKtM65G92AaQry52D27Vi
-	 CYBaMcivd11k/g7sdK+cH+BwmQnnQCWJ4b7lC1GV40CEsGdrgj/HKXShphjwxKuXSmk2w
-	 kx+Pf3eY0+h84JejrFriptu1hDIJurqI4X1fv04dwmPDOJN8H2ItsEhOON4sZks3Ye8yD
-	 CTCR2po/W8mpuUZ4Ve6qag7BTzWqBYy23Khf0E1/agA8DPNLbCas1phAjb681ae68TA==
+	t=1795627962;
+	b=e7EEoelIouglBuV86JmlpQcxIoNBbcVfoIE+q4Mpbg5eM5w5RrcvmvrHG9m+XJlSOztz
+	 1Z4zt1B3tLog/FAclctI9TPaR3qivmQ7MPZAzjdOBhvRzL5947U2nO+NnUPeTJ6jWlZNE
+	 3J3iq1mgYWtnq6wp/ZZRdnc2x+1LiX0bHSE7vc6Gh3w0AVdxpkRSvOrZpx5HrwRKXZiVE
+	 LsHAH4dG+5n9Q7yG7S59gM/4X8GxHXI7+CORGLZmNv54Rcj7l86KtE0yvAh+7RGBRk6Xc
+	 Ni75JexGFXtHgo0OuoJGutZMYsvgE7S1AgzqegH0ZBS93N7+xjdwVDtRZOetJo+gXfA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627828;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=ajL/VFptsdMJF1T3+aHmoepAhsBn1dk3R0lg5KaZ3QQ=;
-	b=lDocYfmezRrNw+ZIDvJdRG8eWAd0S9TJg7o2MP/TQ5fx5456nSz07ZdGcKgNJn7k5BwW
-	 c0W9eUcT+CmGPOHjaCCVXko4kR/LImY9RVv5Xflo8VWQCv6GorHviOnVSOwd8cRULGBpw
-	 9jMpXIC5u0x03DKTBPVOTXEC0VUk0lDcNFyR40kCCO7ul/WRDvYzBDBLpHDzdwZxS4feV
-	 bahq3uTZhs1U3jnMqSl8xi/iuUXL3AKfwPBIy0QAb4gpvTPe4kafV9bSHwp7Y4NDEn/SD
-	 8xZCd8pLY3ye6caATqBUY8PElBVGn7dFH8GD1Ocp7LLSjPlw6GAdPIPqbWPJ16TAVRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627962;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=yROZWwK3yFhmR4J+4rR//wVwCBq3MVfqb1zhpZ3Xm8A=;
+	b=YaSjpj4UgJz5xA89jvh0YW66X6HCxqGPnGWWIOBKlwyGHXUm27iDGRQnN93pQpBQbGMc
+	 b9mNlgPyQXMpI3ZZSpKuhDDVxdHT/V+rw+OUO8pmwfigBGGC6AQzgg5UGb9CdhyLrVjgD
+	 cBnaIW1+i4TfNAiIWcyDd9Mv7CBG4s7HblGWgm0zFVvmnRkaug0ih+FMbb0yQZlR4qVWD
+	 T9FVoiTf5EEkt1tXLyAG9Pxb1d/4SIboYtRWeLgyioLkOFnhhHgEDnvGMBEst2tIDmQyp
+	 eeKjKRTILFI6GePTowKFFIGFxft4BcTINtv5IXVItRDqIXZxjtXxYww4Lzd61LWI7HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=6WXnP4dF;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dmarc=pass header.from=kernelriot.com;
+	spf=pass smtp.mailfrom=kernelriot.com;
+	dkim=pass header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=oSHTh3ua;
+	arc=none smtp.remote-ip=74.208.142.49
+Received: from mail.kernelriot.com (mail.kernelriot.com [74.208.142.49])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3062606A327;
-	Wed, 25 Nov 2026 17:30:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3062606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B82C0606A326;
+	Wed, 25 Nov 2026 17:32:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B82C0606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=kernelriot.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=kernelriot.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=6WXnP4dF
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=ajL/VFptsdMJF1T3+aHmoepAhsBn1dk3R0lg5KaZ3QQ=; b=6WXnP4dFj4zAmHxohBB1f8BPSK
-	rXYKOqmDheVofjgyfEpWWecV+KDEwZqGGVBNYq09PIwVyZq9Zo0EaOP8s0LEHSvEoPcRxP/z83cy/
-	5LxmHY+4cGqRevnN0Ve9UK1jgdBiCSH+h45qYIFkoH+uXcV7o/s3FqTTQSMM8Godxqws=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWGp6-001Nca-DL; Wed, 25 Nov 2026 18:30:24 +0100
-Date: Wed, 25 Nov 2026 18:30:24 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Alastair D'Silva <alastair@d-silva.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
+	dkim=pass (2048-bit key, unprotected) header.d=kernelriot.com header.i=@kernelriot.com header.a=rsa-sha256 header.s=kr2026 header.b=oSHTh3ua
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernelriot.com;
+	s=kr2026; t=1795627955;
+	bh=yROZWwK3yFhmR4J+4rR//wVwCBq3MVfqb1zhpZ3Xm8A=;
+	h=From:To:Cc:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:From;
+	b=oSHTh3ua6WOxhR6mUde3jJfwQFFL1ehk2cnxLu97fuuGqHhlsyjmHU9xKN7v+Zxta
+	 P+l67hZuKrgxOPZLasZ7/XbG0y2vxrkzHxT93f5NA4PhKvk0CPj2wZTME6om1zR51S
+	 JEO8aE1OETrdmSqFTq7e+ap+Z2IV6Inr0iftRQWIM/F8genOW02B0K3wNMOpTvlIqD
+	 IyLC2z24xSXvd1EJzdpGvve1hK7fIupSTIXu0OdW2o2zLgxPdcmI5eKUM08Se9z3tx
+	 tiWoQZBoS2YBzWrAE39IBLPVS4oewebGLrsIrL3YlluukzArEj/+bpJTCfMSdOD7We
+	 R7zTL+dr/HScw==
+Received: by mail.kernelriot.com (Postfix, from userid 995)
+	id 36FC5814AD; Wed, 25 Nov 2026 17:32:35 +0000 (UTC)
+From: Magnus Leatti <magnusleatti@kernelriot.com>
+To: Yao Zi <me@ziyao.cc>,
 	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Maxime Ripard <mripard@kernel.org>
-Subject: Re: [PATCH 5/5] arm64: dts: allwinner: sun60i-a733-orangepi-4-pro:
- Enable GMAC0 Ethernet
-Message-ID: <292b18e4-dbad-42ba-9f1f-cfbe2af52148@lunn.ch>
-References: <20261125130613.4191841-1-alastair@d-silva.org>
- <20261125130613.4191841-6-alastair@d-silva.org>
+	Giuseppe Nespolino <g.nespolino@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v2 0/2] net: stmmac: dwmac-motorcomm: shutdown hook and Wake-on-LAN from S5
+Date: Wed, 25 Nov 2026 14:31:55 -0300
+Message-ID: <20261125173155.2073979-1-magnusleatti@kernelriot.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -74,26 +76,14 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125130613.4191841-6-alastair@d-silva.org>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 12:06:13AM +1100, Alastair D'Silva wrote:
-> The Orange Pi 4 Pro connects A733 GMAC0 to a Motorcomm YT8531 Gigabit
-> PHY over RGMII without PCB trace delays. Use phy-mode = "rgmii" rather
-> than "rgmii-id" so PHY-side delays stay disabled and the MAC applies the
-> calibrated TX (2160 ps) and RX (3780 ps) delays directly.
+Hi all,
 
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
+v3 will be posted with the comments removed and the Fixes tag on
+patch 1. Since nothing changed in the code, I will carry both reviews
+and the Tested-by tag. Thanks Yao, Maxime and Giuseppe! You're the
+best.
 
-phy-mode describes the PCB. If the PCB has no delays, rgmii-id should
-be used.
-
-The MAC/PHY pair need to decide which of the two add the delays. This
-is not decided by phy-mode.
-
-3780 ps is also huge, much greater than the 2ns required by the
-standard. It suggests something else is going on, maybe a clock is
-inverted? Please investigate.
-
-   Andrew
+Thanks,
+Magnus
