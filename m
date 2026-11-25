@@ -1,87 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795578378;
-	b=JcsYjpvLPjrHzuTq1oUAI6Bp4RznceirFYannD0dH6hhBBQ8XpDTdvq9eGVY6NbYYMmG
-	 Gptkl1MLo65gTRXj4EI/rTiIYTkweTKVDLMIEXWnfxDy3bWZ+EYrf5cv1fd5oF5t7pBOa
-	 ruESiUQhEUrKe/Mw4+0tNPYXZMv1I5/PdlB+GCl6UodJrMIfO7Ko8PdM9BnDl+x3DSwwx
-	 AoUah/wflvOgJW9kd/Y+JvUSoNvlBDj787GmlfxykL2Nf2eNm5jKiu/TZ3fsD2SElxFcQ
-	 OSZX8b0uZ9dwYFrj8a6rCSuaQHyDeQvepFf38I4DwIbK16Kq6aCxwQhAi0tRJP9/r5g==
+	t=1795579890;
+	b=QqPbp4RuBnClN0G0WRoGJHOuCJUXjwWPUc/2/KrneX5HqO1188/qbKISjQWWSphw2oSp
+	 ASNXb/XCvP40PFsCU0TyhZsGKK48YjYqOj6Kb/57sjz1w5D/7iq27rXjAVYv29TM+fw00
+	 3P+MSLsIT4OGX3FRCGvaU/Z6AQQNdf8kBwG5j/6xwXIEgXJuOknE22lQek0HHlf7VlQOW
+	 5Mnkar1yr0WtvknJ3qaV2aDBEbfpos1j53N5PYLWf/TT39QNZwpi/arT4m1SfZUjIHzIJ
+	 QGLfHKdHGq2Rxdmq+1yDV2g6sRKAfyiaxCQIWAsH8Mftx6JhMlhb6fhjSkYWDaEJvtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795578378;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:To:Cc:References:Content-Language:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-	b=SG6FhBs8fvALgTSyF+fNHiVmxto60ojyKAzNchkXI465Dl8sebwO6+0YxcH4fe40EFpH
-	 cXeRucfCIue11Y0YyucPYfzkWBA8rZZ+dXVNTpi4qS+XRHfsjCmW9K7nztA05345CZMXV
-	 Egawrdqmgt2zmegcrEy0zWAH5XJpKmrg0i3VIHCkVIKPrhSlTOkiRjYtpY7mam1573CfZ
-	 SjcwWLtNzuZ6cvjb4rglwQb55RxY+YWupBYCx39Fjo/dR01oQh9Oi1wjT7PfOPGLhBPlw
-	 PobzWWjgyDfmLNs2iZQARNiRcps+iHMMQTMhJSVuDJc0GkvWYsy3vlUPngPp13WxtRw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795579890;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=RuWBxqmlNzoGpyn58kI2cHzyi/kIZ/Boh+P0A/056Nw=;
+	b=rNotp8d9t+S/Ny5TVZhxTS+GRXa6WKmkbwulIGNd74IqJCDGRWIGrbNUOt3Ht7ypwz9u
+	 1c0nOY9sEHxMKn5XCf5VVh4+1yQN5MhmHtUHQD0IvJNUdFeCcnmlWE1l5QQTbc+ze7d79
+	 yKfneRSObqBjbGw+SmcvDgAlzeCgX0RmCWZpif1WHrgvD0gDGEBgjmitHE9/e1dfGUWSv
+	 MqY6dJlkYeEgqtOmFAxQiNaVlowWe89jlsabkFGVHI/MxpU+xQjZ0owNefWaPhjPMqTab
+	 KcPavmuEXGbHCP7ABH8rIb3KRqiFFdhI4jn0G3txjy5t8RHEfbRncNSkJuplM4DWdIQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm;
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QAFrcbIR;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C63AA606A321
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:46:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C63AA606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 38C2C606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:11:29 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=gfBaCMbm
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-3282db206d3so4704888eec.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:46:17 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795578377; x=1796183177; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-        b=gfBaCMbm/fp+9m40d4cUAG6gCVE+9Z9SUZjyO8wQi+XcTxBe5wkmO14W6dzexi4ZFs
-         QV/zE80fsDhIXyknU+Lu7BEwNilJByhMtnXsSwrud5+UOPw9FV+bVC64BNUHN+diR1uz
-         bj2o/F3stORePkwDn1gOsLNsPOdcss4BUcWQHnGr0TKUIS0MM1S0X/ARpiluD2Ulo9Sc
-         pRjcLF69YCkFg4UvxrUS8neyxgUnbedNMwyZTHfnthBv5Os/ckOdSD8iib33IXiqebld
-         HUuyHkC6V9Pi2uXQ0CKJt5N3hipm2xElyk68UJrwPsbkAAgZ2hf1Z4mlHhax2lNoRpQC
-         Jg2Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795578377; x=1796183177;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=bQJJxCrofGpC23ygbnJv9Goz9D/r5cCIAV9NozCmzg8=;
-        b=Om88YvvCzfYbK2GdLxnLetk/YMpkTJp7ZwqfxGhAGEsm0PfgeDU3OZvjT9jMeBi3mj
-         vpqOLRkem8vUsr2Rg+9FVv/tCShTSJb3tIvdY9hKZ5rpupUu8aXiPaTGxaQI9Kye93pX
-         lIctO06yKn5RdrTzardLFCEBbRYWubMcVfMa7tjqOtjcWJoPnBJI2MS0aP62SoxXzzVH
-         F/5U+DfB2Im8G6BGkBjbcpL03G2V8TAtSMd/OVHXzP81TWv/KG3Kk3gWpz8OcSirHrHs
-         pzcnJGcM2MbNT6u2DvyaSm9ItyD5i/zq2mMQ8UXF3va4YusfxVdFBk0l1++JUFlRs/3I
-         uqKQ==
-X-Gm-Message-State: APuU4Z+sY/TRZAczJf9qXKRMKK+2svrRq4VgwUYhc9rssIXlYmArfClc
-	H9mmJKPkgnRivpRMufvpbMNBzk2MHbf+kXvrpC49unscF1qTli3a3tUS
-X-Gm-Gg: AZFdTZeCSNPuPibITzEay7ZhsRoDJJRCpX+S1kEug3E19T6jXILeZsHscuYwJMU6cW5
-	B+cKWaxC65ELfEkoy5QBPKshgs1MyyY/XLBysmOgTuQVLGVDQMm+7dlYBoeSWBxL9Uw1xat+Nb2
-	npNI4bUE4fKsmdaovzcEYP4O3UL3SZKPKrLlSFnNB++pK7G311FcEz8YZb1fFxrYSDO5PpRwORN
-	iFpImTIzn9D+uN49Kev+5WnQt53/Fb4tKzd+L+ZCVTo2C6XJkEBR1EXD0JZ94fsUV2EyW0IEk2T
-	Jr+n0pkZ1HJPv32iz6m3u7OeG7DLt8JWlIuWksBVuyL6vFmdslXMsl5CSGa2wFxwm3Idgdu0/7K
-	cjYsO3lDQmD5Fq6xlekMOg0Rj3brNzCbsSC/G348zsuuatmh8wSs3Wqp5N5oAA8RbQZjt94NZq8
-	6WXYAQ/eT+XNhGrNUrfbr3zIB8g2Ivao5qaujev97q9KEbbPTlLh9nPb5OTGhJviTQqaTUQwLuT
-	qqT4WjoS+tTMXD7rvDnM5/lHSrBuYOYpU41HSzMSduO4khozx+Cyb7QRqnv6pSJvvHPt6KERaBg
-	M8LWozPESWL6n+QkORvHTm1ORtBUayHCHlKR0JCZA5nQUbNzSrKLLAS5bTKKNl+SBQ5qnoW7+BO
-	8vkoRdBungYKDUFQp0rgbe+VL
-X-Received: by 2002:a05:693c:41d4:20b0:386:cedf:5e51 with SMTP id 5a478bee46e88-386cedf61efmr1230294eec.26.1795578376678;
-        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
-Received: from [192.168.10.126] (ip70-187-214-22.oc.oc.cox.net. [70.187.214.22])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-38566cd46c5sm59900962eec.11.2026.11.24.19.46.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 19:46:16 -0800 (PST)
-Message-ID: <b14f881d-78e2-420f-8395-6f10028fe597@gmail.com>
-Date: Tue, 24 Nov 2026 19:45:54 -0800
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QAFrcbIR
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B84F31F000D0;
+	Wed, 25 Nov 2026 04:11:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795579889;
+	bh=RuWBxqmlNzoGpyn58kI2cHzyi/kIZ/Boh+P0A/056Nw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=QAFrcbIRsGdYvPZlmvqjwV1L0L4bKuzfNt0vaA8mVyUptjEgkdG7Umwv5ZYqm1Nyy
+	 ++hPIjjGVGazwwZTX2PJnoc+dhQoGvRHwv26UPcZTH3lDK7W1v04oDezmYyci1G/cI
+	 eXfu7GItZGuw3JO7awgmvZvsktBM8gfPcNsCsFiypKr49yCfi3btwuZ+aWO/r7th5K
+	 /edZlXI+CU/Fz9/DZFbTgibzG6c5BT2Y6V862haX+XgQXYNdK9yKUs88/thWeG+B+o
+	 ZpWS0K7itBJptHAn7wsW4mSop6mWj09LoSmUyhT7k2p0IZVa/SbhmMgNFC9Nea32Px
+	 o/hLtFabSV1YQ==
+Message-ID: <f57bd1af-fac3-49e1-b0ce-4b980289fdd5@kernel.org>
+Date: Tue, 24 Nov 2026 21:11:28 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,103 +52,65 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v4 07/10] net: au1000: restore RX buffer addresses
- when restarting the MAC
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- hkallweit1@gmail.com, linux@armlinux.org.uk, shaojijie@huawei.com,
- horms@kernel.org, runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
- danny.kukawka@bisect.de, mugunthanvnm@ti.com,
- sebastian.hesselbarth@gmail.com, linux-kernel@vger.kernel.org,
- manuel.lauss@gmail.com
-References: <20261121004809.1690280-8-f.fainelli@gmail.com>
- <179557011055.3135.6140198422373932770@kernel.org>
+Subject: Re: [RFC net-next v2 0/7] ipv6: validate dsts against the netns route
+ generation at lookup
 Content-Language: en-US
-From: Florian Fainelli <f.fainelli@gmail.com>
-In-Reply-To: <179557011055.3135.6140198422373932770@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+To: Ralf Lici <ralf@mandelbit.com>
+Cc: netdev@vger.kernel.org
+References: <20261123212623.106153-1-dsahern@kernel.org>
+ <20261124163553.783988-1-ralf@mandelbit.com>
+ <72ade685-ecce-4215-a30b-25be7666e299@kernel.org>
+ <20261124204623.45969-1-ralf@mandelbit.com>
+From: David Ahern <dsahern@kernel.org>
+In-Reply-To: <20261124204623.45969-1-ralf@mandelbit.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
+On 11/24/26 1:46 PM, Ralf Lici wrote:
+> On Tue, 24 Nov 2026 10:15:40 -0700, David Ahern <dsahern@kernel.org> wrote:
+>> IPv6's finer grained invalidation of fib changes is why this whole
+>> cookie caching mess exists. It is a performance optimization that to me
+>> has gotten out of hand and as you reported is the cause of functional
+>> incorrectness with both xfrm and other caching.
+>>
+>> I spent the morning doing a deep dive on the claude assisted patches and
+>> really like the direction. Making ipv6 fib management and invalidation
+>> align with ipv4 should remove the need for all of the cookie stashing on
+>> sockets and elsewhere plus remove the cookie argument to the dst APIs
+>> including sockets. ie., it is a good cleanup and simplification of the
+>> code base with the cost of more invalidations on ipv6 fib changes.
+>>
+> 
+> Understood. My goal is to get the race fixed, so if this is the
+> direction you want to take, I'll drop my series. FTR, I don't think the
+> finer grained invalidation is the culprit here so much as reading the
+> cookie after the lookup instead of during it, and I still think the
+> per-node scope might be worth keeping (v5 shows that it can be kept with
+> validity in the dst), but the trade-off is yours to make.
+> 
+> Whichever way it goes, a few things I found while working on this apply
+> to your series as well, some more broadly since any FIB change in the
+> netns makes every pcpu dst stale:
+> 
+> - A found pcpu or exception dst has to match the lookup's sample,
+>   otherwise a lookup can return a dst rebuilt after the route it
+>   selected changed.
+> - A replaced pcpu dst released with dst_dev_put discards packets for
+>   holders that use it without validating it again, such as a corked UDP
+>   socket.
+> - Dropping the slot's reference with dst_release while an xfrm bundle
+>   holds the dst as its child can free it under a lookup that read the
+>   slot without taking a reference, as the bundle drops its own reference
+>   without waiting for a grace period. 4/4 of my v5 defers the slot's
+>   release with call_rcu.
+> - Stale exceptions need to keep their PMTU and redirect information
+>   instead of being treated as misses.
+> - The forwarding sysctl is read in ip6_pol_route before the generation
+>   is sampled.
+> 
+> 
 
-
-On 11/24/2026 5:28 PM, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found more severe
-> issue(s) in other patches of this series. This mail is only an FYI, in case
-> you want to address the nit picks below when you respin.
-> 
-> Low priority / nit picks for your consideration:
-> 
-> - [Low] In `au1000_init()`
->    (drivers/net/ethernet/amd/au1000_eth.c:727-728), the patch writes the…
-> 
-> --
-> 
-> net: au1000: restore RX buffer addresses when restarting the MAC
-> 
-> The commit changes au1000_init() to reload each RX descriptor's buffer
-> address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
-> it only OR-ed in the enable bit on whatever address the DMA engine had
-> left behind. That could make a receive after close/reopen start partway
-> into its buffer.
-> 
->> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
->> index ea2766343d518..ec28ed33bf698 100644
->> --- a/drivers/net/ethernet/amd/au1000_eth.c
->> +++ b/drivers/net/ethernet/amd/au1000_eth.c
->> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
->>   
->>   
->>   	for (i = 0; i < NUM_RX_DMA; i++)
->> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
->> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
->> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
-> 
-> [Severity: Low]
-> This isn't a bug, but should this be a plain store, like the other
-> accesses to buff_stat?
-> 
-> The commit message says this matches the receive completion path.
-> That path does a plain C assignment, not a writel():
-> 
-> drivers/net/ethernet/amd/au1000_eth.c:au1000_rx() {
->      ...
-> 	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
->      ...
-> }
-> 
-> au1000_probe() initializes the same field the same way:
-> 
-> 	aup->rx_dma_ring[i]->buff_stat = lower_32_bits(pDB->dma_addr);
-> 
-> au1000_reset_mac_unlocked() and the reads in au1000_init() and
-> au1000_rx() also use plain loads and stores.
-> 
-> In au1000_eth.h, rx_dma_ring is declared without __iomem:
-> 
-> 	struct rx_dma *rx_dma_ring[NUM_RX_DMA];
-> 
-> Passing &aup->rx_dma_ring[i]->buff_stat to writel() therefore gives a
-> sparse different-address-space warning. It also means this one
-> register is now accessed in two different styles.
-> 
-> The driver already passes non-__iomem pointers to writel() for
-> aup->mac and aup->enable. What this patch adds is the mixed accessor
-> style on buff_stat.
-> 
-> There's no runtime difference. MIPS_AU1X00_ENET depends on
-> MIPS_ALCHEMY, which only supports little-endian, so writel() and the
-> plain store write the same bits.
-> 
-> Would a plain store match the surrounding code better, like this:
-> 
-> 	aup->rx_dma_ring[i]->buff_stat =
-> 		lower_32_bits(aup->rx_db_inuse[i]->dma_addr) | RX_DMA_ENABLE;
-> 
-> The other option is to mark rx_dma_ring and tx_dma_ring as __iomem
-> and convert every access to readl()/writel().
-
-These are good suggestions as non bug fixes but for now, this will do.
--- 
-Florian
-
+My set kept growing. I told claude not to add the order switching; you
+have a patch for that which can go in as is. Not sure how much of the
+above list is covered by my non-RFC set. That one kept growing through
+the iterations with claude and sashiko/codex.
