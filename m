@@ -1,108 +1,125 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618444;
-	b=ZidQ7yPggvCRvpo0kkp07AN8msst1/DXjG2E2/45nI/EONExfUPckJpCuM7oIwRLTtxD
-	 UpMmoMmcpN3XwPvdOtRT6yaC1JvVkWX17QmOt8OPHTfWwKIX833FRshJhxRppHOHqJCVK
-	 6q1xiLC/HIQkJ7hE+A1HpXfpqLQ0WbAfzkCPg9qJpI8XU3k8y+0yXRiFvJWpx+QKWosHu
-	 pRlMR39fREay9mqWQtbsZqYiNwtHeK6PMKxLTsZx++J0Do3+DW2TAzdmk66iaKuzWv13o
-	 FtxmFwPra13OItBn8heH5sypYrmmRrBn0N9eNNBaHo4hE3Cd1EQWq7og5Mp8ILoUTlQ==
+	t=1795618535;
+	b=Wb7eL1DfQTxCKTrapo/fY1gEjtjoAs9RZG4BxL+w20wxMWPxIwEGowOSuhd+yeVen6e/
+	 2AOzWVPuo9hKWLDEnRPA559kOOomrU9rcYFQdGfimTEHbZ1YH2+fBvhbRQ0I1a9BOT3+T
+	 Jz+erFipNL4j/mcuJN026+gcaAYCWF9phxOZkzvM8p8yvQ4K77LyxyAyXULnjHTZcF9tp
+	 MGc544hWZEgPDHY/4MUBQzASinIwkW+FScACdIgu+jb2fV5JmVV/zlQ9xa2SboDhHrALQ
+	 TwlId7aEK9UrWVsSnWmjUh0/+I0dwQdPOdpEZJOSAOXtGT3ajQB5fFd84srM5kFuC5w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618444;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xx/dstjB6qlhxOOM3bpSPNtpLhsmfhhwbO7i7MimD/o=;
-	b=vzLkSydp7PD+Gv983MWb/eejnWLUpGr6ghIvtugEqmR8Mi6Hx8j7WPrES8eBtTzpNZk1
-	 yMd6U5HIZCtGyouG3iFTjJVf72xHgwUst5Uy+LZ2rFhqnZjizaSFC/kR7n/2HrYD5hzYM
-	 2kg8CByD8dRx9WjgeT2nKvfgal53E5geZp6a/17qrfns3ycR5uI+omGeBGDbem6qy4esq
-	 hWybEetR20O+VG+jfNA77D+0mCvB4pnxBa0R4aetXSiyo2Y67SvVZQflfdkve2rPOIz80
-	 UD8pamIU8rx9Av7OaAMKSnY2QlhfV1aQsluj4NE5uYTl6I81eDvznfKIlu612o+fqsg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618535;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Authority-Analysis:
+	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=HnuTfte+mdhWwh+sJdUBLmYpGpD9aM7Wx4iTVLXkRUM=;
+	b=KC6n8C2MY1L2XorbkWH8eclIltSNYFQHQxHwqIuNm7B7tQid01eyyIRanbUMWZw3jC0B
+	 HtWpQFRMKlCa24iuUdndoiyxaJ9LNQ/UoE6vyOOMK4EV+NTaNVO+ITk42RBl7E6xOtobw
+	 nj6CSyq5bk2sPWD0ohxl+BlgH7l4eCJJopd5tNGS/4mScxiDJiLmOTVipPQKvuDcAl/py
+	 jKw7V7SXYr9ODuE4Z8cm0AsG9PEzHfcaJiR0XxXof5Zn+ndvgaocNyXhjCusXZa+ns87Z
+	 vazxNFt/m7FHBErGAKTQ2QTrfzlklR5EPCpu+o48YZwmFs+SlGUMLSWcqdeN6oz7pOA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dMAIx3IT;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=pn33URwv;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=J92Oq1gS;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AM4eJFdg;
+	arc=none smtp.remote-ip=205.220.180.131
+Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6C658606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:54:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6C658606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4E7ED606A333
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:55:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4E7ED606A333
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=dMAIx3IT;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=pn33URwv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795618442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=xx/dstjB6qlhxOOM3bpSPNtpLhsmfhhwbO7i7MimD/o=;
-	b=dMAIx3ITXCfH7guACr7zctorvtzz+BnDtFlFI425XAVLqK5Ufa5WhB4YM2VtpXQ+0yC3Kh
-	sN5dCzbsDCNsGCabgfngNC+ElnHRPWvTeMsorFudC1/5+hAjCjFHbf79Dc8MDUj0pVoug9
-	+25eWZyze/pU546RMzLCl1Sen9MMmuc=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-596-ijEDHFzgOu2ulsuYaY_ETA-1; Wed, 25 Nov 2026 14:54:00 +0000
-X-MC-Unique: ijEDHFzgOu2ulsuYaY_ETA-1
-X-Mimecast-MFC-AGG-ID: ijEDHFzgOu2ulsuYaY_ETA_1795618439
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-4a359b714f8so36454855e9.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:54:00 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=J92Oq1gS;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=AM4eJFdg
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APEM7312729796
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:55:30 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=HnuTfte+mdhWwh+sJdUBLmYp
+	GpD9aM7Wx4iTVLXkRUM=; b=J92Oq1gSARuaPSfcpRQMOvNtC8Hf2dCX4rSVcym5
+	41JJcj3FNDY402mqYyzHECPWfinRkCIGDehEDT2TOa+GBYHO78vllqyGUFDT+UBp
+	2BxLghhX3Ic2AsBehAJE/IBYkiAKtBxyu+GKRXZLIsSzJxaqc3elWDU4/gYaCGii
+	r1ZAgZkjUWeWf4ia/EKuUFpLJvzkaZ2prDZksNxMy8QBO6uia1IZavyBofxq8jgO
+	P24TC+IUL4L74OlfMl0QjH77xTSIYKZUTLGnEjWe0KbYMSc6mnT2JmJFeCLEzK0F
+	Hpgm10g+/DaID5uDy3huplYb0QsIPrrVMBbjXnENn6nOQA==
+Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com [209.85.222.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vuksctx-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:55:30 +0000 (GMT)
+Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-94961ed97d6so1009226185a.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:55:29 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795618439; x=1796223239; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xx/dstjB6qlhxOOM3bpSPNtpLhsmfhhwbO7i7MimD/o=;
-        b=pn33URwv492/HgJMJYAPaj3LAp2loLgbZN6cf79qpiyUas/ua1yZcjWlBXoQmio+DO
-         pKWG+CSXc/uz0MLXP5nRb1PRAT7XlEx55YX27md56PbAjzhh+0zeQ0fLtChkeGQ8Mylg
-         3ngI/Q8HpTi6tNmxTHVELnwFnVP+g3fc5T8gDg4G+GLZ/KDHr/alx7ryyxYs5qT7dUVe
-         DPr+Tcld1O2+DvGYGHz7nnsPcDhcGHzgxfVd79DW8tQTQxAPejz/RcmOJgSGq35gFODh
-         pgxwLkiAZGWR1gz5VzrtGJEOcPLgdRd+OV3o/ngQRzV4IScRAHflB7uJzWSQp8R/iBIs
-         oXtg==
+        d=oss.qualcomm.com; s=google; t=1795618529; x=1796223329; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=HnuTfte+mdhWwh+sJdUBLmYpGpD9aM7Wx4iTVLXkRUM=;
+        b=AM4eJFdghtOywac9dqczs1Q/UXSOWacvA6kk4zN4jbX135BmFTmBfMkmu84kJa3uHh
+         AnB5ONxIXf2tjHgriFO53HvKuxTr6HY0zfsQLAx8INN1KoJZRo9D1ztC7HljQfoDRLUn
+         eOJlwW9v5BXN1PoPFSLcr0glqeDyyaMTy35ArbmfrHcYa06Y+A1OOIwMs06UhOhwHnb9
+         enfSk4rIWDlJSTCk01676Z4x5FGSARXrXQmlvDhjzBbu6kZSOYpFzrot0boxEAd54i5S
+         Lt4obvqGyW4c+xBUZ0jqcQvPvC39Ya2z7bhz+U+pBq+1svk7yvgDmwWelhUDos6ItEXs
+         X/3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795618439; x=1796223239;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=xx/dstjB6qlhxOOM3bpSPNtpLhsmfhhwbO7i7MimD/o=;
-        b=Z29Qthl1micJFVORmy0wn3oyOJM8SdM6x5thMzaG99w5+BrgTevuy/cUU55TslBLQn
-         a3tW7yV0cLbjAUXsIgjxoFRsdNv7lR9x8hr3oxjMmBaICb6/3Y1Sk+inX05HjPUfpEYQ
-         tngwQ2Qbrbip604F+Kzs2q50yVyRpmVYi3Bthxxa2IbX7OrGaD/7G9ipbuFw0uULuWhI
-         /EhSFyHKWe9ZdSJ8vs7kQGSxxTmMYf8hnt5EOzRfaFV3bIDCzWsvvywXdE7Zhwtr+id8
-         O9GBpvqEl6KJeHZhSGIWSDSNL0JA3Xng4QbiE9HB2WWr7eSavB2bAh0swALTn5uezUgC
-         Horg==
-X-Forwarded-Encrypted: i=1; AL+hErEw8Uor4oqjbKLd9Dxr6Gn6e0jxXTtztmmHlhPiFGzw56ICeGZl5wcXY7fcDjY5g3w1hx6h024=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9CRgzr5d5s+CX9RrPKlILbjLlw39ZTCrNtuhTAE4NcwiPxECzp
-	leN6uHOzL/j8FR5VCHpMFdfCNtmzCCnmirjPnKitPcitdlAR0nks3tKpIG2l/MOc68b2NRmlDY+
-	+7fcHPWeJYhQEQn/c6ljVALh7WqyYH1W4dJC30zpDGaQlDkKQjCYTOmLtyQ==
-X-Gm-Gg: AZFdTZc6BQEa29bBr9O6jjZDNoeLXhxgmrjLvOB/gMerYvdYksKT0O/4Nxx4V6Nti+m
-	34C24vw/T2PRb31UvZFtU4wpkdO9qjL2ZlUjqqfRC5YKNcjLGdBlIY58uXtTcscx7zjTTcgwepK
-	BAfnxC2Zyk94HM7jRV9GhmXTUHHFj8vSUpVQAJHQEHDuLe1ge+sdPgwjsFvyD+OI9XL0+EsFSKd
-	u4l0DzBY2ol7k84BZp9rWvZSwFXv7mdomm0XEKxL1tKJoqOC7uYA3pLZJI0h+9y9e/lwyFNpPza
-	HHtUr+xtr1n2KjcBacHXx9jA65Zn55HXkNe6RAoroVE1K/Is7/eOvTgYUnFlmMEiVZR5zXvghjA
-	Ey5G8xOBuBUII+sXSR1MyT4Ev0Rw4H5PJByFAVWKxmMA4xM0HWED7X1fKo5R8xYmC9KwQ8lW1dw
-	78xVmBoG2BDnDHP/1A+7dJZZ5LmYX47JU0UrDNXepLi/to
-X-Received: by 2002:a05:600c:3b91:b0:4bb:7e4e:de53 with SMTP id 5b1f17b1804b1-4bb8881059bmr442506075e9.12.1795618439033;
-        Wed, 25 Nov 2026 06:53:59 -0800 (PST)
-X-Received: by 2002:a05:600c:3b91:b0:4bb:7e4e:de53 with SMTP id 5b1f17b1804b1-4bb8881059bmr442505685e9.12.1795618438641;
-        Wed, 25 Nov 2026 06:53:58 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4abbd84e661sm33028179f8f.18.2026.11.25.06.53.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 06:53:58 -0800 (PST)
-Message-ID: <31551b64-3286-4f75-8b6c-b18e42286545@redhat.com>
-Date: Wed, 25 Nov 2026 15:53:57 +0100
+        d=1e100.net; s=20260707; t=1795618529; x=1796223329;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=HnuTfte+mdhWwh+sJdUBLmYpGpD9aM7Wx4iTVLXkRUM=;
+        b=P/fClR+jS9Vfg15u2C3AwQ8e1VuO7iadmyxekYJwSE66TVxtG7vjaXuQePQifmDSPJ
+         AqQpepGwx6OjwFNlBN137SPjt8NmC5xyVDQTeSiMbCpsSVsmtBStDbw0FaHEtoPQ9rG9
+         E4/+eSI3Ot01gD+LfpPvf//N5DOVnyfsKonhceHRXkvL1GAv+MJzIuJVrSZ5kn1vOlHx
+         rP9d7T1qhJN3WmVuDb1HE/z41hM9BVr+J4f15j0rDVJIR23t77+YMuoPyuDDOOX5W629
+         5//tDUzduZdlqTRukWlBc9N+d1yTYPLpiWF7YB1mXaKat9/yyb+JmHvjUmY3UqQ730Bt
+         UBjw==
+X-Forwarded-Encrypted: i=1; AL+hErFEGCr1Q3g+2DQ65qS263crjM1n8HKDoo8V4afMh1Sht0E5DDt0OtiI75M6dgDATd1F1VvpO+Y=@vger.kernel.org
+X-Gm-Message-State: APuU4Z//E+VqyZ5UYqkGzU2bnbG2A53GbrXNlBD0fuBBbCcOv5qe92fq
+	xCWQjqXaI6HessVZE4S/rymGg+lfoaSeJw6Splc//bDIv6oJNJtoXz+B0CPo3ppwUE1vUWQ1KC8
+	m7U3K77MwOmXvqP0EBqHJbVEutkoUX8NhTA6Qi8x/vraBxqNWzDymZPuoL1kWdgpmGi0=
+X-Gm-Gg: AZFdTZfOqUTO+fYpspWowqgNoNzFpzplKIKyfQJHKkFDZYmCwZCxz3hcfIdbxw4ecUc
+	ZR/4GeNCd5RE92JsAiDjLxsTnEpodpWwu5ebXVix2uRya45iaYV857dLaiBqvHI5eh2vhYiZ5p5
+	UR8JwpNILHOiRkKxVg0B4xO9cpUI/T0b7544KVNG5CBPtKYXlCNzXkdNmzXWfAtwm5krzmrPz12
+	yzlcL1K3g+FCbK3gsZeogswoQsL6Li5bg1q0xz5CI4RTYtnDFnRSBLiCg8DAgQiiqdfNVyX5XBA
+	boNz6EvyKWhAd3TDx1X6JSs91y49g0Mlu24n+B8FldVxMdWda3AvyD98LmmQGkjQZWtI83nPU70
+	OJxTwBBys90CKxRvSA+rsG81gz7qvuOaYsqhojsTveazynVBopzL8jzElMjgwNLI=
+X-Received: by 2002:a05:620a:2792:b0:93e:64ac:5dfd with SMTP id af79cd13be357-949b3402246mr3228580685a.3.1795618529249;
+        Wed, 25 Nov 2026 06:55:29 -0800 (PST)
+X-Received: by 2002:a05:620a:2792:b0:93e:64ac:5dfd with SMTP id af79cd13be357-949b3402246mr3228572285a.3.1795618528540;
+        Wed, 25 Nov 2026 06:55:28 -0800 (PST)
+Received: from localhost ([188.152.73.83])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a67f204sm41168546f8f.21.2026.11.25.06.55.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 06:55:27 -0800 (PST)
+Date: Wed, 25 Nov 2026 15:55:26 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+        john.fastabend@gmail.com, sdf@fomichev.me, Jose.Abreu@synopsys.com,
+        boon.leong.ong@intel.com, horms@kernel.org, andrii@kernel.org,
+        eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev,
+        song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
+        emil@etsalapatis.com, ihor.solodrai@linux.dev, netdev@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org,
+        nb@tipi-net.de
+Subject: Re: [PATCH net-next v12 4/4] net: stmmac: rework stmmac_rx to
+ support XDP rx multi-buff
+Message-ID: <awb23jFbMuiQLhzO@lore-desk>
+References: <20261121-stmmac-rx-mb-v12-4-3ae2f3bce174@oss.qualcomm.com>
+ <179560987080.3135.9418981958235641169@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,61 +129,212 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v3 0/2] netdevsim: add TLS device offload
- emulation and test
-To: Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
- Sabrina Dubroca <sd@queasysnail.net>, Shuah Khan <shuah@kernel.org>,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
-References: <20261119064902.242502-1-jiayuan.chen@linux.dev>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261119064902.242502-1-jiayuan.chen@linux.dev>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="LYnRZCeMiM17E6jE"
+Content-Disposition: inline
+In-Reply-To: <179560987080.3135.9418981958235641169@kernel.org>
+X-Authority-Analysis: v=2.4 cv=KfVHIgYD c=1 sm=1 tr=0 ts=6b06f6e2 cx=c_pps
+ a=HLyN3IcIa5EE8TELMZ618Q==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=rJkE3RaqiGZ5pbrm-msn:22 a=9R54UkLUAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=qj33YrL6L9DSmQYm-pYA:9 a=wPNLvfGTeEIA:10
+ a=cKRSO90NwK-mRX7MwXcA:9 a=bTQJ7kPSJx9SKPbeHEYW:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-ORIG-GUID: JAXyTXmVelQwumUUSbMm_87seqKabkW0
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA1OSBTYWx0ZWRfX0s4+B7LsIwAI
+ 5748gO+T/qD7nk8Py3K7VzzfZki4R+iT+o13qPTvuom8yaROZi1Mv/viUJ1l+N2Ln7Iv+uINivJ
+ jmHpdMAdN6INdVoM5TFJPvjUf5lAEys=
+X-Proofpoint-GUID: JAXyTXmVelQwumUUSbMm_87seqKabkW0
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA1OSBTYWx0ZWRfX42vFfzIPTn8t
+ QDZGzTzCCF1mBCoJ6iPpQS5bwrivKfoZiXTuZJv4s5M0Y2Ax+BWIo6jhPICB4Hh+S59aNy8fUkY
+ zA8H38+sn11g09Mfikx1TVYvySPdMj1BPpn6Esjc0U1Z5v08rGOH/hCKZVFhK2y5uEfUHdSjcK+
+ 0efbAN5o2V4VQ4L2DzaG8Z2PRzZsBI4ZiGCPQlloW4rGjya+R8dKbu1t8m6E5Rf+LuqOe5COuSN
+ s/jZbOggpbUv4D4U5x9TqlVtCs/LKiW2LQem1TMKKj1f7zzoz0dfgVWpvBkrwcvrv7EyTcUu2tA
+ /kfLe17LKdQRUaGqIWshHMAwY9MYyZ2c29l6Qgys844KHWQ1bqWjpQG2XznqMeicDOiNJYxKQi7
+ lRYCIiGbN8JISnJJeuu4dvDZSnoo2ReXxJULPNs5ahQPp1K5Rzb3g9ZVt5Luehx+oMzBTTfIuST
+ SxTrxEqVjlWRIrAyE4w==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_04,2026-11-23_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 suspectscore=0 priorityscore=1501 clxscore=1015 bulkscore=0
+ impostorscore=0 lowpriorityscore=0 malwarescore=0 phishscore=0 spamscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250059
 
-On 11/19/26 07:48, Jiayuan Chen wrote:
-> Running kTLS over this already found a few bugs:
-> 
->    b17cf742eaad ("tls: device: fix out-of-bounds write in tls_append_frag()")
->    ed642349d87d ("tls: fix the open record check in the max payload size setsockopt")
-> 
-> So I think it is worth sending a formal patchset.  v1 [1] was asked to
-> wait for a selftest that can also run against real hardware.  That test,
-> drivers/net/hw/tls_hw_offload.py, is in the tree now, so this can move
-> forward.
-> 
-> The kTLS device offload path in net/tls/tls_device.c has no test
-> coverage upstream -- selftests/net/tls.c is software only, and the
-> offload code needs a driver that implements it.
-> 
-> So teach netdevsim to fake it.  Patch 1 implements tlsdev_ops and
-> advertises the TLS features.  Patch 2 lets the existing hardware offload
-> test, drivers/net/hw/tls_hw_offload.py, run on netdevsim as well, so the
-> same test covers real devices and the netdevsim pair CI already uses.
-> 
-> No crypto is done, like the IPsec, MACsec and PSP emulation netdevsim
-> already has: TX puts the plaintext record on the wire.  That only works
-> with netdevsim on both ends and offload on in both directions, which is
-> what the netdevsim environment of the drivers/net tests gives.  It still
-> covers record assembly and the offload lifecycle.
-> 
-> [1] https://lore.kernel.org/netdev/20260901154914.11637-3-jiayuan.chen@linux.dev/
-> 
-> v2 -> v3:
->    - fix the build with CONFIG_IPV6=n (kernel test robot)
->    - address some of the issues Sashiko reported
-> v2: https://lore.kernel.org/netdev/20261117140642.4008-1-jiayuan.chen@linux.dev/
-> v1 -> v2:
->    - drop the netdevsim-only selftest, run the upstream tls_hw_offload.py
->      on netdevsim instead so the test also covers real hardware (Jakub)
->    - rebase on net-next
-> v1: https://lore.kernel.org/netdev/20260901154914.11637-1-jiayuan.chen@linux.dev/
-> RFC (July): https://lore.kernel.org/netdev/20260728125658.390500-1-jiayuan.chen@linux.dev/
-Applied, thanks!
+--LYnRZCeMiM17E6jE
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Paolo
+On Nov 25, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>=20
+> Critical: 0 =B7 High: 0 (1) =B7 Medium: 1 =B7 Low: 0
+>=20
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+>=20
+> - [Medium] The patch makes __stmmac_dvr_probe() always add
+>   NETDEV_XDP_ACT_RX_SG to ndev->xdp_features.
 
+ack, I will fix it in v13.
+
+Regards,
+Lorenzo
+
+>=20
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but the patch
+>   extends it.
+>=20
+> --
+>=20
+> net: stmmac: rework stmmac_rx to support XDP rx multi-buff
+>=20
+> This reworks stmmac_rx() to collect every descriptor of a frame into an
+> xdp_buff. The XDP program now runs on the whole frame, which may be
+> fragmented, and the skb is built with __xdp_build_skb_from_buff(). It also
+> saves the in-progress xdp_buff across NAPI polls and advertises
+> NETDEV_XDP_ACT_RX_SG.
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index ca4c7fb11b73f..b657701f51f90 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>=20
+> [ ... ]
+>=20
+> > @@ -6023,120 +6038,79 @@ static int stmmac_rx(struct stmmac_priv *priv,=
+ int limit, u32 queue)
+>=20
+> [ ... ]
+>=20
+> > +		ctx.desc =3D p;
+> > +		ctx.ndesc =3D np;
+> > +
+> > +		skb =3D stmmac_xdp_run_prog(priv, &ctx.xdp);
+> > +		/* For Not XDP_PASS verdict */
+> > +		if (IS_ERR(skb)) {
+> > +			unsigned int xdp_res =3D -PTR_ERR(skb);
+> > +
+> > +			if (xdp_res & STMMAC_XDP_CONSUMED) {
+> > +				__xdp_return_buff(&ctx.xdp, true);
+> > +				rx_dropped++;
+> > +			} else if (xdp_res & (STMMAC_XDP_TX |
+> > +					      STMMAC_XDP_REDIRECT)) {
+> > +				xdp_status |=3D xdp_res;
+> > +			}
+> > +			goto next;
+> > +		}
+>=20
+> [Severity: High]
+> This is a pre-existing issue, but now that multi-buffer frames can reach
+> XDP_TX, does it widen a race on the RX page_pool's lockless alloc cache?
+>=20
+> XDP_TX frames go to a TX queue picked by CPU number, not by the RX queue
+> that owns the page_pool:
+>=20
+> stmmac_xdp_xmit_back()
+>   stmmac_xdp_get_tx_queue(priv, smp_processor_id())
+>       while (index >=3D priv->plat->tx_queues_to_use)
+>           index -=3D priv->plat->tx_queues_to_use;
+>=20
+> Completion then runs in that TX queue's tx_napi:
+>=20
+> stmmac_tx_clean()
+>   xdp_return_frame_rx_napi(xdpf)
+>     __xdp_return(..., napi_direct=3Dtrue)
+>       page_pool_put_unrefed_netmem(allow_direct=3Dtrue)
+>         page_pool_recycle_in_cache()
+>=20
+> allow_direct is already true, so page_pool_napi_local() is skipped. That
+> means pool->alloc.cache and pool->alloc.count are written without a lock.
+>=20
+> Meanwhile the owning rx_napi on another CPU uses the same cache through
+> stmmac_rx_refill(), __xdp_return_buff(&ctx.xdp, true), and
+> page_pool_put_full_page(..., true) in stmmac_build_xdp_frags().
+>=20
+> Here is one example. With multi-MSI and ethtool -L rx 4 tx 2, rx_napi 2
+> (hinted to CPU2) sends XDP_TX on TX queue 0. The tx_napi for TX queue 0
+> runs on CPU0 and recycles pool 2 pages while rx_napi 2 refills from pool 2
+> on CPU2. IRQ affinity changes can cause the same overlap.
+>=20
+> Can these unsynchronized updates give the same page to two RX descriptors,
+> or lose pages? Before this patch only the linear head page went through
+> this path. Now every buf1/buf2 frag page of a multi-buffer XDP_TX frame
+> goes through it as well.
+>=20
+> [ ... ]
+>=20
+> > @@ -8218,6 +8199,7 @@ static int __stmmac_dvr_probe(struct device *devi=
+ce,
+> >  	ndev->hw_features =3D NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6_CSU=
+M |
+> >  			    NETIF_F_RXCSUM;
+> >  	ndev->xdp_features =3D NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT=
+ |
+> > +			     NETDEV_XDP_ACT_RX_SG |
+> >  			     NETDEV_XDP_ACT_XSK_ZEROCOPY;
+>=20
+> [Severity: Medium]
+> Should NETDEV_XDP_ACT_RX_SG be advertised while the driver still refuses
+> the setups where multi-buffer XDP is needed?
+>=20
+> stmmac_xdp_set_prog() in stmmac_xdp.c still rejects every program once the
+> MTU is above ETH_DATA_LEN, including programs loaded with
+> BPF_F_XDP_HAS_FRAGS. It also still turns SPH off:
+>=20
+> 	if (prog && dev->mtu > ETH_DATA_LEN) {
+> 		...
+> 		NL_SET_ERR_MSG_MOD(extack, "Jumbo frames not supported");
+> 		return -EOPNOTSUPP;
+> 	}
+>=20
+> stmmac_change_mtu() also refuses a jumbo MTU while XDP is attached:
+>=20
+> 	if (stmmac_xdp_is_enabled(priv) && new_mtu > ETH_DATA_LEN) {
+> 		netdev_dbg(priv->dev, "Jumbo frames not supported for XDP\n");
+> 		return -EINVAL;
+> 	}
+>=20
+> The commit message says as much:
+>=20
+>   "it does not enable XDP jumbo support by itself."
+>=20
+> The in-tree AF_XDP selftest in tools/testing/selftests/net/lib/xsk/test_x=
+sk.c
+> turns on its multi-buffer tests based on this flag:
+>=20
+> 	if (query_opts.feature_flags & NETDEV_XDP_ACT_RX_SG)
+> 		ifobj->multi_buff_supp =3D true;
+>=20
+> Those tests include testapp_send_receive_mb(), testapp_xdp_metadata_mb(),
+> testapp_adjust_tail_grow_mb() and similar ones. They set the MTU to
+> MAX_ETH_JUMBO_SIZE (9000) and attach a program in DRV mode. On stmmac one
+> of those two steps is refused, depending on which comes first. So these
+> tests would go from SKIP to FAIL with this patch.
+>=20
+> Could NETDEV_XDP_ACT_RX_SG be left out until the MTU and program checks
+> accept frags-capable programs at jumbo MTU?
+>=20
+> --=20
+> Sashiko AI review =B7 https://netdev-ai.bots.linux.dev/sashiko/#/patchset=
+/20261121-stmmac-rx-mb-v12-0-3ae2f3bce174%40oss.qualcomm.com
+
+--LYnRZCeMiM17E6jE
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCawb23gAKCRA6cBh0uS2t
+rCvPAPoC4m8jjdCyw5WZEYtK9dSI2EDVXvglOa/zOj3NzADSzgEAsFVmZA/rFSEp
+Cio3T/KZyMuT/vFhPXffsWOsllsfSQY=
+=QSMA
+-----END PGP SIGNATURE-----
+
+--LYnRZCeMiM17E6jE--
