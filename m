@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.200
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567232;
-	b=QH8cVe7BtMujEBKe0eOsTHQa71kQuVOCLYklye1NxmT1fjGDENaCYlPU97Kokm4MWqVh
-	 msUcgd2AkW9QuPF+cwKoHfUkOHoiYsJ9jNA7vbZTrxfgueASx+Man6jnYlZCZI67PRsDY
-	 eh2rxkb84KkQNge8M5J66nMXqfehgx1vKazxW+dp3TKv26sIYevlh3wJt7yYB1EJpUdkH
-	 elrBzt7WQUwAw3gE7SYPF+qafRptyrAkIYKzLnoBug3oU/2UhgBfNMe9sm8OdQJF4xkS0
-	 WFNxpPqhM9qMt45L+9/dAutqaHSkbgT9xrluokSL/dr/xZnGa9wP8qlwxG2uXftNuHg==
+	t=1795567228;
+	b=QxbR01CQBe8JXVBVw6EsvUntlvIzUPnjJKAzBwCMrVH6JFFLf5M4rXtKn6v/G6cDdGnP
+	 pQxkZ12xRVkOOIjdmoMBuH6C9h6R2OFDDNGMsiNw2iDEVOgrcpA7wyoxp9lpIkRPoz0q0
+	 izn76pmnLHfDobofIuaLzA8WDBZ0ng2kDzRfnNCk8/UmfQOeUVw3sNZxkceOhZIp026Dw
+	 zd805NIZQ593JUhTlOyyGsKUG/n+G38/KCb03n1gYn9R/g024V5sT/7CvdxEeS50m3CvA
+	 ei4ufixygQcNLEiqz1PSKYODbtKQs6F5pUEtQOpF1r8KqZn38mizzrwEgzJFsvacoXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567232;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567228;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
-	b=PRNYxnIVj8DYnJMbN8pyaALKZnSPnlhO38lYU6E9D3oZZcpzA25xXhrk/bZ1VHuRjS5t
-	 Gyj9ebKmxkB3mYQ5UeTI4Hmt6bQ+mAZDqbRVFeNu6ff8l1duVavq5d2wzjPooj9qXu6xU
-	 9rzn536/Tvrgz+HD1r9Ru5p/ovkIR2V0EwiURfa8x2PEL42lq9i006NH5wwtOJiabTJhj
-	 FXlr8lVvKbR1ipJS9hSKpq/br865/w2KUtnUi3derjw3kufbsNieIqjuQh45UBHuSVy9x
-	 dCuAWR4hqQLYvl9G0qBtopQI/CWchcPiNVyoVEVSehunFWkWnJohtO64xT+jKpn6XSA==
+	bh=oOpg3uSPPiTt8UBdeq8O6ud7wdhrFnrJaDHHSURW9XQ=;
+	b=4LcwDpzG6cQaFTUmiqxEjgJerwX6U3BjitaRgYsSdDtXhFppCGCFWmP12pJEYGfXNJhg
+	 YZXBKeFaFyWSayrpqLgjGd/gkflteOG9piMSSb1bDL3GEZxZSGFvb/9lXtSl5KAQ57yjv
+	 UGbwNjtduuYhqrvdV2jxbiFAMlxMVvaJgq5eiz/eUaksWLltaOYoDT4r7JKYKvjnRM29v
+	 Y9/PTQg+yld1bZbry2xpjrllq3DSTBkRxPPbWLHo0zbEi26nCHJVP4ocWi8UTSl39ilJ9
+	 Jl8KEkjMnLyXm10zNwhABM9UvBcyaDprYl+0A7XrrdQBPmdMDRrETq8vyLWN2ED2bwQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="EOEa/Kz1";
-	arc=none smtp.remote-ip=74.125.82.199
-Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RQ5CyAKf;
+	arc=none smtp.remote-ip=74.125.82.200
+Received: from mail-dy1-f200.google.com (mail-dy1-f200.google.com [74.125.82.200])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BE62606A68B
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:40:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BE62606A68B
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5668606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:40:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5668606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EOEa/Kz1
-Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3854627c1c8so7348763eec.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:40:31 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=RQ5CyAKf
+Received: by mail-dy1-f200.google.com with SMTP id 5a478bee46e88-341eff9e381so8079822eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:40:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795567231; x=1796172031; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795567227; x=1796172027; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
-        b=EOEa/Kz1GX2xjrGuCPhwAjQWknmZAf0aT7CCBs6NI8DHmNXTPlRQcifQpKThMzaGhL
-         DHZbBLTiwLpEzoQbJ/Xmf4dli52hEbhjTHrxSgsfLYEfTz+eQUUeKfxT42dvZq3HiZbG
-         1ow70GWmKn92A2U3NVbV2u+xzb4cFvgvSBCDtJ91/8wuWQFYEY3u+j0CFVj1RRPyBFAp
-         s5QeqpYS+prHp0WzT+EKQtZ003gPLWDqdoQVV8to1nucktZjqITFuxZ41EGT7blPK0Q5
-         WcfC3XP+CdWYuwM530Ntu9Vk3dM3XPKfMgHQpPNvRIZ568PaEsmKn0Wi6ZAk2Uqs86u6
-         8tNA==
+        bh=oOpg3uSPPiTt8UBdeq8O6ud7wdhrFnrJaDHHSURW9XQ=;
+        b=RQ5CyAKfDMT+/e5WYkcBJZkeLT7prrUrS3xAUlpgpJWUwnHWUftaY9qTVZmrsTDaqM
+         Q4TJqx5vynev/dmvXCW+wY9tFV8vG3bXzP3isMR/H0KCOGhKImZ6UTcpS3Xw8t+FMq/h
+         w9Hy1YHKXSScgYJPEjc6Vht75zspAmhqqb7/p+fq4lWtOjYwg3TotI6vIo0Hlh6yAx2U
+         8v6uhRQtE7RB9XoIZ/m6WJWgi2RcGrPire/gKJu5IXFTqK0pf1plsJuRiAWfxhVU7PjJ
+         iTYgI8QrKB3lejbLH9+Ic4iwIQn4KKunFfVR31Ps8Q0lo7ZtGycA2mLI/izuZ1N53yZf
+         8JjA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795567231; x=1796172031;
+        d=1e100.net; s=20260707; t=1795567227; x=1796172027;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
-        b=fCuzVSMRvASu5ma5uIgv3L+VfyiEoBSKTcP+2TrBPdXrcZjZ5arykLRNLxYZIhys3R
-         9lVMUvKOm8D8udfcdWxsu4IYatD3n0TwzwdgokD6OknbHA7EEp2giU+/gcAhf5oT5jsI
-         +jCysheDDIf9IH99eX9uAge4UApqj00dePzGU9dWNsJFmduojyDNOcuvWN0fStWOyjJ4
-         O1GmuUv8ccVPx5w6S7/wVmejdy2RwrWU22pEDrtLmmYv1C60XjCTqviT3KpqEj3xzsg7
-         Pl+upHmQTHIOn1Yi9Rv+IZGCwnEw+FbLmiv74zE+aDERExvQKzZSt+wIi/wr3G11RqJb
-         TB4Q==
-X-Forwarded-Encrypted: i=1; AL+hErHB3xu/oKtPCup7kcavZhyqBKVqQFpnBHgRyWLqsPCkOnh5wx0vOJUx91/rLVUtT8wIq/j/ax0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9iVuN1OY+a/6dZEiN9CBr1SacRv09PvoV2kUBsTydvmEeTcT9L
-	gcvrL8e6VoRFYonCQgJF4kSQzOFAP781eU9wUf0IeNO8SOq24m9sASwh2H54DNKTn+UO2gDisWA
-	bhFHkhW8IGA==
-X-Received: from dldz13-n2.prod.google.com ([2002:a05:701b:418d:20b0:15d:6b8d:2adc])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:906:b0:1a4:c892:b14f
- with SMTP id a92af1059eb24-1b556904c50mr21237934c88.29.1795567230804; Tue, 24
- Nov 2026 16:40:30 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:40:29 -0800
-In-Reply-To: <179545553181.3135.4354699424439095142@kernel.org>
+        bh=oOpg3uSPPiTt8UBdeq8O6ud7wdhrFnrJaDHHSURW9XQ=;
+        b=afiy8C/jGycEpGOARQokl4tml8DUlytAwcS3E1W91y8gfqOiZJisyzuXYOgNxQcdfU
+         za6kLT4L8tRnl+dJcjeE+uktlKyx5PA/2AXCZS5rh+1gWy4FPdxGPTd9kiJJdnwJbfSu
+         pZ4gXYJ7O0X6QD2Mg5uDienojpXweO46hvDybfuCzyh8FSskmlGB1J98dcIxdkXjnYVs
+         EE2Dxy1Scl4XjVczTAhCNo7rt/o67KFXsILowT7c43hFnvfDyAL/NjeTsU2Ey61z52C0
+         EPL830i+9ZwGTEXVe2bfinzCJDFcdM66GoMCH5fcIbnD4gg3TUmNO8/l/i8j8YOhVS1d
+         AnYg==
+X-Forwarded-Encrypted: i=1; AL+hErG5ubqzSKnTfTSJH9pt9rZ3T85hpXXcIZbOmr3/l7Pd3hBvu8DtmYrRrdKw61Gc8lCAVgR9SFw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/UTD2QFnDN1RePcPqtPyCoTF/Qk6Ut37V/9GhyWRn3aJ3oC7Zg
+	zkAud/MbWs29k5cR4TOjqmxX0samqqAIHHhPl7/aofKGnNlbAifgPhUmbCfp2YglIqMGlaQ/v/E
+	IYPqwCPQq1w==
+X-Received: from dyhd10.prod.google.com ([2002:a05:7300:828a:b0:386:95bc:ec27])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7301:2419:b0:367:185e:867a
+ with SMTP id 5a478bee46e88-38571027a5dmr18199472eec.38.1795567226076; Tue, 24
+ Nov 2026 16:40:26 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:40:24 -0800
+In-Reply-To: <179540977827.3135.7089774240645592681@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,38 +79,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261119170550.1517634-1-irogers@google.com> <179545553181.3135.4354699424439095142@kernel.org>
+References: <20261122045326.19641-1-irogers@google.com> <179540977827.3135.7089774240645592681@kernel.org>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125004029.1004901-1-irogers@google.com>
-Subject: Re: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds
- in MCS alloc handlers
+Message-ID: <20261125004024.1004485-1-irogers@google.com>
+Subject: Re: [PATCH net-next v2] tg3: Propagate PHY reset retry failures in tg3_phy_reset_5703_4_5()
 From: Ian Rogers <irogers@google.com>
 To: netdev-bot+sashiko@kernel.org
-Cc: sgoutham@marvell.com, rkannoth@marvell.com, gakula@marvell.com, 
-	sbhatta@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
-	elkin@google.com, Ian Rogers <irogers@google.com>
+Cc: pavan.chebbi@broadcom.com, michael.chan@broadcom.com, 
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com, 
+	Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 9:38 AM <netdev-bot+sashiko@kernel.org> wrote:
+On Sun, Nov 22, 2026 at 8:56 PM <netdev-bot+sashiko@kernel.org> wrote:
 >
-> [Severity: Low]
-> Can the response array overflow described here actually happen today?
-[...]
 > [Severity: Medium]
-> Does the requester actually see these rejections as errors?
->
-> This default case and the new rsrc_cnt > ARRAY_SIZE() checks both jump to
-> the exit label, which always returns 0:
+> Is this description accurate? In tg3_get_invariants(), an error from
+> tg3_phy_probe() is logged and probe keeps going:
+[...]
+> [Severity: High]
+> Can this early return leave the BCM5703/5704/5705 PHY in its DSP test
+> configuration?
 
-Good catch on both counts - 'exit:' in rvu_mbox_handler_mcs_alloc_resources()
-returns 0 (leaving hdr.rc == 0), and rvu_alloc_rsrc() already bounds
-allocated IDs to rsrc->max <= 128 before writing into rsp->*_ids[].
+Both points are valid - returning early skips unblocking DSP 0x8005 and
+clearing MII_TG3_EXT_CTRL 0x3000 when test-pattern retries are exhausted
+(while callers such as tg3_reset_hw() ignore tg3_phy_reset()'s return
+value), and tg3_get_invariants() logs the tg3_phy_probe() failure
+without aborting PCI probe.
 
-I'll send a v2 that unlocks rvu->rsrc_lock and returns -EINVAL directly
-for unrecognized rsrc_type (and rule_type) and drops the unnecessary
-ARRAY_SIZE() checks so partial allocations are unchanged.
+I'll send a v3 for net-next that keeps the existing post-loop cleanup
+intact and simply guards the MII_CTRL1000 restore with a boolean flag so
+phy9_orig is only written back if MII_CTRL1000 was actually read.
 
 Thanks,
 Ian
