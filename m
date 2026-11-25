@@ -1,100 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566177;
-	b=rKFNrgZoBCk6XMMcAsYVU8rM076IuiJCpE9UALHDW9xMU1vntQ/3UgoHVytUBw3zQ1x/
-	 mbmuCQr2eTXEmEcaA8eKqI0PrA3A6w3USEGk+9Sd/18NySV0tFpHxejRN4hlECyLn1JbL
-	 CI+0Ahu4maqUhwsiSBQbH9w70tUX0uD4oXwFL0gpCcgmrA42MJ6hnJbpxxjYAlOoWEPsZ
-	 Qc812vroEDSNRgjzV6opoPuoN9iYU1i1oqXBCs2eC+ESo6fTBhGeYLiKMADGvo77lPVBb
-	 B+ZQxcDNGfWUnRjbPZIdVIY96WSRo59WmZlO5lZXS1fM5dmYzOLue5zgcNSLRGQGhbA==
+	t=1795566498;
+	b=ycfPFSZzLfNFciXqkSKR64GrvigIW1AvpEyV/YiuMLjk7edpb9rCJ7RuZ8iMaq4U1s9D
+	 osFnLZ3oyZOFhak1bFpPfAtb52EGXwsziH/XBJP0A5Cc9HCC+D4Ey4dxVg2aOkBEMFf8Y
+	 b4TsExKNYt6s/ie7sMNpSvhaP6EIFhXXxoASO/nCXsQxRMsHrf67i3wfzsUtFyHg83E+i
+	 jWsA7OiFiUb2brG4MMaUfX9r+/HLOYkJ7T6to5kedGFxJlZIZpkm6yuXXZ/ri8nrGbqKv
+	 0Z2skxj0OQVEFLzx2pnvsoJ3fMOMKFrWBUMPGnBf1TnhU4ebec37/w5fmoS37eLYUDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566177;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=c7sK3HiswYiBR3BUWinqF/pjgDocEFdhpnqkaPcX0Mw=;
-	b=0XW8JnvgzVZAXuJGhq4lg1bQYImYKGpi2LUGVAKIdhdcomH/Jfhv9O392F0NHDUcObKv
-	 BG3yfO54RqSeh1pZCsj8SZt5Ac1KhOSCttJQ9Ypz0J2EuTKRCvZQ/yKRp0aPm2QtEW5Jf
-	 PL1eMEusEGTiPRQfhWXFefpe0dsNw/NwPnCt6kmxJysIYctG/eqWvbzAtlih04krX7fTt
-	 EERejEBobyyTPj8FGIBybw2Pb/2LMoxlLF6f0eeOAd0ftXJrZF47Tc84cnSnpJaDASYpF
-	 vSSUP+sEmHeHgCOAzaF3PEMXAXtF/PooaCpxRW4araWKWVT3b50NLnTi80m8TlA8Jzw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566498;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=5a10cI1NNFwvgv0ajxBZX9RkTJkKO0tcJCd7rfmnHMM=;
+	b=ZZetLd8cKc6RdaG1MPGcBTnxEAGeQd6hpQwTEQSTO5HQC9gppKjtz34skCYUD7DJI+v2
+	 fuqcq+/MAPnJE2NDeTHbBG8cRiwguyUEGxM1vPRWre2H6LQ+Kk2v1EkDbVmsETMnfhgP/
+	 AHxF7NuNnRDBgMT47Eov1yyLhWPlnqS4KfiU8msU20e10LBlQjPdsPfxiCy5Ueh7QMKfT
+	 CT3IX3gPsr8pzzDFQ1t4Sr8Aj6tAaw5iFA9UN/KpLmjQbci5kD+2UMacMoljcS7vQGNIi
+	 dGl093Y1QALXC8RBTBG3QiM4VbkIAHnroNUrWqgzeY3HEKUbHZGRSbmEBkkvraM4vhw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=openvpn.net;
-	spf=pass smtp.mailfrom=openvpn.com;
-	dkim=pass header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=Sy0vYPk1;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knB6QgT4;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 40881606A333
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:22:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 40881606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=openvpn.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=openvpn.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C3E09606A323;
+	Wed, 25 Nov 2026 00:28:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=openvpn.net header.i=@openvpn.net header.a=rsa-sha256 header.s=google header.b=Sy0vYPk1
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4bb72b44a97so44566305e9.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:22:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=openvpn.net; s=google; t=1795566175; x=1796170975; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=c7sK3HiswYiBR3BUWinqF/pjgDocEFdhpnqkaPcX0Mw=;
-        b=Sy0vYPk1cozpkelPBK5zopcg/tq/bbrII5RY5Ay9pe2Zpk7LWGfOfnDYRUnczkIhKy
-         fPvbYbJoJpReRWPrgHlK1zVpJRyNYzGYCsYoCj8OExCZIiX0cGWmyDggZVw0fVe8Fq3/
-         nJCDjltN3+CFgsTkasypBw+a8+bVCYCyBs6V3xpUk9BGyDIBLoM3HgJD5gN5W/f7aqqo
-         pjkRj3+trg8E0sHWwEthvpagwagPkTp/w/4X5A6U1fgltC9RpRolndNy9F9axqbOU4Aj
-         8P0kPii5pupVxKN+H7AbjVrJZDUX7D26KYzakQzAlo7GeGrAnqI4XzB2EGCYzlqAM6D4
-         AEyw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795566175; x=1796170975;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=c7sK3HiswYiBR3BUWinqF/pjgDocEFdhpnqkaPcX0Mw=;
-        b=ZbTRvk4LZwEkyiMVk14HY0MqcExpsKDSG/jLLTXjg6HXxCJFOoTBtaT/wajXIonPnB
-         d7CRM+s1ABUbk8f4fqYWtzPzHlqb0aKgg+4RHt8GSPtOXdOQ7x1UY19jzZxmk4XtLDGJ
-         1/Mxo8FdaLIZyHd70eitNnDCKiNOxRZCUvvwkQNBvJwp76TcYYS6ygHKVQayYsGotwzo
-         MhdCboOhRiGGIvShrTHYarMRW0IIMn0zbz5KjALjfeIp3vjDexOPfwN9ldVnVbMrognj
-         5mTsizF9421vX04//lJM4/KmgnXXCOk5aJrMbAM1NcHkf8ZYJhjzxlUzC04RguhD0+VK
-         vOwQ==
-X-Gm-Message-State: APuU4Z8NoiuYAnAJdlATi9Sijul85+YFbU4J03LH9VDVDsOLgDl8wC5s
-	1yczlvsbSogGB6cvzcKmDx5wrsFHU4qQ0z6RF4vgaRScEsSGDWrbPyKLuJ2wIevjDYFtdIs8Geh
-	hyKtu2zj1CqRCziu+pbyTPG5x4BVJ0lLOqgtex2bK6rJVktoxGQGGtzSi2gMQMkuDBYE=
-X-Gm-Gg: AZFdTZd2cW4ThSWVQmCKyF5gUrciCyk4JfXvyiSQECwGMjUnBXzaCVAx5Lrv9h952R1
-	xGrgjCWgetapHkAbq42PRVkGXHd318TAgMTsVp8TmXXTjyG0sIQxB60OhZ+56woBTWcOmXOaRGr
-	J6WB3Vj2NP0msJLcCow3ffCQYdh2H00MpHZX7cK+zDKLxfYhTD9HiVu6lbSzblB3UHfDGFShdkZ
-	JsP9Cse8kRSkh50xX4kpAfdyf9NgoD2ah591HIrD0CvcSUbopGlysWb9wS/9Tnr25EpcSJaRaB6
-	gETI1J2VL+3BBs+wi3L6m/bNeq2EYMYMX5DPps5viqDCPFSl1+l/dfEmDx1BnOhZAH7o5maZMpm
-	lIzE9bF4PNJkDdvP7muzDhrfCqx3vCgNOGK/TLt0lH8/wn/KNa/6eWbn+m5xT+1GVegdH43tpJ8
-	RlsQPy98xZ9RfclZbWIZMMYpOlR90i7WOzbwwL+X8uZKjaGR8yE+Weq5vqz7lfeqNQ56rMYsln/
-	OrVfWAupVe/6epJ2thdeHH3O+biTo7BiocwfyLYdW4uOUPCM5fG7v4PiQtJs6iS5PE8QxlCB9ru
-	4b48kBSJX8Bydc+11WZUNXOXPwcNe35w6TUB/C2St/9+CY0uMH+p
-X-Received: by 2002:a05:600c:64c6:b0:4bb:6fd3:5aaa with SMTP id 5b1f17b1804b1-4bb887c30fbmr290488115e9.3.1795566175644;
-        Tue, 24 Nov 2026 16:22:55 -0800 (PST)
-Received: from inifinity.homelan.mandelbit.com ([2001:67c:2fbc:1:5c82:5cd3:7bc5:2809])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab69bf630esm31518448f8f.16.2026.11.24.16.22.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 16:22:55 -0800 (PST)
-From: Antonio Quartulli <antonio@openvpn.net>
-To: netdev@vger.kernel.org
-Cc: Antonio Quartulli <antonio@openvpn.net>,
-	Sabrina Dubroca <sd@queasysnail.net>,
-	Ralf Lici <ralf@mandelbit.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net 7/7] selftests: ovpn: avoid calling freeaddrinfo() on NULL
-Date: Wed, 25 Nov 2026 01:22:38 +0100
-Message-ID: <20261125002239.1191542-8-antonio@openvpn.net>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125002239.1191542-1-antonio@openvpn.net>
-References: <20261125002239.1191542-1-antonio@openvpn.net>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=knB6QgT4
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C05C81F000C6;
+	Wed, 25 Nov 2026 00:28:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795566498;
+	bh=5a10cI1NNFwvgv0ajxBZX9RkTJkKO0tcJCd7rfmnHMM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=knB6QgT4a1UZ0lm/BWaHGvQeRHbHE/envNasEl94wwCI9cA6HF4Wfa2l3x+ou8gaS
+	 scckdpSImxoAi/FbBzOzmGYcVu2qrNUpPq+6R/w6xRoagvqBeLUp/N2xUD8nrgHLNd
+	 8rXk7j7JVAmzM6gRtptuXpjilJbyGfPwkybG3Av3tC+J0rloZDHQhlEYMYHvYN01Gp
+	 QbkSM/7sLVIh+T0/x2dvyIaeCPMIEZvVFlJ30REfLu30ypl/8NjwQEczswll0Lh7mQ
+	 4gdudGFq1ggcOHAOiSB2xnA14YBAYlGkZ9q1QQFSShJzCiU4BEqEhW8R/q3XOvL06S
+	 WaNIxs/TtOXPQ==
+Subject: Re: [PATCH net-next v3 3/5] net: hix5hd2_gmac: Use mdio child node
+ for MDIO bus if it exists
+From: netdev-bot+sashiko@kernel.org
+To: mmyangfl@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, shenjian15@huawei.com,
+ shaojijie@huawei.com, devicetree@vger.kernel.org
+Date: Wed, 25 Nov 2026 00:28:17 +0000
+Message-ID: <179556649734.3135.14403923700572284098@kernel.org>
+In-Reply-To: <20261124002442.19414-4-mmyangfl@gmail.com>
+References: <20261124002442.19414-4-mmyangfl@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,34 +64,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-ovpn_parse_remote() always calls freeaddrinfo() on its exit path, but
-result is NULL when no vpnip was passed (with or without a remote host).
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-POSIX does not allow passing NULL to freeaddrinfo(). glibc tolerates
-it, while musl dereferences the pointer and ovpn-cli segfaults.
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-Only free result when getaddrinfo() actually returned a list.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Fixes: 0bd9cfebc1c9 ("selftests/net: ovpn: fix getaddrinfo memory leak in ovpn_parse_remote()")
-Cc: stable@vger.kernel.org
-Signed-off-by: Antonio Quartulli <antonio@openvpn.net>
----
- tools/testing/selftests/net/ovpn/ovpn-cli.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+- [Medium] In hix5hd2_dev_probe()
+  (drivers/net/ethernet/hisilicon/hix5hd2_gmac.c), the patch finds the…
 
-diff --git a/tools/testing/selftests/net/ovpn/ovpn-cli.c b/tools/testing/selftests/net/ovpn/ovpn-cli.c
-index 00b80bc5157f..a6f0f6be43a7 100644
---- a/tools/testing/selftests/net/ovpn/ovpn-cli.c
-+++ b/tools/testing/selftests/net/ovpn/ovpn-cli.c
-@@ -1888,7 +1888,8 @@ static int ovpn_parse_remote(struct ovpn_ctx *ovpn, const char *host,
- 
- 	ret = 0;
- out:
--	freeaddrinfo(result);
-+	if (result)
-+		freeaddrinfo(result);
- 	return ret;
- }
- 
+--
+
+net: hix5hd2_gmac: Use mdio child node for MDIO bus if it exists
+
+This commit makes hix5hd2_dev_probe() look for an "mdio" child of the MAC
+node. If one exists, the MDIO bus is registered against that child instead
+of the MAC node itself, following the earlier macb change.
+
+> diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+> index d129aeceb641e..a176870079e96 100644
+> --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+> +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+
+[ ... ]
+
+> @@ -1189,7 +1190,9 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
+>  	snprintf(bus->id, MII_BUS_ID_SIZE, "%s-mii", dev_name(&pdev->dev));
+>  	priv->bus = bus;
+>  
+> -	ret = devm_of_mdiobus_register(dev, bus, node);
+> +	mdio_np = of_get_child_by_name(node, "mdio");
+> +	ret = devm_of_mdiobus_register(dev, bus, mdio_np ?: node);
+> +	of_node_put(mdio_np);
+>  	if (ret)
+>  		goto out_disable_clk;
+
+[Severity: Medium]
+What happens here when the mdio child exists but has status = "disabled"?
+
+of_get_child_by_name() ignores the status property. In that case mdio_np
+is non-NULL and the disabled node is passed to devm_of_mdiobus_register().
+__of_mdiobus_register() then rejects it:
+
+drivers/net/mdio/of_mdio.c:__of_mdiobus_register() {
+    ...
+	/* Do not continue if the node is disabled */
+	if (!of_device_is_available(np))
+		return -ENODEV;
+    ...
+}
+
+The -ENODEV goes back through the goto out_disable_clk path, and the whole
+Ethernet device fails to probe.
+
+Before this patch the MAC node was always passed in. Its child scan uses
+for_each_available_child_of_node(), so a disabled child was just skipped.
+
+The same lookup is still there at the end of the series. After "net:
+hix5hd2_gmac: Support fixed-link", any non-NULL mdio_np forces bus
+registration:
+
+	mdio_np = of_get_child_by_name(node, "mdio");
+	if (mdio_np || priv->phy_node != node) {
+
+So a fixed-link MAC with a disabled mdio child would also fail probe with
+-ENODEV. That doesn't match the binding text "With a fixed link, the MDIO
+bus is not registered unless this node is present."
+
+Would of_get_available_child_by_name() work better here? Other net drivers
+such as rzn1_a5psw, owl-emac, ibm emac and mtk_star_emac use it for the
+same lookup, and it would treat a disabled mdio child as absent.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124002442.19414-1-mmyangfl%40gmail.com
