@@ -1,91 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795615882;
-	b=q2PqwMUNZLD/HSnLioue2Xrn3+GixzR6VDByJMLTgtBh2MotIRHWW8JLrCcd4hiODv1F
-	 9BCBU3CmqlkOmVfQ2VrygoJGGhIF6zh/4ip3dKJhd+bID8jPrJPWFVPfGpylHi4GiLuuF
-	 esYlwqSuz1ZO/EEQXIaIZvfb+RjuJWWRg5p1ZLDZq0JeSbJvire1mMJiKzidiNLCpKWYl
-	 mn9eTRf8uWvETQ/Iz1BcIVJtYFLU1SVRZO+yVkW1hHN3O8StufqtDdMesi0fwK/n/1Qci
-	 G01upeArGiQZ3UIq3Escho/UJZfIlmMuq6iEcUv82TdjApsb4R3WOb1uqUtpKYtbMYA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795615882;
-	h=DMARC-Filter:X-RZG-CLASS-ID:DKIM-Signature:DKIM-Signature:X-RZG-AUTH:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
-	b=M8g7tvK4zZQY0w78qBgOJlmEimJwaMh6cqwubWe+NxjqpVzJxKpRA8RMvk3np0PbDMtv
-	 YfU14FK3wHF5hktquhOocsZmcuH5AU3FAoJ1j+Xbl9p3UIQyv5Q0NcEPI5EB9A0r6c98o
-	 Hp7baJtMyZxQZ+yjcEvXn8UZfSctK4mxMeIj2/5vLxEDHalWr4skg3ImbwJt8tku9HTn7
-	 7rYcJxkVwInxcPCaznl2v38s5mvPwC6tU8lksFcpyTASZe+3ADtjsgW4wD+OHTU4oBv4l
-	 dVQ1SBVSzUFD61D/pl3RVSdeDjaqCQ4RlzCM/LqeYJ5w6c6cpnTA+EFgzvXSucRSTEQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=hartkopp.net;
-	spf=fail smtp.mailfrom=hartkopp.net;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GCxszM0i;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=lUEVA81y;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=85.215.255.52
-Received: from mo4-p01-ob.smtp.rzone.de (mo4-p01-ob.smtp.rzone.de [85.215.255.52])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795615922;
+	b=eZJniYsr1Oj/81b85xfqVpSaQn1Zoy4cJBuN+mbECGOuVRjN0oNtmPUi2iWZl+vULvL+
+	 6h/PF7OBfzPbriL2Ryv1ibtckrpuFgH12wqMM4RDA4uaFVqBHSq/nttvrjhVwoywJ006q
+	 zOO+ar7RxoqCAdRqWN69cO8ExdcT08KINV/o/O9q+JFtOx+6h0sfVrmo3v0NDHoiE/EVY
+	 fYXiePTft9AJWVCkF+5EPpi9ALZDAbKilYTeft7PEcEAiXVBX+Pz2qmbhz1XByU3NAed/
+	 23CgifUnkJLxMwC7yRxiRRDvHYBsGZ5AYL/ueXPSYjeEc/tEep98R1/erMMEzrD9NgQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795615922;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LYxEbOksYcx+mF8Gq0+65bD+OszdX0B7sFSHcrKxVdU=;
+	b=OP79rsTCWeDMIuDXJWTyiBxC20Y3kMzdfgPBg6LO/lX2yEiu8bxrGr9xnLjWSPWsyTx2
+	 7ZjguIPKyTEjDJcDqwfP1aEXpUZ6A6UF+MhQbUA550WfFXceGgVbTG/j9YJ6dyiv+LRlG
+	 llzYZ0QYEXGkc3y78YkVbEUvXdd8YJ24NBm7ZMrfgCmukKLsD4y8dkWmxjs5eZ3YxyS51
+	 brfjN08EzB0jplNvlRvYu8CWNaSMW8BophzyKqb8Gq5w/HNTpGGoti3lqhlfB94WN12UN
+	 gWWKT6/5C81zWjEsuys2N5phd3mDtaVtZarFM/3FZiTw16zfbh1BsxNX9htKxEdcraQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FkYe1sXm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0FC31606A68E;
-	Wed, 25 Nov 2026 14:11:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0FC31606A68E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=hartkopp.net
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=hartkopp.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01B21606A31E;
+	Wed, 25 Nov 2026 14:12:01 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=hartkopp.net header.i=@hartkopp.net header.a=rsa-sha256 header.s=strato-dkim-0002 header.b=GCxszM0i;
-	dkim=pass header.d=hartkopp.net header.i=@hartkopp.net header.a=ed25519-sha256 header.s=strato-dkim-0003 header.b=lUEVA81y
-ARC-Seal: i=1; a=rsa-sha256; t=1795615875; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=YPqfqNPwHdchRqWNLp9+np4h6olf22ag6CwhHpy/AthGQ5NeHsy5uJ8jqR72G0SGxN
-    47/jAyTuvgYPws2x8+QRWpuLivI5ntFjgQxGcA+6ud/sj8JxBN+nyJew66DNJWtlrMGh
-    8ZmmQKKPUfJvbzNEJMsMLIroQb8Ft+/oum7k/1BSCX54i1ZSYdHXlPiiIXMLJedjSuIu
-    deQfsL/D1R66mz7+V4m5vpPXztp9p0fOnYMPiwjZFseluXNUSWTVnbpwdsiMDmebtQH2
-    UBRm0RJvJOSd0e9lAeTY6hi4p1RxXfzfH3z8jptgqrEBoGzlAuQJqyQgWbvlZBCDkRTx
-    u6Ng==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1795615875;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
-    b=k5bImQBDtMRhcxV56Fb4yq0nvg81HoQKQicDW5Z2pmGE5WBoAuPqP16j6VFyXyZzug
-    F9iivtd+NuRoMAdo3RToe2ZdOI1NjOP3OtqHn31y5Td6G/0CVo2TaIdBOi5HMjtsTSgA
-    QwuFZXEMvZK1i4gmK5ewSQGQDQO0DHYRnUThhZhHM/UPnWsyJZWkD596FXnBpsSx+B80
-    IpIvHItU4MW56uA+lGHI471e9I1uCtVsndLcbENOlp6h9hUrWyiwWafijKfO2v3BvwNK
-    KQHq7tzIAlNSpqx637h4XKLCNJ64Z65MdtORv1Al2tZl+b39ow6Kst8b1HDl15YiT5if
-    iR9g==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1795615875;
-    s=strato-dkim-0002; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
-    b=GCxszM0iLix2Oe+mwPU5REdaBKH3DRz8gRYa+bSF0iSBK1GLkBomQKRp/x7yGCpqqv
-    EwNnq1Sc3jxkthORQDsWIh43dmqF6O5vX3CMhRo0d4bF9i69FnPrnabVfo2VhV5Vg+oH
-    nTRiOTOrVPqhofozhrM2H0ugJvvAk7VhaFoKLdy5QteJmz908JP9ROt5U55VUDyXoynX
-    QlvwJt+VLcFNb0UlVIMO3QjGLZKysTe1zgwyWSHeMVG2fKTWVWpyF3tG5xFMbB3Sr9+t
-    pgXHHbAhhFvC/YElSfnehvEyVEnFRdf2+Q4UVOScfwAskNc5X89qlwlxHJIgPtADxRUl
-    T3rQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1795615875;
-    s=strato-dkim-0003; d=hartkopp.net;
-    h=In-Reply-To:From:References:Cc:To:Subject:Date:Message-ID:Cc:Date:
-    From:Subject:Sender;
-    bh=GOI4XUcInlwlj/yKAuRWPheNsNrEL0lu0d2jyhaTLrw=;
-    b=lUEVA81yFhsxoGeZbImLI7VMKzcSOpi4CRGmgLDp066QMrpBQaz3VerzLOYEEoDjU3
-    puheeCGvKEbJBEuyl4Cw==
-X-RZG-AUTH: ":P2MHfkW8eP4Mre39l357AZT/I7AY/7nT2yrDxb8mjH4JKvMdQv2tRkI16oOSW1Ti/f4Kp38="
-Received: from [192.168.20.237]
-    by smtp.strato.de (RZmta 55.6.3 SBL|AUTH)
-    with ESMTPSA id Kfdf2a2APEBDnDG
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 25 Nov 2026 15:11:13 +0100 (CET)
-Message-ID: <a582ed1d-67c6-461e-b82d-4fa13f31888d@hartkopp.net>
-Date: Wed, 25 Nov 2026 15:11:08 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=FkYe1sXm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD76C1F000C4;
+	Wed, 25 Nov 2026 14:12:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795615921;
+	bh=LYxEbOksYcx+mF8Gq0+65bD+OszdX0B7sFSHcrKxVdU=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=FkYe1sXm8PvorudUmAXkkBmfhu2nv0CM2YdcEbCckWukguuRhcXiI4NCGK07CesS0
+	 8Pf1JiBDGlzvTkVxxy9zsPKGqaNd3WT4PfchMnP0swyjTIpaEi4A3P/zjQhOBS48cv
+	 pGA3oT5iJYjmP68pfjz8sVC0GXdPjHqQe3+cSg2SvBCL1TRAvY4oj2cHnPQrZ990X8
+	 c2dI5M76YKYZUcqpXDJRch8RHk3pMinNslU44cC2JaPdP3y3s7T/ZIMOlGkKKds06k
+	 KE13CH71ZgEsSS7cyLYThaLKdogG06r+Cq8w3A/0m602pLUm65yhNRLHfmcmeonPK1
+	 +c9fb+T64wlZw==
+Subject: Re: [PATCH net-next] bonding: check XDP support before enslaving
+ changes state
+From: netdev-bot+sashiko@kernel.org
+To: hangbin.liu@linux.dev
+Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, ast@kernel.org,
+ daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+ sdf@fomichev.me, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ bpf@vger.kernel.org
+Date: Wed, 25 Nov 2026 14:12:00 +0000
+Message-ID: <179561592046.3135.4020262152427481394@kernel.org>
+In-Reply-To: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
+References: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -95,69 +65,198 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 01/12] can: bcm: copy the CAN frames outside of
- lock_sock()
-To: Marc Kleine-Budde <mkl@pengutronix.de>, netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
- linux-can@vger.kernel.org, kernel@pengutronix.de, stable@vger.kernel.org
-References: <20261124085757.1093632-1-mkl@pengutronix.de>
- <20261124085757.1093632-2-mkl@pengutronix.de>
- <179551104023.3294.3966794215800671203@kernel.org>
- <20261125-lavender-pig-of-imagination-fe91b5-mkl@pengutronix.de>
-Content-Language: en-US
-From: Oliver Hartkopp <socketcan@hartkopp.net>
-In-Reply-To: <20261125-lavender-pig-of-imagination-fe91b5-mkl@pengutronix.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
+Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
 
-On 25.11.26 15:01, Marc Kleine-Budde wrote:
-> On 24.11.2026 09:04:00, netdev-bot+sinfo@kernel.org wrote:
->> This is an automated message. This series looks like a fix, but its
->> commit messages seem to be missing some information:
->>
->>   - How the issue was discovered, e.g. hit in production, hit during
->>     development, syzbot report, manual code inspection, LLM or static
->>     analysis tool scan.
-> 
-> The issues in the CAN protocols BCM, RAW and ISOTP fixed in patches
-> #1...#7 were found by LLM review. They can lead to block the RTNL by an
-> unprivileged user, but have not been observed in the wild.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Just a nitpick: We had no user feedback on those now solved RTNL lags.
-But to check the implementations of these patches, some locking stress 
-tests were created that proved we had a problem here.
+- [High] bonding: bond_xdp_xmit() checks ndo_xdp_xmit instead of
+  xdp_features
+- [Medium] This patch fixes a kernel oops that is self-contained and goes
+  back years, but it has no Fixes: tag and it is mixed in with changes…
 
-Best regards,
-Oliver
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but the XDP
+  propagate failure it keeps on the late path can leave freed memory…
 
-> 
-> Patch #8 fixes problem with configuration of certain classes of older
-> CAN-FD hardware, found by LLM, not observed in the wild.
-> 
-> Patches #9...10 fix problems with the netlink attribute sizing, found by
-> LLM, not observed in the wild.
-> 
-> Patch #11 fixes a information leak of up to 8 bytes of kernel memory to
-> out USB URBs, found by LLM.
-> 
-> Patch #12 fixes a probe failure on of a driver on m68k/coldfire, found
-> by human review, not observed in the wild.
-> 
->>   - Whether the issue was actually triggered, or is only theoretical
->>     (e.g. found by LLM and not proven at runtime). If it was triggered
->>     please include the symptoms, like the stack trace or kernel messages.
->>
->> Please do not repost the series just to address the above. Instead,
->> reply to this email with the missing information, so that reviewers
->> can take it into account.
->>
->> *IMPORTANT*: If you do repost (for other reasons) - please include
->> the relevant info in the cover letter or commit messages.
-> 
-> regards,
-> Marc
-> 
+--
 
+bonding: check XDP support before enslaving changes state
+
+This patch moves the ndo_bpf/ndo_xdp_xmit and dev_xdp_has_own_prog() checks
+in bond_enslave() to the validation section, before any state is changed.
+It also checks the selected slave's ndo_xdp_xmit in bond_xdp_xmit(). Frames
+then fail with -ENXIO instead of calling a NULL pointer.
+
+> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
+> index 776afdb9df43e..0149bd7764e7c 100644
+> --- a/drivers/net/bonding/bond_main.c
+> +++ b/drivers/net/bonding/bond_main.c
+
+[ ... ]
+
+> @@ -2330,13 +2336,6 @@ int bond_enslave(struct net_device *bond_dev, struct net_device *slave_dev,
+>  			.extack  = extack,
+>  		};
+>  
+> -		if (dev_xdp_has_own_prog(slave_dev)) {
+> -			SLAVE_NL_ERR(bond_dev, slave_dev, extack,
+> -				     "Slave has XDP program loaded, please unload before enslaving");
+> -			res = -EOPNOTSUPP;
+> -			goto err_dec_slave_cnt;
+> -		}
+> -
+>  		res = dev_xdp_propagate(slave_dev, &xdp);
+>  		if (res < 0) {
+>  			/* ndo_bpf() sets extack error message */
+
+[Severity: High]
+This isn't a bug introduced by this patch, but the dev_xdp_propagate()
+failure path that stays here looks like it can leave freed memory linked
+into live 802.3ad state.
+
+In BOND_MODE_8023AD, bond_enslave() calls bond_3ad_bind_slave(new_slave) and
+then publishes the slave through bond_master_upper_dev_link(). If
+dev_xdp_propagate() fails, the unwind runs through err_dec_slave_cnt,
+err_sysfs_del, err_upper_unlink, err_unregister, err_detach and err_free.
+None of those labels call bond_3ad_unbind_slave(). Its only caller is
+__bond_release_one().
+
+bond_3ad_state_machine_handler() runs from ad_work under mode_lock and RCU,
+not RTNL, and walks bond_for_each_slave_rcu(). That means it can run while
+the new slave is published. In that window ad_port_selection_logic() can
+attach the new port to another slave's aggregator:
+
+drivers/net/bonding/bond_3ad.c:ad_port_selection_logic() {
+    ...
+			port->next_port_in_aggregator = aggregator->lag_ports;
+			aggregator->num_of_ports++;
+			aggregator->lag_ports = port;
+    ...
+			free_aggregator->lag_ports = port;
+    ...
+}
+
+The unwind then reaches slave_kobj_release() through kobject_put():
+
+	if (BOND_MODE(bond) == BOND_MODE_8023AD)
+		kfree(SLAVE_AD_INFO(slave));
+
+However, the other slave's aggregator->lag_ports still points at the freed
+port. On a later tick, ad_agg_selection_logic()->__agg_active_ports() walks
+that list:
+
+	for (port = agg->lag_ports; port;
+	     port = port->next_port_in_aggregator) {
+		if (READ_ONCE(port->is_enabled))
+
+Can this read a freed struct port? When ports join or leave,
+ad_port_selection_logic() can also write through
+last_port->next_port_in_aggregator.
+
+dev_xdp_propagate() can fail here when ndo_bpf refuses the program, for
+example veth with a large MTU, or when it returns -EBUSY.
+
+The note under the commit message only covers the promiscuity, allmulti and
+ns maddrs leaks, so this one seems to be a separate issue.
+
+Does the unwind need a bond_3ad_unbind_slave() call in 802.3ad mode?
+
+[ ... ]
+
+> @@ -5681,7 +5680,7 @@ static int bond_xdp_xmit(struct net_device *bond_dev,
+>  		xdp_convert_frame_to_buff(frame, &xdp);
+>  
+>  		slave_dev = bond_xdp_get_xmit_slave(bond_dev, &xdp);
+> -		if (!slave_dev) {
+> +		if (!slave_dev || unlikely(!slave_dev->netdev_ops->ndo_xdp_xmit)) {
+>  			err = -ENXIO;
+>  			break;
+>  		}
+
+[Severity: High]
+Is checking the ndo_xdp_xmit pointer enough here? Most XDP capable
+drivers fill in .ndo_xdp_xmit unconditionally in their static
+net_device_ops. They only advertise NETDEV_XDP_ACT_NDO_XMIT in
+dev->xdp_features once their XDP TX queues have been set up. For those
+slaves the pointer is never NULL, so the new check doesn't stop the
+call the commit message is worried about.
+
+When bond->xdp_prog is NULL, bond_enslave() makes the new slave
+selectable through bond->curr_active_slave, bond->slave_cnt and
+bond_update_slave_arr(). All of that happens before
+bond_xdp_set_features() recomputes bond_dev->xdp_features.
+__xdp_enqueue() in kernel/bpf/devmap.c only checks the bond's flags,
+and only at enqueue time:
+
+	if (!(dev->xdp_features & NETDEV_XDP_ACT_NDO_XMIT))
+		return -EOPNOTSUPP;
+
+bq_xmit_all() then hands the queued frames to bond_xdp_xmit()
+without rechecking anything. A slave whose XDP TX path isn't ready
+can be picked by bond_xdp_get_xmit_slave() and have its
+ndo_xdp_xmit called.
+
+In gve, gve_xdp_xmit_dqo() takes smp_processor_id() modulo
+priv->tx_cfg.num_xdp_queues, which is 0 when XDP isn't enabled on the
+device. That is a divide by zero in softirq context.
+
+In mvpp2, mvpp2_xdp_xmit() derives txq_id from port->ntxqs / 2. The
+driver only advertises NETDEV_XDP_ACT_NDO_XMIT when port->ntxqs >=
+num_possible_cpus() * 2, so port->txqs[txq_id] looks like it can be
+indexed out of bounds otherwise.
+
+Multi-buffer frames have the same problem. Suppose the existing
+slaves support NETDEV_XDP_ACT_NDO_XMIT_SG and the new slave only does
+linear XDP. Frames with xdp_frame_has_frags() that were enqueued
+before bond_xdp_set_features() drops the SG bit can still be handed
+to the new slave.
+
+The commit message says the xmit time check covers frames enqueued
+before the flag is cleared, and the bulk-queue flush path. That only
+holds for slaves with a NULL ndo_xdp_xmit.
+
+Would it be better to test READ_ONCE(slave_dev->xdp_features) for
+NETDEV_XDP_ACT_NDO_XMIT here? It could also test
+NETDEV_XDP_ACT_NDO_XMIT_SG when xdp_frame_has_frags(frame) is true,
+the same way __xdp_enqueue() does for the bond itself.
+
+[Severity: Medium]
+This check seems to fix a NULL ndo_xdp_xmit call in softirq context. The
+unguarded call goes back to commit 9e2ee5c7e7c3 ("net, bonding: Add XDP
+support to the bonding driver"). Should this have a Fixes: tag?
+
+On the net vs net-next question in the notes: as far as I can tell, this
+one-line check doesn't depend on f564749b3b26 ("net: record XDP programs
+propagated to lower devices"). Only the dev_xdp_has_own_prog() check that
+moved to the top of bond_enslave() needs that commit.
+
+When bond->xdp_prog is NULL, bond_enslave() publishes the new slave before
+bond_xdp_set_features() recomputes the bond's flags:
+
+bond_enslave()
+    bond_master_upper_dev_link()
+    WRITE_ONCE(bond->slave_cnt, bond->slave_cnt + 1);
+    ...
+    bond_update_slave_arr()
+    bond_xdp_set_features()
+
+During that window the bond can still advertise NETDEV_XDP_ACT_NDO_XMIT, so
+__xdp_enqueue() in kernel/bpf/devmap.c accepts frames. The roundrobin,
+active-backup or XOR selectors in bond_xdp_get_xmit_slave() can then pick
+the new slave. Frames already sitting in a devmap bulk queue never recheck
+xdp_features.
+
+Could this hunk be split out into its own patch with a Fixes: tag for net,
+so it can reach stable? The enslave check reordering could stay in
+net-next.
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-bond_xdp_fix-v1-1-e67983924324%40kylinos.cn
