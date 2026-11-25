@@ -1,59 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612493;
-	b=AGWFZTm7peEg9/Uc8giKTKlESqzVh6KseKSLdyBJvnC16E0pMbcswc8KlQ/Ns+qv2oVy
-	 Ye6K2w/tqOg2F7FTTXCrlqv2jsPEmhrYWEr5vpHRoI3cF5DrAyxZjkpiTjYTSUpmakDNf
-	 mRgIMGxVbnEg4n8KQfQc1O67CnCllWT+7ytbcQvPMG0N7x6ZSymrgKU6TaCUQMA19iQrq
-	 Q2LEKOLl0zoJ6E/SxY+DQ+8AcdjPclI2yRqzTJHu/J5etH9tNL4lZF1Bf8zxGypthF7EZ
-	 c2Hnm2oiics6cXVqkb7SoSiXRDtGRnSaBPRP6kEohZUx858lTyY9F6A3ViMyMVsgf2Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612493;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=/n3t44YEMmmCq63KUFEjGWIQzYqLU5gYaUwKU4iJWzo=;
-	b=WPau7FBdtwjMU4TSEFKgEuSK7AmMiRqK7ZGeBVgw1gwB0EO5dZrM7eF0E2BGfFFmzEv9
-	 uD1SY8P/Tx+TK6xAbU+5WPLQ50mC31zdTVXRSW0ARmfqqmXAp3/4u7Cc6IedxuTzrS4Zk
-	 uKJKGnNbyIww3hgLftVPCISIu8jzI9ZradRbKx7KGHE2kdZXkO8KkPgSW5VKF6ZAdTpUX
-	 fPCf5bqODsYFvhIL97x/qR0JiMvzz1IC32+C55a5Qw/H09YD8AxhTOgf4RHcbk0sXuBL6
-	 wRR2+ZfD5KCLTWRMJDa5T4tEr8dOdVLqDbW7RcAK5NLjaXyjm3OCSKVSY4o7GEatPFQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZIqjGYyn;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795612494;
+	b=DaSyFWET7S3AJIwmAYkNaVTJjmdz6/NGi27uzusjhw5oVgKFCl36JP5FA+lFFkHC9fbg
+	 xzHSPNnmhegzboK4aLFKbiQBV1fI7T85ci6FOsVhg4ioytaNGtzQdlUC3MgZgKVXtCDSR
+	 hBzuNBL2Bgs7KFADiBPenFeyRUfUXLERZsqGEfwHylA9o0gK1W3XN3pTUfnBqXMzYnhxy
+	 buqPE0ul0Lg84+f/vkTirJFHbaoN54pXrX0HlQ1/tYqv3B86kiokS7mjHFxg/9Az2Vg0e
+	 tOt9UBvMcPfo1jbgr6VFXiGoiCepP1klWpRZuru+MtE5NkvqE/b5s+Ts0TM2EXyHJMg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795612494;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=rsD2t4wySwOX9483/VTT5W33RUNkdKR2nnX67XsIXPY=;
+	b=2VQ8XsbWAKVe+TNv2JLInjcQyJnDkBzbww4adIXuGGbE0SNk2C3exFb0feXLeM6WEK4t
+	 wfcPFb4Udzrkj0P8pb3Ah1+wdVNocI9TvldsHnBbtIX5zZ0ovC3QgkIUnUFhpQ8ypZ03Y
+	 4XTn7bDCHkxpx+t3a4mH8VDNQ2EeYRvXvJhfOWJbuiY+7S3EulAR2gJAwAHlGDmgPYOxL
+	 lTFuz1BEexIDPiCIvzm5cfrunRRz1FhmiXnfofiSZmSaKNR3Clbm746KTaifTKfL/2U6O
+	 QDoi8JwdM0Dh+iEC3brPuzFj820mldcLpzqJay6x56xaHtrd4rv9Kr0LUPEfIXKa7bA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=suse.com;
+	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SQtVpwNq;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.218.53
+Received: from mail-ej1-f53.google.com (mail-ej1-f53.google.com [209.85.218.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3DDE3606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:14:52 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4C0FF606A337
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 13:14:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4C0FF606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=ZIqjGYyn
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1BE351F000D3;
-	Wed, 25 Nov 2026 13:14:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795612492;
-	bh=/n3t44YEMmmCq63KUFEjGWIQzYqLU5gYaUwKU4iJWzo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=ZIqjGYynpekfFEJei9ZMc75fykkeBScwgcrIMIsCrSv5EsyLOfIMOZw/XEtNIPfbI
-	 bcPPVYufaobYkTYoIyO3STBb9ovHr8n+n2/MTHNCyxaMLeW30vQvFNMPWjQ0JlXrGi
-	 /iEMcI6IAIFEy3uVRL+j0Ctsgcr0O9y4H61NT6Ixdrw+iN25n7gea5dP9Ijo0Ih6sQ
-	 Q98/oJW0qfE40P+KyMJQDSZtrKY3qMy/4l3dWOOFEbE/KSDhM7HTpBYpJU5YHYKFlI
-	 1xei2q7Q7VM1k77M19Lw/9xr6HSfQI+y6igMbCRES0DvaxgwA5qthhn1T8m2BR5v6N
-	 4+yWccFHVorjw==
-Subject: Re: [PATCH net] vlan: drop the promisc/allmulti references on the
- real device on delete
-From: netdev-bot+sashiko@kernel.org
-To: kyuwoncho18@gmail.com
-Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, sdf@fomichev.me, willemb@google.com, horms@kernel.org,
- netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 13:14:51 +0000
-Message-ID: <179561249161.3135.16028121153100336999@kernel.org>
-In-Reply-To: <179552079831.1290967.13072162433438626338@gmail.com>
-References: <179552079831.1290967.13072162433438626338@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=google header.b=SQtVpwNq
+Received: by mail-ej1-f53.google.com with SMTP id a640c23a62f3a-c50aaad19fbso633559166b.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 05:14:54 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795612493; cv=none;
+        d=google.com; s=arc-20260327;
+        b=FF1E0iev0+4/JnRCg4UFtbRqgFvdX5ax6eqZOp21XuuCZOLPdspa6GyWYLdRCxHPlF
+         cj4AJhNtARTfKjrgCzfMysBXw3wnLSTG9Qwi95dvu9mUKqy+yC1n2T5vT7BhjUYr1EOS
+         h9OGcpMIa9CeZhTpWV3zLYtcJIhQApElkYS+LvJEuLCXkmQmWlr7agv2/NInfcmrWXcz
+         /Q0r9+sbL/aDVCcPkLj5CezOH72M8gUiVlHTUVhXyp2vHt6M0MmaMhuGu/Ha4AblFK/k
+         Tp5TCVi4TfTmVEEcl6u871EhnTKUvdp6rryKXTJNhAtnPNylxuKq0OfZ/CSBREpcOudH
+         anAA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=rsD2t4wySwOX9483/VTT5W33RUNkdKR2nnX67XsIXPY=;
+        fh=VkjxaU2phDZjErg1e0qk4nz1klXxOlmnFWYyWnZd6Ao=;
+        b=fxUwlHcriaE8qI49x4I46EvMSzJ+XIm1Y+DwZEKiq4htdGIouJlFraUNMoQ7PrJ+SN
+         at2NxzWjbyWyCpbOF9C7yUysMt02ix8mVYwvN7nxkVkhaVv4MQy+kM8Y+BuXJEz1rQWn
+         PYYlxuTJP+QRvxk3wMtK6JE3JyXVwtuNMIfo2sG6rbT24JCmBmlaWyCPKSpg7MOR/z3S
+         EjrFThyhwkDqXV1O4MUjK9maJ+zQaOfu5haO1XVtaKtyVfhOgCE2hF0hS1eWSroamQ7X
+         oGQeBvZLdqtslCU2gp+kZWHacRaVYZFWQ5x9+q81qDUYdiyY63IqUlENOP7IZbtMT07h
+         c77g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1795612493; x=1796217293; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=rsD2t4wySwOX9483/VTT5W33RUNkdKR2nnX67XsIXPY=;
+        b=SQtVpwNqC59M3VVfa1dfoE/sHfHGz4A9t3U5kjHMDgLzJ/LAFCY5PizY0zTwKdadfJ
+         O5ndt6idAZjUViDyFaIvEIf8PjRYdeEJFTenPhqxD4KS9aPKfpOMnuTLEhg3AkAWFtLb
+         C5Ymg14tXaFwlcuhdcnd7dGuMWOyoF95OQ0QdQje9wpaUvQsnSy5dKhyiokeJ6ja7Iw9
+         +zk02GJZi2Wlz6yoDfQWZ/vdkaQsq5UB2BtV1yJAYqfUJRYjcsv3oW54uKvJOZv2uChN
+         f+AE+YTe+od53xhnjSMY71A2eUBacbOYKi4eu6oeZ84A/p08jqOhFnP6cS/QI+9QYTOp
+         pzIw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795612493; x=1796217293;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=rsD2t4wySwOX9483/VTT5W33RUNkdKR2nnX67XsIXPY=;
+        b=dDqRSmZWI968/NPbfKSU6Ob4jNeP0qYlwNXdY7kmSfwxYw1lXVtd55duu810RPZQVF
+         RthysQ2CfvLDwRyi+ZdvRMNNf47KVad1TVu9OZdRA2CcpxnfyEJjQxZK430gh/ba/QHf
+         suIf132LdoaHSikMrFyJyAyMCgf+Yffk4WEf23KJlVf+8ddObaL6Lg4WlS8aVXM7/uNb
+         iCGcUu8tfm1dX3fNpruA+Hh2Q2IRpDZ992W1MY5Pq+3db5AJtEdiNIPlz8JnmTY5rn9J
+         sEQcu7AKBPdkv7bZkqkyRbhyC5mlf47JpKWKWsCt2I0h0N+CSsZ7BxMSfsdI2BU4PpcL
+         0v9w==
+X-Forwarded-Encrypted: i=1; AL+hErECGNtftAUWHn/tywb4CiIvmyc0f9CbQTAVCdosEBiCugbb8hZag0HNvSncT5kHxZaWA5OL+T8=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8JeVJTSGJxtr79RIBc/P6klUne0aQlDyO3Srx+6lzd+tMQblFn
+	sJbcjIkHrajkvKbUZN4Gp42A+0SJpIL1Ns7w9zqZbi/YSptCO4rztnTkGPcZdvAUlTPJEkGB5ZR
+	gDn/ZRh2SSZRFfLSQtl+9OUCLHqRBWcB7pf/LEdELNw==
+X-Gm-Gg: AZFdTZdrepv1lzfolxlhNZ8ahV2K0z3Vf4aYHL0Kdkx9IZ/gy+ZsEfu3DEWXdYjoNq/
+	b5ucCclUH0MY+lNcYPk55XLBskW8W/avgIYcevslFqIRBtRGQ2Ww3LTBSVR+77G1n/MWKg4gFAD
+	AWpCESZczi57UYaibi9XHibssth1VOeFw+dNegxD/5NT/vAftRWK7rKM9hzYAjS1j27vgZZfvSs
+	0yJlyz7EIarI6CszluhbILgJI1zwWxSAKOyCC/BZqzKYeJ/DnlmIgXdyot1+rtGgktLgYx8WDrt
+	v4DobuHOCrh2WXTaBPYhl+6ubA0sO9U9B544JTF/xp9EOQFfrQJMbAptmqK0WE7ZOwt8qPZkNRv
+	QrGoy6Nd0sAN+UdIFVHmIf9p+Eg5fhwKPK2nGB9YyzbsEc2Ob418NuZJ7BRRXutK2KN4/HQ8=
+X-Received: by 2002:a17:907:9306:b0:c3e:e677:5608 with SMTP id
+ a640c23a62f3a-c513a5da8d0mr1423705266b.12.1795612492588; Wed, 25 Nov 2026
+ 05:14:52 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,114 +104,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261118184729.2302130-1-m-malladi@ti.com> <20261118184729.2302130-3-m-malladi@ti.com>
+ <CAAofZF4XYd5z8X56DRARMxbu3t7QX48T7V69MPBw9TW1BQAmKg@mail.gmail.com> <20261125113634.GT31322@horms.kernel.org>
+In-Reply-To: <20261125113634.GT31322@horms.kernel.org>
+From: Marco Crivellari <marco.crivellari@suse.com>
+Date: Wed, 25 Nov 2026 14:14:41 +0100
+X-Gm-Features: Aa3M54q0E3DE8nTpapJpm6hmEWKXKOUeQTw9rDRWi3Vp2mEG2fUlO9gFRZDhhqk
+Message-ID: <CAAofZF7tvsfkjjZY6e8Y7P-ddNnR=XQfLAGysrpq1yp0rRGrjA@mail.gmail.com>
+Subject: Re: [PATCH net-next 2/2] net: ti: icssg-prueth: Add ethtool RX flow
+ classification support
+To: Simon Horman <horms@kernel.org>
+Cc: Meghana Malladi <m-malladi@ti.com>, kees+treewide@kernel.org, 
+	laixiangwu@cmss.chinamobile.com, philippe.schenker@impulsing.ch, 
+	haokexin@gmail.com, devnexen@gmail.com, jacob.e.keller@intel.com, 
+	sdf@fomichev.me, john.fastabend@gmail.com, hawk@kernel.org, 
+	daniel@iogearbox.net, ast@kernel.org, pabeni@redhat.com, kuba@kernel.org, 
+	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, srk@ti.com, 
+	Vignesh Raghavendra <vigneshr@ti.com>, danishanwar@ti.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
-
-Critical: 0 · High: 1 · Medium: 0 · Low: 0
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [High] The patch drops the real device's promisc/allmulti reference in
-  vlan_dev_uninit(), but it leaves the VLAN's own…
-
---
-
-vlan: drop the promisc/allmulti references on the real device on delete
-
-This patch makes vlan_dev_uninit() drop the IFF_PROMISC and IFF_ALLMULTI
-references that a VLAN device holds on its real device. Since commit
-27b918007d96, vlan_dev_change_rx_flags() propagates these flags whether
-or not the device is up, and nothing released them on delete.
-
-> diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
-> index bca0a3693636c..5286c79188714 100644
-> --- a/net/8021q/vlan_dev.c
-> +++ b/net/8021q/vlan_dev.c
-> @@ -647,6 +647,13 @@ void vlan_dev_free_egress_priority(const struct net_device *dev)
+On Wed, Nov 25, 2026 at 12:36=E2=80=AFPM Simon Horman <horms@kernel.org> wr=
+ote:
+> [...]
+> Thanks Marco,
 >
->  static void vlan_dev_uninit(struct net_device *dev)
->  {
-> +	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
-> +
-> +	if (dev->flags & IFF_ALLMULTI)
-> +		dev_set_allmulti(real_dev, -1);
-> +	if (dev->flags & IFF_PROMISC)
-> +		dev_set_promiscuity(real_dev, -1);
-> +
-
-[Severity: High]
-Can stacked VLANs deleted in one batch drop the real device's reference
-twice?
-
-The reference on real_dev is dropped here, but the VLAN keeps its own
-IFF_PROMISC bit and promiscuity count. Nothing records that the reference
-was already returned. vlan_dev_change_rx_flags() also still forwards any
-later change:
-
-net/8021q/vlan_dev.c:vlan_dev_change_rx_flags() {
-    ...
-	if (change & IFF_PROMISC)
-		dev_set_promiscuity(real_dev, dev->flags & IFF_PROMISC ? 1 : -1);
-}
-
-Take veth0 <- v1 <- v2, run "ip link set v2 promisc on", put v1 and v2
-in the same group, and then run "ip link del group N".
-
-rtnl_group_dellink() walks the device list forward and calls
-unregister_vlan_dev() on v1 and then on v2. So list_kill is [v1, v2].
-unregister_vlan_dev() has already removed v2 from v1's vlan group, so
-v1's NETDEV_UNREGISTER does not unregister v2 first.
-
-unregister_netdevice_many_notify() then calls ndo_uninit in list order:
-
-vlan_dev_uninit(v1)
-    dev_set_promiscuity(veth0, -1)    veth0: 1 -> 0
-    (v1 still has IFF_PROMISC, promiscuity == 1)
-
-vlan_dev_uninit(v2)
-    dev_set_promiscuity(v1, -1)       v1: 1 -> 0, clears IFF_PROMISC
-      dev_change_rx_flags(v1)
-        vlan_dev_change_rx_flags(v1)
-          dev_set_promiscuity(veth0, -1)
-
-__dev_set_promiscuity() only guards against wraparound when inc > 0:
-
-net/core/dev.c:__dev_set_promiscuity() {
-    ...
-	promiscuity = dev->promiscuity + inc;
-	if (promiscuity == 0) {
-		...
-		if (unlikely(inc > 0)) {
-    ...
-	} else {
-		flags = old_flags | IFF_PROMISC;
-}
-
-So veth0->promiscuity would wrap to UINT_MAX with IFF_PROMISC set. veth0
-would then stay promiscuous for good, and later "promisc on" requests
-would fail with -EOVERFLOW.
-
-If veth0 had another promisc user, the same sequence would turn
-promiscuous mode off underneath it. That user's own -1 would then wrap
-the counter. netif_set_allmulti() has the same missing underflow check,
-so the allmulti path looks affected in the same way.
-
-With the nested order ("ip link del v1", where v2 is unregistered from
-v1's NETDEV_UNREGISTER), the counts stay balanced. That may be why the
-single-device reproducer in the commit message passes.
-
-Should the VLAN mark that the reference was handed back, or stop
-propagating in vlan_dev_change_rx_flags() after uninit, instead of
-relying only on dev->flags here?
-
->  	vlan_dev_free_egress_priority(dev);
->  }
+> That may be good general advice.
+> But for networking code the explicit approach taken by this patch
+> is still preferred.
 >
+>   Using device-managed and cleanup.h constructs
+>
+>   Netdev remains skeptical about promises of all =E2=80=9Cauto-cleanup=E2=
+=80=9D APIs,
+>   including even devm_ helpers, historically. They are not the preferred
+>   style of implementation, merely an acceptable one.
+>
+>   Use of guard() is discouraged within any function longer than 20 lines,
+>   scoped_guard() is considered more readable. Using normal lock/unlock is
+>   still (weakly) preferred.
+>
+>   Low level cleanup constructs (such as __free()) can be used when buildi=
+ng
+>   APIs and helpers, especially scoped iterators. However, direct use of
+>   __free() within networking core and drivers is discouraged. Similar
+>   guidance applies to declaring variables mid-function.
+>
+>   Link: https://docs.kernel.org/process/maintainer-netdev.html#using-devi=
+ce-managed-and-cleanup-h-constructs
 
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/179552079831.1290967.13072162433438626338%40gmail.com
+Ah, thanks for making me note that!
+
+--=20
+
+Marco Crivellari
+
+SUSE Labs
