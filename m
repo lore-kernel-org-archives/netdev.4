@@ -1,62 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.2
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597001;
-	b=HHob9D+Pu73H3RMuMdiUZ6BSzwHXj7mh5ABJA37NcnOCAxDSkzlPL2tgIWuqA4B2KxQ5
-	 NoXYlFSVb4vq4lk54YQCYxXOPVXQmXz3AX1MU1fDB1cicsMDlAqzODSHEjzUUBc+KW+2L
-	 G6Voj97uiNk2IaNthFT6c0RmdMMa5LvOArQrvlJUoKdSqIYFquCCINsM+fBnwyJZ0d0gF
-	 1getLXsgehcCkvxtj5/NpgnuWsjxdyC0kXsZBseGpps1DgHg4wcKq3aSnxLfwv62Ft+66
-	 lp8CU6bHyCca/cqzUgcvPrzGvb9IZP/ut6dTEr2nEQdWEePxtSB6kgtH+C09h88K+kA==
+	t=1795597108;
+	b=U2QROst98tQ29WIbcA5ErrqaLjGfKEW1ehQ9HtmHxnUMEF4g+Ldmh42WWBE9bkKeAa1k
+	 SOI4g3IVKhnwIM+7NK1j4ccgiJ6ov/nyNftRjAp6dEiC0raxSPVmJvv5xxWwBV3jrsEVA
+	 nvIprfOcqQs9qrSS3rQVkYCa5jPNkxpPit4mGvv5eEH17w2OzBcQze1NkhQOSJQ9WLsE2
+	 qifhIIo0QSWmnHUlho4VA8ob1SwRFn3UJmMMV/sM7af262852AABpUbWuRACPhQ9ydMak
+	 4m+93FGl1KEoMeduVk4AS1gCq93C9r9WEjPD32SJuUPBI7nGkGyTQEqnR9IZQOTyu5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597001;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=lWEEw8es/PxWuYSJtZRURjIYAkL2SeCqThvJh8/iqHQ=;
-	b=dzjv4424+tQ6h1iBofb4xn+Y/PBzr15CVfjOUzPqw7sjqNZ1lyzpWAquD/bV8d/zQIWI
-	 aoULLOlhrA6gvQKWfgXrUqNBfHOJt93iKNep1jr5K+zIs+SkJ6bEgb4B4SI+sM5E5YDPi
-	 wFHNBhKPikVk28zxtpd1OWu6toc8Rmgi4pD0/5djjwxJ8R1s1Gwza6Xp8b/Qxlz3ef3pj
-	 yCHNenQew/WPRnQy/4CYoENift1SJLWrPGxrdBwaKKx1zQaLUHZKDD4sA/kUHSNz5H/ZE
-	 jdHRbzC5ABAIYehzY+eKVtZ7ZenXN44llwsgZkEAWA4HzkCaD+hr5tITl3sphwU5Y4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597108;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=mRP9hIoi3pw5vrZtCIj+mOt5jd3Zzi4d0ov9dcY//Xo=;
+	b=tHHx4dcjv5JNfGOZSeOBtNiFYCjGyO8bonHrm4trAGkFpL/XakH1bDFoM+t7q2cmGx5D
+	 78KPy7LJYjDWr/SgEmPZq1CxCK34JdmVK39ClMXuPq4zxQjPbWX2fJubq1TzTyop0cjfQ
+	 81/W96Vlb413/IB6kPHjqTaZXiY/VwoIU+vhqNlRt8VvCtsTIEy04gbYKKKjUG0cts2gn
+	 4nkmIWKiZ59TRHWK+CVON2XmvnPO8ki1KnSlIc9DwJ8GmPBSKt8Xm0UvGj/2PJKEefK+4
+	 KClso50IMrbHJ4SSNyFV+tfWHcIVvWBcFRoPsfUfYaG/u4X2dhCbKQ/tMJVEq11Z+Zg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LTdVtyKl;
-	arc=none smtp.remote-ip=220.197.31.2
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.2])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RvGwR+y6;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF4DF606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:56:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF4DF606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D8BE1606A31E;
+	Wed, 25 Nov 2026 08:58:28 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LTdVtyKl
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=lW
-	EEw8es/PxWuYSJtZRURjIYAkL2SeCqThvJh8/iqHQ=; b=LTdVtyKlZiKCEPLjDW
-	qbcHHhOC0zex+UUkxyoHrV/AO8wasTiPh2wQXEkNXdaOdj8oFDw8Vt5AxKcNwlQp
-	axnfGr3qbQE3WillcbHagRT2V8Sos+bz4CxcEkxXkv2Bk3ckm0W60VqCoDSYfh39
-	DMyBqudRyQwViOxPgK0B/zJ/c=
-Received: from ck.. (unknown [])
-	by gzsmtp5 (Coremail) with SMTP id QCgvCgB3paRtogZrdEsbIA--.7371S2;
-	Wed, 25 Nov 2026 16:55:12 +0800 (CST)
-From: ck <mjkchengke@163.com>
-To: Frank.Sae@motor-comm.com,
-	netdev@vger.kernel.org
-Cc: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mjkchengke@163.com
-Subject: [PATCH] net: phy: motorcomm: add downshift tunable support for YT8531/YT8531S
-Date: Wed, 25 Nov 2026 16:55:09 +0800
-Message-ID: <20261125085509.1844883-1-mjkchengke@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=RvGwR+y6
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15AF41F000C4;
+	Wed, 25 Nov 2026 08:58:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795597108;
+	bh=mRP9hIoi3pw5vrZtCIj+mOt5jd3Zzi4d0ov9dcY//Xo=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=RvGwR+y6KMgRRTxkENtPUydm1MWOMeDw4ePB9hbtv6a3YWBXbY/Wf47kACgDd2ZyQ
+	 IoAqc1Jmuk8UFd0z/uRK9M+i4Yt7N2BNPFZTWNotSNxDShYiQ/QJB+ANwboBeCdhYY
+	 +uH8T2PA6lFduSW6LjFJnvY/atuR/4DgZK+7BpJV9nI2YF1MlQt3+2TQQZh5sM4pVo
+	 7/+l8xwXzxVMIG4Z+j7dnn+WXysCj15rT2AmJu1bDnJaziyKg8p9lPuzyDs8JS3hUQ
+	 c83693Hd5N3+1mSVQws/fx7hSRe4922nkXjxt9sJ5VkUDOiiicUa2oJ09j0kfxi2Vh
+	 skLobAIECEOyw==
+Subject:
+ Re: [PATCH net-next 3/5] net: dsa: lan9645x: add mac table integration
+From: netdev-bot+sashiko@kernel.org
+To: jensemil.schulzostergaard@microchip.com
+Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
+Date: Wed, 25 Nov 2026 08:58:27 +0000
+Message-ID: <179559710763.3135.13351843539834779917@kernel.org>
+In-Reply-To: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-3-b930a1dae700@microchip.com>
+References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-3-b930a1dae700@microchip.com>
+X-sashiko-severity: Low
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,173 +63,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:QCgvCgB3paRtogZrdEsbIA--.7371S2
-X-Coremail-Antispam: 1Uf129KBjvJXoW3GFW8Wr1UAw45GFWUtw1UJrb_yoW7Aw47pr
-	WfJF97ZrZFqFsrGr4ftw4kJFWY9r4FkayUCr9rCw1Yva4YqFn3ta1rtr1UtF97CrWkWFW3
-	Wr47XFWDua47XrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0piJUUUUUUUU=
-X-CM-SenderInfo: ppmnux5hqjyvi6rwjhhfrp/xtbC9hAhb2sGonCDrgAA36
 
-The YT8531 and YT8531S support Ethernet Line Speed Auto Downgrade:
-when autonegotiation fails to establish a link after a configurable
-number of attempts, the PHY downgrades to a lower speed and retries.
-The number of attempts before downgrading is configured through the
-Speed Auto Downgrade Control Register (0x14), bits 4:2, and the
-feature is enabled through bit 5 of the same register.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Expose this as the ETHTOOL_PHY_DOWNSHIFT tunable, following the
-semantics used by other drivers: the tunable value is the number of
-autonegotiation attempts before downgrading (range 2-9), 0 disables
-the feature, and DOWNSHIFT_DEV_DEFAULT_COUNT restores the power-on
-default of 5 attempts.
+Low priority / nit picks for your consideration:
 
-The retry-limit field stores (attempts - 2) and only takes effect
-after a software reset of the UTP register space. genphy_soft_reset()
-resets the BMCR of the currently selected register space only, and
-the YT8531S powers up with the fiber space selected, so use the
-existing yt8521_modify_bmcr_paged() helper to reset the UTP space
-explicitly.
+- [Low] __lan9645x_mact_learn() in
+  drivers/net/dsa/microchip/lan9645x/lan9645x_mac.c decides whether a…
 
-Hardware-validated on a Phytium D2000 board with a YT8531S: setting
-8 and 2 attempts, restoring the default, and disabling all commit
-correctly to register 0x14; out-of-range values are rejected with
--ERANGE.
+--
 
-Signed-off-by: chengke <mjkchengke@163.com>
----
- drivers/net/phy/motorcomm.c | 97 +++++++++++++++++++++++++++++++++++++
- 1 file changed, 97 insertions(+)
+net: dsa: lan9645x: add mac table integration
 
-diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index a87e83fdf5..08bf8441fb 100644
---- a/drivers/net/phy/motorcomm.c
-+++ b/drivers/net/phy/motorcomm.c
-@@ -97,6 +97,9 @@
-  */
- #define YTPHY_SADCR_SPEED_RETRY_LIMIT		(0x3 << 2)
- 
-+#define YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK		GENMASK(4, 2)
-+#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN		2
-+#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX		9
- /* Rx Error Counter Register */
- #define YTPHY_RX_ERROR_COUNTER_REG		0x15
- 
-@@ -1205,6 +1208,96 @@ static int yt8521_probe(struct phy_device *phydev)
- 					  val);
- }
- 
-+static int yt8521_modify_bmcr_paged(struct phy_device *phydev, int page,
-+				    u16 mask, u16 set);
-+
-+static int yt8531_get_downshift(struct phy_device *phydev, u8 *data)
-+{
-+	int val, cnt, enable;
-+
-+	val = phy_read_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+			     YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG);
-+	if (val < 0)
-+		return val;
-+
-+	enable = FIELD_GET(YTPHY_SADCR_SPEED_DOWNGRADE_EN, val);
-+	/* The retry limit field stores (attempts - 2): the default 0x3
-+	 * means 5 attempts before downgrading.
-+	 */
-+	cnt = FIELD_GET(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, val) + 2;
-+
-+	*data = enable ? cnt : DOWNSHIFT_DEV_DISABLE;
-+
-+	return 0;
-+}
-+
-+static int yt8531_set_downshift(struct phy_device *phydev, u8 cnt)
-+{
-+	u16 mask, set;
-+	int err;
-+
-+	if (cnt == DOWNSHIFT_DEV_DEFAULT_COUNT) {
-+		/* Restore the power-on default: enabled, 5 attempts */
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
-+		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		      FIELD_PREP(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, 3);
-+	} else if (!cnt) {
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN;
-+		set = 0;
-+	} else {
-+		/* The tunable value is the number of autoneg attempts
-+		 * before downgrading, in range [2, 9]. The register
-+		 * field stores (cnt - 2).
-+		 */
-+		if (cnt < YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN ||
-+		    cnt > YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX)
-+			return -ERANGE;
-+
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
-+		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		      FIELD_PREP(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, cnt - 2);
-+	}
-+
-+	/* The SADCR change is only committed by a UTP-space software reset.
-+	 * genphy_soft_reset() resets the BMCR of the currently selected
-+	 * register space only, and YT8531S powers up with the fiber space
-+	 * selected, so reset the UTP space explicitly. Both helpers manage
-+	 * their own paged access window.
-+	 */
-+	err = phy_modify_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+			       YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG,
-+			       mask, set);
-+	if (err < 0)
-+		return err;
-+
-+	return yt8521_modify_bmcr_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+					0, BMCR_RESET);
-+}
-+
-+static int yt8531_get_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna, void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return yt8531_get_downshift(phydev, data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int yt8531_set_tunable(struct phy_device *phydev,
-+			      struct ethtool_tunable *tuna,
-+			      const void *data)
-+{
-+	if (tuna->id != ETHTOOL_PHY_DOWNSHIFT ||
-+	    tuna->len != sizeof(u8))
-+		return -EOPNOTSUPP;
-+
-+	return yt8531_set_downshift(phydev, *(const u8 *)data);
-+}
-+
- static int yt8531_probe(struct phy_device *phydev)
- {
- 	struct device *dev = &phydev->mdio.dev;
-@@ -3280,6 +3373,8 @@ static struct phy_driver motorcomm_phy_drvs[] = {
- 	},
- 	{
- 		PHY_ID_MATCH_EXACT(PHY_ID_YT8531),
-+		.get_tunable	= yt8531_get_tunable,
-+		.set_tunable	= yt8531_set_tunable,
- 		.name		= "YT8531 Gigabit Ethernet",
- 		.probe		= yt8531_probe,
- 		.config_init	= yt8531_config_init,
-@@ -3294,6 +3389,8 @@ static struct phy_driver motorcomm_phy_drvs[] = {
- 	},
- 	{
- 		PHY_ID_MATCH_EXACT(PHY_ID_YT8531S),
-+		.get_tunable	= yt8531_get_tunable,
-+		.set_tunable	= yt8531_set_tunable,
- 		.name		= "YT8531S Gigabit Ethernet",
- 		.get_features	= yt8521_get_features,
- 		.probe		= yt8521_probe,
+This commit adds MAC table support to the lan9645x DSA driver and wires
+up port_fast_age, port_fdb_dump, port_fdb_add and port_fdb_del. It also
+enables FDB isolation and assisted learning on the CPU port. A CPU learn
+failure flagged in ANA_ANEVENTS.CPU_LEARN_FAILED is reported as -ENOSPC.
+
+> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_mac.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_mac.c
+> new file mode 100644
+> index 0000000000000..9da03d0369f5d
+> --- /dev/null
+> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_mac.c
+
+[ ... ]
+
+> +static int __lan9645x_mact_learn(struct lan9645x *lan9645x, int port,
+> +				 const unsigned char mac[ETH_ALEN],
+> +				 unsigned int vid,
+> +				 enum macaccess_entry_type type,
+> +				 bool cpu_copy)
+> +{
+> +	int err;
+> +
+> +	lockdep_assert_held(&lan9645x->mact_lock);
+> +
+> +	lan9645x_mac_select(lan9645x, mac, vid);
+> +
+> +	lan_wr(ANA_MACACCESS_VALID_SET(1) |
+> +	       ANA_MACACCESS_DEST_IDX_SET(port) |
+> +	       ANA_MACACCESS_MAC_CPU_COPY_SET(cpu_copy) |
+> +	       ANA_MACACCESS_ENTRYTYPE_SET(type) |
+> +	       ANA_MACACCESS_MAC_TABLE_CMD_SET(CMD_LEARN),
+> +	       lan9645x, ANA_MACACCESS);
+> +
+> +	err = lan9645x_mac_wait_for_completion(lan9645x, NULL);
+> +	if (err)
+> +		return err;
+> +
+> +	if (ANA_ANEVENTS_CPU_LEARN_FAILED_GET(lan_rd(lan9645x, ANA_ANEVENTS))) {
+> +		lan_wr(ANA_ANEVENTS_CPU_LEARN_FAILED, lan9645x, ANA_ANEVENTS);
+> +		return -ENOSPC;
+> +	}
+
+[Severity: Low]
+Could a stale CPU_LEARN_FAILED bit cause a spurious -ENOSPC here?
+
+CPU_LEARN_FAILED is a sticky write-one-to-clear bit. The only
+unconditional clear is in lan9645x_mac_init(), after CMD_INIT. The only
+other clear is on this failure path. Nothing clears the bit before
+CMD_LEARN is written to ANA_MACACCESS.
+
+Two cases can leave the bit set:
+
+  - An earlier learn takes the early return because
+    lan9645x_mac_wait_for_completion() timed out or got a read error.
+    That skips the ANEVENTS check. If the learn later finishes in
+    hardware and fails, the bit stays set.
+
+  - The lan_rd() or lan_wr() of ANA_ANEVENTS fails. Both only
+    WARN_ON_ONCE on regmap errors.
+
+The next, unrelated learn under mact_lock would then see the stale bit,
+clear it and return -ENOSPC. The hardware will still have installed the
+new LOCKED entry.
+
+For host addresses on the CPU port, the chain is:
+
+  lan9645x_fdb_add()
+    lan9645x_mact_learn()
+      __lan9645x_mact_learn()  -> -ENOSPC
+
+Because of that error, dsa_port_do_fdb_add() does not record the
+address. A later delete gets -ENOENT from dsa_mac_addr_find() and never
+calls .port_fdb_del. The LOCKED entry that points at PGID_CPU would stay
+in the MAC table. It never ages out and it takes one of the four buckets
+in its row.
+
+The mdb code added later in the series ("net: dsa: lan9645x: add mdb
+management") goes through the same lan9645x_mact_learn() path.
+
+Would it help to write ANA_ANEVENTS_CPU_LEARN_FAILED just before issuing
+CMD_LEARN? Then the bit would only reflect the current command.
+
+> +
+> +	return 0;
+> +}
+
+[ ... ]
+
 -- 
-2.43.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700%40microchip.com
