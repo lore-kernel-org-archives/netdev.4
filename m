@@ -1,110 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.176
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795576893;
-	b=B6pTn7YmLsFbCiQ+uWnInR3/30dPIN8AW7rKPuMU1dt8fFucSTFn9V6LSqfnSDPVl/7/
-	 tG20Fu0hZ1As6KgCMZVRlQeX2P1QtRiqRMkL00472tzuE1IChvaTZsikcxoJIpomQdrF7
-	 N6gGOIZecqnw/ycNYVbOG4vc20C9WC/dsOhmYozc/1S1AGkCUWX6uc8/OY0ippZ8rDJ9G
-	 ieZicdyVqYbc7q+qsYsbewJnCPJ3I4Mk4hvXPMcsuXmoxMG8VzaGls8qFWYTB2Kjez2DH
-	 y/QvfrLMDEA1elN41uN3QH7REzfGWQTT09yCbtxd0MRo+i9G+Xs5N3cWSaeAmdb80tA==
+	t=1795577108;
+	b=v16GOWG7WgiBdovi/VQLIH+2N4nBqTAnDFWo0vQrHP/qP2a/FK6o2xUN3Dd0qINBD29z
+	 i1peom51RKLlIZ/9rd6nVLOqLFOlzTNJBKCV32DzHVcT3KRgu71AaX90IA5UNjfdCDpc2
+	 ROADgT2oKP02FNDD5/yrCyuOPzEHDfISV0SH3mTQ/Ga7cEYxd6heTXJIOaOQeGCkd40H6
+	 cPnE1lHKK69OOgUzDHPW3lDH2kLwCDdPXZmCZeqfCBJbrl98gzG4dgeSdQTDyxooUyAUM
+	 8gtgi2hSB8lqwQBk610SXAr6t0ETPPbjV+MIv+LRV93x2V3HbqH+zWfk3X75YHYWX/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795576893;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795577108;
+	h=Received:DKIM-Signature:Date:Message-ID:From:To:Cc:Subject:
+	 In-Reply-To:References:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=x882e7OTmAYxUut6y8OPWB+mfBqKYDNjHUdHSvwO/Ow=;
-	b=sVImoplisttt/zvZdFbP27NL8UTOxrUGaUQaVQFYCHAtT55n1g0L1SHP9CL3UrnMi7ly
-	 tQduF9erplPDdX6H5/fIy5reQtKufhG4cvZ+wMv5Y3fcf2XBRIPD1uHdaOnHN+U4tvXxW
-	 uIi+kBH26xBWIED8DIsbNJXcPknS8dAEbe6YvS341UPv6yxizx3RuHf8ijmGjrvy2dHk7
-	 YPkH7WJAUTTsUemU7iaM43mOeDUxABrBjpmHjwCoQsxBmVYssBDUvo0JkWNTqa995KO9u
-	 NmiqAgH0GhcYKpN7hy2D+W3TlJLgooXxCAcmS2eOr72CGsZGXwd+6445xp6Ce4FXOCg==
+	bh=jm765WKY/zC72jkI2x569XRAtZ95jMdKBRn4kx2NFXU=;
+	b=rrjW1BcU/nROFseWCk6q7Qo7TzWqkB3pNnX9HSi0VYG7k5tDQ44Mqhjh67DnGcGqTwhU
+	 yBovC1HEDZ2KwVLJToknA9iPCqzOIFV/NwfB8YHZJPRx+3iGlA6GCgDy98gYEGENx66Md
+	 uGMhpCZXZ32fWh6NMAR8SunISKW9k5xhlXGHznp4W9EiNYFXiCaNY5K5YfQY7E7H3rCld
+	 UiDAGOD2kfyh6j8MpLg2NacQQtt8dG5ahg8wZpRajOHLnjQCgQnauy9pHvziq9r1RmfMD
+	 WgheNPh033Kc+bld/QmlUJTkkEKWYDoJ93OQplN3Xp3znFUVrIxZ+qOySq11D2bmIbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0hr5G6Ci;
-	arc=none smtp.remote-ip=74.125.82.176
-Received: from mail-dy1-f176.google.com (mail-dy1-f176.google.com [74.125.82.176])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4AGWGfe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 15832606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:21:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 15832606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 057F4606A31E;
+	Wed, 25 Nov 2026 03:25:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=0hr5G6Ci
-Received: by mail-dy1-f176.google.com with SMTP id 5a478bee46e88-38699cf08dfso6084037eec.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 19:21:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795576892; x=1796181692; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=x882e7OTmAYxUut6y8OPWB+mfBqKYDNjHUdHSvwO/Ow=;
-        b=0hr5G6CiYwviZ48zaFQj1P2lBE1BZI28rhQg/97jLtjNS4k+9YIzro5JBC+nnhbGi0
-         TuFxd/JwRym2eyvsjKppO6aEkqIVCyMjJOue3YzcyqDqTaivIX7Z9omDLJPcjujOiHPf
-         3vONMosmapHms46Za13J5qGttrAwgfX9ajcciGxnfHoyTxhjpP1tXVPEd19NP8e8GYf+
-         7Brv1edZxDBWs4J3zfeM8Bsy0mX6Rnnj1B4Btj1kW0Btg1PmbpKtNsyAS7ud7BtdIEO6
-         LAxNC8lQNDQBTq50pzTueurl7xU3RBBmCZWv0RzRBEtUDxlUFgVZ9O9v6dJoAjICg1HX
-         kNWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795576892; x=1796181692;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=x882e7OTmAYxUut6y8OPWB+mfBqKYDNjHUdHSvwO/Ow=;
-        b=t3Q4UPOh8rROV2nKZ5KIq39dzAh6YLJa1sugMrYIm9Z0ObEKI9bb9E+XI/4n1NJj/E
-         VlwNhX/PLO3yqeMpLa2t2n51Af9xNlJuvtwzFtrlXDmNpAWFzmJotlg8bbiKjmUAF/v1
-         Df+yEDy1oLY9QOOxLZWMYmJYrtJdVVi3L28nQh5eCibuGkR7dA+ykWFZubKdRugFKlH4
-         yW+0NV32XDaCTsDsyxh6utVqO0fw4y4brMWGNs2gFjl3B50BL4b+TTAEP0xrDG0A6mZs
-         cGLSQoBGLtvUCpCzDNbbZBNdePWDe1JzLrvgvAuiJLOmh6ga4h7JSXo0nCAq+PQXAQHv
-         CMZA==
-X-Gm-Message-State: APuU4Z9b94yxKrdExkUDWxzMwayJqQpG8GHUARCV9jyRGpJm7sTKqOFV
-	euQWpaPZod1d5jifAQOeEvpdiBf4wnDlI2xdDc9RjwagTvGJOHxpJQ/DPpRABA==
-X-Gm-Gg: AZFdTZdk3C6JocjmH2CFYTFARAwhF7LltMz9q9X5DQCQiVQAyRMvlcvJijgwv2QSIGk
-	GbcwOcBGz0X820wLxQpHStaACcAsbpqbVePMuFKms8pdUVANnsMaWKJGO5PozRvuSIBaRemj1Qx
-	RT7Cw3f8c3yodMGSR23SlA4PPu4FBXxDCOrz2AMfM6W3lCNVCCuV/LqCFC1yHp+D1NcXGjVm2+d
-	qen2oV8QJpnk533ZTMUpM/yvIy2gDgUy1/kMcZ3hbLfalQCJKL4H2ftOJwTwXqKTxKo1GCpKY/L
-	vWn2mmswAAiAl9EQGNF3/bXOCQk1kKVpF3hjSWyT3tJSRdMMmIPrXjlud6FJkvoMCPEKE1ZKe6y
-	iray+nUUUY2fIxnJq6ovFW1A4Y9UZfl2WefRd7nrze6YCpRmzirIt3eNW4xUVhxNzTUF6ZAeRSK
-	fHg95ctwwH5mSuE142ZRIY1modZq9tS+1ekplMIEcYy8Gt6a+hpUudX7ZHXnp5+Dcrs5Yn2ZOO2
-	3H+FsdMDdvUAQV6Fy7iC6g3SFgnXF/Nh+UCsx4mhT9itVkM+DHUWQ37bCCuYUzQwTkYoxHjbCdH
-	fn4wuRAk90ePICSRo3GaOMaNDSy8Dd+nzxGqswyVOV2jBybBaMBK+fU4G/vw2kvLfdohcPeFVO1
-	HEIolL1365x8YslzKbWIYGlHiZzxEEJ+5oEc5EIT1dhpoAgSz4HOLr9P2XLWacFxqpxQQatn1SH
-	o=
-X-Received: by 2002:a05:693c:835b:b0:386:b5ad:b719 with SMTP id 5a478bee46e88-386b5adc3cdmr7111743eec.33.1795576891727;
-        Tue, 24 Nov 2026 19:21:31 -0800 (PST)
-Received: from ramen-dev-security-2.asia-south1-c.c.ramen-dev-345017.internal (90.156.200.35.bc.googleusercontent.com. [35.200.156.90])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386c7c62a91sm7256012eec.17.2026.11.24.19.21.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 19:21:31 -0800 (PST)
-From: Anil Kaushik <anilkaushikwireless@gmail.com>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	idosch@nvidia.com,
-	nicolas.dichtel@6wind.com,
-	jacob.e.keller@intel.com,
-	jiri@resnulli.us,
-	fw@strlen.de,
-	martineau@kernel.org,
-	v3rdant.xiang@gmail.com,
-	aliceryhl@google.com,
-	linux-kernel@vger.kernel.org,
-	nhorman@tuxdriver.com,
-	shuah@kernel.org,
-	linux-kselftest@vger.kernel.org,
-	anilkaushikwireless@gmail.com
-Subject: Re: [PATCH net v8 1/2] genetlink: Reject joining multicast groups no family owns
-Date: Wed, 25 Nov 2026 03:21:23 +0000
-Message-Id: <20261125032123.2664525-1-anilkaushikwireless@gmail.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <179553579407.3135.13476478403966318528@kernel.org>
-References: <20261123155503.2497063-2-anilkaushikwireless@gmail.com> <179553579407.3135.13476478403966318528@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4AGWGfe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 722391F00A3D;
+	Wed, 25 Nov 2026 03:25:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795577107;
+	bh=jm765WKY/zC72jkI2x569XRAtZ95jMdKBRn4kx2NFXU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References;
+	b=V4AGWGfeZLmrhtquKRv6EviHYCknQ6uF6sSccjviJ4oFSvgpAICCuQyib02WKudKy
+	 WZzoevJXnvM5e8NOpUoL9Ig82rYSxXxmUF9Jr1DLDbm4EjtTfslgzFUp9UHxUlPTv9
+	 wrZwz+G0W0uX1L3CBHkaI1MEt38fA9MYeSZuWLQ37eiV+uutE2OGEeTf1isC4/809q
+	 ZNbCkMcYIXb3teD/R3X/bXjffIjQmZgy38Wakf++rKKgIEMtzE5TK9nhDC09ZhOLli
+	 riBulMJ56RdCaDMuJt8qSHKFWjz1+SQJPB/Yzgx1/6vGL5v3z03GsZeS1enRqA31wI
+	 ei8UTG7MewgQw==
+Date: Tue, 24 Nov 2026 17:25:06 -1000
+Message-ID: <8fefdabc4b1d9e0c0d0b3bae1995e784@kernel.org>
+From: Tejun Heo <tj@kernel.org>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Lai Jiangshan <jiangshanlai@gmail.com>, Jonathan Corbet <corbet@lwn.net>,
+ Boqun Feng <boqun@kernel.org>, Miguel Ojeda <ojeda@kernel.org>,
+ Danilo Krummrich <dakr@kernel.org>, Philipp Stanner <phasta@kernel.org>,
+ Matthew Brost <matthew.brost@intel.com>,
+ =?utf-8?q?Christian_K=C3=B6nig?= <ckoenig.leichtzumerken@gmail.com>,
+ =?utf-8?q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
+ Rodrigo Vivi <rodrigo.vivi@intel.com>,
+ Boris Brezillon <boris.brezillon@collabora.com>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ =?utf-8?q?Onur_=C3=96zkan?= <work@onurozkan.dev>,
+ dri-devel@lists.freedesktop.org, intel-xe@lists.freedesktop.org,
+ rust-for-linux@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org,
+ Corey Minyard <corey@minyard.net>, openipmi-developer@lists.sourceforge.net,
+ Alasdair Kergon <agk@redhat.com>, Mike Snitzer <snitzer@kernel.org>,
+ Mikulas Patocka <mpatocka@redhat.com>,
+ Benjamin Marzinski <bmarzins@redhat.com>, dm-devel@lists.linux.dev,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>, linux-input@vger.kernel.org,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Viresh Kumar <viresh.kumar@linaro.org>, linux-arm-msm@vger.kernel.org,
+ linux-pm@vger.kernel.org,
+ "D. Wythe" <alibuda@linux.alibaba.com>, Dust Li <dust.li@linux.alibaba.com>,
+ Sidraya Jayagond <sidraya@linux.ibm.com>,
+ Mahanta Jambigi <mjambigi@linux.ibm.com>,
+ Tony Lu <tonylu@linux.alibaba.com>, Wen Gu <guwen@linux.alibaba.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, linux-rdma@vger.kernel.org,
+ linux-s390@vger.kernel.org, netdev@vger.kernel.org,
+ Oder Chiou <oder_chiou@realtek.com>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, linux-sound@vger.kernel.org,
+ "Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>,
+ =?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, virtualization@lists.linux.dev
+Subject: Re: [PATCH 2/2] workqueue: doc: clarify cancel_work_sync() cross-workqueue behavior
+In-Reply-To: <20261118-ordered-wq-cancel-v1-2-916e01f9affe@google.com>
+References: <20261118-ordered-wq-cancel-v1-0-916e01f9affe@google.com> <20261118-ordered-wq-cancel-v1-2-916e01f9affe@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,24 +91,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 24, 2026 at 03:56:34PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Can that window still leave a socket as a member of a group ID that no
-> family owns? That is the state this patch is meant to prevent.
+Applied to wq/for-7.5.
 
-Yes, and the commit message says so. This window is not new: it is the
-same for groups with GENL_MCAST_CAP_* today. Closing it was patch 2 of
-v5, which was not accepted:
-https://lore.kernel.org/netdev/20261110121831.01412fb9@kernel.org/
+Note that cancel_work_sync() and friends haven't been waiting for a work
+item which is still running from a different workqueue since 606a5020b9bd
+("workqueue: gut flush[_delayed]_work_sync()") which went in in v3.7. This
+has been broken for well over a decade and the documentation now says so.
 
-So this patch only covers joining an ID before its family is
-registered, which an unprivileged user can do at any time. The window
-needs a family unregister during the join.
+The following queue the same work item on more than one workqueue and then
+sync-cancel or flush it. As cancel_work_sync() doesn't guarantee that the
+work item is quiescent in that case, they need to make sure in some other
+way, e.g. by flushing the workqueues that are involved. Note that system_wq
+and system_percpu_wq, which schedule_work() uses, are different workqueues.
+cc'ing the maintainers.
 
-The selftest issue on patch 2 is right, I will send a v9 for it.
+- drivers/char/ipmi/ipmi_msghandler.c: smi_work
+- drivers/md/dm-mpath.c: trigger_event
+- net/smc/smc_llc.c: llc_event_work
+- sound/soc/codecs/rt5651.c: jack_detect_work
+- sound/soc/codecs/rt5682s.c: jack_detect_work
+- sound/soc/soc-jack.c: snd_soc_jack_gpio.work
+- drivers/input/misc/palmas-pwrbutton.c: input_work
+- drivers/cpufreq/qcom-cpufreq-hw.c: throttle_work
+- drivers/vdpa/vdpa_user/vduse_dev.c: vduse_virtqueue.inject
 
-pw-bot: cr
+Thanks.
 
-Thanks,
-Anil
+--
+tejun
