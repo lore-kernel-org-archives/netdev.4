@@ -1,111 +1,144 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.180.131
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795603786;
-	b=tVXpPLXw+/P3VRBIm/OgPOZgmjQEgrFY/n+jkViMItxyZSrAMSbIu58snVK/Xs3JS5S4
-	 kx3qVumIdDtLWA74hQQQ9vQcbgMkjC8I/cnBxqTR+uNZZ5JDJpynOQqgomeDpgIsb6EBi
-	 Ek5EY9XSs4uE9AtaqrvVdftupmwh/Lw/NLpk+SHFOGz4H7Fw6G8mDlT+9GYBMCzseZXpm
-	 yYf8BV20oC7lW1Vb5yUpWN62Tfs1FJjlrITTS/0ScsdZjVuxV2DdUozGFfx9XYSzF5CCh
-	 1XtmCn6xpelqXlZJfcqrlxfPTTCZn4GwU5G+9+UpH4fVHFHozQy7L1edVhjN1jlp0fA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603786;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
-	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Authority-Analysis:X-Proofpoint-Virus-Version:
-	 X-Proofpoint-Spam-Details;
-	bh=h0Fcz3/M+uiOmSyjDB7LDH22c/hTHLyH6qOeY8tpaH8=;
-	b=VdRqLn62lnBV0cpW909xCmcmAHt9IglDXvTS43cTjCIe/B02rXSuZU4ZJ0yYxWx2Ks/K
-	 ueuPR/qdulJcwFvBEiEEQZsGe1kgHsApqa/08z3aLzXXJos6uLOrALg0YNvPq3a37wDz8
-	 0gPS5WzcSU7SJlS6sYZFp5PW0ni8BPyDqkbF+qSdTQgQ7v/Lb5fQ1wwgXA4QF1iyV3C+4
-	 Lxmr/fUNgjahBN6eBpF7YCQ6AQussPFLb0udPbqFQrhJGFg4zROAuRL0H6GtBlhxNcT/g
-	 PIeGxoHDAMLwK5Vz87WA1tN04AUQwlZjkJ9gIBb+0G7AxtpZnHbqYBD58CTXbf7rn1Q==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=oss.qualcomm.com;
-	spf=pass smtp.mailfrom=oss.qualcomm.com;
-	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b="HsoW/V8C";
-	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b="EHdRund/";
-	arc=none smtp.remote-ip=205.220.180.131
-Received: from mx0b-0031df01.pphosted.com (mx0b-0031df01.pphosted.com [205.220.180.131])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795603898;
+	b=aK8/3OC61VEQgk7Se7a6eR3k7MBBObkO21qTDBuBr+g2mLKsITCyypX59+PFFE7hGf+b
+	 FkV3vZhkS4Sa17k7UQ0bE8QcfQ8p2l4hty80GHmSNnZA4QYfAeIz+c1HUyQfTDkLQGIsA
+	 M2qNjzkFEEd3QBn5Ag+PUHi7Qc8JhVjSD5RWkTwgejU6l2HHGepS86onif0J4sBbGWJwF
+	 Lpv6kzNyY3ryCJBodLyu9VampNtI5jgsv/eEq5z8fQbf7k8Ie69wyZ+kEBhQ/c8Jv6OJg
+	 Qcxj3fbu7b4/V3clbCcSvEmEnC0JGpqccgb8urB5cS3Q8tJMppaF+2jGVYnbd97Cc1A==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603898;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
+	b=Lzy19M+sBaUkoLfA246pd9ZcEQfZcNDvaoyeZmDF0M1M9wiEDvqNE8uVl4MZuoTqbeQU
+	 LUaqgVf+Qwpo1sR/dtWe/0oI1eDsEBG81n+IX97yaafsRiTyXWcq6ud85LOXCscAMVGjq
+	 h7z7aBeQ1R0byDoSgdjcEOV0QYm4y46vJDM1oJzR74J8jaR4cEVViX76bP4ZXI+J1OMzS
+	 TD3NBBzNTeDwoPuTbHtZzWUEBYBdeu0yRcCDi8fJ0yuX5NVrhApfTHnqR/RLpp41o34Qr
+	 y0pQ0XxABxFefys0egugJcMFqE4Ng65XUgNjRr3qgEnwI5CjLKn5+RrtMfHWovVXuOw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kdaSoxAc;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=j8YdDP3+;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
+Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29FA0606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:49:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29FA0606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7C1C606A321;
+	Wed, 25 Nov 2026 10:51:37 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7C1C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=HsoW/V8C;
-	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=EHdRund/
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AP9mOS3555534
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:49:44 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	h0Fcz3/M+uiOmSyjDB7LDH22c/hTHLyH6qOeY8tpaH8=; b=HsoW/V8CpuiMFw5D
-	wLxNlxpk95W9vXffWpDy80+NWOF2t2SVcVjn8RUZOrz5oMIj/o1yewb2CNMNYcUy
-	ybed+vv0a53bCLRiENwkqKSrYe2iKNnSLilwpT69/6m1QcLypDATD/jVxe8IzWKn
-	q1Fv51nA2QwMoeeKCs5RpUD0gNKBxx5JNPHQ87KlqEAUjHDmQnWrMhcsJnKZRUiL
-	NnU4mQTpSzXaxdv10x6HC0uiFBkwkbb4Hg2JspKZ11qb++8/7TET01t0BwW5zHEP
-	4vwgGo1wngVXrWgy/ay4dFl0Cpb6KflzJV0DTG4mOAii97nduYerZcyVdi3kEfh8
-	V5IVbA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j5vvnrdmh-1
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:49:44 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-9460411fce4so32638585a.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:49:44 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=oss.qualcomm.com; s=google; t=1795603783; x=1796208583; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=h0Fcz3/M+uiOmSyjDB7LDH22c/hTHLyH6qOeY8tpaH8=;
-        b=EHdRund/CJcF6w4AGXIYhwxuzOyYvAPHIhF5UhkNeRU2GwX9EGzkonHTvRGkJq4oNN
-         WE2tDKUAsdtnY65xSyp6uoboApClU+ujU335geC2nVWxjOZ442B4dcf5CbrNBRtoElDI
-         XcTUS6u20wqxdKqZKd03LkrZHs2Q0sAj09cxhwuam0B1/1HegIyVeA2IpQLw/wMXT3cg
-         8LJLSIZiqrBMIIgrVZX7F4PsLn96d2I8kRDdXBI802mOgitUOMJIWfAaOWyE7IhOm/j+
-         WYL/nkk1jdPbtjlvgJVIr5AsuVfQLqiwiajUBEj7aAhEwuuPPyyQfcyz8WQsTAReji6d
-         zPoA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795603783; x=1796208583;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=h0Fcz3/M+uiOmSyjDB7LDH22c/hTHLyH6qOeY8tpaH8=;
-        b=2pdHJVPQqI1xxnmmyJn/oULAz3u9F1/7hhE8serhPxrnMQjGmWAx1fbAIssDdGhSJv
-         73dWPZHkNjBsU6vTrwFEedVveBxHfrrQEyrtY6qvapXn+gm3Vv942sBwkW436s1RLbsw
-         5ydoKXsE4KJD6yGhzBnaK5Dz8sHNnqXqezAA3mOsv/LkmKkIGh5cGCGAoEctRh9O5fvB
-         ApYUr4H+H7RgiECB7YLdq+UlHp6jjEFPORmxqlnK4xkp2kQJlUNkszqJc70sAQjviqsL
-         8My4IV+EKbYsRi6kpqCEPP1eRr4AWw1In2dxSpEkcHrdS0YLI4kx3S4kDW6IZ25ElUx4
-         tQrQ==
-X-Forwarded-Encrypted: i=1; AL+hErG9qMH27CmkNT1qsY4FRBXgIy4UsRlaAJ4WjjGctPC/nHnvFgvs7uc1tcx1Jc2Z10DpoqPlfZA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z96s9LH11XsiXuWeiVYgAOSd3zaKCnmMp+dW94MW8I15mjLNG2j
-	D98I+9zELVL+C7ySYKjTcHlrWXpJDCHzr98vsYHM4JdewbmOZrf6PfV++WtK++WPUJDNWcaWQGD
-	D3cJeZdkl1VomA71be4tJYEWP8tWxEDfJ7H1MUKK75hLsQgQ6zwV24RkEDrs=
-X-Gm-Gg: AZFdTZde+sfeBULRQnJv4vrfLHtedPoBeBeFz873aRSK0vzOdVUNn+05bztxgQ+vFT8
-	GLGXUyvBItc0E9+n3JdcpCd5hH4exKD3k35w3+lPm8ksLHqXFmwc5memirqhcGQccoo2D72artk
-	q/WpvAK5vOfAG2pLO9HvPR+o87E3roPvAUPyFZseJnHWJ131vMmCXBRNbAsxkRAXJb3pP+cHIeo
-	SvGf8i8GJa09cy6t3BKKnhCa291zr5aGX8tfEGuwO9yEjXRRP3c2bPXqpJ4nzEUi9MI+O+K2Dtp
-	dCsEGDiSUdgWamFn1sjIOlMbQyRer+NSBvb95H5STx1Zi0lZyogzL4Ssry0ToejHcyf4DmxpIU9
-	ZnddwXMoSETqBb3XkSFbzhgNPQkfu2Ijl/5GJJfokjjCRobBJpW/I+KJgCRcohn9jAOsw1bc=
-X-Received: by 2002:a05:620a:a017:b0:949:7642:6de7 with SMTP id af79cd13be357-949ba85c0b3mr3323737385a.2.1795603783396;
-        Wed, 25 Nov 2026 02:49:43 -0800 (PST)
-X-Received: by 2002:a05:620a:a017:b0:949:7642:6de7 with SMTP id af79cd13be357-949ba85c0b3mr3323733085a.2.1795603782968;
-        Wed, 25 Nov 2026 02:49:42 -0800 (PST)
-Received: from [192.168.226.72] ([178.235.128.140])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe3b0sm618256866b.8.2026.11.25.02.49.41
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 02:49:42 -0800 (PST)
-Message-ID: <8fa6e8c9-213a-4af3-b1e0-9b6c3aaa2821@oss.qualcomm.com>
-Date: Wed, 25 Nov 2026 11:49:40 +0100
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kdaSoxAc;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=j8YdDP3+
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795603898; x=1827139898;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=mO+hu8rLZK2JVKrLBcBAJu6Esr6pNIbScG8aVS+Ky8o=;
+  b=kdaSoxAcHUCeUXCiS5I0IWvz9pt1A92XDqYLcGag1z7P1ysMBKhsyy8c
+   aoCZjnGAK7swb9SgSCKpE6J7+ByabYCXEMrCxcfjAd6JJcz+hVp4NcocF
+   L6X6K3SsbvEwihJlnDyUQh/2H59MgdNY+c0yvFwoT/rw1wRoNRz3KonDV
+   zN4ryKAYPmH9UKYMCobjJ6KQjzr0gmpU2yqK0lpCgFHxxneL3fGd8yMJQ
+   6Y/W6zRNYqO+PvyjgDLhdqrnSv7+ziN9IFELqgJGlnLpRYRIKHx4liNQH
+   w7XhYyhza3frhj2AsJh/EzoZzlzeNHSdUCAyWE9N/UbzCa9ukOaXIlgxp
+   w==;
+X-CSE-ConnectionGUID: NbBIurBYSbSvD5lw7EywPg==
+X-CSE-MsgGUID: npF51DFCSACqas9FEQuHJw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4481116"
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="4481116"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:51:37 -0800
+X-CSE-ConnectionGUID: 6pCoGl3dQBK2mHfmJ6V5bA==
+X-CSE-MsgGUID: bf+9vXXTS7G100ttOZiwsQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
+   d="scan'208";a="11963084"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:51:38 -0800
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 02:51:36 -0800
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 02:51:36 -0800
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.18) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 02:51:35 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=YWfy7mB1/MUJ9pBUHy2ch0uCWqKnBKWUAylC5Jbbl4c4d3Icay8HzqY6Atw35UqtfFBGlaZjSsb2DG8nzegJiz7ELqaxvG2L9tbCuMMgUnid23qHOjA3S96KOiPZVfLuOo0PDniJyX9OT8zVaISBylbzgCPnJA/aZRwr2RtF6VjRNlXe9aLBIStD0aw+S0SAnpE7/LVdZ3SblZQINosKipd+e/cgiA7CUp/nSSnKnSsvJnVY7clpiVfdsu/oW6an5rUL56LoqfN894SnebV4gSdPEyxPykEz2F7U30nhSGSl7MxjylSUfkai7vEQ05IkM3zcgbzJyevWsHtzSc9UxQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
+ b=XYBlJoooJfCKHklD+ufkWlNBws4YlhBWao1p7x1o7mPCC5/bcz083UDwO0qxtKLd/B+KRVh+TBKk5E3A7PkEpTUsbxEEKwm9DR3TxSqVoOKvpUkw78S9oaYjb7DFz+HuLZdtIaVb3DELHG9HPfWQf7wISUISQ04mzzzdZmE3iEHtmEm/sVQz43eR603KeTjAOXx/PsJVmfAUdbsSXubOL8f2alm9Z/jEd/EfZO/dVxCDGh9n0/CYv3zDRr/qsloAdWhNtPaY2IkdMjZfYw+AqrowVcKbfLr9Tm8xiq/63fyV1MDCAbnMY8zoqauTXgaIsBTq5lxYGXmzk0ajiYUu5A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
+ b=j8YdDP3++bDv17MGGtbM3t7pDfapxbFA6Mc1Ozua68HlZdwm+9T1yUYG+uzfz0fgYBCw5IV0/ftZwxL+gS7UPcH17WDQfZKVTxjmMZ0H1fWgELWLiYnl6CPYt5mCbPD5Heow9nhB/UQ+UhCxMOeqG3Bm4Oq8Hb0T8CNqmbIspNs=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CH3PR11MB8496.namprd11.prod.outlook.com (2603:10b6:610:1ba::22)
+ by IA0PR11MB7185.namprd11.prod.outlook.com (2603:10b6:208:432::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 10:51:28 +0000
+Received: from CH3PR11MB8496.namprd11.prod.outlook.com
+ ([fe80::5627:e3a5:cb26:b555]) by CH3PR11MB8496.namprd11.prod.outlook.com
+ ([fe80::5627:e3a5:cb26:b555%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 10:51:27 +0000
+Message-ID: <dfcfedd2-7232-4949-97c3-bc51d28c6131@intel.com>
+Date: Wed, 25 Nov 2026 11:51:00 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH iwl-net v2] ice: release IRQs and rings in ice_dis_vsi()
+ when the VSI is already down
+To: "Ionut Nechita (Wind River)" <ionut.nechita@windriver.com>,
+	<intel-wired-lan@lists.osuosl.org>, Tony Nguyen <anthony.l.nguyen@intel.com>
+CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Larysa Zaremba
+	<larysa.zaremba@intel.com>, Maciej Fijalkowski
+	<maciej.fijalkowski@intel.com>, Jacob Keller <jacob.e.keller@intel.com>,
+	Wojciech Drewek <wojciech.drewek@intel.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Petr Oros <poros@redhat.com>
+References: <20261124083506.14071-1-ionut.nechita@windriver.com>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261124083506.14071-1-ionut.nechita@windriver.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DUZPR01CA0144.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:4bd::26) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -115,80 +148,316 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 3/3] net: ipa: add SC8180X (IPA v4.1)
- configuration data
-To: robertijtsma@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller" <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261125-qcom-ipa-sc8180x-v1-0-48a889acbe6b@gmail.com>
- <20261125-qcom-ipa-sc8180x-v1-3-48a889acbe6b@gmail.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20261125-qcom-ipa-sc8180x-v1-3-48a889acbe6b@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI1MDA0MiBTYWx0ZWRfX1konSjo21DeT
- IfMSQjgsmtV+bPojVh3J6KqgrcGcslA3r4fq/uJwcT583RqFFRL5fdQUMyOdICIutF2uggf0elz
- IV48dPzMjxRjdF7cG9H1mlKarCU6ArFjfMP2yEnh44xo557yulohI9nOdNY06ZW/m+CSTtqiWrl
- FwM3+sZ66K+4BK7FK8cICbOfGhV/fgNpymNeQZg5ov1/YVtzJZMq/wGQJNMUvlMY1w+UnogGNCQ
- QI3Z0VxB1IcrbHFAukUcUokMFQLXbWqMAn+z4/Ht69XhialJ70Hg4BAfDebPkdhYrL261bhJQ/G
- 3ZFucdqyZupoKzcsVZv/nQCae8xreV/vRg2oprWJPei0cfuuAgHZKsTYf+19DJ33dUPV0m/g8Jp
- /HwXO4k0UbwJp0JhTfScFH6EJ7sozY6pn6kLKaOF/9MOVSo0p4+QGT4g87f03E+ndhyLM2npMDu
- uYr1B4J3RvEMrwFKJVg==
-X-Proofpoint-ORIG-GUID: 25q_8pfe_VvZEwiVDYE9zu4XJjERySEF
-X-Proofpoint-GUID: 25q_8pfe_VvZEwiVDYE9zu4XJjERySEF
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI1MDA0MiBTYWx0ZWRfX2cbc45uuSPc2
- GvbbiJVyCQay81ID365T034kr9i1XXS2YK2rs7+AY/XNhezHtb4X3NSu/wHGg6xmrUkyCyy2Vdh
- +fIqpy4UETFtaARSPqsqSuVBOseDuGg=
-X-Authority-Analysis: v=2.4 cv=R4mWitRX c=1 sm=1 tr=0 ts=6b06bd48 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=PRfkaYvzSr8QmIIGAkY2Sg==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10
- a=VkNPw1HP01LnGYTKEx00:22 a=u7WPNUs3qKkmUXheDGA7:22 a=_glEPmIy2e8OvE2BGh3C:22
- a=pGLkceISAAAA:8 a=wqfpHMpB0Ti-P-UBA1kA:9 a=QEXdDO2ut3YA:10
- a=NFOGd7dJGGMPyQGDc5-O:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-25_03,2026-11-23_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 suspectscore=0 bulkscore=0 adultscore=0 clxscore=1015
- impostorscore=0 spamscore=0 phishscore=0 priorityscore=1501 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611250042
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH3PR11MB8496:EE_|IA0PR11MB7185:EE_
+X-MS-Office365-Filtering-Correlation-Id: e8af13d3-c700-4fd1-84ad-08df4ae203ba
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|261022105027099003|261026121527099003|10067099003|261026140227099003|261022075727099003|261028144727099003|261021123027099003|261102123227099003|261021121427099003|261021135927099003|261009223027099003|6133799003|18002099003|22082099003|56012099006|11063799006;
+X-Microsoft-Antispam-Message-Info: 138441awNYGD0KP6PQ81h62RzSO3UBjea0H4Az2cAtl4EjcuHNbEtm6mka6n17djQUo863J+qWrtjf3SZ/Rk9J5qhk/ev9CDjKtx5P75uUV7KKVgmQTATp7GHehMxNCt9lmynKPN9NqA5sAiwq3epYVFCKvok763te+R1sWwcEwNLuX1PjPOZ9cxbI0gNJW4hUlWlIeJmfflolQ3leHhAA5OancNLUKybGE8ZpjQ8meho9jzPfg/Z3zN82YE/XHynutNmbhXVN+JPfIJLBGaewfGWfcWW1dUJWhyiKgj0mYH9mymo2I5pDgAsvptgQLBXIOJEh3rXlzZx6z3eh+Sgja8XeBf7NFg2p0TA3F3KcSiCLMFThTMS8wGcHAzgJ5nY2Kn8HiN5y81sQTsMNehau8GN2OSok0QFUadSR0aBmT9JTPnMo4RQgUpPdOqKv22v0TSUagLLIeIIKgRWv8aBufgSlWIBavVQm+4+ScpWleQUvkaygPkZK1RXjdMyDwXXIRZ7Qyt9oSpbM2NnwqQRdse+FFUtL+TorDbkXoM4XAy8VMp8qxDLKo52NsRgYOy1YGWgcU0/2zuGpWcmNhjqIRvgmJ3o0C9M3tCrh2NeKwkrfLmGzmpfeNk7Sos5XWc
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8496.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(261022105027099003)(261026121527099003)(10067099003)(261026140227099003)(261022075727099003)(261028144727099003)(261021123027099003)(261102123227099003)(261021121427099003)(261021135927099003)(261009223027099003)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Rk9xdWlFZENpeXZVQXNOOUlKNzhLM0pVRkp5UlFwaXpWYVJza2JxRjhwVjFh?=
+ =?utf-8?B?OFdTa1VRK2h3endhRFZnQ3pNRkoyZ25TWldlWTJBemN6VVVGZ2ZkNWErRmRP?=
+ =?utf-8?B?NkxpZ0YxVFNJTUcwK3VGY04rRDloN3JnYkFsYjFZYmoxQlZyK05tMWJCc013?=
+ =?utf-8?B?QWVGOFhJaWI0QUdyaTVvZk55d3dPVU5zOGdtSThqeTlQT2pGTkJ1aVNMT0ls?=
+ =?utf-8?B?c0ZtSi8wV1N2RFc5Y2I2Ykh4UDZlZTd1SVhmVDR3VlVBbFNOZWUyclMyQzhF?=
+ =?utf-8?B?TjkzY0I1eE9XVEFxMy9WenJscGJocGxWYlBIYzBwNTlBRmJmNzlJRVpJQzA3?=
+ =?utf-8?B?MVVLVVh0akNWd3Z5VXZNVjZFcXIzN20zVG1LeVF2aE9mUEs2TzhOYzdNaHYv?=
+ =?utf-8?B?MFFRVTNKM0lwR0VHNnZFQmlqdGZEcUNjMDRudWQ1OG5PV3FrS2VuRDBwenZ2?=
+ =?utf-8?B?czR4NWdLMjlWSDJZa3h4dTJna3dEQVZkcjRkMGdzVko1dUxHeUJoOENxZG5h?=
+ =?utf-8?B?M1VvYVJYMjJRZ3JKV0tYMHN2UlJUYUJpY1dpVnNVY3BheC9BWVlCWjIzeU5I?=
+ =?utf-8?B?WXhHdG1aNUVPOVB6M3VDS3ozNUhHREhqVlFtbUZaQWRRQmc3eVA3SG9NdVVW?=
+ =?utf-8?B?ZGY1YVc3SmVvV2swbUhiZFdhdVNMTzQ5ZmhybmNFQUpoUU01V0ttL2IvZlJS?=
+ =?utf-8?B?ME9MSjRCd0lHbzEwa1NrV1lybFBaTHNhZVhqdnlmWUxzR001c2dEQ3FpS2pU?=
+ =?utf-8?B?OWFYdkpOdmpCdXFqeFk0bnFqWlY4cTVLNTE4bjdWcUcrRzJxTlNhWVd5bHhL?=
+ =?utf-8?B?Sm5lNkNDRjA5OWpRT2hZSVBNTm9rYWx6RTZubHhiUGRLemZqaFVHNngxTjZz?=
+ =?utf-8?B?T05ndWIrN2xJWGNia20vN2M2SGI0R0NyclVmZElseEdlMVdaeDZhZXgwdzYx?=
+ =?utf-8?B?eVV0WkF0aVozNDVFTjFJNnl1MVQzc2NNR2NtVStHWWZqemRKSU9lR2xLOU9T?=
+ =?utf-8?B?NE1Lb1g5TGMzNCtscytLam5HZytHYWptSzlwTFRmMUtHMFg4OFhOQklOWFFY?=
+ =?utf-8?B?Zkc2UlZoeUNYTGNVWDgyaHZJUkhpQ0M1TDk4Q2QydkZTWDAxTkcvZkxVQVNs?=
+ =?utf-8?B?UTBDdXNCYmdNZ2JQTXZHSHdzVEpYcWo0N1VheUZ0eVFPZW43ZERFRVM1NUln?=
+ =?utf-8?B?N0lmMEJsYm1GYi9vWGwzLzF1S1lsNzVOR2ZIRkZlV3ZTK0UxOTh5a3kxVE1t?=
+ =?utf-8?B?T3ROdmpSREk0SEJYeldiMzBsNW9oQXBCeE5Ia21pS3hHU3J4QVY0bU9DY1BS?=
+ =?utf-8?B?aE1lSi9Xai9LdXhLMmNEN1E3cFoybnI1MGhqVG45bjE1MTJFeU10cEhaY1di?=
+ =?utf-8?B?ek5SU1BYaDRRQ1dYaVdIanlxVHczZDVsM210WHo5QXdhajNnRFBYU0NCWFBH?=
+ =?utf-8?B?bG5rd2VNUEllQlR6elEvais0dG1KeE44eStTYTJNcjFUT1Z5OW9VM0lHU1Bw?=
+ =?utf-8?B?ckN1RW5CWU9jNFpFeGh6M3BEVVJST2NndytpTk1JZ3V0UTlreEszNVNOcFlU?=
+ =?utf-8?B?a1JyNkFnS05GTDlmSXhyRUhrODZtY3ZwalQwZERoNlRsSmNrMkVsM2JycjJt?=
+ =?utf-8?B?dVl6TFpYRS9WdlNhTmFibCs3ZTZkaUdwRG5UNUtUeTVwczF2Y1FpT25Fdzk4?=
+ =?utf-8?B?ZzlPSzd2WUtYd2ZZVjkydXF6THVsR0R6MVR5SzIrM084R2FuMnZGUmxPYlk5?=
+ =?utf-8?B?WnNaMUdXNnh6TnkrL2paNFB5VGNzNUxGQ0JhMjdPUEx0U1dEcUZGVDM4MFhu?=
+ =?utf-8?B?anFwa0ZsNktqR2FtWm1uUytnVXhKcDlkL3l3aTBoKzhJQTQwcjNwN2lpUFF2?=
+ =?utf-8?B?UGNCSThOdnR0c2hjSEp6aHV0Y0Z6eDZySm1XNmpmak1aNkJjaWs2VG4rOVY0?=
+ =?utf-8?B?RGpPQXM3Zk16Mm0xZEx3QVVyMmhqQ3JTTGJSMldjR3FXOVYvMU1XcWkxeEVH?=
+ =?utf-8?B?alFjOGIvYnBwdUtjaXZVWFFrMTBJVHpPaitYa2tpZDZLTmpzaUgwdU5ndmFs?=
+ =?utf-8?B?L3M3VEJtNWRZbTMrYzI2RnZwaDVRUGpwcyt4MmhtS3hlZnB5V3dzZVhsdWpK?=
+ =?utf-8?B?RUJFeE5nQmFoeFN0T3dYb0VpNVdqRURCQ3B3K3Blc1BCME40RFVCOUxpN2d0?=
+ =?utf-8?B?MjJlYVA5TFBaMERiN1RvR0l0Yko3NWRnNEtVWllnbkZTOHE4S2ltSjd6WmpL?=
+ =?utf-8?B?bkw3aXJBZjgyMEZLSnRCTm50dlFGWXZyUnNLWEFCKzYvTGtwWnRjbkdyYzZY?=
+ =?utf-8?B?UXZ3THFZT3pIVEdsREE1dVA1emVCQ2xwN1Q3ck02bEw5VEdYRFVjeUx3V2JH?=
+ =?utf-8?Q?HlC2Gl+6A/QVCxe0=3D?=
+X-Exchange-RoutingPolicyChecked: MLALFe5ah5v2hlnNyM3KpuiEVEGViYQYnakgdh/kSjxQAxImWZK76WmwcTXsnRp3sQa0Ygx2VGR35sAuL28sFL5OpOiktsIR6m57i8ZSIRM976Dj7lLfatJLNotwuMgZn0QHFbCW9fnFBOxgVR6A9FmUTJlYWEvmVqC4bpzE9CecLeWrpuAKRbTsvVdW6qblAKNR8DuBns794oytHJuYRPQjKBl/eGBcFgG1pbhUPv7jcKD5T/SaeE4ECgm8SzqBOIDzj51kuFZWEKmRkn5IqFS0v39cnXtKe9Y9Ka6AtSx+WsLMQr/TLiL1PZMNAt0gRdK8VXKhjoWSueO9t+GQyA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: e8af13d3-c700-4fd1-84ad-08df4ae203ba
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 10:51:27.6009
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: F4boZ6Pw+Xu/SQ32wskbJSapxIaCd2Sd+NM9FgdleGvSKo+vfgNS5u09BxARZTb/qsa85SITaTTxFRZDi2w2gf+RVeU55NjqwTTK030caL0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7185
+X-OriginatorOrg: intel.com
 
-On 11/25/26 12:01 AM, Robert Ijtsma via B4 Relay wrote:
-> From: Robert Ijtsma <robertijtsma@gmail.com>
+On 11/24/26 9:35 AM, Ionut Nechita (Wind River) wrote:
+> From: Ionut Nechita <ionut.nechita@windriver.com>
 > 
-> Add the SC8180X (IPA v4.1) endpoint, resource group, shared memory,
-> IMEM (0x146bd000, 8 KiB), and backward-compatibility configuration table
-> (ipa_data_v4_1) and bind it to the qcom,sc8180x-ipa compatible.
+> Since commit d8c40b9d3a6c ("ice: check ICE_VSI_DOWN under rtnl_lock when
+> preparing for reset"), ice_dis_vsi() sets ICE_VSI_NEEDS_RESTART
+> unconditionally, but still skips ice_vsi_close() when ICE_VSI_DOWN is
+> already set. For a running netdev, ice_ena_vsi() then calls
+> ice_open_internal() -> ice_vsi_open(), which does a full open: it sets
+> up the rings and requests the IRQs again.
 > 
-> Register offsets and endpoint/resource limits are derived from the
-> downstream Qualcomm msm-4.14 poipu/sm8150 IPA v4.1 driver and SC8180X
-> devicetree tables, adapted to the upstream ipa_mem_data layout.
+> A running netdev with ICE_VSI_DOWN set is not always a closed VSI.
+> ice_down() only cleans the rings. It keeps the ring memory and the IRQs
+> so that ice_up() can restart the VSI quickly. If the restart fails, the
+> VSI stays in that state while the netdev is still running, for example:
 > 
-> Tested on Microsoft Surface Pro X SQ2 (SC8180X, Snapdragon X24 LTE
-> modem) with rmnet_ipa0 MAPv4 and ModemManager qcom-soc QMAP bearers.
+>    - ice_down_up(), when ice_down() or ice_up() fails (the latter also
+>      via ice_change_mtu());
+>    - ice_xdp_setup_prog(), when ice_down() fails.
 > 
-> Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+> If ice_dis_vsi()/ice_ena_vsi() are called on such a VSI without an
+> ice_vsi_rebuild() in between, which is the case for the DCB
+> reconfiguration in ice_pf_dcb_cfg() and
+> ice_dcb_process_lldp_set_mib_change(), ice_vsi_open() runs on rings and
+> IRQs that were never released:
+> 
+>    - ice_setup_tx_ring() hits WARN_ON(tx_ring->tx_buf) and overwrites
+>      tx_buf and desc, leaking the previous arrays;
+>    - ice_setup_rx_ring() overwrites desc, leaking the previous descriptor
+>      memory;
+>    - ice_vsi_req_irq_msix() requests the PF vectors again without
+>      IRQF_SHARED and fails with -EBUSY, so the open fails and the
+>      interface stays down until it is closed and opened again.
+> 
+> On the reset and mqprio paths, ice_vsi_rebuild() frees the ring
+> structures in between, so there is no WARN, but the ring memory still
+> held by them is not released until the device is unbound.
+> 
+> Call ice_vsi_close() unconditionally for a running netdev, under
+> rtnl_lock. ice_vsi_close() already handles a VSI that is down: it only
+> calls ice_down() if ICE_VSI_DOWN was not set, ice_vsi_free_irq() returns
+> early when the IRQs are not requested, and ice_vsi_free_{tx,rx}_rings()
+> only free rings that have a descriptor ring. This is also what
+> ice_stop() does for a VSI in this state. The race fixed by the commit
+> above does not come back: ICE_VSI_DOWN is still tested, by
+> ice_vsi_close(), under rtnl_lock.
+> 
+> The non-running and ICE_VSI_CTRL branches are left as they are. In both
+> cases ice_ena_vsi() either does not reopen the VSI or, for the control
+> VSI, the only paths that set ICE_VSI_DOWN also release its rings and
+> IRQs.
+> 
+> Fixes: d8c40b9d3a6c ("ice: check ICE_VSI_DOWN under rtnl_lock when preparing for reset")
+> Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
 > ---
+> v1 -> v2:
+>    - Shorten the code comment to one line (Przemek)
+>    - Drop the Assisted-by tag (Przemek, Jacob); an LLM (Claude) was
+>      used to help with the code analysis and the changelog
+> v1: https://lore.kernel.org/all/20261106171657.583713-1-ionut.nechita@windriver.com/
 
-[...]
+thank you
+I've run your patch through our local sashiko instance, and it reports
+that your patch adds new problems on edge cases. The same issues were
+reported both on your patch just on top of netdev/main and
+tony/dev-queue+some more fixes (meaning those problems are not "already
+resolved elsewhere"). For the first issue (DCB) both my and Petr Oros
+patches were applied (not yet on netdev main (aka -net)).
 
-> +/* Memory configuration data for an SoC having IPA v4.1 */
-> +static const struct ipa_mem_data ipa_mem_data = {
-> +	.local_count	= ARRAY_SIZE(ipa_mem_local_data),
-> +	.local		= ipa_mem_local_data,
-> +	.imem_addr	= 0x146bd000,
-> +	.imem_size	= 0x00002000,
+> 
+> Found while chasing the same WARN_ON() in ice_setup_{rx,tx}_ring() with
+> the out-of-tree ice driver on an E830 port without a module installed,
+> where ice_vsi_cfg_lan() fails and ice_dis_vsi()/ice_ena_vsi() then
+> reopen a VSI that ice_down() left with its rings allocated. The
+> in-tree paths above were found by code reading.
+> 
+> Based on net (f66469d9905b, "Merge tag 'net-7.4-rc2'").
+> Tested: build only (W=1, no new warnings).
+> 
+>   drivers/net/ethernet/intel/ice/ice_lib.c | 5 ++---
+>   1 file changed, 2 insertions(+), 3 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/intel/ice/ice_lib.c b/drivers/net/ethernet/intel/ice/ice_lib.c
+> index 7cd2dd066ef5e..92a086aa629d6 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_lib.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_lib.c
+> @@ -2852,9 +2852,8 @@ void ice_dis_vsi(struct ice_vsi *vsi, bool locked)
+>   		if (netif_running(vsi->netdev)) {
+>   			if (!locked)
+>   				rtnl_lock();
+> -			already_down = test_bit(ICE_VSI_DOWN, vsi->state);
+> -			if (!already_down)
+> -				ice_vsi_close(vsi);
+> +			/* ice_ena_vsi() reopens the VSI, release it even if down */
+> +			ice_vsi_close(vsi);
 
-Please defer the imem configuration to the device tree, see
 
-6f82cb4ecdb4 ("net: ipa: Grab IMEM slice base/size from DTS")
+[Severity: High]
+[Finding: gpt-6-astra-7-20]
+[Sources: gpt-6-astra, opus-5-5]
+Can this free DMA memory that enabled hardware queues still own?
 
-Konrad
+When ICE_VSI_DOWN is already set, ice_vsi_close() skips ice_down() but
+still frees the rings:
+
+     if (!test_and_set_bit(ICE_VSI_DOWN, vsi->state))
+         ice_down(vsi);
+
+     ice_vsi_clear_napi_queues(vsi);
+     ice_vsi_free_irq(vsi);
+     ice_vsi_free_tx_rings(vsi);
+     ice_vsi_free_rx_rings(vsi);
+
+So ice_vsi_dis_irq(), ice_vsi_stop_lan_tx_rings() and
+ice_vsi_stop_all_rx_rings() never run.
+
+A failed restart, which is the state this patch targets, can leave
+queues enabled with ICE_VSI_DOWN set. In ice_up(), ice_vsi_cfg_lan() has
+FW enable the Tx queues, and ice_vsi_cfg_rxqs() posts the Rx buffers.
+Then ice_up_complete() does:
+
+     err = ice_vsi_start_all_rx_rings(vsi);
+     if (err)
+         return err;
+
+ice_vsi_ctrl_all_rx_rings() requests enable on every Rx queue before it
+waits on any of them. It returns on the first queue that times out, with
+no rollback. Failures in ice_down() (a Tx disable AQ error, or
+QENA_STAT not clearing) can also leave queues enabled while DOWN is set.
+
+After ice_down_up() or ice_change_mtu() fails like this, a DCB change
+can reach:
+
+ice_dcb_process_lldp_set_mib_change() or ice_pf_dcb_cfg()
+   ice_dcb_ena_dis_vsi()
+     ice_dis_vsi()
+       ice_vsi_close()
+         ice_vsi_free_rx_rings()
+           ice_free_rx_ring()
+             ice_clean_rx_ring()
+             dmam_free_coherent(dev, size, rx_ring->desc, rx_ring->dma)
+
+Could the NIC then DMA received packets into the freed pages, and write
+back into the freed descriptor ring, until ice_ena_vsi() reprograms the
+queues?
+
+Before this patch the memory was leaked, but it stayed allocated and
+mapped. The commit message cites ice_stop() as precedent, but ice_stop()
+appears to have the same hazard.
+
+[Severity: Medium]
+[Finding: gpt-6-astra-3-9]
+[Sources: gpt-6-astra, opus-5-5]
+Can this now reach a NULL vsi->q_vectors?
+
+ice_vsi_close() always calls ice_vsi_clear_napi_queues(), which has no
+NULL check on q_vectors:
+
+     ice_for_each_q_vector(vsi, v_idx) {
+         struct ice_q_vector *q_vector = vsi->q_vectors[v_idx];
+
+         netif_napi_set_irq(&q_vector->napi, -1);
+     }
+
+A failed ice_vsi_rebuild() can leave a running VSI with q_vectors ==
+NULL and num_q_vectors > 0. ice_vsi_cfg_def()->ice_vsi_alloc_def()->
+ice_vsi_set_num_qs() sets num_q_vectors.
+
+A later failure in any of these unrolls through ice_vsi_free_arrays():
+
+     ice_vsi_alloc_arrays()
+     ice_vsi_alloc_stat_arrays()
+     ice_vsi_get_qs()
+     ice_vsi_init()
+     ice_vsi_alloc_q_vectors()
+
+ice_vsi_free_arrays() sets q_vectors to NULL. Only
+ice_vsi_free_q_vectors() resets num_q_vectors to 0.
+
+ice_setup_tc_mqprio_qdisc() returns with the netdev still running when
+both rebuild attempts fail:
+
+     if (ice_vsi_rebuild(vsi, ICE_VSI_FLAG_NO_INIT)) {
+         dev_err(dev, "Rebuild of main VSI failed again\n");
+         return ret;
+     }
+
+A later DCB reconfiguration, for example from an LLDP MIB change, would
+then go through ice_dis_vsi()->ice_vsi_close()->
+ice_vsi_clear_napi_queues() and dereference NULL. Before this patch, the
+already_down check skipped ice_vsi_close() in this state.
+
+The stale num_q_vectors is older, and ice_stop() can already hit it, but
+this patch adds a new path to it. The commit message says "ice_vsi_close()
+already handles a VSI that is down". That holds for the IRQs and rings,
+but does it hold for a partially deconfigured VSI?
+
+[Severity: Medium]
+[Finding: gpt-6-astra-5-14]
+[Sources: gpt-6-astra, opus-5-5]
+Does removing the already_down check widen races with code that brings
+the VSI down without rtnl_lock?
+
+The reset path is ice_prepare_for_reset()->ice_pf_dis_all_vsi(pf, false)
+->ice_dis_vsi(). It holds rtnl_lock but not the devlink lock. Before this
+patch it skipped a VSI that another context had already marked
+ICE_VSI_DOWN. Now it always tears the VSI down.
+
+ice_sf_dev_remove() closes a running SF VSI holding only the devlink
+lock:
+
+     devl_lock(devlink);
+
+     ice_vsi_close(vsi);
+
+With a concurrent reset, can both threads pass the plain check in
+ice_vsi_free_irq() before either clears it?
+
+     if (!vsi->q_vectors || !vsi->irqs_ready)
+         return;
+
+     ice_vsi_release_msix(vsi);
+     if (vsi->type == ICE_VSI_VF)
+         return;
+
+     vsi->irqs_ready = false;
+
+The ring->desc checks in ice_vsi_free_tx_rings() and
+ice_vsi_free_rx_rings() have the same shape. That could double
+devm_free_irq() and double free the descriptor DMA and buffer memory.
+
+ice_eswitch_setup_env() runs under the PF devlink lock without rtnl:
+
+     if (if_running && !test_and_set_bit(ICE_VSI_DOWN, uplink_vsi->state))
+         if (ice_down(uplink_vsi))
+             return -ENODEV;
+     ...
+     if (if_running && ice_up(uplink_vsi))
+
+If a reset lands between ice_down() and ice_up(), ice_dis_vsi() now
+frees the IRQs, ring descriptors and Rx buffers. Would
+ice_up()->ice_vsi_cfg_lan()->ice_vsi_cfg_rxqs() then refill and program
+rings whose desc is NULL and whose buffers have been freed?
+
+These races existed before in a narrower window, when the reset path
+sampled DOWN before the other thread set it.
+
+>   
+>   			if (!locked)
+>   				rtnl_unlock();
+
