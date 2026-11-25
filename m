@@ -1,97 +1,153 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795634623;
-	b=uw7GloW1ACuNQveTJevVSgpQRy8sP088QrKaaldQLB8JAnzDYNKLz28DjupO8RWA83Xv
-	 3v2GUDoo8J3T5ySqBxADgNd/cgO6HhMpI+h31DaoR+3rnVkIpu6TOr5Us3GrvP/rWlumd
-	 ApDjyDMDfYGTpUsKNH1AT7uf6J3B57TNCw7aEpxxW7SIwFhzBZcW6ZDyG1vNnAYNVUMnc
-	 sPbgfyJPL7uQiSYU7nnm5uhBs3h3vRp1eWOOR/E85D035GA4IPzdG7tyvEZ0lwnvw8t9J
-	 eg4ToYDVVx+pz3X1ZIZMrrpQzzTirgaBPrQoNkX1oQwI6VA+7g0AQrheQsYnu8W5/ZA==
+	t=1795634657;
+	b=xYazT3guuQrC4oq7UmWYLvJX1pI+FPra8Bmysqon7Ul4hfHNgb1ZPZEcdIby4ItDLrRl
+	 FkAUST3crWskBlIw4uFDd4qnLtZegx9aA1ENqZWvDoedzQLKa/RIyHSc8f1vcMhPTUa/D
+	 3eWo44g6s/QOF4sIKjJ4MYILUQ31XRAenMnXbS+tOUBjPABQQQ+baqqTXHuVKk7Ck39/Q
+	 ahLnXiklSLymelNXJDMRlXFLfZCkixven7xPaNeeQLkVInJRJ1JU0E6nRKyG89szOdeH4
+	 Y/OmzmCQyse4XJ+UCNSjD4OwQvNXQOYSW96oufU3p9W3GTFEyO4tUYRmqXDIbK6q0rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795634623;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795634657;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xrbqO5ltApkYwdYD3qZQSLfK8KscIUV+8il5u80/3Pw=;
-	b=ahbq8g+YhsMXJPOw/lbusvb15ue9tjgcQixdpvjdArLFFd+ltTIuddGLx07dHufYZ/qP
-	 GbTda7zpwPlqCPOhZXKEh37mzk/RVacJ0MMFrUnn4UiBhrF2wK4dbrNgx0fKukKiAdw4A
-	 YBV/DwL+wY9mE8Rjaxp7MrglgQRaXEYeKpOpBGkGWyaup1BDIviE/Kg62qoT5ZilrdKgK
-	 dJj4hISr0tsOSBfOLZwBhAt+jzHfIZFgc7oF8krFs8J8jP/3gVZl1WAzeL3qZHscT7qAb
-	 4KArKGXs34/cQWg7kUljKBg2n+qPO51H1S+0V/rSSpp421sNlLkM2M6/EpCi+RfWx7g==
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
+	b=KjbFLN//Pa87bwDPOKfszTZ40B6tWojqTSxgqZD8P0F6S7+lI776r4O/tLDmRMu4+isD
+	 OL57VItUg6XJyZJlrpIpOtfKyMZEKfnbLdIPA12jU/So9PRq/Vr+cesj1ZPLu8e/8P2wj
+	 Lvt2Lyk2vRTDZ73Q431u4hIg2xrwVYOjYqi6CiNmgeyjdxhmWvGonKFxTVZiH68EesY+D
+	 NfOMNO420dAAy/cU+oTDzSQ/23ag8vcwiDxy644/jm3H4C3Kwari2WLmx1Hm5WBldGmlf
+	 2EN5Vs8UrHAv0eT3UNfsb51VyVmUMIvs4fVdDTaC/h/KxwpcvLekKrHk5vcf+SLKvpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=trailofbits.com;
-	spf=pass smtp.mailfrom=trailofbits.com;
-	dkim=pass header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=dL2qKoXf;
-	arc=none smtp.remote-ip=209.85.214.171
-Received: from mail-pl1-f171.google.com (mail-pl1-f171.google.com [209.85.214.171])
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oCGp0YcP;
+	arc=none smtp.remote-ip=209.85.210.179
+Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8EF51606A32A
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:23:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8EF51606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=trailofbits.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=trailofbits.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 59C88606A685
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:24:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 59C88606A685
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=trailofbits.com header.i=@trailofbits.com header.a=rsa-sha256 header.s=google header.b=dL2qKoXf
-Received: by mail-pl1-f171.google.com with SMTP id d9443c01a7336-2f04bea9a93so54960415ad.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:23:42 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=oCGp0YcP
+Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-8b29b83fdf1so3290963b3a.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:24:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=trailofbits.com; s=google; t=1795634622; x=1796239422; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=xrbqO5ltApkYwdYD3qZQSLfK8KscIUV+8il5u80/3Pw=;
-        b=dL2qKoXfGzBI6B7NKOXigDwU5PxOzEuvWofo76UVvP/l00kjTMObxTIdZvjQy+Fe37
-         hF9oBV4Y2IMTjh9PmVUR0K/knPY2pMi+TwF97lNrZLqxL40W7dKP4g9EPiomrsKxZLgM
-         J/cps4/5g3h35YWPB3c6S22j8WlS8KnMf1upj4rUxWywQHOPMldJF+7B6uGugq9gT17H
-         BeH2tWL6aP1tHOcv1zwe9NaJYYpsBm6FjoTecXSPqYHkVD3cME9B061HAgm3SVtO+NS1
-         0DjbbElY5WlseYhgZBtRjVzS0ld+oANXealst7A7C9DHRCaYWObxxucH6u4x4EU1BkCN
-         GzPQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795634622; x=1796239422;
-        h=content-transfer-encoding:content-type:mime-version:message-id:date
-         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+        d=google.com; s=20260707; t=1795634656; x=1796239456; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=xrbqO5ltApkYwdYD3qZQSLfK8KscIUV+8il5u80/3Pw=;
-        b=qnQCv8JDIzJGveKGruk7gjOw1gNmG7lF3mmZ4UPX6JTxHAjYPx7E0w0HRG72RDA22D
-         qbDMxQpRkrdqpIOQS7f7qi+fv5vBIgH2Leyh5x8ZF8wd4Q2ub5pTXatB81XFDByQCZtD
-         8P3msXxYvzCHjknFoNSFkeMPf/lIVpZtMspxEF13rc/Qcjy/dvcORoGLVCfSHT5sc3C3
-         5XImKlHSD0/+jKRGwKopUnPKJTWUdt7R4pRDKpIPoPCrkiM8PU8ntEMHChwUZqn5R+1R
-         rl5D+h98lBJWKuBcdGsQqx2LmNU7eUwreuvsXp+9A0TwzK91cqrbrm1pPWaBWA2UIVYW
-         devA==
-X-Forwarded-Encrypted: i=1; AL+hErFLRYXlDPjsl5lCq8aZmxTEDZwwqboecnioZi1QqOCr3RacNkridNn3fuhSb4QN8RMuUZJoJng=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/2k+c44A4vwy04fLTSeXIJXGqfgov7g8xHquDp0vdFY90nKyJ9
-	J90l7jTPpRsUjmbUR4hs4/6HixthM99ki8GM8NR5teWTAYlvPVtQVDs2jfyIlksQDh9dhUn6Njp
-	RimWijVQ=
-X-Gm-Gg: AZFdTZdefY189JhWnV/gQwhCdgpqHsW1pBJ2RcpzlcdRgIYF/drju2303GEycKBKbQC
-	N8cTdxubWq+sKjn7rwBuBomAaUIc83z3BQ4JGvhlOfbdiHJ70Diz1ukxXm7p7jF1qcRawm8U9RB
-	U1wcGU6jg9m39cQ2s6JXSAm+lhlEFQ1HGfW8bss6a9l7QEsik3+7GtodmMht15P2r5tEuPO46is
-	EcdkVzpMZcsiA/iWz6rRSj3cBJ6Q4JwkZEUzGK2yeWbDjJRMQdzjkspu0OoeF1qVgG5VSvqlhoh
-	Gx9pLkt5yOnXbXf+Vpj2IyUx6PZjaVv4qqsoRt6QdgsCMF4N3JQSPyxt/KlRBiJSQuPTSBgeqRF
-	Oir1AZa+Pn3U+MITt8kTH9+CGrk1tkcL+HLKu3Xv2+eXH84w68o5KwNK5gYoAlFwKH2aaaDycnl
-	mh43T1ZYL706gwyZb9nAtQ4bjpKshQgxUWxprO/T0zQ4tu/A7R+7SpEEdm2oIJ0NUxZf7IdvN18
-	JAR2C5EdhcfR7Np13MIOIOy4mkZUmkWY5E84OOl7YlMfP+bonyKE/hz0o/mHHwE0nENbzRg+XXp
-	GA2IZJAhlwmlxtmyfdaXVMU/05FJ4yPcvM2D42s/SYpDBtMz2rBma7iHpL9Yk76eoZYYx7QynER
-	0VkQeCSz1mpwtmeVgiq+4Yv0/mg==
-X-Received: by 2002:a17:903:4b03:b0:2ed:ebc:460f with SMTP id d9443c01a7336-2f03f2118f0mr193132015ad.33.1795634621862;
-        Wed, 25 Nov 2026 11:23:41 -0800 (PST)
-Received: from localhost.localdomain ([2603:8003:6d40:6669:75a7:83bd:63db:baa9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0dbe86sm91925275ad.32.2026.11.25.11.23.40
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 11:23:41 -0800 (PST)
-From: Artem Dinaburg <artem@trailofbits.com>
-To: stable@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	horms@kernel.org,
-	jamesburton@meta.com,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	pabeni@redhat.com
-Subject: [PATCH 6.18.y] netlink: do not free nlk->groups while lockless readers can use it
-Date: Wed, 25 Nov 2026 14:23:38 -0500
-Message-ID: <20261125192338.48141-1-artem@trailofbits.com>
+        bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
+        b=oCGp0YcPvUHi0mkvNJzYjDzOqfg0gHs6ETaxOw6iHkwvvSF4tYjvsaGjV95aPOdQou
+         dmAQRQLqlhN3jiNznQ2pOjzWEW/G2t/wbqDp6HuYWHKE0XMdFq9FvURpTwt3LZNjNOiI
+         XwXkQTulincExFaiUQD3ExWzaLJgh5f90EbERJvf+q5dn2l8/In7F6eLtSCHApz045QY
+         AGa84JuoW96MF2RwV40xmLUxu2P+/+qEsF28w8+r12XoJqwGJeCssnVaJxVXWHGiUXGn
+         ECyAOK186fme41Oi47Fv+x2wiNPNPpqw/d4+KhlG9F3LQdPCn4i+tof3zaLzJI7SrBz8
+         moaw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795634656; x=1796239456;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=N55gjPKFtoyQEkpZ+mulBFdiGvAn3buEDUMJWwRWBLA=;
+        b=wEZYk//0SyuRTHEXlKSZHVEt/kLh84EXJ1ELItPcIWSzKXQLBnhKwPP1fW12qxBfwd
+         59m+yfu2GAKwbdFeaCEPNZbTVCzuqyeqz8RHyT0NFQQtqaaeVrjPsOGkmo/VaFScROKr
+         PKzF5ykC/vnVmv5bYcWuSZf8DvX+aTpxcw9KCu+e+Y9G8z84JvwzOAaykCb7N0ONsWmJ
+         nfn1dkS48RV2foOay90cMfdnUBoucavFdLV7FJ1mtTEmjPutRRC6WLL5gcVkCVvX00aY
+         f/1pa54QyXOaXkw/XveYjatQ9ufa/6Bng2l5YYeOVAJ5hYXJ9pLRPCur0DK6qG3q9dVM
+         0pSg==
+X-Forwarded-Encrypted: i=1; AL+hErGhcWv5KmcYDkjTelbvP4k32dHvCJVzcN8Obe5ZOibqFtWAtxjMTSkjhGgQt6gs7TDg0hzj0EI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9E8Rf1YAsCNxYMOc4bML1dmgwDACa4qDs7bTD6dQdq1siRZhqy
+	3cdwVQ4L3J4nZ+zDFmFBA1gfhL7Yp6a6pOKfu5/5+Mv2MvfSeD5mRtjlbtNSuQJW6Q==
+X-Gm-Gg: AZFdTZc7xKy9cyBtJL83evw/m7Z7kH2xc1wzq++uBv1JKgmYfu4tN+eRbVWnE9MOISD
+	IYF238WQPDU+UifWp/EGqHLbQBYV0sYcX8HBRynq2CX22o9AOHEUMJOdj9cgKOeFz6NtVhRY+TT
+	DiQ3DJHBV3Cy7yMUaXCO8okTS8rLTq43VeddQ6Djqbuv+KRstvCT0lEKetnLY1CnRmRl3eEIEsC
+	iUTF/zBWEtIce4sUiPljIRd/s3XBaST5AbBgLnsKyJQU4MLT/iyaE88Lf7WAOWmTW7GWUUEfD8D
+	h30lcwduh3z7zIvd5UW21v22eDWdga4f3gZVNJzrNNwaxIJBJpKwSevCtOAwC1XoG+ZUHHHZU5Y
+	ygDNPNuCORCS0rirBCwSiBXNSL2Y0z8/fjybDSmWPVehH4qpVOMKsK0JUZW14GTlPO7VR7GqWWQ
+	zpPVZ352N7n0pZX1SbiaiERrEW/taUcaMnw4naMnRFW1Y2VUuvYwj7LCeFoJEXFpqH+Mr874AJb
+	txSggosf7CewV9yXdr2iiYpjvIE99vvKW0DHlOqE3UcsgJrk58up/TvC7Js8LtJ4QJmZxSoDk2s
+	U2Gb3R9ttq35BhyMGVoBHKpKj1Q/vX0+X+MBQfcaCLSfd66DA4KkD8tirBXfdEpXOKDFpke6Ega
+	5Hmrjm9kQIpVY4KAOQ3WxlhgKN6NTtK6VhXnvspUEp649O0yVJ/ksy4F9iKRGKmfx8ZtxjEfVyR
+	6sBxfMBkN2MQ==
+X-Received: by 2002:a05:6a00:a908:b0:886:773d:a6a with SMTP id d2e1a72fcca58-8c87c199463mr15925448b3a.28.1795634654761;
+        Wed, 25 Nov 2026 11:24:14 -0800 (PST)
+Received: from google.com (196.126.197.35.bc.googleusercontent.com. [35.197.126.196])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c87077bc47sm9717494b3a.6.2026.11.25.11.24.13
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 11:24:13 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:24:10 -0800
+From: Benson Leung <bleung@google.com>
+To: Randy Dunlap <rdunlap@infradead.org>
+Cc: linux-kernel@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>, linux-doc@vger.kernel.org,
+	David Hildenbrand <david@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Jason Gunthorpe <jgg@nvidia.com>,
+	Leon Romanovsky <leonro@nvidia.com>, linux-mm@kvack.org,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-sound@vger.kernel.org, Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org, Marcel Holtmann <marcel@holtmann.org>,
+	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
+	linux-bluetooth@vger.kernel.org,
+	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
+	Jason Wang <jasowangio@gmail.com>, David Heidelberg <david@ixit.cz>,
+	oe-linux-nfc@lists.linux.dev, Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, Helge Deller <deller@gmx.de>,
+	linux-fbdev@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	MPT-FusionLinux.pdl@broadcom.com,
+	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>,
+	"Martin K. Petersen" <mkp@kernel.org>, linux-scsi@vger.kernel.org,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Zhihao Cheng <chengzhihao1@huawei.com>,
+	linux-mtd@lists.infradead.org, Neill Kapron <nkapron@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	linux-usb@vger.kernel.org, Juergen Gross <jgross@suse.com>,
+	Stefano Stabellini <sstabellini@kernel.org>,
+	xen-devel@lists.xenproject.org, Hans de Goede <hansg@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>,
+	"Michael S. Tsirkin" <mst@redhat.com>,
+	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
+	Sean Christopherson <seanjc@google.com>,
+	Paolo Bonzini <pbonzini@redhat.com>, kvm@vger.kernel.org,
+	virtualization@lists.linux.dev, Jan Kara <jack@suse.cz>,
+	linux-fsdevel@vger.kernel.org, Theodore Ts'o <tytso@mit.edu>,
+	linux-ext4@vger.kernel.org, Mike Marshall <hubcap@omnibond.com>,
+	devel@lists.orangefs.org, Paulo Alcantara <pc@manguebit.org>,
+	Namjae Jeon <linkinjeon@kernel.org>, linux-cifs@vger.kernel.org,
+	Jaegeuk Kim <jaegeuk@kernel.org>, Chao Yu <chao@kernel.org>,
+	linux-f2fs-devel@lists.sourceforge.net,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Benson Leung <bleung@chromium.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Alex Deucher <alexander.deucher@amd.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	amd-gfx@lists.freedesktop.org,
+	Jani Nikula <jani.nikula@linux.intel.com>,
+	Joonas Lahtinen <joonas.lahtinen@linux.intel.com>,
+	Rodrigo Vivi <rodrigo.vivi@intel.com>,
+	Tvrtko Ursulin <tursulin@ursulin.net>,
+	intel-gfx@lists.freedesktop.org,
+	Matthew Brost <matthew.brost@intel.com>,
+	Thomas =?iso-8859-1?Q?Hellstr=F6m?= <thomas.hellstrom@linux.intel.com>,
+	intel-xe@lists.freedesktop.org
+Subject: Re: [PATCH v3 11/12] docs: ioctl-number: update platform entries
+Message-ID: <awc12oWB5WDJi8XZ@google.com>
+References: <20261125061340.3402300-1-rdunlap@infradead.org>
+ <20261125061340.3402300-12-rdunlap@infradead.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,202 +157,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="Kk3dCghKBQNrocaf"
+Content-Disposition: inline
+In-Reply-To: <20261125061340.3402300-12-rdunlap@infradead.org>
 
-From: Eric Dumazet <edumazet@google.com>
-Date: Fri, 11 Sep 2026 16:08:04 +0000
 
-[ Upstream commit ceac0de741bfb47ca255eee075257b3bb31f0651 ]
+--Kk3dCghKBQNrocaf
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-netlink_realloc_groups() uses krealloc() under netlink_table_grab().
-Whenever NLGRPSZ(groups) lands in a different kmalloc bucket, the old
-bitmap is freed immediately.
+On Tue, Nov 24, 2026 at 10:13:38PM -0800, Randy Dunlap wrote:
+> Update the list of platform/ files where ioctls are defined and update
+> the ranges of function numbers that are used.
+>=20
+> Signed-off-by: Randy Dunlap <rdunlap@infradead.org>
+> Acked-by: Tzung-Bi Shih <tzungbi@kernel.org> # cros_ec
 
-Two readers of nlk->groups / nlk->ngroups do not hold the netlink
-table lock:
+For cros_ec as well:
 
-1) sk_diag_dump_groups(). Hashed (bound) sockets are dumped from the
-   rhashtable walk in __netlink_diag_dump(), which only holds RCU.
-   Only the mc_list part of the dump takes nl_table_lock.
+Reviewed-by: Benson Leung <bleung@chromium.org>
 
-2) netlink_native_seq_show() (/proc/net/netlink), whose walk has been
-   lockless since commit 21e4902aea80 ("netlink: Lockless lookup with
-   RCU grace period in socket release").
 
-Both can read a freed buffer, and sk_diag_dump_groups() can also read
-past the end of the old (smaller) buffer if it happens to load the old
-@groups pointer together with the new @ngroups value, copying the
-result into a NETLINK_DIAG_GROUPS attribute.
+> ---
+> v2: no change
+> v3: rebase
+>=20
+> [Since having multiple maintainers trying to merge these would
+> cause some conflicts, it would be more manageable for Jon to
+> take all of these through the docs-next tree.]
+>=20
+> Cc: Jonathan Corbet <corbet@lwn.net>
+> Cc: Shuah Khan <skhan@linuxfoundation.org>
+> Cc: linux-doc@vger.kernel.org
+> Cc: Florian Fainelli <florian.fainelli@broadcom.com>
+> Cc: Broadcom internal kernel review list <bcm-kernel-feedback-list@broadc=
+om.com>
+> Cc: Tzung-Bi Shih <tzungbi@kernel.org>
+> Cc: Benson Leung <bleung@chromium.org>
+>=20
+>  Documentation/userspace-api/ioctl/ioctl-number.rst |    3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>=20
+> --- linux-next-20261123.orig/Documentation/userspace-api/ioctl/ioctl-numb=
+er.rst
+> +++ linux-next-20261123/Documentation/userspace-api/ioctl/ioctl-number.rst
+> @@ -434,6 +434,7 @@ Code  Seq#    Include File
+>  0xBA  00-0F  uapi/linux/liveupdate.h                                   P=
+asha Tatashin
+>                                                                         <=
+mailto:pasha.tatashin@soleen.com>
+>  0xC0  00-0F  linux/usb/iowarrior.h
+> +0xC4  00-1F  platform/raspberrypi/vchiq-interface/vchiq_ioctl.h
+>  0xCA  00-0F  uapi/misc/cxl.h                                           D=
+ead since 6.15
+>  0xCA  10-2F  uapi/misc/ocxl.h
+>  0xCA  80-BF  uapi/scsi/cxlflash_ioctl.h                                D=
+ead since 6.15
+> @@ -446,7 +447,7 @@ Code  Seq#    Include File
+>  0xDD  00-3F                                                            Z=
+FCP device driver see drivers/s390/scsi/
+>                                                                         <=
+mailto:aherrman@de.ibm.com>
+>  0xE5  00-3F  linux/fuse.h
+> -0xEC  00-01  linux/platform_data/cros_ec_chardev.h                     C=
+hromeOS EC driver
+> +0xEC  00-02  linux/platform_data/cros_ec_chardev.h                     C=
+hromeOS EC driver
+>  0xEE  00-09  uapi/linux/pfrut.h                                        P=
+latform Firmware Runtime Update and Telemetry
+>  0xEF  00-0F  uapi/linux/ntfs.h                                         N=
+TFS
+>  0xF3  00-3F  drivers/usb/misc/sisusbvga/sisusb.h                       s=
+isfb
 
-This is the same class of bug that commit f773608026ee ("netlink:
-access nlk groups safely in netlink bind and getname") fixed for bind()
-and getname(); these two readers were missed. Simply grabbing the table
-lock in sk_diag_dump_groups() is not an option, because it is also
-called with nl_table_lock already held from the mc_list section of the
-dump.
+--Kk3dCghKBQNrocaf
+Content-Type: application/pgp-signature; name=signature.asc
 
-Make the lockless readers safe instead:
+-----BEGIN PGP SIGNATURE-----
 
-- Allocate a new bitmap and free the old one after an RCU grace period,
-  instead of relying on the implicit kfree() done by krealloc().
+iHUEABYKAB0WIQQCtZK6p/AktxXfkOlzbaomhzOwwgUCawc12gAKCRBzbaomhzOw
+wuvSAP9FFr45oXAv5Psc3n5xsSYyPFouusI/XwRnWy3tYxQspAD+KIeOTWQfcOeC
+TWeqyAANog5rg68r7xNPxeH8I/R6xAQ=
+=Fk2v
+-----END PGP SIGNATURE-----
 
-- Publish @groups before @ngroups, both with release semantics, and have
-  the lockless readers load @ngroups first. A reader can then never pair
-  the new (bigger) size with the old (smaller) buffer, and a reader
-  picking up the new pointer while still seeing the old size is
-  guaranteed to see the initialized bitmap.
-
-netlink_realloc_groups() is called from process context (bind() and
-setsockopt()), so kfree_rcu_mightsleep() can be used, once the table
-has been released.
-
-Fixes: 21e4902aea80 ("netlink: Lockless lookup with RCU grace period in socket release")
-Fixes: ad202074320c ("netlink: Use rhashtable walk interface in diag dump")
-Reported-by: James Burton <jamesburton@meta.com>
-Signed-off-by: Eric Dumazet <edumazet@google.com>
-Link: https://patch.msgid.link/20260911160804.917099-1-edumazet@google.com
-Signed-off-by: Jakub Kicinski <kuba@kernel.org>
-
-[ Backport to 6.18.y: context adjusted in netlink_native_seq_show(),
-  where 6.18.y prints sock_i_ino() with "%-8lu" instead of "%-8llu";
-  the code change is identical to upstream. ]
-Signed-off-by: Artem Dinaburg <artem@trailofbits.com>
----
-Hi,
-
-Please apply this backport to 6.18.y. It fixes CVE-2026-98284.
-
-The fix is in 7.2.8 and in mainline since 7.3. It carries no stable tag
-and so far has been backported only to 7.2.y. The upstream commit does
-not apply to 6.18.y as a plain patch because of one context line; a
-three-way cherry-pick gives the same result as this patch.
-
-Compiled net/netlink/af_netlink.o and net/netlink/diag.o with
-CONFIG_WERROR=y on 6.18.65 from a cumulative x86_64 tree, with and
-without the current queue-6.18 patches. No kernel boot or runtime test
-was performed.
-
-An LLM was used to prepare this backport and to check applicability and
-stable-queue history; I reviewed the result.
-
-Thanks,
-Artem Dinaburg
-
- net/netlink/af_netlink.c | 42 ++++++++++++++++++++++++++++++++--------
- net/netlink/diag.c       | 20 +++++++++++++++----
- 2 files changed, 50 insertions(+), 12 deletions(-)
-
-diff --git a/net/netlink/af_netlink.c b/net/netlink/af_netlink.c
-index fb7785a59af5..e62c25865fd2 100644
---- a/net/netlink/af_netlink.c
-+++ b/net/netlink/af_netlink.c
-@@ -923,9 +923,9 @@ netlink_update_subscriptions(struct sock *sk, unsigned int subscriptions)
- 
- static int netlink_realloc_groups(struct sock *sk)
- {
-+	unsigned long *new_groups, *old_groups = NULL;
- 	struct netlink_sock *nlk = nlk_sk(sk);
- 	unsigned int groups;
--	unsigned long *new_groups;
- 	int err = 0;
- 
- 	netlink_table_grab();
-@@ -939,18 +939,37 @@ static int netlink_realloc_groups(struct sock *sk)
- 	if (nlk->ngroups >= groups)
- 		goto out_unlock;
- 
--	new_groups = krealloc(nlk->groups, NLGRPSZ(groups), GFP_ATOMIC);
--	if (new_groups == NULL) {
-+	/* Can not use krealloc(), because the old buffer might be freed
-+	 * immediately, while lockless readers (netlink diag dump and
-+	 * /proc/net/netlink) can still be looking at it.
-+	 */
-+	new_groups = kzalloc(NLGRPSZ(groups), GFP_ATOMIC);
-+	if (!new_groups) {
- 		err = -ENOMEM;
- 		goto out_unlock;
- 	}
--	memset((char *)new_groups + NLGRPSZ(nlk->ngroups), 0,
--	       NLGRPSZ(groups) - NLGRPSZ(nlk->ngroups));
-+	old_groups = nlk->groups;
-+	if (old_groups)
-+		memcpy(new_groups, old_groups, NLGRPSZ(nlk->ngroups));
-+
-+	/* Publish the new bitmap and its content: pairs with the address
-+	 * dependency in lockless readers, which can pick up the new pointer
-+	 * while still seeing the old (smaller) nlk->ngroups.
-+	 */
-+	smp_store_release(&nlk->groups, new_groups);
-+
-+	/* Then publish the new size: pairs with smp_load_acquire() from
-+	 * lockless readers, so that they can not read NLGRPSZ(new ngroups)
-+	 * bytes from the old buffer.
-+	 */
-+	smp_store_release(&nlk->ngroups, groups);
- 
--	nlk->groups = new_groups;
--	nlk->ngroups = groups;
-  out_unlock:
- 	netlink_table_ungrab();
-+
-+	if (old_groups)
-+		kfree_rcu_mightsleep(old_groups);
-+
- 	return err;
- }
- 
-@@ -2718,12 +2737,19 @@ static int netlink_native_seq_show(struct seq_file *seq, void *v)
- 	} else {
- 		struct sock *s = v;
- 		struct netlink_sock *nlk = nlk_sk(s);
-+		const unsigned long *groups;
-+
-+		/* Lockless read : netlink_realloc_groups() can change
-+		 * nlk->groups under us. The old buffer is freed after an
-+		 * RCU grace period, and this walk is RCU protected.
-+		 */
-+		groups = READ_ONCE(nlk->groups);
- 
- 		seq_printf(seq, "%pK %-3d %-10u %08x %-8d %-8d %-5d %-8d %-8u %-8lu\n",
- 			   s,
- 			   s->sk_protocol,
- 			   nlk->portid,
--			   nlk->groups ? (u32)nlk->groups[0] : 0,
-+			   groups ? (u32)groups[0] : 0,
- 			   sk_rmem_alloc_get(s),
- 			   sk_wmem_alloc_get(s),
- 			   READ_ONCE(nlk->cb_running),
-diff --git a/net/netlink/diag.c b/net/netlink/diag.c
-index b8e58132e8af..16de6618e0be 100644
---- a/net/netlink/diag.c
-+++ b/net/netlink/diag.c
-@@ -12,12 +12,24 @@
- static int sk_diag_dump_groups(struct sock *sk, struct sk_buff *nlskb)
- {
- 	struct netlink_sock *nlk = nlk_sk(sk);
--
--	if (nlk->groups == NULL)
-+	unsigned long *groups;
-+	unsigned int ngroups;
-+
-+	/* Hashed sockets are dumped from the rhashtable walk, which only
-+	 * holds rcu_read_lock(), while netlink_realloc_groups() can replace
-+	 * nlk->groups and nlk->ngroups at any time.
-+	 *
-+	 * Read nlk->ngroups first : this pairs with smp_store_release()
-+	 * from netlink_realloc_groups(), so that we can not use the new
-+	 * (bigger) size with the old (smaller) buffer. The old buffer is
-+	 * freed after an RCU grace period.
-+	 */
-+	ngroups = smp_load_acquire(&nlk->ngroups);
-+	groups = READ_ONCE(nlk->groups);
-+	if (!groups)
- 		return 0;
- 
--	return nla_put(nlskb, NETLINK_DIAG_GROUPS, NLGRPSZ(nlk->ngroups),
--		       nlk->groups);
-+	return nla_put(nlskb, NETLINK_DIAG_GROUPS, NLGRPSZ(ngroups), groups);
- }
- 
- static int sk_diag_put_flags(struct sock *sk, struct sk_buff *skb)
+--Kk3dCghKBQNrocaf--
