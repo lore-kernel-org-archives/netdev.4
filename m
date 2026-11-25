@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619427;
-	b=KioF8DO59JXIeK3rermdbkMEgQaF0DqanXhSz1RG8lwms5+15RK5llOxdhewtpnflix0
-	 6pXNv+b/tFohZLj30KCXIcWwdCwzJbMn/kNMCwOfI5LJl6IZIEmUv0LwlXdtZErGckH2w
-	 om394uCp1n/TeE/zGiwkx5bsCPVWlv4FSi2RrSXQl/1gAJbiJGgicK1TCI0LdnLSJI3V0
-	 AzI5iAD0RNXIZODYCRKYCx9VBdVJaIRcQ2GjjRweiNNykuW/Z19rCzeEydBe38yG1Ui5c
-	 L48GrDMPaxhd6WmTY8FaEso/a9SrfLaIpfWkQfQJNXjeUGmJGFa1olUwuRjrHNTUmzA==
+	t=1795619432;
+	b=JLu78O2WhUK/174pBY/CGaU0NjCg9ZbvsLEYRdRADoKrRPiaJRMDjZgj5o2A9zKHm32u
+	 SsVqGUcOf35pNoZgEgVaaZmn9SVl2v2Vnxy+abRMNIyPY3G2jN0YW8ZVWLrvCOCe3ydSU
+	 Zuu64EGiRVxP7wXFL8fi3CZfzH9rZYXoDqlP21yv4XoOHvgsbK7UZ5bnTev4BmVoP6XwL
+	 qSmyPu2puYA/KGWtFCh8HqiFNfA2Ck2Zb6DXsSUij8vYLBcPReVOH8WUiw1tE6Oiiwhej
+	 3paEA5oPXK2SV6r+KcBXY/Hgm7MdNYWd16KH6Vlz0x/VrCxJUUTTevSRHlJ4Rmi1WSg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619427;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619432;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=V7wLsvA3UlFdEIUuC/+imEtNqiWK0HK3KvMhOoraiZo=;
-	b=4cV/oun6Dq44VTuwC0QpPVeS1iiDFENe7b0WRZO4kp+/il8aJOJlVwWeKRwZupzgOf5+
-	 mnmrbjltB0t2e+W/nb5cf0+r5bgB0Gm/W6Acp3V4SVuNuASU1aH9MQB1elvdpOI68ImfH
-	 pfT4l1cEOSvKA0fTKh3GP0K4VG17X4X/v9CCoLs+iqdzm5TjL42mlWQHWYvHM9miFCPHK
-	 0KwwcytDbtvyXB9dJvrHeB5sUCm+BVvClk6yYMNKG5gi3cbQDdsWE0LtibcEvlUZ3jN/y
-	 ihbCYZ8LXGTfrPqM0vUh6O1JKRJyWY3LOMYlYDFhSuWV3ws1TyWBnd7JriMxijisuEA==
+	bh=GiXPKBrZhlKiza0lYXApFCrNfx3oQ+fQzITI0X6eNmY=;
+	b=W5DntXBcRaWI36iSMZ6hVZ2mdw29SjSKeXPNdjGj2QKWC3UnqOwybDGqAVKsZW2GxsV1
+	 rPU9vaPk9qgsAc3NwHBq9m4JYuk69QDmNbzhyNcScLhuYH9B50Z0Tb/dEac8XgTaR5u6J
+	 1WN8l+VmXsJUAWSPYEcpmyc0rfggD0C8584knL1MrF8XE+YTVWqi5gOqpPVWjxvCz297p
+	 Er6Air8K/ax6WCMQGlTyXipbfmH9JtrcEoLwFNLkcyGWWsJVsA6LnycoX3UA0jPACGarV
+	 4TcPgf05eaGLKOz5ASgnk1+4vDjlxQ/g1fUO36knJWsAivnkvNjIrFJt2rvNLFqmNJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6KMgQwH;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQebbPqB;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3074C606A31E;
-	Wed, 25 Nov 2026 15:10:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B6A49606A332;
+	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=j6KMgQwH
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0575C1F000C0;
-	Wed, 25 Nov 2026 15:10:27 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bQebbPqB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8058A1F000C0;
+	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795619427;
-	bh=V7wLsvA3UlFdEIUuC/+imEtNqiWK0HK3KvMhOoraiZo=;
+	s=k20260515; t=1795619432;
+	bh=GiXPKBrZhlKiza0lYXApFCrNfx3oQ+fQzITI0X6eNmY=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=j6KMgQwHtnVkS22EeeMapkKenQJkJtTZfjjd3/4ZGHRo8r7f6Ctv3HEVN2E2wpVM4
-	 fRyyoqK12q+IWcVeJZp5j2OKkQWJVnRjluohXIgp6mfQNV/vpPBN5YGwwjgJBQt8mV
-	 Sk1H0f6+6e8ta0NKfyu1ovDcpcDJj3YdgubKvhlBTcL2aj2DX8rYXTStVzITfQuvKN
-	 C7XmjRSnPtrLTGzBkJNas5Ss/uZ9xxWDRAi7isnGQgM4Hb+dnniKyfSLcxOW0Neam4
-	 hLpswAC5cAWuHDqWeKLdGkLVj4lb9Vv3o5f1XiyMB/vkTIkWD7BK0S1V5sEyhK4rRj
-	 p8JNWWqw4HyMA==
+	b=bQebbPqBjS4InVz1gKFSikuQN4abyzopqtmBDsFA/xR0ZUWc6OO+KGzFRKtnk2Gss
+	 deGkbVFpS/49UeRWwflwbIhcO2jPjF7rOpUfXKISTHXZ5x/tnlF7V2A+4NPqhHVTCB
+	 AUmVYpHMxZyQ+IwkfpIjJbMJVnJvEA/EqSErSLUDVwuc4UcJ6KZpGdZjM2poxDVIZM
+	 aftU1HZ8p3ITWgs9lEYG9BxZ77QpOTkZT7huGbkxf/dMpGjmo43kscSX0j8WaUV/GK
+	 ClaSq/2uZtalGZi8uFu6ibGoIGyRPt9pbKInEfCHOKxPP3AUPCwOh8IQT0l+R3SpHt
+	 zm2eHyUhDTdfQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F14753808209;
-	Wed, 25 Nov 2026 15:10:26 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 773C53808209;
+	Wed, 25 Nov 2026 15:10:32 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,45 +54,57 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v4 0/2] ipv6: Honor suppress_prefixlength in
- fib6_lookup()
+Subject: Re: [PATCH net-next v6] net: dsa: motorcomm: Add devlink info and
+ resources
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179561942551.592665.10151486679595255146.git-patchwork-notify@kernel.org>
-Date: Wed, 25 Nov 2026 15:10:25 +0000
-References: <20261117110813.9894-2-leonard@lausen.nl>
-In-Reply-To: <20261117110813.9894-2-leonard@lausen.nl>
-To: Leonard Lausen <leonard@lausen.nl>
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, pablo@netfilter.org, fw@strlen.de, phil@nwl.cc,
- shuah@kernel.org, daniel@iogearbox.net, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, linux-kselftest@vger.kernel.org,
+ <179561943101.592665.13746917343838856671.git-patchwork-notify@kernel.org>
+Date: Wed, 25 Nov 2026 15:10:31 +0000
+References: <20261119171528.681819-1-mmyangfl@gmail.com>
+In-Reply-To: <20261119171528.681819-1-mmyangfl@gmail.com>
+To: David Yang <mmyangfl@gmail.com>
+Cc: netdev@vger.kernel.org, jiri@resnulli.us, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ corbet@lwn.net, skhan@linuxfoundation.org, rdunlap@infradead.org,
+ andrew@lunn.ch, olteanv@gmail.com, linux-doc@vger.kernel.org,
  linux-kernel@vger.kernel.org
 
 Hello:
 
-This series was applied to netdev/net.git (main)
+This patch was applied to netdev/net-next.git (main)
 by Paolo Abeni <pabeni@redhat.com>:
 
-On Tue, 17 Nov 2026 11:08:10 +0000 you wrote:
-> This revision removes the cached-exception patch and its PMTU test, as
-> requested. The series fixes the nftables regression introduced by
-> 1c32b24c234b and leaves dst-based prefix suppression unchanged. The
-> cached-exception work is deferred to net-next after the fib6_lookup()
-> fix is present there. Interface-group suppression also remains deferred.
+On Fri, 20 Nov 2026 01:15:06 +0800 you wrote:
+> Expose the ASIC model via devlink info (ASIC_ID), and register devlink
+> resources for ACLs and meters. Document the devlink support.
 > 
-> Patch 1 makes fib6_lookup() honor suppress_prefixlength while preserving
-> terminal reject results, including blackhole nexthop objects. Patch 2
-> adds six checks to nft_fib.sh using its existing fixture.
-> 
-> [...]
+> Signed-off-by: David Yang <mmyangfl@gmail.com>
+> ---
+> v6:
+>  - add devlink document
+> v5: https://lore.kernel.org/r/20261116121627.1182631-1-mmyangfl@gmail.com
+>  - minor stylistic fixes
+> v4: https://lore.kernel.org/r/20261112002031.1475005-1-mmyangfl@gmail.com
+>  - remove FDB-related changes
+> v3: https://lore.kernel.org/r/20261109163117.1792478-1-mmyangfl@gmail.com
+>  - remove the buggy sub-resources
+> v2: https://lore.kernel.org/r/20261108094512.1285796-1-mmyangfl@gmail.com
+>  - fix issues reported by sashiko
+>  Documentation/networking/devlink/index.rst  |   1 +
+>  Documentation/networking/devlink/yt921x.rst |  37 +++++++
+>  MAINTAINERS                                 |   1 +
+>  drivers/net/dsa/motorcomm/Makefile          |   1 +
+>  drivers/net/dsa/motorcomm/chip.c            |   8 ++
+>  drivers/net/dsa/motorcomm/devlink.c         | 107 ++++++++++++++++++++
+>  drivers/net/dsa/motorcomm/devlink.h         |  18 ++++
+>  7 files changed, 173 insertions(+)
+>  create mode 100644 Documentation/networking/devlink/yt921x.rst
+>  create mode 100644 drivers/net/dsa/motorcomm/devlink.c
+>  create mode 100644 drivers/net/dsa/motorcomm/devlink.h
 
 Here is the summary with links:
-  - [net,v4,1/2] ipv6: Honor suppress_prefixlength in fib6_lookup()
-    https://git.kernel.org/netdev/net/c/94df5595e31b
-  - [net,v4,2/2] selftests: netfilter: cover IPv6 FIB prefix suppression
-    https://git.kernel.org/netdev/net/c/a0bf14e17fb2
+  - [net-next,v6] net: dsa: motorcomm: Add devlink info and resources
+    https://git.kernel.org/netdev/net-next/c/4cd558c2f1de
 
 You are awesome, thank you!
 -- 
