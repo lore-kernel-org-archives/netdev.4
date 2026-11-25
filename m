@@ -1,75 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.199
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795567230;
-	b=IJWrHjAgLCuszG/ScGuD1RRfQOwMXgSz2CmaB04tea4ntSYMEzTcTxTBxQI9omtKcSmj
-	 ZzPHiJKbBDKqPgcI1J39bpw2q2D7DOSh6KwDz3eH/ktvyi9gZrDEYpCR8QdhASeNcW/Vi
-	 Erzj8/P3d+u8BSpXAF5ex/IQQfvVSsYiDdeXxzeV5hKbfT7ENiUAbGZrk7fS1G34P7ydy
-	 tO7egRcpxWbZk08nN98x28IvGCEcLmXMuIIz2wGSnGyPFADIiySBkbmEUhMNC7dm1rClM
-	 WyxetuN9Pz+lhaVSiYVJGcPkv8hTY5+Z3rDkThSCSUDdn70zkTlPrJ/jWguqzqQ99nA==
+	t=1795567232;
+	b=QH8cVe7BtMujEBKe0eOsTHQa71kQuVOCLYklye1NxmT1fjGDENaCYlPU97Kokm4MWqVh
+	 msUcgd2AkW9QuPF+cwKoHfUkOHoiYsJ9jNA7vbZTrxfgueASx+Man6jnYlZCZI67PRsDY
+	 eh2rxkb84KkQNge8M5J66nMXqfehgx1vKazxW+dp3TKv26sIYevlh3wJt7yYB1EJpUdkH
+	 elrBzt7WQUwAw3gE7SYPF+qafRptyrAkIYKzLnoBug3oU/2UhgBfNMe9sm8OdQJF4xkS0
+	 WFNxpPqhM9qMt45L+9/dAutqaHSkbgT9xrluokSL/dr/xZnGa9wP8qlwxG2uXftNuHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795567230;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795567232;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:X-Mailer:Message-ID:Subject:From:To:Cc:
 	 Content-Type;
-	bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
-	b=ySelkN3V4PLqsr7G+++BCwvrI/UbhD2uLxNpsZaQg6KsUPFqbpMed8AuD9MLSHIdUmNB
-	 LItQ0SZfb839d0N44eTfu7VM+23MnMI4rBHkNc0YuI0is8CQKTrMUvdbfHn3K5agwBnA9
-	 o5Aet67tuSKNCIyolGFYLBD7ArDYpIFVzsHyA31jK6JReWO5gIaemcnv5oR/ndFNUoBE5
-	 J+Zscnamw0qOg3DgMRYc0d1QWimLi+WHZ1ICsM+nhNBIqhKl+fKeJZow0eRP+6vq5ROLK
-	 4gyGYZJDqclUi1nGt+5Vg7ET99M0cBU242VZSEK+TzaBQCWPzgzELI/00Jm8rjWOxCw==
+	bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
+	b=PRNYxnIVj8DYnJMbN8pyaALKZnSPnlhO38lYU6E9D3oZZcpzA25xXhrk/bZ1VHuRjS5t
+	 Gyj9ebKmxkB3mYQ5UeTI4Hmt6bQ+mAZDqbRVFeNu6ff8l1duVavq5d2wzjPooj9qXu6xU
+	 9rzn536/Tvrgz+HD1r9Ru5p/ovkIR2V0EwiURfa8x2PEL42lq9i006NH5wwtOJiabTJhj
+	 FXlr8lVvKbR1ipJS9hSKpq/br865/w2KUtnUi3derjw3kufbsNieIqjuQh45UBHuSVy9x
+	 dCuAWR4hqQLYvl9G0qBtopQI/CWchcPiNVyoVEVSehunFWkWnJohtO64xT+jKpn6XSA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--irogers.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KIQW3ubu;
-	arc=none smtp.remote-ip=74.125.82.71
-Received: from mail-dl1-f71.google.com (mail-dl1-f71.google.com [74.125.82.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b="EOEa/Kz1";
+	arc=none smtp.remote-ip=74.125.82.199
+Received: from mail-dy1-f199.google.com (mail-dy1-f199.google.com [74.125.82.199])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D3085606A329
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:40:29 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3085606A329
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2BE62606A68B
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:40:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2BE62606A68B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--irogers.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=KIQW3ubu
-Received: by mail-dl1-f71.google.com with SMTP id a92af1059eb24-1b3b45597c7so6683483c88.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:40:29 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EOEa/Kz1
+Received: by mail-dy1-f199.google.com with SMTP id 5a478bee46e88-3854627c1c8so7348763eec.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:40:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795567229; x=1796172029; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795567231; x=1796172031; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
-        b=KIQW3ubux0cWLy0xvP/Y4srhJHZWcbz+MwQw6VUTsEMVVSAeTMb2ZPtfVyzbmMfq9T
-         NAitwxwZR9BfWzeoPxGnVIJa4mqGxBCNmd23CC0f3A+jt2IK56Xbu8cIUXGQw8pBZBlK
-         9WsHl3nLrozrL1+1aLdh6XgatMbuJE/Qn9etarX5ascsnyrxbhUrhuIGUsMZW761X1nK
-         Yk/cnHLB/wvdTxhM6oClTviDDOkQtLjY73o/LdvxRabJLVtIo5s0cnvWcJ3hQlknKpkm
-         IPz2MV2wB+7hUbHCTHxZ2ewA/luot3o7dhJhqCb61Z6OMGlS0XI3xzdqkwVkgrVnsjB9
-         NYrg==
+        bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
+        b=EOEa/Kz1GX2xjrGuCPhwAjQWknmZAf0aT7CCBs6NI8DHmNXTPlRQcifQpKThMzaGhL
+         DHZbBLTiwLpEzoQbJ/Xmf4dli52hEbhjTHrxSgsfLYEfTz+eQUUeKfxT42dvZq3HiZbG
+         1ow70GWmKn92A2U3NVbV2u+xzb4cFvgvSBCDtJ91/8wuWQFYEY3u+j0CFVj1RRPyBFAp
+         s5QeqpYS+prHp0WzT+EKQtZ003gPLWDqdoQVV8to1nucktZjqITFuxZ41EGT7blPK0Q5
+         WcfC3XP+CdWYuwM530Ntu9Vk3dM3XPKfMgHQpPNvRIZ568PaEsmKn0Wi6ZAk2Uqs86u6
+         8tNA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795567229; x=1796172029;
+        d=1e100.net; s=20260707; t=1795567231; x=1796172031;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7HiI3FMI9H20gA5Y//dyix9Owae4M1FMarVKc4YzQb0=;
-        b=klU4a1WCJ40XkvfaAhLd/P8hdo3BLN0HBSL6CYYPzLnLxC0QxPKyxqRPq5Yw0OxgNI
-         oR4eVhfiT0sJTZ5ly2jqbrmF0h+7ifGQOcqf5ZPJYGwZg/z2NzBu6Bw32yjKAXjh64sF
-         ZV6S9N4MsFrhHup7Es5i3nZjQwov0jjaOePqwrV5iDEGTenhAA/+2B5bHtD3h8dm6Eea
-         Wv6leAmzgjYhrep0VTWvmQBSOjHj2a3PIJcrdrJTbMNcQBzmS9ohiLIKyvDCAOEauTCJ
-         W7SG5qfIyrlBbT7IGAjsn40wZ6060CpVKZPaEUo5Zpp40p4IH9UH/1owJXX6aXGHquzT
-         kg2A==
-X-Forwarded-Encrypted: i=1; AL+hErFLUtcodIM4LCXiL1aiHugDCmmpmudpaET2yt4h3Xdjz40jE2gwYzz9ebClU1DRjCRKuYJQR5Y=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/+IhYJ3FgRfK/lVgqFcURbLJ8o7jFi6/Ud27WokICSHrYkFkbV
-	dsAekj0Bgxu0OACVIUE60OgsklQKqZh6RAKOPjnz7O0alpm7ogWiOGZ0YnLhhvcnzhEHi0gM1RP
-	GGNlZtB+2Sg==
-X-Received: from dleb8-n1.prod.google.com ([2002:a05:701b:4248:10b0:1a4:c892:b166])
- (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:7f01:b0:1b2:6a01:f55e
- with SMTP id a92af1059eb24-1b56f39c712mr7629241c88.34.1795567228466; Tue, 24
- Nov 2026 16:40:28 -0800 (PST)
-Date: Tue, 24 Nov 2026 16:40:27 -0800
-In-Reply-To: <179545903032.3135.12672409534586940438@kernel.org>
+        bh=tK3CNGQ4I07DEstE6/SMS4SBHKbFdsxDhUVtrDt6klM=;
+        b=fCuzVSMRvASu5ma5uIgv3L+VfyiEoBSKTcP+2TrBPdXrcZjZ5arykLRNLxYZIhys3R
+         9lVMUvKOm8D8udfcdWxsu4IYatD3n0TwzwdgokD6OknbHA7EEp2giU+/gcAhf5oT5jsI
+         +jCysheDDIf9IH99eX9uAge4UApqj00dePzGU9dWNsJFmduojyDNOcuvWN0fStWOyjJ4
+         O1GmuUv8ccVPx5w6S7/wVmejdy2RwrWU22pEDrtLmmYv1C60XjCTqviT3KpqEj3xzsg7
+         Pl+upHmQTHIOn1Yi9Rv+IZGCwnEw+FbLmiv74zE+aDERExvQKzZSt+wIi/wr3G11RqJb
+         TB4Q==
+X-Forwarded-Encrypted: i=1; AL+hErHB3xu/oKtPCup7kcavZhyqBKVqQFpnBHgRyWLqsPCkOnh5wx0vOJUx91/rLVUtT8wIq/j/ax0=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9iVuN1OY+a/6dZEiN9CBr1SacRv09PvoV2kUBsTydvmEeTcT9L
+	gcvrL8e6VoRFYonCQgJF4kSQzOFAP781eU9wUf0IeNO8SOq24m9sASwh2H54DNKTn+UO2gDisWA
+	bhFHkhW8IGA==
+X-Received: from dldz13-n2.prod.google.com ([2002:a05:701b:418d:20b0:15d:6b8d:2adc])
+ (user=irogers job=prod-delivery.src-stubby-dispatcher) by 2002:a05:7022:906:b0:1a4:c892:b14f
+ with SMTP id a92af1059eb24-1b556904c50mr21237934c88.29.1795567230804; Tue, 24
+ Nov 2026 16:40:30 -0800 (PST)
+Date: Tue, 24 Nov 2026 16:40:29 -0800
+In-Reply-To: <179545553181.3135.4354699424439095142@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,38 +79,38 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
-References: <20261119170623.1519909-1-irogers@google.com> <179545903032.3135.12672409534586940438@kernel.org>
+References: <20261119170550.1517634-1-irogers@google.com> <179545553181.3135.4354699424439095142@kernel.org>
 X-Mailer: git-send-email 2.56.1.831.g720f3f5937-goog
-Message-ID: <20261125004027.1004762-1-irogers@google.com>
-Subject: Re: [PATCH net] niu: write back TXC_INT_MASK in niu_txc_set_imask()
+Message-ID: <20261125004029.1004901-1-irogers@google.com>
+Subject: Re: [PATCH net] octeontx2-af: Fix uninitialized variables and bounds
+ in MCS alloc handlers
 From: Ian Rogers <irogers@google.com>
 To: netdev-bot+sashiko@kernel.org
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, llvm@lists.linux.dev, elkin@google.com, 
-	Ian Rogers <irogers@google.com>
+Cc: sgoutham@marvell.com, rkannoth@marvell.com, gakula@marvell.com, 
+	sbhatta@marvell.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org, llvm@lists.linux.dev, 
+	elkin@google.com, Ian Rogers <irogers@google.com>
 Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Nov 23, 2026 at 10:37 AM <netdev-bot+sashiko@kernel.org> wrote:
+On Mon, Nov 23, 2026 at 9:38 AM <netdev-bot+sashiko@kernel.org> wrote:
 >
+> [Severity: Low]
+> Can the response array overflow described here actually happen today?
+[...]
 > [Severity: Medium]
-> With this write in place, niu_init_hw() now unmasks all six TXC sources
-> for the port:
+> Does the requester actually see these rejections as errors?
 >
-> niu_init_hw()
->     niu_txc_set_imask(np, 0);
->
-> Those sources are SF_CE, SF_UE, RO_CE, RO_UE, REORDER_ERR and PKTASM_DEAD.
-> niu.h defines TXC_INT_STAT and its per-port bits, but nothing in niu.c
-> reads, decodes or acknowledges that register.
+> This default case and the new rsrc_cnt > ARRAY_SIZE() checks both jump to
+> the exit label, which always returns 0:
 
-Good catch. Because niu.c has no TXC_INT_STAT handler (unlike ZCP, which
-masks all sources via ZCP_INT_MASK_ALL), unmasking TXC_INT_MASK = 0
-would route even hardware-corrected ECC events (SF_CE / RO_CE) into
-niu_device_error() -> -ENODEV and disable all interrupts on port 0.
+Good catch on both counts - 'exit:' in rvu_mbox_handler_mcs_alloc_resources()
+returns 0 (leaving hdr.rc == 0), and rvu_alloc_rsrc() already bounds
+allocated IDs to rsrc->max <= 128 before writing into rsp->*_ids[].
 
-Since I don't have Sun Neptune hardware to test TXC interrupt handling,
-please drop this patch.
+I'll send a v2 that unlocks rvu->rsrc_lock and returns -EINVAL directly
+for unrecognized rsrc_type (and rule_type) and drops the unnecessary
+ARRAY_SIZE() checks so partial allocations are unchanged.
 
 Thanks,
 Ian
