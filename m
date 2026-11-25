@@ -1,61 +1,145 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795616861;
-	b=bLl8VHCNQW123btVhWvf9g7lBlxMHkPaFVRtEldVQJ+zZ3DGQqVTW65YvV8/AUyHcYCj
-	 hIX+YmvCCcQHZ313mr6CKX1Ezqtm5U6B0MtEtcxJH0U6pdbXeH/k/ee30WeMcPg9biSad
-	 xQ0/+zp8yo7IFhmMpg7V3i6izMfF7kjJ697pznD7ykBadz+yW7hd8Uoht/+fbeHYjUiOB
-	 ACxfYC4yeRRZh4AC40JsOeMz3CRtZTZRuXGv3LShXQJw8axKYX9Heb8QbGbrNHPtDQqrt
-	 qe2hDM+WmKc8eRrpdPOquHEKyHF2U/2ZSjGeJNvCLkJRDQUQ2rGGVhN2wONDXpXlCZQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795616861;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=CjLRfksphLBZ5dLCo3wFcxpp9BM8icCeVRM63N1CHfQ=;
-	b=Jn3zQITHPd2WNbNCj2uMs+0SXOH+KZHylqabyjamBtSHblBVMfEU93I4OY6oZyRxiFH5
-	 sGbOA47x1F5zFTDjMjOm+eAwj6FgOa+3ONhhwsdFJvIg+I9jkp7MZ9INLdTXVAcUbQ12W
-	 HC0n2JbyvL1MtCPOVYqgO0JlUKoUl2iqYQ4xNUOOC8lsfHzdLhSYdv/zuQuiLIi1nmVmQ
-	 zKwRTL4jEnD8rTHohbl416goE7+EC0ZCBbizX5SrOuTBGaLa1Z0Wr8WwqDa12lwLEqwGX
-	 rEz6DrfCJjlbNGqqQ8a4ukyyOfNw6bh5X3m/WAEJDpZX3Ygt8OSGreFQ46HW7Y/Hulg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYQ7DaDC;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795617086;
+	b=Nk/abI6dc86U1/W4WEr2REHAIhLLq722PuccaTIw33pEaIrJsMhAp4fMpyh4RWZcWoue
+	 IQ5ZI3js77u/Sx0tNPt7dyia/KALCCYx1QTwemgaa5dGwBSlbDW7WzbZEv6HKF/bIHxeA
+	 ySvSXBnRpeDegnnQa4BDXPjzmNgyfEpegotuBojL8tONTwzMMolhJ1GSbp/LQLU1OR8bZ
+	 wawIQQtB+SxS+YS/LUMIt6+XSfyGd8l6HitFoS+MiPIuvFqcp+itdSoLvtKPXLOaQeuxB
+	 6w8PrJSXxaVZnH4NsGcZrrsZxektzXQP5BSHYEO2FSMFWM0c7q07mCzyUiBfP0cDyeA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617086;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
+	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
+	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
+	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
+	bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
+	b=FtAl/lFrJ67+L2n3aAaa3EUdzYFu3jrv/JuCXZhL6nWIryWBQXafsE9ZW/aKI5zeFxa/
+	 x5OLChS7c0jtQuLEx5q20uQmTSo4//FUww3xhb7mJOScAWnGR3N64bzsW5nhSfn7+fYIL
+	 0dVgESiNg40hzWrrNvJIxE0FTgm3WIivd5Sg0Owu69/qn5aeTiV+F4HY3IVWnqGgDvDda
+	 QYMOK25TNoD6Kw3g0EZlUTdXur5O51MHtWw2hltkRMOrE9FwpkC71pAeB0XVNgDSrRCfY
+	 JTPLplHSzZq1daoWDHHT0yE27m7MtAbGFZsVQY0yK4//DP/rBi7j9U6KmeePgVtMZOQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=intel.com;
+	spf=pass smtp.mailfrom=intel.com;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PlJWekTN;
+	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VwnfbMH6;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.12
+Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B84CA606A327;
-	Wed, 25 Nov 2026 14:27:41 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B17B606A32A
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:31:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B17B606A32A
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=XYQ7DaDC
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F2521F000EB;
-	Wed, 25 Nov 2026 14:27:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795616861;
-	bh=CjLRfksphLBZ5dLCo3wFcxpp9BM8icCeVRM63N1CHfQ=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=XYQ7DaDCbNZT0B/BZDGeTkI68HT1uw6j1DTpypTBD358aeikMbtU2TiQ/OXo1+WcW
-	 wdptc2d5yOKFNk7ZHN/LPymVgSYXGuRYv23S8hoV2/GGLvoidRQ7C7qJZYxgr3M8AP
-	 tcDuwX1xa11SROHek1n8mHs1/gMS6lcXIOk0zGTIjdwYWuxZjoBGvg3XH8e3Evb3NQ
-	 XLPdWk103tdQvz5rsEg3CJsEEL9MsxdRNkgqIiiDYnxJ2uPrimM/Dwe0YiuKXGB+1W
-	 8fs5Id+W3hz8mM+fNNw5Fp2F1AAxFd7L4XNWoXjgSPwTXJ/EKZO9x+N2zEzthgAB3N
-	 QywlLF52VNnxQ==
-Subject: Re: [PATCH net v3] net: xdp: fix generic XDP on skbs without an
- Ethernet header
-From: netdev-bot+sashiko@kernel.org
-To: jiayuan.chen@linux.dev
-Cc: netdev@vger.kernel.org, kennethbwlee@snu.ac.kr, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, kuniyu@google.com,
- wang.zhan@smartx.com, mkarsten@uwaterloo.ca, bpf@vger.kernel.org
-Date: Wed, 25 Nov 2026 14:27:39 +0000
-Message-ID: <179561685970.3135.9452194614168004635@kernel.org>
-In-Reply-To: <20261124142545.221584-1-jiayuan.chen@linux.dev>
-References: <20261124142545.221584-1-jiayuan.chen@linux.dev>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PlJWekTN;
+	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VwnfbMH6
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1795617084; x=1827153084;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=wUj0ZdIPgCranayi03VC7KQ/fXjSiQRN5mhb96XC2wo=;
+  b=PlJWekTNPZ3iPvWrkMoXkYrwigV15oxSZXP8HbrEqEe7LIRJ/htwECiY
+   2ABjxHRSxZguwIOGH/RJuBdXVtrATAQlKVD1MV5V30vQCetYkPZeFeXjB
+   s4ZwXcBydJKzjYmMeeHUpKZjRXLv++Y2dxQh19JD/ThG4nGvFFZgnmP/S
+   /G06RGhMmUm4rlGc4xe3DvkXv7EhnSARvU9EbvCPkLhXuBNduu6DEWFNm
+   RSdeIR6Zz+rZhxj1eOF+rDqZkqEfb5cHrtecozsDsCojoMjKpQ5B/ADdu
+   x6A1XfTtVjYY2R6miowggmPpOHO7JWj31sBx/N82R3xaOHaeHi3SKJcVw
+   Q==;
+X-CSE-ConnectionGUID: MW/6LO7mRzCCCIA2aqpemw==
+X-CSE-MsgGUID: NIlvrOh7S0ynHw5zWN/VYQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4378696"
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="4378696"
+Received: from orviesa004.jf.intel.com ([10.64.159.144])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:31:06 -0800
+X-CSE-ConnectionGUID: 7hTzCLeqRRKG2399604aoQ==
+X-CSE-MsgGUID: TGLazwAoSUKtwfEPCxXLhg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
+   d="scan'208";a="11763707"
+Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
+  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:31:07 -0800
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 06:31:06 -0800
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 06:31:05 -0800
+Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.59) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.57; Wed, 25 Nov 2026 06:31:05 -0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aWRVL6cQwrdFn+Cm7M+1llWmPw0mrM/xAzMtYNpnc1+MVvHKucXNMQ4Fo7qpekLXQ6Nyjuh8O/g5r5IW7j/HjKaW7CFAcF085mrbIJU+CRlCzwlU/h+CSMCQoumGlyFaQkUcmWddc2w8ddGlQjypZEWrAIxCLxMJW+M+ha8rpTvA1WKVQzO8c9Y3N7QSEy23EM+Ht9ARxumnVoYl2nAU6Q1MHkBv61FgoYUni6pnTdMSCgDrw0yPnebdl0vEDpRClSp6mNUUQCQPQmOD8eufcxkROD4dALLADJVBAp+c1JAgRV/4vhSMY4P70rrrBfyrvzit8jNV5XjgCOsoVs8oLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
+ b=JjQ1mO5TiLTbrmQMDM10PRhloiXQBgVCPuf436kDvGOsszA+f15UYXdGojYOF8flVsORUbwuBFV0cQ4MEQrYUBlrmLp3J0S5Or9M7fAPEVnD7a06sseaoxhBADqc2S6tIg+MP71s0L4Hg7plnaUB9Swy+BZvapehrga1W8J4nueDkBdhNH3UOeIOzWGmPdR4dHgSb7a1DtK62ZIrDRngARcu7pMVevrWnj9gb1yosY1UMz/swdpq2qbnYnNmUNkQqCZzE0VwRtF7ZfupNZ1VdNSThPJIIeZ1F6LBZyfxpvLh3m2PiR82xHeG5AuzKvpMF0wUd4BxovhVuwv7QwEljg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
+ b=VwnfbMH6gU/0yKuuOb9Ohtw6uwhYwazWeMJYqkR+6bUuTAkelWqRuh72ZWhNEsuGhxAX9TYunBtpNaFlCPR+dh0zYNeoWil6B7Axxm1HlE7TSGYWjedIOZQAP2tvjMxefeeA5ln0srlAb6vmq8dE8cDgvA7HKLrQ5rBs1m5aqQU=
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
+ by MN0PR11MB6012.namprd11.prod.outlook.com (2603:10b6:208:373::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 14:30:57 +0000
+Received: from LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
+ ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
+ 14:30:57 +0000
+Message-ID: <6ce9cb98-d615-4bf0-990b-35aa4b970503@intel.com>
+Date: Wed, 25 Nov 2026 15:30:50 +0100
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-13 (ice)
+To: Petr Oros <poros@redhat.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Jacob
+ Keller" <jacob.e.keller@intel.com>, Maciej Fijalkowski
+	<maciej.fijalkowski@intel.com>, Magnus Karlsson <magnus.karlsson@gmail.com>
+CC: <netdev@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
+	<edumazet@kernel.org>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
+	<horms@kernel.org>, Marcin Szycik <marcin.szycik@linux.intel.com>, "Aleksandr
+ Loktionov" <aleksandr.loktionov@intel.com>
+References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
+ <20261118115915.116177-1-poros@redhat.com>
+ <20261125124652.3843638-1-poros@redhat.com>
+From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
+Content-Language: en-US
+In-Reply-To: <20261125124652.3843638-1-poros@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DU7P195CA0008.EURP195.PROD.OUTLOOK.COM
+ (2603:10a6:10:54d::35) To LV3PR11MB8508.namprd11.prod.outlook.com
+ (2603:10b6:408:1b4::8)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,170 +149,106 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|MN0PR11MB6012:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2b116600-58f5-4bb8-5992-08df4b00b7dc
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|18002099003|22082099003|56012099006|11063799006|4143699003|261028144727099003|261022105027099003|261026140227099003|261026121527099003|10067099003;
+X-Microsoft-Antispam-Message-Info: bWTBj4dmMF4T3ygdoFOxsEWdQeaym0GnfeavnE/UvCZGEDx03H66f9otwV60RFB8fExgyU5MepWNX2lDta8FNhW0NIwTMDgVUYOhXMiHLlh6AtjF14/X7v/Mn4kwzRuzODtkSWNZDUXryadeO0mVy/W3+E/7pn3NPQ91x9B/+iOgTt5HfiDN4qciLsv2cDI/905r9vF9f2EjZt0owhufnx5MVCcjlSCm1obcRGfWWLMFU6pEelQVH1juCGj597J4PLe9xJQyEjLdE8AzTH0tWvIx5okBMVna9ugdPob0MoimHCNcGfla/fZ6ET3iKl59h+Ffrz1Q8FV9+FB6NqFB27cakoaO8OScgaLxA2u5I1ApWpl+c7Elxtk++wQqDFmx/B+kNa9U8Cgm7AahP2LrjyiF0bIjTZZlXn1LAsajb8QYhu7ApD7ZVrl42e0ZUgX6F4rv41gts8ATLqvQNUo0aXPAamn30H86sepgh9NBhgT5gYE52kQ69jj438cIkf4NTh/rNVk6IkK7xzaRZF4woqNzis6t0yDfHVdhoNXqJt6h5b0Z1lH6UHZ2HnXdOU9swS6oewY8Gf50tcO1Uanv0IOuopPXEIlFdOsIWZ+reZrciA0rcRDqO/AYZYof/LoVkum3uv1b0QVyAWiOPa/IejaukdMdwGZS03Lwppktabc=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(261028144727099003)(261022105027099003)(261026140227099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YUV1d2lIeGNIaVdidVAzU1RPZGxUQklKYWE2dGxoeE5vMVkvemZrRExWZ0h2?=
+ =?utf-8?B?TUJiM1p4TCtOMnNwTzNISVVhRlhKRmh4NFdXb1FmcU0weVlBbEFBNkx3USt6?=
+ =?utf-8?B?OE5pV2w0dDNXODdkRFVQVWZEOXVvS1EzbStETStsK0tCYVJINWM1c2dIaXBw?=
+ =?utf-8?B?N1hHWVNCVkxkdlUzUktpK0ZwVmRBQnpVbGZ0MFgvcytNU1dDRzFjRW1WWjVv?=
+ =?utf-8?B?eVRyRWxiTTNhbTFDcUVjQk9rWXJVL0dZYm5BVmd2U3JGZ1lBNWdycGdQZVlt?=
+ =?utf-8?B?WWVtRGwrYjFKK0IxeFFXQ3lkWllxRmFYZEZQdXM2Y0V1NkpER3NsZkJWK0Ux?=
+ =?utf-8?B?ZHI1VUROMGt0TkxUMzFHdUgvNkwrWXp1SEpnclhTdGZlRDFsZVBQS215eER1?=
+ =?utf-8?B?WDIzdWxEQnloUnZpeUpDcEpzL2JleXFWb1RHQW1qemFRWFNPWmtGZjBCcm1J?=
+ =?utf-8?B?alZNWkZiSWpjeUoxQXRubXJvdjhTU3FTR1lhOFFIM04xd3NLZ1VqWGQvVW0z?=
+ =?utf-8?B?VDMwVWZDN0RURDJpdlJBZEpQMEJzNlUxRm5VRHJtZmxtdnlLNmZUZTBSR2Uz?=
+ =?utf-8?B?b2pPMEd4WmdHUHdoNE9xbkxCdE9aYmFoUkRnZk5sOHY5Z09WZkZLRmZaeXZ1?=
+ =?utf-8?B?NVVSRzROOHVlbUN2SEtVNTN5SFBHbkIxOEpRcmJpYUh6QlJzeGdDZythYkY0?=
+ =?utf-8?B?ZmlrNkJGbmZ6Q0RJWDRqbU4xK2VyUUZ5VXEreWxEaWlxbEZwK1NLYS94UWNE?=
+ =?utf-8?B?UFZSQ1k5a25EMmtLbDdOZ1FXVld4TnRFWlpKUVBwN1ZzRHlxYko4WTg4dlYz?=
+ =?utf-8?B?eHFPNUhZTmZhbWFNaCtPbFVydFZ4Tk5HNEJYalJ5WlB2eW5QZ3c1Vi9JV0px?=
+ =?utf-8?B?VzBWUFRzWXZXOWxiSktReW8xb09yL05LcitDOTNKbFlacUoyYTFLYWYyaVgz?=
+ =?utf-8?B?NDJ1STNOa1NoT3JYaEJqemN4TFpraUJJWmZpemhWaVJna3VKS2ZNMDhCMXhS?=
+ =?utf-8?B?VklBc0dSbW9Vd0N4bXBsU1hBdFZ2MlNnNWQ3YzM1bUFEdU11MXdPcWljMjNQ?=
+ =?utf-8?B?WnJ3M3JRY3owb215ZmEyVEtSRzNEUEZ2ZUpLTy9yMWVoR1F5ZHphU1FPZTBo?=
+ =?utf-8?B?T3prVFR1VTRZM3pjWnRwSjJuZUdxVWF3UldWaWk0TzM1dXN0RXNQYjlsQUJQ?=
+ =?utf-8?B?MEtkVmFwWW55RDdSdmtBaVFDaTUrd3J0QmpzYnBlQzVsUWdRTC9oWDZCVkVh?=
+ =?utf-8?B?ZlErOVV0bTZNUmV6aUlzSnIwZ0p1a0ZOOEdCSnV1ckQ2dVZPaDVlT295Zm5o?=
+ =?utf-8?B?OVNkMWJwdGtJQ3dYdzgxREZwRk5ZQkRJVGVXS0F6Z0J1SWx6TmliTlozRUpw?=
+ =?utf-8?B?V2daQ3pkN05kZFpLN01samZKYjNFcWVsUndHMXhFWXdIdEd3eEJzK2JiZTRK?=
+ =?utf-8?B?QzIxdTdNbGFuQjVNdGU1SHBheVM0YTdDejRBc2hiSHVUdTlYSXJJN1UwTkVi?=
+ =?utf-8?B?WXNLa01QS0gyQ3dQUGVNeVdLUWVhNGNzYW1jaXVGcmhPZld4MkhWTENBeCtv?=
+ =?utf-8?B?dUZCMXUyd1ZxN25FcEo2dHlycVhpbWZVVHlwNVNFenROendUNDJPR2Y1N0N2?=
+ =?utf-8?B?SDJwNE1taFZlbTM3NHl5WWc3S0JSUWdyN3pTbHdkcHVGS1MvRHZTR01GYU91?=
+ =?utf-8?B?cmExeFZNQzlWNVF0L1FvUjhSUUQzZVk2NXBGZXJtMWRKMHhBa3pvL3N3RjVK?=
+ =?utf-8?B?Q1Z1NWFiblRMbmZEMi92TEQ4SHdqcCtyWW5USnZiYmFYaTNoVUdHeUxDak9V?=
+ =?utf-8?B?MDZlNFI2dERERnZaNmZZdWF6enEwV2pHMmU2anNFcXhzK3lCd0VLNk1FVUhw?=
+ =?utf-8?B?a01lL3ZrY1dJbE1Hb3ZjVDZsRDNaME9lWG9kMWUyUUJwbHliSlVJZFBvUG5t?=
+ =?utf-8?B?U0tLTENYdmptcjd6cHlvTTFkNHJXZ1ZuTzR3bklRSis4b1lWOFd5bkVHK3lL?=
+ =?utf-8?B?S2s3SzRtQnpyQVN5ZjZLRmFMYTdsaHh4cG9HN1pIY21RMEFOUWVlcEdCQXhH?=
+ =?utf-8?B?MkhtNEt1Yksxai9NVmtBVDdYdTRQekdhUWhPaFJHalJPbnQ2cXo1Wkk4K1ow?=
+ =?utf-8?B?M0t6UVpJWG9IZ3V1UUtPRjRCMFR3RVVwZWluTjBrQjJ2c2d3WTBCSWF0c3JY?=
+ =?utf-8?B?N0NKVDY1MUc1Y2dtTTIyNVNyY1BJMFgyUnV4WjVVWG9HTm9VTmNQY0hDNk5F?=
+ =?utf-8?B?UjVpWFF3S1NQbk5uaWlGczh6cFpEZE5UdlRiQ01VNGdyZmpCU3JkOEYxZ2ZI?=
+ =?utf-8?B?K1c1NzZ2NHZpRVRMNTUwMGg1VUFLUzVmaENrSkw0MlpDcHRZVFZTR0hyZVZn?=
+ =?utf-8?Q?oSyOAsNSljAqmg6M=3D?=
+X-Exchange-RoutingPolicyChecked: Tt4TEIjYB1/QNHWnFyjU2gltRFgvGN+/8dc/Nt8+2Ai/t8X7Cr9oS7OQnIqdoMORCLD/8q/nURiuQJLeWi/IUeIScsRysMNe9Grfg+LtVV0l1DgFplIL2fqjGOOroea3cI7iPDhC5LErwOMjdHdUo4j36ZKu6wIt7lWtJ4DGA/Q5FVT0X+mUTuInNlKBrAlpm9nG/AOgiknxYV/eK56Xr7zyOS3whvXGPYwuKBcpNZqbgBYDWPxc3G6zzaOp0ipYvieC7tGk6+b28aikV+4wRVGdqphBCK2nwCXEwvAEa+RkgSceZnQzj4ddFxGveQa+wEKT2tpicwNaFu+lliGixA==
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2b116600-58f5-4bb8-5992-08df4b00b7dc
+X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 14:30:56.9090
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Dnj40XkmemOEpKi3dZ1D/BB4GTgALKlGfEcNyAka3N2JKc+YnjBKb3N9BShYj9O5FKTOyg8Rw3IjrYk03iRakyHGrFdLu01gVfxs+oxjOzw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6012
+X-OriginatorOrg: intel.com
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+On 11/25/26 1:46 PM, Petr Oros wrote:
+> Thanks everyone for the input. Jakub wrote that netdev is happy to take
+> the patches directly once a maintainer acks them there, and Przemek
+> that they will ack more on netdev. Building on that, here is a
+> suggestion for how it could look. It is only a proposal, for anyone to
+> comment on or change.
+> 
+> 1. Fixes could go to netdev as [PATCH net] with intel-wired-lan in Cc
+>     and be acked there by a maintainer listed for the driver, so they
+>     would not need a separate round on iwl-net.
+> 2. Patches that are already queued could be sent again directly to net
+>     by the people who originally posted them, the same way.
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 1
+but please not everyone at the same moment ;)
+on our side we will try to not only human-review the code, but also
+use local sashiko and to run the code
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+the current time frame for that is ~3 days, after that in netdev
+patchwork series is marked as "awaiting upstream" (yeah, weird name for
+"awaiting intel" :)), another revision of course refreshes the timer,
+but it's not good to repost just for that
 
-- [Medium] dev_xdp_attach() (net/core/dev.c) now rejects every
-  XDP_MODE_SKB attach with -EOPNOTSUPP when dev->type is neither…
-- [Medium] The new early return in netif_receive_generic_xdp() (`if
-  (skb->data - skb_mac_header(skb) != ETH_HLEN) return XDP_PASS;`) skips…
-- [Low] Documentation/networking/af_xdp.rst (around line 86) says XDP_SKB
-  mode, which is used when the driver has no XDP support or XDP_SKB is…
+> 3. Later, once this works for fixes, the same might be worth
+>     considering for net-next.
+> 
+> It would also help if Intel updated the MAINTAINERS entry to match and
+> kept it up to date, so that it is clear who acks fixes for each driver.
+> Jakub mentioned adding maintainers or splitting the entry, and the
+> details would be for Intel to decide.
+> 
+> Does anyone see a problem with this? And who can make the final call
+> on how to go on?
 
---
+that's correct summary
 
-net: xdp: fix generic XDP on skbs without an Ethernet header
+> 
+> Regards,
+> Petr
+> 
 
-The patch refuses to attach a generic XDP program to a device that is
-neither ARPHRD_ETHER nor ARPHRD_LOOPBACK. It also skips the generic XDP
-program at runtime for any skb whose mac header is not exactly ETH_HLEN
-bytes. The goal is to fix a WARN in skb_vlan_push() that comes from the
-Ethernet header fixup in bpf_prog_run_generic_xdp() on L3 devices such as
-sit0.
-
-Closes: https://lore.kernel.org/bpf/20260812043643.808295-1-kennethbwlee@snu.ac.kr/
-
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index cd0796a1dbfdf..a9ef193967bab 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -5825,6 +5825,10 @@ static u32 netif_receive_generic_xdp(struct sk_buff **pskb,
->  	if (skb_is_redirected(skb))
->  		return XDP_PASS;
->  
-> +	/* XDP is Ethernet only, skip skbs without an Ethernet header. */
-> +	if (skb->data - skb_mac_header(skb) != ETH_HLEN)
-> +		return XDP_PASS;
-
-[Severity: Medium]
-Can this silently skip a program that was attached successfully to an
-ARPHRD_ETHER device?
-
-Take a VLAN device with reorder_hdr off. Its type is ARPHRD_ETHER and it
-has no ndo_bpf, so dev_xdp_attach() defaults to XDP_MODE_SKB and accepts
-the program. On receive, vlan_do_receive() does this:
-
-net/8021q/vlan_core.c:vlan_do_receive() {
-    ...
-	if (!(READ_ONCE(vlan_dev_priv(vlan_dev)->flags) & VLAN_FLAG_REORDER_HDR) &&
-	    ...
-		skb_push(skb, offset);
-		skb = *skbp = vlan_insert_inner_tag(skb, skb->vlan_proto,
-						    skb->vlan_tci, skb->mac_len);
-		...
-		skb_pull(skb, offset + VLAN_HLEN);
-		skb_reset_mac_len(skb);
-	}
-    ...
-}
-
-That leaves skb->data - skb_mac_header(skb) == 18. Then
-__netif_receive_skb_core() jumps to another_round and calls
-do_xdp_generic() with the VLAN device's program. The new check returns
-XDP_PASS for every packet.
-
-Before this patch the program ran on the full Ethernet+VLAN frame, so
-read-only filters and XDP_DROP filters worked. reorder_hdr can be toggled
-at runtime, so a filter that is already attached could stop being
-enforced. Nothing reports this: no warning, no extack and no tracepoint.
-
-The commit message justifies the runtime check only by dev->type changing
-after attach. The VLAN effect appears only in the v2->v3 note below the
---- line, and that note won't be kept when the patch is applied.
-
-Would it make sense to warn once here, or to reject the attach, and to
-describe this in the commit message?
-
-A separate point: bpf_xdp_link_update() calls dev_xdp_install() directly:
-
-net/core/dev.c:bpf_xdp_link_update() {
-    ...
-	mode = dev_xdp_mode(xdp_link->dev, xdp_link->flags);
-	bpf_op = dev_xdp_bpf_op(xdp_link->dev, mode);
-	err = dev_xdp_install(xdp_link->dev, mode, bpf_op, NULL,
-			      xdp_link->flags, new_prog);
-    ...
-}
-
-This path never reaches the new dev->type check in dev_xdp_attach(). The
-device type can change after the link is created, for example through
-bond/team port enslavement or TUNSETLINK. In that case the link update
-still succeeds, and the new program never runs either.
-
-Is this inconsistency intended?
-
-[ ... ]
-
-> @@ -10775,6 +10779,12 @@ static int dev_xdp_attach(struct net_device *dev, struct netlink_ext_ack *extack
->  			NL_SET_ERR_MSG(extack, "XDP program already attached");
->  			return -EBUSY;
->  		}
-> +		/* lo is ARPHRD_LOOPBACK but uses Ethernet framing. */
-> +		if (mode == XDP_MODE_SKB && dev->type != ARPHRD_ETHER &&
-> +		    dev->type != ARPHRD_LOOPBACK) {
-> +			NL_SET_ERR_MSG(extack, "Generic XDP only supports Ethernet devices");
-> +			return -EOPNOTSUPP;
-> +		}
-
-[Severity: Medium]
-Does this break existing generic XDP users on L3 devices?
-
-Today an XDP_MODE_SKB attach succeeds on tun in IFF_TUN mode, wireguard
-(ARPHRD_NONE), sit/ipip/gre/ip6tnl, PPP, RAWIP WWAN and IPoIB.
-
-Some programs never modify the first 14 bytes, for example read-only
-filters or programs that return XDP_DROP or XDP_PASS. These programs run
-correctly, because the fixup in bpf_prog_run_generic_xdp() only fires
-when those bytes change:
-
-	if ((orig_eth_type != eth->h_proto) ||
-	    (orig_host != ether_addr_equal_64bits(eth->h_dest,
-						  skb->dev->dev_addr)) ||
-	    (orig_bcast != is_multicast_ether_addr_64bits(eth->h_dest))) {
-		__skb_push(skb, ETH_HLEN);
-
-A plain "ip link set dev X xdp obj ..." with no mode flag is affected as
-well. dev_xdp_mode() falls back to XDP_MODE_SKB when ndo_bpf is missing:
-
-	return dev->netdev_ops->ndo_bpf ? XDP_MODE_DRV : XDP_MODE_SKB;
-
-tun_netdev_ops (TUN mode) has no ndo_bpf, so XDP on an IFF_TUN device
-always uses generic mode and is now always rejected.
-
-The commit message says these attaches will be refused, but it describes
-generic XDP on L3 devices only as comparing garbage.
-
-Could it say that generic XDP setups that work today on these devices will
-now get -EOPNOTSUPP? The Fixes: tag points at a 2017 commit, so this uAPI
-restriction would also reach every stable tree.
-
-[Severity: Low]
-Should Documentation/networking/af_xdp.rst be updated in the same patch?
-It describes XDP_SKB mode as:
-
-  A fallback mode that works for any network device.
-
-After this patch, dev_xdp_attach() returns -EOPNOTSUPP for XDP_MODE_SKB on
-any device that is neither ARPHRD_ETHER nor ARPHRD_LOOPBACK. That covers
-both cases the document describes: an explicit XDP_SKB request, and the
-fallback for drivers without XDP support.
-
-netif_receive_generic_xdp() also skips skbs whose mac header is not
-ETH_HLEN bytes, so generic XDP runs in fewer cases than the document
-describes.
-
->  	}
->  
->  	/* don't call drivers if the effective program didn't change */
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124142545.221584-1-jiayuan.chen%40linux.dev
