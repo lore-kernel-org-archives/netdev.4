@@ -1,100 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.60
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795606934;
-	b=dNL+i5woYiJOOpnHNrUcjAm8okF4OYvRwLuXwpkiUVqAoDIDdyoTOvSnLKZVTiIU9eHn
-	 Z1x6kKYZ/iEj9h6kRX3GK3Ox/aKf/KQ857U9a+Pl0Bs6q3ia4BzI1u6/TA2llS6NCOQ4+
-	 zqD+IK8RfqZ0bAt3OTfnEJntMI0iHi1hsJlUMDS9WGWhLw+W0n0U9TSmMlSL1zyeCF0h+
-	 c08RAci/hBMwZ8DIfFMXEt55lmeznAOJjFE3KqWvI0F2QAQ07Wr0HxW93YZ+EiCCydRwC
-	 PZsf2LCUlPDScIPEg3DIQ9RT48E6AfG2/DwfiZZn29KtbJ/KeSXhfxWoFR2cQE1zwyg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606934;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
-	 References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
-	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=dnCs0nm6zZQtlqnyxGQtMNY7n/UQWeL3Ulx2+XM5F48=;
-	b=5MZ0jhZAT4JVs5khtVCwC7x0VVWSJy5GBol9hd8Jro2WNWJhbp/o20Z8wQhLM3/XhuFj
-	 qq47TwHehXMC+Xvw5zOGFvtfyQpOYf5wN3rW8yy0voVk91BBj27xvdsHFqf0rwsFegDOu
-	 n2lYT/lUKmIPBxG/AXK0NLhd7l8Tbbn5kWH1eojlvTDlUXNEyrPlwciX9jghUGPug3bEN
-	 MEt3VFRjLfD454dyPXtTMXKD3276N8AlEuCsPykwpIeqtATAWIVAS5YW6s/XabDWsuZ/d
-	 FBxVRy1n5rxhwLb1QfH9BrQXcjLO2MzEUnZUxruaKa++VfIjWz5pkknEEIEztmGNRsQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dnEBXTek;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.201.60
-Received: from CH4PR04CU002.outbound.protection.outlook.com (mail-northcentralusazon11013060.outbound.protection.outlook.com [40.107.201.60])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=202.12.124.152
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795606968;
+	b=4enrWouxgrzjaSEzW48VnI4SyLQuTs32APcQpmroDfEVMrvnkwmA/E+6/44AeTO7xCrC
+	 MpxEfKNAaojzbCrK63wj+lRFK5av15PKmPo8kSYjlPOIyGf/9JFcoGFznnntP1P3dr0k+
+	 +X6EgMnOFkR8OAcHt3VyVFWseEPxdTscU6/0Yfoqtl0r4SdRjGS1cNBeP/GdkTswzUS8W
+	 Z3DGosMRDA5yaqDG/3Brc8793QiX5Cc8tfz9VzCNEjLt4NYAEt4uDC0dvoJvx2u/KxE2T
+	 arJ9oIznZTZNwB7cYjhc6HoUpNhAhyZ5DgUG+DJ4/U+AJVW6H4jp5tayeKPFMbIqKPQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606968;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
+	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
+	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:Content-Transfer-Encoding:
+	 In-Reply-To;
+	bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu58+1g01Ccl8=;
+	b=a1GHr2gPVQt1DGLSH0pzEF0ltVGwBOt2lpnJaSo0JyPK1co91Hz+vEmD6yJht06pS34l
+	 4yQ2ClYMZGd76QQ+jmCrhk9wOq32vFbF6POAD24lVEY4trhlz+Px/5h1j4LNaamV7VeW0
+	 HsHTPzH8X+WwVRf7/6C9F79YPIm8F4UcUIt2JOP5/k7x8tkNOGaf6D+PGeNNfvGrkvqSv
+	 8nUSMkXXX087MiBVlD3SZiHH5Hf6VvlqwZNFm0lLH+tbSJAiUcf5zoq8FyhLNrv6HoLDY
+	 ReSYSBC6Ia365K2eI7AcRXT6Fx8opD9SJ6blRnSY926lanQtwcr7pcwWPiDjs4dy0YQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=queasysnail.net;
+	spf=pass smtp.mailfrom=queasysnail.net;
+	dkim=pass header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XFmGg0K3;
+	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RehI1OjG;
+	arc=none smtp.remote-ip=202.12.124.152
+Received: from fhigh-b1-smtp.messagingengine.com (fhigh-b1-smtp.messagingengine.com [202.12.124.152])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E22F606A31E;
-	Wed, 25 Nov 2026 11:42:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E22F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D119606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:42:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D119606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=queasysnail.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=queasysnail.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=dnEBXTek
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=L7TI/8P4+9OYletdPn6JvIXwCalVEQ9gDolYO/614F4Mu/1Trc9UCPvRoltTueLUprnbnpG0zBFz5qQB2sppDgLzahW1xI1oDd2SRgXbjkQ4ViVyicAbA8w2giFcZlfQPYfeLRURjx8IT+seqnpXLhnXUzk8Rvv5C7VR/efJFJjVX6uCsr7rLoXD85QMLY2uXWCvmJjNnaTsF7d/hjqWN544yfbXDGiwj+jO8utXxa5FVtIgvm3IaEOzEgk6Gv2M7MoIqLrsp2zgkTKeebkaFVFHXvr0XKDZ695dB8HKqEa8uwAKANyIZjHqkImI7gM4KR5svfb8seynOmYCRqgLqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dnCs0nm6zZQtlqnyxGQtMNY7n/UQWeL3Ulx2+XM5F48=;
- b=PBo36COCw31Usa9qcaExkhtRpW3wokFCEf9OMlhym4KsYo32yo9fTnO3n9AICatStNKwDzqpcfgfWgYrfQa0lnScFEZeLC4wrmsxB7WGQ+iH2XztdH6d4J/OXND/VkVX6pR+snpH3GzzcZ8S+vjfMCnnBQvKyiYi6z5Cn8NVMF3Ze8WdsnkzvZ112MMbXQJYdIHkBZkoxKliC3L7wkdJYCuauZH2hNeCqSnykDQtTrbbpb7ZgJnwzcLvU+KyvYeQRc4vubvGrTdHfJaNS0D6Vg0Y53lEcObqnkhsgcE1kjePCM2lz3e2quN5X0BwWJgX+AxMZpZyLF2wJQjr4bAAIw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dnCs0nm6zZQtlqnyxGQtMNY7n/UQWeL3Ulx2+XM5F48=;
- b=dnEBXTek0mYdxyE+t0/HSbzaeWAZHrGzfsjWEsLXKYmuWfZ/kW7Aj7AQbkyOJbXkhaKvhSMy+EqHYKd2vGUnGdpR+h/EJpmbWy0PfSsZUvWHTGtN+Ij99d6H2KP8sqoJWyWvRBqpeb/E+Bj1QgdcIHK09faOMYzvWd+m5egD/S7mvPkJRYX0p5xiMzYoRNPoDBJey4UQuRdBrg2qmQ/GV0JoMG1CugoOL3N/amtiv6OuSuY76/23p6Ya5Cxad5/yADrVBfDHvF55Z4FfXdqeQMJkDVLeIHea0dk88z6YtnC4+DrGo6Ytoe1Gt+IugXHluRBiLEVHYnw5ywhYj8MxLQ==
-Received: from BN9PR03CA0066.namprd03.prod.outlook.com (2603:10b6:408:fc::11)
- by SN7PR12MB7324.namprd12.prod.outlook.com (2603:10b6:806:29b::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Wed, 25 Nov
- 2026 11:42:07 +0000
-Received: from BN7PEPF000000A2.namprd04.prod.outlook.com
- (2603:10b6:408:fc:cafe::4) by BN9PR03CA0066.outlook.office365.com
- (2603:10b6:408:fc::11) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.592.12 via Frontend Transport; Wed,
- 25 Nov 2026 11:42:07 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BN7PEPF000000A2.mail.protection.outlook.com (10.167.248.154) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 11:42:07 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
- 2026 03:41:57 -0800
-Received: from [10.80.22.164] (10.126.230.37) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
- 2026 03:41:53 -0800
-Message-ID: <e8eaaaa7-545e-4019-9d7f-d2aab00c3217@nvidia.com>
-Date: Wed, 25 Nov 2026 13:41:50 +0200
+	dkim=pass (2048-bit key, unprotected) header.d=queasysnail.net header.i=@queasysnail.net header.a=rsa-sha256 header.s=fm1 header.b=XFmGg0K3;
+	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=RehI1OjG
+Received: from phl-compute-04.internal (phl-compute-04.internal [10.202.2.44])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 822EE7A051C
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:42:46 -0500 (EST)
+Received: from phl-frontend-04 ([10.202.2.163])
+  by phl-compute-04.internal (MEProxy); Wed, 25 Nov 2026 06:42:46 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=queasysnail.net;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
+	 t=1795606966; x=1795693366; bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu
+	58+1g01Ccl8=; b=XFmGg0K3c2VNV/U1Wox9EqkGfkfqfapXdq8CPsXtSMnKCYiP
+	r+Snf/QLovy355e075IwUtqz7rWJA9HcaStuyGlGfV+CXS+LDVf81zDmBroTG3+i
+	2PR2wUtAF9QWmaWyBOm778lpl5Yo/kF9UtUCs/So+ynkiyZvD/2ublk4LMC+3ucI
+	ppLMm1MN5aqQscihgo+R+WEkzm2YsAOqcvPta3Fw4/q5BUoVGX7M5WhsUUUXBhH3
+	lyYQdlbMCvILf/flT1/MMj8/N6HPazgxO3lPnLCmcBgfm5v9levA/SPcD9LdSdr7
+	MgRTTDEalmxA3tGdptgpbwQ7KVN6Qbm3Z9tU+A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795606966; x=
+	1795693366; bh=4cP//6uftNlbZ1CgEpvxccI/1eFx75zu58+1g01Ccl8=; b=R
+	ehI1OjGYrKONm13BNoY4sHVLIvfGN75XZLB2+c2LxfZesbT8vk1eNtuXk1wId1An
+	9w5UWMLr09Q6BeUrtRATFGEER7qAm3Sru78BP/oUQY+TgJ41O5VkZhVTo5pwAkOv
+	3F1h9ImWZ+ppMjY9RwadxZU5Mrs4838SZc3n2vnrehgTrhMmvlgSTfhgIdEEN+9T
+	XqlJ3DVhZoG5KbBFN8MzTrRGaZ97x89MINFNEXSuhZLAKIQS094C09RN8F5uRnoz
+	fCqzQxsPpmSeVFVrVju/a2mn0VyA1OZORiav4EnShTP00LhrBKmG9L8C/WKQn/9a
+	ZbJbPuwvu1mbCokciVYZA==
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=sign d=queasysnail.net a=rsa-sha256;
+DKIM2-Signature: i=1; m=1; t=1795606966; d=queasysnail.net;
+	mf=PHNkQHF1ZWFzeXNuYWlsLm5ldD4=;
+	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
+	s=fm1:rsa-sha256:YwA/vVDEORqhMB3WPGWVa6Dwdx0UaSpoKKyNY8SrfttE4qp
+	sCmLuo7yQDy7DUKs7D6aCKHW3NeTNpCGHVtZI/N4QmgQouqyiyfXXDxCDOgfib1Q
+	wnPBuLTFTqiexPERDLVl5MlCT7FQatcOD2dv0ArtuoXgQWZ7UQ7pmxX2zYwTaSh5
+	BELe4oV1AdNNcA+aWi2GKKajTBhkEZhG9QQ49Vun+qF7WAQcKyFYGHa6UoadFJh+
+	bkbyl0BZYV61gySxuKz4B+r1Fu/ZxTRYULZqj4RBrua4oBSgGjJ2BJ2efCaxZh9J
+	oyLAPI3r/TuOt+CtlzVQDGUlo0+/Nl10M6WELCQ==;
+X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
+	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
+	action=mi-m=1; hc=13;
+	hn=cc,content-disposition,content-transfer-encoding,
+	content-type,date,feedback-id,from,in-reply-to,message-id,
+	mime-version,references,subject,to;
+Message-Instance: m=1; h=sha256:k7wUJ/1Z+GKcK+at9dE5gsh1z0yS4VAK/37wnpsRGzo=:VS2rSnb1gHOVw3QOsm75qp57SK5lJhkejn/bhUZ9EAw=;
+X-ME-Sender: <xms:tckGa_v03hqb9em0vFiJzy6skLVhal7bBa674DZ9_MTbcuP8doZeHA>
+    <xme:tckGa4rh3QQp0WLB-1H7OcgQIGt-Mz43zyGH-wlgVaWH9XXdIbWJvlPmxuDRpqhc_
+    hP8g_wktaa6trjUmbQoB7Fk1LGBydf3K0cyS7-HHXJpAKZCVP19n0fY>
+X-ME-Received: <xmr:tckGa-XFzYuM6OkJgq4VCmKqYx3IGfdhDbpP1va9a7Y2haGUl-lAtfZli1Y>
+X-ME-Proxy-Cause: dmFkZTFS2vUXDjXD2CzX40LTsRscSpS1p1yBuargzSROeWa2OorAOwjnVxQCSz/bap8/DR
+    uyDQZa+BfdH5cozSOtE70/1DWRl9qaR3PU6/eH7o+053A5UOVU+VXNUwC1XjYSZKkfrTMG
+    tDDZiSZ6XHqIhlB0Bs79nMAWPd89kpkpqfg8DWkT0jdA9QFcHVxHO6zJQiP0cj2UxqO4Fg
+    27Gt6LuVK23jTbORvZjt/71VIZlXlHDqn4qWwd4ESFPi5NC4eqflwtvLbU1OOTWz1XxyNZ
+    w99DiYKbLbNEKu+WxigTaRF9j7Gyy8C8F6gxpZOB98j9amIqYrAONCSYf9Z4Ioj1fSwPnS
+    GuOgsldt5Uo3sRK76ANpNxjjv21Ut9l6Vz6PYrqV+rE0lgjoGRVF2GhwaKm999Zx+o6E1p
+    u2+1+I8T/lIL9lNlkAoK4kQKiZrSpNn/m/O6arCk4Jih3IyvmHxnqLpS/kGP08yk6taoWG
+    sY/l2bebyHF13J2Osw64QXKvsiceSGytVb9OGtd5BTgdLo7+sT3W+IHTJEa5699xjCnfhF
+    JSF+nfmr34yUVq8GGEs39VKfoDFkcTx7bBTLEvUWB72bZxa8hFuL9RCawNUQd33pKdmEyq
+    jxzLLAdZz5qaGGIvDkVttI0YZlU5KrLQLAqNLFuhICQBcBWRUCKC7GKhIIIA
+X-ME-Proxy: <xmx:tckGa42G_c2muUtHYSM4_swTe9X5AwMIVQjP7UlMl_WXT-94V1hrDQ>
+    <xmx:tckGa7s7H8N8u16YO2wkaaHPo5PuU8YO41YIrtwj9CQIqHPTkVqKVA>
+    <xmx:tckGa4VDP1VBELKXvllV83x4eybttoxxxiOh_EqpItuJznujzv2EEg>
+    <xmx:tckGa7xYAIdT8E1NH-F6vvUj417MeroC7vjPUbG-2CEwu6p_B0eRzA>
+    <xmx:tskGaw6WbbPGyFdC8hBn-1EkRwY0PFekDyvxmRaSLMQn0BMiWseUpe2l>
+Feedback-ID: i934648bf:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
+ 25 Nov 2026 06:42:45 -0500 (EST)
+Date: Wed, 25 Nov 2026 12:42:43 +0100
+From: Sabrina Dubroca <sd@queasysnail.net>
+To: zihan xi <zihanx@nebusec.ai>
+Cc: netdev@vger.kernel.org, ipsec@lists.linux.dev,
+	steffen.klassert@secunet.com, herbert@gondor.apana.org.au,
+	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com,
+	horms@kernel.org, vega@nebusec.ai
+Subject: Re: [PATCH net 0/1] xfrm: espintcp: fix IPv4/IPv6 receive path
+ confusion
+Message-ID: <awbJs5YyFCHkggs1@krikkit>
+References: <20261116155229.318582-1-zihanx@nebusec.ai>
+ <awa-F8TtQllwfELK@krikkit>
+ <CAANe3eQhQD=6s-Da74_bEy8qNFtOp_kCqpqDs64TBv0CAXdKtA@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,178 +130,98 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
- adversarial mode via GET_CONTEXT
-To: Leon Romanovsky <leon@kernel.org>, Jason Gunthorpe <jgg@ziepe.ca>
-CC: <linux-rdma@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<saeedm@nvidia.com>, <tariqt@nvidia.com>, <mbloch@nvidia.com>,
-	<kuba@kernel.org>, <pabeni@redhat.com>, <edumazet@kernel.org>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>, <dtatulea@nvidia.com>,
-	<moshe@nvidia.com>, <maorg@nvidia.com>
-References: <20261117170914.27410-1-yishaih@nvidia.com>
- <20261117170914.27410-22-yishaih@nvidia.com> <20261122073156.GA12665@unreal>
- <761ca80e-a772-41f3-b8e9-cc332e4ba5d9@nvidia.com>
- <20261124125327.GR14811@unreal> <20261124125950.GC9566@ziepe.ca>
- <20261124133353.GT14811@unreal> <20261124134751.GJ9566@ziepe.ca>
- <20261124140906.GU14811@unreal> <20261124143024.GO9566@ziepe.ca>
- <20261125090309.GY14811@unreal>
-Content-Language: en-US
-From: Yishai Hadas <yishaih@nvidia.com>
-In-Reply-To: <20261125090309.GY14811@unreal>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: rnnvmail201.nvidia.com (10.129.68.8) To
- rnnvmail201.nvidia.com (10.129.68.8)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN7PEPF000000A2:EE_|SN7PR12MB7324:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5dab5dc3-391b-4e16-7ef7-08df4ae92267
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|36860700016|376014|23010399003|82310400026|10067099003|5023799004|11063799006|4143699003|56012099006|261021121427099003|261009223027099003|261021135927099003|261102123227099003|261022105027099003|261028144727099003|261026121527099003|261026140227099003|22082099003|18002099003;
-X-Microsoft-Antispam-Message-Info:
-	7RP546421SviAODaF1mccsuH/vzL6/beqeW0iC4O2TMn4vysylhxIWnCaq+oqmFGAjJhDLtGKhkUG3imG86vQc/QmPxdLsFluPTtzMJXtXFiW98H7iAbtJEGQ/bDV01Q+0jACf+8YX/u1LFgnFqO6u4ACLQ4UFnOrfozxoCc7MYMMmw0c3LYNiP4AAIj4ghSZDDswwbJeyx9O2srjJM1gb/pbkDKEfDPUrtfbbOuaLvqKG55gDQrWzfIuJGL2Cj7NYznpXEu53BTDC3kAXz4d20gDfq5DUcHPxcn+BzSNB7c2zE78IgYQoyDb5bVX6lGBZFuKWYiQWGdRlVgCYzdvh5LGwmU9/+0m8kJvP6XNN77Kt+WEV73TL43mx6wfjJ8pbipU+Ku99nq3j9RH22AdaSbREPBrXX23TqiAR31BPyiZveo6au+ZesNtNWN4QLbVPkIZjS60BCrW6dd14n/5Pdzm0XbYiLUpdrsvJPMTCkgchR3GqrD5DBauhhqBPHqE2VOqhnbiZgk4PJc5nx4j2tbpPaR0MfEybJV8JxfVEzkffj9Ikz14DWdzqWD2GKONwbg70/TWQfHlBGTlrnSqjSnefozDbYPjvrina7s3eV007a1rAxmmznFx8H6b+bGH94SgRDXsaU1aglCsUJ9izBD8luyTX3vOFc6pPXLqmcz4nrnNRDjGQGdTOVH7LYOUfDebBet06HgTvCO3sNIWQ==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700016)(376014)(23010399003)(82310400026)(10067099003)(5023799004)(11063799006)(4143699003)(56012099006)(261021121427099003)(261009223027099003)(261021135927099003)(261102123227099003)(261022105027099003)(261028144727099003)(261026121527099003)(261026140227099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	DLnuP3keTkJ+S1RyAVN4nKU8tgK/7nxKlbHmtbCooVyEhdo9/xjtJ77aKSRwL2tbf8fjq6sieHMZae4IQ/wmXzezpkRCeXtWD15pwQQttwga/vqsLW3HGKlyk4I6kWJKFOHu/pUw/G70d6tVJGNm+01QylfIHyfFkkI3NPCDGbxQzJImjhhD+H0jOM/PQQMUhkOc1LGAoKMY581SWwy5Cw/ixKzRlLTG+9OsTy5km3Yu7H7bZ0G7/EbK4vzz9bI0KiPhtfWrPAwhFSHQP7wnnAT7M9TB7E18JMzOIodYcv78hCYpvzprEKTtMb3uYKGc1BOJI4mtl7dIbmxGdY4bjw2vF0NciDzk4CuMZKRx2liusgiLtZJRtQdRXUIikJqg4FIdEmeLeHSm9YdS8SL0dUeEknOWVlPagXDqMWTqZq6cQHpTI1jH7/vrRF2X/idk
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:42:07.3142
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5dab5dc3-391b-4e16-7ef7-08df4ae92267
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BN7PEPF000000A2.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB7324
+In-Reply-To: <CAANe3eQhQD=6s-Da74_bEy8qNFtOp_kCqpqDs64TBv0CAXdKtA@mail.gmail.com>
 
-On 25/11/2026 11:03, Leon Romanovsky wrote:
-> On Tue, Nov 24, 2026 at 10:30:24AM -0400, Jason Gunthorpe wrote:
->> On Tue, Nov 24, 2026 at 04:09:06PM +0200, Leon Romanovsky wrote:
->>> On Tue, Nov 24, 2026 at 09:47:51AM -0400, Jason Gunthorpe wrote:
->>>> On Tue, Nov 24, 2026 at 03:33:53PM +0200, Leon Romanovsky wrote:
->>>>> On Tue, Nov 24, 2026 at 08:59:50AM -0400, Jason Gunthorpe wrote:
->>>>>>>> RDMA/core: Report and enforce adversarial mode via GET_CONTEXT
->>>>>>>>
->>>>>>>> In adversarial mode the NIC is not trusted. As the kernel protects its
->>>>>>>> own code from it, user space has to protect its own area, e.g. the data
->>>>>>>> path that polls CQEs directly from the HW.
->>>>>>>>
->>>>>>>> Hardened user space might use a different data path, with extra checks,
->>>>>>>> and support a smaller surface. This isn't needed for a trusted NIC, so user
->>>>>>>> space must know when a device is in adversarial mode.
->>>>>>>
->>>>>>> This information is part of trust level series. Why is this a “must” in RDMA UAPI?
->>>>>>
->>>>>> Userspace has to work differently if the kernel driver is in the
->>>>>> adversarial mode, and the kernel should not permit an old non-supporting
->>>>>> rdma-core from loading to prevent a security downgrade.
->>>>>
->>>>> I understand the first part of the sentence above, but the second part is
->>>>> unclear. Why should this prevent it? In adversarial mode, the kernel simply
->>>>> isolates that device from the others.
->>>>
->>>> Userspace needs to do it too or it is not a complete defense.
->>>>
->>>>> Moreover, the kernel cannot determine whether rdma-core has actually been
->>>>> adapted. A locally cloned version of rdma-core can set the new adversarial
->>>>> flag without changing the old, legacy version.
->>>>>
->>>>> Once that flag is set, the kernel allows the patched rdma-core to proceed.
->>>>> Therefore, saying that it “should not permit” this makes no sense.
->>>>
->>>> If someone makes a non-official version of rdma-core that doesn't work
->>>> securely then I don't care one bit.
->>>>
->>>> I care that the official versions are not improperly mismtached to
->>>> give something insecure.
->>>
->>> You explain why rdma-core needs to know about adversarial mode, which is
->>> fine. However, you also say that rdma-core MUST send this new flag back
->>> to justify the statement, “The kernel should not permit an old,
->>> non-supporting ...”.
->>>
->>> However, in your last reply, you said that the kernel does not actually care about
->>> the rdma-core mode.
->>
->> What do you mean? This is a mechanism to help the user manage software
->> versions by not accepting incompatible rdma-cores.
+2026-11-25, 19:14:18 +0800, zihan xi wrote:
+> Hi Sabrina,
 > 
-> Please take a look at the patch.
-> User space provides that new adversarial flag.
+> Thanks for the review. Your questions are fair, and I agree that my
+> original cover letter did not distinguish setup evidence from evidence
+> of impact clearly enough.
 > 
-> +	ret = uverbs_get_flags32(&ctx_flags, attrs, UVERBS_ATTR_GET_CONTEXT_FLAGS,
-> +				 UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (ib_dev->adversarial_mode &&
-> +	    !(ctx_flags & UVERBS_ATTR_GET_CONTEXT_FLAG_ADVERSARIAL_SUPPORTED))
-> +		return -EPERM;
+> On Wed, Nov 25, 2026 at 6:53 PM Sabrina Dubroca <sd@queasysnail.net> wrote:
+> >
+> > Hello,
+> >
+> > 2026-11-16, 15:52:28 +0000, Zihan Xi wrote:
+> > > Historical QEMU run output:
+> >
+> > I'm not sure what "historical" means here. Your reproducer will output
+> > the same thing before/after the patch.
 > 
-> ...
-> +	UVERBS_ATTR_FLAGS_IN(UVERBS_ATTR_GET_CONTEXT_FLAGS, u32,
-> +			     UA_OPTIONAL),
+> By "historical" I meant that this output came from an earlier QEMU
+> run, not from a fresh run for this revision. The socket output only
+> confirms the test setup: the accepted socket is AF_INET6 and the peer
+> is v4-mapped. It does not demonstrate a failure.
 > 
-> The kernel does not care whether rdma-core is up to date. It works either
-> way, so why should we prohibit older userspace on these systems?
-
-Older userspace is prohibited only in adversarial mode.
-
-The new attribute is optional on both sides. An older rdma-core doesn't
-pass it, and the kernel declares it as UA_OPTIONAL, so
-uverbs_get_flags32() returns 0 flags when it's not supplied.
-The -EPERM is hit only when ib_dev->adversarial_mode is set. In generic 
-mode, nothing changes for older userspace.
-
-In adversarial mode, the kernel side works either way, but the process
-doesn't. The threat is the NIC, and rdma-core polls HW-written data
-(e.g. CQEs) directly, so an rdma-core that predates this support leaves
-the process unprotected.
-
-The flag doesn't authenticate rdma-core, and isn't meant to. The process
-is the one at risk, so it has no reason to claim support it doesn't
-have. The check catches a mismatch between official versions, e.g. an
-adversarial-mode kernel with an older rdma-core, which would otherwise
-run unprotected without anyone noticing. With the check, it fails at 
-GET_CONTEXT instead.
-
+> The relevant observation is the ftrace entry:
 > 
->>
->> It is not a security mechanism to hard guarantee that rdma-core has no
->> bugs.
+> xfrm6_rcv_encap <- espintcp_rcv
+
+Yeah, thanks.
+
+> It shows that the packet was dispatched to the IPv6 XFRM receive path,
+> despite originating from a v4-mapped connection.
+> >
+> > >     accepted socket domain=10
+> > >     peer=::ffff:127.0.0.1 port=41512
+> > >     recv=0 errno=0
+> > >
+> > > The historical tracing additionally showed:
+> > >
+> > >     xfrm6_rcv_encap <-espintcp_rcv
+> > >
+> > > and XfrmInNoStates increased by one (before=1004 after=1005 delta=1). The run
+> >
+> > Which is expected either way since you haven't configured any xfrm states.
 > 
-> It is you who talked about "... security downgrade ...".
+> Agreed. The XfrmInNoStates increment is expected without an inbound
+> XFRM state and is not evidence of impact. I will not present it as
+> such.
+> >
+> > > followed the no-state/error path without a KASAN report, oops, or crash-log,
+> > > so no crash-log is attached.
+> >
+> > So this is just a "regular" bug where things don't work as expected,
+> > right? No other issue after we pass the packet up? (still worth
+> > fixing of course, the patch looks ok)
+> >
+> > Earlier you say "the vulnerable path", and call the reproducer a PoC,
+> > I want to be clear on the problem ("vulnerable" and "PoC" sound like a
+> > security issue).
+> 
+> I agree that describing this as a "vulnerable path" and calling the
+> reproducer a "PoC" was misleading given the evidence. I will use more
+> precise terminology in future revisions.
 
-The downgrade is a silent mismatch, where an older rdma-core runs in 
-adversarial mode without protecting the process from the NIC. Failing
-GET_CONTEXT turns this into a visible error.
+This will be helpful, thanks.
 
-Would the below commit message make it clearer ?
+> Based on the evidence currently available, yes: this is a receive-path
+> correctness bug. The demonstrated issue is that ESP-in-TCP dispatches
+> an IPv4 skb from a v4-mapped connection to xfrm6_rcv_encap(). I did
+> not demonstrate a crash, KASAN report, memory disclosure, or a
+> consequence after successful XFRM state processing, and I will avoid
+> claiming those.
+> 
+> Separately, source analysis confirmed the control-block overlap
+> addressed in the current reroll: strparser metadata overwrites part of
+> the saved IP control block before the old code restores it. However, I
+> have not demonstrated its end-to-end effect with a valid inbound
+> SA/policy. I also could not substantiate the proposed kernel-memory
+> overread through IPv6 ancillary data; the inspected helper
+> bounds-checks reads against the skb tail.
+> 
+> I have revised the cover letter to distinguish these findings and
+> limitations. The reproducer demonstrates the wrong-family dispatch; it
+> does not demonstrate a crash or security impact.
 
-RDMA/core: Report and enforce adversarial mode via GET_CONTEXT
+I don't think you need to send a v2 (unless Steffen asks), I just
+wanted to be clear on the type of problem this is.
 
-In adversarial mode the NIC is not trusted. The kernel protects itself,
-but user space has to protect its own memory as well, since rdma-core
-parses HW-written data, such as CQEs, directly. Hardened user space
-might use a different data path with extra checks, so it has to know
-when a device is in adversarial mode.
+Thanks.
 
-An rdma-core without this support uses that data without validating
-it, so on a device in adversarial mode the process runs without
-protection from the NIC, a silent mismatch. Such versions are already
-released and can't detect this, so fail GET_CONTEXT in the kernel to
-turn the mismatch into a visible error.
-
-The kernel reports adversarial mode in the GET_CONTEXT core_support,
-and user space declares its support with a new optional GET_CONTEXT
-flag. In adversarial mode, a GET_CONTEXT without that flag fails. In
-generic mode, nothing changes for older user space.
-
-Yishai
-
+-- 
+Sabrina
