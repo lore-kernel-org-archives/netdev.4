@@ -1,144 +1,103 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795603898;
-	b=aK8/3OC61VEQgk7Se7a6eR3k7MBBObkO21qTDBuBr+g2mLKsITCyypX59+PFFE7hGf+b
-	 FkV3vZhkS4Sa17k7UQ0bE8QcfQ8p2l4hty80GHmSNnZA4QYfAeIz+c1HUyQfTDkLQGIsA
-	 M2qNjzkFEEd3QBn5Ag+PUHi7Qc8JhVjSD5RWkTwgejU6l2HHGepS86onif0J4sBbGWJwF
-	 Lpv6kzNyY3ryCJBodLyu9VampNtI5jgsv/eEq5z8fQbf7k8Ie69wyZ+kEBhQ/c8Jv6OJg
-	 Qcxj3fbu7b4/V3clbCcSvEmEnC0JGpqccgb8urB5cS3Q8tJMppaF+2jGVYnbd97Cc1A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795603898;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
-	b=Lzy19M+sBaUkoLfA246pd9ZcEQfZcNDvaoyeZmDF0M1M9wiEDvqNE8uVl4MZuoTqbeQU
-	 LUaqgVf+Qwpo1sR/dtWe/0oI1eDsEBG81n+IX97yaafsRiTyXWcq6ud85LOXCscAMVGjq
-	 h7z7aBeQ1R0byDoSgdjcEOV0QYm4y46vJDM1oJzR74J8jaR4cEVViX76bP4ZXI+J1OMzS
-	 TD3NBBzNTeDwoPuTbHtZzWUEBYBdeu0yRcCDi8fJ0yuX5NVrhApfTHnqR/RLpp41o34Qr
-	 y0pQ0XxABxFefys0egugJcMFqE4Ng65XUgNjRr3qgEnwI5CjLKn5+RrtMfHWovVXuOw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kdaSoxAc;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=j8YdDP3+;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=198.175.65.17
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.17])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.42
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795603985;
+	b=kWVRQW+JQDfCYkshF08r2RKJtOS379KCkzpj8jbO+hKkJ71fACXQrCUJrFR+JOpDqUWg
+	 VO/HpgyRkGYpAG6IA1wOMH0t5VyNqkI1BxroBojyuRbFS4OV/iOLKbMDY/cPT0nKIpIxT
+	 jieh6d3akL1V4Hdu0Q8HWakxlMLmKoGMLL68ARXjdY3R0IDaLJ1+ZOPfeSDBTcMCKs2vQ
+	 T7ogmthuG9+ASYSkU7XO+DmfIvGOvNQbVqqcNDYwuXyB4TkbfP6M2PqBm/xhmgM0Yj8Aw
+	 KuruG8AJrEtSBskTxniE/3XCQc1PnUqENf0QQp8vV39Lc/gWidsLki8foavUqQ6CvHg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795603985;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=GtyqZEMexnqUKbDqv2TlW/7VEDcPuxK4TtntSukqHfg=;
+	b=LInQEctNSubd/HTMPt1505tebpXIhCNru6APfLqEYhNRIvIqACgKZa6EmDSljXeiipbu
+	 vWsKO5n9PTy4u0cL43DSAdXsVGrxsaFFSleY4JhIlIXAt/wVzai2jmznA9mmpW3op0PTh
+	 YSiA/f+khguMmUQcDDQ8bqS6MxyosCOUJyXt6cuW1+K2pbXqnwrvvwClxPwSSIMt91MrZ
+	 jGweOj2d2xr6OAwzs2JllvbXQd4ovvrmgBFjWVXHngW4eDE1UtReuucCJZdHBlAke4DYe
+	 l8GPeXcUKoVXskAC0nqPsZ+6h7xFF6uYi1t/7z9NGud0F/At+Iazk9FdqGOxHxLQFxQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=baylibre.com;
+	spf=pass smtp.mailfrom=baylibre.com;
+	dkim=pass header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZQLLNSep;
+	arc=none smtp.remote-ip=209.85.128.42
+Received: from mail-wm1-f42.google.com (mail-wm1-f42.google.com [209.85.128.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E7C1C606A321;
-	Wed, 25 Nov 2026 10:51:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E7C1C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7CD7A606A329
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:53:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7CD7A606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=baylibre.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=baylibre.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=kdaSoxAc;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=j8YdDP3+
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795603898; x=1827139898;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=mO+hu8rLZK2JVKrLBcBAJu6Esr6pNIbScG8aVS+Ky8o=;
-  b=kdaSoxAcHUCeUXCiS5I0IWvz9pt1A92XDqYLcGag1z7P1ysMBKhsyy8c
-   aoCZjnGAK7swb9SgSCKpE6J7+ByabYCXEMrCxcfjAd6JJcz+hVp4NcocF
-   L6X6K3SsbvEwihJlnDyUQh/2H59MgdNY+c0yvFwoT/rw1wRoNRz3KonDV
-   zN4ryKAYPmH9UKYMCobjJ6KQjzr0gmpU2yqK0lpCgFHxxneL3fGd8yMJQ
-   6Y/W6zRNYqO+PvyjgDLhdqrnSv7+ziN9IFELqgJGlnLpRYRIKHx4liNQH
-   w7XhYyhza3frhj2AsJh/EzoZzlzeNHSdUCAyWE9N/UbzCa9ukOaXIlgxp
-   w==;
-X-CSE-ConnectionGUID: NbBIurBYSbSvD5lw7EywPg==
-X-CSE-MsgGUID: npF51DFCSACqas9FEQuHJw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11976"; a="4481116"
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4481116"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:51:37 -0800
-X-CSE-ConnectionGUID: 6pCoGl3dQBK2mHfmJ6V5bA==
-X-CSE-MsgGUID: bf+9vXXTS7G100ttOZiwsQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11963084"
-Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
-  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 02:51:38 -0800
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 02:51:36 -0800
-Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 02:51:36 -0800
-Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.18) by
- edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 02:51:35 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YWfy7mB1/MUJ9pBUHy2ch0uCWqKnBKWUAylC5Jbbl4c4d3Icay8HzqY6Atw35UqtfFBGlaZjSsb2DG8nzegJiz7ELqaxvG2L9tbCuMMgUnid23qHOjA3S96KOiPZVfLuOo0PDniJyX9OT8zVaISBylbzgCPnJA/aZRwr2RtF6VjRNlXe9aLBIStD0aw+S0SAnpE7/LVdZ3SblZQINosKipd+e/cgiA7CUp/nSSnKnSsvJnVY7clpiVfdsu/oW6an5rUL56LoqfN894SnebV4gSdPEyxPykEz2F7U30nhSGSl7MxjylSUfkai7vEQ05IkM3zcgbzJyevWsHtzSc9UxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
- b=XYBlJoooJfCKHklD+ufkWlNBws4YlhBWao1p7x1o7mPCC5/bcz083UDwO0qxtKLd/B+KRVh+TBKk5E3A7PkEpTUsbxEEKwm9DR3TxSqVoOKvpUkw78S9oaYjb7DFz+HuLZdtIaVb3DELHG9HPfWQf7wISUISQ04mzzzdZmE3iEHtmEm/sVQz43eR603KeTjAOXx/PsJVmfAUdbsSXubOL8f2alm9Z/jEd/EfZO/dVxCDGh9n0/CYv3zDRr/qsloAdWhNtPaY2IkdMjZfYw+AqrowVcKbfLr9Tm8xiq/63fyV1MDCAbnMY8zoqauTXgaIsBTq5lxYGXmzk0ajiYUu5A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=72VtN+2xeR615hAsM5l0521pzcWN1yyeZMFu7TazXGU=;
- b=j8YdDP3++bDv17MGGtbM3t7pDfapxbFA6Mc1Ozua68HlZdwm+9T1yUYG+uzfz0fgYBCw5IV0/ftZwxL+gS7UPcH17WDQfZKVTxjmMZ0H1fWgELWLiYnl6CPYt5mCbPD5Heow9nhB/UQ+UhCxMOeqG3Bm4Oq8Hb0T8CNqmbIspNs=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CH3PR11MB8496.namprd11.prod.outlook.com (2603:10b6:610:1ba::22)
- by IA0PR11MB7185.namprd11.prod.outlook.com (2603:10b6:208:432::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
- 2026 10:51:28 +0000
-Received: from CH3PR11MB8496.namprd11.prod.outlook.com
- ([fe80::5627:e3a5:cb26:b555]) by CH3PR11MB8496.namprd11.prod.outlook.com
- ([fe80::5627:e3a5:cb26:b555%4]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 10:51:27 +0000
-Message-ID: <dfcfedd2-7232-4949-97c3-bc51d28c6131@intel.com>
-Date: Wed, 25 Nov 2026 11:51:00 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-net v2] ice: release IRQs and rings in ice_dis_vsi()
- when the VSI is already down
-To: "Ionut Nechita (Wind River)" <ionut.nechita@windriver.com>,
-	<intel-wired-lan@lists.osuosl.org>, Tony Nguyen <anthony.l.nguyen@intel.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Larysa Zaremba
-	<larysa.zaremba@intel.com>, Maciej Fijalkowski
-	<maciej.fijalkowski@intel.com>, Jacob Keller <jacob.e.keller@intel.com>,
-	Wojciech Drewek <wojciech.drewek@intel.com>, Andrew Lunn
-	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Petr Oros <poros@redhat.com>
-References: <20261124083506.14071-1-ionut.nechita@windriver.com>
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261124083506.14071-1-ionut.nechita@windriver.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0144.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:4bd::26) To LV3PR11MB8508.namprd11.prod.outlook.com
- (2603:10b6:408:1b4::8)
+	dkim=pass (2048-bit key) header.d=baylibre.com header.i=@baylibre.com header.a=rsa-sha256 header.s=google header.b=ZQLLNSep
+Received: by mail-wm1-f42.google.com with SMTP id 5b1f17b1804b1-4bb9d8e8e90so27615545e9.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:53:04 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre.com; s=google; t=1795603983; x=1796208783; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=GtyqZEMexnqUKbDqv2TlW/7VEDcPuxK4TtntSukqHfg=;
+        b=ZQLLNSepQaoHarrnqWeyG4f8VwH9MS+htiIaGhKRruFOrQbKn+J9w/l08zzFlA5J5c
+         umSjq/J9LJyNcElsTl0fwemLQy5VpuESexyNF7A+r8IyufkqFyWYa8R/6aOM5wQ8nQEd
+         qyi6yBtbjHxdkT3++ADg85sE3dTkBryDS7/uruqwp7VlLMuMk/PhLksXBqm88a3484XP
+         Z02GhcPzwGG5XoLCIxR2rjn7pdeoq45tX+Fb78WOZpyT9iOjH9a0cNp+jcDDdqNvfKq/
+         MHPaESzBn79lc/KQpTvzeq7MAF4+5FydeFO15G5Ei7yYiOhiMI+MEneGwF8ANdHRPoN7
+         FZ7Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795603983; x=1796208783;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=GtyqZEMexnqUKbDqv2TlW/7VEDcPuxK4TtntSukqHfg=;
+        b=TSZGPrnRHOsrQ9FWHt1Gzv8HBg2GRu0Mjgvp3s98tOQd7FQVs/MgFQWIqI6/M7K44I
+         TspsSkd5jTTWgzKrET23lW8EMyW8w4isluvocPiH0hHJkopL5wGbFlmaw0/kHWlUyn54
+         D+8DnLh3ZhlOuA4O7SeWUQ3kPbCbRR3r9nLJgaybCZXowll88QKOcVTCppxmkBgI0hTm
+         oekybOsbL+5SSDGb4bisAz7EagE6F47DuGo5csHxfut5OuLgJ2vyWwY/21ETGpGe+COH
+         ZUaBMnMq/40+UJD4PkDohfpHXBw9gzUwiApFH/chU1pZtCV5/gQPo5oj+BUS8QccPhrI
+         jdkA==
+X-Forwarded-Encrypted: i=1; AL+hErEfUhupaHDBx0Tr7mocPG1pOVloAq4zIuMJzyLWhaFphl2KLxcrDUHvWd2pZR7kKA3ymQoZrlI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oDqqjwLcM0EkMKQOnQNoMCpROety9jpABIgYcpbvVsAo9bF8F
+	ou9z/FSu6ARv4MqDp5aRl35ifyzx6lfebKLhxtqM03SGt9NoRRewMC5VVyqiGxNslOogWIeu2/0
+	feWDQ
+X-Gm-Gg: AZFdTZdH1p7ZdTIY4+yjDhdFOpZxw/uabWkhp+IyBBdr5MSAzCodM083BgwDT+rb8e4
+	51FFtlqoyYlDV28Z/Qun/KXHntNofkf/P0ZxLiUuc8wtPfd+n+9a92fKy9RUhtIbjKphNVueEWK
+	fgIqRgKdG5FKUDWpHeXJSRJUuIWzGzdX/VXmJiotWmu6WNk4bEc6dznBpi6yg6faCVUTE0C+O0P
+	Y7o4QFBK1jrntilC6knp9v6Y+ftcNEXh7d7ZyWm/Zkho41Bxz/9wGYUjjKJNzyXGdZ+B9KDPN7L
+	56NxqA8THFOAqBK7Pc0TyfBed4cNMxLpqs7OcxJA90mMZfqE/sU8FbrXKsVuqiNPai/Ow4NSUrd
+	l0uoHrUXLWQ/dQPQZN2VXPLwsNRUjfO7TCyUCDeVyOLC1weIfBJsykmM24LkgFNgGv3K5UP4zY3
+	4g1Ds+xJBZ8AbPtDw21FdheQsp6YmX9NgI6n2gNKbDtO7BEBJpaSjEUBSxYH+DDsNa6xY54pz+a
+	JEt8pkUO6JyemM2LaVIHndBN8hjXixHUZwXuO9rNItg/8uRJgzzwmv9yGBMIMUXXmAkFY4PlE4X
+	JdE6W6XNmJ/nHr0PKdluCpqjjPmXPjRKEWAXTGKXGQftGxmhCIaIqvDPHQicdLFMMWiUILsH8aY
+	hxNARdMlZxPq3kRqP
+X-Received: by 2002:a05:600c:638f:b0:4aa:2339:a375 with SMTP id 5b1f17b1804b1-4bb8880607cmr329616615e9.13.1795603982845;
+        Wed, 25 Nov 2026 02:53:02 -0800 (PST)
+Received: from localhost (p200300f65f19a9043ef7230869dfba63.dip0.t-ipconnect.de. [2003:f6:5f19:a904:3ef7:2308:69df:ba63])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-4bb853a12acsm539176075e9.8.2026.11.25.02.53.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 02:53:02 -0800 (PST)
+Date: Wed, 25 Nov 2026 11:53:00 +0100
+From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
+To: Magnus Lindholm <linmag7@gmail.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>
+Cc: richard.henderson@linaro.org, mattst88@gmail.com, 
+	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org, linux-next@vger.kernel.org, 
+	netdev@vger.kernel.org, iommu@lists.linux.dev, joro@8bytes.org, will@kernel.org, 
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v3 2/2] alpha: enable contiguous memory allocation for
+ coherent DMA
+Message-ID: <awa6Owm3eDW3EitJ@monoceros>
+References: <20261115103809.1288167-1-linmag7@gmail.com>
+ <20261115103809.1288167-3-linmag7@gmail.com>
+ <awVzJMLVw4wUSqky@monoceros>
+ <CGME20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e@eucas1p1.samsung.com>
+ <CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
+ <3467269e-9929-4c9f-bc19-847976f49527@samsung.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -148,316 +107,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PR11MB8496:EE_|IA0PR11MB7185:EE_
-X-MS-Office365-Filtering-Correlation-Id: e8af13d3-c700-4fd1-84ad-08df4ae203ba
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|23010399003|7416014|376014|261022105027099003|261026121527099003|10067099003|261026140227099003|261022075727099003|261028144727099003|261021123027099003|261102123227099003|261021121427099003|261021135927099003|261009223027099003|6133799003|18002099003|22082099003|56012099006|11063799006;
-X-Microsoft-Antispam-Message-Info: 138441awNYGD0KP6PQ81h62RzSO3UBjea0H4Az2cAtl4EjcuHNbEtm6mka6n17djQUo863J+qWrtjf3SZ/Rk9J5qhk/ev9CDjKtx5P75uUV7KKVgmQTATp7GHehMxNCt9lmynKPN9NqA5sAiwq3epYVFCKvok763te+R1sWwcEwNLuX1PjPOZ9cxbI0gNJW4hUlWlIeJmfflolQ3leHhAA5OancNLUKybGE8ZpjQ8meho9jzPfg/Z3zN82YE/XHynutNmbhXVN+JPfIJLBGaewfGWfcWW1dUJWhyiKgj0mYH9mymo2I5pDgAsvptgQLBXIOJEh3rXlzZx6z3eh+Sgja8XeBf7NFg2p0TA3F3KcSiCLMFThTMS8wGcHAzgJ5nY2Kn8HiN5y81sQTsMNehau8GN2OSok0QFUadSR0aBmT9JTPnMo4RQgUpPdOqKv22v0TSUagLLIeIIKgRWv8aBufgSlWIBavVQm+4+ScpWleQUvkaygPkZK1RXjdMyDwXXIRZ7Qyt9oSpbM2NnwqQRdse+FFUtL+TorDbkXoM4XAy8VMp8qxDLKo52NsRgYOy1YGWgcU0/2zuGpWcmNhjqIRvgmJ3o0C9M3tCrh2NeKwkrfLmGzmpfeNk7Sos5XWc
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH3PR11MB8496.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(23010399003)(7416014)(376014)(261022105027099003)(261026121527099003)(10067099003)(261026140227099003)(261022075727099003)(261028144727099003)(261021123027099003)(261102123227099003)(261021121427099003)(261021135927099003)(261009223027099003)(6133799003)(18002099003)(22082099003)(56012099006)(11063799006);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Rk9xdWlFZENpeXZVQXNOOUlKNzhLM0pVRkp5UlFwaXpWYVJza2JxRjhwVjFh?=
- =?utf-8?B?OFdTa1VRK2h3endhRFZnQ3pNRkoyZ25TWldlWTJBemN6VVVGZ2ZkNWErRmRP?=
- =?utf-8?B?NkxpZ0YxVFNJTUcwK3VGY04rRDloN3JnYkFsYjFZYmoxQlZyK05tMWJCc013?=
- =?utf-8?B?QWVGOFhJaWI0QUdyaTVvZk55d3dPVU5zOGdtSThqeTlQT2pGTkJ1aVNMT0ls?=
- =?utf-8?B?c0ZtSi8wV1N2RFc5Y2I2Ykh4UDZlZTd1SVhmVDR3VlVBbFNOZWUyclMyQzhF?=
- =?utf-8?B?TjkzY0I1eE9XVEFxMy9WenJscGJocGxWYlBIYzBwNTlBRmJmNzlJRVpJQzA3?=
- =?utf-8?B?MVVLVVh0akNWd3Z5VXZNVjZFcXIzN20zVG1LeVF2aE9mUEs2TzhOYzdNaHYv?=
- =?utf-8?B?MFFRVTNKM0lwR0VHNnZFQmlqdGZEcUNjMDRudWQ1OG5PV3FrS2VuRDBwenZ2?=
- =?utf-8?B?czR4NWdLMjlWSDJZa3h4dTJna3dEQVZkcjRkMGdzVko1dUxHeUJoOENxZG5h?=
- =?utf-8?B?M1VvYVJYMjJRZ3JKV0tYMHN2UlJUYUJpY1dpVnNVY3BheC9BWVlCWjIzeU5I?=
- =?utf-8?B?WXhHdG1aNUVPOVB6M3VDS3ozNUhHREhqVlFtbUZaQWRRQmc3eVA3SG9NdVVW?=
- =?utf-8?B?ZGY1YVc3SmVvV2swbUhiZFdhdVNMTzQ5ZmhybmNFQUpoUU01V0ttL2IvZlJS?=
- =?utf-8?B?ME9MSjRCd0lHbzEwa1NrV1lybFBaTHNhZVhqdnlmWUxzR001c2dEQ3FpS2pU?=
- =?utf-8?B?OWFYdkpOdmpCdXFqeFk0bnFqWlY4cTVLNTE4bjdWcUcrRzJxTlNhWVd5bHhL?=
- =?utf-8?B?Sm5lNkNDRjA5OWpRT2hZSVBNTm9rYWx6RTZubHhiUGRLemZqaFVHNngxTjZz?=
- =?utf-8?B?T05ndWIrN2xJWGNia20vN2M2SGI0R0NyclVmZElseEdlMVdaeDZhZXgwdzYx?=
- =?utf-8?B?eVV0WkF0aVozNDVFTjFJNnl1MVQzc2NNR2NtVStHWWZqemRKSU9lR2xLOU9T?=
- =?utf-8?B?NE1Lb1g5TGMzNCtscytLam5HZytHYWptSzlwTFRmMUtHMFg4OFhOQklOWFFY?=
- =?utf-8?B?Zkc2UlZoeUNYTGNVWDgyaHZJUkhpQ0M1TDk4Q2QydkZTWDAxTkcvZkxVQVNs?=
- =?utf-8?B?UTBDdXNCYmdNZ2JQTXZHSHdzVEpYcWo0N1VheUZ0eVFPZW43ZERFRVM1NUln?=
- =?utf-8?B?N0lmMEJsYm1GYi9vWGwzLzF1S1lsNzVOR2ZIRkZlV3ZTK0UxOTh5a3kxVE1t?=
- =?utf-8?B?T3ROdmpSREk0SEJYeldiMzBsNW9oQXBCeE5Ia21pS3hHU3J4QVY0bU9DY1BS?=
- =?utf-8?B?aE1lSi9Xai9LdXhLMmNEN1E3cFoybnI1MGhqVG45bjE1MTJFeU10cEhaY1di?=
- =?utf-8?B?ek5SU1BYaDRRQ1dYaVdIanlxVHczZDVsM210WHo5QXdhajNnRFBYU0NCWFBH?=
- =?utf-8?B?bG5rd2VNUEllQlR6elEvais0dG1KeE44eStTYTJNcjFUT1Z5OW9VM0lHU1Bw?=
- =?utf-8?B?ckN1RW5CWU9jNFpFeGh6M3BEVVJST2NndytpTk1JZ3V0UTlreEszNVNOcFlU?=
- =?utf-8?B?a1JyNkFnS05GTDlmSXhyRUhrODZtY3ZwalQwZERoNlRsSmNrMkVsM2JycjJt?=
- =?utf-8?B?dVl6TFpYRS9WdlNhTmFibCs3ZTZkaUdwRG5UNUtUeTVwczF2Y1FpT25Fdzk4?=
- =?utf-8?B?ZzlPSzd2WUtYd2ZZVjkydXF6THVsR0R6MVR5SzIrM084R2FuMnZGUmxPYlk5?=
- =?utf-8?B?WnNaMUdXNnh6TnkrL2paNFB5VGNzNUxGQ0JhMjdPUEx0U1dEcUZGVDM4MFhu?=
- =?utf-8?B?anFwa0ZsNktqR2FtWm1uUytnVXhKcDlkL3l3aTBoKzhJQTQwcjNwN2lpUFF2?=
- =?utf-8?B?UGNCSThOdnR0c2hjSEp6aHV0Y0Z6eDZySm1XNmpmak1aNkJjaWs2VG4rOVY0?=
- =?utf-8?B?RGpPQXM3Zk16Mm0xZEx3QVVyMmhqQ3JTTGJSMldjR3FXOVYvMU1XcWkxeEVH?=
- =?utf-8?B?alFjOGIvYnBwdUtjaXZVWFFrMTBJVHpPaitYa2tpZDZLTmpzaUgwdU5ndmFs?=
- =?utf-8?B?L3M3VEJtNWRZbTMrYzI2RnZwaDVRUGpwcyt4MmhtS3hlZnB5V3dzZVhsdWpK?=
- =?utf-8?B?RUJFeE5nQmFoeFN0T3dYb0VpNVdqRURCQ3B3K3Blc1BCME40RFVCOUxpN2d0?=
- =?utf-8?B?MjJlYVA5TFBaMERiN1RvR0l0Yko3NWRnNEtVWllnbkZTOHE4S2ltSjd6WmpL?=
- =?utf-8?B?bkw3aXJBZjgyMEZLSnRCTm50dlFGWXZyUnNLWEFCKzYvTGtwWnRjbkdyYzZY?=
- =?utf-8?B?UXZ3THFZT3pIVEdsREE1dVA1emVCQ2xwN1Q3ck02bEw5VEdYRFVjeUx3V2JH?=
- =?utf-8?Q?HlC2Gl+6A/QVCxe0=3D?=
-X-Exchange-RoutingPolicyChecked: MLALFe5ah5v2hlnNyM3KpuiEVEGViYQYnakgdh/kSjxQAxImWZK76WmwcTXsnRp3sQa0Ygx2VGR35sAuL28sFL5OpOiktsIR6m57i8ZSIRM976Dj7lLfatJLNotwuMgZn0QHFbCW9fnFBOxgVR6A9FmUTJlYWEvmVqC4bpzE9CecLeWrpuAKRbTsvVdW6qblAKNR8DuBns794oytHJuYRPQjKBl/eGBcFgG1pbhUPv7jcKD5T/SaeE4ECgm8SzqBOIDzj51kuFZWEKmRkn5IqFS0v39cnXtKe9Y9Ka6AtSx+WsLMQr/TLiL1PZMNAt0gRdK8VXKhjoWSueO9t+GQyA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: e8af13d3-c700-4fd1-84ad-08df4ae203ba
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 10:51:27.6009
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: F4boZ6Pw+Xu/SQ32wskbJSapxIaCd2Sd+NM9FgdleGvSKo+vfgNS5u09BxARZTb/qsa85SITaTTxFRZDi2w2gf+RVeU55NjqwTTK030caL0=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR11MB7185
-X-OriginatorOrg: intel.com
-
-On 11/24/26 9:35 AM, Ionut Nechita (Wind River) wrote:
-> From: Ionut Nechita <ionut.nechita@windriver.com>
-> 
-> Since commit d8c40b9d3a6c ("ice: check ICE_VSI_DOWN under rtnl_lock when
-> preparing for reset"), ice_dis_vsi() sets ICE_VSI_NEEDS_RESTART
-> unconditionally, but still skips ice_vsi_close() when ICE_VSI_DOWN is
-> already set. For a running netdev, ice_ena_vsi() then calls
-> ice_open_internal() -> ice_vsi_open(), which does a full open: it sets
-> up the rings and requests the IRQs again.
-> 
-> A running netdev with ICE_VSI_DOWN set is not always a closed VSI.
-> ice_down() only cleans the rings. It keeps the ring memory and the IRQs
-> so that ice_up() can restart the VSI quickly. If the restart fails, the
-> VSI stays in that state while the netdev is still running, for example:
-> 
->    - ice_down_up(), when ice_down() or ice_up() fails (the latter also
->      via ice_change_mtu());
->    - ice_xdp_setup_prog(), when ice_down() fails.
-> 
-> If ice_dis_vsi()/ice_ena_vsi() are called on such a VSI without an
-> ice_vsi_rebuild() in between, which is the case for the DCB
-> reconfiguration in ice_pf_dcb_cfg() and
-> ice_dcb_process_lldp_set_mib_change(), ice_vsi_open() runs on rings and
-> IRQs that were never released:
-> 
->    - ice_setup_tx_ring() hits WARN_ON(tx_ring->tx_buf) and overwrites
->      tx_buf and desc, leaking the previous arrays;
->    - ice_setup_rx_ring() overwrites desc, leaking the previous descriptor
->      memory;
->    - ice_vsi_req_irq_msix() requests the PF vectors again without
->      IRQF_SHARED and fails with -EBUSY, so the open fails and the
->      interface stays down until it is closed and opened again.
-> 
-> On the reset and mqprio paths, ice_vsi_rebuild() frees the ring
-> structures in between, so there is no WARN, but the ring memory still
-> held by them is not released until the device is unbound.
-> 
-> Call ice_vsi_close() unconditionally for a running netdev, under
-> rtnl_lock. ice_vsi_close() already handles a VSI that is down: it only
-> calls ice_down() if ICE_VSI_DOWN was not set, ice_vsi_free_irq() returns
-> early when the IRQs are not requested, and ice_vsi_free_{tx,rx}_rings()
-> only free rings that have a descriptor ring. This is also what
-> ice_stop() does for a VSI in this state. The race fixed by the commit
-> above does not come back: ICE_VSI_DOWN is still tested, by
-> ice_vsi_close(), under rtnl_lock.
-> 
-> The non-running and ICE_VSI_CTRL branches are left as they are. In both
-> cases ice_ena_vsi() either does not reopen the VSI or, for the control
-> VSI, the only paths that set ICE_VSI_DOWN also release its rings and
-> IRQs.
-> 
-> Fixes: d8c40b9d3a6c ("ice: check ICE_VSI_DOWN under rtnl_lock when preparing for reset")
-> Signed-off-by: Ionut Nechita <ionut.nechita@windriver.com>
-> ---
-> v1 -> v2:
->    - Shorten the code comment to one line (Przemek)
->    - Drop the Assisted-by tag (Przemek, Jacob); an LLM (Claude) was
->      used to help with the code analysis and the changelog
-> v1: https://lore.kernel.org/all/20261106171657.583713-1-ionut.nechita@windriver.com/
-
-thank you
-I've run your patch through our local sashiko instance, and it reports
-that your patch adds new problems on edge cases. The same issues were
-reported both on your patch just on top of netdev/main and
-tony/dev-queue+some more fixes (meaning those problems are not "already
-resolved elsewhere"). For the first issue (DCB) both my and Petr Oros
-patches were applied (not yet on netdev main (aka -net)).
-
-> 
-> Found while chasing the same WARN_ON() in ice_setup_{rx,tx}_ring() with
-> the out-of-tree ice driver on an E830 port without a module installed,
-> where ice_vsi_cfg_lan() fails and ice_dis_vsi()/ice_ena_vsi() then
-> reopen a VSI that ice_down() left with its rings allocated. The
-> in-tree paths above were found by code reading.
-> 
-> Based on net (f66469d9905b, "Merge tag 'net-7.4-rc2'").
-> Tested: build only (W=1, no new warnings).
-> 
->   drivers/net/ethernet/intel/ice/ice_lib.c | 5 ++---
->   1 file changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/intel/ice/ice_lib.c b/drivers/net/ethernet/intel/ice/ice_lib.c
-> index 7cd2dd066ef5e..92a086aa629d6 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_lib.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_lib.c
-> @@ -2852,9 +2852,8 @@ void ice_dis_vsi(struct ice_vsi *vsi, bool locked)
->   		if (netif_running(vsi->netdev)) {
->   			if (!locked)
->   				rtnl_lock();
-> -			already_down = test_bit(ICE_VSI_DOWN, vsi->state);
-> -			if (!already_down)
-> -				ice_vsi_close(vsi);
-> +			/* ice_ena_vsi() reopens the VSI, release it even if down */
-> +			ice_vsi_close(vsi);
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="6sn276mtbb7rvtiq"
+Content-Disposition: inline
+In-Reply-To: <3467269e-9929-4c9f-bc19-847976f49527@samsung.com>
 
 
-[Severity: High]
-[Finding: gpt-6-astra-7-20]
-[Sources: gpt-6-astra, opus-5-5]
-Can this free DMA memory that enabled hardware queues still own?
+--6sn276mtbb7rvtiq
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 2/2] alpha: enable contiguous memory allocation for
+ coherent DMA
+MIME-Version: 1.0
 
-When ICE_VSI_DOWN is already set, ice_vsi_close() skips ice_down() but
-still frees the rings:
+Hello,
 
-     if (!test_and_set_bit(ICE_VSI_DOWN, vsi->state))
-         ice_down(vsi);
+On Wed, Nov 25, 2026 at 09:54:08AM +0100, Marek Szyprowski wrote:
+> Hi Magnus,
+>=20
+> On 25.11.2026 00:22, Magnus Lindholm wrote:
+> > Thanks for catching this and identifying the interacting commits.
+> >
+> > I reproduced the error on next-20261123. In
+> > arch/alpha/kernel/pci_iommu.c, I changed:
+> >
+> > page =3D (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
+> >
+> > to:
+> >
+> > page =3D (gfp & GFP_DMA) ? NULL :
+> > dma_alloc_contiguous(dev, size, gfp, dev_to_node(dev));
+> >
+> > This fixes the allmodconfig pci_iommu.o build. A full DP264 UP build
+> > with CMA enabled also passed, as did an object build with CMA disabled.
+> > The full allmodconfig build hit an unrelated cgroup sample error
+> > involving PATH_MAX and LINE_MAX.
+> >
+> > I'd prefer to keep the Alpha tree independent of the DMA series.
 
-     ice_vsi_clear_napi_queues(vsi);
-     ice_vsi_free_irq(vsi);
-     ice_vsi_free_tx_rings(vsi);
-     ice_vsi_free_rx_rings(vsi);
+That's up to you, but in my eyes merging in the immutable branch
+provided by Jakub into your tree (or rebasing on top of it as suggested
+by Marek) is really the easiest option. That way you don't have to wait
+for the change to hit Linus' tree and there is no further need for
+coordination or others paying attention to not create non-bisectable
+commit graphs.
 
-So ice_vsi_dis_irq(), ice_vsi_stop_lan_tx_rings() and
-ice_vsi_stop_all_rx_rings() never run.
+However looking at the immutable branch I see it contains both the dma
+API change and then separately various adaptions to ethernet drivers.
+IMHO the immutable branch should only contain the API changes (that is
+the commits up to 31f7e12d621b) to reduce the amount of possible
+conflict.
 
-A failed restart, which is the state this patch targets, can leave
-queues enabled with ICE_VSI_DOWN set. In ice_up(), ice_vsi_cfg_lan() has
-FW enable the Tx queues, and ice_vsi_cfg_rxqs() posts the Rx buffers.
-Then ice_up_complete() does:
+Best regards
+Uwe
 
-     err = ice_vsi_start_all_rx_rings(vsi);
-     if (err)
-         return err;
+--6sn276mtbb7rvtiq
+Content-Type: application/pgp-signature; name="signature.asc"
 
-ice_vsi_ctrl_all_rx_rings() requests enable on every Rx queue before it
-waits on any of them. It returns on the first queue that times out, with
-no rollback. Failures in ice_down() (a Tx disable AQ error, or
-QENA_STAT not clearing) can also leave queues enabled while DOWN is set.
+-----BEGIN PGP SIGNATURE-----
 
-After ice_down_up() or ice_change_mtu() fails like this, a DCB change
-can reach:
+iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmsGvgoACgkQj4D7WH0S
+/k7oNAgAknak/QZHg7BqHZFzHCe4qtzYco0MHY20TLpuveFkHfRuLa9UVG2bG0Ww
+LQZfbq0hnFip66k6fjmWJ+mGt0QyF7sJj/DpkCtXlI6aQtnnm3D3slJhpH/bWjue
+fk1SdxjYh64pzlg1UF9rEJri73sW9fln2Gz2EK1iHllG2Z1XRGwb4bBzh6WpzAxc
+AuLAWN7R4PJvFLQ+kNkR4YocW5+EV0RnYb7/i7Fb9ABP1MxCxi+4OM8+uD8MGuGZ
+OFggCxgES6vXm2Ostds9EY3vRvG+zs6/ZpyofM5BxVfPInkgG1teIzoXDpivIgkA
+C+dJzsR+ixI93VaJu1B++KrDBjHhlw==
+=UmCO
+-----END PGP SIGNATURE-----
 
-ice_dcb_process_lldp_set_mib_change() or ice_pf_dcb_cfg()
-   ice_dcb_ena_dis_vsi()
-     ice_dis_vsi()
-       ice_vsi_close()
-         ice_vsi_free_rx_rings()
-           ice_free_rx_ring()
-             ice_clean_rx_ring()
-             dmam_free_coherent(dev, size, rx_ring->desc, rx_ring->dma)
-
-Could the NIC then DMA received packets into the freed pages, and write
-back into the freed descriptor ring, until ice_ena_vsi() reprograms the
-queues?
-
-Before this patch the memory was leaked, but it stayed allocated and
-mapped. The commit message cites ice_stop() as precedent, but ice_stop()
-appears to have the same hazard.
-
-[Severity: Medium]
-[Finding: gpt-6-astra-3-9]
-[Sources: gpt-6-astra, opus-5-5]
-Can this now reach a NULL vsi->q_vectors?
-
-ice_vsi_close() always calls ice_vsi_clear_napi_queues(), which has no
-NULL check on q_vectors:
-
-     ice_for_each_q_vector(vsi, v_idx) {
-         struct ice_q_vector *q_vector = vsi->q_vectors[v_idx];
-
-         netif_napi_set_irq(&q_vector->napi, -1);
-     }
-
-A failed ice_vsi_rebuild() can leave a running VSI with q_vectors ==
-NULL and num_q_vectors > 0. ice_vsi_cfg_def()->ice_vsi_alloc_def()->
-ice_vsi_set_num_qs() sets num_q_vectors.
-
-A later failure in any of these unrolls through ice_vsi_free_arrays():
-
-     ice_vsi_alloc_arrays()
-     ice_vsi_alloc_stat_arrays()
-     ice_vsi_get_qs()
-     ice_vsi_init()
-     ice_vsi_alloc_q_vectors()
-
-ice_vsi_free_arrays() sets q_vectors to NULL. Only
-ice_vsi_free_q_vectors() resets num_q_vectors to 0.
-
-ice_setup_tc_mqprio_qdisc() returns with the netdev still running when
-both rebuild attempts fail:
-
-     if (ice_vsi_rebuild(vsi, ICE_VSI_FLAG_NO_INIT)) {
-         dev_err(dev, "Rebuild of main VSI failed again\n");
-         return ret;
-     }
-
-A later DCB reconfiguration, for example from an LLDP MIB change, would
-then go through ice_dis_vsi()->ice_vsi_close()->
-ice_vsi_clear_napi_queues() and dereference NULL. Before this patch, the
-already_down check skipped ice_vsi_close() in this state.
-
-The stale num_q_vectors is older, and ice_stop() can already hit it, but
-this patch adds a new path to it. The commit message says "ice_vsi_close()
-already handles a VSI that is down". That holds for the IRQs and rings,
-but does it hold for a partially deconfigured VSI?
-
-[Severity: Medium]
-[Finding: gpt-6-astra-5-14]
-[Sources: gpt-6-astra, opus-5-5]
-Does removing the already_down check widen races with code that brings
-the VSI down without rtnl_lock?
-
-The reset path is ice_prepare_for_reset()->ice_pf_dis_all_vsi(pf, false)
-->ice_dis_vsi(). It holds rtnl_lock but not the devlink lock. Before this
-patch it skipped a VSI that another context had already marked
-ICE_VSI_DOWN. Now it always tears the VSI down.
-
-ice_sf_dev_remove() closes a running SF VSI holding only the devlink
-lock:
-
-     devl_lock(devlink);
-
-     ice_vsi_close(vsi);
-
-With a concurrent reset, can both threads pass the plain check in
-ice_vsi_free_irq() before either clears it?
-
-     if (!vsi->q_vectors || !vsi->irqs_ready)
-         return;
-
-     ice_vsi_release_msix(vsi);
-     if (vsi->type == ICE_VSI_VF)
-         return;
-
-     vsi->irqs_ready = false;
-
-The ring->desc checks in ice_vsi_free_tx_rings() and
-ice_vsi_free_rx_rings() have the same shape. That could double
-devm_free_irq() and double free the descriptor DMA and buffer memory.
-
-ice_eswitch_setup_env() runs under the PF devlink lock without rtnl:
-
-     if (if_running && !test_and_set_bit(ICE_VSI_DOWN, uplink_vsi->state))
-         if (ice_down(uplink_vsi))
-             return -ENODEV;
-     ...
-     if (if_running && ice_up(uplink_vsi))
-
-If a reset lands between ice_down() and ice_up(), ice_dis_vsi() now
-frees the IRQs, ring descriptors and Rx buffers. Would
-ice_up()->ice_vsi_cfg_lan()->ice_vsi_cfg_rxqs() then refill and program
-rings whose desc is NULL and whose buffers have been freed?
-
-These races existed before in a narrower window, when the reset path
-sampled DOWN before the other thread set it.
-
->   
->   			if (!locked)
->   				rtnl_unlock();
-
+--6sn276mtbb7rvtiq--
