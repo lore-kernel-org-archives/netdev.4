@@ -1,107 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.226.149.37
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795619470;
-	b=Zf57IqMx2Rh3P3lwECIRRtpkJpRmVni47aqgossplDrRzE2tJ3K3POBX76BWbCoLsCAF
-	 fweeVjcwmL4QNmHk+vOvZyGLd3RIPN6uw5vvKlYvyKimOtfyE/RG2uBzBfT76LVdnkdrM
-	 zaAtsu7rsEOcncIY7uBcAVxVWHtPr5TwhMkd8hLRJuculR5eOEU1i8dWPw0kYnJgPvNGv
-	 2Ed//L6uWwMqSe7OM0jpyG612BStvJIpCIcDlxnY/uSZMKEqzpr36AYKwmQyb8F8KaqMY
-	 KYMs1xw+exptHlz51Qcc4oYdW4rH1u1rl67ZJEw8CS0vdLnHknogc/QsPErfwMVWhiA==
+	t=1795619467;
+	b=CMP1i4MMVIZKAvUOvW3Y3QeSyWx0zfGEPm0Neg1d0OeGVXieD9nhh4DHn66gF5wk2eId
+	 2jNQruhm8HtFZ5LxNLQteb1mgEvyT12BPwzen7x3UTaNtBzu3LVnusKIlHsIr/zH/1fOr
+	 1aINZQlSs849DdubUqvkbAqvjVm0sHr/C/QFt+wiDHeM6UvFDSHbY8S+ZcB1Rt1kO7Trh
+	 lH7w44/KvF3idCwUPzoZ28zOXyoXERIabhE1TVhfcY+aM8I5sV0wiH1ST6f+L2dHhrrEl
+	 64zb76MiAn9BDy9BRTwBGjH9sLQB5p2oil9jJkUAaCGgnkv8h9HW/C50oYnoJE86+qw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795619470;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=PkWTnq3QGEWOAEsTJmBvYgTivoElo5W0EbnVtg6mVLA=;
-	b=BFNUMAUcg89KFkCGlRbhyX2/qw3/wpHxSdGq835GQTYDLm7eIEk0401IB8wD+FqdBZum
-	 AdgNK8Ass14edmOtP5rTNb+RkVEhTukdGQy9Be2yfs7Pm6s7Fbeg0ALZqBteLHsWK1XdG
-	 z1eYkNnDnGg2ygI95gHYFDapRoioM/X/rNAQDG1B8IwzYKbbc5oEoWei6soRQQY7vV6cT
-	 N6D0ox7o6f82HO0OjhgvqyLtSftLglx7/3+EiHEEZ8VK6JUcxPjOgPqaN1nKCjv7iMPg5
-	 9xr9+5533cNafzZ151QU064zxHf8iFfNXKi1xTbml44XinPUEWEfDarVottI69h/TgQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795619467;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=YuVk7FWWt2a2HgFMOsP1OlOGIeISBf3PZud268awzIs=;
+	b=fmsvX0yXL+XpERNP6OF4IQAEEtuxbroJBGkLUMdMOM57AqzXA/HKVoJM4mreQlKX/PWe
+	 WKB0Z/73LW/Hg6BGhDFax2hsZLfDoluJ/q2ZIvE1Dfqojq/KSz1nhep4fdaSpLZ4DdMCF
+	 dCESbbhBfThmtWxLGhiRmsPvRROD2396QI1oMvT9ET+vFls8Orz0DObL8p6fGM9MAoCHS
+	 tyr+T0V9cDTPRPHOGrJ9zBfXocdPSPR5LtMIYd15sWxK9J965UFQI7aw8T8VPmwwp1mCy
+	 4hhALOmEe4x7mBTSmLb4idiY7qCOqmSkEXpp4/andBOJhvYRUlrD+aK+Mu+xmkUytlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KAIjgkam;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rtTE7qMy;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=pass header.from=rbox.co;
+	spf=pass smtp.mailfrom=rbox.co;
+	dkim=pass header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=FWhQ+OAU;
+	arc=none smtp.remote-ip=185.226.149.37
+Received: from mailtransmit04.runbox.com (mailtransmit04.runbox.com [185.226.149.37])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8C605606A692
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:11:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8C605606A692
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2455F606A693
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:11:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2455F606A693
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=rbox.co
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rbox.co
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KAIjgkam;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=rtTE7qMy
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795619467;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=PkWTnq3QGEWOAEsTJmBvYgTivoElo5W0EbnVtg6mVLA=;
-	b=KAIjgkamlTYFGucxk8T3VirvrD4AjBegTtbTvAQuarRw1GWxKPjwZkojGX2D6H65/78AH0
-	ahT2iVT/aSMvYGXhkWfGiAOJ0vSTIAiPk68VpW5Qlb9offAbWn+8Cyn2i7CWkpITLwgZEl
-	U403l0Vmg8Y4dIcixdjcmpjdhNd8Hz4=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-452-w0AdpP9WOTO7aar3Sowgbg-1; Wed, 25 Nov 2026 15:10:55 +0000
-X-MC-Unique: w0AdpP9WOTO7aar3Sowgbg-1
-X-Mimecast-MFC-AGG-ID: w0AdpP9WOTO7aar3Sowgbg_1795619450
-Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-48e1d839ddaso3322147f8f.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:10:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795619450; x=1796224250; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=PkWTnq3QGEWOAEsTJmBvYgTivoElo5W0EbnVtg6mVLA=;
-        b=rtTE7qMyUl3BOKK8xFVIQgdB+opMrGwuaSard2vdN5SAKktiF0j9bNYd2Jka7kn98w
-         4SNnBuuc/TqTWYCYOpmf6ln7M1MgkFf8JJhrKZ4D/NACMjJ2tvoefComJseGW5IvVfGo
-         zKh34fT3K9B18YxlD3xAucTUxHUXnvJGI9724JOllGIAQeAK3jIZWFxQuoKu1QkyMxF1
-         BaVSQm/9gHQ/TxL4WGQbBFhnl2ZtWyg8JeALMx84vEWdkEU5sM+SnDRyCONgvMqYBWGB
-         meAbH3oqYZQZnBnEjIlsZ/SkwEkHu7/fAkSFBqV27fahWsXfS993Q4+7i7GfjhkaLfdU
-         zLpQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795619450; x=1796224250;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=PkWTnq3QGEWOAEsTJmBvYgTivoElo5W0EbnVtg6mVLA=;
-        b=t9yHepeIYIlE8yTRMI8YXt3Q2pk7gyxwuDg+rgL4Xb8DGKWqJVui/cGq5y6uQDFtI0
-         Kfv0ABGg73+0Xk2RIQyA5dVtTkX9afyHv+gTy8MKHIzS8M4uiyfrjtwO3vIXVtynVzcH
-         YimC+COYn4Ts43Mjd1Phkh+hZ45+jIrdLkddm1yr4g2w/iScjZGuxKDoZP5e7ZpDM/Ql
-         9niy1rBKdf4Q/nD88uCP2w4p4wilzuZkH7dIfqcEQwrGUrvLu8OyjAHJpuqc51NHCKaC
-         z0PLRVCGZni0D/lk6EHcgFrIhRr7++v32Vu87RvfV+c/wJagzOq92Ygm7eJ6gVIY2qmp
-         W/2w==
-X-Gm-Message-State: APuU4Z/CtQUiMZFcgJg7dwcBPbHssOu0GmX8pRcTsmVDbUJfJ8IcVzf2
-	K/vvNs25wnVoxBhb5cTjujgNXd/3E62jFZv/ToUXu2L8lSZsrO3HkXvvMc001WY1TIoZ1Gepc9G
-	PhdPU3r57+s3xfc6ylmjpAp+ilGWafKVEEjj0pLB0nuEoSb5/A3huRN6Tbw==
-X-Gm-Gg: AZFdTZevf9FYR1Q9unbHmBmWWXfnGI6VwRlH8P+dFX/pPf/PUwI2yzpIZtnnuurDPOW
-	tHzX3SIBXKr/Zuj16RCyaWtpc9CGagOM/koHnQGLidtIe9h+PfZ8jaaVlvg8u08NaVC8wZAvPE1
-	azraA9uPsfGhqQXrVZYyujDS6s5Xz5OxXyCNuTOIBltBS1MS4tkEw1sXbNd+BcjOA6CSuZ23N3p
-	pSswOyShCZUnEtS8NiG90O0fSBzV0Twn6W2dA5Zn8s9uL/UntSSu5Frc0sOMGv7y81jv6Ua/c5J
-	wTsTxrisQuxOkDSxl/5pMNFkm1G8KrC4zcdSsYEeOkZwepDlY57DiPWj1XGqJiBEMYiUD4Xy3IU
-	uYsjL9LESlha3kK905kClD3sBHq33gyTITncO92Bq0KZhd9n7qBwYSE3E1WmFX2bX8+BulcBNKz
-	7mKm9/S0rPKC1Fs6brZ2o/8jSVeSCLRyjDz28d883cYWj0
-X-Received: by 2002:a05:6000:4812:b0:48d:b650:69aa with SMTP id ffacd0b85a97d-4abb55185e4mr34849838f8f.50.1795619450197;
-        Wed, 25 Nov 2026 07:10:50 -0800 (PST)
-X-Received: by 2002:a05:6000:4812:b0:48d:b650:69aa with SMTP id ffacd0b85a97d-4abb55185e4mr34849772f8f.50.1795619449689;
-        Wed, 25 Nov 2026 07:10:49 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a680355sm29181736f8f.27.2026.11.25.07.10.48
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:10:49 -0800 (PST)
-Message-ID: <eedb9d27-1738-4911-bdf4-327963151e96@redhat.com>
-Date: Wed, 25 Nov 2026 16:10:48 +0100
+	dkim=pass (2048-bit key, unprotected) header.d=rbox.co header.i=@rbox.co header.a=rsa-sha256 header.s=selector1 header.b=FWhQ+OAU
+Received: from mailtransmit03.runbox ([10.9.9.163] helo=aibo.runbox.com)
+	by mailtransmit04.runbox.com with esmtps  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.93)
+	(envelope-from <mhal@rbox.co>)
+	id 1xWEe8-009RvI-6T; Wed, 25 Nov 2026 16:10:56 +0100
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=rbox.co;
+	s=selector1; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:
+	Cc:To:Subject:From:MIME-Version:Date:Message-ID;
+	bh=YuVk7FWWt2a2HgFMOsP1OlOGIeISBf3PZud268awzIs=; b=FWhQ+OAUsGgkL/eYfiOLnuFkTG
+	Sz97d3d7RXubh8QvyZ8heuEk4ixRbHfNNLhaUupgSHqZPrSr+gIwFD1QaDEzHSoNS7ChmXWe28ReR
+	ZodHLx7zEyJT31KjdULG1Oa3Hq7h8cbAajd3WgbarqCHLWF7r3hToY6xE2xVJSK9kBdwQa7RoZnEP
+	oZUahagwYS4CdEGlJJPb97fo1yRADvFWNx9as1CD3PyrnHi+FO0t7yxTZqZhV41E+Rh68d6w0Whfg
+	6sHVbEPaaois8e0z79F0TYtmsUd9e/NvKL4ZjfDjjZ8mJ0e78h2jpidxD2J6CqRfiDVVV+N/7LbZP
+	heA0YrKg==;
+Received: from [10.9.9.72] (helo=submission01.runbox)
+	by mailtransmit03.runbox with esmtp (Exim 4.86_2)
+	(envelope-from <mhal@rbox.co>)
+	id 1xWEe2-00084M-CK; Wed, 25 Nov 2026 16:10:50 +0100
+Received: by submission01.runbox with esmtpsa  [Authenticated ID (604044)]  (TLS1.2:ECDHE_SECP256R1__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
+	(Exim 4.95)
+	id 1xWEe0-00B1cT-4T;
+	Wed, 25 Nov 2026 16:10:48 +0100
+Message-ID: <23a40881-5e6c-4c4e-86c3-97f3500438e5@rbox.co>
+Date: Wed, 25 Nov 2026 16:10:47 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,62 +67,61 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v8 2/2] net: wangxun: access queue counts consistently
-To: Simon Horman <horms@kernel.org>,
- "mengyuanlou@net-swift.com" <mengyuanlou@net-swift.com>
-Cc: netdev@vger.kernel.org, jiawenwu@trustnetic.com,
- duanqiangwen@net-swift.com, linglingzhang@net-swift.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, hramamurthy@google.com, jacob.e.keller@intel.com,
- przemyslaw.kitszel@intel.com
-References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
- <20261118081329.39551-3-mengyuanlou@net-swift.com>
- <20261124112414.GJ31322@horms.kernel.org>
- <15430CE6-8AD6-43CF-AACF-1434B5EB666F@net-swift.com>
- <20261125113050.GS31322@horms.kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261125113050.GS31322@horms.kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+From: Michal Luczaj <mhal@rbox.co>
+Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
+ fails
+To: Bobby Eshleman <bobbyeshleman@meta.com>
+Cc: Stefano Garzarella <sgarzare@redhat.com>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, George Zhang <georgezhang@vmware.com>,
+ Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>,
+ virtualization@lists.linux.dev, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Kyle Zeng <kylebot@openai.com>
+References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+ <ed28d36a-682e-4db5-abf4-1339734e7c57@rbox.co>
+ <awTJ8EOl52W0ph1K@devvm29614.prn0.facebook.com>
+ <ca274ecf-3525-4bf0-a525-0460b5ea2d28@rbox.co>
+ <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
+Content-Language: pl-PL, en-GB
+In-Reply-To: <awX2oDI/Mbt+z6J2@devvm29614.prn0.facebook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-On 11/25/26 12:30, Simon Horman wrote:
-> On Wed, Nov 25, 2026 at 09:36:46AM +0800, mengyuanlou@net-swift.com wrote:
->>
->>
->>> 2026年11月24日 19:24，Simon Horman <horms@kernel.org> 写道：
->>>
->>> On Wed, Nov 18, 2026 at 04:13:29PM +0800, Mengyuan Lou wrote:
->>>> Queue-vector teardown clears wx->num_tx_queues and
->>>> wx->num_rx_queues while the netdev can remain registered. Lockless
->>>> readers may use these counts as ring-array loop bounds while teardown
->>>> is clearing the ring slots. wx_xmit_frame() also uses the Tx count to
->>>> select a ring and must not divide by zero during teardown.
->>>>
->>>> Use READ_ONCE() to take a single count snapshot in the lockless readers,
->>>> and use WRITE_ONCE() for queue-count updates during scheme setup,
->>>> teardown, and allocation-error handling, including the VF queue setup
->>>> callbacks. Keep the existing NULL checks so a reader that observed an
->>>> old non-zero count can safely skip ring slots that have since been
->>>> cleared. wx_xmit_frame() retains its zero-count guard before
->>>> queue-index modulo.
->>>>
->>>> Fixes: 3f703186113f ("net: libwx: Add irq flow functions")
->>>> Signed-off-by: Mengyuan Lou <mengyuanlou@net-swift.com>
->>>
->>> This patch feels more like hardening for net-next than a fix for net.
->>> But regardless the code changes look good to me.
->>
->> I think so.
->> Should I resend this patch?
+On 11/24/26 21:42, Bobby Eshleman wrote:
+> On Tue, Nov 24, 2026 at 05:17:56PM +0100, Michal Luczaj wrote:
+>> On 11/24/26 00:19, Bobby Eshleman wrote:
+>>> On Sat, Nov 21, 2026 at 07:32:15PM +0100, Michal Luczaj wrote:
 > 
-> Thanks,
+> [...]
 > 
-> IMHO, it would be best to split the series in two: one patch for net and
-> one for net-next. And resend both.
+>>> So the attempt never times out, and a late OP_RESPONSE connects a
+>>> socket the user already shut down, overwriting SS_DISCONNECTING with
+>>> SS_CONNECTED. I think that's a separate bug for a separate patch,
+>>> though.
+>>
+>> Great, I'm all in favour of consolidation. So in the scenario above,
+>> invoking vsock_connect_close() on vsock_connect_timeout() (with sk_shutdown
+>> check dropped) would result in CLOSE/DISCONNECTING, and no more late
+>> virtio_transport_recv_connecting(), right?
+> 
+> Right, that late response will fall through and get an RST back.  I'm
+> not 100% sure yet about how to rework the sk_shutdown check yet
+> though. I mention TCP's approach to shutdowns in my reply to Paolo and
+> I'm thinking thats probably the right way to go about it, but not 100%
+> sure yet...
+> 
+> Do we agree that touching vsock_connect_timeout() should not happen in
+> this patch? Is there anything pending on this one from your perspective
+> Michal?
 
-No need to resend. In fact both patches must be applied to net-next, as
-the first one has a functional dependency on a net-next pre-req.
+I think we're good. Patch fixes what started the discussion.
 
-/P
+And if I get this right, the only unintended side-effect is that
+shutdown/connect inconsistency, but the sibling thread concludes shutdown
+handling needs rework anyway.
 
+Reviewed-by: Michal Luczaj <mhal@rbox.co>
+
+thanks,
+Michal
