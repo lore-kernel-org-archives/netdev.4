@@ -1,92 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795646681;
-	b=qgkYKTHNOHzuSPrM7Mm45JVDhG2KKE4m8FqbCEAevMvNdB2ZFjYzqwtqea2N9z2PJ/pp
-	 2hdihptAjCz22B6ZP/RA//E9uWaT5nM4864KIVsYESCW0v5e/P5Yvq1Bsoh7o6HerYiC4
-	 U86hOsaom1TdMsdLPzyX5RTARlLA36lkUgd0j5MSXTqm9AF/wGmUP8fpd3dOwbByoj+Uu
-	 uwpNA8RR2GbVL6m/SPE4WdjashNrA1uGRpY0iWSVs2pE7PXuSN4RaSL78vmFA45bFIaQB
-	 DiIXOgNzJOXgxa7RoYqwwJls1k/ktvb/DC9I/hxIRrheTDHvTLUSGzq9mN3XJQLzbYw==
+	t=1795646890;
+	b=I8WCZdD5F+ScfoiA9+XhbxWI/R35wqVnklljYAIj14FoeFFHESkLDPa+eTWrjfnYRlfs
+	 0pN/y4IhAmlJkUe6nWX2z2Vt1nDLUX4Ji2NvqAlnYFSelyO1MGENI9ciuMFM9Fst8rEcW
+	 7HvlaPa9mo3Ps4Yk/M6bjj0CqGCtAQGo1kmjprDZq//slD9KnStJmityh/PDtkrA8wfhF
+	 LVDVqZBO93GiINs9uHwCYUDzZsB83nrlP6BM0kFDgIYFGOUPqO1U9ae/CDFpIIVyzakhz
+	 rAVJOCX1n8w/7PvEIgz0AvJAOSkg6N80JPKDDYDZ66jnUNBimJTwqfpbv6ROxTpKWLA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795646681;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=qYeLGoAwgm/cgx6pTq18obql2cDJa5frceZYseB5iP8=;
-	b=0XR6M/xjQ/pZKABQFWlnsm90rd12SWGiETeCZkogI38QrJHX+dsKOlxSr/d0Fj6Xy3cG
-	 GCg01deB2TuvcQ89A2W5ZiPhgO8yfaihh6WMEWGCF53UhEWrlTwPat98KVUPxWEvSPulY
-	 VSXFAdpQvqVOlW0U6B6BQq8iW2Ix1Bfm6BWRMDujSQ4QK1ZRqtQJ/bZ6URy2/SwSXqi0I
-	 ElFym+1m1j+/wNn7YNda/yN7F14xPm7eo3voB7mrFdYGsnDNqIG5lFPgIXOSh4sOVYrSi
-	 ZdVsAhK3A67NYA6qRVQ0RzzkzA9aSXVM4piJ5Nt34u2Hr1XMiwVzQY06bJge3ozHQmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646890;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	b=XTU+vLEVKALo0xt42XXIXH8kWnlwIgoaLjR4ciutv32KHYeRbf23gzTxVBzLznS19oWt
+	 C1p+E50UuIJpf+b1Ww5hqL43jX1SWurBuaim3iV4PGmCv4iVIkqeaukQXsOfxIqlMokOZ
+	 us9JJF9zN1cJdMx92B9IAL6w3WpEB/KbhmnMpi5VRaFWew068i8ti5Da775Ak7Ll1puEz
+	 okeID/6YSv3NaQ9qJfFilHOin30MgLeruzNTritfquN8Mo1RHW9jKk0IMLhz4tsXa7Ky4
+	 HscXVmdWGJXKlwFbEqbzuvKmVZ514zJSg4rv7yspoUtznsR+fLPcDs8xaSeoj46eeHQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FEHv0fN6;
-	arc=none smtp.remote-ip=198.175.65.13
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.13])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpqnRphu;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 17626606A334
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:44:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 17626606A334
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 414ED606A6B8
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:48:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=FEHv0fN6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795646681; x=1827182681;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=LzejK4EOwQqhinmsyJ3mMLb/tyA6WLCl2ry2vCHEvXU=;
-  b=FEHv0fN6y2hlDNKeYpnvYJ/x7Jrd6RiH5NawlOUT6MnG7gPmAoOMZgGG
-   M1XJQI3Dc16DT2P4Pp/B7Rhmrbl23cbod4NFMgj+tsN+rcSEerWvT96cB
-   94m1+pb4mMFm/yFBgsTMa78S7yuXJU2Cv5Ut+4jP9vtCRK8GADdaOJlXm
-   gZzoghcMYDCA37vRW8Sh/4eLJ2I/4Ql6zcBhnC/5JbwHIhx7T+2p4Dj/i
-   D3CUXlxxYol1598myt6v4RcF3aKrAzszl1o0gkBmhCOFqMaMutGmZmvgr
-   YeQmKQy0iqd9iTl5C+OOpRqNJK/AjXK449GsNv3uHHai1N+C85m0z1Ul+
-   w==;
-X-CSE-ConnectionGUID: 3T9hXiToQISjd6Xmkb+zwQ==
-X-CSE-MsgGUID: VpAZhjIJQteirKfr5lIytw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4449982"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4449982"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 14:44:38 -0800
-X-CSE-ConnectionGUID: NV8YZMZNS8OX6QQ24Azzbw==
-X-CSE-MsgGUID: mG1R7vLiSuyuU7ekUP2+2Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11862068"
-Received: from anguy11-upstream.jf.intel.com ([10.166.9.133])
-  by orviesa004.jf.intel.com with ESMTP; 25 Nov 2026 14:44:37 -0800
-From: Tony Nguyen <anthony.l.nguyen@intel.com>
-To: davem@davemloft.net,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	edumazet@kernel.org,
-	andrew+netdev@lunn.ch,
-	willemb@google.com,
-	netdev@vger.kernel.org
-Cc: Grzegorz Nitka <grzegorz.nitka@intel.com>,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	aaron.ma@canonical.com,
-	maciej.machnikowski@intel.com,
-	jacob.e.keller@intel.com,
-	richardcochran@gmail.com,
-	Sergey Temerkhanov <sergey.temerkhanov@intel.com>,
-	Milena Olech <milena.olech@intel.com>,
-	Simon Horman <horms@kernel.org>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
-	Ayush Singh <ayush1x.singh@intel.com>
-Subject: [PATCH net 4/5] ice: remove redundant cross-timestamp PTP command
-Date: Wed, 25 Nov 2026 14:44:23 -0800
-Message-ID: <20261125224428.4126195-5-anthony.l.nguyen@intel.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IpqnRphu
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DACF11F000CF;
+	Wed, 25 Nov 2026 22:48:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795646889;
+	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=IpqnRphugbz0IsPQhNh0NReWGmoCycqBKhGoh+fECfEgKUIEf3WsE0BSyFthch6kf
+	 OC9LmV+l/rIrIvpR1R4/SLMLqDBUL0QT/iUktSOmBtV89iumvx1D3kW23zPuJ9kpFO
+	 +kQCjgKZtAucZakO45lUnZHM7E+nOWxeT1fa5BmFPUt5GEjoFZd5tZMYw0P9/cNvQQ
+	 hpj79rl2gy7kjcqHKnt00C8ZWVeliDD0l1GBB6QSkDgTyp0kdofD2KSQPm+fV3Ux4B
+	 fX2O720DgLR0r40R8RsOoRovHK6bVD1mf4GxdQB2HlZyiJ6vDir8ttdiK0VXrujo83
+	 qCUIbgPfZt5jw==
+From: netdev-bot+sinfo@kernel.org
+To: Tony Nguyen <anthony.l.nguyen@intel.com>
+Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ edumazet@kernel.org, andrew+netdev@lunn.ch, willemb@google.com,
+ netdev@vger.kernel.org, Aaron Ma <aaron.ma@canonical.com>,
+ przemyslaw.kitszel@intel.com, maciej.machnikowski@intel.com,
+ grzegorz.nitka@intel.com, jacob.e.keller@intel.com,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
+ Simon Horman <horms@kernel.org>, Ayush Singh <ayush1x.singh@intel.com>
+Subject: Re: [PATCH net 1/5] ice: restore DDP state during PFR recovery
+Date: Wed, 25 Nov 2026 22:48:08 +0000
+Message-ID: <179564688842.3294.18063823612588045366@kernel.org>
+In-Reply-To: <20261125224428.4126195-2-anthony.l.nguyen@intel.com>
 References: <20261125224428.4126195-1-anthony.l.nguyen@intel.com>
+ <20261125224428.4126195-2-anthony.l.nguyen@intel.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,65 +67,26 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Grzegorz Nitka <grzegorz.nitka@intel.com>
+Hi!
 
-The cross-timestamp capture path programs GLTSYN_CMD with READ_TIME before
-starting the ART/device capture and clears it with NOP afterwards.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-It was assumed that this change was needed for E823 devices, which
-turned out to be not true. The hardware supported by this driver
-does not require it.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-Since GLTSYN_CMD is shared with other PTP operations, touching it here
-only adds a potential race source.
-Remove the redundant source command programming instead of adding another
-guard around it.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-Testing hints:
-Verify crosstimestamp path, for example with phc2sys tool, on
-E822/E823/E825/E830 devices. Please note that the phc2sys tool performs
-cross-timestamping by default when supported by the hardware. This can
-be observed when the reported delay is 0, indicating that the system
-time and PHC time were latched simultaneously.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Fixes: 88c360e49f51 ("ice: Support cross-timestamping for E823 devices")
-Signed-off-by: Grzegorz Nitka <grzegorz.nitka@intel.com>
-Reviewed-by: Sergey Temerkhanov <sergey.temerkhanov@intel.com>
-Reviewed-by: Milena Olech <milena.olech@intel.com>
-Reviewed-by: Simon Horman <horms@kernel.org>
-Reviewed-by: Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Tested-by: Ayush Singh <ayush1x.singh@intel.com> (A Contingent worker at Intel)
-Signed-off-by: Tony Nguyen <anthony.l.nguyen@intel.com>
----
- drivers/net/ethernet/intel/ice/ice_ptp.c | 6 ------
- 1 file changed, 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/intel/ice/ice_ptp.c b/drivers/net/ethernet/intel/ice/ice_ptp.c
-index 8908b4f3db35..db1d0e42ae52 100644
---- a/drivers/net/ethernet/intel/ice/ice_ptp.c
-+++ b/drivers/net/ethernet/intel/ice/ice_ptp.c
-@@ -2183,9 +2183,6 @@ static int ice_capture_crosststamp(ktime_t *device,
- 	/* Snapshot system time for historic interpolation */
- 	ktime_get_snapshot_id(ctx->snapshot_clock_id, &ctx->snapshot);
- 
--	/* Program cmd to master timer */
--	ice_ptp_src_cmd(hw, ICE_PTP_READ_TIME);
--
- 	/* Start the ART and device clock sync sequence */
- 	ctl = rd32(hw, cfg->ctl_reg);
- 	ctl |= cfg->ctl_active;
-@@ -2212,9 +2209,6 @@ static int ice_capture_crosststamp(ktime_t *device,
- 	*device = ns_to_ktime(ts);
- 
- err_timeout:
--	/* Clear the master timer */
--	ice_ptp_src_cmd(hw, ICE_PTP_NOP);
--
- 	/* Release HW lock */
- 	lock = rd32(hw, cfg->lock_reg);
- 	lock &= ~cfg->lock_busy;
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.47.1
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
