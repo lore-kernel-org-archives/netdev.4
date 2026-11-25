@@ -1,65 +1,80 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
 	t=1795618398;
-	b=2s6vBjgCPiCkqQIE+VSVZYdfhP58iVzU8Z572wREZVVbjCNMeY9tHzwSo360Qe2dOl84
-	 5ySnTrP5N0edfsAnlgBKeIt1i3dgSOe7zUPIXrbPrEtulRdEsDTH0mVQ9YKbm97rPhrEh
-	 7nbenVOoPl0v6OFprZz3m5qzTxqcJS1MSATJd28JVhpMz6FMKbOUXx1EBeYlA/ZOeVXwq
-	 haaSd9D9bCfMb5X3+s3i7SdBXmCevowr19j68906dfjiwFdvPx/F3xrHNQwx7h/yDvm8a
-	 /pbzYPN/XGUk2wynWbHc5YzCqNUMElnsorL8I9ZquQvJiqDePWZo3eCmfuJyvylv5OQ==
+	b=HS0c5C6rNDSJ2ZTdCl7XAD0F2/t48z5hPEg04OFFukFzEfcOZLBEGfbt41sldC218WH3
+	 GC1J8yzZ8RLHupa8Nf6f9mHsr8+f4y42sXWTgKfodlhnI0EUUUgrQ9fyXf7ajDngTHx5t
+	 Pd+lp8K0SBi05H8MM9JCD5lYKBKUKk16DmepoQrHHkqVkMWRrJRTrnwvJX3uG3nnHol5j
+	 ouEJwrNN4ArqT9GhRxGGGGsM5pQALHbLThIip2bt4EMMNCXFEjkRGDPAm5mRghx+xyCJg
+	 SJELjlVLX1yTt9Vfesab8JwyPhl/c7nybrStM/3bzj0w/Jga3KCiE6galgLdzWd4sLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795618398;
-	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Pre-Result:X-Rspamd-Queue-Id:
-	 X-Rspamd-Pre-Result:X-Rspamd-Action:X-Rspamd-Server:X-Spam-Level:
-	 X-Spamd-Result:X-Spam-Flag:X-Spam-Score;
-	bh=zDIOlglNc63SdCdi8MwqfU6OHyHZVrPRTRAWA2JKjOM=;
-	b=2nxa3OcU4B4cnnzKHXurURlvAbPmbjReCLI5eftPxvb6CgPPz4SeEZVXHGC6B32j3Onm
-	 iWJLFbugXrt3HYpcoHOmt00NCro8ey2X/wlVcq9H5dWZN7LwgdpRNMtHD+4zlwUBgzgn6
-	 iDpeI90jXvSzWN5l4e7xfk9bM9n7qmiJU/fQUgQO9MoAd0O82Lqmmf+zWkzzv5vxw4GAj
-	 1Q7288ykJIIaSx2kvf+5thM5Fo9wkXJ6T9QUt5nWALjQVxOsU7uZws4PMHO2oRBq//JFo
-	 Fw83HLYU9OfKVv6Xv8W6pxOG3zRFM56kKdP6tV4/kU7Ggubxe0fhmoUY3jqv5h0R2ug==
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:Received:
+	 Received:From:To:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Spam-Flag:X-Spam-Level:X-Spamd-Result:
+	 X-Spam-Score;
+	bh=/xsHMxJsVOF1FPSvJ64uESmQqfTIWpb4LJh/yq+k8ac=;
+	b=RpRbY5osnibVl2p772Qi/kfcIeia3dXF8B1dkGxo7pteoSjlaUv1zEj1VUb03ypNwEfv
+	 Jsfz+kf6g+DZU9m8XqdUd9BTWTmZCozcmV4Y+m15JdKRChbd2pl+b2dWeFnIiKwvfMYO6
+	 o1fx8lnBakRnhNcqt/TJlOEIhf6aPVGLQDd7RWN4KOy+1eJElaj+nS3MwweWKyXFc/WJ4
+	 Vp1rneqpbwjAPD7hW1jxYePv9xjqz4viyJHqfLgmVEuc5sLI9Cj+eehOQi1ChsGa85szU
+	 MK6ttT5TeyyTH2ixhlfZXyNP0RSsAzHP5kGS25rQnBkD+x3djqrBcGkqPQnih4COZ5Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.com;
 	spf=pass smtp.mailfrom=suse.com;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=O+2Y+hkd;
+	dkim=pass header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=O+2Y+hkd;
 	arc=none smtp.remote-ip=195.135.223.130
 Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 872C6606A323
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84714606A31E
 	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:53:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 872C6606A323
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84714606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=suse.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.com
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=O+2Y+hkd;
+	dkim=pass (1024-bit key) header.d=suse.com header.i=@suse.com header.a=rsa-sha256 header.s=susede1 header.b=O+2Y+hkd
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 17F4C2201F;
-	Wed, 25 Nov 2026 14:53:16 +0000 (UTC)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id C5AB721F97;
+	Wed, 25 Nov 2026 14:53:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1795618395; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=/xsHMxJsVOF1FPSvJ64uESmQqfTIWpb4LJh/yq+k8ac=;
+	b=O+2Y+hkdlaE9+YSch4uu4ulg+XzpJ8ia0vmTeF16lby/LGtOWGjozSIPs2EkgDT6uidUbe
+	Efx4Kq3sUG07ZsjgdRqtmBAdbDzS8tZdj6MJzxF1ucRugASbheJY8HKzQ3D2p7JGqifQp5
+	ny02pKIjN+ivCLE1y534E0BLeoLglR8=
 Authentication-Results: smtp-out1.suse.de;
 	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1795618395; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=/xsHMxJsVOF1FPSvJ64uESmQqfTIWpb4LJh/yq+k8ac=;
+	b=O+2Y+hkdlaE9+YSch4uu4ulg+XzpJ8ia0vmTeF16lby/LGtOWGjozSIPs2EkgDT6uidUbe
+	Efx4Kq3sUG07ZsjgdRqtmBAdbDzS8tZdj6MJzxF1ucRugASbheJY8HKzQ3D2p7JGqifQp5
+	ny02pKIjN+ivCLE1y534E0BLeoLglR8=
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id CD1E313505;
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 84BCA134CA;
 	Wed, 25 Nov 2026 14:53:15 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 2heAFVv2BmupfgAAD6G6ig:T3
+	id 2heAFVv2BmupfgAAD6G6ig
 	(envelope-from <oneukum@suse.com>); Wed, 25 Nov 2026 14:53:15 +0000
 From: Oliver Neukum <oneukum@suse.com>
 To: petkan@nucleusys.com,
 	netdev@vger.kernel.org
-Cc: Oliver Neukum <oneukum@suse.com>
-Subject: [RFT 2/3] net: usb: rtl8150: fix race in open() error handling
-Date: Wed, 25 Nov 2026 15:43:08 +0100
-Message-ID: <20261125145313.58434-3-oneukum@suse.com>
+Subject: [RFT 0/2] net: usb: rtl8150: cleaning up races with ceasing IO
+Date: Wed, 25 Nov 2026 15:43:06 +0100
+Message-ID: <20261125145313.58434-1-oneukum@suse.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125145313.58434-1-oneukum@suse.com>
-References: <20261125145313.58434-1-oneukum@suse.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,75 +85,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Queue-Id: 17F4C2201F
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spam-Level: 
-X-Spamd-Result: default: False [-4.00 / 50.00];
-	REPLY(-4.00)[]
 X-Spam-Flag: NO
-X-Spam-Score: -4.00
+X-Spam-Level: 
+X-Spamd-Result: default: False [-11.80 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-0.995];
+	MIME_GOOD(-0.10)[text/plain];
+	DKIM_SIGNED(0.00)[suse.com:s=susede1];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCPT_COUNT_TWO(0.00)[2];
+	ARC_NA(0.00)[];
+	TO_DN_NONE(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo]
+X-Spam-Score: -11.80
 
-In case open fails the URB already submitted must be killed.
-Because rx_urb can schedule a tasklet, which would have to
-be killed as well, it is better to submit intr_urb first
-in order to get correct error handling.
+The driver has the fundamental issue that it uses a tasklet that
+reschedules itself and resubmits an URB, which in case of an error
+can schedule the tasklet and so on.
+This cycle cannot be broken by adding primitives for cancelling
+tasklets and URBs but it also takes a flag preventing rescheduling
+or resubmission of tasklet and URB.
 
-Signed-off-by: Oliver Neukum <oneukum@suse.com>
----
- drivers/net/usb/rtl8150.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+It turns out that this is quite complex because the issue hits in
+close(), suspend() and disconnect(). The required changes became
+so complex that I decided that this needs to be broken up in series
+of patches and needs testing.
 
-diff --git a/drivers/net/usb/rtl8150.c b/drivers/net/usb/rtl8150.c
-index 547a14beafb8..5de917ce250f 100644
---- a/drivers/net/usb/rtl8150.c
-+++ b/drivers/net/usb/rtl8150.c
-@@ -525,7 +525,7 @@ static void intr_callback(struct urb *urb)
- 	res = usb_submit_urb (urb, GFP_ATOMIC);
- 	if (res == -ENODEV)
- 		netif_device_detach(dev->netdev);
--	else if (res)
-+	else if (res && res != -EPERM)
- 		dev_err(&dev->udev->dev,
- 			"can't resubmit intr, %s-%s/input0, status %d\n",
- 			dev->udev->bus->bus_name, dev->udev->devpath, res);
-@@ -775,20 +775,22 @@ static int rtl8150_open(struct net_device *netdev)
- 
- 	usb_fill_bulk_urb(dev->rx_urb, dev->udev, usb_rcvbulkpipe(dev->udev, 1),
- 		      dev->rx_skb->data, RTL8150_MTU, read_bulk_callback, dev);
--	if ((res = usb_submit_urb(dev->rx_urb, GFP_KERNEL))) {
-+	usb_fill_int_urb(dev->intr_urb, dev->udev, usb_rcvintpipe(dev->udev, 3),
-+			dev->intr_buff, INTBUFSIZE, intr_callback,
-+			dev, dev->intr_interval);
-+	res = usb_submit_urb(dev->intr_urb, GFP_KERNEL);
-+	if (res) {
- 		if (res == -ENODEV)
- 			netif_device_detach(dev->netdev);
--		dev_warn(&netdev->dev, "rx_urb submit failed: %d\n", res);
-+		dev_warn(&netdev->dev, "intr_urb submit failed: %d\n", res);
- 		return res;
- 	}
--	usb_fill_int_urb(dev->intr_urb, dev->udev, usb_rcvintpipe(dev->udev, 3),
--		     dev->intr_buff, INTBUFSIZE, intr_callback,
--		     dev, dev->intr_interval);
--	if ((res = usb_submit_urb(dev->intr_urb, GFP_KERNEL))) {
-+	res = usb_submit_urb(dev->rx_urb, GFP_KERNEL);
-+	if (res) {
- 		if (res == -ENODEV)
- 			netif_device_detach(dev->netdev);
--		dev_warn(&netdev->dev, "intr_urb submit failed: %d\n", res);
--		usb_kill_urb(dev->rx_urb);
-+		usb_kill_urb(dev->intr_urb);
-+		dev_warn(&netdev->dev, "rx_urb submit failed: %d\n", res);
- 		return res;
- 	}
- 	enable_net_traffic(dev);
--- 
-2.56.1
+V3: Added patches for close() and suspend() which Sashiko noted
+to be absent
+V2: V2: Sashiko pointed out errors which conceptually arose from handling
+close() and disconnect() in the same way. Treating disconnect()
+separatly makes them go away
 
