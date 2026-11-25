@@ -1,84 +1,84 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795631491;
-	b=sBmlkzj97ukg6bnteLnJoUARA4Vh5zdBczo7KbH46Qs7Ql6mdRuj3wmA44jpcsQGq7gn
-	 qhOZyeYSYET934DSaY9VemR5nWc3jsOXIhSes1K/R0u+FSPssQneCwGd2Y1jvlMPVyK56
-	 sayfaU9aFW11zGRfC6gjndUaJCBMw3HHWrfhokug0hGK3SIFdx6cdeveH3pz47nb2PxTb
-	 cWDUXMhavMO2HRaSHPOwnDP/tVq5jzBhTr6SAeAs63Pw1cfw7u0L7n1BhQsd5+fo34ogM
-	 Bi7lukyKDhs0V49CyKNxBK9zlnGK0PUHztK/10D+urLDwhy9gPp3QQfw8+8JGm+blmQ==
+	t=1795631513;
+	b=4TBrezXmZ4zVLJ3ccoXdhr6WwEdxMCjPKklGVa5fpxon3HUDh0/EScEVNtbSNuFtsNq9
+	 ZrsGArbpvuU/JT2j9aXDboOc2L1GpXvrLe1l8WhRu+ZWGNtAB5qs65nwl0AS6DgfJy0YV
+	 hZYlWXzZ7K2y/kXXfLYojwDaDYcS2qe6KCXq2NRixwGyEobak8cl3hlW7SeqYCGDTY+A+
+	 E7L+JUm7Hr9dYMvfImgw3+LruOWyw3FwCU7trSVa2eYzkIkdqBZocz29EGVtc4uXsDde+
+	 eU70KpcBriUwlykUoCfbxjbM2zuJsk2LYjZgoL6/CN7JmJdPLQ19QiHZn65jm0pRRHg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795631491;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795631513;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
 	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=STTtLXq5+/n9y3MejjIsIXIM0gPeibgiGm8B0JO8L2c=;
-	b=nyyV2tKjbAm8diKK9M2HvZWstQWa9UOBNDO9eS0LbSIK36025TNpSlQ3K2VjPDAbBWI+
-	 FMAtIu0SHjQXImDhDtu5BqObscls613KcxFaQiYApVIo13llzgXtm1A7gWgE+nF5WIyww
-	 oa2SWrlwVIknyXPTY1ZXfPxiSkNrwJFJ0TTb4sbo3G3RRozaXLbjhz3aGdZI2gbG4dAnD
-	 6aSbaBnb6aEh4pPDUycXPVnM0gXYqQ5QhG3Bu3j2vrUo1vwR9YTc8k5Cws+e1hJm+l+S5
-	 oJKloiXz8nHNYMlp2HDkbWHr4DQ1CAzwEii0bhWDt8AvcIFv5j/YGSBuerPVut7lHmA==
+	bh=c9NWxL0URY5wSNoGWrryAkeMpSu11Af5bqDWyaekRIQ=;
+	b=RpbFcV/oMYmA/L1zOp3lkVY2zfNNpa87xMjgLwdrt1LefdwZdcOk706i1F/73nV37lj8
+	 sJE5vRwZsxSIW644WGNWDuiZ54eLDnps477yk1U3W85V2Pz2cufU6r63wot2AaV8U6Ogn
+	 kUPT5T/0tsSjLPgia2WwjZtFLoJhziOI3FXklHwGgKCfqzvqxwxIr8Wpc+gRZax0kBg5Q
+	 EFTpvoIC9tkB3Cuqt3KAfpTEqVu9/cA+om6T4/RQ1TAXsxKeIWHKVBPFXjFAt6QuTKGe2
+	 z69pWiYwkpMhJiOv3pgTYPluS8SxlIUslQmj3zFIIEXjPlrpACkt6aHC2XIenv4YhFQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cloudflare.com;
 	spf=pass smtp.mailfrom=cloudflare.com;
-	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=U0fQ5UNk;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=aw1a9JAb;
+	arc=none smtp.remote-ip=209.85.218.42
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com [209.85.218.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E993F606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:31:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E993F606A31E
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 850F2606A326
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:31:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 850F2606A326
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=U0fQ5UNk
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c516a1623d0so633361566b.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:31:30 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=aw1a9JAb
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-c516a1623d0so633431366b.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:31:53 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=cloudflare.com; s=google09082023; t=1795631489; x=1796236289; darn=vger.kernel.org;
+        d=cloudflare.com; s=google09082023; t=1795631512; x=1796236312; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=STTtLXq5+/n9y3MejjIsIXIM0gPeibgiGm8B0JO8L2c=;
-        b=U0fQ5UNkA6Zrr+wSvFJqZGwFFw/zFL7+DM+gTh+Kw9jGsW92+FMtijYT0KW9hESeUu
-         OBBmIBF4IuXXpCkBFjAkQgtA3hUZDawDP57FGhyEVI1Gj5ZaIzptRe1dR0whX2KGSjjN
-         w2ywtCVbv7fjfi/t8R9yrQXi9IqQhwdHYTuB+tlUcNPeKXrr8HGns/DoHPIHAcwpv0R3
-         HTah4eTEBii8Glu15ShD/ijjf4ZRulZvW5z97ZE7CJH/w6kC6Rseeucz4G2TV6UE80c1
-         W5Vy6v4PzjCfNF2QxdFW+bFwa8JUbqw9f/xEdpT6THhuAXK4ZNQbAODrXJnHk78FPY9D
-         rPGw==
+        bh=c9NWxL0URY5wSNoGWrryAkeMpSu11Af5bqDWyaekRIQ=;
+        b=aw1a9JAbqZNeXN/uQOFkv/A5Bp+ErDRYSZtNb+3O8jd8/FYFaaZW5YyhqWuY9PmP6Z
+         NOXKeasRmYrqB0agWOj1PHJf1AFONdaA6PHNlGtTMCqzQ0j1BJUSwGVLag4jWrh40thr
+         Mcmv4LYbb1Nq5MSMMZV58sWSrs8WbV9oZMBQPVowkcRz1GtDNjt6Ss/XZ+ximZ8UIb+I
+         BsO/7nwIuaJgLegTqTdtUdBFTtbf+IUgLkBRFcZW1/x5pn2GiksScU8LUGBCwCR/mt+i
+         d2R1MYTGeSW3SdW36cHEuhzrCAmx7qO4apSZubpwbl3ncOnAET+apmjFCVKf1wJSZR6K
+         At8w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795631489; x=1796236289;
+        d=1e100.net; s=20260707; t=1795631512; x=1796236312;
         h=content-transfer-encoding:content-type:mime-version:references
          :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=STTtLXq5+/n9y3MejjIsIXIM0gPeibgiGm8B0JO8L2c=;
-        b=lcGOpNPA6mBYQ9FfXZGE5A432xSzwuTH3B7oQgtK3MRR6wE9aIHoW7vICMVfL2zRzH
-         LXpa5siEWKoUBZKwUYhSMs1ndZ0TCdgMkGlAyOYSFRynI/tuTO7m3vxeoKwyMWjdpDdI
-         J+NxGh/h9Z5NhVYz8ZnQHBqa3SeY0gczsZpoytCkYIrgEivStVx7l9fnDgTDfN9KnmdK
-         9SPFDojF6FnpPXHiOWLqyWyZysHHxqgK1JQqoWXnAzYE02JYCORBz32up5AOjA0F3ES8
-         xCWenyBe5INV+fzxeCIYrd2eB2nQcq6GaP2h8NyEVwZbXcFJmtpRM/ZVa4wsAUxAkb47
-         MEhg==
-X-Forwarded-Encrypted: i=1; AL+hErGAJzb0UQM3uDMxTGVJ7NFG8zQGDC1mRu8ZobvaAYh6vCjfLgQN8W4g1V904Ygtq3pB+NDhBJ0=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/BsVbKH4TuUqSFBC53HAJeDCf+fBuY9TVzgyNoB0XlEJ7IsFHF
-	wWDJ30Fs9YPZ0Klxl5hhieiiqmDBDa02cawhNGSen9TkTFUY3SzNkKStbqyku/5yVz8=
-X-Gm-Gg: AZFdTZe+zPGwtFQ674VkCj9kfzNIVZAHlObhII8wPLWW8cdV7vF3BzCmpgLbERfgtUh
-	2w6r0EzB0C72gUQKyCeqZ79uGlkqLnWH8zsHAKWRaNW+STp0x/zkQKdR/4H4mZuq0TuK4rSaFOe
-	dv1aU1s2xcc+PekntN1NOzxHkpc2MpqcSBHhYZQ8BA5gLShWT67e/upvomzX2NX4W3kqFk+zWa0
-	uMbd5FwdlxN6Yh2VZPd1eABn8c7COS64cLDePaF4pX+otly6P7TpVy1fLHhllCz9wJUizbVrsHP
-	6Br3V0NPWidkdWngjJxws1hm/+qOvmIkDNc5Y+fKw2/rPfQuCWdKGNnlRkesssTOGpAyWQ+sq97
-	JntIf5THa8EkQWB8rx4SYwthK24Aczun4klrui/kgrWDA5d6zngz+cZr0t0g4gIUiZEOWH0Jq7W
-	oGOZ4pgi5ypnJiEBUWddr/ojIBo8Jb1fOfdymCOd1akWN5j0XDKFTJCnOuL5kpgIsceiraSvHob
-	wNe5mvi64qyHT0sQOos+QO6sUomGjIdSiwayihkGTALszz5MR2srHvKmDiwbwgcWAp45Pg7imVv
-	5hNt/qpL1Cko2JuIdyTjK+JVO4i2JMnj7EUqmYyNipXZ2yA=
-X-Received: by 2002:a05:6402:e05:b0:6af:80c4:8981 with SMTP id 4fb4d7f45d1cf-6ba37e890fcmr14784410a12.26.1795631489325;
-        Wed, 25 Nov 2026 10:31:29 -0800 (PST)
+        bh=c9NWxL0URY5wSNoGWrryAkeMpSu11Af5bqDWyaekRIQ=;
+        b=EjSvgPihpI1c4k5xhl6yHFHKd6AFwDcjy3oNDqy0gj4e55XlSmt3ZrpHv+CO9SzPoJ
+         zqrYy8LRimoNYVxUCJhDvqFH5Lwgvd7vJGaDo2cllHm+U1NgBEDnPXXt1HDLBUN6MJIK
+         Pz/XmojqO1EOcCsKiR9x1CWwqG4WhMX8xJv6+n9WyZcqcQsEz0khrDSkYGOrNtjZ4ODf
+         SvfWsMcAPYglEounTA6OqQL/JKx0QPXPBbOr0nCR2EiGs5DX8ykM+gyLkSkRUQqYolCE
+         BuXXp66Rdr7I5AcaaeMG7nUPmFixNyoVwO/YXvFZB74nI1G15JdouAKiFssBwW+mn95B
+         fMrg==
+X-Forwarded-Encrypted: i=1; AL+hErGy5FInMrZ7SRzT/yUypiRvYb9UamOLj32oNWeYsm+gymh6X60TBtrW8qaOJXVUyehHyPCMbxs=@vger.kernel.org
+X-Gm-Message-State: APuU4Z94/eKJiJMBk0vV0O3NvNWLF3ByPWwXltVFWv+7l/37+Q2yA8HH
+	HilC3l2n4D0BVF0OqJCKSE/WQNXVQmJ56KRb3iUxDCqLJ3bbUrmjScsFtPXT9UMDi0Y=
+X-Gm-Gg: AZFdTZeVjCHV8ir0HCC+1h3oiCCeOctdD4JsgSSR0QYh2p2WeCHl44Raz9vdgxFXTIk
+	g1nFWzPBW97zAO0oDVsSrYdpwpfW8y+VPTgAHJJLvLWn69+rhDgdHG/PuOzKVcOHyTS2lH0VZ77
+	AaU0f26o6j0UGzvKae2iddPqGc5vWpt78Zg4c3Rm5BbihKbkRsz0YUnXCYtoBQKbvsyrCDDFP/z
+	doL1l/vwpAU1Nlrp20jgW3XMqLvP6GHrn1kvp83I04JxSDwzY5JEvhHcKcheQSaH/nLSPCLbACO
+	QVcdZF0kzaZ45V1ENkcQst6w0SDj81/hf+nk4wAHpN0915Xwq8JInGZ9foo6Snbb+PEQz00vudS
+	836JPOCzCXBjga5Mt2Du9bpm/v0uNJ6VJCe/4tAu5ZWOQ9+ZNxO6naeyZ7nyxlQpqLCEuru8aPJ
+	VlntlaQ57f7+1ImrVFFWBg5OuOm/zLDgbrugzE7J/M6KCQfxkUeYdaNEwYKRMfxPlaV1IQ7nEMt
+	H7RnUS27B5znETCzKrP4XfvZ/sx9NrhG03KdaxTsigmjn7PNSmvLzGPdWVRMpVRMwh687aqdZRg
+	DjrWcGRNazc1wo+XcceW/FZ9DnUDdyEJosAyw/WBmsPpyps=
+X-Received: by 2002:a17:907:a88f:b0:c46:d493:501a with SMTP id a640c23a62f3a-c513a8410d9mr1669468866b.22.1795631511890;
+        Wed, 25 Nov 2026 10:31:51 -0800 (PST)
 Received: from L9JK9NPFH9 ([2a09:bac6:37ad:1e5a::306:5])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-6ba9b131d3bsm5877128a12.34.2026.11.25.10.31.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afe01a0sm686554566b.68.2026.11.25.10.31.50
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 10:31:28 -0800 (PST)
+        Wed, 25 Nov 2026 10:31:51 -0800 (PST)
 From: Tianyi Gao <tianyi@cloudflare.com>
 To: Alexander Duyck <alexander.duyck@gmail.com>
 Cc: Tianyi Gao <tianyi@cloudflare.com>,
@@ -102,16 +102,17 @@ Cc: Tianyi Gao <tianyi@cloudflare.com>,
 	Eric Joyner <eric.joyner@intel.com>,
 	Jesse Brandeburg <jbrandeb@kernel.org>,
 	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
 	bpf@vger.kernel.org,
 	kernel-team@cloudflare.com,
-	tianyi.gao@linux.dev,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Subject: Re: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP program is attached
-Date: Wed, 25 Nov 2026 18:31:23 +0000
-Message-ID: <20261125183125.25801-1-tianyi@cloudflare.com>
+	tianyi.gao@linux.dev
+Subject: Re: [PATCH net v2] ice: do not report CHECKSUM_COMPLETE when an XDP program is attached
+Date: Wed, 25 Nov 2026 18:31:33 +0000
+Message-ID: <20261125183134.25863-1-tianyi@cloudflare.com>
 X-Mailer: git-send-email 2.56.0
-In-Reply-To: <CAKgT0UcFnSvTO6ATw76qVHYxRusTYXpRVi0_GR5QnMhhoXwXsA@mail.gmail.com>
-References: <20261121012402.84848-1-tianyi@cloudflare.com> <3adef4b4d528780bae31f2fb02d0a08bf9c8ebd5.camel@gmail.com> <CAG4wq-f18SHytDb39SdJYzRPk-dzECjH_HCSiMGAQ721Zmfomg@mail.gmail.com> <CAKgT0UeWWherBt1MDcPF7R7jxt6E_3peo8VuxrgY3JdseM-0rg@mail.gmail.com> <CAG4wq-dizUz-6GB8Aj1wRTQBOzbHbT7pX9gom+AhR=5OWSyjzw@mail.gmail.com> <CAKgT0UffmbELMsGi8HRfu62MfC9VRYZ+TMNKFjZMWJyrV4t3jw@mail.gmail.com> <CAG4wq-cG1bseTFczZTjashN75J1Jsrv=u1ccuRsY-N1kZ=SXXg@mail.gmail.com> <CAKgT0UeNyyXKARjKR4nVVxNe3UB16WuXqxSz0cf4ZvCdb9A4_Q@mail.gmail.com> <20261125090732.69233-1-tianyi@cloudflare.com> <CAKgT0UcFnSvTO6ATw76qVHYxRusTYXpRVi0_GR5QnMhhoXwXsA@mail.gmail.com>
+In-Reply-To: <CAKgT0UcvdZgtNtURJGPqAJ3dPGnCpa1DbpX_KBbEmoK==WXNSg@mail.gmail.com>
+References: <20261125095201.98279-1-tianyi@cloudflare.com> <CAKgT0UcvdZgtNtURJGPqAJ3dPGnCpa1DbpX_KBbEmoK==WXNSg@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -124,28 +125,23 @@ MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Transfer-Encoding: 8bit
 
-On Wed, 2026-11-25 at 08:32 -0800, Alexander Duyck wrote:
-> Realistically speaking there is an easy solution to this in the
-> program itself. It would be to look at using something like the
-> REDIRECT action instead of just stripping the tunnels and passing it
-> back to the original interface. It would then take the frame and stop
-> processing the remaining descriptor data. As it stands that would be
-> the more correct solution as you could then just redirect it to the
-> tunnel interface I assume you have stacked on top of it and have it
-> receive the frame instead of having received it at the interface that
-> just head the header stripped.
->
-> It would also match up better with how the stack would actually expect
-> this to work if you didn't have the XDP program in place.
+Thanks for the reviews and the ack, Olek, Przemek and Alex.
 
-That is exactly what we are trying to do. Our traffic will be
-redirected anyway, to a cpumap for load balancing. We tried to keep the
-RX metadata across the redirect autonomously in [2], but this has been
-strongly opposed so far [5][6].
+Also adding back Maciej's ack, as Przemek suggested:
 
-[2] https://lore.kernel.org/all/cover.1794281983.git.tianyi@cloudflare.com/
-[5] https://lore.kernel.org/all/20261117161856.6f6c2ce9@kernel.org/
-[6] https://lore.kernel.org/all/20250716142015.0b309c71@kernel.org/
+Acked-by: Maciej Fijalkowski <maciej.fijalkowski@intel.com>
+
+On Wed, 2026-11-25 at 09:11 -0800, Alexander Duyck wrote:
+> I would rank it up there with the e1000e jumbo frames packet
+> truncation issue/fix from back in the day
+> (CVE-2009-4536/CVE-2009-1385).
+
+Thank you for the pointer. It is interesting to see how it was exploited
+back then.
+
+As you said, this case needs an XDP program that changes the packet and
+still returns XDP_PASS. So far I have not noticed a way that it can be
+stacked with other bugs, but I will keep it in mind.
 
 Thanks,
 Tianyi
