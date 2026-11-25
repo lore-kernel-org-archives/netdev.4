@@ -1,123 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=103.168.172.147
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.70.43.22
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795645326;
-	b=cX29v0KR8MvJlToqznhMV8HWM8ejW6ffo4+whWgrvkclWL+sO+LrVPpZ31VTke46Eepe
-	 l2GxpOR6dWB9a0LMA/BUfTndGPXG2Ze+hpAqs3Bx3zxjMFkPcJnxbKTmhc61S7H5hKqZk
-	 NaX/noDRBp51d1GMvmEekZlAc82VJ9aucPpXr9AO41nCsOSay+kQpqxsAjaXP+Tw9L2cs
-	 SuMdv7rmm5zu8+v3yEJE1cHJkpxg6UXjZZcFekNzNxVW2yfMmpshIp9VYKEfmNxBpZCuu
-	 OIQ7IbXACm+6ttO7f3deKD0+2TxGWpV7/U6iI1DaGmM27BYP7VshZKZby4uwQfaq+2w==
+	t=1795646118;
+	b=CLeD/TxQ94St6n9Vz3g4W3xI/ZPsNTgB8MYNIhmVINtH/e5egFLhSvb/lH/gH+scSOa/
+	 r77x2z0YHvyCMmH28LpSTVeAfwIam53xDCv1A65e0akBIrNy4U4os39u5vuJhv9S4DZvh
+	 hv0IoIp/1sWs+KU/A6B1Pv+pvITTeiWnnP2/ykFH09lcw/7K/bUC48JnneCCPP08JzGv7
+	 D7krHUT2F2zp+dDbtHY9aL3LsOBXEDzpPDFrAIYlGO97g21qd8S9A+yOweoV6DoaJZilu
+	 CxoS3MnEHcPwmEJBqqvpVjW3LZ7D0XH7ycoL0eQQzx7/NhnLGKp6xUexCShEzHP7V8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795645326;
-	h=DMARC-Filter:Received:Received:DKIM-Signature:DKIM-Signature:
-	 X-DKIM2-Info:DKIM2-Signature:X-DKIM2-Info:Message-Instance:
-	 X-ME-Sender:X-ME-Received:X-ME-Proxy-Cause:X-ME-Proxy:Feedback-ID:
-	 Received:Date:Message-Id:To:Cc:Subject:From:In-Reply-To:References:
-	 Mime-Version:Content-Type:Content-Transfer-Encoding;
-	bh=+slk1rOOHhy9FsVNaBi4UZuSRzG3jF3FxEWiHyv7D3g=;
-	b=kf1Ph7SocFoyA2luR6cq0naMOzKiLgZJxDmsI1lvzAx6bOW3qoO8morwnX3U+ZEorYf8
-	 6M8lbYYeaJYuFs9vtk91EJU+D8W5988CNu3mkKMocbyas62YoMZXBFXT+O90Gr7DEmTCo
-	 iw88JJMkF5woGHSh9mZKz9zBbOjqUhicYvHrDF7TgsLeD9T5GtggBEhhvINnVuDPa+fGG
-	 hdz4LLue/qoNa0kamVzA2rSXXnsWm5aNWPyQdZEQMbfXlJ2pSlzA9mqvf1NFrNNcKAiQz
-	 OGgogwT/1XP5mpzf78ym8CQmpy40wIMEaqQPTJe1qxVuyOR7ElaRlmM3YqN1cyyySYg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795646118;
+	h=DMARC-Filter:DKIM-Signature:Date:To:From:Cc:Subject:Message-ID:
+	 In-Reply-To:References:Feedback-ID:X-Pm-Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=goJy59c94Cs4tzv9h9Aqp74228tx3mJVbRda5/b+on4=;
+	b=DCKsK1Nqfm/34BbUwivJJbS0kGAjEwWVOb5EErEnofC3t/2k1JfWglRtKrwrkxFHQBLk
+	 LWC8M42lREcce8yxueaL/6qxPlYi/ySxUYYD7VLtiI7D4p0k3GookP9kq7fmd9vXtHMs0
+	 8r/1NHPDOhRY3fHd92UmZPhkihOJrW6d9/uc1ZCz/PMsoz7fCbwqnGSaLcOiaexVOZjMY
+	 b8Wo2hVq7EzXQdSql8QcOqW7kCyc1XnW085N7Un+yxJPNXmh6a6XIC6nAT8HLo8hOA01i
+	 DyEmjjbWUFM45qOZMUMOgr/44CU7j0nNCcl/lNVYvNILedlKBQyeSOCRR8yPkKwblhQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=flapping.org;
-	spf=pass smtp.mailfrom=flapping.org;
-	dkim=pass header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=byF4kK0M;
-	dkim=pass header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=29Hi4eKC;
-	arc=none smtp.remote-ip=103.168.172.147
-Received: from fout-a4-smtp.messagingengine.com (fout-a4-smtp.messagingengine.com [103.168.172.147])
+	dmarc=pass header.from=proton.me;
+	spf=pass smtp.mailfrom=proton.me;
+	dkim=pass header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=UyKpQ78g;
+	arc=none smtp.remote-ip=185.70.43.22
+Received: from mail-4322.protonmail.ch (mail-4322.protonmail.ch [185.70.43.22])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6962606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:22:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E6962606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=flapping.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flapping.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC76D606A31E;
+	Wed, 25 Nov 2026 22:35:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC76D606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=proton.me
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proton.me
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=flapping.org header.i=@flapping.org header.a=rsa-sha256 header.s=fm2 header.b=byF4kK0M;
-	dkim=pass (2048-bit key, unprotected) header.d=messagingengine.com header.i=@messagingengine.com header.a=rsa-sha256 header.s=fm3 header.b=29Hi4eKC
-Received: from phl-compute-11.internal (phl-compute-11.internal [10.202.2.51])
-	by mailfout.phl.internal (Postfix) with ESMTP id 15CCBEC0C22
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:22:05 -0500 (EST)
-Received: from phl-frontend-03 ([10.202.2.162])
-  by phl-compute-11.internal (MEProxy); Wed, 25 Nov 2026 17:22:05 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=flapping.org; h=
-	cc:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm2; t=1795645324;
-	 x=1795731724; bh=+slk1rOOHhy9FsVNaBi4UZuSRzG3jF3FxEWiHyv7D3g=; b=
-	byF4kK0M/kTkMYsPzUfT6x0XSq33Den993eZrfnf2lVBnINGEouWK7QdVjZX/dXE
-	xhyiypUkslGBiWi6vr6887Z+7KkMOKOqV+vZI+IkPFfenqhGgZGrW2VGMBIoB3t3
-	dpBr/izwXz+F6k8uOe85HS3I6gKhmwj8XC/Bbz3iCG8qIvwJzv11YnOpSAc9HCfC
-	9/cQteGHJMBPt/urs+ICCWwh2UZyC5PucoUpn4C+3xmqi2YfvWrKXVRQab1zKURq
-	wUzZWjYp9f012z6CAqNVVMATMllLwkJAwX5bIZLMHPn7s0Rlh2pCREE1l5KMzpzF
-	ztCAQGiiJFjSg1yA9iVsrw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm3; t=1795645324; x=
-	1795731724; bh=+slk1rOOHhy9FsVNaBi4UZuSRzG3jF3FxEWiHyv7D3g=; b=2
-	9Hi4eKCdnnpuCPbXKr84vvRicoD1QNjk22xOMjsUOW/98qZMcXGzb/uqKy9pIQcq
-	yasi5KkgIbvLKbVmHBLYM5bEpRZ4CV8tGco/CCIv8W2pbqWrgVUSff42oI8klrrz
-	s8M7IOHXTRQByiO7gBdnYCRn7NraxGVBeXhHx9qXShtQQQTpGrdTRbbkbDbAv00R
-	usbN/sIHe5uenonUGPBw/L+Qlzki2j1maJ2yw7PoSz6aqkJhOT61P/Q1A0AgqJI8
-	KbSmIn49QzaDyvZCyq42MM9eXZxyZIZPPPNJH3Z7SC5S+IgjDXL7KADxrvwE9sqG
-	b9D8Sdf/3eLT6Tq0iKDyQ==
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=sign d=flapping.org a=rsa-sha256;
-DKIM2-Signature: i=1; m=1; t=1795645324; d=flapping.org;
-	mf=PHRvbW9AZmxhcHBpbmcub3JnPg==;
-	rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
-	s=fm2:rsa-sha256:ci8fACwSfJyKECZgBpJcu7JFEn6+6GsVVab0+lW92LgB0U0
-	UVTVNsoZ1oP4BtTSLjijFiDvsH5LQ/wXd3NTLgZt4o7FU3F+V4ys7kU7ySJM/HjS
-	avSZZ0aKxNT3M1iZTVpo6voNEFoLk/aw5vyEHhqX42651tfAfX3PhImekZ7IOwqS
-	iIMphNlspHr4VSikPJfp9eAT6EQQgXuE9Qz4cHWlALTwZajxG8TbOQYNUedM/S/B
-	IQy1CxSEjJPgeBuMItnQcMopalJJaqwgvR3hEl6BJjS2c2pyA3MVRaYfmYF2lY1G
-	ADeLHZiRHsmvm4eFgdDp8V8XdKU5Cumh20fomfw==;
-X-DKIM2-Info: draft=ietf-dkim-dkim2-spec-09;
-	repo=github.com/dkim2wg/interop; date=2026-11-03; sw=lmtpprox;
-	action=mi-m=1; hc=12;
-	hn=cc,content-transfer-encoding,content-type,date,feedback-id,
-	from,in-reply-to,message-id,mime-version,references,subject,to;
-Message-Instance: m=1; h=sha256:chTifiZb/ZlBC/VFx6LGY+5mqNIJ1cUEH0lv+ovn6ag=:tkVvK0TLEiKGfGLpF5Kk+mJXNRs3CRQeYlEWNmesOzE=;
-X-ME-Sender: <xms:jF8Ha-XYPtooHd-JY1wdOeMm09QLzVBjROxqmW52CTgN7vrDCF0woQ>
-    <xme:jF8HaywoLq89vSksyTnfU78qxL4ciMomTFDitmWlNKZ6VTUg0HBGNHr3fnH_e-oVm
-    jfPVvNg2yKMUMNJNd20v4E1F99T9TGkDBh1IevWpy7kG1d06m48-fsw>
-X-ME-Received: <xmr:jF8Ha99kycgZRDft2OgZvMNdZIK0XUdgM2Gkhs7cJdLIljo-b5buT14w-SCosfCVg22xRneKp7nxHQRdkXiUiNQs>
-X-ME-Proxy-Cause: dmFkZTGyuECZHMZOjj5xEKugkXPV3ZgwMbflbSZ7tibQHx3vM1WWphwt/4h17ilqaSeQZE
-    P9Zojgb564igOVk0Iee/dS9wv2Xn+ULQ2ipM00qeNKN1S99v6glzV5d2MUld6QXZUVNXYv
-    QCCZrzfaweU8WKI/vp1D6K1zQFtfTL9+XZuVxk8zgdeRaeX77VcYGhXdNWYdlNddVCW7vh
-    gRwXBm7i9DHCUNCJxTY+J0tCrjXOc9G9qCDS58EtPIKsgptuKPjt/gl05JWrxsP8WSwt8Y
-    zmH61ydZaiiMvjEtURrl32ISE87vo+jrnw4MJAcK64UK+lKzQCCpK+AmHPXMrGsVUhUkUQ
-    zBPkAjDBv8WisXEhHi5VY6LSVgZjqDS8b2otYEe4OuCCrnNL7TD/J/S8FNXVTG7ruOYabc
-    i8CiDPETpYRXqOCXvNW6VDYczSD3HaaoDk1VL6ShPrQDq/AmHw3yiVsqz8bpzwJ2OYS9YS
-    hL/ZXLsm9m0YfI/0Pk5FsIeizCNHFHygJTBxogQX6S7Hg/CKhUohP+lqgMboBTrhqMk8mr
-    fdU+l57N7N3UsAK+79hMYe6Ccifv/X1sAmxcopzNcrRS+8FRdcByT67CVcoVYpp8opGLP5
-    I9+SXeEdr1sAemMeMlVLuwJ1x8OsQYliyk6N15aiAi1Y/dwLjCYopZ+vidBQ
-X-ME-Proxy: <xmx:jF8Ha__SbDAffT1fVj9Qe6tH_nRcPQ7UE44kPLzrDL8PtVeRUJ0zyQ>
-    <xmx:jF8Ha0U0SQDHSyTSjGQkvDQylRkGzapTidxaBe9k7g1bLFVV-RqOXQ>
-    <xmx:jF8Ha0cSouA4RQ9luFBygQneBqDimXzJgZJe9x7LwRtlomgAmsG6hg>
-    <xmx:jF8Ha1atrHwdkyeTsoHRp1axlZSeUWk_fxlZSOxa99cMP2_l13cFaQ>
-    <xmx:jF8HazhTfVhKWzsCY3eog71mTFZqJH6wPABdcebnOKD9hXyXseEamQQ8>
-Feedback-ID: i51fe4b43:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Wed,
- 25 Nov 2026 17:22:01 -0500 (EST)
-Date: Thu, 26 Nov 2026 07:21:58 +0900 (JST)
-Message-Id: <20261126.072158.1259538136818633027.tomo@flapping.org>
-To: andrew@lunn.ch
-Cc: tomo@flapping.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hfdevel@gmx.net,
- johan@kernel.org, netdev@vger.kernel.org, fujita.tomonori@gmail.com
-Subject: Re: [PATCH net] net: tn40xx: terminate the PHY software node
- property array
-From: FUJITA Tomonori <tomo@flapping.org>
-In-Reply-To: <871628b2-f8c3-4181-885e-ac42c8a3b40d@lunn.ch>
-References: <20261124072646.3438910-1-tomo@flapping.org>
-	<871628b2-f8c3-4181-885e-ac42c8a3b40d@lunn.ch>
+	dkim=pass (2048-bit key, unprotected) header.d=proton.me header.i=@proton.me header.a=rsa-sha256 header.s=protonmail2 header.b=UyKpQ78g
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=proton.me;
+	s=protonmail2; t=1795646115; x=1795905315;
+	bh=goJy59c94Cs4tzv9h9Aqp74228tx3mJVbRda5/b+on4=;
+	h=Date:To:From:Cc:Subject:Message-ID:In-Reply-To:References:
+	 Feedback-ID:From:To:Cc:Date:Subject:Reply-To:Feedback-ID:
+	 Message-ID:BIMI-Selector;
+	b=UyKpQ78gE0ylMVupVqzPplhHjewa6O/cDvWeY4dFw/Rj9cZ7/guMP3meIw21jF289
+	 eYyHzeJF3lF0h1/aH7aWGmOmuVVL9oSPTUNTJsAlGB37yXyl1ti67C5COCDsUwJPxs
+	 Uj+o9SCQhw1PFLlsKXW8UdMoWL009THHZOh46CFt527aPzvVNDSZHDYsjg6Icrwm2D
+	 qFhLGnbPL7nOzFcHIirD3DPF6oqMF8YwYFr4IXQCxW/2lEAFGcx3ID+GHTkUpNm7AY
+	 wWYeZ2r8dQrg9Z0lDIHEb658MNZ7mXwAkk2+AfD2Ybm588kBkkxIPM9ATJP2knQR9V
+	 uhQB/sDFqDZHA==
+Date: Wed, 25 Nov 2026 22:35:11 +0000
+To: Miquel Raynal <miquel.raynal@bootlin.com>
+From: =?utf-8?B?7J206rG07ZiV?= <leegun25@proton.me>
+Cc: alex.aring@gmail.com, stefan@datenfreihafen.org, linux-wpan@vger.kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
+Message-ID: <-4vARCf0AvznsCw8bnUA-0HXh6HLIvZclkIK_aUJIf4ULKof8WuzgWidE8XZJi5Cndbt9iMVb_IiHNVA4W6GDQlym0Ny8mSRaxRCojci95o=@proton.me>
+In-Reply-To: <87se0qqd5l.fsf@bootlin.com>
+References: <20261121150835.256812-1-leegun25@proton.me> <87se0qqd5l.fsf@bootlin.com>
+Feedback-ID: 167971190:user:proton
+X-Pm-Message-ID: 4893f12c8a26393d929d93438b8bc47abf15b0aa
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -126,35 +63,61 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Type: Text/Plain; charset=us-ascii
-Content-Transfer-Encoding: 7bit
+MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Wed, 25 Nov 2026 17:57:59 +0100
-Andrew Lunn <andrew@lunn.ch> wrote:
+Hi Miqu=C3=A8l,
 
-> On Tue, Nov 24, 2026 at 04:26:46PM +0900, FUJITA Tomonori wrote:
->> From: FUJITA Tomonori <fujita.tomonori@gmail.com>
->> 
->> The PHY software node uses phy_props[] as its property array. The array
->> has three entries and no empty entry at the end. Property lookups walk
->> the array until they find an entry with a NULL name, so they read past
->> the end of phy_props[].
+On Wednesday, November 25th, 2026 at 03:48, Miquel Raynal <miquel.raynal@bo=
+otlin.com> wrote:
 
-[...]
+> First let's approach the numbers. 4ms is on a locally run simulator. You
+> are fixing a subsystem that plays with radios. A physical IEEE802154
+> radio would probably bring the usual bad case to > 100ms, and worth case
+> would be above the 1s boundary. So taking the RTNL lock as you do it
+> there would no longer warn in dev mode, but might lead to a DoS.
 
-> The same problem was fixed in the txgbe driver in April.
-> 
-> If you have time, could you look over all ethernet drivers and see if
-> there are any more drivers with this problem. I don't think there are,
-> it is pretty unusual to do this, but i don't know every driver...
+Thanks for pointing this out. I also found that taking the RTNL in
+the association response worker causes association between two PHYs
+on the same host to time out in hwsim.
 
-Among the ethernet drivers, only txgbe and tn40xx use swnode. I think
-that there are no more drivers with this problem.
+> Reviewing your patch makes me realize we do something even worse: up to
+> 10s waiting with the RTNL when waiting for an association response (for
+> which we are ouselves the initiator). That is slightly less a problem
+> since it is not remotely triggerable like the approach you propose, but
+> still.
+>
+> I don't remember why we *had* to take the RTNL in the mlme_tx path.
+>
+> Alex, maybe you remember why?
 
->> Fixes: 25b6a6d29d40 ("net: tn40xx: create swnode for mdio and aqr105 phy and add to mdiobus")
->> Signed-off-by: FUJITA Tomonori <fujita.tomonori@gmail.com>
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Commit ddd9ee7cda12 added the RTNL to prevent ndo_stop() from running
+during MLME TX.
 
-Thanks!
+I also found your 2022 device_lock proposal:
+
+https://lore.kernel.org/netdev/20220826144049.256134-11-miquel.raynal@bootl=
+in.com/
+
+I tried adding a per-PHY mutex shared by MLME TX, ndo_open() and
+ndo_stop(). With this change, the association response worker uses
+the new mutex without taking the RTNL. The existing MLME TX wrappers
+retain their RTNL requirements.
+
+In mac802154_hwsim, association between two PHYs on the same host
+works, and I saw no warnings or hangs during 5,000 association
+requests and 100 interface down/up cycles.
+
+With an artificial TX delay of 1 second, bringing the interface
+down still takes about 900 ms. ndo_stop() can still wait for an
+in-flight association response TX while holding the RTNL.
+
+As Alex pointed out in the 2022 discussion, page/channel changes
+also need to be considered. These are not covered by the new mutex.
+
+Would this be a reasonable direction for the fix? If so, I can send
+a v2.
+
+Thanks,
+Lee Keon-Hyeong
