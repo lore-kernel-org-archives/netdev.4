@@ -1,59 +1,54 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.109
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795588567;
-	b=iaNftEoucbcXoBM/oJdQru0MgxZGL+b95/m+UOgqjNQ6OpcVfLm7esXTmW1v713He5W3
-	 L0G1fPFK6s8iaobobBXnvbGF6hVX+BvutON0/pi98ydUmt3h4zB1amJFQ2WIswH9RhWbR
-	 2W+s4RdnY4mulkzFLfFjjOVlKQyTgXycJhfxeEkzb+GBgoUgDo2OT5dHlAGeskiQYBQaT
-	 eQ/Zf7AbFlvOxybDnRyBzCbB36yW3aW9SYTlq/L7QyaFvp1tSUs53Hldb0FqvZ/Uclz1g
-	 suKdhwdvcas2EGQeRij5ADQpoHcIGZfYZFEzvO5M/CLVhsD36Dm8b13T4cPITIT4FKg==
+	t=1795588641;
+	b=FQN98xYP9fhDRMpUYDnLm6mroE55z2PIbE0BTN2e/4TFukIAix8emIMVr27QvVkPF/uv
+	 d4vax0PZFbh/Nxcr87MRzY75qv0RuaXTf9oLig35h4xUVExu4Fb1iENyetJhLdrMMSuw4
+	 mj2Xrz2GvFlCkUa1wmPiM39F+f24oIjHjPnFu3N9Euywo0DX5omd/jdqaUCyTIorZ413E
+	 WPLPhcBU5BkWdWKL00iNIA+E6yB0pOkCHbGV1yibDSGmYGBGfYuOGXWCz7UoQvVCFwSdW
+	 drj5UyHVKSCZs7eISCYGzAnmdKhMCeO5BDCmykNN9gjygVEtHSFzGAumMv6fBWzDu8Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795588567;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ZYLJZ6q+uI9UPksDd4iVcjy9aW9Y3HRmtIfdwK4ESxI=;
-	b=XNXpvF2AmCWUEzPi6ylau+3xAWq9bXMJSJY5saM2pv/QlTeG0/zBCx/CHBCQ1mURxscE
-	 gAFI/ae2q9RTeYAF9BIMq06egvBDfiM0mF1xtJy3X0TKwWAmOk/E3TNbx5tZYPZHnUXdl
-	 phBZTILDoWdC1gqIMZmZp+b4LFfQxOMxdEXRS7lgTi3iJHboRYDrhVf+mbDJYrLssgYzW
-	 jHFaVaF9A0CflaMa6dPaiVTWqctoED5xXfDiWskl54GY9twGN4tB0vKJ3B1fQ1csTcYE+
-	 nJNOlRu2OfxY4yic2VHoXugJnuRRH4WC6wBhjseJpsBYsISSPuUuIDSsku3vtWGhPBw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795588641;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=q/Rj58SaH5amWTyNmer9CsZ6IqXDXPNCk/zSC3unopI=;
+	b=FrIz+dfuA1z2qetJNblXaIDAp9qkB790FUbkSEQWresoAHqkAU9lm5ZAwUSP3dfyP8bi
+	 VwwI19JgTR8/4uDxgabdERLAMaskOqhGtzfC5je153QAa8h2+D7qSEazV9pvrV3p/k7XS
+	 q4nLBC0xtYnC4sBKKFInXUrerey3heBHIz312lRvrsd7Fd69qG7cB+gNMF4BgmXRyqHCY
+	 yl/xfXBQRnSrLlpjPTG/So5SfZI5CK7EGn0WOjcPtLWRi4q0AG0+34pmS2OSQ3HTUkIkB
+	 NAZnKAz2Cg+I/1aMBbnuinGIPtIQkQR5DPgB4JF8j/TUJKk2vyg85579TD1Bfj/TzlQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Erf5VTqp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR;
+	arc=none smtp.remote-ip=91.218.175.109
+Received: from mta0.migadu.com (out-109.mta0.migadu.com [91.218.175.109])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 98A27606A33C;
-	Wed, 25 Nov 2026 06:36:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95E4A606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:37:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95E4A606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Erf5VTqp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A65E1F00ACF;
-	Wed, 25 Nov 2026 06:36:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795588566;
-	bh=ZYLJZ6q+uI9UPksDd4iVcjy9aW9Y3HRmtIfdwK4ESxI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=Erf5VTqpoqaVrI6hJ90XfSP4/P/gDGaLqOGN3CknZ2RFhCOwu8LhSm5fyPMYZsjpC
-	 crAad+KIQUZofKFZD74471SgplmJ+Mml43usYfHVEG5Vfs0Nc8IN2zbZT5afhIUn4E
-	 jbKe1UQ34/L49tPaedo72v843Hcrx6Vk2h2Pq+vC+n356iWp+6mFer3eqECL/c6LMD
-	 cUcrr59/rqDR99Ajonw5wwjQYbJzuhscMsvjT+4rHvhkEX7b7JAXlCpVhqop3d+TOc
-	 fl+bpA6NU/7uPSOrVY+/W7dxDAjrSBiYz9VL17Y9AsUcsswkd2/BLR5C7k783qcsxl
-	 cGJQyCPNtqiRQ==
-Subject:
- Re: [PATCH net-next v3 5/5] net: rnpgbe: Add hardware and queue statistics
-From: netdev-bot+sashiko@kernel.org
-To: dong100@mucse.com
-Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, yaojun@mucse.com
-Date: Wed, 25 Nov 2026 06:36:06 +0000
-Message-ID: <179558856602.3135.7505371780005583025@kernel.org>
-In-Reply-To: <DB48C65C5764A9FD+20261124060623.411536-1-dong100@mucse.com>
-References: <DB48C65C5764A9FD+20261124060623.411536-1-dong100@mucse.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=q5d6DVJR
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=Rue6WWUDqbUiDGZQOImbpN9tuORsHUiNUGcW6y17oMA=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795588638; v=1; x=1796193438;
+ b=q5d6DVJRa8oAnf8vyrkzerITtkrT4wiX6G9nDh5BbJ4elSbjbcPOb0p1hagSUsbbtuAP9WWg
+ +UxdMf+FdxYmKXg94zEJq2QJAiTTQdQ9Pzo3JqHN9hEZdkmjAu3uIzjd3UJWINIXtyEKktd3pqJ
+ qQg7xqQdikA3H7se/iDAORhE=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by smtp.migadu.com with ESMTPS id 52e2bc64e5274c4c;
+	Wed, 25 Nov 2026 06:37:17 +0000
+X-Mizu-Trace-ID: 52e2bc64e5274c4c
+X-Migadu-Flow: FLOW_OUT
+Message-ID: <663c0be8-60c8-45d6-baf6-5bc4ac0ae173@linux.dev>
+Date: Wed, 25 Nov 2026 14:37:10 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,124 +58,183 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] tcp: fix CA module refcount underflow in
+ tcp_v4_syn_recv_sock()
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
+ kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, fw@strlen.de, daniel@iogearbox.net,
+ linux-kernel@vger.kernel.org, bpf@vger.kernel.org
+References: <20261124062625.264148-1-jiayuan.chen@linux.dev>
+ <179558800299.3135.4905748131998876050@kernel.org>
+From: Jiayuan Chen <jiayuan.chen@linux.dev>
+In-Reply-To: <179558800299.3135.4905748131998876050@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On 11/25/26 2:26 PM, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+> 
+> Critical: 0 · High: 0 · Medium: 1 · Low: 1
+> 
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwork
+> know by including "pw-bot: cr" as a separate line at the end of your reply
+> (one such reply per series is enough).
+> 
+> - [Medium] The new error path in tcp_v4_syn_recv_sock()
+>   (net/ipv4/tcp_ipv4.c) jumps to clear_ca_and_exit when…
+> - [Low] The commit message presents the bug as a module refcount
+>   underflow that shows up as a module_put() WARNING.
+> 
+> --
+> 
+> tcp: fix CA module refcount underflow in tcp_v4_syn_recv_sock()
+> 
+> The child socket inherits icsk_ca_ops from the listener without taking a
+> reference. If inet_csk_route_child_sock() fails, the child then puts the
+> listener's reference. This patch clears icsk_ca_ops on that error path and
+> makes tcp_cleanup_congestion_control() skip a socket that has no CA.
+> 
+>> If inet_csk_route_child_sock() fails in between, we go to put_and_exit
+>> and tcp_done() ends up in tcp_cleanup_congestion_control(), which puts
+>> the reference unconditionally. The one dropped belongs to the listener.
+> 
+> [Severity: Low]
+> 
+> Is the impact larger than a refcount underflow warning?
+> 
 
-- [Medium] After this patch the driver reports two RX totals that
-  disagree.
+> module_put() uses atomic_dec_if_positive() and only warns when the count
+> would go negative:
+> 
+> kernel/module/main.c:module_put() {
+>     ...
+> 		ret = atomic_dec_if_positive(&module->refcnt);
+> 		WARN_ON(ret < 0);	/* Failed to put refcount */
+>     ...
+> }
+> 
+> While the listener still holds its reference, the child's put in
+> tcp_cleanup_congestion_control() succeeds silently and uses up the
+> listener's reference. The quoted WARN only fires after earlier occurrences
+> have already drained that reference.
+> 
+> Once that has happened, try_release_module_ref() lets rmmod of tcp_bbr
+> succeed while the listener's icsk_ca_ops still points into the module.
+> Later children read icsk_ca_ops->owner through bpf_try_module_get() in
+> tcp_ca_openreq_child(), and closing the listener calls ->release() on it.
+> Could either of these be a use-after-free?
+> 
+> If the count has dropped below the base instead, rmmod would hit
+> BUG_ON(ret < 0) in try_release_module_ref().
+> 
+> For BPF struct_ops congestion control, bpf_module_put() goes through
+> bpf_struct_ops_put() -> bpf_map_put():
+> 
+> include/linux/bpf.h:bpf_module_put() {
+> 	if (owner == BPF_MODULE_OWNER)
+> 		bpf_struct_ops_put(data);
+> 	else
+> 		module_put(owner);
+> }
+> 
+> In that case the extra put drops a struct_ops map reference while the
+> listener is still using the map.
+> 
+> Could the commit message describe this impact, for the benefit of stable
+> maintainers?
+> 
 
---
+It's meanless, we can't enumerate all cases‌ into commit message.
 
-net: rnpgbe: Add hardware and queue statistics
 
-This commit adds hardware RX CRC-error and multicast counters to
-ndo_get_stats64, accumulated from the service task. It also reports
-per-queue RX/TX packet and byte counters through netdev queue stats, and
-exposes per-queue TX DMA mapping failures through ethtool statistics.
+>> diff --git a/net/ipv4/tcp_cong.c b/net/ipv4/tcp_cong.c
+>> index e3f462f161dd6..0f99405a78b11 100644
+>> --- a/net/ipv4/tcp_cong.c
+>> +++ b/net/ipv4/tcp_cong.c
+>> @@ -271,6 +271,9 @@ void tcp_cleanup_congestion_control(struct sock *sk)
+>>  {
+>>  	struct inet_connection_sock *icsk = inet_csk(sk);
+>>  
+>> +	if (!icsk->icsk_ca_ops)
+>> +		return;
+>> +
+>>  	if (icsk->icsk_ca_initialized && icsk->icsk_ca_ops->release)
+>>  		icsk->icsk_ca_ops->release(sk);
+>>  	icsk->icsk_ca_initialized = 0;
+>> diff --git a/net/ipv4/tcp_ipv4.c b/net/ipv4/tcp_ipv4.c
+>> index 2fc92a7884fc8..8aa52376cf0aa 100644
+>> --- a/net/ipv4/tcp_ipv4.c
+>> +++ b/net/ipv4/tcp_ipv4.c
+>> @@ -1732,7 +1732,7 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>>  	if (!dst) {
+>>  		dst = inet_csk_route_child_sock(sk, newsk, req);
+>>  		if (!dst)
+>> -			goto put_and_exit;
+>> +			goto clear_ca_and_exit;
+>>  	} else {
+>>  		/* syncookie case : see end of cookie_v4_check() */
+>>  	}
+>> @@ -1789,6 +1789,9 @@ struct sock *tcp_v4_syn_recv_sock(const struct sock *sk, struct sk_buff *skb,
+>>  exit:
+>>  	tcp_listendrop(sk);
+>>  	return NULL;
+>> +clear_ca_and_exit:
+>> +	/* newsk holds no reference on the inherited CA yet. */
+>> +	inet_csk(newsk)->icsk_ca_ops = NULL;
+> 
+> [Severity: Medium]
+> 
+> Does this comment hold in all cases?
+> 
 
-> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
-> index b7b0c45a0f664..fe320c4f389ba 100644
-> --- a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
-> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_lib.c
 
-[ ... ]
 
-> @@ -615,6 +620,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
->  
->  		/* probably a little skewed due to removing CRC */
->  		total_rx_bytes += skb->len;
-> +		delivered_bytes += skb->len;
-> +		delivered_packets++;
->  		rnpgbe_process_skb_fields(rx_ring, skb);
->  		rx_desc->wb.cmd = 0;
->  		napi_gro_receive(&q_vector->napi, skb);
-> @@ -626,6 +633,8 @@ static int rnpgbe_clean_rx_irq(struct mucse_q_vector *q_vector,
->  	u64_stats_update_begin(&rx_ring->stats->syncp);
->  	rx_ring->stats->packets += total_rx_packets;
->  	rx_ring->stats->bytes += total_rx_bytes;
-> +	rx_ring->stats->delivered_packets += delivered_packets;
-> +	rx_ring->stats->delivered_bytes += delivered_bytes;
->  	rx_ring->stats->length_errors += total_rx_length_errors;
->  	atomic64_add(total_rx_dropped, &rx_ring->stats->dropped);
->  	u64_stats_update_end(&rx_ring->stats->syncp);
+> tcp_create_openreq_child() calls inet_csk_clone_lock(). That function moves
+> the child to TCP_SYN_RECV and then calls security_inet_csk_clone(), all
+> before the route lookup above:
+> 
+> net/ipv4/inet_connection_sock.c:inet_csk_clone_lock() {
+>     ...
+> 	inet_sk_set_state(newsk, TCP_SYN_RECV);
+> 
+> 	inet_clone_ulp(req, newsk, priority);
+> 
+> 	security_inet_csk_clone(newsk, req);
+>     ...
+> }
+> 
+> bpf_lsm_inet_csk_clone is listed in bpf_lsm_locked_sockopt_hooks in
+> kernel/bpf/bpf_lsm.c. A BPF_LSM_CGROUP program attached there can
+> therefore call bpf_setsockopt(TCP_CONGESTION) on the child:
+> 
+> sol_tcp_sockopt_congestion()
+>   do_tcp_setsockopt()
+>     tcp_set_congestion_control()
+>       bpf_try_module_get(ca, ca->owner)  <- takes a reference on the new CA
+>       tcp_reinit_congestion_control()
+>         tcp_init_congestion_control()    <- ca->init(),
+>                                             icsk_ca_initialized = 1
+> 
 
-[ ... ]
+It's not for net tree and I have already sent a fix to bpf tree. 
 
-> diff --git a/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
-> new file mode 100644
-> index 0000000000000..efd2284fd93af
-> --- /dev/null
-> +++ b/drivers/net/ethernet/mucse/rnpgbe/rnpgbe_stats.c
+I also intentionally mentioned it under diff stat to suppress this review
+but I think I failed:
 
-[ ... ]
+'''
+   ...
+   Signed-off-by: Jiayuan Chen <jiayuan.chen@linux.dev>
+   ---
+   security_inet_csk_clone() -> bpf_setsockopt(TCP_CONGESTION) from a
+   lsm_cgroup prog has a similar problem, the child puts a reference it
+   never took. That one is being fixed in the bpf tree.
+   ...
+'''
 
-> +static void rnpgbe_get_queue_stats_rx(struct net_device *netdev, int idx,
-> +				      struct netdev_queue_stats_rx *stats)
-> +{
-> +	struct mucse *mucse = netdev_priv(netdev);
-> +	const struct mucse_queue_stats *queue;
-> +	unsigned int start;
-> +
-> +	queue = &mucse->rx_stats[idx];
-> +	do {
-> +		start = u64_stats_fetch_begin(&queue->syncp);
-> +		stats->packets = queue->delivered_packets;
-> +		stats->bytes = queue->delivered_bytes;
-> +	} while (u64_stats_fetch_retry(&queue->syncp, start));
-
-[Severity: Medium]
-Can this leave the qstat RX totals permanently out of step with the rtnl
-RX totals?
-
-rnpgbe_get_stats64() adds rx_stats[i].packets and rx_stats[i].bytes into
-rx_packets and rx_bytes. In rnpgbe_clean_rx_irq(), the driver-drop paths
-increase those counters but leave delivered_packets and delivered_bytes
-alone. One example is the skb == NULL path at EOP:
-
-	if (!skb) {
-		atomic64_inc(&rx_ring->stats->skb_alloc_failures);
-		...
-			total_rx_bytes += size;
-			total_rx_packets++;
-			total_rx_dropped++;
-
-The MUCSE_RX_DROP_RESOURCE EOP path and the rnpgbe_cleanup_headers()
-failure path with size >= ETH_HLEN behave the same way.
-
-This callback reports only delivered_* as qstat rx-packets and rx-bytes.
-rnpgbe_get_base_stats() uses the same callback through
-netdev_stat_queue_sum() for the inactive queues. So after the first
-driver RX drop, the rtnl totals stay higher than the qstat totals. An
-skb allocation failure under memory pressure is enough to cause that
-drop. Nothing resets these counters, so the gap never closes.
-
-The generic selftest expects the two sets of totals to match:
-
-tools/testing/selftests/drivers/net/stats.py:pkt_byte_sum()
-    # Compare stats, rtnl stats and qstats must match,
-    ...
-        if stat_cmp(rtstat, qstat) > 0:
-            raise KsftFailEx("Qstats are lower, fetched later")
-
-The commit message says the split is intentional. Even so, could both
-interfaces report the same packet and byte counters? One option is to
-use packets and bytes here. Another is to keep driver drops out of the
-rtnl rx_packets and rx_bytes totals.
-
-> +	stats->alloc_fail = atomic64_read(&queue->page_alloc_failures) +
-> +			    atomic64_read(&queue->skb_alloc_failures);
-> +}
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/6C54E9FB2E95869E%2B20261124060436.410989-1-dong100%40mucse.com
