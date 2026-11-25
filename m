@@ -1,83 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570734;
-	b=K52WntEu1A44wvfwGA2F+NroipXGQlX+OkDftQ6US1ROh8JQGXWLvS2m5MTzIvLU2iga
-	 Z2FdAj+xJAmkfERlZdkVG+nQPe8jL3VYfm+BH7QzTTYXJk3GfDOoh0N5RY2msJVrE5iTw
-	 Ji27vbYwW7HY2FM+kzsvs0HHfNpWM+JhPyogMUQD667QEyvANM7btH2R8QbWhBISAP7Kx
-	 ArgPq37xjzETpqtXtCIxlwH8hIxWZ6THRCMxycPW6WMPAkbD6vbRjlOOa/BbjRusgv/TF
-	 cJG/UuiBf2HB0RCHUnd4MBBFufm6SIo+BMDyc5mOgDoXv0RVlx0MLSJ0pXv2s1jEAuw==
+	t=1795570736;
+	b=zgBf49vz+u4+JzWQeBdjLyiViADfaYFf/wRJru3Vet3F6ikXavvKyyxAi9TSFxvVrTlv
+	 CNaOk5ZOQ6DGK9577Vm4GZc7IINeOq/syiD8S+U6QICv2CX2H11QRWdw9iQzHJNuO6QnX
+	 g7irIqIJUnBvqAVbTT9IS44iBA53pK6iAWFfYMDK0Fzs4THFnFLRtJXfvPbd7qShuMdyy
+	 cWlQR2Q1FihPQiCDshON32YiGTYQ8rkd9iETjU1p0LNZfaW26CpxhQnuA/8vox977W1QI
+	 KJ0VasNRC12NDbU4dBkVcKGrtls9aL2dISHKCTbVgPb/fnK6Kxd9sMmzElw9dY1gVzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570734;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570736;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=7Smsfv+fq1upfUo3AxsaYN4ktsEVw/qOOecYxHG+yIQ=;
-	b=peUvgPaUtVJ9BUKCEduVpp8vdTqRCjpKH/kB4TcrCcV/2ZYnZsIRKl37RmtHaPHgr00h
-	 rD52JZ66F0hcD+v5ZAHoyU1yUue3qh9iUwfm/AJV50KMBhjPyd6onYwevpzcfR2KneZRp
-	 eZyoAg9E32KDC0pi0BTASysltwSj2Ii511LIFQgDKjBX7YMa/+VIeiUmTPko7PcYKD1nf
-	 m1LdUegG8RZ0QWgt0Y1FDHxazMom/GRnJu69t2Jqqreue1PNFMaZP2O7BGbt5l9mlvQMR
-	 ZfMaR89SO5NpQq/618Bm21hT1Dlw8/vaEYwykaG0trTfZMJ/9Lzm/Lq8o6sTTANVl1w==
+	bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
+	b=CXoSBclILzy0KXNnIkMTSJtx2mmvwsotss5qSLdqPsT6YVUyJXH214qaH8tDb2C59UUQ
+	 uKTVMt9j6Q6MUavYIYVjKAJMxj8pR6w9E8RVzuA3UD81JCVhD/yl/tW5gLhCeH78pcWGD
+	 Fq/2FUZKsiKXWTTTA/1ZNpY9uxYGNcGxO6RhZTRW+fzAvxv9nwLxYViMLJSzCFHDrxMeC
+	 AxmjKX9mHNkCRPHL3FYPLs+aZcUg7E1ZNCRlSY2UrHfWYJOzIb2JCMFpdfpn5c5CgEYV9
+	 NipLle8w1dZ/TdXvDcnGGIjN6BJu/fjBl2QaE6gCtmeC92ngTgvEzMRt2bBgrPnicaQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=none header.from=dama.to;
 	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y7jI1gpk;
-	arc=none smtp.remote-ip=209.85.215.172
-Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nQ3cYOFl;
+	arc=none smtp.remote-ip=209.85.210.174
+Received: from mail-pf1-f174.google.com (mail-pf1-f174.google.com [209.85.210.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 884DA606A335
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:38:54 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 884DA606A335
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6374D606A330
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:38:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6374D606A330
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
 Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=Y7jI1gpk
-Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cd6028ff33fso2619554a12.0
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:38:54 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=nQ3cYOFl
+Received: by mail-pf1-f174.google.com with SMTP id d2e1a72fcca58-8a05b210703so2438547b3a.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 17:38:56 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795570734; x=1796175534; darn=vger.kernel.org;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795570736; x=1796175536; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=7Smsfv+fq1upfUo3AxsaYN4ktsEVw/qOOecYxHG+yIQ=;
-        b=Y7jI1gpkknqY0ABHfZKzFcIABUS03xker81+5srIr+qNUBouJqMuwZ9MGkR3nd/Ynr
-         k3kM0qHc3j6AJJ/uzkutbfAKaUTzYkvAlTO8bSlrAYQagbHVQHtQHV72XwdlpuczvsoP
-         TpXgBf0QQ5Dyi8VNg7cP3KQpzYPtHWTG5wL17e8PZ1xSe9dW9fj9Vl2NjKrfFFBDDv9i
-         loM5hjoFAVpdW3lShzwl75H0xSa/TC+GNBqDo8l9I/dk/Ni9Gso8mF6f89ucmB4l6ibK
-         8WxmXfdX+LO31CwjayLfg6w1fbizGQ3D1jXtvX1WLalpM+BNozLhn0j430I2a32Uxm1/
-         Royg==
+        bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
+        b=nQ3cYOFlTRFhcuSLIWlwOPuC2LQzGSEZw3kz3m3DYrwBMqvQH5vLebKCVtGmpzqd8j
+         VwFvgPv+Qt5BK6J7fGTGjiLqAW3WgA8fQXWviz+3ekMnlQ8vJU1tRVCjP7zSds6sne67
+         7ZljZ/RCRZ7lrmaEIq2tDJNR1LvUeupfzTHD2EGted1iHScyX8uiPSluADAdJsVYE/Ri
+         fCRdU7t/vJF4aNTmF4m/BUbaob2qqKTKaX/Kx1YGhKxzRgbxNB7NQUIxsRBlKYaPglqF
+         8e42LJFvRXkxoTXx6jtCSVL8p4Pu+5/BDZ05mA1TSO9lfp4RYzMHusEuJnnwlcigTNjc
+         in0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795570734; x=1796175534;
+        d=1e100.net; s=20260707; t=1795570736; x=1796175536;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=7Smsfv+fq1upfUo3AxsaYN4ktsEVw/qOOecYxHG+yIQ=;
-        b=Vmrjvhlac18+xaP84r5po9WPrRQP66lTVKRAP06C1W0RRHJY8l7HxaUU53+Ppu1+18
-         yNV15vxWBai3uMYP/d9Am2tsxCCuKKOkJrRP22jM2wqO7r8yyQC6+CNgFBu3h0VTlCHg
-         tgPlPR0J9NvuaASaGrIYa2N6q4jHPbmhbs6q1gI0MIfqwvKLUjj5O/Bd2kxb7vJwHRWi
-         vQhoT2JB2zNY90N3efAdbi+twE5VZyancXuTm7KYk3AQB+qoj1l/zpwz98F4+fZZ8452
-         V2hhuy260NUQ9zdXXF3HZxj42869Xf3+jgWDMb4zqKc6fQndrlc2P8i+oA5dbSZ7xdc7
-         XYLA==
-X-Gm-Message-State: APuU4Z+Exv9OdwgXFS6mCggCouU4TU4Ow83Yxzbt8uEgzESN4+i7W7mc
-	r6DO60bituTIjULwGVZsq6r0Ygp2HhVWp8+bjbmDLeAOItm7Jk0ev8isnT3OD3JAWXMorfvCXzd
-	b7wOn
-X-Gm-Gg: AZFdTZeIBRmFoJmfITrte5rEBI4fPn2+VRP+bau7QLcLW13/2thqawdz1qnam1jf/oa
-	CitdsEJV4QGEldP6Lv9Dve+NrmWJvZTXVvsn8mYeJBYnN4WV6RYElmtieHT7r0wxClAvm15xlr2
-	zGBxaIppReXNAi/s+JPN4PbqTJuH1uYz2S5XV4hH2yLOKwrj+D89gp0MV6D8TaVGZZXzKVzEAmU
-	KynrRFUKGz0jl9mcmnkWftTkv5nDA+RYN8KsNx//dkN+NDeQZqSscbEAdjAJBq12Pe4NwBd+xV5
-	RKGcRXWmxMkxmXaU9MwWx70jgMeTp4f3niBSGbD8wav+coWqLEqLvc8hL1DXpT1kAi7eGIxWh5w
-	T/65QtDbuwfkerjJ8rdkA/Ih1SaaGesLpd1z7YHibjxeNsxwERVf4EZItcDGVBDyFPoS9z9WJCm
-	oEttcAECU4CjCCGQvAocV4zR9+r7tD79ZwA7sywfkqfkH0CT7nlA4mMkBe3ZCZrpJikS2XkpyXY
-	vb0XaXEQAAzlyiRADx8E8lUj4ZDPqGm799b8ENeqXpn7+XRV2LecCPmBIR5vcihrT34knfQ1FWj
-	kO9ovRr4oM/OvgVC3J385PVJaUu78hlDhxpKEOonqCc=
-X-Received: by 2002:a17:90b:4ec5:b0:3ac:b2e6:3181 with SMTP id 98e67ed59e1d1-3b41c9476d3mr15912929a91.37.1795570733806;
-        Tue, 24 Nov 2026 17:38:53 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:53::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b82e624sm10708674a91.4.2026.11.24.17.38.51
+        bh=YDIcmu9gZok4T9RCCwjzEyzCUipWYiC3bM6Ft7AoXiQ=;
+        b=joChPaw98K8RiSE2T+H3MwIT87f+i9MmuDk9krOthtxkul68AF5gdQw1MEsidCp+MQ
+         yEsazV9BWhFtmzIS+okMRGl/BLb6DyzRMJySrCInn69iYXdOkP7b/oYjBcpyQ85jcVCQ
+         KOpF2HDOtSppu+wstWPiWrt0NiYROmgxXoa3DTqI8zCF6QQiBNuhpuegBiDhc9q8+cc1
+         T1T60FEOr9ItxXpZrrQxO3nxmgGl2JpE2qbc0NKyrl6F1AXupVs3zpDNylIsiVEdaNsN
+         4rHOYHEbCKeoslxq5qHJ9MvsaifYTd1ggcPOtqCxEZHXsTLpDYwxn3EGhkpUMc4iq/1C
+         yi1w==
+X-Gm-Message-State: APuU4Z+zQ5mDfPlsPV1AUYg7E8ZH4lQgw3JNQtCH5d6qygk5XO9208Oo
+	LM3DT2LDeuRDO25X4E++mbJDVXOarT7jWTyW09/CVyvVIXoHuQoec1h8Y4Evb9/o9D7bCFkxYvI
+	81c0m
+X-Gm-Gg: AZFdTZfg8q7dgSNVUhZgq6ibqwQRfu13PNEedzMTYXIXB0zhNSZ8lgo5O6pkL94ojxm
+	bu66N/E6yeb1/yK+b0owfP2RQj9m7t4sFC1fKnFHwgrK48F7JOZmU8Ers2DJM5rv+bR7CojyYAj
+	fS4Ap7ErJdgWPeyeT7mOZob38qjgTY4SoCqRUzpiCsjrMKK+elg6tRwfMKwapHJODruZuJfg7yy
+	w4gduTvw0aVw3tgN56ZOFpquaOkEkxYJf3YtWiMh5wOoFw/RPXHnbhM4h+25JFHOc1LfjNOdVIG
+	TrQCI56D8Or5dU7fs8lXi0eYFWXYKs0OHX/74ha5wxLsv3s7DPESs7eAL8OZ+CygVfcGVMP1FZ3
+	tbn9daMgpTsZsqJ5O88BHip1LfpoohMpFRNN71lT8BaV1bcgF+q+M06rr6pv26qhCHXpLPEmUKQ
+	kOzF3H7WxyRzChZnluKWuXK28NtLLHfjVkZfQxrOEgV9/RIpXya4GYUjIPm/0JTMPxsQ7s2LlFI
+	P0l++JHDTmdhqXftaBubEiJFwdaAAVLkANki6GrHCz3KrSqfMViN3VMAZtZG0yUXuCWqSd77XKu
+	VybBHvOuZfRZWG8jmdfeeZ4T1VDJvyAzPueyKJlgBPetxe1BubEXglPL1edJDC9/
+X-Received: by 2002:a05:6300:8095:b0:3e2:83d5:191b with SMTP id adf61e73a8af0-4014c25610dmr14554528637.63.1795570735677;
+        Tue, 24 Nov 2026 17:38:55 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:54::])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c8706844a0sm8133696b3a.1.2026.11.24.17.38.54
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 24 Nov 2026 17:38:52 -0800 (PST)
+        Tue, 24 Nov 2026 17:38:55 -0800 (PST)
 From: Joe Damato <joe@dama.to>
 To: netdev@vger.kernel.org,
 	Andrew Lunn <andrew+netdev@lunn.ch>,
@@ -91,9 +91,9 @@ Cc: edumazet@google.com,
 	narcisav.kernel@gmail.com,
 	Joe Damato <joe@dama.to>,
 	linux-kselftest@vger.kernel.org
-Subject: [PATCH net-next 1/2] selftests: drv-net: uso: check datagram sizes at the receiver
-Date: Tue, 24 Nov 2026 17:38:35 -0800
-Message-ID: <20261125013838.3823834-2-joe@dama.to>
+Subject: [PATCH net-next 2/2] selftests: drv-net: uso: add small MSS variants
+Date: Tue, 24 Nov 2026 17:38:36 -0800
+Message-ID: <20261125013838.3823834-3-joe@dama.to>
 X-Mailer: git-send-email 2.53.1
 In-Reply-To: <20261125013838.3823834-1-joe@dama.to>
 References: <20261125013838.3823834-1-joe@dama.to>
@@ -108,64 +108,28 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The receiver only checks the total number of bytes received, which is
-the same whether the peer gets one datagram per segment or a single
-unsegmented datagram.
-
-Run socat with -v, which logs the length of each datagram received,
-and check that the peer received one datagram per segment with the
-expected sizes.
+Add small MSS variations to test paths in drivers where small frames are
+sent through different TX paths.
 
 Signed-off-by: Joe Damato <joe@dama.to>
 Suggested-by: Jakub Kicinski <kuba@kernel.org>
 ---
- tools/testing/selftests/drivers/net/hw/uso.py | 15 ++++++++++++---
- 1 file changed, 12 insertions(+), 3 deletions(-)
+ tools/testing/selftests/drivers/net/hw/uso.py | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/tools/testing/selftests/drivers/net/hw/uso.py b/tools/testing/selftests/drivers/net/hw/uso.py
-index 6d61e56cab3c..b0936b6b2161 100755
+index b0936b6b2161..be152d36cf3e 100755
 --- a/tools/testing/selftests/drivers/net/hw/uso.py
 +++ b/tools/testing/selftests/drivers/net/hw/uso.py
-@@ -4,10 +4,11 @@
- """Test USO
+@@ -92,6 +92,8 @@ def _uso_variants():
+     for ipver in ["4", "6"]:
+         yield KsftNamedVariant(f"v{ipver}_partial", ipver, 1400, 1400 * 10 + 500)
+         yield KsftNamedVariant(f"v{ipver}_exact", ipver, 1400, 1400 * 5)
++        yield KsftNamedVariant(f"v{ipver}_small_partial", ipver, 8, 8 * 10 + 4)
++        yield KsftNamedVariant(f"v{ipver}_small_exact", ipver, 32, 32 * 3)
  
- Sends large UDP datagrams with UDP_SEGMENT and verifies that the peer
--receives the expected total payload and that the NIC transmitted at least
--the expected number of segments.
-+receives one datagram per segment, with the expected sizes and total payload,
-+and that the NIC transmitted at least the expected number of segments.
- """
- import random
-+import re
- import socket
- import string
  
-@@ -57,9 +58,12 @@ def _test_uso(cfg, ipver, mss, total_payload):
-         defer(ethtool, f"-K {cfg.ifname} tx-udp-segmentation off")
- 
-     expected_segs = (total_payload + mss - 1) // mss
-+    expected_sizes = [mss] * (total_payload // mss)
-+    if total_payload % mss:
-+        expected_sizes.append(total_payload % mss)
- 
-     port = rand_port(stype=socket.SOCK_DGRAM)
--    rx_cmd = f"socat -{ipver} -T 2 -u UDP-LISTEN:{port},reuseport STDOUT"
-+    rx_cmd = f"socat -v -{ipver} -T 2 -u UDP-LISTEN:{port},reuseport STDOUT"
- 
-     tx_before = _get_tx_packets(cfg)
- 
-@@ -70,6 +74,11 @@ def _test_uso(cfg, ipver, mss, total_payload):
-     ksft_eq(len(rx.stdout), total_payload,
-             comment=f"Received {len(rx.stdout)}B, expected {total_payload}B")
- 
-+    rx_sizes = [int(n) for n in re.findall(r"length=(\d+) from=", rx.stderr)]
-+    ksft_eq(sorted(rx_sizes), sorted(expected_sizes),
-+            comment=f"Received {len(rx_sizes)} datagrams, "
-+                    f"expected {expected_segs}")
-+
-     cfg.wait_hw_stats_settle()
- 
-     tx_after = _get_tx_packets(cfg)
+ @ksft_variants(_uso_variants())
 -- 
 2.53.1-Meta
 
