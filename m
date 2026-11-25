@@ -1,61 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795581889;
-	b=RySKVIBRt4pZSXLyEmqsgzguamLmOqhLxJJ833CHKMFx7hpZw5BaWLMav5G4gb2QO1iS
-	 cgZMLB5entaWRd174jxI1SAgy2EjN76JeIuMZPhu2/pMtFE1vZNmSrCBP9skoPuBtsjsh
-	 8gNA4z16k98EJyEs/KQBCdDOQSFnPqAwu66xezReikE7qb+yZx1cc0bxwleIK0c0nMx2M
-	 ltjFMO3e/90BtHvnGGFrf96m4uzlIavM+jwrJEOOX/Zrg9ZaWx+2fIM2ncsvrZSGmo+TM
-	 O44s0khT7VOMN4tNuW8kawJiZxeuugF6Y6mhQcwq4FQKpINw1Kq/I0z+z52FM1c4img==
+	t=1795582121;
+	b=WYncrjf1AZYF/CpFz9g8JfXS8InLUC11qgN2U6UV/7odtJY3sHQQ64F+t0koHo/xD7uQ
+	 /G3sb19SkVT2wMQGtfp7ZAqpajemgdS7q8AHg5vyZA/SrLYB6nXPwFSecgzsg+ZahU2YT
+	 Kao0hMfetkgnM6PlOx1Mi3n7XHHrwpi/A7xhw09IZ76iu/bE8FFL3d6ExoTFfllZ6uWrN
+	 CugXzsBxl7RHt4HuQrCgU9LrbxNZZ9KgrU0U1CmYsKk2PsQawaKqzKoYGmuaL/Uv7CP9S
+	 7oZd+MGp+SQpo9lmEi+qkcC3k+r/vLzWuQrPYAjIU+SWnwsNeM1F7/Mr5qRl0+b1fng==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795581889;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795582121;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Content-Type:Date:
+	 Message-Id:Subject:From:To:Cc:In-Reply-To:References:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=f4nKhL6BCHc76e1QSsjNaolj45jPoNKK6t/qBjGnops=;
-	b=fpuv6NnedOiiSpo4jartLMqaIq5i/yBbwJprff7pvtZILoLsEjYPhWjpPbW8mg6M9HEF
-	 mO+PbLK2ADb+XA3QtF+M7CoPGjWZ5HfdOrLtOgFckopkqKFMZY5PM9p/FEf3ZIpjjxflH
-	 CcU02wIBp44tH0BX/iT0ufKXlRG4horrznIobv7uDPrTHZsL3Aklp7KSCDjhpWrlFLQrD
-	 AS1xcnLgWUTND4RBV6ki3gYf+/kzvM0YJDNhS4hqqnyNilRIdL1ep1fVhaq9APG5/nsDi
-	 rUAssQJrMgaQT7NPFcoygwgE3Qbjhxpt36hJyZ/q+xcpjr8X9Eu8jae4uMNN3GFhCvg==
+	bh=ibCE/HqS/x5d7xPsRoXs/I+gnefhANY9+jawDpdhc1o=;
+	b=obXPZ4Hpd9YiCSAhz7o4fUGuWdbG7PKZ9PNAf7QuQt3vdLGELDEMZz9NusQ9uDrnVJVT
+	 zFhfg360NVbiDkb+bbzNe2BepSlfmm/x2B9QuPiZRRfwMNMdmk+iRJZ0GklUYV1Uj7pCd
+	 1+V+6ecjzjQK280hi4ZJFOLc7Q7hNRKEVq8hFeZjfhwPEjNHpR9xxiFb0XWwD5AIvggH6
+	 murqftYjJufjvLB9LFc43a6iRwHro9ZpMTCirpz5JM+wXYWg6XrvhSkB4UQcoJHdiEcBf
+	 akGdSYN8xR6Se0W3EFS2yEcq5RrVhTQPAb055fAvYjrEO7B9sJWYV919tU39hbIcUtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UZtjE7sk;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q5r8IgEQ;
+	arc=none smtp.remote-ip=209.85.215.172
+Received: from mail-pg1-f172.google.com (mail-pg1-f172.google.com [209.85.215.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CB71A606A326;
-	Wed, 25 Nov 2026 04:44:49 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16297606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:48:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16297606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UZtjE7sk
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3BA81F000C6;
-	Wed, 25 Nov 2026 04:44:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795581889;
-	bh=f4nKhL6BCHc76e1QSsjNaolj45jPoNKK6t/qBjGnops=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=UZtjE7skXqqrd1RhY8r7ERvpYZnJvl8wCgZiqlFa2s4jWULNFdhDV/Mhip1p5i97/
-	 +GlIclikTjRkjFgfV1+vsx4+UlxGSZnwCve4q2U9joVDl7VAh5JorI+9PhTUCb5lw3
-	 X12RqQUl2Ki/yZdBYrRaoEq5cOPiiMjxFxXtJ/etS/AxfrhYa4rP/wGgdwkhBOKPon
-	 KI3LHGQ0JopXVX2iR+qCM9dw+rBHJjBLT3k7QDHNv9Ukf0ZFNVwoToTdv/AKCCa2kU
-	 83ygPs34OkdUPu1YbQUpWSBqIqZ2PeWD4zm8WbB2sA97Zsa+veXVvlNqKHsojlD9/o
-	 YMGbIi2Sz4B6A==
-Subject:
- Re: [PATCH net v5 8/8] ptp: ocp: correct the ART 10 MHz input frequency
-From: netdev-bot+sashiko@kernel.org
-To: ahmadexp@gmail.com
-Cc: netdev@vger.kernel.org, andrew@lunn.ch, arkadiusz.kubalewski@intel.com,
- arnd@arndb.de, davem@davemloft.net, edumazet@kernel.org, jiri@resnulli.us,
- john.stultz@linaro.org, jonathan.lemon@gmail.com, kuba@kernel.org,
- linux-kernel@vger.kernel.org, olteanv@gmail.com, pabeni@redhat.com,
- richardcochran@gmail.com, rmk+kernel@armlinux.org.uk,
- vadim.fedorenko@linux.dev
-Date: Wed, 25 Nov 2026 04:44:48 +0000
-Message-ID: <179558188819.3135.13063151808595339248@kernel.org>
-In-Reply-To: <20261123-timecard-common-v5-d669cfa034-8-ahmadexp@gmail.com>
-References: <20261123-timecard-common-v5-d669cfa034-8-ahmadexp@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Q5r8IgEQ
+Received: by mail-pg1-f172.google.com with SMTP id 41be03b00d2f7-cdb75699c7cso2049633a12.2
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:48:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795582120; x=1796186920; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=ibCE/HqS/x5d7xPsRoXs/I+gnefhANY9+jawDpdhc1o=;
+        b=Q5r8IgEQAmZbYJu/A0c1xG1xuchmY4XyU1eozZEou/bXUSlaOHvyFcCRnbc2hKTb1b
+         iglr9abON268kxwAoma+YRgC3gh7pA/14dUTq5OlXiDNpbQ0+v1SFSktNKRNyNmEyiKb
+         47KeutDVhlW3vsl2b9ZFlsgXdyFYmXYFlYtcyc8eOmFnqWbTn9XOJAPV+9SVeDz9p99T
+         NT07Po7olJPfieXLKL1nZwScFHcb16SUup5ZGhPZCoT4TgR3YB1qpv25DyotThsL6ubO
+         46H2mGwDbyEdbSgX9c3drUv7TYiUZ0x+Qpk1ecIfGHq1rj2gXUBjnXPoTpf3wktMdeMa
+         FG2A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795582120; x=1796186920;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:cc:to
+         :from:subject:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=ibCE/HqS/x5d7xPsRoXs/I+gnefhANY9+jawDpdhc1o=;
+        b=lKyxCWwe/gd/fuYX7pS58vj121Pg7FRMiSHT6XYRxAXWgknMVoaL8tPT8JH/0CV/bh
+         XoyTrRus1iGztLE36AyT4C+PLB1HzSeUhB9XkpiTGa4In41G6OACGIXPhZXX5AgoivC9
+         wiOf80Qo2huw28TB9osg297LFr4N0ZmSbk4eW2wEdawhxrObfIdqg8Ajk56t9AvDH/vO
+         2GW+r8uoNh7J33KIz0KLF5HVg9zYQvkGXZxfmojd4/zx5ZFwCr7RojVionsIU1voFYkj
+         9GjTfyzaj1e0RZdylv1IxWm0dGy5k5vqM3wQ/1fVxJzWfnFDMwXAkuns/lAfRcpUtKAD
+         cYnQ==
+X-Gm-Message-State: APuU4Z+wI1g7ykPNkd6FALPUAUiQPCrl/aJGfcmAyq/ilhbV6u3HoWf2
+	Vz1ArlPG8+v244df8LZgSHwChYN9m+B9iuD40fIpIL7rjVA7O9DJZseD
+X-Gm-Gg: AZFdTZc4A2Ei6Uj+qpIJRnyPfSPoiHiAbFlL731hznBS5+hK33/xxcODUUxcTRYd/sP
+	3fYnsKPlHCpCIY84vwriC/8FqmFwfG4n/spYydtQLcBDERvUwy8FDeigpelQ1J+ebqz5rxizJ1d
+	YBojB2NmZ/ZQWnne46Ay4Ol7TY5wv7qpJfcpIBt1CrBHZKVc5s/dDH/qTSSYrQQIUxXgJ4HQzk0
+	fVhXN3GvJ9cfsWdBYK2xvzreueg5xw3mCp1HJI8qEJwTzLXqcsNWtlhhtNCBu2VPBZIwBqfKS7A
+	xHzrBqAhyArYMm6hglhQ0XLr7RW8Gzy6aantVkS9l0DnGOhGJeAF/kOaVr9r0A/y/T5sdJrKFTq
+	fCYo9wBRf+n5iRhfT7SuWVYdza2Q/+rEmf+fFcBesHdqFzFAey4RqDnHN4IPLaZrO+j9WdXZWNp
+	T5xmxM1ILNFl8/QQyY+Jt40JjTaUDICGKxeAEkKPZEpo0ZVc+7LoaxfOPtCkwN6YYX/g6+a7U4O
+	WL8nJzXxFUeu8U5mTzV8psVa8f/h0j99PUYaniLq3b1huleTP3adILm003H2d9ivoZHuvQj2uaQ
+	WfJo4yEgTInlp9wRcEvrzpoXtKkGUOGwE37ASSkQTVwI2oUbyJAs1XmIkXzDww0oqTsPDDgER/f
+	2Wq+sFTkQGZUU41R7xszMb9A9e4T3UHpsiA==
+X-Received: by 2002:a17:90b:4a48:b0:3b4:1884:984c with SMTP id 98e67ed59e1d1-3b41c7b573amr15749170a91.6.1795582120219;
+        Tue, 24 Nov 2026 20:48:40 -0800 (PST)
+Received: from localhost ([153.61.198.254])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b405ecbd0bsm28760169a91.15.2026.11.24.20.48.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 24 Nov 2026 20:48:39 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 25 Nov 2026 04:48:39 +0000
+Message-Id: <DN40QM3CLBU9.3GC3UR9AVWNZF@gmail.com>
+Subject: Re: [PATCH bpf-next 1/2] bpf: Use a 32-bit compare in the array map
+ gen_lookups
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Yuan Chen" <chenyuan@kylinos.cn>, <bpf@vger.kernel.org>
+Cc: <netdev@vger.kernel.org>, "Daniel Borkmann" <daniel@iogearbox.net>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Eduard Zingerman"
+ <eddyz87@gmail.com>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Shuah
+ Khan" <shuah@kernel.org>, <linux-kselftest@vger.kernel.org>
+In-Reply-To: <20261115102559.465375-2-chenyuan@kylinos.cn>
+References: <20261115102559.465375-1-chenyuan@kylinos.cn> <20261115102559.465375-2-chenyuan@kylinos.cn>
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -67,98 +103,79 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Sun, Nov 15, 2026 at 02:25 AM Yuan Chen <chenyuan@kylinos.cn> wrote:
+> Use BPF_JMP32_IMM() for the three compares, as commit 70504de0bb62
+> ("xsk: Use a 32-bit compare in xsk_map_gen_lookup") did for
+> xsk_map_gen_lookup().
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+bpf-ci is right. The sparc64 JIT has no BPF_JMP32.
+build_insn() returns -EINVAL for the new compare.
+Every prog with a lookup in an array loses the JIT there.
+With CONFIG_BPF_JIT_ALWAYS_ON the load fails with -ENOTSUPP.
+The riscv64 JIT adds two zero extensions, one for r0 and one for the imm.
+The bug needs a map of 16 Gbytes.
+imo it's not worth changing the code of every lookup for that.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+can we skip the inlining for such maps ?
+map_gen_lookup() returns -EOPNOTSUPP, like for BPF_F_INNER_MAP.
+bpf_do_misc_fixups() then calls ops->map_lookup_elem().
+All three compare u32 with u32.
+The emitted code stays the same for all other maps.
+Then patch 2 has nothing to check. Drop it.
 
-- [Medium] The patch fixes only the 10 MHz case.
+bpf_do_misc_fixups() has the same compare in front of bpf_tail_call().
+With max_entries 0x80000000 the index 0x80000005 calls prog 5.
+The diff doesn't fix that one.
 
---
 
-ptp: ocp: correct the ART 10 MHz input frequency
+diff --git a/kernel/bpf/arraymap.c b/kernel/bpf/arraymap.c
+index 508706d..89c22c7 100644
+--- a/kernel/bpf/arraymap.c
++++ b/kernel/bpf/arraymap.c
+@@ -227,6 +227,10 @@ static int array_map_gen_lookup(struct bpf_map *map, struct bpf_insn *insn_buf)
+ 	if (map->map_flags & BPF_F_INNER_MAP)
+ 		return -EOPNOTSUPP;
+ 
++	/* The imm of BPF_JGE is sign extended. It cannot hold such max_entries. */
++	if (map->max_entries > S32_MAX)
++		return -EOPNOTSUPP;
++
+ 	*insn++ = BPF_ALU64_IMM(BPF_ADD, map_ptr, offsetof(struct bpf_array, value));
+ 	*insn++ = BPF_LDX_MEM(BPF_W, ret, index, 0);
+ 	if (!map->bypass_spec_v1) {
+@@ -302,6 +306,10 @@ static int percpu_array_map_gen_lookup(struct bpf_map *map, struct bpf_insn *ins
+ 	if (map->map_flags & BPF_F_INNER_MAP)
+ 		return -EOPNOTSUPP;
+ 
++	/* The imm of BPF_JGE is sign extended. It cannot hold such max_entries. */
++	if (map->max_entries > S32_MAX)
++		return -EOPNOTSUPP;
++
+ 	BUILD_BUG_ON(offsetof(struct bpf_array, map) != 0);
+ 	*insn++ = BPF_ALU64_IMM(BPF_ADD, BPF_REG_1, offsetof(struct bpf_array, pptrs));
+ 
+@@ -1496,6 +1504,10 @@ static int array_of_map_gen_lookup(struct bpf_map *map,
+ 	const int map_ptr = BPF_REG_1;
+ 	const int index = BPF_REG_2;
+ 
++	/* The imm of BPF_JGE is sign extended. It cannot hold such max_entries. */
++	if (map->max_entries > S32_MAX)
++		return -EOPNOTSUPP;
++
+ 	*insn++ = BPF_ALU64_IMM(BPF_ADD, map_ptr, offsetof(struct bpf_array, value));
+ 	*insn++ = BPF_LDX_MEM(BPF_W, ret, index, 0);
+ 	if (!map->bypass_spec_v1) {
 
-This commit changes the frequency of the ART input selector named 10Mhz
-from 1000000 Hz to 10000000 Hz. That makes it match the 10 MHz value that
-ART pins advertise and the matching ART output entry, so DPLL frequency
-set requests for 10 MHz no longer fail with -EINVAL.
+> Fixes: b2157399cc98 ("bpf: prevent out-of-bounds speculation")
 
-Link: https://lore.kernel.org/r/179538006772.3135.15875996486888374193@kernel.org
-Link: https://lore.kernel.org/r/179538007070.3135.8275620503580456948@kernel.org
+Wrong tag. At that commit array_map_alloc() has:
 
-> diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
-> index 821ecd1a13c8e..93923d5a29922 100644
-> --- a/drivers/ptp/ptp_ocp.c
-> +++ b/drivers/ptp/ptp_ocp.c
-> @@ -1385,7 +1385,7 @@ static const struct ocp_selector ptp_ocp_sma_out[] = {
->  
->  static const struct ocp_selector ptp_ocp_art_sma_in[] = {
->  	{ .name = "PPS1",	.value = 0x0001,  .frequency = 1 },
-> -	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 1000000 },
-> +	{ .name = "10Mhz",	.value = 0x0008,  .frequency = 10000000 },
->  	{ }
->  };
+  if (array_size >= U32_MAX - PAGE_SIZE)
+          return ERR_PTR(-ENOMEM);
 
-[Severity: Medium]
-The table change looks correct. Is the failure described in the commit
-message still reachable on ART pins for two other advertised frequencies?
+elem_size is 8 or more, so max_entries is below 0x20000000.
+The same is true at 81ed18ab3098, which bpf-ci proposes.
+The limit went away in commit 1bc5975613ed ("bpf: Eliminate
+rlimit-based memory accounting for arraymap maps").
 
-ptp_ocp_art_sma_init() registers every ART SMA pin with the shared
-generic list:
-
-drivers/ptp/ptp_ocp.c:ptp_ocp_art_sma_init() {
-    ...
-	.freq_supported_num = ARRAY_SIZE(ptp_ocp_sma_freq),
-	.freq_supported = ptp_ocp_sma_freq,
-    ...
-}
-
-That list also advertises IRIG-B (10000 Hz) and DCF77 (77500 Hz):
-
-static struct dpll_pin_frequency ptp_ocp_sma_freq[] = {
-	DPLL_PIN_FREQUENCY_1PPS,
-	DPLL_PIN_FREQUENCY_10MHZ,
-	DPLL_PIN_FREQUENCY_IRIG_B,
-	DPLL_PIN_FREQUENCY_DCF77,
-};
-
-Neither ptp_ocp_art_sma_in[] nor ptp_ocp_art_sma_out[] has an entry for
-10000 or 77500 Hz:
-
-static const struct ocp_selector ptp_ocp_art_sma_out[] = {
-	{ .name = "PHC",	.value = 0x0002,  .frequency = 1 },
-	{ .name = "GNSS",	.value = 0x0004,  .frequency = 1 },
-	{ .name = "10Mhz",	.value = 0x0010,  .frequency = 10000000 },
-	{ }
-};
-
-dpll_pin_freq_set() in drivers/dpll/dpll_netlink.c validates a request
-only against the advertised list through dpll_pin_is_freq_supported().
-That means DPLL_CMD_PIN_SET with DPLL_A_PIN_FREQUENCY set to 10000 or
-77500 on a non-fixed_fcn ART pin passes the core check.
-
-The request then reaches ptp_ocp_dpll_frequency_set(), where it finds no
-match and returns -EINVAL:
-
-	tbl = bp->sma_op->tbl[sma->mode];
-	for (i = 0; tbl[i].name; i++)
-		if (tbl[i].frequency == frequency)
-			return ptp_ocp_sma_store_val(bp, tbl[i].value,
-						     sma->mode, sma_nr + 1);
-	return -EINVAL;
-
-Pin-get also keeps reporting IRIG-B and DCF77 for every ART pin, even
-though the ART hardware has no selector for them.
-
-Would it make sense to give ART pins their own freq_supported list that
-contains only DPLL_PIN_FREQUENCY_1PPS and DPLL_PIN_FREQUENCY_10MHZ, either
-in this patch or in a follow-up?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261123-timecard-common-v5-d669cfa034-0-ahmadexp%40gmail.com
+pw-bot: cr
