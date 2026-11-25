@@ -1,56 +1,58 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597110;
-	b=M87HQlHaEWEsKxAftIDOWJhBspkjL14muDe301IEG3ZWEeMgytKyXA+uU8sEPQAnZIS9
-	 hQ5UJ+I6nyHptRIE/KXyKy35e/6F/QQs2j91mVrSmRZLfeltp85IxV+090k6D99xwObhy
-	 NBJtHxsqxbZbBQCSXOO2zWvsNcJXUSlZkv1CWz09+xrFi4JIdBgKUKMScfAT+c69zDA6v
-	 KoDilHOLx+JqOXXQLZM0NhzX+x27eSoJPIgJIsozkXCon3kstFMc0x437fb8XMSCKW0WP
-	 bxjb+YBbrFl9x3X8mKxG3dOEeAiLKfK4ZAvPG5lTbhybXrJZsDuil0J/OGXsZ8ob9yQ==
+	t=1795597116;
+	b=RuhRhxlDy8unRDGdD+aoG9OQcjt+SaTIsoeTYCFnWAdARyl+G+kJnCQ6gVg/bx1XHoVI
+	 EmREIusSAfEHrOkc51EGKzQLcnvbr68tMglDg2pqZEi8979peJognfKA/sDDy3y2XAMTX
+	 nAQTbdyB5RUjUQ8br4igG/6HD7a1ql+erTqF8hPHcfj/BLSTa+j6cO9oRAPjAo+oow2yZ
+	 hq50C1etQEEQGSO8JajIctwpbJJoKZgKUdsKOY4chB4qz3Ormr+Yt7Cs10OryijHW1d9K
+	 Ze23duyKUBtiIgMMH3vDGVpubUOCfvmsLBANsOf/FlW30WWhd77LehhN3qITZBi+xwg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597110;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597116;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=yYin3lmJ4aqtvKWXKDj8SPspMEI2bSTV5+DRvRPGsJ0=;
-	b=xfFSnwZRps4vZ5OZvCxiyhlrR/tuMRfmrxia23OiJJ6jJ2mza3gjNe/UKSXrPZTCW9dh
-	 2UaryJpjhpY9toZnBeeSeOPjmmA0FukhURXqX71ZdDVa9vUweuV5Hxp/MZvnkFriLLsXu
-	 s5zmD/pmiaNlYCtenyDhF0j22reGAQjLIkl28wQImVOCjAH94TB2kAJd8zNO8p5OJTXoZ
-	 DqvsmOLiILv7wo1hJsy9D+3lCakaOppYe2Tf2ffKx8m3uNJMmgDtMyu7UL3TNbuP7jfkr
-	 9LlAUZNL6xGGoQiCnsqJ+y7/NRGXbV6uw3/3k5V/cULVlcjhRnLyv31bil5ZdplNBlQ==
+	bh=SmlnObTyvLLWex2fHr/9/apQ6tGYW8v7LEnW15NaoWc=;
+	b=n/TcIZzBdjkM4ZUwkgAh0Nc6nS25YDbCXIc4Er6+ZHb0MbaTw4qNZIqCJ+J5E9/EsHJT
+	 2vrdyQRhMA+GhGkUmyl4m0d83sTGFbI7zs/48sZnHCbQwqzVNv0cRne8k68N+rf2tgxWG
+	 OHB5mxXatkh6MPCD0i9ll8sUeY/GlmjON3B3OekIDHBv7ZcDK9iCIitz4VLVWE1VRl9vj
+	 j2efDXdhIfe4MEcSQVl2OLnhsbmKRb5dJQjSlCHBgiExCbrRe2zBQs2CnDmQT9FeBr84y
+	 NSAZ7ZADMhrOLJ8JTDJ+1sGWooeQ8/mBMOrHsBbHkayZ/bp+bvDTU3hu9VpeaIuLzXg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="lDVQ/E27";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GF2jJNlW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 322AA606A321;
-	Wed, 25 Nov 2026 08:58:30 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB24606A68D;
+	Wed, 25 Nov 2026 08:58:36 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lDVQ/E27
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56DEA1F000D0;
-	Wed, 25 Nov 2026 08:58:29 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GF2jJNlW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACAF1F000EC;
+	Wed, 25 Nov 2026 08:58:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597109;
-	bh=yYin3lmJ4aqtvKWXKDj8SPspMEI2bSTV5+DRvRPGsJ0=;
+	s=k20260515; t=1795597116;
+	bh=SmlnObTyvLLWex2fHr/9/apQ6tGYW8v7LEnW15NaoWc=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=lDVQ/E27097Q09szJFYinQtCFzTgLzRQRW08yjuTG41z1oRLo85epPEjA6K1V56Av
-	 CSCqMmXbHdAZy6P/2Ue4SYArdf/+Cl2+BrQO+zfzYjdfyrWv53vWnFlMeSP7983cRH
-	 dRNELhjx5Rkq6vP7kKp0pdr+pe1/g0RB2nKyGjEYFi8bsG814zOdqedr7meBnDgt3e
-	 YaaFPr2JRD5xa+GA53t47TfBLzIF7DV5m/knYNxhuag+4JYkWjLP0Q0LnVbUrdpOrQ
-	 TlUU2L8S3GyT/Ts0+MJUEaQO+IjPG9/KRLcS4DdeOpVIgi/XJJmYCwgOKqfVNLvCuC
-	 D0ZyaWq05/e9Q==
-Subject: Re: [PATCH net-next 4/5] net: dsa: lan9645x: add mdb management
+	b=GF2jJNlWPjiai7ydXLSS09EXB3h/ov1GxwtX0gIt+Uo2+bI/zN4iYVDqU6VaKVW9S
+	 LPbQT7LSzoP8YhwPc6ezH8qFY6rZf8DtMzZFwvm+peI8Qf3G1e2PnCo/hfZUS+zI+z
+	 AOkZc1LBzrh6L0S/S5ml7nLcmEC2vImn9A73uHEiRmqVazeXSoUyJ9oXgvHvTSoHi5
+	 uF3uWr6h7aPpHfgbTYsY2K3iYow8fo0pDHyLfjQSkqZFPmH6NXUHCYkWHo88NPDqC6
+	 2ZGuATJNtnM2Gt+ZFV7RkTOgi28+p/lBWqcdJ1VR1FfJXnZ5r8uuIFXHVNN6f/6nPz
+	 TfDrzTX0PUSzg==
+Subject: Re: [PATCH net 07/12] can: isotp: reject socket options while a
+ transfer is active
 From: netdev-bot+sashiko@kernel.org
-To: jensemil.schulzostergaard@microchip.com
-Cc: UNGLinuxDriver@microchip.com, andrew@lunn.ch, olteanv@gmail.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- linux@armlinux.org.uk, linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 08:58:28 +0000
-Message-ID: <179559710890.3135.18435400637829345341@kernel.org>
-In-Reply-To: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-4-b930a1dae700@microchip.com>
-References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-4-b930a1dae700@microchip.com>
-X-sashiko-severity: High
+To: mkl@pengutronix.de
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ linux-can@vger.kernel.org, kernel@pengutronix.de,
+ u.kleine-koenig@baylibre.com, stable@vger.kernel.org, mailhol@kernel.org,
+ robh@kernel.org, linux-kernel@vger.kernel.org, jeanmichel.hautbois@yoseli.org
+Date: Wed, 25 Nov 2026 08:58:35 +0000
+Message-ID: <179559711531.3135.15295307789383806315@kernel.org>
+In-Reply-To: <20261124085757.1093632-8-mkl@pengutronix.de>
+References: <20261124085757.1093632-8-mkl@pengutronix.de>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -63,10 +65,10 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 3 potential
+Thank you for your contribution! Sashiko AI review found 2 potential
 issue(s) to consider.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
 If you believe none of the issues are legitimate, please reply to each
 issue of Medium severity or higher and explain why the AI is wrong.
@@ -74,230 +76,160 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [High] A user port's membership in a hardware MDB entry is a single bit
-  (lan9645x_mdb_entry->ports), keyed only by (MAC, hw_vid), with no per-…
-- [Medium] In drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c, the
-  hardware and software MDB state can disagree after a failed MAC-table…
-- [Medium] lan9645x_port_mdb_add() and lan9645x_port_mdb_del()
-  (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c) pass mdb->vid…
+- [Medium] The commit message says that moving the `ae`/`wait_tx_done`
+  reads after the claim means "all socket options used by…
+- [Medium] The new check in isotp_setsockopt_locked() (net/can/isotp.c,
+  lines 1737-1739) reads so->tx.state and so->rx.state with READ_ONCE()…
 
 --
 
-net: dsa: lan9645x: add mdb management
+can: isotp: reject socket options while a transfer is active
 
-This commit adds DSA .port_mdb_add/.port_mdb_del support to the lan9645x
-switch. IP multicast groups store the port mask inline in the MAC table
-entry. Each L2 multicast group takes one of the general purpose PGIDs.
-IGMP/MLD frames are redirected to the CPU so the bridge can snoop them.
+This patch makes isotp_setsockopt_locked() return -EAGAIN while
+so->tx.state or so->rx.state is not ISOTP_IDLE, mirroring the check in
+isotp_bind(). It also moves the CAN_ISOTP_EXTEND_ADDR and
+CAN_ISOTP_WAIT_TX_DONE reads in isotp_sendmsg() to after the transfer claim
+and the so->bound recheck.
 
-> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-> index 904b51a55d937..de432772f6399 100644
-> --- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
-> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+Link: https://patch.msgid.link/20261120-can-bcmlock-memcg-v7-7-f6b84f5257b1@hartkopp.net
+
+> diff --git a/net/can/isotp.c b/net/can/isotp.c
+> index 0b7db1ead7a90..642fec500af9d 100644
+> --- a/net/can/isotp.c
+> +++ b/net/can/isotp.c
 
 [ ... ]
 
-> @@ -470,6 +483,50 @@ static int lan9645x_fdb_del(struct dsa_switch *ds, int port,
->  				    ENTRYTYPE_LOCKED);
->  }
+> @@ -1188,6 +1188,10 @@ static int isotp_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
+>  		goto err_out_drop;
+>  	}
 >  
-> +static int lan9645x_port_mdb_add(struct dsa_switch *ds, int port,
-> +				 const struct switchdev_obj_port_mdb *mdb,
-> +				 struct dsa_db db)
-> +{
-
-[ ... ]
-
-> +	if (port == lan9645x->npi)
-> +		port = lan9645x->num_phys_ports;
+> +	/* read the options after the claim of the transfer */
+> +	ae = (so->opt.flags & CAN_ISOTP_EXTEND_ADDR) ? 1 : 0;
+> +	wait_tx_done = (so->opt.flags & CAN_ISOTP_WAIT_TX_DONE) ? 1 : 0;
 > +
-> +	return lan9645x_mdb_add(lan9645x, port, mdb->addr,
-> +				lan9645x_fdb_vid(mdb->vid, &db));
 
 [Severity: Medium]
-Should mdb->vid be checked against the reserved VID range before it is
-used here?
 
-lan9645x_fdb_vid() returns any non-zero VID unchanged, so the value goes
-straight into the MAC table. The driver's VLAN path rejects this range in
-lan9645x_vlan_port_add_vlan() ("VLAN range 4032-4095 reserved"). That
-range holds the internal VIDs of VLAN-unaware bridges:
+The commit message says this change means "all socket options used by
+isotp_sendmsg() are covered by this check". Is that accurate?
 
-lan9645x_vlan_unaware_pvid() {
+Later in isotp_sendmsg(), so->ll.tx_flags is still read after the final
+tx.state is published, the timeout is armed and so->rx_lock is dropped:
+
+net/can/isotp.c:isotp_sendmsg() {
     ...
-    return bridge_num ? VLAN_N_VID - bridge_num : HOST_PVID;
+	WRITE_ONCE(so->tx.state, new_state);
+	hrtimer_start(tx_hrt, ktime_set(hrtimer_sec, 0),
+		      HRTIMER_MODE_REL_SOFT);
+	spin_unlock_bh(&so->rx_lock);
+
+	/* send the first or only CAN frame */
+	cf->flags = so->ll.tx_flags;
+    ...
 }
 
-so bridge_num 2..9 use VIDs 4094..4087.
+After that point the transfer can return to ISOTP_IDLE without sendmsg()
+doing anything. isotp_tx_timeout() can cmpxchg tx.state to IDLE after the
+FC or echo timeout. In WAIT_FIRST_FC, an FC frame that isotp_rcv_fc()
+handles (overflow, unknown status, bad padding) can also set IDLE.
 
-The bridge MDB netlink path only rejects vid >= 4095. When per-VLAN
-multicast snooping is off, br_mdb_config_init() does not require the VLAN
-to exist. Take this command:
+Suppose NETDEV_UNREGISTER then clears so->bound in isotp_notify(). Then
+isotp_setsockopt_locked() passes both the so->bound check and the new
+tx.state/rx.state check. CAN_ISOTP_LL_OPTS can then memcpy() a new so->ll
+before the cf->flags assignment runs.
 
-    bridge mdb add dev brA port swpA grp 239.1.1.1 permanent vid 4094
+Would the first frame then take its flags byte from the new options, while
+its skb size (old ll.mtu), length and payload come from the old ones?
 
-It would install (01:00:5e:01:01:01, 4094) with portmask {swpA} inside
-the internal VLAN of VLAN-unaware bridge #2. Bridge #2 frames for that
-group would then match this entry instead of being flooded. Bridge #2's
-PGID_SRC mask excludes swpA, so those frames are dropped. A host MDB entry
-gives a CPU-only entry with the same effect on bridge #2's front ports.
+can_send() usually fails with -ENETDOWN here. The frame could still go out
+if the device was moved to another netns and brought up again.
 
-DSA user ports can be placed in different network namespaces. Could one
-bridge disrupt multicast in another bridge's isolated forwarding domain
-this way?
-
-The same applies to lan9645x_port_mdb_del(). The existing FDB path also
-lacks this check, but this patch adds a new user-controlled path into the
-reserved VIDs. The user-port path is reachable once the later "add bridge
-support" patch in the series lands, and this code is unchanged there.
-
-> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c b/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c
-> new file mode 100644
-> index 0000000000000..6864b89d5a2d4
-> --- /dev/null
-> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_mdb.c
-> @@ -0,0 +1,256 @@
+Could cf->flags be set while the frame is built, before tx.state is
+published and the timer is armed?
 
 [ ... ]
 
-> +static void lan9645x_mdb_entry_destroy(struct lan9645x *lan9645x,
-> +				       struct lan9645x_mdb_entry *mdb_entry)
-> +{
-
-[ ... ]
-
-> +	err = lan9645x_mact_forget(lan9645x, mdb_entry->mac, mdb_entry->vid,
-> +				   mdb_entry->type);
-> +	if (err)
-> +		dev_err(lan9645x->dev, "Forgetting %pM vid %u returned %pe\n",
-> +			mdb_entry->mac, mdb_entry->vid, ERR_PTR(err));
-> +	else if (mdb_entry->type == ENTRYTYPE_LOCKED)
-> +		clear_bit(mdb_entry->pgid, lan9645x->mdb_pgids);
+> @@ -1726,6 +1730,14 @@ static int isotp_setsockopt_locked(struct socket *sock, int optname,
+>  	if (so->bound)
+>  		return -EISCONN;
+>  
+> +	/* A transmission or reception that outlived a previous binding
+> +	 * (unbound by NETDEV_UNREGISTER) may still be draining and uses the
+> +	 * socket options, see isotp_bind().
+> +	 */
+> +	if (READ_ONCE(so->tx.state) != ISOTP_IDLE ||
+> +	    READ_ONCE(so->rx.state) != ISOTP_IDLE)
+> +		return -EAGAIN;
 > +
-> +	list_del(&mdb_entry->list);
-> +	kfree(mdb_entry);
-> +}
 
 [Severity: Medium]
-What happens to the hardware entry when lan9645x_mact_forget() fails
-here?
 
-lan9645x_mdb_del() has already cleared the port from mdb_entry->ports.
-When the mask reaches zero, it calls lan9645x_mdb_entry_destroy() without
-first writing the narrowed mask to hardware:
+This check runs under conf_lock only, without so->rx_lock. Can it race with
+RX paths that have already set rx.state to ISOTP_IDLE but are still reading
+the socket options?
 
-lan9645x_mdb_del() {
+For example, isotp_rcv_ff() sets IDLE on entry. On the overflow path it
+then calls isotp_send_fc():
+
+net/can/isotp.c:isotp_rcv_ff() {
     ...
-    mdb_entry->ports &= ~BIT(chip_port);
-
-    if (!mdb_entry->ports) {
-        lan9645x_mdb_entry_destroy(lan9645x, mdb_entry);
-        goto out;
-    }
+	hrtimer_cancel(&so->rxtimer);
+	WRITE_ONCE(so->rx.state, ISOTP_IDLE);
     ...
-}
-
-If the forget then times out, or the regmap read in
-lan9645x_rd_poll_timeout() fails, the software entry is still freed but
-the MAC table entry stays valid:
-
-- For an L2 group, its ANA_PGID mask still contains the departing port.
-- For an IPv4/IPv6 group, the encoded portmask and MAC_CPU_COPY still
-  include it.
-
-Wouldn't traffic keep being forwarded to a port the bridge has already
-removed?
-
-The PGID bit also stays set in mdb_pgids, but the only object that knew
-about it has been freed. Can that PGID ever be reclaimed? A re-add of the
-same (mac, vid) misses the lookup and allocates a new PGID. Each such
-failure then seems to lose one of the general purpose PGIDs until the next
-setup.
-
-For L2 groups, would it help to write a zero ANA_PGID mask before the
-forget? That is a plain register write and does not depend on the MAC
-table command, so any leftover entry would forward nowhere.
-
-Two related cases.
-
-In lan9645x_mdb_del(), when other ports remain, ports is updated before
-the CMD_LEARN rewrite for IP groups. If lan9645x_mdb_write_ports() fails,
-software no longer lists the port but hardware still does.
-
-In lan9645x_mdb_entry_create(), ANA_PGID(pgid) is programmed before
-CMD_LEARN:
-
-    err = lan9645x_mdb_write_ports(lan9645x, mdb_entry, mdb_entry->ports);
-    if (!err && mdb_entry->type == ENTRYTYPE_LOCKED)
-        err = lan9645x_mact_learn(lan9645x, mdb_entry->pgid, addr, vid,
-                                  mdb_entry->type, false);
-
-An -ETIMEDOUT from the learn only means the command did not reach IDLE in
-time. It does not mean the learn was dropped. The PGID is left unreserved
-while its mask is live. Could a later reuse of that PGID redirect an
-orphaned entry?
-
-The commit message says:
-
-    A failed MAC table command is logged instead.
-
-Does that fully describe the stale forwarding and the lost PGID above?
-This code is unchanged through the end of the series.
-
-> +int lan9645x_mdb_add(struct lan9645x *lan9645x, int chip_port,
-> +		     const unsigned char addr[ETH_ALEN], u16 vid)
-> +{
-
-[ ... ]
-
-> +	mdb_entry = lan9645x_mdb_entry_lookup(lan9645x, addr, vid);
-> +	if (!mdb_entry) {
-> +		err = lan9645x_mdb_entry_create(lan9645x, chip_port, addr, vid);
-> +		goto out;
-> +	}
-> +
-> +	if (mdb_entry->ports & BIT(chip_port))
-> +		goto out;
-
-[Severity: High]
-Can two IP groups that map to the same multicast MAC on one port break
-each other here?
-
-br_switchdev_mdb_populate() converts IP groups to MAC addresses with
-ip_eth_mc_map() and ipv6_eth_mc_map(). For example, 224.1.1.1, 225.1.1.1
-and 239.129.1.1 all become 01:00:5e:01:01:01. For IPv6, groups with the
-same low 32 bits share a 33:33 MAC.
-
-DSA does not refcount MDB entries on user ports:
-
-net/dsa/switch.c:dsa_port_do_mdb_del() {
-    ...
-    /* No need to bother with refcounting for user ports */
-    if (!(dsa_port_is_cpu(dp) || dsa_port_is_dsa(dp))) {
-        err = ds->ops->port_mdb_del(ds, port, mdb, db);
+	if (so->rx.len > so->rx.buflen) {
+		/* send FC frame with overflow status */
+		isotp_send_fc(sk, ae, ISOTP_FC_OVFLW);
+		return 1;
+	}
     ...
 }
 
-Suppose port P joins group A and then group B with the same MAC. The
-second lan9645x_mdb_add() returns 0 here without recording anything. When
-A is deleted, lan9645x_mdb_del() clears P from the shared entry and
-rewrites or destroys it, even though B is still joined on P in the bridge.
+isotp_send_fc() reads so->ll.mtu twice:
 
-Forwarded frames carry offload_fwd_mark, so the software bridge does not
-make up for this, and P stops receiving B in hardware.
+net/can/isotp.c:isotp_send_fc() {
+    ...
+	nskb = alloc_skb(so->ll.mtu, gfp_any());
+    ...
+	skb_put_zero(nskb, so->ll.mtu);
+    ...
+}
 
-With IGMP/MLD snooping, joins and leaves come from remote hosts. A host on
-P's segment could join and then leave 224.1.1.1 and stop delivery of
-239.1.1.1 to a listener on P. The listener's later reports only refresh
-the existing bridge port group. They do not send a new switchdev add.
+It also reads so->opt, so->rxfc and so->ll.tx_flags.
 
-Does the (mac, vid) entry need a per-port reference count to handle this?
+There are similar cases:
 
-The user-port path becomes reachable once the later "net: dsa: lan9645x:
-add bridge support" patch adds .port_bridge_join, and this code is
-unchanged there.
+- isotp_rcv_cf() sets IDLE before check_pad() uses so->opt.
+- isotp_rcv_sf() sets IDLE and then reads so->opt.
+- isotp_rcv() reads so->opt.flags, so->ll.mtu and so->opt.rx_ext_address
+  before it takes spin_lock(&so->rx_lock) at all.
+
+isotp_notify(NETDEV_UNREGISTER) calls can_rx_unregister() and clears
+so->bound without waiting for a grace period. The comment in
+isotp_release() already says this happens "without waiting for in-flight
+isotp_rcv() callers to finish".
+
+Frames can still arrive in that window. For example, vxcan_xmit() delivers
+to the peer via netif_rx() without checking IFF_UP, and can_rcv() does not
+check it either.
+
+So setsockopt() could see bound == 0 with both states IDLE, and overwrite
+so->opt, so->ll, so->rxfc or so->tx.ll_dl while isotp_rcv() on another CPU
+is still using them. Couldn't that produce an FC frame built from mixed
+option sets (alloc_skb() with the old ll.mtu, skb_put_zero() with the new
+one), or run padding checks against the wrong options?
+
+Would either of these close the window?
+
+- Do the state check and the option update under
+  spin_lock_bh(&so->rx_lock), and move isotp_rcv()'s pre-lock option reads
+  under that lock.
+- Wait for a grace period after the unregister.
+
+If so, the commit message claim that "the socket options can only be
+changed when no transfer is active" would also hold on the RX side.
 
 [ ... ]
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-0-b930a1dae700%40microchip.com
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124085757.1093632-2-mkl%40pengutronix.de
