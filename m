@@ -1,61 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795592652;
-	b=EfkvIO9T9Fk2ZJE2OV/8JG/p7JFtV5Xyf8cxSX3Ae5NT/2zYiGnoA2VZyPlAaJZCa1Yi
-	 tavOp3qSkZ0L2HXbiNp47zKjv+BYWR8rBqvLvuoCHZPYjIXA21+n+PsCh1wyRpBgmno7V
-	 ILXsDePiGRtQ6MWMsUIf7fMfZ6qkm0z3/zgnGViXt8HRAw0jvN810KN2JIE80/AQzl1qw
-	 554mv/mZWOf+RxgU1Y0zqMmSZs5Ja7/DzbedIeh6+zWoIESqs+WWzW8oeH5seHy60Dz4B
-	 UCEdcR2iQyfXezYFjEG4wf2brHEGZ2MxvfridYoYZVxdMcv3cMOK1Z5IRyBrp1Im6QA==
+	t=1795592718;
+	b=nbHploGWJf+6nbtj/SOKmmqcNbvXGslNN76qx4FOQYd8TQ9cpfZNWaVIo1rzJrC0QCGn
+	 XnM2iPXMBCykiAXPmhTmGC0abgq/0F7jP2jKcEVKnRSsxtk36H38EkLS8lhHoQMG/jdNS
+	 e9Z/u8ecxCHeUXGzLVg6lcXka45NH486g/pzlSGMpdowVr4/w9i9Djvnih+fYj//GrLVx
+	 kb59ZWydrao4itU6R4Oevin/0cmQCO/n6AkGZZ/F80f0e5k6ZFaBE4oTQZ1f79x/9xNxc
+	 7Mrd1Klh8Mm6MPVQ0c42xW70dPRAqK1369yPsPA6yw/6ZaP+JIQnOGEd7767O7o/oyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795592652;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=KGPByt1l/w2w5NVSgCv2fP9X+uQOLitOIGrz+voENZ4=;
-	b=aUVEq9Xinln5/52dkm9Fd6U4rgeaP1HUKnukcXunMP8rnn1cpXuMOngFLjRU4fSHkHll
-	 aG4NCqlAmLhz/5tdgY5c747d4gHuRHFue4NlQt3RfxR3sLUNNIKtCe9cM4IMvO8zO4sUh
-	 l1XXcB+GG8NpEZJjpMljjT+zWZUulxVdQszY6UFwmeo6r1VOiFY8VcRko+DJT8zxoI7gF
-	 C5I+Ne4Qe16R2ytRI9AuKdISosu/JQeH6Go8rpbq+llpniqCN489dxaeCg+6CfQtz8v0R
-	 Dak1yc+5rIGBLHsSbo94zABkjjhZvQkkVsEbaVsSgQj4iCElRB3lSFe1qpoRquOdNZw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795592718;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:Date:Subject:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=dV4BF6J45U2pVPcVBsCXGeaOfYJGsf58GzHV9B+rH6Y=;
+	b=WC3tjSadTGs5b1bw65zm/3Ok3FziYLjElEPl9AZg8jhIDL5YACBX4XWzPjdFRaKTJZL+
+	 pqJfVZ6uA8sh1b6FnWejy0K3eCezbHOUIRt+j9x27ypRJxzulv13vb13M8jFQUn5HT9gr
+	 w9sHe5zZqyWzbmyQCviN4mvU9W64govjz8GvwBrvZaO0gkdLaXxuzr00uQAnJy67p+Teb
+	 muU1Nv2wX40NkzvrfR/6sHZkNSdh7BOy+bh1W/8GyLHoETQI6gsoWlMv4o/360Lpf6oAE
+	 yMKX6c3Qez5w6NaVW9VoNR/RAOdyBS4QmirFXNxFhaHLaR37bdy9oc/bq1XTUYYT7tQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mOTYLjeo;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E+4VXlHP;
+	arc=none smtp.remote-ip=209.85.161.46
+Received: from mail-oo1-f46.google.com (mail-oo1-f46.google.com [209.85.161.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 41EA6606A321;
-	Wed, 25 Nov 2026 07:44:11 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9FCA5606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:45:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9FCA5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mOTYLjeo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A1BC1F000C4;
-	Wed, 25 Nov 2026 07:44:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795592651;
-	bh=KGPByt1l/w2w5NVSgCv2fP9X+uQOLitOIGrz+voENZ4=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=mOTYLjeoSuWpYR+AWHxkzZH/8kuw+oTfJZrBa+eZH/RZg7dC8oyxWEZEOlh/1dmFr
-	 DEoR5cBmihCIzEQGG/tuNQMzU6n5c6FItNMz3+jfpKUXOI3EaONmV9aoL1+38Ewzip
-	 7ZTBg5Oq7Js+Pkt94LaeGDNslRp+C8QGRMd42PScLGVEJvMjl5wM7FzkvjaCSpiCMe
-	 WPiljurDQMF3MSqAkwcZXaxKpkCk1Bbo80MrABk8VgLJKaDZQG9k774d4n1UO/yaR5
-	 hUiNGCq8gDJdpx0sN+PoR4XP0ptEXjuGAIsuYNCVl8USZMXeQxQopUNyfAjjH6iF6C
-	 CktNrPUkcEpRA==
-Subject:
- Re: [PATCH] selftests: netfilter: fix missing echo in nft_nat_zones.sh
-From: netdev-bot+sashiko@kernel.org
-To: zhiqizhangg@gmail.com
-Cc: pablo@netfilter.org, fw@strlen.de, phil@nwl.cc, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- shuah@kernel.org, netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 07:44:10 +0000
-Message-ID: <179559265058.3135.11860282333221465868@kernel.org>
-In-Reply-To: <20261124071926.8818-1-zhiqizhangg@gmail.com>
-References: <20261124071926.8818-1-zhiqizhangg@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=E+4VXlHP
+Received: by mail-oo1-f46.google.com with SMTP id 006d021491bc7-71ad2c6491fso3367490eaf.0
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 23:45:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795592716; x=1796197516; darn=vger.kernel.org;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=dV4BF6J45U2pVPcVBsCXGeaOfYJGsf58GzHV9B+rH6Y=;
+        b=E+4VXlHPEoaPeHftfHEf7nQze0dpXaqD30slT9nQ3ZTLVlaM/Qs7GOJ7MfD8+BTKRE
+         WtTbAgB0o7ZpXmAxA+wOKRYt1+itYBSmhG8LoYGd6z5P8zMYsRkS0qbpdQmYOAo4tqW/
+         Gd+4MnKa7cTNBtPJzvFYh6w5R+de36fmUy+ZkArC6Z/tF3mdqNt1bn8WlyNAe3eKvOJp
+         D68mhzLB5KaWVoVPdAw0KkuTPsTUT7/CZkvHfMjqDU5Kqnn10K4rNYuWMLpKWnNgzygk
+         lT8eG4EtIGWKZ4I9UYp/CXV4s3GqtsqxhRfAs/EFouLiBPje39Jo3hJ+PpfgnDQk576O
+         pUdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795592716; x=1796197516;
+        h=cc:to:message-id:content-transfer-encoding:content-type
+         :mime-version:subject:date:from:x-gm-gg:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to:content-type;
+        bh=dV4BF6J45U2pVPcVBsCXGeaOfYJGsf58GzHV9B+rH6Y=;
+        b=XExMArf3yplwGuuah8KbneHrnMHzDl8PP92J4MFbY4qJlWK9kYK+fHeGseKi/Okq4R
+         CbEF3YWA6579W+11BmXo7PgQ/jXj5/Obg4K+czcaRukNRpAFe3ztj3FcX8550HhGjZk4
+         Gp9rGcGJXDlMGuxOZ3oOjlri3qqkUwdyJjI+U8gxJfXLNf0KW52ATO/i7QZJoYETP69J
+         1ZWjqdE2rXrTFEInPty71DUM0HTZo0Jkn0HyaMBtWkIlxiqDtJhuv03qakYJU8oOAIyN
+         c8Ncl8LR41zLjTOc003mSUxV5UcLb5fpCiM+7GMDHi30woQm6O+TyVWEhJ7tuHNrlQEj
+         N+/A==
+X-Gm-Message-State: APuU4Z9k61It2uWDP95bPIyr7zgUtJcELQxLq547QneaMwM6/noEqRBT
+	jD8Kt9tf/mJKo+eg+FgkxFySKXycvt9EyctoBmUzTKhKtakdoKFXMEbD
+X-Gm-Gg: AZFdTZdtnPVfD3KbQxYsL1wlrwL2jQycg5fonKHgMLLDOhLnN9RexMr27ZECYxW71qK
+	fQJot61PfySbeQbr6WruVFj2mVgfWD1ldqCW07YtEtWflJe1g0dtwlHDC+eeChI049+WREh3T9n
+	AwcIsIs+SzaPZG0oAGDaoTy1Q9PRX8HAIqNFNl8RQq4yTqcrHUatA7IwxPHVTv2Vm3kHtrGg6Wz
+	1vTa36kM4U6DUDLpigQsw4NiE3r8whrSQcxfwlznNL33FBnnX8fVtYn176Km7pFChdQQ9etABlA
+	9lYPAIOO+VTOL9sa5kGDF2qYDzEy1K2SSvg/gPMi1hJUpSy1VSwdqqR3MkDYOppVJsJjesv5/Yr
+	70GWHn95vsh03DyjC1BYCyPo3PVIMAZGN3JkmpkTbg7CgYOl9VyqRrIVh2EYC13RFOJ5Vr3jOX8
+	bvsDa5OP8lVfMVhgkiAdkT2zd02Yoou3PqlWPTCZChCl70VanQv5vh2KGiGZ9QBpAYqFXPHf7we
+	RkOwGJGPC4fZMFaaJBYnLGRtprLbfrPTYHcYcU70hikrIPrRrr0isGeRn7skH2zg3Ydc9yxgJOm
+	Q7zzIfMD+Os85EfMwIAW8sKaeVUX2dSkvGwRPe72KdTthKAwUXPWWD1ktD6S+UPFrOGeaWcVaRs
+	Ta1Lz7MxhwNezRU6hJMNDhvDLx63ZudKnaBEzvlec9q8avuPGw5Bg1zs4BsySzPA5WMM2pjag99
+	Dzv6x68rxlarSfmx8ffprv/x3RnejgU9lYE6c4H0jouZ2QH0dl17E=
+X-Received: by 2002:a4a:ec49:0:b0:703:ad5d:e673 with SMTP id 006d021491bc7-71b326d0891mr12600232eaf.30.1795592716413;
+        Tue, 24 Nov 2026 23:45:16 -0800 (PST)
+Received: from [127.0.1.1] (174-29-1-49.hlrn.qwest.net. [174.29.1.49])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-4bc5fc97bb2sm15715251fac.9.2026.11.24.23.45.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 24 Nov 2026 23:45:15 -0800 (PST)
+From: James Hilliard <james.hilliard1@gmail.com>
+Date: Wed, 25 Nov 2026 00:45:02 -0700
+Subject: [PATCH net v3] net: stmmac: dwmac-sun8i: deliver RX checksum
+ errors to the stack
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,117 +92,311 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20261125-submit-sun8i-rx-features-v1-v3-1-79273f18a028@gmail.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32OwQ6CMAyGX8XsbM1WYA5PvofxMKDTGgGzTYIhv
+ LsDL5xMmjR/8+f7OolAnimI024SngYO3HcpZPudqO+2uxFwk7JAiVopVUJ4Vy3HtDrD4EdwZOP
+ bU4BBQamORzIZmqI0IhFenhyPK/0iOori+jsmxoPquHCX2p1D7P1n/WFQa/mnQ/lXl0ZCIQvjq
+ K6srrLzrbX8PNR9u5oG3LLwPwtBAeYWC507TY3bsuZ5/gI6s22YKQEAAA==
+X-Change-ID: 20261119-submit-sun8i-rx-features-v1-9177e8328598
+To: netdev@vger.kernel.org, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ LABBE Corentin <clabbe.montjoie@gmail.com>
+Cc: Jakub Kicinski <kuba@kernel.org>, 
+ Oleksij Rempel <o.rempel@pengutronix.de>, 
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+ stable@vger.kernel.org, James Hilliard <james.hilliard1@gmail.com>
+X-Mailer: b4 0.17-dev
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+The sun8i MAC drops packets with a bad IP or transport checksum before
+packet sockets or the protocol stack can see them, even with RX checksum
+offload disabled. This was observed with a bad UDP checksum on an
+Allwinner H616 with an AC200 PHY. The same hardware bit controls
+forwarding of link-layer errors and checksum failures.
 
-Critical: 0 · High: 1 · Medium: 1 · Low: 0 (1)
+Enable error forwarding and decode the sun8i RX status in software.
+Give checksum failures and unchecked packets to the stack with
+CHECKSUM_NONE. Continue to discard Ethernet errors, incomplete frames
+and lengths that cannot fit in the receive buffer. Address filter and
+VLAN indications are not checksum errors.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Have both stmmac_rx() and stmmac_rx_zc() call a per-MAC RX status
+decoder. Only sun8i overrides it. For other MACs, install the descriptor
+format's existing decoder after hwif_quirks runs: the DWMAC100 and
+DWMAC1000 quirks select the normal or enhanced descriptor ops there.
 
-- [High] The patch fixes a statement that can never run, so it does not
-  do what the commit message says.
-- [Medium] The diagnostic this patch turns into a real message, `echo
-  "FAIL: Ping failure from $cl"` on line 174 of…
+Set EMAC_RX_DO_CRC when enabling the receiver instead of setting it in
+the rx_ipc callback. As before, the checker stays on when RXCSUM is
+disabled, so turning reporting back on can use the result already
+recorded in queued descriptors.
 
-Pre-existing issues:
-- [Low] On the veth0 icmp counter-mismatch path in
-  tools/testing/selftests/net/netfilter/nft_nat_zones.sh, the check on…
+Backports need commit ee0aace5f844 ("net: stmmac: Correctly handle Rx
+checksum offload errors") or its equivalent in stmmac_rx(). Trees with
+AF_XDP zero-copy RX also need commit fcfc52fcf89a ("net: stmmac: honour
+Rx checksum errors in the AF_XDP zero-copy path") or its equivalent for
+XDP_PASS. Otherwise a forwarded packet with a bad checksum can be
+marked CHECKSUM_UNNECESSARY when RXCSUM is enabled.
 
---
+Backports also need commit 834ec9530832 ("net: stmmac: drop split frames
+on AF_XDP zero-copy RX") or equivalent handling. The sun8i decoder
+returns discard_frame | rx_not_ls for a non-last descriptor. Both RX
+paths must test the discard bit and drop the remaining descriptors
+through the end of the frame.
 
-selftests: netfilter: fix missing echo in nft_nat_zones.sh
+Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
+Cc: stable@vger.kernel.org # see backport prerequisites above
+Signed-off-by: James Hilliard <james.hilliard1@gmail.com>
+---
+Changes in v3:
+- Explain how both RX paths select their decoder and why the default
+  is installed after descriptor selection.
+- Clarify that moving the checker enable preserves its behavior.
+- Document the checksum-status requirements for stable backports.
+- Link to v2: https://patch.msgid.link/20261122-submit-sun8i-rx-features-v1-v2-1-24a2564f6edf@gmail.com
 
-The patch adds a missing echo to the ping failure diagnostic in
-nft_nat_zones.sh. Without it, the shell tries to run the message string
-as a command. The commit message says this makes ping failures get
-reported the same way as the script's other failure paths.
+Changes in v2:
+- Submit the checksum-delivery fix alone for net, following Maxime's
+  review. The RXALL feature will be submitted separately for net-next.
+- Link to v1: https://patch.msgid.link/20261120-submit-sun8i-rx-features-v1-v1-0-5058fecba6b3@gmail.com
+---
+ drivers/net/ethernet/stmicro/stmmac/common.h      |  2 +
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 98 ++++++++++++++++++++---
+ drivers/net/ethernet/stmicro/stmmac/hwif.h        |  2 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  7 +-
+ 4 files changed, 94 insertions(+), 15 deletions(-)
 
-> diff --git a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-> index d935c967dd13b..f15bfd33739f1 100755
-> --- a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-> +++ b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-> @@ -171,7 +171,7 @@ done
->  
->  wait || ret=1
->  
-> -[ "$ret" -ne 0 ] && "FAIL: Ping failure from $cl" 1>&2
-> +[ "$ret" -ne 0 ] && echo "FAIL: Ping failure from $cl" 1>&2
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index a972bee66504..706feb7bcbed 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -615,6 +615,8 @@ struct mii_regs {
+ struct mac_device_info {
+ 	const struct stmmac_ops *mac;
+ 	const struct stmmac_desc_ops *desc;
++	/* Defaults to the descriptor format's decoder unless the MAC overrides it. */
++	int (*rx_status)(struct stmmac_extra_stats *x, struct dma_desc *p);
+ 	const struct stmmac_dma_ops *dma;
+ 	const struct stmmac_mode_ops *mode;
+ 	const struct stmmac_hwtimestamp *ptp;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 2ece7ba9dd73..0ad2203f76c3 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -5,6 +5,7 @@
+  * Copyright (C) 2017 Corentin Labbe <clabbe.montjoie@gmail.com>
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/clk.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
+@@ -197,6 +198,7 @@ static const struct emac_variant emac_variant_h616_emac1 = {
+ 
+ /* Used in RX_CTL1*/
+ #define EMAC_RX_MD              BIT(1)
++#define EMAC_RX_ERR_FRM		BIT(3)
+ #define EMAC_RX_TH_MASK		GENMASK(5, 4)
+ #define EMAC_RX_TH_32		0
+ #define EMAC_RX_TH_64		(0x1 << 4)
+@@ -644,6 +646,9 @@ static void sun8i_dwmac_core_init(struct mac_device_info *hw,
+ 
+ 	v = (8 << EMAC_BURSTLEN_SHIFT); /* burst len */
+ 	writel(v, ioaddr + EMAC_BASIC_CTL1);
++
++	/* Forward checksum failures to software before starting RX. */
++	writel(EMAC_RX_ERR_FRM, ioaddr + EMAC_RX_CTL1);
+ }
+ 
+ static void sun8i_dwmac_set_mac(void __iomem *ioaddr, bool enable)
+@@ -654,7 +659,7 @@ static void sun8i_dwmac_set_mac(void __iomem *ioaddr, bool enable)
+ 	r = readl(ioaddr + EMAC_RX_CTL0);
+ 	if (enable) {
+ 		t |= EMAC_TX_TRANSMITTER_EN;
+-		r |= EMAC_RX_RECEIVER_EN;
++		r |= EMAC_RX_RECEIVER_EN | EMAC_RX_DO_CRC;
+ 	} else {
+ 		t &= ~EMAC_TX_TRANSMITTER_EN;
+ 		r &= ~EMAC_RX_RECEIVER_EN;
+@@ -698,16 +703,9 @@ static void sun8i_dwmac_get_umac_addr(struct mac_device_info *hw,
+ 			    EMAC_MACADDR_LO(reg_n));
+ }
+ 
+-/* caution this function must return non 0 to work */
+-static int sun8i_dwmac_rx_ipc_enable(struct mac_device_info *hw)
++static int sun8i_dwmac_rx_ipc(struct mac_device_info *hw)
+ {
+-	void __iomem *ioaddr = hw->pcsr;
+-	u32 v;
+-
+-	v = readl(ioaddr + EMAC_RX_CTL0);
+-	v |= EMAC_RX_DO_CRC;
+-	writel(v, ioaddr + EMAC_RX_CTL0);
+-
++	/* The receiver always records the checksum result, even with RXCSUM off. */
+ 	return 1;
+ }
+ 
+@@ -1053,7 +1051,7 @@ static const struct stmmac_ops sun8i_dwmac_ops = {
+ 	.core_init = sun8i_dwmac_core_init,
+ 	.set_mac = sun8i_dwmac_set_mac,
+ 	.dump_regs = sun8i_dwmac_dump_mac_regs,
+-	.rx_ipc = sun8i_dwmac_rx_ipc_enable,
++	.rx_ipc = sun8i_dwmac_rx_ipc,
+ 	.set_filter = sun8i_dwmac_set_filter,
+ 	.flow_ctrl = sun8i_dwmac_flow_ctrl,
+ 	.set_umac_addr = sun8i_dwmac_set_umac_addr,
+@@ -1061,6 +1059,83 @@ static const struct stmmac_ops sun8i_dwmac_ops = {
+ 	.set_mac_loopback = sun8i_dwmac_set_mac_loopback,
+ };
+ 
++static void sun8i_dwmac_rx_error_stats(struct stmmac_extra_stats *x, u32 status)
++{
++	if (status & RDES0_DESCRIPTOR_ERROR)
++		x->rx_desc++;
++	if (status & RDES0_OVERFLOW_ERROR)
++		x->overflow_error++;
++	if (status & RDES0_RECEIVE_WATCHDOG)
++		x->rx_watchdog++;
++	if (status & RDES0_SA_FILTER_FAIL)
++		x->sa_filter_fail++;
++	if ((status & RDES0_FRAME_TYPE) && (status & RDES0_IPC_CSUM_ERROR))
++		x->ipc_csum_error++;
++	if (status & RDES0_COLLISION)
++		x->rx_collision++;
++	if (status & RDES0_CRC_ERROR)
++		x->rx_crc_errors++;
++	if (status & RDES0_MII_ERROR)
++		x->rx_mii++;
++	if (status & RDES0_LENGTH_ERROR)
++		x->rx_length++;
++}
++
++static int sun8i_dwmac_rx_status(struct stmmac_extra_stats *x, struct dma_desc *p)
++{
++	const u32 csum_mask = RDES0_IPC_CSUM_ERROR | RDES0_PAYLOAD_CSUM_ERR;
++	const u32 dma_errors = RDES0_DESCRIPTOR_ERROR | RDES0_OVERFLOW_ERROR;
++	const u32 wire_errors = RDES0_CRC_ERROR | RDES0_MII_ERROR |
++				RDES0_RECEIVE_WATCHDOG | RDES0_COLLISION |
++				RDES0_LENGTH_ERROR;
++	u32 status = le32_to_cpu(READ_ONCE(p->des0));
++	u32 len = FIELD_GET(RDES0_FRAME_LEN_MASK, status);
++	bool runt = len < ETH_ZLEN + ETH_FCS_LEN;
++
++	if (unlikely(status & RDES0_OWN))
++		return dma_own;
++	if (unlikely(!(status & RDES0_LAST_DESCRIPTOR)))
++		return discard_frame | rx_not_ls;
++	if (unlikely(!(status & RDES0_FIRST_DESCRIPTOR))) {
++		x->rx_length++;
++		return discard_frame;
++	}
++
++#ifdef STMMAC_VLAN_TAG_USED
++	if (status & RDES0_VLAN_TAG)
++		x->vlan_tag++;
++#endif
++	if (unlikely(status & RDES0_DRIBBLING))
++		x->dribbling_bit++;
++	if (unlikely(status & (RDES0_ERROR_SUMMARY | wire_errors | dma_errors))) {
++		sun8i_dwmac_rx_error_stats(x, status);
++		if (status & dma_errors)
++			return discard_frame;
++		/* An unexplained error summary is not a checksum verdict. */
++		if (!(status & wire_errors) &&
++		    (!(status & RDES0_FRAME_TYPE) || !(status & csum_mask)))
++			return discard_frame;
++	}
++
++	/* One buffer per chain descriptor; the reported length includes FCS. */
++	if (unlikely(len < ETH_HLEN + ETH_FCS_LEN ||
++		     len > FIELD_GET(RDES1_BUFFER1_SIZE_MASK, le32_to_cpu(p->des1)))) {
++		x->rx_desc++;
++		return discard_frame;
++	}
++	if (unlikely(runt || (status & wire_errors))) {
++		if (runt && !(status & RDES0_LENGTH_ERROR))
++			x->rx_length++;
++		return discard_frame;
++	}
++
++	/* Only a checked IP frame is eligible for CHECKSUM_UNNECESSARY. */
++	if (!(status & RDES0_FRAME_TYPE) || (status & (csum_mask | RDES0_DRIBBLING)))
++		return csum_none;
++
++	return good_frame;
++}
++
+ static int sun8i_dwmac_setup(void *ppriv, struct mac_device_info *mac)
+ {
+ 	struct stmmac_priv *priv = ppriv;
+@@ -1068,6 +1143,7 @@ static int sun8i_dwmac_setup(void *ppriv, struct mac_device_info *mac)
+ 	mac->pcsr = priv->ioaddr;
+ 	mac->mac = &sun8i_dwmac_ops;
+ 	mac->dma = &sun8i_dwmac_dma_ops;
++	mac->rx_status = sun8i_dwmac_rx_status;
+ 
+ 	priv->dev->priv_flags |= IFF_UNICAST_FLT;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 8ae95e91a36a..047d809b8b88 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -125,8 +125,6 @@ struct stmmac_desc_ops {
+ 	stmmac_do_void_callback(__priv, desc, set_rx_owner, __args)
+ #define stmmac_get_rx_frame_len(__priv, __args...) \
+ 	stmmac_do_callback(__priv, desc, get_rx_frame_len, __args)
+-#define stmmac_rx_status(__priv, __args...) \
+-	stmmac_do_callback(__priv, desc, rx_status, __args)
+ #define stmmac_rx_extended_status(__priv, __args...) \
+ 	stmmac_do_callback(__priv, desc, rx_extended_status, __args)
+ #define stmmac_enable_tx_timestamp(__priv, __args...) \
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index a685ce4638f6..20e9aa7b14f5 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -5723,7 +5723,7 @@ static int stmmac_rx_zc(struct stmmac_priv *priv, int limit, u32 queue)
+ 		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		/* read the status of the incoming frame */
+-		status = stmmac_rx_status(priv, &priv->xstats, p);
++		status = priv->hw->rx_status(&priv->xstats, p);
+ 		/* check if managed by the DMA otherwise go ahead */
+ 		if (unlikely(status & dma_own))
+ 			break;
+@@ -5926,7 +5926,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
+ 		p = stmmac_get_rx_desc(priv, rx_q, entry);
+ 
+ 		/* read the status of the incoming frame */
+-		status = stmmac_rx_status(priv, &priv->xstats, p);
++		status = priv->hw->rx_status(&priv->xstats, p);
+ 		/* check if managed by the DMA otherwise go ahead */
+ 		if (unlikely(status & dma_own))
+ 			break;
+@@ -7732,6 +7732,9 @@ static int stmmac_hw_init(struct stmmac_priv *priv)
+ 			return ret;
+ 	}
+ 
++	if (!priv->hw->rx_status)
++		priv->hw->rx_status = priv->hw->desc->rx_status;
++
+ 	/* Set alternate descriptor size (which tells the hardware that
+ 	 * descriptors are 8 32-bit words) when using extended descriptors
+ 	 * with ring mode. Only applicable for pre-v4.0 cores. Platform glue
 
-[Severity: High]
+---
+base-commit: cc7fe6e741730fef549e484379281736d32746f0
+base-tree: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git main
+change-id: 20261119-submit-sun8i-rx-features-v1-9177e8328598
 
-Can this echo ever run? The script is #!/bin/bash, and the loop above
-starts the pings in the background without saving their PIDs:
+Best regards,
+--  
+James Hilliard <james.hilliard1@gmail.com>
 
-  ip netns exec "$cl" ping -i 0.5 -q -c 3 10.3.0.99 > /dev/null 2>&1 &
-
-In bash, a bare wait with no arguments returns zero once all background
-jobs finish, whatever their exit status. The only trap in the script is
-on EXIT, so no trapped signal can make wait fail either. That means
-"wait || ret=1" never sets ret.
-
-ret is set to 0 near the top of nft_nat_zones.sh, and nothing else
-assigns it before this check. All the other ret=1 assignments come
-later. So [ "$ret" -ne 0 ] looks to be always false, both before and
-after this patch.
-
-If that's right, the "command not found" and 127 symptom described in
-the commit message can't happen on an unmodified run. A failed client
-ping would also still go unreported here.
-
-Would it make more sense to replace "wait || ret=1" with a per-PID wait?
-For example, save pids[$i]=$! in the ping loop, then call
-wait "${pids[$i]}" for each client and set ret and print the failure on
-error. nft_flowtable.sh in the same directory uses wait $lpid this way.
-
-Also, before d6905f088d2b the loop checked $? right after "ping ... &".
-That is also always 0, so it looks like ping failure detection never
-worked at this point. Backporting with the current Fixes: tag would not
-bring back any ping failure detection.
-
-[Severity: Medium]
-
-Which client will this message name? cl is the loop variable from the
-background ping loop:
-
-  for i in $(seq 1 "$maxclients"); do
-    cl=$(eval echo \$cl"$i")
-    ip netns exec "$cl" ping ... &
-  done
-
-After the loop, cl always holds the namespace for i == maxclients (100,
-or 40 with KSFT_MACHINE_SLOW=yes). A failure from client 5, for example,
-would be reported as coming from the last client.
-
-The socat failure path later in the script prints $cl inside its loop,
-so it names the correct client:
-
-  echo "FAIL: Failure to connect for $cl" 1>&2
-
-The wrong name came in with d6905f088d2b, when the message moved out of
-the loop. Since this patch presents the line as the fix for ping failure
-reporting, could the respin also report from inside a per-client wait
-loop?
-
-[ ... ]
-
-[Severity: Low]
-
-This is a pre-existing issue, and this patch did not introduce it. It is
-in the same script, outside the quoted hunk. On the veth0 icmp counter
-mismatch path, the check looks up one key and the debug dump looks up a
-different one:
-
-  if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.0.99 . \"veth0\" . 10.3.0.1 }" | grep -q ...
-      ...
-      ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.99 . \"veth0\" . 10.3.0.1 }" 1>&2
-
-Should 10.3.99 in the debug dump be 10.3.0.99, to match the key that was
-checked?
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124071926.8818-1-zhiqizhangg%40gmail.com
