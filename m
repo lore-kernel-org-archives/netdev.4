@@ -1,60 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=210.118.77.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596854;
-	b=BqClOhAStECaVwd2DVu5Odc4XI0XTEoABgdsIbkM/gbZtT96uIiXYf5dnykJR9S+sgxn
-	 kK+NZ/pGaKRwlt/TRx6nWrlo3lit1LFEBhmT3twoQKmAROM9zxMHfX+B8APlqgRVnRfSN
-	 3eMhBUFDwSWJfDUEcFV/d4jEDHe0mQGEWUbvSK/1cbpUTdRm/pRffUR3b3XyW6MdvCvqF
-	 Nu1aBEMdAllLjWsXNBYyPQcftDSZtBzGsz+hp0iWpvfOf7ZFuKXI8jIOMZobsrPsjSDcr
-	 opc4clTpGyfJrkjuvlQYjQyKdIp07REbITrYspITVnpdL+wVK/V6bhExuHc6nKyOOeQ==
+	t=1795596938;
+	b=wL5wpcEuV7lalqDVCbaRF8VP7gDG6IEH47GxVZAqtgqxJdQOB6gJF5HD2a3baPNx55dB
+	 65pMLhY2KdkB+gHG3PSDsnIXlvMOExqf0wnrtSbzSYE0ynfykQvO6XVohfaXTtZLfsEjP
+	 +uAF2hLgWfHDuC3OypjZy4KvaXTKn0jKvEiraNUcuglFn/IS9o/Ayaw2ni3752qA10bha
+	 FQvmg7NDsGq9Tn6TZRhagFRJUGx4WIoKYoCkhQXkN8SNIWqgs6Jb/8xHcwuO7MhcQOH7o
+	 5tXubkMwZZ1os22MGBEtvbKrsMp5+ZOAeYfDGt+sUgFe0xu+AaL4ls0o6DUKuAGujTQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596854;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 Content-Language:From:In-Reply-To:Content-Transfer-Encoding:
-	 X-CMS-MailID:X-Msg-Generator:Content-Type:X-RootMTR:X-EPHeader:
-	 X-CMS-RootMailID:References;
-	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
-	b=eNCJpjVDbZJEAGgOFUO02b1umr9HSa0zzMm/0iS6dbpCADV9Wra3drmf/d7VrNF5KXLQ
-	 e1nrkFZUt2DGS6OjZgY/SClI9LvMdlE0LpPEmDBILyAzsUCfuPphtsT5JVxuBxru27rRT
-	 sSWOusb4Wy4mu9M9iZw/NR7blIrJkf/+cOKqcbOscbCa6xzfLk6wVkKpVyHvI/7oW9u+e
-	 AY8AAF00hoUrrhsu+UoOhsSzMZ6Tol0pZ8jZEYxFzFjQiWOygFnHkgera59SM20AOFxmc
-	 L6KhLrKiWWF0LN1s6oGCS9kBkQ4Vv5B+vjduGTFrMET6ILNfUgLg8SCl73d/XT4oWYA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596938;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=tTpUi0ILw5EG17akaEX6b7XqQuzxRpKcK9YSXdbQtZI=;
+	b=lZ4su9abbml5uYa3l8HCKd8QlD3uTlKjqREMeYDMDOeIy+tKpK9lOw7ENqf0OPoJ1402
+	 xZQ5kugvYbB8lBlN8GeaMaXvx0pH//OcX++Ok/W/xvc3RkPxZp4SemCf7Sq88KNWYkfS0
+	 iISiWFw9V9kIHInumG3E3R5XIMP7RT9ShzehYDbIDZZ502ldLm8osvvx2fI33MsmQO5h0
+	 Spoma4ha9lEbOiCROtT+10QKf4odDJkzX8/9XNEwzpo2Fh1N2CdgagqE0qYgKnpy9lZWq
+	 t6mbHMaKYGhYk7mDpvMnOmMDupCofkZLZay7RPIbhc4+qSKgIxEcVom+6JIR3yyv9+A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=samsung.com;
-	spf=pass smtp.mailfrom=samsung.com;
-	dkim=pass header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh;
-	arc=none smtp.remote-ip=210.118.77.11
-Received: from mailout1.w1.samsung.com (mailout1.w1.samsung.com [210.118.77.11])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gWq4C8zE;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B05D606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:54:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5B05D606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=samsung.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=samsung.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1414F606A326;
+	Wed, 25 Nov 2026 08:55:37 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=samsung.com header.i=@samsung.com header.a=rsa-sha256 header.s=mail20170921 header.b=J1yzosnh
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20261125085411euoutp01b774af1349dfa95cbd0720922e58c262~rPdKnf8jl2717727177euoutp01F
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20261125085411euoutp01b774af1349dfa95cbd0720922e58c262~rPdKnf8jl2717727177euoutp01F
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1795596851;
-	bh=/0+lAOOij2K52U4R0VRs3qIZIOgm3jcSCXFoO01Bohg=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=J1yzosnh8O0FQ+zOv4xV6wlWYSkwmCBvsTdVPW401AfwWJxN4L78IQe8rbJW1vatb
-	 hZcg5/xPfPxRGSsWRLSmDMcAobQidGl/bXypi1JVQNc8fQkRJfeEGt7H6XD6F91xzJ
-	 eatuJhhXprNVbYaTSK0AY0O4RpLts+lTdBydLYKo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab~rPdKQhucL0555705557eucas1p2m;
-	Wed, 25 Nov 2026 08:54:11 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20261125085408eusmtip12dc81ec341b1bfaabed6853baaabffe2~rPdIRjxTi1139111391eusmtip1Q;
-	Wed, 25 Nov 2026 08:54:08 +0000 (GMT)
-Message-ID: <3467269e-9929-4c9f-bc19-847976f49527@samsung.com>
-Date: Wed, 25 Nov 2026 09:54:08 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=gWq4C8zE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 72FF01F000CF;
+	Wed, 25 Nov 2026 08:55:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795596937;
+	bh=tTpUi0ILw5EG17akaEX6b7XqQuzxRpKcK9YSXdbQtZI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=gWq4C8zEP1i3TuB6Ew5njZ1TreqMRfk14GYmncPr9GmXeCLrGldtJWY7UN2yiBpDu
+	 YLZY7QMlub0k2l289kPwFVIcvSfMvgpqPxce5xcF10AtpTv1hIXGN3GPAYr+Yviirj
+	 3V65ENHlgjyCYkrU/thlwsNxqiA21ClysqrWUTcf2D0WmG9PxWxBWGVVHR6GK/STFs
+	 D12Tnq2qpWMpRyH5qm7Chk5tczb6oX9arPo9V36Mi2Sy7zm59AotNsHPdCbKDVuJz/
+	 hlfc4yFo0Jq6HN8GC5Yw9r3ncUt3Z5ooZzioPvL325S92OpNa2O1VdsbMjvHUbF4u8
+	 FGX+5TJzUK0SQ==
+Message-ID: <ef8ce4ac-fcb6-41fd-947e-ecdf83527a42@kernel.org>
+Date: Wed, 25 Nov 2026 09:55:34 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,198 +51,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v3 2/2] alpha: enable contiguous memory allocation for
- coherent DMA
-To: Magnus Lindholm <linmag7@gmail.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
-	<u.kleine-koenig@baylibre.com>
-Cc: richard.henderson@linaro.org, mattst88@gmail.com,
-	linux-kernel@vger.kernel.org, linux-alpha@vger.kernel.org,
-	linux-next@vger.kernel.org, Jakub Kicinski <kuba@kernel.org>,
-	netdev@vger.kernel.org, iommu@lists.linux.dev, joro@8bytes.org,
-	will@kernel.org, Mark Brown <broonie@kernel.org>
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20261125085411eucas1p26fb11707f67c2628fd55e71335d08bab
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
-X-EPHeader: CA
-X-CMS-RootMailID: 20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e
-References: <20261115103809.1288167-1-linmag7@gmail.com>
-	<20261115103809.1288167-3-linmag7@gmail.com> <awVzJMLVw4wUSqky@monoceros>
-	<CGME20261124232303eucas1p10f2da7a94c8aa19fa4e406d089c1367e@eucas1p1.samsung.com>
-	<CA+=Fv5QJxoxEoKxRpm5Hisdf=y+VpmM-s_VBC1tDQ2FTCfb08w@mail.gmail.com>
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH iproute2-next] ss: move to its own directory and split up
+ ss.c
+Content-Language: fr
+To: Stephen Hemminger <stephen@networkplumber.org>
+Cc: netdev@vger.kernel.org, dsahern@kernel.org, mptcp@lists.linux.dev
+References: <20261119024049.3109143-1-stephen@networkplumber.org>
+ <7da8ca7b-f985-402d-a314-454c9094eb44@kernel.org>
+ <20261124165454.36367923@phoenix.local>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <20261124165454.36367923@phoenix.local>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-Hi Magnus,
+On 25/11/2026 01:54, Stephen Hemminger wrote:
+> On Tue, 24 Nov 2026 11:41:09 +0100
+> Matthieu Baerts <matttbe@kernel.org> wrote:
+> 
+>> I was surprised that you ended up with ~900 more lines, but I think you
+>> missed the removal of misc/ssfilter* files.
+>>
+>> Cheers,
+>> Matt
+> 
+> Most of the ssfilter* files are build results from flex/bison
+> so not actually in the repo.
 
-On 25.11.2026 00:22, Magnus Lindholm wrote:
-> On Tue, Nov 24, 2026 at 12:32 PM Uwe Kleine-König
-> <u.kleine-koenig@baylibre.com> wrote:
->> On Sun, Nov 15, 2026 at 11:37:43AM +0100, Magnus Lindholm wrote:
->>> Select HAVE_DMA_CONTIGUOUS and reserve a default CMA area after the
->>> machine has initialized its DMA windows. Prefer top-down placement
->>> below the direct-map and usable RAM limits. Skip the default reservation
->>> when no direct-map window exists. Explicit cma= ranges retain their
->>> generic override semantics; top-down placement is a preference, not a
->>> hard lower bound excluding the first 16 MiB.
->>>
->>> Use dma_alloc_contiguous(), which rejects non-blocking callers, before
->>> falling back to alloc_pages_exact(). Pair both paths with
->>> dma_free_contiguous(), whose buddy fallback uses free_pages_exact().
->>> Skip CMA on the GFP_DMA retry after a mapping failure so it cannot
->>> return the same unsuitable CMA pages. Retain zeroing for CMA memory.
->>>
->>> Round the size up to a page boundary in both allocation and free. CMA
->>> allocates size >> PAGE_SHIFT pages, so an unaligned size could otherwise
->>> allocate too few pages and overrun the allocation during zeroing. Keep
->>> the mapping and unmapping lengths consistent with the aligned size.
->>>
->>> With CONFIG_DMA_CMA=y, the default CMA_SIZE_MBYTES setting reserves
->>> 16 MiB without a cma= argument. cma=0 disables the default area.
->>>
->>> Signed-off-by: Magnus Lindholm <linmag7@gmail.com>
->>> ---
->>>  .../io/dma-contiguous/arch-support.txt        |  2 +-
->>>  arch/alpha/Kconfig                            |  1 +
->>>  arch/alpha/kernel/pci_iommu.c                 | 19 +++++++++++++------
->>>  arch/alpha/kernel/setup.c                     | 15 +++++++++++++++
->>>  4 files changed, 30 insertions(+), 7 deletions(-)
->>>
->>> diff --git a/Documentation/features/io/dma-contiguous/arch-support.txt b/Documentation/features/io/dma-contiguous/arch-support.txt
->>> index 3c6ce35d704f..6cd205a991f6 100644
->>> --- a/Documentation/features/io/dma-contiguous/arch-support.txt
->>> +++ b/Documentation/features/io/dma-contiguous/arch-support.txt
->>> @@ -6,7 +6,7 @@
->>>      -----------------------
->>>      |         arch |status|
->>>      -----------------------
->>> -    |       alpha: | TODO |
->>> +    |       alpha: |  ok  |
->>>      |         arc: | TODO |
->>>      |         arm: |  ok  |
->>>      |       arm64: |  ok  |
->>> diff --git a/arch/alpha/Kconfig b/arch/alpha/Kconfig
->>> index 6ccb2d230326..cddc1f3af209 100644
->>> --- a/arch/alpha/Kconfig
->>> +++ b/arch/alpha/Kconfig
->>> @@ -30,6 +30,7 @@ config ALPHA
->>>       select HAVE_ARCH_COMPILER_H
->>>       select HAVE_ASM_MODVERSIONS
->>>       select HAVE_DEBUG_KMEMLEAK
->>> +     select HAVE_DMA_CONTIGUOUS
->>>       select HAVE_GUP_FAST
->>>       select HAVE_KERNEL_BZIP2
->>>       select HAVE_KERNEL_GZIP
->>> diff --git a/arch/alpha/kernel/pci_iommu.c b/arch/alpha/kernel/pci_iommu.c
->>> index 955b6ca61627..19aa5c05de2b 100644
->>> --- a/arch/alpha/kernel/pci_iommu.c
->>> +++ b/arch/alpha/kernel/pci_iommu.c
->>> @@ -408,15 +408,20 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
->>>  {
->>>       struct pci_dev *pdev = alpha_gendev_to_pci(dev);
->>>       void *cpu_addr;
->>> -     long order = get_order(size);
->>> +     struct page *page;
->>>
->>> +     size = PAGE_ALIGN(size);
->>>       gfp &= ~GFP_DMA;
->>>
->>>  try_again:
->>> -     cpu_addr = (void *)__get_free_pages(gfp | __GFP_ZERO, order);
->>> +     /* A low-memory retry must not return the same unsuitable CMA pages. */
->>> +     page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
->>> +     if (page)
->>> +             cpu_addr = page_address(page);
->>> +     else
->>> +             cpu_addr = alloc_pages_exact(size, gfp | __GFP_ZERO);
->>>       if (! cpu_addr) {
->>> -             printk(KERN_INFO "pci_alloc_consistent: "
->>> -                    "get_free_pages failed from %ps\n",
->>> +             pr_info("pci_alloc_consistent: allocation failed from %ps\n",
->>>                       __builtin_return_address(0));
->>>               /* ??? Really atomic allocation?  Otherwise we could play
->>>                  with vmalloc and sg if we can't find contiguous memory.  */
->>> @@ -426,7 +431,7 @@ static void *alpha_pci_alloc_coherent(struct device *dev, size_t size,
->>>
->>>       *dma_addrp = pci_map_single_1(pdev, virt_to_phys(cpu_addr), size, 0);
->>>       if (*dma_addrp == DMA_MAPPING_ERROR) {
->>> -             free_pages((unsigned long)cpu_addr, order);
->>> +             dma_free_contiguous(dev, virt_to_page(cpu_addr), size);
->> On next-20261123 I get a build error on an ARCH=alpha allmodconfig build
->>
->> arch/alpha/kernel/pci_iommu.c: In function ‘alpha_pci_alloc_coherent’:
->> arch/alpha/kernel/pci_iommu.c:418:41: error: too few arguments to function ‘dma_alloc_contiguous’; expected 4, have 3
->>   418 |         page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
->>       |                                         ^~~~~~~~~~~~~~~~~~~~
->> In file included from arch/alpha/kernel/pci_iommu.c:14:
->> include/linux/dma-map-ops.h:105:14: note: declared here
->>   105 | struct page *dma_alloc_contiguous(struct device *dev, size_t size, gfp_t gfp,
->>       |              ^~~~~~~~~~~~~~~~~~~~
->>
->> which seems to be a conflict between
->>
->>         next-20261123~159^2 = f03df6019b56 ("alpha: enable contiguous memory allocation for coherent DMA")
->>
->> from
->> https://git.kernel.org/pub/scm/linux/kernel/git/lindholm/alpha.git for-next
->>
->> and
->>
->>         next-20261123~104^2~23^2~7 = 31f7e12d621b ("dma-contiguous: pass the NUMA node to dma_alloc_contiguous()")
->>
->> from
->> https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
->>
->> I guess the right thing to do is to pull
->>
->>         https://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux.git dma_alloc_coherent_node
->>
->> into the alpha tree and fix the offending function call in the merge
->> commit.
-> Thanks for catching this and identifying the interacting commits.
->
-> I reproduced the error on next-20261123. In
-> arch/alpha/kernel/pci_iommu.c, I changed:
->
-> page = (gfp & GFP_DMA) ? NULL : dma_alloc_contiguous(dev, size, gfp);
->
-> to:
->
-> page = (gfp & GFP_DMA) ? NULL :
-> dma_alloc_contiguous(dev, size, gfp, dev_to_node(dev));
->
-> This fixes the allmodconfig pci_iommu.o build. A full DP264 UP build
-> with CMA enabled also passed, as did an object build with CMA disabled.
-> The full allmodconfig build hit an unrelated cgroup sample error
-> involving PATH_MAX and LINE_MAX.
->
-> I'd prefer to keep the Alpha tree independent of the DMA series.
-> Could we coordinate with Jakub and Marek to carry the adjustment in
-> linux-next and ensure it reaches Linus when both changes are present?
-> I'm happy to help with further testing.
->
-> If that proves awkward, I can remove the CMA patch from for-next and
-> defer it to a separate Alpha pull request once the DMA changes have
-> landed, updating the caller then.
+Indeed, but in your patch, it looks like you are creating new
+ss/ssfilter{.h,.y,_check.c} files instead of moving them from the "misc"
+directory. Or maybe I missed something?
 
-
-I think that rebasing the alpha changes on top of Jakub's stable tag:
-
-git://git.kernel.org/pub/scm/linux/kernel/git/kuba/linux dma_alloc_coherent_node
-
-would be the easiest way of handling this conflict as this way we will
-avoid any build breaks and keep the changes bisectable.
-
-However if You still want to keep Your CMA changes based on v7.4-rc1 in
-alpha tree, then please provide a stable tag or branch with them.
-I will merge it to dma-mapping-for-next and apply the needed fixup.
-
-
-Best regards
+Cheers,
+Matt
 -- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Sponsored by the NGI0 Core fund.
 
