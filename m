@@ -1,145 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795617086;
-	b=Nk/abI6dc86U1/W4WEr2REHAIhLLq722PuccaTIw33pEaIrJsMhAp4fMpyh4RWZcWoue
-	 IQ5ZI3js77u/Sx0tNPt7dyia/KALCCYx1QTwemgaa5dGwBSlbDW7WzbZEv6HKF/bIHxeA
-	 ySvSXBnRpeDegnnQa4BDXPjzmNgyfEpegotuBojL8tONTwzMMolhJ1GSbp/LQLU1OR8bZ
-	 wawIQQtB+SxS+YS/LUMIt6+XSfyGd8l6HitFoS+MiPIuvFqcp+itdSoLvtKPXLOaQeuxB
-	 6w8PrJSXxaVZnH4NsGcZrrsZxektzXQP5BSHYEO2FSMFWM0c7q07mCzyUiBfP0cDyeA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795617086;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Received:
-	 Received:DKIM-Signature:Received:Received:Message-ID:Date:User-Agent:
-	 Subject:To:CC:References:From:Content-Language:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-Exchange-RoutingPolicyChecked:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped:X-OriginatorOrg;
-	bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
-	b=FtAl/lFrJ67+L2n3aAaa3EUdzYFu3jrv/JuCXZhL6nWIryWBQXafsE9ZW/aKI5zeFxa/
-	 x5OLChS7c0jtQuLEx5q20uQmTSo4//FUww3xhb7mJOScAWnGR3N64bzsW5nhSfn7+fYIL
-	 0dVgESiNg40hzWrrNvJIxE0FTgm3WIivd5Sg0Owu69/qn5aeTiV+F4HY3IVWnqGgDvDda
-	 QYMOK25TNoD6Kw3g0EZlUTdXur5O51MHtWw2hltkRMOrE9FwpkC71pAeB0XVNgDSrRCfY
-	 JTPLplHSzZq1daoWDHHT0yE27m7MtAbGFZsVQY0yK4//DP/rBi7j9U6KmeePgVtMZOQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PlJWekTN;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VwnfbMH6;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=192.198.163.12
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.12])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795617109;
+	b=bfx4M7kuJxIU9MiyZFATyF6SRB9H0QX5hRAHk352DkET/MBrFOI7MVyZBdO9aE7g/nx3
+	 1ZOMfASx32hBbc/N6+/rJGIhhSmodETRZn5FNrr/v5wvgt4GrJOx2JiMS++IHxSx1hnri
+	 F5zgDtpd+Fiki74QcCRMro+k1qjOgkUBM7p6wlpbPoZZC8RqVSIp1wHaj0t2JEdLKmIqm
+	 rxJ9UAu4AI/lnU7Y3xZ32iYHDQLoirfR55WvbJL/wj/y8Sp8J4EpNRm7wMr4YhLuu7v7B
+	 oKTxKclmasMlI8K0YHOglt9wWFPFndZIcZq1ueK2GK0MbzHSLdFayMm7ib10doXmSvw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795617109;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
+	b=5WxvbwyhdnYx6oDw+/UgcqYg/QwmKsBiPl15BwqU3HSCQ1NnZ8dMGzWUQ1vVYUXOSGBb
+	 5kDopCBnUMhnIOQq9/PJYlvOMOXYLVWNKzBJuoMzaS2CV1anO+m7TZ0uvGunRr4JR84+Z
+	 dA6AlBhPFRgz39dM9dSYdvf9qin5nUxPMVXAQ0HO3aFtKBWTmvAuxlB4RKAXvareCfXT6
+	 ssfIZfe+sJi/zmbM59ia9VadrIKbwTrf38kXSf3mF3ZFQHl5ziBSuP+UFO8FuD8uZi9pi
+	 QfaC+o5uAbp2Ue5RsfqaImsVFXFea6nFP1meZR97ufXO3r29V84PB4gAFUVR23AYUrw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=egBpZ0Zo;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B17B606A32A
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:31:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B17B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1B686606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:31:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1B686606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=PlJWekTN;
-	dkim=pass (1024-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=selector1 header.b=VwnfbMH6
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795617084; x=1827153084;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=wUj0ZdIPgCranayi03VC7KQ/fXjSiQRN5mhb96XC2wo=;
-  b=PlJWekTNPZ3iPvWrkMoXkYrwigV15oxSZXP8HbrEqEe7LIRJ/htwECiY
-   2ABjxHRSxZguwIOGH/RJuBdXVtrATAQlKVD1MV5V30vQCetYkPZeFeXjB
-   s4ZwXcBydJKzjYmMeeHUpKZjRXLv++Y2dxQh19JD/ThG4nGvFFZgnmP/S
-   /G06RGhMmUm4rlGc4xe3DvkXv7EhnSARvU9EbvCPkLhXuBNduu6DEWFNm
-   RSdeIR6Zz+rZhxj1eOF+rDqZkqEfb5cHrtecozsDsCojoMjKpQ5B/ADdu
-   x6A1XfTtVjYY2R6miowggmPpOHO7JWj31sBx/N82R3xaOHaeHi3SKJcVw
-   Q==;
-X-CSE-ConnectionGUID: MW/6LO7mRzCCCIA2aqpemw==
-X-CSE-MsgGUID: NIlvrOh7S0ynHw5zWN/VYQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4378696"
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="4378696"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:31:06 -0800
-X-CSE-ConnectionGUID: 7hTzCLeqRRKG2399604aoQ==
-X-CSE-MsgGUID: TGLazwAoSUKtwfEPCxXLhg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,233,1787036400"; 
-   d="scan'208";a="11763707"
-Received: from fmsmsx902.amr.corp.intel.com ([10.18.126.91])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:31:07 -0800
-Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
- fmsmsx902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 06:31:06 -0800
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57 via Frontend Transport; Wed, 25 Nov 2026 06:31:05 -0800
-Received: from CY7PR03CU001.outbound.protection.outlook.com (40.93.198.59) by
- edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Wed, 25 Nov 2026 06:31:05 -0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=aWRVL6cQwrdFn+Cm7M+1llWmPw0mrM/xAzMtYNpnc1+MVvHKucXNMQ4Fo7qpekLXQ6Nyjuh8O/g5r5IW7j/HjKaW7CFAcF085mrbIJU+CRlCzwlU/h+CSMCQoumGlyFaQkUcmWddc2w8ddGlQjypZEWrAIxCLxMJW+M+ha8rpTvA1WKVQzO8c9Y3N7QSEy23EM+Ht9ARxumnVoYl2nAU6Q1MHkBv61FgoYUni6pnTdMSCgDrw0yPnebdl0vEDpRClSp6mNUUQCQPQmOD8eufcxkROD4dALLADJVBAp+c1JAgRV/4vhSMY4P70rrrBfyrvzit8jNV5XjgCOsoVs8oLw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
- b=JjQ1mO5TiLTbrmQMDM10PRhloiXQBgVCPuf436kDvGOsszA+f15UYXdGojYOF8flVsORUbwuBFV0cQ4MEQrYUBlrmLp3J0S5Or9M7fAPEVnD7a06sseaoxhBADqc2S6tIg+MP71s0L4Hg7plnaUB9Swy+BZvapehrga1W8J4nueDkBdhNH3UOeIOzWGmPdR4dHgSb7a1DtK62ZIrDRngARcu7pMVevrWnj9gb1yosY1UMz/swdpq2qbnYnNmUNkQqCZzE0VwRtF7ZfupNZ1VdNSThPJIIeZ1F6LBZyfxpvLh3m2PiR82xHeG5AuzKvpMF0wUd4BxovhVuwv7QwEljg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=intel.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RPO2cq9VZoSjEQASARb2dUfIrWp1dg3KPb6NKJxfuB8=;
- b=VwnfbMH6gU/0yKuuOb9Ohtw6uwhYwazWeMJYqkR+6bUuTAkelWqRuh72ZWhNEsuGhxAX9TYunBtpNaFlCPR+dh0zYNeoWil6B7Axxm1HlE7TSGYWjedIOZQAP2tvjMxefeeA5ln0srlAb6vmq8dE8cDgvA7HKLrQ5rBs1m5aqQU=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com (2603:10b6:408:1b4::8)
- by MN0PR11MB6012.namprd11.prod.outlook.com (2603:10b6:208:373::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
- 2026 14:30:57 +0000
-Received: from LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51]) by LV3PR11MB8508.namprd11.prod.outlook.com
- ([fe80::a1e8:1786:e5d1:8e51%5]) with mapi id 15.21.0662.004; Wed, 25 Nov 2026
- 14:30:57 +0000
-Message-ID: <6ce9cb98-d615-4bf0-990b-35aa4b970503@intel.com>
-Date: Wed, 25 Nov 2026 15:30:50 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
- 2026-11-13 (ice)
-To: Petr Oros <poros@redhat.com>, Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, "Jacob
- Keller" <jacob.e.keller@intel.com>, Maciej Fijalkowski
-	<maciej.fijalkowski@intel.com>, Magnus Karlsson <magnus.karlsson@gmail.com>
-CC: <netdev@vger.kernel.org>, <intel-wired-lan@lists.osuosl.org>,
-	<edumazet@kernel.org>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-	<horms@kernel.org>, Marcin Szycik <marcin.szycik@linux.intel.com>, "Aleksandr
- Loktionov" <aleksandr.loktionov@intel.com>
-References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
- <20261118115915.116177-1-poros@redhat.com>
- <20261125124652.3843638-1-poros@redhat.com>
-From: Przemek Kitszel <przemyslaw.kitszel@intel.com>
-Content-Language: en-US
-In-Reply-To: <20261125124652.3843638-1-poros@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DU7P195CA0008.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:10:54d::35) To LV3PR11MB8508.namprd11.prod.outlook.com
- (2603:10b6:408:1b4::8)
+	dkim=pass (1024-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=egBpZ0Zo
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795617108;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=9VPn3qSbr6UuDL7PEPnTHgNf7btvQAHemjoVf9yo53s=;
+	b=egBpZ0Zoc+kRvpI6yiTgXP7zovyq8XSUkEiuelyv4Y0JdluUvJ7Tn1DGfcpnj6aqcki3ke
+	Z8geIgOXnbrQa64Z2SgCmQvzGDsYbY3o97AV9+3xxAFzgV+UR0rVs3YSlhjvxqJpfWGIdp
+	GIoyUCplooWZoqB5GOdiI48l0Ps0+j8=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-324-jywuPODkNlmXYQVCdRy39A-1; Wed,
+ 25 Nov 2026 14:31:43 +0000
+X-MC-Unique: jywuPODkNlmXYQVCdRy39A-1
+X-Mimecast-MFC-AGG-ID: jywuPODkNlmXYQVCdRy39A_1795617098
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id E60451955F02;
+	Wed, 25 Nov 2026 14:31:37 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1024D1956045;
+	Wed, 25 Nov 2026 14:31:31 +0000 (UTC)
+Message-ID: <8dc4f480-a875-4118-b5ee-2c4716ee53bc@redhat.com>
+Date: Wed, 25 Nov 2026 15:31:30 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -149,106 +71,165 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: LV3PR11MB8508:EE_|MN0PR11MB6012:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b116600-58f5-4bb8-5992-08df4b00b7dc
-X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|23010399003|18002099003|22082099003|56012099006|11063799006|4143699003|261028144727099003|261022105027099003|261026140227099003|261026121527099003|10067099003;
-X-Microsoft-Antispam-Message-Info: bWTBj4dmMF4T3ygdoFOxsEWdQeaym0GnfeavnE/UvCZGEDx03H66f9otwV60RFB8fExgyU5MepWNX2lDta8FNhW0NIwTMDgVUYOhXMiHLlh6AtjF14/X7v/Mn4kwzRuzODtkSWNZDUXryadeO0mVy/W3+E/7pn3NPQ91x9B/+iOgTt5HfiDN4qciLsv2cDI/905r9vF9f2EjZt0owhufnx5MVCcjlSCm1obcRGfWWLMFU6pEelQVH1juCGj597J4PLe9xJQyEjLdE8AzTH0tWvIx5okBMVna9ugdPob0MoimHCNcGfla/fZ6ET3iKl59h+Ffrz1Q8FV9+FB6NqFB27cakoaO8OScgaLxA2u5I1ApWpl+c7Elxtk++wQqDFmx/B+kNa9U8Cgm7AahP2LrjyiF0bIjTZZlXn1LAsajb8QYhu7ApD7ZVrl42e0ZUgX6F4rv41gts8ATLqvQNUo0aXPAamn30H86sepgh9NBhgT5gYE52kQ69jj438cIkf4NTh/rNVk6IkK7xzaRZF4woqNzis6t0yDfHVdhoNXqJt6h5b0Z1lH6UHZ2HnXdOU9swS6oewY8Gf50tcO1Uanv0IOuopPXEIlFdOsIWZ+reZrciA0rcRDqO/AYZYof/LoVkum3uv1b0QVyAWiOPa/IejaukdMdwGZS03Lwppktabc=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV3PR11MB8508.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(23010399003)(18002099003)(22082099003)(56012099006)(11063799006)(4143699003)(261028144727099003)(261022105027099003)(261026140227099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YUV1d2lIeGNIaVdidVAzU1RPZGxUQklKYWE2dGxoeE5vMVkvemZrRExWZ0h2?=
- =?utf-8?B?TUJiM1p4TCtOMnNwTzNISVVhRlhKRmh4NFdXb1FmcU0weVlBbEFBNkx3USt6?=
- =?utf-8?B?OE5pV2w0dDNXODdkRFVQVWZEOXVvS1EzbStETStsK0tCYVJINWM1c2dIaXBw?=
- =?utf-8?B?N1hHWVNCVkxkdlUzUktpK0ZwVmRBQnpVbGZ0MFgvcytNU1dDRzFjRW1WWjVv?=
- =?utf-8?B?eVRyRWxiTTNhbTFDcUVjQk9rWXJVL0dZYm5BVmd2U3JGZ1lBNWdycGdQZVlt?=
- =?utf-8?B?WWVtRGwrYjFKK0IxeFFXQ3lkWllxRmFYZEZQdXM2Y0V1NkpER3NsZkJWK0Ux?=
- =?utf-8?B?ZHI1VUROMGt0TkxUMzFHdUgvNkwrWXp1SEpnclhTdGZlRDFsZVBQS215eER1?=
- =?utf-8?B?WDIzdWxEQnloUnZpeUpDcEpzL2JleXFWb1RHQW1qemFRWFNPWmtGZjBCcm1J?=
- =?utf-8?B?alZNWkZiSWpjeUoxQXRubXJvdjhTU3FTR1lhOFFIM04xd3NLZ1VqWGQvVW0z?=
- =?utf-8?B?VDMwVWZDN0RURDJpdlJBZEpQMEJzNlUxRm5VRHJtZmxtdnlLNmZUZTBSR2Uz?=
- =?utf-8?B?b2pPMEd4WmdHUHdoNE9xbkxCdE9aYmFoUkRnZk5sOHY5Z09WZkZLRmZaeXZ1?=
- =?utf-8?B?NVVSRzROOHVlbUN2SEtVNTN5SFBHbkIxOEpRcmJpYUh6QlJzeGdDZythYkY0?=
- =?utf-8?B?ZmlrNkJGbmZ6Q0RJWDRqbU4xK2VyUUZ5VXEreWxEaWlxbEZwK1NLYS94UWNE?=
- =?utf-8?B?UFZSQ1k5a25EMmtLbDdOZ1FXVld4TnRFWlpKUVBwN1ZzRHlxYko4WTg4dlYz?=
- =?utf-8?B?eHFPNUhZTmZhbWFNaCtPbFVydFZ4Tk5HNEJYalJ5WlB2eW5QZ3c1Vi9JV0px?=
- =?utf-8?B?VzBWUFRzWXZXOWxiSktReW8xb09yL05LcitDOTNKbFlacUoyYTFLYWYyaVgz?=
- =?utf-8?B?NDJ1STNOa1NoT3JYaEJqemN4TFpraUJJWmZpemhWaVJna3VKS2ZNMDhCMXhS?=
- =?utf-8?B?VklBc0dSbW9Vd0N4bXBsU1hBdFZ2MlNnNWQ3YzM1bUFEdU11MXdPcWljMjNQ?=
- =?utf-8?B?WnJ3M3JRY3owb215ZmEyVEtSRzNEUEZ2ZUpLTy9yMWVoR1F5ZHphU1FPZTBo?=
- =?utf-8?B?T3prVFR1VTRZM3pjWnRwSjJuZUdxVWF3UldWaWk0TzM1dXN0RXNQYjlsQUJQ?=
- =?utf-8?B?MEtkVmFwWW55RDdSdmtBaVFDaTUrd3J0QmpzYnBlQzVsUWdRTC9oWDZCVkVh?=
- =?utf-8?B?ZlErOVV0bTZNUmV6aUlzSnIwZ0p1a0ZOOEdCSnV1ckQ2dVZPaDVlT295Zm5o?=
- =?utf-8?B?OVNkMWJwdGtJQ3dYdzgxREZwRk5ZQkRJVGVXS0F6Z0J1SWx6TmliTlozRUpw?=
- =?utf-8?B?V2daQ3pkN05kZFpLN01samZKYjNFcWVsUndHMXhFWXdIdEd3eEJzK2JiZTRK?=
- =?utf-8?B?QzIxdTdNbGFuQjVNdGU1SHBheVM0YTdDejRBc2hiSHVUdTlYSXJJN1UwTkVi?=
- =?utf-8?B?WXNLa01QS0gyQ3dQUGVNeVdLUWVhNGNzYW1jaXVGcmhPZld4MkhWTENBeCtv?=
- =?utf-8?B?dUZCMXUyd1ZxN25FcEo2dHlycVhpbWZVVHlwNVNFenROendUNDJPR2Y1N0N2?=
- =?utf-8?B?SDJwNE1taFZlbTM3NHl5WWc3S0JSUWdyN3pTbHdkcHVGS1MvRHZTR01GYU91?=
- =?utf-8?B?cmExeFZNQzlWNVF0L1FvUjhSUUQzZVk2NXBGZXJtMWRKMHhBa3pvL3N3RjVK?=
- =?utf-8?B?Q1Z1NWFiblRMbmZEMi92TEQ4SHdqcCtyWW5USnZiYmFYaTNoVUdHeUxDak9V?=
- =?utf-8?B?MDZlNFI2dERERnZaNmZZdWF6enEwV2pHMmU2anNFcXhzK3lCd0VLNk1FVUhw?=
- =?utf-8?B?a01lL3ZrY1dJbE1Hb3ZjVDZsRDNaME9lWG9kMWUyUUJwbHliSlVJZFBvUG5t?=
- =?utf-8?B?U0tLTENYdmptcjd6cHlvTTFkNHJXZ1ZuTzR3bklRSis4b1lWOFd5bkVHK3lL?=
- =?utf-8?B?S2s3SzRtQnpyQVN5ZjZLRmFMYTdsaHh4cG9HN1pIY21RMEFOUWVlcEdCQXhH?=
- =?utf-8?B?MkhtNEt1Yksxai9NVmtBVDdYdTRQekdhUWhPaFJHalJPbnQ2cXo1Wkk4K1ow?=
- =?utf-8?B?M0t6UVpJWG9IZ3V1UUtPRjRCMFR3RVVwZWluTjBrQjJ2c2d3WTBCSWF0c3JY?=
- =?utf-8?B?N0NKVDY1MUc1Y2dtTTIyNVNyY1BJMFgyUnV4WjVVWG9HTm9VTmNQY0hDNk5F?=
- =?utf-8?B?UjVpWFF3S1NQbk5uaWlGczh6cFpEZE5UdlRiQ01VNGdyZmpCU3JkOEYxZ2ZI?=
- =?utf-8?B?K1c1NzZ2NHZpRVRMNTUwMGg1VUFLUzVmaENrSkw0MlpDcHRZVFZTR0hyZVZn?=
- =?utf-8?Q?oSyOAsNSljAqmg6M=3D?=
-X-Exchange-RoutingPolicyChecked: Tt4TEIjYB1/QNHWnFyjU2gltRFgvGN+/8dc/Nt8+2Ai/t8X7Cr9oS7OQnIqdoMORCLD/8q/nURiuQJLeWi/IUeIScsRysMNe9Grfg+LtVV0l1DgFplIL2fqjGOOroea3cI7iPDhC5LErwOMjdHdUo4j36ZKu6wIt7lWtJ4DGA/Q5FVT0X+mUTuInNlKBrAlpm9nG/AOgiknxYV/eK56Xr7zyOS3whvXGPYwuKBcpNZqbgBYDWPxc3G6zzaOp0ipYvieC7tGk6+b28aikV+4wRVGdqphBCK2nwCXEwvAEa+RkgSceZnQzj4ddFxGveQa+wEKT2tpicwNaFu+lliGixA==
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b116600-58f5-4bb8-5992-08df4b00b7dc
-X-MS-Exchange-CrossTenant-AuthSource: LV3PR11MB8508.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 14:30:56.9090
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Dnj40XkmemOEpKi3dZ1D/BB4GTgALKlGfEcNyAka3N2JKc+YnjBKb3N9BShYj9O5FKTOyg8Rw3IjrYk03iRakyHGrFdLu01gVfxs+oxjOzw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR11MB6012
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: Jiri Pirko <jiri@resnulli.us>, Vadim Fedorenko <vadim.fedorenko@linux.dev>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ netdev@vger.kernel.org, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, Grzegorz Nitka <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Petr Oros <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261116181612.107a4b57@kernel.org>
+ <fe1dcdd5-ef75-4231-bf9f-03bf8536c2aa@redhat.com>
+ <20261118174424.32e9f130@kernel.org>
+ <dd1d61d7-7bef-4a02-8518-e17d2f50369f@redhat.com>
+ <20261119133851.3f25074c@kernel.org>
+ <bdfa88fe-13bb-4050-b750-962586b1d846@redhat.com>
+ <ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev>
+ <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <awMP9Gj3Xhia0ZeI@FV6GYCPJ69>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-On 11/25/26 1:46 PM, Petr Oros wrote:
-> Thanks everyone for the input. Jakub wrote that netdev is happy to take
-> the patches directly once a maintainer acks them there, and Przemek
-> that they will ack more on netdev. Building on that, here is a
-> suggestion for how it could look. It is only a proposal, for anyone to
-> comment on or change.
+On 11/22/26 16:54, Jiri Pirko wrote:
+> Fri, Nov 20, 2026 at 09:00:27PM +0100, vadim.fedorenko@linux.dev wrote:
+>> On 20/11/2026 07:39, Ivan Vecera wrote:
+>>> On 11/19/26 22:38, Jakub Kicinski wrote:
+>>>> Well, I'm not convinced. The relations between objects in DPLL are
+>>>> already quite hard to follow, and objects from one driver routinely
+>>>> "plug" into objects from another. The explanation of the locking
+>>>> rules in patch 9 does not look clean or clear. The driver facing
+>>>> API needs to be much more "dummy-proof".
+>>>
+>>> Fair enough. The complicated part of the rules comes exactly from
+>>> that: a pin registered by another driver, like the zl3073x pins that
+>>> ice registers with its TXC DPLL or uses as parents of its RCLK pins.
+>>> A message about such a pin runs callbacks of both drivers. I have
+>>> prototypes of the first four ways below to lock this, each with KUnit
+>>> tests, and would like your opinion before going further.
+>>>
+>>> In all of them a domain is the set of objects created with the same
+>>> module and clock_id, dpll_lock becomes an rwsem for the topology and
+>>> lifetime, and a mutex per domain serializes the callbacks.
+>>>
+>>> A) Pin's domain (this series)
+>>>
+>>>      Callbacks of a pin run under the domain of the pin, whichever
+>>>      driver registered them.
+>>>
+>>>      Pros:
+>>>      * one domain lock at a time, so no lock order
+>>>      * a request or a message about a pin is atomic
+>>>      Cons:
+>>>      * the callbacks of a foreign pin are serialized with the driver
+>>>        that created the pin, not with the other callbacks of the driver
+>>>        that registered it, so that driver has to protect the shared
+>>>        state itself, and lockdep cannot check it
+>>>      * restrictions for measured_freq_get, reference sync pairs and the
+>>>        private data of a parent pin, which patch 9 has to explain
+>>>
+>>> B) Registrant's domain, deferred notifications
+>>>
+>>>      Each callback runs under the domain of the driver that registered
+>>>      it. A message about a pin takes the domain locks one after another,
+>>>      and notifications from callbacks are queued and sent once the
+>>>      domain lock is dropped.
+>>>
+>>>      Pros:
+>>>      * callbacks registered by one driver instance are always
+>>>        serialized with each other
+>>>      * one domain lock at a time, so no lock order
+>>>      Cons:
+>>>      * a request or a message about a pin registered across domains is
+>>>        not atomic
+>>>      * the most complex core: a notification queue per domain, a lock
+>>>        per object to keep its messages in order, and pin setters split
+>>>        into validation and apply parts
+>>>
+>>> C) Registrant's domain nested under the pin's domain
+>>>
+>>>      Pros:
+>>>      * callbacks registered by one driver instance are serialized with
+>>>        each other and with the driver that created the pin
+>>>      * a request or a message about a pin is atomic
+>>>      Cons:
+>>>      * the lock order comes from the topology, so a pin of A registered
+>>>        with a DPLL of B together with a pin of B registered with a DPLL
+>>>        of A deadlocks, and lockdep sees it only with a lockdep class per
+>>>        domain
+>>>      * a stuck foreign registrant stops the domain of the pin
+>>>
+>>> D) Merged domains (your suggestion)
+>>>
+>>>      Registering a pin with a DPLL or a parent pin of another domain
+>>>      merges both domains. They are not split again.
+>>>
+>>>      Pros:
+>>>      * the rules for drivers stay as they are with the global lock
+>>>        today, and lockdep checks them; the only new one is that state
+>>>        shared between chips not connected by a pin needs a driver lock
+>>>      * a request or a message is atomic
+>>>      Cons:
+>>>      * only hardware not connected by pins runs in parallel; on the
+>>>        GNR-D system the zl3073x and all ice PFs end up in one domain
+>>>      * a callback that waits for the hardware, like the planned resync
+>>>        for up to 1 s, or for firmware still stalls all DPLL devices in
+>>>        the merged domain
+>>>
+>>> E) Global dpll_lock, slow callbacks asynchronous
+>>>
+>>>      Pros:
+>>>      * no change in the core
+>>>      Cons:
+>>>      * the resync problems from my previous mail, and a callback that
+>>>        waits for firmware still stalls all DPLL devices in the system
+>>>
+>>> I wrote before that stretching the domains would not improve
+>>> anything on that system. That holds for the ToD stall I measured,
+>>> but the zl3073x does not need to hold its channel lock across the
+>>> edge waits. Without that, the remaining waits are the planned resync
+>>> and output state callbacks, and with D they stall only the devices
+>>> wired to that chip, which depend on it anyway.
+>>>
+>>> So I lean towards D, as it gives drivers nothing new to get right.
+>>> Would that address your concern, or do you see a better way?
+>>>
+>>> It would be good to hear from the other DPLL maintainers as well.
+>>> Jiri, Vadim, Arkadiusz, what do you think?
+>>
+>> I totally agree with Jakub. Current implementation of DPLL subsystem is
+>> over complicated, and all these complications came just to completely
+>> model what was designed for Intel NICs, basically ice driver. But now we
+>> are again back to the discussion how to complicate things further just
+>> to fit what was implemented in the new generation of the same hardware.
+>>
+>> Maybe it's time to step back and think if we really need all this, or
+>> find simpler way to express/model things?
 > 
-> 1. Fixes could go to netdev as [PATCH net] with intel-wired-lan in Cc
->     and be acked there by a maintainer listed for the driver, so they
->     would not need a separate round on iwl-net.
-> 2. Patches that are already queued could be sent again directly to net
->     by the people who originally posted them, the same way.
+> Agreed.
 
-but please not everyone at the same moment ;)
-on our side we will try to not only human-review the code, but also
-use local sashiko and to run the code
+I fully agree with you guys... I also don't like the way how the ice implemented
+pin sharing and thinking more about Vadim's "Maybe it's time to step back...".
+I have started an effort how to model this differently without any inter-driver
+DPLL object sharing.
 
-the current time frame for that is ~3 days, after that in netdev
-patchwork series is marked as "awaiting upstream" (yeah, weird name for
-"awaiting intel" :)), another revision of course refreshes the timer,
-but it's not good to repost just for that
+I will send a RFC patch-set that should address hopefully all painful points.
 
-> 3. Later, once this works for fixes, the same might be worth
->     considering for net-next.
-> 
-> It would also help if Intel updated the MAINTAINERS entry to match and
-> kept it up to date, so that it is clear who acks fixes for each driver.
-> Jakub mentioned adding maintainers or splitting the entry, and the
-> details would be for Intel to decide.
-> 
-> Does anyone see a problem with this? And who can make the final call
-> on how to go on?
-
-that's correct summary
-
-> 
-> Regards,
-> Petr
-> 
+Thanks,
+Ivan
 
