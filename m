@@ -1,67 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795620123;
-	b=NEX5h8vIhxP31o+qXrx/RCBcnm25mMhXNi1V8jd5GNlN+NYJnMd+f541Z7W/3CWyjK2b
-	 uxYTvn3H3cViprx9YizYTEUDAre3gMuO4oacp8EgrU2EXGWWBpxINFxSNY69dOTLAiSU/
-	 dkt1JJuwO7b7WRuCi7LM3N9cNzSpkq/XiZ8tdHraBZ+mwgWOC/+UA48Xk8d4IdzlNlNza
-	 gV33g9Y+54AiVnyBKBC8GGFkrltDKXOklBXhbbabFijiv56y9HU7duC1qOoHT1jFz+LnW
-	 vAC6S5WrKKibR8ssByfov4Nc+51SMDZoYKsZM/M/4RV5JeeTmiMkUURzk9aLxmCDBEg==
+	t=1795620227;
+	b=zT6exuN8NV12Sg2qLjCFKC0mY2ts34CYCPHdl/+sXnc1ya1JbP4Ph7Z/RxGcMIrun8RI
+	 TZdoq+SOR6mLNhVOmpT/Xrj9a/UuR2/0od3EbbZW0jr62kW4KtR4xh63LwJz5W764/57U
+	 9NFMt1EEUdIS599U7W0XL7ak7pqX0VpE/FFytXYl1i1T/iKKszD5swVfuBWZn18Oo5Qtf
+	 1kbURPYMiOgZn/wGxBUjzC2w5NZSvi08Q5yZnYmFKcLt0QxQV4uEf2LEG8GHOHw8QPCQt
+	 rHByRqWNzTvzCgaaq1JcKPPMk2OIIt2je9znq8eNXQJrlKmo+aA0M8XJTY6bJ+3uGLQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795620123;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=CifWyrn9kLivKLGUJMFWOKg6eEMnLvcZRh6jBkDlvmg=;
-	b=vRGktJZThTunMkaKk1AS8b4tA04EyCfR3B1zLmw+6scO6Z7G33bHyIkMQvgnzMx1vcVz
-	 LxvrlQa9IyER//Lhzk6Ekqp4f/rGBRutdOcjT5GVI978KQQ2vyAu31ocfxqVqY5UrAJSy
-	 xxmeM/NVVwT7pVKIkAOTsdfu3+jCkjpmMNmGvgdDGEpkVmbzzgiM1Kf2ygOekoPK0YVS4
-	 dAhet5A0vvIzp05XH5T3V4QtA3fqHHe0mLcBq+oQPISfFKNCSvVBUEtvx/XF2vBH0gh7t
-	 c/g7Ti2aWjtwz5AucnTttJHU+8ekzQpukriLOttyOzYjas57/VRDJLagSBXrLfZIVfw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795620227;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=CA1LadP7NKMAaaB5YYb8cCVZscktvlEkvfaKa5ylWwg=;
+	b=jX1kgcHgsK4xcVhadRMlH+3eRJOuWymNypHYEEgpLhkZAM1gnrdyqGeqves3bCcx7I3d
+	 s3dGxn+VN0+btEiY28pTwPZNCESun2HDc+xjs51oiojmx31c7nr4yO6hqHpZolEviiUC7
+	 9IkXDKH6nriUUpm48THKBrolorKjshS1ODSa80YidMBPu9PKUvgka6q00YzNjW2C9Of9C
+	 1HqD/9MwzmnS8CsBQVuQJC7cnETPZeKCSDTmDYWO3QvcFOng+tvZ7e2NPKaUlsL86LsMq
+	 sBZzjZda4IfvJDizaLgz6kGrcUqqeoQVB5E2g7fy21Z3L+WUfaYa22Q4nK93WP/TRFA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b="eu/acfj7";
-	arc=none smtp.remote-ip=95.215.58.45
-Received: from mta1.migadu.com (out-45.mta1.migadu.com [95.215.58.45])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=tu-dortmund.de;
+	spf=pass smtp.mailfrom=tu-dortmund.de;
+	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=O2t5jpJS;
+	arc=none smtp.remote-ip=129.217.128.51
+Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8140F606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:22:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8140F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8CA6A606A326;
+	Wed, 25 Nov 2026 15:23:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8CA6A606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=eu/acfj7
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=LHXtKsSSTtBxV1tByXCuT3bFUh7XApx4GtOxSomysqU=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795620119; v=1; x=1796224919;
- b=eu/acfj7GOF9XKHbMFBtE01hUnABYS0nNhMB9WXUidlL3g9IOU+uCYdcG1/4YysYopk4QLej
- 7fLCp3yp/9jJH2hIWNOV7HMGZV0tvLDBW+WegYUfGvo0ZIVJDkx5r7ebVGdHQutwmYl3TcViVYy
- 8pXQx49BW0o1fyRfFHasTUws=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta12.migadu.com with ESMTPS id 327d822d9fb9905d;
-	Wed, 25 Nov 2026 15:21:59 +0000
-X-Mizu-Trace-ID: 327d822d9fb9905d
-X-Migadu-Flow: FLOW_OUT
-Date: Wed, 25 Nov 2026 23:21:49 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
-Cc: netdev@vger.kernel.org, Jay Vosburgh <j.vosburgh@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Hangbin Liu <liuhangbin@kylinos.cn>,
-	Changzhong Zhang <zhangchangzhong@huawei.com>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
-Message-ID: <awb9DbxQwIFaO3nJ@fedora>
-References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
- <20261125012632.GB19338@Liu-laptop>
- <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
+	dkim=pass (1024-bit key) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=O2t5jpJS
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
+	s=unimail; t=1795620197;
+	bh=CA1LadP7NKMAaaB5YYb8cCVZscktvlEkvfaKa5ylWwg=;
+	h=From:To:Cc:Subject:Date;
+	b=O2t5jpJSHFSf2aPvggx1b43/Nf/2Fgw46VfpEoUKsgtAouupnOW+I5Z3JQmun/lKB
+	 cFTqZpl4h5a2OuNk0URSDnDpJqzDVfKjhaelScPaJVKD8zbD8WO9AzUn6KECaJ+6F9
+	 iYKdIDThhLIwfGk6QemAB2/cqa//s0m9Vm7cFpvY=
+Received: from simon-Latitude-5450.cni.e-technik.tu-dortmund.de ([129.217.186.207])
+	(authenticated bits=0)
+	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6APFNERK004665
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 16:23:15 +0100 (CET)
+From: Simon Schippers <simon.schippers@tu-dortmund.de>
+To: netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
+        =?UTF-8?q?Jonas=20K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
+        linux-kernel@vger.kernel.org,
+        Simon Schippers <simon.schippers@tu-dortmund.de>
+Subject: [PATCH net-next 0/3] veth: earlier txq wake and stop under backpressure
+Date: Wed, 25 Nov 2026 16:23:08 +0100
+Message-ID: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,104 +73,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
+Content-Transfer-Encoding: 8bit
 
-On Wed, Nov 25, 2026 at 03:00:37PM +0800, jiangjiehua (A) wrote:
-> 
-> Hi Hangbin,
-> On 11/25/2026 9:26 AM, Hangbin Liu wrote:
-> > Hi Jiehua,
-> > On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
-> > > In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
-> > > and returns early, but does not clear bond->usable_slaves.
-> > 
-> > Since the issue was introduced in bond_set_slave_arr(). Should we set
-> > the bond->usable_slaves to NULL here before return?
-> 
-> Clearing bond->usable_slaves in bond_set_slave_arr() does fix the leak,
-> but it is too late for updelay: bond_enslave() links the new slave via
-> bond_master_upper_dev_link() before calling bond_update_slave_arr(),
-> so miimon can already see the slave while the stale empty array is
-> still there and skip updelay.
-> 
-> Clearing when the mode changes to broadcast happens while the bond is
-> down with no slaves and mii_work has already been canceled, so the
-> stale pointer is gone before any new slave is visible.  That fixes both
-> the leak and the updelay issue.
+While working on the veth BQL series [1], I noticed that veth was
+sometimes faster with BQL enabled than without it. Debugging this showed
+two reasons, both in how veth handles a full ptr_ring since commit
+dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce
+TX drops"):
 
-After a second look, I found we should ignore the updelay based on
-bonding doc section 13.1 paragraph 4.
+- With BQL, the completions inside the NAPI loop wake the txq in the
+  middle of the poll. Without BQL, veth_poll() wakes the stopped peer
+  txq only at the end of the poll. The wake raises NET_TX_SOFTIRQ on the
+  consumer CPU, which then refills the ring from the qdisc itself
+  instead of consuming. Patch 2 wakes the txq in the middle of the poll,
+  so that the producer refills the ring on its own CPU. Patch 1 adds
+  PTR_RING_BATCH, which sets the wake point.
 
-I will revert 45fc134bcfad and prepare another fix.
+- With BQL, veth_xmit() stops the txq after a successful produce.
+  Without BQL, it stops the txq only after a produce has failed, so
+  every refill ends with NETDEV_TX_BUSY and a requeue, which adds up to
+  many requeues under a flood. Patch 3 stops the txq as soon as the
+  ring is full, with a __ptr_ring_check_produce() right after the
+  produce, as in my tun patch [2].
 
-Thanks
-Hangbin
+Here are some highlights for the whole series against net-next, with
+fq_codel on a veth pair with GRO on and TSO off, so that all traffic
+takes the NAPI ptr_ring path, as with an XDP program on the peer. In a
+virtme-ng VM on isolated host CPUs at a fixed frequency, 95% confidence
+intervals over 50 boots per kernel, 40 boots for two senders:
 
-> 
-> > 
-> > Thanks
-> > Hangbin
-> > > 
-> > > A mode change requires the bond to be down with no slaves.  When the
-> > > last slave is removed in balance-xor, balance-tlb or balance-alb,
-> > > bond_update_slave_arr() publishes an empty usable array, and later mode
-> > > changes do not clear it.  If the bond is switched to broadcast, the
-> > > stale pointer remains: bond_miimon_inspect() sees count == 0 and
-> > > ignores updelay for slaves enslaved while the stale array remains, and
-> > > bond_uninit() leaks the array.
-> > > 
-> > > Clear bond->usable_slaves when the mode is changed to broadcast.  The
-> > > bond is down and has no slaves at that point, so the array can be freed
-> > > and set to NULL before the bond is brought up again.  Broadcast never
-> > > publishes usable_slaves, so it stays NULL.
-> > > 
-> > > The issue was discovered by an AI code review agent and confirmed by
-> > > manual code inspection.  It was reproduced on mainline with virtme-ng;
-> > > no kernel modifications or error injection were needed.  With a dummy
-> > > slave and miimon=1:
-> > > 
-> > >   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
-> > >   ip link add dummy0 type dummy
-> > >   ip link set bond0 up
-> > >   ip link set dummy0 master bond0
-> > >   ip link set dummy0 nomaster
-> > >   ip link set bond0 down
-> > >   ip link set bond0 type bond mode broadcast
-> > >   ip link set bond0 up
-> > >   ip link set dummy0 master bond0
-> > > 
-> > > After the final enslavement, dummy0 comes up within 50 ms despite
-> > > updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
-> > > none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
-> > > selftest passes on the same kernel.
-> > > 
-> > > Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
-> > > Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
-> > > ---
-> > >  drivers/net/bonding/bond_options.c | 8 ++++++++
-> > >  1 file changed, 8 insertions(+)
-> > > 
-> > > diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
-> > > index 9efadeff6a22..f65916444fa1 100644
-> > > --- a/drivers/net/bonding/bond_options.c
-> > > +++ b/drivers/net/bonding/bond_options.c
-> > > @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
-> > >  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
-> > >  	WRITE_ONCE(bond->params.mode, newval->value);
-> > > +	if (newval->value == BOND_MODE_BROADCAST) {
-> > > +		struct bond_up_slave *usable;
-> > > +
-> > > +		usable = rtnl_dereference(bond->usable_slaves);
-> > > +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
-> > > +		kfree_rcu(usable, rcu);
-> > > +	}
-> > > +
-> > >  	/* When changing mode, the bond device is down, we may reduce
-> > >  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
-> > >  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
-> > > -- 
-> > > 2.33.8
-> > > 
-> 
+  one sender, threaded NAPI     net-next        series
+  pktgen, 64 byte UDP           1078122 pps     +24.8 +-0.5%
+  iperf3 TCP                      32682 Mbit/s   +1.4 +-0.6%
+  iperf3 UDP, 64 byte               362 Mbit/s   +1.4 +-0.5%
+
+  two iperf3 senders, one queue
+  TCP, softirq NAPI               25798 Mbit/s  +51.9 +-0.8%
+  TCP, threaded NAPI              22480 Mbit/s  +15.0 +-1.2%
+  UDP, threaded NAPI                701 Mbit/s  +15.2 +-0.5%
+
+With a single sender and softirq NAPI the consumer runs on the sender's
+CPU and the ring does not fill. iperf3 stays within 0.4% there, and
+pktgen is 1.8% slower, which I could not separate from a shift of the
+code layout, see patch 3. No other regressions were found.
+
+With two senders and softirq NAPI, TCP through fq_codel was 36% slower
+than with noqueue. With this series the gap is 2%.
+
+The measurement setup, the test scripts, the isolation of the host CPUs
+and the benchmark runs, were done with Claude Code (Claude Opus 5.5).
+The scripts are in [3].
+
+[1] https://lore.kernel.org/netdev/20260612083530.1650245-1-hawk@kernel.org/
+[2] https://lore.kernel.org/netdev/20260803183641.96882-1-simon.schippers@tu-dortmund.de/
+[3] https://github.com/simoschip2000/veth-txq-wake-bench
+
+Simon Schippers (3):
+  ptr_ring: add PTR_RING_BATCH
+  veth: wake the peer txq in the middle of the NAPI poll
+  veth: stop the txq as soon as the ptr_ring is full
+
+ drivers/net/veth.c       | 52 +++++++++++++++++++++++++++++++++-------
+ include/linux/ptr_ring.h |  7 +++++-
+ 2 files changed, 50 insertions(+), 9 deletions(-)
+
+
+base-commit: 612848d37e68b858e15815175f1c5e609e09d719
+-- 
+2.43.0
+
