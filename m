@@ -1,100 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=fail smtp.remote-ip=209.85.208.182
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=fail;
-	t=1795605271;
-	b=2Vc/HNEcFZr8k5t+CUHO6TsqegvK/y0wwNri9uWYpOt6Owj4iqmqR0wJVqBQbophSAS5
-	 mpkOLYTdbxQTUdFDzY7/rCRrVmLZx8cGTNlhDYvUxRy4vnkkKUkKsLxrrH6oXI+knyXJh
-	 o93ijj8z/CsiYXMXYdJ3Szc1yRjGc+T78ttiSVXQA9vgCkUVMKESIuosy25fVQLqtgozb
-	 K8/crqTTwcUQbFHIo/NEyY3ybirKjMArQBz1QuJnf9OSZsMI8/dkSA1vBTH4yevdnVnLM
-	 LbXN7LhM9KekhXyvQ00M8LDO/LklUFmX4/70OqbUTC3OMHdaQeCYBtoXHdHdU2qsGiw==
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795605382;
+	b=WMWILYVk9bRc0Uqy+aOSYDoYVKvFD2pWqkdKf4jEZWoNE1L9WgsM3BxiwO09yXQq+d8H
+	 zAXBKrNVUDrPzDN8i+s+boCIV4oqUwGkjJ1xND37KNiuDWnpq9gogeOKNkdjZbnMNOmCh
+	 X7UkAjYJDKXccKTg6+PEC/c9pEl3J/590kxV2eKq82dIV0ZmrEe/e0ucft3elI0r68o1/
+	 ncSVm+6kQjwGzHmavALWL8WzfSFs/2i6dcALJb92zo5bi4rrDzJrDajdM/fqEoa7z0oMh
+	 esl6xhAycCxwYLUxOibOABA7I3y1VN5rl5dRe3p1yrK8w4lSgNOcnQVdrPWcJ2cV2xg==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795605271;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=/WbQLbOVHSAoTWuLGv+HW4dYfMA6ahcKB8KXYloAqAc=;
-	b=y8ETPwcwn/ZmbBK/3XJUpgPfzo2yf3lzv7HJnaJpaQfs9Rc5xAc+WPHcHUw9xs4A4n7v
-	 AcD43osmXOxOJbkdteXubs0NHxeTx1chTVrWBv9NhDQ7xyhr/oryubCEL+C5peXiwMUbu
-	 o2K5Bv25DmKzGzMi1RW6XqTVozSAy80AXO/ss76hsJIlOWe6Qu9OOj9I9vwDSWHMHR0OY
-	 TIeDVGjfGX9PFgYYAik+4AppNbOdoYTMuiwn6Ta4Qpj3HXUlufo4USS9wXmicPjqvvI8s
-	 RA/OZ/IxwsWUTy6y3yc2sNHpyN3dfpEbG/SNmOKlogG7PyQcv1puPPFTcSkd2rvB/Bw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795605382;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
+	b=nbMIjtRC/D3/Ln0Q95UjoyzStOlm9Qy90ETM78s5JuAJ71cJeVHxGK1jiwicQq9pyDN1
+	 9j0LGrwxSAUwlN9sn+6AWKQ3RL/cqyd8tLqKemXKHDia/5N6Eu8m1ibNGoWnTF1xZO683
+	 7/gWwESKjNs3LDmf58JM7lRN7p7u3Uig9sSFQVX1NwFfVoISfhAOeLutBOHfoyYW2H/cp
+	 DJlYvrdi01CFYC1jJIBl7JZMTWNHjnPE6YgNdE8w5dYudEWAADDH0lU3wF+cjWerAXFVF
+	 o7fXXGJECsFPiPbKG1Ee7n7i63wz3QlwLfmsXJtPWmjSoX+jeu7WE73PmHHcJHFoIiQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=a6glVQ0b;
-	arc=fail smtp.remote-ip=209.85.208.182
-Received: from mail-lj1-f182.google.com (mail-lj1-f182.google.com [209.85.208.182])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eiDXT2bW;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.52.20
+Received: from BL2PR02CU003.outbound.protection.outlook.com (mail-eastusazon11011020.outbound.protection.outlook.com [52.101.52.20])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 139A8606A327
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:14:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 139A8606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EF6E9606A321;
+	Wed, 25 Nov 2026 11:16:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EF6E9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=a6glVQ0b
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3afa1c39d76so4154061fa.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:14:30 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795605269; cv=none;
-        d=google.com; s=arc-20260327;
-        b=MO1juiJx9+3hER71U55jEb5vMRoTFPMU062RfcxuXguWDeNSiQgtopZc3lfgzguH+P
-         tt7GpY2npm9191zQH+uURmjIov74nZNNrHMX5diYGvuHvLu1qKIWe6QNz6ZosQ3LAAA1
-         mcqLmn6hvdR8w/+ZV2gO1BE+U2oq/iq6QaGrwrtYh3mvQjFbw2ZVLUGfYP0DAOsdbHKv
-         Yqir0SzZsnmci4Z/Mye1IHWtleHVPZsoOLb4EIyCxXIpZYmD6JNpZiHjUugvtSihuoC0
-         9VnZBboO+xzpfWNSS94thuPeh/JSX4tnmJZbKhHLp8qWEQGVtb/NAThaMDJ7UG0YtKHm
-         xgSg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=/WbQLbOVHSAoTWuLGv+HW4dYfMA6ahcKB8KXYloAqAc=;
-        fh=NnCFNf7l4O9zh7KGAZtX3xAxlxTYDj8QcRxZge0CDlE=;
-        b=BHNbLT6cHuDVnOnqpeVGQDOaunTpGC3vTSBDO3MNERes7bJA0l9msNhu5hQ39OUziP
-         0rWcfCI7Lo/nJtc79gn+6HHxfYVIaCsNeEpOadlkjKtbZ2XgTS+oO0jwI0tp6xEkIadn
-         nxZqdz0/XA4IfQL5c8E7yt+lmQ8LjTCXRSgQ6O4ATgGO8DWSn029nJ4XqnqQEWhVsP1W
-         2KqNEzpcjjKbaZeqAPBI3vwpgZSSl0LxNgPYu7+GuhIPHC+gMHq+5FF4oKPkP3Y260sB
-         uRc+ZYS/4U3f1FEqj9G5IUdhBYMrEOos24cBsrEwNzB/nrR/gVaQ5+gzUdvjjQyRfSa9
-         Tg5g==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795605269; x=1796210069; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=/WbQLbOVHSAoTWuLGv+HW4dYfMA6ahcKB8KXYloAqAc=;
-        b=a6glVQ0b9RlcjY/b5/i4tsdSat6HduNC4kzJKicID3444iFD6Glc9SnQKkIrYfipjq
-         qpNipmvZg/L4BLfhV7UCRhym2p+dZT9DfwtT7uECJWY1yohMsNt2NmmxYKx+Uu5gxzZW
-         zqg8I1Q2SA1JtDjcxxhQutUS8kZEifD0/LnFoksQpdm4WzFS/asA6Ts1BWjEfJJMIOJB
-         adJMVnPF4No7yCgV2ZQ6WvDQchiKKeHjFK+mionN+kXFFJx3cyi+IXQmsQmy7OgPv5kw
-         Id14Y3PLsFB1LbA4QTac4hAZoeAvWtiaypIQWjvL33nDDlL0AaZ2AgXIN4My3jbMnASh
-         +xQg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795605269; x=1796210069;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=/WbQLbOVHSAoTWuLGv+HW4dYfMA6ahcKB8KXYloAqAc=;
-        b=F9YMoiciqEJwIfkMOtrJQxHih0fqTU8n5MaaJJpFbLg65q1gkslZe2y5npb2EgCAn5
-         p0UhDyHgRzh6E84s58imppFw6BBgq7ZKdhsW1oGIMta3c48Dmh4P1762JSChkU9np9Zc
-         zokhwy2D4U8iJQxs/n4LtD38WWvwOa1QKRtJ9RNHXe0A5F2mXN1aJK06HSmhXY+DKBJW
-         eikbdBTfQBp0Iy3sEmUyDS9Khiu0q6dHiqLsE6rtfYND8dLHRLDR6s9nDX7Ra7X/vEHi
-         v4Qt8sXMgvjHD3IbCV/YuTcB0S0Ur7eEP2FhEYe+irn4nYpQNOwvD0o5JRnnSTxpN7CC
-         76aA==
-X-Gm-Message-State: APuU4Z97eRC/z5j8R/4myMv9GC7uPz2oRsypTlHJQEGPJ+nB8EvrUVBd
-	IPcGdbyBWCZAhueX9o9pjU7AhrPKQ+dZHL2FFN9IwlRgmFGCAiVokwjBbAhWfjfG/Q/BbnjYAKT
-	vMN8vKpqOIcm6vEqUoiJmhJ9UgXx04MNHfdPDHwyrSIU=
-X-Gm-Gg: AZFdTZc2Ejw32ntPbPs32ao8dYFVfZkhIqNUx7DrdQmQNC9SC7hAzGQw0FEd6G0BqOF
-	/aK6MrG6EH+MKw63lQBMitNQ9NzTMnSnMM1slhUnTG0Ya8hsLOJSpr+A/eTeWtQAXVAFFyZ+u+C
-	ykr+tB8uEtTfDUAB2bjT5r1cwKgsVxpD1TFHBDlcojVg+//9cy4MgkLN74jjeAa0pK5ZJ+h5uII
-	O7hQ9bTpHFKqBChuZ61ZlxpNY2KeJaVEurmmIai/90JeYqGBOxt6OcAjYLCwH4MvO/fDxb7y2np
-	f4h9W6ta31uMCLxGOZn0Iz7aprWBBwuksLGwP0dtHi57y9np09qHWDiunTwmatmtrnpGldv51ln
-	2AXo+0UTfrsiBXJONiHaueD2vUvyFdBx8PY+P/XzZ7uXNROs2qjmru1fWqJKQB2nCGww9dhLUtu
-	1SMl8nyezUZaiJtQAoZYeNYpgKrSg=
-X-Received: by 2002:a05:6512:1396:b0:5c1:ac84:c105 with SMTP id
- 2adb3069b0e04-5c1bc8e701fmr5040864e87.57.1795605268346; Wed, 25 Nov 2026
- 03:14:28 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=eiDXT2bW
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jDFokgviU+95oWbDGjucY6gelkh2bKJKbasPmj5Ctmv0Nz7sWwxXnpwZoRtpyRwx4mddfYbbLninvxf5OLBfF0ahlmFdPHb81k6GvGuY07UoIvyLnLFg/Y8bTDQ+842zFdRnoDoqNbeJ2yDN4loPljoghnOVi4SdhxH1PBCjffEWZqQys5xk/8LxQidQboPVt6Ygv3bMO5hTCW/N0tMrqoIopqqDXKOTi5IJIZrwtSZRRhfRLCujHdFLsch81yabZKHkQPBzwbuhPBE2EeCN52Gm4H2ulE7U9wpzxMsYRQMiekigKyDiwZTqnjGGP2opHY5tXCcANN8hV52vvP5Jog==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
+ b=WPyzMBFZudaWcZUN2iRyIpVeWVIfGTH0lCNyTqWgY2jNwOa92zfu4nVyXyrWbMWcwR+JQgN+AJ47e9Es4hKLoZcQ8zC2yZnBG3DfHJmWS7nNnC7MQn/gmcYn8mHEMIrlURCYcd4SfWjwaPaE3QV5kkzCecN+a3k4JnX/nV9EA3utGu8UTqc5KGAEfX347xpRJPVXqZ2A1rmGXA2Rl4YlhJGFaOZtyzZKAVU3WPi0r61XmTFdoAZxUTK6GHIvIMA8VTpj7atTP862D1E1IOgo423PsiBbFOCY9mevMWQk17y3PZEhnp89TRMKs2kKI9zhEsgMME6HxoM8I1HpayFXyA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=BhCoM+KfPIYBrDpSdGotepsagxhVpySY4heCDSw5tj8=;
+ b=eiDXT2bWFq8OXe83FdV7kFB2ldRAEDQurjrT1suCu5Fy9zH6B+Tgafjzlwsyo4EHh60sgrH1J+Nq/lbIJm0uyTBZdcV9UdMX9O7dwM9NLyf69uczaHXw73pOjgvAS4iXlzDNHllJ++G/IRi/NlbxY1bNEjvJOi4wMVvNH/GEMvYdx/OrFGw/cMhLRkwZ8jCGV5B6+9y8mZ57bv7+SrIeOiUuXVedYc06IttgSlfgFxrdz9ZGco1TsSf/MwecSEziO8dkwpP1qOkBUGAp0TD8tDDytBlnYd6c4DpDUzWsMauvXuOyctGg+OFszjVcwvuHzaQ6+4/d2pn0wQImz3GkAQ==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ (2603:10b6:207:12d::15) by CH3PR12MB9097.namprd12.prod.outlook.com
+ (2603:10b6:610:1a6::9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
+ 2026 11:16:14 +0000
+Received: from IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f]) by IA4PR12MB932075.namprd12.prod.outlook.com
+ ([fe80::5a6f:1f74:6ccb:cf2f%5]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
+ 11:16:14 +0000
+Message-ID: <923fa815-b22d-4546-a73b-9bb865beff2e@nvidia.com>
+Date: Wed, 25 Nov 2026 13:16:06 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v7 1/9] net/mlx5e: ring the tx doorbell when an accel
+ offload drops a packet
+To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, =?UTF-8?B?QmrDtnJuIFTDtnBlbA==?=
+ <bjorn@kernel.org>, Boris Pismenny <borisp@nvidia.com>,
+ Cosmin Ratiu <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>,
+ David Ahern <dsahern@kernel.org>, Dragos Tatulea <dtatulea@nvidia.com>,
+ Eric Dumazet <edumazet@kernel.org>, Ido Schimmel <idosch@nvidia.com>,
+ Jakub Kicinski <kuba@kernel.org>, John Fastabend <john.fastabend@gmail.com>,
+ Leon Romanovsky <leon@kernel.org>, linux-kernel@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-rdma@vger.kernel.org,
+ Mark Bloch <mbloch@nvidia.com>, Paolo Abeni <pabeni@redhat.com>,
+ Raed Salem <raeds@nvidia.com>, Rahul Rameshbabu <rrameshbabu@nvidia.com>,
+ Sabrina Dubroca <sd@queasysnail.net>, Saeed Mahameed <saeedm@nvidia.com>,
+ Shuah Khan <shuah@kernel.org>, Simon Horman <horms@kernel.org>,
+ Tariq Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>,
+ Willem de Bruijn <willemdebruijn.kernel@gmail.com>, stable@vger.kernel.org
+References: <20261124010601.3995693-1-toddfreed@meta.com>
+ <20261124010601.3995693-2-toddfreed@meta.com>
+Content-Language: en-US
+From: Tariq Toukan <tariqt@nvidia.com>
+In-Reply-To: <20261124010601.3995693-2-toddfreed@meta.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: TL0P290CA0010.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:5::14) To IA4PR12MB932075.namprd12.prod.outlook.com
+ (2603:10b6:207:12d::15)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,107 +112,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261116155229.318582-1-zihanx@nebusec.ai> <awa-F8TtQllwfELK@krikkit>
-In-Reply-To: <awa-F8TtQllwfELK@krikkit>
-From: zihan xi <zihanx@nebusec.ai>
-Date: Wed, 25 Nov 2026 19:14:18 +0800
-X-Gm-Features: Aa3M54obSpIFTgOpxzvlbhG_4pABQmeuGB5Sw90aMOsN7FqTvFvI_Y0VnB8DBDw
-Message-ID: <CAANe3eQhQD=6s-Da74_bEy8qNFtOp_kCqpqDs64TBv0CAXdKtA@mail.gmail.com>
-Subject: Re: [PATCH net 0/1] xfrm: espintcp: fix IPv4/IPv6 receive path confusion
-To: Sabrina Dubroca <sd@queasysnail.net>
-Cc: netdev@vger.kernel.org, ipsec@lists.linux.dev, 
-	steffen.klassert@secunet.com, herbert@gondor.apana.org.au, 
-	davem@davemloft.net, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	vega@nebusec.ai
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA4PR12MB932075:EE_|CH3PR12MB9097:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9719d310-6acb-4e2f-430c-08df4ae5847d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|1800799024|366016|376014|7416014|261026121527099003|261022075727099003|261022105027099003|261026140227099003|261028144727099003|10067099003|11063799006|56012099006|4143699003|22082099003|18002099003|3023799007;
+X-Microsoft-Antispam-Message-Info:
+	WcYICe12L4ZoOkgHW/Eq/IBu0zYs1YTY9N1C83uGp2mNWanGZjYpLATZm1vHaNJCpJi/QFBPIVlIWYxC6fbOPgTFED7fV/8AB/cLNmAYcVBxKmkEGivNDQ1646HH/cq8aVAjnKMfoePfB6Kr1qD9QoCxA9OUM+zQ12P1f7zRQ47GKi5yvFkY1nRClj610PPWMbZG/zEljIHwUlrUu6vgzstNaoDVZPG+ucG7Q7ORkUXVIcEki4cNZk9bUq0C+OF+IkdlOAoNp+CnHG7oOBuA5mVycx37tTefsSz0FY790IDlZLFKtfo+XA8TtZ7eklhkRPWXVLydcLM9qE2yyEkLEAFnov+RCNxDB/bKMF0FvSTo1va9CVpXvR9FPk3B6pBeVVRyE7bqyCTNFnY6NQzcNm8MQ8solueJd+v+gQHQoX1t8upnAqcRT4BWinLvcmA7QvWFdWAx09bvh+kzk5waLGiEGYjurbYVvRjPWJIVQSGXqfuvfM7ZDwHRAuA5MiMAfwadjuOCzfifWpeCoOQ9mCWdESeWbWNqRG7XOp+dkMk5rAtGhbXxvzlgSp9StvIAaE5uEYXEJ6yqloTlLX+GgiR4hlN6ETSX47k42UkvixxRldvU1M6oq4Q1ikX7l3ZQyBO4CZ/FGiGf7US7yRDhcdD1g0DdsZrhhgF1NIZpK/s=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA4PR12MB932075.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(1800799024)(366016)(376014)(7416014)(261026121527099003)(261022075727099003)(261022105027099003)(261026140227099003)(261028144727099003)(10067099003)(11063799006)(56012099006)(4143699003)(22082099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?utf-8?B?SDRxWnlNeXZUN2o2cjlGUzhPZEZHSEQ5TDR2NVc4VFZseERNVUEwMHZMa1F5?=
+ =?utf-8?B?aWZLN284bGZWeDBDR2dwSzFBRFJwTGhGem5UdGllTWRXc1dvZmxnbmIyNmVU?=
+ =?utf-8?B?eXJIdmxjNFNlWHBHVmpFQkdpRWNtWHhTR3o4NlVEZUwyRTdESUs0enJVZVY1?=
+ =?utf-8?B?a01iVmRQRHVzT3RPTkFoUDNmNDNTZjdKOFpycHIwSFJnbGtudjVad2plaVFx?=
+ =?utf-8?B?RkpabVhJeWkzbDJ4ZnlwdHhGRlpMSTA0RmNGc1V2VkI0dkNnYnJ6RUtwUEpB?=
+ =?utf-8?B?V0txM3MvcVZkUE9nd1FlOUMzNHhnK1drQmE4MW0rUW5ITkZocE1KaWY4SExn?=
+ =?utf-8?B?QVFJeUhWVndKbmVOV2hUYis1NGp2a05XbUp2bWRQYzZiMUJZNm1uajhmQkZR?=
+ =?utf-8?B?TUQvVG9lRkVRYUJ2R3hnQjVRVWRDem5VL1JsWm1jU3UrelRwWUJqeTVmZWlU?=
+ =?utf-8?B?YkszVTlSYUVrWUo5Ny9LUVF3aDR6eS9VQnpoU1BCV2JubVlPZnQ5Q2l5YzJq?=
+ =?utf-8?B?bit4TGYxYUFpM1RoQkI3Q2lodVFuZSt2c1RBU3kweGtVb01nVUI5aWpkMlhR?=
+ =?utf-8?B?eXNlR2lMbDAzdkR2VzFGSzVERGE0L2xjeGZ6YzkyK20zOGpMNDNCNUNUb1dk?=
+ =?utf-8?B?Q01sTlVQL3ZaZ1JWbTFqRTBJaTQxZmo1a2dQVTJ0R29EaHRBeXcxWjBUazlM?=
+ =?utf-8?B?MklNZWdBWDc2U2tkaXJHS2xsaXBUOEYzV1dsbFFDZExXbHhhcVlmQWRGekZ3?=
+ =?utf-8?B?eUNSdUo4NHFKUGtkTVErOWZXcVhBZmNQZngxS2VmZG5rbWYxOHZ0UFBUMlAv?=
+ =?utf-8?B?c0djRU5nMFJHbzVWNElzN3FxV25UY09TSTEvSWhNQmFRRG5zaE1LMEFNZlUx?=
+ =?utf-8?B?NkprS29Gb3F1WnVMbldTcXdkcmR5N0ZBUTk0b0ZKeHlMY2NBOXdLcFUzS3BU?=
+ =?utf-8?B?R051TFJQMXBwcWM2cXkxWnpXa3lKSjV1MVFYV2pRQXpZbEpLek9PQ2d5ZDVM?=
+ =?utf-8?B?eTdGeUN5dmp0SDVkYWNnMzlCNUV5TW9XUmFBVXg0NVJUTXV4QmxXMVo4dFJN?=
+ =?utf-8?B?bFIxYis1dVV0cFFTQWtmNWcyQUp4VDlBUWJPalM1MUk3c0RMSzZsUU9HeTN4?=
+ =?utf-8?B?cW96L1E5OWVIQTVGcEc5OFVKcG9yeVM1bzVrWVMzUjYzVEVZMXQ2b1ozTnhn?=
+ =?utf-8?B?eDVkSDgxd1FuUkRFL1FJOHIrZnZDenc0RkdYYnA5cmRtcFdOMFRZNjNUQ2lm?=
+ =?utf-8?B?UlBOWmdTY0ZOM0N2QkVDUHBkZENyRkV0dml3b1NHZFVOQW5TTHZUWGRqeVhE?=
+ =?utf-8?B?aENURnB4M2F6RG5BNGIwZjVGbTMvU3pJeDk2ZFdTY2hsMlBzaWNMWEZkS05B?=
+ =?utf-8?B?WERSb0xoR3hqSDZ2bDYvREhPcnNGSXZFRnJMVnpHREJXcnNpQ3gwY0NvTnA0?=
+ =?utf-8?B?Wlo2OGJCRVl2WlVxTHZBTjlhUWV2NUNrUk9peUZBS2d1Qk94amIyZVJ2RFJI?=
+ =?utf-8?B?b0dVcGhseXR0UnZZbmYzZXp4UUJNWnlnUnVnc1pyc0krbG5rT1g0ZjNiTVVi?=
+ =?utf-8?B?Y09XMEdnVHNOaVFHd29tZUtVcFZrQ29GN0FsSHdVNlNDYXZOblQxSElCaUVG?=
+ =?utf-8?B?M1pjcjRxV3lkd3hZSUtoakRFbXl0dHV6aEszTlRqcHgxbnE0V3RUM1pzTzhl?=
+ =?utf-8?B?ZXpxdlRlZGxpOFUxa281SUthdktYVG1mTFBrb3MyYmpwMzE4NHNZNDBvd3Iv?=
+ =?utf-8?B?TzJiMGUzMkZLZGdjREJHMTZ5Y3NJR1Yvd2hCejlTV2lMb2JZQ2hjdXFtNGE3?=
+ =?utf-8?B?UXc4dTJGVkhRNFlDdDdnQ01QMXF2TXZFUnd1NlhNcUVXVlFIV0tQWmlCN0p6?=
+ =?utf-8?B?UVBuOTZlYTVJOU81SVRJTHdwVGQvZkpzSFhkZlBnSjcycFVNY3ZtZW94a3o2?=
+ =?utf-8?B?Y2N6djZKSFQwQ0tRY1QzZ0tqdGpXTHZDQXJSd21ORDF4OXdQN25xYlJ6d0s2?=
+ =?utf-8?B?TFBCTHdONHNCWENOTkd3R25iTDNZTmV3TUg5TFQ3VkZOTldTZ0xubEI0UEZG?=
+ =?utf-8?B?aVV1VTZRdmNGMVgyN1orMGtBVjVkOUp3Y2k2cytweCtPZVpXQWhEekt0M0dG?=
+ =?utf-8?B?RERJL2ozaFVuVG1OMllmTjdmdGpiQkhhalhoUWxoWWRDMVI5QktUaEE5c0tV?=
+ =?utf-8?B?QWEvVmYwNmdxSCsrYzJoV0RDK3dNMWF5dWlnM21qdEpuK2RkdkJMbUZmVkF3?=
+ =?utf-8?B?OUdZWTRlelBDb3V3aXNiaFBmbFRKVCtGRWdod2dOQ1c2b2Z0U3VxQk9ZZ0c5?=
+ =?utf-8?B?UHFDeWgrWGcxUWZNMjZBdlN1NnFIcTU3UmR1ei9kUVVmbVNqUzhPUT09?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9719d310-6acb-4e2f-430c-08df4ae5847d
+X-MS-Exchange-CrossTenant-AuthSource: IA4PR12MB932075.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 11:16:14.2777
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: SkvXwsFgAkCqTz65KIpi/vPNHBIUIh35GqfKn2f/PMI8dDfOLCHiYImvfauVA+kdS/cST7tXsep2oPbRxwQVhA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH3PR12MB9097
 
-Hi Sabrina,
 
-Thanks for the review. Your questions are fair, and I agree that my
-original cover letter did not distinguish setup evidence from evidence
-of impact clearly enough.
 
-On Wed, Nov 25, 2026 at 6:53=E2=80=AFPM Sabrina Dubroca <sd@queasysnail.net=
-> wrote:
->
-> Hello,
->
-> 2026-11-16, 15:52:28 +0000, Zihan Xi wrote:
-> > Historical QEMU run output:
->
-> I'm not sure what "historical" means here. Your reproducer will output
-> the same thing before/after the patch.
+On 24/11/2026 3:05, Todd Freed wrote:
+> When mlx5e_accel_tx_begin() drops the skb, e.g. because PSP can't
+> encapsulate it, mlx5e_xmit() returns without posting anything. The skbs
+> before it in a bulk dequeue may have been posted with xmit_more, which
+> defers the doorbell to the next one, and an MPWQE session may be open.
+> The device then doesn't see them until the next transmit on that SQ, and
+> since the queue isn't stopped, the TX watchdog doesn't fire.
+> 
+> Flush the SQ on this drop like the DMA error paths do: close the MPWQE
+> session, post a NOP and ring the doorbell.
+> 
+> mlx5e_tx_flush() doesn't check whether the NOP leaves less than
+> stop_room in the SQ. For the DMA error paths that is rare, but a run of
+> offload drops would post NOPs without stopping the queue, and could
+> overrun WQEs in flight. So check it in mlx5e_tx_flush(), like the other
+> producers do. The completion of the NOP wakes the queue again.
+> 
+> The next patch makes the PSP drop reachable from user space, with an
+> IPv6 extension header set on a PSP socket.
+> 
+> Fixes: 2ac9cfe78223 ("net/mlx5e: IPSec, Add Innova IPSec offload TX data path")
+> Reviewed-by: Dragos Tatulea <dtatulea@nvidia.com>
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Todd Freed <toddfreed@meta.com>
 
-By "historical" I meant that this output came from an earlier QEMU
-run, not from a fresh run for this revision. The socket output only
-confirms the test setup: the accepted socket is AF_INET6 and the peer
-is v4-mapped. It does not demonstrate a failure.
+Reviewed-by: Tariq Toukan <tariqt@nvidia.com>
+Thanks.
 
-The relevant observation is the ftrace entry:
-
-xfrm6_rcv_encap <- espintcp_rcv
-
-It shows that the packet was dispatched to the IPv6 XFRM receive path,
-despite originating from a v4-mapped connection.
->
-> >     accepted socket domain=3D10
-> >     peer=3D::ffff:127.0.0.1 port=3D41512
-> >     recv=3D0 errno=3D0
-> >
-> > The historical tracing additionally showed:
-> >
-> >     xfrm6_rcv_encap <-espintcp_rcv
-> >
-> > and XfrmInNoStates increased by one (before=3D1004 after=3D1005 delta=
-=3D1). The run
->
-> Which is expected either way since you haven't configured any xfrm states=
-.
-
-Agreed. The XfrmInNoStates increment is expected without an inbound
-XFRM state and is not evidence of impact. I will not present it as
-such.
->
-> > followed the no-state/error path without a KASAN report, oops, or crash=
--log,
-> > so no crash-log is attached.
->
-> So this is just a "regular" bug where things don't work as expected,
-> right? No other issue after we pass the packet up? (still worth
-> fixing of course, the patch looks ok)
->
-> Earlier you say "the vulnerable path", and call the reproducer a PoC,
-> I want to be clear on the problem ("vulnerable" and "PoC" sound like a
-> security issue).
-
-I agree that describing this as a "vulnerable path" and calling the
-reproducer a "PoC" was misleading given the evidence. I will use more
-precise terminology in future revisions.
-
-Based on the evidence currently available, yes: this is a receive-path
-correctness bug. The demonstrated issue is that ESP-in-TCP dispatches
-an IPv4 skb from a v4-mapped connection to xfrm6_rcv_encap(). I did
-not demonstrate a crash, KASAN report, memory disclosure, or a
-consequence after successful XFRM state processing, and I will avoid
-claiming those.
-
-Separately, source analysis confirmed the control-block overlap
-addressed in the current reroll: strparser metadata overwrites part of
-the saved IP control block before the old code restores it. However, I
-have not demonstrated its end-to-end effect with a valid inbound
-SA/policy. I also could not substantiate the proposed kernel-memory
-overread through IPv6 ancillary data; the inspected helper
-bounds-checks reads against the skb tail.
-
-I have revised the cover letter to distinguish these findings and
-limitations. The reproducer demonstrates the wrong-family dispatch; it
-does not demonstrate a crash or security impact.
-
-Best regards,
-Zihan
->
-> > We run the PoC in a 2 vCPU, 2 GB RAM x86 QEMU environment.
->
-> --
-> Sabrina
