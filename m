@@ -1,66 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=220.197.31.3
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795598256;
-	b=e1Dc5sPAS9cyiAfh6YTn7fr2lim/EmjUkk1mtq5qzyEoDQt1wbN/57rnAKiP8KlMGSpU
-	 15nfUdhVriepk2yD4DMco/VGxMv6l20cao6NPL+f7BgnNSYHSB8tBpWiwAxLpKfJVbJwQ
-	 UgFuR4FbBnDT2EghfXjlL5LBhr1JkjUPLM3sbq6vLMo4PvnhCWLXmnUDvOnz8mUJuD74F
-	 ohyRSdCev5cK7SymUqp5sckBSIMy/5Et+a43k2ySs1IbKYojdGnyfgmQtPQ6TC57+2uai
-	 YF3oNHKzsOWAcTVdNzbWV64tJ8vgk9ZnIDK3Kcf8bz1SPIHWPKQ4o9zqXqtUA2MN0Aw==
+	t=1795598598;
+	b=rOumiRaI3smG011i3V2DWmYY+4J1/TG2enam+G+mQ/QQWLonZ0T+4/IcQprNZNIPw2JR
+	 co2yILq1+jpVmW5Z3d5Gd8dNWLNMHspZw6zmZos1UVMHV6ld7G7R8+xFv8fc4A5JtG+Pk
+	 iFl/Jr3WJUKMSFfJeR11zzUhMlnOwMvRXLt2ByctkOIpk3nhecHHPDOskUnnZsuRqvKD0
+	 jgnO3MLA9W8FuLFtYWuHmL31dYpAeeLsQnswvunEMqqaM4/F75Mj3m0bxtBpwpSyDOMrs
+	 WdgGbqx3Uob+5Bu5O2cODIfa36pp+1xKxl8pqUgWRBD+0wj1Qh2ZhTQoIla6AlAB11A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795598256;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
-	 X-CM-SenderInfo;
-	bh=hliRKX8zoIGstLXpicFYA1Ddk8Ts9p/5d3C0zw57QnY=;
-	b=E3u2C7r1fdU4+gGcL4F0OIkv0EQv6pfUwf4RdXFb+HnXRBAwaLrLob3uMfZ6spUOOlw7
-	 zkdN4/kuLqLDmeTczIom/oMHehA1iFeCkoZbg5QPXqO/Y7J7ixrqEwuclYmB7XgO1Q8mD
-	 uwXLQOLX4bHv3S44ZDud+T/4IC1cqkmNXFSBFDgXeMPa5ozetpbXapfRbxb4HuLmid20j
-	 5hFSbE/WiLdXPdMmDvHfbRQE7iLI/HXP0enlNjokH2JQ5zlBug16jcikq2Cgc3xWOeYco
-	 Z4zGYolzH1Z869bDxGOsJJGWVVKvPWDzt6jRahP/XHwXahIiDz2Nep0ljtowjKIVYCQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795598598;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	b=25kG0hhp6T1mLHkx/5ONehmgbgOOM0UNlyF3UcCeAy2V1x/Vp3upsBP2Rrig0himXHNO
+	 WpfEcApKxsD0Ppk8DTx2To3B6fwZ10IFfB4164+6UZxW2/YdTShRRfmIKroFK8d8l75Ho
+	 Ygh9hs7BuDHN9HnYV14hyoo6y+B1BFLNMruH1TNx1czbdgBUTqIonqhMtPX9YYRadY2aj
+	 Vv2FlkvgvhkwOsWwhbJEYhDXpvNnFzS5A0NIQJENmm9Vm5YSHQFtSDeivNYoxiCsecJ/p
+	 z22eA50NvJoL8FWTfYz+scWwNM/SpYIrWnV9UIjtcbyRN06v8IVU99+no5fu4oyPilA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GuccS2Bc;
-	arc=none smtp.remote-ip=220.197.31.3
-Received: from m16.mail.163.com (m16.mail.163.com [220.197.31.3])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l2Di0nFW;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B8A92606A684
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:17:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B8A92606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E58F606A33B
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:23:18 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=GuccS2Bc
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=hl
-	iRKX8zoIGstLXpicFYA1Ddk8Ts9p/5d3C0zw57QnY=; b=GuccS2BcW6GP/d+NJl
-	W1wbQ+TfEQTWeJB0ZgVjhESDCh4pH6J5uNKbnFshdVjvFhvYeiPpvsulRrUK6TrW
-	yOTzby/YzXPtZ2mQmNKY7H4Mnxl8BAYfxf0UYHa39535ktwDHcjCwKZm4KU8H1FK
-	dtK2utysVgKl0ra3BLkBrxPwc=
-Received: from ck.. (unknown [])
-	by gzga-smtp-mtada-g0-1 (Coremail) with SMTP id _____wAnBhJ2pwZr3Vt1KA--.4721S3;
-	Wed, 25 Nov 2026 17:16:39 +0800 (CST)
-From: ck <mjkchengke@163.com>
-To: Frank.Sae@motor-comm.com,
-	netdev@vger.kernel.org
-Cc: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	linux@armlinux.org.uk,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	mjkchengke@163.com
-Subject: [PATCH v2 2/2] net: phy: motorcomm: add downshift tunable support for YT8531S
-Date: Wed, 25 Nov 2026 17:16:38 +0800
-Message-ID: <20261125091638.1847020-2-mjkchengke@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=l2Di0nFW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0B771F000C4;
+	Wed, 25 Nov 2026 09:23:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795598598;
+	bh=Ps3dmenyy5Kz+Ld8FFyPnRbKN1BblcpmGxOsdgzLlkg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=l2Di0nFWWje6YFp9wYkd2xUrDLeQeXEYynXVPJkGNIzQbmEPl7oCXMlFmh3ZXbXKk
+	 Eovw8cIiSCdSfJ9zziK6JPrfx+ROZAd7R+JKHaFt5VTTNcNFiYr7b4lPoTe8XTVmkA
+	 Ixodeu6Mo3VAHPuqhX1lcj+zzM7mXQUHdwkYpEwOOuOXDEerCSYWsF0b9QvgoQFNMV
+	 G881CEPVqa/0Q9a253HWTz9Y8wr1ac2lw+mGg/DGmgJLDtd3gRMn8IUlvBlLquPcvX
+	 YdJoLcBt2zuAaJLoZB1cyReJOaUWZGRvEh/UI77APosPlWzRGMGV74Ph8ER6nkzSTG
+	 9GkNV8+FRBU1Q==
+From: netdev-bot+sinfo@kernel.org
+To: ck <mjkchengke@163.com>
+Cc: Frank.Sae@motor-comm.com, netdev@vger.kernel.org, andrew@lunn.ch,
+ hkallweit1@gmail.com, linux@armlinux.org.uk, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com
+Subject: Re: [PATCH v2 1/2] net: phy: motorcomm: return -ETIMEDOUT on BMCR
+ reset timeout
+Date: Wed, 25 Nov 2026 09:23:17 +0000
+Message-ID: <179559859720.3294.18444813646422214701@kernel.org>
 In-Reply-To: <20261125091638.1847020-1-mjkchengke@163.com>
 References: <20261125085509.1844883-1-mjkchengke@163.com>
  <20261125091638.1847020-1-mjkchengke@163.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,181 +64,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wAnBhJ2pwZr3Vt1KA--.4721S3
-X-Coremail-Antispam: 1Uf129KBjvJXoW3GFW8Wr18Xr4ftFWfur48WFg_yoW7tr1Dpr
-	WfJF92yrZFqF47Kr4ftw4kAFWF9r4SkayUur9rG34Yva4YgF97ta1rtr1DtF97CrWkWFW3
-	Gr47XFWDu3W3ZrUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0zMVbyUUUUUU=
-X-CM-SenderInfo: ppmnux5hqjyvi6rwjhhfrp/xtbC1BdjsWsGp3coVAAA3Q
 
-The YT8531S supports Ethernet Line Speed Auto Downgrade: when
-autonegotiation fails to establish a link after a configurable number
-of attempts, the PHY downgrades to a lower speed and retries. The
-number of attempts before downgrading is configured through the Speed
-Auto Downgrade Control Register (0x14), bits 4:2, and the feature is
-enabled through bit 5 of the same register.
+Hi!
 
-Expose this as the ETHTOOL_PHY_DOWNSHIFT tunable for the YT8531S,
-following the semantics used by other drivers: the tunable value is
-the number of autonegotiation attempts before downgrading (range
-2-9), 0 disables the feature, and DOWNSHIFT_DEV_DEFAULT_COUNT restores
-the power-on default of 5 attempts.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-The retry-limit field stores (attempts - 2) and only takes effect
-after a software reset of the UTP register space. genphy_soft_reset()
-resets the BMCR of the currently selected register space only, and
-the YT8531S powers up with the fiber space selected, so use the
-existing yt8521_modify_bmcr_paged() helper to reset the UTP space
-explicitly. This also relies on the previous fix, which makes the
-helper report a timeout instead of a stale positive BMCR value.
+ - Whether the issue was actually triggered, or is only theoretical
+   (e.g. found by LLM and not proven at runtime). If it was triggered
+   please include the symptoms, like the stack trace or kernel messages.
 
-Hardware-validated on a Phytium D2000 board with a YT8531S: setting
-8 and 2 attempts, restoring the default, and disabling all commit
-correctly to register 0x14; out-of-range values are rejected with
--ERANGE.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-Signed-off-by: chengke <mjkchengke@163.com>
----
-Changes in v2:
-- Attach the tunable ops to the YT8531S entry only: YT8531 has no
-  .read_page/.write_page, so paged helpers would WARN_ONCE and fail
-  with -EOPNOTSUPP on it (found in self-review).
-- Drop the forward declaration by moving the new functions below
-  yt8521_modify_bmcr_paged().
-- Reuse the existing YTPHY_SADCR_SPEED_RETRY_LIMIT macro for the
-  default value instead of a magic number.
-- Use kernel-style multi-line comments.
- drivers/net/phy/motorcomm.c | 96 ++++++++++++++++++++++++++++++++++++-
- 1 file changed, 95 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/phy/motorcomm.c b/drivers/net/phy/motorcomm.c
-index ba3421ca4d..8de87897bc 100644
---- a/drivers/net/phy/motorcomm.c
-+++ b/drivers/net/phy/motorcomm.c
-@@ -97,6 +97,9 @@
-  */
- #define YTPHY_SADCR_SPEED_RETRY_LIMIT		(0x3 << 2)
- 
-+#define YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK		GENMASK(4, 2)
-+#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN		2
-+#define YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX		9
- /* Rx Error Counter Register */
- #define YTPHY_RX_ERROR_COUNTER_REG		0x15
- 
-@@ -1595,13 +1598,102 @@ static int yt8521_modify_bmcr_paged(struct phy_device *phydev, int page,
- 			if (!(ret & BMCR_RESET))
- 				return phy_restore_page(phydev, old_page, 0);
- 		}
--		ret = -ETIMEDOUT;
- 	}
- 
- err_restore_page:
- 	return phy_restore_page(phydev, old_page, ret);
- }
- 
-+static int yt8531s_get_downshift(struct phy_device *phydev, u8 *data)
-+{
-+	int val, cnt, enable;
-+
-+	val = phy_read_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+			     YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG);
-+	if (val < 0)
-+		return val;
-+
-+	enable = FIELD_GET(YTPHY_SADCR_SPEED_DOWNGRADE_EN, val);
-+	/*
-+	 * The retry limit field stores (attempts - 2): the default 0x3
-+	 * means 5 attempts before downgrading.
-+	 */
-+	cnt = FIELD_GET(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, val) + 2;
-+
-+	*data = enable ? cnt : DOWNSHIFT_DEV_DISABLE;
-+
-+	return 0;
-+}
-+
-+static int yt8531s_set_downshift(struct phy_device *phydev, u8 cnt)
-+{
-+	u16 mask, set;
-+	int err;
-+
-+	if (cnt == DOWNSHIFT_DEV_DEFAULT_COUNT) {
-+		/* Restore the power-on default: enabled, 5 attempts */
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
-+		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		      YTPHY_SADCR_SPEED_RETRY_LIMIT;
-+	} else if (!cnt) {
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN;
-+		set = 0;
-+	} else {
-+		/*
-+		 * The tunable value is the number of autoneg attempts
-+		 * before downgrading, in range [2, 9]. The register
-+		 * field stores (cnt - 2).
-+		 */
-+		if (cnt < YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MIN ||
-+		    cnt > YTPHY_SADCR_DOWNSHIFT_ATTEMPTS_MAX)
-+			return -ERANGE;
-+
-+		mask = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		       YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK;
-+		set = YTPHY_SADCR_SPEED_DOWNGRADE_EN |
-+		      FIELD_PREP(YTPHY_SADCR_SPEED_RETRY_LIMIT_MASK, cnt - 2);
-+	}
-+
-+	/*
-+	 * The SADCR change is only committed by a UTP-space software reset.
-+	 * genphy_soft_reset() resets the BMCR of the currently selected
-+	 * register space only, and YT8531S powers up with the fiber space
-+	 * selected, so reset the UTP space explicitly. Both helpers manage
-+	 * their own paged access window.
-+	 */
-+	err = phy_modify_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+			       YTPHY_SPEED_AUTO_DOWNGRADE_CONTROL_REG,
-+			       mask, set);
-+	if (err < 0)
-+		return err;
-+
-+	return yt8521_modify_bmcr_paged(phydev, YT8521_RSSR_UTP_SPACE,
-+					0, BMCR_RESET);
-+}
-+
-+static int yt8531s_get_tunable(struct phy_device *phydev,
-+			       struct ethtool_tunable *tuna, void *data)
-+{
-+	switch (tuna->id) {
-+	case ETHTOOL_PHY_DOWNSHIFT:
-+		return yt8531s_get_downshift(phydev, data);
-+	default:
-+		return -EOPNOTSUPP;
-+	}
-+}
-+
-+static int yt8531s_set_tunable(struct phy_device *phydev,
-+			       struct ethtool_tunable *tuna,
-+			       const void *data)
-+{
-+	if (tuna->id != ETHTOOL_PHY_DOWNSHIFT ||
-+	    tuna->len != sizeof(u8))
-+		return -EOPNOTSUPP;
-+
-+	return yt8531s_set_downshift(phydev, *(const u8 *)data);
-+}
-+
- /**
-  * yt8521_modify_utp_fiber_bmcr - bits modify a PHY's BMCR register
-  * @phydev: the phy_device struct
-@@ -3295,6 +3387,8 @@ static struct phy_driver motorcomm_phy_drvs[] = {
- 	},
- 	{
- 		PHY_ID_MATCH_EXACT(PHY_ID_YT8531S),
-+		.get_tunable	= yt8531s_get_tunable,
-+		.set_tunable	= yt8531s_set_tunable,
- 		.name		= "YT8531S Gigabit Ethernet",
- 		.get_features	= yt8521_get_features,
- 		.probe		= yt8521_probe,
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
 -- 
-2.43.0
-
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
