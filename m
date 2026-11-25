@@ -1,108 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795621722;
-	b=j6G+3oGEToPP01zr8F9Q76wQoRcxW6rr7hytIQRkhgYvmdyJtUJK7Ut0lVkn93wo+X+1
-	 /Hlnbm0qLiHHUHxLDIV5T7YDFEY5hF2pwgab8UQPTc3nQzo1HpWxtNLTweQXpx8j4FssW
-	 JbHCsvENPUl0txesoTWi2Hg7frl1lsD7kEzN52iCORUDzZyqMxJ25S0ziuPz1wKei+YFd
-	 QXKvbPg0NBp4i0ApE3Sl+8lT8V1fRnkjeVmnx4ZLLJy2LeOzrD1PCYGL/2GdXJRGbzTrI
-	 4oZtMHyMtRlGqeP6ZO201ow598VJswXKH1B5qVqrwYqs69YbRZoWrQdLtc9b25owNrA==
+	t=1795621754;
+	b=V1Kgz3Zi8TSdJu/lj3szzyVIl7QPB83YUqX72X0BEUuIsRAJ/7Y3O51UKerbup/9otkE
+	 2iWqoA60Lwa9xdDzCue7m5hSBgFXfAPq+kR05HaImerO/BOg0FuPMJIylW6l61ef2bSvG
+	 TImG2Ra5F0MoSIjnUGZehL8raopL2HcahAagRkNgH0wf4Ikp8bR+pNtySQDbqSA1IsmNT
+	 6tBugfRRgNsaby0z6T9YEI5Hc6wy793hyIPNw+QHw1Gqtr6WNhqKfHL4Amnl+btEtyZwF
+	 O7FsIAJ1d262yclMVN75r4X/VPYlhE8VGCy2RMaq6+0XT3gL1Zv1hc3ngmRN50Tm+MQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795621722;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
-	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=JBmfc2TJahlGMnvUMErDpl5CqbKG2TSTACsgzVeGXC8=;
-	b=mtUo44kqnhp2ucLGSfkgUYsVm3g338zgjf5P/qsEaimds9p0grlL3UPoNfIoqiKq7afv
-	 VWScVKJ71EScHtp1Ibqvk6J3PjgwWRRJPxqexHw9srLzmLUpV4BBetKR/bOjaPCY0T61C
-	 XvQ0spwj1duE2+6TErlp/2avYsQp1txLc3l94MSCs+Uqi5/9GVq5IbQV7vjYvjotdcXlf
-	 5C9J6UBNghvBAf8WOcGnlXmUT4KeSIpuK1dED7ti5fw8zrCzvTfaDDF7GT1+sLh3spd0s
-	 vwlpP0PdePhN/avVM+bZabVptT5Jkltcc9h1il58QYDIosWJcCcOLapLTHQKLznlPbA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795621754;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=2G4AYUd7cpfGVwTNSVOea5oYMTV/zVtjSs8MJKt1xHU=;
+	b=IRMudMSh6ff2Gsc82INDOU58zI0O8AU1lOYB8jLKE+c5Xr0RAi9+lInFQoBtqREgIfs3
+	 hqvikARnMnirrsRUdj1aLV46WjRATJ1HxaO9GVB6/pBu4fV1OYRnWWhv35E1oA8VsbSBx
+	 QJ5LJwVmeonA6gdeyNO9VGxdOeGESXr6pA5nAYa+5FWZL4SzqbcHm1YkVSeafRZ1396XJ
+	 NtAJm6fRD7nu+MabKne5/Xbe5u352f7pTkx79cIoo9ZbMxIyaz8sFUBPPnOb4nGD7h5MM
+	 I3sDe3PM/K6n+FsqIkw6PhewQNPF1sGDxTR1m4hDZwETuo2ytEfwJ9B7cDhyyTaNFCQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Nmep5Zxi;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gLHHS+Fv;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WEVGqzFH;
+	arc=none smtp.remote-ip=209.85.219.46
+Received: from mail-qv1-f46.google.com (mail-qv1-f46.google.com [209.85.219.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4F332606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:48:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4F332606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3AD7C606A335
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:49:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3AD7C606A335
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=Nmep5Zxi;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=gLHHS+Fv
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795621721;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JBmfc2TJahlGMnvUMErDpl5CqbKG2TSTACsgzVeGXC8=;
-	b=Nmep5ZxiA356MmdZh/F+FnCO5DUcWucQaKTQMfWh+jwh2ss4Vvt365J+ud6lrRXOTMi2eZ
-	QfTSRnBp3Sugjn8qgOIBC+oRLT4Z/t3DQQrYsLEWeYAGy3vWdO0SJExiHqxNAEZQrdmPGT
-	7ePeITzGS56D564iMeEixEyWlrjuYF8=
-Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
- [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-412-o7laOhMzMvidQK-Ca1hYBg-1; Wed, 25 Nov 2026 15:48:39 +0000
-X-MC-Unique: o7laOhMzMvidQK-Ca1hYBg-1
-X-Mimecast-MFC-AGG-ID: o7laOhMzMvidQK-Ca1hYBg_1795621718
-Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-48e011829easo3598429f8f.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:48:39 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=WEVGqzFH
+Received: by mail-qv1-f46.google.com with SMTP id 6a1803df08f44-92100b756b0so47205976d6.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 07:49:13 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795621718; x=1796226518; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=JBmfc2TJahlGMnvUMErDpl5CqbKG2TSTACsgzVeGXC8=;
-        b=gLHHS+Fv1RbxSf8Dzzd7I4sRIeioXwhbo0vdNSA25I/oyZU2TS5G7uH5jmlJa/f0BD
-         nQP6ScNpXk5GMW2cvt321N5XZlHJf5EqckTBlalO/Dn9Wk2t/To2hny106zdknzoEtNV
-         BJwOQFCHOkzL/MOCqyQbSVw35whFOtHGYW43P1uoK7hQhWClTR0CacHmuTC9O3oMXjw2
-         bED1hnj+6oGeQfabHavy5TnVYiKx1oHbyV6jzPRDDCTTft2OAzyt+G24WOBrcbRixJYE
-         F1784m+o4eEL0ocnUHWabYK84SywzPlB5Z+QdQ0CCDblpGVam//QvIwOojSIn34/er8n
-         nGMA==
+        d=gmail.com; s=20260707; t=1795621753; x=1796226553; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=2G4AYUd7cpfGVwTNSVOea5oYMTV/zVtjSs8MJKt1xHU=;
+        b=WEVGqzFHkBju6xfGP+do6tGFYjuoS3H8QWOPUrFsmgLoO41obRCPP5pwjo6QuTmYzq
+         XO8tfnRaiAjVZ2v4w3JDhrTN57MLSrZB5+mCWTddB0ABtefRUzaMFcfk72hmf5Ad6zUM
+         9tBXSpDkowwupZ5L3LgeuO0F8u2C+F/GQ75Ji6uLpaviwvwLcrUOtoTjFeKSJftfzaKK
+         ppsqWZglf9+MvOBQwBUn4m3/Ale78VLFjVYBlA0Hyp/nmitpt4QuqLgiwwpmPv3jAaBz
+         LInan7TQCqrPJ4VHW77pa6WEjxgESqdAoGqgFTB0LD/qfGwRQ8Kprve29oS6YxrQyizx
+         C6jA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795621718; x=1796226518;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795621753; x=1796226553;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=JBmfc2TJahlGMnvUMErDpl5CqbKG2TSTACsgzVeGXC8=;
-        b=1yiiwBSNuiWY97RYmcEeqUs/nqr62pqSGFufdsR+qKxsV9pHQbtrMit0JUdb6wv66v
-         zZYcloD0+PZw6aq0Z4yUUuzP11l7qADFEDCr0H4c0n1GW0wcp5j/q7bgA5QOuKIu0P2Q
-         r/5j2kg8KqUlHnlnMW+F4H8WB6SC3lXXfS5B+bzbQjxXvoQhLlbmxK5iKBlWxT1o8eDl
-         Bhy0ZeELcBYD/f/WmW5UMt93s4d1Tg6+iNMQ6K1Ln/RJu35Wf6oG9+PhOkHBAROj8CHE
-         eygIQ1BbWHzaoGIzH+KjO+kKKJ45yazSZsorNS9pt5l0cqgTKRC83kt2cI3Qckooxm4d
-         XdoQ==
-X-Forwarded-Encrypted: i=1; AL+hErHQL51DQUXfBZ0o7m8YX8o1OYzP5QEiKP84zumgjBrwyrtsdThTx+6xnrjb0UZ2Wn3axxEeVDU=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/bbRShp+e8LU641/6UEyPFWxiDfMiXOQx21YjwrAyGlkma1vmZ
-	QvnZHY6tFXYSPFYGrTLNpqik2eeUMe2P+zHLTG/wctYwuAPpDMwT9AcA5vGhpuY1/Vf+ZGIHUqD
-	oxqR0dkz52HEd3U9yXZP0+cxA0IpA/b3rl0YA6Z/yvKjmbsVcVYbeqy+oSg==
-X-Gm-Gg: AZFdTZelwjH8PxZmF2w3hh572DH9pCMTeFTWpK6FC2iEMwjphAXLejr0vRS7vUXl1fO
-	FstQgbGlfP1rn1cITI7Ze5fwICikvfa0CuTNDeZ5y1lux4bUUgBU+ZhQv5QuOOQ/9t6rfz8MGpm
-	cChBcZf8mXc0AmobJNUW7Gni7l6fRJOpHQtJlKl8doy1hyexuupAjMS5d+Xk++1Ny7i1RLisGH2
-	IaQI5spO1lU5jIY34eUKIE/n3hPYy1J2sb+8DvahR91wQ2MfaSrmBZ0Gr61qhqYyoB8HcPLDh8j
-	1KT8r5AgwBew/RWUEWtkLoHDtO10eV1U9HyR8zgXWkrsEXQntd7v5ChVhu1sl/QUw+uYV7PqCTG
-	4j1HKlVlB11CFBlBIvrCboNia234x1E4+rqXPxJqUD+2faB3dXe156JYMCYzo/x1XGQR5FAFzXN
-	QnVDJqqEiNIbhNmEMkcNHzXo8hCylu8EGNarKGUP/FkuTj
-X-Received: by 2002:a05:6000:18a5:b0:48a:f0cd:8712 with SMTP id ffacd0b85a97d-4abb7f3e149mr34479768f8f.50.1795621718026;
-        Wed, 25 Nov 2026 07:48:38 -0800 (PST)
-X-Received: by 2002:a05:6000:18a5:b0:48a:f0cd:8712 with SMTP id ffacd0b85a97d-4abb7f3e149mr34479706f8f.50.1795621717500;
-        Wed, 25 Nov 2026 07:48:37 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab9cf005f2sm28780389f8f.45.2026.11.25.07.48.36
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 25 Nov 2026 07:48:37 -0800 (PST)
-Message-ID: <3b3939f1-fa7e-42ed-ac74-c96c0bc930cb@redhat.com>
-Date: Wed, 25 Nov 2026 16:48:36 +0100
+        bh=2G4AYUd7cpfGVwTNSVOea5oYMTV/zVtjSs8MJKt1xHU=;
+        b=dJque5LEbQyTu0zMYLKGhAS1Urre/ttbVIQ771lyFti8rI9DmPW6qGZZA2kp9tOe9e
+         2RwrdrkeB126OxDu3rFLlamxnP7mZ9/sg5pDF3deqf2ADsva01FXRyfPpFk2WzV1VfLr
+         zvY4UyLVxraY2b8b4I23czt9I2yBSVXPALZEz7+vjAA4XtVARMrzc6c8yQSjevImdkJW
+         e7FCzF3sloTD9JrPMIjRGm9KQDE7RaE78PzxgHcDw7qx87/7nkPcNnC5WKjIAe2ox8qH
+         2thSBwFC9xRIICJirIieYcJRA/uFqwmU7tT/HmqY6ZCOrjOSVbWJAPE75Yjhu9d69q/N
+         tsFw==
+X-Gm-Message-State: APuU4Z+g8EQiHo21Y/+vMG23VLQTXdoxdkaniXLxYI+hre9/J7udTL3k
+	zcnvuVmJ3UR1HyoN3xQ+0DB3hD/zIK896KO7UdlX5c1lmvT0WpwkRuHmKeESLv7E
+X-Gm-Gg: AZFdTZf2HZ9M6R+ihDLA+iQp7qgPvnEqAqfrx5YpTgL8a+kklT838cMGWd4ggOKoVDc
+	FTH9h9zCnVbFyHaG+9rYEX5ecuRNDL03KTTopV42/qh/iilBpWZkIHTTNsFb1Vte8JRG27Zw7SI
+	tDuU+tCHMfSIOPusGj41ENcx6DAQH1kmgoRA87jdSf0oEyLNz7hrK7gs0cu/lp8gQZ/s5A7RHXA
+	7YU4VepfJwNyrc+HkhSa7s+eSzpZrFjiL36OX1Ht1CuNwK43b6tEFMFeaaMA3aPmKgVGSQN2uO7
+	rITNASrz0tOO/vGFgo+sKSIWby/vEPvVURncqBCZSYybBy1yoHYxtpfZKN35FfzJJq/FtJJu749
+	CzbC69FBaUvbydPEbL1omk7x+AGd7bJmX4MOeAnQJgvQcwu6FdaimeE8QZDPVZmlhpSNUKekWfs
+	Ajkl0iSNMoRe00YJznr4cVuZl+kAscDPe4QbZIHnZ53TeYXhB5HALk1vzar8tjsyOzKjMzXUEO1
+	sNME29xEJLG3GppDUgcQMtPpyboOJi5R8i4BUu/qhS/Kz4RLU3SxDyM8OK5EnnnrletTKxZBgmL
+	q+NCoDMzcC5lW5yB7uQDw0nnKtnaOX4Fe5HWGC10J4oQKUu7vowzYtShB7cfO/Sium7EyP2zflU
+	YJcq8h8oU60CWYvvf8qfmBGIoV2P+V1qvBmvCXpjp194uO5sP8kTb2V5X
+X-Received: by 2002:a05:6214:6346:10b0:921:317c:89b5 with SMTP id 6a1803df08f44-92134b11263mr242953356d6.44.1795621752867;
+        Wed, 25 Nov 2026 07:49:12 -0800 (PST)
+Received: from wsfd-netdev58.anl.eng.rdu2.dc.redhat.com ([66.187.232.140])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-92134a0f5d7sm166716946d6.37.2026.11.25.07.49.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 07:49:12 -0800 (PST)
+From: Xin Long <lucien.xin@gmail.com>
+To: network dev <netdev@vger.kernel.org>,
+	linux-sctp@vger.kernel.org
+Cc: davem@davemloft.net,
+	kuba@kernel.org,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Marcelo Ricardo Leitner <marcelo.leitner@gmail.com>
+Subject: [PATCH net v2] sctp: diag: fix stack garbage in IPv6 scope_id during dump_one lookup
+Date: Wed, 25 Nov 2026 10:49:11 -0500
+Message-ID: <7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin@gmail.com>
+X-Mailer: git-send-email 2.47.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,111 +98,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] eth: funeth: Include FEC stats in
- fun_free_stats_area() DMA free size
-To: Daniel Machon <daniel.machon@microchip.com>,
- Ian Rogers <irogers@google.com>
-Cc: Dimitris Michailidis <dmichail@fungible.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev,
- Elkin Cruz <elkin@google.com>
-References: <20261119170613.1519353-1-irogers@google.com>
- <20261123090722.z5xcxwwdelnnjifq@DEN-DL-M70577>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20261123090722.z5xcxwwdelnnjifq@DEN-DL-M70577>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-On 11/23/26 10:07, Daniel Machon wrote:
->> fun_init_stats_area() allocates coherent DMA memory for
->> (PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
->> 64-bit counters (632 bytes), whereas fun_free_stats_area() omits
->> PORT_MAC_FEC_STATS_MAX and passes 616 bytes to dma_free_coherent(),
->> triggering DMA-API debug size-mismatch warnings on teardown.
->>
->> Extract a shared fun_stats_area_size() helper used by both allocation and
->> deallocation paths, and cast the leading enum constant to unsigned int to
->> avoid cross-enum arithmetic.
->>
->> Found via an x86_64 LLVM=1 (Clang 21.1.8) allyesconfig audit with
->> -Wenum-enum-conversion enabled; fix and changelog drafted with an AI
->> coding assistant. Build-tested under LLVM=1 W=1 and
->> -Wenum-enum-conversion; not tested on Fungible Ethernet hardware.
->>
->> Fixes: ee6373ddf3a9 ("net/funeth: probing and netdev ops")
->> Signed-off-by: Ian Rogers <irogers@google.com>
->> ---
->>   .../ethernet/fungible/funeth/funeth_main.c    | 20 +++++++++----------
->>   1 file changed, 10 insertions(+), 10 deletions(-)
->>
->> diff --git a/drivers/net/ethernet/fungible/funeth/funeth_main.c b/drivers/net/ethernet/fungible/funeth/funeth_main.c
->> index bad8276d26b0..e0d4e69abfa4 100644
->> --- a/drivers/net/ethernet/fungible/funeth/funeth_main.c
->> +++ b/drivers/net/ethernet/fungible/funeth/funeth_main.c
->> @@ -1457,17 +1457,20 @@ void fun_set_ring_count(struct net_device *netdev, unsigned int ntx,
->>   	}
->>   }
->>   
->> -static int fun_init_stats_area(struct funeth_priv *fp)
->> +static size_t fun_stats_area_size(void)
->>   {
->> -	unsigned int nstats;
->> +	unsigned int nstats = (unsigned int)PORT_MAC_RX_STATS_MAX +
->> +			      PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX;
->> +
->> +	return nstats * sizeof(u64);
->> +}
->>   
->> +static int fun_init_stats_area(struct funeth_priv *fp)
->> +{
->>   	if (!(fp->port_caps & FUN_PORT_CAP_STATS))
->>   		return 0;
->>   
->> -	nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX +
->> -		 PORT_MAC_FEC_STATS_MAX;
->> -
->> -	fp->stats = dma_alloc_coherent(&fp->pdev->dev, nstats * sizeof(u64),
->> +	fp->stats = dma_alloc_coherent(&fp->pdev->dev, fun_stats_area_size(),
->>   				       &fp->stats_dma_addr, GFP_KERNEL);
->>   	if (!fp->stats)
->>   		return -ENOMEM;
->> @@ -1476,11 +1479,8 @@ static int fun_init_stats_area(struct funeth_priv *fp)
->>   
->>   static void fun_free_stats_area(struct funeth_priv *fp)
->>   {
->> -	unsigned int nstats;
->> -
->>   	if (fp->stats) {
->> -		nstats = PORT_MAC_RX_STATS_MAX + PORT_MAC_TX_STATS_MAX;
->> -		dma_free_coherent(&fp->pdev->dev, nstats * sizeof(u64),
->> +		dma_free_coherent(&fp->pdev->dev, fun_stats_area_size(),
->>   				  fp->stats, fp->stats_dma_addr);
->>   		fp->stats = NULL;
->>   	}
->> -- 
->> 2.56.1.708.g77570a6a1d-goog
->>
-> 
-> Fix looks good to me.
-> 
-> Although, I think it's more common with a compile time constant for a fixed size
-> used for alloc and free. Something like:
-> 
-> #define FUN_PORT_NSTATS ((unsigned int)PORT_MAC_RX_STATS_MAX + \
->                           PORT_MAC_TX_STATS_MAX + PORT_MAC_FEC_STATS_MAX)
-> 
->          fp->stats = dma_alloc_coherent(&fp->pdev->dev,
->                                         FUN_PORT_NSTATS * sizeof(u64),
->                                         &fp->stats_dma_addr, GFP_KERNEL);
-> 
-> Not a big deal though.
+As gomaja noticed, sctp_diag_dump_one() builds IPv6 lookup addresses on
+the stack but never initializes sin6_scope_id or sin6_flowinfo. For
+link-local addresses, __sctp_v6_cmp_addr() compares scope_ids when both
+are non-zero, so stack garbage in these fields can cause sporadic lookup
+failures.
 
-Please use the macro, as suggested by Daniel. Also please wait a few
-days before resubmitting.
+Zero-initialize both laddr and paddr to ensure sin6_scope_id is 0, which
+acts as a wildcard in __sctp_v6_cmp_addr(), matching any scope, just as
+TCP and UDP handle idiag_if purely as a device filter (dif) parameter
+without conflating it with IPv6 scope_id.
 
-/P
+The dif check in sctp_addrs_lookup_transport() already filters by
+sk_bound_dev_if, so scope_id on the lookup addresses is unnecessary.
+
+Fixes: 8f840e47f190 ("sctp: add the sctp_diag.c file")
+Signed-off-by: Xin Long <lucien.xin@gmail.com>
+---
+v2:
+  - Add a Fixes tag and target net.git.
+  - Fix the issue by zero-initializing laddr/paddr instead of explicitly
+    setting sin6_scope_id to 0 (reported by Clashiko).
+---
+ net/sctp/diag.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/net/sctp/diag.c b/net/sctp/diag.c
+index c2a0de2adf6f..564a5b51e6ce 100644
+--- a/net/sctp/diag.c
++++ b/net/sctp/diag.c
+@@ -433,7 +433,7 @@ static int sctp_diag_dump_one(struct netlink_callback *cb,
+ 	struct sk_buff *skb = cb->skb;
+ 	struct net *net = sock_net(skb->sk);
+ 	const struct nlmsghdr *nlh = cb->nlh;
+-	union sctp_addr laddr, paddr;
++	union sctp_addr laddr = {}, paddr = {};
+ 	int dif = req->id.idiag_if;
+ 	struct sctp_comm_param commp = {
+ 		.skb = skb,
+-- 
+2.47.1
 
