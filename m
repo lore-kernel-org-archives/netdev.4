@@ -1,57 +1,60 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570120;
-	b=zz/Apb76+cyDGXAzudK5qz67ByelP2DoYL7bOD98JNmJWnBjsAWQ0S3UqR1glkQAkvnk
-	 sO3QP+06OBL5xj0R2Szr8DY8k4qNkNp0v5CEhCkyOApEdHfzZpSkHOcaXI8pUD/iETLPP
-	 DaZLpXDaFoSbnbxyg518AMOEOIlWxtTspoP9AmsYeOgojhmfnzKZo6i//jhK8ycJHI9vQ
-	 t+ucqxjYRFOsf0gUc67C2T7qtBhTpRG4SAyqah+JoDQTBMW5u+RVjpTOrUQ6Q0qwE2GVf
-	 YZbRVqXZzeGeS4Y5Hc2OQdbuR5wpLGGJlufrOzjaAtchgFWkY2V7TbElgUVcMAhj9wA==
+	t=1795570112;
+	b=q5Na8hfE0/zjoWaP0/k24U9/Tg4NTK9xHaMg/xfv28J7foBqVC7EoG+9hMENWqxay+YI
+	 dDSzvy/eCU+0m6xk5L7Wmwc9speaRv8IPq4QAq/VLp8urXM6wLg6uVsa7oQzyZNwSNWYv
+	 qHpohYKbMs1oZN7q9Xg/KVm5/Mkb+0Dock2lPhvJxLC/DF4rvZLzhJu5JCbxOlgRXOPvT
+	 9XFuPikQPGZTXwY0zxTN6QPXv9gBFEn3k3UnU63rUEpHmF5czX85WGI+IDxODzk8DG2S4
+	 m+0os+Gp1yknXgDFhKe+op3B4+mmOokFzW+K4oFW87T+ieZKxh7dMWs2erb+aOrFOtg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570120;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570112;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=/kcw1pc7QfhqDg5XVpmffRI63tTo22+MVCJZidEBFCI=;
-	b=4Drmrq5iYcQop8OPoKSOabSA17lA7nPanjyD0jNI8rkR529iRbz0DjgZR5o4PhhgfWnp
-	 aBnRBbVFLD2yfxlb4VUFIbGXbrbPt3brHmOlJ4O9AEeDjNMmGw6rpCeTel3REwRuR/Hff
-	 WD69ppmn31jXei95AG5zXEQoo6foyx8FE+8SAtWJenMmwuiy+PYwXO1JMKGMH7jNOa8ZF
-	 Jb07sP8pxwXYbYg2ubosYHS+mARwB6z+Vxu5EjCj7mxsFk//h91FtNSS54nNifO2LP2En
-	 NCyumruvGde0griPV1uJxYMd17vd5lWlSdS3rRSSjBo4yVx6/QvU22lZ5XpeW260F0Q==
+	bh=YvHf32I3CxsjZN9KDS8kUqYRtxaIn+dFhytpRDYuc4A=;
+	b=vbo86Ij8cyEvW6ugxq+gqIg7H2fzNxNNB7v5YEsemqeoCJSx6jKNvBKjM4JUOIuVSobb
+	 lUEKvg0BOe5lUxz1aTiCVzUpAcb7xUVcXgznLotUimEShR8iH2HoBf1FsNl+lDhIlPlqK
+	 YQh/o0cJwKRD/SagaMr7Jhl+IvX4AKWMRvZUiIjIISkUmQaSkLQzdPxAbX/6gomomZEoc
+	 lxCnlY6k/OpcBzoKW/DQ2+F5vBW4YvQu/iGI+bFbDdipqnY/GDJDiSUiIQduerb1l/8dG
+	 f9qruv8QBJCW0OmQW3Ed0+BJfwLql7XntB8rq2THFmcuOUB/+PaxZIRAOOEAltMrZjA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4BMf1P3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iKZI7uve;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E6161606A684;
-	Wed, 25 Nov 2026 01:28:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E6C3606A31E;
+	Wed, 25 Nov 2026 01:28:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m4BMf1P3
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 488D31F000CF;
-	Wed, 25 Nov 2026 01:28:39 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=iKZI7uve
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0BBC81F000C6;
+	Wed, 25 Nov 2026 01:28:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570119;
-	bh=/kcw1pc7QfhqDg5XVpmffRI63tTo22+MVCJZidEBFCI=;
+	s=k20260515; t=1795570112;
+	bh=YvHf32I3CxsjZN9KDS8kUqYRtxaIn+dFhytpRDYuc4A=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m4BMf1P3cldnyycCPFODYxzbBPzETCKba97Mx8R1iU0U4fY7CSZt6Vvac6wzLrdGQ
-	 aTEB2KZSEbzU81gdatZ+WmEYrVyOg12/4MJN0EBZAI2WpGQDrQju3iXbTocEgizfwo
-	 CVSC0AQZ1IRgAW2dYYlTnhXzYcdqXff8A0hp95DAOVSUX/T5T7xuAWyfBUZFYD3LHl
-	 L6/Dqeb0Ni2IFIg4TKNIJ5gyKP1my8G/JSDY4sztIQ1yk8gAbQU4cl7z2Wtwz5aeie
-	 rUVIzluf03jVbWe/q2O37ytK+SQbbIb0v03Y5JhBPiZ3wNP56/FXRfrdOA4HqEROib
-	 m4hw93e/h0utg==
-Subject: Re: [PATCH wireless 2/2] wifi: mac80211: widen the mesh IE offsets a
- u8 cannot hold
+	b=iKZI7uveY4lg1vxjNYhLQ49O7l2U5wZWAKHgGnO3R4mw1eJGGCoK7TYaVnJI53u4s
+	 CnDZ1hj2vZCpK0ZSYG/BS1UPXR0zEmR5YZQskn+VQJmwroIgzJbD85HdpBjmAiq5r3
+	 SQOMVznDBkjhLq2NECs9yd0iqYIvNhAnKWX7ERuTKB2qVh0+GcbfFcePoiqnycJ1fp
+	 y1sMbzWOxO7iIjiyB4sIhsxj32CM7JEh70IzUZ3JVK3wHs3AJkQquw24/FOnUwgTIp
+	 5A4/d3hzg5+Pgf28tvYEeIqj5ICUxK22iapbs3x9TUsyuzn5yfIrQ9fojJ2ZI+anJ2
+	 PtuJ+THQn1jlQ==
+Subject: Re: [PATCH net v4 07/10] net: au1000: restore RX buffer addresses
+ when restarting the MAC
 From: netdev-bot+sashiko@kernel.org
-To: piyus@iiitd.ac.in
-Cc: johannes@sipsolutions.net, linux-wireless@vger.kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org, kapil@presceralabs.ai,
- kuba@kernel.org
-Date: Wed, 25 Nov 2026 01:28:38 +0000
-Message-ID: <179557011887.3135.15766992632445342222@kernel.org>
-In-Reply-To: <20261124003526.78471-3-piyus@iiitd.ac.in>
-References: <20261124003526.78471-3-piyus@iiitd.ac.in>
-X-sashiko-severity: Critical
+To: f.fainelli@gmail.com
+Cc: netdev@vger.kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, hkallweit1@gmail.com,
+ linux@armlinux.org.uk, shaojijie@huawei.com, horms@kernel.org,
+ runyu.xiao@seu.edu.cn, mmyangfl@gmail.com, hvr@gnu.org,
+ danny.kukawka@bisect.de, mugunthanvnm@ti.com, sebastian.hesselbarth@gmail.com,
+ linux-kernel@vger.kernel.org, manuel.lauss@gmail.com
+Date: Wed, 25 Nov 2026 01:28:30 +0000
+Message-ID: <179557011055.3135.6140198422373932770@kernel.org>
+In-Reply-To: <20261121004809.1690280-8-f.fainelli@gmail.com>
+References: <20261121004809.1690280-8-f.fainelli@gmail.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -64,170 +67,84 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 1 · High: 0 · Medium: 0 · Low: 1
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Critical] The fix rests on a false premise, and it makes the series'
-  beacon-tail heap overflow reachable for the largest RSN IEs.
-- [Low] wifi: mac80211: Fixes trailer cites 2b5e19677592 instead of
-  082ebb0c258d
+- [Low] In `au1000_init()`
+  (drivers/net/ethernet/amd/au1000_eth.c:727-728), the patch writes the…
 
 --
 
-wifi: mac80211: widen the mesh IE offsets a u8 cannot hold
+net: au1000: restore RX buffer addresses when restarting the MAC
 
-This patch changes the locals in mesh_add_vendor_ies() from u8 to size_t
-and the RSN element length in mesh_add_rsn_ie() from u8 to unsigned int.
-The goal is to stop values derived from the mesh IE blob length from being
-truncated. The commit message says this is not a memory-safety change,
-because the preceding patch makes the two builders cover disjoint ranges.
+The commit changes au1000_init() to reload each RX descriptor's buffer
+address from rx_db_inuse[] before setting RX_DMA_ENABLE. Before this,
+it only OR-ed in the enable bit on whatever address the DMA engine had
+left behind. That could make a receive after close/reopen start partway
+into its buffer.
 
-> diff --git a/net/mac80211/mesh.c b/net/mac80211/mesh.c
-> index eb54bd98f282a..4ab776e174d9c 100644
-> --- a/net/mac80211/mesh.c
-> +++ b/net/mac80211/mesh.c
-> @@ -354,7 +354,7 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
->  			struct sk_buff *skb)
->  {
->  	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
-> -	u8 offset, len;
-> +	size_t offset, len;
->  	const u8 *data;
+> diff --git a/drivers/net/ethernet/amd/au1000_eth.c b/drivers/net/ethernet/amd/au1000_eth.c
+> index ea2766343d518..ec28ed33bf698 100644
+> --- a/drivers/net/ethernet/amd/au1000_eth.c
+> +++ b/drivers/net/ethernet/amd/au1000_eth.c
+> @@ -724,7 +724,8 @@ static int au1000_init(struct net_device *dev)
 >  
->  	if (!ifmsh->ie || !ifmsh->ie_len)
-> @@ -377,9 +377,9 @@ int mesh_add_vendor_ies(struct ieee80211_sub_if_data *sdata,
->  int mesh_add_rsn_ie(struct ieee80211_sub_if_data *sdata, struct sk_buff *skb)
->  {
->  	struct ieee80211_if_mesh *ifmsh = &sdata->u.mesh;
-> -	u8 len = 0;
->  	const u8 *data;
->  	size_t prefix;
-> +	unsigned int len;
+>  
+>  	for (i = 0; i < NUM_RX_DMA; i++)
+> -		aup->rx_dma_ring[i]->buff_stat |= RX_DMA_ENABLE;
+> +		writel(lower_32_bits(aup->rx_db_inuse[i]->dma_addr) |
+> +		       RX_DMA_ENABLE, &aup->rx_dma_ring[i]->buff_stat);
 
 [Severity: Low]
-The Fixes: tag points at 2b5e19677592 ("mac80211: cache mesh beacon").
-As far as I can tell, that commit did not add the u8 locals this patch
-widens. It moved the beacon-side calls to mesh_add_vendor_ies() and
-mesh_add_rsn_ie() into ieee80211_mesh_build_beacon(), and
-mesh_plink_frame_tx() kept calling both helpers as before.
+This isn't a bug, but should this be a plain store, like the other
+accesses to buff_stat?
 
-The helpers themselves look like they came in with 082ebb0c258d
-("mac80211: fix mesh beacon format"). That includes "u8 offset, len" in
-mesh_add_vendor_ies() and "u8 len = 0" in mesh_add_rsn_ie().
+The commit message says this matches the receive completion path.
+That path does a plain C assignment, not a writel():
 
-The truncation predates the beacon caching. It also affects the peering
-frames built by mesh_plink_frame_tx(), not only the cached beacon.
-Should the tag be:
+drivers/net/ethernet/amd/au1000_eth.c:au1000_rx() {
+    ...
+	prxd->buff_stat = lower_32_bits(pDB->dma_addr) | RX_DMA_ENABLE;
+    ...
+}
 
-  Fixes: 082ebb0c258d ("mac80211: fix mesh beacon format")
+au1000_probe() initializes the same field the same way:
 
-instead? There is no runtime impact, but the tag decides which stable
-trees pick this up.
+	aup->rx_dma_ring[i]->buff_stat = lower_32_bits(pDB->dma_addr);
 
-[Severity: Critical]
-The commit message says:
+au1000_reset_mac_unlocked() and the reads in au1000_init() and
+au1000_rx() also use plain loads and stores.
 
-  "The extra IE blob a mesh join carries is bounded by
-  IEEE80211_MAX_DATA_LEN, 2304 bytes, and ifmsh->ie_len is a size_t."
+In au1000_eth.h, rx_dma_ring is declared without __iomem:
 
-Is that accurate? struct ieee80211_if_mesh in net/mac80211/ieee80211_i.h
-still declares:
+	struct rx_dma *rx_dma_ring[NUM_RX_DMA];
 
-	const u8 *ie;
-	u8 ie_len;
+Passing &aup->rx_dma_ring[i]->buff_stat to writel() therefore gives a
+sparse different-address-space warning. It also means this one
+register is now accessed in two different styles.
 
-struct mesh_setup::ie_len in include/net/cfg80211.h is a size_t.
-nl80211_parse_mesh_setup() sets it from nla_len() of NL80211_MESH_SETUP_IE,
-and the policy allows up to IEEE80211_MAX_DATA_LEN. copy_mesh_setup() in
-net/mac80211/cfg.c then does:
+The driver already passes non-__iomem pointers to writel() for
+aup->mac and aup->enable. What this patch adds is the mixed accessor
+style on buff_stat.
 
-	if (setup->ie_len) {
-		new_ie = kmemdup(setup->ie, setup->ie_len,
-				GFP_KERNEL);
-		...
-	}
-	ifmsh->ie_len = setup->ie_len;
+There's no runtime difference. MIPS_AU1X00_ENET depends on
+MIPS_ALCHEMY, which only supports little-endian, so writel() and the
+plain store write the same bits.
 
-So the buffer holds the whole blob, but only the low 8 bits of its length
-are stored.
+Would a plain store match the surrounding code better, like this:
 
-ifmsh->ie_len is never above 255, so the vendor IE case in the commit
-message (vendor IEs starting past byte 255) can't reach
-mesh_add_vendor_ies() as described. The truncation still happens, just
-earlier, at the struct field.
+	aup->rx_dma_ring[i]->buff_stat =
+		lower_32_bits(aup->rx_db_inuse[i]->dma_addr) | RX_DMA_ENABLE;
 
-If the blob length is a multiple of 256, ie_len becomes 0. Both builders
-then return early and a secure mesh drops its RSN IE.
-mesh_plink_frame_tx() in mesh_plink.c also sizes peering frames from the
-same u8 field.
-
-Widening offset is also not a complete no-op. When the vendor split
-overshoots the truncated ie_len, the old u8 offset wrapped and a few bytes
-got copied. Now nothing is copied.
-
-More importantly, can the wider len now overflow the beacon_data
-allocation in ieee80211_mesh_build_beacon()?
-
-validate_ie_attr() checked the element chain against the full nla_len.
-ieee80211_ie_split_vendor() steps through the blob by the real element
-lengths:
-
-	while (pos < ielen && ies[pos] != WLAN_EID_VENDOR_SPECIFIC)
-		pos += 2 + ies[pos + 1];
-
-With a truncated ielen, it can step over an element that crosses the
-truncated end. It then returns a prefix larger than ifmsh->ie_len.
-mesh_add_rsn_ie() then does:
-
-	prefix = ieee80211_ie_split_vendor(ifmsh->ie, ifmsh->ie_len, 0);
-	data = cfg80211_find_ie(WLAN_EID_RSN, ifmsh->ie, prefix);
-
-Take a 257-byte RSN IE (length byte 255) followed by a 3-byte element.
-That gives nla_len = 260, ifmsh->ie_len = 4 and prefix = 257. The RSN IE
-is found, and with unsigned int len all 257 bytes are emitted. Before this
-patch, the u8 len wrapped this to 1 (and 256 to 0).
-
-ieee80211_mesh_build_beacon() only budgets the truncated length:
-
-	tail_len = ... +
-		   ifmsh->ie_len;
-
-	bcn = kzalloc(sizeof(*bcn) + head_len + tail_len, GFP_KERNEL);
-	/* need an skb for IE builders to operate on */
-	skb = __dev_alloc_skb(max(head_len, tail_len), GFP_KERNEL);
-
-The skb_tailroom() checks in the builders only bound the scratch skb. Its
-head is rounded up by the allocator, so its tailroom can be much larger
-than tail_len, for example on HE/EHT hardware with a long mesh ID. The
-copy at the end then writes past bcn:
-
-	bcn->tail_len = skb->len;
-	memcpy(bcn->tail, skb->data, bcn->tail_len);
-
-The preceding patch, "wifi: mac80211: do not copy the mesh RSN IE twice
-into the beacon", argues that the split returns an element boundary not
-past ifmsh->ie_len. That rests on the same assumption, so similar layouts
-with smaller RSN IEs look like they already overflow there.
-
-Would it be better to make struct ieee80211_if_mesh::ie_len a size_t to
-match mesh_setup and the nl80211 policy? Rejecting setup->ie_len > 255 in
-copy_mesh_setup(), or clamping prefix to ifmsh->ie_len in
-mesh_add_rsn_ie(), would also work.
-
-The "Neither is a memory-safety problem" statement in the commit message
-may also need revisiting.
+The other option is to mark rx_dma_ring and tx_dma_ring as __iomem
+and convert every access to readl()/writel().
 
 >  
->  	if (!ifmsh->ie || !ifmsh->ie_len)
->  		return 0;
+>  	wmb(); /* drain writebuffer */
+>
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124003526.78471-2-piyus%40iiitd.ac.in
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121004809.1690280-1-f.fainelli%40gmail.com
