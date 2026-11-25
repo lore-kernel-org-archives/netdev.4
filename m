@@ -1,62 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795618257;
-	b=TOiaH0yatrzsuX7/vRm6iXekmn6A3fpy0t0mmzIypz9FGVUosX2+ACVgwlj4jmLwz5X9
-	 6ruZAGzf4sCgqoa1PJdPSDMMq94z9bN1a8N+wu78bwc6ZQXSBPunZBZQK56M0HT0PalCm
-	 oJfX186APnwCLyNUppndVfeB+FobQxz4uZe+IE7ppYBkt/aB9+rQrlgt894NhNNYgSvvs
-	 Pg1AMAmQxzYveYt5iNP0fWVeJGFABBVLBfwNmUwbT3h6C+nzZCG3h7LKXh8gOE8xBDn14
-	 BKQ9NQndNYi/t2MGWGI5v5ZGbSVYr1cC/PDtS5v5xQs63HK7aA3UdbYwDsLRfEvahmg==
+	t=1795618368;
+	b=4IjLwdl/wxEWlRxxc3cR1ujnK0DiEIgzeXXqThcDjouuoHVIAyym8ohQ6wfErWSXUban
+	 w7+5BMEhH51NvDhJ2R0YD+X0LZBfcYw2x34JZvkEX6Gr4V5+TQqH/ZOuYAWGa6VTaWwW1
+	 gkibP9+EIQhoZUgZ5NjCJIQjRyFH3kVXcS8Q5XWxFxBEKSqGDDHIPluWlLTxs4rQDhAVE
+	 /ZVjJPpo28fpmnBe70cU0+A7UxxgBo1oZgbIwqpXUuxv6tWRqbxg2fDL6CqFOxHIzWzAt
+	 8tgTkzs0rRwE1hnbmxjMFjIezE1Lb5wELOnP27g1eV0NOQGLYBfNiDCAGGPaaZ+1C+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795618257;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:User-Agent:X-stable:X-Patchwork-Hint:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=v1h9iCU9xhZRsrH1zxmZFN+lCrA1r7F9o5cGgpjpcQ0=;
-	b=rvt61Cyvq1nAihse8AzpHsIuAUP7pm4vgTnjJPRHEcTvIm5unv1DH6guwqfZU7v2Tpam
-	 Q5w9Dblz8auQDLcfMA+CBCfgeks0gYKyC31wAWjOQml+S/S7yElQ4yCo5Ec+k/IJYOhq/
-	 y4Fx3wDOGZcYZdaRo2z/7mm7SEE455JrTeOpIrhFT+kCvwIgQNwBgJ6O/2YgImbsvud54
-	 GIIwk8+LkYyP0MCx6SbI7waJXHxiBYYo8hXjkKfhSoJm6glkw/II54kEkxWhWv0K5eK5O
-	 MLa468ofC5aZlwku4sp7iel7u3nTStr+rIq8q0ud+eAeAA6RWV+zm8YTNYULGHNOysA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795618368;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
+	b=4k/Oxhw8YaRti2+/k6nizqGD/cUSJ2iuerIBLkHtGzen2XlR1ifgLoOAX8Us17Cbtun8
+	 30YGHfuQz28tcMf2hTPz0oqy8wnqzlc1ej/3WsefcJvPhIve9u0nJtSrepKBNF/hjrEtE
+	 gD6Kr03PVRwb2ztToU5X/4JasGiHLWQ6GQqu7+7l0k95UYd9YZpgWQ2b+kGYI2OVE1fDT
+	 tHLy/rwvBgrEelAfcinTlWn1idSzmcjgXlCTl3qJiDmk9NciPt+yIncmcTMpmmc5YXcxA
+	 0wG0wZjMA/f8+ztgBPgG4q2ebWQlrQzB0atifQ/SQjPyiB3XQ8fO1f7WZq9tDC3KK1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=spJ2cq2i;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=WUWK3mr3;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Og9N7t4p;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51322606A31E;
-	Wed, 25 Nov 2026 14:50:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 950ED606A330
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 14:52:47 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 950ED606A330
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=linuxfoundation.org header.i=@linuxfoundation.org header.a=rsa-sha256 header.s=korg header.b=spJ2cq2i
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B19B1F000C0;
-	Wed, 25 Nov 2026 14:50:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linuxfoundation.org;
-	s=korg; t=1795618256;
-	bh=v1h9iCU9xhZRsrH1zxmZFN+lCrA1r7F9o5cGgpjpcQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=spJ2cq2imB1BFwaGhMwxIbEuiyZue5cpX1uLdIM/MJQ2hSTry5ToSY9UNINSqV/xX
-	 GUPN5ZY5IIw8CZBkiPIBYp4qSEZ01WC2yzOBG8r7YybVk4Gf64C7KBb8gi5s8LuoGu
-	 vbx6wP39AEa3WySIlVbX8lmcdNlrbK2Ilcovws0M=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Leo Yang <Leo-Yang@quantatw.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Jeremy Kerr <jk@codeconstruct.com.au>,
-	Matt Johnston <matt@codeconstruct.com.au>,
-	netdev@vger.kernel.org,
-	Bart Van Assche <bvanassche@acm.org>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 7.3 0223/1005] mctp i3c: Fix locking in an error path
-Date: Wed, 25 Nov 2026 15:26:01 +0100
-Message-ID: <20261125143826.965634465@linuxfoundation.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261125143821.729802100@linuxfoundation.org>
-References: <20261125143821.729802100@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=WUWK3mr3;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=Og9N7t4p
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795618366;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
+	b=WUWK3mr3X/yDeDTYWp6t9quJxT/PQTSty8Ba9PBZSGj/v5RKwJuLWum4FZne3eCzJcm6zH
+	ufhrf7OqSVTS41e19XuhysSmWqkeFB8YTN09ypps6u0yDepwopcoO4NLuq6G4kY4KDIn8k
+	sS9ctg8qk8R3PxLlWBK3541T3c2VYNk=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-567-7Vy3DSe3OUOIljlrQq5twg-1; Wed, 25 Nov 2026 14:52:43 +0000
+X-MC-Unique: 7Vy3DSe3OUOIljlrQq5twg-1
+X-Mimecast-MFC-AGG-ID: 7Vy3DSe3OUOIljlrQq5twg_1795618362
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e011829easo3559133f8f.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 06:52:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795618362; x=1796223162; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
+        b=Og9N7t4pa7nsuRPESyV8DOMPhoeBzUPu4LoZTsTgKclqq8KPIRas3OZa47mK7ZOCmv
+         4uLYUCDtS695OaReRUhD5JFRyTInZr4ul3RqoNvKukMQde/QMgoyiRIogvLTplG0M6Bt
+         gOE6cnD65rYUBrlNx3/hfarbT7w9PurdHI54xQOcD16Y68EClBbJ8cwxDQfUCS+wexg9
+         p4p5k5LMe3v3Jrukeux0aRNe8KYfSZPRiBlZZz1anVsckp04kuifjnYj9PCAnRryzm8X
+         3nAYVV9lKpebksDXefFa4yjTRDQsLpvRzqXvP45hcLxIAYnS/JGR7GYUT+YO2pGb0Nmc
+         JmMA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795618362; x=1796223162;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=MnpY2Zhyj/N+MyWnAzdhqA5s3y6VrNWCefytP0ap+Z4=;
+        b=erjl+DrETp2ZUC6Ur7kdr44/xCQzlf7NxkylYSj5m179Ecwv3G88cZ7VphWktvejTc
+         eKDD02iUTz+H5gLiTe9RPK0YfyJexxYViRlZ48MS0yOZnzdrUFNM/9Q84WJF5xESWbhq
+         5LLOEeSnvzPrm1/5BaijlcdHCNIjZatJzEOnBDJg9a5e6cRcghbt836Gw4NgoV23OR3U
+         6pxKdlv+F3oq0uvg7i96OboYdTkPVGLyknEIspdn4PVieVwYpeZ8jmggGGoLwOMXbpbA
+         n6BWKDmyM5e08Z6PEFAus9fHRsNkFaS6Q1vBFIIracHkWdUDl7cB005W9iTpu6q55Ahe
+         Ec2Q==
+X-Forwarded-Encrypted: i=1; AL+hErEAVqE/vjqo2fEjdDZfk3RgCCcffYOPDF4TszolPlu7Esxy7e5xRki1XnstRC4KpCkofAhlzcw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z82UzhgJPrI8lvaTTLWZm7FlP8fk3HdaQNflYW4V0D2d4KKckjs
+	wocf7gnuOz3+If/F6dxQWaH+YmmX5F7/aZYZJlxsnrUHDbJo7MFimocsjmV41P2uCd9IQ4ufWYV
+	HUMLottzeOFmwkk+iAwBcYtx758ilYPqnwfysuXXptvgRwOWMg3w8fZdmGw==
+X-Gm-Gg: AZFdTZcSJUoPOIMEC+wCWs3M1067LUjgDt+CIfqK2WDXcsa49qHxSn4MRFz2yFzA60N
+	ma72Uc5wrM5/Rqau4ewwR+LRXwQTgtdlUBgYRkCeuBAirdMHnIZxIxEZcHSLBd1nWvdHyyFYlK+
+	CXL1uiTIO8QeXDZlYq2QrGNcA+LHX5g4zN3IuME739VldtlwdIHKy0s1yGAu2kHzH8s+KPvdAz9
+	OLwaJP+DeEYi2UAMwQeofiFvjutihkbThEr8vrAL1KuLYy/CSNldxJVZbGk2jzz9z106+99Au8o
+	lwmpXpE/VwesrVdtDl+jRR9w3pvNyNv/EWfWPDLUATOROYLa2kG0QyBZKBH1IG67GMhdUMeDQJS
+	ZJdCMTQARCzU1Uwe+b15rGJNZloEFYtHF2jJQu3jJEuyTgxDgMd3lUz9tc07X9p658Y6gECVwym
+	Nk+3BUod7d7cDtjYeaucNqrqQ49xOK4DqLp1NGpMkhHazk
+X-Received: by 2002:a05:600c:b90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb8892cb02mr359808605e9.21.1795618361983;
+        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
+X-Received: by 2002:a05:600c:b90:b0:4a7:76fa:87e9 with SMTP id 5b1f17b1804b1-4bb8892cb02mr359808145e9.21.1795618361518;
+        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c61e53asm36682773f8f.59.2026.11.25.06.52.40
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 06:52:41 -0800 (PST)
+Message-ID: <af9b6e7d-6972-4881-9403-c8af22b449fe@redhat.com>
+Date: Wed, 25 Nov 2026 15:52:39 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,52 +112,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v3] ptp: vmclock: keep the device state until the last
+ file is closed
+To: Chad Aldreda <ca@modelmiser.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ David Woodhouse <dwmw2@infradead.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Shuangpeng Bai <shuangpeng.kernel@gmail.com>, netdev@vger.kernel.org,
+ stable@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119061517.1142436-2-ca@modelmiser.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261119061517.1142436-2-ca@modelmiser.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-7.3-stable review patch.  If anyone has any objections, please let me know.
+On 11/19/26 07:15, Chad Aldreda wrote:
+> vmclock_probe() allocates struct vmclock_state with devm_kzalloc_obj()
+> and maps the shared page with devm_memremap(), so both are released
+> when the driver is unbound, but an open /dev/vmclockN keeps using them
+> through its file state. After an unbind, read() runs on the freed
+> struct and reads through the released mapping, and a poll() in
+> progress sleeps on a wait queue in the freed struct. KASAN reports a
+> slab-use-after-free in vmclock_miscdev_read(). In testing, the same
+> read() faulted on the unmapped page once the device had been bound
+> again.
+> 
+> Allocate the state with kzalloc_obj() and map the page with memremap(),
+> and release both on the last reference: open() takes a reference and
+> release() drops it, and a devm action drops the device's own reference
+> after vmclock_remove() has called misc_deregister(). misc_open() calls
+> open() with misc_mtx held, and misc_deregister() takes misc_mtx, so
+> open() always runs while the device's reference is held.
+> 
+> vmclock_remove() now marks the device as removed and wakes every waiter
+> on the wait queue. A read() or mmap() on a file that is still open fails
+> with -ENODEV once it sees the mark. On a device that supports
+> notifications, poll() returns EPOLLHUP | EPOLLERR, including a poll()
+> that was already waiting; it tests the mark after poll_wait(), so it
+> cannot miss the wake-up. The wake-up uses wake_up_interruptible_all(),
+> because no later notification will reach a waiter that the remove-time
+> wake-up skips, such as a second epoll instance that registered the file
+> with EPOLLEXCLUSIVE. Without notifications poll() already returns
+> POLLHUP.
+> 
+> Separately from the report below, the bug was also found by a
+> Coccinelle script that reports device nodes in devm-allocated memory,
+> posted at
+> https://lore.kernel.org/r/20261106193517.3267013-2-ca@modelmiser.com,
+> and reproduced in QEMU 10.2.4 with -device vmclock. There is no access
+> to EC2 hardware with this device, so the fix has only been tested in
+> QEMU. QEMU's device has no notifications, so the poll() path was tested
+> with a local change that lets poll() wait without them.
+> 
+> Fixes: 205032724226 ("ptp: Add support for the AMZNC10C 'vmclock' device")
+> Reported-by: Shuangpeng Bai <shuangpeng.kernel@gmail.com>
+> Closes: https://lore.kernel.org/all/178144969601.60470.14493569608271069160@gmail.com/
+> Cc: stable@vger.kernel.org # 7.0+
+> Signed-off-by: Chad Aldreda <ca@modelmiser.com>
+Applied, thanks!
 
-------------------
-
-From: Bart Van Assche <bvanassche@acm.org>
-
-[ Upstream commit 750eb5ab457e62e221a9c8521e2274f14c85b387 ]
-
-If netdev_alloc_skb() fails, mctp_i3c_read() jumps to a label that
-unlocks mi->lock although that mutex has not been locked yet. Fix this
-by returning -ENOMEM directly. This bug has been detected by the Clang
-thread-safety analyzer.
-
-Cc: Leo Yang <Leo-Yang@quantatw.com>
-Cc: Paolo Abeni <pabeni@redhat.com>
-Cc: Jeremy Kerr <jk@codeconstruct.com.au>
-Cc: Matt Johnston <matt@codeconstruct.com.au>
-Cc: netdev@vger.kernel.org
-Fixes: 2d2d4f60ed26 ("mctp i3c: fix MCTP I3C driver multi-thread issue")
-Signed-off-by: Bart Van Assche <bvanassche@acm.org>
-Acked-by: Matt Johnston <matt@codeconstruct.com.au>
-Link: https://patch.msgid.link/71e0a880ffe7a83237e501b07884bf54343e76ca.1793296780.git.bvanassche@acm.org
-Signed-off-by: Paolo Abeni <pabeni@redhat.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/net/mctp/mctp-i3c.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/net/mctp/mctp-i3c.c b/drivers/net/mctp/mctp-i3c.c
-index 4e857dd5df642..5f225999d715e 100644
---- a/drivers/net/mctp/mctp-i3c.c
-+++ b/drivers/net/mctp/mctp-i3c.c
-@@ -111,8 +111,7 @@ static int mctp_i3c_read(struct mctp_i3c_device *mi)
- 			       mi->mrl + sizeof(struct mctp_i3c_internal_hdr));
- 	if (!skb) {
- 		stats->rx_dropped++;
--		rc = -ENOMEM;
--		goto err;
-+		return -ENOMEM;
- 	}
- 
- 	skb->protocol = htons(ETH_P_MCTP);
--- 
-2.53.0
-
-
+Paolo
 
