@@ -1,62 +1,77 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=182.48.54.220
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=193.142.43.55
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795622817;
-	b=pQh3DlbFLIUBmyPNX0vNI+S1fdKBwsJohUJHNkTU9miQI8eO9k96LIU3c4qrXsskYK6t
-	 wxjslImzu8hjV8KsgTtWVUuaIGB7jl3uQCdMw2xxN2/8U5XXlZCMP0Moxh5aFdd5WU06H
-	 VGhCCv2cYJlAxw+JjqsdUfbHcsSl/30ZGQM21+Ule/4C2++HWZtqfrJIWCGA0ewtDRB/6
-	 6D5ud2ZJJviHZnJJohqx04o0xAe0X+mYbrnumpoDc9fU6X3GW+Pit0X7aMGZYosmW1RfY
-	 xFaEkDZDNQIrdoRBIh95FOXqu91pd0kV2LihWj8RwmvhwrIHpbUhOQtbCjMABNqwOhQ==
+	t=1795622818;
+	b=RBsNTbFZno10/uxQWDZfnGA3jRAujWU9mNi3xfqBkXWiDf3aZcjnVyiFb9G79RuivYqM
+	 qKRopsKNlU+n+UBRQ/hydmK6e4YhrwTf866xlCmhdpufhYfryqr9xYs7Bj8UvFl1iT41Z
+	 MZmTSj//xFGiCmiAeeQR42rBnte1KCjE2MwmbhglMawOEZ1IYzXHqRVxO7fZb6O0TXwM4
+	 dt72E0QU+VbzS3Ol1ipTdVfh6UJ5qYquHLWyAL1O2xNtHwB8Xo0dAouEim6QLvEIu9v5d
+	 vp1yUFhi2XVXBheIR88S9I/0pAHM0R6DcO8m/N8FB4vuFnni1fkhwZJ3tnqvi1okLWw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795622817;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=tbHtq4u5qNw0coKzM67hn3NfizR9DRcO7y7V+ZSUs48=;
-	b=ZECnogIVvElSmgTG2ss5S3NW+19bwiq/IetMS6ipwlcgJ+DL5iauCZDyvpHoSlpUxYJ6
-	 yDVOQRYJKeNgweQafm7SWhOWnjJygBH6QfvBXX7leSGkPGhKKLHnm4hOfPHxqEVR9wfjl
-	 NXcLuNBhrptuiGPr5hgPVZhwqkn92JBzjVWgW3D19Ee7a4IzSv0RP1PK33gshtSOH8I1z
-	 8XgYvCBct0ehoFbCKO0CTN439Xqml0AFxlTUwwx3Z6srM2WV1SXWUCYiQ0MkXrXvVMqGT
-	 eHE0PYKlgeEtEYrq4eWwwJN4GnZNh3hFhFmihOt5oSgTa3eta8R2olDMIP3FaZmgLaA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795622818;
+	h=DMARC-Filter:Message-ID:DKIM-Signature:DKIM-Signature:Subject:From:
+	 To:Cc:Date:In-Reply-To:References:Disposition-Notification-To:
+	 Organization:Content-Type:Content-Transfer-Encoding:MIME-Version;
+	bh=S3FuZwbrAhjaM6kTBlafii6bM4GnE5BBZTC//slK6X0=;
+	b=zpimc9MF8rGjnAxvzcoooY30/+Jnf+66c8tgGyY+og4VvODhLgFCPZO/MX+tAsvyH5va
+	 Oyvwhuzp0oAA97GPWzm71oZobWontEmDtRWfb5N5DNwNkzXSLoSfXuDy0Ijoe5PrXBpRB
+	 qpEAt5a+Hh0lRdJXj76qtIMvNQCXuotoobwEzrSFndoV8fg87dkIeiiTS9sT94q/uPjcE
+	 9jv669/Lvmw85da5Udw1x8Bsva87uXLHisSJb1Dp5ZNlfoUxPSUmuXdMdNCjExxQWRZcH
+	 9smJPWs9Pn791xqQXQGq0T+kfs+HWW0xXortRAQtQqegL20W31QBfDVm93s/dy2OqTw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=snowrabbit.org;
-	spf=pass smtp.mailfrom=snowrabbit.org;
-	arc=none smtp.remote-ip=182.48.54.220
-Received: from bambi.snowrabbit.org (bambi.snowrabbit.org [182.48.54.220])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 81B88606A680;
+	dmarc=pass header.from=linutronix.de;
+	spf=pass smtp.mailfrom=linutronix.de;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ppI+mJfi;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=kI7IykWa;
+	arc=none smtp.remote-ip=193.142.43.55
+Received: from galois.linutronix.de (Galois.linutronix.de [193.142.43.55])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A78B5606A682;
 	Wed, 25 Nov 2026 16:06:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 81B88606A680
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=snowrabbit.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=snowrabbit.org
-Received: by bambi.snowrabbit.org (Postfix, from userid 3001)
-	id 2B33CC9300; Thu, 26 Nov 2026 01:06:55 +0900 (JST)
-From: Showta Ishizaki <zakinko@snowrabbit.org>
-To: "Michael S. Tsirkin" <mst@redhat.com>,
-	Willem de Bruijn <willemdebruijn.kernel@gmail.com>,
-	Jason Wang <jasowangio@gmail.com>,
-	netdev@vger.kernel.org
-Cc: Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Simon Horman <horms@kernel.org>,
-	=?utf-8?q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Richard Weinberger <richard@nod.at>,
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Chris Arges <carges@cloudflare.com>,
-	Paulos Yibelo <habte.yibelo@gmail.com>,
-	=?utf-8?b?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>,
-	virtualization@lists.linux.dev,
-	linux-um@lists.infradead.org,
-	linux-doc@vger.kernel.org,
-	Showta Ishizaki <zakinko@snowrabbit.org>
-Subject: [PATCH RFC net v8 0/6] more virtio-net csum hardening
-Date: Thu, 26 Nov 2026 01:06:41 +0900
-Message-ID: <20261126.rfcv8.99797.0.zakinko@snowrabbit.org>
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A78B5606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linutronix.de
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=linutronix.de header.i=@linutronix.de header.a=rsa-sha256 header.s=2020 header.b=ppI+mJfi;
+	dkim=pass header.d=linutronix.de header.i=@linutronix.de header.a=ed25519-sha256 header.s=2020e header.b=kI7IykWa
+Message-ID: <bd31f8cd5121429a3b181ba70ffd53475aec8704.camel@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1795622813;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S3FuZwbrAhjaM6kTBlafii6bM4GnE5BBZTC//slK6X0=;
+	b=ppI+mJfiNu64lB4cP9r+efKp90B6RxvjvO1EYM2GYO0XNKA7U4fuZH9+bdhujgZewVnKML
+	epcRVSZwW8Cdn7NUW9lcwfaOIssIN+xJOGJ8rq1ZBi2y/311PMwAxaTuJ+oHdIQxNjvjsR
+	0MzVEv+feRxWpAlRE4FgEWjj7uVwqmb6WekA2M/8re6hO3HIfrqt6nqANGUc1IjmBbBEjd
+	shz24YD5tIt3+1tHW1Y1z+UIa/INyEi0DJ353aP5q8kJh3rExQhFjDgLWYDI3sbBGSsJLA
+	clT34JhJxOFBR/bpf9e+L/bActooeqdlNiD9wy57A3vx4+OgZ1HeVg0PDe6/3w==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1795622813;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=S3FuZwbrAhjaM6kTBlafii6bM4GnE5BBZTC//slK6X0=;
+	b=kI7IykWaiatQvtUYlHM+qgl3ONjmikyiQQiOdaoshgxC4hg2CF3o731Q9pqk8WCy2oVo7e
+	tHgmexuzGmJ3pfDw==
+Subject: Re: [PATCH net-next v5 5/9] net: dsa: Add tag handling for SoC-e
+ switches
+From: Vasilij Strassheim <v.strassheim@linutronix.de>
+To: sashiko-reviews@lists.linux.dev
+Cc: devicetree@vger.kernel.org, mfd@lists.linux.dev, robh@kernel.org, 
+	conor+dt@kernel.org, lee@kernel.org, netdev@vger.kernel.org
+Date: Wed, 25 Nov 2026 17:06:51 +0100
+In-Reply-To: <sashiko-outbox-227109@kernel.org>
+References: 
+	<20261120-devel-vstrassheim-soce-dsa-ml-v5-0-5de9225715e6@linutronix.de>
+	 <20261120-devel-vstrassheim-soce-dsa-ml-v5-5-5de9225715e6@linutronix.de>
+	 <sashiko-outbox-227109@kernel.org>
+Organization: Linutronix GmbH
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,82 +81,57 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 
-Michael wrote in v7 that he would be on other things for a while and
-posted it in case anyone wants to take it up, so here it is, rebased and
-with the review comments addressed. Michael, if you already have a newer
-version, I am happy to drop this one in favor of it. Patches 1-4 and 6
-are yours; what I changed is noted above my sign-off.
+On Sat, 2026-11-21 at 14:53 +0000, sashiko-bot@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue to consider:
+> - [Medium] net: dsa: broken flow dissection in sdsa due to inflated
+>   needed_headroom
+> --
+>=20
+> commit ff03e408d05d4a91db8a81df7f6cead0f9e1dc6f
+> Author: Vasilij Strassheim <v.strassheim@linutronix.de>
+>=20
+> net: dsa: Add tag handling for SoC-e switches
+>=20
+> This commit adds a DSA tag driver for SoC-e switches using the 8-byte
+> EtherType SDSA header.
+>=20
+> > diff --git a/net/dsa/tag_sdsa.c b/net/dsa/tag_sdsa.c
+> > new file mode 100644
+> > index 0000000000000..c5a9f61edf405
+> > --- /dev/null
+> > +++ b/net/dsa/tag_sdsa.c
+> [ ... ]
+> > +static const struct dsa_device_ops sdsa_netdev_ops =3D {
+> > +	.name =3D SDSA_NAME,
+> > +	.proto =3D DSA_TAG_PROTO_SDSA,
+> > +	.xmit =3D sdsa_xmit,
+> > +	.rcv =3D sdsa_rcv,
+> > +	/* Include room for an accelerated non-802.1Q tag pushed in-band. */
+> > +	.needed_headroom =3D SDSA_HLEN + VLAN_HLEN,
+> > +};
+>=20
+> [Severity: Medium]
+> Does setting .needed_headroom to SDSA_HLEN + VLAN_HLEN without a
+> .flow_dissect callback break flow dissection on the conduit?
+>=20
+> When ops->flow_dissect is NULL, __skb_flow_dissect() falls back to
+> dsa_tag_generic_flow_dissect(), which uses ops->needed_headroom as the RX
+> tag length:
+>=20
+> include/net/dsa.h:dsa_tag_generic_flow_dissect() {
+> 	const struct dsa_device_ops *ops =3D skb->dev->dsa_ptr->tag_ops;
+> 	int tag_len =3D ops->needed_headroom;
+>=20
+> 	*offset =3D tag_len;
+> 	*proto =3D ((__be16 *)skb->data)[(tag_len / 2) - 1];
+> }
+>=20
+> Because received frames only carry an 8-byte SDSA header (SDSA_HLEN),
+> dsa_tag_generic_flow_dissect() reads the encapsulated EtherType 4 bytes
+> past its actual offset and advances nhoff by 12 bytes instead of 8.
+>=20
 
-Changes since v7:
-- Rebased. Commit 73e08d50eb13 ("net: virtio: validate outer protocol of
-  UDP tunnel GSO packets") has the header parsing helpers and the outer
-  header checks, so those are gone from patch 4.
-- Patch 4: has_eth is passed to virtio_net_hdr_to_skb() as well, instead
-  of looking at the device type. I dropped Chris' Tested-by, as this is
-  no longer what he tested.
-- Patch 4: the tnl_csum_negotiated check is ahead of the validation
-  again, as Willem pointed out.
-- Patch 5 is new: the outer checksum of tunnel packets that are too small
-  to segment. Willem asked for it as a separate patch.
-- Patch 6: the sysctl does not turn off the outer header checks, which
-  are in the tree unconditionally now. I turned the Reviewed-by tags into
-  Cc, as that changes what was reviewed.
-
-The two issues Michael listed as open in v7 are still open, hence the
-RFC: the inner packet of a tunnel can have a valid header at
-inner_nh_offset that overlaps the real transport header, and completing
-the checksum at input breaks nf/BPF programs that edit the payload and
-rely on CHECKSUM_PARTIAL.
-
-I compared no patches, 1-4 and 1-6 on arm64 (qemu, TCG) with frames
-written to a tap:
-
-- Non-GSO UDP tunnel packets that ask for the outer checksum, over IPv4
-  and IPv6, go out with a wrong one without the series and with 1-4, and
-  with a correct one with 1-6.
-- When the inner packet is a fragment, 1-4 reject them with EINVAL, and
-  1-6 send them with a correct checksum.
-- GSO behind an IPv6 AH is accepted without the series, and rejected
-  with 1-4 and with 1-6.
-- A plain UDP packet with csum_offset at the destination port is
-  completed at input and counted in rx_csum_sw. One with good metadata is
-  not counted.
-
-The objects touched build on x86_64 with W=1 after each patch. At the end
-of the series I also built the um objects, and linked an arm64 kernel
-with CONFIG_INET=n and VIRTIO_NET=y.
-
-Based on net e6474ead54b8, where the tests were run as well.
-
-Michael S. Tsirkin (5):
-  net: account for ingress-resolved virtio net hdr state
-  um: vector: trim skbs before verifying the header
-  virtio_net: parse tunnel csum_start little-endian
-  net: resolve uncommon partial checksums at ingress
-  net: add a sysctl to opt out of virtio net hdr checksum validation
-
-Showta Ishizaki (1):
-  net: virtio: compute the outer checksum of non-GSO tunnel packets
-
- Documentation/admin-guide/sysctl/net.rst |  19 ++
- arch/um/drivers/vector_kern.c            |   6 +-
- arch/um/drivers/vector_transports.c      |   4 +-
- drivers/net/tap.c                        |   4 +-
- drivers/net/tun.c                        |  44 +++-
- drivers/net/tun_vnet.h                   |   4 +-
- drivers/net/virtio_net.c                 |   2 +-
- include/linux/virtio_net.h               | 247 ++++++++++++++++++++++-
- include/net/netns/core.h                 |   1 +
- net/core/dev.c                           |   7 +
- net/core/net_namespace.c                 |   1 +
- net/core/sysctl_net_core.c               |  50 +++++
- net/packet/af_packet.c                   |  16 +-
- 13 files changed, 381 insertions(+), 24 deletions(-)
-
-
-base-commit: e6474ead54b8acecb8b0462dde2d77f46d2b7dc1
--- 
-2.54.0
+Yes, there is a problem. I will fix that with an SDSA-specific
+.flow_dissect() callback
