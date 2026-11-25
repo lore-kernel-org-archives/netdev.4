@@ -1,106 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795596265;
-	b=2d8jerZFctQhVTAx7zJraiyBHv1mXpUQyoKBOAaM3d0SYKeEnnq29kf1qkv78Raw449o
-	 Ef3TbeZD4TZW62f7evgxSItpwB9pVCys5TyE5n47EzZsAkF3iXd71WSb15ffSXRnEehPJ
-	 J2BwJZiceLQJP1vulOljWt1XmddAUAanYozDNQvRPiTyxdZ7cMyY/SYVni0CZnxw2RkIk
-	 IrNar1ONHIIWair8b1DOYXBF9ais5dsqIlTY9e4JMZvVn1WRj0r62VLfk1xGo6IB/EC/7
-	 ocpP/y2KoHCNMHlfXyljNdkuZy3xS1TfAi07JfzrJ6Xo7tlY3UyGYO+KIAM24FNb+cg==
+	t=1795596349;
+	b=uD2NooDx9RUUWADKsfmMmhJAyKN0FkH966GaxfyzlaUNkf/1uJoReTSl4h2Rp1rKIdUA
+	 aQLVG3afnpcIf5oF7xGKAlFXT5IP7bTpInlt2VMZRwTDl1X510a6BiCRZEC+CV4C7H0uI
+	 fm/a2263ss1qP4ZaSNaRwK77XV4zcPK3S0CCst9UenLqcq25SOZ+CF97gC9UYEA+szspO
+	 RgcenQGQ9posGOZUMgStMzagq2GAMNMA9W5yVbCZhVIIS3qxb5d2sv5QgEqac/x5jj8jZ
+	 LdGAuh3tTifsvltldIYqAGGUQj8aKCxSAm0Ww+IkTUq0fabGQIl87F0nm/70tpjobZQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795596265;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=lPFYialRWG4pRS4OT1uh519VBoCu1VzItcljyeAUzHU=;
-	b=SfUuk+DyECVbMdeNgKnWnaNTV2bcbgF7B/eJpgyj+ewDjnkUMyIAd0UVQYx7/KWaygYU
-	 N/bvDqWQbp8PL5BeRsL2QFXujtEpiZg8ZC6alnyMsvDTLHG2OkvQqp9mwU38e7baspydO
-	 f6oE/7wS9JlNboCMGOWImC1kK0UTLVLK02gt+4ryUqgvJrKJE8hFjX+gbAaSCBx+kv5xF
-	 XmBjzJBz4oaVMaJUjPXi2tJkTULNfjRGKY/3wpgWyD5hG2ammmZ3EjY+BFMJeW24WnEgk
-	 tQ3/M2YweePYeTugHrq6PYuIlyJwtgs70U/qegT8BnT4eD9xQGu3kw8PEy5dq4141dA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795596349;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:Content-Language:To:Cc:References:From:Autocrypt:Organization:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=ryoqsrjoXubEgpswsBR+23g/2lrkh3bv49o6yJigIik=;
+	b=CbtD5683e5IQnL7iHRx+kxkQ1APV5ixDwxFJjabwVV34y9XfzVr9O+AXNYsWENCP1cyx
+	 wK+Sy77uVQZFN7K5rxUCZ9mz/HvqlZkPmKpbaKirSofR9LPEuiUWGJ7EtOX6XZdE40LG6
+	 DFMQOn/5YPBTlSVio6xxalx7/Jvq2qMHIxkS/LYDMv/TkDLDBllPrFt+9J2HwOV9NCj0u
+	 K8JiaSNaln7Ec/0U4mhjNuD+OKnLKwL0lEUGRpR1NqwhQFCXZulaV6t0WGdgg0mgXfkWT
+	 VUZ4+caWpPa+v/yyeKpxFeJxqEAAqBhdFdnzjfk8CooDQtc4e8B5VugAbz4WDs1PMcg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SvniTco1;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7azc6BU;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B90EE606A32E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:44:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B90EE606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1CEE0606A31E;
+	Wed, 25 Nov 2026 08:45:49 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SvniTco1
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f0918f9e6cso13332625ad.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:44:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795596264; x=1796201064; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=lPFYialRWG4pRS4OT1uh519VBoCu1VzItcljyeAUzHU=;
-        b=SvniTco1NUSUtvFcoYZ0pgwBrsTVcjU87S1hUrTrJyFmUsyENhoIOScLvhwMGkbLuL
-         crXEPfrkxUMG2y8MsFu3xB5AFPvmCIE9b0hx05ZepVsUWe3XH+F5bNHrwacvZuxswKux
-         SPDw4FzfkycSozQxoisv3hb11k4/iqsEXBqs8xjqwbNw4x/0W9CZQCTXmCeVD+eRxCCG
-         LbhpvGxuoAMlKVfZ4hIiHvjQL13hA8gGIew0cezJbNolZcFlAhOfy0qHWJhJkG285vpA
-         ev4FMA+eP50cNFVfQMgJBk7OVG6NSG34uDJoQLSj3uaTLrF+KV8Djus0iMd+Go73+heL
-         uVHA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795596264; x=1796201064;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=lPFYialRWG4pRS4OT1uh519VBoCu1VzItcljyeAUzHU=;
-        b=G3Gk6drTXTN/PeoHMHSnULYBXxOz9A7YjbFbDmimJOHNIo2WR3A8xIWVfSE+/vR2ER
-         NNLCDwwLx9EWteHx4+qWR4kK3DAxBqwEoqwVQtM2c3l8KwLRPq6crvbIeM2f5I5Qci6F
-         W82gw01AkIBwdawpliRC/lWXCUYU3xbeJk8Za5RtTxBnlADYOWfLgOZEK+vfpZDUCC77
-         d/6zddketDgZzkGTo7AadLIVdlhFmsx4EaeFJ5/gTc0CDHXgU/6iXgWf1Y0hFaUcLywZ
-         BPZv/xT/EOoSPBfmL55qR3i/Xag3p226sqcfysWTP/Liqwg8byjV+103Jpa1TMoWTv9z
-         LJRg==
-X-Forwarded-Encrypted: i=1; AL+hErHxT0VhtDzG1wA0CUCvLcDodidT6KeUMdghDQ50Vi5wZZdpOCnepShEJZtO3lAWWuDY6a8hOqE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8Qi+GvS1VJoDm6otvj7DUrHczOYrHtO0bUw0H8zw0mIECTAKvV
-	Rna/G39z2SzsfDdl9VTcNompzAEOroOwefXFTD1w5qLTDwxr11mwRhkR
-X-Gm-Gg: AZFdTZe27gvuQw1MgU1KXmUXjsxtEYKDNI4yPQEhnJTTSEA+NBGubjWpsCONREymlFA
-	7Z8iBiVVquzNR1c/FpFka5o2Ygv++L6BAoM/zS2Y9TAvU/D7+1rR0KgUJVzE073ws5Iih7EKnpQ
-	QzgcBpM/xcVupuREQvVbSdwNsCB69IZX616Oarw9YT7vw27KC8B5RvnbS6l4nNDKXSU29RLlgAt
-	AxkpCSOV5kUnXHnJFI4g8oJjVHS0zDOTyl0A2JePNvqMfFZZdVJbCBveG5satDqENkpR4LKm7Qi
-	yyqSqEBdQEfzvPwx1w39ANjpqpc4yeDetMkiF4KNnKhap/SH+o/4tMTjsfF0VPvfZLq2EAqu5/O
-	A4QIz4cUHExY5mqeGh3Hn1uBLxShcla/SIlIDEE7p2WFiERA82PsMprpE7Z4D9Z7bWB9AtSDGvx
-	hBmC8L22YSEOTqIjsag/mbsEPaNEDyo9bw7eAYZh7UydXdkyyVfurGSnopD3N/eJ1byVDDUUSRc
-	TzEuE6XzxsEjC3OatNMae7FxdEWVBRIk7WGc6TwVjT65VLo/UFD6YDPC7uxrKKhKs/y0CWGXI2e
-	N5Q1zvGZEnZ2oT5Z5A1MAd39Q7NVyCP8WWv0HZB+mufi+FwCONlQql2CAtHMvSqvVv9M/yutXpp
-	/2Rfvf0IZOI8Qr4topXiiy87jx3IF1RnGK14bPXV6
-X-Received: by 2002:a17:902:ea0c:b0:2f0:3123:899c with SMTP id d9443c01a7336-2f03f0c1f37mr159122655ad.5.1795596263959;
-        Wed, 25 Nov 2026 00:44:23 -0800 (PST)
-Received: from LDYT9Q2G2M.pvgl.sap.corp ([2a09:bac5:cad3:119::1c:2e7])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a8asm81877485ad.24.2026.11.25.00.44.19
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 00:44:23 -0800 (PST)
-From: Zhiqi Zhang <zhiqizhangg@gmail.com>
-To: pablo@netfilter.org,
-	fw@strlen.de,
-	phil@nwl.cc
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	shuah@kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	netdev@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Zhiqi Zhang <zhiqizhangg@gmail.com>
-Subject: [PATCH v2] selftests: netfilter: fix nft_nat_zones.sh diagnostics
-Date: Wed, 25 Nov 2026 16:44:16 +0800
-Message-ID: <20261125084416.23282-1-zhiqizhangg@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261124071926.8818-1-zhiqizhangg@gmail.com>
-References: <20261124071926.8818-1-zhiqizhangg@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=M7azc6BU
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 50C151F000CA;
+	Wed, 25 Nov 2026 08:45:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795596348;
+	bh=ryoqsrjoXubEgpswsBR+23g/2lrkh3bv49o6yJigIik=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=M7azc6BUPwINZU77PSf79ayyBtOJ9PbEQJ3Klaj8/Y+qcl+idFE7qRwwbRdYEfYyv
+	 P6Z5Xlzyb/+y0D4BbO0jiMisEGZpKuuq0+qT6bW3Wp6OwiQ5iFZi+4baAMeeUjr0ko
+	 5xU887gtjgTM15EeuH/gESoJnTK+c1Kjzz9wpVBSGubyx/rBOj+FOJw/+BtbCfVhsP
+	 Q/Wrg99Utw9o8Wyd2GzW3Oo3Ytfv2+j+alTqMZBFFs/ic4WSS28rrNDW1BLQDKRapS
+	 9Mj9aqmHz3kIrWxeo2fgIXMfFtpuez4Kdv3rQia/q4YH78Z5joENdHmwKuEWc05nFC
+	 6IxGmLZ2bZmRg==
+Message-ID: <b2d353ed-d684-4327-a2e7-5042a07a2927@kernel.org>
+Date: Wed, 25 Nov 2026 09:45:42 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,69 +51,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird Beta
+Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
+ CAP_NET_ADMIN
+Content-Language: fr
+To: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
+Cc: Dominik Maier <dmnk@google.com>, Mat Martineau <martineau@kernel.org>,
+ Geliang Tang <geliang@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ mptcp <mptcp@lists.linux.dev>, netdev <netdev@vger.kernel.org>,
+ dmnk+artist <dmnk+artist@google.com>,
+ Shardul B <shardul.b@mpiricsoftware.com>,
+ Mpiric Private Limited <janak@mpiric.us>
+References: <20261119192159.2646113-1-dmnk@google.com>
+ <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
+ <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
+From: Matthieu Baerts <matttbe@kernel.org>
+Autocrypt: addr=matttbe@kernel.org; keydata=
+ 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
+ lzVbFe7fduHbABmYz9cefQpO7wDE/Q==
+Organization: NGI0 Core
+In-Reply-To: <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-nft_nat_zones.sh starts all client pings in the background and then
-uses a bare wait to collect them. In bash, wait with no arguments
-returns zero after all known children have been waited for, so a ping
-failure does not set ret. The diagnostic after that wait is also outside
-the client loop, so it would name only the final client even if it ran.
+Hi Kalpan,
 
-Store each ping PID and wait for it next to the matching client
-namespace. This makes failed pings set ret and reports the client that
-actually failed.
+On 25/11/2026 05:51, Kalpan Jani wrote:
+> Hi Matt, Hi Dominik,
+> 
+> I tested the proposed change on a locally built kernel with MPTCP enabled.
+> 
+> Runtime testing passed for both client and server sockets:
+> - Privileged Netlink requests return the actual sequence counters, matching getsockopt(MPTCP_INFO).
+> - Unprivileged Netlink requests return zero for mptcpi_write_seq, mptcpi_snd_una and mptcpi_rcv_nxt.
+> - Other diagnostic information remains available to unprivileged users.
+> 
+> The full kernel build and runtime tests completed successfully.
+> 
+> Tested-by: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
+Thank you for having tested that and your previous work!
 
-The veth0 ICMP counter mismatch path checks the 10.3.0.99 key but dumps
-10.3.99 for debugging. Dump the same key that was checked.
+Dominik's patch looks good to me:
 
-OpenAI Codex helped analyze the Sashiko review and draft this respin. I
-reviewed the changes.
+Reviewed-by: Matthieu Baerts (NGI0) <matttbe@kernel.org>
 
-Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
----
-Changes in v2:
-- Track each ping PID and wait per client instead of adding echo after a
-  bare wait.
-- Report the client whose ping failed instead of reusing the final loop
-  value.
-- Fix the veth0 ICMP debug dump key from 10.3.99 to 10.3.0.99.
+@netdev maintainers: I see this patch is still listed on Suie, can you
+please apply it in -net directly?
 
- .../selftests/net/netfilter/nft_nat_zones.sh        | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
-
-diff --git a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-index d935c967dd..9397f09d0c 100755
---- a/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-+++ b/tools/testing/selftests/net/netfilter/nft_nat_zones.sh
-@@ -167,11 +167,16 @@ ip netns exec "$gw" sysctl -q net.ipv6.fwmark_reflect=1 > /dev/null
- for i in $(seq 1 "$maxclients"); do
-   cl=$(eval echo \$cl"$i")
-   ip netns exec "$cl" ping -i 0.5 -q -c 3 10.3.0.99 > /dev/null 2>&1 &
-+  ping_pids[$i]=$!
- done
- 
--wait || ret=1
--
--[ "$ret" -ne 0 ] && "FAIL: Ping failure from $cl" 1>&2
-+for i in $(seq 1 "$maxclients"); do
-+  cl=$(eval echo \$cl"$i")
-+  if ! wait "${ping_pids[$i]}"; then
-+    ret=1
-+    echo "FAIL: Ping failure from $cl" 1>&2
-+  fi
-+done
- 
- for i in $(seq 1 "$maxclients"); do
-    if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 }" | grep -q "{ 10.1.0.3 . \"veth$i\" . 10.3.0.99 counter packets 3 bytes 252 }"; then
-@@ -185,7 +190,7 @@ done
- if ! ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.0.99 . \"veth0\" . 10.3.0.1 }" | grep -q "{ 10.3.0.99 . \"veth0\" . 10.3.0.1 counter packets $((3 * maxclients)) bytes $((252 * maxclients)) }"; then
-     ret=1
-     echo "FAIL: counter icmp mismatch for veth0: { 10.3.0.99 . \"veth0\" . 10.3.0.1 counter packets $((3 * maxclients)) bytes $((252 * maxclients)) }"
--    ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.99 . \"veth0\" . 10.3.0.1 }" 1>&2
-+    ip netns exec "$gw" nft get element inet raw inicmp "{ 10.3.0.99 . \"veth0\" . 10.3.0.1 }" 1>&2
- fi
- 
- if [ $ret -eq 0 ]; then
+Cheers,
+Matt
 -- 
-2.54.0 (Apple Git-157)
+Sponsored by the NGI0 Core fund.
 
