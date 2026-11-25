@@ -1,87 +1,87 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795610836;
-	b=k9fGEp10a/6IawwAbMbxLeRGERCexizg1ryHHe4Az7cQ853YOccfbbsqYHY6HXjGETnn
-	 dSGa7gHQVQQ1nJHRLgDUeYHOsjD7+AXz60hPwQO5AXRuXc9EaARWnvsrwN+eW1iHILb+D
-	 XUNdQa+LqHvdNCSTTeKsnWn4Zbl4t2atSQ4TfPCWCTxJMVvZo/mHfLKphis/Xiyq9B0ey
-	 QvrE6i9j4TmlUGQ+cmHkcWbrPq8qRab/7wvoekQ4vEY4hU15mChKVzd4xym+N5diYZ8FI
-	 JvhtPtizq6WhsLmKfYLhx0Mba83zBwyVdMERZ4niBetgRn9Hl7ucBESr+2CllItmqKQ==
+	t=1795610916;
+	b=uTOHDCc7Cdb7Yokrkj9fYfeR3ulNoBqiWXituFPYPyXZdOR63t7jTdUDIn2SLnEi1kac
+	 1S0oHmhP82lksz3436D4p60VHuyNgXsy2mhhUanEKlZGUHvruWpeZh9cv1eA1u0eVmBZI
+	 V4JIoj8A3f5nCgLg7pOiDHnrqWD90RHdCDbx0mkMqitLT/3FLU17o2Zl+66GUaG9XfxCz
+	 0ZBAqikbNn843ByEeOd4JpFY2n3aOAvIIzh4aXigPdeQAjS884vPisQMjpUgKOnd2djEf
+	 65X9d4RvsBGGtvjbfHzqBxzV1KVq5lnI2Assov+92CufEukNSdlcnu8ngDk0TKgJ9gw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795610836;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=UOswtumIqV73ZgPCkcgKR3Mw8N0TWTgh9bOwnMdx/iw=;
-	b=e+bbG3CAUCZxAujp+aEufp2fRPo6wu1dl6naSl3KER+9eILFKdKSMU691qU9DLI87ZCX
-	 5Xaksw1feiibHIT5xaw2BckwaD7AnvQv+KeVtQFaCejP6VdVbos+OaMN44cpIXJrP7QTp
-	 uEtpazk+0HCSbhETu2Go5/VDMjievVHeFYR7dXze2W06svibFLWuCCK4E4Qlc5pjp9MWS
-	 /Td3ozWtBDTVPAf7JAU67cqN7E/oD+loxOen9N1u9lJuX44W8MjU2XdVL4CEf1HCiDpjV
-	 OCRco5WpEKjNWKLFvic0dCvb6Y5S13gVZFPwlhwNx74I0XJ1FslqhqK8GKlRQ0Zrr8A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795610916;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:From:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+	b=W3JB2e1y3IYrvwzwS5T+kwXpfmmRa29isf+OZlVtQ1xQHdMbKQYfCxVx03nRUzky8ePr
+	 IxPg7Z8CP0qKImeZzN5uFrmP/RXNEzV9xfPgtH0+4u2Hg/kGbEoPZX5S4NjPMHB5S7gOv
+	 y3zDG6oS/TB35X/2+KyC01uaSmQlqp/SL9oZvvAn/0q41elqN8aVVDyVn1aw25rVFD+CA
+	 CgTbXQoYjPJrRqA18SsxfuuvPnMqs21NZ/aDLhfm1VDdkrQ1kdI0KmosG7hdQiXM6FArN
+	 x4JMaQBwaClK4XaXSdTQ0qzrEPdyOF3IJs4Vnwg0iR+vCvAkeVQ1W/ZteW8Eu4xXJNg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OWI+UqWe;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tc4LiAxI;
+	arc=none smtp.remote-ip=209.85.221.50
+Received: from mail-wr1-f50.google.com (mail-wr1-f50.google.com [209.85.221.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 16DCA606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:47:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 16DCA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E3712606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 12:48:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E3712606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=OWI+UqWe
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795610835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=UOswtumIqV73ZgPCkcgKR3Mw8N0TWTgh9bOwnMdx/iw=;
-	b=OWI+UqWeCkK2ChqigALQs7HZMQI3oL73swdarbt/HfpXqx1F3b0YDylb0bip8Ffs+Oacr7
-	eY+dStYt17k/JqIcQ936oHZMN7toK7FQYNbBcb2rL+rrqpVrYzwWCkI0z6Dv24kaSGdxiM
-	CygsoHEkRRnfJzehtLyi6ONiY/zAF8o=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-342-xH8KfcU-PdWNfgvM9U5ZvA-1; Wed,
- 25 Nov 2026 12:47:08 +0000
-X-MC-Unique: xH8KfcU-PdWNfgvM9U5ZvA-1
-X-Mimecast-MFC-AGG-ID: xH8KfcU-PdWNfgvM9U5ZvA_1795610825
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE3541801323;
-	Wed, 25 Nov 2026 12:47:04 +0000 (UTC)
-Received: from poros-thinkpadp16vgen1.tpbc.com (unknown [10.44.48.12])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8528E195B3D0;
-	Wed, 25 Nov 2026 12:46:59 +0000 (UTC)
-From: Petr Oros <poros@redhat.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
-	Magnus Karlsson <magnus.karlsson@gmail.com>
-Cc: Petr Oros <poros@redhat.com>,
-	netdev@vger.kernel.org,
-	intel-wired-lan@lists.osuosl.org,
-	edumazet@kernel.org,
-	davem@davemloft.net,
-	andrew+netdev@lunn.ch,
-	horms@kernel.org,
-	Marcin Szycik <marcin.szycik@linux.intel.com>,
-	Aleksandr Loktionov <aleksandr.loktionov@intel.com>
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates 2026-11-13 (ice)
-Date: Wed, 25 Nov 2026 13:46:51 +0100
-Message-ID: <20261125124652.3843638-1-poros@redhat.com>
-In-Reply-To: <20261118115915.116177-1-poros@redhat.com>
-References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com> <20261118115915.116177-1-poros@redhat.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=tc4LiAxI
+Received: by mail-wr1-f50.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso3580250f8f.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:48:35 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795610914; x=1796215714; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+        b=tc4LiAxInFZjm0FZKU4AlIyL7VuUe+IeokgpJQK1fsNKpT2FV8j+GejfwjTBvCWagB
+         mSx2VwoB4EGPQG04Y8Vp+iiRcPXI99JGObgxyalebVsqxTAg9mNd83wAgYeLssb6nBGk
+         NnhWpX59iyE1gYfVLRYZeTfP+MwX2CPG9Hzr+lO1Cr55/pqGxjNjd2buwf8p6S7mHG57
+         a9kq5yICWU4KDQDC90VBuRCly2qnvQsEZTqvTd/WZSwwZtRed1QuzP5W9tP6fdpkEzdU
+         rluHlcVlTurEqA5ezu/HLHeRlJ6AS/skLrQY1EkXnXlNXzzXn4AlQLhNMFjPUCeStWx0
+         ujyQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795610914; x=1796215714;
+        h=content-transfer-encoding:content-type:in-reply-to:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=SAWXjGXaTZ1yifByDjbk7j6PeeVyExFOz8BWyY4y5x0=;
+        b=YmYuHh/aohhfYYQjrlQHOAZaJCmwgEaQ/eijuePLJCGO4yuAGWaSFGkH2y/tQyPpFE
+         OxlTVKqUt7TULWYGhgAyOtjniBScld7Uc40zeZmTI5eMxg2OPkUaMM8ObjSZX/9qo7m0
+         3u2kFfEr/W+TcM/ffmryTjT4rWzceweKdAzYbS670migwK9oa3Uq6gU5ph4s4vWLL/AQ
+         8+gfaTKcoPBxLx10tNwjvuJ0sxOLeIbkjWQhSW5BSAsmndAe/Fdi7QG7sCY4uRPw48Gh
+         Ao5B8Hf/KlwqrdE0ry7pR9qhMqBFzq0X9lmGf81pxVltZCqWLbG6qAqswEYTUVIOoE4X
+         c7ow==
+X-Forwarded-Encrypted: i=1; AL+hErFtAZOQ0yfkJT02IA5R/d7wnqUNlJTNHwc0qdHYvCmLcHDh47VA32PNEs14WtntZONvs22LFuY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Bvvmm8c+GSAK7Rhp4Nl1giuOdiHxG/16lMkIT9mX5ZmSBtphw
+	iYH/D924sDlJ54En8P4Xcn0VEO1geSEXMQFPiNVBuVRDDSj2UOGfWyMSMqwRl1yTtFc=
+X-Gm-Gg: AZFdTZeNSiBerf4MlWiMTWVMWeO1M3LI+Fdi2WlDoCGbHimtpneJSUU+L1/7fpTXNxe
+	8+d6LLkhOufpRXVaXBmnuy8TMBN/iPZey2zg0C+h/Ozvwo9DBs1FmYtK8UXeEydaKa6CqxlRNZK
+	HWgfj3PXioRM508BaY3Cfr6+n6vCytQh/C0E0G7Wm6WcBF+6BIYmj5HS4niKEhkzdUrUiok8gE3
+	zuSDYOXKBeSZUfKzpkT42iI3SuxKZxHOc3gqcjP3ZaJY271iBOHLsWUyv+KGmS7ZM+pGy8AfhM/
+	LLknZH0ErgEWa8JaU4NsadwpWMOrt2R98RUOmUKzR/CW9GYl9BViLjlj3RiUIIC21G0dyGnhdsb
+	jiKecsN6L0Xag96sPMbO7dWKyzXbYFcoVaWCuoYhI5ip+vJ6lRM+UH0/mhDTtnwnpKOKxV0CCj0
+	DAWKQfhFRJSRQEARa8N19GDIey2qvbIOZbGzcw0vUFYOvcziYUjqAM6NCnHYIsPTcYT1UfZ+md0
+	neU3ogw0rabFTXZAEmMQCv5C7xgQqStug3K6L0TJprfBtT/SdwICg7CX4MW7pYJGL3B1tcyTqNU
+	w8nA+l2viJyK+ptJXbWR70e2CaAgInBwErAVyYIRh7YhwBSG6vnPhmIg+9tZy0ILzjrcCbhCcjU
+	00BXusGxou/C8
+X-Received: by 2002:a5d:6f13:0:b0:491:3fdd:af42 with SMTP id ffacd0b85a97d-4abb5cc19b5mr30983044f8f.37.1795610914011;
+        Wed, 25 Nov 2026 04:48:34 -0800 (PST)
+Received: from [192.168.0.36] (firewall-214-232.seh.ox.ac.uk. [163.1.214.232])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ad6403fdbbsm25732393f8f.15.2026.11.25.04.48.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 25 Nov 2026 04:48:33 -0800 (PST)
+Message-ID: <c3e6cc57-a091-4342-bbb5-03b594c05fdf@gmail.com>
+Date: Wed, 25 Nov 2026 12:48:33 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,31 +91,111 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH 2/2] atlantic: skip hardware teardown when PCIe parent is
+From: Tobias Heath <heathtobias@gmail.com>
+To: Andreas Noever <andreas.noever@gmail.com>,
+ Mika Westerberg <westeri@kernel.org>, Yehezkel Bernat
+ <YehezkelShB@gmail.com>, Sukhdeep Singh <sukhdeeps@marvell.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Richard Cochran <richardcochran@gmail.com>, linux-usb@vger.kernel.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
+ <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Content-Language: en-US
+In-Reply-To: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 
-Thanks everyone for the input. Jakub wrote that netdev is happy to take
-the patches directly once a maintainer acks them there, and Przemek
-that they will ack more on netdev. Building on that, here is a
-suggestion for how it could look. It is only a proposal, for anyone to
-comment on or change.
+When the PCIe parent bridge of an atlantic NIC is removed - which
+happens routinely on laptops with Thunderbolt docks whenever the dock
+is physically disconnected while any sleep / power management cycle is
+in flight - the kernel enters a deadlock:
 
-1. Fixes could go to netdev as [PATCH net] with intel-wired-lan in Cc
-   and be acked there by a maintainer listed for the driver, so they
-   would not need a separate round on iwl-net.
-2. Patches that are already queued could be sent again directly to net
-   by the people who originally posted them, the same way.
-3. Later, once this works for fixes, the same might be worth
-   considering for net-next.
+  * pciehp_ist invokes pci_stop_and_remove_bus_device() on the atlantic
+    device; this acquires the device's lock and calls the driver's
+    .remove callback (aq_pci_remove).
+  * aq_pci_remove -> unregister_netdev -> aq_ndev_close -> aq_nic_stop
+    -> aq_vec_stop -> napi_disable -> napi_disable_locked.
+  * napi_disable_locked waits for NAPI_STATE_SCHED to clear in a
+    usleep_range loop. NAPI_STATE_SCHED is cleared by the poll
+    function (aq_vec_poll) calling napi_complete_done, but the poll
+    function reads the RX ring state over the (now disconnected) PCIe
+    bus: config reads return 0xffffffff, the poll never decides it has
+    quiesced, NAPI_STATE_SCHED never clears, and the loop spins
+    indefinitely.
+  * Every other device_resume waiting on the parent bridge blocks on
+    the mutex held by pciehp_ist; most visibly an async wiphy_resume
+    for the laptop's Wi-Fi, which DPM watchdog times out at 120 s,
+    panicking the kernel.
 
-It would also help if Intel updated the MAINTAINERS entry to match and
-kept it up to date, so that it is clear who acks fixes for each driver.
-Jakub mentioned adding maintainers or splitting the entry, and the
-details would be for Intel to decide.
+The kernel already has the signal we need: pciehp calls
+pci_dev_set_disconnected() (which sets dev->error_state to
+pci_channel_io_perm_failure) via pci_walk_bus() before starting the
+device-removal walk. By the time aq_pci_remove() runs on a surprise-
+removed device, pci_dev_is_disconnected(pdev) is already true.
 
-Does anyone see a problem with this? And who can make the final call
-on how to go on?
+aq_nic_deinit() in the same file already consults the equivalent
+c pci_device_is_present() for the firmware deinit path; aq_nic_stop()
+simply does not. This patch adds the check: when the PCIe parent is
+disconnected, skip the hardware-touch work (hw_irq_disable, aq_vec_stop
+with its napi_disable, aq_ptp_ring_stop, hw_stop) and still free the
+IRQs that need userspace-side cleanup. unregister_netdev() in the
+caller continues to free the NAPI structures on the kernel's side as
+normal.
 
-Regards,
-Petr
+This mirrors the handling in Marvell's AQtion Windows driver
+(aqnic650.sys 3.1.10), which uses a "surprise_removed" flag set from
+NdisDevicePnPEventSurpriseRemoved to short-circuit every hardware
+code path while still completing software teardown. Static analysis of
+that driver confirmed both the pattern and the bounded wait times on
+its remaining hardware polls (1 s register poll, 2 s firmware mailbox)
+- details available on request.
 
+Before this patch, with a TB dock connected to the atlantic device,
+disconnecting the dock during any sleep or power transition caused a
+reproducible DPM-watchdog panic at T+120 s. With this patch, the
+teardown completes in milliseconds and the system continues normally.
+
+Signed-off-by: Tobias Heath <heathtobias@gmail.com>
+---
+ .../net/ethernet/aquantia/atlantic/aq_nic.c   | 21 +++++++++++++++++++
+ 1 file changed, 21 insertions(+)
+
+diff --git a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+index 42e0fe924..0cca82974 100644
+--- a/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
++++ b/drivers/net/ethernet/aquantia/atlantic/aq_nic.c
+@@ -1434,6 +1434,27 @@ int aq_nic_stop(struct aq_nic_s *self)
+ 	timer_delete_sync(&self->service_timer);
+ 	cancel_work_sync(&self->service_task);
+
++	/*
++	 * If the PCIe parent bridge was removed (e.g. a Thunderbolt dock
++	 * was physically unplugged while the kernel was mid-teardown),
++	 * the device's config space reads as all-ones. Register writes are
++	 * harmless no-ops, but napi_disable() waits for NAPI_STATE_SCHED
++	 * to clear via napi_complete_done() from the poll function, which
++	 * reads the RX ring state from dead hardware and never decides it
++	 * is done — the wait loop spins indefinitely. This matches the
++	 * Windows AQtion driver's handling of NdisDevicePnPEventSurpriseRemoved
++	 * (a "surprise_removed" flag short-circuits every hardware path
++	 * while still freeing software state).
++	 *
++	 * Skip the hardware-touching teardown; unregister_netdev() in the
++	 * caller takes care of the NAPI structures on the kernel side.
++	 */
++	if (pci_dev_is_disconnected(self->pdev)) {
++		if (!self->aq_nic_cfg.is_polling)
++			aq_pci_func_free_irqs(self);
++		return 0;
++	}
++
+ 	self->aq_hw_ops->hw_irq_disable(self->aq_hw, AQ_CFG_IRQ_MASK);
+
+ 	if (self->aq_nic_cfg.is_polling)
+-- 
+2.56.1
