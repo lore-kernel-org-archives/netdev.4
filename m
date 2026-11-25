@@ -1,59 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.12.242.78
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795644525;
-	b=K0tkWSYr10JyyiMtEpqASOfj1xt/oUMUZP4BgrCCCRYCR2OgMSMCy7vi1vozBcA4Bo1a
-	 fTmdagoZXfvbS9tuo+wzt80Hfg7HAjsdnbVXyiJs4EH2fHHGsqNdF2LpKi+j81+BcRd4/
-	 fUIViJUz+k3kmEtuMRjenGiy3rmxoH2hRRX8yhy+e41YsFoOmiDngXNNrpOpctF9Xe829
-	 c9eU3QHROeDpQl7u4DCawPSziJBM5tedE7v0Mw2Lxf6UvVRc74LCPgBI+Ey6RZmE7ExnL
-	 FVykWIZoXBuUCC7r/fGoS4RgMxzwvgMOsBMbnIb5FklFUKUVztjPwvPAV6c6KAWhVXg==
+	t=1795644670;
+	b=Solrdu0TDqx++mgGwLFzaRk1+7hgnp8VbIAj3nOy/Rua9Ey5muMumurN9WRZmRG9hk4A
+	 /uiHopBKLM+OQ83KoYcCWV9fGSrbIoNt1aEKlQe8lR6EshFZk23HrIsLae74BHoeGsGAh
+	 MpqaE0hIwigH9c3WAkCVxiW/9ThdP22mpWIiIhJhq6/ifGA5jXLqVVfsyBx8Isz9kXJYx
+	 9w0efIJBH20y/b0SoWu8Q5apY6qe3SBKvJXcO3vvW5yR3V3tS/pd68cxjLbRGZGMvHNHp
+	 YNQu3b+ZAownM5pnhL4quxltmsP4JDAMV5KMB4Y4bJqyW1pR1FPTH3DRk7lx3PD/LOA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795644525;
-	h=DMARC-Filter:Received:DKIM-Signature:X-ME-Helo:X-ME-Auth:X-ME-Date:
-	 X-ME-IP:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=YC2VK93HkvqMATxvGGmq5SS6Vul75+B1jHNnpTCePKU=;
-	b=xHUQn8EuPhibXmw3fEbBbY87I52VDMHOAu2wWuxkrjlcACsX4aoNWnrmgddh0ib6u/LL
-	 VsOYX/XIMTqS/SuKPoXG/+dCTz/vkWYC3rLRoEfeViRoWYJNluJOqE/z5RMc56LEFtd0I
-	 oyIRECOWyODwdw6xs4sa3kI3ySNBqHCsQBnF7aYB+XU0EAa0T0ChpvkPenL1x0lFs1+tH
-	 EwPcMO5M6i5KP9NoLrWu7Q5lB2W1I2iKc8g3FwvQQW26xljjiotQBzd/74APMXuQ3cRCV
-	 g14k9wvPMsTQVI6lC9kQOhvw69icL5PzKgTS9BAfzG8BJG/MFDglDOvMvYltZgeNEEA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795644670;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=dbm1Ef+uitQ2LBt7Exj1+18hYcllnIQWCtcGXjjgdas=;
+	b=zH9YNTRC3IogDW34RIFdvLg/cFFeYgE3yzc3MhvYr73OfArp23AYmT/lgkXVpBArdf4Z
+	 HEe2gavpPdUzt1VBsvUBKM8bi/WvXSC9RWIgHxmDZZqzUkJehLmBDSVsLRk50c2BF8kiY
+	 fHY2ue3FSdWWuLtcx1xbS+nyGnLxXPJXIvPjbA0w7Yv042ja/KApAhCR+Lkngwb1glcoX
+	 YQfGImFq3S1uSu4wikJKiu7qynZc/Kt6egSFqhbWVkdy2NEtiNAulRcqcbFwjfkdpCJxH
+	 GFXftyQxsoeQOnXnpGr8VdQAXBjbPBn5XIXk2Pjcy1Fq6EO/3dCLQTboFlnBTUM/u8A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wanadoo.fr;
-	spf=pass smtp.mailfrom=wanadoo.fr;
-	dkim=pass header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=C0Z4QEfh;
-	arc=none smtp.remote-ip=80.12.242.78
-Received: from smtp.smtpout.orange.fr (smtp-78.smtpout.orange.fr [80.12.242.78])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=g0TvsH75;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 96737606A321;
-	Wed, 25 Nov 2026 22:08:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 96737606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wanadoo.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wanadoo.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6D3FE606A323;
+	Wed, 25 Nov 2026 22:11:10 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6D3FE606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=C0Z4QEfh
-Received: from [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
- ([IPv6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b])
-	by smtp.orange.fr with ESMTPSA
-	id WLAGxbx73qZBYWLAHxXej8; Wed, 25 Nov 2026 23:08:37 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1795644517;
-	bh=YC2VK93HkvqMATxvGGmq5SS6Vul75+B1jHNnpTCePKU=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=C0Z4QEfhJGa1UxoE+RYk06DuFaVwb6AfeMBe6psWBbwOWxy+tXi9apwxBsJFn2FzU
-	 jesEWH94S7sjXxvBFpGjoNLYMJn+gvRvFh06a+DDz4N++1ppxT3gTcE/cLdg3FicyZ
-	 zc6KnH4082wk0IgcE5/KgxwxZbzmYw8p/p3X3XFNxfSOcWjE8Cjl9ndXTz/Ly5m2M2
-	 oyogI0F44mEEPOqJYb58s3v2yVT3HSQmzqSaWmcC9RUeV6pQwySkuhCDMhAu0IiGu6
-	 IxXCkNoLOihWpxGRl0/DmSszvQXNpj+Lda8bREEjnuf4iYYdyQf8VfpR8lYkOBVeue
-	 IyhRN7rZB1WZw==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Wed, 25 Nov 2026 23:08:37 +0100
-X-ME-IP: 2a01:cb10:785:b00:9f13:a1ff:dc18:901b
-Message-ID: <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
-Date: Wed, 25 Nov 2026 23:08:31 +0100
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=g0TvsH75
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=dbm1Ef+uitQ2LBt7Exj1+18hYcllnIQWCtcGXjjgdas=; b=g0TvsH75io6D2rjeMbiqJT3nhj
+	Fohp4Bf/fw24XeVl+aTtSQnnNXv6GkGzMxO1GR3Khppada1xBd51AEX4PkPJtK0+8yx5PGBPT9h1B
+	qKYlx4kOLe34CGjmsr+GMcH4pNHXCcd6aMD1gdg6Gvng87+piaD6mpMyxoexv4TZQtU4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWLCW-001RjL-T9; Wed, 25 Nov 2026 23:10:52 +0100
+Date: Wed, 25 Nov 2026 23:10:52 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+Cc: Vladimir Oltean <olteanv@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+	Hans Ulli Kroll <ulli.kroll@googlemail.com>,
+	Linus Walleij <linusw@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netfilter-devel@vger.kernel.org, coreteam@netfilter.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org
+Subject: Re: [PATCH RFC net-next 0/7] net: cortina: CS7542 wired IPv4
+ hardware flowtable offload
+Message-ID: <5e9d9808-3917-4706-889d-ae1c360155e3@lunn.ch>
+References: <20261125-almondplus-offload-rfc-v1-0-703175c6340c@gmail.com>
+ <7252b836-e375-4550-90c9-b0e3ab7fbb6d@lunn.ch>
+ <179564372798.5.10006827612276789857@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,47 +83,19 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
-To: Markus Elfring <Markus.Elfring@web.de>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
- <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
- <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179564372798.5.10006827612276789857@gmail.com>
 
-Le 25/11/2026 à 19:42, Markus Elfring a écrit :
->> Why changing only one devm_clk_get()?
-> The change relevance is varying for the involved clocks of the affected Linux drivers,
-> isn't it?
-
-Your patch is related to bcm_enet_probe().
-
-See L1754 and L1791. These 2 calls are related to 2 
-clk_disable_unprepare() calls in the error handling path and in the 
-remove function.
-
-Why only update one place, and keep one clk_disable_unprepare()?
-
+On Thu, Nov 26, 2026 at 12:55:27AM +0300, Fil Dunsky wrote:
+> Hi Andrew,
 > 
-> * bcm_enet_probe()
->    https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/broadcom/bcm63xx_enet.c#L1711-L1898
-> 
-> * bcm_enetsw_probe()
->    https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/broadcom/bcm63xx_enet.c#L2641-L2735
-> 
-> 
-> Regards,
-> Markus
+> This is the first standalone offload RFC, v1. The prerequisite CPU-only
+> Ethernet series is v2; this RFC does not replace that series.
 
+Ah.
+
+One patchset at a time please. Get the basic Ethernet support working
+first. Then start on the next topic.
+
+       Andrew
