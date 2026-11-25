@@ -1,92 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.7
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795627397;
-	b=mC0ctRgiFe5KiXU4tNUGUTfCeEc6iksc2U+SxVvJ+KtKHqVJ46PkU0o05FtlU4FgKchD
-	 0u4k2t0OQBiadk7W5u7YQ/sJK9PasedHZnShVMfKJaeVkN6TsR5vCANPS80Eub2oks03v
-	 5OcFozrAKLi4R1KcuhAHlxVXTkGgvFHx07uDx6sNlj2Wgkdhei90BArAAobaRgNtXjl46
-	 O+VBVD4Vccb7iGOGiXLWWqdB8qHQjtnFynb+CUh9pq7T+4kE1c3d76EyUysnB6kR2HVsG
-	 l3jf3oU6/Sn0GuHyyvYwB/FG5C+3GOJKkAYWWl8brVy0lBXQBVEStc/PIn7iHmcpOlg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795627397;
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795627479;
+	b=1coWhsOAeOsWAl0d8OfIdJnjL37w65Ujivf51nex2LjnVXV4ai9a7vgbhdOa7LiStp3h
+	 4cjSq96miGAThSF399a/bauf0CeUuw+gCOCVMtVx+zM69CtfFH1hLBwYSliPuCz4mqiGq
+	 9toI/kJM2HVj2iPiZvM3h76Q4J2sFNu40xQyDw+t0y3bz8OF0EYzHTCrpw/wjE5mTpxh8
+	 +kFeRvoph4SGd+22j0LBxJYrIawdgj7HsaSL1Cvifvyp8wLUCCi5UodhHoMhh/i/ijF8t
+	 q+rJ/42zr7Lr0XZ0TKuSSrRv/fJHnLTk4cPLxavCZLr9lk9CgETuCf9NI59rVRcjgrQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795627479;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:Content-Transfer-Encoding:In-Reply-To;
-	bh=L8YtNWerwT3CdUevd2KPHgTJ8Agp+9MCI6Vm8SGasWs=;
-	b=SXxOHHtkE5tID3vr0huZqUaT5M1I2/nsVxonYxW8905JSE4gdZOi15p2VIbsnWS6mEfV
-	 8INt8WmeeGPX2bWe8WeUizAyP/kvrqGyl5ODrhlq5iS/PDw++ggCLgiqLsGtA2YRe2hQp
-	 iCSTpXpkiHqe+KOdhpG+L/qy7kGNk7m3MoSEU7ui1wUJ/XxayeCLcNPrwsYaEcdH3f4gh
-	 Y9OSjG4Tmo6HH1yINPxUCTwooqqRPybgSEr6xWCD7JjwFyeWVe1TojA2pZPUCTSYuB0bF
-	 FYQ3kb+cSwzuVSfUlUMp+p4hEfN5Ek61lCOsVcMnr6fAuLuXlBrsR+2FodYUvjvNQVA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=cF86LuesLCHsWCQn/gQpIwpG2tWZTDsICF+hqaQS40o=;
+	b=4pXhDNfxfTV3tbjNlFWEkVn+xSQzYZnrzeC30Bn2cSIozd6Fs4Kw8YiXrxKnrcR5OT/a
+	 Pus75TudkIMBkdJv0tF//rIDmhy59afFLBDNRTYVIwXnNlm0XNfqUptquJRKEu2KHYRwR
+	 oTzZbSVmzWLZMflw39ivyMZUv287l8xYNNwXWYXgVEuCxnzLPZmtoKov4WEYEVaMRSNzM
+	 f3dbGYSZUQUBEmK2t9/TCaYfHF52hnwX3GbWZvXlUmeBF8j6O8brNnEXvwvJFveiGecwb
+	 N3tARe/FugcocZklrjnLFQmqXa193oC9/kTy0ZYqp80Hs0J8quCFQsHUsVM/4F1h6JA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJRkHvyw;
-	arc=none smtp.remote-ip=74.125.229.7
-Received: from mail-dy2-f7.google.com (mail-dy2-f7.google.com [74.125.229.7])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B2KZvUbZ;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.54
+Received: from mail-wr1-f54.google.com (mail-wr1-f54.google.com [209.85.221.54])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6ACB4606A338
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:23:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6ACB4606A338
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7EF04606A329
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:24:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7EF04606A329
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RJRkHvyw
-Received: by mail-dy2-f7.google.com with SMTP id 5a478bee46e88-384caecc2a3so560519eec.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:23:17 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=B2KZvUbZ
+Received: by mail-wr1-f54.google.com with SMTP id ffacd0b85a97d-49465892f7bso4406964f8f.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:24:39 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795627478; cv=none;
+        d=google.com; s=arc-20260327;
+        b=j7tBSXq5yZ9LpCT958JsCsZig8Tlxvvae9Zy9VNcpsXJgDY09KhNhJtczZLtbAHmpC
+         BuOUv8DzxXqVhSdlLrbgtKFm4hQisodl/YXLfczJgGF91i65AXWp7x7DJYTqr+wSj4Si
+         tvMvkfY/FnxuOdgNefP9rvLTeBrhXuFTNv78aP97zFyElR2MTgSWBQDydjOQfWQwj0y7
+         nA1qypPxVa9sbZ0+36knl6QyppArVI4IEbXZ8n5l8w1ZGIz96WnFIPJ+U2R6yj58v1vZ
+         Er27FtwtR5n6A3CxlRthdgeO/IHQPGvnFjet1CdXW1X+iCDMVKMSTYgOdyllOd/Rf4h0
+         3VkQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=cF86LuesLCHsWCQn/gQpIwpG2tWZTDsICF+hqaQS40o=;
+        fh=8JF1NoQet6pSK1WTEazgo2FVmFL6Rb8vw8xqJoTRIhY=;
+        b=X0HYcRafJiqtBBeM7MOYGSp21+zcdIUGxxOkyzyrECbPB549nSa4ousK9vA1h0MwKn
+         quIv7CLx/2w3F9IWJN/KMewgjWCBm5uPQSu9brQVsqf2QaOriwQ1TxCZWJTzJfPRwqG5
+         kxarG62N/25IeOq5h6AJnOPJvJBUYiwdjLwUqAbYu/hJhjP3KwLBYLekMK0dCErwWgAq
+         VCf83WRE4jUcdFmheGKZDPZn5DTP38avDUU2umxm+H07pTxCCML6YMaG7pUUSlEntMXR
+         nWUmH9dsBJH9kyS7NLV9V+7hq09g9nbz1Ix7YoTmAZ9zgl23S3Dg9eyHr4QK39rHEpn1
+         Kr7w==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795627396; x=1796232196; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=L8YtNWerwT3CdUevd2KPHgTJ8Agp+9MCI6Vm8SGasWs=;
-        b=RJRkHvyw2MSNE+Q8D3lSOqo5aK756IELc/pJgxHbrClV+X0sqwN//Mslk1TDwhDWYj
-         uheWcBTZcEJoo3E4MQJSiwRMZpBXC3DEU2dTIToJkawbq70BRtZj1Hg7pc6EH3Ky1JBD
-         pTeL2GKVoTshl1OhwLGEJLGAyVuWzWywqyYw9bjgfbitZSLSX4ng0GK5ObdiG+P4udkW
-         S7olHCfNAP5yOFX+5XN73ZpQ0LRMlTi6tNHzkzBSPP+uCquAVNfeFxYs/MEbDabR5Pnn
-         EQxbETB0kuD0Rn5AeI4mp0hgBHGHyvyArZ9m5CiQtR9StIL3KRyLPmuSF0WeXYdvPiL7
-         izuQ==
+        d=gmail.com; s=20260707; t=1795627478; x=1796232278; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=cF86LuesLCHsWCQn/gQpIwpG2tWZTDsICF+hqaQS40o=;
+        b=B2KZvUbZ+CMxUliJWjOFoeTdQTG3TUqjBP1t9Qn4diVvh0xtZSGBR5BjkYOs3ufNaI
+         n71V9yZUZtHdNYrQgU3Y+7HRErpuoT9sgHY15lyryjj9qmTD3go7LWzDshQX8Jn2A1pb
+         QozTF1r3YF1Clq5rME1tnlxSPbNJt7bXGJbtAOP0KEa64kSIPUmAF6hYP++hHHiIIyVh
+         /mT79rVodtFebDpFdULiABiBvbWDYMprw8Bg9qtfgzaaULNke0514z+MA6em49XHiaPE
+         T/PxkNFgoh7JMml9KZMB8PjCrl5GIjw151bMvq160ENwveKtRCEMGQuW04NbPxiO3J/t
+         XZrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795627396; x=1796232196;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:message-id:subject:cc:to:from
-         :date:x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to:content-type;
-        bh=L8YtNWerwT3CdUevd2KPHgTJ8Agp+9MCI6Vm8SGasWs=;
-        b=qtFyVtfZV9qzzmC2sBqgKW2qz28E106Mu+SeXpvEczvq0CKalCSABenrABxKkTFqts
-         WtJPyHLUIm/uiH23LXgmYgi/YiCBrTqa0QOG4yoAAFx7rCruIZ8xkXFFNJHURuqejs6P
-         OvIMA0PUTmNP2QsFqHgoo8D0IGPjlkVi6fV/nVyr30dKLtVSaGVmmTGTKC95gDJR+0WG
-         yEde64pKipGU8Q/7Pp4XogUZIKo+QkSGMZyiI+NvRznrIpzYi8KJIrGZxrDiN+bckBeO
-         Qz6QiGdcUG6lV9aEJVfT+8H791Do5aJ/FzAN0EC3hDo3Uu5eAvF862l/QcP+OQiN1qPc
-         OjVA==
-X-Gm-Message-State: APuU4Z/JyqxEQ5HHtI6o/QirIlT/KFjXWR5JyilPYJ7MfFgfmbYPhS82
-	csfXyO8M4OdkJPywJDZkXIAfk9zYyPibT2h23odtsnxWqwjU59HWH05C
-X-Gm-Gg: AZFdTZdDjf/IlITSRUy0hB32aeEGwUsbrN8ey+CyRPMjke1E5t6da1tcY/R6QtaYBww
-	vbIOCJ1elKcjWjJ+IfifUyPocaZNF3emik1NIa8g5HBh8nrDxbebdZ205IBlJ8MHnMvTGaIa57S
-	9sLKkZPt6RF8u+ard4PN1BiYVgOUzyh26pdBUj8UrS8q4AzXahqkfri291rNK08Ux1M1MZR6Zqn
-	OvOEWDYTvLMtuIFat+Xi+33r5LaGnsdhwtV+UlWHK0HoDyMjCYPdpQz6M3eEG0rZepPyWVltCeh
-	FDl4Dw5UH6ui7LVpnmL/TFr1Au4C3Aig22uPcFZ0tpSReniidgXoxZYW7yvojFqq9W/vpEjeKdd
-	zivm5jOvquKZMIYrY19EEXLH7VH6UFKmB7s9bw/sAxEYF4Qr1hSCwl7HePHMR70DvEtLeNoiRWP
-	57TTst9ormd3oWM4hxlIpZxbAsU9RNu7bj09CA4cDA2U2keMnnYrSgFobY3fdc52fom9fKmgSGC
-	tyvLrAEmNidpZkkUzFpeIc4BSy3E5xGjc46iRakoy26N8buGfNA/Zt/y3OGFpbsyXLIghwQiIQN
-	SHzEjqEK7LvwrK22Q007zSk=
-X-Received: by 2002:a05:7301:fd07:b0:36d:be15:2dd6 with SMTP id 5a478bee46e88-38570844f7cmr18848978eec.11.1795627396171;
-        Wed, 25 Nov 2026 09:23:16 -0800 (PST)
-Received: from localhost ([2a03:2880:9ff:41::])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385677c371esm54992910eec.23.2026.11.25.09.23.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 09:23:15 -0800 (PST)
-Date: Wed, 25 Nov 2026 09:12:56 -0800
-From: Stanislav Fomichev <sdf.kernel@gmail.com>
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@google.com,
-	kuba@kernel.org, pabeni@redhat.com
-Subject: Re: [PATCH net-next 3/4] selftests: drv-net: add a kperf stream test
-Message-ID: <awcXGLXToH7TVj/q@devvm16445.scu0.facebook.com>
-References: <20261123174120.505808-4-sdf@fomichev.me>
- <179554218364.3135.5016659919665552355@kernel.org>
+        d=1e100.net; s=20260707; t=1795627478; x=1796232278;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=cF86LuesLCHsWCQn/gQpIwpG2tWZTDsICF+hqaQS40o=;
+        b=dqCwa7yLZoceczjUC6ZcTVXiAfH3JuOKkQSoMYaJ2ROp9EkWFW71lhxEZRdX6xYZPD
+         1jnLMl3mlWeQ+zaycVtfcBSdtEIBRVjZbLpmOC6EPHbdW4IZacgrbFKLDahkZRr0DBty
+         Rol81dMlwLBxG2ztfa4WM/qZXOFEX5s1oJ3vrBNuqqjPT2ULEovIzheOAeRd46LQopWZ
+         OnfwjQVU1XxluOULndqFRxKZ6hFyJdYzLN62ykHTTXg5Qj3pj9KebVri8QElN9dXwe5q
+         vUhbS5C0DG9WHL6ErncNe1P9xV6/BORs4HMcFFdpy1S1G4AoMue/22iQO44itvM5jWcT
+         026Q==
+X-Forwarded-Encrypted: i=1; AL+hErEbNB8k6qlSzbZyLlABAnveG4qeGHmS2I2LHs8SuvTS7c6FD2FW9pUEHj5SvihMRYWnzpgQZzY=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Cs74aqi2B6lzXSZoSg6lKdrtaX0Li0J24NgugxjkYtiD9D4rn
+	uBbn6CYFYI+wHZm+EcvjvAHWBY5Y9NRUJzHDx4HCUYhxvN4B482ZYllbmxUwJL9CHRhYBSrU+hW
+	jbG2/AEq91mg62XuuwfOfgBnJSKkrfvg=
+X-Gm-Gg: AZFdTZe/lNs+Ooxrd+nxjiUz7mjuRl7DEbdo73Iqkt7cyC4RJPwcsPTyMgRDabU2kBA
+	49KGVuz02b8EY5WUma7G/LFs3iZJqc06dI0QmzsAt5N9oSY7NqXT1opA03Lp5OH5ipx1JVNrhvF
+	s9QbPKsMWazGl4edEdiYOo6F9gAJL4tWefXfSNPe39p9pj1XFyOlWMpEUiCBW+P7xmEOxwvfqLk
+	qDGuC7TwbHivbA7m6s+DuMB0fjUd9w5qOkYjzy2o49JKxXK7IWQMzU/xGmx71aY6arvFEf51GmX
+	d91rXSzdN4ENG6IAHpOVMlIaq9YERV/DLWVo/h0QeNEJYK0Kc7YiVzfIYsZJFIOqvRXTDZa0OG2
+	A6mLrhOA2kbCvdTCO53jTTwDMNiZnNNSyRC3c5IujONt8gRB5ZdmGt45Rb+qJbGgTNj8=
+X-Received: by 2002:a05:6000:4617:b0:487:27f9:840 with SMTP id
+ ffacd0b85a97d-4abb59e2898mr35765846f8f.53.1795627477631; Wed, 25 Nov 2026
+ 09:24:37 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,60 +103,61 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179554218364.3135.5016659919665552355@kernel.org>
+References: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+In-Reply-To: <20261120102754.778283-1-magnusleatti@kernelriot.com>
+From: Giuseppe Nespolino <g.nespolino@gmail.com>
+Date: Wed, 25 Nov 2026 18:24:26 +0100
+X-Gm-Features: Aa3M54oC6LgFaDRKQ0RxvICA2M2DvBKp7vjOEYxTmttrvoHrhd5am24mA8KAZok
+Message-ID: <CAKx9m6M389NvuG4HiiRO4Ck45TDgmxwRqRwOHc42OM3Da1YWog@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 0/2] net: stmmac: dwmac-motorcomm: shutdown
+ hook and Wake-on-LAN from S5
+To: Magnus Leatti <magnusleatti@kernelriot.com>
+Cc: Yao Zi <me@ziyao.cc>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-On 11/24, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
-> 
-> Critical: 0 · High: 0 · Medium: 1 · Low: 1
-> 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-> 
-> - [Medium] In tools/testing/selftests/drivers/net/perf/stream.py, the
->   "zerocopy" variant of tcp() passes ["--msg-zerocopy", "--zerocopy-rx"]…
-> - [Low] The commit author address (Stanislav Fomichev
->   <sdf.kernel@gmail.com>) does not match the only Signed-off-by…
-> 
-> --
-> 
-> selftests: drv-net: add a kperf stream test
-> 
-> This adds stream.py, which uses kperf to measure the throughput of one TCP
-> connection. It runs a copy variant and a zerocopy variant (MSG_ZEROCOPY on
-> the sender, TCP_ZEROCOPY_RECEIVE on the receiver), and reports the result
-> through ksft_metric().
-> 
-> > Signed-off-by: Stanislav Fomichev <sdf@fomichev.me>
-> 
-> [Severity: Low]
-> This isn't a bug, but the Author: address (sdf.kernel@gmail.com) does not
-> match the Signed-off-by: address (sdf@fomichev.me). checkpatch reports this
-> as FROM_SIGN_OFF_MISMATCH. The other patches in the series have the same
-> mismatch.
-> 
-> > diff --git a/tools/testing/selftests/drivers/net/perf/stream.py b/tools/testing/selftests/drivers/net/perf/stream.py
-> > new file mode 100755
-> > index 0000000000000..4ed9d64dfa320
-> > --- /dev/null
-> > +++ b/tools/testing/selftests/drivers/net/perf/stream.py
-> > @@ -0,0 +1,40 @@
-> 
-> [ ... ]
-> 
-> > +@ksft_variants([
-> > +    KsftNamedVariant("copy", []),
-> > +    KsftNamedVariant("zerocopy", ["--msg-zerocopy", "--zerocopy-rx"]),
-> 
-> [Severity: Medium]
-> Does the zerocopy variant exercise TCP_ZEROCOPY_RECEIVE page mapping on a
-> default NIC configuration?
+Hi Magnus,
 
-NIPA HW runners enable the pre-requisites IIRC. If not, I'll add it there.
+Il giorno ven 20 nov 2026 alle ore 11:28 Magnus Leatti
+<magnusleatti@kernelriot.com> ha scritto:
+
+> Giuseppe, your Tested-by was for the v1 design so I couldn't carry it
+> over :(. I'm sorry, could you test again?
+
+Done, same Slimbook EVO15-A8 (Ryzen 7 8845HS, BIOS N.1.14GOS07, BIOS
+Wake on LAN on). This time the module is only Ubuntu's 7.0.0-43
+dwmac-motorcomm.c plus your two v2 patches, built out of tree, nothing
+else on top. The eFuse on this board is programmed and the address in
+use is the eFuse one, so the magic packet went to that address, from
+another host on the LAN about 75 s after power-off, on AC:
+
+  v2        wol g   wake, 1 of 1
+  distro    wol g   no wake, 1 of 1 (from the v1 round, same kernel
+                    and BIOS setting)
+
+This time I also have the shutdown log. With
+printk.always_kmsg_dump=Y and efi_pstore, the end of the power-off
+reads:
+
+  [467.495243] dwmac-motorcomm 0000:02:00.0 enp2s0: stmmac_dvr_remove:
+removing driver
+  [467.497124] dwmac-motorcomm 0000:02:00.0 enp2s0: Link is Down
+  [467.906480] ACPI: PM: Preparing to enter system sleep state S5
+  [468.213535] reboot: Power down
+
+with no warning anywhere in the captured log.
+
+Since the eFuse is programmed here, I can't say anything about the
+empty-eFuse case Sashiko raised.
+
+Tested-by: Giuseppe Nespolino <g.nespolino@gmail.com>
+
+As before, I worked through this with an AI assistant; the test runs
+and their results are from this machine.
+
+Thanks,
+Giuseppe
