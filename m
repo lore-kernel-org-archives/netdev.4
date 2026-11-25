@@ -1,57 +1,92 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=46.14.198.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795606356;
-	b=j6T01JERtaq4lKC5OS4w+DejeDZFahE5QFGSh3bVSbfL1A5guwE68pNsOMxVpRZyjoz1
-	 q87NPhd5d9sDdAan/VA84c4Uct+cUxNoaw5RGhYPAd2e4+OG9ZycG/lxJSAdte4aW7RH8
-	 GSWNWg+s5EOKwowkHUuUb+iB7orsaST2YwUVUn6ftgzyXuwnEqgiAikPH5o1/iwezkgx1
-	 x0AiYJcOM5UhI8E6QUahwRHs6GnoSQtLUCfmwKHoG7b5aVsa/8xG2t0hoagVThDlLBDv4
-	 Kh+E1FVmqZxiDsghyx2BuZFIPQEetXNff4L7Bu7qgaZu4W7+ukRKtBn35J7kmeD77Fw==
+	t=1795606362;
+	b=cAcyjXgLFNcg7Z522Or87Z0ce7NBUviiXXHFs0UYQCMwjuo5Dz4Am2jfRoTNJld+5XYr
+	 H26V0u/JinfgrplBxKuFlHczhUQ4Bc6J2wyTuLJ+hz+mZxvPwRs6BVyGshkVtl8qyDNVu
+	 THllm9ZrQbq1SRqRMqB5CN8Al/8F1Zz0d7DM1fK0BFsF8cItSHxcGb5ekpzkItPeuns1Q
+	 06+yrUxRhSOgwe32CbK9eNmvfSJ36lfRnyHwFTAg81Ogewk0Bkb4NUk+12ioqcFK84grA
+	 YexeUXKjRDIM5QlPwBlqt5H3sfM+Y6TNXeqB3i6vIin4Priz93/WHptHjpFmYYsapGA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795606356;
-	h=DMARC-Filter:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
-	 References:MIME-Version:Content-Transfer-Encoding:Received:
-	 DKIM-Signature;
-	bh=oUfViTe7jR/bW0Md+dhz69VSMNtCwOaxO6F2hRcC7hQ=;
-	b=ofQuUTGMWsWFYK6UJDaYa50srPGx0s0uiiQ9uAFG2xuSUWXUiYK0jaQGKRJtaUN8dIEk
-	 jcnoM+0rmVBFxZi0zqZJImSYjzLsicCDP6Hwt6zXZNkvQZ95/hCdhxeAlhKfpLVM3uFns
-	 yHda3FRjQ6giXq1gcsXNVpUNwim7xhL2/ROUDbB4xq8biz58eFmDVi+UwqWdqYfJrCJyx
-	 VM0waB3YAxQfITh33+hR3FlLWUWWvIUMgBCanTgWc+ZWtsiB7nUoAyxst4zIyWAtk5H7P
-	 ZwlER7l/lz4Q+ibattnY/qoXKYgvO+EER3GjmJ5uSWXo4o8orvobOWOYWyD6ZR/cGLQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795606362;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
+	b=r+jrvqFtmRVlQPXzM5KQ4A9JlivKb2c1iSbhjDe83o4TCDKOrxnWljr9CA3EJZJrJ5PT
+	 h3zM1baVOyQbQTqBKLageoZ6H0RPG9Q827xFuLt7Kpz6GKWVNF9rnoOAn27/eJJDA8Jmg
+	 dxh52ugTMIJ9gAAH0O0ECPW776Sl28h+c6AtdPAOQTZ7wnGdB///eSvyb4d9/rUYDypM9
+	 7VdrTfYR4qI885ZBO0BGBYQIHnEItmKlb3DkvwYffdyiDD37hV2Hr3X2Nt8Q7XkyVTWZm
+	 lPxhzF0MmCajYObbkpk1u0OOaiyCuRAeQySXMLIcnPuWWJ5yhd7mRoINeYC/DcvD9Sw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=rimpianto.com;
-	spf=pass smtp.mailfrom=rimpianto.com;
-	dkim=pass header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=RONVmQiN;
-	arc=none smtp.remote-ip=46.14.198.178
-Received: from mail.rimpianto.com (mail.rimpianto.com [46.14.198.178])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RPt1ggji;
+	arc=none smtp.remote-ip=209.85.216.46
+Received: from mail-pj1-f46.google.com (mail-pj1-f46.google.com [209.85.216.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0F8B4606A326;
-	Wed, 25 Nov 2026 11:32:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0F8B4606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=rimpianto.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=rimpianto.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30B4B606A682
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 11:32:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 30B4B606A682
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=rimpianto.com header.i=@rimpianto.com header.a=rsa-sha256 header.s=s20260314391 header.b=RONVmQiN
-Authentication-Results: mail.rimpianto.com;
-	auth=pass (plain)
-From: Federico Musto <federico@rimpianto.com>
-To: Chris Snook <chris.snook@gmail.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org
-Cc: linux-kernel@vger.kernel.org,
-	Federico Musto <federico@rimpianto.com>,
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=RPt1ggji
+Received: by mail-pj1-f46.google.com with SMTP id 98e67ed59e1d1-3b47c8930efso351425a91.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 03:32:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795606361; x=1796211161; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
+        b=RPt1ggjiXdimJkyKblSnhqJL9IgtT1Q+SUTHoo60I07RkTL1MO5AXwkHdza01sXsvd
+         Ni3mvlFWMWLBM3Qrh8kAEoJ+REuu4PkbZkv9TJouP0kNg3pFWJ87t+2XlMS+R4zhP+hh
+         ivVFA9S9Jt511hB9HpSWTPcrXQ/36hczJEwMyKCVhr86fdwpGc5mJoZ7svu6tmUPSL/W
+         O/3dYosqNg4JmT3HxEbSxv3138wmyGW/GvNxTf+GOUzRTGJNw6oGEp3n+OTskNF0Xui7
+         LTr8fJYyaVoh7pIXwufM4DwNs971V/jjPPRuf7tar/xDZS9ZeaUW6nMzOLkajoq8s8pg
+         2UFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795606361; x=1796211161;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=/8mK9Pc/LwL3p0KdETOPDtZzeFtwrz4pl0i0E317N2o=;
+        b=POIyOrxItJigaUoNU7Y1NP/XObtub259zGUAPc3u4xyfmfmf/jz2EtCJYvHrb5J05V
+         qWrjWU14e6XHXt2wbsh7dGJlqxecQY256J2OdDRQshD7CX1/1T8FnBEQLydLAR+NooHn
+         OMj+GJk5BU3HIkx6Z6UX0fWFTCjBIQptksI//ZUtyRm8kqcwf7AmL+YkSd5yGcBFLmfW
+         eAffjle5LuwYEAP/OfP+f/BRChC1vtyvK81khkfiHOnXnIkvXjIc0w1ngwWhZKF+jAUT
+         iczR91K4ULSMKfptYzbVwMWFuJyfObwpEajKqRDOaAEqUbRtvl8ePzVpGDqpM842f1Rv
+         Du/g==
+X-Gm-Message-State: APuU4Z+GscZkPI5rcYCcDTt4InYgL9bX5XVVjs9vyRUwHCzb7iZc1bdN
+	fpwsHhgxvnb25UBSnueD//eQqD2vLc/L1h747MJkAGV+AC3/pgejf9y+
+X-Gm-Gg: AZFdTZf+LLHgZBD+zp9XjASS35T5nSiDIxp77YWQGty2LMjYLi6trXGc4ckxqFYGyMA
+	mNi44kZ6G0qqSqT5+eflbccremNW6k4zQGERccRICNUH8f78tRhKifMMLxf50P8tQvtk/SmkpoA
+	/HbxFD3o1/pawEKAVu2AEphtIjzODEDeh6LMu8xmB0FxjB87sio63wxP+t9rUKz6nE+xFA5BhbK
+	2VIjou+tJpsvKZ9H62QZm89nhyOqiFW242ejMFeRk4rqqFIfReXugHivt4D5u/4GJhbJHitGWhb
+	+6EnfH10+cu2CnboYb7du+MvAa9Jy92JcTumb91DQ9gDiHxbgTettwCIVEij/q5NWem5KBwU61Y
+	GZlJ5n9jLzAhlpGhEz7rB8KelHeLWvKKvWdfAF6tOxlEpdBMeEE1WswMEUx+mIjAHHLpp/SzppL
+	2AYeAZVWMq5M7m+XodVJHyA+LyWQbGD5Al+kgLAGs6T2/YeloGJC7YKogDcyl9pqbV9yDWPnfU3
+	DSWr+Qm7iFrunampuqkXLIYPSEmh4Yht91Uj8mgUjJGqZnxvuhO4iR/jkX8/eEN58q2zadGi1m/
+	At0x07+I1tS+mb4gxheedNdY7I44BQ309sDicjeGaq6TWbbAPm5C
+X-Received: by 2002:a17:90b:4a48:b0:3b0:9984:18c6 with SMTP id 98e67ed59e1d1-3b41c907e3bmr26052479a91.3.1795606361341;
+        Wed, 25 Nov 2026 03:32:41 -0800 (PST)
+Received: from localhost.localdomain ([14.47.155.101])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41aab4729sm27132863a91.0.2026.11.25.03.32.39
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 03:32:41 -0800 (PST)
+From: Minseok Kim <kor8821@gmail.com>
+To: intel-wired-lan@lists.osuosl.org
+Cc: netdev@vger.kernel.org,
+	przemyslaw.kitszel@intel.com,
+	aleksander.lobakin@intel.com,
 	stable@vger.kernel.org
-Subject: [PATCH net v5 2/2] net: atl1c: free the RX buffer when the descriptor reports an error
-Date: Wed, 25 Nov 2026 12:31:20 +0100
-Message-ID: <20261125113120.99743-3-federico@rimpianto.com>
+Subject: [PATCH iwl-net v3] ice: reject an out-of-range CEE DCBX priority-group ID
+Date: Wed, 25 Nov 2026 20:32:37 +0900
+Message-ID: <20261125113237.48372-1-kor8821@gmail.com>
 X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261125113120.99743-1-federico@rimpianto.com>
-References: <20261125113120.99743-1-federico@rimpianto.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -61,262 +96,174 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Received: from localhost (Unknown [127.0.0.1])
-	by mail.rimpianto.com (Haraka) with ESMTPSA id 455A4CB8-EA41-4A84-AB6F-0475A2A7EF25.3
-	envelope-from <federico@rimpianto.com>
-	tls TLS_AES_256_GCM_SHA384 (authenticated bits=0);
-	Wed, 25 Nov 2026 12:31:21 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rimpianto.com;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=s20260314391;
- t=1795606281; bh=oUfViTe7jR/bW0Md+dhz69VSMNtCwOaxO6F2hRcC7hQ=;
- b=RONVmQiN+UOez6zmbCe6O32sBwD+GLj+MYVxAg0F3DX7UUnNDrOl6FuZ8orUiJ+rLuyv/TNFa
- kCEfFR/gCkt7DKpe0EB4I+/obmwomZBmwLlJo01Ilofw1IwTqAEcKfdZSV5hjtOHWQ1jtsB0LJr
- 8qa5TVohAqvjv75Vw2CtxMaiZZHCBYagDUpCk5wFPk/y0zIJPPhh75OaT3JAcyW2P8MNkqN+G8M
- HpfbvAWqy6nb2V9Rx9hmlT6ZM663aNaDpQsPANGw2RO99/dBhl9DWc5f4QBwtD6lYqimUQ3VeAV
- lxkg1tO7MKRIDTX09MAnPhEeD2UgvnLBB3+B3Hu/H9Yw==
 
-atl1c_clean_rx() drops a frame whose return descriptor (RRD) carries
-RRS_RX_ERR_SUM or RRS_802_3_LEN_ERR by calling atl1c_clean_rfd(), which
-only marks the RFD free and clears the skb pointer. Nothing unmaps the
-DMA mapping and nothing frees the skb, so every errored frame - CRC,
-alignment, truncation, runt - leaks one skb and one DMA mapping. The
-driver uses a 32-bit DMA mask, so on a host without an IOMMU each of
-those mappings also pins a swiotlb slot.
+The CEE DCBX priority-group ID (PGID) is a four-bit wire field spanning
+0..15, whereas prio_table[] is sized to ICE_MAX_TRAFFIC_CLASS (8):
 
-Unmap the buffer and free the skb before the RFD is recycled.
+  #define ICE_CEE_PGID_PRIO_0_M  (0xF << ICE_CEE_PGID_PRIO_0_S)
+  #define ICE_CEE_PGID_PRIO_1_M  (0xF << ICE_CEE_PGID_PRIO_1_S)
 
-Freeing makes the RFD index and count found in the RRD matter more than
-they did. Both are written by the device and neither is checked: the
-index field is 12 bits wide for a ring of 512 entries, and the count can
-be 0 to 15 while one RFD per frame is all the driver handles. A wrong
-index used to leak a buffer; it would now unmap and free one the device
-still owns, or one outside the ring. So validate the RRD first, the way
-alx_clean_rx_irq() does for the same descriptor layout: the count must
-be 1, the index must be the one the driver expects back next
-(rfd_ring->next_to_clean) and that slot must hold a buffer. Otherwise
-touch no buffer and schedule a reset through ATL1C_WORK_EVENT_RESET, as
-the interrupt handler does on ISR_ERROR. After the check the slot is
-addressed through the driver's own index, in the good receive path too,
-which took the unchecked index from the descriptor in the same way.
+The IEEE ETS parser in ice_dcb.c masks the equivalent nibble field with
+0x7 (ICE_IEEE_ETS_PRIO_{0,1}_M) so it cannot exceed 7.  The CEE wire
+parser does not: ice_parse_cee_pgcfg_tlv() extracts each nibble into
+prio_table[i] and inspects it to select tsatable[i], but never rewrites
+prio_table[i], so values 8..15 survive -- including the defined
+strict-priority sentinel ICE_CEE_PGID_STRICT (15), which is not a
+traffic class at all.
 
-Reading the descriptor is now ordered as well: a dma_rmb() separates the
-valid-bit test on word3 from the rest of the descriptor. The control
-dependency does not order the loads, and word0 now decides whether a
-reset is scheduled; without the barrier a stale word0 - the ring is zero
-after open and after every reset - would schedule a spurious one on
-weakly ordered CPUs.
+Downstream consumers then use prio_table[i] directly as a traffic-class
+index:
 
-The check also covers two cases the count was left to cause. An RRD with
-a count of 0 was never consumed and RX stalled on it, in an endless loop
-inside the poll when it also had an error bit set. A good RRD with a
-count above 1 was consumed without recycling its RFDs.
+- ice_vc_get_qos_caps() (virt/virtchnl.c) indexes local array
+  u8 tc_prio[ICE_MAX_TRAFFIC_CLASS] via tc_prio[tc] |= BIT(i), writing
+  past the end of the stack array when tc >= 8.
+- ice_dcb_tc_contig() (ice_dcb_lib.c) accumulates used_tc |=
+  BIT(prio_table[i]) into a u8; for values >= 8, BIT() is >= 0x100 and
+  truncates to zero, causing the contiguity check to pass silently.
+- ice_vsi_cfg_netdev_tc() (ice_lib.c) indexes
+  vsi->tc_cfg.tc_info[ets_tc].netdev_tc with ets_tc = prio_table[i],
+  reading past the end of tc_info[].
 
-Count an errored descriptor as work, so that the refill runs when a poll
-sees no good frame. Clear the RRD ring on reset: the RRD and RFD rings
-advance in step, so an RRD left over from before a reset would pass the
-check above and release a freshly posted buffer the device still owns.
+Validate the whole Priority Group Table at the TLV parsing level, before
+any part of the sub-TLV is applied, and reject it if a PGID names a
+group this driver has no traffic class for.  Values 8..14 have no
+meaning in the protocol, so there is nothing to translate; refusing the
+peer's PG configuration is the correct response rather than substituting
+a value it did not send.  The strict-priority sentinel 15 remains
+accepted, but is now replaced in prio_table[] once its meaning has been
+recorded in tsatable[], so it no longer reaches the consumers above.
 
-The hardware already counts these frames in its own error counters,
-which atl1c_get_stats() reports, so no software counter is added here.
+The four octets inspected by the new check are already read
+unconditionally further down the same function, so this adds no new read
+of the TLV.  The rejection is silent by design: the input is attacker-
+controlled LLDP, and the other parsers in this file do not log either.
 
-Found by code inspection; the error path has not been exercised on
-hardware.  The RRD validation has been runtime-tested only on a
-single-queue device presenting as an AR8151 (emulated), not on genuine
-Atheros hardware and not on a multi-queue device.
+The driver already enforces this invariant when writing prio_table[] in
+ice_dcbnl_set_pg_tc_cfg_tx() and at the VF trust boundary in
+ice_vc_cfg_q_bw().
 
-Fixes: 43250ddd75a3 ("atl1c: Atheros L1C Gigabit Ethernet driver")
+Fixes: 0ebd3ff13cca ("ice: Add code for DCB initialization part 2/4")
 Cc: stable@vger.kernel.org
-Signed-off-by: Federico Musto <federico@rimpianto.com>
+Signed-off-by: Minseok Kim <kor8821@gmail.com>
 ---
-v4 -> v5, after the Sashiko AI review of v4:
- - add dma_rmb() between the valid-bit test on word3 and the reads of the
-   rest of the descriptor; the RRD ring is zeroed after a reset, so a
-   stale word0 would otherwise read as rfd_num 0 and schedule a spurious
-   reset on weakly ordered CPUs;
- - no other change.
+v2: https://lore.kernel.org/intel-wired-lan/20261124112631.43172-1-kor8821@gmail.com/
+v1: https://lore.kernel.org/netdev/CABBEkySNmAHTuoiC3jZqvAS31AdzMb2bHe3x0EAKQGibf0xi9g@mail.gmail.com/
 
-Runtime validation of the RRD check so far covers an emulated
-single-queue AR8151 only; Tested-by: on genuine Atheros hardware, in
-particular multi-queue, is welcome.
+Sent stand-alone rather than in-reply-to v2, as requested.
 
-This patch applies textually only on top of patch 1/2; please keep the
-two together.
+v3, all of it from Przemek's review of v2:
 
-v3 -> v4, after the Sashiko AI review of v3:
- - validate the RFD count and index of the RRD against
-   rfd_ring->next_to_clean, and that the slot holds a buffer, before any
-   buffer is touched; reset on a mismatch, as alx_clean_rx_irq() does;
- - address the buffer through the driver's own index in the error path
-   and in the good path; atl1c_clean_rfd() takes nothing from the
-   descriptor any more;
- - drop the multi-RFD loop added in v3: a count other than 1 resets;
- - a count of 0 no longer leaves the RRD unconsumed;
- - new patch 1/2 for the link-down reset race.
+- Reject instead of clamp.  v2 rewrote an out-of-range PGID to 0; v3
+  refuses the Priority Group Table outright.  The check runs before any
+  field of the sub-TLV is committed, so a rejected TLV leaves the
+  existing ETS config untouched instead of half-applied.
 
-Pre-existing and left to a separate patch: word3 is __le32 but is read
-without conversion.
+- Moved entirely to the TLV parsing level.  The ice_cee_to_dcb_cfg()
+  hunk from v2 is dropped; only ice_parse_cee_pgcfg_tlv() changes.
 
-v4: https://lore.kernel.org/netdev/20261117225521.19689-1-federico@rimpianto.com/
-v3: https://lore.kernel.org/netdev/20261103225218.19206-1-federico@rimpianto.com/
-v2: https://lore.kernel.org/netdev/20261102215253.68185-1-federico@rimpianto.com/
-v1: https://lore.kernel.org/netdev/20261027115156.17128-1-federico@rimpianto.com/
----
- .../net/ethernet/atheros/atl1c/atl1c_main.c   | 104 ++++++++++--------
- 1 file changed, 59 insertions(+), 45 deletions(-)
+- Retagged Fixes:.  v2 cited 015307754a19, which only added the
+  ice_vc_get_qos_caps() consumer in v6.13.  The unbounded parse is from
+  0ebd3ff13cca (v5.1), so stable trees older than v6.13 need it too --
+  ice_vsi_cfg_netdev_tc() and ice_dcb_tc_contig() predate the v2 tag by
+  years.  Thanks to the sashiko.dev report for catching this.
 
-diff --git a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
-index afab3e1..8383203 100644
---- a/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
-+++ b/drivers/net/ethernet/atheros/atl1c/atl1c_main.c
-@@ -971,8 +971,9 @@ static void atl1c_clean_rx_ring(struct atl1c_adapter *adapter, u32 queue)
- 		buffer_info = &rfd_ring->buffer_info[j];
- 		atl1c_clean_buffer(pdev, buffer_info, 0);
- 	}
--	/* zero out the descriptor ring */
-+	/* zero out the descriptor rings */
- 	memset(rfd_ring->desc, 0, rfd_ring->size);
-+	memset(rrd_ring->desc, 0, rrd_ring->size);
- 	rfd_ring->next_to_clean = 0;
- 	rfd_ring->next_to_use = 0;
- 	rrd_ring->next_to_use = 0;
-@@ -1904,23 +1905,16 @@ static void atl1c_clean_rrd(struct atl1c_rrd_ring *rrd_ring,
+One question left open from the sashiko.dev report, deliberately not
+addressed here.  It observes that in ice_cee_to_dcb_cfg() the
+ICE_CEE_PGID_STRICT branch assigns cee_cfg->oper_num_tc - 1, which is
+out of range if oper_num_tc is 0 (underflowing to 255) or greater than
+ICE_MAX_TRAFFIC_CLASS.  That is a real gap, but its inputs come from the
+Get CEE DCBX Config admin-queue response rather than from the wire, and
+that path has no TLV parser to move a check into -- so I have left it
+alone per your "here we should have no changes".  If the AQ response is
+not considered a trusted source, I am happy to send a separate patch
+bounding oper_num_tc where it is consumed; please say which you prefer.
+
+Notes on testing and tool assistance (per
+Documentation/process/generated-content.rst):
+
+- Tool assistance: Claude Code (Anthropic) was used during static source
+  auditing of the CEE DCBX parsing paths, to draft the commit
+  description and the check, and to run build/style checks.  All
+  findings, code changes, and commit text were independently verified
+  and edited by the author, who takes full responsibility for the patch.
+- Testing: Compile-tested only on x86_64 (defconfig + CONFIG_PCI_IOV +
+  CONFIG_DCB + CONFIG_ICE) with `make W=1 drivers/net/ethernet/intel/ice/`
+  against a clean baseline build, and checked with `scripts/checkpatch.pl
+  --strict` (0 errors, 0 warnings, 0 checks).  No reproducer was built
+  and no runtime testing was performed due to lack of E810 hardware or a
+  QEMU device model; the out-of-bounds accesses are established from
+  source inspection and header constants.
+
+ drivers/net/ethernet/intel/ice/ice_dcb.c | 39 ++++++++++++++++++++++++++++++--
+ 1 file changed, 37 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/intel/ice/ice_dcb.c b/drivers/net/ethernet/intel/ice/ice_dcb.c
+index abea84f14658..86bdaece4cfd 100644
+--- a/drivers/net/ethernet/intel/ice/ice_dcb.c
++++ b/drivers/net/ethernet/intel/ice/ice_dcb.c
+@@ -356,6 +356,20 @@ ice_parse_ieee_tlv(struct ice_lldp_org_tlv *tlv, struct ice_dcbx_cfg *dcbcfg)
  	}
  }
  
--static void atl1c_clean_rfd(struct atl1c_rfd_ring *rfd_ring,
--	struct atl1c_recv_ret_status *rrs, u16 num)
-+/* Recycle the RFD the driver expects back next.  The caller owns the skb. */
-+static void atl1c_clean_rfd(struct atl1c_rfd_ring *rfd_ring)
- {
--	u16 i;
--	u16 rfd_index;
--	struct atl1c_buffer *buffer_info = rfd_ring->buffer_info;
-+	struct atl1c_buffer *buffer_info;
- 
--	rfd_index = (rrs->word0 >> RRS_RX_RFD_INDEX_SHIFT) &
--			RRS_RX_RFD_INDEX_MASK;
--	for (i = 0; i < num; i++) {
--		buffer_info[rfd_index].skb = NULL;
--		ATL1C_SET_BUFFER_STATE(&buffer_info[rfd_index],
--					ATL1C_BUFFER_FREE);
--		if (++rfd_index == rfd_ring->count)
--			rfd_index = 0;
--	}
--	rfd_ring->next_to_clean = rfd_index;
-+	buffer_info = &rfd_ring->buffer_info[rfd_ring->next_to_clean];
-+	buffer_info->skb = NULL;
-+	ATL1C_SET_BUFFER_STATE(buffer_info, ATL1C_BUFFER_FREE);
-+	if (++rfd_ring->next_to_clean == rfd_ring->count)
-+		rfd_ring->next_to_clean = 0;
- }
- 
++/**
++ * ice_cee_pgid_is_valid
++ * @pgid: CEE priority-group ID as it appears on the wire
++ *
++ * The CEE priority-group ID is a four-bit field, so a peer can name a
++ * priority group this driver has no traffic class for.  Only
++ * 0..ICE_MAX_TRAFFIC_CLASS-1 and the strict-priority sentinel
++ * ICE_CEE_PGID_STRICT are meaningful values.
++ */
++static bool ice_cee_pgid_is_valid(u8 pgid)
++{
++	return pgid < ICE_MAX_TRAFFIC_CLASS || pgid == ICE_CEE_PGID_STRICT;
++}
++
  /**
-@@ -1934,6 +1928,7 @@ static int atl1c_clean_rx(struct napi_struct *napi, int budget)
- 		container_of(napi, struct atl1c_rrd_ring, napi);
- 	struct atl1c_adapter *adapter = rrd_ring->adapter;
- 	u16 rfd_num, rfd_index;
-+	u32 rrs_word0;
- 	u16 length;
- 	struct pci_dev *pdev = adapter->pdev;
- 	struct net_device *netdev  = adapter->netdev;
-@@ -1952,47 +1947,66 @@ static int atl1c_clean_rx(struct napi_struct *napi, int budget)
- 		if (work_done >= budget)
- 			break;
- 		rrs = ATL1C_RRD_DESC(rrd_ring, rrd_ring->next_to_clean);
--		if (likely(RRS_RXD_IS_VALID(rrs->word3))) {
--			rfd_num = (rrs->word0 >> RRS_RX_RFD_CNT_SHIFT) &
--				RRS_RX_RFD_CNT_MASK;
--			if (unlikely(rfd_num != 1))
--				/* TODO support mul rfd*/
--				if (netif_msg_rx_err(adapter))
--					dev_warn(&pdev->dev,
--						"Multi rfd not support yet!\n");
--			goto rrs_checked;
--		} else {
-+		if (!RRS_RXD_IS_VALID(rrs->word3))
-+			break;
+  * ice_parse_cee_pgcfg_tlv
+  * @tlv: CEE DCBX PG CFG TLV
+@@ -374,6 +388,21 @@ ice_parse_cee_pgcfg_tlv(struct ice_cee_feat_tlv *tlv,
+ 
+ 	etscfg = &dcbcfg->etscfg;
+ 
++	/* Several consumers use prio_table[] directly as an index into
++	 * ICE_MAX_TRAFFIC_CLASS-sized objects, so reject a Priority Group
++	 * Table that names a group outside that range before any part of
++	 * this TLV is applied, rather than substituting a value the peer
++	 * did not send.  The four octets read here are already read
++	 * unconditionally below.
++	 */
++	for (i = 0; i < 4; i++) {
++		if (!ice_cee_pgid_is_valid(FIELD_GET(ICE_CEE_PGID_PRIO_0_M,
++						     buf[i])) ||
++		    !ice_cee_pgid_is_valid(FIELD_GET(ICE_CEE_PGID_PRIO_1_M,
++						     buf[i])))
++			return;
++	}
 +
-+		/* Order the rest of the descriptor after the valid bit: on
-+		 * weakly ordered CPUs word0 can otherwise be read before
-+		 * the device's write of this RRD is visible, and a stale
-+		 * word0 (the ring is zeroed after a reset) would schedule
-+		 * a spurious reset.
-+		 */
-+		dma_rmb();
-+		rrs_word0 = le32_to_cpu(rrs->word0);
-+		rfd_num = (rrs_word0 >> RRS_RX_RFD_CNT_SHIFT) &
-+			RRS_RX_RFD_CNT_MASK;
-+		rfd_index = (rrs_word0 >> RRS_RX_RFD_INDEX_SHIFT) &
-+			RRS_RX_RFD_INDEX_MASK;
-+		buffer_info = &rfd_ring->buffer_info[rfd_ring->next_to_clean];
-+
-+		/* The RRD is written by the device.  Its RFD index field is
-+		 * wider than the ring, and only one RFD per frame is
-+		 * supported.  Check both against the driver's own ring state,
-+		 * and that the slot holds a buffer, before anything is
-+		 * unmapped or freed.  When they disagree there is no telling
-+		 * which buffers the device still owns: leave them all alone
-+		 * and reset.
-+		 */
-+		if (unlikely(rfd_num != 1 ||
-+			     rfd_index != rfd_ring->next_to_clean ||
-+			     !buffer_info->skb)) {
-+			dev_err_ratelimited(&pdev->dev,
-+					    "RRD out of sync: RFD count %u index %u, expected index %u%s; resetting\n",
-+					    rfd_num, rfd_index,
-+					    rfd_ring->next_to_clean,
-+					    buffer_info->skb ? "" : " (no buffer)");
-+			set_bit(ATL1C_WORK_EVENT_RESET, &adapter->work_event);
-+			schedule_work(&adapter->common_task);
- 			break;
- 		}
--rrs_checked:
--		atl1c_clean_rrd(rrd_ring, rrs, rfd_num);
-+
-+		atl1c_clean_rrd(rrd_ring, rrs, 1);
-+		dma_unmap_single(&pdev->dev, buffer_info->dma,
-+				 buffer_info->length, DMA_FROM_DEVICE);
-+		skb = buffer_info->skb;
-+		atl1c_clean_rfd(rfd_ring);
-+
- 		if (rrs->word3 & (RRS_RX_ERR_SUM | RRS_802_3_LEN_ERR)) {
--			atl1c_clean_rfd(rfd_ring, rrs, rfd_num);
- 			if (netif_msg_rx_err(adapter))
- 				dev_warn(&pdev->dev,
- 					 "wrong packet! rrs word3 is %x\n",
- 					 rrs->word3);
-+			kfree_skb_reason(skb, SKB_DROP_REASON_NOT_SPECIFIED);
-+			/* The RFD has been recycled, so count the drop as
-+			 * work: the refill after the loop only runs when
-+			 * some was done.
+ 	if (tlv->en_will_err & ICE_CEE_FEAT_TLV_WILLING_M)
+ 		etscfg->willing = 1;
+ 
+@@ -403,10 +432,16 @@ ice_parse_cee_pgcfg_tlv(struct ice_cee_feat_tlv *tlv,
+ 	ice_for_each_traffic_class(i) {
+ 		etscfg->tcbwtable[i] = buf[offset++];
+ 
+-		if (etscfg->prio_table[i] == ICE_CEE_PGID_STRICT)
++		if (etscfg->prio_table[i] == ICE_CEE_PGID_STRICT) {
++			/* Strict priority is carried by tsatable[].  The
++			 * sentinel is not a traffic class, so replace it
++			 * instead of leaving it for consumers to index with.
 +			 */
-+			work_done++;
- 			continue;
- 		}
++			etscfg->prio_table[i] = 0;
+ 			dcbcfg->etscfg.tsatable[i] = ICE_IEEE_TSA_STRICT;
+-		else
++		} else {
+ 			dcbcfg->etscfg.tsatable[i] = ICE_IEEE_TSA_ETS;
++		}
+ 	}
  
- 		length = le16_to_cpu((rrs->word3 >> RRS_PKT_SIZE_SHIFT) &
- 				RRS_PKT_SIZE_MASK);
--		/* Good Receive */
--		if (likely(rfd_num == 1)) {
--			rfd_index = (rrs->word0 >> RRS_RX_RFD_INDEX_SHIFT) &
--					RRS_RX_RFD_INDEX_MASK;
--			buffer_info = &rfd_ring->buffer_info[rfd_index];
--			dma_unmap_single(&pdev->dev, buffer_info->dma,
--					 buffer_info->length, DMA_FROM_DEVICE);
--			skb = buffer_info->skb;
--		} else {
--			/* TODO */
--			if (netif_msg_rx_err(adapter))
--				dev_warn(&pdev->dev,
--					"Multi rfd not support yet!\n");
--			break;
--		}
--		atl1c_clean_rfd(rfd_ring, rrs, rfd_num);
- 
- 		/* A link partner whose l2mtu is larger than ours can hand us a
- 		 * frame that does not fit the buffer the hardware was given:
+ 	/* Number of TCs supported (1 octet) */
 -- 
-2.54.0 (Apple Git-157)
-
+2.39.5 (Apple Git-154)
