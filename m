@@ -1,99 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.44
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599445;
-	b=qkB6oC7asdPhPgU+mcBCCQJ9H673tOCDasdys74qxyOaJ+hDYp3ytkGXBp0xziFj1/Tc
-	 tKypqHGETd1O3dgPK58bk2H5BmxyMDrK4C86Qv7VmmTPuY41bIfjQYM2P18UeihQCbKDC
-	 ytK/uHNOFBoJBHfOkNvnHg0LhBiM+orJM3mnRENnPMz1UFqwEjO7njmkeN8MpzqImlJ7M
-	 VepkBxyNgOD5oYgpoRgP2iAl2ekGN+uTT4kF5kXq2spEJ3SS0Uh9juJye1vKyhWL7wE+o
-	 JbscPgPuTpmVetMGDy6Ml8Rt7HV5I1AvxmxiS2zbjIDdemyyybUVGeiRF2sE/xLBApQ==
+	t=1795599586;
+	b=gWNdSgld9WwTcSmIRy6+hlsShyC1B9QW53fLlZoVZH1863b/vIhwBR6zEygOCm8ahBf0
+	 eNHCrpD94Zw34YGRKNKRsRr0hPkFH1490V+wp1lCxhyTeg5zt6ZlOQuXkY2BB87OCUjiY
+	 Xcpw7+MQtEC2WsHXl+hwQix33r2V+4bRCwUCfhP14QULKzZdnP40exP3Uhn1XP+hHB4Th
+	 QImQmD4p0wMCd8jhVZftZgb/cPJmby+C/TnG5cmLkO7522gy0IMsry3dIYH8atwI+d2B4
+	 mtW8CJlMyUs9wxesfQSFS70eQCo3K/do3QBMNTeT5JxadWFqIn1UQDHVsgB+U2+k/Kg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599445;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Uru4uc89gdbKTgL7oPQD/8sChQuJekgJ1PKHJDsBnDk=;
-	b=UkRM5+Fq3Ss4naW21xhwacWoiV7q3xKeIeWfo9bvzjRnxb62+JF+LdBTUrmadVCJfd3N
-	 IK7hCPVkqp0BABCGX0ZzpDXp2fd3BCEq+UenkS8UcyYJZB3HpN+w0VhXEtHD7gI97EU65
-	 tmMNlq7BpoY/FKpoRLJzu+ElRcq2dg7BgTC4szpxVxEtiAtw5Q/d72XI+4jX5Ax7Lg4mZ
-	 jyQdBw6X5V7EXwCMYk9gpTU7BGLMcI1RpAw1hvT2+MRhplHbSupj9FJV/rtFpMP7GnHBd
-	 3Gbk05t9Mv2yDbM7dlDX+eJTx0oJIV5Vtab8LOjnKCnysoTgD7EPWra8q9gI7s8WhMA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599586;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
+	b=sAgc2uYVyozzpDXUfvVrhFvxhuJfG2/Xcf39ARyOAheFczt0Pey0rUXRTv7wAhXUgyzR
+	 YyHlN1+He3OWOA+DNhD1xUpCxGE7dQkJu+G3swknlu5sYTxu9G5ArfFgOjUgdqHE2TBqr
+	 XQ3Nbluvb5A0MUEBYV5b6sCa7RHHLVF6hlJTBBxqMygRquECQN1gkz+qz+EhQZ299kq6N
+	 NhNXQzDwjops7i1+U+C1+5ijng8pvBe9aZk34W6DBVzOoUUzuYzEH3PqvGFe3Hi/31GQ3
+	 4ikY6HdoXKNUWQNvulD8dSyWherPjXzockHI11tzTjJIYoiCYCLvGpamRPlhq/RE1qA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z0dLjg41;
-	arc=none smtp.remote-ip=209.85.128.44
-Received: from mail-wm1-f44.google.com (mail-wm1-f44.google.com [209.85.128.44])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8544606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:37:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8544606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F9C4606A31E;
+	Wed, 25 Nov 2026 09:39:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=z0dLjg41
-Received: by mail-wm1-f44.google.com with SMTP id 5b1f17b1804b1-4bb70074ab2so58910235e9.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:37:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795599443; x=1796204243; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Uru4uc89gdbKTgL7oPQD/8sChQuJekgJ1PKHJDsBnDk=;
-        b=z0dLjg41R3uLk2yeb8k5wxIB6q0Ke/05wkhEoBVYgl+hRx6El5jMIq6grFlpzdFuon
-         qF5yUr6pJs5UwqLBK1T8XZ5EoxNpDB9jO28H70rVYGQKIA2VZwvuONhWDs2ceMcoDWgt
-         j75aSwOvJWVHlSNd/0UZPtBRyOyubmhYJmAI7CHV+tuSN1HMki1uhpJwRo6IPN8GCR3J
-         OZq5nSUUWtaQ0wGfWsPBhFgGHYwz5YQdCkOSLYWDe2SES1Yi53sMnk24AOKsJeEL6IYR
-         NWDNhh8/c6LAHuZaTmPQBf4g13zU5LCGWjVQmbsozJyC/XkJ1UuP5SKQr3ZGLZ8N5NAE
-         dUlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795599443; x=1796204243;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Uru4uc89gdbKTgL7oPQD/8sChQuJekgJ1PKHJDsBnDk=;
-        b=wsNHsXktAe1Yg0uqqxULvVx850WKgHAAib9BYat8O9Bn3OYvgkRCSY2raO93CBBT5L
-         JWVFQUGWhAWi8CWb7aya56ztqqCwpoVXTRw6DMS9AQ8I59fewBK7trlRPovBYr/P6nLN
-         nZhLegmc9lCYcrViMcvseHqY77uCX+Osb9FWc7dgsZW7/8eqIi4JE3TQOCgPYU8KKmha
-         dKzW4QYxWDVhImH+ziNmfRWojdvBIb7LBtcwFcL5Y3ckDBTmmfWR454NuGrmaTKftujH
-         MIrr31WD+QukyYRFYXVbszufzc77suND+szSDCRfmd+FQMYvPhRpxvDroXzj1aAc1I+s
-         pb7A==
-X-Forwarded-Encrypted: i=1; AL+hErFwGE8YifXzG76n2FIQ/VJMZuhQvJvIxibmVG+lb9e4db/sDBEdQEbPjPJEvFD2mo2BC3QlsVQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+nCYM1VGL6cWq+/429sVjS4MCK0vlmiTsZmFuAz8yqd7hCID+9
-	6NlxavWakIRODxPubg7xoD95ECkeA8k4XmH6MhbYRAAK7bdoTHt974xb
-X-Gm-Gg: AZFdTZc8wCCn2bIRNKtg1w5k98rNk3iEJ6EID06XaIes5T75hRChFKsAJugf5w+uPkW
-	3zdlHcPamtB5FuOAOjvFHYvuR9HP2DJQx8ng9iflD09Sagf57iKdlOZaSSltoF4VSsADyxBWBaK
-	Ja0tEbhMNEyI3PYM8N3nj61hRm6C1QlUtD5ScfTiPR3nw4rnYBZm26FR5VLJYfBCObbBYzfNv00
-	WA7a44AYgRzW2CBhf1ZH/7v8Iw1LFIIMR4Fk+bMbM5aDlsvXAIO9yEX0vOrJ1IS2M7mai1e2VZp
-	/LW6guuk35H51AOTD8ChTiOuUXpkVui07pqSoyII46ydgxwv5QftQKVy+CjQrdtAB4YrHT+bNIK
-	gBdP7r/BxPdnuWMwtF/+Uu6CFXgXmQYpXx9JvDFn0yRlRwz4jKsykonSBEXyqTqwfRPaKNGB2z2
-	ffAlI4pb6u8kSBwzOpQ2Tigv2jcIgM9eu3Mc/a+UyZjtQW7hm771aqF5qc13H3GtQCL/SLTkiMS
-	JWsuJ0ppuUVC8tUeYl0Opq2jfuKsmA6eLKCHvTKC3yDIq+oxjyi6f9tOvWqJOahjk5PG/JPHkfF
-	8RNy2fh9NKBNdp3DrYl8syvh/6I09mQWvtzH0a48Zg==
-X-Received: by 2002:a05:600c:6092:b0:4bb:6ac0:6dc0 with SMTP id 5b1f17b1804b1-4bb8892097fmr322215805e9.29.1795599442922;
-        Wed, 25 Nov 2026 01:37:22 -0800 (PST)
-Received: from fedora ([5.131.7.59])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884a3a3dsm492567075e9.10.2026.11.25.01.37.20
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 01:37:22 -0800 (PST)
-From: Petr Vaganov <petrvaganoff@gmail.com>
-To: stable@vger.kernel.org,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: Petr Vaganov <petrvaganoff@gmail.com>,
-	Marcel Holtmann <marcel@holtmann.org>,
-	Johan Hedberg <johan.hedberg@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Luiz Augusto von Dentz <luiz.dentz@gmail.com>,
-	linux-bluetooth@vger.kernel.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-Subject: [PATCH 6.6] Bluetooth: hci_core: Fix not checking skb length on hci_scodata_packet
-Date: Wed, 25 Nov 2026 16:37:07 +0700
-Message-ID: <20261125093708.227125-1-petrvaganoff@gmail.com>
-X-Mailer: git-send-email 2.55.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=JuXjMaQA
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C0ED1F00A00;
+	Wed, 25 Nov 2026 09:39:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795599586;
+	bh=LCE8uK0iceaz5poqdJmms/QNQG9qvIM5XrNWtKcuCDA=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=JuXjMaQAgtW+23ndec+YBpf9mustSxcIDFqa8NqigCYVVbmoc++Lq4fUc3AdT+2kO
+	 4BOAUb2pFVRIQOayDWscCE6qPe8jcEyUVDG161ZU1xvJ2fXSoUpQvrRxa3XDp3zspe
+	 e6W2bEnCPPdXUK3f77Fzl6ncH4k4h7yc/cTlz+z9ycs47by3NAYIXEr3Kf1Znjd93Q
+	 7Wdk0d8TGSFVLnyOfUyeNtIPktugER+LnmDcQPpgA0vz3TJgwex/InyAaZLAwNPMt/
+	 /y/2wyBtHI35x6GrXoNt+mxeLo6RqpYThI/OQ4htJjSsvq1RuAGoStpL+fUgQLkY7f
+	 q1kY6hWSN06OQ==
+Subject: Re: [PATCH net-next v2] net: mdio: handle broken-turn-around for
+ non-PHY MDIO devices
+From: netdev-bot+sashiko@kernel.org
+To: bage@debian.org
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ linux@armlinux.org.uk, olteanv@gmail.com, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Date: Wed, 25 Nov 2026 09:39:45 +0000
+Message-ID: <179559958516.3135.11607042178143215952@kernel.org>
+In-Reply-To: <20261121092933.186731-1-bage@debian.org>
+References: <20261121092933.186731-1-bage@debian.org>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,63 +64,221 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-From: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
+Thank you for your contribution! Sashiko AI review found 5 potential
+issue(s) to consider.
 
-commit 59437cbb5781227567dec226aaa88c66a09ccc5a upstream.
+Critical: 0 · High: 0 · Medium: 3 · Low: 2
 
-This fixes not checking if skb really contains an SCO header otherwise
-the code may attempt to access some uninitilized/invalid memory past the
-valid skb->data.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Signed-off-by: Luiz Augusto von Dentz <luiz.von.dentz@intel.com>
-[ Petr: add Fixes tag ]
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Signed-off-by: Petr Vaganov <petrvaganoff@gmail.com>
----
- net/bluetooth/hci_core.c | 13 +++++++++----
- 1 file changed, 9 insertions(+), 4 deletions(-)
+- [Medium] Regression in an exported API: PHYs registered through
+  of_mdiobus_phy_device_register() no longer honour "broken-turn-around".
+- [Medium] of_mdiobus_register_phy() now sets BIT(addr) in
+  mdio->phy_ignore_ta_mask unconditionally, before…
+- [Medium] The fix only partly covers DSA switches, which the commit
+  message names as the motivating case.
+- [Low] The commit message frames the change as a bug fix: mdio.yaml
+  documents broken-turn-around for any '@[0-9a-f]+$' MDIO child, but…
+- [Low] net: mdio: duplicated broken-turn-around parsing in of_mdio.c
 
-diff --git a/net/bluetooth/hci_core.c b/net/bluetooth/hci_core.c
-index 84d9a445e08d..67a13dca41bb 100644
---- a/net/bluetooth/hci_core.c
-+++ b/net/bluetooth/hci_core.c
-@@ -3838,18 +3838,22 @@ static void hci_acldata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- /* SCO data packet */
- static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- {
--	struct hci_sco_hdr *hdr = (void *) skb->data;
-+	struct hci_sco_hdr *hdr;
- 	struct hci_conn *conn;
- 	__u16 handle, flags;
- 
--	skb_pull(skb, HCI_SCO_HDR_SIZE);
-+	hdr = skb_pull_data(skb, sizeof(*hdr));
-+	if (!hdr) {
-+		bt_dev_err(hdev, "SCO packet too small");
-+		goto drop;
-+	}
- 
- 	handle = __le16_to_cpu(hdr->handle);
- 	flags  = hci_flags(handle);
- 	handle = hci_handle(handle);
- 
--	BT_DBG("%s len %d handle 0x%4.4x flags 0x%4.4x", hdev->name, skb->len,
--	       handle, flags);
-+	bt_dev_dbg(hdev, "len %d handle 0x%4.4x flags 0x%4.4x", skb->len,
-+		   handle, flags);
- 
- 	hdev->stat.sco_rx++;
- 
-@@ -3867,6 +3871,7 @@ static void hci_scodata_packet(struct hci_dev *hdev, struct sk_buff *skb)
- 				       handle);
- 	}
- 
-+drop:
- 	kfree_skb(skb);
- }
- 
+--
+
+net: mdio: handle broken-turn-around for non-PHY MDIO devices
+
+The commit moves parsing of the "broken-turn-around" DT property out of
+fwnode_mdiobus_phy_device_register() and into the static helpers
+of_mdiobus_register_phy() and of_mdiobus_register_device(). The aim is to
+also honour the property for non-PHY MDIO devices such as DSA switches.
+
+> Non-PHY devices, such as DSA
+> switches, are registered through of_mdiobus_register_device(), where the
+> property is ignored, so MDIO bus drivers that rely on phy_ignore_ta_mask
+> still treat the turn-around/read failure as an error.
+
+[Severity: Low]
+This describes broken behaviour that users can see, but there is no Fixes:
+tag and nothing says whether this is meant for net or net-next.
+
+Should a Fixes: tag be added for the commit that introduced non-PHY
+registration through of_mdiobus_register_device() (or the binding change)?
+If not, should the commit message say this is new functionality for
+net-next?
+
+> diff --git a/drivers/net/mdio/fwnode_mdio.c b/drivers/net/mdio/fwnode_mdio.c
+> index ba70915182654..129481e8a910a 100644
+> --- a/drivers/net/mdio/fwnode_mdio.c
+> +++ b/drivers/net/mdio/fwnode_mdio.c
+> @@ -89,9 +89,6 @@ int fwnode_mdiobus_phy_device_register(struct mii_bus *mdio,
+>  		phy->irq = mdio->irq[addr];
+>  	}
+>  
+> -	if (fwnode_property_read_bool(child, "broken-turn-around"))
+> -		mdio->phy_ignore_ta_mask |= 1 << addr;
+> -
+
+[Severity: Medium]
+With the parse removed here, what happens to PHYs registered through the
+exported of_mdiobus_phy_device_register()?
+
+drivers/net/mdio/of_mdio.c:of_mdiobus_phy_device_register() {
+	return fwnode_mdiobus_phy_device_register(mdio, phy,
+						  of_fwnode_handle(child),
+						  addr);
+}
+
+This wrapper never goes through of_mdiobus_register_phy(), so it never
+reaches the new parse.
+
+Its in-tree caller, tja1102_p1_register() in drivers/net/phy/nxp-tja11xx.c,
+registers the port 1 PHY from a DT child node:
+
+		ret = of_mdiobus_phy_device_register(bus, phy, child, addr);
+
+and does not set phy_ignore_ta_mask itself.
+
+ethernet-phy.yaml documents broken-turn-around for every PHY node. Would
+the property on a port 1 node now be ignored without any warning? On a bus
+that checks the mask (mdio-bcm-unimac, mdio-pic64hpsc, mdio-bitbang), reads
+from that PHY would then return -EIO or 0xffff.
+
+This also means the two exported OF PHY registration paths now disagree on
+whether the property is honoured.
+
+>  	/* Associate the fwnode with the device structure so it
+>  	 * can be looked up later
+>  	 */
+> diff --git a/drivers/net/mdio/of_mdio.c b/drivers/net/mdio/of_mdio.c
+> index b8d298c04d3ff..c03fcf34b3a62 100644
+> --- a/drivers/net/mdio/of_mdio.c
+> +++ b/drivers/net/mdio/of_mdio.c
+> @@ -46,6 +46,9 @@ EXPORT_SYMBOL(of_mdiobus_phy_device_register);
+>  static int of_mdiobus_register_phy(struct mii_bus *mdio,
+>  				    struct device_node *child, u32 addr)
+>  {
+> +	if (of_property_read_bool(child, "broken-turn-around"))
+> +		mdio->phy_ignore_ta_mask |= BIT(addr);
+> +
+>  	return fwnode_mdiobus_register_phy(mdio, of_fwnode_handle(child), addr);
+>  }
+
+[Severity: Medium]
+The bit is now set before fwnode_mdiobus_register_phy()->get_phy_device()
+checks whether anything answers at addr. Is it intended that nothing clears
+it when registration fails?
+
+For PHY nodes without a reg property, the auto-scan loop in
+__of_mdiobus_register() calls this helper for every unregistered address
+and expects -ENODEV for most of them:
+
+			if (of_mdiobus_child_is_phy(child)) {
+				...
+				rc = of_mdiobus_register_phy(mdio, child, addr);
+				if (!rc)
+					break;
+				if (rc != -ENODEV)
+					goto put_unregister;
+			}
+
+If such a node has broken-turn-around, every empty address scanned before
+the real PHY keeps the ignore-TA bit for good. If no PHY is found, every
+unregistered address keeps it.
+
+Before this patch, the bit was set in fwnode_mdiobus_phy_device_register().
+That only runs after get_phy_device() or phy_device_create() has succeeded.
+
+With those stale bits, unimac_mdio_read() returns the latched data instead
+of -EIO:
+
+	if (!(bus->phy_ignore_ta_mask & 1 << phy_id) && (cmd & MDIO_READ_FAIL)) {
+		ret = -EIO;
+
+pic64hpsc_mdio_c22_read() behaves the same way. get_phy_c22_id() used to
+map -EIO to -ENODEV and skip the address. Now any latched value that does
+not match the (*phy_id & 0x1fffffff) == 0x1fffffff check counts as a valid
+ID.
+
+Could this register a phantom PHY at the lowest empty address? The loop
+breaks on the first success, so the real PHY would never be found.
+
+It would also hide real read errors at those addresses from later users of
+the bus. That conflicts with the phy.h description of phy_ignore_ta_mask:
+"PHY addresses to ignore the TA/read failure".
+
+The same applies, more narrowly, to the reg-based paths. When
+of_mdiobus_register_phy() fails, the bit stays set. The same is true when
+of_mdiobus_register_device() fails, either on the IS_ERR() return after
+mdio_device_create() or on the mdio_device_free() error path. In both cases
+no device was registered.
+
+>  
+> @@ -56,6 +59,9 @@ static int of_mdiobus_register_device(struct mii_bus *mdio,
+>  	struct mdio_device *mdiodev;
+>  	int rc;
+>  
+> +	if (fwnode_property_read_bool(fwnode, "broken-turn-around"))
+> +		mdio->phy_ignore_ta_mask |= BIT(addr);
+> +
+
+[Severity: Low]
+The commit message says the property is now parsed "in one place for
+both PHYs and other MDIO devices". The patch actually adds two copies
+of the same check in of_mdio.c. One is in of_mdiobus_register_phy() and
+the other is in of_mdiobus_register_device().
+
+The two copies also read the same DT node with different accessors.
+The PHY helper uses of_property_read_bool(child, ...). The device helper
+uses fwnode_property_read_bool(fwnode, ...). For an OF node they should
+give the same answer today. A reader cannot tell why the two paths
+differ, though, and the copies can drift apart later.
+
+Could this be handled once in a shared place instead? One option is a
+small static helper in of_mdio.c that both functions call. Another is
+to handle it where the MDIO core already deals with per-device firmware
+properties, for example in mdiobus_register_device() once the fwnode is
+attached to mdiodev->dev. If the ordering works out, that would also
+cover callers of the exported of_mdiobus_phy_device_register(). It
+would also set the bit only after a device really exists at the
+address. Would that work for the cases you have in mind?
+
+If you prefer to keep the two call sites, please reword the commit
+message so it no longer says the property is handled in one place.
+
+[Severity: Medium]
+The commit message gives DSA switches as the motivating case. Is the DT reg
+address alone enough to cover the bus addresses such a switch actually
+uses?
+
+Broadcom b53 switches include the BCM53125, which mdio-bcm-unimac names as
+not releasing the line during turn-around. For these, b53_mdio_probe()
+accepts either address 0 or 30:
+
+	if (mdiodev->addr != BRCM_PSEUDO_PHY_ADDR && mdiodev->addr != 0) {
+
+However, all switch register traffic in b53_mdio_op() and the
+b53_mdio_read*/write* helpers goes to BRCM_PSEUDO_PHY_ADDR (30), whatever
+mdiodev->addr is. b53_mdio_probe() also reads the ID from address 0:
+
+	phy_id = mdiobus_read(mdiodev->bus, 0, 2) << 16;
+
+bcm47094-linksys-panamera.dts describes a BCM53125 as switch@0. If that
+node had broken-turn-around, only BIT(0) would be set. Reads at address 30
+would still fail the TA check (-EIO on unimac/pic64hpsc, 0xffff on
+bitbang), and b53 would store those values as register contents.
+
+The reverse is also true. With reg = <30>, the ID read at address 0 during
+probe is not covered.
+
+Does this leave the b53 case that the commit message describes still
+broken?
+
+>  	mdiodev = mdio_device_create(mdio, addr);
+>  	if (IS_ERR(mdiodev))
+>  		return PTR_ERR(mdiodev);
+
 -- 
-2.55.0
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121092933.186731-1-bage%40debian.org
