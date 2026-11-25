@@ -1,60 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570499;
-	b=cnjcET1bejSolIZHmvoeO2Zo9d6WRU9DAJ3+SKSHJEQdEM10n9SrzhryLFVHsHW84E+c
-	 1PUF8d2pKo0NVARN7+Y7A/4khFclCeHLI9yUeSltxCqJBL+/0mHcF0mqU1XXG3ndkz3kV
-	 7UZVVQR4uMkU9+RlOASeBknrjI1I6P4K7sE1PYn2zkOcI++CiYPKbH0J8NTTrI+qGrffg
-	 Q825bWsEJkJBS6zwi46NRc3tDeFJAVojD05eE/5e9n5MdvgDnDCsRLfOiBnF2YhX7SQ74
-	 1249CGIXiynKTIRDLqFmS8JTeX+JxJr/VGuTMBR7/VXxVtN2DqItXv15lATGe8jm+qQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570499;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=ISBgR7gESgw4ZES9JGQDlJ1ooxeV9C8odGf+egbdKG0=;
-	b=HscXtg9W5YiDtmJQC5Wr+TtEsLjEh74oerqT8MHU4jcAqL+GigfUF1qe7FqniofQuUt3
-	 XoORP6syYc07VY7Z8MpOyFf+mUvybdw34NQ8cQ61fn7wPKlqKioxNz8Jpk/JZtdzIQm1A
-	 DZr9xbo9aTIaFrE7qddgaNFOE81DH5V1MRXVE5v1Il+eHdzR0/id6NJ5BipsAXSxxkdBT
-	 mMsQbFqB8k/9tW13AiuY5y+JDvuoxZKu9XlEN2xldCjGpmB1UpX/qXlATLSV4x9W7vEBF
-	 fIenYF8sSLGUi92g6/pHD25IzrOGF8aSLzSeiL8urnz8C0KeNsEpdX+FLMsWZrr340w==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DUKoyJB6;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.69
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795570501;
+	b=fM6H6fSNov5ZtjpuRKXEYo6pnhDkTGMVgMb1xksrfTFYORPYwzo8TF7YC78DasJXUzcB
+	 Wwn4cz9pCRPmTgUReqe2TMciCsRSchR+724nQ+dTgq+Tbd/7gw1gWngi9/UvNlLeKBiuY
+	 xGq4KFzxO3DSa3AfNivQFhkOuchLOwBJjUj27yJ4R72SjW90ppHvA4vZQiJ5j+GbYOGqk
+	 T30f0C12QDBiuYpdUZpEqRhu4MB6RbF5QBwtyIREcrVlkX3mazAnBG0ACKZC4ZCSvjLDc
+	 15sPzy92GI9RC4tJJQzoRT+WYP/SxNtuAK5V3XQbbi4Ftdt9U7vsVSlVSQ0XsLWkCUQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570501;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
+	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
+	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
+	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
+	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
+	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=qgJxXWaSpJ1ciyJbOdp1ovGrNTn2LqDwwFWHu22EPK0=;
+	b=vCp7u8kWzJjPgFwvuyuxZv8HTBeekW3Url41BUhDkpbMBBaJ2IfsnfwDBEBPbZVjazWi
+	 xEdnUYV2PIVuDNIKZKueXkqkDLjdDWTK7K2zs6Ywu4x2jLeflNuYJRMsHkOjmDmFf2268
+	 VdkRwzyf7h/Nks86OzZtzKER0ZEmwlmUK67fn9q1zpKw6OycjIs5Rhm9aM5zfvRH9tQi9
+	 b941r7Zz0Rf9dhPdWhfCkswfl4pxgHvAqwZ+uu4l0134uIzsbo42XCowoV4EvjGBfXHw5
+	 92igJpWDuzTi022uQLkYvSbN6MQq9U1H0x9GVo8dOSaHtxlVdIryAbNuGviL/1t7Zxw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YYLvPPdd;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.198.69
+Received: from CY7PR03CU001.outbound.protection.outlook.com (mail-westcentralusazon11010069.outbound.protection.outlook.com [40.93.198.69])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29C12606A33A;
-	Wed, 25 Nov 2026 01:34:58 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C21E2606A6B0;
+	Wed, 25 Nov 2026 01:35:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C21E2606A6B0
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DUKoyJB6
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE2791F00A01;
-	Wed, 25 Nov 2026 01:34:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570498;
-	bh=ISBgR7gESgw4ZES9JGQDlJ1ooxeV9C8odGf+egbdKG0=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=DUKoyJB6GOhGYlMCU4ndLe/8YcEiOLjypzmVCVs2b/s3bkFKeF7okDDnCEADkPYI2
-	 Q/YZWXb19/7J75cTBc+aOHpv/mHOEg0h+p7ov/UmlCqaCEahKmapQLIjnbLOZ7D5+S
-	 Dh6kbvTR21oo8jA8XRyAYoGBNOMkNsRmWkY6Qp1qMODCNRRSnn+7vDyYx3gdtEy864
-	 11d/pof8pV/kRIso/4tbnO6AlxQTugh7fXHE6Aw9fsAW1dDRBgs6C3+XxZRUIuzePS
-	 S4elv1Dvzl6wOiKEW06vFkUayyHEVAMCSHa09pKV3sY9gFgKQBvKrJ8JVtWYiV8km9
-	 bTyMKdIcv5bDg==
-Subject:
- Re: [PATCH net-next 6/6] selftests: net: big_tcp_tunnels: Cover IP tunnels
-From: netdev-bot+sashiko@kernel.org
-To: yanhaishuang@cmss.chinamobile.com
-Cc: netdev@vger.kernel.org, dsahern@kernel.org, idosch@nvidia.com,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, shuah@kernel.org, alice.kernel@fastmail.im,
- linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Date: Wed, 25 Nov 2026 01:34:57 +0000
-Message-ID: <179557049725.3135.4073142828865813935@kernel.org>
-In-Reply-To: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
-References: <20261124013124.3693-7-yanhaishuang@cmss.chinamobile.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=YYLvPPdd
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cFjB2C1DInUKC8gVzyFOfLQU/aUcleBSjV26oX+WyiodDQoOxr+uEvjoExmQ31fGU50aMXuRdzVfsRnRwLWluHc3hSuuqslalr/tR25Zyf/toeAQSbRnM9UWEwaNcWAD1coZbRie46zURNfidRK0XR6W5XIUAdAMGLZ0hKOvYV3IwGtk0wMazX0xgiPI3k4VnJIKAHbFLfxCpQ5eANe6fJX8Gwjd7SjSjw4Hn8g/EgMJgjWJzLgb0FaCfJ9VtdWfptWe3DaH5mpnuRYi0E05AI+6hiXdKUBv1eRkpaWTTCP6xPfsWRwHvwsu+tLZArNzmkoeXY62+eNlz0k2CEZA+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qgJxXWaSpJ1ciyJbOdp1ovGrNTn2LqDwwFWHu22EPK0=;
+ b=Z41mrUiO2uALfdV1cdqMZX7TDdv6uQ3hnTeDTdIpjzfbMWbIbu6Njr7TFGPI7UTIMsZ68COLH9v5Izw37/fdV6oh7dmqBaHXxNDV5L6bLHeQsxT/SPbRIADpn9wx6xz5EYb7N1PXveO5xgvdcIvk+e7vWndHAMxYgRQFiBY624tVLYf/VvgofXK1BzcfACKx5mulTtEdeIjiMERPaB3G2uAqIsJWrDF7BS8lZExzoZiAV7VhCPpsKtPgh53p4XgM+3+61+jXa5asGH5rO3wlbXEUeHBrdeNEdBm6QCUdftt+Sq2I7WvvktbmjpUv8PxwjDfXCn7waBAXUKpLCLPKtg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qgJxXWaSpJ1ciyJbOdp1ovGrNTn2LqDwwFWHu22EPK0=;
+ b=YYLvPPddMCZeMz56GIa/HYEYWXv5Wod1X1KlwFlMTVmfjVguPclws6u5cLsOz9R5NFRmlrYJanK7lCTO1GTciZ1W/4A6GGCDHjU9UJeEDdBAXFe4ngwNT2BarQ6nFIZ13wbO3KB3iqKv4L9uu6Xuw4cwsodn9uyT69GUtBbWPg0CssALid5GQxCaOCvznFB8NRmimLzdQNPsYytQmFunVxFo/THwF4LU8jot57V8jbLa/PVdYqz+cW8LeqAwnrOwiYjLqci/fITDvRSomXXGE0NxwZ36FRWGrpYv3q8HMee/UsM20cZth3hsjVpcLyLEqHaVJl/37skGD3tAaG3CiQ==
+Received: from CH0PR03CA0436.namprd03.prod.outlook.com (2603:10b6:610:10e::33)
+ by CH2PR12MB9494.namprd12.prod.outlook.com (2603:10b6:610:27f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Wed, 25 Nov
+ 2026 01:34:55 +0000
+Received: from BL2PEPF000352D8.namprd02.prod.outlook.com
+ (2603:10b6:610:10e:cafe::1f) by CH0PR03CA0436.outlook.office365.com
+ (2603:10b6:610:10e::33) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 01:34:55 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ BL2PEPF000352D8.mail.protection.outlook.com (10.167.254.8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:55 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:36 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:36 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 17:34:32 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
+	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
+	<jianbol@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>
+Subject: [PATCH ipsec 4/4] Revert "xfrm: serialize state GC with device state flush"
+Date: Wed, 25 Nov 2026 03:34:12 +0200
+Message-ID: <20261125013412.1123866-5-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
+In-Reply-To: <20261125013412.1123866-1-jianbol@nvidia.com>
+References: <20261125013412.1123866-1-jianbol@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,193 +118,95 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL2PEPF000352D8:EE_|CH2PR12MB9494:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6bda6ec2-5a96-4143-f055-08df4a944f1d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|376014|7416014|1800799024|36860700016|23010399003|82310400026|10067099003|56012099006|5023799004|11063799006|261026121527099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	Jb/u1Ub/Kk2uHhHxfy3FclbLm1HaqQQeOwEzjETczsSHF+aGhm6gN582wXbVJs+EJHHr9QremgEosI1VFkqFZTUL/GSyIC+EANigwZyHTpYf+dt3naeQYICB777WtBRvqdT5IlUpckG3pnEUE4OLIVqvKEaKGp5lG3nXbcfkmZGa9jUYV/WtN1xz22ckP/1JxvnpucaQDQzFrIDLYcwLyB9bQrZeMfC8Qn8LZjn4CXF3m/tCLvRZW7gID7203GCcKndQwtImgI7Pbnu3180EiliqtzplDFEURKkuvMSeugq7xZ2dRTCXatTln9+xlwftc5y6uOrp0Tf9aZ5RG93vygpEjwuGu/yNIwVFa2W/gjCa/MqX3LuSTWswMdNuIk6Ft8a2l0tHLnvC/sxrtD1tWSUphM6Xx8l28Jq9t+AIzoj9Dm8NOvXhwf85oGe/dDhMoc8lRNR9PcaF2Zcu+G6fgaUpqQ/hNq6rggeXpd5RllJ2MDYGL+YhO5gQwddLQh+FqakocXJGxDC4d2aENv+2Wuq7N7pUMss3PgBuxy1ZJl079ozvN98FNi+DmnolfrfjWFpL5Wqz7dscEOa1eu5RsuSf9LhtbGDMSRy1sQnnSa/kZ++gd/3+EAEhoQB/ZFG5r0nZiE60mADwcStc0u5XRgEdgr5DwNP10I+B35boZke0XyRSwrWve4gIyti+AD73BTc9l8IQlKFw4qn6MzK6sg==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(36860700016)(23010399003)(82310400026)(10067099003)(56012099006)(5023799004)(11063799006)(261026121527099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	+YFziHug2pdkEGOpGRWIDUxENkPlKAgC+BQmUb9ixMD9ESDBCBbbtpxAZ9v0v9iVJ7Zqp4TnPjwgz2JunLrV74NXMjCw7U3ow44PwUExfG8eGXJLSl22rL9sgIRm8BfiillduTLIFI4LnJSKSpFmzFq65HtJ+Y2Oo4GLm4G6V+WhxrPZQ7ORIxGpZWJqN2yBHnIEyZ1TUCNeXl1/5jNGy38O4Y2CEPCnmR77YYkTHfxhI4lYTqO3uBWR1n63OXeV3edL9Liv+pz9k2OKwVD5UZY4qtgxv5cJDSVEFoMGOYJacMW4ry3l/1LHqUrUpFFPrdwefMDVNdKTSFudFxszsPSWMfQYP/dmlwVBv9P7dKZEvVMMG9b5EGR4Zuy9MnmBQjYqbiTBIEASbz/UIXT4V+Fawb7vMx6O8ND+xx93i1SsHNh+x+zh2lEVGSSIVtF2
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:55.1082
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6bda6ec2-5a96-4143-f055-08df4a944f1d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	BL2PEPF000352D8.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB9494
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+This reverts commit 89fefad9f971bc637fb22373078144f2563c4be9.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 2
+The mutex kept the state GC from destroying a state while
+xfrm_dev_state_flush() was freeing its device state. It can't cover
+xfrm_state_find(), which frees device state under RCU.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The flush now holds a reference on each state it frees, and
+xfrm_dev_state_free() lets only one caller free the device state.
+Nothing is left for the mutex to protect, so remove it.
 
-- [Medium] In the main loop of
-  tools/testing/selftests/net/big_tcp_tunnels.sh (lines 373-374), the…
-- [Low] The commit message says fou and fou6 are loaded "like pmtu.sh
-  does".
-- [Low] The comment in run_ip_tunnel() (big_tcp_tunnels.sh lines 338-339)
-  explains the skipped sit csum-off case as "GRO does not build sit…
+This needs "xfrm: Serialize device state teardown". Without that patch
+the flush frees the device state of a state it holds no reference on.
 
---
+Link: https://lore.kernel.org/netdev/aqfZNeR58HLm2x1o@secunet.com/
+Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
+Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
+---
+ net/xfrm/xfrm_state.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-selftests: net: big_tcp_tunnels: Cover IP tunnels
-
-This patch extends big_tcp_tunnels.sh to run the BIG TCP checks over
-ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap. They run without
-encapsulation and with FOU, and with GUE on an IPv4 underlay. sit runs
-only with veth tx checksum offload enabled, and fou/fou6 are loaded with
-modprobe before the tests start.
-
-> diff --git a/tools/testing/selftests/net/big_tcp_tunnels.sh b/tools/testing/selftests/net/big_tcp_tunnels.sh
-> index 9c1482b842bfc..9f185eb20652e 100755
-> --- a/tools/testing/selftests/net/big_tcp_tunnels.sh
-> +++ b/tools/testing/selftests/net/big_tcp_tunnels.sh
-
-[ ... ]
-
-> @@ -240,6 +330,26 @@ if ! ip link help 2>&1 | grep gso_ipv4_max_size &> /dev/null; then
->  	exit "$ksft_skip"
->  fi
->  
-> +# $1: tunnel type, $2: tunnel family, $3: traffic family, $4: encapsulation
-> +run_ip_tunnel() {
-> +	local csum_offload
-> +
-> +	for csum_offload in on off; do
-> +		# GRO does not build sit packets larger than 64KB, so with
-> +		# software GSO on the sender there is nothing big to receive.
-
-[Severity: Low]
-Is this the real reason the csum-off sit case has nothing big to receive?
-
-In csum-off mode, do_test() counts packets over 64KB on PREROUTING
--i tun1, after decapsulation. The sender did software GSO, so those
-packets can only exist if receive-side GRO aggregated them.
-
-ipip and gre get that aggregation through ip_tunnel_rcv():
-
-net/ipv4/ip_tunnel.c:ip_tunnel_rcv() {
-    ...
-	gro_cells_receive(&tunnel->gro_cells, skb);
-    ...
-}
-
-sit has no gro_cells and ends in a plain netif_rx():
-
-net/ipv6/sit.c:ipip6_rcv() {
-    ...
-		dev_sw_netstats_rx_add(tunnel->dev, skb->len);
-
-		netif_rx(skb);
-    ...
-}
-
-veth also has GRO disabled by default (veth_disable_gro()), and the test
-never enables it. So the 64KB limit for encapsulated packets (the
-p->encapsulation check in skb_gro_receive()) never applies here, because
-sit packets don't go through GRO at all on this receive path.
-
-Would it be more accurate to say that sit does not use gro_cells on
-receive? The commit message gives the same explanation.
-
-> +		if [ "$1" = sit ] && [ "$csum_offload" = off ]; then
-> +			continue
-> +		fi
-> +		setup_tunnel "$1" "$2" "$csum_offload" "$3" "$4" || exit "$?"
-> +		do_test "$2" "$3" "$csum_offload" || exit "$?"
-> +		cleanup_tunnel "$2" "$4"
-> +	done
-> +}
-> +
-> +# fou is not loaded on demand when built as a module
-> +modprobe -q fou
-> +modprobe -q fou6
-
-[Severity: Low]
-The commit message says fou and fou6 are loaded "like pmtu.sh does".
-pmtu.sh, however, turns a modprobe failure into a skip:
-
-tools/testing/selftests/net/pmtu.sh:setup_fou_or_gue() {
-    ...
-		modprobe fou || return $ksft_skip
-    ...
-		modprobe fou6 || return $ksft_skip
-    ...
-}
-
-Here the errors are silenced and the result is not checked. If fou or
-fou6 is not available, won't the script report a failure instead of a
-skip?
-
-setup_ip_tunnel()
-    ip -netns "$1" fou add port "$FOU_PORT" ... || return 1
-setup_tunnel()
-    setup_ip_tunnel ... || return 1
-run_ip_tunnel()
-    setup_tunnel ... || exit "$?"
-
-The script then exits 1, after the vxlan, geneve, bareudp and
-encap-none cases have already passed. A kernel that passed
-big_tcp_tunnels.sh before this patch would now fail it.
-
-tools/testing/selftests/net/config sets CONFIG_NET_FOU=y and
-CONFIG_IPV6_FOU=m, so only kernels built with a different config are
-affected.
-
-Could a modprobe failure here exit with ksft_skip, or skip only the fou
-and gue cases?
-
->  WORKDIR=$(mktemp -d)
->  trap cleanup EXIT
->  setup
-
-[ ... ]
-
-> @@ -254,3 +364,18 @@ for tunnel in vxlan geneve bareudp; do
->  		done
->  	done
->  done
-> +for encap in none fou gue; do
-> +	run_ip_tunnel ipip 4 4 "$encap"
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel gre 4 "$traffic_family" "$encap"
-> +		run_ip_tunnel gretap 4 "$traffic_family" "$encap"
-> +	done
-> +	# GUE is only supported on an IPv4 underlay
-> +	[ "$encap" = gue ] && continue
-> +	run_ip_tunnel sit 4 6 "$encap"
-
-[Severity: Medium]
-Is this comment accurate? net/ipv6/fou6.c defines gue6_build_header()
-and registers GUE for IPv6 tunnels:
-
-net/ipv6/fou6.c:fou6_init() {
-    ...
-	ret = ip6_tnl_encap_add_ops(&gue_ip6tun_ops, TUNNEL_ENCAP_GUE);
-    ...
-}
-
-Also, pmtu.sh in the same directory already runs
-pmtu_ipv4_gue6_exception and pmtu_ipv6_gue6_exception.
-
-The continue also comes before the sit line, and sit uses an IPv4
-underlay. Like ipip, sit sets up its encap with ip_tunnel_encap_setup()
-and calls ip_tunnel_encap() in ipip6_tunnel_xmit(). pmtu.sh also tests
-sit over gue4. Was sit meant to be skipped for GUE?
-
-As written, sit, ip6tnl, ip6gre and ip6gretap never get BIG TCP coverage
-with GUE. The earlier patches in the series still raise tso_max_size for
-these devices whatever the encap type.
-
-The loop also doesn't match the new file header:
-
-    # and over ipip, gre, gretap, sit, ip6tnl, ip6gre and ip6gretap tunnels,
-    # without encapsulation and with FOU and GUE.
-
-It doesn't match the commit message either, which says "with GUE too on
-an IPv4 underlay".
-
-Could the continue move below the sit line, with the comment corrected?
-Could GUE also be run for the IPv6 underlay tunnels?
-
-> +	for traffic_family in 4 6; do
-> +		run_ip_tunnel ip6tnl 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gre 6 "$traffic_family" "$encap"
-> +		run_ip_tunnel ip6gretap 6 "$traffic_family" "$encap"
-> +	done
-> +done
-
+diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
+index 9883fb3545f8..717c0bdb9559 100644
+--- a/net/xfrm/xfrm_state.c
++++ b/net/xfrm/xfrm_state.c
+@@ -226,7 +226,6 @@ static struct xfrm_state_afinfo __rcu *xfrm_state_afinfo[NPROTO];
+ 
+ static DEFINE_SPINLOCK(xfrm_state_gc_lock);
+ static DEFINE_SPINLOCK(xfrm_state_dev_gc_lock);
+-static DEFINE_MUTEX(xfrm_state_gc_mutex);
+ 
+ int __xfrm_state_delete(struct xfrm_state *x);
+ 
+@@ -639,10 +638,8 @@ static void xfrm_state_gc_task(struct work_struct *work)
+ 
+ 	synchronize_rcu();
+ 
+-	mutex_lock(&xfrm_state_gc_mutex);
+ 	hlist_for_each_entry_safe(x, tmp, &gc_list, gclist)
+ 		xfrm_state_gc_destroy(x);
+-	mutex_unlock(&xfrm_state_gc_mutex);
+ }
+ 
+ static enum hrtimer_restart xfrm_timer_handler(struct hrtimer *me)
+@@ -1018,7 +1015,6 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ out:
+ 	spin_unlock_bh(&net->xfrm.xfrm_state_lock);
+ 
+-	mutex_lock(&xfrm_state_gc_mutex);
+ 	spin_lock_bh(&xfrm_state_dev_gc_lock);
+ 	hlist_for_each_entry_safe(x, tmp, &xfrm_state_dev_gc_list, dev_gclist) {
+ 		xso = &x->xso;
+@@ -1035,7 +1031,6 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
+ 		}
+ 	}
+ 	spin_unlock_bh(&xfrm_state_dev_gc_lock);
+-	mutex_unlock(&xfrm_state_gc_mutex);
+ 
+ 	if (!hlist_empty(&flush_list))
+ 		synchronize_rcu();
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124013124.3693-1-yanhaishuang%40cmss.chinamobile.com
+2.39.3
+
