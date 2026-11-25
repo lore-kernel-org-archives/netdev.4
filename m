@@ -1,62 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795594267;
-	b=2EYoMsOrRVzU7RmBDnSDrRDlvECsSe8fbqzVNe4Gt7Er3F5CZaeVcMdRzegfcIVoZ+SW
-	 s9CVNMq05jPCXjPzPab2RuMg8o02dgTyi57F75lL5jv0KPMhunaq5xsMNOn3yBOIPRuGB
-	 2lpc8s2bXO4fpICDi7bpX3pugPpVs9Xx5H3G6HpmABm4a2FGtqwgLDhrh2taLuZKjh0cA
-	 KduHEflAD0Q9M+e3yz6tPiS/eUaUmJswCbpjkBnT6OaxZUePDKc4XjTxHzwtyh/UCrHp3
-	 EnjbNrF61X32u84lsEgXgMQf8UkgxAPU8etbIiicRXlLdXwJkQEFsq6bO56PBa4UmnA==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795594267;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=MEXl7E1meHY1GYwQbEY2+aWshbsKUuiLBog0ysXIUbY=;
-	b=3KAimAZt84cpMbAyrhSxsX/S9oYc2aGAD8ue0/G8qrR70pAAFi15ZTljY4g+Rfj/YzZA
-	 7Vnm54wWhqQZTEoxtrmb0H8rVaRsxIKwKG5+/N+S8Y1EO+lcJmxuv3bvcmbYRTZQDE38Y
-	 naqjlsLDnDniELaAo7Ktc8O2QUvelGvf4E1M7lV95isBjrFtb1AMh9tRBoDU1g9Ct3YRN
-	 KEvBMOqv+wfBkpPeIvzKGMr5tGs31Bx5U39Cvr2jDVyPRHejsK0K8rR71foTQFuTsB+5I
-	 Q9SfCcSm4GxlnXevsmvD1crWtqbC63YOx7jfwGF6bAo0lZ7Su+YsjZ6j6EIug7InkuA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=163.com;
-	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=N6Z+P02y;
-	arc=none smtp.remote-ip=117.135.210.2
-Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.11
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795594287;
+	b=B9JmbXDBSuLbZTBCrONqZd+znsV7CRasJNxgzZowfkajdRsOAzMh8J5gHNNRxMzWsrjp
+	 lcIinIFWkivDwiP+kTC8ZuQRY1hs0PvTl/mp5RZh4R64ASquRXa+qm6OW0zCxj3f3J7Sv
+	 8Wav2FcQd0O6p+/G0eTTAdx/erL39zYNlqhJakM1Z6Kn595/aLYlX2dmEEkl1Ie4KK+VK
+	 65V7lMk9+w36t0E5CqzhiWA7ZeTSXrs0FpLJ6tnvGOfKTzWYBxT2Z1cfi3dbUMjtjLHpa
+	 RNFvqBo8q/H2B3uasLgCYNgSRHyekDoZjtufzoxMpm8CvD6to/s0m4N74yuYRC1wBEg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795594287;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Message-ID:Date:MIME-Version:User-Agent:Subject:To:CC:
+	 References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy:
+	 X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=wjLAVMuoxEybg0vZTt5h0ilbTDdeGBtPunpL+OiTSUE=;
+	b=KOI7Nic8exuOh0bt4AxfIX19QOENTauQiaGzVp3pE4cs75Qbiur0BG11YMjXTuqc7q7n
+	 GayU2toBNQvh5tIt0/WoBLZpXGafEPf4Bh3NhnQvIjp7OSexpuQw8b7IagiY6Z8OTQSeo
+	 i4jUCbTbzLWqV/PcCD1ztuii28XfrsutKuQtc09VUz7nJ+Xw+Oby5+6QnwJI7YE0Ib0cc
+	 a9A2EodH3ytNF0FtGLAZXJnVJmlzc7FOp0ZmRqAvvDrwCQWS6ncSBhVj3zRowEULRjxEB
+	 6wAFEZ5pWjCsGs7Vd7ScmuZqGe+e7sqYoBDDM3rGD91TZ2kJ4tNjd0QcNutlvUskStw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PRG9kQup;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.196.11
+Received: from SA9PR02CU001.outbound.protection.outlook.com (mail-southcentralusazon11013011.outbound.protection.outlook.com [40.93.196.11])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 50ED4606A323
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 08:11:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 50ED4606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8E952606A326;
+	Wed, 25 Nov 2026 08:11:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8E952606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=N6Z+P02y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:To:Subject:Date:Message-ID:MIME-Version; bh=ME
-	Xl7E1meHY1GYwQbEY2+aWshbsKUuiLBog0ysXIUbY=; b=N6Z+P02yOAojmtNt1t
-	+sjkhJAgqMcJv5++uvpftHuVx2zdrStMU6BA3PgyUNVed/smjE1ifK+P7TNpKAt8
-	wCUqYxQAa9XyJ4gugzjRsVv4Bajfbpj5bWCMkIKG6Oz5JefRa6y9Tev6uXLNSAB3
-	4CiwWEwhYawl5DctfBkP+menY=
-Received: from Precision-7960.. (unknown [])
-	by gzga-smtp-mtada-g1-0 (Coremail) with SMTP id _____wDnb8vflwZr_PagJQ--.51381S2;
-	Wed, 25 Nov 2026 16:10:08 +0800 (CST)
-From: Hans Zhang <18255117159@163.com>
-To: andrew@lunn.ch,
-	hkallweit1@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: linux@armlinux.org.uk,
-	netdev@vger.kernel.org,
-	Hans Zhang <18255117159@163.com>,
-	Kai Xia <503536682@qq.com>
-Subject: [PATCH v2] net: phy: defer PHY probe when running in async probe context
-Date: Wed, 25 Nov 2026 16:09:39 +0800
-Message-ID: <20261125080939.176096-1-18255117159@163.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PRG9kQup
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bNwWtgolRqJjPlGv7tLEcmQWXniTutslCxqmOtD3tZCCa01HyMFL7m9GxcBtulk0/bkxb6HuAWorQOdqUXZfAqJEtx6NRTv2DA5FATRd6pjNBLYJLOQRKYxJtBzvoXHk/NfNb4TN2BY27aXDINWNGiU0gvFfQfVswPHK5XTHtUZK2UHDqzyxyBk8XLKo27a8g9AKB2gcC/QHO856WkyGn/kaF+IMUHmnOhrsQj0LdxRCuoPtmwk8w8SPLS9TlyfgvLtWXRv/YwVOhus7oYOrYEOdEI8W6d6wsFvj+hBzO0a4x7B8D1O43ST51CtaFQneHKGDGRH2sL642fDvvxNadg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wjLAVMuoxEybg0vZTt5h0ilbTDdeGBtPunpL+OiTSUE=;
+ b=Ydg0pKDeAefLJDGUuOE83F7IdaP/nsnjQlQJqVmcdq6BLrBkkax+XYAHpLkiEJe0AokmAw7O9PVJNb+Cn2YgHK7b9PD5YMpc8aTj8/npl/bpTXNJ6sRzWCf7Djycd0DhJE0+4Lg76UGap1tJofeBUL0ET+svjjomWakDQ/D6PDXJilmHCNrMeqHLixhMD9YYSWXf2UJmh5J3TBB0qFWHWsvi55m2l38A4hlb6VPu95JiaVZMnlurRepI8qYJpxFdu6J6rKLMboenRuLzT+gBZny0ZQ/d/Ragv+9bhFJ6sbiMZHAIQ+hx8s65mZs/kA5DouthTlSf+//JxOBRJKhpDQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=gmail.com smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wjLAVMuoxEybg0vZTt5h0ilbTDdeGBtPunpL+OiTSUE=;
+ b=PRG9kQupKgkzUi41JWvqind/Xw6PSyILnNyzH7FDVJw1l4+sXvd60z62oIao61ZvLi6vDdRDhG+TFMOlpg+RzkXoUE05JtbfWHGba+nbx0TjruovxSAoeJxBd0PecxcP1vvPDJTPXYvIKhc0gyUnZ1znw20lpk0jKWbI5kUKPam8dkJUfGjyIsqjzbtf5TahG1TQyg79SuD0/cijo7fv+6v2yvvhZBy7hrYOL2Jfcmp3+ug05PPA86stHYc6UvG8H5ogjgytgNexWCfPlT4q+6stL1VaY7cycs0YY4GkmiBCmcuyTTsG3rCk6id6JtTqI6NIKsnHH0f2aT071cIqsA==
+Received: from PH8PR05CA0006.namprd05.prod.outlook.com (2603:10b6:510:2cc::6)
+ by IA0PR12MB8905.namprd12.prod.outlook.com (2603:10b6:208:484::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.14; Wed, 25 Nov
+ 2026 08:11:20 +0000
+Received: from PH2PEPF00048912.namprd05.prod.outlook.com
+ (2603:10b6:510:2cc:cafe::52) by PH8PR05CA0006.outlook.office365.com
+ (2603:10b6:510:2cc::6) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.688.4 via Frontend Transport; Wed, 25
+ Nov 2026 08:11:20 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ PH2PEPF00048912.mail.protection.outlook.com (10.167.243.68) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 08:11:20 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
+ 2026 00:11:01 -0800
+Received: from [10.125.207.116] (10.126.230.37) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Wed, 25 Nov
+ 2026 00:10:56 -0800
+Message-ID: <63027688-545c-4f89-80db-268b763e77ce@nvidia.com>
+Date: Wed, 25 Nov 2026 10:10:52 +0200
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,101 +104,147 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:_____wDnb8vflwZr_PagJQ--.51381S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxAF18KrW7tw4DAFW8ZFW5Wrg_yoW5Zw13pF
-	s8AayYyrZ5Ww47Wa1xJrWYyFy0ga98Cw47Wrn7Cwna9a9rt3srAFyj9r4jqr1DXrW5Ja48
-	CFyDJrWrGFZ8AaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x0pMGQ6UUUUUU=
-X-CM-SenderInfo: rpryjkyvrrlimvzbiqqrwthudrp/xtbC6wB6HmsGl+A6KQAA3G
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net/mlx5: SF, remove probed SF devices when arming
+ vhca events fails
+To: Changyul Lee <lcy8047@gmail.com>, Saeed Mahameed <saeedm@nvidia.com>,
+	"Leon Romanovsky" <leon@kernel.org>, Tariq Toukan <tariqt@nvidia.com>, Mark
+ Bloch <mbloch@nvidia.com>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Parav Pandit
+	<parav@nvidia.com>, <netdev@vger.kernel.org>, <linux-rdma@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20261117031141.1720619-1-lcy8047@gmail.com>
+Content-Language: en-US
+From: Shay Drori <shayd@nvidia.com>
+In-Reply-To: <20261117031141.1720619-1-lcy8047@gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: rnnvmail203.nvidia.com (10.129.68.9) To
+ rnnvmail201.nvidia.com (10.129.68.8)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH2PEPF00048912:EE_|IA0PR12MB8905:EE_
+X-MS-Office365-Filtering-Correlation-Id: b129d5fe-8768-478e-a66a-08df4acbb031
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|1800799024|82310400026|7416014|376014|23010399003|36860700016|18002099003|22082099003|56012099006|5023799004|11063799006|261028144727099003|261021123027099003|261022105027099003|261022075727099003|261026140227099003|261021121427099003|261009223027099003|261102123227099003|261026121527099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	dv5dlcvAHyuw3NwcMtGLeix8PRLM4iGGpJXMzRXzM3ayHh/0FmeNtYwCFrjSBQYV1MKOf5eK0MDGvr8g+zIvMnQ7qL8XK4Hn75bxeUU/I03baZRVMy2xxTCW8eFVWoypxqb3yyLz9j8Gwpnswnn5E4IbBtVFIjWD3pIppeRIYsnxTtaKCub7J58PekbNu2PBeo2A7FEIrsZx54isRF1AS+9xmYjp1+OHnrfZ7HYUCkceyQiUMizsLN2NBXyGcU1Xnb8KObFfLCUAh0yUbngdJMGbriCm9KzZFasP2wHcpgSuixNvFnXatPhTYqAVTRoCHSpZKtHsZxGtn/l5A6hf3RUxBJBZHcbEeDC9xbjDWK/EQrwy3TCIiXeb5R03xQi4zMRf1A1IYHIdY4DiZkFMDU93vIaTfShRiLuc81TL2i/7qo9OE8iN74u6fprcQe8ga73tVH7E9PonR+BY3g4Es9kRncrwi1lfkN0aen4WYPxo6LbbKd7Hiva5YBDqKC3aRMJ9ENaMU+9AzDk9Ks+1F7qJzY+uKG33tq5LEk6Eq0j/3Cc3vmv+fesDmt2mw/3b5BTxfCaO7kIPYH3tyHK+nOoxrpETwc6tEzFhcDY8n/bccwWpG8EQa4C2i4Fy2wfcvMyjyk7Xfk9aGUUkoY3GjJ2oOS4KDK3xDaD7tPlroq7/coRj4G0YazRA7ISM2yrNfs+fpx732sr/phrh/Z3NEw==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(7416014)(376014)(23010399003)(36860700016)(18002099003)(22082099003)(56012099006)(5023799004)(11063799006)(261028144727099003)(261021123027099003)(261022105027099003)(261022075727099003)(261026140227099003)(261021121427099003)(261009223027099003)(261102123227099003)(261026121527099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	8v6Ys9XrJwS5Y0+h+sboZP6NC7VBrInqtHv/6+V3kbMgzFcKC5rHSVAL3YHWFelTEYNP2/2CJTb60GtqAZnXHasNu6sucDJf9vQ8RiaZr2Kc+Q0RjoJpw26rvA8Nq/EsKEESQRVfx3olacVYJfq58qP+/IzWdHn747kg8ySBUXF6V/ciLXprkGBDh2YgytrX2Ry1VrfgIIvF5DvGVDWZPuboZee9uCdooYjVlTjwBYYdiLOe6lIvrO4yHdFE7eJI+xP7JM4bcl9MzsIxGI1h3Yi84f2ohxV2F+Wbot7L8OcvDt2Gdz+/rMCfzqrpaMeH7ZSJFKCdO0oRAQdU3B7YMQKCqLJpnpBhCJZI40SIBcYeYfYNb4h+wBRhfK2vomDJV4ENoO0TpGWMbSXCaGVPHce6z5bX9vWq/O9kb/0dVwDWC5Zo+QEFeYIKhcMU1jMJ
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 08:11:20.3866
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b129d5fe-8768-478e-a66a-08df4acbb031
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	PH2PEPF00048912.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8905
 
-phy_request_driver_module() synchronously calls request_module() so that
-the PHY driver is loaded before phy_device_create() returns.  That call is
-not safe from async probe context: module init may invoke
-async_synchronize_full(), which waits for the current async worker and can
-deadlock.
 
-When this path is reached from an async worker, return -EPROBE_DEFER
-instead.  The parent device probe is then retried later from the deferred
-probe workqueue, where request_module() can run synchronously and the
-guarantee that the PHY driver is loaded before device registration is
-preserved.
 
-This fixes the WARN below and the possible deadlock, observed on an arm64
-board whose PCIe host controller uses PROBE_PREFER_ASYNCHRONOUS while
-probing an RTL8126A:
+On 17/11/2026 5:11, Changyul Lee wrote:
+> External email: Use caution opening links or attachments
+> 
+> 
+> mlx5_sf_dev_table_create() queues work that probes the SFs which are
+> already active, and then arms the vhca state events. If arming fails,
+> the arm_err path stops and flushes that work and frees the table, but
+> the SF devices that the work already added stay on the auxiliary bus
+> and in table->devices. dev->priv.sf_dev_table is set to NULL, so
+> mlx5_sf_dev_table_destroy() returns early later and nothing removes
+> them, while they keep pointing at the parent mlx5_core_dev.
 
-  WARNING: kernel/module/kmod.c:145 at __request_module+0x198/0x200, CPU#5: kworker/u49:0/77
-  Workqueue: async async_run_entry_fn
-  Call trace:
-   __request_module+0x198/0x200 (P)
-   phy_request_driver_module+0x11c/0x17c
-   phy_device_create+0x234/0x260
-   get_phy_device+0x74/0x150
-   mdiobus_scan+0x34/0x114
-   __mdiobus_register+0x1ec/0x450
-   __devm_mdiobus_register+0x70/0xe8
-   rtl_init_one+0x1350/0x16b0
-   local_pci_probe+0x40/0xa8
-   pci_call_probe+0x64/0x174
-   pci_device_probe+0xb4/0x144
-   really_probe+0xbc/0x298
-   __driver_probe_device+0x16c/0x19c
-   driver_probe_device+0x3c/0x114
-   __device_attach_driver+0xb8/0x118
-   bus_for_each_drv+0x84/0xe0
-   __device_attach+0x9c/0x194
-   device_initial_probe+0x50/0x68
-   pci_bus_add_device+0x6c/0xf8
-   pci_bus_add_devices+0x3c/0x88
-   pci_bus_add_devices+0x68/0x88
-   pci_host_probe+0x90/0x108
-   cdns_pcie_hpa_host_setup+0x300/0x684
-   sky1_pcie_probe+0x230/0x360
-   platform_probe+0x5c/0x9c
-   really_probe+0xbc/0x298
-   __driver_probe_device+0x16c/0x19c
-   driver_probe_device+0x3c/0x114
-   __driver_attach_async_helper+0x58/0xcc
-   async_run_entry_fn+0x34/0xe0
-   process_one_work+0x180/0x2dc
-   worker_thread+0x188/0x304
-   kthread+0x110/0x124
-   ret_from_fork+0x10/0x20
-   ---[ end trace 0000000000000000 ]---
+Hi, sorry for the late response...
 
-Fixes: 0fdff3ec6d87 ("async, kmod: warn on synchronous request_module() from async workers")
-Co-developed-by: Kai Xia <503536682@qq.com>
-Signed-off-by: Kai Xia <503536682@qq.com>
-Signed-off-by: Hans Zhang <18255117159@163.com>
----
- drivers/net/phy/phy_device.c | 4 ++++
- 1 file changed, 4 insertions(+)
+once an SF is armed, the DPU can activate it and the event handler
+probes it, so arm_err has needed this since SF aux devices were added.
+Please re-spin with:
 
-diff --git a/drivers/net/phy/phy_device.c b/drivers/net/phy/phy_device.c
-index b39e945cebd7..9f88da87df97 100644
---- a/drivers/net/phy/phy_device.c
-+++ b/drivers/net/phy/phy_device.c
-@@ -10,6 +10,7 @@
- #define pr_fmt(fmt) KBUILD_MODNAME ": " fmt
- 
- #include <linux/acpi.h>
-+#include <linux/async.h>
- #include <linux/bitmap.h>
- #include <linux/delay.h>
- #include <linux/errno.h>
-@@ -639,6 +640,9 @@ static int phy_request_driver_module(struct phy_device *dev, u32 phy_id)
- {
- 	int ret;
- 
-+	if (current_is_async())
-+		return -EPROBE_DEFER;
-+
- 	ret = request_module(MDIO_MODULE_PREFIX MDIO_ID_FMT,
- 			     MDIO_ID_ARGS(phy_id));
- 	/* We only check for failures in executing the usermode binary,
+   Fixes: 90d010b8634b ("net/mlx5: SF, Add auxiliary device support")
 
-base-commit: 4dce97c6c265544342e716e62fd24bbb232590c5
--- 
-2.43.0
+and adjust the commit message accordingly. With that:
+Reviewed-by: Shay Drory <shayd@nvidia.com>
+
+P.S.: the race pointed by sashiko is pre-existing and should be handle
+in different fix
+
+> 
+> Remove them with mlx5_sf_dev_destroy_all() after the work is flushed,
+> as mlx5_sf_dev_table_destroy() does. Move the helper up so that it is
+> defined before the new caller.
+> 
+> Fixes: 4f57332d6a55 ("net/mlx5: SF: Fix probing active SFs during driver probe phase")
+> Signed-off-by: Changyul Lee <lcy8047@gmail.com>
+> ---
+> Found with a static analysis tool we are developing.
+> 
+> Compile-tested only, with x86_64_defconfig plus MLX5_CORE, MLX5_CORE_EN,
+> MLX5_ESWITCH, MLX5_SF and W=1.
+> 
+>   .../ethernet/mellanox/mlx5/core/sf/dev/dev.c  | 23 ++++++++++---------
+>   1 file changed, 12 insertions(+), 11 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c b/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
+> index e75cbf333898..44f6292ad59e 100644
+> --- a/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
+> +++ b/drivers/net/ethernet/mellanox/mlx5/core/sf/dev/dev.c
+> @@ -328,6 +328,17 @@ int mlx5_sf_dev_notifier_init(struct mlx5_core_dev *dev)
+>          return mlx5_vhca_event_notifier_register(dev, &dev->priv.sf_dev_nb);
+>   }
+> 
+> +static void mlx5_sf_dev_destroy_all(struct mlx5_sf_dev_table *table)
+> +{
+> +       struct mlx5_sf_dev *sf_dev;
+> +       unsigned long index;
+> +
+> +       xa_for_each(&table->devices, index, sf_dev) {
+> +               xa_erase(&table->devices, index);
+> +               mlx5_sf_dev_remove_aux(table->dev, sf_dev);
+> +       }
+> +}
+> +
+>   void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+>   {
+>          struct mlx5_sf_dev_table *table;
+> @@ -360,6 +371,7 @@ void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+>   arm_err:
+>          mlx5_sf_dev_destroy_active_works(table);
+>          mlx5_vhca_event_work_queues_flush(dev);
+> +       mlx5_sf_dev_destroy_all(table);
+>   add_active_err:
+>          kfree(table);
+>          dev->priv.sf_dev_table = NULL;
+> @@ -367,17 +379,6 @@ void mlx5_sf_dev_table_create(struct mlx5_core_dev *dev)
+>          mlx5_core_err(dev, "SF DEV table create err = %d\n", err);
+>   }
+> 
+> -static void mlx5_sf_dev_destroy_all(struct mlx5_sf_dev_table *table)
+> -{
+> -       struct mlx5_sf_dev *sf_dev;
+> -       unsigned long index;
+> -
+> -       xa_for_each(&table->devices, index, sf_dev) {
+> -               xa_erase(&table->devices, index);
+> -               mlx5_sf_dev_remove_aux(table->dev, sf_dev);
+> -       }
+> -}
+> -
+>   void mlx5_sf_dev_notifier_cleanup(struct mlx5_core_dev *dev)
+>   {
+>          if (mlx5_core_is_sf(dev))
+> 
+> base-commit: 7475ea8b58616b33c04afb976cf0fbaad9dd63fb
+> --
+> 2.43.0
+> 
 
