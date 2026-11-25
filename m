@@ -1,65 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=13.77.154.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.219
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795589801;
-	b=c3EVe8L+K9ZCgrNfYIyIYa/ImvbRcJN+GqLAa6xetziMtKx68zGrZWpnmJKktAVz3P8o
-	 7+tkzlIcrgVzSTILWMHrtj7lVCrCQHcJ0QSazvJYw9i9U3+9unANny7qSrqipYF4zewGk
-	 0U4L+eGq/CokTE8MTd4YPuncrzCDQcKZBEVx1HdxKVPm96Z/ZjnGajw4ntCiueMu57ivD
-	 GTlzuUmswpKoBxI23LXcv0kxaDAZsXKWgqP+btOQdpDOC+1X5YP7ui3mLQw23txvI8H2m
-	 wYC96yopcSukyjk+dZuLkhZVKvF5gN0EjnUDmeT0xIIemnMoihk4zAwrsIgA5MLJiHA==
+	t=1795590047;
+	b=UGkBwWrBW49/2vDlqxKOkfJp8mMK+G1zhUthheBeZ1M756Q4GqDx6aY0WAGrdK7gYgDL
+	 9hAjSJGrS3kEvQXN42G72sBCrNGJpolXKMYFFL/2k/ScP+18HAVj1OgC3lF85G/Isz8Y7
+	 jXhZf+13a/mS7YLMRi20JIKKOF360tBb+QaOhQ/DHfw0A8LSgAjQeo5W+731ZRLUrhEe0
+	 qj3vli8Ch/8gPw1pykLfPkB46wNzSaWi5Nr8cEtajej6s6ZdUTwVYxSEKqO2m8Ypg/Bul
+	 D9CZXVJEV5sof0FHA/hFvOhahEzeZvf+2C8VGLWwssPHnvAKTcVutkixOElJrmBIntQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795589801;
-	h=DMARC-Filter:Received:DKIM-Filter:DKIM-Signature:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=v2N3GcvzGp8pCmyk5/+OOTuDT9XiBxpv2TAT/4w+lgg=;
-	b=lHU8R8tkZwMnkD+p2aIJ6R0bvLrH7jTYdWwp52QgRzOzCDetzkLiViiRZSiRse0qLOdk
-	 V0sGdYphpbVdj+zn17V26MVS+bNTIVVyOpxRsA8U7JkwxET9Cop7m+LCUMNIBmgKSwPcD
-	 4GQb9RBTjAtUQ3O4HYIFieLq/QItrqHDPcc5eRr0wXhT/F9VpJnhSV69Yrpo35bBNJ/QP
-	 CLK5Z2L4VlfUa8zdLdqlpr+aIj87cbIPTSS523o1wskXsp1bZ7CL0lFVD67JE0wXPVKnn
-	 SJXxXL4JDCK2q7i5/c3eKsgafhztiWjUSuL8uzPNiNwbuv+yQ5arcd6zMU/znTPOdHA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795590047;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
+	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
+	b=ZtgeG6DhbZRPdoBUXigvifmrsg90wHi+3TynmBMqG5uFQ/iqh3xCI9MvnuzFWwTEmCYx
+	 Rw5tbPE/mr1kAijU/8ykY6BhQn8qYRQN6g1GObgvD003xwHwt2A+59ZPQwV913yxu4Oc+
+	 9hMfn8UQIPz8ollPaVnCVLA+uUi5UiXiN/uHnZTnPjlwaz2YNMrldpXp5ZUY6RlnQun9/
+	 n0DfgLeeZEgC4wk9Lh9TNh47pMaRs/wulHBlfRi0IkBsEOloTBVftjG18a9U8EXWf/inZ
+	 qgZq6LtpMiFz713IRgoiVA3wB3W7Yh0+rw1EJj2Smu0hwal5P85o9sxXjFzgYhnTIIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.microsoft.com;
-	spf=pass smtp.mailfrom=linux.microsoft.com;
-	dkim=pass header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=A+4sMm+i;
-	arc=none smtp.remote-ip=13.77.154.182
-Received: from linux.microsoft.com (linux.microsoft.com [13.77.154.182])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 795D0606A33D;
-	Wed, 25 Nov 2026 06:56:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 795D0606A33D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.microsoft.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.microsoft.com
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh;
+	arc=none smtp.remote-ip=113.46.200.219
+Received: from canpmsgout04.his.huawei.com (canpmsgout04.his.huawei.com [113.46.200.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A8998606A329;
+	Wed, 25 Nov 2026 07:00:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A8998606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.microsoft.com header.i=@linux.microsoft.com header.a=rsa-sha256 header.s=default header.b=A+4sMm+i
-Received: by linux.microsoft.com (Postfix, from userid 1231)
-	id 9CA1020B7170; Tue, 24 Nov 2026 22:56:36 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 9CA1020B7170
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1795589796;
-	bh=v2N3GcvzGp8pCmyk5/+OOTuDT9XiBxpv2TAT/4w+lgg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=A+4sMm+imLiI00khBsJhs9jthiOHLK+zSXtmmIYtmSO2/kkEPL86Xszl/aaBveQu+
-	 Yb9/U/ayGDNElWUrvcwkecrr3+yuphpMdEr137Bzx8IRVK7c8iK4tzGb78Uqdlx/EX
-	 7g3Wd1L2byguiuRzPBMf1hmFPu2CDvhwu5dxuSvc=
-From: Aditya Garg <gargaditya@linux.microsoft.com>
-To: haiyangz@microsoft.com,
-	wei.liu@kernel.org,
-	decui@microsoft.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	shradhagupta@linux.microsoft.com,
-	horms@kernel.org,
-	linux-hyperv@vger.kernel.org,
-	netdev@vger.kernel.org,
-	gargaditya@microsoft.com,
-	gargaditya@linux.microsoft.com,
-	ssengar@linux.microsoft.com
-Cc: Amir Boussejra <amir@boussejra.com>
-Subject: [PATCH net] net: hv_netvsc: Preserve RSS indirection table across device recreation
-Date: Tue, 24 Nov 2026 22:56:17 -0800
-Message-ID: <20261125065620.1604647-1-gargaditya@linux.microsoft.com>
-X-Mailer: git-send-email 2.43.7
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=5GWbwqXh
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=m1q9khOarWhPvFmmpMt92L2bFshdQUMvx9wv6wCJtYU=;
+	b=5GWbwqXhtlsmZckgqSs888Rnd8UTfhq/1wGM5l1/RxArQ+p6LmQUAqS0TtYBgw62s2YAY0OeW
+	n2Cg18PIZIopLR787jRzd7VxS5PLbe4w7Vkt80f6qyD4cTBd0jTF2xyykillALnqrz5PxHpsvcs
+	YThIu/XXv2RJeveRruqwPmQ=
+Received: from mail.maildlp.com (unknown [172.19.163.0])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4jZ9YM1Bxrz1prqH;
+	Wed, 25 Nov 2026 15:00:23 +0800 (CST)
+Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
+	by mail.maildlp.com (Postfix) with ESMTPS id 21D3C40561;
+	Wed, 25 Nov 2026 15:00:40 +0800 (CST)
+Received: from [10.174.176.113] (10.174.176.113) by
+ whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Wed, 25 Nov 2026 15:00:38 +0800
+Message-ID: <3001f950-9693-4f71-aabc-41b741af865b@huawei.com>
+Date: Wed, 25 Nov 2026 15:00:37 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,216 +62,112 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] bonding: clear stale usable_slaves in broadcast mode
+To: Hangbin Liu <hangbin.liu@linux.dev>
+CC: <netdev@vger.kernel.org>, Jay Vosburgh <j.vosburgh@gmail.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Hangbin Liu <liuhangbin@kylinos.cn>, Changzhong Zhang
+	<zhangchangzhong@huawei.com>, <linux-kernel@vger.kernel.org>
+References: <20261124130102.18807-1-jiangjiehua1@huawei.com>
+ <20261125012632.GB19338@Liu-laptop>
+Content-Language: en-US
+From: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
+In-Reply-To: <20261125012632.GB19338@Liu-laptop>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: kwepems500001.china.huawei.com (7.221.188.70) To
+ whupemp200008.china.huawei.com (7.152.184.21)
 
-Changing the MTU recreates the RNDIS device and frees the RSS indirection
-table. The replacement is zeroed, but the user-configured flag survives
-and prevents default initialization, directing all RX traffic to queue 0.
 
-Save the custom table before teardown and restore it after host queue
-negotiation if its size and queue indices remain valid. Otherwise use
-defaults and report the lost configuration only after attachment succeeds.
-Preserve the cached RSS key and zero table entries on single-queue error
-fallbacks.
+Hi Hangbin,
+On 11/25/2026 9:26 AM, Hangbin Liu wrote:
+> Hi Jiehua,
+> On Tue, Nov 24, 2026 at 09:01:02PM +0800, JiangJieHua wrote:
+>> In broadcast mode, bond_set_slave_arr() frees the usable_slaves argument
+>> and returns early, but does not clear bond->usable_slaves.
+> 
+> Since the issue was introduced in bond_set_slave_arr(). Should we set
+> the bond->usable_slaves to NULL here before return?
 
-If subchannel setup or RSS programming fails, keep the device usable but
-clear the active table and key caches and report the custom table lost
-after attachment succeeds. This prevents nonzero netlink retries from
-being skipped because they match settings that were not restored.
+Clearing bond->usable_slaves in bond_set_slave_arr() does fix the leak,
+but it is too late for updelay: bond_enslave() links the new slave via
+bond_master_upper_dev_link() before calling bond_update_slave_arr(),
+so miimon can already see the slave while the stale empty array is
+still there and skip updelay.
 
-Fixes: 4cab498f33f7 ("hv_netvsc: Allocate rx indirection table size dynamically")
-Reported-by: Amir Boussejra <amir@boussejra.com>
-Closes: https://lore.kernel.org/all/40fb2352-4859-4334-849b-f6a4229605a1@boussejra.com/
-Signed-off-by: Aditya Garg <gargaditya@linux.microsoft.com>
----
- drivers/net/hyperv/hyperv_net.h   |  2 ++
- drivers/net/hyperv/netvsc_drv.c   | 44 +++++++++++++++++++++++++++++++
- drivers/net/hyperv/rndis_filter.c | 33 ++++++++++++++++-------
- 3 files changed, 70 insertions(+), 9 deletions(-)
+Clearing when the mode changes to broadcast happens while the bond is
+down with no slaves and mii_work has already been canceled, so the
+stale pointer is gone before any new slave is visible.  That fixes both
+the leak and the updelay issue.
 
-diff --git a/drivers/net/hyperv/hyperv_net.h b/drivers/net/hyperv/hyperv_net.h
-index 4841367fdab2..aef30cb52010 100644
---- a/drivers/net/hyperv/hyperv_net.h
-+++ b/drivers/net/hyperv/hyperv_net.h
-@@ -182,6 +182,8 @@ struct netvsc_device_info {
- 	struct bpf_prog *bprog;
- 
- 	u8 rss_key[NETVSC_HASH_KEYLEN];
-+	u16 *rss_indir_table;
-+	u32 rss_indir_size;
- };
- 
- enum rndis_device_state {
-diff --git a/drivers/net/hyperv/netvsc_drv.c b/drivers/net/hyperv/netvsc_drv.c
-index 1d43c73fd73f..f51e7b349d7f 100644
---- a/drivers/net/hyperv/netvsc_drv.c
-+++ b/drivers/net/hyperv/netvsc_drv.c
-@@ -928,6 +928,7 @@ static void netvsc_get_channels(struct net_device *net,
- static
- struct netvsc_device_info *netvsc_devinfo_get(struct netvsc_device *nvdev)
- {
-+	struct net_device_context *ndc;
- 	struct netvsc_device_info *dev_info;
- 	struct bpf_prog *prog;
- 
-@@ -939,6 +940,21 @@ struct netvsc_device_info *netvsc_devinfo_get(struct netvsc_device *nvdev)
- 	if (nvdev) {
- 		ASSERT_RTNL();
- 
-+		ndc = netdev_priv(nvdev->extension->ndev);
-+		if (netif_is_rxfh_configured(nvdev->extension->ndev) &&
-+		    ndc->rx_table_sz) {
-+			dev_info->rss_indir_table =
-+				kmemdup(ndc->rx_table,
-+					ndc->rx_table_sz * sizeof(*ndc->rx_table),
-+					GFP_ATOMIC);
-+			if (!dev_info->rss_indir_table) {
-+				kfree(dev_info);
-+				return NULL;
-+			}
-+
-+			dev_info->rss_indir_size = ndc->rx_table_sz;
-+		}
-+
- 		dev_info->num_chn = nvdev->num_chn;
- 		dev_info->send_sections = nvdev->send_section_cnt;
- 		dev_info->send_section_size = nvdev->send_section_size;
-@@ -973,6 +989,7 @@ static void netvsc_devinfo_put(struct netvsc_device_info *dev_info)
- 		bpf_prog_put(dev_info->bprog);
- 	}
- 
-+	kfree(dev_info->rss_indir_table);
- 	kfree(dev_info);
- }
- 
-@@ -1023,6 +1040,7 @@ static int netvsc_attach(struct net_device *ndev,
- 	struct netvsc_device *nvdev;
- 	struct rndis_device *rdev;
- 	struct bpf_prog *prog;
-+	bool rss_failed = false;
- 	int ret = 0;
- 
- 	nvdev = rndis_filter_device_add(hdev, dev_info);
-@@ -1036,6 +1054,19 @@ static int netvsc_attach(struct net_device *ndev,
- 		if (ret) {
- 			nvdev->max_chn = 1;
- 			nvdev->num_chn = 1;
-+		} else {
-+			ret = rndis_filter_set_rss_param(nvdev->extension, dev_info->rss_key);
-+		}
-+
-+		if (ret) {
-+			netdev_err(ndev,
-+				   "unable to restore RSS parameters (ret %d).\n",
-+				   ret);
-+			/* Do not report the saved parameters as restored. */
-+			memset(ndev_ctx->rx_table, 0,
-+			       ndev_ctx->rx_table_sz * sizeof(*ndev_ctx->rx_table));
-+			memset(nvdev->extension->rss_key, 0, NETVSC_HASH_KEYLEN);
-+			rss_failed = true;
- 		}
- 	}
- 
-@@ -1066,6 +1097,14 @@ static int netvsc_attach(struct net_device *ndev,
- 			netif_carrier_on(ndev);
- 	}
- 
-+	/* Check whether the custom RSS table was lost and notify ethtool. */
-+	if (netif_is_rxfh_configured(ndev) &&
-+	    (rss_failed || !ndev_ctx->rx_table_sz ||
-+	     ndev_ctx->rx_table_sz != dev_info->rss_indir_size ||
-+	     memcmp(ndev_ctx->rx_table, dev_info->rss_indir_table,
-+		    dev_info->rss_indir_size * sizeof(*ndev_ctx->rx_table))))
-+		ethtool_rxfh_indir_lost(ndev);
-+
- 	return 0;
- 
- err2:
-@@ -2719,6 +2758,11 @@ static int netvsc_suspend(struct hv_device *dev)
- 		goto out;
- 	}
- 	ret = netvsc_detach(net, nvdev);
-+	if (ret) {
-+		netvsc_devinfo_put(ndev_ctx->saved_netvsc_dev_info);
-+		ndev_ctx->saved_netvsc_dev_info = NULL;
-+	}
-+
- out:
- 	rtnl_unlock();
- 
-diff --git a/drivers/net/hyperv/rndis_filter.c b/drivers/net/hyperv/rndis_filter.c
-index 962251327506..9c0f01b6af1c 100644
---- a/drivers/net/hyperv/rndis_filter.c
-+++ b/drivers/net/hyperv/rndis_filter.c
-@@ -1290,6 +1290,7 @@ int rndis_set_subchannel(struct net_device *ndev,
- 	struct net_device_context *ndev_ctx = netdev_priv(ndev);
- 	struct hv_device *hv_dev = ndev_ctx->device_ctx;
- 	struct rndis_device *rdev = nvdev->extension;
-+	bool restore_rss_table;
- 	int i, ret;
- 
- 	ASSERT_RTNL();
-@@ -1332,11 +1333,23 @@ int rndis_set_subchannel(struct net_device *ndev,
- 	for (i = 0; i < VRSS_SEND_TAB_SIZE; i++)
- 		ndev_ctx->tx_table[i] = i % nvdev->num_chn;
- 
--	/* ignore failures from setting rss parameters, still have channels */
--	if (dev_info)
--		rndis_filter_set_rss_param(rdev, dev_info->rss_key);
--	else
-+	if (dev_info) {
-+		/* Validate the whole saved table against the granted channels. */
-+		restore_rss_table = netif_is_rxfh_configured(ndev) &&
-+				    dev_info->rss_indir_size == ndev_ctx->rx_table_sz;
-+		for (i = 0; restore_rss_table && i < ndev_ctx->rx_table_sz; i++)
-+			if (dev_info->rss_indir_table[i] >= nvdev->num_chn)
-+				restore_rss_table = false;
-+
-+		/* Restore the saved table if valid, otherwise use defaults. */
-+		for (i = 0; i < ndev_ctx->rx_table_sz; i++)
-+			ndev_ctx->rx_table[i] = restore_rss_table ?
-+				dev_info->rss_indir_table[i] :
-+				ethtool_rxfh_indir_default(i, nvdev->num_chn);
-+	} else {
-+		/* Set initial RSS parameters; ignore failures to keep the channels. */
- 		rndis_filter_set_rss_param(rdev, netvsc_hash_key);
-+	}
- 
- 	netif_set_real_num_tx_queues(ndev, nvdev->num_chn);
- 	netif_set_real_num_rx_queues(ndev, nvdev->num_chn);
-@@ -1500,6 +1513,8 @@ struct netvsc_device *rndis_filter_device_add(struct hv_device *dev,
- 
- 	net_device->extension = rndis_device;
- 	rndis_device->ndev = net;
-+	memcpy(rndis_device->rss_key, device_info->rss_key,
-+	       NETVSC_HASH_KEYLEN);
- 
- 	/* Send the rndis initialization message */
- 	ret = rndis_filter_init_device(rndis_device, net_device);
-@@ -1570,11 +1585,8 @@ struct netvsc_device *rndis_filter_device_add(struct hv_device *dev,
- 	/* We will use the given number of channels if available. */
- 	net_device->num_chn = min(net_device->max_chn, device_info->num_chn);
- 
--	if (!netif_is_rxfh_configured(net)) {
--		for (i = 0; i < ndc->rx_table_sz; i++)
--			ndc->rx_table[i] = ethtool_rxfh_indir_default(
--						i, net_device->num_chn);
--	}
-+	for (i = 0; i < ndc->rx_table_sz; i++)
-+		ndc->rx_table[i] = ethtool_rxfh_indir_default(i, net_device->num_chn);
- 
- 	atomic_set(&net_device->open_chn, 1);
- 	vmbus_set_sc_create_callback(dev->channel, netvsc_sc_open);
-@@ -1598,6 +1610,9 @@ struct netvsc_device *rndis_filter_device_add(struct hv_device *dev,
- 	/* setting up multiple channels failed */
- 	net_device->max_chn = 1;
- 	net_device->num_chn = 1;
-+	if (ndc->rx_table_sz)
-+		memset(ndc->rx_table, 0,
-+		       ndc->rx_table_sz * sizeof(*ndc->rx_table));
- 	return net_device;
- 
- err_dev_remv:
--- 
-2.43.0
+Thanks,
+Jiehua
+
+> 
+> Thanks
+> Hangbin
+>> 
+>> A mode change requires the bond to be down with no slaves.  When the
+>> last slave is removed in balance-xor, balance-tlb or balance-alb,
+>> bond_update_slave_arr() publishes an empty usable array, and later mode
+>> changes do not clear it.  If the bond is switched to broadcast, the
+>> stale pointer remains: bond_miimon_inspect() sees count == 0 and
+>> ignores updelay for slaves enslaved while the stale array remains, and
+>> bond_uninit() leaks the array.
+>> 
+>> Clear bond->usable_slaves when the mode is changed to broadcast.  The
+>> bond is down and has no slaves at that point, so the array can be freed
+>> and set to NULL before the bond is brought up again.  Broadcast never
+>> publishes usable_slaves, so it stays NULL.
+>> 
+>> The issue was discovered by an AI code review agent and confirmed by
+>> manual code inspection.  It was reproduced on mainline with virtme-ng;
+>> no kernel modifications or error injection were needed.  With a dummy
+>> slave and miimon=1:
+>> 
+>>   ip link add bond0 type bond mode balance-xor miimon 1 updelay 1000
+>>   ip link add dummy0 type dummy
+>>   ip link set bond0 up
+>>   ip link set dummy0 master bond0
+>>   ip link set dummy0 nomaster
+>>   ip link set bond0 down
+>>   ip link set bond0 type bond mode broadcast
+>>   ip link set bond0 up
+>>   ip link set dummy0 master bond0
+>> 
+>> After the final enslavement, dummy0 comes up within 50 ms despite
+>> updelay=1000 (20 of 20 runs on the unpatched kernel).  With the fix,
+>> none of 300 runs skipped updelay.  The bonding mode-2 recovery-updelay
+>> selftest passes on the same kernel.
+>> 
+>> Fixes: 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
+>> Signed-off-by: JiangJieHua <jiangjiehua1@huawei.com>
+>> ---
+>>  drivers/net/bonding/bond_options.c | 8 ++++++++
+>>  1 file changed, 8 insertions(+)
+>> 
+>> diff --git a/drivers/net/bonding/bond_options.c b/drivers/net/bonding/bond_options.c
+>> index 9efadeff6a22..f65916444fa1 100644
+>> --- a/drivers/net/bonding/bond_options.c
+>> +++ b/drivers/net/bonding/bond_options.c
+>> @@ -936,6 +936,14 @@ static int bond_option_mode_set(struct bonding *bond,
+>>  	WRITE_ONCE(bond->params.arp_validate, BOND_ARP_VALIDATE_NONE);
+>>  	WRITE_ONCE(bond->params.mode, newval->value);
+>>  
+>> +	if (newval->value == BOND_MODE_BROADCAST) {
+>> +		struct bond_up_slave *usable;
+>> +
+>> +		usable = rtnl_dereference(bond->usable_slaves);
+>> +		RCU_INIT_POINTER(bond->usable_slaves, NULL);
+>> +		kfree_rcu(usable, rcu);
+>> +	}
+>> +
+>>  	/* When changing mode, the bond device is down, we may reduce
+>>  	 * the bond_bcast_neigh_enabled in bond_close() if broadcast_neighbor
+>>  	 * enabled in 8023ad mode. Therefore, only clear broadcast_neighbor
+>> -- 
+>> 2.33.8
+>> 
 
