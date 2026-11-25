@@ -1,114 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795570502;
-	b=pnq4kMyCk7AS6s1hpR0dAt2TBPJQnO9i40SUyh6b185UyMBWnx7qN8lsFY93V+gDoyC0
-	 1+VRn1b1C9+CK8QCiFag4fB9VsCVU0PbBcAuoq0MhU4JcRMxuejx8F8z4FRsrcqQsIOKp
-	 C09w2bzD0cPsVw2KiOM6sY9j/K8ZUpSEtTTBlFfxdkTgOIweLshlDRG/6B9dU9XoR35iQ
-	 qy7BZUDUaaEGgUioWLcm1fAQuGyb0j2SSicGGgWdqtMRLx+JMOwj8SzCZB0kV1aZQ2Zj8
-	 4NbPBLTgJFjEEcqe1XR9mwOxeXRUvdUgUaBsyZP4ygFoTCi1GsJGpRzHq3ieGj8td1Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570502;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:
-	 Content-Type:X-NV-OnPremToCloud:X-EOPAttributedMessage:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
-	b=CBiiBY/atPg7CxjaBEHkn6+Wx7eADLOxMS2xbfHKewOrtbygtVoJDhN2doho95khZVM8
-	 zXxC4fwKyE5HEEC3P2EJDi4Z9lDw1+7aRQLy7kwjji/AaORgpxUjRxJ7IP4Xm/plhAetN
-	 g7TRgxeDOhfW5LpsqBPv8B8sokLIoaN8QQLJMSROBqkSNSb1L5jO85XB/9fSLB5Q1crTV
-	 /ikBcq4KFV1pRBIOf0ADiWU4cwzHBN8b6wRPYXWYHj0MXWB6ZF4OJAIslctPHfWPxB8Xw
-	 QBsFxi+JkS+VlkVdFu4Z0IM5u8IEUoeVNiiF2E51HncWJfZc5Q64GxmlYGH2fm64B4w==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.61
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010061.outbound.protection.outlook.com [52.101.201.61])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795570692;
+	b=K4l+XnmXokKzaaplqr3wXRS4chtOIr4PX/1FDogNeLyT7CjTj4n1JK278KV6WZe7Gehb
+	 sxnL87Ndjv17fKMsgZFVe5mpxEU+C+izPpYdGPXL1BXyr0DLCDTgmRzOOSrr6GSeetbdL
+	 7CGM3yZmkgH14k8seiSSkBueeJ+MrQ8KlNCgAte7BjsVw3OsGNeH1M+OoSDKoz/jQ50T+
+	 zgOi9h+2GWKV1GOdSehQ6rHetbNBYaZrOV1FMgnwc4zYo4fnt1PFsClKWZq0GoXadcodN
+	 Md4Rgesrg2gUvkuHYm/cCrNA2l3EtjHkA2/35YlCYqa2KU5iOA68z0PH/VanwXye9Qg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570692;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=Nr1mvIMHP/Apoq8Z0zeyI+Z1HpRcP0Mhyt7l5VEY68k=;
+	b=Cp8MH+XzNgE/d9JkeAh4S5PNhBw5GImvui1r6qmUtwXzPjzKuiV1UT0WsobdCPcGxbjq
+	 DkgYvPwyFzw1woGFYGM/grUZmBd1P62ZBKlDfRP8mIQLYYiV2YVQZYIrcsZYwQj6k6v2Q
+	 b3EurN/kvdGn2eQsO+IQO5zMPXzLO2Lmka96QIdEz0UM9gHYCyHiUeP0hOc/xVF6HhBlQ
+	 pFDgTdbfk3sbargKHLtXj1xR8+pmjxzLJCE4Saed+CzxPaL8R1WCsSwjt0matTxa4W3gU
+	 qtLZLmG2qMBNkkXZmvqLIWq/rdSsgntXn5Ib+mLeGcljC3GOq7+gvEGH4dZe+DurBSQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqKIVXjD;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3228460A2604;
-	Wed, 25 Nov 2026 01:35:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3228460A2604
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E1F87606A323;
+	Wed, 25 Nov 2026 01:38:11 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=PGSR2PTj
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MVRFWp6ABlem/sDAk9bZrHihTI5+5z9krceBGD/r2EDeiqGD2/XjUx/PrVcSiU9p34M5UZjtWz1sVw++fCzkO5+uVs0+AQs0qeZJzogIkDJW3/i/pcOMIdlyCgyItvalRMcGCnc85NXExZZ80uXRFvyMA3FzXoLgJ0GWncaJLdEVk3XdbI7VYe/G9YT5pXxg0ULPnm74qBYFpX/LNAC/uxm2e20SQXxintNHc/TXCJWAyRTVZ5WS9nkmN2vV/AbEVY4mPq84ILb+zwfKSCeLYeWjrtXIzASqQe9cBGGQ5eYRRpEx89XSobApHCy6d+W7Oqi+AdRP2JZp5CVoNkXeFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
- b=bzWiokRKJAWi/r0X81/T00FkPs4tjZs5PQGQupMyBSCgaRgdiekT61rjaR6ZYHPvglc6ZvDPLx6/iQJn9+1QY0Wq44Qex0ad0dSUa+4sxCAJSLkqCB3pB9VPGgcMyQAHI5HrJ4ChpnPtZa6AghcB+v5FegPNINUOtFKJ5kO0SZ7TQD5fsCH/y1/PFp2XDL8Ju/NT/rnSfsiAB1ChtTWRiqcDBYZrXvEdasUXZh9rgTUzcMzw3wEGIfCZVY18qvL107sBnPmRfuB16bQkdZMmj0AdqHKeo+5Zz7H/lZgkKkohTJudqxN1kRjWnXOwO5kY0SHCQ5iB17Jf++PSmevQog==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XvLuXvliLRMeIs1SPB+JYLyNdyWnfhRVqk8q4r5H50w=;
- b=PGSR2PTj+CH5V8cgLiyQd36k3hSuJyeWcRrZL3URZB63tmjMCFuc6SDK0iiNhZGEWeUuT4an/eu5SeeXlbP1TgRIXzhLXUHa8X5wQKhUbmdMAiQEymIH16KxdOOy/tlBGMEDH8aw4RwFrUYrROWlZ6Q1Mc7NtpCVEXBQDi3ZRzLDLQ+OwnbCoF2ejarIogldTQb5KDYfNomFpQ+2uXZj8S7u3lc9kseaRs+83stLr0MThR8jI8N64oasvTFcVhD6BYuAxIMyEVSbVN5pvlMp5hE/XDL38kexG4Ob8gT4fAIC4R20vD+iOWKLdDl5kd/DmujNaEaraTlZuHljMMOj1g==
-Received: from BL1PR13CA0196.namprd13.prod.outlook.com (2603:10b6:208:2be::21)
- by PH7PR12MB7140.namprd12.prod.outlook.com (2603:10b6:510:200::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.13; Wed, 25 Nov
- 2026 01:34:51 +0000
-Received: from BL2PEPF000352D2.namprd02.prod.outlook.com
- (2603:10b6:208:2be:cafe::6a) by BL1PR13CA0196.outlook.office365.com
- (2603:10b6:208:2be::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.496.5 via Frontend Transport; Wed, 25
- Nov 2026 01:34:51 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.117.161) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- BL2PEPF000352D2.mail.protection.outlook.com (10.167.254.9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:51 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:32 -0800
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
- 2026 17:34:32 -0800
-Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
- (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Tue, 24 Nov 2026 17:34:28 -0800
-From: Jianbo Liu <jianbol@nvidia.com>
-To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
-CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
-	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
- Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
-	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
-	<jianbol@nvidia.com>, Carolina Jubran <cjubran@nvidia.com>
-Subject: [PATCH ipsec 3/4] xfrm: Wait for an RCU grace period before freeing device state
-Date: Wed, 25 Nov 2026 03:34:11 +0200
-Message-ID: <20261125013412.1123866-4-jianbol@nvidia.com>
-X-Mailer: git-send-email 2.39.3
-In-Reply-To: <20261125013412.1123866-1-jianbol@nvidia.com>
-References: <20261125013412.1123866-1-jianbol@nvidia.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KqKIVXjD
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF1351F000C6;
+	Wed, 25 Nov 2026 01:38:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795570691;
+	bh=Nr1mvIMHP/Apoq8Z0zeyI+Z1HpRcP0Mhyt7l5VEY68k=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=KqKIVXjDRzKUm2uEwHjGxaWGtAstsh9p2nV3Tu9QJJkWcSAvO09Qb50f/42G7C3K5
+	 afUXDc/E6HaMXSW01/U7LJTLipMOR5JcNgtkdDRoBXCoT5Igq6tjTfIskMaaBJ71lc
+	 GzgBAGN0Ei8rXxE8J+G5eb5hCECJjwcDcOKKRC7WvdejcNTqcPvvTqWJBEhPmp+5NF
+	 zKYKt4z7CnhjSA7V5MbEbEQ48pAeLBYtPCA65as+IhIadZrQ5KBaNuOW+6PqsRxZd0
+	 640aeWN8jFrkQJ+/Ssa85Z+l74UcNtse//iUu+T4KKSBJix81RS64hKgyg4qoM8CCi
+	 ZsnCsKAPsb2mQ==
+Subject: Re: [PATCH net] net: bridge: switchdev: clear the hwdom of a port
+ that stops the offload
+From: netdev-bot+sashiko@kernel.org
+To: koralilgun@gmail.com
+Cc: razor@blackwall.org, idosch@nvidia.com, davem@davemloft.net,
+ edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, willemb@google.com,
+ horms@kernel.org, vladimir.oltean@nxp.com, ioana.ciornei@nxp.com,
+ andrew@lunn.ch, bridge@lists.linux.dev, netdev@vger.kernel.org
+Date: Wed, 25 Nov 2026 01:38:10 +0000
+Message-ID: <179557069026.3135.3993063298740413532@kernel.org>
+In-Reply-To: <20261124011639.990261-1-koralilgun@gmail.com>
+References: <20261124011639.990261-1-koralilgun@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -118,83 +64,290 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL2PEPF000352D2:EE_|PH7PR12MB7140:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|82310400026|1800799024|36860700016|376014|7416014|22082099003|18002099003|56012099006|261026121527099003|11063799006|261028144727099003|261021121427099003|261026140227099003|261022105027099003|261021123027099003|261009223027099003|10067099003|261102123227099003;
-X-Microsoft-Antispam-Message-Info:
-	asMm/wblHMuTDuuqCKGzPcx8d656DSuI4Lv3rWPotmhASOS/CkSgS2AhHcDi0JgSASAA9loC+2KgfQMx5X4x7EK8aW6Bsy1jkhs5sMlsOqlwrR0bzxzXVPullE+IMYQ02IB5D5DmkRVhoVcQptNJBhWAWunuYDDcplh0BDC9GqKxRdOp/Kc53aotkZJLsWDTwQ3TyzyeV/iA9R9wquWytwFSCshRK1Jtm/wJbVzBwIckZK2Pf2lK3NGOMr9tdXkvs+cFCZVA8p40L/1zF2JvCsJlHX8836hEvYHyAd3UEpDvx/wG2JmtG1i43o1Ynj9Yw8MDcsOjchz/sJ5m57OvvbDkA5pEM2eoqpWWBJbdwxeMcL89gm8aAUZKqRBTfA0JL6h5ys59dygMFthAYKG07E1kaofiXYMRVe35bzZGVuQvn/Rg4UiI3TIx3er2Fq+EhCPx8mEl+juDiUFy1HOjr6rjnYr4WspC4m13HFx0PzR6dKmjOWH2YwIpscv2DtmvannXcJa8qz+cc7m93UD6S4UBP+t+m5XfIZJf9f1hebs7QD3rzdL/VnHTQswsn93LKTF0BxDv7HaV5e3uGHOAeHeTfjBcy6WVu6jVq2ZmeK4wBfrPq7NRheB3ANx2kYko6FNABztN5Tfy/iCqcgr722YdwzPrLFn5MeA23vpIBjWMUtRTcMghxWbQ4AijDg1DZimW27MsRQd8z47X3+rLNw==
-X-Forefront-Antispam-Report:
-	CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(23010399003)(82310400026)(1800799024)(36860700016)(376014)(7416014)(22082099003)(18002099003)(56012099006)(261026121527099003)(11063799006)(261028144727099003)(261021121427099003)(261026140227099003)(261022105027099003)(261021123027099003)(261009223027099003)(10067099003)(261102123227099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	G/xosg3PdbrSlxUx2c16nuaeph1jrujJjbUfdIUDkz/AHQARNyZZoS/fQQe2j2Jtz69S3FifMvh/N1GpzSC9achfCHLbQI4LqAvV/kno0gpzGpUiInrs+cuWU7L+buT0dC4ekvPBo+VeA0O2585PyCLu1fqUDc0L028GOWsS0/+n3JJ4DTvbnFTf8nCfzz10kLsDlKDvrV14xSl8GtvAikkqopsh1TGbuCVhdlCtnO080YtdPXPjmt+y1libk6hNKSh28GvkDYi2wvZtn21otbnXdqM5XtibiBzMUURKurHnnQTNxrhv4fxByaGqEoGGVTYm1g40d+waX9hMyt4AUdYkaTtF9l6NdEprMdPU6FVpKFDGTyfeXMkwQ58Hg/CnfU8j2tTT/+HypS2n4o9cOYrCgIfJ7ZeW7dJqIQDeS/FcTOpYnMOHqeiw+1Zp5zt/
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:51.4134
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7da6a997-1169-447f-0fe3-08df4a944cea
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	BL2PEPF000352D2.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB7140
 
-xfrm_dev_state_flush() can call xdo_dev_state_free() immediately after
-xdo_dev_state_delete(), without waiting for pre-existing RCU readers
-of the driver's SA state to complete.
+Thank you for your contribution! Sashiko AI review found 4 potential
+issue(s) to consider.
 
-The normal state GC path waits for an RCU grace period before
-destroying the state, but the device flush path does not.
+Critical: 0 · High: 0 · Medium: 3 · Low: 1
 
-Remove the immediate xfrm_dev_state_free() following
-xfrm_state_delete(). The delete path queues the state on
-xfrm_state_dev_gc_list. The subsequent collection pass picks it up if
-a reference is left. If the flush dropped the last one, the state GC
-frees it after its own grace period and xfrm_flush_gc() waits for it.
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Wait for one RCU grace period after collecting the states and before
-freeing them. This establishes the required
-xdo_dev_state_delete() -> synchronize_rcu() -> xdo_dev_state_free()
-ordering while using a single grace period for the whole flush.
+- [Medium] In net/bridge/br_switchdev.c, nbp_switchdev_add() sets
+  `p->ppid = ppid; p->offload_count = 1;` (lines 304-305) before it…
+- [Medium] The new `WRITE_ONCE(p->hwdom, 0)` in nbp_switchdev_del()
+  (net/bridge/br_switchdev.c:329-332) runs from dsa_port_pre_lag_leave()…
+- [Medium] net: bridge: switchdev: unreset offload_count on hwdom_set()
+  error
+- [Low] The patch adds a lockless writer of p->hwdom:
+  `WRITE_ONCE(p->hwdom, 0)` in nbp_switchdev_del()…
 
-Fixes: 07b87f9eea0c ("xfrm: Fix unregister netdevice hang on hardware offload.")
-Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
-Reviewed-by: Carolina Jubran <cjubran@nvidia.com>
----
- net/xfrm/xfrm_state.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+--
 
-diff --git a/net/xfrm/xfrm_state.c b/net/xfrm/xfrm_state.c
-index 8465ae064742..9883fb3545f8 100644
---- a/net/xfrm/xfrm_state.c
-+++ b/net/xfrm/xfrm_state.c
-@@ -1000,7 +1000,6 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
- 				spin_unlock_bh(&net->xfrm.xfrm_state_lock);
- 
- 				err = xfrm_state_delete(x);
--				xfrm_dev_state_free(x);
- 
- 				xfrm_audit_state_delete(x, err ? 0 : 1,
- 							task_valid);
-@@ -1038,6 +1037,9 @@ int xfrm_dev_state_flush(struct net *net, struct net_device *dev, bool task_vali
- 	spin_unlock_bh(&xfrm_state_dev_gc_lock);
- 	mutex_unlock(&xfrm_state_gc_mutex);
- 
-+	if (!hlist_empty(&flush_list))
-+		synchronize_rcu();
-+
- 	hlist_for_each_entry_safe(x, tmp, &flush_list, gclist) {
- 		hlist_del_init(&x->gclist);
- 		xfrm_dev_state_free(x);
+net: bridge: switchdev: clear the hwdom of a port that stops the offload
+
+When the last offload of a bridge port stops while the port stays in the
+bridge, this patch clears p->hwdom in nbp_switchdev_del() so the hwdom is
+no longer leaked. It also makes nbp_switchdev_hwdom_set() skip ports that
+have no hwdom. It replaces nbp_switchdev_can_offload_tx_fwd() with
+nbp_switchdev_tx_fwd_hwdom(), which reads the hwdom once with READ_ONCE().
+
+> diff --git a/net/bridge/br_switchdev.c b/net/bridge/br_switchdev.c
+> index 10f3aea6a1f82..7b368fa82f762 100644
+> --- a/net/bridge/br_switchdev.c
+> +++ b/net/bridge/br_switchdev.c
+
+[ ... ]
+
+> @@ -53,8 +69,10 @@ void nbp_switchdev_frame_mark_tx_fwd_offload(const struct net_bridge_port *p,
+>  void nbp_switchdev_frame_mark_tx_fwd_to_hwdom(const struct net_bridge_port *p,
+>  					      struct sk_buff *skb)
+>  {
+> -	if (nbp_switchdev_can_offload_tx_fwd(p, skb))
+> -		set_bit(p->hwdom, &BR_INPUT_SKB_CB(skb)->fwd_hwdoms);
+> +	int hwdom = nbp_switchdev_tx_fwd_hwdom(p, skb);
+> +
+> +	if (hwdom)
+> +		set_bit(hwdom, &BR_INPUT_SKB_CB(skb)->fwd_hwdoms);
+>  }
+>  
+>  void nbp_switchdev_frame_mark(const struct net_bridge_port *p,
+
+[Severity: Low]
+
+This isn't a functional bug, but nbp_switchdev_del() now does a lockless
+WRITE_ONCE(p->hwdom, 0) on a port that RCU readers can still reach. Should
+the other readers of p->hwdom get an annotation too?
+
+nbp_switchdev_frame_mark() and nbp_switchdev_allowed_egress() each read
+the field twice with plain loads:
+
+	if (p->hwdom)
+		BR_INPUT_SKB_CB(skb)->src_hwdom = p->hwdom;
+
+	return !test_bit(p->hwdom, &cb->fwd_hwdoms) &&
+		(!skb->offload_fwd_mark || cb->src_hwdom != p->hwdom);
+
+The notes below the changelog say that any mix of the old and new values
+gives the result of one of the two states. That seems to hold for the
+current expressions.
+
+KCSAN will still report these loads as data races against the new writer.
+That can happen when nbp_switchdev_del() runs under RTNL during a LAG
+leave or a conduit change, while br_handle_frame() or should_deliver()
+runs in softirq on another CPU. The plain loads are also inconsistent with
+the READ_ONCE() in nbp_switchdev_tx_fwd_hwdom().
+
+Would it be better to read p->hwdom once into a local with READ_ONCE() in
+these helpers? If the race is intended, data_race() would also work.
+
+[ ... ]
+
+> @@ -221,10 +239,14 @@ static int nbp_switchdev_hwdom_set(struct net_bridge_port *joining)
+>  	struct net_bridge_port *p;
+>  	int hwdom;
+>  
+> -	/* joining is yet to be added to the port list. */
+> +	/*
+> +	 * joining can already be in the port list, and so can another port
+> +	 * that stopped the offload but stays a member. Both have no hwdom.
+> +	 */
+>  	list_for_each_entry(p, &br->port_list, list) {
+> -		if (netdev_phys_item_id_same(&joining->ppid, &p->ppid)) {
+> -			joining->hwdom = p->hwdom;
+> +		if (p->hwdom &&
+> +		    netdev_phys_item_id_same(&joining->ppid, &p->ppid)) {
+> +			WRITE_ONCE(joining->hwdom, p->hwdom);
+>  			return 0;
+>  		}
+>  	}
+
+[Severity: Medium]
+Can this skip make nbp_switchdev_hwdom_set() fail for a port that stays
+in the bridge? Would that leave the port with a stale offload_count?
+
+Before this patch, a port already in br->port_list always matched
+itself in this loop, because nbp_switchdev_add() has just copied the
+ppid into joining->ppid. The -EBUSY return could only be reached from
+br_add_if(), where a failure destroys the new port anyway.
+
+With the new p->hwdom check, a port that is already a member and has no
+hwdom falls through to find_next_zero_bit(). It gets -EBUSY once all
+BR_HWDOM_MAX - 1 hwdoms are busy. At that point nbp_switchdev_add() has
+already set the count and the ppid, and it does not undo them:
+
+	p->ppid = ppid;
+	p->offload_count = 1;
+
+	err = nbp_switchdev_hwdom_set(p);
+	if (err)
+		return err;
+
+br_switchdev_port_offload() then returns the error without calling
+nbp_switchdev_del(). Several paths offload a port that is already in
+the bridge and can hit this:
+
+- a LAG whose first switch port joins it, via dsa_port_lag_join() or
+  lan966x_lag_port_join()
+- a VXLAN bridge port in mlxsw_sp_bridge_vxlan_join()
+- the rejoin in dsa_port_change_conduit(), where the port now has no
+  hwdom because nbp_switchdev_del() cleared it
+
+The port is then left with offload_count == 1, the switch's ppid and
+hwdom == 0.
+
+A later offload from the same switch, including a retry of the same
+command, takes the if (p->offload_count) branch in nbp_switchdev_add().
+That branch increments the count and returns 0. The port is then
+offloaded but never gets a hwdom, and BR_TX_FWD_OFFLOAD is never set.
+This is the hwdom 0 state that the commit message says the skip fixes.
+A frame from such a LAG with offload_fwd_mark would again be refused
+toward every port without a hwdom.
+
+An offload from a different switch is refused with "Same bridge port
+cannot be offloaded by two physical switches", because offload_count
+is non-zero.
+
+The count also stays one above the real number of offloads. So
+nbp_switchdev_del() never reaches its cleanup until the port leaves
+the bridge.
+
+Should nbp_switchdev_add() reset offload_count, and probably ppid, when
+nbp_switchdev_hwdom_set() fails?
+
+[Severity: Medium]
+
+If the hwdom allocation fails, can this skip leave a LAG bridge port with a
+stale offload_count?
+
+Before this patch, a LAG that is already a bridge port always matched
+itself here, because nbp_switchdev_add() has just set joining->ppid. So
+nbp_switchdev_hwdom_set() could not return -EBUSY for it.
+
+With the new p->hwdom check, the LAG falls through to
+find_next_zero_bit(). That returns -EBUSY once all BR_HWDOM_MAX - 1
+hwdoms are busy.
+
+nbp_switchdev_add() sets the count and ppid before this call, and does not
+undo them on failure:
+
+net/bridge/br_switchdev.c:nbp_switchdev_add() {
+    ...
+	p->ppid = ppid;
+	p->offload_count = 1;
+
+	err = nbp_switchdev_hwdom_set(p);
+	if (err)
+		return err;
+    ...
+}
+
+br_switchdev_port_offload() returns that error without calling
+nbp_switchdev_del(). dsa_port_bridge_join() then jumps to
+out_rollback_unbridge, which comes after the unoffload rollback.
+
+The LAG then stays in the bridge with offload_count == 1, the switch's
+ppid and hwdom == 0. A later join of a port from the same switch,
+including a retry of the same command, takes this branch in
+nbp_switchdev_add():
+
+	if (p->offload_count) {
+		...
+		p->offload_count++;
+
+		return 0;
+	}
+
+After that, no hwdom is ever assigned. The commit message says the skip
+fixes a LAG with hwdom 0, where nbp_switchdev_allowed_egress() refuses
+frames from the LAG with offload_fwd_mark toward every port without a
+hwdom. Doesn't this path bring that state back?
+
+offload_count also stays one above the real number of offloads, so
+nbp_switchdev_del() never reaches its cleanup. Until the LAG leaves the
+bridge, ports of any other switch are refused with "Same bridge port
+cannot be offloaded by two physical switches".
+
+Would it help to reset offload_count and ppid in nbp_switchdev_add() when
+nbp_switchdev_hwdom_set() fails?
+
+[ ... ]
+
+> @@ -304,8 +326,10 @@ static void nbp_switchdev_del(struct net_bridge_port *p)
+>  	if (p->offload_count)
+>  		return;
+>  
+> -	if (p->hwdom)
+> +	if (p->hwdom) {
+>  		nbp_switchdev_hwdom_put(p);
+> +		WRITE_ONCE(p->hwdom, 0);
+> +	}
+
+[Severity: Medium]
+
+The commit message describes the transmit-side effect of the LAG leave
+window. Does clearing the hwdom here also affect the receive side during
+that window?
+
+This runs from:
+
+dsa_port_pre_lag_leave()
+  dsa_port_pre_bridge_leave()
+    switchdev_bridge_port_unoffload()
+      ...
+        nbp_switchdev_del()
+
+The switch leaves the hardware bridge only later, in dsa_port_lag_leave()
+-> dsa_port_bridge_leave(). The hardware trunk and the dsa_lag mapping are
+removed after that. In between, the hardware still forwards between the
+trunk and the other ports of the same hwdom.
+
+With tag_dsa/edsa (mv88e6xxx), dsa_rcv_ll() injects trunk frames directly
+onto the LAG device and always marks them:
+
+net/dsa/tag_dsa.c:dsa_rcv_ll() {
+    ...
+		lag = dsa_lag_by_id(cpu_dp->dst, source_port + 1);
+		skb->dev = lag ? lag->dev : NULL;
+    ...
+	if (trunk)
+		skb->offload_fwd_mark = true;
+    ...
+}
+
+These frames reach br_handle_frame() on the LAG's bridge port. Because
+p->hwdom is now 0, nbp_switchdev_frame_mark() leaves src_hwdom at 0. In
+nbp_switchdev_allowed_egress():
+
+	return !test_bit(p->hwdom, &cb->fwd_hwdoms) &&
+		(!skb->offload_fwd_mark || cb->src_hwdom != p->hwdom);
+
+the second condition is false for every software port with hwdom 0, so
+these frames are dropped toward the non-switchdev ports. The other ports
+of the switch pass the check and get a software copy of frames that the
+hardware already flooded to them.
+
+The commit message says the patch fixes a bridge that "refuses each port
+without a hwdom for a frame from the LAG with offload_fwd_mark". Doesn't
+the same thing now happen for the length of this window?
+
+dsa_port_change_conduit() opens a similar window for a port that is not
+in a LAG:
+
+	if (bridge_dev) {
+		dsa_port_pre_bridge_leave(dp, bridge_dev);
+		dsa_port_bridge_leave(dp, bridge_dev);
+	}
+
+dsa_default_offload_fwd_mark() keeps setting offload_fwd_mark from
+dp->bridge until dsa_port_bridge_leave() clears it. Frames received on
+that port in between also get src_hwdom 0. Before this patch the port
+kept its hwdom here, which matched the hardware.
+
+Should the commit message also describe these cases?
+
 -- 
-2.39.3
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124011639.990261-1-koralilgun%40gmail.com
