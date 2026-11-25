@@ -1,60 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795570308;
-	b=GM3HACFl9Gffirai7JLW05bp18UJOPAeCmqZiu8BfWAAlOfOLqboG13iDOa+qthnhbC1
-	 UZsyoyeifP3EB4KwbZt9YARjzbjBJL3XYpxDb2wvXamXh3ZBpIDDNPxW1MMXu96uuuxKN
-	 NC8JX7HeHjARbNEtkodKIWZ84ZqrrQLbBPHdcIJPlXg4LYoXutbBSe4hMh4m3Jo03Um0e
-	 PFB/VTeOMtcqbMc/EbCKtw062HKp44EqYchni3a6hivNp7+wpNq9jeoagVpkhha8J2+fg
-	 y07rAc8CeHhY1u9NVPXDgwFoMP4hTiE5P5Zuyhtm+Ny4jVakBZwwyqyC/KDKZOg03+g==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795570308;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=4cplUSvV4RzevwKXbQHAWViX7j4Dnhd0DaCgBfc6NyI=;
-	b=RZ2XbDX7Tcang2a9S1BM0+/7TdIYWn9H0z5RGgFt3RslN1zC8xdeCorit+vg90r+Q30T
-	 8nBcCTNHStWjLRzPYrBewVDqgSKBosDDUBzmSgQ3oMjVbd/sOwKEQvrAnZjLI5xR8TUV7
-	 0zHL0rDvs5+ckobgyScb7Lz2rzntU2GIwnpsw4yC8EVhJh3FJmLXMqy/oIgt9zon71D/V
-	 fa6Y0ZzwgVVS3qadsrZlB0KyvGcHEq+Jw/N/FfM60/W/lim7eT4x25aNb6DchQWwgsxnC
-	 fFEOtPYnOw1Gf/P6PvaMmtYHnQFK0bNRd7MRjsGRcFD4ggPyR/k2xi52IDUWBUURNeQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxTNfU0P;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.23
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795570489;
+	b=ouqmi7ggC4tV1uwVpH3dTyWE7mzomYd7tpYMDajZfkStojae5axcJ46XgaaLCJRbf2d0
+	 o0Sfm42WnBvPGv/EcCaRGb4FDcKhcSmwVzSPTm7qg2WoRT3/sE2mPzeM/06YGhJ9N9pG3
+	 GLsjIzjjYjHab+vpJ5w8d8tteYF5mw0DTomQZ9UsjXf8smCTW+gO/Etpq4VCo8Bkm1+uo
+	 5epTUuE4yuMmi+mZ/9bYcYgsRB1kER924Q3EEIHWZsHis+Khve35BLy8Q9vttZTngYP8i
+	 8El2s1rhxGmsiVyuggg+LVXV4ArxSNoJzoNbYNeJvb9c2zNqyXjvXjwgbKS1kE/W3/Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795570489;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+	b=CEhEgxdySNnVo0m6IlUbmZMLTIelzcVxugX0jrK+mcX9tJ0EhEQGRg3eAC6S/k36Bg1Y
+	 ccT/SXMcl4AubRUxKRu7rVBBom8e6TrxYSIL4dIkgBEEEjAMWx2UWWeygLHQoZ2s6OM14
+	 zPVqoRWdbDG+hJQmt04SK95OmWuwMCehosUOi7x3q+2Vx48QKY+YRaYTCHegGFgd6K7uf
+	 GOlTUVV3Cv2KP49ce1cRZcg2+P2oWn7l1xNEVwqj+jxu335Ef7ZXmNcFfODkE/jdE5uEX
+	 5JaXQL/Mcu+htRS07BvZNTowEFvOhr0FJZ7aSwk+IAvcqQRh7apbAq3YptXomNUYYDQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ettHELMN;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.194.23
+Received: from SN4PR0501CU005.outbound.protection.outlook.com (mail-southcentralusazon11011023.outbound.protection.outlook.com [40.93.194.23])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0ABC7606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:31:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1095E606A321;
+	Wed, 25 Nov 2026 01:34:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1095E606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OxTNfU0P
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8B171F000C6;
-	Wed, 25 Nov 2026 01:31:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795570307;
-	bh=4cplUSvV4RzevwKXbQHAWViX7j4Dnhd0DaCgBfc6NyI=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=OxTNfU0PB4VOXw6VmkjAKZ+jX0pk9TCOSH8iHgcRNxBGAzWEicIaN0di0EZqpFBOD
-	 pfaeBPVWW/bqjZT7u+fJWg/7POq7w1sAwG5yH+4obDhzhlseXShiKnt4Cbb4npRCT3
-	 8s8Yc5rT7cw2WRAJCrzRkg4Sy04ymPIJ55UP9i/CWlnFwY77xfAtky/K7uUQN8y6Pv
-	 aTzWNGnxysMxTp/RGqhty+0sd1DUlicuRdU00ZQETTMsjLb/5s/vgPDEfRLjG3vzwz
-	 KviZGy5kBopPxc/U4MgtSDsMDLMa1rXJjBdFm11IRMq0mMvZKar0xslU6VVvErSY0M
-	 6utvEiZ4pc+tg==
-Subject: Re: [PATCH net v4] net: bgmac: fix RX frame length check
-From: netdev-bot+sashiko@kernel.org
-To: rosenp@gmail.com
-Cc: rafal@milecki.pl, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, nbd@openwrt.org,
- horms@kernel.org, florian.fainelli@broadcom.com,
- bcm-kernel-feedback-list@broadcom.com, zajec5@gmail.com,
- netdev@vger.kernel.org
-Date: Wed, 25 Nov 2026 01:31:46 +0000
-Message-ID: <179557030640.3135.10674609230944180812@kernel.org>
-In-Reply-To: <20261121005009.59491-1-rosenp@gmail.com>
-References: <20261121005009.59491-1-rosenp@gmail.com>
-X-sashiko-severity: High
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=ettHELMN
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AZ22ER/qFwXXcL+i3ShYNKY7pY7LJuLTFhlovWshrFSDgizDA8wxavLh0g5FOpm8YPQBi49GjZaX8mdhgvjvD3KHgPNVHC1SqbfZPsd8Q4QbJ0Vm4sKwuPuUWAuW1ms18dICM0vZZ4Xqt8bbkY5u1vhSuJNotiEcCfxRVMr+Glw8Imp7KrO3mxOgMQrVlQ4nk+PuDkXan2QaYEc6/aGTXj3LLqXAdUb+Knl00Qb6EWcE9YLRIFWDwUD+RbT+Cdx6uP0Xg4T1JQJ0yBXSfiSRzAMsQ/1NcXBlODtC4HAP1t78IC84RKOimLjPZGXJFcty0Cyr8WvBJ0+jD2TYV5odyQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+ b=lAg33OXx8S/B6w70ViBRW+KfAG4r7CXyj+GqzcxZ25auaVSVGvwdCV928tniuxedscCg7iOklVs3kVZXw1hpE5XluxhR1HRbWPOIAyNSz3BAo6eSFtAIlaUDCKExBWv24ZAxSWLDG9I6oOcah1zfS283M/ISdP4qxqjUcDLSzFuIsScixGT0+DybJves7a2LjG5BBCx4wjJi6TpOwCpUT2IK9gbNxEDr7Dj5wtuwLhpVlsk5TFxwq6n0spXzjUwOVby8XwEBPed9mZf3tyQ/p30rcI07e2jyhpErpfAb6HsQpOadGqgAOzymF9jh2kS7fAFTNhhnH+HkHj1fniYVhQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=0MTp1eyh+CLNbcchL9eCGWEkLrgTIe63/cgKLQroHUA=;
+ b=ettHELMNaiCtY0VJWAKN6zhZD52ZvNIvVyulo15sfthqr8Ehdiw6BngMxsVtuxcTxShLS/LZ1MhXdcW5xTwuk+z4T/bckf4keuZFDNKln5l2F3xoK3Pj0jb18JvKlSv5w8c1+KDeOZdffpHn1K3+3hOmWjwDeq1NmDmgkH7quzKUTpQOQerUfLvOVN3CzxJa2mdipslGJKN7HRE1/Ufz47XN/goI8Wr0FHN0CZUtFlZHlJ+BPyUbeYbzon2uqQTCkcj0fBliyVNnIAVma1sQ+X5RJq0tccJp8x5sSTSU/koHkuxSZSvq//13t2wu9MmWWZWMQCJ8EbF6w5N4lGJgtA==
+Received: from BL0PR01CA0082.prod.exchangelabs.com (2603:10b6:208:25::38) by
+ SA1PR12MB8142.namprd12.prod.outlook.com (2603:10b6:806:334::5) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.4; Wed, 25 Nov 2026 01:34:41 +0000
+Received: from MN1PEPF000793FE.namprd05.prod.outlook.com
+ (2603:10b6:208:25:cafe::2e) by BL0PR01CA0082.outlook.office365.com
+ (2603:10b6:208:25::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.6 via Frontend Transport; Wed, 25
+ Nov 2026 01:34:41 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MN1PEPF000793FE.mail.protection.outlook.com (10.167.249.202) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.662.3 via Frontend Transport; Wed, 25 Nov 2026 01:34:40 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:20 -0800
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Tue, 24 Nov
+ 2026 17:34:20 -0800
+Received: from mtl-vdi-603.wap.labs.mlnx (10.127.8.12) by mail.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
+ Transport; Tue, 24 Nov 2026 17:34:17 -0800
+From: Jianbo Liu <jianbol@nvidia.com>
+To: <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>
+CC: Steffen Klassert <steffen.klassert@secunet.com>, Herbert Xu
+	<herbert@gondor.apana.org.au>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Florian Westphal
+	<fw@strlen.de>, <linux-kernel@vger.kernel.org>, Jianbo Liu
+	<jianbol@nvidia.com>
+Subject: [PATCH ipsec 0/4] xfrm: Fix device state teardown races
+Date: Wed, 25 Nov 2026 03:34:08 +0200
+Message-ID: <20261125013412.1123866-1-jianbol@nvidia.com>
+X-Mailer: git-send-email 2.39.3
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,196 +115,75 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF000793FE:EE_|SA1PR12MB8142:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a26805b-935d-4653-3ef6-08df4a9446a7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|1800799024|36860700016|7416014|23010399003|376014|261009223027099003|18002099003|56012099006|11063799006|261028144727099003|261102123227099003|261026140227099003|261026121527099003|261021123027099003|261021121427099003|261022075727099003|261022105027099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	zbAtz6DIdcIQr5KE1oB5oJ35BKDV+deVA14se0j6xn3Syaa5iFayZL+IEnYRFY0Fuze6MbAOkj8JnVSgn4WDbEW4G79arjJJsuHQN6JIYlAo3sUIJHbON0j8MauFGQY/MCZb4CNGOx7xZa8ALBnDrgqub2jlx2Zql0jNENxWJrX4xVLIcp1+m7aepBpN/vkEmzpY+foDE971E2yYKKxQTN+A/EodZ/5hf3iuEtvMSC7USKlAQrKi7Vi5DYwo0ZSaRAgAoi0ZGibNye4paVVqdnC5mo89bc94K8MEuS35htSv6RudMu4v265moknXue8Bys7kG9aW3hw/ubRs8TfBqD32WdiKwqVPkczPiPWGSZLzYE4QHCFVBCv8b1gposvLXtp9bDS9WMEd1O3xe0lrxca4c9E7qT0euXofADSEY+2wo1TdpWpgGKFyAEcEvmMdsNsvBQAo4dlcjoo5szrJ46b5p1DjLRoyxiOhX07NDNp7GAfGAiHkGw7c7C6y+4Z34DhZQ5sLf975y8dP0Cask3k6zBLzqukmahtdYQ+VTWLvzQnhABc1cMwlBjMVJ4sGDenNQbJYn6ftUBxLSefuLLGZfW3EjM+rQi08azd+CzRgR+aWzgoEGOoPElxhcYJj8dgouHuOp05yzBbrm/381r/FzahBU92d7LoxfpmOPGQDy7VHyFUM1ztsNsM1hScssXuxu4ZhUjS67IYyvIwOyQ==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700016)(7416014)(23010399003)(376014)(261009223027099003)(18002099003)(56012099006)(11063799006)(261028144727099003)(261102123227099003)(261026140227099003)(261026121527099003)(261021123027099003)(261021121427099003)(261022075727099003)(261022105027099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	JiPYsvelaDN105YfhgcM37OGv0IsDmltu8vz8doYFy7m/7CiE8A4lzj8CCY6aMpSrDSsozpogUSZYf3DKqal7+GnBpk4a1JDwaSJjH7kXZnlU+ZMDkbn1c/E5UGOI2aD7uOUTAdEaMFNo57lcJgJVogvfhzr2ArDJzRqF+l7F/IxstqHD4FndXrQMcWSmHJCsoR9PUiQo6ODJWLbdeSdMkpqfHoS8tn9YLcwBdeN8ExH9nRx+zUUF4o0IH1QmNnf3as03Nd8PIus49yu7CFBg8dod0v7bmUNbUP3WpAeXSoe6XPcCBnyeKhlCVp/hI8ZdxrngaQUeWmV/3hOY4GB8/wGJQbjEWb27X3ZGSuttsCofiqb0xoaD5x3ICHCVflFM3LjdqdrKhTEXojpfMyiDRrjDn0g5jPCW/AOAN452IwhN2Jm2tSaaUtWv8HS5Ece
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 01:34:40.9102
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a26805b-935d-4653-3ef6-08df4a9446a7
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	MN1PEPF000793FE.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8142
 
-Thank you for your contribution! Sashiko AI review found 3 potential
-issue(s) to consider.
+Three fixes for the teardown of xfrm device offload state and one
+revert, for ipsec.
 
-Critical: 0 · High: 1 · Medium: 2 · Low: 0
+xfrm_dev_state_free() runs for the same state from the state GC, from
+the device flush and from xfrm_state_find(). Commit 89fefad9f971
+("xfrm: serialize state GC with device state flush") serializes the
+first two with a mutex, but xfrm_state_find() runs under RCU and
+still races with the flush.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+Let only one caller free the device state of an SA, hold a state
+reference in the flush and wait for an RCU grace period before the
+free. The mutex is not needed after that, so revert that commit.
 
-- [High] The multi-descriptor skip logic in bgmac_dma_rx_read()
-  (drivers/net/ethernet/broadcom/bgmac.c) never runs when the…
-- [Medium] The patch lowers the receive limit in a way the commit message
-  does not mention, and frames that used to be delivered are now dropped.
-- [Medium] In bgmac_dma_rx_read(), the skip count for continuation
-  buffers comes only from the 4-bit DC field in the RX header flags…
+1. xfrm: Give GC list nodes their own storage
+   Stop sharing the GC list nodes with the bydst and bysrc hash nodes.
+   Patch 2 uses gclist on states that RCU readers may still walk.
 
---
+2. xfrm: Serialize device state teardown
+   Let only one caller free the device state of an SA.
 
-net: bgmac: fix RX frame length check
+3. xfrm: Wait for an RCU grace period before freeing device state
+   Let RCU readers of the driver state finish before the free.
 
-This patch limits the RX length check in bgmac_dma_rx_read() to the real
-buffer size and adds a lower bound. It also checks the RX header error
-and descriptor count flags, and skips the continuation buffers of
-multi-descriptor frames. UMAC_MAX_FRAME_LEN is now programmed from the
-MTU plus a VLAN header and FCS, and max_mtu is lowered to match.
+4. Revert "xfrm: serialize state GC with device state flush"
+   Remove the mutex that the fixes above make redundant.
 
-> diff --git a/drivers/net/ethernet/broadcom/bgmac.c b/drivers/net/ethernet/broadcom/bgmac.c
-> index 9ef7307edd41e..d72e9c8577c41 100644
-> --- a/drivers/net/ethernet/broadcom/bgmac.c
-> +++ b/drivers/net/ethernet/broadcom/bgmac.c
+Jianbo Liu (4):
+  xfrm: Give GC list nodes their own storage
+  xfrm: Serialize device state teardown
+  xfrm: Wait for an RCU grace period before freeing device state
+  Revert "xfrm: serialize state GC with device state flush"
 
-[ ... ]
+ include/net/xfrm.h     | 10 +++----
+ net/xfrm/xfrm_device.c |  4 +--
+ net/xfrm/xfrm_state.c  | 61 ++++++++++++++++++++++++++----------------
+ 3 files changed, 44 insertions(+), 31 deletions(-)
 
-> @@ -435,6 +436,13 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
->  		dma_addr_t dma_addr = slot->dma_addr;
->  		u16 len, flags;
->  
-> +		/* The rest of a multi descriptor frame that was dropped */
-> +		if (ring->rx_skip) {
-> +			ring->rx_skip--;
-> +			bgmac_dma_rx_poison_buf(dma_dev, slot);
-> +			goto next;
-> +		}
-> +
->  		do {
->  			/* Prepare new skb as replacement */
->  			if (bgmac_dma_rx_skb_for_slot(bgmac, slot)) {
 
-[Severity: High]
-What happens to the continuation buffers if this replacement allocation
-fails while a multi-descriptor frame is at the head of the ring?
-
-The failure path recycles the slot without reading the RX header:
-
-	if (bgmac_dma_rx_skb_for_slot(bgmac, slot)) {
-		bgmac_dma_rx_poison_buf(dma_dev, slot);
-		break;
-	}
-
-As a result, the BGMAC_RXF_DC_MASK check further down is never reached,
-and that check is the only place ring->rx_skip gets set.
-
-netdev_alloc_frag() in bgmac_dma_rx_skb_for_slot() is an atomic
-allocation in NAPI context and can fail under memory pressure.
-dma_map_single() can fail too. bgmac_dma_rx_enable() sets
-BGMAC_DMA_RX_OVERFLOW_CONT and errored frames are not discarded, so an
-oversized frame still spills into the next 1..15 descriptors.
-
-With rx_skip left at 0, would each of those continuation slots go
-through the normal path, with len and flags read from payload bytes the
-sender controls?
-
-A sender could make those bytes look like a clean header: no DC or
-error bits, and a length between ETH_HLEN + ETH_FCS_LEN and 1536. The
-fake frame would then go to napi_gro_receive(), along with stale
-page-frag contents from the rest of the buffer.
-
-That looks like the problem the commit message says it fixes:
-
-  bgmac_dma_rx_read() consumes only the first descriptor and parses the
-  continuation buffer as a new frame
-
-Could the header flags also be read on the allocation failure path? The
-dma_sync_single_for_cpu() in bgmac_dma_rx_poison_buf() would make the
-DC bits readable before the buffer is re-poisoned. Another option is to
-do the DC check before the replacement allocation.
-
-> @@ -460,10 +468,34 @@ static int bgmac_dma_rx_read(struct bgmac *bgmac, struct bgmac_dma_ring *ring,
->  				break;
->  			}
->  
-> -			if (len > BGMAC_RX_ALLOC_SIZE) {
-> +			/* The frame did not fit in one buffer. The following
-> +			 * buffers hold the rest of its data, not RX headers.
-> +			 */
-> +			if (flags & BGMAC_RXF_DC_MASK) {
-> +				ring->rx_skip = FIELD_GET(BGMAC_RXF_DC_MASK, flags);
-> +				put_page(virt_to_head_page(buf));
-> +				bgmac->net_dev->stats.rx_length_errors++;
-> +				bgmac->net_dev->stats.rx_errors++;
-> +				break;
-> +			}
-> +
-
-[ ... ]
-
-> +			if (len < ETH_HLEN + ETH_FCS_LEN ||
-> +			    len > BGMAC_RX_MAX_FRAME_SIZE) {
->  				if (net_ratelimit())
-> -					netdev_err(bgmac->net_dev, "Found oversized packet at slot %d, DMA issue!\n",
-> -						   ring->start);
-> +					netdev_err(bgmac->net_dev, "Found packet with invalid length %u at slot %d, DMA issue!\n",
-> +						   len, ring->start);
->  				put_page(virt_to_head_page(buf));
->  				bgmac->net_dev->stats.rx_length_errors++;
->  				bgmac->net_dev->stats.rx_errors++;
-
-[Severity: Medium]
-Should this branch also set ring->rx_skip when len is above
-BGMAC_RX_MAX_FRAME_SIZE?
-
-A length above 1536 means the frame could not fit in one RX buffer. But
-the skip count comes only from the 4-bit DC field. The hardware could
-report such a length with DC == 0, either because the field is
-unreliable or because the frame spans more than 16 descriptors, which 4
-bits cannot represent. The next slot would then be parsed as an RX
-header taken from sender-controlled payload, the same as in the
-allocation failure case above.
-
-b43 and brcmsmac use the same dma64 engine. Their dma_rx() functions
-work out the number of continuation buffers from the reported length,
-not from a flags field. Commit 6a6c708469c9 ("bgmac: add check for
-oversized packets") also shows that the MAC does report over-length
-headers in practice.
-
-Would something like this be safer here, capped at the ring size?
-
-	max(DC, DIV_ROUND_UP(len + BGMAC_RX_FRAME_OFFSET,
-			     BGMAC_RX_BUF_SIZE) - 1)
-
-[ ... ]
-
-> @@ -1110,6 +1144,13 @@ static void bgmac_enable(struct bgmac *bgmac)
->  	}
->  }
->  
-> +/* The MAC counts the FCS in the maximum frame length. */
-> +static void bgmac_set_max_frame_len(struct bgmac *bgmac, int mtu)
-> +{
-> +	bgmac_umac_write(bgmac, UMAC_MAX_FRAME_LEN,
-> +			 mtu + VLAN_ETH_HLEN + ETH_FCS_LEN);
-> +}
-
-[Severity: Medium]
-Does this cause frames that were delivered before this patch to be
-dropped?
-
-Before this patch, bgmac_chip_init() set UMAC_MAX_FRAME_LEN to 32 +
-ETHER_MAX_LEN, which is 1550. Now it is 1522 at MTU 1500. Also,
-bgmac_dma_rx_read() now drops any frame with BGMAC_RXF_OVERSIZE set:
-
-	if (flags & BGMAC_RXF_ERR) {
-		put_page(virt_to_head_page(buf));
-		...
-		if (flags & BGMAC_RXF_OVERSIZE)
-			bgmac->net_dev->stats.rx_length_errors++;
-
-Frames of 1523 to 1536 bytes still fit in one RX buffer, and they used
-to reach the stack. Some examples:
-
-- QinQ frames with a 1500 byte payload (1526 bytes)
-- double-tagged frames on a DSA conduit at MTU 1504 (1530 bytes, above
-  the 1526 limit)
-- any frame larger than MTU + 22 when the MTU is set below 1500
-
-bcm4908_enet.c programs the same UniMAC register with mtu +
-ENET_MAX_ETH_OVERHEAD. That is a 32 byte overhead, including room for a
-Broadcom tag and some padding, which suggests the old 32 bytes of slack
-was deliberate. ENET_MAX_MTU_SIZE in bcmgenet also leaves room for a
-tag.
-
-Would setting the limit to BGMAC_RX_MAX_FRAME_SIZE still keep every
-accepted frame in one RX buffer, without rejecting sizes that worked
-before?
-
-If the tighter limit is intended, could the commit message say so? The
-Fixes: tags mean this will be backported to stable.
-
+base-commit: b88c75488ecc768acadb14e980bbfa087b1dbf38
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261121005009.59491-1-rosenp%40gmail.com
+2.39.3
+
