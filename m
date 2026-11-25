@@ -1,66 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=66.163.191.206
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795565367;
-	b=PvdJqA+N4KG+/qW8mmTKukSGkPvxFGC+PPRR+wfTldnhA7dXZ1QMaiUu2NXY9PfYs/T5
-	 atW3jQNZw7aJjkq1dLHmwTmg2rRm7biLmq6TmgHiQD4KLhuDXl4XhPU4UvQD9cwSCgH6q
-	 U8KKV/Fxb+6i61pHPC/mjq4rMWBlHxy44ffNksKW0dsQFdSyf9azBNkX4gzy3A4enQu71
-	 WdEhT5spUxV3hPjpQAOdvUI5g+Twwb3oObln8wh3fLWU7ZTzIXJl2zs/l/utv4HQ3CmtM
-	 g5t38K5yMIQVHpsTb4elYj1QSKtys2pmM5pbJdpJ77FcA688PJZT7GpAyFlw5RYWwIA==
+	t=1795565420;
+	b=tkONQxkkqU8W9IiTuo+xeJq1mesHULidVkPY4iwEMfJ86EycJK5zDCzze3Z3ULOhnA7J
+	 zZh98AChgYmhFr/UBS8BflTcD8KPorSUwzFK8jZf516BVqJ2t979mocZAkFrrhq/oEAvr
+	 OQ8WkwGJQ9bH71vbdVnXwtlWpuPYSrgaiWCkYEdOjzZVUwTi/7VIeD89PuNajg1/DrMD+
+	 TQ5n9DTI4iGw4yoRSlrMCccZFRSbgxWAqLRJSm5bVyMOLtYp2BuJd0T1Ilf3uSE8P/o5l
+	 DJetpVYDI3A2MKtw9fdDNDcqBDDQ4ppZo9x5KwbAnR/0g0S+8/IaHh4vum0+qmqz+VQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795565367;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=SlEO7AG/xoBdanHyLcbNyPfkti5alnKG1VL7DPC5IJg=;
-	b=MHXrEMgai+HEBa6LfXxLOcBxdNEQn711lfbXhAnlXiBHCKaeK+4Snp6OTPsiO+4CVjCI
-	 SsZARsoz8Zt1u07F92yUv/etUbK2N25RjpCND7m+jh3OUWSaSWiK0dGS2R0NzAQARF7V7
-	 Fg04lyUhp+u6hS/QMe/sabpRfORsXwykCjSrptsE/CL0E+dMdNbb7e/IKY0tH0H06w49u
-	 +GILKnGcnbMwkzy1nOLX+j8BNDMLUpuiMuuyiwK/2Pdp8MeWwPm7GBPJb1OZe9+hAeOTm
-	 Oc5MGpTKZolu/lRdBDqn56WxoZedR3H2w5ayQ8d1Pk9C5gPqfLbUhcj0U5JtRQJvjjw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795565420;
+	h=DMARC-Filter:DKIM-Signature:X-SONIC-DKIM-SIGN:X-YMail-OSG:X-Sonic-MF:
+	 X-Sonic-ID:Received:Received:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:From:To:References:Content-Language:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding:X-Mailer;
+	bh=iy+CKyTf+w/+TVdtHLDzLg8KtSclg+nZgzII2bfYoDw=;
+	b=1jBFD4DHEoqE54yXOPBvHNgL8o0mymDqO0rl8VsrbS9AdXPimeTNNeZ5EfkMVBQybDIK
+	 +ESTZag5Iy66RB0p/4f5lYXee6UVPsytIq2jTu/mlauUFnNduAAUFQs2h1FLJv1iaGKvj
+	 zrMueeNSMcUDP/Dc998J68bK/OS5wQ29ENRCfTfRzotFbJLjw5YkqLgiRJEbVeGCPMkvQ
+	 ISN5DvimttqKi5goxffX1L+kUtKDqZ++vaA8pP4T4/DlzzzwRWPY0ZFUcbwVa6NDUJLet
+	 HvnxgFBYLsGx0SiPT+PBRAGfDJ3d31CRqQm1T6RZR4XXUG8U7V9rhH1cmTqHn7pKvSQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odh4ycun;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=yahoo.com;
+	spf=pass smtp.mailfrom=yahoo.com;
+	dkim=pass header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=lk1jLwIu;
+	arc=none smtp.remote-ip=66.163.191.206
+Received: from sonic312-25.consmr.mail.ne1.yahoo.com (sonic312-25.consmr.mail.ne1.yahoo.com [66.163.191.206])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 09849606A33F;
-	Wed, 25 Nov 2026 00:09:26 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85016606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:10:19 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85016606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=yahoo.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yahoo.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odh4ycun
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F73F1F0089F;
-	Wed, 25 Nov 2026 00:09:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795565366;
-	bh=SlEO7AG/xoBdanHyLcbNyPfkti5alnKG1VL7DPC5IJg=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=odh4ycun0vP81AgfR+TAVVmdt5EvllvtLqYpb+NfquwNQah9O7DNKC+DrZqbNzLWY
-	 nzWOEVc4RwMqp3H0E16VEXQ/ceQ/EMow71rEIuDD9FoaHuH2pUQYFpF1Hu9cuRiBG9
-	 5xRtiZLAVY2d+US8Y5CjQ5YizjbhI1MJr4m72LYZrSAcQcpaEEcMfvmkqKX2W/ZoIf
-	 E7QvDPhz0FC22GOPPQF+1YNxvdOHEmz/oLZNaINrF90t1yEVn3dBGWVn9retJLEoZ1
-	 cNvXyxVq66QNFUMeU5JAtMgQfOhR1iHMMtIa6dVvapvAt5fNzCS0fNDlNqQdubObVV
-	 fBPB1RBuH8WXg==
-Subject: Re: [PATCH net-next v2 3/3] include/stmmac: Increase max DMA/MTL
- channel count from 8 to 16
-From: netdev-bot+sashiko@kernel.org
-To: sagar.cheluvegowda@oss.qualcomm.com
-Cc: j.raczynski@samsung.com, maxime.chevallier@bootlin.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org, cs0617.lee@samsung.com,
- k.domagalski@samsung.com, k.tegowski@samsung.com,
- abhishek.chauhan@oss.qualcomm.com, lorenzo.bianconi@oss.qualcomm.com,
- sarosh.hasan@oss.qualcomm.com, hongmei.xu@oss.qualcomm.com
-Date: Wed, 25 Nov 2026 00:09:24 +0000
-Message-ID: <179556536493.3135.4615910736838398111@kernel.org>
-In-Reply-To: <20261124000415.4067701-4-sagar.cheluvegowda@oss.qualcomm.com>
-References: <20261124000415.4067701-4-sagar.cheluvegowda@oss.qualcomm.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=yahoo.com header.i=@yahoo.com header.a=rsa-sha256 header.s=s2048 header.b=lk1jLwIu
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565418; bh=iy+CKyTf+w/+TVdtHLDzLg8KtSclg+nZgzII2bfYoDw=; h=Date:Subject:From:To:References:In-Reply-To:Content-Type:From:Subject:Reply-To:Content-Type; b=lk1jLwIuoiLeB1JS3vMMhM47VdyH75jxbN6G1Q4Xv/tHrCryQyi0tD6Mlk2r4XWr0EOymHerlkprTD5aTIi47xDIdJGsdN9yqid3LFwtQMg5y4bbQjpKg6snUD7G+JoTsx0t6gqWX3yxHsRxjQkFT+juykV7XRNX9qaQeNO2YEvOjSAqyEikwkXSWHvYA0pXh/nxPsRxwmQqhgHzNs965r0xHXn1YWlcfh/9nCFWM6vK5W50FHPs06C/7NG0HEkb3JveRnU2EF5n/RZ914Dbh6yVLFfP7t9bX/t4x1oLxBUstgY7jLPFLAaEezVcfuQh9KA27kFO/ammnSK/NZDPIA==
+X-SONIC-DKIM-SIGN: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.com; s=s2048; t=1795565418; bh=sKTWNG7jvSH+bVagDJLcweKLZlCa5tr27X2YAvne3Ii=; h=X-Sonic-MF:Date:Subject:From:To:From:Subject; b=I0BN0Y3+zXtLTn4ZHntPQy1gf4TwQJEy0XCeop941CxuooNIxjbtbofrRktbSPmCgFNGnEs2zTo8LG9iKXIOMoqtRqxq2tI0Hn8XwZJAC0DGedK8iq9PKPFLmB7xEBkpJVcskYop7QKocVbmZ2N/6oCY9InCe2PrUa/vIIoVc/fxD2PuAGdOrZCqwJQlUE5bYnfoRrXFk9gwJHLvZdFsRQWjB5uFTnKLbX04XJrHyoRD9UANLWagQ43I3a6gK8hGA6leI8p/BqlmA/FXzreJggeLQwqDlzg5kVZSW8+8wkX9MRhGqoYuaTIAzzHM2hhFHtrcTxTgj99RP2apJgpo2Q==
+X-YMail-OSG: 28BVyLgVM1lWsets_Sr.7hPiQOzoj4YEmkYNV7z0ggRpykkbF5N.9flvBaIuPmI
+ dM0spqPh3oVxrzpiJxZCqMFWVS.1WJYGpo9tXlHxfJ3g4IkLcZYIgPbOXnjKa52vaN7My4tWlHpQ
+ wsvCU.3.Q5LteWkmd6O3EKmufBL0f0yDVuvNEIGuZF3_uBtVOMCzmYWZw47zP09a7Q6iitMcA3sj
+ tH1LOIPf03b08mEeL8sWoRCRTm09w.DQDdaXUl2tEWf_4imRV1HOOzCUCmB007sBDORCqEEBj1vs
+ N0zMY0ndewElLuCDlPzh.dzptA0RhQbDgkMQsEz6nzPlWefnVt3iFd5YzcDLYW_JuyP24AP.WvWb
+ Wyrpd7TCF1s6h5Shph5ISpXnu17bfLwBWCiKsqohHKgH7g3jeeoGANS9aAaqPlyrLsiZegqDNcK2
+ p_VAafKTx1a3azqvqVYSCjqMu95A63SU5XQqBaXc169g_tmrwYlRjEMrmXZx3zz8Lyl8mQGVyP_c
+ fFj_tCEBNS59ejqMuQ0urhnfa4RwR3gaMfHrPHAqajQJmuJR2JTV5bJXlWqD8BFHC9K6R1zKSSVF
+ DKtFXcYM0Gi_gCuHTOgeFFz.NWgaWv.J7XMNu.nKlkSo5a_Wz8EGkcstg0OlBwRRNMQc4GyQpVci
+ q4Fr9p3EjPXtYSx_MHabFjI.PhYAMIrOgWWoskCbfl9L3vboXVIxlR6eFjHQnd9D2.vBNM7i1Egn
+ s..iT5jvu39pph8DZNdj16P1cxmlkUxqIkowIroMyJgl72vZU84cSeosEE7Bn.jVexONPfV5KsLt
+ fMmum4Nt8DAPL5bRouLBRqaLUsBSZZPvA.F8cWIi9zJOv_jFGLX3V43LKLRN85MRMvY0hya8okAl
+ hicYcSyelRteEsmADqZ6Vw0X4hiOX_c1SlqR7LsbKvHpfWALDEwb06uFBRkIKnKddm8we5Dd88Fu
+ nORtq.C4x6tcYEzL9MsROIf.8pmiFi5BZOsmjgH6cDioUezCqrD8lqA7zZamjszcAJA7lnSgNpp1
+ lJmnDTeW2LXcU97plqkAfDgEwcz.8cS4TV2z6FEp0rInCehq8KE0vFQWdaQ9V2uqCke9gTZ3hkeT
+ z.77fd4oq.9kbogX4tc9jzE_cUpl5knlZvWtsqNGfOQbkkHLsrUgKVf5GJExspxCGEBU.LesJAKt
+ 4szVM9E828NAsAzKCWZQZYmeMhJqxFthQ3n6FDCB2dfP8a7VLL2zNdcYgndnLJRLIpPLTobq9omn
+ H.17Fx4LSz.c8osNH35OBOvRv5.XdZ_acvW5DcVT31xowqRaH9JUgCur4NqHOjCzNE1ZMsje9vRx
+ vcfWohEEkUnfhEtjpPpUwuFCElOiCEJd7HD.YtMMTCmXduekNZrbY0RMey.ZHCPQm_F9CDvrFg4l
+ KgZwrTuWZ_jEwSRkAMG0FndBoCoH4Gkn0DPfvMWpas6wWsXVHpWEVOrv5n3_N6e6m2supTVswKo2
+ sl9Tg5vgIdR5kan30n_y1EYSDKODt0Pdi4SUUWW.VFg2OHolfXiaLnj24usaWrnfiw4j6Q6BqAso
+ lPGLmoBQd9qWZmOhb2kax8mzY35DWOQj8WOD5QpNaX2KNXObmYA8LNbsBZQs8rekw1jw5gIzCMEs
+ 4l04VkV_rO8g5t5PpQ34Gp4wxjzlqDoueU2l.hdEIZ73ojsX21n6mqJYgbsnJNs3OYj5l134XE9i
+ 6plbhxdiKoKN948tWHu8clczqp9FCSxqS3kriXoLjKtMtJNQYIpQcJ9ABC_sbnpMXenM3AkKfiH0
+ 5dKu8qdh0GePjyJmmCsnNIuH.QwNBRv4IiOqcdnfJXkXHvC.43mOBcap8d1_TTfYZHTaiq7ZG3SO
+ g954hWCvPj06EXia4u8cDeF3GR8WNAmLgyKb4GDtMMbe.yy2.lqnRFjYAViii2jEz2rqnVn5S1f3
+ GKDmAdiqY56uX5k9vD8rsCDy15h66LwMscqgOGajpNzdJ5RxRs0YQXPNtXfEucKvObPfvJpNQ6vg
+ .lELdSVe6J7qFDyUqJA4CA2xl4H6Ib_quKVJ1kDdgYGthlXTPegxSv8A3AEDDRo2FLC25gKEWcQQ
+ mhD7ccQIOhUU7uOr3Qud68EBvOF0YO7aPXrc0VpNBDXqW.OAUCe5xhHpsPry1K.hBFPEhiFFvpfD
+ afELGj1QzxM8Wsf2DhjCrpqG9LYbsHOCwtLur.zpLO_rghzB0qIICaBKLckyBMEpay2TQjSkaQzF
+ u7THqHkHpHapWyVdvuWacKUlqjN9Tu4eq8PdKVvoD3rlhTyAWb2UXgGRTqNfmMF7SltvpuwpVFnF
+ nxD.QzgivFjHj2kFCZkwIP4ADRMDCpvO2FJFNtIzrQcVnePjidwUE
+X-Sonic-MF: <namiltd@yahoo.com>
+X-Sonic-ID: f6f35346-d0a3-45d5-9e48-1e8d4d9fe7aa
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic312.consmr.mail.ne1.yahoo.com with HTTP; Wed, 25 Nov 2026 00:10:18 +0000
+Received: by hermes--production-ir2-7c4859dc89-hgxcv (Yahoo Inc. Hermes SMTP Server) with ESMTPA ID 7292ceb15c26d2b0faac5a280d57d0b7;
+          Wed, 25 Nov 2026 00:10:12 +0000 (UTC)
+Message-ID: <4e956122-ae94-4046-aff3-48b7c21ff412@yahoo.com>
+Date: Wed, 25 Nov 2026 01:10:09 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,237 +84,427 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: [PATCH net-next v14 11/15] net: dsa: realtek: rtl8365mb: refactor L2
+ MAC handling
+From: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+To: linusw@kernel.org, andrew@lunn.ch, olteanv@gmail.com, kuba@kernel.org,
+ davem@davemloft.net, edumazet@google.com, pabeni@redhat.com,
+ linux@armlinux.org.uk, luizluca@gmail.com, maxime.chevallier@bootlin.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ alvin.sipraga@analog.com, gusfmora@gmail.com, kuncy7@gmail.com,
+ fabianotassotti@gmail.com, gabonpivovich@gmail.com, contact@c127.dev,
+ o.rempel@pengutronix.de
+References: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Language: pl
+In-Reply-To: <874b29a3-f47f-4bf2-a0f6-2f9fea712f4c@yahoo.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.27100 mail.backend.jedi.jws.acl:role.jedi.acl.token.atz.jws.hermes.yahoo
 
-Thank you for your contribution! Sashiko AI review found 5 potential
-issue(s) to consider.
+Add L2 MAC pack/unpack helpers and use them in the family C
+serializers instead of open-coding the byte packing, since the layout
+of the MAC address words is the same for both families. The now unused
+per-field MAC masks are dropped.
 
-Critical: 0 · High: 0 · Medium: 3 · Low: 2
+Rename the family C serializers to rtl8365mb_c_l2_*(), export them and
+reach them through function pointers in struct rtl8365mb_family_info,
+so that a following patch can add the family D layout without touching
+the family C code again.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+No functional change.
 
-- [Medium] tc_setup_cbs() (stmmac_tc.c:343) checks the CBS queue only
-  against tx_queues_to_use.
-- [Medium] With up to 16 TX queues, tc_setup_dwmac510_mqprio()
-  (stmmac_tc.c:1456-1464) checks only that offset+count <=…
-- [Medium] dwxgmac2_tx_queue_prio() (dwxgmac2_core.c:140-155) handles
-  only TX queues/TCs 0..7.
-- [Low] net: stmmac: 3-bit queue mask truncation in
-  EST_SZ_CAP_HBFQ_MASK()
-- [Low] net: stmmac: signed shift overflow in dwxgmac2_rx_queue_enable()
-  for queue 15
+Tested-by: Gustavo Foletto Mora <gusfmora@gmail.com>
+Tested-by: Stanislaw Pal <kuncy7@gmail.com>
+Tested-by: Oleg Gavrilov <gabonpivovich@gmail.com>
+Signed-off-by: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Reviewed-by: Linus Walleij <linusw@kernel.org>
+---
+ drivers/net/dsa/realtek/rtl8365mb.h      |   7 ++
+ drivers/net/dsa/realtek/rtl8365mb_l2.c   | 125 +++++++++++------------
+ drivers/net/dsa/realtek/rtl8365mb_l2.h   |  12 +++
+ drivers/net/dsa/realtek/rtl8365mb_main.c |   5 +
+ 4 files changed, 83 insertions(+), 66 deletions(-)
 
---
-
-include/stmmac: Increase max DMA/MTL channel count from 8 to 16
-
-This commit raises MTL_MAX_RX_QUEUES, MTL_MAX_TX_QUEUES and STMMAC_CH_MAX
-from 8 to 16 so that newer XGMAC hardware with up to 16 DMA/MTL queues can
-use all of them.
-
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 00be2df63d220..b91c8d069dc28 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -15,9 +15,9 @@
->  #include <linux/platform_device.h>
->  #include <linux/phylink.h>
->  
-> -#define MTL_MAX_RX_QUEUES	8
-> -#define MTL_MAX_TX_QUEUES	8
-> -#define STMMAC_CH_MAX		8
-> +#define MTL_MAX_RX_QUEUES	16
-> +#define MTL_MAX_TX_QUEUES	16
-
-[Severity: Low]
-Can stmmac_mac_enable_rx_queues() now evaluate a signed shift into the
-sign bit?
-
-Both dwxgmac2_rx_queue_enable() and dwxlgmac2_rx_queue_enable() in
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c do:
-
-	else if (mode == MTL_QUEUE_DCB)
-		value |= 0x2 << XGMAC_RXQEN_SHIFT(queue);
-
-XGMAC_RXQEN_SHIFT(x) is defined as ((x) * 2). With MTL_MAX_RX_QUEUES
-at 16, rx_queues_to_use can be 16, and stmmac_mac_enable_rx_queues()
-then passes queue 15, giving 0x2 << 30. Since 0x2 is a plain int, this
-shifts a 1 into bit 31. That is undefined behaviour in C and can be
-flagged by CONFIG_UBSAN_SHIFT.
-
-MTL_QUEUE_DCB is the default rx queue mode, so this would be hit on
-every interface bring-up through stmmac_hw_setup() on a 16-queue
-XGMAC/XLGMAC configuration.
-
-The register value most likely still comes out right with the kernel's
-compiler flags. Could these constants be made unsigned (0x2U, or
-FIELD_PREP() with XGMAC_RXQEN(queue)) as part of the preparatory
-changes before the limit is raised?
-
-[Severity: Low]
-Now that tx_queues_to_use can be larger than 8, does est_irq_status()
-still report the right queue on a head-of-line blocking event?
-
-In drivers/net/ethernet/stmicro/stmmac/stmmac_est.c:est_irq_status(),
-the EST_HLBF handling does:
-
-	value = readl(est_addr + EST_FRM_SZ_CAP);
-	hbfq = (value & EST_SZ_CAP_HBFQ_MASK(txqcnt)) >>
-		EST_SZ_CAP_HBFQ_SHIFT;
-
-txqcnt is priv->plat->tx_queues_to_use, passed down from
-stmmac_common_interrupt(). EST_SZ_CAP_HBFQ_MASK() in stmmac_est.h only
-knows about up to 8 queues:
-
-	(_val > 4 ? GENMASK(18, 16) :
-	 _val > 2 ? GENMASK(17, 16) :
-	 BIT(16));
-
-For txqcnt 9..16 the mask stays 3 bits wide and bit 19 is dropped.
-An HLBF event on queues 8..15 is then logged in the "EST: HLB(size)
-Queue %u" message as queue 0..7. That points the user at the wrong
-queue when debugging a taprio schedule.
-
-The impact is limited to the diagnostic message. Should
-EST_SZ_CAP_HBFQ_MASK() gain a _val > 8 ? GENMASK(19, 16) branch? Can
-you confirm the HBFQ field in EST_FRM_SZ_CAP really widens to 4 bits on
-the 16-queue XGMAC cores?
-
-[Severity: Medium]
-Now that tx_queues_to_use can be larger than 8, can tc_setup_cbs() program
-per-TC registers that do not exist on XGMAC?
-
-In drivers/net/ethernet/stmicro/stmmac/stmmac_tc.c:tc_setup_cbs(), the
-only bound on the CBS queue is:
-
-	/* Queue 0 is not AVB capable */
-	if (queue <= 0 || queue >= tx_queues_count)
-		return -EINVAL;
-
-The queue is then used directly as a traffic class index. dwxgmac2_qmode()
-does:
-
-	writel(0, ioaddr + XGMAC_MTL_TCx_ETS_CONTROL(channel));
-
-dwxgmac2_config_cbs() also writes XGMAC_MTL_TCx_SENDSLOPE(),
-XGMAC_MTL_TCx_QUANTUM_WEIGHT(), XGMAC_MTL_TCx_HICREDIT(),
-XGMAC_MTL_TCx_LOCREDIT() and XGMAC_MTL_TCx_ETS_CONTROL() using that same
-queue. XGMAC has at most XGMAC_MAX_TC (8) traffic classes, and
-dma_cap.numtc can be lower than that.
-
-At the same time, dwxgmac2_dma_tx_mode() puts the queue into a 3-bit
-field:
-
-	value |= FIELD_PREP(XGMAC_Q2TCMAP, channel);
-
-That means queue 9 is served by TC1. TC1's shaper is never touched, and
-the tc command still returns success.
-
-The path is:
-
-  tc qdisc replace ... cbs ... offload 1
-    stmmac_setup_tc()
-      tc_setup_cbs()
-        stmmac_dma_qmode() -> dwxgmac2_qmode()
-        stmmac_config_cbs() -> dwxgmac2_config_cbs()
-
-The earlier commit "net: stmmac: separate the TC count from the queue
-count on XGMAC" described this as writes to TC registers that do not
-exist. It bounded the resume replay in stmmac_configure_cbs() by
-stmmac_num_tc():
-
-	for (queue = 1; queue < num_tc; queue++) {
-
-However, tc_setup_cbs() is still bounded only by tx_queues_to_use. As a
-result, CBS state saved for queues >= num_tc is also silently not
-restored.
-
-Should tc_setup_cbs() reject queues >= stmmac_num_tc() as well?
-
-[Severity: Medium]
-With more than 8 TX queues, can dwxgmac3_fpe_map_preemption_class()
-silently truncate both the TC number and the preemption class?
-
-tc_setup_dwmac510_mqprio() only checks offset + count against
-tx_queues_to_use. It therefore accepts num_tc up to 16 and queue ranges
-that include queues 8..15. It then reaches this code in
-drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c:
-
-dwxgmac3_fpe_map_preemption_class() {
-    ...
-		for (u32 i = 0; i < count; i++) {
-			val = readl(priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(offset + i));
-			writel(u32_replace_bits(val, tc, XGMAC_Q2TCMAP),
-			       priv->ioaddr + XGMAC_MTL_TXQ_OPMODE(offset + i));
-		}
-    ...
-}
-
-XGMAC_Q2TCMAP is GENMASK(10, 8), so TC 8..15 alias onto hardware
-TC 0..7.
-
-The preemption class is written with:
-
-	writel(u32_replace_bits(val, preemptible_txqs, FPE_MTL_PREEMPTION_CLASS),
-	       priv->ioaddr + XGMAC_MTL_FPE_CTRL_STS);
-
-FPE_MTL_PREEMPTION_CLASS is GENMASK(15, 8), so bits 8..15 of
-preemptible_txqs are dropped. For example, with num_tc 2, TC1 on queues
-8-15 and TC1 marked preemptible, preemptible_txqs is 0xFF00 and 0 is
-written to the field.
-
-When num_tc is 0, the default restore loop writes i, up to
-tx_queues_to_use - 1, into the same 3-bit XGMAC_Q2TCMAP field.
-
-No error is returned to the user in any of these cases. Should the
-mqprio/FPE path reject configurations that do not fit these register
-fields?
-
-[Severity: Medium]
-Does dwxgmac2_tx_queue_prio() handle queues 8 and above?
-
-drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c:dwxgmac2_tx_queue_prio() {
-    ...
-	reg = (queue < 4) ? XGMAC_TC_PRTY_MAP0 : XGMAC_TC_PRTY_MAP1;
-	if (queue >= 4)
-		queue -= 4;
-
-	value = readl(ioaddr + reg);
-	value &= ~XGMAC_PSTC(queue);
-	value |= (prio << XGMAC_PSTC_SHIFT(queue)) & XGMAC_PSTC(queue);
-    ...
-}
-
-For queues 8..15 the sub-index becomes 4..11. For queues 8..11, prio is a
-u32 shifted by 32..56 bits. For queues 12..15, XGMAC_PSTC() also expands
-to a GENMASK() past bit 63. Both are undefined behaviour.
-
-On x86-64, queues 12..15 end up overwriting the TC4..TC7 fields of
-XGMAC_TC_PRTY_MAP1.
-
-These calls can now be reached from tc_mqprio_config_queue_prio() and
-stmmac_reset_tc_mqprio(). Both loop over ARRAY_SIZE(tx_queues_cfg), which
-is now 16, and do:
-
-		if (i < priv->plat->tx_queues_to_use)
-			stmmac_tx_queue_prio(priv, priv->hw, prio, i);
-
-Neither loop is bounded by num_tc. By contrast, the boot-time
-stmmac_mac_config_tx_queues_prio() is bounded by stmmac_num_tc().
-
-The path is:
-
-  tc qdisc add ... mqprio ... hw 1 mode channel
-    tc_setup_dwmac510_mqprio()
-      tc_mqprio_config_queue_prio()
-        stmmac_tx_queue_prio() -> dwxgmac2_tx_queue_prio()
-
-Should these mqprio loops also be limited to stmmac_num_tc()?
-
-[ ... ]
-
+diff --git a/drivers/net/dsa/realtek/rtl8365mb.h b/drivers/net/dsa/realtek/rtl8365mb.h
+index c59e657..9a69e85 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb.h
++++ b/drivers/net/dsa/realtek/rtl8365mb.h
+@@ -13,6 +13,8 @@ struct dsa_switch;
+ struct netlink_ext_ack;
+ struct rtl8365mb_jam_tbl_entry;
+ struct rtl8365mb_vlan4k;
++struct rtl8365mb_l2_uc;
++struct rtl8365mb_l2_mc;
+ 
+ struct rtl8365mb_family_info {
+ 	enum rtl8365mb_family family;
+@@ -31,6 +33,11 @@ struct rtl8365mb_family_info {
+ 	int (*vlan_pvid_port_set)(struct dsa_switch *ds, int port, u16 vid,
+ 				  struct netlink_ext_ack *extack);
+ 	int (*vlan_pvid_port_clear)(struct dsa_switch *ds, int port, u16 vid);
++	size_t l2_entry_size;
++	void (*l2_data_to_uc)(const u16 *data, struct rtl8365mb_l2_uc *uc);
++	void (*l2_uc_to_data)(const struct rtl8365mb_l2_uc *uc, u16 *data);
++	void (*l2_data_to_mc)(const u16 *data, struct rtl8365mb_l2_mc *mc);
++	void (*l2_mc_to_data)(const struct rtl8365mb_l2_mc *mc, u16 *data);
+ };
+ 
+ const struct rtl8365mb_family_info *
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.c b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+index 0494d8a..cd5b333 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_l2.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_l2.c
+@@ -6,18 +6,11 @@
+ 
+ #include <linux/etherdevice.h>
+ 
++#include "rtl8365mb.h"
+ #include "rtl8365mb_l2.h"
+ #include "rtl8365mb_table.h"
+ #include <linux/regmap.h>
+ 
+-#define RTL8365MB_L2_ENTRY_SIZE			6
+-
+-#define RTL8365MB_L2_UC_D0_MAC5_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D0_MAC4_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_UC_D1_MAC3_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D1_MAC2_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_UC_D2_MAC1_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_UC_D2_MAC0_MSK		GENMASK(15, 8)
+ #define RTL8365MB_L2_UC_D3_VID_MSK		GENMASK(11, 0)
+ #define RTL8365MB_L2_UC_D3_IVL_MSK		GENMASK(13, 13)
+ #define RTL8365MB_L2_UC_D3_PORT_EXT_MSK	GENMASK(15, 15)
+@@ -36,12 +29,6 @@
+ #define RTL8365MB_L2_UC_D5_FWD_PRI_MSK		GENMASK(4, 4)
+ #define RTL8365MB_L2_UC_D5_STATIC_MSK		GENMASK(5, 5)
+ 
+-#define RTL8365MB_L2_MC_D0_MAC5_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D0_MAC4_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_MC_D1_MAC3_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D1_MAC2_MSK		GENMASK(15, 8)
+-#define RTL8365MB_L2_MC_D2_MAC1_MSK		GENMASK(7, 0)
+-#define RTL8365MB_L2_MC_D2_MAC0_MSK		GENMASK(15, 8)
+ #define RTL8365MB_L2_MC_D3_VID_MSK		GENMASK(11, 0)
+ #define RTL8365MB_L2_MC_D3_IVL_MSK		GENMASK(13, 13)
+ #define RTL8365MB_L2_MC_D3_MBR_HI1_MSK		GENMASK(15, 14)
+@@ -131,16 +118,29 @@ struct rtl8365mb_l2_mc {
+ 	bool igmp_asic;
+ };
+ 
+-static void rtl8365mb_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc)
++static void rtl8365mb_l2_mac_to_data(const u8 *m, u16 *data)
++{
++	data[0] = (m[4] << 8) | m[5];
++	data[1] = (m[2] << 8) | m[3];
++	data[2] = (m[0] << 8) | m[1];
++}
++
++static void rtl8365mb_l2_data_to_mac(const u16 *data, u8 *m)
++{
++	m[5] = data[0] & 0xff;
++	m[4] = data[0] >> 8;
++	m[3] = data[1] & 0xff;
++	m[2] = data[1] >> 8;
++	m[1] = data[2] & 0xff;
++	m[0] = data[2] >> 8;
++}
++
++void rtl8365mb_c_l2_data_to_uc(const u16 *data,
++			       struct rtl8365mb_l2_uc *uc)
+ {
+ 	u32 val;
+ 
+-	uc->key.mac_addr[5] = FIELD_GET(RTL8365MB_L2_UC_D0_MAC5_MSK, data[0]);
+-	uc->key.mac_addr[4] = FIELD_GET(RTL8365MB_L2_UC_D0_MAC4_MSK, data[0]);
+-	uc->key.mac_addr[3] = FIELD_GET(RTL8365MB_L2_UC_D1_MAC3_MSK, data[1]);
+-	uc->key.mac_addr[2] = FIELD_GET(RTL8365MB_L2_UC_D1_MAC2_MSK, data[1]);
+-	uc->key.mac_addr[1] = FIELD_GET(RTL8365MB_L2_UC_D2_MAC1_MSK, data[2]);
+-	uc->key.mac_addr[0] = FIELD_GET(RTL8365MB_L2_UC_D2_MAC0_MSK, data[2]);
++	rtl8365mb_l2_data_to_mac(data, uc->key.mac_addr);
+ 	uc->key.efid = FIELD_GET(RTL8365MB_L2_UC_D4_EFID_MSK, data[4]);
+ 	uc->key.vid = FIELD_GET(RTL8365MB_L2_UC_D3_VID_MSK, data[3]);
+ 	uc->key.ivl = FIELD_GET(RTL8365MB_L2_UC_D3_IVL_MSK, data[3]);
+@@ -161,23 +161,13 @@ static void rtl8365mb_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc)
+ 	uc->is_static = FIELD_GET(RTL8365MB_L2_UC_D5_STATIC_MSK, data[5]);
+ }
+ 
+-static void rtl8365mb_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data)
++void rtl8365mb_c_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc,
++			       u16 *data)
+ {
+ 	u32 val;
+ 
+-	memset(data, 0, RTL8365MB_L2_ENTRY_SIZE * 2);
+-	data[0] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D0_MAC5_MSK, uc->key.mac_addr[5]);
+-	data[0] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D0_MAC4_MSK, uc->key.mac_addr[4]);
+-	data[1] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D1_MAC3_MSK, uc->key.mac_addr[3]);
+-	data[1] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D1_MAC2_MSK, uc->key.mac_addr[2]);
+-	data[2] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D2_MAC1_MSK, uc->key.mac_addr[1]);
+-	data[2] |=
+-		FIELD_PREP(RTL8365MB_L2_UC_D2_MAC0_MSK, uc->key.mac_addr[0]);
++	memset(data, 0, RTL8365MB_C_L2_ENTRY_SIZE * 2);
++	rtl8365mb_l2_mac_to_data(uc->key.mac_addr, data);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_UC_D3_VID_MSK, uc->key.vid);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_UC_D3_IVL_MSK, uc->key.ivl);
+ 
+@@ -200,16 +190,12 @@ static void rtl8365mb_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data)
+ 	data[5] |= FIELD_PREP(RTL8365MB_L2_UC_D5_STATIC_MSK, uc->is_static);
+ }
+ 
+-static void rtl8365mb_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc)
++void rtl8365mb_c_l2_data_to_mc(const u16 *data,
++			       struct rtl8365mb_l2_mc *mc)
+ {
+ 	u32 val;
+ 
+-	mc->key.mac_addr[5] = FIELD_GET(RTL8365MB_L2_MC_D0_MAC5_MSK, data[0]);
+-	mc->key.mac_addr[4] = FIELD_GET(RTL8365MB_L2_MC_D0_MAC4_MSK, data[0]);
+-	mc->key.mac_addr[3] = FIELD_GET(RTL8365MB_L2_MC_D1_MAC3_MSK, data[1]);
+-	mc->key.mac_addr[2] = FIELD_GET(RTL8365MB_L2_MC_D1_MAC2_MSK, data[1]);
+-	mc->key.mac_addr[1] = FIELD_GET(RTL8365MB_L2_MC_D2_MAC1_MSK, data[2]);
+-	mc->key.mac_addr[0] = FIELD_GET(RTL8365MB_L2_MC_D2_MAC0_MSK, data[2]);
++	rtl8365mb_l2_data_to_mac(data, mc->key.mac_addr);
+ 	/* key.vid,key.fid shares the same memory space */
+ 	mc->key.vid = FIELD_GET(RTL8365MB_L2_MC_D3_VID_MSK, data[3]);
+ 	mc->key.ivl = FIELD_GET(RTL8365MB_L2_MC_D3_IVL_MSK, data[3]);
+@@ -228,17 +214,13 @@ static void rtl8365mb_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc)
+ 	mc->igmp_asic = FIELD_GET(RTL8365MB_L2_MC_D5_IGMP_ASIC_MSK, data[5]);
+ }
+ 
+-static void rtl8365mb_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data)
++void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc,
++			       u16 *data)
+ {
+ 	u32 val;
+ 
+-	memset(data, 0, RTL8365MB_L2_ENTRY_SIZE * 2);
+-	data[0] |= FIELD_PREP(RTL8365MB_L2_MC_D0_MAC5_MSK, mc->key.mac_addr[5]);
+-	data[0] |= FIELD_PREP(RTL8365MB_L2_MC_D0_MAC4_MSK, mc->key.mac_addr[4]);
+-	data[1] |= FIELD_PREP(RTL8365MB_L2_MC_D1_MAC3_MSK, mc->key.mac_addr[3]);
+-	data[1] |= FIELD_PREP(RTL8365MB_L2_MC_D1_MAC2_MSK, mc->key.mac_addr[2]);
+-	data[2] |= FIELD_PREP(RTL8365MB_L2_MC_D2_MAC1_MSK, mc->key.mac_addr[1]);
+-	data[2] |= FIELD_PREP(RTL8365MB_L2_MC_D2_MAC0_MSK, mc->key.mac_addr[0]);
++	memset(data, 0, RTL8365MB_C_L2_ENTRY_SIZE * 2);
++	rtl8365mb_l2_mac_to_data(mc->key.mac_addr, data);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_MC_D3_VID_MSK, mc->key.vid);
+ 	data[3] |= FIELD_PREP(RTL8365MB_L2_MC_D3_IVL_MSK, mc->key.ivl);
+ 
+@@ -283,17 +265,20 @@ int rtl8365mb_l2_get_next_uc(struct realtek_priv *priv, u16 *addr, int port,
+ 			     struct realtek_fdb_entry *entry)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc;
+ 	int ret;
+ 
++	fi = rtl8365mb_get_family_info(priv);
++
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_ADDR_NEXT_UC_PORT,
+-				    port, data, RTL8365MB_L2_ENTRY_SIZE);
++				    port, data, fi->l2_entry_size);
+ 	if (ret)
+ 		return ret;
+ 
+-	rtl8365mb_l2_data_to_uc(data, &uc);
++	fi->l2_data_to_uc(data, &uc);
+ 
+ 	ether_addr_copy(entry->mac_addr, uc.key.mac_addr);
+ 	entry->vid = uc.key.vid;
+@@ -307,6 +292,7 @@ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+ 			u16 efid, u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -326,13 +312,14 @@ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+ 	uc.is_static = true;
+ 	/* age greater than 0 adds/updates entries */
+ 	uc.age = 1;
+-	rtl8365mb_l2_uc_to_data(&uc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_uc_to_data(&uc, data);
+ 
+ 	/* add the new entry or update an existing one */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	/* Assume the missing new entry as the table is full */
+ 	if (ret == -ENOENT)
+@@ -347,6 +334,7 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 			u16 efid, u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_uc uc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -358,7 +346,8 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 	uc.key.vid = vid;
+ 	/* age 0 deletes the entry */
+ 	uc.age = 0;
+-	rtl8365mb_l2_uc_to_data(&uc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_uc_to_data(&uc, data);
+ 
+ 	/* it looks like the switch will always add/update the entry,
+ 	 * even when age is 0 or uc.key did not match an existing entry,
+@@ -368,7 +357,7 @@ int rtl8365mb_l2_del_uc(struct realtek_priv *priv, int port,
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	if (ret == -ENOENT) {
+ 		dev_dbg(priv->dev, "%s: %pM vid=%d efid=%d missing\n",
+@@ -451,6 +440,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 			u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_mc mc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -463,16 +453,17 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 	 */
+ 	mc.member |= BIT(port);
+ 	mc.is_static = 1;
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* First look for an existing entry (to get existing port members) */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, &addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_MAC, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	if (!ret) {
+ 		/* There is already an entry... */
+-		rtl8365mb_l2_data_to_mc(data, &mc);
++		fi->l2_data_to_mc(data, &mc);
+ 		dev_dbg(priv->dev,
+ 			"%s: found %pM addr=%d member=0x%x igmpidx=0x%x %s\n",
+ 			__func__, mac_addr, addr, mc.member, mc.igmpidx,
+@@ -487,7 +478,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 			mc.is_static = 1;
+ 		}
+ 
+-		rtl8365mb_l2_mc_to_data(&mc, data);
++		fi->l2_mc_to_data(&mc, data);
+ 	} else if (ret == -ENOENT) {
+ 		/* New entry, no need to update data again as it already
+ 		 * includes the member.
+@@ -508,7 +499,7 @@ int rtl8365mb_l2_add_mc(struct realtek_priv *priv, int port,
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 
+ 	/* Assume the missing new entry as the table is full */
+ 	if (ret == -ENOENT)
+@@ -522,6 +513,7 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 			u16 vid)
+ {
+ 	u16 data[RTL8365MB_L2_ENTRY_SIZE] = { 0 };
++	const struct rtl8365mb_family_info *fi;
+ 	struct rtl8365mb_l2_mc mc = { 0 };
+ 	u16 addr;
+ 	int ret;
+@@ -529,13 +521,14 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 	memcpy(mc.key.mac_addr, mac_addr, ETH_ALEN);
+ 	mc.key.vid = vid;
+ 	mc.key.ivl = true;
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi = rtl8365mb_get_family_info(priv);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* First look for an existing entry (to get existing port members) */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_READ, &addr,
+ 				    RTL8365MB_TABLE_L2_METHOD_MAC, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	if (ret == -ENOENT) {
+ 		dev_dbg(priv->dev, "%s: %pM vid=%d missing\n",
+ 			__func__, mac_addr, vid);
+@@ -547,7 +540,7 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 		/* Return on any other error */
+ 		return ret;
+ 
+-	rtl8365mb_l2_data_to_mc(data, &mc);
++	fi->l2_data_to_mc(data, &mc);
+ 	dev_dbg(priv->dev,
+ 		"%s: found %pM addr=%d member=0x%x igmpidx=0x%x %s\n",
+ 		__func__, mac_addr, addr, mc.member, mc.igmpidx,
+@@ -565,12 +558,12 @@ int rtl8365mb_l2_del_mc(struct realtek_priv *priv, int port,
+ 		mc.fwd_pri = 0;
+ 		mc.igmp_asic = 0;
+ 	}
+-	rtl8365mb_l2_mc_to_data(&mc, data);
++	fi->l2_mc_to_data(&mc, data);
+ 
+ 	/* update the existing entry. */
+ 	ret = rtl8365mb_table_query(priv, RTL8365MB_TABLE_L2,
+ 				    RTL8365MB_TABLE_OP_WRITE, &addr,
+ 				    0, 0,
+-				    data, RTL8365MB_L2_ENTRY_SIZE);
++				    data, fi->l2_entry_size);
+ 	return ret;
+ }
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_l2.h b/drivers/net/dsa/realtek/rtl8365mb_l2.h
+index 9470cf0..a9f9ae4 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_l2.h
++++ b/drivers/net/dsa/realtek/rtl8365mb_l2.h
+@@ -12,6 +12,18 @@
+ 
+ #include "realtek.h"
+ 
++#define RTL8365MB_C_L2_ENTRY_SIZE		6
++/* Highest L2 entry size of any supported chip, used for sizing */
++#define RTL8365MB_L2_ENTRY_SIZE			RTL8365MB_C_L2_ENTRY_SIZE
++
++struct rtl8365mb_l2_uc;
++struct rtl8365mb_l2_mc;
++
++void rtl8365mb_c_l2_data_to_uc(const u16 *data, struct rtl8365mb_l2_uc *uc);
++void rtl8365mb_c_l2_uc_to_data(const struct rtl8365mb_l2_uc *uc, u16 *data);
++void rtl8365mb_c_l2_data_to_mc(const u16 *data, struct rtl8365mb_l2_mc *mc);
++void rtl8365mb_c_l2_mc_to_data(const struct rtl8365mb_l2_mc *mc, u16 *data);
++
+ int rtl8365mb_l2_get_next_uc(struct realtek_priv *priv, u16 *addr, int port,
+ 			     struct realtek_fdb_entry *entry);
+ int rtl8365mb_l2_add_uc(struct realtek_priv *priv, int port,
+diff --git a/drivers/net/dsa/realtek/rtl8365mb_main.c b/drivers/net/dsa/realtek/rtl8365mb_main.c
+index cfb8d4b..cf06bc9 100644
+--- a/drivers/net/dsa/realtek/rtl8365mb_main.c
++++ b/drivers/net/dsa/realtek/rtl8365mb_main.c
+@@ -798,6 +798,11 @@ static const struct rtl8365mb_family_info rtl8365mb_family_c = {
+ 	.vlan_port_reset_pvid = rtl8365mb_c_vlan_port_reset_pvid,
+ 	.vlan_pvid_port_set = rtl8365mb_c_vlan_pvid_port_set,
+ 	.vlan_pvid_port_clear = rtl8365mb_c_vlan_pvid_port_clear,
++	.l2_entry_size = RTL8365MB_C_L2_ENTRY_SIZE,
++	.l2_data_to_uc = rtl8365mb_c_l2_data_to_uc,
++	.l2_uc_to_data = rtl8365mb_c_l2_uc_to_data,
++	.l2_data_to_mc = rtl8365mb_c_l2_data_to_mc,
++	.l2_mc_to_data = rtl8365mb_c_l2_mc_to_data,
+ };
+ 
+ /**
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124000415.4067701-1-sagar.cheluvegowda%40oss.qualcomm.com
+2.53.0
+
