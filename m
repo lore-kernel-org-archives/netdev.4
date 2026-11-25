@@ -1,87 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=198.175.65.20
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=68.232.154.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795612953;
-	b=SiIhKFWzIkN1Y32MDTUKdxEAVhMV/4vFxPkpWXVwtardNmaw5f4rf9V+uW3UD2qzACZK
-	 xZuWSYUDml1exUJKWU6FPv9l8gPQZFkBz597Vs998rg6yGxzRO8HfwgmcX5meAYM7L5Im
-	 Loj0/8MW/SYW/dLC+N5xf/oC9YjMr93c7Xv/G6Q3lJDiJ5/e3211kPepiLAS49f2i8L9z
-	 4H6S+1t7BpHevHgw/ezJKRZXBQPC4X83EeeCUzIghokzv49xkMQyIhARJlAYJNhhdVoK0
-	 we2nASrCngi9NcgQjAuHqg6RRNN/ihh4kmT0wCOYjYP+Zl/oS43eRrev5bvAACRwfsA==
+	t=1795613271;
+	b=c55aJ0op7qdwsk5oYVSp87hFjuYEq7ueK5APfLPqvOfifZo36k4N/EtAm0AOHk15cZ1e
+	 Cgz41p4zvdomXd8mtHD117zI6f3qSleoTnylmPYGUCE+9QHEaSWy2TT3zh+E1Erq6bXSt
+	 366T3CMuX/PO/Kx/r6hrpb7NdEbeO4oXPW+hXnGi1a4q0+Rdg2otaOOxrcqP5lZZWiNRW
+	 DUsPzByd2/Wj5xtMUL4ZUvEPeBv20QX/WjzpdqXZsQz9w/L2YrrWS2TyPkhVBbsU+KKqN
+	 ZqHgtDXIRalySfAWrrH3d5KTNmncLBjH32DB9BLeVeFyKQMJPsUkEwTWPc1Wrn6k/xg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795612953;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795613271;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=Ipja5WGFJr2wY12IBTtFvehjTc7AMtHKnrCB3Ak9jgw=;
-	b=kQcB9BjEJGRO5XJJdkqiZkQVp7NvXqUJ30arAkCd1KojIEGcHrdb4y2m8QZCBa4j2nF/
-	 gvXqTk2Eu9KqxVMT4okihidACFQlKwP8iyNoqqjXEr5Jfr66kZu2W7/YGxn1d+/kQwLIY
-	 vdCSX+O5aTDjmPB/KjccfHutR1tMl7RapXhC406LPl1lsQHGlKNiJSW3JUwYt6AdT6A49
-	 5smzHuxy3twJ7E108cVsje++8WytelefnhHPNxBZ9CRCaj+dRgRBaMrPGykduMGACondw
-	 VYq1Q5KEX/IfOnbA39m1AcLEB2bYsMwUec4k5cOqZ1jUu/MtWZtgTWcawyzCHZ+MOrw==
+	 X-IronPort-AV:X-Amp-Result:Received:Received:Received:MIME-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-ID:To:Subject:CC:
+	 From:X-Mailer:References:In-Reply-To;
+	bh=Jn/VIUd4AaWMYZGQhKELRcKfGOwury85Du+TA9QR8rA=;
+	b=xewrArdQIL8AecvmplKEn0mGAMKLLjcOmlkTrhisvoVW1Ksi7i0qHn5/PmLN5GVdpeyq
+	 d07/OMWiqfcaHvWwC3iSnfNmTYzRXy1sKMKIwK+iKh2Ab/D4+omV2lJJAJq6KY97S7tlr
+	 Qmj5Ui+ijJ0XQx+DWtRQGzE/1GmoVtZnam/UORlSTnOiuhWoVeOZkY1gwHEH3cAQ/67pm
+	 MHTtDMQe1Sd5VjPWZ575MUQdNTGOWpKu8TH+2WAYVcz7YqqdBDfzvcenmJeSsNQH6iyLz
+	 vTq/vHU9Jmu2S/e2B6ZqamMzm4g7KjiAFffpm1F+wMU/ugK0LPB7p7K6tcwCSxS+kww==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.intel.com;
-	spf=pass smtp.mailfrom=linux.intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LhVW+n7u;
-	arc=none smtp.remote-ip=198.175.65.20
-Received: from mgamail.intel.com (mgamail.intel.com [198.175.65.20])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=microchip.com;
+	spf=pass smtp.mailfrom=microchip.com;
+	dkim=pass header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Plc5oICs;
+	arc=none smtp.remote-ip=68.232.154.123
+Received: from esa.microchip.iphmx.com (esa.microchip.iphmx.com [68.232.154.123])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 46E76606A326;
-	Wed, 25 Nov 2026 13:22:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 46E76606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E595F606A31E;
+	Wed, 25 Nov 2026 13:27:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E595F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=microchip.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=microchip.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=LhVW+n7u
+	dkim=pass (2048-bit key) header.d=microchip.com header.i=@microchip.com header.a=rsa-sha256 header.s=mchp header.b=Plc5oICs
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795612953; x=1827148953;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=xMZJqBJS/iUcGVaGQWziBnwHMl+g9+YwZ2CYauGmfRk=;
-  b=LhVW+n7uqGGu1wVKNFOEjv3NRGROzNXL/KGqnQSN+AHt12z4UEym+O+0
-   7tEwjPq+y2GJCrOSSJWliF3kklYbY+r9mE4LH5xkeRy0kdbiEatU4LxHn
-   8GyLMAgB9xMVx5xyz8IxeoLsJqVWlU7QN43DzzAFw57mTcpxmwRDWfpvJ
-   3xpQfx1465tVcHMyHS7FyZqI4rk9eplaoIlUSQYfF/r8PO5hhNxhLjhmd
-   RotbJAGhLgqhbDaNT8+KopKZIHtps8h9UgBK0sQHAY70wnqnvjm+KBQdi
-   q1qkVTh46ZkL1x0ZDc6Cwt5xWFeYH275QZK6ycObmwt6n6HcmlK26+51J
-   A==;
-X-CSE-ConnectionGUID: sn0Y/ciyTuiRJY6uFn2t9w==
-X-CSE-MsgGUID: w7ZdDsSJR6aIM2INLyfuEQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4550446"
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1795613271; x=1827149271;
+  h=mime-version:content-transfer-encoding:date:message-id:
+   to:subject:cc:from:references:in-reply-to;
+  bh=KmRzLrvRiOd8FFDhQI5mUOmMtQ7hHtwjDRmCIElWbos=;
+  b=Plc5oICsmObFXIJHXKq45qpAxhZSRQgunkYVnFcgj6FzGQIxe12AyYNZ
+   RpEX2SqB3vYuQHiOHdVuKvhYtJzze5HUVamDAOM7Hcdh1RVpClk6nuezo
+   q6wyo5j27nLKhSrsou/xMUj+MxAypumWJoguTqXChaEve4lzooC1MXFxZ
+   zp8SPKia6kMPdAXFDmrGppeMqGU5SqysGJQ7+InvLaNgdTrF745y1FpfP
+   MrX+6wXdMB5oHSwhT0wgkf4EZBIN4LAQ0tlyAhgzBAGrL1HXzjjRn6GbK
+   VizbPjTJxMSLRbZqdgeh6utVINkSiJNATkn5UQC6gzgDsiFucG4/XQysu
+   Q==;
+X-CSE-ConnectionGUID: 4qofo+olT9iWVvaqOzshEA==
+X-CSE-MsgGUID: 2d4OcOZ1QSaQOQdDZSgmGQ==
 X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="4550446"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 05:22:32 -0800
-X-CSE-ConnectionGUID: gY5d0gdCQBegZceIY9aUSQ==
-X-CSE-MsgGUID: 9zyMiZcASqSPIroOmrlW7g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,232,1787036400"; 
-   d="scan'208";a="11856614"
-Received: from black.igk.intel.com ([10.91.253.5])
-  by fmviesa004.fm.intel.com with ESMTP; 25 Nov 2026 05:22:30 -0800
-Received: by black.igk.intel.com (Postfix, from userid 1001)
-	id 7ADD098; Wed, 25 Nov 2026 14:22:28 +0100 (CET)
-Date: Wed, 25 Nov 2026 14:22:28 +0100
-From: Mika Westerberg <mika.westerberg@linux.intel.com>
-To: Tobias Heath <heathtobias@gmail.com>
-Cc: Andreas Noever <andreas.noever@gmail.com>,
-	Mika Westerberg <westeri@kernel.org>,
-	Yehezkel Bernat <YehezkelShB@gmail.com>,
-	Sukhdeep Singh <sukhdeeps@marvell.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	linux-usb@vger.kernel.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/2] thunderbolt: add opt-in to preserve tunnels across
- s2idle
-Message-ID: <20261125132228.GE191152@black.igk.intel.com>
-References: <8fbb5876-e556-45a1-96b5-4a8061de9e5d@gmail.com>
- <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+   d="scan'208";a="67268000"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 25 Nov 2026 06:27:50 -0700
+Received: from chn-vm-ex03.mchp-main.com (10.10.87.152) by
+ chn-vm-ex4.mchp-main.com (10.10.87.33) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.2.2562.57; Wed, 25 Nov 2026 06:27:49 -0700
+Received: from localhost (10.10.85.11) by chn-vm-ex03.mchp-main.com
+ (10.10.85.151) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58 via Frontend
+ Transport; Wed, 25 Nov 2026 06:27:49 -0700
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -91,69 +71,192 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <31d3413a-9aa0-4208-8e15-3ba85829ef79@gmail.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="UTF-8"
+Date: Wed, 25 Nov 2026 14:27:47 +0100
+Message-ID: <DN4BS3G13BGT.1VM1EI873BRWR@microchip.com>
+To: <netdev-bot+sashiko@kernel.org>, <jensemil.schulzostergaard@microchip.com>
+Subject: Re: [PATCH net-next 5/5] net: dsa: lan9645x: add bridge support
+CC: <UNGLinuxDriver@microchip.com>, <andrew@lunn.ch>, <olteanv@gmail.com>,
+	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
+	<pabeni@redhat.com>, <linux@armlinux.org.uk>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>
+From: =?utf-8?q?Jens_Emil_Schulz_=C3=98stergaard?=
+	<jensemil.schulzostergaard@microchip.com>
+X-Mailer: aerc 0.21.0
+References: <20261124-dsa-lan9645x-add-vlan-and-bridge-offload-v1-5-b930a1dae700@microchip.com> <179559711039.3135.10067666642818194046@kernel.org>
+In-Reply-To: <179559711039.3135.10067666642818194046@kernel.org>
 
-Hi,
+On Wed Nov 25, 2026 at 9:58 AM CET, netdev-bot+sashiko wrote:
+> Thank you for your contribution! Sashiko AI review found 2 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 2 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] lan9645x_port_bridge_join()
+>   (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:544) stores=E2=80=
+=A6
+> - [Medium] lan9645x_fdb_vid()
+>   (drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:692) only switches=
+=E2=80=A6
+>
+> --
+>
+> net: dsa: lan9645x: add bridge support
+>
+> This adds hardware bridge offload to the lan9645x DSA driver. Each
+> VLAN-unaware bridge gets its own reserved VID, and at most one bridge can
+> be VLAN-aware. The CPU port is no longer in the default unicast and
+> multicast flood masks; .port_set_host_flood adds it instead. The patch
+> also adds ageing time configuration with min/max limits.
+>
+>> diff --git a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c b/driver=
+s/net/dsa/microchip/lan9645x/lan9645x_main.c
+>> index de432772f6399..a78410efb9730 100644
+>> --- a/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+>> +++ b/drivers/net/dsa/microchip/lan9645x/lan9645x_main.c
+>
+> [ ... ]
+>
+>> @@ -306,6 +302,20 @@ static int lan9645x_setup(struct dsa_switch *ds)
+>>  	ds->mtu_enforcement_ingress =3D true;
+>>  	ds->assisted_learning_on_cpu_port =3D true;
+>>  	ds->fdb_isolation =3D true;
+>> +	ds->max_num_bridges =3D ds->num_ports;
+>
+> [ ... ]
+>
+>> +static int lan9645x_port_bridge_join(struct dsa_switch *ds, int port,
+>> +				     struct dsa_bridge bridge,
+>> +				     bool *tx_fwd_offload,
+>> +				     struct netlink_ext_ack *extack)
+>> +{
+>
+> [ ... ]
+>
+>> +	p =3D lan9645x_to_port(lan9645x, port);
+>> +
+>> +	mutex_lock(&lan9645x->fwd_domain_lock);
+>> +
+>> +	p->bridge_num =3D bridge.num;
+>> +	lan9645x_vlan_port_set_bridge_vid(p, !p->vlan_aware);
+>
+> [Severity: Medium]
+> Can bridge.num be larger than num_phys_ports here?
+>
+> lan9645x_vlan_init() only adds the CPU port module to the reserved VIDs
+> for bridge numbers 1..num_phys_ports:
+>
+>     for (bridge_num =3D 1; bridge_num <=3D lan9645x->num_phys_ports;
+>          bridge_num++) {
+>         vid =3D lan9645x_vlan_unaware_pvid(bridge_num);
+>         lan9645x->vlans[vid].portmask =3D BIT(lan9645x->num_phys_ports);
+>         ...
+>     }
+>
+> Setting ds->max_num_bridges =3D ds->num_ports does not appear to limit th=
+e
+> number the DSA core passes in. In net/dsa/dsa.c, dsa_bridge_num_get()
+> first calls dsa_bridge_num_find(). That function searches every tree in
+> dsa_tree_list and returns an existing number without comparing it to max.
+> The "bridge_num > max" check only runs when a new number is allocated.
+>
+> Take a bridge that first gets a number N >=3D 10 from a switch in another
+> DSA tree with a larger max_num_bridges (mv88e6xxx, sja1105 or vsc73xx).
+> If a lan9645x port then joins the same bridge:
+>
+> lan9645x_port_bridge_join()
+>   p->bridge_num =3D N
+>   lan9645x_vlan_port_set_bridge_vid(p, true)
+>     vlans[VLAN_N_VID - N].portmask |=3D BIT(port)
+>     lan9645x_vlan_hw_wr()
+>       cpu_dis =3D !(v->portmask & BIT(lan9645x->num_phys_ports));  -> 1
+>
+> ANA_PGID_CFG_OBEY_VLAN is set for the destination PGIDs. Would that mean
+> no frame classified to this VID is ever copied to the CPU? That would
+> cover broadcast, host FDB/MDB entries pointing at PGID_CPU, and host
+> flooding. The host stack and software forwarding to the other tree's
+> ports would then stop working for that bridge.
+>
+> Should the join reject bridge.num > num_phys_ports, or should the
+> reserved VID be set up when it is first used?
+>
 
-On Wed, Nov 25, 2026 at 12:45:36PM +0000, Tobias Heath wrote:
-> The current implementation of tb_switch_suspend() / tb_switch_resume()
-> writes ROUTER_CS_5 SLP into each USB4 switch on entry to s2idle and
-> rebuilds the tunnel on resume, independently of whether the host router
-> and connected switches actually need that teardown.
+Yes this looks correct. v2 rejects a bridge number above max_num_bridges in
+.port_bridge_join with -EOPNOTSUPP, so the port falls back to software brid=
+ging,
+as when DSA runs out of bridge numbers.
 
-Well after router sleep is set and acked and the implementation specific
-method is run (typically ACPI power resource is turned off) the routers
-reset their config spaces to default except certain fields that are
-mentioned in the spec.
+> [Severity: Medium]
+> Several bridges can now be offloaded at once. Does lan9645x_fdb_vid()
+> still keep the FDB of a VLAN-unaware bridge separate from the FDB of the
+> VLAN-aware bridge?
+>
+> It only maps vid =3D=3D 0 to the bridge's reserved VID:
+>
+> drivers/net/dsa/microchip/lan9645x/lan9645x_main.c:lan9645x_fdb_vid() {
+> 	if (vid)
+> 		return vid;
+>
+> 	return lan9645x_vlan_unaware_pvid(db->type =3D=3D DSA_DB_BRIDGE ?
+> 					  db->bridge.num : 0);
+> }
+>
+> Take "bridge fdb add M dev swpB master static" on a port of
+> VLAN-unaware bridge B. br_fdb_add() adds M@0, and also M@vid for every
+> VLAN in the port's VLAN group. That includes the default pvid 1, which
+> exists even with vlan_filtering=3D0:
+>
+>     list_for_each_entry(v, &vg->vlan_list, vlist) {
+>         if (!br_vlan_should_use(v))
+>             continue;
+>         err =3D __br_fdb_add(ndm, br, p, addr, nlh_flags, v,
+>                            nfea_tb, notified, extack);
+>
+> DSA passes vid 1 through unchanged, so lan9645x_fdb_add() calls
+> lan9645x_mact_learn(lan9645x, port, M, 1, ENTRYTYPE_LOCKED).
+>
+> B never uses that entry, because its ports classify to the reserved VID.
+> Now suppose VLAN-aware bridge A uses VID 1. Would frames to M in A hit
+> this locked entry pointing at swpB and be dropped by A's PGID_SRC mask?
+> The locked entry would also stop M from being learned on A's real port.
+>
+> A later fdb_del from B would remove the same hardware entry. That could
+> also delete A's own static M@VID1 entry. lan9645x_host_addr_shared()
+> only handles collisions between CPU host addresses, not entries for front
+> ports.
+>
+> Before this patch there was no .port_bridge_join, so bridge-DB FDB
+> entries never reached this helper. The commit message says the reserved
+> VIDs keep the FDB domains apart, but these entries would still overlap.
+>
+> Should non-zero VIDs from a VLAN-unaware bridge's DB also be mapped to
+> its reserved VID, or skipped?
 
-> On AMD USB4 host
-> controllers (verified on Ryzen AI 9 HX 370; same expected on Phoenix /
-> Strix generation hardware), the switch config survives D3hot intact,
-> and the mandatory rebuild produces an entirely avoidable re-enumeration
-> cascade on wake:
+The overlap exists, but it requires both a VLAN-aware and a VLAN-unaware br=
+idge
+and the same MAC to be a station in both bridges. As far as I can tell this
+matches ocelot, which also offloads one VLAN-aware bridge next to VLAN-unaw=
+are
+bridges and maps only VID 0 in the same way.
 
-It is expected to go into D3cold and at that point you lose everything.
+Changing the mapping at add time as suggested does not fix it. MAC table en=
+tries
+are keyed by the VID the port classifies to, and that depends on vlan_filte=
+ring,
+while the bridge does not notify the FDB entries again when vlan_filtering
+changes. An entry added at VID V while a bridge is VLAN-aware stays at V af=
+ter
+the bridge turns VLAN-unaware, whatever the add path did.
 
->   * Every downstream USB device goes through USB disconnect + fresh add,
->     device numbers increment, open file descriptors onto those devices
->     are invalidated (audio streams interrupted, filesystem mounts
->     unmounted-and-remounted by udisks, etc.).
->   * PCIe hot-plug fires for the dock-side bridges.
->   * The dock's PD controller is reset, producing a 1 - 2 s
->     ADP1 ONLINE=0 blip that interferes with any userspace relying on
->     AC state at wake time (for instance systemd's HibernateOnACPower=
->     policy).
->   * resume_devices takes ~2 - 5 s of avoidable work.
-> 
-> Add a module parameter, thunderbolt.s2idle_preserve (default: off), which
-> skips both the tb_switch_suspend() teardown on suspend_noirq and the
-> tb_switch_resume() + tb_tunnel_activate() rebuild on resume_noirq, when
-> the sleep target is PM_SUSPEND_TO_IDLE. S3 and hibernate paths are
-> unaffected.
-
-Adding new module parameters should be avoided.
-
-> Measured on GPD Win Max 2 with CalDigit TS5 Plus dock:
-> 
->   Default upstream:  resume_devices = 2.6 s; USB storm per wake; AC blip.
->   s2idle_preserve=1: resume_devices = 0.2 s; zero re-enumeration events;
->                      AC stable; downstream connections (audio, storage,
->                      keyboard) survive unchanged.
-> 
-> The opt-in gate is deliberate. Where the TB tree is not preserved by
-> hardware across s2idle (e.g. some Intel generations under specific
-> firmware configurations), enabling this would leave the kernel with
-> stale state at wake; users are expected to test on their own hardware
-> before enabling.
-
-That's actually everything except your system according to the USB4 spec at
-least and I would also assume AMD follows that too. Why it does not enter
-D3cold is not clear at this point. Do you disable it via sysfs?
-
-There is also the power problem if you keep them alive.
-
-What we can do is to avoid the unnecessary runtime resume if the domain is
-already runtime suspended when entering s2idle but that's USB stack that
-does the wake up.
+Mapping or skipping non-zero VIDs of a VLAN-unaware bridge would instead le=
+ave
+the entry missing after the bridge turns VLAN-aware.
