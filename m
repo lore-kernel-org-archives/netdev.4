@@ -1,62 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.74.67.75
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795601462;
-	b=qg7/9mMbCGFzBBbBNGzKa3KVIEnJzAk0lgv81QNdJ+dVEueNb6oc0iIKhQt18l9uwkuH
-	 /pN0KQk5MpVMG9kLCH8y0ZRia1aqfammArGNW3raMg7QFonpLz6EiQkjQ6ZO3swF5TrvE
-	 CSL773hJj4BhqeAde8NAzgVlusw7ciE1vhFF3AMAsDhi1Ki65aJny2rn6k3RkCVrrFYw4
-	 ngMYgg90QsBCvi6i0gZK21LVIC8zgp/yTR6qEOPV3jhXLBLLe3xlptWrV09c1N88xEU6u
-	 WJ2Mf9/qktxfyoPuIR8w86v2IQDJr/y2kPIhXOMnYGIvRB5O5/cAECVUovJVWbaBy6A==
+	t=1795601545;
+	b=0ATkK5vMzRr4itoMwCJagFNH4h2yQ0SfYFEj6n9y9P1vedzfSV25x5xfkgweaW04xB4c
+	 1/Gzn8GbXZ3Qljm33Ittt6xuuX/7Ij7MPKWTLg39V5HYFw0nmJMJIIlBPiK9obV3EoydE
+	 8wDQJhsY6uO5uPPxGcNLoGLIswbZQH5F0Kdp5D8W6oxJdyvf8+ODpgwX0YDob1JtK2N72
+	 NVd8c4qHqv3CzWA+GdvzeL1R0onuCv0bmYcsd9M6hnnmXq1j41s+/mrGFPowf9H0SegTD
+	 UU5fUSmn34T8IPVvPgnagHUTaBWGE1kHXKFH6YkpMTq/uWxysVOB9d9JIb4jFNDUgkw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795601462;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
-	b=Sce1suvtGxCouipP0zIZt3CDABnDAw7h0DlS9alqLxq5PgagkcKSGEDo1ix7joMgMqz+
-	 tYT9bE4lOI2a6ZnkO2H6XvEZbLX/eUOc3RgkrYQcsFILappgP22F1RqdNoIWHq36pLX/G
-	 fmN0EcYvRmRAJCm/h8TxD2xHdxKUrnFIJuuMQbbcvfORASECpEYVOROJlnAGdzsda5YMl
-	 wMWR2/nY1WnzZBII5t88tSo7tOM9eIfzvxwxZdeQ7xSZYD0Xer3pzZTQqTOJp/cYATm0P
-	 fZWaj6xQj57i7emurZ85dBf94hwYM/CHsSJfOgZIUc1+3SxqbthxG5+wT9we4xOSPvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601545;
+	h=DMARC-Filter:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
+	 DKIM-Signature;
+	bh=gNLzY4BwVKCseo7jPGBp/FH18c7BfmwO0rueLWEHRog=;
+	b=gLguUpMremwnIHzGaAb+yA3SuD/THvTeb5efvZqFQS7h9Bu8W2pVs8GM0vvLaaoU2DnG
+	 RO7B1FrRjTQ+EnDBfocUEhIlxRnSu5fb5gOwY7q9Y/6EZl6wHY1GdWORn9PRo6FS4bISZ
+	 kyMw/qdhc1JZ9FBwulCLSIrpqCPLIjlXrldUNudSKeNmEReNCIEA0F7txbR6Ya/bivBe1
+	 H7HlpLHx73m7osYRmyIV/0VTgx7jcHGEQlgWNvfDP9SUPBESPfrHevFNMsun0gaNh6LbR
+	 JzEmoEwpHm7FUQsMpiI5P2TYsxQ6IeKINy6f9iyPOclT6cfLffkB8zrfy6h9OK5+fqA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=poczta.fm;
+	spf=pass smtp.mailfrom=poczta.fm;
+	dkim=pass header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b="CkSW/lbI";
+	arc=none smtp.remote-ip=217.74.67.75
+Received: from smtpo75.interia.pl (smtpo75.interia.pl [217.74.67.75])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C8420606A31E;
-	Wed, 25 Nov 2026 10:11:02 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 55809606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:12:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 55809606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=poczta.fm
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=poczta.fm
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VnHfrSIT
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E45121F000C6;
-	Wed, 25 Nov 2026 10:11:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795601462;
-	bh=BaF2y941KHDdVq/TCyzQzvb+LdOgdRdyfJjxbTxcEfE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=VnHfrSITWV9Ws1hlo2hFlxZlsLTRcWeJRZjMNpyg1FXRnzV4vsCAShBP61Ocx1zhP
-	 HXCddZyw9ddGjL3vPqHptfCA16EWst0mQdqKWS0CC2UCkVU629Ra0UHfY0RfQX82FF
-	 p3gylN9hDN/QG0SgaFHaGtP12i58WCnHIlx+7KWdzhFN/x9qRz8VYI7jlUzz7n85w+
-	 G9JxwhlsqYHaGZyXggFi9vOaOxUg4+85XPglls1q366nyKsvlIRi/dBOhOMXOZLqyu
-	 hT486ffaUn+42UkmkQtqtkizkm3YDtYoVYQumDoYpC2FCZDmnq1AJZjrZO+QAA/TJd
-	 5Be4atrOMSApw==
-Subject:
- Re: [PATCH net-next 2/2] bnge: Add support for ethtool -d register dump
-From: netdev-bot+sashiko@kernel.org
-To: ramakrishna.koduri@broadcom.com
-Cc: davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, andrew+netdev@lunn.ch, horms@kernel.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- vsrama-krishna.nemani@broadcom.com, vikas.gupta@broadcom.com,
- bhargava.marreddy@broadcom.com, ajit.khaparde@broadcom.com,
- dharmender.garg@broadcom.com, kumar.mudide@broadcom.com
-Date: Wed, 25 Nov 2026 10:11:01 +0000
-Message-ID: <179560146141.3135.3852070914350759699@kernel.org>
-In-Reply-To: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
-References: <20261124100751.179270-3-ramakrishna.koduri@broadcom.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=poczta.fm header.i=@poczta.fm header.a=rsa-sha256 header.s=dk header.b=CkSW/lbI
+Received: from nr200 (unknown [80.68.231.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (P-256) server-digest SHA256)
+	(No client certificate requested)
+	by poczta.interia.pl (INTERIA.PL) with ESMTPSA;
+	Wed, 25 Nov 2026 11:12:16 +0100 (CET)
+Date: Wed, 25 Nov 2026 11:12:14 +0100
+From: Slawomir Stepien <sst@poczta.fm>
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>,
+	jiayuan.chen@linux.dev
+Cc: Daniel Borkmann <daniel@iogearbox.net>,
+	"David S . Miller" <davem@davemloft.net>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
+	netdev@vger.kernel.org,
+	Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+	Tianyi Gao <tianyi@cloudflare.com>,
+	Octavian Purdila <tavip@google.com>,
+	Toke =?iso-8859-1?Q?H=F8iland-J=F8rgensen?= <toke@redhat.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	Magnus Karlsson <magnus.karlsson@intel.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Simon Horman <horms@kernel.org>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>, Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Shuah Khan <shuah@kernel.org>, linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH v8 bpf 0/7] xdp: fix page_pool leaks
+Message-ID: <awa0fvxzngTtIYVd@nr200>
+References: <20261124104016.532341-1-sst@poczta.fm>
+ <DN3QVHST3PUQ.3NINFUW0FL9IW@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,247 +83,270 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DN3QVHST3PUQ.3NINFUW0FL9IW@gmail.com>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=poczta.fm; s=dk;
+	t=1795601540; bh=gNLzY4BwVKCseo7jPGBp/FH18c7BfmwO0rueLWEHRog=;
+	h=Date:From:To:Subject:Message-ID:MIME-Version:Content-Type;
+	b=CkSW/lbIqxnu8SM9tcMd1jFWP+JUPVIDM2ul10ZUK7lVhSvMMJzkHv7Xp+aJxyrbJ
+	 wDgTnnHiqKXewKZWk7C019oOIGT1rQGLx5j3f0qVM9Bp6wP6hixWKM7PL/zSLaM4fh
+	 bB8oAhTY6n2EL6PjyrxTj/ycnOiSLEIgMXvIMZ/Y=
 
-Thank you for your contribution! Sashiko AI review found 4 potential
-issue(s) to consider.
+On lis 24, 2026 21:04, Alexei Starovoitov wrote:
+> On Tue, Nov 24, 2026 at 02:40 AM Slawomir Stepien <sst@poczta.fm> wrote:
+> > Patch 1 prepares bpf_prog_test_run_xdp() for patch 3. Generic XDP runs
+> > on the rxq info of the device queue, which is shared with test_run; with
+> > patch 3 alone, any packet through generic XDP on lo makes later
+> > multi-buffer test runs free their frags as page_pool pages. Restoring
+> 
+> The store into the shared rxq is the problem.
+> Patch 3 does it for every packet on every CPU, for linear skbs too.
+> The comment in include/net/xdp.h says that rxq must not be updated
+> during NAPI poll.
+> On Dudu's patch I proposed to put rxq on stack:
+> https://lore.kernel.org/bpf/DMAP8LNBJRPN.2THUHLKURP25G@gmail.com/
+> It works for veth too.
+> An skb leaves veth as a MEM_TYPE_PAGE_SHARED frame, like today.
+> No need for xdp_convert_skb_to_buff(), veth_xdp_get_pp(), pp_cow,
+> rq->xdp_mem and patch 6.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 3
+Thanks for these points. This approach is less complex. Let me play with it and I will respin it in
+v9.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+> Patches 6 and 7 never free a page_pool frag. Jiayuan's test does:
+> https://lore.kernel.org/bpf/20260911135711.109338-3-jiayuan.chen@linux.dev/
 
-- [Medium] bnge_get_pcie_regs() sets regs->version to 1, 2 or 3 from the
-  PCIe stats size firmware actually returned (`min(resp->pcie_stat_size,…
-- [Low] In bnge_hwrm_dbg_qcaps()
-  (drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c), the comment says…
-- [Low] The commit message lists only the categories of data that are
-  dumped.
-- [Low] In bnge_pcie_reg[]
-  (drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c, line 786),…
+Jiayuan Chen, can I use your selftest then in v9? :)
 
---
-
-bnge: Add support for ethtool -d register dump
-
-This commit adds get_regs and get_regs_len ethtool callbacks to the bnge
-driver. The dump has three parts: PXP registers read through
-HWRM_DBG_READ_DIRECT, PCIe statistics from HWRM_PCIE_QSTATS, and adaptive
-QoS RX/TX MBUF data. It also adds HWRM_DBG_QCAPS discovery at probe time and
-reads new capability flags from FUNC_QCAPS.
-
-> Implement get_regs and get_regs_len ethtool callbacks to provide
-> register dump support for the BNGE driver. This includes support
-> for PXP registers, PCIe signal integrity, PCIe Latency Histogram
-> and Adaptive QoS TX/RX MBUF registers.
-
-[Severity: Low]
-Could the commit message describe the dump layout and the version numbers?
-Both become visible to userspace once this is merged.
-
-The layout is:
-
-- PXP registers at offset 0
-- PCIe stats at BNGE_PXP_REG_LEN (0x3110)
-- RX MBUF data at 0x3800
-- TX MBUF data at:
-
-#define BNGE_TX_MBUF_REG_OFFSET	(BNGE_RX_MBUF_REG_OFFSET + 0x64 + \
-				 sizeof(struct queue_adptv_qos_rx_info))
-
-What is the 0x64 byte gap between the RX and TX blocks? BNGE_MBUF_REG_LEN
-(0x12c) seems to include it.
-
-regs->version can be anything from 0 to 4, and version 4 does not exist in
-bnxt. The comment in bnge_get_regs() says "Version 4 is required for the
-userspace ethtool decoder". DRV_NAME is "bng_en", though, so ethtool will not
-use its existing bnxt decoder. Is a bng_en decoder available or planned?
-
-The patch also adds a new HWRM_DBG_QCAPS query at probe time, through
-bnge_func_qcaps()->bnge_hwrm_dbg_qcaps(). The commit message doesn't mention
-this either.
-
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> index 2467e44de291a..3ada50832c6d9 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_ethtool.c
-
-[ ... ]
-
-> @@ -740,6 +742,170 @@ static int bnge_set_pauseparam(struct net_device *dev,
-
-[ ... ]
-
-> +#define BNGE_PCIE_REG_SIZE(reg)		\
-> +	sizeof_field(struct pcie_ctx_hw_stats_v2, pcie_##reg)
-> +
-> +static const struct bnge_reg_desc bnge_pcie_reg[] = {
-> +	{ BNGE_PCIE_REG_SIZE(pl_signal_integrity), 8 },
-> +	{ sizeof(__le16), 4 }, /* pcie_equalization_time: 4x __le16 */
-
-[Severity: Low]
-Does this entry match the HSI definition? include/linux/bnge/hsi.h declares
-the field as a single 64-bit value, in both pcie_ctx_hw_stats and
-pcie_ctx_hw_stats_v2:
-
-	__le64	pcie_equalization_time;
-
-Every other entry in this table takes its size from the struct through
-BNGE_PCIE_REG_SIZE(). This one hardcodes 2 bytes instead.
-
-The difference shows up on big-endian hosts. Converting four __le16 values
-swaps the bytes inside each 16-bit part but leaves the parts in their
-original order. A single le64_to_cpu() also reverses the order of the parts.
-bnxt_get_regs() converts this field as one u64.
-
-Should the HSI describe the field as __le16[4]? Or should this entry use
-BNGE_PCIE_REG_SIZE(equalization_time) with a count of 1?
-
-> +	{ BNGE_PCIE_REG_SIZE(ltssm_histogram[0]), 4 },
-> +	{ BNGE_PCIE_REG_SIZE(recovery_histogram), 1 },
-> +	{ BNGE_PCIE_REG_SIZE(tl_credit_nph_histogram[0]), 94 },
-> +	{ BNGE_PCIE_REG_SIZE(posted_packet_count), 5 },
-> +	{ BNGE_PCIE_REG_SIZE(rd_latency_histogram[0]), 14 },
-> +};
-
-[ ... ]
-
-> +static void bnge_get_pcie_regs(struct bnge_dev *bd, struct ethtool_regs *regs,
-> +			       u8 *dst)
-> +{
-
-[ ... ]
-
-> +	len = min_t(int, le16_to_cpu(resp->pcie_stat_size),
-> +		    sizeof(struct pcie_ctx_hw_stats_v2));
-> +	if (len <= 0)
-> +		goto drop_req;
-> +
-> +	if (len <= sizeof(struct pcie_ctx_hw_stats))
-> +		regs->version = 1;
-> +	else if (len < sizeof(struct pcie_ctx_hw_stats_v2))
-> +		regs->version = 2;
-> +	else
-> +		regs->version = 3;
-
-[ ... ]
-
-> +static void bnge_get_regs(struct net_device *dev, struct ethtool_regs *regs,
-> +			  void *_p)
-> +{
-> +	struct bnge_net *bn = netdev_priv(dev);
-> +	struct bnge_dev *bd = bn->bd;
-> +	u8 *p = _p;
-> +
-> +	regs->version = 0;
-> +
-> +	if (BNGE_NO_FW_ACCESS(bd))
-> +		return;
-> +
-> +	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
-> +		int rc;
-> +
-> +		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
-> +		if (rc)
-> +			netdev_warn(dev, "Failed to read PXP regs: %d\n", rc);
-> +	}
-> +
-> +	if (bd->stats_cap & BNGE_STATS_CAP_PCIE)
-> +		bnge_get_pcie_regs(bd, regs, p + BNGE_PXP_REG_LEN);
-> +
-> +	if (bd->fw_cap & BNGE_FW_CAP_MBUF_DATA) {
-> +		int rc_rx, rc_tx;
-
-[ ... ]
-
-> +		rc_rx = bnge_hwrm_rx_mbuf_data(bd,
-> +					       p + BNGE_RX_MBUF_REG_OFFSET);
-> +		rc_tx = bnge_hwrm_tx_mbuf_data(bd,
-> +					       p + BNGE_TX_MBUF_REG_OFFSET);
-> +		if (!rc_rx || !rc_tx)
-> +			regs->version = 4;
-
-[Severity: Medium]
-Doesn't this assignment throw away the PCIe layout version that
-bnge_get_pcie_regs() just set?
-
-bnge_get_pcie_regs() picks version 1, 2 or 3 from the size firmware returned
-in resp->pcie_stat_size. That version is the only thing that tells userspace
-how much of the PCIe region holds real data.
-
-If BNGE_FW_CAP_MBUF_DATA is set and either MBUF query succeeds, the version
-becomes 4. That happens in all of these cases:
-
-- the PCIe stats were v1 sized
-- the PCIe stats were v2 sized or full v2
-- HWRM_PCIE_QSTATS failed
-- PCIe stats were never queried because BNGE_STATS_CAP_PCIE isn't set
-
-The ethtool core zero-fills the buffer. A decoder that sees version 4 would
-treat the unwritten tail as real TL credit and latency histogram values.
-bnxt_get_regs() uses the same 1/2/3 scheme but never overwrites it.
-
-A related point: when bnge_dbg_hwrm_rd_reg() fails, the only sign is the
-netdev_warn() above. The zeroed 0x3110 byte PXP region is still reported as
-register contents, and neither version nor len tells userspace about the
-failure. bnxt behaves the same way today.
-
-> +	}
-> +}
-
-[ ... ]
-
-> diff --git a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> index 227de771f2ef6..9b8cb39dbe164 100644
-> --- a/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-> +++ b/drivers/net/ethernet/broadcom/bnge/bnge_hwrm_lib.c
-
-[ ... ]
-
-> @@ -597,12 +598,45 @@ int bnge_hwrm_func_resc_qcaps(struct bnge_dev *bd)
->  	return rc;
+> Below replaces patches 1-5.
+> 
+> diff --git a/drivers/net/veth.c b/drivers/net/veth.c
+> index faa837a..8bb015c 100644
+> --- a/drivers/net/veth.c
+> +++ b/drivers/net/veth.c
+> @@ -63,7 +63,6 @@ struct veth_rq {
+>  	struct napi_struct __rcu *napi; /* points to xdp_napi when the latter is initialized */
+>  	struct net_device	*dev;
+>  	struct bpf_prog __rcu	*xdp_prog;
+> -	struct xdp_mem_info	xdp_mem;
+>  	struct veth_rq_stats	stats;
+>  	bool			rx_notify_masked;
+>  	struct ptr_ring		xdp_ring;
+> @@ -642,6 +641,7 @@ static int veth_xdp_tx(struct veth_rq *rq, struct xdp_buff *xdp,
 >  }
 >  
-> +void bnge_hwrm_dbg_qcaps(struct bnge_dev *bd)
-> +{
-> +	struct hwrm_dbg_qcaps_output *resp;
-> +	struct hwrm_dbg_qcaps_input *req;
-> +	int rc;
+>  static struct xdp_frame *veth_xdp_rcv_one(struct veth_rq *rq,
+> +					  struct xdp_rxq_info *rxq,
+>  					  struct xdp_frame *frame,
+>  					  struct veth_xdp_tx_bq *bq,
+>  					  struct veth_stats *stats)
+> @@ -657,7 +657,8 @@ static struct xdp_frame *veth_xdp_rcv_one(struct veth_rq *rq,
+>  		u32 act;
+>  
+>  		xdp_convert_frame_to_buff(frame, xdp);
+> -		xdp->rxq = &rq->xdp_rxq;
+> +		rxq->mem.type = frame->mem_type;
+> +		xdp->rxq = rxq;
+>  		vxbuf.skb = NULL;
+>  
+>  		act = bpf_prog_run_xdp(xdp_prog, xdp);
+> @@ -669,7 +670,6 @@ static struct xdp_frame *veth_xdp_rcv_one(struct veth_rq *rq,
+>  			break;
+>  		case XDP_TX:
+>  			orig_frame = *frame;
+> -			xdp->rxq->mem.type = frame->mem_type;
+>  			if (unlikely(veth_xdp_tx(rq, xdp, bq) < 0)) {
+>  				trace_xdp_exception(rq->dev, xdp_prog, act);
+>  				frame = &orig_frame;
+> @@ -681,7 +681,6 @@ static struct xdp_frame *veth_xdp_rcv_one(struct veth_rq *rq,
+>  			goto xdp_xmit;
+>  		case XDP_REDIRECT:
+>  			orig_frame = *frame;
+> -			xdp->rxq->mem.type = frame->mem_type;
+>  			if (xdp_do_redirect(rq->dev, xdp, xdp_prog)) {
+>  				frame = &orig_frame;
+>  				stats->rx_drops++;
+> @@ -746,6 +745,9 @@ static void veth_xdp_get(struct xdp_buff *xdp)
+>  	struct skb_shared_info *sinfo = xdp_get_shared_info_from_buff(xdp);
+>  	int i;
+>  
+> +	/* the buff holds plain page references from here on */
+> +	xdp->rxq->mem.type = MEM_TYPE_PAGE_SHARED;
 > +
-> +	bd->fw_dbg_cap = 0;
-> +	if (!(bd->fw_cap & BNGE_FW_CAP_DBG_QCAPS))
-> +		return;
+>  	get_page(virt_to_page(xdp->data));
+>  	if (likely(!xdp_buff_has_frags(xdp)))
+>  		return;
+> @@ -755,6 +757,7 @@ static void veth_xdp_get(struct xdp_buff *xdp)
+>  }
+>  
+>  static int veth_convert_skb_to_xdp_buff(struct veth_rq *rq,
+> +					struct xdp_rxq_info *rxq,
+>  					struct xdp_buff *xdp,
+>  					struct sk_buff **pskb)
+>  {
+> @@ -773,7 +776,9 @@ static int veth_convert_skb_to_xdp_buff(struct veth_rq *rq,
+>  	/* SKB "head" area always have tailroom for skb_shared_info */
+>  	frame_sz = skb_end_pointer(skb) - skb->head;
+>  	frame_sz += SKB_DATA_ALIGN(sizeof(struct skb_shared_info));
+> -	xdp_init_buff(xdp, frame_sz, &rq->xdp_rxq);
+> +	/* the prog can free only frags and they came from skb_pp_cow_data() */
+> +	rxq->mem.type = MEM_TYPE_PAGE_POOL;
+> +	xdp_init_buff(xdp, frame_sz, rxq);
+>  	xdp_prepare_buff(xdp, skb->head, skb_headroom(skb),
+>  			 skb_headlen(skb), true);
+>  
+> @@ -794,6 +799,7 @@ drop:
+>  }
+>  
+>  static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
+> +					struct xdp_rxq_info *rxq,
+>  					struct sk_buff *skb,
+>  					struct veth_xdp_tx_bq *bq,
+>  					struct veth_stats *stats)
+> @@ -815,7 +821,7 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
+>  	}
+>  
+>  	__skb_push(skb, skb->data - skb_mac_header(skb));
+> -	if (veth_convert_skb_to_xdp_buff(rq, xdp, &skb))
+> +	if (veth_convert_skb_to_xdp_buff(rq, rxq, xdp, &skb))
+>  		goto drop;
+>  	vxbuf.skb = skb;
+>  
+> @@ -830,7 +836,6 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
+>  	case XDP_TX:
+>  		veth_xdp_get(xdp);
+>  		consume_skb(skb);
+> -		xdp->rxq->mem = rq->xdp_mem;
+>  		if (unlikely(veth_xdp_tx(rq, xdp, bq) < 0)) {
+>  			trace_xdp_exception(rq->dev, xdp_prog, act);
+>  			stats->rx_drops++;
+> @@ -842,7 +847,6 @@ static struct sk_buff *veth_xdp_rcv_skb(struct veth_rq *rq,
+>  	case XDP_REDIRECT:
+>  		veth_xdp_get(xdp);
+>  		consume_skb(skb);
+> -		xdp->rxq->mem = rq->xdp_mem;
+>  		if (xdp_do_redirect(rq->dev, xdp, xdp_prog)) {
+>  			stats->rx_drops++;
+>  			goto err_xdp;
+> @@ -914,6 +918,11 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+>  			struct veth_xdp_tx_bq *bq,
+>  			struct veth_stats *stats)
+>  {
+> +	struct veth_priv *priv = netdev_priv(rq->dev);
+> +	struct xdp_rxq_info rxq = {
+> +		.dev = rq->dev,
+> +		.queue_index = rq - priv->rq,
+> +	};
+>  	int i, done = 0, n_xdpf = 0;
+>  	void *xdpf[VETH_XDP_BATCH];
+>  
+> @@ -928,7 +937,7 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+>  			struct xdp_frame *frame = veth_ptr_to_xdp(ptr);
+>  
+>  			stats->xdp_bytes += xdp_get_frame_len(frame);
+> -			frame = veth_xdp_rcv_one(rq, frame, bq, stats);
+> +			frame = veth_xdp_rcv_one(rq, &rxq, frame, bq, stats);
+>  			if (frame) {
+>  				/* XDP_PASS */
+>  				xdpf[n_xdpf++] = frame;
+> @@ -943,7 +952,7 @@ static int veth_xdp_rcv(struct veth_rq *rq, int budget,
+>  			struct sk_buff *skb = ptr;
+>  
+>  			stats->xdp_bytes += skb->len;
+> -			skb = veth_xdp_rcv_skb(rq, skb, bq, stats);
+> +			skb = veth_xdp_rcv_skb(rq, &rxq, skb, bq, stats);
+>  			if (skb) {
+>  				if (skb_shared(skb) || skb_unclone(skb, GFP_ATOMIC))
+>  					netif_receive_skb(skb);
+> @@ -1149,9 +1158,6 @@ static int veth_enable_xdp_range(struct net_device *dev, int start, int end,
+>  						 NULL);
+>  		if (err < 0)
+>  			goto err_reg_mem;
+> -
+> -		/* Save original mem info as it can be overwritten */
+> -		rq->xdp_mem = rq->xdp_rxq.mem;
+>  	}
+>  	return 0;
+>  
+> @@ -1180,7 +1186,6 @@ static void veth_disable_xdp_range(struct net_device *dev, int start, int end,
+>  	for (i = start; i < end; i++) {
+>  		struct veth_rq *rq = &priv->rq[i];
+>  
+> -		rq->xdp_rxq.mem = rq->xdp_mem;
+>  		xdp_rxq_info_unreg(&rq->xdp_rxq);
+>  
+>  		if (delete_napi)
+> diff --git a/net/bpf/test_run.c b/net/bpf/test_run.c
+> index d6c9dc6..1d89b6f 100644
+> --- a/net/bpf/test_run.c
+> +++ b/net/bpf/test_run.c
+> @@ -1349,6 +1349,7 @@ int bpf_prog_test_run_xdp(struct bpf_prog *prog, const union bpf_attr *kattr,
+>  	struct netdev_rx_queue *rxqueue;
+>  	struct skb_shared_info *sinfo;
+>  	struct xdp_buff xdp = {};
+> +	struct xdp_rxq_info rxq;
+>  	int i, ret = -EINVAL;
+>  	struct xdp_md *ctx;
+>  	void *data;
+> @@ -1417,8 +1418,7 @@ int bpf_prog_test_run_xdp(struct bpf_prog *prog, const union bpf_attr *kattr,
+>  	}
+>  
+>  	rxqueue = __netif_get_rx_queue(current->nsproxy->net_ns->loopback_dev, 0);
+> -	rxqueue->xdp_rxq.frag_size = PAGE_SIZE;
+> -	xdp_init_buff(&xdp, rxqueue->xdp_rxq.frag_size, &rxqueue->xdp_rxq);
+> +	xdp_init_buff(&xdp, PAGE_SIZE, &rxqueue->xdp_rxq);
+>  	xdp_prepare_buff(&xdp, data, headroom, linear_sz, true);
+>  	sinfo = xdp_get_shared_info_from_buff(&xdp);
+>  
+> @@ -1426,6 +1426,11 @@ int bpf_prog_test_run_xdp(struct bpf_prog *prog, const union bpf_attr *kattr,
+>  	if (ret)
+>  		goto free_data;
+>  
+> +	/* generic XDP uses the same rxq and its frags can be smaller */
+> +	rxq = *xdp.rxq;
+> +	rxq.frag_size = PAGE_SIZE;
+> +	xdp.rxq = &rxq;
 > +
-> +	/* Discovery failure is treated as restricted so we never attempt
-> +	 * direct register reads without confirmation from firmware.
-> +	 */
-
-[Severity: Low]
-Does the early return above match this comment? If firmware doesn't advertise
-FUNC_QCAPS_RESP_FLAGS_DBG_QCAPS_CMD_SUPPORTED, fw_dbg_cap stays 0.
-bnge_get_regs() only checks the restricted bit:
-
-	if (!(bd->fw_dbg_cap & DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED)) {
-		...
-		rc = bnge_dbg_hwrm_rd_reg(bd, 0, BNGE_PXP_REG_LEN / 4, _p);
-
-So HWRM_DBG_READ_DIRECT is sent for 0xc44 words in exactly the case where
-firmware has confirmed the least. If firmware rejects the request, every
-ethtool -d logs "Failed to read PXP regs".
-
-bnxt_hwrm_dbg_qcaps() also treats missing DBG_QCAPS as unrestricted. Should
-the comment be changed to match? Or should this branch also set
-DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED?
-
-> +	rc = bnge_hwrm_req_init(bd, req, HWRM_DBG_QCAPS);
-> +	if (rc) {
-> +		bd->fw_dbg_cap = DBG_QCAPS_RESP_FLAGS_REG_ACCESS_RESTRICTED;
-> +		return;
-> +	}
-
-[ ... ]
+>  	size = linear_sz;
+>  	if (unlikely(kattr->test.data_size_in > size)) {
+>  		void __user *data_in = u64_to_user_ptr(kattr->test.data_in);
+> diff --git a/net/core/dev.c b/net/core/dev.c
+> index 6140fd9..fe9f222 100644
+> --- a/net/core/dev.c
+> +++ b/net/core/dev.c
+> @@ -5684,6 +5684,7 @@ u32 bpf_prog_run_generic_xdp(struct sk_buff *skb, struct xdp_buff *xdp,
+>  	void *orig_data, *orig_data_end, *hard_start;
+>  	struct netdev_rx_queue *rxqueue;
+>  	bool orig_bcast, orig_host;
+> +	struct xdp_rxq_info rxq;
+>  	u32 mac_len, frame_sz;
+>  	__be16 orig_eth_type;
+>  	struct ethhdr *eth;
+> @@ -5707,6 +5708,13 @@ u32 bpf_prog_run_generic_xdp(struct sk_buff *skb, struct xdp_buff *xdp,
+>  	if (skb_is_nonlinear(skb)) {
+>  		skb_shinfo(skb)->xdp_frags_size = skb->data_len;
+>  		xdp_buff_set_frags_flag(xdp);
+> +		/*
+> +		 * The frags came from skb_pp_cow_data(). xdp_rxq is shared
+> +		 * with other CPUs and with BPF_PROG_TEST_RUN, so use a copy.
+> +		 */
+> +		rxq = rxqueue->xdp_rxq;
+> +		rxq.mem.type = MEM_TYPE_PAGE_POOL;
+> +		xdp->rxq = &rxq;
+>  	} else {
+>  		xdp_buff_clear_frags_flag(xdp);
+>  	}
+> @@ -5719,6 +5727,7 @@ u32 bpf_prog_run_generic_xdp(struct sk_buff *skb, struct xdp_buff *xdp,
+>  	orig_eth_type = eth->h_proto;
+>  
+>  	act = bpf_prog_run_xdp(xdp_prog, xdp);
+> +	xdp->rxq = &rxqueue->xdp_rxq;
+>  
+>  	/* check if bpf_xdp_adjust_head was used */
+>  	off = xdp->data - orig_data;
+> 
+> pw-bot: cr
 
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124100751.179270-1-ramakrishna.koduri%40broadcom.com
+Slawomir Stepien
