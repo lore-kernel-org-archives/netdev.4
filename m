@@ -1,59 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795599588;
-	b=LfO2U433Vb4smCtaHuuuXy8fTOr+XeZkEDmgDjKWLhhn1MD4mR3RYjv0JuzoYLTRVIbK
-	 0DVfzbBgfQiZm0JdPEliEAJZmoSvKI6yvpXW6o3M24YLlXy1rQ/HYvb0az6i16cKktiX8
-	 5kc8y9M8BzjWBmn2WYdNu5dcoVt1YwGyucPo9bsnifkmFcUnd9aX7O8kCp7peH3uJW4CC
-	 CdN+kvkxzAMm3PtdCRtMN+BgkyXTH9NCEIh5R3Px1JesdwLf/gNtuV6Zs2R+nEDl5SoPe
-	 rxImwW6iTyCuNGwBvpLymbrqenUxeR2ai+EmYh95LPdEGTuyCXrrtCc266xwRpEzttg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795599588;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=rrie8qOVDRuHFMz/FkqXnHLhbfl/qqS8bONc++uaYkE=;
-	b=oPOzVuOnJROQ2jKHzvaUoH/apC5lU56yB78taUhb7INSzVH48M1aoWKOBKjbr7hV6Nz2
-	 h3pgysbAip/AAvFAMUgf0888RN5M7pSdwcm1uh8jyH9YvDLX12Qf93zNPnzYPAwbPWIEX
-	 XnzmPAqbxA+IvLOBVs7SWdCGy3RH+rddtjet5Ea/QjwNyiTMra5G3eKovHszqsE9X6zRa
-	 ByTgYbb9TP1HisHbnJiGPmGdIi7uu1+yjoaqby9UcTnkte5jaPMM5s9+AchDzVFOyp1pu
-	 08dB3wf81T/vQG2/NBiGVO7ZPcWXfF5oNsf52gwKV8yh8yJgIHPFzQy7wv3x0o8o6CQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxZvidaM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.45
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795599645;
+	b=DOXX9NgwMbsMEkXN9hcE0VUzPjff7AQQrNhwCaiJy6Dt+XYRxBQEtgPKkcoirSyLuirb
+	 JI4+y5E3edXAe1e0TClhzSJJIGr6Is/YhHSZsFwXxJm095kVq9KN9hhH0dijWkpyRkLMJ
+	 GgwaRnMgAra8VQIph3Y4QdayhKtEtkpFguCCYUIaqh/5FMvnHGopwHxiPiCOHsPa1erzN
+	 os+I8K0My3voN071/fL7vMc0nED+Qg6n29h0aLdmAvLTLGcEC7nO8Fbl+FUpHIxs0FP95
+	 EajifiamL9VXtWUMX2jN3Eebw4TRHRAi4pEkvNf4RG7t2JPsiRaloU7hrt1yeMdxWRg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795599645;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type;
+	bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
+	b=dC6bJSYV91Gc+/wm74WNsIiTKtygvOUl0KWPPzHZS/hjf0paHM9J1uQV9C8S1CJ9AC2G
+	 PZ12zwHl2tdqRYB1X2h6bLmPaZ33QZfFvZpwaEyMDCOZfroFNPsCbARje3mJb35XJwg0Y
+	 00kKmTpcmMmHHkQKg3BB/639W7s0PUDiWkZrsvvFFZN6aB2itqXqfeAr7oBUVG3j6xXp4
+	 qhbtgtnrmjsh6PC5bQZXMTsePGg6ZHAPP2/IhxAJJjX6L3QFKeMAsSym5Vtg9LDj1MQ/L
+	 3MzqBjzUGuCMTWovHFnTJHRSCLAlYjRJ97ygOiCjLjwlR/7yy0yW0btArJYC9PZ9mxw==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USogZ0T7;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.161.45
+Received: from mail-oo1-f45.google.com (mail-oo1-f45.google.com [209.85.161.45])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B99C606A32D;
-	Wed, 25 Nov 2026 09:39:48 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB120606A32C
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:40:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DB120606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GxZvidaM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B1B01F000C6;
-	Wed, 25 Nov 2026 09:39:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795599588;
-	bh=rrie8qOVDRuHFMz/FkqXnHLhbfl/qqS8bONc++uaYkE=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GxZvidaMVBBGAA+Te4M76X9GcvWrPzmPS5nLZHscpiHx+gyp6MjHqwhrphG2M4UdT
-	 4QhRJbleegOL74Il9iULWiYeutOrh79islSbB70xkWqwICatzbAO0ZscOBgrHLj/l6
-	 6hXQ9EOOhHjSU+UYijB1C+ibpf8DXDYl9G67DUR++ev6KzxwzBkgGz8BL4RCfalfrW
-	 WlSWTsKGbseDxAEpli9cveEsfybSpQaY+4csuZikVHAL+6Dy6dzHI+VX7kZX3zGi4K
-	 cKH1qibwDGGkjPKwaQENgq6UZ2mcmMvOb79s51JDqTMamSeZshhKNzibNHAWTO1J/p
-	 lGP/yGYay3ONA==
-Subject:
- Re: [PATCH net v2] net: x25: shut down T20 timer before freeing neighbour
-From: netdev-bot+sashiko@kernel.org
-To: f3lix.dev@gmx.de
-Cc: linux-x25@vger.kernel.org, ms@dev.tdt.de, netdev@vger.kernel.org,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, linux-kernel@vger.kernel.org, willemb@google.com
-Date: Wed, 25 Nov 2026 09:39:47 +0000
-Message-ID: <179559958721.3135.5593816176235018299@kernel.org>
-In-Reply-To: <20261124093922.39573-1-f3lix.dev@gmx.de>
-References: <20261124093922.39573-1-f3lix.dev@gmx.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=USogZ0T7
+Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-6e560e00a86so3635409eaf.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:40:44 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795599644; cv=none;
+        d=google.com; s=arc-20260327;
+        b=e21KsB1Tlb4URD5MfjjkfnmukjcolJT4YUQ+iFcrh7SDuSoESPTfAlQ1SN4+v34BDz
+         1OHz8y/8r0LQZU9T3UBfmWu+crBHaNTEcsfxCRQmQn8UJgTOPKRNbSE6DfoUszAtLUNR
+         U3CP9+IqNyShoJacUwXi8BIHJ7ho72PYRPzV7ey6VQ2hrI2A5uR6VPbu7rEuIANjOQ1r
+         bVwLek/F+Accycgkc2sKIVTv60ppH7FG1sWv90Bm9cT4lVZseaqzmS13jQQeUK0EtQ1R
+         SdWThjPxkhDACgh6cdjfFZTTA5jUs2xRe/DaR0EduXAM2rIJgPzxfwJAQXcSYW7UVVz7
+         96Pw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature;
+        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
+        fh=vC0ircawusynUPLqLYqV6zmqa7rvAnNmLIv4Yzj2814=;
+        b=iucmfrtxQNuGShJNygvD/9lLqnuPNaJPXO+LdjLzdPlu1St0abJWzXzxNc1icvZTij
+         YwPKceJBQW3IaktkmNHozhmNHhTnRfAobhL4A/KM04oBIcH9+JPNWu1SWXjSHTSbSSKT
+         ppGob5HuH1L7J/6ruEiux5FwzxRopTvQDtLBXrYphijgUZhO95p8DK2vFs42MAyOK4vN
+         HPrjKKoQFma3F3GiGjIxbyVlv8zEAchQydpM/ulj8nE0Q6NoRtVzxFngGamAbb3M+Jml
+         FsNp7MBqX+EKiCbmZQ4FX6bme82fDL1uZdG6mhs+rF+MUQH7js7wQa4nB451ObvJtuqa
+         WcCg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795599644; x=1796204444; darn=vger.kernel.org;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
+        b=USogZ0T7/+oVKbbiq10JBY6QO9BLjWfuL//cJGrm69dZzwe3xcxXYfejWFRKMykHAk
+         JLbCM7dWn1b62yVI8kDtdjJ9tarlF05DXeEiA2BQyimghQfJ3fuol6EWB2R5Eoa6bUzM
+         C9i36emuQHVamCvtmNtmFGKA8PGlc0pCFIHgvGVazJO0/a1o9s8WiLhfpIn3J7wWSQsc
+         aew+7tayon+TGltP3Ort73UMToKHA/YL1b3IIuT/dXMd68X5mCt3ATymsx8R+q4YMvMR
+         BCvRazhZYOuJ+MBQmEsw05DReJlUv3y8mSfzpgzDpJBVLz74ZGhYl55Xks0vpitxlOw9
+         G2TQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795599644; x=1796204444;
+        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
+         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=pQwGXJSXqljBjagDccQ7L1MMOs3fUlkutet967RTyHA=;
+        b=BQAaM0DXsOeU4AdpL4eAojJPwahk5m4CfundFX6j/5i8OASWIh2Hk0fX8qse14j1ls
+         j7eQfSi9nlwPXH651IQ7quEIT1e1VfVup40XXDwbakfN/U+dE/nyCtsE/1HBJ1z46pqd
+         SbY8BaVecZfCYhIhMLF0Y05qaaOUalFj5GK5sNC/Kx3SEOzUGWJy6H719o9NCKoCt8U+
+         nEUR0iMsH1Ai76oFeFS1+fFRMagcpkMDaf/pJhlUG46EnJUutSdsL3ZxitiyL/EpZv7a
+         XvPSAoTqyqblOotpalwK21H8pMo4TE4eRcgZvt7NKyKLohivZCxCzI7mVmg3Lp51L3Dx
+         HSzQ==
+X-Forwarded-Encrypted: i=1; AL+hErGEqiUax4FbpyRrMTNs8mzi4Uqyxv57J1haB/1C2Zp5r1md6tBnZ83LgxW7yb5hV3EoDL75ZDE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8yOxvb/PTDMDStKJ9ZXRwaxOho1u3DUVz6eJU6HGPE0SB0SQZZ
+	Ol3pLMzBZ/KwH6TJeT6bpXfyXUBCugiQoctDk/jb/KHW4jp8QcB0HKYpvrGp5UTkHASOSeNd38u
+	pAql1gKYFFfVt4IhAkY7Z1mKMcJtIuYs=
+X-Gm-Gg: AZFdTZcvV37gDnnZWUBCumEr5Lb1xd7bWDfJ0ESAwtQOwwmXxj1sdBKWKnICXgRrZ/+
+	ZIy404BTyg0I2Mc5Bvnr0WDF+CUsltXiUDxry2dOFB8JC1X9z1cU6cltBw1LEnODC8Huvuw2IyU
+	ZNhfa0okU76RY9UOTJukWjJ87L92BPmYrxpdzRCUElpq9qIBTCL8HFiO6jteZKXSO6HzkisoCiG
+	l7SgndhFd5U+x+4B16j5V7x1ASpciIYsqzQN9HRNlbTmfXFdeBbacioKb79/hYCDAfzOdOMipWh
+	yUaxksLkmbidrEJCvcN29z69MYP19JBtGXzuU2IbJqs2suCX1UhsrAx3doj3SA5YAC9Pve3Wrwr
+	52SxXGXAe4Sc9uxLs4/BqDWIONeZBvDyl0jFIQZ4vq2sBMYuAEfpRWSZKjMUaMNO+gpGT9S3ZtB
+	Y+tLOT7aYq0F4ShEwZ0fT0NG2FsmtL2ZEDL4pgArA+Ln9aZ5GBGnFflZSC
+X-Received: by 2002:a05:6820:740b:b0:71a:ff98:1734 with SMTP id
+ 006d021491bc7-71b395674efmr12396945eaf.45.1795599643823; Wed, 25 Nov 2026
+ 01:40:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,127 +104,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261117-exp-phy-rs-maybelocked-v3-0-4e183a7366a7@gmail.com> <20261124.215747.1090155063373507910.tomo@flapping.org>
+In-Reply-To: <20261124.215747.1090155063373507910.tomo@flapping.org>
+From: SeungJong Ha <engineer.jjhama@gmail.com>
+Date: Wed, 25 Nov 2026 18:40:32 +0900
+X-Gm-Features: Aa3M54pIN7Z7-kOVJu80h62SthWObgtP2wcxlpS5G_JuF9aGWICvZzW1W-c0JhI
+Message-ID: <CAGAB666qnAjFnf41PQmG5kWWSb+Au01OgspPhvREotLGXTYwXQ@mail.gmail.com>
+Subject: Re: [PATCH net-next v3 0/3] rust: net: phy: suspend may run without phy_device->lock
+To: FUJITA Tomonori <tomo@flapping.org>
+Cc: andrew@lunn.ch, fujita.tomonori@gmail.com, tmgross@umich.edu, 
+	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	horms@kernel.org, ojeda@kernel.org, boqun@kernel.org, gary@garyguo.net, 
+	bjorn3_gh@protonmail.com, lossin@kernel.org, a.hindborg@kernel.org, 
+	aliceryhl@google.com, dakr@kernel.org, daniel.almeida@collabora.com, 
+	tamird@kernel.org, acourbot@nvidia.com, work@onurozkan.dev, 
+	hkallweit1@gmail.com, linux@armlinux.org.uk, netdev@vger.kernel.org, 
+	rust-for-linux@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+On Tue, 24 Nov 2026 21:57:47 +0900 (JST), FUJITA Tomonori wrote:
+>
+> On Tue, 17 Nov 2026 19:36:18 +0900
+> SeungJong Ha <engineer.jjhama@gmail.com> wrote:
+>
+> > Patch 1 drops `read_mmd`, `write_mmd` and `match_phy_device`, which make
+> > the same claim but are called under other conditions, and have no users.
+> > Patch 2 makes `Device` generic over a lock context and documents when
+> > the `Locked` callbacks run without the lock, and patch 3 gives `suspend`
+> > the `MaybeLocked` one.
+>
+> Can we use &Device and &mut Device instead of the new context types?
+[...]
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+Yes, that is simpler. I will do that in v4. Two things to check first:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+- genphy_soft_reset() reads autoneg and writes suspended, so I would keep
+  it on &mut self. soft_reset gets &mut Device, and the SAFETY comment
+  says that the phy_mii_ioctl() path is outside the guarantee.
 
-- [Medium] The new skb_queue_purge(&nb->queue) runs in
-  __x25_remove_neigh() (net/x25/x25_link.c:303).
-- [Low] The kernel-doc for __x25_remove_neigh()
-  (net/x25/x25_link.c:292-298) still describes only list removal:…
+- read() and write() take the MDIO bus lock, and &Device cannot say
+  more than that the phy_device->lock state is off limits.
 
---
+  In read_mmd and write_mmd the bus lock is already held, so they
+  deadlock. A test driver whose read_mmd calls dev.read() hangs as soon
+  as the PHY binds, and lockdep reports recursive locking on
+  bus->mdio_lock. The path is phy_probe() -> genphy_read_abilities() ->
+  genphy_c45_read_eee_abilities() -> phy_read_mmd().
 
-net: x25: shut down T20 timer before freeing neighbour
+  In match_phy_device they reach a device that may be bound to another
+  driver, which the netdev AI review pointed out on v1  [1].
 
-This commit makes __x25_remove_neigh() call timer_shutdown_sync() on the
-T20 timer, so a callback that is already running can't rearm the timer
-after the neighbour is freed. It also purges nb->queue before the
-list-owned reference is dropped. That restores the cleanup removed by
-commit 7eed751b3b2a.
+  Do you still want to keep these callbacks with &Device and document
+  this, or wait until they can get accessors that fit their context?
 
-> diff --git a/net/x25/x25_link.c b/net/x25/x25_link.c
-> index d1e8cd81c2143..b9f290616e3a8 100644
-> --- a/net/x25/x25_link.c
-> +++ b/net/x25/x25_link.c
-> @@ -299,6 +299,8 @@ void x25_link_device_up(struct net_device *dev)
->  static void __x25_remove_neigh(struct x25_neigh *nb)
->  {
->  	if (nb->node.next) {
-> +		timer_shutdown_sync(&nb->t20timer);
-> +		skb_queue_purge(&nb->queue);
+Best regards,
+SeungJong
 
-[Severity: Medium]
-Is this the right place for the purge? __x25_remove_neigh() only drops the
-reference that x25_neigh_list owns. The neighbour is actually freed by
-whoever calls x25_neigh_put() last, and that function only calls kfree():
-
-include/net/x25.h:x25_neigh_put() {
-	if (refcount_dec_and_test(&nb->refcnt))
-		kfree(nb);
-}
-
-Anyone still holding a reference after list removal can add frames to
-nb->queue through x25_transmit_link() while nb->state is 0, 1 or 2:
-
-net/x25/x25_link.c:x25_transmit_link() {
-	case X25_LINK_STATE_0:
-		skb_queue_tail(&nb->queue, skb);
-	...
-	case X25_LINK_STATE_1:
-	case X25_LINK_STATE_2:
-		skb_queue_tail(&nb->queue, skb);
-}
-
-A socket is one way to get there. On NETDEV_DOWN, x25_device_event() calls
-x25_link_terminated()->x25_kill_by_neigh() before x25_route_device_down().
-A non-blocking x25_connect() running at the same time can find the route
-and take the reference after x25_kill_by_neigh() has already walked the
-socket list:
-
-	x25->neighbour = x25_get_neigh(rt->dev);
-
-That socket is never disconnected. It sends CALL_REQUEST, which moves nb
-to X25_LINK_STATE_1, then returns -EINPROGRESS and keeps the reference.
-
-NETDEV_UNREGISTER then runs x25_link_device_down()->__x25_remove_neigh().
-That purges nb->queue and drops the list reference, but the socket still
-holds nb. Later, either T21 expiry in X25_STATE_1 or close() queues
-another frame:
-
-x25_do_timer_expiry()
-    x25_write_internal(sk, X25_CLEAR_REQUEST)
-        x25_transmit_link()
-            skb_queue_tail(&nb->queue, skb)
-
-When x25_disconnect()->x25_neigh_put() later drops the last reference,
-won't nb be freed with that skb still on nb->queue? x25_forward_data() and
-x25_forward_call() follow the same pattern: take a reference, transmit,
-then drop it.
-
-The commit message says:
-
-    Also purge queued frames before releasing the neighbour
-
-As written, this only covers frames queued before the list reference is
-dropped. Would it be more robust to purge nb->queue in x25_neigh_put()
-before kfree()? At that point nobody else can add to the queue, and
-skb_queue_purge() is safe in atomic context.
-
->  		list_del(&nb->node);
->  		x25_neigh_put(nb);
->  	}
-
-[Severity: Low]
-This isn't a bug, but the kernel-doc above __x25_remove_neigh() still
-describes only the list removal:
-
- *	__x25_remove_neigh - remove neighbour from x25_neigh_list
- *	@nb: - neigh to remove
- *
- *	Remove neighbour from x25_neigh_list. If it was there.
- *	Caller must hold x25_neigh_list_lock.
-
-Could it say that the function now shuts down T20 for good and purges
-nb->queue? It could also note that timer_shutdown_sync() may wait for a
-running callback while the caller holds x25_neigh_list_lock.
-
-The rule that x25_t20timer_expiry() must never take x25_neigh_list_lock
-is currently written down only in the commit message. If the callback
-ever took that lock, x25_link_device_down() and x25_link_free() would
-deadlock.
-
-Separately, this one is pre-existing: the if (nb->node.next) guard can't
-detect an entry already removed with list_del(), because LIST_POISON1 is
-non-NULL. Today the function is only called while iterating the list.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124093922.39573-1-f3lix.dev%40gmx.de
+[1] https://lore.kernel.org/r/179454612500.2199510.688554972467066283@kernel.org
