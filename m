@@ -1,109 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795582216;
-	b=PTrYSA/s5GLX5ZgGEnx75cpwIxvO4uBiGFx7bxHJkZk6K1bzoc7x64cwfU+8CqYMSV1O
-	 NgNNmg1lka4vSmuWohcNYpuUQXINiqHoCGvzYrVbJIVZnCCQIfOEJZwy+adjTdKtLUXGG
-	 ++2Abx0eGnsLqTomKKS5Dp7g+a3+dcI1n0BPxBUzhipBPAlUi4O/LJKx8yBtVNMEOHDCl
-	 iD57LjFdL7fhJGn9gSeJYG9wgG22aGZXy+Axf7Eo3/oeVuTWPJ+DKNDo3Csky0VnK6+mg
-	 PusHlm8sh5DYcoZZxH3Gq0pt7ORT2bp0Msw8wMsKUZf5txeydiA6OOYjU4Speul/B9Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795582216;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Content-Type:Date:Message-Id:From:To:Cc:Subject:In-Reply-To:
-	 References:Content-Transfer-Encoding:MIME-Version;
-	bh=WZpqROJT0TFZ0N9AeyXaUSyo/Ga6Gz526tDibJ18xQ0=;
-	b=aJr86yB+c7ieGCaet2KO90+cENClvU3eOgfJHGqJePeSwW0zXn+YpRaRl60R2WciJCuv
-	 JbC/HMpqTXdmTcbGSav5I9/6eC+k3l/XrazZ+z70em+OAFHvGWocHHCHkdSeYKpXrPdiu
-	 V4ySQIff1EsAOfJ85WjIWyspXA2Q+knNdckuUyNk1CKg7nHO7iXqT1wxMtDe2ITbxd667
-	 jo7UgA7vwJHhNe0ucvw5AlLQaGs1VO1pAp45xSKKLS91D5X7rprfHW4NAgosFoxCH79Yp
-	 b1rZ539b45gooLvDFUFnYpk1mNB9K0c3WLHl3/kd/7n1RcswUBJ6UAt1fYY9NGtjPIA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="LuIyU/xm";
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795582289;
+	b=zJQUMhJSmIjsGWtEFEENI970g64X1RikNOUU+niy2XNQkxiIP1rlVl9165yerHffalVW
+	 61FAAVGn62I9GvHFpkFZqDcb6Xvtdt+QJ7BQ0WE97edMxhsajux/pKVy71Zc+5tWBvl23
+	 CCiaL74Ugb58Qji9UeZHfI4KlckHLuzsgu9ogTWrFx9IRXxMCUD/bHtPkRvZr8DeD5+o1
+	 OoHJ/aCaW/cM2mWfNWrobczMDTcoQhIN3TuAluYZTm7+zekHI7qRvSNvLXgUyUFR35pKO
+	 cmA/BNrQP0vDm46pQJh7fOPssgNCUtsBKxY8v0cWsfGYCT3AxuvfLEKi0xsYbLinoVQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795582289;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Message-ID:
+	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Importance:User-Agent:X-Mailer;
+	bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=;
+	b=eCDaTeioISfTyV1RMknTAZHXP1A3WfrHXrwu9fTPyfUaNcRSIbMXRMPfvxC5anc02OUK
+	 oI9ZGxMLVZuLLuYyVJGbEboMGrOqJqUym06EfntxOCM79RmmuOEC3CH7Nqw3sERdMfGRn
+	 bkQu/eGbOCyhKnr+QpxJe7hP8yXyWBXZKugqsLDVMymtoJsePebUtjZM41dJ+YoXG9iDN
+	 Ia5S8R1KitAaPDHI6nqXpagnaqPz/btIQw+t4RslVHsPgDcjpWrJkZHGqE4Ma5u/jiYfr
+	 nLqxTnEAPmln/c66RhnJvu/Alu4YQ3BaQk2VoxHmOZ2HnMC05GFtK385xsNgDNSMEfQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=mpiricsoftware.com;
+	spf=pass smtp.mailfrom=mpiricsoftware.com;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.182.54
+Received: from sender5-of-o54.zoho.com (sender5-of-o54.zoho.com [165.173.182.54])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DDF34606A31E
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:50:15 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DDF34606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=LuIyU/xm
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f0464dd6b6so31855375ad.1
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:50:15 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795582215; x=1796187015; darn=vger.kernel.org;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=WZpqROJT0TFZ0N9AeyXaUSyo/Ga6Gz526tDibJ18xQ0=;
-        b=LuIyU/xmh3BDPSXKUR92JkBXXf570oqi3Y8UK36zn1m+izg3teFHRAvTAlsB9d4Yrt
-         jiyFW/a/MDgD+SiC5LcOCuHZl/d0LZ9ojLoiBiRbLUPiAXPE8V1tn04Z+xZZ9S02OkHv
-         q74wRiIEDaVGWFMdQDDSj8tnr6h4jMIfQmwG8BpiH8brOWUXWyLafDX1bdQcLxyv3+Xk
-         2qTfSxK48tIV1vEIW0cJO/CVnuRR6zspU4WW7VZfJtZDjxb1iPSXnQfotUjBi4HNNeuy
-         HVpkZPW9A3Lq8RWbFGAs1/Whr/lJFzu2iS7gC2zjV4p1SX5A+QZxBfDnIkWGH6l0Zzy+
-         7YnA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795582215; x=1796187015;
-        h=mime-version:content-transfer-encoding:references:in-reply-to
-         :subject:cc:to:from:message-id:date:content-type:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=WZpqROJT0TFZ0N9AeyXaUSyo/Ga6Gz526tDibJ18xQ0=;
-        b=00K0y9xanPgoGtF89TzyiVGSE77CdaMfnS6/yrQcPiC96tuFw1somgKL79CDSnbd81
-         QGGL3rdwU3Xeex1CylmgAYuxkJ0qtDscClLb0ufqfsoAJNcIFQXBAsBHTMuts5Tzulru
-         B59PXcunOxqaUgMOO2R3Hsz2GRrS6owdfXVUEF8DDxRH+fAUCEMzvT83yKGFp+lWB5Jl
-         H4/N0pRhYbi3rQeiwgjrrAOazWIyp5SbLLYZP6MOf8X36X6ZAmh49ZVbPOFZDHpzYm9i
-         f2aWKa8u2fA9UjnZno4mJNFpWYsvo0l+Gm2lVHSbxLKQuDO2rII0raKDITsgaXvxNWXf
-         QQSQ==
-X-Forwarded-Encrypted: i=1; AL+hErG4sXJrdaWQb7SIF8Y8+jGyy1Jg5VyXUgUeBhOwLTJUT6Kq1oEVY7OsJOaorKMWNnn2gFyrEpY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8VVfDB00+81dmS9Ghpqg1+ZRhe81nEwC7pOnkgAmLZHIEO6SkN
-	z5KxYGzKtbPVjwtdMEWtu2v3ZS4CSUY6f0tlrLx8C4ucUOoTVZDWouot
-X-Gm-Gg: AZFdTZf8FA0sePWDT9u0bpUsG1B2krSh6geOaLgIRn0Ierxve5gXc9D7ydRDGM/BA25
-	1K6+oujBTRZ8Qha/K6dhW6zMmwCFU0Z/RvwckEpoPu8mkYuVdanTWf18g0LPSUro/1ttMX5wOue
-	3U9EsCps9p9a9CVU1qqaLfhjeaSaEw5b1VXJt18J2EQqny/QKFmiAvsonNFhJ+tiHdMypA7Q/XG
-	UkWXUCbCiO6b68xZ1C2gBz54DuEI/X/I0VSLAO0xIvxx2DQuqPC7xEcH2Qt3vVBlAowlddgUdzt
-	LH178+tfVqdFpZluyAWABC7ToPrlB6Y3MA/HwSIbIYEXTWwBdCwWduyvUcSRC6R5k3PFTv++LsU
-	sKg0CzQ3mZDG7ScD7D0M0l8/0Qm4V0wRfHJu6lsPpmgEwn9ijPBXrsRO6pJ/CdKmlRhOpafOnJk
-	lC5remXu4hVpybAfG14Zu+U3aceFYjY9B56jEkvhJH+z3Su8T7UOdJbwulydo9gZWPzra6dqvlS
-	37eOSAkL6r1lhNG44O1dJRYvTH3KONby/BIiGI9LkPqKbSsfF6KW/1Xm9GkOq0GVEqNc9wXzx5X
-	aZrEvr7kfN9z/WFHdUBfh/x8mQPqqJ+I6dIsHNoIqm5joxKXDA9N6ebCqN//A01+BIOYmN2X6Ao
-	a/UUz1L477KYCzR4m2yYF7dJAWlNNHyZ09GGlSEa4nTW8GS4JDImLYFw=
-X-Received: by 2002:a17:903:b4f:b0:2f0:22fe:65e5 with SMTP id d9443c01a7336-2f03f1d0f8amr148657735ad.60.1795582214938;
-        Tue, 24 Nov 2026 20:50:14 -0800 (PST)
-Received: from localhost ([153.61.198.248])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f0457fd68dsm70131345ad.39.2026.11.24.20.50.14
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 24 Nov 2026 20:50:14 -0800 (PST)
-Content-Type: text/plain; charset=UTF-8
-Date: Wed, 25 Nov 2026 04:50:13 +0000
-Message-Id: <DN40RTGK98VJ.2XIDDVK3YL2ZC@gmail.com>
-From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
-To: "Tobias Philipp" <tphilipp@gmail.com>, <bpf@vger.kernel.org>
-Cc: "Daniel Borkmann" <daniel@iogearbox.net>, "Andrii Nakryiko"
- <andrii@kernel.org>, "Martin KaFai Lau" <martin.lau@linux.dev>, "Eduard
- Zingerman" <eddyz87@gmail.com>, "Kumar Kartikeya Dwivedi"
- <memxor@gmail.com>, "Song Liu" <song@kernel.org>, "Yonghong Song"
- <yonghong.song@linux.dev>, "Jiri Olsa" <jolsa@kernel.org>, "John Fastabend"
- <john.fastabend@gmail.com>, "Stanislav Fomichev" <sdf@fomichev.me>, "Emil
- Tsalapatis" <emil@etsalapatis.com>, "Ihor Solodrai"
- <ihor.solodrai@linux.dev>, "Jesper Dangaard Brouer" <hawk@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, "Jakub Kicinski"
- <kuba@kernel.org>, "Shuah Khan" <shuah@kernel.org>, "Felix Fietkau"
- <nbd@nbd.name>, =?utf-8?q?Thibaut_VAR=C3=88NE?= <hacks@slashdirt.org>,
- "Stijn Tintel" <stijn@linux-ipv6.be>, "Daniel Mack" <daniel@zonque.org>,
- <netdev@vger.kernel.org>, <linux-kselftest@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH bpf-next v2 2/4] bpf: Align lpm_trie map values to 8
- bytes
-In-Reply-To: <20261124225055.87344-3-tphilipp@gmail.com>
-References: <20261124225055.87344-1-tphilipp@gmail.com> <20261124225055.87344-3-tphilipp@gmail.com>
-Content-Transfer-Encoding: 8bit
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0B0B9606A31E
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:51:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0B0B9606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=mpiricsoftware.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mpiricsoftware.com
+ARC-Seal: i=1; a=rsa-sha256; t=1795582267; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Pfgt/5wgbuEvoK5KcGO5fNdgMt6NdKZ2mB8RkEIC87Ggt2l1YKjL6w0UO4q8aiRva2y8QJP8WYOZT5j1b50yevvIaRIqgrfcg9oXZIE9rNSf8A26Bsyhj2sUlDRvf6/magNdddzdovUDW2bhFwiCbFsw0t3d6TOkqffME+euLds=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795582267; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=; 
+	b=NgXvVaoC/N4LWjXWY4Oujo4KmvIi8pmoIUhPavMrypWRV6YLYcAdcuTTJU87sazZZkUo4VbdhJ73/UajUgMcumTKtfTe8GT1iMlJrRijTzWxGQJ7fPWN1CTcO3fTzWw0ZdKDKGhJoW4FwSDh8oukt/TJLXuFLCIs28/BRNcALEw=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=mpiricsoftware.com;
+	spf=pass  smtp.mailfrom=kalpan.jani@mpiricsoftware.com;
+	dmarc=pass header.from=<kalpan.jani@mpiricsoftware.com>
+DKIM-Signature: a=rsa-sha256; b=Mi/mG6LNUv2xLNsivOIt/JnyZLGmeOhyuz1lLHY5ikYp9fnE63HDwYDrBfJTnUrVyYctybVEmE/GeTzCXPo1cvWTwofdhCktu+RA9JSDJE4wnNiJOo9FGsZaso6tcpfZJjG04ldqNBXJOOg537GUTw8122jy2K+2cReN11jSbqk=; c=relaxed/relaxed; s=mpiric; d=mpiricsoftware.com; v=1; bh=jIG/kkVKqgpvZnl6KVS9gjEkqn34x/1vAAY9Ak44MSk=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: from mail.zoho.com by mx.zohomail.com
+	with SMTP id 179558226238488.94232647218337; Tue, 24 Nov 2026 20:51:02 -0800 (PST)
+Date: Wed, 25 Nov 2026 10:21:02 +0530
+From: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
+To: "Matthieu Baerts" <matttbe@kernel.org>
+Cc: "Dominik Maier" <dmnk@google.com>,
+	"Mat Martineau" <martineau@kernel.org>,
+	"Geliang Tang" <geliang@kernel.org>,
+	"Paolo Abeni" <pabeni@redhat.com>, "mptcp" <mptcp@lists.linux.dev>,
+	"netdev" <netdev@vger.kernel.org>,
+	"dmnk+artist" <dmnk+artist@google.com>,
+	"Shardul B" <shardul.b@mpiricsoftware.com>,
+	"Mpiric Private Limited" <janak@mpiric.us>
+Message-ID: <1a2110afc5e.30756196125300.3918439705196063429@mpiricsoftware.com>
+In-Reply-To: <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
+References: <20261119192159.2646113-1-dmnk@google.com> <a9526d12-87db-466d-aac8-ae575559e010@kernel.org>
+Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on
+ CAP_NET_ADMIN
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -113,110 +69,79 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+Importance: Medium
+User-Agent: Zoho Mail
+X-Mailer: Zoho Mail
 
-On Tue, Nov 24, 2026 at 02:50 PM Tobias Philipp <tphilipp@gmail.com> wrote:
-> misaligned address. FEAT_LSE2 relaxes that for LSE atomics that stay
-> within a 16-byte block, and for LDAR/STLR only if SCTLR_EL1.nAA is
-> set, which Linux does not do. The fault is not fixed up. This oops is
+Hi Matt, Hi Dominik,
 
-Not quite. With nAA == 0 LDAR/STLR have the same 16-byte rule.
-nAA == 1 removes that rule for them.
+I tested the proposed change on a locally built kernel with MPTCP enabled.
 
-> Round data_size up to a multiple of 8 when computing the value offset
-> and the node size, like hashtab does for keys. IPv4 nodes grow by 4
-> bytes, IPv6 nodes (data_size 16) are unchanged. Add a BUILD_BUG_ON()
-> for the offset of data[], which the alignment of the value relies on.
+Runtime testing passed for both client and server sockets:
+- Privileged Netlink requests return the actual sequence counters, matching getsockopt(MPTCP_INFO).
+- Unprivileged Netlink requests return zero for mptcpi_write_seq, mptcpi_snd_una and mptcpi_rcv_nxt.
+- Other diagnostic information remains available to unprivileged users.
 
-4 bytes can move all nodes of a map to the next kmalloc bucket.
-There is no need to grow. prefixlen is at most 2048 and flags has one bit.
-Make both u16. Bytes that bpf_mem_alloc asks from kmalloc on 64-bit:
+The full kernel build and runtime tests completed successfully.
 
-  data_size  value_size  today  this patch        u16
-  ---------  ----------  -----  ----------------  ---
-  4          28          64     68, kmalloc-96    60
-  4          60          96     100, kmalloc-128  92
-  16         16          64     64                64
-  20         12          64     68, kmalloc-96    60
+Tested-by: Kalpan Jani <kalpan.jani@mpiricsoftware.com>
 
-BUILD_BUG_ON() and four copies of round_up() go away.
-So does the new comment. It's not in kernel multi-line style.
-32-bit still needs patch 1.
-This is in place of patch 2.
+Cheers,
+Kalpan Jani
 
-diff --git a/kernel/bpf/lpm_trie.c b/kernel/bpf/lpm_trie.c
-index 4d6f25d..72084ac 100644
---- a/kernel/bpf/lpm_trie.c
-+++ b/kernel/bpf/lpm_trie.c
-@@ -25,8 +25,8 @@ struct lpm_trie_node;
- 
- struct lpm_trie_node {
- 	struct lpm_trie_node __rcu	*child[2];
--	u32				prefixlen;
--	u32				flags;
-+	u16				prefixlen;
-+	u16				flags;
- 	u8				data[];
- };
- 
-@@ -40,6 +40,12 @@ struct lpm_trie {
- 	rqspinlock_t			lock;
- };
- 
-+/* The verifier assumes that map values are 8-byte aligned */
-+static size_t trie_value_off(const struct lpm_trie *trie)
-+{
-+	return round_up(offsetof(struct lpm_trie_node, data) + trie->data_size, 8);
-+}
-+
- /* This trie implements a longest prefix match algorithm that can be used to
-  * match IP addresses to a stored set of ranges.
-  *
-@@ -286,7 +292,7 @@ static void *trie_lookup_elem(struct bpf_map *map, void *_key)
- 	if (!found)
- 		return NULL;
- 
--	return found->data + trie->data_size;
-+	return (void *)found + trie_value_off(trie);
- }
- 
- static struct lpm_trie_node *lpm_trie_node_alloc(struct lpm_trie *trie,
-@@ -302,7 +308,7 @@ static struct lpm_trie_node *lpm_trie_node_alloc(struct lpm_trie *trie,
- 	node->flags = 0;
- 
- 	if (value)
--		memcpy(node->data + trie->data_size, value,
-+		memcpy((void *)node + trie_value_off(trie), value,
- 		       trie->map.value_size);
- 
- 	return node;
-@@ -557,6 +563,8 @@ out:
- #define LPM_DATA_SIZE_MAX	256
- #define LPM_DATA_SIZE_MIN	1
- 
-+static_assert(LPM_DATA_SIZE_MAX * 8 <= U16_MAX);
-+
- #define LPM_VAL_SIZE_MAX	(KMALLOC_MAX_SIZE - LPM_DATA_SIZE_MAX - \
- 				 sizeof(struct lpm_trie_node))
- #define LPM_VAL_SIZE_MIN	1
-@@ -598,8 +606,7 @@ static struct bpf_map *trie_alloc(union bpf_attr *attr)
- 	raw_res_spin_lock_init(&trie->lock);
- 
- 	/* Allocate intermediate and leaf nodes from the same allocator */
--	leaf_size = sizeof(struct lpm_trie_node) + trie->data_size +
--		    trie->map.value_size;
-+	leaf_size = trie_value_off(trie) + trie->map.value_size;
- 	err = bpf_mem_alloc_init(&trie->ma, leaf_size, false);
- 	if (err)
- 		goto free_out;
-@@ -766,8 +773,7 @@ static u64 trie_mem_usage(const struct bpf_map *map)
- 	struct lpm_trie *trie = container_of(map, struct lpm_trie, map);
- 	u64 elem_size;
- 
--	elem_size = sizeof(struct lpm_trie_node) + trie->data_size +
--			    trie->map.value_size;
-+	elem_size = trie_value_off(trie) + trie->map.value_size;
- 	return elem_size * READ_ONCE(trie->n_entries);
- }
- 
 
-pw-bot: cr
+From: Matthieu Baerts <matttbe@kernel.org>
+To: "Dominik Maier"<dmnk@google.com>
+Cc: "Mat Martineau"<martineau@kernel.org>, "Geliang Tang"<geliang@kernel.org>, "Paolo Abeni"<pabeni@redhat.com>, <mptcp@lists.linux.dev>, <netdev@vger.kernel.org>, <dmnk+artist@google.com>, "Kalpan Jani"<kalpan.jani@mpiricsoftware.com>
+Date: Tue, 24 Nov 2026 16:47:10 +0530
+Subject: Re: [PATCH mptcp-net] mptcp: gate diag sequence counters on CAP_NET_ADMIN
+
+ > Hi Dominik,
+ > 
+ > (+cc Kalpan)
+ > 
+ > On 19/11/2026 20:21, Dominik Maier wrote:
+ > > In net/mptcp/diag.c, subflow_get_info() restricts MPTCP sequence-related
+ > > subflow attributes (rel_write_seq, map_seq, map_subflow_seq, ssn_offset)
+ > > to callers holding CAP_NET_ADMIN in the network namespace.
+ > > 
+ > > However, mptcp_diag_get_info() unconditionally exports mptcpi_write_seq,
+ > > mptcpi_snd_una, and mptcpi_rcv_nxt via INET_DIAG_INFO because
+ > > .idiag_get_info does not receive the caller's net_admin status. Any
+ > > unprivileged local user can therefore dump or query cross-UID MPTCP
+ > > sockets by token via SOCK_DIAG_BY_FAMILY and read live 64-bit MPTCP Data
+ > > Sequence Numbers.
+ > 
+ > Thank you for this patch!
+ > 
+ > > Emit INET_DIAG_INFO from an .idiag_get_aux callback in mptcp_diag (which
+ > > already receives net_admin from inet_sk_diag_fill(), while msk never
+ > > sets icsk_ca_ops so netlink attribute ordering is unchanged) and zero
+ > > mptcpi_write_seq, mptcpi_snd_una, and mptcpi_rcv_nxt when !net_admin.
+ > > getsockopt(SOL_MPTCP, MPTCP_INFO) for the socket owner and token-based
+ > > lookup in mptcp_diag_dump_one() remain unchanged.
+ > 
+ > Oh, that's a good idea, I didn't think about .idiag_get_aux callback.
+ > 
+ > Kalpan was trying to fix the same thing:
+ > 
+ > 
+ > https://lore.kernel.org/20261123054324.561321-1-kalpan.jani@mpiricsoftware.com
+ > 
+ > @Kalpan: what do you think of this? If it looks good to you, and you
+ > tested it, can you send your Tested-by tag?
+ > 
+ > We can add:
+ > 
+ > Closes: https://github.com/multipath-tcp/mptcp_net-next/issues/445
+ > 
+ > Cheers,
+ > Matt
+ > -- 
+ > Sponsored by the NGI0 Core fund.
+ > 
+ > 
+
+
