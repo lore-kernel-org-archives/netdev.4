@@ -1,74 +1,64 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.198
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795566720;
-	b=B1fEzzBQDJ8OkIYCp1RD18JIwHjHF9BYFERMtVQCgQQ+KbijUe1l3acTnvp0CLVeyh/3
-	 aI85ktEBhYqDbdpYyCjAWHcIWw8+IRQVgjLeJafaSvducnPgYtIuZvzTasqOXFT3a4nQw
-	 za2qrhMdu3wiCOdESdHfzLpbwzdhD06Gvdlhc74/IQsck0jzUGCNbvwcs0KXr/sYgKdw/
-	 pRHsk4PnuhNP3p/WfMUIZ/20iIuwCo4SG6egqnpmZ99mToHE+eMm57AIXzHP+OwOnhFy9
-	 FE6HotX0MU/Xhodz0z4c/At1netq3k4GgZfZyECWmypnF3ct5MH1/yT73m8Auj5wp7A==
+	t=1795566748;
+	b=RR4oyPGFmf+jVjOqnrfllYo1d4PSXlvzyStMyHO0gMzaKWpHSlWaBhUXqw0BC4k7p7Lu
+	 VtVYyrxynAjjw99eLOsJJhscrqMwmS+D9vzAqVCXR6BAJ5AOAExUXCYjvLkl1ADtIhYHR
+	 Hd+wK6aTVK/y+vxZxidHES/3VixSFe9qjdxoL3NLGmrCpwaKE6gomKTnezo2zuw1i/9RI
+	 5wrKgZcSTT7T+Qg2ghkv6EXx+5Mzjz9nHQR/UvtxWAk1FcXnz4UWLVmYwhtlcqH/yC/2B
+	 pCpArIbG9Kf0oBnrb9VaoJy1lEbKzgSxzD/gIFLKRHDIrVubph1MZIKnt9maxRIbBOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795566720;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=Gcn9k5RyT2SrLf7rw1mzgR9U0hO9J3AKAxDoC8pAHaE=;
-	b=OdAw/1mfGh/SZbDpl+5dW5vc+PFoNbj6MzXNXQBfLLzYMpNiJNr+IKmSvJEhV3Vegpov
-	 8/z/H7b8/QPenjcVN4RyuGgsd55Drsg50AfPR9jCx5onyfblF+c9rQC5oV9LahtX/ezsi
-	 mrBjcJKDjnZ5gOU2Lcy2klmNJ/G9vlA5cBQdceyjxhfoFWs5LnDH44v65MJmINriGjvCG
-	 bTux/mR/lLP8tO+0tMwOcCEmzPvZnBsNAYSTcssqFKXCKjYFjlXmGdjkrJ1643rs5fAeB
-	 UVlZdIQueFG8S/ZUV4TiCJfDX363667rGrqYh2Wbu7+8Iz6zGb7mb7+QWaRUZaZvnNw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795566748;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=jcayB5wbddvbJv+RlR0Gq8xz5JzClNUc+dvRG47re24=;
+	b=VJu2Ym0R6Xv2TRz3rSnxpsPyiXPzg7BRS8xSoSonTsxEhjjNvqLHhd2Wh+xm3uWqgnZW
+	 5ST8TMVGDe6YqAJlAyYh80f96j7CoBsLL7VontIHeNIkdQ4hYDK9/dU3K3LlSjs2m0awH
+	 RNhnGgdQ6TYNVJylfdO2ND3NfIvQh7kranq0zUq/WusRJ72FSNlCZoPXvgs1g9C3A/zIJ
+	 dI/O0w3yPsvnYost2ljM5gSHYf50Ws8BeaHalmnyhq4K21ovHlvJN7Ms/+MHGOYCLKcOG
+	 P3xpAmpwmLzDKK7U/nypS4QRMPkbVO+rp/wXMVsgmLd53UxqTDYwBWCGlgbPjOOc5ig==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XQwmHO9u;
-	arc=none smtp.remote-ip=209.85.222.198
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HK8UfW9N;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2E372606A326
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 00:31:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2E372606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 65B49606A31E;
+	Wed, 25 Nov 2026 00:32:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 65B49606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=XQwmHO9u
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-93cb7f9bb86so1005778085a.2
-        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 16:31:59 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795566719; x=1796171519; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=Gcn9k5RyT2SrLf7rw1mzgR9U0hO9J3AKAxDoC8pAHaE=;
-        b=XQwmHO9u+G4hYbfjQQeoBtP0836u6rFMOum3quZGgd8jUKrOktAJVwEQuog3RtOmR0
-         /ry4sUgmBhTa0VJ+gsXi2il8IjEVQbkCKgqIxFm4In+weX8rQHoGRHvzFqFzB3Kd6WtV
-         Z5pZ94I09jYptL+vsSsRoXLBbi0yhwV3eCUMhQmYwmHJdSpC5cWLLWezW+If2da9/l9s
-         9IP7EBTwCDSaVwLhAYHmD5Pd5QyzOhLzNqf9+H1zdirHMjrf4TBLtNCd/Ni65Rxt0TfX
-         vS8nYnwvKz0RUdhL+Obbgtl1ieYbZFd82+sbfUP9wroXnbE4hVHL3U7XXMoLZ43y2iQJ
-         uO5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795566719; x=1796171519;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=Gcn9k5RyT2SrLf7rw1mzgR9U0hO9J3AKAxDoC8pAHaE=;
-        b=U0qPjqyYQfAj5RKzFFddO66NRrETPuXXZ82LXIx312WkpkBi+oTsG7sROeO2jt8TOY
-         CA2yFdGBWQo37KtBFN3YO7wT3hWDeexXBPnJjiApGCebBef5yKYt8zBnoalYUSuN/Nuk
-         p5RHO7ncQx5ZgwsdzOyHPG6wkwfNUhOb3AMh2M6W4btfud5u2WeiCOg3Ae/sChS9Zq2V
-         rwxR9vzRc+LxMrzDq5cpUhKYLFhNAGv01Ld1kTXQPIq3bav+wcW0u/emzOafU+w9GvC6
-         RLKl4qjzjmY7bcrp4torA8SbBVGh+HaAXZemDRwfV+pKQNJtq7TRLEBsj3DZuz3lVCOb
-         QSOQ==
-X-Forwarded-Encrypted: i=1; AL+hErGx4YTfoP7dJ7GpjNk3Gd8kVGJw0j1zRqZZKV2m46ahYs1/iCtQKPYFe+Wz3iwc7P7Kj6GdcWs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9HgepwDIwiIbdBb3EP+o+EuIpd7rh5n+d19giCFgjGqwj9P82V
-	0IYde5LndKHPGZwi97Gln81aGlFkPs95A0JzP9vLtsc0dBOkUe2IoqqpzIYmvAXIp77a03FZn6F
-	aOmMxropc5g==
-X-Received: from qvbld10.prod.google.com ([2002:a05:6214:418a:b0:921:2ee8:44dd])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:620a:6f0d:b0:939:6dea:374d
- with SMTP id af79cd13be357-949ba9d1fa6mr2800574685a.49.1795566718729; Tue, 24
- Nov 2026 16:31:58 -0800 (PST)
-Date: Tue, 24 Nov 2026 19:31:58 -0500
-In-Reply-To: <20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com>
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=HK8UfW9N
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=jcayB5wbddvbJv+RlR0Gq8xz5JzClNUc+dvRG47re24=; b=HK8UfW9N/Ll4P255xwebaLZL+A
+	upenHWed5xaZmy91K8XtHXS13Hfir36MApHVg6DZJfI6UnrTCrvi7hBG92/J1eQodY5nfeZtnLKdH
+	2JuCyFn5i8GkRGUu5PwNJAAAqk6wxD16dy+eY2qfZ5MMrk+qbDlxJOIQNdud0eeIBCwE=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xW0vu-001Cc2-QP; Wed, 25 Nov 2026 01:32:22 +0100
+Date: Wed, 25 Nov 2026 01:32:22 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Chris Babroski <cbabroski@nvidia.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	bryan.whitehead@microchip.com, UNGLinuxDriver@microchip.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, richardcochran@gmail.com,
+	linux@armlinux.org.uk, Raju.Lakkaraju@microchip.com,
+	maxime.chevallier@bootlin.com, yuiko.oshino@microchip.com,
+	nb@tipi-net.de, woojung.huh@microchip.com
+Subject: Re: [PATCH net-next v2 4/7] net: lan743x: keep the fixed link across
+ reopen
+Message-ID: <e6e313c6-aff0-4110-a12d-bd26b012b6e9@lunn.ch>
+References: <cover.1795027003.git.cbabroski@nvidia.com>
+ <ef118120626788ecb28b9d38283ca0130625f921.1795027003.git.cbabroski@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,59 +67,28 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118143500.dualpi2.0.543a9a1be910-zhiqizhangg@gmail.com> <20261118143500.dualpi2.1.543a9a1be910-zhiqizhangg@gmail.com>
-Message-ID: <willemb.4158a0ba73d8@google.com>
-Subject: Re: [PATCH net 1/2] net/sched: dualpi2: refresh head timestamps after trimming
-From: willemb@google.com
-To: Zhiqi Zhang <zhiqizhangg@gmail.com>, netdev@vger.kernel.org
-Cc: jhs@mojatatu.com, jiri@resnulli.us, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	shuah@kernel.org, koen.de_schepper@nokia-bell-labs.com, 
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ef118120626788ecb28b9d38283ca0130625f921.1795027003.git.cbabroski@nvidia.com>
 
-Zhiqi Zhang wrote:
-> Reducing limit or memory_limit in dualpi2_change() removes packets with
-> qdisc_dequeue_internal(), bypassing the timestamp refresh performed by
-> dequeue_packet(). The cached c_head_ts and l_head_ts can therefore refer
-> to a packet that has already been removed. If a queue is drained, its
-> timestamp remains nonzero.
+On Tue, Nov 24, 2026 at 09:33:19AM -0500, Chris Babroski wrote:
+> On LAN7431 and PCI11x1x boards with no DT node and no PHY on the MDIO
+> bus, lan743x_phylink_connect() falls back to a fixed link with
+> phylink_set_fixed_link(). That switches phylink to fixed-link mode,
+> which neither phylink_stop() nor phylink_disconnect_phy() undoes.
 
-> get_queue_delays() continues reporting an increasing delay for the empty
-> queue, and calculate_probability() uses that delay as input to the PI2
-> controller. Partially trimmed queues also report the delay of the old
-> head instead of the retained head.
+I can understand your fix, but architecturally, it is wrong.
 
-> Refresh both cached timestamps from the internal queue heads after the
-> trim loop, while still holding the qdisc tree lock. head_enqueue_time()
-> returns zero when the corresponding queue is empty.
+Anything which open() does, close() should undo.
 
-> I identified this issue and reviewed the fix. I used OpenAI Codex for
-> root-cause analysis, drafting the fix and this changelog, and assistance
-> with regression-test development. Codex also performed automated
-> validation; the archived results are described below.
+Anything which lan743x_phylink_connect() does,
+lan743x_phylink_disconnect() should undo.
 
-> I reproduced the issue using Codex-assisted automated tests on an
-> unmodified arm64 net-tree kernel in QEMU, with real AF_PACKET traffic
-> in an isolated network namespace and HFSC ls/ul shaping to retain
-> packets. No source changes or fault injection were
-> used to trigger the bug. The companion kernel selftest covers C/L
-> dequeue, full and partial trimming, mixed queues and no-trim changes:
-> the baseline passes three controls and fails eight trimming checks;
-> the fixed kernel passes all 11. Runtime coverage is this DualPI2 selftest
-> on arm64. I also used Codex to build arm64 Images and compile the modified
-> object with W=1; additional build coverage is in the cover letter.
+So this might need you to add a phylink_unset_fixed_link() do undo
+what phylink_set_fixed_link() did.
 
-> Fixes: 8f9516daedd6 ("sched: Add enqueue/dequeue of dualpi2 qdisc")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Zhiqi Zhang <zhiqizhangg@gmail.com>
+    Andrew
 
-The selftest flagged checkpatch issues. It is also many LoC if only
-testing a single small issue. LLMs are good at generating tests, we
-cannot include all.
-
-Let's also include the original author.
-
+---
 pw-bot: cr
