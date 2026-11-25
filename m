@@ -1,60 +1,117 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795597116;
-	b=RuhRhxlDy8unRDGdD+aoG9OQcjt+SaTIsoeTYCFnWAdARyl+G+kJnCQ6gVg/bx1XHoVI
-	 EmREIusSAfEHrOkc51EGKzQLcnvbr68tMglDg2pqZEi8979peJognfKA/sDDy3y2XAMTX
-	 nAQTbdyB5RUjUQ8br4igG/6HD7a1ql+erTqF8hPHcfj/BLSTa+j6cO9oRAPjAo+oow2yZ
-	 hq50C1etQEEQGSO8JajIctwpbJJoKZgKUdsKOY4chB4qz3Ormr+Yt7Cs10OryijHW1d9K
-	 Ze23duyKUBtiIgMMH3vDGVpubUOCfvmsLBANsOf/FlW30WWhd77LehhN3qITZBi+xwg==
+	t=1795597207;
+	b=ChI5eGKTAyD5C5LEAqiKgnDRE0IlIovlT0fjvDWswIsBGD9sYDUqiO+GmqcpnHFXY/BX
+	 pDnMnnHCCeOQvd9GRiv3HoTLDlYSNYaIMGh6zaGmxjEUwVi5I/dGkC6s3mY+BhoOZu9tW
+	 esG+GDDxhtNfmM8lyAkZ992/lY5+niQ5QsH58ybNfHuq/CD/OAPOdI1go0xGNOcyhqq9C
+	 iyUxDQrKrd+n+FUB2ofNeU8z11Yi+QErc37yW087l0eX60HZEHlCk1sbxCdhL6sfTzVhX
+	 pc5cvjCW/X3Ejq7m0peSd87gfwLF/3l5qs4E6WUfdXluFESvo+lwDhw98HtfPnbndvA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795597116;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=SmlnObTyvLLWex2fHr/9/apQ6tGYW8v7LEnW15NaoWc=;
-	b=n/TcIZzBdjkM4ZUwkgAh0Nc6nS25YDbCXIc4Er6+ZHb0MbaTw4qNZIqCJ+J5E9/EsHJT
-	 2vrdyQRhMA+GhGkUmyl4m0d83sTGFbI7zs/48sZnHCbQwqzVNv0cRne8k68N+rf2tgxWG
-	 OHB5mxXatkh6MPCD0i9ll8sUeY/GlmjON3B3OekIDHBv7ZcDK9iCIitz4VLVWE1VRl9vj
-	 j2efDXdhIfe4MEcSQVl2OLnhsbmKRb5dJQjSlCHBgiExCbrRe2zBQs2CnDmQT9FeBr84y
-	 NSAZ7ZADMhrOLJ8JTDJ+1sGWooeQ8/mBMOrHsBbHkayZ/bp+bvDTU3hu9VpeaIuLzXg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795597207;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=wCuJhhLEoHgkC07eMz8DzYO5TWgSi6mxnzjUookJyTY=;
+	b=pwq6Bz7RcVu6ILw2H3pGKk7dDW4fsqZDJNTTMJdfmO5BdVJPHbEoLPPSCYyC2zORNzGe
+	 FYX1yoRmXjxOI6dbwSOucf/DU41p5qbiD5PZZ4X08UTTXDAOqjyuXnYk4m6Dm1IdMnRCa
+	 CncWGJvubzinuQt2bWYR1x5fSaIs8fESna64vY0Q8uXuKZbaTXrjA5l97sjDMuzaxNqFD
+	 6aDXtqSpncC3RU233uNFKEyKl8sjc2quUfSD7b0NWwWz3+dvoOcno/xEAXwUZyClZj8WB
+	 bg49ZDXna6UP4sOSWNZyvueBa4vtpSEXJyAA9jIi44QrBCgYptQP9BLNlGV2e9koBNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GF2jJNlW;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=cloudflare.com;
+	spf=pass smtp.mailfrom=cloudflare.com;
+	dkim=pass header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=bhBpgYSE;
+	arc=none smtp.remote-ip=209.85.218.50
+Received: from mail-ej1-f50.google.com (mail-ej1-f50.google.com [209.85.218.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FB24606A68D;
-	Wed, 25 Nov 2026 08:58:36 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2DCB606A327
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 09:00:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2DCB606A327
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cloudflare.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cloudflare.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GF2jJNlW
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BACAF1F000EC;
-	Wed, 25 Nov 2026 08:58:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795597116;
-	bh=SmlnObTyvLLWex2fHr/9/apQ6tGYW8v7LEnW15NaoWc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=GF2jJNlWPjiai7ydXLSS09EXB3h/ov1GxwtX0gIt+Uo2+bI/zN4iYVDqU6VaKVW9S
-	 LPbQT7LSzoP8YhwPc6ezH8qFY6rZf8DtMzZFwvm+peI8Qf3G1e2PnCo/hfZUS+zI+z
-	 AOkZc1LBzrh6L0S/S5ml7nLcmEC2vImn9A73uHEiRmqVazeXSoUyJ9oXgvHvTSoHi5
-	 uF3uWr6h7aPpHfgbTYsY2K3iYow8fo0pDHyLfjQSkqZFPmH6NXUHCYkWHo88NPDqC6
-	 2ZGuATJNtnM2Gt+ZFV7RkTOgi28+p/lBWqcdJ1VR1FfJXnZ5r8uuIFXHVNN6f/6nPz
-	 TfDrzTX0PUSzg==
-Subject: Re: [PATCH net 07/12] can: isotp: reject socket options while a
- transfer is active
-From: netdev-bot+sashiko@kernel.org
-To: mkl@pengutronix.de
-Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
- linux-can@vger.kernel.org, kernel@pengutronix.de,
- u.kleine-koenig@baylibre.com, stable@vger.kernel.org, mailhol@kernel.org,
- robh@kernel.org, linux-kernel@vger.kernel.org, jeanmichel.hautbois@yoseli.org
-Date: Wed, 25 Nov 2026 08:58:35 +0000
-Message-ID: <179559711531.3135.15295307789383806315@kernel.org>
-In-Reply-To: <20261124085757.1093632-8-mkl@pengutronix.de>
-References: <20261124085757.1093632-8-mkl@pengutronix.de>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=cloudflare.com header.i=@cloudflare.com header.a=rsa-sha256 header.s=google09082023 header.b=bhBpgYSE
+Received: by mail-ej1-f50.google.com with SMTP id a640c23a62f3a-c5126505cb3so707862666b.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 01:00:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=cloudflare.com; s=google09082023; t=1795597205; x=1796202005; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=wCuJhhLEoHgkC07eMz8DzYO5TWgSi6mxnzjUookJyTY=;
+        b=bhBpgYSEVMMI2tkfZ6abvUy2hz8ISgTfJsny9X7YS4AYnon4DTf4YzuQBYvcdYYCG8
+         hNRrq9ym7RDeyg21rIjJJUSVZOkrlO6ECJOMQSXyHvr7pr1nitIQFeYinlX5xJfXsO17
+         Oo9XlIpVjXvwFYbmnZGLXvbtCfpBo0HMJa2ATOf7wf97+DO9nCT1BgQ60A/blA1yNcxC
+         762F5M2KDC049K1HYJL6iBRlhT+GIKJdELAxPzgQd2UN4PdqV6IMRVXr01mBIvIWeYJQ
+         oSPMpJxtg+q5Uv57GyAu6QygUP0GuiSI2iJ3JYSxQXSSX07kEIiHd8iNy4X/KgN97vYz
+         3I8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795597205; x=1796202005;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:date:subject:cc:to:from:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=wCuJhhLEoHgkC07eMz8DzYO5TWgSi6mxnzjUookJyTY=;
+        b=TL7YbYI3nZZ8pAJ7dyWHyvtPhWxMj3Pnqwhr6K+L1SgNbrWz6WBbw340q8BoVMWtqr
+         elShra6Q+h+ODJOi7nqjdKBrvBdOG6ASfhiPBJGhDhl+9QnabUDCIZPcPF8MPwcyMNFb
+         xA0Ah5LXiWtfNy0bo3BAsF/TtFOERamlIT5XdOSPfOWjYqBKtSOEPWOsNxZXuZ+kwPo7
+         /2D008B/Y3PBwICw28Q1LdMSgOSx9ZWlfmorkiqJVM1bvSHUkHLH3ysTrNflp1vKl8DI
+         mQZhSDl1xuEHX0I3QEx+PwhCLW+4+HYYjRMxiueU2f93KkLEchmJPvf90770XglBUfJq
+         Zb2Q==
+X-Gm-Message-State: APuU4Z88be6gTSyeGpfIcxVEAZUAeytBwBRNMXmevhQB6XCJqHnHVVux
+	VHqnlUpK4lxYif29fthfgWBg5fD8p4I2C9CLo6lJrU/WOpfjWzo6LTqk5ZDbFhK8NUI=
+X-Gm-Gg: AZFdTZebLS3fkiWXDSG1UKo+y7K7WF4YLnCnSvtaIsNboxGiEAL5uDpric42qJ5AZfB
+	4DqvydCqm2NqkMb3SdHhcl7uZIGcmT5azUi/b/RBmdNJM5DPm0krGATi7htpC6q4ORmBQW54nuZ
+	31q3cZHvunE3bhYmVlfrEGmATSAN5fbg9Ap6O2HWoPckpcWh1K9hyV/UYNs9Z9Qy8fc22bzpa97
+	c1x6W4DkXRxSuBu3NBNjJtrhPnA/Y1NjFauYrqbQs5UCfPxJD3eMhSdcP2TsTtS6PpEAgNAqZHE
+	e+QpaWWseCP5oHThMaPBocmfsUEvas1viBSW7RF2I9z3/jKH5sh3yI6be6yRcVCGCl0RjZDj1Aw
+	2pyOFW/lh+1bRiUZa4Vx+5nLkk25OdYsRvItREZkw8sF4PqJLYByo7LqzkxOmmPC+Ndq+Hr27gL
+	9lyZdyhKeif9tat4mveC4X1HTG79WLN+FG3PD8qyGHyF/a+xrP4R4ZNlkA+N4/WQLSDMl6nanXX
+	1LBouexVTbrH/0tlMMCQL01tFNIfn0mUpMROcZcqnTv9HcZo+4xKPRMYEfnAJElta1Tn7ipUuEV
+	uJM0rknY7eaBL5n4BZanADO6P5jmyouQl6YIQqfrsjvU/zcFT5hWEviKfJnKlq1isNBkwaglTzb
+	q0WA=
+X-Received: by 2002:a17:907:ea8e:b0:c49:a235:8e0c with SMTP id a640c23a62f3a-c513aadb22dmr1360811566b.22.1795597204487;
+        Wed, 25 Nov 2026 01:00:04 -0800 (PST)
+Received: from L9JK9NPFH9 ([104.28.20.56])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b01e242sm591351166b.82.2026.11.25.01.00.03
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 25 Nov 2026 01:00:04 -0800 (PST)
+From: Tianyi Gao <tianyi@cloudflare.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: netdev@vger.kernel.org,
+	intel-wired-lan@lists.osuosl.org,
+	anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ast@kernel.org,
+	daniel@iogearbox.net,
+	hawk@kernel.org,
+	john.fastabend@gmail.com,
+	sdf@fomichev.me,
+	paul.greenwalt@intel.com,
+	alice.michael@intel.com,
+	eric.joyner@intel.com,
+	jbrandeb@kernel.org,
+	lorenzo@kernel.org,
+	alexander.duyck@gmail.com,
+	maciej.fijalkowski@intel.com,
+	bpf@vger.kernel.org,
+	kernel-team@cloudflare.com,
+	tianyi.gao@linux.dev
+Subject: Re: [PATCH net] ice: do not report CHECKSUM_COMPLETE when an XDP program is attached
+Date: Wed, 25 Nov 2026 09:00:01 +0000
+Message-ID: <20261125090001.60782-1-tianyi@cloudflare.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <179557068810.3135.17964087549504688357@kernel.org>
+References: <20261121012402.84848-1-tianyi@cloudflare.com> <179557068810.3135.17964087549504688357@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,172 +121,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+> [Severity: Medium]
+[...]
+> Would CHECKSUM_NONE be a safer fallback here until the pending XDP
+> checksum hint series land? If not, could the commit message describe
+> this trade-off?
 
-Critical: 0 · High: 0 · Medium: 2 · Low: 0
+Yes, the inner checksum is then not checked, as on E810, on mlx5 with
+XDP, and on E830 before v6.15. CHECKSUM_NONE would make the stack check
+every packet in software, also the ones XDP did not change.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+The discussion in [3] concluded that CHECKSUM_UNNECESSARY only is the
+safe option with XDP for now, and that the decap case is a known
+problem. v2 will note this in the commit message.
 
-- [Medium] The commit message says that moving the `ae`/`wait_tx_done`
-  reads after the claim means "all socket options used by…
-- [Medium] The new check in isotp_setsockopt_locked() (net/can/isotp.c,
-  lines 1737-1739) reads so->tx.state and so->rx.state with READ_ONCE()…
+> [Severity: Low]
+> Should this use the per-poll snapshot instead of reading ring->xdp_prog
+> a second time? The program that actually ran comes from:
+[...]
 
---
+v2 will drop the per-packet read and set ICE_RX_FLAGS_RING_GCS in
+ice_vsi_cfg_rxq() instead, as Alexander suggested [4].
 
-can: isotp: reject socket options while a transfer is active
+[3] https://lore.kernel.org/all/20260721183256.6f49d6e1@kernel.org/
+[4] https://lore.kernel.org/all/CAKgT0UeNyyXKARjKR4nVVxNe3UB16WuXqxSz0cf4ZvCdb9A4_Q@mail.gmail.com/
 
-This patch makes isotp_setsockopt_locked() return -EAGAIN while
-so->tx.state or so->rx.state is not ISOTP_IDLE, mirroring the check in
-isotp_bind(). It also moves the CAN_ISOTP_EXTEND_ADDR and
-CAN_ISOTP_WAIT_TX_DONE reads in isotp_sendmsg() to after the transfer claim
-and the so->bound recheck.
+Thanks,
+Tianyi
 
-Link: https://patch.msgid.link/20261120-can-bcmlock-memcg-v7-7-f6b84f5257b1@hartkopp.net
-
-> diff --git a/net/can/isotp.c b/net/can/isotp.c
-> index 0b7db1ead7a90..642fec500af9d 100644
-> --- a/net/can/isotp.c
-> +++ b/net/can/isotp.c
-
-[ ... ]
-
-> @@ -1188,6 +1188,10 @@ static int isotp_sendmsg(struct socket *sock, struct msghdr *msg, size_t size)
->  		goto err_out_drop;
->  	}
->  
-> +	/* read the options after the claim of the transfer */
-> +	ae = (so->opt.flags & CAN_ISOTP_EXTEND_ADDR) ? 1 : 0;
-> +	wait_tx_done = (so->opt.flags & CAN_ISOTP_WAIT_TX_DONE) ? 1 : 0;
-> +
-
-[Severity: Medium]
-
-The commit message says this change means "all socket options used by
-isotp_sendmsg() are covered by this check". Is that accurate?
-
-Later in isotp_sendmsg(), so->ll.tx_flags is still read after the final
-tx.state is published, the timeout is armed and so->rx_lock is dropped:
-
-net/can/isotp.c:isotp_sendmsg() {
-    ...
-	WRITE_ONCE(so->tx.state, new_state);
-	hrtimer_start(tx_hrt, ktime_set(hrtimer_sec, 0),
-		      HRTIMER_MODE_REL_SOFT);
-	spin_unlock_bh(&so->rx_lock);
-
-	/* send the first or only CAN frame */
-	cf->flags = so->ll.tx_flags;
-    ...
-}
-
-After that point the transfer can return to ISOTP_IDLE without sendmsg()
-doing anything. isotp_tx_timeout() can cmpxchg tx.state to IDLE after the
-FC or echo timeout. In WAIT_FIRST_FC, an FC frame that isotp_rcv_fc()
-handles (overflow, unknown status, bad padding) can also set IDLE.
-
-Suppose NETDEV_UNREGISTER then clears so->bound in isotp_notify(). Then
-isotp_setsockopt_locked() passes both the so->bound check and the new
-tx.state/rx.state check. CAN_ISOTP_LL_OPTS can then memcpy() a new so->ll
-before the cf->flags assignment runs.
-
-Would the first frame then take its flags byte from the new options, while
-its skb size (old ll.mtu), length and payload come from the old ones?
-
-can_send() usually fails with -ENETDOWN here. The frame could still go out
-if the device was moved to another netns and brought up again.
-
-Could cf->flags be set while the frame is built, before tx.state is
-published and the timer is armed?
-
-[ ... ]
-
-> @@ -1726,6 +1730,14 @@ static int isotp_setsockopt_locked(struct socket *sock, int optname,
->  	if (so->bound)
->  		return -EISCONN;
->  
-> +	/* A transmission or reception that outlived a previous binding
-> +	 * (unbound by NETDEV_UNREGISTER) may still be draining and uses the
-> +	 * socket options, see isotp_bind().
-> +	 */
-> +	if (READ_ONCE(so->tx.state) != ISOTP_IDLE ||
-> +	    READ_ONCE(so->rx.state) != ISOTP_IDLE)
-> +		return -EAGAIN;
-> +
-
-[Severity: Medium]
-
-This check runs under conf_lock only, without so->rx_lock. Can it race with
-RX paths that have already set rx.state to ISOTP_IDLE but are still reading
-the socket options?
-
-For example, isotp_rcv_ff() sets IDLE on entry. On the overflow path it
-then calls isotp_send_fc():
-
-net/can/isotp.c:isotp_rcv_ff() {
-    ...
-	hrtimer_cancel(&so->rxtimer);
-	WRITE_ONCE(so->rx.state, ISOTP_IDLE);
-    ...
-	if (so->rx.len > so->rx.buflen) {
-		/* send FC frame with overflow status */
-		isotp_send_fc(sk, ae, ISOTP_FC_OVFLW);
-		return 1;
-	}
-    ...
-}
-
-isotp_send_fc() reads so->ll.mtu twice:
-
-net/can/isotp.c:isotp_send_fc() {
-    ...
-	nskb = alloc_skb(so->ll.mtu, gfp_any());
-    ...
-	skb_put_zero(nskb, so->ll.mtu);
-    ...
-}
-
-It also reads so->opt, so->rxfc and so->ll.tx_flags.
-
-There are similar cases:
-
-- isotp_rcv_cf() sets IDLE before check_pad() uses so->opt.
-- isotp_rcv_sf() sets IDLE and then reads so->opt.
-- isotp_rcv() reads so->opt.flags, so->ll.mtu and so->opt.rx_ext_address
-  before it takes spin_lock(&so->rx_lock) at all.
-
-isotp_notify(NETDEV_UNREGISTER) calls can_rx_unregister() and clears
-so->bound without waiting for a grace period. The comment in
-isotp_release() already says this happens "without waiting for in-flight
-isotp_rcv() callers to finish".
-
-Frames can still arrive in that window. For example, vxcan_xmit() delivers
-to the peer via netif_rx() without checking IFF_UP, and can_rcv() does not
-check it either.
-
-So setsockopt() could see bound == 0 with both states IDLE, and overwrite
-so->opt, so->ll, so->rxfc or so->tx.ll_dl while isotp_rcv() on another CPU
-is still using them. Couldn't that produce an FC frame built from mixed
-option sets (alloc_skb() with the old ll.mtu, skb_put_zero() with the new
-one), or run padding checks against the wrong options?
-
-Would either of these close the window?
-
-- Do the state check and the option update under
-  spin_lock_bh(&so->rx_lock), and move isotp_rcv()'s pre-lock option reads
-  under that lock.
-- Wait for a grace period after the unregister.
-
-If so, the commit message claim that "the socket options can only be
-changed when no transfer is active" would also hold on the RX side.
-
-[ ... ]
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124085757.1093632-2-mkl%40pengutronix.de
+pw-bot: cr
