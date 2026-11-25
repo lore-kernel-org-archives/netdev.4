@@ -1,61 +1,102 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795647488;
-	b=jS0b5egftV9YBJmbNwc4YPJ50DqK1eGXe3DcwasuUUR1cVuLhbrT6zBfOx55E+56v7fr
-	 KdcXRV3UyMOEE9YgH5Usnt+Ys01BgqZsDy42K5AAuJZb4vznVLw4dHbl6nbTzeWtglVia
-	 qMK4RfoZDOjUUw1kY0l3udQotsrwA9INQncsNXAtYcongfKQRDvdDGO9e8mSAw4Ll+a7u
-	 QzXcBQq0w+w7+By1EOPSye0JKOvxbSbO+gBfwffYerV6N9P0L9SJ5z9n8E0+osyZbgo0h
-	 tA/7LY5Y1EGeDkcEytQ9Cn/tCB/06lqkMTYXLr33HBlT+6BTgrPjh29XxmLQm3GjEAA==
+	t=1795648140;
+	b=Ixj1WxQB8nQGipy3ENRacmtTABaV/tLXMQLXrPyn40/Am8eDIqAFrxpiOFkVGH3AGrZ0
+	 6QGwxKh2cMSl3XtpT0WVpOCp5LPr5xo/6PrvkgG72HUzKs5VCwlGc5BRe+0/UqhY9voVk
+	 vG3qOlJorvTM8rjCoGaIYUUqybW7VN/nR/KQ+yswqdm3jP9534vGw+8Tzp1xIzIqtrqVn
+	 96Rh83Mk7hia1xBnR+G26mvJ3+u+cVTnn2x2CLShjs6dMNPBJ7GYPKzeWCxgBcn1QO4/Q
+	 fEmazDYxYox2yQcczVjLUo+9k/DprYAkJ6B2DHylpyRRviad2NNWMmdfjlm7mHBaF8A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795647488;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	b=IwupvuGH/TcV3bldZGRHw7QbAW+jkOYgJRTx+obdD7FuKYs7PKi58CG63bSWly77EVVg
-	 OtSUzQFdcf6E/xj04hMNGP1wJ5qSY9+fB8vl54xsVLeeT0X57rFQOh3dbZKt2CEt5S5Ib
-	 hqffxD/1CYXehe5B5RfohV5rct6vEJzFkhsxWa2STz4gqcezjBroLKdpIs+Bu2p/1l7IH
-	 R+Pzl2lkxsprbXcWxf3eu/fe/81DG6JDTVSf85cuywWdmunawZ/1eZ2H82Hvocfrzcf8p
-	 AC3/GFeaOvaE+3Iybb1HB/Q7vG/hxt+vLm6vdJfUc2F59tHeozU4cwnoj/O95w8jYnw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795648140;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+	b=ljFokC3mq2X2QmJF0XW0Y0uVzaz7yoTMMphF+mRqeLa2B9oMovywAaccF5nO3WvHM82R
+	 4uy+Hc30oOzYYUABGQfCsV922rI22e11ejQI0mDCNs26AstWE4woOK3L1aFjcTI8eOFhm
+	 ZNQ6hriXuO6bQ5UKnlTO3UZBvVGQvUYI5Af0QLLHH2fN8Xa+/g4EolmXF+s+kd6PyR3Te
+	 6W0UWfmcEQLdWIprPbW7fHHHImgCT0A/uTkJD8PVpN8gRGdy4cCOd9kM3FRv5O2NAu/2q
+	 hyEjLqkSrVRZjYmWDw+ot5gLT0AYHABFFcr9bx+Yq1fzqFmrNdaptW9C3weYBzlLTOw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YS2jgmy2;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq;
+	arc=none smtp.remote-ip=209.85.214.178
+Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF28D606A33C
-	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:58:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1C3B606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 23:08:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1C3B606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=YS2jgmy2
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 822711F000C6;
-	Wed, 25 Nov 2026 22:58:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795647488;
-	bh=Ld9+YyGfs/W/wYUchYl+G0tuTdeNOsMW/DqiAiz5bT8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=YS2jgmy2djbz+78uPPxPDUGAViimvOXb1HRuj3w0xndXSjsTdDppwO+yvaG0ZsYnr
-	 FXLNfEtzyio+qUjLruVQT7ixdXcDuXVr9+mkr0Hs7DXbK7xXBIavycEmMlOgZ8/WCm
-	 bDj98vyMeM2lm5fQh/24Dye4TZrPDw6fAFXIjRDHWLly4g4pLEXB/my7to9Vj35Ard
-	 Zw3/tiTlH5EuUeLPEqVP5OMK/mCcNes0D3yyAUVq0lM0aFvIJQP1Jm9sgxREF+MxYP
-	 8PTWnP8eyzrZFEHD06IQPZIwJKga8fG1xZDULf5+uCjYO0aSEm5GdZ6ALzTFohvLTt
-	 zZOi97nAcIeJA==
-From: netdev-bot+sinfo@kernel.org
-To: Tony Nguyen <anthony.l.nguyen@intel.com>
-Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- edumazet@kernel.org, andrew+netdev@lunn.ch, willemb@google.com,
- netdev@vger.kernel.org, oss.patchbox@gmail.com, tianxun.ng@bytedance.com,
- emil.s.tantilov@intel.com, richardcochran@gmail.com, milena.olech@intel.com,
- konstantin.ilichev@intel.com
-Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
- 2026-11-25 (idpf)
-Date: Wed, 25 Nov 2026 22:58:07 +0000
-Message-ID: <179564748704.3294.12111564036865794037@kernel.org>
-In-Reply-To: <20261125225145.4126333-1-anthony.l.nguyen@intel.com>
-References: <20261125225145.4126333-1-anthony.l.nguyen@intel.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MgEQxPvq
+Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f0464dd6b6so39675615ad.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 15:08:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795648139; x=1796252939; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+        b=MgEQxPvqyytLZXf90OJPdh9PK1QbYUQGR9tBs/gU/iq2JMuoIc1EOF5PMb/JixBK+Z
+         wZdsRu1GceHsqwSdB+3O2/7Uf7ghDdLNUL7SLKmR8/BiYzlM1mkLX6XZUrB07Tev7973
+         X7MksrtBfscb8nNYJbxGM+eNYzSr71x9jR0MLpzAgaxAa53nHoo9ysokjg+ydCbjgkum
+         arsJzwe58DZENu8fxE6FjTT5rKBGlRJsyFCeIjUGG4w0BdBAA0Jpn1+K96zKAZvSAaz2
+         90vgLS9ls0SHShj4sXXg5R8AEfgvAuPpE5qByrYdt2raTvSBo95lFHi8Jk2qURMPkz7v
+         cZbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795648139; x=1796252939;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EorhezSB3H7kybqBFg7VnnNzD79YcoCZdwMFraja7fw=;
+        b=SkGsojC9YgZM/AAljP4JOI9BBH1orH3XI7+rrLPiXf3UohojaQ1E3keAIBJGQeU3U0
+         m4tOfDLE0Kx79zckwQibSf0ATqpV3KUXjgl829x7eA3VIjNAOOE+SORdZHhTO55XDGGl
+         RAxAzxLxWV5JmMxkpi1jxgOBfntspF0D7eDhea/tHZOt4lZFliGa+FM/QX4R90xdLsUR
+         y3mAaU1dmPcwFfcTBB7/nOwSfTVi0CETBDSIwNNp2Pl0xosvyhG/KzMEFQpCLqeFwAZy
+         5quU1pFtM3t1vHaQre83yv5MJBnSOwdrp0y7LoyrzIkvktbza8WYrHi6gaw1gZ4OnXSl
+         bTGQ==
+X-Forwarded-Encrypted: i=1; AL+hErG9gIJzgo+s4Cq6T27hiCWElWeze7XnB2XLJUB5Hq97gqNc5SQBIOFIpkExfX5BGczlBqoNXxE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8Sjgh6sNlP6B6CM+W4+N6meS0og9Ahe1DXd6VQMjMgoCR2Zey1
+	dmO7/xgd0eVoRbmDE5Rm1FzvpJgpY8WLhDC9U1vlesbIY73uL04PdoaJ
+X-Gm-Gg: AZFdTZepkDmTVXDFDmf/LE1Ho1evud44lIKPu9H1CQR6gaXMPlmZEx3V33EO57Nmq9U
+	uO5qFQ7Iv9kqZKiuUzHXPsk/qtemaZ5UaEk4ek9/USZiyRthycXgLBMGnnHiyqLwH2ehb67hUVb
+	FU1WtJQPksS+6U3aXiKsohnzno5Fcf9cAyH1gkFfGxI/M4OvCL0P/8icca2PF2dhCYjMxZpRPrz
+	L03f+Y84L9AM6jefkIuU93SVguypRxdBq8HNBoBnkmFd5B2RhR3YTFb1/rznLMjG9Lu36KQ5s1y
+	ngb0tu2xqe/Br9B+4ux9IbZ81iUzRqqIwfjWGtdmpNUHdMB78UEUF73DYq8ElR+FoaBzSwmNpCA
+	4grNJBVNzBvfIUomsMeGRuECsLhquQerXXRHzvkzhdOKNn6qfU7KwIkgAJgC2mg+mm8UW1bxWKZ
+	3h40xnV9D9UYJQg69hnvOLxUXSXuSbxsk88nouh3OMCovzIw0Gs+Raiuq2fC0KkkLazOmeweOin
+	lcB5C5iZ9yF7acTPFhhIw1aA7j2BpeYcbJCpO1jd72kU2MNNlM0xvBNdFt2GrXTFhjkXmefbFV3
+	VyVaoS6JAFoIrRXrwzu0WvJnco/PzqutusY7AUhrUEkPW0SD
+X-Received: by 2002:a17:903:19e7:b0:2ed:b7e4:f5b with SMTP id d9443c01a7336-2f03f18a7d9mr181302175ad.40.1795648139044;
+        Wed, 25 Nov 2026 15:08:59 -0800 (PST)
+Received: from archie.me ([210.87.74.117])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6d02ba46sm9395193a12.21.2026.11.25.15.08.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 15:08:57 -0800 (PST)
+Received: by archie.me (Postfix, from userid 1000)
+	id 78DBD420A76D; Thu, 26 Nov 2026 06:08:54 +0700 (WIB)
+Date: Thu, 26 Nov 2026 06:08:54 +0700
+From: Bagas Sanjaya <bagasdotme@gmail.com>
+To: Willy Tarreau <w@1wt.eu>, Jonathan Corbet <corbet@lwn.net>
+Cc: skhan@linuxfoundation.org, Randy Dunlap <rdunlap@infradead.org>,
+	workflows@vger.kernel.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	gregkh@linuxfoundation.org, Johan Hovold <johan@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>
+Subject: Re: [PATCH v2 05/14] docs: security-bugs: explain how to send a fix
+ that can be applied
+Message-ID: <awdqgBF62SOKaU0Q@archie.me>
+References: <20261114190014.17826-1-w@1wt.eu>
+ <20261114190014.17826-6-w@1wt.eu>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,30 +106,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="/uqKRyynA7J8RM0T"
+Content-Disposition: inline
+In-Reply-To: <20261114190014.17826-6-w@1wt.eu>
 
-Hi!
+--/uqKRyynA7J8RM0T
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+On Sat, Nov 14, 2026 at 08:00:05PM +0100, Willy Tarreau wrote:
+> +Most fixes sent along with reports cannot be applied as-is because they =
+were
+> +damaged by the mailer or lacking a commit message, forcing maintainers t=
+o ask
+> +for a resend. A fix must be applicable using ``git am``, which is most e=
+asily
+> +achieved by letting git produce and send the messages (see
+> +Documentation/process/submitting-patches.rst).
+> +
+> +When the fix is meant to only be sent privately, the preferred method is=
+ to
+> +send the report as a cover letter of a series, followed by the fix::
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+Documentation/process/submitting-patches.rst guidelines also applies to
+privately-sent fixes, no?
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+> +
+> +  $ git format-patch --cover-letter -1
+> +  (edit 0000-cover-letter.patch and replace the subject and text with the
+> +   report's subject and text)
+replace the subject and message body placeholder as appropriate for the rep=
+ort
 
- - What hardware the change was tested on. For driver fixes please
-   mention the device (and if relevant firmware version) used for
-   testing, or say that the change was not tested on real hardware.
+Thanks.
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+--=20
+An old man doll... just what I always wanted! - Clara
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+--/uqKRyynA7J8RM0T
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQSSYQ6Cy7oyFNCHrUH2uYlJVVFOowUCawdqgAAKCRD2uYlJVVFO
+o8cvAP0UI4UPI69NykSfDcgis1xBWe2etCvfNQGcwSBb/jIkFAEAk4tq4aFkzzMk
+UKJQhOV/RP0fTwz7if/m457ISve37wU=
+=72sa
+-----END PGP SIGNATURE-----
+
+--/uqKRyynA7J8RM0T--
