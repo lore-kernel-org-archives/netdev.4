@@ -1,60 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795600712;
-	b=ZD+/oQarYN9DOPQZXcegFLSwLKvhjw4V/QA+Iu4S831wU/BatDiSYNxUWujEBjbD5sv6
-	 Ny6RUlu9N5Bb9t976PBHCBukxwGBDUAPZWdzfQIXwJFY5+o7DHBlBGOQs8rFZgwnow33K
-	 j66ZlICbB60J6nILY4TJ7NmzunXeUYt1JqW9msvMWIyNr2z3rrmZA6atdvgU1iuE2mXPW
-	 mbXjTDz8sytDLYbUD0BOkhhsO/SEOwYD2itYxvhRSUmb0Uq+TjNSHE9MM89BMqbCcLWJM
-	 lO4J4z2zAZoJBFaQS5RcO/38/kk8wxikcxehNQlAChsrOAPe0qPCN3BFGIj5spTAQ6A==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795600712;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
-	b=c4sCySOv8O20B3eDibFBkYV86CkArib1sE767Z3kx+W8TxhTT1W2qrGOwqgydL9GBO5P
-	 869GGG370ZyY3p9yNvNbEoPuWdCOMMG3A6q1iGi3JVCqUC3kBBStUr23HtCr1TGht+xqg
-	 YAb99lxvspGrtAZp9HYQlpQoRYJuqwJVBI9XEsiWlgErFP37YG9JTrRi+syKHFnJHXu3E
-	 s4JmZmf8EtPqT6pdXqaGGFvVjAG3op8L+3h8Jw1ni7Ai+dCWz3KySallEXxnuh0nB31tD
-	 spoLuJJY3NB2P33EbSYEgrvvuE/Fd7GjVkqlWPj+ls9q+4hljrQU8Z894hZA07WxA7A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795601006;
+	b=A0Ilpr0KbYL1hvxIuXLxUdLcOWdqqJ1C5NCJA6g9TUWmwWu23sXrIFTBZpqzRr/k/jYa
+	 nAoOCyET8iKy8apPFwm/OJMauXAp2RJr/7OsBKI1ZsJkA6Y9lvbrtGLXMcwxVfpcNj984
+	 1l7b2m1HSLsXzELqlIycvmMbJXpSmyQ6iqo0G5siaZPKYR3XOso90SWu7sGVV1pMgCUU1
+	 xzQUUhYfJ5SP6HpcasdK4m7fTRb5E8elbk9ckvQcDg0n6PvUgMQO4FDvivWc75AInp2uU
+	 OJOoG0e+DL+lUIsvsB7fNYEn49Dkmr3XTvwtfIjrpxp8uRnCFUfazWWGwSUGcxOFA/Q==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795601006;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=4yqmOnJX29DOBy6vmcdiSt8m4vhrVknvos21mrTZvSw=;
+	b=x0APbnfHC8Jx1q6V1e6zoSl2GiewKrouLcRyLdnnvA1d1BvIY/NYYlUBtM/vMvhWsnc9
+	 zFiMF+1SrDSte9vQiNqLqE7plbBVgpyEN1e9DmkalXJN+c5cSoH1DV8YKC7yKvysRWrxF
+	 fUWiSU9xePsxazyfFYT7FWrmsxDHl4AOmswGS6Cg7slT/JIyhX0vU9jDEwb3qq9u7UEFP
+	 80o5fkR/zt/u/xaF1L0hdg00pgLwbeb1v9D+hOcFDBsLBxjoEa6pXs/qizv44RO3z0pRU
+	 79BFLgffRZEnozHJNrdTAYOSwUzokD6dMmcYDo0BrKvgQ01CpieXvy02Bbvpr/jsmjA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ay9+Ssce;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.208.172
+Received: from mail-lj1-f172.google.com (mail-lj1-f172.google.com [209.85.208.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D4E2C606A321;
-	Wed, 25 Nov 2026 09:58:32 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26400606A323
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 10:03:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26400606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bzt1AqPN
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 941251F000CA;
-	Wed, 25 Nov 2026 09:58:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795600712;
-	bh=6w74sigzWEjnq/Iez96NvmzHs9qvS5TWdCAthb5DA+s=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=bzt1AqPNyDA9/kRdAN7LdrA5/I08EcsW7Wnfl6gR5MU8PK99NGPxyT/jSOqQ1vTb8
-	 eD90tzrPAwPgXS57iQDA5hIHGGzVdanxm3dinwgiqwm3xtpR2yeH4mX+xqqy6EeU2C
-	 4VsCqhvOsVuV6VvrPAVgC7Fx/EaJUy7Yb9LdCZ77r6imN66CAyk6g1mHmLF6syQ+NT
-	 Kxctxj5TMLwqhi7islNGVDjA/2Z2YTl88XeUjLBUw31ygOIjwnwG2iwA7NQjqUYbir
-	 dev7KKR137py3Sycf0g7EDanB2b6vz7bRNGH+qoKkpnaqRkkwJEpOxs1MLxzjBIjJU
-	 5TRBRcnQjB5kA==
-Subject: Re: [PATCH net v2] l2tp: require CAP_NET_ADMIN to join the l2tp
- multicast group
-From: netdev-bot+sashiko@kernel.org
-To: shyckless@gmail.com
-Cc: pabeni@redhat.com, kuba@kernel.org, davem@davemloft.net,
- edumazet@kernel.org, netdev@vger.kernel.org, maoyixie.tju@gmail.com,
- anilkaushikwireless@gmail.com, stephen@networkplumber.org,
- linux-kernel@vger.kernel.org, horms@kernel.org
-Date: Wed, 25 Nov 2026 09:58:31 +0000
-Message-ID: <179560071114.3135.2532610269837690017@kernel.org>
-In-Reply-To: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
-References: <20261124-l2tp-mcast-perm-v2-1-416741ccb334@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ay9+Ssce
+Received: by mail-lj1-f172.google.com with SMTP id 38308e7fff4ca-3ae25c846edso37527051fa.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 02:03:25 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795601004; cv=none;
+        d=google.com; s=arc-20260327;
+        b=MYMmeUZCIF4Emh8VHIpngou2OK+2oWG5MgJa0I8Hv5gxu3FYliHUVdlL9Ky7Hcn14e
+         m/miaQAAWPAsoo2EVCp7pLopPcWc4yHdPWXa8ZpiOG+sAlf0GG1m5R5s+vYSpJaoJPDq
+         ErGuY3dLO2Km7rpKQTaPX5J1YMRkamXgMsNlps17u4r7SahdrlB+pKusBYv3yASSePdO
+         BQ9FJK1MT/i5BmdAKAMYOvaiyR/rzQXvDIFczxPYLzPdPRyxp6x6wKumxTX4TM16f/mS
+         SoNWozrqqjRQRlpo4669SmUL03fiKGmHh75PES/l+97OjqeBDErV9Nph5xu/WSS+VSey
+         4sfg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=4yqmOnJX29DOBy6vmcdiSt8m4vhrVknvos21mrTZvSw=;
+        fh=3ZrN9qEJTOxDusgjqaLto+uUHB1yxC7luzj56OurZO4=;
+        b=fWRCUI4bGBX/1/elhYBY0jjU/1tBqeOv4lB4MsI/BsqLO9/I6Lkz6r0wac+q3+XFrT
+         VXekJv75F/uK/bZt+rzzebsIEAmLYyws4U/nA90Cry2g08SuewabdgM5/MlupRV5WdjU
+         R/husVmffh9gSF+NxkP9olGfCCayzGYG2eMuhNU0NJ/XzBTDLr2xWzgNbAaTHIz2YCkH
+         +OoXJP6vNSep79VqnZQ2JoBqTguTH/7RI4Jp6iCTV1MyZSlC7y5ZmfSXZlmGJxMl03EE
+         ktynzM6gv1sJ0Cp8+nCivB0UG4hhZrCSUF9zIKpsaXjDfWDRL/XkdWAtOxCOMkCf52it
+         /0jQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795601004; x=1796205804; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=4yqmOnJX29DOBy6vmcdiSt8m4vhrVknvos21mrTZvSw=;
+        b=ay9+SsceQ9jHRcRMslrgmqdSOnvnudmMflbs1Avejl0zkOGZBGKpQA0dM6CYQutGwW
+         9u/N0BGvFt06XERIVFzmv4f8jyisegG59kaO0/P/YagT9iWpfEJl3Wf045T5K5BD0Wqj
+         cN+C1EROJW8WQY6Cp0ymeeN5pYoJaLNeCZX51EE0u5xJn7ueHxNNF+nAIR0PU/I5JwVU
+         NOfZiH71ylqVnQzKUTYh137Au31crg7ZjGvYhf3PprVQE1EgZuXk2WwnUJdmY1e5WSYH
+         EfQWhIwdnuBi26YrBLsUTA0hislhvKWy11bUZD1WXBQXYCxf5Nww4/Mu0LX3sbnOistz
+         FpAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795601004; x=1796205804;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4yqmOnJX29DOBy6vmcdiSt8m4vhrVknvos21mrTZvSw=;
+        b=FdNm38AIWdsz3uw6JfJBJ5HZP0KDa6cG7DyevIcA8gsUbHc4ZTx4mxW9fLJRyf8qWz
+         dsoZaPbmanOpGXkN1o7LvJA8g+54wLMXxX2l5jJ2ASI4TNj9gCGJSjsTOeSBX7AqFSYX
+         IfqqEaZhvWAPH0i9mMvbztH8aLeVyeeMsCaZEhOuYtFea1hzDYaAOT6i6C6o4pqC2xYe
+         /vtbnIgbULUYZDMukQiHEQDT1LiTVtVpOCF3pGe0xl+P9WZEaCB0sDE+Tf4DRo4JLECQ
+         CX9VI832v1D82n0WYNzdN2KpV2J04iExSpTSHDd0ZxFJP5eUcczMMqwDgfE68JclwnTZ
+         7Wmg==
+X-Forwarded-Encrypted: i=1; AL+hErEBS5v+xqTWth7OnIn4+3dU1vzgtLgxbpa3kdii5flfw6yP1M8cadn3va9kZUvDbj30JzK83KI=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+vhgRIgCdFJdUbxfyUdAqOLfLxOS223Z7INJnq5RG74e4NnHz9
+	rVIGRJZo/PqhYNK2IPNdwHnuvDm3htt5j/LkwjKQF7WTuC8sgZPTI85fcWtMZuZYJ5+LIEmnLC5
+	AMuBHE+/mJOSH9+pQZ13dVDPJsV+edDQ=
+X-Gm-Gg: AZFdTZeh+UqnMHXvcrcknhK+BVpiEYiUcFM+NvXTFWmrNsYcmh/DZUDGykSnoZFrcbw
+	6AV3Vn5gzEahVyN1ejbETw6yd6Oq28XODnqDM5ugUQK9rlxEguCTkMPRmHBROV8v/Uo4pYRipbO
+	aob3m9HhMALAhOZggwLwpt5rk2Mch1UNFVmnOmd3EpukKniD5/cx0+0yM+TqO34wbcNnzPVrMGq
+	LXfBtsvOD4elZp2arN1SyxX1n/Ae9U+Zmqu95Y/xUqSnaPQyBsiKmNM4nZOgN6PwuzHz/ztb2F7
+	hkLM+36hcZO05pxmooS8/8j5A7IKaL4sgJKA6gUo8f6kZi0eVAqSXt0XtfWjEzXy1/kgN6esd6v
+	Qt2J6UZuPJzUo5MUgBHmPqKdphZNzZegDNftKvw==
+X-Received: by 2002:a05:6512:3e26:b0:5bf:dfb9:33db with SMTP id
+ 2adb3069b0e04-5c1bc894b28mr5679079e87.38.1795601004108; Wed, 25 Nov 2026
+ 02:03:24 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,123 +104,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261124230228.3868519-1-graypanda.inzag@gmail.com> <DN3TX43KWXO5.JWLJ9HO1C9K7@gmail.com>
+In-Reply-To: <DN3TX43KWXO5.JWLJ9HO1C9K7@gmail.com>
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+Date: Wed, 25 Nov 2026 19:03:12 +0900
+X-Gm-Features: Aa3M54r5upvGV8Qfv_TsLuVCjrNe6583K5J-EQlsL_l6e_r1ayLjtruktTOLARY
+Message-ID: <CAO7ntTSjpH337UucxpxSCTXud3yYi0MqfRELHFcER_enhu9fAg@mail.gmail.com>
+Subject: Re: [PATCH net] tcp: avoid NULL skb dereference in zerocopy receive
+ with sockmap
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	Gwanhyun Lee <gwanhyunlee@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
+	Jakub Sitnicki <jakub@cloudflare.com>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for the review and for pointing out the other paths affected
+by a stale copied_seq.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+I agree that this should be fixed on the sockmap side. I will look into
+e5c6de5fa025 later today and prepare a v2. In the meantime, if the
+sockmap maintainers have a preferred approach in mind, please let me
+know.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] On its own, this patch does not stop an unprivileged local
-  user from receiving l2tp tunnel and session notifications, including…
-
---
-
-l2tp: require CAP_NET_ADMIN to join the l2tp multicast group
-
-This patch marks the l2tp generic netlink multicast group with
-GENL_MCAST_CAP_NET_ADMIN. After this, genl_bind() requires CAP_NET_ADMIN
-in the user namespace that owns the network namespace before a socket can
-join the group. Tunnel and session notifications, including L2TPv3
-cookies, then no longer reach unprivileged listeners that join after the
-family is registered.
-
-Link: https://lore.kernel.org/all/20261123155503.2497063-1-anilkaushikwireless@gmail.com/ [1]
-
-> diff --git a/net/l2tp/l2tp_netlink.c b/net/l2tp/l2tp_netlink.c
-> index a07009d4cb009..c442e953df66a 100644
-> --- a/net/l2tp/l2tp_netlink.c
-> +++ b/net/l2tp/l2tp_netlink.c
-> @@ -31,6 +31,7 @@ static struct genl_family l2tp_nl_family;
->  static const struct genl_multicast_group l2tp_multicast_group[] = {
->  	{
->  		.name = L2TP_GENL_MCGROUP,
-> +		.flags = GENL_MCAST_CAP_NET_ADMIN,
-
-[Severity: Medium]
-The commit message says the pre-registration case remains open, and gives
-this example:
-
-  "A socket that joins the ID before the l2tp family is registered, for
-  example before l2tp_netlink is loaded, keeps getting the notifications."
-
-Can an unprivileged user also control when that registration happens? If
-so, the leak is still reachable as long as this patch is applied
-without [1].
-
-The new flag is only checked in genl_bind(), and only when a registered
-family owns the requested group ID:
-
-net/netlink/genetlink.c:genl_bind() {
-    ...
-		i = group - family->mcgrp_offset;
-		if (i < 0 || i >= family->n_mcgrps)
-			continue;
-    ...
-}
-
-For an ID that no family owns, ret stays 0 and the join succeeds.
-
-netlink_setsockopt(NETLINK_ADD_MEMBERSHIP) checks only
-NL_CFG_F_NONROOT_RECV, which genetlink sets, and that val - 1 is below
-nlk->ngroups. So any free bit in the genl group bitmap can be joined
-without a capability.
-
-When l2tp_netlink registers, genl_allocate_reserve_groups() picks a free
-bit with find_first_zero_bit(), and genl_validate_assign_mc_groups()
-assigns it:
-
-	family->mcgrp_offset = first_id;
-
-On this path __netlink_clear_multicast_users() is never called. It is
-only called from genl_unregister_mc_groups(), so existing subscribers
-keep their membership.
-
-CTRL_CMD_GETFAMILY has no admin permission flag. For an unknown name,
-ctrl_getfamily() loads the module:
-
-net/netlink/genetlink.c:ctrl_getfamily() {
-    ...
-		if (res == NULL) {
-			genl_unlock();
-			up_read(&cb_lock);
-			request_module("net-pf-%d-proto-%d-family-%s",
-				       PF_NETLINK, NETLINK_GENERIC, name);
-    ...
-}
-
-l2tp_netlink declares MODULE_ALIAS_GENL_FAMILY("l2tp"), so this sequence
-looks possible:
-
-  unprivileged user:
-    NETLINK_ADD_MEMBERSHIP on every free genl group ID
-      genl_bind() returns 0 (no owner)
-    CTRL_CMD_GETFAMILY name="l2tp"
-      ctrl_getfamily()->request_module()
-        l2tp_nl_init() registers the family on a bit already joined
-
-  root:
-    creates an L2TPv3 tunnel and session with cookies
-      l2tp_session_notify()->genlmsg_multicast_netns()
-
-The message is built by l2tp_nl_session_send(), which includes
-L2TP_ATTR_COOKIE and L2TP_ATTR_PEER_COOKIE. It reaches the unprivileged
-socket, and membership is never checked again.
-
-Since the case here can be triggered on demand on any system with module
-autoloading where l2tp_netlink is not loaded yet, should the commit
-message say that an unprivileged user can trigger the load? Should [1]
-also be merged with or before this patch, and be listed as a hard
-dependency for the stable backports?
-
->  	},
->  };
+On Wed, Nov 25, 2026 at 8:28=E2=80=AFAM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
 >
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124-l2tp-mcast-perm-v2-1-416741ccb334%40gmail.com
+> On Tue, Nov 24, 2026 at 03:02 PM Junyoung Jang <graypanda.inzag@gmail.com=
+> wrote:
+> > Check tcp_recv_skb() before using its result in both paths. Also stop
+> > before advancing beyond the last skb in sk_receive_queue. Neither
+> > check consumes data in the sockmap ingress queue.
+>
+> This should be fixed on bpf side. Other readers trust copied_seq too:
+>
+>   reader                             with stale copied_seq
+>   ---------------------------------  ----------------------------
+>   tcp_recvmsg_locked()               WARN "TCP recvmsg seq # bug"
+>   tcp_read_sock()                    frees new skbs
+>   tcp_collapse()                     BUG_ON(offset < 0)
+>   tls_strp_load_anchor_with_queue()  WARN_ON_ONCE(!first)
+>
+>
+> pw-bot: cr
