@@ -1,99 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.7
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795580237;
-	b=rs8BqMKtJCsaEke10cF1XRSzXa7XunEqYhhHY67eRrfjAoxv/ZnGMv91SKzkbrcQs3c2
-	 Y+u1m9iLk3BQG8X01rABGq4kaulR7ruL9U72UMGj6IfeeyczH1bQQQdwxPashwLlaGVYP
-	 AqC/IxeTEnL+7P8hXLp7n5kWm0wnS2E7ShWGr9hy7sEdtMFftNFuBSXql6RwFfJiadrnU
-	 t2rJSwrL2/zfzFFvlFHtAXjSBdsqrvznibn+RZBY3Z0AX06AsdWzd9+w3Qo9yLtK7JRR/
-	 juodsOyu8Ga0/9tFAHPUaLWaCpQEmROJEBI9NAw7AqQ/VACW1L8e33rSn/yRExGgciw==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795580237;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-LD-Processed:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
-	b=C41vaVEHaLQftElKN+1kk1zNwugs8lpcU5SugE1lfJlgLUrf1Sjg669T2k9eZ1eh/C9P
-	 1sDPLIf+lyaSIwLSlGbl4bToWrN1848rD9f5N71OIYSCnUMNU3PanBzrMJ9JumpG6Reh2
-	 wVAspUTnIxjx6NBnAQmNGDgJUYlRaIfceDdYzaUh2FBmrOaBTqchA+2uebZ0bgN3OXvfC
-	 gsPh/bHtLUZAPmV4HmeTjZ+EdNZk+0iHz6l7GSrNy8e+Yq6i66E0Vc8RIdwvQn16X8QTu
-	 X3+95mNAeDuLxpbFJ5TXp2bu0cjGPujNGiBrWNZq+ustZjRSVJ/X2HWRfvoCXj9lh0A==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gK8Dd1Hs;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.107.208.7
-Received: from PH0PR06CU001.outbound.protection.outlook.com (mail-westus3azon11011007.outbound.protection.outlook.com [40.107.208.7])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.41
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795580622;
+	b=4lhK3PU7TsneiPG+PFTh0LJBEylHih3Wx7a+Yvj9KULQAIxcmjonVA+WyYFeiI5PPY+b
+	 v7XzNFaCh5ONAJcQIVTp7HUG+cADxeDYlBts1ymKDlq9DZ9G3wTpoHWY08YeQiptGCYSY
+	 rgpg8TfKEsOn/BhOQF1iFI6bFrq45Aj2QoRTWsAcBbrQ7iw4/UTuFNnznFg9XrJIV5bRP
+	 lT4j8l9YNykzQarbQrqO8FtH7Ov2rv7lmdjA8xNB3XKpuLplIHYDruGMGlm0klESaQRvC
+	 TVn9/GMEN3zyLUTmJx33npbMHqQYXprajjNnzOZY9VnDJWIM15O8J2t+1GEkfXbreqg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795580622;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
+	b=5BtD0i5KhALGWIskSegb1pDPZRVLzadS8TsgogwPzBwxupV9MHsOLNJpKxAHHgtfYjuG
+	 B+QkYeAWUP7LCQYxTxUl42g4Q6h3oEcx7JtuDl2TCZ1RjEcAbrz2fzi6pKnpzSY57HzRg
+	 soE1iRnYCX7dPCYtefJ2J60eQ+mBeDPtNhkG675bk6TxenxjUsgU0hQv4GKlha53rwr4V
+	 9X66NZLLR4qNW4U0B6q5r8tccHrCpV6FqZgntTRUaGDUbDTTD2z4t/DLwk1SXbLpiDJoG
+	 OlIsSANI+XAcOYg0JGf1Mik7CMtrel8pxA5QclKB05+ekpQq/0eut5U9rTh54XjdZKA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqdlJ73A;
+	arc=none smtp.remote-ip=209.85.216.41
+Received: from mail-pj1-f41.google.com (mail-pj1-f41.google.com [209.85.216.41])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DA25F606A31E;
-	Wed, 25 Nov 2026 04:17:16 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DA25F606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB46F606A321
+	for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 04:23:41 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB46F606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=gK8Dd1Hs
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VU8oNL8bDEEu4ydAkisZtGHSEjGFLJZfYbsZvmIgRmHcQoWIp4pmDH06hywqI3M06Yvxl/sHUIPMVcBvdrgsRTBs05EcrhrGihbD2TyVjsQpC/+pdTPScb3EmCZ+vJp4lGp1AsBzVUVqf8Di/qlu8jLI0PcAQcIuooXGHA+SIbVq85uVsTSRNXlm0rZRmoNg6qSYGXloFnkk6GhoyxX8wea2H2EvHbbxGmLnraU9uLluvpFmPWZigr7lPxJdV2jUtA5eEJMrpPmEguvJ5jYivpr7984e2Eaxb9UHSB+QTQwvFSHuG5N/1UO/aIlmc4JKk7homk0ZGTYdW7k9WerMEA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
- b=MR3t23c7sNPxbc8z4iYW4TZDeC/eRUL9SAdolQUjBES47ZVETTkgPH/eTgD+2Vh1JAhWvn8MX+vadVi0XiMxGJH2DtUKPfj9vrTyRJI8DPIqdIWylGIDwKm4wdj6vsJ+JnEoYJiI+WdSQ3msXNfLOsDKsLGfcsabHgJ1Q/WignoyXckO2dQ7zYkX9lhq5+c6qcfyqjvl3smxdqP3wYjix3j6OqpJT4z9+m2H9Gg5arjWMDt+5DCzjrBQyjIBKWzYMmy4LN08xBtYBJM+eBVXhVD8DXeDuWPaZ9ZiTEU+aPuyyW9ciF+xQqE2ELj2VdBrFlaUqrRRPiYE/h0/1tnM6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xQJvNsmoeyJEEGHuUnA0U97X7fCCS8ogZORvR0u+Tww=;
- b=gK8Dd1HsSYwlB5SU6MTCl4bycJkjVs83yTC7SJnXchHw9IDn7fDbRheCXoXFL9RL3nZezwsiRxlS7NkPZ4z1UiOzt27Yd3aoOoICSXCaIj37HX69QrkNva9CbDH+oqpXPBrEDjgHQ8C+bcwhSKO1CkIA7c4UG92hwcdkgpev8L8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from SJ0PR12MB6942.namprd12.prod.outlook.com (2603:10b6:a03:449::13)
- by LV2PR12MB5822.namprd12.prod.outlook.com (2603:10b6:408:179::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.10; Wed, 25 Nov
- 2026 04:17:11 +0000
-Received: from SJ0PR12MB6942.namprd12.prod.outlook.com
- ([fe80::20d8:2aab:1836:8d69]) by SJ0PR12MB6942.namprd12.prod.outlook.com
- ([fe80::20d8:2aab:1836:8d69%4]) with mapi id 15.21.0639.012; Wed, 25 Nov 2026
- 04:17:11 +0000
-Message-ID: <6cf871c7-d269-42d3-af40-4dc69f4a99ee@amd.com>
-Date: Wed, 25 Nov 2026 09:47:04 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] net: mctp i3c: clamp transfer lengths to the
- controller limits
-To: Jeremy Kerr <jk@codeconstruct.com.au>
-Cc: Matt Johnston <matt@codeconstruct.com.au>, linux-i3c@lists.infradead.org,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- meaganlloyd@linux.microsoft.com, git@amd.com, Frank Li <Frank.Li@nxp.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Shubham Patil <shubhamsanjay.patil@amd.com>
-References: <20261124060651.1987454-1-shubhamsanjay.patil@amd.com>
- <20261124060651.1987454-4-shubhamsanjay.patil@amd.com>
- <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Content-Language: en-US
-From: "Patil, Shubham Sanjay" <shubpati@amd.com>
-In-Reply-To: <554f3a558a73c9984ec7d3395aa53aefc91d8a36.camel@codeconstruct.com.au>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MA1PR01CA0170.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:a01:d::20) To SJ0PR12MB6942.namprd12.prod.outlook.com
- (2603:10b6:a03:449::13)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=MqdlJ73A
+Received: by mail-pj1-f41.google.com with SMTP id 98e67ed59e1d1-3b43d6c3485so607727a91.1
+        for <netdev@vger.kernel.org>; Tue, 24 Nov 2026 20:23:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795580621; x=1796185421; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
+        b=MqdlJ73A4xj6m67NEm2/sbs/5Pi+1Cfize3YWEEqZtl4uS1+XB3qZrP+IoezQWRk5H
+         X0kWZPGewUmX97In46VFqRUWQOxyiicqb7V+RIAJ+nEY3cN9OmIZuAb9HYNbly/9P0rW
+         HjjFS9SrHg5Kk2dBUTVWS/Yq2rqn/RcACUZfYcFet9xc9xBAKweckSsrzatIR5hpHhAu
+         kjtIGHQpq2LUqf3UiFdbgfcSwnkIbZ0NEW+ndZQj+xYO3vkQHeAINyjltsOp0ek9vy75
+         FIIA30RcuawQvZp0pWmtDsluXYS13hIfGy3B7JTlRX/c31WMKUlSKHYUyeFIZ/cXpBHc
+         9dgw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795580621; x=1796185421;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=va0ggwHRJKjl4TPXGJhxPFGY4MyUe0PHa151+Q/wcNI=;
+        b=J0DV6hbqMYuyMyLwQ70COE22ROF5cDQPLF2EqFDEX3diEbaQ2A/AYsTUVs+S83syRH
+         WmGgtgKLjtw9FGY9hsG/TgJ8xZPdW2uNG0P0WSfS+lNWy78J4RYIjrgbbnpJtMmZkJMz
+         NT+pXiO97k+B4pJP9Se0y6Sblq5XGYNu2Wz96eClS4FKhTOctcjAl5iU2ps0zcHL0fZA
+         YAeBp1nzU1/WD+/x6r1bOt9l1xqCQYbHrTmG7UuLChANiLXA09y0eTfwpacTJywAZOgp
+         5mXY3X0/zWndljc4fqJq8k4E6NHi3Pn0Q30+uAZGqn5BWZ8cHpL/ylNY/P5YyFe4eXhS
+         RNyw==
+X-Gm-Message-State: APuU4Z9mlYv0H4GXth4D7sEgrIf7keUDFMR7q8mdQLloxJjdBM7X1jyx
+	fbSYaoX9Di142tJfi2gXuwzEOP2qOvKV5I+AGoI8Cfcz7TSfQT10nOMv
+X-Gm-Gg: AZFdTZfSe8e/9RmVVIj5StW8Emz90JVFPe2x60z8T5OTEr06rhT4zEukVPMT5Ov9UMX
+	b7qomPgfA0gUzX6gAldyEgWZmALq59xsUDYxV0VJOAVDw+5Sn2t7tydjjgexj1YlXB+sf65P3U+
+	s74qxx9e7dSvUpBZ8mDKaowiuKEU5SnJmMDLzMxChVw7S8sdJEFOxDpgW5EmOsQfI9gvo6yCDYr
+	jfvMVVAyWPAVT5qr7NALvDHr7pxfyHMGyRJZlt1/tcIi90/QRq+0rXa8cBIfXnHbX2lOHWUw7cx
+	jf0xE0qpU3r9RAP8GlIRNZq3GM9WxlYrIHk6SI6Qi2EcjU9g6KUHOF0hTNLsFA84YdH41I27gvq
+	p5hjd8s/m/0b/hN1HZZhg86isXmAqadASV9HIzDLy2ELnIvmzhIW1zJA7sJdDZrLLBCGla30yHK
+	+Yfc3R+c0WLUgq7VKCrOoHOg7K/nbFJx/Fhg4nrorq2tLkbrsUP+r+fm+V3R4Vwo9L9fZJJwHpQ
+	EEGMF/PSNmYrE5SR3YO9kilw9ftjS/rRu8G2jCyc4/OSTAaqOqWK9vpWC5Rvk1yUkF0ycAjyGOE
+	3jwyS0rkLaAf8SK9P9+DYNJ/FOjVjeYEeng2xxuWResN
+X-Received: by 2002:a17:90b:39a7:b0:3b3:cb03:8740 with SMTP id 98e67ed59e1d1-3b41c96302emr26652973a91.5.1795580620889;
+        Tue, 24 Nov 2026 20:23:40 -0800 (PST)
+Received: from gmail.com ([36.112.206.40])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b40a878d50sm27969788a91.11.2026.11.24.20.23.30
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Tue, 24 Nov 2026 20:23:39 -0800 (PST)
+From: Ziyu Zhang <ziyuzhang201@gmail.com>
+To: saeedm@nvidia.com,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	leon@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	roid@nvidia.com,
+	baijiaju1990@gmail.com,
+	ziyuzhang201@gmail.com
+Subject: [PATCH net] net/mlx5e: Fix deadlock when parsing flow actions fails
+Date: Wed, 25 Nov 2026 12:23:23 +0800
+Message-Id: <20261125042323.88050-1-ziyuzhang201@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,115 +104,113 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ0PR12MB6942:EE_|LV2PR12MB5822:EE_
-X-MS-Office365-Filtering-Correlation-Id: aced4034-87e7-4894-3389-08df4aaaf9bf
-X-LD-Processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|23010399003|366016|1800799024|376014|18002099003|4143699003|22082099003|261009223027099003|11063799006|10067099003|56012099006|5023799004|261102123227099003|261028144727099003|261022105027099003|261026121527099003|261026140227099003|261021121427099003|261021123027099003;
-X-Microsoft-Antispam-Message-Info:
-	cgt9MNmF8ou1J+EdBvzoAsiBF4bptlMbvZ+yEFDKCdNIgvT7inqVr/mm2GGqzH8rDyoXuOTiIHSy0fmrninIz3eAbCCfWztgWbBbLtmYSLIXBafo+ERfCGtTAr5toeRc2xli7GrkSdwu+044P8n6RukslssSKo2ZWUZLBMtUx1k+iqifE95pziDbVHcfPbzkcnNEWMyh0Oqf5iahFtdMMn354FX4qbtWYiTDW9B3pj64Zrc+ERDvBdCF+/KGXs8mQMO12ytq1C5khu3tejQ+Py2D3msta8EhOP7E6ib7s0yxjZf+3Mg3UtXVYEP1BjvNeKKt4qjaJPPt/udYjms05y558Qmq+v7e9hx4fII+v62tMJ9L/Jy5CwK/a1+URW9bkVJFa7trnFBYHXm4ppmaOdwRCAXY9znCgNtS/LXVFyVldkbHyBGavejepfUaH925lXmvGc7IE/+ikCzyaIvWxaIqEkKUKAa32MdOGwiel9bm6kZHBte7FrdFYE+0Q9NK1RgpK3sirZmUB8gAF2qdUGkCLtSoBOgF7gdCW+zsbXE+zkDDYzXPttnH2xi4J3BA3cZ+0NxzoLoXMMw2s/G9lLQZ9rAqZOjdamAnZPgsqxW849i1NoLXMInlAsZOkJ+1kCH0Q+Hkxy6ohzgS3UTSW4iDyPbgQHjs5Nd9VIKxO2w=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB6942.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(366016)(1800799024)(376014)(18002099003)(4143699003)(22082099003)(261009223027099003)(11063799006)(10067099003)(56012099006)(5023799004)(261102123227099003)(261028144727099003)(261022105027099003)(261026121527099003)(261026140227099003)(261021121427099003)(261021123027099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?QkdnblNjTGZsZzNZVnpacEVqalcrMUFYMGhOc2JXcXVBZUprbmJwR2x4UE9E?=
- =?utf-8?B?azBLVDRYR05pRUVJNXJOTGVyaWo1NXJGeCtYdnRDRFJxN1ZRcThldHcyUkhL?=
- =?utf-8?B?VzE0V1hlTk4zUVg5SGJTQU5CZHpIaDIrSGMxNGxzSHQxdERraUxSNVU0aE8x?=
- =?utf-8?B?YzFmc0drOGRoSmFLVFErVGx2eWxsQTBqWXFXZE1Qelo5YUladmtsMG1MYTlq?=
- =?utf-8?B?ZFY1c2ZtRXozb1ZtKyswa0pPWjdPT010bFJkZC9zNTdZT0lNdXc2RVF3SUhT?=
- =?utf-8?B?bXNEdm10MWlwN0V5dWhyakYwSS9wejdzYmhsTlpjWG1LczduSzUxZStDbEx2?=
- =?utf-8?B?bDdhWHBUSVJKSzZyeHIyZUt4RFR0ZTZDd2NGZGROWEl6c2JmTTQwTVk0bURw?=
- =?utf-8?B?b0V2MWZWN3grUTh4eGJKeEdpMXF1cEJOa1NWVzJqRXBub0lMZjIvZnNPcFFu?=
- =?utf-8?B?K20wOERYWFZrbnVZZlVDR3o3eUlFSDl4SEFTdzNoZ29jaVNZQ0YvdTZNQXkr?=
- =?utf-8?B?RTdKTi9KQ2xlazk1VGpYM0xiYXFmOE5qeTZaWEw5RjFvUjRmTHRlWXFSRXBK?=
- =?utf-8?B?YXUxWW5pSWtjeG1WOGx3cUVoejFDU09NeUt2WmxheFJJS2dkbXBlVWE4R21L?=
- =?utf-8?B?QXdHa0Foajh6ZkFuaHkvdk5oK3JDeE9DTXBJSmlMVyt2V29wNFA1eEx2MTdt?=
- =?utf-8?B?Mkdic3J0MmxQY3BSc1JmZk1TMmVMRldSRk1iVmhoS0J0YUtqQW1Wb01hOEZ6?=
- =?utf-8?B?RGZTdGRucFBEQVNZZS9pNm5yTmtMMElwU0l5TUcxTWp2dUxZWlhFVFAvd2Fr?=
- =?utf-8?B?aTgzQXByWmZ5MytqQ1BHMFBIY0s5b1A3VmlMeDhBTktTYy9MazIzNEVQOWRE?=
- =?utf-8?B?ODRYdGlwdk1QVnVyMEdqSEY2MHRNOVRaV0xFK1FSS3VabmZabjl2VjJ6alRs?=
- =?utf-8?B?WkUwVVJPelN5bkhhaWdPaHJGSXk2YzlKMVlIUDlzdVpLS21MVjdVVEd5UVFE?=
- =?utf-8?B?LzVJS1VGdVNyVU9wZzRXc2RySkxoSXltNS96ZHRRZi9ML2xTTnQwZ096QmlK?=
- =?utf-8?B?NDI1ZGFoN1Evc2xIWXRmZ2lWUGt1R2xVWGNnM2w1eEU3REFmS1kxVkxpelNx?=
- =?utf-8?B?dzU4ZHZRVGVzR3h4Zi9aOThiRTdycU1lYXB2RGF2QVFrMFJGUzROV1FLaXQz?=
- =?utf-8?B?a3JmR2ZKLzhPczhlazJETVBpR05rQllwMko5VzF4VmNwckZvWGJXU2NsSEJI?=
- =?utf-8?B?TnFZZ2JKSzRXeTdNVzE1b0tsQS9FN1c4UjgvWEVjbDdOUkFRUFVmSEZSTk5F?=
- =?utf-8?B?WS9nNkVpSHFTb3dhc3hnWUNJbkVOV2VJdS9qSjBma0ZvbFY1QzBVV2MvdWxo?=
- =?utf-8?B?ZTRwR2szOFlXekE0Q2FOenFFZVdXUVZPME9vUXNxTHRQS0F1MnlUNkJvMmJQ?=
- =?utf-8?B?VUhvZkxvYWNZblg3cm1OR2ltOEJBaXprV3htUGZ6bDRCL0N4ZU5DQ3JpOWJq?=
- =?utf-8?B?clV1VnQvZm5PYWF3OGFabTNNYks5STlrTlhVV0xkSFlwbzZ5WFZGMXU0aW1h?=
- =?utf-8?B?RTQwOWhISEpnM2tON3JIaHcvMVptRGVpeDZvMExKaFFKUjh0ZGpwRnliREl0?=
- =?utf-8?B?NlRrSDJYd1FXdWZSQWN3cFhRVnpQTUVZUXZNTWFCT0o1aDduZFV5RHBGYjU5?=
- =?utf-8?B?T0x1VmhXRWxuVTJhRlFMakxseFo4Ni9LanMvREx3VkhOR2RMSytBZFEzV0Zt?=
- =?utf-8?B?L2xEKzZjaitIdHJ6RGRUcTZrSEtDQVpRZTdOMHpyVG02ZGFhV2NLNXVnazla?=
- =?utf-8?B?WlhMWnZPRUpibjEzVStibUhYY09PZTdKRUFqUUhPTWxobzNCMERkcnVFUzFk?=
- =?utf-8?B?dVE1cG0zejRza00xb0RzUHpJalE4NDErZm5WK25yUENqelozdCtuTUoxTkxm?=
- =?utf-8?B?TmMwZWhYbURKZmZUOW40aFZYcFQ5TkNKVEZZQThVbFE3MTBZR3V6SlJFL3ZT?=
- =?utf-8?B?MSs2QWxNV0NKaFVIWnFHT0l0RERNM0xvRHNIY2ZyUXpwTHdqcWdQWUNIdlVT?=
- =?utf-8?B?SXJqeXhMV0h1VktRRENnZkZjOFVhYVc3d2JsZzI1enRWcE1EN1hXNFZjdE92?=
- =?utf-8?B?SWwvcGp0VlpQRVR0K2hFNDdKdVptellnQ3l2THhWb3BkeGYvT0wvc2o0Wml3?=
- =?utf-8?B?RmVqZ1VNSXl6clpoMG93K1ltMnp6bTdaNGRFN2RzMDZxSXJvZ3hjNVJ6Ry9D?=
- =?utf-8?B?UnduL0hZVDdNWnlBbllSMW0vVUgvQUVRK01Yb1ZPKzRhaW9hMGYrSStoNWhN?=
- =?utf-8?B?YmlhSEltd3VGT1RnZ0tiSlJyNDMyUjNhS1hBM2w5QTJQd2craVdoUT09?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: aced4034-87e7-4894-3389-08df4aaaf9bf
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB6942.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 25 Nov 2026 04:17:11.2768
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: YZqfK/e8BtN2LoeDcVD1AxAYuxD6lDwm6MQQ4esrMu9pprBuKFdGqlI3nYFb8LrWUZy1QlQcY1lT1QFlLtB3cQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5822
+Content-Transfer-Encoding: 8bit
 
-Hi Jeremy,
+Neigh and route updates take encap_tbl_lock and then wait for
+flow->init_done on every flow attached to the encap entry.  The only
+complete_all(&flow->init_done) sits after mlx5e_tc_add_fdb_flow(), so a
+flow whose actions fail to parse is never announced to them.
 
-On 11/25/2026 6:09 AM, Jeremy Kerr wrote:
-> Caution: This message originated from an External Source. Use proper caution when opening attachments, clicking links, or responding.
-> 
-> 
-> Hi Shubham,
-> 
->> mctp_i3c_setup() takes the maximum read and write lengths straight from
->> GETMRL and GETMWL. Those describe the endpoint alone, so on a controller
->> with a smaller limit every read can be built too large and rejected.
->> Transmit packets can similarly reach the controller even when they are
->> larger than its transmit buffer. The receive path also allocates an skb
->> for data the hardware can never deliver.
->>
->> Use i3c_device_get_max_read_xfer_bytes() and
->> i3c_device_get_max_write_xfer_bytes() instead, which return the smaller
->> of the endpoint and controller limits.
->>
->> Behaviour is unchanged when neither reports a limit, as the helpers
->> return 0 exactly as the GETMRL and GETMWL fields do today.
->>
->> Signed-off-by: Shubham Patil <shubhamsanjay.patil@amd.com>
-> 
-> Looks good, thanks!
-> 
-> For the MCTP side of things:
-> 
-> Reviewed-by: Jeremy Kerr <jk@codeconstruct.com.au>
-> 
-> Since this depends on the new i3c helpers, which (I assume) would be
-> going through the i3c tree, I assume the whole series should stay
-> together?
+Such a flow can already be visible to the updates:
+alloc_flow_post_acts() runs post_process_attr() on each post action
+attribute, and mlx5e_tc_tun_encap_dests_set() attaches the flow to
+e->flows there.  A later failure in alloc_flow_post_acts() goes through
+free_flow_post_acts() -> mlx5_free_flow_attr_actions() ->
+mlx5e_tc_tun_encap_dests_unset() -> mlx5e_detach_encap(), which takes
+encap_tbl_lock.  The checks parse_tc_fdb_actions() runs after
+alloc_flow_post_acts() reach the same detach from mlx5e_flow_put().  An
+update that holds the lock and waits for the flow then blocks the
+cleanup that would have to wake it, and both sides hang.
 
-Yes, MCTP changes will go along with new I3C API's, whole series will 
-stay together.
+When parsing the actions fails, first delete the post action rules
+installed so far: a woken neigh update may release e->pkt_reformat,
+which those rules still use.  Then mark the flow FAILED and complete
+init_done, and only then detach the encap entries.  The neigh paths skip
+a flow that is not OFFLOADED and the route paths skip one that is
+FAILED, so a woken update leaves the flow alone.  complete_all() is
+idempotent, so the second call for a failure inside
+alloc_flow_post_acts() is harmless.
 
+Commit 37c3b9fa7ccf ("net/mlx5e: Prevent encap offload when neigh update
+is running") fixed the same lock cycle between the encap entries of a
+single attribute.  This patch only covers a failure while parsing the
+actions.  A successful setup still takes encap_tbl_lock again after a
+post action attribute attached the flow, through the encap dests of the
+main attribute or mlx5e_attach_decap_route() for TUN_RX flows, and a
+waiting update can block it there as well.
 
-Thanks,
-Shubham
+Fixes: 8300f225268b ("net/mlx5e: Create new flow attr for multi table actions")
+Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
+---
+ .../net/ethernet/mellanox/mlx5/core/en_tc.c   | 40 ++++++++++++++++++-
+ 1 file changed, 39 insertions(+), 1 deletion(-)
 
-> 
-> Cheers,
-> 
-> 
-> Jeremy
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index b290beb4369a..91e04a84bf07 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -3748,6 +3748,39 @@ free_flow_post_acts(struct mlx5e_tc_flow *flow)
+ 	}
+ }
+ 
++/* Neigh and route updates wait for init_done while holding
++ * encap_tbl_lock, so the waiters have to be woken before error cleanup
++ * takes that lock again.  A flow that fails here is skipped by them: the
++ * neigh paths check OFFLOADED and the route paths check FAILED.
++ */
++static void mlx5e_flow_init_failed(struct mlx5e_tc_flow *flow)
++{
++	flow_flag_set(flow, FAILED);
++	complete_all(&flow->init_done);
++}
++
++/* Remove the post action rules of a flow that failed to initialize.  A
++ * woken neigh update may release the encap header they point to, so they
++ * have to go before init_done is completed.
++ */
++static void
++del_flow_post_act_handles(struct mlx5e_tc_flow *flow)
++{
++	struct mlx5e_post_act *post_act = get_post_action(flow->priv);
++	struct mlx5_flow_attr *attr;
++
++	list_for_each_entry(attr, &flow->attrs, list) {
++		if (list_is_last(&attr->list, &flow->attrs))
++			break;
++
++		if (!attr->post_act_handle)
++			continue;
++
++		mlx5e_tc_post_act_del(post_act, attr->post_act_handle);
++		attr->post_act_handle = NULL;
++	}
++}
++
+ int
+ mlx5e_tc_offload_flow_post_acts(struct mlx5e_tc_flow *flow)
+ {
+@@ -3852,6 +3885,8 @@ alloc_flow_post_acts(struct mlx5e_tc_flow *flow, struct netlink_ext_ack *extack)
+ 	return 0;
+ 
+ out_free:
++	del_flow_post_act_handles(flow);
++	mlx5e_flow_init_failed(flow);
+ 	free_flow_post_acts(flow);
+ 	return err;
+ }
+@@ -4579,8 +4614,11 @@ __mlx5e_add_fdb_flow(struct mlx5e_priv *priv,
+ 		goto err_free;
+ 
+ 	err = parse_tc_fdb_actions(priv, &rule->action, flow, extack);
+-	if (err)
++	if (err) {
++		del_flow_post_act_handles(flow);
++		mlx5e_flow_init_failed(flow);
+ 		goto err_free;
++	}
+ 
+ 	err = mlx5e_tc_add_fdb_flow(priv, flow, extack);
+ 	complete_all(&flow->init_done);
+-- 
+2.34.1
 
