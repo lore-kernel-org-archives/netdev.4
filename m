@@ -1,55 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795665411;
-	b=VgusJGQ+N6P3H8hP1x1Sa2rH04YLOuUVRyAVke7x9xghTxSWlW55KNg4bx6d+wWHk2DB
-	 JswiZZ8teUXmbByxS2KnGapTBXTrkfZHCMK85CwVgyFqDFAyHysGZfABfiQmgELcoqR65
-	 Dju9HyKsYPy2rFapXvXDRByDNN7Tk0o6Ot0uGzl6V5E9gj6KWqxOmf3hLLjm8r8ae04KG
-	 FxWLV76maQZEsa9Ea9g5jUivwQIsP3KJrPakIL6ddsRg2jk0GXXeZLxsI19VzIu3fp4ID
-	 gufnma5tgK9jYuOJ4nFQWF2tzOzZTfwupaaNdLmTGbXIf56lBrdptrTP8r1Mt+56/rw==
+	t=1795665523;
+	b=fHZASATHMaRci/A6RlqZ2IDLk7pvTffB+th3Skq49/s/kS+e3o1WTqKfMYeghyBIYMyp
+	 MySS5n3RddwER/Pq0SUJV+WVYsB815rBKfjgIjuOPa0UI/YGocL1nfBd7goa/7LCoAOsN
+	 VLmTF3+jeWh+913hzskW0OAqY+dLrRP8+RaJTRQmqYR2OU2IzUDpCH5mCWL6VQ8qhyGCp
+	 faT1qskzVSte7o4Y1r4bhk+ZZQjbKDMng0kLIfYqD0sBcq/Ihlil/1j+7Qmkokm7vINvo
+	 EuL6wwGuHNOCOoXZNiAhcUr1TvnRjwuD4MavD8kf+KTkqhNIHeVRk+ppZbEiDzX5ULQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795665411;
-	h=Received:DKIM-Signature:Received:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=pnrWDLI+bbkoF+uspFaAef/gof/CKGiguNODNOS4GpA=;
-	b=xchJAN74XNy85+Pa5m9ZjVoXg2UVAQ743P6RmyjVzpCcSC2B4M2cgTnbO8hjxbILKvo6
-	 E5gFWEFogSq4cd3HHKv10ptKdKJbgASpY3eSI+2CniTLw2dS5lDP3hrQjIPLWeI8+w63t
-	 ZmALi4v2NudzV0C78SCUjZiOw3d/FmyaW3beRnf6mGMm9wY5+5DawUOMoIkMWbdiwQCjy
-	 kmYb6hpWx4ysE1ZHQGvHog75XGetwDq0lXJlJBwZHfczveEmySo27dcFE0iycaYE2tsN/
-	 eIhDzJ8juUEcPtxhBkL/Z3Yc8pRPzmLDsJU4KyjHje50Y5KwXIT14mlwcx09Rer8zAg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795665523;
+	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
+	 X-ClientProxiedBy;
+	bh=SSdAMFmYjKhW0Vnndgpluzm+aSjz54H3b9il23oofj0=;
+	b=RfocE2PovGin3vK8fhdC+fLzuHwGkAKTuakCDOliM6fQmyLmwWVcUc1bNRZtq5JrH1Zt
+	 yp9hBgGBYox0900k1JF/+12UV4VNsNefRUjiC6LuhLhf28rWEjcO5pRZazHeryEv5t/sZ
+	 HvBzDMRqlugezcohxtAQ8gI0CVRXzBT5VKwseqW+Xa+bDxn7TTmJaolSxtI3d44oZZw6w
+	 62CKTpVl+2TPOwB3YfVUMMyiQ2QAfxQ3dlNmQQFCOlW+8BQj7STBSlgQDVqsRvk/wSiuG
+	 DzKzR/Qy52WMs5rfjsdhJdxKqW5OdpUEpqSGuZ/ZTqaDwX3X1zir9xgupSyFdsWHHUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EnFf2oIl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=huawei.com;
+	spf=pass smtp.mailfrom=huawei.com;
+	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UUjqLU5u;
+	arc=none smtp.remote-ip=113.46.200.221
+Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A429F606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:56:51 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A77B606A31C;
+	Thu, 26 Nov 2026 03:58:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A77B606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EnFf2oIl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8160B1F000C0
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:56:51 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795665411;
-	bh=pnrWDLI+bbkoF+uspFaAef/gof/CKGiguNODNOS4GpA=;
-	h=References:In-Reply-To:Reply-To:From:Date:Subject:To:Cc;
-	b=EnFf2oIl25F5fuGyrN92NOgPL6kqIB+PTByRBEV3aAZf8ZfJ957KgMf5KK6PsD4Cw
-	 zflo82yjh57GWQAKBN0zQJ3ijLHDRdSpLs34Ypubezx1+kdfXAnPIjT0MRca7B7nRb
-	 +rO8mpQb/bCxW8CFA+2Lx5rEVRmyJz4YfrOrnc0k250Cwzd7xVTkbCMd+ipqAGmsNt
-	 HlHRpxSdtd7AvpLEw2SfBrHhhWw9nPCLZOm8brr6044aErj4rTR4DdBOsdGnfIIcmV
-	 dO3wocrkyfGT62CpwOxOuAHNl9X/82Ppq3JVVcDI5bXUE7TCNERLHEGOfW+aVa5yvh
-	 KoGaWgq/V1/8w==
-Received: by mail-lj1-f177.google.com with SMTP id 38308e7fff4ca-3ae2ab35d82so51162201fa.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:56:51 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErGNUOnnGFRzowwtqY5nY0COKEYDx/jt+Y2z+mNmmTb9ZOZUJYOfCMd+a8SjwDf3dvDcD4iE0dI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/IX+p52HutsP+lFJeugaM/hcw6nD2a9EOum8+IF4ub8obm2yC5
-	ES3PWi4aDC3n+RFWjRNEwLyV523IjdA/YA1OFyiPqmyfSINbbKJ2XKTef3ptRJK5xMinBCfmZtC
-	DSpKkGOZQYGad+/T72JhDwghMiz6XNkg=
-X-Received: by 2002:a05:651c:a1aa:b0:3ab:3af4:c2d8 with SMTP id
- 38308e7fff4ca-3ae7fa71a15mr56174711fa.28.1795665409967; Wed, 25 Nov 2026
- 19:56:49 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UUjqLU5u
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=SSdAMFmYjKhW0Vnndgpluzm+aSjz54H3b9il23oofj0=;
+	b=UUjqLU5uE3Kx2EGRpLTMcrCie3lUv6EiOJKZpOTfCbYWM9lF1cVjvgDFnY4Kltjgjmc7e+EZY
+	YekKeeZEcN3eZinnDZ7iYUh0/+UZq+EG0fPjSlElM77VQeK7QKwy1gQaaUkdXQ1+sOV7L+vIkrr
+	h072KXuKRQPzKEgyzIu/sXA=
+Received: from mail.maildlp.com (unknown [172.19.162.144])
+	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jZjSg5ckTzRhQT;
+	Thu, 26 Nov 2026 11:58:11 +0800 (CST)
+Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
+	by mail.maildlp.com (Postfix) with ESMTPS id E47C040538;
+	Thu, 26 Nov 2026 11:58:30 +0800 (CST)
+Received: from [10.67.121.233] (10.67.121.233) by
+ kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.45; Thu, 26 Nov 2026 11:58:30 +0800
+Message-ID: <5ea6843d-14c9-4c0c-be1a-4e7926f771bf@huawei.com>
+Date: Thu, 26 Nov 2026 11:58:29 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,64 +62,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261112-a733-clk-v7-7-db7c5451ffa2@pigmoral.tech> <20261125115320.3692954-1-alastair@d-silva.org>
-In-Reply-To: <20261125115320.3692954-1-alastair@d-silva.org>
-Reply-To: wens@kernel.org
-From: Chen-Yu Tsai <wens@kernel.org>
-Date: Thu, 26 Nov 2026 12:56:37 +0900
-X-Gmail-Original-Message-ID: <CAGb2v644kMOCbLGVNB0HRFmoaQcD3qbhKY9G5FVE46O=2td12g@mail.gmail.com>
-X-Gm-Features: Aa3M54rpP-Zn9FFry4pu5XjBTgRTyOiIwDPt_8N8tX1t-bsfN3kUc7IF24g0SfQ
-Message-ID: <CAGb2v644kMOCbLGVNB0HRFmoaQcD3qbhKY9G5FVE46O=2td12g@mail.gmail.com>
-Subject: Re: [PATCH v7 7/8] clk: sunxi-ng: a733: Add bus clock gates
-To: "Alastair D'Silva" <alastair@d-silva.org>
-Cc: Junhui Liu <junhui.liu@pigmoral.tech>, Stephen Boyd <sboyd@kernel.org>, 
-	Brian Masney <bmasney+clk@redhat.com>, Jerome Brunet <jbrunet+clk@baylibre.com>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Paul Walmsley <pjw@kernel.org>, 
-	Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, 
-	Alexandre Ghiti <alex@ghiti.fr>, Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
-	linux-sunxi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, Jerome Brunet <jbrunet@baylibre.com>, 
-	Enzo Adriano <enzo.adriano.code@gmail.com>, Norman Herms <dockseed@proton.me>, 
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
+	<kuba@kernel.org>, <andrew+netdev@lunn.ch>, <shenjian15@huawei.com>,
+	<liuyonglong@huawei.com>, <chenhao418@huawei.com>,
+	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
+	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with
+ full hardware rx queue
+To: Paolo Abeni <pabeni@redhat.com>, <netdev-bot+sashiko@kernel.org>
+References: <20261118130330.3026625-4-shaojijie@huawei.com>
+ <179535384062.3135.791733868582964041@kernel.org>
+ <a727a596-2718-4aaa-8baf-69b1aee9df43@huawei.com>
+ <3766f988-9ea9-4ead-870f-fab0549e15b6@redhat.com>
+From: Jijie Shao <shaojijie@huawei.com>
+In-Reply-To: <3766f988-9ea9-4ead-870f-fab0549e15b6@redhat.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
+ kwepemo500018.china.huawei.com (7.202.195.199)
 
-On Wed, Nov 25, 2026 at 9:02=E2=80=AFPM Alastair D'Silva <alastair@d-silva.=
-org> wrote:
->
-> Hi Junhui,
->
-> On Thu, 12 Nov 2026, Junhui Liu wrote:
-> > static SUNXI_CCU_GATE_HWS(ahb_msi_lite0_clk, "ahb-msi-lite0", ahb_hws,
-> >                         0x5c0, BIT(16), 0);
-> > ...
-> > static SUNXI_CCU_GATE_HWS(mbus_msi_lite0_clk, "mbus-msi-lite0", mbus_hw=
-s,
-> >                         0x5e0, BIT(29), 0);
->
-> While bringing up GMAC0 on the OrangePi 4 Pro with this v7 CCU series,
-> link-up and DMA broke as soon as clk_disable_unused() ran.
->
-> ahb-msi-lite0 (0x5c0, BIT(16)) and mbus-msi-lite0 (0x5e0, BIT(29)) gate
-> the shared MSI-Lite0 bus fabric used by GMAC0 and other masters, whereas
-> bus-msi-lite0 is only its register configuration clock. Referencing
-> ahb-msi-lite0 and mbus-msi-lite0 only in gmac0 does not model the
-> shared fabric, and gating them off breaks GMAC0 DMA.
->
-> Could you please mark ahb_msi_lite0_clk and mbus_msi_lite0_clk with
-> CLK_IS_CRITICAL, matching ahb_store_clk and mbus_store_clk in this
-> driver?
 
-The patches have been merged. Please send a fix on top.
-
-If in doubt, you can always check linux-next for patches you are tracking.
-
-> Tested on OrangePi 4 Pro (Allwinner A733).
+on 2026/11/25 22:31, Paolo Abeni wrote:
+> On 11/23/26 08:33, Jijie Shao wrote:
+>> on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
+>>>> @@ -4489,10 +4519,15 @@ int hns3_clean_rx_ring(struct 
+>>>> hns3_enet_ring *ring, int budget,
+>>>>        * FBD number with head pointer
+>>>>        */
+>>>>       if (unused_count > 0)
+>>>> -        failure = failure ||
+>>>> -              hns3_nic_alloc_rx_buffers(ring, unused_count);
+>>>> +        failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
+>>>> +
+>>>> +    if (unlikely(failure))
+>>>> +        hns3_ring_set_oom_state(ring);
+>>> [Severity: Medium]
+>>> Can rx_oom_cnt be incremented twice in a single NAPI poll here?
+>>>
+>>> The commit message says the counter is "incremented for each NAPI poll
+>>> that hits an RX allocation failure". When the fraglist napi_alloc_skb()
+>>> fails in hns3_add_frag(), the path looks like this:
+>>>
+>>> hns3_clean_rx_ring()
+>>>    hns3_handle_rx_bd()
+>>>      hns3_add_frag()
+>>>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ */
+>>>        return -ENXIO;
+>>>    goto out;
+>>>    failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
+>>>    if (unlikely(failure))
+>>>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ again */
+>>>
+>>> -ENXIO doesn't match the new err == -ENOMEM check. But failure can 
+>>> still
+>>> be true, either from a failed exit refill or from an earlier failed
+>>> in-loop refill. Under the memory pressure that caused the fraglist
+>>> failure, the refill is likely to fail too.
+>>>
+>>> hns3_ring_set_oom_state() has no per-poll dedup, so in this case the
+>>> counter goes up by two for one poll.
+>>
+>> The second increment only happens when a second allocation actually
+>> failed.  hns3_add_frag() counts its failed napi_alloc_skb() and returns
+>> -ENXIO, which doesn't set `failure`, so the exit refill still runs and
+>> bumps the counter again only if it fails too.  Two increments mean two
+>> failures.  I agree "for each NAPI poll" can read as at most once per
+>> poll, that's just imprecise wording.
+> I agree another repost is not needed here. However patch 1, 2 and 4
+> are net-next material and only patch 3 is borderline net material.
 >
-> Thanks,
-> Alastair
->
+> To avoid a repost and splitting, I would apply everything to net-next.
+
+
+Applying the whole series to net-next is fine with me
+
+Thanks,
+Jijie Shao
+
+
