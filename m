@@ -1,101 +1,70 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691060;
-	b=aErelq+UtBok5f8LH/EMnSlA2qmQ83VFJmz4Iq5DZuuYj424QSt4a9jOv4Kqg3S2Ufxu
-	 XRXAWYQ7F4qPyIJbFttZ6U/ApsraQnw2H+FDWGKTioFPnetYSg3TzgcWN4yT7oX7v4xjE
-	 a70IexT0+8t4ryeudVULrkti4/5as7l7G0Oiyj6d+4WMmAL3RfvDZK0HhbwQmGX+dVFlh
-	 qOHJBiu6x3CUS6UMlufaSVc5GFb1CiWrYMD2qDJXxkYZrQ2UgPYLCeu134KlLr3oS5CLQ
-	 CkM73uQJGiWnEE1HGFNTzZn0NizE6QXZtWrG3WgiTcF9X002m502YeMsANxrcP1zfBw==
+	t=1795691115;
+	b=XOa6nt6UeuyAWLpKJjB21wlBpUe+UyoI4PUOpRQxtE9gtjJZgSlATaCv1oZpffFzSewP
+	 k+QrEELUKcQ0qwP4dJxKAaQQ8Nh8ukeuJUFXUki7DrAF2EnXmP5w87/kgEErm8m5UsMfJ
+	 mXwgUpQpeIDa62MNif+GuwN2ZGmoG43PdI2PHfLj0X/K8XVg4BY4+W1Se3xhMAFMdSVWX
+	 1OMhhfBXHGl2ACIDoH90/aXUxiPhOHG2i/DJPlklir0GE/5/uCRIgBLK0J1r2rcyjHk14
+	 BxDRH1wwzCHKvtQoafpE58nPuoimT8ORx2DPT/FRR/OkdR1s+a1tpuZRb2gnnHW3FpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691060;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=4g8tXScGXzQfVP5JUp90iPpsGlXFkWs9bJKRigx4BaM=;
-	b=1rViEIVv56mhOfRcuFxVxHvwgcmnbqrKIj3q+Sj1Lpyc96X2n3gbc7bVtLTI1ZA/GCK9
-	 tDUnWXEhtnvVNTZjqLV/K9emr0HRgKSYxqj9epTIS40/2vpCiPFRdTq2tZKd7/NEHa1KV
-	 aNlgV7L8UTbwE1MjR1TA1VC2AkHhBiPr38BHM7fAGhXP5qc/qI0o0EsCDPueBdD5iN4E4
-	 kojN84qDuC602I/v6HAGkVy1/AyS885X0m3xLf+Tqjcjd94RVuwYN6c5VBD/14iSbLe5e
-	 pH3+/lOEPGN/uCpg92MGuM15sSHW1/N0GRTbjSQaS2Gs5MPVo8IWF1nb99k4G1APxuA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691115;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:In-Reply-To:References:User-Agent:Date:Message-ID:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=HFXWiHAkj1wetLgDRhC5nOLmwHP9VaiX8muRd2DNVr0=;
+	b=NHShAYLF+m9I+aJNYrLcpilgqrT6EDo7fQJHSgTT4xTJnyTX1/OuFXuUiaMDaZpAuh5i
+	 4cMHiWp/wWD9Q2TBV8Vm4Iw/cbwbNhGZnuHumIH0GPudhdZIX0QSlYmHSm3xbLxmB1x8p
+	 qF64ZnL0WnF176LGczj0YSTW9AV9LH8qDCWZXE7azSZz8MP7zl09pgNRGbVBA+9HUQUBP
+	 f61f0PGZ/oN7kze0QUUiAEmpW8M/kWMqGYVgjJQYqcWGmzZqwdhTJJ6vdRvdwJGqBIEq3
+	 fwxstZAYB+DEsxg9Nyp1Tegs2u3tfR3fFLyCERp70w4001CsiB7/Nm/wfZjUyDwz3HQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="zulk0/U8";
-	arc=none smtp.remote-ip=209.85.214.175
-Received: from mail-pl1-f175.google.com (mail-pl1-f175.google.com [209.85.214.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srQDhuHh;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 278EB606A31E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:04:20 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 278EB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDB7C606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:05:14 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CDB7C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zulk0/U8
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2f02ee04378so54682685ad.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:04:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795691059; x=1796295859; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=4g8tXScGXzQfVP5JUp90iPpsGlXFkWs9bJKRigx4BaM=;
-        b=zulk0/U85+Hfyu1Xfyup6GZ3a15nISHQU5tQZZnVxTCtdLkZ+VEh3jwZ16PDHSX3J8
-         MGqIFqZrsObMMLeF1Bb2OkxacOV5CsH/iwm0Jb2E84ILHJXv6qZ/HjNTuvdX/yDmmfBk
-         JUx+F/RfEoBa0L2ztexdyKL+pmaumyKSQGtycecFJLMGBH4ND7ed+5OLr0AsS57lKheS
-         XgO7wniphQzxesk/tsBZQ8NqxK/c5nd68Vf4F0JV+BMArGl0miEsSSmxglKVnTR5E9Z7
-         YGURNwKqlhBob2WsKdI7aKVNn+O6iJK9XumJOXtSo0PHeGY2u5bCweHzd+joMc7jFJKs
-         Z4Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795691059; x=1796295859;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=4g8tXScGXzQfVP5JUp90iPpsGlXFkWs9bJKRigx4BaM=;
-        b=avTYsJVd+OxkP9G+mbbYrrEi5ev6OrrnY2Cjwu/Kt8IWwaSYA5V9CtIlW7Nnmo+kPn
-         S+OP6txD16juNLoi+LMpe2IxFfvMy8tTkG5KONA+tlWZvc3UAP8pYEJCdm0A/Dvrf+0O
-         jNsG0qbJGoxNAtTEJTcBouS/f6ZlCiUbC8jsk5mK0KWL7CyYuRhNgi8A4GwO2ZdZn2LH
-         +M+XHvQL4Fnjrl9e4GOA8v2kDLjzgUjba0R3BAdjzR2I7EgNhm2muDUB9h4IqhS5BFSs
-         bvxdcRX8GGzdSO2QCP3xKfrZAD0PL0qrNlzJTljHMPsIeZV4s2Mb1cSOhtHde+lNsHZS
-         NwTw==
-X-Gm-Message-State: APuU4Z8wEiJHcknI4sdNtoMS/oahLdl298g+9OstVomxCWasrwGt3mj7
-	h+bk4Y12P9AP1QIEHh+O3y117jXgXgSzQ6lpK3QjjfWMwT99OLe74cyN+tBcEXps
-X-Gm-Gg: AZFdTZddo7wan6mcfbAvE27hctN+Qf+9J3uNu4eHpQw3rJSPWdO//g1pI5yxMX/JI4a
-	/DVcWRR+p/NvOgdRpdTDF/zuf8mu1eOmM6+l1VHNDMbRpZS+O7JuyVvFB/eup2aunJx0X0D+CBR
-	hz5iSC7LSKyAaXpgKJjdIDZ7W6JLCwy9a7tuY+jLclKomLKalYBHw52Zk436d7tKHFPwI1e2ZEZ
-	sJXw9/Xu9WeZf+KoJ4/iONxxBO7MNEyyUm5DbwB/f6VJa5v7edfQiU5GWpCOCUREKD7bLGYOFL/
-	JXrIWofTZ0Ex1lP9ZW7SI1ENk35byMtqQc4H02eClH3Hj8t8taMyycGwIWJcgwXlEWc5S5j0o67
-	r6bQnkocavQDBcPH29TC6yQ7vxLUkUUV7qGUP772duNKQGHRgyjw60vBtvKusOfN46AMvMZEq3w
-	HJIGT5eU9djlGTh+sy51Z9famGX4mVL3DXKRGmHNohp9sA6JpthLeHDCETwv2UpLhGoUXjE9LWW
-	W46qMkwZimZ1lzn2JMf15QKuQ4Rg/pLO0yqKLcNAhT72Q9xMRK1INjqx6NeyWbCxHl0ck5drUZR
-	Ggv5qhT1jkD0nFhRPFKK4rdt+FzygE29MCx1Z2XLqAxLSz2HMBd7xEoTduqvDos2bGdELsPq9sP
-	08w==
-X-Received: by 2002:a17:902:db11:b0:2ef:eb06:387 with SMTP id d9443c01a7336-2f03f246dc5mr219198225ad.47.1795691059376;
-        Thu, 26 Nov 2026 03:04:19 -0800 (PST)
-Received: from d.home.yangfl.dn42 ([2a09:bac5:661d:3050::4d0:7d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a74sm104525725ad.12.2026.11.26.03.04.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:04:19 -0800 (PST)
-From: David Yang <mmyangfl@gmail.com>
-To: netdev@vger.kernel.org
-Cc: David Yang <mmyangfl@gmail.com>,
-	Jian Shen <shenjian15@huawei.com>,
-	Jijie Shao <shaojijie@huawei.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Zhangfei Gao <zhangfei.gao@linaro.org>,
-	Dongpo Li <lidongpo@hisilicon.com>
-Subject: [PATCH net 3/3] net: hix5hd2_gmac: keep TX/RX queues alive across a close
-Date: Thu, 26 Nov 2026 19:03:05 +0800
-Message-ID: <20261126110310.344521-4-mmyangfl@gmail.com>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261126110310.344521-1-mmyangfl@gmail.com>
-References: <20261126110310.344521-1-mmyangfl@gmail.com>
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=srQDhuHh
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 757B0C2B9C7;
+	Thu, 26 Nov 2026 11:05:21 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 181C960237;
+	Thu, 26 Nov 2026 11:05:13 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id D46E011E6B363;
+	Thu, 26 Nov 2026 12:05:10 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795691112; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=HFXWiHAkj1wetLgDRhC5nOLmwHP9VaiX8muRd2DNVr0=;
+	b=srQDhuHh3/St5JIqeUCZsPEPot46UAXyf1g0XXjWn6KPDCW2hNOcFBdSyxkkvIOLJtlGLo
+	1phyIDZTF/MxOUg31RFM29QT2zQrcBw0J1X1ghIoVYzDVxXm2vuqQtpSwTxBFRCuuIwRDu
+	LqTmK1pKiTxMbI2hyRcKyqRes6evzVE7eXQ7vweTt+4Y9VQ/eltvIyWcNVQenD52exccHi
+	4BlxZ++n1NnnsTc+6SUo7fJofsQZjbDzUbayLBHhQdxoV8svAbyj6TJxASgw4NaimwfXNf
+	kvzzyL+8Y8zjxoziWHtqGRL0l9UPZuPHNb2qLoKkuXXezNMZxswHs7I5IvLbtg==
+From: Miquel Raynal <miquel.raynal@bootlin.com>
+To: =?utf-8?B?7J206rG07ZiV?= <leegun25@proton.me>
+Cc: alex.aring@gmail.com,  stefan@datenfreihafen.org,
+  linux-wpan@vger.kernel.org,  netdev@vger.kernel.org
+Subject: Re: [PATCH net] mac802154: take RTNL around ASSOC RESP transmission
+In-Reply-To: <-4vARCf0AvznsCw8bnUA-0HXh6HLIvZclkIK_aUJIf4ULKof8WuzgWidE8XZJi5Cndbt9iMVb_IiHNVA4W6GDQlym0Ny8mSRaxRCojci95o=@proton.me>
+	(=?utf-8?B?IuydtOqxtO2YlSIncw==?= message of "Wed, 25 Nov 2026 22:35:11
+ +0000")
+References: <20261121150835.256812-1-leegun25@proton.me>
+	<87se0qqd5l.fsf@bootlin.com>
+	<-4vARCf0AvznsCw8bnUA-0HXh6HLIvZclkIK_aUJIf4ULKof8WuzgWidE8XZJi5Cndbt9iMVb_IiHNVA4W6GDQlym0Ny8mSRaxRCojci95o=@proton.me>
+User-Agent: mu4e 1.12.12; emacs 30.2
+Date: Thu, 26 Nov 2026 12:05:09 +0100
+Message-ID: <8733snyhsq.fsf@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,93 +74,66 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+X-Last-TLS-Session-Version: TLSv1.3
 
-hix5hd2_net_close() frees the buffers while the block still holds
-prefetched descriptors. On Hi3716cv200 the descriptors consumed at the
-next open carried the previous session's stamps and the received frames
-came up as slab garbage, indicating possible memory corruption.
+On 25/11/2026 at 22:35:11 GMT, =EC=9D=B4=EA=B1=B4=ED=98=95 <leegun25@proton=
+.me> wrote:
 
-Do not release the buffers at close; keep them until the device goes
-away. The sibling hisi_femac had the same defect, and was fixed by
-commit d54b21d82430 ("net: hisilicon: hisi_femac: Stop the receiver
-before releasing the RX ring"), which resets the port before freeing
-its ring. This one, however, has no equivalent: the interface reset
-leaves the prefetched descriptors in place, and the reset that clears
-the queue state also resets the switch-fabric port the MAC feeds, so
-neither can serve to quiesce the block before a free.
+> Hi Miqu=C3=A8l,
+>
+> On Wednesday, November 25th, 2026 at 03:48, Miquel Raynal <miquel.raynal@=
+bootlin.com> wrote:
+>
+>> First let's approach the numbers. 4ms is on a locally run simulator. You
+>> are fixing a subsystem that plays with radios. A physical IEEE802154
+>> radio would probably bring the usual bad case to > 100ms, and worth case
+>> would be above the 1s boundary. So taking the RTNL lock as you do it
+>> there would no longer warn in dev mode, but might lead to a DoS.
+>
+> Thanks for pointing this out. I also found that taking the RTNL in
+> the association response worker causes association between two PHYs
+> on the same host to time out in hwsim.
+>
+>> Reviewing your patch makes me realize we do something even worse: up to
+>> 10s waiting with the RTNL when waiting for an association response (for
+>> which we are ouselves the initiator). That is slightly less a problem
+>> since it is not remotely triggerable like the approach you propose, but
+>> still.
+>>
+>> I don't remember why we *had* to take the RTNL in the mlme_tx path.
+>>
+>> Alex, maybe you remember why?
+>
+> Commit ddd9ee7cda12 added the RTNL to prevent ndo_stop() from running
+> during MLME TX.
+>
+> I also found your 2022 device_lock proposal:
+>
+> https://lore.kernel.org/netdev/20220826144049.256134-11-miquel.raynal@boo=
+tlin.com/
+>
+> I tried adding a per-PHY mutex shared by MLME TX, ndo_open() and
+> ndo_stop(). With this change, the association response worker uses
+> the new mutex without taking the RTNL. The existing MLME TX wrappers
+> retain their RTNL requirements.
+>
+> In mac802154_hwsim, association between two PHYs on the same host
+> works, and I saw no warnings or hangs during 5,000 association
+> requests and 100 interface down/up cycles.
+>
+> With an artificial TX delay of 1 second, bringing the interface
+> down still takes about 900 ms. ndo_stop() can still wait for an
+> in-flight association response TX while holding the RTNL.
+>
+> As Alex pointed out in the 2022 discussion, page/channel changes
+> also need to be considered. These are not covered by the new mutex.
+>
+> Would this be a reasonable direction for the fix? If so, I can send
+> a v2.
 
-With buffers retained across a close, completions of pre-close sends
-reach BQL only after the reopen, so drop netdev_reset_queue() from the
-open; resetting there would report completions of bytes it never
-counted.
+Yes please, let's see what it would look like.
 
-The release reads the scatter-gather descriptors as well as the hardware
-ones, so the hardware queues are destroyed before the SG queue.
-
-Fixes: 57c5bc9ad7d7 ("net: hisilicon: add hix5hd2 mac driver")
-Signed-off-by: David Yang <mmyangfl@gmail.com>
----
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
-
-diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-index 0d4701d1e173..0df31a2ec3ad 100644
---- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-+++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-@@ -860,7 +860,6 @@ static int hix5hd2_net_open(struct net_device *dev)
- 	hix5hd2_hw_init(priv);
- 	hix5hd2_rx_refill(priv);
- 
--	netdev_reset_queue(dev);
- 	netif_start_queue(dev);
- 	napi_enable(&priv->napi);
- 
-@@ -878,7 +877,9 @@ static int hix5hd2_net_close(struct net_device *dev)
- 	hix5hd2_irq_disable(priv);
- 	napi_disable(&priv->napi);
- 	netif_stop_queue(dev);
--	hix5hd2_free_dma_desc_rings(priv);
-+	/* the buffers stay owned across the close; both rings are released
-+	 * with the queues when the device goes away
-+	 */
- 
- 	if (dev->phydev) {
- 		phy_stop(dev->phydev);
-@@ -990,6 +991,9 @@ static void hix5hd2_destroy_hw_desc_queue(struct hix5hd2_priv *priv)
- {
- 	int i;
- 
-+	/* the buffers survive a close: release them with the rings */
-+	hix5hd2_free_dma_desc_rings(priv);
-+
- 	for (i = 0; i < QUEUE_NUMS; i++) {
- 		if (priv->pool[i].desc) {
- 			dma_free_coherent(priv->dev, priv->pool[i].size,
-@@ -1268,10 +1272,10 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 	return ret;
- 
- out_destroy_queue:
--	if (HAS_CAP_TSO(priv->hw_cap))
--		hix5hd2_destroy_sg_desc_queue(priv);
- 	netif_napi_del(&priv->napi);
- 	hix5hd2_destroy_hw_desc_queue(priv);
-+	if (HAS_CAP_TSO(priv->hw_cap))
-+		hix5hd2_destroy_sg_desc_queue(priv);
- out_phy_node:
- 	of_node_put(priv->phy_node);
- err_mdiobus:
-@@ -1298,9 +1302,9 @@ static void hix5hd2_dev_remove(struct platform_device *pdev)
- 	mdiobus_unregister(priv->bus);
- 	mdiobus_free(priv->bus);
- 
-+	hix5hd2_destroy_hw_desc_queue(priv);
- 	if (HAS_CAP_TSO(priv->hw_cap))
- 		hix5hd2_destroy_sg_desc_queue(priv);
--	hix5hd2_destroy_hw_desc_queue(priv);
- 	of_node_put(priv->phy_node);
- 	free_netdev(ndev);
- }
--- 
-2.53.0
-
+Thanks,
+Miqu=C3=A8l
