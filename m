@@ -1,107 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.40
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795710714;
-	b=ikLLkk7WBmeSD7et0NjkGRUY/X7GfLSZSzw6wzH6kudhaWzZWhG4cmaO3MT9l1cm2Gtx
-	 7U2OFhFZjEFihQgfA5xhsC5j+NfFmBk1V2uZIG/lvN/VWEn0izAuSJzVJBrSw8vXKpeep
-	 +ttC36+rvsNYkvm69P3nDFU6+nKKJHt0CQlgG8TiHkjROWEZnsW/ZkY+4LIzBN7YTG5XO
-	 Vp3K/vgAhoiQjHa38xaXBqfjx7sS2gKSjOkYROD9vxqROqqbDINGslAZIaQvPuSCHjFoR
-	 oFLkOBsiCOr5JMUjh6OLD2OwwONz4mC+lVIzCns4gyET7GV91paBOfbdbuKE1JORnPg==
+	t=1795710750;
+	b=5L74KsBGmiwJjGtQ8z0bGr1xAlOrZbkHdV9ErYr3Nf75Ue3MyBM9i73M3hxHwtaRAX3B
+	 FSvgkaoiobzlYFN6KXHP/d+VSjOH0w9WpDAQZuSs0oS4JYrF4rSfMA9BxPZ5C6u3T6zFW
+	 WswrhXQPh3hBdBaqWs70/34Dv2ef00x5FHl4Tgb8pEi0QiGBA9NNpeR+VED6aP3EMxnbu
+	 Yqz0ezGelfxjVUtGNpp2EhlO4KuOIYzz08q3lINl7weFKq5kmO2UtpPhJHniUUdtA6D1/
+	 qWk0L6W/DZ2OIbKtif8ESC9l87Bze/OLahkhksXL7V5THWz0Zqalb6j5V5dsmN10SMg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795710714;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=t9zuf6AtiZX3yOJGNCRqBvoPw6Ll8AmPwZKNUXFPImg=;
-	b=vksPRkTBj+CI7B+Zi4zXwhj03k1SvODnWuPpiCXP/ck7Sxc7QLXcPLSUL+y/hq3y92Ab
-	 ci39p1JtA2MhI0ymVQQn5xxPX18Xdg2buNq/V18K1moz7dsg/EDMGCuBxC3tgtxDGG0Xo
-	 7WhiFtUoQB0rRav24EYclhsCJ+G3boQznT5qFXn1HU3vbWKZNShCU5i1/BFJi8D9MO/dm
-	 ZeHLAdvnLhZ2IUXYR37WrYD8uZRwyimJPxbHb8gN5LHgRm2QtbzunHHB0Bvr0evFgoDvK
-	 JqmYVSg0ZrVCutfSn69dLcIAGxQgxXcCOW3Pehtv/DLThEaZejj5fAxCafSnChRiY7g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795710750;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=et1ZT7h51+8tWjs/YhcQm47JpYp2mp8eeYsMlD1FRhA=;
+	b=bxDsXSBtHgXgu2xv+tmiCnThsESKXubARljMyGl36V1poeURtWmgpZjkLPilFf+iUpXb
+	 tCi6B/1tRhmKKQgThN1Sa7IUPTLHkVMg57RoSRRhAtAH2nmG+VuVVofvT7K/U9IHKu6uD
+	 LnctdH2L3kXdVJebR6pCIUfKOGyS5mrEY+hmEPTeRwLKq/LnZzj1o3P59U+Y1ncEYPLVE
+	 E/Ga7P9lhLcJZeSw3hLK6OzE5YF/NbPxpvL5+nsCmT8zKlcKvEHaQ6LaDhXXGKXXZlCh2
+	 ir0MUBS4A0PvttpPsZ8Vbfx5v64q/RrhqqPxGfN5klfK/8pfIO2eZxWWqc1D9b1CcZw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FNXITSxk;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="slA4/mwR";
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=YKargoDC;
+	arc=none smtp.remote-ip=195.10.208.40
+Received: from mout-b-210.mailbox.org (mout-b-210.mailbox.org [195.10.208.40])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CE0360A2619
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:31:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CE0360A2619
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DF4E0606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:32:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DF4E0606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FNXITSxk;
-	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=slA4/mwR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795710712;
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=YKargoDC
+Received: from smtp1.mailbox.org (smtp1.mailbox.org [IPv6:2001:67c:2050:b231:465::1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-210.mailbox.org (Postfix) with ESMTPS id 4jb2Bw6vhnzFq8X;
+	Thu, 26 Nov 2026 17:32:24 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795710745;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=t9zuf6AtiZX3yOJGNCRqBvoPw6Ll8AmPwZKNUXFPImg=;
-	b=FNXITSxke5jsILp5WcRxckJFkbtVo8niQpqKers6+xbfFFj//VOVmBiOMlXxs8FgcuhwHe
-	rBNuNJU8C8eBS/wh8RQdG13ovQCu40zWp2re/c8ueCPboTeytt2ntqs6ptN90PzARCTB6S
-	ONVCEF0Xc6Zer3p3wKgUStFxM4J7jH4=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-590-3Z_XyavDN3Gy43_uot4fCQ-1; Thu, 26 Nov 2026 16:31:50 +0000
-X-MC-Unique: 3Z_XyavDN3Gy43_uot4fCQ-1
-X-Mimecast-MFC-AGG-ID: 3Z_XyavDN3Gy43_uot4fCQ_1795710709
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a359c7f47bso59692665e9.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:31:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795710709; x=1796315509; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=t9zuf6AtiZX3yOJGNCRqBvoPw6Ll8AmPwZKNUXFPImg=;
-        b=slA4/mwRHgGh6eC4qPsg3ma9GBSUsqK+U3eisX/eHTTzuMe9UVW34SAZb2WQ4xwtDW
-         +eTlg4zzIEYgRhWv10nWv5x5T3JlI6QddpVrTkOJObIGF+K8LKMBDO7cnu3dPDJtPhQL
-         CZDUM2f0Iqxbpm2t6bylh2m331ykHT4Tqcmalk8GGBX/6ci0bI2FsiobISE1FCnytjJ3
-         ke1KQ10Q0OcxmAeL15nzspqgR4H+nY7OJmLIzmxbISwCUYA7foftptOIg9PyYcgafjz+
-         ozgEUJybOvgv250riBScj739LMHu9Tdm0zKV/z4jwY2nVJg/f1dzlcFk+PO2ga8zC1W8
-         wouA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795710709; x=1796315509;
-        h=content-transfer-encoding:content-type:in-reply-to:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=t9zuf6AtiZX3yOJGNCRqBvoPw6Ll8AmPwZKNUXFPImg=;
-        b=ZM3G0uDR9kMGVdRxDPtMiiIY5yD0ZBstkySYMdwiaIbZJsn5FUWsdLogO7I5vUT9gs
-         7IuYLibhxSdhQEPQk1UO6R9DX1OwPyNlEjlWmC9CkjCZUWJWp2qZhsPfNUM7saXrqArb
-         NuvbJh+9AdpYA3kI0UIq6YtfFUtF/galwZpVO+eHosYMaEt79yHSA3C5yTUEO03E+K4P
-         BwaVc0QkiKdcSnAR6QuMO0M0Ch4g8bi0kaZbc3KNJ4LlBMRNJdumlAslsvMqggsa1sT4
-         ar6TrHkEXa8ARUf8VXq9YhkSGHgikSS6I/K7u2/HOhiMdFLq2SFLSQm8zG3RGF4z4sks
-         hUSA==
-X-Gm-Message-State: APuU4Z+Tns2gb6vT4UWIYJCLBEswWKsIWjXDm/GNKjYdpV1cJM7vpt/9
-	R4Qq0NWSH9jknrCGAj81AqBo7GvAUG5WcW0k8Y4T6qf7dg6UELU1Mt8+FfTQRjp7Tj001ufsxr4
-	tw+pRzLWPngmV3gvbmfhZNUuN2tpsEDEWPARPtpwyc+1HXzgl66j9zRlD1Q==
-X-Gm-Gg: AZFdTZcdv8qRTpjLwGOC010/vSFekWY7ILB9/ZCOxm9UJh4QfmCo1TxAvDW4aHkzgRc
-	RWc0OuW/yi6+MPf+/SulKshgE/jJpcHfkdlRrEiFzNwWm8/tFtL1+i3nb9MkCKrN51DvW4ipPTj
-	BkE3KMrPdjVfhrzlxqX2fU6zxKWnkEo8O8GY026JBkWvD5P0RItoILPhiW3zk1Le4YdozK6fugC
-	VhFhjE6VZshkcQ1FcVRKlsr0oU19soRBHP//cAuGbix65Mekgg0cUDTCH1P/PTncCx1sfHIsX0E
-	4Q4zpjiN2S3g++Yikx/TpuZR5IyTTlYEwU67I0x68P07f5zgDI2QOlXSOtXvQBh/l+wouGPNZza
-	4vwhFEIHyX8/rJxvkdfv0UCjagb3OvSHHVYRo4XkLP/PJK2HNa9YEkc+KDUwlh7CMqGdQvQl53W
-	FAvTvnF1Ti8pf9MgirFZI7IKf9qzzMI7MqFQHJ96/tr7Uh
-X-Received: by 2002:a05:600c:6749:b0:4a2:1867:10e8 with SMTP id 5b1f17b1804b1-4bb8881a294mr421918735e9.25.1795710709175;
-        Thu, 26 Nov 2026 08:31:49 -0800 (PST)
-X-Received: by 2002:a05:600c:6749:b0:4a2:1867:10e8 with SMTP id 5b1f17b1804b1-4bb8881a294mr421918405e9.25.1795710708737;
-        Thu, 26 Nov 2026 08:31:48 -0800 (PST)
-Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b8b7888sm41448852f8f.42.2026.11.26.08.31.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 08:31:48 -0800 (PST)
-Message-ID: <72ec342e-18a9-4b40-ac3b-a20e4e9608a6@redhat.com>
-Date: Thu, 26 Nov 2026 17:31:46 +0100
+	bh=et1ZT7h51+8tWjs/YhcQm47JpYp2mp8eeYsMlD1FRhA=;
+	b=YKargoDC7XaLAcia5rtTt9qm61qUag6muuU7j4d5tW8leZ7k1NSpuI1l1uSreDUf8Au+p+
+	5Aa8XHx66ZoxIMRY9Ts6YBMcKdPqjulCvUY4cfvkVcatOycg3ZmXTQjm79nDXDOyOtGvhS
+	Y1o9fMEg6AJ2pA4Tac+3NUuXXXZdg0C+Q90hJX1ZnEAa/AqrOayDcZyvUFu35PTC3+aX1S
+	zcE4uj7OyjTfJlLhtqG/vHmGmWc6rhBDtq1iOwv2akIYYzHm3OvC/+lBCoQuQpYqd9h+Wd
+	UGWaznnjKKR5KzAlxZKpXZaEz4P7PnCccNA02WG3djzftOxlHet1LU+IvXO5yw==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::1 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
+From: Antonio Quartulli <antonio@mandelbit.com>
+To: netdev@vger.kernel.org
+Cc: Subash Abhinov Kasiviswanathan <subash.a.kasiviswanathan@oss.qualcomm.com>,
+	Sean Tranchetti <sean.tranchetti@oss.qualcomm.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Daniele Palmas <dnlplm@gmail.com>,
+	Taehee Yoo <ap420073@gmail.com>,
+	koen.vandeputte@citymesh.com,
+	Antonio Quartulli <antonio@mandelbit.com>
+Subject: [PATCH net 1/6] net: qualcomm: rmnet: recheck the aggregate after flushing it
+Date: Thu, 26 Nov 2026 17:32:14 +0100
+Message-ID: <20261126163219.1744750-2-antonio@mandelbit.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261126163219.1744750-1-antonio@mandelbit.com>
+References: <20261126163219.1744750-1-antonio@mandelbit.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -111,43 +82,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 4/4] net: skbuff: limit folio refcount when splicing
- from sockets
-To: "David Hildenbrand (Arm)" <david@kernel.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Simon Horman <horms@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>,
- Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>,
- Rik van Riel <riel@surriel.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- Pedro Falcato <pfalcato@suse.de>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, linux-mm@kvack.org,
- stable@vger.kernel.org
-References: <20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org>
- <20261118-skb_refcount_overflow-v1-4-5551b4954c3f@kernel.org>
- <14059088-7992-4d89-ac6c-1e6d1f61b3c8@redhat.com>
- <832f42a7-1d44-4138-a7f5-7cead4a28e57@kernel.org>
- <bcbb57bd-6447-4faa-a56c-9bdf1c7bc90a@redhat.com>
- <b36f40f0-3f9c-4ba6-8c1c-a76f99623944@kernel.org>
-Content-Language: en-US
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <b36f40f0-3f9c-4ba6-8c1c-a76f99623944@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jb2Bw6vhnzFq8X
 
-On 11/26/26 17:12, David Hildenbrand (Arm) wrote:
-> On 11/26/26 17:10, Paolo Abeni wrote:
->> I actually prefer what you suggest here more than the current patch.
->> I suspect Willem may have some other option avail, but he will
->> not back for a few days.
-> 
-> Okay, just let me now whenever you want a resend with the proposed changes. I
-> tested them a bit and they seem to get the job done as well.
-Please, go ahead.
+When an skb does not fit in the pending aggregate,
+rmnet_map_tx_aggregate() flushes it with agg_lock dropped, then jumps
+back past the skbagg_head check. rmnet vnds are lltx and can share a
+port, so another CPU may start an aggregate meanwhile: it is then
+overwritten and leaked along with the packets chained to it, or
+overtaken by a skb sent without aggregation.
 
-Thanks,
+Reproducer, with UDP sent through both vnds from several CPUs:
 
-Paolo
+  ip link add v0 mtu 9000 type veth peer name v1 mtu 9000
+  ip link set v0 up; ip link set v1 up
+  ip link add link v0 name rmnet1 type rmnet mux_id 1
+  ip link add link v0 name rmnet2 type rmnet mux_id 2
+  ethtool -C rmnet1 tx-aggr-max-frames 64 tx-aggr-max-bytes 4096 \
+          tx-aggr-time-usecs 2000
+
+The tx_bytes of rmnet1 and rmnet2 soon exceed those of v0, and kmemleak
+reports skbs allocated by skb_copy_expand() in rmnet_map_tx_aggregate().
+
+Move the label before the skbagg_head check.
+
+Fixes: 64b5d1f8f2d1 ("net: qualcomm: rmnet: add tx packets aggregation")
+Signed-off-by: Antonio Quartulli <antonio@mandelbit.com>
+---
+ drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c b/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
+index 39d6d084e73f..73b04fe386df 100644
+--- a/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
++++ b/drivers/net/ethernet/qualcomm/rmnet/rmnet_map_data.c
+@@ -600,11 +600,11 @@ unsigned int rmnet_map_tx_aggregate(struct sk_buff *skb, struct rmnet_port *port
+ 	memcpy(&last, &port->agg_last, sizeof(struct timespec64));
+ 	ktime_get_real_ts64(&port->agg_last);
+ 
++new_packet:
+ 	if (!port->skbagg_head) {
+ 		/* Check to see if we should agg first. If the traffic is very
+ 		 * sparse, don't aggregate.
+ 		 */
+-new_packet:
+ 		diff = timespec64_sub(port->agg_last, last);
+ 		size = port->egress_agg_params.bytes - skb->len;
+ 
+-- 
+2.56.1
 
