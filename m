@@ -1,86 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681260;
-	b=tcaoZTJOfWQbae7AYjocWcDQnZEWb8oRhg+maWR43wXAS7G1RJjUlKQs2Y5ljznIjvc7
-	 RlFAoIl9mLPPsvKCNwXgx0q1sRxtQ13ZiuuKY9bBrNqjcOBXxPQuhdoycLjSOX33hAT18
-	 XoJKOYubfxvpcceNL0ghzMd0yTDw6JXkYPNVPkl0f1rd1C3Pyn7b9KyPuHnznkSVP6/Uh
-	 064jeyBb27r60WDkM9jfWTiLFX5r8Yseb0hVJp+2cSGnxBlN86FRhzyNYlP2n0QwtHN6t
-	 dnAU1DBTQf3pO3Dw6tR2niWVHblJ3DELXeeTWJITHAxloYXrJZupf/tI9eYdfYyCgxQ==
+	t=1795681328;
+	b=L/wB+veZCytprEaVYy7gSws50QhRx1pjEG8GvoGCiML3r7P8YmTwPmODZhhrLQ0LS8WV
+	 Wft5tiK9ZFLIa6UlkOl0BXAvqNEc7YxIuIkjM1D1NiAfganKWwlG9RYdE7yJXeXg8kFPP
+	 BXH+/kem3HGkVx1t1IteDTfYilvFc18flOxHqBvotoLNrsHKrA6QY7McAKtfDo7m0jnEn
+	 u1ofh0O787jGocIPaM39LUY+d2TD4WZAK/OCJpQxQd/A2LwG4Hdr1hP3YeDEjLqpckb9L
+	 Dfwqewjm3ja7gGABbjnlYsh5i1MyXVjGNvWkLjFbGTmwGThw9qgal2A4Ga+VY/dWsNg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681260;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-	b=3pEDQc0jHdbjegPUGD5BvWIFRcTjC6RGbVhwmWjsFRB203EyXQhRHmMgoZHv/7J59xeG
-	 2rYvGYrxIGLEpRuiuvLJv1VV4jyVMH3/CEBFm1WNz+7WGj2OD50L34NYvd0s8RtEvSYPV
-	 WmfoDQkQoS3WGoKlmQ7K3nOtjzKvlO23zQIayMRMLTBUJPf5aOeFmqX7ckvtyFk5+3WTM
-	 oQVMDEgffmugNnYrnSwWjlTsuXO1xOlQp9bwLHClzA9lmk3MOh06s1wGOsrDLtEDdtLfr
-	 bNN53wWvojADIaVdOdjLjxPqMuNMJoKRp112dtaB6im/D3FzqKD+TzULE+VWAcgUjJA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681328;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-CM-TRANSID:X-Coremail-Antispam:
+	 X-CM-SenderInfo;
+	bh=FmikAp2+qSipaQtzAupGaAipdwzh2wlO7XfeF8y0Ows=;
+	b=OGs2g8hwkCyNX5mwEJCxkjYAjxSXiZh4A5JbQqefUyoowd/h56KMUAzYqx+9GBargfaj
+	 ZTK4CY2vWkoJ7lgVIsUk5eSgC4EbWJAha9TvNtEwqoTRJp8tZ00Vx2Upa0m8Lm+K3ZR1P
+	 pWlitHW5oMWmZd9GQLW76VFXBKkFcMMJTFfJNpytcjnNfG2cVgA+odgEkLOpoctkL0Fi6
+	 P+QENkECpm8JyGogqaW1Z/SjXYDcB1JMX71dnk5eYAk4dig6iYSpyTeCb/oC3mKhdwVzW
+	 CjKXqXoUetCTX3tLktdzvgvAGrjiI5dYutEhF/PrYQsJkf5IVejdSX1ERHJQvEWp9rQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl;
-	arc=none smtp.remote-ip=209.85.216.50
-Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E699B606A33B
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:20:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E699B606A33B
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b405d8f1cfso3403880a91.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:20:59 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6089B606A337;
+	Thu, 26 Nov 2026 08:22:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6089B606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795681259; x=1796286059; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-        b=KxxYqGElOq5lW5A+bS0tALx/oAwqgEL/9qSYCKn911jBtH9pbkiCvxaJdT0v3oGq3y
-         JpIDQ7J47l4wGfqo1POzNlMjh9XpzAUNYJpVCzlRnT5nG7iXcLCu/Vz/xbP39rJmUjLt
-         WQC83CX4eLHB2JEgZ0wi+5j1ZG8zU1CJgHbFq04jnxvORYhdDk6lpQhmqdt/OrJT3bol
-         vzwnv0GVfY8TAvewFH10/FOXMcP10wcGVmiAR8F+BjDVEGeRy8FMuadMM16AkunvxQ1M
-         YlvqpRwapZin13rZ0jJ/1a7Gm+j+6MxvgrjXxvZOrLfyzekjgBU7IZAvBgpb1TGV6Yst
-         WZiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795681259; x=1796286059;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
-        b=rERe9Ed/3hunmJ+gt8euF4jBoffuhGsoa3vsRET59lNaGNrXiLW5j423914HJ5CBwr
-         frFHma+e5fj+VbZITZF0VCP7DvoK6POw5jVH1BRBkWxa+h2omgcaUX8umcEgcN/FtE8w
-         zlmD/72xtLg91Bw+XDJTUhd8TvD0vEcLlTVMpZ0/iIfrco1dwZA6O2eo0mE6prSghe+x
-         dOZoJuq1fEVkUFcBS3d61Y/80LMILbaF8ZJehJAcd5510+06IfnGYEy8uITMXEBqCwMg
-         vTidw9weYk30Y9GI3kAXbs3M4xzW6LHDEieenB7/jDCwuXRqzGCwWqQyDFewhWUbgzeE
-         3UgA==
-X-Forwarded-Encrypted: i=1; AL+hErHHaBzg/eLKXGJdgrbjarz0E5GF1wyQ+DnJS+ZmOWTh42aduIWppjtIv26JZ0W/2uOzBRegzxg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/xbMnF/5GR2C4vSky+3InLhAepBWg+7GH/k/2pOQh7J1GgCIHo
-	2DxKFRVpNexnXXpyF76klBoVDsCbD2/UPt3pMXh5ypjKpOFfklbVt+Z8
-X-Gm-Gg: AZFdTZctcQo++VGRgTvh9A110An733fFZKxTd1IyD6WQXih57MgGSxfM0n5oE5Zb44x
-	5s14hNu9i6wBRIBRzronUB7jI3ZNupLWvFhQiF3PhSR5oxb7pxGNPiov5Q/mExcWEPmAan6mRMs
-	m8mJlCKOWxFxlf4pVxddjJacWblTM+wxqd7QEIwtOwdiktnZXw7ltgfrxPy/VwJmfDELwrtYpgs
-	zI2AbyxxxrTZqS7vvt1bu6jmVdNNGJeiv8uFisCUvtNr6H6NI1Gk0USsKsRyBHzc4IxrAAZkxWl
-	thcOSiUGQ8pI0oqko0vK8jEtdZfBDIZ2GQ9GZMlW+z3diuTsNYGKW8wq9zCfiKobm2b+gDjkCjL
-	D6tVvu7RZ9CafbW6Q218/ypysZhhPmJ3lFCeGvc1ZFObzX7PETbf1BHRSgkrXf1NRNuDXgOBgeY
-	hsZIPyg+SUhGuniTug55t0wDJP7CTy349dL/kMVjLOvCoBbOMmbpDj91ftN51G03/sR/wAbCtDx
-	68cXJDmcjg7fNmYYf22dB7wSDeklR5XXEDUe+ipBcCk22RecNhQYlvk7PACYljdfRe+EaPXCYg8
-	x0kYohOvD/s7f0QzYfw5iaTiwPRjIlxjcOnGFeyC1IRzy/anx79CB4J640+K
-X-Received: by 2002:a17:90b:3f0f:b0:3b0:934c:5e41 with SMTP id 98e67ed59e1d1-3b41c9080e7mr24217936a91.29.1795681258845;
-        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
-Received: from [192.168.255.10] ([43.132.141.21])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm30537371a91.7.2026.11.26.00.20.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
-Message-ID: <5b2703a3-ae4f-431e-bf4e-d44348654913@gmail.com>
-Date: Thu, 26 Nov 2026 16:20:55 +0800
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:In-Reply-To:References:MIME-Version:Content-Type:
+	Content-Transfer-Encoding; bh=FmikAp2+qSipaQtzAupGaAipdwzh2wlO7X
+	feF8y0Ows=; b=ZhkdlZ5jSMyjBAAWc+ZccNR6LIwwWKa1eTDCtK+UNMFcSrL+hk
+	0JaMk2b//3M6fFt/jFtVd0oFe/OY88Q7MxRqBKq+cGthmlKxPeoZBO49985GwvQA
+	BPUDIYTsIRCUfaShGKnoAtJ0/sD5xD6zVgxU0mcTNp8J8l98APp4NlZ5o=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.43])
+	by hzbj-edu-front-2.icoremail.net (Coremail) with UTF8SMTPA id BLQMCkCm6wAZ7Adrf+JAAg--.50063S2;
+	Thu, 26 Nov 2026 16:21:46 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Simon Horman <horms@kernel.org>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: Re: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
+Date: Thu, 26 Nov 2026 16:21:44 +0800
+Message-Id: <20261126082144.3295-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <366216bc-ccc3-4547-8587-87cdf35f552f@lunn.ch>
+References: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn> <366216bc-ccc3-4547-8587-87cdf35f552f@lunn.ch>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -90,165 +65,60 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v2] bonding: unbind 802.3ad slaves on enslave failure
-To: Nikolay Aleksandrov <razor@blackwall.org>, jv@jvosburgh.net,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, sfeldma@cumulusnetworks.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org
-Cc: Lin Jiapeng <jiapenglin@tencent.com>,
- TencentOS Corvus AI <corvus@tencent.com>
-References: <20261124024319.52145-1-ljp1205831794@gmail.com>
- <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
-From: Lin Jiapeng <ljp1205831794@gmail.com>
-In-Reply-To: <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BLQMCkCm6wAZ7Adrf+JAAg--.50063S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uFyUuF1rKr4UGw1DAFyfXrb_yoW8XFWkpF
+	WYga4xC3Z0kFykAr12ka1rA34rAwsxXa43Cay8Aw15Ar15Zr1YgFWfta42g345Gw4vqw45
+	tayYqFWSkws0kaUanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUB0b7Iv0xC_KF4lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1j6r
+	18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFyl42xK82IYc2Ij64
+	vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8G
+	jcxK67AKxVWUGVWUWwC2zVAF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2I
+	x0cI8IcVAFwI0_Jr0_JF4lIxAIcVC0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK
+	8VAvwI8IcIk0rVWUJVWUCwCI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I
+	0E14v26r4j6r4UJbIYCTnIWIevJa73UjIFyTuYvjxU2vPfDUUUU
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sG+dmttgABsV
 
+On Thu, Nov 26, 2026 at 03:58:03AM +0100, Andrew Lunn wrote:
+> Your commit message is focusing on USB too much.  Very few Ethernet
+> drivers are USB.  Since you are modifying the core, you should make the
+> commit message generic.
 
+Agreed, v3 describes the ethtool side instead of the USB stack.
 
-On 2026-11-25 3:14 p.m., Nikolay Aleksandrov wrote:
-> On 24/11/2026 04:41, Lin Jiapeng wrote:
->> From: Lin Jiapeng <jiapenglin@tencent.com>
->>
->> The 802.3ad enslave path binds a slave before publishing it in the bond's
->> slave list. The periodic state machine can select the port and attach 
->> it to
->> a LAG while enslavement is in progress, including while 
->> NETDEV_CHANGEUPPER
->> notifiers are running.
->>
->> If enslavement fails, rollback can free ad_slave_info without 
->> unbinding its
->> port and leave later LAG processing with a dangling pointer. This affects
->> both a failed upper-link notification and later failures such as
->> bond_sysfs_slave_add(). A test-only kretprobe forces the latter to return
->> -ENOMEM, after which KASAN reports:
->>       BUG: KASAN: slab-use-after-free in 
->> ad_agg_selection_logic+0x1a0d/0x1fa0
->>       Read of size 1 by task kworker/u16:0/13
->>       Freed by task 110:
->>         kfree
->>         slave_kobj_release
->>         kobject_put
->>         bond_enslave
->>
->> Drain the RX handler before unbinding so receive handlers cannot race 
->> with
->> port->slave becoming NULL. Unbind before upper unlink when the link 
->> exists,
->> and also unbind after an upper-link failure without repeating the unlink.
->> Rebuild the slave array after aggregator changes and leave earlier
->> unpublished failures unchanged.
->>
->> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave 
->> devices.")
->> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
->> Link: https://lore.kernel.org/netdev/20261113130454.63032-1- 
->> ljp1205831794@gmail.com/
->> ---
->> v1 -> v2:
->>    - Drain the RX handler before unbinding to avoid NULL dereferences 
->> in the
->>      802.3ad receive path.
->>    - Cover NETDEV_CHANGEUPPER failure after transient upper-link 
->> publication,
->>      without repeating upper-dev unlink.
->>    - Rebuild the 802.3ad slave array after rollback.
->>
->>   drivers/net/bonding/bond_main.c | 11 +++++++++++
->>   1 file changed, 11 insertions(+)
->>
->> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/ 
->> bond_main.c
->> index e9f5e753f677..7ca948bb27d0 100644
->> --- a/drivers/net/bonding/bond_main.c
->> +++ b/drivers/net/bonding/bond_main.c
->> @@ -2355,10 +2355,21 @@ int bond_enslave(struct net_device *bond_dev, 
->> struct net_device *slave_dev,
->>       bond_sysfs_slave_del(new_slave);
->>   err_upper_unlink:
->> +    netdev_rx_handler_unregister(slave_dev);
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
->> +        bond_3ad_unbind_slave(new_slave);
->>       bond_upper_dev_unlink(bond, new_slave);
->> +    goto err_update_slave_arr;
->>   err_unregister:
->>       netdev_rx_handler_unregister(slave_dev);
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
->> +        bond_3ad_unbind_slave(new_slave);
->> +
->> +err_update_slave_arr:
->> +    if (BOND_MODE(bond) == BOND_MODE_8023AD &&
->> +        bond_update_slave_arr(bond, new_slave))
->> +        bond_slave_arr_work_rearm(bond, 0);
->>   err_detach:
->>       vlan_vids_del_by_dev(slave_dev, bond_dev);
->>
->> base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
-> 
-> This looks awful jumping around error labels and doing the same thing
-> at different places. Surely you could rearrange them better, maybe
-> something like this (untested, needs proper review):
-> --- a/drivers/net/bonding/bond_main.c
->    +++ b/drivers/net/bonding/bond_main.c
->    @@ -1888,10 +1888,11 @@
->     int bond_enslave(struct net_device *bond_dev, struct net_device 
-> *slave_dev,
->                   struct netlink_ext_ack *extack)
->     {
->    +     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
->          struct bonding *bond = netdev_priv(bond_dev);
->    -     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
->          struct slave *new_slave = NULL, *prev_slave;
->          struct sockaddr_storage ss;
->    +     bool upper_linked = false;
->          int res = 0, i;
-> 
->          if (slave_dev->type == ARPHRD_CAN ||
->    @@ -2246,13 +2247,14 @@
->                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
-> bond_master_upper_dev_link\n", res);
->                  goto err_unregister;
->          }
->    +     upper_linked = true;
-> 
->          bond_lower_state_changed(new_slave);
-> 
->          res = bond_sysfs_slave_add(new_slave);
->          if (res) {
->                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
-> bond_sysfs_slave_add\n", res);
->    -             goto err_upper_unlink;
->    +             goto err_unregister;
->          }
-> 
->          /* If the mode uses primary, then the following is handled by
->    @@ -2357,11 +2359,15 @@
->     err_sysfs_del:
->          bond_sysfs_slave_del(new_slave);
-> 
->    -err_upper_unlink:
->    -     bond_upper_dev_unlink(bond, new_slave);
->    -
->     err_unregister:
->          netdev_rx_handler_unregister(slave_dev);
->    +     if (BOND_MODE(bond) == BOND_MODE_8023AD) {
->    +             bond_3ad_unbind_slave(new_slave);
->    +             if (bond_update_slave_arr(bond, new_slave))
->    +                     bond_slave_arr_work_rearm(bond, 0);
->    +     }
->    +     if (upper_linked)
->    +             bond_upper_dev_unlink(bond, new_slave);
-> 
->     err_detach:
->          vlan_vids_del_by_dev(slave_dev, bond_dev);
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+>
+> Who does this bother?
 
-Thanks a lot for the suggestions. I have adopted your suggested 
-structure in v3: the err_upper_unlink label is
-gone and the rollback is a single err_unregister block gated by
-upper_linked. On top of that, v3 includes a few changes based on the
-pw-bot review of v2, mainly binding the 802.3ad port only after the
-upper link has been established and re-evaluating the carrier in the
-rollback path.
+The zero-length request itself is harmless, but it now trips the
+direction check in the USB core and, in setups with panic_on_warn, turns
+a privileged ETHTOOL_GREGS call into a kernel panic.  That is the same
+class of issue as the plusb fix (CVE-2023-52742), which also carried a
+Fixes tag and a stable Cc, so I kept both.
+
+> Some of the kAPIs consider passing 0 as being special.  It is user
+> space asking the kernel how big a buffer is needed to hold the full
+> dump.  The kernel sets the value in the structure and returns.  User
+> space then allocates a buffer of that size, and makes the request
+> again.
+>
+> I don't know if this API actually does this.  You need to look at the
+> logic and decide.  But by returning this early, if it did, you have
+> broken that.
+
+I checked.  ETHTOOL_GREGS has no zero-length size query: the uAPI tells
+users to get the dump size from ETHTOOL_GDRVINFO.regdump_len, ethtool(8)
+does exactly that, and ethtool_get_regs() only clamps a too-large
+regs.len down to get_regs_len(); with regs.len == 0 it does not fill in
+a size.  So the early return does not remove a size query; it only stops
+asking the driver for a dump that cannot return any data.
+
+v3 to follow separately.
 
