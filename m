@@ -1,77 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.161.45
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700467;
-	b=3xZ55RUajafY9xfdPqfIpSea8L/NYQ4RORCALMqW4Tgvpz5lR5bsDkEVv0Fv6OTwREry
-	 C0zkhOFEPnBcg3B77RamKnU2Zvh8Y+RJbNrC5HQupumGErTukS6F3p28vajT09dTVTzgC
-	 zL4nZOqhefS6N0He3uvne+oF7q3hlPoLHdmDhWKJ6qw3J27sNOndAYYxQhWuISFR81A2+
-	 GRJ32viG8xtcHM0778GemrOOxlEI5oNI0LScuxUXdvR/OBBsYYDIY+otEzxWls4D+qhC3
-	 RQFcUOv7rjFwFvXShrWInvegg/U+BlIhl3WLVcEWRAbgxV0rsaetBt+bp/h+6bctCRA==
+	t=1795700546;
+	b=40qmIXG0kj4Q00/72E5yA2AU2zaQ1BOzcm/1QLDUy7ghbJqHH7MWXzmh9etVcgWrET5E
+	 eqo6oqSbmgqu7FAxLuzDvxbz/+ne2DDf5YLzbujGrcvv1j3YSEbjprJc4637dseZV5ilc
+	 vYpSuq7Aqf9pvhCLdJp5E4YAnydIhmunBs9qXiBdEkqYs/fLbVg3Uz6b7rpUp/ljCjMn1
+	 vVBAs3u8O2Lrk7+4vEWmrqnRAmcgGur7pr0iYicV2S9KXL4+1R1vkmUr5ioUOXUEXYc+y
+	 Oudv2BU4g03EWzJdZ29Jqko4xMph3ip6c9OKRq5jMV/oJlLDiOBrLqUotIl/RRFkMhA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700467;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:Message-ID:
-	 Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=HcwFZv9BM0w57FN62L5UyDAXYgvPAV25zeOmEc/ACiU=;
-	b=p26qeCvUMtPSOrcOqN8qeSWXC4UkRWEEclrdvGQDN4iLbogJKfN9l0baMmBnd061zGGB
-	 /sNxh8XmZm+qIibDPEjCWdopG7dgK5nHHFrTQH0V8BvlkReP6GBmYkVGoLFpy5krkTPiM
-	 hSe68by0Azzd1K6MHMax3QIikGlgv4w470DPB+AHDWN//JC5RXJqSngcgUxxMJN19F0Cg
-	 8s/eH4WGbQWTdcFCdx3dwMJ8vLt6xjfnXhe/Iyd4Xb/Jp5lOhUg5NppluAF36AK2n8QGO
-	 9sADt6A4eNgnnJFt6/OVB8cqeFFzsaMa26hXM/qOM16MjTandxWBpiAMUORuZnbM9KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700546;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
+	b=gEEB/HLtSXwTrwpMZcF6H3ZJok4klse+eVgW995K//Gm35KHr+GsxVyRqRKyJoJhdtBM
+	 tTlLuNvlum3vQY7alWH3wSTCyRB2sb1uQiSRBEb7qwAWpVu2H6HMILq0+DIUQHoK2reBm
+	 j5UVSfqyBpGPJZdPOJ0Nwstqikcc++/HYy04AcJVHUiBNNQ65JWKqAyuu5z1qmFUahWpK
+	 EBpZ8MjJ5UuCKUj726yGbO1atZaLaEYVxgN5ZWprU6k2daW09dE4YUhFByj4zPlXdBKH6
+	 xupX/w30XX8sHPpc/D2nXe9zx+Wjd76lIQfuZ2Ob2rxzwEmBxPpWIMUiFJYZW8qzasA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux-m68k.org;
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.161.45
-Received: from mail-oo1-f45.google.com (mail-oo1-f45.google.com [209.85.161.45])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCUZiapw;
+	arc=none smtp.remote-ip=209.85.214.179
+Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AF7E9606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:41:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AF7E9606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux-m68k.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 766E7606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:42:25 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 766E7606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-oo1-f45.google.com with SMTP id 006d021491bc7-70059e4dab6so3711150eaf.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:41:06 -0800 (PST)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCUZiapw
+Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f046b0adc0so40629325ad.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:42:25 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795700545; x=1796305345; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
+        b=FCUZiapwgCV0NccPRLyMCz4v4T3XpjsQ58JWuphME0mUW8OpcSdTyNG/jVc3LUuJeG
+         dH79/1sR2huCmlp+7eUAAg2rfvZPvZhtpYVZq/9ug5QRHVjg55ZnJBko7FkuNdIPVMhF
+         HOa+dPa/fmrCXJadGANy2s7Dqjo63MxwR6elwkxJhc9fCc3oSoeJ4GYWWFm5qeB5aGCn
+         Bqb0sm1NQXR+/7/3wmYqvv8ZAbJYkeDivTZZdTQIArstf2JiPgIzwQ/RYXq7CQPGg+mh
+         jgAD0iMRtkuetLcq3g0OpUqK0Bl8yfGXCF5bnJuiXiN+mr8eFBNeJEyQE/0Vr6uilDae
+         pYHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795700465; x=1796305265;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=HcwFZv9BM0w57FN62L5UyDAXYgvPAV25zeOmEc/ACiU=;
-        b=Qa1dYGLFbnkn4HbpYK6d89MuTlqRRHqM1cJoctOFI/kAVjHgRbR1bByQ2/GhVfEK68
-         OUZ4zU+nb6FAo87Ah5p+u2f0YxMdiFUgjkpaNtAFj2/4ijF3DfoDvWKqqKwEJIJh+c/U
-         m4JxohEXkdM1ZQfZ9AdFyKhhaCBjPh+BwLdG1OZvaL0zH5UNYk/a0SeTHwq9fE49XfbQ
-         JRwEoMmIx1RzRg4EglHleSAwK2fp2w0NLkbI9kttmViDhcdRKxeWNxo5z+FQuUHUzF+E
-         1NuWkkj+ekbWPBx98Tx7JzRS13N1YIijy1spCHiixvaESVKhv3sOcz8go6BZ/8Rrpupd
-         //CQ==
-X-Forwarded-Encrypted: i=1; AL+hErEVIR4D+OOB3V6tV+oNsxOdtcR340yKaZS63EPU2VLbgVYTdY0Qn2lahtJyMT6OcXLUWa+OUTs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8HvRwWpVjvtDE0M5n4195XYYSKT7CsP5nmu3oDKRyb1W23sL3p
-	xS+wZPNTDuiUJ6ICdPD2lFUUSni3FjoFgxEv4zNY+bOfOtD+SYcELWJgXJOrs1U0
-X-Gm-Gg: AZFdTZfhexTDyrpip+ebp81KL3HLdFmvL/8fU/wsHRf7PRqqbQbW8+rZs6Qgfe0Ln4C
-	H35j7SS3y9jXBTbrH2hIicIxPNkoTyw3Ss71BOvhy6IRStHQ4ICtxXCCQEpark+Kf2V424R5VC1
-	DdLStODyBL78z74qEgaLIYW3tBLRPdiyoQRUJhI62wJ1NKTt2vI3HUEQN1Epo1W1nMo1omF7buu
-	Lgqov0FYPQ+gS6JqCIM5gfz3UiqtiPCe8s5ym390E367jF3Vd1jzY3D9z1mmbF6z6L7sHNzCUwA
-	fAEscIk/0yyqg2BhTLvJrcEmw6r+eRmMgXorUUBcbi3sZ4OUHGUqQwjAUI+SKxFZ4+ZbXbs3+Q1
-	coF02cCq90fdOpPi5MVlAvozD5sjlu07mST5pV0DFReDOAJ8pDUZKMDWvd1tl2uGTlJ1qIU//PQ
-	w9Hi1HXN0jinF3JSxV/ma7jUXtqor2M+MXFc/fJGb3JSSaFHN08+PSEa7hDe3+ZFBeWGUuYhbgL
-	3vEMXCr1Gd8garsIX8wjFLJf+w8gbb00yWd31CveU9H7HmwXiA+I18ogNCqDDGKJAsLwo4qWMoa
-	ocnBzMVKQ5MVA/hnwUiMcNNWBq3jrjEYPkaivw7ZBmNuiLKDaAqiFMRgU6xqI05I1CU=
-X-Received: by 2002:a05:6820:f021:b0:71b:8345:c24c with SMTP id 006d021491bc7-71b8345e14emr3388351eaf.25.1795700465529;
-        Thu, 26 Nov 2026 05:41:05 -0800 (PST)
-Received: from mail-oa1-f48.google.com (mail-oa1-f48.google.com. [209.85.160.48])
-        by smtp.gmail.com with ESMTPSA id 006d021491bc7-71b8345e1f1sm2774795eaf.5.2026.11.26.05.41.04
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 05:41:05 -0800 (PST)
-Received: by mail-oa1-f48.google.com with SMTP id 586e51a60fabf-4b8587b395aso4070983fac.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:41:04 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFu3RvFoFC+d8OmbspmR/ntukAiJxMck27LkNr+GdgksKKLM4pLbygjkMj8es5gxfGmsCo6r5k=@vger.kernel.org
-X-Received: by 2002:a05:6102:3f94:b0:7cc:2674:b78c with SMTP id
- ada2fe7eead31-7d739391bf3mr11259967137.7.1795700008033; Thu, 26 Nov 2026
- 05:33:28 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795700545; x=1796305345;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
+        b=nfyS74u/o42dqHUvaG5yCyjU2FXCffUp9rS8jWLPOiWlq/TCrHo1489qLiOZlQXKrf
+         Sl4dXEtl4D/VcQQ8YhOhltn1pCNigZ5s2E7BSQtPZQTBphSW7QYL3VqA8PaUbLAkWPdL
+         v1/394XuTjnkYgnRZUPgAujFgyw9YVORy/TosIc0W5M4sfObiLRRJs2sqpwUnRd87Fm+
+         LNc4pDFi5mwe/1w/Z7yns3H76JOIIl2Y2RjELucj5LUobCB7x+wyjvGcudKQYkV119Tw
+         8RvJW2gU09qAiRzBRhoauDxK8nDOeNSrWhPH18BFgmtylXo2fIye0AIldGQetoufUEih
+         wZjg==
+X-Forwarded-Encrypted: i=1; AL+hErHWAXq5PaRnRsP4qpomV2kRmp8TePZZERO1YX0tJWVVN95h9KVqBcBkdY0e7u3P9K8JobC+I3w=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9QZSiQhEp+9A6ERrNA5AqEWh19q8kmkiFBIfVnx0b1c/D98ZT3
+	9QFvTrr/Se8tSbWEjcnZE+XlVULK/TnK1mMfMcgqUJmsZSTCF+58++E=
+X-Gm-Gg: AZFdTZcWAxhBWn+F2zPmV178Ap4dmXfTwcYy0L5gsjiZPpjgXb2aO9e1bbTYFE9aaz3
+	/L6z7vwillTT+7cn27QW8rwfssl0f194KHIVeGDNz4ypNhK6Mwyh+egI5pdoVSmW/7HIalwARoE
+	fI//GGaxnSHaMXzrqXJQCfZDm6tlB9KaXjgJwRA0HPpX5TVjnYn6hremGVLqemAA5dhZXOdzknK
+	3MwKTXcQJ92DjBcH8xx4X4TSpRZUYlyWIqZEFZFIz6yXvEl+ib+EPmrfsxtSOk4+LR2RSb1ki8a
+	ubyL+22DfG/4h36RjIvqBnbYgBOlmBqpG85Z7Mc713I0gBe+86I9CJCQbjWBiK4JYz1Mvrk/5hR
+	+7jsFaut0dx4OUNkjwa1hm8nZkY17gPfNpPRoPOomlmuSpm4I3wpWW6Vp8tXX8R0o44zU7G245M
+	dSw6Ne6v3OvicDA95JtA3qxFSZ742FhMRxixI3WA7lE7xiS9EbmNl+Rq+tLgvGIVl7cw4ewcVtb
+	KdxBwsQSNVHAiDjdgdVJdBQ+tWVdmCbsi2Q122mUthCRkG2Tj20D8WlmSZjjw4+2Utf+muHRHmB
+	klG2DOg7m1VofEix/TI7lGRiGGS8twOE0h1v9qmjrqXzPb4kCieJ1Syuu9CB5eEWTfk=
+X-Received: by 2002:a17:902:e551:b0:2ed:ff4a:6d21 with SMTP id d9443c01a7336-2f03f1beef6mr206550255ad.73.1795700544707;
+        Thu, 26 Nov 2026 05:42:24 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm102467265ad.9.2026.11.26.05.42.21
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 05:42:24 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Chas Williams <3chas3@gmail.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Simon Horman <horms@kernel.org>,
+	linux-atm-general@lists.sourceforge.net,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Willem de Bruijn <willemb@google.com>,
+	stable@vger.kernel.org
+Subject: [PATCH net] atm: Fix atm_dev reference leak on VCC close for built-in drivers
+Date: Thu, 26 Nov 2026 21:42:16 +0800
+Message-ID: <rc-b1-20261110-vc-164-2a437f3c5ecd@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,78 +103,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261110080727.2377040-1-niklas.soderlund+renesas@ragnatech.se> <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
-In-Reply-To: <20261110080727.2377040-4-niklas.soderlund+renesas@ragnatech.se>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Thu, 26 Nov 2026 14:33:17 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
-X-Gm-Features: Aa3M54q5_iVD09yTxiCPbutEOoqFTTuL8Qbh52NAGvGv6cSg6_A-6RxSK9Zhqcw
-Message-ID: <CAMuHMdWpZfsaJOcTEBCugyDgKDXNRje68n59OrGFx-0hJXG+4Q@mail.gmail.com>
-Subject: Re: [PATCH net-next v8 3/3] arm64: dts: renesas: r8a779g0: Add gPTP node
-To: =?UTF-8?Q?Niklas_S=C3=B6derlund?= <niklas.soderlund+renesas@ragnatech.se>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Magnus Damm <magnus.damm@gmail.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "DavidS. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Vadim Fedorenko <vadim.fedorenko@linux.dev>, Sergey Shtylyov <sergei.shtylyov@gmail.com>, 
-	linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 
-Hi Niklas,
+vcc_connect() takes a reference on the atm_dev, and __vcc_connect()
+stores the device in vcc->dev together with a reference on
+dev->ops->owner. vcc_destroy_socket() drops both only when
+dev->ops->owner is non-NULL. usbatm and solos-pci set .owner to
+THIS_MODULE, which is NULL when they are built in, so in that
+configuration every connected PVC leaks one atm_dev reference on close.
+After atm_dev_deregister() the count then never reaches zero, so
+->dev_close() is not called and the atm_dev, and for usbatm the driver
+instance, are never freed.
 
-On Tue, 10 Nov 2026 at 09:10, Niklas S=C3=B6derlund
-<niklas.soderlund+renesas@ragnatech.se> wrote:
-> The gPTP module is shared between the RAVB and RTSN Ethernet devices on
-> the SoC.
->
-> Signed-off-by: Niklas S=C3=B6derlund <niklas.soderlund+renesas@ragnatech.=
-se>
+The owner check was added so that static meta devices such as
+lecatm_dev and sigd_dev, which were attached without a reference, were
+not put. The last of them was removed by commit aa582dc25ace ("atm:
+remove SVC socket support and the signaling daemon interface"), and
+__vcc_connect() is now the only place that sets vcc->dev, always with a
+reference held. Drop the reference whenever vcc->dev is set.
+module_put(NULL) is a no-op, so modular drivers still get exactly one
+module_put() and one atm_dev_put() per close.
 
-Thanks for your patch!
+Kernels before 7.2 still have the meta devices, so a backport there
+must keep skipping atm_dev_put() for them.
 
-> --- a/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> +++ b/arch/arm64/boot/dts/renesas/r8a779g0.dtsi
-> @@ -606,6 +606,15 @@ mfis: system-controller@e6260000 {
->                         status =3D "disabled";
->                 };
->
-> +               gptp: ptp@e6449000 {
-> +                       compatible =3D "renesas,r8a779g0-gptp", "renesas,=
-rcar-gen4-gptp";
-> +                       reg =3D <0 0xe6449000 0 0x500>;
+Fixes: 93a2014afbac ("atm: fix a UAF in lec_arp_clear_vccs()")
+Cc: stable@vger.kernel.org # 7.2.x
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+---
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=1, defconfig + CONFIG_COMPILE_TEST=y, CONFIG_ATM=y (net/atm/common.o; no new warnings vs base).
+Runtime-tested in QEMU (arm64 virt, KASAN, kmemleak) on a model: a test module that registers an atm_dev with ops->owner == NULL stands in for a built-in driver. Before the patch each connect/close cycle leaves one more reference and the device is never released after deregistration; after it the count returns to 1 and the device is released. A device with ops->owner == THIS_MODULE sees no double put. No hardware test.
+Triggered by close() of a PF_ATMPVC socket that was connected to a usbatm or solos-pci device built into the kernel; the leak shows once the device is removed.
 
-Can you please remind me again where I can find this base address in
-the documentation?
-The size looks too small to me, though, as there are registers at offsets
-0x500 - 0x788.
+Stable is limited to 7.2.x because before aa582dc25ace (v7.2-rc1) the static meta devices still reach vcc_destroy_socket() without a reference, and this change would put them.
+A real built-in usbatm or solos device (USB unplug) was not tested.
 
-> +                       clocks =3D <&cpg CPG_MOD 2723>;
-> +                       power-domains =3D <&sysc R8A779G0_PD_ALWAYS_ON>;
-> +                       resets =3D <&cpg 2723>;
-> +                       status =3D "disabled";
-> +               };
-> +
->                 tsn0: ethernet@e6460000 {
->                         compatible =3D "renesas,r8a779g0-ethertsn", "rene=
-sas,rcar-gen4-ethertsn";
->                         reg =3D <0 0xe6460000 0 0x7000>,
+ net/atm/common.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-The rest LGTM, the bindings don't descripe the two gPTP interrupts,
-so they cannot be added to the DTS yet.
+diff --git a/net/atm/common.c b/net/atm/common.c
+index 8119572..f68bf8d 100644
+--- a/net/atm/common.c
++++ b/net/atm/common.c
+@@ -184,7 +184,7 @@ static void vcc_destroy_socket(struct sock *sk)
+ 		kfree_skb(skb);
+ 	}
+ 
+-	if (vcc->dev && vcc->dev->ops->owner) {
++	if (vcc->dev) {
+ 		module_put(vcc->dev->ops->owner);
+ 		atm_dev_put(vcc->dev);
+ 	}
 
-Gr{oetje,eeting}s,
 
-                        Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
