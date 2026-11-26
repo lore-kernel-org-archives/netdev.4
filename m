@@ -1,58 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.221
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795665523;
-	b=fHZASATHMaRci/A6RlqZ2IDLk7pvTffB+th3Skq49/s/kS+e3o1WTqKfMYeghyBIYMyp
-	 MySS5n3RddwER/Pq0SUJV+WVYsB815rBKfjgIjuOPa0UI/YGocL1nfBd7goa/7LCoAOsN
-	 VLmTF3+jeWh+913hzskW0OAqY+dLrRP8+RaJTRQmqYR2OU2IzUDpCH5mCWL6VQ8qhyGCp
-	 faT1qskzVSte7o4Y1r4bhk+ZZQjbKDMng0kLIfYqD0sBcq/Ihlil/1j+7Qmkokm7vINvo
-	 EuL6wwGuHNOCOoXZNiAhcUr1TvnRjwuD4MavD8kf+KTkqhNIHeVRk+ppZbEiDzX5ULQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795665523;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:CC:Subject:To:References:From:
-	 In-Reply-To:Content-Type:Content-Transfer-Encoding:X-Originating-IP:
-	 X-ClientProxiedBy;
-	bh=SSdAMFmYjKhW0Vnndgpluzm+aSjz54H3b9il23oofj0=;
-	b=RfocE2PovGin3vK8fhdC+fLzuHwGkAKTuakCDOliM6fQmyLmwWVcUc1bNRZtq5JrH1Zt
-	 yp9hBgGBYox0900k1JF/+12UV4VNsNefRUjiC6LuhLhf28rWEjcO5pRZazHeryEv5t/sZ
-	 HvBzDMRqlugezcohxtAQ8gI0CVRXzBT5VKwseqW+Xa+bDxn7TTmJaolSxtI3d44oZZw6w
-	 62CKTpVl+2TPOwB3YfVUMMyiQ2QAfxQ3dlNmQQFCOlW+8BQj7STBSlgQDVqsRvk/wSiuG
-	 DzKzR/Qy52WMs5rfjsdhJdxKqW5OdpUEpqSGuZ/ZTqaDwX3X1zir9xgupSyFdsWHHUg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UUjqLU5u;
-	arc=none smtp.remote-ip=113.46.200.221
-Received: from canpmsgout06.his.huawei.com (canpmsgout06.his.huawei.com [113.46.200.221])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.169
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795665659;
+	b=fTfWmNDE4WzRwU0Ku9nY2JFlofO8Aiy0COeazkuAng3pAvnkjNKoSKnIdtZL/taWSBjn
+	 /wze972Y6qatC+AmBZ80RWKPvHItPWs70GQ16/CB6vKg2bNYQANurZPIiSi0k6WYZK7Kd
+	 A7Se8yACihusBXwBYwIcgf2FUZ5tUJvx2X8c6eSMCcgXtvTYYu+A9Pw/g52TmTv8gbCZa
+	 2nrEN3tUfiJMaK0KKHDei6gW0ia4X4GSM2O2u5KV3SRftWUJGLxqm09oo8SY/nVc1FsCl
+	 bUFTvDVxi08cKn9SfRnv6GDPlrp67i7zkgjvirLMMxumWj+XxXUYBzSAM5ZLPk0n2kg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795665659;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
+	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=9s47qpDipYfxU5B2eQ/S7N2ZVeyVvWv6KS2FqrxLTME=;
+	b=qVkW0jg6h0ciu8FPhs/QmifhVREW7dmXZLUORqmCu4VkoCX4FxKIPL0SxbfUaDp0V7Mp
+	 Y9vXdRhlql3EjSidzjx3Bwt73Hn3JKKj7yn4lFLDssULwjPXcEruMoKr4qTsRg/5Fofam
+	 aLPvWyP+43WyDRrvWNR3bFP+rbvSncWsF7TqcOx7S63ilV0pk2oVK33gvbbpycJXVUQtX
+	 63dX6VuB552EMSgljbF6NieNzbC6x9t5snIYnLrT8lVaOSR2R/kjchBoKyqmRCH1SevHX
+	 auTaRTiuMcCegSkv+bQUPPQIL9smXu/AokmTjMjsxe3EqB+0/+hU5psOgwRRTJERIhA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uY4cjIP0;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.169
+Received: from mail-oi1-f169.google.com (mail-oi1-f169.google.com [209.85.167.169])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A77B606A31C;
-	Thu, 26 Nov 2026 03:58:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A77B606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E255606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:00:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E255606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=UUjqLU5u
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=SSdAMFmYjKhW0Vnndgpluzm+aSjz54H3b9il23oofj0=;
-	b=UUjqLU5uE3Kx2EGRpLTMcrCie3lUv6EiOJKZpOTfCbYWM9lF1cVjvgDFnY4Kltjgjmc7e+EZY
-	YekKeeZEcN3eZinnDZ7iYUh0/+UZq+EG0fPjSlElM77VQeK7QKwy1gQaaUkdXQ1+sOV7L+vIkrr
-	h072KXuKRQPzKEgyzIu/sXA=
-Received: from mail.maildlp.com (unknown [172.19.162.144])
-	by canpmsgout06.his.huawei.com (SkyGuard) with ESMTPS id 4jZjSg5ckTzRhQT;
-	Thu, 26 Nov 2026 11:58:11 +0800 (CST)
-Received: from kwepemo500018.china.huawei.com (unknown [7.202.195.199])
-	by mail.maildlp.com (Postfix) with ESMTPS id E47C040538;
-	Thu, 26 Nov 2026 11:58:30 +0800 (CST)
-Received: from [10.67.121.233] (10.67.121.233) by
- kwepemo500018.china.huawei.com (7.202.195.199) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 26 Nov 2026 11:58:30 +0800
-Message-ID: <5ea6843d-14c9-4c0c-be1a-4e7926f771bf@huawei.com>
-Date: Thu, 26 Nov 2026 11:58:29 +0800
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=uY4cjIP0
+Received: by mail-oi1-f169.google.com with SMTP id 5614622812f47-57e45405af6so1137880b6e.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 20:00:58 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795665658; cv=none;
+        d=google.com; s=arc-20260327;
+        b=B4JKuEvSmvsL2wO41qogr8+jQAZNLQDqFA1InGRLQQQ+J28TB4Bvjphi/Gu7x3KUXp
+         T1qksST9BiYx6m8UNNYzLMDEOLoBX/nYW6gm/ePq1qefdFTW+0foNhBVA4CroXAxQvxA
+         yJY9QlIeDTfUybD5prOcS4VheJHEnTS1pJOm1mJ1Gi9AKk/M0Y/YQyWsTHIyroVlFIlf
+         oYLYWFOewyKQZ8ImxEaKu/j7VWV6Nqk/RvfFXDHJ+XbiTYa4lVS5ZDTwSLFGdV1PsVD0
+         4144DGrZeMlROkwMsxrPoLtjSAw2gxeTOseKgq4Ut8qack9f6WJ8GdqrLIvRgyWXD2s0
+         56fg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=9s47qpDipYfxU5B2eQ/S7N2ZVeyVvWv6KS2FqrxLTME=;
+        fh=ETyMDPt3t0hLL74Rjkpk80XYeQAXRUjJTuQdk2T1NN0=;
+        b=TXsBaygC9Myu/kXvzgZYEW+E+XFelbTRQZOhwUifyhsgktHgpoOA3IKorbztMxfevD
+         AdW0SZ57t4h6Avs2rS5XMV1heHMfUU+GG1gQ/GtwkVuuFtTkJPghBY9YlnuuDjvCw8nH
+         4XDwxF22pet19MppGqw7r+Dy9z/u5qPKjOUBxc6stcdVZM6siKXN9m5SxQExe7RJ49Mf
+         lekVeqNOGkK5OZ/Z16tGH+Rvdh2OB4OCbimcG7K0tNLqtWEA+Q5dl8SoHwo1t4bRwZ4Z
+         4uq9JAUXuWaE05A1kj9/l3lA4c2d3pXHNj9Fc+ceOXLn+zOJKs3eNH+f4ALnGn3oQl+O
+         atMg==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795665658; x=1796270458; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=9s47qpDipYfxU5B2eQ/S7N2ZVeyVvWv6KS2FqrxLTME=;
+        b=uY4cjIP0HIdF46LpWcpqNy5ExkB4O/pgOSAITNTlNBAsqB/FYV8JJQhSSXuZ2RRhN3
+         4ouxxqGB47GX8RvGSrcQUCXZ6s7EDh54SoDGeGRtVgnSbge7pRPr51I+Dy7xXOYzcNhG
+         11/0WSlTEPec1bL6gOVisDwvlagJNpAy5uu9L/DtLdqHL2mkoF1cdwJ9z4nrqX3O6qu7
+         /Hkvb+pe1AYXdJgEiCEHsQ1XHb4kBm9o2cmpEcFNlExDIZs3WSfXsxxoIsqje73UlS3m
+         A3zHnp+GhejVVzV/PFKo3tSMD9VcJCq/sUDP+vQ7+vekNuMO6lS0t7zdPyQAQIQQMMFQ
+         /TTQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795665658; x=1796270458;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=9s47qpDipYfxU5B2eQ/S7N2ZVeyVvWv6KS2FqrxLTME=;
+        b=2JgOoFIT2wEjGTnOoVfI/emofGArmG20JLTzw8xwsOO5B2dSwYw39Azsv0xz2pd4nw
+         0/mSW/CHCxVtmytzZWXfBos1j8cFCi2UT5wdy8yPvv75fk8xeo1j5QrCe23NeBJg5ccV
+         XXf9qK07F6AKZqJg8ZoBczMB7hQzBTkzLv7vwoV1AP/3TVwYakXhdA1b6pf65tYh2KH9
+         n3IC+ILhAVk2DBl68RDMOYnNb7knTVvNAeDyRq60XJmnthucqXqVG2LOiycsVC7ZJT9V
+         xW1tX46nNMfX09LOal/FzOpKAq3e+u6Mkd00bV499G2ojszE7SKzr9hZhjJgJuAFzz74
+         FrNQ==
+X-Gm-Message-State: APuU4Z/hsdLpY4yEJTOw4f2iX5rHn1l9OgyvFxkv6c3jRI/aobfElq+i
+	KxdYomDkJzBcYI6QVsTUTuCnDSI1+7WD0nqsKWz8/lLlrhBm9Da0ZTR7MjAYLIFboe2zPV9YPIG
+	6ZoJxhsA+Cfb3VXTDw2NRA7jJy9yWDbE=
+X-Gm-Gg: AZFdTZe0Inz123xgQXQqbFavN/PNOcRxjt1KW91qY2Qhin+x5fmBsdnsvJ8q/RdwTbp
+	n4i2ahUeo7POAJ/XM19a3g90B1SL2XIu8Sfo0G/6gnbv3ylOMcUbNlITyY5AhiKKgZq4RCU08he
+	ZTprgiWt2m6n1ZU7ocLqe+xkZmtF+FPqqQAIb9WtHpLVaxfolitGwCFBMcLau12HREk9Hbn8dlh
+	Biq/SJBx3D5nRCbFNEjH0g+4o3pxwWhr/eP4UhO3v04KXHhK6CV7Kvyu41ApBAUq8yM/oY/l1LX
+	0ypxyzvkkS8n4kk7rxIMcruRSWBMS7sSx0oS+7SDPZVlwQeE5zFa0Fb64m2YwiwEx6qajOZSkcJ
+	1bCG4LtLJy+3+eaReowv2qh0r+Lj4zBzQr1HPks/52v+1C5Z+BAy1LcbW1OoCAztxQLMn+A==
+X-Received: by 2002:a05:6808:1687:b0:573:1dfa:f0c6 with SMTP id
+ 5614622812f47-57a0cdd71b5mr20470982b6e.68.1795665657907; Wed, 25 Nov 2026
+ 20:00:57 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,82 +103,46 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-CC: <shaojijie@huawei.com>, <davem@davemloft.net>, <edumazet@kernel.org>,
-	<kuba@kernel.org>, <andrew+netdev@lunn.ch>, <shenjian15@huawei.com>,
-	<liuyonglong@huawei.com>, <chenhao418@huawei.com>,
-	<yangshuaisong@h-partners.com>, <ningwei15@huawei.com>,
-	<netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 net 3/4] net: hns3: fix interface stuck after OOM with
- full hardware rx queue
-To: Paolo Abeni <pabeni@redhat.com>, <netdev-bot+sashiko@kernel.org>
-References: <20261118130330.3026625-4-shaojijie@huawei.com>
- <179535384062.3135.791733868582964041@kernel.org>
- <a727a596-2718-4aaa-8baf-69b1aee9df43@huawei.com>
- <3766f988-9ea9-4ead-870f-fab0549e15b6@redhat.com>
-From: Jijie Shao <shaojijie@huawei.com>
-In-Reply-To: <3766f988-9ea9-4ead-870f-fab0549e15b6@redhat.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- kwepemo500018.china.huawei.com (7.202.195.199)
+References: <20261126034725.64709-1-mmyangfl@gmail.com> <179566514108.3294.13714710222643559917@kernel.org>
+In-Reply-To: <179566514108.3294.13714710222643559917@kernel.org>
+From: David Yang <mmyangfl@gmail.com>
+Date: Thu, 26 Nov 2026 12:00:21 +0800
+X-Gm-Features: Aa3M54qWwqLhaRkvIcSwU_J29XmhWl5BuvyVRwxOmzNYAfgMSQLuM7vrQe11ob4
+Message-ID: <CAAXyoMPzJRD5XGQZp_24feF6NG2FPZ5BsEWC9h3UsS1csB+kWA@mail.gmail.com>
+Subject: Re: [PATCH net-next] net: dsa: motorcomm: Unregister the MDIO buses
+ on teardown
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+	Vladimir Oltean <olteanv@gmail.com>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Russell King <linux@armlinux.org.uk>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-
-on 2026/11/25 22:31, Paolo Abeni wrote:
-> On 11/23/26 08:33, Jijie Shao wrote:
->> on 2026/11/22 21:24, netdev-bot+sashiko@kernel.org wrote:
->>>> @@ -4489,10 +4519,15 @@ int hns3_clean_rx_ring(struct 
->>>> hns3_enet_ring *ring, int budget,
->>>>        * FBD number with head pointer
->>>>        */
->>>>       if (unused_count > 0)
->>>> -        failure = failure ||
->>>> -              hns3_nic_alloc_rx_buffers(ring, unused_count);
->>>> +        failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
->>>> +
->>>> +    if (unlikely(failure))
->>>> +        hns3_ring_set_oom_state(ring);
->>> [Severity: Medium]
->>> Can rx_oom_cnt be incremented twice in a single NAPI poll here?
->>>
->>> The commit message says the counter is "incremented for each NAPI poll
->>> that hits an RX allocation failure". When the fraglist napi_alloc_skb()
->>> fails in hns3_add_frag(), the path looks like this:
->>>
->>> hns3_clean_rx_ring()
->>>    hns3_handle_rx_bd()
->>>      hns3_add_frag()
->>>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ */
->>>        return -ENXIO;
->>>    goto out;
->>>    failure |= hns3_nic_alloc_rx_buffers(ring, unused_count);
->>>    if (unlikely(failure))
->>>        hns3_ring_set_oom_state(ring);   /* rx_oom_cnt++ again */
->>>
->>> -ENXIO doesn't match the new err == -ENOMEM check. But failure can 
->>> still
->>> be true, either from a failed exit refill or from an earlier failed
->>> in-loop refill. Under the memory pressure that caused the fraglist
->>> failure, the refill is likely to fail too.
->>>
->>> hns3_ring_set_oom_state() has no per-poll dedup, so in this case the
->>> counter goes up by two for one poll.
->>
->> The second increment only happens when a second allocation actually
->> failed.  hns3_add_frag() counts its failed napi_alloc_skb() and returns
->> -ENXIO, which doesn't set `failure`, so the exit refill still runs and
->> bumps the counter again only if it fails too.  Two increments mean two
->> failures.  I agree "for each NAPI poll" can read as at most once per
->> poll, that's just imprecise wording.
-> I agree another repost is not needed here. However patch 1, 2 and 4
-> are net-next material and only patch 3 is borderline net material.
+On Thu, Nov 26, 2026 at 11:52=E2=80=AFAM <netdev-bot+sinfo@kernel.org> wrot=
+e:
 >
-> To avoid a repost and splitting, I would apply everything to net-next.
+> Hi!
+>
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>
+>  - How the issue was discovered, e.g. hit in production, hit during
+>    development, syzbot report, manual code inspection, LLM or static
+>    analysis tool scan.
+>
+>  - Whether the issue was actually triggered, or is only theoretical
+>    (e.g. found by LLM and not proven at runtime). If it was triggered
+>    please include the symptoms, like the stack trace or kernel messages.
+>
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
-
-Applying the whole series to net-next is fine with me
-
-Thanks,
-Jijie Shao
-
-
+Not a fix, explained in the message
