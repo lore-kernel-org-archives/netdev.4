@@ -1,97 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.175
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.134.164.83
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795732907;
-	b=dHIb05zQcIUaz4+hUJBxVa3/RSgKpLxU4gDRIFU3xoY8ttxw9y5JsBXDjDJ+Tmx9q/NY
-	 IGdiX4iLPr4Y4Ko8kpKB+SoCbmghYs6RYIsj/x4lguIxlOWQL0G2xchMxPWUaEy3uLZVv
-	 blBgXWoSnq8L2kS6K+a1yNNu/14lv40gsb5SGfj/1EQuCjtdQWzTcPjDHzKpm7NpK0tRj
-	 w01M/CkZwoueudIAiOehS7CFoa/dEofIpxBXeB6nEhyrnYp+bkq6woq9lvIj+zTDayDQv
-	 Qp4k/sPjuiEsR8PXA0BeiFgu8v78Zhe+L4B1eh49kJneVY2Rf8MrD6EKiUwjVRZ1p0Q==
+	t=1795733461;
+	b=HTD99XPlz5oLWCSfDTRS//8uYnf+E2W3R6I/HeT117mBbr1dELw/WmVo2GQAmxRiE+mS
+	 h7SkbrlpQLijkcXPmqrhcG1sgqi6osJqEfWIdWM8fIWPTzwi80aBo6LsUpIDGJSBbhV5m
+	 5bGuUKNNqDaiTHc7+4Kqyfl30UXpyT7AW5+L80GebPR+QxKC8TOWgkgMHafZqaXzVy3Xy
+	 2z+cvz5z9anS/lqP8vxwG34k3KBpQParXmFe61Qu0lh8OnRgMzhMnxbtg6ygnUo/+zTx8
+	 M8WFogg3/LWai+W4Vxytcj+sFLoc0HeVVTtTPGDo3sftrl+siLLhjSLXw9pZ4nVwNyw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795732907;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-	b=Q4P8Mw3GJm8VJP1gq+dJ5/WBdrjQgf/M7gzyPKKFvXv+JsXWMcTcv1U1ZlxfM8cSZ34v
-	 OhU3cZYUXqBzHHz6Qbt4BqEw2iDOJkBg15rVXl48RdbMtE+unMyvrJFGLpzXPLzljFY9S
-	 hybfDQQgp0dlPOL+M8Vi6MB9+tkRJzerQvQ417kHZHacYR+R/FoO8CVj4YmxNB26rxejC
-	 frX+Q8BSxAHFCSWlHpG5cMozmlKH6OFWTMLSVz5NWuomDKyhp7tIxxS/c01JPT9ue6xWe
-	 37YGK9f/8P3MkV92JuPGlbASgUaKXM5qRrNw5e2dfiFrqBaEi3vBNWEwdRD8yvS+60A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795733461;
+	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
+	 X-IronPort-AV:Received:Content-Type:Content-Transfer-Encoding:From:
+	 Mime-Version:Subject:Date:Message-Id:References:Cc:In-Reply-To:To:
+	 X-Mailer;
+	bh=jLN7Zglm/StYL4ukd1nRW9wwqF9gdI+uQG89IZijPg4=;
+	b=iENdZ1yP3GRWf0FnwG6CtnB2YYfCYogxuiBL7aib+2Tuhswd/iqvwRRM4ZsW/WyZN0Xn
+	 ezNdNKdvy21JAvymJpWeMi735j06LjknZ71NX8EAfJn4M/Fal2NeUlewRL+tMEYFsjAc7
+	 ZT2OkAEkMT2wAn6YDUXsQgKn8HNfvnb7JnGDGs1zamodQ1pR9qMyao/sWHZw9fi3N++Lu
+	 kmK+s3oNPeI56Wq4juXKuOCOrx42rxrdoZZKvn+A0u7c328ba3M/033Zo0EQnDqU6jzRv
+	 FoiXWOg/v9w/Q6bu5226E24x8XQ63ZATsbWVi+Ok4Q3xsy+YsICBQvqe/fBRzzpusrw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=stellman-greene.com;
-	spf=none smtp.mailfrom=stellman-greene.com;
-	dkim=pass header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JTmHMyAN;
-	arc=none smtp.remote-ip=209.85.222.175
-Received: from mail-qk1-f175.google.com (mail-qk1-f175.google.com [209.85.222.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=inria.fr;
+	spf=pass smtp.mailfrom=inria.fr;
+	dkim=pass header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=bULvjN1L;
+	arc=none smtp.remote-ip=192.134.164.83
+Received: from mail2-relais-roc.national.inria.fr (mail2-relais-roc.national.inria.fr [192.134.164.83])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 596FB606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 22:41:46 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 596FB606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=stellman-greene.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=stellman-greene.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26AEA606A31C;
+	Thu, 26 Nov 2026 22:50:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26AEA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=inria.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=inria.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=stellman-greene-com.20260707.gappssmtp.com header.i=@stellman-greene-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=JTmHMyAN
-Received: by mail-qk1-f175.google.com with SMTP id af79cd13be357-949664ee41cso752837085a.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:41:46 -0800 (PST)
+	dkim=pass (1024-bit key, unprotected) header.d=inria.fr header.i=@inria.fr header.a=rsa-sha256 header.s=dc header.b=bULvjN1L
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=stellman-greene-com.20260707.gappssmtp.com; s=20260707; t=1795732905; x=1796337705; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-        b=JTmHMyANPlI9jW7h9rI9H34UhqZmDzBwiUOu3ycs11iWGQT5Md3RPZwFn3jd2IEljK
-         pJaoJVDmM1mrzByZq4yh5tgWnA+gSt60TVXrSZqt24cXxNJB59HODarhyXLJ/fZg+LU+
-         O1UPL8IvJdZRHR5utR7CSYsoljA3YV0gEtukIMFzw3EF7ZvJTvuQXN1XVDFwv239lag+
-         ytxJroSa76NKZ3c99Z7jAvuxArkW//3Wl0O2IMn0LE6nZaKTDmTA5Xhm5A0n7jBnTObv
-         JFdm3qmeHF+PwOOQIpt238IjurWkJnVVXlzvW0OFLC7ILeGwwmnHC3Wfpa3hRFCDLz9D
-         C6xA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795732905; x=1796337705;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=wbe8qmGR7CaI/J85PN2eS5B1PjlxJ4Y+2/7Z8JgkW/g=;
-        b=iZ13kVXETHMEC5d+bz/ki/ovDwjVX/l6r9tN+aO/yrHiLa68H5+aRSzDp+iiw3/yC1
-         JQwAS9X5/GbiFW5SdB0Px3dVKCHapPHzy/tZVCSduTHamjQ3EFSDY5Cqqk7p/qtQ06Od
-         xSpI4QJp7QFwB39OybS0DWHX6wPlYU2rQtCje84zfhnfQkIU7OZI7STIqBo9RLNfqd8Q
-         mTVQM3xB8KJxNjYfNRa5hkRFxAYfWvODGjgBCptXFVQ6Z/7S5LxeH9L6O7rKAHOMKsSK
-         Ws18aAWKESmLyUcyS4N9qTWuUpMQIOy42irpx0aJjaNsoTwnmnx8WzF2NvIrQi8ybyo5
-         h/zQ==
-X-Forwarded-Encrypted: i=1; AL+hErHJur9++22kvi3pOtHplftnB9tpbO1Rq0ydx6W3/gqqZ+E4nxAPastQrpFQXSHzeO5DCWbf3ro=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/ArOpmpmbqirXV7yegyuuFFvvjcNg5Mzqs8ptlhPqlKFf6Kw2Q
-	D6IPIkx3xOV8DOLbvgQbqStT/FPOwUuhn8mlVtRfo0XlKLZTecYwTeYQCtvE/WkjAM8=
-X-Gm-Gg: AZFdTZdDG5XYSOiDfvMR3cECYiygAyicsDu+Dzmpz8kZJVHw0d2bFHMcR5vJeyER5lh
-	NPOMVMXpv40OqhGexmfFBBd6y9+yQd743SlHnQUlyOUMEquGO9sbGMnZBudIUdboFi/QAgREEz5
-	BWGVmUqp/72F/LAco5CWnsYDxUC9HIYUvyVUy1Rvnv7eIQpWUMghWmKujAzn9fokXBMr0lcLhQC
-	O05FmxpEJRNpkwz7tUtScgEw8Ve/upclOHLi+2dt6S6ki4PX9pHnpUbVMqdbWRw41TNstD1tXrt
-	jjngE207zhPE+D2o9C3yVgDFVI62lwLuuxYHweuYgrfLF9/yqjQLxE4dJneFPyoHdeTxydJQTs2
-	3O3gR7KGmfj4eQhwrlZWjb7GBQP67yV4l2ICQ8h384r9+qU04LAcLf/WeBz6MRfquzOefi79ztw
-	NgJb0OEEvJ5bWasadfBqpqvfnlonbkMWPbKlS1LKwbSpunYzcWeZhs1qVRrfgsgVePH1un86tzH
-	7B5l4pwTbjQplcfrlIzWHNBt7uoGCjUd/J3FjiQPBBR8sdJ/ozKeLZYpmntndTSrtJ8pdv2Uo7L
-	Svx1Yboncj0ZYg6JE6fTjW93gs+jGShf0CER17qJyiqGVKAAKv7TkXy2N/LfMoU=
-X-Received: by 2002:a05:620a:2b9a:b0:949:6d95:f63a with SMTP id af79cd13be357-949bac834c8mr3664200485a.78.1795732905223;
-        Thu, 26 Nov 2026 14:41:45 -0800 (PST)
-Received: from Mac.mynetworksettings.com ([2600:4041:5c28:200:a9a3:d406:9193:c9bb])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-949bb3bec3dsm1675981885a.23.2026.11.26.14.41.44
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 14:41:44 -0800 (PST)
-From: Andrew Stellman <bugs@stellman-greene.com>
-To: David Howells <dhowells@redhat.com>,
-	Marc Dionne <marc.dionne@auristor.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-afs@lists.infradead.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next] rxrpc: Reject unsecured calls to userspace services with a minimum level
-Date: Thu, 26 Nov 2026 17:41:37 -0500
-Message-ID: <20261126224137.55862-1-bugs@stellman-greene.com>
-X-Mailer: git-send-email 2.53.0
+  d=inria.fr; s=dc;
+  h=content-transfer-encoding:from:mime-version:subject:date:
+   message-id:references:cc:in-reply-to:to;
+  bh=jLN7Zglm/StYL4ukd1nRW9wwqF9gdI+uQG89IZijPg4=;
+  b=bULvjN1L5bXPAtrfhn+XkjmvOLi6N8dFaiLlGEptewW3E/4QsHXlpURh
+   518lE/IVhHi/KheVSY1xIuEwREE87rVPZkNP6iFSWm9h5eRV2lYZL2IrI
+   gxLkXEYqjS9zjnfIymKBpEkdhnWkAu+GvAz8ZrAV1umY0nDrZAHJfujYo
+   w=;
+X-CSE-ConnectionGUID: dJY5GmmcTAOL5gSc2MDfdQ==
+X-CSE-MsgGUID: uCYVGHpcSr2ybi39Uc6wqg==
+Authentication-Results: mail2-relais-roc.national.inria.fr; dkim=none (message not signed) header.i=none; spf=SoftFail smtp.mailfrom=Julia.Lawall@inria.fr; dmarc=fail (p=none dis=none) d=inria.fr
+X-IronPort-AV: E=Sophos;i="6.27,235,1787004000"; 
+   d="scan'208";a="307600174"
+Received: from 224.16.56.119.unknown.m1.com.sg (HELO smtpclient.apple) ([119.56.16.224])
+  by mail2-relais-roc.national.inria.fr with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 23:50:51 +0100
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+From: Julia Lawall <Julia.Lawall@inria.fr>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,59 +60,54 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0 (1.0)
+Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
+Date: Fri, 27 Nov 2026 06:50:38 +0800
+Message-Id: <80E9692C-11F4-42A4-BDCB-E235AA2359AC@inria.fr>
+References: <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
+Cc: Markus Elfring <Markus.Elfring@web.de>, netdev@vger.kernel.org,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>,
+ Selam Hemanth <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
+ Jonas Gorski <jonas.gorski@gmail.com>, Abeni Paolo <pabeni@redhat.com>,
+ Simon Horman <horms@kernel.org>, LKML <linux-kernel@vger.kernel.org>,
+ kernel-janitors@vger.kernel.org,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
+In-Reply-To: <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+X-Mailer: iPhone Mail (23E261)
 
-From: Andrew Stellman <astellman@stellman-greene.com>
 
-rxrpc_get_incoming_security() doesn't check rx->min_sec_level, so a
-userspace service socket that sets RXRPC_MIN_SECURITY_LEVEL above
-RXRPC_SECURITY_PLAIN still accepts incoming calls with security index
-RXRPC_SECURITY_NONE.
 
-Refuse security index NONE in that case. Kernel sockets are skipped,
-because kAFS and rxperf set RXRPC_SECURITY_ENCRYPT on the kernel sockets
-they serve on. This changes behaviour for a userspace service that sets
-the minimum and relies on unsecured incoming calls being accepted.
+> On 27 Nov 2026, at 01:30, Christophe JAILLET <christophe.jaillet@wanadoo.f=
+r> wrote:
+>=20
+> =EF=BB=BFLe 26/11/2026 =C3=A0 07:30, Markus Elfring a =C3=A9crit :
+>>>>> Why changing only one devm_clk_get()?
+>>>> The change relevance is varying for the involved clocks of the affected=
+ Linux drivers,
+>>>> isn't it?
+>>>=20
+>>> Your patch is related to bcm_enet_probe().
+>>>=20
+>>> See L1754 and L1791. These 2 calls are related to 2 clk_disable_unprepar=
+e() calls in the error handling path and in the remove function.
+>>>=20
+>>> Why only update one place, and keep one clk_disable_unprepare()?
+>> The ungating of the item =E2=80=9Cpriv->phy_clk=E2=80=9D depends on speci=
+al condition checks.
+>=20
+> This does not answer the question.
 
-Tested in an arm64 QEMU guest built from mainline 9437ee8b6cf6, as uid
-1000 with no capabilities: a service socket with the minimum set to
-RXRPC_SECURITY_ENCRYPT received an unsecured call over loopback without
-this patch, and with it didn't receive the call within four seconds. A
-service with no minimum received the call in both cases.
+Furthermore ungating is not a real word.
 
-The issue was found by Claude Fable 5.2 and Claude Opus 5.5 running
-Quality Playbook, an LLM-driven code review tool:
-https://github.com/andrewstellman/quality-playbook
-The fix was drafted with OpenAI GPT-6 (Codex) and this changelog with
-Claude Opus 5.5, and both were reviewed by me.
+>=20
+>> https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/bro=
+adcom/bcm63xx_enet.c#L1789-L1800
+>> Regards,
+>> Markus
+>=20
+>=20
 
-Signed-off-by: Andrew Stellman <astellman@stellman-greene.com>
----
-This only covers security index NONE. I didn't test rxkad or rxgk, but
-nothing in them reads rx->min_sec_level, so calls secured below the
-minimum look like they would still be accepted. I can send a v2 that
-enforces the minimum for those too, or a documentation patch if the
-option is meant for client calls only.
-
-A reproducer is available on request.
-
- net/rxrpc/security.c | 5 +++++
- 1 file changed, 5 insertions(+)
-
-diff --git a/net/rxrpc/security.c b/net/rxrpc/security.c
-index 2bfbf2b2bb37a..52015c73c583c 100644
---- a/net/rxrpc/security.c
-+++ b/net/rxrpc/security.c
-@@ -138,6 +138,11 @@ const struct rxrpc_security *rxrpc_get_incoming_security(struct rxrpc_sock *rx,
- 
- 	_enter("");
- 
-+	if (sp->hdr.securityIndex == RXRPC_SECURITY_NONE &&
-+	    rx->min_sec_level > RXRPC_SECURITY_PLAIN &&
-+	    !rx->sk.sk_kern_sock)
-+		return NULL;
-+
- 	sec = rxrpc_security_lookup(sp->hdr.securityIndex);
- 	if (!sec) {
- 		rxrpc_direct_conn_abort(skb, rxrpc_abort_unsupported_security,
