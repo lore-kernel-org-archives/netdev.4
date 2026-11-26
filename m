@@ -1,98 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.231.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795662754;
-	b=UD41NC9GWm4ld+PD5S7pn1RRiuQDlpitgQK06OtgWGoIba0L0e3HqWHS6VBggoMFObj5
-	 O6lTrColpFFKJFgo2I79IzbnjPJZXEP+EH85jBDGLBqemCyMSoczuyA6vbDb7GPOETygC
-	 YfAwKDia9fmvBkuOHehP/zrNT1oTuOZo2zVcZD88VwVzjM5XsnnL/Gd9DQuyqg5+x0FYc
-	 vsfXSFOGvx6/vHthxbRFyvM+t52sYMqZrH+d8rq7yJK/hsgdkoYfnUqzqlsOAm24v8fzX
-	 LHcEqEEAwm5NzO3WTl7x0kAzeZ+BFB3fGwZla6IAjGCHBpe44XeHOvfwtcRi/16fHbQ==
+	t=1795662787;
+	b=sLaJtgf4m2Qzm42uU+nX4PobxmfonOChzej6U1tHrWSwmz58hU/eX1UlMmmrAX4rzTUL
+	 neJyQ93oRBwv8mo8pmamBGq+sIKTQ3x+NOInISStHfWAYou/5Dg/CFHMH+S+Gda3owGh/
+	 IR+C6BU3fxmY37UXLxqiZarRWx5Grn+B4j96mDj2Ts7dN4yQ7g35P1DGF5VKp0rOArXiN
+	 s5rX5D/LOqsOF8DGwJ+CJcyadXbrHZRFI52Gl1Qk7qOrK/lBfEO/9v0B9Wo50odRAQrXU
+	 uG+bGhyU8ESo5sklmhsVI/bpIT/pXkGGN6jlx4ScOV0PH2+8zESC8ExhkOpIeyhZzRg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662754;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795662787;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=pSx+cwaYj6d7FBSuXNFNtOr8390tE4CLrT3hLG+WtOY=;
-	b=mi+usTBFiBker5yLFfKaSrFjbT95+5HJIgxTRs++vvWeTMkRYCTFD8bXRm7eolRtP3T3
-	 xON9yLDh1Zm/gAemmERql1c489PBOv+itA8Y9cMailALRKLcq/Za0oD8ZKEfvEzNHFD51
-	 65Si86Ba+QvK/0Q8dz7kZRViKgJB7m5ncHEZuDF1f0zz6kdM9G8SHHjRCnt2h/9d3VfJl
-	 5Zxm/YWz78c+Z9mx6Y0lDXmxc3sCiRlkcNfzLYkVn3+he2De4SKGFiVVGgcnO1eDdcYhL
-	 8jUZzjTRKsv5Y143J4KNuG1B53DAMbaInrVPRnAcX16JmIr6+tUhzpNW6U9uzWk0Zbw==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
+	b=umEBdV+8SNZ+sTdXfuPL8JjyWhVp+RWxjfoqfaWZpGQQe6bMxdwwiwMuNXpMmlCG3FWg
+	 jjei3Wvw7T3caMrc6zVCITUzBX9DusW4tXejGsavC0QLuAzQs6KSOEVhGx6+hyLmlG/ca
+	 Q+lfSu2l4ryGfnwoyYkpVyVX+vpP0s0hs4AJIkEggBHxvgShQmHroRcc5+ThVx4aoRuR0
+	 x1Yk8qLukxZZ9Kus4EZUZF7V70LbcJuSWGu6Bj+LRJbpXxOSUAVB05dNwvJJyyRmm4PfI
+	 r6qNp2DZUnNfRdjoBj9dsrtdvdZuo4mBIR1gn/KzrGZaWVEAUAJK7ax533xhQQakZaw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wc6qSvcK;
-	arc=none smtp.remote-ip=74.125.231.130
-Received: from mail-oo2-f2.google.com (mail-oo2-f2.google.com [74.125.231.130])
+	dmarc=none header.from=jclark.com;
+	spf=pass smtp.mailfrom=jclark.com;
+	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qmA0KXyk;
+	arc=none smtp.remote-ip=74.125.82.173
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 409EC606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:12:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 409EC606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51520606A337
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:13:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51520606A337
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Wc6qSvcK
-Received: by mail-oo2-f2.google.com with SMTP id 46e09a7af769-862a5ac28e9so2941042a34.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:12:33 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qmA0KXyk
+Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386d1859e1cso1137426eec.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:13:07 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795662752; x=1796267552; darn=vger.kernel.org;
+        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795662786; x=1796267586; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=pSx+cwaYj6d7FBSuXNFNtOr8390tE4CLrT3hLG+WtOY=;
-        b=Wc6qSvcKiqg7RxUIgo7kMqz97ReQUsnHo6MOX32ZNb54juz+MLsIDRe9nROf13CoMb
-         jdNP79UhphROZ3m/hAyBBAV/VvYewLKfmBXMr8HYjwDlOALmxWupETj0cCsI02t8vjGe
-         ypGP6exX+LAC51up+WuBKQKrqE6kZSTrFX/IsuPo9Q8nIPWG6CEhLLA4non0dRVvPPkJ
-         /ZPuoaI6usMlkWFXt08GylA3MsJCzaJ+Zkjlx7T0WE5qa5Lu2OJRJ1+JDm7lTkpo/ei9
-         bLWqI3NTTGvHdB7d5YSJbNAeUWMbxHv3g0m3SCAAGG7cElrC6FbKrD0U0+JvOpi88P6l
-         v4fg==
+        bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
+        b=qmA0KXykoaWxD83RQcYdwGwK/7TxSa/KUQDZcevXWaFEsr6yX3qocQi5ps96XxUi7f
+         48ttXDb8RZ6fsyv6H2cAijkkpUBsqDXxXPBT/0wGhW2eUfVa0nheJDjv0poRY73XROsb
+         d0T7josaLJlN40V640h2PiynLhF9yhzsL6Drd2sPFtAFyPN+5uv5EADmQRQ6WOZ1ei2k
+         8LAqL0g7wTkk1z5cMO8af/qrjzBktp6FFFfOaqN4qNJ7OvL/2f4XnYDDpxBPFrYn+lbv
+         Of32Ik3wPmTrLGWVxT+Px9rZhOitwCs8hWe0BUdBWUF78ApEOCUDpMTzsZYaAFWGbpd3
+         YNcw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662752; x=1796267552;
+        d=1e100.net; s=20260707; t=1795662786; x=1796267586;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=pSx+cwaYj6d7FBSuXNFNtOr8390tE4CLrT3hLG+WtOY=;
-        b=r35u75qyXE3dsaiat6RG8niSd5Zdcn4CJ628WNmvDzK7RcBs9uOzPj8OPS4bEvKtly
-         vjgl5g1v3ewlBJ8MH1EGX8PhMSKXi4/vGaETW74d6vncQuNXKARnS5T40fV8ZlnOZNbJ
-         ceLU7mj/2K47Go21tQpjeCDu2QxI48yPO93ms0tBHJpP43hEf4XMJvo0ntoB01LzmGNx
-         47fOGC+0BIp4TS4jHZBGl1cUlRlmAC010hLGRow1ttUb7JdqS/gOV6Vq9iw1Oodt+XE6
-         IIOQLL5R7/5CubmCGa65PF5G++2bRo5aRt0NeKOyvxhj84FisQwMJ84hofaTY2pu0iUU
-         EJDA==
-X-Forwarded-Encrypted: i=1; AL+hErHCpIzlMJ+iMLZ10inQvE5HRc2tjfTjydaQJcW8H+zivCk5nrMLUKJ1Idk5VcbbpiXYUIXtakM=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8FZyMI5Jl0b8fSnbLbdiXeA8hUStYkawhdA1DC+zAOlsqDSh32
-	Ma6KTJYaqxpxY9I0KIEn1z9UEZrEBBJjyeCltbDQOrH9WPqBJwb6Sm9w
-X-Gm-Gg: AZFdTZfWFb2gfmF6Chi7vtBefadKrVg0eeAFfTkZtS3dwZ7mlGnhkvxSQ9we733ZEwJ
-	Hm2luJedqqTzPm6TAzuNZ7+wxX5KnBH+am2GsVcXcNALYbdHLBgEf69LIhhJSPc4PaOgFNoQq9H
-	mWgW7SYVzdTU50Oxk9JDLjTU8tz1g/enEeDa28ddzx82lLHXT3NNouQTf76xfZiGZq2iegoYS2q
-	mfV+JlEXIUPolqxA5/2Wvkzihs3szyPQdDXfsUPJ15ctEW5MRWLgAn0JfyQsKOEb6+HEielOd4S
-	CrO9KBnaYMa24JyjNXZYeldKYXn1YbuXbJFY+dPFkKpclHhBfBq14fg4BRQHEv5ttV9m6gCJPQP
-	jsbXhCTil6WPyC/oUp+BsN27PpVG94/7TaEcUSB1a8yXD9LFe0aUjqqDL73tsWEb9qD4gSoJ4E1
-	ZGZXcRSE4n54ZQGLZhjAQaTzxUpiBby6Ea8P1YvbTUshRh6OVYSwZvswAPJL7QIpYYuAP2GVN2q
-	brVPnUZcYfkl3uYZCPcUmhwKLvF93+hANnmrZC2cDj44ifnz+ytxzhfpYuu6RHxMyJjx6KnkCtT
-	0pihX/uuUwiGz1Lq0QTgTii9aQVhk9yLLhPLhHRB/MkMo6g3u1vbWR3y20XA2FWb4Rzj
-X-Received: by 2002:a05:6830:3150:b0:81b:a5f9:3490 with SMTP id 46e09a7af769-863159adbfamr26546009a34.24.1795662752145;
-        Wed, 25 Nov 2026 19:12:32 -0800 (PST)
-Received: from localhost.localdomain ([14.116.239.36])
-        by smtp.gmail.com with ESMTPSA id 46e09a7af769-8631682200esm13980311a34.2.2026.11.25.19.12.28
+        bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
+        b=JxGGZNUt9yRGY0/i9sOI7U7A1r1OSPaZZyT37pUpqSFLwxuJhELgMGO/SIXqqG/20m
+         n/VLw+54Slv0/LkssZi8siQzzBhW4Xc5fwYVC7caz56D14ky1W2AMXK8BSVvT0w7YUK1
+         mM5oQO7wMyhj8gTygjPu9wNa06RyO8sLX9ZLObbziJ1IgRfCGEJ1h4AHHInqKc+0SsYN
+         0TJl1Jy+5JcTzpVgm7RAui8VJdAnXG36baEV6Icxzi6v30PLNr0DdYaAiqkqwRDc/QN1
+         8SObIrOBdPqO57Lz0mPWve+OjmvSepxF9XjMF3yPwL8drd6xdZTxO42puRY8snBsvJcW
+         OQ8g==
+X-Gm-Message-State: APuU4Z8VnX4vfFEiykCXb267iK/dKIhSs8qPTlbDkpmvGFppodNiHVU2
+	iofG3nVD6MOnjR8DR88grhGRvzLNTZE6I7OdtEUu8PtuDS669CU8ykxLjD27OKH8wA==
+X-Gm-Gg: AZFdTZcFXiSt42FfxBlcCGFbYc8ElucqyVzGzi9BAVObbvtLRbpJF6gg1aFWZZiFr8L
+	AXrefzwm/O4/3ZXEJ7LgO4+1BAipRoa1CWvjaT210HQsl7/H9fXebHaxWV7mfs5qRi9a5PS0SC5
+	skbkgdO4LXQfVt5Q8n3VdDbcioIKOgS35oTmfULiWEA6r3ZDPfmYusJQrFJ1XXV5Q2S6JjFbLPS
+	HJPOWn/GspskN3U/bKLuga1IHlssmDV/erC+WiFcD94PcwjOpJINvaOXfKosAgP+G2N0nXP5kpO
+	t4AddhS1XlaIAzKXEErZDmBrQrx0n9FITux8CSqAUC6MMXTqEcfJ9PLZD0dMvmOwxu8RKoHLsSP
+	dykoRhX5WPnrMLPZx9RlT94p5wpkF2tNAIdIuvFG/bLMQlvjEmKow5av/AHe2QX8onHVScssejA
+	jDaGjZQ2M8LNqrsLItiEyyxyif6uNHTBhJAaZxbp8SCO2AHCWtCqg5HWapwRlIdwzyDTM/zYFdA
+	WLjA9BxIGxfQUobF4LTS+RShgpBhpYdElLsaLA7cDTjUy/w4Ly3k86qLiwHgWgTU7buTxnLaaWR
+	Q9Z4K3ha4YA5QDlQHbYuvRn8qQZibB/+zhufio/EF7WA1FCS/BUdRGeYfEIYm1Rzb8N6FmqHmrp
+	92jsOVL1rKYIMrBjEAg==
+X-Received: by 2002:a05:7301:3c0b:b0:386:d466:51f1 with SMTP id 5a478bee46e88-386db4e2b51mr2270203eec.4.1795662786330;
+        Wed, 25 Nov 2026 19:13:06 -0800 (PST)
+Received: from cantal.lan ([58.136.75.118])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm70204355eec.4.2026.11.25.19.13.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 19:12:31 -0800 (PST)
-From: Henry Martin <bsdhenrymartin@gmail.com>
-To: dsahern@kernel.org,
-	idosch@nvidia.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	yanhaishuang@cmss.chinamobile.com
-Cc: horms@kernel.org,
-	netdev@vger.kernel.org,
-	Henry Martin <bsdhenrymartin@gmail.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v4] net: fix stale header length after erspan version change
-Date: Thu, 26 Nov 2026 11:12:24 +0800
-Message-ID: <20261126031224.430850-1-bsdhenrymartin@gmail.com>
-X-Mailer: git-send-email 2.43.7
+        Wed, 25 Nov 2026 19:13:05 -0800 (PST)
+From: James Clark <jjc@jclark.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Rohan G Thomas <rohan.g.thomas@altera.com>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	=?UTF-8?q?Alexandra=20=C3=98stermark?= <alex.cramt@gmail.com>
+Subject: [PATCH net] net: stmmac: dwmac-socfpga: disable split header on Agilex 5
+Date: Thu, 26 Nov 2026 10:13:00 +0700
+Message-ID: <20261126031300.211248-1-jjc@jclark.com>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,155 +105,49 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-erspan_changelink() can switch an existing tunnel between erspan
-versions, but the GRE header length is only computed once in
-erspan_tunnel_init().  After a downgrade to version 0, tun_hlen stays 8
-while the version 0 transmit path clears the SEQ and KEY flags, so the
-upper 4 bytes of every pushed header are uninitialized skb headroom sent
-to the tunnel peer.  An upgrade leaves tun_hlen at 4, so the version 1
-transmit path writes the GRE sequence field over the GRE base header,
-and the ERSPAN header grows without growing needed_headroom.
+On Agilex 5, received IPv4 fragments are corrupted when RX checksum
+offload is on.
 
-Triggered with a version 1 tunnel switched to version 0: the four bytes
-above the GRE base header carried the heap marker sprayed into skb
-headroom instead of the GRE sequence number.
+This was observed as corrupted downloads on a Terasic DE25-Nano over
+a PPPoE connection with TCP MSS not clamped. It can be reproduced by
+running ping -s 2000 to another host on the LAN: ping reports every
+reply as corrupted.
 
-Recompute the header lengths in erspan_changelink() on every change,
-mirroring the IPv6 side in ip6erspan_tnl_change().  Sample the old
-length before ipgre_newlink_encap_setup() resets t->hlen, and run the
-recompute right after erspan_netlink_parms(), before checking its error:
-ip_tunnel_changelink() -> ip_tunnel_bind_dev() consumes t->hlen, and a
-failed changelink must not leave the reset value for the next call to
-sample.
+Agilex 5 has an XGMAC core, and stmmac turns split header on whenever
+RX checksum offload is on.
 
-Verified on v7.4-rc4 (KASAN, uid 1000): unpatched, 708 post-switch
-frames carry the sprayed heap marker; with the patch the tag hits drop to
-0, and repeating a failed (hwid 0xff) followed by a successful
-changelink keeps the MTU at 1446, as before the change.
+Set STMMAC_FLAG_SPH_DISABLE for Agilex 5. Other glue drivers set this
+flag already. The same failure with fragmented ping is described in
+commit 47f753c1108e ("net: stmmac: disable Split Header (SPH) for Intel
+platforms"), which noted that according to the DesignWare Ethernet
+QoS (not XGMAC) datasheet, split header is not supported for IPv4
+fragments.
 
-This issue was discovered by Tencent CodeBuddy Security.
+With the flag set, fragments are received intact.
 
+Fixes: 93d46ea3e984 ("net: stmmac: socfpga: Agilex5 EMAC platform configuration")
 Cc: stable@vger.kernel.org
-Fixes: f989d546a2d5 ("erspan: Add type I version 0 support.")
-Link: https://lore.kernel.org/netdev/20261123062752.27920-1-yanhaishuang@cmss.chinamobile.com/
-Link: https://lore.kernel.org/netdev/20261124014646.7954-1-yanhaishuang@cmss.chinamobile.com/
-Signed-off-by: Henry Martin <bsdhenrymartin@gmail.com>
+Signed-off-by: James Clark <jjc@jclark.com>
 ---
-v3 -> v4: fix the placement of the int hlen; declaration: the hunk
-          matched the identical declaration block at the top of
-          ipgre_changelink(), leaving an unused variable there and
-          breaking the build of erspan_changelink() with -Werror.
-          Declare it in erspan_changelink() and order the declarations
-          per reverse christmas tree.  No functional change.
-v2 -> v3: move the recompute block right after erspan_netlink_parms()
-          and run it before checking its error, so a failed changelink
-          leaves t->hlen consistent and ip_tunnel_bind_dev() no longer
-          sees the reset value (both reported by Haishuang Yan on v2).
-          Fix the changelog wording: the sequence number overwrites the
-          GRE base header, not the ERSPAN base header.
-v1 -> v2: sample hlen before ipgre_newlink_encap_setup() and recompute it
-          on every changelink. v1 sampled it after the encap setup had
-          already reset t->hlen, so the delta was always the new ERSPAN
-          header length and every "ip link set" on a version 1 device
-          shrank the MTU by 8 and grew needed_headroom by 8 (reported by
-          Haishuang Yan). Add the runtime trigger observations.
----
- net/ipv4/ip_gre.c | 29 +++++++++++++++++++++++++++--
- 1 file changed, 27 insertions(+), 2 deletions(-)
+I used an LLM coding assistant to help prepare this patch.
 
-diff --git a/net/ipv4/ip_gre.c b/net/ipv4/ip_gre.c
-index 5485586fa0e6..16f52b9e77b3 100644
---- a/net/ipv4/ip_gre.c
-+++ b/net/ipv4/ip_gre.c
-@@ -1346,28 +1346,35 @@ static const struct net_device_ops gre_tap_netdev_ops = {
- 	.ndo_set_mac_address 	= eth_mac_addr,
- 	.ndo_validate_addr	= eth_validate_addr,
- 	.ndo_change_mtu		= ip_tunnel_change_mtu,
- 	.ndo_get_stats64	= dev_get_tstats64,
- 	.ndo_get_iflink		= ip_tunnel_get_iflink,
- 	.ndo_fill_metadata_dst	= gre_fill_metadata_dst,
- };
+ drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+index 3a89c4da2af5..28ffa5ad12d7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
+@@ -578,6 +578,9 @@ static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
+ 	/* Enable TSO */
+ 	plat_dat->flags |= STMMAC_FLAG_TSO_EN;
  
--static int erspan_tunnel_init(struct net_device *dev)
-+static void erspan_calc_hlen(struct net_device *dev)
- {
- 	struct ip_tunnel *tunnel = netdev_priv(dev);
- 
- 	if (tunnel->erspan_ver == 0)
- 		tunnel->tun_hlen = 4; /* 4-byte GRE hdr. */
- 	else
- 		tunnel->tun_hlen = 8; /* 8-byte GRE hdr. */
- 
--	tunnel->parms.iph.protocol = IPPROTO_GRE;
- 	tunnel->hlen = tunnel->tun_hlen + tunnel->encap_hlen +
- 		       erspan_hdr_len(tunnel->erspan_ver);
-+}
++	/* Disable split header */
++	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
 +
-+static int erspan_tunnel_init(struct net_device *dev)
-+{
-+	struct ip_tunnel *tunnel = netdev_priv(dev);
-+
-+	erspan_calc_hlen(dev);
-+	tunnel->parms.iph.protocol = IPPROTO_GRE;
- 
- 	dev->features		|= GRE_FEATURES;
- 	dev->hw_features	|= GRE_FEATURES;
- 	dev->priv_flags		|= IFF_LIVE_ADDR_CHANGE;
- 	dev->lltx = true;
- 	netif_keep_dst(dev);
- 
- 	return ip_tunnel_init(dev);
-@@ -1493,32 +1500,50 @@ static int ipgre_changelink(struct net_device *dev, struct nlattr *tb[],
- 
- static int erspan_changelink(struct net_device *dev, struct nlattr *tb[],
- 			     struct nlattr *data[],
- 			     struct netlink_ext_ack *extack)
- {
- 	struct ip_tunnel *t = netdev_priv(dev);
- 	struct ip_tunnel_parm_kern p;
- 	__u32 fwmark = t->fwmark;
-+	int hlen;
- 	int err;
- 
- 	if (!rtnl_dev_link_net_capable(dev, t->net))
- 		return -EPERM;
- 
- 	if (data && data[IFLA_GRE_COLLECT_METADATA] && !t->collect_md) {
- 		NL_SET_ERR_MSG(extack,
- 			       "Enabling collect_md on an existing device is not supported");
- 		return -EOPNOTSUPP;
- 	}
- 
-+	hlen = t->hlen;
-+
- 	err = ipgre_newlink_encap_setup(dev, data);
- 	if (err)
- 		return err;
- 
- 	err = erspan_netlink_parms(dev, data, tb, &p, &fwmark);
-+
-+	/*
-+	 * ipgre_newlink_encap_setup() reset t->hlen without the ERSPAN part.
-+	 * Restore it before ip_tunnel_changelink() (and its
-+	 * ip_tunnel_bind_dev()) consumes it, and even when the parms above
-+	 * failed, so a failed changelink leaves no stale value for the next
-+	 * one to sample.
-+	 */
-+	erspan_calc_hlen(dev);
-+	hlen = t->hlen - hlen;
-+	if (hlen) {
-+		dev->needed_headroom += hlen;
-+		if (!tb[IFLA_MTU])
-+			WRITE_ONCE(dev->mtu, max_t(int, dev->mtu - hlen, 68));
-+	}
- 	if (err < 0)
- 		return err;
- 
- 	err = ip_tunnel_changelink(dev, tb, &p, fwmark);
- 	if (err < 0)
- 		return err;
- 
- 	ip_tunnel_flags_copy(t->parms.i_flags, p.i_flags);
+ 	/* Enable TBS */
+ 	switch (plat_dat->tx_queues_to_use) {
+ 	case 8:
 -- 
-2.43.7
+2.56.1
 
