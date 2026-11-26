@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.181
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711334;
-	b=hI3VKlNmhMVblMH2d/fjbHcKSclXNtdNRK1daXQ9hXKzxXqybigII0GbpFK4I7ZgZeug
-	 q5BhajSTusL2Fem7ozrDG0zz50bHr1WdWOsQDbhtHWc9f1rnBMowscrV394zmDvXQ6hX7
-	 eO6Iic6ZYXR9pWozot0ZnUsS4iTMTzZHAhjevaqHPgYA04Wj0dzkCSQUgS2rpc+7bxEPB
-	 w1Z6M5Q+OElvF5RaMEU+8wAqidvuwxpatfKBrG2MLQFpawJjx1rbpo/s8+USBj0gien6L
-	 omcWFvb1WAe/YqHeh85SqQuYbKmoja4UMW0+cFVhfjujrN+ghzTN3bCau8PjUAuELeQ==
+	t=1795711336;
+	b=ayZpf/53CoW0eNLT1q9QCFd9G1UrC2tzAPNipjN4jy1pZjcmO1Io2gvP5ZfLY2QVZnpS
+	 p5sXncae+NBrF4aCvVfNwTTDk6hkeu/PTzDIGrYp8fQDq5qGhQ5qjBcRkSsfz3iru15Zs
+	 gEiOuHFUea8mkxgQcXX/1bX7lNb1S5y7aCqMYnIwFqPL0BraZIJSvq/YhPL3oKwrwJL1L
+	 qINXQzNy/ryrEqgAvQlyZhRvBIxKM2YAtCp4yFF1BXs/ukt+n+PQWu9Fozpzjd//5gtcy
+	 SOwYVBgMDD/Rx3AwDEfAXzRlEefAA2hcLyE+OXcksDCZClkl2q/9EKbyD4EMkfBG0rw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711334;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711336;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-	b=Dj1Hjd13hur4GKilWRVuyRG8A2BAOOmlgZ6c6kiByvQXHD3PYEtT3mBWgRfLgY21V/xd
-	 EjpQcg58kumuWC/5DNwtVp6WzRgEVCv3bk+89amIKasPT6phdNEHQag23u6Ei5nW5JTrL
-	 ouuZ2PF27jeDDx/gYfMz0CMnD8x2Zr1li/xSQ31krBbgtJyXt8B4jewiRcOGL/37lU2EP
-	 XfSV3oHkfCl+XHvwE6Rnsn9zEebYTltLEVtq+VhrHBc3s9cTDIGIU4l+FHQK2QyRtamg4
-	 t16bVhBPl/OhvO3aW5IgoZNphoL7pfcVFl1N3lB+40U+p17VejXpkps/2TIoXvQMjoA==
+	bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+	b=RZt1DP7xLfmbbfOJAuvj0i4QnN1bqAkFapFidiSfwqGSVv/v1qKuTOXoirAn5Ik6jDdM
+	 6sMHr9ptYkudWuOLfk499ksjcCpSyTJ33btOVkG5XZGVcmnq5O/DGWCh26GUQBskimLbk
+	 Ua2lq98pALdcZ0bMN0V/YzaMxNNrkNIr+pHMSCGOPdmgTv1f7FQ/ShtHD1ig3UFuE2YLQ
+	 k5MrfxXKwegPd2KBav68nn/SJm5g7XGvrpRv+ACLDj+8r16KMTvMrfAvp19YCU9KN2NO7
+	 hhHV2PvRSyYI0kz4BM8FB+a2/N4/I7f0mJspsc5s8AzauFjOlWil66dbysiUVe4X+QQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A0c7Uths;
-	arc=none smtp.remote-ip=74.125.82.181
-Received: from mail-dy1-f181.google.com (mail-dy1-f181.google.com [74.125.82.181])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNMH7WHJ;
+	arc=none smtp.remote-ip=74.125.82.169
+Received: from mail-dy1-f169.google.com (mail-dy1-f169.google.com [74.125.82.169])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9671606A691
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:42:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9671606A691
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 781E060A261B
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:42:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 781E060A261B
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=A0c7Uths
-Received: by mail-dy1-f181.google.com with SMTP id 5a478bee46e88-38644aedba1so10752085eec.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:42:13 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DNMH7WHJ
+Received: by mail-dy1-f169.google.com with SMTP id 5a478bee46e88-386b8f2f671so4085212eec.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:42:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711333; x=1796316133; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795711336; x=1796316136; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-        b=A0c7UthsOC0y/rSaEOriAcQVtilu/udmayAq32HbAEviVBvxR+C4kBogoyExh3LyPw
-         OND69ody1GWoMla+Q2cAXKemA/dRJOP6wucsz5VGwlz3UNlgBOqcgWxWQelGyPma/T1/
-         MOqYdFIkqjUOYlhmr0c7Q+gY43V+i+SEqm3xPiKY1qftt2Fa2Hrnq7RxW3lGCdL/xSmz
-         SbbauCLQr087jfUqM58s9VEsxqkfm2yJJvHc0K+YLWqIHo9X806kGEhxAjycVH5bZZpQ
-         ysoFteqjAY3ei0lX/ilwdSyUwIMQHYgJ2TNJElTAQIuIdDimakxtsS5EMVCzT1xsz6tH
-         uRMw==
+        bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+        b=DNMH7WHJFQB+wN775CiJuduR7WvVjAAUrs7squmv4mc9JUVd5BlEkKWAdtE191NYsA
+         fg6x+jJwH22wu2d768nC1M8rq1yDL08M/uKkb4uS4VYHElBcxqdJJsGIoB3GPxNcUfkB
+         ToW9TY8ddx72IP/xrQlTdCNxt8nRGb3VLDihfIt/XaHB2XuCFkxWXGfO2t1YkxfzGEiM
+         fS0MYvAvcMssbUmVDTJK+YOAP2j3mm2F1SwtYHm/EbtFiLBUXeDNOS14pMxq9VCtPmCP
+         X6+RWtsso8wnr8X4PR1OlOM1Y7HSCIyVUMoaiDrODYTn3AyDPaf0OgD/+6SF702nsXju
+         59YA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711333; x=1796316133;
+        d=1e100.net; s=20260707; t=1795711336; x=1796316136;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=tXzlqriDCchISdhq2S4x7+9hMGbGzDajZ595wmRIilo=;
-        b=XXhbotFWdLyc7RMxK45i34A1xAPPcZV/D0x6bMTURsLS8cRr1Comed1ThKVQRZqOlj
-         wmgfzSYjcn3M1l7FR9F0ynIJNBkdlCrFpoojOqV3cM8L/gdphUoCNn/XWJ4UJiC+7HD1
-         hQUHZICF5/nlFTsBGVfavUzwo2vci8/nSZHte0NBwue/02jKLFG9oZSWyUOlvUMQ+0k7
-         zc2mfcULfNfcczmSw3QQj7X5wGX/nkxS4p+SprBoPjGs1X4LKrIhOgig69dPcBD3wBNf
-         sbwJpVg6E3ldxgaijDqltoYrUA5mF/6JnuU0916uJREEm/nGBvjsUF/tZ/COfvj9nyhN
-         RMjQ==
-X-Gm-Message-State: APuU4Z9Jmkl7yZG92/wJIbjkRUQ01FvkKrUtkG5FP68tROJSZzZH7KLL
-	wUEwMgLks8SgV7pzUdRr32909OaP/+tycrcvlygDbtlAR6U9wEw8j/nhG3k/hp2e
-X-Gm-Gg: AZFdTZe9sOqtF2IZ4psKbnBpZ63LhKsRf+c302WBCjKpoWMKXA9YK3WmKghwd6KpTUg
-	bS3HhDMGJM/QOR/yy4OG8ClQSVIWDzdBrJHlBe6mSH2RWAoOFz3zvRDgIsc1buG6xdUq70M3EgF
-	gY8TXZ6sGdzEdkJCo8+EmLVSMjKa+Kohh/LygVpsQEFpTvQ8ZAjqQUsX9r6CloATk4oAns8zJtR
-	C/1O6RtcqO/NVYY2UkerDBotc+ZwtpQUBq7D0e1vPeSUmnqCb+FvnTb+djAVB/MLcjU8LY7arbd
-	OGvnABWNG6DarujoGZ61ABPEVVOqV+VUfSivKKbkHlhvTnYn94hafZdICN0YK1Gm0yKGXw1zTiC
-	UXZF20PWRfogUcUC2LdadTLVWdnjD8UvV2M7U/8XolhzGTMOxseqRuDF9/Q+b0M36LytrZFPmgk
-	k0ePV1xoS272qX29I1GyBFzfxl3iqdMQTYFZZHS7hUAPmIfHllaIWzzvcEf5mP0cVDq85YV/dZQ
-	zWlTUz1ml6C27rgM10ruVFCXteu4wK0sRQU92uiBMBzrL0mER46jGC43jyWe/QWEQ8H/hxEGPEB
-	c6Q55dHLz8OtcJz0TOgqnc51kIXuvEMmXbIWFqCkLzkwXR4KKcGZxF3W5IyEJmOfs6zkSHVkQGv
-	/uiE6CuqAuQjkbrWZVTv7+gPROQPPriK7AQ37RsScVJ6RdZoZYQig/oLKhLgwgqzfT5TJJobgaV
-	tsLWei3x4Yy2O+11pPdw==
-X-Received: by 2002:a05:693c:414d:20b0:386:9f89:aa80 with SMTP id 5a478bee46e88-3869f89aee3mr17238179eec.0.1795711332806;
-        Thu, 26 Nov 2026 08:42:12 -0800 (PST)
+        bh=Pmk+sIZTt3w0WtAkxU0Aj/ecWCHoLEzaJTgVNQnsM0k=;
+        b=FaaK02acmlE0OK6aO0qoF+2GKxxEz2QE59TjlgZQpMfPHpSbuArCPPpNLVo5IqNvA6
+         Pas1S6WL7W6EllD9yR3i0gGfcdvVRH3cGdHq0IBKmj+c0K0yo8glRibaJbDeSFK/Zvr9
+         Lp10F7RfF4whKBUPEaPwxyRwqzAWv/2b0fsGhRA4IYQXr6EDsNqKTAxIjpBMdNg8KQJZ
+         SV33RHAWKEAmetuMenNsROhhwTON3eF8RmqCFyc/mYwiVeeMkTE6FlbF7M16okzegmKO
+         Nw45s9rbfoHOwhGEr4Vsb2/4qAUgYzGNOzdKnQF16ttnYhOlzznGCNrS+c8zJfhLPSFE
+         1G8w==
+X-Gm-Message-State: APuU4Z8IymDLNe56cKBNmYKyJtr5JtCA2DSiw76dHbIOfH+BAHPT8s7T
+	UTUsQfXIOaFTM3Nh199UETG7Q09rfUnG2EkrlSEywg2RUrSFX3wEyQ/ZTWjcy7MX
+X-Gm-Gg: AZFdTZcQ3Sq5Oyr76AXnDg1T9IZBOFb3BW9k8F2nIe3luNhcVwqO1qKlgTUFqonxDd2
+	gYcg87UfzRfO2Pk6d4EQUAcD/3QeZdoQ6afnm7KBu9b30gMJjn4lMm7EKF+sQKxaQuGqVFK3pM5
+	5yXWsq/nMjoPMlh1MD6DRPSwx5SWCNOBq14on+Iy5vqWJE4sSQvMicIJO6fKSdGAEedHoc7Be7v
+	FKz22NJ6qA30RyKYbg1sHyskGNNYr9q6ETcTxj7VHDgbO3heUdKujVCi/6zHxrE5o7pRuUCjMak
+	8NOqlyBxsw49GUwZRL/KwfgZgfIzjOGqw9+2InS+Buz4Tbu1HVROjeImRwKIeOfyQDUTeJhjeCl
+	IdCrYrUtNz+QED1LIRvnK1o6B6Jnr17pOOFsJ3h7FfaUGRXTVOUfRGGMCVktoejoresgZ5njhBH
+	Z8uQOYPCckt8+SYjhC74SZxMo+hhtAuvVRhbKMs59mRJCJmiCDMyaQ+MbBbapI2D18Zq6BAV9O3
+	gvEFymeGZGYlPqDuRpSqMYtjQxIU4P+mA25ZQammejF9v5dP/93BWhtJSO57nBK0YD9pS2yGUdq
+	MfjzMNqyjWzca2fRELheprl2Jx/3dqq+rAgO/NcukYE+u4PESi+iBF0AU1F2j9QIukRJgBjrcC/
+	jmzf2Gv2WoZ/4NFUW0n1o3XkvDmRo5Iue/fPxbu+7vSzpZBymh8a3RNuEHBsszVXVEAESiTi5
+X-Received: by 2002:a05:7300:1c1b:b0:386:9d31:2d18 with SMTP id 5a478bee46e88-3869d313208mr16132034eec.0.1795711335410;
+        Thu, 26 Nov 2026 08:42:15 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.11
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.14
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 08:42:12 -0800 (PST)
+        Thu, 26 Nov 2026 08:42:14 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: richardcochran@gmail.com,
@@ -93,9 +92,9 @@ Cc: richardcochran@gmail.com,
 	arkadiusz.kubalewski@intel.com,
 	jiri@resnulli.us,
 	jonathan.lemon@gmail.com
-Subject: [PATCH net v6 1/8] net: dsa: sja1105: keep pin function on EXTTS disable
-Date: Thu, 26 Nov 2026 08:42:02 -0800
-Message-ID: <20261126-timecard-driver-v6-1-ahmadexp@gmail.com>
+Subject: [PATCH net v6 3/8] ptp: ocp: preserve timestamp routes on DPLL frequency changes
+Date: Thu, 26 Nov 2026 08:42:04 -0800
+Message-ID: <20261126-timecard-driver-v6-3-ahmadexp@gmail.com>
 In-Reply-To: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 References: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -111,35 +110,96 @@ Content-Transfer-Encoding: 8bit
 
 From: ahmadexp <ahmadexp@gmail.com>
 
-Disabling EXTTS currently selects PTP_PF_EXTTS, changing the shared PTP_CLK pin from periodic output to timestamp input. Only select the EXTTS function while enabling capture; disable continues to clear the state and synchronously stop the timer.
+DPLL frequency changes on a combined SMA input currently replace its complete selector value. This silently removes timestamp or counter destinations configured through the SMA sysfs interface.
 
-A coding assistant helped analyze the teardown side effect, develop the correction and source-derived regression test, and prepare this changelog. The test exercises the actual function with configuration writes stubbed.
+When changing an input frequency, retain selector bits for destinations that do not define a frequency. Preserve the existing output path and continue to clear disabled inputs. This keeps the timestamp route while changing the frequency-bearing source.
 
-Fixes: 747e5eb31d59 ("net: dsa: sja1105: configure the PTP_CLK pin as EXT_TS or PER_OUT")
+A coding assistant helped identify the route-loss issue, develop the fix and regression test, and prepare this changelog. The test uses the actual selector and DPLL functions with instrumented register access.
+
+Fixes: 09eeb3aecc6c ("ptp_ocp: implement DPLL ops")
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/net/dsa/sja1105/sja1105_ptp.c | 8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+ drivers/ptp/ptp_ocp.c | 47 ++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 42 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/net/dsa/sja1105/sja1105_ptp.c b/drivers/net/dsa/sja1105/sja1105_ptp.c
-index 350f958dcb2a..da35805152e0 100644
---- a/drivers/net/dsa/sja1105/sja1105_ptp.c
-+++ b/drivers/net/dsa/sja1105/sja1105_ptp.c
-@@ -816,9 +816,11 @@ static int sja1105_extts_enable(struct sja1105_private *priv,
- 	    (extts->flags & PTP_EXTTS_EDGES) != PTP_EXTTS_EDGES)
+diff --git a/drivers/ptp/ptp_ocp.c b/drivers/ptp/ptp_ocp.c
+index 625a85b2dc7e..284908c6abc2 100644
+--- a/drivers/ptp/ptp_ocp.c
++++ b/drivers/ptp/ptp_ocp.c
+@@ -5873,16 +5873,31 @@ static int ptp_ocp_dpll_frequency_set(const struct dpll_pin *pin,
+ 	struct ptp_ocp_sma_connector *sma = pin_priv;
+ 	struct ptp_ocp *bp = dpll_priv;
+ 	const struct ocp_selector *tbl;
++	u32 val, aux = 0;
+ 	int sma_nr = (sma - bp->sma);
+-	int i;
++	int i, j;
+ 
+ 	if (sma->fixed_fcn)
  		return -EOPNOTSUPP;
  
--	rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
--	if (rc)
--		return rc;
-+	if (on) {
-+		rc = sja1105_change_ptp_clk_pin_func(priv, PTP_PF_EXTTS);
-+		if (rc)
-+			return rc;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+-	for (i = 0; tbl[i].name; i++)
+-		if (tbl[i].frequency == frequency)
+-			return ptp_ocp_sma_store_val(bp, i, sma->mode, sma_nr + 1);
++	for (i = 0; tbl[i].name; i++) {
++		if (tbl[i].frequency != frequency)
++			continue;
++
++		if (sma->mode == SMA_MODE_IN) {
++			val = bp->sma_op->get(bp, sma_nr + 1) & SMA_SELECT_MASK;
++			if (sma->disabled)
++				val = 0;
++
++			for (j = 0; tbl[j].name; j++) {
++				if (!tbl[j].frequency && (val & tbl[j].value))
++					aux |= tbl[j].value;
++			}
++		}
++		return ptp_ocp_sma_store_val(bp, tbl[i].value | aux,
++					     sma->mode, sma_nr + 1);
 +	}
+ 	return -EINVAL;
+ }
  
- 	priv->ptp_data.extts_enabled = on;
+@@ -5900,6 +5915,7 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 	int i;
  
+ 	val = bp->sma_op->get(bp, sma_nr + 1);
++	val &= SMA_SELECT_MASK;
+ 	tbl = bp->sma_op->tbl[sma->mode];
+ 	for (i = 0; tbl[i].name; i++)
+ 		if (val == tbl[i].value) {
+@@ -5907,7 +5923,28 @@ static int ptp_ocp_dpll_frequency_get(const struct dpll_pin *pin,
+ 			return 0;
+ 		}
+ 
+-	return -EINVAL;
++	if (sma->mode == SMA_MODE_OUT)
++		return -EINVAL;
++
++	/* Inputs can feed several destinations, including timestampers. */
++	*frequency = 0;
++	for (i = 0; tbl[i].name; i++) {
++		if (!(val & tbl[i].value))
++			continue;
++		val &= ~tbl[i].value;
++		if (!tbl[i].frequency)
++			continue;
++		if (*frequency && *frequency != tbl[i].frequency) {
++			*frequency = 0;
++			return 0;
++		}
++		*frequency = tbl[i].frequency;
++	}
++	/* Unknown destinations do not establish a frequency either. */
++	if (val)
++		*frequency = 0;
++
++	return 0;
+ }
+ 
+ static const struct dpll_device_ops dpll_ops = {
 -- 
 2.54.0 (Apple Git-157)
 
