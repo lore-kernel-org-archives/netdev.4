@@ -1,108 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795653677;
-	b=fr/hNsCFTrETTVI3nAEBwfz/oI23GeOoR7IVWrMxT138+xpzHB0gnWqMCdMW8au7Rd0d
-	 Po0ULdK9+mCRPQBBd4SI0fCism0nKv7vP1YK98PtQQkTrbWPMOY8M8/lwuOr7CfmfTazn
-	 Zw/d+aFKJbwdI6/ZSLml0xE7LVLS9ltHet+v3njtcrrz7kUItJ6fltPvGoDWLhlfKkA1H
-	 li9GEVzq6U+EUgxdW/orOqzBhj/lPwBJcVvimkK4lxmkDQ3crlIFNd4CXpC7CIcXRI6Ln
-	 +VSog/7NdAB8NnavgzzvnhP3bhyGXIpVOrfYXbEtNCnRGAY7MiB1KOLx+ZPdRMYl88A==
+	t=1795653815;
+	b=jdrIe+7IICKzc0UNIyc1v1DaCyiMo0LtYewJiTqjq4NusqgB1wTatbf8D6eB74bbPpq0
+	 MNOHlMOZ8aLpVkIau4karuvcGzSB3iXEFSCAf8Fkbc6oF2uUAGt8S3ZMkAmsdsBgCbl3a
+	 RTzax8aYQAiFVuCy+GATrRbsM4nH2WjgNh43hmSQGeL0+UYIlII5BfFaZZBfLBzpnuYwR
+	 HGnvThcYuoYZmHMAyUhVtI9xPmNnKTN43uwk5MsGAVzIwzOxFhiM2XnmbdKriNMyYgpi8
+	 N2i10pHKawIlzLl8hGngKy8kgnimFUhIJZ/A75FNpZCnci41Ythvvxo87HqBwr0DLYA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653677;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653815;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
-	 MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-	b=kHIKUdN9/QmK/AsZVhdIBPE0ShdYHueKGLWETYLCbKJJY1Vft18zvtLzMCvV56jsm8wV
-	 F5QH27PFhzwzYL5qZhjai9akZY0c1761y1eUKOiITtO6F/LXsldUTu2z1C1CxdxszShpP
-	 abPW7fOWf6o3Bjg547IaSQ5eEonX9JtWGiAGE0bCY1yOO6FsNHRj+kZvXQYExzspdGS2S
-	 hrvpkE4iM4Sw8XOOc4yx9/oJsBkAod5CgEacDeIS/Rboxb4rHK2yU4hj0QrpScxIn13qU
-	 X+nK7svK+k/agEAzJ0nSert06xZxbJZziXOOprY1+ncRtKTcWiBWyH9OfOiETDfb5pQ==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
+	b=PazZllVNaMaBj/TCgbe8YoD4jGUyY3YId5sB/Db/TFkem0ibcHUohJPS+b41urqmoFWN
+	 sPobuaGbL3RXJCJHV879yePKvDMWpSA+GH66F7mPQxxVGUfEo45+9XqlXc4+Ck4RHfb1m
+	 QrR0a54Ox/y9kh4gJCkikl7xgbIVfXs4k3+3Cr/WFo1mFmyFrZuyJiSUAtiChe+h4cQsn
+	 xDyOxW2C1MoEXr3LoxNenSWmYy3QJRHbd+X/YoVvvQ2FOB3OvBoEI/SH53qSm7Xe/0xK7
+	 kWbw16CPnfIaSjyJMiMR6ZrVmeIeFOBXu5N8xoXYEMKNZBBWfiMjn6weqU3lL3c9ubA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=dama.to;
-	spf=none smtp.mailfrom=dama.to;
-	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tbywnl0N;
-	arc=none smtp.remote-ip=209.85.216.53
-Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	dmarc=pass header.from=blockcast.net;
+	spf=pass smtp.mailfrom=blockcast.net;
+	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=AJX0H2xK;
+	arc=none smtp.remote-ip=74.125.82.41
+Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AEF6606A329
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:41:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AEF6606A329
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D507C606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:43:34 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D507C606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tbywnl0N
-Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso3458209a91.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:41:17 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=AJX0H2xK
+Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b589050416so887058c88.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:43:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795653677; x=1796258477; darn=vger.kernel.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-        b=tbywnl0Nq7DCkKcThKGhp1H8EQrxuHIPkWozGFLuyrP/hH6qJmLEJoiyFWAuREc/ah
-         T7RF3bsaggfirGoC9bg8pCBbUZgFWbGeK+tHu5Ben8s9PKKf1tBs4PtUXo6dQ+FMHork
-         hZ3NYF6UqZk2FiGHo5SPpJ1rK06sjVsfWPYHybiasArX+7Wcdv5bnuGzoDdlcLqnJiet
-         pEo6H3cxtElGJzKiWZ1APRw3rU61wGP4O1SVHURed0PCwpl5RsLrOXLCu8BsEGkeXSJf
-         lGPd8eidVsNztwmwEt1CFvID9JzLw0DnDivi6lrNnp4sfAAlmRSnfuE8W7KZAMJUWfdK
-         wfyA==
+        d=blockcast.net; s=google; t=1795653813; x=1796258613; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
+        b=AJX0H2xKw2HD10HeffuBReUxknMxMaApxXrWU8K+Gv+4Swe/xp5a1r0zuwwlThGzAV
+         /a02o+HJAMsn8ljTrwXQ+OWhvtwl7PCpnwNFbgxVCJsp1tbc+cGSWp7BuqAFZR8PVarE
+         uzGHawhPY6An1YuW/VxqM0QbLouPPitoFVpM5oQ7yb4YDyc5GT9VvT+Zl8Luej6GYqzx
+         f1irVFW6x9qvqgvDMP06gQGg/4zIrE1LKwtCIoU2smndwlaxE6LpqauShxMyS6CMkJkv
+         UC8I92JuU47hCKG01R97uxOR8RLCpkd3aEIVJcl9BdrYfsfSLxruI/Gi2BQswFks2rcS
+         Nq6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653677; x=1796258477;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :content-type:mime-version:references:mail-followup-to:message-id
-         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
-        b=gIup7CKDk2pE3G0hfpGf8y0reMe01apjhbrCUSEvkRZ3rXeX5MvelwqdRVfxkE6kFw
-         bhiQo2M+hqUURueFVgY4b/3W230gkj7zEPbosMoptnsa89VJOFg0t9WaZXTWNxu0MTLP
-         xrgoWXVLeon9Xbo8PaUTxXNrRAMI8EkMJs7uNxSWAEYIDCv3GiejU7PMlBBObMiQptUk
-         uaO+/t5AnqDdd/NUH5tX2fNaBhMz605wgmgscuWcUKGbLw0OFKyNq76aWSGWh6ku/jyj
-         9aXDJLRsYZhAob5x+7M141pqpzc64SRhPSYJzusyN90fjLdSmcOP6pQr8vgnxAqNplIi
-         pczA==
-X-Forwarded-Encrypted: i=1; AL+hErE1HbE2N3dsoaCTYJ53CBGtqc+4pW6s7VYoEPt6BnCR02OzlrNiSjWGBeQ11cdEFikHxYe+TGw=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8oP+5QaorsLb2iFuRS7WgSbWnaKJ0zOX/2h00i6L7DijbTt1Jv
-	DynslNeLOT/hvK+oPiy7p04PBatGKvCErwqpYov6PRtnemNrSLB5hUTvdItdy4YvH2M=
-X-Gm-Gg: AZFdTZe08Gthmjp9AmH2BhPLbxy5ORPwAVt3wiWBrQQVOIoq1JJ02ZNUwQozIk24O5U
-	+/u/NNLoQKc5mUNU4gGy5bgQdNKUno0vx3H/2Mk/4hnKPekm3gvwaPALkLZVN8jVdPY8nmpaYq4
-	qBU1KUlIkB5PwkncRx8jgZaAhgGG+9AxbL0JSaFEnfBxg/Br6C8N4wKSe4C0OvrvEcoTYCqP0d+
-	flZD1JgSuNqecOqFIoTQfBnObb0a9Zip3TQmLdNLFgFZpTRZsBCKJKlqRGNpt+Cvd6S0kql6JXU
-	dtPJJIIU85bhsTu0vemjJNWDTX8Mj1innVL539ZZa804Zu/SYWdJlwQuj7JEEVd0Ji6jx0bdgyj
-	BT9F6goJnUEtXIpyKxwW2lNHt/J6jchh4OqCLfDfInQlWYDXdftL1jaaGXZnUhH+Bw1KnXmAghg
-	Lpzh2rY/Aqnarazi5ZADB1NhVx6vBXiS9JfnSsV55RvEInv2PguvuVwz9L4Pjqp+JulXD0LmL/w
-	V8bvIanWM7l935a8+WQ8hokQ7+zX5BKBNte7xvDSnaQgAWHLRmvak2+SBreqGeJn2+yRwLhZaIX
-	4um7Dx0K9WbjoXVFRIs0pfhHkUptAwNE9g9/dZLhIsQ=
-X-Received: by 2002:a17:90b:5109:b0:3b4:1621:ba5d with SMTP id 98e67ed59e1d1-3b41c95afa2mr19198117a91.38.1795653675091;
-        Wed, 25 Nov 2026 16:41:15 -0800 (PST)
-Received: from localhost ([2a03:2880:2ff:43::])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm28823022a91.7.2026.11.25.16.41.14
+        d=1e100.net; s=20260707; t=1795653813; x=1796258613;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
+        b=jWSBNe648vvcSlbdSdun1/khDPYiJ5o6Cxh0uFH034dzu7UrL3Oen3yqQ+QjFtBobx
+         4p9A76/UUC1mNaJt29F7Om11VpZx/pxnykdbFK/49Dls8CTRtVWsjIYwMWzwW62gkxAQ
+         0YsJT5BYqENcAYBV/ixBguQ5oZa3sWVVRaocQOSRBXUMh/iXd9F8VFTqnNV8toCwjisY
+         Hv8u+GI4j6IMYnz1LkMfZLTGECf2MAV3Vi0MmeKiyuuy8rD5WHr7o9jRyRJla9vX3tmf
+         ZVVLCp5OcWMyt6F53+Ku/aKaVbHeTjkuGcg9ALL9/cVhblQfZemJLddU15QLWcY3slcP
+         NcyQ==
+X-Gm-Message-State: APuU4Z/vE4z9U8dx9/aQHoB2Mcgu0IIQYIiU4ir8x0N4E8lU7gPkNzk7
+	uy6gWcRjQcyP4VK6SPxQmK5ihTtsjQCrmV/YtEaq8gXYKrzXZngnsXKXLhZVvxv9XyC01wm3VdK
+	EiaxmB3g=
+X-Gm-Gg: AZFdTZdbWEDO1j8ROXf3odAZ7Vwv+5AvHUPdx5M01L0IXpXUjtqRNY+MU55P6flW3gZ
+	EVZL6YbI8+wCxEHHiwSZxw/Cf6Z8LNB3oUAMlS/uC9bTflbQ4elBkLLpXuVMtOBXXjT08FoSq1O
+	Pz/kdktT7QIW/Miwnn/SnPMF9mHdmLzM3bf7Ay3kWh51BpKOIkb2Yj5nPrCBIvvuGDkKoPmJH1t
+	ymVD69IMCy0mYM3DKQpdiwL4WUq07QYjQhhpGWhu8KJ5wLyWvwLFh33ZELs/jBEHmofaEO3UrpM
+	LMkiCd+o8nbR3kxBfl/ozGZNVDQN0DhEyG9VprHijoFNMEINqokLq/xy0QmyNNEGLNyLpKxlVpH
+	92o7KlOigiNMrgoND4doLEDcKXBAiGWxdvbo09JeHam+y3FWdDqQqsH8jvsU1qLJX/7Lc3xJPWI
+	ZotNVKF3QHn5SOf2ewokF6LqR72so5Tk6QwQ3btPPc9VftE9I3hm/uoaaNJaVevnt+dCHZVGasj
+	l76XeTGGVTLw6SS4Q122O4zPyZDveCWYORDAVUPKGG9vw7n1CMWcz14O+OxGmTKRw2g0SIwmT3A
+	n1Rf70oWOs4GRls0FO9mBRC63+vrzONzzyv8G6QkaOUCex+Z/xlYHs2zvG64+bGPHmm4CzW1FNr
+	xS4Vser4NnDJdhIRBH+yRdENHHeo2wtZn7jRlXBenAYXN6MDqDWc=
+X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr21101289c88.10.1795653813302;
+        Wed, 25 Nov 2026 16:43:33 -0800 (PST)
+Received: from devbox.ts.blockcast.net ([69.25.95.32])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm53222947c88.7.2026.11.25.16.43.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 16:41:14 -0800 (PST)
-Date: Wed, 25 Nov 2026 16:41:13 -0800
-From: Joe Damato <joe@dama.to>
-To: willemb@google.com
-Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
-	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
-Message-ID: <aweAKQ6cUk6df/L6@devvm20253.cco0.facebook.com>
-Mail-Followup-To: Joe Damato <joe@dama.to>, willemb@google.com,
-	netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
-	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
-	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
-	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
-References: <20261120152830.699712-6-joe@dama.to>
- <179545866419.3135.14423996277439097165@kernel.org>
- <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
- <willemb.1401f0f6ad765@google.com>
+        Wed, 25 Nov 2026 16:43:32 -0800 (PST)
+From: Omar Ramadan <omar@blockcast.net>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Stephen Hemminger <stephen@networkplumber.org>
+Subject: [PATCH iproute2-next v2] iplink: amt: support an IPv6 outer transport
+Date: Thu, 26 Nov 2026 00:43:29 +0000
+Message-ID: <20261126004258.2133805-iproute2-omar@blockcast.net>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -112,129 +94,142 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <willemb.1401f0f6ad765@google.com>
 
-On Wed, Nov 25, 2026 at 07:21:31PM -0500, willemb@google.com wrote:
-> Joe Damato wrote:
-> > On Mon, Nov 23, 2026 at 06:31:04PM +0000, netdev-bot+sashiko@kernel.org
-> > wrote:
-> > > Thank you for your contribution! Sashiko AI review found 6 potential
-> > > issue(s) to consider.
-> > >
-> > > Critical: 0 · High: 3 · Medium: 3 · Low: 0
-> > >
-> > > If you believe none of the issues are legitimate, please reply to each
-> > > issue of Medium severity or higher and explain why the AI is wrong.
-> > > If any of them are legitimate and you plan to respin, please let
-> > patchwork
-> > > know by including "pw-bot: cr" as a separate line at the end of your
-> > reply
-> > > (one such reply per series is enough).
-> > >
-> > > - [High] Possible deadlock.
-> > > - [High] bnxt_reset() decides to call bnxt_ulp_start() only from !silent
-> > >   && !BNXT_STATE_DMA_STOPPED, after dropping its locks.
-> > > - [High] Incomplete fix.
-> > > - [Medium] bnxt_reset_task() discards the return value of
-> > >   bnxt_open_nic(), and bnxt_reset() calls bnxt_ulp_start() whenever…
-> > > - [Medium] The new DMA_STOPPED check exists only at the bnxt_reset()
-> > call
-> > >   site.
-> > > - [Medium] Every non-silent reset now unregisters and re-registers the
-> > >   RoCE IB device, including the common case where DMA is never stopped,…
-> > >
-> > > --
-> > >
-> > > bnxt_en: stop the ULP around the reset task
-> > >
-> > > For non-silent resets, bnxt_reset() now calls bnxt_ulp_stop() before it
-> > > takes rtnl and the netdev lock. Afterwards it calls bnxt_ulp_start()
-> > unless
-> > > BNXT_STATE_DMA_STOPPED was set. The goal is to keep the RDMA driver
-> > off the
-> > > device once the reset task has stopped DMA.
-> > >
-> > > > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > index 9daf053293a42..2abb721d87de8 100644
-> > > > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
-> > > > @@ -14710,10 +14710,14 @@ static void bnxt_tph_update(struct bnxt *bp)
-> > > >  /* Only called from bnxt_sp_task() */
-> > > >  static void bnxt_reset(struct bnxt *bp, bool silent)
-> > > >  {
-> > > > +	if (!silent)
-> > > > +		bnxt_ulp_stop(bp);
-> > > >  	bnxt_rtnl_lock_sp(bp);
-> > >
-> > > [Severity: High]
-> > > Can this deadlock against bnxt_close()?
-> > >
-> > > bnxt_sp_task() sets BNXT_STATE_IN_SP_TASK before it calls bnxt_reset().
-> > > bnxt_rtnl_lock_sp() clears that bit only after bnxt_ulp_stop() has
-> > > returned, and bnxt_rtnl_unlock_sp() sets it again before
-> > bnxt_ulp_start()
-> > > runs. So both new ULP calls run with IN_SP_TASK set.
-> > >
-> > > Both ULP callbacks take rtnl_lock():
-> > >
-> > > bnxt_ulp_stop()
-> > >   bnxt_re_suspend()
-> > >     bnxt_re_update_en_info_rdev()
-> > >       rtnl_lock()
-> > >
-> > > bnxt_ulp_start()
-> > >   bnxt_re_resume()
-> > >     bnxt_re_add_device()
-> > >       bnxt_re_update_en_info_rdev()
-> > >         rtnl_lock()
-> > >
-> > bnxt_re_ib_init()->ib_register_device()->...->enum_all_gids_of_dev_cb()
-> > >         rtnl_lock()
-> > >
-> > > ndo_stop, meanwhile, holds rtnl and the netdev instance lock and waits
-> > for
-> > > IN_SP_TASK to clear, with no timeout:
-> > >
-> > > __bnxt_close_nic() {
-> > > 	clear_bit(BNXT_STATE_OPEN, &bp->state);
-> > > 	smp_mb__after_atomic();
-> > > 	while (bnxt_drv_busy(bp))
-> > > 		msleep(20);
-> > > 	...
-> > > }
-> > >
-> > > Suppose "ip link set dev X down" runs just after a TX timeout has
-> > scheduled
-> > > BNXT_RESET_TASK_SP_EVENT. sp_task can block on rtnl inside
-> > bnxt_ulp_stop()
-> > > (or bnxt_ulp_start()), while bnxt_close() spins on bnxt_drv_busy()
-> > holding
-> > > rtnl. The comment above bnxt_lock_sp() warns about this exact case.
-> > >
-> > > Before this patch, only the rare RESTART_ULP and firmware reset events
-> > > called into the ULP with IN_SP_TASK set. The frequent reset path did
-> > not.
-> > >
-> > > Should the ULP calls happen only while IN_SP_TASK is clear?
-> 
-> > Yea, I think this is real.
-> 
-> > Not sure if Michael or the other Broadcom folks have a suggestion here?
-> > Maybe
-> > the minimal fix is to clear IN_SP_TASK before bnxt_ulp_stop() and call
-> > bnxt_ulp_start() only after unlock.
-> 
-> > The RDMA teardown on every TX timeout and restart races below would
-> > still need
-> > answers, though.
-> 
-> Are this and your questions in the main thread a reason for a v7?
+The amt driver can now run AMT over IPv6 (net-next, "amt: add netlink
+attributes for an IPv6 outer transport"). IFLA_AMT_LOCAL_IP6 selects
+IPv6 as the outer transport, IFLA_AMT_DISCOVERY_IP6 is the IPv6 address
+a gateway discovers its relay through, and IFLA_AMT_REMOTE_IP6 reports
+the relay address the gateway learned.
 
-I don't understand your question. The above is one of the questions in the
-main thread.
+Put an IPv6 local or discovery address in the new attributes, and print
+all three under the same keys as their IPv4 counterparts; a device has
+one family, so only one of each pair is present. Until now an IPv6
+literal was put in the 4-byte IPv4 attribute: older kernels quietly
+used its first four bytes as an IPv4 address, and kernels whose policy
+sets the attribute's exact length reject it.
 
-I'm not sending a v7 until I get feedback from Broadcom.
+  ip link add amtg type amt mode gateway local 2001:db8:a::1 \
+          discovery 2001:db8:a::2 dev eth0
+
+This needs include/uapi/linux/amt.h synced with the kernel change.
+
+Assisted-by: LLM
+Signed-off-by: Omar Ramadan <omar@blockcast.net>
+---
+v2: print each IPv6 address with print_color_string() and
+format_host_r(), and the keyword outside the color, as ip6tunnel.c
+does (Stephen Hemminger).
+v1: https://lore.kernel.org/netdev/20261125170100.3054010-iproute2-omar@blockcast.net/
+
+ ip/iplink_amt.c       | 39 +++++++++++++++++++++++++++++++++++++--
+ man/man8/ip-link.8.in |  6 +++++-
+ 2 files changed, 42 insertions(+), 3 deletions(-)
+
+diff --git a/ip/iplink_amt.c b/ip/iplink_amt.c
+index 3a35bd9..2370bc5 100644
+--- a/ip/iplink_amt.c
++++ b/ip/iplink_amt.c
+@@ -107,7 +107,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
+ 			check_duparg(&attrs, IFLA_AMT_LOCAL_IP, "local", *argv);
+ 			get_addr(&saddr, *argv, daddr.family);
+ 
+-			if (is_addrtype_inet(&saddr))
++			if (saddr.family == AF_INET6)
++				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP6,
++					  saddr.data, saddr.bytelen);
++			else if (is_addrtype_inet(&saddr))
+ 				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP,
+ 					  saddr.data, saddr.bytelen);
+ 		} else if (strcmp(*argv, "discovery") == 0) {
+@@ -115,7 +118,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
+ 			check_duparg(&attrs, IFLA_AMT_DISCOVERY_IP,
+ 				     "discovery", *argv);
+ 			get_addr(&daddr, *argv, daddr.family);
+-			if (is_addrtype_inet(&daddr))
++			if (daddr.family == AF_INET6)
++				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP6,
++					  daddr.data, daddr.bytelen);
++			else if (is_addrtype_inet(&daddr))
+ 				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP,
+ 					  daddr.data, daddr.bytelen);
+ 		} else if (strcmp(*argv, "help") == 0) {
+@@ -134,6 +140,8 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
+ 
+ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ {
++	SPRINT_BUF(b1);
++
+ 	if (!tb)
+ 		return;
+ 
+@@ -156,6 +164,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_LOCAL_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_LOCAL_IP6]);
++
++		print_string(PRINT_FP, NULL, "%s", "local ");
++		print_color_string(PRINT_ANY, COLOR_INET6, "local", "%s ",
++				   format_host_r(AF_INET6, 16, addr,
++						 b1, sizeof(b1)));
++	}
++
+ 	if (tb[IFLA_AMT_REMOTE_IP]) {
+ 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_REMOTE_IP]);
+ 
+@@ -163,6 +180,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_REMOTE_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_REMOTE_IP6]);
++
++		print_string(PRINT_FP, NULL, "%s", "remote ");
++		print_color_string(PRINT_ANY, COLOR_INET6, "remote", "%s ",
++				   format_host_r(AF_INET6, 16, addr,
++						 b1, sizeof(b1)));
++	}
++
+ 	if (tb[IFLA_AMT_DISCOVERY_IP]) {
+ 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_DISCOVERY_IP]);
+ 
+@@ -170,6 +196,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
+ 			     format_host(AF_INET, 4, &addr));
+ 	}
+ 
++	if (tb[IFLA_AMT_DISCOVERY_IP6]) {
++		const void *addr = RTA_DATA(tb[IFLA_AMT_DISCOVERY_IP6]);
++
++		print_string(PRINT_FP, NULL, "%s", "discovery ");
++		print_color_string(PRINT_ANY, COLOR_INET6, "discovery", "%s ",
++				   format_host_r(AF_INET6, 16, addr,
++						 b1, sizeof(b1)));
++	}
++
+ 	if (tb[IFLA_AMT_LINK]) {
+ 		unsigned int link = rta_getattr_u32(tb[IFLA_AMT_LINK]);
+ 
+diff --git a/man/man8/ip-link.8.in b/man/man8/ip-link.8.in
+index 8fd900e..48d2ca9 100644
+--- a/man/man8/ip-link.8.in
++++ b/man/man8/ip-link.8.in
+@@ -1616,12 +1616,16 @@ the following additional arguments are supported:
+ .sp
+ .BI discovery " IPADDR"
+ - specifies the unicast discovery IP address to use to find remote IP address.
++It must be of the same family as the
++.B local
++address.
+ 
+ .BR mode " { " gateway " | " relay " } "
+ - specifies the role of AMT, Gateway or Relay
+ 
+ .BI local " IPADDR "
+-- specifies the source IP address to use in outgoing packets.
++- specifies the source IP address to use in outgoing packets. An IPv6
++address makes the device use IPv6 as the outer transport of the tunnel.
+ 
+ .BI dev " PHYS_DEV "
+ - specifies the underlying physical interface from which transform traffic
