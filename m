@@ -1,115 +1,80 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685154;
-	b=wXa/Kt+aqg2U0qVZ+WE3RaHmzdG4iuz4stBvklOQccLibo6fGz/iE4P4b6OgDeIHZnYk
-	 gOLcKvxr4RpyrEKKb9htslxS3xaUYrUFPQtdYHTfnR5X+FFhojaL0YyVB8nHWf/Tx0EFe
-	 RLHqvZOy/6+NxQmEsGefVYcKEnWveFeznMt1K280i/WXY1VWWdVuhhjgmNrHlH5Yjyv/z
-	 TMOZtiwX27U86Kb0TBniBi/dmQwuB8XUEqCHDhYsPuTqts3dPO/IVJJkoXDhbMhUdyQg2
-	 2ryluZvfr6nKVpcGpu5sbg4WtmgskGYFlZ/nyag2y4KCQ8qnVrkceF8lw4mwPZ0eCGg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685154;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=LfvcaCnRXo7+ZO7tgrpqUCFteTLmrLXFEjj9APedgl0=;
-	b=ZyrmYt9+lm3mckNHoA1LOq/JgQlBUgC/MYcHqscMTmrPpaoZwJSmLpZAOZobJglIPd/7
-	 q9wytPeWexKZ9LvlMnM1hA0WFOKojkW16jkeU1cLKCBPuUQ5OntQ7KgPoH7ELuvO58tYR
-	 lPADOT1ndx06Eo6VCTMciv/X1qkp7ghy6Q9odEjJDTa8YAZ+3gXxD6WjG4dVmE+Hr5do5
-	 PQh5NU7GGX/+7HnHvAVg+CZE3atlZq+1cbhe1uQhyUPQlj6JOPC7W9etYkI6xRUy5zGVi
-	 Zr0EUhiOUqjcZg9YeLgC1FGwMMzzOVZIaxwSNcMH9YAW9NjLMpKpdafebx9pflOL8jw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EQjJIA0q;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B0DQWVhR;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795685261;
+	b=RVJTX7Me2m0jzAAvxgvVbg9YtmqL/BWSVUMjqdFx7zJtvgwpUj36d5dFEEPh3zrRV6gY
+	 CVEr1CV+CvVEL03TS4Uth7f0p4lS6K0ML2gFrhK6s8pfH7U/VNhlz2b2BTTIGBo2xbN/Q
+	 I3z1T7qEW2vIw7naa8o7eHhCgl/oLCYi2OnisK8UeyHYm/dmJkxo80OgP6lKUjPzdUGcJ
+	 hVfSwoX3PVqQGLh5NH2LPAZ5/HsmkXDUK/iJFozKTc3/i5PVYmoCIdxcQvO5Fz7mHvOZv
+	 FLsi/zi2lq+v67aFNjdaJkG4XouDXOY/okOyVrvxl7E1/cHg/pUX4iB//Gfvuz3U+mA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685261;
+	h=Received:DKIM-Signature:Received:From:Subject:Date:Message-Id:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:X-B4-Tracking:
+	 X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
+	 X-Endpoint-Received:X-Original-From:Reply-To;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	b=jEjvRSJgcnTbc+1+BGqwJ1vsZiuTtVqqibShl6kC00eQveScbfYI6PBgW6TagLdo8Ov9
+	 0E2QvMP3pxocZB4gd8BKwXEE6IR4A+5Z44oH2+nBezB9TOFjVlIDjyagRyCJWiu91xmeO
+	 3bgsClomSgLo+EA1s7SvORZ4hmxxJXNtuVgM5t4WNEt4c5S7jQK8BbF33fu9kqdP2W9Eo
+	 hsQ7ITu2Sh52lVCOzKJVGcShd3B0VGTHCjWU8nx6r3j9Pmmvfbwq/tXzLV6pM2e9KdrDz
+	 7PAOHcBm5TW55UZR4uaVog1fC/PlJkpnrL/A3g+OfxlPa6rcZO2uFBKzHJ8NPdXymRg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXNCVjPI;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 286F5606A31C;
+	Thu, 26 Nov 2026 09:27:40 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=WXNCVjPI
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795685260;
+	b=hkADdNlJJQVStMGGjx7+uQ2IIrg/RLRkMhB7ZzBnxj/jcS0iYawivs+Ug+7wIuFuiGYI
+	 aNB88h4rDjexnZgQxweuVUy7NW4BahLnncwwr5TT4EqN8v9JEDdnmO7mI1HVLg8wMUJ2h
+	 /7lwXhZxdUBtE9oEdiQs1ww88tbS3VLT3RbMVskD18qKFZJsa69rF+h4gKynmdbkL5g0W
+	 VhulSQ0nZTkyP5TCh1cd3QJBUUcTNRspC2bAIJvkBJWHjQkv5OMkr6gvYkPbTLqA6o4hr
+	 Y2eMSzcqNBFW/8530AUV9jffLskKdhVg6U/RltAGMQihRjUtkLXUK4OVLUvn3I++0pA==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795685260;
+	h=DKIM-Signature:Received:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	b=Wv0IHCTn0j1QpWb40PGeDXDvMABgzsUOZ4dT4NWWrScZaeC73RLfKhsTvasq5v6zFnhZ
+	 rf5sj5mCKtQFp+h3mPy8hOHtGFdNuleeDffTYjWuS46iBm1FwGuAVC55R48EsfNgWO48b
+	 FzaUOhlZ9r/oW8Pitu/vDeKnHAHZcAjCcfy+2lAobvAZnInPzC8qpy5cDUUN3y1xGLT2D
+	 sTJVrOQCktLSL/CefBwYwyPtCm1hGZso5415nUyj56CqBs2MMVZ+Oxrb41+bWVQHOrGj/
+	 63b2JJ2dih8ZgEvsdujbV1U1npMJLvnl9no5c4QmnWr5xs8t4/X7gSvwqFKmSWimeCA==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6249606A327
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:25:53 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6249606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=EQjJIA0q;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=B0DQWVhR
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795685152;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LfvcaCnRXo7+ZO7tgrpqUCFteTLmrLXFEjj9APedgl0=;
-	b=EQjJIA0qgg9kzPnXlRXrbhuQ2TDh99Hzq1ZfNV/e5hcoPfT79xqhn2Hi8r0ZUaBTBN4qda
-	M3WQDMaeKzpzfKRF0X/bRQwygAxJf7YC2T6GaH+2MtyBQ8MB9tlqv977dSBEWBQDoEPQ7V
-	QPMXtihoapCxQbRhFJvsQg/bEP1j8yU=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-433-xbIov6QeMVSkauFKUNOFyw-1; Thu, 26 Nov 2026 09:25:50 +0000
-X-MC-Unique: xbIov6QeMVSkauFKUNOFyw-1
-X-Mimecast-MFC-AGG-ID: xbIov6QeMVSkauFKUNOFyw_1795685149
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4a009f82bedso47857355e9.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:25:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795685149; x=1796289949; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=LfvcaCnRXo7+ZO7tgrpqUCFteTLmrLXFEjj9APedgl0=;
-        b=B0DQWVhRZ/jvEiWnXpaC1SnUOb5W0IaAtvMuz/ToupBUsoqIzK0Sn8dX2v4/SzO7bZ
-         MY6FQMjBdz23ruklE2uSrRmCKvwYfLUWePuca39GIB/V3xloCicRtgaLyRrrTbtVcq5d
-         C/PnVLhuZ52+cy6/5ETNDkjAMxZAivqQBa4DS1QXO13Zyg/yEpkqDNXGxRS9BHqEoVS7
-         1xivqX48Blo3kqAyfTiYt0MwY4pUt4U8+ezxgxEEFGuqlxdo9BtN50FGJOpGIBhjAZRv
-         4p6KVcTvYXBfnTvHcmCp2qSyeGXpzzn1673U+lQ1Noh6W67CNA3KpT5CN+NVmYmOv9nu
-         +YaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795685149; x=1796289949;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=LfvcaCnRXo7+ZO7tgrpqUCFteTLmrLXFEjj9APedgl0=;
-        b=IGtOZrasraY9Vz/idP3asvGAaNo6PiMyTuxVow/27QyXZxodNMAxEaH7NynqR63jzw
-         ysp+ouJFiZ7E3p9oLxJ4j+H60mMpqI6k+lyXTJIkCqyr8gD7ychDltRCq63NtHUzR//k
-         4zOWPBlyyUK4udSusElgVUlsTPXzZFIyrdvmCHL7v+Ut+sPm/205E1P4WjT152z/YMvB
-         745c3ePsZaagA/QOIp5AbqPCUeGTwdEvLC+wkyqpDzaHt+BO+kWFroQMn5vheWL3TCMv
-         dXjVKWIfPztS8vwjlSl49cPEh+JkTYT9kacg6VzyUapl03IMKArq8nwHeLdU1cu46KDR
-         pd7w==
-X-Forwarded-Encrypted: i=1; AL+hErEjrCw5C5dr2M0SHU8FnWc8BNIGiznQx9Mf3X4joa8Crhigemed4/zHKBCklybKoF+UyJIgk6M=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/mS2MGBZs0MBI97cpDXbfcp1jugn5gMeKH/d/pQ3Mfg5P2JVuX
-	LZ/rpPYpR8oyKIBUP5NCp9sZ+rUv6qCAOhvxwbvDYoD+Qg9n7BU2NODq28UNV2KFCxkUOETtW10
-	vLtxnQRvFOaA7OvXWSSlA07PRFtGfnORFNO9Py8JalY3jlESjPeVnksMsvIpTKWATvA==
-X-Gm-Gg: AZFdTZcmN632GVl+18AnchCFyTPsuzufF+d+K7WodrLRcQ+pIBCkUF992MdzhiDmFN5
-	6Ry4JGh3edRN7I/AQ34XZWde2oQwlT+7/mTdmqcCi3AoifaYWoEGBlNAhFLclxMS4AU7X3UdkoT
-	WU6nhhyPwZCk17kajq63XilKlehvVHQkpXiaT0ayl8pzTN7AWYkx+uBj1QBPBESwzCpDMXK4Pyz
-	L1AnPgO9XkbEiwuz1vdyymbRh70g56XSMOSbpk/bnRQK37FuveJA0gh/2Q1YZJi7WGHjrYwhaTj
-	M8thv2TbmCPvL+JTtmlnVSsmyXJANlGUcmab8GELIeY2qY4OsP+eYQ5GbtOeguM+QMND3tg3/x8
-	HAsnOVB1Oq6ci9ZE6D7/f6T6QBNlm8ujmSzHFtASSKea8L1MapUa0oQ==
-X-Received: by 2002:a05:600c:64c7:b0:4bb:872a:f500 with SMTP id 5b1f17b1804b1-4bb887c2697mr421920615e9.3.1795685149187;
-        Thu, 26 Nov 2026 01:25:49 -0800 (PST)
-X-Received: by 2002:a05:600c:64c7:b0:4bb:872a:f500 with SMTP id 5b1f17b1804b1-4bb887c2697mr421920085e9.3.1795685148578;
-        Thu, 26 Nov 2026 01:25:48 -0800 (PST)
-Received: from sgarzare-redhat ([80.116.143.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6a68048esm41351930f8f.29.2026.11.26.01.25.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:25:47 -0800 (PST)
-Date: Thu, 26 Nov 2026 10:25:41 +0100
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Bobby Eshleman <bobbyeshleman@meta.com>
-Cc: "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	George Zhang <georgezhang@vmware.com>, Andy King <acking@vmware.com>, Dmitry Torokhov <dtor@vmware.com>, 
-	virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	Kyle Zeng <kylebot@openai.com>, Michal Luczaj <mhal@rbox.co>
-Subject: Re: [PATCH net v2] vsock: only undo SS_CONNECTING when connect()
- fails
-Message-ID: <awf5zJTrZcgvdpOi@sgarzare-redhat>
-References: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id 6F6321F000CF;
+	Thu, 26 Nov 2026 09:27:35 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795685260;
+	bh=U1PlTflxl6Hs8FvZm8HyBGbLsKpRHwgjqHn1uqmdpRI=;
+	h=From:Subject:Date:To:Cc:Reply-To;
+	b=WXNCVjPIwvejnMUFyjB0wfFwbxB9NzzQes5izg3w18qMRNz/GuFvXCTMlowdgl19G
+	 qGaUhHPhNvIx9KCYKvRXPtZShu8e4yr0JyDGpnkb3vmKFzQdDkP7EbnGyGH9E0LX44
+	 tbcz0JcTVB4Ooo4x62O6cmjx1KmdAlTqGptAEHQ1hrKzJD8al96R1HG+wQzN8GWqr4
+	 /J+NiId2suBv1tZ5/rEjwkbdVhjwJMDQc3hUlPb9gNPV4tzq+c4foWU5EwLetJ05o6
+	 3+Gi1iNmzEgZFII8PdbT6C9TdqpZYx3hzjshzdQPeCVQks63rWywGr6BIkS8UeHXrm
+	 d+63PnNAu4Etg==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id D65F04D359;
+	Thu, 26 Nov 2026 09:27:34 +0000 (UTC)
+From: Fil Dunsky via B4 Relay <devnull+filipp.dunsky.gmail.com@kernel.org>
+Subject: [PATCH net-next v3 0/3] Add Cortina Systems CS7542 MDIO controller
+ support
+Date: Thu, 26 Nov 2026 12:27:32 +0300
+Message-Id: <20261126-b4-cs7542-mdio-v3-0-35739a0f3225@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,118 +84,124 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261117-vsock-connect-close-v2-1-db5388323770@meta.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/32NTQ7CIBhEr2JYi+G/jSvvYVy08NliLBhAUtP07
+ lLcuNHlZOa9WVCEYCGi425BAbKN1rsS+H6H9Ni5AbA1JSNGmKKUcdwLrGMjBcOTsR6DFgIa2UD
+ LBCrQI8DVzlV4Rg4SdjAndPk08dnfQKfNt21HG5MPr/qdaSV+3WSKCVZMGdIR4L0wp2Hq7P2g/
+ VTlmf3HWcE5EUpCy2kr+Te+rusbNBsRNwcBAAA=
+X-Change-ID: 20261123-b4-cs7542-mdio-ec44e757e824
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>, 
+ Heiner Kallweit <hkallweit1@gmail.com>, 
+ Russell King <linux@armlinux.org.uk>, Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795685252; l=4352;
+ i=filipp.dunsky@gmail.com; s=20260930; h=from:subject:message-id;
+ bh=v4DtyEWM6eYR9iYKjGXdhR8kKtgwE4w8iV+oL7nK5eA=;
+ b=k5okNZM1O0l1t82MvEdJICkqbAx5ePb28Uq98hkov9m7VT8S0FMbo6Tc16EpVTL8Tjp5FycTl
+ 3tGpku/3S5MBUMyJOh2qVTMTjLpRhPMUd6ac/ddjymX0NlAdUQfpHB7
+X-Developer-Key: i=filipp.dunsky@gmail.com; a=ed25519;
+ pk=JAYP8e2rJ54DHOmhNtXud8rl1igAaAXoOHxtJmVXI1g=
+X-Endpoint-Received: by B4 Relay for filipp.dunsky@gmail.com/20260930 with
+ auth_id=1085
+X-Original-From: Fil Dunsky <filipp.dunsky@gmail.com>
+Reply-To: filipp.dunsky@gmail.com
 
-On Tue, Nov 17, 2026 at 05:34:09PM -0800, Bobby Eshleman wrote:
-> vsock_connect() sleeps with the socket unlocked. Meanwhile the transport
-> can complete the handshake, setting sock->state to SS_CONNECTED, and then
-> reset the connection, e.g. in vhost_vsock_reset_orphans(),
-> virtio_vsock_reset_sock() or vmci_transport_handle_detach(). When
-> connect() gets the lock back, it finds sk_err set and moves the socket
-> back to SS_UNCONNECTED. Userspace can then connect() the socket again,
-> and a connect() to a CID on another transport makes
-> vsock_assign_transport() release the transport the socket was connected
-> on.
-> 
-> Only move the socket back to SS_UNCONNECTED if it is still
-> SS_CONNECTING. A socket that got connected stays SS_CONNECTED, and
-> another connect() fails with -EISCONN.
-> 
-> Likewise, only move sk_state to TCP_CLOSE if it is still TCP_SYN_SENT.
-> Otherwise a second thread blocked in connect() on the same socket can
-> time out after the first one failed and called listen(), and overwrite
-> TCP_LISTEN.
-> 
-> Fixes: d021c344051a ("VSOCK: Introduce VM Sockets")
-> Reported-by: Kyle Zeng <kylebot@openai.com>
-> Link: 
-> https://lore.kernel.org/netdev/20260909-vsock-connect-reset-closing-v1-1-50298b9ccfbf@rbox.co/
-> Suggested-by: Michal Luczaj <mhal@rbox.co>
-> Signed-off-by: Bobby Eshleman <bobbyeshleman@meta.com>
-> ---
-> Changes in v2:
-> - Only reset sk_state if it is still TCP_SYN_SENT, so a concurrent
->   connect() caller that times out late doesn't overwrite TCP_LISTEN
->   (Sashiko).
-> - Drop Michal's Reviewed-by since the code changed.
-> - Link to v1: https://lore.kernel.org/r/20261116-vsock-connect-close-v1-1-43fb125973dd@meta.com
-> ---
->  net/vmw_vsock/af_vsock.c | 22 ++++++++++++++++------
->  1 file changed, 16 insertions(+), 6 deletions(-)
-> 
-> diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
-> index 1d7d53542724..ce958b48295b 100644
-> --- a/net/vmw_vsock/af_vsock.c
-> +++ b/net/vmw_vsock/af_vsock.c
-> @@ -1704,6 +1704,19 @@ static void vsock_connect_timeout(struct work_struct *work)
->  	sock_put(sk);
->  }
->  
-> +/* Avoid breaking the socket when another thread has changed its state while
-> + * we were asleep.
-> + */
+Add the Clause 22 MDIO controller used by the CS7542 network engine.
+The driver retains the MDC prescaler initialized by platform firmware and
+uses bounded polling for each transaction. It is independent of the
+pending Cortina platform series and COMPILE_TEST.
 
-Should we make this comment a bit more clear to explain why we are doing 
-this?
+V2 followed Andrew Lunn's review: remove the pending-frame state and keep
+one straightforward transaction/poll per read or write. No timeout was
+observed at the normal firmware-selected MDC rate. The timeout mentioned
+in v1 validation was deliberately induced only in a RAM test by slowing
+the prescaler; it was not evidence of a normal bus failure. No clock-loss
+recovery guarantee is provided by this driver.
 
-Something like this (IIUC, please check and correct it)
+Validation of v2:
+- Full independent ARM vmlinux/modules builds with driver=y and=m,
+  COMPILE_TEST=n, without the platform series.
+- Actual driver read/write/wait functions: 5125 address, data and timeout
+  cases under UBSan, including no data read after timeout.
+- Binding and strict driver checks; b4 dependency/preflight checks.
 
-/* Undo only the state this connect() attempt set. While we slept, the
- * transport may have connected and then reset the socket (it is still in
- * vsock_connected_table, so it must not go back to SS_UNCONNECTED), or
- * another thread may have turned it into a listener.
- */
+V2 booted Linux 7.4 in RAM on Almond+: PHY IDs 004d:d036, the firmware
+prescaler 00200001, and same-value advertisement write/readback passed.
+A deliberately slowed MDC produced ETIMEDOUT at about 14ms; restoring the
+prescaler returned the correct IDs. Final RAM result: failures=0 and
+automatic return to installed OpenWrt. No NAND driver was loaded and no
+flash writes were performed.
 
-The rest LGTM!
+The MDIO input clock is APB. On Almond+, temporarily selecting the vendor
+600 MHz CPU mode changed APB from 150 to 100 MHz while AXI stayed at
+150 MHz. With the same MDIO prescaler, the transaction took the same
+number of APB timer ticks (median 66512 versus 66537), while CPU cycles
+increased from 332326 to 399013, matching the CPU/APB ratio change from
+5 to 6. Restoring the original mode restored the original measurements.
+All 24 PHY-ID1 reads returned 004d. The original clock override and MDIO
+configuration were restored, and the installed OpenWrt remained running.
 
-Thanks,
-Stefano
+Describe this input in the binding and allow the optional clock-frequency
+property inherited from mdio.yaml. The accompanying peripheral DTS update
+connects MDIO to the APB clock. The initial driver continues to retain the
+firmware prescaler; this experiment does not establish the exact divisor
+encoding and no programmable MDC calculation is introduced here.
 
-> +static void vsock_connect_close(struct socket *sock)
-> +{
-> +	struct sock *sk = sock->sk;
-> +
-> +	if (sk->sk_state == TCP_SYN_SENT)
-> +		sk->sk_state = TCP_CLOSE;
-> +	if (sock->state == SS_CONNECTING)
-> +		sock->state = SS_UNCONNECTED;
-> +}
-> +
->  static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
->  			 int addr_len, int flags)
->  {
-> @@ -1862,8 +1875,7 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
->  			 * sk_state == TCP_SYN_SENT, which hereby we break.
->  			 * In such case VIRTIO_VSOCK_OP_RST will follow.
->  			 */
-> -			sk->sk_state = TCP_CLOSE;
-> -			sock->state = SS_UNCONNECTED;
-> +			vsock_connect_close(sock);
->  
->  			/* Try to cancel VIRTIO_VSOCK_OP_REQUEST skb sent out by
->  			 * transport->connect().
-> @@ -1877,10 +1889,8 @@ static int vsock_connect(struct socket *sock, struct sockaddr_unsized *addr,
->  	}
->  
->  	err = sock_error(sk);
-> -	if (err) {
-> -		sk->sk_state = TCP_CLOSE;
-> -		sock->state = SS_UNCONNECTED;
-> -	}
-> +	if (err)
-> +		vsock_connect_close(sock);
->  
->  out_wait:
->  	finish_wait(sk_sleep(sk), &wait);
-> 
-> ---
-> base-commit: 533ec433efdc11196f438da90d683053a57257ff
-> change-id: 20261116-vsock-connect-close-1beb7cb51e7a
-> 
-> Best regards,
-> -- 
-> Bobby Eshleman <bobbyeshleman@meta.com>
-> 
+---
+Changes in v3:
+- Use sleepable polling in the MDIO bus callbacks.
+- Describe the hardware MDC prescaler and experimentally verified APB
+  input clock; allow the inherited optional clock-frequency property.
+- Remove the unused private mii_bus pointer.
+- Link to v2: https://patch.msgid.link/20261123-b4-cs7542-mdio-v2-0-30465e831853@gmail.com
+
+Changes in v2:
+- Drop the pending-frame state as requested by Andrew Lunn.
+- Sort Kconfig by prompt after MDIO_CAVIUM and sort the Makefile entry.
+- Add Andrew's Reviewed-by to the MAINTAINERS patch only.
+- Link to v1: https://patch.msgid.link/20261123-b4-cs7542-mdio-v1-0-626d0a0e3b4d@gmail.com
+
+To: Fil Dunsky <filipp.dunsky@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+To: "David S. Miller" <davem@davemloft.net>
+To: Eric Dumazet <edumazet@kernel.org>
+To: Jakub Kicinski <kuba@kernel.org>
+To: Paolo Abeni <pabeni@redhat.com>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Andrew Lunn <andrew@lunn.ch>
+To: Heiner Kallweit <hkallweit1@gmail.com>
+To: Russell King <linux@armlinux.org.uk>
+Cc: netdev@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+
+---
+Fil Dunsky (3):
+      dt-bindings: net: Add Cortina CS7542 MDIO controller
+      net: mdio: Add Cortina CS7542 bus controller
+      MAINTAINERS: Add Cortina CS7542 MDIO controller entry
+
+ .../bindings/net/cortina,cs7542-mdio.yaml          |  52 +++++++++
+ MAINTAINERS                                        |   7 ++
+ drivers/net/mdio/Kconfig                           |  12 +++
+ drivers/net/mdio/Makefile                          |   1 +
+ drivers/net/mdio/mdio-cs75xx.c                     | 116 +++++++++++++++++++++
+ 5 files changed, 188 insertions(+)
+---
+base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
+change-id: 20261123-b4-cs7542-mdio-ec44e757e824
+
+Best regards,
+--  
+Fil Dunsky <filipp.dunsky@gmail.com>
+
 
