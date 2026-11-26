@@ -1,67 +1,79 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.121
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680839;
-	b=O0yy6H2BkeaXGGR7nC8tR12RJ5Ndd3rJ/jZ0SpvLBvy9/syS/8lnJKA1iPH/vrM4YJ+K
-	 gIIKwyQTwXHnLJDy4MCXacahCCkxQKhF9IYsEQgydglTGJmxAkAt+nad5j4txA4GHpadj
-	 Im0D/YdvQmbp6mTVN2OnbrLCFpJZiQH9fIXCxjwSHVA7Qevh59/4jaglu8IB9m7xb6z92
-	 NnFfd29KEB8vtMlXL42PSvYJ1clBVig54+/jeUDMz1z58ongcvX8tgRwt/gHk82ozKy/n
-	 fNtwcqrIv/Z5gwMrsGTtXP+7s08Ed91dMUUIg49h/gOgY+LXVtCelgjwlXIrM5u9Ggg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680839;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=du8ZpgKg7y+JSHPGHeVmHsAOuNQnkPoofwWOvxKg+Eo=;
-	b=Zk17fu2r/gtT2sVHgQRKZj4XlOtKTmmIb4DV9Bhg7PFLzEqH6bplZTGh5TqYYBzqJltm
-	 zLkXZzsc9dwZRyYqXsfmavwgKeX4J2IBbYSoWRN0VeKq1FcrX4L9MqwhRNOmSaCov1zc1
-	 ZjTm+YFHUnySLlIQROF5GHikacJko0cIHOCkrLqomdbjV3fN3WeOroS1U53e6mWFFDUJ3
-	 cNfaUmJ5zOWfN8nEKioMOpm30gXpTvkHoste0nFS7qxD9F4RJMK0bf6GsEMiecehdUgyW
-	 htwn2+mzYWYQjKm/HKADB2QYl+f+R+JkIm/q8WcUs/Hzr/p9ayfa4ZZmle7MIcPKdTQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PV7zQK7r;
-	arc=none smtp.remote-ip=91.218.175.121
-Received: from mta0.migadu.com (out-121.mta0.migadu.com [91.218.175.121])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795680851;
+	b=brrxPLxgLbgCw3Xpl639kcUaTsNwgwb6ANSKPIemQwg3ddP2ESPJPXy0Rx6wT0d83UdX
+	 tWhh8LHHTmuuYnG7z2TmQJpnCz/ecHXvpj6DKIIHY3wOssOWCwKQXxKbRZHHMFqgiFO7z
+	 y+jNmhDtyixah7JPfn4LmqAtl5lglC1qMyETrp6qcnyJZGp8NIYXUiL8LuNhSFXCDRoTa
+	 lhqX5+dwfojyMZfb9nbSRr/uTVIQoCIaTuA8B+iDQ8wqRE+jD8M1uDjvZNSVk1JiD6Bb/
+	 +tMLasIL11hZRgwwbEpwgsLZHUHquPY9o0cd2A8spjcy1ItMVqdbGBcXAFOGBTBhicw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680851;
+	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
+	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
+	b=qGamMa/dAmg+ZVPaqZXcIa56PQfp1KEr/kf6DrcDfW0cgd03ncFJapADkZPBpuNviWpL
+	 eRtgxuSHmzeD/386ihxbSptVwA7q+5JiT7wctmgjCXHa0Uqir5adPFWwj6dNTa2lnx0PJ
+	 Z9i/gG35XOuaClpAVPhm9Xr8mD/jRMIwc+785oPy8x+2BhTROTTxihpAChdnuI0k5biut
+	 4g/O24/xYpCQbqLNF/Xwj0ViQELqYZYKiR0cgTM9WFlK9QjYb/TW4KHEXbXtDwRwuMsEH
+	 oGAqUdcxLSui3z3C6MLzqmReDmFQfLNDPNv+7QtbjF3IxO+Pc40hQoa9rNMpI5OioyQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eax1i2c1;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 14730606A321;
+	Thu, 26 Nov 2026 08:14:10 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key, unprotected) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eax1i2c1
+Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
+ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
+	t=1795680850;
+	b=W3PQtRonekxWOVZOoFHxfqcYxYccSf8VHwclQhuUD7F2bTfMsD3vM/DBrgmUxra2qy20
+	 mfyath2AxNcOd1rEoKIoHX9iYk12n5uD+W/ECBJQzpfQN5KQL0xWyCz40Tdo+SEW2oWpD
+	 v/Pegn1V0OrhrpJ4p25E0Dmr8pQ4B+2GhsZpDvy59ChSDJsX/3Xl6mNgu+fxA7omOL1/N
+	 rb14JZ7ZFM4baV/v/GHxWUBvsDm1PIiwgSuJfoR/GjiQu82zy/df9ViEvku8AhVdA8QVl
+	 3FePh/mj2bIWR6Z+mqBXAN6kdJr4NAgAehtrjwoqfkVm+0o13BOv44SM5CKJHXgqB+Q==
+ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
+	c=relaxed/relaxed; t=1795680850;
+	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
+	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
+	 X-Original-From:Reply-To:Content-Transfer-Encoding;
+	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
+	b=UgesoyPYSga95dN5nSas6ZPy8kEC8lksk/5FHy8MXU0AedEg7cWenjHyEwXXRKyOo7kl
+	 LSMfPDKTB3PLrTKS2e5ubvpnvPbs8nH/whJK5EKaBIAaWXpskRdQ2xGK3qbJEd33xSnSP
+	 BNPv826ZVO88rHFhwg7aPJHFQ7pCKy2ew7xaga42T63frFne4Xe+MmmRGDwSFTf56685y
+	 rNEFVODIoDIB1XP6r5cEPsXErBO83ivkJMsxDpkE3fS3hQdNLolEl7aoQGTg1uercuWHm
+	 TulMwBhQB9JMIhprWWbCt2CpldQK5+DJxH+fIaF3XnZLER1KbJgEp4Pz4emWabWTDZQ==
+ARC-Authentication-Results: i=1; smtp.kernel.org; 
+	arc=none smtp.remote-ip=100.80.115.77
+Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AC889606A333
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:13:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AC889606A333
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=PV7zQK7r
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=DI1JO81xWUoyggcDXvguJ3RNZ3fdazMgtO43ps7msp4=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795680836; v=1; x=1796285636;
- b=PV7zQK7rTd6Q/ha9e4zKHIZlw0r1teo6g5lXHhQs/62K79gKTdgYlAp5f2zOCIZK/kkaq9ag
- +fN2JGbKwa3jfJj5PRLUWAXkVUwR4ZRI7CB4Xe78NxY2IlBDRiPsSgB20VpGSat8OmFflJWA4O7
- 1a9+RztSFOJBzqvodX8jA7oI=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 56ac476ea61aeb81;
-	Thu, 26 Nov 2026 08:13:56 +0000
-X-Mizu-Trace-ID: 56ac476ea61aeb81
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 16:13:48 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-Cc: netdev@vger.kernel.org, David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>, Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net-next v2 5/6] ip6_gre: Enable BIG TCP packets
-Message-ID: <20261126081348.GG33976@Liu-laptop>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
- <20261126025015.10416-6-yanhaishuang@cmss.chinamobile.com>
+	by smtp.kernel.org (Postfix) with ESMTPS id A99881F000E1;
+	Thu, 26 Nov 2026 08:14:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795680850;
+	bh=huqWM0eo0fyX26dQJHUvYM8kb6xLmmHqJZknA1XlnBI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
+	b=eax1i2c196w9D4jYYrnIzZBTu8/Rn5Ii3lFWCS+uuIKAudBa7G60vPgLmgh34PB0c
+	 gGSln4w31I29gET9uG0kOsOQgrktc8toIn3NDeUKRDUTS1nx+ohRuaFzqJujZaJmUk
+	 z1Ql0Ek1KXPODyVPqdGUcIDnn5siJuhk5pGR1plFh7Ueg05AjhnBOY86R2Pnus2qL6
+	 jiDTEUnbCEMRFKnWTCDvCWJh7Nu+POxiT+Iodi9kn+Iv0WJpkcqJWPWYDGFKJWCwBs
+	 foL0PWRtxsMLXkuwwyh9jDB9Y2HI/tFOhqYp7raC2sx1fuLFSw1CEjm2y9NfsOMZw6
+	 TMCVwPb7nOZcQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id 36C154D2EE;
+	Thu, 26 Nov 2026 08:14:05 +0000 (UTC)
+From: Robert Ijtsma via B4 Relay <devnull+robertijtsma.gmail.com@kernel.org>
+Date: Thu, 26 Nov 2026 09:14:05 +0100
+Subject: [PATCH net-next v2 1/3] dt-bindings: net: qcom,ipa: add
+ qcom,sc8180x-ipa compatible
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,68 +83,58 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126025015.10416-6-yanhaishuang@cmss.chinamobile.com>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <20261126-qcom-ipa-sc8180x-v2-1-89eba621da95@gmail.com>
+References: <20261126-qcom-ipa-sc8180x-v2-0-89eba621da95@gmail.com>
+In-Reply-To: <20261126-qcom-ipa-sc8180x-v2-0-89eba621da95@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alex Elder <elder@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, netdev@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Robert Ijtsma <robertijtsma@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795680844; l=911;
+ i=robertijtsma@gmail.com; s=20261122; h=from:subject:message-id;
+ bh=Zda+9Ammsc4s6lMXOWoTtjkZ/oA5KShVVsCnmBZdGAo=;
+ b=I40e9SfuC+UdZBZLKwNCpF9MbOPhueCs93NphBRuYb6USVNiQaO/L3nOJhJ4Sj/u4o873DA3L
+ BZHwwh72z74CLVsV7IH/QcJk/F3TwPAYyHqnSAhiKUZ34CUtCP3g1GG
+X-Developer-Key: i=robertijtsma@gmail.com; a=ed25519;
+ pk=qiDyKVqFicxFIR5sB5m+p9SWPKL2/+mMoiQnUx0C9P0=
+X-Endpoint-Received: by B4 Relay for robertijtsma@gmail.com/20261122 with
+ auth_id=1604
+X-Original-From: Robert Ijtsma <robertijtsma@gmail.com>
+Reply-To: robertijtsma@gmail.com
+Content-Transfer-Encoding: 7bit
 
-On Wed, Nov 25, 2026 at 06:50:14PM -0800, Haishuang Yan wrote:
-> Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-> commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-> on UDP tunnels. ip6gre and ip6gretap can carry BIG TCP packets as well:
-> IPv6 BIG TCP no longer needs a hop-by-hop jumbo header, the GRE header
-> has no length field, the GSO and GRO paths already handle it, and FOU
-> encapsulation sets the UDP length with udp_set_len() since
-> commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they can
-> occur").
-> 
-> Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-> with ip6gre and ip6gretap. ip6erspan is left alone. The default
-> gso_max_size and gso_ipv4_max_size stay at 64KB, so nothing changes
-> unless they are raised explicitly.
-> 
-> iperf3 TCP over ip6gre and ip6gretap, with IPv4 traffic between two
-> netns connected by veth, without encapsulation, 3 runs of 10 seconds
-> each, in a KVM guest with 8 vCPUs on an Intel Core i7-14700 host:
-> 
->   ip6gre,    65536:   84.7,  84.4,  90.2 Gbit/s
->   ip6gre,    196608: 117.7, 112.5, 128.4 Gbit/s (+38%)
->   ip6gretap, 65536:  103.1,  97.9, 102.4 Gbit/s
->   ip6gretap, 196608: 123.0, 125.7, 124.8 Gbit/s (+23%)
-> 
-> A later patch in this series extends big_tcp_tunnels.sh to cover ip6gre
-> and ip6gretap with IPv4 and IPv6 traffic, without encapsulation and with
-> FOU and GUE.
-> 
-> Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
-> Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-> ---
->  net/ipv6/ip6_gre.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
-> index 26c0e1c4de1..0ace21db3b4 100644
-> --- a/net/ipv6/ip6_gre.c
-> +++ b/net/ipv6/ip6_gre.c
-> @@ -1462,6 +1462,7 @@ static void ip6gre_tunnel_setup(struct net_device *dev)
->  	dev->flags |= IFF_NOARP;
->  	dev->addr_len = sizeof(struct in6_addr);
->  	netif_keep_dst(dev);
-> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
->  	/* This perm addr will be used as interface identifier by IPv6 */
->  	dev->addr_assign_type = NET_ADDR_RANDOM;
->  	eth_random_addr(dev->perm_addr);
-> @@ -1934,6 +1935,7 @@ static void ip6gre_tap_setup(struct net_device *dev)
->  	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
->  	dev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
->  	netif_keep_dst(dev);
-> +	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
->  }
->  
->  static bool ip6gre_netlink_encap_parms(struct nlattr *data[],
-> -- 
-> 2.43.0
-> 
-> 
-> 
+From: Robert Ijtsma <robertijtsma@gmail.com>
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+Document the Qualcomm SC8180X (IPA v4.1) compatible string in the
+Qualcomm IPA binding.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@oss.qualcomm.com>
+Signed-off-by: Robert Ijtsma <robertijtsma@gmail.com>
+---
+ Documentation/devicetree/bindings/net/qcom,ipa.yaml | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Documentation/devicetree/bindings/net/qcom,ipa.yaml b/Documentation/devicetree/bindings/net/qcom,ipa.yaml
+index 38e3830512feb375572c8801e06fbb97c33d9d89..99e5464dc47e53514dc8012ecd06654789ef6019 100644
+--- a/Documentation/devicetree/bindings/net/qcom,ipa.yaml
++++ b/Documentation/devicetree/bindings/net/qcom,ipa.yaml
+@@ -48,6 +48,7 @@ properties:
+           - qcom,msm8998-ipa
+           - qcom,sc7180-ipa
+           - qcom,sc7280-ipa
++          - qcom,sc8180x-ipa
+           - qcom,sdm845-ipa
+           - qcom,sdx55-ipa
+           - qcom,sdx65-ipa
+
+-- 
+2.47.3
+
+
