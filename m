@@ -1,83 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711288;
-	b=OtSL61lWVIsZH9cdLol8sbtghAotQwHlXybFs8nu8a8Zwd0GyGAzI8jY7/2s6tLYecyD
-	 hRPli7RGw3VmKeujMuhfqQj3YnHR4sFvRP5HsM2yofr+tbHqPIyNLV9sN3v8JmR8+VJbg
-	 Fr+Ah7rxJ8+t8z9x/0TMac93nrwWn2A3PyyN4n5alwUgn6AuSGn8E/tDyp5QaEbgxYd6x
-	 NvcdfM7Fwwxnl7/IqKqQZN555QWOg1ikHiBSLnADPHQ+y4uR7gZK28HdZg5BVWfAbs54p
-	 c+1BO+PNzdQG8B/iFfmVH0FVFmvuygsW2A0w8j3zTbHYUqmdayNaOkyPIhQkDMM03Eg==
+	t=1795711332;
+	b=NUjTXxefGYngpVfi/v2z0f8AnvMUQcbz89/dxnSjd1ZQHSYcFwwAlE9HSVxz1rFdGqs+
+	 V0SEOHjZzr01e36m8NA447nfWjhSwSw1gPOmdBLIFZm5+dT36Zcs9waLRyXgkVXfBdxYn
+	 YO5dPSPrEgZo2QQkxB1tc7UFVXPXmybKjcdTJ5mO+RwJOGPLN9y4aaG+K32sBXamglmZA
+	 wFj9lHBLSeVMc0oIwvAOZp310/HVbW/Br0TzNcer5jQAuwFDS9xvig1bfDy1zxofHryOK
+	 ArUaZv6RwXFZ0IdouYzPCU7MX787LLd42I/SZe/Xgd9cAvDCeAZ/EbYBYd92uArPbPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711288;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711332;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
-	b=VxVoshNFAs+SDuYW9ZjE9Z5kPCI8ka6nbeyrxTJZbmXBE69XOgad+iDZtRM2lOoNwdoH
-	 Au9jYDqX9aCEcjxQpkqC8dAkdxmJCrnRM2Kv5wCC2aahZhuHQw8lZUpV1/q9k01s2/XFd
-	 W9uAT+DnfyohCjfIAyUXfMZAnmsl5sjkfm25Gbhpt/WJO718FDQVHNtBztWRqrAFrdb/U
-	 kMWQhyM/n3gTNK3IcZjt2iOD6F9WYdIdLZI+MQJGjGTzbVVXTw1/YbI4NJumVO8HUJrZl
-	 XCmsEzsGNitGFZVTbDMoAZDZqnXHOhi00s7ZFZZtwmk6KTIsYE7ECZRdADzAlPZtsvQ==
+	 Date:Message-ID:MIME-Version:Content-Transfer-Encoding;
+	bh=0SFwWsGiZKpcFIvDxjRNjibN9AJpRHuzGw1nmpgwE7E=;
+	b=VHanxb7UyuHNkvmoM0kdRZIIJJUd4MEmG5s7UwrMNy1tLMOb8L5CtOQaaRVMWL7HWiSX
+	 M8hAOmNSb3bH54b9ZzmXoz21Q2FXhckqgKNbcy0jYQkpLhymeITGDqo3UtPWWFpKXBpem
+	 m2wbDEzrLeFqfqrhwE19BEW5T+sAlfegGFfIeIQUM2Q8FhXNFfK5tClIHyn2VoReefs5k
+	 qYZ8g3RZvBmjMlqYZF3URlvftAuhtzXCWwj/n/ZsiDgdluVoPp5CfmW/rfYAvUW7G5Foz
+	 jBL02lqApW/atYbLzQeYUC79C21Udv1DgFI3/e4g42VJAQL9bHD0BQJLEqYLOEP/MiA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Tld5X8/4";
-	arc=none smtp.remote-ip=74.125.82.182
-Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Twxqx1T3;
+	arc=none smtp.remote-ip=74.125.82.178
+Received: from mail-dy1-f178.google.com (mail-dy1-f178.google.com [74.125.82.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5526606A339
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:41:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5526606A339
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8FCE9606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:42:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8FCE9606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tld5X8/4
-Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso15253712eec.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:41:27 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Twxqx1T3
+Received: by mail-dy1-f178.google.com with SMTP id 5a478bee46e88-3869f03af6aso6334152eec.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:42:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711287; x=1796316087; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
-        b=Tld5X8/4YPb+014wlTnxZRm08LbkpW5GpzIR3Ge6X9eTp+FbmnRCITSLpZdvebq5aN
-         zGWqHGlDM8Fo4PjwSAWEKDX0IK2SgDL4ak9Ca3PbposL+kP258OH2otroY5+murRdH7e
-         oRy6ooolGxiKOLPa3L7KCWper0P2aK2CF9xc5ZAkLXGFZfvbviDoi5zMDV0IP9fj/+X+
-         QGuk9DmHiUvHqndU8wCoxLNjSsiiXt6HCzu7Q5cfjmvTl2l/wPgAM07QGTI3uSCFkI9/
-         7jSrsDnKZpaACY52Y7Jj8FqHkzBmDDz9tYkk3p9FXq5Mw2doYAsYqg+oIxEA/hIrxmDk
-         869A==
+        d=gmail.com; s=20260707; t=1795711332; x=1796316132; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=0SFwWsGiZKpcFIvDxjRNjibN9AJpRHuzGw1nmpgwE7E=;
+        b=Twxqx1T3QyB77vh2Xe50mVlXXEkIgcbKw/MfEGmsfKUotd3WIvIR5k4NkmL+dmXDYO
+         yPWGawjLWciM5kl/7eC3+Q+rz+lIqPnMeE/NX8S4GlQJRwFDQ6RcahGBlQ25SZmY6LRO
+         XukW++Ufdy1YkbdqXIg+z8e6qc9VmzF+jf7IuBbbse84kfh6ly7HqFGBL1QVUX+extUH
+         TgK3YhHINor9vYnz0BfAarDsc0KmizPe07pLoTulK9mPkO3LTaWQ8uqxTMVLfQssnCsD
+         NRFlPni7fKjdnHlJKQZkyJqN69eFd1UAs0cT17BaKJrzW1FuSp1Ldy3hmoGPhJpvgI6D
+         dDNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711287; x=1796316087;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
-        b=yI4skOx2aF/kkB1syHLKQx/2rU6Lsetw7/VVPkze1uNcFuIN/wSJRWYxXsWfNUPqNu
-         JV0DjLZtqfp/mTFGjgFL/vFnmcvcq+Re6pBu0Kd+nZnR5kv39uxbAlpWl8nWGlkQhuVK
-         zGWoi4CKz+CMtP+pAIeUH1mbW38Ap+YL3uokfH6ix0LupxK7WSdyQT0ZxF6XPpK1Qe1c
-         v85nR6569sjdufvnmOKI8wQYm1cCmcfY+mpSDHCuBRf1U8hJUxopyMIyx1M2xoaXFFRA
-         pRkPye8LPGXX8H5UC5BtZxnUFGlPK8oplDEga/HHvbMHTKgK4gfsYnYpD1AGihjiL9s7
-         x/LQ==
-X-Gm-Message-State: APuU4Z+nlGCUW+wJu0c1TB8euVndQBHYX0GdvCSRDBQVElh0xQV8CyMJ
-	ghyrRpiszugIYkp/khlEuxhtqFzoE+K1M4mUsk/3zuQy9zEsFds29MGHEt/Nm38H
-X-Gm-Gg: AZFdTZfKW3WnqOcriZI6Qw6JW8rXYREw/Qn4A8SITAM6ArHkKEr0fO5nDe8wcGn3/iO
-	ANArMywZN4c0AmUXC0a0ejEL6gnAItRrXbnf5cOsqxHzLFhpFpP/fVRwIYOdIX1cBrJQkf76Jlp
-	npHgMRfmpGAoakYT/pJO58FPvk9hfN/2hoD4RrGUNiVXxwC4aOKdkHPV+IZHVmZDbKr21xX5Akr
-	HMnw1AudhC2QVBwwT6O0CnAHEJHwGPitcoYPtSw9/8R0+uCyuENIWccbQ3zIg2A72b1VtpJwUct
-	pI2dbdbhszY2ulXyUH7hHdjjdpddjRjE7h/IZJvFuL84QkNXHEOWoHoAyHQfmrVbEMi92UUIoVD
-	gyThCyoGG9g31BW6TN3y0TZqnYiRsCZEeswwKEu7WxOavCPXGa6//atFxDGmQ7Ym8Wk6VPePAUR
-	G/ZisXZPCo2jHWkM105DxGiWR7v2+lSEdGyTrNqIjZA5Uq3KR7YXYky8UFptHfLOyaqhrbxYbNK
-	67/wN0xkxz/4D+ZkF9abjKbdQAJLd/7AcM56q2t/oBofTHcsHzvwrnL+i7iKSnUxXQFSuSgBW3x
-	o4b63rQnBX1dA/3RawgSAN7cEYT6ZCAIhJJ6G4oUic+7YQDa0O7x09rFxMctgn06qGNlg2AxnXf
-	QgcXSgiGJaKBuvYN2YGRyq/i92EVH9VtF03QKWNTrJIbeyAnc8DfYOp3TvmEZkZK+1HkUQ/C5
-X-Received: by 2002:a05:7300:824b:b0:386:9c6a:3e87 with SMTP id 5a478bee46e88-3869c6a3f0fmr17900569eec.15.1795711286860;
-        Thu, 26 Nov 2026 08:41:26 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795711332; x=1796316132;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=0SFwWsGiZKpcFIvDxjRNjibN9AJpRHuzGw1nmpgwE7E=;
+        b=rIlcsN2iq6B1Kmyydud+XEoGWWwN4LtXQ5XiENO449nYOjnqxzgen0DYzZcF+JTOD5
+         e/fRTBeRZlSwyUFpLwRHxjLSRpcFsw8yMNRzG1pUE5IYwoMDDNijLs7KXB8mPWcCIp+L
+         pCAvGS6Iu+/waMOg0enwi8W59HVKt0ckfP1kKv3Mpfv4HXAG5QIeixU+C7an1DqUO0L7
+         fWvoqCBVla84S8kc38yKVnPbZ3+ocCRWAOfqVcpyzULOSyMijE4O6lG89k035VwuzTlY
+         HT34aJlxnhsjr0t30eEfyTceAuAtA0WR7Xd+YEMMYW0PxBwpt+19zTS1m4x5FAsJa27R
+         aAmw==
+X-Gm-Message-State: APuU4Z8bKRaL+bc4AaP1Flk394V5XSgFwWRJscIm7ads/UB9iHLwge8+
+	ZiYtprzeDQEepkLyiYYXzPUeXGnLk6eQ5hjdPiQtrzoodqPPNdmxoSH48pWm+nzu
+X-Gm-Gg: AZFdTZfb0jw6FDkgxzs1Ow0ZzlM9hiOoni9UpB1wIPXral4383A7Yt56Jl9xrUmOU7c
+	F5gvLGUFLW1n03151eqJCUrbhkNbBKP1+rCEe98UUg8XYPptCT2iY98n0GVKOTv7grgGqbENlWU
+	PdhWlUROur34t5Lb+XQS3jXUpLS/ZcapzKiVzMIw5OXx5hS8ET7U1R5pManojUsetV1k0GY4QA9
+	oh14dXJDsilyqigwnfDKQ5O0UVIOIyfV82A4qVAtZrIVf+QQ6TYTPfZYYK6x7j2DKi3F9qPsmYb
+	dCSbZz6MaN1E5aunNd6m3NRivBzxBtOSn4GVBZbtZUgqhHeLsiyKYq2ffNQKQ3OkjIeQ+T5+EAG
+	vsOcTKoD1HsfG6OsFkkzBWFHhLVohC9xDE5VMbfyAOkmHt7T0anEHCBM7meymoZ4q92XxI40AuU
+	3YEidJzEabJV6t257FjvgZBOFnnnu6rLQWyV+KkgIXI1SW4wpqy1DhVIg5Zb0kLpjpcJe2i+cNZ
+	37HedwYf9a8e4e2TNWEuSUyaTEdNn4pfniB9fVbgvgE6kLxzmrY2m1D+a4UDX9hXqvZrNqfuFzt
+	q1GsnS1wiLArftKBR/PGVhK05BbaBMDviLsAjpKzO9MbfW5rx5vU1Tz2xBHnKQJdTgOZ8uuTfzF
+	ijAmnES53q9T5pkZXtV/HslS55/XrVwGbNzvySMm4c1Htx7OxZkR5levYt1CRFL8UON/IarZb
+X-Received: by 2002:a05:7300:6b0a:b0:382:75b5:e77 with SMTP id 5a478bee46e88-384b4a80eeemr24317744eec.25.1795711331465;
+        Thu, 26 Nov 2026 08:42:11 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm55903706eec.19.2026.11.26.08.41.25
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385646633d0sm115299825eec.3.2026.11.26.08.42.10
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 08:41:26 -0800 (PST)
+        Thu, 26 Nov 2026 08:42:10 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: richardcochran@gmail.com,
@@ -87,15 +85,14 @@ Cc: richardcochran@gmail.com,
 	pabeni@redhat.com,
 	vladimir.oltean@nxp.com,
 	vadim.fedorenko@linux.dev,
-	andrew+netdev@lunn.ch,
-	arnd@arndb.de,
-	john.stultz@linaro.org,
-	rmk+kernel@armlinux.org.uk
-Subject: [PATCH net v6 2/2] ptp: disable unassigned timestamp channels on unregister
-Date: Thu, 26 Nov 2026 08:41:22 -0800
-Message-ID: <20261126-timecard-core-v6-2-ahmadexp@gmail.com>
-In-Reply-To: <20261126-timecard-core-v6-0-ahmadexp@gmail.com>
-References: <20261126-timecard-core-v6-0-ahmadexp@gmail.com>
+	andrew@lunn.ch,
+	linux-kernel@vger.kernel.org,
+	arkadiusz.kubalewski@intel.com,
+	jiri@resnulli.us,
+	jonathan.lemon@gmail.com
+Subject: [PATCH net v6 0/8] ptp: fix OCP routes and SJA1105 pin direction
+Date: Thu, 26 Nov 2026 08:42:01 -0800
+Message-ID: <20261126-timecard-driver-v6-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,49 +104,47 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-From: ahmadexp <ahmadexp@gmail.com>
+This driver series contains the SJA1105 pin-direction fixes and OCP SMA/DPLL
+corrections. It is separate from the PTP core series as requested in review.
+The PTP core v6 series is a prerequisite; apply this series only after those
+core changes. This series contains no ptp_chardev.c or ptp_sysfs.c changes.
 
-PTP_EXTTS_REQUEST can enable a channel without assigning PTP_PF_EXTTS to a pin. ptp_disable_all_events() currently walks only configured pins, so unassigned channels can remain active after the clock is unregistered.
+Prerequisite PTP core series:
+https://lore.kernel.org/r/20261126-timecard-core-v6-0-ahmadexp@gmail.com/
 
-After removing the user interfaces and draining active operations, issue a direct PTP_CLK_REQ_EXTTS disable for every advertised external timestamp channel. Keep pin assignments unchanged and retain the existing PPS shutdown. This is a PTP core change and does not modify any clock driver.
+The teardown follow-up removes ptp_ocp's early timestamp-disable loop so the
+new core unregister cleanup disables channels after user operations drain.
+The existing shared-PPS map shortcut is unchanged. The DCF correction is
+unchanged and retains Vadim's Reviewed-by tag; tags were not carried onto
+patches changed in this revision.
 
-A coding assistant helped identify the unassigned-channel teardown gap, develop the core fix and regression tests, and prepare this changelog. The regression harness exercises the actual cleanup path with controlled clock callbacks; no physical card was tested.
+Validation: strict x86_64 object build for the PTP core, OCP driver and
+SJA1105 PTP object with W=1 KCFLAGS=-Werror; source-derived teardown and
+sysfs/ioctl race tests; SMA routing, DPLL get/set and ART capability tests;
+runtime mutations reject missing sysfs locks. Hardware register and IRQ
+operations were stubbed. No physical card or switch was tested.
 
-Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
+A coding assistant helped identify the issues, develop the fixes and
+regression tests, and prepare changelog text.
 
-Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
+Ahmad Byagowi (8):
+  net: dsa: sja1105: keep pin function on EXTTS disable
+  net: dsa: sja1105: keep pin function on PEROUT disable
+  ptp: ocp: preserve timestamp routes on DPLL frequency changes
+  ptp: ocp: restore disabled SMA inputs when binding
+  ptp: ocp: report disabled SMA inputs as zero Hz
+  ptp: ocp: correct the DCF output frequency
+  ptp: ocp: match ART DPLL frequencies to selectors
+  ptp: ocp: defer timestamp shutdown to clock unregister
 
-Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
-Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
----
- drivers/ptp/ptp_chardev.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ drivers/net/dsa/sja1105/sja1105_ptp.c | 16 ++++--
+ drivers/ptp/ptp_ocp.c                 | 83 ++++++++++++++++++++-------
+ 2 files changed, 71 insertions(+), 28 deletions(-)
 
-diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
-index f63b45f5ee6a..5835c01cddb4 100644
---- a/drivers/ptp/ptp_chardev.c
-+++ b/drivers/ptp/ptp_chardev.c
-@@ -53,11 +53,15 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
- 	unsigned int i;
- 
- 	mutex_lock(&ptp->pincfg_mux);
--	/* Disable any pins that may raise EXTTS events */
--	for (i = 0; i < info->n_pins; i++)
--		if (info->pin_config[i].func == PTP_PF_EXTTS)
--			ptp_disable_pinfunc(info, info->pin_config[i].func,
--					    info->pin_config[i].chan);
-+	/* EXTTS requests do not require a pin assignment. */
-+	for (i = 0; i < info->n_ext_ts; i++) {
-+		struct ptp_clock_request req = {
-+			.type = PTP_CLK_REQ_EXTTS,
-+			.extts.index = i,
-+		};
-+
-+		info->enable(info, &req, 0);
-+	}
- 
- 	/* Disable the PPS event if the driver has PPS support */
- 	if (info->pps) {
+
+base-commit: 4392bb809812ac79449cd0cf1f5e00469ee102d1
+prerequisite-patch-id: 6bad78c955ada1724510b31a0276a3208ce76a5c
+prerequisite-patch-id: dc638755165b24f907f718a498e20d4aa1c6190a
 -- 
 2.54.0 (Apple Git-157)
 
