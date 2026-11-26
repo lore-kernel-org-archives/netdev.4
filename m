@@ -1,49 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.53
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795653609;
-	b=CcINBBX1g3Hu2p8zpnGSrjCRh7kggbgKJsifWdm3i1QAAhJcRQ1qSTM4JBjOYM3JJm+k
-	 OmL9/cT/q0dGEdJr0vHvJ9mjFzKO9xk1XJsRonrDZ61V7rE6fB+gCBkpjvHKfQOc6klpr
-	 8DM8PTUXzjCybvbj5Z0WfQICBrcRF5veqsPSQboSwu6a/KLqBuDOYUeixiDWtZKWRFycP
-	 8o4OHLwufY+RJ2ub2lLCprk4IQzMr2cF4lm7NOaMNY2VbiOy2ou3tMw+zRqzz761AmrTd
-	 8HINp5YXMC9W/8He30wgHx0hTpR9xHUOLBM1h9xJsqOUlA49ROMediudT5CYaPKlUgw==
+	t=1795653677;
+	b=fr/hNsCFTrETTVI3nAEBwfz/oI23GeOoR7IVWrMxT138+xpzHB0gnWqMCdMW8au7Rd0d
+	 Po0ULdK9+mCRPQBBd4SI0fCism0nKv7vP1YK98PtQQkTrbWPMOY8M8/lwuOr7CfmfTazn
+	 Zw/d+aFKJbwdI6/ZSLml0xE7LVLS9ltHet+v3njtcrrz7kUItJ6fltPvGoDWLhlfKkA1H
+	 li9GEVzq6U+EUgxdW/orOqzBhj/lPwBJcVvimkK4lxmkDQ3crlIFNd4CXpC7CIcXRI6Ln
+	 +VSog/7NdAB8NnavgzzvnhP3bhyGXIpVOrfYXbEtNCnRGAY7MiB1KOLx+ZPdRMYl88A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653609;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=dQm7LikkEBfw+B+30vtpusJDOLGfvvT4vrOt4kNA/ro=;
-	b=kbEGguHAJB5KjJ4/G7waIPr5CBoGR6eeV3pFKQjiHFVm83MEncvFcceAPQgOJ0rt1tvl
-	 pzySi3+tcw/Teb5kj44bXP0Gr8HQecST6i50D+mnIMKYnuGBZhTEWTHW82vftnxQvSJUC
-	 5YDkgnz/vMgPhfI7kzaAjVMyJVJKuUriUUUgismKmMStvqlILsAFa0j1m+UDOqtBQU+V/
-	 6Br4S7ZQ0Mg+RFIAqNnIcWxs8dybTxpJEUvupwtpSixX3dIvPNJ67wqp1lYAG/zc/4qRE
-	 Lf9/UtkA9TLYb0CPNE3F9ZD5xEDaFWOCmSlM+NVjnjj5pYVFlJarjn5n3z5v+CF6wjQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795653677;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:Mail-Followup-To:References:
+	 MIME-Version:Content-Type:Content-Disposition:
+	 Content-Transfer-Encoding:In-Reply-To;
+	bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
+	b=kHIKUdN9/QmK/AsZVhdIBPE0ShdYHueKGLWETYLCbKJJY1Vft18zvtLzMCvV56jsm8wV
+	 F5QH27PFhzwzYL5qZhjai9akZY0c1761y1eUKOiITtO6F/LXsldUTu2z1C1CxdxszShpP
+	 abPW7fOWf6o3Bjg547IaSQ5eEonX9JtWGiAGE0bCY1yOO6FsNHRj+kZvXQYExzspdGS2S
+	 hrvpkE4iM4Sw8XOOc4yx9/oJsBkAod5CgEacDeIS/Rboxb4rHK2yU4hj0QrpScxIn13qU
+	 X+nK7svK+k/agEAzJ0nSert06xZxbJZziXOOprY1+ncRtKTcWiBWyH9OfOiETDfb5pQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLszMzLw;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=none header.from=dama.to;
+	spf=none smtp.mailfrom=dama.to;
+	dkim=pass header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tbywnl0N;
+	arc=none smtp.remote-ip=209.85.216.53
+Received: from mail-pj1-f53.google.com (mail-pj1-f53.google.com [209.85.216.53])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DB936606A337;
-	Thu, 26 Nov 2026 00:40:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7AEF6606A329
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:41:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7AEF6606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=dama.to
+Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=dama.to
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=MLszMzLw
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FA541F000C6;
-	Thu, 26 Nov 2026 00:40:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795653609;
-	bh=dQm7LikkEBfw+B+30vtpusJDOLGfvvT4vrOt4kNA/ro=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=MLszMzLw+jzjvra04ywRzp1QJWuOntXAHvCjzCxa1FBbYR8paD1DpYZmVkCy0tc5t
-	 NlG2gcGOyVqA3RIfIEM+zaLu76C1Dkh/WcCYlALdDyIxA7iijjM7IrmJn/reFdELcC
-	 XuWTwtjulRB0Q/Do96Yt9NvXESAHj4cIvxla0d8uc1KwOvdWVV/0Z5Jzinq231oH2+
-	 fiiNi54+LGPwIw76rWl/l9OHAW4FEwKe95YTAZbI3m+ItG78954SegDAUuRR8xcY04
-	 RJI6DMiHFyseI80WPu2m4xHHAq8EuXMaOTATc3IHK4PRdBdorgSMY6gNGe6ombmyvZ
-	 LU4Dejv7shBHw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 7750E3809A24;
-	Thu, 26 Nov 2026 00:40:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=dama-to.20260707.gappssmtp.com header.i=@dama-to.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=tbywnl0N
+Received: by mail-pj1-f53.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso3458209a91.3
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:41:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=dama-to.20260707.gappssmtp.com; s=20260707; t=1795653677; x=1796258477; darn=vger.kernel.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
+        b=tbywnl0Nq7DCkKcThKGhp1H8EQrxuHIPkWozGFLuyrP/hH6qJmLEJoiyFWAuREc/ah
+         T7RF3bsaggfirGoC9bg8pCBbUZgFWbGeK+tHu5Ben8s9PKKf1tBs4PtUXo6dQ+FMHork
+         hZ3NYF6UqZk2FiGHo5SPpJ1rK06sjVsfWPYHybiasArX+7Wcdv5bnuGzoDdlcLqnJiet
+         pEo6H3cxtElGJzKiWZ1APRw3rU61wGP4O1SVHURed0PCwpl5RsLrOXLCu8BsEGkeXSJf
+         lGPd8eidVsNztwmwEt1CFvID9JzLw0DnDivi6lrNnp4sfAAlmRSnfuE8W7KZAMJUWfdK
+         wfyA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795653677; x=1796258477;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :content-type:mime-version:references:mail-followup-to:message-id
+         :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=etNvWZKM5KKoioqypEOUDZ9ml0pWkNpMWbqmez34aEM=;
+        b=gIup7CKDk2pE3G0hfpGf8y0reMe01apjhbrCUSEvkRZ3rXeX5MvelwqdRVfxkE6kFw
+         bhiQo2M+hqUURueFVgY4b/3W230gkj7zEPbosMoptnsa89VJOFg0t9WaZXTWNxu0MTLP
+         xrgoWXVLeon9Xbo8PaUTxXNrRAMI8EkMJs7uNxSWAEYIDCv3GiejU7PMlBBObMiQptUk
+         uaO+/t5AnqDdd/NUH5tX2fNaBhMz605wgmgscuWcUKGbLw0OFKyNq76aWSGWh6ku/jyj
+         9aXDJLRsYZhAob5x+7M141pqpzc64SRhPSYJzusyN90fjLdSmcOP6pQr8vgnxAqNplIi
+         pczA==
+X-Forwarded-Encrypted: i=1; AL+hErE1HbE2N3dsoaCTYJ53CBGtqc+4pW6s7VYoEPt6BnCR02OzlrNiSjWGBeQ11cdEFikHxYe+TGw=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8oP+5QaorsLb2iFuRS7WgSbWnaKJ0zOX/2h00i6L7DijbTt1Jv
+	DynslNeLOT/hvK+oPiy7p04PBatGKvCErwqpYov6PRtnemNrSLB5hUTvdItdy4YvH2M=
+X-Gm-Gg: AZFdTZe08Gthmjp9AmH2BhPLbxy5ORPwAVt3wiWBrQQVOIoq1JJ02ZNUwQozIk24O5U
+	+/u/NNLoQKc5mUNU4gGy5bgQdNKUno0vx3H/2Mk/4hnKPekm3gvwaPALkLZVN8jVdPY8nmpaYq4
+	qBU1KUlIkB5PwkncRx8jgZaAhgGG+9AxbL0JSaFEnfBxg/Br6C8N4wKSe4C0OvrvEcoTYCqP0d+
+	flZD1JgSuNqecOqFIoTQfBnObb0a9Zip3TQmLdNLFgFZpTRZsBCKJKlqRGNpt+Cvd6S0kql6JXU
+	dtPJJIIU85bhsTu0vemjJNWDTX8Mj1innVL539ZZa804Zu/SYWdJlwQuj7JEEVd0Ji6jx0bdgyj
+	BT9F6goJnUEtXIpyKxwW2lNHt/J6jchh4OqCLfDfInQlWYDXdftL1jaaGXZnUhH+Bw1KnXmAghg
+	Lpzh2rY/Aqnarazi5ZADB1NhVx6vBXiS9JfnSsV55RvEInv2PguvuVwz9L4Pjqp+JulXD0LmL/w
+	V8bvIanWM7l935a8+WQ8hokQ7+zX5BKBNte7xvDSnaQgAWHLRmvak2+SBreqGeJn2+yRwLhZaIX
+	4um7Dx0K9WbjoXVFRIs0pfhHkUptAwNE9g9/dZLhIsQ=
+X-Received: by 2002:a17:90b:5109:b0:3b4:1621:ba5d with SMTP id 98e67ed59e1d1-3b41c95afa2mr19198117a91.38.1795653675091;
+        Wed, 25 Nov 2026 16:41:15 -0800 (PST)
+Received: from localhost ([2a03:2880:2ff:43::])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm28823022a91.7.2026.11.25.16.41.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 16:41:14 -0800 (PST)
+Date: Wed, 25 Nov 2026 16:41:13 -0800
+From: Joe Damato <joe@dama.to>
+To: willemb@google.com
+Cc: netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
+	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v6 5/5] bnxt_en: stop the ULP around the reset task
+Message-ID: <aweAKQ6cUk6df/L6@devvm20253.cco0.facebook.com>
+Mail-Followup-To: Joe Damato <joe@dama.to>, willemb@google.com,
+	netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
+	michael.chan@broadcom.com, pavan.chebbi@broadcom.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, prashant@broadcom.com,
+	edumazet@google.com, horms@kernel.org, selvin.xavier@broadcom.com,
+	kalesh-anakkur.purayil@broadcom.com, linux-kernel@vger.kernel.org
+References: <20261120152830.699712-6-joe@dama.to>
+ <179545866419.3135.14423996277439097165@kernel.org>
+ <awTJWtBSMubj4qQ9@devvm20253.cco0.facebook.com>
+ <willemb.1401f0f6ad765@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,53 +112,129 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next 0/3] net: stmmac: dwmac-sun8i: enable Flow
- Control
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179565360801.1416723.7797795365715043690.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 00:40:08 +0000
-References: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
-In-Reply-To: <20261122144926.284857-1-maxime.chevallier@bootlin.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: andrew+netdev@lunn.ch, kuba@kernel.org, davem@davemloft.net,
- edumazet@google.com, pabeni@redhat.com, horms@kernel.org, willemb@google.com,
- wens@kernel.org, jernej.skrabec@gmail.com, samuel@sholland.org,
- mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
- linux@armlinux.org.uk, lorenzo.bianconi@oss.qualcomm.com, nb@tipi-net.de,
- thomas.petazzoni@bootlin.com, alexis.lothore@bootlin.com,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+In-Reply-To: <willemb.1401f0f6ad765@google.com>
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Willem de Bruijn <willemb@google.com>:
-
-On Sun, 22 Nov 2026 15:49:22 +0100 you wrote:
-> While running the "ethtool -t" selftests on H2+ (orangepi zero), the
-> Flow Control selftests consistently fails.
+On Wed, Nov 25, 2026 at 07:21:31PM -0500, willemb@google.com wrote:
+> Joe Damato wrote:
+> > On Mon, Nov 23, 2026 at 06:31:04PM +0000, netdev-bot+sashiko@kernel.org
+> > wrote:
+> > > Thank you for your contribution! Sashiko AI review found 6 potential
+> > > issue(s) to consider.
+> > >
+> > > Critical: 0 · High: 3 · Medium: 3 · Low: 0
+> > >
+> > > If you believe none of the issues are legitimate, please reply to each
+> > > issue of Medium severity or higher and explain why the AI is wrong.
+> > > If any of them are legitimate and you plan to respin, please let
+> > patchwork
+> > > know by including "pw-bot: cr" as a separate line at the end of your
+> > reply
+> > > (one such reply per series is enough).
+> > >
+> > > - [High] Possible deadlock.
+> > > - [High] bnxt_reset() decides to call bnxt_ulp_start() only from !silent
+> > >   && !BNXT_STATE_DMA_STOPPED, after dropping its locks.
+> > > - [High] Incomplete fix.
+> > > - [Medium] bnxt_reset_task() discards the return value of
+> > >   bnxt_open_nic(), and bnxt_reset() calls bnxt_ulp_start() whenever…
+> > > - [Medium] The new DMA_STOPPED check exists only at the bnxt_reset()
+> > call
+> > >   site.
+> > > - [Medium] Every non-silent reset now unregisters and re-registers the
+> > >   RoCE IB device, including the common case where DMA is never stopped,…
+> > >
+> > > --
+> > >
+> > > bnxt_en: stop the ULP around the reset task
+> > >
+> > > For non-silent resets, bnxt_reset() now calls bnxt_ulp_stop() before it
+> > > takes rtnl and the netdev lock. Afterwards it calls bnxt_ulp_start()
+> > unless
+> > > BNXT_STATE_DMA_STOPPED was set. The goal is to keep the RDMA driver
+> > off the
+> > > device once the reset task has stopped DMA.
+> > >
+> > > > diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > > > index 9daf053293a42..2abb721d87de8 100644
+> > > > --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > > > +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> > > > @@ -14710,10 +14710,14 @@ static void bnxt_tph_update(struct bnxt *bp)
+> > > >  /* Only called from bnxt_sp_task() */
+> > > >  static void bnxt_reset(struct bnxt *bp, bool silent)
+> > > >  {
+> > > > +	if (!silent)
+> > > > +		bnxt_ulp_stop(bp);
+> > > >  	bnxt_rtnl_lock_sp(bp);
+> > >
+> > > [Severity: High]
+> > > Can this deadlock against bnxt_close()?
+> > >
+> > > bnxt_sp_task() sets BNXT_STATE_IN_SP_TASK before it calls bnxt_reset().
+> > > bnxt_rtnl_lock_sp() clears that bit only after bnxt_ulp_stop() has
+> > > returned, and bnxt_rtnl_unlock_sp() sets it again before
+> > bnxt_ulp_start()
+> > > runs. So both new ULP calls run with IN_SP_TASK set.
+> > >
+> > > Both ULP callbacks take rtnl_lock():
+> > >
+> > > bnxt_ulp_stop()
+> > >   bnxt_re_suspend()
+> > >     bnxt_re_update_en_info_rdev()
+> > >       rtnl_lock()
+> > >
+> > > bnxt_ulp_start()
+> > >   bnxt_re_resume()
+> > >     bnxt_re_add_device()
+> > >       bnxt_re_update_en_info_rdev()
+> > >         rtnl_lock()
+> > >
+> > bnxt_re_ib_init()->ib_register_device()->...->enum_all_gids_of_dev_cb()
+> > >         rtnl_lock()
+> > >
+> > > ndo_stop, meanwhile, holds rtnl and the netdev instance lock and waits
+> > for
+> > > IN_SP_TASK to clear, with no timeout:
+> > >
+> > > __bnxt_close_nic() {
+> > > 	clear_bit(BNXT_STATE_OPEN, &bp->state);
+> > > 	smp_mb__after_atomic();
+> > > 	while (bnxt_drv_busy(bp))
+> > > 		msleep(20);
+> > > 	...
+> > > }
+> > >
+> > > Suppose "ip link set dev X down" runs just after a TX timeout has
+> > scheduled
+> > > BNXT_RESET_TASK_SP_EVENT. sp_task can block on rtnl inside
+> > bnxt_ulp_stop()
+> > > (or bnxt_ulp_start()), while bnxt_close() spins on bnxt_drv_busy()
+> > holding
+> > > rtnl. The comment above bnxt_lock_sp() warns about this exact case.
+> > >
+> > > Before this patch, only the rare RESTART_ULP and firmware reset events
+> > > called into the ULP with IN_SP_TASK set. The frequent reset path did
+> > not.
+> > >
+> > > Should the ULP calls happen only while IN_SP_TASK is clear?
 > 
-> I originally blamed that on the fact that the board was connected to a
-> peer that didn't support Pause and that we didn't negotiate Pause at all.
+> > Yea, I think this is real.
 > 
-> The ethtool selftest are sensitive to what the Peer advertises even
-> though this is a full loopback test, but it is what it is :(
+> > Not sure if Michael or the other Broadcom folks have a suggestion here?
+> > Maybe
+> > the minimal fix is to clear IN_SP_TASK before bnxt_ulp_stop() and call
+> > bnxt_ulp_start() only after unlock.
 > 
-> [...]
+> > The RDMA teardown on every TX timeout and restart races below would
+> > still need
+> > answers, though.
+> 
+> Are this and your questions in the main thread a reason for a v7?
 
-Here is the summary with links:
-  - [net-next,1/3] net: stmmac: dwmac-sun8i: allow controlling TX and RX flow control separately
-    https://git.kernel.org/netdev/net-next/c/1e38a237abdf
-  - [net-next,2/3] net: stmmac: dwmac-sun8i: emit pause frames when the RX FIFO fills
-    https://git.kernel.org/netdev/net-next/c/22fc89783468
-  - [net-next,3/3] net: stmmac: dwmac-sun8i: configure the pause time for TX flow control
-    https://git.kernel.org/netdev/net-next/c/24276dd35154
+I don't understand your question. The above is one of the questions in the
+main thread.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+I'm not sending a v7 until I get feedback from Broadcom.
