@@ -1,97 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688402;
-	b=IV06Ct6UcZ1NE2AmWGWBD/0bB/p8mSq+B/OVGMkv02zH0yfhUg5fdbm14U378LNLl5bP
-	 7p3oEgVPvTTyJQ4L/1i5OdsZVDDdxNK60DGiR+Dyq5Z8eIcFd41Ki+EBeiJVZ0QyK+L8l
-	 M17UQbQus38kKSJQJ748HZQ7wOt0fBzCnQf89r+MHeNHjY6dWyFMdGWsgw5DLNEU14q/Y
-	 lY32slBGQrgnA47ylX0bp7Vl+KnCLKMJdf7UH3zpVK4cMMc7lJz7K0lbd1wjI69zEVUeU
-	 fniMxRv1SDr3T2D8wbGg0BiXp0g0YqEgSU3VGzO5p6LDKhZkSDAgkCs0k25+Gb3MNhw==
+	t=1795688457;
+	b=ZDu++AlR/F62zmAv1n35BJDEvu3UBpU0lHkZfUFZoVNHYoY8p62TncTkaynCtjDYafbX
+	 5ShulbizGikE9lbfy3/SrDQXRCNoRFcDNeuiQlMV6IClktybQ2Q1LKbtTAELhsfl9Kh54
+	 ebzPUW9QSqJCBWwj+DLB4pU9+JZYmdu8KVWlBIRY3jOkjyIzY4LllPQPI/ZrhmEvkS03K
+	 LXFSy/fair+YlemHwRO+fa7Hx2MmpG6o7XgyCYcR6fxNHxVzb6xAZlX7ubtqZkCY0lAPW
+	 Qa397tjrftHeMVPunEyya9IB8upVhOa5VlHmmkbGtL1lyB9jlBqUgxThZ6JM3qRNbug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688402;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=j6Q6Z09Hui/dS1JTsCKZUo7wukUm5qF65Apk5oQFIkE=;
-	b=zjq4uOKeMV5WDm38HKnbnDvFMfXxKNSGRZeLONljEYApvmYu07NRvO6QXCKlce/Gj13D
-	 FMifPS1WepxRSilLa4LjaTZOSCeR7+HhLDlRdqg2ueNKsDEufH4eyVdYQvjZrz5D40liQ
-	 VnqAJLYy9VYvk0Cq0jNcjif6RY6VmWXSNmMSgmSnXcaYFpPGWie1CwQ2P34YRnp2KQQTW
-	 vDA8ZYAf3zbthNt3zrzacDdduPw1q0A+sVKZjicWLfQTQYIiSTLWjALSPu2oj+XnbRema
-	 YNF1EFQjOxWyTk7tzIRj/owbTxsIKsE0LZU5SBrOHosNZXR72okA/jOYVyQSU3zf0TQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688457;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Last-TLS-Session-Version;
+	bh=YB3wzJxxHDHi23P+//gC1AV+iO0J/fjZ+eovqPNBwYA=;
+	b=gOa0AoA4XeG1W+XH7kwjrm9IxXT4KhPmaKINTkQqzMUv6Fn4F1dmdDQVBRsILl3QTYuy
+	 RYr+pX1boGLNlcun1R0L0/hDkZunANP5uqpD8ufbfVNSQKJiOe46XKZpNFm2nhNgGCv5q
+	 OcyiJNwb0Sq4wfaYbNIOxqq5EY/OQYv0JsgCowV++hlVUFq/oCj9JkCvJFb5dN+lPOmwH
+	 RXV/TAV8XB4JZX+GWIINnGaiexmDM+3IDCkPzNhO62B57iSmv3zzWBfTWKV0LWrQ+n2Ts
+	 6nHF6ib/oxpbpHuzg7iJYvHNk1L6qNjNW6uj8/++Alo3zhlL3FQuoJXqNM9XBtmH1KA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G9leAd7i;
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pmVcnvAd;
+	arc=none smtp.remote-ip=185.246.84.56
+Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 491EB606A31E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:20:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 491EB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC742606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:20:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC742606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=G9leAd7i
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-385c497bf94so5160389eec.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:20:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795688401; x=1796293201; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=j6Q6Z09Hui/dS1JTsCKZUo7wukUm5qF65Apk5oQFIkE=;
-        b=G9leAd7itAHyQfMbjJ60qh0Bo65P1g4Q0RBZMZ39eWqm+IpTJcymcID3FIgY9Vq/a8
-         voDMuC2oiduBF3LBp+d6C3NFEG3+nXsXfPNoW4KRm6F/Z2nqQo6d2IL+EFQerFAdoOD9
-         bXNA0ysbVXJEPXUycs58vANSOIGwMmk+YV678WgPdluIkyijtaejPXjWHaFk6IPRxUTF
-         8aK8vhoVonyeSJdhgZW9eE4krRivWI9w8JwmfvkERHL0fr121Oi0bCAx2FAKViZYgRw3
-         +1VGHo2KUKCKtoymZUmJVvg0KNLgNSLrxM2hKoWGl1rNvtF2YDmrmByxQo4nnhZ1sziE
-         c2cg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795688401; x=1796293201;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=j6Q6Z09Hui/dS1JTsCKZUo7wukUm5qF65Apk5oQFIkE=;
-        b=XECSDZa9Mex9BQl3Sl/aRtPdFeX9K+6BqeJTgiEYXtqQQELXIlq47nbWLMajTkW9R8
-         AOT5qHgqOMyTsrnXHlb3FHVriehY7l05himSFvbpcKPbd0+EaQsfC5JEGyCqcuOpiLkH
-         V/mrrytB0PNj4Y6wabEi8J18gcmcDzV42awV8GUZ3clrucKI3MtlC97aNB3PBJHX7ZR0
-         bgs9ykdrFiX6eQFL6t2pQ6U9Fc2tnHG095OEl/+AsDHuAOuwagqItcX2wnH/FMgju7AY
-         cOrNTqDc70tXPi+glsY1ZnfNCjmPTJCs6oQrgLMHFSJTjNbMU/7CK5p4YGH1ERGyWi0r
-         vpyw==
-X-Gm-Message-State: APuU4Z+DaFtVvq1psp7Pt9O8Rn/53bRume7nBcF/laFgvcjJLd6ezvrg
-	VsRlmr5XHB6mtYPJJDntQR+DgAIuLkf9BLYTjoBLudgLfPUdix/QYXMV
-X-Gm-Gg: AZFdTZe7bym9i9fQ0WgRrAuZfn8jm4YFAFy4o5VYSvwI6SZEOQhZixnicg1KhdjauZP
-	l6zcA8bnot5strPa/j3mUiC/+//Cd580hxNxxYsaBiOACea5kqOQvwLq+cdatxOrls7F3pwyyiP
-	cku+In6KFnsH4W/2dnt5c6+NPRgUYUmXsSI5t0l5ujecSSb0G6sv8c2DhKaCqaV2mg7mTFK0Cuc
-	PxxYU9lrZiQVL+PvJPHX3tcURJtfHOdWhyV0njBFZ2LtpIOMFqopMfgsdhF7YHodIy3HwwCK5Gd
-	ic1Qjs91laypsNU97sx/lDIZdvsrozlU0zd4dIZORSmqmhWxELGsC6EELoM6OuteJUpYXBoZFRH
-	7XCPd47nfUs9dxHLD8Bgpalthc/C0R/EzeK9mcSubcB8Lo3b4Y8xSiEUa+vAU/7zx4QDY6cUV54
-	PxjRD20zO3f92l6gx/2roMeljQfngAXDreqztibmQJJCd0JWT6G3Sdnk4RC+5wGcE2AXG1iPZvT
-	C5HoBS+QxmLMJIxlp5stux2055GYsB4j/46UJfvo7/iEXJoFgtzmEF90ooaccAZ/ZhocCuLevVo
-	gq6YqcUwbbYQxYbE9ut8U9mIg4PW1KYNN/kUS6H9cWcEF3j7xTETAKg4vF29dhsw
-X-Received: by 2002:a05:7300:8188:b0:382:61d0:f375 with SMTP id 5a478bee46e88-3856e63b050mr31176284eec.7.1795688401293;
-        Thu, 26 Nov 2026 02:20:01 -0800 (PST)
-Received: from cps-manycore-1 ([147.46.174.222])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386aa203267sm32885813eec.0.2026.11.26.02.19.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 02:20:00 -0800 (PST)
-From: Sechang Lim <rhkrqnwk98@gmail.com>
-To: bpf@vger.kernel.org
-Cc: netdev@vger.kernel.org,
-	john.fastabend@gmail.com,
-	jakub@cloudflare.com,
-	jiayuan.chen@linux.dev,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	ast@kernel.org,
-	cwang@multikernel.io
-Subject: [PATCH bpf] bpf, sockmap: Clear the redirect target after the stream parser runs
-Date: Thu, 26 Nov 2026 10:19:41 +0000
-Message-ID: <20261126101950.1682160-1-rhkrqnwk98@gmail.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pmVcnvAd
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 8D8591A180B;
+	Thu, 26 Nov 2026 10:20:55 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A82760237;
+	Thu, 26 Nov 2026 10:20:55 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B438211E68598;
+	Thu, 26 Nov 2026 11:20:48 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795688454; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=YB3wzJxxHDHi23P+//gC1AV+iO0J/fjZ+eovqPNBwYA=;
+	b=pmVcnvAdBlby3lhBVtVzuDtEQLF1hCM4Aizt/91F8Yjpmr8T+0TgMHD0rCk/d6cJS/wkUo
+	oJtNkt3fpNUAb/E6WwJYBykOwgQUwUpogW46AxsssrZ5hDAv8CT9HNH0730k8SiybPLmdH
+	0PbOd9YnzbknCGGvZX3m4kbbL1s3vJXEmlWkrPWLksq4AzKdEjo+N7NEwR3N/Y1WHaSmxx
+	6XxIY5ikUIgYDU/pTZ7e8i/eZTZ701r34zw6/7ROZnXo0hqrr4VHkP7A9wKsF3dpTERtg+
+	8M/1mDxKn2whFEZywyT7XJitLgSiQzeyAMoRCC4XZx1jV+kilYOgCl9i0ZveSA==
+Message-ID: <652a5de2-4c63-4e0a-9af0-f968cae730fd@bootlin.com>
+Date: Thu, 26 Nov 2026 11:20:47 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,45 +62,87 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Drop received MAC control
+ frames
+To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ LABBE Corentin <clabbe.montjoie@gmail.com>
+Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+References: <20261126-sun8i-emac-ctl-frames-v1-1-e90ac94bc8c7@gmail.com>
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Content-Language: en-US
+In-Reply-To: <20261126-sun8i-emac-ctl-frames-v1-1-e90ac94bc8c7@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-A stream parser can call bpf_sk_redirect_{map,hash}(), which store the
-target socket in skb->_sk_redir. sk_psock_strp_parse() never clears it,
-and it shares storage with skb->_skb_refdst, so skb_dst_drop() later
-passes the socket to dst_release():
+Hi,
 
-  KASAN: null-ptr-deref in range [0x0000000000000128-0x000000000000012f]
-  RIP: 0010:percpu_counter_add_batch+0x24/0x220
-  Call Trace:
-   dst_release.part.0+0xc9/0x180
-   skb_release_head_state+0x1cc/0x2f0
-   sk_skb_reason_drop+0xbc/0x420
-   strp_done+0xcf/0x150
-   sk_psock_destroy+0x85e/0xb10
+On 11/26/26 10:56, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> sun8i_dwmac_set_filter() sets CTL_FRM_FILTER to "receive all control
+> frames", so every PAUSE frame reaches the stack and is counted in
+> rx_dropped. Leave it at 0, "drop", as the Allwinner BSP does; the MAC
+> still obeys PAUSE.
+> 
+> Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
 
-Drop the dst before the parser runs, as the verdict paths do, and clear
-the redirect after it. The parser's redirect was never used.
+This shouldn't go to net, this is fairly harmless.
 
-Fixes: e3526bb92a20 ("skmsg: Move sk_redir from TCP_SKB_CB to skb")
-Signed-off-by: Sechang Lim <rhkrqnwk98@gmail.com>
----
- net/core/skmsg.c | 2 ++
- 1 file changed, 2 insertions(+)
+> ---
+> Tested on an Orange Pi Zero2 (H616), net/main, MAC loopback: TX still
+> waits 32.6 ms per PAUSE; rx_dropped per 20 PAUSE frames 20 -> 0.
+> Claude (AI) helped find the cause and write the patch; I reviewed and
+> tested it.
 
-diff --git a/net/core/skmsg.c b/net/core/skmsg.c
-index 005e09121f00..4089901a9581 100644
---- a/net/core/skmsg.c
-+++ b/net/core/skmsg.c
-@@ -1131,7 +1131,9 @@ static int sk_psock_strp_parse(struct strparser *strp, struct sk_buff *skb)
- 	prog = READ_ONCE(psock->progs.stream_parser);
- 	if (likely(prog)) {
- 		skb->sk = psock->sk;
-+		skb_dst_drop(skb);
- 		ret = bpf_prog_run_pin_on_cpu(prog, skb);
-+		skb_bpf_redirect_clear(skb);
- 		skb->sk = NULL;
- 	}
- 	rcu_read_unlock();
--- 
-2.56.1
+How ? For me on H2+, mac-loopback with Pause didn't work without this series:
+
+https://lore.kernel.org/r/20261122144926.284857-1-maxime.chevallier@bootlin.com
+
+What does the "ethtool -t" flow control selftest report with this new patch ?
+
+Maxime
+
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 3 +--
+>  1 file changed, 1 insertion(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> index 2ece7ba9dd73..f669bf22b7dc 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+> @@ -192,7 +192,6 @@ static const struct emac_variant emac_variant_h616_emac1 = {
+>  
+>  /* Used in EMAC_RX_FRM_FLT */
+>  #define EMAC_FRM_FLT_RXALL              BIT(0)
+> -#define EMAC_FRM_FLT_CTL                BIT(13)
+>  #define EMAC_FRM_FLT_MULTICAST          BIT(16)
+>  
+>  /* Used in RX_CTL1*/
+> @@ -720,7 +719,7 @@ static void sun8i_dwmac_set_filter(struct mac_device_info *hw,
+>  	struct netdev_hw_addr *ha;
+>  	int macaddrs = netdev_uc_count(dev) + netdev_mc_count(dev) + 1;
+>  
+> -	v = EMAC_FRM_FLT_CTL;
+> +	v = 0;
+>  
+>  	if (dev->flags & IFF_PROMISC) {
+>  		v = EMAC_FRM_FLT_RXALL;
+> 
+> ---
+> base-commit: e509726660dd06ce107437aecf7c106c9d3fc1e7
+> change-id: 20261122-sun8i-emac-ctl-frames-186c03e03399
+> 
+> Best regards,
+> --  
+> Arun Iyengar <aiyengar1990@gmail.com>
 
