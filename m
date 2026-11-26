@@ -1,13 +1,13 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.70
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.41
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795730223;
-	b=MFkaLEnJeaw4kOOLeBvjkjbBLYqSFF/UBkb1vkzaghE4vjOiNpZsz25dYO8M9BtRGVTA
-	 TIC2freyZiUMpSFq1MKzfg4yVhiF1A53eBNp48aq3X61RMJOnANTNJu31SzFu843uPi/x
-	 aW0jVIvCWQ9nF63NwZN98ZQRwwusx/4ptdwGApEdRxL5RGyhPN2tySh0KyhUcK5yk4thm
-	 Ld9+8qjvWgRUmxJiM0vpbdz3h5cMUEviuahnNn612F4/7sMEKJRVXLBijUGy0xhdn5I9P
-	 cFDvpOFPelbxCNYflaZrlP0JtPDcWtTaAQE3K6TrZRvxYP1NhKHvn1pHoG32G7/BhWg==
+	t=1795730235;
+	b=wn+LKpUFLYorJeDdsLzcFMOXng+9eHqpQpb6KvxH3wbgTLhhkpHOze6nkyB9sjDsDj0w
+	 c/w34/JMuJK1QclAO+7byiMt3SP6zl2/KS0gRDrSQHJjbo+xTdpzlcDIyl1EEM+0e36/Z
+	 Ce5qAeoHO3GXxJQmucmncPe6mnYScOTRtcXWHIAZ8IfmEPMG6YFQnQtzxVfobvMDDyX4+
+	 YMZZbqfY4YGU20OCZfTq7qlKXqIJu6/SyA+bEbiWPI+CbiDSc3vVRAfMD7Da4h/OsrDvy
+	 90WwAlKjT9jYzOGTobxQDhuoX5w71SyNxhQ105/Ttq1UivNQwTmaONo2fdRBvagdgUA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795730223;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795730235;
 	h=DMARC-Filter:DKIM-Signature:Received:Received:
 	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
 	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
@@ -26,35 +26,35 @@ ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
 	 X-MS-Exchange-CrossTenant-FromEntityHeader:
 	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=SU5KNsN4434e2Si3NsoOVeJi+oBOVYLXu94/C/HT8yI=;
-	b=TAjf3gtw3P9WLHvJUtEBaYWAqOyuPsAkr0v9iQ8aHwLexlXIFjV2+niMoW7wPrgg25WF
-	 iyPUH0LMpPN2qy8rcN/j5oSPZFQ2jRa/oiU8H5pM92Mo7SsZWTEPdiRVAGk8OwFZr/zHN
-	 tbsrtQYNEZtFlfuPqbYQKj4Tv1y+1KozNfA97V1W1HpNLRuKqobYa3u6gw10AbySaX1uv
-	 heWR224K54S1/adVTWgfi8hhlUNcqZEByS2T0ZyBu+zEwq+JPv66vjUyEoHFwK++/6+cB
-	 y1PTIXEHFxiFIJRKvtjc/rGc9u9mh/QE5nm0q7A9pOyoeCUZ7cSdLVlM1hA3a8Zpn9w==
+	bh=hL7Nygmk+pBepx9GRapskbHQgyiB9fglHp+5hcwHTJc=;
+	b=ACs5mj7yp7YJqH+Ruw8SnrF9iwc4F5EArTihjQkXxyGvtMO3BLWLaLTZZC2vmexu1NKt
+	 lZRQlmJDVfJAajYoYxmN90qscywNEssPpq6qPUKbMDa51ocpfA2E1q8ekRzcEfn6rEL/C
+	 I7ILaNCX4A0/3+f4HEGyhAg8HSa3TWVDhpFgqFL3vftF98Gd0gHCxDJY7CjU9qCQ/E/L0
+	 cId7D7R0yqf/fcLMKvGgM5WKvXd6SSj4naSnsIr8BZSS5YrQzDoE+IWgB7F8R83cjaa4w
+	 A1oTvA5uXdGnM3WmjcCBg3fiZZcByJl9i/k6+gEDmNKczYvf31kho/CVT806bOiY+sQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=nvidia.com;
 	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b="EvaK4Q6/";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.70
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010070.outbound.protection.outlook.com [52.101.201.70])
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HAiD37fc;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.41
+Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010041.outbound.protection.outlook.com [52.101.201.41])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B11C606A31C;
-	Thu, 26 Nov 2026 21:57:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7B11C606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A1ED0606A687;
+	Thu, 26 Nov 2026 21:57:12 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A1ED0606A687
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=EvaK4Q6/
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=HAiD37fc
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kTt9CjRENr5QvFmsRPt84gzD9BnVS0Klejxa6J8IEt+Y6emMGfoRfMsae6EuZ8X1xWakjrXpuhp2ht52pg/0T+xhbR9fsnGzwIKi2VFA/eutK1XDFGh551qIXEEzSug6fnX5//kNqCtxDb8GRM57j4zQsg8o4dsVm7hmtXNR504mas+b4x4kT5g/LZvWmavNKLgHgVJsgOap7chFo/MFNSQ6vmhNRb/ltYl1HeUZKqXQon7dA4sMIUMVqDAUBCX2wZh8G6dRGH1JUfZiP7d9+E3QPoKM7JlktKeXdWit/TIKxOCR7EEWtqCj6l/LzlBEFx3wasT/jCK1o7glHDTY9Q==
+ b=OoOxPEixoy5O8zgIDpi6uPgftQiMRwsHBTKwRKG5AQ21YzDRY7RADdkH2tLuTrMwEtSTHqCMhgWhmI5IhXYjD73zdytXqZIZTYTrqzlDA4FPYJ6gc+WM7oXRTJeVaKm7WXKcPlE2D/Ot/uaERSKiski1J7bJNxsUUa8eexhfHivhAT+CqNV6cm696lt+VUHaYxLOflQ54U4xUWSBwS8VBy71wJVFr15riX0oJnBmLm0NFJm9Asgv/bJ/z152PH47MdzQI67hKweLrKrogHWBTVNMqrqu4ToIJc9BJN97wXBU5uohHwi1Zj0bWweNhzCb2vw0hU7gSuJH13GRBp/agQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SU5KNsN4434e2Si3NsoOVeJi+oBOVYLXu94/C/HT8yI=;
- b=NU0Ph7G2H6BgE0K974NSvuyTQTkjFKdSDwE1q2bXlCC9CGB+8UuY5D4vMjs2rvck9yo7HLLEXaiSxPPpQVtr7XTXFnxQABdVej7oKlwwaQuGX9TbuSp2HcqDVbQvGhizObKAX/uowRe/IecIQcOFk30X84A3iWg16ozAkcSVfuQ8wXcamHBSHZBmtLgH33HM7P3tLRlkqp3eDmcEvTbID/vZ08uZgaFWYWjxg8aCd7HQ4huXbABFIeSqKvJilbKbhpenaQbLccv4vBNd6Kj55Grq4sGA4oIJGiL3ixE8KdvP4cLXAeG6HBqVtYrSTN6rFyhLSy7/P4zOKJu6GO+s3w==
+ bh=hL7Nygmk+pBepx9GRapskbHQgyiB9fglHp+5hcwHTJc=;
+ b=Z7EL2ya8vhovgaYc0DythAkIqQRR12coc1J2l6uiKvmKdioIUe1fr8BX1gC+ND0T/6hM+chmIJmH+6gnTf0D5uEEwUHC+9EYte68kixglJ1ohS4hzgvuN2GJDtmPDP4NEnQ6kyfeb07uCH2t1Y84amlIkrtORh4oQm675hUlm1MZRPGW0T03uFSH3DUKkeQ4O38BJrw9Yxajj52QMuEmfm4AJVa0nMca8A9D/RvZb+t4jWrxOeyvtdovhMeuqmeIaDibhmcfI/jfwI/t0SbPuZUptMxXl70dnfABNz7OAhP2IkA8CBqp7oq9Ku74nkduVe3b2k8P9uwlhBwrMerCmA==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  216.228.118.232) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
  dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
@@ -62,18 +62,18 @@ ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
  s=selector2;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SU5KNsN4434e2Si3NsoOVeJi+oBOVYLXu94/C/HT8yI=;
- b=EvaK4Q6/Q3f8o53KvBKpdWXJ7Rjk06rvaCX9F+BBhpfKsVweRPlRyiriLPKDCPnFGvCTtOpyrqjO0CEhNWtUjcWzgLHtxX3d/uskLNRezhsE4ZQcUUt89G2o7wMk3M3ucfsprqSugF8+GczPImscVa0jEOBcIH/691WZ0Buz2XqfsFB8f0axOKzxCByjfDaMYyx8IaxcNJLDOtAVjC2J8i5Fz0XEq3sR+Jh1gnYXfvqruDnssNv6gfFmArUAXxbxwSxUhfaiAeP2g+0vG7D80/eKYnLlSBDi1d2gL9NYeLPd2hItfP494mu2s04orswFn9veT3uhsW6V+ccF41GSDw==
-Received: from CH2PR14CA0060.namprd14.prod.outlook.com (2603:10b6:610:56::40)
- by CY5PR12MB6322.namprd12.prod.outlook.com (2603:10b6:930:21::21) with
+ bh=hL7Nygmk+pBepx9GRapskbHQgyiB9fglHp+5hcwHTJc=;
+ b=HAiD37fcBm0OROyNYiH1lGFoTgoScN4T8d6NHp9lMWseIgxcSHspZcPI+1Tf3AlwxdztcT5D4NGrnQgm5y4xEAaFSbdpQXMkFnkp2XzSLZ0awHp26TDptALnAcSxGOdVkuJZe9cMu+ZVUTSOdF5V3+LEPgRSSHqDeu+lHsrOEnMSyWWJYSjzr8M+UXI4Y3THKFaCyjZzxVAjgDruyZtYbTRsEe5aQE1ns84nlrLKNg7vsPl93yXl0W6IU70cH8uCXDpri05qmStSj5EYR0sgdA9SNpQMMlCTCydpz4pBWWsqoic6kjeuPk/0/YkD7a5jTxcBDe+Ve4tz9fRtBo4qaQ==
+Received: from CH2PR16CA0015.namprd16.prod.outlook.com (2603:10b6:610:50::25)
+ by CY5PR12MB9053.namprd12.prod.outlook.com (2603:10b6:930:37::13) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 21:56:57 +0000
-Received: from CH2PEPF000166BA.namprd04.prod.outlook.com
- (2603:10b6:610:56:cafe::2e) by CH2PR14CA0060.outlook.office365.com
- (2603:10b6:610:56::40) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
+ 2026 21:57:02 +0000
+Received: from CH2PEPF000166C0.namprd04.prod.outlook.com
+ (2603:10b6:610:50:cafe::5b) by CH2PR16CA0015.outlook.office365.com
+ (2603:10b6:610:50::25) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 21:56:57 +0000
+ Nov 2026 21:57:02 +0000
 X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
  is 216.228.118.232) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
  header.d=none;dmarc=pass action=none header.from=nvidia.com;
@@ -81,20 +81,20 @@ Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
  216.228.118.232 as permitted sender) receiver=protection.outlook.com;
  client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
 Received: from mail.nvidia.com (216.228.118.232) by
- CH2PEPF000166BA.mail.protection.outlook.com (10.167.252.4) with Microsoft
+ CH2PEPF000166C0.mail.protection.outlook.com (10.167.252.10) with Microsoft
  SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 21:56:56 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 21:57:01 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
  (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 13:56:51 -0800
+ 2026 13:56:57 -0800
 Received: from drhqmail203.nvidia.com (10.126.190.182) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 13:56:50 -0800
+ 15.2.2562.57; Thu, 26 Nov 2026 13:56:56 -0800
 Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com
  (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Thu, 26 Nov 2026 13:56:44 -0800
+ Transport; Thu, 26 Nov 2026 13:56:51 -0800
 From: Tariq Toukan <tariqt@nvidia.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
 	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
@@ -109,9 +109,9 @@ CC: Andrea Parri <parri.andrea@gmail.com>, Boris Pismenny <borisp@nvidia.com>,
 	<raeds@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>, Simon Horman
 	<horms@kernel.org>, Sridhar Samudrala <sridhar.samudrala@intel.com>, "Steffen
  Klassert" <steffen.klassert@secunet.com>, Tariq Toukan <tariqt@nvidia.com>
-Subject: [PATCH net 01/10] net/mlx5e: Initialize IPsec XArrays with XA_FLAGS_LOCK_BH
-Date: Thu, 26 Nov 2026 23:56:05 +0200
-Message-ID: <20261126215614.792598-2-tariqt@nvidia.com>
+Subject: [PATCH net 02/10] net/mlx5e: Stop counting packets dropped by IPsec RX SA rules
+Date: Thu, 26 Nov 2026 23:56:06 +0200
+Message-ID: <20261126215614.792598-3-tariqt@nvidia.com>
 X-Mailer: git-send-email 2.44.0
 In-Reply-To: <20261126215614.792598-1-tariqt@nvidia.com>
 References: <20261126215614.792598-1-tariqt@nvidia.com>
@@ -129,91 +129,106 @@ Content-Type: text/plain
 X-NV-OnPremToCloud: ExternallySecured
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF000166BA:EE_|CY5PR12MB6322:EE_
-X-MS-Office365-Filtering-Correlation-Id: 755571c6-2fa6-4c34-9d30-08df4c08306a
+X-MS-TrafficTypeDiagnostic: CH2PEPF000166C0:EE_|CY5PR12MB9053:EE_
+X-MS-Office365-Filtering-Correlation-Id: c15983ad-3f98-4a6c-98b0-08df4c0833ad
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|82310400026|36860700016|23010399003|1800799024|11063799006|261009223027099003|22082099003|18002099003|10067099003|56012099006|261102123227099003|261022105027099003|261022075727099003|261028144727099003|261021121427099003|261021123027099003|261026140227099003;
+	BCL:0;ARA:13230040|82310400026|23010399003|1800799024|36860700016|7416014|376014|6133799003|22082099003|18002099003|261022115727099003|56012099006|11063799006|261022075727099003|261026140227099003|261026130827099003|261022105027099003|261026135527099003|261028144727099003|261021133027099003|261021121427099003|261009223027099003|261022113327099003|261102123227099003|261021123027099003|261021130227099003|261021135927099003|10067099003|261026121527099003;
 X-Microsoft-Antispam-Message-Info:
-	gmYfmOcbnyv55VAJ/qiSU4WVsWkrxT7vfdk9yNlRcjoHcFdqQdymWEwj6M8/r/PdueJm3r4BiWXJu6+wL9c34ShRkginGc6vh0GCREV+XRpERlblskJYrIKHfA4qr7fmhCJ39Pw2J/OWOAEZny+mKX5D4LKyDsRREwixyKj+DyxCNrYWqqV+hV9LPB0+ygB0rTMR/uMZIMq8gYj+K5M5AKZ6b0I4/UjgqldwUP5tydMZpRXgALMVoQio3jSsyba0FF3xXq6rL0GPWcR5/3cMzI7uMFwpoE6wSWQ6q+cDCbgX8IMQpj9NeBSK/fsIhifWsu94kmIbxmqNrvdlilKgRNIDaOpvFONPsUaunMj2F1Z0mU7BY6vfghsaJCpbira7Mj4XdaSZL/UGEl8XTlM+clEJ44EgYzZBQ4J5imo2YVNmg4B2Y6oNP3/ZjeCvQPtmbMoMo0zOHnC0Tb4tk9a5Lav/MRzKTCJUytO0VwAjJsJYWeGsg9W1NwCnJEmz8h1OSW+2EcyZy+1ZotqLHqmzXzItObdF3w/l4GFe1F6LrHBhU65colukKClDzi6dKgt062WnA3o6bqo38R1JLbc6bpXi+OBDkLfhw+BnirYjpUTgGqYdiqsqfvoRMI/3/kitgkf+MD6AvY4Qb81C6dEm+U8/x46rgqCreyhlI5n7YwZBOI3/NVljLcEjvV28XTD4cB7YEM8gomkQQjq0NAYYCA==
+	n6fFjb8N2QrPMKm15cQlXlKaFbWrkOtjVPbSGIv7uh55Crt+Fe2R/q1o6iJlF9Mf6JdtiJ5MO0aDn0rw9waRUEPM47PdZHiFD2pnY8z4qnSaXeT5dygscwEQ7C8Rz67ILETexTCfACCtQQsP0VsPr3u6B3v+5lVL+93PVo4iL6kyoaW0OTujdJPsfEAGR+FzmMWgXiS8ujHQN5hXDr1Ok/5GFoz3H+6m+h7uXMJdpOW8kroXlM3cYljx75GEyKipAsBVBdCjQMNrhUtIw/dBcxTvfInQBSI6pyq9onDysI1BXgcd/RUqS83dO0V9rwETne9Fz8v45UfptdQJDrdOq9pi0RFACzSXn9wftqcWYU4lqnm7jpBaq4eojmB1s0iKo7w1qgaPTWnOrnBmuQJmcokPBu7N5ZwcjcY8XJI4AhGhziZlbA6cGcT4VIRawlWiSG8Or4VvWUmNp4SomBZK2IgvF4/s32grfrTku/FLhkeQuwcLDc2+PWMDPJR4aEzdp7EIPhs0+CDRrBkH50X9nXdsgiifow0hQ+TxfxkKUe0aaF0q9aMxL3P9ffBtEE3ycMCqQ3hl/6UFWShWRdTWVF+zr8huATpafo4qdp0WpsJJxpqjhQ63tgWQYG1dnXNt9FCFtfI1BI4ZVCj77F4U3l93j1BVR42WM5zr5a5TSsPJzcHI5pA2CJ5vv/9iIP7wiX+eB2KyxokhgB/9Ehlcrg==
 X-Forefront-Antispam-Report:
-	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700016)(23010399003)(1800799024)(11063799006)(261009223027099003)(22082099003)(18002099003)(10067099003)(56012099006)(261102123227099003)(261022105027099003)(261022075727099003)(261028144727099003)(261021121427099003)(261021123027099003)(261026140227099003);DIR:OUT;SFP:1101;
+	CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(23010399003)(1800799024)(36860700016)(7416014)(376014)(6133799003)(22082099003)(18002099003)(261022115727099003)(56012099006)(11063799006)(261022075727099003)(261026140227099003)(261026130827099003)(261022105027099003)(261026135527099003)(261028144727099003)(261021133027099003)(261021121427099003)(261009223027099003)(261022113327099003)(261102123227099003)(261021123027099003)(261021130227099003)(261021135927099003)(10067099003)(261026121527099003);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
 X-MS-Exchange-AntiSpam-MessageData-0:
-	Fgn2GBl1El/9IFExwVR2BOh0TXh3GhxfUlvW8vi8/QmAggAuv0ZYvyrXyi9hpjny29Obv+PbP7rPrlHxVDlTAPurh0S9bBczEiF1DH5F1PVq95lTYVH56TZWgADZa1EBip/MEvYhSdN3I7inZEYJRqUZhSf2LTiP7WYlGHhaXeb1r7hU8NVkMMGBBauqBPMZEC8Q2mRCZQsz5f2wR4/YbHXMyvy8jYI6gmPJIEkOPdFAtWQgTk3TlL/VzFdCZUT28mURv1q2I3ED9QhdNvMq7U8mfGOFg8z5NkRyxBrxjeMJmVUEi4ujCYtC2ngA53ThNyxX9RuQXqPcI5rqKF8vK9V0wIqpsC00fzLaiIUfr6Am3sbt8RCHAOMoPo4JHjPMIh0kLMN5ZIcTQD3QHZ61aEZGqTJOdCDfR+55wS/PD2o8vV65HtXf46fXE1zLNyLs
+	jCyuRquhjvMzpGvp0RgoY6N+tSlC5qEtP7mliEogNVrE4smAzJK1fvjylR9WO+rkfJMDqsmUOLZOP95PRsd/gadpjRaU6ywr5GXWFOeIqXc9S+Yv0jDUZZ7zXvqTGQ0gaUbIMef3c+rPzJ5pHJzo3zqS+rZ9SKEaLbdWKoy7Q7j7K9DCjGKM+fI/QULK+4Bc/a8gSa8Fe/8b4/F1lzeL6xTOkQad5FegygXSUTzAyBBRK/x7THt3TzfGbRD9RZga8ccUlzu/IeOE9DAYJvreuX2/0qiFPOkL77kmTfOjc0ZSQd2InjFOJiALJMwybg7Ra/L7RkOJKbUmfW5DfvX3lcwr8bokLPN0mtiU9+AaE6FoHJgg3RLEw/4stgMInq9wpcy6QfTaqhiZ9+rFssUWKSWsBN3ds9GkgFscQJJltd9QmfFSayg7i/XTDduksfCx
 X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 21:56:56.3923
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 21:57:01.9102
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 755571c6-2fa6-4c34-9d30-08df4c08306a
+X-MS-Exchange-CrossTenant-Network-Message-Id: c15983ad-3f98-4a6c-98b0-08df4c0833ad
 X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
 X-MS-Exchange-CrossTenant-AuthSource:
-	CH2PEPF000166BA.namprd04.prod.outlook.com
+	CH2PEPF000166C0.namprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6322
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB9053
 
 From: Jianbo Liu <jianbol@nvidia.com>
 
-ipsec->sadb and ipsec->ipsec_obj_id_map are created without
-XA_FLAGS_LOCK_BH, so their lock type is a plain spinlock, but every
-mutation uses the _bh accessors.
+x->curlft.packets differs between crypto offload and packet offload
+for the same traffic because packet offload counts RX SA drops.
 
-Node insertion drops+reacquires the lock with the lock variants
-corresponding to the configured type. Using the wrong type therefore
-leaves bottom halves disabled during the allocation.
+With crypto offload, XFRM updates x->curlft.packets in the software
+receive path, so packets dropped in hardware are not counted. With
+packet offload, mlx5e_xfrm_update_stats() derives the lifetime from
+the SA flow counter. When attrs->drop is set, the RX SA rule drops
+packets in hardware but still increments that counter.
 
-Fix this mismatch by using the correct locking type.
+Remove the count action and counter destination from the drop rule
+so these dropped packets stay out of the lifetime, matching crypto
+offload accounting.
 
-Discovered by Sashiko. Reproduced on ConnectX-7 (fw 28.48.1000) with
-failslab failing the GFP_NOWAIT node allocation of the SA insert:
+Triggered during code development. Reproduced on ConnectX-7 (fw
+28.48.1000): 1000 pings to a tunnel RX SA in the drop state (peer
+neighbour not resolved) give x->curlft.packets = 1000. With the fix it
+stays 0, and counts again once the SA forwards.
 
-  BUG: sleeping function called from invalid context
-  preempt_count: 200, expected: 0
-   __xas_nomem
-   __xa_insert
-   mlx5e_xfrm_add_state
-
-No splat with the fix.
-
-Fixes: 403b383a3ce3 ("net/mlx5e: Store all XFRM SAs in Xarray")
-Fixes: 91bafc638ed4 ("net/mlx5e: Handle IPsec offload for RX datapath in switchdev mode")
+Fixes: b2f7b01d36a9 ("net/mlx5e: Simulate missing IPsec TX limits hardware functionality")
 Signed-off-by: Jianbo Liu <jianbol@nvidia.com>
 Reviewed-by: Cosmin Ratiu <cratiu@nvidia.com>
 Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
 ---
- drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c    | 2 +-
- drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c | 3 ++-
- 2 files changed, 3 insertions(+), 2 deletions(-)
+ .../mellanox/mlx5/core/en_accel/ipsec_fs.c    | 28 +++++++++++--------
+ 1 file changed, 17 insertions(+), 11 deletions(-)
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-index fa6cb51fdb93..a549851c8382 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec.c
-@@ -1014,7 +1014,7 @@ void mlx5e_ipsec_init(struct mlx5e_priv *priv)
- 	if (!ipsec)
- 		return;
- 
--	xa_init_flags(&ipsec->sadb, XA_FLAGS_ALLOC);
-+	xa_init_flags(&ipsec->sadb, XA_FLAGS_ALLOC | XA_FLAGS_LOCK_BH);
- 	ipsec->mdev = priv->mdev;
- 	init_completion(&ipsec->comp);
- 	ipsec->wq = alloc_workqueue("mlx5e_ipsec: %s", WQ_UNBOUND, 0,
 diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
-index 5c69e89b13a7..502d89a18f9e 100644
+index 502d89a18f9e..0facc5477155 100644
 --- a/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
 +++ b/drivers/net/ethernet/mellanox/mlx5/core/en_accel/ipsec_fs.c
-@@ -2804,7 +2804,8 @@ int mlx5e_accel_ipsec_fs_init(struct mlx5e_ipsec *ipsec,
- 		mutex_init(&ipsec->tx_esw->ft.mutex);
- 		mutex_init(&ipsec->rx_esw->ft.mutex);
- 		ipsec->tx_esw->ns = ns_esw;
--		xa_init_flags(&ipsec->ipsec_obj_id_map, XA_FLAGS_ALLOC1);
-+		xa_init_flags(&ipsec->ipsec_obj_id_map,
-+			      XA_FLAGS_ALLOC1 | XA_FLAGS_LOCK_BH);
- 	} else if (mlx5_ipsec_device_caps(mdev) & MLX5_IPSEC_CAP_ROCE) {
- 		ipsec->roce = mlx5_ipsec_fs_roce_init(mdev, devcom);
- 	} else {
+@@ -2045,7 +2045,6 @@ static int rx_add_rule(struct mlx5e_ipsec_sa_entry *sa_entry)
+ 	struct mlx5_accel_esp_xfrm_attrs *attrs = &sa_entry->attrs;
+ 	struct mlx5_core_dev *mdev = mlx5e_ipsec_sa2dev(sa_entry);
+ 	struct mlx5e_ipsec *ipsec = sa_entry->ipsec;
+-	struct mlx5_flow_destination dest[2];
+ 	struct mlx5_flow_act flow_act = {};
+ 	struct mlx5_flow_handle *rule;
+ 	struct mlx5_flow_spec *spec;
+@@ -2103,17 +2102,24 @@ static int rx_add_rule(struct mlx5e_ipsec_sa_entry *sa_entry)
+ 	flow_act.crypto.type = MLX5_FLOW_CONTEXT_ENCRYPT_DECRYPT_TYPE_IPSEC;
+ 	flow_act.crypto.obj_id = sa_entry->ipsec_obj_id;
+ 	flow_act.flags |= FLOW_ACT_NO_APPEND;
+-	flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_CRYPTO_DECRYPT |
+-			   MLX5_FLOW_CONTEXT_ACTION_COUNT;
+-	if (attrs->drop)
++	/* Keep decrypting packets even when dropped, to allow ESN state
++	 * updates.
++	 */
++	flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_CRYPTO_DECRYPT;
++	if (attrs->drop) {
+ 		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_DROP;
+-	else
+-		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST;
+-	dest[0].type = MLX5_FLOW_DESTINATION_TYPE_FLOW_TABLE;
+-	dest[0].ft = rx->ft.status;
+-	dest[1].type = MLX5_FLOW_DESTINATION_TYPE_COUNTER;
+-	dest[1].counter = counter;
+-	rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, dest, 2);
++		rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, NULL, 0);
++	} else {
++		struct mlx5_flow_destination dest[2];
++
++		flow_act.action |= MLX5_FLOW_CONTEXT_ACTION_FWD_DEST |
++				   MLX5_FLOW_CONTEXT_ACTION_COUNT;
++		dest[0].type = MLX5_FLOW_DESTINATION_TYPE_FLOW_TABLE;
++		dest[0].ft = rx->ft.status;
++		dest[1].type = MLX5_FLOW_DESTINATION_TYPE_COUNTER;
++		dest[1].counter = counter;
++		rule = mlx5_add_flow_rules(rx->ft.sa, spec, &flow_act, dest, 2);
++	}
+ 	if (IS_ERR(rule)) {
+ 		err = PTR_ERR(rule);
+ 		mlx5_core_err(mdev, "fail to add RX ipsec rule err=%d\n", err);
 -- 
 2.44.0
 
