@@ -1,59 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.49
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795708163;
-	b=NuN1tHDhIv48aDuL24GvnngkqGIo+W5KZ1FDzgOMoul+Uf1BAsglYjxVEYtIy7WNu71F
-	 LLu0q+euhGh9eY6Wlc+QVtZk9yGzMaz8kWdU1L/s7+yzvPRwnq6LE+nIYmpd1aM/BY0tw
-	 H0Aeq+NawRIkUkf80t25HXZ5kjvVsITPE2Px3wEpUpkgsm67KeUME5UroJTDdSF2i3V/r
-	 289KWboG7CMUjNqYRhx7rkCyoBznDoxw/Gt+uOOB36QQvtYrPJztZ8Ik6oc66mdNQjywL
-	 tGrH0z27HIYfCtymicp4c5tS3UcKZHxmWfXtLb6vyndrpo/qX9zdGYZWIogn77LohRA==
+	t=1795708247;
+	b=0ObfYvihFlTNewA3RQQM9gih1UuL8OuVe0dSrBS8BkKoHl6m1hbAh1bkjpDUo+DXYU+i
+	 7avGFTSToz6MT6nDL8ePwgpffQEp+pJBSm+0X53LDqo2jTSHj3gBtTqPz8ITf2QAlWij5
+	 GYs7bz5pxMGoEvk/88PpHqhEjJUaWA78tFAXZ9R7Xal24c1cSED/sTQB/mfNNUzE7X97o
+	 B1mDB2UFDNH+Qtjse1BmyoKBYW33PVgZArU5HxiPabgQDxKXzFC7qcyoKUhsyE2E6zsU3
+	 NtwIP8acqiCCAUap2xN1/pgdY6boe8OZudrirXnu1EU/veSPkzDTxQXjK+F4capWdyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795708163;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=gkZSowBcMJFI2V7vXB69tRrs3436KhZaHUCben0QEPM=;
-	b=LK8oRzvKyjhjl/P6wabInUvzVe2MAIQ7NQoDLeBc4N1NrUS+P+b4x95XMMIOZEbIPt/4
-	 k4z8zd1q8lD68mXby3KYRypza14WJOBMquheq1vcxpsNIU2kMcws+0Xg/XbrwPZ7bFcYa
-	 XS8L/p62xOSACQIj83z9kWnJogdFKSAqMKPqV4xXxZ2SCJBdPam3ZJ2H5JeB1Pf1mNx2H
-	 4KCH130Q2f2oSZPWx1Ok7D/jnj2oPHc2CJRk8YHF3/g7n8N8lcaXUAJmnS6iE+bA90nD/
-	 YuFCXMcdcGfZG8i8Vmn59NI/tROwHuWIlbA0LZK2ndZCEidnHODy8VZu9RJ+UYyxXWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795708247;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=glyjOGPDQ3KqGdbTgWLeYjcqz5k2+ySsomlMSz6dDO0=;
+	b=JjRO4xG/nbCxBIIqhRaa70J01Ufo/AcaS2XXRIZf8v38bA7YNW7ralccL+FFZjk4dXuP
+	 xMwUEeUGeuLvxSA9UPOPE/IbEzL5HbYZ4d697uJQjCDZI9HHe5HyYxptn5zD7oIxswXyq
+	 qtJRbq0xdBebL1/VxKqyX9IEHEEZDkkf5inw5e/XJzv6sbeqzw7S0cfryqyj/iOsNNCNM
+	 zbZd7pxZyLGV1SyCbDbUqHdfOgvc6hOBWBcd5vvVxq4MulmQwU/n4P+vBq6cFHg2e6aRJ
+	 E22652VZApHz90mOEgVSCO+ZdzWE4Ktmij5izzX0AcKlKVk8wcd4M5dkD80CxSzI9Aw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a9OAuIM8;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBQXqR8Q;
+	arc=none smtp.remote-ip=209.85.218.49
+Received: from mail-ej1-f49.google.com (mail-ej1-f49.google.com [209.85.218.49])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 038CC606A31E;
-	Thu, 26 Nov 2026 15:49:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 159C3606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:50:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 159C3606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=a9OAuIM8
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD6681F000EC;
-	Thu, 26 Nov 2026 15:49:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795708162;
-	bh=gkZSowBcMJFI2V7vXB69tRrs3436KhZaHUCben0QEPM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=a9OAuIM8271oFyCAb1IcFJ9xKW6nlCuzbEOeTbR4qUHrrmD2fD8j0hknFZ3CcGXNL
-	 jZd1DpbrNGqr8SVGgaX+OOFQtj2eYA8M5TiymOIelF8quCZ2N8casoIMWYItlKsBe4
-	 qhSXr9Ut+5u+v16oq77NSi8In7bzfgcI47E04A0IX/yZD6Ehtzj+bMycPeKRdszQc/
-	 6ZVHMRYlJr1qGg9VrVzHogmP6KV/Eshm7R5N/NvWPVPlnBM1oQ6a9HQ/swF7uU0wPH
-	 egYt+PkNQ6RAXdnBS5uE+9wikLEi5Bu8g7AaKFzUkIlI2OdihcEcS5TX0WwOCt72km
-	 bzE73ZHJr3xLA==
-Subject: Re: [PATCH net v2] sctp: diag: fix stack garbage in IPv6 scope_id
- during dump_one lookup
-From: netdev-bot+sashiko@kernel.org
-To: lucien.xin@gmail.com
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net,
- kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
- marcelo.leitner@gmail.com
-Date: Thu, 26 Nov 2026 15:49:21 +0000
-Message-ID: <179570816138.3135.14968815049241245107@kernel.org>
-In-Reply-To: <7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin@gmail.com>
-References: <7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=eBQXqR8Q
+Received: by mail-ej1-f49.google.com with SMTP id a640c23a62f3a-c4d2b741ed9so1150395866b.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:50:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795708245; x=1796313045; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=glyjOGPDQ3KqGdbTgWLeYjcqz5k2+ySsomlMSz6dDO0=;
+        b=eBQXqR8QXglxtIrWeTn1hf+iL1MOC+PES2qgSa0gV34XItn0fnb5gKHLUOyNehF/yR
+         aytIA1u7fERR7FfBVSSdRxgsfzglq95/Vek+Y9dhb/7qabeWE2fo3oK83uVQv4ggxpSD
+         0d7qwfkmYL5NIP+8S7U7FvMlkvW0vzq72VS9SPIAtAwIcYsRBGfINlahZbY7b3UAAZdq
+         Tai+vGYZ1yCyK9JVnF808Iw9YFMFLtf2SNS+EeMJWoPd9h1OHFfoHElrP0IhQ5Di3bTZ
+         TNOu4hYlfamFFGfl3nWBqRxBaSJTtmo6CBw3ro6Hx70cWcXIgrdU2QjR8f5ApLfynyFP
+         eVRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795708245; x=1796313045;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to:content-type;
+        bh=glyjOGPDQ3KqGdbTgWLeYjcqz5k2+ySsomlMSz6dDO0=;
+        b=Ee4rf99Of6bTdT2kxfN0+O/nPDKHtaQbHn0EjYHsoca9wptQgVj6OOTQTAX5ORyTJf
+         kOTnh0IlXGGUTcUyL1svYUO0eX0Wlzg05+Us+ifEdi1T0NWdgjupeudKKoIaP3aHvuVc
+         cH2GXEnojBSWaCgUJa5pJmwEZHR8QJmjjn3Lp2NH8qLhStvOcdrekHHNqzgvW1VXBR3Q
+         /WtO4yDjNiwgTX49gY6Yw92C6P6wpqEJH5Bb2rr+zoRk6BRyUqdBKFKRB4LA4arIX85u
+         vIEGbjKUlLr+UGgfkWfuGWQNRmIbGxT3kz3dO45B4C9Ppmh2bTru7M11aUCybBUiDaN1
+         TOUg==
+X-Gm-Message-State: APuU4Z9SMxRuwZs704Q5C7D9csCHCp0v8ecT8CxkC1gA1iqa4vpbaNk0
+	AAhl+O4y7/c5s3vE07YJWpch/2e9byklfIVBY38vb7PtVWgB1ZScmTQr
+X-Gm-Gg: AZFdTZdjS16r/iAPF5WFSIqDSnBI01FEh2PPwzQWxKGVs0vLUIsk4vqMMBCI5Ngw4Hy
+	N4rxNUUaox1suzSxFOMdC5AWLUO8S6kyuJpFoYHe2ERSxnei49NZT2mTXKHj/1aZ/HQ+FwvycE+
+	TIzt/6NkjGZYMF383BI6X9Xgj81P5awFGYRLWxIvCWRIwtv5/GSXQVJfApfET/ijoAfyLolv3oi
+	4iA7ehoFvnbKCk+9mOvKAHrH0QD9AcjzXWxfRyQa7nSL0hvHn4CJlOFZ9DTlG13pP75Z0DHXzMk
+	oN9/pYEAb3itNXZO5Enxoekz0vb75X8Xbe45ESbDM+L2AGfmOMwZerhkDFJgDOyqrp+H0K/oviK
+	3C5Tm9NommCHkFRX7OZCOhg5wJonvHMxPVgRY3v1HQ5EPm/QpoMVSiHzMArkHeVSECUYKPvF6AU
+	cLpjJX2LihP1eN6Dfzw5WxsviMXjx4vE2mu6qE7ZVgPRTJVUAdFXL7AI8a9aqowYOujryGvHgok
+	YwP0s+fAiJUi47FlIDz/RmxJ5gg16c+d7+ofGhwNBjqggxBm0MHprEoRufJMu/CDTDcozltlBc3
+	Wkc8Lrhdzw2Kc1o5LxXR59Hb61BBU6+3BvwvqFjHU2pL6MufSdI4Pa1lAzo/Ld8UAXKTGX439Ie
+	rC9ndlPAb0qfMIEV/poUy9Y5zsbopoAAIcKLygqQJpqh/qdmqnArdwgiDtmXAOH+Y6tWaislZUc
+	Pz
+X-Received: by 2002:a17:907:6ea9:b0:c46:645f:cee2 with SMTP id a640c23a62f3a-c513a3ab024mr1869288166b.4.1795708245307;
+        Thu, 26 Nov 2026 07:50:45 -0800 (PST)
+Received: from desktop.home.arpa (2a02-1810-1e16-ac80-898e-1938-27eb-b890.ip6.access.telenet.be. [2a02:1810:1e16:ac80:898e:1938:27eb:b890])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513acfe25asm766559666b.11.2026.11.26.07.50.44
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 07:50:44 -0800 (PST)
+From: Stijn Cleynhens <stijncleynhens@gmail.com>
+To: Mieczyslaw Nalewaj <namiltd@yahoo.com>
+Cc: netdev@vger.kernel.org,
+	Linus Walleij <linusw@kernel.org>,
+	Luiz Angelo Daros de Luca <luizluca@gmail.com>,
+	=?UTF-8?q?Alvin=20=C5=A0ipraga?= <alvin.sipraga@analog.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net v2 0/2] net: dsa: realtek: rtl8365mb: fix FDB lookups in VLAN-unaware bridges
+Date: Thu, 26 Nov 2026 16:50:37 +0100
+Message-ID: <20261126155037.2897040-1-stijncleynhens@gmail.com>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261125131339.908183-1-stijncleynhens@gmail.com>
+References: <20261125131339.908183-1-stijncleynhens@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,103 +105,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+On Wed, 25 Nov 2026 14:13:39 +0100 Stijn Cleynhens wrote:
+>  - Boot: the CPU port came up and passed traffic on 6 of 6 boots,
+>    without the re-latch work from your v8.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+A correction to this: it holds for that one unit only. A second X50-PoE,
+with the same chip version 0x0050, came up with a dead CPU port on 2 of
+2 boots with v14:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+ - the switch sends towards the SoC: s00_p06_ifOutOctets counts
+   (9884156 after about 20 minutes), but the SoC MAC receives nothing,
+   mmc_rx_framecount_gb stays at 0;
+ - the SoC MAC transmits (mmc_tx_framecount_gb 5606), but
+   s00_p06_ifInOctets stays at 0;
+ - the two user ports forward between themselves as usual.
 
-- [Medium] The commit message justifies the wildcard scope_id with: "The
-  dif check in sctp_addrs_lookup_transport() already filters by…
+That is the symptom your v8 describes for the AX55. The same unit has
+run your v8 with the re-latch since early November without it, and it
+came up good again when booted back into that firmware.
 
---
+I put the re-latch back on top of v14, reduced to the check and the
+edge: on family D, read the SDS link status once a second after
+pcs_config() and, while it is clear, park the SDS_MISC mode field at
+DISABLE for 20 ms and restore it, for at most 60 s. With that, the
+same unit came up with a working CPU port on 10 of 10 boots; the link
+bit was set after 2 or 3 edges each time.
 
-sctp: diag: fix stack garbage in IPv6 scope_id during dump_one lookup
-
-This commit zero-initializes the laddr and paddr lookup addresses in
-sctp_diag_dump_one(). As a result, sin6_scope_id and sin6_flowinfo no
-longer hold stack garbage. A zero sin6_scope_id then acts as a wildcard in
-__sctp_v6_cmp_addr(), and idiag_if is used only as a dif filter.
-
-> diff --git a/net/sctp/diag.c b/net/sctp/diag.c
-> index c2a0de2adf6fd..564a5b51e6ce3 100644
-> --- a/net/sctp/diag.c
-> +++ b/net/sctp/diag.c
-> @@ -433,7 +433,7 @@ static int sctp_diag_dump_one(struct netlink_callback *cb,
->  	struct sk_buff *skb = cb->skb;
->  	struct net *net = sock_net(skb->sk);
->  	const struct nlmsghdr *nlh = cb->nlh;
-> -	union sctp_addr laddr, paddr;
-> +	union sctp_addr laddr = {}, paddr = {};
->  	int dif = req->id.idiag_if;
-
-[Severity: Medium]
-
-The commit message says:
-
-  The dif check in sctp_addrs_lookup_transport() already filters by
-  sk_bound_dev_if, so scope_id on the lookup addresses is unnecessary.
-
-Does this hold for SCTP the way it does for TCP and UDP?
-
-For TCP, connect() to a link-local peer binds the socket to the scope
-interface, so a dif filter on sk_bound_dev_if is enough. SCTP does not
-seem to set sk_bound_dev_if from the peer's scope. The scope is kept only
-in the transport address:
-
-net/sctp/ipv6.c:sctp_v6_get_dst() {
-    ...
-	if (ipv6_addr_type(&daddr->v6.sin6_addr) & IPV6_ADDR_LINKLOCAL)
-		fl6->flowi6_oif = daddr->v6.sin6_scope_id;
-	else if (asoc)
-		fl6->flowi6_oif = asoc->base.sk->sk_bound_dev_if;
-    ...
-}
-
-On the dump side, idiag_if also reports something other than
-sk_bound_dev_if:
-
-net/sctp/diag.c:inet_diag_msg_sctpasoc_fill() {
-    ...
-	r->id.idiag_if = dst ? dst->dev->ifindex : 0;
-    ...
-}
-
-For a link-local peer, this is in effect the peer's scope interface.
-
-On the lookup side, the call chain
-sctp_transport_lookup_process()->sctp_addrs_lookup_transport() passes dif
-to sctp_sk_bound_dev_eq(). For an unbound socket (bound_dev_if == 0),
-inet_bound_dev_eq() returns !sdif || l3mdev_accept. That is true by
-default, so any dif passes.
-
-With sin6_scope_id now always 0, __sctp_v6_cmp_addr() matches link-local
-transports on every interface. sctp_hash_transport() treats two different
-non-zero scope_ids as distinct. So an unbound socket can hold associations
-to fe80::X%ethA and fe80::X%ethB on the same port at the same time.
-
-Suppose a dump_one request echoes back a dumped tuple (addresses, ports
-and the reported idiag_if). Can it pick the wrong association in that
-case? sctp_addrs_lookup_transport() returns the first matching rhlist
-entry:
-
-- With INET_DIAG_NOCOOKIE, that entry could be a different association,
-  possibly on another socket.
-- With a cookie set, the lookup could return -ESTALE even though the
-  requested association exists.
-
-The same ambiguity existed before whenever the stack garbage happened to
-be 0. This patch makes the wildcard the intended behaviour.
-
-Would it make sense to keep the zero-init and, for link-local addresses,
-also set sin6_scope_id from req->id.idiag_if? The commit message could
-then be updated to match.
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin%40gmail.com
+Stijn
