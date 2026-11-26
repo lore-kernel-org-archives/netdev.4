@@ -1,56 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698130;
-	b=oJNRReyGUndvs3PUpv3Gz2FrSNP1m3LAQf9ZvA8TCKauP7Fj7L5MEkzCEcTUSokKo+SV
-	 iwN0Z7MuOiJF2DzetNN1TrGaDBtbD6mnzwEd6t4OLVgPM+TG1SerrIjNVX9n6O4cnGUP7
-	 wkpc30X35JcZLPSBCrAzXRN6rb0CvN2OuQSYKYLEnY/FT719DUGF7yHE5MPh541F4geg0
-	 QE5wIY/ZnsBP8yI0p+6rOCXAiyz41Jo8os/qm62QgkUwS0SD8MtnYt1ojHuBp8XelXRIu
-	 qlKF4rYgeplExhsEGP/cchCFLV8cZW21TmO0NYEPY6btBdBiau6RlWt13hRWTzNbC7w==
+	t=1795698953;
+	b=Gs77nQoDGHBniH2wmPiokXxpEGNDuP5MQw8flTC4rvEn9YPbsB+fsBRUbyRxrFF2SSM8
+	 TYedpUQYM6TgwU4dz1xYRf25u7Fde1rx7+OFfxY8mmoY3npKXG3OU3b+jpkkCf4ANq4mI
+	 gfCCFMMjBKNhkeI7/9O+4+t8uw66bEavDvS84WCjbR0Ir4N/9+qNtpaMDeCODOy3mFHYk
+	 KmsRIcuXKk2kARz6Hy946CZEGAkn6kMyNJriCPr5EtocwC6XTqUixv4VaMRJhdGwr1CPp
+	 viHA3VC7E/63eic1EukszgO+20Ou6tvHm132gs2hY4nkDbH+pndTq0+8EJtL9QQovDA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698130;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=JNZtgNBPSxn7bvj4efWeLJ9UQDdmYpN2fvka3yysKZk=;
-	b=egMi18hfD7DunbpVvOkTtALdDS8ja1rU83y5Xc/L2SEvME76L/hf81WDIBM0tL/6lZr0
-	 TAlZ5i7ZdMlugr+1lAgcLvbUvU21csBPJuremym60Th5jCa/BRtLN2xZxReERyYHsy84P
-	 gbEyftKxoHs6rl0JodkKw3X6qO0esLa1dZFvJfGFpry4HqpbN+GDKDjkIKd8w3MlJVwtu
-	 fy87wSk/+uH+uhdVji5PXn6EFhUvJlYxET8g5APsdEo/39N+HY8jdyF6lz06A5JB1ZZu1
-	 EYXqz3THqvlrVffrITCGgh/InjIQl0wWfq9JDM1XlqwS4rbKRNvQ6iUQSDolPRveAkA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795698953;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
+	b=g2PfqQC8FpwXHXMkRK5giZMEFX+yxovtgSX9StohO6bBA4k97ADTvHbConTKib0wcWeM
+	 kfBK3jhwjAnjibXyhVrD+wSovwALqkHOusgzLsetuGfYfhLDgfWBxvdzE6EcYx1wXJ6a+
+	 eb8bk03DUv73QQERWJarc0+xfp5I3RjnUeoYKiKKKeL1qr4MYrFezD1WgcPk23Dtjmuaq
+	 nNb+wVyKdnnYqJ/AqzCmihIMoS/gyTPpJU+IF1KLMM4O4DDivHgoA6XSHRA9FUYAQ7pAT
+	 ErhT2i6DWPA57j6gM3OPNxUWnAnT8teAnPxciGzM68WSQLKyr1H9RVmmXL8QmVu4ZBQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjnZ+Jyl;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VgS0MqS+;
+	arc=none smtp.remote-ip=209.85.216.47
+Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F1572606A31E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:02:09 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07E66606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:15:52 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07E66606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GjnZ+Jyl
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A02E81F000C0;
-	Thu, 26 Nov 2026 13:02:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795698129;
-	bh=JNZtgNBPSxn7bvj4efWeLJ9UQDdmYpN2fvka3yysKZk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=GjnZ+Jyl/pFPw28aJ1N62SXh98WagAz6GlzjVpESIPTdRhJomCTQIoNHgrN2co06S
-	 pZhNokVEkj0S7Zb1qf/xYTAnPAY/vnU8tdFYlCk2Km5tbv5V9CJVS64Ek7Mb2etD3w
-	 MwN76Y3jCjwbecfl2LklxHFoQA532q5CJT9nO8EAWvS+TmWBAdCUq02X0jsPKHfHzp
-	 svYa/Dc6GOA//f0HfOgffGb3qeTXa/cOjx6QIPq522ifrqd7/iH1iAHbEbrnW4ODUb
-	 n+ZR9VtGehQqArlc2Dxf9VN5EmkKv3ywj4I/koKnGEqhuOgi5mAEBuKeJ9vL14J2fs
-	 XY0UPEDs67TPA==
-Date: Thu, 26 Nov 2026 15:02:02 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: me@amir.fyi
-Cc: Andrew Morton <akpm@linux-foundation.org>,
-	Eric Dumazet <edumazet@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, linux-mm@kvack.org,
-	Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
-	Christian Brauner <brauner@kernel.org>
-Subject: Re: [PATCH] mm/mm_init: don't shrink large system hash tables below
- low_limit
-Message-ID: <awgtymEawotNXV8f@kernel.org>
-References: <20261123-mm-hash-low-limit-v1-1-8a803aa8ac70@amir.fyi>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VgS0MqS+
+Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso3738940a91.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:15:52 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795698952; x=1796303752; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
+        b=VgS0MqS+cYIhfwHs8IXM1FVncD0caK93zZNu/oQUyDhQOhTAY5i7Y05HoJEGRgDzkJ
+         DoDlZ/k9sBYVEbo4jLey4ykjoB77MWT0dPYa3sD/U6HqVgNIHadtT7tu7Q88b7yDeqbT
+         nMoQc5/A+DUyUbLtaKkbkeAY9Em9tWQfvs7UeqLGHNNrlcILSZAetaXUnYKLf3pqqqfF
+         0FFQrq8bJyCSMKrgDzdoJtCgvyvT4nRnn3HYQxwy7+ygcmhgRPXToJoEoWdMqLQPxpYP
+         6qv8uBLt+Uw7hC7dKTcaeY571p8f0DBgNu45Aqcru6n41Fg4M2Wckv5/Llgz0bFp/k52
+         kNCA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795698952; x=1796303752;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
+        b=LzfzZLHWdvZVpk2SFPrtAs+i+mI047A75kTtG05JJUo/ODqI4136hsVvZgb/msy6V1
+         iRVwxW5X7Uriw+k0kxdITCvkWfqInetQAy8LRrIJCusS2hDIgqeDd5t4JpfJi7fkAs3W
+         FKaK23pq5ND6j38/2uy2dcvWGEUdA8sZwGLIWtReeUZJkQlTC0llAGs19conOqaA9PYa
+         XC35mIKYvLVXBuAT8alrvWjjRjFqfyn06X7GpyC9GafckizTuBWcP+EpJ98KfE/GyhtT
+         MqfWysbPm+p21hJmZFGuP1vQZFAtkQY1kkl+aoUsrSV+M6RF0aqxmMcCgTscEtZGVezy
+         2cog==
+X-Gm-Message-State: APuU4Z9h1fUSZEpj+LpE934lsIakm+mJha7HvmpHIrQhHsVm9zxK6TKG
+	er79tzNi0a8mSmNxtOha+5LCkQaQf+0e1H5yE1TXG+3P2Z7UqCiz7TG8
+X-Gm-Gg: AZFdTZdNvbV2brgQ4dUpdpFjjqv7ZUww6k9R3Cvwp5/x19yEAFAgU4LK7paednZTDb9
+	+wbwidCd0u4gSEo8gky287y5LOukMUOL2n3IDVKSFl169u9Lk6o3MZFs6DAdOzNemmvt3teM6lS
+	0ALBB+/QnF/xNt8PNrvu7B4YDorm7CX4Iqh2yrisSilBaJEJ4xMzNQTz+UyTtXmZbYdiISWqme1
+	G87042n6+BuyH2BQmRAF5TdZ0G8OjyfqkMzFknxWhq3FwO2UYbAf1kBcsmwrf4Yt1OvnG/4LG3x
+	WBQPQKlOutERiTX3R1295htZY3WHrJ+z1d626o/o31LjuIGDyteCJC8kH0QOr+Y36/ikezBCRCk
+	EMDRXQNrVQRZRo1S4vPZs+AbjlJV6BVH4y6BIHLfYCGVGrU7sZGKGAERcBNZzmZQjA3sjyHGDZF
+	JuldN+jT7RiW5pDEPS/GrzNaKOsrgOrRpB2XkwISRywp+d9kBWS2h3RbSePLt+VfiOqwB8DiFoK
+	bSJ7P4LDyEeuuPZlyHhDPNpK6CGceJMvTLnaMSlKCR7eAaTXFIFBUdDX7NnIy5R22yxzILnB+bX
+	DjChjs6g9PbqMDHovldPKmreWBmIl0ATKnptJXMYilnSCMWwyhO5gA==
+X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr18976263a91.66.1795698952271;
+        Thu, 26 Nov 2026 05:15:52 -0800 (PST)
+Received: from srsys1 ([147.46.174.222])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm17021676a91.10.2026.11.26.05.15.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 05:15:51 -0800 (PST)
+Date: Thu, 26 Nov 2026 13:15:45 +0000
+From: Sechang Lim <rhkrqnwk98@gmail.com>
+To: netdev-bot+sinfo@kernel.org
+Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net,
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+	willemb@google.com, horms@kernel.org, ast@kernel.org,
+	daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
+	sdf@fomichev.me, tehnerd@tehnerd.com
+Subject: Re: [PATCH net] net: xdp: Fix skb->tail after bpf_xdp_adjust_tail()
+ in generic mode
+Message-ID: <awgxAaMpICtLvDcJ@srsys1>
+References: <20261126125558.2032158-1-rhkrqnwk98@gmail.com>
+ <179569793062.3294.6946658046125535159@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -60,143 +100,33 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=us-ascii; format=flowed
 Content-Disposition: inline
-In-Reply-To: <20261123-mm-hash-low-limit-v1-1-8a803aa8ac70@amir.fyi>
+In-Reply-To: <179569793062.3294.6946658046125535159@kernel.org>
 
-(added Christian)
+On Thu, Nov 26, 2026 at 12:58:50PM +0000, netdev-bot+sinfo@kernel.org wrote:
+>Hi!
+>
+>This is an automated message. This series looks like a fix, but its
+>commit messages seem to be missing some information:
+>
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
+>
+>Please do not repost the series just to address the above. Instead,
+>reply to this email with the missing information, so that reviewers
+>can take it into account.
+>
+>*IMPORTANT*: If you do repost (for other reasons) - please include
+>the relevant info in the cover letter or commit messages.
 
-On Mon, Nov 23, 2026 at 08:15:49PM +0000, Amir Hosseini via B4 Relay wrote:
-> From: Amir Hosseini <me@amir.fyi>
-> 
-> When an allocation fails, alloc_large_system_hash() halves the table and
-> retries until it is down to a single page.  It does not stop at
-> low_limit, although commit 31fe62b95866 ("mm: add a low limit to
-> alloc_large_system_hash") added low_limit precisely so that callers need
-> not check the size they get back.
-> 
-> The TCP source port perturbation table depends on that.  It passes
-> low_limit == high_limit == INET_TABLE_PERTURB_SIZE and neither
-> _hash_shift nor _hash_mask, so it cannot learn the real size, and
-> __inet_hash_connect() fills and indexes INET_TABLE_PERTURB_SIZE entries.
-> On a single node system hashdist is off and the table needs one order-6
-> GFP_ATOMIC allocation.  If that fails, e.g. because most memory was
-> reserved for HugeTLB at boot, the situation commit e67b72b90b7e ("tcp:
-> use alloc_large_system_hash() to allocate table_perturb") was meant to
-> handle, the table is silently halved and the first connect() writes up
-> to 240 KiB of random bytes past its end, typically into the TCP
-> established hash table:
+Found with a custom fuzzer. I'll add that to the commit message
+if there is a v2.
 
-This is hard to read :/
- 
->   Table-perturb hash table entries: 32768 (order: 5, 131072 bytes, linear)
->   ...
->   Oops: general protection fault, probably for non-canonical address 0xe480dbf6b420b3d9: 0000 [#1] SMP KASAN
->   RIP: 0010:__inet_lookup_established+0x168/0x5d0
->   Call Trace:
->    <IRQ>
->    tcp_v4_rcv
->    ip_protocol_deliver_rcu
->    ip_local_deliver
-> 
-> Stop halving at low_limit.  If the linear allocation still fails, retry
-> the same size with vmalloc_huge(), which this function already uses for
-> tables that are too large for the page allocator or when hashdist is
-> set, and which does not need physically contiguous memory.  If that
-> fails too, panic as before.
+Thanks.
+sechang
 
-So, AFAIU the gist is here is that page allocator fails, let's fallback to
-vmalloc_huge().
-
-The large hashes are normally allocated at boot time when memory is not yet
-fragmented, so it's very unlikely that page allocator would fail.
-
-But there is another question: do we really need physically contiguous
-memory for the hashes we get from alloc_large_system_hash()?
-
-AFAIU, we can just drop the alloc_pages_exact() case and keep memblock for
-HASH_EARLY and vmalloc_huge() for the rest.
-
-Eric, Christian, what do you think?
- 
-> Reproduced on v7.4-rc4 in an x86_64 QEMU guest (virtme-ng, 1 node,
-> KASAN) by failing just that allocation with CONFIG_FAIL_PAGE_ALLOC and
-> fail_page_alloc=1,100,<space>,1, where <space> was measured with the
-> kmem:mm_page_alloc tracepoint so that the one injected failure hits the
-> Table-perturb allocation.  Without this patch the table is halved and
-> the kernel crashes as above on the first connect(); with it the table
-> keeps 65536 entries (vmalloc) and the system works normally.
-> 
-> The reproducer and fix were developed with the help of Claude Code.
-> 
-> Fixes: 31fe62b95866 ("mm: add a low limit to alloc_large_system_hash")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Amir Hosseini <me@amir.fyi>
-> ---
->  mm/mm_init.c | 18 ++++++++++++++++--
->  1 file changed, 16 insertions(+), 2 deletions(-)
-> 
-> diff --git a/mm/mm_init.c b/mm/mm_init.c
-> index d99af80ec752..418068bad006 100644
-> --- a/mm/mm_init.c
-> +++ b/mm/mm_init.c
-> @@ -2359,6 +2359,7 @@ void __init page_alloc_init_late(void)
->   * - it is assumed that the hash table must contain an exact power-of-2
->   *   quantity of entries
->   * - limit is the number of hash buckets, not the total allocation size
-> + * - the table has at least low_limit entries, callers may rely on that
->   */
->  void *__init alloc_large_system_hash(const char *tablename,
->  				     unsigned long bucketsize,
-> @@ -2371,7 +2372,7 @@ void *__init alloc_large_system_hash(const char *tablename,
->  				     unsigned long high_limit)
->  {
->  	unsigned long long max = high_limit;
-> -	unsigned long log2qty, size;
-> +	unsigned long log2qty, min_log2qty, size;
->  	void *table;
->  	gfp_t gfp_flags;
->  	bool virt;
-> @@ -2420,6 +2421,7 @@ void *__init alloc_large_system_hash(const char *tablename,
->  		numentries = max;
->  
->  	log2qty = ilog2(numentries);
-> +	min_log2qty = max(order_base_2(low_limit), 1);
->  
->  	gfp_flags = (flags & HASH_ZERO) ? GFP_ATOMIC | __GFP_ZERO : GFP_ATOMIC;
->  	do {
-> @@ -2445,7 +2447,19 @@ void *__init alloc_large_system_hash(const char *tablename,
->  			table = alloc_pages_exact(size, gfp_flags);
->  			kmemleak_alloc(table, size, 1, gfp_flags);
->  		}
-> -	} while (!table && size > PAGE_SIZE && --log2qty);
-> +	} while (!table && size > PAGE_SIZE && log2qty > min_log2qty &&
-> +		 --log2qty);
-> +
-> +	/*
-> +	 * Shrinking below low_limit would break callers that size other data
-> +	 * from it, so fall back to vmalloc, which needs no contiguous memory.
-> +	 */
-> +	if (!table && !virt && !(flags & HASH_EARLY)) {
-> +		table = vmalloc_huge(size, gfp_flags);
-> +		virt = true;
-> +		if (table)
-> +			huge = is_vm_area_hugepages(table);
-> +	}
->  
->  	if (!table)
->  		panic("Failed to allocate %s hash table\n", tablename);
-> 
-> ---
-> base-commit: b6a9fa34ce4187cb69d3c588a4bbffc31ce5db8f
-> change-id: 20261123-mm-hash-low-limit-37a3a47c7cd1
-> 
-> Best regards,
-> --  
-> Amir Hosseini <me@amir.fyi>
-> 
-> 
-
--- 
-Sincerely yours,
-Mike.
+>-- 
+>The evaluation is done by an LLM so it may be wrong, if you think
+>that is the case please reply and explain.
