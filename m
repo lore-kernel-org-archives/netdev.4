@@ -1,46 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795704038;
-	b=j31ctl5cl3HXx28F6F8McXv1EdxxEk5tq95rX0q5LnS8t+mmKh+790P/1+M6SM92LVaN
-	 /AYjWNDchLa+/Q1tJfABCnSNeDG4+kAHEs1b0N6UiqLpJ3XsLVAcLgPLG7pnWobOm67ZS
-	 LbO6Ld1fnPyXa2soGwPhLBM/uZFskkjcPqS344/NsyKwhHB21rHx1rzVso7qTSxaw9cNz
-	 lPp9OV0bZ0f2TRiZkOQN3FqU8+t7o+F95jFCcMUTpZJ6IE1AtMICxOpezTfo+11kH2Lgq
-	 b2UnXRGXhM2jLLisWT5lwv7SUZLd02U3NwgANzLcziYmsXxPxMvoqXVOFSPdCMYMMKA==
+	t=1795704040;
+	b=mYinDRDEnXrvJ+SSXLRlrWFq5/b7XMiz0HscsUJmYHXrUBG//6cyW5Ft/7Hqiuoc+5XF
+	 3vs4quq57qliyNFOTyIohMuggzZm1SEUAR0Lp/eThj3lJTAOm8/XWrYCZ3xS+Y8tpaOXc
+	 opqgXvGR+uZAugjH9KNp/bkwlNIAy+nW+fA1wJ+8r9KwXuCZLxjItMMMuJqdhuQ2QNT6q
+	 9KR/wOZlqx0qBbKjHtp8NnSwq9GH4J30AYAXxlrYSg2YUTAyzcU6+0wPHPtC5I8WtIsXG
+	 bjNHnij8pVMDE8MHfF1zaADn7p+aznnSRTpOu6qh4aiv5h4o9S4M8ErIQOoj04c5d5g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795704038;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795704040;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=3wEzP5d7Bd3qZ1JpgyXs2/OeoFoYHRuNf/vP9XY7BvE=;
-	b=OK5JmSXLqzX7cfjOhjm2GrU5jF1D/Xd8Vy7/bMeu727C55t5z7CP3Datb32NjO3OH4Q1
-	 L6/lLdlz2f1SN2abN6Wevm+Ksi1ciF4wKn/bHx4TziXlnw2qXKyBJwkj+Uqt/sipNP9M2
-	 dyZgZscD0jryqjrYj5auKpnp6VgG/NS+chV3Gc2l9icjsgFq1b33zIeXmRBYi9Aafy45S
-	 jA55Vl/4FQHvmXPFQEwbvunncW+q4XD41HnySDFX0cYlb16WLmcALJKhOtQuz1NXBQNah
-	 +aWKc7WmxLG52zlWOuRJAbvrFxTzVohCwOs8ronbgvhuQIRJBUg/JzuBpr7Z+SdMOkg==
+	bh=X2DD/lGUjHLWVuY+OjlCk7qvtY3mDChPGPSJ1/v+790=;
+	b=qXtcw5cYkZdJE6st7VDDY+LFQm7CoJB4JIdDpJ4eRtKOzFTNTzN6gG4mRg6XtXnP2jwe
+	 HIRGOgKsnJV0ccb42G36RZwHMh80kr/ZAKdBTNryD3IhPm47LM2C4B0yHKsT/zZXEUlp/
+	 0JU78s0dRYAjjNPGCl2k3Fp3mwTwOVhDJiGN5jjC+TKYUWX93wVsofzO2iyytaVCNm5V7
+	 HXmRE8aR41uKY6Fc7tJL9L3QZd/Uus75hUIzxXTByW7Aca4ocY2Y88DI91R1vYdq9CKMs
+	 8s23OYlkfPHk3LgBdOaTv6YsiBCWH4PQKraKIf9NMV5Sq5OCP1fLs3Y0LLclW7gt7Tg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="BQ2/N4xY";
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="Vje/D0OM";
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F841606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:40:38 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5B5D7606A335
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:40:40 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=BQ2/N4xY
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C8061F000D4;
-	Thu, 26 Nov 2026 14:40:37 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Vje/D0OM
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11C0F1F000D0;
+	Thu, 26 Nov 2026 14:40:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795704038;
-	bh=3wEzP5d7Bd3qZ1JpgyXs2/OeoFoYHRuNf/vP9XY7BvE=;
+	s=k20260515; t=1795704040;
+	bh=X2DD/lGUjHLWVuY+OjlCk7qvtY3mDChPGPSJ1/v+790=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=BQ2/N4xYDbZpRkVsCSbos/hqwXeXKQyVPDMLnoXzPvzUovNJpG01NkCCMhxBVjB/u
-	 7C94848l3WmduqV9xOBa1QM7x1qZhH0OQiHirubA+3lfXG3r5Uj7RQ+rnCghG/Bhe4
-	 C7ix7sAC2pxKQSYxQxBlB3sfQyc7NvtBIujn74SeUIlsI7jJlXOtdqQHObr4OIfxKi
-	 mcLMxnsOEDwAJWh3hx+6alx0ndJ5gvBoMEOzJtM6MKsR5FGjhxhuweVKXHYDOl0yxf
-	 SN3pwDNCDSxhdUO2K2/u+uM+dpyfRf8Yc9Irql0mV57zy4b/6aLx/9n5NysD1gj4x7
-	 ZE6ROvGGqwZ/w==
-Subject: Re: [PATCH net-next v12 4/8] hsr: Drop received PTP packets
+	b=Vje/D0OMoZsgoEsAjcsHKuWBeO3UNS0+k3Y1rJJR6dfb2Ck+racQs526Y8CdygTKA
+	 8MnDB2Tdkzb1nf7ga/kgL0ae0cWT+I12koKIXLwUmYPUm7r96NRZjoe6OwToOoo78F
+	 EbpF+UlAANtJwSSO85bQ9ih6bu7OHaEEiPG9NxULdOYFA3NbQdduQ549m/sJla8mhv
+	 l3Gy78CkqwgRlloUfqjiz4XwlBXt2yFZ8+YEGl+4A/AMjtgCZ8KzAfDMzwkVYE05Ob
+	 tjJf3T7y+CKmHnsbvlo8+W6ySxMFfKYYshxUwrI4SWjUCzPI8wg967w7ETIEEl1Aoo
+	 egmRHNHUHxLRw==
+Subject: Re: [PATCH net-next v12 5/8] hsr: Use the port and header information
+ in hsr_forward_skb()
 From: netdev-bot+sashiko@kernel.org
 To: bigeasy@linutronix.de
 Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
@@ -49,10 +50,10 @@ Cc: netdev@vger.kernel.org, j-rameshbabu@ti.com, andrew+netdev@lunn.ch,
  pratheesh@ti.com, richardcochran@gmail.com, horms@kernel.org, vigneshr@ti.com,
  willemdebruijn.kernel@gmail.com, daniel.machon@microchip.com,
  edumazet@kernel.org
-Date: Thu, 26 Nov 2026 14:40:36 +0000
-Message-ID: <179570403670.3135.12162215727895219598@kernel.org>
-In-Reply-To: <20261125-hsr_ptp-v12-4-9ddd2a73cb90@linutronix.de>
-References: <20261125-hsr_ptp-v12-4-9ddd2a73cb90@linutronix.de>
+Date: Thu, 26 Nov 2026 14:40:38 +0000
+Message-ID: <179570403859.3135.16584243126137502674@kernel.org>
+In-Reply-To: <20261125-hsr_ptp-v12-5-9ddd2a73cb90@linutronix.de>
+References: <20261125-hsr_ptp-v12-5-9ddd2a73cb90@linutronix.de>
 X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
@@ -77,127 +78,164 @@ If any of them are legitimate and you plan to respin, please let patchwork
 know by including "pw-bot: cr" as a separate line at the end of your reply
 (one such reply per series is enough).
 
-- [Medium] The new PTP filter in hsr_handle_frame() (net/hsr/hsr_slave.c,
-  lines 79-87) drops every received PTP frame before hsr_forward_skb()…
-- [Low] The new deliberate PTP discard in hsr_handle_frame()
-  (net/hsr/hsr_slave.c, lines 83/86) jumps to finish_free_consume.
+- [Medium] The commit message says the new behaviour "is only used in the
+  pure software version" and that NETIF_F_HW_* offload hardware "need[s]…
+- [Low] The patch makes hsr_fill_frame_info() check
+  frame->has_hsr_header: it sets skb_std = skb, skips…
 
 --
 
-hsr: Drop received PTP packets
+hsr: Use the port and header information in hsr_forward_skb()
 
-This commit drops all received PTP frames in hsr_handle_frame(). A frame
-is dropped when its HSR-encapsulated protocol is ETH_P_1588, or when its
-plain ethertype is ETH_P_1588 for PRP and untagged frames. The intent is
-for PTP stacks to read the frames on the slave interfaces, because
-forwarding by the HSR stack adds latency that is not compensated.
+This commit passes the requested TX port and the has_hsr_header flag from
+the upper layer into hsr_forward_skb(). A frame is then sent only on the
+requested port. When the frame already has a header, the commit skips the
+sequence number assignment, the source address substitution and the node
+lookup.
 
-> diff --git a/net/hsr/hsr_slave.c b/net/hsr/hsr_slave.c
-> index 84d8a40bba0a6..86a05f3fc1cc5 100644
-> --- a/net/hsr/hsr_slave.c
-> +++ b/net/hsr/hsr_slave.c
+> diff --git a/net/hsr/hsr_forward.c b/net/hsr/hsr_forward.c
+> index f49d962337f8b..1d1d75ed8cd06 100644
+> --- a/net/hsr/hsr_forward.c
+> +++ b/net/hsr/hsr_forward.c
 
 [ ... ]
 
-> @@ -64,15 +64,28 @@ static rx_handler_result_t hsr_handle_frame(struct sk_buff **pskb)
->  	skb_reset_mac_header(skb);
->  	if ((!hsr->prot_version && protocol == htons(ETH_P_PRP)) ||
->  	    protocol == htons(ETH_P_HSR)) {
-> -		if (!pskb_may_pull(skb, ETH_HLEN + HSR_HLEN)) {
-> -			kfree_skb(skb);
-> -			goto finish_consume;
-> -		}
-> +		if (!pskb_may_pull(skb, ETH_HLEN + HSR_HLEN))
-> +			goto finish_free_consume;
+> @@ -570,6 +571,20 @@ static void hsr_forward_do(struct hsr_frame_info *frame)
+>  		if ((port->dev->features & NETIF_F_HW_HSR_DUP) && sent)
+>  			continue;
 >  
->  		skb_set_network_header(skb, ETH_HLEN + HSR_HLEN);
->  	}
->  	skb_reset_mac_len(skb);
->  
-> +	/* PTP packets are not supposed to be forwarded via HSR as-is. The
-> +	 * latency introduced by forwarding renders the time information
-> +	 * useless. Userland needs to capture the packet on the original
-> +	 * interface instead of hsr.
-> +	 */
-> +	if ((!hsr->prot_version && protocol == htons(ETH_P_PRP)) ||
-> +	    protocol == htons(ETH_P_HSR)) {
-> +		hsr_ethhdr = (struct hsr_ethhdr *)skb_mac_header(skb);
-> +		if (hsr_ethhdr->hsr_tag.encap_proto == htons(ETH_P_1588))
-> +			goto finish_free_consume;
-> +	} else {
-> +		if (protocol == htons(ETH_P_1588))
-> +			goto finish_free_consume;
-> +	}
+> +		/* If this frame has a specific outgoing port specified (by the
+> +		 * sender) then send it on this port only.
+> +		 */
+> +		if (frame->req_tx_port != HSR_PT_NONE &&
+> +		    frame->req_tx_port != port->type)
+> +			continue;
+> +		/* If this TX frame already has a HSR header then forward the
+> +		 * frame with it and don't add one.
+> +		 */
+> +		if (frame->has_hsr_header && frame->skb_std) {
+> +			skb = skb_clone(frame->skb_std, GFP_ATOMIC);
+> +			goto inject_into_stack;
+> +		}
 > +
 
 [Severity: Medium]
-This check runs before hsr_forward_skb() and applies to every port type,
-including HSR_PT_INTERLINK. Doesn't that do more than stop PTP delivery
-to hsr0? It looks like it also stops the kernel from relaying PTP frames
-on to the other ring port and across the RedBox interlink.
 
-On a software (non NETIF_F_HW_HSR_FWD) node, hsr_forward_skb() calls
-hsr_forward_do() in net/hsr/hsr_forward.c, which would otherwise do:
+The commit message says:
 
-	if (port->type == HSR_PT_SLAVE_A ||
-	    port->type == HSR_PT_SLAVE_B)
-		skb = hsr->proto_ops->create_tagged_frame(frame, port);
-	else
-		skb = hsr->proto_ops->get_untagged_frame(frame, port);
+  This is only used in the pure software version. Hardware with any kind
+  of NETIF_F_HW_* offload support need to be addressed separately.
 
-and then send the frame out the other slave and the interlink via
-hsr_xmit().
+Is this limit enforced anywhere? hsr_dev_xmit() accepts the ETH_P_1588
+inline header without checking hsr->fwd_offloaded or the slave features:
 
-Take a ring M - X - Y - Z - M where X, Y and Z are plain software HSR
-nodes with no ptp4l running. X and Z would now both discard M's
-Sync/Follow_Up/Delay messages, so Y never sees PTP at all. Before this
-change, Y received PTP through the kernel relay, with uncompensated
-forwarding delay.
+net/hsr/hsr_device.c:hsr_dev_xmit() {
+    ...
+	if (skb->protocol == htons(ETH_P_1588) &&
+	    hsr_ptp_parse_header(skb, &has_hsr_header, &req_tx_port))
+		goto drop;
+    ...
+}
 
-SANs behind a RedBox would also lose PTP to and from the ring. The
-"two copies" argument in the changelog doesn't seem to apply to the
-interlink, which only ever has one copy. Any existing ptp4l bound to hsr0
-would also stop receiving PTP.
+The new req_tx_port filter and the has_hsr_header clone shortcut above
+then apply to every slave. That includes slaves that advertise
+NETIF_F_HW_HSR_DUP or NETIF_F_HW_HSR_TAG_INS.
 
-The drop is unconditional, and there's no sysctl or netlink option to
-turn it off. Is it intended that every software HSR node in a PTP ring
-must now run a userspace transparent or boundary clock on its slave
-interfaces?
+For example, TI ICSSG in HSR offload mode does this in
+emac_ndo_start_xmit():
 
-If so, could the commit message say that this removes ring relaying and
-RedBox interlink bridging of PTP, and not only delivery to the hsr
-device?
+drivers/net/ethernet/ti/icssg/icssg_common.c:emac_ndo_start_xmit() {
+    ...
+	if (prueth->is_hsr_offload_mode &&
+	    (ndev->features & NETIF_F_HW_HSR_DUP))
+		dst_tag_id = PRUETH_UNDIRECTED_PKT_DST_TAG;
 
->  	/* Only the frames received over the interlink port will assign a
->  	 * sequence number and require synchronisation vs other sender.
->  	 */
-> @@ -84,7 +97,10 @@ static rx_handler_result_t hsr_handle_frame(struct sk_buff **pskb)
->  		hsr_forward_skb(skb, port, HSR_PT_NONE, false);
->  	}
+	if (prueth->is_hsr_offload_mode &&
+	    (ndev->features & NETIF_F_HW_HSR_TAG_INS))
+		epib[1] |= PRUETH_UNDIRECTED_PKT_TAG_INS;
+    ...
+}
+
+With this, wouldn't a frame requested only for SLAVE_A or SLAVE_B go out
+on both ring ports? And wouldn't a frame that already carries an HSR
+header get a second tag from the hardware?
+
+Should the inline header be rejected when the slaves have HSR offload
+features (ksz9477 and xrs700x are similar)? Or should the commit message
+drop the claim that this is software only?
+
+>  		/* Don't send frame over port where it has been sent before.
+>  		 * Also for SAN, this shouldn't be done.
+>  		 */
+
+[ ... ]
+
+> @@ -661,6 +677,13 @@ int hsr_fill_frame_info(__be16 proto, struct sk_buff *skb,
+>  	struct hsr_port *port = frame->port_rcv;
+>  	struct hsr_priv *hsr = port->hsr;
 >  
-> -finish_consume:
-> +	return RX_HANDLER_CONSUMED;
+> +	if (frame->has_hsr_header) {
+> +		frame->skb_std = skb;
 > +
-> +finish_free_consume:
-> +	kfree_skb(skb);
->  	return RX_HANDLER_CONSUMED;
+> +		WARN_ON_ONCE(port->type != HSR_PT_MASTER);
+> +		WARN_ON_ONCE(skb->mac_len < sizeof(struct hsr_ethhdr));
+> +		return 0;
+> +	}
 
 [Severity: Low]
-This isn't a bug, but the new PTP discard in hsr_handle_frame() shares
-this label with the error drops. kfree_skb() reports it as
-SKB_DROP_REASON_NOT_SPECIFIED, and no counter is incremented.
 
-PTP Sync/Follow_Up/Delay_Req/Pdelay messages arrive continuously on every
-slave port. Every HSR/PRP node would therefore emit a steady stream of
-"not specified" drops on the skb:kfree_skb tracepoint and in drop
-monitors. These policy drops can't be told apart from real faults.
+Only hsr_fill_frame_info() handles has_hsr_header. What happens on a PRP
+device?
 
-Would a dedicated drop reason help here? Alternatively, consume_skb()
-could be used if this isn't meant to count as a drop. Either could be
-paired with a counter so the filtering shows up somewhere.
+hsr_ptp_parse_header() does not check hsr->prot_version, so
+has_hsr_header=true can reach hsr_forward_skb() on PRP. fill_frame_info()
+then skips hsr_get_node() for both protocols. However,
+prp_fill_frame_info() has no matching check:
 
->  
->  finish_pass:
+net/hsr/hsr_forward.c:prp_fill_frame_info() {
+	...
+	if (rct &&
+	    prp_check_lsdu_size(skb, rct, frame->is_supervision)) {
+		...
+		frame->skb_prp = skb;
+		...
+	}
+	handle_std_frame(skb, frame);
+	...
+}
+
+If there is no valid RCT, handle_std_frame() takes hsr->sequence_nr and
+increments it. The new shortcut in hsr_forward_do() then sends the frame
+unchanged. The sequence number is used up but never appears on the wire.
+
+If there is a valid RCT, skb_std is NULL and the has_hsr_header shortcut
+is skipped. The frame goes through register_frame_out, drop_frame and
+prp_create_tagged_frame with node_src == NULL. It only avoids a NULL
+dereference because prp_register_frame_out() returns early for frames
+from the master port.
+
+hsr_ptp_parse_header() also adds HSR_HLEN to hdr_len whenever
+has_hsr_header is set:
+
+	hdr_len = ETH_HLEN;
+	if (*has_hsr_header)
+		hdr_len += HSR_HLEN;
+
+PRP uses a trailer, not a header. On PRP, wouldn't this require 6 extra
+pullable bytes and put the network header 6 bytes too far into the frame?
+
+The later commit "hsr: Assign a socket for cloned skbs" says it "does not
+consider PRP part of the stack". Still, nothing in the series rejects the
+inline header on PRP devices.
+
+Should PRP reject has_hsr_header, or handle it the way
+hsr_fill_frame_info() does?
+
+>  	/* HSRv0 supervisory frames double as a tag so treat them as tagged. */
+>  	if ((!hsr->prot_version && proto == htons(ETH_P_PRP)) ||
+>  	    proto == htons(ETH_P_HSR)) {
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125-hsr_ptp-v12-0-9ddd2a73cb90%40linutronix.de
