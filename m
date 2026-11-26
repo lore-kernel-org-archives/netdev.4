@@ -1,103 +1,90 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.156.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795658868;
-	b=n0V3uBCvYt4ozmAoRE+WrqCKxhpr+1zntzxGsrEBO09rr50mPPyyRMPSDCjySjw6mmlJ
-	 sDm5atPQYWjvjYp7oBT+UXL9sQh23AxQZLIoLp+GDS9XSxdtcS5mP5Qg6J19PLfZWGZMF
-	 kmhVpO0Nm+PwybxUqMSNs4BaYQddCDsPBadmABCV/cOrU22WCQiPXBqkNhh9kNm6egqRG
-	 xYmv+C8M2eHvZmQk0GmZVxuwhjs9TClAsI18PL8iYgsWUpJ6/0OOXrBn4dHuqDpfdt8DH
-	 u3erXqUxjbHl/GkXeVcJC1G816ol/MIy1R10w8XffnRsty7Z8jtCxzO/MEtuKeRffig==
+	t=1795659143;
+	b=VU9FyExPIRNibPIQHyC4B2yS1npqLkScDDOvBB/TbZ/mokvrcmwjosk2K87Rg2u5Wbaj
+	 M5aHxiL9QkT1F7mr2jkFgdRSnhZcow+0W51zk6JtnVaTe1RZ00upkevSKYLzXJqfeLUsY
+	 8b249ZcE32v2qOeTHWEneUIPV704+vQfikZZWSyQ/EAV8UKlMOeqrywrJjaO4KtGtFoMZ
+	 49Lt3hc4JiGHJwkEh9z7AQO+8fr6qsUVRVv1qW/2eIEOH/FAyQq3Pt2FD5ZsZ+jKkF6ZL
+	 Kr8LEVeD/ZQVNGD9CV597L6pEKUWnY7mvF27HmfZ8MrT0vb5Wpv6+rv3sH+7K69ui1A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795658868;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=WkAms7KA42Baas5n6wZEyMjVEZ8N2pj3aqq6PvvQjdE=;
-	b=M9APyLQaeb5EmjR8qwuvupVxVSoylFUHKNBl1IJlXsKwB6ljWsDjIzssgzrZnUg63oCL
-	 nVXOavMui8xERS3ZnJnC60MdwiY0NE77LnHFj47aAW+yHoIX2PpWkv7MPGK6aGr9HKSW2
-	 ay6qGfa8ipE9SkTxXhStreUVG6/KERUr9SeWvOI2v3OzfcYhAk5EVSNRtxD7rPgS9OBYB
-	 Z4nxBijn3YvHl6CJ8EM07Lkxicu4PIXnYMlHmd5HL/+R5rfRy43eIzr9P2s2+o8H4MNeC
-	 5hpiQvfVSOc5wM+oiYp6rW15UgnFcEi9pG6qjX1oTPHfIf/KyuAOw1h8tlE2gpDArvg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659143;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-GUID:X-Authority-Analysis:X-Proofpoint-Virus-Version;
+	bh=cLutpzgR7bQ12PaKKVTTryK4gbCgeHKI+VxxkyoUdDk=;
+	b=zpvLLsGyRIGztkXEa2E5j4J7dlfSQS7FsJp8KhCoahoA97YWaeWWYHV/IGfbTPOzzl6M
+	 uqqQIeX7p50HvRDNMujtBLNURNi5Z6UnPU03jkh65Moe/ZVUhiYTx44xRuCCeyvoLo8z0
+	 GADbqpT8c8unYNN0z7X6JqTDglvVBaxgQdESIIP70NQaJME3ViXbs4pAcSfzoDutJ6qGu
+	 i05rh8IpAeHGTRG+EjQbZxnHSUTFwiOwfGT52MBU4ctCUxFdy34zAvInWKHKZSKqqVBZu
+	 Rz0LImv2IYvOWLZLDjGVMml1wSRxirRITecePWPnnFVzK8fPAAhGpXS3/kPybGGQ7ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=povKuKh2;
-	arc=none smtp.remote-ip=209.85.214.169
-Received: from mail-pl1-f169.google.com (mail-pl1-f169.google.com [209.85.214.169])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=iDXOlOq4;
+	arc=none smtp.remote-ip=67.231.156.173
+Received: from mx0b-0016f401.pphosted.com (mx0b-0016f401.pphosted.com [67.231.156.173])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EA425606A32D
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:07:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EA425606A32D
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 400EF606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:12:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 400EF606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=povKuKh2
-Received: by mail-pl1-f169.google.com with SMTP id d9443c01a7336-2f0464dd6b6so40285395ad.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:07:47 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795658867; x=1796263667; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=WkAms7KA42Baas5n6wZEyMjVEZ8N2pj3aqq6PvvQjdE=;
-        b=povKuKh2H6D2wLFvEqnB2T8NXUi566C8IhNc2LNF7XF5xNAcQPsYSsSfd0VkOp7Jxs
-         WROFL3uX6OL9vmEUoSUtnvvhcQDFI4rQqOAnY0/ecwRlpYKolkNepVHQuINeEoi9jUHJ
-         a6X64fiydSLPsroytYNKtNYqrQZ5fa6vCUDHo6M3UiRC3lCWWPfZlMXgnQ+UJmIJHE20
-         DaZPYoZvUQZSKaaguAWJwabMv5QSumxhDxkkK7aYxS7nO6K9RXKulGx6a03mb4lfzHMQ
-         RFmV5ddqWtI0V/zGXPwRxcLpILZHiimz0E1WBC5f8IbWWJXiVn+MG4rkAUc0jWr3qrHw
-         tQOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795658867; x=1796263667;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=WkAms7KA42Baas5n6wZEyMjVEZ8N2pj3aqq6PvvQjdE=;
-        b=b0fNWxg4btENM1rAFS9V3dGmEkdGcZI5IqcgSvWPz8erLMSDb1rckOcAIPcF91Xyk2
-         yn9hltmzW5UoTOGgHE1T18B6V/HajDdWb84QDj77gSB+KTeeipphKSrrdTNLoi+aC9OM
-         c+1L3v/ZV9p/obe5JQPMlDvJ40KhmW1k4kvW62/WTu+30DqDs07ize/vLaecGqDhW4Ej
-         5W2hud4/5sTNEvZRycs5YyI3c9GRXqE0Ff5QGXpmux152raepiff6KAFRSv6+ygk9Esv
-         M0EC/ItvcXNmELGywttImZQjZLihjYrWMzwebSPDUB8Rj8lru3gxx6j4IMtKCrIv3riq
-         EJ1w==
-X-Forwarded-Encrypted: i=1; AL+hErGY0E9pZBTESZVZNLKmoVWKgiLgWM+AieTllafFxJSaqF/vLVklI1v+VWyU4o2CrsjGw7nhtlY=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8ljPHNKKFrPUnSTSOnuGSvERcq7bZeavJGMR04/312heXvylVx
-	rxx9BiqssbvHDuZXTHK/E65xiegceSZizA70ceqJmOkmOmNwDoTk+Pvy
-X-Gm-Gg: AZFdTZeM2jtCF5ppw50it90qICcEw3JiIrFgITafvEPj9B5mIjbPEdG39jHgIp0x1GJ
-	dKtZB/hrraClodbXy2eUaVQ8KPaL+3Ei6RHqXSiI7UTVXNA13pNb+FWP2kvYxthzc5LRQshD2kf
-	MAla5uwiu8JPUtREj2oF/2cp4vjcrc1o8jrBU1XHXz7kYRKWfKgLST9K2kwb9/Sm3wae6xMOOZU
-	D2ys0AlQi6L5FbBOuzCUkAd+OuoHtfLv0VjYm32SftjLczf5lREPlx9m3ZUUxKoOoOtPXJ8aJB5
-	Yiex/Ehhg1toS3GSVNtgWJWaM4EfNZUYPya8CTKQxClY7mlZTQmU9SbfZ8S0s6WczxVn3P0GYpx
-	bTD6HRDVYF1gY4DsGzO/pAc7E9TroCn0qwYN9gJ7fiv/cGfzSSd7ADV6N89MnsbpUoJuSZTzEZF
-	DgdzmmKkBQx3P4d+NmN7eXnt7GHEtrhdEvAaaLozdq+rrMmP7vyoBhy/rlPKi4TIVMEJZJrljUd
-	6OWGoOVAwPMfWVpEGlrQCXWZde8eeghdrGLIZfrNqssxcKuyoPJZuYYGToD6o/HejudL8TWwrsK
-	e7JRlBbj7WvD/Xf4ZxQyCTgk2WvESMbjIjDb3+tptk7uA5qGQqh4lYcdpX65xziWKKhufgAxNdU
-	Va7VDltLc+lbk
-X-Received: by 2002:a17:903:2f87:b0:2ef:e285:7085 with SMTP id d9443c01a7336-2f03f1b1946mr192913505ad.44.1795658867206;
-        Wed, 25 Nov 2026 18:07:47 -0800 (PST)
-Received: from d20be28ee783.tail196be.ts.net (vldb.skku.ac.kr. [115.145.173.180])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c6e50sm95550735ad.13.2026.11.25.18.07.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 18:07:46 -0800 (PST)
-From: Kyuwon Cho <kyuwoncho18@gmail.com>
-To: Magnus Karlsson <magnus.karlsson@intel.com>,
-	Maciej Fijalkowski <maciej.fijalkowski@intel.com>
-Cc: Stanislav Fomichev <sdf@fomichev.me>,
-	=?UTF-8?q?Bj=C3=B6rn=20T=C3=B6pel?= <bjorn@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	netdev@vger.kernel.org,
-	bpf@vger.kernel.org
-Subject: [PATCH net v3] xsk: keep the charged page count when pinning a umem fails
-Date: Thu, 26 Nov 2026 11:07:42 +0900
-Message-ID: <179562059260.3381969.13546710565371160648@gmail.com>
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=iDXOlOq4
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APNgBnh1499507;
+	Wed, 25 Nov 2026 18:12:04 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=cLutpzgR7bQ12PaKKVTTryK4g
+	bCgeHKI+VxxkyoUdDk=; b=iDXOlOq4bGiFZ8tndWhlpTEZA9OMZgyzdO1J7nV+L
+	nVzChQatEbnhns1mJwx1MGTs2ZU6/BU3MGLvsZyyD1l3tcjVxpYcvEvO32sqR5KJ
+	0tR8ijkSKK94Biv9rkQX4PRHVmXStJrTTt2/VrBcj9be8NnmTIvPakrnDZfh9Ee1
+	m5FjqrE1/IiRDvVk8ESKBByc0fb2ZtuhrvvWcfFeyrfwFzkdh3zP5PQpje3C0tZw
+	8l3DRzptxx91GEM5YGnk90P0W8p3OJsskBKlY7giyo5o1P3nFFB0wosYisTK81HF
+	7voPWRJ+znT7MsCYpuwbqWdB7o/z5LEEl33Xz9OVnLIyA==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4j5nhf5dut-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 18:12:04 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 25 Nov 2026 18:12:03 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 25 Nov 2026 18:12:03 -0800
+Received: from rkannoth-OptiPlex-7090 (unknown [10.28.36.165])
+	by maili.marvell.com (Postfix) with SMTP id 82C6B3F706F;
+	Wed, 25 Nov 2026 18:11:58 -0800 (PST)
+Date: Thu, 26 Nov 2026 07:41:57 +0530
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: Yuho Choi <oss.patchbox@gmail.com>
+CC: Sunil Goutham <sgoutham@marvell.com>,
+        Geetha sowjanya
+	<gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Bharat Bhushan
+	<bbhushan2@marvell.com>,
+        Hariprasad Kelam <hkelam@marvell.com>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        "Eric
+ Dumazet" <edumazet@kernel.org>,
+        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        Simon Horman <horms@kernel.org>,
+        Jacob Keller
+	<jacob.e.keller@intel.com>, <netdev@vger.kernel.org>
+Subject: Re: [PATCH net] octeontx2-pf: QOS: Don't free SQ memory if disabling
+ the SQ fails
+Message-ID: <aweVbaB3p6C1IlXv@rkannoth-OptiPlex-7090>
+References: <20261124190046.415260-2-oss.patchbox@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,137 +94,78 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261124190046.415260-2-oss.patchbox@gmail.com>
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAwNyBTYWx0ZWRfX0TQI0E68mWUT
+ 3tjZSaS3J8BjUwPmR6jb5/WAryPiwfwUDpqRS2C7T9JHxTWTob+Iobd6lZwxNIv8XSu9uGHFahW
+ dcCN8aBu3esVtF9bR2em75Jdt7OgZoI=
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAwNyBTYWx0ZWRfX5qGXk5eksDcj
+ Wqk9ykj8abQ9765pZR2c/fRUY8EoTFMM10InQnUwo+h/KnSkN/xMCRk4I7/fX/DHpOXq2woPyms
+ S7wnGX6YwEDetFGpGnIa4i5kmYRB7ZcqPnVvyV/WlzA1Y4ok4ovHzuWyEJ3x4UmKB/USRIt6M0D
+ n8C/GYy3MCp3jyVaMJeVkcD8+6Pq+MFmLIkXJU7FHGcto5MbF8/Ey4+SCVZGGOFzPP5PraVz1Bs
+ Qh/7Ha7l/Iu2CF6b3ql1EOiLS64qm4AdYWqBDFL9SWAV2AQKFeykZaREY5Olssg1U4grruWoqM8
+ zg6SZbLnJe4wuJWkPPtypoPj6nW5zzA0+7XR6Akf98HvYNh5W//bDgMo4OeOoUK2creJKoz4POL
+ wXPgzYeJfQPV1vfZRqtuC7XrRMcJg8Rm4xX6dr8ZGS4T+BHB7ICB/3+EClv55xh2noh84dDlbFp
+ LFUfuJKpjafHgqE4tdQ==
+X-Proofpoint-ORIG-GUID: p0xmQy6yXczzvsgJZ0FbtBFPtFlP9MHE
+X-Proofpoint-GUID: p0xmQy6yXczzvsgJZ0FbtBFPtFlP9MHE
+X-Authority-Analysis: v=2.4 cv=GcGCDgXL c=1 sm=1 tr=0 ts=6b079574 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=qit2iCtTFQkLgVSMPQTB:22 a=pGLkceISAAAA:8
+ a=M5GUcnROAAAA:8 a=VBWVfHvdHScBPE1V7Y4A:9 a=CjuIK1q_8ugA:10
+ a=OBjm3rFKGHvpk9ecZwUJ:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
 
-xdp_umem_reg() charges umem->npgs pages to the user's locked_vm before
-it pins the umem. When pin_user_pages() pins fewer pages than asked,
-xdp_umem_pin_pages() overwrites umem->npgs with the pinned count so that
-xdp_umem_unpin_pages() releases only those, and xdp_umem_unaccount_pages()
-then gives back only that many. The rest of the charge is never returned.
+On 2026-11-25 at 00:30:24, Yuho Choi (oss.patchbox@gmail.com) wrote:
+> otx2_qos_disable_sq() asks the AF to disable the QoS send queue, its
+> aura and its pool, but ignores the result of otx2_qos_ctx_disable().
+> If the mailbox request fails, for example on a timeout or an AQ error,
+> the driver cannot confirm that all three contexts have been disabled.
+> It frees the SQBs, the pool stack, and the aura flow-control buffer
+> anyway, which the hardware may continue to reference.
+>
+> If the disable fails, log an error and keep the memory: leaking it is
+> safer than freeing memory the hardware may still access. If the queue
+> is not set up again, otx2_free_hw_resources() frees it later with the
+> other queues when the interface goes down, after the SQ and NPA
+> contexts of the whole LF have been disabled.
+>
+> Fixes: ab6dddd2a669 ("octeontx2-pf: qos send queues management")
+> Signed-off-by: Yuho Choi <oss.patchbox@gmail.com>
+> ---
+> Compile-tested only (x86_64 with COMPILE_TEST, OCTEONTX2_PF=m, W=1). I
+> don't have OcteonTX2/CN10K hardware, and the disable only fails when
+> the mailbox request to the AF fails, so I could not trigger this path.
+>
+>  drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c | 12 ++++++++++--
+>  1 file changed, 10 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+> index 683efce519af..e9ca884cfb4d 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+> @@ -283,7 +283,7 @@ void otx2_qos_disable_sq(struct otx2_nic *pfvf, int qidx)
+>  	struct otx2_hw *hw = &pfvf->hw;
+>  	struct otx2_snd_queue *sq;
+>  	struct otx2_cq_queue *cq;
+> -	int pool_id, sq_idx;
+> +	int pool_id, sq_idx, err;
+>
+>  	sq_idx = hw->non_qos_queues + qidx;
+>
+> @@ -311,8 +311,16 @@ void otx2_qos_disable_sq(struct otx2_nic *pfvf, int qidx)
+>  	otx2_cleanup_tx_cqes(pfvf, cq);
+>
+>  	mutex_lock(&pfvf->mbox.lock);
+> -	otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
+> +	err = otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
+>  	mutex_unlock(&pfvf->mbox.lock);
+function calls like otx2_smq_flush(),otx2_qos_nix_npa_ndc_sync() [ these 2,3 lines
+above otx2_qos_ctx_disable() ] can also fail. Marvell need to handle those errors in
+a seperate patch.
 
-A short pin happens when the tail of the umem area is not mapped. With
-RLIMIT_MEMLOCK at 16 pages, three registrations of an 8-page area whose
-last 4 pages are unmapped leave the user able to register only 4 pages,
-for as long as the user has a process running.
-
-Unpin the pinned pages directly and leave umem->npgs as charged.
-
-Fixes: c0c77d8fb787 ("xsk: add user memory registration support sockopt")
-Reported-by: Sashiko <sashiko-bot@kernel.org>
-Closes: https://lore.kernel.org/all/20260421172951.A7052C2BCB5@smtp.kernel.org/
-Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
----
-v3: simpler error path without @err, as Maciej suggested; Bjorn's
-    Reviewed-by is not carried over, as the code changed
-v2: https://lore.kernel.org/all/179556786851.2007362.7849536379916971930@gmail.com/
-    target net instead of bpf (Alexei)
-v1: https://lore.kernel.org/all/179552079829.1290967.12345053263834529704@gmail.com/
-
-The issue was found by an LLM-guided test generator that we are
-developing as a research prototype; Sashiko had flagged the same leak
-in its review of an AUTOSEL backport. A reproducer, which runs as any
-user:
-
-#define _GNU_SOURCE
-#include <errno.h>
-#include <linux/if_xdp.h>
-#include <sched.h>
-#include <stdio.h>
-#include <string.h>
-#include <sys/mman.h>
-#include <sys/resource.h>
-#include <sys/socket.h>
-#include <unistd.h>
-
-static int reg(char *addr, long len)
-{
-	struct xdp_umem_reg mr = {
-		.addr = (unsigned long)addr, .len = len, .chunk_size = 2048,
-	};
-	int fd = socket(AF_XDP, SOCK_RAW, 0);
-	int ret = setsockopt(fd, SOL_XDP, XDP_UMEM_REG, &mr, sizeof(mr)) ? -errno : 0;
-
-	close(fd);
-	return ret;
-}
-
-int main(void)
-{
-	long pg = sysconf(_SC_PAGESIZE);
-	struct rlimit rl = { 16 * pg, 16 * pg };
-	char *a;
-
-	/* no CAP_IPC_LOCK, CAP_NET_RAW for AF_XDP */
-	if (unshare(CLONE_NEWUSER | CLONE_NEWNET) || setrlimit(RLIMIT_MEMLOCK, &rl))
-		return perror("setup"), 1;
-
-	for (int i = 0; i < 3; i++) {
-		/* 8 pages, the last 4 unmapped: pin_user_pages() pins 4 */
-		a = mmap(NULL, 8 * pg, PROT_READ | PROT_WRITE,
-			 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-		munmap(a + 4 * pg, 4 * pg);
-		printf("short umem: %s\n", strerror(-reg(a, 8 * pg)));
-		munmap(a, 4 * pg);
-	}
-
-	a = mmap(NULL, 16 * pg, PROT_READ | PROT_WRITE,
-		 MAP_PRIVATE | MAP_ANONYMOUS | MAP_POPULATE, -1, 0);
-	printf("16-page umem: %s\n", strerror(-reg(a, 16 * pg)));
-	return 0;
-}
-
-Without the patch, the 16-page registration fails with ENOBUFS: the
-three short ones leave 12 of the 16 pages charged. With it, it
-succeeds.
-
-The patch was written with LLM assistance; we reviewed and tested it.
-
- net/xdp/xdp_umem.c | 22 +++++++---------------
- 1 file changed, 7 insertions(+), 15 deletions(-)
-
-diff --git a/net/xdp/xdp_umem.c b/net/xdp/xdp_umem.c
-index cd8643360eb3..ad72bd96905c 100644
---- a/net/xdp/xdp_umem.c
-+++ b/net/xdp/xdp_umem.c
-@@ -95,7 +95,6 @@ static int xdp_umem_pin_pages(struct xdp_umem *umem, unsigned long address)
- {
- 	unsigned int gup_flags = FOLL_WRITE;
- 	long npgs;
--	int err;
- 
- 	umem->pgs = kvzalloc_objs(*umem->pgs, umem->npgs,
- 				  GFP_KERNEL | __GFP_NOWARN);
-@@ -107,23 +106,16 @@ static int xdp_umem_pin_pages(struct xdp_umem *umem, unsigned long address)
- 			      gup_flags | FOLL_LONGTERM, &umem->pgs[0]);
- 	mmap_read_unlock(current->mm);
- 
--	if (npgs != umem->npgs) {
--		if (npgs >= 0) {
--			umem->npgs = npgs;
--			err = -ENOMEM;
--			goto out_pin;
--		}
--		err = npgs;
--		goto out_pgs;
--	}
--	return 0;
-+	if (npgs == umem->npgs)
-+		return 0;
-+
-+	if (npgs > 0)
-+		unpin_user_pages(umem->pgs, npgs);
- 
--out_pin:
--	xdp_umem_unpin_pages(umem);
--out_pgs:
- 	kvfree(umem->pgs);
- 	umem->pgs = NULL;
--	return err;
-+
-+	return npgs < 0 ? npgs : -ENOMEM;
- }
- 
- static int xdp_umem_account_pages(struct xdp_umem *umem)
--- 
-2.43.0
-
+Reviewed-by: Ratheesh Kannoth <rkannoth@marvell.com>
