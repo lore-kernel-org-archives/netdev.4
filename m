@@ -1,61 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=115.124.28.123
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795676454;
-	b=nUgiapA3UU/ja6KncNgyR0uRj0FM07OzZy46F6UMLben+2Nw3rCYdaNuMXrcVrOYmLPQ
-	 o2k80Oybe2M6QDTtq8KOvyLEmImFv+GgWUElav1DozBlZhdwFMwyOacSZzSWUuTgZiDDP
-	 FZ9251StqDyHeiOVvtgIFX+rTBobC/k6k2OsEevXqElJoTV4XRcTN6eETANWRrb2uv15g
-	 CBvSHtbXnYNB04byF5CST9YJeCvGyeJAPHYY5pC4AhvWL8ggW+oe0/rkruPAHsROoHsH8
-	 vuToAVV9ilME0p113zrPQD90OOmAiVEjzH9Pr/Dp5O5p6LqQoixpCh6gCwvoLuymW8g==
+	t=1795677869;
+	b=2bV4MIcuST7xHRrgoseeC9KhuLmSoHVwNb96oESwV9CVIY0IyrGqhKt3Mkcw0xNtUXfV
+	 kFxL6yJXuRg3Jm/o2sq+p3wXo8Ga5L2PlPkZJziVRjeBg+Yx1/gMutI9iw7FV6RXVEZeK
+	 NquAw0CWP8DqfyijXOOEGUEHwmzhX0+5Tsg3o49bgje0ADa6H7+FStIE1pIrILGMCzHrF
+	 94CBisqWoMZbe5T24A77Jgt2Qv1rZNRgP7tQHazA9rFkz3aJx92MIraI4oQaSD9HVeb3F
+	 GhXSTvcoIqvOF68cgwiaEIQpmecz1UmTGsLRsXZBLhp/yce64ME32TAZ2sgXASStUXA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795676454;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=5egdyMUL//oHT60ACbwW69GJ0v66WMLNl92315/6tfM=;
-	b=hiqehImubuv/KJjQiHiXDdn6HbgsZ8tviIb4KuBJ/HiP4UnwfjEUUtA0kxyeTu2Nt1CV
-	 zQ0gcrHO3KRdRh3y25eMEkiAzm43CWLzYK6d73JBxhgWrWWAy5+YjCxyGC4yAhG7xhUVe
-	 eRfNo2L+kNXyR4lMyX4JWbWWVAP2isyO+FOf1iQRcBUePNzaVNv4KKa8GB7FNLE9eB6HS
-	 UazMCCFuHDxlB6/modWlRQAB+bniyi+NmXcNoNmOGAJ7JtaM0d2zV3aLOvku0qdc5u1a3
-	 wabj4oUcRmO6PP/sffSBgFOMkhbXcA4oG/vf4HxIYPpF9KFkXmWRe3YO1X+4cnGdf6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795677869;
+	h=DMARC-Filter:DKIM-Signature:X-Alimail-AntiSpam:Received:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=clQ7a2lHAgYfKz5SkvqDRWEN/kW5veMqDifdXKTPsHc=;
+	b=pmPwSKpMxIhNip0pwVtS3yx7yTFO+163uv912AuJ8xJVjB3i90BJQQvauOK9sq1caNxW
+	 gPO9foD7k3QXRZQocWvQawxji/tK++ceoIcfMuKh2+k+6n1Hk7lm0YXfjfAjI3EU1yxgJ
+	 nJLuVuiWgzrZbvvjGTMGVfktcCnuzKIS+ZRzO8rFNXt6gzUQwK3jYZU3lP2kUTEOS0ZU6
+	 qK1eDSyY43Up3SKvlYObeOZBChF7qiSbwnIkNvot7HDp22AE2lG6tH+mNcX1R6p/Hie5C
+	 7wftj3/kiDSzGjRAe5wkGIFvJUcpUN4n/DQtHuxkbNCzxe18KxuHJV1Lf3CRqqWa6nQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EefzDLSe;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=xiaopeng.com;
+	spf=pass smtp.mailfrom=xiaopeng.com;
+	dkim=pass header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=mSkSP4Gt;
+	arc=none smtp.remote-ip=115.124.28.123
+Received: from out28-123.mail.aliyun.com (out28-123.mail.aliyun.com [115.124.28.123])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9347606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:00:54 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85E52606A31E;
+	Thu, 26 Nov 2026 07:24:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85E52606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=xiaopeng.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=xiaopeng.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EefzDLSe
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A731F000D3;
-	Thu, 26 Nov 2026 07:00:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795676453;
-	bh=5egdyMUL//oHT60ACbwW69GJ0v66WMLNl92315/6tfM=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=EefzDLSeGQmRXjNH7bKZMx/eLlYDedDH9dSaFpEM38KInYGJfMElSeNEC0X769AHQ
-	 Urw6WkzfZEwg/lpZbUdPOJStvdglzfOx0L3YZ0gobMN3+jTsN3vrp2aN42zOP7UDUM
-	 b1/WNNGfLA+6vEk78XxhqBCqQ+BArIrTUXMDpvcZq572ze4CX8RwIsQCYn8kH4iiXz
-	 5FNBqxKNkS6IR19HTgHYa7NOpWBfHO8jjhpqYHaXUalyBNdHCl8JOaKO1D1knCLAkv
-	 TegyAiYPpZGLaDi+Me8tf6wL1+CQW21deRk6JcDimiNeSya7f3pWjja+LPABvLWCrj
-	 UTuyFCcX4wayg==
-Subject: Re: [PATCH net] octeontx2-pf: QOS: Don't free SQ memory if disabling
- the SQ fails
-From: netdev-bot+sashiko@kernel.org
-To: oss.patchbox@gmail.com
-Cc: sgoutham@marvell.com, gakula@marvell.com, rkannoth@marvell.com,
- sbhatta@marvell.com, bbhushan2@marvell.com, hkelam@marvell.com,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- jacob.e.keller@intel.com, netdev@vger.kernel.org
-Date: Thu, 26 Nov 2026 07:00:52 +0000
-Message-ID: <179567645260.3135.1714589619526936893@kernel.org>
-In-Reply-To: <20261124190046.415260-2-oss.patchbox@gmail.com>
-References: <20261124190046.415260-2-oss.patchbox@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (1024-bit key, unprotected) header.d=xiaopeng.com header.i=@xiaopeng.com header.a=rsa-sha256 header.s=default header.b=mSkSP4Gt
+DKIM-Signature:v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=xiaopeng.com; s=default;
+	t=1795677856; h=From:To:Subject:Date:Message-ID:MIME-Version;
+	bh=clQ7a2lHAgYfKz5SkvqDRWEN/kW5veMqDifdXKTPsHc=;
+	b=mSkSP4GtfWMH3eWHuSK/gEOsXnH/ceskBTe4et0vAcD3xnx52365LiQEBYLs74x25Vzk01IwL2mr6MI8dmmxn1K839FM43jQhxhE17cX5VnA0DOruLB3E+rN8emTqzz7MYAPyR6KDAR0l9VhLzpPHJ16eCULCJQV1/QCujwhLRU=
+X-Alimail-AntiSpam:AC=CONTINUE;BC=0.04440256|-1;CH=green;DM=|CONTINUE|false|;DS=CONTINUE|ham_system_inform|0.00525153-5.53735e-06-0.994743;FP=1379844234834617539|0|0|0|0|-1|-1|-1;HT=maildocker-contentspam033037034017;MF=fangxy@xiaopeng.com;NM=1;PH=DS;RN=9;RT=9;SR=0;TI=SMTPD_---.kAQZfYs_1795677854;
+Received: from localhost.localdomain(mailfrom:fangxy@xiaopeng.com fp:SMTPD_---.kAQZfYs_1795677854 cluster:ay29)
+          by smtp.aliyun-inc.com;
+          Thu, 26 Nov 2026 15:24:15 +0800
+From: Fang Xieyan <fangxy@xiaopeng.com>
+To: "Michael S . Tsirkin" <mst@redhat.com>,
+	Jason Wang <jasowangio@gmail.com>,
+	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>
+Cc: Xie Yongji <xieyongji@bytedance.com>,
+	stable@vger.kernel.org,
+	virtualization@lists.linux.dev,
+	kvm@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2] vhost-vdpa: skip unmapped gap in vhost_vdpa_va_map()
+Date: Thu, 26 Nov 2026 15:24:14 +0800
+Message-ID: <20261126072414.97199-1-fangxy@xiaopeng.com>
+X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20261123143318.73514-1-fangxy@xiaopeng.com>
+References: <20261123143318.73514-1-fangxy@xiaopeng.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,184 +67,91 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+find_vma() returns the first VMA with vm_end > uaddr; when uaddr lies
+in an unmapped gap, vma->vm_start > uaddr and the offset arithmetic
 
-Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
+	offset = (vma->vm_pgoff << PAGE_SHIFT) + uaddr - vma->vm_start;
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+produces an incorrect file offset, potentially wrapping in u64
+arithmetic, and map_size counts the gap as part of the mapping.
 
-- [Medium] If otx2_qos_ctx_disable() fails, the new early return in
-  otx2_qos_disable_sq() (qos_sq.c:316-322) leaves all the queue state in…
-- [Low] The commit message says otx2_free_hw_resources() frees the kept
-  memory 'after the SQ and NPA contexts of the whole LF have been…
+Seen at runtime on v7.4-rc1: a request whose uaddr lies 0x1000
+below a shared file-backed VMA starting at file offset 0 reaches
+the vDPA driver's dma_map() callback as offset=0xfffffffffffff000.
+Since vhost_vdpa_map() adds the range to the vhost IOTLB before
+calling the backend, a successful mapping keeps an entry covering
+the gap, which has no valid backing.
 
-Pre-existing issues:
-- [High] This problem wasn't introduced by this patch, but
-  otx2_qos_sq_free_sqbs() (qos_sq.c:116-148), called on every successful…
+Skip the gap: stop if the whole remaining request is inside the gap,
+otherwise shrink size, set uaddr to vm_start and advance map_iova by
+the gap.  Gaps before a later VMA are left unmapped without error;
+when find_vma() returns NULL because no VMA follows uaddr, the
+existing -EINVAL is kept.
 
---
+Fixes: d8945ec41120 ("vdpa: Support transferring virtual addressing during DMA mapping")
+Cc: stable@vger.kernel.org
+Signed-off-by: Fang Xieyan <fangxy@xiaopeng.com>
+---
+ drivers/vhost/vdpa.c | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
-octeontx2-pf: QOS: Don't free SQ memory if disabling the SQ fails
+Changes since v1:
+- drop the redundant "continue": the already-found VMA is processed
+  directly instead of being looked up again; the mappings, the
+  return value and the unmap span are unchanged.
+- commit message only: quote the offset measured at runtime, note
+  that a uaddr no VMA follows keeps -EINVAL, move test records here.
 
-This patch makes otx2_qos_disable_sq() check the return value of
-otx2_qos_ctx_disable(). If the AF mailbox request fails, it now logs an
-error and returns without freeing the SQBs, the pool stack and the aura
-flow-control buffer, which the hardware may still reference.
+Testing: make W=1 drivers/vhost/vdpa.o completed without warnings on
+v7.4-rc1 (defconfig + VHOST/VDPA/VHOST_VDPA).  Under QEMU/KVM a
+userspace client sent VHOST_IOTLB_UPDATE through /dev/vhost-vdpa to
+a probe vDPA parent with use_va and dma_map logging; its memory is
+file-backed VMAs separated by a 0x1000 gap, the upper one at offset
+0.  The dma_map log then reads:
 
-> If the disable fails, log an error and keep the memory: leaking it is
-> safer than freeing memory the hardware may still access. If the queue
-> is not set up again, otx2_free_hw_resources() frees it later with the
-> other queues when the interface goes down, after the SQ and NPA
-> contexts of the whole LF have been disabled.
+  iova=0x100000 size=0x3000 uaddr=0x20001000 (request into the gap):
+    unpatched: dma_map iova=0x100000 size=0x3000 offset=0xfffffffffffff000
+    patched:   dma_map iova=0x101000 size=0x2000 offset=0x0
+  iova=0x400000 size=0x4000 (spans the gap), second segment:
+    unpatched: dma_map iova=0x401000 size=0x3000 offset=0xfffffffffffff000
+    patched:   dma_map iova=0x402000 size=0x2000 offset=0x0
+  iova=0x200000 size=0x1000 (whole request in the gap): no dma_map
+    once patched, write() still succeeds
+  iova=0x300000 size=0x1000 (contiguous): identical maps in both runs
+  iova=0x600000 size=0x3000 (tail past the last VMA): dma_map and
+    dma_unmap of the same 0x2000, write() = -1 EFAULT in both runs
+  iova=0x500000 size=0x1000 (uaddr above every VMA): no dma_map,
+    write() = -1 EFAULT in both runs
 
-[Severity: Low]
-Is this ordering accurate? otx2_free_hw_resources() calls
-otx2_free_sq_res(). That function frees the SQB pages of every queue,
-QoS queues included, right after a best-effort SQ disable:
+vhost_chr_write_iter() turns a non-zero handler return into EFAULT,
+so the last two cases fail the same way with and without the patch.
 
-drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c:otx2_free_sq_res() {
-    ...
-	/* Disable SQs */
-	otx2_ctx_disable(&pf->mbox, NIX_AQ_CTYPE_SQ, false);
-	/* Free SQB pointers */
-	otx2_sq_free_sqbs(pf);
-    ...
-}
-
-otx2_ctx_disable() returns void and only logs a mailbox failure. The NPA
-pool and aura contexts are disabled later, in otx2_free_hw_resources():
-
-	/* Disable NPA Pool and Aura hw context */
-	otx2_ctx_disable(mbox, NPA_AQ_CTYPE_POOL, true);
-	otx2_ctx_disable(mbox, NPA_AQ_CTYPE_AURA, true);
-	otx2_aura_pool_free(pf);
-
-So the SQB pages are freed before the NPA contexts are disabled. Only
-pool->stack and pool->fc_addr are freed after that. If the AF mailbox is
-still broken at ifdown, the memory kept by this patch gets freed anyway,
-with no check of the result.
-
-Could the commit message be reworded to match this?
-
-> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
-> index 683efce519af0..e9ca884cfb4d5 100644
-> --- a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
-> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
-
-[ ... ]
-
-> @@ -311,8 +311,16 @@ void otx2_qos_disable_sq(struct otx2_nic *pfvf, int qidx)
->  	otx2_cleanup_tx_cqes(pfvf, cq);
->  
->  	mutex_lock(&pfvf->mbox.lock);
-> -	otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
-> +	err = otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
->  	mutex_unlock(&pfvf->mbox.lock);
-> +	if (err) {
-> +		/* The SQ, aura and pool may still be enabled, so don't free
-> +		 * the memory they point to.
-> +		 */
-> +		netdev_err(pfvf->netdev,
-> +			   "Failed to disable QoS SQ %d (%d)\n", sq_idx, err);
-> +		return;
-> +	}
-
-[Severity: Medium]
-otx2_qos_disable_sq() still returns void, so callers can't tell that the
-disable failed. When the same qid is set up again right afterwards, are
-the kept SQB pages and queue buffers leaked?
-
-otx2_qos_enadis_sq() re-enables the qid straight after the disable:
-
-drivers/net/ethernet/marvell/octeontx2/nic/qos.c:otx2_qos_enadis_sq() {
-	if (pfvf->qos.qid_to_sqmap[qid] != OTX2_QOS_INVALID_SQ)
-		otx2_qos_disable_sq(pfvf, qid);
-
-	pfvf->qos.qid_to_sqmap[qid] = node->schq;
-	otx2_qos_txschq_config(pfvf, node);
-	otx2_qos_enable_sq(pfvf, qid);
-}
-
-otx2_qos_leaf_del() works the same way. It disables node->qid and later
-calls otx2_qos_enable_sq(pfvf, qid) for the moved leaf.
-otx2_qos_leaf_to_inner() and otx2_qos_leaf_del_last() pass the qid to a
-child or parent. That node is then enabled through
-push_txschq_cfg()->otx2_qos_enadis_sq().
-
-The setup path overwrites the kept pointers without checking them:
-
-drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c:otx2_qos_sq_aura_pool_init() {
-    ...
-	sq->sqb_count = 0;
-	sq->sqb_ptrs = kzalloc_objs(*sq->sqb_ptrs, num_sqbs);
-    ...
-}
-
-In the same way, otx2_pool_aq_init() always calls qmem_alloc() for
-pool->stack. otx2_sq_init() also reallocates sq->sqe, sq->sqe_ring,
-sq->cpt_resp and sq->sg.
-
-After that, the old SQB pages stay DMA mapped and keep their page
-references. The old qmem buffers are never freed, because
-otx2_free_hw_resources() only sees the new pointers. pool->fc_addr is
-fine, since otx2_aura_aq_init() reuses it when it is non-NULL.
-
-With default ring sizes this comes to roughly 2 MiB each time. The
-commit message only covers the case where the queue is not set up again.
-In the common callers the queue is set up again in the same call.
-
-Could otx2_qos_disable_sq() return the error so callers can avoid
-reusing the qid? Alternatively, otx2_qos_enable_sq() could refuse, or
-retry the disable and free first, while sq->sqb_ptrs is still set.
-
->  
->  	otx2_qos_sq_free_sqbs(pfvf, sq_idx);
-
-[Severity: High]
-This is a pre-existing issue and was not introduced by this patch. Does
-otx2_qos_sq_free_sqbs() leak sq->sqe_ring and sq->cpt_resp on every
-successful disable?
-
-otx2_sq_init() allocates both buffers for every SQ, QoS SQs included,
-with no qidx condition. Those allocations came in with commit
-6a77a158848a ("cn10k-ipsec: Process outbound ipsec crypto offload").
-otx2_qos_sq_free_sqbs() frees the other buffers and then clears the
-struct:
-
-drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c:otx2_qos_sq_free_sqbs() {
-    ...
-	qmem_free(pfvf->dev, sq->sqe);
-	qmem_free(pfvf->dev, sq->tso_hdrs);
-	kfree(sq->sg);
-	kfree(sq->sqb_ptrs);
-	qmem_free(pfvf->dev, sq->timestamps);
-
-	memset((void *)sq, 0, sizeof(*sq));
-}
-
-The only other place that frees them is otx2_free_sq_res(). It only does
-so when sq->sqe is set, and the memset above has already cleared it:
-
-		if (sq->sqe) {
-			qmem_free(pf->dev, sq->sqe);
-			qmem_free(pf->dev, sq->sqe_ring);
-			qmem_free(pf->dev, sq->cpt_resp);
-
-The qmem buffers come from otx2_dma_alloc_coherent(), which uses
-kzalloc() and dma_map_single(), so they are not devm managed.
-
-With the default sqe_cnt of 4096, each HTB leaf delete, leaf-to-inner,
-leaf delete-last, or re-config through otx2_qos_enadis_sq() would leak
-about 1 MiB for sqe_ring and 256 KiB for cpt_resp, plus their DMA
-mappings. This happens on the normal success path and can be repeated.
-
->  	otx2_qos_aura_pool_free(pfvf, pool_id);
-
+diff --git a/drivers/vhost/vdpa.c b/drivers/vhost/vdpa.c
+index ff7d907..623c2da 100644
+--- a/drivers/vhost/vdpa.c
++++ b/drivers/vhost/vdpa.c
+@@ -1109,6 +1109,19 @@ static int vhost_vdpa_va_map(struct vhost_vdpa *v,
+ 			ret = -EINVAL;
+ 			break;
+ 		}
++		/*
++		 * uaddr may lie in an unmapped gap before vma->vm_start; skip
++		 * the gap so the offset calculation below uses an address in the VMA.
++		 */
++		if (uaddr < vma->vm_start) {
++			u64 gap = vma->vm_start - uaddr;
++
++			if (gap >= size)
++				break;
++			size -= gap;
++			uaddr = vma->vm_start;
++			map_iova += gap;
++		}
+ 		map_size = min(size, vma->vm_end - uaddr);
+ 		if (!(vma->vm_file && (vma->vm_flags & VM_SHARED) &&
+ 			!(vma->vm_flags & (VM_IO | VM_PFNMAP))))
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124190046.415260-2-oss.patchbox%40gmail.com
+2.50.1
+
