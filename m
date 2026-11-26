@@ -1,100 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.178
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795682300;
-	b=0yhUBi40GFNyxCqSCGlPrRxBkZTY7VQBJH5bsKmgWOIEPmv/G4Pe7IEPs+GHyWkOf/BR
-	 qdOwdCI+OdzoALZlqHHmAKMV0RmzzOZ9jR6cLi4uP81/hUA7Jb4evlcoBGqhziNOWRRn/
-	 TplRnoSKllsR2k8wWSYEZuveuuNq+xuWwFqAfhk441XDt9kfpPHbWaAKR+ggiipdssvu8
-	 LuuuS50NDp+SzphdYUqohOuzTXLLJ86wWwWkfF+GSfGpgb50fibcoElNAttahiM0ep5ih
-	 jGa/ImSBY5tMmSpfG8smlvIdi+lyT1dGEp4S5hIeLwhBTOc9tQwnBUQF49chCL53jNg==
+	t=1795682549;
+	b=Lhr+7ja8MXb+5G1FKZprODALK1clBSZsJNMVnY+gX6yzb8aRBidOE4ddlkti/FSB2dDu
+	 RSEfQIH3M+OLWH31a+SUdV4qGNxUvIwSG6Gjq7q/SHDZ5UjhMEu/IVlyqB3ZDoGQrGTtg
+	 lIFSfSPoOzznzak8e4z8M0JYpggjcyABaBqSRz+CW49W/nIYKdzWk8m1lftjXw5SIOc6J
+	 sNUDm+QWfoXK18WAb87Bbw+IFjfYKsq7Gmn2V/SKfahyCPBVtiYq6d3rF+xiRo/dqpIf9
+	 phWyqoY3e8XwB1DUsH4ICgeybInjGbCXpHhKawSkuxP2FQc4CjIT/6pJr+EXdlXtFow==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682300;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795682549;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=Fn8L5A34OqOZXMiN5h9TriZztWnWG14J3/PeOauC6Mo=;
-	b=RwRIdrSMLTOBENo9XvJVECVE/LzapkEqB8ia63CBR7ondU2R6mkAKp/w6DFbWXBJabyK
-	 A4AjYZzrimZWexUKw2zXzfOR1wtbKwrCT54KRJiB6cNV/QsejRYjlL2b4zsJ3rEqFdaky
-	 FWWv8jBVz/JyaQGIAv6SfWvk/m2Bt5zpUeDWTcUdKs6Pyyo7Sjik9GYjX4p3TAjAHKyuk
-	 mwbl+ouFchIuDt/IBwMNpzBH9Num9T8HIRjI/ksVl4tQw0oa2fRpRuNtc/SPidEuvPVdA
-	 PPy9FOuLY1/ddQ/Qtk1g1oq35WCarSN4VWZC0pDq/0DsvZQIY9w15hoFp+jqZ2bHmWA==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
+	b=mcOLMkPdE5h2IYItpsXQARpbfh45WZ2IboSPyUkGCiw32m3ioJ9IXIdRcsSKgqtSYmwO
+	 RqNDsZyYL5sYkQCKSm2ruwfWxHQ9D3/+037XVbty8IrXmGNKRvLRYOj6mu06tc8WPJbXR
+	 Mmq86pYPZtjeLI+LVuvS8ChtLUILx1Qb+5ccNDXxTJT96ozXWVB8Ag7MQMz20x+Ryqs4I
+	 P56vHntYehsPhYrR6vu/iKR+8yLEEN1pLq5MbFXytJkbu+yGWiP1ddJUdBiBg3kIJIao/
+	 fLAL5zaEWQt1/LyxPcVHfNrvSP67DIUGQHIVlCGWxPEQQjEuNbnd27c0/GwGdmhmfNw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=luxonis.com;
-	spf=pass smtp.mailfrom=luxonis.com;
-	dkim=pass header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=ApDLdg3M;
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PhxsFBKP;
+	arc=none smtp.remote-ip=209.85.210.178
+Received: from mail-pf1-f178.google.com (mail-pf1-f178.google.com [209.85.210.178])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 991DC606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:38:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 991DC606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=luxonis.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=luxonis.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DFA7A606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:42:28 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DFA7A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=luxonis.com header.i=@luxonis.com header.a=rsa-sha256 header.s=google header.b=ApDLdg3M
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4bb6ba3b244so68416375e9.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:38:19 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=PhxsFBKP
+Received: by mail-pf1-f178.google.com with SMTP id d2e1a72fcca58-8bef8d4fb90so174901b3a.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:42:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=luxonis.com; s=google; t=1795682298; x=1796287098; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795682548; x=1796287348; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=Fn8L5A34OqOZXMiN5h9TriZztWnWG14J3/PeOauC6Mo=;
-        b=ApDLdg3MdRswDEI7SeBO2xKiJcqBl0rRT5U6lBsWE1J+T3HPXhJtZ00ThjSdzXlsaZ
-         JcydvIqWYbIjexwKdV2b8h435oivEihEfqKiB7wAzXTJ3xxs3kjM2vjEW0Maz1L0QcaT
-         p83gyjcDBKtXGaZOtFwaQTkQnD87qkeFimPcEUTJt6XaeGfipjY+RzTjlIXimPt01Ci7
-         oOcLvDNMgV/5QcV6Xde8wXe8kUXrjI+LsLGJhXohkYD+7+44z8DeHDVSTVJ0Ye5FyAy/
-         JnZfGTQI7f6y0WPgchwYikAQKiUMZjRW9x6mIBOMHAkR0vcaia/iWYJKXsMq2KKT6OHB
-         /dsg==
+        bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
+        b=PhxsFBKPZgAqS99nTaerLNzznhbqRkxwN21v0GcOejFQJTzwsS+9qwBKqeYb//JsTq
+         pt4pPPrJvPR4MJOUv+NG1gxkru2fi9Fe/Z7gbNFjLmUczhlh7QdUOFHNZa+XPxHHZaVs
+         lEKf0ipfAG96jCfdEVuCaE5EpK1RWoqoRKVSDkrADq5VndGXfRyjM8XW6s7BB85DpsAi
+         b+wxt0+tXngto0PAbwmm+Kb3hATs3zM5AJBsfiujXRA+lJ75ipRvF4oMZch+sXtXRniA
+         TvAY1OccPHrEJxfJK//h+GVrfUafzULFvB1Dx8+86Urb3soC7WP93vcLQpitLWJn8K21
+         Yj0g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795682298; x=1796287098;
+        d=1e100.net; s=20260707; t=1795682548; x=1796287348;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=Fn8L5A34OqOZXMiN5h9TriZztWnWG14J3/PeOauC6Mo=;
-        b=QBa4o5xAFAXN/TD3qq6UizaQCD5R9nmM/NjQTSpnkn0Nq8D/TGPBrEwfg6Js8THm1r
-         F75lV/qwF59zy/XDKRcyRApug6gC3Qoi3J0Lzh9Zw+FL/nqsCJfA3L+lCSmOU6GMIRdN
-         teWLxeRBd9Q5/JfqjCiTs9s1qSoHJ9nbzTlkA6e8VYLe8IGKW1oPfvSuC9TGQwLSUFrA
-         b7i0jWRwwsQCSHZpaBvfUT/lVKx0VpEChHcgtUSZE0hbKSYhgvsMC101/q701DYA+gS7
-         92lCA1tz055pwco6iKtBASCIi9WUb0mYAe0klDIwNH/mbWqBYJXvG+4s3511cT294WNm
-         kfYg==
-X-Forwarded-Encrypted: i=1; AL+hErGoX29NnPflorSZwxgFs6MoFicoA3ErBgzCNjzpLTrSwp5PljMmNxAu+iaDxH9afdMgy5D26sg=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9jOLF6olCEKa7cVrObHhd2LInai3y0pzpCPQZtnii8wIGNR/Ix
-	YNGl1ma9tb96zII8s2tyasma1s1hFhghBTvIZq7JaijvzYdcqUAOmVMK1DSz0eruBEA=
-X-Gm-Gg: AZFdTZfQ5KeTxRstJhWr8Q9G2+fFP1RXYgPokfmeDPFtRJFeopo2h1gSiFCYqlkrU6k
-	AIZSW4nNRWsYXy1dr2uEjDFBpwbcFy+hCnUt8HVZXcWUp9UMIbhASJFQz7xdidk3hn9cRa7SmkF
-	jcg71fQCuGDXUdaB4lw+WuIJn6y2W0lwvufoxEBRMVJPYTrjGW5zBAmvbreDj9ing12I2djKKAn
-	3++IRmiGGcqsbM0h9XyqGhbNlsCC4IFvl1kLqrg4xsUT6ZneOrusT+Oxgq8exvWw6KNw8lL6/Km
-	SJ7Luv+/Vib6DrHZq+aXn6DgqiSO+5PHquHW2ckt4kadLIYkgQjkXL/UcByNw36V3ZxogHpYqNq
-	3x8v+kHI0RVq6VPjx6nzcVTrph4JFklLer4Lys2B4xXA9Krejqd8XJ/wDAw05UEbhh24mfXJC/x
-	Uq8KZDrfMNfJmlxgfNCgIhDQtQ0wXOCgx3xkP1MCN8zPh8JJU+sKBpnM74wQfpidqUr8uwAED57
-	u7WLXNUpVxEOVJd2ihnE4K+SDy4RMCn3GYxWa6JFlCPi+nkINsu4EtWU6ZeZA6Fhv94pJxxr/w9
-	+78WUuSNu5tXUXjhlEPgTCUyz6kXNHs4l58GHUZIIUZyX3j65IRfOFekvZmS2SK7HMZDmg==
-X-Received: by 2002:a05:600c:3b9e:b0:4a1:cf60:dcc3 with SMTP id 5b1f17b1804b1-4bb88820687mr474456765e9.29.1795682297748;
-        Thu, 26 Nov 2026 00:38:17 -0800 (PST)
-Received: from JureBuildPC (46-150-36-237.static.telemach.net. [46.150.36.237])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb884865b1sm589984285e9.5.2026.11.26.00.38.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:38:17 -0800 (PST)
-From: Jure Rebernik <jure.rebernik@luxonis.com>
-To: Heiner Kallweit <hkallweit1@gmail.com>,
-	nic_swsd@realtek.com,
-	netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Sunil Goutham <sgoutham@marvell.com>,
-	Jacob Keller <jacob.e.keller@intel.com>,
+        bh=mHwHRe9XTxN3mpF3N0k+Ilh/t2cSlSvEtsZYTB5OR8Q=;
+        b=R8BguCGqQCBslETaCzCWc3voHyAIBJghXzrj5plOe8tJ40khmtqlYc/o5GPYqCZY/5
+         VtE/06jV8F29I/SkOfPJx/127ZJqK2PzVai18xhynslC9m/XnvmZBEaKj06Ei/PtoN24
+         C+c5yROz7sSEelqa/yPtDs9Juhs6+YZNh9fTo47PF1fD+5zC0EGPgLDh8IWjjbN597eX
+         uHTfQAUmm6KtWU33GDFOIoPQZprQd1ONFXOQGjKSIBgzqNeZnChLvhX2EizD3MntMBgr
+         46cnvTyg4gGEd9uf5oeE6LdlmvTAcjmSageiFNjnJQ6yGA6pefyYWCWj352Ri9XhJSrI
+         hqcQ==
+X-Gm-Message-State: APuU4Z+OY1tKzi3xjMAt6C8JOoYXQwkN3litBhIfEjpBezcn0Yg9hvHy
+	WfpFy0xMh4PL9ArNgI5DQ47VIh4nh9jwfhd4Il044gF4il73uuAjyvfV
+X-Gm-Gg: AZFdTZe+mmEXMPosVGP0Bah26IGjPkzcDkQ9cNnOYxlXF4MZvxnIZeL8m+onxXHxebV
+	egYPxJFM1BDn6tuTgYld0d0yPAJZUxTTvoM/8yFw17HJO70snsCmpzgYBiFq8s9m2wFJ/BoM9d+
+	FI/sVtlBqbZG9oBu0TX5VoM/tA37zirL6XPZaseKigxBz7R8ZuDu8ER53B6bdrkcqUilQHJYZDE
+	OxzpZSI71GHNJZcXN2CVLozNi4hn2lgIdTdOl3GMPLehNP3Ey7tzlA38axR6VKXPC8CW43Cp+U0
+	SqVZn9MEppebCyz7h6gLvzKULWQd4FxMkLzm37y5r0vkHAi5/eIPW/Gly9JQFBhZORZfAAelSLE
+	SdOso0ShHfRW4P3iI6RxM4slV5BVx0U1OoUicc562D5wc5FxGK1kaDhS93DCau6Z/6EwPbGsZ/Q
+	B+s/Ew9y3zeTlVtGaapuVZnbR8FwgTdBUXrf81wXBCiMOwm+hVOiwzoQuZr+7splT6wX+YaJhKQ
+	lUDkOPfLne6fQotZbN5ft3piRhffvnERVfxX3sd1tVNlORcS1cHCN0WbrEhBoF7WBfHqSBeyOMM
+	8xkaP/qttYMleQiPxrvXeejaR6It0nRUqF591AeifS/rfc0=
+X-Received: by 2002:a05:6a00:198d:b0:8a0:8822:e6b1 with SMTP id d2e1a72fcca58-8c87b9cf815mr30956275b3a.3.1795682548043;
+        Thu, 26 Nov 2026 00:42:28 -0800 (PST)
+Received: from gmail.com ([36.112.204.120])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c872e4aca2sm10327653b3a.32.2026.11.26.00.42.22
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 00:42:27 -0800 (PST)
+From: Ziyu Zhang <ziyuzhang201@gmail.com>
+To: saeedm@nvidia.com,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	leon@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	Jure Rebernik <jure.rebernik@luxonis.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net v3] r8169: clear RxOverflow before unmasking interrupts
-Date: Thu, 26 Nov 2026 09:37:55 +0100
-Message-ID: <20261126083755.1530514-1-jure.rebernik@luxonis.com>
-X-Mailer: git-send-email 2.56.0
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	roid@nvidia.com,
+	baijiaju1990@gmail.com,
+	ziyuzhang201@gmail.com
+Subject: [PATCH net v2] net/mlx5e: Fix deadlock when parsing flow actions fails
+Date: Thu, 26 Nov 2026 16:42:16 +0800
+Message-Id: <20261126084216.26436-1-ziyuzhang201@gmail.com>
+X-Mailer: git-send-email 2.39.5 (Apple Git-154)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -106,123 +106,142 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-When the RTL8125B runs out of RX descriptors it sets RxOverflow
-(RxDescUnavail in the vendor driver) and stops receiving until
-RxOverflow is cleared in IntrStatus, even after the driver has returned
-the descriptors. Since commit 6994520a3328 ("r8169: disable interrupt
-source RxOverflow") nothing may clear it:
+Neighbour and route updates wait for flow->init_done while holding
+encap_tbl_lock. Action parsing can expose a flow to these updates by
+attaching post-action encap entries in alloc_flow_post_acts(). If a
+later allocation or validation fails, cleanup needs encap_tbl_lock to
+detach the entries, but the update is still waiting for init_done.
 
- 1. The ring fills. The chip completes the last frames (RxOK), then
-    sets RxOverflow and stops receiving.
- 2. rtl8169_interrupt() read IntrStatus before RxOverflow was set, so it
-    clears only RxOK.
- 3. NAPI empties the ring and unmasks the interrupts.
- 4. The stopped receiver raises no new RxOK, and RxOverflow is not an
-    interrupt source, so reception stays stopped until another event,
-    such as TxOK, makes the handler clear all status bits.
+Remove any installed post-action rules first, since a woken update can
+free the encap headers they reference. Mark the flow as having failed
+action parsing and signal init_done before detaching the entries.
 
-This was observed on an RTL8125B (XID 641) on an arm64 Qualcomm QCS8550
-with a 2.5 Gbit/s link, running v7.2.6 and receiving UDP at
-1500 Mbit/s: reception stopped for seconds in most 30 s runs. During
-stops in earlier runs, RxOverflow was set with all RX descriptors owned
-by the NIC, and clearing only RxOverflow from user space restarted
-reception. The order of steps 1 and 2 is inferred from that state.
-Reproducing the stall needs no kernel change.
+Skip flows that failed action parsing in mlx5e_take_tmp_flow() after
+waiting for init_done. A route update can encounter the same flow through
+more than one encap entry while holding encap_tbl_lock, before cleanup
+can detach the entries. Skipping the flow prevents adding its tmp_list
+node twice. The lock prevents detach while the collector waits and
+checks the result, so it can take the reference after this check.
 
-Clear RxOverflow in rtl8169_poll() whenever rtl_rx() stops at a
-descriptor owned by the NIC, before napi_complete_done(). Clearing it
-only when NAPI completes is not enough: with threaded busy polling NAPI
-never completes and reception would stay stopped.
+Free the post-action attributes on the parse error path before dropping
+the caller's reference, so any temporary reference held elsewhere
+cannot defer encap detach. Use a separate parse failure flag so the
+existing FAILED flag retains its meaning for offload failures.
 
-The clear runs on all chips that use rtl8169_poll(), that is all except
-RTL8127 with more than one interrupt vector, but was tested only on
-RTL8125B. Where RxOverflow is not set, the write has no effect.
+This possible bug was found by our experimental static analysis tool, which
+analyzes lock usage and completion-based synchronization to detect
+potential deadlock patterns.
 
-Testing on v7.2.6 with two RTL8125B boards; a stall means reception
-stopped for at least 1 s:
-
- - Inbound UDP at 1500 Mbit/s, switching between the old and the new
-   behaviour on the same boot, 40 runs of 30 s each: old, 30 runs
-   stalled and 11% of the datagrams were lost; new, no run stalled and
-   0.012% were lost, almost all counted in rx_missed while the default
-   256-entry ring was briefly full.
- - Threaded busy polling with the NAPI thread starved for 20 ms of every
-   200 ms, inbound UDP at 800 and 1500 Mbit/s, 12 runs of 40 s each:
-   old, no frame was received in any run; new, frames were received
-   throughout.
-
-On this tree the patch was only built. rtl8169_poll() and
-rtl_ack_events() changed since v7.2 for multiple RX queues
-(36af5aac9545, 5df447aee076), but the changed lines behave the same on
-single-vector chips.
-
-The investigation was done with an AI coding assistant (Claude Code):
-it wrote the HIL test scripts, the debugfs instrumentation and the
-register tools used above, proposed this change and drafted this
-changelog. I reviewed the change and the evidence, and the test
-results above come from runs on our hardware.
-
-Fixes: 6994520a3328 ("r8169: disable interrupt source RxOverflow")
-Cc: stable@vger.kernel.org
-Signed-off-by: Jure Rebernik <jure.rebernik@luxonis.com>
+Fixes: 8300f225268b ("net/mlx5e: Create new flow attr for multi table actions")
+Signed-off-by: Ziyu Zhang <ziyuzhang201@gmail.com>
 ---
+Changes in v2:
+- Skip flows that failed action parsing before adding them to tmp_list.
+- Detach their post-action encaps before dropping the caller's reference.
 
-Notes:
-    v3:
-    - Clear RxOverflow whenever rtl_rx() has returned all descriptors, not
-      only when napi_complete_done() returns true, so that busy polling
-      cannot keep reception stopped (Sashiko)
-    - Say in the comment and the changelog that the clear runs on all
-      single-vector chips but was tested only on RTL8125B (Sashiko)
-    - Say how this tree differs from the tested v7.2 code (Sashiko)
-    - Test both paths at 1500 Mbit/s, where the stall reproduces reliably,
-      and busy polling with a starved NAPI thread
-    - Dropped Jacob's Reviewed-by, as the code changed
-    
-    A build of this patch that counts the clears where RxOverflow was
-    actually set: in 20 runs at 1500 Mbit/s without a stall, 269 were
-    followed by NAPI completing and interrupts being re-enabled, and 320 by
-    NAPI not completing yet because of deferred hard interrupts.
-    
-    With the RX ring raised to 1024 entries, which this patch does not do,
-    no run stalled with this patch: at 800 Mbit/s the NIC dropped no frames
-    in 60 runs on three boards, and at 1500 Mbit/s only 157 datagrams were
-    lost in 20 runs on two boards. With busy polling and the starved thread
-    it received about 69200 and 125100 frames/s at 800 and 1500 Mbit/s.
-    
-    Stable trees do not have the multi-queue rework, so backports need
-    their context adapted; I can send those.
-    
-    v2: https://lore.kernel.org/netdev/20261121073652.410916-1-jure.rebernik@luxonis.com/
-    v1: https://lore.kernel.org/netdev/20261101102720.702600-1-jure.rebernik@luxonis.com/
+Sashiko's other two findings concern cleanup before reoffload retries.
+That cleanup is being discussed separately:
+https://lkml.iu.edu/2611.1/02787.html
 
- drivers/net/ethernet/realtek/r8169_main.c | 13 +++++++++++--
- 1 file changed, 11 insertions(+), 2 deletions(-)
+v1: https://lore.kernel.org/r/20261125042323.88050-1-ziyuzhang201@gmail.com
 
-diff --git a/drivers/net/ethernet/realtek/r8169_main.c b/drivers/net/ethernet/realtek/r8169_main.c
-index f151ab681393..1da64c6e39e2 100644
---- a/drivers/net/ethernet/realtek/r8169_main.c
-+++ b/drivers/net/ethernet/realtek/r8169_main.c
-@@ -5670,8 +5670,17 @@ static int rtl8169_poll(struct napi_struct *napi, int budget)
- 	/* rtl8169_poll() is used only when there is a single RX ring. */
- 	work_done = rtl_rx(dev, tp, &tp->rx_ring[0], budget, napi);
+ .../net/ethernet/mellanox/mlx5/core/en/tc_priv.h   |  1 +
+ .../ethernet/mellanox/mlx5/core/en/tc_tun_encap.c  |  6 ++++-
+ drivers/net/ethernet/mellanox/mlx5/core/en_tc.c    | 31 ++++++++++++++++++++--
+ 3 files changed, 35 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
+index 1ceebab4ce08..a031b85a466f 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_priv.h
+@@ -31,6 +31,7 @@ enum {
+ 	MLX5E_TC_FLOW_FLAG_SAMPLE                = MLX5E_TC_FLOW_BASE + 10,
+ 	MLX5E_TC_FLOW_FLAG_USE_ACT_STATS         = MLX5E_TC_FLOW_BASE + 11,
+ 	MLX5E_TC_FLOW_FLAG_PEER                  = MLX5E_TC_FLOW_BASE + 12,
++	MLX5E_TC_FLOW_FLAG_PARSE_FAILED          = MLX5E_TC_FLOW_BASE + 13,
+ };
  
--	if (work_done < budget && napi_complete_done(napi, work_done))
--		rtl_irq_enable(tp);
-+	if (work_done < budget) {
-+		/* At least the RTL8125B stops receiving after running out of
-+		 * RX descriptors until RxOverflow is cleared. All descriptors
-+		 * are back with the chip now, so clear it, also when busy
-+		 * polling keeps NAPI from completing.
-+		 */
-+		rtl_ack_events(tp, RxOverflow);
+ struct mlx5e_tc_flow_parse_attr {
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
+index 5e40107efa26..21a03d15c4be 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en/tc_tun_encap.c
+@@ -275,6 +275,11 @@ static void mlx5e_take_tmp_flow(struct mlx5e_tc_flow *flow,
+ 				struct list_head *flow_list,
+ 				int index)
+ {
++	/* Detaching the flow also takes encap_tbl_lock. */
++	wait_for_completion(&flow->init_done);
++	if (flow_flag_test(flow, PARSE_FAILED))
++		return;
 +
-+		if (napi_complete_done(napi, work_done))
-+			rtl_irq_enable(tp);
+ 	if (IS_ERR(mlx5e_flow_get(flow))) {
+ 		/* Flow is being deleted concurrently. Wait for it to be
+ 		 * unoffloaded from hardware, otherwise deleting encap will
+@@ -283,7 +288,6 @@ static void mlx5e_take_tmp_flow(struct mlx5e_tc_flow *flow,
+ 		wait_for_completion(&flow->del_hw_done);
+ 		return;
+ 	}
+-	wait_for_completion(&flow->init_done);
+ 
+ 	flow->tmp_entry_index = index;
+ 	list_add(&flow->tmp_list, flow_list);
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+index 1d35c97aea0b..9e7850b5e13d 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
+@@ -3748,6 +3748,31 @@ free_flow_post_acts(struct mlx5e_tc_flow *flow)
+ 	}
+ }
+ 
++static void abort_flow_post_acts(struct mlx5e_tc_flow *flow)
++{
++	struct mlx5e_post_act *post_act = get_post_action(flow->priv);
++	struct mlx5_flow_attr *attr;
++
++	if (flow_flag_test(flow, PARSE_FAILED))
++		return;
++
++	/* Remove hardware rules before an update can free their encap headers. */
++	list_for_each_entry(attr, &flow->attrs, list) {
++		if (list_is_last(&attr->list, &flow->attrs))
++			break;
++		if (!attr->post_act_handle)
++			continue;
++
++		mlx5e_tc_post_act_del(post_act, attr->post_act_handle);
++		attr->post_act_handle = NULL;
++	}
++
++	/* Wake updates before detaching encaps under encap_tbl_lock. */
++	flow_flag_set(flow, PARSE_FAILED);
++	complete_all(&flow->init_done);
++	free_flow_post_acts(flow);
++}
++
+ int
+ mlx5e_tc_offload_flow_post_acts(struct mlx5e_tc_flow *flow)
+ {
+@@ -3852,7 +3877,7 @@ out:
+ 	return 0;
+ 
+ out_free:
+-	free_flow_post_acts(flow);
++	abort_flow_post_acts(flow);
+ 	return err;
+ }
+ 
+@@ -4580,8 +4605,10 @@ __mlx5e_add_fdb_flow(struct mlx5e_priv *priv,
+ 		goto err_free;
+ 
+ 	err = parse_tc_fdb_actions(priv, &rule->action, flow, extack);
+-	if (err)
++	if (err) {
++		abort_flow_post_acts(flow);
+ 		goto err_free;
 +	}
  
- 	return work_done;
- }
+ 	err = mlx5e_tc_add_fdb_flow(priv, flow, extack);
+ 	complete_all(&flow->init_done);
 -- 
-2.56.0
-
+2.34.1
