@@ -1,61 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795685458;
-	b=O5HdfgXm/dCZlTdOnn94pP8HF+uY9JSvSZOosVeTR1hGwrysv1KBfSMkJ54+ZhJPwLZH
-	 1o3gxlkvrIYjodRTwfpZhX4TP3Y/CAGJEwRa0LZBkjXl/7WNdIEW46dh+zOBjmbX05b85
-	 IILuflUaKyjCf26pY1HtPICJZfsjBSUK1jvqy9lLez1ULPCQcC5bnf/6ZVCYiBq+g58Qy
-	 R0gUweD7ntIcwM+raKki7fVm0cqQoKypR4fXG3lDJUcHriybqtiwlLeu/e6nJrk2mEdX5
-	 Wmdxz8mp/MQ7yE9Nz/NlWNdMgiujOb2NvATs/u1kWelTGHn6FLXgBsyVfC+oWT+tP6Q==
+	t=1795685632;
+	b=r2+XJTLp+i5JGh+E7zu/SRlnSGI2SPJc2R8Eond5wQUdHatHYDDE3qjuVO4eLkkr5cqX
+	 PDQ0XH7mFsfI/diancGBNlVkehBzJVlye9RkaK5AfQ2W2P7X9wNu22L6VDuPogIArNLBL
+	 k2GTLd5f3XDrzoq0BxSlSZfX2t5N1Q6/UhwosGtbv6ej7XkT13TjnJe/o25JGOcsHQiM0
+	 z0BteqTDqCuUlssd6NaGWu05wnq2nLG4W/y4qNb5YOnLcps7vVW0QrAyiIIg75VR4yv9C
+	 rK1BdmiL1MdyEWYv++4LrOrAmmI7V2Ll1GNrSRbEDECeYlMrfheAYYugqDzhnp4qssw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795685458;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=476RQ3GYG4okDny442A7f62x9RH8CtxwgL2Y5IQAN4I=;
-	b=Sl9ckr4+eVApRe10/BxC1nbDQCbibfkyBO34p2vzAko60dGcFo2hh68zKay6cz5PdI/X
-	 7avPhK8WLgWFq4cbO0fRpEWudTxF6BFlmJgJHEK3+w3KTIqDl0sJzXnKshM3jBcIdaiB1
-	 QlT7DsjOOWHRq7oy3nLWH/mKzj4ghZKwSvPGjor0L8dQ5lanf4REoatIE3op88FP3qfkK
-	 omj/MLfw/GT7f26osZ4GBK05f4m/D1LAUpTChNfsSP2YukhenGTP68IkZB6YfC4eEYNiS
-	 N0D+sNYhgSXUVop/Jnc2r7Sis9fd+WYiLNtTizVaTbLcRLl6AQ/998mkNLQgoGA+T7w==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795685632;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=7QcJ6tBuLoqHPswlbVhYm5kRSsDto3rtTMzCHGSw+do=;
+	b=lZdliJCrRiRBfUW7hOu1RJWFbPXraVuv7nTUSBPh4sjzkezkXi17deECErLJZxOIPYLZ
+	 FoLf58MQ0cezAnSfbV8lEXAXboTyBKAJcE3a0rMsAellXprFI6HUEzk/vRrkvs6UJdHU9
+	 fS16Zt6HrTku37td0a64nC8zs0DPE3Yh24KHGoVpRjVa0zZ6UBc2Dv9PgRY6gbobuJoLH
+	 zgXb0J5fb/M1h/ZbGZIHjqn3B9f8gX44JpmqaCHIQlYAHuKSBt49TX7NIvEeNt0NAK46N
+	 jXlsPhg90YXGmyj+JjQTsuLESiLhm8fmB5hoPEy0boKew6ny5tTyVa7CzJygkjyNxNQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=datenfreihafen.org;
-	spf=pass smtp.mailfrom=datenfreihafen.org;
-	arc=none smtp.remote-ip=78.47.171.185
-Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9486A606A31C;
-	Thu, 26 Nov 2026 09:30:57 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9486A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
-Received: from work.datenfreihafen.local (unknown [46.253.254.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: stefan@sostec.de)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id 63EC7C04A3;
-	Thu, 26 Nov 2026 10:30:55 +0100 (CET)
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-To: Alexander Aring <alex.aring@gmail.com>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Andrey Misiurov <amisiurov@cloudlinux.com>
-Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
-	linux-wpan@vger.kernel.org,
-	netdev@vger.kernel.org,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net v2] ieee802154: keep the original error after a netns rollback
-Date: Thu, 26 Nov 2026 10:30:50 +0100
-Message-ID: <179568544756.1950988.3201920280564563921.b4-ty@datenfreihafen.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261120065750.3274661-1-amisiurov@cloudlinux.com>
-References: <20261120065750.3274661-1-amisiurov@cloudlinux.com>
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=XhG4orjH;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 3C0A5606A31E;
+	Thu, 26 Nov 2026 09:33:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3C0A5606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key, unprotected) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=XhG4orjH
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=XhG4orjHsMt5yBOugUXML3k553m4+/j6ZLIsYxfO8yhktU1pFnD2qhw8XWxjEmzyNPec/krvyZWWP
+	 Xn7hib3NROSUT8RE6+W3RIiR6gqdWdG0+PxfN8eRVyJb9TU4XgaX6ghWyvIn0eHbDzc9mOGgBTNKjV
+	 katKky6gOXnnfSkg=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app04-12004 (RichMail) with SMTP id 2ee46b07fcf91a7-fba8f;
+	Thu, 26 Nov 2026 17:33:47 +0800 (CST)
+X-RM-TRANSID:2ee46b07fcf91a7-fba8f
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from localhost.localdomain (unknown[223.112.32.189])
+	by rmsmtp-syy-appsvr01-12001 (RichMail) with SMTP id 2ee16b07fcf9819-670bc;
+	Thu, 26 Nov 2026 17:33:47 +0800 (CST)
+X-RM-TRANSID:2ee16b07fcf9819-670bc
+From: Hongyu Guo <guohongyu@cmss.chinamobile.com>
+To: intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org
+Cc: anthony.l.nguyen@intel.com,
+	przemyslaw.kitszel@intel.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	alan.brady@intel.com,
+	stable@vger.kernel.org,
+	13057616121@163.com
+Subject: [PATCH v2] idpf: fix vport_id used as array index in MAC filter async handler
+Date: Thu, 26 Nov 2026 17:26:27 +0800
+Message-ID: <20261126092627.255454-1-guohongyu@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126020854.233971-1-guohongyu@cmss.chinamobile.com>
+References: <20261126020854.233971-1-guohongyu@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,27 +78,72 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-Hello Andrey Misiurov.
+idpf_mac_filter_async_handler() looks up the vport with
+idpf_vid_to_vport(), but then indexes adapter->vport_config[] with
+the raw vport_id from the message instead of using the vport it
+just found.  vport_id is a device-assigned 32-bit number and is
+not limited to num_max_vports, so vport_config[vport_id] can read
+past the end of the array.  Use vport->idx, the array index the
+rest of the driver uses.
 
-On Fri, 20 Nov 2026 07:57:49 +0100, Andrey Misiurov wrote:
-> cfg802154_switch_netns() moves all of a phy's netdevs into a new netns. If
-> one move fails, it jumps to the errout label and moves the already-moved
-> netdevs back to the old netns.
-> 
-> That rollback loop overwrites the same 'err' variable with the result of
-> each move-back. The move-backs succeed, so 'err' ends up 0 and the function
-> returns 0 -- success -- even though nothing moved and the phy stayed in the
-> old netns. nl802154_wpan_phy_netns() then tells userspace the move worked.
-> 
-> [...]
+During driver removal the vports are freed before the mailbox
+work is cancelled, so this handler can still run while a vport it
+looks up is being freed.  Return early if IDPF_REMOVE_IN_PROG is
+set.
 
-Applied to wpan/wpan.git, thanks!
+The filter removal loop in the same handler also leaks: it does
+list_del() without kfree(), and if the response lists the same MAC
+more than once it deletes the same entry twice.  Free the filter
+and break out of the inner loop once it is removed.
 
-[1/1] ieee802154: keep the original error after a netns rollback
-      https://git.kernel.org/wpan/wpan/c/006dfe9c1d68
+Fixes: 41252855df77 ("idpf: add async_handler for MAC filter messages")
+Cc: stable@vger.kernel.org
+Signed-off-by: Hongyu Guo <guohongyu@cmss.chinamobile.com>
+---
+ drivers/net/ethernet/intel/idpf/idpf_virtchnl.c | 11 +++++++++--
+ 1 file changed, 9 insertions(+), 2 deletions(-)
 
-regards,
-Stefan Schmidt
+diff --git a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
+index 1caf52706973..ff43a3d34eac 100644
+--- a/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
++++ b/drivers/net/ethernet/intel/idpf/idpf_virtchnl.c
+@@ -3779,6 +3779,10 @@ static void idpf_mac_filter_async_handler(void *ctx,
+ 	if (!status || status == -ETIMEDOUT)
+ 		return;
+ 
++	/* vports are freed during removal, before this work is cancelled */
++	if (test_bit(IDPF_REMOVE_IN_PROG, adapter->flags))
++		return;
++
+ 	ma_list = buff->iov_base;
+ 	/* make sure at least struct is there */
+ 	if (buff->iov_len < sizeof(*ma_list))
+@@ -3794,7 +3798,7 @@ static void idpf_mac_filter_async_handler(void *ctx,
+ 	if (!vport)
+ 		goto invalid_payload;
+ 
+-	vport_config = adapter->vport_config[le32_to_cpu(ma_list->vport_id)];
++	vport_config = adapter->vport_config[vport->idx];
+ 	ma_list_head = &vport_config->user_config.mac_filter_list;
+ 
+ 	/* We can't do much to reconcile bad filters at this point, however we
+@@ -3804,8 +3808,11 @@ static void idpf_mac_filter_async_handler(void *ctx,
+ 	spin_lock_bh(&vport_config->mac_filter_list_lock);
+ 	list_for_each_entry_safe(f, tmp, ma_list_head, list)
+ 		for (i = 0; i < num_entries; i++)
+-			if (ether_addr_equal(mac_addr[i].addr, f->macaddr))
++			if (ether_addr_equal(mac_addr[i].addr, f->macaddr)) {
+ 				list_del(&f->list);
++				kfree(f);
++				break;
++			}
+ 	spin_unlock_bh(&vport_config->mac_filter_list_lock);
+ 	dev_err_ratelimited(&adapter->pdev->dev, "Received error %d on sending MAC filter request\n",
+ 			    status);
+-- 
+2.43.0
+
+
+
