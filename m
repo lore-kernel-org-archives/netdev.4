@@ -1,61 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684320;
-	b=wOfx1HN1CbVgdSTlm8lAe2BhV2WKlh8UQs3Wu7Mj4sW1BZgXTmd3Uqgoo+O2OMGPr4iA
-	 FNl1cjO/+MHFiroe76XheA0bnnZJAjtbdGY24whfb7R2ElZ2Y7F+77crgPQpLNnDgN+Ni
-	 KBlAWhQbdguLh/nTBz+mlwmkf+5q32UHVzuyP2qwlXzMp3zTKIJ7VUJtRPZPW23ZB4m2x
-	 BECzWalBSyY53f/qLQGIKYIVbp3OpEgWVWiwXUQG17BqSTDCbNMCDJeWKYjT4a4nneLIb
-	 MLsBmOgkBEHqkKNbxnRVfUfYBKZVyTY3cer0gFM4E4+6mHcqsXO4hcyI+HK7dJ2TExA==
+	t=1795684465;
+	b=OrikMy56Dxc2oTJnVa3xFiN2eipYdo4PQf9QGeJfQkxdVbMSinVWiW0Nv2LwrIV8tRUx
+	 LS7DYaFzjCswLr5ABQnql20+TGB6Yml5i9KUGzVBK33D14YcPMKRFjkSh+tV7iaBcJQqG
+	 D/kzBl/FVFTR4/gWbDfue1/IKj96WyXzLCZLoG3UqMNAtnv9IAxcwoauNTJQp1xKg9nTM
+	 oUf1aQduBEchFugero5sGOqIQp+ofYhktorvNefOsnPcqBKyKqFWs78J0cy5Rag2gI2Sk
+	 ACATqnWnuiB80MPl1paTyYuGYDp+dzCutVQ7itv6g7etoOn2lGWhpsHZAN16cvi7inQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684320;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=xlPXbBzk6OAyHCSpIb7JT+SULbnTMe1cN5htl76U4AY=;
-	b=ze+JEKZmYyZ7LzM/uRpGi3L6nTl4tgad9lAKnvGfbsbJjlCJ1Fzxhsv76TQKad+JiYYN
-	 vMqBESLSbAp9QLAsdsAVfQ2D/fDD/F5PLcoNrIIB9Vo2qqVFIRoTxMtGesoDtuehbDMvQ
-	 8HUmh02cWb5h0Ce8ryVlBxMpBgvGxjKgsrMYyYv3CIT55w02ZIAxHjLFaS96u6WSU6mrZ
-	 qB25IHjqww6ipsDtcXISqRFZdxzHrquDaRtu7NgfRug6IaXCbANEsvqIFXDZN5js0X788
-	 HllURwppYCgZ2DWuaDAOCpuMawcvkYETCsT8dMYZWgw2H5CfDpRbPeIWp8OVZF2tCFQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684465;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Scanned-By;
+	bh=Uv90ZkLhbhexSdeTuLHraZLQFBYDHiLicEO9C0xVaHE=;
+	b=oiW71XYjPrOPoZkkjuzvqlH2IHzWCuoKgLM00dtcw1hCQB/pqQ80Pr6LXBZ6pGXntCil
+	 Drh8uWUDZAPEegw6kbFWaMycLKCFCPWzB4DlyTbBJpNPaUR6DLahyxM5nxzyu2ntDzIhq
+	 pDfv3vJ2HHsgusgwEPbwzKEhT2//3Jf7uoxKQq4vLW194MqvI0B3V/ul1rERDHWypteD1
+	 77W4n/BxVrwxhvOFtDcqANE16bCI7ed+2WpGhYY0pP8vgXbKnk5j7DPe/q6x14nTBG5HH
+	 XUOuvdL1ZAavl0k6pc0sB+sH7P0NWG90Z4pESDbXJDCBEd/ZtAZ0XXSWzM8eDBuD+Ew==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=datenfreihafen.org;
-	spf=pass smtp.mailfrom=datenfreihafen.org;
-	arc=none smtp.remote-ip=78.47.171.185
-Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b="WhQ/0Pd7";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39677606A321;
-	Thu, 26 Nov 2026 09:11:59 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39677606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
-Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9CCA8606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:14:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CCA8606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=WhQ/0Pd7
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795684463;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Uv90ZkLhbhexSdeTuLHraZLQFBYDHiLicEO9C0xVaHE=;
+	b=WhQ/0Pd7NMJbvfRLgo+X5hRfPY6fvgTGc7WEydMn9d411GsTl34vbDZBU5eEFDjeFBaygM
+	hMOrZQzYZGV75WUOGVBvsYBQcogWlNZ+reIFZrlC+AHj7t+CLxCm693iLylU4yWlUuxmwr
+	XmkGJ3mVhEOFV8h9KmolSRtFQL73fN0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-126-SRTgTkmRNCiECG4PoQZlmA-1; Thu,
+ 26 Nov 2026 09:14:19 +0000
+X-MC-Unique: SRTgTkmRNCiECG4PoQZlmA-1
+X-Mimecast-MFC-AGG-ID: SRTgTkmRNCiECG4PoQZlmA_1795684457
+Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: stefan@sostec.de)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id 9350CC0270;
-	Thu, 26 Nov 2026 10:11:56 +0100 (CET)
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-To: alex.aring@gmail.com,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	Roman Gushchin <roman.gushchin@linux.dev>
-Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
-	horms@kernel.org,
-	netdev@vger.kernel.org,
-	linux-wpan@vger.kernel.org,
-	linux-bluetooth@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH net] 6lowpan: fix netdev_priv() type confusion in lowpan_event()
-Date: Thu, 26 Nov 2026 10:11:50 +0100
-Message-ID: <179568430273.1923641.1345266046368621519.b4-ty@datenfreihafen.org>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261106225930.1379968-1-roman.gushchin@linux.dev>
-References: <20261106225930.1379968-1-roman.gushchin@linux.dev>
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id CBF831800549;
+	Thu, 26 Nov 2026 09:14:16 +0000 (UTC)
+Received: from jbenc-thinkpadp1gen4i.rmtcz.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 80C843000229;
+	Thu, 26 Nov 2026 09:14:12 +0000 (UTC)
+Date: Thu, 26 Nov 2026 10:14:10 +0100
+From: Jiri Benc <jbenc@redhat.com>
+To: Lin Jiapeng <ljp1205831794@gmail.com>
+Cc: aconole@redhat.com, echaudro@redhat.com, i.maximets@ovn.org,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, netdev@vger.kernel.org,
+ dev@openvswitch.org, Lin Jiapeng <jiapenglin@tencent.com>,
+ stable@vger.kernel.org, TencentOS Corvus AI <corvus@tencent.com>
+Subject: Re: [PATCH net] openvswitch: reject negative L2 length in
+ ovs_fragment()
+Message-ID: <20261126101410.4a310394@jbenc-thinkpadp1gen4i.rmtcz.csb>
+In-Reply-To: <20261126083218.55429-1-ljp1205831794@gmail.com>
+References: <20261126083218.55429-1-ljp1205831794@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -65,28 +82,35 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
 
-Hello Roman Gushchin.
-
-On Fri, 06 Nov 2026 22:59:30 +0000, Roman Gushchin wrote:
-> lowpan_event() assumes any netdevice with dev->type == ARPHRD_6LOWPAN
-> has a struct lowpan_dev in netdev_priv(dev). However, non-6LoWPAN
-> devices can also have ARPHRD_6LOWPAN, e.g. a TUN device via TUNSETLINK
-> or a bonding device inheriting dev->type from its lower device.
+On Thu, 26 Nov 2026 16:31:41 +0800, Lin Jiapeng wrote:
+> From: Lin Jiapeng <jiapenglin@tencent.com>
 > 
-> Bringing such a device up or down causes lowpan_event() to read and
-> overwrite unrelated netdev_priv() memory. Since unprivileged users can
-> create TUN and bonding devices in a user and network namespace, they
-> can corrupt struct bonding and trigger a slab use-after-free.
+> ovs_fragment() refragments MPLS packets from their inner network header
+> and saves the L2 header in a MAX_L2_LEN-byte buffer before fragmenting.
 > 
-> [...]
+> POP_MPLS can leave inner_network_header behind skb->data. The signed
+> offset is then negative and passes the "> MAX_L2_LEN" check, so
+> prepare_frag() widens it to 0xfffffffc for memcpy() into l2_data. An
+> unprivileged user can trigger this on both IPv4 and IPv6 paths. KASAN
+> reports:
+>      BUG: KASAN: slab-out-of-bounds in prepare_frag+0x3c2/0x4c0
+>      Read of size 4294967292 at addr ff110001059cf044 by task
+>      ovs_frag_trigge/132
+>      __asan_memcpy+0x23/0x60
+>      prepare_frag+0x3c2/0x4c0
+>      ovs_fragment+0x578/0x860
+> 
+> Reject a negative offset together with an oversized one and drop the
+> packet through OVS_DROP_FRAG_L2_TOO_LONG. Valid offsets are unchanged.
 
-Applied to wpan/wpan.git, thanks!
+This was supposed to be fixed by
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=78a86d75a70e1e227711c72865c59b1422d0a5ae
 
-[1/1] 6lowpan: fix netdev_priv() type confusion in lowpan_event()
-      https://git.kernel.org/wpan/wpan/c/092207b6f1b6
+What kernel did you reproduce this on?
 
-regards,
-Stefan Schmidt
+ Jiri
+
