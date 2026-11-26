@@ -1,44 +1,44 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656837;
-	b=xtoIIvDXdWqatGwEZmxAIszmKmGmY2uz2jinAsrKcONhJg1ejFgWqndCUzR5iXEGefDz
-	 RvqGLwGaviHFklVHkuT5JJoqsuBokMBSLEGgrYj6yyXIDCpOxKQlihv7uR6w86cnMkMW4
-	 NWHlMTB0TAMidkgeJ3ro1ygKo69hERzYBspTmci9ydeFD3IYOyRkJax1fFk5ThLKHgaIg
-	 wDRbONxeGM8ztfq+9sGy5So/oN6BX2qioEa0B0dIrAAHEMTYi3TXk/cgC8G97jf5b0etp
-	 S4dTmK04nS1RsyxY7s00fnDFlc0MeZen3gsKPXOrsnYCJFXJYq1ZsRb7SK2vtE9Ukag==
+	t=1795656833;
+	b=ChA2uUpsrOsgBSNDKXE80RY1rKL4etyo76UhhTLaabDveisG4t9hfBYi2dBhKMjYPWti
+	 v9AVHtpFHbvzBYsD/k9Yw/vMweVi9fYovaNZ4K/M7MLNGMthWutp6e+Vd6FHEpLyqJf/o
+	 VorpZcUGS8HeCGgmVvRFBylcERGTtKvcM59/NJiXbDzgOSUtJFtt9gYicmAslB0PFDKmi
+	 TbP4wIbubrgU1+N1BUbzyqcnQr6Gj3rQAww/Ji7vB32zLpCeG2HS3tGsVzXyF7EIvuPej
+	 nlg90gf8JOVZH1sezkoTPdHfZlhXMEXsN/GTjFxDww4PMlBJNg4jjI1vY3i/00u+r0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656837;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656833;
 	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
 	 In-Reply-To:References:MIME-Version:Content-Transfer-Encoding;
-	bh=VQYnJLnWH7S2BjMZDCUYIDIybgaJuYkxv1LZSLJO9LI=;
-	b=JJQkCzM72eH6YxZP0pFfXgdVvKbKuSctg/UKcjwt07BE4wWRRv6ch9f37gu/G8JXWALW
-	 gst3ZLv0wf1WI8j4UGCaJD0SYbFzCsoE+WX+yOK/vUqZVd3zQ2Y0/gny/NNJEqinTLf5Z
-	 LdYiQ7/TnEgwEwydfkypBagZEABMFOkluq606Afej6o/sW5hhSNoCyMgIM9ITa2wdwwVe
-	 lGhDYe8YQyrgWH9rHsJDHkHT8cAGN8KaqEM4sbCcku6/My7S6jpg5I1s+s6i+ynKw2+Pc
-	 mJ/rHnh19cCRzanb2BF/9WnXtzaAQo5ct4HyXWYSS16yNMxL7U88CiziFkSwWEdhqNA==
+	bh=2YSnu5DJxjbkrT2oSSmrCPrIPA6QnNHOIXmxgeIwwDc=;
+	b=rOQsjwguSedYoMJxRMTtmM7Zh/RcGFGSAl6YZvP3XBfeGt0zJ7NFhgaO+AEIEtAUm5Ck
+	 5H+CaZCCKxvtq/CddbvJbdm3taIrT7akiBj/f4PmOJrocdOwFY1PRQDhf+QNkM6z7WII3
+	 qj2EQ64FBJnA+Fu3vcspQL136iJ8KwGEvPUf2dHt0sAFb97V3fVD+4p8YPt0Zh/DCJgFO
+	 4AWgy+CcpcbjXOnrVw4vKljEzMR4KLKqcFpX7o/odL0LcRT/PqI01Nfo9hyFGz2OklCag
+	 y1N7xk5EYzppsjz9F2DiwvXgL2bhsvadeX/uoPSEReTwaZB17fpWyo2ETdd6wVdypJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GZ0Y6EHK;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QEdcHJFW;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CDC2F606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:33:57 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BD700606A327
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:33:53 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GZ0Y6EHK
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B66D51F000C0;
-	Thu, 26 Nov 2026 01:33:56 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=QEdcHJFW
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82D371F000D3;
+	Thu, 26 Nov 2026 01:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795656837;
-	bh=VQYnJLnWH7S2BjMZDCUYIDIybgaJuYkxv1LZSLJO9LI=;
+	s=k20260515; t=1795656833;
+	bh=2YSnu5DJxjbkrT2oSSmrCPrIPA6QnNHOIXmxgeIwwDc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=GZ0Y6EHKRWib4Ev4YL9YSOD+wnjsghmp9QS/Vs6WjgZB2yf+MnPuJYMio2CfOtbh8
-	 B7im/QXmlxvRr9riHqiddlOh4VS/SBt4H9dUZ2afv+x31jkIFXDYwqngl8/4bXCGZg
-	 Xr9N4b5YcrQhiWza7Jg+JbQHK4eMmbEmi0xW48x1AeyjAjsF6J6lZJawFzZHOED2Q6
-	 OsUNe1zXq6PJXGq1V665AqF1EUBvczy30R2oNOZibV9IWeo9dFpgiBcztB2ehW9r7O
-	 Gswm0JEabC8RgGdr3dRgqedkjB6X0zkvT9G6BOFyTwrr1CJBL4ND39/DkWvTpl21af
-	 KsrHD/x6iPmcw==
+	b=QEdcHJFWrzGhET/SrkyBorQMkUvz0XzeYSV4rRleUkha/mURJEWPjot27HDqAwLBm
+	 IslLL1a+iQONzFM/OogSjrZXTaSbeDUh8ZAJeMCp5xVNRqEh4RfsyCGANXo4amB1Dr
+	 xuiMXqI2Rqi4ro4AZ33jzPBj4njFPjJiggZa/dGlQa1sLDUX0qEgtvRvl81wQv0A3C
+	 jTTjyrm4PPb76ztNKag+n1rxe/jatdyurV7WGEkQ+n+DTDihXmvwhnFNUCTH4qN8j2
+	 3zCE+9kIri3GuD5RX450gOR3+INnrzyiCdovsEsN8cWnYrPhSKVOEktt4ukA46VT3b
+	 O2thIWaQGgPvA==
 From: David Ahern <dsahern@kernel.org>
 To: netdev@vger.kernel.org
 Cc: dsahern@kernel.org,
@@ -51,9 +51,9 @@ Cc: dsahern@kernel.org,
 	ralf@mandelbit.com,
 	ja@ssi.bg,
 	David Ahern <dahern@nvidia.com>
-Subject: [PATCH net-next v2 11/13] selftests: net: pmtu: check that a deleted cached exception stays deleted
-Date: Wed, 25 Nov 2026 18:33:37 -0700
-Message-ID: <c1700ffd419c7247da4c896cb09f384894c32f43.1795642432.git.dahern@nvidia.com>
+Subject: [PATCH net-next v2 07/13] ipv6: make rt_genid_bump_ipv6() a plain counter increment
+Date: Wed, 25 Nov 2026 18:33:33 -0700
+Message-ID: <dad848908b05fc8be7dc14d1928d90c676103e14.1795642432.git.dahern@nvidia.com>
 X-Mailer: git-send-email 2.54.0
 In-Reply-To: <cover.1795642432.git.dahern@nvidia.com>
 References: <cover.1795642432.git.dahern@nvidia.com>
@@ -70,141 +70,235 @@ Content-Transfer-Encoding: 8bit
 
 From: David Ahern <dahern@nvidia.com>
 
-Add a test that learns a PMTU from a packet too big message, changes
-the FIB with a route that has nothing to do with the destination, and
-deletes the cached exception without looking the destination up in
-between. After a FIB change the exception's dst is stale, and a lookup
-that handed it out would replace it with a current copy: deleting it
-must work on a stale exception too, and nothing may then bring it back.
+rt_genid_bump_ipv6() called fib6_flush_trees() through a function
+pointer. That walked every node of every table to write a new
+fn_sernum, so that cookies derived from fn_sernum would mismatch.
 
-Check that neither a route lookup nor a packet that fits, which looks
-the route up as well, creates the exception again, and that a packet
-that exceeds the PMTU does, through a new packet too big message. The
-cache is dumped to see the exception, as that does not look the
-destination up and so does not refresh it.
+Cached dsts are now validated against net->ipv6.fib6_sernum itself,
+so the walk no longer invalidates anything. Do what
+rt_genid_bump_ipv4() does and increment the counter, keeping
+fib6_new_sernum()'s wrap to 1 so the value is never 0.
 
-The test is run again with nexthop objects like the other exception
-tests, which takes the deletion through the nexthop path.
+This makes nexthop, address and FIB rule changes cheap, and stops
+them from touching fn_sernum, which route dumps use to detect that a
+tree changed: a dump is no longer restarted by events that do not
+change the tree.
+
+With the walk gone, drop the __fib6_flush_trees pointer and its
+export, fib6_new_sernum() in favour of the new helper, and the sernum
+handling in fib6_cleaner that only the walk used.
 
 Signed-off-by: David Ahern <dahern@nvidia.com>
 ---
- tools/testing/selftests/net/pmtu.sh | 90 +++++++++++++++++++++++++++++
- 1 file changed, 90 insertions(+)
+ include/net/net_namespace.h | 26 ++++++++++++++-----
+ net/ipv6/addrconf_core.c    |  7 -----
+ net/ipv6/ip6_fib.c          | 51 ++++++-------------------------------
+ 3 files changed, 27 insertions(+), 57 deletions(-)
 
-diff --git a/tools/testing/selftests/net/pmtu.sh b/tools/testing/selftests/net/pmtu.sh
-index c7cd271714ef..5e44ff3a6515 100755
---- a/tools/testing/selftests/net/pmtu.sh
-+++ b/tools/testing/selftests/net/pmtu.sh
-@@ -198,6 +198,14 @@
- # - pmtu_ipv6_route_change
- #	Same as above but with IPv6
- #
-+# - pmtu_ipv6_cached_del
-+#	Use the same topology as in pmtu_ipv6. Learn a PMTU from a packet too big
-+#	message, change the FIB with an unrelated route add and, without looking
-+#	the destination up in between, delete the cached exception. Check that
-+#	neither a route lookup nor a packet that does not exceed the PMTU
-+#	brings the exception back, and that a packet that does exceed it
-+#	creates a new one
-+#
- # - pmtu_ipv4_mp_exceptions
- #	Use the same topology as in pmtu_ipv4, but add routeable addresses
- #	on host A and B on lo reachable via both routers. Host A and B
-@@ -272,6 +280,7 @@ tests="
- 	list_flush_ipv6_exception	ipv6: list and flush cached exceptions	1
- 	pmtu_ipv4_route_change		ipv4: PMTU exception w/route replace	1
- 	pmtu_ipv6_route_change		ipv6: PMTU exception w/route replace	1
-+	pmtu_ipv6_cached_del		ipv6: delete a cached PMTU exception after a FIB change	1
- 	pmtu_ipv4_mp_exceptions		ipv4: PMTU multipath nh exceptions	1"
+diff --git a/include/net/net_namespace.h b/include/net/net_namespace.h
+index 4a4d72080acd..f39baf51bcc5 100644
+--- a/include/net/net_namespace.h
++++ b/include/net/net_namespace.h
+@@ -556,18 +556,30 @@ static inline int rt_genid_ipv6(const struct net *net)
+ {
+ 	return atomic_read(&net->ipv6.fib6_sernum);
+ }
+-#endif
  
- # Addressing and routing for tests with routers: four network segments, with
-@@ -2377,6 +2386,87 @@ test_pmtu_ipv6_route_change() {
- 	test_pmtu_ipvX_route_change 6
+-static inline void rt_genid_bump_ipv4(struct net *net)
++/* Invalidate every cached IPv6 dst in @net. Returns the new generation,
++ * which is never 0.
++ */
++static inline int rt_genid_bump_ipv6(struct net *net)
+ {
+-	atomic_inc(&net->ipv4.rt_genid);
++	int new, old = atomic_read(&net->ipv6.fib6_sernum);
++
++	do {
++		new = old < INT_MAX ? old + 1 : 1;
++	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
++
++	return new;
+ }
++#else
++static inline int rt_genid_bump_ipv6(struct net *net)
++{
++	return 0;
++}
++#endif
+ 
+-extern void (*__fib6_flush_trees)(struct net *net);
+-static inline void rt_genid_bump_ipv6(struct net *net)
++static inline void rt_genid_bump_ipv4(struct net *net)
+ {
+-	if (__fib6_flush_trees)
+-		__fib6_flush_trees(net);
++	atomic_inc(&net->ipv4.rt_genid);
  }
  
-+# Is there a cached exception for ${2} in the namespace ${1}? Dumping the cache
-+# does not look the destination up, so it does not touch the exception
-+cached_exception_exists() {
-+	ns_cmd="${1}"
-+	dst="${2}"
-+
-+	${ns_cmd} ip -oneline -6 route list cache | grep -qw -- "${dst}"
-+}
-+
-+test_pmtu_ipv6_cached_del() {
-+	setup namespaces routing || return $ksft_skip
-+	trace "${ns_a}"  veth_A-R1    "${ns_r1}" veth_R1-A \
-+	      "${ns_r1}" veth_R1-B    "${ns_b}"  veth_B-R1 \
-+	      "${ns_a}"  veth_A-R2    "${ns_r2}" veth_R2-A \
-+	      "${ns_r2}" veth_R2-B    "${ns_b}"  veth_B-R2
-+
-+	dst="${prefix6}:${b_r1}::1"
-+
-+	# Set up initial MTU values
-+	mtu "${ns_a}"  veth_A-R1 2000
-+	mtu "${ns_r1}" veth_R1-A 2000
-+	mtu "${ns_r1}" veth_R1-B 1400
-+	mtu "${ns_b}"  veth_B-R1 1400
-+
-+	mtu "${ns_a}"  veth_A-R2 2000
-+	mtu "${ns_r2}" veth_R2-A 2000
-+	mtu "${ns_r2}" veth_R2-B 1500
-+	mtu "${ns_b}"  veth_B-R2 1500
-+
-+	# Learn a PMTU from a packet too big message
-+	run_cmd ${ns_a} ${ping6} -q -M want -i 0.1 -w 1 -s 1800 ${dst}
-+
-+	pmtu="$(route_get_dst_pmtu_from_exception "${ns_a}" ${dst})"
-+	check_pmtu_value "1400" "${pmtu}" "exceeding MTU" || return 1
-+
-+	# Change the FIB with a route that has nothing to do with ${dst}. Any
-+	# FIB change makes the cached dsts of the namespace stale. Do not look
-+	# ${dst} up from here to the deletion: that would refresh the
-+	# exception
-+	run_cmd ${ns_a} ip -6 route add unreachable "${prefix6}:ff::/64"
-+
-+	if ! cached_exception_exists "${ns_a}" ${dst}; then
-+		err "  PMTU exception disappeared after an unrelated route add"
-+		return 1
-+	fi
-+
-+	# Delete the cached exception
-+	run_cmd ${ns_a} ip -6 route flush cached ${dst}
-+
-+	if cached_exception_exists "${ns_a}" ${dst}; then
-+		err "  PMTU exception still there after deleting it"
-+		return 1
-+	fi
-+
-+	# A lookup must not bring it back
-+	run_cmd ${ns_a} ip -6 route get ${dst}
-+
-+	if cached_exception_exists "${ns_a}" ${dst}; then
-+		err "  PMTU exception came back after a route lookup"
-+		return 1
-+	fi
-+
-+	# Neither must a packet that fits, which looks the route up as well
-+	run_cmd ${ns_a} ${ping6} -q -c 1 -w 1 -s 1000 ${dst}
-+
-+	pmtu="$(route_get_dst_pmtu_from_exception "${ns_a}" ${dst})"
-+	check_pmtu_value "" "${pmtu}" "deleting the exception and a lookup" || return 1
-+
-+	if cached_exception_exists "${ns_a}" ${dst}; then
-+		err "  PMTU exception came back after a packet that fits"
-+		return 1
-+	fi
-+
-+	# A packet that exceeds the PMTU does, through a new packet too big
-+	# message. This is what learning it again looks like
-+	run_cmd ${ns_a} ${ping6} -q -M want -i 0.1 -w 1 -s 1800 ${dst}
-+
-+	pmtu="$(route_get_dst_pmtu_from_exception "${ns_a}" ${dst})"
-+	check_pmtu_value "1400" "${pmtu}" "exceeding MTU after the deletion" || return 1
-+}
-+
- test_pmtu_ipv4_mp_exceptions() {
- 	setup namespaces routing multipath || return $ksft_skip
+ #if IS_ENABLED(CONFIG_IEEE802154_6LOWPAN)
+diff --git a/net/ipv6/addrconf_core.c b/net/ipv6/addrconf_core.c
+index 29095c90aa16..e7ee5f98327d 100644
+--- a/net/ipv6/addrconf_core.c
++++ b/net/ipv6/addrconf_core.c
+@@ -9,13 +9,6 @@
+ #include <net/addrconf.h>
+ #include <net/ip.h>
+ 
+-/* if ipv6 module registers this function is used by xfrm to force all
+- * sockets to relookup their nodes - this is fairly expensive, be
+- * careful
+- */
+-void (*__fib6_flush_trees)(struct net *);
+-EXPORT_SYMBOL(__fib6_flush_trees);
+-
+ #define IPV6_ADDR_SCOPE_TYPE(scope)	((scope) << 16)
+ 
+ static inline unsigned int ipv6_addr_scope2type(unsigned int scope)
+diff --git a/net/ipv6/ip6_fib.c b/net/ipv6/ip6_fib.c
+index 266370e15774..75512fbcb945 100644
+--- a/net/ipv6/ip6_fib.c
++++ b/net/ipv6/ip6_fib.c
+@@ -43,7 +43,6 @@ struct fib6_cleaner {
+ 	struct fib6_walker w;
+ 	struct net *net;
+ 	int (*func)(struct fib6_info *, void *arg);
+-	int sernum;
+ 	void *arg;
+ 	bool skip_notify;
+ };
+@@ -123,21 +122,6 @@ static void fib6_walkers_skip_rt(struct net *net, struct fib6_info *rt)
+ 	fib6_walkers_replace_leaf(net, rt, next);
+ }
+ 
+-static int fib6_new_sernum(struct net *net)
+-{
+-	int new, old = atomic_read(&net->ipv6.fib6_sernum);
+-
+-	do {
+-		new = old < INT_MAX ? old + 1 : 1;
+-	} while (!atomic_try_cmpxchg(&net->ipv6.fib6_sernum, &old, new));
+-
+-	return new;
+-}
+-
+-enum {
+-	FIB6_NO_SERNUM_CHANGE = 0,
+-};
+-
+ void fib6_update_sernum(struct net *net, struct fib6_info *f6i)
+ {
+ 	struct fib6_node *fn;
+@@ -145,7 +129,7 @@ void fib6_update_sernum(struct net *net, struct fib6_info *f6i)
+ 	fn = rcu_dereference_protected(f6i->fib6_node,
+ 			lockdep_is_held(&f6i->fib6_table->tb6_lock));
+ 	if (fn)
+-		WRITE_ONCE(fn->fn_sernum, fib6_new_sernum(net));
++		WRITE_ONCE(fn->fn_sernum, rt_genid_bump_ipv6(net));
+ }
+ 
+ /* Tell route dumps that an exception was added under @f6i without
+@@ -1464,7 +1448,7 @@ static void __fib6_update_sernum_upto_root(struct fib6_info *rt,
+ 
+ void fib6_update_sernum_upto_root(struct net *net, struct fib6_info *rt)
+ {
+-	__fib6_update_sernum_upto_root(rt, fib6_new_sernum(net));
++	__fib6_update_sernum_upto_root(rt, rt_genid_bump_ipv6(net));
+ }
+ 
+ /*
+@@ -1595,7 +1579,7 @@ int fib6_add(struct fib6_node *root, struct fib6_info *rt,
+ 			fib6_info_release(iter);
+ 		}
+ 
+-		__fib6_update_sernum_upto_root(rt, fib6_new_sernum(info->nl_net));
++		__fib6_update_sernum_upto_root(rt, rt_genid_bump_ipv6(info->nl_net));
+ 
+ 		if (rt->fib6_flags & RTF_EXPIRES)
+ 			fib6_add_gc_list(rt);
+@@ -2282,16 +2266,6 @@ static int fib6_clean_node(struct fib6_walker *w)
+ 		.skip_notify = c->skip_notify,
+ 	};
+ 
+-	if (c->sernum != FIB6_NO_SERNUM_CHANGE &&
+-	    READ_ONCE(w->node->fn_sernum) != c->sernum)
+-		WRITE_ONCE(w->node->fn_sernum, c->sernum);
+-
+-	if (!c->func) {
+-		WARN_ON_ONCE(c->sernum == FIB6_NO_SERNUM_CHANGE);
+-		w->leaf = NULL;
+-		return 0;
+-	}
+-
+ 	for_each_fib6_walker_rt(w) {
+ 		res = c->func(rt, c->arg);
+ 		if (res == -1) {
+@@ -2331,7 +2305,7 @@ static int fib6_clean_node(struct fib6_walker *w)
+ 
+ static void fib6_clean_tree(struct net *net, struct fib6_node *root,
+ 			    int (*func)(struct fib6_info *, void *arg),
+-			    int sernum, void *arg, bool skip_notify)
++			    void *arg, bool skip_notify)
+ {
+ 	struct fib6_cleaner c;
+ 
+@@ -2341,7 +2315,6 @@ static void fib6_clean_tree(struct net *net, struct fib6_node *root,
+ 	c.w.skip = 0;
+ 	c.w.skip_in_node = 0;
+ 	c.func = func;
+-	c.sernum = sernum;
+ 	c.arg = arg;
+ 	c.net = net;
+ 	c.skip_notify = skip_notify;
+@@ -2351,7 +2324,7 @@ static void fib6_clean_tree(struct net *net, struct fib6_node *root,
+ 
+ static void __fib6_clean_all(struct net *net,
+ 			     int (*func)(struct fib6_info *, void *),
+-			     int sernum, void *arg, bool skip_notify)
++			     void *arg, bool skip_notify)
+ {
+ 	struct fib6_table *table;
+ 	struct hlist_head *head;
+@@ -2363,7 +2336,7 @@ static void __fib6_clean_all(struct net *net,
+ 		hlist_for_each_entry_rcu(table, head, tb6_hlist) {
+ 			spin_lock_bh(&table->tb6_lock);
+ 			fib6_clean_tree(net, &table->tb6_root,
+-					func, sernum, arg, skip_notify);
++					func, arg, skip_notify);
+ 			spin_unlock_bh(&table->tb6_lock);
+ 		}
+ 	}
+@@ -2373,21 +2346,14 @@ static void __fib6_clean_all(struct net *net,
+ void fib6_clean_all(struct net *net, int (*func)(struct fib6_info *, void *),
+ 		    void *arg)
+ {
+-	__fib6_clean_all(net, func, FIB6_NO_SERNUM_CHANGE, arg, false);
++	__fib6_clean_all(net, func, arg, false);
+ }
+ 
+ void fib6_clean_all_skip_notify(struct net *net,
+ 				int (*func)(struct fib6_info *, void *),
+ 				void *arg)
+ {
+-	__fib6_clean_all(net, func, FIB6_NO_SERNUM_CHANGE, arg, true);
+-}
+-
+-static void fib6_flush_trees(struct net *net)
+-{
+-	int new_sernum = fib6_new_sernum(net);
+-
+-	__fib6_clean_all(net, NULL, new_sernum, NULL, false);
++	__fib6_clean_all(net, func, arg, true);
+ }
+ 
+ /*
+@@ -2624,7 +2590,6 @@ int __init fib6_init(void)
+ 	if (ret)
+ 		goto out_unregister_subsys;
+ 
+-	__fib6_flush_trees = fib6_flush_trees;
+ out:
+ 	return ret;
  
 -- 
 2.54.0 (Apple Git-157)
