@@ -1,56 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.46
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795660273;
-	b=ILasLT+i2A2qh/LKMcjh8rEY2XlDNgtOixkiOYmy7arcrzxYzWw3ZvvjRjC5SQOSpCVQ
-	 V/UTNrPNvkZaTT2XFGi1fv/YvKREV4/zHDGmJvztDS+DOmf/ERXPps9t2eQD3Xhxm7jXq
-	 81gMZ5IbABcmjvENlA2OklcxIRkJVNQ6KZ94Gqoz6Eq+QITHTEiZK0gSURAUTx9A2lj7n
-	 gk5F2iphlc0fSY65NW8/na8Lu4gLC2bu5JVy+WOSFpMPU5N8uYKLkq9Y+COMcLRqVK0gN
-	 1Nf2tQeExDlVh24qwQotIHO2HmDTmkSozNif2Ig/LP8UtLiQ6pQDf0sbvYKcKF8GbJw==
+	t=1795660277;
+	b=c23KMGur/QV1b6CQrULdr2evfnrLQe2LuYHMrzeqefCiZryGkktAUD0kXexVuwFCGdU+
+	 qPTXGfuM7m6N809YJmxGNMqDkfdUnVEajwVeJf61xEJLLBW+TVZGTN6+/05pF6S1qPtrW
+	 qiUvxTm6AX+R/w+YQKiUT3q6GVvug8rpBwxefmom2WNwSwzV2cak8GYUuwDwy8QJxggPV
+	 9fj8S3t0QruA+MOHmRgSIUQ5xTBsXMwCAWSAAJJrxIHf8Q/uoAZJVeaK042fXZfVPbbRK
+	 wKP3lLV/aHYlmd8eR+PUYTAW0l9cHHy6tMMsQF0QDYuUcjgYgKLllAFrmbRMgQb+JSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795660273;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660277;
 	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
 	 X-Mizu-Trace-ID:X-Migadu-Flow:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer;
-	bh=PlLPJEnikDumUId5OPUoeA0R2LExnIMK5NTAdtsyIQs=;
-	b=GjHoaQMgrBBUK2Sc1WlvWLRZ1W96WtDQKjo+rTHdO9p10qxxYs2Fqcag3+3NmiRBK0Df
-	 MfBAt0E21pfd4bKxJMYYCxAMKlk6xGucI5SkLu12cfTqb7sJOe36opaxNhQFz4egirj/1
-	 NGRjykwBlU6fUZlJfGHIVusjqRfxcLxQrRfmKq9U4/72qJjBi1efNcJ0oanjNy/5guV70
-	 6R3BPbL3U3GENHDXk9q3QvoZIKkxnh+5jpCIjwnPXVwVqyB8xNy2GcwVUYT4RoFMCFvfb
-	 0yvKjvzNy55cIVJPWfYMpZTabRyAAwrGTorfyRJkJ92zmPGroi88WL1F76YidgUOvWQ==
+	bh=x6RnEWdTYTK7Xk1wAs9uasJq7hXDNS8kQYggB9k9i20=;
+	b=4D167f542Ete+f/KQ0pDoKjAc2xILPZ79LhSvBkKtSGt6pqJ2V8HcAZVTa8gVCd8nrlx
+	 kjPcJwbEQ7UPRbPdAny0xrHo3yD0NB6rGSIcniLy+rjSCBNb5G0JSUISYdqQafrdtg86s
+	 TP7avQGf9bDwgdEsFNpzc8+ld2RFiaDKgfUcJ9J9Qza+8mfhTCnCkOVOgXS8b5QUCnY1l
+	 9QbwRG/i5Sn9cVFUpRrO4gVk/ChOxzhd0SShpzfxHWljr0uNKnMY62cTId0B4POImvEa5
+	 ohM9LKEjaX/SE6xU3iJNYhMGOSLFYAPM8JzM+47NeOh0GdR7BeUDVtmptddtxqnmd8Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=linux.dev;
 	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QUB7LMUs;
-	arc=none smtp.remote-ip=91.218.175.41
-Received: from mta0.migadu.com (out-41.mta0.migadu.com [91.218.175.41])
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lip8aObz;
+	arc=none smtp.remote-ip=91.218.175.46
+Received: from mta0.migadu.com (out-46.mta0.migadu.com [91.218.175.46])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E49C7606A6B6
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:31:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E49C7606A6B6
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 26EC8606A692
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:31:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 26EC8606A692
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=QUB7LMUs
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=lip8aObz
 X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=InHibhT9bQrLYoZnMNQjZvZLY7yEnp1XSGdpTAyLP2I=;
+DKIM-Signature: a=rsa-sha256; bh=B95j5ov9JJOnmmZbalvHGaiXevFwCPV/nXL1BTEaITM=;
  c=simple/simple; d=linux.dev;
  h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795660270; v=1; x=1796265070;
- b=QUB7LMUsxfpBIAMKZ7Bt8IqQ+eRV+YVKTMG1uMZHKjW8H3IlLgGI4o3SJ6RWn2tOvJwLOI8F
- 7O2ZZbuc8UNTImJxNGHiR3mFh9yhNXiJU+/hvnN2wkLRMLnj31EUuDx1TRbgz74jkAETUdp6FXo
- dydMPVf04TkZ4zUGuD5xmOUY=
+ t=1795660275; v=1; x=1796265075;
+ b=lip8aObzsujux64pIdTlFAEp29ewtAljnU9YBt06ykMCL2meMp1CPXYna5vMJEI8vuTxkVwF
+ tSHMl5jyZWL9i20FfAZolpa/Uwwg3R5+pcoKfKSRkYWPUidTpLoqOdfskox0daMxst15j6266jx
+ HenOW3aBhiQfjmcDtv/ajmd8=
 X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id 2ca089d9032a043c;
-	Thu, 26 Nov 2026 02:31:10 +0000
-X-Mizu-Trace-ID: 2ca089d9032a043c
+Received: by mta11.migadu.com with ESMTPS id a17f42b5aef994cf;
+	Thu, 26 Nov 2026 02:31:15 +0000
+X-Mizu-Trace-ID: a17f42b5aef994cf
 X-Migadu-Flow: FLOW_OUT
 From: Hangbin Liu <hangbin.liu@linux.dev>
-Date: Thu, 26 Nov 2026 10:30:55 +0800
-Subject: [PATCH net 1/3] Revert "bonding: do not set usable_slaves for
- broadcast mode"
+Date: Thu, 26 Nov 2026 10:30:56 +0800
+Subject: [PATCH net 2/3] bonding: update slave array on link change for
+ broadcast mode
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,7 +62,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-bond_broadcast_updelay-v1-1-188e5538d6ca@kylinos.cn>
+Message-Id: <20261126-bond_broadcast_updelay-v1-2-188e5538d6ca@kylinos.cn>
 References: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
 In-Reply-To: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
 To: Jay Vosburgh <jv@jvosburgh.net>, Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -78,76 +78,43 @@ X-Mailer: b4 0.16.0
 
 From: Hangbin Liu <liuhangbin@kylinos.cn>
 
-This reverts commit 45fc134bcfadde456639c1b1e206e6918d69a553.
+bond_miimon_link_change() rebuilds the slave array when a slave's
+link state changes, but it has no broadcast case, so broadcast only
+rebuilds usable_slaves on enslave/release. bond_miimon_inspect()
+then derives ignore_updelay from a stale snapshot:
 
-Commit 45fc134bcfad ("bonding: do not set usable_slaves for broadcast mode")
-assumes the bond updelay always applies. However, per commit f8a65ab2f3ff
-("bonding: fix link recovery in mode 2 when updelay is nonzero") and
-section 13.1 paragraph 4 of the bonding documentation, when a slave is
-enslaved and there are no active slaves, the slave should become usable
-immediately once its link comes up, updelay should be ignored.
+  - if the last rebuild ran while no slave was can_tx (common for
+    batch enslave with updelay, since new slaves start in
+    BOND_LINK_BACK), the snapshot keeps count == 0 forever and
+    updelay is never honored, even once other slaves are usable;
+  - if the snapshot still lists a slave that has since gone down,
+    ignore_updelay stays false and updelay delays recovery even
+    when the bond has no usable links, contrary to section 13.1
+    paragraph 4 of the bonding documentation.
 
-Before this revert: with no active interfaces, the only slave still waited
-out the 1000 ms updelay before being brought into use.
+Add the broadcast case so the snapshot follows link transitions the
+same way balance-xor does. This needs the revert of 45fc134bcfad as
+a prerequisite: with 45fc134bcfad applied, bond_set_slave_arr()
+discards the refreshed array for broadcast.
 
-  [  154.846629] bond0: (slave veth0): link status definitely down, disabling slave
-  [  154.849879] bond0: now running without any active interface!
-  [  159.544736] bond0: (slave veth0): link status up, enabling it in 1000 ms
-  [  160.586299] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
-  [  160.603278] bond0: active interface up!
-
-After this revert: the first slave can be used immediately on link up.
-Subsequent slave veth2 still honor the 1000 ms updelay.
-
-  [   94.106425] bond0: (slave veth0): link status definitely down, disabling slave
-  [   94.109130] bond0: now running without any active interface!
-  [   98.272494] bond0: (slave veth0): link status up, enabling it in 0 ms
-  [   98.273279] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
-  [   98.275056] bond0: active interface up!
-  [  110.855705] bond0: (slave veth2): Enslaving as an active interface with an up link
-  [  111.904688] bond0: (slave veth2): link status definitely up, 10000 Mbps full duplex
-  [  114.608488] bond0: (slave veth2): link status definitely down, disabling slave
-  [  117.624491] bond0: (slave veth2): link status up, enabling it in 1000 ms
-  [  118.664636] bond0: (slave veth2): link status definitely up, 10000 Mbps full duplex
-
-The stale-empty side of the problem that motivated 45fc134bcfad is
-addressed by the follow-up patch in this series, "bonding: update
-slave array on link change for broadcast mode", which rebuilds the
-array on link transitions, together they keep ignore_updelay correct
-in both directions.
-
+Fixes: e0caeb24f538 ("net: bonding: update the slave array for broadcast mode")
 Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
 ---
- drivers/net/bonding/bond_main.c | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+ drivers/net/bonding/bond_main.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/bond_main.c
-index 042d7c75548f..d6675e87d06b 100644
+index d6675e87d06b..b1efbdf597ec 100644
 --- a/drivers/net/bonding/bond_main.c
 +++ b/drivers/net/bonding/bond_main.c
-@@ -5140,18 +5140,13 @@ static void bond_set_slave_arr(struct bonding *bond,
- {
- 	struct bond_up_slave *usable, *all;
- 
--	all = rtnl_dereference(bond->all_slaves);
--	rcu_assign_pointer(bond->all_slaves, all_slaves);
--	kfree_rcu(all, rcu);
--
--	if (BOND_MODE(bond) == BOND_MODE_BROADCAST) {
--		kfree_rcu(usable_slaves, rcu);
--		return;
--	}
--
- 	usable = rtnl_dereference(bond->usable_slaves);
- 	rcu_assign_pointer(bond->usable_slaves, usable_slaves);
- 	kfree_rcu(usable, rcu);
-+
-+	all = rtnl_dereference(bond->all_slaves);
-+	rcu_assign_pointer(bond->all_slaves, all_slaves);
-+	kfree_rcu(all, rcu);
- }
- 
- static void bond_reset_slave_arr(struct bonding *bond)
+@@ -2780,6 +2780,7 @@ static void bond_miimon_link_change(struct bonding *bond,
+ 		bond_alb_handle_link_change(bond, slave, link);
+ 		break;
+ 	case BOND_MODE_XOR:
++	case BOND_MODE_BROADCAST:
+ 		bond_update_slave_arr(bond, NULL);
+ 		break;
+ 	}
 
 -- 
 2.56.0
