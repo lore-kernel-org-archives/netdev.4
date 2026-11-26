@@ -1,90 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.175
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675447;
-	b=y36mvMm4fxY+Qp874Lwow0qs9JmuWV3XrfgFxeyT1R7qIJAWROR2hIHwWWXn70FxIG+w
-	 RH+1oHHEpY+j2IzeKxapjHjaDT/BICc3I9BfFmHDBQm7O3teGMkbtTGs6bMPreFOE2Nfw
-	 0WRLIPDSVE9Xblw8sw7PaSh4A0EPVCEuj4xS+Xacb5QS6uriTPKw/v+cSBWl3M8YA7nE2
-	 Fbx+MyFIGAD2l7cclTW390tO+fMo0D05Wa8qyOshcuYbFl1RvjZmFdv5e6jwB8q/vmwYt
-	 W5IqWI7INUOof1cgGaHu+Dg8b/j44NNRuUlWLT+myeTTK+cJQaUngeriFXjYOAuIypw==
+	t=1795675506;
+	b=Ix+z+HDRkX2NFY5Czv/tIdLCU1fUuA5ASvplyednqMLtIDwi5ZlyMI8OMQImYxdccPvV
+	 KBWlhYXqE2v5H9bKIw3b/PuxdPc5hYCPG7pcO/afNR34IYwF2qmOgDXTynUDvjPkWOX+C
+	 g7vLtlhoIVqw4XIifRSE+s8SvobW9EP3dJXSVnmgJTAaM+PH1SqBM6fNfBQ+vgJK4zlof
+	 77vZqUw1MZ1nQqGojQ63DUyf+S6yY/lP+RkUGMjUo4Z6OTmAdZJZFJTRs87lz60LAplJ9
+	 A76TBgsMsRS6nv2/rbzSw+h0lMamc13hVLsMjWtuhPjypwJdXV7AvtCGSUnXocTQwMw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675447;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675506;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=IGOZXvHj7Kp3VoWvYB9VXQ2RIbnpFsMHzOt42EfzF7E=;
-	b=1EVYUP5nUZx7hmU5YUdnDM3ESmnUHMcNjTENvjmq0i1TaZR3jGwVURSuDb138w3IEV6Y
-	 ym3LP9Omgr4XMzIhfbTzXhrrW3xStKg/N1BmDOLm5kyn+tBC8hK5vDULjYrEmJwyUotEg
-	 OQ2LwYoEXMl542xCieVfRrHlZcSn9LyuLCj8+ct5WIlTYI/VXqlLVf/DOYiLJ+wLpgZr+
-	 mTaQXQhshBSVh859Ab60ncXw6OnCiRI4BD0VLVwAn7XzL1VaoNKIekISxfJQXOBzYcCXW
-	 3n0XB3DR6kY80WFSNhX9L5GWWVkpBDAskVWhHMiLwA2DFtfI7I+KDUu0MiEXmhgFoDg==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=1w30GML4h0iF7yCsQGFSa2YjqNrPWQIdNuuJPNx9eck=;
+	b=aU5XGc3oOCJznCR2wmxP7i9TjjCpSnQUR5ja7f3oFsl7W54l55NDZ4fJ+AAw1Jdcy0M/
+	 H4DCDBpmtuV9bGtrO1VL1U3IN65nG+EYQYwxgr4bjK67zuipOpuPvI3vCAOygiYc6z8dS
+	 rzASDNrkmuHElPXXkiNinryINh9MZli6jEjWFVX7+BhP3dKqaqfoVzmnfyJEtFeuhh+AF
+	 JIX1POwmvukmalHamufsS46MugvUGN8YV8ecvnDlU0AL/xxKncL6oTe3Wf4xv9Gb2cDxs
+	 D5ZsqjiBpxQ5bL9Vx1m8USmi8JzvF+t0xfp/dNHcUH4sIajV+LLa6WMGLRXX0F3Lp8w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="SW/gpPSw";
-	arc=none smtp.remote-ip=74.125.82.180
-Received: from mail-dy1-f180.google.com (mail-dy1-f180.google.com [74.125.82.180])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XYaPfOrf;
+	arc=none smtp.remote-ip=209.85.210.175
+Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1ECDD606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 06:44:06 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1ECDD606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 328B8606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 06:45:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 328B8606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=SW/gpPSw
-Received: by mail-dy1-f180.google.com with SMTP id 5a478bee46e88-385c497bfddso690097eec.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:44:06 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XYaPfOrf
+Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8a594d313a3so4438134b3a.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:45:05 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795675446; x=1796280246; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795675505; x=1796280305; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=IGOZXvHj7Kp3VoWvYB9VXQ2RIbnpFsMHzOt42EfzF7E=;
-        b=SW/gpPSwuwYwkhXGjSM+9f/HgBYsqbFafnPdJDDbC5Qp4UMNOvjxX9xs8KaS4bZ4F3
-         erzj1yGSrxdCYoXeFv0PxyvDW0ORGraFyRdQAiwgDM/bjFHG5r1dTw7pPA03zQhc0azy
-         2f863bf113sAI02qZBZJkEaNI4aBIW1oHrE3udRHebf3kPCgRsHAThSkDJRZHAW5gR4b
-         XYCQp3fBBr0pOV5t8SH5Fkdn7RYiOeYF0im3ymbB0TUzHJq+HjWH5Y2ciDdZFWbfzW/N
-         wzVm2jIuVC32D4/hZLA7nO64nJPMHhsEEAQBljISj3P3Wfef71Jm0BctmbTS+jZMCVkT
-         CJqg==
+        bh=1w30GML4h0iF7yCsQGFSa2YjqNrPWQIdNuuJPNx9eck=;
+        b=XYaPfOrf4w6YWsaz9XyLNjIEBi82EM1s7Ru+CPaOOGK4UQctuzvbZvXXX25wjPoTee
+         DryPyfn8MZJ0gKANUCj7UpAf/7KnZDCgIK+H8GC9H5zi+pWiqu07pBMcuXcMuJBIupFn
+         J9PYtVNEUqGqTrj1QgCQGEs9NoNSGQ+RRSX88uDYWsBhLzRAZG/lKmnzr0LmyLiT85QW
+         kXXXIflPEpLIOonViAzLThox/aWIHJOglMHvFO+G3Jf8Df0qgpEpgVWo1+ulaFf7a5aI
+         UBWXp0Hy3cqChw22pcanuW5QKsLGpAV9UJ5HHiOxRcDLS95/TQ1jZgiXBgVlalfXopjI
+         8d1A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795675446; x=1796280246;
+        d=1e100.net; s=20260707; t=1795675505; x=1796280305;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=IGOZXvHj7Kp3VoWvYB9VXQ2RIbnpFsMHzOt42EfzF7E=;
-        b=uwroBJNYg+giVbg3Ol4n6FFPUZxBF+ZpnK9h5Rqi6l32BNrI+Vpixqmjcg0XNKIJ69
-         tUeKW6Qtx3c75TJs2gW1lf+lBnfZ7QYT9++2j1KsY1BCp+QloGSa1AJmGsnJQ+ory3PY
-         T3yitA1phNWRZxhgbkB9AO/3rhsbOowx+loN/ybkw9J+Q8tFuaTiWkjyQZmXipV8OdiT
-         G3mBGxY2yu6VnPA1niIJ+dHsBbwZNmHwUnnk2+0lIAh5errKLB2Gx3rNiHWHEGiejQTe
-         njCoNpK95KophetnRqG764nzzR0K9k2tK2Rc5nar51SqLwrv0UnepyHkBEeaxDxM0W/w
-         yoFQ==
-X-Gm-Message-State: APuU4Z/RoZkWRTcKc5WXJCUiMWKzpmAzD9x3c/hfDeAVaZA6kkucJTSF
-	HKJBBIWBablTnmMIkFS2/CfJVuNSw5q1eRPZqTWGE9WQZUsykoIGdSOf
-X-Gm-Gg: AZFdTZf1lCELwIV3LCl0yWNGaXUeilm5vn3XsKKuo00Vjr6sBnBeKjprK0gSxw1/WBA
-	EEeH5n9Zau+MTr0VQwhATZoVv1/+ZBQwzjuz6wbvyKOUqw/vQBgaJfVm6YGSaLyXOKFEcVin4H4
-	ryQ7133pxmmhGHYRttdfAQSsjsJUTWn34y2aHRpc1WZBSiA2kj0BbhcwlATSSyxqCrk8FLRuHw9
-	QhWuuLna3fj876xRbRD1Wks4K0wqyugqlC0vckkQaQIfxVxxsz3o8A0fMUzb2lhm3150mLDSALZ
-	Mz9zInEoTG6j395qtlao5uZO6Y5tbbG9mUxs2RJ4cJMkJ9g3Sht1OLDdfsu4T4SOKl77GuGpKN8
-	DDF3/HPf2Sg9Y4zENOgAmZNGudLkLSLMEKjcLfEwfpuKx/9jQcZDOl32NFDxfkQO168r4k48Ewt
-	g2hSnLOmHp0dYppayACUqyRskojhtt4xK9b9PUTDzArt65mpwgmN5w8RuvkbL4E1dqdVFFHTVhF
-	5Cc7sM7OCGOLLVvGiDpZEDAsK6JMqCwTMYDLWhkUzQoDO2gk1KNPZ4fZ/FO/e+3GA1HyaGbemYO
-	d45POzGH7IBCU59AyWdIzGG7WY4f36GtYDLurLz7Lzq363BgWECHYA==
-X-Received: by 2002:a05:701b:4558:10b0:183:d275:cf76 with SMTP id a92af1059eb24-1b5568bfe8cmr29796063c88.2.1795675446057;
-        Wed, 25 Nov 2026 22:44:06 -0800 (PST)
-Received: from localhost.localdomain ([14.47.155.101])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b556829d31sm76548135c88.9.2026.11.25.22.44.04
+        bh=1w30GML4h0iF7yCsQGFSa2YjqNrPWQIdNuuJPNx9eck=;
+        b=OG2ouiwUbSWbFD/m6XFqKyDAWRTJYo+3/nrTpELibFHFja1/Ms2DnhEfI2NAccD1z1
+         9ND9alno2Vku3bVcJxPhtWuwen3oFBCNIoilh22rnzDM5PzX7wdDuPaZZeil++/xtJl5
+         cpgf1OETHHUEo42YiVdqwqiTSZiJymKNqaNoK6uYXZ/zVSZSGN84immnE2f2saDQNL7q
+         GKgFVYhzhCIVAh9HAcW02vfdUWJDUIey0JGN55ZMrl9jRndhbfSvCkSI1dRwVum4RsmB
+         j158dMk4fwANSEPc/Gv5A8G5B7Xgw5Rfa9AhjyQSSF6+e3k8bU5tXG78Lp1oTkBFRSmt
+         ECew==
+X-Forwarded-Encrypted: i=1; AL+hErEDI1lVT1aXgVQAX7P1OEjeOhg2zEWHi78p55FHsLLfHHX+j0KIKZE8evxYToSQ4ytczztLe5I=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8B/m6sclM/PRBgsHulV3SksymkGc/i2Rd6pOSQpY96e8p3Y77Y
+	8sP3xOge3VIEtwGBof/G+JZoV3HFRlMRAIAn7XWj5Waf3sZB6514dHYY
+X-Gm-Gg: AZFdTZf65quKZ9UhtqNKkEfCPDForIlkuqThMfAqsp5VMk8SgDgb4gSb1bihG725fCj
+	8/wHTKJYr/omvjV+y43IW8PRY2nTqFYaeleHlPQtTx2PWjHyGZfbM53FgFZV7vULRNz8d7Lhb0C
+	z5etK7oghw/wYvu7MVhReUw+YEZll+vm9x3fZ4vEReik1uhvkJF9HRjtlfdgSOpYzDO5I5qZh3a
+	NgCbNvyMLDDUhwjhF94xIhoax0GStXFi+viAw8avVyCDh0t6AwHFVt2/5GGohBe3l36cTghZLKJ
+	wvI3gVs90Sx9jyq0wPt1/hBPQUBv/R36F90J52Sqts67vxs7j7xG+YgaTRDCd87HLrDkoh91tRc
+	o34btuHzbzlRWMyp8CmPdBerUcUYo/LV9ncNpdoOW77Mo3H9kVK/56Mv6O+WqEaMHvJSkV2SsSP
+	hT+87XoYvzR3ODkun4/Uu4PV2W7jI/PzD3I221ED/8Ckz5axqLJLpW8eRv+z9j5ca/ENR55YLTB
+	Mr24/Zv+ZQRZY0Ue9HD4jUvGlX+Fmg7ENw4K+cgrMilo9qjeS6JDAa83fXYIxycTMQK+GPDhwd5
+	P8ihsvfoN29YW+WIPkmAVjmfSCVIL7d4aPxOkpKCJTsr4JPAv5MOU+5gnHWFe20VFwbL5Lh27DI
+	=
+X-Received: by 2002:a05:6a00:460e:b0:8b5:7fc8:867a with SMTP id d2e1a72fcca58-8c87ce31324mr18260562b3a.36.1795675505302;
+        Wed, 25 Nov 2026 22:45:05 -0800 (PST)
+Received: from JIAPENGLIN-MC0.tencent.com ([43.132.141.21])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873f16b41sm10264349b3a.56.2026.11.25.22.45.02
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Wed, 25 Nov 2026 22:44:05 -0800 (PST)
-From: Minseok Kim <kor8821@gmail.com>
-To: intel-wired-lan@lists.osuosl.org
-Cc: netdev@vger.kernel.org,
-	anthony.l.nguyen@intel.com,
-	przemyslaw.kitszel@intel.com,
-	m.wilczynski@samsung.com
-Subject: [PATCH iwl-net] ice: bound the node count in ice_sched_add_elems()
-Date: Thu, 26 Nov 2026 15:44:02 +0900
-Message-ID: <20261126064402.87229-1-kor8821@gmail.com>
-X-Mailer: git-send-email 2.54.0
+        Wed, 25 Nov 2026 22:45:04 -0800 (PST)
+From: Lin Jiapeng <ljp1205831794@gmail.com>
+To: dsahern@kernel.org,
+	idosch@nvidia.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	netdev@vger.kernel.org
+Cc: Lin Jiapeng <jiapenglin@tencent.com>,
+	TencentOS Corvus AI <corvus@tencent.com>
+Subject: [PATCH net] ipv4: reject header length beyond linear data in ip_do_fragment()
+Date: Thu, 26 Nov 2026 14:43:21 +0800
+Message-ID: <20261126064445.57665-1-ljp1205831794@gmail.com>
+X-Mailer: git-send-email 2.55.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,104 +104,76 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-ice_sched_add_node() appends to the parent's child array without
-checking that there is room:
+From: Lin Jiapeng <jiapenglin@tencent.com>
 
-	parent->children[parent->num_children++] = node;
+ip_do_fragment() splits an oversized IPv4 datagram into link-MTU-sized
+fragments. It reads the header length from iph->ihl and hands the packet
+to ip_frag_init()/ip_frag_next(), which assume the whole IPv4 header is
+still present in the skb's linear area.
 
-That array is allocated in the same function with exactly
-hw->max_children[layer] entries and is a separate allocation from the
-node itself, so a write past its end lands in unrelated memory.
-Neither ice_sched_add_node() nor ice_sched_add_elems(), which drives it
-in a loop, bounds num_children.
+Callers that strip or rebase link-layer headers before fragmenting can
+break that assumption. Open vSwitch prepare_frag() pulls the L2 stack
+(up to MAX_L2_LEN = 30 bytes) off the skb after a TRUNC action has cut
+the frame, so the remaining linear data can be shorter than ihl * 4.
+ip_frag_init() then computes state->left = skb->len - hlen as an
+unsigned underflow, and ip_frag_next() fails its skb_copy_bits() bounds
+check and executes BUG(), turning a single unprivileged OVS execute
+request (user+network namespace, PUSH_MPLS x4 + TRUNC + MRU) into a
+deterministic kernel panic under a KASAN build:
+[   23.501259] kernel BUG at net/ipv4/ip_output.c:725!
+[   23.503346] CPU: 3 UID: 1000 PID: 110 Comm: poc Not tainted 7.4.0-rc4-ovs-hlen-ab #1 PREEMPT(lazy)
+[   23.504370] RIP: 0010:ip_frag_next+0xa71/0xb10
+[   23.533285] Call Trace:
+[   23.534004]  ip_do_fragment+0xdf1/0x1a40
+[   23.534004]  ovs_fragment+0x6d0/0x850
+[   23.534004]  do_execute_actions+0x14a8/0x1660
+[   23.534004]  ovs_execute_actions+0x64/0x1e0
+[   23.534004]  ovs_packet_cmd_execute+0x2b8/0x300
+[   23.534004] Kernel panic - not syncing: Fatal exception in interrupt
 
-The bound is enforced one level further out instead, in
-ice_sched_add_nodes_to_hw_layer():
+Validate the IPv4 header length against skb_headlen() before any use of
+hlen, rejecting malformed packets with -EINVAL. Well-formed skbs always
+satisfy hlen <= skb_headlen(), so normal fragmentation is unaffected;
+the existing undersized-MTU check keeps handling mtu < hlen + 8 after
+the header itself is known to be present.
 
-	if ((parent->num_children + num_nodes) > max_child_nodes) {
-
-ice_devlink_set_parent() does not go through that wrapper. It calls
-ice_sched_add_elems() directly to create a node for a devlink rate
-object, and has no equivalent check of its own, so re-parenting rate
-objects onto one node is only limited by how many children the
-firmware is willing to create.
-
-Bound the request in ice_sched_add_elems() rather than at the call
-site, so that both callers and any later one are covered. The check
-sits before ice_aq_add_sched_elems(), so a rejected request leaves no
-hardware state behind, and it returns -ENOSPC, which
-ice_sched_add_nodes_to_layer() already treats as "this parent is full"
-when it retries on a sibling.
-
-The existing check in ice_sched_add_nodes_to_hw_layer() is left alone.
-It returns -EIO instead of -ENOSPC when the full parent is the TC node,
-and that distinction is caller policy rather than something the callee
-can reconstruct.
-
-Both callers of ice_sched_add_elems(), ice_cfg_vsi_qs() by way of
-ice_sched_add_nodes_to_hw_layer() and ice_devlink_set_parent(), hold
-pi->sched_lock, so reading parent->num_children here is serialised
-against the rest of the tree.
-
-Fixes: 42c2eb6b1f43 ("ice: Implement devlink-rate API")
-Signed-off-by: Minseok Kim <kor8821@gmail.com>
+Closes: https://lore.kernel.org/netdev/20260922030310.8684-3-habte.yibelo@gmail.com/
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+Signed-off-by: Lin Jiapeng <jiapenglin@tencent.com>
 ---
-Found by code audit of the two call sites of ice_sched_add_elems().
 
-Notes on testing and tool assistance (per
-Documentation/process/generated-content.rst):
+Note: this overlaps the still-unmerged hlen half of Paulos Yibelo's
+[PATCH net v6 2/2] (20260922030310.8684-3-habte.yibelo@gmail.com).
+The CHECKSUM_PARTIAL equivalent logic already landed as 6785011f8b16;
+the hlen guard did not. Verified with an unprivileged OVS
+TRUNC+PUSH_MPLS reproducer (3/3 panic on A, clean on B with -EINVAL
+at the guard).
 
-- Tool assistance: Claude Code (Anthropic) was used during static source
-  auditing of the two ice_sched_add_elems() call sites, to draft the
-  commit description and the bounds check, and to run the build and
-  style checks.  All findings, the code change and the commit text were
-  independently verified and edited by the author, who takes full
-  responsibility for the patch.
+ net/ipv4/ip_output.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-- Testing: compile-tested only, on x86_64 (defconfig + CONFIG_PCI_IOV +
-  CONFIG_DCB + CONFIG_ICE) with `make W=1
-  drivers/net/ethernet/intel/ice/` against a baseline build of the same
-  tree: 0 warnings and 0 errors before and after, with an empty diff
-  between the two logs.  scripts/checkpatch.pl --strict reports 0
-  errors, 0 warnings, 0 checks.  No runtime testing was done: I have no
-  E800-series hardware, so the capacity path was not exercised, and the
-  behaviour change should be treated as untested on silicon.
-
-- Not Cc'd to stable: I have not shown that an over-capacity request is
-  reachable in practice, since hw->max_children[] is itself firmware
-  reported and the firmware may refuse the extra child first.  This is
-  offered as making the two callers of ice_sched_add_elems() consistent
-  with each other, not as a fix for an observed overflow.  If you would
-  rather rely on the firmware here and drop it, that is a fair answer.
-
-A separate patch to the same function is on the list, "ice: Do not free
-a preallocated node in ice_sched_add_node()", Message-ID
-<20261119055731.55798-1-izaiahsun@gmail.com>.  The two touch different
-hunks and should not conflict, but they may want ordering.
- drivers/net/ethernet/intel/ice/ice_sched.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/net/ethernet/intel/ice/ice_sched.c b/drivers/net/ethernet/intel/ice/ice_sched.c
-index a5c7a4e1c..ae4528347 100644
---- a/drivers/net/ethernet/intel/ice/ice_sched.c
-+++ b/drivers/net/ethernet/intel/ice/ice_sched.c
-@@ -909,6 +909,14 @@ ice_sched_add_elems(struct ice_port_info *pi, struct ice_sched_node *tc_node,
- 	int status = 0;
- 	u32 teid;
+diff --git a/net/ipv4/ip_output.c b/net/ipv4/ip_output.c
+index d42d776af273..d5ea596724d7 100644
+--- a/net/ipv4/ip_output.c
++++ b/net/ipv4/ip_output.c
+@@ -784,6 +784,11 @@ int ip_do_fragment(struct net *net, struct sock *sk, struct sk_buff *skb,
+ 	 */
  
-+	/* parent->children[] holds hw->max_children[] entries for the parent's
-+	 * layer and ice_sched_add_node() appends to it unconditionally, so the
-+	 * request has to be bounded before any node is created.
-+	 */
-+	if (parent->num_children + num_nodes >
-+	    hw->max_children[parent->tx_sched_layer])
-+		return -ENOSPC;
-+
- 	buf_size = struct_size(buf, generic, num_nodes);
- 	buf = devm_kzalloc(ice_hw_to_dev(hw), buf_size, GFP_KERNEL);
- 	if (!buf)
-
-base-commit: 25faec9ce61c01fb45abf812a222c5b43c3cd5c5
--- 
-2.34.1
-
+ 	iph = ip_hdr(skb);
++	hlen = iph->ihl * 4;
++	if (unlikely(hlen < sizeof(*iph) || hlen > skb_headlen(skb))) {
++		err = -EINVAL;
++		goto fail;
++	}
+ 
+ 	mtu = ip_skb_dst_mtu(sk, skb);
+ 	if (IPCB(skb)->frag_max_size && IPCB(skb)->frag_max_size < mtu)
+@@ -793,7 +798,6 @@ int ip_do_fragment(struct net *net, struct sock *sk, struct sk_buff *skb,
+ 	 *	Setup starting values.
+ 	 */
+ 
+-	hlen = iph->ihl * 4;
+ 	if (mtu < hlen + 8) {
+ 		err = -EMSGSIZE;
+ 		goto fail;
