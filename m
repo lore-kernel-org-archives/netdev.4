@@ -1,55 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686402;
-	b=BVPPYQ/GlN3PtlIN9RA4gBihNwr6SMH44EwisDzoVY0yQ1XLfA4B76bFjQ/Ivb9EnbZu
-	 2ueCWNqSSStT8iui1kOToBz4LDjQkLMIvItvRzEkbm4xHobhSFkvidU1VyPNnvUWokB9k
-	 fKbJa9BR0DPYztgaWjg8+P+7HFaVimCLKCeNaRM+DvevxLaqnTowa6hGDDhiWdpFyH74E
-	 CY3Ou3RAa9AHmKt8YOtVYRWeHXUu26muMiE1jQR48jbll10cIVfFGcmQ2yY5v1ybYtnPi
-	 Pt1bFGG9TTHPkTkoXniRtrT9o0+ALSlWPdoG0dpy0pbuZFzCHgZkqOPqKq3uu2XKUoA==
+	t=1795686451;
+	b=V/d0Dw2cMnKeVGuSmogJMlYZuMh/XNcTnyqwNKbCyw76CWhGk6oV2CVEvosRuaKIMLK1
+	 aMJtfRp8lpw0v21JdHxrYsxRs+cl390j+fMZfTUPK/eavpAr87q6dpylNQr9ZVJCB6k5g
+	 HOjGaZ79oTkD3rTIBLBosK6CgQMh8txq3gv0TeOo9tfBW/6WJzeUxKDyoHbo+kLJCcge6
+	 2XzpChG/mKIynHd3wZHDDJ43Fqvoga7rqBnHYE98hixRVXBIG5WbEVrMR6U68LaG4Dz08
+	 vHvpZLbkn9qQIWzfgRVPWDdR5O4NiOl5UZMcOeldCRBRmElGSCnEAwzSaSX2J4+bgnw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686402;
-	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
-	 In-Reply-To:References:MIME-Version:Content-Type:
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686451;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=ihRZPKwwcBwnL82bvvJhpAYLTjYeEr2UUurenFP8Sg8=;
-	b=TG16aA8KZDbHXyaD2lAuKn9TW4rEWOpv0/t83qDZ0dRfaTer29G6PHvY5rAwUcfbjSch
-	 Hy+3K1hyQTiyCDigIBlDNewgmDf5cqrfnOUmizXAC7zcNR9LrNUpIsmrd0zOerBApppos
-	 dazNaMj+Quy76tRLTZigck2Lp+gYBjx7pcUXA08OGRgPr8R+hyJAr7ihL6reMgcC7tygV
-	 dBz30NgZXv5ESeaVlpRcAJlbqSU1OQtngrPUhyYXx+oLQFErfp4Ajq05m/nuNUVQGP3zo
-	 clYSxHbmYqkfLFwjq3vLVfPNS/uctXcxmC4XkLhiqxqP67iTZG/2EcWN+z52GbhMs6g==
+	bh=XpcFE5yH6jbDnsuHPatF5o9jlPyNmnuNxlmeldGFfP8=;
+	b=2kd65vURfJjcI0ezNOI2okawDA0nm95YdW12vjUviGjUJWtM+Xqtd1QtW5WeWI6VDsfV
+	 3+DfK5aa8LE+nezgiD8CXsFIkRXjMJv41Ip4EKz5hHKpCXR7I2wxa+hnQ15NY2Ajn077R
+	 ChAbRTyU2lm3LH2pU9SxpRif3r2pGpWGAORZzKxPgrcSKmXe2avtzjMF/wzLVHF0jLyD+
+	 McNg/fnbv4ujxUziAQnOoon0op1xqZHZIxxbEE3KClg2GuW7zhIDBlNilKSaBr1M3FEx5
+	 0bq7o0Ec3BLpgl6kVZrvocxWCgvbMkSB0QETgIWABNgWgOk4Iyx5b2RO4xNmzKJETeg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=datenfreihafen.org;
-	spf=pass smtp.mailfrom=datenfreihafen.org;
-	arc=none smtp.remote-ip=78.47.171.185
-Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pz1I274b;
+	arc=none smtp.remote-ip=209.85.218.47
+Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3E838606A323;
-	Thu, 26 Nov 2026 09:46:42 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3E838606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
-Received: from work.datenfreihafen.local (unknown [46.253.254.165])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: stefan@sostec.de)
-	by proxima.lasnet.de (Postfix) with ESMTPSA id E6AA6C02DA;
-	Thu, 26 Nov 2026 10:46:39 +0100 (CET)
-From: Stefan Schmidt <stefan@datenfreihafen.org>
-To: alex.aring@gmail.com,
-	miquel.raynal@bootlin.com,
-	Lee Keon-Hyeong <leegun25@proton.me>
-Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
-	linux-wpan@vger.kernel.org,
-	netdev@vger.kernel.org
-Subject: Re: [PATCH net v2 1/2] mac802154: free a replaced child
-Date: Thu, 26 Nov 2026 10:46:34 +0100
-Message-ID: <179568639028.1969825.16464730477655114016.b4-ty@datenfreihafen.org>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 18359606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:47:30 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 18359606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=pz1I274b
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c50aaad19fbso747991866b.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:47:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795686449; x=1796291249; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=XpcFE5yH6jbDnsuHPatF5o9jlPyNmnuNxlmeldGFfP8=;
+        b=pz1I274bb3JaDemNqdR/CM9tzxoYeezTS5nspEjuTcafiXkOaJI/fb/2vnsSbPj4My
+         SvvEZ7qer5UbPKQ5Byb9/P7ZnOOmKBxO6K4R243EX4v6+VT8IHfPWE1FM9l+2clwjVfY
+         Bm5RE5HL3QgzksJR1Bf5FumtfQL46zsoSpW6KBrzDWpkKCdh0q7qRj/A56ZAUcICyjCA
+         Yar5CS3AxxByziQampabUDCXhYQwEbJPS7c9fKtDQttD5Z04b++4noYTZ0ICA+YZw35I
+         2rDfb4MHI4fEf2CzHl0JlnjMM+tpg7/cv56aFbGENgheb3yrwo23tbefAX7d1rS7GfFl
+         6i+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795686449; x=1796291249;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=XpcFE5yH6jbDnsuHPatF5o9jlPyNmnuNxlmeldGFfP8=;
+        b=lOe46dyB9qqOzKhdVNZ4gvAMti7h9/r+QdJWBlJQe3AVcNojzl7TImOCqNJ/c3IzUY
+         rJRkD7FmtdtpKeN8M3IpLgHiWj6wRyhRH1IhLyPUqLTYPnotzedjzcNjAH8oHlvixYvr
+         dRLAglMzuMUcLgAtqqFZqH2ORDQFm7N35d0TtC+PQOYB1nrzIfRC+lIoGXCKiSW/+t66
+         bEkhUs5yEdCVvWFLPwhJc/f+uYc86Y8kVty0SqWNMgIoK5YA9g9G1dfg6lTvxecF9NDH
+         YFm1d0AHudNCV6zaBLVyu4+FGiBQIM26ta59A4aoFTkJultnJjUbQzeQURxfEj2mjm/Y
+         DDNg==
+X-Forwarded-Encrypted: i=1; AL+hErE/N/gGdz5owGRv84JKI0Yh01A/ymr4t+0PRUrfTqK4PgpaLQLduemn7nJc1Tw/L/yyOBTBImk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8IAGCHyjUkoqH7IvcIvEbLnLc6x26F8SxJF5nZ43KUIqW2q4MB
+	rPby4QpB/vw1FU9jtnZ/6uGHeeJhI4CEPNBrsonbuYOjM+FXLChrR9HpSux3fCfQ
+X-Gm-Gg: AZFdTZfYU2kf6k0QmNw9OxrJYrjnRH17aMqguw65zksNNWBm10mPQksjRYzb2y/oe6c
+	FVJAUZweGBlFt5n7keiLwiFo4tDsRuAryesh/EBtk1MDkUCmF91RRSBX5+NkaiaIeDJ/Svc7pAc
+	gOQVGigVpEMX1mQv2xB3Mw0SnyWlZs8G/BKJzgVQLCEImsPAwrC0p52B/Mz95PSyf0Me6hPBbwO
+	SyzA2G2hFPbh1vVDguCa/eSOIQSmKJoVx8u+I3B4WMx28V8J7Vdji53W7WOUzp0OVupffFFgCrz
+	gMezQDd+QKC31R8sJWHlS/FBPFWGBoU1EjQskaAS8R/rMlDCTJEAhHPCm6Ief5pFS0rKN7kNm7Q
+	on6wVru91zJoCGG9sJIXIFnxeYrHX4/5UvfbOTYZqrVQ3GRS5LIeIazePEokiicneRMwB5T4tnf
+	fpPmRm97t3CW35DM+JeF3i0L98c+c4bGVqak/s0a24kU3nTKfYQ49xxJE892MGPPq0oxZhETLDj
+	n6LvYSs09a2MZZSgQRRv8RFwJ6VaoCUZumbGsdKqrrZlRVM/5uFOBfEbEvOCxqnTLLY2QIcwM3/
+	YjPmd4vGLDUlUM98QdUcc5E/QUsVFqaQD360+U0yqOASHD76
+X-Received: by 2002:a17:907:3f1b:b0:c51:5547:1771 with SMTP id a640c23a62f3a-c5155471892mr1472031966b.13.1795686449194;
+        Thu, 26 Nov 2026 01:47:29 -0800 (PST)
+Received: from Air-pasichndev ([188.163.8.107])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b002b9fsm727100666b.78.2026.11.26.01.47.28
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 01:47:28 -0800 (PST)
+From: Andrii Pasichnyk <apasichnik9@gmail.com>
+To: "Jason A . Donenfeld" <Jason@zx2c4.com>
+Cc: wireguard@lists.zx2c4.com,
+	netdev@vger.kernel.org,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Shuah Khan <shuah@kernel.org>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net v2 0/2] wireguard: free queued packets on peer removal, and test it
+Date: Thu, 26 Nov 2026 11:47:20 +0200
+Message-ID: <20261126094722.73025-1-apasichnik9@gmail.com>
 X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261124085905.710751-1-leegun25@proton.me>
-References: <20261124085905.710751-1-leegun25@proton.me>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -59,27 +102,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 
-Hello Lee Keon-Hyeong.
+Removing a peer while its receive queue is busy can leave packets on the
+per-peer queues. Each of them holds a keypair and a peer reference, so
+the peer and the keypair are never freed. Patch 1 frees what is left;
+patch 2 adds the test Jason asked for in the v1 thread to netns.sh.
 
-On Tue, 24 Nov 2026 08:59:12 +0000, Lee Keon-Hyeong wrote:
-> When an associated child retransmits an ASSOC REQ, the coordinator
-> removes the old entry from the list but never frees it.  It also
-> increments wpan_dev->nchildren even though the number of children
-> has not changed.
-> 
-> Free the old entry and increment nchildren only when adding a new child.
-> 
-> [...]
+Tested on net e50972666 with the WireGuard selftest VM (x86_64 KVM):
 
-Applied to wpan/wpan.git, thanks!
+  both patches, 4 vCPUs:      pass
+  both patches, NR_CPUS=1:    pass
+  patch 2 only, NR_CPUS=1:    fail, 4 peers and 4 keypairs
+                              "merely created" in 10 removals
 
-[1/2] mac802154: free a replaced child
-      https://git.kernel.org/wpan/wpan/c/4022afee3116
-[2/2] mac802154: look up children by extended address
-      https://git.kernel.org/wpan/wpan/c/b6148aaa5eb5
+Changes in v2:
+- Patch 1: code unchanged. The reproduction paragraph in the commit
+  message is corrected: the first reproducer only put load on the first
+  removal of each run, so "5 in 2140" understated how often this
+  happens. Under load it is 25-40% of removals with 1 vCPU.
+- Patch 2: new, the netns.sh loop from my reply in the v1 thread plus
+  the larger log buffer it needs.
+- Rebased on current net.
 
-regards,
-Stefan Schmidt
+v1: https://lore.kernel.org/netdev/20261003201625.4572-1-apasichnik9@gmail.com/
+
+Andrii Pasichnyk (2):
+  wireguard: peer: free packets left on the per-peer queues on removal
+  wireguard: selftests: remove a peer under load
+
+ drivers/net/wireguard/peer.c                  | 24 +++++++++++++++++++
+ tools/testing/selftests/wireguard/netns.sh    | 14 +++++++++++
+ .../selftests/wireguard/qemu/kernel.config    |  2 +-
+ 3 files changed, 39 insertions(+), 1 deletion(-)
+
+
+base-commit: e509726660dd06ce107437aecf7c106c9d3fc1e7
+-- 
+2.43.0
+
