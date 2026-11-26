@@ -1,84 +1,83 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711286;
-	b=l+dASko/ie5t7fFB75tTCWE3/XCZS6i2W+/rLQCODxR9dwo68bCkan+jTh3L+o3cqzQN
-	 368STAx6NClHwP0S+YyRl8sXLBnL8ZtodX34xmQX0kGmRwki05iLuJgl17LeD4RlnGUss
-	 3t4lHHHa+0xvt0xwOPlazygQW95dmKZ3wPu4QpekJokzVkTofXJIJUVhkSo8zYqwC3gdg
-	 sWHfOJzHo8TCJaoq5iDkFI8TJM5eYG97lIo9oFZ0Tvt1GEXIPym3aGhqzGwGKmADjY8GV
-	 sEn8UujeM6TuDoPRiv15MgjqJdkAkeoRUedx5Ilojrzz+8uquPt8wZ1tFLRz1/qE0Eg==
+	t=1795711288;
+	b=OtSL61lWVIsZH9cdLol8sbtghAotQwHlXybFs8nu8a8Zwd0GyGAzI8jY7/2s6tLYecyD
+	 hRPli7RGw3VmKeujMuhfqQj3YnHR4sFvRP5HsM2yofr+tbHqPIyNLV9sN3v8JmR8+VJbg
+	 Fr+Ah7rxJ8+t8z9x/0TMac93nrwWn2A3PyyN4n5alwUgn6AuSGn8E/tDyp5QaEbgxYd6x
+	 NvcdfM7Fwwxnl7/IqKqQZN555QWOg1ikHiBSLnADPHQ+y4uR7gZK28HdZg5BVWfAbs54p
+	 c+1BO+PNzdQG8B/iFfmVH0FVFmvuygsW2A0w8j3zTbHYUqmdayNaOkyPIhQkDMM03Eg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711286;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711288;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=H4thd8/o0XU9y1Nr8i2wrJ+01ueASy7DZKlmGehOHYo=;
-	b=33OZpst5aeZY+vdckIFKUxF0JgwTDNrnT5JIdcGlgKnGEukT9B4lr5x/Hp+R5+WJhPxy
-	 2CZmShtafqC4Fdm5OvwVIF583/WMttlciQEiFrDj7JpQiY/+mOGdg/hc40POfctVAvazI
-	 OkZg+S4GTHIuUygppe1cDHWD27Wn9wTejY7tbG102z2+kom0YEgmA2jZzEymSiNc7lkCf
-	 RlGczsw3iCkc3FWHj2txjdO5Y/XBD3eye/ZSzl2+B2skYpjJa1eOPTRs3TV3fiS/CZPmY
-	 C4sD/IEs7b67YmisV3sJalHu2BNiYk/PHQfHb7yze4jOjDSyiFjsNgmifmmC+L6JlLA==
+	bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
+	b=VxVoshNFAs+SDuYW9ZjE9Z5kPCI8ka6nbeyrxTJZbmXBE69XOgad+iDZtRM2lOoNwdoH
+	 Au9jYDqX9aCEcjxQpkqC8dAkdxmJCrnRM2Kv5wCC2aahZhuHQw8lZUpV1/q9k01s2/XFd
+	 W9uAT+DnfyohCjfIAyUXfMZAnmsl5sjkfm25Gbhpt/WJO718FDQVHNtBztWRqrAFrdb/U
+	 kMWQhyM/n3gTNK3IcZjt2iOD6F9WYdIdLZI+MQJGjGTzbVVXTw1/YbI4NJumVO8HUJrZl
+	 XCmsEzsGNitGFZVTbDMoAZDZqnXHOhi00s7ZFZZtwmk6KTIsYE7ECZRdADzAlPZtsvQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aEeZ2T5e;
-	arc=none smtp.remote-ip=74.125.82.179
-Received: from mail-dy1-f179.google.com (mail-dy1-f179.google.com [74.125.82.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="Tld5X8/4";
+	arc=none smtp.remote-ip=74.125.82.182
+Received: from mail-dy1-f182.google.com (mail-dy1-f182.google.com [74.125.82.182])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 679A6606A327
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:41:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 679A6606A327
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C5526606A339
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:41:27 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C5526606A339
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aEeZ2T5e
-Received: by mail-dy1-f179.google.com with SMTP id 5a478bee46e88-386d1859e1cso1663990eec.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:41:26 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Tld5X8/4
+Received: by mail-dy1-f182.google.com with SMTP id 5a478bee46e88-33bf40b0c8bso15253712eec.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:41:27 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795711286; x=1796316086; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795711287; x=1796316087; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=H4thd8/o0XU9y1Nr8i2wrJ+01ueASy7DZKlmGehOHYo=;
-        b=aEeZ2T5e0u3MNcjlySnsvBty+KHbjHtYJgtn9ATZ7MdtSw1PlDklXAi9ragq1imF2X
-         +zdyGZ8tPGkX+tVVXRSWBEA4u8aZ6JrOkedXoEUyGcgK/HjD0AfBJW+YctF7rLz1u9Jq
-         9nnbpmLTPzKkrPtC0LB5u1ktaYOoTqQjqJ/nBG9wjxwU7u65XvXwVydJc/C2OQ6gCEAK
-         pZp9Yn9eAclM+ZT8O4uvL3P5tqe/cjj24nqx61qwiEcTK2KsM1x34YhKZGseqNWAj49c
-         wbt+Q/CxsCn5gWHGrHA3gcz66xh3e717MfkZnQVuUgH9RrqMG0io459LTj74RxKcb2il
-         D94g==
+        bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
+        b=Tld5X8/4YPb+014wlTnxZRm08LbkpW5GpzIR3Ge6X9eTp+FbmnRCITSLpZdvebq5aN
+         zGWqHGlDM8Fo4PjwSAWEKDX0IK2SgDL4ak9Ca3PbposL+kP258OH2otroY5+murRdH7e
+         oRy6ooolGxiKOLPa3L7KCWper0P2aK2CF9xc5ZAkLXGFZfvbviDoi5zMDV0IP9fj/+X+
+         QGuk9DmHiUvHqndU8wCoxLNjSsiiXt6HCzu7Q5cfjmvTl2l/wPgAM07QGTI3uSCFkI9/
+         7jSrsDnKZpaACY52Y7Jj8FqHkzBmDDz9tYkk3p9FXq5Mw2doYAsYqg+oIxEA/hIrxmDk
+         869A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795711286; x=1796316086;
+        d=1e100.net; s=20260707; t=1795711287; x=1796316087;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=H4thd8/o0XU9y1Nr8i2wrJ+01ueASy7DZKlmGehOHYo=;
-        b=GYUFil59piIV/XXHVRr84mZb7IA06VUztY60nOnCg33W8o44TCxIPvSafwoT7JlI34
-         RdGpoDFvJVcqAhlTXvy8b8gIg8tHcALNuYx6+FYn2PfxkkHHRGT4//OoDa678W9HlocM
-         sDixSB3i8MTGkM1aMB7IvceRHWMnj3f4cxrOwAKbdOEyGLVU+NMWSstH8ig/UHz4zdsz
-         dMWxNt81jFsdCHtPiVCqCmr9Kc/kavNvmXRriMH/auoZnie4Ite+LhCeM3fJ2XgVkK+b
-         7v8ETjMlvl4iczMkM6vvsyGZMkte5qTOgbn3SKLDoqiIOFFCUKUc1mKeak2PqkIf1RSI
-         JBJA==
-X-Gm-Message-State: APuU4Z/WtzdspqlmWE+UVsVkNuqPfV8kd27BJSE95/ajAC+hT03SDdIQ
-	CyLELFXtrw/HLfaO3Vbkjjuz6dBSkPelGO8alnVjOLj6yogO+KbuF33lB1RLp78Q
-X-Gm-Gg: AZFdTZe5m+KMPNlcsIZ6WaeYHrl9cH31hd8KnF/hqsOpVcVoLkYbM5XmlEJSdypuA8X
-	YcSjFPzpgGKGCjcOotNo+dJ9YZkf8++dpyHx6GiiECmiqObwuCiN/ulcVgYeM9atIIuii7YGJJu
-	TuH/LDFB5aJUVxpTuAl2uAtvHrt4KAprlLMJpFsk3h2FHUdK0X8X3PkGHQS21lRuHKn25Qsry8Q
-	QjeBjZpEky5iXLy7tGTM/8KPaL5RXbm6EinkWmSMU86I7jjyGOL7ai0ENTejOj6NOnGt6mWCuSH
-	OlNhs9HKcGCRCGxXo5rBRg6ZgMc1mLwInVZj3cnR0XdXCyOCjOxCI6FuKFYIjBWi8aBZ3NjbW7p
-	Ewx/pqZNRM/tHkxY+Xx48e2TUzF71QRz0A2AVhy9ondc66MzQymkP2gb73e5xrzKEMk6N+4aK+9
-	GKFt60UbhgcyZmZm0w8YjUwfDuZRUNV0wrhiGW/oKxpK33H1htJT5rKZJ4/wM1adA5raQ41XU5u
-	1k7F+GJg1xkwaDTZkDrzh+u0hh1t81EoSKboaCg4Bu9yNzlw0SpBSmyPixFjQjlY69g9AD36OHP
-	saGrFLSCfYhxw5gf9tsscoIBgrn0o4C/xJgEiRN3QL/GTRlbjfByd37c60QlRMwmUcXbWSkEM53
-	IQWo/vetnG/LMbuWw39hB35UYtAUG0DtTh3kHBlm2wgd5w2WvJtRr41j14FLBAQTxJNkeKpGk2A
-	==
-X-Received: by 2002:a05:693c:884d:b0:386:d9ab:5cf4 with SMTP id 5a478bee46e88-386d9ab6c21mr3062391eec.3.1795711285570;
-        Thu, 26 Nov 2026 08:41:25 -0800 (PST)
+        bh=hVfV9uvXnE+bWUZPWsItXQSATMeWVREDW1IUclPxPkM=;
+        b=yI4skOx2aF/kkB1syHLKQx/2rU6Lsetw7/VVPkze1uNcFuIN/wSJRWYxXsWfNUPqNu
+         JV0DjLZtqfp/mTFGjgFL/vFnmcvcq+Re6pBu0Kd+nZnR5kv39uxbAlpWl8nWGlkQhuVK
+         zGWoi4CKz+CMtP+pAIeUH1mbW38Ap+YL3uokfH6ix0LupxK7WSdyQT0ZxF6XPpK1Qe1c
+         v85nR6569sjdufvnmOKI8wQYm1cCmcfY+mpSDHCuBRf1U8hJUxopyMIyx1M2xoaXFFRA
+         pRkPye8LPGXX8H5UC5BtZxnUFGlPK8oplDEga/HHvbMHTKgK4gfsYnYpD1AGihjiL9s7
+         x/LQ==
+X-Gm-Message-State: APuU4Z+nlGCUW+wJu0c1TB8euVndQBHYX0GdvCSRDBQVElh0xQV8CyMJ
+	ghyrRpiszugIYkp/khlEuxhtqFzoE+K1M4mUsk/3zuQy9zEsFds29MGHEt/Nm38H
+X-Gm-Gg: AZFdTZfKW3WnqOcriZI6Qw6JW8rXYREw/Qn4A8SITAM6ArHkKEr0fO5nDe8wcGn3/iO
+	ANArMywZN4c0AmUXC0a0ejEL6gnAItRrXbnf5cOsqxHzLFhpFpP/fVRwIYOdIX1cBrJQkf76Jlp
+	npHgMRfmpGAoakYT/pJO58FPvk9hfN/2hoD4RrGUNiVXxwC4aOKdkHPV+IZHVmZDbKr21xX5Akr
+	HMnw1AudhC2QVBwwT6O0CnAHEJHwGPitcoYPtSw9/8R0+uCyuENIWccbQ3zIg2A72b1VtpJwUct
+	pI2dbdbhszY2ulXyUH7hHdjjdpddjRjE7h/IZJvFuL84QkNXHEOWoHoAyHQfmrVbEMi92UUIoVD
+	gyThCyoGG9g31BW6TN3y0TZqnYiRsCZEeswwKEu7WxOavCPXGa6//atFxDGmQ7Ym8Wk6VPePAUR
+	G/ZisXZPCo2jHWkM105DxGiWR7v2+lSEdGyTrNqIjZA5Uq3KR7YXYky8UFptHfLOyaqhrbxYbNK
+	67/wN0xkxz/4D+ZkF9abjKbdQAJLd/7AcM56q2t/oBofTHcsHzvwrnL+i7iKSnUxXQFSuSgBW3x
+	o4b63rQnBX1dA/3RawgSAN7cEYT6ZCAIhJJ6G4oUic+7YQDa0O7x09rFxMctgn06qGNlg2AxnXf
+	QgcXSgiGJaKBuvYN2YGRyq/i92EVH9VtF03QKWNTrJIbeyAnc8DfYOp3TvmEZkZK+1HkUQ/C5
+X-Received: by 2002:a05:7300:824b:b0:386:9c6a:3e87 with SMTP id 5a478bee46e88-3869c6a3f0fmr17900569eec.15.1795711286860;
+        Thu, 26 Nov 2026 08:41:26 -0800 (PST)
 Received: from Mac.localdomain (198-27-228-154.fiber.dynamic.sonic.net. [198.27.228.154])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm55903706eec.19.2026.11.26.08.41.24
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-3866f299d0bsm55903706eec.19.2026.11.26.08.41.25
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 08:41:25 -0800 (PST)
+        Thu, 26 Nov 2026 08:41:26 -0800 (PST)
 From: Ahmad Byagowi <ahmadexp@gmail.com>
 To: netdev@vger.kernel.org
 Cc: richardcochran@gmail.com,
@@ -92,9 +91,9 @@ Cc: richardcochran@gmail.com,
 	arnd@arndb.de,
 	john.stultz@linaro.org,
 	rmk+kernel@armlinux.org.uk
-Subject: [PATCH net v6 1/2] ptp: serialize sysfs enable requests with ioctl paths
-Date: Thu, 26 Nov 2026 08:41:21 -0800
-Message-ID: <20261126-timecard-core-v6-1-ahmadexp@gmail.com>
+Subject: [PATCH net v6 2/2] ptp: disable unassigned timestamp channels on unregister
+Date: Thu, 26 Nov 2026 08:41:22 -0800
+Message-ID: <20261126-timecard-core-v6-2-ahmadexp@gmail.com>
 In-Reply-To: <20261126-timecard-core-v6-0-ahmadexp@gmail.com>
 References: <20261126-timecard-core-v6-0-ahmadexp@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -110,57 +109,47 @@ Content-Transfer-Encoding: 8bit
 
 From: ahmadexp <ahmadexp@gmail.com>
 
-EXTTS, PPS and period sysfs stores invoke the clock driver callback without the pincfg_mux mutex. The ioctl paths and pin configuration changes use that mutex, so sysfs can race with those operations and with other sysfs requests.
+PTP_EXTTS_REQUEST can enable a channel without assigning PTP_PF_EXTTS to a pin. ptp_disable_all_events() currently walks only configured pins, so unassigned channels can remain active after the clock is unregistered.
 
-Take pincfg_mux around each enable callback. Keep validation and permission checks outside the critical section, propagate callback failures, and return -ERESTARTSYS when mutex acquisition is interrupted. The mutex is required because disable callbacks may sleep while draining an IRQ.
+After removing the user interfaces and draining active operations, issue a direct PTP_CLK_REQ_EXTTS disable for every advertised external timestamp channel. Keep pin assignments unchanged and retain the existing PPS shutdown. This is a PTP core change and does not modify any clock driver.
 
-A coding assistant helped identify the missing serialization, develop the fix and regression tests, and prepare this changelog. The source-derived tests exercise the actual callbacks with controlled scheduling; KUnit coverage uses the actual stores under lock contention.
+A coding assistant helped identify the unassigned-channel teardown gap, develop the core fix and regression tests, and prepare this changelog. The regression harness exercises the actual cleanup path with controlled clock callbacks; no physical card was tested.
 
-Fixes: d94ba80ebbea ("ptp: Added a brand new class driver for ptp clocks.")
+Fixes: a60fc3294a37 ("ptp: rework ptp_clock_unregister() to disable events")
+
+Fixes: 627366c51145 ("ptp: ocp: fix resource freeing order")
 
 Link: https://lore.kernel.org/r/179548551283.3135.17206659598806657887@kernel.org
 Signed-off-by: Ahmad Byagowi <ahmadexp@gmail.com>
 ---
- drivers/ptp/ptp_sysfs.c | 9 +++++++++
- 1 file changed, 9 insertions(+)
+ drivers/ptp/ptp_chardev.c | 14 +++++++++-----
+ 1 file changed, 9 insertions(+), 5 deletions(-)
 
-diff --git a/drivers/ptp/ptp_sysfs.c b/drivers/ptp/ptp_sysfs.c
-index 8e0e0aa09981..90fdddc1e6a7 100644
---- a/drivers/ptp/ptp_sysfs.c
-+++ b/drivers/ptp/ptp_sysfs.c
-@@ -60,7 +60,10 @@ static ssize_t extts_enable_store(struct device *dev,
- 	if (req.extts.index >= ops->n_ext_ts)
- 		goto out;
+diff --git a/drivers/ptp/ptp_chardev.c b/drivers/ptp/ptp_chardev.c
+index f63b45f5ee6a..5835c01cddb4 100644
+--- a/drivers/ptp/ptp_chardev.c
++++ b/drivers/ptp/ptp_chardev.c
+@@ -53,11 +53,15 @@ void ptp_disable_all_events(struct ptp_clock *ptp)
+ 	unsigned int i;
  
-+	if (mutex_lock_interruptible(&ptp->pincfg_mux))
-+		return -ERESTARTSYS;
- 	err = ops->enable(ops, &req, enable ? 1 : 0);
-+	mutex_unlock(&ptp->pincfg_mux);
- 	if (err)
- 		goto out;
+ 	mutex_lock(&ptp->pincfg_mux);
+-	/* Disable any pins that may raise EXTTS events */
+-	for (i = 0; i < info->n_pins; i++)
+-		if (info->pin_config[i].func == PTP_PF_EXTTS)
+-			ptp_disable_pinfunc(info, info->pin_config[i].func,
+-					    info->pin_config[i].chan);
++	/* EXTTS requests do not require a pin assignment. */
++	for (i = 0; i < info->n_ext_ts; i++) {
++		struct ptp_clock_request req = {
++			.type = PTP_CLK_REQ_EXTTS,
++			.extts.index = i,
++		};
++
++		info->enable(info, &req, 0);
++	}
  
-@@ -130,7 +133,10 @@ static ssize_t period_store(struct device *dev,
- 		goto out;
- 
- 	enable = req.perout.period.sec || req.perout.period.nsec;
-+	if (mutex_lock_interruptible(&ptp->pincfg_mux))
-+		return -ERESTARTSYS;
- 	err = ops->enable(ops, &req, enable);
-+	mutex_unlock(&ptp->pincfg_mux);
- 	if (err)
- 		goto out;
- 
-@@ -157,7 +163,10 @@ static ssize_t pps_enable_store(struct device *dev,
- 	if (cnt != 1)
- 		goto out;
- 
-+	if (mutex_lock_interruptible(&ptp->pincfg_mux))
-+		return -ERESTARTSYS;
- 	err = ops->enable(ops, &req, enable ? 1 : 0);
-+	mutex_unlock(&ptp->pincfg_mux);
- 	if (err)
- 		goto out;
- 
+ 	/* Disable the PPS event if the driver has PPS support */
+ 	if (info->pps) {
 -- 
 2.54.0 (Apple Git-157)
 
