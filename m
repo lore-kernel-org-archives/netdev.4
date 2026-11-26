@@ -1,49 +1,114 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795726206;
-	b=trZRscUBr5emEr1UHAKFsnN0q8BjYIlp6ZT3hFNkSqq7sXcoliMMNwHa0IBX0vPab2H5
-	 QXGxZ7X8i7mNCbdnpcicRk+W94Yose5nm/CZB1GFxwYMscY5IbDKKpmVBwUwbQRVpCpZB
-	 5PBXVGye7O360e6RByYieJ9iDAgVX/kq5pFkUpsBeCqLkD8KrYt5SoV2lcAvTFiyd0o8r
-	 jnGg4oLJgTrlww/LZpp3ovvO3z8fN8/yQfG94kHA+Es69OxxjTuND7Ejn3TVJzVxrpAay
-	 bZaU075Zm5G9VVSaq6laaOWi1xp/b1qw+wI8NBMjAsydz9EgBdE90CLMxwkZPksiQIA==
+	t=1795726521;
+	b=U/VFOZZsHp9Cyl6YgBvkmQQ9Rh8pWCs2QwSQGSz51qjZLYNtEHVQAxv/UWifNu2EdbdH
+	 76KXdHodPlTWIeFT1O3GteORItGtMpehaCsrEeta4y0muwYPNoU8Xq9FUlqUDCp3OaxgP
+	 HNPXw+ZrP7+YibBsIq5CnAyDJ4diOcIvDWjNqy05AGJiZKOUh3Jxmp6zoTRkNkZhiSFNl
+	 3yMc+id38Bz+7xlm975ybQwcgygiPbGv5JxX8kB3wHaYARCOSy3ORJQ/2TKUBdKvGV9dL
+	 pdZcCCfxp/2INml4KkFxStYsG1T2+qbQYD0n5SsgRAwhqDQcy4JPz7kcYT8T7864+Iw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795726206;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=qxIKxJeSr/ezkKmeWXoCQPXbtP04fBvfKWJ1qcMY4HI=;
-	b=RzzVrW3wdEUG5YFMlVCDvXjJehEc9wXlGWvW9I+JIztarFAH8Nf6BqPUbzvYaKnD7CYG
-	 u2JGudqUA/NMkvaC+QqZU4nA2d8srN5yS71EqAEOt+EjybmnXpTOBnEV27YCLNWah24o1
-	 FcT7fdqh5tARWuQ3s5yqwAXn4c6sL45ncXcyVP4jiLmZg0FcPAYzUyvMzpGkLg0b319VA
-	 rplIO4tD4RjfTkaAFx7T64foXTntKNKORGBXkXvp0y0JuHgC91l/+2jyM3tbd5ougeVmR
-	 dJRjz2L3loY0/cX54+E+RBZiqrcL2nDU6jlGtFRUPrNmkiH8PjclcmU1DnSEddaEbLA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795726521;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Date:Message-Id:Cc:Subject:From:To:In-Reply-To:
+	 References:Content-Transfer-Encoding:MIME-Version;
+	bh=WG8u27/WmbWF6C9WqnFdauWWHkIDT4nMCSatNf2Dopk=;
+	b=MXKYvpJgP9DJ5iLPt1s7RDLG+bH7s9uYY95RHJr8ubzlNuSI0KPxgji2yH+twuAVXaTT
+	 LhnTCUNkof67QeW/n5H0sqm2i34WaaD6tvFqXGZe4PTv6yO28CetmOywZyqaGri1ito2a
+	 34a6MQZoCIwG7189Pd11I4Yxtb7VhD7S+zgfOYNaPJMKgDoKZxqnQj1UmHm24jDNFaA02
+	 EJuFq1ZxcyoFtQJMFP6y6SHxt5JYk0ACb1He4jt8auAX28zE/NHbaaNYU/BVugA+Twlw9
+	 5Ug8krYHBADOvsI/UOfZpfaBJdFA58tPDNOMlvu12F192Xh3xveKAyLbU5lEl8o568w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odcHQASm;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZRk9pbpx;
+	arc=none smtp.remote-ip=209.85.214.182
+Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9F74C606A31C;
-	Thu, 26 Nov 2026 20:50:06 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7D6A2606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:55:21 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7D6A2606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=odcHQASm
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D4981F000C1;
-	Thu, 26 Nov 2026 20:50:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795726206;
-	bh=qxIKxJeSr/ezkKmeWXoCQPXbtP04fBvfKWJ1qcMY4HI=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=odcHQASmlzVrLm6YR58ye8QzP3H2P3No9360GgEY2hsW238Mpa66511PrXD+ZWAzj
-	 6zuB/pWbcgEO3+4N0oK64MkkbQ5HeoWUajLkhUewD2F5q5iSumH4Oq+wSc6btgeZ6D
-	 k7huTygBm4HqKA137tGELQMtS9lWyX0UibVXaV0mN/n+Y/2srNMtpktbmg8syQzQDo
-	 HeHrbdDH0yoREDsgzfDEuwTpdFhngfqMsXBtoyhGUypwf8k38PAeQaak0jbgCu5ptf
-	 Fa1laBf4QFV+JEYLJaI5NSJx371YwksuWEHl6OvFedFZdYTfLv/y3fnJ7NFHWqwQeS
-	 gNIpNG0GeAKTg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 348BE3803326;
-	Thu, 26 Nov 2026 20:50:06 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ZRk9pbpx
+Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f0621eec70so51688045ad.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:55:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795726521; x=1796331321; darn=vger.kernel.org;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=WG8u27/WmbWF6C9WqnFdauWWHkIDT4nMCSatNf2Dopk=;
+        b=ZRk9pbpx1qYIlFNLdBpTk1l5ax99IpkBgvxNndr/7zOBPE6nwy4dYpgboyM6myBcfh
+         Mi6xXUv3+6WgJDwvQwrPwgFzyk9MtzD/rI3kxjQIdCGy9DoJ8BjUgOlrri1ZmEUwaiZf
+         GhaPLezWmjAbMscLibq+ydYSoMaq3aVttbOp/ZKZpLswK4/QVdl4WFEEsg5DKXMC6+1U
+         y+2P5zEzVaqP3Vju4lAasWaBFSECJWxeHJRlQ7x3rlCK609SjbO5ErXa3VRVUYBnkYU/
+         c4o8lMyCUXE6bprS76giqjnE5nQCcW1iw1M8Q6SAshZ6wIl6nn8AQT8HNllqw84pqxwE
+         qXdg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795726521; x=1796331321;
+        h=mime-version:content-transfer-encoding:references:in-reply-to:to
+         :from:subject:cc:message-id:date:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=WG8u27/WmbWF6C9WqnFdauWWHkIDT4nMCSatNf2Dopk=;
+        b=wKTFS0yhuQiKKBnPYVOavL0QcB/Zholf9/wqczwzdD3GwDW4xv05fxHjiPhSae69S2
+         guZRjQADsRgFVWOLrrKvbcPIfAy2KILsEvuUSryVH9+Uk5ThCrbMmR7ub4c6W4MS7BFI
+         6bW7Vb8FAAVCK7T8HvFG0sQRVIh8rzsHYNVni0KgjWrsW6zGPwmaBa0ilo8tbL00H3Ow
+         z6gd9lhqmyEHkdtubk2dKJr3Hum7O4G0ce6h+xk1RnPEQpRiueTGmDP9vqlPkccunisS
+         UhZoz59Z4QF8eO5qcfy8oC/rme+nmlLMJxSsy58ts56hd7AYqSAmx0MBxQLA0oB0gosC
+         CDfQ==
+X-Forwarded-Encrypted: i=1; AL+hErGo4fW9+WoqFHACIUDlbIAjWvAe6859LqPZZC/NEvtZS0He3h3K8t0wUERIATpELWYQ+nF69gA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/KoakUTNU+XrjTFBWNu8zs+ap746uowYZeBeA7DTavqVaFWX+B
+	j2q/9VxHEHjr8GJhEHCJDzTZqknH4oJu6KvN1QJq9+8wygKvKvPMKJXK
+X-Gm-Gg: AZFdTZcLucGrWTeoOweC5jdQ5uO1K+7v9fFbbFg59rz6U4xfHBOagbQpzXP5YI6uI8D
+	87vP3uKzry3i3kPyevis6sMkEL/KteU5FWUHDPKxsdV8F4kgi3sKofqfviZV0FuqxsqvY9Nhhrt
+	vcX2ysFLdXozUzJ/EuhBcf6JbjWNOkWa8Jpx1QcpMo4iX6aCDbQmuQyFcsly7CWVS7H0zec7OG1
+	a0hO6Ab1oFEmhWKzIVnL2GvibZ4Y5dIosbseybsexqJnWOT/A8SxJqQY5cKge409wRSGr/tsvsX
+	ytQMIiMQMJQh1bbkvhbP22yKgYdPsxzTFHZ0PRUkbWZc0zxfrM1ltoeQo5gde7tH/1Bg6YgyYT8
+	o8oLsL4ndOf69Xp3rpA20ywRmFENc0+Sf5oo/LiLVTj1JphedntPO8IuLSaUv1p23ABhRkPzhHX
+	139Vmo30fbme0OvoF5tBW6Rs4oixGK2A9ijlS8g/I+XtGTSHhzpExojf2Is2Nl8XgH4LnHqs/Iy
+	Xlr7mRlhFpde+8pnvmwyoAFvfgDqNwF/s0gWoaF3ebZ57QOd0llxq/f0N33hwNeVK5VcIYtGqRJ
+	BpnZyQamvzOpv9YiwE4VHec0y/JTclYSQ7A35gys3dh/Yul49WYoO1Bf6WFzrWo73UuWDIEtbH0
+	C5+2aQ4PYEC/RrJ1HjEaEkNr1NJ/aO/078vJf3dQ3APo8aMpSmdDS+e4=
+X-Received: by 2002:a17:903:230a:b0:2ef:e755:bba2 with SMTP id d9443c01a7336-2f03f2b6004mr227987945ad.62.1795726520672;
+        Thu, 26 Nov 2026 12:55:20 -0800 (PST)
+Received: from localhost ([153.61.198.246])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04913a77csm100950515ad.34.2026.11.26.12.55.19
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 12:55:20 -0800 (PST)
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 20:55:19 +0000
+Message-Id: <DN5FXAJD2B7T.26NBT62PWILGJ@gmail.com>
+Cc: <jiayuan.chen@linux.dev>, "Daniel Borkmann" <daniel@iogearbox.net>,
+ "David S . Miller" <davem@davemloft.net>, "Jakub Kicinski"
+ <kuba@kernel.org>, "Jesper Dangaard Brouer" <hawk@kernel.org>, "John
+ Fastabend" <john.fastabend@gmail.com>, "Stanislav Fomichev"
+ <sdf@fomichev.me>, <bpf@vger.kernel.org>, <netdev@vger.kernel.org>, "Tianyi
+ Gao" <tianyi@cloudflare.com>, "Octavian Purdila" <tavip@google.com>,
+ =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>, "Alexander
+ Lobakin" <aleksander.lobakin@intel.com>, "Ilias Apalodimas"
+ <ilias.apalodimas@linaro.org>, "Lorenzo Bianconi" <lorenzo@kernel.org>,
+ "Lorenzo Bianconi" <lorenzo.bianconi@oss.qualcomm.com>, "Magnus Karlsson"
+ <magnus.karlsson@intel.com>, "Ihor Solodrai" <ihor.solodrai@linux.dev>,
+ "Eric Dumazet" <edumazet@kernel.org>, "Paolo Abeni" <pabeni@redhat.com>,
+ "Andrew Lunn" <andrew+netdev@lunn.ch>, "Simon Horman" <horms@kernel.org>,
+ "Andrii Nakryiko" <andrii@kernel.org>, "Martin KaFai Lau"
+ <martin.lau@linux.dev>, "Eduard Zingerman" <eddyz87@gmail.com>, "Song Liu"
+ <song@kernel.org>, "Yonghong Song" <yonghong.song@linux.dev>, "Jiri Olsa"
+ <jolsa@kernel.org>, "Kumar Kartikeya Dwivedi" <memxor@gmail.com>, "Emil
+ Tsalapatis" <emil@etsalapatis.com>, "Shuah Khan" <shuah@kernel.org>,
+ <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH v8 bpf 0/7] xdp: fix page_pool leaks
+From: "Alexei Starovoitov" <alexei.starovoitov@gmail.com>
+To: "Maciej Fijalkowski" <maciej.fijalkowski@intel.com>, "Slawomir Stepien"
+ <sst@poczta.fm>
+In-Reply-To: <awbq4F8pF3YSGX2D@boxer>
+References: <20261124104016.532341-1-sst@poczta.fm> <DN3QVHST3PUQ.3NINFUW0FL9IW@gmail.com> <awa0fvxzngTtIYVd@nr200> <awbJFmKWy50Dp0yS@boxer> <awbq4F8pF3YSGX2D@boxer>
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,50 +118,18 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH bpf] bpf,
- sockmap: Clear the redirect target after the stream parser runs
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179572620493.612301.18286329775788575434.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 20:50:04 +0000
-References: <20261126101950.1682160-1-rhkrqnwk98@gmail.com>
-In-Reply-To: <20261126101950.1682160-1-rhkrqnwk98@gmail.com>
-To: Sechang Lim <rhkrqnwk98@gmail.com>
-Cc: bpf@vger.kernel.org, netdev@vger.kernel.org, john.fastabend@gmail.com,
- jakub@cloudflare.com, jiayuan.chen@linux.dev, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
- ast@kernel.org, cwang@multikernel.io
 
-Hello:
+On Wed, Nov 25, 2026 at 06:04 AM Maciej Fijalkowski <maciej.fijalkowski@intel.com> wrote:
+> Nothing leaks with your diff, it is only about recycling, so I'm fine
+> with keeping it out of the fix and following up in net-next. On top of
+> the on-stack rxq it should be small: for skbs veth copied (what pp_cow
+> tracked; an uncopied head is usually not page_pool memory), keep
+> MEM_TYPE_PAGE_POOL in veth_xdp_get() and take page_pool refs instead
+> of page refs. Unlike the RFC, which keeps skbs as skbs, that preserves
+> the XDP_TX/devmap bulking (the RFC loses 8-17% there [1]).
+>
+> Would you be OK with that as a follow-up?
 
-This patch was applied to bpf/bpf.git (master)
-by Alexei Starovoitov <ast@kernel.org>:
-
-On Thu, 26 Nov 2026 10:19:41 +0000 you wrote:
-> A stream parser can call bpf_sk_redirect_{map,hash}(), which store the
-> target socket in skb->_sk_redir. sk_psock_strp_parse() never clears it,
-> and it shares storage with skb->_skb_refdst, so skb_dst_drop() later
-> passes the socket to dst_release():
-> 
->   KASAN: null-ptr-deref in range [0x0000000000000128-0x000000000000012f]
->   RIP: 0010:percpu_counter_add_batch+0x24/0x220
->   Call Trace:
->    dst_release.part.0+0xc9/0x180
->    skb_release_head_state+0x1cc/0x2f0
->    sk_skb_reason_drop+0xbc/0x420
->    strp_done+0xcf/0x150
->    sk_psock_destroy+0x85e/0xb10
-> 
-> [...]
-
-Here is the summary with links:
-  - [bpf] bpf, sockmap: Clear the redirect target after the stream parser runs
-    https://git.kernel.org/bpf/bpf/c/14f6b10422d6
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+I'm not sure whom you're asking :)
+but makes sense to me.
+net-next is the right place for it.
