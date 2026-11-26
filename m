@@ -1,60 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705748;
-	b=yMcng6hmV21I/zYPljiEmjCLxINH3gwvT1uH55quSZqoI31p8B8OjuRdBO+KnXrEtdDF
-	 WCi6KV3AX68f/esmb2si1oDmZpyAZdmZTfeK0mJdaz6J+4Kio6hxjONsYsMY4luTHajvD
-	 yy3/lMdK8f1YB1WXPuqoXgq6hM8d2sUXoMNXAnor4aAApGNz4gCM7Hr1RJypmLd2Ti30L
-	 JaLrb5OmR3KrjCEuwNj4m9HGzlF4vXsVLREXikvOlGkwkbOPxt/Qllh0pilhBexeiaUPu
-	 ZGkW7ClZiEZWzn1Y0spcSTB4Qr3woCXArDz7lOkc0d+qUUgNnb0ZXju8B0duMWgXqaw==
+	t=1795705809;
+	b=ZPCcq9OeG2hK0HNkkevBTN+fuG9PTWAupXWF40h/G9EPuynN7GpSwoKe1TOEJJRFosp8
+	 IdWaKLp8A9rw91rK7TG2PEskNUGs9BEzcN9TKlfvy0hTX5pDJGvEYtB7g4FSX6QbDVCKT
+	 REgAITatcRKU0Tpp/8JTUM2uGfBYVBg4/Fm7y+Ym1sf5KfJ9ZXr5GL8lvno9ptP/qZtJg
+	 nknGDxv7lN1AKCSYv5QnjUY3k2qGjN78Exq058ykGaLwXqwF0+hQ/LXRI9DtrOvWezKGF
+	 lQqAUu8USFYF4AcOY1rroCmL5YT9Awk6J7kVIMVVm26s2cQsmAlZRkKiquh89buSIug==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705748;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=sXtleGioD9i4yzeP51aOqPnUyfmsKKBbpPqlr4rXmFc=;
-	b=k4SbCb4lWEKDNm6XKsrH3DiOfKem8Pd2oHGQD7BOarf5bdhcp7B6W2PlUfuL5oVkDHki
-	 Qx8OwlqB4BHSUViJt4uOAUGSyeudkeAUeHbdZZqhUfjlgEGmjLwWJ8bOj9ufKzFeSMrvD
-	 37scQGGYnPBieLYYw0gW4Q5HMqtnzkziurZX7H1Q6ngouGE+OYA2mjie1JS79rNKBxarR
-	 bxTpyNKHpT4ywoDbVlx3GRaG6877svMHPbE9d+i2Kjf6O8jRwWqA38Zq82GTzPQBCU1e5
-	 wY8bMGxWMJ1ZGQK/2CyIsnWPlMWkys2W7+1eNiiN5sz9ZLekWfwpl0ANKBO3ehb22TA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705809;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=nve0oiWt3fDBEFLCLIFQKd/HP7O7o2kSx1+K6NEp3nc=;
+	b=rsTtR2dq2Wez4I1/oAXng9dPnOBdvRRWa3L9eXl5g2nvT8SbA1T4Yyw4VwSyvd5V3zWo
+	 b9nR+XJZjrOeomWJLk7l4TWtVjv1QHaN5nH5arwNdJTWHH7kro1jbfc05G2xgrHZvVFAw
+	 YCoam7+ubEXfYO4IC9k7PTuC4w42HCGeu0oCnNRisCLGZiOmF/QcKx1KsdnJ5tutLbom9
+	 qNpXzRfsmhiEDnOmPSOiQLfyQm6XDIr49j7yVeQqnvv1qndi7A8sIHzjJzGESVUpO5kIi
+	 fNWcpDQzsU5YM0RiVMEjX2+cXX8VA8Gf81XZiCua8D5gdl79/2s893HkSbyIauF+T7w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fdLqbgFi;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aelEwF6A;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 091EC606A321;
-	Thu, 26 Nov 2026 15:09:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 23DC1606A332;
+	Thu, 26 Nov 2026 15:10:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fdLqbgFi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05AC51F008B2;
-	Thu, 26 Nov 2026 15:09:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=aelEwF6A
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BCE7E1F000CF;
+	Thu, 26 Nov 2026 15:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705747;
-	bh=sXtleGioD9i4yzeP51aOqPnUyfmsKKBbpPqlr4rXmFc=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=fdLqbgFi16ERxCKZS3TlJOBEWZDcUg4j2+7RZ7d1nPbvU8cGK/BbRaOswzaM/qMQQ
-	 TBF57zpVWs9TWcPE12i6uDPoGaZAx6HlSbOQdiEdDjNViK3531iDxQXEF+TWmBQ4BT
-	 FPxdUetemhD325WGK97IZubRgBRxlQqrHIc+M2LEeh7T2t8DJg3CDQzw8luRnchZCI
-	 nIONkIUze91X4m5RtyqTt0PqouktGWGmrnmPj2dLnMfkLgdEZiRXCPJYbSHzcVsdiI
-	 Bqbkf+VbS9aGX9SV5Lyt3PWKZDHJNtlMusgVfWr2qVAPi+kQp2Dmm6XFuav7bJGO+w
-	 F20r4lw1q6ycQ==
-Subject: Re: [PATCH net-next] net: ethernet: ti: davinci_mdio: enable MDIO
- manual mode for AM62PX
-From: netdev-bot+sashiko@kernel.org
-To: paul.louvel@bootlin.com
-Cc: s-vadapalli@ti.com, rogerq@kernel.org, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- bo.mellberg@se.com, r-gunasekaran@ti.com, thomas.petazzoni@bootlin.com,
- linux-omap@vger.kernel.org, netdev@vger.kernel.org
-Date: Thu, 26 Nov 2026 15:09:06 +0000
-Message-ID: <179570574643.3135.14735411472140750286@kernel.org>
-In-Reply-To: <20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc@bootlin.com>
-References: <20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc@bootlin.com>
-X-sashiko-severity: Medium
+	s=k20260515; t=1795705808;
+	bh=nve0oiWt3fDBEFLCLIFQKd/HP7O7o2kSx1+K6NEp3nc=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=aelEwF6A03r3YWdtYsLZPM9kvOmQFrhn7zpswNC32gfEfUBl5dMYRElCUEcYrhqGw
+	 z7FV1skppZDcvhD23+lrQHZMWdRCVsDh+NO907CHknnDvs1Qst45NWjW0gvhs9Dv+u
+	 TF3Ez5l5oRISNn+kARNT/g3+WaXqGFWDOnZfqjQa1vnMfi/cQSH08VRSBT5O6m/1gK
+	 9NJc8WNFyiozd40Dm78TkZCUjWCGcgC75/xwwNx6Gk9xCf8DfYhsAePkPwqu9LWxI5
+	 KC2N9En3vvNJd8so0VJgoZbqa5K7LLfvlVwG6zdlBR50aS3Schr+zCGfmpZht+w65E
+	 UuTB2L8hZeerQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B445E380A96C;
+	Thu, 26 Nov 2026 15:10:08 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -64,92 +53,64 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net 01/12] can: bcm: copy the CAN frames outside of
+ lock_sock()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179570580753.1889275.331318921844606497.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 15:10:07 +0000
+References: <20261124085757.1093632-2-mkl@pengutronix.de>
+In-Reply-To: <20261124085757.1093632-2-mkl@pengutronix.de>
+To: Marc Kleine-Budde <mkl@pengutronix.de>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+ linux-can@vger.kernel.org, kernel@pengutronix.de, socketcan@hartkopp.net,
+ stable@vger.kernel.org
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hello:
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
+This series was applied to netdev/net.git (main)
+by Marc Kleine-Budde <mkl@pengutronix.de>:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
+On Tue, 24 Nov 2026 09:51:28 +0100 you wrote:
+> From: Oliver Hartkopp <socketcan@hartkopp.net>
+> 
+> bcm_sendmsg() copies the CAN frames of TX_SETUP, RX_SETUP and TX_SEND
+> from user space while holding lock_sock(). A copy that faults or
+> stalls, e.g. on a FUSE backed mapping, holds lock_sock() for its whole
+> duration.
+> 
+> [...]
 
-- [Medium] The patch turns on the i2329 MDIO manual-mode workaround only
-  for the "AM62PX" family string.
-- [Low] The commit enables an erratum workaround to fix a problem users
-  can see on AM62P: MDIO corruption and broken external-switch…
+Here is the summary with links:
+  - [net,01/12] can: bcm: copy the CAN frames outside of lock_sock()
+    https://git.kernel.org/netdev/net/c/a2bdc43c05f9
+  - [net,02/12] can: bcm: do not remove the procfs entry in bcm_notify()
+    https://git.kernel.org/netdev/net/c/2caf66eca1bc
+  - [net,03/12] can: raw: use a private mutex instead of lock_sock()
+    https://git.kernel.org/netdev/net/c/f7c5b6e19684
+  - [net,04/12] can: isotp: use a private mutex instead of lock_sock()
+    https://git.kernel.org/netdev/net/c/c781fc329528
+  - [net,05/12] can: bcm: use a private mutex instead of lock_sock()
+    https://git.kernel.org/netdev/net/c/bcea265a4c04
+  - [net,06/12] can: isotp: always start the rx timeout in ISOTP_WAIT_DATA state
+    https://git.kernel.org/netdev/net/c/4b558c0ccb62
+  - [net,07/12] can: isotp: reject socket options while a transfer is active
+    https://git.kernel.org/netdev/net/c/da0eaf6fd9bb
+  - [net,08/12] can: netlink: fix static FD-NON-ISO mode validation
+    https://git.kernel.org/netdev/net/c/36da93199869
+  - [net,09/12] can: netlink: fix IFLA_CAN_BITRATE_MAX attribute sizing
+    https://git.kernel.org/netdev/net/c/0bfb76b7c927
+  - [net,10/12] can: netlink: fix CAN XL PWM attribute sizing
+    https://git.kernel.org/netdev/net/c/3949d692d646
+  - [net,11/12] can: gs_usb: gs_can_start_xmit(): don't leak uninitialized memory over USB
+    https://git.kernel.org/netdev/net/c/4dfaa1160683
+  - [net,12/12] can: flexcan: Fix probing for m68k/coldfire
+    https://git.kernel.org/netdev/net/c/869199293237
 
---
-
-net: ethernet: ti: davinci_mdio: enable MDIO manual mode for AM62PX
-
-This commit adds the AM62PX SoC family to the k3_mdio_socinfo table in
-drivers/net/ethernet/ti/davinci_mdio.c. That turns on the MDIO manual mode
-workaround for Errata i2329 on AM62P. The erratum document does not list
-AM62PX, but a TI E2E thread reports the same issue on that SoC.
-
-Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1647576/am62p-external-switch-connectivity-problems
-
-> diff --git a/drivers/net/ethernet/ti/davinci_mdio.c b/drivers/net/ethernet/ti/davinci_mdio.c
-> index c413887657e92..9b58ba7acc4fa 100644
-> --- a/drivers/net/ethernet/ti/davinci_mdio.c
-> +++ b/drivers/net/ethernet/ti/davinci_mdio.c
-> @@ -505,6 +505,7 @@ static const struct k3_mdio_soc_data am65_mdio_soc_data = {
->  
->  static const struct soc_device_attribute k3_mdio_socinfo[] = {
->  	{ .family = "AM62X", .data = &am65_mdio_soc_data },
-> +	{ .family = "AM62PX", .data = &am65_mdio_soc_data },
-
-[Severity: Medium]
-
-Should J722S be added to this table as well?
-
-The cpsw3g_mdio node is in
-arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi. Both k3-am62p.dtsi
-and k3-j722s.dtsi include that file, so the two SoCs appear to use the same
-MDIO instance:
-
-		cpsw3g_mdio: mdio@f00 {
-			compatible = "ti,cpsw-mdio","ti,davinci_mdio";
-
-J722S has its own family string in drivers/soc/ti/k3-socinfo.c:
-
-	{ JTAG_ID_PARTNO_J722S, "J722S" },
-
-This means the new "AM62PX" entry does not match J722S. On J722S,
-soc_device_match(k3_mdio_socinfo) in davinci_mdio_probe() finds no match and
-data->manual_mode stays false. The driver then uses davinci_mdio_read() and
-davinci_mdio_write() on the hardware MDIO state machine instead of the
-bitbang bus.
-
-The commit message says the erratum document under-reports the affected
-SoCs. If that is the case, J722S being absent from the document does not
-show that it is unaffected.
-
-Was J722S left out on purpose? If so, could the commit message say why?
-
-AM62AX and J784S4 also have ti,cpsw-mdio nodes and are reported by
-k3-socinfo, but neither is in this table. Their link to this change is less
-direct, though.
-
-[Severity: Low]
-
-This isn't a bug, but should this have a Fixes: tag and a Cc: stable?
-
-The change fixes an MDIO problem on AM62P that users can see. AM62P
-CPSW/MDIO DT support came in with commit b5080c7c1f7e ("arm64: dts: ti:
-k3-am62p: Add nodes for more IPs"). That was before commit be5fc78a0084
-("net: ethernet: ti: davinci_mdio: Update K3 SoCs list for errata i2329")
-reworked the i2329 SoC list, and that rework did not include AM62PX.
-
-Either commit could be the Fixes: target. Without a tag, stable kernels that
-support AM62P may not pick up this workaround.
-
->  	{ .family = "AM64X", .data = &am65_mdio_soc_data },
->  	{ .family = "AM65X", .data = &am65_mdio_soc_data },
->  	{ .family = "J7200", .data = &am65_mdio_soc_data },
-
+You are awesome, thank you!
 -- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc%40bootlin.com
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
