@@ -1,94 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.240.164.96
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.158
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679883;
-	b=Yni6tQm8kDzLBRmzFmhE7WV3sdS6++Rlo8FTD2n12UkUtoS2o80QUknnvZODyIMHzAZl
-	 XqcXau9VkpRI3ig9whuDOGcRru0C5hLtRQb6ehIqXz/6cvLlnQXyoU28nnNckSkeuthcu
-	 js/9dnqGqruR+xt6POYZqNC3JJV6h/8j/0ijb9O4chqhc+UDXN6miEsk4zIEaa8YVjY8H
-	 n7qb+2dtRB5sdFvPp3O3q+/yZGS1Qc2HOjVSz2ZmaN5QqIvNEpCDTXwDFGfM6kMZdk6iI
-	 pHOSYwKEXjZnhR521q6yo/phb2g5G9vBGhGTpOjTzrsydqhGfPgBydaK7NHcBi1nm1g==
+	t=1795680280;
+	b=Ram15748hP524ovty7Izwi8efAnRr7Z+HcCJnY8K8giZcq+wOKXYxS7wBLgAHBG69rSp
+	 aLHnfs3dtIkyc+0kAW6C2Dbtyr6iz/kIhMBu6Z5bhQgiCtZzTZpAFZIMrsi6GK+1IXYwp
+	 XmpmGrEck7FF74IKY050cRH0MdG1lyQT+5j6OjdbYs0Ay2iBCTr5np63GoovcyZgYliGT
+	 qS6BzlfVl9s4mHUmUXRdpl6qrxH2NJoQV+vetXJ4odbP1IPd6MPjtZelGUIh3R4G+NIed
+	 n+1/MHowl9RY2DKVSHzhdw8WbA1sWCjg+t1oAXdNAToWTfNCiRJjrZlQ1AgSluJROkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679883;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:Received:
-	 X-Virus-Scanned:Received:Received:Date:From:To:Cc:Message-ID:
-	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-Mailer:Thread-Topic:
-	 Thread-Index:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
-	 X-AntiAbuse:X-Get-Message-Sender-Via:X-Authenticated-Sender:X-Source:
-	 X-Source-Args:X-Source-Dir;
-	bh=OL55ImhmBp8fM3GmtTJh4abvR8DngDWjBaxkdBPdVd4=;
-	b=bdAswMwJDlYbEv3YKNhEJWaZ2jfmObrbU7lITxgHPK+sw4hzAC5+DMPxevDNizaGpH6j
-	 UqNfFd8S4FuSuD/04bseYm2Kqo+86N+GiCTiCkFJ0bRMttPZhvqsy0/ouDQNYFsaaw35m
-	 i9h040VSmMsDbhj6ACEBTzy/UV4fYAYZZvnjew57hsaLv5O7lqVJgNvVdrMaJGZu0qXjl
-	 x/wILFO2iKSaUIi6slZtGVgdwiawKVExtwdN7nflTqBAecwx/vi8y+cKg+GiPmrDoIw5K
-	 mrmSs0TozKRR2yszd1CahIpRrj5hkiUABJhePNDQ3HDgqQzX8fWQ7DNEctMY6E5PLvA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680280;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=kWM49q4AmimCRFIxi6Oy3KBYHBdNqpoDYmE1DZJaj+A=;
+	b=OI8op2ITxaqYFvjNXW79OqsCjm5QTr1T5MYJhwxo5tPQKYhwX5t65b7eWmmTqfEWmfpN
+	 MaAdMjExAL0eq31qMkQbK2y5yOog2qTQwfs+rA5l6V6+cyMqaz6sFESdUgWnyueUDu/o7
+	 tAi0r376vEcRcd0T/drDTKrQKunrYct18SDh9ZwfxL87OdG/2JUcFgo3IX4YCMHsJDgr2
+	 WHMW1/lQfhRbkuJCCcOhAEDaBxBXGRIBCT3jO7FH+vd4xq9UQxxDM95hbFaVWcK6jYjPb
+	 FP1IO0VnjHiWG9P6y+8QYI4Jqmd1j2SrZ0NrXOWI+MEoWlHmSrh65aePc1946SJPQ0w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=couthit.com;
-	spf=pass smtp.mailfrom=couthit.com;
-	dkim=pass header.d=couthit.com header.i=@couthit.com header.a=rsa-sha256 header.s=default header.b=nwp5dRKO;
-	arc=none smtp.remote-ip=162.240.164.96
-Received: from server.couthit.com (server.couthit.com [162.240.164.96])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nbbOuYdY;
+	arc=none smtp.remote-ip=91.218.175.158
+Received: from mta0.migadu.com (out-158.mta0.migadu.com [91.218.175.158])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F52E606A31E;
-	Thu, 26 Nov 2026 07:58:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F52E606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=couthit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=couthit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 01873606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:04:39 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 01873606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=couthit.com header.i=@couthit.com header.a=rsa-sha256 header.s=default header.b=nwp5dRKO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=OL55ImhmBp8fM3GmtTJh4abvR8DngDWjBaxkdBPdVd4=; b=nwp5dRKO66yTK8q8ECx+Hss6gR
-	Gb5sQd4FVRKNmpYhornibguhcZfjq7q+x3ON4pWXWp2E1hWMqqzGZgnZdZSyEt48NTl1y8rdRdroa
-	enOgPraTh0VzQy8qRl7TclLb/QQAKIMRb2Zen1eeGCgCfQljBNHgTUrYv3G2aK42WIbwB0k5I9krI
-	CcwSKKY+4MisKcGWnWR2WyIkXeQMRpVwod3JAaIRYK/DXQDWDF73AHva/0mDDAb8aQeQ90BHCQyjA
-	zvE35tDVQA7NiOI0VoZrjus4TGVwz8A0dulZ5AiNRfI9VrV+M9VeMN15Vcqb5f3fDa6+yS18OyBiA
-	EukEQ0Vg==;
-Received: from [115.246.246.98] (port=29389 helo=zimbra.couthit.local)
-	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.99.5)
-	(envelope-from <parvathi@couthit.com>)
-	id 1xWUMd-00000006r09-1PG2;
-	Thu, 26 Nov 2026 02:57:55 -0500
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 0B64D1B80119;
-	Thu, 26 Nov 2026 13:27:52 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
- with ESMTP id WNNHpjXhAkh1; Thu, 26 Nov 2026 13:27:50 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id C74591B80167;
-	Thu, 26 Nov 2026 13:27:50 +0530 (IST)
-X-Virus-Scanned: amavis at couthit.local
-Received: from zimbra.couthit.local ([127.0.0.1])
- by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
- with ESMTP id O-RUpmCoObAk; Thu, 26 Nov 2026 13:27:50 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id AD86F1B80119;
-	Thu, 26 Nov 2026 13:27:50 +0530 (IST)
-Date: Thu, 26 Nov 2026 13:27:50 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: Yige Jiang <yigejiang86@gmail.com>
-Cc: MD Danish Anwar <danishanwar@ti.com>, Parvathi Pudi <parvathi@couthit.com>, 
-	Roger Quadros <rogerq@kernel.org>, 
-	Mohan Reddy Putluru <pmohan@couthit.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	netdev <netdev@vger.kernel.org>, 
-	linux-kernel <linux-kernel@vger.kernel.org>
-Message-ID: <1112845239.887064.1795679870638.JavaMail.zimbra@couthit.local>
-In-Reply-To: <confirmed-20261105-26-ee6bb3813c44@gmail.com>
-References: <confirmed-20261105-26-ee6bb3813c44@gmail.com>
-Subject: Re: [PATCH net] net: ti: icssm-prueth: Retain port node references
- until remove
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=nbbOuYdY
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=kxNBocQGqfHKtHwlKawh/nuNl+S5U4ueRMwxFQP7u7c=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795680277; v=1; x=1796285077;
+ b=nbbOuYdYq1PdbcvkFIjgA2fhvbkJA8/Maln0a+vqH9O4u1T9CJw2NkuJAWKmqgtJe7dPlBiV
+ SBgBuyT8A1dWzVwhvoFUbjMzyG9/QHvOtYSKw+j9t2Xroc7dHkOPHGA10H+/eYEEAJI6+htrGGp
+ YQvc3EIG8oCBcdSCh5TmQlsA=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta10.migadu.com with ESMTPS id 05a3466518326d7c;
+	Thu, 26 Nov 2026 08:04:37 +0000
+X-Mizu-Trace-ID: 05a3466518326d7c
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 16:04:29 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
+Cc: netdev@vger.kernel.org
+Subject: Re: [PATCH net 0/3] bonding: ignore updelay when no active links for
+ broadcast mode
+Message-ID: <20261126080429.GB33976@Liu-laptop>
+References: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
+ <6cde295b-4c7b-4878-8fda-3732a2ff7c7d@huawei.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -98,70 +64,20 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC148 (Mac)/9.0.0_ZEXTRAS_20240927)
-Thread-Topic: icssm-prueth: Retain port node references until remove
-Thread-Index: SGID6YUxBG5lHjcZ6qjhdNoL9iQyXg==
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.couthit.com
-X-AntiAbuse: Original Domain - vger.kernel.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <6cde295b-4c7b-4878-8fda-3732a2ff7c7d@huawei.com>
 
-Hi,
+Hi Jiehua,
+On Thu, Nov 26, 2026 at 03:28:52PM +0800, jiangjiehua (A) wrote:
+> Hi Hangbin,
+> 
+> Tested on v7.4-rc4 in a virtme-ng guest. Ran recovery-updelay.sh (21/21 OK)
+> and the cover-letter Test A/B; both match the expected updelay behavior.
+> 
+> Tested-by: JiangJieHua <jiangjiehua1@huawei.com>
 
-> icssm_prueth_probe() takes a reference to each available port node and
-> stores the nodes in prueth->eth_node[]. Those references are released
-> both at the end of a successful probe and in icssm_prueth_remove(), leaving
-> one excess put per port after unbinding the driver.
-> 
-> Keep the references after a successful probe, since the stored nodes are
-> used during teardown. The existing remove path and probe error path then
-> each release the references only when they own them.
-> 
-> Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
-> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
-> ---
-> AI assistance was used for analysis and patch preparation.
-> 
-> Based on next-20261104 (8b7179210b22).
-> Compile-tested: arm64, GCC 14.2.0, W=1,
-> drivers/net/ethernet/ti/icssm/icssm_prueth.o;
-> baseline and patched objects built with no warnings.
-> Static source review; no hardware, boot, or KASAN test was performed.
-> 
-> drivers/net/ethernet/ti/icssm/icssm_prueth.c | 4 ----
-> 1 file changed, 4 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> index
-> b42c98e861e081d6c616881786b94e8bcde6b944..4f9529e0e404fd9cfee9e7340f2f048442ab938a
-> 100644
-> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
-> @@ -2018,10 +2018,6 @@ static int icssm_prueth_probe(struct platform_device
-> *pdev)
-> 	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
-> 		 (!eth0_node || !eth1_node) ? "single" : "dual");
-> 
-> -	if (eth1_node)
-> -		of_node_put(eth1_node);
-> -	if (eth0_node)
-> -		of_node_put(eth0_node);
-> 	return 0;
-> 
-> netdev_unregister:
-> 
-> base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
+Thanks for your testing.
 
-Reviewed-by: Parvathi Pudi <parvathi@couthit.com>
-
-Thanks and Regards,
-Parvathi.
+Regards
+Hangbin
