@@ -1,49 +1,67 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795696208;
-	b=WP6jtCLtLeCigTidjyzw9Bms3FJwNMNd8fXX3g4BAz8Huii98iutJ3Q+/C04qbB7tHqV
-	 VuWFEP7bzr63ImEY7w36DhKRmlHbITOK8kAS3sgpScTzdRedHEbAMO31YbCKoG0pXLShU
-	 xaMVdicXs6094HuxTVNSRRiPLaHGr9VsTm3pZ4m3t/ydXW7Y/IjZUSUOpT9nwcI9zrwSE
-	 04QkGYkNruNGK2mRohw+/3PntPQGOhlNLM3lSZIc6HFJMuvmBL8JMHZfJoWMsfvlnPOL/
-	 EmMiUqkIh8yCLp4BgTWiet9NR/sN3PvOr9Pa/uLqtejqa7hZfCWnyCJ1nZ9ANMvNe+g==
+	t=1795696275;
+	b=FHfhCDYl8ADVKgsE+vDQFORVAVajQc3Hr/el4XzUtR1Mj+S0gVDYGbTaBsZZVirc3ly6
+	 VMs3Pg8iGmEVP+PVJZuwO3pW80AS6ZvQGe0a6wrfF5mW4evgV2S9CZdTvhksEmQngQDjE
+	 Z8VfXHs0xZW4XkCHKXRz5SRxx5vFuNRaAeL31K/zUUAwBlXfiOfQwrlTnmev+1dN9JONQ
+	 X3/v5qGkAfyatOi2jqQeTeUPuTJGQXv0mDHXBvfzWwQHg1JWUcK9NwDbLWuMV5R7Y73pm
+	 NeI2NY1gtlkQ/m3Vq7c1rANXuMH/0X/SKzKClwWEnKEFaRbhA4n8T37BsPV3pa8NnrA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795696208;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=2JcUQEufPKK062OffZmjGcMramKRVL5iAMDN8dKwrmQ=;
-	b=kvIPyWSOqfFF6vtV8DwC1jZFZLWEWmD0/V55FC5JWY5dGAUzg/2K3iijJC94CidyZr4F
-	 7OEQuHxl3tQhBoopc2h8GwNn0bVSY3HFL8Z0hhr1ywyLZz4ssfGoZK2kZALdTY1igqvhJ
-	 /sVv8wwo5eYZX+8bhoq6O5+olgEBZHUEWsX27ACGibui8yh/vCdAsiXqH6Y9we2RJcVrC
-	 UWU5BPsw+B7qULwsUREjnOJV/PARlVp3BUMWv16T7KwNDvUlmsqNHcvN6kgwi1Ptjmw6/
-	 yi4I7KG8RGAxOAfALjNVQ0iQbxPR4kE0hEx+bnSkJOF3UPb5+uOOWTaxVdMprhuSMAA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795696275;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding:X-Scanned-By;
+	bh=52jyvJaZ8hBgfbTK0xHbCFQ/dKRjm1IOosfZ4MG6L2g=;
+	b=JnRMF0fSg10yIzRY4LlwIkacX8oQBUTm94qrvb57orVM7dua6FgmiAN1l2nXeHoEg1hT
+	 ZQzk/6IJ6/ogkJIeW7QIasASa/ky5KG5YM289YqWg4Rs9LH6EeM84ns7czj/DrXGEeBwV
+	 NrJ7OlkF1MbnubSYTJHpIZEaDXhaDg0I8d5UqleeE9cshR/asQ3rHaZmMNyrWPexRlWSg
+	 rz+00tDyj+HiEty5y7B18a5+nhioeVADF7n8HfybkpUnJA53zCUxPsmsDAXN8VhjB125o
+	 I9eXxJyNQ4t80Bq1Ect92lL4Kl1oSWpLQb1vmUsQH8ovvonrYUJiuXOxEDTkll66axQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnhDBjoM;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GrEcHm5A;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 30151606A31E;
-	Thu, 26 Nov 2026 12:30:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 422DA606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:31:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 422DA606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LnhDBjoM
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A6981F000C0;
-	Thu, 26 Nov 2026 12:30:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795696208;
-	bh=2JcUQEufPKK062OffZmjGcMramKRVL5iAMDN8dKwrmQ=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=LnhDBjoMNviGeSQN+2+JMfVkLVXS+0sueQtzdRPAgrYWLcuBp4PmpUtCGYMlEIz9g
-	 nT+8+V4PhczyesrX8+3GaSOQ7abKNbfFQcLs8f2lnBI8eRA3Ki8+2GWu8H0ovNqp56
-	 qTIM+77iAPPghBrcAY3z+fZDmtS2zOSkkTXMTuE8fLyZZ3jAX9zAkv3O22Wm5pi459
-	 aHRqr4cEmmQdcvVonna3TlUAZFc3xE7yKjTNMCwGTI3fu0Gv0gmlPAqWthQfwAuZyk
-	 1tQAYDecFYx+wb7ydvice53/fzdhIitmbk4CQPh6aWHN5wwBCGSJhBa1wa6XZeApQD
-	 +IdaPGmmYqpGA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id F1485380A96A;
-	Thu, 26 Nov 2026 12:30:07 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=GrEcHm5A
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795696274;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=52jyvJaZ8hBgfbTK0xHbCFQ/dKRjm1IOosfZ4MG6L2g=;
+	b=GrEcHm5AfaTg0+uHOwjL4dBwmFjOlqVrQODkxgdgTVr25H+cbLkrviibEAW8RR8g7q5ixl
+	L8UOiCaAjPITV3QhdB72LIiAB6ZBSJgpVsVUmh3BT1t1lr7p7KUDRkc8zFGZy9kIw96nO0
+	kkI+3lRB6CO0o8q1qc9UpwkLDvG+XDs=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-221-Fw_Z4OWMPFyLuRjexsHCGA-1; Thu,
+ 26 Nov 2026 12:31:09 +0000
+X-MC-Unique: Fw_Z4OWMPFyLuRjexsHCGA-1
+X-Mimecast-MFC-AGG-ID: Fw_Z4OWMPFyLuRjexsHCGA_1795696266
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 79D031800343;
+	Thu, 26 Nov 2026 12:31:05 +0000 (UTC)
+Received: from [100.91.101.41] (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 921EE195608C;
+	Thu, 26 Nov 2026 12:30:58 +0000 (UTC)
+Message-ID: <851d61dc-7416-4b3f-85e7-8a30bc19fab8@redhat.com>
+Date: Thu, 26 Nov 2026 13:30:57 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,56 +71,94 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4 0/6] net: mvneta: fix the TX queue arbitration
- and
- the mqprio offload
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179569620677.1794069.2209582235932936688.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 12:30:06 +0000
-References: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
-In-Reply-To: <20261118093012.90121-1-pepe.schlehofer@gmail.com>
-To: Josef Schlehofer <pepe.schlehofer@gmail.com>
-Cc: netdev@vger.kernel.org, marcin.s.wojtas@gmail.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- maxime.chevallier@bootlin.com, w@1wt.eu, linux-kernel@vger.kernel.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+To: David Laight <david.laight.linux@gmail.com>
+Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+ Jiri Pirko <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>,
+ Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap
+ <rdunlap@infradead.org>, Min Li <min.li@microchip.com>,
+ Tony Nguyen <anthony.l.nguyen@intel.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Richard Cochran <richardcochran@gmail.com>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ Grzegorz Nitka <grzegorz.nitka@intel.com>,
+ Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>,
+ Petr Oros <poros@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+ <20261126091510.7ac67b35@pumpkin>
+Content-Language: en-US
+From: Ivan Vecera <ivecera@redhat.com>
+In-Reply-To: <20261126091510.7ac67b35@pumpkin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
 
-Hello:
-
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Wed, 18 Nov 2026 10:30:06 +0100 you wrote:
-> The NETA TX arbiter is left at its reset default, fixed priority.
-> Under load a busy TX queue starves the others. OpenWrt has worked
-> around this since 2017 by sending all TX traffic of its 32-bit boards
-> through queue 0 [1].
+On 11/26/26 10:15, David Laight wrote:
+> On Wed, 11 Nov 2026 17:40:11 +0100
+> Ivan Vecera <ivecera@redhat.com> wrote:
 > 
-> Patch 6 serves the TX queues in weighted round robin, as mvpp2 does.
-> With an mqprio offload the fixed priority stays, so a class that fills
-> the link still starves the lower classes. With the default priority
-> map this includes ARP, which is in class 0.
+>> dpll_lock protects topology and object lifetime, but it also serializes
+>> all driver callbacks in the system, so one slow device stalls every other
+>> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
+>> commands with a 60 s default timeout, and zl3073x callbacks can wait
+>> seconds on a driver lock held across ToD writes and phase steps.
+>>
+>> Make dpll_lock an rwsem for topology and lifetime and add a mutex per
+>> domain for callbacks. A domain is all objects created with one (module,
+>> clock_id), in practice one chip or card, so channels of one chip stay
+>> serialized as drivers expect, and they still block each other. Device
+>> callbacks run under the domain of the device, pin callbacks under the
+>> domain of the pin, whichever driver registered them. Only one domain lock
+>> is ever held, so domains have no lock order. A lock per device would not
+>> work, because pins are N:M with devices and callbacks notify sibling
+>> channels.
+>>
+>> The driver API does not change, but a callback can now notify only
+>> objects of its own domain. Patch 1 changes the one in-tree callback that
+>> does not follow this.
+>>
+>> Registrations across domains exist in the tree only on E825, where ice
+>> registers fwnode pins of an external DPLL with its TXC and TSPLL DPLLs.
+>> These callbacks are no longer serialized with TXC and TSPLL, they rely on
+>> pf->dplls.lock, and requests about these pins wait while the external
+>> DPLL is busy. Intel folks, please check that this is fine.
 > 
-> [...]
+> Isn't the big problem with callbacks handling deregistration?
+> With a global lock there isn't a problem.
+> But as soon as you do anything else you have to have very explicit
+> rules to safely deregister a callback without either a UAF or an ABBA
+> locking issue.
+> 
+> I don't see this being mentioned.
+> 
+> David
+The cover only says that dpll_lock keeps protecting the object
+lifetime, the details are in patches 4 and 9.
 
-Here is the summary with links:
-  - [net-next,v4,1/6] net: mvneta: lift the per-queue TX rate limits
-    https://git.kernel.org/netdev/net-next/c/3df2dec2bf57
-  - [net-next,v4,2/6] net: mvneta: fix the removal of the mqprio offload
-    https://git.kernel.org/netdev/net-next/c/4e26c63e8d58
-  - [net-next,v4,3/6] net: mvneta: check the TX queue range of an mqprio offload
-    https://git.kernel.org/netdev/net-next/c/427360d7b71c
-  - [net-next,v4,4/6] net: mvneta: keep the TX rate limits across open and MTU change
-    https://git.kernel.org/netdev/net-next/c/96ef1ae9e1de
-  - [net-next,v4,5/6] net: mvneta: validate an mqprio setup before applying it
-    https://git.kernel.org/netdev/net-next/c/b95f2641df3d
-  - [net-next,v4,6/6] net: mvneta: serve the TX queues in weighted round robin
-    https://git.kernel.org/netdev/net-next/c/3977c38edc0c
+All unregister functions take dpll_lock for write. Netlink requests,
+dumps and notifications hold it for read for their whole duration,
+including the callbacks. So dpll_device_unregister(),
+dpll_pin_unregister() and dpll_pin_on_pin_unregister() wait until the
+running callbacks finish, and no new one can start, because objects
+are looked up under the read lock. Once they return, the ops and the
+private data of that registration are not used anymore. This is the
+same as posix_clock_unregister() taking the rwsem of the clock for
+write. A KUnit test in patch 5 checks that a function taking dpll_lock
+for write waits for a running callback.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+For ABBA the rules are the same as with the mutex today: a driver must
+not call a function that takes dpll_lock, including the unregister
+functions, while holding a lock that its callbacks take, and a
+callback must not call one at all. Patch 9 documents both, and lockdep
+reports a violation.
 
+Thanks,
+Ivan
 
