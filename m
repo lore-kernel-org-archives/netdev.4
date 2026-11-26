@@ -1,74 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.71
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.70
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715199;
-	b=Kzr381IakinkYIvjBs0vy6Nn12VUlhZZNJeiAoL0T7MD6X9NgFmNwcP8tjRq57A+RM3B
-	 qPJx+PcL3K++a8RdWsijYmRNLKxUOvCsdb9QTJjpyMbgBULGHJ5JlZzzpNkriCip8IN+P
-	 QPgPlL3E0rrfq/Zts0hdbIzeDSL46RT13uZqiK5WKg4JCc5tNnae14CfiwRCspuKq1AEq
-	 PgaGzW0h7V5k4q/ELNknVYa16NpMcosXjmtGa3vuJokTGQkfm1PVKAoG35MXEbB97kIkf
-	 6EKSDK7hItEkwIQQIz8YvctSxIhQAD7y1Qt0SjsQTCoBfpjxLLp7jeACeQO9kOYnF0g==
+	t=1795715344;
+	b=l9UfTPv+qPhN6N+pyhMdTbKL2VS8N23xO5GGIE0UFRfxT2pwND9NyIPH0EDYdTZAd9Qz
+	 /BAqOgQacPsDMKF2rEZ56s2fp+1oozx/X+6B+9P0LHuhCnY1r1owD1Uv3btF2OOQbHnnD
+	 x4bZnj7+yLIb9+48h1iEIsGM8iT8bQo4WMpeZ1NuPiPCz4WkloGpkrWssr+MJPbVhbmIJ
+	 +rgbzKkHNRt8apqdFlqmqtZ5U1EBPM5LVhofRNsc+pMXcjbE3qVw2UYHyJCQEkcPXF1pk
+	 Xgc0GHT0GG0iCvyNSkKrABJlhTu22yAYr9KuyrrApDq6FWBp1EPEgpWR2FF7t1lEKtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715199;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715344;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
 	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
-	b=Rk2dnRAiYuYT9XmlpMADm6bt/aQLAe4NUGqtyoxxSXFfZZnj11YmTERKmCwc7GHqFKNM
-	 Gaw9JP2OYNUO5bVvvwmbFkSxysJBVkpUW/fsMwkeztV4HwtHotEr8sB3RnNWzqf4QT2DX
-	 9l2jyn4u/31ZC/T7HlMdY0en+WtTIp9yovSnMoWlx8Xqdjf13A7/NuJX+UKhCNpN9Q6Mh
-	 CF/dBausLH+2EL6LosRawHq5+G2x3EgDjoUOvB8HvlefBBbTvP3zqb7n1/0Xa4bzs+rNf
-	 cLYMfQyrxcfLGsIeBu8pjVwam8NcGGb22PMnCxZa2q7C7S1333+yd5yPKHcusUiGYFw==
+	bh=YEDmnoOkABVFmUrXKC5D0dZK9YfLqXQXG7+f7cYoNH8=;
+	b=fn7MWXEf97PafuhshbK7b0o7jdJ8pK2B0xWhb++bIa+p1W6k0GjNw+r+3c0AQJTvo/yy
+	 Avp8i9zsTT/W/dxIj3Boza5wzNOxzNP0WgQvF36ztIFASMF372X8I7ria+lkXUUe8a9Bd
+	 0uO5880Kd/99nynVYP/2qB/h9IXf1XqnoYhYunsM35tr4+VvMCiq/7/XiUb7mZijlAudo
+	 eZYXn0ulm2Rogd9TtRuHhbaF0cuGsC3eZunNyxgu020OhPygaVuR3oqYZvxLwDPyJOZow
+	 zIsX7cs+1emm0VPpf6wRS8fbQt4wtFi6pZXL6Xk8VsJ84OO9rBX/NGbn/bhiMYVH3uw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=google.com;
 	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TMt1QKwn;
-	arc=none smtp.remote-ip=209.85.222.71
-Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EjYMRz55;
+	arc=none smtp.remote-ip=209.85.219.70
+Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 228EA606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:46:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 228EA606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1A612606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:49:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1A612606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TMt1QKwn
-Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-99063f4065eso1796141241.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:46:38 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=EjYMRz55
+Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-9211d51dcefso132240306d6.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:49:03 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795715198; x=1796319998; darn=vger.kernel.org;
+        d=google.com; s=20260707; t=1795715343; x=1796320143; darn=vger.kernel.org;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
-        b=TMt1QKwn4ooOG0LrNqCBdG7iH6jAG+8oo2a/UGskym5ZGxvoSzepWTYvwwZ/Uc5IdL
-         1OPO2zF2+cadqVH/6m6fU6DB7UFfDmVHL6EV9rmhR0NfNJAFWQLhRvsPfdxyRF7rP7f3
-         R3zNBvYI5IZYjOgbU/BVV+iv/o56V3onl4iHQ6mmD+Y4zx/sLKRdmjYeUf1FHi+wguYH
-         +MdfbitMQ8gkY7NS7aLCn07BBRBgy8PWEFmfnzyGjEudJNpne4FZq884UbneCa48sDX5
-         Af7mYeUll/b4o9gvjJ4celtj9lqZlwssbu5IN9v+ZmSHjj+OECK7FrfL2rVGzifmdi8y
-         EJTA==
+        bh=YEDmnoOkABVFmUrXKC5D0dZK9YfLqXQXG7+f7cYoNH8=;
+        b=EjYMRz558xib6LfPlzEqIOS2/Egx8csyMmkrJrtpq2s914Ay2pyV9CCrS99A4TyVO0
+         5pvZvfq7Z+LZjk87/HA7Td4wmFENkKWnk9GFjiLbW5D5ldt/+ntRcbvki3jlKRHWMfjv
+         Bd60RlpIWThBRKkcXJphfA7EoKia9iYNA+cZ7Aw/Qb7Q5DQWcmiCGhHepN+XDu6FBZwf
+         ZIMo2b+F89Vm7gi5kuFGc9Rx4/mpYXEnCE0AZ1IXISyE/lN4GaxghKwPqeIUr9bQG2Cp
+         JVHp7ESK4xMhQP0azDVYRUBJ/BEOibZYl1GYDdrv61vUN0ipLZv6sMPyRyO1tou8pytw
+         YJKA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795715198; x=1796319998;
+        d=1e100.net; s=20260707; t=1795715343; x=1796320143;
         h=content-type:cc:to:from:subject:message-id:references:mime-version
          :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
-        b=y8qtkDQk6PW8eTYaKubyGCNMpG6HrhpzV+con4+fXsyY16TcM/QV0Ga2xmHy+3hlEz
-         Dp4e6sXAGjcWjMzMnbGZM5wDlLBr9uvp3vi+S/VSFVpg9zLT7niuMUlBwF2jiqj2JBKf
-         AD8NdtJ/zGwG1hAMrXcSRzhpofFxo26ewVhZKM4f5FWJbxVYpLr/VQd1NiBkW3xG9TeT
-         R15JMFdsbKlVCmpxGDckrW3lzQ3iOKwkWoGisM/7EiqRQ+yVLMc3q5TTVaT5KeQYuEht
-         QRYWhkEOUMBDZqsaeylyaFLOHu9mNuEJGcBL+57BZLIcYYdMeegPVkIfLG0h6Rw28Uwv
-         3blw==
-X-Forwarded-Encrypted: i=1; AL+hErFwul4PNKU4a00vgqycnPzPWZwu3V7RyVw1fFHA0s7QwwlsD8JmK5xoRzQ7WHNZsF/Piw71OuA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8BWyDGeu5Ak8z+bm2iyN8VHu/7yFFz/9UdTFc3cw95nC/ItU29
-	afKitC/uCA+TphTmsEbLfmKTqWCnibydW7ary8s0REzA0JjM0cnS5gpBALuq2Wfnxx3f2uWEdAp
-	y/d7KOYFZxQ==
-X-Received: from qvbkd28.prod.google.com ([2002:a05:6214:401c:b0:91c:c113:4812])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6102:5126:b0:7b5:4700:3a6a
- with SMTP id ada2fe7eead31-7d7397bfbe3mr11220876137.26.1795715197540; Thu, 26
- Nov 2026 09:46:37 -0800 (PST)
-Date: Thu, 26 Nov 2026 12:46:36 -0500
-In-Reply-To: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
+        bh=YEDmnoOkABVFmUrXKC5D0dZK9YfLqXQXG7+f7cYoNH8=;
+        b=QTl/kEOCtmWS5E05yrfIc9ZHgl+8m7VnO1iPkx8D+FWy6YYsYHeveJDxCcozd5nQrz
+         YNj2EnJKU6mgCmiJf9k1q0ptdN5M5rKVamrNpGNmaE5lDa5jMdvO5aVjUOvggu60Qo5J
+         OLT3yuP379sAWcmWHtcHccrf1WDAGY9eY/KLEHB5hBx8LS5wQpmBNfquBrzktENtPDfH
+         BpLO9//1j/e7eDWNHoo+m9KaL5/lO0L75eAoERNT3vd+q7LJvvcZV0iPDRa0zrcWT1BP
+         yDdLEr1Kxl8zw0TvMb9jW3q0b5ueGDjhxAVLSNhc+dBqsZ1AILcTuC5vvF1O+FJF8+Nj
+         Hn4A==
+X-Forwarded-Encrypted: i=1; AL+hErHFr+8xXtDFtG4+MZ4hDtR1Z+eHPL3COPwfOeWYOx7VmUN54tuQ4iq6fqnJI3V5D5PiSFHBuek=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+97Uj9cObPRYEF5q7S4brj1hb8QqGY4KXT5Yw+fB5LjW4AVafb
+	JoB/wGLGPx2/0GJdSkQsDR5FoTVpUgEF4D9JJF9DNtNauvHqElB1KELvizSTdFYJKGG3gwEE61k
+	2S0bH4N4fjA==
+X-Received: from qvbcv7.prod.google.com ([2002:ad4:4d87:0:b0:921:7b48:4c5e])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6214:4383:b0:91c:73c6:2d68
+ with SMTP id 6a1803df08f44-92134966d44mr400722496d6.5.1795715342484; Thu, 26
+ Nov 2026 09:49:02 -0800 (PST)
+Date: Thu, 26 Nov 2026 12:49:01 -0500
+In-Reply-To: <91234e5b-6684-4acb-91b3-be8ab11ac032@ieee.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,66 +79,50 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 Mime-Version: 1.0
 References: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
-Message-ID: <willemb.35265d9786238@google.com>
-Subject: Re: [PATCH net-next 0/6] net: remove dev_validate_header() and net_device::min_header_len
+ <20261124170551.1874487-2-willemdebruijn.kernel@gmail.com> <91234e5b-6684-4acb-91b3-be8ab11ac032@ieee.org>
+Message-ID: <willemb.3268949a56d77@google.com>
+Subject: Re: [PATCH net-next 1/6] net: ipa: remove ethernet-specific artifacts
+ from modem netdev setup
 From: willemb@google.com
-To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>, netdev@vger.kernel.org
+To: Alex Elder <elder@ieee.org>, Willem de Bruijn <willemdebruijn.kernel@gmail.com>, 
+	netdev@vger.kernel.org
 Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
 	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, elder@kernel.org, 
 	Willem de Bruijn <willemb@google.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 
-Willem de Bruijn wrote:
-> From: Willem de Bruijn <willemb@google.com>
+Alex Elder wrote:
+> On 11/24/26 11:05 AM, Willem de Bruijn wrote:
+> > From: Willem de Bruijn <willemb@google.com>
+> >
+> > Commit 75944b040bbc ("net: ipa: open-code ether_setup()") open-coded
+> > ether_setup(), including fields that do not apply to this headerless
+> > ARPHRD_RAWIP device:
+> >
+> > - min_header_len = ETH_HLEN, while hard_header_len is 0
+> > - an Ethernet broadcast address, while addr_len is 0
+> > - clearing IFF_BROADCAST | IFF_MULTICAST, which are never set
+> >
+> > Remove these and the now unused etherdevice.h include.
+> >
+> > With min_header_len left at 0, the device behaves like other headerless
+> > devices (such as tun and rmnet) in af_packet's vlan_get_tci(), where
+> > min_header_len == hard_header_len instead of returning early on the
+> > mismatch. Normal IPA traffic uses ETH_P_MAP rather than a VLAN
+> > ethertype, so it is unaffected.
+> >
+> > Cc: Alex Elder <elder@kernel.org>
+> > Signed-off-by: Willem de Bruijn <willemb@google.com>
 
-> Remove unused link-layer header validation plumbing, clean up the
-> remaining af_packet users, and drop net_device::min_header_len.
+> This looks pretty reasonable to me.  The "don't open-code"
+> change was meant to avoid duplicate code.  All the assignments
+> were preserved, but I didn't fully understand how these fields
+> were used.
 
-> Mostly cleanup, with two user-visible changes:
+> For now I'll just ack this.  If I manage to get my system up
+> to test this, I'll do that and provide a Reviewed-by, but I'm
+> not sure I'll get to that soon.
 
-> - Patch 4: on devices that set hard_header_len but have no link layer
->    header (e.g., PPP), SOCK_RAW and TX_RING sends now always have
->    skb->network_header at the start of the packet, not only for short
->    packets.
-> - Patch 5: on SOCK_DGRAM, the VLAN TCI of non-offloaded tags is now
->    reported on all Ethernet devices, including those with
->    hard_header_len > ETH_HLEN, and is 0 on non-Ethernet devices.
+> Acked-by: Alex Elder <elder@riscstar.com>
 
-> 1. Drop stale Ethernet fields (including min_header_len) in IPA modem.
-> 2. Remove header_ops->validate and dev_validate_header().
-> 3. Move af_packet TX header length checks ahead of skb allocation.
-> 4. Reset network header on all headerless devices via dev_has_header().
-> 5. Use ARPHRD_ETHER / ARPHRD_LOOPBACK and ETH_HLEN in vlan_get_tci().
-> 6. Remove unused net_device::min_header_len.
-
-> Testing (under vng):
-> - tools/testing/selftests/net: psock_snd.sh, psock_tpacket, and
->    txring_overwrite.
-> - Custom tests for short/zero header validation (SOCK_RAW, SOCK_DGRAM,
->    SOCK_PACKET, TX_RING), non-offloaded outgoing VLAN TCI capture
->    (AUXDATA, TPACKET_V2, TPACKET_V3), and 48B/100B IPv6 TX over sit
->    (SOCK_RAW, SOCK_PACKET, TX_RING).
-
-> Willem de Bruijn (6):
->    net: ipa: remove ethernet-specific artifacts from modem netdev setup
->    net: remove header_ops->validate and dev_validate_header()
->    packet: validate TX header length before skb allocation
->    packet: reset network header on all headerless devices
->    packet: use Ethernet header length in vlan_get_tci()
->    net: remove unused net_device::min_header_len
-
->   .../networking/net_cachelines/net_device.rst  |  1 -
->   drivers/net/ipa/ipa_modem.c                   |  4 -
->   drivers/net/loopback.c                        |  1 -
->   include/linux/netdevice.h                     | 18 -----
->   net/ethernet/eth.c                            |  1 -
->   net/packet/af_packet.c                        | 80 ++++++++-----------
->   6 files changed, 32 insertions(+), 73 deletions(-)
-
-Sashiko reports are valid. I will respin
-
---
-
-pw-bot: cr
-
-
+Thanks Alex!
