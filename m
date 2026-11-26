@@ -1,105 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681532;
-	b=U5mkEwcWA3nqfZr0cYFLJJsgVGxVPZMzjgdJ7r9sGkanz8DUg7iDa9HegEQ10aTC24OE
-	 SS4C0qORqFqLdGUDAUpGXR++14RrznMb96Ks42dcXTmndsLZb7QqqQYHQURIicqf7Y9zB
-	 ThJtnmgxIb3eU7f3Jkwb/+9UtUf4A0zW4mLZwV0JkkVO/SUk6myCpO6RvpifH1Fo6dicG
-	 xjOS8KdrpY3yzOPpqEKKHFOl8SQuOkXDjAJ0HcGvV1arjCJbZebNYwVmtnikRXbyFNcyl
-	 XW0aZw3eroRGzab+f4tjBxcm1Ci2Rq9dS3+Ya0n9hc3iL1IaAXcL5f6YdKRGVdY7sXA==
+	t=1795681686;
+	b=UdR6hUpIvqJNou9sBZxKXVajmGtKYV5jax3AFgry6TfpedEldbRYsNEIOq3P8hrgrxkl
+	 iDTurygOPetaw50JjQL+zRrXGAFnWu0yaNH7E+0+GUHX5jcaDBk1BODRYLM3WqGNh2tkO
+	 GiLRP7cT9H5yUVpmON6NrHD07T/2cR4JbWJaRbVTBCf5ctmIULhlmX97XVRQO4OyYe3Ef
+	 kflV0QqsoGYm24feO5/oShEiKJ2kGdK6BZqP8y7uEBXrzKNUSoZd7SmjV/zG6CLP1OMSz
+	 8XJbvwJRG1f0GP/09sJntw+jhxnhek834WSQzDx+2hXs70QFP5lmYlApQ+ZskjyeV4A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681532;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=k/bylzWKznwTVF6pPmD6PbGpKb3ObNIRSAfKOe+kT50=;
-	b=fJ7tidMvihWgBImp3+uFMtGgqOpw98xK88C6j/iTcoMw20AcNHG/tY52D6zPaYydDRgU
-	 Z5q00cKjz8vvsxucqWd/MEanz8ecyRKKKKxAGbEQnr70GPTiJ8dgOie8zlQqojhsCqyd3
-	 4iJwo7iep2u9UiEq5bjUQL2QpKce3cm/3/slBwCSTP7qj8mT6dGp4xkkhZkUybG5jNtQM
-	 OIsYDoU3bhdA/wrzEouZZU4NDkzZI1OtlFlYpxUkaZl90+tm5Nurqn9ru7MwF7B4jYPay
-	 RNaKehyqrjFQ0uc79O1c49r7/AVslHb+kUyzbg8x9vJrnN/5f5FGVYYcpHe6A29TGZQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681686;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=Tvyoumzgqi7KLyjbaj6PRFfPo7ZxGlMt/3jupVpnLaQ=;
+	b=Rg53hb03ozlwzhYTSWSVIRNuLfqAd0Y5gI82kbxF/cW1JGTB+gwwizcqyMltepGHyF5X
+	 J3TS21a3X3G4cIUCGvO62aNCawQk/VZEGxLWSyCf9c94b2ntkKiJ/UB0SajA774OdsiLM
+	 8QJMqBOxXjajN0C9m7hFj4PFB0ezkCMmtmNPBSerSk3QLWXIaOp8FfnYzd+OUcbdZ2sPG
+	 pswW5LLnI8fZ9TEXjFIQsqVanMY8/GtqdQpq1CgiyUDAgkHhhQsxblGEcyhaXBzU2wo8Z
+	 /uQJ8lRXwJL/SwL1nACe5hDEB7w4uuBtWCwofDFPsy5DTbQ2OVNTCXG7kbaazco3Bbw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nebusec.ai;
-	spf=pass smtp.mailfrom=nebusec.ai;
-	dkim=pass header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=rUVL7VRu;
-	arc=none smtp.remote-ip=209.85.214.178
-Received: from mail-pl1-f178.google.com (mail-pl1-f178.google.com [209.85.214.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4D28B606A33E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:25:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4D28B606A33E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=nebusec.ai
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=nebusec.ai header.i=@nebusec.ai header.a=rsa-sha256 header.s=google header.b=rUVL7VRu
-Received: by mail-pl1-f178.google.com with SMTP id d9443c01a7336-2f0414c1062so41344645ad.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:25:30 -0800 (PST)
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 9CD4C606A31C;
+	Thu, 26 Nov 2026 08:28:04 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9CD4C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=nebusec.ai; s=google; t=1795681530; x=1796286330; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=k/bylzWKznwTVF6pPmD6PbGpKb3ObNIRSAfKOe+kT50=;
-        b=rUVL7VRuYqCgG05lo5BkE2ALIu5V353+4nNJAYGZVa2i+1piMvKzbF+g6yQ9AhaGif
-         YzEuelqLLSBJlAWtunt5OsIF4qAAKQ3EpAcRSL3v2IU42uwqZee4hesZQAAdGfp+ZH6k
-         MmEALUsUsD7PPdaasCrQVxXz8xiYNNickVVtUA991WydI4fNj9L3dYPOoek9FF0J/sAr
-         4iRp2rzFN3GU/GaWVEx6V4wX/JZeZdSQb3pMrtOPo6hSdTGJED47A15V/vTfqD96VBKt
-         PjZiXSYxohoJ0Xp53YdoqtuUmqz7zKdCcH5hGE+o4tYOA1Fdk307AgqPi1ey6ALvIHgY
-         8t5w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795681530; x=1796286330;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k/bylzWKznwTVF6pPmD6PbGpKb3ObNIRSAfKOe+kT50=;
-        b=fPoGynHTpMLJTj5w41M7ylETd9122ISk5/FvAvtJSr3e1BUMvwuH3V9HKf86/jiZ73
-         syBkJ1AchXKNfzB8NyOSLQG1rr2E35Yi5ErzEQl4f6tbn/iL2LJXj+QcoCMgrHScOq6q
-         SmILD9epsGqBs5bDwy9izklzpKlYrDO4IShRUwwnIJCi1Bf6xMTn4kGwL3rrokyn7CRR
-         09qRWYKfTH46vVcRLoAG3i/Nm+0uVh8zESQ3GjZFi8cKIyqYjeZ4E8KWorfLhis63X2x
-         X+OrhB9zmG9GeHcKGV7L0U06HC010nzHJb3H/CmF92iPIRy2ylf2cC5/oeM2A7pMMv/X
-         GpcQ==
-X-Gm-Message-State: APuU4Z9ipIY8JNVP4Kj9D7JYXzmizBViKwG4PH0KOoTdVfy5bWZ5b65O
-	L7//yFPzrNhPKRx45I29nY1I34wvzPII1Y2xLfQQcMguWwGu3Bao/0a9zoQ5xIUnF38c/lQBkjT
-	lVmVNOg==
-X-Gm-Gg: AZFdTZdNYO4hCfXlCc7uMblSwBmWVxHKQwbfXxJ659fXta70f0THTPXYvZQF7u1YA0+
-	jRFwkBK4AQyA3EkN3JleB/9onD6cf08pnwO67fNyhs63OfVkG/Eb7f0mFhf0MhnCoXCL/FBMuLt
-	k5RirPoPqgfiNViR3lIWPxv3f1BrTY759VRcXYzVJZtel/AkpC0sczo1XZKS5as6VfqNifMxL0p
-	BYy8ldgNDLXGeQiFBUCROPh5Xs6niPX05opK2STLmYdaLYRYZdVmjS97G61c3i32Z8tpNVcSclK
-	rm5py2kY8G19IVEkneUM/nRWVeSVI+Xk2mvumdsOZ5i5ufZCNh9tg5hClUnSBefCztEnkyYHqIr
-	9pEhCBC4lwmZsB8xrcB3QkwKA3zTVwgIaxkH06ACZ8UdRIA3QKnUJ8B7s5QJiGpz4WzjW/XDVal
-	fMg7FFp7g+zsln1DLfCVmukjvKvmoA5yxqcoGW6lB+kFZiLDjGqpEkwrrfOxZCg9O50m/QSpieC
-	GZUUIxZRkkPwZoyfK4/06zoIVO2Zkwa/HyffHimhO+CsIEiU+k9dV9rHYcKhYrjamB7xlb+jrWs
-	H34i3XqTTUbrCupOzaGMnb0rYuYanF8zVQk9W+kjhkesL7tYL9LGLwuuAfLTzgbIzQUwXanBrI2
-	23BmlrNvyXPZkLWqCWkYs
-X-Received: by 2002:a17:902:ce0b:b0:2e9:5059:4468 with SMTP id d9443c01a7336-2f03ef594efmr192926185ad.7.1795681529425;
-        Thu, 26 Nov 2026 00:25:29 -0800 (PST)
-Received: from 24c857d0c3be.. ([122.51.212.64])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f070a12491sm76794325ad.8.2026.11.26.00.25.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 00:25:28 -0800 (PST)
-From: Zihan Xi <zihanx@nebusec.ai>
-To: netdev@vger.kernel.org
-Cc: davem@davemloft.net,
-	edumazet@kernel.org,
-	pabeni@redhat.com,
-	willemb@google.com,
-	horms@kernel.org,
-	brauner@kernel.org,
-	runyu.xiao@seu.edu.cn,
-	jiayuan.chen@shopee.com,
-	leitao@debian.org,
-	rjethwani@purestorage.com,
-	tom@herbertland.com,
-	vega@nebusec.ai,
-	zihanx@nebusec.ai
-Subject: [PATCH net 1/1] net: kcm: check sndbuf space while building a message
-Date: Thu, 26 Nov 2026 08:25:16 +0000
-Message-ID: <bba172167bf15db0cd19226541324db7bae1a86d.1795676623.git.zihanx@nebusec.ai>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <cover.1795676623.git.zihanx@nebusec.ai>
-References: <cover.1795676623.git.zihanx@nebusec.ai>
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=Tvyoumzgqi
+	7KLyjbaj6PRFfPo7ZxGlMt/3jupVpnLaQ=; b=MNgNmLSgu/pFzwV2w1rVGPdUbw
+	TabZLLSVEROch2AcOFgG/cZW4eiHikD5P150NPn3lkZXgf0R1iHIhn1+0nNv4kLI
+	XiXl2aHoIKCZoA5YNkANhXJ1AYgP3hvYY+Yxh7fbUzv/CTaEk7JnaINpMhyfrj9Z
+	x+c5mKNUM3GCf/d2I=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.43])
+	by hzbj-edu-front-3.icoremail.net (Coremail) with UTF8SMTPA id BbQMCkDW2fyE7QdrNlZAAg--.48351S2;
+	Thu, 26 Nov 2026 16:27:49 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Simon Horman <horms@kernel.org>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v3] net: ethtool: do not call get_regs() for zero-length dumps
+Date: Thu, 26 Nov 2026 16:27:48 +0800
+Message-Id: <20261126082748.2798-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,120 +63,76 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BbQMCkDW2fyE7QdrNlZAAg--.48351S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uw1rtw4xWFy8KFyDZr13urg_yoW8tr1xpF
+	WDGay7G3yjqryvka15Ja13t34UAasxXrW8ury8tw15Zrn8Za1kCa40ga9Fgr13JrW0vF18
+	tFZ0yF95Can8CaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBKb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwV
+	C2z280aVCY1x0267AKxVW8Jr0_Cr1UM2vYz4IE04k24VAvwVAKI4IrM2AIxVAIcxkEcVAq
+	07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj6xIIjxv20xvE14v26r1Y6r
+	17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr0_Gr1lF7xvr2IYc2Ij64vI
+	r41lFIxGxcIEc7CjxVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r
+	43MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_
+	Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x
+	0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8
+	JVWxJwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIx
+	AIcVC2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8ZL0UUUUUU=
+	=
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAgUJD2sG-Ev87QAAsK
 
-kcm_sendmsg() checks sk_stream_memory_free() before entering its copy loop,
-but a single message can span many page fragments. Limit each copy to the
-remaining sk_stream_wspace() and reject messages larger than sk_sndbuf.
-This prevents a send from growing an unfinished KCM message past the
-socket limit.
+ethtool_get_regs() passes the user-supplied regs.len to the driver
+unchanged, including zero.  A zero-length dump has nothing to fill in,
+but the driver callback still runs and may use that length for its own
+I/O.  A zero-length transfer cannot move any data, and some transports
+report a warning for it, which becomes a denial of service when
+panic_on_warn is set.
 
-On SOCK_DGRAM errors, undo accounting for the entire discarded message,
-including any MSG_MORE partial data.
+Return success without calling into the driver when the requested dump
+length is zero.  This does not remove a way to query the dump size: the
+uAPI tells users to obtain it from ETHTOOL_GDRVINFO.regdump_len, and
+the core only clamps an oversized regs.len down to get_regs_len();
+ethtool(8) uses regdump_len.
 
-Fixes: ab7ac4eb9832 ("kcm: Kernel Connection Multiplexor module")
+The problem was found while testing the ethtool register dump path of
+an MCS7830 adapter.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 Cc: stable@vger.kernel.org
-Reported-by: Vega <vega@nebusec.ai>
-Link: https://bugtracker.nebusec.ai/f/12034
-Signed-off-by: Zihan Xi <zihanx@nebusec.ai>
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
 ---
- net/kcm/kcmsock.c | 43 +++++++++++++++++++++++++++++++++++++++++--
- 1 file changed, 41 insertions(+), 2 deletions(-)
+v3: describe the ethtool behaviour instead of the USB stack, and document
+    that ETHTOOL_GREGS has no zero-length size query (the size comes from
+    ETHTOOL_GDRVINFO.regdump_len), so the early return does not remove one
+    (Andrew Lunn).
+v2: handle this in the ethtool core instead of the mcs7830 driver.
+    https://lore.kernel.org/r/20261126015239.6038-1-25031212351@stu.xidian.edu.cn/
+v1: https://lore.kernel.org/r/20261125071649.7052-1-25031212351@stu.xidian.edu.cn/
 
-diff --git a/net/kcm/kcmsock.c b/net/kcm/kcmsock.c
-index ca789812124e..22ef60c3545b 100644
---- a/net/kcm/kcmsock.c
-+++ b/net/kcm/kcmsock.c
-@@ -750,6 +750,21 @@ static void kcm_push(struct kcm_sock *kcm)
- 		kcm_write_msgs(kcm);
- }
+ net/ethtool/ioctl.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+index 80b7930b3fe0..e8af861ee5de 100644
+--- a/net/ethtool/ioctl.c
++++ b/net/ethtool/ioctl.c
+@@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
+ 	if (copy_from_user(&regs, useraddr, sizeof(regs)))
+ 		return -EFAULT;
  
-+static unsigned int kcm_skb_frags_len(const struct sk_buff *skb)
-+{
-+	const struct sk_buff *frag;
-+	unsigned int len = 0;
-+	int i;
++	/* A zero-length dump has nothing to fill in. */
++	if (!regs.len)
++		return 0;
 +
-+	for (i = 0; i < skb_shinfo(skb)->nr_frags; i++)
-+		len += skb_frag_size(&skb_shinfo(skb)->frags[i]);
-+
-+	skb_walk_frags(skb, frag)
-+		len += kcm_skb_frags_len(frag);
-+
-+	return len;
-+}
-+
- static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- {
- 	struct sock *sk = sock->sk;
-@@ -771,11 +786,24 @@ static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- 		goto out_error;
- 
- 	if (kcm->seq_skb) {
-+		unsigned int queued;
-+		size_t sndbuf = READ_ONCE(sk->sk_sndbuf);
-+
- 		/* Previously opened message */
- 		head = kcm->seq_skb;
- 		skb = kcm_tx_msg(head)->last_skb;
-+		queued = kcm_skb_frags_len(head);
-+		if (queued > sndbuf || msg_data_left(msg) > sndbuf - queued) {
-+			err = -EMSGSIZE;
-+			goto out_error;
-+		}
- 		goto start;
- 	}
-+	/* A message larger than sndbuf can never be completed. */
-+	if (msg_data_left(msg) > sk->sk_sndbuf) {
-+		err = -EMSGSIZE;
-+		goto out_error;
-+	}
- 
- 	/* Call the sk_stream functions to manage the sndbuf mem. */
- 	if (!sk_stream_memory_free(sk)) {
-@@ -811,6 +839,10 @@ static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- 		bool merge = true;
- 		int i = skb_shinfo(skb)->nr_frags;
- 		struct page_frag *pfrag = sk_page_frag(sk);
-+		int space = sk_stream_wspace(sk);
-+
-+		if (space <= 0)
-+			goto wait_for_memory;
- 
- 		if (!sk_page_frag_refill(sk, pfrag))
- 			goto wait_for_memory;
-@@ -838,7 +870,7 @@ static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- 		}
- 
- 		if (msg->msg_flags & MSG_SPLICE_PAGES) {
--			copy = msg_data_left(msg);
-+			copy = min_t(size_t, msg_data_left(msg), space);
- 			if (!sk_wmem_schedule(sk, copy))
- 				goto wait_for_memory;
- 
-@@ -857,8 +889,9 @@ static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- 			if (head != skb)
- 				head->truesize += copy;
- 		} else {
--			copy = min_t(int, msg_data_left(msg),
-+			copy = min_t(size_t, msg_data_left(msg),
- 				     pfrag->size - pfrag->offset);
-+			copy = min_t(size_t, copy, space);
- 			if (!sk_wmem_schedule(sk, copy))
- 				goto wait_for_memory;
- 
-@@ -964,6 +997,12 @@ static int kcm_sendmsg(struct socket *sock, struct msghdr *msg, size_t len)
- 		if (head != kcm->seq_skb)
- 			kfree_skb(head);
- 	} else {
-+		if (head) {
-+			int queued = kcm_skb_frags_len(head);
-+
-+			sk_wmem_queued_add(sk, -queued);
-+			sk_mem_uncharge(sk, queued);
-+		}
- 		kfree_skb(head);
- 		kcm->seq_skb = NULL;
- 	}
+ 	reglen = ops->get_regs_len(dev);
+ 	if (reglen <= 0)
+ 		return reglen;
 -- 
-2.43.0
+2.34.1
 
