@@ -1,75 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.135
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661467;
-	b=48gCu5kffkTwH8itFIWCLlBurOm9W/49lUzoEqJE0Y9TrEL0eA9EXXoi0eC+Wct9mtnl
-	 6juxGm5YEMiZd3EvEy3gpMgAUUI7QrrRb+ycG1JuWvNcVompOCxOScEOWQZT9Otwxi/Dm
-	 PgMXMDSADDIsLzEP+BdKtoy9Yh5JcotRy4Wf5CIEiIZAE1/ViYC0jn47cY9wyjdVuYl6P
-	 SUEpvQ+vDpLbgyd5YXK0ne2MwsNFPosFFIggAOqZBch9y6DnXAELdD4otKmhKW5vvWfhD
-	 AVMvPLeuI8V/bY8nraHUXkWnap+pwNsQDs8TxasWI9ATeoSD+j60IPN5DuHkWzwnNLA==
+	t=1795661894;
+	b=WS5tCvjHx/3tnAtvwOah4B8MKpuvXd7uQMGxnAiXBMmPF/jksOqKcpfrIVGATtQ8B/Wx
+	 3SaaZ5Hr7ucBsJrOy0gmb/mk/pZucBOqatwDB0qWG8vyh0KTXvscZaj6086nFkeW6t1NX
+	 7uDDkQgbIarorPrFBlXeKt37rkAUvTlvt3bezU4A2PGbdBrrhAE22hsRPWgYJYejMcRc2
+	 jfQ9MtAsB0GeLAwO/F5EaLQ/nC2/ONMKk3UZBpeJyzc8K9JclLdpKF0pQLXTWPmQkoaR7
+	 MWSrbHUJY73cGJPaUIEadUqUeBOvFJVWQCclRxUxkflXPSKClbNoWi9zIcCcgzCZwOQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661467;
-	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
-	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
-	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=Ndf9yZP6EBzsJ/qlwEcDzJHp/MND10cYC2fVje+7eNg=;
-	b=wyu5yrf04UQjf9zJvy7eXANVE6cdZPlRakCNcIcNgPXS7yeBa4QG66RnPxDBvQWBkrmY
-	 x63lX1ST2BlHLf5H+IvYl4ZzmXfig90e4YlXkD4gs6L0RF9Zz/fgrjm4huDUEgQFLcaD4
-	 XyhyGdUEW06oEqolkMSNPYnMSZQinD+yaDlfF26eXveHZQZmzfqyOApyqNW/wmqnbUrmZ
-	 rdtElx5ItEhBm4ODz6CvRQkPkc4HG8mkf48AKbYiBrry+eR+1kdFydryGhQeL8IuzIj1s
-	 4gKVBwRn+X+2uXej23MTUIBwBuwpaUKL7XF5UR+j6IZdFOfVDeJds+vxQZbTXvN6C0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661894;
+	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To;
+	bh=QOEcDp+7IJMgNzkrkV18FLHjUkTLg5/xxzENnntmIO4=;
+	b=csEwBGYOrdGvdgs0GCeIf+/Dxt/wADdPbs/yGPgUZ3iz2CbVWsQCB5wrPSyk+C+BmOPp
+	 kdXX9KJsBiCqdcjMOOy4HDXNlD5AnRSxow0XgKsBf0c7XpSip0L7DKnLrzD64Yiglimja
+	 BdXkhMp/fup31kn4WMnskFCHgfsZTY6rXjXp5AhOvm+W2fMeEy6NFwhTmUBpTiNj0Yn8a
+	 kVbAjmX62WocZijjHhZYFmz1xu2bHNUTw7wufTEqEiBEJ6d+oKZHdrUQ6rBSGxUdkIhlL
+	 QFgCwicdqYJWaHzs5MuRFa6hA20ZvI6OQkAUVCdVWsqZFQbF2ULfPpVwDdalZS092eQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=cmss.chinamobile.com;
-	spf=pass smtp.mailfrom=cmss.chinamobile.com;
-	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=QEmgZ0do;
-	arc=none smtp.remote-ip=111.22.67.135
-Received: from cmccmta2.chinamobile.com (cmccmta2.chinamobile.com [111.22.67.135])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 7DCF6606A326;
-	Thu, 26 Nov 2026 02:51:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7DCF6606A326
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
+	dmarc=pass header.from=lunn.ch;
+	spf=pass smtp.mailfrom=lunn.ch;
+	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ODM4lkrQ;
+	arc=none smtp.remote-ip=156.67.10.101
+Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 93992606A31E;
+	Thu, 26 Nov 2026 02:58:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 93992606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=QEmgZ0do
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=cmss.chinamobile.com; s=default; l=0;
-	h=from:subject:message-id:to:cc:mime-version;
-	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
-	b=QEmgZ0dofslj00y4HLbJ6OegjYMMLnBXaqxWb42oRWP6rQ8QbE88JpVSKt8xr02Q6+9CrVEURTF0Y
-	 CKi2lNAGO9ld7stfCOQiYXuF5a0TyysbI3FxZXPFwRS48bEtl00vfM2BYxeaEj5663xj+2gaAnTNfj
-	 R31GPpBzVRfiUaLE=
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
-	by rmmx-syy-dmz-app03-12003 (RichMail) with SMTP id 2ee36b079e97878-22b7e;
-	Thu, 26 Nov 2026 10:51:03 +0800 (CST)
-X-RM-TRANSID:2ee36b079e97878-22b7e
-X-RM-TagInfo: emlType=0                                       
-X-RM-SPAM-FLAG:00000000
-Received:from  (unknown[104.224.130.48])
-	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b079e693eb-59c56;
-	Thu, 26 Nov 2026 10:51:03 +0800 (CST)
-X-RM-TRANSID:2ee86b079e693eb-59c56
-From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
-To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Ido Schimmel <idosch@nvidia.com>,
+	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ODM4lkrQ
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=QOEcDp+7IJMgNzkrkV18FLHjUkTLg5/xxzENnntmIO4=; b=ODM4lkrQQTpzXvAYlWv/BdS8w6
+	tndkhnfEVh4+YNxGBfECQczmlIJC4xUe0jnM06N8XOTTRw7ghYE9tj/DYsMEdxkbW4l06rCNWHrv3
+	m/cFV0/FXtz6cW3WpcHaY3YOLIMyQ9JTbGHAeGhldUSMEFAccOttJmE3wh5W3XxeO65M=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1xWPgR-001ULd-68; Thu, 26 Nov 2026 03:58:03 +0100
+Date: Thu, 26 Nov 2026 03:58:03 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+Cc: Jakub Kicinski <kuba@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Shuah Khan <shuah@kernel.org>,
-	Alice Mikityanska <alice.kernel@fastmail.im>,
-	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net-next v2 5/6] ip6_gre: Enable BIG TCP packets
-Date: Wed, 25 Nov 2026 18:50:14 -0800
-Message-ID: <20261126025015.10416-6-yanhaishuang@cmss.chinamobile.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
-References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
+	Eric Dumazet <edumazet@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Simon Horman <horms@kernel.org>,
+	Bin Yu <byu@xidian.edu.cn>, Cheng Wen <wencheng@xidian.edu.cn>
+Subject: Re: [PATCH v2] net: ethtool: do not call get_regs() for zero-length
+ dumps
+Message-ID: <366216bc-ccc3-4547-8587-87cdf35f552f@lunn.ch>
+References: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,63 +66,55 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
 
-Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
-commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
-on UDP tunnels. ip6gre and ip6gretap can carry BIG TCP packets as well:
-IPv6 BIG TCP no longer needs a hop-by-hop jumbo header, the GRE header
-has no length field, the GSO and GRO paths already handle it, and FOU
-encapsulation sets the UDP length with udp_set_len() since
-commit 47282504ad21 ("udp: Support BIG TCP GSO packets where they can
-occur").
+On Thu, Nov 26, 2026 at 09:52:39AM +0800, YuanZhe Liu wrote:
+> ethtool_get_regs() passes the user-supplied regs.len to the driver
+> unchanged, including zero.  A driver that uses that length for its I/O
+> then issues a zero-length transfer.  Such a transfer has no data stage
+> and the USB core treats it as an OUT transfer, so a driver submitting
+> it on the receive pipe trips the direction check:
+> 
+>   usb 1-1: BOGUS control dir, pipe 80000380 doesn't match bRequestType c0
+>   WARNING: drivers/usb/core/urb.c:411 at usb_submit_urb
 
-Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
-with ip6gre and ip6gretap. ip6erspan is left alone. The default
-gso_max_size and gso_ipv4_max_size stay at 64KB, so nothing changes
-unless they are raised explicitly.
+Your commit message is focusing on USB too much. Very few Ethernet
+drivers are USB. Since you are modifying the core, you should make the
+commit message generic.
 
-iperf3 TCP over ip6gre and ip6gretap, with IPv4 traffic between two
-netns connected by veth, without encapsulation, 3 runs of 10 seconds
-each, in a KVM guest with 8 vCPUs on an Intel Core i7-14700 host:
+> A zero-length dump cannot return any data, so there is nothing for the
+> driver to do.  Return success without calling into the driver, the same
+> way a zero-length read is a no-op, instead of making every driver check
+> regs->len.
 
-  ip6gre,    65536:   84.7,  84.4,  90.2 Gbit/s
-  ip6gre,    196608: 117.7, 112.5, 128.4 Gbit/s (+38%)
-  ip6gretap, 65536:  103.1,  97.9, 102.4 Gbit/s
-  ip6gretap, 196608: 123.0, 125.7, 124.8 Gbit/s (+23%)
+> Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
 
-A later patch in this series extends big_tcp_tunnels.sh to cover ip6gre
-and ip6gretap with IPv4 and IPv6 traffic, without encapsulation and with
-FOU and GUE.
+Who does this bother?
 
-Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
-Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
----
- net/ipv6/ip6_gre.c | 2 ++
- 1 file changed, 2 insertions(+)
+> diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+> index 80b7930b3fe0..e8af861ee5de 100644
+> --- a/net/ethtool/ioctl.c
+> +++ b/net/ethtool/ioctl.c
+> @@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
+>  	if (copy_from_user(&regs, useraddr, sizeof(regs)))
+>  		return -EFAULT;
+>  
+> +	/* A zero-length dump has nothing to fill in. */
+> +	if (!regs.len)
+> +		return 0;
+> +
 
-diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
-index 26c0e1c4de1..0ace21db3b4 100644
---- a/net/ipv6/ip6_gre.c
-+++ b/net/ipv6/ip6_gre.c
-@@ -1462,6 +1462,7 @@ static void ip6gre_tunnel_setup(struct net_device *dev)
- 	dev->flags |= IFF_NOARP;
- 	dev->addr_len = sizeof(struct in6_addr);
- 	netif_keep_dst(dev);
-+	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
- 	/* This perm addr will be used as interface identifier by IPv6 */
- 	dev->addr_assign_type = NET_ADDR_RANDOM;
- 	eth_random_addr(dev->perm_addr);
-@@ -1934,6 +1935,7 @@ static void ip6gre_tap_setup(struct net_device *dev)
- 	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
- 	dev->priv_flags |= IFF_LIVE_ADDR_CHANGE;
- 	netif_keep_dst(dev);
-+	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
- }
- 
- static bool ip6gre_netlink_encap_parms(struct nlattr *data[],
--- 
-2.43.0
+Some of the kAPIs consider passing 0 as being special. It is user
+space asking the kernel how big a buffer is needed to hold the full
+dump. The kernel sets the value in the structure and returns. User
+space then allocates a buffer of that size, and makes the request
+again.
 
+I don't know if this API actually does this. You need to look at the
+logic and decide. But by returning this early, if it did, you have
+broken that.
 
+       Andrew
 
