@@ -1,99 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.173
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795662787;
-	b=sLaJtgf4m2Qzm42uU+nX4PobxmfonOChzej6U1tHrWSwmz58hU/eX1UlMmmrAX4rzTUL
-	 neJyQ93oRBwv8mo8pmamBGq+sIKTQ3x+NOInISStHfWAYou/5Dg/CFHMH+S+Gda3owGh/
-	 IR+C6BU3fxmY37UXLxqiZarRWx5Grn+B4j96mDj2Ts7dN4yQ7g35P1DGF5VKp0rOArXiN
-	 s5rX5D/LOqsOF8DGwJ+CJcyadXbrHZRFI52Gl1Qk7qOrK/lBfEO/9v0B9Wo50odRAQrXU
-	 uG+bGhyU8ESo5sklmhsVI/bpIT/pXkGGN6jlx4ScOV0PH2+8zESC8ExhkOpIeyhZzRg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795662787;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
-	b=umEBdV+8SNZ+sTdXfuPL8JjyWhVp+RWxjfoqfaWZpGQQe6bMxdwwiwMuNXpMmlCG3FWg
-	 jjei3Wvw7T3caMrc6zVCITUzBX9DusW4tXejGsavC0QLuAzQs6KSOEVhGx6+hyLmlG/ca
-	 Q+lfSu2l4ryGfnwoyYkpVyVX+vpP0s0hs4AJIkEggBHxvgShQmHroRcc5+ThVx4aoRuR0
-	 x1Yk8qLukxZZ9Kus4EZUZF7V70LbcJuSWGu6Bj+LRJbpXxOSUAVB05dNwvJJyyRmm4PfI
-	 r6qNp2DZUnNfRdjoBj9dsrtdvdZuo4mBIR1gn/KzrGZaWVEAUAJK7ax533xhQQakZaw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=jclark.com;
-	spf=pass smtp.mailfrom=jclark.com;
-	dkim=pass header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qmA0KXyk;
-	arc=none smtp.remote-ip=74.125.82.173
-Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com [74.125.82.173])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795663257;
+	b=vuRpElAC40dK8FAAKOEc3pFvgAIVvBTw1nU/6+E9cyvNlKjyLXk3uf/raI9GNwmPbj5g
+	 eFOEuHbBDSjN25o+2z8qOrli5heOl8z5PEWTCtiEYmu0NrN+4XBmOlvqfpgPK+0p/YkRL
+	 vSyu8YHMf6B3YKrnjGlO1uNA3Vqo2pZWmSylqdyw4wMV6GgLgVj8McPeyf1IKWU1gbwIh
+	 gR5bhk7C+TcPNrYzzslfBAt5THGkTfD7lwgt2lQ7sVpVVnsiotngFWAMXV3qj00jrKacv
+	 yD4mDQ/pt4egPo2UNbsL4xSITzbBwgo+e8JM6/wl2CCapk7ml8rOb5TTEug3YgE7tTA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663257;
+	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
+	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
+	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
+	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=;
+	b=lIxn/RddZlHdxeRykGVRFCmBsjgCwgk1UD8YwXXoWwdyRKiS55ZJxA1JXNy1vlCw6tsc
+	 +EAgjkibZUM5oxT3V/rfmChkatoGPC6eU2RWWTIVpWAQvLM4cPMwOqxkHS7jHYtrnDHob
+	 QH/xXQKfqyiWnvBb6sewiS/5uOJ8fbArFtpJWSFsHKV4wAtemanXfIfAB9RDSvjl2sGxP
+	 p9kRxNWKTKn2xfpaIU5TG0YZpPXXYo8hRniOW+2TU6bkHqZpGMKUXX+X30pjJgCvOe9sk
+	 gr0MerXm6XohKV7BS2o6XvHtOexfe0f9OAd7JNh/Hwj/uUxmOsq9Q+oUyYyA3o9oxVQ==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pigmoral.tech;
+	spf=pass smtp.mailfrom=pigmoral.tech;
+	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
+Received: from sender6-op-o12.zoho.com (sender6-op-o12.zoho.com [165.173.180.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 51520606A337
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:13:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 51520606A337
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=jclark.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=jclark.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CEC5606A31E;
+	Thu, 26 Nov 2026 03:20:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CEC5606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=jclark-com.20260707.gappssmtp.com header.i=@jclark-com.20260707.gappssmtp.com header.a=rsa-sha256 header.s=20260707 header.b=qmA0KXyk
-Received: by mail-dy1-f173.google.com with SMTP id 5a478bee46e88-386d1859e1cso1137426eec.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 19:13:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=jclark-com.20260707.gappssmtp.com; s=20260707; t=1795662786; x=1796267586; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
-        b=qmA0KXykoaWxD83RQcYdwGwK/7TxSa/KUQDZcevXWaFEsr6yX3qocQi5ps96XxUi7f
-         48ttXDb8RZ6fsyv6H2cAijkkpUBsqDXxXPBT/0wGhW2eUfVa0nheJDjv0poRY73XROsb
-         d0T7josaLJlN40V640h2PiynLhF9yhzsL6Drd2sPFtAFyPN+5uv5EADmQRQ6WOZ1ei2k
-         8LAqL0g7wTkk1z5cMO8af/qrjzBktp6FFFfOaqN4qNJ7OvL/2f4XnYDDpxBPFrYn+lbv
-         Of32Ik3wPmTrLGWVxT+Px9rZhOitwCs8hWe0BUdBWUF78ApEOCUDpMTzsZYaAFWGbpd3
-         YNcw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795662786; x=1796267586;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=RU+8FiOFO30i4fnk/N8zX4uZnOpIMX6KLAJ62sGXpec=;
-        b=JxGGZNUt9yRGY0/i9sOI7U7A1r1OSPaZZyT37pUpqSFLwxuJhELgMGO/SIXqqG/20m
-         n/VLw+54Slv0/LkssZi8siQzzBhW4Xc5fwYVC7caz56D14ky1W2AMXK8BSVvT0w7YUK1
-         mM5oQO7wMyhj8gTygjPu9wNa06RyO8sLX9ZLObbziJ1IgRfCGEJ1h4AHHInqKc+0SsYN
-         0TJl1Jy+5JcTzpVgm7RAui8VJdAnXG36baEV6Icxzi6v30PLNr0DdYaAiqkqwRDc/QN1
-         8SObIrOBdPqO57Lz0mPWve+OjmvSepxF9XjMF3yPwL8drd6xdZTxO42puRY8snBsvJcW
-         OQ8g==
-X-Gm-Message-State: APuU4Z8VnX4vfFEiykCXb267iK/dKIhSs8qPTlbDkpmvGFppodNiHVU2
-	iofG3nVD6MOnjR8DR88grhGRvzLNTZE6I7OdtEUu8PtuDS669CU8ykxLjD27OKH8wA==
-X-Gm-Gg: AZFdTZcFXiSt42FfxBlcCGFbYc8ElucqyVzGzi9BAVObbvtLRbpJF6gg1aFWZZiFr8L
-	AXrefzwm/O4/3ZXEJ7LgO4+1BAipRoa1CWvjaT210HQsl7/H9fXebHaxWV7mfs5qRi9a5PS0SC5
-	skbkgdO4LXQfVt5Q8n3VdDbcioIKOgS35oTmfULiWEA6r3ZDPfmYusJQrFJ1XXV5Q2S6JjFbLPS
-	HJPOWn/GspskN3U/bKLuga1IHlssmDV/erC+WiFcD94PcwjOpJINvaOXfKosAgP+G2N0nXP5kpO
-	t4AddhS1XlaIAzKXEErZDmBrQrx0n9FITux8CSqAUC6MMXTqEcfJ9PLZD0dMvmOwxu8RKoHLsSP
-	dykoRhX5WPnrMLPZx9RlT94p5wpkF2tNAIdIuvFG/bLMQlvjEmKow5av/AHe2QX8onHVScssejA
-	jDaGjZQ2M8LNqrsLItiEyyxyif6uNHTBhJAaZxbp8SCO2AHCWtCqg5HWapwRlIdwzyDTM/zYFdA
-	WLjA9BxIGxfQUobF4LTS+RShgpBhpYdElLsaLA7cDTjUy/w4Ly3k86qLiwHgWgTU7buTxnLaaWR
-	Q9Z4K3ha4YA5QDlQHbYuvRn8qQZibB/+zhufio/EF7WA1FCS/BUdRGeYfEIYm1Rzb8N6FmqHmrp
-	92jsOVL1rKYIMrBjEAg==
-X-Received: by 2002:a05:7301:3c0b:b0:386:d466:51f1 with SMTP id 5a478bee46e88-386db4e2b51mr2270203eec.4.1795662786330;
-        Wed, 25 Nov 2026 19:13:06 -0800 (PST)
-Received: from cantal.lan ([58.136.75.118])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385665f21aesm70204355eec.4.2026.11.25.19.13.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 19:13:05 -0800 (PST)
-From: James Clark <jjc@jclark.com>
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Rohan G Thomas <rohan.g.thomas@altera.com>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	=?UTF-8?q?Alexandra=20=C3=98stermark?= <alex.cramt@gmail.com>
-Subject: [PATCH net] net: stmmac: dwmac-socfpga: disable split header on Agilex 5
-Date: Thu, 26 Nov 2026 10:13:00 +0700
-Message-ID: <20261126031300.211248-1-jjc@jclark.com>
-X-Mailer: git-send-email 2.56.1
+	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL
+ARC-Seal: i=1; a=rsa-sha256; t=1795663192; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=e4FII9bZdXIdBe8LYq4IGbMGRvCRAqDjcHw9c8PyTsCwtiVOHVX5/o5BFvRZq0JzdHw4je5tOQNaP8jVIjuVYUPUqGGHM2gbGyvBK9FyNT8Kycg4BOOHwfPE7RnxlVPqV/ZCxlxkMgRkxdSOsnV7mkREAb/knXDALPMCKk0t7ks=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1795663192; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; 
+	b=UUDe5cwvt/PXWuIAvUf7gV10dD720xJ276dIrDwnydvX0vcdz39b+TOiVIzKwtv0rWTBNc/hcSoszBNxJ9fhCrI6J3p/WVjxBu6hbPq+8o10JwFbnn0+/tb2RocfO8quJzYOua2SEEyGmP2fsWdF29PJKqhh0Ky4UKSiB+zECkA=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=pigmoral.tech;
+	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
+	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
+DKIM-Signature: a=rsa-sha256; b=FAvk0CBLjnz+CVdmsl7/q3o4Fp2VSiuJJI4sTMUqqnfWurQhA1S0J/y6uFnL1wO8PJypOYhxEbmZYB28yoWSeEefIUxMG+jv39r2SBJ8lcFiQVUpBH0wno0yeu97zQDXIRopUT3Fgb/Kqtzd5SFHi9F9OFc6dMwE2FASRbwLjHQ=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
+Received: by smtp.zohomail.com with SMTPS id 1795663189418348.39520229037566;
+	Wed, 25 Nov 2026 19:19:49 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,52 +55,99 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 26 Nov 2026 11:19:39 +0800
+Message-Id: <DN4TH0CNAM11.2OA7W5L11W78S@pigmoral.tech>
+Cc: <linux-clk@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Andre Przywara" <andre.przywara@arm.com>, <netdev@vger.kernel.org>,
+ <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Jerome
+ Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
+ <enzo.adriano.code@gmail.com>, "Norman Herms" <dockseed@proton.me>,
+ "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>
+Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
+From: "Junhui Liu" <junhui.liu@pigmoral.tech>
+To: "Alastair D'Silva" <alastair@d-silva.org>, "Junhui Liu"
+ <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
+ Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
+ <jbrunet+clk@baylibre.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej
+ Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
+ <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
+ "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
+ "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
+ <richardcochran@gmail.com>
+X-Mailer: aerc 0.22.0
+References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
+ <20261125122452.3966873-1-alastair@d-silva.org>
+In-Reply-To: <20261125122452.3966873-1-alastair@d-silva.org>
+X-ZohoMailClient: External
 
-On Agilex 5, received IPv4 fragments are corrupted when RX checksum
-offload is on.
+Hi Alastair,
 
-This was observed as corrupted downloads on a Terasic DE25-Nano over
-a PPPoE connection with TCP MSS not clamped. It can be reproduced by
-running ping -s 2000 to another host on the LAN: ping reports every
-reply as corrupted.
+On Wed Nov 25, 2026 at 8:24 PM CST, Alastair D'Silva wrote:
+> Hi Junhui,
+>
+> On Thu, 12 Nov 2026, Junhui Liu wrote:
+>> static struct ccu_nkmp pll_ref_clk =3D {
+>> ...
+>> };
+>> ...
+>> static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0=
+);
+>
+> While testing this v7 series on the OrangePi 4 Pro (24 MHz HOSC), ttyS0
+> switches from earlycon to garbled output with:
+>
+>   2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq =3D 414, base_baud=
+ =3D 1384615) is a 16550A
+>
+> Because the hardware bypasses pll-ref (0x02002000) when HOSC is 24 MHz,
+> sys-24M physically runs at 24 MHz from HOSC, while pll-ref remains
+> disabled with reset/unprogrammed N=3D12, M=3D13 fields. Since
+> ccu_nkmp_ops.recalc_rate() computes parent_rate * N / M regardless of
+> the enable bit, pll-ref reports 24000000 * 12 / 13 =3D 22153846 Hz.
+>
+> sys-24M, apb-uart, and bus-uart0 inherit 22153846 Hz instead of
+> 24000000 Hz, so 8250_dw calculates base_baud =3D 1384615 (instead of
+> 1500000) and programs divisor 12 instead of 13 (+8.3% baud error).
 
-Agilex 5 has an XGMAC core, and stmmac turns split header on whenever
-RX checksum offload is on.
+Thanks for testing and reporting this. This is indeed a problem. I had
+assumed that PLL_REF would be used on all boards.
 
-Set STMMAC_FLAG_SPH_DISABLE for Agilex 5. Other glue drivers set this
-flag already. The same failure with fragmented ping is described in
-commit 47f753c1108e ("net: stmmac: disable Split Header (SPH) for Intel
-platforms"), which noted that according to the DesignWare Ethernet
-QoS (not XGMAC) datasheet, split header is not supported for IPv4
-fragments.
+I also tried manually disabling or bypassing PLL_REF on my Radxa Cubie
+A7A, but have not yet managed to establish a working bypass
+configuration... I currently suspect that the selection is handled
+automatically by the hardware, but this needs further confirm.
 
-With the flag set, fragments are received intact.
+>
+> If pll-ref is disabled/bypassed (or if sys-24M is physically fixed at
+> 24 MHz as the comment describes), either pll_ref_clk needs a recalc_rate
+> that returns 24 MHz when disabled/bypassed, or sys_24M_clk should not
+> inherit an unenabled pll-ref N/M ratio.
 
-Fixes: 93d46ea3e984 ("net: stmmac: socfpga: Agilex5 EMAC platform configuration")
-Cc: stable@vger.kernel.org
-Signed-off-by: James Clark <jjc@jclark.com>
----
-I used an LLM coding assistant to help prepare this patch.
+The issue may affect not just sys-24M, but also the downstream PLLs.
+According to the vendor SDK, their control registers have a PLL_FREF_SEL
+mux at bit 24, selecting between HOSC and REFPLL. The driver currently
+models these PLLs as having PLL_REF as their only parent, so their rates
+could also be calculated incorrectly when they actually use HOSC. We
+should model those muxes as well.
 
- drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c | 3 +++
- 1 file changed, 3 insertions(+)
+However, my A7A, A7S and A7Z boards all use 26 MHz crystals, so I cannot
+properly validate the 24 MHz case until I get a board with a 24 MHz
+crystal. In the meantime, if you have a fix in mind, please feel
+free to send a separate patch.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-index 3a89c4da2af5..28ffa5ad12d7 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-socfpga.c
-@@ -578,6 +578,9 @@ static void socfpga_agilex5_setup_plat_dat(struct socfpga_dwmac *dwmac)
- 	/* Enable TSO */
- 	plat_dat->flags |= STMMAC_FLAG_TSO_EN;
- 
-+	/* Disable split header */
-+	plat_dat->flags |= STMMAC_FLAG_SPH_DISABLE;
-+
- 	/* Enable TBS */
- 	switch (plat_dat->tx_queues_to_use) {
- 	case 8:
--- 
-2.56.1
+>
+> Tested on OrangePi 4 Pro (Allwinner A733).
+>
+> Thanks,
+> Alastair
+
+--=20
+Best regards,
+Junhui Liu
 
