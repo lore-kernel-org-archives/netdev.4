@@ -1,79 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.50
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795681249;
-	b=125G+3tIli3iltCuTwJS72q0oyiPaUKuZrhTpg98NKHfJixQOEQV2gd6c13kd800BysF
-	 n4IgCtsB21qajGp64FCvBzrPyWYwDIiJw0Hc6V8ti/qyRInMw8MUZbFHfkS631FrhzA7b
-	 BQUwSA+/6x6WCErh/ar4l3eYv/hvieZXnsxuj2M5fMUiHxbU8wj9f7JFLXijz/C/6Vazl
-	 hOgnyR7ZJldyMi1udnxmbwkjR81Z6ob+NpIsMjze60FaMOuTX3dmKrPbCd/w8JfMuBJsr
-	 pvbxBnWVYsKuPQYQoOebAI14MF/HHE/YmP066F0wlOlJp49bZow7QNdIeReLSVQ5iqg==
+	t=1795681260;
+	b=tcaoZTJOfWQbae7AYjocWcDQnZEWb8oRhg+maWR43wXAS7G1RJjUlKQs2Y5ljznIjvc7
+	 RlFAoIl9mLPPsvKCNwXgx0q1sRxtQ13ZiuuKY9bBrNqjcOBXxPQuhdoycLjSOX33hAT18
+	 XoJKOYubfxvpcceNL0ghzMd0yTDw6JXkYPNVPkl0f1rd1C3Pyn7b9KyPuHnznkSVP6/Uh
+	 064jeyBb27r60WDkM9jfWTiLFX5r8Yseb0hVJp+2cSGnxBlN86FRhzyNYlP2n0QwtHN6t
+	 dnAU1DBTQf3pO3Dw6tR2niWVHblJ3DELXeeTWJITHAxloYXrJZupf/tI9eYdfYyCgxQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795681249;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To:
-	 X-ClientProxiedBy;
-	bh=480ULLOLrifBd/vovICYhZKlfz9IIMZeCXmPHfiiLag=;
-	b=xeno+9C7cxT63Q4raXsqLAk3VysLGnJlOlb13qL//wvNxWS+AR9b73Dmgdqk1Rbw+6Pp
-	 VpZlNJHnFQnbBcQd92Rnpr0+/Vxyugn8PuMv4frRSTiZYxGBnL+Oit20DFTkwo86330Sz
-	 IhXuwOYb6s81rqJXXaxKDotVIUCdO1UCzL2gXdFB0tUc0Og8gkovjzXddTPoU6eEQxZc0
-	 fwfhN5XR9qjPaVanzzLjnj8yH4yq5pvEvWPbae8LBDPEb7+cHNo2Q/qfhkZ7BMXAHMY5n
-	 uS+lnWpsW8iHXGbADGNZI7FRPAsLik02yIz0ZjHGLsJS5Wti2Teewg5ESQoqdIg2x3Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795681260;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
+	 In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
+	b=3pEDQc0jHdbjegPUGD5BvWIFRcTjC6RGbVhwmWjsFRB203EyXQhRHmMgoZHv/7J59xeG
+	 2rYvGYrxIGLEpRuiuvLJv1VV4jyVMH3/CEBFm1WNz+7WGj2OD50L34NYvd0s8RtEvSYPV
+	 WmfoDQkQoS3WGoKlmQ7K3nOtjzKvlO23zQIayMRMLTBUJPf5aOeFmqX7ckvtyFk5+3WTM
+	 oQVMDEgffmugNnYrnSwWjlTsuXO1xOlQp9bwLHClzA9lmk3MOh06s1wGOsrDLtEDdtLfr
+	 bNN53wWvojADIaVdOdjLjxPqMuNMJoKRp112dtaB6im/D3FzqKD+TzULE+VWAcgUjJA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=JnIWVnot;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl;
+	arc=none smtp.remote-ip=209.85.216.50
+Received: from mail-pj1-f50.google.com (mail-pj1-f50.google.com [209.85.216.50])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1111B606A6A1;
-	Thu, 26 Nov 2026 08:20:47 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1111B606A6A1
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E699B606A33B
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:20:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E699B606A33B
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=JnIWVnot
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 2323520764;
-	Thu, 26 Nov 2026 09:20:46 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id vFVW2IQNZS1s; Thu, 26 Nov 2026 09:20:45 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 26DF120728;
-	Thu, 26 Nov 2026 09:20:45 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 26DF120728
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795681245;
-	bh=480ULLOLrifBd/vovICYhZKlfz9IIMZeCXmPHfiiLag=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=JnIWVnotfwX0C9Q5tXToJSQmDkd84Ki4Ohw+ugwbLkOxHUkPzBi3VgVvYDjHEF3bP
-	 9dVUz32jIfWxImM5HV0aE/Fzz97xn99Oif3VG7I0yKpyATGl0no0y2G0A9uVbJxBXy
-	 OCBzi8dzxvs5NYz+yhVgIchZUc/V8hk3hmaLPsnt/nl4HHk6smKnMZLTXhCNRP58et
-	 cFRI6Vw5U41v5ihvbZnWZpOl3mVzoqDlOri8uqsUmXR0Fl1v536Qq6HVx3xfgdh3hU
-	 0D9bSraRP/GLiUL5jdT4pnCWW/GLMR5hAuoWBXbGR7Lne7rnO23KXniU0T/SJ71CNU
-	 71omklC9FZHPQ==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:20:44 +0100
-Received: (nullmailer pid 1982003 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:20:44 -0000
-Date: Thu, 26 Nov 2026 09:20:44 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Jun Yao <yaojun8558363@gmail.com>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<davem@davemloft.net>, <edumazet@kernel.org>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <horms@kernel.org>, <herbert@gondor.apana.org.au>,
-	<dsahern@kernel.org>, <idosch@nvidia.com>, <lkp@intel.com>,
-	<victor@mojatatu.com>
-Subject: Re: [PATCH v2] xfrm: avoid stale tunnel pointers in deferred input
- callbacks
-Message-ID: <awfr3GBxx0WKz0-1@gauss4>
-References: <20261112111946.375692-1-yaojun8558363@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=KxxYqGEl
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-3b405d8f1cfso3403880a91.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:20:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795681259; x=1796286059; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
+        b=KxxYqGElOq5lW5A+bS0tALx/oAwqgEL/9qSYCKn911jBtH9pbkiCvxaJdT0v3oGq3y
+         JpIDQ7J47l4wGfqo1POzNlMjh9XpzAUNYJpVCzlRnT5nG7iXcLCu/Vz/xbP39rJmUjLt
+         WQC83CX4eLHB2JEgZ0wi+5j1ZG8zU1CJgHbFq04jnxvORYhdDk6lpQhmqdt/OrJT3bol
+         vzwnv0GVfY8TAvewFH10/FOXMcP10wcGVmiAR8F+BjDVEGeRy8FMuadMM16AkunvxQ1M
+         YlvqpRwapZin13rZ0jJ/1a7Gm+j+6MxvgrjXxvZOrLfyzekjgBU7IZAvBgpb1TGV6Yst
+         WZiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795681259; x=1796286059;
+        h=content-transfer-encoding:content-type:in-reply-to:from:references
+         :cc:to:subject:user-agent:mime-version:date:message-id:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nWb5Z5t6RK8tqOX0Y27tfK1vMpGLhP24jlEag1RHczg=;
+        b=rERe9Ed/3hunmJ+gt8euF4jBoffuhGsoa3vsRET59lNaGNrXiLW5j423914HJ5CBwr
+         frFHma+e5fj+VbZITZF0VCP7DvoK6POw5jVH1BRBkWxa+h2omgcaUX8umcEgcN/FtE8w
+         zlmD/72xtLg91Bw+XDJTUhd8TvD0vEcLlTVMpZ0/iIfrco1dwZA6O2eo0mE6prSghe+x
+         dOZoJuq1fEVkUFcBS3d61Y/80LMILbaF8ZJehJAcd5510+06IfnGYEy8uITMXEBqCwMg
+         vTidw9weYk30Y9GI3kAXbs3M4xzW6LHDEieenB7/jDCwuXRqzGCwWqQyDFewhWUbgzeE
+         3UgA==
+X-Forwarded-Encrypted: i=1; AL+hErHHaBzg/eLKXGJdgrbjarz0E5GF1wyQ+DnJS+ZmOWTh42aduIWppjtIv26JZ0W/2uOzBRegzxg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/xbMnF/5GR2C4vSky+3InLhAepBWg+7GH/k/2pOQh7J1GgCIHo
+	2DxKFRVpNexnXXpyF76klBoVDsCbD2/UPt3pMXh5ypjKpOFfklbVt+Z8
+X-Gm-Gg: AZFdTZctcQo++VGRgTvh9A110An733fFZKxTd1IyD6WQXih57MgGSxfM0n5oE5Zb44x
+	5s14hNu9i6wBRIBRzronUB7jI3ZNupLWvFhQiF3PhSR5oxb7pxGNPiov5Q/mExcWEPmAan6mRMs
+	m8mJlCKOWxFxlf4pVxddjJacWblTM+wxqd7QEIwtOwdiktnZXw7ltgfrxPy/VwJmfDELwrtYpgs
+	zI2AbyxxxrTZqS7vvt1bu6jmVdNNGJeiv8uFisCUvtNr6H6NI1Gk0USsKsRyBHzc4IxrAAZkxWl
+	thcOSiUGQ8pI0oqko0vK8jEtdZfBDIZ2GQ9GZMlW+z3diuTsNYGKW8wq9zCfiKobm2b+gDjkCjL
+	D6tVvu7RZ9CafbW6Q218/ypysZhhPmJ3lFCeGvc1ZFObzX7PETbf1BHRSgkrXf1NRNuDXgOBgeY
+	hsZIPyg+SUhGuniTug55t0wDJP7CTy349dL/kMVjLOvCoBbOMmbpDj91ftN51G03/sR/wAbCtDx
+	68cXJDmcjg7fNmYYf22dB7wSDeklR5XXEDUe+ipBcCk22RecNhQYlvk7PACYljdfRe+EaPXCYg8
+	x0kYohOvD/s7f0QzYfw5iaTiwPRjIlxjcOnGFeyC1IRzy/anx79CB4J640+K
+X-Received: by 2002:a17:90b:3f0f:b0:3b0:934c:5e41 with SMTP id 98e67ed59e1d1-3b41c9080e7mr24217936a91.29.1795681258845;
+        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
+Received: from [192.168.255.10] ([43.132.141.21])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b420e1307csm30537371a91.7.2026.11.26.00.20.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 00:20:58 -0800 (PST)
+Message-ID: <5b2703a3-ae4f-431e-bf4e-d44348654913@gmail.com>
+Date: Thu, 26 Nov 2026 16:20:55 +0800
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,215 +90,165 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20261112111946.375692-1-yaojun8558363@gmail.com>
-X-ClientProxiedBy: EXCH-02.secunet.de (10.32.0.172) To EXCH-01.secunet.de
- (10.32.0.171)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2] bonding: unbind 802.3ad slaves on enslave failure
+To: Nikolay Aleksandrov <razor@blackwall.org>, jv@jvosburgh.net,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, sfeldma@cumulusnetworks.com,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Cc: Lin Jiapeng <jiapenglin@tencent.com>,
+ TencentOS Corvus AI <corvus@tencent.com>
+References: <20261124024319.52145-1-ljp1205831794@gmail.com>
+ <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
+From: Lin Jiapeng <ljp1205831794@gmail.com>
+In-Reply-To: <654889ea-3b83-4fd4-b283-184f87b3d208@blackwall.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
----
-Author: Jun Yao <yaojun8558363@gmail.com>
 
-> xfrm: avoid stale tunnel pointers in deferred input callbacks
->
-> IP-TFS input can be deferred while its reordering queue waits for a missing
-> sequence number. The VTI receive callback stores a pointer to the tunnel in
-> skb->cb, and the device can be removed and freed before the callback runs.
->
-> The issue was discovered by Qihoo 360's Tulongfeng multi-agent system.
->
-> This IPv4 VTI use-after-free was reproduced on Linux 7.4-rc2 in an x86-64
-> QEMU guest. When the IP-TFS reorder timer resumes input after VTI deletion,
-> KASAN reports an 8-byte read from freed memory in vti_rcv_cb(). Relevant
-> parts of the report are:
->
->   BUG: KASAN: slab-use-after-free in vti_rcv_cb+0x696/0x770
->   Read of size 8 at addr ffff88810eae4b58 by task swapper/3/0
->   Call Trace:
->    [...]
->    vti_rcv_cb+0x696/0x770
->    xfrm4_rcv_cb+0xa6/0x110
->    xfrm_rcv_cb+0xca/0x140
->    xfrm_input+0x11eb/0x6660
->    __input_process_payload+0xb87/0x24c0
->    iptfs_input_ordered+0x560/0x8e0
->    iptfs_drop_timer+0x464/0x8e0
->    __hrtimer_run_queues+0x270/0x600
->    hrtimer_run_softirq+0x14b/0x270
->    [...]
->
->   Freed by task 394:
->    [...]
->    kfree+0x23c/0x490
->    kvfree+0x31/0x40
->    netdev_release+0x6d/0x90
->    device_release+0xce/0x250
->    kobject_put+0x18d/0x4f0
->    netdev_run_todo+0x724/0x1360
->    rtnl_dellink+0x401/0x1020
->    [...]
->
-> Keep only scalar tunnel metadata in an skb extension. The VTI callbacks
-> look up the device by ifindex under RCU and check its link configuration
-> before using its private data. If the VTI no longer exists, drop the
-> deferred packet. Use the same metadata to preserve tunnel mark handling
-> and IPv6 tunnel detection, and clear it when a new XFRM receive path starts
-> and after the callback completes.
->
-> Guard the skb extension accesses with CONFIG_XFRM and provide no-op or
-> NULL-returning helpers when it is disabled, since xfrm.h is also included
-> by code built without XFRM support.
->
-> Signed-off-by: Jun Yao <yaojun8558363@gmail.com>
+On 2026-11-25 3:14 p.m., Nikolay Aleksandrov wrote:
+> On 24/11/2026 04:41, Lin Jiapeng wrote:
+>> From: Lin Jiapeng <jiapenglin@tencent.com>
+>>
+>> The 802.3ad enslave path binds a slave before publishing it in the bond's
+>> slave list. The periodic state machine can select the port and attach 
+>> it to
+>> a LAG while enslavement is in progress, including while 
+>> NETDEV_CHANGEUPPER
+>> notifiers are running.
+>>
+>> If enslavement fails, rollback can free ad_slave_info without 
+>> unbinding its
+>> port and leave later LAG processing with a dangling pointer. This affects
+>> both a failed upper-link notification and later failures such as
+>> bond_sysfs_slave_add(). A test-only kretprobe forces the latter to return
+>> -ENOMEM, after which KASAN reports:
+>>       BUG: KASAN: slab-use-after-free in 
+>> ad_agg_selection_logic+0x1a0d/0x1fa0
+>>       Read of size 1 by task kworker/u16:0/13
+>>       Freed by task 110:
+>>         kfree
+>>         slave_kobj_release
+>>         kobject_put
+>>         bond_enslave
+>>
+>> Drain the RX handler before unbinding so receive handlers cannot race 
+>> with
+>> port->slave becoming NULL. Unbind before upper unlink when the link 
+>> exists,
+>> and also unbind after an upper-link failure without repeating the unlink.
+>> Rebuild the slave array after aggregator changes and leave earlier
+>> unpublished failures unchanged.
+>>
+>> Fixes: 07699f9a7c8d ("bonding: add sysfs /slave dir for bond slave 
+>> devices.")
+>> Reported-by: TencentOS Corvus AI <corvus@tencent.com>
+>> Link: https://lore.kernel.org/netdev/20261113130454.63032-1- 
+>> ljp1205831794@gmail.com/
+>> ---
+>> v1 -> v2:
+>>    - Drain the RX handler before unbinding to avoid NULL dereferences 
+>> in the
+>>      802.3ad receive path.
+>>    - Cover NETDEV_CHANGEUPPER failure after transient upper-link 
+>> publication,
+>>      without repeating upper-dev unlink.
+>>    - Rebuild the 802.3ad slave array after rollback.
+>>
+>>   drivers/net/bonding/bond_main.c | 11 +++++++++++
+>>   1 file changed, 11 insertions(+)
+>>
+>> diff --git a/drivers/net/bonding/bond_main.c b/drivers/net/bonding/ 
+>> bond_main.c
+>> index e9f5e753f677..7ca948bb27d0 100644
+>> --- a/drivers/net/bonding/bond_main.c
+>> +++ b/drivers/net/bonding/bond_main.c
+>> @@ -2355,10 +2355,21 @@ int bond_enslave(struct net_device *bond_dev, 
+>> struct net_device *slave_dev,
+>>       bond_sysfs_slave_del(new_slave);
+>>   err_upper_unlink:
+>> +    netdev_rx_handler_unregister(slave_dev);
+>> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
+>> +        bond_3ad_unbind_slave(new_slave);
+>>       bond_upper_dev_unlink(bond, new_slave);
+>> +    goto err_update_slave_arr;
+>>   err_unregister:
+>>       netdev_rx_handler_unregister(slave_dev);
+>> +    if (BOND_MODE(bond) == BOND_MODE_8023AD)
+>> +        bond_3ad_unbind_slave(new_slave);
+>> +
+>> +err_update_slave_arr:
+>> +    if (BOND_MODE(bond) == BOND_MODE_8023AD &&
+>> +        bond_update_slave_arr(bond, new_slave))
+>> +        bond_slave_arr_work_rearm(bond, 0);
+>>   err_detach:
+>>       vlan_vids_del_by_dev(slave_dev, bond_dev);
+>>
+>> base-commit: 7e1392a42ea288d70a266f6553fe06f57f8647ea
+> 
+> This looks awful jumping around error labels and doing the same thing
+> at different places. Surely you could rearrange them better, maybe
+> something like this (untested, needs proper review):
+> --- a/drivers/net/bonding/bond_main.c
+>    +++ b/drivers/net/bonding/bond_main.c
+>    @@ -1888,10 +1888,11 @@
+>     int bond_enslave(struct net_device *bond_dev, struct net_device 
+> *slave_dev,
+>                   struct netlink_ext_ack *extack)
+>     {
+>    +     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
+>          struct bonding *bond = netdev_priv(bond_dev);
+>    -     const struct net_device_ops *slave_ops = slave_dev->netdev_ops;
+>          struct slave *new_slave = NULL, *prev_slave;
+>          struct sockaddr_storage ss;
+>    +     bool upper_linked = false;
+>          int res = 0, i;
+> 
+>          if (slave_dev->type == ARPHRD_CAN ||
+>    @@ -2246,13 +2247,14 @@
+>                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
+> bond_master_upper_dev_link\n", res);
+>                  goto err_unregister;
+>          }
+>    +     upper_linked = true;
+> 
+>          bond_lower_state_changed(new_slave);
+> 
+>          res = bond_sysfs_slave_add(new_slave);
+>          if (res) {
+>                  slave_dbg(bond_dev, slave_dev, "Error %d calling 
+> bond_sysfs_slave_add\n", res);
+>    -             goto err_upper_unlink;
+>    +             goto err_unregister;
+>          }
+> 
+>          /* If the mode uses primary, then the following is handled by
+>    @@ -2357,11 +2359,15 @@
+>     err_sysfs_del:
+>          bond_sysfs_slave_del(new_slave);
+> 
+>    -err_upper_unlink:
+>    -     bond_upper_dev_unlink(bond, new_slave);
+>    -
+>     err_unregister:
+>          netdev_rx_handler_unregister(slave_dev);
+>    +     if (BOND_MODE(bond) == BOND_MODE_8023AD) {
+>    +             bond_3ad_unbind_slave(new_slave);
+>    +             if (bond_update_slave_arr(bond, new_slave))
+>    +                     bond_slave_arr_work_rearm(bond, 0);
+>    +     }
+>    +     if (upper_linked)
+>    +             bond_upper_dev_unlink(bond, new_slave);
+> 
+>     err_detach:
+>          vlan_vids_del_by_dev(slave_dev, bond_dev);
 
-Should this bug fix include a Fixes tag for the commit that introduced
-the tunnel pointer in skb->cb:
+Thanks a lot for the suggestions. I have adopted your suggested 
+structure in v3: the err_upper_unlink label is
+gone and the rollback is a single err_unregister block gated by
+upper_linked. On top of that, v3 includes a few changes based on the
+pw-bot review of v2, mainly binding the 802.3ad port only after the
+upper link has been established and re-evaluating the carrier in the
+rollback path.
 
-  Fixes: 70be6c91c865 ("xfrm: Add xfrm_tunnel_skb_cb to the skb common buffer")
-
-[ ... ]
-
-> diff --git a/net/ipv4/ip_vti.c b/net/ipv4/ip_vti.c
-> index c4f14d42df248..3594254df9de9 100644
-> --- a/net/ipv4/ip_vti.c
-> +++ b/net/ipv4/ip_vti.c
-> @@ -58,10 +58,25 @@ static int vti_input(struct sk_buff *skb, int nexthdr, __be32 spi,
->  	tunnel = ip_tunnel_lookup(itn, skb->dev->ifindex, flags,
->  				  iph->saddr, iph->daddr, 0);
->  	if (tunnel) {
-> +		struct xfrm_tunnel_info *info;
-> +
->  		if (!xfrm4_policy_check(NULL, XFRM_POLICY_IN, skb))
->  			goto drop;
->
-> -		XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4 = tunnel;
-> +		info = xfrm_tunnel_info_add(skb);
-> +		if (!info)
-> +			goto drop;
-> +
-> +		*info = (struct xfrm_tunnel_info) {
-> +			.ifindex = tunnel->dev->ifindex,
-> +			.i_key = tunnel->parms.i_key,
-> +			.type = XFRM_TUNNEL_INFO_VTI4,
-> +			.ip4 = {
-> +				.link = tunnel->parms.link,
-> +				.saddr = tunnel->parms.iph.saddr,
-> +				.daddr = tunnel->parms.iph.daddr,
-> +			},
-> +		};
->
->  		if (update_skb_dev)
->  			skb->dev = tunnel->dev;
-> @@ -96,18 +111,28 @@ static int vti_rcv_proto(struct sk_buff *skb)
->
->  static int vti_rcv_cb(struct sk_buff *skb, int err)
->  {
-> +	const struct xfrm_tunnel_info *info = xfrm_tunnel_info(skb);
->  	unsigned short family;
->  	struct net_device *dev;
->  	struct xfrm_state *x;
->  	const struct xfrm_mode *inner_mode;
-> -	struct ip_tunnel *tunnel = XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip4;
-> +	struct ip_tunnel *tunnel;
->  	u32 orig_mark = skb->mark;
->  	int ret;
->
-> -	if (!tunnel)
-> +	if (!info || info->type != XFRM_TUNNEL_INFO_VTI4)
->  		return 1;
->
-> -	dev = tunnel->dev;
-> +	dev = dev_get_by_index_rcu(dev_net(skb->dev), info->ifindex);
-
-Does looking up info->ifindex in dev_net(skb->dev) break cross-netns VTI
-and VTI6 tunnels in vti_rcv_cb() and vti6_rcv_cb()?
-
-When a VTI or VTI6 interface is created in or moved to a different network
-namespace from its underlay link netns (tunnel->net != dev_net(tunnel->dev),
-which skb_scrub_packet() at the end of vti_rcv_cb() and vti6_rcv_cb()
-handles), vti_input() is called with update_skb_dev = false, so skb->dev
-is still the underlay ingress device in tunnel->net when the callback runs.
-Looking up tunnel->dev->ifindex in dev_net(skb->dev) searches the underlay
-namespace instead of the overlay namespace where tunnel->dev is registered,
-dropping all inbound packets with -ENODEV (or matching an unrelated VTI
-device with the same ifindex and parameters in the underlay netns).
-
-> +	if (!dev || dev->rtnl_link_ops != &vti_link_ops)
-> +		return err ? 1 : -ENODEV;
-> +
-> +	tunnel = netdev_priv(dev);
-> +	if (tunnel->parms.i_key != info->i_key ||
-> +	    tunnel->parms.link != info->ip4.link ||
-> +	    tunnel->parms.iph.saddr != info->ip4.saddr ||
-> +	    tunnel->parms.iph.daddr != info->ip4.daddr)
-> +		return err ? 1 : -ENODEV;
-
-Should vti_rcv_cb() and vti6_rcv_cb() return 0 rather than 1 when err != 0
-and the tunnel device is gone or reconfigured?
-
-In xfrm4_rcv_cb() and xfrm6_rcv_cb(), cb_handler callbacks run in priority
-order until one returns <= 0; returning 1 means the packet was not claimed
-by this protocol handler.  Here info->type already shows VTI claimed the
-packet on input, and when vti_rcv_cb(skb, 0) returns -ENODEV, xfrm_input()
-jumps to drop: and calls xfrm_rcv_cb(skb, family, xfrm_proto, -1).
-Returning 1 on that second call lets xfrm4_rcv_cb() continue to
-lower-priority handlers such as xfrmi_rcv_cb(), which can match an xfrmi
-interface and increment rx_errors and rx_dropped on that unrelated device.
-
-[ ... ]
-
-> diff --git a/net/ipv6/ip6_vti.c b/net/ipv6/ip6_vti.c
-> index c790278391519..6cf40b0009845 100644
-> --- a/net/ipv6/ip6_vti.c
-> +++ b/net/ipv6/ip6_vti.c
-
-[ ... ]
-
-> @@ -342,18 +361,29 @@ static int vti6_rcv(struct sk_buff *skb)
->
->  static int vti6_rcv_cb(struct sk_buff *skb, int err)
->  {
-> +	const struct xfrm_tunnel_info *info = xfrm_tunnel_info(skb);
->  	unsigned short family;
->  	struct net_device *dev;
->  	struct xfrm_state *x;
->  	const struct xfrm_mode *inner_mode;
-> -	struct ip6_tnl *t = XFRM_TUNNEL_SKB_CB(skb)->tunnel.ip6;
-> +	struct ip6_tnl *t;
->  	u32 orig_mark = skb->mark;
->  	int ret;
->
-> -	if (!t)
-> +	if (!info || info->type != XFRM_TUNNEL_INFO_VTI6)
->  		return 1;
->
-> -	dev = t->dev;
-> +	dev = dev_get_by_index_rcu(dev_net(skb->dev), info->ifindex);
-
-Can dereferencing skb->dev via dev_net(skb->dev) before checking err cause
-a use-after-free in vti_rcv_cb() and vti6_rcv_cb()?
-
-When asynchronous crypto resumes in xfrm_input() via xfrm_input_resume()
-(encap_type == -1, async = 1) and later fails, the drop path releases the
-reference on skb->dev before running xfrm_rcv_cb():
-
-net/xfrm/xfrm_input.c:xfrm_input() {
-    ...
-drop:
-	if (async)
-		dev_put(dev);
-	xfrm_rcv_cb(skb, family, xfrm_proto, -1);
-	kfree_skb(skb);
-	return 0;
-}
-
-Previously, vti_rcv_cb() and vti6_rcv_cb() checked if (err) before touching
-skb->dev.  If the ingress device was unregistered while async crypto was in
-flight, dev_put(dev) can drop its last reference and allow netdev_run_todo()
-to free skb->dev before vti_rcv_cb() or vti6_rcv_cb() reads
-dev_net(skb->dev).
