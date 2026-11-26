@@ -1,59 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=80.12.242.22
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.174
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716863;
-	b=v1BcNtNRyrrkyEiNNthRKMKvtqFSTl40fY/uvFd38+qnDpvK+Cref6d+/fiqA6zrWaA2
-	 smhLmtnpM16Vvzrxfy/rKzhJ0ZNOkseu0R90COY48Rcrgva2NKH7jBVzLOD2eBtXHPnOt
-	 IRI5YnRErd6mZCk9Gu3NssW3t7H4GxGIx3tfNrpo401/EWIehCTHKOTIoKjW1g5zAnV75
-	 NyHz6IosWAA+k3ekHU4eRP/UGhZSwXEcbK/b1nI9ZBbKDaWQffn7G8l336NzQJRJw0nGy
-	 bQ2CzAa7RgYIMowVDI+2cHevTdsPSp4SC5QiodwJJCVM4ztaFmReyCrxULGlujlw5JA==
+	t=1795717419;
+	b=rJGEzoRN7yA4gN+z0lT8HcrJOH5xxp+Mntylxi/D8OkudUY8PfRsN3+xwPSOqmTKpnMn
+	 JjvJ2N9w5xgXmid+drEox6vhhpvsHjob35VCR/kbAefEbhV7NBuTjbNh3FfQ0j8P3iYiS
+	 P8d/M/CcLPyCAdcG2kXEPhYKVqozn7GrCpudWmYYCNDTzP+zAXFav6/Z5/ruakRv91G3W
+	 cHyvyWFHuNo68yND9sw3RbJjjcnAt454UiSHiXkYtuYUmsJxXWx4OpwpdkAN1n5coEw6f
+	 N9J4LbhHhN8xeCkYrVgOq3dhJnaWyHFt9bFb64WmtySrktg8iFW/5AWDRhVTM95R6Sg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716863;
-	h=DMARC-Filter:Received:DKIM-Signature:X-ME-Helo:X-ME-Auth:X-ME-Date:
-	 X-ME-IP:Message-ID:Date:MIME-Version:User-Agent:Subject:To:Cc:
-	 References:From:Content-Language:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=kbN11L871pCe6lOyfxUYgKbNRnDIUmonmkFHXq4QE0E=;
-	b=AttaTpmNpGcF5JtlDNeXCFTLMh1zUfGBZOIlBMMZTficP788BMVwiw7kzBsyi3T6dTRQ
-	 nCXN1O+VBDQ0a/nNIHVA877bnHEmQyVlFuzq1oKilnFFpxU3zmwZyKQLcrJ7hmh3chrGx
-	 zBps/e6iWqhH2be2GpfPaIk0uh5Pa7lZW80r2583oW3DKB6nnWlw1kFNeP2FjyObLpqgc
-	 SmhFJG9m5dhDTXE5ZZyFPYv+Dr79r+6FuPae4LKdWYKjwCYZC7/pfRF5sH88AUKp5L6tu
-	 Zv5GYJNAr4yg5A2Ig7KJU8tF2bvJ7BNOnIXlWr9hTTo4/nnAMo0KUPeRqTfXaScQtXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717419;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=uIphw3j1z96h8uTiUhwuuY5bkqMdxke2b6zGFFM9IrU=;
+	b=sN04/8lRFccXKhIlMR/pt/hEMTcLChH2M0K2Hq7xzGArgmyFa3JEHgTHXF4HIRM8nbf/
+	 EeWcUa4+io8FDv1J2Pf5m+U3FIYsTgv3Fz0bVET/oa4rSQ42UiXRPT0abI9TiCs/gRWB+
+	 qbZrQE6Efcz2CJLLMd/onIcCzzWQjlvb57TvZwZa3Pu9GWlRXLfSBOBJ6lLJ3nNz4a/yS
+	 cEAd8RYKO87zdBmx6Ff5qkFC3fh1zGe9Inj2xyldWLknRmJBk398J80rl8AE3dsHnvo77
+	 9l0ZS6bayddv8rVwGgN4MtklZPCPalvuGFmAVBaqLXHDz35SWakkipT08BFXLDKhepA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=wanadoo.fr;
-	spf=pass smtp.mailfrom=wanadoo.fr;
-	dkim=pass header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=fpJGPPCU;
-	arc=none smtp.remote-ip=80.12.242.22
-Received: from smtp.smtpout.orange.fr (smtp-22.smtpout.orange.fr [80.12.242.22])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="NWVQ3/5Y";
+	arc=none smtp.remote-ip=74.125.82.174
+Received: from mail-dy1-f174.google.com (mail-dy1-f174.google.com [74.125.82.174])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1E766606A31C;
-	Thu, 26 Nov 2026 18:14:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1E766606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=wanadoo.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=wanadoo.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9CB8606A681
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 18:23:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9CB8606A681
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=wanadoo.fr header.i=@wanadoo.fr header.a=rsa-sha256 header.s=t20230301 header.b=fpJGPPCU
-Received: from [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
- ([IPv6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b])
-	by smtp.orange.fr with ESMTPSA
-	id Wdz1xQ8dhHbsgWdz1x5e38; Thu, 26 Nov 2026 19:14:15 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1795716855;
-	bh=kbN11L871pCe6lOyfxUYgKbNRnDIUmonmkFHXq4QE0E=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=fpJGPPCUHVlLyPal9nCh70/eYtyiZDXrH7PcXM48YO54fAJt8UWb5m7kxSSJXsHNq
-	 jeT28DtcSE+RkATaF419q9euEvr6IbuNggUBklmAKzFclXkVV1uKvMVfRjnzzIDeTn
-	 FpGx33DyurGbe52TCvppf4zWnmnPVxq0cmQ/+uIdGsu0S85ESh5dgGac5JRvP+LbJE
-	 ftNrtrb03/gKAY0xFmIn1+c7MbxH6f6WlwPVApeGZ6IvA8AOb8AGVlpNPoxyn0ejIP
-	 CtJ5Cdv326AwyQQIo6OWi5tmQmJXgPoQpuaBYxugwwgbiIpNF+STxhFdRgBaC7AWic
-	 RBK2s26JCuGTw==
-X-ME-Helo: [IPV6:2a01:cb10:785:b00:9f13:a1ff:dc18:901b]
-X-ME-Auth: Y2hyaXN0b3BoZS5qYWlsbGV0QHdhbmFkb28uZnI=
-X-ME-Date: Thu, 26 Nov 2026 19:14:15 +0100
-X-ME-IP: 2a01:cb10:785:b00:9f13:a1ff:dc18:901b
-Message-ID: <554da672-05c1-43f7-a3ac-a24c6e4a570e@wanadoo.fr>
-Date: Thu, 26 Nov 2026 19:14:10 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=NWVQ3/5Y
+Received: by mail-dy1-f174.google.com with SMTP id 5a478bee46e88-38431138772so9451964eec.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:23:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795717418; x=1796322218; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=uIphw3j1z96h8uTiUhwuuY5bkqMdxke2b6zGFFM9IrU=;
+        b=NWVQ3/5Y/54sK5m1Ak377/sFmSJCTXKP4Wb8Ug5ZGyoqCPDTsIr+1rxFekGleY3lma
+         1wb49zAOP52QgqAxBEEwDW3zKDVmbPotFc41+z/hsXzjJ/F0vlCTqxQORIZfEsOFJ11H
+         t9Oy4bEP/750ac5xd6sRTMlpm3qgveOe407weMUitQ7g1BnmAXEaAwCt0zxp1EFcL3Bz
+         l/67IvSn5Vwkj05EFNt7vQb8hRVa40nY/R8kU5Ed8th+35rb9JbtbqYtVc7WTv38f+0E
+         V1Sg0UA5e3d15l1bjId4t+s5mKkvmH+OsGL5bIOtXrveCdA45pm05mCbgve5txFTjzjr
+         ByLg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795717418; x=1796322218;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=uIphw3j1z96h8uTiUhwuuY5bkqMdxke2b6zGFFM9IrU=;
+        b=IuZ4m4blKFqgBp+3yuAClhi9949sf2dIn9KYAhZbTV5hU9znWB+eZyV+IIegjru+8t
+         k1A45SDz27XoPLrHH2rzSCMg4P14FtHGE5EUlLU2Eb/YnaGbQcDoTYsyibzJLmcre4mU
+         5UJNXLWWl0dPoEw+vdU8AgkIpxxaT1rLIjcaLJNj+mYN54yeh2ehFpuoKlGVRBUsi+9f
+         8w8/yrFm2ZYXsTsfzenIq9IVNlmxZaOnxGiHccaRekyByQTu5AIB5o999PNhuDZm7OBs
+         a07X2bGE//qYYRmDQ6W1J+gcw5sfOVY0IOL61HcsUmC6yFF2gI/yXmZDPf1SqTbwNrd0
+         DEkw==
+X-Gm-Message-State: APuU4Z9dges/fF1PaK5S4UPPNnkybayWTyrhCX9fQ+n7QUI3VAAFzHKo
+	c0Ck8ZX9b1vBwMo+KwhN6e6B9pQkd9DIKr5PB6lv39MHn5XzbXS/E5hYZJaM6o5/Eq8=
+X-Gm-Gg: AZFdTZdCcw8/xsSWs3Qcd6LmKYXT5TP6irbh5OKAGACgSWo4M7GStnqMkBCEeCV3lKM
+	TFpB9kFvCKduApf/Gup2TscnHYNBvvbpJmRcTtWMEHlsjN54Ogslx3b0TvRiMEUquNohIynC/5A
+	DBMEuJegqrlYycvyKxGQf3lv85cvdQCmpTatYuyRTdsdnIwjPIIFd/Dww/pXBwk8pe4bB4s0OIp
+	4DXdoQPqalT4UxmzqM4mgA/PVedq0E5HtIPmng04goHd6zt8Zb5ecNavKwJQptMoWHxKi9fcRf6
+	6zEt4htRVDH0YQrnnXsszQ0LY9MJpV96Kg3tgoDE+ZghhJIMKlXkFHkCXsA0ElHLHKH8B9TaiF6
+	wRGEwwcOEGNUa96JivbKS0Xe2fLnfwLISOs9ldHXZlPW+Hhxum8X1RGXWQz3AETYlOtpFnoa3Z+
+	IFkcmG5FmYyrSi0ng3KHRORj/7fTyRjGMvxyuFRjQbiljyo/G4XqIkVWILY9q/8zYjWJIrhUouC
+	8GxPoxRhwAmrbrfk2KM95Mj4M4lHd1S6F6gVo3VAeR6pfsSpMeFIWdLsInbSsR4NhCamBb5kBJO
+	uWJu2MZSn725KWO9GoC/Q0EFpnFYVyk4lGs8C/WpzO7OjFwKtpmJELWjLyd516rQnwkg8g1IvAT
+	/F+gzf/LnIlKhcqeQ7alHiL8TSdI=
+X-Received: by 2002:a05:693c:600c:b0:36a:1bac:6bf4 with SMTP id 5a478bee46e88-38570451dbemr24927038eec.18.1795717417596;
+        Thu, 26 Nov 2026 10:23:37 -0800 (PST)
+Received: from localhost.localdomain ([203.202.252.249])
+        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm11826582eec.2.2026.11.26.10.23.32
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 10:23:36 -0800 (PST)
+From: Zhefu Peng <ilskdw@gmail.com>
+To: netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	kuniyu@google.com,
+	mschiffer@universe-factory.net,
+	nicolas.dichtel@6wind.com,
+	shuah@kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: [PATCH net v7 0/2] vxlan: reset the remote's dst cache when snooping moves a MAC
+Date: Fri, 27 Nov 2026 00:23:27 +0600
+Message-ID: <20261126182329.91058-1-ilskdw@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -63,46 +102,65 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
-To: Markus Elfring <Markus.Elfring@web.de>, netdev@vger.kernel.org,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
- <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
- <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
- <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
- <d11b4708-02d9-4d53-bc5e-734fdb363d2b@web.de>
- <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
- <206466bf-7ed1-41eb-b74d-6f680ab449ea@web.de>
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Content-Language: en-US, fr-FR
-In-Reply-To: <206466bf-7ed1-41eb-b74d-6f680ab449ea@web.de>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 
-Le 26/11/2026 à 18:36, Markus Elfring a écrit :
->>>> Your patch is related to bcm_enet_probe().
->>>>
->>>> See L1754 and L1791. These 2 calls are related to 2 clk_disable_unprepare() calls in the error handling path and in the remove function.
->>>>
->>>> Why only update one place, and keep one clk_disable_unprepare()?
->>>
->>> The ungating of the item “priv->phy_clk” depends on special condition checks.
->>
->> This does not answer the question.
-> Would you find further clarification approaches more helpful according to
-> unbalanced clk_disable_unprepare() calls?
+When a learning VXLAN device snoops a known MAC from another VTEP, it
+rewrites the remote's IP address in place but keeps the remote's
+dst_cache and remote_ifindex. Traffic to the moved MAC can then use the
+route cached for the previous remote and be blackholed. Patch 1 updates
+the remote the way vxlan_fdb_replace() does, under vxlan->hash_lock,
+and compares remote_ifindex in the early return only for link-local
+sources, so a "via" device set on a dynamic entry is kept. Patch 2 adds
+a selftest.
 
-This still does not answer the question.
+Results on net with 1, 2 and 4 CPUs, per selftest case (move behind a
+router, move to link-local, via kept):
+- without patch 1: 0/7, 0/7, 7/7
+- with this version: 14/14, 14/14, 14/14
+- with this version and CONFIG_PROVE_LOCKING: 7/7 for each case, no
+  lockdep splats
 
-> 
-> Regards,
-> Markus
+v7:
+- share all checks between the lockless path and the locked recheck in
+  one helper, which also makes their order the same, and drop the
+  redundant lockdep assertion (Paolo Abeni)
+
+v6: https://lore.kernel.org/netdev/20261119095256.42005-1-ilskdw@gmail.com/
+- update the remote under vxlan->hash_lock and check the entry again
+  once the lock is held, so concurrent snoops cannot mix remote_ip and
+  remote_ifindex (Sashiko)
+- selftest: pin pings to an allowed CPU instead of CPU 0, skip when
+  setup_ns fails, and drop the CPU pinning from the IPv6 case, which
+  does not test the route cache (Sashiko)
+
+v5: https://lore.kernel.org/netdev/20261115040609.61134-1-ilskdw@gmail.com/
+- compare remote_ifindex in the early return only for link-local
+  sources, so traffic from the same remote no longer resets a "via"
+  device to 0 (Sashiko)
+- selftest: add a case for the above and keep lines within 80 columns
+
+v4: https://lore.kernel.org/netdev/20261113155133.75090-1-ilskdw@gmail.com/
+- add the selftest (Nicolas Dichtel)
+
+v3: https://lore.kernel.org/netdev/20261111180001.2475-1-ilskdw@gmail.com/
+- use my real name in From: and Signed-off-by:
+
+v2: https://lore.kernel.org/netdev/20261110153020.9635-1-ilskdw@gmail.com/
+- also update remote_ifindex and clear offloaded, as vxlan_fdb_replace() does
+- add the IPv6 link-local case to the changelog and a second Fixes tag
+
+v1: https://lore.kernel.org/netdev/20261106144406.66035-1-ilskdw@gmail.com/
+
+Zhefu Peng (2):
+  vxlan: reset the remote's dst cache when snooping moves a MAC
+  selftests: net: add a test for vxlan snooping moving a MAC
+
+ drivers/net/vxlan/vxlan_core.c                |  87 +++++--
+ tools/testing/selftests/net/Makefile          |   1 +
+ .../selftests/net/test_vxlan_snoop_move.sh    | 222 ++++++++++++++++++
+ 3 files changed, 292 insertions(+), 18 deletions(-)
+ create mode 100755 tools/testing/selftests/net/test_vxlan_snoop_move.sh
+
+-- 
+2.54.0
 
