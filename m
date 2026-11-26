@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711525;
-	b=S6WxdS5pCr21bGmkuMOigciIER2cWKuVfZCNXlbRkIZaBiLIOCyX9YJCdUQJhd174+dG
-	 psdAujgqf9PqiBZGDT+ZzCCVDH5iwStsLqJQRNZvDw4aSMHTBA34IOQ44W/y1mAi3oBTb
-	 47hg3nyEuKe81PNdcaRioLa+aCHqoJKHKc3N7FCZazo4KqIwpzdootcByEaq4nH4zK6ez
-	 qI7wbtYumuZ8uv+gyalg5q1Op9oCnrDHYvC58yYot1E/li2e0jKTid0VKDhmmap6djyZl
-	 ph9V3iP9hstWwdt1QifSZXJSfRKvofQ6ZU6DYsfVauTsZHKI68k5aR0eEtF3Nq1/cJw==
+	t=1795711527;
+	b=QdAw74H6jzP9hnwTQ2DkhbN7GLv7YE1TBzKNfJOK84uOaXdO5hKlqXHV6rI+lTFXQqrJ
+	 QJI5RQB5apJiVK1DMjVV25pwpnJvQyfgykWgb29oPy+Heo0EP4HrH4MyUJLfFmSEeJ0Ik
+	 srcYEhwrqrelQe9dcfdetmkieVUwbQ4nxI9tGTgQV0wUJl8NaZ2ub7nzJwwzl5/8ySOSR
+	 L3e6G4dD6gg3JNdmn1ga1WWrUfCxFS36bme11i6hiWewWJYOHACmW2eBkDhQ7V+O/51O8
+	 siKVdqToQksLPfB0tvWE53WO4ieguJhpvMNj4hc7a/cTwHtojFKWVq8Z6mCryFouXpA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711525;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711527;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
-	b=jOqjZXSt4uKiJJaoES0+shWlcP2j5pOyWkOxSBaqoxW/+0AGfr0IHVl+V/XvCY2oPdE9
-	 VArNLeCDegzgriJlCPV2mH0XZSE2peMUHP73ZYh4sW0aVM96G1v39HJuv0vsTuDoEIzOK
-	 deRTdIa5TrhTjfzgykV5xFsX6FT8IQ9NoFUY0tj0BBOfOBzMA6El2NWAecaBUtuvL1jbV
-	 6aIdTb7rFGgDo+1hgygRFKAe2wYYT5Rl8TtqxxJB4Q1UdZl8jvycp/3ITb8KZns95v2zQ
-	 63TPSGy8Yi3A7tkoQIUu4dk8fzUV3mauyOQusq52UPI82t8yQnzwjHq2ZYAKoIW/C1w==
+	bh=iJjL9FPvLHqjZoe3mvk6CqjOXnlH9NG7Su+0jSoqiNE=;
+	b=eS6D2f5raQOsNfzuUUmNq+SxQQaB2gQ72WJPrvet9vaqsb0fGcSZKO/LX11GZPG2RpHG
+	 pVAEWAgkwUBmaLOW1gK2IxIhe4u9Nhj+RsJGd5qhw2sIAs/vuub/co0jSaXejOFrqVdT/
+	 4hQoUqqoCul9inwhJrkOrUvr7UaBzdp3d3u8q8GDR9tcoAQUr+4bXn5n4NeyEb0JGKelm
+	 UXMGQ0TYoUsPNO4R1NkpZW8HG2/2JwMvnU5zbrNDs41Hq6hRPem1xm0w4z0w+A8VROakj
+	 RMon9GeTMSRob7Yc9tXx5Gpz6grxDi8TwaaVVCnhXGn8c/rAwmBcODi5afEjwBQ4mwA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw6gCrGE;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C46606A31C;
-	Thu, 26 Nov 2026 16:45:25 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BEE1D606A333;
+	Thu, 26 Nov 2026 16:45:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0191F000D0;
-	Thu, 26 Nov 2026 16:45:24 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Pw6gCrGE
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3A95A1F000D1;
+	Thu, 26 Nov 2026 16:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795711524;
-	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
+	s=k20260515; t=1795711527;
+	bh=iJjL9FPvLHqjZoe3mvk6CqjOXnlH9NG7Su+0jSoqiNE=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=B19D+lQxF/1G68HXkUW5LKi6A9FfsicKZeuwVabLs/u9mJz1Z6Df/Mj44/mkYMHWS
-	 0szjGrViOgksZnk0m0Y7/Pr7LQo0YqbPwL7q6/5pgCyuxXRX5Zr+OCArL6EqiDwDs4
-	 VJ9W7eAwEve69wJbEG3c6+vVyqmKvxPh84aNVOlBGfUiIoeX3NpWOAz+TU39bUiF7B
-	 aTa8HKWXAkpZG8Mywftn3xgs/t48PmtlSUN8Ev9ea/h8GYZescFitZEt2lO6ZdbVFH
-	 6lW1QwcevBw63MgcGKJ8MQWVDX31/4f7aPX3Twf9t/XkkxOzZpHJDA6y5jGtjVbTfn
-	 m2bv55b8DGo8Q==
-Subject:
- Re: [PATCH net-next v8 1/3] net: macb: cache ENST config across link down/up
+	b=Pw6gCrGEzbTKIgDXoJuULPyhjA0r/5Yk2/FwBslWxvzFW/w+FsPLv5Vs2VyWf987l
+	 oUy/GO4GxymhE+Ug6ee0ss6RiOY7aMOFvU7H23JT9//SSuM6A/WrkVPFyIWCm4X1UC
+	 kqm7rePdnziZcun6k2BrQQjw0pVh+XYu+NVAbNcBUGblbhlQod5xv6kcnmXg83V7dY
+	 wclIJfFzs/A/645AajYVsDgA7j+xpPUiG3noxdFl+D7X0lu8awPcPs74nArHFha2Xw
+	 6FHYS3T6Az2aUwy67mbMO8Ol1kmSjcH96/wSG91IiVlUNSSrqtwn/m2ln1Zf0SDFMt
+	 FDlHM1eA9RvIA==
+Subject: Re: [PATCH net-next v8 2/3] net: macb: implement
+ ethtool_ops.get|set_channels()
 From: netdev-bot+sashiko@kernel.org
 To: theo.lebrun@bootlin.com
 Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -51,11 +51,11 @@ Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  gregory.clement@bootlin.com, benoit.monin@bootlin.com,
  tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com,
  vineeth.karumanchi@amd.com
-Date: Thu, 26 Nov 2026 16:45:23 +0000
-Message-ID: <179571152363.3135.15940503307792785015@kernel.org>
-In-Reply-To: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
-References: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
-X-sashiko-severity: Medium
+Date: Thu, 26 Nov 2026 16:45:25 +0000
+Message-ID: <179571152544.3135.2345418313808406902@kernel.org>
+In-Reply-To: <20261124-macb-set-channels-v8-2-770cf8e50e6d@bootlin.com>
+References: <20261124-macb-set-channels-v8-2-770cf8e50e6d@bootlin.com>
+X-sashiko-severity: Low
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,91 +68,192 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found 1 potential
-issue(s) to consider.
+Thank you for your contribution! Sashiko AI review found more severe
+issue(s) in other patches of this series. This mail is only an FYI, in case
+you want to address the nit picks below when you respin.
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 0
+Low priority / nit picks for your consideration:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] In macb_mac_link_up()
-  (drivers/net/ethernet/cadence/macb_main.c), when the link comes back…
+- [Low] The commit message does not mention changes to shared context-
+  swap code that the existing MTU and ringparam paths also use.
+- [Low] On multi-queue GEM devices without MACB_CAPS_QUEUE_DISABLE,
+  macb_get_channels() advertises a channel range that…
+- [Low] macb_set_channels() checks `bp->enst.queue_mask >> num_queues`
+  before it takes bp->mac_cfg_lock.
 
 --
 
-net: macb: cache ENST config across link down/up
+net: macb: implement ethtool_ops.get|set_channels()
 
-The macb driver now keeps the ENST (taprio offload) config in bp->enst
-and writes it again on every link-up. If the link speed has changed, the
-cached config is dropped with a warning. The commit also caches the link
-speed in bp->speed_mbps, serialises the taprio paths with
-bp->mac_cfg_lock, and removes the pm_runtime_suspended() check.
+This commit moves the queue count into the per-context struct and adds
+bp->max_num_queues and bp->configured_num_queues. It also implements the
+ethtool get/set_channels operations. When the interface is running,
+set_channels allocates a new context with the requested queue count and
+swaps it in through the existing context swap window.
 
 > diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index 9f6111661b40d..1e06666921160 100644
+> index 1e06666921160..bcf77b2763448 100644
 > --- a/drivers/net/ethernet/cadence/macb_main.c
 > +++ b/drivers/net/ethernet/cadence/macb_main.c
 
 [ ... ]
 
-> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_config *config,
+> @@ -3359,10 +3385,6 @@ static void macb_context_swap_start(struct macb *bp)
+>  	 */
+>  	netif_tx_disable(bp->netdev);
 >  
->  	spin_unlock_irqrestore(&bp->lock, flags);
+> -	/* Now that everything is stopped, clear DQL. */
+> -	for (q = 0; q < bp->num_queues; ++q)
+> -		netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev, q));
+> -
+>  	/* Safe to call outside bp->lock because bp->irq_quiesced ensures the IRQ
+>  	 * handling is a no-op and all BH features are disabled.
+>  	 *
+
+[ ... ]
+
+> @@ -3399,16 +3421,28 @@ static void macb_context_swap_end(struct macb *bp,
 >  
-> +	if (bp->enst.speed_mbps && speed != bp->enst.speed_mbps) {
-> +		netdev_warn(bp->netdev,
-> +			    "TAPRIO dropped because link speed changed\n");
+>  	lockdep_assert_held(&bp->mac_cfg_lock);
+>  
+> -	/* Swap contexts & give buffer pointers to HW. */
+> +	/* Swap contexts & give buffer pointers to HW.
+> +	 * !new_ctx means that the swap failed and we keep the old context.
+> +	 */
+>  
+> -	old_ctx = bp->ctx;
+> -	WRITE_ONCE(bp->ctx, new_ctx);
+> -	wmb(); /* ensure IRQ enabled below read the new context */
+> -	macb_init_buffers(bp);
+> +	if (new_ctx) {
+> +		old_ctx = bp->ctx;
+> +		WRITE_ONCE(bp->ctx, new_ctx);
+> +		wmb(); /* ensure IRQ enabled below read the new context */
 > +
-> +		memset(&bp->enst, 0, sizeof(bp->enst));
+> +		macb_init_buffers(bp);
+> +
+> +		/* Clear DQL (only on successful context swap). */
+> +		for (q = 0; q < bp->max_num_queues; ++q)
+> +			netdev_tx_reset_queue(netdev_get_tx_queue(bp->netdev,
+> +								  q));
+> +	} else {
+> +		gem_shuffle_tx_rings(bp);
 > +	}
+
+[Severity: Low]
+This isn't a bug, but the commit message doesn't mention that this patch
+reworks the context swap helpers that macb_change_mtu() and
+macb_set_ringparam() share. The message says set_channels:
+
+  "ends up only being an assignment to bp->configured_num_queues plus a
+  call into netif_set_real_num_queues()"
+
+The patch also:
+
+  - moves the netdev_tx_reset_queue() loop from macb_context_swap_start()
+    into macb_context_swap_end(). The loop now runs only on a successful
+    swap and is bounded by bp->max_num_queues instead of the active
+    queue count.
+  - adds a new_ctx == NULL rollback mode to macb_context_swap_end(). It
+    keeps the old context, skips macb_init_buffers(), calls
+    gem_shuffle_tx_rings() and skips the free.
+  - makes macb_interrupt() self-disarm on queues where
+    q >= ctx->num_queues.
+  - switches gem_get_rx_ring_count() and macb_poll_controller() to
+    bp->configured_num_queues.
+
+The existing MTU and ringparam callers always pass a non-NULL new_ctx, so
+their behaviour doesn't appear to change.
+
+Could the commit message describe these helper changes, or could they go
+in a preparatory patch?
+
+[ ... ]
+
+> +static int macb_set_channels(struct net_device *netdev,
+> +			     struct ethtool_channels *ch)
+> +{
+> +	struct macb *bp = netdev_priv(netdev);
+> +	unsigned int num_queues = ch->combined_count;
+> +	bool running = netif_running(bp->netdev);
+> +	struct macb_context *new_ctx;
+> +	int ret;
 > +
-> +	macb_apply_enst_config(bp);
+> +	/* MACB_CAPS_QUEUE_DISABLE means that the field QUEUE_DISABLE/BIT0 in
+> +	 * the per-queue RBQP/TBQP registers disable Tx/Rx queues. If we don't
+> +	 * have that capability we can have multiple queues but we must always
+> +	 * run with all enabled.
+> +	 */
+> +	if (!(bp->caps & MACB_CAPS_QUEUE_DISABLE))
+> +		return -EOPNOTSUPP;
+
+[Severity: Low]
+Does macb_get_channels() advertise a range that this check never accepts?
+
+macb_get_channels() always reports:
+
+	ch->max_combined = bp->max_num_queues;
+	ch->combined_count = bp->configured_num_queues;
+
+Some multi-queue GEM configs don't set MACB_CAPS_QUEUE_DISABLE, for
+example zynqmp_config, raspberrypi_rp1_config, pic64hpsc_config and
+default_gem_config. On those devices ethtool -l shows something like
+"Combined: max N, current N", but every request for 1..N-1 fails here
+with EOPNOTSUPP.
+
+Should max_combined be reported as bp->configured_num_queues when the
+capability is absent?
+
 > +
+> +	if (num_queues > bp->max_num_queues)
+> +		return -EINVAL;
+> +
+> +	if (num_queues == bp->configured_num_queues)
+> +		return 0;
+> +
+> +	/* If we allow disabling a queue which has TAPRIO active, we'll keep a
+> +	 * transmission window which would be unusable.
+> +	 */
+> +	if (bp->enst.queue_mask >> num_queues) {
+> +		netdev_err(bp->netdev, "TAPRIO schedule gates queues >= %u; destroy the qdisc before reducing channels\n",
+> +			   num_queues);
+> +		return -EBUSY;
+> +	}
 
-[Severity: Medium]
-After the link comes back at a different speed, the cache is zeroed.
-macb_apply_enst_config() then sets the disable bits for every queue and
-writes 0 to the per-queue timing registers. ENST_CONTROL is not enabled
-again, because of this check:
+[Severity: Low]
+Is it safe to read bp->enst.queue_mask here without bp->mac_cfg_lock?
 
-	if (bp->enst.queue_mask)
-		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
+In the running case the lock is only taken later, in
+macb_context_swap_start(). In the not-running case it is never taken.
 
->From then on the MAC applies no gate control at all. Only a netdev_warn()
-reports this.
+Other writers of bp->enst hold mac_cfg_lock. For example,
+macb_taprio_destroy() does:
 
-Does the taprio qdisc still report a fully offloaded schedule in this
-state? netdev->num_tc and tc_to_txq are left as they were, since only
-macb_taprio_destroy() calls netdev_reset_tc(). In offload mode the taprio
-core does not call ndo_setup_tc again on link changes, so nothing
-reprograms the hardware.
+	guard(mutex)(&bp->mac_cfg_lock);
 
-Can the schedule ever come back without the user reinstalling the qdisc?
-struct macb_enst stores only on/off times already converted to bytes for
-one speed:
+	netdev_reset_tc(netdev);
+	memset(&bp->enst, 0, sizeof(bp->enst));
 
-	config.queues[queue_id].on_time_bytes =
-		enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
-	config.queues[queue_id].off_time_bytes =
-		enst_ns_to_hw_units(off, bp->speed_mbps);
+macb_mac_link_up() also clears it on a link speed change. It holds only
+mac_cfg_lock and runs from the phylink_resolve() worker without rtnl:
 
-macb_taprio_setup_replace() discards the nanosecond intervals from
-tc_taprio_qopt_offload. Because of that, macb_mac_link_up() cannot
-recompute or re-check the schedule for the new speed. It also cannot
-restore it if the link later comes back at the original speed, for
-example after a temporary PHY downshift or a cable swap.
+	memset(&bp->enst, 0, sizeof(bp->enst));
 
-Would it work to keep the ns intervals in bp->enst, then re-validate and
-recompute the byte values on each link-up? The schedule would then
-survive whenever it still fits the new speed.
+So this unlocked read can race with a locked write, which KCSAN could
+report. The worst outcome looks like a spurious -EBUSY.
 
->  	if (!(bp->caps & MACB_CAPS_MACB_IS_EMAC)) {
->  		macb_set_tx_clk(bp, speed);
->  		gem_shuffle_tx_rings(bp);
+Could this check be done under mac_cfg_lock?
+
+> +
+> +	if (running) {
+> +		new_ctx = macb_context_alloc(bp, num_queues, netdev->mtu,
+> +					     bp->configured_rx_ring_size,
+> +					     bp->configured_tx_ring_size);
+> +		if (IS_ERR(new_ctx))
+> +			return PTR_ERR(new_ctx);
+> +
+> +		macb_context_swap_start(bp);
+> +	}
 
 [ ... ]
 
