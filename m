@@ -1,120 +1,120 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.0
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795687107;
-	b=eb4stBSX4btCMrbx+R52pLSJcu1WKxvqJW3hULz5uSGmlIPxLXKG3fLpMHfIsHQpdetX
-	 zY6V9QQT4zNDW1ll9vI6oWUl0Z41vVSalPGSmW/CgMA3LMYZo/gpL/6ky1zDXWyaME+Og
-	 zqW1dPb0lwySJyC57lUihOaQXxyH69PaTKCnqzcYrRE8aBv09ynK2TyYgrVrgreDhSbLV
-	 1pUJ6pHHDSmfyAYK5Ltv7UjzeXLhzdNv3fooozeKu3b2b7BdzigvtaLR8VLm1C3Ur7yQw
-	 g8/tOnJMuszcMW4gDRQsVpdiWu4+eSnlqCm7lTAe/H86az8oAHzAv0jD2PArrK7BiBg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795687107;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=7v+6/vdC8tOuJLuiiuW+HG7sVDDsOHr6dIFJ9e43AAI=;
-	b=hyDfhTBaZ0REhW8BAu+y7NzHxdDmCzLmzUQN0rb7rmh5dBSWwnpwQ++SrhiBW9ha6h2W
-	 uDqtvNfUneOsZBdND07a8x3qJAUH7bxMjq1n1b36QEcmzFRwxYpmweZpp95nks/we/OAu
-	 7H1AiQM8OdiGdCCWQHRACodD/YJIc9CSzocfOdLNff9kRvaRC/+rAa1KhNxrunrukpKoo
-	 RoJEAPlEUEF3oDf2AF9ktJDuiK9dLKheHSMhbA96Wv0wYboVTFjbAVVsPwEAd093FZz2I
-	 aJ9nm6lKAgcCn5/Hux56ojfYqUjHfdrC4NIGyWP9X9JXZbgNAT5OoAQExMz3/6J5wMw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=amd.com;
-	spf=fail smtp.mailfrom=amd.com;
-	dkim=pass header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=04+uEy6b;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.201.0
-Received: from PH7PR06CU001.outbound.protection.outlook.com (mail-westus3azon11010000.outbound.protection.outlook.com [52.101.201.0])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795687705;
+	b=JSEwO2txLUHU5KmTIK5cA2P4H2L6Z8RLZc1saV9+8wCdaJ9Qu4i5MqsLrSia08rwotbF
+	 JEI6tgPBodALiPOHhw4T9qeO1PFmMs5oiWHa9dSLv2wwRVlXQfdaZRwFM6aIwZ2dnplES
+	 3Es6YP2dXSNY1pBT0T6YTjuwnRvtQGI5kG0e40VajCgeCSOJCRVQprVUUpDUPKfQcs/st
+	 zHU0ZnW5YcUj6mHUgtAntkJyVFQhI0OhZ4vekecsY1TWDwKYGU/SveBEKY2+umrrABrLk
+	 NiEup2gKu69FG9rKyQnPrIaQ7naLf1XY4OahQl8htN/E94Ut142NhohpqPJ/qlWfPQA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795687705;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=kza1kqE4hyx4X8fklpeFk/tscl8P/9S0B2tiXMLcW1A=;
+	b=TeXx/tg1PzJY3ZuB9ZPpEx7/oXT26dTiWxGmZxrNI0WmlgJRRNZgaes6y2nlBA1LcoCx
+	 iWCWYwRJ+qyOEUVizoAouuKaKKzCjYh3r8S0xgH8PgSFD3333ocwSdtbOBUvt80jJmTH4
+	 XHoZj3/YaEVkuSYx21UW2m9ipvh4nsMRlRQzHugqFNdEITGccwI0B6hW635DFQjPyytnj
+	 ky1siSvixKOZ/gWhEWCvQM3rkakSgICcygD8RlK3e1q9gZYXA1Z2viZz4VDKXp45Ev89p
+	 cLkS6JGCz7r8eHpwIhBgXSeznwr0Psv4ZJz1qgdHORAOkIqe6qGWyymiviCwHWMAhFg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MwxqFMf9;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SFDXog7z;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A6274606A321;
-	Thu, 26 Nov 2026 09:58:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A6274606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=amd.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=amd.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 778C0606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:08:24 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 778C0606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=amd.com header.i=@amd.com header.a=rsa-sha256 header.s=selector1 header.b=04+uEy6b
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=qnsPdRSUQVgweAPitwb8JDr9Xu+S+ttT+NkzL8mEGmBRgDE7Swu9pEtvMTwOSKNq25DKaVZmvxuR7mUS4A3mFgcufT2N1JZp778FXgeRNqixGyjUVSzu45JCM2clHK+XhPqkHUwbPGVyFyc8RmvZB1chx4+oSXmAiIv5L/Hksd70doPvJPn+ZCG268HBAPy5as/ZwEsyCegPGZQoTNzdDuTXOV1ZHa8V4awttOJgKgmpQaCVvPISG5J9HdX1ZCchyEq3wGaI4WU6GbD+LBTLtJsbA4sfJ6WAKXfXNnYKLoEXaxY2P3zbWxjJSj3PmL6NIpjfJDevtyzK1XtQOpzyNw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7v+6/vdC8tOuJLuiiuW+HG7sVDDsOHr6dIFJ9e43AAI=;
- b=zUit2FqbcNT5Qz6I6SKetFnAScCTqpRM+CNszsuSkMM6mWd0SbHS+y/c+RooYRBsm5QqH/OWUUJ7IT+2i4J3oZhW4zaGKA0FL+I2oo0b/96ppNOLRJuC9S0+14MBK0/wbsP7oL1ZAoaHsksm9S4qTYkZzaFrTgJr6cr15gcnGRLeGpd/Cn8JaB4dRVn/shpAdCdvDmQ/pvB0JULwnvP4RonWsCfH4RGiHyIr9CiFcINOzIE8HRZvLQUUTY+cm3mpvSOfJYGXCpHukSHhiudi3jdMkX/AUa9qfd0AQ6zuf4tk8p91jVa0+YG/AZeeTfCLXbtsyvjtmevfOsafjyxufg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7v+6/vdC8tOuJLuiiuW+HG7sVDDsOHr6dIFJ9e43AAI=;
- b=04+uEy6bsbe6i6uc5PUzVZsBIryOeakc/Sgz0r31BvGmFpsv3Q2NqzNMyw6MSVlXzSbtRUl+H9Z9JqAGbtsdlURjhYxXg0VXE+71ZrunuuYqVxllDWt1cMD2ShHgOk4jZi3DwYp/9mL1UVJ2vHHZVq6OjK9S4iBr6efriRs7F/8=
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by IA0PR12MB8893.namprd12.prod.outlook.com (2603:10b6:208:484::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 09:58:23 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::ce69:cfae:774d:a65c%3]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 09:58:23 +0000
-Message-ID: <a8c00bbf-dddb-4207-bcdf-af58d27116c5@amd.com>
-Date: Thu, 26 Nov 2026 10:58:13 +0100
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 03/24] dma-buf: Add the SGT DMA mapping type
-To: Alistair Popple <apopple@nvidia.com>, Jason Gunthorpe <jgg@ziepe.ca>
-Cc: Sumit Semwal <sumit.semwal@linaro.org>,
- =?UTF-8?Q?Thomas_Hellstr=C3=B6m?= <thomas.hellstrom@linux.intel.com>,
- Simona Vetter <simona.vetter@ffwll.ch>,
- Matthew Brost <matthew.brost@intel.com>,
- Vivek Kasireddy <vivek.kasireddy@intel.com>,
- Dongwon Kim <dongwon.kim@intel.com>, Kevin Tian <kevin.tian@intel.com>,
- Xu Yilun <yilun.xu@linux.intel.com>,
- Karl Mehltretter <kmehltretter@gmail.com>,
- Baolu Lu <baolu.lu@linux.intel.com>, Felix Kuehling
- <felix.kuehling@amd.com>, Alex Deucher <alexander.deucher@amd.com>,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- intel-xe@lists.freedesktop.org, amd-gfx@lists.freedesktop.org,
- linux-media@vger.kernel.org, linaro-mm-sig@lists.linaro.org,
- linux-rdma@vger.kernel.org, iommu@lists.linux.dev,
- Keith Busch <kbusch@kernel.org>, Jens Axboe <axboe@kernel.dk>,
- Christoph Hellwig <hch@lst.de>, Sagi Grimberg <sagi@grimberg.me>,
- linux-nvme@lists.infradead.org, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
- Mina Almasry <almasrymina@google.com>, netdev@vger.kernel.org,
- Alexey Kardashevskiy <aik@amd.com>, zhipingz@meta.com, treding@nvidia.com,
- jhubbard@nvidia.com, chaitanyak@nvidia.com, Leon Romanovsky <leon@kernel.org>
-References: <awT8prWsj11TBdmP@nvdebian.thelocal>
- <63eb7b6e-e0a8-4443-a434-0301ed59beae@amd.com>
- <20261124142032.GN9566@ziepe.ca>
- <7a5a2d3a-e42e-4dc0-8d22-8dd1bd249501@amd.com>
- <20261124194618.GC114530@ziepe.ca> <awZ_Os1pXelOGaFP@nvdebian.thelocal>
- <fb9a6b12-c134-4e40-86a5-dbcb59c0b91b@amd.com>
- <20261125155559.GL246011@ziepe.ca>
- <5fb8bb60-7d9f-49b1-899c-40a890fdc14b@amd.com>
- <20261125190705.GN246011@ziepe.ca> <awfMy1d8ICL6mr9i@nvdebian.thelocal>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <awfMy1d8ICL6mr9i@nvdebian.thelocal>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR4P281CA0372.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:f8::18) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MwxqFMf9;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SFDXog7z
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795687703;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kza1kqE4hyx4X8fklpeFk/tscl8P/9S0B2tiXMLcW1A=;
+	b=MwxqFMf9XPymO9RWuwSsNq/74DYk+7B11ZMIQCiTeGcdqK/Vf3RUxuickCjkTDs2Znai6a
+	XfzA9EEOiK0P48IVwbyStrvP1LyHWOwqwI96T4PLukSxpTL4GYY/GdUYuV/ysaxb/DbAau
+	7uGJov7+T7fMNEuKiiBbJQuF9VXftQA=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-157--nUUqT9FMDSIeci0-Nd5yg-1; Thu, 26 Nov 2026 10:08:21 +0000
+X-MC-Unique: -nUUqT9FMDSIeci0-Nd5yg-1
+X-Mimecast-MFC-AGG-ID: -nUUqT9FMDSIeci0-Nd5yg_1795687700
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bb680f0ac4so47410395e9.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:08:21 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795687700; x=1796292500; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=kza1kqE4hyx4X8fklpeFk/tscl8P/9S0B2tiXMLcW1A=;
+        b=SFDXog7zT6B0Wos41WdPyH3cAMy6sDaiCXGupkdwBdpRcx5H1pOMh23iFZPyMVQB9U
+         vI8O06UXrYavcYl6T8R0KHneVoNucd6d32fapYGc9FdLJv9jmFBRKbiJppPQ/MHDZ6/N
+         hVPw61loaIBPziJRrWAg+Jpr2gAUhn4h3bo4KTT8/fdoocfV8Rdh0U0lall/dkq85zId
+         DHd5hDzG2R0jN5iRKXr7JbNWF6oy5fpe7NQaLKQskbJwqNz9MJK5hlWW+F+3QMD1U5/G
+         qdDJhcseEz2BYghLBYftWrTKZBRAu9tJgJIYchR2gMuhVvDCYHTkmxi/PV40z1lFjyCa
+         wXSg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795687700; x=1796292500;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=kza1kqE4hyx4X8fklpeFk/tscl8P/9S0B2tiXMLcW1A=;
+        b=pfX46Jx5kAlMHr800iBXqMjnxuXAiVtQLvXt7V1S6kD4x1r3KYE9JHdxr92mFvHxZJ
+         8bvhdOvzA36kvCL+Fbw/Lfks3hQRSBOzWSeNBhhEOKTDT4f0uV5jelRlS39Y+kwbKF2l
+         hZtxpXZYhMosmSha3y598H0NDEmDdL8K9UDG7B3ftaEBd5HVjpswn54vpoyk0NLJ/D4X
+         QsGRvpltipDW+6NFOXCKqEZba2DRp/nwyysuE4x6WQ0ZpLwQiXtxfGGH1kzSlvhs0dNc
+         bMqmKVs8mRZNJvmPomWOoeWkfnjxmljsvKwR8WJAidIfkHADP60xN/EO9qLdWHJ614x2
+         JIMA==
+X-Gm-Message-State: APuU4Z/2CXKSLSl1dtw0NSO/e2OvEA8MwnrMlI9vweE5UcZjUM494xtE
+	uAJFZ7vMKnA97jJ+MHLPIRMcaPuueX4hY5m71I3+u8TxlWG0eIcPJ6y0k+I3OYesKGyToFCorpJ
+	88rM5OETnsSAeqhiKvv7NXEcdM2pcZWLxFXDnPFNJQ6edUsWHfqRcFreJOg==
+X-Gm-Gg: AZFdTZey1drwDLqpdWyjwXO0JMmE+Fr0q3Syw6kEYAAHPKLd0E0K+sQ8Wyv5fUPFnWq
+	JuxtJBbiwvONiLjMj3RkXBccLKD6qfzd3wiqArlyNcews0IBefSj3Tc3DDTPk81hJaOfXIhHdgt
+	8ZH6lTpI/zGI6kEFtdC5X0Y7ENrjRW6Y5CoHOB+tTn9jAc4WMntX8SwKPtVpGTJOA9MnSnAn2x2
+	bVyJy99X7/7jfQ7iPCxituNUIQkw7WUj8+qah1WgEMrsz0tM1ARiljwUqU8rlsOz0lgH7PNL468
+	YadPkkH6f1z8wt1f7WiQ39OhsbjOof7WcpPhCNmxbM8xkeqoZ8cfcCUuSZKxnkjeXcD/U7w6dcR
+	U4QUtxdZZbfItKn3L/N0U/JzVmo5YSo0mBc70TBfx1zZRszTaJedwnQ==
+X-Received: by 2002:a05:600c:4e0d:b0:4bb:5f07:10d7 with SMTP id 5b1f17b1804b1-4bb8882445cmr395519375e9.26.1795687699791;
+        Thu, 26 Nov 2026 02:08:19 -0800 (PST)
+X-Received: by 2002:a05:600c:4e0d:b0:4bb:5f07:10d7 with SMTP id 5b1f17b1804b1-4bb8882445cmr395518535e9.26.1795687699094;
+        Thu, 26 Nov 2026 02:08:19 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bba6a0d65fsm117617215e9.3.2026.11.26.02.08.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:08:18 -0800 (PST)
+Date: Thu, 26 Nov 2026 11:08:11 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Jia Jia <physicalmtea@gmail.com>
+Cc: netdev@vger.kernel.org, stefanha@redhat.com, bobbyeshleman@gmail.com, 
+	mst@redhat.com, jasowangio@gmail.com, eperezma@redhat.com, 
+	xuanzhuo@linux.alibaba.com, davem@davemloft.net, edumazet@google.com, kuba@kernel.org, 
+	pabeni@redhat.com, horms@kernel.org, kvm@vger.kernel.org, 
+	virtualization@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH net-next v5 3/5] vsock/virtio: amortize RX socket locking
+ for stream packets
+Message-ID: <awgCqpU1HZ5-iTtv@sgarzare-redhat>
+References: <20261103041134.33310-1-physicalmtea@gmail.com>
+ <20261103041134.33310-4-physicalmtea@gmail.com>
+ <auxDWISLHB8Ln1x7@sgarzare-redhat>
+ <CAJwVaMJbzzK8Sj8DvLjiAyqS8TNgRQ3tjRpGcBNC+anQECg5yw@mail.gmail.com>
+ <avXn6E8y5OPtdikQ@sgarzare-redhat>
+ <CAJwVaM+SEhbFtORYgVYNayiQED63sCLO5ibwgkcjBRVvMd=KsA@mail.gmail.com>
+ <avdAV2RholA4ana_@sgarzare-redhat>
+ <CAJwVaMLtt1iKCWbhz2T4BbjqseTxjOb8S7vbvX3845LL8GHEBQ@mail.gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -124,139 +124,347 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|IA0PR12MB8893:EE_
-X-MS-Office365-Filtering-Correlation-Id: b5158486-a275-49d2-27eb-08df4ba3ce95
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|7416014|376014|1800799024|23010399003|366016|10067099003|56012099006|11063799006|4143699003|261022105027099003|261021121427099003|261021123027099003|261102123227099003|261102130727099003|261026140227099003|261026121527099003|261028144727099003|22082099003|18002099003|6133799003;
-X-Microsoft-Antispam-Message-Info:
-	jNH/7tSUkOpZBN5rKDbGK6/xsFjuIvIWWhn6TXdzXIos1ZDyyzWhckZELrgzYob5iRIGxsT1GGiujGpFCOcTSiDi6yjH+xtrHvJ0AxVE66T5++Dux/IFj00wiDnsIkkVIo2/aOxGIxkRy04nz9oNbakytWsmfKw11miCvhbOsVZN1Enz1/8Cn7w5JmIc8mdXRaRWSZmYB99al51dnaLtFbAu8dwMQcMJP/QT+g4If7dGgELNbn2+5z2wtfeWJwtxivVtl7jW2fjDKpWzBpgF+zQ4LEFIJ5Z4Qu1VHrZgTP6A3wh6WPjRPG3JmmUaoSzSsxKmjCWxA/N4JLKJ8Gy3fmdwv80MwLiXjSUfDXdmxHlfYdi5VgDLCYVtjkSofbCFJ34gJWMATrIu4+C7CKc2sEZgytTJo+zOiAkoP1bguhlCYiXVZwBNBIkIPgP8Bo77I0Cd+OFedw2Evu4l5nTERw9UGOK6VwfpoSscen+ay6CKU6LYSWTZ0jB3HWztR6StkYKXKwsZYWyXrSKkM16Fy18nXIfYVVqDffKgzGm4egYDEcrNQCp4YHLT7cP0Bc/oPYKM20OVl2yIUvswiqzb4RiyFnKQp9Yn2yhx6fEowlpudBKYFDWaqQVDLBY3rIeOMdRdJEvk1rAqioDv/vWJIDUJjds5t1A3/pvjfHWyqXU=
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(23010399003)(366016)(10067099003)(56012099006)(11063799006)(4143699003)(261022105027099003)(261021121427099003)(261021123027099003)(261102123227099003)(261102130727099003)(261026140227099003)(261026121527099003)(261028144727099003)(22082099003)(18002099003)(6133799003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?TmtabG50RUlWNjMzYXUrTEpFUEdCaWZVWW1acWQ2Nmh1aTk3eVBlMzZpNU8w?=
- =?utf-8?B?WUh5bVEwdWtuMWhKNnNaTnZwQkk0TmhWODN4QVlOVXYvbGhybEtrbG9scmRS?=
- =?utf-8?B?Uk9SMTF5RkdNNTQ1ZWw2K0xPOFFvZ1haY09wTGhOMG1IYmx3QTExOTdFbGto?=
- =?utf-8?B?TTNFcTArdll5b2swMDlvNG43Y1hCTC93bnVhS3ZwTGowMlF3anlEUDhuQlQ4?=
- =?utf-8?B?Qnk0ZTkxTVVVNUxJaWNRbWNXaFpEa2VuVUlkZnQ0TGVmMndWNEpXOE4zRnRz?=
- =?utf-8?B?eUQ2RjBiV3RJZktXTyt4YXdRSVlPelU5bWViSEdyUzVWcEo0VlZRWU1aNDQx?=
- =?utf-8?B?YVcxVXlLcHd3c2VCbnJscFFBMDVMcGNuaEJvdzFGRytYUklJSGN0K2tBMEVE?=
- =?utf-8?B?NDJmWTh6YUZhMjltM2xRcEVJTWRCMVc2TXl4Z3RIamphZEVrNjI3biszS3NO?=
- =?utf-8?B?RktNYTBlWk9zTVVnalczTUtpSkUzbUQyUFNhamtNN2Z1NmNxdkljVFJNbCti?=
- =?utf-8?B?NVRNRWdmd3QxWS95Y29FQXNBQ3l5YTc0azVKbnB6bDBTK2VPRkMzTGtoVlVl?=
- =?utf-8?B?dFVESkdpUDZ3ajE0T0xRME56bGpRNlE4ckFJdGVvR1lmcGFQWW43dGxSVXJV?=
- =?utf-8?B?VHZXcC8rQjFLcnViZ2U2NzhPV29ROCt5d0RiZjUyU2FGT1hVblc2cFNaMTRL?=
- =?utf-8?B?NDZBL1BuUmNaSXc0dXJjend6NlFQS25xQTAzanJrNHd4Y2wrcHRoVmFLZ0ZU?=
- =?utf-8?B?YXN0Mkd1M1pZaUVZQ2JQZmQ5b0pvTTR3Z3JCVmQrd3lYVjJhVXphMXFnbVBq?=
- =?utf-8?B?OEdqSXJ5clRCS2FITiszZ1h1Y1o5YWlnKzZCc3h3M2JSSWxzK2NETFF2K3Uy?=
- =?utf-8?B?MWl2bjJaVFI2empXZEdtRzVuTGloc1dkUzN2QnhHNitSQ0UwYVo3ckgvTSsx?=
- =?utf-8?B?SXUxVzdJVkFTbmlpNXArRm5aU00xVlpsclZGQU02OXhOTGIwck1JbFhucldP?=
- =?utf-8?B?YnZ4YldMQkduMVJKbG1seUdqbTBFVmNmWFpWaGdCblhaZWdBWTV2amNsYmlk?=
- =?utf-8?B?eUEzaENRZUljZm5RdjZnaE5oMWhQVkZXWFdNak5SQXFqYzRUaTgrd0hSTXBo?=
- =?utf-8?B?ekJQcWZaZUJCSGZrL1NWQW1lTUNleWVuOHo1YjVBdnV6Q1FLYVlwdWJBbXE3?=
- =?utf-8?B?R3JqODhMbnZBalM2OEEzWG10UE9KUWZMaEppUThnWkpaSUc2emRIQ2EvYi9B?=
- =?utf-8?B?NjdmNGk0NS9WVHo5Vnh4SFR5SUdiYTBDckg0amx2VTl1b2JCc1NQMVVyaFl4?=
- =?utf-8?B?QVFJUi9rbTRqYmJna1d2aFZxZ3k1bkxIVGJyaGh2eENTY1QyaWFWbXd0dzFC?=
- =?utf-8?B?L1Y5R1l2Z3hnZ3hnSUtOdjltaFAzeUNuVC96a01VaUg1ZjFCbnFoUWh2cTJU?=
- =?utf-8?B?N0dLV1BLM3BqZHZBbU9CQ2ZpS1lBR0s4V3lDdzFoMWpoU1ZzYUZHSFZjV3dh?=
- =?utf-8?B?T0VPcGpRWVUvK04zTXI4NjdORjBob1gyZm5mdHBYb2VoYWxMNkNpRmlDTVZB?=
- =?utf-8?B?Y0JYUlFwSW13aUpRVEpSSzRPKytmaENaanFyT2NubzAxQW9KQmxLT1VsRVVP?=
- =?utf-8?B?bm9DdzZ4SU9TT00yN2o2cS9rb3VqM1hUMmcrQ1VnS29wKzBEQXFiaHc4MGxk?=
- =?utf-8?B?TjU4RlFoZVY1aWJLUUNVeElodW5DdDZFcy9BTW9XTkRXdTlJczEwNGJxNHRD?=
- =?utf-8?B?d3NGS1JWZ21qNG9SR1JNRDU4U0ZxdW1Jai9mYTk4aHQyTlVXVGwzK25VSUtz?=
- =?utf-8?B?SjVNNEFsMk5BSWtwWTh5ZmRZSWJHRFV1Y2c5SzZyZDZnelNCeTVNeHBVMWc2?=
- =?utf-8?B?c1ZRcmdnUDdZdjJha2RuS0xQYUVNOWJmN3k1bHFlYW5wVWc3VzIyZlNjQTYr?=
- =?utf-8?B?cHp2TUVUUWQyMlErMnBOc1hTdENIMzZ3UVl3MjdROW1vZmdQWlVHaHhrTlZB?=
- =?utf-8?B?dy9zcFc3V09qZXEwSWI2cFU3eDdOdmt0bHNqYkQ5d21YZjNraTJhbm1vUzBL?=
- =?utf-8?B?eU45YlZQRUNJd1hrdE9GQVBwV3pYOVdKbEo1bHhIM3JPY3BTcE9ZUGIwUnV3?=
- =?utf-8?B?TU0yL2dLQ1JHTHp0YlE1V1kxNmI4a1E2N3FROWF5NFBYbGQ1WEsxU1AvaFdK?=
- =?utf-8?B?YWdrT2NSWm83L3Iya1NPSEwxYkgzbVp4Z29tVDNpSlVuUFZxeSt2TVMvNEUv?=
- =?utf-8?B?amRIOWFYbkp0d2YzM1J1NlQ2VVVYWUxGbFREY1RpaTQ3RHcvcVJLZkl6cjdo?=
- =?utf-8?Q?PFrOAE+1TwFt4xFQsE?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b5158486-a275-49d2-27eb-08df4ba3ce95
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 09:58:22.9662
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9GAhOlm8zIN62e3nAX/NwX3vxI9IipWrmBBGM2UpfXcTC2HYN7rH6lyPGubRAUHg
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA0PR12MB8893
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJwVaMLtt1iKCWbhz2T4BbjqseTxjOb8S7vbvX3845LL8GHEBQ@mail.gmail.com>
 
-On 11/26/26 07:24, Alistair Popple wrote:
-> On 2026-11-26 at 06:07 +1100, Jason Gunthorpe <jgg@ziepe.ca> wrote...
->> On Wed, Nov 25, 2026 at 07:17:51PM +0100, Christian König wrote:
->>> On 11/25/26 16:55, Jason Gunthorpe wrote:
->>>> On Wed, Nov 25, 2026 at 12:19:08PM +0100, Christian König wrote:
+On Sat, Nov 14, 2026 at 07:10:26PM +0800, Jia Jia wrote:
+> >
+> > On Fri, Nov 13, 2026 at 04:09:48PM +0800, Jia Jia wrote:
+> > > >
+> > > > On Fri, Nov 06, 2026 at 08:27:51PM +0800, Jia Jia wrote:
+> > > > >>
+> > > > >> On Tue, Nov 03, 2026 at 12:11:32PM +0800, Jia Jia wrote:
+> >
+> > [...]
+> >
+> > > > >> >+
+> > > > >> >+/* The caller holds sk's socket lock. */
+> > > > >> >+static bool
+> > > > >> >+virtio_transport_rx_batch_can_continue(struct virtio_transport *t,
+> > > > >> >+                                     struct sock *sk, u32 len)
+> > > > >> >+{
+> > > > >> >+      struct virtio_vsock_sock *vvs;
+> > > > >> >+      struct vsock_sock *vsk;
+> > > > >> >+
+> > > > >> >+      vsk = vsock_sk(sk);
+> > > > >> >+      vvs = vsk->trans;
+> > > > >> >+
+> > > > >> >+      /*
+> > > > >> >+       * Keep a connected lookup reference only for the native, established
+> > > > >> >+       * STREAM path. Sockets outside ESTABLISHED can change table membership;
+> > > > >> >+       * a completed or reassigned socket must resume the per-packet path.
+> > > > >> >+       */
+> > > > >> >+      if (sk->sk_state != TCP_ESTABLISHED ||
+> > > > >> >+          sk->sk_type != SOCK_STREAM ||
+> > > > >> >+          sock_flag(sk, SOCK_DONE) ||
+> > > > >> >+          vsk->transport != &t->transport || !vvs)
+> > > > >> >+              return false;
+> > > > >> >+
+> > > > >> >+      /*
+> > > > >> >+       * Do not admit a packet that would hit an existing RX limit while the
+> > > > >> >+       * worker owns the socket lock. The caller holds that lock, so no reader can
+> > > > >> >+       * dequeue until the batch is released.
+> > > > >> >+       */
+> > > > >> >+      return (u64)vvs->buf_used + len <= vvs->buf_alloc &&
+> > > > >> >+             !virtio_transport_rx_buf_full(vvs);
+> > > > >>
+> > > > >
+> > > > >Hi Stefano,
+> > > > >
+> > > > >> I don't understand this. We recently introduce the collapse, so when we
+> > > > >> will call virtio_transport_recv_enqueue(), all the queue will be
+> > > > >> collapsed, including packets in the batch.
+> > > > >>
+> > > > >> Or am I missing something?
+> > > > >>
+> > > > >
+> > > > >Yes, collapse operates on the same receive queue, which also contains
+> > > > >skbs queued earlier in the current batch.
+> > > > >
+> > > > >The rx_buf_full() check is not intended to bypass collapse. It prevents
+> > > > >the batch from retaining the socket lock while processing a packet when
+> > > > >there is no metadata room for another skb. Collapse is best effort:
+> > > > >some skbs cannot be merged, and allocation of a replacement skb can
+> > > >
+> > > > IIUC batches are enabled only for SOCK_STREAM, so, which skbs can't be
+> > > > merged?
+> > >
+> > > My wording in the previous reply may not have been precise. What I meant
+> > > is that collapse is not guaranteed to free the skb slot needed for the
+> > > incoming packet for every valid receive-buffer configuration.
+> > >
+> > > With the default 256K receive buffer, a queue of small STREAM skbs will
+> > > normally contain multiple collapse candidates by the time it reaches
+> > > the metadata limit, so collapse will normally make room.
+> > >
+> > > However, SO_VM_SOCKETS_BUFFER_SIZE is configurable through setsockopt().
+> > > A sufficiently small but valid receive buffer can make queue_max equal
+> > > to one. After the first small packet has been queued, that skb is
+> > > eligible for collapse, but there is no adjacent skb to merge it with.
+> > > virtio_transport_collapse_size() therefore returns only that skb's own
+> > > length, and the skb is kept unchanged.
+> > >
+> > > The incoming second skb is not in rx_queue yet. Provided that the two
+> > > packets combined payload still fits within buf_alloc, the payload check
+> > > passes, but virtio_transport_inc_rx_pkt() rejects the second packet on
+> > > the metadata check. This happens before the later tail-copy optimization
+> > > is reached.
+> >
+> > I'm lost to be honest, why the secondo skb is not collapsed?
+> >
 > 
-> [...]
+> The second skb triggers the collapse, but it is not itself an input to
+> that collapse.
 > 
->  > > We cannot disconnect this from the DMA API, ie to use an iommu domain
->>>> or ualink, if exporting drivers are hardwiring calls into it.
->>>
->>> Well the plan is to not disconnect it at all. The exporting drivers
->>> just says to the underlying API here is my buffer please map that
->>> for this importer and that result is then given back to the importer
->>> through the DMA API again.
->>
->> DMA API will only do basic PCI DMA mappings into dma_addr_t.
->>
->> It will never handle iommu_domain, it will never handle ualink/etc.
->>
->> Give us a plan for those if you don't like any of these ideas.
->>
->>>> Fundamentally the need is for the driver to get the phys_addr list,
->>>> exactly like today, and then pass it to an op which formats that into
->>>> the right data structure for the importer. Be it dma_addr[],
->>>> iommu_domain, or some ualink_addr[] - or whatever.
->>>
->>> No, the phys_addr type should only ever been seen by the DMA API and
->>> not by DMA-buf.
->>
->> Again, I don't care how you label things or what "library" they live
->> in, I can't tell if we are nitpicking names or what.
->>
->> But there needs to be some kind of abstraction that takes in
->> phys_addr_t and makes sgt, dma_addr_t, or iommu_domain depending on
->> what the importer needs.
->>
->> Exporters must not open code that.
->>
->> Obviously DMABUF is involved here *somehow* since it is the only thing
->> that knows an importer even exists.
->>
->> Would you be happy if we made a 'dma mapping for dmabuf' library that
->> did all of this and DMABUF just passes its type opaquely and drivers
->> just call its tightly abstracted functions?
->>
->> That is the component Alistair is proposing, he just prefixed it with
->> dmabuf_* as the namespace because, lets be honest, only dmabuf needs
->> this weird looking thing.
+> The concrete case is a valid receive-buffer configuration where setting
+> SO_VM_SOCKETS_BUFFER_SIZE makes:
 > 
-> Right, I don't really mind where and what things are named. I'm fine with this
-> being a separate library somewhere or building it all on top of opaque/private
-> types. But I'm having trouble understanding where exactly the objections lie and
-> what the path forward is.
+>       queue_max = vvs->buf_alloc / SKB_TRUESIZE(0);
+> 
+> equal to one. Assume that rx_queue is initially empty and that two small
 
-Would it help if have a call on Teams or similar services to discuss the whole thing?
+But this looks like a corner case of the metadata check we added with
+commit 059b7dbd20a6 ("vsock/virtio: fix potential unbounded skb queue"),
+not something related to batching.
 
-That might be easier and especially faster than by mail.
+Also, with a buffer smaller than SKB_TRUESIZE(0) (allowed, the default
+min is 128), queue_max is 0 and every RW packet resets the connection,
+with or without batching. So small buffers are already broken.
 
-Regards,
-Christian.
+> STREAM/RW packets for the same flow are available in the same RX
+> virtqueue drain. Their combined payload still fits within buf_alloc.
+> 
+> The first packet passes the metadata check:
+> 
+>       u64 skb_overhead =
+>               (skb_queue_len(&vvs->rx_queue) + 1) * SKB_TRUESIZE(0);
+> 
+> It is then queued, so rx_queue contains one skb.
+> 
+> When the second packet enters virtio_transport_recv_enqueue(), the
+> relevant order is:
+> 
+>       queue_len = skb_queue_len(&vvs->rx_queue);
+>       if (queue_len >= queue_max)
+>               virtio_transport_collapse_rx_queue(vvs, ...);
+> 
+>       can_enqueue = virtio_transport_inc_rx_pkt(vvs, len);
+>       if (!can_enqueue)
+>               goto out;
+> 
+>       /* tail-copy is attempted here */
+> 
+> At the point where virtio_transport_collapse_rx_queue() runs, the second
+> skb is still only the skb argument passed to
+> virtio_transport_recv_enqueue(). It has not been linked into
+> vvs->rx_queue, so the collapse sees only the first skb.
+> 
+> For that skb, virtio_transport_collapse_size() cannot find a next queue
+> element:
+> 
+>       while ((skb = skb_peek_next(skb, queue)) &&
+>              virtio_transport_can_collapse(skb))
+>               ...
+> 
+> It therefore returns only the length of the first skb, and the collapse
+> code keeps it unchanged:
+> 
+>       if (alloc_size <= src_len) {
+>               keep = true;
+>               goto next;
+>       }
+> 
+> The queue length remains one. virtio_transport_inc_rx_pkt() then
+> accounts for the existing skb plus the incoming one:
+> 
+>       (skb_queue_len(&vvs->rx_queue) + 1) * SKB_TRUESIZE(0)
+> 
+> With queue_max == 1, this exceeds the metadata budget and returns false.
+> This check happens before the tail-copy code, so the second skb cannot
+> be copied into the first skb even if the first skb has sufficient
+> tailroom.
+> 
+> virtio_transport_recv_enqueue() then returns false, and the existing
+> error path resets the connection and sets ENOBUFS:
+> 
+>       if (!virtio_transport_recv_enqueue(vsk, skb)) {
+>               virtio_transport_reset(vsk, skb);
+>               virtio_transport_do_close(vsk, true);
+>               sk->sk_err = ENOBUFS;
+>               ...
+>       }
+> 
+> > >
+> > > Therefore, this case does not require an ineligible STREAM skb or an
+> > > allocation failure. Collapse simply cannot reduce a one-element queue.
+> > >
+> > > If my understanding is wrong, please correct me. Thanks.
+> > >
+> > > >
+> > > > If allocation fails, I guess we have other issues, no?
+> > > >
+> > >
+> > > Yes. I thought about that again, and allocation failure is not the
+> > > reason for this check. Thanks
+> > >
+> > > > >fail. If the packet remained in the batch and collapse did not make
+> > > > >enough room, virtio_transport_inc_rx_pkt() would fail and
+> > > > >virtio_transport_recv_connected() would reset the socket with ENOBUFS
+> > > > >while a waiting reader was still unable to drain the queue.
+> > > > >
+> > > > >When the check makes can_continue() return false before the current
+> > > > >packet has been handled, the caller releases the socket lock and passes
+> > > > >the packet to virtio_transport_recv_pkt(). This gives a waiting reader a
+> > > > >chance to make progress. If the queue is still at the metadata limit,
+> > > > >the normal enqueue path attempts collapse. If that still cannot make
+> > > > >enough room, the existing ENOBUFS reset occurs.
+> > > >
+> > > > I really don't see the difference without batching :-(
+> > > >
+> > > > I may be missing something.
+> > > >
+> > >
+> > > The difference is the release_sock() boundary between packets.
+> > >
+> > > In the regular per-packet path, the socket lock is released after the
+> > > first packet. A reader woken by that packet can compete for the lock and
+> > > fully dequeue the only skb before RX locks the socket for the second
+> > > packet. If it succeeds, the second packet can be accepted. If it does
+> > > not acquire the lock in time, or only partially consumes the skb, the
+> > > queue length remains one and the regular path can still reach the
+> > > existing ENOBUFS reset.
+> > >
+> > > Without the rx_buf_full() check, two same-flow packets processed in the
+> > > same active batch remain under one uninterrupted socket-lock ownership
+> > > interval. Once the first packet leaves the only skb in the queue, the
+> > > reader cannot dequeue it before the second packet is processed.
+> >
+> > Why?
+> >
+> 
+> Because an active RX batch retains the socket lock across the two
+> packets:
+> 
+>       lock_sock(sk);
+>       ...
+>       batch->sk = sk;
+>       virtio_transport_rx_batch_process(...);
+> 
+> The lock is released only when the batch is finished:
+> 
+>       void virtio_transport_rx_batch_finish(...)
+>       {
+>               ...
+>               release_sock(sk);
+>               sock_put(sk);
+>       }
+> 
+> The receive side needs the same socket lock before it can call
+> stream_dequeue():
+> 
+>       lock_sock(sk);
+>       ...
+>       read = transport->stream_dequeue(...);
+>       ...
+>       release_sock(sk);
+> 
+> Waking the reader after the first packet does not allow it to dequeue
+> while the RX batch still owns that lock. Without the rx_buf_full()
+> boundary, and assuming the other batch-continuation conditions remain
+> true, RX processes the second packet under the same uninterrupted lock
+> ownership.
+> 
+> > > Collapse cannot reduce that one-element queue, so the second packet
+> > > fails the metadata check and resets the connection.
+> >
+> > What is unclear to me is why this is not happening without batching.
+> >
+> 
+> It can also happen without batching. The difference is that it is not
+> unavoidable there.
+> 
+> The regular per-packet path executes this sequence for every packet:
+> 
+>       lock_sock(sk);
+>       virtio_transport_recv_pkt_locked(...);
+>       release_sock(sk);
+> 
+> Therefore, even when both packets come from the same virtqueue drain,
+> the first packet is followed by release_sock(). A waiting reader can
+> compete for the lock and fully dequeue the first skb before RX locks the
+> socket for the second packet.
+> 
+> If the reader wins, the second packet sees an empty queue and can be
+> accepted. If RX wins the race, or the reader consumes only part of the
+> skb, the regular path can still reach the same ENOBUFS reset.
+> 
+> Without the rx_buf_full() check, the post-processing check after the
+> first packet only sees that the payload limit has not been exceeded:
+> 
+>       return (u64)vvs->buf_used + len <= vvs->buf_alloc;
+> 
+> At this point len is zero, so the batch continues to hold the socket
+> lock and processes the second packet immediately. Under the conditions
+> described above, the reader cannot intervene and the metadata failure
+> is deterministic.
+> 
+> With the current check:
+> 
+>       return (u64)vvs->buf_used + len <= vvs->buf_alloc &&
+>              !virtio_transport_rx_buf_full(vvs);
+> 
+> the metadata slot is already exhausted after the first packet. The
+> post-processing check returns false,
+> virtio_transport_rx_batch_finish() releases the socket lock, and the
+> next packet returns to the regular per-packet path.
+> 
+> This restores the lock-acquisition opportunity. It does not guarantee
+> that the reader wins it.
+> 
+> > And, why we can't collapse the batch it self...
+> >
+> 
+> I am not sure whether I understood your suggestion. Do you mean
+> changing the enqueue order so that the incoming skb can participate in
+> tail-copy or collapse before the metadata check?
 
-> So given no one outright rejected the plan I wrote earlier I'm going to go ahead
-> and post the series implementing it (I was hoping to do that today, but it's not
-> quite ready).
+I was thinking about something like that, but honestly I don't think
+it's worth it. With a buffer that small (less than 2 * SKB_TRUESIZE(0))
+the user should expect issues, and without batching it already fails
+most of the time, as your test shows.
+
+So I don't think we should add complexity in the batching path for
+this case. Let's start simple.
+
 > 
-> Hopefully that will help by giving us actual code to ground the discussion on.
+> The current implementation does not attempt that change. Its purpose
+> here is only to preserve the behavior of the existing per-packet path
+> in this boundary case.
 > 
->  - Alistair
+> The earlier targeted A/B test also illustrates why I added the
+> rx_buf_full() check. On a 2-vCPU guest with queue_max == 1, I ran 100
+> trials in which two STREAM/RW packets for the same flow were available
+> in the same RX virtqueue drain. With the rx_buf_full() boundary, the
+> connection continued in 22 trials and reached ENOBUFS in the other 78.
+> Without the boundary, all 100 trials reached ENOBUFS.
+
+So without batching it works only if the reader wins the race, and it
+fails 78% of the time. IMO we should not add complexity in the batching
+path just to preserve that race.
+
 > 
->> Jason
+> The check does not guarantee that the reader wins the lock race. It
+> preserves the opportunity that exists in the per-packet path. Without
+> it, batching removes that opportunity and turns a case that could
+> previously continue into a deterministic reset when both packets are
+> processed in the same uninterrupted batch. I consider that a functional
+> regression from the existing behavior.
+
+Sorry to be honest, but your answers are incredibly long and lengthy. 
+It's fine to use AI for translation, etc., but please let's not go to 
+extremes, otherwise, it becomes impossible for me to follow your line of 
+reasoning... 
+
+Stefano
 
