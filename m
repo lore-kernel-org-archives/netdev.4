@@ -1,74 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.219.70
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657695;
-	b=jKq+jk2MZYzjljpRoxj3r6DUCYB5S0x5AUVbICnAwb2hY1phzld4jcxxq1swIMWEOogd
-	 EHSjj3xEk6PYBc0eemK5IDuBHRqu1l8CNxtJ6hfJu9Lx2RcCq/jhcjVSCf6U5Z5iw+R0a
-	 iGK1wqQ1cU7JqQ8HvTWU6iFa+1+WqFHaz4d/G0Rjr4SC+Ei+Nv9vU9Pb0C5Du9f9MhHkY
-	 mi4fLlwBmXSRp3MXdycslMZkhT1QoYeYj2N2J0LmKhIJzE/VVyggHMiUyVavBJSxfj6Pn
-	 IZG14r3/ncxP3aaetC4YoTYvNDcBS8bAEmbD3jqIbFAHfsgYQmnGmRfSkYOqIXRMcng==
+	t=1795657762;
+	b=xh5IZtXxWVlgTPA8mBsv8qZwh1eaNmyX5/LEsaCsf52nVWc7BUN7XoFCDrAzk6zeClM7
+	 tPKkrqqJH5exwKDqhty5z3rldGJsIkmshZhR+KUyTVc55nRgDDFyt8DaKbuhVsl0oqlWO
+	 C+WD5oAfokQeKBJH9TJYvbpXj0QGPZE0ypnwnGpBZT29DTeYQwCEQHJPIThjd0AYT1vW7
+	 J5WSj4jERi+MIByBfz0+fcBPVoYt152mam543TrsiBQkMTyv2IIdYfem9sD8GzUMI6twx
+	 z0QqA9ViarJ0IJoL72Nv0JFdtstjDdrk18kgmhs/Jln8JYmZ2weh3/7SXyaF0IdXjmA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657695;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
-	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
-	bh=nUJLL1/RlgoRivRK2dpdBrsALcrfanNrSQ8uIKqCXQM=;
-	b=luGQHNVj4+LH4TcUPjY3W4QlXV8I1EF6jF7IvZfzNaMXF2xXgaIlTKORgIUURCc8mOIZ
-	 1v0m8YMbxm+oaiQJ7AYdvhbgdOuxu5GGHdTH43FJUOP+oNnAJQe5+fFuWeGr/I1JH44MS
-	 2JW309eOFn1hoWbBbXc6mBclQBu/F//NSIKIrrXDc3MRbrjQ1hA5mp73Ctqu8jRrqw2rW
-	 3JzX8qXcmSkAUuhLyjUdji1juh371V5WUc2xCINM0EJSmIG0YyC3mXfrXL496wfvzX+Dp
-	 iydxEqlxuhTqa3D6T5OsT0YZTa6KaSAaQ1DuMjwFjTpaXYG5eDCmRdsD0avkxoI4Vkg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657762;
+	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
+	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Content-Type:Mime-Version:
+	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:X-Mailer:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
+	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
+	bh=one2rjhMV97z7CnhF3g2QeZCaS5E0FMAwJy7eHM6zDU=;
+	b=oU1RrGQ+/qaYKqAASHzRf6ACzDJaUx62ufgFABHmoM/81u4+r8VKBfwzfMOMkmpMz170
+	 dNjbMj4HYIY2xwt3xk53UTazAn3gIr2kGTZivTGZLFviTlXPsJHmPGWvkY96pj0kwus4q
+	 wqLTvxmtCdarUOEqJ5ipfIzDmPlG5ipdmCRHmo5CU8cGsexHHjx7NeZCM/Vamo1c3aiKY
+	 25E0NvTVZHm8GZojeSmMU63E99vxHDGhCoPGLHHMQLS4GqPUBqh+B7Z6pu2NHQC7Cm18f
+	 ye4e/sETT1dYFq8SFBYXjDrzMjSx2CNFFws88i0eT1wXbjFoaGY10wuYmoy+UVSSiJw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iB5CTUTf;
-	arc=none smtp.remote-ip=209.85.219.70
-Received: from mail-qv1-f70.google.com (mail-qv1-f70.google.com [209.85.219.70])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=none header.from=net-swift.com;
+	spf=pass smtp.mailfrom=net-swift.com;
+	arc=none smtp.remote-ip=54.243.244.52
+Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
+	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B5089606A335
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:48:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B5089606A335
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=iB5CTUTf
-Received: by mail-qv1-f70.google.com with SMTP id 6a1803df08f44-92104826f9bso118667276d6.1
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:48:14 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795657693; x=1796262493; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nUJLL1/RlgoRivRK2dpdBrsALcrfanNrSQ8uIKqCXQM=;
-        b=iB5CTUTfGL0gPiI65+yFfeeJO/10K9pM2ZX7a9zLbz5TiTdbn5bQNsTkbNKFAWBqHH
-         R4e0tmW2nMPMrT3OZW2NalEI979IufOMDYk4trspcOjFU3RkRdvoGf1O52UKD843d2N4
-         HszFHa4SPMsiHRJrTjaaZKmQ6hK5qBFy+vfEH+vXOPREF+z6QL7AwS/fdm1KWAXAIvAL
-         zdYDPGVNlI6bBeqhLx/TZySu8A4XXCItfIicysjPs3o1ecEWA/R32NDi8J3dMkv9jRTJ
-         SI4tKT3AaNfbQ4FvA49v5hpX7klhTjgVWzYvK+rToMp0+8U9GBrAoHIWn5kfCF3wY8tB
-         dGcA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795657693; x=1796262493;
-        h=content-type:cc:to:from:subject:message-id:references:mime-version
-         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=nUJLL1/RlgoRivRK2dpdBrsALcrfanNrSQ8uIKqCXQM=;
-        b=vOSEolSeZwJ0r2dEr4kUOXh1I+wGefOIl7o4yJtDbfnmp5d0buvG6bQS12/TWqI1Ik
-         OT4UNfnLkal/g0P4Dax2MgWLo6U/luY+/P7gy2FkY/I6DAIif7zgZGA3HYI27uIbHRpd
-         MEYkqlYbBjK5A8Mnvsq3Q3p8tsXNhOGu5OzaL4M6HyM4tCwQev2tA8VvhRwy8guzpkbD
-         qTngLcQg/BVRol56rZvK6qc61CU5Zss3hSzPQ/Pk5K6ysULrie/nAxV6dHSz0fk5gnF2
-         G4kiHjSVO34seAGED2AeEK7zgJ7up5pITk2wN4yq9fjcisfuORgueWiDuQlDbcHul9ie
-         +T6w==
-X-Forwarded-Encrypted: i=1; AL+hErFWdHoDzp8RarOGyi2MnPh48n94zazVUK235AGJbCD+Jy6L7BBOIPkslRF8R31ebT8+2IljZrI=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+SOor7iAj5f+M7eMckK1jETQMOFnRxGfJSplpYoImCDEdbkw7n
-	ZEjU7DccheITjAiKz5Iw3GnpMZP+yYJf3A4LN/j/S5qwFxMPrZ1ndJN5SUBwNZQ6/oLZbOEqdFT
-	dnity2dnVhw==
-X-Received: from qvnu13.prod.google.com ([2002:a0c:f88d:0:b0:921:1046:1576])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6214:8609:b0:921:332b:a4ea
- with SMTP id 6a1803df08f44-92134b38d73mr347232326d6.34.1795657693329; Wed, 25
- Nov 2026 17:48:13 -0800 (PST)
-Date: Wed, 25 Nov 2026 20:48:12 -0500
-In-Reply-To: <20261120122348.207708-1-mdshahid03@gmail.com>
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E20DA606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:49:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E20DA606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=net-swift.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=net-swift.com
+X-QQ-mid: zesmtpsz5t1795657669t32d10466
+X-QQ-Originating-IP: IufVKh5qgEZlgIZbILdC8d6X3ty1stUlAcQhZ/Ee9RM=
+Received: from smtpclient.apple ( [122.235.140.99])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Thu, 26 Nov 2026 09:47:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 8537531309841994138
+EX-QQ-RecipientCnt: 13
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -77,45 +50,110 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261120122348.207708-1-mdshahid03@gmail.com>
-Message-ID: <willemb.2909963e120e6@google.com>
-Subject: Re: [PATCH] tcp: fix division by zero in tcp_cong_avoid_ai()
-From: willemb@google.com
-To: mdshahid03@gmail.com, edumazet@google.com, ncardwell@google.com, 
-	kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com
-Cc: horms@kernel.org, netdev@vger.kernel.org, 
-	Mohammad Shahid <mdshahid03@gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
+Subject: Re: [PATCH net v8 2/2] net: wangxun: access queue counts consistently
+From: "mengyuanlou@net-swift.com" <mengyuanlou@net-swift.com>
+In-Reply-To: <eedb9d27-1738-4911-bdf4-327963151e96@redhat.com>
+Date: Thu, 26 Nov 2026 09:47:36 +0800
+Cc: Simon Horman <horms@kernel.org>,
+ netdev@vger.kernel.org,
+ jiawenwu@trustnetic.com,
+ duanqiangwen@net-swift.com,
+ linglingzhang@net-swift.com,
+ andrew+netdev@lunn.ch,
+ davem@davemloft.net,
+ edumazet@google.com,
+ kuba@kernel.org,
+ hramamurthy@google.com,
+ jacob.e.keller@intel.com,
+ przemyslaw.kitszel@intel.com
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <DA953E71-9604-4728-8401-20C2474096AE@net-swift.com>
+References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
+ <20261118081329.39551-3-mengyuanlou@net-swift.com>
+ <20261124112414.GJ31322@horms.kernel.org>
+ <15430CE6-8AD6-43CF-AACF-1434B5EB666F@net-swift.com>
+ <20261125113050.GS31322@horms.kernel.org>
+ <eedb9d27-1738-4911-bdf4-327963151e96@redhat.com>
+To: Paolo Abeni <pabeni@redhat.com>
+X-Mailer: Apple Mail (2.3901.200.71.1.16)
+X-QQ-SENDSIZE: 520
+Feedback-ID: zesmtpsz:net-swift.com:qybglogicsvrgz:qybglogicsvrgz5b-1
+X-QQ-XMAILINFO: MTUDNdg/0gsJKcbYNLrpxAgJYZHDS7q+9vUWP1epQbSpVb8hB+v8dRnd
+	JzPKyjkRyYpsAWzpl0AZNwtuNe4x1bADmHB7/6Z1LFQSAWBqKJlsTbUp/O0n8TcbNTzO+8Z
+	JgOlv29x0SdTEfkUcEx8/2ENqptodLNiN28OoIpFUAAGRykEIRCiXfwv1WjXi6qG+Zkb1KL
+	kQ81YrDhkzKfysMMYGAg9JKjCQJDZDwWsDXb2BjK4bq0ROx6OO1l/+22UFSuwL5QJjdDwjF
+	73iCJeoHuGdv1hYLk/HQ+CWA2MA0nvnf2+U6EqdFKHZRvSL+DynBtgpkbyEymIAdhIx42eP
+	/IYplpH8iX6Tk/TMq9rtzaTxfEnEe36TaHATLyY80jUDCleOc2C26Onne1PLBNbM+/cCkLG
+	tusEEaGAjrewx5Cs4CgBG3Ar3nNTRy85ygMa5ndY4ggRBPme5hNojZXYSZmwp5XvzriPxFO
+	Eo7JIKEfXVvAZN6alHF6dYbJvoo8eeXoSOnbfXf/o7Bo4GfrwHW0lfW09oNwXSl11Qr9Zi0
+	cCBXGROoXoVtDIu5GQuI/BJm89gX4xiKv9yk9ACeRErEVRnlKnk0m7T3rVzDFehEz79ObUC
+	NtlVg8YVslDWFy+xThjt3y/0+KwGqZY3NZOT+aug7Icqrt6Nji40FQu+6z87IrivwM+mXvS
+	F4Z+9oyH8geJwAnxQK6wj7kc4PRnAL0Ch7TG9cCHtZFlY5tqUcWgEJ6QJ2hqPREfLQdQhxZ
+	7P3AIOZyQjd+aVGJp9h1yOUoVqGaH//qimc0JOUW5VKS+il2Xo4ag3KMQyofeeZxQ8fukcq
+	FZ3E8AKbOvOedlwPeBrkmC3SwA6g0Q4rRQw94UOXqbNgz30AvbXFPAa6jXtF3S0MVAhQx5U
+	vlvAnU2nF9uHlIQ/HaUcKf8G8buXYL/97kk58npXCSr8uMdL+hZkxDdOIiyNc6ymktC5p5p
+	3ru6NPoqBIRFWwHI0WMHuUMbSJ8CPPBkZfZ5cm5XGeVZuX5rfJK287jU2ZMZovVTNND0Gin
+	iy7Dp/axefdeevUHgHUgt76xqogHs7BUjI7wIJ/yv+gNNfBS/7uKDUfn09bvbvQc42JERe0
+	fzZhARO7P/wTg+3b2RrufL3DCP2FRceHx4QFJXIlpSufzBNIiBUbsU=
+X-QQ-XMRINFO: OD9hHCdaPRBwW7LXK9njS5c8ak9rhTx89g==
+X-QQ-RECHKSPAM: 0
 
-mdshahid03@ wrote:
-> From: Mohammad Shahid <mdshahid03@gmail.com>
 
-> The tcp_cong_avoid_ai() function divides snd_cwnd_cnt by the
-> argument w without checking whether w is zero.
 
-> Since w is an unsigned value, the condition tp->snd_cwnd_cnt
-> >=w does not prevent division by zero when w is zero.
+> 2026=E5=B9=B411=E6=9C=8825=E6=97=A5 23:10=EF=BC=8CPaolo Abeni =
+<pabeni@redhat.com> =E5=86=99=E9=81=93=EF=BC=9A
+>=20
+> On 11/25/26 12:30, Simon Horman wrote:
+>> On Wed, Nov 25, 2026 at 09:36:46AM +0800, mengyuanlou@net-swift.com =
+wrote:
+>>>=20
+>>>=20
+>>>> 2026=E5=B9=B411=E6=9C=8824=E6=97=A5 19:24=EF=BC=8CSimon Horman =
+<horms@kernel.org> =E5=86=99=E9=81=93=EF=BC=9A
+>>>>=20
+>>>> On Wed, Nov 18, 2026 at 04:13:29PM +0800, Mengyuan Lou wrote:
+>>>>> Queue-vector teardown clears wx->num_tx_queues and
+>>>>> wx->num_rx_queues while the netdev can remain registered. Lockless
+>>>>> readers may use these counts as ring-array loop bounds while =
+teardown
+>>>>> is clearing the ring slots. wx_xmit_frame() also uses the Tx count =
+to
+>>>>> select a ring and must not divide by zero during teardown.
+>>>>>=20
+>>>>> Use READ_ONCE() to take a single count snapshot in the lockless =
+readers,
+>>>>> and use WRITE_ONCE() for queue-count updates during scheme setup,
+>>>>> teardown, and allocation-error handling, including the VF queue =
+setup
+>>>>> callbacks. Keep the existing NULL checks so a reader that observed =
+an
+>>>>> old non-zero count can safely skip ring slots that have since been
+>>>>> cleared. wx_xmit_frame() retains its zero-count guard before
+>>>>> queue-index modulo.
+>>>>>=20
+>>>>> Fixes: 3f703186113f ("net: libwx: Add irq flow functions")
+>>>>> Signed-off-by: Mengyuan Lou <mengyuanlou@net-swift.com>
+>>>>=20
+>>>> This patch feels more like hardening for net-next than a fix for =
+net.
+>>>> But regardless the code changes look good to me.
+>>>=20
+>>> I think so.
+>>> Should I resend this patch?
+>> Thanks,
+>> IMHO, it would be best to split the series in two: one patch for net =
+and
+>> one for net-next. And resend both.
+>=20
+> No need to resend. In fact both patches must be applied to net-next, =
+as
+> the first one has a functional dependency on a net-next pre-req.
 
-> This function is also exposed as BPF kfunc, and the BPF
-> verifier does not enforce a nonzero value for this argunement
+Ok
+Thanks.
+>=20
+> /P
+>=20
+>=20
 
-> Return early when w is zero to avoid divison by zero.
-
-> Signed-off-by: Mohammad Shahid <mdshahid03@gmail.com>
-
-Please resubmit, with
-
-- A target tree: [PATCH net]
-
-- A Fixes tag, likely e78aea8b2170 ("bpf: tcp: Put some tcp cong functions  
-in allowlist for bpf-tcp-cc")
-
-- Commit message typos addressed and core of your response merged into
-the main commit.
-
-- Cc also bpf@vger.kernel.org
-
---
-
-pw-bot: cr
