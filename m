@@ -1,104 +1,93 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.158.5
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675413;
-	b=3o9R5YT4lYvW+fwi7Z/acgeXJRY7IY1Mp0Sq4gU0qWaq8o0tm40qywDx/Dv+LypzYj7a
-	 MVrs2rZasVb+LcWZu05krX6ORzOx8UBZEYK8Dmgv59AmX4IaTkb8bPX8lyOdY/LBDihfB
-	 PZcJRwrYpqPqWI5xtcKrAEyEL3jpxSJEQ4WeIDi7h3KVZ110F4odpXF+ZkjA0+DVwNNCw
-	 aVwHT6YthLT/sos2jE10m4+gFNeOgCf492M5JZ/RSrM1+fiwbnCGG2DBZuq8ne2E10+HN
-	 sZLZ3mCVTFxvOFQZaA/lEN5n+wIQttPZOsoyaLkVUEEdtZLqftTnfASPKtJU/hqmnCA==
+	t=1795675434;
+	b=bmSucYhdH7U4lBtPPf5K48RBwMpdYmLA9DElaulSYjd4C3jTbGVv53SARgat+GgyK5ow
+	 nmOZ8VJAeWCLHYPKR2jGM30ZFzzCfcnJtghRAw5uM6sEEtCysRF8R3+tIMecpH2YLVJBL
+	 Q7wTggSlvRlMbO5pPfkZgYHx7zdEYfuvkoWYxbNv5JQM6wxsgr6mS7KbFFy/n9/BWDjmf
+	 /FHhhh17nteCoiM6aRwb3CGt8ZiIBeO/LyEUeqFvlsQE6eQdoJhhyz07RAA3fSfLeN4Lc
+	 qBmapjyE3+4l+/81yhXluPjFD/TbM8IiYZ/+F+Tm0tUwqNjuYJIK0X/IGjQyG4M2i9g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675413;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:From:To:Cc:Subject:
-	 Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:
-	 MIME-Version:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-ORIG-GUID:X-Proofpoint-Spam-Info:X-Proofpoint-GUID:
-	 X-Authority-Analysis:X-Proofpoint-Spam-Details-Enc:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=SahhETQ9fW4zv6X6m5rrXzRwkvqyUBuhxZ8WYasoFRM=;
-	b=hmkkh7rI9XLcOJrUV5Pz/Cr5EOVeUyHPARPHmhCy1vwFHmivUhaPu68Z9rUNSXuUlWMp
-	 zt5kDGZkMECWuGkyolzwQR/qCAS8/VVh1NpzelMJ5i2W9ds13thWTmbAR8zuMUdmM4wYe
-	 Hfb/qKRluIYcWULvW1UBgE93fPeqsy/EVj0YoiPvWiyFPcDWBrrdLUykXjr8Wy/Qoy6Oy
-	 zaaKysiE6riqNeyI+Db3G6zhOblIlmAFXVpVwfcnQE0blJkofahv63ui3YfosYnQl+/ds
-	 2VmeMwDCWWj5i8p8UEKLIHiIP/rDMFxBNRDDc2eVXluX/D/ClqJ+ZwBcEoM28rNFo1A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675434;
+	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=xDtIST3zZ9y4EzJ6NETBhs9+pFPleoAbssJ/eV+XnOE=;
+	b=FXL33MSTa+c1Gdfn5tIZ9xwXq+5kTGrmSGPqExAMA4Wh8Lty2vRlWio78HOnPR+i783P
+	 vg+BzykERhVhlc/qLKaryLStKk3tVuuuW8/txBrGGnbrYEvqfrb0AZc8rH6dkQ7d+vB67
+	 r8DopnekuKwKt9MR0UQvH0kKjA7R2PnLlX6rP036GxiToDBfBuzCqM43FHTmk3qSBT3Cr
+	 yCT8VKmwu6zZAcYR9tB5SX2LJmwqcXWMwIDbooHVe/eW5+wpB+QzuXSy6O0nGDTbg8Ssw
+	 o4uZGxmNUfsy9sWQ2xFjRXrgZypaCuf0YmbAJNm5GBmhsIU2SjEcMpMEV/SY6utnf1Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=WjS0QQAL;
-	arc=none smtp.remote-ip=148.163.158.5
-Received: from mx0b-001b2d01.pphosted.com (mx0b-001b2d01.pphosted.com [148.163.158.5])
+	dmarc=pass header.from=d-silva.org;
+	spf=pass smtp.mailfrom=d-silva.org;
+	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b="SjFKF5/t";
+	arc=none smtp.remote-ip=119.15.109.137
+Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BF654606A32A;
-	Thu, 26 Nov 2026 06:43:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BF654606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 77B8C606A31C;
+	Thu, 26 Nov 2026 06:43:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 77B8C606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=WjS0QQAL
-Received: from pps.filterd (m0360072.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34xVI3133827;
-	Thu, 26 Nov 2026 06:43:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=SahhET
-	Q9fW4zv6X6m5rrXzRwkvqyUBuhxZ8WYasoFRM=; b=WjS0QQAL19ixpSZ3g0LPVl
-	okcHi8z9Y0zfa/3T99UPMOzLT5cAi+1sGAyPzuSGur6GTQGoU9ztASlDrujETtNr
-	zFGeLD4hOZriFQ+TtLewCv1jHsUMXslBoI4UGBFg/SLh6YOuaKz7Qu41O41tmNOI
-	4UjjXs556YZP0taa9ZBUoW6F+QeMAj19zpYh0ghJR1+URfanQ8csblNgVir3CXbv
-	m0tD1/Y/m2YgKjmOhLIUP3317O6lKx5pUesbgtcebWK2CozgO98/CB1EJRc4e9mm
-	9+EIq2UnCQmWl6zwIykyjDs0rLvcU51M+lRnHc8gE5EcXBHU6bIY8ahJibeGbRzQ
-	==
-Received: from ppma12.dal12v.mail.ibm.com (dc.9e.1632.ip4.static.sl-reverse.com [50.22.158.220])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34g1ff9q-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 06:43:19 +0000 (GMT)
-Received: from pps.filterd (ppma12.dal12v.mail.ibm.com [127.0.0.1])
-	by ppma12.dal12v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34PNP1635236;
-	Thu, 26 Nov 2026 06:43:18 GMT
-Received: from smtprelay05.fra02v.mail.ibm.com ([9.218.2.225])
-	by ppma12.dal12v.mail.ibm.com (PPS) with ESMTPS id 4j5axkxwk3-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 06:43:18 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay05.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQ6hDeR50135440
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Nov 2026 06:43:13 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7377D20049;
-	Thu, 26 Nov 2026 06:43:13 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 572CF20040;
-	Thu, 26 Nov 2026 06:43:13 +0000 (GMT)
-Received: from localhost (unknown [9.87.84.240])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 26 Nov 2026 06:43:13 +0000 (GMT)
-Message-ID: <c769cd79c084c38804b606cbe0b0d79a@linux.ibm.com>
-From: Sidraya Jayagond <sidraya@linux.ibm.com>
-To: Bryam Vargas <hexlabsecurity@proton.me>
-Cc: Dust Li <dust.li@linux.alibaba.com>,
-        Mahanta Jambigi <mjambigi@linux.ibm.com>,
-        "D. Wythe" <alibuda@linux.alibaba.com>,
-        Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Guangguan Wang <guangguan.wang@linux.alibaba.com>,
-        Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
-        Wenjia Zhang <wenjia@linux.ibm.com>,
-        Ursula Braun <ubraun@linux.ibm.com>,
-        Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
-        Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
-        linux-rdma@vger.kernel.org
-Subject: Re: [PATCH net 4/4] net/smc: order the urgent mark across the cursor
- wrap rollover
-Date: Thu, 26 Nov 2026 07:21:38 +0100
-In-Reply-To: <20261113-b4-disp-1a9ab9b0-v1-4-4a7c8d85d849@proton.me>
-References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
- <20261113-b4-disp-1a9ab9b0-v1-4-4a7c8d85d849@proton.me>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=SjFKF5/t
+Received: from Hawking.lan (hawking.lan [10.0.1.4])
+	by www.nmnhosting.com (Postfix) with ESMTP id AEDCC403EF;
+	Thu, 26 Nov 2026 17:43:45 +1100 (AEDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
+	t=1795675425;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=xDtIST3zZ9y4EzJ6NETBhs9+pFPleoAbssJ/eV+XnOE=;
+	b=SjFKF5/tk54Xz2Km9hT+o/URL72fTkx0Jsfqyqj9ECYBOS1JAbZ4S7UZoxx2E4V2K4nuDB
+	CjBsPCYkeTBKtm7tCpB39vnc3y8fYp0RUDSbMqzbdMo0NYwrrpVyyfGiqy77A82MWqLqts
+	gRaL3UUDOIhfL+EsjPfoSoH7g0fRDjTcg6QTYR5KEI6O/HGn4x4RiXa2zKhOgfrF1QXfFj
+	ouoHUeyW5wp7nutpSrq1e6v55JE0WM/h0mmwtyRn6cIEtxy7vLWwMS+q+ynDUgSBxrnsFY
+	S7x9GaxPK/NbWq9/tEZVBbWcdvdBdNLPoGw9S4PApBmkLScYonxN38gY5ENAdg==
+X-GPT-Reason: legitimate; this is a technical, personal, or professional
+	correspondence regarding a Linux kernel patch (net-next) that
+	perfectly aligns with the sender's identity (alastair@d-silva.org)
+	and the recipient's role; the content is highly specific technical
+	discussion about hardware clock inversion and GMAC210 support
+	with no marketing, phishing, or scam indicators; authentication is
+	supported by a consistent From domain and a lack of external links
+	or urgency tactics.
+From: Alastair D'Silva <alastair@d-silva.org>
+To: Jerome Brunet <jbrunet@baylibre.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	Andre Przywara <andre.przywara@arm.com>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Alastair D'Silva <alastair@d-silva.org>
+Subject: Re: [PATCH net-next v3 5/5] net: stmmac: sun55i: Add support for Allwinner A733 GMAC210
+Date: Thu, 26 Nov 2026 17:43:45 +1100
+Message-ID: <20261126064345.2569445-1-alastair@d-silva.org>
+X-Mailer: git-send-email 2.53.0
+In-Reply-To: <20260923-allwinner-a733-gmac-support-v3-5-15735155a789@baylibre.com>
+References: <20260923-allwinner-a733-gmac-support-v3-0-15735155a789@baylibre.com> <20260923-allwinner-a733-gmac-support-v3-5-15735155a789@baylibre.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,37 +97,32 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-ORIG-GUID: fpQNmkJofKrA5nRgjrwYSZ8nnjRp-BTx
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX8hqHeVkqYTw+
- bi6cppshvZX2R8u0HAs/tZJDz2DAUclpzS0R/ojBoTotSdpT4YsF6bbiZ9KXVuplZ027oFQ7rcw
- KyjzuJPfcfy1KRPqIN6i5f2maVx3Xsw=
-X-Proofpoint-GUID: HPMHrlQKQL8wqi_-DMUXmUw0YgPHRma2
-X-Authority-Analysis: v=2.4 cv=c8M+0h9l c=1 sm=1 tr=0 ts=6b07d508 cx=c_pps
- a=bLidbwmWQ0KltjZqbj+ezA==:117 a=bLidbwmWQ0KltjZqbj+ezA==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=RzCfie-kr_QcCd8fBx8p:22 a=VwQbUJbxAAAA:8
- a=NrW9tBCdj5waY1ZTGhEA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX45wUDf3iShgs
- B0/ddg8NtO1ODDwwPJqf478y1yQNN9aWokvppcYxmRLbC+MMoHBRqYgYbGIfBRvgedDVTnPJwDK
- cuqTEk//Pji3m5JB/c2If6L5jTjAU/tRv++tOBrxEL2SuNeXwW3kAROl71AhGsqgwO2OKuMeMNu
- ljIMZuTqD6KsO6qMtRh2ZJ6BCWvWkL7oE5mKP3BMSIAjwsp6+FLadClwyjJR/YJpmyt2rcWTwT/
- pA0nS4qOkwErva6/qOz4StvSVIoFIDHLEpI08MapbkuyiCnryWvmuNYxe/7XOctuuTmdCFcUeJ0
- 7Vmz4HmuUCDKA+c3yD1/L6/93L9MzoZrjHut6Ix1RpXPCUVvJKK12SNxG7mcYH2z9KG6dGixDT1
- O0bZHChaRV01e5lMBRJ3Id5MbVACa1tvAOn+ALQyjSRHU5ePN1nR4IwBGfsWLMbxrejld8T+UgO
- qAjlhDE0nbMD28j58Cw==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 clxscore=1015 malwarescore=0 suspectscore=0 bulkscore=0
- priorityscore=1501 phishscore=0 adultscore=0 spamscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611260025
+Content-Transfer-Encoding: 8bit
 
-The review comment on this patch looks valid: smc_rx_recv_urg() can race with
-incoming CDC messages and duplicate an urgent byte. This is pre-existing, but
-the series touches this path, so please address it or explain why it is safe.
+Hi Jerome,
 
-Link: https://lore.kernel.org/all/sashiko-outbox-215220@kernel.org/
+While testing A733 GMAC210 on the Orange Pi 4 Pro (YT8531 PHY), we hit
+two hardware differences that also affect this series:
+
+1. External vs. internal RGMII TX clock (SYSCON_ETCS_EXT_GMII):
+   Unlike the Cubie A7A, the Orange Pi 4 Pro wires the PHY's 125 MHz
+   CLK_OUT back to the MAC and stalls on 1 Gbps TX with
+   SYSCON_ETCS_INT_GMII (0x2). It requires SYSCON_ETCS_EXT_GMII (0x1),
+   matching Allwinner's "aw,rgmii-clk-ext" BSP property. A733 GMAC210
+   will need a DT/clock way to select EXT_GMII vs. INT_GMII so both
+   boards work.
+
+2. RX clock inversion (BIT(4), ERXIE in glue offset 0x00):
+   With BIT(4) = 0, Orange Pi 4 Pro required ~3.8-4.1 ns of total RX
+   delay (matching what you saw on Cubie A7A with 1800 ps MAC delay on
+   top of 2 ns PHY delay). Testing with BIT(4) = 1 (ERXIE) confirmed
+   it inverts RXC by ~4 ns (180 degrees at 125 MHz), centering RX at
+   0 ps MAC/PHY RX delay. Andrew Lunn requested fixing this clock
+   inversion rather than compensating with ~2-4 ns rx-internal-delay-ps.
+
+I plan to rebase the Orange Pi 4 Pro Ethernet support on top of this
+series and address these in follow-on patches unless you intend to
+roll them into a v4.
+
+Thanks,
+Alastair
