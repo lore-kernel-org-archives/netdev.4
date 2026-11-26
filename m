@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.182
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.176
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795691053;
-	b=jSw/t68AZ4IEw4jsAXx12MtWYOXjVfjNxtzfigfRjCwSMCh48EJ9Ev4Cwcm4WVc24Dw/
-	 bR0U0ZrR2J9Lcq0jhEGJkF+I33vBKg5BHa5PdofbGbjCrLxJiZ6n7hWwb2rjLaOiPa4iT
-	 pNUPMCdohFdkamhGB0YL57+aOhnB0t+4lXdRr1vrXg7hXMs3zvyvYSzjtorNx0QxWmBSG
-	 l+i3X8Ese/+XRDON97eKyn9h/pVEC4v9OnEFPEyHJrDbwE2InylvdRY6OrLuXhtJt8wMJ
-	 UadLEZD+IIq9lYwVj2f9Z2Es+IUA4dES06fEqrgSm1vye9yDkkvu++ntxA24P4U/gCQ==
+	t=1795691057;
+	b=QK9rvemU6RbRUQzc/4ZdYpGC88FZ083Hu+c5xnwyI8uQODTQYMwE6qLuTyT6n08dsyjs
+	 9z0lo7JJ7MLZUHHjqhYV17T3VXd5S0cSWgkY/K6H8e7iUseEoXyyOLAoSZTN0/0z9+sOz
+	 T3iDJ1rykdB5jJh/Mxn64+Qd+/AVRag1SQUSJysseciTo0v4PlMh+JTe7+5pEeV3sWgna
+	 18GijPsE7VC2mT1CpTQ5RA2Lq7wkzEA/vADygzPz3tYOEQCmeUkzTn60ILbOMlXBLuok6
+	 mbl6RTDmpmlJ7fWcyYOfUWnEx3+Xz+aYY8VUmlt1VX9GxMCX6iCdE3kjJhl3QqFjcdQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795691053;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795691057;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=/nwjqUcaW5Zp78qHpopVSyGYKIJhI+Si9U1eIi6rdLk=;
-	b=HWdklxva7EmZmIQPdOd790G2v8vMG9alu1GbttbePzsC/0SXWtOaupSxlMKGm+gpJaWx
-	 JSB260YlOH+6u1Dx32eeZESt7E4DfNrqjVfOPTjblpzuqh+/zBO+mFvi+jYxmjhgrtSDk
-	 O7JFJIWXGzQisWuiWyq6X/b/L/k+ChPR7XkQgJ81TwYv5gcsAI4Cl62OsqLVw1+my5re0
-	 l4PFh4fZUXrUD+B390orkeyOVFveZ4DM9R3UVnFI513IJay+e3cZ4q0UK2vG8qxIbqrRc
-	 PurKDHkFg3GTyuknl1Vyb/TBhrTnTErNRlZZ8O3vcaWPixFBeAkV4uydz8+ebxKVvIQ==
+	bh=yGB59SBjlpRs8qv1kSysD4piQpSZ0FrwanlgMxtvFqk=;
+	b=pA5XD7avjyVec80ZryD5ctTCP0F5vvkcie9ILNw4Uw02DJnI+xRL533l9W4w5MQNBEG1
+	 TplS7kEf10DsaUPj5kX44ZvebL1541/6TRktwg8mG1GseL0t/ix7KhC9GbqTrCv3SkhDf
+	 6DrvdfoN0mg5ghv584XTbSW/U+iN3/dTIFG5D5jrYcVDqIKrRdx/RrjCpkUj0LIQprZ/g
+	 IXTjNRDDokpQi93DkxcJmlYyMKux6msPAgGu2i+A9QjMG5cVe87BVF/NQg9Y+nNYZYaxz
+	 G3G/1PhuD76Grdgprh+hMpI6S6GE4mrxX2yxUi9v9fbtxeQdkePuwWlVoZ9OlL3kKlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QiUsCJTG;
-	arc=none smtp.remote-ip=209.85.214.182
-Received: from mail-pl1-f182.google.com (mail-pl1-f182.google.com [209.85.214.182])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLFsS6mJ;
+	arc=none smtp.remote-ip=209.85.214.176
+Received: from mail-pl1-f176.google.com (mail-pl1-f176.google.com [209.85.214.176])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F420C606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:04:12 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F420C606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB44D606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:04:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB44D606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=QiUsCJTG
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-2f046b0adc0so39887655ad.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:04:12 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=aLFsS6mJ
+Received: by mail-pl1-f176.google.com with SMTP id d9443c01a7336-2e9ae391a05so48295585ad.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:04:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795691052; x=1796295852; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795691056; x=1796295856; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=/nwjqUcaW5Zp78qHpopVSyGYKIJhI+Si9U1eIi6rdLk=;
-        b=QiUsCJTGvcU14aKahjy326GS/K3Pkvg+8XrMFamAOaEz67LBhDfugGp6lARsuUHP1M
-         uSnU07j2h7LFNVby/kPtFlY5+brWO4+lDpDBPOzTHu3pqbTc4NFqdsP6CF38aQQ6dhMt
-         EpLlXOVe/kyM+SSfEoXiF/8ZOyUMS10uWly1nzpoJ/fwEcjIr89zvDzdGWsvy7MulN9l
-         CPUeWfwDuFd2rOnxEjJFEAQ4D6jXliBtDKDMpOLQXTcEl14dESF63Lzi7Iq23WXdkg0z
-         fDEz9qHcyURSy1Xta6byy8NPVguHCCWAW0KYy8JSyReYnNJKt/Y+/1+c0oFfjrqHz+qb
-         y5Pg==
+        bh=yGB59SBjlpRs8qv1kSysD4piQpSZ0FrwanlgMxtvFqk=;
+        b=aLFsS6mJa2uveTsTpmXrIR70CLi6uSpK5Phds16artD5DT+cTNNErAieAWHYQVdt7r
+         E+Pwe9GNz3Kn7Wt+WwmgHjwUNwqUXSe9FatUGytnqeFWrP5Y4q6p/wH7m7FULtJBKKZ+
+         b4a4tHSaxqmUpMYwFn/uW7vV5a6lbapbrXObMtQhTIiAvpOY/u1ehs/Pi2yUvE61A7uh
+         Jt8tUjQDllqkTUfoZI7xDxaHRaFudBK8gZ8kFleVtikiQaDgDJM487UAz/3BLtIDfb1+
+         6qrOmSVMZ49BfWMoHd13V3fhn1ZXs5WILf1Ac13zMqbDgBH5Wfn3KYLWy9qDhoQzaqkg
+         JZlQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795691052; x=1796295852;
+        d=1e100.net; s=20260707; t=1795691056; x=1796295856;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=/nwjqUcaW5Zp78qHpopVSyGYKIJhI+Si9U1eIi6rdLk=;
-        b=imuf6x8wtOW4kanuf9zX3M52KdH5Ei6jz07g3XbhtC9sFAfrWaijH2fi6CdQqnh5iL
-         h/dTZBliyWoZkE1+Vki/471gGRT2Ys2C99WxgFSF9aC9tML7t5P6Sxb1w4PmndJVr3I2
-         eo5yYSW+iL0HxPq0vyHCt+QIkisSIWS6u7pPvCda3AyMmvRktYCPVLNP7xyJIKtocg4Q
-         qe2WM2H7z6w7G1NwnuqHzKHkrsPhzLYVSZDBHIZGuiSuPoD4cfwQnSJ6qgixWdIWRmSe
-         f9Lsp2QrC+/NPK8TDPCte/myrkqg5ita1h7D/3sZF7zqptGDHw0lL5nTk8BOws/OoIuz
-         W+eA==
-X-Gm-Message-State: APuU4Z/mEOX2MVgcH/TLdBLKcygjh9HLSCuZ9f/IohWwPvUUkjiPL7Yv
-	qSQcbSLFE/I14OF79UfWxKOrwuoXf+rcykrsS6a0UH8vBh7yR6gr7tSASsKiMNJ1
-X-Gm-Gg: AZFdTZdcHYgk12Xg0of+CcC16sQU8ZJtl4ZKDQZ9GRMwa6RMDZdpmhwl/2ySGfW86q4
-	NqX/xX/uxqL3lVUr7d9+3sezL8R55bY9uYADLl76mF2RfNc6/AjNDzaKO6laxBwr8pR2Z9KDO86
-	S7axza+NeTaYXMphdfTL9SI3E38xLr0MuuVXxpT++4qscSDXf1ZsJuWmEj9fzDuJg2VQB/Yh8k5
-	aVSIziwW5OgsgTri5IjCmvscQNfT8Sq4n36yfjj9/lnCgM00zg688vZyTtmNz0NOE5u8sWJS/kz
-	l9492N4OHwqJEV41TOaC7QYKCAdRBfJ2YD76KdCg7udPfZxevX/PFwyG4XRK7ITJvR2iswv5AkI
-	Aja7q9ap5TV8VtWcSGcZuSyF6hvu8JhRpG1+sCqbyAG3PZ2JWVYq7YP3/wdwEFjW4bDYIA4ML2w
-	iaJPmyEGOF1GE473uJmAK5ZU9SexcSz2EeI7JeTtgbzbHLi3kb3KcQKkc1gV1VXarYsfjlSGhL3
-	NJFOZwik7YWIaIQYIxlStc5FzHIiBiF7CMdgXK8WKwhMv2QBJYwX7DqcO5N0xmLHPCF8EatxS9N
-	BFjMcTQGwfQwZ0+PZ6KxfRNQo7PcjNGSnZ7Zdt5MUgPYXXNfOz47Zs5n
-X-Received: by 2002:a17:903:b0e:b0:2ef:f9a6:1e5f with SMTP id d9443c01a7336-2f03f144747mr184284375ad.27.1795691051981;
-        Thu, 26 Nov 2026 03:04:11 -0800 (PST)
+        bh=yGB59SBjlpRs8qv1kSysD4piQpSZ0FrwanlgMxtvFqk=;
+        b=0QTX03E7tYNdAIEH21UOF3h/2lKzx4j2UzaIi026bIBGwrb2qhnHJhjZsCJcjLk0Jv
+         m+mtF/SPQrCx2HxWl/oNb+IuSBFJJ7oNX6+du40NfnDSThspzfdXm8iBURVuoEWZEMIH
+         lwWeYStPZJAS/lJasZ2ptdoK4CxOLxpmy+EWnYa6QTr2nigrGDGVlchIMKcmtdGOxUww
+         K56URfrdHm2WyR8TkJh2JvFkcI0BO5fZ8NQonf9mBU9KM4EzUNvenIviLoX4LWNHGA0u
+         zpCJnmoAUabEUbVLWb7GS7aIjzklZHA23a7Rh0QOHPoi1OL1kr+mZQV+5ozG2rgQAHsY
+         almQ==
+X-Gm-Message-State: APuU4Z9HRu771x5ZRdNwS1IqXmBdmNZyeehTMQj/Vu05P38i4zRK2aW6
+	gJUv+QzKBdL5/EYaqmHXtkSgYpnR0x8+++bOQ29NsepRs4z5ZH+2HmueqCZ4wPI2
+X-Gm-Gg: AZFdTZeVG/N8bgE4RvVthp+8HN86SxeRuy5FO+4cdpRgd5mb8lye1VGFOiNYssjAoxL
+	fhJzpWbmnkn2tntDGnk7xFJIlgM4E4OefQ3APWG3m/s8ThAVR0wwbNUTdUFjPQpgZA/Y7AM3i4Q
+	Liusj3GUzAfQskCaeK+pWzPgbANT58CZ56pDLa3ap2mwRNBztGlQ90S/H10hNY0SC7qX8ObhqZM
+	nsyVfKAaeYLH7u1yqteBiXDy5pI/ez6Ql3UXZjkXA819ltukTtWEBvrdsozC03XBz5LlvZIlt24
+	2x+3lrODUQwqQSCclshUrkHVc8V1oJIrioD/P0XwF38MVnItycMiraahDzCFYtb4jSdg8pTDPmp
+	a74D1FxZsXq9wo+W7Aqq/tLP+2Gn2BQVIJTcC3A4lJmV87pNR3ejxOCiq5dJr+eFBVmTG0IVhXE
+	RmS/82zqwZINqpecq9sSFTVvIJR9N0ZzrXJVgFQSDoA1CjdMPSwctbQve9mOLEefDDJn/T6RRuz
+	gPXx427YZelbZyw6iKJqV2C6lSXn2x8ytMWeUsmrRQKNwAEfaBEs3OAUhW7H+fmiHs2R6qcNAtD
+	UJEaV4jYPpzVAmlRH/sq5LwILhTzlDbKqna872NNMs9Iao2Ck6s2Xnze
+X-Received: by 2002:a17:903:3c65:b0:2f0:2204:b3d6 with SMTP id d9443c01a7336-2f031efd630mr181222675ad.18.1795691055877;
+        Thu, 26 Nov 2026 03:04:15 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac5:661d:3050::4d0:7d])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a74sm104525725ad.12.2026.11.26.03.04.08
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c1a74sm104525725ad.12.2026.11.26.03.04.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 03:04:11 -0800 (PST)
+        Thu, 26 Nov 2026 03:04:15 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -89,9 +89,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Zhangfei Gao <zhangfei.gao@linaro.org>,
 	Dongpo Li <lidongpo@hisilicon.com>
-Subject: [PATCH net 1/3] net: hix5hd2_gmac: unmap input TX buffers, not returned ones
-Date: Thu, 26 Nov 2026 19:03:03 +0800
-Message-ID: <20261126110310.344521-2-mmyangfl@gmail.com>
+Subject: [PATCH net 2/3] net: hix5hd2_gmac: release TX SG buffers if using SG
+Date: Thu, 26 Nov 2026 19:03:04 +0800
+Message-ID: <20261126110310.344521-3-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261126110310.344521-1-mmyangfl@gmail.com>
 References: <20261126110310.344521-1-mmyangfl@gmail.com>
@@ -106,32 +106,39 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-hix5hd2_free_dma_desc_rings() released DMA addresses from tx_rq, the
-"return queue", which could reference memory already consumed and freed
-in an earlier round, or not yet reference buffers unconsumed from the
-input queue, resulting in memory corruption or a mapping leak.
+The commit in question added scatter-gather feature for TX queues, but
+left the release path in hix5hd2_free_dma_desc_rings() untouched.
 
-Read the addresses from the input queue, tx_bq, instead.
+Give the release the same branch the reclaim has.
 
-Fixes: 57c5bc9ad7d7 ("net: hisilicon: add hix5hd2 mac driver")
+Fixes: e5222b1c3f21 ("net: hix5hd2_gmac: add tx scatter-gather feature")
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-index 12a5657653f8..46386a0954a2 100644
+index 46386a0954a2..0d4701d1e173 100644
 --- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
 +++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-@@ -816,7 +816,7 @@ static void hix5hd2_free_dma_desc_rings(struct hix5hd2_priv *priv)
+@@ -816,9 +816,14 @@ static void hix5hd2_free_dma_desc_rings(struct hix5hd2_priv *priv)
  		if (skb == NULL)
  			continue;
  
--		desc = priv->tx_rq.desc + i;
-+		desc = priv->tx_bq.desc + i;
- 		addr = le32_to_cpu(desc->buff_addr);
- 		dma_unmap_single(priv->dev, addr, skb->len, DMA_TO_DEVICE);
+-		desc = priv->tx_bq.desc + i;
+-		addr = le32_to_cpu(desc->buff_addr);
+-		dma_unmap_single(priv->dev, addr, skb->len, DMA_TO_DEVICE);
++		if (skb_shinfo(skb)->nr_frags) {
++			hix5hd2_clean_sg_desc(priv, skb, i);
++		} else {
++			desc = priv->tx_bq.desc + i;
++			addr = le32_to_cpu(desc->buff_addr);
++			dma_unmap_single(priv->dev, addr, skb->len,
++					 DMA_TO_DEVICE);
++		}
  		dev_kfree_skb_any(skb);
+ 		priv->tx_skb[i] = NULL;
+ 	}
 -- 
 2.53.0
 
