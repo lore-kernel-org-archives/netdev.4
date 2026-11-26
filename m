@@ -1,47 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=54.243.244.52
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657762;
-	b=xh5IZtXxWVlgTPA8mBsv8qZwh1eaNmyX5/LEsaCsf52nVWc7BUN7XoFCDrAzk6zeClM7
-	 tPKkrqqJH5exwKDqhty5z3rldGJsIkmshZhR+KUyTVc55nRgDDFyt8DaKbuhVsl0oqlWO
-	 C+WD5oAfokQeKBJH9TJYvbpXj0QGPZE0ypnwnGpBZT29DTeYQwCEQHJPIThjd0AYT1vW7
-	 J5WSj4jERi+MIByBfz0+fcBPVoYt152mam543TrsiBQkMTyv2IIdYfem9sD8GzUMI6twx
-	 z0QqA9ViarJ0IJoL72Nv0JFdtstjDdrk18kgmhs/Jln8JYmZ2weh3/7SXyaF0IdXjmA==
+	t=1795657989;
+	b=IajSquxG6Yjqp7bHTxPsKEq9gsaCeTs5Xii7AIBnhIl3+mgSwPvvnDEWxa9J2YQVdz46
+	 uXhOGJIin+lrMgWz6is2/Xt8TvhaRhnzR/KUen/vo0e2EZ3sAcSmNUdIyRh2ysL58A4W0
+	 oD+Elfo/7hjQnmUEiX7LpmAGgjR1riulng5ipr8wY5YgCAu+sAYKgVofP3tqSakW3LKws
+	 5y5OG4Uq0mRy/sTl+d9Pi5aJ70pKUjS9fJr/iGoTnxedVcBWPPab6+NUHiBA3EUdtB6HL
+	 lPtTn7lJMDlMyrHmN2pb8wivoRjKtYtRlj7k19f0jsS3VFGvU87Oo83SzMOej0uiVzQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657762;
-	h=DMARC-Filter:X-QQ-mid:X-QQ-Originating-IP:Received:X-QQ-SSF:
-	 X-QQ-GoodBg:X-BIZMAIL-ID:EX-QQ-RecipientCnt:Content-Type:Mime-Version:
-	 Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
-	 References:To:X-Mailer:X-QQ-SENDSIZE:Feedback-ID:X-QQ-XMAILINFO:
-	 X-QQ-XMRINFO:X-QQ-RECHKSPAM;
-	bh=one2rjhMV97z7CnhF3g2QeZCaS5E0FMAwJy7eHM6zDU=;
-	b=oU1RrGQ+/qaYKqAASHzRf6ACzDJaUx62ufgFABHmoM/81u4+r8VKBfwzfMOMkmpMz170
-	 dNjbMj4HYIY2xwt3xk53UTazAn3gIr2kGTZivTGZLFviTlXPsJHmPGWvkY96pj0kwus4q
-	 wqLTvxmtCdarUOEqJ5ipfIzDmPlG5ipdmCRHmo5CU8cGsexHHjx7NeZCM/Vamo1c3aiKY
-	 25E0NvTVZHm8GZojeSmMU63E99vxHDGhCoPGLHHMQLS4GqPUBqh+B7Z6pu2NHQC7Cm18f
-	 ye4e/sETT1dYFq8SFBYXjDrzMjSx2CNFFws88i0eT1wXbjFoaGY10wuYmoy+UVSSiJw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795657989;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
+	bh=XYoKNhiIRj7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=;
+	b=fIQhFH7zFMc0Ku958Nc2zlafp1QZqlFqkJvwMB+V7/vu17NZKvtoLP5vm3qBXRrWtuz4
+	 rjIT6NAPqXIni9LeF8Dhjfkrd2I9ColXEqVnyrObXaMK3IeH93G0VJy7FG1gQCn8+9mi6
+	 9hqPBoy49O84v2zJWwxjkI1eVz44W+29Aeevdx0+9lFG/za91teydp/Bxfs7YlghnBooL
+	 xGBvpMZrmO+7t/kMlcYTDVA5H9M+m8JTcwuAOHdskeiAQfU2omfwBqONrOvwPflLWGzW8
+	 veTa1ljs7XGeH8nEVCtGtwZuJgEymliDOqYPNnk6fIq8DPZfCF7OqBgk/9pfBr2Xupg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=net-swift.com;
-	spf=pass smtp.mailfrom=net-swift.com;
-	arc=none smtp.remote-ip=54.243.244.52
-Received: from smtpbguseast3.qq.com (smtpbguseast3.qq.com [54.243.244.52])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E20DA606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:49:17 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E20DA606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=net-swift.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=net-swift.com
-X-QQ-mid: zesmtpsz5t1795657669t32d10466
-X-QQ-Originating-IP: IufVKh5qgEZlgIZbILdC8d6X3ty1stUlAcQhZ/Ee9RM=
-Received: from smtpclient.apple ( [122.235.140.99])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Thu, 26 Nov 2026 09:47:47 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 8537531309841994138
-EX-QQ-RecipientCnt: 13
-Content-Type: text/plain;
-	charset=utf-8
+	dmarc=pass header.from=stu.xidian.edu.cn;
+	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
+	arc=none smtp.remote-ip=162.243.164.118
+Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6718B606A31E;
+	Thu, 26 Nov 2026 01:53:05 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6718B606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
+	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=XYoKNhiIRj
+	7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=; b=rqERrlG7xqtDTSJgHOWbLTNZwB
+	5XZ2Gl6Iu9IaqLGFWX4fg9drRIIjsxPewxFYt06y+894G/zb9zgeZf9DwChv9TZt
+	gw4WyvN70udSuaGu+piU/b9WROQpLe8r4bVGkggWHVm7P2ClhcVGbmtmHPB33Z9x
+	S+F3SyHFR86rAR9c0=
+Received: from user-virtual-machine.localdomain (unknown [113.200.174.10])
+	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkDG7ALokAdrmyg9Ag--.40827S2;
+	Thu, 26 Nov 2026 09:52:41 +0800 (CST)
+From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org,
+	Simon Horman <horms@kernel.org>,
+	Bin Yu <byu@xidian.edu.cn>,
+	Cheng Wen <wencheng@xidian.edu.cn>
+Subject: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
+Date: Thu, 26 Nov 2026 09:52:39 +0800
+Message-Id: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -50,110 +61,83 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3901.200.71.1.16\))
-Subject: Re: [PATCH net v8 2/2] net: wangxun: access queue counts consistently
-From: "mengyuanlou@net-swift.com" <mengyuanlou@net-swift.com>
-In-Reply-To: <eedb9d27-1738-4911-bdf4-327963151e96@redhat.com>
-Date: Thu, 26 Nov 2026 09:47:36 +0800
-Cc: Simon Horman <horms@kernel.org>,
- netdev@vger.kernel.org,
- jiawenwu@trustnetic.com,
- duanqiangwen@net-swift.com,
- linglingzhang@net-swift.com,
- andrew+netdev@lunn.ch,
- davem@davemloft.net,
- edumazet@google.com,
- kuba@kernel.org,
- hramamurthy@google.com,
- jacob.e.keller@intel.com,
- przemyslaw.kitszel@intel.com
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <DA953E71-9604-4728-8401-20C2474096AE@net-swift.com>
-References: <20261118081329.39551-1-mengyuanlou@net-swift.com>
- <20261118081329.39551-3-mengyuanlou@net-swift.com>
- <20261124112414.GJ31322@horms.kernel.org>
- <15430CE6-8AD6-43CF-AACF-1434B5EB666F@net-swift.com>
- <20261125113050.GS31322@horms.kernel.org>
- <eedb9d27-1738-4911-bdf4-327963151e96@redhat.com>
-To: Paolo Abeni <pabeni@redhat.com>
-X-Mailer: Apple Mail (2.3901.200.71.1.16)
-X-QQ-SENDSIZE: 520
-Feedback-ID: zesmtpsz:net-swift.com:qybglogicsvrgz:qybglogicsvrgz5b-1
-X-QQ-XMAILINFO: MTUDNdg/0gsJKcbYNLrpxAgJYZHDS7q+9vUWP1epQbSpVb8hB+v8dRnd
-	JzPKyjkRyYpsAWzpl0AZNwtuNe4x1bADmHB7/6Z1LFQSAWBqKJlsTbUp/O0n8TcbNTzO+8Z
-	JgOlv29x0SdTEfkUcEx8/2ENqptodLNiN28OoIpFUAAGRykEIRCiXfwv1WjXi6qG+Zkb1KL
-	kQ81YrDhkzKfysMMYGAg9JKjCQJDZDwWsDXb2BjK4bq0ROx6OO1l/+22UFSuwL5QJjdDwjF
-	73iCJeoHuGdv1hYLk/HQ+CWA2MA0nvnf2+U6EqdFKHZRvSL+DynBtgpkbyEymIAdhIx42eP
-	/IYplpH8iX6Tk/TMq9rtzaTxfEnEe36TaHATLyY80jUDCleOc2C26Onne1PLBNbM+/cCkLG
-	tusEEaGAjrewx5Cs4CgBG3Ar3nNTRy85ygMa5ndY4ggRBPme5hNojZXYSZmwp5XvzriPxFO
-	Eo7JIKEfXVvAZN6alHF6dYbJvoo8eeXoSOnbfXf/o7Bo4GfrwHW0lfW09oNwXSl11Qr9Zi0
-	cCBXGROoXoVtDIu5GQuI/BJm89gX4xiKv9yk9ACeRErEVRnlKnk0m7T3rVzDFehEz79ObUC
-	NtlVg8YVslDWFy+xThjt3y/0+KwGqZY3NZOT+aug7Icqrt6Nji40FQu+6z87IrivwM+mXvS
-	F4Z+9oyH8geJwAnxQK6wj7kc4PRnAL0Ch7TG9cCHtZFlY5tqUcWgEJ6QJ2hqPREfLQdQhxZ
-	7P3AIOZyQjd+aVGJp9h1yOUoVqGaH//qimc0JOUW5VKS+il2Xo4ag3KMQyofeeZxQ8fukcq
-	FZ3E8AKbOvOedlwPeBrkmC3SwA6g0Q4rRQw94UOXqbNgz30AvbXFPAa6jXtF3S0MVAhQx5U
-	vlvAnU2nF9uHlIQ/HaUcKf8G8buXYL/97kk58npXCSr8uMdL+hZkxDdOIiyNc6ymktC5p5p
-	3ru6NPoqBIRFWwHI0WMHuUMbSJ8CPPBkZfZ5cm5XGeVZuX5rfJK287jU2ZMZovVTNND0Gin
-	iy7Dp/axefdeevUHgHUgt76xqogHs7BUjI7wIJ/yv+gNNfBS/7uKDUfn09bvbvQc42JERe0
-	fzZhARO7P/wTg+3b2RrufL3DCP2FRceHx4QFJXIlpSufzBNIiBUbsU=
-X-QQ-XMRINFO: OD9hHCdaPRBwW7LXK9njS5c8ak9rhTx89g==
-X-QQ-RECHKSPAM: 0
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:BrQMCkDG7ALokAdrmyg9Ag--.40827S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7ArWfZFy8uF15uFyDCr13twb_yoW8Kr1xpF
+	Z8CFyUCrWqvrWkCan7Wa1avryrJasxJrWj9ryUtw15Zw15ZF4rCFy8Ka1jgr15ArW09Fyx
+	tF4FvFZ5Ca98C3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
+	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
+	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
+	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
+	8E87Iv6xkF7I0E14v26r4j6r4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x0
+	82IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGw
+	Av7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48J
+	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVWkMx
+	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
+	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
+	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
+	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
+	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8gzstUUUUU==
+X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sG+dmIAwAAsE
 
+ethtool_get_regs() passes the user-supplied regs.len to the driver
+unchanged, including zero.  A driver that uses that length for its I/O
+then issues a zero-length transfer.  Such a transfer has no data stage
+and the USB core treats it as an OUT transfer, so a driver submitting
+it on the receive pipe trips the direction check:
 
+  usb 1-1: BOGUS control dir, pipe 80000380 doesn't match bRequestType c0
+  WARNING: drivers/usb/core/urb.c:411 at usb_submit_urb
 
-> 2026=E5=B9=B411=E6=9C=8825=E6=97=A5 23:10=EF=BC=8CPaolo Abeni =
-<pabeni@redhat.com> =E5=86=99=E9=81=93=EF=BC=9A
->=20
-> On 11/25/26 12:30, Simon Horman wrote:
->> On Wed, Nov 25, 2026 at 09:36:46AM +0800, mengyuanlou@net-swift.com =
-wrote:
->>>=20
->>>=20
->>>> 2026=E5=B9=B411=E6=9C=8824=E6=97=A5 19:24=EF=BC=8CSimon Horman =
-<horms@kernel.org> =E5=86=99=E9=81=93=EF=BC=9A
->>>>=20
->>>> On Wed, Nov 18, 2026 at 04:13:29PM +0800, Mengyuan Lou wrote:
->>>>> Queue-vector teardown clears wx->num_tx_queues and
->>>>> wx->num_rx_queues while the netdev can remain registered. Lockless
->>>>> readers may use these counts as ring-array loop bounds while =
-teardown
->>>>> is clearing the ring slots. wx_xmit_frame() also uses the Tx count =
-to
->>>>> select a ring and must not divide by zero during teardown.
->>>>>=20
->>>>> Use READ_ONCE() to take a single count snapshot in the lockless =
-readers,
->>>>> and use WRITE_ONCE() for queue-count updates during scheme setup,
->>>>> teardown, and allocation-error handling, including the VF queue =
-setup
->>>>> callbacks. Keep the existing NULL checks so a reader that observed =
-an
->>>>> old non-zero count can safely skip ring slots that have since been
->>>>> cleared. wx_xmit_frame() retains its zero-count guard before
->>>>> queue-index modulo.
->>>>>=20
->>>>> Fixes: 3f703186113f ("net: libwx: Add irq flow functions")
->>>>> Signed-off-by: Mengyuan Lou <mengyuanlou@net-swift.com>
->>>>=20
->>>> This patch feels more like hardening for net-next than a fix for =
-net.
->>>> But regardless the code changes look good to me.
->>>=20
->>> I think so.
->>> Should I resend this patch?
->> Thanks,
->> IMHO, it would be best to split the series in two: one patch for net =
-and
->> one for net-next. And resend both.
->=20
-> No need to resend. In fact both patches must be applied to net-next, =
-as
-> the first one has a functional dependency on a net-next pre-req.
+With panic_on_warn enabled this warning becomes a denial of service.
 
-Ok
-Thanks.
->=20
-> /P
->=20
->=20
+A zero-length dump cannot return any data, so there is nothing for the
+driver to do.  Return success without calling into the driver, the same
+way a zero-length read is a no-op, instead of making every driver check
+regs->len.
+
+Zero-length register dumps used to be issued so that drivers which only
+report a revision ID could fill regs->version.  Those drivers return
+zero from get_regs_len(), and the core has returned early for them
+since commit f9fc54d313fa ("ethtool: check the return value of
+get_regs_len").
+
+The problem was found while testing the ethtool register dump path of
+an MCS7830 adapter.
+
+Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
+Cc: stable@vger.kernel.org
+Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
+Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
+---
+v2: handle this in the ethtool core instead of the mcs7830 driver: a
+    zero-length dump is a no-op, so do not call into the driver at all
+    (Andrew Lunn).
+v1: https://lore.kernel.org/r/20261125071649.7052-1-25031212351@stu.xidian.edu.cn/
+
+ net/ethtool/ioctl.c | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
+index 80b7930b3fe0..e8af861ee5de 100644
+--- a/net/ethtool/ioctl.c
++++ b/net/ethtool/ioctl.c
+@@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
+ 	if (copy_from_user(&regs, useraddr, sizeof(regs)))
+ 		return -EFAULT;
+ 
++	/* A zero-length dump has nothing to fill in. */
++	if (!regs.len)
++		return 0;
++
+ 	reglen = ops->get_regs_len(dev);
+ 	if (reglen <= 0)
+ 		return reglen;
+-- 
+2.34.1
 
