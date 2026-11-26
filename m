@@ -1,87 +1,107 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.50
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795682967;
-	b=etViDftUWSoUKgi9QPgy6+PKrsaOxDgcfLk5g0D5G1IijoTZ1804YoQMFWqXVKF4Uxiw
-	 +TLLxmmPXtnt++LvAyrAdr6MnJmrQFJ06hGaIAuVWTUvCyoJNIxe/ILUcUc3VkQiKCHRc
-	 JwsZhZi5AQj6796XBBayvk/WKzI2y1QJkd7dEsoU1qiZ+bK6JbF6j7vEVa1prSsWOxVvu
-	 GnWq32opiafzQIAbeKf5EOD6cyAsOsmqzDHEMZpeVseTJXMCnINMlYOgcvuY7+NGiaM0/
-	 ErkyGWjo/T/8txHpGFtud8qG/U+T56a3dUchfS+xaIypwyUOeY+jpIiYh8/cZGrjBgw==
+	t=1795683076;
+	b=hIhAtHe/4lqheF6Zdfh9RR/9zlgP8i72GZsASvfP56kb4AsqHgCnqiD20t3k5mP8lTZK
+	 Usy5dQqFYaPdCYtGfwvXAqLs4sRNlM4XGBrez6Ut1zHAIHOfRTm78cmKJGyrL6RUiC2Gt
+	 B1eNxI7hvalTa0bTsnUQl0F26+cXWzD8k86jZrS8ObC6cq9Y17vbuFpS5rnnU6fWskU51
+	 EU4iXonivrvXdBg/dKoeI65LHmLQZsE0NsMPWt59U6isQhZj6MNWwLkdEc2NbtbF27Ih0
+	 JokrZxafD8a5rUvQdL6uv1U9D052TYPKGV9LEOtkTV3BYcjh4fmpZn3jVEbSCowhfXg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795682967;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Message-ID:Date:
-	 MIME-Version:User-Agent:Subject:Content-Language:To:Cc:References:
-	 From:In-Reply-To:Content-Type:Content-Transfer-Encoding;
-	bh=6Xcz3l/zZ6Iqj9au6rQ000kv3eoygO42XQVhjiRNctg=;
-	b=O21FoakXj7rMpsU6gkqLq8SNVGhdlLtUNZR9BDRgbvU5K6OEjQB4ymOs+B3Zr+PVoUz3
-	 jaDW3dyqRD+FofiuzYIcQvp7rJB/ad4zRPizEVDsEjBNVMRLssTqvpXJhs0QzpPqARFZ2
-	 65+Z+IThDPx9w1XcJuJj5pod1Els1k7UG78Ykmnh2kMs8m55GzCRhKwNV8ZBSa0onFk1v
-	 nlyIzU30pUzbAiuDbsmGrd0WiHtNXkb7+DmD34qxY2kI5GfJ4U7fttS0eCaIXqWKYFNyw
-	 +8V2lWouUBZDftpvMAlNWfdFxIXD0aPkji4snRQawrsVGxvhht2w+EpUMbzvEGp0zrg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683076;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Message-ID:
+	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:
+	 Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=4KgaJB5jGrUq7vsExVtlIWM7Dg+xBJA26WB8v2wHqu8=;
+	b=ttQKVEjJ6tmUwzjL/C/WvuFBHNtRsuao2tCFVYJkUSNMWiWdDrBXDD5M5xhkfXsccDJw
+	 7XzLQajPgrhwdTbamXkA178uJquWTnZJMlbPAWJ8ta4OsLlraJkOEMUJOP/exgozXPJ7B
+	 R8BzoInqWgO1U1huNaLfAfyP/AOhUxHblMI/g6Yw/1yVRhUxArIKDRkwkxviAq0Cy0Aap
+	 /b3mNogPR2HAqK0SdkqfWkWC1PvzYo7bKPAnq796HHCwclI86n3dxqDh9FMthRqz+NZIh
+	 GXSOU3YSCGJXaLhjqJzQ5KzIFI14/9S9B2x6q7C4HOcQW6BOD81ZlQLc/HP9X8+AuGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=blackwall.org;
-	spf=none smtp.mailfrom=blackwall.org;
-	dkim=pass header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=NnQCD0I0;
-	arc=none smtp.remote-ip=209.85.128.50
-Received: from mail-wm1-f50.google.com (mail-wm1-f50.google.com [209.85.128.50])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FRKbaUW1;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="f/YODFxl";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 47206606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:49:26 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 47206606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=blackwall.org
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=blackwall.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CC068606A326
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:51:15 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org CC068606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=blackwall.org header.i=@blackwall.org header.a=rsa-sha256 header.s=google header.b=NnQCD0I0
-Received: by mail-wm1-f50.google.com with SMTP id 5b1f17b1804b1-4a5b2be99a8so56359985e9.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:49:26 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=FRKbaUW1;
+	dkim=pass (2048-bit key, unprotected) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=f/YODFxl
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795683074;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=4KgaJB5jGrUq7vsExVtlIWM7Dg+xBJA26WB8v2wHqu8=;
+	b=FRKbaUW1yLtumX1IVyRfQEZqSTrI2WIv8VHtuj2ThA3qCcQWqNzxttgcgrKzjr0SVa/GXd
+	+UCOpoI2eT3EDkYtwiePjfUTqcKuTT/jDIBhK2cPfDIm93kbgsFd6pxbOMyrf2lVhZnfTN
+	oRwDNZMgSa1G5Gk5FDxKTHhhZIT6NN4=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-198-GvWWlorMMvmo4SPr5-9YRQ-1; Thu, 26 Nov 2026 08:51:12 +0000
+X-MC-Unique: GvWWlorMMvmo4SPr5-9YRQ-1
+X-Mimecast-MFC-AGG-ID: GvWWlorMMvmo4SPr5-9YRQ_1795683071
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-48e29c25101so2962733f8f.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:51:12 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blackwall.org; s=google; t=1795682964; x=1796287764; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=6Xcz3l/zZ6Iqj9au6rQ000kv3eoygO42XQVhjiRNctg=;
-        b=NnQCD0I0Gg0nUp7Md+Zohu8pUilderzxUcNpRTkIPTvwduhE73VpypZanTjlUdt46z
-         DNcBcj9Mtr69nosAuXWyHLg6XU9EOAPPiKX2+fKaFBOpPVXUiY0+s60unaCaBaVwBzSR
-         77iquBG4UyfBINmJfeoeYqsTbtAJddX12YcuZrfO5niAqv/WBeJMVRIXba7JRyfmGVAc
-         Byq0+fpDqr0TxF8jqL/54Jd67aKB9Xj2STWSox8XwFavgIekQKF5gMegQQ53pxJuKjU9
-         SysggfuZ+tR3j0xP0JjtmFH3FGAyf3mB91ZGbNVjvp/WCmGZQKVkBeslBOh93ntbDXKL
-         62fw==
+        d=redhat.com; s=google; t=1795683071; x=1796287871; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=4KgaJB5jGrUq7vsExVtlIWM7Dg+xBJA26WB8v2wHqu8=;
+        b=f/YODFxlKhNJ0Xj/u7qqXhIExHy/NSqq6zYtYMNTyhIsfTmOsH4QhjZu3pItWtY7IL
+         l0aNqJmPd3U519+ehI84/K13X221xF3ooI/bmvfiSQrtMPfCQmq03fv5v9GUXccuPl5+
+         a/L4PUjs1FinHNgurNCwTPwOAIy5LFBBS1n4Rv63vLSCrqiXhKrWjWExr99uqz2bXPxq
+         mEmBtwQjJKHIkksKQUEGoifPXV2W4W0JBj7eDQySHBp7j4f8JldQ/gh3eITVNvPbfNfZ
+         h3baLLq7v0YMCXSqUg5RwAfB6HWFsb47G9PAzJcURxkBVGVc3aknYCIvOGngKtZPwh+k
+         opBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795682964; x=1796287764;
-        h=content-transfer-encoding:content-type:in-reply-to:from:references
-         :cc:to:content-language:subject:user-agent:mime-version:date
-         :message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20260707; t=1795683071; x=1796287871;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=6Xcz3l/zZ6Iqj9au6rQ000kv3eoygO42XQVhjiRNctg=;
-        b=zd/1/6q7tt22jpLFGZDVl2S1CA0obp9D+66XCtrCKsc95qK+ealDgWs/S6epM7UD0W
-         f26Pl3Amu+allT74HSTyhS5QxAmFnR+AFPCHq72CxYosegvYT26PeE/WH6DB6WEq/0ba
-         HZrissBcMRXn98okmerr95VMKJiO5Xg6u/7u8JrEFPlamgJzQ8al460DKl0bOxO7L5Oj
-         psGElQbz+BOy7Py9V1QzkznAuRTe2O/BD9xJfEYGLoIWkTQHpjTW8EvqK+WB3LZmqlBa
-         cGw6TpJp8OdKDUZUeKmzoD8D3a/osivmb4711O5dudTKssSwXbZhBDm+egYI6dnqBw1F
-         mmDA==
-X-Gm-Message-State: APuU4Z9D9hqeY/68Vw4R33dh9j6qZIKMioYF1rAPrEbui23NKJZ/AYXV
-	ZWA1yE3o7K1aF/0ALQ8qFtF00YucyVWNvjLKrSiSZRbA4fjKNez7VaG6t3sKjG22eKgLh29tweV
-	fH1mcvHZosw==
-X-Gm-Gg: AZFdTZdsqivfr5BNICOo8XdFDmparT+116hMR/AKkZIxHTe0FbXuCMQrhJTdH5G7KC0
-	/DiqelqWLhKntsihudll7dmoLg1Xcgt0WyNrF2Ser6h8FomYim7MGQW/XgYcJZ+d5ydUOkfc16F
-	XK+BOU3mUm9kCGcOtdJiQDKwI84OcmougH1R4mwmLhimjBo98ArdmxdUaeyXKdxCpCi6oJ71nL5
-	ZQGUCFW+eqzUPqa2kcGDTBQlHnkQJ7neTeFSJ0pqAF1FVKWLQZnAtcDeGq7zeEna2vQhRLlNmsK
-	3UNrU9sV2CKu+aJBhaKcqxhsXhv+eZ5EgrdQcCfuTUjFWcSnAbIfgTHnd64cDSKBve+tqGOCCMu
-	s1I8u8mfejM/U0w6tlL63QSVMJvH5HtJ8KbVLzLH7zhhkbiCuBs5C3GptSXdp5dExI+Bsg2JYeQ
-	f62V1SwhKX5ka307f36ExmmZ3MmPey+R7xScOiRtuLKWSKW7QL7CD+wEzcTSVlaIi6lFX2FEneC
-	4kN649wBNPZdVwCXU4Xk7+aWamr/YozFjwyqCzveqh/QNHL/ns0B0LvgvwW78bUlz72dcgaGduR
-	OIFq6wPN4TYbVDGzNbA4Qh6rsEOfOQ4qd3iTRzK1yBq5zMcx+AnbvOw+jHOpUYYWMGhyW01l0yV
-	Nl1J/
-X-Received: by 2002:a05:600c:4e87:b0:4a3:59c9:a758 with SMTP id 5b1f17b1804b1-4bb88922c81mr410025075e9.32.1795682964396;
-        Thu, 26 Nov 2026 00:49:24 -0800 (PST)
-Received: from [192.168.0.161] (78-154-14-127.ip.btc-net.bg. [78.154.14.127])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b09bsm1080362335e9.4.2026.11.26.00.49.23
+        bh=4KgaJB5jGrUq7vsExVtlIWM7Dg+xBJA26WB8v2wHqu8=;
+        b=ma5V25exkVfgkd/bK+K3Yh8IRsBcyB2UKYYupllYKjjoyLa948v1CjMQ51xGj+b8oO
+         mFl+XipYTeTtAR04RyPQtueT5mt1SkB1TKOpK2aVBOViAjwF4i9JXCp3qp9SSSYcGwyL
+         vEyIGme7myXM8IPNrRDRLFxWOSpmF2A/E6LwMz0HiIdAIqTfLYfiV9NMpYYzGBA91AYZ
+         H4O9EB5je7oGR278ea+mAzH2QUllRPQwuPofqLbx+RHLEHFuU9TL0UqfDwZe60EneTX3
+         NtIarYiu5308ymv3dAi2bg5PENCjKTiQcjZNIl43bPY8ryVt1rMr2eSxER3lVQ0yhidE
+         vAMg==
+X-Gm-Message-State: APuU4Z8CzY5ahsqzlz9/9iE7IMzbJiCZm7L1WKr7HanZp84GJ4iyEFmD
+	heIRIg2NEQLtjks45YvXZGy2IvPImI0Dx442fSFNS+JXtxBvuEmbf1DiRmKF5TRxFgX5I4GOm10
+	6J3TIntjQniNTeEyLtAoP3RzrjAJL+NVj3CH64yCH6eVbC8O5rqH1Vbqd9g==
+X-Gm-Gg: AZFdTZdNiB/kdptWYbV1PrdlQRpD4Cs+WXZWg8xMX/ObLHu7aa/ctlTjtq12s/BMmzO
+	xdzrOk9I1UJie4CXH1S1uTLk4NcpDKspGwFjZMbbljmG7Ai4dJEU9zJXmkwiSFeCiayPYUzq0bv
+	8RhMOob5X/+fMJE/WmXKd2XqY2AlysNtMGykJp8hjsBh8evMlxSXuCrXhyf0Y+KRlqL7FfRoMZ3
+	9PcBFTJAkmhakdUg8yQVMpIYfO5nADAgbHjpqW8q3rXM/sCTzmGm4SLO0vEqUuwYl8Y5Xv5ltyq
+	KsXt/2JDUWWGW7scaawuG7YPajHiXCyhkxS96TTYV5H+NJCMEKAIr89GyXopxmOZq715XwtBJ4Z
+	TmTP8C1NCSDrOgsNkrd6+a4EhuPZC9HSK6SyiJkNU2fIMFCKSyTxsC9Wysw/9KYvOl/mDFbGNRq
+	h+LBiym/ajKcElKHLeqCUKm0h0Wmv5aGFR3b+hqZW1zz2A
+X-Received: by 2002:a5d:6691:0:b0:4a6:c3f:9d0e with SMTP id ffacd0b85a97d-4abb3d2c0bemr28772247f8f.44.1795683071374;
+        Thu, 26 Nov 2026 00:51:11 -0800 (PST)
+X-Received: by 2002:a5d:6691:0:b0:4a6:c3f:9d0e with SMTP id ffacd0b85a97d-4abb3d2c0bemr28772196f8f.44.1795683070961;
+        Thu, 26 Nov 2026 00:51:10 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6c4353d6sm37852308f8f.56.2026.11.26.00.51.09
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 00:49:23 -0800 (PST)
-Message-ID: <cea8eaf8-ea5f-4165-84ff-a8b2a944ebb5@blackwall.org>
-Date: Thu, 26 Nov 2026 10:49:22 +0200
+        Thu, 26 Nov 2026 00:51:10 -0800 (PST)
+Message-ID: <d3555d86-a7a9-4ff8-9e23-04bb3e351de7@redhat.com>
+Date: Thu, 26 Nov 2026 09:51:08 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,93 +112,45 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: keep skbs with a prefetched socket out of
- gro_cells gro
-Content-Language: en-US, bg
-To: willemb@google.com, netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, davem@davemloft.net, edumazet@kernel.org,
- kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, ast@kernel.org,
- kafai@fb.com, joe@wand.net.nz, daniel@iogearbox.net, bpf@vger.kernel.org
-References: <20261121160204.4024204-1-razor@blackwall.org>
- <179548941922.3135.9577858774980848901@kernel.org>
- <38460544-04f5-41e0-b267-39c155bb08bb@blackwall.org>
- <willemb.1b39ecea58ba6@google.com>
-From: Nikolay Aleksandrov <razor@blackwall.org>
-In-Reply-To: <willemb.1b39ecea58ba6@google.com>
+Subject: Re: [PATCH net 0/6][pull request] Intel Wired LAN Driver Updates
+ 2026-11-13 (ice)
+To: Tony Nguyen <anthony.l.nguyen@intel.com>, Petr Oros <poros@redhat.com>,
+ Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+ Jakub Kicinski <kuba@kernel.org>, Jacob Keller <jacob.e.keller@intel.com>,
+ Maciej Fijalkowski <maciej.fijalkowski@intel.com>,
+ Magnus Karlsson <magnus.karlsson@gmail.com>
+Cc: netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
+ horms@kernel.org, Marcin Szycik <marcin.szycik@linux.intel.com>,
+ Aleksandr Loktionov <aleksandr.loktionov@intel.com>
+References: <20261113231225.1864810-1-anthony.l.nguyen@intel.com>
+ <20261118115915.116177-1-poros@redhat.com>
+ <20261125124652.3843638-1-poros@redhat.com>
+ <81c519b6-2d94-424e-8cfe-22ed8c1d728b@intel.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <81c519b6-2d94-424e-8cfe-22ed8c1d728b@intel.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 
-On 26/11/2026 02:36, willemb@google.com wrote:
-> Nikolay Aleksandrov wrote:
->> On 24/11/2026 05:03, netdev-bot+sashiko@kernel.org wrote:
->> > Thank you for your contribution! Sashiko AI review found 1 potential
->> > issue(s) to consider.
->> >
->> > Critical: 0 · High: 1 · Medium: 0 · Low: 0
->> >
->> > If you believe none of the issues are legitimate, please reply to each
->> > issue of Medium severity or higher and explain why the AI is wrong.
->> > If any of them are legitimate and you plan to respin, please let patchwork
->> > know by including "pw-bot: cr" as a separate line at the end of your reply
->> > (one such reply per series is enough).
->> >
->> > - [High] The fix is incomplete.
->> >
->> > --
->> >
->> > net: keep skbs with a prefetched socket out of gro_cells gro
->> >
->> > This patch makes gro_cells_receive() send skbs that carry a prefetched
->> > socket from bpf_sk_assign() to netif_rx() instead of the GRO cell. The
->> > goal is to stop GRO from clearing skb->sk and skb->destructor on merged
->> > skbs, which leaks one socket reference per merged skb.
->> >
->> >> diff --git a/net/core/gro_cells.c b/net/core/gro_cells.c
->> >> index 31352cac355ce..4e8b9c3cd7da0 100644
->> >> --- a/net/core/gro_cells.c
->> >> +++ b/net/core/gro_cells.c
->> >
->> > [ ... ]
->> >
->> >> @@ -26,7 +27,8 @@ int gro_cells_receive(struct gro_cells *gcells, struct sk_buff *skb)
->> >>
->> >>       skb_unset_transport_header(skb);
->> >>
->> >> -    if (!gcells->cells || skb_cloned(skb) || netif_elide_gro(dev)) {
->> >> +    if (!gcells->cells || skb_cloned(skb) || netif_elide_gro(dev) ||
->> >> +        unlikely(skb_sk_is_prefetched(skb))) {
->> >
->> > [Severity: High]
->> > Is matching only skb->destructor == sock_pfree enough here? An skb that
->> > got its socket from bpf_sk_assign() can still reach gro_cells_receive()
->> > with a different destructor that owns one sk_refcnt reference per skb.
->> >
->> > One path: bpf_sk_assign() at tc ingress attaches a non-refcounted socket,
->> > such as a TCP listener or a UDP socket. It sets sock_pfree and takes no
->> > reference. ip_rcv_core() keeps it. Then an NFQUEUE rule matches the outer
->> > ipip/gre/esp packet, and __nf_queue() converts it:
->> >
+On 11/25/26 22:16, Tony Nguyen wrote:
+> On 11/25/2026 4:46 AM, Petr Oros wrote:
+>> It would also help if Intel updated the MAINTAINERS entry to match and
+>> kept it up to date, so that it is clear who acks fixes for each driver.
+>> Jakub mentioned adding maintainers or splitting the entry, and the
+>> details would be for Intel to decide.
+> Yes, we plan on making updates to that file
 > 
->> Oh well the bot seems right even though it's a weird case, I'd suggest to change
->> the check and orphan on any skb->sk set, i.e.: || unlikely(skb->sk)
->> instead of unlikely(skb_sk_is_prefetched(skb)), that is cache hot too as
->> skb->dev is read before and will catch
-> 
->> Also tried asking an LLM if I'm missing something and the only case it could come up
->> that will not be aggregated is:
->> "the only correct aggregation that's lost is software ESP over veth or netdevsim in tunnel mode"
->> IMO that is ok.
-> 
->> What do you think?
-> 
-> This also affects ESP over tuntap with IFF_NAPI. But that is not a common
-> production configuration.
-> 
-> So LGTM.
-> 
-> Just a small note that redirect to netif_rx != orphan. No need to orphan.
+> For netdev maintainers: Is a Reviewer: entry sufficient to be taken directly?
+Double checking I'm reading the question correctly; let me rephrase it:
 
-Oh yes, of course. I was thinking and working on bpf_sk_assign egress support
-which needs to orphan in a few places and blurped orphan when replying :)
+A 3rd party sends a patch/series to netdev. Someone @intel, listed as reviewer
+in the MAINTAINERS file acks it. Can we accept such patch/series?
 
-Thanks!
+The answer is yes, if we (net maintainers and intel) agree on this process
+definitely an ack from intel reviewer would be enough.
+
+Please LMK if I misread the question.
+
+/P
+
