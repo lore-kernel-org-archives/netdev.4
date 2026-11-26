@@ -1,65 +1,65 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725285;
-	b=MQis7GaaPGPybrPK4xILISHfgWv/ePQgoFO/w/3SCfzXeUfaogvwu3aCmOIRq7biJsKv
-	 Bft2RMnDStKHVRNhFNwX+bJozdfpFRbcrrxRkziVcZ8v8RAOMMwOiGhrt1TIac0Y9SaLb
-	 gZDvvavLNb8jsWvInMvROGdzKq6YWi0wPRsK4JAl91nfYCWPPgdItM3zeWFdU9C+1tbQ+
-	 MpFbCa7Kr0aPlIhOTa0nkDTUWCwL81mOczhd4PCtzLq6QkLlP4COtu7Rfd3A0G5wivwCI
-	 kzPKk1/yXtnw082cOR3gFF3j1G6Bmj6Khybcu5NY+zc1eIE0L7jKiMq0tSBivx02WmQ==
+	t=1795725293;
+	b=EoeeQTQ5gq+krl/Tye34BKz7KKlxr3xjVXWJiWb9Ab67dtlKie8Ckrj6UBzr1EGdkBFT
+	 mDnBejoE2WDKxbYUgr4pDSNyIFaWo4jeA0aLywXfrm+p+y/ZW/uz+qGWFrr28/CGu2rXj
+	 W5UK0Rzn/4rJBDKEvq8VpkSvCMVyitGuHtlAjUlk+/SrNxgQCzAGasmH4Uz7ZRpXjgtVt
+	 8PK0W8ss3B8hJe/zej7u1cPdG737I7p+Asx2b/hn4jkWdzD21fIPTYzkBt7QTgwlPSbF4
+	 5lLQbGWJUOS0UxShLy3JJD1GR6W2AjOa0JDfmBl/X80Z6Tg20RJr+zeycxIZr7/TlLw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725285;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725293;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=GuGdWNAUUamhyAvRSygUN7vwSXLvTQpL3xsjy8x1md8=;
-	b=XeqagMJ4kI3sBSpc1HdDpXdzZzUqusR7B3GxURlILrjeAqsfmSp86NnmuoNLl6rRWgi7
-	 NZxafeH8Q0H9yRfsuDa3M9yumbdYQHly5jPGFkW+sR0Go93q92pmpceTX/qQahCpp2Ka2
-	 aCHdL+mOQFPmwRsYPD6I2/9jDHxcbZzslwUi919nfb4DAlI2GRsH72Qxf70HlESQdg1vW
-	 xczDpi4G6zB1curQgpl97LE9tv3qxyhte7jQ/vYk1BIti/usoG7BkEXXge+hP8wHJX8zH
-	 dumHLijAMlGNY7F5I21Q0JIPyEXEuTpoplllN61yce93MM5EdELEMt2r3DVO9unFGiw==
+	bh=XCoP2lR9dWoXQubbwuHi5uO9EefUEvGruaOQqElQJIQ=;
+	b=hWQUCA+7K3Ferypkrgin6J2+mCWR/61vyEeBkLY+yvQFKx16iFGjvfAXnVHXdGQ/8+zB
+	 Ejl0GI3ZnSjzplUdntHKQ5kwPIhpCUr1gRrqQ/lQ1sr+fQ+NqC1tRqycvx0CAB7TEtDM9
+	 9qQYHvzSFmrBnWCA1oa7Rd9Vs/iC5ebkyJ1jmW/DVnid9c7Kb8VQzze8pgJnWVcBeA560
+	 QANY8GmFXP4nBac16/CAhfETlAvyKjzC+FqRL3W0Z1l5gOMze9QpxShMj1gAVxYTsbRMG
+	 pvP+axlVo6ZTF3Z2VmoAN1CQY+VTg3GZaDmGE5IOwfJFhdJZvOYPBEFBVbUdr1UXgYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VyGjngbg;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MAHlOpgB;
 	arc=none smtp.remote-ip=170.10.129.124
 Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D1A29606A32C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:34:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D1A29606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2AA4E606A327
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:34:53 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2AA4E606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VyGjngbg
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=MAHlOpgB
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795725284;
+	s=mimecast20190719; t=1795725292;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GuGdWNAUUamhyAvRSygUN7vwSXLvTQpL3xsjy8x1md8=;
-	b=VyGjngbgtdr/znNcylUif0dAny+inI4mIfjOfkf1yFti5qi4k+Low153Hie6ugyNXBGMOu
-	jQjFug9ksF+XKERpEpWMdJSsvomYcDIAuo4dWQ1RYnOmNt1KtJ4XgKFoA9i3c1qNgEoJ1t
-	bygLYdRTmI62xv8L0HdllEkm48+2ABM=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+	bh=XCoP2lR9dWoXQubbwuHi5uO9EefUEvGruaOQqElQJIQ=;
+	b=MAHlOpgBQ3RhDtaOPmZ14fc7AytIilW4K790T0siZOeP24WEfGfvmS1GmJZDgn7sst2qIu
+	3wB5RxTM+Fq2+ysl4xCa8w9q6iVfHHBQzXDDcZq3X/R8JFGnlhQil58S8z3n8gmI7/TF3P
+	ImRyxlHF9k73Rst6WAMOg6xAjEZX7Go=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-439-SRtIgN-oM0KY7fSWuT2aaA-1; Thu,
- 26 Nov 2026 20:34:38 +0000
-X-MC-Unique: SRtIgN-oM0KY7fSWuT2aaA-1
-X-Mimecast-MFC-AGG-ID: SRtIgN-oM0KY7fSWuT2aaA_1795725275
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-275-ztZ9ANb3NOyqu-W7-jAr4g-1; Thu,
+ 26 Nov 2026 20:34:45 +0000
+X-MC-Unique: ztZ9ANb3NOyqu-W7-jAr4g-1
+X-Mimecast-MFC-AGG-ID: ztZ9ANb3NOyqu-W7-jAr4g_1795725282
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AB9D8195604C;
-	Thu, 26 Nov 2026 20:34:35 +0000 (UTC)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 345001800471;
+	Thu, 26 Nov 2026 20:34:42 +0000 (UTC)
 Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8E6B81801971;
-	Thu, 26 Nov 2026 20:34:29 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 19AAF1801977;
+	Thu, 26 Nov 2026 20:34:35 +0000 (UTC)
 From: Ivan Vecera <ivecera@redhat.com>
 To: netdev@vger.kernel.org
 Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
@@ -88,9 +88,9 @@ Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
 	Saeed Mahameed <saeedm@nvidia.com>,
 	Tariq Toukan <tariqt@nvidia.com>,
 	Petr Oros <poros@redhat.com>
-Subject: [PATCH RFC net-next 17/19] dpll: require a registered DPLL for pin registration
-Date: Thu, 26 Nov 2026 21:32:29 +0100
-Message-ID: <20261126203231.934632-18-ivecera@redhat.com>
+Subject: [PATCH RFC net-next 18/19] dpll: drop the owner reference selection of pins
+Date: Thu, 26 Nov 2026 21:32:30 +0100
+Message-ID: <20261126203231.934632-19-ivecera@redhat.com>
 In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
 References: <20261126203231.934632-1-ivecera@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -105,92 +105,132 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Since commit 33f016b23a21 ("dpll: fix NULL deref in dpll_device_ops()
-during teardown race"), dpll_pin_register() accepts a DPLL without
-registrations unless the pin has measured_freq_get, and
-dpll_pin_on_pin_register() registers a pin with the DPLLs of the parent
-pin without a check.
+Commit 2c1bd78dc8e2 ("dpll: use pin owner's dpll ref for pin-level
+attribute reporting") and commit 84e85c325e5e ("dpll: use pin owner's
+dpll ref for pin-level attribute setting") made the pin-level paths look
+for the reference of a DPLL of the pin's owner, because a pin could also
+be registered with DPLLs of other owners.
 
-The drivers register a DPLL before its pins. Reject a DPLL that is not
-registered in dpll_pin_register() before its ops are requested, and a
-parent pin with such a DPLL in dpll_pin_on_pin_register(), and document
-the order.
-
-The pin paths keep the tolerance for a DPLL without registrations from
-that commit. On E810, ice registers the recovered clock pin of a PF
-without the CGU under the input pins of the PF with the CGU, and so with
-its DPLLs. The pin stays registered with them when that PF goes first.
+Every DPLL a pin is registered with now has the owner of the pin. Use
+the first reference of a registered DPLL and drop
+dpll_pin_own_dpll_ref_first().
 
 Signed-off-by: Ivan Vecera <ivecera@redhat.com>
 ---
- Documentation/driver-api/dpll.rst |  2 ++
- drivers/dpll/dpll_core.c          | 17 +++++++++++++----
- 2 files changed, 15 insertions(+), 4 deletions(-)
+ drivers/dpll/dpll_core.c    | 27 ---------------------------
+ drivers/dpll/dpll_core.h    |  1 -
+ drivers/dpll/dpll_netlink.c | 20 +++++++++-----------
+ 3 files changed, 9 insertions(+), 39 deletions(-)
 
-diff --git a/Documentation/driver-api/dpll.rst b/Documentation/driver-api/dpll.rst
-index bc34fc83882fac..75ebed0bb95e96 100644
---- a/Documentation/driver-api/dpll.rst
-+++ b/Documentation/driver-api/dpll.rst
-@@ -634,6 +634,8 @@ of pin callbacks, and private data pointer for calling them:
- - dpll_pin_register() - register pin with a dpll device,
- - dpll_pin_on_pin_register() - register pin with another MUX type pin.
- 
-+A dpll device is registered before its pins.
-+
- Notifications of adding or removing dpll devices are created within
- subsystem itself.
- Notifications about registering/deregistering pins are also invoked by
 diff --git a/drivers/dpll/dpll_core.c b/drivers/dpll/dpll_core.c
-index e199342652d163..af61c4882c2b6f 100644
+index af61c4882c2b6f..a58cd22164f0be 100644
 --- a/drivers/dpll/dpll_core.c
 +++ b/drivers/dpll/dpll_core.c
-@@ -925,7 +925,7 @@ __dpll_pin_register(struct dpll_device *dpll, struct dpll_pin *pin,
-  * @priv: pointer to private information of owner
-  *
-  * The @dpll and the @pin must have the same owner, they must be created with
-- * the same module and clock_id.
-+ * the same module and clock_id. The @dpll must be registered.
-  *
-  * Context: Acquires a lock (dpll_lock)
-  * Return:
-@@ -951,9 +951,13 @@ dpll_pin_register(struct dpll_device *dpll, struct dpll_pin *pin,
+@@ -1229,33 +1229,6 @@ void *dpll_pin_on_pin_priv(struct dpll_pin *parent,
+ 	return reg->priv;
+ }
  
- 	mutex_lock(&dpll_lock);
+-/**
+- * dpll_pin_own_dpll_ref_first - find the first owner dpll ref of a pin
+- * @pin: pointer to a dpll pin
+- *
+- * Search pin's dpll_refs for a ref whose dpll matches the pin's
+- * (module, clock_id) tuple, i.e. the dpll registered by the driver
+- * that created the pin. This ensures pin-level attributes are
+- * reported and modified using the owner's ops even when the pin is
+- * also registered with dplls from other drivers.
+- *
+- * Return: pointer to the owner's dpll_pin_ref, or NULL if no
+- * owner ref is found.
+- */
+-struct dpll_pin_ref *dpll_pin_own_dpll_ref_first(struct dpll_pin *pin)
+-{
+-	struct dpll_pin_ref *ref;
+-	unsigned long i;
+-
+-	xa_for_each(&pin->dpll_refs, i, ref) {
+-		if (ref->dpll->module == pin->module &&
+-		    ref->dpll->clock_id == pin->clock_id)
+-			return ref;
+-	}
+-
+-	return NULL;
+-}
+-
+ const struct dpll_pin_ops *dpll_pin_ops(struct dpll_pin_ref *ref)
+ {
+ 	struct dpll_pin_registration *reg;
+diff --git a/drivers/dpll/dpll_core.h b/drivers/dpll/dpll_core.h
+index 6e10aadd2123d9..add518fef295d8 100644
+--- a/drivers/dpll/dpll_core.h
++++ b/drivers/dpll/dpll_core.h
+@@ -103,7 +103,6 @@ void *dpll_pin_on_pin_priv(struct dpll_pin *parent, struct dpll_pin *pin);
  
-+	if (ASSERT_DPLL_REGISTERED(dpll)) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
- 	dev_ops = dpll_device_ops(dpll);
- 	if (WARN_ON(ops->measured_freq_get &&
--		    (!dev_ops || !dev_ops->freq_monitor_get ||
-+		    (!dev_ops->freq_monitor_get ||
- 		     !dev_ops->freq_monitor_set))) {
- 		ret = -EINVAL;
- 		goto out_unlock;
-@@ -1039,7 +1043,8 @@ EXPORT_SYMBOL_GPL(dpll_pin_unregister);
-  * Register a pin with a parent pin, create references between them and
-  * between newly registered pin and dplls connected with a parent pin.
-  * The @parent and the @pin must have the same owner, they must be created
-- * with the same module and clock_id.
-+ * with the same module and clock_id. The dpll devices of the @parent must
-+ * be registered.
-  *
-  * Context: Acquires a lock (dpll_lock)
-  * Return:
-@@ -1073,7 +1078,11 @@ int dpll_pin_on_pin_register(struct dpll_pin *parent, struct dpll_pin *pin,
- 	if (ret)
- 		goto unlock;
- 	xa_for_each(&parent->dpll_refs, i, ref) {
--		ret = __dpll_pin_register(ref->dpll, pin, ops, priv, parent);
-+		if (ASSERT_DPLL_REGISTERED(ref->dpll))
-+			ret = -EINVAL;
-+		else
-+			ret = __dpll_pin_register(ref->dpll, pin, ops, priv,
-+						  parent);
- 		if (ret) {
- 			stop = i;
- 			goto dpll_unregister;
+ const struct dpll_device_ops *dpll_device_ops(struct dpll_device *dpll);
+ struct dpll_device *dpll_device_get_by_id(int id);
+-struct dpll_pin_ref *dpll_pin_own_dpll_ref_first(struct dpll_pin *pin);
+ const struct dpll_pin_ops *dpll_pin_ops(struct dpll_pin_ref *ref);
+ struct dpll_pin_ref *dpll_xa_ref_dpll_first(struct xarray *xa_refs);
+ bool dpll_pins_linked(const struct dpll_pin *a, const struct dpll_pin *b);
+diff --git a/drivers/dpll/dpll_netlink.c b/drivers/dpll/dpll_netlink.c
+index 6a46130fc687eb..ac341e3eba61ac 100644
+--- a/drivers/dpll/dpll_netlink.c
++++ b/drivers/dpll/dpll_netlink.c
+@@ -745,9 +745,7 @@ dpll_cmd_pin_get_one(struct sk_buff *msg, struct dpll_pin *pin,
+ 	struct dpll_pin_ref *ref;
+ 	int ret;
+ 
+-	ref = dpll_pin_own_dpll_ref_first(pin);
+-	if (!ref || !dpll_device_registered(ref->dpll))
+-		ref = dpll_pin_first_registered_ref(pin);
++	ref = dpll_pin_first_registered_ref(pin);
+ 	if (!ref)
+ 		return -ENODEV;
+ 
+@@ -1134,8 +1132,8 @@ dpll_pin_freq_set(struct dpll_pin *pin, struct nlattr *a,
+ 		return -EINVAL;
+ 	}
+ 
+-	ref = dpll_pin_own_dpll_ref_first(pin);
+-	if (!ref || !dpll_device_registered(ref->dpll)) {
++	ref = dpll_pin_first_registered_ref(pin);
++	if (!ref) {
+ 		NL_SET_ERR_MSG(extack, "pin owner dpll not found");
+ 		return -ENODEV;
+ 	}
+@@ -1180,8 +1178,8 @@ dpll_pin_esync_set(struct dpll_pin *pin, struct nlattr *a,
+ 	bool supported = false;
+ 	int ret, i;
+ 
+-	ref = dpll_pin_own_dpll_ref_first(pin);
+-	if (!ref || !dpll_device_registered(ref->dpll)) {
++	ref = dpll_pin_first_registered_ref(pin);
++	if (!ref) {
+ 		NL_SET_ERR_MSG(extack, "pin owner dpll not found");
+ 		return -ENODEV;
+ 	}
+@@ -1245,8 +1243,8 @@ dpll_pin_ref_sync_state_set(struct dpll_pin *pin,
+ 		NL_SET_ERR_MSG(extack, "reference sync pin not available");
+ 		return -EINVAL;
+ 	}
+-	ref = dpll_pin_own_dpll_ref_first(pin);
+-	if (!ref || !dpll_device_registered(ref->dpll)) {
++	ref = dpll_pin_first_registered_ref(pin);
++	if (!ref) {
+ 		NL_SET_ERR_MSG(extack, "pin owner dpll not found");
+ 		return -ENODEV;
+ 	}
+@@ -1458,8 +1456,8 @@ dpll_pin_phase_adj_set(struct dpll_pin *pin, struct nlattr *phase_adj_attr,
+ 		return -EINVAL;
+ 	}
+ 
+-	ref = dpll_pin_own_dpll_ref_first(pin);
+-	if (!ref || !dpll_device_registered(ref->dpll)) {
++	ref = dpll_pin_first_registered_ref(pin);
++	if (!ref) {
+ 		NL_SET_ERR_MSG(extack, "pin owner dpll not found");
+ 		return -ENODEV;
+ 	}
 -- 
 2.56.1
 
