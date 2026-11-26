@@ -1,47 +1,46 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795734008;
-	b=XCFQOXtTHmX//40IE8wvUsYpkxqeGya+h7MJEA5TNOiTNCxcZN/D6UERXWkP78e1iJ5g
-	 /RVombFwkR98GN3kzjh/fM1PJvr4VwgxKHKTrveOJghODY/HE1jejT+lswABeykGSAcj3
-	 NdZEIgHb/5LTl9eR2Y+4wvYYBWUmwa3jKtHOd5FZaPZaq6hHrPCLUys2xmahRjbEAOPUM
-	 qvhNpmPJj7bLt7rtKki59PSPI/4fwmcjcGaEuCGNEQmdD4a6L6u95/uDI65J5KFT3d/qd
-	 NgykdlITSF3sRfCWvMXzpXMucNRKRtVrVTMjDLBvoxzk5Gz5rXgOeTvOFOScg7Vcqlg==
+	t=1795734009;
+	b=1y2KTeOCiYI5tI/b9WXl3rOKN1MpV34he4mB5+tLz9LqTn+0rX9k8YPPl1XJFpJrL/t+
+	 nlRbvqHJUlXWKvLoxh1E7tCAWV72uq2sCDANKDYlomhDWGjBLLT9dWzrorZvdXRmcPy2g
+	 hKvhJA1yAeBvaL4Zv8XAzpAbzY0o26694IMbnG4E4MEAyj1RoguAFVVJ2GDsNv+u3jxJ/
+	 KEZHILA975hJEPSzh4btL3xPY9LOoStDF8BSl5sHkitdOvEBRZlGawizWzNleELpq9kVY
+	 PD0Ua09rBL35V0xD+FN3fNJ9TRUBpwFNZywuph+RYYG7Un0zks0tygxcxSwJ286U0+g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795734008;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795734009;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=ET6CA/3hcvG1l/nBa4rZu+CNkHEqOV0iUcKI77Rplwc=;
-	b=M3edoWNRBR+CQJ3P03p8z3fv1a/NuhbTFWD/pS6PB9cuOzlWOTr+OCNZ4gHfpe2TD1rs
-	 VAUruXsJY8z1Y2bGg3TO327rzFHelbzGja582BlS4EpSqmvigbPfy+cf+o7TP81xodagq
-	 EUqHYYvW2GFeTN7tU5aZskkU01IEVYw3lQNf86qsxf3Xs1Ap7jvNqvgaR0Z6tWHsRV4h4
-	 qIiGzJTz5WceOrlykNGB7BBAneUhtNuEJXntv127e+6KMMRtmTQsjmyR68CnuIj3szX5g
-	 7LpZZYPAq4cq9mwyg8snu5z6mYmWfvgKlNVJEBFfygtmpBKHDseRSe3LNjGht7SbOKg==
+	bh=nsTRjSTVyMy0HrGE0M7XcfK7MfniVZMdtJ/IkyyInRU=;
+	b=CkmtSNte1VvMRmiqDJLRrBKdnuCdXFtzFhz0USOM9CF5MTsxQAykNqpVwVixJBB11Xg4
+	 LUvEtm8v4s+rPCsFhsBWKvcVrTrrrY6Ms6o8SQ2ZoSf/0IcFl3nnPpRknrFrygCXcl8FX
+	 octr7KN1DC6tNIkUNC7WiJPfIGsqCQWn1zEQVhk7nYh2mcDSTKcgZCxlVfR1v2IZ9CayY
+	 xB9RwkQ8Z18lXzyP0yZUsxIX9UGf5UfLTPjfxVbAVFZme3NmoAQW5cV7XtOVYlBzbpZeI
+	 2bKjwk5asMQXRLDOLln/5cuBk+6w7TNtRQY0em4cq53MR4B2/wtYvr+vtT5pKGhyXsA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8GVZN7H;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IzBqj6dw;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EE3F9606A326
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 23:00:07 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82630606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 23:00:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=g8GVZN7H
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8BAC11F00898;
-	Thu, 26 Nov 2026 23:00:06 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IzBqj6dw
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3055D1F00897;
+	Thu, 26 Nov 2026 23:00:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795734007;
-	bh=ET6CA/3hcvG1l/nBa4rZu+CNkHEqOV0iUcKI77Rplwc=;
+	s=k20260515; t=1795734009;
+	bh=nsTRjSTVyMy0HrGE0M7XcfK7MfniVZMdtJ/IkyyInRU=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=g8GVZN7HhgOEXCEGk/IJNSF3V3JFBFk2xOT0Ufm6Ljfvz2Hp6+PLWJwZ6CTTJG3Uh
-	 1RPahfrvdkaGd5J3YjonkI7fJn5pnq7TH5r2Qwnd3VQur+gZbfK1K3QkevWErtW4CS
-	 BAZnQKG/jaAzQOQDZrPLDCiaxQDOt7vYRyAPZISdmXshX0bX8eFXv41GA4Is1L8hi0
-	 AgU4pxoWUTmW3lCYSTEB9LpjG0fXAKT2Quy/HRXPT59Pidew5fojHksXtbFiOVUYAM
-	 loEe8MC51z8trgv8rI9qi1Z2PuNocKyPXprFhk/jK8Z2vpGRlW3TaGQWw+hx47UW5v
-	 EhyYMiNWKt8+Q==
-Subject: Re: [PATCH net 3/5] ice: ptp: serialize E825 PHY timer start with PTP
- lock and incval
+	b=IzBqj6dwSZb0tC4sMrxygBEk9YmLxRj6gcEsVSI5OLXm1wrMmqNr0Y4qRCWwmDlHr
+	 fpZ2o+6zKNFYLM5gWB+/XXKC7VZ4Tu+P9beY2kQKlKk3mUSjE1f+tecJRsRXjVHRgF
+	 5XZmK0du5ghx9bsut3w6cFhKrLg6CJ06rCdUjfeYSaZVL6y0v4CVEkzKpg1rUs5g6w
+	 RNQ3TK1Mb/9l7RuyLxI6Kj+OH2SHShz1bxiKvRJpvCQjGelIDrw1rYfo4YDsdu1SoH
+	 saQtzUyHXs3fP+AoeJ5fB1EKDLiTDe7BTfzBiOVWn0s+IzxLB2x6do3Rs69gWe93m5
+	 QPa8+ElcCfbrw==
+Subject: Re: [PATCH net 4/5] ice: remove redundant cross-timestamp PTP command
 From: netdev-bot+sashiko@kernel.org
 To: anthony.l.nguyen@intel.com
 Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
@@ -52,11 +51,11 @@ Cc: davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
  richardcochran@gmail.com, sergey.temerkhanov@intel.com,
  milena.olech@intel.com, horms@kernel.org, aleksandr.loktionov@intel.com,
  ayush1x.singh@intel.com
-Date: Thu, 26 Nov 2026 23:00:06 +0000
-Message-ID: <179573400611.3135.7939999840565341608@kernel.org>
-In-Reply-To: <20261125224428.4126195-4-anthony.l.nguyen@intel.com>
-References: <20261125224428.4126195-4-anthony.l.nguyen@intel.com>
-X-sashiko-severity: Low
+Date: Thu, 26 Nov 2026 23:00:07 +0000
+Message-ID: <179573400778.3135.2988543819162963844@kernel.org>
+In-Reply-To: <20261125224428.4126195-5-anthony.l.nguyen@intel.com>
+References: <20261125224428.4126195-5-anthony.l.nguyen@intel.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -69,166 +68,91 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] The concern says the sentence 'The caller must acquire PTP
-  semaphore lock', which the patch adds after the Return: bullet list in…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Pre-existing issues:
-- [Medium] At this commit, ice_capture_crosststamp() in
-  drivers/net/ethernet/intel/ice/ice_ptp.c writes the shared GLTSYN_CMD…
-- [Medium] ice_start_phy_timer_e82x() in
-  drivers/net/ethernet/intel/ice/ice_ptp_hw.c repeats the unlocked…
-- [Low] The kernel-doc Return list of ice_start_phy_timer_eth56g() in
-  drivers/net/ethernet/intel/ice/ice_ptp_hw.c (lines 2134-2136) has only…
+- [Medium] In ice_capture_crosststamp()
+  (drivers/net/ethernet/intel/ice/ice_ptp.c), the patch drops the…
 
 --
 
-ice: ptp: serialize E825 PHY timer start with PTP lock and incval
+ice: remove redundant cross-timestamp PTP command
 
-This patch holds the PTP hardware semaphore across the whole of
-ice_start_phy_timer_eth56g(). It now covers the first GLTSYN_CMD write,
-the incval read, the PHY incval init and the phase sync. The phase-sync
-helper becomes ice_sync_phy_timer_eth56g_unlocked(), which expects the
-caller to already hold the semaphore.
+This patch changes ice_capture_crosststamp(). It no longer programs
+GLTSYN_CMD with READ_TIME before the ART/device cross-timestamp capture,
+and no longer clears it with NOP afterwards. The commit message says the
+hardware never needed the READ_TIME step, and that writing the shared
+GLTSYN_CMD register only adds a potential race.
 
-> diff --git a/drivers/net/ethernet/intel/ice/ice_ptp_hw.c b/drivers/net/ethernet/intel/ice/ice_ptp_hw.c
-> index 3a41c711e751b..16333d4a34ccf 100644
-> --- a/drivers/net/ethernet/intel/ice/ice_ptp_hw.c
-> +++ b/drivers/net/ethernet/intel/ice/ice_ptp_hw.c
-
-[ ... ]
-
-> @@ -2041,22 +2041,18 @@ static int ice_read_phy_and_phc_time_eth56g(struct ice_hw *hw, u8 port,
->   *
->   * Return:
->   * * %0     - success
-> - * * %-EBUSY- failed to acquire PTP semaphore
->   * * %other - PHY read/write failed
-> + *
-> + * The caller must acquire PTP semaphore lock
->   */
-
-[Severity: Low]
-This is a pre-existing issue, but with the -EBUSY entry dropped here, is
--EBUSY still documented anywhere in this call chain?
-
-The kernel-doc for ice_start_phy_timer_eth56g() only lists:
-
- * Return:
- * * %0     - success
- * * %other - PHY read/write failed
-
-The function returns -EBUSY directly when ice_ptp_lock() fails, and it did
-so before this patch too. Could a %-EBUSY entry be added to the
-ice_start_phy_timer_eth56g() kernel-doc?
-
-[ ... ]
-
-> @@ -2155,19 +2149,24 @@ int ice_start_phy_timer_eth56g(struct ice_hw *hw, u8 port)
->  	if (err)
->  		return err;
+> diff --git a/drivers/net/ethernet/intel/ice/ice_ptp.c b/drivers/net/ethernet/intel/ice/ice_ptp.c
+> index 8908b4f3db353..db1d0e42ae52c 100644
+> --- a/drivers/net/ethernet/intel/ice/ice_ptp.c
+> +++ b/drivers/net/ethernet/intel/ice/ice_ptp.c
+> @@ -2183,9 +2183,6 @@ static int ice_capture_crosststamp(ktime_t *device,
+>  	/* Snapshot system time for historic interpolation */
+>  	ktime_get_snapshot_id(ctx->snapshot_clock_id, &ctx->snapshot);
 >  
-> +	if (!ice_ptp_lock(hw)) {
-> +		dev_err(ice_hw_to_dev(hw), "Failed to acquire PTP semaphore\n");
-> +		return -EBUSY;
-> +	}
-> +
->  	ice_ptp_src_cmd(hw, ICE_PTP_NOP);
-
-[Severity: Medium]
-This isn't a bug introduced by this patch, but is the PTP semaphore enough
-to keep every other writer off GLTSYN_CMD here?
-
-ice_capture_crosststamp() in ice_ptp.c also writes GLTSYN_CMD. It holds
-only the cross-timestamp semaphore (cfg->lock_reg, which is PFHH_SEM on
-E82x/E825), not the PFTSYN_SEM semaphore taken by ice_ptp_lock():
-
-drivers/net/ethernet/intel/ice/ice_ptp.c:ice_capture_crosststamp() {
-    ...
-	/* Program cmd to master timer */
-	ice_ptp_src_cmd(hw, ICE_PTP_READ_TIME);
-    ...
-err_timeout:
-	/* Clear the master timer */
-	ice_ptp_src_cmd(hw, ICE_PTP_NOP);
-    ...
-}
-
-On E825, a PTP_SYS_OFFSET_PRECISE request (phc2sys uses it by default)
-could overwrite the source command partway through ice_ptp_tmr_cmd()
-(adjtime/adjfine). It could do the same partway through
-ice_sync_phy_timer_eth56g_unlocked(). Wouldn't that produce the same
-PHY/PHC divergence the commit message describes?
-
-This appears to come from commit 88c360e49f51. The next patch in this
-series, "ice: remove redundant cross-timestamp PTP command", removes both
-ice_ptp_src_cmd() calls from ice_capture_crosststamp(), so the race is gone
-by the end of the series.
-
-[ ... ]
-
-> @@ -2193,11 +2187,11 @@ int ice_start_phy_timer_eth56g(struct ice_hw *hw, u8 port)
->  
->  	ice_ptp_exec_tmr_cmd(hw);
->  
-> -	ice_ptp_unlock(hw);
+> -	/* Program cmd to master timer */
+> -	ice_ptp_src_cmd(hw, ICE_PTP_READ_TIME);
 > -
-> -	err = ice_sync_phy_timer_eth56g(hw, port);
-> +	err = ice_sync_phy_timer_eth56g_unlocked(hw, port);
->  	if (err)
-> -		return err;
-> +		goto err_ptp_unlock;
-> +
-> +	ice_ptp_unlock(hw);
 
 [Severity: Medium]
-This is a pre-existing issue, but does ice_start_phy_timer_e82x() need the
-same change?
+The commit being fixed describes this step as a requirement seen on
+hardware, not as an assumption. 88c360e49f51 ("ice: Support
+cross-timestamping for E823 devices") says:
 
-It is called from the same ice_ptp_port_phy_restart() path, which holds
-only the per-port ps_lock. Without the PTP semaphore it still reads the
-incval, writes the shared GLTSYN_CMD, and fires GLTSYN_CMD_SYNC three
-times:
+    The GLTSYN_CMD register must be programmed with the READ_TIME
+    command. Otherwise, the cross timestamp will always report a value of
+    zero for the PTP hardware clock time.
 
-drivers/net/ethernet/intel/ice/ice_ptp_hw.c:ice_start_phy_timer_e82x() {
-    ...
-	lo = rd32(hw, GLTSYN_INCVAL_L(tmr_idx));
-	hi = rd32(hw, GLTSYN_INCVAL_H(tmr_idx));
-	incval = (u64)hi << 32 | lo;
-    ...
-	err = ice_ptp_one_port_cmd(hw, port, ICE_PTP_INIT_INCVAL);
-	if (err)
-		return err;
+This commit message only says:
 
-	/* Do not perform any action on the main timer */
-	ice_ptp_src_cmd(hw, ICE_PTP_NOP);
+    It was assumed that this change was needed for E823 devices, which
+    turned out to be not true.
 
-	ice_ptp_exec_tmr_cmd(hw);
-    ...
-	ice_ptp_exec_tmr_cmd(hw);
-    ...
-	ice_ptp_exec_tmr_cmd(hw);
+Is there a datasheet, erratum or firmware/NVM detail that explains why the
+earlier observation was wrong? Was testing done across all E823 silicon
+steppings and NVM versions?
 
-	err = ice_sync_phy_timer_e82x(hw, port);
-    ...
-}
+If the requirement still holds on some E823 configuration, the capture
+would still look successful, because ctl_active clears. The zero PHC time
+would then be returned without any check:
 
-The semaphore is only taken later, inside ice_sync_phy_timer_e82x().
-ps_lock does not exclude ice_ptp_adjtime() or ice_ptp_adjfine() running
-under ice_ptp_lock() on this PF or another one. It also does not exclude
-ice_ptp_settime64()->ice_ptp_restart_all_phy().
+	ts_lo = rd32(hw, cfg->dev_time_l[tmr_idx]);
+	ts_hi = rd32(hw, cfg->dev_time_h[tmr_idx]);
+	ts = ((u64)ts_hi << 32) | ts_lo;
+	*device = ns_to_ktime(ts);
 
-Can this NOP replace an ADJ_TIME or INIT_INCVAL that ice_ptp_tmr_cmd() has
-staged, or can one of these execs latch it early? Either would leave the
-E822/E823 PHY timer offset from the PHC.
+ice_ptp_getcrosststamp() selects this routine for ICE_MAC_GENERIC,
+ICE_MAC_GENERIC_3K_E825 and ICE_MAC_E830, so every device that supports
+cross-timestamping goes through this path. phc2sys uses
+PTP_SYS_OFFSET_PRECISE by default when it is available. A PHC time of 0
+would show up there as a very large offset and could make it step the
+clock.
 
-The commit message limits the fix to E825, so this may belong in a
-separate patch.
+Separately, this patch carries a Fixes: tag and will probably go to
+stable. Could the commit message describe the user-visible symptom of the
+old code? Right now it only calls it "a potential race source".
+
+The race looks real. ice_capture_crosststamp() holds only the
+cross-timestamp semaphore (PFHH_SEM / E830_PFPTM_SEM). It does not hold
+the PTP semaphore that ice_ptp_lock() takes in the settime, adjtime and
+incval paths, which also program GLTSYN_CMD.
+
+So the old READ_TIME/NOP writes could overwrite a prepared INIT_TIME,
+ADJ_TIME or INIT_INCVAL command, and a clock adjustment would be lost
+without any error. Could that be stated in the commit message for
+backporters?
+
+[ ... ]
 
 -- 
 Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125224428.4126195-2-anthony.l.nguyen%40intel.com
