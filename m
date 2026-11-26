@@ -1,64 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795715913;
-	b=xI221tWqo91A7i0JxIOnCr2sbyb75hzUD/sgp293WDU4CGVALz1VTzFrAyN7nox8C60d
-	 1I1u9xpXDAmfgYl37MP6Zof48nWqR2qv7KuG4U4zGBTBjGmU1m9tdoTmvUPqNYV1f6lYe
-	 3v2V4oS1Lqwn27bVyT79NNEEsfiVLJhoL0/hcg3jvfyctJT7S6jksv7GFPycBqMBMbDPd
-	 GjFPkgc81g24L7Qp/+NPdurxzpTwbYs+sqT2fwLI/qhYFAddpFEIcFd2sjxfvAlsle/HQ
-	 YPTvyIcCj9kTi4yZaDhGg1PXi1ATjk6X7ouFqj+lI9KOrXcIh3wqvpiGLHIw2WpfoFw==
+	t=1795716384;
+	b=vrNcvWjF+yqx67dmZ90tzvyuCXVcNR4SJzzxHPKhtUe10S/CR7WQ5Ijthg4wkTAOUgig
+	 EsIrUmYn9OAJlAFFJoSASObP/0cEttNyRmQVb6BcD9LD/GtSwRgjHzSuGdVgmD7+MkA3o
+	 QRKxsbKTRUcpTiOeCZqXHIaefJyE79oammJZTNTsIcSObrDaKuzDcxpWgzEXo5kLoFo0T
+	 ZIuu8P+F4FSR+xIRGMdfdesUg0mtVD4oz0VzfjBw0rYdk79FdDgSZgR6y8m28qFEYnXmN
+	 KuVPgxqCqV9zQFyixqIQzPjAGVsGDjDD35BrxE33OBEldqR1iS89fA5W7hpxM1r9m/Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795715913;
-	h=Received:DKIM-Signature:Received:Subject:From:In-Reply-To:References:
-	 X-PR-Tracked-List-Id:X-PR-Tracked-Message-Id:X-PR-Tracked-Remote:
-	 X-PR-Tracked-Commit-Id:X-PR-Merge-Tree:X-PR-Merge-Refname:
-	 X-PR-Merge-Commit-Id:Message-Id:Date:To:Cc;
-	bh=C+XhVycr2/VAW4ziX9+NDkeiK6FicXMc6GM7XWkwqu4=;
-	b=xFXh+HJOiSJvWwwWdK88XWHPsdZph5pqI3x4DyytZ2ysPfT7uIrgAvvQl9/+iX5i88Jd
-	 a4WAGBsxYXb4h63lH6/pVMrxHygafKH722z9wWs+IM2DX+QCj0kxDRXsl2U7mS/3nkxPu
-	 7E9aL5tkNy7eUNEnJ+0kiNK2fVvk9asJIjk6k7/yyPYMI6FwGDd7kQ2m4quPbhJAqtB7a
-	 tIHfztDkBOJLTDh6oLz11QFm4oz7w4TRRoLBy91VX0ignSuVNPSKYieMAwQslInWDWij+
-	 BJyIpLyqlNfPXI7iXnoeyI2b/sg9fDqa4t2vRpzcXvrpGCdgj1aqcR2GvmZHVAleNQA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716384;
+	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
+	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
+	bh=ZFYiheXa78vwZkfk3QiwkXHEnKws8Sfv2V6CLNUXJgM=;
+	b=3EZiEiFEP53N5RYZw1qRS4Pr5mW5joirdRwywRc9P9PUaceLbQ6c+/+AKqZSVeIg7Dxc
+	 JxjKi11elnqiTNxwHoI6qtR9Zrxqj8YFPSLDAP1qMslid5chfWUWG1Oi/7eXQq/TfoL0X
+	 VVUYbUPX2/vJigD1YORhc5Kz0AaQB3/CaC1aRLrvPxhJX+1hVuL+Iy+BIrnghpJZm1sT4
+	 lMbKx92NozJzekfeDECbPPFc2C+am5+UiC22XkJx37zUWTYc9oapdF5uEfqS1+yegeYXE
+	 yLfbx5drjlg3VPN4mGPO0Tvhxr5Kgghf5eIWvsTNlZD/Ad7v24tjpa/FZmZFOqkSw0A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWD7eKDr;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KQsLwA2y;
+	arc=none smtp.remote-ip=195.10.208.51
+Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2E88606A321;
-	Thu, 26 Nov 2026 17:58:33 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C95606A31E;
+	Thu, 26 Nov 2026 18:06:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C95606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PWD7eKDr
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D9A01F000CA;
-	Thu, 26 Nov 2026 17:58:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795715913;
-	bh=C+XhVycr2/VAW4ziX9+NDkeiK6FicXMc6GM7XWkwqu4=;
-	h=Subject:From:In-Reply-To:References:Date:To:Cc;
-	b=PWD7eKDruvOZ3q4WAc1h1jSxrtMY1XiLka9z2rRnpdAobVgMe5Xn13wXfJINzUdeA
-	 KWfckbDE/2qw4lrHwx0No3ouHcg/7hfuaZHDlCCTi6qa6TdHkmbEOFNuKfUO+DoNWY
-	 uhysax1uXbRGaGKUCqsU8clv80zvV9xPkH+oeQrn19kxn7HOzfkibbPQLmq0gygPe4
-	 riAn9HjNFsNQ5orKheUtgM+fWfprgrO4jzxOJ+dWZe7Aqzr/Mt28Xmxg+9ywAnBa9V
-	 pKxA5dP+paof6GVKlgUU/0uve0VxshTH4YALFnSmPbbOAU1DFSOtwogZ2Pm19H8qgf
-	 Za+i21idOCTFA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 346DC3805D92;
-	Thu, 26 Nov 2026 17:58:33 +0000 (UTC)
-Subject: Re: [GIT PULL] Networking for v7.4-rc5
-From: pr-tracker-bot@kernel.org
-In-Reply-To: <20261126162057.141802-1-pabeni@redhat.com>
-References: <20261126162057.141802-1-pabeni@redhat.com>
-X-PR-Tracked-List-Id: <linux-kernel.vger.kernel.org>
-X-PR-Tracked-Message-Id: <20261126162057.141802-1-pabeni@redhat.com>
-X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git tags/net-7.4-rc5
-X-PR-Tracked-Commit-Id: e1055cbfd6eb578417f3ce983cf44462e8465267
-X-PR-Merge-Tree: torvalds/linux.git
-X-PR-Merge-Refname: refs/heads/master
-X-PR-Merge-Commit-Id: 9437ee8b6cf607e883b36e44bd755968daaebd48
-Message-Id: <179571591188.542934.7675496034067210513.pr-tracker-bot@kernel.org>
-Date: Thu, 26 Nov 2026 17:58:31 +0000
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: torvalds@linux-foundation.org, kuba@kernel.org, davem@davemloft.net, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KQsLwA2y
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jb4HG1cMCzk3;
+	Thu, 26 Nov 2026 19:06:18 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795716378;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZFYiheXa78vwZkfk3QiwkXHEnKws8Sfv2V6CLNUXJgM=;
+	b=KQsLwA2yqIXpa+5Untqa12L/CG9nzfaW/eHsyUg4EjUmFYdGQsRwEiuKe9qMccj1d/eEdX
+	DTvT927J1OjN2XDHl9uYilYItII3GmSsyPeCkroIn/S8jnOKdNcRJQ/gmFuOmcjEcZ33uv
+	YrX+7N4+26VFzyOqjzkJ9dMykFrc90hf3lJL+P+uzPZblfb8AkqmBKlHUdDLkgfsBc8b2W
+	f19w9Le7SrwC108U6NcdS2xG2h8oaEj5rfk9qk3rOLA+Isj0hSYiJrqshk+j+8Z9sTKGyQ
+	0jKSxTXlh17BKgBMg/L5UbCjSZbGYUVg5jqxZ8IP/yOcKYXPBb3oM9K1rVYxLg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
+From: Ralf Lici <ralf@mandelbit.com>
+To: nicolas.dichtel@6wind.com
+Cc: netdev-bot+sinfo@kernel.org,
+	Steffen Klassert <steffen.klassert@secunet.com>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Willem de Bruijn <willemb@google.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH ipsec] xfrm: advance the route generation when policies are removed
+Date: Thu, 26 Nov 2026 19:06:05 +0100
+Message-ID: <20261126180608.1459401-1-ralf@mandelbit.com>
+X-Mailer: git-send-email 2.56.0
+In-Reply-To: <f707be46-5332-4196-a9e0-5e6fb5ae8353@6wind.com>
+References: <20261126111516.317545-1-ralf@mandelbit.com> <179569192472.3294.16207945676550617931@kernel.org> <20261126113216.337964-1-ralf@mandelbit.com> <f707be46-5332-4196-a9e0-5e6fb5ae8353@6wind.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,16 +81,66 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jb4HG1cMCzk3
 
-The pull request you sent on Thu, 26 Nov 2026 17:20:57 +0100:
+On Thu, 26 Nov 2026 15:54:36 +0100, Nicolas Dichtel <nicolas.dichtel@6wind.com> wrote:
+> Le 26/11/2026 à 12:32, Ralf Lici a écrit :> On Thu, 26 Nov 2026 11:18:44 +0000,
+> netdev-bot+sinfo@kernel.org wrote:
+> >> Hi!
+> >>
+> >> This is an automated message. This series looks like a fix, but its
+> >> commit messages seem to be missing some information:
+> >>
+> >>  - Whether the issue was actually triggered, or is only theoretical
+> >>    (e.g. found by LLM and not proven at runtime). If it was triggered
+> >>    please include the symptoms, like the stack trace or kernel messages.
+> >>
+> > 
+> > Yes, the policy removal cases were triggered at runtime, in a VM test
+> > setup (not observed in production AFAIK).
+> > 
+> > There is no kernel message, the symptom is plaintext on the wire. A
+> > connected UDP socket keeps sending unencrypted datagrams after the allow
+> > policy that exempted its flow is removed, although the ESP policy below
+> > it now matches.
+> > 
+> > This is roughly the setup, in a netns with a veth pair (IPv4 is the
+> > same):
+> > 
+> >   ip xfrm state add src fd00::1 dst fd01::2 proto esp spi 0x1001 \
+> >   	reqid 1 mode transport aead 'rfc4106(gcm(aes))' <key> 128
+> >   ip xfrm policy add src fd00::1 dst fd01::2 dir out priority 100 \
+> > 	tmpl src fd00::1 dst fd01::2 proto esp reqid 1 mode transport
+> >   ip xfrm policy add src fd00::1 dst fd01::2 proto udp dport 5002 \
+> > 	dir out priority 10 action allow
+> > 
+> > A UDP socket connected to [fd01::2]:5002 sends one datagram, the allow
+> > policy is removed, then the socket sends 10 more, captured on the veth:
+> > 
+> >   removal               net-next             ipsec + this patch
+> >   delete by selector    10 plain, 0 ESP      0 plain, 10 ESP
+> >   delete by index       10 plain, 0 ESP      0 plain, 10 ESP
+> >   hard time expiry      10 plain, 0 ESP      0 plain, 10 ESP
+> >   flush                 10 plain             nothing sent
+> > 
+> > The flush case replaces the ESP policy with "ip xfrm policy setdefault
+> > out block", so that nothing may be sent once the policies are flushed.
+> > 
+> > The xfrm_policy_insert ordering is a race between the insert and a
+> > concurrent lookup, found by code reading. That I did not reproduce at
+> > runtime.
+> > 
+> > I can share the reproducer script if useful.
+> Maybe adding a selftest would be useful.
+>
 
-> git://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git tags/net-7.4-rc5
+Sure, I'll turn my reproducer into a selftest and add it in v2.
 
-has been merged into torvalds/linux.git:
-https://git.kernel.org/torvalds/c/9437ee8b6cf607e883b36e44bd755968daaebd48
-
-Thank you!
+Cheers!
 
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/prtracker.html
+Ralf Lici
+Mandelbit Srl
