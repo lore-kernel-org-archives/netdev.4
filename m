@@ -1,52 +1,41 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=94.136.29.106
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716432;
-	b=pu+uv91yjTC3MX/eieOkKI70gmTQxDXG8peYkt39vcZojphtSuSvHZcEPtGGQmAE80a1
-	 rq1ROi18RA6QK/lkKWjqGjxRoI/siavcpTPxKim0YkyaDyuTXf6IR3raH//38QvwPOQtE
-	 /hX2+siz4nbG68h79sbBpxTfkGTGtz/XOTZfSwZI4Af/jWhH98IOjCZMoWt5aEwD5aIO6
-	 Nuz2rLGjqvnW/EsSzDkSwjPtfNTSmajbUeDRgCmgwnRxBVxsapfsMIqD4PhOmtNpFrlXv
-	 eP/dFcIBbUhRGQYMTe+A7MzYloKN1VC5wyOOi/FSehnvGzI9nzAEqJnmgA2z8VhEKkA==
+	t=1795716451;
+	b=F4JNzMQYBM2N0+mk4ujEJuOCZhGWmz3x+h60yI+MlOL+b/xsXEvhFOXKXL3sLaO7D3L0
+	 2VXRatdAn6T7Ey87MBDY+4YI1FkRXmuYE726CcL4J+qbb3OUdjX4y5RE5wSqKnfgJ7hca
+	 AlXmqCthhognKd2+4qa8I4/k9fT5xbx2XZJFDKZvlmR0mqStKyhRhcl33uI1MCOCNhd3r
+	 Q0ZC1QWOvBdN7fxQPAkGjuQC/Kzf+ADpFyvPbSs0NN7On3d2QYt6M5zixHPO1yZgXpC9h
+	 CQyfGIPyyVDO0z+kLaiUj9VSRIdhvMpfzvq8JyV3GQiw0b/+5qQppTWwGIZeuCzA69g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716432;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=6+hU3UA5s6I/NTpkLAZ+BjhMDXENiELATWgF9iF0YoM=;
-	b=FJ5h7D3wJmO/wDm7yAAZCXISybHjJwAQrmqyDVBbugYCip5jbeG8AMtXBnkJWYoKWptR
-	 fQ7lUZ+MeOdqyUw4TGUbQKKkEmsMC9u25ltxvx8xCIKp1W4syhZB58tAuKct9uXOGhF40
-	 x7Y9QK2X8Jj+FFlC2oT5mAkvobjKN82goNCXgTX0uAWT4hxvfg2KLUxvx39O90W2OCpJX
-	 8rH04NKd7kYGAEQHJcwr7ajcvtjTuu2LlpcKxLtlnqW1sf6HbgSypk8LVQm09oUHdko8E
-	 oQOiB2Q2YRFYFvz+93YJWVHAUHYSg1x1rt/h17qiM49Pr6eRg81D5K0JRXGbuoA48/A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716451;
+	h=DMARC-Filter:Received:From:Date:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:Message-Id:X-B4-Tracking:X-Change-ID:To:Cc:
+	 X-Mailer:X-Bm-Milter-Handled:X-Bm-Transport-Timestamp;
+	bh=fO8QeXvStg/OvId8DJMUDY0DdTVmhBM+wahBamvw0ow=;
+	b=KFTxAwkhym/jnDH/WqboLwbZY3lcU/b+U6GYMVdHZJhwIEJOWjISQ2UTmTdWYo5IV1nd
+	 053UXsAR5gdFjiOjKoL9l46xi3yrvEObgs+AIQ3bRlu6Nr7OgHz+OyEpGHf2PIemfLyeU
+	 VeYKQynn09EgKPSA0kda3+xktICnRxoKpaoNS7PR72R8afr79sShjUEqHI7ydJXcFzrNf
+	 hH4THDi5HV3JLwZoXqjZxl09Ucim82IikeLQZ/WoZqooqXp2Zh/Jl0MnaM9OboLKEKqsR
+	 IthOMu4QesGEGPXMZX0j52xL/71EMdcN/wTGLYjgD2z28AWtrnd79aEdaBLx1ckwITA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=tu-dortmund.de;
-	spf=pass smtp.mailfrom=tu-dortmund.de;
-	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b="l0/9dwIa";
-	arc=none smtp.remote-ip=129.217.128.51
-Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
+	dmarc=none header.from=proxmox.com;
+	spf=pass smtp.mailfrom=proxmox.com;
+	arc=none smtp.remote-ip=94.136.29.106
+Received: from proxmox-new.maurer-it.com (proxmox-new.maurer-it.com [94.136.29.106])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0765A606A31C;
-	Thu, 26 Nov 2026 18:07:09 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0765A606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=l0/9dwIa
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
-	s=unimail; t=1795716398;
-	bh=6+hU3UA5s6I/NTpkLAZ+BjhMDXENiELATWgF9iF0YoM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=l0/9dwIaZpv+KDaKcRsCxtAWIRuftNDPPiORFqoPlZoL7yzV18Gps4cON6/XbGalv
-	 vyAgqxPfsb/Ti3JyD7/YQS1FVU7T0CMMz7blxT/0EkCi4Vvz6Xj5+WHzwtoS+lgRjz
-	 XPL5rSlTFdgjSRLunmb6mqGyOtOUbqB2ZgCZ/wcg=
-Received: from [129.217.186.54] ([129.217.186.54])
-	(authenticated bits=0)
-	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6AQI6avb020167
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 19:06:36 +0100 (CET)
-Message-ID: <61e80a8e-320a-497d-a24d-708dd1acff10@tu-dortmund.de>
-Date: Thu, 26 Nov 2026 19:06:36 +0100
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 00AA7606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 18:07:29 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 00AA7606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=proxmox.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=proxmox.com
+Received: from proxmox-new.maurer-it.com (localhost.localdomain [127.0.0.1])
+	by proxmox-new.maurer-it.com (Proxmox) with ESMTP id 660D342A22;
+	Thu, 26 Nov 2026 19:07:22 +0100 (CET)
+From: Gabriel Goller <g.goller@proxmox.com>
+Date: Thu, 26 Nov 2026 19:07:16 +0100
+Subject: [PATCH iproute2-next] bridge: vni: fix typo in error message
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,39 +45,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next 0/3] veth: earlier txq wake and stop under
- backpressure
-To: netdev@vger.kernel.org
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-        "David S. Miller"
- <davem@davemloft.net>,
-        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
-        Paolo Abeni <pabeni@redhat.com>,
-        Jesper Dangaard Brouer <hawk@kernel.org>,
-        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
-        =?UTF-8?Q?Jonas_K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
-        "Michael S. Tsirkin" <mst@redhat.com>,
-        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
-        Daniel Borkmann <daniel@iogearbox.net>,
-        John Fastabend <john.fastabend@gmail.com>,
-        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
-        linux-kernel@vger.kernel.org
-References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
-Content-Language: en-US
-From: Simon Schippers <simon.schippers@tu-dortmund.de>
-In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-Id: <20261126-bridge_vni_fix-v1-1-2e8d5694fee6@proxmox.com>
+X-B4-Tracking: v=1; b=H4sIAFN1CGsC/yWM0QqDMBAEf0XuuQETIa39lVLEM1u9PkS5RBHEf
+ 2/aPs4uMwclqCDRvTpIsUmSORawl4qGqY8jjITC5GrnrXXesEoY0W1RupfshpvrrQkt+xpMRVo
+ UZf4FHySLzmuGMxF7puf/Tiu/MeRvlM7zAysq+z2BAAAA
+X-Change-ID: 20261126-bridge_vni_fix-b3783d9b60eb
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>, 
+ Stephen Hemminger <stephen@networkplumber.org>, 
+ Ido Schimmel <idosch@nvidia.com>, Nikolay Aleksandrov <razor@blackwall.org>, 
+ bridge@lists.linux.dev, Gabriel Goller <g.goller@proxmox.com>
+X-Mailer: b4 0.17-dev
+X-Bm-Milter-Handled: 55990f41-d878-4baa-be0a-ee34c49e34d2
+X-Bm-Transport-Timestamp: 1795716441786
 
-On 11/25/26 16:23, Simon Schippers wrote:
-> While working on the veth BQL series [1], I noticed that veth was
-> sometimes faster with BQL enabled than without it. Debugging this showed
-> two reasons, both in how veth handles a full ptr_ring since commit
-> dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce
-> TX drops"):
+Fix "ternminated" -> "terminated".
 
-I looked at the sashiko review. Both points are right, but they are
-low-severity comment nits with no effect on the code, and addressing
-them would only lengthen the comments. But I can change them in a v2 if
-preferred.
+Signed-off-by: Gabriel Goller <g.goller@proxmox.com>
+---
+ bridge/vni.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/bridge/vni.c b/bridge/vni.c
+index b28647fd2f41..aeb62224bf6c 100644
+--- a/bridge/vni.c
++++ b/bridge/vni.c
+@@ -375,7 +375,7 @@ static int vni_show(int argc, char **argv)
+ 
+ 	ret = rtnl_dump_filter(&rth, print_vnifilter_rtm, NULL);
+ 	if (ret < 0) {
+-		fprintf(stderr, "Dump ternminated\n");
++		fprintf(stderr, "Dump terminated\n");
+ 		exit(1);
+ 	}
+ 
+
+---
+base-commit: 8055701cb470fdc9e5e9909369bff3f7e24c872e
+change-id: 20261126-bridge_vni_fix-b3783d9b60eb
+
+Best regards,
+--  
+Gabriel Goller <g.goller@proxmox.com>
+
+
