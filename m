@@ -1,77 +1,86 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795693690;
-	b=WehJBjOoMLYrJcTg5TshOoJxD0ol3RVTT1Mf67a+MZnrDCtN+uwD57+LlSs98kU0pxJu
-	 ymcFnsPmjBvOOFDb9fWSe9v0iAzeMHp+V3qxWvXSIaopN+vnjFDFCyl/kogvqblE/3YWm
-	 x08PiUrzaUHq7QgeoZEv9NGGniqcWRmY1QLe4UdfPk9872ZXJxneYqq81NfV6alSNsgBl
-	 MuC2nQJkFA6wwjxrMuQ70xKnQKfxiHyWtagsAi1RItR7Dw+FND8Fssl5pnkNWL6kSEHSl
-	 Kb52zxXIPWl1DfrwTyjIS+F99wVWiDfPsZ7PpL6wsY5sDHYWOAc9X+9Wx7Wuqp5ml2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693690;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
-	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
-	 X-Endpoint-Received;
-	bh=9ccEvPrk5Ukb6x7OchHxDRp27Y/H5iW0MG7iP5cWEVA=;
-	b=ayr82+2uUOwIjNcLkxJVA9XqMVIQj/c8dJy8XKee6le/nQ7U8YTTRMFoWpMngyaadxrM
-	 +eAr+dfvFeuHR0eZFywGATyglDupYDbXeE5g9q7+EbvilPLJuOZoaY0rllXssYx6pHGC5
-	 z4830xBzYj8e1XCRIeQYMrhiwV0jPDgc4oKsHAIHwBBKuDABrYo5IBbFPLLsE+ad6QrxQ
-	 fyNH5eagborIyJ85c2Df2CjqbdSBA6UVXynHuso5s17v4sC+tznsxwYV2BbfcC9lCUR1X
-	 jvNP+i7PoLQ70UaoyV4HKcukvNEm7ZxgVMxi5thnLpyNWj3kGyXnWPgJmjl9selVSVw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LldvK95u;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 78838606A6A5;
-	Thu, 26 Nov 2026 11:48:10 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LldvK95u
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795693689;
-	b=H9mrrtzUJ5ajTfxyFCuFH6ZX95+Y2w2G6mb72Mp9sZJSzhBaPG1yujE+Hu87qQcVtxes
-	 +ffhibRR+kIITBL98ake+tMKR+fcdP01SvZexdxhG6iKRmBoUDUfxh1TvijmJr9TLI60j
-	 ECoM2nSEaj3YyEUXr7LFzppt/+kNagnz3ouFWhV6FUiT7IJ0YzE0Iwx6vLqHklvoQ23Fx
-	 uWTqyWQu1CtQS2IgywX6HTDqCBx9fSzuZF6JXkYLq0AJJ6o6uA16C9NocRo0J+a1IKrbk
-	 Ef5Skw+NPUtTjz3trhYUKvB1Wq818FsjHVJgJlLdpjtitGcXbgkcZ3X1XMzoFL8+sYg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795693689;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received;
-	bh=9ccEvPrk5Ukb6x7OchHxDRp27Y/H5iW0MG7iP5cWEVA=;
-	b=W/oP79AqP5Ygb/l5wWsTruOjnmGgdjB2RTxy8oxNpdd0iE7o099Zi6GT/waTOqPMYqdD
-	 g3qRzhLwrZnSo7KEM1gxXgB0kWzzNOoaqSVxjS+Q2+Vh0M2LIdfPx5Jsu/5g7G8ux5OLD
-	 koEl+OSZ3lrCXo0MSBAYVSSdT30fdk/ENfZ1ciIRzKdLPA8+legRkFoBt64E6WDZ1IsXp
-	 XmIojiRhyiN5HDyKiGQx4HR2IqLM9BkOkxrxp2ofb2TkiDTK/Njr0uaik2KVpd2K8W+2+
-	 qO3Td3PtbwgB0+v0M2WXspZ0ags3IIBT6fFu1n10YycZGbzS28uMphGxmO0CwAqvHsg==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.177
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795693998;
+	b=SkNjpi5pk/MGMImc3f2cys088EltKmYTKHWAI2r+at+iXqjlOgGsKHf9AuxAh/+ab+1a
+	 bp2ERgAmVTsbAwu/F45Iu/A78MzLTD/1K9kjALsjCN9KIXhPaWUKKxDpDSY7Shed0In4L
+	 zIjt9QzjHPrdhfx1KZhonVizSTnFBWZoI7IJyJi3rvc0jZljTw06E4DCSWxLeE1PF9Yxa
+	 fRRoSAXbQotRYyo1F4e/g7ZhxXzNyeLsJdjAPIMD+ZHGsRqg9DIO04ZgscKKIQ9wZtbaG
+	 Bnh8cTmxBoaFTRk6GAdi1VbEj4lhZ1Sn+tC3H0QgYEXMXhD1dnEaKaX7WM+brHmjRTg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693998;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:
+	 Content-Transfer-Encoding:Message-Id:References:To:X-Mailer;
+	bh=3kI5IDFfNjtsFoeKUBTQbibyFH609QEEO0MmiaXh0bc=;
+	b=Ru1t0sk6TK5qBcydyKfYU6Vx5uqWvg2fIz11H7LiXDMm51tGplVkxXl+s+j49hTVdRXv
+	 /tEE5wZ2tqrl58A164y7BB4eZxQ6uoL8XozYBPUYEASDm0HMNAtthtcqKnakvWm8ZQOB4
+	 9sg17LSXkrywmuQ06TNcNyam2O1IrNBsbyiQohLqYi+jfZRybIhrpLzEfy3IsdJa9cwlh
+	 zSM3SKyJi1AEOXSNAPUDys/6MpD5VStwQfZzbAnaZzMOfxh5albnbHw3AyyDJn4XI3F9D
+	 xtRWTv1CAIOQezLA5Z3qHIqH+kKqk/acwtfiC6CdMnQoiJtk1J1uU+wmSVELoRbVobg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bfdIASAB;
+	arc=none smtp.remote-ip=209.85.214.177
+Received: from mail-pl1-f177.google.com (mail-pl1-f177.google.com [209.85.214.177])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 140431F000D0;
-	Thu, 26 Nov 2026 11:48:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693689;
-	bh=9ccEvPrk5Ukb6x7OchHxDRp27Y/H5iW0MG7iP5cWEVA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=LldvK95uhyRH9m5WYNzoZbMzg0+6F2jaksmU4HlktoBfZweIZvj6HcOt7121ZfCNb
-	 rGZvNZXFnPVTAW3G4TJ+JKn17mJ/U4yyKE1W+XA4Yl2/UPzvkcu7pB0g4idb34u9NM
-	 i2pTaG2ie99VNAcnjapNtRRWcIif3HoYbQF0CpmzGIYr9KhhHDZEa44Zu0NEzHDjOd
-	 fSV9jd0HMhGbYjkk3sPheURXuQDug+bnQpZktPaEmgYywB32xmrhjU94ugAR2vjtkx
-	 TY5Crw/I/b5u2H0NANsA3VOQbJPCeCSq2rygwOQyO/67xU4UPEuN3IjMROemjqlSXk
-	 AFl8TXErwtRHA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id D24A24D4A5;
-	Thu, 26 Nov 2026 11:47:53 +0000 (UTC)
-From: Joel Granados <joel.granados@kernel.org>
-Date: Thu, 26 Nov 2026 12:47:49 +0100
-Subject: [PATCH RFC 9/9] ucount: Register user_table as a template
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10C2E606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:53:17 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10C2E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=bfdIASAB
+Received: by mail-pl1-f177.google.com with SMTP id d9443c01a7336-2f07a960666so47763525ad.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:53:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795693997; x=1796298797; darn=vger.kernel.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:from:to:cc
+         :subject:date:message-id:reply-to:content-type;
+        bh=3kI5IDFfNjtsFoeKUBTQbibyFH609QEEO0MmiaXh0bc=;
+        b=bfdIASAByiwJfbqAAD1+4UTRO9VRc/1cw8CO1aAbFYAINIWPK1sjcGXTYBHg8ue4OC
+         ALBdw5OPrfz9wafd7mzefxe1Yi6eLsKJu15ZlAA50EruSbNaCH7EDlhJQtJCvE47DBth
+         4bztgRiNEa3EYUQPqvifGMissfDxwdTl3XHAwzEUVkNf1TpK2O1+dYqkEy/wBk5/hE5t
+         aobhOuiFfLfcQEuTiDsXwUbOg6Ikt2BXTk7LZfnb93R/1nhk28DHy1jKLpjzKewoFN4l
+         NPn1BPuV14cJrkAaCuU0eb/7J+POzSNPYEKAJmFCYfJZXwsKgr7pGmqFw1uelx8gyZF2
+         p+SA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795693997; x=1796298797;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:content-type:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=3kI5IDFfNjtsFoeKUBTQbibyFH609QEEO0MmiaXh0bc=;
+        b=ul/Hw3WL8N1BKlH1ZQXqtjA4RtB3P3rbxYI3n4zbFLHnFH6afXPHOtK+PVnGs7RvuF
+         2ZGFYMK39YoX40iR66U5Ko+it3GUl6riknM7rNg236L9JC6GcdlSFhSpbuVkOyDIMJ4V
+         c4sTQYqZwDjc/4bxTieVMjA8iOXEKynSyKwNj8JlaGjqIHfy8UzEpu2VB9p2iB3Z7+ys
+         HQzglGbxNtQ/D20YnfieC2LVx/0fPN+1/teURSTepsMaSZdrJmXW34vAGRpS1XAhjFB9
+         PtpZvuzO1uwSDjVUaIb5kAvLKximUbOnpDQTzflrV3a6KeSKqY2Jw750KDG6BO48vwfj
+         2TQQ==
+X-Forwarded-Encrypted: i=1; AL+hErHK4ezWOekK4DLDQ8rUPqJuO6uQOTTutiRiZSPzoXtCMwNnTCZua9qm1X1sLw7kz8ILQkTlcts=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/BMVYoUtWbIt6o0xU7kS2fVmlkUxn3B62uXjBIQkbq+H4b2GiO
+	rjPnry9vQ4L7WPw68zZHiPjxCM1xXcjsfhWiYCYOQyTQhbe27Wg/2Eg=
+X-Gm-Gg: AZFdTZeuh3fiZIAEdLW2WqcOb9bTL4prNQU+ZvzLj7sd+ARIimWKw/FhT5Dno320qdp
+	zjCEHpeMvCNUJJ4AknVZLNjW8VdGYI4StTOhS/csDFG0f2yPSHO0Xgk7fDCr1/9/Qd08bOX3BSN
+	/LIu5zS1dWxRn9FYrjaDH1dJLyOIyf/OWTV1/08Ftk3myq4f0Yf7K3PktMosHYZjAwBH620TsxE
+	g99idjRQWb6KTcvK2YXKiza49SVhkLMXtjebmHSO7kZcgRdRUexO8pjzxapzeg5SK9Nul7n9tIs
+	VXa8wGSC1zcvDyHGGl/dD0gO74pGjlYlmsy2tc6i9f4t7lQRjC/0jFRYMe0FAIRT+VX9c+H6W06
+	UsUOSmlpS7Uz11yuJB9JlXv62OYRQfIoU2cII56+ulfUg56U32xeH0ZfG7+9S4daizRFgEWcnef
+	OmO/KVnIbnoo6r660o1t+8Beq4y/d2p+FUwXuTUAhm6s177I8sOJbu9gT/DVor68XrJx2RFEN4T
+	MYU/4Cady9BBhsYNYdRt2TA9oUCZRwghWOlWsyyMVpD3CdiATZoBQfWRQv0wRtwM+YjTLaWIBvF
+	v4EztVHXIAQNXARjhk8vJeMlT/XC7qHomolDWOulEk8fYGDrvhZ+N9rZbSWP
+X-Received: by 2002:a17:903:2450:b0:2ef:f312:b848 with SMTP id d9443c01a7336-2f03f16ca8emr221908695ad.48.1795693997244;
+        Thu, 26 Nov 2026 03:53:17 -0800 (PST)
+Received: from smtpclient.apple ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f04f8aca00sm93559375ad.38.2026.11.26.03.53.14
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 26 Nov 2026 03:53:16 -0800 (PST)
+Content-Type: text/plain;
+	charset=utf-8
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,94 +89,61 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-lklm-sysctl-ctx-flatarray-v1-9-d7fc9cc9b03e@kernel.org>
-References: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
-In-Reply-To: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
-To: Kees Cook <kees@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
- David Laight <david.laight.linux@gmail.com>, Wen Yang <wen.yang@linux.dev>
-Cc: Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
- Linus Torvalds <torvalds@linux-foundation.org>, 
- linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
- netdev@vger.kernel.org, Joel Granados <joel.granados@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1852;
- i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=xxV6z++7ScCL89/Zbrnu7BW+bL94aG5P2MD4Ph2vuSk=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGsIHGb4MoAhfzZ1I0S/+EBq8ElFI7wbN0PZ+
- Imexis5rB3Dv4kBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJrCBxmAAoJELqXzVK3
- lkFPHbcMAIU+j6RI+3mitsigy7GoDEHm1dD/3TlR1oUbw7PCY3S8JrChRnPm4SNvA9aXEsHeP2y
- zwimrDfTY2CJiq29aw3N5lxRVm/nTT66Di5jUpBol57ZSsMKXsGv5cTRGzqeuSLzNAVtgfwJsX0
- I044x1WNml5Pc5C+aaC3Wzcqrd49uw1ub50fPyC0Oq2DhnO56ncCGd2+Bh5hrFfQHBatgX2LwwG
- e0lDhNjYH/1Ey7Cz1inFdzeGW5uXR6qGmXg+nTpGnq5DscCxinI2yATfwG3vU4EL3Nd8zaynH4L
- Dfms9KJtEWkR3uu6BVGOJmGF4/U+Uho8+gyy/YeZogtV/CypF6nMdJqG4UeG6EnG4wVArESfoJa
- +nkXL+PbLC5NKQTQ+ueg/gVDtu32DLcv8F3whKBJTz7AqaPee9PxC4dfVwwSBlCqW3KGos9p5mX
- ENmW1MVCZmCwFH0GYSFhOYf4JqcPAOX1kvR1SwciZ9elw65+Vbjgm7j9rYIIlmDi69ZKeJ54467
- AY=
-X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
- fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
-X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
- auth_id=239
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.600.51.1.1\))
+Subject: Re: [PATCH net] fsl/fman: Drop device references when
+ dpaa_eth_add_device() fails
+From: Yige Jiang <yigejiang86@gmail.com>
+In-Reply-To: <179568615995.3294.18215982267016488454@kernel.org>
+Date: Thu, 26 Nov 2026 19:53:02 +0800
+Cc: Madalin Bucur <madalin.bucur@nxp.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>,
+ Sean Anderson <sean.anderson@linux.dev>,
+ netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <6C42B38F-A7A5-4152-9B25-5BDD067AD267@gmail.com>
+References: <rc-b1-20261110-vc-177-85d2478ac4b9@gmail.com>
+ <179568615995.3294.18215982267016488454@kernel.org>
+To: netdev-bot+sinfo@kernel.org
+X-Mailer: Apple Mail (2.3864.600.51.1.1)
 
-Add SYSCTL_OVERLAY_DATA to UCOUNT_ENTRY() so every entry of user_table
-carries it, and register the table through
-__register_sysctl_table_tmpl(), passing the copy that
-setup_userns_sysctls() already fills by position as the overlay. Free
-the copy once the call returns and stop freeing ctl_table_arg in
-retire_userns_sysctls().
+Hi,
 
-Signed-off-by: Joel Granados <joel.granados@kernel.org>
----
- kernel/ucount.c | 14 ++++++--------
- 1 file changed, 6 insertions(+), 8 deletions(-)
+A static analysis warning about of_node_put() led me to look at
+mac_probe(). The warning was a false positive. During an LLM-assisted
+review of the surrounding error paths, I found that a failure in
+dpaa_eth_add_device() bypasses the cleanup for the FMan device and
+both port devices.
 
-diff --git a/kernel/ucount.c b/kernel/ucount.c
-index 94b70502dc9ded4de4a946b73141119efc3a26fe..bf021247f5ee5999f3c298e318c25dc2164a8c9b 100644
---- a/kernel/ucount.c
-+++ b/kernel/ucount.c
-@@ -69,6 +69,7 @@ static long ue_int_max = INT_MAX;
- 		.procname	= name,				\
- 		.maxlen		= sizeof(long),			\
- 		.mode		= 0644,				\
-+		.flags		= SYSCTL_OVERLAY_DATA,		\
- 		.proc_handler	= proc_doulongvec_minmax,	\
- 		.extra1		= &ue_zero,			\
- 		.extra2		= &ue_int_max,			\
-@@ -109,11 +110,12 @@ bool setup_userns_sysctls(struct user_namespace *ns)
- 		for (i = 0; i < UCOUNT_COUNTS; i++) {
- 			tbl[i].data = &ns->ucount_max[i];
- 		}
--		ns->sysctls = __register_sysctl_table(&ns->set, "user", tbl,
--						      ARRAY_SIZE(user_table));
--	}
--	if (!ns->sysctls) {
-+		ns->sysctls = __register_sysctl_table_tmpl(&ns->set, "user",
-+							   CTL_TABLE_TMPL(user_table),
-+							   tbl, ARRAY_SIZE(user_table));
- 		kfree(tbl);
-+	}
-+	if (!ns->sysctls) {
- 		retire_sysctl_set(&ns->set);
- 		return false;
- 	}
-@@ -124,12 +126,8 @@ bool setup_userns_sysctls(struct user_namespace *ns)
- void retire_userns_sysctls(struct user_namespace *ns)
- {
- #ifdef CONFIG_SYSCTL
--	const struct ctl_table *tbl;
--
--	tbl = ns->sysctls->ctl_table_arg;
- 	unregister_sysctl_table(ns->sysctls);
- 	retire_sysctl_set(&ns->set);
--	kfree(tbl);
- #endif
- }
- 
+I compile-tested the fix on arm64 but did not reproduce the leak at
+runtime.
 
--- 
-2.50.1
+Thanks,
+Yige
 
+> On Nov 26, 2026, at 5:42=E2=80=AFPM, netdev-bot+sinfo@kernel.org =
+wrote:
+>=20
+> Hi!
+>=20
+> This is an automated message. This series looks like a fix, but its
+> commit messages seem to be missing some information:
+>=20
+> - How the issue was discovered, e.g. hit in production, hit during
+>   development, syzbot report, manual code inspection, LLM or static
+>   analysis tool scan.
+>=20
+> Please do not repost the series just to address the above. Instead,
+> reply to this email with the missing information, so that reviewers
+> can take it into account.
+>=20
+> *IMPORTANT*: If you do repost (for other reasons) - please include
+> the relevant info in the cover letter or commit messages.
+> --=20
+> The evaluation is done by an LLM so it may be wrong, if you think
+> that is the case please reply and explain.
 
