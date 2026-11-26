@@ -1,60 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795702455;
-	b=4MLA4Jrgr+vOPckvAf1jNTvPru2QHlu4xDmbOH4ZJnEiqtFsp6mt61IRxTlaKpWVIW1J
-	 5IQQ/oCQkYDAyxi9ozvtWvWWSfsjkMMsTfJpGGNSbcefflcyKHbMbVHP/iDZCVPC+wTPO
-	 ELHhnJrvL2uGkmPGrmGLZGUBDTSSTK3Zbyy9puRS3bL7aAIJK+4NmYeDAXnKugm452R/r
-	 d0X/XJ0md+qFaneBbfPQulhEySV3sJOnVZZUdHhImfSCLCiO/HmQiNzhXSJB8eVz3Z8p4
-	 R97a2rRuQ1kj41b/3vlwU84xNnfxWn5rOACvKp8wWIFWqxAyUX1woSRW0h9qW26H6vw==
+	t=1795702452;
+	b=tTf6s7R1Yd7wNb9ZYKUymGLAuEJzEfTbpEc1MtgemQdkyWxPKE0h/jA4DaaI6MhxgBxB
+	 dD4X9tMpqoXHldJ5kUpN1HJUSHL9QeT7SOffIzCJ2CLzFBzwSogIBqgRY2n3pDl56fWEO
+	 oMgB547KDCHBGgDxnmO4RtAXFB73nINUXZwpLAJIoAqZAP8yAgY5z2SZsFzTj0PXJJ4lz
+	 qGbF0bdjpPHcFCewq4gIMd0W5yYiH+vCVxnnraO+CTLv/XdGuLpK8uzkPxobEMabeUwyQ
+	 +xAuKljAdN+EKBHwRMtDKUjq7cCjdjxfeoPvPKX55WC8cCZokHW1IAextYAY7U48pgA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795702455;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Date:
-	 Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Last-TLS-Session-Version;
-	bh=2af9+w00uzOD6FRM91HNOb040wzCwbe4fv9IMgKEHAQ=;
-	b=CIeK1uP/ab4ow3/0l+8P4HV0k+mRP+3L6Kaogv8v19eM3nM9s3KKMzidZG1bPeW5T/cl
-	 3jgt0Z7CpW5pGkgTpb61ESnRxhK2MDrKvh0hAlPdZr2WCVXYUzUkrkHKMui24gILx3T2U
-	 3aPblV8CEqG73ZuvSnxtLpwRXSHVRHhIVMef+HWkos1JQMEGjcyb4ob350sHKw1Rk4p+j
-	 pPWVPMEnTPTTHKQQjP1vkUJNwpGdFnad0jH/IGWlZej41UjMNClzpyIPlg7ogtTzKZFc5
-	 txuyXpCOJBBGlc2qejO2zQjIGFYKU27GjUZe/92ujft/njvxfF037YTTuI4XLn3OOkw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795702452;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:Subject:
+	 Date:Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer:X-Developer-Signature:
+	 X-Developer-Key:X-Last-TLS-Session-Version;
+	bh=s2a9AvV/AgdGHUQnq3iKJwMA5eBsGeLbNvEBzUN1awg=;
+	b=pEmMc8mspMiis9S3ndB0agtvVuI7+fDSUEpz5ItuHijIqHE48N/6A/01jqROa2SeUmoO
+	 23HhT4WqA7wvuDzQ/rlG3vXbBlYT5epPyeXOdh3sMEdx9dAijYpGyqzBMV4T6pNMuzLOx
+	 /mBnO40qVIbFryTSMwvS96ULwmUP1axYssCzS830Fv7U2To0awiQ1Lg1NAC1vvYJui16R
+	 D5xoq6xuvcjX+sa12JZIMenGbmgS6G1volC+C4eQYhJM2BQ2Xe0TonTMfqA1vgkUAvnM0
+	 odd2tsq8NVyiDUSllNJMRR+nikK8biHHCVuEj0ROQfzIh+nDEWjtFMheujYTqTDKlGw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=bootlin.com;
 	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=i73bhyEy;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=FM7l+q0z;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 772EB606A334;
-	Thu, 26 Nov 2026 14:14:14 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 772EB606A334
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B0505606A32A;
+	Thu, 26 Nov 2026 14:14:11 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B0505606A32A
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=i73bhyEy
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=FM7l+q0z
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 271B51A17F9;
-	Thu, 26 Nov 2026 14:14:13 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id CC0B7C2B9D1;
+	Thu, 26 Nov 2026 14:14:17 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id EF830604ED;
-	Thu, 26 Nov 2026 14:14:12 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 49CCD11E683C9;
-	Thu, 26 Nov 2026 15:14:08 +0100 (CET)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6E3A4604ED;
+	Thu, 26 Nov 2026 14:14:09 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 243CC11E68394;
+	Thu, 26 Nov 2026 15:14:02 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795702450; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=2af9+w00uzOD6FRM91HNOb040wzCwbe4fv9IMgKEHAQ=;
-	b=i73bhyEysgiDbwbL4Upc+N2TxHgqSZ3wKu04/T9EAo6xU5p3/QQ7X4jo4u0f7kP9N0lu24
-	el+AQ92tEE5YF0qdtcvpQtP6Lg9Ee7xz+4Idkd4ezKzizOXJiqJoB/6i793+OS3fymenfs
-	GA1sVPmKkbnFVYr4iJjf4cuBH9OHFZyJQ1KmQzSYY7fJxKF1a+gg5TyQPP/LlX1pbGLtRs
-	xxpuDf36RRQwWk67IEn4nsGLT7MexTTDo9GXi3BrvJFtNp6o+xGvjdojBo32YKOSIfK19o
-	Ks1bvYvo7YS4xF2UWtW7hJfrraPIEFn+6mSAA41stAI+u1p9BRv0ue82pVyWCA==
+	t=1795702447; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=s2a9AvV/AgdGHUQnq3iKJwMA5eBsGeLbNvEBzUN1awg=;
+	b=FM7l+q0zErVfEUB1xeGnmIc+yH6UrWbmtGIVo9lDJA2rnwhRgLkYPHmDAxOwQNvF2iYnbZ
+	pt851rk97jymEDQ7TxqVDe9u29CB6p18kpEE3UlEMBO3TtNPXgptRwNxHUXAiy3kvX6zBW
+	we0Dtoc0MJgc1wQsF7Ys10Fiv/0aSFJskXW+uPZHX37DVlmo3LwFL8YbCR+PgchPTYzj6b
+	czA5cNAjEsdTf4FVy/NzN4rtHUtD+9CvnKemSofr59m7OM9f8ipbuPwDJopmoSKp2wFID3
+	jDEPd0WTUXcKVyi1+TZgPWP52zQD7a57OBtnrqbWrhEilHfWkAOZx6n5rlS1BQ==
 From: Paul Louvel <paul.louvel@bootlin.com>
-Date: Thu, 26 Nov 2026 15:13:43 +0100
-Subject: [PATCH net-next 1/3] dt-bindings: net: dsa: lan9303: add Microchip
- LAN9354 compatible
+Subject: [PATCH net-next 0/3] net: dsa: lan9303: add LED mode configuration
+Date: Thu, 26 Nov 2026 15:13:42 +0100
+Message-Id: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -66,9 +65,10 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-lan9303-leds-v1-1-a96731317859@bootlin.com>
-References: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
-In-Reply-To: <20261126-lan9303-leds-v1-0-a96731317859@bootlin.com>
+X-B4-Tracking: v=1; b=H4sIAAAAAAAC/yWMQQ6CMBAAv0L27Ca0IFW/YjyUdoE1ZDXdakgIf
+ 6fKcTKZWUEpMSncqhUSfVn5JQXMqYIweRkJORYGW9vOGHvG2cu1qRucKSp674K7ONO3Q4SSvBM
+ NvPx3dxDKKLRkeBxGP/2TQv7dYNt2/MbtDnoAAAA=
+X-Change-ID: 20261125-lan9303-leds-aa7c7871b4fd
 To: Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -82,62 +82,52 @@ Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
  Miquel Raynal <miquel.raynal@bootlin.com>, 
  Paul Louvel <paul.louvel@bootlin.com>
 X-Mailer: b4 0.15.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795702442; l=2028;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1795702442; l=1417;
  i=paul.louvel@bootlin.com; s=20260313; h=from:subject:message-id;
- bh=Bre0xRv5cdfdmi0n2iDaeMyZE3i4rxiXnVfwYy2Mo04=;
- b=+y7euHTOrSppXg9QtAhXYrvWZiw4RNV7tEXS/9ekoO8VHDwkW7nVohtEbqILICQ2ZeTO3S67x
- 0vV8gSN6NVvD2kD/l6Vb/OZ6HGee/uLGqmW+6+RkRBXA4gQoh+NAzKm
+ bh=DEG5WV9o47C96zqF0vii+oCLUP9d16Gtee40hniLtLQ=;
+ b=84gDsLAlN0vjKVWg3ZZp/P+E6kY4UpiptRsUvZniPfgdKh+a1mnOzpEOYwgIOJk0M6IA7vp+P
+ oHHPVFG+FBbDnWt5GUxfvlfHK1kClwLZ4FPtgDj7L48h0PXvIeB/hSx
 X-Developer-Key: i=paul.louvel@bootlin.com; a=ed25519;
  pk=eLW50NT18UAvUT5cAcYf88zNbBCZDLFXuptpyLVhVIU=
 X-Last-TLS-Session-Version: TLSv1.3
 
-The driver has matched "microchip,lan9354-mdio" since commit 13248b975038
-("net: dsa: LAN9303: Add basic support for LAN9354"), but the binding only
-documents the two SMSC compatibles. A board using the LAN9354 therefore
-fails dtbs_check even though the driver binds.
+Hello,
 
-Add the compatible to the enum and mention the LAN9354 in the title and
-description.
+The LAN9303 and LAN9354 has 6 different LEDs, 3 LEDs are used per
+external port.
+On some boards the LED straps double as configuration straps for other
+functions, such as the PHY address or the EEPROM size, so the desired
+LED mode cannot be strapped and has to be programmed by the driver.
 
-Signed-off-by: Paul Louvel (Schneider Electric) <paul.louvel@bootlin.com>
+This series add the ability to program the LEDs function via the
+vendor-defined property 'smsc,led-mode' at setup.
+
+The first commit document the compatible LAN9354 that is missing in the
+bindings. The binding was converted to YAML, but the compatible property
+was never added [1].
+
+[1]: https://lore.kernel.org/all/Yw0R7u1qV9tLSCnu@lunn.ch/
+
+Thanks.
+
+Signed-off-by: Paul Louvel <paul.louvel@bootlin.com>
 ---
- Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml | 10 ++++++----
- 1 file changed, 6 insertions(+), 4 deletions(-)
+Paul Louvel (3):
+      dt-bindings: net: dsa: lan9303: add Microchip LAN9354 compatible
+      dt-bindings: net: dsa: lan9303: add smsc,led-mode property
+      net: dsa: lan9303: add LED mode configuration
 
-diff --git a/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml b/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-index 42f8473538a0..95abf043a118 100644
---- a/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-+++ b/Documentation/devicetree/bindings/net/dsa/smsc,lan9303.yaml
-@@ -4,15 +4,16 @@
- $id: http://devicetree.org/schemas/net/dsa/smsc,lan9303.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: SMSC/MicroChip LAN9303 three port ethernet switch
-+title: SMSC/MicroChip LAN9303/LAN9354 three port ethernet switch
- 
- maintainers:
-   - Frank Li <Frank.Li@nxp.com>
- 
- description:
--  The LAN9303 is a three port ethernet switch with integrated PHYs for the
--  two external ports. The third port is an RMII/MII interface to a host
--  processor. The device can be managed via I2C or MDIO.
-+  The LAN9303 and LAN9354 are three port ethernet switches with integrated
-+  PHYs for the two external ports. The third port is an RMII/MII interface
-+  to a host processor. The LAN9303 can be managed via I2C or MDIO. The
-+  LAN9354 is supported in MDIO mode.
- 
-   Note - always use 'reg = <0/1/2>;' for the three DSA ports, even if the
-   device is configured to use 1/2/3 instead. This hardware configuration
-@@ -23,6 +24,7 @@ properties:
-     enum:
-       - smsc,lan9303-i2c
-       - smsc,lan9303-mdio
-+      - microchip,lan9354-mdio
- 
-   reg:
-     maxItems: 1
+ .../devicetree/bindings/net/dsa/smsc,lan9303.yaml  | 35 ++++++++--
+ drivers/net/dsa/lan9303-core.c                     | 74 +++++++++++++++++++++-
+ include/linux/dsa/lan9303.h                        |  8 +++
+ 3 files changed, 111 insertions(+), 6 deletions(-)
+---
+base-commit: 3dd8c790a7b7027abdd568e36db5e82ffaea7c77
+change-id: 20261125-lan9303-leds-aa7c7871b4fd
 
--- 
-2.56.1
+Best regards,
+--  
+Paul Louvel, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
