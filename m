@@ -1,65 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.13
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.240.164.96
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795679781;
-	b=nzwUSiPc2P8QJ0GpYIej0ZQhs3NhyS+ESu+uUFpVk2DCyOitdwlEa6uuC3p7Y19wLqcJ
-	 knGgsSCGuqls2JRG6KrurfnFTkVlxbxktu/nxpfEG/Z/6M8JAv5kdbvW16h23dpk/qopz
-	 FQzdwJe3CyCtS4F2gIMbbXBPmWuTye82vC5OXvMah5P77Jl5OGKOY5VK29AUxqDDXIuP5
-	 dEh6ztFwPZBfwlpT7cPawNGSHDd2ijN2XuNL+WmhbUQlILg0lYEbd4nqckALGr+y9qlnM
-	 U79FzoOEF6pvY8A6A2nSnm/nGadi3hQA6mNdXnahHwGf4Rxph0rh19MgaAaCE6Fu5Ew==
+	t=1795679883;
+	b=Yni6tQm8kDzLBRmzFmhE7WV3sdS6++Rlo8FTD2n12UkUtoS2o80QUknnvZODyIMHzAZl
+	 XqcXau9VkpRI3ig9whuDOGcRru0C5hLtRQb6ehIqXz/6cvLlnQXyoU28nnNckSkeuthcu
+	 js/9dnqGqruR+xt6POYZqNC3JJV6h/8j/0ijb9O4chqhc+UDXN6miEsk4zIEaa8YVjY8H
+	 n7qb+2dtRB5sdFvPp3O3q+/yZGS1Qc2HOjVSz2ZmaN5QqIvNEpCDTXwDFGfM6kMZdk6iI
+	 pHOSYwKEXjZnhR521q6yo/phb2g5G9vBGhGTpOjTzrsydqhGfPgBydaK7NHcBi1nm1g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795679781;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To;
-	bh=Zp7KR/TTaOmH56UgO4iVbM4KLisFeV6A9K8Gnq9SP2c=;
-	b=CwKH6HcqXhfjmDlIF+n3F47a0lwA008U/ynPkmtU536t1bJ4wuLkt2fcQO77klbuAflu
-	 yzBT1NoUUwDUuV7JckYGe7sl4OpCYb/Gg0ewxI5+THKGcd+i/3+f6fcOB+2qNM6nS52VJ
-	 TLLtIb07k/JvprUyrgk3sdLhsjIQw2rkGd2QSgxTQgYU11Ttenhz3Ke9f+7Yjz5mfoFCM
-	 l6fhIkeA9V2iEXJFTb8+sFLa3S2PUJKC0JZQp+mtH/H62ML8j5tYz/20m+ecxSl10tl0v
-	 7oJNNfE2Ea9EML7SezHMGI+8Wx6u+SHrUtkPKFYXXaon8djomKeLHCFyZL2OurZD8Og==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795679883;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Received:Received:
+	 X-Virus-Scanned:Received:Received:Date:From:To:Cc:Message-ID:
+	 In-Reply-To:References:Subject:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding:X-Originating-IP:X-Mailer:Thread-Topic:
+	 Thread-Index:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-Get-Message-Sender-Via:X-Authenticated-Sender:X-Source:
+	 X-Source-Args:X-Source-Dir;
+	bh=OL55ImhmBp8fM3GmtTJh4abvR8DngDWjBaxkdBPdVd4=;
+	b=bdAswMwJDlYbEv3YKNhEJWaZ2jfmObrbU7lITxgHPK+sw4hzAC5+DMPxevDNizaGpH6j
+	 UqNfFd8S4FuSuD/04bseYm2Kqo+86N+GiCTiCkFJ0bRMttPZhvqsy0/ouDQNYFsaaw35m
+	 i9h040VSmMsDbhj6ACEBTzy/UV4fYAYZZvnjew57hsaLv5O7lqVJgNvVdrMaJGZu0qXjl
+	 x/wILFO2iKSaUIi6slZtGVgdwiawKVExtwdN7nflTqBAecwx/vi8y+cKg+GiPmrDoIw5K
+	 mrmSs0TozKRR2yszd1CahIpRrj5hkiUABJhePNDQ3HDgqQzX8fWQ7DNEctMY6E5PLvA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wopqudTI;
-	arc=none smtp.remote-ip=91.218.175.13
-Received: from mta0.migadu.com (out-13.mta0.migadu.com [91.218.175.13])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=couthit.com;
+	spf=pass smtp.mailfrom=couthit.com;
+	dkim=pass header.d=couthit.com header.i=@couthit.com header.a=rsa-sha256 header.s=default header.b=nwp5dRKO;
+	arc=none smtp.remote-ip=162.240.164.96
+Received: from server.couthit.com (server.couthit.com [162.240.164.96])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 37D52606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:56:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 37D52606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1F52E606A31E;
+	Thu, 26 Nov 2026 07:58:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1F52E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=couthit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=couthit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=wopqudTI
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=hc7O1kDVjwwjdvW8dTk23z2Y41qPruXloCw6mIwLNgg=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795679777; v=1; x=1796284577;
- b=wopqudTI+GYAMTvbtvkHUvwJgyGDz440Xkvxa9G/BUX9txNM7C6aTMqZti2yNeiMB1x4ADGu
- k/svzrkGTP1csJ/brMPx9c3qE6IblIU1TNGnoqKXxVYuP2YccYO60nppwztoSxSEgXpD9DK2ZcZ
- fg5uNUF8MtHUClaKEWqT/bNU=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta10.migadu.com with ESMTPS id 0c367e1d0eed308f;
-	Thu, 26 Nov 2026 07:56:17 +0000
-X-Mizu-Trace-ID: 0c367e1d0eed308f
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 15:56:10 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: netdev-bot+sashiko@kernel.org
-Cc: jv@jvosburgh.net, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
-	john.fastabend@gmail.com, sdf@fomichev.me, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, bpf@vger.kernel.org
-Subject: Re: [PATCH net-next] bonding: check XDP support before enslaving
- changes state
-Message-ID: <20261126075610.GA33976@Liu-laptop>
-References: <20261124-bond_xdp_fix-v1-1-e67983924324@kylinos.cn>
- <179561592046.3135.4020262152427481394@kernel.org>
+	dkim=pass (2048-bit key, unprotected) header.d=couthit.com header.i=@couthit.com header.a=rsa-sha256 header.s=default header.b=nwp5dRKO
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=OL55ImhmBp8fM3GmtTJh4abvR8DngDWjBaxkdBPdVd4=; b=nwp5dRKO66yTK8q8ECx+Hss6gR
+	Gb5sQd4FVRKNmpYhornibguhcZfjq7q+x3ON4pWXWp2E1hWMqqzGZgnZdZSyEt48NTl1y8rdRdroa
+	enOgPraTh0VzQy8qRl7TclLb/QQAKIMRb2Zen1eeGCgCfQljBNHgTUrYv3G2aK42WIbwB0k5I9krI
+	CcwSKKY+4MisKcGWnWR2WyIkXeQMRpVwod3JAaIRYK/DXQDWDF73AHva/0mDDAb8aQeQ90BHCQyjA
+	zvE35tDVQA7NiOI0VoZrjus4TGVwz8A0dulZ5AiNRfI9VrV+M9VeMN15Vcqb5f3fDa6+yS18OyBiA
+	EukEQ0Vg==;
+Received: from [115.246.246.98] (port=29389 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.99.5)
+	(envelope-from <parvathi@couthit.com>)
+	id 1xWUMd-00000006r09-1PG2;
+	Thu, 26 Nov 2026 02:57:55 -0500
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id 0B64D1B80119;
+	Thu, 26 Nov 2026 13:27:52 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10032)
+ with ESMTP id WNNHpjXhAkh1; Thu, 26 Nov 2026 13:27:50 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id C74591B80167;
+	Thu, 26 Nov 2026 13:27:50 +0530 (IST)
+X-Virus-Scanned: amavis at couthit.local
+Received: from zimbra.couthit.local ([127.0.0.1])
+ by localhost (zimbra.couthit.local [127.0.0.1]) (amavis, port 10026)
+ with ESMTP id O-RUpmCoObAk; Thu, 26 Nov 2026 13:27:50 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id AD86F1B80119;
+	Thu, 26 Nov 2026 13:27:50 +0530 (IST)
+Date: Thu, 26 Nov 2026 13:27:50 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Yige Jiang <yigejiang86@gmail.com>
+Cc: MD Danish Anwar <danishanwar@ti.com>, Parvathi Pudi <parvathi@couthit.com>, 
+	Roger Quadros <rogerq@kernel.org>, 
+	Mohan Reddy Putluru <pmohan@couthit.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-kernel <linux-kernel@vger.kernel.org>
+Message-ID: <1112845239.887064.1795679870638.JavaMail.zimbra@couthit.local>
+In-Reply-To: <confirmed-20261105-26-ee6bb3813c44@gmail.com>
+References: <confirmed-20261105-26-ee6bb3813c44@gmail.com>
+Subject: Re: [PATCH net] net: ti: icssm-prueth: Retain port node references
+ until remove
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -70,42 +99,69 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <179561592046.3135.4020262152427481394@kernel.org>
+Content-Transfer-Encoding: 7bit
+X-Mailer: Zimbra 9.0.0_ZEXTRAS_20240927 (ZimbraWebClient - GC148 (Mac)/9.0.0_ZEXTRAS_20240927)
+Thread-Topic: icssm-prueth: Retain port node references until remove
+Thread-Index: SGID6YUxBG5lHjcZ6qjhdNoL9iQyXg==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 
 Hi,
-On Wed, Nov 25, 2026 at 02:12:00PM +0000, netdev-bot+sashiko@kernel.org wrote:
-> Thank you for your contribution! Sashiko AI review found 2 potential
-> issue(s) to consider.
+
+> icssm_prueth_probe() takes a reference to each available port node and
+> stores the nodes in prueth->eth_node[]. Those references are released
+> both at the end of a successful probe and in icssm_prueth_remove(), leaving
+> one excess put per port after unbinding the driver.
 > 
-> Critical: 0 · High: 1 (1) · Medium: 1 · Low: 0
+> Keep the references after a successful probe, since the stored nodes are
+> used during teardown. The existing remove path and probe error path then
+> each release the references only when they own them.
 > 
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwork
-> know by including "pw-bot: cr" as a separate line at the end of your reply
-> (one such reply per series is enough).
-
-Thanks for the review.
-
+> Fixes: 511f6c1ae093 ("net: ti: icssm-prueth: Adds ICSSM Ethernet driver")
+> Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
+> ---
+> AI assistance was used for analysis and patch preparation.
 > 
-> - [High] bonding: bond_xdp_xmit() checks ndo_xdp_xmit instead of
->   xdp_features
-
-Ack, I will check the xdp_feature instead, thanks!
-
-> - [Medium] This patch fixes a kernel oops that is self-contained and goes
->   back years, but it has no Fixes: tag and it is mixed in with changes…
-
-OK, I will split the patch and post the xdp_feature guard to net tree.
+> Based on next-20261104 (8b7179210b22).
+> Compile-tested: arm64, GCC 14.2.0, W=1,
+> drivers/net/ethernet/ti/icssm/icssm_prueth.o;
+> baseline and patched objects built with no warnings.
+> Static source review; no hardware, boot, or KASAN test was performed.
 > 
-> Pre-existing issues:
-> - [High] This problem wasn't introduced by this patch, but the XDP
->   propagate failure it keeps on the late path can leave freed memory…
+> drivers/net/ethernet/ti/icssm/icssm_prueth.c | 4 ----
+> 1 file changed, 4 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> index
+> b42c98e861e081d6c616881786b94e8bcde6b944..4f9529e0e404fd9cfee9e7340f2f048442ab938a
+> 100644
+> --- a/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> +++ b/drivers/net/ethernet/ti/icssm/icssm_prueth.c
+> @@ -2018,10 +2018,6 @@ static int icssm_prueth_probe(struct platform_device
+> *pdev)
+> 	dev_info(dev, "TI PRU ethernet driver initialized: %s EMAC mode\n",
+> 		 (!eth0_node || !eth1_node) ? "single" : "dual");
+> 
+> -	if (eth1_node)
+> -		of_node_put(eth1_node);
+> -	if (eth0_node)
+> -		of_node_put(eth0_node);
+> 	return 0;
+> 
+> netdev_unregister:
+> 
+> base-commit: 8b7179210b22f8e48a82c5ceacb9d56a9c4cfec4
 
-This issue is working by Jiapeng in
-https://lore.kernel.org/netdev/20261124024319.52145-1-ljp1205831794@gmail.com/
+Reviewed-by: Parvathi Pudi <parvathi@couthit.com>
 
----
-pw-bot: cr
+Thanks and Regards,
+Parvathi.
