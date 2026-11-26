@@ -1,52 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700600;
-	b=Az46wLoMB9IdWX2opzw+dPXwu3uaK9HdltEDGMASPTudxcTUmvn3MJOTY7y3HIfrRNpI
-	 97oEIZXP4GVAzNlFG/5bqvEO/tLOiE0A+YWhTbNjhKX6ZENhmGOR3jXd9eD/+Fyvl+OwM
-	 WqbvF8tz8Z2cUIO4RhiGT0x2CaHMHsfDtfKIXwI3RIsjUuMwsen76r/9mBFIveyV1UUpL
-	 mYDWDpDfm5y6Lqw+fcqY8dp2HqBFvCeJI/ylSe5cVbKY4Y5ZKiR7lkN9Af+N/WEd9Nfs7
-	 e9mJb5gARKjbCPRI+Z5PuPlhr8m/4zM5bQoPpYWbv3+dCOu9PNVn3IiB9PN/tA6I5Vg==
+	t=1795700936;
+	b=X878AaVc/Nzdd6mr5afcy/POIrqUXr1E8QkIGrfWQf0VC+IK4beepTJ2gZ6KbuaGSc2X
+	 tsAitVHqq8jRwBcBEgFoyndi9emUcjGf3nnKCRkvFBoTPaifSbtAUbhJ0IYY6mB3KltWw
+	 oIZf0k1dUD1uiSecITcv4fT3H7TaTPhZQDWP7/D+PHujXir1I6rwG11KNtY+U6aA+orFV
+	 BvDxzXjgfSg8wsFXtVv35C5VE5Y+i5XmQlpvxSEWO7ndE7qP9pTgpL7uvFzUImAXw2jNz
+	 IJ98GncZRLUsjqoeh6/f0wXTPj+5rmcT/5Yw4JLW9MecEalOSyQt2pb95x0iRfFwGaA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700600;
-	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ko4eL4z4K6V3lb/3C7dqqajHBKs8W+KA+MAk4fHSYBk=;
-	b=KiJU3PGBZqS22Xjh79Wn9jHGY5DvvWbsU8dc0y7viRQX4s4NpBDaPBwgNMLxdjVykqUv
-	 OaiqZwdaGpabqi2igXI4xlDFuZKDDbCzQ8jcIWEdy9c3yHaz5Ene//kFHMF49I+xdAPgM
-	 5o9/5vPe0ss9By3B3J/WzOAgumqG1+eBiAfdOt1DylGKssKpX4930HfGdqioSm3iqpLmq
-	 xH8d9ruj7rGGxlwOg7SCTOekkvrokCZpkuHjw8cA/IN/Yr68e1mF6y/GaG0FlQlWGIuVK
-	 Zihkq7RhvC2XKu8S6ikauKqLMdlvoGTYE4pnafNBoMINrbqNVdbGvVviZ43RfPv2tZA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700936;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=HO0YM5aBM/ugqh225HVlNsW6sepO9ertvT9w0G6acJEVQBdShKc0cGeN2uvgAH33cQjX
+	 Wf7dMAEmyMrw5r5L+8oakNZw2COvkbUkoc+oR6RoBQzKBbHJWfA+MTBEYCgrDfD/gY0DF
+	 tWXMb7CvuuJItJLklgNhh9iy+TQfwYOAv7h+NnIg9bOK9Tp9VLz4SOkZFb+KuHRw7v+a1
+	 zxmkXVzuEQM2BeUX8hWFw1PpjUNh+74pyoUayBejzFrXx9uSVYenfuCd2XP1UDq+YkKMK
+	 L3UWi/mvNpGpBOVAxVYVEtl7l6mCpqB/5QOuKMJ0H/OKCt2hboQ8bx5CvGTl6K/kI/g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=corp.free.fr;
-	spf=pass smtp.mailfrom=corp.free.fr;
-	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn;
-	arc=none smtp.remote-ip=212.27.60.169
-Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6pZ1DGB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A261606A31C;
-	Thu, 26 Nov 2026 13:43:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A261606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7B515606A323;
+	Thu, 26 Nov 2026 13:48:56 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
-	t=1795700590; bh=Ru+TyEI2Iupe+FdyreM1ZguqMa4aXugpSK2X1PFjJ3M=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SH7PBeknUlBS+Ko3TQRwaap3XHmzEB/MeBQW/HN6w6bUpjw67MJLZvURDtbHYG1C1
-	 WwKRadD1dZSjfkjOWwqlGzsmgkGAxIiU5aT7NyNE6mxTOwnG2VD2a13oIC38VBFs2D
-	 jHY9qhDDo67hlYzC7M5Wb0LmY84iJRLMlZBQRSwtiSlQHlaIzMT7YrwPbbIt4araBL
-	 8UR+H0Ag4ltugh0+YFVvhmZYbc9OzXai1ioACygfh+vXDZ+rZa6YxgFSTh0rEalBcW
-	 GqEKokbJDejQ3pdF3O0RLYObZ8B6lWC2bBft8UyKgZYfqVUmC2kjDXOtYY+gj4dKaC
-	 T5cXTxh9t/YZQ==
-Received: from [0.0.0.0] (unknown [213.228.1.188])
-	by rcs.proxad.net (Postfix) with ESMTPSA id 512E444C025D;
-	Thu, 26 Nov 2026 14:43:09 +0100 (CET)
-Message-ID: <c3f3dd4c-5dfa-4fb0-9a64-016192be5782@corp.free.fr>
-Date: Thu, 26 Nov 2026 14:43:08 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=k6pZ1DGB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 413EB1F000C6;
+	Thu, 26 Nov 2026 13:48:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795700935;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=k6pZ1DGBR3LMdhAs6V71dMpy4VrfnOs2raeYKqaPtQXLavZMci7zuRTk5fHtVSfXv
+	 oGcqXLnMyKotq+hwvMjmutCD9KIBi3jLL4TgiapRp6IzTmMySJybz/I0U2/CgYPE5S
+	 vrzkmyeDQ3BUR9xcxFuE/bBll9XOCwc3Ck0tjbGN/ti7Am+I5LGPHeIN7h6gOATf0+
+	 ENTdf/VzSM8fmJKj1gqrvpqUakbMBx9fZMh6ge3CxmE+tU9avDzvNQ/rOpGapWr2Rq
+	 TryhbrWb7tcvWHGi0S0ZgPvfM1xmMjSG8PJmejWkmWXEiT3E4ojtUH+9BvVOqDeeYT
+	 c2NQB34n1o/wg==
+From: netdev-bot+sinfo@kernel.org
+To: Yige Jiang <yigejiang86@gmail.com>
+Cc: Chas Williams <3chas3@gmail.com>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>,
+ linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Willem de Bruijn <willemb@google.com>,
+ stable@vger.kernel.org
+Subject: Re: [PATCH net] atm: Fix atm_dev reference leak on VCC close for
+ built-in drivers
+Date: Thu, 26 Nov 2026 13:48:54 +0000
+Message-ID: <179570093476.3294.12428531344618482598@kernel.org>
+In-Reply-To: <rc-b1-20261110-vc-164-2a437f3c5ecd@gmail.com>
+References: <rc-b1-20261110-vc-164-2a437f3c5ecd@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -56,68 +66,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
- ahead in the linear MPWQE path
-To: Antonio Quartulli <antonio@mandelbit.com>, netdev@vger.kernel.org
-Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
- dtatulea@nvidia.com, cratiu@nvidia.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
- pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, linux-rdma@vger.kernel.org,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20261104195241.1883539-1-antonio@mandelbit.com>
-Content-Language: en-US
-From: Alexandre Cassen <acassen@corp.free.fr>
-In-Reply-To: <20261104195241.1883539-1-antonio@mandelbit.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
 
-Hi Antonio, Dragos,
+Hi!
 
-On 11/4/26 20:52, Antonio Quartulli wrote:
- > numbers from DDIO/SDCI systems and CX-6/CX-7 would be welcome.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
 
-we are running perf tests over our 5G UPF code (pure XDP with mlx5), 
-just get your patch and test it over our stuff.
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
 
-use-case here is GTP-U encap, I tweaked your patch to fit tunneling 
-use-case around the net_prefetch() to add 128 bytes more.
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
 
-setup is Xeon Gold 6342 (DDIO) wiht ConnectX-7 (fw 28.48.1000): 2 ports 
-x 8 queues. 5G UPF in XDP (GTP-U and MAP-E, ~3200 insns per packet, 
-XDP_TX only) with 100k sessions running live mobile network traffic 
-pattern. Mpps per port with the 16 cores busy:
-
-                                   base      v2    v2+256B
-   RQ just opened                  10.55    10.85   >11.10
-   RQ after a burst                 9.96    10.82    10.95
-   L1 stride prefetcher off         9.85    10.72    10.84
-
-
-With DDIO the gain depends on the history of the RQ. Under XDP a stride
-is a page. While the pages of a WQE are adjacent the L1 stride
-prefetcher fetches the next packet by itself. Once XDP_TX completions 
-overflow the page pool cache then pages come back shuffled where the 
-vanilla driver loses 5%.
-
-
- > +	head_offset &= (1 << rq->mpwqe.page_shift) - 1;
-
-cosmetics: BIT(rq->mpwqe.page_shift) - 1
-
-
- > +	net_prefetch(va + rq->buff.headroom);
-
-For our tunneling use-case I just added:
-
-+       net_prefetch(va + rq->buff.headroom + 128);
-
-
-I will run production with your patch with the +128 for our stuff... 
-thanks for that !
-
-
-cheers,
-Alexandre
-
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
