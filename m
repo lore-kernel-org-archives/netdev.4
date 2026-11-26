@@ -1,78 +1,78 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.44
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697336;
-	b=rrBOXQIYHSWy0RZIeSJjk+tlQymdo9/5kiCzHHhnxxmhAxSNwWRW4X6B5cltxmd8FQ6k
-	 EBjfVVQc7niD1her4tlj3f5QBda4SuAWr/mx65y55FjxoLQ34yHmp6NHZr8C8Egmkkqxo
-	 dCvNCYp/UnM9vJf74NQTUe0DTlhujYypWDz5G/IaKYmY5o2SsZzXOtuVd+UuAtJnTfx/g
-	 gm0pVcEydz+j6YOgCjvRFG25FgmfD4ffk5OWIkK6Zt8nBHr/Qdm+kJwJGeqCJAifBSiqq
-	 0o0XHlWqZSSS7ljEs5Eb7dVMzrC/5VU7kUHe5uqQZmZTxVAmFSXOaau5dmpm9GC6Khw==
+	t=1795697371;
+	b=FYq0b/yeMhP2R6vzwsDewBAAV20aPzij7HuZ1PA6yTXK+vvQAc6QxsddyO9gvf5NXhdk
+	 dD54rKUyv+VFKdnzKUzafMUdUFXz60vBQPkcIuAj5js6L4j1lCfzFabdZtLtwuiMJCia/
+	 Fkdkgt6FStB9EPML342xjPJT19sGIgcyy4d3q5KlPWM8vSzxWGvijqW/bqNyRmNlXVtMb
+	 QNABUggfUGCc+VkJwgHaYygJPp5Hu3Xir762SBSt3zDZWctoh4yhdpdWxv6IjHqkVbmFl
+	 VbsEIGKW3ys3kanPVj+GzGNde/C2C0U2h2qs9gQ8Gkf0OZ6fZuVUCxc5r73XcX3KgSw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697336;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697371;
 	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
 	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
 	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=REOzMMTPDLDlLUvCKX/dzO9sL/SNpW9z3fgnSLvxTe4=;
-	b=L4bgsD5YKYN09jVC2i4KkljQ4Q+Kk10AzrcViywoDo41D6vMoYvTiVaPcCJeDCMHoy9K
-	 EAzdAqhRhGECE1R4V0a9xlSEUxCg+H2jK7tJyl8nSlj7UpLph2Omjpk/hTeqDoYPId+nH
-	 T4bmMsPrB0HQZTj3G5Y0V1HHYU28mzP3lt4/y7OJIXrf3vzNkL8+mY0C1c+C8wzpyEZiW
-	 Pg5eOhzZlnqo2ZjsbSt2MJvcoVAxDC9Yhyj+AK+HeVSYxbIBhj7bcmOVGyczTZl+f4KKS
-	 zNikB4XGHDdgrG911Ti0tKCyZeS71S1etNlYPXgqTPu7vjAdMHhOGDjKoqn25eGCrnQ==
+	bh=iCeQ/db20QjGcTEZMmDdadaK9BiQoJcNEDJPAm9EXfU=;
+	b=RebPK0Ff4HPxGHWTyZlb6RWV//ycie812tWAolJZG2gW2q3g8/haS7ovVIF0S7uLyPV2
+	 DWm5U7xakH1kapJIrbP9f6ZpcnjQ4j7YTqe2BEcl+qYU9ki9PWg3iBd7d8cOQTMvT3RbH
+	 OR6qGRcdCtSnGNtD2cfTccFWqfgI1+bTqW7pogJ28KwB+EoK5IDefXxBTXCf+/SN/ovh5
+	 +f82yiqGcBxGRvV0SA+q1Vv50zaGqc6JhUjNPGMf8cDOXpModrLYQkYwiW1Hg6FcP4Okz
+	 6AqDYzZJvmfDGX0dRghd11G6u2wH2vQLw9snV0rwCvY8+SQEyd/+e8MbFt+FM+CIRuA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=fail header.from=linux.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=209.85.128.171
-Received: from mail-yw1-f171.google.com (mail-yw1-f171.google.com [209.85.128.171])
+	arc=none smtp.remote-ip=74.125.224.44
+Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 13E5A606A33A
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:48:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 13E5A606A33A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 401BC606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:49:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 401BC606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yw1-f171.google.com with SMTP id 00721157ae682-8b4e246acc2so49813077b3.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:48:55 -0800 (PST)
+Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67be9601f31so6038631d50.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:49:31 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795697335; x=1796302135;
+        d=1e100.net; s=20260707; t=1795697370; x=1796302170;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
          :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=REOzMMTPDLDlLUvCKX/dzO9sL/SNpW9z3fgnSLvxTe4=;
-        b=iYurn0CxfC5opQiw5bMXuyzLMC3xzlzRiKFsUW0tlvWCllgr9jMmJ+Miv/0ajFQmLs
-         qBZDgCgFLWf4lTEF7c10tAH5QYtR7cyzz2YpRnH8cACsCregLVb/qgFQExiCDmjgHI8r
-         QbqH+kQmLytc+N2ZTzsa8r+Bi4sDEID4nzuNFblpC2v0ubf6/Rug6paDg/uFfxSBem4J
-         D0yujQwGO89jN2AesC9OEwlMiv53ivTJIVuBGqWoJQhCOMc8aRUKwjC5jV060zuH4RW+
-         j0tpW+x3uYm1yWL8FlDK0svox72tX93jx3qz8vXSv3AeepxhcPoh5LE+BrNzmSw9pIF1
-         XCIw==
-X-Forwarded-Encrypted: i=1; AL+hErG8fgsEPI+6zJvY98NRS4GhbQyueRmP0hCxh6pG16V6b8faaMr4zrffM+xADErWFEX0SOJHv20=@vger.kernel.org
-X-Gm-Message-State: APuU4Z/OwF9ht8AVDLPjjQqpkf1IP86fVpV/iRNy1znQUTj1cpai75sA
-	H+nuyMCig9UvZs8MXAxTabBZmq8HkY6nIhCQqfFa0eL3en40YJiuhCCLo2tei7G9H8I=
-X-Gm-Gg: AZFdTZdAtbdI01HQGIwW3/qTjWcfvsfGo1uWM/JXed3OvezdUtRhwJPXeq9tUxVpTv4
-	fnMmh+Y6s4MKZaSrTI/KWzY5SRnMXtymfplPl3rFozYEwuGD7JfjOlYPXn7ews6iZc1gbtj/DZB
-	CQrPx6TeqXlEz8lLKw8TsWqpnagAlnWu/fXDJ+t9sPqG2n2EUC1WeRulus9Ms9N2I7cpSsecjE9
-	NrKtV+I28uUdMmhTK5CiHEFuIAyefj7TcQGe09DNxd6GTEOy2Xt5yuiWCmeVdH8QNIRsWi3dd/g
-	+7XvO4mEvgSiuRlGHO2QuXIaszynEhgdJBUbggYQLGTujoQjYzkM6qMw8Ei5w+9v4d1cjIgm8HG
-	NDk46YsOTpGdISdbNM5dNpBhvz6Odya/ILYe2+AgvDvj6pJmAFk4lnR4S8CiWHHd6Fud2YP6Dhk
-	OuOv0cJ+p2Eo1SYUr5xmP/9H8nAH/7kPGNEcsQrjLT/PMGA4fr44cFQCJks6VehXoro2d8N4j5j
-	h4oAdLgsCOeSSF3c9K8I+32jGytkJ+BsKXxRWVidd3q37XWrUIpza/GnROTFLhDJ1+DCe65I7qB
-	VHhk/NlkcS93s+xQjtKW0L345bn0vp4ML4A2UXWbwKQyWrFJR2f3IStLjgmdDc2LSpU2xHmLQDQ
-	+J4dsbgRRd4/+/TxJEVRQx9nSX/nAdCx/X75EegthhbgQFm3ogoDKCqQvBw==
-X-Received: by 2002:a05:690c:4a05:b0:8b4:f721:fd62 with SMTP id 00721157ae682-8b5204e1c88mr81083927b3.48.1795697335000;
-        Thu, 26 Nov 2026 04:48:55 -0800 (PST)
-Received: from mail-yw1-f169.google.com (mail-yw1-f169.google.com. [209.85.128.169])
-        by smtp.gmail.com with ESMTPSA id 00721157ae682-8b5203325adsm84677937b3.37.2026.11.26.04.48.52
+        bh=iCeQ/db20QjGcTEZMmDdadaK9BiQoJcNEDJPAm9EXfU=;
+        b=oYJGsCQZQQRlR1/1AtsrTivcnqywOn62K0KlOGtC7zYXHD7+98E2tH3r8PiY1g+Jre
+         HioyMO/c/uvA8TVF81qkdMDmc4ELrdcuBAumFM0OiA80dP62y6D3FQ4f+iBsZR8A3KHz
+         8cMv7nTX7efh5HBXmbJ6pAuyaQOHrU++buKEg8cq6njcDfRGuPF8pn4/6dOiIc4G919m
+         NnwnNYAMVoWKa8iYkglPuGZPsDdB6PL6OgGIA4xDqc1hLpBqeuLn50m/QidsitQ6d+/N
+         +mDVahQkLBol7CkiBpeM29OghI2Deh8FGtAhadP/JKVXgXwuLQbNEP5ntMcPuXBETtBG
+         Ni1g==
+X-Forwarded-Encrypted: i=1; AL+hErFxuhiWuGD54D26xMqFIzcTuY1+Qoad/Jdbuy8TjZszLfC/LL0fz28wImYPF2XtIDBLd4cxxN4=@vger.kernel.org
+X-Gm-Message-State: APuU4Z929bLF+MbdwxMKd0VJs2E4YrdRweccyHqNHlNJzgrwpRaCvFxP
+	WrBqbbWoHhDt2D7QPE+ZGA8ei2BD/efWP4BrjtXDBevZWSz+0QdEKHFJH6wkj7B3Ecc=
+X-Gm-Gg: AZFdTZdZF1KcxzM+pQ99kr5RtfrKb53NJzT13PdrV8bCW00R7iFE0tjHq6XrmJh8Po2
+	gALbKnkBuYqwcjEpp6w89RrMRf9KHm7SeBK++NN9aAPByRFMSxfHX4lTDgRgf05AGzws4n/tt0o
+	LWDBHo/yKeDGl/V2e8fvXz+BsfSt267P1fBiQUM6Xrm5LXM7PTpLuNKEt2D3iG3nzRQ7fG8F8dg
+	5tRf0Q+rtswe1NtvbQqcl3s7BFms2uWwQ5Kkejx++Jj3HLezMATtManPSKHYZ3ntznaccRvDYtt
+	OKBYY6e+3D6v7kecUXfWNsFOBzFXLenfVMvFlcsxqLScnlggAGbHFOkTPVW8DWnI4dLQxTvI+sB
+	QI1GBCeZnyo1+5RDlniSMt4SJeskbFkzeg4/oQK7uv7tUZ7/VwQxpSMViIP4pBm0FoLYd5KoPWy
+	DkiPo2fU1+t/Y4swDG325OTtCP67750nXkliH/c9qwAsGTglA8dJafiguOMZkeGsTX13FVSgWHw
+	9a5NcRY8DPqlXPLZk8ogCfCMQOcegqSNGXJdjNWhWBpMxtFKemTs/pc580sIMzG70OwCNvTeF/G
+	VOvGGFQ9NdvkXoy7064eVkdYbZOtlJ3qYeThxRaQVSXuQGBaC7DZzH27PYbh+sm1iQBn1ujj1Qp
+	o17naMyZbfkVw9e5y32VKSGtsNYT7l2ilVC9Rwc+MZMqpMjwWZiC6jE42pw==
+X-Received: by 2002:a05:690e:1442:b0:67d:c50e:5683 with SMTP id 956f58d0204a3-67df440dcc3mr7440639d50.33.1795697370299;
+        Thu, 26 Nov 2026 04:49:30 -0800 (PST)
+Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com. [209.85.128.181])
+        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df31fa7afsm9787074d50.1.2026.11.26.04.49.29
         for <netdev@vger.kernel.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 04:48:52 -0800 (PST)
-Received: by mail-yw1-f169.google.com with SMTP id 00721157ae682-8b0d126f631so61006827b3.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:48:52 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFT3w8F7lSjSa4RC8Z2VCjE1LYmiABfeE1awK4C9Nch2LrFovMe6Hgicu1JpqJavEsMwN/G6l4=@vger.kernel.org
-X-Received: by 2002:a05:690c:c15:b0:8b3:27b8:2bd2 with SMTP id
- 00721157ae682-8b52042f569mr88911427b3.10.1795697331984; Thu, 26 Nov 2026
- 04:48:51 -0800 (PST)
+        Thu, 26 Nov 2026 04:49:29 -0800 (PST)
+Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b4e2fcc300so61019597b3.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:49:29 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AL+hErFooIG7WJ6dFbjbDlHHDb4neTEZ0YZmrPSX/sUjaKECQEdxA9Y9MczRmCOWLQQFl2ygVFbPNk4=@vger.kernel.org
+X-Received: by 2002:a05:690c:6c8d:b0:8b3:2d65:2c72 with SMTP id
+ 00721157ae682-8b52047a894mr79381047b3.42.1795697368796; Thu, 26 Nov 2026
+ 04:49:28 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,15 +82,16 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121213102.143130-4-tanure@linux.com> <179561837659.3135.6655031502321722558@kernel.org>
-In-Reply-To: <179561837659.3135.6655031502321722558@kernel.org>
+References: <20261121213102.143130-5-tanure@linux.com> <179561837863.3135.7453763060716815613@kernel.org>
+In-Reply-To: <179561837863.3135.7453763060716815613@kernel.org>
 Reply-To: tanure@linux.com
 From: Lucas Tanure <tanure@linux.com>
-Date: Thu, 26 Nov 2026 12:48:41 +0000
-X-Gmail-Original-Message-ID: <CAJX_Q+0MtVhPHAW_DSHJQMXSPgtJ=H1mKqGSR_09UOqAkgLexQ@mail.gmail.com>
-X-Gm-Features: Aa3M54pUuxKwHlhmSM8ws03XH7rNC1f2K4BBc-Hnx_WBDraHYgmAijaXPXLQFsA
-Message-ID: <CAJX_Q+0MtVhPHAW_DSHJQMXSPgtJ=H1mKqGSR_09UOqAkgLexQ@mail.gmail.com>
-Subject: Re: [PATCH v8 3/4] arm64: dts: amlogic: t7: add the ethernet controller
+Date: Thu, 26 Nov 2026 12:49:17 +0000
+X-Gmail-Original-Message-ID: <CAJX_Q+3yLJbKUKh9ZqbJTm5QY+5jGedaST8aFJvHQvU6mu3oNg@mail.gmail.com>
+X-Gm-Features: Aa3M54rVCY5vVqL26ka6o_i4OGggk-NPYkWlLazpuMdrAcDWKkBH6Cp6PaCVWDk
+Message-ID: <CAJX_Q+3yLJbKUKh9ZqbJTm5QY+5jGedaST8aFJvHQvU6mu3oNg@mail.gmail.com>
+Subject: Re: [PATCH v8 4/4] arm64: dts: amlogic: t7: khadas-vim4: enable the
+ ethernet port
 To: netdev-bot+sashiko@kernel.org
 Cc: xianwei.zhao@amlogic.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
 	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
@@ -107,10 +108,10 @@ Content-Transfer-Encoding: quoted-printable
 On Wed, Nov 25, 2026 at 2:53=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
 te:
 >
-> Thank you for your contribution! Sashiko AI review found 3 potential
+> Thank you for your contribution! Sashiko AI review found 1 potential
 > issue(s) to consider.
 >
-> Critical: 0 =C2=B7 High: 2 =C2=B7 Medium: 1 =C2=B7 Low: 0
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
 >
 > If you believe none of the issues are legitimate, please reply to each
 > issue of Medium severity or higher and explain why the AI is wrong.
@@ -120,178 +121,108 @@ k
 y
 > (one such reply per series is enough).
 >
-> - [High] No driver or binding in the tree accepts the new ethmac node's
->   compatible pair, "amlogic,t7-dwmac" + "snps,dwmac-5.10a".
-
-They are in net-next since 2026-11-20, from v7 of this series:
-18029931478b ("dt-bindings: net: add amlogic,t7-dwmac") documents the
-compatible pair and the five clocks, and c4c851a3325e ("net: stmmac:
-dwmac-meson8b: add support for the Amlogic T7") matches
-amlogic,t7-dwmac. The cover letter lists all four commits. This
-device tree patch goes through the Amlogic tree.
-
-> - [High] The commit message names two problems and claims this patch
->   handles them: 1.
-
-Same commits: the driver claims the pipeline clock with
-devm_clk_get_enabled(), and the stmmac core takes "pclk" in
-stmmac_probe_config_dt() and enables it in stmmac_bus_clks_config().
-Once the MAC probes, the node holds both clocks; the multiplexer's own
-reference to pclk is no longer the only one.
-
-> - [Medium] The T7 MAC is declared as "snps,dwmac-5.10a".
-
-It is a 5.10a core. The A311D2 datasheet (section 14.3) says so, the
-version register at 0x110 reads 0x1251 on the VIM4 (User ID 0x12,
-Synopsys ID 0x51, printed by stmmac at probe), and the GMAC4/5 DMA
-and descriptor layout moves 941/944 Mbit/s with no error. The S4 node
-describes another SoC.
-
-pw-bot: cr
-
+> - [Medium] The commit says it enables the Khadas VIM4 ethernet port.
 >
 > --
 >
-> arm64: dts: amlogic: t7: add the ethernet controller
+> arm64: dts: amlogic: t7: khadas-vim4: enable the ethernet port
 >
-> This patch adds the T7 Synopsys MAC node, its PRG_ETH glue registers, and
-> a g12a-compatible MDIO multiplexer to amlogic-t7.dtsi. The multiplexer
-> also gets an internal PHY bus. The MAC, the multiplexer and the internal
-> PHY bus are all disabled by default.
+> This patch enables the T7 ethernet MAC and the MDIO multiplexer on the
+> Khadas VIM4. It also describes the RTL8211F RGMII PHY at address 1 on the
+> external MDIO bus, with its interrupt on GPIOH_6. With phy-mode =3D
+> "rgmii-id", the PHY adds both RGMII delays.
 >
-> > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi b/arch/arm64/b=
-oot/dts/amlogic/amlogic-t7.dtsi
-> > index 7bd53ec166071..eb7f46c98b0b4 100644
-> > --- a/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> > +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi
-> > @@ -250,6 +250,31 @@ gic: interrupt-controller@fff01000 {
-> >                       interrupts =3D <GIC_PPI 9 (GIC_CPU_MASK_SIMPLE(8)=
- | IRQ_TYPE_LEVEL_HIGH)>;
-> >               };
+> > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.=
+dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> > index 0fa83362b4179..7b86ab2579aaa 100644
+> > --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+> > +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
+>
+> [ ... ]
+>
+> > @@ -256,6 +257,28 @@ xtal: xtal-clk {
+> >       };
+> >  };
 > >
-> > +             ethmac: ethernet@fdc00000 {
-> > +                     compatible =3D "amlogic,t7-dwmac", "snps,dwmac-5.=
-10a";
->
-> [Severity: High]
-> Which driver is expected to bind this node? I can't find anything in the
-> tree that accepts either compatible string.
->
-> meson8b_dwmac_match[] in drivers/net/ethernet/stmicro/stmmac/dwmac-meson8=
-b.c
-> lists only the meson8b, meson8m2, meson-gxbb, meson-axg and meson-g12a
-> compatibles. This node has no G12A or AXG fallback.
->
-> dwmac_generic_match[] in dwmac-generic.c stops at snps,dwmac-4.10a. The
-> only use of "snps,dwmac-5.10a" is the stmmac_gmac4_compats[]
-> feature-detection list in stmmac_platform.c. That list is only consulted
-> after some driver has already bound.
->
-> The later patch "arm64: dts: amlogic: t7: khadas-vim4: enable the
-> ethernet port" sets ethmac and eth_phy to okay. Wouldn't the board then
-> end up without ethernet?
->
-> meson8b_init_rgmii_delays(), set_phy_mode() and meson8b_init_prg_eth()
-> only run from meson8b_dwmac_probe(). So the PRG_ETH registers at
-> 0xfe024000 keep the bootloader's interface mode and delays.
->
-> The stmmac MDIO bus for mdio0 is never registered either. That makes
-> g12a_mdio_mux_probe()->mdio_mux_init() on mdio-parent-bus =3D <&mdio0>
-> return -EPROBE_DEFER forever.
->
-> The node also looks like it fails dtbs_check against
-> amlogic,meson-dwmac.yaml:
->
-> - select has no T7 string.
-> - The fallback contains list only allows snps,dwmac-3.70a or snps,dwmac.
-> - clock-names is fixed to stmmaceth/clkin0/clkin1/timing-adjustment.
->
-> The commit message says the multiplexer "probes after the controller has
-> programmed them" and that "unless the controller holds that clock, the
-> writes are lost". No driver in the tree does that for this node, and this
-> series only adds a T7 binding for the MDIO mux.
->
-> Is there a dt-bindings patch and a driver match patch that this depends
-> on and should mention?
+> > +&ethmac {
+> > +     status =3D "okay";
+> > +     pinctrl-0 =3D <&eth_pins>, <&eth_rgmii_pins>;
+> > +     pinctrl-names =3D "default";
+> > +     phy-mode =3D "rgmii-id";
+> > +     phy-handle =3D <&external_phy>;
+> > +};
+> > +
+> > +&eth_phy {
+> > +     status =3D "okay";
+> > +};
 >
 > [Severity: Medium]
-> Is snps,dwmac-5.10a the right IP version for this MAC? The string is in
-> stmmac_gmac4_compats[], so stmmac would drive the core with the GMAC4/5
-> register map and descriptor format.
+> Can any driver at this revision bind to the ethmac node this enables?
+
+Yes. c4c851a3325e ("net: stmmac: dwmac-meson8b: add support for the
+Amlogic T7"), in net-next since 2026-11-20, matches amlogic,t7-dwmac,
+and 18029931478b documents it; the cover letter lists both. Tested on
+this board on top of them: the PHY attaches at mdio_mux-0.0:01 and
+iperf3 runs at 941/944 Mbit/s.
+
 >
-> The S4 node in meson-s4.dtsi seems to describe the same block. It has:
+> The node in amlogic-t7.dtsi has:
 >
-> - the MAC at 0xfdc00000 and the glue at 0xfe024000
-> - macirq on GIC_SPI 74
-> - the same rx and tx fifo depths
-> - an ETH power domain
-> - a g12a-compatible mux at apb+0x28000
+> arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi:
+>                 ethmac: ethernet@fdc00000 {
+>                         compatible =3D "amlogic,t7-dwmac", "snps,dwmac-5.=
+10a";
 >
-> But it declares the core as 3.70a:
+> The amlogic,t7-dwmac string appears only in amlogic-t7.dtsi. The Amlogic
+> glue driver's match table, meson8b_dwmac_match[] in dwmac-meson8b.c, ends
+> at g12a:
 >
->         compatible =3D "amlogic,meson-axg-dwmac",
->                      "snps,dwmac-3.70a",
->                      "snps,dwmac";
+>         {
+>                 .compatible =3D "amlogic,meson-g12a-dwmac",
+>                 .data =3D &meson_g12a_dwmac_data,
+>         },
+>         { }
 >
-> If the T7 core is also 3.70a, then once a driver binds, stmmac would read
-> the version register at the wrong offset. It would also use the wrong DMA
-> and descriptor layout.
+> dwmac_generic_match[] in dwmac-generic.c ends at snps,dwmac-4.10a, plus
+> snps,dwmac and the snps,dwxgmac entries. Under drivers/, the only place
+> that names snps,dwmac-5.10a is stmmac_gmac4_compats[] in
+> stmmac_platform.c. That list detects the core version. It is not an
+> of_match_table.
 >
-> Could the version be checked against the hardware version register (0x20
-> on 3.x, 0x110 on 4.x and later) and stated in the commit message?
+> If nothing probes ethmac, its mdio0 child bus is never registered. The
+> eth_phy mux enabled just above binds through the amlogic,g12a-mdio-mux
+> fallback and has mdio-parent-bus =3D <&mdio0>. So mdio_mux_init() would
+> defer on every attempt:
 >
-> > +                     reg =3D <0x0 0xfdc00000 0x0 0x10000>,
-> > +                           <0x0 0xfe024000 0x0 0x8>;
-> > +                     interrupts =3D <GIC_SPI 74 IRQ_TYPE_LEVEL_HIGH>;
-> > +                     interrupt-names =3D "macirq";
-> > +                     clocks =3D <&clkc_periphs CLKID_SYS_ETH>,
-> > +                              <&scmi_clk CLKID_FCLK_DIV2>,
-> > +                              <&mpll CLKID_MPLL2>,
-> > +                              <&clkc_periphs CLKID_SYS_AMPIPE_ETH>,
-> > +                              <&clkc_periphs CLKID_SYS_ETHPHY>;
-> > +                     clock-names =3D "stmmaceth", "clkin0", "clkin1", =
-"pipeline",
-> > +                                   "pclk";
->
-> [Severity: High]
-> The commit message says the pipeline gate "is switched off as unused",
-> and that the controller has to hold the clock it shares with the glue
-> registers. Does listing these two clocks here keep either of them
-> enabled?
->
-> Nothing under drivers/net requests a "pipeline" clock:
->
-> - stmmac_probe_config_dt() only gets stmmaceth, pclk and ptp_ref.
-> - meson8b_dwmac_probe() only gets "timing-adjustment", plus clkin0 and
->   clkin1 as mux parents.
->
-> The only "pipeline" consumer in the tree is meson-gx-mmc.c, and it claims
-> the clock explicitly with devm_clk_get_enabled().
->
-> Also, t7_sys_ampipe_eth is declared without CLK_IGNORE_UNUSED:
->
-> drivers/clk/meson/t7-peripherals.c:
-> static T7_SYS_PCLK(sys_ampipe_eth,      SYS_CLK_EN0_REG0, 20,   0);
->
-> Even after a T7 entry is added to dwmac-meson8b, wouldn't
-> clk_disable_unused still gate CLKID_SYS_AMPIPE_ETH? That would cut the
-> MAC's DMA path to memory.
->
-> For CLKID_SYS_ETHPHY, the mux is the only holder until a MAC driver binds
-> this node:
->
-> drivers/net/mdio/mdio-mux-meson-g12a.c:g12a_mdio_mux_probe() {
+> drivers/net/mdio/mdio-mux.c:mdio_mux_init() {
 >     ...
->         pclk =3D devm_clk_get_enabled(dev, "pclk");
+>                 parent_bus =3D of_mdio_find_bus(parent_bus_node);
+>                 if (!parent_bus) {
+>                         ret_val =3D -EPROBE_DEFER;
+>                         goto err_parent_bus;
+>                 }
 >     ...
 > }
 >
-> That reference is dropped whenever the mux probe defers or fails. This
-> looks like the same ordering hazard the commit message says it closes.
+> Wouldn't that leave ext_mdio and external_phy unregistered, so that
+> phy-handle never resolves?
 >
-> The five-entry clock-names list also doesn't match
-> amlogic,meson-dwmac.yaml. That schema allows at most four entries, with
-> index 3 being timing-adjustment.
+> Also, nothing would program the PRG_ETH glue window, which is the second
+> reg region at 0xfe024000. That window holds the RGMII mode select, the
+> clkin0/clkin1 TX clock mux and the MAC-side delays.
+>
+> Nothing would claim the pipeline clock (CLKID_SYS_AMPIPE_ETH) either. The
+> previous patch in the series, "arm64: dts: amlogic: t7: add the ethernet
+> controller", says this gate is otherwise turned off as unused. It also
+> says the port keeps the bootloader's delays unless the controller
+> programs them.
+>
+> amlogic,meson-dwmac.yaml does not document amlogic,t7-dwmac, so
+> dtbs_check would report the now-enabled node as undocumented.
+>
+> Does this patch depend on a separate glue driver and binding series? If
+> so, could the commit message name that prerequisite, or could this patch
+> be sent together with it?
 >
 > [ ... ]
 >
