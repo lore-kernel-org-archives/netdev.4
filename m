@@ -1,58 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=162.243.164.118
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.156.173
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795657989;
-	b=IajSquxG6Yjqp7bHTxPsKEq9gsaCeTs5Xii7AIBnhIl3+mgSwPvvnDEWxa9J2YQVdz46
-	 uXhOGJIin+lrMgWz6is2/Xt8TvhaRhnzR/KUen/vo0e2EZ3sAcSmNUdIyRh2ysL58A4W0
-	 oD+Elfo/7hjQnmUEiX7LpmAGgjR1riulng5ipr8wY5YgCAu+sAYKgVofP3tqSakW3LKws
-	 5y5OG4Uq0mRy/sTl+d9Pi5aJ70pKUjS9fJr/iGoTnxedVcBWPPab6+NUHiBA3EUdtB6HL
-	 lPtTn7lJMDlMyrHmN2pb8wivoRjKtYtRlj7k19f0jsS3VFGvU87Oo83SzMOej0uiVzQ==
+	t=1795658452;
+	b=EYV1G9jF0DZmtV1hljNoQWIlYDHx+aQuUwfK9b6rbSodAglssHObw2LS0oa3gl/ZAm//
+	 4+TZkDsi7VNQlrAiwdGu4g/bH5COGEhsybuowlTRmBEdsRaPQwBqpCDFgZ/cVE7WkCScn
+	 wNLVi51etBeZimmO8G479YrbeC1CCufPHopu07a/iFxPXzOIXN2w1HA3ruCKyHHPwXhf/
+	 T+EIwL3pOQqAITnRJ9lpieVHZCDGJ5ZRcRjzm41RjJOTjqZKtmFoHCZ2mQWo7HH9PrXDW
+	 BdOKqnSwz1MmK3o/Qt8mIllkZLpcPR6NGihyrVImVF8eh3XmCoTbD/5sCmaWXq2NXtA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795657989;
-	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
-	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
-	 X-CM-TRANSID:X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=XYoKNhiIRj7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=;
-	b=fIQhFH7zFMc0Ku958Nc2zlafp1QZqlFqkJvwMB+V7/vu17NZKvtoLP5vm3qBXRrWtuz4
-	 rjIT6NAPqXIni9LeF8Dhjfkrd2I9ColXEqVnyrObXaMK3IeH93G0VJy7FG1gQCn8+9mi6
-	 9hqPBoy49O84v2zJWwxjkI1eVz44W+29Aeevdx0+9lFG/za91teydp/Bxfs7YlghnBooL
-	 xGBvpMZrmO+7t/kMlcYTDVA5H9M+m8JTcwuAOHdskeiAQfU2omfwBqONrOvwPflLWGzW8
-	 veTa1ljs7XGeH8nEVCtGtwZuJgEymliDOqYPNnk6fIq8DPZfCF7OqBgk/9pfBr2Xupg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795658452;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Date:From:To:CC:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-GUID:
+	 X-Proofpoint-Spam-Info:X-Authority-Analysis:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Virus-Version;
+	bh=L6goEdFq7O5GDRozIYCd7HLSe04ZuUddA+kdR8LBkqQ=;
+	b=rpGi9OIqYvZym/Q6MJVqTpYAZ5AzY4G5fFCfxS8VwQqVv7wT99HBuepTyqh6QXwxNnCu
+	 EmIHESk89zS52an44khOhAc4YWqXaZjnVZH5HXOR0gd2oh4e7qbjLqX2W8KxBh1eTgXvg
+	 7Yt7LxK8EgptaSKfILZ4veu9zN0w5y9ZS/iUcWTG9zL7PYVIUogUGrjlo9oTrhjXPTtOL
+	 XOmLGXcIzwKFpfzls+DeqAdRHSDrHxHXVHNo6kI5Rkerr8YwNS5sC5vzWr/yQ5wS/hp4p
+	 yXOC5uuuIh8ag9fUqhyifDO/MdCOk/0cVfMewkd0ViNaf/JPqjRQHa9mzP4sPkhMEtQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=stu.xidian.edu.cn;
-	spf=pass smtp.mailfrom=stu.xidian.edu.cn;
-	arc=none smtp.remote-ip=162.243.164.118
-Received: from zg8tmtyylji0my4xnjqumte4.icoremail.net (zg8tmtyylji0my4xnjqumte4.icoremail.net [162.243.164.118])
-	by smtp.subspace.kernel.org (Postfix) with ESMTP id 6718B606A31E;
-	Thu, 26 Nov 2026 01:53:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6718B606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=stu.xidian.edu.cn
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=stu.xidian.edu.cn
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-	d=stu.xidian.edu.cn; s=dkim; h=Received:From:To:Cc:Subject:Date:
-	Message-Id:MIME-Version:Content-Transfer-Encoding; bh=XYoKNhiIRj
-	7Rk3BVZyqjQaKK/jkOxhj6H1RuYfK1i8I=; b=rqERrlG7xqtDTSJgHOWbLTNZwB
-	5XZ2Gl6Iu9IaqLGFWX4fg9drRIIjsxPewxFYt06y+894G/zb9zgeZf9DwChv9TZt
-	gw4WyvN70udSuaGu+piU/b9WROQpLe8r4bVGkggWHVm7P2ClhcVGbmtmHPB33Z9x
-	S+F3SyHFR86rAR9c0=
-Received: from user-virtual-machine.localdomain (unknown [113.200.174.10])
-	by hzbj-edu-front-4.icoremail.net (Coremail) with UTF8SMTPA id BrQMCkDG7ALokAdrmyg9Ag--.40827S2;
-	Thu, 26 Nov 2026 09:52:41 +0800 (CST)
-From: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	stable@vger.kernel.org,
-	Simon Horman <horms@kernel.org>,
-	Bin Yu <byu@xidian.edu.cn>,
-	Cheng Wen <wencheng@xidian.edu.cn>
-Subject: [PATCH v2] net: ethtool: do not call get_regs() for zero-length dumps
-Date: Thu, 26 Nov 2026 09:52:39 +0800
-Message-Id: <20261126015239.6038-1-25031212351@stu.xidian.edu.cn>
-X-Mailer: git-send-email 2.34.1
+	dmarc=pass header.from=marvell.com;
+	spf=pass smtp.mailfrom=marvell.com;
+	dkim=pass header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=LBR1EYMB;
+	arc=none smtp.remote-ip=67.231.156.173
+Received: from mx0b-0016f401.pphosted.com (mx0b-0016f401.pphosted.com [67.231.156.173])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	(No client certificate requested)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 19E3C606A329;
+	Thu, 26 Nov 2026 02:00:51 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 19E3C606A329
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=marvell.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=marvell.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=marvell.com header.i=@marvell.com header.a=rsa-sha256 header.s=pfpt0220 header.b=LBR1EYMB
+Received: from pps.filterd (m0045851.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6APNfsSP3980007;
+	Wed, 25 Nov 2026 18:00:23 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=pfpt0220; bh=L6goEdFq7O5GDRozIYCd7HLSe
+	04ZuUddA+kdR8LBkqQ=; b=LBR1EYMBX0kGCUBHBWt/+33QhDGfpdqXJkVcYVKpg
+	g0Rds6SxIyS/iVQspGZxlrfuNUJk1HoOp+SVTZM3eiQby1Pl+c83fsyaLffU0n4i
+	YTXJyBpG/mQ/tOIAq5A1xfvJrxDmEDsdzDsogirAWSVn3yDvrIZeNNDI0oKxxxLr
+	eNLxcSMfaOR5xuP5pJcM9uMK7sCb3qXxx70OuoGEf8B9CcyJcPKDCU4OnKw0sTpB
+	MsOAQTZf42n6A4ubh795V7U2bOwvstKrLJL0gN9FQKsOr9JA17rdRjZXMPSzPc+8
+	p9wl8RfTF0Wk3D4ZbRWUjfauDpSNzBgkwKEGSiiTmds2A==
+Received: from dc5-exch05.marvell.com ([199.233.59.128])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 4j5nhg5bsx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 25 Nov 2026 18:00:22 -0800 (PST)
+Received: from DC5-EXCH05.marvell.com (10.69.176.209) by
+ DC5-EXCH05.marvell.com (10.69.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.17; Wed, 25 Nov 2026 18:00:21 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC5-EXCH05.marvell.com
+ (10.69.176.209) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Wed, 25 Nov 2026 18:00:21 -0800
+Received: from rkannoth-OptiPlex-7090 (unknown [10.28.36.165])
+	by maili.marvell.com (Postfix) with SMTP id A230F3F704A;
+	Wed, 25 Nov 2026 18:00:17 -0800 (PST)
+Date: Thu, 26 Nov 2026 07:30:16 +0530
+From: Ratheesh Kannoth <rkannoth@marvell.com>
+To: Ian Rogers <irogers@google.com>
+CC: Sunil Goutham <sgoutham@marvell.com>,
+        Geetha sowjanya
+	<gakula@marvell.com>,
+        Subbaraya Sundeep <sbhatta@marvell.com>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        "David S. Miller" <davem@davemloft.net>,
+        "Eric
+ Dumazet" <edumazet@kernel.org>,
+        Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <llvm@lists.linux.dev>, Elkin Cruz
+	<elkin@google.com>
+Subject: Re: [PATCH net v2] octeontx2-af: Fix uninitialized variables in MCS
+ alloc handlers
+Message-ID: <aweSsCquVuAOvvUW@rkannoth-OptiPlex-7090>
+References: <20261125004227.1007723-1-irogers@google.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,82 +92,74 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID:BrQMCkDG7ALokAdrmyg9Ag--.40827S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7ArWfZFy8uF15uFyDCr13twb_yoW8Kr1xpF
-	Z8CFyUCrWqvrWkCan7Wa1avryrJasxJrWj9ryUtw15Zw15ZF4rCFy8Ka1jgr15ArW09Fyx
-	tF4FvFZ5Ca98C3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBlb7Iv0xC_Zr1lb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I2
-	0VC2zVCF04k26cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rw
-	A2F7IY1VAKz4vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xII
-	jxv20xvEc7CjxVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVWxJVW8Jr1l84ACjcxK6I
-	8E87Iv6xkF7I0E14v26r4j6r4UJwAac4AC62xK8xCEY4vEwIxC4wAS0I0E0xvYzxvE52x0
-	82IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGw
-	Av7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcxkI7VAKI48J
-	M4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVWkMx
-	AIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_
-	Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwI
-	xGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWx
-	JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcV
-	C2z280aVCY1x0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7IU8gzstUUUUU==
-X-CM-SenderInfo: ysvqjiysrsjkur6v33wo0lvxldqovvfxof0/1tbiAQUJD2sG+dmIAwAAsE
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20261125004227.1007723-1-irogers@google.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAwNiBTYWx0ZWRfX2IWq3yDnsrRL
+ eHDx3jtFsXa3Ix7pu/3AEVVa/KslZMUzQd4KiLGugr5V037jLFC1vW3YbQHNVSbhBGEYrtwvsC+
+ u2M1QJaSOQF18gJL6GDTs+CyDSotr2d2koLpCClDpS3WkO9BgaCKejLEZX+4o4AGvwFMMunwL9/
+ qdqgA+1d8QC56oIzfOhC8JrvEPQi2wOiGvMsZbtu+99AvuWPD9ke5KWyIVTxiAqGE7S7IIbAYEo
+ stEPi8Ox0C/YdJRDP/jvQUj/p9AFm/ceU3kemFssUPZpS1yY9laDRMBJ6ajUZ1aWVAX0J3bZ6Xj
+ KAL66hN869QTe/Ym3NZikqmJZdgBiu37gJpRjGONCiWAx6U+jD2Y25LssdbefrOR2xPV42MA5er
+ 6lzG9+T0kqVt6ieXRYgKWkiXazyBlEV2FI3yfR5TwzWx2rTuWNCpFOYtVJkGL1gtOFAETv55kgk
+ Y5qpRItQ+4b4z55aQLg==
+X-Proofpoint-GUID: OM6vz0pOG0NPddNM883AYxlCtsb-MBes
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAwNiBTYWx0ZWRfX1BYYKQyq7/bb
+ BYJsQZhbJRaFWVEpawqiAeO7wvukzCFYFVugTELUjpss5osQdpMmIzyC5B66s1daRVBY6jkyD/0
+ OQJpcNYOebKRWDUxvOXXKZG2CNFqm4s=
+X-Authority-Analysis: v=2.4 cv=WtC+otfv c=1 sm=1 tr=0 ts=6b0792b6 cx=c_pps
+ a=rEv8fa4AjpPjGxpoe8rlIQ==:117 a=rEv8fa4AjpPjGxpoe8rlIQ==:17
+ a=kj9zAlcOel0A:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=l0iWHRpgs5sLHlkKQ1IR:22 a=QXcCYyLzdtTjyudCfB6f:22 a=1XWaLZrsAAAA:8
+ a=M5GUcnROAAAA:8 a=N5rkjbZfQW29Q2f-B9oA:9 a=CjuIK1q_8ugA:10
+ a=OBjm3rFKGHvpk9ecZwUJ:22 a=-hqoVU7_RMCviKuYZNaS:22
+X-Proofpoint-ORIG-GUID: OM6vz0pOG0NPddNM883AYxlCtsb-MBes
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-25_05,2026-11-25_01,2025-10-01_01
 
-ethtool_get_regs() passes the user-supplied regs.len to the driver
-unchanged, including zero.  A driver that uses that length for its I/O
-then issues a zero-length transfer.  Such a transfer has no data stage
-and the USB core treats it as an OUT transfer, so a driver submitting
-it on the receive pipe trips the direction check:
+On 2026-11-25 at 06:12:27, Ian Rogers (irogers@google.com) wrote:
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> index cd9cca5a9cf5..92c987134436 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/af/mcs_rvu_if.c
+> @@ -682,12 +682,15 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  {
+>  	u16 pcifunc = req->hdr.pcifunc;
+>  	struct mcs_rsrc_map *map;
+> +	int rsrc_id = 0, i;
+>  	struct mcs *mcs;
+> -	int rsrc_id, i;
+>
+>  	if (req->mcs_id >= rvu->mcs_blk_cnt)
+>  		return MCS_AF_ERR_INVALID_MCSID;
+>
+> +	if (!req->all && !req->rsrc_cnt)
+> +		return -EINVAL;
+> +
+>  	mcs = mcs_get_pdata(req->mcs_id);
+>
+>  	if (req->dir == MCS_RX)
+> @@ -744,6 +747,9 @@ int rvu_mbox_handler_mcs_alloc_resources(struct rvu *rvu,
+>  			rsp->rsrc_cnt++;
+>  		}
+>  		break;
+> +	default:
+> +		mutex_unlock(&rvu->rsrc_lock);
+> +		return -EINVAL;
+>  	}
+>
+>  	rsp->rsrc_type = req->rsrc_type;
+> @@ -793,6 +799,9 @@ int rvu_mbox_handler_mcs_alloc_ctrl_pkt_rule(struct rvu *rvu,
+>  	case MCS_CTRL_PKT_RULE_TYPE_MAC:
+>  		offset = MCS_CTRLPKT_MAC_EN_RULE_OFFSET;
+>  		break;
+> +	default:
+> +		mutex_unlock(&rvu->rsrc_lock);
+> +		return -EINVAL;
+Thanks.
 
-  usb 1-1: BOGUS control dir, pipe 80000380 doesn't match bRequestType c0
-  WARNING: drivers/usb/core/urb.c:411 at usb_submit_urb
+May be we need to add some debug prints as same error code is returned for all these
+error cases.
 
-With panic_on_warn enabled this warning becomes a denial of service.
-
-A zero-length dump cannot return any data, so there is nothing for the
-driver to do.  Return success without calling into the driver, the same
-way a zero-length read is a no-op, instead of making every driver check
-regs->len.
-
-Zero-length register dumps used to be issued so that drivers which only
-report a revision ID could fill regs->version.  Those drivers return
-zero from get_regs_len(), and the core has returned early for them
-since commit f9fc54d313fa ("ethtool: check the return value of
-get_regs_len").
-
-The problem was found while testing the ethtool register dump path of
-an MCS7830 adapter.
-
-Fixes: 1da177e4c3f4 ("Linux-2.6.12-rc2")
-Cc: stable@vger.kernel.org
-Co-developed-by: Bin Yu <byu@xidian.edu.cn>
-Signed-off-by: Bin Yu <byu@xidian.edu.cn>
-Co-developed-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: Cheng Wen <wencheng@xidian.edu.cn>
-Signed-off-by: YuanZhe Liu <25031212351@stu.xidian.edu.cn>
----
-v2: handle this in the ethtool core instead of the mcs7830 driver: a
-    zero-length dump is a no-op, so do not call into the driver at all
-    (Andrew Lunn).
-v1: https://lore.kernel.org/r/20261125071649.7052-1-25031212351@stu.xidian.edu.cn/
-
- net/ethtool/ioctl.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-index 80b7930b3fe0..e8af861ee5de 100644
---- a/net/ethtool/ioctl.c
-+++ b/net/ethtool/ioctl.c
-@@ -1779,6 +1779,10 @@ static int ethtool_get_regs(struct net_device *dev, char __user *useraddr)
- 	if (copy_from_user(&regs, useraddr, sizeof(regs)))
- 		return -EFAULT;
- 
-+	/* A zero-length dump has nothing to fill in. */
-+	if (!regs.len)
-+		return 0;
-+
- 	reglen = ops->get_regs_len(dev);
- 	if (reglen <= 0)
- 		return reglen;
--- 
-2.34.1
-
+Reviewed-by: Ratheesh Kannoth <rkannoth@marvell.com>
