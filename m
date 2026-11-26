@@ -1,65 +1,106 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=91.218.175.90
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684466;
-	b=ALiko+//CvxHbeePmeYpPqoYrSHBIf2kWzjdaUMY2JVcp/F324iu2M8GebZRV9PheO5S
-	 XoN8Ur1tQ3Ub/lhfU9ODGJT72lO6s6jKLhZPVGdyvVbwwGWhxCWVqGFjuyF6Wrpg78GT7
-	 a9BH51IVD+QTc+YRc67HBxOqNbvg36TIP96fk8XU2LPU7CrVu3QbJoPT6jxSIREOBnraV
-	 Q3FU0mk6FvuxRlVJg+/S/jyLembMkCA2zf+Lw8MZWFBCIBFXyoi2NUySeKOtiZijS2Rly
-	 KY4lnnN9hrN/5C91KgyyK8k9qg/2vdAYJy+bBaOvkEIf0TbyTjDlcM9N9WZUqmOjMvw==
+	t=1795684514;
+	b=hbPHe0/IsoAScBy3TsBj4yOBKFRSemvjaNZGxYQ9QeFEZIZkwesq5DuumdUMEsTrPtjo
+	 jryqITwbyegNZzOvU8KYtD2hHDL0VEUDBKItK/T1u8njB7rpLHaoRa4+dnapjRXpPYtIW
+	 4OwYGsoQBYUyga5N6/cTomwnhkeRx+Tbs7tlC3Oms1CRFi9nu1QY3vPz450jb1VpSm3nG
+	 MOv1vTjTDXRk7cqPuIUybHjke3rvZnzxcoGLfmuB4H0XGfX5nPDWg4FKUuZkkq0D4a5bw
+	 Z4yT/0HWzUhS1X9XvXrcuJm04+gW2n+vVBOFBRilwLT4EfJF8NGbl3M4FBfy9izGoCQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684466;
-	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
-	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=lwIyBSU85VshwGnHE33sLl75KEBowIohtQRD7IW+A9U=;
-	b=CXochuzaoPxfnbJ+VNHncIz2b6EGUdKRqqn1WltVTlpGeR/ILSC5d2DC1IsO6nfYnjDD
-	 0d6eGDJyUZaywlCIHi2U7+lT5h1SgY6rbkgXRy8bEncnGycpQzKdKfL8qRc0j6tUH+jDQ
-	 EckzqFnyOI2Os1vo3WXzbT0gQRmg00bGMYti0P4yPL6Gy/LGvM+UQ19opy+Tl3ROu1VNF
-	 Dnpyf4bPxH0UHtkVIVBxk8nwQ/D5K3g1BN8CP++cdNp6F/ci+g3+WGzYSCm/qGLfSZSin
-	 wflT7xMn8erpfeVw2KqPO8d72agyGmjwhHUnSUytWLHh2BJtHc73avqKXCJO8F77COQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684514;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
+	b=fTyHX80DnClPtOYqresBLkDS97lueGkR1PwOJjwqhxHdT2DTXGWJuGHq46CVLUdyhRbs
+	 36MjTe0fB4J2KwLoeaIgPjScchQxCk0hvn3VozRnsm+4KesONyAOJayYuLGqNbzRwtwHi
+	 OYiEfaBrTswgbmJ0MmsbDWcsjU4G3ch4xkycZqTCxoAlsqHgpAAI+E2mGjAfgkwrwi8DT
+	 LKrRs73mLDMc0pfMB22AXyV0EKmEEer7sLtgxKQ7CGzNHVav6x/+1UV1Qjb1Sx42MbfLJ
+	 X4lz4jBiiOlVbgT5bT6pWS9RicyL1C5Ixrj6l528d8L+0np5s9QxSm/NQ7QFonUjXIg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.dev;
-	spf=pass smtp.mailfrom=linux.dev;
-	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XEpYFC0L;
-	arc=none smtp.remote-ip=91.218.175.90
-Received: from mta0.migadu.com (out-90.mta0.migadu.com [91.218.175.90])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c1eo+N4W;
+	arc=none smtp.remote-ip=209.85.221.51
+Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 402E5606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:14:24 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 402E5606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F09606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:15:13 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F09606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=XEpYFC0L
-X-Envelope-To: netdev@vger.kernel.org
-DKIM-Signature: a=rsa-sha256; bh=ChKEDs8LmfRwZ2jDmobqG4bvv10gyRZAaC5qy8msmOE=;
- c=simple/simple; d=linux.dev;
- h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
- t=1795684462; v=1; x=1796289262;
- b=XEpYFC0LTnuh9ic1T4wjud+OggYFa+p6VV4l/4sOS9wOqt3NW2uJspc72l010LrvaXOO2OxI
- x+3O+soXYapPVOX4VQCSy9JtIKd3kKuXYOMdmf4iXSwNUjrbFFCmksogphbxrWnx9RNOdnU0Kmk
- 4b8VygllqLXLuBiEvAbjGEHc=
-X-Envelope-To: netdev@vger.kernel.org
-Received: by mta11.migadu.com with ESMTPS id c239ecf2dd67665a;
-	Thu, 26 Nov 2026 09:14:22 +0000
-X-Mizu-Trace-ID: c239ecf2dd67665a
-X-Migadu-Flow: FLOW_OUT
-Date: Thu, 26 Nov 2026 17:14:12 +0800
-From: Hangbin Liu <hangbin.liu@linux.dev>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-Cc: "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Stanislav Fomichev <sdf@fomichev.me>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org
-Subject: Re: [PATCH RESEND net v2] vlan: drop the promisc/allmulti references
- on the real device on delete
-Message-ID: <20261126091412.GI33976@Liu-laptop>
-References: <179562437889.3453587.11037378125876087336@gmail.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c1eo+N4W
+Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso4172870f8f.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:15:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795684512; x=1796289312; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
+        b=c1eo+N4Wiv7EjKxwfcL3tfFeqHu8x6Krnvw93i6u/jfF+sGc2puye5EC9fpm2hHm1y
+         fDnPfexBgEGfMjM7yd2zgZdeG0kXNj/pJAQKzYVw85wcUfnVroYZ4LnFf5d3XZ/Hv+et
+         1W7P3Rigw2cYBsDwlqtzjOLuiE3LksmY9qibSpKVPbmGoMONoBR+FKIvmzf2IGbeBtlX
+         LV/KklZVuZLt7eJDYLih0Yky1NMgailveCaxPt2g4YN8gNC8BObSJB3ml6e0M+688hle
+         bflyxMYc4YeEGyPXz4l2LwullUHtEyF4tGS9y1EHOuIJzjQM31WoHbD79J5yLXPq36gm
+         260Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795684512; x=1796289312;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
+        b=WQG8XzSoSv2lRUw04GQlsiNEpoPEzmBVJllN8jaYw4odSNVyw/WUNQxAwJWlPomGFW
+         5Y9m7uZowef1RF6lcqDJgHcuWzxJgY7oRKwVA3n8syfldT6v/+HybtiZ4rXWpBZ7AVpI
+         aWF86Q92SXtFwQdT1d5T9pwaegA4UD380o5HmSJIclPy76WhkUHOluYihC9kFbtKPHZS
+         ZLiic6a5UyIVo5l0bns+NgaiuQOhgxbl5KLFVnkOK1i3S8ICJXXSQiS0w09i7+ALGKrD
+         GdM7JnlZDRiw0wrmZdhyRptGSisIJE9Rop93Xy0xMq5iTdLsZfAnt5CO5cZwukyifJnz
+         0uNQ==
+X-Gm-Message-State: APuU4Z9MTtU5iZxDf1scTw6T/Tbz+1+IMoRw1p0BNjJRaYhhgEMgv5wU
+	ggFCw4Ygkg9Pta7OGEEbjonS+C5PGDjaTsxOfQMrY7q8WeDWo+j6kJ7W
+X-Gm-Gg: AZFdTZeN0QExe1vOa8nd/XgA5qxNEswyUZIFogjUcmPQFfLq6yz+fWINjNRIjdToWKM
+	HpazpY4VXKRVAeQgSqu0JTAzCtj+p4T0gnHqXd7yOmr9toeU74rGbFHCav23VqI7ynJN3NnYY54
+	9F1lZwT9Stf+QTO0zQqoepSSHwdNtIwyqOJBscuGvHVaZ6pa0kHpSAzz+kjebKZm6i2mdllXNwP
+	YXWdJ5W+IMmcNzUR4pxYsCg/DQjJbqiFXxt+qF1y547sOWeQDu+XSp5jxJqPqIdluXnht/mcrUp
+	QVmEy9/mvloDWASpMyWRkLrOsEs37r+cpkW44hVXL57ahOxZkFu5Q01lUv5WZixi+kaw61XIyMZ
+	JGl881vB4vj9R50Inu65bfYAvs2oEDcawiwtFiP/RNJNTfWKypccoBbugk/X6dYghx0FHhr5eHa
+	jxwN99+1k7e6PgWf4aHbMF4dxkmEELAhVnypC2FZFEk4Zy3FBdqEjQwpEvGHd1/M9DUvqcpPzHa
+	lvv058T0IZF/XfMWgG60sYpQjkqmoEjbqvRqdDG0ta7/T88bYOETFNGFexZqNS4zzMP8eM2d+Ax
+	A/6g//Jr91ALjUNHGpQjZDGajVcLRvdQ4OJ8gwxe8D+fkIl9jjYGjb7DKe2DKb++0Hs=
+X-Received: by 2002:adf:e009:0:10b0:492:b1c5:6db4 with SMTP id ffacd0b85a97d-4abb4c7ab68mr28124075f8f.26.1795684512114;
+        Thu, 26 Nov 2026 01:15:12 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm37029320f8f.34.2026.11.26.01.15.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 01:15:11 -0800 (PST)
+Date: Thu, 26 Nov 2026 09:15:10 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Ivan Vecera <ivecera@redhat.com>
+Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+ Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>, Jiri Pirko
+ <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
+ <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Min Li
+ <min.li@microchip.com>, Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek
+ Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, Grzegorz Nitka
+ <grzegorz.nitka@intel.com>, Karol Kolacinski <karol.kolacinski@intel.com>,
+ Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Petr
+ Oros <poros@redhat.com>
+Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
+ under global dpll_lock
+Message-ID: <20261126091510.7ac67b35@pumpkin>
+In-Reply-To: <20261111164021.273409-1-ivecera@redhat.com>
+References: <20261111164021.273409-1-ivecera@redhat.com>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -69,121 +110,108 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <179562437889.3453587.11037378125876087336@gmail.com>
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 
-On Thu, Nov 26, 2026 at 01:37:04AM +0900, Kyuwon Cho wrote:
-> Since commit 27b918007d96 ("net: vlan: don't propagate flags on open"),
-> vlan_dev_change_rx_flags() passes IFF_PROMISC and IFF_ALLMULTI changes
-> on to the real device whether or not the VLAN device is up, and
-> vlan_dev_open()/vlan_dev_stop() no longer take or drop those references.
-> Nothing drops them when the VLAN device is deleted, so the real device
-> stays promiscuous or allmulti for good:
-> 
->   ip link add link veth0 name vlan10 type vlan id 10
->   ip link set vlan10 promisc on
->   ip link del vlan10
->   ip -d link show veth0    # promiscuity 1
-> 
-> Drop them in vlan_dev_uninit(). The device flags are still set there,
-> and no instance lock is held, so this does not bring back the recursive
-> locking that the commit above removed.
-> 
-> After that, stop passing flag changes on to the real device. When a
-> VLAN and a VLAN stacked on it are deleted in one batch
-> ("ip link del group N"), the upper VLAN's vlan_dev_uninit() can run
-> after the lower one's and clear its IFF_PROMISC or IFF_ALLMULTI, which
-> would drop the real device's reference a second time.
-> 
-> Fixes: 27b918007d96 ("net: vlan: don't propagate flags on open")
-> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
-> ---
-> Resent with netdev and the other recipients in Cc; the first posting
-> reached only the four net maintainers (Paolo).
-> 
-> v2: stop passing flag changes on to the real device after
->     vlan_dev_uninit(), so that a VLAN stacked on it and deleted in the
->     same batch does not drop the reference again (Sashiko,
->     https://lore.kernel.org/all/179561249161.3135.16028121153100336999@kernel.org/)
-> v1: https://lore.kernel.org/all/179552079831.1290967.13072162433438626338@gmail.com/
-> 
-> The issue was found by an LLM-guided test generator that we are
-> developing as a research prototype. The commands above reproduce it as
-> any user under "unshare -Urn", after
-> "ip link add veth0 type veth peer name veth1". With only the
-> vlan_dev_uninit() change, a batch delete of two stacked VLANs wraps the
-> count instead:
-> 
->   ip link add link veth0 name v1 type vlan id 10
->   ip link add link v1 name v2 type vlan id 20
->   ip link set v2 promisc on
->   ip link set v1 group 5
->   ip link set v2 group 5
->   ip link del group 5
->   ip -d link show veth0    # promiscuity 4294967295
-> 
-> Our test also covers allmulti, a VLAN that is up when the flag is set
-> or the device is deleted, and the stacked VLANs deleted one at a time.
-> 
-> The patch was written with LLM assistance; we reviewed and tested it.
-> With it, both counts return to 0 in every case, with lockdep enabled
-> and quiet.
-> 
->  include/linux/if_vlan.h |  2 ++
->  net/8021q/vlan_dev.c    | 10 ++++++++++
->  2 files changed, 12 insertions(+)
-> 
-> diff --git a/include/linux/if_vlan.h b/include/linux/if_vlan.h
-> index c863cdf60f01..c0cfb87d6682 100644
-> --- a/include/linux/if_vlan.h
-> +++ b/include/linux/if_vlan.h
-> @@ -168,6 +168,7 @@ struct netpoll;
->   *	@vlan_proto: VLAN encapsulation protocol
->   *	@vlan_id: VLAN identifier
->   *	@flags: device flags
-> + *	@uninit: the promisc/allmulti references on @real_dev were dropped
->   *	@real_dev: underlying netdevice
->   *	@dev_tracker: refcount tracker for @real_dev reference
->   *	@real_dev_addr: address of underlying netdevice
-> @@ -184,6 +185,7 @@ struct vlan_dev_priv {
->  	__be16					vlan_proto;
->  	u16					vlan_id;
->  	u16					flags;
-> +	bool					uninit;
->  
->  	struct net_device			*real_dev;
->  	netdevice_tracker			dev_tracker;
-> diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
-> index bca0a3693636..401ae08f16f4 100644
-> --- a/net/8021q/vlan_dev.c
-> +++ b/net/8021q/vlan_dev.c
-> @@ -520,6 +520,8 @@ static void vlan_dev_change_rx_flags(struct net_device *dev, int change)
->  {
->  	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
->  
-> +	if (vlan_dev_priv(dev)->uninit)
-> +		return;
->  	if (change & IFF_ALLMULTI)
->  		dev_set_allmulti(real_dev, dev->flags & IFF_ALLMULTI ? 1 : -1);
->  	if (change & IFF_PROMISC)
-> @@ -647,6 +649,14 @@ void vlan_dev_free_egress_priority(const struct net_device *dev)
->  
->  static void vlan_dev_uninit(struct net_device *dev)
->  {
-> +	struct net_device *real_dev = vlan_dev_priv(dev)->real_dev;
-> +
-> +	if (dev->flags & IFF_ALLMULTI)
-> +		dev_set_allmulti(real_dev, -1);
-> +	if (dev->flags & IFF_PROMISC)
-> +		dev_set_promiscuity(real_dev, -1);
-> +	vlan_dev_priv(dev)->uninit = true;
-> +
->  	vlan_dev_free_egress_priority(dev);
->  }
->  
-> -- 
-> 2.43.0
-> 
+On Wed, 11 Nov 2026 17:40:11 +0100
+Ivan Vecera <ivecera@redhat.com> wrote:
 
-Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
+> dpll_lock protects topology and object lifetime, but it also serializes
+> all driver callbacks in the system, so one slow device stalls every other
+> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
+> commands with a 60 s default timeout, and zl3073x callbacks can wait
+> seconds on a driver lock held across ToD writes and phase steps.
+> 
+> Make dpll_lock an rwsem for topology and lifetime and add a mutex per
+> domain for callbacks. A domain is all objects created with one (module,
+> clock_id), in practice one chip or card, so channels of one chip stay
+> serialized as drivers expect, and they still block each other. Device
+> callbacks run under the domain of the device, pin callbacks under the
+> domain of the pin, whichever driver registered them. Only one domain lock
+> is ever held, so domains have no lock order. A lock per device would not
+> work, because pins are N:M with devices and callbacks notify sibling
+> channels.
+> 
+> The driver API does not change, but a callback can now notify only
+> objects of its own domain. Patch 1 changes the one in-tree callback that
+> does not follow this.
+> 
+> Registrations across domains exist in the tree only on E825, where ice
+> registers fwnode pins of an external DPLL with its TXC and TSPLL DPLLs.
+> These callbacks are no longer serialized with TXC and TSPLL, they rely on
+> pf->dplls.lock, and requests about these pins wait while the external
+> DPLL is busy. Intel folks, please check that this is fine.
+
+Isn't the big problem with callbacks handling deregistration?
+With a global lock there isn't a problem.
+But as soon as you do anything else you have to have very explicit
+rules to safely deregister a callback without either a UAF or an ABBA
+locking issue.
+
+I don't see this being mentioned.
+
+David
+ 
+> 
+> Each complex of a dual complex E825 has its own DSN and so its own
+> domain, but both use the CGU of complex 0. The lock for the registers
+> they share is in a fix sent to net [1], which this series needs. Without
+> it a test lost updates of them.
+> 
+> Patch 4 is the only patch that lets callbacks run concurrently. Patch 5
+> adds KUnit tests. I also tested each commit with a mock driver and YNL in
+> QEMU, with lockdep and KASAN, and the tip with lockdep on two systems:
+> 
+> - A board with ZL30732A: every notification the driver sends from a
+>   callback, concurrent traffic with PTP, driver reload and rebind.
+> - GNR-D with dual complex E825 and zl3073x: callbacks of the pins shared
+>   by both drivers, TX clock switches, RCLK pins of both complexes, a port
+>   going down and up, and both drivers unloaded and loaded in either order
+>   under load.
+> 
+> mlx5 is build tested only.
+> 
+> On GNR-D, with ToD writes running on the zl3073x and requests waiting for
+> them, requests to an ice DPLL took 1448 ms in median and 3.9 s at most
+> before this series, 0.2 ms and 0.3 ms with it, the same as when idle.
+> Requests about the pins shared by both drivers still wait for the zl3073x.
+> 
+> Changes in v2:
+> - Dropped "ice: dpll: serialize changes of the SyncE CGU registers", sent
+>   to net with a fix of the SyncE divider [1]
+> - Addressed the Sashiko review, see the patches for details
+> - Added Reviewed-by tags from Petr
+> 
+> v1: https://lore.kernel.org/netdev/20261106121005.1327603-1-ivecera@redhat.com/
+> 
+> [1] https://lore.kernel.org/netdev/20261110094350.184185-1-ivecera@redhat.com/
+> 
+> Ivan Vecera (9):
+>   ice: dpll: notify TSPLL lock status from the periodic work only
+>   dpll: add domain object
+>   dpll: take domain locks around driver callbacks
+>   dpll: convert dpll_lock to rwsem
+>   dpll: add KUnit tests for core locking
+>   dpll: reject measured_freq_get for foreign and on-pin registrations
+>   dpll: zl3073x: update locking comments
+>   ice: dpll: update locking comments
+>   dpll: document locking rules
+> 
+>  Documentation/driver-api/dpll.rst         |   48 +
+>  drivers/dpll/.kunitconfig                 |    5 +
+>  drivers/dpll/Kconfig                      |   13 +
+>  drivers/dpll/Makefile                     |    1 +
+>  drivers/dpll/dpll_core.c                  |  204 ++-
+>  drivers/dpll/dpll_core.h                  |   34 +-
+>  drivers/dpll/dpll_core_kunit.c            | 1580 +++++++++++++++++++++
+>  drivers/dpll/dpll_netlink.c               |  117 +-
+>  drivers/dpll/zl3073x/dpll.c               |    9 +-
+>  drivers/net/ethernet/intel/ice/ice_dpll.c |   24 +-
+>  drivers/net/ethernet/intel/ice/ice_dpll.h |    5 +
+>  11 files changed, 1919 insertions(+), 121 deletions(-)
+>  create mode 100644 drivers/dpll/.kunitconfig
+>  create mode 100644 drivers/dpll/dpll_core_kunit.c
+> 
+> 
+> base-commit: 368fbf5d82da9ebce309449c74fc0b128f7d0219
+
