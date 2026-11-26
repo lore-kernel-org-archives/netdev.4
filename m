@@ -1,50 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.127.231.16
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=67.231.244.115
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705113;
-	b=unqPv3my2issl0P5NcHgvteFbrj82YjDnfpUQ7Xzp4z9EzznlEMAkQfaMdmlwGj3uH7w
-	 Ox7jnyAxpUZ6dWD2E8kNUTxFZOAoK+Pu3s8OXqEDwXRLeew99t6ntynsBRf1DISg5YHWn
-	 BsEiuDXrVvRGiErGaFxkfiHZifkSLJzeLRp+f96sDlxnax+0P055bjIiZ2mzwLbgp7OWG
-	 n9Pw5mdM//H778+hvqGBCz3OzunD9aQMd5I5tlh9doFuTRZMqDO4o1bcmiRUWs3NDox3l
-	 NbP2pJ/HW4ha6RNkPbYG4pG1VTRLN6MkJPm7WZbfXyeuGfBfYtYjtHXRZ3rjUoi+BXA==
+	t=1795705297;
+	b=Pl5mP/jwXakDCbvPdqZadOtoCZ+fl18EY523MjDnmSTsh5UqTtVB3Bak/P006oG+KCiI
+	 GnZpXAKXOhL66oSqz9TaCLv+t1TFPcKBwyM1lH6gOHKOmtieMxTS/NxZFuHmInqXa+xHc
+	 6CNPr9/1wwaLdIU7pprJ/+a1P2mNEuTm6+tmKj7Wdp5ReJF1P+ZmlhFH7i7d4JXFLW1Lp
+	 yk3lYG92Fadv4Z1UaD525XnfgvtcMqAQcixYxYL2H0/jrKNZ5IGtM4vFl9JWTW1/uf85y
+	 4JTowM4RM8vAFutmWdNNWGm8To0v8zQWUQH1QFDBQZ3/g1rRCNuSeYEepfaQ/QRnvcw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705113;
-	h=DMARC-Filter:DKIM-Signature:From:Date:Mime-Version:In-Reply-To:
-	 Message-Id:References:Received:Content-Transfer-Encoding:To:Cc:
-	 Subject:X-Original-From:X-Lms-Return-Path:User-Agent:Content-Type;
-	bh=C8sOYIvaojnOxWbS1cwkZXUmkHLOzB4BNnadqUooFqc=;
-	b=ruGRoA/zodxDB4h9kZhnmtE5aNqK9Js/STG0mHwvUyZBootLizN0foD92tWrnY8Nj6ut
-	 xKD2yqBw9mXLZw1ux1ne6czFxalfwDGfiiPI/6FKnTj18UwWflIJWTdpLTjZXtUlDu1Zf
-	 +lZVuHwu/1261WSEVfrGhCUWob0kpput8sshDGha4+MUGHhTXsL+7SNXGQCG2zAJ1FXDR
-	 +1ow2oTR0Uso6YTnHHVr735Ty5u3wfEfSDL3awkJUc6RmEg0atqb3IwjeCtAbU5LomEja
-	 I7XCkH+cBceQOPzcijfi+JlJxJyo/okXB1B4j0lizwP+1fkST8u4jZQlDKMGmYEz2rA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705297;
+	h=DMARC-Filter:DKIM-Signature:Received:To:Subject:X-PHP-Script:
+	 X-PHP-Originating-Script:Date:From:Reply-To:Message-ID:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-AntiAbuse:X-AntiAbuse:
+	 X-AntiAbuse:X-AntiAbuse:X-AntiAbuse:X-Get-Message-Sender-Via:
+	 X-Authenticated-Sender:X-Source:X-Source-Args:X-Source-Dir;
+	bh=Dp2z85quoyOeIYxG8YBwyiZVUBKOcuHOwE1lWycAtuE=;
+	b=Zv6/YPE3Y6c3dtncRWe0jfVC5g/QF0Y5pa7QRdAVZnU0Etmc/mw8u+K+HcTfFm5i2gty
+	 G829eCq38TU+4LpXHhubOKi52hLV5mCkLYFF47sfR1dQN+r3yHiAr1l2hERezgnQpuVha
+	 21ozKx/ysXKkAxldhrAI3scr/SY21MzojyXdZISn+6r1PyRPZeP8vO4Yz3xTVjdy/OoQm
+	 7IBc0JG0wCwj5yMA5+qx/m/hRgd+23uTembXI33Ygy9Xu93CJpmrSVl4pOEom3hbFbYjx
+	 l65GHp06tUHOIc1ebtFcIHUK+i4SwwlWr1QY4Z1Mj4I3NPAhkSsD9n7kxnxZsMGvCAA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=yunsilicon.com;
-	spf=pass smtp.mailfrom=yunsilicon.com;
-	dkim=pass header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=jV5keJl2;
-	arc=none smtp.remote-ip=209.127.231.16
-Received: from va-2-16.ptr.blmpb.com (va-2-16.ptr.blmpb.com [209.127.231.16])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=visefest.no;
+	spf=pass smtp.mailfrom=visefest.no;
+	dkim=pass header.d=visefest.no header.i=@visefest.no header.a=rsa-sha256 header.s=default header.b=l4ZUtyOU;
+	arc=none smtp.remote-ip=67.231.244.115
+Received: from nicolayleganger.no (nicolayleganger.no [67.231.244.115])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 041D7606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:58:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 041D7606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=yunsilicon.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=yunsilicon.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 21E47606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:01:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 21E47606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=visefest.no
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=visefest.no
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=yunsilicon.com header.i=@yunsilicon.com header.a=rsa-sha256 header.s=feishu2403070942 header.b=jV5keJl2
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- s=feishu2403070942; d=yunsilicon.com; t=1795705108; h=from:subject:
- mime-version:from:date:message-id:subject:to:cc:reply-to:content-type:
- mime-version:in-reply-to:message-id;
- bh=C8sOYIvaojnOxWbS1cwkZXUmkHLOzB4BNnadqUooFqc=;
- b=jV5keJl2V6uqHDHkDic8s/qaJpfC5Ysj2tSc/sfPyhj+yr+ct5QSIOF0KUYYLbGbf7QFh5
- qVfkUZo5qhspwCzqwzFrlfjMrEM2z9tlXfxVdSeELn/O8GU5w49OCTsVzlekdY0GcG9h2I
- 8ehWc9envshkczgGxqmmg4MsJ3nS6oxRGFoykj9fTALSaNJmivOu9NVb1EgTcIGp+7A6kX
- O/yg4DGZ2QIToBkFvg+s6WP6WepD5uXv21LfSPJckhK5mLzs7LiirtxgPx6Z1jCiM0Endj
- qsd2w9b562uLijkeZv9F+HPCx8XaVEtZeUzZnjJji4RkN6GixxcMoW0XjpkLgw==
-From: "Xin Tian" <tianx@yunsilicon.com>
-Date: Thu, 26 Nov 2026 22:58:20 +0800
+	dkim=pass (2048-bit key, unprotected) header.d=visefest.no header.i=@visefest.no header.a=rsa-sha256 header.s=default header.b=l4ZUtyOU
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=visefest.no
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID
+	:Reply-To:From:Date:Subject:To:Sender:Cc:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+	List-Unsubscribe-Post:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Dp2z85quoyOeIYxG8YBwyiZVUBKOcuHOwE1lWycAtuE=; b=l4ZUtyOUS2gIWKIPu2hFbcXmjr
+	RIcPscl4AyJoAkglnON+BLLjPdRLOYDvNQA6WRft6gcI7LvYpjfrPxYsqJPcxaNYuUEqCd7opK2jt
+	9mO6n47NYBF2Nede96xlRmEGwrlvk1wxz5VmWzW37ClYsHzHohbSc/AtoBmXG9MBWdTR6Yq2vUh2n
+	TZzl7sFtloZ71sPG2kN+JEkGvcRRoahXnuY0hkaZXnfGJ8NP83CYmdUHYi5/uSkPhwWDRZVC60nTm
+	wV5nBzn7kFLHzoxs0SUzjtBN/A9WTQHEHTM6H0YZO15mR3mhVOU1RJm3EZAlQ55EFp4C8OlIqUTMK
+	ZohjLmKw==;
+Received: from nicolayl by webserver96.turnkeywebspace.com with local (Exim 4.100.1)
+	(envelope-from <support@visefest.no>)
+	id 1xWayX-000000015yW-2Bsu
+	for netdev@vger.kernel.org;
+	Thu, 26 Nov 2026 10:01:29 -0500
+To: netdev@vger.kernel.org
+Subject: AR Position/Remote Position
+X-PHP-Script: visefest.no/g1xhsro/vpladmw/sflzhrg/index.php for 191.101.51.108
+X-PHP-Originating-Script: 1009:index.php
+Date: Thu, 26 Nov 2026 10:01:29 -0500
+From: Nico Nego <support@visefest.no>
+Reply-To: nico.nego@nicnegometalworks.com
+Message-ID: <8cdc4a238ea5376b1599051da9db569f@visefest.no>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,236 +68,55 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-In-Reply-To: <7bf0875f-f5c5-4894-8e26-433aa40c2e04@lunn.ch>
-Message-Id: <25597ed8-a64d-4e6a-bce1-df4abd8cb302@yunsilicon.com>
-References: <20261104155650.37053-1-tianx@yunsilicon.com> <20261104155705.37053-8-tianx@yunsilicon.com> <7bf0875f-f5c5-4894-8e26-433aa40c2e04@lunn.ch>
-Received: from [127.0.0.1] ([183.193.56.110]) by smtp.feishu.cn with ESMTPS; Thu, 26 Nov 2026 22:58:26 +0800
-Content-Transfer-Encoding: quoted-printable
-To: "Andrew Lunn" <andrew@lunn.ch>
-Cc: "Andrew Lunn" <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, 
-	"Eric Dumazet" <edumazet@google.com>, "Jakub Kicinski" <kuba@kernel.org>, 
-	"Paolo Abeni" <pabeni@redhat.com>, "Jason Gunthorpe" <jgg@ziepe.ca>, 
-	"Leon Romanovsky" <leon@kernel.org>, 
-	"Junxian Huang" <huangjunxian6@hisilicon.com>, <weihg@yunsilicon.com>, 
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>, 
-	<linux-rdma@vger.kernel.org>
-Subject: Re: [PATCH v1 07/15] net/xsc: add ethernet netdev registration
-X-Original-From: Xin Tian <tianx@yunsilicon.com>
-X-Lms-Return-Path: <lba+26b084913+e148d3+vger.kernel.org+tianx@yunsilicon.com>
-User-Agent: Mozilla Thunderbird
+MIME-Version: 1.0
 Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - webserver96.turnkeywebspace.com
+X-AntiAbuse: Original Domain - vger.kernel.org
+X-AntiAbuse: Originator/Caller UID/GID - [1009 992] / [47 12]
+X-AntiAbuse: Sender Address Domain - visefest.no
+X-Get-Message-Sender-Via: webserver96.turnkeywebspace.com: authenticated_id: nicolayl/from_h
+X-Authenticated-Sender: webserver96.turnkeywebspace.com: support@visefest.no
+X-Source: 
+X-Source-Args: php-fpm: pool visefest_no                                
+X-Source-Dir: nicolayleganger.no:/visefest.no/g1xhsro/vpladmw/sflzhrg
 
-Hi Andrew,
+﻿Hello,
 
-Thanks for the review.=C2=A0 I've sent a v2 that is a much smaller
-ethernet-only series, and gone through your comments.
+We would like to engage your services as our Accounts Receivable Representative to manage and collect overdue payments from our North American clients. In this remote role, you will use standard, straightforward communication channels to engage with clients regarding overdue accounts. The process is designed to be entirely friction-free, requiring no travel or physical client visits. All client interactions can be managed efficiently from your location via telephone and email, with no specialized software or complex system integration required on your end.
 
-On 11/8/2026 5:03 AM, Andrew Lunn wrote:
->> @@ -1,7 +1,6 @@
->>   # SPDX-License-Identifier: GPL-2.0
->>   # Copyright (C) 2021-2026, Shanghai Yunsilicon Technology Co., Ltd.
->>   # All rights reserved.
->> -#
->>   # Yunsilicon driver configuration
->>   #
-> Please don't include hunks like this. Was this added be a previous
-> patch in this patchset? Then fix it back then. If this is already in
-> mainline, add a patch making these 'whitespace' changed.
-That Kconfig hunk is gone from v2.
->> +static int xsc_eth_open(struct net_device *netdev)
->> +{
->> +	struct xsc_adapter *adapter =3D netdev_priv(netdev);
->> +	int ret;
->> +
->> +	if (adapter->opened) {
->> +		netdev_err(adapter->netdev, "ndo_open on an already opened device\n")=
-;
->> +		return 0;
->> +	}
->> +
-> How does this happen?
->
-> And returning 0 seems odd. Something bad has happened, so at least
-> EBUSY.
-The "already opened" check is unreachable - the netdev core serialises
-ndo_open against the interface state under the rtnl lock.=C2=A0 I dropped t=
-he
-branch rather than return EBUSY.
->> +
->> +	xsc_set_default_xps_cpumasks(adapter);
->> +
->> +	ret =3D xsc_set_port_admin_status(adapter, XSC_PORT_UP);
->> +	if (ret)
->> +		netdev_err(netdev, "failed to set port admin status up, err=3D%d\n",
->> +			   ret);
->> +
->> +	return 0;
-> return err?
->
-I changed xsc_set_port_admin_status() to return void.=C2=A0 The open flow m=
-ust
-not depend on this call: it's issued after open has otherwise completed,
-the firmware can legitimately reject it (VF, port_link_en, arbitration
-between functions, old firmware), and the real carrier is driven by the
-link events and QUERY_VPORT_STATE, not by its return value.=C2=A0 Failing o=
-pen
-on it would turn normal cases into errors, so we log and carry on.
->> +}
->> +
->> +static int xsc_eth_close(struct net_device *netdev)
->> +{
->> +	struct xsc_adapter *adapter =3D netdev_priv(netdev);
->> +	int ret;
->> +
->> +	if (!adapter->opened)
->> +		return 0;
-> How does this happen?
->
-> Is there an error code ENOTBUSY?
-Same as above - unreachable, dropped the "not opened" branch.
->> +static void xsc_eth_build_nic_netdev(struct xsc_adapter *adapter)
->> +{
->> +	struct net_device *netdev =3D adapter->netdev;
->> +
->> +	/* Set up network device as normal. */
->> +	netdev->netdev_ops =3D &xsc_netdev_ops;
->> +
->> +	netdev->min_mtu =3D SW_DEFAULT_MTU;
->> +	netdev->max_mtu =3D SW_DEFAULT_MTU;
->> +	/*mtu - macheaderlen - ipheaderlen should be aligned in 8B*/
->> +	netdev->mtu =3D SW_DEFAULT_MTU;
-> What has MTU got to do with alignment?
-You're right, the comment made no sense.=C2=A0 Removed.
->> +static int xsc_eth_get_mac(struct xsc_core_device *xdev, char *mac)
->> +{
->> +	struct xsc_query_eth_mac_mbox_out *out;
->> +	struct xsc_query_eth_mac_mbox_in in;
->> +	int err;
->> +
->> +	out =3D kzalloc_obj(*out, GFP_KERNEL);
->> +	if (!out)
->> +		return -ENOMEM;
->> +
->> +	memset(&in, 0, sizeof(in));
->> +	in.hdr.opcode =3D cpu_to_be16(XSC_CMD_OP_QUERY_ETH_MAC);
->> +
->> +	err =3D xsc_cmd_exec(xdev, &in, sizeof(in), out, sizeof(*out));
->> +	if (err || out->hdr.status) {
->> +		netdev_warn(xsc_dev_to_netdev(xdev),
->> +			    "get mac failed! err=3D%d, out.status=3D%u\n",
->> +			    err, out->hdr.status);
->> +		err =3D -ENOEXEC;
->> +		goto exit;
->> +	}
->> +
->> +	memcpy(mac, out->mac, ETH_ALEN);
-> There are helpers for copying MAC addresses around.
-Now uses ether_addr_copy().
->> +static int xsc_eth_probe(struct auxiliary_device *adev,
->> +			 const struct auxiliary_device_id *adev_id)
->> +{
-> ...
->
->> +	err =3D register_netdev(netdev);
->> +	if (err) {
->> +		netdev_err(netdev, "register_netdev failed, err=3D%d\n", err);
->> +		goto err_free_stats;
->> +	}
-> The stack can up the interface and start sending packets before this
-> function call returns. NFS root often does that.
->
->> +
->> +	xdev->netdev =3D netdev;
->
-> Does anything bad happens in open and packet Rx and Tx if xdev->netdev
-> =3D=3D NULL because this assignment has not happened yet.
->
->> +
->> +	xsc_irq_event_register(xdev, xsc_eth_link_event_handler);
-> And does anything bad happen if the event handler is not registered?
-The interface no longer keeps a xdev->netdev; it's looked up via
-xdev->eth_priv, which is set before register_netdev(), so open/Rx/Tx
-never see NULL.=C2=A0 The link event handler is now registered before
-register_netdev(), so a port event that arrives right after
-registration is not lost.
->> +static void xsc_eth_remove(struct auxiliary_device *adev)
->> +{
->> +	struct xsc_adev *xsc_adev =3D container_of(adev, struct xsc_adev, adev=
-);
->> +	struct xsc_core_device *xdev =3D xsc_adev->xdev;
->> +	struct xsc_adapter *adapter;
->> +
->> +	if (!xdev)
->> +		return;
-> How does that happen?
->> +
->> +	adapter =3D xdev->eth_priv;
->> +	if (!adapter)
->> +		return;
-> How does that happen?
-Both gone - the auxiliary bus only calls remove() for devices that
-probed successfully, so the checks were dead.
->> +
->> +	/* Stop link events reaching this adapter and wait out one already in
->> +	 * flight, which would otherwise touch the memory freed below.
->> +	 */
->> +	xsc_irq_event_unregister(xdev);
->> +
->> +	/* Runs ndo_stop(), so the queues and the HCA are shut down first. */
->> +	unregister_netdev(adapter->netdev);
->> +
->> +	/* Must precede free_netdev(): the adapter lives in the netdev priv. *=
-/
->> +	xsc_eth_nic_cleanup(adapter);
->> +	kvfree(adapter->stats);
->> +	free_netdev(adapter->netdev);
->> +
->> +	xdev->netdev =3D NULL;
->> +	xdev->eth_priv =3D NULL;
->> +static inline void xsc_tx_dma_unmap(struct device *dev, struct xsc_sq_d=
-ma *dma)
->> +{
->> +	switch (dma->type) {
->> +	case XSC_DMA_MAP_SINGLE:
->> +		dma_unmap_single(dev, dma->addr, dma->size, DMA_TO_DEVICE);
->> +		break;
->> +	case XSC_DMA_MAP_PAGE:
->> +		dma_unmap_page(dev, dma->addr, dma->size, DMA_TO_DEVICE);
->> +		break;
->> +	default:
->> +		break;
->> +	}
-> This should probably not be hiding away somewhere in a header file.
-That whole tx_dma_unmap abstraction is gone in v2; TX unmaps directly
-now.
->> +static inline struct xsc_cqe *xsc_cqwq_get_cqe(struct xsc_cqwq *wq)
->> +{
->> +	u32 ci =3D xsc_cqwq_get_ci(wq);
->> +	u8 cqe_ownership_bit;
->> +	struct xsc_cqe *cqe;
->> +	u8 sw_ownership_val;
->> +
->> +	cqe =3D xsc_cqwq_get_cqe_buff(wq, ci);
->> +
->> +	cqe_ownership_bit =3D !!(le32_to_cpu(cqe->data1) & XSC_CQE_DATA1_OWNER=
-);
->> +	sw_ownership_val =3D xsc_cqwq_get_wrap_cnt(wq) & 1;
->> +
->> +	if (cqe_ownership_bit !=3D sw_ownership_val)
->> +		return NULL;
->> +
->> +	/* ensure cqe content is read after cqe ownership bit */
->> +	dma_rmb();
->> +
->> +	return cqe;
-> This is also a bit big for an include file inline. Plus that dma_rmb()
-> should not be hiding, it should be in plain sight.
-xsc_cqwq_get_cqe() moved into xsc_eth_txrx.c (the header only declares
-it), and dma_rmb() is now at the call sites in the poll loop, in plain=20
-sight.
+For every account assigned, we will provide you with a comprehensive documentation package, including the invoice copies, shipment documents, and complete customer contact details.
 
-Thanks,
+Financial Terms & Compensation
 
-Xin
+We offer a highly competitive compensation structure for your representation, which includes both a monthly fixed salary and a percentage-based commission:
+
+• Monthly Salary: A flat retainer of $6,200 USD per month.
+
+• Collection Incentives (30% Total Deduction):
+	• 10% Collection Fee / Commission
+	• 20% Allocated for Local Taxes
+
+• Net Remittance: Your firm will deduct the 30% combined fee from every payment collected and remit the 70% NET balance to our company.
+
+Payment Logistics
+Depending on the specific arrangement made with each customer, payments will be collected via:
+
+• Cashier's Check
+• Wire Transfer
+
+We are eager to establish this partnership and move forward quickly. Please review this proposal and let us know your decision at your earliest convenience so we can discuss the next steps and formalize an agreement.
+
+Thank you for your time and consideration. I look forward to your prompt response.
+
+Sincerely,
+
+Nico A. Nego
+PT. Nico Metal Indonesia
+JL. Kran 3 Dalam No 7A 06/05,
+Gunung Sahari Selatan, Kemayoran,
+Jakarta Pusat 10610 
+Indonesia
+nico.nego@nicnegometalworks.com
+
