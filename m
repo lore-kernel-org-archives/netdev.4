@@ -1,96 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.47
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795698953;
-	b=Gs77nQoDGHBniH2wmPiokXxpEGNDuP5MQw8flTC4rvEn9YPbsB+fsBRUbyRxrFF2SSM8
-	 TYedpUQYM6TgwU4dz1xYRf25u7Fde1rx7+OFfxY8mmoY3npKXG3OU3b+jpkkCf4ANq4mI
-	 gfCCFMMjBKNhkeI7/9O+4+t8uw66bEavDvS84WCjbR0Ir4N/9+qNtpaMDeCODOy3mFHYk
-	 KmsRIcuXKk2kARz6Hy946CZEGAkn6kMyNJriCPr5EtocwC6XTqUixv4VaMRJhdGwr1CPp
-	 viHA3VC7E/63eic1EukszgO+20Ou6tvHm132gs2hY4nkDbH+pndTq0+8EJtL9QQovDA==
+	t=1795699184;
+	b=pxumnOwtFjuUVBBK84StiZw9jCqjkbBsaRV05eY0AP9uy5U67F32EKU2p5eaEDKia/pt
+	 dg5cxv7gpZQ6zrY9X/bxzbTDR10JLvLqOzFrQCXQT/zumPGXtRCpFz4lOSkJN1d9p563b
+	 hHSThWDkT2dzVy+tL7xvMPM1QJrH8uRSOcMZ9CqMryM8RpBsBNvX+08NGjrFcKYkslfyM
+	 QiRH4PJOHe5cDHbC5l1trl+EtJ3ZFXsB3BIzivgvl2yio2zsJa8/GIHPWGEYwdgwVSESA
+	 llH0qDPfPRRN2uhvjmuB+yY54mVkH6vDzagIv+g4LJF4puz6DbcQNZLtbglRKOCYcPA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795698953;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
-	b=g2PfqQC8FpwXHXMkRK5giZMEFX+yxovtgSX9StohO6bBA4k97ADTvHbConTKib0wcWeM
-	 kfBK3jhwjAnjibXyhVrD+wSovwALqkHOusgzLsetuGfYfhLDgfWBxvdzE6EcYx1wXJ6a+
-	 eb8bk03DUv73QQERWJarc0+xfp5I3RjnUeoYKiKKKeL1qr4MYrFezD1WgcPk23Dtjmuaq
-	 nNb+wVyKdnnYqJ/AqzCmihIMoS/gyTPpJU+IF1KLMM4O4DDivHgoA6XSHRA9FUYAQ7pAT
-	 ErhT2i6DWPA57j6gM3OPNxUWnAnT8teAnPxciGzM68WSQLKyr1H9RVmmXL8QmVu4ZBQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699184;
+	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
+	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
+	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
+	 X-CM-SenderInfo:X-Coremail-Antispam;
+	bh=agDhnbP3CCp9C/t2h9wSqMlGzDUR1p/xB3Nq5MO9gjE=;
+	b=al7qY1854iPD00BOS06h35EqcMH9hWXb8at7GZh8fkdil12IlYvuCfRSudOndBPZD2Xe
+	 6dFDxexilbtZ/pgY7Bl5Tf4O9Nnox7NGB2GO72hXIiSAcki/QiQkj+isr+DgW1lh+yVHI
+	 whEN40ePFJpYmZzWqZRam30q+MQlGTcgBRTr0wp2MD4mLu3oeY0f3S5ai997N0pT3uoDb
+	 s/298kqCqm5cwWd9CWqLxak2pjxOBfxWq49zFjQ5MrWt22NNfHQuXvuRKwFGfAPHMrEpS
+	 4M/rL6lvAM3hcgoiziWZPxs7uwJhEIQZGq+VzPfcMV2XdfIWBCDx0eaSCRLasAeDT6A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VgS0MqS+;
-	arc=none smtp.remote-ip=209.85.216.47
-Received: from mail-pj1-f47.google.com (mail-pj1-f47.google.com [209.85.216.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=163.com;
+	spf=pass smtp.mailfrom=163.com;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=dfiWzIuj;
+	arc=none smtp.remote-ip=117.135.210.2
+Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07E66606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:15:52 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07E66606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9640A606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:19:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9640A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=VgS0MqS+
-Received: by mail-pj1-f47.google.com with SMTP id 98e67ed59e1d1-3b43d30822fso3738940a91.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:15:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795698952; x=1796303752; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
-        b=VgS0MqS+cYIhfwHs8IXM1FVncD0caK93zZNu/oQUyDhQOhTAY5i7Y05HoJEGRgDzkJ
-         DoDlZ/k9sBYVEbo4jLey4ykjoB77MWT0dPYa3sD/U6HqVgNIHadtT7tu7Q88b7yDeqbT
-         nMoQc5/A+DUyUbLtaKkbkeAY9Em9tWQfvs7UeqLGHNNrlcILSZAetaXUnYKLf3pqqqfF
-         0FFQrq8bJyCSMKrgDzdoJtCgvyvT4nRnn3HYQxwy7+ygcmhgRPXToJoEoWdMqLQPxpYP
-         6qv8uBLt+Uw7hC7dKTcaeY571p8f0DBgNu45Aqcru6n41Fg4M2Wckv5/Llgz0bFp/k52
-         kNCA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795698952; x=1796303752;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=vuErX9b/1HqZZWQiS2aiX9fKXKZfo4KQ8+WC7eQ3Pqw=;
-        b=LzfzZLHWdvZVpk2SFPrtAs+i+mI047A75kTtG05JJUo/ODqI4136hsVvZgb/msy6V1
-         iRVwxW5X7Uriw+k0kxdITCvkWfqInetQAy8LRrIJCusS2hDIgqeDd5t4JpfJi7fkAs3W
-         FKaK23pq5ND6j38/2uy2dcvWGEUdA8sZwGLIWtReeUZJkQlTC0llAGs19conOqaA9PYa
-         XC35mIKYvLVXBuAT8alrvWjjRjFqfyn06X7GpyC9GafckizTuBWcP+EpJ98KfE/GyhtT
-         MqfWysbPm+p21hJmZFGuP1vQZFAtkQY1kkl+aoUsrSV+M6RF0aqxmMcCgTscEtZGVezy
-         2cog==
-X-Gm-Message-State: APuU4Z9h1fUSZEpj+LpE934lsIakm+mJha7HvmpHIrQhHsVm9zxK6TKG
-	er79tzNi0a8mSmNxtOha+5LCkQaQf+0e1H5yE1TXG+3P2Z7UqCiz7TG8
-X-Gm-Gg: AZFdTZdNvbV2brgQ4dUpdpFjjqv7ZUww6k9R3Cvwp5/x19yEAFAgU4LK7paednZTDb9
-	+wbwidCd0u4gSEo8gky287y5LOukMUOL2n3IDVKSFl169u9Lk6o3MZFs6DAdOzNemmvt3teM6lS
-	0ALBB+/QnF/xNt8PNrvu7B4YDorm7CX4Iqh2yrisSilBaJEJ4xMzNQTz+UyTtXmZbYdiISWqme1
-	G87042n6+BuyH2BQmRAF5TdZ0G8OjyfqkMzFknxWhq3FwO2UYbAf1kBcsmwrf4Yt1OvnG/4LG3x
-	WBQPQKlOutERiTX3R1295htZY3WHrJ+z1d626o/o31LjuIGDyteCJC8kH0QOr+Y36/ikezBCRCk
-	EMDRXQNrVQRZRo1S4vPZs+AbjlJV6BVH4y6BIHLfYCGVGrU7sZGKGAERcBNZzmZQjA3sjyHGDZF
-	JuldN+jT7RiW5pDEPS/GrzNaKOsrgOrRpB2XkwISRywp+d9kBWS2h3RbSePLt+VfiOqwB8DiFoK
-	bSJ7P4LDyEeuuPZlyHhDPNpK6CGceJMvTLnaMSlKCR7eAaTXFIFBUdDX7NnIy5R22yxzILnB+bX
-	DjChjs6g9PbqMDHovldPKmreWBmIl0ATKnptJXMYilnSCMWwyhO5gA==
-X-Received: by 2002:a17:90b:390c:b0:3a7:9e3d:b3 with SMTP id 98e67ed59e1d1-3b41c9beafamr18976263a91.66.1795698952271;
-        Thu, 26 Nov 2026 05:15:52 -0800 (PST)
-Received: from srsys1 ([147.46.174.222])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b4afeaaa84sm17021676a91.10.2026.11.26.05.15.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 05:15:51 -0800 (PST)
-Date: Thu, 26 Nov 2026 13:15:45 +0000
-From: Sechang Lim <rhkrqnwk98@gmail.com>
+	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=dfiWzIuj
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
+	Message-ID; bh=agDhnbP3CCp9C/t2h9wSqMlGzDUR1p/xB3Nq5MO9gjE=; b=d
+	fiWzIuj0t0KG3C/5tQrUeLp/iqKsvbgag1wq/KsXxyU33CLeIj7NdMjVAZXu9K+O
+	U2jEbap4OLLRWwUNdCxQPKSpbu2+c6yoLtvXLffOp86CKam5O8WAw7WB5LfUTOc0
+	ZAYRq9h2EtO0zK7b4Gye+gUtV3YsdRqMBPo/VhCKN8=
+Date: Thu, 26 Nov 2026 21:18:49 +0800 (CST)
+From: fuwh1120  <fuwh1120@163.com>
 To: netdev-bot+sinfo@kernel.org
-Cc: netdev@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net,
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
-	willemb@google.com, horms@kernel.org, ast@kernel.org,
-	daniel@iogearbox.net, hawk@kernel.org, john.fastabend@gmail.com,
-	sdf@fomichev.me, tehnerd@tehnerd.com
-Subject: Re: [PATCH net] net: xdp: Fix skb->tail after bpf_xdp_adjust_tail()
- in generic mode
-Message-ID: <awgxAaMpICtLvDcJ@srsys1>
-References: <20261126125558.2032158-1-rhkrqnwk98@gmail.com>
- <179569793062.3294.6946658046125535159@kernel.org>
+Cc: enachman@marvell.com, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, serhiy.pshyk@plvision.eu,
+	taras.chornyi@plvision.eu, serhiy.boiko@plvision.eu,
+	vadym.kochan@plvision.eu, netdev@vger.kernel.org
+Subject: Re: [PATCH] net: marvell: prestera: Add fini function under label
+ err_fdb_init
+X-Priority: 3
+X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
+ 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
+In-Reply-To: <179569276516.3294.7600196929784499290@kernel.org>
+References: <20261126112825.3957800-1-fuwh1120@163.com>
+ <179569276516.3294.7600196929784499290@kernel.org>
+X-NTES-SC: AL_Qu2SB/qStkkp7yGcYekfmUwSj+s8WsO0vf4i245fO5B+jDzp2wUiQ25vPkvw1ueQBhGrmQOVexFv5eBnUrZ5caw6Lpp1LcpgRd+z59yrH7FrIg==
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset=GBK
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,33 +67,17 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <179569793062.3294.6946658046125535159@kernel.org>
+Message-ID: <174871e9.9a33.1a218023b42.Coremail.fuwh1120@163.com>
+X-Coremail-Locale: zh_CN
+X-CM-TRANSID:cygvCgD3_4i5MQhrIKF2AA--.156W
+X-CM-SenderInfo: xixzxiqrsqqiywtou0bp/xtbC7RlX9msIMbmkCgAA3Q
+X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
 
-On Thu, Nov 26, 2026 at 12:58:50PM +0000, netdev-bot+sinfo@kernel.org wrote:
->Hi!
->
->This is an automated message. This series looks like a fix, but its
->commit messages seem to be missing some information:
->
-> - How the issue was discovered, e.g. hit in production, hit during
->   development, syzbot report, manual code inspection, LLM or static
->   analysis tool scan.
->
->Please do not repost the series just to address the above. Instead,
->reply to this email with the missing information, so that reviewers
->can take it into account.
->
->*IMPORTANT*: If you do repost (for other reasons) - please include
->the relevant info in the cover letter or commit messages.
-
-Found with a custom fuzzer. I'll add that to the commit message
-if there is a v2.
-
-Thanks.
-sechang
-
->-- 
->The evaluation is done by an LLM so it may be wrong, if you think
->that is the case please reply and explain.
+CkhpLAoKQXQgMjAyNi0xMS0yNiAxOTozMjo0NSwgbmV0ZGV2LWJvdCtzaW5mb0BrZXJuZWwub3Jn
+IHdyb3RlOgo+Cj5UaGlzIGlzIGFuIGF1dG9tYXRlZCBtZXNzYWdlLiBUaGlzIHNlcmllcyBsb29r
+cyBsaWtlIGEgZml4LCBidXQgaXRzCj5jb21taXQgbWVzc2FnZXMgc2VlbSB0byBiZSBtaXNzaW5n
+IHNvbWUgaW5mb3JtYXRpb246CgpUaGUgaXNzdWUgd2FzIGRpc2NvdmVyZWQgdXNpbmcgYSBzdGF0
+aWMgYW5hbHlzaXMgdG9vbCB0aGF0IEkgZGV2ZWxvcGVkLgpJIGhhdmUgbm90IHRyaWdnZXJlZCBv
+ciByZXByb2R1Y2VkIGl0IGF0IHJ1bnRpbWUsIHNvIEkgZG8gbm90IGhhdmUKcnVudGltZSBsb2dz
+IG9yIGEgc3RhY2sgdHJhY2UgZGVtb25zdHJhdGluZyB0aGUgaXNzdWUuCgpUaGUgcGF0Y2ggcGFz
+c2VkIGNvbXBpbGF0aW9uIHRlc3RpbmcuIAoKVGhhbmtzLg==
