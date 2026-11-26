@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795725219;
-	b=RqNyLnmosX8kdY5q8UQ09526ovx8qX2Wm6bCQ5pL8SoJlhUfVlTpw1SckHGDBCr+jxsN
-	 Y6p0WwHbuCXMThpyhHS1URs8TzAK2Xw8rfIjVuHqaPjynZ31A0n8xKFgkGdeoLfxyhNMN
-	 j4/qBlMLqD2Z1FA5weGl35SggZ7OI3f2WJuHl4h46lsbCTCClC4rtW4aJ3T3g9j+lKuKZ
-	 m0gN/C1HGZqXjx849FpURQgfqxcsVexlt+WD/ekHvIHf5GcdLvOEZXqEgiPYsja+6c1zn
-	 5s+/2INFXr6nYq8o1MDQ/6S8L7TQVQeGPBl7AhWlC0FE+E8h1xN70XWt2s90rmQ1YuA==
+	t=1795725223;
+	b=SvSSNQpxzxt8Q6QaJUEpJi79ywcjUbrN3yEeFE7DItEXkW8sRpUafKimTuI9jbpU95bz
+	 ZuuykenvFchVY7bXTQ1ST26OgD+AFyOJjoTMNTBd+QWcmyItSW3+WLSB1khBmCkw7LWHf
+	 MsMWobkPHrFw05RHGSKIeRTugSK/w1omB968FJtqZHdkMVX5uEM6eV1Xx/o/BSS1RQGQV
+	 hU11qYGUme5+x0BJxoxNWzZmPRUyBMGKyY+IabscIku3V/QBxEkO7uAnvauv3pem282Y5
+	 r4nL0Jl9bNSlMFtfl4vXL9+FTvbjHcgETfiJnX1e9lZoQ+qgw1YLo2G9vPbqXV9FSHA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795725219;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725223;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=YNczEMn85iEzJ9tHP2sIt8DhX+H62qmfbpLilMNh1DQ=;
-	b=N2t+52rUeTnu5oYK18Yxym9sVCNcmxs+i6H4cmdwInP9Mx1s8m9QEVblVztkgRgyiAiD
-	 U9lMtww3ZcfKValPfk9thgHq1bmjR5ZKKlg2e9JWuJPErk2hIKz2rbo1pq9Wk3A5mWubN
-	 px5bKZA6wUnv0yN40aWpG0OXvsZsoHAWJDPFbdrOTHw6NHHR4qxbV29eJUJWL0kJm1xLo
-	 2uV9wKs4bF0SGjQl6VtpfFZgFMOiIsKKAKiWTIA3sSuAt/l2APNmtIcqoOBXeSvQOzg/M
-	 kfJN5aeNs1LpXVXOL31gpXQFT10VB+M/+w0WARuTQhro5ii3J1+NQZP1bPPG9UnxDlA==
+	bh=6+IvshoIOnpz5rdUCHpe36q5hslcK32E1hpH+6SscWk=;
+	b=Lk8svEUqQnXdx0Pdf6/aanrXjFi4DmKA9gtMggI7To9WGgNa4Y70b7seI8ASpCi9NhEU
+	 8X6Oj2MRVeUcAHMX9BNcbJFsAnY+R3ixVpZMF0LRg390s8SUG/2/sEL2SSPyEATrcwsAE
+	 fTWWvvasfms4YIey23XZ/j8YqMQGjyA3RK6iYfYGiPSE+Xd+FPbuLp8zefdR3i7zAyLYQ
+	 mNV37zUs3XMBWVepW2SS1U/35Nyn4MoWvF0JipIgxR9+446bELWyC1v+R01k21gZ0BA7o
+	 DQmnCV9lmFytP+vUbY6BtAdetYVm4bjPFXjxqbGHfZoA+Ek/Yh36rNF/kTp9CkqEsVQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CxgiP3HY;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iYcInpAX;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90458606A32F
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:33:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 90458606A32F
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 752CC606A32F
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:33:42 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 752CC606A32F
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=CxgiP3HY
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=iYcInpAX
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795725217;
+	s=mimecast20190719; t=1795725221;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=YNczEMn85iEzJ9tHP2sIt8DhX+H62qmfbpLilMNh1DQ=;
-	b=CxgiP3HY6j2yoPj1yicLBx07pKbg0llIQfM4MY23x6UFF5RBHoupyYUaLQFAbF6jvFGEAC
-	pfok8V4x80lpFqo2dRFX+1P/DajW/f53at9QJisJH8Q8JwMzEHTeGMIxL4+uNh4g8VBc1u
-	bDmHYiY7xxRkruaaH7/j2db8htHxb7s=
+	bh=6+IvshoIOnpz5rdUCHpe36q5hslcK32E1hpH+6SscWk=;
+	b=iYcInpAXOndnoFwBmSgoNBqFF6hGHgbv9BBMX/J5I330GLpWwePsgKk4EL5mdhpiw1JASc
+	b7OhluCQshZJ0Umip68LfTZ84WK8GaJziEufYLiJnEaqQTr4n+hDl3aVbQx/tBN1HYc1aZ
+	aLvyxhvvOHLCeiQmg840ioFGPNHvMYQ=
 Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-641-C6c1jGXPN4mtFHbqkoWlpQ-1; Thu,
- 26 Nov 2026 20:33:31 +0000
-X-MC-Unique: C6c1jGXPN4mtFHbqkoWlpQ-1
-X-Mimecast-MFC-AGG-ID: C6c1jGXPN4mtFHbqkoWlpQ_1795725208
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-518-HfJwxuRLNPWteVoBnAXBug-1; Thu,
+ 26 Nov 2026 20:33:38 +0000
+X-MC-Unique: HfJwxuRLNPWteVoBnAXBug-1
+X-Mimecast-MFC-AGG-ID: HfJwxuRLNPWteVoBnAXBug_1795725215
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 93432195605F;
-	Thu, 26 Nov 2026 20:33:28 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 30D2219541A6;
+	Thu, 26 Nov 2026 20:33:35 +0000 (UTC)
 Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 037F51801A6D;
-	Thu, 26 Nov 2026 20:33:21 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0195D1801977;
+	Thu, 26 Nov 2026 20:33:28 +0000 (UTC)
 From: Ivan Vecera <ivecera@redhat.com>
 To: netdev@vger.kernel.org
 Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
@@ -88,9 +88,9 @@ Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
 	Saeed Mahameed <saeedm@nvidia.com>,
 	Tariq Toukan <tariqt@nvidia.com>,
 	Petr Oros <poros@redhat.com>
-Subject: [PATCH RFC net-next 07/19] dpll: register pins only with a DPLL of their owner
-Date: Thu, 26 Nov 2026 21:32:19 +0100
-Message-ID: <20261126203231.934632-8-ivecera@redhat.com>
+Subject: [PATCH RFC net-next 08/19] dpll: drop the state change exception for pins with a firmware node
+Date: Thu, 26 Nov 2026 21:32:20 +0100
+Message-ID: <20261126203231.934632-9-ivecera@redhat.com>
 In-Reply-To: <20261126203231.934632-1-ivecera@redhat.com>
 References: <20261126203231.934632-1-ivecera@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -105,69 +105,51 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-Commit c191b319f208 ("dpll: allow registering FW-identified pin with a
-different DPLL") allowed a pin with a firmware node to be registered
-with a DPLL of another owner. Its only user was ice on E825, which now
-links its own pins with the zl3073x pins instead.
+Commit 521b6d5de08d ("dpll: allow fwnode pins to attempt state change
+without capability bit") let user space try to set the state of a pin
+with a firmware node also without DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE.
+It was needed for the zl3073x output pins that ice registered with its
+TXC and TSPLL DPLLs. ice now uses its own pins, which have the
+capability, and zl3073x, the only driver that sets a firmware node, gives
+it to every pin whose state can be set.
 
-Require the same owner for every pin again and document the rule.
+Check the capability for all pins again.
 
 Signed-off-by: Ivan Vecera <ivecera@redhat.com>
 ---
- Documentation/driver-api/dpll.rst |  8 ++++++--
- drivers/dpll/dpll_core.c          | 12 ++++++------
- 2 files changed, 12 insertions(+), 8 deletions(-)
+ drivers/dpll/dpll_netlink.c | 10 ++--------
+ 1 file changed, 2 insertions(+), 8 deletions(-)
 
-diff --git a/Documentation/driver-api/dpll.rst b/Documentation/driver-api/dpll.rst
-index 7b083a59f0122d..90c88fcf21b385 100644
---- a/Documentation/driver-api/dpll.rst
-+++ b/Documentation/driver-api/dpll.rst
-@@ -350,8 +350,12 @@ bound to only one other pin at any given time.
-     ``DPLL_A_PIN_STATE``         state of Reference SYNC connection
-   ============================== ==========================================
+diff --git a/drivers/dpll/dpll_netlink.c b/drivers/dpll/dpll_netlink.c
+index 931ea2027cf68f..fab234553b422a 100644
+--- a/drivers/dpll/dpll_netlink.c
++++ b/drivers/dpll/dpll_netlink.c
+@@ -1328,11 +1328,8 @@ dpll_pin_on_pin_state_set(struct dpll_pin *pin, u32 parent_idx,
+ 	unsigned long i;
+ 	int ret;
  
--Pin links
--=========
-+Pin ownership and links
-+=======================
-+
-+The owner of a dpll device or a pin is identified by the module and the
-+clock_id passed to dpll_device_get() or dpll_pin_get(). dpll_pin_register()
-+accepts only a dpll device of the same owner as the pin.
- 
- A pin represents a pad of the device whose driver registers it. When the
- board connects a pad of one device to a pad of another one, for example an
-diff --git a/drivers/dpll/dpll_core.c b/drivers/dpll/dpll_core.c
-index 7fd84b0e90e993..57eb4ff2c320e5 100644
---- a/drivers/dpll/dpll_core.c
-+++ b/drivers/dpll/dpll_core.c
-@@ -983,6 +983,9 @@ __dpll_pin_register(struct dpll_device *dpll, struct dpll_pin *pin,
-  * @ops: ops for a dpll pin ops
-  * @priv: pointer to private information of owner
-  *
-+ * The @dpll and the @pin must have the same owner, they must be created with
-+ * the same module and clock_id.
-+ *
-  * Context: Acquires a lock (dpll_lock)
-  * Return:
-  * * 0 on success
-@@ -1015,13 +1018,10 @@ dpll_pin_register(struct dpll_device *dpll, struct dpll_pin *pin,
- 		goto out_unlock;
+-	/* fwnode pins may not set the capability bit upfront; let the ops
+-	 * layer return -EOPNOTSUPP if the operation is unsupported.
+-	 */
+ 	if (!(DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE &
+-	      pin->prop.capabilities) && !pin->fwnode) {
++	      pin->prop.capabilities)) {
+ 		NL_SET_ERR_MSG(extack, "state changing is not allowed");
+ 		return -EOPNOTSUPP;
  	}
+@@ -1367,11 +1364,8 @@ dpll_pin_state_set(struct dpll_device *dpll, struct dpll_pin *pin,
+ 	struct dpll_pin_ref *ref;
+ 	int ret;
  
--	/*
--	 * For pins identified via firmware (pin->fwnode), allow registration
--	 * even if the pin's (module, clock_id) differs from the target DPLL.
--	 * For non-fwnode pins, require a strict (module, clock_id) match.
-+	/* A pin of another owner is connected by a link, see
-+	 * dpll_pin_link_add().
- 	 */
--	if (!pin->fwnode &&
--	    WARN_ON_ONCE(dpll->module != pin->module ||
-+	if (WARN_ON_ONCE(dpll->module != pin->module ||
- 			 dpll->clock_id != pin->clock_id)) {
- 		ret = -EINVAL;
- 		goto out_unlock;
+-	/* fwnode pins may not set the capability bit upfront; let the ops
+-	 * layer return -EOPNOTSUPP if the operation is unsupported.
+-	 */
+ 	if (!(DPLL_PIN_CAPABILITIES_STATE_CAN_CHANGE &
+-	      pin->prop.capabilities) && !pin->fwnode) {
++	      pin->prop.capabilities)) {
+ 		NL_SET_ERR_MSG(extack, "state changing is not allowed");
+ 		return -EOPNOTSUPP;
+ 	}
 -- 
 2.56.1
 
