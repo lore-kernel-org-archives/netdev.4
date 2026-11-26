@@ -1,129 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=95.215.58.172
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684005;
-	b=k7iKrtb7quyCotECu37SGzxDdaBYmmbJaYc4n/ccsVKaiy5HKoks73sP++zTpsFdjVV7
-	 NJ0jBx7pvUatzS40TyHnbGq4buf559c9+gVr5LZ5CzRplSr5HqGj/kswYcfXKaIou2LUR
-	 sqn7GKvOxgsj9GHq7rOLl9+ovKiyF97Duqf8Jfs1mVuN69v4fsNgksWOP0PYhPieEy0tA
-	 qi9GUC0F1I3/oaxJ1OAjQHr6F1wsnS85AKExLhcd4ImD+GQdAiYG2KF4DhUTcxIGJACnx
-	 Rs166jeyzs4b9QiMykaOoZxD/Cyr1O3ohX/78ljmXdcJBsAhaIitz6ZeKH3a/fVP7Lw==
+	t=1795684053;
+	b=NHIA+tzzjgELrEZMT+rVOpe/1PEz5FqbDqtLKEaPSKhcF4EbZYPN5KVfbInkYksjvR2X
+	 eEreTo5Xk/2PvG712V0dcfIgesRZ0cQxqNqGIYO77PM3aAuvU9jsDlrzaHFjKpn+zxtXu
+	 h7ygsuUZVudYViUte64mTSpEZGFfyvSdGNSWtVGUswwBEaPOMFUmzqWqozQ7LSmOGD/xs
+	 YM2bdiE9TL73VtZPZob+zmCHJc6Y7Y3EzhHR4JP+IizzNHBhwjofKsGoF1Y1/zbItiiRE
+	 AMiNnBsb7RELKFQbPZB0j6oUKFnpSFEFGr+5eidaiyEATaj7OFZRUjrjlCZ2/Sym17Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684005;
-	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
-	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spamd-Result:X-Spam-Score:X-Spam-Level:X-Spam-Flag;
-	bh=39yPdNuJb0udHLAJFrorC5cCcHhnCJIncBEZ1J342vU=;
-	b=F5HnWLxX1Nlprmzc6XD3jiJpL+eKC2sO67MEkB66DIEweLGC/A8raw5L451sOPgcX5UJ
-	 UZfbPaJjGntHotmVH0Id79U88KNEOH5Cd/Sr/+0pj39DiJNB68kzKbnTj7Sd3mZPKV2CG
-	 WpzC7nAnY3cPR5MIa/gUTU9I2NOg8xojr95UP0g7JhwKA9jKvcJo/gVqwZ39RXbDK5XYw
-	 hhfb+7SH63OoAxT/3DPRAUPc1cCI9utgqtE1jQ14C//dkvsNyEtXkEsge55QbMnLpy9cS
-	 EV3KVfV8wZke6K7HmJWg+MxEHMNUa6GkHCJKoXidBerI7ZIC6UgfNYY2Os5rHy+vL6Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684053;
+	h=DMARC-Filter:X-Envelope-To:DKIM-Signature:X-Envelope-To:Received:
+	 X-Mizu-Trace-ID:X-Migadu-Flow:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=N3rhvzb+h28MvlNfZwN0zhZc4VGxf79hWWSLpBvEg3Q=;
+	b=U8r9nfBsA4r3JpVeBhSTBGnHudURetqJQIxyJa8/c8leHVF3TF/yB/nqUiS+bO18xUWV
+	 aMX3oPK20zSV7s9fwt1ViK0vRW9URdgwiGhSy1BTJYxcw50GcVJQu5lkjaOwTUXuWL3yW
+	 gDz3j4g28cg/1r81gsKs9cjKt5o26NrF6fdxfA1OTHfIRxnm9eMNcGiIL55f7KXULLda5
+	 PW5cPlYYv79X2OASIrR8shJqMSv7UQ0AqHhiCCD/OfU1YLYtKghLfft6hJWc3JusZegWj
+	 vDO6Ko70hAp+PJuFoAw4vr0kymGIbrFfceiP9BRmZXA+jk5q2BJ7EdCLQD07VHFL9Mw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=suse.cz;
-	spf=pass smtp.mailfrom=suse.cz;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FrHK60xi;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9SPaV1VN;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FrHK60xi;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9SPaV1VN;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=linux.dev;
+	spf=pass smtp.mailfrom=linux.dev;
+	dkim=pass header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=amUVkJF9;
+	arc=none smtp.remote-ip=95.215.58.172
+Received: from mta1.migadu.com (out-172.mta1.migadu.com [95.215.58.172])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C9A72606A31E;
-	Thu, 26 Nov 2026 09:06:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C9A72606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id DD73760A2638
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:07:31 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org DD73760A2638
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.dev
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.dev
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FrHK60xi;
-	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9SPaV1VN;
-	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=FrHK60xi;
-	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=9SPaV1VN
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 0E71922688;
-	Thu, 26 Nov 2026 09:06:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795684003; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=39yPdNuJb0udHLAJFrorC5cCcHhnCJIncBEZ1J342vU=;
-	b=FrHK60xiPLeKlT1sSH5Q20B2+d/AbScE9RcAHGXZhrD/3jTYyClPEpX92WSF1W0zEnuV7i
-	JW1gzl5z4Tq3LoafQjvoXXo5LfTiVX5bpn3tC2r77oUsrGutCcvbQhOQTXLAOYiGrUDiKq
-	aM3Dq+nCb8seaEN7ZI5shQrPOsllFZE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795684003;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=39yPdNuJb0udHLAJFrorC5cCcHhnCJIncBEZ1J342vU=;
-	b=9SPaV1VNP8RzeVfIHQf1g3LXlIJAsbPen6y8ZFMgxQS707IWLOlJe4SyZ2PL7gEkznrvW+
-	p294Re6jlcOzVBCw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1795684003; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=39yPdNuJb0udHLAJFrorC5cCcHhnCJIncBEZ1J342vU=;
-	b=FrHK60xiPLeKlT1sSH5Q20B2+d/AbScE9RcAHGXZhrD/3jTYyClPEpX92WSF1W0zEnuV7i
-	JW1gzl5z4Tq3LoafQjvoXXo5LfTiVX5bpn3tC2r77oUsrGutCcvbQhOQTXLAOYiGrUDiKq
-	aM3Dq+nCb8seaEN7ZI5shQrPOsllFZE=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1795684003;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=39yPdNuJb0udHLAJFrorC5cCcHhnCJIncBEZ1J342vU=;
-	b=9SPaV1VNP8RzeVfIHQf1g3LXlIJAsbPen6y8ZFMgxQS707IWLOlJe4SyZ2PL7gEkznrvW+
-	p294Re6jlcOzVBCw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id C6906134C3;
-	Thu, 26 Nov 2026 09:06:42 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id hMxfJKL2B2ubTgAAD6G6ig
-	(envelope-from <jack@suse.cz>); Thu, 26 Nov 2026 09:06:42 +0000
-Received: by quack.suse.cz (Postfix, from userid 1000)
-	id 5978B27D9C; Thu, 26 Nov 2026 10:06:42 +0100 (CET)
-Date: Thu, 26 Nov 2026 10:06:42 +0100
-From: Jan Kara <jack@suse.cz>
-To: "Harry Yoo (Meta)" <harry@kernel.org>
-Cc: Vlastimil Babka <vbabka@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
-	David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, Hao Ge <hao.ge@linux.dev>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	kernel-team@meta.com, "Liam R. Howlett" <liam@infradead.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Andrew Ballance <andrewjballance@gmail.com>, 
-	Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Amir Goldstein <amir73il@gmail.com>, 
-	Casey Schaufler <casey@schaufler-ca.com>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
-	linux-security-module@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
-	Eric Dumazet <edumazet@kernel.org>
-Subject: Re: [PATCH slab/for-next v2 10/14] fanotify: specify
- SLAB_MAY_ACCOUNT for event caches
-Message-ID: <5ubs2kqiytosrur35di2zlg26c7tfjjadjvqrp447utjxaozbl@vrjndb7avfa4>
-References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
- <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-10-7c680f02a734@kernel.org>
+	dkim=pass (1024-bit key, unprotected) header.d=linux.dev header.i=@linux.dev header.a=rsa-sha256 header.s=key1 header.b=amUVkJF9
+X-Envelope-To: netdev@vger.kernel.org
+DKIM-Signature: a=rsa-sha256; bh=POEJ5Y1wEVWjdL2mnds2Wh5HHh6t0AOQagRcRKfgwZU=;
+ c=simple/simple; d=linux.dev;
+ h=from:to:subject:date:message-id:mime-version:content-type; s=key1;
+ t=1795684049; v=1; x=1796288849;
+ b=amUVkJF9Bwj9/6b21VkxsSr6UNGkYdtXmi5rBccl/vefcSPpQtjQJtphRCGU32jPucCATy9I
+ kaAmFjwmVpy/hI5e6ZQWQ49ov6SZshSJyRkfBiqpPv53ZJ0DYdrCbqTCTQDDMLfHBTruCh/bki+
+ iAOzbfZRo7nFmFycaATaIJrc=
+X-Envelope-To: netdev@vger.kernel.org
+Received: by mta11.migadu.com with ESMTPS id a6186c7db64e534f;
+	Thu, 26 Nov 2026 09:07:29 +0000
+X-Mizu-Trace-ID: a6186c7db64e534f
+X-Migadu-Flow: FLOW_OUT
+Date: Thu, 26 Nov 2026 17:07:17 +0800
+From: Hangbin Liu <hangbin.liu@linux.dev>
+To: Ido Schimmel <idosch@nvidia.com>
+Cc: netdev@vger.kernel.org, davem@davemloft.net, kuba@kernel.org,
+	pabeni@redhat.com, edumazet@kernel.org, dsahern@kernel.org,
+	horms@kernel.org
+Subject: Re: [PATCH net-next] ipv6: Do not keep loopback addresses when MTU
+ is below minimum
+Message-ID: <20261126090717.GH33976@Liu-laptop>
+References: <20261125111709.126901-1-idosch@nvidia.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -135,88 +67,104 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-10-7c680f02a734@kernel.org>
-X-Spamd-Result: default: False [-12.80 / 50.00];
-	SUSE_INTERNAL_BYPASS(-9.00)[];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	MID_RHS_NOT_FQDN(0.50)[];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MISSING_XM_UA(0.00)[];
-	TO_DN_SOME(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_COUNT_THREE(0.00)[3];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[kernel.org,linux-foundation.org,google.com,cmpxchg.org,linux.dev,gentwo.org,suse.de,kvack.org,vger.kernel.org,meta.com,infradead.org,gmail.com,zeniv.linux.org.uk,suse.cz,davemloft.net,linutronix.de,arm.com,linux.ibm.com,ellerman.id.au,8bytes.org,schaufler-ca.com,paul-moore.com,namei.org,hallyn.com,nod.at,cambridgegreys.com,sipsolutions.net];
-	R_RATELIMIT(0.00)[to_ip_from(RLj6phwcdhphrxdye3znxh4wb5)];
-	FROM_EQ_ENVFROM(0.00)[];
-	RCVD_TLS_LAST(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	RCPT_COUNT_GT_50(0.00)[51];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.com:email]
-X-Spam-Score: -12.80
-X-Spam-Level: 
-X-Spam-Flag: NO
+In-Reply-To: <20261125111709.126901-1-idosch@nvidia.com>
 
-On Wed 25-11-26 21:37:11, Harry Yoo (Meta) wrote:
-> fanotify events are allocated with GFP_KERNEL_ACCOUNT and charged to
-> the memcg of the listener. Specify SLAB_MAY_ACCOUNT when the object
-> may be charged to a memcg. __GFP_ACCOUNT without SLAB_MAY_ACCOUNT
-> will not be allowed.
+On Wed, Nov 25, 2026 at 01:17:09PM +0200, Ido Schimmel wrote:
+> When the MTU of a device drops below the minimum IPv6 MTU (1280),
+> addrconf_ifdown() is called to stop IPv6 on the device. For all devices
+> other than loopback, the IPv6 configuration is destroyed together with
+> all the addresses. For the loopback device, the configuration is
+> retained and so are permanent addresses if keep_addr_on_down is set, but
+> their host routes are deleted.
 > 
-> Path: fsnotify() -> fanotify_handle_event()
->   -> fanotify_alloc_event(GFP_KERNEL_ACCOUNT)
->   -> kmem_cache_alloc(fanotify_{fid,path,perm,mnt}_event_cachep)
+> This results in an up device with addresses that do not have host
+> routes, a state that persists even after the MTU is raised and that the
+> kernel warns about when DAD completes for such an address:
 > 
-> Cc: Jan Kara <jack@suse.cz>
-> Cc: Amir Goldstein <amir73il@gmail.com>
-> Cc: linux-fsdevel@vger.kernel.org
-> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
-
-Looks good. Feel free to add:
-
-Acked-by: Jan Kara <jack@suse.cz>
-
-								Honza
-
+>  IPv6: BUG: Address 2001::fb on device lo is missing its host route.
+> 
+> IPv6 cannot operate below the minimum MTU, so there is no point in
+> keeping the addresses. Do not keep them, similar to when IPv6 is
+> disabled via disable_ipv6. This aligns the loopback device with other
+> devices and with IPv4, where all the addresses are flushed when the MTU
+> drops below the minimum IPv4 MTU (68).
+> 
+> Before:
+> 
+>  # sysctl -wq net.ipv6.conf.lo.keep_addr_on_down=1
+>  # ip -6 address add 2001:db8:1::1/64 dev lo
+>  # ip link set dev lo mtu 1000
+>  # ip -6 address show dev lo
+>  1: lo: <LOOPBACK,UP,LOWER_UP> mtu 1000 qdisc noqueue state UNKNOWN group default qlen 1000
+>      inet6 2001:db8:1::1/64 scope global tentative
+>         valid_lft forever preferred_lft forever
+>  # ip -6 route show table local dev lo
+>  #
+> 
+> After:
+> 
+>  # sysctl -wq net.ipv6.conf.lo.keep_addr_on_down=1
+>  # ip -6 address add 2001:db8:1::1/64 dev lo
+>  # ip link set dev lo mtu 1000
+>  # ip -6 address show dev lo
+>  #
+> 
+> Other devices (before and after):
+> 
+>  # ip link add name dummy1 up type dummy
+>  # sysctl -wq net.ipv6.conf.dummy1.keep_addr_on_down=1
+>  # ip -6 address add 2001:db8:2::1/64 dev dummy1
+>  # ip link set dev dummy1 mtu 1000
+>  # ip -6 address show dev dummy1
+>  #
+> 
+> IPv4 (before and after):
+> 
+>  # ip -4 address add 192.0.2.1/32 dev lo
+>  # ip link set dev lo mtu 67
+>  # ip -4 address show dev lo
+>  #
+> 
+> Reported-by: syzbot+ded267b328e950a7c0c4@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=ded267b328e950a7c0c4
+> Reported-by: syzbot+57f410c9a4f8d7a441d6@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=57f410c9a4f8d7a441d6
+> Reported-by: syzbot+af16ddc8fd22a1d135f8@syzkaller.appspotmail.com
+> Closes: https://syzkaller.appspot.com/bug?extid=af16ddc8fd22a1d135f8
+> Signed-off-by: Ido Schimmel <idosch@nvidia.com>
 > ---
->  fs/notify/fanotify/fanotify_user.c | 10 ++++++----
->  1 file changed, 6 insertions(+), 4 deletions(-)
 > 
-> diff --git a/fs/notify/fanotify/fanotify_user.c b/fs/notify/fanotify/fanotify_user.c
-> index 63c9759fc3b0..3575c681abc1 100644
-> --- a/fs/notify/fanotify/fanotify_user.c
-> +++ b/fs/notify/fanotify/fanotify_user.c
-> @@ -2184,14 +2184,16 @@ static int __init fanotify_user_setup(void)
->  	fanotify_mark_cache = KMEM_CACHE(fanotify_mark,
->  					 SLAB_PANIC|SLAB_ACCOUNT);
->  	fanotify_fid_event_cachep = KMEM_CACHE(fanotify_fid_event,
-> -					       SLAB_PANIC);
-> +					       SLAB_PANIC|SLAB_MAY_ACCOUNT);
->  	fanotify_path_event_cachep = KMEM_CACHE(fanotify_path_event,
-> -						SLAB_PANIC);
-> +						SLAB_PANIC|SLAB_MAY_ACCOUNT);
->  	if (IS_ENABLED(CONFIG_FANOTIFY_ACCESS_PERMISSIONS)) {
->  		fanotify_perm_event_cachep =
-> -			KMEM_CACHE(fanotify_perm_event, SLAB_PANIC);
-> +			KMEM_CACHE(fanotify_perm_event,
-> +				   SLAB_PANIC|SLAB_MAY_ACCOUNT);
+> Notes:
+>     Targeted at net-next without a Fixes tag as this is not a regression:
+>     the loopback device has been keeping its addresses without host routes
+>     when its MTU drops below IPV6_MIN_MTU ever since keep_addr_on_down was
+>     introduced in v4.6. The only symptom is a pr_warn() message (not a
+>     WARN() backtrace) that so far was only triggered by syzbot and the patch
+>     changes user visible behavior.
+> 
+>  net/ipv6/addrconf.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/net/ipv6/addrconf.c b/net/ipv6/addrconf.c
+> index cdea18e5ba1a..285ad5c3bca1 100644
+> --- a/net/ipv6/addrconf.c
+> +++ b/net/ipv6/addrconf.c
+> @@ -3948,9 +3948,12 @@ static int addrconf_ifdown(struct net_device *dev, bool unregister)
 >  	}
-> -	fanotify_mnt_event_cachep = KMEM_CACHE(fanotify_mnt_event, SLAB_PANIC);
-> +	fanotify_mnt_event_cachep = KMEM_CACHE(fanotify_mnt_event,
-> +					       SLAB_PANIC|SLAB_MAY_ACCOUNT);
 >  
->  	fanotify_max_queued_events = FANOTIFY_DEFAULT_MAX_EVENTS;
->  	init_user_ns.ucount_max[UCOUNT_FANOTIFY_GROUPS] =
-> 
+>  	/* combine the user config with event to determine if permanent
+> -	 * addresses are to be removed from address hash table
+> +	 * addresses are to be removed from address hash table. IPv6 cannot
+> +	 * operate below IPV6_MIN_MTU, so treat that like disable_ipv6 and do
+> +	 * not keep addresses without their host routes.
+>  	 */
+> -	if (!unregister && !idev->cnf.disable_ipv6) {
+> +	if (!unregister && !idev->cnf.disable_ipv6 &&
+> +	    dev->mtu >= IPV6_MIN_MTU) {
+>  		/* aggregate the system setting and interface setting */
+>  		int _keep_addr = READ_ONCE(net->ipv6.devconf_all->keep_addr_on_down);
+>  
 > -- 
-> 2.54.0
+> 2.56.0
 > 
--- 
-Jan Kara <jack@suse.com>
-SUSE Labs, CR
+Reviewed-by: Hangbin Liu <liuhangbin@kylinos.cn>
