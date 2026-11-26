@@ -1,63 +1,56 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795689991;
-	b=rUQ229sSTXmnP3SLcdfLNOlStBBk9iHTmRJubLprsXoa4Kd6nzRz+85MaplGKae+kz/o
-	 i+/HbjIV0F6qMuwuTMNifYrP9akdHzBWGjS+FRHkNLwNXOGINsA4jmTY8qyCHNVcdmNiw
-	 6ITkKbgC2XlBKGuCXyX8tGkjdyH2cmnrrr/n6LDWaEcrejNEIIUczL0poTkvJPfJcK0Rr
-	 gNipoOrTKgG76+x/ftxDKpsciEqwm8vzPZlCgP6EltZmI0fr+zqosVqidqkeOajDEWjc1
-	 zLl7tCuVzS3yoglB0sM2A9f4fTKyGI0hXF8L2GDGim58ezQgSgzNeTWgkhdr1WAP0lA==
+	t=1795690146;
+	b=cplrmAwUjlx7fGE9cmxbWQA4RNBaIXFexngyC044dbgTZshID5XZP+d+tOJoRyppV37w
+	 wVqy01yBsRIDBoUIanUX0fGIoXCQuqr+M5xG1UTkdsnJUU/PKBnJlRjp9OBcd4iXbWp+f
+	 41tLA0fo1nfHCw5tEULM/WhqHnT3VjXdO93pJAQbn3FfRtY1RXuFyADFynjhORvZ/d4Ia
+	 TtCDDStisE27g0uDzx6TSjwq04BEjsN7wvwDqQ82Azr5rL7cO1Ewur3+unUdgrCbj4AMq
+	 pt9aVK7oHBKVYqaTG3LxEGQDOEagdvG+c541Ntp9wnC1xpc2L6eftnuCMX0jh8yy8Lg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795689991;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To:X-Spam-Status:X-Spam-Checker-Version;
-	bh=UURkDlwS2bfQuYIHyesKLKLIpma4grDXpqZF4b4GbTg=;
-	b=KDQfwc/0MT5C/PV3MPFAT+WxOzq3WDEq8mBpQ3tKG2SRT2HqLmkcKk5o0BdS8T1D+QgS
-	 ZotSjuKD2bNA4gdvnp0fHaXp12l4V4Gpc3OA94ZEs/SEHdJzs9aaOWEs7xbnacQ1TaZYd
-	 jPaklmOPHPa+0JFmIN+jEhwE/0fRTIfL17/UKsR3gSbbaHrwzJTSO3Ww/3/dUTehSKhMH
-	 jdYRwxAg4h5u+FYWTsMh8WDyzoLfeDedOjkAkq11Z/VFPck/l+n8okUMJFywuwtOGI97B
-	 5LiEu3/MKeiUzuYKd5MqFu9XNslIxs2xpuXIwW9ROUQsgaZwm69epFJ9BfznlKsYQ/g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795690146;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=noqA/XccKQukWr7dOkX6fkvjd/D/kbwIuY05hOVW29I=;
+	b=AudwQXZ+78JpLGcuN+dlK3OUzn3K7LUYPgfia1xE+Hk4JNndtXZ7ciCsHdeAYCKTvICF
+	 p0VgxVJ2Z5YOmkadeJYeWCsPn0iQTyc5dRyKGgMur8C766AwuQoV6y6qnLDVRMBMAE6K6
+	 3v1lc2+Wz737n1PKyuGo7D7nnMCIz/DxDB82WBuzvEkR0kEkOw15CVLJ2X5YMk7FGuuLc
+	 6pj8+uOYiPmr0s1vCTlAYGLaF+iCrhjHLafCxZczr6JQ8BCHYV/uhttGT+rhifb/bFabF
+	 1M6EKuXK8qrJLTjODZz82/5IttfTS8AEnZ3Y1OeCsTvvd/juxAvM+GH5W+0/fn1W15A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=WRv2nsuW;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GT4Oqynm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 417EB606A31C;
-	Thu, 26 Nov 2026 10:46:30 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 417EB606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E58A8606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:49:05 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=WRv2nsuW
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795689987;
-	bh=UURkDlwS2bfQuYIHyesKLKLIpma4grDXpqZF4b4GbTg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WRv2nsuWE9Bgiku6uiFWt0vx/97fqLy2Ymeg7jPs/IkgKV/AwJatibPBAZ4XyPoFi
-	 5A2m44yC3GDHcMbaKuEZkMFCenYQHMtMLq1L0+ziFUaNq2sfcIK3NwFe0stIELMGA3
-	 DZ8dezqeWsi5lEkaCgYm2TrQquB0MqZLDUZhNQbavSqUFEi997wsQChU/13lgFqJJx
-	 W5YnbiPnw/7Wv6a4lIS/tm6jSi38OoyFO0HW9KFU1NTi32RJ0XY9wvFxB15IPGmnFL
-	 EtN44PWG+j5TWT5Jc1XdqpOndoNL7GVhH+qmtb8Gdo3bJawM3pfAKDSiIA9HJJtPtr
-	 nyCDOEMbz1LiA==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 852EB6007A;
-	Thu, 26 Nov 2026 11:46:27 +0100 (CET)
-Date: Thu, 26 Nov 2026 11:46:24 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: netfilter-devel@vger.kernel.org, davem@davemloft.net,
-	netdev@vger.kernel.org, kuba@kernel.org, edumazet@kernel.org,
-	horms@kernel.org, fw@strlen.de, ja@ssi.bg
-Subject: Re: [PATCH net-next,v2 00/15] Netfilter updates for net-next
-Message-ID: <awgOALX8V2RXY-uH@chamomile>
-References: <20261123135726.3940688-1-pablo@netfilter.org>
- <8e69f35e-73fb-4558-910b-45f5e723c64a@redhat.com>
- <awWSHujeBmMMOonS@chamomile>
- <f0a3c071-0142-4c62-b74b-ffff8121c8d9@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=GT4Oqynm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1944B1F000C4;
+	Thu, 26 Nov 2026 10:49:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795690145;
+	bh=noqA/XccKQukWr7dOkX6fkvjd/D/kbwIuY05hOVW29I=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=GT4OqynmPIL2Cj1rEpqL3nbDmOqh7i+AkjMa1Q4uhNpHOmtKarraVPnfYQXiN5EKj
+	 2mnVdXUGnMiEUbmfMXk9AeWjDag6EN4pASMx/Ay7IcMBj34ii2BfOkdOioa8UMOsjf
+	 geVKs2DDapxBYtCHD8JM25VreNNhmn1pfGRiPMeHCkvPfYlEeBoMhCsWD5dbXuPEyk
+	 n1cUkUNzl9xBEHRJ394hocMJoHBrjWf9WMXcWskTq8cFnXTqZxiPyCpHW89UZLlY/f
+	 dErHn3lMGi9f5Nm3Lwhk6qcHOBDybrW/PbOkRxZwm0AKqQRXPivhaEBZ+xOi5vmdSa
+	 4JgxKe+pVvJpw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>, michael.chan@broadcom.com,
+ pavan.chebbi@broadcom.com, kuba@kernel.org, asml.silence@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, netdev@vger.kernel.org
+Cc: Usama Arif <usama.arif@linux.dev>
+Subject: Re: [PATCH] eth: bnxt: fix the agg page pool ring size on 64K-page
+ kernels
+In-Reply-To: <20261125162916.1743123-1-usama.arif@linux.dev>
+References: <20261125162916.1743123-1-usama.arif@linux.dev>
+Date: Thu, 26 Nov 2026 11:49:01 +0100
+Message-ID: <87zeuvkgv6.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -68,75 +61,73 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <f0a3c071-0142-4c62-b74b-ffff8121c8d9@redhat.com>
+Content-Transfer-Encoding: quoted-printable
 
-Hi Paolo,
+Usama Arif <usama.arif@linux.dev> writes:
 
-On Tue, Nov 24, 2026 at 02:43:53PM +0100, Paolo Abeni wrote:
-> On 11/24/26 14:33, Pablo Neira Ayuso wrote:
-> > Hi Paolo,
-> > 
-> > On Tue, Nov 24, 2026 at 01:27:35PM +0100, Paolo Abeni wrote:
-> > > On 11/23/26 14:57, Pablo Neira Ayuso wrote:
-> > > > v2: address cover letter errata.
-> > > > 
-> > > > -o-
-> > > > 
-> > > > Hi,
-> > > > 
-> > > > The following batch contains Netfilter updates for net-next. This is
-> > > > composed of four groups:
-> > > > 
-> > > > 1) Patch 1 addresses a race in the nf_conntrack_buckets sysctl handler,
-> > > >      that has been reported by LLM. From Fernando F. Mancera.
-> > > > 
-> > > > 2) Patches from 2 to 7: This is a conntrack hardening series to address
-> > > >      LLM reports of the issues related to skbuff mangling while a ct is
-> > > >      already present, leading to mismatch protocol numbers, ie. ct becomes
-> > > >      stale since it does not represent this skbuff. This is unlikely to
-> > > >      happen in a real world. From Florian Westphal.
-> > > > 
-> > > > 3) Patch 8 updates nft_synproxy to address SYN and ACK packets only, just
-> > > >      like ip{6}t_SYNPROXY does. From Fernando F. Mancera.
-> > > > 
-> > > > 4) Patch 9 validate hook priority so nft_ct template is narrowed down
-> > > >      to be used where it makes sense. From Florian Westphal.
-> > > > 
-> > > > 5) The ipset hash types conversion to rhashtable, including a new
-> > > >      rhashtable helper function to flush and destroy the hashtable.
-> > > >      This is a rework that aims at fixing the existing resize races in
-> > > >      the ipset hash type, which has triggered a myriad of LLM patches
-> > > >      addressing the symptoms but not the core issue. This large so
-> > > >      we prefer net-next for these series. Series from Florian Westphal,
-> > > >      plus one patch for rhashtable to add a flush and destroy helper
-> > > >      function by Herbert Xu.
-> > > > 
-> > > > Please, pull these changes from:
-> > > > 
-> > > >     git://git.kernel.org/pub/scm/linux/kernel/git/netfilter/nf-next.git nf-next-26-11-23
-> > > > 
-> > > Unfortunately a couple of in-flight nf patches prevent the CI from
-> > > picking this series:
-> > > 
-> > > https://lore.kernel.org/all/20261120111910.67379-1-juny24602@gmail.com/
-> > > https://lore.kernel.org/all/20261121212037.149722-1-omermetekaya0@gmail.com/
-> > > 
-> > > Could you please re-post it? thanks!
-> > 
-> > Just a verbatim repost?
-> 
-> Yes.
+> Commit f7dbedba6312 ("eth: bnxt: take page size into account for page
+> pool recycling rings") sized the recycle ring of the agg page pool in
+> pages, dividing the agg ring size by PAGE_SIZE / BNXT_RX_PAGE_SIZE.
+> Commit c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues
+> with larger buffers") replaced PAGE_SIZE in that divisor with
+> rx_page_size.
+>
+> On 64K-page kernels rx_page_size can only be 32K, so the divisor is now
+> always 1. Each 64K page still holds two agg buffers and the page pool
+> recycles whole pages, so the recycle ring can cache twice as many pages
+> as the agg ring uses. With 1024 RX descriptors, the agg ring posts 2048
+> buffers in 1024 pages while the recycle ring holds up to 2048 pages, or
+> 128 MiB per RX queue.
+>
+> Divide by the larger of PAGE_SIZE and rx_page_size to restore the
+> original size. x86 with 4K base PAGE_SIZE and arm64 with 4K and 16K
+> PAGE_SIZE are unaffected, as rx_page_size is never smaller than PAGE_SIZE
+> there.
+>
+> The ring only fills up when the stack releases agg pages faster than
+> the driver reuses them. On a 64K arm64 host with a BCM57508 (32 queues,
+> 1024 RX descriptors), a TCP receiver that drained its sockets every
+> 1.5 s left about 1.8 GiB less memory cached after the fix, 64 MiB per
+> busy queue.
+>
+> Fixes: c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues with=
+ larger buffers")
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ---
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethe=
+rnet/broadcom/bnxt/bnxt.c
+> index 52606db3f7b4a8..ecc4848499c307 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> @@ -3948,7 +3948,8 @@ static int bnxt_alloc_rx_page_pool(struct bnxt *bp,
+>  				   struct bnxt_rx_ring_info *rxr,
+>  				   int numa_node)
+>  {
+> -	unsigned int agg_size_fac =3D rxr->rx_page_size / BNXT_RX_PAGE_SIZE;
+> +	unsigned int agg_size_fac =3D max(PAGE_SIZE, rxr->rx_page_size) /
+> +				    BNXT_RX_PAGE_SIZE;
 
-I am preparing a v3.
+Hmm, shouldn't the denominator be rxr->rx_page_size rather than
+BNXT_RX_PAGE_SIZE?
 
-I will make a few changes to address some of the comments that
-clashiko.
+bnxt_rx_agg_ring_fill_level() already accounts for larger RX buffers, so
+using the default buffer size here seems to account for the override
+twice.
 
-My plan is to keep the ipset rhashtable in place, I think some of the
-relevant comments in the reports can be addressed by follow up
-patches.
+IIUC, the purpose of agg_size_fac is to convert the number of posted RX
+buffers into the number of recyclable backing allocations.
 
-Let me know if that approach works for you.
+E.g. an iouring 16K override would result in a smaller (too small?)
+pool.
 
-Thanks.
+This patch had me thinking; The default agg pool buffer size is 32K on
+64K systems. That's quite a step up from the default 4K on 4K systems.
+8x more RX buffer memory as an effect of using a system with larger
+pages... maybe there's a need for a system knob? That's pretty wasteful,
+unless the workload is really HWGRO friendly.
+
+
+Bj=C3=B6rn
