@@ -1,89 +1,101 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=192.198.163.16
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795692902;
-	b=Y6qRnJlyaWLapT5nOcyM+MG0yVIKKnExDzyNNnPSdtjoknXYPwne5WrfR7JJLa7KsVlt
-	 t0Pl+eJ9QAhv2AWgJlxyNNYNAQn/tNZtfPMl2pSiDky5m2LKDtGRweeguzxtkICl48LqK
-	 JOpM4fCmNoXKbyzaWkLHugt4lda5jI6GmEIZuHee5yun7EkBbCg+T8KG/zWsdm6NY7ZGa
-	 mlELySPYKv92fJaQAamCjT+CiuPXAtFlM3CxjYwdGpWSix8ry4UFPCW62EuzE/c18Gm31
-	 TjcwOo9OQFQ31lrj6T9ENU8T2+WQByd54RdCzjHxtKAYrTgWJL13qBHTtsd3jzuZ5pQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795692902;
-	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
-	 X-IronPort-AV:X-IronPort-AV:Received:X-CSE-ConnectionGUID:
-	 X-CSE-MsgGUID:X-ExtLoop1:X-IronPort-AV:Received:Received:Date:From:To:
-	 Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
-	 Content-Disposition:In-Reply-To;
-	bh=F1ysSIq8P4zmWw07TXTD7UWja5GSxoOEW3aTiOqMAwg=;
-	b=Hsmc6CyjhG58UwmdVALzjw4rBFGXqvCxlQF/VpvkF8GxE8aAv2taJ8Kta1Z1G+r3Knx5
-	 uc6oAH3ebCdUXa4tND6eUfeNk3hriDXueDlbPVi3ecXCnKT8A+FGOOY6hDJxmVLPtar7x
-	 cZDfi6RH6byVF7sEHD79SlJMen/UBdFQmDpkDCa6VBmTH+aWa2U3H7C2Ei317DH9EUNNy
-	 L+KUwWYaQvmhdFyF9D4hleKUUMK8eUzQ2O4UcJt+R4hb8p3XghvtPqJ3pvT4Cg/GwKlZk
-	 3UmGS6aN80m4GTd5jnKuivm1fWpw9ChBS+F7E6Wcv8fMT8HqTd5+A+Cqba6JrsAzrXg==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=intel.com;
-	spf=pass smtp.mailfrom=intel.com;
-	dkim=pass header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Mqjef4Md;
-	arc=none smtp.remote-ip=192.198.163.16
-Received: from mgamail.intel.com (mgamail.intel.com [192.198.163.16])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.46
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795693065;
+	b=EOkn7ZPEBxIdrpTT7CPgjPmHOQiOnoVdkcqzJpbFzfOiMw+nw4udTdt2UMXdiMktqC+T
+	 PISmSD9u5Upr1PaGfbkfQEXhAMWPSZl0mxV2d42BVZhSIiiVYaLvClG0zKzPBJZ9EulS1
+	 u+EuWe3gV4jsVE41B1+GlbpQgUC/98qddLUNF7h/hYIwNxXrxzQtfCwpIXc9OgZCocgEq
+	 +CzmKM4574OWfBUWlCr8lf2lWQMXyBPfg701t8sKtMJoF8eRhbX6DO73aDr4X47GzOysw
+	 6OYdtwZ6e7EmviLIjutOC475kl4b2J9M8hhQoOvLbicX26863eBqxC2enntlXC5wiIA==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693065;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=qCmzBhIKvk4P5rW4mA67073vDvcx4J8hkfIshuT1Mp8=;
+	b=mNevaSpSLUcZaop1mSevRzR+qHawLAvB7d5ZUUIBJRG8p6zddZ61E6wCTkiPR2ZC4md0
+	 sPTz0EgUsM9IJDArZNg3N2rHDCoDPURoVsX5t6eJhqQ/lTrvM7ACU1YKsT0UvoIiKsEq8
+	 fzvv7Tm9r4Rl7sX3DAJzRT6uaf7xfWldlWG1q0HBgjCwg6/GrfEL/swvE3fHqIGE5jqXX
+	 mOeeqyo3mpYPkG83uHpJmKR5A0IsjhGTvjXuOXichf+qPBHtWHrYFK5TG3Ic65UJXwwMn
+	 L43rNUc7UePkttyVI/0KFCl3JYr+5RF6H6LSlmpGSmnnSyqCLb/dDvIYQUwUCQXAfJA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="IO6/OXbX";
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.221.46
+Received: from mail-wr1-f46.google.com (mail-wr1-f46.google.com [209.85.221.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 42853606A31E;
-	Thu, 26 Nov 2026 11:35:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 42853606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=intel.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=intel.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 476C5606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:37:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 476C5606A323
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=intel.com header.i=@intel.com header.a=rsa-sha256 header.s=Intel header.b=Mqjef4Md
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1795692903; x=1827228903;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qZ4auUk8+IHrdvOEBAFF06C3MVQTviD6R5qX6NqXpgQ=;
-  b=Mqjef4MdAu0AZN5tYLRjOaB0A6S2C9xN+M5iJFQN/oIDbWSTXzFmqJiJ
-   4joe8UUQ7lY9Mv2HFzVPTN9oK72qxBL2M64masUndkGe6Zc7vLUf1F5LU
-   E8t28M/avPZzva3wcmkkWLvw6n93KWc3r5VIuiLKiKE/RtnEp1c8UBNNP
-   razhJ3T9xFl/JW1ASb448fBxhh+DuvJeJiXEzN6yRVa1Fch/EWZrlIxB6
-   UerApqckuqzSvFRRzd60gbRKEA6i1LuTqLz/djaP3VdrdfpKBLAPlX/Nv
-   gbrpDKMSUBXrbdq6ryA9z3ONpyEhF/ZGfVPi4f4BjWAO+Wjgh5Em2Bjc1
-   w==;
-X-CSE-ConnectionGUID: 2JAcOMHYRxCHN8HbnR8OFQ==
-X-CSE-MsgGUID: c1uzyWUbSBuNEuPvy/QUug==
-X-IronPort-AV: E=McAfee;i="6800,10657,11977"; a="4614583"
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="4614583"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Nov 2026 03:34:33 -0800
-X-CSE-ConnectionGUID: JdG1uh/xRBaOMQe9t8sFcw==
-X-CSE-MsgGUID: IgW0FcPpSeKxGYB7k14OjQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.27,234,1787036400"; 
-   d="scan'208";a="12198114"
-Received: from lkp-server01.sh.intel.com (HELO 0caa9d2d175c) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 26 Nov 2026 03:34:26 -0800
-Received: from kbuild by 0caa9d2d175c with local (Exim 4.98.2)
-	(envelope-from <lkp@intel.com>)
-	id 1xWXk7-00000001Tz8-1c75;
-	Thu, 26 Nov 2026 11:34:23 +0000
-Date: Thu, 26 Nov 2026 19:33:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Tariq Toukan <tariqt@nvidia.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org,
-	Gal Pressman <gal@nvidia.com>, Jiri Pirko <jiri@resnulli.us>,
-	Jonathan Corbet <corbet@lwn.net>, Leon Romanovsky <leon@kernel.org>,
-	linux-doc@vger.kernel.org, linux-rdma@vger.kernel.org,
-	Mark Bloch <mbloch@nvidia.com>, Moshe Shemesh <moshe@nvidia.com>,
-	Randy Dunlap <rdunlap@infradead.org>,
-	Saeed Mahameed <saeedm@nvidia.com>, Shay Drori <shayd@nvidia.com>,
-	Shuah Khan <skhan@linuxfoundation.org>,
-	Simon Horman <horms@kernel.org>, Tariq Toukan <tariqt@nvidia.com>
-Subject: Re: [PATCH net-next] net/mlx5: Expose SW RoCE monitor matched
- packets counter
-Message-ID: <20261126192651.xrb8kANY-lkp@intel.com>
-References: <20261125212344.243989-1-tariqt@nvidia.com>
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=IO6/OXbX
+Received: by mail-wr1-f46.google.com with SMTP id ffacd0b85a97d-4a7b8abe209so5365757f8f.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 03:37:45 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795693064; cv=none;
+        d=google.com; s=arc-20260327;
+        b=dll09ECPPaaQlLdqh/3pnisdDXgaJiCAe/hE9Wwc5m56f/NX9lBm8QR7j9jfyrY2rd
+         OoZdpDT1ra01IWti0Y3OWkhjFNXGE2RnKg5xjpqiJhgEaE75eFE63lWDpyFHxFv895uo
+         PtWeA73s/35xJFAD5YX1BknoLI40DNXQ8MWIdrlEEqyQcTvl//KtQ6/5Ht7ZVnEQfO6Y
+         81DcS6DD5xQiGzp1BqOBJjORp5YSlhd2Hd+NlSt2RLU/GwnLZM9ajuwVGOccX5zVVYzd
+         PxcXwqrNwWl29grGwsNaXUQRhW5Zzi6LSa8DiCCDKU1fuMzaeAjhz4/0LXABG5fHpCm4
+         UPbg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=qCmzBhIKvk4P5rW4mA67073vDvcx4J8hkfIshuT1Mp8=;
+        fh=YAf2l5HkVB7OY/sMn/oCaa7zkJFiLJVFXUI2iHKtYI4=;
+        b=C6My60gh12KG7SZN31EM0vfViGKTmzqxzKJhSOnHkj+aa8m7TzmK3BoxXLYwpGX3/q
+         B8t/bXbT0aFRV7qx7bA/SmevaSVpoBZxUcXbBiddusohtT1OtKpHU4qNMRQjQ+MxUq7i
+         TafoeMi5sWLEuwHpIzhFBbfPEDVT4n+0NOoTfuMxZeJ72juQjuHqJaEVoKm0Bs2pAXRa
+         NxfpW5WQTJVyK9aaZjTlMkRH5r+avxk3EM2ez46hzMTjeUpcb3awYU/JnvSp5z+SpWJd
+         QwOJLkcEjLJ1Tv0K0XLXUfW6xtTA+n72PZNrwyi3H0T1VWY7312NcIfEZ2TpWLU+2cuB
+         dNEw==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795693064; x=1796297864; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=qCmzBhIKvk4P5rW4mA67073vDvcx4J8hkfIshuT1Mp8=;
+        b=IO6/OXbXushm5cEYgJH1WrUaxQGQf9E+eOlWsKatm/CsFtoMMLVjrNJBbc0Wb9fRM6
+         lauQuigiVAT+QzVhV735jJMLSa/dZP+BoYoW25OcXJJ0Q1Atl7t8yhU/rhgOkJt3FXqu
+         U3S4fMduckiIbcBbEdmr8bCdSjSXN4Ox95L2XIeFSyzMr+q3UDoTxbSg7GcWGwa+hXp3
+         mCZU1ZOEaxtZtnPrXLmQTHqvEzhRyU/wj0h/rjesHXBvrQCYBRpyNS7hBEGyndqb6w6Q
+         4xHvh2DaLIcbDjiits2BI35X42WevzpgEQy18F/jCvJX8KFXhbGJTEod5/6hP6q9KJba
+         FgpQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795693064; x=1796297864;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=qCmzBhIKvk4P5rW4mA67073vDvcx4J8hkfIshuT1Mp8=;
+        b=iTtg0dFm/Yg41VPYEJo7x2xt/T6pHOtYwnn1mhvmCTIF51oc2BTPlWQ0WBkPn0VL1W
+         Z6BRwszSlOAbWkeppFo06W2rWCOiWTLbiSW51/ydDGhmbBcOVSUOcG6YGU1OqBX+4rkC
+         zMIkB9MhaJzoyH4mORr7YbWl+MKK6Et5fLmvY04W64yUxTlm0+yriBjwYJ5ckix5aA/o
+         PO4MLyNsN8M6Z4Pf1GLIzxvhvLcEsCKACFz0a30kiUx+BELELDMKvwqSfNPCQJjzTeiM
+         2fyaV/gJ+TB+uh0mCPlu6ioPBPAzn3qGNrhveWifA2fCyJvKe0VIA09U7tQjCePN3rT9
+         FKAg==
+X-Forwarded-Encrypted: i=1; AL+hErFqCAwSwx1MYQNDhFSxT+OxAuCBBIkmoaNRnt+2G2pjUb9QwrQiTZCOmG9VT9dFbtaIj352EFE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z+NhhX2TDyjs/Pu91/5/tAdQaNHHrqb7eMhsMiURu8HB0c3PDbJ
+	7+kT1ZjvEbth34ZpqnO5dybfNb1yFQ82J7kEu7TCN1Le5gHIQwr84EhYXCHMxlWppr1j+sHiwo2
+	IuDfVlrmRvNo8SPCzWVbe49a5pas1agg=
+X-Gm-Gg: AZFdTZfqDw8gRazRgYaDqFtWdGIbmQ8v6Tprv0TDvoeA9rNT64o40AWbvVAEzeNiknj
+	WEdvWS+7jN77bzDe40//wpbBiG+a1RR58LdjzynKk3WsfgLUeia8c4A4RWIlnmTG92KFRGNHzR4
+	6kTCMqzOlQbB36nPc2I8sutMBxPFumMq4bL0D8Gb0ptEMcXHH8UhdHRNYaFsNXV3a5aeg5McrQt
+	Qc6l/nNU4cxQI4dSrHmCOm+Ap/xZ/cYoSt2EKgWxz5T4PXApWxMzv3OFR5XjaCdNuSdZlXZk+e+
+	pgcAGsXG6DVnTLJtSnowhnzoIpx7e0nrnFX1SO6PMZHmPHjcbPBHqfnr74KJXGXCqlfCDYvwoKC
+	5e/peRgpPCpSfFOXdIZNUALva4bU9qkxon8uptOH2Vux2p+Ct1W8O9u7CQtZUJVS2nM2XDQ0DUc
+	8kGXJOgM56o6fcoD2OvklyE7CIstVZw9emIl2je6SgqFNLAI5ZynBFBzGBWA==
+X-Received: by 2002:a05:6000:4304:b0:4b7:6d41:f12d with SMTP id
+ ffacd0b85a97d-4b76d608a13mr15756287f8f.27.1795693063407; Thu, 26 Nov 2026
+ 03:37:43 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -93,112 +105,151 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261125212344.243989-1-tariqt@nvidia.com>
+References: <20261124132802.2003605-1-prabhakar.mahadev-lad.rj@bp.renesas.com> <179561342293.3135.3941627441868252725@kernel.org>
+In-Reply-To: <179561342293.3135.3941627441868252725@kernel.org>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Thu, 26 Nov 2026 11:37:16 +0000
+X-Gm-Features: Aa3M54qKq7za6CWkwIvxk1EuXc32uI-wo6A6tNrIs2BtzXEyjHAyjQeGf7f6308
+Message-ID: <CA+V-a8vxYR56e1dxG-2ReYdLcsY4DsSS+GB7RqtbP+U+cEaV=g@mail.gmail.com>
+Subject: Re: [PATCH net v2] net: stmmac: Advertise TX checksum offload only
+ when supported
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
+	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, vinschen@redhat.com, 
+	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-renesas-soc@vger.kernel.org, 
+	prabhakar.csengg+renesas@gmail.com, biju.das.jz@bp.renesas.com, 
+	fabrizio.castro.jz@renesas.com, prabhakar.mahadev-lad.rj@bp.renesas.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Hi Tariq,
+On Wed, Nov 25, 2026 at 1:30=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
+te:
+>
+> Thank you for your contribution! Sashiko AI review found 1 potential
+> issue(s) to consider.
+>
+> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
+>
+> If you believe none of the issues are legitimate, please reply to each
+> issue of Medium severity or higher and explain why the AI is wrong.
+> If any of them are legitimate and you plan to respin, please let patchwor=
+k
+> know by including "pw-bot: cr" as a separate line at the end of your repl=
+y
+> (one such reply per series is enough).
+>
+> - [Medium] The fix does not cover the bugged_jumbo case, so DSA user
+>   ports can still advertise TX checksum offload that the stmmac conduit=
+=E2=80=A6
+>
+> --
+>
+> I found one possible regression: on bugged_jumbo cores, DSA user ports ca=
+n still show TX checksum offload after the conduit has turned it off. The d=
+raft reply for the list follows.
+>
+> net: stmmac: Advertise TX checksum offload only when supported
+>
+> This patch changes __stmmac_dvr_probe() to add NETIF_F_IP_CSUM and
+> NETIF_F_IPV6_CSUM to hw_features only when priv->plat->tx_coe is set.
+> The aim is to keep TX checksum flags that stmmac_fix_features() later
+> clears out of vlan_features. DSA user ports inherit vlan_features.
+>
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index a685ce4638f61..d32d3e7b1b8c6 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > @@ -8147,8 +8147,9 @@ static int __stmmac_dvr_probe(struct device *devi=
+ce,
+> >       ndev->xdp_metadata_ops =3D &stmmac_xdp_metadata_ops;
+> >       ndev->xsk_tx_metadata_ops =3D &stmmac_xsk_tx_metadata_ops;
+> >
+> > -     ndev->hw_features =3D NETIF_F_SG | NETIF_F_IP_CSUM | NETIF_F_IPV6=
+_CSUM |
+> > -                         NETIF_F_RXCSUM;
+> > +     ndev->hw_features =3D NETIF_F_SG | NETIF_F_RXCSUM;
+> > +     if (priv->plat->tx_coe)
+> > +             ndev->hw_features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSU=
+M;
+>
+> [Severity: Medium]
+> Does this cover every case where the conduit drops TX checksum offload?
+> stmmac_fix_features() has a second reason to clear these flags, and it
+> depends on the MTU:
+>
+> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_fix_features() {
+>     ...
+>         if (priv->plat->bugged_jumbo && (dev->mtu > ETH_DATA_LEN))
+>                 features &=3D ~NETIF_F_CSUM_MASK;
+>     ...
+> }
+>
+> In stmmac_probe_config_dt(), the snps,dwmac-3.40a compatible sets both
+> tx_coe and bugged_jumbo. The snps,dwmac-3.610 and snps,dwmac-3.710
+> compatibles set bugged_jumbo, and tx_coe comes from dma_cap.
+>
+> On those cores the new tx_coe check still passes. The checksum flags are
+> then copied into vlan_features once, during probe, while the MTU is still
+> 1500:
+>
+>         ndev->vlan_features |=3D ndev->features;
+>
+> When such a stmmac is a DSA conduit, the DSA setup raises its MTU:
+>
+> dsa_conduit_setup()
+>   dev_set_mtu(dev, ETH_DATA_LEN + tag overhead)
+>     stmmac_change_mtu()
+>       netdev_update_features()
+>         stmmac_fix_features()    /* clears NETIF_F_CSUM_MASK */
+>
+> This clears the checksum bits from conduit->features only. vlan_features
+> is not updated afterwards.
+>
+> The user ports take their features from conduit->vlan_features in
+> dsa_user_setup_tagger() and dsa_user_create():
+>
+>         user->features =3D conduit->vlan_features | NETIF_F_HW_TC;
+>         ...
+>         user_dev->vlan_features =3D conduit->vlan_features;
+>
+> Nothing in net/dsa appears to react to NETDEV_FEAT_CHANGE on the conduit.
+>
+> So could the user ports still advertise IP_CSUM and IPV6_CSUM while the
+> conduit has them turned off? That looks like the same symptom the commit
+> message says this patch removes:
+>
+Yes, this can still happen when bugged_jumbo clears the checksum
+features after an MTU change. DSA user ports copy
+conduit->vlan_features when they are created and don't update them
+when the conduit's features change.
 
-kernel test robot noticed the following build warnings:
+This patch only fixes the case where tx_coe is disabled. There, the
+conduit never has TX checksum offload, but vlan_features still
+advertised IP_CSUM and IPV6_CSUM from probe time. I'll reword the
+commit message so it doesn't suggest the patch covers the bugged_jumbo
+case.
 
-[auto build test WARNING on 612848d37e68b858e15815175f1c5e609e09d719]
+A proper fix for bugged_jumbo would have DSA sync user port features
+when the conduit's features change. That's a DSA change rather than an
+stmmac one, and I don't have the affected hardware to test it.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Tariq-Toukan/net-mlx5-Expose-SW-RoCE-monitor-matched-packets-counter/20261125-232343
-base:   612848d37e68b858e15815175f1c5e609e09d719
-patch link:    https://lore.kernel.org/r/20261125212344.243989-1-tariqt%40nvidia.com
-patch subject: [PATCH net-next] net/mlx5: Expose SW RoCE monitor matched packets counter
-config: arm-allyesconfig (https://download.01.org/0day-ci/archive/20261126/20261126192651.xrb8kANY-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 16.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20261126/20261126192651.xrb8kANY-lkp@intel.com/reproduce)
+Cheers,
+Prabhakar
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/20261126192651.xrb8kANY-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/net/ethernet/mellanox/mlx5/core/diag/reporter_vnic.c: In function 'mlx5_reporter_vnic_diagnose_counters':
->> drivers/net/ethernet/mellanox/mlx5/core/diag/reporter_vnic.c:133:1: warning: the frame size of 1344 bytes is larger than 1280 bytes [-Wframe-larger-than=]
-     133 | }
-         | ^
-
-
-vim +133 drivers/net/ethernet/mellanox/mlx5/core/diag/reporter_vnic.c
-
-b820864335c8b3 Akiva Goldberger 2025-02-09   63  
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   64  void mlx5_reporter_vnic_diagnose_counters(struct mlx5_core_dev *dev,
-b0bc615df488ab Maher Sanalla    2023-03-21   65  					  struct devlink_fmsg *fmsg,
-b0bc615df488ab Maher Sanalla    2023-03-21   66  					  u16 vport_num, bool other_vport)
-b0bc615df488ab Maher Sanalla    2023-03-21   67  {
-b0bc615df488ab Maher Sanalla    2023-03-21   68  	u32 in[MLX5_ST_SZ_DW(query_vnic_env_in)] = {};
-2520766fb420da Moshe Shemesh    2026-11-25   69  	u32 cap_reg[MLX5_ST_SZ_DW(nic_cap_reg)] = {};
-b0bc615df488ab Maher Sanalla    2023-03-21   70  	struct mlx5_vnic_diag_stats vnic;
-2520766fb420da Moshe Shemesh    2026-11-25   71  	bool cap_reg_valid = false;
-b0bc615df488ab Maher Sanalla    2023-03-21   72  
-b0bc615df488ab Maher Sanalla    2023-03-21   73  	MLX5_SET(query_vnic_env_in, in, opcode, MLX5_CMD_OP_QUERY_VNIC_ENV);
-b0bc615df488ab Maher Sanalla    2023-03-21   74  	MLX5_SET(query_vnic_env_in, in, vport_number, vport_num);
-b0bc615df488ab Maher Sanalla    2023-03-21   75  	MLX5_SET(query_vnic_env_in, in, other_vport, !!other_vport);
-b0bc615df488ab Maher Sanalla    2023-03-21   76  
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   77  	mlx5_cmd_exec_inout(dev, query_vnic_env, in, &vnic.query_vnic_env_out);
-b0bc615df488ab Maher Sanalla    2023-03-21   78  
-2520766fb420da Moshe Shemesh    2026-11-25   79  	if (MLX5_CAP_GEN(dev, nic_cap_reg))
-2520766fb420da Moshe Shemesh    2026-11-25   80  		cap_reg_valid = !mlx5_reporter_vnic_query_nic_cap(dev, cap_reg);
-2520766fb420da Moshe Shemesh    2026-11-25   81  
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   82  	devlink_fmsg_pair_nest_start(fmsg, "vNIC env counters");
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   83  	devlink_fmsg_obj_nest_start(fmsg);
-b0bc615df488ab Maher Sanalla    2023-03-21   84  
-548ee049b19fb9 Lama Kayal       2023-06-11   85  	if (MLX5_CAP_GEN(dev, vnic_env_queue_counters)) {
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   86  		devlink_fmsg_u32_pair_put(fmsg, "total_error_queues",
-548ee049b19fb9 Lama Kayal       2023-06-11   87  					  VNIC_ENV_GET(&vnic, total_error_queues));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   88  		devlink_fmsg_u32_pair_put(fmsg, "send_queue_priority_update_flow",
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   89  					  VNIC_ENV_GET(&vnic, send_queue_priority_update_flow));
-548ee049b19fb9 Lama Kayal       2023-06-11   90  	}
-548ee049b19fb9 Lama Kayal       2023-06-11   91  	if (MLX5_CAP_GEN(dev, eq_overrun_count)) {
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   92  		devlink_fmsg_u32_pair_put(fmsg, "comp_eq_overrun",
-548ee049b19fb9 Lama Kayal       2023-06-11   93  					  VNIC_ENV_GET(&vnic, comp_eq_overrun));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   94  		devlink_fmsg_u32_pair_put(fmsg, "async_eq_overrun",
-548ee049b19fb9 Lama Kayal       2023-06-11   95  					  VNIC_ENV_GET(&vnic, async_eq_overrun));
-548ee049b19fb9 Lama Kayal       2023-06-11   96  	}
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   97  	if (MLX5_CAP_GEN(dev, vnic_env_cq_overrun))
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18   98  		devlink_fmsg_u32_pair_put(fmsg, "cq_overrun",
-548ee049b19fb9 Lama Kayal       2023-06-11   99  					  VNIC_ENV_GET(&vnic, cq_overrun));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  100  	if (MLX5_CAP_GEN(dev, invalid_command_count))
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  101  		devlink_fmsg_u32_pair_put(fmsg, "invalid_command",
-548ee049b19fb9 Lama Kayal       2023-06-11  102  					  VNIC_ENV_GET(&vnic, invalid_command));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  103  	if (MLX5_CAP_GEN(dev, quota_exceeded_count))
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  104  		devlink_fmsg_u32_pair_put(fmsg, "quota_exceeded_command",
-548ee049b19fb9 Lama Kayal       2023-06-11  105  					  VNIC_ENV_GET(&vnic, quota_exceeded_command));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  106  	if (MLX5_CAP_GEN(dev, nic_receive_steering_discard))
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  107  		devlink_fmsg_u64_pair_put(fmsg, "nic_receive_steering_discard",
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  108  					  VNIC_ENV_GET64(&vnic, nic_receive_steering_discard));
-548ee049b19fb9 Lama Kayal       2023-06-11  109  	if (MLX5_CAP_GEN(dev, vnic_env_cnt_steering_fail)) {
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  110  		devlink_fmsg_u64_pair_put(fmsg, "generated_pkt_steering_fail",
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  111  					  VNIC_ENV_GET64(&vnic, generated_pkt_steering_fail));
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  112  		devlink_fmsg_u64_pair_put(fmsg, "handled_pkt_steering_fail",
-a33682e4e78e24 Lama Kayal       2023-06-06  113  					  VNIC_ENV_GET64(&vnic, handled_pkt_steering_fail));
-548ee049b19fb9 Lama Kayal       2023-06-11  114  	}
-2520766fb420da Moshe Shemesh    2026-11-25  115  	if (cap_reg_valid && MLX5_GET(nic_cap_reg, cap_reg, vhca_icm_ctrl))
-b820864335c8b3 Akiva Goldberger 2025-02-09  116  		mlx5_reporter_vnic_diagnose_counter_icm(dev, fmsg, vport_num, other_vport);
-e835faaed2f80e Akiva Goldberger 2025-09-25  117  	if (MLX5_CAP_GEN(dev, vnic_env_cnt_bar_uar_access))
-e835faaed2f80e Akiva Goldberger 2025-09-25  118  		devlink_fmsg_u32_pair_put(fmsg, "bar_uar_access",
-e835faaed2f80e Akiva Goldberger 2025-09-25  119  					  VNIC_ENV_GET(&vnic, bar_uar_access));
-e835faaed2f80e Akiva Goldberger 2025-09-25  120  	if (MLX5_CAP_GEN(dev, vnic_env_cnt_odp_page_fault)) {
-e835faaed2f80e Akiva Goldberger 2025-09-25  121  		devlink_fmsg_u32_pair_put(fmsg, "odp_local_triggered_page_fault",
-e835faaed2f80e Akiva Goldberger 2025-09-25  122  					  VNIC_ENV_GET(&vnic, odp_local_triggered_page_fault));
-e835faaed2f80e Akiva Goldberger 2025-09-25  123  		devlink_fmsg_u32_pair_put(fmsg, "odp_remote_triggered_page_fault",
-e835faaed2f80e Akiva Goldberger 2025-09-25  124  					  VNIC_ENV_GET(&vnic, odp_remote_triggered_page_fault));
-e835faaed2f80e Akiva Goldberger 2025-09-25  125  	}
-2520766fb420da Moshe Shemesh    2026-11-25  126  	if (cap_reg_valid &&
-2520766fb420da Moshe Shemesh    2026-11-25  127  	    MLX5_GET(nic_cap_reg, cap_reg, sw_roce_monitor_classifier))
-2520766fb420da Moshe Shemesh    2026-11-25  128  		devlink_fmsg_u32_pair_put(fmsg, "sw_roce_monitor_matched_packets",
-2520766fb420da Moshe Shemesh    2026-11-25  129  					  VNIC_ENV_GET(&vnic, sw_roce_monitor_matched_packets));
-a33682e4e78e24 Lama Kayal       2023-06-06  130  
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  131  	devlink_fmsg_obj_nest_end(fmsg);
-d17f98bf7cc9ed Przemek Kitszel  2023-10-18  132  	devlink_fmsg_pair_nest_end(fmsg);
-b0bc615df488ab Maher Sanalla    2023-03-21 @133  }
-b0bc615df488ab Maher Sanalla    2023-03-21  134  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>   "DSA user ports inherit vlan_features and can therefore advertise TX
+>   checksum offload even though the conduit cannot perform it."
+>
+> Packets should still be correct, because validate_xmit_skb() on the
+> conduit falls back to software checksumming. The problem is limited to
+> which features are reported.
+>
+> Would it make sense to also clear in vlan_features whatever
+> stmmac_fix_features() clears, or to handle this on the DSA side, so that
+> bugged_jumbo conduits are covered as well?
+>
+> --
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261124132802.2003605-1-prabhakar.mahadev-lad.rj%40bp.renesas.com
