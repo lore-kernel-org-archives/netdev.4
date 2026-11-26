@@ -1,77 +1,77 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795693694;
-	b=Ii7EcEIJeDP1J+DNrs61hwU6iZDg6g3AliclqDkvqpp9MDQdq4hpfuZlxVU1JPym45TC
-	 DFc/T9pKKjtgs9Ptkl9Dm8sUtoXMtpNVqUzi6BjwSQZSa61MYMIyDKzyYf/7srx4YRY4F
-	 SUje4rJBNh7o+2rWK2Njg6hEe6y+pgT22gg4jeOCyPyq+hD1LbIRR8KlD0aZvZpc9/Ybc
-	 pda5oygQ5TpoIbcXjo7fthp60lPEPlGzKfFeizyQHSVzoTal9ObT+0RPmIW+iFx92mPCt
-	 tM3yxH89CyYJasch7wCO2P01qtiML1k3QzprTRPbaIVkr5P3SpQa8nH/N89+f2i/U6w==
+	t=1795693684;
+	b=ajLSQsi3jcfQcPpOQb8yQTyUQPMqECn11B+OjWfoqt5uXIEy1uhlBMUi/A39Jr61ae3e
+	 BuHe6/R617g0tDkvurjNMdQUaHNb3D5qC7+0k6I0hyUI3ib4Nyqafts3FGsyrCdgwCXmO
+	 kt8rvgIeKI3kWB3RkW4WZgk2hRI4sYguo1yxv1ErjQZ8TFKBkblYSjjbOgCv03iHLg0fo
+	 xPV9gGJ+BeXPL9olWQwZYcDrDNICuuT1A1qjam/qGY2cF3Rh4uAJfKRqovihwc52+fkJs
+	 qy2yIBJh7b3quGPVlBGIwv4Nj584kvNmkcoreLn9kWyixL19nlw+s5ZkrYc/QJjvWZQ==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693694;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693684;
 	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
 	 Content-Type:Content-Transfer-Encoding:Message-Id:References:
 	 In-Reply-To:To:Cc:X-Mailer:X-Developer-Signature:X-Developer-Key:
 	 X-Endpoint-Received;
-	bh=P1jXufVPzc9IkmUZ87kfTJT9n9zJtHlLLzaPGRLFINM=;
-	b=5iLVNS6c/8VQplhc6qcnDU6Kbil0S/rMiHhv7IuN4FrXtfe74da/ge7ma3IoyDQ7gstw
-	 zHWKThHaALHMN32MCypG/GqMYA7n1a28I6yp1M8+c2oGYvB5ecHuX7nCkC4nKH8g01Cac
-	 2zxeV3whj2q8hjnFTDa7SdIKZJ52rV7TRcHH3aotr94MziM4c79zIJau6rz4aKxlV3Lka
-	 weLOa6NiKDQZR7Bm6yrzG9AaQMejC3xAygS9FQvgJVxgJPCRIZm2f87uX4gUStdKw08Fy
-	 lh53i7VaUO4/Irg4dW26D/Q00YMkf4lScbLv70RjbVNQtk9Qa1zVcwyDvjYeAh7S+8Q==
+	bh=S/Sp6lSR44vtdgSZSOfmC8kBc2FFryA2aIlMSnTxx1c=;
+	b=o/2w5qe6Bw+KXH/JGIP8cNucFlrS6PIVfX4hleDmzRlofwduZ+IdKlfeYFRFJluzFHjN
+	 GyqtaGSAu902R08vzDwz6qU/NksMhgr/Tyrdc1EZPECKTfxS5QRuKAC3mDy4Pesp3FMAL
+	 C7z/8GSw7g+WZgAm1MXaFBbU8FsWLSG6PpsrqArMgZonqfn7yeuvhz+UX+lFnAi2doi0I
+	 J7t4zpgBoocAx6sbTgjo4e/270D9effJmWCdy5qUmFxXP8rQ8fIioEd/lDj0TmQ40jDep
+	 +S5jHMmK38yUPSVdBprnYQw18N04PFTJ+ue3u1ekionmhM1lKA2xtll13OyHn6c8QmQ==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dhQBqCG3;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OtPvRNLe;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 57EFD60A2602;
-	Thu, 26 Nov 2026 11:48:14 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AE86D606A686;
+	Thu, 26 Nov 2026 11:48:04 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=dhQBqCG3
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=OtPvRNLe
 Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
 ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795693693;
-	b=23wW0JgI1tymhrKaarr51K+MbZOTN9J8nq1zmANUfopor6U8x/SYIfK+gxFVcn1Xr4mQ
-	 iSrkaIJhx41cAq1rlzEUZcmqB5Ihw7usrQHc+2t7VCHl5/l4Wz+qw5XjDkK2YqtUyt/1K
-	 5bRy6GWUHv4ivLkUD0x+JU0Z8NYkiPlzM8j6qBF4mk0kqcSFCGBQtLqia+IXgW8K2LXZc
-	 vPQnavJWpxFjECaY0Qsznq0EHjEsfoFZJ/Hizc9tkR802DNi05m4ScQuHVgWtEcKXRrSL
-	 /1pntc8DJ0jyCJ+XEpxL9BieRkMMOb68U3QHQGnoILpYZlpFT270QXzcPOkQI4nFdTA==
+	t=1795693684;
+	b=G1E89QFDnVsC8xFThxXF4/ekamh4toV4lNRtL/SWKGrr2FtN95Nom2TVS4oc5OoocHfs
+	 wRTiQECaqeQ+YkHQLwUHOXJbJSELN1my7aQFlBSpyLxiKvR55d/hHJfHA/d9HMGsxJ7ny
+	 HsIas3PJrveo+EaZCtSDM7tqmE0iCniByUNT9pLblUxkWCvtpTtWEYHJr43LiZ8UlvkB4
+	 9UvRQ0e6JvlPKSuQ9PO90yNpK4ppJkFe9iW3GwKlvvyXplwh1o7PF8uJf1H8ZM5xrAoQx
+	 M1kh12hnBXJc74l/KgDLz/Bkm15T+pieKFRfSMlFq0Rdn/cE5oXhHRRXY6JaARkT6tA==
 ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795693693;
+	c=relaxed/relaxed; t=1795693684;
 	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
 	 X-Mailer:X-Developer-Signature:X-Developer-Key:X-Endpoint-Received;
-	bh=P1jXufVPzc9IkmUZ87kfTJT9n9zJtHlLLzaPGRLFINM=;
-	b=c+5WaNEPQTHlIoEprox5nt8igr/JeiaNbQRlaOqvjduPP6D4QcpxQhx6atoyxQY1DhU3
-	 aFWldRbBxZNnPGoCCGHe0p/UQm+Gg7SeZWIRURsWzuspzCcOixyk/VZcufD6C38ztyEDM
-	 Ujmw4ZVuqu/4PUW4lsdnkpopgOx1OXo7q89YnUO1+t5/7yfs6CvXjBGH7Ehw/HM+qkGeZ
-	 URFrsH7zoUTnNdWngPgA8dfhDMjW9Hv+cYcY4YD3aMvQwAQnG2cVK5CVEGmwqGhO2lQ5I
-	 /ozmh/qEgTHWClatu401gNfA18o8/lrJtOOXC5aqd4cl3n1ZdWz4vkMxsDWN2hC96yA==
+	bh=S/Sp6lSR44vtdgSZSOfmC8kBc2FFryA2aIlMSnTxx1c=;
+	b=hpEutlQNPhqI4fI2LI6v8lWYUi0XYukg24/ytVsR+ZsXO1mud+Y1Sh9rwn5Q2ZF65CPy
+	 2sONU6I3E7TjMi1938LY07hujNMdKfP8BkPlCcSZarLEVyEr/xmXq/T3X2BstI5vFHlnx
+	 LhMvZ+hd0iI9PAtRgGf1ybpALD3asQbHEbsfYCJ4cnORO81L0Lr604A8YjVi1yKWDK+eY
+	 f5Q+6WAG2iU59QzjV0Oqtfpx6ZCT1JYzAXQBE6TAwscNi4BSnE950gtWpoR/Lesf2NHr1
+	 FElTp5BO9RowBH9tzUfIE7Aj/JZZ+DenrHtMnhlhYBBlLRbxnNMa2C+DcPPap5RWwqg==
 ARC-Authentication-Results: i=1; smtp.kernel.org; 
 	arc=none smtp.remote-ip=100.80.115.77
 Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 2CB851F000E0;
-	Thu, 26 Nov 2026 11:48:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693693;
-	bh=P1jXufVPzc9IkmUZ87kfTJT9n9zJtHlLLzaPGRLFINM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=dhQBqCG3vUgbG3X4V3jpxQD2zjcvL70JtFL7jQ8kfVxxKPGTx7ueUV3ywQpk2vZXK
-	 rEhgmFuRjEbDsQSbu7iZ90nzOEvkmrRW0r/A/cBf9/xFgbVxRhnZ4rv7Vjwu5WEqKM
-	 6ut2xj+fGSLq9tpc6swIhpzprcgVsHaWGb3TJN7X+V7WVMxfb6IB7fQSxmisOiyP5g
-	 zzPP7Q6c1pszYJdzPeMMSrXe6W6CmAwNU5PxTDTu6DlLt7PTG8NFfc5Z23iUW+Hneu
-	 Ufsl3n6BU3Q2FqWFN+o3+lEluPEmb6ZST2b7xB+rrLLsn9DltTfsUiy1AeBCDmcW3c
-	 vt7lcpZ8ztHQA==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id B128A4D4A1;
+	by smtp.kernel.org (Postfix) with ESMTPS id 5F7321F000D0;
 	Thu, 26 Nov 2026 11:47:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795693684;
+	bh=S/Sp6lSR44vtdgSZSOfmC8kBc2FFryA2aIlMSnTxx1c=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc;
+	b=OtPvRNLenBrRL03dxVOLCBP0vV9CjT6Q2ZyMQ0vtP2T7x1IBEaO9TEvbAfCmtzaEj
+	 CsCke4a87Lo1HjQD6iSmzXVFnIlCTJRnyghKLo/JMQuER7gRwv67UrzVVaPvRDsYrK
+	 58gUuwftN31Ayb0YiCx74eIFfIYwJStH/zgOjPyFrmfLrU63MKCmEj9/m+OI01Ttmy
+	 Hsggj2sZQDLFbTYFwgw4RHIq7TwDvAoOHUDiyp23DNZW1Hw1K3Qr8An+doszExh3Vm
+	 4Lps+OZEDX4KGCC4moM05gu6pWavmFqLzji8vD1Vy2Vhrda7HcBx1HyzVEp7OecMw7
+	 j6Z4DQud4azAQ==
+Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
+	by lkml.kernel.org (Postfix) with ESMTP id DCAD34D489;
+	Thu, 26 Nov 2026 11:47:52 +0000 (UTC)
 From: Joel Granados <joel.granados@kernel.org>
-Date: Thu, 26 Nov 2026 12:47:48 +0100
-Subject: [PATCH RFC 8/9] ipc: Register mq_sysctls as a template
+Date: Thu, 26 Nov 2026 12:47:42 +0100
+Subject: [PATCH RFC 2/9] sysctl: Add flags to struct ctl_table
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,7 +83,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-lklm-sysctl-ctx-flatarray-v1-8-d7fc9cc9b03e@kernel.org>
+Message-Id: <20261126-lklm-sysctl-ctx-flatarray-v1-2-d7fc9cc9b03e@kernel.org>
 References: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
 In-Reply-To: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org>
 To: Kees Cook <kees@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
@@ -94,109 +94,80 @@ Cc: Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
  linux-kernel@vger.kernel.org, linux-fsdevel@vger.kernel.org, 
  netdev@vger.kernel.org, Joel Granados <joel.granados@kernel.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2968;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2378;
  i=joel.granados@kernel.org; h=from:subject:message-id;
- bh=WkQNr6QnWoumKVxyewSSlZ9tzXOb2ucls8i2JZ231Ug=;
- b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGsIHGYrbDOl6KkAQLkQYC3EcXdsceyF87xgq
- rrHsSB5YX02q4kBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJrCBxmAAoJELqXzVK3
- lkFPJgAL/A6cdr0GRDrKF/B80MWYZTZqDRohMggTUeQdBzrDwqcU2tVGBxU7mLJq/E88lCWqPM2
- 3b3FsML3WG3jFhBeDUs0AUrbM4LF1pjOmasf4uwI+jA/Httyl4nl3CtlMRJeN3beA7sdNRdakmD
- wu/qkaq5BGsIh8SAxt8m3Q6vLwscikzkJ0u8H4hjrzOUSu4MoKoinxIA01G+f7rFwsSC5pF38sk
- ETn1JJuJ+4YCZhR7EUMZJC7MLTGb8ZYuzvbg6jeoKRO+dTsL/sOa6n+T1U55kpw537DzvIMfiHH
- LQvgPXk57ne/v2tY472d7rDSV1eW3Tts/yV7iUg3h178npeoRSOJNqkq0EmPwe3rl1PuieCt2Oc
- SuoZW4WZmFsk+4/Bfxz7nzOekoVUURlRnSgkARCxfRPsRiuJSIUv+UAgG3HhDGdjs4DMb3lJRxE
- WI3m4dH8lag+CFxcqxlz3ljGxO4di2VAR2t8hN71DVwY8XVmDU9NsErUhMnfy+GwqB+ghdbcmD7
- Ls=
+ bh=DY+HxOzdABni9v9bD3uPkozrQ4a6lDrBzkd5JicpEjs=;
+ b=owJ4nAHtARL+kA0DAAoBupfNUreWQU8ByyZiAGsIHGLx4UEqP7piMBaHEE+9RcZmrKgPhodlz
+ pGFsRexVh03CokBswQAAQoAHRYhBK5HCVcl5jElzssnkLqXzVK3lkFPBQJrCBxiAAoJELqXzVK3
+ lkFPfVcL/0pAjqZiTKzWf8xFC0+7EggYrREPyr1I/M0H1jeU6C+752/PYdLPZ/Qi1DjapjRR07v
+ lm6q77XJNvQlPWQLp2pwvKxHT2wBdgHzz2eFLcKLJUrn32tCe+4C5hcIhbpfg5TtlNvGU/NPgcR
+ knw9gOQ0ThC9BVdBQL6oYmVnladtmOovxEfxo1q/P819vOi6E6ThF6wBNzRXZV6/Z4SGVpKIKx/
+ N7sVWDaNFcZ5BPwOmEgCgfU8c6v+Ri2F9C4FxF9OEJG+dELFAbyrCxPh9f5cjKNTIWdWsgJpbIy
+ eS0G9BQlqzpoBSNGR2XeZZUjUVBhoaoh4U8IKXlM8PPaxljqTFafEx2XTKiA5ZR2+xfXb93fztd
+ b/RKh7U8TTYPYSloxEJrLBHTAt1dnJwyQPSnsTVtiR5DyMR+1rN531hOX8Ih3vrCNozRma2e3I0
+ qP5CDoEEEKtdEAKBK7A+2agj+/xyBuZbHGD/g3Df/DwmHkZoGKuOUBV4dqnA6g7xBAkAnjHNSo5
+ aI=
 X-Developer-Key: i=joel.granados@kernel.org; a=openpgp;
  fpr=F1F8E46D30F0F6C4A45FF4465895FAAC338C6E77
 X-Endpoint-Received: by B4 Relay for joel.granados@kernel.org/default with
  auth_id=239
 
-Flag SYSCTL_OVERLAY_DATA on all five entries of mq_sysctls and register
-the table through __register_sysctl_table_tmpl(), passing the rebased
-copy that setup_mq_sysctls() already builds as the overlay. Free the
-copy once the call returns and stop freeing ctl_table_arg in
-retire_mq_sysctls().
+Add a u8 flags member. It takes one byte of the two-byte hole after
+mode, so struct ctl_table stays the same size. Even though we are adding
+it to house the overlay flags for the ctl_table_tmpl template, it can be
+used as a general way to modify the registration and read/write
+operation of the ctl path.
 
 Signed-off-by: Joel Granados <joel.granados@kernel.org>
 ---
- ipc/mq_sysctl.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+ fs/proc/proc_sysctl.c  | 1 +
+ include/linux/sysctl.h | 8 ++++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/ipc/mq_sysctl.c b/ipc/mq_sysctl.c
-index 0dd12e1c9f53ef07092ca3b638335a438d273a8c..d98c90595fabedc30fa565c8e0ca16ec3399bcf4 100644
---- a/ipc/mq_sysctl.c
-+++ b/ipc/mq_sysctl.c
-@@ -26,6 +26,7 @@ static const struct ctl_table mq_sysctls[] = {
- 		.data		= &init_ipc_ns.mq_queues_max,
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
-+		.flags		= SYSCTL_OVERLAY_DATA,
- 		.proc_handler	= proc_dointvec,
- 	},
- 	{
-@@ -33,6 +34,7 @@ static const struct ctl_table mq_sysctls[] = {
- 		.data		= &init_ipc_ns.mq_msg_max,
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
-+		.flags		= SYSCTL_OVERLAY_DATA,
- 		.proc_handler	= proc_dointvec_minmax,
- 		.extra1		= &msg_max_limit_min,
- 		.extra2		= &msg_max_limit_max,
-@@ -42,6 +44,7 @@ static const struct ctl_table mq_sysctls[] = {
- 		.data		= &init_ipc_ns.mq_msgsize_max,
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
-+		.flags		= SYSCTL_OVERLAY_DATA,
- 		.proc_handler	= proc_dointvec_minmax,
- 		.extra1		= &msg_maxsize_limit_min,
- 		.extra2		= &msg_maxsize_limit_max,
-@@ -51,6 +54,7 @@ static const struct ctl_table mq_sysctls[] = {
- 		.data		= &init_ipc_ns.mq_msg_default,
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
-+		.flags		= SYSCTL_OVERLAY_DATA,
- 		.proc_handler	= proc_dointvec_minmax,
- 		.extra1		= &msg_max_limit_min,
- 		.extra2		= &msg_max_limit_max,
-@@ -60,6 +64,7 @@ static const struct ctl_table mq_sysctls[] = {
- 		.data		= &init_ipc_ns.mq_msgsize_default,
- 		.maxlen		= sizeof(int),
- 		.mode		= 0644,
-+		.flags		= SYSCTL_OVERLAY_DATA,
- 		.proc_handler	= proc_dointvec_minmax,
- 		.extra1		= &msg_maxsize_limit_min,
- 		.extra2		= &msg_maxsize_limit_max,
-@@ -143,12 +148,13 @@ bool setup_mq_sysctls(struct ipc_namespace *ns)
- 				tbl[i].data = NULL;
- 		}
+diff --git a/fs/proc/proc_sysctl.c b/fs/proc/proc_sysctl.c
+index 6c0859c6656356f39010e9d47debc0487b751a32..1c5ccb29707d83bacad06198c0dcab39c8b7b347 100644
+--- a/fs/proc/proc_sysctl.c
++++ b/fs/proc/proc_sysctl.c
+@@ -1343,6 +1343,7 @@ static struct ctl_dir *sysctl_mkdir_p(struct ctl_dir *dir, const char *path)
+  * data     - a pointer to data for use by proc_handler
+  * maxlen   - the maximum size in bytes of the data
+  * mode     - the file permissions for the /proc/sys file
++ * flags    - Used in registration and write/read ops
+  * type     - Defines the target type (described in struct definition)
+  * proc_handler - the text handler routine (described below)
+  *
+diff --git a/include/linux/sysctl.h b/include/linux/sysctl.h
+index 4faa3bc189e7afbc270f4ba14b04b32a3f2d1413..3654fd31e3cc4f9217ae61b0bb4d6f4c677ea237 100644
+--- a/include/linux/sysctl.h
++++ b/include/linux/sysctl.h
+@@ -22,6 +22,7 @@
+ #ifndef _LINUX_SYSCTL_H
+ #define _LINUX_SYSCTL_H
  
--		ns->mq_sysctls = __register_sysctl_table(&ns->mq_set,
--							 "fs/mqueue", tbl,
--							 ARRAY_SIZE(mq_sysctls));
--	}
--	if (!ns->mq_sysctls) {
-+		ns->mq_sysctls = __register_sysctl_table_tmpl(&ns->mq_set,
-+							      "fs/mqueue",
-+							      CTL_TABLE_TMPL(mq_sysctls),
-+							      tbl, ARRAY_SIZE(mq_sysctls));
- 		kfree(tbl);
-+	}
-+	if (!ns->mq_sysctls) {
- 		retire_sysctl_set(&ns->mq_set);
- 		return false;
- 	}
-@@ -158,10 +164,6 @@ bool setup_mq_sysctls(struct ipc_namespace *ns)
++#include <linux/bits.h>
+ #include <linux/build_bug.h>
+ #include <linux/list.h>
+ #include <linux/rcupdate.h>
+@@ -219,12 +220,19 @@ static inline void *proc_sys_poll_event(struct ctl_table_poll *poll)
+ #define DEFINE_CTL_TABLE_POLL(name)					\
+ 	struct ctl_table_poll name = __CTL_TABLE_POLL_INITIALIZER(name)
  
- void retire_mq_sysctls(struct ipc_namespace *ns)
- {
--	const struct ctl_table *tbl;
--
--	tbl = ns->mq_sysctls->ctl_table_arg;
- 	unregister_sysctl_table(ns->mq_sysctls);
- 	retire_sysctl_set(&ns->mq_set);
--	kfree(tbl);
- }
++/* Overlay types. Describes what is overlain when registering a template */
++#define SYSCTL_OVERLAY_DATA	BIT(0)
++#define SYSCTL_OVERLAY_EXTRA1	BIT(1)
++#define SYSCTL_OVERLAY_EXTRA2	BIT(2)
++#define SYSCTL_OVERLAY_MODE	BIT(3)
++
+ /* A sysctl table is an array of struct ctl_table: */
+ struct ctl_table {
+ 	const char *procname;		/* Text ID for /proc/sys */
+ 	void *data;
+ 	int maxlen;
+ 	umode_t mode;
++	u8 flags;			/* Used in registration and write/read ops */
+ 	proc_handler *proc_handler;	/* Callback for text formatting */
+ 	struct ctl_table_poll *poll;
+ 	void *extra1;
 
 -- 
 2.50.1
