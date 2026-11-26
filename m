@@ -1,95 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.73
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=173.37.86.80
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795669940;
-	b=zemnbDZ1cyJTJTRkHT2xOt1gERYgppmAeP3PHZEt9tzpXj57aHTx4qXJufUklH56BLUN
-	 WM4mwlMCVI5vndWQu1GBidXMvwQLR99qeKjN9tdsXFdGxU4owzAOU86zJSN/2iukPtF67
-	 GL+knUCA66oINYbAys8Z5v14kKhrXRGgSC9jBjVpp/R9MJpsFmNS5Cq6uYwKfofOSvBDp
-	 bIRfqzcdKdpgPf4PCPeChSAbPFtWC3uh+Gutl4p/MnBFZkC1JwDIk69dTKLziY0ZfAWsh
-	 5xeGQxwgHYovR6EEJRQCOp3mvvO/6vmEdRpriomNvqZZsXMFQFpKQl9WdY7x1uwbZxg==
+	t=1795669941;
+	b=SVmTL4Wm6NmfxrPzn775+E3ViDEovYDNewWj+aR06gYLhT48OMDZ9cnnIW/8/0ftEHkD
+	 X4b74YTvbfApIqjar8W8El9h8Zz4Xm7s0CuTZ6jVS6wCBfn4zXMRtNViieBPIH9pVcsAW
+	 TAYiGlYFt+O3ay8/0juiLnr0/RqSuZ1VsrRfTBcMxRgiekdS4A/7/D8MlF05SQ6Z8iAhw
+	 PwyV4/6y9p0Au2O42PZon3DNL1ru8vbmw+n5BJMvkJD+g6ZMDHwFG8y8MXMwTBivXh1yf
+	 paJBUZR0Me3F9aoEcwGeJyYPw2XjdE9Sr8emv1H+c1Pf9XJ8QRMs2sa1x5TVU7BWSPg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795669940;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795669941;
 	h=DMARC-Filter:DKIM-Signature:X-CSE-ConnectionGUID:X-CSE-MsgGUID:
 	 X-IPAS-Result:IronPort-Data:IronPort-HdrOrdr:X-Talos-CUID:
 	 X-Talos-MUID:X-IronPort-Anti-Spam-Filtered:X-IronPort-AV:Received:
 	 Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:
 	 X-Outbound-Client-TLS:X-Outbound-SMTP-Client:X-Outbound-Node;
-	bh=l0+4vYUvzx+7fVg8jTLBW0LVDCNqP9lvA6aBUYGwEXQ=;
-	b=BNrwa3h6T0FQUuA8wd3j4g6bUeKYUtQMyTgT1RZLGAZZ4mVQkwKK/jLQT2TVlDMaLPZO
-	 GTEmeFHopjFBpY1UF3ruClpW8cj/50x97Zm4yZNbULeIY7czZlPlDd0/b6Gg8wAMBC5mb
-	 +aRJ7UlrYu++hj9g9LuI1tN5PdpnnTmKcXi8csJLaJQ8S/Gds7hQIQORY9ppQQGd6olfn
-	 u2w6AVQDejF3dEXv+6GYXsCCShzcIfFD/qth4jxJYnkKDAYTGTNnNaYdnPkpFV27HzuRF
-	 gy8QtzrUHuTqwrojaJ9KYQMmtmHKCq7XmkAIY1A1YvTM+fxUl1yQ/bfW5zsZVCzixnw==
+	bh=Q/3U3z91VSWyDu/vf5BKlcNzmHeVvr9/M4blrzhYU3s=;
+	b=10yrlrFDEN/DIvRmUL65/K++3DX5giQzZP7tjELG+IoLY6LUQizsmd+oOiqSshbkDZU7
+	 gwOOGIWtqGTAOZ1fGKCn4wK0TfqocZTEYv0rbz7vH67Mjx0luus+1ijq2bUf9lBcHgYlR
+	 N65Dt79360ZkuHveyWRVFGLpE++XduaFgfJh4xyirhPVkXE0S0/Ifh6Yh7iCQmOLVgHy6
+	 r9APwe+UhSumYv1I2VgQ+PbF3xa3HxJ78iaKRhfkA3k1S+YZWA4xWQA+cIhnAVDmFldIG
+	 DgrWcM01vEMxtLwG/x/bINgLcNzrbuRWZO9+Gs7DC2/MHnhMSLR/k3bMhdiYarnC79w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=cisco.com;
 	spf=pass smtp.mailfrom=cisco.com;
-	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=RPxDmrcB;
-	arc=none smtp.remote-ip=173.37.86.73
-Received: from rcdn-iport-2.cisco.com (rcdn-iport-2.cisco.com [173.37.86.73])
+	dkim=pass header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b="XHnbQ/a5";
+	arc=none smtp.remote-ip=173.37.86.80
+Received: from rcdn-iport-9.cisco.com (rcdn-iport-9.cisco.com [173.37.86.80])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AD772606A31C;
-	Thu, 26 Nov 2026 05:12:19 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AD772606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9E091606A334;
+	Thu, 26 Nov 2026 05:12:20 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9E091606A334
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=cisco.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cisco.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=RPxDmrcB
+	dkim=pass (2048-bit key) header.d=cisco.com header.i=@cisco.com header.a=rsa-sha256 header.s=iport01 header.b=XHnbQ/a5
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=cisco.com; i=@cisco.com; l=450; q=dns/txt;
-  s=iport01; t=1795669939; x=1796879539;
+  d=cisco.com; i=@cisco.com; l=1946; q=dns/txt;
+  s=iport01; t=1795669940; x=1796879540;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=l0+4vYUvzx+7fVg8jTLBW0LVDCNqP9lvA6aBUYGwEXQ=;
-  b=RPxDmrcBe75nzlrKc3NB677aAIdaMCL2v7XLBoxMI0lT+XM9josWz5b+
-   TlpCBsXI6nuWrV3UDJa1yweLCts1Q/cFxw1JZ8189VBLSED0RauDJ8xBK
-   khi51+o3OoQPZ0o8o11C5JZoA5TlXEcWbVKoF62CmpBtLgId6vBJ324lB
-   FmfCoIHjiM/rYWwrltR+aKy3IlR84kVOfnbRnlWJtK+2PLi87tiXJ0uI8
-   cuSwv9zUcQKpOmc0NsjMQmnUpFiXr7YcDQYkVwHlOzY8dV05cLlf2V5Js
-   udpn0a5RoAvk7vEJKz4ETk6GK4Z/olFA7OrWb5ei0zglDTVBdsTWTm8in
-   w==;
-X-CSE-ConnectionGUID: 6e6mbLW0S/mP2YnqrHGfsw==
-X-CSE-MsgGUID: hwiMfqovTnmzSb1aJJhNsQ==
-X-IPAS-Result: =?us-ascii?q?A0BaAwA8vgdr/43/Ja1aHgEBCxIMggULhCxDlxSeLIF+D?=
- =?us-ascii?q?wEBAQ9RBAEBhQUCjiMCJjQJDgECBAMCAwEBAQEBAQEBAQEBAQoBAQUBAQECA?=
- =?us-ascii?q?QcFgQ4ThlyQEwIBAzIBRhALRlYGAYMUgnUDuDuCLIEB3kmBdBWBOIV0h3N2G?=
- =?us-ascii?q?4RjJxuBSUSEEDE+gRmJcASCIoEMglaWOEgKgRQDWSwBVRMNCgsHBYElEDMDI?=
- =?us-ascii?q?AoLEhIYFQIUDRASDwQWBS0dcAwnEikXEXYbBgUSICpAQzArgRKBA12BKyhdA?=
- =?us-ascii?q?QIfRi0VgXUCglGBI10CAUlBDgdFUwklQxJHJCIIEgkBExosCoEaNTwJJj8VD?=
- =?us-ascii?q?FsMCAMaBRomAh8IAgsCDHQoERATHRwkLwUZJjwbCoEMJx0eGQ4CKQYWIQtDG?=
- =?us-ascii?q?A1IESw3Bg8ZBD5uB5ZHAWMNDxGBeyOnHqERhCuBaJ92GjODcacCmQgjpDmEa?=
- =?us-ascii?q?oFoPIFZMxoIGxU7gmhSGQ+hYQG/HSZwAQcCBw8CgXORfgEB?=
-IronPort-Data: A9a23:cRrzS65FycbtmjaA0X0qGQxRtOrGchMFZxGqfqrLsTDasY5as4F+v
- jBLUWnUOK7bYzSne9pyO9vl90wGvsOAyoc3TQBo+ygzZn8b8sCt6fZ1gavT04J+CuWZESqLO
- u1HMoGowPgcFyGa+1H1dOi78BGQ7InQLpLkEunIJyttcgFtTSYlmHpLlvUw6mJSqYDR7zil5
- 5Wo/KUzBHf/g2QqaztOtfrawP9SlK2aVA0w7wRWic9j5Dcyp1FNZLoDKKe4KWfPQ4U8NoaSW
- +bZwbilyXjS9hErB8nNuu6TnpoiG+O60aCm0xK6aoD66vRwjnVaPpUTaJLwXXxqZwChxLid/
- jniWauYEm/FNoWU8AgUvoIx/ytWZcWq85efSZSzXFD6I0DuKxPRL/tS4E4eY4BG/+xTPjl1s
- vkgcgELdwqjqOyt3+fuIgVsrpxLwMjDJogTvDRkiDreF/tjGcyFSKTR7tge1zA17ixMNa+BP
- IxCNnw1MUmGOkEWUrsUIMpWcOOAnXDjciZYq1K9rqss6G+Vxwt0uFToGIeOJIHRGZwNxi50o
- ErG4GXcDAgdKuCZzCi++CulpM3PuzjCDdd6+LqQs6QCbEeo7mAaFhATfVeyv/S8jkmwR5RZJ
- lB80icisK075kG3ZtrwRRu1pDiDpBF0c9pXCeghwAKA0KzZ50CeHGdsZj1cYtUOt8IsQzEuk
- FiTkLvBDDpjqrCKCnSQ6ruZsxu2JC4Ta2QCDQccRAEI5djLuow/jhvTCN1kFcaditzzBCG1w
- D2QqiU6r6scgNRN1Kih+13DxTW2qfDhSAMp6gjJdnyq4xk/Z4O/YYGsr1/B4p59wJ2xVFKNu
- j0A3sOZ9u1LVc3Lny2WS+JLF7asjxqYDADhbZdUN8FJ31yQF7SLJOi8PBkWyJ9VD/s5
-IronPort-HdrOrdr: A9a23:N2cAQq6bez2Kz4AofwPXwOjXdLJyesId70hD6qm+c3Bom6uj5q
- STdZsguyMc5Ax6ZJhko6HiBEDiewK4yXcW2+gs1N6ZNWGMhILrFvAB0WKI+VLd8kPFm9K1rZ
- 0BT4FOTPvtEFN9kcH2pCO8E9om3Z271ZrAv5a485+oJjsaEp2JKGxCe2CmLnE=
-X-Talos-CUID: 9a23:bZCzJmFVaXW5a1L+qmI5+RAREOQaKkaayU+KEkmhE0ZGRqaKHAo=
-X-Talos-MUID: =?us-ascii?q?9a23=3AshPVvw7eOYJUD8znqjI1zp08xoxo/KWLBlkKj6k?=
- =?us-ascii?q?Avtu/P3V5GRWdqi+OF9o=3D?=
+  bh=Q/3U3z91VSWyDu/vf5BKlcNzmHeVvr9/M4blrzhYU3s=;
+  b=XHnbQ/a51Bflv/gFFkoYoIjgDAhLDbMbOoSqKqx7UYODXJq+XN7BIckj
+   A0JFICHhrlVWmdBlKMLjgUFyKf9yGJKzOGyIf3vf5obxNlzXef8tdwPqL
+   Az0ZUUPpf/FZu/bWFdL0nRs+A5TwozsPHKi2anGhw6fKACESnxsQ60XY/
+   ejnBxv1U3CcyhssjDGU3f8zWCYMWKbP7JpLhSgxrjfOm0HSu0dt0VxtcA
+   xvpxH9l+ejo1SUCWesuIF6CtyJnuoURdNEXZCmyXqvyuCdYCAhI3fXy8B
+   o2TB9CYwPr188TaqOHOlheScSzR8NhbvxocpuKtMZKlaQtdbfKiu1qSqq
+   A==;
+X-CSE-ConnectionGUID: L+s8vb81R2WQskFBtppCPw==
+X-CSE-MsgGUID: 41MsPthWRUeavuXjpIJd4A==
+X-IPAS-Result: =?us-ascii?q?A0AlBQC6vgdr/43/Ja1aHgEBCxIMggULhCgEQ5cUA6AnD?=
+ =?us-ascii?q?wEBAQ9RBAEBhQUCjiMCJjcGDgECBAMCAwEBAQEBAQEBAQEBAQoBAQUBAQECA?=
+ =?us-ascii?q?QcFgQ4ThlyQEwEBAQIBMgE9CQULC0ZWBgGDFIJOJwO4PIIsgQHeSYF0FYE4h?=
+ =?us-ascii?q?XSHc3YbhGMnG4FJRIQJBzE+hB+GagSCIoEMglaWOEgKgRQDWSwBVRMNCgsHB?=
+ =?us-ascii?q?YElEDMDIAoLEhIYFQIUDRASDwQWBS0dcAwnEikXEXYbBgUSICpAQzArgRKBA?=
+ =?us-ascii?q?12BKyhdAQIfRi0VgXUCglGBI10CAUlBDgdFUwklQxJHJCIIEgkBExosCoEaN?=
+ =?us-ascii?q?TwJJj8VDFsMCAMaBRomAh8IAgsCDHQoERATHRwkLwUZJjwbCoEMJx0eGQ4CK?=
+ =?us-ascii?q?QYWIQtDGA1IESw3Bg8ZBD5uB5ZHcw0vR4FkOis7kwAUkj+BNZ9chCuBaJ92G?=
+ =?us-ascii?q?jOqc5kII6NpAU+EaoF+JoFZMxoIGxU7gmhSGQ+hYQG/HSZvAQEHAgcOAwuBa?=
+ =?us-ascii?q?JACDxcHgU8BAQ?=
+IronPort-Data: A9a23:KZ87PKk7lgSQ6tbpzXKrg6/o5gxTJ0RdPkR7XQ2eYbSJt1+Wr1Gzt
+ xJJW2GDOvzYMTb0L9F/Poiw/UgA6MKHzoI1TAFkpC1mQ1tH+JHPbTi7wugcHM8zwunrFh8PA
+ xA2M4GYRCwMZiaC4Errav6x9yQUOZigHtLUEPTDNj16WThqQSIgjQMLs+Mii+aEu/Dha++2k
+ Y20+ZK31GONgWYubDtNsfzb8XuDgdyr0N8mlg1mDRx0lAe2e0k9VPo3Oay3Jn3kdYhYdsbSb
+ /rD1ryw4lTC9B4rDN6/+p6jGqHdauePVeQmoiM+t5mK2nCulARrukoIHKZ0hXNsttm8t4sZJ
+ OOhGnCHYVxB0qXkwIzxWvTDes10FfUuFLTveRBTvSEPpqHLWyOE/hlgMK05Falb4bZpCzEXz
+ 6YnESsOQDqfn/qd+K3uH4GAhux7RCXqFJkUtnclyXTSCuwrBMifBa7L/tRfmjw3g6iiH96HO
+ JFfMmUpNkmdJUQTYz/7C7pm9AusrmL2bzxDqFGVjaE2+GPUigd21dABNfKIJo3bHJgPzhfwS
+ mTuoz3cGSkGNOOl9DeM7G+chPfuvy+ncddHfFG/3rsw6LGJ/UQfAQMbUHO3qOe0j0q5Vc4ZL
+ UEIkgIjobU3/V6mUvH+Uge+rXrCuQQTM/JQFPc/8ymOx7DS7gLfAXILJhZCddYvnMw7Xzon0
+ hmOhdyBLTVpvKeYVjGb+6uYoC2aPTUTKykJZUcsVQIP7t/iiJs+ghLGUpBoF6vdptn0Hyzgh
+ jOHti4zg50NgsMRkaa251bKh3SrvJehZgg4+gnaQEq74Q5jIo2ofYql7R7c9/koEWqCZkOKs
+ H5Bn42V6/oDSMnR0ieMW+4KWrqu4p5pLQHhvLKmJLF5nxzFxpJpVdo4DO1WTKuxDvs5RA==
+IronPort-HdrOrdr: A9a23:ocBdYq1S1JtwK0QEh4LbEwqjBJIkLtp133Aq2lEZdPWaSKClfq
+ eV7ZAmPHDP5gr5NEtLpTnEAtjifZq+z+8R3WByB9aftWDd0QPCEGgh1/qB/9SKIULDH4BmuJ
+ uIC5IfNPTASX5nkM39/A60V/wkwNWB7eSUoN229QYLcemvAJsQljuQzW2gYytLeDU=
+X-Talos-CUID: =?us-ascii?q?9a23=3Aas7tc2k2Wj1wFYAy3lFjanRM2vXXOVme1yfOKR/?=
+ =?us-ascii?q?hMzxWcaaWZ3WM4LtPq9U7zg=3D=3D?=
+X-Talos-MUID: 9a23:YdZNxwYMc8x36OBT62bJnwl+NPhS3qmnFl09k40nmcXYHHkl
 X-IronPort-Anti-Spam-Filtered: true
 X-IronPort-AV: E=Sophos;i="6.27,234,1787011200"; 
-   d="scan'208";a="536534100"
+   d="scan'208";a="549915289"
 Received: from rcdn-l-core-04.cisco.com ([173.37.255.141])
-  by rcdn-iport-2.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 26 Nov 2026 05:12:13 +0000
+  by rcdn-iport-9.cisco.com with ESMTP/TLS/TLS_AES_256_GCM_SHA384; 26 Nov 2026 05:12:14 +0000
 Received: from satishkh-l-mj0bbv6x.cisco.com (unknown [10.25.129.52])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by rcdn-l-core-04.cisco.com (Postfix) with ESMTPS id 852B4180015C1;
-	Thu, 26 Nov 2026 05:12:12 +0000 (GMT)
+	by rcdn-l-core-04.cisco.com (Postfix) with ESMTPS id 90DE6180005FD;
+	Thu, 26 Nov 2026 05:12:13 +0000 (GMT)
 From: Satish Kharat <satishkh@cisco.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -103,12 +104,12 @@ Cc: Satish Kharat <satishkh@cisco.com>,
 	Sesidhar Baddela <sebaddel@cisco.com>,
 	Aravind Dhanasekaran <aradhana@cisco.com>,
 	Reese Faucette <rfaucett@cisco.com>
-Subject: Re: [PATCH net-next v3 5/6] enic: manage V2 VF station and administrative MAC
-Date: Wed, 25 Nov 2026 21:12:08 -0800
-Message-ID: <20261126051209.3558558-2-satishkh@cisco.com>
+Subject: Re: [PATCH net-next v3 6/6] enic: configure V2 VF receive mode over mailbox
+Date: Wed, 25 Nov 2026 21:12:09 -0800
+Message-ID: <20261126051209.3558558-3-satishkh@cisco.com>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <179539393028.3135.14682126531016324837@kernel.org>
-References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com> <20261118-b4-enic-sriov-v2-vf-receive-control-v3-5-2cb25677aa8c@cisco.com> <179539393028.3135.14682126531016324837@kernel.org>
+In-Reply-To: <179539393186.3135.6117001594095681852@kernel.org>
+References: <20261118-b4-enic-sriov-v2-vf-receive-control-v3-0-2cb25677aa8c@cisco.com> <20261118-b4-enic-sriov-v2-vf-receive-control-v3-6-2cb25677aa8c@cisco.com> <179539393186.3135.6117001594095681852@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -123,12 +124,38 @@ X-Outbound-Client-TLS: ANONYMOUS;unknown [10.25.129.52];TLSv1.3;TLS_AES_256_GCM_
 X-Outbound-SMTP-Client: 10.25.129.52, [10.25.129.52]
 X-Outbound-Node: rcdn-l-core-04.cisco.com
 
-Thanks - I confirmed this on hardware and it behaves as intended. The PF keeps a
-single station entry for the VF: an administrative-MAC change, and the VF close
-path, replace the station address in place rather than adding a second one.
-Dumping the VF's card-side filter list on both the admin-MAC-notify and set-MAC
-paths shows one station entry, not an accumulation, so a closed VF leaves no
-untracked station MACs behind.
+Thanks for the review. Responses to the three medium items below.
+
+> permanently-denied exact-filter ADDs consume slots
+
+The behavior here is by design. When spoof-check is enabled, the PF applies its
+MAC policy to the VF's secondary unicast addresses as a single all-or-nothing
+decision for that VF - it does not admit some secondary addresses while denying
+others. Because there is no subset admission, the exact-filter budget is only ever
+consumed by addresses the PF actually accepts, so the scenario where denied
+entries occupy slots and crowd out otherwise-valid addresses does not arise. The
+driver re-presents the full requested list on each sync - the normal address-list
+synchronization behavior - and a policy-denied address simply gets the same
+stable-denial result each time, with no effect on the datapath or on the accepted
+filters.
+
+> ADD-only ADD_DEL_MAC request failing as a whole with -EIO
+
+The current handling is safe: an ADD-only batch reported as a whole failure is
+treated conservatively and does not leave stale accepted filters behind.
+Exercising a whole-batch -EIO specifically would need PF-side fault injection,
+which this single-host lab cannot produce (in practice the PF returns per-entry
+results). I'll look at any further refinement of the whole-batch -EIO path as a
+future enhancement once there is a fault-injection path to validate it.
+
+> SKIPPED DELETE handled as fail-closed
+
+A SKIPPED DELETE only arises when the PF skips the remaining operations after an
+earlier failure in a mixed batch. The current handling is intentionally
+conservative - it reconnects so hardware never keeps accepting an address that is
+no longer in the requested list, which is the safe outcome. This condition isn't
+reproducible on this lab without PF-side fault injection; I'll revisit whether the
+reconnect can be narrowed as a future enhancement with fault-injection coverage.
 
 Thanks,
 Satish
