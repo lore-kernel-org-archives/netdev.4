@@ -1,90 +1,123 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795712700;
-	b=egwDwTzXCwzkPjjtgFsUI9HJO1jXCXtH+PAarH4hL7Xo7pnX0vq8JLvpvC0GGVJN/Dby
-	 2UtCKKNtviybL3JoCR30jbf+C+mDK7EDNyHV2ZMn2khIKPhjTH5KpOONSIDAeOYen3E5G
-	 vAOo45fEXfcI82utHBOVK5iEeqG0Uw6CSfswpScsYSbDnoDik4pSgNtqWarv4YdD17bov
-	 gXj+ScZu9x6wGx5hvoeDoq5Zfr6GnpzzUhiiHmx8pPBHtX2nQNyOS8599Hl1T8+8eixDD
-	 x63/SdWhOIij/P7aKfQZabetaLfApdctOIHDM/GRpRPRN1IHP40XYMShx4BJXuInFxQ==
+	t=1795712823;
+	b=0w0DIhSOdCKUi/FjQ90aC5VSIMO7vVIQblOkWCV8Ay+Nu8MRBp91vw43roHEvXUa8l4c
+	 UqG7gWj16Vz/ahB0DoyXV5xA2kvV/UR8oIdqfDVEsaHAqg/oVyAbStFB/nWvux00BOWff
+	 RWre3QWlrlZBw5QzQw0mn1roSQmtgBO8VSUseECVEyafhaFIKvmD3MX6mxqXmQHkgS0En
+	 N7PeWRWO3UFz4YCxZTz5U9URjBECNWhAoK4kpelS88JrPVk7wdVQYHNRQQnsNAcrBW2V2
+	 oVYb4NsMv2RQLWBRh6YWJEwAVCWUcaRgXOxK+MWUnfN7/th9T1kwF+oIeSHnYUJGSCA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795712700;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:X-Forwarded-Encrypted:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=kcT+zGUVm9NECrDFd7+fwJkTsjEygvZ1aBy/ZV3pq+8=;
-	b=mPzKcafE+BboHGA2ovAtrupQknXfTMR6huEqMdvExCpCkHfMXHDsuSSoOArZ+iVNWr8m
-	 QXXPHj427KrkHm9mTj5aU1AG2iiENqBGUudL8Dqn42+8B9XzGeEaUOoQdTAfy/d1Ag/IK
-	 ISodTY1jN+N4K+fv0F3ezXFVzT4k2MI9h248FZCaXbJA4GAJiqoH5Jax0TlW87zgn1xDe
-	 U8bVw0aNPruUSZMsP2Th04IhxUcyionAfqFTIfyVMn5Kgrv82eKE1vcxHE3PtYk7nwoJf
-	 LnGWw4MrpZuawZKzkoX64O3upKx076ViINUPZ+35mB1kGeCxeta0kg4ulg6FxBk6Pmw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795712823;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=0yjxrZbpz1L+siRYyu7F1RBOFIChPAKyEA33AawY46g=;
+	b=3kpL6AALXxz2jdQawe0wrL4E5aOcme+HzhUXnGIoGqaCZ2Ena/3JlUewHtvrGEruf1VV
+	 3Yu44JvQwJfhGofnUu6N9lG8AxYYJa5P8OYn6hSNQPbW6LYQo0/qscVCUQ97/WuDEzTC8
+	 q/3ilWRDa/EKPtzEbd9YXLulbf1a4YI8AJBlduhW4zisoXNAd41G4nWJYtuO3noMN8qTy
+	 pymJR3EDz/ETz1zgAXamd7zlyDFlxdG7iR5h29yO7owHCyy2oboQe5oyjAuk2kt0MveUn
+	 iFnVQRi261M9c0oddYykNTS6u8WdvZ7Iz65VIPmtCctc5dknInhJR+zmOyydZulG8GQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=linux-foundation.org;
-	spf=pass smtp.mailfrom=linuxfoundation.org;
-	dkim=pass header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=YsKSPYuK;
-	arc=none smtp.remote-ip=209.85.218.51
-Received: from mail-ej1-f51.google.com (mail-ej1-f51.google.com [209.85.218.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X6ZBKwzI;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b="PLsVU8/t";
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1FD03606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:04:58 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1FD03606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=linux-foundation.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linuxfoundation.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B2609606A32D
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:07:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B2609606A32D
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=linux-foundation.org header.i=@linux-foundation.org header.a=rsa-sha256 header.s=google header.b=YsKSPYuK
-Received: by mail-ej1-f51.google.com with SMTP id a640c23a62f3a-c4d2b741ed9so1160887166b.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:04:58 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=X6ZBKwzI;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=PLsVU8/t
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795712821;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0yjxrZbpz1L+siRYyu7F1RBOFIChPAKyEA33AawY46g=;
+	b=X6ZBKwzIgscc6W5g0qwuJQYsvzeKifdTVPIyhVsV+xk8Zq4sxiijQvRn+rGnEAia2iqbmd
+	sfJeOiyPFlHwWMyWkmHzPga3XiX7sV/FAM6e9URU1BmHG8RAipsItT3FYQLoomfRqunZaz
+	+Cbq4bGP6HR8WgosqG+pbXa863omXv8=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-662--F47zIE7M76nhiDm_lUorA-1; Thu, 26 Nov 2026 17:06:59 +0000
+X-MC-Unique: -F47zIE7M76nhiDm_lUorA-1
+X-Mimecast-MFC-AGG-ID: -F47zIE7M76nhiDm_lUorA_1795712818
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-4bba5f21b85so12506375e9.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:06:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linux-foundation.org; s=google; t=1795712697; x=1796317497; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=kcT+zGUVm9NECrDFd7+fwJkTsjEygvZ1aBy/ZV3pq+8=;
-        b=YsKSPYuKw2yMM2IRKYFY2ZVr0kIG7DSX6Ovk+aXn7r/Hdv2SUo62AjLAJeV2JHfhvy
-         oZm7E/tOhVj7N8zUMWSj+fKnDE0/JHoXmQSavCkkEeLgGwak7l2sIBe513n3CKmwv4av
-         54WiCuGH4ApCjExSNBe+p5Df0yRjIf29HfHfg=
+        d=redhat.com; s=google; t=1795712818; x=1796317618; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0yjxrZbpz1L+siRYyu7F1RBOFIChPAKyEA33AawY46g=;
+        b=PLsVU8/t6IShUQkO4Xi5sL6dme5WEAV9ZzVwE+mt1HgyIE+OEEWfqaEapHKJxq2wrx
+         corwKq8uU/Q1P46zcbVRSK0p6ucwOhgXWhLUNKaRyxMSL/nQB/Q8zHpQLpDiFGJjn93U
+         9F49r3aou6+BCDkNgzSaVjS8SLiQPI2SI6WbHXeokniDYyjGP1XnzpSdVNdCO87wKgFJ
+         kb16dzwGwQPwfV/RNwKOXkX2IQRjSeQ1x3S7mfG8uG3HiO/yvl8tMGFTLns2tp2oW9zp
+         uUjNMCYLVpdJVz5iBJHwhhPUKHP1A73a+ZcFgED4EjiTMacNmnuC2wO+OM197zVoPXKR
+         MCRQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795712697; x=1796317497;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=kcT+zGUVm9NECrDFd7+fwJkTsjEygvZ1aBy/ZV3pq+8=;
-        b=vzWYRigb/Q5J3VwA/37HiZtXQM7Zf9RXzIDeMjMWYFXdtQ3FTAT9qxP+iyi7YVO0DM
-         Xg8RMXC+GQkw08I6rHdqhX1fvSdeuuBGNV4gLqh9PnYPaI6PqXiz5NzeHvFJMdCnn7gO
-         FESl/x5PEDWBtaA2cwUl5pVFVQbBaz/nGepFpwPSYG9dmir5eCrAPYR3m0qXSXGQN5of
-         cu4VcWMlUu27REM/PbREurhDcfMbG+7BsyIEPwZ/JRd8J7K7LF1tvSB7fsXDQUYgCZN9
-         1BxSJT3zuEjtPWAHNiAR0SAJhl8yAzmDkGwPBv26NTuq9s0W8X4UH6DZ+fyf5xzffEkW
-         TVcg==
-X-Forwarded-Encrypted: i=1; AL+hErH80zFKez9sGnFT0IemCSASz1CewdptpJQiiqIzTy4aKyi8nTCF26VBhVxWp73D5vPmGfACYmA=@vger.kernel.org
-X-Gm-Message-State: APuU4Z++UF4vE/bDzDqxjhQ9Y8tI0mgbN4zHGThgH+cMVDXGL04L/Mdt
-	B5cJkXmtpvv6s9ZOYjwIYOUu5HKBht+zZpSafQ/0SpA2e2PoWgPWaDeGzlhKwSVaZWaRWhDuxWP
-	Z4xVl8n8=
-X-Gm-Gg: AZFdTZdwR5MDK8QuMw0lYJT9mKQHoLg1jR/u8bGCVl31VxcXQVsPR6zEICI/VpnU/Bv
-	y36suLJCffn9uMZ3niAqaUuJOMwXxx/G6Fl+SUoHZGRCplcqLEeH5eoorMhiRAndJEld7LY7Yxp
-	xGyNjV5uCDXnETw5tjpIv3m7BiTXxdiqlfdPppDqsoYZ9SDVnl1apumnXnU1/ke7HdOOWBaIyMd
-	etKxoA8XI8cjN9byRG0IcDxj8WEYOpLuLqjFcMId+cMH2rNQGq3vsdvvq3RHDYj75K2CfX2Xy7z
-	9srDSYqPOJl6po5MetAT0q9ZKzx26KmgsjizXeuPz06R6Jq2kqqWU4JZls3PmFkSVS3gbqqRpxn
-	0VOoYOtQyHK8GsIhgTHF4BY0w2dvGrJaSrRld35QFuEd/rLaYobyEXOdID5WoPfe68ix7nY6UEw
-	o0J6fiWcKYUZ6Jl/AC8CpM+uOnD19jw2eCB5RDwd6J67I+Cd94QVswrPKj1HwR0syJA9PoMxx9s
-	3f6ajTGs2nJGfXWV8Ql9cetmFghMyD11rGckV2TAvinbAsnRCgWzyC3E3u/oxw4fDUOBlwxZ8Ak
-	k1jtKfW1K4HeRRTdOYLt7kypcQJ/PUSDaI1oXs0aaVN/UZyTQ/crMUxf0npTMKVAg95sB93juEZ
-	fnlU=
-X-Received: by 2002:a17:907:9283:b0:c51:b3bf:14da with SMTP id a640c23a62f3a-c51b3bf1f93mr458704266b.39.1795712697352;
-        Thu, 26 Nov 2026 09:04:57 -0800 (PST)
-Received: from mail-ej1-f48.google.com (mail-ej1-f48.google.com. [209.85.218.48])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513afe01a0sm780588166b.68.2026.11.26.09.04.56
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 09:04:56 -0800 (PST)
-Received: by mail-ej1-f48.google.com with SMTP id a640c23a62f3a-c4d2b741ed9so1160885166b.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:04:56 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFkT2Hal+8/d7W7C7RQ0a6KLnFVeg8Uft7BgW1y02K/RWMNBx7zTUF+MDSkJ8pacEXkx47PX64=@vger.kernel.org
-X-Received: by 2002:a17:907:ea94:b0:c29:f5d8:9c73 with SMTP id
- a640c23a62f3a-c513a9aa815mr1870553166b.34.1795712696391; Thu, 26 Nov 2026
- 09:04:56 -0800 (PST)
+        d=1e100.net; s=20260707; t=1795712818; x=1796317618;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0yjxrZbpz1L+siRYyu7F1RBOFIChPAKyEA33AawY46g=;
+        b=FuhHUqW72wrpQYQlJTlRP73Khp4EGr5VQujh07SEnzXl1CGpyCtPnYcsTech401jY1
+         mLCjo+ODHU7UeXT2gyI0swxHNx51cId8H7x0WeS4OoKlVj6d3RpB5FUAoUvXD1qlL1Xo
+         sA8Xlua2gvxzZttth9dTWLiSDVdWg+RMVtmBGycZ/qfU15NY/IJORZSeyeFbdcTNJVfz
+         131Q/9tWY747fUWB7t+whYwmosmUDn+45BTG8tBNIFp27Rige+J71UlzftsirgknMXR1
+         y913OnBfGK21HXIE11q6d66O30yVUoPYaAmt9iHwYuRhcmZoT7F6khEXNdIwNCFsfKcA
+         fqNw==
+X-Forwarded-Encrypted: i=1; AL+hErEPyE5lcOOuxCkxNFy+8ykuIXC5nVLLsleE9BOOmSZWLSZyld1vAFSa2QG2RO7hC20l6LuQ+8Q=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8zvuYlWY9Bq2iumOwpgnLQTszG6BcNRuLWIuUG9VYS0KC9d2yj
+	M4ENnwiEji57qQIUBdwXzSmGW9rP9K8sxu6t7Fs0Gd1rJWgMuTPDvT5qpKTqVfgUQ3tjqtsr0aQ
+	8fcoERLiHWl/o9/DRqv6lwh3zutxcKQTxiJul8a6Nfj5W4zfV6u8H0DSyxfmtkxghQQ==
+X-Gm-Gg: AZFdTZcnsDP6s8bbVpCWyqGrie6jZNq8wsrZiJEOxCV8WEtuJp01F81zBelEeqL5e+u
+	5JAnMoL+f4raVX4smxzPKxUt2jLZ1zZiaNGPV5Wp8CFtForqa45GXfFXSZCV7FvmxBX/58ygCrF
+	OWIdSY30Ju34atkG3rYAL23I/BsSHEqSz+0L5LYE3fdHLMWIo2eclmCA4mxZflB+zdQ4SccU7GW
+	mhJTFQSy1yhZF/JrjLZeoV8KA+VwyT9oUq8jcS56bMY4b+Rdl+zkq40jTLouklF1Fzsb20X+cFN
+	/9UMvCJwyMY72+O4lZC556q/9YV6x8JU9hO+ZzS9thIPJezCy47OzsbTnXjoCYnR1GVIWT+SMcO
+	Nm9BQzsQWR0VbXDngPOquG2X/0HLgSq948xc6+4E5fHmT5hrYWSDnbQ==
+X-Received: by 2002:a05:600c:1d09:b0:4bb:66fd:ad68 with SMTP id 5b1f17b1804b1-4bb888160cdmr463369905e9.14.1795712818125;
+        Thu, 26 Nov 2026 09:06:58 -0800 (PST)
+X-Received: by 2002:a05:600c:1d09:b0:4bb:66fd:ad68 with SMTP id 5b1f17b1804b1-4bb888160cdmr463368905e9.14.1795712817454;
+        Thu, 26 Nov 2026 09:06:57 -0800 (PST)
+Received: from sgarzare-redhat ([80.116.143.202])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb906c089dsm362731005e9.1.2026.11.26.09.06.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 09:06:55 -0800 (PST)
+Date: Thu, 26 Nov 2026 18:06:47 +0100
+From: Stefano Garzarella <sgarzare@redhat.com>
+To: Sergio Lopez <slp@redhat.com>
+Cc: Bobby Eshleman <bobbyeshleman@meta.com>, 
+	Alexei Starovoitov <ast@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
+	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
+	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
+	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
+	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
+	virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	kvm@vger.kernel.org, bpf@vger.kernel.org, linux-hyperv@vger.kernel.org, 
+	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, 
+	Sashiko AI bot <sashiko-bot@kernel.org>
+Subject: Re: [PATCH RFC v4 0/8] vsock: add datagram support to virtio and
+ vhost
+Message-ID: <awhAaTuR375RpyAE@sgarzare-redhat>
+References: <20261124-vsock-dgram-support-v4-0-3607484e85e8@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -94,66 +127,115 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261126-lklm-sysctl-ctx-flatarray-v1-0-d7fc9cc9b03e@kernel.org> <20261126-lklm-sysctl-ctx-flatarray-v1-1-d7fc9cc9b03e@kernel.org>
-In-Reply-To: <20261126-lklm-sysctl-ctx-flatarray-v1-1-d7fc9cc9b03e@kernel.org>
-From: Linus Torvalds <torvalds@linux-foundation.org>
-Date: Thu, 26 Nov 2026 09:04:40 -0800
-X-Gmail-Original-Message-ID: <CAHk-=wir6u-wFF8+V6DZTqJUsgvRrSpkZ_FV9QcK58G-b1N7bA@mail.gmail.com>
-X-Gm-Features: Aa3M54os_jwm08rJOj6LitTJqSmdyD486qskvu_4qaUDpWGX1bG3bIuR7eJcvH4
-Message-ID: <CAHk-=wir6u-wFF8+V6DZTqJUsgvRrSpkZ_FV9QcK58G-b1N7bA@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/9] sysctl: Add struct ctl_table_tmpl as a distinct
- template type
-To: Joel Granados <joel.granados@kernel.org>
-Cc: Kees Cook <kees@kernel.org>, Alexey Gladkov <legion@kernel.org>, 
-	David Laight <david.laight.linux@gmail.com>, Wen Yang <wen.yang@linux.dev>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Simon Horman <horms@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-fsdevel@vger.kernel.org, netdev@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <20261124-vsock-dgram-support-v4-0-3607484e85e8@redhat.com>
 
-On Thu, 26 Nov 2026 at 03:47, Joel Granados <joel.granados@kernel.org> wrote:
->
-> +/* Template version of struct ctl_table. Used for registering ctl_table templates */
-> +struct ctl_table_tmpl {
-> +       struct ctl_table t;
-> +};
+On Tue, Nov 24, 2026 at 01:20:18PM +0100, Sergio Lopez wrote:
+>This RFC adds SOCK_DGRAM support to virtio-vsock and vhost-vsock through
+>the existing AF_VSOCK API. It is intended for guest and host services
+>that exchange independent requests, responses, or events and need message
+>boundaries and sender addresses without a stream connection or application
+>framing.
 
-So I really don't like members named 't'.
+Thanks for restarting this work, I have finally found the time to took a 
+quick look, sorry for the delay.
 
-I see why you are doing it, but maybe you aren't aware that we already
-enabled ms-extensions, and you can actually use *unnamed* structs in
-templates.
+Reading the cover letter, it is not clear to me the changes we are doing 
+to the core and VMCI that was already supporting DGRAM. I'd like to 
+understand better how the backward compatibility is handled and how VMCI 
+behavior is preserved. Also reading commits, most of them just contains 
+a description of what the code is doing, but they lack the reasons 
+behind the changes (i.e. the why).
 
-So you can do
+Overall it seems the right direction, but I have some open questions 
+(some of them discussed with Bobby, Stefan, and I at KVM Forum some 
+weeks ago):
+- Can the virtio flow control be affected by a flood of dgrams ?
+   See https://docs.oasis-open.org/virtio/virtio/v1.4/virtio-v1.4.html#x1-5720001
+   and virtio_vsock_pkt_info.reply / virtio_vsock_skb_reply(skb) 
+   handling.
+- Did you test virtio transports when VMCI transport is also loaded?
+   That one is automatically loaded (for historical reasons) first time 
+   AF_VSOCK socket is created, if af_vsock.ko is not loaded. So could be 
+   a common scenario.
+- Any limitation of the current implementation that we will need to 
+   fix/implement in next steps?
+- Any performance number?
 
-    struct ctl_table_tmpl { struct ctl_table; }
 
-and that gives you a new type that you can use without any "t." kind
-of thing, but is still distinct from 'struct ctl_table".
+About patches, I started to review, but I hit a wall with patch 6. It's 
+too big and really hard to review/maintain. Please split it (e.g. the 
+refactoring for vsock_assign_transport can be moved out, etc.). Also 
+there are too many if() with conditions duplicated and few comments on 
+those conditions, for example:
 
-Note: being unnamed is very convenient in some situations, less so in
-others. If you actually then want to access not the individual fields
-(which is very easy), but get from the template to an actual "struct
-ctl_table", you'd have to use some explicit helper wrapper, something
-like
++	if (sk->sk_type == SOCK_DGRAM && !transport_dgram_fallback &&
++	    new_transport == transport_g2h && transport_h2g &&
++	    transport_h2g != new_transport &&
++	    try_module_get(transport_h2g->module))
++		fallback_transport = transport_h2g;
++	/* Loopback can own datagram state when directional transports cannot. */
++	if (sk->sk_type == SOCK_DGRAM && !transport_dgram_fallback &&
++	    new_transport != transport_local && transport_local &&
++	    transport_local != fallback_transport &&
++	    try_module_get(transport_local->module))
++		local_fallback = transport_local;
 
-   static inline struct ctl_table *template_to_inner(struct ctl_table_tmpl *a)
-   { return container_of(&a->procname, struct ctl_table, procname); }
+This seems a regular pattern, please make sure duplicate code/conditions 
+are factored out.
 
-or whatever.
+Patch 7 should be vsock/virtio, no? Also should be moved before we 
+enable F_DGRAM?
 
-Honestly, right now you seem to do something really ugly: you have
-that 'template', but then you hardly ever *use* it as anything but a
-top-level interface, and you turn it into a 'struct ctl_table *' very
-early. And that looks like it's done exactly to avoid the whole
-messiness with the 't' member - but it also measn that internally that
-"template" has lost almost all meaning, and it looks like a regular
-ctl_table.
+Also check better the bisectability, I'm confused why the changes in the 
+core happen after we expose F_DGRAM to device/driver.
 
-Maybe that's fine. But it feels like the template is less of a real
-template than just a wrapper that is only used at the top-level
-wrapper and then never again. That does *not* work well if you were to
-add a few extra fields to the template (that is then *not* in the
-struct ctl_table. because they are only used to set it up). Hmm?
+I'll send some reviews I did before stopping with patch 6, I'll take a 
+deeper look patch by patch in the next release.
 
-              Linus
+
+Here other issues spotted by an LLM reviewing (line numbers refer to the 
+full series applied), please check if they are valid:
+
+- [PATCH 3/8] net/vmw_vsock/virtio_transport_common.c:357-360
+   (virtio_transport_send_pkt_info())
+   When sk_wmem_alloc reaches sk_sndbuf, the datagram path returns -EAGAIN
+   even for blocking sockets: nothing waits and SO_SNDTIMEO is ignored.
+   UDP and AF_UNIX datagram sockets block in sock_alloc_send_skb(). The
+   selftests always send with MSG_DONTWAIT, so they don't cover this.
+
+- [PATCH 6/8] net/vmw_vsock/af_vsock.c:588 (vsock_use_local_transport())
+   Stream/seqpacket routing changes: when the registered G2H transport is
+   virtio without a device (get_local_cid() == VMADDR_CID_ANY),
+   connect(VMADDR_CID_HOST) now goes to loopback instead of virtio
+   (-ENODEV). This hits a guest before probe or after hot-unplug, where a
+   local listener can then stand in for a host service. The commit message
+   says the host alias "remains", but before this series it never applied
+   while a G2H transport was registered. Using dgram_transport_match as an
+   "is virtio" test in stream routing also looks like the wrong layer.
+
+- [PATCH 6/8] net/vmw_vsock/af_vsock.c:1674 (vsock_dgram_resolve_cid())
+   VMCI registers as the datagram fallback when its module loads, even if
+   it has no guest/host context. In that state get_local_cid() returns
+   VMCI_INVALID_ID, which is VMADDR_CID_ANY. A wildcard-bound or auto-bound
+   socket then matches the first branch, svm_cid stays VMADDR_CID_ANY, and
+   every wildcard sendto()/connect() fails with -EADDRNOTAVAIL, even with
+   vsock_loopback loaded. Because of MODULE_ALIAS_NETPROTO(PF_VSOCK)
+   (vmci_transport.c:2170) this module is often loaded on non-VMware
+   machines. In that case VMCI also owns every datagram socket and creates
+   a VMCI handle on each bind. (Sashiko reported the same issue on v4.)
+
+- [PATCH 6/8] net/vmw_vsock/af_vsock.c:833 (vsock_dgram_get_transport()),
+   called for every send (af_vsock.c:1740) and for every packet received on
+   a connected socket (virtio_transport_common.c:1840, from
+   virtio_transport_dgram_source_allow())
+   Each datagram takes the global vsock_register_mutex, does a module
+   get/put and may do several vhost_vsock_get() lookups, which serializes
+   all datagram traffic in the system. On RX this happens in the RX worker
+   while it holds rx_lock/vq->mutex and lock_sock(). (Also reported by
+   Sashiko on v4.)
+
+Thanks,
+Stefano
+
