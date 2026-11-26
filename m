@@ -1,101 +1,116 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.45
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795722111;
-	b=yiDYaD+uJhGFQdtrV2k1m8LigsqRy6nhu3BDO0+jsSs7q6BqSEtApXVNGRO9yxnWJ1tO
-	 7oG8CaTZUHolWmxIMQufCFnRW/xYLp1UIKA4Qo8hqoKhiesGHjji5hlka4SRNDmjLzwfy
-	 WNzpRqguZ+IG2Xaijv+ivJFd6seS2ZUtETRBCibv4FxSv8v9B60RncFryihWw+6EcNFYG
-	 K/t6jIoDNUdDMMrqJQxXfSOlULPYB92lS1bH8WCzhTIEjN526+MV/U48R7Csd/xmcz88b
-	 URFZYwmKSNlFYcIZKDVPrejU59urV69JfijwK8R+C/+YQ8h6AIN/Y7U77NmSh2UCusA==
+	t=1795722235;
+	b=VlIgufBcK7pLRx9o9oLMnCko2aoCmDMoQ9XONHeBsYpHEisC8E39q4egXlxlQPBm3flb
+	 NPTZpcXM1lKg89zY8+z0rWiBvzShX+Ov2ihTACiFTpa/+F9Y5GrdOFFkhADx1n2MGrWbh
+	 v+zETo38qwis9wyYW/39+U9jIRF9V/0KkSS8f4P6vnFFWdrHoszn8dQm+x65XohKpc13w
+	 Gq1swzcIdlbbD7SM34HeTv+HK5VwdlYJQqkJ/CQ7DmP8UifU4q/9twON8Yola40origC6
+	 gFiedEgmdteMVFwfCZm4xw8yIUaRkpG1+4AN3IqjptZWbyRD2ZO22+DX3htzGwdAZqg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795722111;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795722235;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:Content-Type:
 	 Content-Transfer-Encoding;
-	bh=u7bMR0NH97UysFgcHpVxFEkH06XWepp/spUciEW9m+c=;
-	b=NtNN8cz2HzGt21B71ft8rhQ0/gk1vkd6wG4z7sfK9Dz+44k1IhCZ1IcsnA8u6Sk6ajBF
-	 uXUPimqEhdPOyG3LqProEMKqIMtbIog31Pn6sdQjqyqldKEmXDuBmBoP2OBjZFNytUcNO
-	 RA/jPpBb3vCLxVNlOae/xwxRI87IvmlFx/Jtpre2S+RCtsfjlwTBmxJVw2gAmi8/cH74Q
-	 txgQmt+mnnw7JCuCp4ITPv/hyKeh2/rxEsbWmK3L24ckhPie9mEJFsmA9uwh4DeB1VtIq
-	 2NUMwxr/VGfGudB8ql9HoFbXqWIJnT6OQE2lJGK8drsGPsQzgRPJCcgRNxMQzFXbiTw==
+	bh=0P+afiYP4rfSnxzXHVdIh7omPyidFVRRqauBrgysGMg=;
+	b=Ls3ErUwlA4/NTGEkgSdw7T/nUZYmVTgXmsQ7dvPeU9ernCHU6MuTogXtpX54zbilpHfF
+	 3r2Td225sd31nLCsYO4RTTrWRBJSaN/HNX+glxr052nUYu/J+jTVojp6+SaISzyZKKQqV
+	 4zM8Fjs5jOgmfhlKkA4YEfvk+pLK/5AxOW3/5X9g+zeszY7EElBfCVzBVm75FqbC0w5BV
+	 HGS7WWMrYLVr4OwjVs6CQGVf0nneBgMpvQWZg1R1YBg4m9l9I4nbahdrpL+QWXTjGa0rv
+	 XUsKwAA6MRYvQHAcj1VdNtUe3yrmdh2YfrQ5/TmDUZigwajGGn+QH3T7+52N4pbGaRg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DBSavDW2;
-	arc=none smtp.remote-ip=209.85.210.179
-Received: from mail-pf1-f179.google.com (mail-pf1-f179.google.com [209.85.210.179])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fhdSYHug;
+	arc=none smtp.remote-ip=209.85.128.45
+Received: from mail-wm1-f45.google.com (mail-wm1-f45.google.com [209.85.128.45])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6CD8F606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:41:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6CD8F606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 84613606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 19:43:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 84613606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DBSavDW2
-Received: by mail-pf1-f179.google.com with SMTP id d2e1a72fcca58-89d6bd67045so3409420b3a.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:41:51 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fhdSYHug
+Received: by mail-wm1-f45.google.com with SMTP id 5b1f17b1804b1-4a214c5c4c0so70972865e9.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 11:43:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795722111; x=1796326911; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=u7bMR0NH97UysFgcHpVxFEkH06XWepp/spUciEW9m+c=;
-        b=DBSavDW2tSsJzfsGTn1C+MnP1hyGoGH03O1OwpV6O9qdYItjlpMaWO94OJwwIliWYz
-         LANz9y/t8Pjl0Ndzm1s/ztrUgV73MtQ6rmx2XDK2VzJK/I4U6o7Wag5cpPNf5MAO8rNX
-         H0hrzoDzHk8PPsbesRYrHUVKYqXecmTAKCDmrM5nXCmY9zdv3dOrKa8RFwAIRPVsF0uq
-         DmIArc/xG0hpys2Ul2BWGWA8mkVpH5oJvE8KvTJE4UVCWdjVTCvLTq2WsUVUwnEts3my
-         Oz3VmqzXJPVwh/ZzAVaBpQi4UBmJ8BDhOvDgEJ/LZVf5JN3zq+X/q8gj4DwgmydAtmg/
-         GQbw==
+        d=gmail.com; s=20260707; t=1795722233; x=1796327033; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=0P+afiYP4rfSnxzXHVdIh7omPyidFVRRqauBrgysGMg=;
+        b=fhdSYHugrQHo09L4nLloEF4mk3hkzNwZBp9BAGnhIDY3iOWaBFG7EKz+9dqkISQJqv
+         nmVKFwfaud19WOASH+xfGC4xeoRLVJaxxLdOURer63seqUvIi6aGkz6zxSNgvSHtwz1/
+         W5zdi9Fbto0rMKrLe5cIuWrXHOLTDNlanztZD7WJp1QSTFg4dwKeTrxalfZzt+Z3TadO
+         15HdPtkmZm5DJmLgqYEZbUjjij36sjBB2IhoiijlPy5DWgTti+gDfRfxyx/RoD9V9oV2
+         tEKnE3gcWLEgP1vqxbeYEnTwFd4Gf9Y+DygwMnFhkPSeH6pAOhQ6n6zqB+YiT1MtPTXX
+         DCbQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795722111; x=1796326911;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=u7bMR0NH97UysFgcHpVxFEkH06XWepp/spUciEW9m+c=;
-        b=yizf5HRe9O2BIR+oEmPFAKZSRRop4f9cNl/lM5mXvjGUeV2svYKO1Jxk4/0LwWnXh6
-         Q6OmVQNXP+BBIlB3zmrJUR1Fy5YTA83QvX3OvbxTo0DWq/wuu1U/O6nOEkNy04FZLFHn
-         zEzXEcwnVfvcqFlv8wYnUOBrKWa79dqIhUHlxhWVJV3EVoNbM69CWHzQe9izbataVps7
-         R1B9N9kZP1QHc042+oFbMI3ghmNNQOw9vsOlHPjxIyL1kmHJ0xOsHjjt4n6MjoG3POss
-         OugOsodFQ2hcQxyUwluC6p40XlaMMFSHzatoCfbdc3ctsRqRcaSNjkL+tOGR6h1o5E73
-         x/6Q==
-X-Gm-Message-State: APuU4Z8PeMzTn14DiMFQlpt4pi/d4mqgUWNRYED8zclJbGQlurZLcknc
-	LYG0t19HaMhug6halFOp1gRfwuTCigKCIvk3HjIn0ZRCTPaF1KDghis1Z+Fw4xG4qx8=
-X-Gm-Gg: AZFdTZemkpYq7a6T1vf2VFKRG0yZsm0tGXbY3lHKd6bkLpNc09wYF8ZFKQPVruHjCaw
-	3i6xC8y3XpiyRLLppW/pSkFbyo3vqmWkRgJPYBDLxZv4Wgm2X3ZTM4fPRbSWKgzhkbu1+LsQ9E4
-	1Pb6MTkWKY7aVCRQtx3zdOZXSrIse91xwuA4kQ7C0SviDdgt8S+k0iHnbTilWyeRlMpcTdL8j1k
-	cpcEVxqZmI0VZZ1i8MXXP4DVwY5TUGUUuKIigXxi5QF14D9IkkO7sRl2vyxBn2UvZqJy3wwIJ9q
-	9BsewygfKykmXLXCwOi5C0Qf7LSRWG4TlesyWQNkgqYmZp4aF2vMWlkE+hDjr63wGGsc9Q0chgG
-	Qbk7pkr/QBJ4yjLNKUXcWZUKoe1P5uXM+Ki5yyE+WlzMCsByWS0Wk8OmfahTkgS+vQkOuxE2sD1
-	8lqjtJUeFItzLtMy0e4vC3GtTVkUAefT3rKD59PCvbPTBnTrNA8L1MTmXJGMGVuJJu6XduEqxiS
-	pzBV34B16sKCoV2821MBMm9bsAg+uWvrDMhaAwuwYuh5cFCIK0efn7NMmN5WFXMFNy+FQkWF3Bo
-	GbSOoxOjKihFVCXU
-X-Received: by 2002:a05:6a00:39a3:b0:8a0:22e0:a3ce with SMTP id d2e1a72fcca58-8c7db1eeaaamr15590669b3a.4.1795722110622;
-        Thu, 26 Nov 2026 11:41:50 -0800 (PST)
-Received: from x1.hs.local ([2601:600:a482:7d70::5e59])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-8c873442863sm11370474b3a.43.2026.11.26.11.41.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 11:41:50 -0800 (PST)
-From: David Westen <davidlwesten@gmail.com>
-To: netdev@vger.kernel.org
-Cc: Loic Poulain <loic.poulain@oss.qualcomm.com>,
-	Sergey Ryazanov <ryazanov.s.a@gmail.com>,
-	Johannes Berg <johannes@sipsolutions.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
+        d=1e100.net; s=20260707; t=1795722233; x=1796327033;
+        h=content-transfer-encoding:content-type:mime-version:message-id:date
+         :subject:cc:to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=0P+afiYP4rfSnxzXHVdIh7omPyidFVRRqauBrgysGMg=;
+        b=pZoxh28N9vTkuNpysO11eGXvrn+P1BuDVSAcXe4zoSDBZXLJeUU31jO1uY8UyjWVxs
+         pEN2eQZ4Sh7BijaHRXkMdoOcqp8hCrZpNVp6HZmdDrjkVD5SRaMNSNm2b2tYVPEjQW1c
+         puaWTlm4VboUPOW0Rsm9fwzol0ScgmNR85zK1nedGNuc5Mq/CoYi4gGDi9EAf7ciP8cH
+         MfDGfTUXstGfGo8oLBZy618XQhl+gGCgpqGRtO4BJ4r6cycT50nq5g2NoKV+JPzieHNz
+         V9JdCa8rGwqH11h5clW70dqbQk8Z23A55AZwRY5gfvTgJGEr9wGBUuBcTIxt2vWJDaWu
+         b0Hg==
+X-Forwarded-Encrypted: i=1; AL+hErGpNGQQP7W3SCuDmGwcTVGWCQbmRn/hd5KHFiZlT3g3IyunpR+xJyACVWj6TgzZTW3ZGHd440g=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8TCiLoD2Aj//rOjxnlKwFybby0xpdkoDBTC+QHxR3qQICCM0Eq
+	FygEa6I82pMZeDZWXvXv723eSRZy+2RG1IsE0PQ7r7Mnvs/NVhy6Xzc=
+X-Gm-Gg: AZFdTZei4t3uS+w1OTq6Q3qxS6yjTYQXCZ2FFmd2Vvu8IYWumKWLaeCDw6q4sVMseiZ
+	CFIoxYJTt/GbnKt63rRDJwxsLWdQr9pkVnoOsUVHJihlAprGlQYVH5Hj59loaIbd3HM6Bk4ZDdc
+	ByrM6cHEHxxJhKOqK6e1h3lCdOXztOC8ExRmavHfhnGSHcxh1fd3+yRO2+Wgz+2L365dnDZTkTb
+	8oc9EhQbZHLdV8UvkyH5Zp+ChVhBja9HNppDr4VGMaxEu/k73gjGQjytztGOPFAewUhH24iDocT
+	mwWlj202tJPkxgXse2F7kTnDkFuKi/Wwjdn3AE7++FiFX45DB+gq6O9wlnVp0KDmrwXADNTQjXf
+	4sHyXMuLzTXWLZyOdGcV4i1cEKsBbvWmQeKxoLdCyzWlSA8u5rpjGdWubEKHxEB3IoImVisfoP7
+	B9atFs6QN6S8iF6U724uFGjFnCCWeKmTW1w/1pbpA71fU/a5232Da/HnuorG6Zag3RoUlLI3/A8
+	pqXVXBHqORx04I2+xNyXiRQ2CUU74/TzIHFSEzMi/wM/2RceXzBIP6VsIOKvm9ggrGJ1KqMISae
+	4CVix2IXPBWSCRFVKNOeOrRLRsxHJjc2RPo51Q0jgj18xwbu32WI858KzYIC81+ZEvpynXSPzZO
+	jrhIkgBShncfq7cXZhn5QaUvNUTZykESHrB+vLdutK4neehCTPI9rvg/p5sptWPCLaWkiSZJ4xu
+	pHhTjqxvKLxMjybsk3H0J8hSPd0tuS6Goe
+X-Received: by 2002:a05:600d:1c:b0:4bb:9dbd:feb7 with SMTP id 5b1f17b1804b1-4bb9dbdff35mr194083605e9.9.1795722232705;
+        Thu, 26 Nov 2026 11:43:52 -0800 (PST)
+Received: from localhost.localdomain (dynamic-2a02-3100-2317-a900-4811-d431-309f-6626.310.pool.telefonica.de. [2a02:3100:2317:a900:4811:d431:309f:6626])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab658e2d60sm43663924f8f.3.2026.11.26.11.43.50
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 11:43:51 -0800 (PST)
+From: Tobias Philipp <tphilipp@gmail.com>
+To: bpf@vger.kernel.org
+Cc: Tobias Philipp <tphilipp@gmail.com>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Andrii Nakryiko <andrii@kernel.org>,
+	Martin KaFai Lau <martin.lau@linux.dev>,
+	Eduard Zingerman <eddyz87@gmail.com>,
+	Kumar Kartikeya Dwivedi <memxor@gmail.com>,
+	Song Liu <song@kernel.org>,
+	Yonghong Song <yonghong.song@linux.dev>,
+	Jiri Olsa <jolsa@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>,
+	Emil Tsalapatis <emil@etsalapatis.com>,
+	Ihor Solodrai <ihor.solodrai@linux.dev>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
 	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	M Chetan Kumar <m.chetan.kumar@intel.com>,
-	"Maciej S. Szmigiero" <mail@maciej.szmigiero.name>,
-	David Westen <davidlwesten@gmail.com>
-Subject: [PATCH net v3 2/2] net: wwan: iosm: re-bind the driver when the modem rebooted during S3
-Date: Thu, 26 Nov 2026 11:41:43 -0800
-Message-ID: <20261126194143.32283-3-davidlwesten@gmail.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <20261126194143.32283-1-davidlwesten@gmail.com>
-References: <20261126194143.32283-1-davidlwesten@gmail.com>
+	Shuah Khan <shuah@kernel.org>,
+	Felix Fietkau <nbd@nbd.name>,
+	=?UTF-8?q?Thibaut=20VAR=C3=88NE?= <hacks@slashdirt.org>,
+	Stijn Tintel <stijn@linux-ipv6.be>,
+	Daniel Mack <daniel@zonque.org>,
+	netdev@vger.kernel.org,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH bpf-next v3 0/4] bpf: Fix 8-byte alignment of map values
+Date: Thu, 26 Nov 2026 20:43:43 +0100
+Message-ID: <20261126194347.42466-1-tphilipp@gmail.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,292 +120,153 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 
-On platforms where S3 cuts power to the WWAN card, the modem boots
-again while the driver still treats it as running, and the first port
-open after resume fails:
+The verifier checks the alignment of BPF_DW atomics and 64-bit
+load-acquire/store-release on PTR_TO_MAP_VALUE only against the offset
+within the value. It assumes that the value itself is 8-byte aligned.
+That does not hold for all map types. Address of the value mod 8, as
+measured on bpf-next (see Testing below):
 
-  iosm 0000:03:00.0: PORT open refused, phase A-CD_READY
+                                    64-bit    32-bit
+  lpm_trie, key_size 8 (IPv4)          4         0 (by accident)
+  lpm_trie, key_size 20 (IPv6)         0         4
+  hash, rhash (BPF_F_NO_PREALLOC)      0         4
+  devmap, devmap_hash                  4         4 (harmless, see patch 3)
 
-The driver takes this from a stale stage in the shared memory: on an
-XMM7360, the modem writes CD_READY there before it loses power. The
-modem itself is fine.
+On arm64 the JIT emits LSE atomics or LDXR/STXR loops, LDAR and STLR
+for these instructions. They fault on misaligned addresses; with
+FEAT_LSE2, LSE atomics, LDAR and STLR only when the access crosses a
+16-byte boundary. On arm32 the interpreter uses atomic64_*(), i.e.
+LDREXD/STREXD, which require 8-byte alignment. On x86-64 a locked
+8-byte access at 4 mod 8 that crosses a cache line is a split lock,
+which is fatal in kernel mode on CPUs with split lock detection. None
+of these faults is fixed up.
 
-On resume, read the stage from the MMIO area. If the modem booted
-again, mark it as gone: the driver then neither talks to it nor waits
-for it, and the cleanup only releases memory. Once the modem has
-reached the run stage, re-bind the driver, so that probe finds it as
-after a cold boot. Nothing changes where the card keeps power, and a
-crashed modem is left alone.
+Patch 1 is Felix Fietkau's fix for bpf_mem_alloc on 32-bit [1]. It was
+posted in July and is not applied yet. It is included unchanged apart
+from a rebase, because patch 2 depends on it. It fixes the hash and
+rhash rows and the node alignment of lpm_trie on 32-bit. The Sashiko
+review of that posting points out a pre-existing 8-byte load of the
+4-byte percpu pointer in the bpf_per_cpu_ptr()/bpf_this_cpu_ptr()
+fixup on 32-bit. Patch 1 neither causes nor fixes it, and this series
+does not address it. Among the 32-bit JITs only x86 supports kfuncs,
+so only x86-32 can reach it. Using BPF_SIZEOF(void *) for that load
+would fix it.
 
-Tested with S3 on an XMM7360 in a ThinkPad X1 Carbon 6th gen, with
-KASAN, lockdep and a strict IOMMU: five cycles, also with wwan0 up
-through the suspend.
+Patch 2 places the lpm_trie value at the next 8-byte boundary after the
+key and shrinks prefixlen and flags to u16, so that nodes don't grow.
 
-Fixes: 7e98d785ae61 ("net: iosm: entry point")
-Signed-off-by: David Westen <davidlwesten@gmail.com>
----
- drivers/net/wwan/iosm/iosm_ipc_imem.c      | 47 +++++++++++++++++++++-
- drivers/net/wwan/iosm/iosm_ipc_imem.h      | 18 +++++++++
- drivers/net/wwan/iosm/iosm_ipc_imem_ops.c  |  4 ++
- drivers/net/wwan/iosm/iosm_ipc_irq.c       |  3 ++
- drivers/net/wwan/iosm/iosm_ipc_mux_codec.c |  6 +++
- drivers/net/wwan/iosm/iosm_ipc_pcie.c      | 37 +++++++++++++++++
- drivers/net/wwan/iosm/iosm_ipc_protocol.c  |  3 ++
- 7 files changed, 117 insertions(+), 1 deletion(-)
+Patch 3 aligns the devmap value.
 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem.c b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-index 3ab409166c50..673c5ad403e7 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_imem.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_imem.c
-@@ -208,6 +208,9 @@ void ipc_imem_hrtimer_stop(struct hrtimer *hr_timer)
-  */
- void ipc_imem_adb_timer_start(struct iosm_imem *ipc_imem)
- {
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_imem->flag))
-+		return;
-+
- 	if (!hrtimer_active(&ipc_imem->adb_timer)) {
- 		ipc_imem->hrtimer_period =
- 			ktime_set(0, IOSM_AGGR_MUX_ADB_FINISH_TIMEOUT_NSEC);
-@@ -1042,6 +1045,44 @@ void ipc_imem_pm_s2idle_sleep(struct iosm_imem *ipc_imem, bool sleep)
- 	ipc_protocol_s2idle_sleep(ipc_imem->ipc_protocol, sleep);
- }
- 
-+bool ipc_imem_modem_rebooted(struct iosm_imem *ipc_imem)
-+{
-+	if (!test_bit(FULLY_FUNCTIONAL, &ipc_imem->flag))
-+		return false;
-+
-+	switch (ipc_mmio_get_exec_stage(ipc_imem->mmio)) {
-+	case IPC_MEM_EXEC_STAGE_RUN:
-+		return ipc_mmio_get_ipc_state(ipc_imem->mmio) ==
-+		       IPC_MEM_DEVICE_IPC_UNINIT;
-+	case IPC_MEM_EXEC_STAGE_CRASH:
-+	case IPC_MEM_EXEC_STAGE_CD_READY:
-+	case IPC_MEM_EXEC_STAGE_INVALID:
-+		return false;
-+	default:
-+		return true;
-+	}
-+}
-+
-+bool ipc_imem_wait_for_run(struct iosm_imem *ipc_imem)
-+{
-+	int timeout = IPC_MODEM_BOOT_TIMEOUT;
-+
-+	for (;;) {
-+		switch (ipc_mmio_get_exec_stage(ipc_imem->mmio)) {
-+		case IPC_MEM_EXEC_STAGE_RUN:
-+			return true;
-+		case IPC_MEM_EXEC_STAGE_CRASH:
-+		case IPC_MEM_EXEC_STAGE_CD_READY:
-+			return false;
-+		default:
-+			break;
-+		}
-+		if (!--timeout)
-+			return false;
-+		msleep(20);
-+	}
-+}
-+
- void ipc_imem_pm_resume(struct iosm_imem *ipc_imem)
- {
- 	enum ipc_mem_exec_stage stage;
-@@ -1204,6 +1245,9 @@ static void ipc_imem_device_ipc_uninit(struct iosm_imem *ipc_imem)
- 	int timeout = IPC_MODEM_UNINIT_TIMEOUT_MS;
- 	enum ipc_mem_device_ipc_state ipc_state;
- 
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_imem->flag))
-+		return;
-+
- 	/* When PCIe link is up set IPC_UNINIT
- 	 * of the modem otherwise ignore it when PCIe link down happens.
- 	 */
-@@ -1440,7 +1484,8 @@ struct iosm_imem *ipc_imem_init(struct iosm_pcie *pcie, unsigned int device_id,
- void ipc_imem_irq_process(struct iosm_imem *ipc_imem, int irq)
- {
- 	/* Debounce IPC_EV_IRQ. */
--	if (ipc_imem && !ipc_imem->ev_irq_pending[irq]) {
-+	if (ipc_imem && !ipc_imem->ev_irq_pending[irq] &&
-+	    !test_bit(IOSM_MODEM_GONE, &ipc_imem->flag)) {
- 		ipc_imem->ev_irq_pending[irq] = true;
- 		ipc_task_queue_send_task(ipc_imem, ipc_imem_tq_irq_cb, irq,
- 					 NULL, 0, false);
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem.h b/drivers/net/wwan/iosm/iosm_ipc_imem.h
-index 5664ac507c90..3f6d1ccf2a7c 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_imem.h
-+++ b/drivers/net/wwan/iosm/iosm_ipc_imem.h
-@@ -102,6 +102,8 @@ struct ipc_chnl_cfg;
- 
- #define FULLY_FUNCTIONAL 0
- #define IOSM_DEVLINK_INIT 1
-+/* The modem rebooted: don't talk to it or wait for it until the re-bind */
-+#define IOSM_MODEM_GONE 2
- 
- /* List of the supported UL/DL pipes. */
- enum ipc_mem_pipes {
-@@ -404,6 +406,22 @@ void ipc_imem_pm_s2idle_sleep(struct iosm_imem *ipc_imem, bool sleep);
-  */
- void ipc_imem_pm_suspend(struct iosm_imem *ipc_imem);
- 
-+/**
-+ * ipc_imem_modem_rebooted - Check whether the modem booted again
-+ * @ipc_imem:	Pointer to imem data-struct
-+ *
-+ * Returns: true if it did after the driver had brought it up
-+ */
-+bool ipc_imem_modem_rebooted(struct iosm_imem *ipc_imem);
-+
-+/**
-+ * ipc_imem_wait_for_run - Wait up to about 10 s for the run stage
-+ * @ipc_imem:	Pointer to imem data-struct
-+ *
-+ * Returns: true if the modem reached it
-+ */
-+bool ipc_imem_wait_for_run(struct iosm_imem *ipc_imem);
-+
- /**
-  * ipc_imem_pm_resume - The HAL shall inform the shared memory layer
-  *			that the device is active.
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_imem_ops.c b/drivers/net/wwan/iosm/iosm_ipc_imem_ops.c
-index 109cf8930488..8cff81919480 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_imem_ops.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_imem_ops.c
-@@ -218,6 +218,9 @@ void ipc_imem_sys_port_close(struct iosm_imem *ipc_imem,
- 		return;
- 	}
- 
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_imem->flag))
-+		goto close;
-+
- 	/* If there are any pending TDs then wait for Timeout/Completion before
- 	 * closing pipe.
- 	 */
-@@ -267,6 +270,7 @@ void ipc_imem_sys_port_close(struct iosm_imem *ipc_imem,
- 		ipc_imem->app_notify_dl_pend = 0;
- 	}
- 
-+close:
- 	/* Due to wait for completion in messages, there is a small window
- 	 * between closing the pipe and updating the channel is closed. In this
- 	 * small window there could be HP update from Host Driver. Hence update
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_irq.c b/drivers/net/wwan/iosm/iosm_ipc_irq.c
-index 702f50a48151..d9d0e28fafae 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_irq.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_irq.c
-@@ -25,6 +25,9 @@ static void ipc_write_dbell_reg(struct iosm_pcie *ipc_pcie, int irq_n, u32 data)
- 
- void ipc_doorbell_fire(struct iosm_pcie *ipc_pcie, int irq_n, u32 data)
- {
-+	if (ipc_pcie->imem && test_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag))
-+		return;
-+
- 	ipc_write_dbell_reg(ipc_pcie, irq_n, data);
- }
- 
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-index 0bbd41263cc2..a31f6fa7ea55 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_mux_codec.c
-@@ -150,6 +150,9 @@ int ipc_mux_dl_acb_send_cmds(struct iosm_mux *ipc_mux, u32 cmd_type, u8 if_id,
- 	union mux_type_cmdh cmdh;
- 	int ret = 0;
- 
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_mux->imem->flag))
-+		return -EIO;
-+
- 	acb->if_id = if_id;
- 	ret = ipc_mux_acb_alloc(ipc_mux);
- 	if (ret)
-@@ -1525,6 +1528,9 @@ int ipc_mux_ul_trigger_encode(struct iosm_mux *ipc_mux, int if_id,
- 	struct mux_session *session = &ipc_mux->session[if_id];
- 	int ret = -EINVAL;
- 
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_mux->imem->flag))
-+		return -EIO;
-+
- 	if (ipc_mux->channel &&
- 	    ipc_mux->channel->state != IMEM_CHANNEL_ACTIVE) {
- 		dev_err(ipc_mux->dev,
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_pcie.c b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-index 49052eb511ba..767a609462b4 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_pcie.c
-@@ -427,6 +427,10 @@ static int __maybe_unused ipc_pcie_resume_cb(struct device *dev)
- 
- 	ipc_pcie = pci_get_drvdata(pdev);
- 
-+	/* pm_notify() re-binds the driver for a modem that booted again */
-+	if (ipc_imem_modem_rebooted(ipc_pcie->imem))
-+		set_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag);
-+
- 	switch (ipc_pcie->d3l2_support) {
- 	case IPC_PCIE_D0L12:
- 		ipc_pcie_resume_s2idle(ipc_pcie);
-@@ -532,6 +536,37 @@ void ipc_pcie_kfree_skb(struct iosm_pcie *ipc_pcie, struct sk_buff *skb)
- 	dev_kfree_skb(skb);
- }
- 
-+static void ipc_pcie_rebind_if_rebooted(struct pci_dev *pdev)
-+{
-+	struct iosm_pcie *ipc_pcie;
-+	bool rebooted = false;
-+
-+	device_lock(&pdev->dev);
-+	if (pdev->dev.driver == &iosm_ipc_driver.driver) {
-+		ipc_pcie = pci_get_drvdata(pdev);
-+		rebooted = test_bit(IOSM_MODEM_GONE, &ipc_pcie->imem->flag);
-+		/* Let probe find it in the run stage, as after a cold boot */
-+		if (rebooted && !ipc_imem_wait_for_run(ipc_pcie->imem))
-+			dev_warn(&pdev->dev, "modem not running after resume");
-+	}
-+	device_unlock(&pdev->dev);
-+
-+	if (rebooted && device_reprobe(&pdev->dev))
-+		dev_err(&pdev->dev, "re-binding the driver failed");
-+}
-+
-+static void ipc_pcie_rebind_rebooted(void)
-+{
-+	const struct pci_device_id *id;
-+	struct pci_dev *pdev;
-+
-+	for (id = iosm_ipc_ids; id->vendor; id++) {
-+		pdev = NULL;
-+		while ((pdev = pci_get_device(id->vendor, id->device, pdev)))
-+			ipc_pcie_rebind_if_rebooted(pdev);
-+	}
-+}
-+
- static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unused)
- {
- 	if (mode == PM_HIBERNATION_PREPARE || mode == PM_RESTORE_PREPARE) {
-@@ -551,6 +586,8 @@ static int pm_notify(struct notifier_block *nb, unsigned long mode, void *_unuse
- 				pci_registered = true;
- 			}
- 		}
-+	} else if (mode == PM_POST_SUSPEND) {
-+		ipc_pcie_rebind_rebooted();
- 	}
- 
- 	return 0;
-diff --git a/drivers/net/wwan/iosm/iosm_ipc_protocol.c b/drivers/net/wwan/iosm/iosm_ipc_protocol.c
-index 527355a671b6..a49a45ed0b0d 100644
---- a/drivers/net/wwan/iosm/iosm_ipc_protocol.c
-+++ b/drivers/net/wwan/iosm/iosm_ipc_protocol.c
-@@ -69,6 +69,9 @@ int ipc_protocol_msg_send(struct iosm_protocol *ipc_protocol,
- 	/* Trap if called from non-preemptible context */
- 	might_sleep();
- 
-+	if (test_bit(IOSM_MODEM_GONE, &ipc_protocol->imem->flag))
-+		return -EIO;
-+
- 	response.status = IPC_MEM_MSG_CS_INVALID;
- 	init_completion(&response.completion);
- 
+Patch 4 adds a selftest that checks the address of the value returned
+by bpf_map_lookup_elem() for lpm_trie, hash and devmap. It executes no
+instruction that needs alignment, so on an affected kernel it fails
+instead of crashing.
+
+Patches 1 and 2 have to be applied together: on 32-bit, either one
+alone misaligns the IPv4 lpm_trie value (see "+ patch 1" and
+"+ patch 2" in the table below), and both commit messages say so. I
+kept them separate to keep Felix's authorship; they can be squashed if
+that is preferred.
+
+The other map types that hand a value pointer to programs return 8-byte
+aligned values. cpumap has its value at offset 20 on 32-bit, but the
+verifier does not let programs look it up.
+
+Testing, in disposable QEMU VMs:
+
+- arm64, defconfig + selftests/bpf config, QEMU with HVF on an Apple
+  M-series host (FEAT_LSE2): map_value_align fails on bpf-next
+  (lpm_value_align: 4, devmap_value_align: 4) and passes with the
+  series. With the series, test_maps passes the lpm_trie basic_ops,
+  batch_ops and get_next_key tests and the hash and array tests, and
+  test_progs passes pinning_devmap_reuse and xdp_devmap_attach
+  subtests 2 and 3.
+
+- arm32, multi_v7_defconfig + BPF_SYSCALL, QEMU virt with Cortex-A15
+  (TCG): test_progs is hard to cross-build for armhf, so a small static
+  program does the same check as the selftest: an XDP program looks up
+  each map and stores the value pointer in an array map. Address mod 8:
+
+                         lpm IPv4  lpm IPv6  hash  rhash  devmap
+    arm32 bpf-next           0         4       4     4      4
+    arm32 + patch 1          4         0       0     0      4
+    arm32 + patch 2          4         4       4     4      4
+    arm32 + patches 1-4      0         0       0     0      0
+    arm64 bpf-next           4         0       0     0      4
+    arm64 + patches 1-4      0         0       0     0      0
+
+- pahole matches the layouts in the commit messages: lpm_trie_node
+  data[] moves from 24 to 20 (arm64) and from 16 to 12 (arm32), and
+  devmap val from 52 to 56 (arm64, size stays 64) and from 28 to 32
+  (arm32).
+
+- W=1 builds of the four touched kernel files on x86_64, arm64 and
+  arm32 produce no warnings.
+
+Not tested: runtime on x86_64; test_progs on arm32; selftests that need
+CONFIG_FTRACE or bpf_testmod, which my configuration lacked. That
+includes xdp_devmap_attach subtests 1 and 4 and the bpf_obj_new and
+percpu allocation tests; they failed to load in the same way with and
+without the series. Patch 1 does not change anything on 64-bit. The
+x86 split lock case comes from arch/x86/kernel/traps.c; I did not
+trigger it.
+
+The lpm_trie bug was found with AI assistance while trying to verify
+the correctness of map value accesses with formal methods. Patches 3-4,
+the commit messages and this cover letter were written with the help
+of an AI coding assistant (Claude Opus 5.5). The code of patch 2
+follows Alexei's suggestion.
+
+[1] https://lore.kernel.org/all/20260717183632.99195-1-nbd@nbd.name/
+
+Changes in v3:
+- Patch 2: place the value at round_up(offsetof(data) + data_size, 8)
+  and make prefixlen and flags u16, so that nodes don't grow and move
+  to a larger kmalloc bucket. This drops the BUILD_BUG_ON(), the four
+  round_up() calls and the comment that was not in kernel style
+  (Alexei).
+- Patch 3: use a single-line comment (Sashiko).
+- Correct the FEAT_LSE2 statement for LDAR/STLR in this cover letter
+  and in patches 2 and 3 (Alexei).
+
+Changes in v2:
+- Target bpf-next (Alexei).
+- Fix the 32-bit node misalignment at its root in bpf_mem_alloc by
+  including Felix's patch. v1 rounded data_size up on top of a node
+  at 4 mod 8 on 32-bit and so misaligned the IPv4 value there, which
+  is aligned today (Alexei).
+- Drop "data[] __aligned(8)", which changed nothing (Alexei).
+- Add the devmap fix (Alexei).
+- Add a selftest (Alexei).
+- Correct the commit message, which claimed that the IPv4 value is at
+  4 mod 8 on all architectures.
+
+v2: https://lore.kernel.org/bpf/20261124225055.87344-1-tphilipp@gmail.com/
+v1: https://lore.kernel.org/bpf/20261119155317.11469-1-tphilipp@gmail.com/
+
+Felix Fietkau (1):
+  bpf: Fix alignment of memory allocator objects on 32-bit archs
+
+Tobias Philipp (3):
+  bpf: Align lpm_trie map values to 8 bytes
+  bpf: Align devmap values to 8 bytes
+  selftests/bpf: Check that map values are 8-byte aligned
+
+ kernel/bpf/devmap.c                           |  3 +-
+ kernel/bpf/hashtab.c                          |  2 +-
+ kernel/bpf/lpm_trie.c                         | 22 +++++---
+ kernel/bpf/memalloc.c                         |  8 +--
+ .../bpf/prog_tests/map_value_align.c          | 51 +++++++++++++++++++
+ .../selftests/bpf/progs/map_value_align.c     | 48 +++++++++++++++++
+ 6 files changed, 120 insertions(+), 14 deletions(-)
+ create mode 100644 tools/testing/selftests/bpf/prog_tests/map_value_align.c
+ create mode 100644 tools/testing/selftests/bpf/progs/map_value_align.c
+
+
+base-commit: a58375b858fac35afb78a3dd68ad6a19c01799eb
 -- 
-2.56.0
+2.54.0 (Apple Git-157)
 
