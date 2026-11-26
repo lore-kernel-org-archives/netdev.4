@@ -1,81 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=62.96.220.36
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683585;
-	b=1y/htCoSPQuMgwiMfY/8Yg6FyIEj/mIEeHxaSLBaKsG+MsozWIo2k7QuQp3c23q0D3GK
-	 nExYk+/iUbjxV/BB0Q9bgBBpYxDgDyyPpMxAyzXPjKoPnKflz9cGy7IVmm1N8waOQk6Pt
-	 AaaS2ReyCO67CN3lNfQYV0uLYDtSD8YaCWtAiQTRIaZxws/hzzsaCBeL1INJpCFzDT5t3
-	 9P7/5EnV/oK0gJ0fEX3JnXg/F4IquGhTNy2xNLGSviTv00tQRwJ8GSqG9y96BNaUZZbr/
-	 Zd4jBrFxWa2+czzF6p6WSNB4WK4u66DsRBXT3hN0kBmNnYiHEfI7mYOHuxAQ61d45hg==
+	t=1795683607;
+	b=NU5+QPsqAy9sIPK99bW5yNqzUeR1yh476WoEb07hBWaxR5MzVx6u9g3fbzgUHQlNi7mE
+	 o23tEoHqjwjz34NzkYlvOgjDhvP75EPcJcRwOOQjct5QVx2I+9IXsECxtNaZKV4BNdoyt
+	 ZN6jPGgxd0xIuNLupJfLRCpjY6FiP+RlP+gy1tMDMEqnEqh8PtXw3dU/OUoVTuR3bHPUG
+	 Yi+GjysdStXMPrVMNP5yGcT2dF31murO+rZrcFMN6/IaVWtrk2NfjWq75GTByRRLMrx5D
+	 d+DWrm2f9J+frasRViGUf5Eso7gnGZDrbjKTmcxXmY0pg6hpgzICJnMHfXhCKNLKIDw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683585;
-	h=DMARC-Filter:Received:X-Virus-Scanned:Received:Received:DKIM-Filter:
-	 DKIM-Signature:Received:Received:Date:From:To:CC:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-ClientProxiedBy;
-	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
-	b=qSJcmIZWkUU0N9ppBNXEuIGokbKdWOe4CstG4XD54grpBSmmbdOQPFlpZGhlyglVT6+F
-	 CtYkjitUw5CoC3klvAvnzGRxK2JsgMTAEKSvT8HOmfR2R7q7zx2ufzSM0p8YZwDO6BZma
-	 wmfsxKOJZ3Gf6WLCCbboL/hiCMRrGwf6ZLHWS1xaUGNf54tiJkHrmbwGeL9jZbI7ikMrb
-	 3PM63c1KivAlLTqqBy+9MXir9bTTX2/FrE68OhNyHcI4LlBl+D3SVctmzR6SxuOpRt1Bz
-	 IYXfWRknMjdzP4/6khRfHIQ8VJVuX1+h3v+sUiH94+os41Ve4pvdfS0ZfXlmWtc2pHg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683607;
+	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
+	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
+	 In-Reply-To:To:Cc;
+	bh=TEgty31plzkgiOVV+GRpxhDGlFoQNh5kg6i9e3toEk0=;
+	b=HEDKCrt89MpUBJalc8ErUVj+flnJO/xtJ7wWhm5yJ74apY4ytjNYWKAT2zj7JbBigu7E
+	 UlIT/h6rGLOCyx2j3WzhwNPzwxBQFBCEQJtKBGZT6tLrl3zhUt+pdgCLrCmTOB9nxAgq6
+	 f6mrBvSzWdCS6RmDE6fNB2zNCxw6ewbFqQtFH6b8rGfP1xzI+g42AQhSwn2oyjOZCh0eY
+	 P+RWq+/3prXNPkjB65q9HcGyWy3t3X8LEqjN5Xrc8FqxUpS2D2L5ic8awlcQr9qgouCqp
+	 ALOP8I1KmM/02w8WN6RX+hZQ10I+sTZuEw39q8BtdX+sirSqzSZkp7e9V9qUX67G6RA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=secunet.com;
-	spf=pass smtp.mailfrom=secunet.com;
-	dkim=pass header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe;
-	arc=none smtp.remote-ip=62.96.220.36
-Received: from mx1.secunet.com (mx1.secunet.com [62.96.220.36])
-	(using TLSv1.2 with cipher ECDHE-ECDSA-AES256-GCM-SHA384 (256/256 bits))
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="bCYCE/nH";
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2DCAF606A31C;
-	Thu, 26 Nov 2026 08:59:43 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2DCAF606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=secunet.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=secunet.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id CD8DE606A338;
+	Thu, 26 Nov 2026 09:00:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=secunet.com header.i=@secunet.com header.a=rsa-sha256 header.s=202301 header.b=RvkrkkIe
-Received: from localhost (localhost [127.0.0.1])
-	by mx1.secunet.com (Postfix) with ESMTP id 0235020758;
-	Thu, 26 Nov 2026 09:59:42 +0100 (CET)
-X-Virus-Scanned: by secunet
-Received: from mx1.secunet.com ([127.0.0.1])
- by localhost (mx1.secunet.com [127.0.0.1]) (amavisd-new, port 10024)
- with ESMTP id VGYa7rv3mnB7; Thu, 26 Nov 2026 09:59:41 +0100 (CET)
-Received: from EXCH-01.secunet.de (rl1.secunet.de [10.32.0.231])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.secunet.com (Postfix) with ESMTPS id 513D2206B1;
-	Thu, 26 Nov 2026 09:59:41 +0100 (CET)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.secunet.com 513D2206B1
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=secunet.com;
-	s=202301; t=1795683581;
-	bh=EL1asoxpJj3mS6PiWh3IZjA5s9JX+P0EoH0x0jJdp2g=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To:From;
-	b=RvkrkkIebhzr0A3lbnE+9iLG/GwSN9NTC7XwPIGoECQChEN+etcsdjmc/1bC0doOv
-	 Bte4BMRxYrMAlNtZJ7QLhT98i0jxxb5d/d7Av1UVcmc5VbNt5/w64eMZlwtC6myLNf
-	 cZcira65E68qJMSgNPHqPMm8c19G9yiIEUpsdrY6pZeg6nY+dYDnrWiEe9ZiLlGtp1
-	 rJWgi3OzrJ30/dFufABaUHIR2syV/VpAFpg9kW28H4gkZa68d/mWI9i9oBXaFcB593
-	 VFvUPDIX5bl822WnLO4XX389qO8uzFmYb7u62WK9m/4RVgvV01KJlO9kfJpI9VA3EN
-	 MWmgUtxpwOObg==
-Received: from gauss4 (10.182.7.102) by EXCH-01.secunet.de (10.32.0.171) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.49; Thu, 26 Nov
- 2026 09:59:40 +0100
-Received: (nullmailer pid 2023310 invoked by uid 1000);
-	Thu, 26 Nov 2026 08:59:40 -0000
-Date: Thu, 26 Nov 2026 09:59:40 +0100
-From: Steffen Klassert <steffen.klassert@secunet.com>
-To: Kyuwon Cho <kyuwoncho18@gmail.com>
-CC: Herbert Xu <herbert@gondor.apana.org.au>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn
-	<willemb@google.com>, Simon Horman <horms@kernel.org>, Kuniyuki Iwashima
-	<kuniyu@google.com>, <netdev@vger.kernel.org>, <ipsec@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH ipsec v2 1/1] xfrm: free the policies already cloned when
- a socket clone fails
-Message-ID: <awf0_Ksi65pXTtEo@gauss4>
-References: <179540803323.3139700.5340002553684152759@gmail.com>
- <179540803323.3139700.15088508372382876389@gmail.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bCYCE/nH
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 496B21F000EB;
+	Thu, 26 Nov 2026 09:00:07 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795683607;
+	bh=TEgty31plzkgiOVV+GRpxhDGlFoQNh5kg6i9e3toEk0=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc;
+	b=bCYCE/nHRSKP/UNvufNeEqDJrkQsJHBG7SBSEUH/esRg7tCuaa9+7Bu0JJjVnCxPT
+	 608gbd2JT3CQuglJoqSdZW9/hAACpM7AO+gxpPSfEWfZuOVVedYpYBvUeFnQ8iAmm5
+	 LIP3JRUwXCln/p2SJBljSywUTxwWgsxtuwbh6e4644UvrVNa0EdmjVWRMDe5K+IKYi
+	 Fge9vGSU5pRgsNxnJEoU4X+hEvPK+JbkoefyX0w/1OMT4u0ROYxyhuGs0NAl61oYtw
+	 KEsHt8PV7ev6UmwRUh2KTNPWUc65pXVgatXWu/DPW0NsrYPLb+S02Oij1o1N4WOaJQ
+	 XPFcMvanlzqAA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A5D43809A8F;
+	Thu, 26 Nov 2026 09:00:07 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -85,97 +53,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <179540803323.3139700.15088508372382876389@gmail.com>
-X-ClientProxiedBy: EXCH-01.secunet.de (10.32.0.171) To EXCH-01.secunet.de
- (10.32.0.171)
+Subject: Re: [PATCH net] xfrm: interface: drop non-IP packets before
+ pskb_inet_may_pull()
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: 
+ <179568360577.1684356.12907143611601535467.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 09:00:05 +0000
+References: <tencent_46F20906773869221623F9FA26275C133107@qq.com>
+In-Reply-To: <tencent_46F20906773869221623F9FA26275C133107@qq.com>
+To: Shuai Liu <847807867@qq.com>
+Cc: netdev@vger.kernel.org, steffen.klassert@secunet.com,
+ herbert@gondor.apana.org.au, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, q.h.hack.winter@gmail.com,
+ stable@vger.kernel.org, syzbot+d29af9ef5c96a3f5e96c@syzkaller.appspotmail.com
 
-This is an AI-generated review of your patch. The human sending this
-email has considered the AI review valid, or at least plausible.
+Hello:
 
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
----
-Author: Kyuwon Cho <kyuwoncho18@gmail.com>
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-xfrm: free the policies already cloned when a socket clone fails
+On Thu, 19 Nov 2026 13:08:14 +0800 you wrote:
+> AF_XDP sockets bound to an xfrm interface submit skbs with
+> skb->protocol unset (0) and skb->network_header still 0 from the
+> __alloc_skb() zero-initialization; skb_reserve() only moves data
+> NET_SKB_PAD bytes into the headroom.
+> 
+> Since commit 86de3a1118a16 ("xfrm: interface: validate the IP header
+> on xmit"), xfrmi_xmit() calls pskb_inet_may_pull() unconditionally.
+> For such a skb, pskb_inet_may_pull_reason() selects nhlen = 0 for the
+> unknown protocol and pskb_may_pull_reason() receives
+> len = skb_network_offset(skb) = network_header - data = -64, which as
+> unsigned int exceeds INT_MAX and trips the
+> DEBUG_NET_WARN_ON_ONCE(len > INT_MAX) in pskb_may_pull_reason():
+> 
+> [...]
 
-This patch adds a rollback loop to __xfrm_sk_clone_policy(). If cloning
-the second direction fails, the loop deletes the per-socket policy
-already cloned for the first direction. Without it, that clone stays on
-net->xfrm.policy_all until the netns is torn down.
+Here is the summary with links:
+  - [net] xfrm: interface: drop non-IP packets before pskb_inet_may_pull()
+    https://git.kernel.org/netdev/net/c/e509726660dd
 
-> diff --git a/net/xfrm/xfrm_policy.c b/net/xfrm/xfrm_policy.c
-> index d2e938d4db9aa..e5b51f5f64306 100644
-> --- a/net/xfrm/xfrm_policy.c
-> +++ b/net/xfrm/xfrm_policy.c
-> @@ -2460,6 +2460,13 @@ int __xfrm_sk_clone_policy(struct sock *sk, const struct sock *osk)
->  			rcu_assign_pointer(sk->sk_policy[i], np);
->  		}
->  	}
-> +	while (unlikely(ret) && i--) {
-> +		np = rcu_dereference(sk->sk_policy[i]);
-> +		if (np) {
-> +			RCU_INIT_POINTER(sk->sk_policy[i], NULL);
-> +			xfrm_policy_delete(np, XFRM_POLICY_MAX + i);
-> +		}
-> +	}
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
 
-Discovered by: opus-5-5 · Missed by: sashiko-gemini
-This rollback only covers a failure inside __xfrm_sk_clone_policy().
-What about a failure later in sk_clone(), after xfrm_sk_clone_policy()
-has already succeeded?
 
-In net/core/sock.c:sk_clone():
-
-	if (unlikely(!is_charged || xfrm_sk_clone_policy(newsk, sk))) {
-		...
-		goto free;
-	}
-
-	if (bpf_sk_storage_clone(sk, newsk))
-		goto free;
-	...
-free:
-	newsk->sk_destruct = NULL;
-	if (lock)
-		bh_unlock_sock(newsk);
-	sk_free(newsk);
-
-Once xfrm_sk_clone_policy() succeeds, newsk->sk_policy[0] and
-newsk->sk_policy[1] hold fresh clones. clone_policy() has already linked
-each one on net->xfrm.policy_all and dropped the allocation reference:
-
-	xfrm_sk_policy_link(newp, dir);
-	spin_unlock_bh(&net->xfrm.xfrm_policy_lock);
-	xfrm_pol_put(newp);
-
-bpf_sk_storage_clone() can then return -ENOMEM in three ways: the
-bpf_selem_alloc() optmem charge fails, bpf_selem_link_map() fails, or
-bpf_local_storage_alloc() fails. The free label only calls sk_free().
-__sk_destruct() does not call xfrm_sk_free_policy().
-
-Won't both cloned policies stay linked until netns exit and trigger the
-same xfrm_policy_fini() warning quoted in the commit message?
-
-A TCP listener can reach this path from remote traffic through
-inet_csk_clone_lock()->sk_clone(). The listener needs IP_XFRM_POLICY or
-IPV6_XFRM_POLICY set and a BPF_F_CLONE sk_storage map attached. The
-storage clone can then fail under GFP_ATOMIC pressure, or every time
-once the charge reaches optmem_max.
-
-Would the cleanup fit better in the free path of sk_clone(), so that it
-covers both cases?
-
-That cleanup could not be a plain xfrm_sk_free_policy(newsk) call. On
-the !is_charged short circuit, xfrm_sk_clone_policy() never runs.
-newsk->sk_policy[] still holds the parent's pointers from sock_copy(),
-because sk_policy is outside the __sk_common dontcopy range. Those slots
-would need to be cleared on that path first, or the parent's policies
-would be deleted.
-
->  	rcu_read_unlock();
->  	return ret;
->  }
