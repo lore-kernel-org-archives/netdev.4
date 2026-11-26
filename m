@@ -1,88 +1,58 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675202;
-	b=WR99iIEBRwLt/1CzG+crrOQcdEUGUTWO81+WWTYT5Ut7HuT57V1fmTBM4+zkMHkvEyvV
-	 k3Mlv5acf0TvDYUNio6285yMTUR7lE/0jqoqpAM0lUBmA9WTBgE7NGEONPuMfd83j7OEr
-	 H7aAUjoncEw/y+Js2pL2UzcO8jUeD3cjGcadGh81rXI6yKFIvkoDkPu7Fjkrk5pjVIch2
-	 eMInfqBXO1DSHmX8gDaQPK0QLj73DEVXWDmAvq70G39ImkY+QsUhdG8mJacvlVyY6en5W
-	 1oLzSjcyCrnuo4wOZxzXtgCM3UoEXkxxwDjfyaLQFo7Ae2JBYg5zRoFe39hh2QXrWSA==
+	t=1795675352;
+	b=N8tDJ2NdXwCrkcrdNkn8h/Zc1O3/RELCxdzHb+LF3O0Qd176LhWF5mHuHjcWQ1HXz3P1
+	 GhCfT1qPkZlCdWnrFl5NMQZXktnR4lR7i8lwSjxNyO6Uc0p+b5j3bMVMD9LuMxbaUWHeo
+	 aXvq9Su8sJG1e4XvzWG/l7Tw75Zi5kEwEsiiT7gniLmxiiLdI/T05jBzqG6wxnyyxFUQk
+	 T+4anQ3D3O0H3yJNU7s83KeCk0PqZFz0p4GDMlNNDr043EQq6GU8BJkreRD7McOKGr6Bp
+	 C/cl3F/PEIgCjlZ49/kI3x6QTl3hywkqwEBGEohVbsOSJRIKBQdX9moVrIZQ0/i9dNQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675202;
-	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
-	 Received:Received:Received:Received:Message-ID:From:To:Subject:Date:
-	 In-Reply-To:References:MIME-Version:Cc:Content-Type:
-	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
-	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
-	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
-	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
-	bh=kghJMKpjCr7I/O+cDkl9XA6c0C/krIlaFkrGrw61JTs=;
-	b=37GcADGmU9bOZiX4096n7AndN/yHwz+od4iobfMNlCDnwgl+MUyRd/qF6d02UeiNdSDr
-	 GdL5u/dHBgigVnRASQmSSvZCHjYTCVJFeI0PHb8KMGU5VPLWWucSE8ukp70dma+u3Q3+3
-	 ABaBfo0olGiNwE1ymQjf+l8QDWBUe8m3kgEEbgSmyMGLU46rCGgaT2OlJRUFBv1k7PHP7
-	 nJhmQuQHK5jXiN+E8otQGQiFiFTCxm932Yiy0RFLm0s/ZKVTx+1UYzHRpxKWIx+sJTMZ1
-	 E/87VuW5J5jVYeY9beyuN/4u0TtGGIdNF3iHlixFhNNKQQX39odV0krIEKo14hZGvRQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675352;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
+	 In-Reply-To:References:Auto-Submitted:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	b=Nr7sUjRmnuj8eV3Jj6/nTzERMRUv0dXcCtfxoD0qSGiemmwXAmFDir4gQxfh9T99vD/h
+	 iIMCsfVQi5h+XLtBfapAc6fRSQBPddRedoYASdvAVnUZU7jPTioHnGD4ciV0Lpm5Hxnvt
+	 hmdgYhptM8pQj8AkXdqXjVwxYhpGeMEdsQ0zZJbN0XdlaBKbEeS94nAE5o+xGTIZvWEdr
+	 CZoGEeq4H1G9E0WGKGuidSmQTPJW9ygEZ6G6wN0xEEn3/hY3synjYuwf+Glr27yVppmQV
+	 dy6mgestBjNrS5jU5Y8k3zP7o4NIGb+Hx8A3jHwKj925UoZ21gUvHZWLCIhRODGs3ug==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=linux.ibm.com;
-	spf=pass smtp.mailfrom=linux.ibm.com;
-	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XqA37Nc2;
-	arc=none smtp.remote-ip=148.163.156.1
-Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lpjVWvCm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 131F4606A31C;
-	Thu, 26 Nov 2026 06:40:01 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 131F4606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2D886606A31C;
+	Thu, 26 Nov 2026 06:42:32 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XqA37Nc2
-Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
-	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34bYf3281350;
-	Thu, 26 Nov 2026 06:39:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=pp1; bh=kghJMK
-	pjCr7I/O+cDkl9XA6c0C/krIlaFkrGrw61JTs=; b=XqA37Nc2YkPcEg4XceHwNm
-	ahHmPvU5X/aXcuEuw3Fu23n3EkLOcC+FYiIYvSusls8WbL9vLzWyKIAgkbOli++C
-	MzUrPNC6ajAIHBlRPV4zt4vCDZhZcafSRODqCvkHegAfAgzvjIxrmRh88s8rxT1O
-	hmeOq9aKv+xkG0rJr9jMr0zd65g8N+p/iCuDCrbBZYHWeCdtX9OW3gl5TZE+Ag1t
-	HcKzgTq3UiNQtrrQ5olDKespaCQjct39/5SJEcQf4Km9e+unt5ayWXtoQasDs3hb
-	D++LNwf9iCwB+E+sZKhRot9CqlVL0YaBuq9dxaIsnR4CzzHEQf26uERCRU6DZ86Q
-	==
-Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
-	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fag2p2-1
-	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 06:39:52 +0000 (GMT)
-Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
-	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34V8J3117327;
-	Thu, 26 Nov 2026 06:39:51 GMT
-Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
-	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5a417249-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 26 Nov 2026 06:39:51 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
-	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQ6djcM41419246
-	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 26 Nov 2026 06:39:45 GMT
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 7F66620049;
-	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
-Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
-	by IMSVA (Postfix) with ESMTP id 62D3B20040;
-	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
-Received: from localhost (unknown [9.87.84.240])
-	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
-	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
-Message-ID: <3e66af3fba5b4744b099734fe5054e6e@linux.ibm.com>
-From: Sidraya Jayagond <sidraya@linux.ibm.com>
-To: Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
-Subject:
- Re: [PATCH net 0/4] net/smc: fix the failover cursor switch and wrap rollover
-Date: Thu, 26 Nov 2026 07:21:38 +0100
-In-Reply-To: <20261123165127.2453df54@kernel.org>
-References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
- <20261123165127.2453df54@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=lpjVWvCm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5A671F000CA;
+	Thu, 26 Nov 2026 06:42:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795675352;
+	bh=sS9FIrfW22SIhehTvpH3rdvmtslwIeEYozBr0OvaZe8=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=lpjVWvCmR/pdUj3UcTmpnaMjZJPx9zHnpYzS44mq04xAdOFevzpvZxp5fwh/1/SSk
+	 lz5m/72mvvAAxBkoUCuo0+EUvlycr/ULDCqvyGBbCt+XjFlGqKWbaLUsfsz2ZFjFpS
+	 79g96jNWaSPSo/s6KAp/cnd36V3KdPxU4W5JiInjh1jnQOD+OU7nLEVOp3r5mZtGby
+	 0DrYVU7LdjjjMFsWQsCR/3yWsHcxPEr1wbTcqF/JX5epPUHvVE98VPSAN55Oi3PFzJ
+	 YBcLqiiphRA22UNED3gCk2kzSkoSfpUFIPCSi+0v3EcGzhnB14rakKzfJMVdPRD9dh
+	 hv3tMWu7/QYcg==
+From: netdev-bot+sinfo@kernel.org
+To: "Bin Luo (University of Electronic Science and Technology of China)"
+ <luob87709@gmail.com>
+Cc: oe-linux-nfc@lists.linux.dev, johan@kernel.org, david@ixit.cz,
+ kuba@kernel.org, netdev@vger.kernel.org
+Subject: Re: [PATCH v4 0/2] net/nfc: fix skb ownership and NCI status errors
+Date: Thu, 26 Nov 2026 06:42:31 +0000
+Message-ID: <179567535125.3294.7232513374147715442@kernel.org>
+In-Reply-To: <20261126063911.353-1-luob87709@gmail.com>
+References: <20261126063911.353-1-luob87709@gmail.com>
+Auto-Submitted: auto-generated
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -92,53 +62,22 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Cc: Dust Li <dust.li@linux.alibaba.com>,
-        Mahanta Jambigi <mjambigi@linux.ibm.com>,
-        "D. Wythe" <alibuda@linux.alibaba.com>,
-        Eric Dumazet <edumazet@kernel.org>,
-        "David S. Miller" <davem@davemloft.net>,
-        Guangguan Wang <guangguan.wang@linux.alibaba.com>,
-        Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
-        Wenjia Zhang <wenjia@linux.ibm.com>,
-        Ursula Braun <ubraun@linux.ibm.com>,
-        Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
-        linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
-        Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
-        linux-rdma@vger.kernel.org
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-TM-AS-GCONF: 00
-X-Proofpoint-Reinject: loops=2 maxloops=12
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX+i3MN2/IYO2x
- eZs7AwOIujp3JYO6tqr0R1PtUkIjjxxY60Ur4SIygyZzbMLI+iR1pBasrrDq15xIkSFcZdVJUSP
- XGUhBja5kJDU6+uaixxVQ5iaAsHglvl6xsRVVWtzIvVhJJRUP0+iZJ2K7eV+sSAyHRCs+6Gcvit
- G6MTt3R1Gx25kzbanQJlragvxu3Zs2Rkf4Wk1BXreOAHY25XXgm4w3PmE8W8usgHy+0E7UXYOUK
- RosWB2P6A+SMvwEnMoqfD3sHprRB4Hl+/6lGIgOeLC69p4egPbh+0oeKdi6HKVVd4aJqNu5rQWj
- kqDPisK/MaULRbMk3HtdAQNefTKUMySWyf+d9G8ptq2kaIX3bzQjlm7yBwZe+AShCFcEM1hf8pH
- D+B2MZmjaQTlt8TxtPLu5fIjshBYp7ni+eT/NZ18z65ONtUE9096hFkTUOulnTgYmUeZTFkze8x
- 35vzuYTtoDt2DD+NyWQ==
-X-Proofpoint-ORIG-GUID: PpNjQ2_9MLtpgmh8BxiiC9b4MZT8fA1W
-X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b07d438 cx=c_pps
- a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
- a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
- a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=GVtuyzs1sv75qvV3u5gA:9
- a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10
-X-Proofpoint-GUID: DeWRG2scOcnjWXT9rZGnnJC_ad4YkjXm
-X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX3DFxXlwFIknq
- kAiQQuQbIPECJD8I0AyqxXVr9MAzcYvclucpkpaP+IVMJIMgVUPlU9xWFdjCLve+h1TzZKDA0bn
- XZonYTNiczdZmr3bI8JKeh2JFQP6iks=
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
- definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
- clxscore=1015 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
- definitions=main-2611260025
 
-I am reviewing this series now; please do not toss it. I will send the
-per-patch comments today.
+Hi!
 
-Sorry for the delay. For some reason our mail server was rejecting messages
-from the kernel mailing lists; it is fixed now.
+This is an automated message. This series looks like a fix, but its
+commit messages seem to be missing some information:
+
+ - How the issue was discovered, e.g. hit in production, hit during
+   development, syzbot report, manual code inspection, LLM or static
+   analysis tool scan.
+
+Please do not repost the series just to address the above. Instead,
+reply to this email with the missing information, so that reviewers
+can take it into account.
+
+*IMPORTANT*: If you do repost (for other reasons) - please include
+the relevant info in the cover letter or commit messages.
+-- 
+The evaluation is done by an LLM so it may be wrong, if you think
+that is the case please reply and explain.
