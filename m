@@ -1,99 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.179
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.27.60.169
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795700546;
-	b=40qmIXG0kj4Q00/72E5yA2AU2zaQ1BOzcm/1QLDUy7ghbJqHH7MWXzmh9etVcgWrET5E
-	 eqo6oqSbmgqu7FAxLuzDvxbz/+ne2DDf5YLzbujGrcvv1j3YSEbjprJc4637dseZV5ilc
-	 vYpSuq7Aqf9pvhCLdJp5E4YAnydIhmunBs9qXiBdEkqYs/fLbVg3Uz6b7rpUp/ljCjMn1
-	 vVBAs3u8O2Lrk7+4vEWmrqnRAmcgGur7pr0iYicV2S9KXL4+1R1vkmUr5ioUOXUEXYc+y
-	 Oudv2BU4g03EWzJdZ29Jqko4xMph3ip6c9OKRq5jMV/oJlLDiOBrLqUotIl/RRFkMhA==
+	t=1795700600;
+	b=Az46wLoMB9IdWX2opzw+dPXwu3uaK9HdltEDGMASPTudxcTUmvn3MJOTY7y3HIfrRNpI
+	 97oEIZXP4GVAzNlFG/5bqvEO/tLOiE0A+YWhTbNjhKX6ZENhmGOR3jXd9eD/+Fyvl+OwM
+	 WqbvF8tz8Z2cUIO4RhiGT0x2CaHMHsfDtfKIXwI3RIsjUuMwsen76r/9mBFIveyV1UUpL
+	 mYDWDpDfm5y6Lqw+fcqY8dp2HqBFvCeJI/ylSe5cVbKY4Y5ZKiR7lkN9Af+N/WEd9Nfs7
+	 e9mJb5gARKjbCPRI+Z5PuPlhr8m/4zM5bQoPpYWbv3+dCOu9PNVn3IiB9PN/tA6I5Vg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795700546;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
-	b=gEEB/HLtSXwTrwpMZcF6H3ZJok4klse+eVgW995K//Gm35KHr+GsxVyRqRKyJoJhdtBM
-	 tTlLuNvlum3vQY7alWH3wSTCyRB2sb1uQiSRBEb7qwAWpVu2H6HMILq0+DIUQHoK2reBm
-	 j5UVSfqyBpGPJZdPOJ0Nwstqikcc++/HYy04AcJVHUiBNNQ65JWKqAyuu5z1qmFUahWpK
-	 EBpZ8MjJ5UuCKUj726yGbO1atZaLaEYVxgN5ZWprU6k2daW09dE4YUhFByj4zPlXdBKH6
-	 xupX/w30XX8sHPpc/D2nXe9zx+Wjd76lIQfuZ2Ob2rxzwEmBxPpWIMUiFJYZW8qzasA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795700600;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=ko4eL4z4K6V3lb/3C7dqqajHBKs8W+KA+MAk4fHSYBk=;
+	b=KiJU3PGBZqS22Xjh79Wn9jHGY5DvvWbsU8dc0y7viRQX4s4NpBDaPBwgNMLxdjVykqUv
+	 OaiqZwdaGpabqi2igXI4xlDFuZKDDbCzQ8jcIWEdy9c3yHaz5Ene//kFHMF49I+xdAPgM
+	 5o9/5vPe0ss9By3B3J/WzOAgumqG1+eBiAfdOt1DylGKssKpX4930HfGdqioSm3iqpLmq
+	 xH8d9ruj7rGGxlwOg7SCTOekkvrokCZpkuHjw8cA/IN/Yr68e1mF6y/GaG0FlQlWGIuVK
+	 Zihkq7RhvC2XKu8S6ikauKqLMdlvoGTYE4pnafNBoMINrbqNVdbGvVviZ43RfPv2tZA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCUZiapw;
-	arc=none smtp.remote-ip=209.85.214.179
-Received: from mail-pl1-f179.google.com (mail-pl1-f179.google.com [209.85.214.179])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=corp.free.fr;
+	spf=pass smtp.mailfrom=corp.free.fr;
+	dkim=pass header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn;
+	arc=none smtp.remote-ip=212.27.60.169
+Received: from rcs.proxad.net (rcs.proxad.net [212.27.60.169])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 766E7606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:42:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 766E7606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0A261606A31C;
+	Thu, 26 Nov 2026 13:43:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0A261606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=corp.free.fr
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=corp.free.fr
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FCUZiapw
-Received: by mail-pl1-f179.google.com with SMTP id d9443c01a7336-2f046b0adc0so40629325ad.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 05:42:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795700545; x=1796305345; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
-        b=FCUZiapwgCV0NccPRLyMCz4v4T3XpjsQ58JWuphME0mUW8OpcSdTyNG/jVc3LUuJeG
-         dH79/1sR2huCmlp+7eUAAg2rfvZPvZhtpYVZq/9ug5QRHVjg55ZnJBko7FkuNdIPVMhF
-         HOa+dPa/fmrCXJadGANy2s7Dqjo63MxwR6elwkxJhc9fCc3oSoeJ4GYWWFm5qeB5aGCn
-         Bqb0sm1NQXR+/7/3wmYqvv8ZAbJYkeDivTZZdTQIArstf2JiPgIzwQ/RYXq7CQPGg+mh
-         jgAD0iMRtkuetLcq3g0OpUqK0Bl8yfGXCF5bnJuiXiN+mr8eFBNeJEyQE/0Vr6uilDae
-         pYHQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795700545; x=1796305345;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=NSvDUdhiPsT9wujlLJTCQMGtMq3JsdUlTo3B/+Qtxs8=;
-        b=nfyS74u/o42dqHUvaG5yCyjU2FXCffUp9rS8jWLPOiWlq/TCrHo1489qLiOZlQXKrf
-         Sl4dXEtl4D/VcQQ8YhOhltn1pCNigZ5s2E7BSQtPZQTBphSW7QYL3VqA8PaUbLAkWPdL
-         v1/394XuTjnkYgnRZUPgAujFgyw9YVORy/TosIc0W5M4sfObiLRRJs2sqpwUnRd87Fm+
-         LNc4pDFi5mwe/1w/Z7yns3H76JOIIl2Y2RjELucj5LUobCB7x+wyjvGcudKQYkV119Tw
-         8RvJW2gU09qAiRzBRhoauDxK8nDOeNSrWhPH18BFgmtylXo2fIye0AIldGQetoufUEih
-         wZjg==
-X-Forwarded-Encrypted: i=1; AL+hErHWAXq5PaRnRsP4qpomV2kRmp8TePZZERO1YX0tJWVVN95h9KVqBcBkdY0e7u3P9K8JobC+I3w=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9QZSiQhEp+9A6ERrNA5AqEWh19q8kmkiFBIfVnx0b1c/D98ZT3
-	9QFvTrr/Se8tSbWEjcnZE+XlVULK/TnK1mMfMcgqUJmsZSTCF+58++E=
-X-Gm-Gg: AZFdTZcWAxhBWn+F2zPmV178Ap4dmXfTwcYy0L5gsjiZPpjgXb2aO9e1bbTYFE9aaz3
-	/L6z7vwillTT+7cn27QW8rwfssl0f194KHIVeGDNz4ypNhK6Mwyh+egI5pdoVSmW/7HIalwARoE
-	fI//GGaxnSHaMXzrqXJQCfZDm6tlB9KaXjgJwRA0HPpX5TVjnYn6hremGVLqemAA5dhZXOdzknK
-	3MwKTXcQJ92DjBcH8xx4X4TSpRZUYlyWIqZEFZFIz6yXvEl+ib+EPmrfsxtSOk4+LR2RSb1ki8a
-	ubyL+22DfG/4h36RjIvqBnbYgBOlmBqpG85Z7Mc713I0gBe+86I9CJCQbjWBiK4JYz1Mvrk/5hR
-	+7jsFaut0dx4OUNkjwa1hm8nZkY17gPfNpPRoPOomlmuSpm4I3wpWW6Vp8tXX8R0o44zU7G245M
-	dSw6Ne6v3OvicDA95JtA3qxFSZ742FhMRxixI3WA7lE7xiS9EbmNl+Rq+tLgvGIVl7cw4ewcVtb
-	KdxBwsQSNVHAiDjdgdVJdBQ+tWVdmCbsi2Q122mUthCRkG2Tj20D8WlmSZjjw4+2Utf+muHRHmB
-	klG2DOg7m1VofEix/TI7lGRiGGS8twOE0h1v9qmjrqXzPb4kCieJ1Syuu9CB5eEWTfk=
-X-Received: by 2002:a17:902:e551:b0:2ed:ff4a:6d21 with SMTP id d9443c01a7336-2f03f1beef6mr206550255ad.73.1795700544707;
-        Thu, 26 Nov 2026 05:42:24 -0800 (PST)
-Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84294sm102467265ad.9.2026.11.26.05.42.21
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 05:42:24 -0800 (PST)
-From: Yige Jiang <yigejiang86@gmail.com>
-To: Chas Williams <3chas3@gmail.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>
-Cc: Yige Jiang <yigejiang86@gmail.com>,
-	Simon Horman <horms@kernel.org>,
-	linux-atm-general@lists.sourceforge.net,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Willem de Bruijn <willemb@google.com>,
-	stable@vger.kernel.org
-Subject: [PATCH net] atm: Fix atm_dev reference leak on VCC close for built-in drivers
-Date: Thu, 26 Nov 2026 21:42:16 +0800
-Message-ID: <rc-b1-20261110-vc-164-2a437f3c5ecd@gmail.com>
-X-Mailer: git-send-email 2.50.1
+	dkim=pass (2048-bit key, unprotected) header.d=corp.free.fr header.i=@corp.free.fr header.a=rsa-sha256 header.s=rcs header.b=SH7PBekn
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=corp.free.fr; s=rcs;
+	t=1795700590; bh=Ru+TyEI2Iupe+FdyreM1ZguqMa4aXugpSK2X1PFjJ3M=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SH7PBeknUlBS+Ko3TQRwaap3XHmzEB/MeBQW/HN6w6bUpjw67MJLZvURDtbHYG1C1
+	 WwKRadD1dZSjfkjOWwqlGzsmgkGAxIiU5aT7NyNE6mxTOwnG2VD2a13oIC38VBFs2D
+	 jHY9qhDDo67hlYzC7M5Wb0LmY84iJRLMlZBQRSwtiSlQHlaIzMT7YrwPbbIt4araBL
+	 8UR+H0Ag4ltugh0+YFVvhmZYbc9OzXai1ioACygfh+vXDZ+rZa6YxgFSTh0rEalBcW
+	 GqEKokbJDejQ3pdF3O0RLYObZ8B6lWC2bBft8UyKgZYfqVUmC2kjDXOtYY+gj4dKaC
+	 T5cXTxh9t/YZQ==
+Received: from [0.0.0.0] (unknown [213.228.1.188])
+	by rcs.proxad.net (Postfix) with ESMTPSA id 512E444C025D;
+	Thu, 26 Nov 2026 14:43:09 +0100 (CET)
+Message-ID: <c3f3dd4c-5dfa-4fb0-9a64-016192be5782@corp.free.fr>
+Date: Thu, 26 Nov 2026 14:43:08 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,58 +56,68 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
+ ahead in the linear MPWQE path
+To: Antonio Quartulli <antonio@mandelbit.com>, netdev@vger.kernel.org
+Cc: saeedm@nvidia.com, tariqt@nvidia.com, mbloch@nvidia.com, leon@kernel.org,
+ dtatulea@nvidia.com, cratiu@nvidia.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+ john.fastabend@gmail.com, sdf@fomichev.me, linux-rdma@vger.kernel.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104195241.1883539-1-antonio@mandelbit.com>
+Content-Language: en-US
+From: Alexandre Cassen <acassen@corp.free.fr>
+In-Reply-To: <20261104195241.1883539-1-antonio@mandelbit.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-vcc_connect() takes a reference on the atm_dev, and __vcc_connect()
-stores the device in vcc->dev together with a reference on
-dev->ops->owner. vcc_destroy_socket() drops both only when
-dev->ops->owner is non-NULL. usbatm and solos-pci set .owner to
-THIS_MODULE, which is NULL when they are built in, so in that
-configuration every connected PVC leaks one atm_dev reference on close.
-After atm_dev_deregister() the count then never reaches zero, so
-->dev_close() is not called and the atm_dev, and for usbatm the driver
-instance, are never freed.
+Hi Antonio, Dragos,
 
-The owner check was added so that static meta devices such as
-lecatm_dev and sigd_dev, which were attached without a reference, were
-not put. The last of them was removed by commit aa582dc25ace ("atm:
-remove SVC socket support and the signaling daemon interface"), and
-__vcc_connect() is now the only place that sets vcc->dev, always with a
-reference held. Drop the reference whenever vcc->dev is set.
-module_put(NULL) is a no-op, so modular drivers still get exactly one
-module_put() and one atm_dev_put() per close.
+On 11/4/26 20:52, Antonio Quartulli wrote:
+ > numbers from DDIO/SDCI systems and CX-6/CX-7 would be welcome.
 
-Kernels before 7.2 still have the meta devices, so a backport there
-must keep skipping atm_dev_put() for them.
+we are running perf tests over our 5G UPF code (pure XDP with mlx5), 
+just get your patch and test it over our stuff.
 
-Fixes: 93a2014afbac ("atm: fix a UAF in lec_arp_clear_vccs()")
-Cc: stable@vger.kernel.org # 7.2.x
-Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
----
-Based on linux-next next-20261109 (630059a5a632).
-Compile-tested: arm64, GCC 14.2.0, W=1, defconfig + CONFIG_COMPILE_TEST=y, CONFIG_ATM=y (net/atm/common.o; no new warnings vs base).
-Runtime-tested in QEMU (arm64 virt, KASAN, kmemleak) on a model: a test module that registers an atm_dev with ops->owner == NULL stands in for a built-in driver. Before the patch each connect/close cycle leaves one more reference and the device is never released after deregistration; after it the count returns to 1 and the device is released. A device with ops->owner == THIS_MODULE sees no double put. No hardware test.
-Triggered by close() of a PF_ATMPVC socket that was connected to a usbatm or solos-pci device built into the kernel; the leak shows once the device is removed.
+use-case here is GTP-U encap, I tweaked your patch to fit tunneling 
+use-case around the net_prefetch() to add 128 bytes more.
 
-Stable is limited to 7.2.x because before aa582dc25ace (v7.2-rc1) the static meta devices still reach vcc_destroy_socket() without a reference, and this change would put them.
-A real built-in usbatm or solos device (USB unplug) was not tested.
+setup is Xeon Gold 6342 (DDIO) wiht ConnectX-7 (fw 28.48.1000): 2 ports 
+x 8 queues. 5G UPF in XDP (GTP-U and MAP-E, ~3200 insns per packet, 
+XDP_TX only) with 100k sessions running live mobile network traffic 
+pattern. Mpps per port with the 16 cores busy:
 
- net/atm/common.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/net/atm/common.c b/net/atm/common.c
-index 8119572..f68bf8d 100644
---- a/net/atm/common.c
-+++ b/net/atm/common.c
-@@ -184,7 +184,7 @@ static void vcc_destroy_socket(struct sock *sk)
- 		kfree_skb(skb);
- 	}
- 
--	if (vcc->dev && vcc->dev->ops->owner) {
-+	if (vcc->dev) {
- 		module_put(vcc->dev->ops->owner);
- 		atm_dev_put(vcc->dev);
- 	}
+                                   base      v2    v2+256B
+   RQ just opened                  10.55    10.85   >11.10
+   RQ after a burst                 9.96    10.82    10.95
+   L1 stride prefetcher off         9.85    10.72    10.84
 
 
-base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
+With DDIO the gain depends on the history of the RQ. Under XDP a stride
+is a page. While the pages of a WQE are adjacent the L1 stride
+prefetcher fetches the next packet by itself. Once XDP_TX completions 
+overflow the page pool cache then pages come back shuffled where the 
+vanilla driver loses 5%.
+
+
+ > +	head_offset &= (1 << rq->mpwqe.page_shift) - 1;
+
+cosmetics: BIT(rq->mpwqe.page_shift) - 1
+
+
+ > +	net_prefetch(va + rq->buff.headroom);
+
+For our tunneling use-case I just added:
+
++       net_prefetch(va + rq->buff.headroom + 128);
+
+
+I will run production with your patch with the +128 for our stuff... 
+thanks for that !
+
+
+cheers,
+Alexandre
+
