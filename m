@@ -1,47 +1,47 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795711529;
-	b=xcH/O6/wHowmSftTSZPxID5+zqEQRrjofCCHnLnRmbXieH9q3f/ZGu9AuuKIOi6nfPuU
-	 m2z+r55+fQa30tndgSJtxE723KX1hzulsYonkmkO22RIK86D7KtG0EJ8eiUwxpBupuBjh
-	 GRLecK+3o95V3Ax3Yx4RoT99216d85y7DYNybPmWxfYXLXpNNmBkdcV+Jp9tcafDQdM7Z
-	 EoqRnFS/WD92pyQQLdci/SZg4yaKIZxC9KSTkkvqKbR2qdVpwFYEyxCBk7lRur41ibfXt
-	 Dg1lykiJmjW1fh953s4Noi4o4b9tGDI+YJcIUb71jfOUK3SkPoL3H1+FQAixqT47wgA==
+	t=1795711525;
+	b=S6WxdS5pCr21bGmkuMOigciIER2cWKuVfZCNXlbRkIZaBiLIOCyX9YJCdUQJhd174+dG
+	 psdAujgqf9PqiBZGDT+ZzCCVDH5iwStsLqJQRNZvDw4aSMHTBA34IOQ44W/y1mAi3oBTb
+	 47hg3nyEuKe81PNdcaRioLa+aCHqoJKHKc3N7FCZazo4KqIwpzdootcByEaq4nH4zK6ez
+	 qI7wbtYumuZ8uv+gyalg5q1Op9oCnrDHYvC58yYot1E/li2e0jKTid0VKDhmmap6djyZl
+	 ph9V3iP9hstWwdt1QifSZXJSfRKvofQ6ZU6DYsfVauTsZHKI68k5aR0eEtF3Nq1/cJw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795711529;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795711525;
 	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
 	 In-Reply-To:References:X-sashiko-severity:Content-Type:
 	 Content-Transfer-Encoding:MIME-Version;
-	bh=NZxf7xGAxFBnM2URAY0wf9DnF6jEM57f0c1j/Omx8GU=;
-	b=HKLWfaVwJuxJBAWU5GGTIkZ+/ozFSAs+T1xn2m7tAZS4JUnZhooY/AyhWJGEvowObN8v
-	 ljdYc4+eLRwfiYE5zHGFzOxh9ThDkW/nzitqI8QHz5jcgDomrfRi54WbrylyBl9pJ++Nn
-	 D90sNqJ8fzSbngePVPWMWgc3/fp/JR1vG2xPcTAGxRUplWOYso/guJ29880fY7tu0AHIt
-	 aHuJsVX1L/SO9HphHhLyJMj1wFfUqWj024+PGQX/P2jw9hMO3Zv8ZdSEIZOcYr7hTToSK
-	 l/y3QrI7vmJv68M0PF/ZdPM4nuoyfx8mY67GQ5IZTfwjzRWj4LyhaUA4iGz7hHgLmhg==
+	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
+	b=jOqjZXSt4uKiJJaoES0+shWlcP2j5pOyWkOxSBaqoxW/+0AGfr0IHVl+V/XvCY2oPdE9
+	 VArNLeCDegzgriJlCPV2mH0XZSE2peMUHP73ZYh4sW0aVM96G1v39HJuv0vsTuDoEIzOK
+	 deRTdIa5TrhTjfzgykV5xFsX6FT8IQ9NoFUY0tj0BBOfOBzMA6El2NWAecaBUtuvL1jbV
+	 6aIdTb7rFGgDo+1hgygRFKAe2wYYT5Rl8TtqxxJB4Q1UdZl8jvycp/3ITb8KZns95v2zQ
+	 63TPSGy8Yi3A7tkoQIUu4dk8fzUV3mauyOQusq52UPI82t8yQnzwjHq2ZYAKoIW/C1w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4o8O64h;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BA86B606A32C;
-	Thu, 26 Nov 2026 16:45:29 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9C46606A31C;
+	Thu, 26 Nov 2026 16:45:25 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=V4o8O64h
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 562511F000D2;
-	Thu, 26 Nov 2026 16:45:28 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=B19D+lQx
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0F0191F000D0;
+	Thu, 26 Nov 2026 16:45:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795711529;
-	bh=NZxf7xGAxFBnM2URAY0wf9DnF6jEM57f0c1j/Omx8GU=;
+	s=k20260515; t=1795711524;
+	bh=UHhBZ5Uxp8/lUbBSy2xJRw/vE4j4zkIMEJqynNMt8sM=;
 	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=V4o8O64hwOssgLmJIEd49oAhAuLqc0hqnbnJFRvmo6LNSFQcI2TjOUu3MISL1Zt9F
-	 XF6qKic7N+mzYC30zvy7uT637k16QBURiOde8EYUPaQjw0RcAK/5Fl9qDzPoSzauOb
-	 Rbkpwty2a69sRl9bOIwN8SblyF1fGNZuZiOHA4glrFhlGI2YxgKTWKNCtTxrgn/N+D
-	 G+OKxYHIA4q+omJba1Q6Vqb08OauuCwPwmf5z22t6mBTJ3rkEr15OU6O5035BPESpd
-	 TPYmvFwskfah85BaNrqCblawkJvmYJxEmp0POF0L26j5JEfm/02NL6r7T1aAVmwuFA
-	 tEREPS1UKWGpw==
+	b=B19D+lQxF/1G68HXkUW5LKi6A9FfsicKZeuwVabLs/u9mJz1Z6Df/Mj44/mkYMHWS
+	 0szjGrViOgksZnk0m0Y7/Pr7LQo0YqbPwL7q6/5pgCyuxXRX5Zr+OCArL6EqiDwDs4
+	 VJ9W7eAwEve69wJbEG3c6+vVyqmKvxPh84aNVOlBGfUiIoeX3NpWOAz+TU39bUiF7B
+	 aTa8HKWXAkpZG8Mywftn3xgs/t48PmtlSUN8Ev9ea/h8GYZescFitZEt2lO6ZdbVFH
+	 6lW1QwcevBw63MgcGKJ8MQWVDX31/4f7aPX3Twf9t/XkkxOzZpHJDA6y5jGtjVbTfn
+	 m2bv55b8DGo8Q==
 Subject:
- Re: [PATCH net-next v8 3/3] net: macb: distribute evenly Tx SRAM segments
+ Re: [PATCH net-next v8 1/3] net: macb: cache ENST config across link down/up
 From: netdev-bot+sashiko@kernel.org
 To: theo.lebrun@bootlin.com
 Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
@@ -51,11 +51,11 @@ Cc: conor.dooley@microchip.com, andrew+netdev@lunn.ch, davem@davemloft.net,
  gregory.clement@bootlin.com, benoit.monin@bootlin.com,
  tawfik.bayouk@mobileye.com, thomas.petazzoni@bootlin.com,
  vineeth.karumanchi@amd.com
-Date: Thu, 26 Nov 2026 16:45:27 +0000
-Message-ID: <179571152787.3135.16045423533153390042@kernel.org>
-In-Reply-To: <20261124-macb-set-channels-v8-3-770cf8e50e6d@bootlin.com>
-References: <20261124-macb-set-channels-v8-3-770cf8e50e6d@bootlin.com>
-X-sashiko-severity: Low
+Date: Thu, 26 Nov 2026 16:45:23 +0000
+Message-ID: <179571152363.3135.15940503307792785015@kernel.org>
+In-Reply-To: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+References: <20261124-macb-set-channels-v8-1-770cf8e50e6d@bootlin.com>
+X-sashiko-severity: Medium
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
@@ -68,104 +68,91 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 
-Thank you for your contribution! Sashiko AI review found more severe
-issue(s) in other patches of this series. This mail is only an FYI, in case
-you want to address the nit picks below when you respin.
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-Low priority / nit picks for your consideration:
+Critical: 0 · High: 0 · Medium: 1 · Low: 0
 
-- [Low] gem_sram_distribute_segments()
-  (drivers/net/ethernet/cadence/macb_main.c) writes 0 to…
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
+
+- [Medium] In macb_mac_link_up()
+  (drivers/net/ethernet/cadence/macb_main.c), when the link comes back…
 
 --
 
-net: macb: distribute evenly Tx SRAM segments
+net: macb: cache ENST config across link down/up
 
-This adds gem_sram_distribute_segments(), which programs the GEM
-TXQSEGALLOC register so the Tx SRAM segments reported by DCFG6 are spread
-across the active queues as powers of two. It runs from macb_init_hw() and
-macb_context_swap_end(). The new MACB_CAPS_TXQSEGALLOC capability enables
-it on zynqmp, versal and eyeq5.
+The macb driver now keeps the ENST (taprio offload) config in bp->enst
+and writes it again on every link-up. If the link speed has changed, the
+cached config is dropped with a warning. The commit also caches the link
+speed in bp->speed_mbps, serialises the taprio paths with
+bp->mac_cfg_lock, and removes the pm_runtime_suspended() check.
 
 > diff --git a/drivers/net/ethernet/cadence/macb_main.c b/drivers/net/ethernet/cadence/macb_main.c
-> index bcf77b2763448..b939a1391273b 100644
+> index 9f6111661b40d..1e06666921160 100644
 > --- a/drivers/net/ethernet/cadence/macb_main.c
 > +++ b/drivers/net/ethernet/cadence/macb_main.c
-> @@ -3319,6 +3319,69 @@ static u32 macb_dbw(struct macb *bp)
->  	}
->  }
+
+[ ... ]
+
+> @@ -1009,6 +1048,15 @@ static void macb_mac_link_up(struct phylink_config *config,
 >  
-> +/*
-> + * Distribute evenly available segments across active queues. The computation
-> + * is complex because (1) segments are counted in powers of two and (2) a queue
-> + * can only use up to 128 segments. There are four types of cases:
-
-[ ... ]
-
-> + *  - Sharing all segments is not doable because not enough segments are
-> + *    available. Take num_queues=4 and num_segments=2.
-
-[ ... ]
-
-> +static void gem_sram_distribute_segments(struct macb *bp)
-> +{
-> +	unsigned int num_segments, pow, remaining_segments, i;
-> +	unsigned int num_queues = bp->ctx->num_queues;
-> +	unsigned int num_advantaged_queues = 0;
-> +	u32 val = 0;
+>  	spin_unlock_irqrestore(&bp->lock, flags);
+>  
+> +	if (bp->enst.speed_mbps && speed != bp->enst.speed_mbps) {
+> +		netdev_warn(bp->netdev,
+> +			    "TAPRIO dropped because link speed changed\n");
 > +
-> +	if (!(bp->caps & MACB_CAPS_TXQSEGALLOC))
-> +		return;
+> +		memset(&bp->enst, 0, sizeof(bp->enst));
+> +	}
 > +
-> +	num_segments = 1U << GEM_BFEXT(SEGMENTS_BIT_SIZE, gem_readl(bp, DCFG6));
+> +	macb_apply_enst_config(bp);
 > +
-> +	/* When growing the max # of queues, make sure to write into
-> +	 * TXQSEGALLOC_UPPER too.
-> +	 */
-> +	static_assert(MACB_MAX_QUEUES == 8);
-> +
-> +	/* pow=0 for all queues. ilog2(0) is dangerous. */
-> +	if (num_queues >= num_segments)
-> +		goto writel;
 
-[Severity: Low]
-Is the num_queues > num_segments case really handled here?
+[Severity: Medium]
+After the link comes back at a different speed, the cache is zeroed.
+macb_apply_enst_config() then sets the disable bits for every queue and
+writes 0 to the per-queue timing registers. ENST_CONTROL is not enabled
+again, because of this check:
 
-Each 3-bit GEM_TXQSEGALLOC_MASK() field encodes 2^v segments, so a field
-cannot mean zero segments. Writing val = 0 gives every active queue
-2^0 = 1 segment.
+	if (bp->enst.queue_mask)
+		gem_writel(bp, ENST_CONTROL, bp->enst.queue_mask);
 
-When num_queues == num_segments that fits exactly. When num_queues is
-larger, the hardware is told to use num_queues segments on a buffer that
-has only num_segments.
+>From then on the MAC applies no gate control at all. Only a netdev_warn()
+reports this.
 
-The block comment lists "num_queues=4 and num_segments=2" as one of the
-four handled cases. In that example the code programs 4 x 1 = 4 segments
-on a 2-segment SRAM.
+Does the taprio qdisc still report a fully offloaded schedule in this
+state? netdev->num_tc and tc_to_txq are left as they were, since only
+macb_taprio_destroy() calls netdev_reset_tc(). In offload mode the taprio
+core does not call ndo_setup_tc again on link changes, so nothing
+reprograms the hardware.
 
-Nothing seems to prevent this configuration. macb_set_channels() checks
-the requested count only against max_num_queues:
+Can the schedule ever come back without the user reinstalling the qdisc?
+struct macb_enst stores only on/off times already converted to bytes for
+one speed:
 
-    if (num_queues > bp->max_num_queues)
-        return -EINVAL;
+	config.queues[queue_id].on_time_bytes =
+		enst_ns_to_hw_units(entry->interval, bp->speed_mbps);
+	config.queues[queue_id].off_time_bytes =
+		enst_ns_to_hw_units(off, bp->speed_mbps);
 
-So on versal and eyeq5 (MACB_CAPS_QUEUE_DISABLE), ethtool -L can select
-more queues than DCFG6 reports segments. The same applies at probe/open
-time when all queues are active.
+macb_taprio_setup_replace() discards the nanosecond intervals from
+tc_taprio_qopt_offload. Because of that, macb_mac_link_up() cannot
+recompute or re-check the schedule for the new speed. It also cannot
+restore it if the link later comes back at the original speed, for
+example after a temporary PHY downshift or a cable swap.
 
-Should the active queue count be limited to num_segments on
-MACB_CAPS_TXQSEGALLOC parts? If not, should the comment stop describing
-this case as handled?
+Would it work to keep the ns intervals in bp->enst, then re-validate and
+recompute the byte values on each link-up? The schedule would then
+survive whenever it still fits the new speed.
 
-> +
-> +	pow = min_t(unsigned int, ilog2(num_segments / num_queues), 7);
-> +	remaining_segments = num_segments - num_queues * (1U << pow);
-
-[ ... ]
-
-> +writel:
-> +	gem_writel(bp, TXQSEGALLOC_LOWER, val);
-> +}
+>  	if (!(bp->caps & MACB_CAPS_MACB_IS_EMAC)) {
+>  		macb_set_tx_clk(bp, speed);
+>  		gem_shuffle_tx_rings(bp);
 
 [ ... ]
 
