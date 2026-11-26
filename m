@@ -1,63 +1,47 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=156.67.10.101
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703751;
-	b=VLc9TQV9jMRob2sxFPdLH0ZO5jxmU+1BDmsFj0PcP/ajisBcbrv1B8YpIStjvFQChx7f
-	 OhmLMpIn8tHsf0SFHcOUnHrQyjY4nWQGskOKxdSXdpmAkKzFUHBuDndo+FRZqNgrW8bjp
-	 1/Dl8DX04LoNUZuz3WarqkKLRMnxoIrFbz6ms4oXkObU2ItumycBiD1DU+7hWBdBimuUW
-	 MPsZ88Rmaii6wqEMGUi9zhV8ZlB4GOTYFftbPG4vmr9KW2sJyQQ465r9UeEkH089ouxdQ
-	 u0TiGENP1GLWZJWOc7G7eVHLB0jtb1ouhBLTfxGADMDiISl9+W4ej77klIg7UUOk35A==
+	t=1795703784;
+	b=gwN16tGVawTV9IyzPnppfiSPgin3MRivyowM5EWvCyWYB+R98a1BSvJTyEuvKG7icCab
+	 tFZQEk++JxTLQOiOEncTR0kvDwFw5lkQTky4DlpK0zhgrGugbOFhSei7843HvPiWZXA+z
+	 rvm05hZmEIoLCku/9g7vLMcWjSlWYXbNY9MkejP5x+o9K6NCzwrwkiGJ4GF1LnqgO0mKI
+	 hEx8ryB7Rf+3q1A0QKZbQcrqynkX2yibUdNydn20sc+OPaT5bl/Ts4/e4GJXMJOpvN83F
+	 KjR2eulFcc8hawPbFU0MnjF1gwJ+/4sYyKPxiXRGV+HhhNGbfTqQI2FOtbLj2udStpg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703751;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 In-Reply-To;
-	bh=R08AuLohZ3b0Qwcu7uzGKxtTnAp1WS86EeNomaGnUCU=;
-	b=y/HidxQulVzQQWRBac69dlFLLlX61DdwvGP2xXNnCC1b0zgYUkH9vxitZN7ZGmcl1LqE
-	 /hGJ3RuMN7XRYuJ457cCT3FPHx1p8pg6cFwNyC0V0cb/9OLWNuemd4mZNu+akVTNUxV26
-	 7Pl4XPvC95rI5PCVtXs69Z/1HihPoGxawjGbL/PFfr4b1/dIBBSXF6I4oIYBg7fiokR7J
-	 KaOIht2okkeIUVxffw2RkmutSHDKM1aP03ad9+MH3yweHEnd9IJz5OmEMnV5WyO47G9uI
-	 x8FrCH7M+BDy3thrNmdEYcdEp+jk16OUVK2iCylVEd4l9JsCSstrAC8IvY/ZS4MeH4Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703784;
+	h=Received:DKIM-Signature:Message-ID:Date:MIME-Version:User-Agent:
+	 Subject:To:Cc:References:From:Content-Language:Autocrypt:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=zj0JE2YyafWc6urtXStDlJMn1hg/PIQWGQas+jhQ4rY=;
+	b=QX/sLPSjS5xqiyOIUCbf/BgWpQG7TEzRHCh1rsxPq9gOKpUmzybF2gJn/GF44yfn0mFg
+	 crpFELvwCRIQgYysH0DDCgpvocBXXglcTlmpfvkMTEzNbjDiEFpjqIZ7oAXzmiB0KgUtY
+	 hmIObxl7Y+c4Ea9k6vobfI2kRbOKl0VTa5DJi45ZUMYgo7vS2F47aUR3xuFcjH2D+jxEu
+	 vW+9X+DjmHMTHOvvB972hgZQBgvzJ7Bq0y4PFnZ1F38jy5Rup0A2YWJBvndynJ8JaA5at
+	 guUw8szGnZmZhJC3CEovGM355uiwxUxmcYt1xgNKVDeZRNpUyqFnrCH1mD9UJQo4Hng==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=lunn.ch;
-	spf=pass smtp.mailfrom=lunn.ch;
-	dkim=pass header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ycSSaaRO;
-	arc=none smtp.remote-ip=156.67.10.101
-Received: from vps0.lunn.ch (vps0.lunn.ch [156.67.10.101])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRLysoad;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 10AC5606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:35:50 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 10AC5606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=lunn.ch
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=lunn.ch
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D2D02606A31C;
+	Thu, 26 Nov 2026 14:36:24 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=lunn.ch header.i=@lunn.ch header.a=rsa-sha256 header.s=20171124 header.b=ycSSaaRO
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=R08AuLohZ3b0Qwcu7uzGKxtTnAp1WS86EeNomaGnUCU=; b=ycSSaaRO3NfW8jZkqMd9bSorG1
-	/Ve3G2HwaH2g/bLk2Y8bZ6pajQeDC4rU//b9LtTJIqbSIsqtf8vxRZOiJefFXlR109fVnLNTbgOh5
-	oRPgTxXmhHx1EqY9YgecLOuLXfv3NaBdd3OjpZuJXf/R5dFb8un74Tk6cRWTjH8w0FDw=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1xWaZS-001aOX-Cq; Thu, 26 Nov 2026 15:35:34 +0100
-Date: Thu, 26 Nov 2026 15:35:34 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Hans Zhang <18255117159@163.com>
-Cc: netdev-bot+sashiko@kernel.org, hkallweit1@gmail.com,
-	davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
-	pabeni@redhat.com, linux@armlinux.org.uk, netdev@vger.kernel.org
-Subject: Re: [PATCH] net: phy: avoid synchronous module request in async
- probe context
-Message-ID: <04208d88-5611-4b08-b4a3-4030d75fa946@lunn.ch>
-References: <20261124070753.25972-1-18255117159@163.com>
- <179559227928.3135.10596298102368144827@kernel.org>
- <0437f8be-41ca-4fb8-b775-ed02413ea16d@163.com>
- <24787f0c-e90e-45f1-a9f3-d0772fbafeaf@lunn.ch>
- <c1ee530d-21bc-4b50-881f-3be9b2654b9d@163.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mRLysoad
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 815041F000C0;
+	Thu, 26 Nov 2026 14:36:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795703784;
+	bh=zj0JE2YyafWc6urtXStDlJMn1hg/PIQWGQas+jhQ4rY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=mRLysoadABmBeW3KIErKB7poC2Z7v6ZV49ekiOGD29UKxV7vMT9Tdgp95ihR49SPS
+	 baRpmglmNcxkMbHlPIE3Gokh/rKc67lpqEl98c2p2Y9WRAoNyjk1maBD4Jy0FjSFlm
+	 TKGRVCgqhj3UI1p1FR1BWZE6hZ3eEYGv3RK/cLr9yIZazYhwp9oYWvjXZjnn/Mj7M1
+	 19GP5oIU0kLPlni7vcpsK9WQ5YggRVuTS6bQcsbkjML++bWVZh+OMIZn82Dz+lIlgw
+	 0myTCkKfV9dY67yUTY0uFKRfJJE5ask5/kZZf+BontU+WbejgIGQzovZiQN6b45poH
+	 K6/0Qf6QNFjvg==
+Message-ID: <a77c9b9b-ae0b-455f-b51e-f5dfb47a753e@kernel.org>
+Date: Thu, 26 Nov 2026 15:36:12 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,41 +51,83 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <c1ee530d-21bc-4b50-881f-3be9b2654b9d@163.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/9] dt-bindings: net: rockchip-dwmac: Allow iommus
+To: Arun Iyengar <aiyengar1990@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ David Wu <david.wu@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+ Niklas Cassel <cassel@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org,
+ Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>,
+ Robin Murphy <robin.murphy@arm.com>, iommu@lists.linux.dev,
+ Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+References: <20261113-mmu600-php-v1-0-231196049a3b@gmail.com>
+ <20261113-mmu600-php-v1-1-231196049a3b@gmail.com>
+ <20261123-quirky-scallop-of-beauty-c662b7@quoll>
+ <CAEy9hNX-TiThoXZ9+Q7j=bB7PpNBr7Wjz8_sH7C081HXka4xHA@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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
+In-Reply-To: <CAEy9hNX-TiThoXZ9+Q7j=bB7PpNBr7Wjz8_sH7C081HXka4xHA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 
-> For v3 I'm considering moving the check to __mdiobus_register() itself,
-> returning -EPROBE_DEFER before the scan when current_is_async() is true.
+On 26/11/2026 09:55, Arun Iyengar wrote:
+> Sorry, I missed the report. v2 allows iommus only on the RK3588
+> compatibles and drops the nested ifs in 3/9. It follows once the
+> arm-smmu-v3 clocks/resets binding it needs is settled.
+> 
 
-Maybe. This code is tricky. There are quiet a lot of comments
-explaining the issues, which the LLM quoted. You should look at the
-comments, and what the LLM said, and think about all the corner cases
-you can think of. 
+What's this about? There is no context here at all.
 
-> __mdiobus_register() already returns -EPROBE_DEFER for the reset-GPIO
-> case, and the deferred-probe retry runs on a normal workqueue where
-> current_is_async() is false, so the synchronous request_module() is safe
-> again. Direct get_phy_device() callers would not be affected.
-
-This does seem like it could work. However, i'm considering the risks.
-Are there MAC drivers which don't correctly handle EPROBE_DEFER from
-the mdiobus_register variants?
-
-Such a change would solve it for all MAC drives which probe
-async. However, i think there is a less risky option:
-
-		.probe_type = PROBE_FORCE_SYNCHRONOUS,
-
-for this one MAC driver.
-
-That is also probably faster. The MAC driver has often done a lot of
-work setting stuff up before it calls mdiobus_register(), which it
-then needs to undo, and do again later. I assume
-PROBE_FORCE_SYNCHRONOUS will completely avoid that, the probe happens
-later in synchronous context, and avoids all this.
-
-If we see more MAC drivers having this problem, we can then consider
-your general solution.
-
-     Andrew
+Best regards,
+Krzysztof
