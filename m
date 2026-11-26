@@ -1,75 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.200
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795656342;
-	b=v7qZHYhyXbh80titP25m2Q2Lq+sRqfRWuPaCaerp0kfFRgrCrCRooAHhgTn35199PYfz
-	 aUMkLYjq4loouimsLrYLS9fPo1K6Sknwlt0P+9rUPP67v8s8JxIYMcu78yzQYOAruQmBR
-	 2vkkP//yxaUiZg/YWsU02AUcAsdGg98CMz2s7Pt/q3AJwhORZbhb5kgLPm5N1HAka9jAn
-	 frAB+g0UtcKWZJCEgFiN+/tyxjOZ/g0ypvYQOrQpF92md2fRDh14ABCOwEKF20ebKXK1y
-	 qqHdpgJ7L5ln3waRJ7jSXAbXg4pC9GFJbIYcViDqNZnRU3yv/P+geVLb5tPGCHCXEPg==
+	t=1795656826;
+	b=bXwgUMLdYenTSb6iK44JrTSVGZmyXzV8sa5Vanrsq1isUzZh8xpwdtfgVKyzHBrMpYou
+	 iVikfTJH9TOqgVGypbUcHVBx0hM1GpoKaah7wUgK5z5B54YxOV48It7y88iXwCxZAG+oy
+	 vnh23NC2uLIORNJbOZGbIZN2LxpssK2Hdr1cgioV6a5voElW562tznAp6v5pItau89qXT
+	 XjfwuTJRDPvMtnupqIGD+AYfcmUvAUTvv9VtjzN+EjVR/8xJ5dAnLNy/lvJ2yYsjni/Dd
+	 HGbPGA/9xlD4BEp5+WVohdNqoxehP0yZVQzIdygRoIDTH9a33ZMhbNEfAgUnAiZDKVA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795656342;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:In-Reply-To:Mime-Version:
-	 References:Message-ID:Subject:From:To:Cc:Content-Type:
-	 Content-Transfer-Encoding;
-	bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
-	b=i1XSXoqVxDZAQH25tuAZBhbUbEkAIRZuQjZ+7E47YrF/RmmpH6nsTWx9nEI0gflQav47
-	 xTfJWd9abm0LnF9Ri4bBnbfmG4pWPy/199lKbN4dh4jVaJjsEJ6WRqhvHWgp/tVR7wqeM
-	 KwO3P1e2PpfAeetcaoh4CehC+dxuCqpY1fa7mB5XYU+mEXQs2Khcjyt+h9smCWrSmzVCn
-	 BCNgiipUeLqNcTDjN0R3yY/eRaFqAVKI55Q1spdZnpj+U3EFvIYyM9IRVOTkvIa9xzYhW
-	 76L5fcynWZDJJz0k9K0hUSbSW4sTjHiPBInZTDfRIiQHfRet9S9ue9nM5Tu1KY6plHw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795656826;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=VRmkJt2mYMXfobOrERfxYtXmdhLSlFiM/a+GhwFqJSY=;
+	b=xogoLxm8Bh0CloBMV8eQFI/GgcJDah+qWTxt6iy1XlqZB7WbVzip+JO2cksfKOeTBafG
+	 wI27PrLmJclcY5RfadnweTLphlRLZVywC4d59IpFIcvr8jP08EQ+NFhIJvF6fuLGvRDaq
+	 8taS6IXUPVXU55M8/hnBOB0Taw1epORQKSl75KsBBDsRVKmWjlO65uVYAr4+fOIFZLNvk
+	 o1dy3cEp8XKV5NbFDmL5fG7SN2O7BJKyfJtzPX/zxjm99es7OjBS3nFYH6N8XHjewcVuh
+	 FCSkHumlf4zqQ1w4nb7pw39d5cJJi9XkIYbxboNvdWyMCwWrbLiAnQTU8Lg/tt7TOKw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bS87q7Nl;
-	arc=none smtp.remote-ip=209.85.160.200
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bont+xHB;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B402C606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:25:41 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B402C606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8F1FD606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:33:46 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=bS87q7Nl
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-55bb7f70b06so113737381cf.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 17:25:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795656341; x=1796261141; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
-        b=bS87q7NlioVjMDi1zqjELaj84CMXptojrbD9tyZB/JB5UYzWRF5ot7CQgqe+xEXhog
-         LchjVg0YeuE4iAXcDojAC04xSj6NjIRPfk0fvK99TBkqkydbVP0dWuys/aBd+QgMFrSD
-         ijrC947W3mm/zh6WzWJOs1TfyJGrFq281A8IbTDl48GdE5s/pzqypvdUl/5Lp4q83KDT
-         GSahY9K+JdyWwLWW6Qyt+j9py0OqYtJo0OVK1cB0h8Ue2wYgV+FfDL6lcj8NH7S3I5oZ
-         F/i5Wn2+ccksRYQF4PdcMq92zBq8A8Og+R3cVeaG4kErzeDHoQLEKvuzCBU/Xw104cH+
-         EsQA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795656341; x=1796261141;
-        h=content-transfer-encoding:content-type:cc:to:from:subject
-         :message-id:references:mime-version:in-reply-to:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zqpy/ujIKdE+RaX5YsmhBcXwpTFeGTsTy4qeAJjN6aA=;
-        b=2BFTZRuZtWA7QJX3ScGBZLtlFRJBp/OR/8d/kNlAz7RpsPjtYaPwu+4SkL21eYjJC2
-         NUSb39z8YhuQYRtMwvQJBf/KI58GvjQHpOlNIR4q6Y0ak6TtCnjOSBEd5zxjZ8weNkub
-         xAPFe7ToX877MBYspwaHNToe9XDhOb4XHy3LRCpgBH6X6hZ5Z9X3P7v2+Gg/JKeb2PpN
-         nT4LHk0aQcfwEyj3n5cWqh4msmyBgOg6jY6Y7R8VLu9/JdjiFJMz0okhB6c/IBRfX125
-         8Z+nwiiXTBfh9Z9j8foSXoZ0WubQt+rZYPNg3RhVsZb/n4JL4LJ/QlClq63g5Xet9NmB
-         OoMA==
-X-Gm-Message-State: APuU4Z/9Mm0Xr6ra+HG9rVnt5ex8pAWTPsRVnPl2qQAUds+3RcY6bPq7
-	osAsrqGBrma//zJL+qvPuiCjL8r27hhhlfrLpU6uQa8SnN6xGeCrZZD9n9FaA8QYqtc3YRAigOP
-	gQ4jfjmwCUA==
-X-Received: from qtpp16-n2.prod.google.com ([2002:a05:622a:9d0:20b0:536:18bc:b19c])
- (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:622a:248a:b0:536:48e4:680f
- with SMTP id d75a77b69052e-55d76a5b31emr326840661cf.30.1795656340388; Wed, 25
- Nov 2026 17:25:40 -0800 (PST)
-Date: Wed, 25 Nov 2026 20:25:39 -0500
-In-Reply-To: <179532244301.3135.14806986987888080886@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=bont+xHB
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70B7E1F000C4;
+	Thu, 26 Nov 2026 01:33:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795656826;
+	bh=VRmkJt2mYMXfobOrERfxYtXmdhLSlFiM/a+GhwFqJSY=;
+	h=From:To:Cc:Subject:Date;
+	b=bont+xHBAKEtHuIDbWBjEVpJBiOUla491DXTHBdX0+Gy8zRztn7W9rblVw/xAxvAK
+	 +7s91BHhN3Risvbudqfu/53fyeWVHgUuaa1QfKc8iHI/c3aI5xYEq+b6sZaSDXPjY5
+	 0vQ2fauNOJmyEKI7ieKihT50u4RHYgvcMPU1YFZ76jpaZkp/Z6ykuWTPM4DxW6vCPS
+	 X/eGsaHog/FCY3GpHWtGyrFAa378tOxnULmm/lsJF7IW4uxoIpjXdjchni5kyFgaVc
+	 fpVPF1iLMYOAe8LMqbH06sq3rLFJ2YZamwsrEmu3xeMZMKXQVdz3gp3Glw4+qU69ki
+	 3xk9ntECjz5ag==
+From: David Ahern <dsahern@kernel.org>
+To: netdev@vger.kernel.org
+Cc: dsahern@kernel.org,
+	idosch@nvidia.com,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org,
+	ralf@mandelbit.com,
+	ja@ssi.bg,
+	David Ahern <dahern@nvidia.com>
+Subject: [PATCH net-next v2 00/13] ipv6: validate cached dsts against the netns route generation
+Date: Wed, 25 Nov 2026 18:33:26 -0700
+Message-ID: <cover.1795642432.git.dahern@nvidia.com>
+X-Mailer: git-send-email 2.54.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -78,88 +63,104 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-References: <20261118042614.878448-1-vmukunda@marvell.com> <179532244301.3135.14806986987888080886@kernel.org>
-Message-ID: <willemb.25fe67ed9e671@google.com>
-Subject: Re: [PATCH net v2] octeontx2-af: widen TX scheduler queue index to 11 bits
-From: willemb@google.com
-To: netdev-bot+sashiko@kernel.org, vmukunda@marvell.com
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, sgoutham@marvell.com, 
-	rkannoth@marvell.com, gakula@marvell.com, sbhatta@marvell.com, 
-	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
-	kuba@kernel.org, pabeni@redhat.com, skoteshwar@marvell.com
-Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
-Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-bmV0ZGV2LWJvdCtzYXNoaWtvQCB3cm90ZToNCj4gVGhhbmsgeW91IGZvciB5b3VyIGNvbnRyaWJ1
-dGlvbiEgU2FzaGlrbyBBSSByZXZpZXcgZm91bmQgMSBwb3RlbnRpYWwNCj4gaXNzdWUocykgdG8g
-Y29uc2lkZXIuDQoNCj4gQ3JpdGljYWw6IDAgwrcgSGlnaDogMSDCtyBNZWRpdW06IDAgwrcgTG93
-OiAwDQoNCj4gSWYgeW91IGJlbGlldmUgbm9uZSBvZiB0aGUgaXNzdWVzIGFyZSBsZWdpdGltYXRl
-LCBwbGVhc2UgcmVwbHkgdG8gZWFjaA0KPiBpc3N1ZSBvZiBNZWRpdW0gc2V2ZXJpdHkgb3IgaGln
-aGVyIGFuZCBleHBsYWluIHdoeSB0aGUgQUkgaXMgd3JvbmcuDQo+IElmIGFueSBvZiB0aGVtIGFy
-ZSBsZWdpdGltYXRlIGFuZCB5b3UgcGxhbiB0byByZXNwaW4sIHBsZWFzZSBsZXQgcGF0Y2h3b3Jr
-DQo+IGtub3cgYnkgaW5jbHVkaW5nICJwdy1ib3Q6IGNyIiBhcyBhIHNlcGFyYXRlIGxpbmUgYXQg
-dGhlIGVuZCBvZiB5b3VyIHJlcGx5DQo+IChvbmUgc3VjaCByZXBseSBwZXIgc2VyaWVzIGlzIGVu
-b3VnaCkuDQoNCj4gLSBbSGlnaF0gVGhpcyBwYXRjaCBmaXhlcyAxMS1iaXQgU01RIGluZGljZXMg
-b25seSBvbiB0aGUgTklYX1RYU0NIUV9DRkcNCj4gICAgcmVnaXN0ZXIgcGF0aCwgYnkgd2lkZW5p
-bmcgVFhTQ0hRX0lEWF9NQVNLIGFuZCBOSVhfVFhfU0NIUV9NQVNLLg0KDQo+IC0tDQoNCj4gb2N0
-ZW9udHgyLWFmOiB3aWRlbiBUWCBzY2hlZHVsZXIgcXVldWUgaW5kZXggdG8gMTEgYml0cw0KDQo+
-IFRoaXMgY29tbWl0IHdpZGVucyBUWFNDSFFfSURYX01BU0sgZnJvbSAxMCB0byAxMSBiaXRzIGFu
-ZCBleHRlbmRzDQo+IE5JWF9UWF9TQ0hRX01BU0sgdGhyb3VnaCBiaXQgMjYuIFdpdGggdGhhdCwg
-c2NoZWR1bGVyIHF1ZXVlIGluZGljZXMgb2YNCj4gMTAyNCBhbmQgYWJvdmUgYXJlIG5vIGxvbmdl
-ciB0cnVuY2F0ZWQgb24gdGhlIE5JWF9UWFNDSFFfQ0ZHIHJlZ2lzdGVyDQo+IHBhdGguIFRoZSB0
-YXJnZXQgaXMgQ04yMEssIHdoZXJlIHRoZSBTTVEgZmllbGQgb2YgdGhlIFNRIGNvbnRleHQgaXMg
-MTENCj4gYml0cyB3aWRlLg0KDQo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0
-L21hcnZlbGwvb2N0ZW9udHgyL2FmL21ib3guaCAgDQo+IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQv
-bWFydmVsbC9vY3Rlb250eDIvYWYvbWJveC5oDQo+ID4gaW5kZXggY2VjZTE5N2QxMDc0Yi4uMWI2
-MmY5ZDdmMDBhMCAxMDA2NDQNCj4gPiAtLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxs
-L29jdGVvbnR4Mi9hZi9tYm94LmgNCj4gPiArKysgYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2
-ZWxsL29jdGVvbnR4Mi9hZi9tYm94LmgNCj4gPiBAQCAtMTE2NCw3ICsxMTY0LDcgQEAgc3RydWN0
-IG5peF90eHNjaHFfY29uZmlnIHsNCj4gPiAgCXU4IGx2bDsJLyogU01RL01EUS9UTDQvVEwzL1RM
-Mi9UTDEgKi8NCj4gPiAgCXU4IHJlYWQ7DQo+ID4gICNkZWZpbmUgVFhTQ0hRX0lEWF9TSElGVAkx
-Ng0KPiA+IC0jZGVmaW5lIFRYU0NIUV9JRFhfTUFTSwkJKEJJVF9VTEwoMTApIC0gMSkNCj4gPiAr
-I2RlZmluZSBUWFNDSFFfSURYX01BU0sJCShCSVRfVUxMKDExKSAtIDEpDQoNCj4gW1NldmVyaXR5
-OiBIaWdoXQ0KPiBUaGlzIGZpeGVzIHRoZSB0eHNjaHEgcmVnaXN0ZXIgcGF0aC4gSXMgdGhlcmUg
-c3RpbGwgYW5vdGhlciBwbGFjZSBvbg0KPiBDTjIwSyB3aGVyZSBhbiBTTVEgaW5kZXggb2YgMTAy
-NCBvciBhYm92ZSBpcyBjdXQgZG93biB0byAxMCBiaXRzPw0KDQo+IG90eDJfc2V0dXBfZGV2X2h3
-X3NldHRpbmdzKCkgc2V0cyBDTjEwS19MTVRTVCBvbiBldmVyeSAhaXNfZGV2X290eDIoKQ0KPiBk
-ZXZpY2UsIGFuZCB0aGF0IGluY2x1ZGVzIENOMjBLLiBBcyBhIHJlc3VsdCwNCj4gb3R4Ml9wZmNf
-dXBkYXRlX3NxX3NtcV9tYXBwaW5nKCkgaW4gbmljL290eDJfZGNibmwuYyB0YWtlcyB0aGUgY24x
-MGsNCj4gcmVxdWVzdCBicmFuY2g6DQoNCj4gZHJpdmVycy9uZXQvZXRoZXJuZXQvbWFydmVsbC9v
-Y3Rlb250eDIvbmljL290eDJfZGNibmwuYzpvdHgyX3BmY191cGRhdGVfc3Ffc21xX21hcHBpbmco
-KSAgDQo+IHsNCj4gICAgICAuLi4NCj4gCWlmICh0ZXN0X2JpdChDTjEwS19MTVRTVCwgJnBmdmYt
-Pmh3LmNhcF9mbGFnKSkgew0KPiAJCWNuMTBrX3NxX2FxID0gb3R4Ml9tYm94X2FsbG9jX21zZ19u
-aXhfY24xMGtfYXFfZW5xKCZwZnZmLT5tYm94KTsNCj4gICAgICAuLi4NCj4gCQljbjEwa19zcV9h
-cS0+c3FfbWFzay5zbXEgPSBHRU5NQVNLKDksIDApOw0KPiAJCWNuMTBrX3NxX2FxLT5zcS5zbXEg
-PSBvdHgyX2dldF9zbXFfaWR4KHBmdmYsIHByaW8pOw0KPiAgICAgIC4uLg0KPiB9DQoNCj4gbml4
-X2NuMTBrX3NxX2N0eF9zLnNtcSBpcyBhIDEwLWJpdCBmaWVsZCwgc28gYml0IDEwIG9mIHRoZSBT
-TVEgaW5kZXggaXMNCj4gZHJvcHBlZC4gVGhlIG1hc2sgYWxzbyBjb3ZlcnMgb25seSBiaXRzIDk6
-MC4NCg0KPiBPbiB0aGUgQUYgc2lkZSwgd2hlbiBpc19jbjIwaygpIGlzIHRydWUsIG5peF9nZXRf
-YXFfcmVxX3NtcSgpIHJlYWRzDQo+IGV2ZXJ5IHJlcXVlc3Qgd2l0aCB0aGUgMTEtYml0IGNuMjBr
-IGxheW91dDoNCg0KPiBkcml2ZXJzL25ldC9ldGhlcm5ldC9tYXJ2ZWxsL29jdGVvbnR4Mi9hZi9y
-dnVfbml4LmM6bml4X2dldF9hcV9yZXFfc21xKCkgew0KPiAJaWYgKGlzX2NuMjBrKHJ2dS0+cGRl
-dikpIHsNCj4gCQkqc21xID0gKChzdHJ1Y3Qgbml4X2NuMjBrX2FxX2VucV9yZXEgKilyZXEpLT5z
-cS5zbXE7DQo+IAkJKnNtcV9tYXNrID0gKChzdHJ1Y3Qgbml4X2NuMjBrX2FxX2VucV9yZXEgKily
-ZXEpLT5zcV9tYXNrLnNtcTsNCj4gCQlyZXR1cm47DQo+IAl9DQo+ICAgICAgLi4uDQo+IH0NCg0K
-PiBJbiB0aGUgY24yMGsgbGF5b3V0LCBiaXQgMTAgc2l0cyB3aGVyZSB0aGUgY24xMGsgbGF5b3V0
-IGhhcyBjcV9lbmEsIGFuZA0KPiB0aGF0IGJpdCBpcyAwIGluIGJvdGggdGhlIHZhbHVlIGFuZCB0
-aGUgbWFzay4gU28NCj4gcnZ1X25peF9ibGtfYXFfZW5xX2luc3QoKSBjYWxscyBpc192YWxpZF90
-eHNjaHEoKSB3aXRoIChzbXEgJiAweDNmZikuDQo+IFRoZSBtYXNrZWQgQVEgd3JpdGUgdGhlbiBs
-ZWF2ZXMgYml0IDEwIG9mIHRoZSBleGlzdGluZyBoYXJkd2FyZSBTUQ0KPiBjb250ZXh0IHVuY2hh
-bmdlZC4NCg0KPiBEZXBlbmRpbmcgb24gdGhlIG9sZCBhbmQgbmV3IFNNUSwgd291bGQgdGhpcyBn
-aXZlIHRoZSBmb2xsb3dpbmc/DQoNCj4gICAgb2xkIDwgMTAyNCwgbmV3ID49IDEwMjQ6IHRoZSBT
-USBpcyBwcm9ncmFtbWVkIHRvIG5ldyAmIDB4M2ZmLCB3aGljaCBpcw0KPiAgICB0aGUgd3Jvbmcg
-U01RLCBvciB0aGUgb3duZXJzaGlwIGNoZWNrIHJlamVjdHMgdGhlIHJlcXVlc3QuDQoNCj4gICAg
-b2xkID49IDEwMjQsIG5ldyA+PSAxMDI0OiB0aGUgb3duZXJzaGlwIGNoZWNrIHJ1bnMgb24gYW4g
-U01RIHRoZQ0KPiAgICBmdW5jdGlvbiBwcm9iYWJseSBkb2Vzbid0IG93biwgc28gUEZDIGNvbmZp
-Z3VyYXRpb24gZmFpbHMuDQoNCj4gICAgb2xkID49IDEwMjQsIG5ldyA8IDEwMjQ6IHRoZSBBRiBh
-cHByb3ZlcyBTTVEgWCwgYnV0IHRoZSBoYXJkd2FyZSBpcw0KPiAgICBzZXQgdG8gWCB8IDB4NDAw
-LCB3aGljaCBtYXkgYmVsb25nIHRvIGFub3RoZXIgUEYgb3IgVkYuDQoNCj4gVGhlIENOMjBLIFNR
-IGluaXQgcGF0aCBpbiBjbjIway5jIHVzZXMgbml4X2NuMjBrX2FxX2VucV9yZXEgYW5kDQo+IHBy
-b2dyYW1zIGFsbCAxMSBiaXRzLiBUaGUgUEZDIHBhdGggZG9lcyBub3QsIGFuZCBpdCBpcyByZWFj
-aGFibGUgdGhyb3VnaA0KPiBkY2JubCBpZWVlX3NldHBmYyAtPiBvdHgyX3BmY190eHNjaHFfdXBk
-YXRlKCkgLT4NCj4gb3R4Ml9wZmNfdXBkYXRlX3NxX3NtcV9tYXBwaW5nKCkuDQoNCj4gVGhlIEZp
-eGVzOiB0YWcgcG9pbnRzIGF0IGI1ZGNkZGUwNzRkNSwgd2hpY2ggYWxzbyBhZGRlZCB0aGUgY24y
-MGsNCj4gZGVjb2RpbmcgaW4gbml4X2dldF9hcV9yZXFfc21xKCkuIFNob3VsZCB0aGUgUEZDIHJl
-bWFwIGJlIHVwZGF0ZWQgYXMNCj4gcGFydCBvZiB0aGlzIGZpeCB0b28/DQoNClBUQUwgYXQgdGhp
-cyBmaW5kaW5nLCBsb29rcyBsZWdpdA0KDQotLQ0KDQpwdy1ib3Q6IGNyDQoNCg==
+From: David Ahern <dahern@nvidia.com>
+
+IPv6 dsts are validated through a cookie that a holder (socket, dst_cache,
+xfrm bundle, IPVS, ...) captures from the fn_sernum of the route's node at
+the time it stores the dst. A route change that lands between the route
+lookup and that capture is folded into the cookie, and the stale dst then
+looks valid. Only nexthop object pcpu routes carried a generation of
+their own, and a pcpu dst that failed its check could be re-stamped and
+made valid again for every holder (Fixes: 8f34e53b60b3). The reported
+result is a dst that keeps bypassing a route change, or a learned PMTU,
+for as long as it is held.
+
+This series stamps every dst with the netns route generation when it is
+built and validates it with a plain comparison in ip6_dst_check(), the way
+IPv4 does with rt_genid. A dst is never re-stamped: holders keep seeing a
+stale dst as stale, and a new one is built for the next lookup. Learned
+PMTUs and redirects survive a generation change, because a stale exception
+is replaced by a current copy, not dropped.
+
+ 1-3: exception insert fixes needed before the exception table is
+      touched more often: allocate the new entry before the old one is
+      removed, keep a superseded pcpu dst working until its holders
+      notice it is stale (it is put on the uncached list, so device
+      unregister still detaches it), and do not insert an exception
+      whose MTU could not be stored.
+ 4:   ip6_link_failure() invalidates the failing dst only, with a stale
+      mark in its sernum, instead of the whole node.
+ 5:   route dumps notice exception inserts on the root through a table
+      sequence, tb6_excp_seq, rather than through fn_sernum.
+ 6:   the core change: stamp and validate dsts against the netns
+      generation, and refresh stale exceptions. An exception insert
+      invalidates only the pcpu dsts of its own nexthop, tracked with a
+      per-nexthop cpumask, and ip6_dst_check() also fails an uncached
+      RTF_CACHE dst (the FLOWI_FLAG_KNOWN_NH clone, which IPVS keeps in
+      dest->dst_cache) once an exception exists for its destination on
+      any nexthop group member it can have come from.
+ 7:   rt_genid_bump_ipv6() becomes a plain counter increment instead of
+      a walk over every node of every table.
+ 8-9: nexthop object changes that did not bump the generation now do.
+ 10:  stamp a dst with the generation sampled before the FIB lookup, not
+      the one current when it is allocated, so a change that lands
+      during the lookup cannot be folded in.
+ 11-13: selftests: a deleted exception stays deleted after a FIB
+      change (pmtu.sh), a stale pcpu dst after a nexthop change
+      (fib_tests.sh), and a PMTU learned after IPVS cached its DR route
+      (ipvs.sh).
+
+Known costs and limits:
+ - Every FIB change bumps the generation of the netns, so every exception
+   becomes stale and is replaced by a copy the next time traffic uses it.
+   That is an allocation per exception revisited, and the replacement takes
+   rt6_exception_lock, which is global. The entry and the writable
+   metrics are allocated before taking it.
+
+ - An exception insert still scans the nexthop's whole dirty cpumask,
+   nr_cpu_ids bits, though it only touches the dsts of CPUs that built one.
+
+Changes since non RFC v1
+ - rebased to top of tree
+ - added Ralf's reported-by to a few patches
+ - Patch 6: the stale-clone check for uncached RTF_CACHE dsts, the
+   allocations done before taking rt6_exception_lock, and corrected wording
+   about the cpumask scan.
+ - New selftest for IPVS DR mode.
+
+David Ahern (13):
+  ipv6: allocate the exception entry before removing the one it replaces
+  ipv6: keep a superseded pcpu dst working until its holders notice
+  ipv6: don't insert a PMTU exception whose MTU could not be stored
+  ipv6: invalidate the failing dst in ip6_link_failure()
+  ipv6: tell route dumps about exception inserts with a table sequence
+  ipv6: validate dsts against the netns route generation
+  ipv6: make rt_genid_bump_ipv6() a plain counter increment
+  nexthop: factor out nh_has_f6i()
+  nexthop: bump the IPv6 route generation on group changes
+  ipv6: stamp dsts with the generation sampled before the FIB lookup
+  selftests: net: pmtu: check that a deleted cached exception stays
+    deleted
+  selftests: net: fib_tests: Add stale pcpu test
+  selftests: net: ipvs: check a PMTU learned after the DR route was
+    cached
+
+ include/net/ip6_fib.h                         |  70 +-
+ include/net/net_namespace.h                   |  36 +-
+ net/ipv4/nexthop.c                            |  42 +-
+ net/ipv6/addrconf_core.c                      |   7 -
+ net/ipv6/fib6_rules.c                         |  33 +-
+ net/ipv6/ip6_fib.c                            |  76 +-
+ net/ipv6/route.c                              | 720 ++++++++++++++++--
+ tools/testing/selftests/net/fib_tests.sh      |  53 +-
+ tools/testing/selftests/net/netfilter/config  |   2 +
+ tools/testing/selftests/net/netfilter/ipvs.sh |  81 ++
+ tools/testing/selftests/net/pmtu.sh           |  90 +++
+ 11 files changed, 1035 insertions(+), 175 deletions(-)
+
+-- 
+2.54.0 (Apple Git-157)
+
