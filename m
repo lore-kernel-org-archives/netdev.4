@@ -1,78 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.224.44
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795697371;
-	b=FYq0b/yeMhP2R6vzwsDewBAAV20aPzij7HuZ1PA6yTXK+vvQAc6QxsddyO9gvf5NXhdk
-	 dD54rKUyv+VFKdnzKUzafMUdUFXz60vBQPkcIuAj5js6L4j1lCfzFabdZtLtwuiMJCia/
-	 Fkdkgt6FStB9EPML342xjPJT19sGIgcyy4d3q5KlPWM8vSzxWGvijqW/bqNyRmNlXVtMb
-	 QNABUggfUGCc+VkJwgHaYygJPp5Hu3Xir762SBSt3zDZWctoh4yhdpdWxv6IjHqkVbmFl
-	 VbsEIGKW3ys3kanPVj+GzGNde/C2C0U2h2qs9gQ8Gkf0OZ6fZuVUCxc5r73XcX3KgSw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795697371;
-	h=DMARC-Filter:Received:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Received:
-	 X-Forwarded-Encrypted:X-Received:MIME-Version:References:In-Reply-To:
-	 Reply-To:From:Date:X-Gmail-Original-Message-ID:X-Gm-Features:
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795697598;
+	b=Qdj1UKKI/PTAxQB8hH51Lfpyc82m64UMetFbCAASWbVQPiS0JGUvq8Cfw6TRCvskjgpJ
+	 9SAK4qNd2CcyToHJvicuKvp32duv1tJsRAxOOtyhPKPaX0tLkjtBQuTPi8pUL1sf6sDNS
+	 KdiQHTzlx8XMNLf8zcxwvLDT50Vy1xhma/Xzz7j/h+223pGbD2Sbxv/quTj5yXuYdonsb
+	 IF01oeABfRq5TjY0Tj0FtAK6qtbsOx2k34kAz5qNAgSs4jXA3T3NigqRoPUE16xi2CE9n
+	 zGoR5C+wg6ZpOuEi8nPcGvuPkx8HcOoqptYLrjxibJidRSBYuNmJTVTSk4CsKl74cjw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795697598;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
 	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=iCeQ/db20QjGcTEZMmDdadaK9BiQoJcNEDJPAm9EXfU=;
-	b=RebPK0Ff4HPxGHWTyZlb6RWV//ycie812tWAolJZG2gW2q3g8/haS7ovVIF0S7uLyPV2
-	 DWm5U7xakH1kapJIrbP9f6ZpcnjQ4j7YTqe2BEcl+qYU9ki9PWg3iBd7d8cOQTMvT3RbH
-	 OR6qGRcdCtSnGNtD2cfTccFWqfgI1+bTqW7pogJ28KwB+EoK5IDefXxBTXCf+/SN/ovh5
-	 +f82yiqGcBxGRvV0SA+q1Vv50zaGqc6JhUjNPGMf8cDOXpModrLYQkYwiW1Hg6FcP4Okz
-	 6AqDYzZJvmfDGX0dRghd11G6u2wH2vQLw9snV0rwCvY8+SQEyd/+e8MbFt+FM+CIRuA==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=fail header.from=linux.com;
+	bh=lGc9B3jyrGJ4akeMJZzBnHn2T1j3IVSiriGjwJai8GE=;
+	b=rt4PBo8JJiV/85HhJgD8qTSSB2uiRJg9mcP4BpDBJXcj9CPHPm7C06CL2whvAf+GAcXQ
+	 RUwz8Otlv+uFsKQUokEuqlAOSVCo8U+gxKpstWzwUiCnGZCRr+9cPExpsTxm7DfYA3C86
+	 2kX9IXqkIbEUnXFHvVZq80T1ToDcGMVIR/QjKPQzfHXyLYIcDRUKEgQWCvfMXwiOxte4j
+	 BeFqRRIrKl/03NAS0kMLV8SGnz0kpFi75sriwso3XoSB81vyzx05m4xvb4WZ3JjRsVAel
+	 llfDl87+VmSypG5CEEBa0BgF9Py2+3qcDQbAjm0dmu/k4GjF01bhcLmUcO/HQKIQw7Q==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	arc=none smtp.remote-ip=74.125.224.44
-Received: from mail-yx1-f44.google.com (mail-yx1-f44.google.com [74.125.224.44])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FORWBKgw;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.167.53
+Received: from mail-lf1-f53.google.com (mail-lf1-f53.google.com [209.85.167.53])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 401BC606A31E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:49:31 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 401BC606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=fail (p=none dis=none) header.from=linux.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3250A606A32E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:53:18 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 3250A606A32E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Received: by mail-yx1-f44.google.com with SMTP id 956f58d0204a3-67be9601f31so6038631d50.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:49:31 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795697370; x=1796302170;
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=FORWBKgw
+Received: by mail-lf1-f53.google.com with SMTP id 2adb3069b0e04-5c1479a959aso5260351e87.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:53:17 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795697596; cv=none;
+        d=google.com; s=arc-20260327;
+        b=BIlCzWE39jbVWmVqWdeU6Dd+cv87mhlX3vb/f1aVV0ZarRdwCQXqyAlhmJmHOx3GRF
+         j6+CPrsVQE/xCFlT2I8ajDSimQa73B2/+2bnapcq+MQRq9HlZrqd6qKJlGQAs+kUBDgY
+         RvS/Ttnx9YjHVcyl3pG2kdR4m2wxxSALv8nI0O8rXgWknPQAKw/9Mq8r39O9cYCK9xt+
+         tAcfQhXlytW/nIRjmcUxKia+HLgaZUHgIK7v/rtUDVMEpBG4nlChHWxKPfLmjlD3MyLp
+         0/TLLSzAzrZ56wXCozzB2J5cuCBCdHZIq9CvHEEj66X0MQ5sReV4f22OVRZSY5mUNo+Z
+         4JjA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=lGc9B3jyrGJ4akeMJZzBnHn2T1j3IVSiriGjwJai8GE=;
+        fh=Y1pN0Po2ZmZjJtOnwIg4IPKagZ7dlfnIbUYh5evuiW4=;
+        b=i5/ORq3vDduIcrS49NjVDRWsgreeGH8HvHzLI/UFMskCDPBOiVj1FT8dpFZK6yUEdP
+         PoTs6LqmkKkMDL9Gn4Fm1YN7tFw3ucigg7R62b/UIxzwa4JsbAZQ+vDhpZOtihxoZ1Xg
+         E1TXH18mJNyz5+KM7bQm+BGR0V1E+qEzfy05BsztEXzSaJp6V7mZtKj9rHi2SAxGVkXC
+         K+QpkCEQVmW9gtnF57VIKChPp61IO6Cmg470610quIGb537sbjT/WBPJFtcul3bCIajL
+         yeMJokMaIjsx3ut1HHC9XQWeVYDJmo2QqNlxTIRzeh76ZKrRPlD3YyfnvEZhztBwLou5
+         aESQ==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795697596; x=1796302396; darn=vger.kernel.org;
         h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:reply-to:in-reply-to:references:mime-version:x-gm-gg
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=lGc9B3jyrGJ4akeMJZzBnHn2T1j3IVSiriGjwJai8GE=;
+        b=FORWBKgwsA7he+yhIejYmX3C8mLyffMOydsVSolS5B9UxM/d6GN9EfR/WDQnPxM59i
+         I8V6kZ/8BCzmnDAJZDiYTIggQsKvlYEoBOQ6VOaPjuRScNUe+Nv/34RmmjzPre8+QCii
+         svin+SE79f2EIjvbqI+at/bTde6GLq2GkUerBK+q3/xO+kSqiqd390kpOWbo0xbmS3EP
+         HhgnZyq1/RsPyte70TPtCraHQ1qJScwh0kGrn+u7cLEkNU1RZKh+x4HrDRvojD7cZ9+i
+         7ElD/IEkweh4cSXSarOg4tsLELOaArmaKLCFc20DyW0O8+8DAbBqXtCU1of40mjEY1H8
+         yXXQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795697596; x=1796302396;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=iCeQ/db20QjGcTEZMmDdadaK9BiQoJcNEDJPAm9EXfU=;
-        b=oYJGsCQZQQRlR1/1AtsrTivcnqywOn62K0KlOGtC7zYXHD7+98E2tH3r8PiY1g+Jre
-         HioyMO/c/uvA8TVF81qkdMDmc4ELrdcuBAumFM0OiA80dP62y6D3FQ4f+iBsZR8A3KHz
-         8cMv7nTX7efh5HBXmbJ6pAuyaQOHrU++buKEg8cq6njcDfRGuPF8pn4/6dOiIc4G919m
-         NnwnNYAMVoWKa8iYkglPuGZPsDdB6PL6OgGIA4xDqc1hLpBqeuLn50m/QidsitQ6d+/N
-         +mDVahQkLBol7CkiBpeM29OghI2Deh8FGtAhadP/JKVXgXwuLQbNEP5ntMcPuXBETtBG
-         Ni1g==
-X-Forwarded-Encrypted: i=1; AL+hErFxuhiWuGD54D26xMqFIzcTuY1+Qoad/Jdbuy8TjZszLfC/LL0fz28wImYPF2XtIDBLd4cxxN4=@vger.kernel.org
-X-Gm-Message-State: APuU4Z929bLF+MbdwxMKd0VJs2E4YrdRweccyHqNHlNJzgrwpRaCvFxP
-	WrBqbbWoHhDt2D7QPE+ZGA8ei2BD/efWP4BrjtXDBevZWSz+0QdEKHFJH6wkj7B3Ecc=
-X-Gm-Gg: AZFdTZdZF1KcxzM+pQ99kr5RtfrKb53NJzT13PdrV8bCW00R7iFE0tjHq6XrmJh8Po2
-	gALbKnkBuYqwcjEpp6w89RrMRf9KHm7SeBK++NN9aAPByRFMSxfHX4lTDgRgf05AGzws4n/tt0o
-	LWDBHo/yKeDGl/V2e8fvXz+BsfSt267P1fBiQUM6Xrm5LXM7PTpLuNKEt2D3iG3nzRQ7fG8F8dg
-	5tRf0Q+rtswe1NtvbQqcl3s7BFms2uWwQ5Kkejx++Jj3HLezMATtManPSKHYZ3ntznaccRvDYtt
-	OKBYY6e+3D6v7kecUXfWNsFOBzFXLenfVMvFlcsxqLScnlggAGbHFOkTPVW8DWnI4dLQxTvI+sB
-	QI1GBCeZnyo1+5RDlniSMt4SJeskbFkzeg4/oQK7uv7tUZ7/VwQxpSMViIP4pBm0FoLYd5KoPWy
-	DkiPo2fU1+t/Y4swDG325OTtCP67750nXkliH/c9qwAsGTglA8dJafiguOMZkeGsTX13FVSgWHw
-	9a5NcRY8DPqlXPLZk8ogCfCMQOcegqSNGXJdjNWhWBpMxtFKemTs/pc580sIMzG70OwCNvTeF/G
-	VOvGGFQ9NdvkXoy7064eVkdYbZOtlJ3qYeThxRaQVSXuQGBaC7DZzH27PYbh+sm1iQBn1ujj1Qp
-	o17naMyZbfkVw9e5y32VKSGtsNYT7l2ilVC9Rwc+MZMqpMjwWZiC6jE42pw==
-X-Received: by 2002:a05:690e:1442:b0:67d:c50e:5683 with SMTP id 956f58d0204a3-67df440dcc3mr7440639d50.33.1795697370299;
-        Thu, 26 Nov 2026 04:49:30 -0800 (PST)
-Received: from mail-yw1-f181.google.com (mail-yw1-f181.google.com. [209.85.128.181])
-        by smtp.gmail.com with ESMTPSA id 956f58d0204a3-67df31fa7afsm9787074d50.1.2026.11.26.04.49.29
-        for <netdev@vger.kernel.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 26 Nov 2026 04:49:29 -0800 (PST)
-Received: by mail-yw1-f181.google.com with SMTP id 00721157ae682-8b4e2fcc300so61019597b3.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:49:29 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AL+hErFooIG7WJ6dFbjbDlHHDb4neTEZ0YZmrPSX/sUjaKECQEdxA9Y9MczRmCOWLQQFl2ygVFbPNk4=@vger.kernel.org
-X-Received: by 2002:a05:690c:6c8d:b0:8b3:2d65:2c72 with SMTP id
- 00721157ae682-8b52047a894mr79381047b3.42.1795697368796; Thu, 26 Nov 2026
- 04:49:28 -0800 (PST)
+        bh=lGc9B3jyrGJ4akeMJZzBnHn2T1j3IVSiriGjwJai8GE=;
+        b=ayWyNeRaDXfY0Ef5kws1WQwxVBr07jfLQ1DX1nyaGApgYHrEu1bBt0sbcDj2SYYGsS
+         HepatoATHCDluvnMMjy5PMpyy/IvnKXAgHWPJ/V8SOqJkCAHnHbIvoNmKnghVcp0D2s7
+         hyRW19CP19+lxlxvfuugM4cnklHUKGej5M5noRJeJtiZF6hJonCSUz3x+PB8v0CrHZbO
+         3HOo+BjhtJaUk2aWMBHDkM9etiip1FeN2oMuN3ZVNkZSEA7CkGMTkDvACy/2o1vYM1kO
+         S1vp/zoGjozf7g5jbNCVyfCmV4vtKYDGY1NEhtfG6ndtnlSUtkGt/4WlUXiNytJttVVY
+         pndA==
+X-Forwarded-Encrypted: i=1; AL+hErGEDGScDKQ3izF8U73VcxdQdYBevDElPvp6t976DrOi+6uSud1+lX4vO25CLIINrfJ+ZFkGRQQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9tWq4sZGdfdETvLW5zxg7xWxPk7O/R3GJlr/xFyWJ2sLsUW0YI
+	QAtDUHND1MaSlxCgPKDxQOWMk9tIqz3G1lvwQtO9evyY0XUa/pasadTmlj+YUffIIlBkTTY9kDa
+	vCVVR92OhZGbqy04oc0qUZsej7p4uaFs=
+X-Gm-Gg: AZFdTZeJp0zUK0i/Ja9J0P6HAtDCjb03hjYds9KPWUHO+u5W22kisqAcsbmHvjnC+Mh
+	ZgOq9MT9DKTD6+z6RFmu7ROxV3SA4vW/RAIc5762KyXBBRkr0c1+CLuz6aU1qulviTtUFtKIaR/
+	dN9IyLwjs8iRNIxsOHswqVMz9b3ep9P4RMFIX2ZJZ3HnrCuP442gAPiI5FVu+AcfYEg8GkYotE7
+	UPHZ+LvSei435M6NzdjuFA1M7SuY6/o20DSpvSH7AkRUrNiMj/eRxxYIid5hR0w2ZE7bO5U1vQD
+	3ZflmuQJSi9yQdwUEcvbckaya7fj2rIm9JVvYoTT/A3glfxfSDBnOGFYV7tvY2UuvYfh3Ln2MLs
+	yHAz1X77w0C7nQu1s9ghJthziwOzJ1iJ49o2gJg==
+X-Received: by 2002:a05:6512:6311:b0:5bf:c4d2:b074 with SMTP id
+ 2adb3069b0e04-5c1bc81b1eemr5244475e87.55.1795697596151; Thu, 26 Nov 2026
+ 04:53:16 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,150 +104,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261121213102.143130-5-tanure@linux.com> <179561837863.3135.7453763060716815613@kernel.org>
-In-Reply-To: <179561837863.3135.7453763060716815613@kernel.org>
-Reply-To: tanure@linux.com
-From: Lucas Tanure <tanure@linux.com>
-Date: Thu, 26 Nov 2026 12:49:17 +0000
-X-Gmail-Original-Message-ID: <CAJX_Q+3yLJbKUKh9ZqbJTm5QY+5jGedaST8aFJvHQvU6mu3oNg@mail.gmail.com>
-X-Gm-Features: Aa3M54rVCY5vVqL26ka6o_i4OGggk-NPYkWlLazpuMdrAcDWKkBH6Cp6PaCVWDk
-Message-ID: <CAJX_Q+3yLJbKUKh9ZqbJTm5QY+5jGedaST8aFJvHQvU6mu3oNg@mail.gmail.com>
-Subject: Re: [PATCH v8 4/4] arm64: dts: amlogic: t7: khadas-vim4: enable the
- ethernet port
-To: netdev-bot+sashiko@kernel.org
-Cc: xianwei.zhao@amlogic.com, andrew+netdev@lunn.ch, davem@davemloft.net, 
-	edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, neil.armstrong@linaro.org, 
-	khilman@baylibre.com, jbrunet@baylibre.com, 
-	martin.blumenstingl@googlemail.com, maxime.chevallier@bootlin.com, 
-	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
-	netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <20261124230228.3868519-1-graypanda.inzag@gmail.com> <DN3TX43KWXO5.JWLJ9HO1C9K7@gmail.com>
+In-Reply-To: <DN3TX43KWXO5.JWLJ9HO1C9K7@gmail.com>
+From: Junyoung Jang <graypanda.inzag@gmail.com>
+Date: Thu, 26 Nov 2026 21:53:04 +0900
+X-Gm-Features: Aa3M54ptuj7zEv__cM-ZP_znEaMpCD4YLDPrlyY2oJoeO2RPwi4yvnEBtuW6DHg
+Message-ID: <CAO7ntTQ0bJGezMUFMoy=_Ns63Pw_1Tbw0_QKtXVoh2Wst26Orw@mail.gmail.com>
+Subject: Re: [PATCH net] tcp: avoid NULL skb dereference in zerocopy receive
+ with sockmap
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Eric Dumazet <edumazet@kernel.org>, Neal Cardwell <ncardwell@google.com>, 
+	Gwanhyun Lee <gwanhyunlee@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+	Simon Horman <horms@kernel.org>, John Fastabend <john.fastabend@gmail.com>, 
+	Jakub Sitnicki <jakub@cloudflare.com>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
+	bpf@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-On Wed, Nov 25, 2026 at 2:53=E2=80=AFPM <netdev-bot+sashiko@kernel.org> wro=
-te:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The commit says it enables the Khadas VIM4 ethernet port.
->
-> --
->
-> arm64: dts: amlogic: t7: khadas-vim4: enable the ethernet port
->
-> This patch enables the T7 ethernet MAC and the MDIO multiplexer on the
-> Khadas VIM4. It also describes the RTL8211F RGMII PHY at address 1 on the
-> external MDIO bus, with its interrupt on GPIOH_6. With phy-mode =3D
-> "rgmii-id", the PHY adds both RGMII delays.
->
-> > diff --git a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.=
-dts b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> > index 0fa83362b4179..7b86ab2579aaa 100644
-> > --- a/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
-> > +++ b/arch/arm64/boot/dts/amlogic/amlogic-t7-a311d2-khadas-vim4.dts
->
-> [ ... ]
->
-> > @@ -256,6 +257,28 @@ xtal: xtal-clk {
-> >       };
-> >  };
-> >
-> > +&ethmac {
-> > +     status =3D "okay";
-> > +     pinctrl-0 =3D <&eth_pins>, <&eth_rgmii_pins>;
-> > +     pinctrl-names =3D "default";
-> > +     phy-mode =3D "rgmii-id";
-> > +     phy-handle =3D <&external_phy>;
-> > +};
-> > +
-> > +&eth_phy {
-> > +     status =3D "okay";
-> > +};
->
-> [Severity: Medium]
-> Can any driver at this revision bind to the ethmac node this enables?
+Hi Alexei,
 
-Yes. c4c851a3325e ("net: stmmac: dwmac-meson8b: add support for the
-Amlogic T7"), in net-next since 2026-11-20, matches amlogic,t7-dwmac,
-and 18029931478b documents it; the cover letter lists both. Tested on
-this board on top of them: the PHY attaches at mdio_mux-0.0:01 and
-iperf3 runs at 941/944 Mbit/s.
+I noticed Kyuwon Cho already reported the ingress_msg copied_seq issue
+last week ("bpf, sockmap: data left in ingress_msg is dropped without
+moving copied_seq, and TLS RX then warns"), so I'll drop this patch to
+avoid duplicating work.
 
+Thanks,
+Junyoung
+
+On Wed, Nov 25, 2026 at 8:28=E2=80=AFAM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
 >
-> The node in amlogic-t7.dtsi has:
+> On Tue, Nov 24, 2026 at 03:02 PM Junyoung Jang <graypanda.inzag@gmail.com=
+> wrote:
+> > Check tcp_recv_skb() before using its result in both paths. Also stop
+> > before advancing beyond the last skb in sk_receive_queue. Neither
+> > check consumes data in the sockmap ingress queue.
 >
-> arch/arm64/boot/dts/amlogic/amlogic-t7.dtsi:
->                 ethmac: ethernet@fdc00000 {
->                         compatible =3D "amlogic,t7-dwmac", "snps,dwmac-5.=
-10a";
+> This should be fixed on bpf side. Other readers trust copied_seq too:
 >
-> The amlogic,t7-dwmac string appears only in amlogic-t7.dtsi. The Amlogic
-> glue driver's match table, meson8b_dwmac_match[] in dwmac-meson8b.c, ends
-> at g12a:
+>   reader                             with stale copied_seq
+>   ---------------------------------  ----------------------------
+>   tcp_recvmsg_locked()               WARN "TCP recvmsg seq # bug"
+>   tcp_read_sock()                    frees new skbs
+>   tcp_collapse()                     BUG_ON(offset < 0)
+>   tls_strp_load_anchor_with_queue()  WARN_ON_ONCE(!first)
 >
->         {
->                 .compatible =3D "amlogic,meson-g12a-dwmac",
->                 .data =3D &meson_g12a_dwmac_data,
->         },
->         { }
 >
-> dwmac_generic_match[] in dwmac-generic.c ends at snps,dwmac-4.10a, plus
-> snps,dwmac and the snps,dwxgmac entries. Under drivers/, the only place
-> that names snps,dwmac-5.10a is stmmac_gmac4_compats[] in
-> stmmac_platform.c. That list detects the core version. It is not an
-> of_match_table.
->
-> If nothing probes ethmac, its mdio0 child bus is never registered. The
-> eth_phy mux enabled just above binds through the amlogic,g12a-mdio-mux
-> fallback and has mdio-parent-bus =3D <&mdio0>. So mdio_mux_init() would
-> defer on every attempt:
->
-> drivers/net/mdio/mdio-mux.c:mdio_mux_init() {
->     ...
->                 parent_bus =3D of_mdio_find_bus(parent_bus_node);
->                 if (!parent_bus) {
->                         ret_val =3D -EPROBE_DEFER;
->                         goto err_parent_bus;
->                 }
->     ...
-> }
->
-> Wouldn't that leave ext_mdio and external_phy unregistered, so that
-> phy-handle never resolves?
->
-> Also, nothing would program the PRG_ETH glue window, which is the second
-> reg region at 0xfe024000. That window holds the RGMII mode select, the
-> clkin0/clkin1 TX clock mux and the MAC-side delays.
->
-> Nothing would claim the pipeline clock (CLKID_SYS_AMPIPE_ETH) either. The
-> previous patch in the series, "arm64: dts: amlogic: t7: add the ethernet
-> controller", says this gate is otherwise turned off as unused. It also
-> says the port keeps the bootloader's delays unless the controller
-> programs them.
->
-> amlogic,meson-dwmac.yaml does not document amlogic,t7-dwmac, so
-> dtbs_check would report the now-enabled node as undocumented.
->
-> Does this patch depend on a separate glue driver and binding series? If
-> so, could the commit message name that prerequisite, or could this patch
-> be sent together with it?
->
-> [ ... ]
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/20261121213102.143130-1-tanure%40linux.com
+> pw-bot: cr
