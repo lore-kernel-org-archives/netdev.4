@@ -1,47 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=124.71.94.104
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.214.180
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705344;
-	b=N+hUYpSV2y9yAVP9V0j7vNjvuxQdcz1Hce2aHRJ6PAKL4mIz8bfSA/o/UqwX6NvOUPV6
-	 +BoqgUEaD6TtaghvmvSiZB3U8EZthjHBP3AYsl9MmW7CSK8WK4Sfz1sZWZ6npodfJtVZZ
-	 Caf1FX9zl/GB4rjtaAzhwEPibKmFcZj+rYjN1MxAR9q0KEGY4uMWgAynocsBJtN6drNrH
-	 H6F+4M+pgIpszMm0yB31SgskW2TrxPa7olDRI7lkx8aHg5sz1dxfUxckVfFtVYeCnBJz2
-	 WeVfK2J0HQxJ74BQYY/aBmcS5l7sYFXwNRI+S0TWKdjJ8dK8L9HKzWNc0IZljimqH4A==
+	t=1795705428;
+	b=yGQYpw0Mtj4qVKH0zvoTVNyiDfHMcyHFRjW4xdh8ynrmfOlsK/rCx1oxRvxkSgw6fIes
+	 iXu9BdXQNsZTpYWId8NyW6MF4WJJ3lc1QktVa3QIX0P/Fe0GNa5/PDenmdxS0uN3+X23S
+	 IBmaF73eyodzz+X5XZCAyccKivIRS6WYEZ6RJHfG4/15EBOIBXeGgCguxL6U5KoMqoNmP
+	 6l1bGOZ5fC95abIxNo7H8UBJdQMqRga1RBRPo7bWcaWpQ2L4iwvL7+TqGYD2nGFxdeyy5
+	 FehDMxACLfwVX1+l0SJ4OvkMYfITwSmdzi6DBiNdPrLyssWwCXei4eDnJWe/385QxyQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705344;
-	h=DMARC-Filter:Received:Received:Received:Message-ID:Date:MIME-Version:
-	 User-Agent:Subject:Content-Language:To:Cc:References:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-CM-TRANSID:
-	 X-Coremail-Antispam:X-CM-SenderInfo;
-	bh=Qv+/RlZ3IZV9hggQM88PlxrjkV3JuGKZj3tmAt55rsU=;
-	b=DijO6sGy1JmdBDo3lHmmuuR125g9KBE2EacxqmDe0xjHxrXNicfj83qS+UpNWqoJVAiu
-	 Cklfn4C+I0hMyzuNXmAag5TzkWZX/FVn0gCi6LjmIyuE5lc8SrWHDhfuhVbO97fymZ+qL
-	 xAWEWPP+3qnC702kQSDcovAmb6kniqcDkpKBvnnO9v0oSsFc18ljPAxfPK7lRZuoSi3vD
-	 BbNkNkKcvR2kYiLEV2eLxIW3DQ1ozDrqyrlK96T717JnueJTH+7e36dxZ1jCvMTYVNJPC
-	 xuOgbZ2G/IRMz2LJut307ZmSHG2nXgKRAeCtgdL2DdcmoKgwwerQ1mnKhu1d8Xip0Ug==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705428;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=A0nHs2DHN4CrZLg8J552iINpEC7h8BMV5slPOBKdd7I=;
+	b=Oj8SzN1yFd7UDuzM0BLdMjq5gvTcmllKGSzXU61se4669Z/pdrC+1+Me0NikF9uAegFC
+	 uzxJO30mj0342MFBxElGX/4YCT8DOhQf5P5bc5WmAPoprkJCOGHG2k4/W30egAImrD+9k
+	 j76DFJN4aLh9HFf6O3TlsgQ/PCcNuZ3MkjRsIhjD0Q14wAt2wZgQgkD4+xfQUm1e4gVxe
+	 IrZo/ehgbSb5+sQbcvqpV+30dPtXig3A32DfU0SAzkXQevKyvx2DnEabZF/xrXrMoCpJJ
+	 orVwH8bE5wwn243IFQe0JOcGYCj9/RDOL72hXjR6ir4+zHtirgg1sM0Vhxukvq1iA5g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=huaweicloud.com;
-	spf=pass smtp.mailfrom=huaweicloud.com;
-	arc=none smtp.remote-ip=124.71.94.104
-Received: from dggmsgout13.his.huawei.com (dggmsgout13.his.huawei.com [124.71.94.104])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=none header.from=iiitd.ac.in;
+	spf=pass smtp.mailfrom=iiitd.ac.in;
+	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=XwK+P0aQ;
+	arc=none smtp.remote-ip=209.85.214.180
+Received: from mail-pl1-f180.google.com (mail-pl1-f180.google.com [209.85.214.180])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BB45A606A331;
-	Thu, 26 Nov 2026 15:02:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BB45A606A331
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=huaweicloud.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huaweicloud.com
-Received: from mail.maildlp.com (unknown [172.19.163.170])
-	by dggmsgout13.his.huawei.com (SkyGuard) with ESMTP id 4jb0Bq0Fvnz1rr2v;
-	Thu, 26 Nov 2026 23:02:11 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id 493BF4056D;
-	Thu, 26 Nov 2026 23:02:16 +0800 (CST)
-Received: from [10.67.111.192] (unknown [10.67.111.192])
-	by APP2 (Coremail) with UTF8SMTPA id Syh0CgDXW_H2SQhr6+xRFw--.58962S2;
-	Thu, 26 Nov 2026 23:02:16 +0800 (CST)
-Message-ID: <309b8e49-2f9c-4a2f-9b40-8e7e7cce3455@huaweicloud.com>
-Date: Thu, 26 Nov 2026 23:02:14 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E4505606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:03:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E4505606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=XwK+P0aQ
+Received: by mail-pl1-f180.google.com with SMTP id d9443c01a7336-2f052ae3c86so38844845ad.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:03:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=iiitd.ac.in; s=google; t=1795705426; x=1796310226; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=A0nHs2DHN4CrZLg8J552iINpEC7h8BMV5slPOBKdd7I=;
+        b=XwK+P0aQ+Rp31QXWvDcqbUfM+HK9MCbbBjOXaSxSKoyI+MU00NKDs5WBIOGhY9E1qp
+         EQaDUBnD/jk83Laus9blkljVsfUxthsfTXpsawPmCTmqWaqq+z1pcENJFmGbgjGKmZBf
+         3xH6J79M17d0C0BMBT7JtlujhM+d3f0uXi0G4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795705426; x=1796310226;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=A0nHs2DHN4CrZLg8J552iINpEC7h8BMV5slPOBKdd7I=;
+        b=VIoiKGd9TrEoXEDVsG7Q++mspqf2OpLDBkcypZFHV1BnFEG2P0bOJE1OuM5F5fVbzX
+         HdA/PMLQh+wJdRXZzdOvBjAGEqYKpPQq6M/l79jlNcwYWXR8dKUa/C1ysLjp8l/982qJ
+         MAf145/Bg+9jyJqmmWygXyx5v1XgyLJ9EVq0VDbUXFfvUqTESCsRzFoxoZP8/QwhoeTm
+         Lf+0Q1nWjYTiYedpphNDNb7e/9pX42BEDtkcrjJazFfSbhfQgleoJqFQmlumj5mIAPnB
+         4GE9r4SXf5ziQhpCp5amMpcAjTj3a7gFQXMLP4W5mq3+VIeWfIoU8PN06AiqyX4CLlyg
+         r3kQ==
+X-Forwarded-Encrypted: i=1; AL+hErH5ZMhoUy/kuImn2Yuj3Y1UWwIeNZ9a3qD+d/j0i+I+Qlb9JYxkX9as7QK1DRnY8VwYuy23dhg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8PJnYCC/EYLHqj1K9azuxD+euqLsmBtn9Qr4bRPWy23RUzaWHq
+	D+6WDYqM/fbW42hvXujGU1cWd6UQ1xq2O6K34KzpKxGQXj/2ALFpTPGew98QaQW+NaQ=
+X-Gm-Gg: AZFdTZdn3pUCsiSZBc0FOhLhee0sh+s1kAdrRNaEv5SZn6/mYEyNlwV19U//eDHcZRJ
+	IMEsLCKwkgvS4PdwreIKMY7rHKo82PSwwvBQI5Vbw3sT4GmdtFL5N2n2SBGX+aEI5vYtQtQn2Mv
+	bwIZgJSu+KhFmiDVO9g3lSQNFwQrJGm4dJHsTcrrn0uy26Ov+pFjWQQMzHmFBJb16YCVazPvPGe
+	45oq519F2POgD09/3sLgAg30TRMXWv/M3uSXoU/KWYelvUdJ6qAzUBGGrZMB6ZTSXBLdtHm58/z
+	rAN5P4NKWEZ1Ckt+8VcHek8JSmiT55pYhmmHyTFcY3NTR3udh12BUjCLaE7nMsvMzo8sN2GaJOn
+	p+P18HnsGuIV4yBqyxi6648OoB2aNNmJu4Oht+OublKEKwAAGA8MhYi8di5wNZHNoyK2Nq9xWEx
+	UwMdL1sZmwJ+t7asqUpVnbZU9lFjgPa/wok4dAo4SV+qD3D4jaqSWImoGIJuh75k/LICdsJpnu7
+	8a3/ulWtc9wX0RH7taQbHTrA8xb/XRim6PUX19ftn2EBnUaczdemYIkaR5+p1Ckt+FeVSWly/Eo
+	kRnrUUsY7P9o0wsCT9ZLZKR0ylvFvueCoB0laQ0FO3qICIFcZOpETSXNyq3LRb5+TnlxwQArYAr
+	hAR61UaNkX59M4q4TjU0N+EA3sUrHR2v5J5beQGzQhtx1MNsFi0BAJwEGAcmtX/+7VN0D3ShwWz
+	knTUkEQgtzhA==
+X-Received: by 2002:a17:903:b4b:b0:2ef:f51c:7b09 with SMTP id d9443c01a7336-2f03f19075bmr209178975ad.28.1795705426236;
+        Thu, 26 Nov 2026 07:03:46 -0800 (PST)
+Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03f0c42b1sm104226565ad.17.2026.11.26.07.03.42
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 07:03:45 -0800 (PST)
+From: Piyus Kedia <piyus@iiitd.ac.in>
+To: Robin van der Gracht <robin@protonic.nl>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Marc Kleine-Budde <mkl@pengutronix.de>,
+	Oliver Hartkopp <socketcan@hartkopp.net>,
+	Vincent Mailhol <mailhol@kernel.org>,
+	linux-can@vger.kernel.org
+Cc: kernel@pengutronix.de,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kapil@presceralabs.ai
+Subject: [PATCH net v3] can: j1939: reject an out-of-range data packet offset
+Date: Thu, 26 Nov 2026 20:33:39 +0530
+Message-Id: <20261126150339.2110025-1-piyus@iiitd.ac.in>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -51,94 +100,150 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH 0/3] Introduce a classic BPF filter cache for seccomp
-Content-Language: en-US
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>, bpf@vger.kernel.org,
- linux-kernel@vger.kernel.org, io-uring@vger.kernel.org,
- netdev@vger.kernel.org
-Cc: Kees Cook <kees@kernel.org>, Andy Lutomirski <luto@amacapital.net>,
- Will Drewry <wad@chromium.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Stanislav Fomichev <sdf@fomichev.me>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Jens Axboe <axboe@kernel.dk>
-References: <cover.1795139109.git.xukuohai@huaweicloud.com>
- <DN0AIFQ82CFP.34SDTH6ZFZC1G@gmail.com>
-From: Xu Kuohai <xukuohai@huaweicloud.com>
-In-Reply-To: <DN0AIFQ82CFP.34SDTH6ZFZC1G@gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID:Syh0CgDXW_H2SQhr6+xRFw--.58962S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7Wry3KFy8Gr18ZF18Jr13Jwb_yoW8KF15pF
-	W3Gw4Ykr4DJw4rAwn7Xw4UuFy2vFs5JwsxCrn8Kws7try5KrWDKw4IgrWFga15Cry0g340
-	vr4jq3s8Ja10v3DanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUkEb4IE77IF4wAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Jr0_JF4l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxV
-	AFwI0_GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqx4xG64xvF2IEw4CE5I8CrVC2
-	j2WlYx0E2Ix0cI8IcVAFwI0_Jr0_Jr4lYx0Ex4A2jsIE14v26r1j6r4UMcvjeVCFs4IE7x
-	kEbVWUJVW8JwACjcxG0xvEwIxGrwACI402YVCY1x02628vn2kIc2xKxwCY1x0262kKe7AK
-	xVWUtVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F4
-	0E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFyl
-	IxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxV
-	AFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j
-	6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07UAwI
-	DUUUUU=
-X-CM-SenderInfo: 50xn30hkdlqx5xdzvxpfor3voofrz/
+Content-Transfer-Encoding: 8bit
 
-On 11/21/2026 3:37 AM, Alexei Starovoitov wrote:
-> On Thu, Nov 19, 2026 at 10:48 PM Xu Kuohai <xukuohai@huaweicloud.com> wrote:
->> The kernel repeatedly translates and JIT-compiles these same cBPF
->> programs, wasting CPU cycles and slowing down bulk startup of
->> identically sandboxed workloads. cBPF lacks dynamic instruction patching
-> 
-> There is no VM startup number in the series
-> which makes me question the whole thing.
->
+j1939_xtp_rx_dpo_one() takes the peer's data packet offset and stores it
+without checking it against the session:
 
-The problem comes from an agent sandbox deployment, where
-sandboxes are snapshotted to disk and resumed on demand for
-each new request.
+	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
 
-Below are the Firecracker microVM startup latencies I
-measured on a local server at different VM request rates.
-Parentheses show the improvement over the base kernel.
+j1939_session_skb_get_by_offset() then looks for a buffered skb at
+pkt.dpo * 7, and j1939_xtp_rx_dat_one() copies into the session's skb at
+that offset.  An offset past the session's packet count has no skb behind
+it, so the lookup returns NULL and the copy and the completion run on it.
 
-VM req/s   base p50   series p50 (gain)    base p95   series p95 (gain)    base p99   series p99 (gain)
-400        20.2 ms    19.7 ms  (+2%)       29.2 ms    27.9 ms  (+5%)       34.7 ms    33.3 ms  (+4%)
-500        28.2 ms    27.1 ms  (+4%)       96.8 ms    69.4 ms  (+28%)      164.0 ms   107.9 ms (+34%)
-600        56.6 ms    45.0 ms  (+21%)      602 ms     154.5 ms (+74%)      831.8 ms   223.6 ms (+73%)
-700        65.5 ms    41.1 ms  (+37%)      1.63 s     134.1 ms (+92%)      2.43 s     194.1 ms (+92%)
-800        65.4 ms    39.4 ms  (+40%)      2.97 s     113.8 ms (+96%)      4.60 s     167.3 ms (+96%)
-900        61.9 ms    35.7 ms  (+42%)      3.04 s     95.2 ms  (+97%)      5.13 s     147.3 ms (+97%)
-1000       53.2 ms    32.2 ms  (+39%)      3.38 s     80.0 ms  (+98%)      5.78 s     125.1 ms (+98%)
+Reject an offset that is not below session->pkt.total, and look the
+completed receive message up at offset 0 rather than at whatever window
+the peer's last DPO named.
 
-At 400 VM/s, the two kernels perform similarly. At higher
-rates, the base kernel suffers severe tail latency
-collapse, while this series keeps p99 below 225 ms,
-reducing it by up to 98% at 1000 VM/s.
+Fixes: 9d71dd0c7009 ("can: add support of SAE J1939 protocol")
+Cc: stable@vger.kernel.org
+Co-developed-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Kapil Vaswani <kapil@presceralabs.ai>
+Signed-off-by: Piyus Kedia <piyus@iiitd.ac.in>
+---
+v3: addresses the review of v2
+    (https://lore.kernel.org/r/sashiko-outbox-233959@kernel.org)
 
-After further profiling, I found that this collapse is
-mainly caused by Firecracker instances queuing on the
-global pack_mutex in bpf_prog_pack_alloc(). So a better
-approach is to replace the global mutex to per-pack locks.
-I will work on that instead.
+    - a second out-of-range DPO no longer leaks the session.  Both
+      findings there are right.  j1939_session_cancel() does nothing once
+      the state is WAITING_ABORT, so on a second bad DPO the
+      j1939_session_timers_cancel() in front of it cancelled the 500 ms
+      timeout and nothing restarted it: the session stayed on
+      priv->active_session_list with no timers, holding its skb and its
+      netdev references, and unregister_netdevice() hangs behind that.
+      v3 deactivates the session in that case, the way
+      j1939_xtp_rx_rts_session_active() already does for a second RTS.
+      The first bad DPO still cancels and lets the abort go out, so the
+      change is confined to the session that was already dying.
 
->> features like tail calls or tracing. Its JITed instructions remain
->> immutable at runtime. This makes it possible to share the same cBPF
->> filter between different processes.
-> 
-> Immutable is not enough. The image depends on the caps of the task
-> that loads the filter.
-> Also any task can time seccomp() and learn that somebody has this filter.
-> seccomp_get_filter() needs CAP_SYS_ADMIN for that today.
-> 
-> fork() shares the filter already, see copy_seccomp().
-> A launcher can install the common filter once and fork the VMs.
-> 
-> I don't think we need this.
-> 
-> pw-bot: cr
+    - an EOMA no longer completes a cancelled session.
+      j1939_xtp_rx_eoma_one() checks the PGN and the size but not the
+      state, so an EOMA arriving inside the abort window completed the
+      session: with v2 looking the message up at offset 0 that handed the
+      aborted session's data to the receiving sockets and queued a second
+      J1939_ERRQUEUE_RX_ABORT.  The delivery itself predates this series -
+      j1939_session_completed() always called j1939_sk_recv() - but v2 is
+      what made it reach a whole message, so the state test belongs here.
+
+v2: rejected the offset instead of tolerating it, and looked the completed
+    message up at offset 0.
+
+    How this was found: an AI-driven fuzzing harness built on syzkaller,
+    developed jointly by Kapil Vaswani and myself, driving ETP sessions at
+    j1939 under KASAN on x86_64.  The analysis and this changelog were
+    written with the assistance of a large language model and checked by
+    hand against the tree; the reproducer and the KASAN report in the v1
+    posting were produced by us.  Both v3 changes come from addressing an
+    AI-generated review of v2 on the list, and each mechanism it described
+    was read in the tree before being acted on.
+
+Link: https://lore.kernel.org/all/179553126874.3135.14817947057284289051@kernel.org/
+
+ net/can/j1939/transport.c | 49 ++++++++++++++++++++++++++++++++++++++++-----
+ 1 file changed, 44 insertions(+), 5 deletions(-)
+
+diff --git a/net/can/j1939/transport.c b/net/can/j1939/transport.c
+index 8fcfd13e5e6f..54e7ae9a88c3 100644
+--- a/net/can/j1939/transport.c
++++ b/net/can/j1939/transport.c
+@@ -1242,10 +1242,15 @@
+ 	struct sk_buff *se_skb;
+ 
+ 	if (!session->transmission) {
+-		se_skb = j1939_session_skb_get(session);
+-		/* distribute among j1939 receivers */
+-		j1939_sk_recv(session->priv, se_skb);
+-		consume_skb(se_skb);
++		/* the whole message, not the window the peer's last DPO
++		 * happened to name
++		 */
++		se_skb = j1939_session_skb_get_by_offset(session, 0);
++		if (se_skb) {
++			/* distribute among j1939 receivers */
++			j1939_sk_recv(session->priv, se_skb);
++			consume_skb(se_skb);
++		}
+ 	}
+ 
+ 	j1939_session_deactivate_activate_next(session);
+@@ -1418,6 +1423,18 @@
+ 
+ 	netdev_dbg(session->priv->ndev, "%s: 0x%p\n", __func__, session);
+ 
++	if (session->state >= J1939_SESSION_WAITING_ABORT) {
++		/* This session has been cancelled and is waiting for its abort
++		 * to go out.  Completing it here would hand its data to the
++		 * receiving sockets and queue a second RX_ABORT, so leave it to
++		 * the abort path.
++		 */
++		netdev_info(session->priv->ndev,
++			    "%s: 0x%p: EOMA on a cancelled session\n",
++			    __func__, session);
++		return;
++	}
++
+ 	session->pkt.tx_acked = session->pkt.total;
+ 	j1939_session_timers_cancel(session);
+ 	/* transmitted without problems */
+@@ -1823,14 +1840,36 @@
+ 				 struct sk_buff *skb)
+ {
+ 	const u8 *dat = skb->data;
++	unsigned int dpo;
+ 
+ 	if (j1939_xtp_rx_cmd_bad_pgn(session, skb))
+ 		return;
+ 
+ 	netdev_dbg(session->priv->ndev, "%s: 0x%p\n", __func__, session);
+ 
++	dpo = j1939_etp_ctl_to_packet(dat);
++	if (dpo >= session->pkt.total) {
++		bool was_dying = session->state >= J1939_SESSION_WAITING_ABORT;
++
++		netdev_info(session->priv->ndev,
++			    "%s: 0x%p: data packet offset %u is not below the %u packet(s) of this session\n",
++			    __func__, session, dpo, session->pkt.total);
++		j1939_session_timers_cancel(session);
++		j1939_session_cancel(session, J1939_XTP_ABORT_FAULT);
++		if (was_dying)
++			/* The cancel above is a no-op once the state is
++			 * WAITING_ABORT, so it does not restart the timeout
++			 * this function just cancelled.  Deactivate instead,
++			 * as j1939_xtp_rx_rts_session_active() does, or the
++			 * session stays on the active list with no timers and
++			 * holds its skb and netdev references for good.
++			 */
++			j1939_session_deactivate_activate_next(session);
++		return;
++	}
++
+ 	/* transmitted without problems */
+-	session->pkt.dpo = j1939_etp_ctl_to_packet(skb->data);
++	session->pkt.dpo = dpo;
+ 	session->last_cmd = dat[0];
+ 	j1939_tp_set_rxtimeout(session, 750);
+ 
+-- 
+2.43.0
 
