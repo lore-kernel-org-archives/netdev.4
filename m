@@ -1,104 +1,60 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705745;
-	b=Nw5Ber4mx9xOAQad9srbhoAyGiwrSSP/ZFuzhb78s7azDBbtA7NW4et0ANPjqVgkFrYY
-	 WPK3/6e2oDWND5FibEIxwpomUtGKVexfxikr8IW1Vr2yQ9DCOesRz7xr2C5QyXCq/EnUc
-	 Ps59K8uqBR7CPyyUddwSOZEla0jTennGKCJaGF96We6UgQC7wmBjMxl8vRZhmCwORi2ML
-	 0XACQH5wdT3fWFKseteQ2QibSnL2ArC+ghQvqigmGnqk1pR6ZWc51gkkzWbHZLuBoYIAh
-	 ORyOY+48e3/r8+/jk4z0Nb5yFDcAKlGIo7NAoUTK7kYbrTAvEXHZoOW+V3lu1DbWC2Q==
+	t=1795705748;
+	b=yMcng6hmV21I/zYPljiEmjCLxINH3gwvT1uH55quSZqoI31p8B8OjuRdBO+KnXrEtdDF
+	 WCi6KV3AX68f/esmb2si1oDmZpyAZdmZTfeK0mJdaz6J+4Kio6hxjONsYsMY4luTHajvD
+	 yy3/lMdK8f1YB1WXPuqoXgq6hM8d2sUXoMNXAnor4aAApGNz4gCM7Hr1RJypmLd2Ti30L
+	 JaLrb5OmR3KrjCEuwNj4m9HGzlF4vXsVLREXikvOlGkwkbOPxt/Qllh0pilhBexeiaUPu
+	 ZGkW7ClZiEZWzn1Y0spcSTB4Qr3woCXArDz7lOkc0d+qUUgNnb0ZXju8B0duMWgXqaw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705745;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=qa1Fr1ic+7dw5K+GkYsqx2aXPhAv1AnGBqdarsMvPfQ=;
-	b=z/qS8UwJ8+W4/HRVqUyKSsqZTwM+Us1QQPuk905cQ8SA2hD1fWZ6O4fbJacAx9RBXoYZ
-	 hHNsVedYSspl+HzMtoXfpkHX+/5Gy6/6OkkiSus6H53ZVA8WVHnTbwiwgY7RGm/BcMNm3
-	 dVtBPyEXmBrCq3VbJN/yKHzom29xGpjKFPN/u2f0HwOkZpBKSDjRiNrjhKvpQQkwjmYzN
-	 4j1mDRr3VQJ7FGOp8/JcsphWBJAwUwKQuf0b+HmD1UDftDlcOj8a7QISY+uUwtwDr23L5
-	 lXz+ETmU6llM4e2cQfH/ffTAkwRW+x9fYICaoC4uWXXotaHxpqXUPY/lbeDQ/fKijxA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705748;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=sXtleGioD9i4yzeP51aOqPnUyfmsKKBbpPqlr4rXmFc=;
+	b=k4SbCb4lWEKDNm6XKsrH3DiOfKem8Pd2oHGQD7BOarf5bdhcp7B6W2PlUfuL5oVkDHki
+	 Qx8OwlqB4BHSUViJt4uOAUGSyeudkeAUeHbdZZqhUfjlgEGmjLwWJ8bOj9ufKzFeSMrvD
+	 37scQGGYnPBieLYYw0gW4Q5HMqtnzkziurZX7H1Q6ngouGE+OYA2mjie1JS79rNKBxarR
+	 bxTpyNKHpT4ywoDbVlx3GRaG6877svMHPbE9d+i2Kjf6O8jRwWqA38Zq82GTzPQBCU1e5
+	 wY8bMGxWMJ1ZGQK/2CyIsnWPlMWkys2W7+1eNiiN5sz9ZLekWfwpl0ANKBO3ehb22TA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B6xSaKdB;
-	arc=none smtp.remote-ip=209.85.216.51
-Received: from mail-pj1-f51.google.com (mail-pj1-f51.google.com [209.85.216.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fdLqbgFi;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6F16E606A683
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:09:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 6F16E606A683
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 091EC606A321;
+	Thu, 26 Nov 2026 15:09:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=B6xSaKdB
-Received: by mail-pj1-f51.google.com with SMTP id 98e67ed59e1d1-3b4a93d0814so2430541a91.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:09:04 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795705744; x=1796310544; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=qa1Fr1ic+7dw5K+GkYsqx2aXPhAv1AnGBqdarsMvPfQ=;
-        b=B6xSaKdB9GurxyEl5XPkhgRx383fZevVQduVZmC86MWv382bjsTEtHbvVGgHN4Cznn
-         4JSZJ81ag+eMbef5qkmG1EHTwPt1/D4GYkbNYl+b20Pv4J4wnJQGVnq40kjtElZ5UCnE
-         yxT0xLW5tIIGRUC1T6ZTZzJz2XBXnuo3V4r3Q=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705744; x=1796310544;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=qa1Fr1ic+7dw5K+GkYsqx2aXPhAv1AnGBqdarsMvPfQ=;
-        b=M5rBx4gCYLqiz4pdol5WeHl7JwOu45v+MwntZt3k9m3eaWJBGFJAL7hXcfHM6QTKV0
-         O5rqq9Yzows6p9bq7KJbZc37zNtcrpmTVTmaA+Dcevp/MtrXk0sLCawZGYqGBxBRF3LN
-         aQ1n1NOBdNmJHmX1ulEKlwq5OtvJHkeyu/qQ+Ao01zoE5vZzmOpkGpFr5trk6t46RnQB
-         ABmLIF2rNsRwL7+XtgzM/YLQHmw+/aDrl/4eff4Teeq8dzDsEZbc5QqhVkV7HtODDqxH
-         0kWl3Fl3y16f0N91Grr/xvzQnB7aUReppu9RyE0OkHy/WMODFc8Bkzcn8FJFC8sp/39e
-         9XdQ==
-X-Gm-Message-State: APuU4Z+ctBFDElpVViaaHQxUEASzn8mK4T2yXAUjXWGC9Hov67bBgSh/
-	8Q/kwrFKl+y7eGDMjlpkydHniA/aAg4YQsnN6cqtCTLWL6fyidQj67om3+Kdc0BuuyM=
-X-Gm-Gg: AZFdTZdytzew/G+So/0Z8dhVHdLEtfzCxG1gvmkBp4hmcT+v+JLU82Vgvd0Xr+ziP6T
-	Ej8twANa8ZvAnDAVPbhA6qlSry/WzWbhMaV//9Fb5i8Huikt4fqCPusn+e6evFPvMRAuJOcRoIf
-	bp+j04cAQN4N32ikxbCsKCcEXcL9mzLHeMIOf6bDLytvvaYDg9V3lA8jL4fL+vAmGajsbY2KedR
-	Ckr/vfnGX991F7ZhbzVlMcPuqPygzGmT2bv6ZMdz/r9YUsXc4pAjwIEX73E/mw4v67SuMYmqER+
-	VtgmnQM04Petd9N63ivSeL3rormIk4Aza0S+Dw4TICUVtTZaoKFsGIFSuxE+G1J/g6NsqJDy75f
-	0cG1payRggkIuupCEX3OxV2aYf3VDvmSvf22TqQue0zNeLqABQ2vt03TLbuRDn/bnyvnZkC1VVp
-	T0kP+socy+We1LP9mtBmJv1yN9s8O58z+V52BQa62USRWaGiS50dGtwq1ZXMFGMQ24H08074fLh
-	wX09/XCYMfvcsC5Uzq8tZgEitP8AnBokhcf/j1IHNPO4Im1g01GNaIFNCxLwvd9fbjZGM82LNdU
-	UHuhlKlFGkjvL3HCzfFhhqdoEdlK1oi1PBrgpxdLlSp43HHpRoCKH4MyCOqqS/6liX5E320XKNJ
-	82zwNwwqXw5nCJFJ3TeidD0lxvLEAPProsOacfzv3mY/nDUQ1zYJo6vRqdbtx0+Kn2pzlruxWRq
-	lvB9Fhdn1F9w==
-X-Received: by 2002:a17:90b:2792:b0:3a4:ca46:840f with SMTP id 98e67ed59e1d1-3b41c8e172amr19036608a91.8.1795705743643;
-        Thu, 26 Nov 2026 07:09:03 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b41abb1b66sm34512681a91.1.2026.11.26.07.08.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:09:03 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org,
-	sashiko-reviews@lists.linux.dev
-Subject: Re: [PATCH net v3] net/smc: drop the connection when the peer's failover cursor is impossible
-Date: Thu, 26 Nov 2026 20:38:56 +0530
-Message-Id: <20261126150856.2116458-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <sashiko-outbox-233843@kernel.org>
-References: <sashiko-outbox-233843@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=fdLqbgFi
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 05AC51F008B2;
+	Thu, 26 Nov 2026 15:09:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705747;
+	bh=sXtleGioD9i4yzeP51aOqPnUyfmsKKBbpPqlr4rXmFc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=fdLqbgFi16ERxCKZS3TlJOBEWZDcUg4j2+7RZ7d1nPbvU8cGK/BbRaOswzaM/qMQQ
+	 TBF57zpVWs9TWcPE12i6uDPoGaZAx6HlSbOQdiEdDjNViK3531iDxQXEF+TWmBQ4BT
+	 FPxdUetemhD325WGK97IZubRgBRxlQqrHIc+M2LEeh7T2t8DJg3CDQzw8luRnchZCI
+	 nIONkIUze91X4m5RtyqTt0PqouktGWGmrnmPj2dLnMfkLgdEZiRXCPJYbSHzcVsdiI
+	 Bqbkf+VbS9aGX9SV5Lyt3PWKZDHJNtlMusgVfWr2qVAPi+kQp2Dmm6XFuav7bJGO+w
+	 F20r4lw1q6ycQ==
+Subject: Re: [PATCH net-next] net: ethernet: ti: davinci_mdio: enable MDIO
+ manual mode for AM62PX
+From: netdev-bot+sashiko@kernel.org
+To: paul.louvel@bootlin.com
+Cc: s-vadapalli@ti.com, rogerq@kernel.org, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ bo.mellberg@se.com, r-gunasekaran@ti.com, thomas.petazzoni@bootlin.com,
+ linux-omap@vger.kernel.org, netdev@vger.kernel.org
+Date: Thu, 26 Nov 2026 15:09:06 +0000
+Message-ID: <179570574643.3135.14735411472140750286@kernel.org>
+In-Reply-To: <20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc@bootlin.com>
+References: <20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc@bootlin.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -108,58 +64,92 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
 
-Thank you - all three findings are right, and each mechanism was read in
-the tree before acting on it.  v4 is posted separately.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-[High] premature cursor rewind before abort check
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Correct, and this is the one that mattered most.  v3 ran the check inside
-the fix-up block and returned 0 from there, by which point
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-	smc_curs_copy(&conn->tx_curs_sent, &conn->tx_curs_fin, conn);
-	smc_curs_copy(&conn->local_tx_ctrl.prod, &fin, conn);
+- [Medium] The patch turns on the i2329 MDIO manual-mode workaround only
+  for the "AM62PX" family string.
+- [Low] The commit enables an erratum workaround to fix a problem users
+  can see on AM62P: MDIO corruption and broken external-switch…
 
-had already run, so the connection was left with prod behind
-local_rx_ctrl.cons and peer_rmbe_space still holding the credit the forged
-message produced - the atomic_set() that recalculates it is below the
-block I returned from.  And the tx path tests conn->killed and
-local_rx_ctrl.conn_state_flags.peer_conn_abort, not out_of_sync or the
-local_tx_ctrl flag v3 set, so a send under lock_sock() could reach
-smc_tx_rdma_writes() before abort_work got the socket lock.
+--
 
-v4 validates before anything is rewound and drops the connection with the
-cursors as it found them.
+net: ethernet: ti: davinci_mdio: enable MDIO manual mode for AM62PX
 
-[High] incomplete peer consumer cursor validation
+This commit adds the AM62PX SoC family to the k3_mdio_socinfo table in
+drivers/net/ethernet/ti/davinci_mdio.c. That turns on the MDIO manual mode
+workaround for Errata i2329 on AM62P. The erratum document does not list
+AM62PX, but a TI E2E thread reports the same issue on that SoC.
 
-Right on all three counts.
+Link: https://e2e.ti.com/support/processors-group/processors/f/processors-forum/1647576/am62p-external-switch-connectivity-problems
 
-The bound is now the bytes that were SENT and not yet confirmed - the
-distance between snapshots of tx_curs_fin and tx_curs_sent - rather than
-sndbuf_desc->len - sndbuf_space.  As you say, that counter covers the
-PREPARED bytes, so v3 would have advanced the cursors over data still
-sitting in sndbuf.
+> diff --git a/drivers/net/ethernet/ti/davinci_mdio.c b/drivers/net/ethernet/ti/davinci_mdio.c
+> index c413887657e92..9b58ba7acc4fa 100644
+> --- a/drivers/net/ethernet/ti/davinci_mdio.c
+> +++ b/drivers/net/ethernet/ti/davinci_mdio.c
+> @@ -505,6 +505,7 @@ static const struct k3_mdio_soc_data am65_mdio_soc_data = {
+>  
+>  static const struct soc_device_attribute k3_mdio_socinfo[] = {
+>  	{ .family = "AM62X", .data = &am65_mdio_soc_data },
+> +	{ .family = "AM62PX", .data = &am65_mdio_soc_data },
 
-cons.count and the difference are both bounded by peer_rmbe_size now.  v3
-left that to smc_curs_add()'s single subtraction, which is exactly as much
-as you describe: with sndbuf_desc->len larger than peer_rmbe_size, a
-difference in between passed and left prod.count outside the RMBE.  Below
-peer_rmbe_size the repair is exact - prod starts at fin and the difference
-is their distance, so prod lands on cons rather than behind it, which also
-closes the "halts sending" case in your third point.
+[Severity: Medium]
 
-[Medium] false-positive abort racing tx completion
+Should J722S be added to this table as well?
 
-Right, and it is the same line that caused it.  smc_cdc_tx_handler()
-credits sndbuf_space before updating local_tx_ctrl_fin, and
-smc_switch_cursor() holds only send_lock, so an honest completion between
-the two reads gave a diff computed from the pre-completion cursor and an
-unconfirmed from the post-completion counter.  Comparing two cursor
-differences removes the mismatch: both come from snapshots taken together,
-and neither is an atomic counter the other path updates first.
+The cpsw3g_mdio node is in
+arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi. Both k3-am62p.dtsi
+and k3-j722s.dtsi include that file, so the two SoCs appear to use the same
+MDIO instance:
 
-Tested on 7.3.1 with KASAN; net/smc/smc_core.o builds clean.
+		cpsw3g_mdio: mdio@f00 {
+			compatible = "ti,cpsw-mdio","ti,davinci_mdio";
 
-pw-bot: cr
+J722S has its own family string in drivers/soc/ti/k3-socinfo.c:
+
+	{ JTAG_ID_PARTNO_J722S, "J722S" },
+
+This means the new "AM62PX" entry does not match J722S. On J722S,
+soc_device_match(k3_mdio_socinfo) in davinci_mdio_probe() finds no match and
+data->manual_mode stays false. The driver then uses davinci_mdio_read() and
+davinci_mdio_write() on the hardware MDIO state machine instead of the
+bitbang bus.
+
+The commit message says the erratum document under-reports the affected
+SoCs. If that is the case, J722S being absent from the document does not
+show that it is unaffected.
+
+Was J722S left out on purpose? If so, could the commit message say why?
+
+AM62AX and J784S4 also have ti,cpsw-mdio nodes and are reported by
+k3-socinfo, but neither is in this table. Their link to this change is less
+direct, though.
+
+[Severity: Low]
+
+This isn't a bug, but should this have a Fixes: tag and a Cc: stable?
+
+The change fixes an MDIO problem on AM62P that users can see. AM62P
+CPSW/MDIO DT support came in with commit b5080c7c1f7e ("arm64: dts: ti:
+k3-am62p: Add nodes for more IPs"). That was before commit be5fc78a0084
+("net: ethernet: ti: davinci_mdio: Update K3 SoCs list for errata i2329")
+reworked the i2329 SoC list, and that rework did not include AM62PX.
+
+Either commit could be the Fixes: target. Without a tag, stable kernels that
+support AM62P may not pick up this workaround.
+
+>  	{ .family = "AM64X", .data = &am65_mdio_soc_data },
+>  	{ .family = "AM65X", .data = &am65_mdio_soc_data },
+>  	{ .family = "J7200", .data = &am65_mdio_soc_data },
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125-am62p-mdio-bitbang-v1-1-aebf1f5fa3fc%40bootlin.com
