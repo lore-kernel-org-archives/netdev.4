@@ -1,114 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.6
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795695826;
-	b=tVdTX74aXh1ZHL1PUIQWqVWBJFai3SrtbR4fBYyw8qWZSyycnX2Nqy+EB9hDlZxuKZ+/
-	 39Sjc+Z8ywDbr7nsCGTSW69QJcTM0EL3I35m3FkXGhIibYmqc8rcWWUhwyKPhE4t7/eJL
-	 UdBc1xIOeJO22EHBd1BAKzjNyFylciVprhb29OSG/D1LuyzMVS7mmDyddVuPS0RZX4NP8
-	 NEk/LKSA2N78zmZK6nndSpm+luYtFvX8uAP3cxnFZGvRdgd7u1hDc+a+TWa3c37uOjyIq
-	 IP8FOX19e8HrW+SZjg95abYRZqtDBBIOEXkABpzRBWQYGMJb7OgdSJTgrKFSKKgnd6Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795695826;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:
-	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
-	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
-	 MIME-Version:Content-Transfer-Encoding:Content-Type:
-	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
-	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
-	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
-	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
-	 X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-Id:
-	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=Kp2l7l/d6cnPfO+HjUf3VK2uJziE9wTnkqqvtNudSvY=;
-	b=F4j129f+GtqcoubsxdTAuHGR6EMQBeiKJfFrfR83whGdROO5QTBhtys4W+w54TVukIt9
-	 0nZ/7wHubqtbABTo5Vl2G7oc+3eCjrW5Hb3CoTgC71ClnbaOqCmHsi5YoyqLuWqf6EAhR
-	 8TsTs2gBtG0SknllpjeB6tewHgNJkt0UdRZYUwtMjnnU3kqVI/l9tTsq0LxnL+Ueso30q
-	 /uL+zQoewTPyE21I+N131iEQcBCb2ef9FftRDrhOXWw4dgYw7JGbUyzb3rTuIWEusADNX
-	 wi42bES8kVXh2a9MoQAa24+LkMHVSW9M+Waw/dnfS8pcCKf+iSWpfGQbFJAOthEm3Cw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tEj5Ueqb;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=40.93.195.6
-Received: from SN4PR2101CU001.outbound.protection.outlook.com (mail-southcentralusazon11012006.outbound.protection.outlook.com [40.93.195.6])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.44
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795695910;
+	b=aj2Ly8rLD5/0YkeFQZ3vr6wQq3t218tP7plfi7j/mW1yqxLi/VF2JPdpcMyT1X5Mh9Kd
+	 lBI7sTfzCojLlTZjnizZQJH5TvBjdRGV9OtHr3KUjWaXtHc5J5V96/7gb+8mX+iM2RfXX
+	 Tg7zKq7r6MrxzutigestPJE9KWrzIcIeMoV459P8eyLgochQhvXiYsXgreOMozWRDe75A
+	 Bk9QuAGlbUl2f5RISCi0vOEPolFn1LWVu1s8/5+bTvhqsOZyb1qkM9hkWmybCMOnH6BcW
+	 Q7z+dSuZFCFK38pC8gFQQQDFufXTBVlbMnefR03zBby9a/A8nfuos5lTZzKlCxg05lA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795695910;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
+	b=WnP+wbDfQK93m4Xx9gslnBs4LyLMf2ZgJLOGYXMJE+JT0PUnL1SBLFfbcW+jIvZ7b3g7
+	 VnL+BWNCYVFAj81kcY5s/fLN/wN45ZbLrCW3kMTJrgq/9H/Knb+raGVHcUdCgKou8t+Cy
+	 IUZXfZUCHO1Dv5T0YWWjXdwwn1/lcfV7n/kw3+ShxUQppea9rVeeYBg97r2upRnyH6DEL
+	 huiJCTLj1DWwrVoW8GzG5AaQdmkC6QAg4TAMLJBI+Hah6f7MXqao5qQhwSheAPSmRaWNm
+	 IemRJHUF3/GZxuFbYIRDtK51rdRanelmDDQJAGyzoMntvn5wUAdWPsQynWTvpz/oDSw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cohd1LrT;
+	arc=none smtp.remote-ip=209.85.216.44
+Received: from mail-pj1-f44.google.com (mail-pj1-f44.google.com [209.85.216.44])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 687F1606A6A6;
-	Thu, 26 Nov 2026 12:23:45 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 687F1606A6A6
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B257E606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:25:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B257E606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tEj5Ueqb
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ih5hsZd4kbH8EejP7I4dtvb4HSE0ktsHUnR1ccz9J4zNrw/jbsGgurWiUT2EVN1OgJUDbexjivxeyDTrMovNohNx+0op11VPWKXdI+nCCm9+qFBsUBewY6SC0P6pi4TrHbG25RoBLpmbq+9r7rezOhim+GwzEGiROvt2QggRJSIAChf/GHxniLl1pbD3be+rF5V5GkMcB8ojKjd48otup5vfOs/90yKoVDUEKd4QM40Qqz0dP86bydzPN87ET0fpBZAiDRCCbbmBp8u3+/iGKzrCZEm+bRQVpl0DyTWKDVdPldoXxsX7qx95ivkS6C2sewgpJlSh4PjG33J5bgJdrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Kp2l7l/d6cnPfO+HjUf3VK2uJziE9wTnkqqvtNudSvY=;
- b=USgaycdYFnuadFzEgDKoN6Nts4FNp8VQpfflIdFk+5S9q1m4gORvjdeD6kBX0CPnx2J76+B6ezSed5MR0VnWOBt8r7jmZqziKEj40gFpxTBZrYp77G1m3PLm2zgzS4svPxdPA5kiBFIVhiIBxmThjS6/SWofCMsYg6ADtpwhPCqtSUn0STHVYGWQHDovyLrNTDWzBa9LNUgJdUqjKPwSYDM9ecgQokER1oI4ra0fmnj6XEvOLwv82vwuJp8QxxchFF0Ru5fC5w0E3sSFL/Zig9LN4vqOwdhdC6O3IJ1HAoQhgO1pqhWWXRQCdAOLiO8SOc5dDFY4+mMO07axVdk+eQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Kp2l7l/d6cnPfO+HjUf3VK2uJziE9wTnkqqvtNudSvY=;
- b=tEj5UeqbL0ni8Me1qIRRfTMF+jTPrPEMSMTb/3OZ7d+9QmAn7g1vHZd75tkDM5QHnNs/bOyRqdKkgL/Rsf8oW1G4s6B7hMBBQDBFumkOzf6sb5EGci+eVyDqV6JQbdlxiusGeztSL1Crec4Rm2CN0VFuROxh1QI97wTF4zrMwMIEyDghKFKWfp13yoa73gK50+ymaYVd7ekmYM3v31YzKF5FSkncCR08u06uqWwMV7UmO3q+hTZ3FRIbOAyprrqOLVnNlQTnyITdg9uw6MVDtNq5+Uj5PepNRdheLbWT2bUQCgZrCWFvBTqEoYUKXzj5f3DmWnMVt1g9CV7xL+2gFA==
-Received: from CH0PR04CA0072.namprd04.prod.outlook.com (2603:10b6:610:74::17)
- by LV2PR12MB5992.namprd12.prod.outlook.com (2603:10b6:408:14e::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
- 2026 12:23:39 +0000
-Received: from CH3PEPF0002457F.namprd04.prod.outlook.com
- (2603:10b6:610:74:cafe::8f) by CH0PR04CA0072.outlook.office365.com
- (2603:10b6:610:74::17) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
- Nov 2026 12:23:39 +0000
-X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
- is 216.228.118.233) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- CH3PEPF0002457F.mail.protection.outlook.com (10.167.252.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.21.662.3 via Frontend Transport; Thu, 26 Nov 2026 12:23:38 +0000
-Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
- 2026 04:23:25 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.57; Thu, 26 Nov 2026 04:23:25 -0800
-Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.57 via Frontend
- Transport; Thu, 26 Nov 2026 04:23:21 -0800
-From: Tariq Toukan <tariqt@nvidia.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
-	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
-	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>
-CC: Gal Pressman <gal@nvidia.com>, Jianbo Liu <jianbol@nvidia.com>, "Leon
- Romanovsky" <leon@kernel.org>, <linux-rdma@vger.kernel.org>, Mark Bloch
-	<mbloch@nvidia.com>, Oz Shlomo <ozsh@nvidia.com>, Roi Dayan
-	<roid@nvidia.com>, Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan
-	<tariqt@nvidia.com>
-Subject: [PATCH net] net/mlx5e: TC, Fix parse_attr leak on branch attr alloc failure
-Date: Thu, 26 Nov 2026 14:23:16 +0200
-Message-ID: <20261126122316.599831-1-tariqt@nvidia.com>
-X-Mailer: git-send-email 2.44.0
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=Cohd1LrT
+Received: by mail-pj1-f44.google.com with SMTP id 98e67ed59e1d1-3b439e37813so3620244a91.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 04:25:09 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795695909; x=1796300709; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
+        b=Cohd1LrTjGJmNCG2WnozJvCZUYVKnbopykoT3jvWYTAtuo3eqcgTbMvhCqpC2UobSQ
+         sHWnupmrN6QT2StCJGmCpWqpaQO3bqOnsQeKfTp6LwmwHH8jBRn9y7lUM1m71Rd15UzA
+         83wkXRbo0catR9jiSOBt00QTeRE2i0kxpT9A56hk9XL9io8nfvdB+wFleLDebfswhS0a
+         jjR31pURUuO1GiJp+u0v/kwaeSXQx7PPrlxkUj1ST4gBup1qbfs/U7Jxi4Gfzbg2eojf
+         1QUNe6syueUxffcBBFaih4L961OuFIz+z+c2KtMKMdk8XgH6M23yZN48TrQrdJ/b2D2P
+         oMYg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795695909; x=1796300709;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=9S1/CScnjIL++4L924qR25v2xm0ZTSbwlBzEN5E6/RA=;
+        b=VywjF90ZQjl3amCYlh/e65kHaLjhBiEysZo+vBluYMpEb7FDsaC0PPnnAP9y4zkMtc
+         mizchsc2AvLxT1zT+HQSAY+64nLXYQmWtjxyX3vK85LSHE7baEvrfGhzqWPNUMs2zGAT
+         ZBx7HejdepW51uDXfdn0kHNUcIZzS4QMlXIOZKBLtlw292B6jDoHan33Gz0gtVWB9U+Z
+         +I0Q4f4J7Qj+uETtQyNBpMqbSt0Fvipx2ht1A81RRYBilQZ/P/ueBa4dW6JO4Zu7eMqS
+         NgzgLvQH3ql1H+VqYfiknb2rtjdmWqk2QAzaSIRjllqahh/voX8TIDZSy8ATMHBKQb5e
+         Oanw==
+X-Forwarded-Encrypted: i=1; AL+hErEAaACaJP3Apn/I6g+gtH4lp+crz3WPuyvoRjz4XF7Xtiaoqlx/hZA053wQxu4+oVM+hzGEURQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z81mzC4W8lcxmGlWGyZXiHYxcdQvNH80S4uz/ehdxYM5N4JSeui
+	KSn9vE23QOEK+EBz1RWOB63l7NzFOV0a4r7rB8nOpMHykKXV7iP9NjQ=
+X-Gm-Gg: AZFdTZcvmtgyrXiVzxY+KM7q7V/JRR21CjVdDZcN37UZ0B9brrRka3hTsxn3hmgJ5P3
+	/mBxq+9t+Dp7Kzh2RhzNbrOtaEQ6reicZrV0LirM6ZeqBFLpyE+4StkBsjBAfSo0eYniUq1HdfS
+	QjuwLCWju//kjle/wAzxnjpGHuEmzKg+NlPbTWK4jf30i7cKAFloXjfiGk3AyMG4ZlTnk0PyzOj
+	SKyV71cRckzi9CXQgEwWyZ4564HQED8yY5Dv5ygdbsHcJRi63xgX8kAJ2jdu/IedSsRat7HKrO8
+	629RZetIORdZXbLgZZM4gOxVak/ADYT7XeCm3Zb1lz0jcwJubt0wws8glKa7Jhz/eU8FCJ1iTRU
+	jTy19OKGREtaX33wZwq53L5CMoaG0mK1nzCzIFG49pyjft7QKEwuogKSnh0mxblvhGRfvTbbxih
+	nPDlwAzsYSPbomP95VP7jHvPNZY4B5PCKMy+gsmSWTVZdEPG/0URUs6CXyEqLD+fXSLNdR8lsU8
+	6wpRFR6HYSlmas0QKCAl2oXsMH8Lsxrhfoqjfgp/kJDQokQqf6r5SAJb3AqZrGlCDOWrlOcTkhK
+	U9aQE/RZDS2mfmgQ5ANS2zA+/HmTTEfaUYgn+mPzzvw6L2w3NEGDdpM5KlEsPP8toKc=
+X-Received: by 2002:a17:90b:3bc5:b0:3ad:1b31:92d8 with SMTP id 98e67ed59e1d1-3b41cb3e213mr18516740a91.60.1795695909040;
+        Thu, 26 Nov 2026 04:25:09 -0800 (PST)
+Received: from localhost.localdomain ([2406:3003:2002:639c:a06e:23f:85ed:4cfe])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3b44b73b2b3sm15564188a91.2.2026.11.26.04.25.06
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 26 Nov 2026 04:25:08 -0800 (PST)
+From: Yige Jiang <yigejiang86@gmail.com>
+To: Madalin Bucur <madalin.bucur@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Yige Jiang <yigejiang86@gmail.com>,
+	Sean Anderson <sean.anderson@linux.dev>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] fsl/fman: Fix device reference leak in fman_bind() and fman_port_bind()
+Date: Thu, 26 Nov 2026 20:25:02 +0800
+Message-ID: <rc-b1-20261110-vc-176-5127b53b8eab@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -119,83 +102,76 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF0002457F:EE_|LV2PR12MB5992:EE_
-X-MS-Office365-Filtering-Correlation-Id: bb79bf5c-9906-4c5d-892a-08df4bb819ec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|36860700016|23010399003|376014|1800799024|82310400026|261022105027099003|261022075727099003|10067099003|56012099006|11063799006|261026121527099003|261026140227099003|261028144727099003|261021123027099003|261021121427099003|261102123227099003|261009223027099003|18002099003|3023799007;
-X-Microsoft-Antispam-Message-Info:
-	DrKGNRZS6c9xnAdQd9NiToBw7Vqsgq0h3ALNdesDqMlep0o+3ugqkZ0vhlSNQfXXq4GbrTFPfprbYo3ZNpnKFLRTU2som5ZvDat8cWyS18vGL6s5a9/HiRGx41eNtuDxk2PTyljsfneuqQOY6+V9GKwLW3lzw6+ns5to60BeahYM89z+DclpV2iZQNpd2A7KdxSVcc+kIR5M3FZyMZpFoe/jdqL/Y1UIfiGqbdwyz2Lq/DuBH7ef8w88O/X58bo0lG1yO3s/QdrW6bkdTKEvw2F50CmtYarPRqyYIxaOd3bYcDn8eTq2lnHeM1AP9icdvSb8+85zid38Nnlf0R7rVDKHd7SKpcPTd+ROPG9FSudAVJmAURlodWPeJlL/yhBio+QA/A3v6tO2UAmSKwFgTEpwr8QbgqNFklKgxof1fHhMjvy0CAgXrX82sOcXdH0zVcUWsAZ6L1Nz03iDK0NFtOxtvWJjC7oaP2hVGGJDV897FimjTd1k0Le2E+d301zEkc16XN/t5hNIvx0TnDIdMoLh5J7r9uYm3/vUDH1w3E+3MtT0AgxpZ7wteE2kiyikcjmW02X6gk/QPE/iVq7SAe7QmwJvva4Vm/qYS6x0oDSRcYnTGaaQEemLocFOxMMJleYuM+iU2e6p66dPVoX2TdYLDOR+OL09iJSSuxKtUh/bK2Sq7pOGegSzzh/QzcivceKBA4mG582AW1/hiN5QdA==
-X-Forefront-Antispam-Report:
-	CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700016)(23010399003)(376014)(1800799024)(82310400026)(261022105027099003)(261022075727099003)(10067099003)(56012099006)(11063799006)(261026121527099003)(261026140227099003)(261028144727099003)(261021123027099003)(261021121427099003)(261102123227099003)(261009223027099003)(18002099003)(3023799007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	TFuP0I12tM4l9bc/T3ax1mrxYqcxcQBahd3bS2xgnNrWXsivKv4fKFM9LOX9hUG8Mz19QKdzfTwhCrlVYR++KaIoQBNigHBnOyXqxkqi7q2m3L0gKSr4ecV6W7xcQ+ZLk+ne61nRRYsKRjvePx8GsZVcxGEPjjUa4OnMzXzgjDO3D8Q0jUcLl0BQoG6Cz6Bm9iCu2SDHPH/A8lICVjLv1fvtveH13YGn+Kmzkvh/hqJdWHk5bBmCsSVN1N64LAS2zJg4Lo9keHJyKsMwsTi28M5NZKo22LDbL6M4G2dZWVvR27ryrfoSY1ivDBfhmJOvoMqBq2nIxMV3cfL5OQ6eJ+XrAie5AM7D8pOFjSlXJHsWu8P2CJE+WNQWTmxZJY35OAlBzH+H69XbOHX+GsF8gomLCsAKpCjoSEeAfq8SIH44AelHkT/R9JI87hVo5sYb
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 12:23:38.9379
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: bb79bf5c-9906-4c5d-892a-08df4bb819ec
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource:
-	CH3PEPF0002457F.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5992
 
-alloc_branch_attr() gets the branch attribute from
-mlx5e_clone_flow_attr_for_post_act(), which also allocates its
-parse_attr. When the branch action cannot be offloaded, the error path
-frees the attribute but not its parse_attr, leaking it.
+fman_bind() and fman_port_bind() call get_device() and return the
+device's driver data. They keep the reference even when the driver
+data is NULL, which happens when mac_probe() runs before the FMan or
+FMan port driver has set it. mac_probe() then fails and drops only the
+reference from its own of_find_device_by_node() call, so the reference
+taken by the bind helper is leaked on each such probe.
 
-This happens, for example, when a police action's conform and exceed
-actions are both jumps: the exceed action fails with "Cannot offload
-flows with nested jumps".
+The FMan and port devices are created from the device tree and are not
+normally removed, so the leak has no visible effect in practice. The
+NULL return on the FMan side was pointed out as a probe ordering
+problem in a Sashiko review that Simon Horman forwarded to netdev in
+July 2026. The reference leak was not mentioned there.
 
-Free the parse_attr too.
+Drop the reference in both helpers when they return NULL. mac_probe()
+is their only caller, and its success path is unchanged.
 
-Found by LLM-assisted code inspection, while reviewing a fix for a
-double free on the same error path.
-
-Reproduced on ConnectX-6 Dx in switchdev mode, with kmemleak, by
-failing 50 times to offload such a filter on the uplink representor:
-
-  tc filter add dev $UPLINK ingress protocol ip flower skip_sw \
-          dst_ip 192.0.2.2 action police rate 1mbit burst 20k \
-          conform-exceed jump 1 / jump 1 action pass action drop
-
-Without this patch, kmemleak reported 29 unreferenced 4096-byte
-objects, all allocated by mlx5e_clone_flow_attr_for_post_act() from
-alloc_branch_attr(). With it, kmemleak reported none.
-
-Fixes: f86488cb4685 ("net/mlx5e: TC, initialize branch flow attributes")
-Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
-Reviewed-by: Jianbo Liu <jianbol@nvidia.com>
+Fixes: 3933961682a3 ("fsl/fman: Add FMan MAC driver")
+Link: https://lore.kernel.org/r/20260703074324.907294-1-zhaojinming@uniontech.com
+Signed-off-by: Yige Jiang <yigejiang86@gmail.com>
 ---
- drivers/net/ethernet/mellanox/mlx5/core/en_tc.c | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+Based on linux-next next-20261109 (630059a5a632).
+Compile-tested: arm64, GCC 14.2.0, W=1, CONFIG_FSL_FMAN=y, CONFIG_FSL_DPAA=y, CONFIG_COMPILE_TEST=y; baseline and patched fman.o and fman_port.o, no new warnings.
+No hardware or runtime test was performed.
 
-diff --git a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-index 011741553f5b..142cccba907e 100644
---- a/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-+++ b/drivers/net/ethernet/mellanox/mlx5/core/en_tc.c
-@@ -3915,7 +3915,8 @@ alloc_branch_attr(struct mlx5e_tc_flow *flow,
- 
- 	return err;
- out_err:
--	kfree(*cond_attr);
-+	kvfree(attr->parse_attr);
-+	kfree(attr);
- 	*cond_attr = NULL;
- 	return err;
+The path needs mac_probe() to run before the FMan or FMan port device
+has its driver data set (probe ordering or module load order).
+
+ drivers/net/ethernet/freescale/fman/fman.c      | 7 ++++++-
+ drivers/net/ethernet/freescale/fman/fman_port.c | 7 ++++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/net/ethernet/freescale/fman/fman.c b/drivers/net/ethernet/freescale/fman/fman.c
+index 46cc28895e56..35a8e25ba993 100644
+--- a/drivers/net/ethernet/freescale/fman/fman.c
++++ b/drivers/net/ethernet/freescale/fman/fman.c
+@@ -2493,7 +2493,12 @@ EXPORT_SYMBOL(fman_get_rx_extra_headroom);
+  */
+ struct fman *fman_bind(struct device *fm_dev)
+ {
+-	return (struct fman *)(dev_get_drvdata(get_device(fm_dev)));
++	struct fman *fman = dev_get_drvdata(get_device(fm_dev));
++
++	if (!fman)
++		put_device(fm_dev);
++
++	return fman;
  }
+ EXPORT_SYMBOL(fman_bind);
+ 
+diff --git a/drivers/net/ethernet/freescale/fman/fman_port.c b/drivers/net/ethernet/freescale/fman/fman_port.c
+index 1b8fef69114e..5d96521066a5 100644
+--- a/drivers/net/ethernet/freescale/fman/fman_port.c
++++ b/drivers/net/ethernet/freescale/fman/fman_port.c
+@@ -1684,7 +1684,12 @@ EXPORT_SYMBOL(fman_port_enable);
+  */
+ struct fman_port *fman_port_bind(struct device *dev)
+ {
+-	return (struct fman_port *)(dev_get_drvdata(get_device(dev)));
++	struct fman_port *port = dev_get_drvdata(get_device(dev));
++
++	if (!port)
++		put_device(dev);
++
++	return port;
+ }
+ EXPORT_SYMBOL(fman_port_bind);
+ 
 
-base-commit: cc7fe6e741730fef549e484379281736d32746f0
+base-commit: 630059a5a632377b9b7b487baccde92b7ae1dd47
 -- 
-2.44.0
+2.50.1 (Apple Git-155)
 
