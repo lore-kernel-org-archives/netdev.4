@@ -1,52 +1,72 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795663257;
-	b=vuRpElAC40dK8FAAKOEc3pFvgAIVvBTw1nU/6+E9cyvNlKjyLXk3uf/raI9GNwmPbj5g
-	 eFOEuHbBDSjN25o+2z8qOrli5heOl8z5PEWTCtiEYmu0NrN+4XBmOlvqfpgPK+0p/YkRL
-	 vSyu8YHMf6B3YKrnjGlO1uNA3Vqo2pZWmSylqdyw4wMV6GgLgVj8McPeyf1IKWU1gbwIh
-	 gR5bhk7C+TcPNrYzzslfBAt5THGkTfD7lwgt2lQ7sVpVVnsiotngFWAMXV3qj00jrKacv
-	 yD4mDQ/pt4egPo2UNbsL4xSITzbBwgo+e8JM6/wl2CCapk7ml8rOb5TTEug3YgE7tTA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795663257;
-	h=DMARC-Filter:DKIM-Signature:Received:Mime-Version:
-	 Content-Transfer-Encoding:Content-Type:Date:Message-Id:Cc:Subject:
-	 From:To:X-Mailer:References:In-Reply-To:X-ZohoMailClient;
-	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=;
-	b=lIxn/RddZlHdxeRykGVRFCmBsjgCwgk1UD8YwXXoWwdyRKiS55ZJxA1JXNy1vlCw6tsc
-	 +EAgjkibZUM5oxT3V/rfmChkatoGPC6eU2RWWTIVpWAQvLM4cPMwOqxkHS7jHYtrnDHob
-	 QH/xXQKfqyiWnvBb6sewiS/5uOJ8fbArFtpJWSFsHKV4wAtemanXfIfAB9RDSvjl2sGxP
-	 p9kRxNWKTKn2xfpaIU5TG0YZpPXXYo8hRniOW+2TU6bkHqZpGMKUXX+X30pjJgCvOe9sk
-	 gr0MerXm6XohKV7BS2o6XvHtOexfe0f9OAd7JNh/Hwj/uUxmOsq9Q+oUyYyA3o9oxVQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=pigmoral.tech;
-	spf=pass smtp.mailfrom=pigmoral.tech;
-	dkim=pass header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=165.173.180.12
-Received: from sender6-op-o12.zoho.com (sender6-op-o12.zoho.com [165.173.180.12])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=211.75.126.72
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795663981;
+	b=HRUv+gsyObrIJ/3Irayr3WMiSzp1Udv28y48InLgJgMagleyqPrrPKvNmRLMi5YjgMiI
+	 unLcadqozyNAncFbu2nKNCezi9MwPvkb0PI2ANyTLcMmN5Llswdm5GcYxHQQ4aZ5b24Kx
+	 Q/XZcNJwM/Y66Pg/bVw/OxiU6BaM5x4q5ATthmvTGeA8ekKEROBGEQc1gy6OQTsj8GxZ9
+	 pviVbwNBXWroGznfJ+jZJI6IBx0wklycmizROv+elTaiSHzZK0qzLbOHiqb3ToYj0rQLq
+	 3otNpyMFLnA1FveGDp1AANG+MD1RWiRkSGzJCQZ4qLNjYUEX4XJp62R9VDwj7h9/8TQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795663981;
+	h=DMARC-Filter:X-SpamFilter-By:DKIM-Signature:Received:Received:
+	 Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:In-Reply-To:
+	 References:MIME-Version:Content-Transfer-Encoding:Content-Type;
+	bh=+jN0VcdpvLekZruacmIw0jXDrzU60lSohURpZVwtWFI=;
+	b=dPM7rb+OJNaklMuHVzdE/F8vJ0GE/6xga8IybzaWc669aPcYgJiINl7mxz0tXuaEW+1Z
+	 mgq1Iun53WSiBEvwPUNvu3Sdbhf2A5eaw0wbLN+LVHiP7wVEhlNtxjs50wxVPaQKFlN7o
+	 kZYQtbg5I6SSnAzKxsgJcmaw5EOUY9d/pvv3mTzm/oTj6NKRWpTkvkUfKK1d2kxqNpEzc
+	 uCvons7M0WiRetmnifDWpGHVPmfFVPSmmZMMOoaRAX+k6hu4ttjL1t7Z7y5dnRy3xI2h5
+	 YkJyuntOq2MqY4R6P4oPnnaR1zgUcnpe+kQlZ/jtwsTQ8gOxd2Eg/DzH2j2JX9N3WBg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=realtek.com;
+	spf=pass smtp.mailfrom=realtek.com;
+	dkim=pass header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=STBK5FbN;
+	arc=none smtp.remote-ip=211.75.126.72
+Received: from rtits2.realtek.com.tw (rtits2.realtek.com [211.75.126.72])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CEC5606A31E;
-	Thu, 26 Nov 2026 03:20:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CEC5606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pigmoral.tech
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pigmoral.tech
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0E8F2606A697;
+	Thu, 26 Nov 2026 03:32:59 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0E8F2606A697
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=realtek.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=realtek.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=pigmoral.tech header.i=@pigmoral.tech header.a=rsa-sha256 header.s=zmail header.b=FAvk0CBL
-ARC-Seal: i=1; a=rsa-sha256; t=1795663192; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=e4FII9bZdXIdBe8LYq4IGbMGRvCRAqDjcHw9c8PyTsCwtiVOHVX5/o5BFvRZq0JzdHw4je5tOQNaP8jVIjuVYUPUqGGHM2gbGyvBK9FyNT8Kycg4BOOHwfPE7RnxlVPqV/ZCxlxkMgRkxdSOsnV7mkREAb/knXDALPMCKk0t7ks=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1795663192; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; 
-	b=UUDe5cwvt/PXWuIAvUf7gV10dD720xJ276dIrDwnydvX0vcdz39b+TOiVIzKwtv0rWTBNc/hcSoszBNxJ9fhCrI6J3p/WVjxBu6hbPq+8o10JwFbnn0+/tb2RocfO8quJzYOua2SEEyGmP2fsWdF29PJKqhh0Ky4UKSiB+zECkA=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=pigmoral.tech;
-	spf=pass  smtp.mailfrom=junhui.liu@pigmoral.tech;
-	dmarc=pass header.from=<junhui.liu@pigmoral.tech>
-DKIM-Signature: a=rsa-sha256; b=FAvk0CBLjnz+CVdmsl7/q3o4Fp2VSiuJJI4sTMUqqnfWurQhA1S0J/y6uFnL1wO8PJypOYhxEbmZYB28yoWSeEefIUxMG+jv39r2SBJ8lcFiQVUpBH0wno0yeu97zQDXIRopUT3Fgb/Kqtzd5SFHi9F9OFc6dMwE2FASRbwLjHQ=; c=relaxed/relaxed; s=zmail; d=pigmoral.tech; v=1; bh=wl1zFrlH173HoV75rMT0wWjqW6vBAlxFdSbEFwWvJuI=; h=Content-Description:Content-ID:Content-Type:Content-Transfer-Encoding:Cc:Date:From:In-Reply-To:List-Subscribe:List-Post:List-Owner:List-Id:List-Archive:List-Help:List-Unsubscribe:MIME-Version:Message-ID:Resent-Sender:Resent-Cc:Resent-Date:Resent-To:Reply-To:Resent-Message-ID:Resent-From:Sender:Subject:To:Date:From:Message-Id:Reply-To:Subject:To:Cc;
-Received: by smtp.zohomail.com with SMTPS id 1795663189418348.39520229037566;
-	Wed, 25 Nov 2026 19:19:49 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=realtek.com header.i=@realtek.com header.a=rsa-sha256 header.s=dkim header.b=STBK5FbN
+X-SpamFilter-By: ArmorX SpamTrap 5.80 with qID 6AQ3WGXd83951801, This message is accepted by code: ctloc85258
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=realtek.com; s=dkim;
+	t=1795663936; bh=+jN0VcdpvLekZruacmIw0jXDrzU60lSohURpZVwtWFI=;
+	h=From:To:CC:Subject:Date:Message-ID:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type;
+	b=STBK5FbNzJI/f6C03qXxluEtqq6jAS5ua390Kb2j/0Bto5IdkWE3n17++xfzs+fFL
+	 iLTod6UtMn5NTENA37rLctZX4MCEqt1bH6yk8Q1FWj24VHQaS5RoofN8IK9plkieud
+	 Cjec6y72z5dSZGU+oK0iwfflrPLrMlZzHQg34tWgVEVls5WRT5ArvIuYAze4QZd9H1
+	 IcUx/pBVmUYCuPVA6t+EcTj2AvlILFjwwv2JT9T+tMVT7ZC1NVmI0cfOdVuj+EocHT
+	 pFw9Vc4np7r4xoboKBttRJyWsZijsJWA2i1LCNzQOcc+iw06STQmau0budwJvFsnGZ
+	 mNsi+F9wRHdiw==
+Received: from mail.realtek.com (rtkexhmbs03.realtek.com.tw[10.21.1.53])
+	by rtits2.realtek.com.tw (8.15.2/3.29/5.94) with ESMTPS id 6AQ3WGXd83951801
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 26 Nov 2026 11:32:16 +0800
+Received: from RTKEXHMBS06.realtek.com.tw (10.21.1.56) by
+ RTKEXHMBS03.realtek.com.tw (10.21.1.53) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.56; Thu, 26 Nov 2026 11:32:16 +0800
+Received: from fc44.realtek.com.tw (172.22.241.7) by
+ RTKEXHMBS06.realtek.com.tw (10.21.1.56) with Microsoft SMTP Server id
+ 15.2.2562.56 via Frontend Transport; Thu, 26 Nov 2026 11:32:16 +0800
+From: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+To: <davem@davemloft.net>, <kuba@kernel.org>
+CC: <netdev@vger.kernel.org>, <nic_swsd@realtek.com>,
+	<linux-kernel@vger.kernel.org>, <linux-usb@vger.kernel.org>,
+	<edumazet@google.com>, <bjorn@mork.no>, <pabeni@redhat.com>,
+	<hsu.chih.kai@realtek.com>, <andrew+netdev@lunn.ch>, <mail@birger-koblitz.de>
+Subject: [PATCH net-next v9 07/12] r8152: accept PLA and USB firmware blocks for RTL8157 and RTL8159
+Date: Thu, 26 Nov 2026 11:32:06 +0800
+Message-ID: <20261126033211.51850-8-nic_swsd@realtek.com>
+X-Mailer: git-send-email 2.54.0
+In-Reply-To: <20261126033211.51850-1-nic_swsd@realtek.com>
+References: <20261126033211.51850-1-nic_swsd@realtek.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -55,99 +75,46 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 26 Nov 2026 11:19:39 +0800
-Message-Id: <DN4TH0CNAM11.2OA7W5L11W78S@pigmoral.tech>
-Cc: <linux-clk@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- "Andre Przywara" <andre.przywara@arm.com>, <netdev@vger.kernel.org>,
- <devicetree@vger.kernel.org>, <linux-riscv@lists.infradead.org>, "Jerome
- Brunet" <jbrunet@baylibre.com>, "Enzo Adriano"
- <enzo.adriano.code@gmail.com>, "Norman Herms" <dockseed@proton.me>,
- "Vinicius Pedrosa" <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
-From: "Junhui Liu" <junhui.liu@pigmoral.tech>
-To: "Alastair D'Silva" <alastair@d-silva.org>, "Junhui Liu"
- <junhui.liu@pigmoral.tech>, "Stephen Boyd" <sboyd@kernel.org>, "Brian
- Masney" <bmasney+clk@redhat.com>, "Jerome Brunet"
- <jbrunet+clk@baylibre.com>, "Chen-Yu Tsai" <wens@kernel.org>, "Jernej
- Skrabec" <jernej.skrabec@gmail.com>, "Samuel Holland"
- <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>, "Paul Walmsley" <pjw@kernel.org>,
- "Palmer Dabbelt" <palmer@dabbelt.com>, "Albert Ou" <aou@eecs.berkeley.edu>,
- "Alexandre Ghiti" <alex@ghiti.fr>, "Richard Cochran"
- <richardcochran@gmail.com>
-X-Mailer: aerc 0.22.0
-References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
- <20261125122452.3966873-1-alastair@d-silva.org>
-In-Reply-To: <20261125122452.3966873-1-alastair@d-silva.org>
-X-ZohoMailClient: External
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 
-Hi Alastair,
+rtl8152_is_fw_mac_ok() has no RTL_VER_16 or RTL_VER_17 case, so any
+RTL_FW_PLA or RTL_FW_USB block in the firmware for these chips fails
+the check and the whole image is rejected with "check PLA firmware
+failed" or "check USB firmware failed".
 
-On Wed Nov 25, 2026 at 8:24 PM CST, Alastair D'Silva wrote:
-> Hi Junhui,
->
-> On Thu, 12 Nov 2026, Junhui Liu wrote:
->> static struct ccu_nkmp pll_ref_clk =3D {
->> ...
->> };
->> ...
->> static CLK_FIXED_FACTOR_HWS(sys_24M_clk, "sys-24M", pll_ref_hws, 1, 1, 0=
-);
->
-> While testing this v7 series on the OrangePi 4 Pro (24 MHz HOSC), ttyS0
-> switches from earlycon to garbled output with:
->
->   2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq =3D 414, base_baud=
- =3D 1384615) is a 16550A
->
-> Because the hardware bypasses pll-ref (0x02002000) when HOSC is 24 MHz,
-> sys-24M physically runs at 24 MHz from HOSC, while pll-ref remains
-> disabled with reset/unprogrammed N=3D12, M=3D13 fields. Since
-> ccu_nkmp_ops.recalc_rate() computes parent_rate * N / M regardless of
-> the enable bit, pll-ref reports 24000000 * 12 / 13 =3D 22153846 Hz.
->
-> sys-24M, apb-uart, and bus-uart0 inherit 22153846 Hz instead of
-> 24000000 Hz, so 8250_dw calculates base_baud =3D 1384615 (instead of
-> 1500000) and programs divisor 12 instead of 13 (+8.3% baud error).
+Add both versions with the same layout as RTL_VER_14: 16 break points
+and USB_BP2_EN as the enable register.
 
-Thanks for testing and reporting this. This is indeed a problem. I had
-assumed that PLL_REF would be used on all boards.
+Fixes: a51e171e176c ("r8152: Add firmware upload capability for RTL8157/RTL8159")
+Signed-off-by: Chih Kai Hsu <hsu.chih.kai@realtek.com>
+---
+ drivers/net/usb/r8152.c | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-I also tried manually disabling or bypassing PLL_REF on my Radxa Cubie
-A7A, but have not yet managed to establish a working bypass
-configuration... I currently suspect that the selection is handled
-automatically by the hardware, but this needs further confirm.
-
->
-> If pll-ref is disabled/bypassed (or if sys-24M is physically fixed at
-> 24 MHz as the comment describes), either pll_ref_clk needs a recalc_rate
-> that returns 24 MHz when disabled/bypassed, or sys_24M_clk should not
-> inherit an unenabled pll-ref N/M ratio.
-
-The issue may affect not just sys-24M, but also the downstream PLLs.
-According to the vendor SDK, their control registers have a PLL_FREF_SEL
-mux at bit 24, selecting between HOSC and REFPLL. The driver currently
-models these PLLs as having PLL_REF as their only parent, so their rates
-could also be calculated incorrectly when they actually use HOSC. We
-should model those muxes as well.
-
-However, my A7A, A7S and A7Z boards all use 26 MHz crystals, so I cannot
-properly validate the 24 MHz case until I get a board with a 24 MHz
-crystal. In the meantime, if you have a fix in mind, please feel
-free to send a separate patch.
-
->
-> Tested on OrangePi 4 Pro (Allwinner A733).
->
-> Thanks,
-> Alastair
-
---=20
-Best regards,
-Junhui Liu
+diff --git a/drivers/net/usb/r8152.c b/drivers/net/usb/r8152.c
+index 7e553652f97ec..3e16d0f832bc3 100644
+--- a/drivers/net/usb/r8152.c
++++ b/drivers/net/usb/r8152.c
+@@ -4904,6 +4904,8 @@ static bool rtl8152_is_fw_mac_ok(struct r8152 *tp, struct fw_mac *mac)
+ 			max_bp = 8;
+ 			break;
+ 		case RTL_VER_14:
++		case RTL_VER_16:
++		case RTL_VER_17:
+ 			fw_reg = 0xf800;
+ 			bp_ba_addr = PLA_BP_BA;
+ 			bp_en_addr = USB_BP2_EN;
+@@ -4932,6 +4934,8 @@ static bool rtl8152_is_fw_mac_ok(struct r8152 *tp, struct fw_mac *mac)
+ 		case RTL_VER_13:
+ 		case RTL_VER_14:
+ 		case RTL_VER_15:
++		case RTL_VER_16:
++		case RTL_VER_17:
+ 			fw_reg = 0xe600;
+ 			bp_ba_addr = USB_BP_BA;
+ 			bp_en_addr = USB_BP2_EN;
+-- 
+2.34.1
 
