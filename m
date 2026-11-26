@@ -1,124 +1,57 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795713115;
-	b=GT9GvGs71ma3xtXLDi7NA2iJkJUtgg5O/evFbJL7u7ki0C3gVnPq27PK23pBYo+DW0VZ
-	 09JJ1gwO+JmVDW5QAMRNKaJRJ0BIk+C/AH23LiGYOIY9aCnNAcXmZ4cyFBHjJgWuNuSbV
-	 DVIX1VtXF1wjprskIfZxDbrG6uDuhaT3qPdQk1J44WW3DNDyL3ct+ConwZgbnICBcKEk9
-	 zRKacjTC+j9vBDSOVnozZdWMeBpMWdi+8mU2Ca+83qfZm8+4a1N/RXFx/41dcOfKsz3FQ
-	 qIxwGvOCSvJLNUQGVTZ0XT5vKYBbctE85iF2QbgxBYzyjqSzZKP9c2AcxAjpkigiyTw==
+	t=1795714089;
+	b=d7+ysOe4zBKPch+HsEWuwiOHFznz+/XsGVOelNM8wUymgekeZOwR9DUrPyaSYgCvpvxw
+	 xd2NvKQe9H0U7i2YXNScvNhlZeFDVM8Y5FlJWXufbefEEWsZAasn/cj9mZszd5yok+vrt
+	 9KE6BjGK6pfQknkaMLmkZpy5uJU0NeMfQbsdVjCMAnnkFWJjymqZHEI5vLLVnNHr2bB/p
+	 gOIf2fdxdiAOItDgtXSi1vISFkN2vW0i7BXJKsIjqi6GHjLgcYHh+kRMs0GfRiunXuzUr
+	 xZVm0enfibGI67AJtkBIFkujnZ26KJdHDNDbOKI58Z0xSHGTiPJUf36UiMyZqvwX+Pg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795713115;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 X-Received:Received:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=zcsn+s07qIWSCH6CAt8hTslj76QVGyHgKy0O9c7o/Tg=;
-	b=Gp4DwdCqjRpxL4MymutvqO9zOCJJXs39bo6XXzF727vouQsoCvOyB+mITpxmuPD5iwJn
-	 v/Zz874z3EEqthoylFwGnXmo5k0AQGatYVwVB/CmBIgSWjEcu3W9gRu4J/VULglW94XAU
-	 3QdNsk3E5byPQ5JFfuQidEH2ai59++3CbVcRKjIRVQFEdZW4ZJVYXi8Mo8LFUmUz3Q9Hs
-	 sL1sBCORaC1hzQu6RgkCs+H1fyczkgtrkidkzco/SM/Bt/mCyNeWbmEJsNSRkUDfRlUP7
-	 8o52tjrnLDaMmbl6SQXNt6Yq2tivojucxLcWFYbkx2+zSHDz9gdcdkYVi0LZ7tDHoKg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795714089;
+	h=Received:DKIM-Signature:From:To:Subject:In-Reply-To:References:Date:
+	 Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=9zMaWGv73wpL/BZnDQz+a+dIjaKBAd/WY1X+gM2KFQw=;
+	b=VMkuFb3VJLVcS9y34PGZmrM61deTqUAlQFUq5SE2rhs2+CBvFIAylzg/NyMwRnuAS3kb
+	 5+umh30ABAwmik4nPFj2EVM3uyFW8Ap9zGIQE8RjG6dgOiw7468Lki1QwNR42EzAlKnPM
+	 7oQBTzCifGgnKhxxyHKgX7qM7CUf/QtvHBYKTEstrYKf0bye4n/4jVbbmfqlsl+1YgCrQ
+	 oPKmqqJ1eayouo9HhgrnxSe4pHp80Rc5bP8fpXH3YohHrFqRPAHpRjC7UR5Q4DFIDV2dm
+	 YgfP67fogG0pRrp6eMzJ2rZ5cw2Lhf88m4KF2i0wl5fd5qLKX7Q+1uH5xOUubx9bg3w==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TWdAx69I;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ND0oRZ09;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN4qMEND;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5ECF1606A32A
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:11:55 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5ECF1606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 90E9E606A323
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:28:09 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=TWdAx69I;
-	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=ND0oRZ09
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795713114;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zcsn+s07qIWSCH6CAt8hTslj76QVGyHgKy0O9c7o/Tg=;
-	b=TWdAx69IrYARhTQfZ2JmEinERFzAxF+LtOGWTRh+c/F34S6nk+zuEfj66aownViQk77h/e
-	SY6q0w76eF0/H+X4bQo+D4/0ckOOrbs1iDtUCpMKb2RwL8DL61UWEV8Qu8gWnHqRsle6ST
-	jkAyQ98lr/78engHuv017Az8iLc1yTc=
-Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
- [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-182-RMPzO_wPNsyvcxG7gmTbnQ-1; Thu, 26 Nov 2026 17:11:52 +0000
-X-MC-Unique: RMPzO_wPNsyvcxG7gmTbnQ-1
-X-Mimecast-MFC-AGG-ID: RMPzO_wPNsyvcxG7gmTbnQ_1795713111
-Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-48e29c25101so3221169f8f.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:11:52 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=redhat.com; s=google; t=1795713111; x=1796317911; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=zcsn+s07qIWSCH6CAt8hTslj76QVGyHgKy0O9c7o/Tg=;
-        b=ND0oRZ09iH5VKNjM3Z3yyODiZusaAt8XXxuQQf8PiLp5ogqthdgeNVANplxk/nlF4o
-         aVsEb3p84X1XCz3LfZSRhBCxKc9kpukv42t9cdHKDwN89tLsx56zTXDsmP2cnGL6aEHR
-         /qG8+5BGufnymkYXWCUp9J/UwrCauibFEpGEZzaHdU3azyOtC42/SViP1Oa04tei2jZ2
-         roggv/8yqSdduW7sek3QGfzFz8bzdGIhAatYFRTB3WX4lNSLI+TFRLDSkXZlarDlWi3u
-         PFb6hbl5v+f7kTexRbIcv3RMn/eV+G1swqknZVWSVM7G+5Pp02olXpyoxtAfq8GnaAdN
-         1mog==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795713111; x=1796317911;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=zcsn+s07qIWSCH6CAt8hTslj76QVGyHgKy0O9c7o/Tg=;
-        b=Cms27gcNaHekD4CrkWTdtdQk/C22OCSftm4PGnlh3sfw4oAuWopsE1NtvffYH5lc6Z
-         EV+lLr2e2y3yifzzZP8vqxTsiMRVF0ErC7Wg0jqwHsq0hsYjKC6ZAm26JJXNhcis3P1Q
-         rlz/rb+3zxVt8r+jO6/ISwkk2gDtoyThN/0oEiYr1YhZAHjIEk56ue2kUboThMkGXtFD
-         C5ZMUkElK+yUZyomBE1H7Wv4Bg0K+85UC/W69YFuRyrHJYJv2waH6MFa282qMpBgdYbI
-         iQq7wglCEf9ivLq19BgdXiPCPyR7+XRfMBPqe9lvh3unr9kFlDjzL8SDP71KlOa9QKEV
-         ryoQ==
-X-Forwarded-Encrypted: i=1; AL+hErGDKqXCVYsm43CThiTzgtqsAvMvKcGB5Xrfpa5JzgUzqSNUC4NT4BZSenqau7kcAECDYH+rcSs=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9Gu3cavcYZ/L9Fwi/hbq1YC1newZnbIl7HoNsMKno7hHT/h5TF
-	3cJEwEOQlMs/uf/gnXWP0J1Zk+fWYMDkZ8JAedF9B/rqCTCKd6D5V7XBI9cnUZaiuM/bK6VJ6kh
-	+2cFWnExxoaCHOF6BVN0uWiqpyQVykzbJKRpT03mTW7HRoHiBWWT8R1Tg9w==
-X-Gm-Gg: AZFdTZetHagRNK+87+Dtw0m7+UYl8jUmFZly/6ErDDzKM8nFVAWLs2DZU0o7xTLrqyU
-	1AlOiPAbuoHO9/pOBTTss0MBdd9wcWmYhgR7qVhn/D9+Phfpe10ZLYjKrVC9xDqf+mXBIX9qnbR
-	/SlHmhM+JsPoS6I0VhMnItULbftcz0cAlAIm8HjiP1OiymsYk4S7qmsteAME3h8MbxOW5a6kL+m
-	PUK/vx42RYjeCwchsgWmcYY71oFhzo2gglNp4xr8ynlwG8OLZd+CotVw3/BAaG+3uZ8UWPUrvd2
-	TWM2ZCTQ06QgNe3bYYJ1R78wnIgb+NF0bauwFuz+0j6iFE9MqGEXYmEhinebg3ScuMdG4e6LsMv
-	WyDGCvKgmUDOob7gao4wD6zrTv84ND8La+bPoFKenP6mdca4wM4Ayww==
-X-Received: by 2002:a05:6000:186b:b0:4a6:4f35:336b with SMTP id ffacd0b85a97d-4abab02c60amr43563859f8f.5.1795713110930;
-        Thu, 26 Nov 2026 09:11:50 -0800 (PST)
-X-Received: by 2002:a05:6000:186b:b0:4a6:4f35:336b with SMTP id ffacd0b85a97d-4abab02c60amr43563788f8f.5.1795713110359;
-        Thu, 26 Nov 2026 09:11:50 -0800 (PST)
-Received: from sgarzare-redhat ([80.116.143.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm39482837f8f.34.2026.11.26.09.11.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 09:11:48 -0800 (PST)
-Date: Thu, 26 Nov 2026 18:11:40 +0100
-From: Stefano Garzarella <sgarzare@redhat.com>
-To: Sergio Lopez <slp@redhat.com>
-Cc: Bobby Eshleman <bobbyeshleman@meta.com>, 
-	Alexei Starovoitov <ast@kernel.org>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
-	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
-	Bryan Tan <bryan-bt.tan@broadcom.com>, Vishnu Dasa <vishnu.dasa@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
-	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowangio@gmail.com>, 
-	Eugenio =?utf-8?B?UMOpcmV6?= <eperezma@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>, 
-	Haiyang Zhang <haiyangz@microsoft.com>, Wei Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, 
-	Shuah Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, 
-	virtualization@lists.linux.dev, netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	kvm@vger.kernel.org, bpf@vger.kernel.org, linux-hyperv@vger.kernel.org, 
-	Jonathan Corbet <corbet@lwn.net>, linux-doc@vger.kernel.org, 
-	Sashiko AI bot <sashiko-bot@kernel.org>
-Subject: Re: [PATCH RFC v4 2/8] vsock: report datagram receive and send queue
- state
-Message-ID: <awhnykxnmbUH3tlG@sgarzare-redhat>
-References: <20261124-vsock-dgram-support-v4-0-3607484e85e8@redhat.com>
- <20261124-vsock-dgram-support-v4-2-3607484e85e8@redhat.com>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=IN4qMEND
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6F8501F000C4;
+	Thu, 26 Nov 2026 17:28:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795714089;
+	bh=9zMaWGv73wpL/BZnDQz+a+dIjaKBAd/WY1X+gM2KFQw=;
+	h=From:To:Subject:In-Reply-To:References:Date;
+	b=IN4qMENDNbljVN0fHa4PIOT/cDV5xIghDBE18azyrhajovMFzZMqzK+BuVy4sCjV8
+	 M6lcNlwHF3QD/ej7HLzqDgwRjShX9a9iaFA1v/CjFi6Safn5M3iRlKiWKr5uXM5oAD
+	 iwoGIch2kOx002LEP+HgXilMPjj7d/ppMjy4skMpXSE6agFRwEB07TdtjruQVFnz2k
+	 aTOlg7qfQAM2vx22UWjTr5vxQHIVdVwy4ccO1Xrz9PNbl82PQH8/00wbzmpymisbtS
+	 T/SEIMnWDb5NiIK9fK9+Jb/YYJTJUa4jfNOETip0mdOi5l+5l1IpF2zMySFeB2vl/s
+	 4Cis5vI1dH4Zw==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Usama Arif <usama.arif@linux.dev>, michael.chan@broadcom.com,
+ pavan.chebbi@broadcom.com, kuba@kernel.org, asml.silence@gmail.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ pabeni@redhat.com, netdev@vger.kernel.org
+Subject: Re: [PATCH] eth: bnxt: fix the agg page pool ring size on 64K-page
+ kernels
+In-Reply-To: <b5da37f5-78c4-4f88-afa3-ecf3710f702a@linux.dev>
+References: <20261125162916.1743123-1-usama.arif@linux.dev>
+ <87zeuvkgv6.fsf@all.your.base.are.belong.to.us>
+ <b5da37f5-78c4-4f88-afa3-ecf3710f702a@linux.dev>
+Date: Thu, 26 Nov 2026 18:28:05 +0100
+Message-ID: <87v75jh596.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -128,138 +61,162 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
-Content-Disposition: inline
-In-Reply-To: <20261124-vsock-dgram-support-v4-2-3607484e85e8@redhat.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-On Tue, Nov 24, 2026 at 01:20:20PM +0100, Sergio Lopez wrote:
->Datagram receive queues hold whole messages, and transports may charge
->queued datagrams to the socket send buffer. Report the size of the
->next datagram payload for SIOCINQ under the receive-queue lock, so
+Usama Arif <usama.arif@linux.dev> writes:
 
-Why only the size of the next datagram?
+> On 26/11/2026 02:49, Bj=C3=B6rn T=C3=B6pel wrote:
+>> Usama Arif <usama.arif@linux.dev> writes:
+>>=20
+>>> Commit f7dbedba6312 ("eth: bnxt: take page size into account for page
+>>> pool recycling rings") sized the recycle ring of the agg page pool in
+>>> pages, dividing the agg ring size by PAGE_SIZE / BNXT_RX_PAGE_SIZE.
+>>> Commit c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues
+>>> with larger buffers") replaced PAGE_SIZE in that divisor with
+>>> rx_page_size.
+>>>
+>>> On 64K-page kernels rx_page_size can only be 32K, so the divisor is now
+>>> always 1. Each 64K page still holds two agg buffers and the page pool
+>>> recycles whole pages, so the recycle ring can cache twice as many pages
+>>> as the agg ring uses. With 1024 RX descriptors, the agg ring posts 2048
+>>> buffers in 1024 pages while the recycle ring holds up to 2048 pages, or
+>>> 128 MiB per RX queue.
+>>>
+>>> Divide by the larger of PAGE_SIZE and rx_page_size to restore the
+>>> original size. x86 with 4K base PAGE_SIZE and arm64 with 4K and 16K
+>>> PAGE_SIZE are unaffected, as rx_page_size is never smaller than PAGE_SI=
+ZE
+>>> there.
+>>>
+>>> The ring only fills up when the stack releases agg pages faster than
+>>> the driver reuses them. On a 64K arm64 host with a BCM57508 (32 queues,
+>>> 1024 RX descriptors), a TCP receiver that drained its sockets every
+>>> 1.5 s left about 1.8 GiB less memory cached after the fix, 64 MiB per
+>>> busy queue.
+>>>
+>>> Fixes: c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues wi=
+th larger buffers")
+>>> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+>>> ---
+>>>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 3 ++-
+>>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/et=
+hernet/broadcom/bnxt/bnxt.c
+>>> index 52606db3f7b4a8..ecc4848499c307 100644
+>>> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+>>> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+>>> @@ -3948,7 +3948,8 @@ static int bnxt_alloc_rx_page_pool(struct bnxt *b=
+p,
+>>>  				   struct bnxt_rx_ring_info *rxr,
+>>>  				   int numa_node)
+>>>  {
+>>> -	unsigned int agg_size_fac =3D rxr->rx_page_size / BNXT_RX_PAGE_SIZE;
+>>> +	unsigned int agg_size_fac =3D max(PAGE_SIZE, rxr->rx_page_size) /
+>>> +				    BNXT_RX_PAGE_SIZE;
+>>=20
+>> Hmm, shouldn't the denominator be rxr->rx_page_size rather than
+>> BNXT_RX_PAGE_SIZE?
+>>=20
+>
+> Ummm, yes, you are right :) With rx_page_size as the denominator,
+> agg_size_fac is the number of buffers per page pool allocation, which
+> is what f7dbedba6312 intended. I think the proper fix is below:
+>
+>
+> From f52ae7fc048695de1fdf5cb3282a90036e4eca5e Mon Sep 17 00:00:00 2001
+> From: Usama Arif <usama.arif@linux.dev>
+> Date: Mon, 23 Nov 2026 17:24:04 -0800
+> Subject: [PATCH] eth: bnxt: fix the agg page pool recycle ring size
+> MIME-Version: 1.0
+> Content-Type: text/plain; charset=3DUTF-8
+> Content-Transfer-Encoding: 8bit
+>
+> Commit f7dbedba6312 ("eth: bnxt: take page size into account for page
+> pool recycling rings") sized the recycle ring of the agg page pool in
+> pages, dividing the agg ring size by the number of agg buffers per page.
+> Commit c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues
+> with larger buffers") changed the divisor to rx_page_size /
+> BNXT_RX_PAGE_SIZE, which is wrong in two cases:
+>
+> - On 64K-page kernels rx_page_size can only be 32K, so the divisor is
+>   1, although each 64K page holds two agg buffers. With 1024 RX
+>   descriptors the agg ring posts 2048 buffers in 1024 pages, while the
+>   recycle ring can cache 2048 pages, or 128 MiB per RX queue.
+>
+> - When a memory provider sets rx_page_size above PAGE_SIZE, each buffer
+>   is its own allocation and the fill level is already divided by
+>   rx_page_size / BNXT_RX_PAGE_SIZE. Dividing again gives a 4K kernel
+>   with 16K buffers a 256-entry ring for 1024 posted buffers.
+>
+> Divide the fill level by the number of buffers per allocation,
+> max(PAGE_SIZE, rx_page_size) / rx_page_size. Nothing changes for
+> kernels with pages of 32K or less that use the default buffer size.
+>
+> On a 64K arm64 host with a BCM57508 (32 queues, 1024 RX descriptors), a
+> TCP receiver that drained its sockets every 1.5 s left about 1.8 GiB
+> less memory in the agg page pools after the fix, 64 MiB per busy queue.
+>
+> Fixes: c55bf90a2112 ("eth: bnxt: adjust the fill level of agg queues with=
+ larger buffers")
+> Suggested-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
+> Signed-off-by: Usama Arif <usama.arif@linux.dev>
+> ---
+>  drivers/net/ethernet/broadcom/bnxt/bnxt.c | 3 ++-
+>  1 file changed, 2 insertions(+), 1 deletion(-)
+>
+> diff --git a/drivers/net/ethernet/broadcom/bnxt/bnxt.c b/drivers/net/ethe=
+rnet/broadcom/bnxt/bnxt.c
+> index 52606db3f7b4a8..85ce4b2e297ecb 100644
+> --- a/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> +++ b/drivers/net/ethernet/broadcom/bnxt/bnxt.c
+> @@ -3948,7 +3948,8 @@ static int bnxt_alloc_rx_page_pool(struct bnxt *bp,
+>  				   struct bnxt_rx_ring_info *rxr,
+>  				   int numa_node)
+>  {
+> -	unsigned int agg_size_fac =3D rxr->rx_page_size / BNXT_RX_PAGE_SIZE;
+> +	unsigned int agg_size_fac =3D max(PAGE_SIZE, rxr->rx_page_size) /
+> +				    rxr->rx_page_size;
+>  	const unsigned int rx_size_fac =3D PAGE_SIZE / SZ_4K;
+>  	struct page_pool_params pp =3D { 0 };
+>  	struct page_pool *pool;
+> --=20
+> 2.53.1-Meta
+>
+>
+>
+>
+>> bnxt_rx_agg_ring_fill_level() already accounts for larger RX buffers, so
+>> using the default buffer size here seems to account for the override
+>> twice.
+>>=20
+>
+> Ack
+>
+>> IIUC, the purpose of agg_size_fac is to convert the number of posted RX
+>> buffers into the number of recyclable backing allocations.
+>>=20
+>> E.g. an iouring 16K override would result in a smaller (too small?)
+>> pool.
+>>=20
+>> This patch had me thinking; The default agg pool buffer size is 32K on
+>> 64K systems. That's quite a step up from the default 4K on 4K systems.
+>> 8x more RX buffer memory as an effect of using a system with larger
+>> pages... maybe there's a need for a system knob? That's pretty wasteful,
+>> unless the workload is really HWGRO friendly.
+>>=20
+>
+> Letting rx-buf-len go below 32K on 64K kernels would be one way to do
+> it maybe? Although I guess that is something for net-next and not a fix.
 
->concurrent recvmsg() cannot free the skb during the query. Let
->transports override the length calculation to exclude headers such as
->VMCI's.
->
->Report datagram write readiness only while the send buffer has space.
->Set the asynchronous no-space flag when it is full so freeing pending
->send buffers can wake poll waiters.
->
->Signed-off-by: Sergio Lopez <slp@redhat.com>
->---
-> include/net/af_vsock.h         |  2 ++
-> net/vmw_vsock/af_vsock.c       | 32 ++++++++++++++++++++++++--------
-> net/vmw_vsock/vmci_transport.c |  9 +++++++++
-> 3 files changed, 35 insertions(+), 8 deletions(-)
->
->diff --git a/include/net/af_vsock.h b/include/net/af_vsock.h
->index ac061115ed30..e4fbea3b0e46 100644
->--- a/include/net/af_vsock.h
->+++ b/include/net/af_vsock.h
->@@ -124,6 +124,8 @@ struct vsock_transport {
-> 	int (*dgram_enqueue)(struct vsock_sock *, struct sockaddr_vm *,
-> 			     struct msghdr *, size_t len);
-> 	bool (*dgram_allow)(struct vsock_sock *vsk, u32 cid, u32 port);
->+	/* Optional payload length override, called with the receive queue locked. */
->+	size_t (*dgram_payload_len)(const struct sk_buff *skb);
+Yeah, this was mostly me thinking out loud! :-)
 
-I was trying to figure out how it was implemented for virtio with the 
-entire series applied to see if it's just a constant, and thus avoid a 
-callback, but I noticed that it's removed afterward. What's the point of 
-adding it in this patch and removing it right after?
+Thanks for doing the change! The patch above looks good, feel free to
+add:
 
-Thanks,
-Stefano
+Reviewed-by: Bj=C3=B6rn T=C3=B6pel <bjorn@kernel.org>
 
->
-> 	/* STREAM. */
-> 	/* TODO: stream_bind() */
->diff --git a/net/vmw_vsock/af_vsock.c b/net/vmw_vsock/af_vsock.c
->index d5cf240d4ece..8a271eb66860 100644
->--- a/net/vmw_vsock/af_vsock.c
->+++ b/net/vmw_vsock/af_vsock.c
->@@ -1359,16 +1359,20 @@ static __poll_t vsock_poll(struct file *file, struct socket *sock,
-> 		mask |= vsock_poll_shutdown(sk, peer_shutdown);
->
-> 		/* For datagram sockets we can read if there is something in
->-		 * the queue and write as long as the socket isn't shutdown for
->-		 * sending.
->+		 * the queue and write if the send buffer has space and the
->+		 * socket isn't shutdown for sending.
-> 		 */
-> 		if (!skb_queue_empty_lockless(&sk->sk_receive_queue) ||
-> 		    (sk->sk_shutdown & RCV_SHUTDOWN)) {
-> 			mask |= EPOLLIN | EPOLLRDNORM;
-> 		}
->
->-		if (!(sk->sk_shutdown & SEND_SHUTDOWN))
->-			mask |= EPOLLOUT | EPOLLWRNORM | EPOLLWRBAND;
->+		if (!(sk->sk_shutdown & SEND_SHUTDOWN)) {
->+			if (sock_writeable(sk))
->+				mask |= EPOLLOUT | EPOLLWRNORM | EPOLLWRBAND;
->+			else
->+				sk_set_bit(SOCKWQ_ASYNC_NOSPACE, sk);
->+		}
->
-> 	} else if (sock_type_connectible(sk->sk_type)) {
-> 		const struct vsock_transport *transport;
->@@ -1632,10 +1636,22 @@ static int vsock_do_ioctl(struct socket *sock, unsigned int cmd,
-> 			break;
-> 		}
->
->-		n_bytes = vsock_stream_has_data(vsk);
->-		if (n_bytes < 0) {
->-			ret = n_bytes;
->-			break;
->+		if (sk->sk_type == SOCK_DGRAM) {
->+			struct sk_buff *skb;
->+
->+			spin_lock_bh(&sk->sk_receive_queue.lock);
->+			skb = skb_peek(&sk->sk_receive_queue);
->+			if (skb && vsk->transport->dgram_payload_len)
->+				n_bytes = vsk->transport->dgram_payload_len(skb);
->+			else
->+				n_bytes = skb ? skb->len : 0;
->+			spin_unlock_bh(&sk->sk_receive_queue.lock);
->+		} else {
->+			n_bytes = vsock_stream_has_data(vsk);
->+			if (n_bytes < 0) {
->+				ret = n_bytes;
->+				break;
->+			}
-> 		}
-> 		ret = put_user(n_bytes, arg);
-> 		break;
->diff --git a/net/vmw_vsock/vmci_transport.c b/net/vmw_vsock/vmci_transport.c
->index 1f186e8f8364..2b9493e987d1 100644
->--- a/net/vmw_vsock/vmci_transport.c
->+++ b/net/vmw_vsock/vmci_transport.c
->@@ -1761,6 +1761,14 @@ static int vmci_transport_dgram_enqueue(
-> 	return err - sizeof(*dg);
-> }
->
->+static size_t vmci_transport_dgram_payload_len(const struct sk_buff *skb)
->+{
->+	if (skb->len < sizeof(struct vmci_datagram))
->+		return 0;
->+
->+	return skb->len - sizeof(struct vmci_datagram);
->+}
->+
-> static int vmci_transport_dgram_dequeue(struct vsock_sock *vsk,
-> 					struct msghdr *msg, size_t len,
-> 					int flags)
->@@ -2075,6 +2083,7 @@ static struct vsock_transport vmci_transport = {
-> 	.connect = vmci_transport_connect,
-> 	.dgram_bind = vmci_transport_dgram_bind,
-> 	.dgram_dequeue = vmci_transport_dgram_dequeue,
->+	.dgram_payload_len = vmci_transport_dgram_payload_len,
-> 	.dgram_enqueue = vmci_transport_dgram_enqueue,
-> 	.dgram_allow = vmci_transport_dgram_allow,
-> 	.stream_dequeue = vmci_transport_stream_dequeue,
->
->-- 
->2.56.0
->
+
+Cheers,
+Bj=C3=B6rn
