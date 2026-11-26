@@ -1,82 +1,82 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.43
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.216.42
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795654545;
-	b=piUsd96k/a7x/4muVkIdWvw5j9tPvRVKr/yZbI0SLg91mtbDB/g68oBqItMdKALwTM3l
-	 m4MkVOoJcjuzReuFtl5MZy4JEmlJivPL0ITxpvuDaCA1tH+45m4LsStBkO7OIDQfzSKJK
-	 mLUYqhCU9BXLczDeZIaMM+1HmxZ5nBxh9dh15u++AjIM5hfN9EM2KSBE5Brs4morwdsvH
-	 uVwj2fwaH/cCNiH9/bbE91GTBOTla5GiRvjAtKwJtQgRA3X/yTEBRb2O7RV1D22MNCpao
-	 H581Dxxems2f8VevArVPHr8H4JWhxB3IfHz5yzaSnK/JbWboDazRdLSLVsXjFRtpg1A==
+	t=1795654549;
+	b=30jTVO3shPoTKPIoDQuHrRkYOCBnyoAEaEXnsK2ROL0UsoX7dMCO4PiiLl+Wt1UUWDHz
+	 zuWVEPoN4hgNadDU4KUskb/f/uffr1CNffdDNAxP8pQ3t+BtdqGJRaU+BeGLBYq5rfmD5
+	 OFnh8uaAjjDQvR0FbA0O1X9bdgtXr+P445kX7VghtXMFoAB3Y2oYNoP6LyyLpe09VxS4y
+	 r0CgGkBhc5XveUy+tktSyImKNeUn4QBTPo0VPBttTftnta8n+c375ccGF0qTymjY9Or/Q
+	 3ArJ5RxCWbUwdNs0Zq6JcNzwdKwUQQ6dYQmR+dlQ4p1RUF5DhVn3uBHq++0euBCgVOg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795654545;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654549;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding;
-	bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
-	b=bjqQewzNbYFcfqy30skimALNr3qiwfHKYAkAqeDUltJDQfDw+1XCuj9a8o6c7BUWknIY
-	 8ZMszDyoCNWZrsAvYBer27gYFT4kBEBrlHPNO4n9p1Sk1rHDYnbpR6r5MBWI+6mpDPf6Z
-	 OwxH/sNXpZVB3r4JzxuWVyyaT9dSnpB52Ynvpj9vQS6gMriKkmmDQiSC1NEIn3Ua9rKie
-	 h32KV5nZ9tJ5JJQL0Q9ewQTr7S/QsR868qyUQq0+SbORnhJ0vJmeIMyfFyXHIopsb/UrX
-	 rXjMdm7KKaK6d9jfFOzP9zP+X/oNQlAf0ieHVE8p/9RAqALFZUWRB+ByJY9P48Ib25g==
+	bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
+	b=EvHDFl6t4xTGcLkCWygVUtqBpi9xHtJJhJN+xrAmZyf0fcwvdpcid8xkc46HpTL+7/sm
+	 UhH3UI+Mf0gc4OuaWONJWc7EB8Kkl1NgPDlWcf1jVAS+ThTAZQy2w6s4cx53UoHuZzUQ/
+	 oj50IbugM5Qa73BfJ8PdRAMg0kU7zbInZpDP26abOuW9/GhcIN6zKtDaiaTJH8PeMeZib
+	 2JfFPHyhqtAU2xl6TQSoegDnK3Q+ydudfdPAr8GrdI47lLslt7bw0eKy0YcxZtMjf1ed8
+	 aqB7tpk0BlJhnu7ravXETaMYC3TgjLv9pzaa3UHw4ZKuGMWWimfHHl8F1pxkfMKWCUg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ebyd8DkW;
-	arc=none smtp.remote-ip=209.85.216.43
-Received: from mail-pj1-f43.google.com (mail-pj1-f43.google.com [209.85.216.43])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zBilkkii;
+	arc=none smtp.remote-ip=209.85.216.42
+Received: from mail-pj1-f42.google.com (mail-pj1-f42.google.com [209.85.216.42])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12F0C606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:55:44 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 12F0C606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5547A606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:55:49 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5547A606A321
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ebyd8DkW
-Received: by mail-pj1-f43.google.com with SMTP id 98e67ed59e1d1-3b08cf16decso3865997a91.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:55:44 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=zBilkkii
+Received: by mail-pj1-f42.google.com with SMTP id 98e67ed59e1d1-3ada4c06b7bso3485661a91.2
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:55:49 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795654544; x=1796259344; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795654549; x=1796259349; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
-        b=ebyd8DkWqsBUX4vFE2ubtaCAyVC3nqZiezSYpp+6gGLEkuaOFaJJm16bRb/JBoL/2G
-         JpPxNrzNHDeJRnlS0xHMLjtbpr/6VDh9X+F6LITOIeIUEXfStkMORc+H5cCt/tguME7q
-         J/zx6KYuUgG9s//9ud9HZJ3OVMQpJ+GUMMzkpe2DLWX0OmKBm8Cp8g/PGOq3QGo3ktiJ
-         UovGSsKBaOjYQduJk5ubHYKYmMSUnHvDIrAaAp3bNsEqJhOnbkgO1a6YUdPxy5s8/eF/
-         VIcjXUy6zGLvxiir8JvFKH6pv3utkj5SngX7WlirsQfTbqRfm3y77qsXt9z1Mra5aQ3x
-         wgIg==
+        bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
+        b=zBilkkiifgqg94O2Qze40zl5R4V3j5169oIzwYtebeg8d44E+//yUU5NJCCOh0C+Am
+         sQ9PS83u+QAqgs1j0VleQp+u+qvuAccr4A9dWEnUK6M1lg1TRDbnowa6LeaJcj8YHaEB
+         xZeILAvDmJ17GPLcZ8SKMVov6xHjpm0KFG0ADjEilte++ywQHEV4mQ4LHHkng/Kx55s1
+         FXNLEIYymw15eFs3ahQlkVAeA6fpXYWmGzsbC1HOtchj+ZHBftAwnVciXyQrOnJkgtpp
+         RLJzy2R/TNw3YTXl67uZI4OBO3txKNZ6RSxjbyszN+mOI9kZEi8Ozf3VWx6ucdWsvnrX
+         kplg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795654544; x=1796259344;
+        d=1e100.net; s=20260707; t=1795654549; x=1796259349;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
          :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=q7pXSodQ3oxakxZGu05XNTUl2qeE/DKNBEL1VNjhFJs=;
-        b=e4Y4Ddw66tArF6UqUQW27ost6L61rJC3udj0oN3wU2e/z9dA7mFD9O8JyKjQ1LepB3
-         NTaOjmJP4/CCyFZHCf2lUytqDr7/Wgsal+D2Knkl+wPcDrHqKiFsOsezb4FTv+6vFgTC
-         P0ik3Is8aL3AWQTUD2XS9ckioO+XnwQTFO0Jlc1cBmH6nNSFnEHgUainh7DQBnehBIFD
-         k2/yisdA/l+Bv39KbLQ2quq14C+USYX3XP+bIKIaJDAadW6Gfz2gBGdtM8sq2e8E+XDD
-         01aDj4N2TWWAzO2XHOPNqCNXjlyEbnevc2U5ytntb7ejAwFFicVNpjCTU4BkNrKFGlw9
-         GNGg==
-X-Gm-Message-State: APuU4Z9RrMVDgEpuFa264G1+TeY2C4lyI6Wy/5L2zk8Gc2M0XbFUiVol
-	0pjCHJ1lJLvNR/7clIGNJ4wdx6Z5r6kK+pc4Gzcb1+8jfXatYpWC4t1Nnm9lxIJS
-X-Gm-Gg: AZFdTZcmJsrihQefT1Th7NcH0F631Q/LWyx2cbxchKB4q4MMuh+ulDhZsCkxcL7/4Jf
-	oLOsHC/LS1sX9WhxsnEr9ulTgXkAxnaYYXgqUsCIFQtc0o8KpdhHZ/BTZypdiIhL8WRC0HyRGb9
-	rzgNxs0MgI0AMjKSIx1u1aJcvVV699pzrmN2yudMrDFPGiq5WMhV5Kf2uTP26TYDD5wAp6SxKYf
-	Vs4jBSuMPkadfV2jOCwjypHGhNf2NL8B8uG5luZ1CanX8TupGB6SScdV28aodLxgY/Vc51g+p2y
-	2zDlOVnpfrhhGCz7kEdpzmOKC4sd9NLRubSxxvNt6BqMquonems6V0moIcyoMO6DTgUAeOUDK9s
-	WHQVDv4M6wOdK39+dmspFhCnA8E5jez5w7SyeT42hUiu7WMpbnXvTVsbZrMCyZfGeePoLYGQK/H
-	TcWMd/kzfyR3ylC3YnwdA3zmJiZO7GrDucHPcHyagufehHeVxMLVkDascyGmtcJTu2CoIOB/R7e
-	hlLJ1D0vFl199SeDHWPFDdS7BrYl6/be6+rA5VfoTnLKaGqyHqXDEj6dFCLwXsU0X4UifmPjkt8
-	P0hcaXVmA9EjB+THtwOjTUV33ARUBkUSYW7fOy5GADE8B5FGo6FdOys=
-X-Received: by 2002:a17:90a:d2cf:b0:3aa:f2c4:12e9 with SMTP id 98e67ed59e1d1-3b41c7c22b4mr16856224a91.3.1795654544274;
-        Wed, 25 Nov 2026 16:55:44 -0800 (PST)
+        bh=xQJVoXQ5eMS+GhTtT2Nj+RU53pH9NYtB5vD012gHjf4=;
+        b=f8C2zZVFFs5gfHZEV3Ma4ZZhlqGKWz70gyjFVn4ezF8G5K75L1CasXVHeqODriS7LA
+         S78uePDW83OZoHCVsHifd1DVmM4vU1kOTgOCiwPo6o/ZpFIQgbz2RGsuAwTKa3G1g7MZ
+         a/4FX/bQ21PXNC6zoMGdUvGNeMyHZSvEUxwQFNoi9bSgvN2IsxMMkpeARJ2dUTQJmVat
+         6nWfYQUTdz8fPWWfHBj9BkHuBj+thUe5iQ8gqywk1MKV+yDUkreN/PXUG+UhZ/2roCOa
+         30RkEm/dYc5mJu9W8Knvl7nVm0S0ZYD8hBfm3fZGEbAzxeLC+X2NvFpmVrj7x/n5arjY
+         Qjkg==
+X-Gm-Message-State: APuU4Z9irxPAn5F5cHb/up6UYXsV5DvvmNL+RU8KkGvMuQFw2RdIeq+M
+	W+5pP8KOVmJ974AkYtfkxHHkriSen+1XT6pACXRSWSi0OMIODcIuSvg824rWJLKy
+X-Gm-Gg: AZFdTZdPFIADspe+1gnz0wLeGE9VF2Uf9N6yceoPs14GZPj2xL8FTjNX+2hD2xSm6QL
+	oRGA1tyJQVq3Bh8tVHW3DT1bCJznamvymWi6eCGIT51Pb2xYSxZU/Zzg+rIy6aRxoNNAOW0CzdP
+	BBHzRkKpYuGfKr/HXCXYcMDHKx9/EfyoDcCQ3Yp9wS8T5nomBczevPWcMK+ZFLLgF6Tq6aZYbj7
+	gZHHeTkVIPi7DNjYWU0eFAmZ5jMN9qa2g5fEjVN9O2wVq6WGe9V48AgTyi11/QyhIKicUxrevUg
+	5hISA39BCPBpsXuhIP5dzMxx4XuMv28Eda63cJrt+828OdBQhRJT5x033eCLOXl2QH9UI+xzXRm
+	DNNQD80PdyqAlayvMsDwW3uneVS9RcqQejfUYTealLb6xiY2yAVbfaY5RwQ+8kiG2UvdCQoTxfH
+	F2Mc6ZsNUoF1ZCQwCLDL+wKi+UemY/maZdfGBR/oKW+WuAN4PgUb9I3vpcGI83ZDTHKCYSZ6nXp
+	oarjQ++/FBN/E4fqcleVUq0PLFDLYzVUzqWGllNbH1PTP5V+1RmSfW0tjmhYkB9HCCb95aFRlU7
+	Ck4HlkjWGSsD2g9Gse4bRAPlKfSwifVKSYnuZWmMLcPV0RT0QZjYfAWz
+X-Received: by 2002:a17:90b:5907:b0:3b5:29e:11b4 with SMTP id 98e67ed59e1d1-3b5029e1464mr2151811a91.44.1795654548474;
+        Wed, 25 Nov 2026 16:55:48 -0800 (PST)
 Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:8e])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfe9bb9sm9472217a12.12.2026.11.25.16.55.40
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfe9bb9sm9472217a12.12.2026.11.25.16.55.44
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 16:55:43 -0800 (PST)
+        Wed, 25 Nov 2026 16:55:48 -0800 (PST)
 From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
 Cc: David Yang <mmyangfl@gmail.com>,
@@ -91,9 +91,9 @@ Cc: David Yang <mmyangfl@gmail.com>,
 	Jian Shen <shenjian15@huawei.com>,
 	Jijie Shao <shaojijie@huawei.com>,
 	devicetree@vger.kernel.org
-Subject: [PATCH net-next v4 1/5] net: hix5hd2_gmac: Use devm_ managed netdev and MDIO bus
-Date: Thu, 26 Nov 2026 08:55:13 +0800
-Message-ID: <20261126005524.4156940-2-mmyangfl@gmail.com>
+Subject: [PATCH net-next v4 2/5] dt-bindings: net: hisilicon,hisi-gmac-v1: Add mdio bus child node
+Date: Thu, 26 Nov 2026 08:55:14 +0800
+Message-ID: <20261126005524.4156940-3-mmyangfl@gmail.com>
 X-Mailer: git-send-email 2.53.0
 In-Reply-To: <20261126005524.4156940-1-mmyangfl@gmail.com>
 References: <20261126005524.4156940-1-mmyangfl@gmail.com>
@@ -108,108 +108,34 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-Let devres manage the netdev and the MDIO bus allocation, so that
-neither needs to be freed by hand in the error path and on remove.
-The MDIO bus itself is still registered and unregistered by hand, so
-that it is torn down before the MAC clocks are disabled on the probe
-error path.
+This adds an optional mdio bus child node. If present, the mac will
+look for PHYs there instead of directly under the top-level node. This
+eliminates any ambiguity about whether child nodes are PHYs, and allows
+the MDIO bus to contain non-PHY devices.
 
 Signed-off-by: David Yang <mmyangfl@gmail.com>
 ---
- drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 20 +++++++------------
- 1 file changed, 7 insertions(+), 13 deletions(-)
+ .../devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml    | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-diff --git a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-index 12a5657653f8..44b05d41cb95 100644
---- a/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-+++ b/drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-@@ -1106,7 +1106,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 	struct mii_bus *bus;
- 	int ret;
+diff --git a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
+index 89ed6ab1905e..a71529825955 100644
+--- a/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
++++ b/Documentation/devicetree/bindings/net/hisilicon,hisi-gmac-v1.yaml
+@@ -53,6 +53,13 @@ properties:
+       - const: mac_ifc
+       - const: phy
  
--	ndev = alloc_etherdev(sizeof(struct hix5hd2_priv));
-+	ndev = devm_alloc_etherdev(dev, sizeof(struct hix5hd2_priv));
- 	if (!ndev)
- 		return -ENOMEM;
- 
-@@ -1121,26 +1121,26 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 	priv->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(priv->base)) {
- 		ret = PTR_ERR(priv->base);
--		goto out_free_netdev;
-+		return ret;
- 	}
- 
- 	priv->ctrl_base = devm_platform_ioremap_resource(pdev, 1);
- 	if (IS_ERR(priv->ctrl_base)) {
- 		ret = PTR_ERR(priv->ctrl_base);
--		goto out_free_netdev;
-+		return ret;
- 	}
- 
- 	priv->mac_core_clk = devm_clk_get(&pdev->dev, "mac_core");
- 	if (IS_ERR(priv->mac_core_clk)) {
- 		netdev_err(ndev, "failed to get mac core clk\n");
- 		ret = -ENODEV;
--		goto out_free_netdev;
-+		return ret;
- 	}
- 
- 	ret = clk_prepare_enable(priv->mac_core_clk);
- 	if (ret < 0) {
- 		netdev_err(ndev, "failed to enable mac core clk %d\n", ret);
--		goto out_free_netdev;
-+		return ret;
- 	}
- 
- 	priv->mac_ifc_clk = devm_clk_get(&pdev->dev, "mac_ifc");
-@@ -1175,7 +1175,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 		hix5hd2_phy_reset(priv);
- 	}
- 
--	bus = mdiobus_alloc();
-+	bus = devm_mdiobus_alloc(dev);
- 	if (bus == NULL) {
- 		ret = -ENOMEM;
- 		goto out_disable_clk;
-@@ -1191,7 +1191,7 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 
- 	ret = of_mdiobus_register(bus, node);
- 	if (ret)
--		goto err_free_mdio;
-+		goto out_disable_clk;
- 
- 	ret = of_get_phy_mode(node, &priv->phy_mode);
- 	if (ret) {
-@@ -1271,14 +1271,10 @@ static int hix5hd2_dev_probe(struct platform_device *pdev)
- 	of_node_put(priv->phy_node);
- err_mdiobus:
- 	mdiobus_unregister(bus);
--err_free_mdio:
--	mdiobus_free(bus);
- out_disable_clk:
- 	clk_disable_unprepare(priv->mac_ifc_clk);
- out_disable_mac_core_clk:
- 	clk_disable_unprepare(priv->mac_core_clk);
--out_free_netdev:
--	free_netdev(ndev);
- 
- 	return ret;
- }
-@@ -1291,13 +1287,11 @@ static void hix5hd2_dev_remove(struct platform_device *pdev)
- 	unregister_netdev(ndev);
- 	cancel_work_sync(&priv->tx_timeout_task);
- 	mdiobus_unregister(priv->bus);
--	mdiobus_free(priv->bus);
- 
- 	if (HAS_CAP_TSO(priv->hw_cap))
- 		hix5hd2_destroy_sg_desc_queue(priv);
- 	hix5hd2_destroy_hw_desc_queue(priv);
- 	of_node_put(priv->phy_node);
--	free_netdev(ndev);
- }
- 
- static const struct of_device_id hix5hd2_of_match[] = {
++  mdio:
++    $ref: mdio.yaml#
++    unevaluatedProperties: false
++    description:
++      Node containing PHY children. If this node is not present, then PHYs will
++      be direct children.
++
+   hisilicon,phy-reset-delays-us:
+     description: Triplet of PHY reset delays in microseconds.
+     items:
 -- 
 2.53.0
 
