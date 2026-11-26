@@ -1,101 +1,97 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.218.47
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795686452;
-	b=RmBD5VQGFdVoZ8qv3yvytP1PFPlJKh25ARbbJ3sAt52qxli0IpPE7Jk6oDYl4tEgn38W
-	 c3dUI470aoW6HQFkG1d7wMtVPCl3LQxJHfqKIH384QVrUIAXXweoR4/5zOVJinO8tbiBA
-	 KQY2fBIRzK0VTv/HD1QG61PAfha0V4ROLCRkLJbyH6UAIEM06kqTdl+aVBdRp9NFJ9SRl
-	 LZIH1jBD75TJ9ojNU70kA3aa67GuYZLbOrQDcy+jBzuxBPBBrHVCR4fKDOWCdbTatdxod
-	 WXZPhmhIogQDwONK7mIuNnmB4ah4j31eaK6oOOncYAlbpJlYxe2pIbfmuZoWou0lCUg==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795686452;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=UH2IMeYVxT8rS/5LnU9w8cMAnO78HMIPaSbsms7ayDw=;
-	b=KHfXLdFqJXVFmiAn+oF1jEALlYuiZsikt+9DADxHimG/iSTpl7c/Rp0XEpdEt7T2p4kB
-	 T3FmoAZq2Ar5vtDl849BR5LItyTLcYla2klG7MJGkdH5c5h05xszu2R8W/P/NTitE+aQt
-	 ecEApIwU7QyyRF42qGes46O30CXkvgPyct1johGRiQ3NaVgZO4LSLYWElJeYlzGPEYTz0
-	 AkK7TmV0CRBSpnuRREqD+9MBthe6gdbSIUPc45mSyweZom0WSbn1vDiXJsMKibwJ5vpHj
-	 YzYwxOHiumOxV/GFccIeYmQaf95XHZY8touaDDX+X7wek1ggrfr/R3rvwimBTq58OAw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YnnoxC4n;
-	arc=none smtp.remote-ip=209.85.218.47
-Received: from mail-ej1-f47.google.com (mail-ej1-f47.google.com [209.85.218.47])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.31
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795686706;
+	b=31kLHDg6m6eLSOhWxT1DoKWHBOY2ZN40dOeeyHmvvzAuagthxnfN5MInl5sX5Dyz+76+
+	 cW2kn7E5PYiSwgVidVqlHbjCfKBAw1JKkKFSoV2aUiazoBFgcNywYdievv8KtymMofVnB
+	 FGbz+4a7OreRVvZ89zoE/rM5S0bxC9gQjKWM7rr90/56/xSGiASztz/7/8WX5yjK3FI9S
+	 RRPVw2h/Qf6gujBYhTbk9a2MjAZQ+qur47A85AY6VGNvW6FZjrTPVD+FbKMXneLz52JJ8
+	 f1NUzCEQ5HNFTON+/KJsuSy3hE9RF+mvu8uyOAejP4LjKL4XyISYeCabndA3ly8n9Iw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795686706;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=S94iykths7GMFkPmiiPYU8TD7TaHEhlr/lHUuwkeYa0=;
+	b=e/GVUcBFx3P3Pd18e7qEZY0R2O/8A3YhRLNfp/BGp387hVP+ApIR/oKIpPXIW6qOI2ew
+	 rTRNofdjRi3oMgnWyo35gHhAqB7doI9rSjwxbFBstccCb9uPMWmCKXqzuhV+2kuJn1TsF
+	 HXslvxmabkazCWxq4HotoeQJRSVP0Ur6FZCdx0aZ3Cp4sVC/8KLsmEiykjc1V6vMxzoFK
+	 CzufU3MJL+mEUZ7U/j1bZk+2VrLPY+yDcRHwrag0DxFQKTDDpocYnFnYNkNYM/3HyI2KU
+	 o7tFhCULeIMaWmms/Gt03O3CidD44eC0DxsujtORLbkYgKvSRMB8ZB5Vk5OqMggb+9w==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=my8jshKs;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.46.31
+Received: from CO1PR03CU002.outbound.protection.outlook.com (mail-westus2azon11010031.outbound.protection.outlook.com [52.101.46.31])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8D5FF606A33A
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:47:32 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8D5FF606A33A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A34F6606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:51:45 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A34F6606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YnnoxC4n
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-c513a854320so233280066b.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:47:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795686451; x=1796291251; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=UH2IMeYVxT8rS/5LnU9w8cMAnO78HMIPaSbsms7ayDw=;
-        b=YnnoxC4nsRl4dppSaIG6h0tMBVgv0V89ea9FGpoYNF7Ypd0OfpXOJgp2neQLwh4+vk
-         PD9wTqwuVTrqa7n6TEVaPW6UYBdexjFzc16At8pyR2rvEUS7gmFw5PMvNH8IAhZWu3Dm
-         ui0Pd5xm1h0V2uPamOuvocqwke/O0nt8Hpu91bcd3yj61LPsJ12mfSk0k0MN8iHtB1K9
-         k/YJJ5G8wsyl9mJ5wrJdR0sFkJgoFRtzu5NZ8SqgaqQnDwKmuiZiTKe2EFGuFw9IB4/0
-         NHO5EsXrW0chnRa86+dVM6ObnRQAsbc3LxZIBC0s2FvCTkn/3mT7kR6LbH8y/AIoLQis
-         ZhsQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795686451; x=1796291251;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=UH2IMeYVxT8rS/5LnU9w8cMAnO78HMIPaSbsms7ayDw=;
-        b=QNPaHOBPuSGMiz0YwtrvNQBRnk/lE48t+/aC0OpcY2UxFm6LSpn2SMaYWHezqxXE1n
-         rOYSNoYbh6P1/cCPjag8hgSquAzACHQkT2xD1C1Zk1ORe0zsGWZnf40HtlxtTH5XlY9E
-         C3eaHk0DPBW/29I3EFUoKf+ntPkkR9LukkInLYLdhE07rnV9h14h0A1JAwz3aBy0Q2GU
-         kcpPV0o0zSd8h8m/aMxHogkEnp6zXO3TzRqyxOiumSr95iyfeDyVrvXXwdT0Uz2mVgRg
-         TM3D/ITwhlRjMo8Ct7z2akuF0tt4giUhRwPG/3D4mpqq3My/0I3dhqNyutpKloIcceaT
-         ao+Q==
-X-Forwarded-Encrypted: i=1; AL+hErG4/cK8W7JamBYYAz9i1Zx1YVa/6i3+WGPpTI8wgeU5UW/KL4XfLbOzzMTPSJsbXyDtFgpBYPQ=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8qwsqKMZflmSSR4Db16HYPd+Q/76GV8HxzjpZBXK8GlDLHeFRp
-	0JSrJcqZeks03f1laHFWAheRCCQUEf69nDK4V0MthEcy+aPMwELm0eWZ
-X-Gm-Gg: AZFdTZdzvHzOmgWF0hi8FGdVp28vpFeF3Z1xRHHKr03U7HrdtJWJHqV+r4YMh0ZgYOA
-	6cvNzZLmBjUwPTJ8FhPvHTT44DSbznvsTz27ifM08z2zHlTcnzZI76lPep8EW+LLB1OJkSxL7MK
-	4WotpzVm+IS4xnNkjjoNlk3WoAjCfUikZjIOkafzHbVsqjh2VQnV0CHgBTISfZIGkRM+4QMPBio
-	8AOH9U9NbXi1Pa4JtPmP1gv5SU/ljyE9iegmvYw1zPT/PwCWFiGt1XJqIPCH/WljT19br1kcxxQ
-	N7Idt2UTil95etDVX+QFdzQ8cP6YjZWLDr8smah1zarppHV5OQMbPOlcS/QRPPK1eMY9pEE21lY
-	/88LS7doE6RPsvxY8KH4wmK9CMWlNkoPrF4M8v/5apfV75IUIW8AxMvsx/a64N4kCPw+I0pkG4Z
-	mVRRFLAWELYW5WWXWbrpsq25Y9/qdeb6DGxxrPRLU8SVRZIKRKbGvSvsyN5yLrIKlZVKbVrEaUJ
-	ODBKq2GoB4RRudROgRHy9KMdAP1khGjVSFv6+/KVFeJb9KeqJOW2/F+BUSetBnDB60x4l+3oVz5
-	86PjEthOJw+Umegot5Gu3KBxtfFyko1FbEMOyeWdzB/vF544
-X-Received: by 2002:a17:907:bb48:b0:c2d:c98f:4824 with SMTP id a640c23a62f3a-c513a9af930mr1554663266b.30.1795686450911;
-        Thu, 26 Nov 2026 01:47:30 -0800 (PST)
-Received: from Air-pasichndev ([188.163.8.107])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-c513b002b9fsm727100666b.78.2026.11.26.01.47.30
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 01:47:30 -0800 (PST)
-From: Andrii Pasichnyk <apasichnik9@gmail.com>
-To: "Jason A . Donenfeld" <Jason@zx2c4.com>
-Cc: wireguard@lists.zx2c4.com,
-	netdev@vger.kernel.org,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=my8jshKs
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kVmseF50pwVVlmgnzYEp5uBQo8T6po8kE4wmDfCWcidWqsYdmBycgEierqzTOIY04ptWmI5jj8I/yjE9Xf+PhaR7ju6RBu0J8s6N+JAGQwoafxtaY4pxCX0y9ulz/otpOlBkk7Oby3UVxmYCMioyatilbKL6XkbndPui9JU9HIaiuDtSUnYQ9FFsLGty1GZ4k7/QCAGs0hXARV0hxjcLsOPDU292bUkOKAkSBZcu8b9vMCVRHrdxxkSW48i1Xar4usl6F+W4ZAOpWVRQB189L33yb3Im0XKNJZ9kQLcUsy3ynDSA35vYju0wrCnmMXnntb+S/7MZ4VSQRUohNxgqSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=S94iykths7GMFkPmiiPYU8TD7TaHEhlr/lHUuwkeYa0=;
+ b=oou+tt8m+HCn0o67w0/jBiUpFsTtFlFZPcLiMO06kh93ppKs5bPaURdUMYNrl6fhd+K4D9/WBjZvSVI44Qc8mNGui8a6EfrShK1mVxLby0WBEsCidh2HedwRFrUcjnDcH8mbW/v5J/Ud8Aa27riqfeJScFMaeKX8fDm1SFdgEQshBBJAgRT7ywFqxS60xrK10jY05cn6GDMZ7EQiv/phSE8DaogNES/L8EQBaZbuaojfgCVWerq99oG4mQ+talxmWP8dbCjfWR3cdaa18jETJsuMFlcI48Kajcsswl19+4qcBGuJctUWbbjlSsYYO15YLjrICsvvY4yi1mqwakoiBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=S94iykths7GMFkPmiiPYU8TD7TaHEhlr/lHUuwkeYa0=;
+ b=my8jshKsHS0vSQbqeLANa+IW/71sqTbQBppkYmMT7iIjmN5LIYwLP0HsBlAcmiS3/1g7tBIgEpUpjln90Ge+uTJ2pBeRyBaf6ldmkcWSCOFSPrwSOYNpXSBvWarcVqQnScHeveAZFTzs2iAtIneEkaq8ViN490YZEXjPUqmtY+2AFDOSbxZHy6krdXlOPjC4i+WmOPnYRSe/oGVDMmDm3wdu6f8I41cVapTnWIf8NojWdcERK4S+sHANx2NA1cFTTaToluLWGVt2ve+GCvj1C6F72ndcSwimMn961dOr2Cw6QKwdnrFmxrrj00A4ZBr3wEz+bedVO7Wkg4bGTcsg4g==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by BL1PR12MB5780.namprd12.prod.outlook.com (2603:10b6:208:393::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
+ 2026 09:51:38 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 09:51:38 +0000
+Date: Thu, 26 Nov 2026 11:51:28 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: David Ahern <dsahern@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Shuah Khan <shuah@kernel.org>,
-	linux-kselftest@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH net v2 2/2] wireguard: selftests: remove a peer under load
-Date: Thu, 26 Nov 2026 11:47:22 +0200
-Message-ID: <20261126094722.73025-3-apasichnik9@gmail.com>
-X-Mailer: git-send-email 2.56.1
-In-Reply-To: <20261126094722.73025-1-apasichnik9@gmail.com>
-References: <20261126094722.73025-1-apasichnik9@gmail.com>
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, Thomas Haller <thaller@redhat.com>,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH net] ipv6: keep the prefix route of an address with an
+ infinite lifetime
+Message-ID: <20261126095128.GA629435@shredder>
+References: <179552079832.1290967.7922979459179290523@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179552079832.1290967.7922979459179290523@gmail.com>
+X-ClientProxiedBy: TL2P290CA0023.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:3::12) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -105,71 +101,82 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|BL1PR12MB5780:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4d5cb61e-8a62-4450-49c0-08df4ba2dd55
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|23010399003|7416014|376014|1800799024|366016|18002099003|22082099003|56012099006|11063799006|261009223027099003|261021123027099003|10067099003|261026140227099003|261022105027099003|261026121527099003|261028144727099003;
+X-Microsoft-Antispam-Message-Info:
+	4a+fWPeJ2fylCVbfY3/PujOK3L8iPiY01pQk8lM/Q6dii5urk3bBNgreHDVWO/Sm/tBs/YQuwTIUv1nl4q2JGR+m4nucOubP8zlfzBBpZDuhXKZwes5oEqf3yREFdXU3a5cWJicFgTHohb2i1RuuKJVoP10zzqMpenpwy0QqAzVc1SY+/iMZmgySMA14DedkgbH81IeUi7WOEuB0RrqSltSghG1N0st5egfkaigJ45ebi9cIITFvBEZfsxwrr6On7kTp5xGjOxu4mFgdkjPR/QVrP76p5qJXWSSXng4tSv9nfD8yP17Dx1m37z6K9Wp3lsTyif70sKTwaZ0z79qGwtjKm3BfJAWCV1huZrWisg+27+PzTVPNrpbz9pC3Q1lI23PT5IQJCJhXua60AjIgp18ZiMY+8AJmVeZrZJTDoyLl5Ui+Boumgpjis448t9qLoTSiUnlexRrGwRyUC2rUyZxktEX3CYtqlIAU+LvMAoHpNG+ufLuUsvFyml/NbFlaQsQoULDC+q7ubSvdCZyiQvsUxdAKXd6grdNqrz0hQCLqLqlHokV49h1iPDg7Snc/IDNbmntASxi+TwQn4h+aL/tpE6Hv1448O1Tu+bWzdmdrttwH1phxcGQhhe24UC3ocxZChBhk6AolErlOpjHF3kYGZL7BHoNyhgb4cmasjn8=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(23010399003)(7416014)(376014)(1800799024)(366016)(18002099003)(22082099003)(56012099006)(11063799006)(261009223027099003)(261021123027099003)(10067099003)(261026140227099003)(261022105027099003)(261026121527099003)(261028144727099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?O+H/1UHxtZ3tRs0x7aXJ8wzYi9Uwh3T6kG4hqMWDV88cFjmBjxkMj/0xrKaE?=
+ =?us-ascii?Q?VE7xOpYiUlBgNJrdcMsBI3/7JhbDKPo4PjbU0P2u3fnTeM0clY4CmkIExatT?=
+ =?us-ascii?Q?YR4YKPMNRj9iPfJdsWVQsRZ1OiX4qtwUPQMsP4HFfDxV2un5/KZ3cLKNFEIT?=
+ =?us-ascii?Q?JNUvl9wJAkZd3s+iBEfxXewbMtSZ1tcAl2uFwUjDiGBEYtKZpT2/ubAyxOWh?=
+ =?us-ascii?Q?PTeZsySAj0Fa9s+R1zm38cTosaZU4gehJ9t0j8QohobFnurY7vFCLV2O59DP?=
+ =?us-ascii?Q?HPQQlnv3L/kCEfIIHr8l3bg+7dE+TfgJM5eXXRrW32/mdTcU5YpFKCGyrsCL?=
+ =?us-ascii?Q?o6kmimZ9IivtA+brV7xUh6K9Z2FybeXA3oT0n4StNkhGFOsi7lrR7GDaAcGC?=
+ =?us-ascii?Q?EEwVMNDWH2NXkFj8ILu5+qyHXFJ4sMNxqFlDGANoJbZyzqQHYMvYfYQIIheD?=
+ =?us-ascii?Q?uzAnBeD8zZJOzhs8+NBJ2E52DTUtIVrCpvBOcXk9jM+tbOKrJCaqe4EssocV?=
+ =?us-ascii?Q?5kudstQZOHzA/XgD9SZMzZd23kF9MgKUEe3aMFJ58saNGyfgfx3661evoMQ1?=
+ =?us-ascii?Q?uJvzTgJ3+5TZzxheGw7Yy6kh1o5PUD0UM9i7dv/FDq52FUv5mDWYfw4Tzdcr?=
+ =?us-ascii?Q?kC4lsO7U6fvGRzf23fS5OLOZvayxcIZ3ejtzYxmY+GZ7i6r/J3bmNs8bBlZ+?=
+ =?us-ascii?Q?jltWIrkoj+ZwjbnL6LBPueV5Z2f7buxruI2bTMHXkD8x1USZzE4Pc5n8Uaui?=
+ =?us-ascii?Q?rBoghPJ22l9XCVpdhyC8drT9Kf4n0IMu/xg6coOUjk0qmCa1ltw2cT0lnGvH?=
+ =?us-ascii?Q?SLCn0kw/dR+YvhhItiMbgbidk9mojI0SD8wPgDEOvPiTjZZD27gAeQxE3a3B?=
+ =?us-ascii?Q?iBHBGtYS4c5ya2ZqRfFe6E2+XnZBAROSpeDGYx+WDZBLt6S4N0UEkJJV9jd5?=
+ =?us-ascii?Q?BelhnMt60tRGV5k5EeDfpu856w8/RZkPT2j9Aw9OaJhKcWFxSVWjkLxhDuyQ?=
+ =?us-ascii?Q?Opig/iVyqYKRYiJYe4jdLAiDvkow6f7CsjL4ko1Zmxusm6OPkuRDO2CIV/ND?=
+ =?us-ascii?Q?JwygtQ+cp3zhbgxgPwOYHFRSRb9CJx+O75mivz+ZhoGgzJUQeQMC4YQ1BEep?=
+ =?us-ascii?Q?a2XGxYBzqTjus+zy0IIMdjJs1u9qpMYV9ccsAh7xjnKpgRrepxzguCx+kEie?=
+ =?us-ascii?Q?npyhnk0Igr3xbpI5vsPIV13iICYiLVKI/Z5z/Ai8LHl75Uc5mka8lWKa63pD?=
+ =?us-ascii?Q?F50fz0QdZCHK2l0e4T6mIMkkNKFPPfAAb+5k41LZZoVfmlb+QAss8WwVZs3A?=
+ =?us-ascii?Q?9xw37Gj4jLiFRE/obM4dOGkiKRm2K5iS1uJdfUb4ghSuGPRUqFE7EJxHFUlY?=
+ =?us-ascii?Q?yzsPqK7I04GCvM/MV2nGLi9eAlyl8FjmHeZg1dqL4K1I81xWwVNQRSBDo0KQ?=
+ =?us-ascii?Q?BGbFjCOzDlppQvVZgG+DlPytmVIgltlNqmYAKx0wAynT79TipYiRzRw8JcEI?=
+ =?us-ascii?Q?Z/BeEgNuI0Y3HTBxVTgBI/Y/DgYJ/PYdvxIBUnxAjw+GH/3gkwKWWrVkkaPc?=
+ =?us-ascii?Q?Hky8uzATiuvPHeZVaTCz+j8j4gkCuU9AOJBlOd98ehqg96cxSbuv/NAPyIX7?=
+ =?us-ascii?Q?V6jqw0dg1Ergks4OF7CGiAKQEq5tzFD0Sye2FWNyDof4V24Jjt9h+5Wau+F0?=
+ =?us-ascii?Q?S3TApfA3ROHXJEUPyDGov2veFjRRRv1K+2NhdDdcmqUBD7/A?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4d5cb61e-8a62-4450-49c0-08df4ba2dd55
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 09:51:38.1389
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rpBavJ1NXtPOl2oD2P/rSU26N7+8P1rNuPzly2QbiR55KfP83xg5o/ndWaD+kEF6yLwIZ+WFfbuTpAoNOQWysA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR12MB5780
 
-Remove a peer while a UDP flood keeps its receive queue busy, re-add it,
-and repeat ten times. Packets left on the per-peer queues keep the peer
-and its keypair alive, which the created/destroyed object check at the
-end of netns.sh reports as "merely created".
+On Tue, Nov 24, 2026 at 10:04:10PM +0900, Kyuwon Cho wrote:
+> When an address is deleted or gets IFA_F_NOPREFIXROUTE,
+> check_cleanup_prefix_route() keeps the prefix route alive as long as
+> another address on the same prefix needs it. For an address that is
+> not IFA_F_PERMANENT it sets the route to expire with that address:
+> 
+> 	lifetime = addrconf_timeout_fixup(ifa->valid_lft, HZ);
+> 	if (time_before(*expires, ifa->tstamp + lifetime * HZ))
+> 		*expires = ifa->tstamp + lifetime * HZ;
+> 
+> An autoconfigured address whose valid lifetime a Router Advertisement
+> set to infinity is not IFA_F_PERMANENT, and addrconf_timeout_fixup()
+> returns ~0UL for it. lifetime * HZ then wraps, *expires stays at
+> jiffies, and the prefix route is removed at the next garbage collection
+> while the address remains valid.
+> 
+> Treat an address with an infinite valid lifetime like a permanent one.
+> 
+> Fixes: 5b84efecb7d9 ("ipv6 addrconf: don't cleanup prefix route for IFA_F_NOPREFIXROUTE")
+> Signed-off-by: Kyuwon Cho <kyuwoncho18@gmail.com>
 
-The ping after the re-add makes the new peer handshake at once. Without
-it the other side keeps using the old keypair until its own timers start
-a handshake, nothing flows in the meantime, and only the first removal
-happens under load.
+Reviewed-by: Ido Schimmel <idosch@nvidia.com>
 
-netns.sh sets message_cost to 0, so every removal under load logs up to
-about 1000 "Packet has unallowed src IP" lines. Ten of them overflow the
-256 KB kernel log buffer; the object check then reads an incomplete log,
-reports peers as "merely destroyed" and can miss real leaks. Raise
-CONFIG_LOG_BUF_SHIFT to 20.
-
-The loop adds about 13 seconds to a run. Without the previous patch it
-fails in every run with 1 vCPU.
-
-Signed-off-by: Andrii Pasichnyk <apasichnik9@gmail.com>
----
- tools/testing/selftests/wireguard/netns.sh         | 14 ++++++++++++++
- .../testing/selftests/wireguard/qemu/kernel.config |  2 +-
- 2 files changed, 15 insertions(+), 1 deletion(-)
-
-diff --git a/tools/testing/selftests/wireguard/netns.sh b/tools/testing/selftests/wireguard/netns.sh
-index a8f550aec..8303802c0 100755
---- a/tools/testing/selftests/wireguard/netns.sh
-+++ b/tools/testing/selftests/wireguard/netns.sh
-@@ -207,6 +207,20 @@ n0 iptables -F INPUT
- ip1 link set wg0 mtu $orig_mtu
- ip2 link set wg0 mtu $orig_mtu
- 
-+# Remove a peer while a UDP flood keeps its receive queue busy, then re-add it;
-+# packets left on the per-peer queues would keep it from being destroyed,
-+# which the created/destroyed check at the end catches.
-+for ((i = 0; i < 10; ++i)); do
-+	n1 iperf3 -s -1 -B 192.168.241.1 &
-+	pids=( $! ); waitiperf $netns1 $!
-+	n2 iperf3 -Z -t 2 -b 0 -u -l 64 -P 4 -c 192.168.241.1 >/dev/null 2>&1 &
-+	pids+=( $! ); sleep 1
-+	n1 wg set wg0 peer "$pub2" remove
-+	kill "${pids[@]}" 2>/dev/null || true; wait "${pids[@]}" || true
-+	n1 wg set wg0 peer "$pub2" preshared-key <(echo "$psk") allowed-ips 192.168.241.2/32,fd00::2/128 endpoint 127.0.0.1:2
-+	n1 ping -c 1 -W 1 192.168.241.2
-+done
-+
- # Test using IPv4 that roaming works
- ip0 -4 addr del 127.0.0.1/8 dev lo
- ip0 -4 addr add 127.212.121.99/8 dev lo
-diff --git a/tools/testing/selftests/wireguard/qemu/kernel.config b/tools/testing/selftests/wireguard/qemu/kernel.config
-index 368fd9d60..c69a408a5 100644
---- a/tools/testing/selftests/wireguard/qemu/kernel.config
-+++ b/tools/testing/selftests/wireguard/qemu/kernel.config
-@@ -67,7 +67,7 @@ CONFIG_SYSCTL=y
- CONFIG_SYSFS=y
- CONFIG_TMPFS=y
- CONFIG_CONSOLE_LOGLEVEL_DEFAULT=15
--CONFIG_LOG_BUF_SHIFT=18
-+CONFIG_LOG_BUF_SHIFT=20
- CONFIG_PRINTK_TIME=y
- CONFIG_BLK_DEV_INITRD=y
- CONFIG_LEGACY_VSYSCALL_NONE=y
--- 
-2.43.0
-
+FWIW, this doesn't look very interesting and can be routed via net-next
+(no need to repost).
