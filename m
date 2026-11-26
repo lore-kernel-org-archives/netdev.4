@@ -1,106 +1,63 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684514;
-	b=hbPHe0/IsoAScBy3TsBj4yOBKFRSemvjaNZGxYQ9QeFEZIZkwesq5DuumdUMEsTrPtjo
-	 jryqITwbyegNZzOvU8KYtD2hHDL0VEUDBKItK/T1u8njB7rpLHaoRa4+dnapjRXpPYtIW
-	 4OwYGsoQBYUyga5N6/cTomwnhkeRx+Tbs7tlC3Oms1CRFi9nu1QY3vPz450jb1VpSm3nG
-	 MOv1vTjTDXRk7cqPuIUybHjke3rvZnzxcoGLfmuB4H0XGfX5nPDWg4FKUuZkkq0D4a5bw
-	 Z4yT/0HWzUhS1X9XvXrcuJm04+gW2n+vVBOFBRilwLT4EfJF8NGbl3M4FBfy9izGoCQ==
+	t=1795684558;
+	b=twHaO9Pmx8732NcGVNQMGRhKFJqo4FEeTZdJPRJ8mOsXYV5FstD2k6x3L1TKiBrNKnvQ
+	 RjLXv1yAl2sXkLi9oaF13a+Ropirxt2g/Yzr0ciHdVYaX8PQwyYJ9jiaC8V9u0qdJUJ76
+	 +/4SawJuYzZHra4mQBwE6ZNX6kP0iW8K5nvj/UaNlTXVyWawToRc/T+fJfcScOWsDzG6j
+	 H7bh8Rmm+XhRKktodZ1hJABkiumxvClZP3F6CGhZzdI4rGuquiru9Kf8nbBHNECPbtr6z
+	 17WzT/Ap26AR1UiBXaD4oE0igEOb1JoeU47WgYjsRE/vUb4AJ1RXwIRzbjmiMJxdrtQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684514;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
-	b=fTyHX80DnClPtOYqresBLkDS97lueGkR1PwOJjwqhxHdT2DTXGWJuGHq46CVLUdyhRbs
-	 36MjTe0fB4J2KwLoeaIgPjScchQxCk0hvn3VozRnsm+4KesONyAOJayYuLGqNbzRwtwHi
-	 OYiEfaBrTswgbmJ0MmsbDWcsjU4G3ch4xkycZqTCxoAlsqHgpAAI+E2mGjAfgkwrwi8DT
-	 LKrRs73mLDMc0pfMB22AXyV0EKmEEer7sLtgxKQ7CGzNHVav6x/+1UV1Qjb1Sx42MbfLJ
-	 X4lz4jBiiOlVbgT5bT6pWS9RicyL1C5Ixrj6l528d8L+0np5s9QxSm/NQ7QFonUjXIg==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684558;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=7jSrQRRcBQPkSXCULGpxKEJk5ZBmaZCQEDccZmwwGdY=;
+	b=E71nNTaHwaa+D7nnPzWJqFeCSDo58we+12kMH3Ck/KJX4T0XWlF5N1Vq/AItEQmt2Oov
+	 sywGvPBluTFs5zUsORCi1ApwGKOalKT6Vc2DX7u6ekMZbmBirWrKBM8B+zYsCKuUv7X96
+	 HXo4eUsd7tmi6zDidiAmVy+Lhp0pFAGOrffN+xwN+5Rs3xQHp9LLFYTucP0khABBBwx1/
+	 zf7wJ5E5bGVAGeWWs1+jD4P2NwhiSnORWfK9yCz5WeGktq10MKUEA3JTslh6QzOCe6E84
+	 KX2XhiXp+ZfRvEPZKzH7z2dnKmUrJDQwwQzXfmnmu1z2OmXLHhq3W8Xe0Wj/ZwHMlmg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c1eo+N4W;
-	arc=none smtp.remote-ip=209.85.221.51
-Received: from mail-wr1-f51.google.com (mail-wr1-f51.google.com [209.85.221.51])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=none header.from=datenfreihafen.org;
+	spf=pass smtp.mailfrom=datenfreihafen.org;
+	arc=none smtp.remote-ip=78.47.171.185
+Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 07F09606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:15:13 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 07F09606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=c1eo+N4W
-Received: by mail-wr1-f51.google.com with SMTP id ffacd0b85a97d-4a3e706b5dfso4172870f8f.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:15:13 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795684512; x=1796289312; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
-        b=c1eo+N4Wiv7EjKxwfcL3tfFeqHu8x6Krnvw93i6u/jfF+sGc2puye5EC9fpm2hHm1y
-         fDnPfexBgEGfMjM7yd2zgZdeG0kXNj/pJAQKzYVw85wcUfnVroYZ4LnFf5d3XZ/Hv+et
-         1W7P3Rigw2cYBsDwlqtzjOLuiE3LksmY9qibSpKVPbmGoMONoBR+FKIvmzf2IGbeBtlX
-         LV/KklZVuZLt7eJDYLih0Yky1NMgailveCaxPt2g4YN8gNC8BObSJB3ml6e0M+688hle
-         bflyxMYc4YeEGyPXz4l2LwullUHtEyF4tGS9y1EHOuIJzjQM31WoHbD79J5yLXPq36gm
-         260Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795684512; x=1796289312;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=nOvBGWrpieXjeYeaYeQ4iz+dQ3K5Ruh6yQGDubq0gG0=;
-        b=WQG8XzSoSv2lRUw04GQlsiNEpoPEzmBVJllN8jaYw4odSNVyw/WUNQxAwJWlPomGFW
-         5Y9m7uZowef1RF6lcqDJgHcuWzxJgY7oRKwVA3n8syfldT6v/+HybtiZ4rXWpBZ7AVpI
-         aWF86Q92SXtFwQdT1d5T9pwaegA4UD380o5HmSJIclPy76WhkUHOluYihC9kFbtKPHZS
-         ZLiic6a5UyIVo5l0bns+NgaiuQOhgxbl5KLFVnkOK1i3S8ICJXXSQiS0w09i7+ALGKrD
-         GdM7JnlZDRiw0wrmZdhyRptGSisIJE9Rop93Xy0xMq5iTdLsZfAnt5CO5cZwukyifJnz
-         0uNQ==
-X-Gm-Message-State: APuU4Z9MTtU5iZxDf1scTw6T/Tbz+1+IMoRw1p0BNjJRaYhhgEMgv5wU
-	ggFCw4Ygkg9Pta7OGEEbjonS+C5PGDjaTsxOfQMrY7q8WeDWo+j6kJ7W
-X-Gm-Gg: AZFdTZeN0QExe1vOa8nd/XgA5qxNEswyUZIFogjUcmPQFfLq6yz+fWINjNRIjdToWKM
-	HpazpY4VXKRVAeQgSqu0JTAzCtj+p4T0gnHqXd7yOmr9toeU74rGbFHCav23VqI7ynJN3NnYY54
-	9F1lZwT9Stf+QTO0zQqoepSSHwdNtIwyqOJBscuGvHVaZ6pa0kHpSAzz+kjebKZm6i2mdllXNwP
-	YXWdJ5W+IMmcNzUR4pxYsCg/DQjJbqiFXxt+qF1y547sOWeQDu+XSp5jxJqPqIdluXnht/mcrUp
-	QVmEy9/mvloDWASpMyWRkLrOsEs37r+cpkW44hVXL57ahOxZkFu5Q01lUv5WZixi+kaw61XIyMZ
-	JGl881vB4vj9R50Inu65bfYAvs2oEDcawiwtFiP/RNJNTfWKypccoBbugk/X6dYghx0FHhr5eHa
-	jxwN99+1k7e6PgWf4aHbMF4dxkmEELAhVnypC2FZFEk4Zy3FBdqEjQwpEvGHd1/M9DUvqcpPzHa
-	lvv058T0IZF/XfMWgG60sYpQjkqmoEjbqvRqdDG0ta7/T88bYOETFNGFexZqNS4zzMP8eM2d+Ax
-	A/6g//Jr91ALjUNHGpQjZDGajVcLRvdQ4OJ8gwxe8D+fkIl9jjYGjb7DKe2DKb++0Hs=
-X-Received: by 2002:adf:e009:0:10b0:492:b1c5:6db4 with SMTP id ffacd0b85a97d-4abb4c7ab68mr28124075f8f.26.1795684512114;
-        Thu, 26 Nov 2026 01:15:12 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b10b5f6sm37029320f8f.34.2026.11.26.01.15.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:15:11 -0800 (PST)
-Date: Thu, 26 Nov 2026 09:15:10 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Ivan Vecera <ivecera@redhat.com>
-Cc: netdev@vger.kernel.org, Vadim Fedorenko <vadim.fedorenko@linux.dev>,
- Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>, Jiri Pirko
- <jiri@resnulli.us>, Jonathan Corbet <corbet@lwn.net>, Shuah Khan
- <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>, Min Li
- <min.li@microchip.com>, Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek
- Kitszel <przemyslaw.kitszel@intel.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Richard Cochran <richardcochran@gmail.com>,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- intel-wired-lan@lists.osuosl.org, Grzegorz Nitka
- <grzegorz.nitka@intel.com>, Karol Kolacinski <karol.kolacinski@intel.com>,
- Saeed Mahameed <saeedm@nvidia.com>, Tariq Toukan <tariqt@nvidia.com>, Petr
- Oros <poros@redhat.com>
-Subject: Re: [PATCH net-next v2 0/9] dpll: do not serialize driver callbacks
- under global dpll_lock
-Message-ID: <20261126091510.7ac67b35@pumpkin>
-In-Reply-To: <20261111164021.273409-1-ivecera@redhat.com>
-References: <20261111164021.273409-1-ivecera@redhat.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 76F56606A32C;
+	Thu, 26 Nov 2026 09:15:58 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 76F56606A32C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: stefan@sostec.de)
+	by proxima.lasnet.de (Postfix) with ESMTPSA id 76E1BC02DA;
+	Thu, 26 Nov 2026 10:15:56 +0100 (CET)
+From: Stefan Schmidt <stefan@datenfreihafen.org>
+To: Alexander Aring <alex.aring@gmail.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Maoyi Xie <maoyixie.tju@gmail.com>
+Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Marcel Holtmann <marcel@holtmann.org>,
+	Chandru Gopi <chandru.gopi.dev@gmail.com>,
+	linux-wpan@vger.kernel.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH wpan] ieee802154: look up the wpan_phy dump ifindex in the caller's netns
+Date: Thu, 26 Nov 2026 10:15:50 +0100
+Message-ID: <179568454485.1932185.9237357328729820521.b4-ty@datenfreihafen.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20261020065125.896530-1-maoyixie.tju@gmail.com>
+References: <20261020065125.896530-1-maoyixie.tju@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -110,108 +67,27 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 
-On Wed, 11 Nov 2026 17:40:11 +0100
-Ivan Vecera <ivecera@redhat.com> wrote:
+Hello Maoyi Xie.
 
-> dpll_lock protects topology and object lifetime, but it also serializes
-> all driver callbacks in the system, so one slow device stalls every other
-> DPLL device, whichever driver it belongs to. mlx5 callbacks issue firmware
-> commands with a 60 s default timeout, and zl3073x callbacks can wait
-> seconds on a driver lock held across ToD writes and phase steps.
+On Tue, 20 Oct 2026 14:51:25 +0800, Maoyi Xie wrote:
+> nl802154_dump_wpan_phy_parse() looks up NL802154_ATTR_IFINDEX in
+> init_net, while the dump only returns phys in the caller's netns. For a
+> caller outside init_net, the result depends on what the ifindex is in
+> init_net. If no device there has it, the dump returns -ENODEV, even
+> when the ifindex is one of the caller's own 802.15.4 interfaces. If an
+> 802.15.4 interface there has it, the dump is empty. If any other device
+> there has it, the filter is ignored and the dump returns every phy in
+> the caller's netns.
 > 
-> Make dpll_lock an rwsem for topology and lifetime and add a mutex per
-> domain for callbacks. A domain is all objects created with one (module,
-> clock_id), in practice one chip or card, so channels of one chip stay
-> serialized as drivers expect, and they still block each other. Device
-> callbacks run under the domain of the device, pin callbacks under the
-> domain of the pin, whichever driver registered them. Only one domain lock
-> is ever held, so domains have no lock order. A lock per device would not
-> work, because pins are N:M with devices and callbacks notify sibling
-> channels.
-> 
-> The driver API does not change, but a callback can now notify only
-> objects of its own domain. Patch 1 changes the one in-tree callback that
-> does not follow this.
-> 
-> Registrations across domains exist in the tree only on E825, where ice
-> registers fwnode pins of an external DPLL with its TXC and TSPLL DPLLs.
-> These callbacks are no longer serialized with TXC and TSPLL, they rely on
-> pf->dplls.lock, and requests about these pins wait while the external
-> DPLL is busy. Intel folks, please check that this is fine.
+> [...]
 
-Isn't the big problem with callbacks handling deregistration?
-With a global lock there isn't a problem.
-But as soon as you do anything else you have to have very explicit
-rules to safely deregister a callback without either a UAF or an ABBA
-locking issue.
+Applied to wpan/wpan.git, thanks!
 
-I don't see this being mentioned.
+[1/1] ieee802154: look up the wpan_phy dump ifindex in the caller's netns
+      https://git.kernel.org/wpan/wpan/c/680451326592
 
-David
- 
-> 
-> Each complex of a dual complex E825 has its own DSN and so its own
-> domain, but both use the CGU of complex 0. The lock for the registers
-> they share is in a fix sent to net [1], which this series needs. Without
-> it a test lost updates of them.
-> 
-> Patch 4 is the only patch that lets callbacks run concurrently. Patch 5
-> adds KUnit tests. I also tested each commit with a mock driver and YNL in
-> QEMU, with lockdep and KASAN, and the tip with lockdep on two systems:
-> 
-> - A board with ZL30732A: every notification the driver sends from a
->   callback, concurrent traffic with PTP, driver reload and rebind.
-> - GNR-D with dual complex E825 and zl3073x: callbacks of the pins shared
->   by both drivers, TX clock switches, RCLK pins of both complexes, a port
->   going down and up, and both drivers unloaded and loaded in either order
->   under load.
-> 
-> mlx5 is build tested only.
-> 
-> On GNR-D, with ToD writes running on the zl3073x and requests waiting for
-> them, requests to an ice DPLL took 1448 ms in median and 3.9 s at most
-> before this series, 0.2 ms and 0.3 ms with it, the same as when idle.
-> Requests about the pins shared by both drivers still wait for the zl3073x.
-> 
-> Changes in v2:
-> - Dropped "ice: dpll: serialize changes of the SyncE CGU registers", sent
->   to net with a fix of the SyncE divider [1]
-> - Addressed the Sashiko review, see the patches for details
-> - Added Reviewed-by tags from Petr
-> 
-> v1: https://lore.kernel.org/netdev/20261106121005.1327603-1-ivecera@redhat.com/
-> 
-> [1] https://lore.kernel.org/netdev/20261110094350.184185-1-ivecera@redhat.com/
-> 
-> Ivan Vecera (9):
->   ice: dpll: notify TSPLL lock status from the periodic work only
->   dpll: add domain object
->   dpll: take domain locks around driver callbacks
->   dpll: convert dpll_lock to rwsem
->   dpll: add KUnit tests for core locking
->   dpll: reject measured_freq_get for foreign and on-pin registrations
->   dpll: zl3073x: update locking comments
->   ice: dpll: update locking comments
->   dpll: document locking rules
-> 
->  Documentation/driver-api/dpll.rst         |   48 +
->  drivers/dpll/.kunitconfig                 |    5 +
->  drivers/dpll/Kconfig                      |   13 +
->  drivers/dpll/Makefile                     |    1 +
->  drivers/dpll/dpll_core.c                  |  204 ++-
->  drivers/dpll/dpll_core.h                  |   34 +-
->  drivers/dpll/dpll_core_kunit.c            | 1580 +++++++++++++++++++++
->  drivers/dpll/dpll_netlink.c               |  117 +-
->  drivers/dpll/zl3073x/dpll.c               |    9 +-
->  drivers/net/ethernet/intel/ice/ice_dpll.c |   24 +-
->  drivers/net/ethernet/intel/ice/ice_dpll.h |    5 +
->  11 files changed, 1919 insertions(+), 121 deletions(-)
->  create mode 100644 drivers/dpll/.kunitconfig
->  create mode 100644 drivers/dpll/dpll_core_kunit.c
-> 
-> 
-> base-commit: 368fbf5d82da9ebce309449c74fc0b128f7d0219
-
+regards,
+Stefan Schmidt
