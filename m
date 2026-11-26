@@ -1,103 +1,76 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.178
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705594;
-	b=k5PJ8jujLYN8FfHSkvvzQqIFCpapkfWhWO1u8KETVyIbhoWhUR2lN5iLNOd8pcwQHoO9
-	 ueGhqmxHnTH/Sz0A1Si5LocdFq9j/TQSbDSX7pL1xWSYosRa54uTAvnm92b6hDELwFqUQ
-	 M/l29WItbPTptNVMEjBjNKZ9ChEGpavkQkYwcVUGQR/Flu7AynwSKBD3vqq95bC0QK1+I
-	 JDHUWmOvSm7UyQra3+o0jHHoOSCr6PXo7/vjBc74zmKi2AGsIHgi6LyMcOi4/EOhv3BQV
-	 GLDFFpkJvpbhc5wz/0d0yAgXnVfJMieWxCijzuSD+UmdVw/qD8Ka4Xo4q6DeTKFMf5A==
+	t=1795705630;
+	b=WQj4Vsl50ecdjlvdnuXacfOWzLX2hFIn97yV4UOxswtGesRCLk/CeblWu21F0zy9C6vM
+	 fJ0UEnAOuyRH9OXDtF5kuux2sRWyUdAO4aoae5eJSN6tNHlZudjbA4xTfc9fQaAqneKVT
+	 j2t+X/0lyZNa6bMpaZyt75Yqe5uwZZLBNrWtM7Ys3MPTqoFoSZaNT9x5OggTfm8Ux/dA7
+	 QbNPBocGxGAVFcG11LZlMlxcm/IyE22PhKyMYZ8apAktLqZB6tF989G8EYW4YL5V4S5VR
+	 zdCmKKFYYFBw9R/nTzEU4uQt3Zp9WuhS9iPwmduZQAJT7/EnAntwQNQFN897/wgHc5A==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705594;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-Id:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=vFxzL6N7fV5dEdD6E6EPpo4S+xvEUTNbT1G/ro5XjSQ=;
-	b=ro2dWQNSjvf4G9LxeLCz/49tT25AxbHav1iB7kCzmz+RdjKPHt0AQ66RGhXNfUL1gSdb
-	 YaM9WRXGNE82X5AbuxBRnWDRbnxbf3ZOlGaJ7nfutpcKSLsLEODOl8L7D8T7SPWoZ4ChN
-	 47JR1/yhpBxxbV5h640tG7g/7gqc9Yo01s/t9QBnceo4bYYgYBcsYbETZ2l7nW+iBwpYi
-	 r6LDxOaNgdLtbswRDHIXq2N9gD9tzcxtTctMrWnuTeh0FtshOKhu4yqNFNFACutAKLepg
-	 hoBKajxPuS/abgF2jAd/whSvtB1KFQaI9ZYdllSYg2G+0gynUelRIamTKSJF5twcpmA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705630;
+	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
+	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
+	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
+	b=ZjCIvPuvQIoXaspL3raCWYl82gvHVBdc7ldqNegpG8HZ9riCxx2SU95coo+lJuyc+59B
+	 0GocDoppJYkyQfC/eUbXuThXbXoAFR+t/Kj+aTwWYZS+c3UiEg/ZSefUni9hVckdiHxW4
+	 TsWp+duv7kfW2JOTgLqEFHYEvIpj5ggVjSKykE9wlbEv8XW6VVXQN4Wyz936OBYqz5bfJ
+	 ZlmwTzpKjcjcIDg7BMF43x6NYmLDjy7wS6ffm7sDoRyL5bj3WPj1mTlW6heBBo0kYfHLB
+	 lbetjdRcAYwzDK8+chPzRDbEyqcJ5mDSeYowYcKaLAOnS0IRiUMwEVhN/AuACoAxhdA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=iiitd.ac.in;
-	spf=pass smtp.mailfrom=iiitd.ac.in;
-	dkim=pass header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cyj1fHpi;
-	arc=none smtp.remote-ip=209.85.215.178
-Received: from mail-pg1-f178.google.com (mail-pg1-f178.google.com [209.85.215.178])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8214C606A685
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:06:33 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8214C606A685
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=iiitd.ac.in
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=iiitd.ac.in
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AE81606A32A;
+	Thu, 26 Nov 2026 15:07:10 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=iiitd.ac.in header.i=@iiitd.ac.in header.a=rsa-sha256 header.s=google header.b=cyj1fHpi
-Received: by mail-pg1-f178.google.com with SMTP id 41be03b00d2f7-cc751eddf25so4567265a12.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:06:33 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=iiitd.ac.in; s=google; t=1795705593; x=1796310393; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=vFxzL6N7fV5dEdD6E6EPpo4S+xvEUTNbT1G/ro5XjSQ=;
-        b=cyj1fHpignlDujJCnViGY8sX6x8wogPXBpBDbUr/XIdmWpWrKtxMFMMCszkNH5KK9U
-         C41GxztehbjKMlbgmqYxIdLHn2VzjSTutkCUPcqXt+TEJt64BDjWklhaWCq3SZDfnOX6
-         KmhhKc5hkKYtcCSsx4GDGusu3eAXwjUr5s5bc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795705593; x=1796310393;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=vFxzL6N7fV5dEdD6E6EPpo4S+xvEUTNbT1G/ro5XjSQ=;
-        b=yadDj3nxXT9lU65gX6MLkC3Qzfj4IQViupjxzggXLLJMBlxhsKvWkwDg1zy7yG0Epz
-         VFJr2dtJpUnu9NMgnfh5NjzEPI8IXfidvPGOtMXOr2QAiokIBkDKmjtwwJSaeOCTiZvS
-         yZaVa6vewz2aqL4MYjhbchZceui8WGk/eUFSYcDsT0MEo13XIEaBRO0BSJJEQoF6lzBk
-         BCpTAqb3mgRVl3m1/rkg0/MB04TpmsGiEiays+t51KITMQuLNw1VZJ1s9F6BNCDzDnIy
-         uzTG5+dK7m6BQ98uny7AKBrptLDL8JgsDau8tR7YKkYIE3lj9czowrfz5igguPY3+txg
-         cMXQ==
-X-Gm-Message-State: APuU4Z8g/DxCfgjBYbtbkZkwc+Wqr+iGD9I3iqkvHw7ovIzEkfm8btSP
-	fj1hmk0GbYY2USwUW9Mphsb/7w5HFuQtMprzc92LrycMbDDOS0AbPXmztqW9iPVOhbE=
-X-Gm-Gg: AZFdTZeebmj4c/MSYBqOFdrjJYarsy524tQEJcRZhzLynQYxZkB7V4hlNmYC73hoQW4
-	WUNvxmgmiZALTd1fj0/pGKVIbf/GmQXps++Pe4/PuPyF4Nx+k0GFdIux94e9JRnOIc4UNRRYEQu
-	TjBxz+WMva5REaWTmxqRB+BhNtTFFPc3lieuRslbeurzs7Dgn1lsqDFYsYkGnMWD3tpHd357i1e
-	8L5StxT2yzm629ZgRo4WTwAIwF5098Awwd921wNW/GTaNhCNXg9wosbUEmNYzRqTpUEIazxAQMn
-	XDNp/4ad12jn8iKiHwfz773oqRzLZV1jH/7vc8cpVmsu81cKg38X96fQZOAqq73KoKQCuBFggcW
-	rQEogSKdbxNx8yKrvV8H0c/jZaF57mOadXOT5TTFoamlOYF6UUBHTsb+CXxsQgdcGGw8kEQMyzh
-	/IXR1UMOLlFnfAxtC8CT5iE2FAyBGAER5L+6CU3cQXRYtxv+aDkRz8IcgJh/PYuhrqn/ozagOj2
-	iDVVcuJHR8c1YJCc8pXgH+SPq2SzMebm0NJ3Y88F5QruRmLzF8bP3J5ErYdCnsyeRKPlBl2gufh
-	WgMsPizjzLORR3fTY1Tezf8KifRi1eytlk9RlC/1H+SDcaoRHVL30VbqDfqWCRN87QXyU4PH3tu
-	WHxTaK38hZnEAEg5alsnkI0loMiaFwQtte59qC80LBYX6ZzjkOgPKrvHrdIMEwA1/cA==
-X-Received: by 2002:a17:90b:48d0:b0:3b3:b5b8:1f43 with SMTP id 98e67ed59e1d1-3b41c97115amr22991604a91.62.1795705592804;
-        Thu, 26 Nov 2026 07:06:32 -0800 (PST)
-Received: from iiitd-S2600STB.iiitd.edu.in ([103.25.231.160])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde84cd5ed8sm8039585a12.10.2026.11.26.07.06.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:06:32 -0800 (PST)
-From: Piyus Kedia <piyus@iiitd.ac.in>
-To: wenjia@linux.ibm.com,
-	jaka@linux.ibm.com,
-	alibuda@linux.alibaba.com,
-	tonylu@linux.alibaba.com,
-	guwen@linux.alibaba.com
-Cc: netdev@vger.kernel.org,
-	linux-s390@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kapil@presceralabs.ai,
-	stable@vger.kernel.org,
-	sashiko-reviews@lists.linux.dev
-Subject: Re: [PATCH net v3] net/smc: bound the DMB-nocopy send-buffer credit by what was sent
-Date: Thu, 26 Nov 2026 20:36:25 +0530
-Message-Id: <20261126150625.2113302-1-piyus@iiitd.ac.in>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <sashiko-outbox-233892@kernel.org>
-References: <sashiko-outbox-233892@kernel.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D74891F000D3;
+	Thu, 26 Nov 2026 15:07:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795705630;
+	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date;
+	b=LoTa01m10c/DFZtn0E18pWQOzi4WRWeXm/PToA80poqv9rMEQN4wOov6H0/4L7lJe
+	 uc0iMxmwFZ54pWHI8X2OCZH2jKBPIEEND4+WwURhtUrClzewlh0L3aaAjS+rVRecj8
+	 XDsXgFdK4MM9rLbT8hrf9ackhQi0GjFkweNgeGkr1XlGwCD7HUyhRrNLK+LNLIezHc
+	 MidXYkkfw1prDM8i0QXxEx6X2HNntFP+90SzmYy7rafHgJf5yiBoXzk6VDE6pvcsJ7
+	 78sYnYQl5CRACUTGxXyboRSwKWtxZoqco/WJHBkuZI/EfdeMp6Iv/cJWLs4SV1gw4z
+	 QhZfukUObWyEQ==
+From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
+To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
+Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
+ <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
+ <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
+ Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
+ Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
+ <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
+ Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
+ Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
+ <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
+ bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
+ =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
+ Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
+ =?utf-8?Q?n?= <toke@redhat.com>,
+ Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
+ Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
+ Matthieu
+ Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
+ =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
+ <hangbin.liu@linux.dev>
+Subject: Re: [PATCH net-next v3 04/12] psp: add support for socket-less psp
+ associations
+In-Reply-To: <20261124221758.3230929-5-toddfreed@meta.com>
+References: <20261124221758.3230929-1-toddfreed@meta.com>
+ <20261124221758.3230929-5-toddfreed@meta.com>
+Date: Thu, 26 Nov 2026 16:07:06 +0100
+Message-ID: <87cxrriqcl.fsf@all.your.base.are.belong.to.us>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,51 +80,51 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 
-Thank you - the finding is right on both halves, and the remedy is the one
-you name.  v4 is posted separately.
+Todd Freed <toddfreed@meta.com> writes:
 
-[Medium] torn cursor read and non-atomic update in
-         smc_cdc_msg_recv_action()
+> Currently, a PSP association is bound to a TCP socket when it is
+> created, and can hold both an Rx and a Tx key.
+>
+> Add Tx associations which are not bound to a socket, and are referenced
+> by an ID, so that other parts of the stack can attach them to packets.
+> See the subsequent patches, where the tc psp action does just this.
+>
+> Socket-less Rx does not need an association, and the kernel does not
+> keep anything for this case. For Rx, userspace calls the rx-spi-alloc
+> operation, and then uses tc filters that match the corresponding SPI,
+> version, and PSP device. The flower matches for these fields are added
+> in a subsequent patch.
+>
+> Add the following new netlink commands. They are admin-only, and
+> restricted to the netns of the PSP device.
+>
+>   rx-spi-alloc  allocate an Rx SPI and derived key, without a socket.
+>                 The key is delivered to the peer out of band. Also
+>                 returns the number of key rotations of the PSP device
+>                 so far (key-rotations)
+>   assoc-add     create a Tx association and install the peer's key,
+>                 returns its ID
+>   assoc-del     delete a Tx association
+>   assoc-get     get / dump Tx associations; only the SPI is reported
+>
+> Socket associations are not addressed by these commands, so for example
+> assoc-get does not list them.
+>
+> The kernel doesn't enforce key rotation for socket-less Rx the way it
+> does for socket associations. A tc filter which matches a SPI of one
+> generation will also match that SPI if subsequently re-used in another
+> generation. It is up to userspace to deal with this eventuality by
+> removing such rules in time. Userspace may subscribe to rotation
+> notifications for this purpose.
 
-Confirmed.  smc_curs_diff() reads wrap and count with plain loads:
+Could you talk about the rationale here? rx-spi-alloc returns the key
+rotations, why not make the generation part of the flower match?
 
-	if (old->wrap != new->wrap)
-		return max_t(int, 0, ((size - old->count) + new->count));
+Probably missing something, but seems like natural for the kernel to
+ensure that stale rules wont match reused SPIs?
 
-and this path runs in a tasklet under bh_lock_sock(), which does not
-exclude smc_tx_rdma_writes() advancing conn->tx_curs_sent under
-conn->send_lock.  So passing &conn->tx_curs_sent in place can pair a
-pre-wrap wrap with a post-wrap count, exactly as your interleaving shows.
-Both outcomes you describe follow: the difference collapses to zero and
-the credit is lost after local_rx_ctrl.cons has already moved, or it
-exceeds sndbuf_desc->len and the bound does nothing.
 
-The second half is right as well.  smc_curs_add() is
-
-	curs->count += value;
-	if (curs->count >= size) {
-		curs->wrap++;
-		curs->count -= size;
-	}
-
-so in place it sets count and then wrap with plain stores and transiently
-leaves count >= sndbuf_desc->len, where the code it replaced wrote the
-cursor with a single atomic64 store through smc_curs_copy().
-
-v4 does what you suggest, and what smc_tx_prepared_sends() already does
-here: it snapshots both cursors with smc_curs_copy(), computes both
-differences from the snapshots, advances the local copy of tx_curs_fin and
-writes it back with smc_curs_copy().  The cursor update is one atomic
-64-bit write again and neither read can tear.
-
-One note for the record: the torn read is not only in the line v3 added.
-The diff_tx computation read &conn->tx_curs_fin in place before this
-series, and the snapshot closes that too.
-
-What is bounded, and the bound itself, are unchanged from v3.
-
-Tested on 7.3.1 with KASAN; net/smc/smc_cdc.o builds clean at W=1.
-
-pw-bot: cr
+Bj=C3=B6rn
