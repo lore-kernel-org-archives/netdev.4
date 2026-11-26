@@ -1,110 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.43
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688462;
-	b=Wh0V7REDUrfoVjw5ngWcpQchv3gOtjnDOoZFgJEkPcd/q3nqCRr9OjtS4VHqDAHEw1ws
-	 fIuLQX4FfLKnDz1TXxQY+nSvjc2nzYcgQ004RnlIB/vXRzSq5xuf1jTLAvPVo+zcdVRT5
-	 OLozTBrD8Wn55CLnonaqicz1zjfUfTfzLOgBml0ZYsaagTFAFopnzdGnf+vjdaNTOIN2c
-	 jKtzgwJq3Mr2JwiWSHY9+n87/dIVqC+5WaCRRgHRqwaqfFATC16cV1YEmEg2HoUMzcWHA
-	 fT+jjV55PTgpGnd5ZTRbQqkXLlRP+Z7mcUhOvuCnQ0YVuVW5USqxdSRXccowgii0mFg==
+	t=1795688641;
+	b=UUtKzeqqK/+BZlbFmUumb+Lkr503WPZ4GmMkg41QB3b7sO3jetvK2LksKrYK/hC+JJ2f
+	 cVzZmMRmeV77B8ORSqGHuYYpqesBDY4TN+pqI28y5+wzf7O4gcXKNj+VLuR5ImGSVeaao
+	 4WLlLvPTlLZUo4LgfH+phaEp10+juJFbKQ7xlk3p8K8ILcFJRfeyGVhxm3TiWJI2K4Ban
+	 lmOssC3Mw3S1cs6TrJA4HiYYsrqwmnS7DKMQCMe5OrRNMwbbhLtHdpvCiJQm4hLeZpaen
+	 1cR9sSOkV34dFZH+q90huG9E8+EFCana6vIluv8R8gK4FQ20s2nWQn1n5nd5R1tflKQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688462;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688641;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
-	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
-	b=oW8eOpNN2POU305AM5L1JehIw0Q9Xt2nXuULmC2xCEnxuihsR2vWUxzUwTHITAY3KUys
-	 o1HWumOe1R6XPbe2Q9smMJoYb17kQH5Yeujxgh/OX5O3F7slcKf4VNbb8PJfGcpeFZ0t3
-	 1jekXMDLTxxX8yO68qwjHJS8mFe/RE0QGUa5aDh46iMvSINM9ke219RYZt8xyeqx3OKJz
-	 ehUCyZ2Q7MdMYktMvEpu3FVYAMzcAd5fYxjBBIOn2/1RXCO09KlSTwFf/T3d4O6Cof90l
-	 HinEp6zXybIFkpiqvsWYGtVlIqQUxyqQOXZZAIjzb/wmi1AFnN51whhncONaer881KQ==
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
+	 Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:Content-Disposition:In-Reply-To;
+	bh=2mKmxH++E4qor1mQxu0ggKku3S8sooA/5pfD3qywnr0=;
+	b=hLVM0FNea4AOutxpV8qfyXnR1T9JM4LrUAciddfABLgI5xpHJe7xvbqIchsYQBoMbCRp
+	 syVTwJHfQUZ4QeHF4CWyKW8fM0X8bsi9UHIG3HZE/i4EcEzZet5DFQX9+tOnLs2L13MdT
+	 hvv0JNS4omtphdAn3ZRFYXfhVuCFy7DmbcYh4CZ6zfT1Dwi4u6ijLPOz/mTLb313SQ422
+	 iAc36VWKmo9zbSWDoJz/uqqQezmBV8cfaEJT0yzBLEJZmAFuGIRiMKn0150qS7iQEg8eV
+	 JQpJ381IZwZnbx2+c8PiRTOJjhRvTppRv7hqhwWkbEBTz4DnhLoytAu+YT8ifuEOUsw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="CD7VT//B";
-	arc=none smtp.remote-ip=209.85.128.54
-Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XychGD3m;
+	arc=none smtp.remote-ip=209.85.128.43
+Received: from mail-wm1-f43.google.com (mail-wm1-f43.google.com [209.85.128.43])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34CF4606A326
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:21:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34CF4606A326
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5CCA9606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:24:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5CCA9606A31E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CD7VT//B
-Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so63883415e9.2
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:21:02 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=XychGD3m
+Received: by mail-wm1-f43.google.com with SMTP id 5b1f17b1804b1-4bb67b3a18aso6701105e9.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:24:00 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795688460; x=1796293260; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+        d=gmail.com; s=20260707; t=1795688639; x=1796293439; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
-        b=CD7VT//BnwjcVd/x9W08z4hh0qia6Xph8wF/i4minXZySyXu8zsDolv0LFjazmM/6m
-         pIGU6L76Mawk8H2KfnDIrG2oDmO7Tv7sO/LEOBXhymVTUcYfViwFwrXpTpNkkpHs8gl4
-         otBJYE9GgyVPV2IUsre2NvaRLOV2zPcBDOjAv1YT/TJrss4Pq0CevX+URUlIVbdF1LB+
-         iN55YZDkHNufNljGtkNuEStzk9IaQR+nbcYV+y7g4IE4bHodjC1+Z4Qpfkkd525fXANf
-         yjTMIfngYNzhYLbG2HD7dSz7i6QkbKb7sIKmnwYNW0QDrTCnZACMi6z8+NrNv2a+YLfm
-         iQJA==
+        bh=2mKmxH++E4qor1mQxu0ggKku3S8sooA/5pfD3qywnr0=;
+        b=XychGD3mLVv+sSXHwiFhe8627rxB2/OsJFz2pDdDHsArTyoNG/s/rrMMJiboEejZjP
+         loRS5fe/771OytzFDkOPFnFdfrDsRvr3Md1iJQJb0cLO4QCLeKx2FI9Ny62l6zJv9RS5
+         X/xH8FQ+bkHiSH3yRfC2wZsv8B7PqUH9dxH98NcpUJEHeQVQhKtX2IUUwEtOOG8zEbmK
+         xeoY1dMzWq/IQLTNYEEpUz4Qcb+3AZG4x6LNVbNYlb8PcwKQ4X4PPV+ucAm59xXF6M1c
+         mCuRKe+nGXUKefxs3rsgQGETx6GZFxAIGvUzenAFmft3wRSc9Q5ie4xQjhp5py6HruoT
+         zhVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795688460; x=1796293260;
-        h=content-transfer-encoding:content-type:mime-version:references
-         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+        d=1e100.net; s=20260707; t=1795688639; x=1796293439;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
-        b=W96K4JZWR8TN6pN/LRUmhMv7Pj/uGg24hnxtPJ9j52oURVJ+9hhoe6ErqX5aAyj9WA
-         v7f9j6tiitrBfAX8KijYafAOz81mSRfl4ceslyYVdadbrQXfnHFuC2GbUt7tuzMLcc9M
-         TKyBluba9mlPRGPGBd2F0rAW/XI9Wr51FO2iyrGhgSrJCdK9Yn+o9gfzeKUw/Ie0Qu5Z
-         jaxOCr6SzZovzlkA7heyqIxBXD64TqfoPhcGxoE73doL2wiyS3kMk8Kzciw70FLUoXfl
-         CwS1r2GZgFdHES3KjLQLH6/TZb8ZqGBIOzzgVA69I3KDiXQ9HVib+ByPVaKGJ5YqhfCD
-         2hFA==
-X-Gm-Message-State: APuU4Z80vqy43Z+mVG2OcAYA1XL3DPkcKAfi0SK2/iL0nQDtzl6uv4yN
-	+jyrxgyFcybLmTzQ0cWXgCJUz1Y1sgqd173JgkWTzZpa+xAlnMn3Li6F
-X-Gm-Gg: AZFdTZc+3OiwwAN+6Uz4HJRhIr5mUXuQm77P0MEt6jTqGzL8J07Grs0sohcKU6YUvm6
-	fDOvRZ9BfqQ4Mvrl5xZap18QrwsP9YfsDL4Rojle17rSht2fLFfQbe/lhj+PyTU4it8NiBkpDN9
-	rhh/hQlRcRhsNA+ty/8mZUC0ia8PEaUHAYkTWRMMB0gcHTd9Tkkk07ThYEZcSrEY6pLyh/5EQeg
-	agute30ywbdzxGTRF16lai3o2IYHnlNDnaD8r3JXU2MUhYCAdPdlyMjz0lFqVqpAd1pZud8Z58F
-	f78jA7aCYrOcSC7P//OpF7oVdLG0WyS2Ciyi3K4JVT3Ob1riM1HxMQ6EO5B1eSdixA7FpCrn+lA
-	rvt+y/odLSmbb8ML2UfvvZA6zeb95q5Y3ATyPc8Y2nlaUiKlzWS+nYOZhxkAlKsHBQhQp1sbn04
-	gjObZkl3ilmLgqBF4Aruzn/tWkjfxQyxnGmwlPqY5ZhokHGI1mWgdEK7lgOraVmcMRrunzL6U40
-	tfVreNlnTVfgt0DOdD4fM4nuJzSRvDdoC21fN1q/0NIKQsaJYlz3Mn7MA3+WXMFnfS4g6vkA+9u
-	/DuKnO9PAw1n47zn5tVXgTiYTCuQm/qympikixMArWw4M/drPNuGNiZFicFJ6HgYgA==
-X-Received: by 2002:a05:600c:3ac9:b0:4a2:a3b:7aa8 with SMTP id 5b1f17b1804b1-4bb887e068emr432378915e9.3.1795688460499;
-        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm581334935e9.5.2026.11.26.02.20.59
+        bh=2mKmxH++E4qor1mQxu0ggKku3S8sooA/5pfD3qywnr0=;
+        b=FEnxZBFdf4FgGAQP79aFJ0rBGtwW5xyA/dsPT8W8v4aWM045ZmEa7uUTcqD+D3+GVf
+         GI51MXZU+suxzOELs/h7G8dMMgLZGZRea/ODKjuf0g64XqSU/7xr0SMG7U4gWaeLZViT
+         /wHV1/5Od7vSUM3f63fDEiidgGuqP4Y6MtG+Xcg3izJHD3k89zaNrN6R9WK5r6x3SuNn
+         cjDVrz4+Q++aW0nrgbdUEfH+TcisBZt3sX0yYxuZETQ26azGz4XtDB3tQx/7ZRFj+0NV
+         szHZPtVBc3oYXXvx8mYNl4rZHiJQNg+IZDdvjk4+thsBFTeE6O1de4SDXlNX+8ebqmi9
+         tfcA==
+X-Forwarded-Encrypted: i=1; AL+hErFCt5FQT6i/ZEX3FdmMpGPbT4Ym7Epxi+HRryNFEL0Mknz7LtR3z2CI70kQZBKFFHbS4wbv8SQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/6BoWQYfcI6ZHWxrnBN+6tWmxYt6UGAjeRzvGjANCqRlFgXRsA
+	fWIuPsTHGI3S+1hoQw5Ji2zLVL1ho8bTcXph4WeYy+OhM53IFvgZLjWW
+X-Gm-Gg: AZFdTZfKPs/lWP+ArQI/kxN97qrDZYoq6J1JRe2zuhaUpkDtJodjOxpEuxvCSp9o25J
+	8FyHmrc1R9b8AaJJgQmT3BLvk4Jt2313NENCK1Z/r71NhbKHzPPot9s/xsm+PioaMRDsLa4obQD
+	mr2rKQWVRP1fY+6AF478d5xVr9H8CQ1xw7jNq+KJ+oG2zLf6Lmx09GlmNAeqNZ9SF5uVEplbsuM
+	rquiYw643Co1FFJC4b/znjQcXoH36Pu8Bp4PiQ4XHeTN7gMcLrdOJBMKRfOvTY3U3pa9xRM3ZNR
+	O/Qvcsmd9txRPmovXory+VvzGgPe2SmPxI1Urpj8eJgf5HsKnVkrDIQCy941ngTTNNXnt5RHkqF
+	0rTjlvTnqmvdl4A6yMRYr3pAaZbPG4mVAIXaKzr4iRxZQr0Iu5DNvMdHP9TnqNaqBqZ3Cm1UiTi
+	t19uP462A24sjrqKwF0fg9pkuE7TUE/C4VsrHOnDb3vGQ7dQ93zjr08osFuPDvkPXEVaj9b67cn
+	DsT/rNhQVTzhu2zBEfLwWXISNF4W/qyy6RW0tG74YOacNlRZ6QGUrR82N6xZ3nQNt/wBzyPDGBb
+	q39JgniiteC5uwCb8FNEbw==
+X-Received: by 2002:a05:600c:217:b0:4bb:6a02:d42e with SMTP id 5b1f17b1804b1-4bb887f3fb8mr287364035e9.1.1795688638583;
+        Thu, 26 Nov 2026 02:23:58 -0800 (PST)
+Received: from skbuf ([2a02:2f04:d401:2601:c96e:548d:4428:1f72])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm581525025e9.5.2026.11.26.02.23.57
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
-Date: Thu, 26 Nov 2026 10:20:58 +0000
-From: David Laight <david.laight.linux@gmail.com>
-To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
-Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Alexei
- Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John
- Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
- Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
- <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
- <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
- <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
- <ihor.solodrai@linux.dev>, Matthieu Baerts <matttbe@kernel.org>, Mat
- Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, David
- Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Stanislav
- Fomichev <sdf@fomichev.me>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
- Iwashima <kuniyu@google.com>, Pablo Neira Ayuso <pablo@netfilter.org>,
- Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
- netfilter-devel@vger.kernel.org, coreteam@netfilter.org, Xuanqiang Luo
- <luoxuanqiang@kylinos.cn>
-Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
- fast paths
-Message-ID: <20261126102058.1fecf50f@pumpkin>
-In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+        Thu, 26 Nov 2026 02:23:57 -0800 (PST)
+Date: Thu, 26 Nov 2026 12:23:55 +0200
+From: Vladimir Oltean <olteanv@gmail.com>
+To: Oleksij Rempel <o.rempel@pengutronix.de>
+Cc: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
+	Andrew Lunn <andrew@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, 
+	Florian Fainelli <f.fainelli@gmail.com>, Nikolay Aleksandrov <razor@blackwall.org>, 
+	Ido Schimmel <idosch@nvidia.com>, netdev@vger.kernel.org, bridge@lists.linux.dev, 
+	kernel@pengutronix.de
+Subject: Re: [PATCH net-next 0/5] net: dsa: microchip: let the bridge decide
+ about link-local frames
+Message-ID: <awgHiY9mcEAD1C34@skbuf>
+References: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,34 +102,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 
-On Tue, 24 Nov 2026 22:06:25 +0900
-Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
+Hi Oleksij,
 
-> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
+On Thu, Nov 26, 2026 at 09:07:47AM +0100, Oleksij Rempel wrote:
+> Let the bridge decide about the link-local frames that the KSZ9477
+> family and LAN937x trap to the CPU. These switches trap most link-local
+> groups (01:80:C2:00:00:0X, for example STP BPDUs and LLDP), but the
+> tagger marks the frames as forwarded in hardware. So the bridge never
+> forwards them to the other ports of the switch, whatever group_fwd_mask
+> says. An FDB or MDB entry for such a group can also make the switch
+> forward these frames on its own.
 > 
-> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
-> passes the address of one of its locals to another function needs a stack
-> canary. The canary is set up and checked on every call, also when the
-> local is only used on a path that almost never runs.
+> The tagger now leaves these frames unmarked, and the driver keeps FDB
+> and MDB entries for them out of the hardware. As the bridge then sends
+> some link-local frames back out through the CPU port, the switch no
+> longer learns addresses there; DSA adds the addresses that the bridge
+> learns on its other ports, such as Wi-Fi, as static entries instead. An
+> old FDB bug hits these entries often, so one patch fixes it; without the
+> series it needs a static entry added over a learned one, so that patch
+> goes to net-next with the series. The series goes to net-next as it
+> changes how the bridge handles link-local frames.
 > 
-> This series removes the canary from functions of the TCP/IPv4 fast paths,
-> by returning results by value, by using storage that is not on the stack,
-> or by not calling a function that has nothing to do.
+> To reproduce on a KSZ9893, with link partners on lan1 and lan2:
 > 
-> Patch 1 returns the two mptcp_space() values in a structure, so that
-> __tcp_select_window() no longer needs a canary.
+>   ip link add br0 type bridge
+>   ip link set lan1 master br0 up; ip link set lan2 master br0 up
+>   ip link set br0 up
+>   # 0x4000: forward 01:80:C2:00:00:0E
+>   ip link set br0 type bridge group_fwd_mask 0x4000
+>   # Send frames to 01:80:C2:00:00:0E into lan1. Without the series
+>   # none reach lan2; with it, all do.
+> 
+> With STP off, the bridge now also forwards BPDUs between the ports of
+> the switch. IEEE 802.1Q says a bridge filters frames to the reserved
+> addresses, including the BPDU address 01:80:C2:00:00:00. The Linux
+> bridge forwards BPDUs when STP is off, so that other bridges can still
+> detect a loop through it; see commit a598f6aebea2 ("bridge: relay
+> bridge multicast pkgs if !STP"). DSA switches whose tagger leaves
+> trapped or link-local frames unmarked, such as mv88e6xxx and b53,
+> already behave this way.
+> 
+> The switches driven by ksz8.c (KSZ8463, KSZ87xx, KSZ88x3, KSZ8864,
+> KSZ8895, KSZ8995XA) keep their behaviour; KSZ8563 and KSZ8567 use the
+> KSZ9477 code and are covered. The ksz8.c switches have one static MAC
+> table. It holds the trap entries, the FDB and MDB entries and the local
+> addresses of the bridge, and on the KSZ88x3 it has only 8 entries, so a
+> change on the KSZ88x3 can run out of space. Of these switches I can test
+> only a KSZ8873, so I left them unchanged. Their taggers still mark all
+> frames as forwarded.
+> 
+> Tested on a KSZ9893.
+> 
+> ---
+> Oleksij Rempel (5):
+>       net: dsa: tag_ksz: do not mark trapped link-local frames as forwarded
+>       net: dsa: microchip: ksz9477: do not keep the learned port in FDB entries
+>       net: dsa: microchip: ksz9477: do not learn addresses on the CPU port
+>       net: dsa: microchip: ksz9477: refuse FDB/MDB entries for trapped groups
+>       net: dsa: microchip: ksz9477: report the trapped link-local groups
+> 
+>  drivers/net/dsa/microchip/ksz9477.c      | 81 +++++++++++++++++++++++++++++---
+>  drivers/net/dsa/microchip/ksz_common.h   | 14 ++++++
+>  drivers/net/dsa/microchip/lan937x_main.c | 16 ++++---
+>  include/linux/dsa/ksz_common.h           |  8 ++++
+>  net/dsa/tag_ksz.c                        | 42 ++++++++++++++++-
+>  5 files changed, 145 insertions(+), 16 deletions(-)
+> ---
+> base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
+> change-id: 20261125-ksz-stp-link-local-5c53396cc960
+> 
+> Best regards,
+> -- 
+> Oleksij Rempel <o.rempel@pengutronix.de>
+> 
 
-While all (I think) architectures can return a big integer in two
-registers (dx:ax on x86), not all ABI do the same for small structures.
-For those architectures returning a struct by value is implemented by
-passing the address of a hidden on stack structure.
-So code generation may be worse than passing the values by reference.
-I can't remember the list of architectures, mostly old ones - but not
-32bit x86 because the compiler option was set when regparm=3 was added
-for 2.6.
-(Note that this is different from passing small structures by value.)
+I didn't go into any sort of detail in these patches yet, but they
+reminded me of this thread:
+https://lore.kernel.org/netdev/20250127125426.3b7cdkb75o5dbcr5@skbuf/
 
-David
+IIRC Tim's problem there still wasn't resolved (he tried to use the
+reserved multicast address tables). Does your series address his issue
+too?
