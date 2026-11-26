@@ -1,63 +1,66 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=117.135.210.2
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795699184;
-	b=pxumnOwtFjuUVBBK84StiZw9jCqjkbBsaRV05eY0AP9uy5U67F32EKU2p5eaEDKia/pt
-	 dg5cxv7gpZQ6zrY9X/bxzbTDR10JLvLqOzFrQCXQT/zumPGXtRCpFz4lOSkJN1d9p563b
-	 hHSThWDkT2dzVy+tL7xvMPM1QJrH8uRSOcMZ9CqMryM8RpBsBNvX+08NGjrFcKYkslfyM
-	 QiRH4PJOHe5cDHbC5l1trl+EtJ3ZFXsB3BIzivgvl2yio2zsJa8/GIHPWGEYwdgwVSESA
-	 llH0qDPfPRRN2uhvjmuB+yY54mVkH6vDzagIv+g4LJF4puz6DbcQNZLtbglRKOCYcPA==
+	t=1795699407;
+	b=quAP/ow6PP5xmKWZ1fMJV61diT9yLfl/31KnOgq5rQzCGTDSLWt/we09MUtcFKUAEWWg
+	 a8glDJXI3UObyIrcHxjwR0OHKgYd7c3KNsOW+8A0lNJenYJ7eno6k8+o0PG4RipRHeA/v
+	 VL74OQJ6yhDGJRiSB8UAZahoV/OTOInuzUJmELzGaw/vksvlnheewBceeAHHwPoqx3lrF
+	 0wgg5kmby5xdHCOfnT0+TlTwJE9AYpZmC7e7wuWKIR+lSeuySksgcX1rRNXdDvlc7dac9
+	 l9oDaDIlPSrqZFI7LiT88zBoxqFS9D8SA8Sb2AlGzshtj9gysYbIivJB4owjU3pNcyg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795699184;
-	h=DMARC-Filter:DKIM-Signature:Date:From:To:Cc:Subject:X-Priority:
-	 X-Mailer:In-Reply-To:References:X-NTES-SC:Content-Transfer-Encoding:
-	 Content-Type:MIME-Version:Message-ID:X-Coremail-Locale:X-CM-TRANSID:
-	 X-CM-SenderInfo:X-Coremail-Antispam;
-	bh=agDhnbP3CCp9C/t2h9wSqMlGzDUR1p/xB3Nq5MO9gjE=;
-	b=al7qY1854iPD00BOS06h35EqcMH9hWXb8at7GZh8fkdil12IlYvuCfRSudOndBPZD2Xe
-	 6dFDxexilbtZ/pgY7Bl5Tf4O9Nnox7NGB2GO72hXIiSAcki/QiQkj+isr+DgW1lh+yVHI
-	 whEN40ePFJpYmZzWqZRam30q+MQlGTcgBRTr0wp2MD4mLu3oeY0f3S5ai997N0pT3uoDb
-	 s/298kqCqm5cwWd9CWqLxak2pjxOBfxWq49zFjQ5MrWt22NNfHQuXvuRKwFGfAPHMrEpS
-	 4M/rL6lvAM3hcgoiziWZPxs7uwJhEIQZGq+VzPfcMV2XdfIWBCDx0eaSCRLasAeDT6A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795699407;
+	h=DMARC-Filter:DKIM-Signature:Received:From:To:Cc:Subject:Date:
+	 Message-Id:X-Mailer:MIME-Version:Content-Transfer-Encoding:
+	 X-CM-TRANSID:X-Coremail-Antispam:X-Originating-IP:X-CM-SenderInfo;
+	bh=VPJNEZ0w+fecGZ67xGVeEEGgA50Vo62jyAy0OFUtf/8=;
+	b=yh53dA+oV32I/9hFhKY4oc9y3AGQSYDAQqLkYPDcBp3IWAzVJ1ZGpL0w3sLC7yp/nwNP
+	 WdH0gKj3cgIBmURUfHrTVuFIa+aLP6MIy/msB/AhmUwVXf2grH4op5ExWMmIeT+RNy/gs
+	 p8t7mXQVy3UMjExlX3wLH1j71h2xBUtZlLwQ58O3zI0B5BKu6SZh6HTD/4XHMk1uL81Dl
+	 ztZ3OHlPkF2gI9RwKvh77FrrloWYwcpjK8vt3qRkfb/sXUULU/iRwxC/fT4VWtkiqeOaj
+	 h7wiUy4vQMjgSgs0MhdRP7R3WKbqLRzUh0Ar0OvuLwv1fJDsZzs3J20RDd4ISAVeLYg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=163.com;
 	spf=pass smtp.mailfrom=163.com;
-	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=dfiWzIuj;
+	dkim=pass header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LUvPEdtU;
 	arc=none smtp.remote-ip=117.135.210.2
 Received: from m16.mail.163.com (m16.mail.163.com [117.135.210.2])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9640A606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 13:19:40 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9640A606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BE7C3606A323;
+	Thu, 26 Nov 2026 13:23:23 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BE7C3606A323
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=163.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=163.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=dfiWzIuj
+	dkim=pass (1024-bit key, unprotected) header.d=163.com header.i=@163.com header.a=rsa-sha256 header.s=s110527 header.b=LUvPEdtU
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:To:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=agDhnbP3CCp9C/t2h9wSqMlGzDUR1p/xB3Nq5MO9gjE=; b=d
-	fiWzIuj0t0KG3C/5tQrUeLp/iqKsvbgag1wq/KsXxyU33CLeIj7NdMjVAZXu9K+O
-	U2jEbap4OLLRWwUNdCxQPKSpbu2+c6yoLtvXLffOp86CKam5O8WAw7WB5LfUTOc0
-	ZAYRq9h2EtO0zK7b4Gye+gUtV3YsdRqMBPo/VhCKN8=
-Date: Thu, 26 Nov 2026 21:18:49 +0800 (CST)
-From: fuwh1120  <fuwh1120@163.com>
-To: netdev-bot+sinfo@kernel.org
-Cc: enachman@marvell.com, davem@davemloft.net, edumazet@kernel.org,
-	kuba@kernel.org, pabeni@redhat.com, serhiy.pshyk@plvision.eu,
-	taras.chornyi@plvision.eu, serhiy.boiko@plvision.eu,
-	vadym.kochan@plvision.eu, netdev@vger.kernel.org
-Subject: Re: [PATCH] net: marvell: prestera: Add fini function under label
- err_fdb_init
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version 2023.4-cmXT build
- 20260511(2e539873) Copyright (c) 2002-2026 www.mailtech.cn 163com
-In-Reply-To: <179569276516.3294.7600196929784499290@kernel.org>
-References: <20261126112825.3957800-1-fuwh1120@163.com>
- <179569276516.3294.7600196929784499290@kernel.org>
-X-NTES-SC: AL_Qu2SB/qStkkp7yGcYekfmUwSj+s8WsO0vf4i245fO5B+jDzp2wUiQ25vPkvw1ueQBhGrmQOVexFv5eBnUrZ5caw6Lpp1LcpgRd+z59yrH7FrIg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=GBK
+	s=s110527; h=From:To:Subject:Date:Message-Id:MIME-Version; bh=VP
+	JNEZ0w+fecGZ67xGVeEEGgA50Vo62jyAy0OFUtf/8=; b=LUvPEdtUtQLOwm3dvT
+	8315t85FJcj+1kxNeISt4dUtWpjjtkWRsR/C1PhjsMtdbQ+Jpbf57kiT28iU/Tx8
+	eGYcHjVdbKUP/UQmbylDZcTUwhWZit8bl430K6CGqewkkWNDaR+qpxOo8PdGGdkv
+	sWGThj0o3ndonhJR1qv/Cupdg=
+Received: from localhost.localdomain (unknown [])
+	by gzga-smtp-mtada-g0-4 (Coremail) with SMTP id _____wD3X+qkMghrAivcLA--.44539S2;
+	Thu, 26 Nov 2026 21:22:46 +0800 (CST)
+From: Wanhui Fu <fuwh1120@163.com>
+To: saeedm@nvidia.com,
+	leon@kernel.org,
+	tariqt@nvidia.com,
+	mbloch@nvidia.com,
+	andrew+netdev@lunn.ch,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	kliteyn@nvidia.com,
+	muhammads@nvidia.com
+Cc: netdev@vger.kernel.org,
+	linux-rdma@vger.kernel.org,
+	Wanhui Fu <fuwh1120@163.com>
+Subject: [PATCH] net/mlx5: Free the table after storing failure in mlx5dr_domain_get_recalc_cs_ft_addr()
+Date: Thu, 26 Nov 2026 21:22:29 +0800
+Message-Id: <20261126132229.4028110-1-fuwh1120@163.com>
+X-Mailer: git-send-email 2.25.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,17 +70,42 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Message-ID: <174871e9.9a33.1a218023b42.Coremail.fuwh1120@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID:cygvCgD3_4i5MQhrIKF2AA--.156W
-X-CM-SenderInfo: xixzxiqrsqqiywtou0bp/xtbC7RlX9msIMbmkCgAA3Q
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID:_____wD3X+qkMghrAivcLA--.44539S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7Kry3Zw43Cr1xZrWDCw47CFg_yoW8JFyfpF
+	W7C347Xrn2yryxGw1DuF4rZ345Cay0qr4q9w1fX3sxWr4kA3Wjyrs09FW5ua4YkrWUJr90
+	yr4xAry3ZFn8X3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07Up7K3UUUUU=
+X-CM-SenderInfo: xixzxiqrsqqiywtou0bp/xtbC7gaSMmsIMqbB-AAA3C
 
-CkhpLAoKQXQgMjAyNi0xMS0yNiAxOTozMjo0NSwgbmV0ZGV2LWJvdCtzaW5mb0BrZXJuZWwub3Jn
-IHdyb3RlOgo+Cj5UaGlzIGlzIGFuIGF1dG9tYXRlZCBtZXNzYWdlLiBUaGlzIHNlcmllcyBsb29r
-cyBsaWtlIGEgZml4LCBidXQgaXRzCj5jb21taXQgbWVzc2FnZXMgc2VlbSB0byBiZSBtaXNzaW5n
-IHNvbWUgaW5mb3JtYXRpb246CgpUaGUgaXNzdWUgd2FzIGRpc2NvdmVyZWQgdXNpbmcgYSBzdGF0
-aWMgYW5hbHlzaXMgdG9vbCB0aGF0IEkgZGV2ZWxvcGVkLgpJIGhhdmUgbm90IHRyaWdnZXJlZCBv
-ciByZXByb2R1Y2VkIGl0IGF0IHJ1bnRpbWUsIHNvIEkgZG8gbm90IGhhdmUKcnVudGltZSBsb2dz
-IG9yIGEgc3RhY2sgdHJhY2UgZGVtb25zdHJhdGluZyB0aGUgaXNzdWUuCgpUaGUgcGF0Y2ggcGFz
-c2VkIGNvbXBpbGF0aW9uIHRlc3RpbmcuIAoKVGhhbmtzLg==
+If xa_store() fails, the entry recalc_cs_ft has not been stored in
+XArray. Therefore dr_domain_uninit_csum_recalc_fts() would not destroy
+this entry. Just call mlx5dr_fw_destroy_recalc_cs_ft if xa_store() fails.
+
+Found it by a self-developed static analysis tool and compile-test passed.
+
+Fixes: c0e90fc2ccaa ("net/mlx5: DR, Support csum recalculation flow table on SFs")
+Signed-off-by: Wanhui Fu <fuwh1120@163.com>
+---
+ .../net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c  | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
+index fedefb565a21..3747c217b61c 100644
+--- a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
++++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
+@@ -87,8 +87,10 @@ int mlx5dr_domain_get_recalc_cs_ft_addr(struct mlx5dr_domain *dmn,
+ 
+ 		ret = xa_err(xa_store(&dmn->csum_fts_xa, vport_num,
+ 				      recalc_cs_ft, GFP_KERNEL));
+-		if (ret)
++		if (ret) {
++			mlx5dr_fw_destroy_recalc_cs_ft(dmn, recalc_cs_ft);
+ 			return ret;
++		}
+ 	}
+ 
+ 	*rx_icm_addr = recalc_cs_ft->rx_icm_addr;
+-- 
+2.25.1
+
