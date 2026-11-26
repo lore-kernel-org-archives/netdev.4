@@ -1,72 +1,75 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.69
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=111.22.67.137
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795661345;
-	b=NJrxEVTN6soejik5KqQfkt+RKQmO0T3w+sa8f3yz3dI0YAGNJKuijXp/UD54BkVO0AAM
-	 t4jTWHRqPYicGJ8uWIFLu+sHo8+CCFrcdBXtYVAd2asAdcUxNcNW8Us/OKg19hd+74lSD
-	 bB1hAarvRNb0pFVWvP5n28novqCuM+gG5ZMbbETbmffQkjA18ujOszd9LbfASKqPx+unO
-	 1J9khmqpw+8z/sCLVS3rWZRjh4U20Kn3wGHql2X98EishHMehGr13JyIGamg9/49jeGP6
-	 9M38apk0oF2QuAiz7HWYrXb6FCln1hKwuHVLt6sIgUxQy5zrU8fyBSkQQfyx/Ub+DlQ==
+	t=1795661453;
+	b=qsM+LV4j/FL/HalPZrJzJHdYm9psP6Ud9eCxTxUxrbOAS53A+0adq14k8t6u1mgpL898
+	 xMWr56hn/CQQPyXc6CUNyrCsZyYuPtRqsz1JT1ls9rY5jcdERs8Pehd3M4xSKKN2nR3PI
+	 F8nKWYSZwwE73DdvevW+fLJLcm6O2UCIZYFG7+WL0ivwHBLhXTlGbEi6n9Sh6pbmH67gn
+	 I1Hecvl67Ah26v9f/i6/v4t9rvfk0OzLy+DxZFxHqTN1O1aaXxEVyL9/8yqLlWZBKgYLw
+	 2PtmsHl0oUHH8ZXx00nEf1DIssxymnLZQLTrWphp8EBcaZsPepP92JXcw4trxujb6zw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795661345;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Received:Date:Mime-Version:X-Mailer:Message-ID:
-	 Subject:From:To:Cc:Content-Type;
-	bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
-	b=5Bi1KrNHDU1jhUKFGV+3DjVdAJ9PRYWdRxFZjO/aJEyvBkZdfeZYK367KaPSQxKBj97m
-	 tcvPIKktbSKcAdXXAjTNDOxQfgWs9cNOls7uxfsRUQ0AW+oKQwrFm0AeZLaLhwFhKncf9
-	 xDFJ2ZpRqR9XNvbXYMW1hukD9IcGHT/Fa11/VV9Y+sDuPrnc1sJEa5+tMHtzE70gPyBFr
-	 jywAblxlnksNynk5CiB9G4H0aZ5Xww/wBJ0wgulsRI0KGDZ9ijilsDo+/3zB2nN98Yw61
-	 1GavGdNKgtXUCJhi7+6iIvTEd8wuEVQ+Tg8SqDLhz2dtkqyBJRd4j+axFdcrkx7uRiA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795661453;
+	h=DMARC-Filter:DKIM-Signature:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:
+	 X-RM-TRANSID:X-RM-TagInfo:X-RM-SPAM-FLAG:Received:X-RM-TRANSID:From:
+	 To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=o1MZcE24GU7E92J7de/D9mQ78QO/ZOjzQpgJg+tcA9I=;
+	b=UHWf0JrO3GFAbXANpObWXMQ0ojyTTphoGGxpPvSpdPUYsCzkyAIbUTZXYpP08BbUZd2o
+	 WPv7RLMtSLzUmJCmjI9i/gnpvYl9JdrvuZxaY+kEx73N/A8DPwJbUxh4qdv+AYelsmAZB
+	 vKKg8AIU/ecihSZ/TZsZbl20x7HM4/qof2uk9QhLwLHdzlxjOdmWffq2rBzhn4G4tIcjV
+	 aqj/TpmxEIYiTkU0Pd6lvwUskh6S6TgE9LvDu2Ep5NPPTM7iJ2LKK6xBt8klZMzS+jWRR
+	 2WTx5CgEBaahgm4RghOSylyxYu5Vz21DRzpZzZp/0Y9oEsUAQocYpyoo0zvNp0MkxEw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=google.com;
-	spf=pass smtp.mailfrom=flex--sammc.bounces.google.com;
-	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=arR7VQp5;
-	arc=none smtp.remote-ip=209.85.210.69
-Received: from mail-ot1-f69.google.com (mail-ot1-f69.google.com [209.85.210.69])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C17606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:49:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F2C17606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--sammc.bounces.google.com
+	dmarc=pass header.from=cmss.chinamobile.com;
+	spf=pass smtp.mailfrom=cmss.chinamobile.com;
+	dkim=pass header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=l0g4cwRT;
+	arc=none smtp.remote-ip=111.22.67.137
+Received: from cmccmta4.chinamobile.com (cmccmta4.chinamobile.com [111.22.67.137])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id A2B3A606A321;
+	Thu, 26 Nov 2026 02:50:50 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A2B3A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=cmss.chinamobile.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=cmss.chinamobile.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=arR7VQp5
-Received: by mail-ot1-f69.google.com with SMTP id 46e09a7af769-86287b38a31so6309818a34.3
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:49:04 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=cmss.chinamobile.com header.i=@cmss.chinamobile.com header.a=rsa-sha256 header.s=default header.b=l0g4cwRT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20260707; t=1795661344; x=1796266144; darn=vger.kernel.org;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
-        b=arR7VQp5azQ5b6hju7KGOB7V6ClhAWrxmzkeZ9IITkugl3PI4ByVVbrEF24yrUH6fq
-         gstOjY2waspQjNey/GwSzVvsbUD8T9q0ayX5K5WnkH4zzjCUJo+LZRJkh+zDtjaGXbWw
-         TAcav06zp001mulhD7+tfyaBOeOHbson4ER5X/8Xx1CoPru8vXL3l7QNrQ7gUL8ZZHk+
-         MOZuG4KI+DGoggDorzMITDtQ+nE2R+sRQAVwVp2EdzbMgkMWrNMntgreFThfMJaBiFhG
-         v8Tjt5AnyQDc1chclyBragsg/fIiGQkeNe7gXMu3ppDBPCq56yRl3/J4e/Z4jPOiZeg4
-         W5Mg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795661344; x=1796266144;
-        h=content-type:cc:to:from:subject:message-id:mime-version:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=S5Xf0dq7djJOyag1DG5P/5wzKwC4wT62MOh8WMXjPgs=;
-        b=UtEXBoKT6AdmZMHTEuCxNTGxioGhC+yfXS6yV0b2UcI3rab6ewDMEf5i+43wIKjYIK
-         qtKw2MMMerOU1BYbdBCaxXVbgAd+u7PICNcw2KOeENLogFzg3tzYn+yV5/JTrARbUad3
-         Lr4uGFWS52J49wcS8OfUgn+3XN7EhEjn2JbJ1GEetEef7AA3HPT+lzGEOtuSw54OaLwx
-         UaH/I0BOCYevNgu8rBpOFB/TryhAsYBKenu3305qbQoKwagN5REopogxYLGyKceyxRKV
-         GFE0+y+SxKZHZVQMBprvoJJ12sUJl7sYLEJv9NHXjn2a7RVT2MbmaHZZZNu6h9ZQlhb8
-         gVJA==
-X-Gm-Message-State: APuU4Z84YtZaTH+ky52f7IgO7Q+sXYmroq/oLgOM8unYAdpvIcitduje
-	UQyBgit34lKBk+2Wt8dnTlIbxXh9Xf75qJ7xFpyRdU0mXHs0bWTTmZM63vL+clcidC0G64lg2Fg
-	wLlOkHPwV7lbFmRJGlmMS3ZwMRU6ymAj66EgP4iQVlzUy3oLnmXrJ8xOf1uL3MZg+QMQDH19mxV
-	GPNL2c29JzIDfA903rT2CibVUpEekrdSw=
-X-Received: from ilqh16.prod.google.com ([2002:a92:d850:0:b0:54f:e3ff:ca5f])
- (user=sammc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6808:6615:b0:573:d802:fc1
- with SMTP id 5614622812f47-57a0a70c27bmr21744377b6e.30.1795661343537; Wed, 25
- Nov 2026 18:49:03 -0800 (PST)
-Date: Thu, 26 Nov 2026 13:48:58 +1100
+	d=cmss.chinamobile.com; s=default; l=0;
+	h=from:subject:message-id:to:cc:mime-version;
+	bh=47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=;
+	b=l0g4cwRTSHt2HkTeqiH5vRF0HMmbb1at6882iDH7uL5jR9knUIMZcyIaiDWYW4bI3tr+t3scFEam3
+	 taxw2yTnRta+XmX92Csb8OxEMEQprfiCGzNeHsE8GZ+Jfyp2oCU9hnu4WWYAzy3FPmspXkZdNKm+jG
+	 /KLJx2QqLrXzH9ug=
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from spf.mail.chinamobile.com (unknown[10.188.0.87])
+	by rmmx-syy-dmz-app08-12008 (RichMail) with SMTP id 2ee86b079e84458-f6eb9;
+	Thu, 26 Nov 2026 10:50:48 +0800 (CST)
+X-RM-TRANSID:2ee86b079e84458-f6eb9
+X-RM-TagInfo: emlType=0                                       
+X-RM-SPAM-FLAG:00000000
+Received:from  (unknown[104.224.130.48])
+	by rmsmtp-syy-appsvr08-12008 (RichMail) with SMTP id 2ee86b079e693eb-59c2e;
+	Thu, 26 Nov 2026 10:50:48 +0800 (CST)
+X-RM-TRANSID:2ee86b079e693eb-59c2e
+From: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
+To: netdev@vger.kernel.org
+Cc: David Ahern <dsahern@kernel.org>,
+	Ido Schimmel <idosch@nvidia.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Alice Mikityanska <alice.kernel@fastmail.im>,
+	Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>,
+	linux-kselftest@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v2 2/6] gre: Enable BIG TCP packets
+Date: Wed, 25 Nov 2026 18:50:11 -0800
+Message-ID: <20261126025015.10416-3-yanhaishuang@cmss.chinamobile.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
+References: <20261126025015.10416-1-yanhaishuang@cmss.chinamobile.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,67 +78,64 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-Mime-Version: 1.0
-X-Mailer: git-send-email 2.56.1.911.g883d8bcb20-goog
-Message-ID: <20261126024858.4013811-1-sammc@google.com>
-Subject: [PATCH net-next] ipv4: route: do not allocate unreachable dst for
- non-IP packets
-From: Sam McNally <sammc@google.com>
-To: netdev@vger.kernel.org, "David S. Miller" <davem@davemloft.net>, 
-	David Ahern <dsahern@kernel.org>, Eric Dumazet <edumazet@google.com>, 
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>
-Cc: linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 
-When ip_route_input_slow() reaches no_route: (from a missing FIB entry
-or !IN_DEV_FORWARD(in_dev) for a non-local target), falling through to
-local_input: allocates an uncached RTN_UNREACHABLE rtable
-(dst.input = ip_error), increments in_slow_tot, inserts it into
-rt_uncached_list under spin_lock_bh(), and attaches it via
-skb_dst_set().
+Commit f3d0f753f066 ("vxlan: Enable BIG TCP packets") and
+commit 03ebe91b0f61 ("geneve: Enable BIG TCP packets") allowed BIG TCP
+on UDP tunnels. gre and gretap can carry BIG TCP packets as well: the
+outer IPv4 header gets its total length from iph_set_totlen() on output,
+the GRE header has no length field, the GSO and GRO paths already handle
+IPv4 BIG TCP, and FOU and GUE encapsulation set the UDP length with
+udp_set_len() since commit 47282504ad21 ("udp: Support BIG TCP GSO
+packets where they can occur").
 
-Non-IPv4 callers such as arp_process() never invoke dst_input(skb) to
-send ICMP errors; they ignore RTN_UNREACHABLE and release the dst in
-consume_skb(), unlinking it from rt_uncached_list under spin_lock_bh()
-and queuing dst_destroy_rcu() via call_rcu_hurry(), which wakes RCU
-kthreads immediately since
-commit 483c26ff63f4 ("net: Use call_rcu_hurry() for dst_release()").
+Bump tso_max_size up to GSO_MAX_SIZE so that the admin can use BIG TCP
+with gre and gretap. erspan is left alone. The default gso_max_size and
+gso_ipv4_max_size stay at 64KB, so nothing changes unless they are
+raised explicitly.
 
-Return SKB_DROP_REASON_INVALID_PROTO at no_route: when skb->protocol !=
-htons(ETH_P_IP), matching brd_input: and ip_mc_validate_source(), while
-preserving ip_route_input_noref() rp_filter source validation when tip
-is RTN_LOCAL.
+iperf3 TCP over gre and gretap between two netns connected by veth,
+without encapsulation, 3 runs of 10 seconds each, in a KVM guest with 8
+vCPUs on an Intel Core i7-14700 host:
 
-Observed during idle power testing on CONFIG_RCU_LAZY=y systems, where
-background broadcast ARP traffic with IPv4 forwarding disabled
-repeatedly woke RCU kthreads. Tested on x86_64 and arm64 under
-synthetic broadcast ARP load (~45 ARPs/s) and live /16 network traffic
-(~20-40 ARPs/s): live in_slow_tot dropped by >95% and 60s idle
-rcu_preempt wakeups fell by ~70% on arm64 and ~75-88% on x86_64,
-raising x86_64 package C10 residency from 62.5% to 84.6% and saving
-~100-250 mW of SoC package power. An AI coding assistant was used to
-help analyze the code path and draft the patch and changelog.
+  gre,    65536:   92.9,  94.2,  93.0 Gbit/s
+  gre,    196608: 130.6, 128.6, 123.3 Gbit/s (+37%)
+  gretap, 65536:  105.5, 106.6, 106.6 Gbit/s
+  gretap, 196608: 124.7, 129.7, 127.5 Gbit/s (+20%)
 
-Signed-off-by: Sam McNally <sammc@google.com>
+A later patch in this series extends big_tcp_tunnels.sh to cover gre and
+gretap with IPv4 and IPv6 traffic, without encapsulation, and with FOU
+and GUE.
+
+Reviewed-by: Alice Mikityanska <alice.kernel@fastmail.im>
+Signed-off-by: Haishuang Yan <yanhaishuang@cmss.chinamobile.com>
 ---
- net/ipv4/route.c | 4 ++++
- 1 file changed, 4 insertions(+)
+ net/ipv4/ip_gre.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/net/ipv4/route.c b/net/ipv4/route.c
-index 11d990703d31..1f1b09b4ac8d 100644
---- a/net/ipv4/route.c
-+++ b/net/ipv4/route.c
-@@ -2463,6 +2463,10 @@ ip_route_input_slow(struct sk_buff *skb, __be32 daddr, __be32 saddr,
+diff --git a/net/ipv4/ip_gre.c b/net/ipv4/ip_gre.c
+index f8a7c435350..41ec54dcbfd 100644
+--- a/net/ipv4/ip_gre.c
++++ b/net/ipv4/ip_gre.c
+@@ -1007,6 +1007,7 @@ static void ipgre_tunnel_setup(struct net_device *dev)
+ {
+ 	dev->netdev_ops		= &ipgre_netdev_ops;
+ 	dev->type		= ARPHRD_IPGRE;
++	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+ 	ip_tunnel_setup(dev, ipgre_net_id);
+ }
  
- no_route:
- 	RT_CACHE_STAT_INC(in_no_route);
-+	if (skb->protocol != htons(ETH_P_IP)) {
-+		reason = SKB_DROP_REASON_INVALID_PROTO;
-+		goto out;
-+	}
- 	res->type = RTN_UNREACHABLE;
- 	res->fi = NULL;
- 	res->table = NULL;
+@@ -1394,6 +1395,7 @@ static void ipgre_tap_setup(struct net_device *dev)
+ 	dev->netdev_ops	= &gre_tap_netdev_ops;
+ 	dev->priv_flags &= ~IFF_TX_SKB_SHARING;
+ 	dev->priv_flags	|= IFF_LIVE_ADDR_CHANGE;
++	netif_set_tso_max_size(dev, GSO_MAX_SIZE);
+ 	ip_tunnel_setup(dev, gre_tap_net_id);
+ }
+ 
 -- 
-2.56.1.911.g883d8bcb20-goog
+2.43.0
+
+
 
