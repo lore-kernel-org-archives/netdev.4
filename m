@@ -1,58 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=113.46.200.217
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795678145;
-	b=vPyKSjHgCmXCFMNRmmAnyssWck80BlDAbhjsFP7hBPNl/T4fUlluhHIMFYp2Oo5gpB8G
-	 SRIYRWN3CwFGZC0IzIXqyU7uP8pwL9gSftd/WPZ38YitcbPddySHv5ne8Pozgg6W/IiTg
-	 qa9IFllJQEHdK4TJiHdcRc/OzoMaNWUQnXeXxSzv/NaXmx2lkfYsZZm8BIDv/rNypJlzr
-	 Mb609+BrS4AM+KTElVmKgf5LCH0M/yr14zHjx3bgKPqyWh95Oh8C8kd5/mH6VkpEPsKwd
-	 cXuKIMNpnt4unFWAOplyYPAxwbyFo517LHyKtWdvwcBG6vuLwiC6E/2orgmRWTIa37Q==
+	t=1795678166;
+	b=OkeBohRYo09vD6hARoapoihZFHe0Gw09JVvJ7ffGk93rhdkojQ/7o5izMIjiRSQpDIDo
+	 /X603B8QOM/UxXB9mQIf3jTeqiSzBLPK9xVbO2ox6Px2o1UJo87kaNl1SDmyOcLdELNDn
+	 FGH7ktqDRaoIAbvT3Maesm9wc+WUiub7mrT5m0SGxdFe9T2nUoUiWpxAvCh19nSth0RLY
+	 vVHFfqAu+UsO58NXENdjTkxJezlAAlBTg9z+D8YzjUIn9SRpfU/zwPFRTeZSCw01z9EFN
+	 1gLC66cNvjOyRlwhDEq5UewHkn+tvMop70PNHUyKeyWpfpxffqXiv1V29mTyABBBeeg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795678145;
-	h=DMARC-Filter:dkim-signature:Received:Received:Received:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:CC:References:
-	 Content-Language:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:X-Originating-IP:X-ClientProxiedBy;
-	bh=Slqoilb3q4EZlN+z4xYKdNmmkHqZq4WOd9FM1kAt4Fg=;
-	b=n0E64yrkKh5o2WrD7gEFjkmgnyfA3XurPFP7/LC65fhs9c7CCAw/9d96qifFPncWozjC
-	 QBvjS00QpkyVQcPkzxo5skWl9x5u7Pmg7TtlaiP5oYBUiVyK/wngh95Ib/pC6ouM7muae
-	 GYpIjjaeXSAeQUhOFn/NlbcX3Cp9Oam4nhnoVWVOWktZ/lRxtZbUpgI8dCCVenPB5CLor
-	 reNM3a6TN+Zcd6vJf+uoY3uJa+i8fBPhdqvgKPMWh0mmaSoRdtoW9Zs4xJ5cVUDQasSCl
-	 QpZV0QnHSFnIt4jDwbFNxDqfokW8MlsxO1G2h2jz3e13Ni4+V4SyHSFyNRxLZdCqg+A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795678166;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 In-Reply-To:References:MIME-Version:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=xDKtb53WKmS6drwILREpafailbq/5rEf/8BZgYqOl/A=;
+	b=znfC5koOWCoYb60J+0gGzCcc/jFZGRm87JslqDppLhY2QfMS2hQWj+OG+CkRBE+m/ThD
+	 TjRyEJAcV7kjIKjqZyNf2UgK4UHOlTQpw/oxvFFh0Lrp5/iCvGKye8QPrs6GcEb3VXUPj
+	 +n3eSCsRMnLsRtHcZKv6kh2Cc4hMxKIm+uU4zp6cB8kGd5i5AynLhDlKV4RNzBF6hjndT
+	 FRmhWC2zbce93BJAHeWNlSckQ/QW4fgj415vkGup/TLuTQfPJC5RF6NoQDrYqqGRMXStc
+	 P/hQyLyiWBiNSY6eEGAFG09TeFJ0HDtMpfvMDuIjk5mgUo6HUvE6XBND3UOFNVndgpw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=huawei.com;
-	spf=pass smtp.mailfrom=huawei.com;
-	dkim=pass header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WQzCgywY;
-	arc=none smtp.remote-ip=113.46.200.217
-Received: from canpmsgout02.his.huawei.com (canpmsgout02.his.huawei.com [113.46.200.217])
+	dmarc=none header.from=datenfreihafen.org;
+	spf=pass smtp.mailfrom=datenfreihafen.org;
+	arc=none smtp.remote-ip=78.47.171.185
+Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8667E606A32E;
-	Thu, 26 Nov 2026 07:29:02 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 8667E606A32E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=huawei.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=huawei.com
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key, unprotected) header.d=huawei.com header.i=@huawei.com header.a=rsa-sha256 header.s=dkim header.b=WQzCgywY
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Slqoilb3q4EZlN+z4xYKdNmmkHqZq4WOd9FM1kAt4Fg=;
-	b=WQzCgywYA/jx6AJHyEgRsMgSaAlyZ/nzSD3+3nwX7MqZFA21JxotVD2GhoHuFlFI6u+ZUA6Ae
-	OgkRwGzlH0WEfMYxUhls2EbFvW0+SdxNkN++ZtZAqSXv13N7p0B6aaFJz7zP1W6O2QenR4eCYSl
-	Xfp0JSNTB+wisVfnPZBYndM=
-Received: from mail.maildlp.com (unknown [172.19.162.197])
-	by canpmsgout02.his.huawei.com (SkyGuard) with ESMTPS id 4jZp6X0mvrzcZxr;
-	Thu, 26 Nov 2026 15:27:48 +0800 (CST)
-Received: from whupemp200008.china.huawei.com (unknown [7.152.184.21])
-	by mail.maildlp.com (Postfix) with ESMTPS id 3970540579;
-	Thu, 26 Nov 2026 15:28:55 +0800 (CST)
-Received: from [10.174.176.113] (10.174.176.113) by
- whupemp200008.china.huawei.com (7.152.184.21) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.45; Thu, 26 Nov 2026 15:28:53 +0800
-Message-ID: <6cde295b-4c7b-4878-8fda-3732a2ff7c7d@huawei.com>
-Date: Thu, 26 Nov 2026 15:28:52 +0800
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5534F606A31C;
+	Thu, 26 Nov 2026 07:29:26 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5534F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: stefan@sostec.de)
+	by proxima.lasnet.de (Postfix) with ESMTPSA id 86812C0270;
+	Thu, 26 Nov 2026 08:29:24 +0100 (CET)
+From: Stefan Schmidt <stefan@datenfreihafen.org>
+To: Alexander Aring <alex.aring@gmail.com>,
+	Miquel Raynal <miquel.raynal@bootlin.com>,
+	Adriano Cordova <adrianox@gmail.com>
+Cc: Stefan Schmidt <stefan@datenfreihafen.org>,
+	linux-wpan@vger.kernel.org,
+	netdev@vger.kernel.org
+Subject: Re: [PATCH v2] ieee802154: register a device type for the wpan dev
+Date: Thu, 26 Nov 2026 08:29:17 +0100
+Message-ID: <179567814824.1873149.12087212260540181458.b4-ty@datenfreihafen.org>
+X-Mailer: git-send-email 2.56.1
+In-Reply-To: <20260908203533.102378-1-adrianox@gmail.com>
+References: <20260908203533.102378-1-adrianox@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,159 +59,23 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net 0/3] bonding: ignore updelay when no active links for
- broadcast mode
-To: Hangbin Liu <hangbin.liu@linux.dev>, Jay Vosburgh <jv@jvosburgh.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
- Abeni <pabeni@redhat.com>, Tonghao Zhang <tonghao@bamaicloud.com>, Nikolay
- Aleksandrov <razor@blackwall.org>, Shuah Khan <shuah@kernel.org>
-CC: <netdev@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<linux-kselftest@vger.kernel.org>
-References: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
-Content-Language: en-US
-From: "jiangjiehua (A)" <jiangjiehua1@huawei.com>
-In-Reply-To: <20261126-bond_broadcast_updelay-v1-0-188e5538d6ca@kylinos.cn>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- whupemp200008.china.huawei.com (7.152.184.21)
 
-Hi Hangbin,
+Hello Adriano Cordova.
 
-On 11/26/2026 10:30 AM, Hangbin Liu wrote:
-> This patchset fixes updelay handling for bonding broadcast mode (mode 3)
-> to align with bonding documentation section 13.1 paragraph 4: when a
-> bond has no active links, the first link that comes up must be reused
-> immediately even if updelay is configured; when usable links exist,
-> updelay must be honored.
+On Tue, 08 Sep 2026 17:35:33 -0300, Adriano Cordova wrote:
+> cfg802154 never assigns a device type to wpan interfaces, so their
+> netdev uevent carries no DEVTYPE key. Mirror cfg80211, which calls
+> SET_NETDEV_DEVTYPE() from a NETDEV_POST_INIT case, and set a new
+> wpan_dev_type so the device is typed DEVTYPE=wpan.
 > 
-> Commit 45fc134bcfad ("bonding: do not set usable_slaves for broadcast
-> mode") tried to fix the second half of that rule by never updating
-> usable_slaves in broadcast mode. That made ignore_updelay permanently
-> false, so updelay was always applied and a broadcast bond with no
-> active links could not recover within the miimon window when one usable
-> slave up.
 > 
-> We revert 45fc134bcfad to restore the enslave/release side of the
-> usable_slaves updates, and add the missing bond_miimon_link_change()
-> case so the snapshot also tracks link-state transitions. Both halves
-> are needed:
-> 
->    - revert alone: the snapshot is only rebuilt on enslave/release, so
->      batch enslave with updelay (new slaves start in BOND_LINK_BACK)
->      leaves count == 0 forever and updelay is never honored, even once
->      other slaves are usable;
->    - link_change case alone: with 45fc134bcfad applied,
->      bond_set_slave_arr() discards the refreshed array for broadcast.
-> 
-> A selftest is added to cover mode 3; the existing mode 1 and mode 2
-> recovery-updelay tests are merged into a single script covering
-> modes 1, 2 and 3.
-> 
-> Before revert 45fc134bcfad:
->    TEST: mode (3) bond recovery                               [FAIL]
->            No connectivity
->    TEST: mode (3) bond recovery                               [FAIL]
->            No connectivity
->    TEST: mode (3) bond recovery                               [FAIL]
->            No connectivity
-> 
-> After revert 45fc134bcfad:
->    TEST: mode (3) bond recovery                               [ OK ]
->    TEST: mode (3) bond recovery                               [ OK ]
->    TEST: mode (3) bond recovery                               [ OK ]
-> 
-> For the second patch, I use test script
->    ```
->    ip link add veth0 type veth peer name veth0p
->    ip link add veth1 type veth peer name veth1p
->    ip link set veth0p up
->    ip link set veth1p up
->    ip link add bond0 type bond mode broadcast miimon 100 updelay 1000
->    ip link set veth0 down
->    ip link set veth1 down
->    ip link set veth0 master bond0 && ip link set veth1 master bond0
->    ip link set bond0 up
->    sleep 2
->    dmesg -C
-> 
->    # Test A — bullet 1: batch enslave, snapshot stuck at count == 0,
->    # updelay never honored
->    ip link set veth0p down
->    sleep 2
->    ip link set veth0p up
->    sleep 1
->    dmesg | tail -n 5
-> 
->    # Test B — bullet 2: stale non-empty snapshot, recovery delayed with
->    # zero usable links
->    ip link set veth0 nomaster
->    ip link set veth1 nomaster
->    ip link set veth0 master bond0
->    sleep 2 # wait veth0 up
->    ip link set veth1 master bond0
->    sleep 2 # veth1 comes up after its own updelay; snapshot stays
->    # drop both links (bond has zero usable links after this)
->    ip link set veth0p down
->    ip link set veth1p down
->    sleep 2
->    ip link set veth0p up
->    sleep 2
->    dmesg | tail -n 5
->    ```
-> 
-> With revert only:
-> Test A:
-> [   13.190593] bond0: (slave veth0): link status definitely down, disabling slave
-> [   15.165875] bond0: (slave veth0): link status up, enabling it in 0 ms
-> [   15.165919] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
-> Test B:
-> [   20.366724] bond0: (slave veth1): link status definitely down, disabling slave
-> [   20.366957] bond0: now running without any active interface!
-> [   22.341960] bond0: (slave veth0): link status up, enabling it in 1000 ms
-> [   23.382194] bond0: (slave veth0): link status definitely up, 10000 Mbps full duplex
-> [   23.382428] bond0: active interface up!
-> 
-> With the second patch
-> Test A:
-> [    6.208526] bond0: (slave veth0): link status definitely down, disabling slave
-> [    8.184359] bond0: (slave veth0): link status up, enabling it in 1000 ms
-> Test B:
-> [   13.384852] bond0: (slave veth1): link status definitely down, disabling slave
-> [   13.385093] bond0: now running without any active interface!
-> [   15.360849] bond0: (slave veth0): link status up, enabling it in 0 ms
-> 
-> We can see when there is active slave, the second slave follow the
-> updelay rule (Test A). When there is no active slave, the first up
-> slave will be in use immediately (Test B).
-> 
-> Signed-off-by: Hangbin Liu <liuhangbin@kylinos.cn>
-> ---
-> Hangbin Liu (3):
->        Revert "bonding: do not set usable_slaves for broadcast mode"
->        bonding: update slave array on link change for broadcast mode
->        selftests: bonding: add recovery updelay test for broadcast mode
-> 
->   drivers/net/bonding/bond_main.c                    | 14 +++----
->   .../testing/selftests/drivers/net/bonding/Makefile |  3 +-
->   .../drivers/net/bonding/mode-2-recovery-updelay.sh | 45 ----------------------
->   ...e-1-recovery-updelay.sh => recovery-updelay.sh} | 13 +++----
->   4 files changed, 12 insertions(+), 63 deletions(-)
-> ---
-> base-commit: 1ab3fb564f20b78615a6d88b8c90da292f29e227
-> change-id: 20261126-bond_broadcast_updelay-cc4cfb6e0e37
-> 
-> Best regards,
-> --
-> Hangbin Liu <liuhangbin@kylinos.cn>
 
-Tested on v7.4-rc4 in a virtme-ng guest. Ran recovery-updelay.sh (21/21 
-OK) and the cover-letter Test A/B; both match the expected updelay behavior.
+Applied to wpan/wpan.git, thanks!
 
-Tested-by: JiangJieHua <jiangjiehua1@huawei.com>
+[1/1] ieee802154: register a device type for the wpan dev
+      https://git.kernel.org/wpan/wpan/c/1e277fce233c
 
-Thanks,
-Jiehua
-
+regards,
+Stefan Schmidt
