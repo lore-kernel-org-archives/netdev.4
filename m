@@ -1,101 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.229.7
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.215.179
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683806;
-	b=JYVOw19wIrirrnMCwLsnCna1wxZRhvHCocmkS7ns6Ku1PAstlA0ZonG9emqG/GPpo8r2
-	 kdLvF9IIxNNanZk0fCfnrpMEKQrmY9zfc8VD43umIqECpDWLBDJn8XOJPY2mv7f+0JP9G
-	 BEe4KtIdEdEriBw6EJggWYSrJwHrTGWOw0n6fwZUBOznQzTmBzQKb1yaGcNMll7fwvQ7K
-	 eFhBkZUccQQXmQ1hRLEtY6sz8ze6OqE7Tec2xnuFp3Qy24ugvTGGUQUYsHvE6HqSbNhvV
-	 I4d39+AUk5dj+vnWI8ZhMwg+VTGx7oRvpgj1xKeTvJ4aYZCxS/lUZnJatLV1lWgDz0g==
+	t=1795683895;
+	b=dMZAtFCZq+lKVe+wZ8B4TfcH51qpHAqRH3QZ6s/C78j4nlIRqEPkx+wNGSuaxiUg8iI2
+	 eu4p4rZbKd8kLk1UrdLIc0Bn312BCHXF5mJpHslnVS5Dfe+aYnNzxiWuo2sohFEITaE/c
+	 ntrpxIR9SUg8MXh0FFe2xfbvWmzBsIajpNob+/WueJB3MqNXa86doGNaK9MwixgVegtWS
+	 pfIFtovzRafpYobHlr14e/+cK/YeSRmbiD6uRT7Xih12EtveA9+y8PjwP4HtMKI/hyV5F
+	 dBlvrLY4yksIZB5LIDk1Ni0US6bHNYgLL0IhCHrQpwsefVCLUgwbmCu6VK6F4WozNlw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683806;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683895;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=k0DNiUp5NyvW/4XUsg9FRZJVc/nhkiHumSk1tHXzyqo=;
-	b=pk+y2CDM0EZUgHSteLGLA/xVoZxrtcOwphClyXmI96c9oKZoJSeEP+0yzCI0KP1ushsW
-	 MMc1/6VZeSfvzFMTtSGNUFfLBdxGYmO/y3SNQ5atTvzEageVh9HBosLk+udIWpM6RlU54
-	 OjpyAYZb/Jie0XyG1wIfGufj5XNKu8RuZXDP4oX6FOF3ceGjDlpT8kDH6hGKItx6FqF9d
-	 CiSHFUKgMA1sH+XdR1l2A83vVjI2XXItT0qU4Ac6uwC6XDfg1S5sURIrUFNMsVMrhgUjw
-	 6N+ZJ+C78nF8dwHnRV+6kiu0c6dmUqKsI2N+TzX79Vq3/IaC0cWAcU/rDv/HQjxc09w==
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=VEs+YZJzt/o7CjJ+sXfJQxCthvzGYvQWjs/NnqxO/2M=;
+	b=rBpLTvGUloQ99ZUceBdIGachIX3k0X4OzwgZnoCIZ6+ccCdqbjDULhBfQQMaslFKgBLa
+	 Q2fBKo4pSECcgCeQgXbZ9MCMMvBUikZxW1LqRpjwST6Lc50o2PcM/9cKkI13Gyxe8kSBj
+	 WzCsbnGv8WteFKIgBK10CWEOAaPbz3Fj8Xy2HP5tNCM/7t4zp2FYWbRAax4nwDmmbdqqu
+	 PdDDjsoZWQ4E+HnBTxc5CZ8AHIypfnVjUvRswY4ksEhJUuPuTKlUAaYNhgsjtMR9JxfhG
+	 N8tDHytjULAeE4snYk5WbkB5n/ZKe55bcLTVBSVHp+LrUe5etBB3lAURkCzS5RWaHqg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=gmail.com;
 	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YmjVwlmk;
-	arc=none smtp.remote-ip=74.125.229.7
-Received: from mail-dy2-f7.google.com (mail-dy2-f7.google.com [74.125.229.7])
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ltBR6wqb;
+	arc=none smtp.remote-ip=209.85.215.179
+Received: from mail-pg1-f179.google.com (mail-pg1-f179.google.com [209.85.215.179])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id E8A98606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:03:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org E8A98606A31C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5EBD5606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:04:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5EBD5606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YmjVwlmk
-Received: by mail-dy2-f7.google.com with SMTP id 5a478bee46e88-33e5ae86ff2so1724903eec.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:03:25 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=ltBR6wqb
+Received: by mail-pg1-f179.google.com with SMTP id 41be03b00d2f7-cdddc79a4afso2854159a12.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:04:55 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795683805; x=1796288605; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795683895; x=1796288695; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=k0DNiUp5NyvW/4XUsg9FRZJVc/nhkiHumSk1tHXzyqo=;
-        b=YmjVwlmkJBvguOYJQ3CQlD0nNvWYdJ8p6VLHuvbpG+Cpdnn+XxYWkB0I9cAXk5oTW2
-         O7Y/lkn+tpyJOUuYWB4SFQJumAd+SaKwVjdKrdGujdOS85419t+/3CF6/BP8jg1FAfrw
-         F8+pSWh9vcpox1XrhvxJi+h+gtFkNtiG1QTjYLYn9oRgyHjGOS73metccjgNnNrfT/Kr
-         VL84jeCFAqWeUpsKwKaL12LPDsCoucISPAEHVG1equIm5042uTBwrLC0QhZeVqDrF5jd
-         hOg+Gzprz7yTVt4jwMxg8px84pSR0WsMP4zaq0d51dfKqKdOMMkpMyIipAqmFARcuboE
-         zxqQ==
+        bh=VEs+YZJzt/o7CjJ+sXfJQxCthvzGYvQWjs/NnqxO/2M=;
+        b=ltBR6wqbzGlhabpJczNJYZ9rc51JA8K/W031h305jxus5mg8WVwFt+EoQiYmLlcWCN
+         Eec7tVut1bWMIalnko5tm8YAHP1HdWfw/pnk4NVzyC3NI88ilcCeWRG+8OcD6sB1nbjx
+         rIT5JldMSTHSL4rxkJzdTB7daYeuSoP0VPFmVxnPcKEgcad+97ZFYpGpayJEgEsrEMlM
+         bWEIl/Ob0FA9vs5nZb8Bz5jq0zbRd6iWHwyvCcMwrH6t0YHuY8tf/Wq+wBhYZd093uEq
+         bQbubqEvNQwNTRAUA7JyB7e/R24keAxsfEtx1LNdnZ1EqWNx2ZAfJLETSNOwoZ+QWf0H
+         kNvg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795683805; x=1796288605;
+        d=1e100.net; s=20260707; t=1795683895; x=1796288695;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=k0DNiUp5NyvW/4XUsg9FRZJVc/nhkiHumSk1tHXzyqo=;
-        b=0PBdAGjG2bXy3CPukQPvNJsps4+MmbRu6dwnr/EfIBW8zpQeAS6h86JxaHUqlQ9C/U
-         HnZ/Z14hZjJitmoBsDgkmZt1WxKCHRLYf3zOdGBmg9B5tdABSoS49zZdDdIhyGxOw91L
-         Q+x3TLsgR1THa1pclbHqgl6z/SxByXb9xT2W3h+Xgz65Kxfs1Aa3/hDr2TcgNAVZVE0p
-         f2NjXvD8bTNeG92g88WwOjvieC0HDGGqFMp+DND4nWZBN1QN+hcNg/HU2vet/YfAeP9c
-         NzCW26WBgvAMZfWLET2uZylIZ3X2dRjrP2oRN94x5fImVyjsQ/8hrtU6cCG1FYtxtXF6
-         Rcrg==
-X-Forwarded-Encrypted: i=1; AL+hErFXFyT9C7Q8jgugpyTiBdBKEaBvaY4z/PBPNt8r5A1y+QILXwoSSFxIK4JcFn9C7SRKGpsm6ks=@vger.kernel.org
-X-Gm-Message-State: APuU4Z9FaOm/+k/lAD7tJeO+wRnXGDHJK22edoNHVESBb4l0V757UIgw
-	uLF50PhjcsSmXZa0Tr2xYUFhQ6Rd+02fcigmyyWzQTp41pm5JGxkf7+p
-X-Gm-Gg: AZFdTZcoLCWfw7OHXz7w+rlyrqUf9SGJwuWeJU6JQoNJdFT51LrWa6DtYahFFBGyYVQ
-	eepYDuRBKDc3asAnZ4mNhQi9MFHppZGdXdlu+GUtFSkrYXMjqaR1Hp/hpReZozkJ1XlEo9gUEPT
-	OGxwp2D9wAhF5gLgUzfhthMlzCls5c1WXr//yzZEzVse43Fcj4EFY/74QqgN2W+cWM/yv4tnidf
-	/hkxR4aJy+BBQOwux6rwm8gYMqV12jZmngkXT+jHVYZAoJl3hJKhyAHY8aEngkQZQ7SbXKqNO0P
-	mIBVxiyfpIsBGN9Vye6SLx5cywzUBAxHbeLXWk9gtUI51yy72iMt6l/UVuaEELbAmvdapFL9WKI
-	Pd2pbAsauEvHTEoDHvfnjCptxh4b+V3tCmWNNHpoq8cNF61eitmqIPRienoe0KND/oPlGMgIJ83
-	aPH0Zw6RxNamBXikCjL5mFqngoDu9/ZqviKsHzN1vj5n5jwVEaVMbZOltKWe0DZBzjr+WTfFMXq
-	hfgx1BD72hurw0xNtOC/mDw15Y2mlqRyaPz68FRB7uA1K1VLw4a8ow0BHYzcvG8Ik+jeHOmyZlk
-	xphRaWdp5pd2lC2hmZCp6tWGGVkYm43kjCZN5ScXdZbxvfBuw5VUo6j5
-X-Received: by 2002:a05:7300:f496:b0:385:551d:854a with SMTP id 5a478bee46e88-38570845477mr19785351eec.28.1795683804902;
-        Thu, 26 Nov 2026 01:03:24 -0800 (PST)
-Received: from jiayi-vm-sprl-server17.local ([155.69.195.24])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm56816065eec.13.2026.11.26.01.03.21
+        bh=VEs+YZJzt/o7CjJ+sXfJQxCthvzGYvQWjs/NnqxO/2M=;
+        b=FOtMjXl9ts+rI5EpCsXa1a/yY2PcHaaF8x5aBV+UbzO/VkIvVXrVOakSbUfiml2fLk
+         gPnOaufWxCrV9daNBqyJd895AYtkLXFZy3OffwPWIxDRemn3CLU1FY2+Tpmt7h60DQfw
+         knNxkdKm9J9dN91lI0c9chE5/OnF/NcJhFZmX/izBw38yqXOdv+E/kYFQaZHEnA+QsAi
+         KXk6Ws9qFTbbw+5IpVOF1ApqZWpQBi+Tdi4PM6nHNpUoHNFc8+rCQEXkXfni2C9V57JY
+         rP3ZtthNKkmYgq8/GabpDIvslnJt14INmih7XCPQFZgDO+bSr9y9KkrTQo2tzuYJsoim
+         uTrg==
+X-Gm-Message-State: APuU4Z8WZQPxr5QEL9DUr3IxhPM/4XCAC7FHba/VNzdtusWy6yPuI+ZC
+	unWOUmAQ1BGIVBPhLW9WEIGHq8+MzZ5qvL+fzhSvjkhyaFeSx91bzPLt
+X-Gm-Gg: AZFdTZc1I0VaQUomielzNqa9G42Tqemnwfs31hehmcgEHG0iYva5gMAxOJ/wxoY62U1
+	Zc2wqn0TcrLfhugjwN6AtXtREtOD1gYruHEqQdI78lgEyDDKfSwaBd8OdZxrqHSAcoRghUeeDe8
+	lXzal5IeMSoecjGltiHTCvK5lSh4QmWqvrJwgdkorufoaMqTvU+R+bEdO+TkZEJWWjr7zRxZymy
+	Cy+hykqqjpjQWhWouyYJ/1Uy3jNs1QtjuPM9HUZk96VKdcppQldKfdHvTmOg2UmonFsaAKcTvpY
+	26Wtpyuj024AYhllwM3MhvLo310//9iLzrZ9IzIDkOR8a6qS6+0bZqcMpnCBB/+cGNpnAxIq6kV
+	uf1xr8jxEFnN1GM9kPtrNCXvbEsLxjbFilnQJiZn2Uv+Lxu9ILlNzsmU3owVOoKqEgCUz6j64Cn
+	wNl8R/ZOX5AslDDIjEVbi6ATaHojfvDT7UKLrF6Bv8T5ZkWuwVMYRSDlV1FP4t8oSfiMVWm9qj9
+	iDinZYzIWAYjKh9sIk0hxurVqWUCKR14bS02QXbyXb6yrIFBFPs8UrpPFGcOXsVqA+EGUUiRv2H
+	cb/mZlZ4fziCgLgurekpFjhkgYMJFWaFAvaY2fMCE5o+oPtD4x2MB8k9Y61CMGrMlvxLbe0t5i6
+	I4E3wjPPw5mxCPyYNxfeKj0BcKXkOCZIFiBB3IB37godt1UCmRC5SADYfecWcN4EEaNjSIHpXdV
+	QApbGevBmgWkko3D9GAnMaKTkmu7k5wmFdp7GYyQ3aUZTOUQ==
+X-Received: by 2002:a17:902:e802:b0:2ef:d9b8:469 with SMTP id d9443c01a7336-2f03f21e8b9mr190133895ad.43.1795683894598;
+        Thu, 26 Nov 2026 01:04:54 -0800 (PST)
+Received: from LAPTOP-3B99V33A (ec2-54-117-173-250.ap-northeast-2.compute.amazonaws.com. [54.117.173.250])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2f07d6d4bddsm71898725ad.62.2026.11.26.01.04.51
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 01:03:24 -0800 (PST)
-From: Jiayi Zhang <zhangjiayi1014@gmail.com>
-To: willemdebruijn.kernel@gmail.com,
-	jasowangio@gmail.com
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
+        Thu, 26 Nov 2026 01:04:54 -0800 (PST)
+From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
+To: davem@davemloft.net,
 	edumazet@kernel.org,
 	kuba@kernel.org,
 	pabeni@redhat.com,
-	mst@redhat.com,
-	847807867@qq.com,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com,
-	syzkaller-bugs@googlegroups.com,
-	Jiayi Zhang <zhangjiayi1014@gmail.com>
-Subject: [PATCH net] tap: do not take consumer_lock in tap_sock_destruct()
-Date: Thu, 26 Nov 2026 09:03:06 +0000
-Message-ID: <20261126090306.3416278-1-zhangjiayi1014@gmail.com>
-X-Mailer: git-send-email 2.53.0
+	horms@kernel.org
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net] net: pktgen: hold if_lock across pktgen_find_dev() in __pktgen_NN_threads()
+Date: Thu, 26 Nov 2026 17:04:45 +0800
+Message-ID: <20261126090445.1523-1-luob87709@gmail.com>
+X-Mailer: git-send-email 2.51.0.windows.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,94 +100,113 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-syzbot reported an inconsistent lock state for the consumer_lock of the
-ptr_ring of a tap queue:
+In __pktgen_NN_threads(), pktgen_find_dev() looks up a pktgen_dev on
+t->if_list under rcu_read_lock(), drops rcu_read_unlock(), and returns
+the raw pkt_dev pointer without holding t->if_lock. When called from
+pktgen_mark_device() on NETDEV_UNREGISTER, __pktgen_NN_threads() holds
+pktgen_thread_lock and writes pkt_dev->removal_mark = 1 outside both
+RCU and t->if_lock.
 
-  WARNING: inconsistent lock state
-  inconsistent {IN-SOFTIRQ-W} -> {SOFTIRQ-ON-W} usage.
-  (&r->consumer_lock#4){+.?.}-{3:3}, at: tap_sock_destruct+0x13b/0x330
-  {IN-SOFTIRQ-W} state was registered at:
-    ptr_ring_consume include/linux/ptr_ring.h:363 [inline]
-    ptr_ring_cleanup include/linux/ptr_ring.h:700 [inline]
-    tap_sock_destruct+0x13b/0x330 drivers/net/tap.c:444
-    __sk_destruct+0x85/0xb70 net/core/sock.c:2386
-    sock_wfree+0x254/0x7f0 net/core/sock.c:2754
-    [...]
-    llc_rcv+0x4d5/0xa70 net/llc/llc_input.c:112
-  Call Trace:
-    tap_sock_destruct+0x13b/0x330 drivers/net/tap.c:444
-    __sk_destruct+0x85/0xb70 net/core/sock.c:2386
-    tap_put_queue drivers/net/tap.c:179 [inline]
-    tap_release+0x2fc/0x450 drivers/net/tap.c:517
+Concurrently, the kpktgend kernel thread in pktgen_thread_worker() does
+not acquire pktgen_thread_lock when processing T_REMDEVALL or T_REMDEV
+(e.g. via "rem_device_all" on /proc/net/pktgen/kpktgend_N). It calls
+pktgen_remove_device() -> _rem_dev_from_if_list() under t->if_lock and
+frees pkt_dev via kfree_rcu(pkt_dev, rcu). If an RCU grace period
+elapses before __pktgen_NN_threads() writes pkt_dev->removal_mark = 1,
+it performs a slab-use-after-free write.
 
-tap_sock_destruct() drains the ring with ptr_ring_cleanup(), which takes
-consumer_lock with spin_lock(). The destructor runs in process context
-when tap_release() drops the last reference. It also runs in softirq
-context: skbs sent through the tap file are charged to the socket by
-sock_alloc_send_pskb(), so if some of them are still in flight when the
-file is closed, the socket is destroyed from sock_wfree() when the last
-one is freed, here by llc_rcv().
+Hold if_lock(t) around pktgen_find_dev() and the removal_mark update in
+__pktgen_NN_threads(), matching the existing rtnl_lock ->
+pktgen_thread_lock -> if_lock(t) lock ordering used by
+pktgen_change_name() and add_dev_to_thread(). Since pktgen_find_dev()
+has no other callers, assert t->if_lock is held and traverse t->if_list
+directly under the mutex.
 
-All other users of the lock run in process context: tap_do_read(),
-tap_poll(), tap_peek_len() and vhost-net's vhost_net_buf_produce() take
-it with spin_lock(), tap_queue_resize() with spin_lock_bh().
+Found by static call-chain analysis of RCU-borrowed pointers, followed
+by manual code inspection and QEMU/KASAN verification.
 
-This cannot deadlock: a ring that is being destroyed has no other user,
-and lockdep complains because all tap rings share one lock class. When
-the destructor runs, the file and the device have dropped their
-references and the queue was unlinked from the device under RTNL.
-tap_handle_frame() can no longer reach it either: tap_put_queue() waits
-for an RCU grace period, and the dellink paths unregister the rx handler
-before tap_del_queues().
-
-So the destructor does not need the lock. Drain the ring with
-__ptr_ring_consume() and let ptr_ring_cleanup() only free the array.
-Making every user of the lock BH-safe instead would add work to the read
-path of tap and of vhost-net for a ring that nobody else can access.
-
-Tested with lockdep and KASAN, using the syzbot config. The syzbot
-reproducer no longer triggers the report. I also wrote a test that
-closes a macvtap queue while frames are still unread in its ring and
-while frames it sent are held back by netem, so that the destructor
-runs in softirq. It triggers the same report on an unpatched kernel and
-runs clean with this patch. The tap selftest passes, and so does
-tools/virtio/vhost_net_test changed to use a macvtap queue as backend.
-
-Fixes: 362899b8725b ("macvtap: switch to use skb array")
-Reported-by: syzbot+a2220efe757ca2a7358d@syzkaller.appspotmail.com
-Closes: https://syzkaller.appspot.com/bug?extid=a2220efe757ca2a7358d
-Signed-off-by: Jiayi Zhang <zhangjiayi1014@gmail.com>
+Fixes: 8788370a1d4b ("pktgen: RCU-ify "if_list" to remove lock in next_to_run()")
+Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
 ---
-AI tools assisted with the analysis, the code and the changelog.
+Testing:
+- Compile-tested on x86_64 with W=1, KASAN, and PROVE_LOCKING/LOCKDEP
+  (net/core/pktgen.o: 0 warnings, 0 errors).
+- Verified in 4-vCPU QEMU (KASAN + LOCKDEP + DEBUG_ATOMIC_SLEEP) by
+  racing RTM_DELLINK on dummy0 against "rem_device_all" writes to
+  /proc/net/pktgen/kpktgend_0:
+  * With a test-only 50ms race-window delay inserted before
+    pkt_dev->removal_mark = 1, the unpatched kernel reliably hits
+    "BUG: KASAN: slab-use-after-free in pktgen_device_event" (4-byte
+    write at offset 76 of kmalloc-4k struct pktgen_dev freed via
+    kfree_rcu / rcu_core).
+  * With this patch applied (both clean and with the identical 50ms
+    delay), 20 concurrent race iterations complete with 0 KASAN,
+    0 lockdep, and 0 atomic-sleep warnings.
 
-A patch for the same report was posted earlier today:
-https://lore.kernel.org/r/tencent_934E899D4D24BB3B4827B2A0C9D73461E00A@qq.com
-It takes the lock with spin_lock_irqsave() in the destructor only. With
-it applied, the close test above still triggers the report: the lock is
-taken in softirq by tap_sock_destruct() and with softirqs enabled by
-tap_poll().
+KASAN report (baseline + 50ms race-window delay):
+  BUG: KASAN: slab-use-after-free in pktgen_device_event+0x432/0x490
+  Write of size 4 at addr ffff88800a47a04c by task pktgen_race_tes/80
+  Call Trace:
+   pktgen_device_event+0x432/0x490
+   notifier_call_chain+0x9a/0x2d0
+   unregister_netdevice_many_notify+0xbce/0x1960
+   rtnl_dellink+0x367/0xa80
+  Allocated by task 80:
+   __kmalloc_cache_node_noprof+0x254/0x5f0
+   pktgen_thread_write+0x57d/0x1630
+  Freed by task 0:
+   __kasan_slab_free+0x43/0x70
+   __rcu_free_sheaf_prepare+0x65/0x250
+   rcu_free_sheaf+0x1a/0x100
+   rcu_core+0x636/0x1550
+  The buggy address is located 76 bytes inside of
+   freed 4096-byte region [ffff88800a47a000, ffff88800a47b000)
 
- drivers/net/tap.c | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ net/core/pktgen.c | 9 ++++++---
+ 1 file changed, 6 insertions(+), 3 deletions(-)
 
-diff --git a/drivers/net/tap.c b/drivers/net/tap.c
-index 2f19fb07bb2d..81dd616909d5 100644
---- a/drivers/net/tap.c
-+++ b/drivers/net/tap.c
-@@ -440,8 +440,12 @@ static void tap_sock_write_space(struct sock *sk)
- static void tap_sock_destruct(struct sock *sk)
- {
- 	struct tap_queue *q = container_of(sk, struct tap_queue, sk);
-+	struct sk_buff *skb;
+diff --git a/net/core/pktgen.c b/net/core/pktgen.c
+index d63eead..39362ce 100644
+--- a/net/core/pktgen.c
++++ b/net/core/pktgen.c
+@@ -2032,14 +2032,17 @@ static bool __pktgen_NN_threads(const struct pktgen_net *pn,
+ 	bool exact = (remove == FIND);
  
--	ptr_ring_cleanup(&q->ring, __skb_array_destroy_skb);
-+	/* The ring has no other user left: no need for consumer_lock. */
-+	while ((skb = __ptr_ring_consume(&q->ring)))
-+		kfree_skb(skb);
-+	ptr_ring_cleanup(&q->ring, NULL);
+ 	list_for_each_entry(t, &pn->pktgen_threads, th_list) {
++		if_lock(t);
+ 		pkt_dev = pktgen_find_dev(t, ifname, exact);
+ 		if (pkt_dev) {
+ 			if (remove) {
+ 				pkt_dev->removal_mark = 1;
+ 				t->control |= T_REMDEV;
+ 			}
++			if_unlock(t);
+ 			return true;
+ 		}
++		if_unlock(t);
+ 	}
+ 	return false;
  }
+@@ -3774,8 +3777,9 @@ static struct pktgen_dev *pktgen_find_dev(struct pktgen_thread *t,
+ 	struct pktgen_dev *p, *pkt_dev = NULL;
+ 	size_t len = strlen(ifname);
  
- static int tap_open(struct inode *inode, struct file *file)
+-	rcu_read_lock();
+-	list_for_each_entry_rcu(p, &t->if_list, list)
++	lockdep_assert_held(&t->if_lock);
++
++	list_for_each_entry(p, &t->if_list, list)
+ 		if (strncmp(p->odevname, ifname, len) == 0) {
+ 			if (p->odevname[len]) {
+ 				if (exact || p->odevname[len] != '@')
+@@ -3785,7 +3789,6 @@ static struct pktgen_dev *pktgen_find_dev(struct pktgen_thread *t,
+ 			break;
+ 		}
+ 
+-	rcu_read_unlock();
+ 	pr_debug("find_dev(%s) returning %p\n", ifname, pkt_dev);
+ 	return pkt_dev;
+ }
 -- 
-2.53.0
+2.43.0
 
