@@ -1,69 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703423;
-	b=0kX/nf+28JfSKi7+CeCtdiW0CtRrTvzYuLGqd/atkBmbJ7WvpUCElr/HuqEat3ChVtc9
-	 28uus77rGMoTKzzsY1SEBklA9dUWUwGICG5dOCJGkHStqf8FErBsFsceEBKmlbpyxg1ud
-	 LiOq5nwboNW3aeowf7mVKVCjSbeDNFu8HhHo/qXkIQUJF3kFJ//vuG0riclqDLN8YghWo
-	 qVKUqK2xMlipqQ07VpD0+sAMvj3w8j36NvaPxk7r+3D+JE+uJhp3FfSGUwPavkcgJL4vb
-	 yk8OtHx5e4hFrAgS3kAxZyqTuX+skA7wP6J6Oheg0PPH2rGeSECd1LDw0UbAky55Glg==
+	t=1795703444;
+	b=0jgjEtH3eEU2W1eKLIK1fuLqaWRKqZPN2fZDnf5nhmKEu+DWNiGRq82T0HFmHqHW/PXt
+	 LJA7wyowPl/ze9F1TiDXFdzT29OF4QAlwDgaCh/xdCRydw9zAPrE8xCofxWbuUyE5bgSo
+	 7eukCzcuYJ7nHt1nzEtyrbaGw2mwHZ4x6WogbRnhdgIDVA6be6E+3f+5tRlrRoyZ3Y733
+	 TDqnTf9z44tiICixqqEhIckMvWUeTpbbkvWgsVyldM5fB9p2Ywwy9Watp7xuys9IFzrIm
+	 /qC/2EgtQpUeua1jGGuyDFfcs0Wwvf3dvzERF/WlGvmrJrriszR1lDpjiPoz52O0n1Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703423;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
-	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
-	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
-	bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
-	b=grPhciF3rLbmdo+zKGzov6aYNT3nAL0QPGpOoStNkP68N5MZtUS27uZWN5UvzKcJIbxw
-	 0yCJG6NBKE3x1Mzws2w07sxFo8IIPwg+HmX3wMtjFZuvbApVTUoejN+UiXrN66CqiONpj
-	 KlPgq4NzimdGRofXaAa/6GEXdTdOYrhRZPjxz/MLurNWHiPIwSMxgVLnSmyDMHDbSkpal
-	 y3Ihzl6wNk6aNzUPwugIsxyi54vdlfrc1SNxwFOuWGAwviprV+aCYIzOf1zztcejvYYwI
-	 LiWw/kwy2vCw7b7JdVtMGamd1RmOPhUvoBGyihauCiaBB2l9HDXbGaFFl4BAkC0YN6g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703444;
+	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
+	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
+	bh=eRUX/5S9UOo+rDRG4Qm3COyRot6eWYZZm9uVcRV35C4=;
+	b=qxuwwtSqGSlLY8kK5G0h2P9m1UMO/2jTSBc97JCBVsKIsw97+rYGp0SsGeSJoZIgVFa4
+	 5sZojw+Py6JygyVgJmIptymhRNn/Mz9ZOnM3v68ffWU7ln0aMHciExSUs0qSzerLKjcZB
+	 6IXLJAnFIJDgn/TmcOuaIxG2+NeaJJdaaAQAPFgvOr2Ks5bxGt8uGsv78DUCKUxnMWpLG
+	 n/BmbmS+uWxuZtZ6uri5nYnYIjVlkoBs85E4pM342XbYR2FbfoRJN8/PdPRTNN4r/f19c
+	 heflAzGrfnLDVAhVaGkpXRefjh57CqHbyg3GUQ8XmMDadyWGOXNNT48wOZtnGci0W4Q==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7;
-	arc=none smtp.remote-ip=185.171.202.116
-Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PNrV4sZV;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95751606A684
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:30:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95751606A684
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 201F3606A6A1;
+	Thu, 26 Nov 2026 14:30:43 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id EBE68C2B9D1;
-	Thu, 26 Nov 2026 14:30:28 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 78C89604ED;
-	Thu, 26 Nov 2026 14:30:20 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC64011E683DB;
-	Thu, 26 Nov 2026 15:30:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795703419; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding; bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
-	b=kMkJV8Q725j5hErRfJ74sJbGvw2UwniaL6L1vivoWIaLyYgeNO1mlS3dy8CTXOb7NL2TB8
-	RN1JnrOV7taZniMV1jsLCARK+7i4El09wGlm4sqFgtGf/DtNp7ybq4YNGZZbrTG7PHbhrm
-	Ls9FpXE69PG5JcRuLGgJaBHYw1Z7AQZo6CEvAIXqPAZ6Bg0hsGgT/tF11blYnEIg2/1hUe
-	Dwt+8e6wvPZRrwccCGQSkprEYZVHjmM8+hQd0bY2veDW8ztaOyiILJ5giUSnX3ryAoLan8
-	+k4x66Z9JYzcwArbyFjqdwuXHxIF5YOWoDLjzTMGks03zRzxnS5WKaxdz9Z2WA==
-From: Kory Maincent <kory.maincent@bootlin.com>
-To: "Kory Maincent (Dent Project)" <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: thomas.petazzoni@bootlin.com,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>
-Subject: [PATCH net-next] net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
-Date: Thu, 26 Nov 2026 15:30:02 +0100
-Message-ID: <20261126143012.1595919-1-kory.maincent@bootlin.com>
-X-Mailer: git-send-email 2.43.0
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=PNrV4sZV
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 285311F000D4;
+	Thu, 26 Nov 2026 14:30:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795703443;
+	bh=eRUX/5S9UOo+rDRG4Qm3COyRot6eWYZZm9uVcRV35C4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=PNrV4sZVaMwPiTWaAPN/jV1TEtbkNWx8sp9FnI97H0TV3XVekfpapC7GpMVueyiXq
+	 Dy0kpa+BBXVKWxbesxMsNvJfNyry3kOTqd/AB7W6BL7hygjs+qfnQ2U6ZccWEbEUsD
+	 v1Hnt54QynemBHHscnUCj+9iV8egANrb+vTGyUjLCWK9/b9qkW3EahL3rdV4L9NX/Y
+	 +J+byAfpQbrN1XX7vy7+6B8W6ofeOAjy61q8QzrZldwrtmfAR1tz0IKUH28THKbHi3
+	 3myyitBB906eFIiUjDez8HSr1SaeoDjs7xOmid5xhmrSmnIxdJCsv6JzU56s4yQFXl
+	 PKoBIyyOM6Hsg==
+Date: Thu, 26 Nov 2026 14:30:38 +0000
+From: Simon Horman <horms@kernel.org>
+To: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+	kuba@kernel.org, pabeni@redhat.com, linux-ppp@vger.kernel.org,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com,
+	25031212117@stu.xidian.edu.cn, byu@xidian.edu.cn
+Subject: Re: [PATCH net v2] ppp: serialize channel operations with unregister
+Message-ID: <20261126143038.GB31322@horms.kernel.org>
+References: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -73,52 +59,54 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261119084333.371234-1-26031212468@stu.xidian.edu.cn>
 
-pse_set_config_isr() wrongly tested the PSE event notification bitmask
-against PSE_BUDGET_EVAL_STRAT_DYNAMIC, a budget evaluation strategy
-constant that has nothing to do with event notifications.
+On Thu, Nov 19, 2026 at 04:43:33PM +0800, Haoli Zhang wrote:
+> The channel unregister path disconnects a channel before clearing
+> pch->chan. A concurrent PPPIOCCONNECT can observe pch->ppp as NULL while
+> pch->chan is still valid and attach the channel again. Unregister can
+> then clear pch->chan and release the channel while its clist remains
+> linked to a PPP unit.
+> 
+> Serialize PPPIOCCONNECT with unregister using chan_sem. Hold the mutex
+> from before disconnecting the channel until it has been removed from the
+> channel list and marked dead. An in-flight connect completes before
+> unregister disconnects the channel; later connects see the cleared
+> channel and fail.
+> 
+> PPPIOCDISCONN must use the same mutex. An in-progress PPPIOCDISCONN can
+> clear pch->ppp before it has removed pch->clist and completed
+> synchronize_net(). Without the mutex, unregister can see pch->ppp as NULL
+> and proceed before that disconnect has finished unlinking the channel and
+> waiting for network readers. Taking chan_sem in both paths makes
+> unregister wait for the disconnect to finish before clearing pch->chan.
+> 
+> Bridge establishment must also be serialized with unregistering either
+> endpoint. Hold both channels' chan_sem mutexes in a stable order while
+> establishing the bridge, and reject channels that have been marked dead.
+> Unregister holds its channel mutex through unbridging and marking the
+> channel dead, so bridge establishment cannot pass the teardown step and
+> leave a new bridge reference behind.
+> 
+> The transmit fast path is unchanged. chan_sem drains channel ioctl
+> callbacks. ppp_disconnect_channel() removes the channel from the PPP unit
+> and waits for network readers before unregister clears pch->chan.
+> 
+> Fixes: 6a196e83a1a7 ("ppp: disconnect channel before nullifying pch->chan")
+> Reported-by: syzbot+6b18da3ef22e33061add@syzkaller.appspotmail.com
+> Closes: https://syzbot.org/bug?extid=6b18da3ef22e33061add
+> Co-developed-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+> Signed-off-by: Jinning Zhang <25031212117@stu.xidian.edu.cn>
+> Co-developed-by: Bin Yu <byu@xidian.edu.cn>
+> Signed-off-by: Bin Yu <byu@xidian.edu.cn>
+> Signed-off-by: Haoli Zhang <26031212468@stu.xidian.edu.cn>
+> ---
+> Changes in v2:
+> - Serialize PPPIOCDISCONN with channel unregister.
+> - Serialize bridge establishment with unregistering either endpoint.
+> - Clarify the chan_sem comment and bridge lock ordering.
 
-The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
-PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
-detection event is reported, the function performs no action anyway.
-The check does not prevent the TPS23881 from working properly, but when
-a controller reports the detection event together with other events,
-the whole notification handling is skipped instead of processed.
-
-Remove this bogus check.
-
-Fixes: ffef61d6d2737 ("net: pse-pd: Add support for budget evaluation strategies")
-Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
----
-Found this issue while developing the support for the TPS23861 version of
-the controller.
-
-As the TPS23881 driver (the only user of this path) works fine with this
-bogus check, I am sending the fix to net-next.
-
-If any developer of the SUIE or Sashiko passes by, I would like to point
-out that all my PSE patches and fixes are registered under the DENT
-company, which is wrong as I am not working for them anymore.
----
- drivers/net/pse-pd/pse_core.c | 3 ---
- 1 file changed, 3 deletions(-)
-
-diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
-index a3d4a3d7e5257..59cc0dcfa2a4b 100644
---- a/drivers/net/pse-pd/pse_core.c
-+++ b/drivers/net/pse-pd/pse_core.c
-@@ -1205,9 +1205,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
- {
- 	int ret = 0;
- 
--	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
--		return 0;
--
- 	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
- 	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
- 	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
--- 
-2.43.0
+Reviewed-by: Simon Horman <horms@kernel.org>
 
