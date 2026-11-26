@@ -1,48 +1,48 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795659606;
-	b=M5pItTEvNxsq5BV7BgNmXz3F7LxRbs0ZDgbZ0F/UNGuaqwqGFx0I/CJcmlH3KJJb68mw
-	 DWuSlgO4OscWr4nAB58zeLqWH8gkpsqNjhqjWtnUrZcgUKvIWIOcHhD2MYIfa4bT/xVks
-	 p+vGD4w7On0/AE/Ci4sYg1pGgiz+2cjORFWP+8uWP7w4giIGluusde+CRzupe47ze2QM5
-	 9d7X6IvvAS761zTdNAPUFc8s+p1u4vc43PAQHgeJoUPofa5+JY+wXOl3DcxPJCfAAiGKI
-	 ax+AlgogIZUi640qIz/G5VSlDK0ZyXm4oDnbaPk719RXdHQ9MML/kpH4V8g7geHc/jA==
+	t=1795659607;
+	b=ezuhWv59ZMHMvjwUJa//QEqjcauKYtT417I7/2gfngrvEq5WN3KAcKgKeSLn1GorKQ1k
+	 0pnitbVBw7xC12WUrbDaXfVHun4R0QpJjrgTKSSLwrhoqSwFkZWcSyblmLjiIFwtDE3ep
+	 GyKJZfa9xJ1p2q2qp1RnIy3Z35fFZji7pZPJWp7FA6QJDdQHmPGX+RqH9ngLhVWnzUL7s
+	 lfJhrz7GfOBERlg1iqTrNAYJopIAFa0/Ewfpb3sZbm13ozKZV+DuY3ARByhcQI0apZ+9y
+	 hbG9OyufvGs8Dem5Hrc7b35t5pVo+eymA31KCwzw9XqakM9Lr1W4wG0v3BaKWBQt07Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795659606;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795659607;
 	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
 	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
 	 In-Reply-To:To:Cc;
-	bh=Ns0mVYDKGOCO6KeAYhf7GdoRYBOj0mb68wm8huiKxeI=;
-	b=VVbTrf1qp3rJaYfJq3qeyiZfY9EJ0wq+U27hv8NHhK62P2iFBRhk+9YW13pW7xgE6sFK
-	 v8G1k3O6U5HE0QIq1y6BQzZG15EXNzv3EyIwSe01uaL/4RMcFxFVdhqp/AE9qaXK+fMsT
-	 +G8tnB2KTr6wSNPUmg6fT+oa2zaa/q5JZrI2875k9rlaQDLjCvtetQ+opNVJ9EuP6ETLL
-	 gQyKLjIO5cF3EfvbZdfmny4cItE6zkXci7kABe5YKOzWPJRPLPWqsGzPHCtx47M++Mj8O
-	 hByCYAW85vkZStI3vcln7zTWNni7u5nCCCbWZZVOtV6cJSKjUvmGZ9unTdIOm6PPjMw==
+	bh=8LLh1IQvOtnDIDr0VrhqdhiT3Y4g0KpdSFHS+ADwpPw=;
+	b=iy+lg7U5WGL6AZSisZwFAQxbdLmSXKTpXXeXEamVdKPsTZ09c96CFDwUAVlyOECQ0Oy3
+	 3kmIGO/FlZCzImzfhHxdzajEwqiK4u+fNcTwG7tkHA0xzUZBfzGo87wWlrZpEibRfGBf7
+	 QlJOGCWsZHvSUCaN3aujuou4NeSd4jTZVrCx76HSzraGVAXwUU/wmur1oPisr1fHUULAk
+	 4qRXKb+Ekxh5eONvPXSfhT8MsAj8BzJ/K4zlcDxvV8r+iGibZwOPmXCRIznZlVxg9eW1V
+	 6UOFMtBHnkh8qNgF0zmJpRWE0LWRV1nbIG/SBBtsD1S3SapZ/rci9bRemV8fDWYjgtg==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VMrzkUjO;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3MQiBvr;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 281BF606A31E;
-	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 6A9CB606A331;
+	Thu, 26 Nov 2026 02:20:07 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=VMrzkUjO
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BEB191F000C4;
-	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=F3MQiBvr
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 436F81F000CF;
+	Thu, 26 Nov 2026 02:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795659605;
-	bh=Ns0mVYDKGOCO6KeAYhf7GdoRYBOj0mb68wm8huiKxeI=;
+	s=k20260515; t=1795659607;
+	bh=8LLh1IQvOtnDIDr0VrhqdhiT3Y4g0KpdSFHS+ADwpPw=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=VMrzkUjOUByXB5XrW2X98KtUxyU1KkT5/aYGbDSG183Om+xTTUcp3tUXaqyXnit50
-	 gFFFv/dQShB7UqMikrHL5jmtAj9JblhoToNqOlS+cI5epXky+/LLCAjz5pY5GHG+f1
-	 gczAXOhfJUkQWkovARH4ZIvrmVcl4TYVoo8kUNyMVZgXSbcUT1Fgm94Bp6apfCJXAq
-	 J+1APH2u2tkTOoUmjkzKBxKTCB+1EQfrHQVCVPdWaLGNWukjB6A/K7SC+tVq/Jgtet
-	 JGko/weV/+An6s7M3cDnemqLby9XbY7Arz6igQucfXwX9CFk4fP1QjutNTjYJDXDDx
-	 wPNqTkd2JxpcQ==
+	b=F3MQiBvr3f0yzfZgeLqhx7QieQ3vCPLia7w/r53O25rsXhohNC4C9svoh6iEdKDdb
+	 vrh9sTlvdtlOQKAuKJIRTHuxIEY3e4aBU4EwC5u9OQQonfbh/zQiuo/YRD9AQ0RekC
+	 ntfOyrRMwB89zG8pdlu5b7UpysQfP5OeVf7XP6bighG8vEqrddYvpdyDklfyxcOsDU
+	 Qm+uyAjbC8acgJcLRv44MVFbbt06o5Ju5TlBn7vsUiy4glJFveG51Vs+luQ3ON+rCu
+	 lowzhIfspo5Z8qLJoqwv4TG1fS3aj0AxUOKBiUnBPf7vPwi71De8ZIbeyQ2brtljIi
+	 aAxrUypqcxQCw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B44CD3809A24;
-	Thu, 26 Nov 2026 02:20:05 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 3A3823809A24;
+	Thu, 26 Nov 2026 02:20:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
@@ -54,49 +54,39 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v3] tcp: fix negative sk_forward_alloc after
- MSG_ZEROCOPY
- append
+Subject: Re: [PATCH v2 net] net/tcp-ao: fix reset key lookup for IPv4 segments
+ on
+ IPv6 listeners
 From: patchwork-bot+netdevbpf@kernel.org
 Message-Id: 
- <179565960453.1453810.14078959645080448938.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 02:20:04 +0000
-References: <20261123122432.297135-1-jiayuan.chen@linux.dev>
-In-Reply-To: <20261123122432.297135-1-jiayuan.chen@linux.dev>
-To: Jiayuan Chen <jiayuan.chen@linux.dev>
-Cc: netdev@vger.kernel.org, edumazet@kernel.org, ncardwell@google.com,
- kuniyu@google.com, davem@davemloft.net, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, weiwan@google.com, shakeel.butt@linux.dev,
- soheil@google.com, linux-kernel@vger.kernel.org
+ <179565960577.1453810.2247217476715849616.git-patchwork-notify@kernel.org>
+Date: Thu, 26 Nov 2026 02:20:05 +0000
+References: <20261123034047.56745-1-dennylin0707@gmail.com>
+In-Reply-To: <20261123034047.56745-1-dennylin0707@gmail.com>
+To: Hungyu Lin <dennylin0707@gmail.com>
+Cc: edumazet@kernel.org, ncardwell@google.com, kuniyu@google.com,
+ davem@davemloft.net, dsahern@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+ horms@kernel.org, 0x7f454c46@gmail.com, fruggeri@arista.com,
+ noureddine@arista.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org
 
 Hello:
 
 This patch was applied to netdev/net.git (main)
 by Willem de Bruijn <willemb@google.com>:
 
-On Mon, 23 Nov 2026 20:24:31 +0800 you wrote:
-> Our local syzbot reported the following warning:
-> 
->   WARNING: ./include/linux/ucopysize.h:57 at tcp_sendmsg_locked+0x1e13/0x1f20
->   Modules linked in:
->   CPU: 3 UID: 0 PID: 377 Comm: syz.2.2248 Not tainted 7.4.0-rc2+ #398 PREEMPT
->   RIP: 0010:tcp_sendmsg_locked+0x1e13/0x1f20
->   Call Trace:
->    <TASK>
->    tcp_sendmsg+0x2c/0x50
->    inet_sendmsg+0x62/0xb0
->    __sys_sendto+0x2fe/0x350
->    __x64_sys_sendto+0x7f/0xb0
->    x64_sys_call+0x1375/0x27e0
->    do_syscall_64+0xe4/0x470
->    entry_SYSCALL_64_after_hwframe+0x76/0x7e
->    </TASK>
+On Mon, 23 Nov 2026 03:40:47 +0000 you wrote:
+> tcp_ao_prepare_reset() looks up the key for a reset that is sent on
+> behalf of a listener by the address of the peer. It takes that address
+> from the IPv6 header whenever the listener is an AF_INET6 socket, also
+> when the segment is an IPv4 one that arrived on a dual-stack listener.
+> The address is then read from the middle of the IPv4 header, the key of
+> the peer is not found and the reset is not sent.
 > 
 > [...]
 
 Here is the summary with links:
-  - [net,v3] tcp: fix negative sk_forward_alloc after MSG_ZEROCOPY append
-    https://git.kernel.org/netdev/net/c/e50436deae92
+  - [v2,net] net/tcp-ao: fix reset key lookup for IPv4 segments on IPv6 listeners
+    https://git.kernel.org/netdev/net/c/ef3e21c61baa
 
 You are awesome, thank you!
 -- 
