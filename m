@@ -1,110 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.160.180
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.221.41
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706227;
-	b=nO/8UQaOALlZDPR9e16p8iunyD02P5MXJRhj6VVx0ydMU/+wpKtZn4QcXR1DKknc+thr
-	 8P6qWLKwvwHP7lu/THWPhD8hGGe3aiznaRCbnWiADNXChdfYX4xnQWeKLHajCxLuGpEWc
-	 l2JZqdq1zC8b6A5Sq9iZVv/rHWvhNx0bEgfP5GrhQdUvjW3NVAMYqA2dXiMaXNmQLxczc
-	 3gFt7duTLkq6ePBj4mN2iVjSuDrjcxmbbQpG8UBFhE0eDFZThHx42RxkMkHonVd14l8xC
-	 c6ZyW356SenH+Fp5S/xaMZRMoY7GsdQByQfc+Bia0vMYeIC/4bhDz4hfyOROA/ofnSw==
+	t=1795706316;
+	b=Sjg56wlZGHjMBSzSFmWWAeIhb0jGCN2eQ0w+OWYQXVIssLio/vlBBF7ebuGKFwpD2ts9
+	 4G9pcV9t5+rYlBOPN3fXh73oJt/gbOxaRAnUtGk5VYIQoLEwT0imD0OB0boQMbhgJERCl
+	 6ZRt9oT2Pgxp7eGp/mAmn7yf2yoegS1MPHPXPvRFnqW6MZJBFl+Wv55I9oLcygrLCGZFF
+	 3mZ8ihoo9NJBmzrHHTlJNOf+kDn4WZucvbMf70cVriyBBjNe/3GfH+D3G46LRPKVxoDPl
+	 O2wkc0EVqu/Tlmb9RE6Qp6lnPaju8hruTCEJSpdzPKRcNjH6z0AT2cbseyDIRfCfeiQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706227;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706316;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 Received:Date:From:To:Cc:Subject:Message-ID:References:MIME-Version:
-	 Content-Type:Content-Disposition:In-Reply-To;
-	bh=tgtlx4NMqS10ms61luKx47rdjQPmLcLUwVEPmpsB7nw=;
-	b=YYK3urKRazzOxJPoc0P2xAhwNoSEXk2UHZgkv1fXqItDKFBSEtw7MRaOCcm9mU3aGTiT
-	 VS0USa0L4EQUuaU4aMHcU/ck382PnZ44A623J7Ee/oRcMQ6vaFOhgXzmi2kt+EXVGJCBd
-	 Facp0OoWsv3+GftZD0+5TXGF/YAGKR/pGENHgakbV6qzHv1kJXvl9lrDhrGgF71YK4scK
-	 +0ApQsCw0xw5coBUoEQj5v9DR1p+G9h+bLe11bqqiVhgGQb1qUlRlPe0mfHtghaD+BHx+
-	 AIS3Zyuq/fk95kX/fzeC1iTMimx+yVMPMlf65Kx/bfGE7a8npSA8mvhmTMRK/a8wbog==
+	 From:To:Cc:Subject:Date:Message-Id:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding;
+	bh=DalhXJZ4Dxp8fWlsgTk3bfkxerv0MWp11t3M4EhVLVM=;
+	b=IiVKgLucRsRslYnr2JjWe/MUOXZn/2dU8f2f0vecn6L9Qf/k9beToT8pGzQ5a8I9YAS4
+	 tdW2jgZqe7Ur3C+Wat28kmVwbYEbcReMEkLjPa+bXgmYz5H/zhCwN3HPoxTIf+oOSvbqy
+	 etgdZ5KvzBnqN3qa07GVPoDhBmGN9Ue9xhMDdjyKWWemgpqRe/20gYrFHtJBIq1nQKbGm
+	 pJNySk8la9tXlB3ngZu9JxCVax/bJkLbANb8IRJ+Z1eqrhnH48w6QaCT4H8Ov9iZ0XYif
+	 WACA9orU0Ed7RuwECPtukS5GRJ0dMXxmSg6NaNJGDY7BPj9L/5Xc308EqYycYPJRk6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=ziepe.ca;
-	spf=pass smtp.mailfrom=ziepe.ca;
-	dkim=pass header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=Lgj8JxzH;
-	arc=none smtp.remote-ip=209.85.160.180
-Received: from mail-qt1-f180.google.com (mail-qt1-f180.google.com [209.85.160.180])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W8dySMyx;
+	arc=none smtp.remote-ip=209.85.221.41
+Received: from mail-wr1-f41.google.com (mail-wr1-f41.google.com [209.85.221.41])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5A6A8606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:17:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5A6A8606A321
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=ziepe.ca
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=ziepe.ca
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B129A606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:18:35 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B129A606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=ziepe.ca header.i=@ziepe.ca header.a=rsa-sha256 header.s=google header.b=Lgj8JxzH
-Received: by mail-qt1-f180.google.com with SMTP id d75a77b69052e-55d2f5f1e26so77474541cf.3
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:17:07 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=W8dySMyx
+Received: by mail-wr1-f41.google.com with SMTP id ffacd0b85a97d-49465892f7bso5213261f8f.1
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:18:35 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1795706226; x=1796311026; darn=vger.kernel.org;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=tgtlx4NMqS10ms61luKx47rdjQPmLcLUwVEPmpsB7nw=;
-        b=Lgj8JxzHME6WRyO42EXjOwFqtXShGWOSbbZUOSElpVywVH//VHeT+b/D+kkHM0j6vi
-         tzjKM5iLJeKDtyO5UXXIC3iLflw1Q79Uh2ZB5YhXzn7W5XRfwDB9ZEuZ+tdHNlQbn/a9
-         BildDDxbCkxIOCmWxTCeaSK/UetRr3GrHrwJGxIczcmxr8OTSPd9+9gOFOOyIJ2TZaRx
-         5h98xhXnzh2+zkXKEbiNhE+VHKAX2sAkEOzD9q3H7aJPbOgS+8tB0U9gmfvWtFx0sU1O
-         tykhLDuJ96m5PRgtQhn3zn9lBD8PFZ+5XTV4oLntTbE/bNu6gPOSXmNoBymwrX81wRmx
-         jKJQ==
+        d=gmail.com; s=20260707; t=1795706314; x=1796311114; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=DalhXJZ4Dxp8fWlsgTk3bfkxerv0MWp11t3M4EhVLVM=;
+        b=W8dySMyxfZvkmp5v1bPX9uN/iuazUmw8hAv//3JvcfSqLm6OZfhVeeCzGuD8mk8KB7
+         nsRRbuxPXfkFEeg4rpVxygbYFOfCFdTwm00vTyU4m4L3hkYx2chOy1yKaMoK0QyzU2Wg
+         JrqEEm8Y7YPATd5HPl/qYehpmyoKktJBCYvmX67gBTTlUAWiSM9tpLDopKIq133Z4zs2
+         vc+yWpWy4L0mBRoGWakiHwceMGTdHQlhMMDWfyPlF1iplfHX9tKxpj9+8YJAJLLrPxZv
+         3j03KpfGYJscFbeClUsIDWwIDlCWh6Y4m9vtoCkyzy7nUS9w/W9mxgk1JbHm8lO1M/Sz
+         44DA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795706226; x=1796311026;
-        h=in-reply-to:content-disposition:content-type:mime-version
-         :references:message-id:subject:cc:to:from:date:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=tgtlx4NMqS10ms61luKx47rdjQPmLcLUwVEPmpsB7nw=;
-        b=Gtdtmxhg8HhZA2iTzVE5vEA2AlCi2TBJRk5/SVurfZIZkAjq+ZpG7K9F71dbuby9Qg
-         7yhDCWQdkHaFzGs8sWmniBF+gr4naFuypdyTMJzIm0YvRIt4nhZJEKmRxmXoyuKrGdd8
-         bGz1MRIqjvEJ0GJL8LnIt2Fj/uUk3I9mNxR3MLE92yPuoPfr08YGCqwLUvj2pvToVD/l
-         71vvVQ7v8ayEn3h3gPcsSl2c+1LMUjLl1yok8pZ3M8dLxzzAcaDIF5jaiNFW+wXRhxN2
-         /k5caqlJjOFB1jJ2WZ3JwhctuPCWtYJFPmS5YBSseAJyxflioU8NH0JoDe4yhPjdoqP4
-         LuXQ==
-X-Forwarded-Encrypted: i=1; AL+hErFyvnDAMVIH2DVvashh8XQ072nhynE9P3fDQaoiAmEpqIE0w9oqGWXlXJLN3ry+Yl+rrCM2fpE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+B5gv5CFo+NLoRYtv9q0MmKx2krKotLuCc5PoFqzbRnxvPlY70
-	k4xD1v1jx9io01Y4KHzVl3yPaWGAhMN2cltMFukXEVfmAA0CkQk5oxNvq0SWwmxL4ySeF0EMg7n
-	jbZ6z
-X-Gm-Gg: AZFdTZdjNEmxjBfy55JRdUAchX+d9X+/aMCVqYJ/J8GDMLQgn33PM8Skf2oWUHChwIm
-	mLGK5bg7BINNkKWk63zs5fbWUNknNruyWmtDcNQ5HOR1iR84Qv2mKVjh3oFeXEKa1I4ADH3ynvB
-	TWU8xKEG482DYPU/6p0xDg42LEDbrc/TH+JlesdEwRmGYef2feUT2bFpr2iNCe+7M7cRT4qnvhm
-	onynSxBwxLljN+Mftn38zRUKem480ipN5XjGzBcIo3QqRZBXLlwkUBNcpk4UaQHtQ50ETA7HLxv
-	htllX7PiewkKt0H/nM8KEGxbUXgRlCzKfItOtXA9HLIGLz0lrjDE3rJCGBjRu6Rxgs1C2s6Q2yZ
-	PHCph554o/WaUbxwdgjUWnm9EbycoBqOQ/Jo8VfYKs5Q5FGKxnomgXYaqhyPwAWmsR6fc2yMgkb
-	/l2w5y03oVVz65AVFxMBHJQz+rJ58b/WNuQzEooFqTeMNIWGPBh0IncaN94g70lCxHirI9u0Fii
-	ZbIhEY5JmwDjiSygNNA344iXSgMXWpSW1sMuPltaG966yZmSGQRT3/I647hyjPBwEKXxKruFki4
-	d72J5A==
-X-Received: by 2002:a05:622a:60e:b0:55d:324a:8207 with SMTP id d75a77b69052e-55d76a4f23cmr396621371cf.29.1795706226390;
-        Thu, 26 Nov 2026 07:17:06 -0800 (PST)
-Received: from ziepe.ca ([142.177.118.84])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-55dc8895beesm6928491cf.11.2026.11.26.07.17.05
+        d=1e100.net; s=20260707; t=1795706314; x=1796311114;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=DalhXJZ4Dxp8fWlsgTk3bfkxerv0MWp11t3M4EhVLVM=;
+        b=pRfwNsir/lg2gKqbBTwSXUan8MC9qEKY7J4f7i7upShZAZoZPKX3FFVNy1vv5TeV9W
+         FHgzqYaNmBj8WadPAv6BHdkuZIwgdi/M3YXuSNgRcBtv5H+5Anj7FkpdJiHKX6OU1hIX
+         uNziDjoQ6bSTs5bAS7TV5bBwiFgKoU7axKLDFxFQrTplq/YM00NmAw2l6sXkghXfAsCk
+         aJNkSktI3B8vGZ80j+X2i1I5zLWpCkVnRaugNpBLKOCFpskJj1Uvlfbee6mmW5hU0rUM
+         Po8c70t/9A1X/wZcQXo7owxX6H804BAvkugvSuZxttEpBEjbJxY4YYmZUhu+u2gd0Hfq
+         gK8Q==
+X-Forwarded-Encrypted: i=1; AL+hErFYQLTl4yJz+8j/Az19XaJVt3orwRz2iKaG/bkE2nX5Y+XSov8PeupVPssS3LHvxhGLisNW2Rk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z80zX0FR7PZ+BOSs+jp/swLzQjtp0D44T42x8wSB5IAYxvinG7g
+	nnWkrIZhTo2faB4Vtfx2iQoKnFbnUCrhezGx1f+hxu+/DRnuCy++maVy
+X-Gm-Gg: AZFdTZdOB/uiEBEP49e02AxDdPNY0ICuMNG7Z0+NmgCVmp7AR54WV1usYADnR40FcUr
+	rmsJEn5SlLxgzKw9iXjNZ5ARTGdHaWMno797Vm0/FU529E4x0t6ucnI4c37jH69AaAPAzC53LIR
+	7X3gWwhvL+5tTG6vHJszRNbV9+GOj6K9/wCXQOFbqonDioKg1/zfaC9HBJwE1Gbe164W0lX2T3L
+	vNXej78YFKcqy45+EydoH0l9RlSAEmw/dJ+z12sAQknWEOLSJbdm9cVq7WUDyylWY8KnhjaWW5e
+	KcWyeS8LMhz1dR2z0PLZ/XHFGkuxy6lgjOddHnQpo3xHh/zgNoTeGrO7yIzZPfz7lMCu4iwiOl8
+	z7/DngHab6s7imN+K41SoO6SQ5/zc0JJ/ug/EGiRm6SFhMNR4E4IE87ly4xtgqYoFG/TNrQ40PH
+	+lWKbga+QNfvAns0fsCXouc+nhquHN7jkRWvqcL7ErwuQlWlVNbM0ksl8mgDd/jHlXF4uJ3Y9Ff
+	ReaEGwlCKNA5erH3+f/1pJ4WEvc7ktICzC6dHbPvAe4WzpRvNn3WvwYG7/wX07RrGKXvbgKn2X5
+	hLf/AHfbhzXoNxtVqiarx/le75p2OMGkzBJpyo4VfFbnjpvTxYcireWBJB5/+If5T/9KN3P1s5c
+	=
+X-Received: by 2002:a05:6000:4013:b0:4a7:d4c9:ea03 with SMTP id ffacd0b85a97d-4abaac57bb5mr39854826f8f.6.1795706313901;
+        Thu, 26 Nov 2026 07:18:33 -0800 (PST)
+Received: from pierpaolo-N552VW.station ([2.38.140.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4b8e564e39asm10391151f8f.57.2026.11.26.07.18.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 26 Nov 2026 07:17:05 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1xWbDd-00000004Ns4-1bDr;
-	Thu, 26 Nov 2026 11:17:05 -0400
-Date: Thu, 26 Nov 2026 11:17:05 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Leon Romanovsky <leon@kernel.org>
-Cc: Yishai Hadas <yishaih@nvidia.com>, linux-rdma@vger.kernel.org,
-	netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
-	mbloch@nvidia.com, kuba@kernel.org, pabeni@redhat.com,
-	edumazet@kernel.org, davem@davemloft.net, andrew+netdev@lunn.ch,
-	dtatulea@nvidia.com, moshe@nvidia.com, maorg@nvidia.com
-Subject: Re: [PATCH V2 rdma-next 21/21] RDMA/core: Report and enforce
- adversarial mode via GET_CONTEXT
-Message-ID: <20261126151705.GP246011@ziepe.ca>
-References: <761ca80e-a772-41f3-b8e9-cc332e4ba5d9@nvidia.com>
- <20261124125327.GR14811@unreal>
- <20261124125950.GC9566@ziepe.ca>
- <20261124133353.GT14811@unreal>
- <20261124134751.GJ9566@ziepe.ca>
- <20261124140906.GU14811@unreal>
- <20261124143024.GO9566@ziepe.ca>
- <20261125090309.GY14811@unreal>
- <20261125144521.GI246011@ziepe.ca>
- <20261126140511.GP774860@unreal>
+        Thu, 26 Nov 2026 07:18:33 -0800 (PST)
+From: Pierpaolo Iannelli <pierpaoloiannelli18@gmail.com>
+To: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Ioana Ciornei <ioana.ciornei@nxp.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	netdev@vger.kernel.org,
+	Pierpaolo Iannelli <pierpaoloiannelli18@gmail.com>
+Subject: [PATCH net] net: dpaa2-eth: recycle the UMEM frame on XDP_PASS in zero-copy
+Date: Thu, 26 Nov 2026 16:18:16 +0100
+Message-Id: <20261126151816.173729-1-pierpaoloiannelli18@gmail.com>
+X-Mailer: git-send-email 2.34.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -114,34 +100,49 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20261126140511.GP774860@unreal>
+Content-Transfer-Encoding: 8bit
 
-On Thu, Nov 26, 2026 at 04:05:11PM +0200, Leon Romanovsky wrote:
+dpaa2_xsk_rx() copies the frame into an skb and hands it to the networking
+stack, but never returns the UMEM frame to the hardware buffer pool. The
+frame is neither redirected nor recycled, and ch->buf_count is left
+untouched, so dpaa2_eth_refill_pool() never runs: after
+DPAA2_ETH_NUM_BUFS (1280) XDP_PASS packets per channel the pool is empty
+and the queue stops receiving.
 
-> > > > It is not a security mechanism to hard guarantee that rdma-core has no
-> > > > bugs.
-> > > 
-> > > It is you who talked about "... security downgrade ...".
-> > 
-> > Yes, in that I want people using normal software to have a safer more
-> > secure experience. Meaning you need supporting rdma-core if the kernel
-> > is in adversarial mode, because otherwise you don't get the right
-> > security outcome.
-> > 
-> > You took it to some absurd scenario of a user hacking their rdma-core
-> > to defeat the check, which is not the point at all.
-> 
-> No. I'm evaluating each newly added UAPI field passed from userspace to
-> determine whether the kernel needs it. In this case, it does not. The
-> kernel will behave EXACTLY the same with or without this flag.
+The non-zero-copy path does the same copy through dpaa2_eth_copybreak()
+and calls dpaa2_eth_recycle_buf() after dpaa2_eth_receive_skb(); the
+error path of dpaa2_xsk_rx() recycles the buffer as well. Do the same on
+the XDP_PASS success path.
 
-Not at all, the kernel will accept an old rdma-core that should not be
-used in this mode instead of rejecting it. That is not "Exactly" the
-same and is the behavior this is all intended to create.
+Not tested on DPAA2 hardware: the defect was found by reading the code
+and reproduced with a userspace harness that extracts the real function
+from the tree, compiles it against mocks and simulates the pool
+accounting.
 
-It is simple version negotiation and since this is security related we
-do need to do a minimum to help users.
+Fixes: beb1930f966d ("dpaa2-eth: recycle the RX buffer only after all processing done")
+Cc: stable@vger.kernel.org # 6.1+
+Signed-off-by: Pierpaolo Iannelli <pierpaoloiannelli18@gmail.com>
+---
+If a hardware test is required, I do not have a DPAA2 board and would need
+help from someone who does.
 
-Jason
+ drivers/net/ethernet/freescale/dpaa2/dpaa2-xsk.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/net/ethernet/freescale/dpaa2/dpaa2-xsk.c b/drivers/net/ethernet/freescale/dpaa2/dpaa2-xsk.c
+index 4b0ae7d9a..ce9094cca 100644
+--- a/drivers/net/ethernet/freescale/dpaa2/dpaa2-xsk.c
++++ b/drivers/net/ethernet/freescale/dpaa2/dpaa2-xsk.c
+@@ -142,6 +142,9 @@ static void dpaa2_xsk_rx(struct dpaa2_eth_priv *priv,
+ 	/* Send the skb to the Linux networking stack */
+ 	dpaa2_eth_receive_skb(priv, ch, fd, vaddr, fq, percpu_stats, skb);
+ 
++	/* The packet was copied into the skb, return the frame to the pool. */
++	dpaa2_eth_recycle_buf(priv, ch, addr);
++
+ 	return;
+ 
+ err_alloc_skb:
+-- 
+2.34.1
+
