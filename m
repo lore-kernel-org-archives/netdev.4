@@ -1,99 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795651988;
-	b=xZ8B1n6cCTjcLzicpUeNCYEqy4j/e3rIXYDrYRZhpgx8Vv4PvLF7blHpJn9PUMa4PTPT
-	 t1ZDksFuFuN3dNA0bvac9JZPTwNFuSHBc4j2H6A8hXRQdZij2JyhCwhvKCc2/a/rqYoku
-	 UXhdZJXVuPWV7iwbOkF8nXIKP+oOuu2YzSAjWQd0rQhPjY7tAJyZ/Otdp4tqteVC+uNhb
-	 gffJMo5X07lTZFx2O1Xv3kA8w9cjfMpC3XYzAYOmK3xrSyB94jJ3vg8GFpPu3wnUE06/A
-	 U9qpdntI7b9PdmEac6vvAj7b58G/6iZP9222iA1VC2F719n+ZR67tsEKZeSdmaI6Xrg==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795651988;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type;
-	bh=m+a/3dUR/m6XHDL8SgjwUi1VZhGDD7+ERJ5Rr8mIHKk=;
-	b=k3tn3ohqHh/CpKRcg8PsnRrqa3877KrJoo7Atqk95NorFYo0Gem6sP938ixVyNJde2Q+
-	 MONIEtz+xl2jdeVwbic25LkD44pKgpL4k4KwNK22eGb04dA1JW2FaA56rr7CdddcxlHHD
-	 hAeUXn8ySnEGtz8JY05zAoNx0XNzlnmF08O08Y8hqUTjOOdTI1VtvPdLSOhu0EWy7j7b3
-	 JZUnqFumvCufnoEjtDCuzs0baTn/saqL9L1MxrnBm5sszcKgSM9KX1K3gv4vHuIrfSWr+
-	 8FvtlxouvPm9eGWLY0bk5JtA/oLlOAcOMcrS7Q9i8ih1UGyYDTP6ySr+vVrK5CYHOdQ==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N5ZMaa78;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.128.53
-Received: from mail-wm1-f53.google.com (mail-wm1-f53.google.com [209.85.128.53])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.52
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795652222;
+	b=kMSo3XGKMlPyzo/AUVty0Tw4a3oGoOCsSoFB1l5e9bHn0nLTjM00yrFmP9KDGwW5Xabi
+	 D525FP6sjeJsro2eVpTse983B81J5yCZXjNpfIHMq4wAUkuoaanxU9039Oro1Dm/3Gvoh
+	 DRNtjtntEwCnHQhRpHcnjb5UOch6giXjLoEWdzfGNnMMeA8zwz9ARZMEEeFMPsLYFHMu+
+	 rWG5flcrvk32CD8K3r8SKEFsDyywHaAUJRsTs3y2Gd4Z+c+hZPZ1fJMYRM3y3uewFix9F
+	 FVTsZpZzBKxIWEHYQWspglu97YxwNdDXaEjWspeHlyTTfGW34qf6W50inlJwdlVhDpw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795652222;
+	h=DMARC-Filter:Received:DKIM-Signature:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:
+	 Organization:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 X-Rspamd-Queue-Id;
+	bh=NJjDKjcR3y2MEVYEI6NpdcGn2af2AgvOjoZTpqMcRfE=;
+	b=G8UXPvk4jdfkfl9Bahramsurzu9CxYRR/IHVuRkK1eemEbxOPi5VIFhFYQX9xuKaLrSm
+	 xFWDAfX1vhdfcGUSQwRGY/bWzIYYl4oiKdYTE1A3YRXlb1w1kE7SI/pyWRkfRfDxLVgoc
+	 swSbbmiMPENGw8l8T9lLhvFYXK8xCWCnDNdiNkoFYA0ap2a2ptNIENfeDqodPrrVQ7u3v
+	 XIVntgbrzkZCR+gcVRc8q9xYfqn8GEoAokDcGMlL4g7GYVekM86Tt6B47NKFAH04cyWJT
+	 SZAGZ7pPenBNM+/7W118jF5dvGZcd5uBjX66UCn2t/jk9UvkQ1nCjirmLFJTZi+O9eg==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=none header.from=mandelbit.com;
+	spf=pass smtp.mailfrom=mandelbit.com;
+	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cukjlgCE;
+	arc=none smtp.remote-ip=195.10.208.52
+Received: from mout-b-203.mailbox.org (mout-b-203.mailbox.org [195.10.208.52])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F3D02606A327
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:13:07 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org F3D02606A327
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C31CC606A321;
+	Thu, 26 Nov 2026 00:17:00 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C31CC606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=N5ZMaa78
-Received: by mail-wm1-f53.google.com with SMTP id 5b1f17b1804b1-4a35ac4475dso46774535e9.2
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:13:07 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795651986; cv=none;
-        d=google.com; s=arc-20260327;
-        b=b/Dhjw+mM5yxunrQ+4I+4yLuOtI7F9o2wsBMy+qK55A+nnpbjZ90TMDg7R2UfedJLY
-         u9LBouxXni8a/wcLcomV+4khUVfdfj7zx2SRa8XWwIzpXfKJDQDlsvaP8JySMh6GVO2s
-         HV8L5hwn7HrhM25/5/+Q0r6XNmyKfYI1LCZF7K9m4YnghYT6XZ5VHlaO0ki+AbOaqSa4
-         1sJKoLzmLOeblps/+GwKy7/O94shQ1Q9ZCDJtGVlu904YQ+KXBHksc6bEqpeaodi7vPL
-         gjaBwbhMM2M/Tu4ZGBmpUWEmzDn00RRTDfMaKHp0cyaa4Zn1OO7bVyL9qNOA3vfxwZ2o
-         imPA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:dkim-signature;
-        bh=m+a/3dUR/m6XHDL8SgjwUi1VZhGDD7+ERJ5Rr8mIHKk=;
-        fh=WXiSylqRVHB/yDjrJrTou/iUKKltum3XxcttC9E7aeU=;
-        b=fgwJWnWicAH9JliqukSvfBZCLyIUF/hCpOAprIyLp4yfBitc77480HMBR5wji+x3On
-         0zHaygKWaqF9kUyZl+SR/C8KtuI1gWdDKviRUY5uAXViHsSDMK8V5dRSCyLX8cOzD7xU
-         F2weRyEp06okponv6Fl7OKUcw5JuaItO0eo83d0smL9jOrCYMrHMa61TxWPHW6y9Pa8h
-         xSrRH0sI6zsv5pQHqcD+a41qHb/tt/6S7FJ+H5AeUTvMqeglbMlct1uhqie809XRDxAF
-         t40VXK2O1BPzmZxa7rY1JBPrVki2pTy2yroNPDzpJN+JoTypnzpsfKg6HxrPgbi98jpL
-         B8DQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795651986; x=1796256786; darn=vger.kernel.org;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=m+a/3dUR/m6XHDL8SgjwUi1VZhGDD7+ERJ5Rr8mIHKk=;
-        b=N5ZMaa786HVLIXm4kJLIBp+7wktWZwdl5Ff5A4tnHAaGTbg1dOQN9JC9rn/kUqy0cI
-         +06XaTJghywoq+N69s8aZo/Ur+L46R2VyCWfGB/Jyf3wZhV6HfqhlvNCjpUE1MYp3hkO
-         8fKCzwhV+4vDlYO902/9eXQbM8c3grv6SA3bfa9biJe3JOM8HAMTwWa0wEL2qWS5Tgv0
-         A4TSGPBgVu68BtZsWvKX/lI8G28y1QfacQfqnOpPVOMtT5yd0Ugp/tyTLrsuedk2CHVu
-         4//c5aQtjPtgipJia4CT8MkHRBwL3U5d8lQ3NL6fO9wIw1ULxwGHZqDmp/rjNEGOneZM
-         O+HA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795651986; x=1796256786;
-        h=content-type:cc:to:subject:message-id:date:from:in-reply-to
-         :references:mime-version:x-gm-gg:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to:content-type;
-        bh=m+a/3dUR/m6XHDL8SgjwUi1VZhGDD7+ERJ5Rr8mIHKk=;
-        b=jV1uirhi1QudWBpaxt+UHbYIqaXZOTkB3VqsXry0+3y2vzOzkWzq4mWwTPs1GWL/i+
-         jBFtyXXLKltisRZ7/keDHMVbr8Ml2uWWcFU2r4b6yJh09ExqnuPer/ToX/PoBlvS3xL9
-         uuCq8Wh6e1353Gc02uM9BrWAr7otWUI53kp2OBYVzX4VNw6Vu37E9HtpWrkGiNISPU+m
-         8uFGDPuHCF4PW7CAfJI3FvRNJHv0ZHao4+KUSIq2G4vIeMmWjKs6KCgTrhVdoc2m1r2V
-         hEznAeemWA1xjnESTkvXgSJiK7cJyboBoY8vyoU5Fzi1zdb6U6qusI0jdKtLhtQt0FxE
-         7ZYg==
-X-Forwarded-Encrypted: i=1; AL+hErGiH27z1RVLwcZuOzHADoU+ywXRC8Du+Um/iV4uV4IFi+LPrGC7LPYLgndL772CUlzxIwlv+BE=@vger.kernel.org
-X-Gm-Message-State: APuU4Z8EY48Vll/z5S3HYJ0RElDxNX0UprhIoA9uFZPRaR0+MJFKbkax
-	iSftdRTEGrB7gZm8sjkf4IRXuCVR8fTjwSIV0df5az1mZH6kGyJySAQnPyug6oy5ERTFl5TBWdx
-	GQKbS869IniBTOMQ0Ol9VLsv0MM2Gpeo=
-X-Gm-Gg: AZFdTZeE/Q43lVUTceh1HKx3xjsJTavAxHcMGD9xAignOVDUFditY1wVubi/Z3uDEOp
-	5LagrP1HM659+dSRfflc+4X6wdJZtbfE/6aZ95mJhw5afc61gNIUDkpyLCiUjrWXLQEQiGXJ7AS
-	5l+cWLZmKblU0MpHO2GdqiksMoCPm/fa+enF7bP8kS8n+ivY2VbmamU6ugJlymdfD79SEd8V7Bw
-	QNym+gpttsSOow5hocDvSoCI3ux2qn4y976FTd6UQYi/AzpwNV16WjhaXmm6uzwxDgs8KTGPN9f
-	td1bM0LtdaM5M9C1Owslu7zO2qec60V/PFDBWaBancH6QZnAaIIk7s6Y5RsiODzINyUA5U9ihLo
-	ybizlkoDaj8ey3f+gR+1M//FySdDKXkW7xfjhg0/2FZQOz21DTnxGpvGCbc6FsKptX7E=
-X-Received: by 2002:a05:600c:3ba4:b0:4ba:493b:3401 with SMTP id
- 5b1f17b1804b1-4bb8880abafmr462648765e9.9.1795651986199; Wed, 25 Nov 2026
- 16:13:06 -0800 (PST)
+	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=cukjlgCE
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA512)
+	(No client certificate requested)
+	by mout-b-203.mailbox.org (Postfix) with ESMTPS id 4jZcYH6PZxzLm0Y;
+	Thu, 26 Nov 2026 01:16:51 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
+	s=MBO0001; t=1795652211;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NJjDKjcR3y2MEVYEI6NpdcGn2af2AgvOjoZTpqMcRfE=;
+	b=cukjlgCEF4cFyHFiW/XrSM87E4gFrCzAmsD+kxAyEUW+URhHfvkgrahTGy7nX6HbQDYE3q
+	Tdb6Ytlr8pSCVl23gvxfYS1MMYNGz9DPnpK916sNG/D+zpae3EXKipIRbyd5rANaXsYaIt
+	KNGjJAYvxoG2o5Xd5TXaRd0fv1fQAmwUVLECI1yujL7sUf2hpshJSQbAidTib3+zM9xUSd
+	S6kjIWJgnR0gq4MsKhGB9Os0o36NlG5MnDUEVaXU4MLaUA+BhudTKp1E0fzPHe6h3qu7v8
+	w4ZGxVjedMAsZkqoxio7/j1OZNA9TeD0GpHWo4rIDQ1G/LrYc/+G7lxL2vLhGg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=none;
+	spf=pass (outgoing_mbo_mout: domain of antonio@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=antonio@mandelbit.com
+Message-ID: <b201287c-002e-421b-880e-be1da8419e37@mandelbit.com>
+Date: Thu, 26 Nov 2026 01:16:49 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -103,29 +66,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <20261120102754.778283-1-magnusleatti@kernelriot.com> <20261125173155.2073979-1-magnusleatti@kernelriot.com>
-In-Reply-To: <20261125173155.2073979-1-magnusleatti@kernelriot.com>
-From: Giuseppe Nespolino <g.nespolino@gmail.com>
-Date: Thu, 26 Nov 2026 01:12:58 +0100
-X-Gm-Features: Aa3M54qC3fGsiPPBixEGOnzpXrpAk5AzehFlhpO5G9XQuOCyUKhWAYQx7aS2YrE
-Message-ID: <CAKx9m6MuwhnMGrcy+bBoCG2X0F2T65jZfhbSTGH4-YmsXGYm9g@mail.gmail.com>
-Subject: Re: [PATCH net-next v2 0/2] net: stmmac: dwmac-motorcomm: shutdown
- hook and Wake-on-LAN from S5
-To: Magnus Leatti <magnusleatti@kernelriot.com>
-Cc: Yao Zi <me@ziyao.cc>, Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net/mlx5e: Prefetch the packet a few strides
+ ahead in the linear MPWQE path
+To: Dragos Tatulea <dtatulea@nvidia.com>
+Cc: netdev@vger.kernel.org, saeedm@nvidia.com, tariqt@nvidia.com,
+ mbloch@nvidia.com, leon@kernel.org, cratiu@nvidia.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, ast@kernel.org, daniel@iogearbox.net,
+ hawk@kernel.org, john.fastabend@gmail.com, sdf@fomichev.me,
+ linux-rdma@vger.kernel.org, bpf@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20261104195241.1883539-1-antonio@mandelbit.com>
+ <a31e1e60-7e31-4a14-a087-428d1e3627f2@nvidia.com>
+ <674eb8ef-c93f-4926-a760-62df154ed3eb@mandelbit.com>
+ <20261125215233.3422038-1-dtatulea@nvidia.com>
+Content-Language: en-US
+From: Antonio Quartulli <antonio@mandelbit.com>
+Organization: Mandelbit SRL
+In-Reply-To: <20261125215233.3422038-1-dtatulea@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: 4jZcYH6PZxzLm0Y
 
-Awesome, thanks for the update!
+Hi Dragos,
 
-Il giorno mer 25 nov 2026 alle ore 18:32 Magnus Leatti
-<magnusleatti@kernelriot.com> ha scritto:
-> Thanks Yao, Maxime and Giuseppe! You're the best.
+On 25/11/2026 22:52, Dragos Tatulea wrote:
+> Overall I think these results are quite good. I was expecting to
+> see some issues at scale but nothing really stands out to be
+> honest.
 
-Thank you mage, you did a great job mate.
+Well, thank you for running all of this on hardware I can't get my hands
+on!
 
-Giuseppe
+> 
+> I wondered how much each prefetch bings and gathered some data
+> about that as well on the AMD system:
+> 
+>                            v2    without   without   without
+>                                  page      headers   shinfo
+>    UDP 64B flood          +7%     +7%       +3%       +7%
+>    UDP 512B flood         +8%     +8%        0%       +8%
+>    TCP 1 stream          +18%    +17%        0%      +18%
+>    XDP_DROP read         +81%    +81%       -2%      +82%
+>    XDP_DROP no-touch      -6%     -6%       -4%       -5%
+>    XDP_TX               +106%   +106%       -1%      +108%
+> 
+> It does look like the big bulk of the advantage comes from
+> the header fetch.
+
+Agreed, for these tests.
+
+The skb_shared_info prefetch pays off when the stack keeps each packet
+in its own skb: with TCP through an ovpn UDP tunnel on my setup it
+carries most of the gain (+34% with it, +4-5% without), while plain TCP
+and pktgen were within 2% either way, which matches what you see.
+
+> 
+>> I'm also testing a small follow-up: v2 doesn't prefetch when the stride
+>> 4 ahead is in the next WQE, so the first strides of every WQE are never
+>> prefetched. Following the WQ list to the next WQE (only when
+>> cur_sz >= 2, so it is posted and its pages are allocated) removes 26-32%
+>> of the remaining DRAM demand fills on the RX CPU and adds 1.8-3.3%
+>> throughput, measured with TCP inside an ovpn UDP tunnel (where the RX
+>> CPU is the bottleneck); its latency is the "+next" column above.
+>>
+>> I had planned to send it as a follow-up patch, but I can also fold it in
+>> a v3, whatever you prefer once you have your results.
+>>
+> Do you have some results for this?
+
+Well... after running more extensive tests I came to the conclusion that 
+my follow-up is not bringing any gain, despite what I anticipated.
+
+Therefore I'd just keep v2 as is.
+
+Thanks!
+
+Regards,
+
+-- 
+Antonio Quartulli
+
+CEO and Co-Founder
+Mandelbit Srl
+https://www.mandelbit.com
+
