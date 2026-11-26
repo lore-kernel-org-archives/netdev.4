@@ -1,77 +1,69 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.171.202.116
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795703020;
-	b=b9iAA7HKUGof7rkBR+1wjrTiAL5Dyf7nA14fql+m0WGfWZJJk+KEyKJnaFcQQmTU2XvX
-	 VNqowhsjyGPfwuhc7zwxj+GrcfsLqUCura637aVfm3xBpfdbS8yjBgytEU966xmZjbHFk
-	 GETQ/eDMBtIQcuQ6jnzYcnP1OiJBd6q7aW0+UCU7UyD/ZmyPK7zNg4RQkjrGVvDcBe7ZY
-	 GrRm7BF00bswSaHRklOJJnwdZcXAXWJQilB5D6LCfle6dVbNFdFtU1uQHTqBfVd/OjKFh
-	 hP/UJ54VY8/COEzgpMEEHpFpOH1XuqdsPDX3ynUMViclcFbK79rHZXTFrYrYJc+c9HA==
+	t=1795703423;
+	b=0kX/nf+28JfSKi7+CeCtdiW0CtRrTvzYuLGqd/atkBmbJ7WvpUCElr/HuqEat3ChVtc9
+	 28uus77rGMoTKzzsY1SEBklA9dUWUwGICG5dOCJGkHStqf8FErBsFsceEBKmlbpyxg1ud
+	 LiOq5nwboNW3aeowf7mVKVCjSbeDNFu8HhHo/qXkIQUJF3kFJ//vuG0riclqDLN8YghWo
+	 qVKUqK2xMlipqQ07VpD0+sAMvj3w8j36NvaPxk7r+3D+JE+uJhp3FfSGUwPavkcgJL4vb
+	 yk8OtHx5e4hFrAgS3kAxZyqTuX+skA7wP6J6Oheg0PPH2rGeSECd1LDw0UbAky55Glg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795703020;
-	h=Received:DKIM-Signature:Date:From:To:Cc:Subject:Message-ID:
-	 References:MIME-Version:Content-Type:Content-Disposition:In-Reply-To;
-	bh=TM3nSQU4U49T6GuNdT3oigc7kZQ4pNCPYHhbPmQrcTg=;
-	b=DvyUu9OvwW4+KqMUCQPvIf5+quKQ/cSpVEsuPyefEp92mGudhRF/6xpl0WQfBJ+0X0bW
-	 NWvnSOlpPAd23F2X6O4SHhjUXFcQvZi0XuiJvX5pYocVitRI8GEebN11C08kffnAfEHdh
-	 P1LExnHKcr6tLjQOH5YuYx/XbZS2LJPOBYtx4W+qfphutBH+3w/2a/6bMEycrLgoX5o4e
-	 kn0lqZbpWE8DYtFIIAOo8I/iUfsf2HlF+QqDlReMUUXNUz0AMsUh2WbXPhtPXXmdtHsID
-	 luumCDcETE5IK8e6QET+lg++BFKGOKURh2ZvXFprgTbjCqtmEhnqoc+JIfAVelrF5QQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795703423;
+	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:From:To:Cc:
+	 Subject:Date:Message-ID:X-Mailer:MIME-Version:
+	 Content-Transfer-Encoding:X-Last-TLS-Session-Version;
+	bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
+	b=grPhciF3rLbmdo+zKGzov6aYNT3nAL0QPGpOoStNkP68N5MZtUS27uZWN5UvzKcJIbxw
+	 0yCJG6NBKE3x1Mzws2w07sxFo8IIPwg+HmX3wMtjFZuvbApVTUoejN+UiXrN66CqiONpj
+	 KlPgq4NzimdGRofXaAa/6GEXdTdOYrhRZPjxz/MLurNWHiPIwSMxgVLnSmyDMHDbSkpal
+	 y3Ihzl6wNk6aNzUPwugIsxyi54vdlfrc1SNxwFOuWGAwviprV+aCYIzOf1zztcejvYYwI
+	 LiWw/kwy2vCw7b7JdVtMGamd1RmOPhUvoBGyihauCiaBB2l9HDXbGaFFl4BAkC0YN6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLtgzE2m;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=bootlin.com;
+	spf=pass smtp.mailfrom=bootlin.com;
+	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7;
+	arc=none smtp.remote-ip=185.171.202.116
+Received: from smtpout-04.galae.net (smtpout-04.galae.net [185.171.202.116])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D412606A31C;
-	Thu, 26 Nov 2026 14:23:39 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 95751606A684
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 14:30:22 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 95751606A684
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=cLtgzE2m
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E2CE1F000C6;
-	Thu, 26 Nov 2026 14:23:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795703019;
-	bh=TM3nSQU4U49T6GuNdT3oigc7kZQ4pNCPYHhbPmQrcTg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=cLtgzE2m1YoJXGpueRMJ0WG9tvSKfNQlB02h6sqo7+CT8SIX7diyIjeNQZEBq+Rmt
-	 c3wVUQBaScWcqNmdizx9oeZqhcQnvwkubrAnPGao9ZHg/pRNuxscJLtGFEwWhyKHZe
-	 nD/eW4RvR6/G4RIOLr/J3D0i1W1bfaIVV4gV6Xo1o3NxvrDYmUXGUKIoxb5lrWYo0q
-	 Xm3lS0pcjZzeAgfeDD994mnwvbbJ6Bb4w8QRSJ88kkDhfkdRtNyJf6tq4OTMhrIQma
-	 cQteoWOcf297BZrDLqN31mAQGOYddmIaQKOZUGDlnYAJ1X9HJwRkWGecY/FtSID7JT
-	 LyLKLX3iIqGPg==
-Date: Thu, 26 Nov 2026 14:23:37 +0000
-From: Harry Yoo <harry@kernel.org>
-To: Jan Kara <jack@suse.cz>
-Cc: Vlastimil Babka <vbabka@kernel.org>, 
-	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
-	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
-	Shakeel Butt <shakeel.butt@linux.dev>, Roman Gushchin <roman.gushchin@linux.dev>, 
-	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
-	David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, Hao Ge <hao.ge@linux.dev>, 
-	Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
-	kernel-team@meta.com, "Liam R. Howlett" <liam@infradead.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Andrew Ballance <andrewjballance@gmail.com>, 
-	Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org, 
-	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
-	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
-	Lorenzo Stoakes <ljs@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
-	Nicholas Piggin <npiggin@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
-	"Joerg Roedel (AMD)" <joro@8bytes.org>, Amir Goldstein <amir73il@gmail.com>, 
-	Casey Schaufler <casey@schaufler-ca.com>, Paul Moore <paul@paul-moore.com>, 
-	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
-	linux-security-module@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
-	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=kMkJV8Q7
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id EBE68C2B9D1;
+	Thu, 26 Nov 2026 14:30:28 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 78C89604ED;
+	Thu, 26 Nov 2026 14:30:20 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id BC64011E683DB;
+	Thu, 26 Nov 2026 15:30:16 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1795703419; h=from:subject:date:message-id:to:cc:mime-version:
+	 content-transfer-encoding; bh=AkPbh8+KOu2hEsqFeAAkm+a8IjfaUYYB3rND+Zn5rag=;
+	b=kMkJV8Q725j5hErRfJ74sJbGvw2UwniaL6L1vivoWIaLyYgeNO1mlS3dy8CTXOb7NL2TB8
+	RN1JnrOV7taZniMV1jsLCARK+7i4El09wGlm4sqFgtGf/DtNp7ybq4YNGZZbrTG7PHbhrm
+	Ls9FpXE69PG5JcRuLGgJaBHYw1Z7AQZo6CEvAIXqPAZ6Bg0hsGgT/tF11blYnEIg2/1hUe
+	Dwt+8e6wvPZRrwccCGQSkprEYZVHjmM8+hQd0bY2veDW8ztaOyiILJ5giUSnX3ryAoLan8
+	+k4x66Z9JYzcwArbyFjqdwuXHxIF5YOWoDLjzTMGks03zRzxnS5WKaxdz9Z2WA==
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: "Kory Maincent (Dent Project)" <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: thomas.petazzoni@bootlin.com,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@kernel.org>
-Subject: Re: [PATCH slab/for-next v2 04/14] fs/buffer: specify
- SLAB_MAY_ACCOUNT for buffer_head cache
-Message-ID: <awhA1sW94lviTsgT@thinkstation>
-References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
- <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-4-7c680f02a734@kernel.org>
- <gmnosp2u47xewnszzrx4asmldxsyjtejyrbrng2ckrcfedymeu@evhwupv3iwhf>
+Subject: [PATCH net-next] net: pse-pd: fix bogus budget evaluation strategy check in IRQ handler
+Date: Thu, 26 Nov 2026 15:30:02 +0100
+Message-ID: <20261126143012.1595919-1-kory.maincent@bootlin.com>
+X-Mailer: git-send-email 2.43.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,32 +73,52 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <gmnosp2u47xewnszzrx4asmldxsyjtejyrbrng2ckrcfedymeu@evhwupv3iwhf>
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 
-On Thu, Nov 26, 2026 at 10:05:35AM +0100, Jan Kara wrote:
-> On Wed 25-11-26 21:37:05, Harry Yoo (Meta) wrote:
-> > Buffer heads are allocated with __GFP_ACCOUNT to charge them to the
-> > memcg of the folio they are attached to. Specify SLAB_MAY_ACCOUNT when
-> > the object may be charged to a memcg. __GFP_ACCOUNT without
-> > SLAB_MAY_ACCOUNT will not be allowed.
-> > 
-> > Path: ext4_getblk() -> folio_alloc_buffers(GFP_NOFS | __GFP_ACCOUNT)
-> >   -> alloc_buffer_head() -> kmem_cache_zalloc(bh_cachep)
-> > 
-> > Cc: Alexander Viro <viro@zeniv.linux.org.uk>
-> > Cc: Christian Brauner <brauner@kernel.org>
-> > Cc: Jan Kara <jack@suse.cz>
-> > Cc: linux-fsdevel@vger.kernel.org
-> > Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
-> 
-> Looks good. Feel free to add:
+pse_set_config_isr() wrongly tested the PSE event notification bitmask
+against PSE_BUDGET_EVAL_STRAT_DYNAMIC, a budget evaluation strategy
+constant that has nothing to do with event notifications.
 
-Thank you for reviewing them, Jan!
+The mistake went unnoticed because ETHTOOL_C33_PSE_EVENT_DETECTION and
+PSE_BUDGET_EVAL_STRAT_DYNAMIC are both BIT(2) and, when only the
+detection event is reported, the function performs no action anyway.
+The check does not prevent the TPS23881 from working properly, but when
+a controller reports the detection event together with other events,
+the whole notification handling is skipped instead of processed.
 
-> Acked-by: Jan Kara <jack@suse.cz>
+Remove this bogus check.
 
+Fixes: ffef61d6d2737 ("net: pse-pd: Add support for budget evaluation strategies")
+Signed-off-by: Kory Maincent <kory.maincent@bootlin.com>
+---
+Found this issue while developing the support for the TPS23861 version of
+the controller.
+
+As the TPS23881 driver (the only user of this path) works fine with this
+bogus check, I am sending the fix to net-next.
+
+If any developer of the SUIE or Sashiko passes by, I would like to point
+out that all my PSE patches and fixes are registered under the DENT
+company, which is wrong as I am not working for them anymore.
+---
+ drivers/net/pse-pd/pse_core.c | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/drivers/net/pse-pd/pse_core.c b/drivers/net/pse-pd/pse_core.c
+index a3d4a3d7e5257..59cc0dcfa2a4b 100644
+--- a/drivers/net/pse-pd/pse_core.c
++++ b/drivers/net/pse-pd/pse_core.c
+@@ -1205,9 +1205,6 @@ static int pse_set_config_isr(struct pse_controller_dev *pcdev, int id,
+ {
+ 	int ret = 0;
+ 
+-	if (notifs & PSE_BUDGET_EVAL_STRAT_DYNAMIC)
+-		return 0;
+-
+ 	if ((notifs & ETHTOOL_C33_PSE_EVENT_DISCONNECTION) &&
+ 	    ((notifs & ETHTOOL_C33_PSE_EVENT_DETECTION) ||
+ 	     (notifs & ETHTOOL_C33_PSE_EVENT_CLASSIFICATION))) {
 -- 
-Cheers,
-Harry / Hyeonggon
+2.43.0
+
