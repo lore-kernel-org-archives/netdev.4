@@ -1,41 +1,41 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
 	t=1795680485;
-	b=Gv870Lfwx9p+Kw/lnJuu7vSRnfvnt9ncZ5hoKiO7XZqHqIj/HshWXHf3tZJqy81iSesv
-	 Xgise9SvwdwWmwjv58sHSA0fTbIeR2+aGumllQQMi8HvZ/2gEZL4GPAdR6wGAVsINjw0/
-	 ksqbuQHOImgWlYdZLjhDdm3chn32a11iZbj02PseRq6v0JRk66S4l3MpsmMQ8ns1A0GVC
-	 saHe8Gb3SpKHpvWvM8Uvwmh5yUpWlqNeX4D2H/Hy/ZCVgbhwK/Y90n1cfATIoXJrOJY7h
-	 p9FEyWhGIvhpTToHNtPTD9reOpwYjtd+sg5AhxUhW1KVzOZl7obocgXBFv9d9B+SFvg==
+	b=anb7Kf69e098w+RPslk1uFT2UC5QBEEkE4aJaqi/Kd7cqhbPa7l+elWe/kaik9L+KWyA
+	 y3K1U6q3X/cxRlD2Olle3mxJMQYOZy4ALdIFp0QYCju3nkElsGCZ8RaZl9mZOfCeAqEv2
+	 m5pquXAKWper5w0OmMgE0QpIPpsc0B1ZH3BCQojpGNm5g3CS1lJOh5oyLpQ6OLM9/FCuE
+	 ANvyKkaL532gWgPAXmcdjqEeVBKJI+8bCwSDqwpnI0QBhnRA5TQLXfJwdc4jbBNtoSBUy
+	 sDD6etHN5NjTvfofXUKsJEYa22hJ8wx+MSyT3PjFpTopgM0yQQ4e/I7KzWacV8NhtfA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
 	a=rsa-sha256; c=relaxed/relaxed; t=1795680485;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=J5L7cdjb6qQ3NsyuVCvHf8W0Te3Ajc+ibnZSLdgukm8=;
-	b=GWrqf0B9lEUT64GQixb4iDoCzZqPpPh23CU1lFI/irCVXUeCZuFG8uHcIM7nuf/wVhZ/
-	 9xS4WD2fYwqger/QiSoTCVLXinVmF0x1sZXIH+HupLU6KlyDmq3tRs+Tji5yvlvm3EII9
-	 whfRPYsNEKVJWBuvM0rhrFhUi31mERVZGIeIu8vHL+MlVAa4onmTjUJxjL1Nzl3BkiT6d
-	 zlCfZSZPlQ5NDXGoE95CIswlLhAF8t2U12adLZ7Knvm4VWvtQl86luruNeySx30KSEbCc
-	 mxo+3kPfjc/vf7TcN+HtqWaIqBEPDS7HlX+7eftFdBM++0aolCxxU4/eUKc+ExhL6Og==
+	bh=raaNMw1b1+qbfeYf4Sx2uW/rpWKmRrAw1X2GGZpJzjQ=;
+	b=HHCtyTM2rKPmd9N53UChjnEBTwTGKOgbELxiUooFH60KYtIUvmPwgn8wvy1DXhVl4pwr
+	 g/PP+hThGnwdsHaKz94CdaHy9bc95oPwzPuJTs1DfPbCSHnt5SpCERogW91cU1JsGvKVL
+	 upMUezpHy8VsxzH7Ty7MMMgIoJFY9nzjCLdCXxHUKHdHNg04QxMuQUWDzQ+dLwVuuQwtb
+	 LBv5bAIpUPwYMlBQMzsd+Ibz574ZiI1HW41q/E9PDqe3HhihsgdSuoY3xwo+H/rOrlpTn
+	 grADhIX/VcAj8dEjnqxQT+aZZnYE14l3LNotM6RNWmbSr3B1b2ouQDH5iF4FRNETGGw==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b="V/LGefiQ";
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MOoFwcDM;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 848A6606A32C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 86053606A32E
 	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:08:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 848A6606A32C
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 86053606A32E
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=V/LGefiQ
-Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.pengutronix.de [IPv6:2a0a:edc0:0:1101:1d::ac])
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=MOoFwcDM
+Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.4.pengutronix.de [10.17.1.12])
 	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C4241201AEF;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id C982820583D;
 	Thu, 26 Nov 2026 09:08:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795680480;
@@ -43,40 +43,40 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=J5L7cdjb6qQ3NsyuVCvHf8W0Te3Ajc+ibnZSLdgukm8=;
-	b=V/LGefiQt1BlT3oDFveuoxfBINTf06Cm6xS+dP+UjjoMBdN0VI/gWJbwxReGVoWelq7FdI
-	LCtH8W83sbMKClgvKtBq4Z/n/VVxRTjydluzj+1T6rQRr6dBTy8/+2pgzHqEJb1BvtNCvu
-	w8uIQ3g3xskKtHrZTaR0nyCbod0VGJVsqE84f3yEbzZGZon17FrdkJDY2NF1S1+HYYAZC0
-	t950yJofAz3Md3Cr6FWHvgxu1SfyjtwMi560P0+yy53qqqxffvRkIUl9OacvvT++mk2gIx
-	BwFbqXQ7X7lVHUvcSK9kxAYfTf7S7zG9xQpVp9YDLQ+JqM/HsuDqHTvsa5eW8Q==
+	bh=raaNMw1b1+qbfeYf4Sx2uW/rpWKmRrAw1X2GGZpJzjQ=;
+	b=MOoFwcDMipHsYsMytC6GSxUZu/VL0pzcT9KTMUJ14cfiLLUtRitsO5Ho+njFJuBc6Jyfcr
+	hk9AeaTvuWC1UiLsJLczSiflW7BMyrgC8GaCfeJjj4LmslQZHSX5ZNudD3B3SejW/hYU3L
+	0AzFSCqzCe5tjwEc1r63ok0+H+RG40aVKb77cHztsNFVhnGNWNUp6SMjDi+EujtImuyviH
+	3eD/MKaeGWdTHNOhrj1tRPH3V5dlkXHrRSt+R8ocHSkeO02zltZW3mDHOiIm0olaCoZHrL
+	e4f7vm5xszpEfMFAGdfTaKoBMD1klw9X3ZtR/T1gIn8UJNlxhqzg56DnkDFt9A==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795680480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=J5L7cdjb6qQ3NsyuVCvHf8W0Te3Ajc+ibnZSLdgukm8=;
-	b=WM9rsl6+QLo+H/WV/kTrEfLuJ9Kdbg+Ambrc4mwry49RIv+dHL7rBQqCKVXoPstWnlX68T
-	iT53VJqCLOmo1jeiiwg2rnH3ICeEhIYAzjorGaMp4DZKM1vtinzsh6XysxcDs1tlkvKToL
-	g6YwZawuCHaa1Tqte1Y1QyVhgKAR5114fBsdL93qCbLcWJpeWsbaplyYLD77FeofkVu7B/
-	yftZ3VkGoOOCvrmL/iQn1NLmarfiOcLPuuklBxVaAqgRW3fGl3+Z3tBx0NzigD6PEp6M9J
-	23GUzmVsfjViwv7Up386c+CRFQEiTf+6U4ZCaDSyCsbDucazn6Nljy3tmtdf0g==
+	bh=raaNMw1b1+qbfeYf4Sx2uW/rpWKmRrAw1X2GGZpJzjQ=;
+	b=QyVvRxakUx0/ReD0r6rlVkmOPrlUcD+WuR1MYS+BML1bOJY0bS6eZef+afXwdMQ5yVUbwB
+	zdMbQL16ql4jamwjU/vRSo/W/OokyYYuUEHH2olpIs/vfvZ9RsSPPZEaBF/NSxb7Jqf+Za
+	DtgsN2LR/WC+NpRDKYxcOjelJ9yR40z8/GrHsyF49BUdEfBlMptRxBGPbCmCfYjkYju4Kp
+	irDxtIzFo7+QlP0f/pOV+XDJ+TYLjFNZw/IGCPhVYMW3jteGRpUjbnZkckDpWxxk9EDe27
+	/wERvnvIG2zABroL31iEu7QUCLdTlOqCtyxXiiHzQY6XZV17EFBM83ztkDcT3Q==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795680480; a=rsa-sha256;
 	cv=none;
-	b=HiJUPK4uJRY8lF0KiJN17zfK8TnnhsjpatTjAaISjkQDn0r385H882f61pT/bcQ+C/UYkj
-	gqrd3Ux4iAG7Xd+hSo2qBlCFL16EpZi3xLKW8Y0fD71FWfPXWyGeYO2h9yMb1MIn+T25ID
-	ptb4dOi1jh7NMlgiFCxuXiF/hiTaeLLwR+8VnXCFtf5BoHEInBMcXJQ+BKY0mB5QbVSOol
-	tdpz3ETDg91Gd9aiIJ+CkT7nx+z0s7iGboYpSGcnDqQiNDQXIhNPlEcSqyZq8PEtPr3GoB
-	zzS/iQBL29OKNDRcKbomsIJBuZE3J1MfR6vclAnX4wpLQi9lrFbAZDAbkcDKNg==
+	b=DmPgm0t8VoUfrJMJZCVsievPj4KPwundBp5tT5UIiUrZkUO6qRg4ABNMPcqHp2a0CHSKWX
+	Rp1idwzZ0BFk6e3dRW+TG1OsczMSEC9wXc2canlqQtcCN8DpM7vzXKVPV8TMWksQwPgxRN
+	8/dveq3lveLx3B1G4XFHDRZJBL8cbKPw21QgF6QE+Knt6IQv2pYnW7cpbwrSyrCZ63K86/
+	bRfP29nLVyY1zoF7kpAIJMb8SvYd/yPxpglIvmAseFa2aI6WbqQFFkcLsF6bYb313Y7iJD
+	RYpfwpTU/5QjWeyVVsid2EYwfcVpRwC6Cw3Je3awJi1qbFIZOuIhkOTCQhfbGw==
 Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id B33E83809FE; Thu, 26 Nov 2026 09:08:00 +0100 (CET)
+	id B1556380122; Thu, 26 Nov 2026 09:08:00 +0100 (CET)
 From: Oleksij Rempel <o.rempel@pengutronix.de>
-Date: Thu, 26 Nov 2026 09:07:49 +0100
-Subject: [PATCH net-next 2/5] net: dsa: microchip: ksz9477: do not keep the
- learned port in FDB entries
+Date: Thu, 26 Nov 2026 09:07:48 +0100
+Subject: [PATCH net-next 1/5] net: dsa: tag_ksz: do not mark trapped
+ link-local frames as forwarded
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,7 +88,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-ksz-stp-link-local-v1-2-39aed15f6271@pengutronix.de>
+Message-Id: <20261126-ksz-stp-link-local-v1-1-39aed15f6271@pengutronix.de>
 References: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 In-Reply-To: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 To: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
@@ -102,66 +102,134 @@ Cc: Simon Horman <horms@kernel.org>,
  Oleksij Rempel <o.rempel@pengutronix.de>
 X-Mailer: b4 0.14.2
 
-Do not keep the learned port when adding a static FDB entry.
+Do not mark trapped link-local frames as forwarded in hardware. The
+switch did not forward them, so the mark would be wrong. Whether such a
+frame is forwarded is policy, and that belongs to the bridge, not to the
+driver.
 
-The ALU table of the switch keeps learned (dynamic) and static
-entries, one entry per address. An example: the switch has learned
-host H on lan1. Then a static FDB entry for H is added on lan2. The
-driver does not add a new entry. It finds the learned entry, makes it
-static and adds lan2 to its ports. The entry is now static and points
-to lan1 and lan2.
+The switch traps frames to some of the reserved addresses
+01:80:C2:00:00:00 to :0F, that is, sends them only to the CPU. For
+example:
+- 01:80:C2:00:00:00: STP BPDUs
+- 01:80:C2:00:00:02: LACP and other slow protocols
+- 01:80:C2:00:00:03: 802.1X (EAPOL)
+- 01:80:C2:00:00:0E: LLDP, PTP
 
-When the FDB entry is deleted, the driver removes only lan2. The entry
-stays static and still points to lan1. Static entries never age out.
-So the switch keeps sending frames for H to lan1, even after H has
-moved.
+Some link-local frames must still be marked as forwarded. The KSZ8873,
+which uses the same tag as the KSZ9893, traps only 01:80:C2:00:00:00
+and floods LLDP frames (01:80:C2:00:00:0E) like normal multicast.
+Without the forwarding mark, the bridge could forward such a frame a
+second time, if group_fwd_mask allows it. The tail tag does not say
+whether a frame was trapped, so the switch driver gives the tagger a
+bitmap of the groups the switch traps. No driver fills the bitmap yet,
+so frame handling does not change with this patch alone.
 
-The bug is hit much more often once the driver sets
-ds->assisted_learning_on_cpu_port, which the next ksz9477 change does.
-DSA then adds a static entry on the CPU port for each address the
-bridge learns on ports outside the switch, such as Wi-Fi. If H was
-learned on lan1 and then moved to Wi-Fi, the entry for the CPU port
-still points to lan1 too.
+Give the KSZ8795 tag a connect callback that allocates the tagger data,
+as the tagger now reads it for every KSZ tag protocol.
 
-LAN937x uses the same code.
-
-Found in code review. Confirmed on a KSZ9893; with H learned on lan1,
-run:
-
-  bridge fdb replace <H> dev lan2 master static
-  bridge fdb del <H> dev lan2 master static
-  bridge fdb show    # still shows "<H> dev lan1 self static"
-
-Tested on a KSZ9893 with the commands above and with our labgrid
-switch tests: with this patch, no static entry for <H> is left.
-
-Fixes: b987e98e50ab ("dsa: add DSA switch driver for Microchip KSZ9477")
 Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 ---
-If bridge fdb replace moves an existing static entry to another port,
-the entry still keeps the old port. This patch does not change that.
----
- drivers/net/dsa/microchip/ksz9477.c | 7 +++++++
- 1 file changed, 7 insertions(+)
+ include/linux/dsa/ksz_common.h |  8 ++++++++
+ net/dsa/tag_ksz.c              | 42 ++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 48 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/dsa/microchip/ksz9477.c b/drivers/net/dsa/microchip/ksz9477.c
-index 972703fe7454f2892b98dc507a1cba0a5c91dabd..98211d9835734c52f25dcbf7494df45166bcc8da 100644
---- a/drivers/net/dsa/microchip/ksz9477.c
-+++ b/drivers/net/dsa/microchip/ksz9477.c
-@@ -800,6 +800,13 @@ int ksz9477_fdb_add(struct dsa_switch *ds, int port,
- 	/* read ALU entry */
- 	ksz9477_read_table(dev, alu_table);
- 
-+	/* The ALU table holds learned and static entries. If the entry is
-+	 * not static (learned, or none found), clear its port map, so that
-+	 * the static entry lists only this port.
+diff --git a/include/linux/dsa/ksz_common.h b/include/linux/dsa/ksz_common.h
+index 576a99ca698d13cc3debd41a310502b29fc85c63..66d480c435c2f98b5a77bc64422b43414946f143 100644
+--- a/include/linux/dsa/ksz_common.h
++++ b/include/linux/dsa/ksz_common.h
+@@ -32,6 +32,14 @@ struct ksz_deferred_xmit_work {
+ struct ksz_tagger_data {
+ 	void (*xmit_work_fn)(struct kthread_work *work);
+ 	void (*hwtstamp_set_state)(struct dsa_switch *ds, bool on);
++	/* Bit N is set if the switch traps frames to 01:80:C2:00:00:0N
++	 * (N = 0x0 to 0xf), that is, sends them to the CPU only. The tagger
++	 * does not mark these frames as forwarded, so the bridge, not the
++	 * switch, decides whether to forward them. Only the switch driver
++	 * writes this bitmap, from .connect_tag_protocol, before the tagger
++	 * receives any frame.
 +	 */
-+	if (!(alu_table[0] & ALU_V_STATIC_VALID))
-+		alu_table[1] &= ~ALU_V_PORT_MAP;
++	u16 link_local_to_cpu;
+ };
+ 
+ struct ksz_skb_cb {
+diff --git a/net/dsa/tag_ksz.c b/net/dsa/tag_ksz.c
+index b0340a7be8c9a6dcd52a64117e10fe3e134026e6..16da9daf774904222bd92f771086aa74e1bc390b 100644
+--- a/net/dsa/tag_ksz.c
++++ b/net/dsa/tag_ksz.c
+@@ -48,11 +48,28 @@ static void ksz_disconnect(struct dsa_switch *ds)
+ {
+ 	struct ksz_tagger_private *priv = ds->tagger_data;
+ 
+-	kthread_destroy_worker(priv->xmit_worker);
++	/* Tags without deferred xmit have no worker */
++	if (priv->xmit_worker)
++		kthread_destroy_worker(priv->xmit_worker);
 +
- 	/* update ALU entry */
- 	alu_table[0] = ALU_V_STATIC_VALID;
- 	alu_table[1] |= BIT(port);
+ 	kfree(priv);
+ 	ds->tagger_data = NULL;
+ }
+ 
++/* Allocate the tagger data, without a deferred xmit worker */
++static int ksz8795_connect(struct dsa_switch *ds)
++{
++	struct ksz_tagger_private *priv;
++
++	priv = kzalloc_obj(*priv);
++	if (!priv)
++		return -ENOMEM;
++
++	ds->tagger_data = priv;
++
++	return 0;
++}
++
+ static int ksz_connect(struct dsa_switch *ds)
+ {
+ 	struct ksz_tagger_data *tagger_data;
+@@ -81,6 +98,19 @@ static int ksz_connect(struct dsa_switch *ds)
+ 	return 0;
+ }
+ 
++static bool ksz_link_local_trapped(struct net_device *user, const u8 *addr)
++{
++	struct ksz_tagger_data *tagger_data;
++
++	if (!is_link_local_ether_addr(addr))
++		return false;
++
++	tagger_data = ksz_tagger_data(dsa_user_to_port(user)->ds);
++
++	/* is_link_local_ether_addr() limits addr[5] to 0x00..0x0f */
++	return tagger_data->link_local_to_cpu & BIT(addr[5]);
++}
++
+ static struct sk_buff *ksz_common_rcv(struct sk_buff *skb,
+ 				      struct net_device *dev,
+ 				      unsigned int port, unsigned int len)
+@@ -96,7 +126,13 @@ static struct sk_buff *ksz_common_rcv(struct sk_buff *skb,
+ 		return NULL;
+ 	}
+ 
+-	dsa_default_offload_fwd_mark(skb);
++	/* The switch driver reports which link-local groups the switch sends
++	 * to the CPU only. The switch did not forward frames to these groups,
++	 * so do not mark them, and let the bridge apply its own rules
++	 * (group_fwd_mask, STP state).
++	 */
++	if (!ksz_link_local_trapped(skb->dev, eth_hdr(skb)->h_dest))
++		dsa_default_offload_fwd_mark(skb);
+ 
+ 	return skb;
+ }
+@@ -360,6 +396,8 @@ static const struct dsa_device_ops ksz8795_netdev_ops = {
+ 	.proto	= DSA_TAG_PROTO_KSZ8795,
+ 	.xmit	= ksz8795_xmit,
+ 	.rcv	= ksz8795_rcv,
++	.connect = ksz8795_connect,
++	.disconnect = ksz_disconnect,
+ 	.needed_tailroom = KSZ_INGRESS_TAG_LEN,
+ };
+ 
 
 -- 
 2.47.3
