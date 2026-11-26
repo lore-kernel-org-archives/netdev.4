@@ -1,98 +1,88 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.171
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=148.163.156.1
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675166;
-	b=njFuSZFu35GQpiC59yfisr4gs7AzzZjbB3oNTqGNLU9B6tOrpiI6t10H6h0M0kWhIW0L
-	 nZyEWohkUlM+IV57EQ93FOqntFThe591DDAAtCWgUq2w3mHQVoOlm2+7tSErv4Xpok+En
-	 q8OaMHwo3QQNBTYMlHHAoBXoZcoYIb5t7kqdFvlT7XcPByAwIf1eruXTmqqkjM0h+Ckw5
-	 7ADEd/GgVSn7/bUQ70K/OJGYhzK6a4OP2OmXP3wOe02QSMHzcZCMj3+9lSRxqJnPA/OCq
-	 wTkYw7X0uhcGJBhfDehlQRlPaE+4ZY2m8Kcd3PCQkjlVF7x64BgjlUYsrUaMfI48baw==
+	t=1795675202;
+	b=WR99iIEBRwLt/1CzG+crrOQcdEUGUTWO81+WWTYT5Ut7HuT57V1fmTBM4+zkMHkvEyvV
+	 k3Mlv5acf0TvDYUNio6285yMTUR7lE/0jqoqpAM0lUBmA9WTBgE7NGEONPuMfd83j7OEr
+	 H7aAUjoncEw/y+Js2pL2UzcO8jUeD3cjGcadGh81rXI6yKFIvkoDkPu7Fjkrk5pjVIch2
+	 eMInfqBXO1DSHmX8gDaQPK0QLj73DEVXWDmAvq70G39ImkY+QsUhdG8mJacvlVyY6en5W
+	 1oLzSjcyCrnuo4wOZxzXtgCM3UoEXkxxwDjfyaLQFo7Ae2JBYg5zRoFe39hh2QXrWSA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675166;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:Received:
-	 From:To:Cc:Subject:Date:Message-ID:X-Mailer:In-Reply-To:References:
-	 MIME-Version:Content-Transfer-Encoding;
-	bh=gRPsfsi93ztSCs2QSFkYBVWIi6vXulM42YvoVjjVqpE=;
-	b=WM1h3kLy48KbLX4fiPBbfq4hG8QB0jajoq1Z45B4SAdZSWipJZbq9GJCKYFrSI2YlwR5
-	 MwxgMcv5YrXB7XxtnNVIQbQl3TSD56hQHRI4KC76JUxU6+STCgMKRzUCqFvdNnolnzISw
-	 iPv+bUCWv6j6+3jy/z2KWkc1NBM3QCBw1EsXrNkv8UsZ9V6cQPA68KspZujduDD8XDRvh
-	 d7Ob2IQZcXIt2FQkyECRDVzKy+UyxV8o4u2T+yqpEOdCWJHPPcaTfuEgup0wwPbXu0DiT
-	 cP6He/7CcgMbFNtzhrMYxelVs7yF630AwBXTe6Azdrb+f2B7/GBmSc5x0Xp6k12JFEQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795675202;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:Received:
+	 Received:Received:Received:Received:Message-ID:From:To:Subject:Date:
+	 In-Reply-To:References:MIME-Version:Cc:Content-Type:
+	 Content-Transfer-Encoding:X-TM-AS-GCONF:X-Proofpoint-Reinject:
+	 X-Proofpoint-Spam-Details-Enc:X-Proofpoint-ORIG-GUID:
+	 X-Authority-Analysis:X-Proofpoint-GUID:X-Proofpoint-Spam-Info:
+	 X-Proofpoint-Virus-Version:X-Proofpoint-Spam-Details;
+	bh=kghJMKpjCr7I/O+cDkl9XA6c0C/krIlaFkrGrw61JTs=;
+	b=37GcADGmU9bOZiX4096n7AndN/yHwz+od4iobfMNlCDnwgl+MUyRd/qF6d02UeiNdSDr
+	 GdL5u/dHBgigVnRASQmSSvZCHjYTCVJFeI0PHb8KMGU5VPLWWucSE8ukp70dma+u3Q3+3
+	 ABaBfo0olGiNwE1ymQjf+l8QDWBUe8m3kgEEbgSmyMGLU46rCGgaT2OlJRUFBv1k7PHP7
+	 nJhmQuQHK5jXiN+E8otQGQiFiFTCxm932Yiy0RFLm0s/ZKVTx+1UYzHRpxKWIx+sJTMZ1
+	 E/87VuW5J5jVYeY9beyuN/4u0TtGGIdNF3iHlixFhNNKQQX39odV0krIEKo14hZGvRQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JPMBfTF7;
-	arc=none smtp.remote-ip=74.125.82.171
-Received: from mail-dy1-f171.google.com (mail-dy1-f171.google.com [74.125.82.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	dmarc=pass header.from=linux.ibm.com;
+	spf=pass smtp.mailfrom=linux.ibm.com;
+	dkim=pass header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XqA37Nc2;
+	arc=none smtp.remote-ip=148.163.156.1
+Received: from mx0a-001b2d01.pphosted.com (mx0a-001b2d01.pphosted.com [148.163.156.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1DEB1606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 06:39:25 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 1DEB1606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 131F4606A31C;
+	Thu, 26 Nov 2026 06:40:01 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 131F4606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=linux.ibm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=linux.ibm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=JPMBfTF7
-Received: by mail-dy1-f171.google.com with SMTP id 5a478bee46e88-386c4d2e2ccso4266889eec.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 22:39:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795675165; x=1796279965; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=gRPsfsi93ztSCs2QSFkYBVWIi6vXulM42YvoVjjVqpE=;
-        b=JPMBfTF726268NhfprvDI98BW7pD2A52FBjtdFqCxE4mQJGQpC1Ma9uScajoKPn+DD
-         HIHYF8a328biIV0ACuYxOQGYu3FfBmdT5iBdjmgb26opMECZOsZRWs4M88GCQ8jtXDyF
-         t7/RGiNnQnyjbEhpJQBa9IO0ZZfzCZHITdx+3Mtsel58nt0fV6eUpOGYcecZz9X06Rgj
-         HIYdzWLtMFoDnazMaAVEXTLT/4fHqUwSa91eX4vEulgoy5390s/Xrb65dwI9WdW/2Ij4
-         3LDZlodu4aPCXY5PKzUz/MtfZyX8TEKsjVBabyEeox+S27wmGn32IlH987LLBd9H+AOS
-         6wVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795675165; x=1796279965;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=gRPsfsi93ztSCs2QSFkYBVWIi6vXulM42YvoVjjVqpE=;
-        b=CEPOokaFGqKn4Ds99uZvnPcXE354oyFg/xaUZjrSSv5PsgeoFJ/lpxZjGjLiQL12/k
-         ti/kpQMT8sykNPeocml5vvlQMukY9KY/sb86zXtMZlNys7VUtMD/1Kf1Uxc1fvTdwov2
-         NQhWW2QbsnXP77nApZHz75Viy7Gofq9y7ZQGFy5WGTNAvQpjIOvmfd9n1xkYlxm4bgmP
-         QpU2KkL3OgcGZFiKEV7wLTRP0EQiFBBEj5e6HOmY2bv8RBsQrwcZWd1scPwyyMGhy7ic
-         /uGmfbHxnXhE+/fp+XbMdnQDGTjEvfkqSEhoWUIUNqSNtpPK42ma+o4FwacqSyAUsy5k
-         N/Jg==
-X-Forwarded-Encrypted: i=1; AL+hErH1IUtBtKCYu3HzfZbL2Zpzb5iEAUe4eH3P4TXP4RWpN9iUKh7d/qacu9+GsmO/DtWqRDlc8j8=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+6aiLah4pQiSA1quaXDp6XFB2pJykJksmf/V/v3JbMs6u5t5IT
-	LGvsphhkjtGl9q0UnYYdzHDJyYq39DFLkMS6KJZ8B4KAT+DKtIwAhMFU
-X-Gm-Gg: AZFdTZcLHqbsR5sAafLHAcu/2Gf/ejvazvg+8MLFkoObkZ9GDKPmaanvPVOgt5Cl0+4
-	UcBFOD3V9bTLatrSgi9MTRb7p6yZ2Tp+87oJEixN4ElDabLvjT+ZMutrN0U1Oy/iJEV6rEtdoSB
-	lIqon63SzkaoQ7K73HNZvmrGwvEqOO1qiyUASy3p5Z1xfOvmPXxllnymWqRq0p7oh8P68ca2/WZ
-	GDpspge8tcyZ82Abm8X3YjVTrQzyTctvGj++LyMNVh3TF5BMZVhFcBMq6Lcr8IREjBXNOhPocZD
-	NhMSyVh5zBPGH7aoRJFf5eL0JYaHoFz2e2o1i5O+dug95V0/C4WLuSiTIKI4y48tSrIeNToXBvM
-	r7BWXZhytjfBvPJjo6N56loq4i0+PALjuzo6BIOXQhPdqijb0Sn0p6EC+1HyFkX+zIOCjcZDE2G
-	5BEhuD5orVmR0z6dbGcFAertGttNRkfHI+L+ETH+ulZSOMggj/Ycwgs91pyHKAUdazOCuS/ZHff
-	7DmwIUoDUIgJEc1+nFA+0yIps8PJOVRSPcSQjuHBT2TSwSmtwgz9UMIFw8eGabq7xG1OvhBmS5S
-	wSViPfNdeHcn+PFRMSB3yuTvRgpQFjSOnDPJ5HSMmjhHkMmnnMHqr5SJZp0A0FYbUjj4csuhQUg
-	PzFh4PcPQRzI71Y6H6YTxfnzC53SPLgtXebFbokBma/7MA7th8pBJkuTQks91XTs8DJczkDIpAp
-	Tb6ei75hIaB7weTkrM8nSUH9VKZYM7Sv5waCwylNTq
-X-Received: by 2002:a05:693c:41cb:10b0:386:cef4:1ffc with SMTP id 5a478bee46e88-386cef43e87mr4363755eec.12.1795675165132;
-        Wed, 25 Nov 2026 22:39:25 -0800 (PST)
-Received: from LAPTOP-3B99V33A (ec2-3-38-183-164.ap-northeast-2.compute.amazonaws.com. [3.38.183.164])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-385f68bc0adsm55404015eec.13.2026.11.25.22.39.22
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 22:39:24 -0800 (PST)
-From: "Bin Luo (University of Electronic Science and Technology of China)" <luob87709@gmail.com>
-To: oe-linux-nfc@lists.linux.dev
-Cc: johan@kernel.org,
-	david@ixit.cz,
-	kuba@kernel.org,
-	netdev@vger.kernel.org,
-	stable@vger.kernel.org
-Subject: [PATCH v4 2/2] nfc: preserve NCI data status error codes
-Date: Thu, 26 Nov 2026 14:39:11 +0800
-Message-ID: <20261126063911.353-3-luob87709@gmail.com>
-X-Mailer: git-send-email 2.51.0.windows.1
-In-Reply-To: <20261126063911.353-1-luob87709@gmail.com>
-References: <20261126063911.353-1-luob87709@gmail.com>
+	dkim=pass (2048-bit key) header.d=ibm.com header.i=@ibm.com header.a=rsa-sha256 header.s=pp1 header.b=XqA37Nc2
+Received: from pps.filterd (m0360083.ppops.net [127.0.0.1])
+	by mx0a-001b2d01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34bYf3281350;
+	Thu, 26 Nov 2026 06:39:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ibm.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=pp1; bh=kghJMK
+	pjCr7I/O+cDkl9XA6c0C/krIlaFkrGrw61JTs=; b=XqA37Nc2YkPcEg4XceHwNm
+	ahHmPvU5X/aXcuEuw3Fu23n3EkLOcC+FYiIYvSusls8WbL9vLzWyKIAgkbOli++C
+	MzUrPNC6ajAIHBlRPV4zt4vCDZhZcafSRODqCvkHegAfAgzvjIxrmRh88s8rxT1O
+	hmeOq9aKv+xkG0rJr9jMr0zd65g8N+p/iCuDCrbBZYHWeCdtX9OW3gl5TZE+Ag1t
+	HcKzgTq3UiNQtrrQ5olDKespaCQjct39/5SJEcQf4Km9e+unt5ayWXtoQasDs3hb
+	D++LNwf9iCwB+E+sZKhRot9CqlVL0YaBuq9dxaIsnR4CzzHEQf26uERCRU6DZ86Q
+	==
+Received: from ppma21.wdc07v.mail.ibm.com (5b.69.3da9.ip4.static.sl-reverse.com [169.61.105.91])
+	by mx0a-001b2d01.pphosted.com (PPS) with ESMTPS id 4j34fag2p2-1
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:39:52 +0000 (GMT)
+Received: from pps.filterd (ppma21.wdc07v.mail.ibm.com [127.0.0.1])
+	by ppma21.wdc07v.mail.ibm.com (8.18.1.11/8.18.1.11) with ESMTP id 6AQ34V8J3117327;
+	Thu, 26 Nov 2026 06:39:51 GMT
+Received: from smtprelay07.fra02v.mail.ibm.com ([9.218.2.229])
+	by ppma21.wdc07v.mail.ibm.com (PPS) with ESMTPS id 4j5a417249-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 06:39:51 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (smtpav06.fra02v.mail.ibm.com [10.20.54.105])
+	by smtprelay07.fra02v.mail.ibm.com (8.14.9/8.14.9/NCO v10.0) with ESMTP id 6AQ6djcM41419246
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 26 Nov 2026 06:39:45 GMT
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 7F66620049;
+	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
+Received: from smtpav06.fra02v.mail.ibm.com (unknown [127.0.0.1])
+	by IMSVA (Postfix) with ESMTP id 62D3B20040;
+	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
+Received: from localhost (unknown [9.87.84.240])
+	by smtpav06.fra02v.mail.ibm.com (Postfix) with ESMTPS;
+	Thu, 26 Nov 2026 06:39:45 +0000 (GMT)
+Message-ID: <3e66af3fba5b4744b099734fe5054e6e@linux.ibm.com>
+From: Sidraya Jayagond <sidraya@linux.ibm.com>
+To: Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Subject:
+ Re: [PATCH net 0/4] net/smc: fix the failover cursor switch and wrap rollover
+Date: Thu, 26 Nov 2026 07:21:38 +0100
+In-Reply-To: <20261123165127.2453df54@kernel.org>
+References: <20261113-b4-disp-1a9ab9b0-v1-0-4a7c8d85d849@proton.me>
+ <20261123165127.2453df54@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,47 +92,53 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Cc: Dust Li <dust.li@linux.alibaba.com>,
+        Mahanta Jambigi <mjambigi@linux.ibm.com>,
+        "D. Wythe" <alibuda@linux.alibaba.com>,
+        Eric Dumazet <edumazet@kernel.org>,
+        "David S. Miller" <davem@davemloft.net>,
+        Guangguan Wang <guangguan.wang@linux.alibaba.com>,
+        Tony Lu <tonylu@linux.alibaba.com>, netdev@vger.kernel.org,
+        Wenjia Zhang <wenjia@linux.ibm.com>,
+        Ursula Braun <ubraun@linux.ibm.com>,
+        Hidayath Khan <hidayath@linux.ibm.com>, linux-s390@vger.kernel.org,
+        linux-kernel@vger.kernel.org, Simon Horman <horms@kernel.org>,
+        Wen Gu <guwen@linux.alibaba.com>, Stefan Raspl <raspl@linux.ibm.com>,
+        linux-rdma@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-TM-AS-GCONF: 00
+X-Proofpoint-Reinject: loops=2 maxloops=12
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX+i3MN2/IYO2x
+ eZs7AwOIujp3JYO6tqr0R1PtUkIjjxxY60Ur4SIygyZzbMLI+iR1pBasrrDq15xIkSFcZdVJUSP
+ XGUhBja5kJDU6+uaixxVQ5iaAsHglvl6xsRVVWtzIvVhJJRUP0+iZJ2K7eV+sSAyHRCs+6Gcvit
+ G6MTt3R1Gx25kzbanQJlragvxu3Zs2Rkf4Wk1BXreOAHY25XXgm4w3PmE8W8usgHy+0E7UXYOUK
+ RosWB2P6A+SMvwEnMoqfD3sHprRB4Hl+/6lGIgOeLC69p4egPbh+0oeKdi6HKVVd4aJqNu5rQWj
+ kqDPisK/MaULRbMk3HtdAQNefTKUMySWyf+d9G8ptq2kaIX3bzQjlm7yBwZe+AShCFcEM1hf8pH
+ D+B2MZmjaQTlt8TxtPLu5fIjshBYp7ni+eT/NZ18z65ONtUE9096hFkTUOulnTgYmUeZTFkze8x
+ 35vzuYTtoDt2DD+NyWQ==
+X-Proofpoint-ORIG-GUID: PpNjQ2_9MLtpgmh8BxiiC9b4MZT8fA1W
+X-Authority-Analysis: v=2.4 cv=U6QHnuru c=1 sm=1 tr=0 ts=6b07d438 cx=c_pps
+ a=GFwsV6G8L6GxiO2Y/PsHdQ==:117 a=GFwsV6G8L6GxiO2Y/PsHdQ==:17
+ a=IkcTkHD0fZMA:10 a=zJRp6_cAMcgA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=RnoormkPH1_aCDwRdu11:22 a=iQ6ETzBq9ecOQQE5vZCe:22 a=GVtuyzs1sv75qvV3u5gA:9
+ a=QEXdDO2ut3YA:10 a=QYH75iMubAgA:10
+X-Proofpoint-GUID: DeWRG2scOcnjWXT9rZGnnJC_ad4YkjXm
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI2MDAyNSBTYWx0ZWRfX3DFxXlwFIknq
+ kAiQQuQbIPECJD8I0AyqxXVr9MAzcYvclucpkpaP+IVMJIMgVUPlU9xWFdjCLve+h1TzZKDA0bn
+ XZonYTNiczdZmr3bI8JKeh2JFQP6iks=
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-26_01,2026-11-25_01,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ priorityscore=1501 lowpriorityscore=0 spamscore=0 impostorscore=0
+ clxscore=1015 bulkscore=0 suspectscore=0 adultscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.22.0-2611040001
+ definitions=main-2611260025
 
-nci_to_errno() returns negative errno values for nonzero data-status
-bytes. Passing that value to nci_add_rx_data_frag() through a __u8
-parameter truncates the signed errno into an unrelated positive value
-before the completion callback receives it.
+I am reviewing this series now; please do not toss it. I will send the
+per-patch comments today.
 
-For userspace AF_NFC raw sockets, this corrupts the reported error: for
-example, an NCI status error mapped to -EBUSY (-16) is truncated to
-240 and negated to SO_ERROR=-240 instead of reporting EBUSY (16).
-
-Keep the error parameter as int so the original errno reaches the
-completion path and userspace unchanged.
-
-Fixes: 98ff416f97c5 ("NFC: nci: Add status byte management in case of error.")
-Cc: stable@vger.kernel.org
-Signed-off-by: Bin Luo (University of Electronic Science and Technology of China) <luob87709@gmail.com>
----
- net/nfc/nci/data.c | 6 ++----
- 1 file changed, 2 insertions(+), 4 deletions(-)
-
-diff --git a/net/nfc/nci/data.c b/net/nfc/nci/data.c
-index 3bbebb9..4a2326a 100644
---- a/net/nfc/nci/data.c
-+++ b/net/nfc/nci/data.c
-@@ -213,13 +213,11 @@ EXPORT_SYMBOL(nci_send_data);
- 
- static void nci_add_rx_data_frag(struct nci_dev *ndev,
- 				 struct sk_buff *skb,
--				 __u8 pbf, __u8 conn_id, __u8 status)
-+				 __u8 pbf, __u8 conn_id, int err)
- {
- 	int reassembly_len;
--	int err = 0;
- 
--	if (status) {
--		err = status;
-+	if (err) {
- 		kfree_skb(ndev->rx_data_reassembly);
- 		ndev->rx_data_reassembly = NULL;
- 		goto exit;
--- 
-2.43.0
-
+Sorry for the delay. For some reason our mail server was rejecting messages
+from the kernel mailing lists; it is fixed now.
