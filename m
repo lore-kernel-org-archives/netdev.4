@@ -1,58 +1,110 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.128.54
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795688457;
-	b=ZDu++AlR/F62zmAv1n35BJDEvu3UBpU0lHkZfUFZoVNHYoY8p62TncTkaynCtjDYafbX
-	 5ShulbizGikE9lbfy3/SrDQXRCNoRFcDNeuiQlMV6IClktybQ2Q1LKbtTAELhsfl9Kh54
-	 ebzPUW9QSqJCBWwj+DLB4pU9+JZYmdu8KVWlBIRY3jOkjyIzY4LllPQPI/ZrhmEvkS03K
-	 LXFSy/fair+YlemHwRO+fa7Hx2MmpG6o7XgyCYcR6fxNHxVzb6xAZlX7ubtqZkCY0lAPW
-	 Qa397tjrftHeMVPunEyya9IB8upVhOa5VlHmmkbGtL1lyB9jlBqUgxThZ6JM3qRNbug==
+	t=1795688462;
+	b=Wh0V7REDUrfoVjw5ngWcpQchv3gOtjnDOoZFgJEkPcd/q3nqCRr9OjtS4VHqDAHEw1ws
+	 fIuLQX4FfLKnDz1TXxQY+nSvjc2nzYcgQ004RnlIB/vXRzSq5xuf1jTLAvPVo+zcdVRT5
+	 OLozTBrD8Wn55CLnonaqicz1zjfUfTfzLOgBml0ZYsaagTFAFopnzdGnf+vjdaNTOIN2c
+	 jKtzgwJq3Mr2JwiWSHY9+n87/dIVqC+5WaCRRgHRqwaqfFATC16cV1YEmEg2HoUMzcWHA
+	 fT+jjV55PTgpGnd5ZTRbQqkXLlRP+Z7mcUhOvuCnQ0YVuVW5USqxdSRXccowgii0mFg==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795688457;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=YB3wzJxxHDHi23P+//gC1AV+iO0J/fjZ+eovqPNBwYA=;
-	b=gOa0AoA4XeG1W+XH7kwjrm9IxXT4KhPmaKINTkQqzMUv6Fn4F1dmdDQVBRsILl3QTYuy
-	 RYr+pX1boGLNlcun1R0L0/hDkZunANP5uqpD8ufbfVNSQKJiOe46XKZpNFm2nhNgGCv5q
-	 OcyiJNwb0Sq4wfaYbNIOxqq5EY/OQYv0JsgCowV++hlVUFq/oCj9JkCvJFb5dN+lPOmwH
-	 RXV/TAV8XB4JZX+GWIINnGaiexmDM+3IDCkPzNhO62B57iSmv3zzWBfTWKV0LWrQ+n2Ts
-	 6nHF6ib/oxpbpHuzg7iJYvHNk1L6qNjNW6uj8/++Alo3zhlL3FQuoJXqNM9XBtmH1KA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795688462;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:In-Reply-To:References:X-Mailer:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+	b=oW8eOpNN2POU305AM5L1JehIw0Q9Xt2nXuULmC2xCEnxuihsR2vWUxzUwTHITAY3KUys
+	 o1HWumOe1R6XPbe2Q9smMJoYb17kQH5Yeujxgh/OX5O3F7slcKf4VNbb8PJfGcpeFZ0t3
+	 1jekXMDLTxxX8yO68qwjHJS8mFe/RE0QGUa5aDh46iMvSINM9ke219RYZt8xyeqx3OKJz
+	 ehUCyZ2Q7MdMYktMvEpu3FVYAMzcAd5fYxjBBIOn2/1RXCO09KlSTwFf/T3d4O6Cof90l
+	 HinEp6zXybIFkpiqvsWYGtVlIqQUxyqQOXZZAIjzb/wmi1AFnN51whhncONaer881KQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pmVcnvAd;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="CD7VT//B";
+	arc=none smtp.remote-ip=209.85.128.54
+Received: from mail-wm1-f54.google.com (mail-wm1-f54.google.com [209.85.128.54])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id EC742606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:20:56 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org EC742606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 34CF4606A326
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:21:02 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 34CF4606A326
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=pmVcnvAd
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 8D8591A180B;
-	Thu, 26 Nov 2026 10:20:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5A82760237;
-	Thu, 26 Nov 2026 10:20:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B438211E68598;
-	Thu, 26 Nov 2026 11:20:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795688454; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=YB3wzJxxHDHi23P+//gC1AV+iO0J/fjZ+eovqPNBwYA=;
-	b=pmVcnvAdBlby3lhBVtVzuDtEQLF1hCM4Aizt/91F8Yjpmr8T+0TgMHD0rCk/d6cJS/wkUo
-	oJtNkt3fpNUAb/E6WwJYBykOwgQUwUpogW46AxsssrZ5hDAv8CT9HNH0730k8SiybPLmdH
-	0PbOd9YnzbknCGGvZX3m4kbbL1s3vJXEmlWkrPWLksq4AzKdEjo+N7NEwR3N/Y1WHaSmxx
-	6XxIY5ikUIgYDU/pTZ7e8i/eZTZ701r34zw6/7ROZnXo0hqrr4VHkP7A9wKsF3dpTERtg+
-	8M/1mDxKn2whFEZywyT7XJitLgSiQzeyAMoRCC4XZx1jV+kilYOgCl9i0ZveSA==
-Message-ID: <652a5de2-4c63-4e0a-9af0-f968cae730fd@bootlin.com>
-Date: Thu, 26 Nov 2026 11:20:47 +0100
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=CD7VT//B
+Received: by mail-wm1-f54.google.com with SMTP id 5b1f17b1804b1-4ba013938d7so63883415e9.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 02:21:02 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795688460; x=1796293260; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+        b=CD7VT//BnwjcVd/x9W08z4hh0qia6Xph8wF/i4minXZySyXu8zsDolv0LFjazmM/6m
+         pIGU6L76Mawk8H2KfnDIrG2oDmO7Tv7sO/LEOBXhymVTUcYfViwFwrXpTpNkkpHs8gl4
+         otBJYE9GgyVPV2IUsre2NvaRLOV2zPcBDOjAv1YT/TJrss4Pq0CevX+URUlIVbdF1LB+
+         iN55YZDkHNufNljGtkNuEStzk9IaQR+nbcYV+y7g4IE4bHodjC1+Z4Qpfkkd525fXANf
+         yjTMIfngYNzhYLbG2HD7dSz7i6QkbKb7sIKmnwYNW0QDrTCnZACMi6z8+NrNv2a+YLfm
+         iQJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795688460; x=1796293260;
+        h=content-transfer-encoding:content-type:mime-version:references
+         :in-reply-to:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=Dz5Obh5lP0tOLHLiHWSWNzgVimL59XKVdrhzCbJPLAQ=;
+        b=W96K4JZWR8TN6pN/LRUmhMv7Pj/uGg24hnxtPJ9j52oURVJ+9hhoe6ErqX5aAyj9WA
+         v7f9j6tiitrBfAX8KijYafAOz81mSRfl4ceslyYVdadbrQXfnHFuC2GbUt7tuzMLcc9M
+         TKyBluba9mlPRGPGBd2F0rAW/XI9Wr51FO2iyrGhgSrJCdK9Yn+o9gfzeKUw/Ie0Qu5Z
+         jaxOCr6SzZovzlkA7heyqIxBXD64TqfoPhcGxoE73doL2wiyS3kMk8Kzciw70FLUoXfl
+         CwS1r2GZgFdHES3KjLQLH6/TZb8ZqGBIOzzgVA69I3KDiXQ9HVib+ByPVaKGJ5YqhfCD
+         2hFA==
+X-Gm-Message-State: APuU4Z80vqy43Z+mVG2OcAYA1XL3DPkcKAfi0SK2/iL0nQDtzl6uv4yN
+	+jyrxgyFcybLmTzQ0cWXgCJUz1Y1sgqd173JgkWTzZpa+xAlnMn3Li6F
+X-Gm-Gg: AZFdTZc+3OiwwAN+6Uz4HJRhIr5mUXuQm77P0MEt6jTqGzL8J07Grs0sohcKU6YUvm6
+	fDOvRZ9BfqQ4Mvrl5xZap18QrwsP9YfsDL4Rojle17rSht2fLFfQbe/lhj+PyTU4it8NiBkpDN9
+	rhh/hQlRcRhsNA+ty/8mZUC0ia8PEaUHAYkTWRMMB0gcHTd9Tkkk07ThYEZcSrEY6pLyh/5EQeg
+	agute30ywbdzxGTRF16lai3o2IYHnlNDnaD8r3JXU2MUhYCAdPdlyMjz0lFqVqpAd1pZud8Z58F
+	f78jA7aCYrOcSC7P//OpF7oVdLG0WyS2Ciyi3K4JVT3Ob1riM1HxMQ6EO5B1eSdixA7FpCrn+lA
+	rvt+y/odLSmbb8ML2UfvvZA6zeb95q5Y3ATyPc8Y2nlaUiKlzWS+nYOZhxkAlKsHBQhQp1sbn04
+	gjObZkl3ilmLgqBF4Aruzn/tWkjfxQyxnGmwlPqY5ZhokHGI1mWgdEK7lgOraVmcMRrunzL6U40
+	tfVreNlnTVfgt0DOdD4fM4nuJzSRvDdoC21fN1q/0NIKQsaJYlz3Mn7MA3+WXMFnfS4g6vkA+9u
+	/DuKnO9PAw1n47zn5tVXgTiYTCuQm/qympikixMArWw4M/drPNuGNiZFicFJ6HgYgA==
+X-Received: by 2002:a05:600c:3ac9:b0:4a2:a3b:7aa8 with SMTP id 5b1f17b1804b1-4bb887e068emr432378915e9.3.1795688460499;
+        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
+Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-4bb8538b2c5sm581334935e9.5.2026.11.26.02.20.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 26 Nov 2026 02:21:00 -0800 (PST)
+Date: Thu, 26 Nov 2026 10:20:58 +0000
+From: David Laight <david.laight.linux@gmail.com>
+To: Xuanqiang Luo <xuanqiang.luo@linux.dev>
+Cc: netdev@vger.kernel.org, "David S . Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo
+ Abeni <pabeni@redhat.com>, Simon Horman <horms@kernel.org>, Alexei
+ Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, John
+ Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
+ Eduard Zingerman <eddyz87@gmail.com>, Kumar Kartikeya Dwivedi
+ <memxor@gmail.com>, Martin KaFai Lau <martin.lau@linux.dev>, Song Liu
+ <song@kernel.org>, Yonghong Song <yonghong.song@linux.dev>, Jiri Olsa
+ <jolsa@kernel.org>, Emil Tsalapatis <emil@etsalapatis.com>, Ihor Solodrai
+ <ihor.solodrai@linux.dev>, Matthieu Baerts <matttbe@kernel.org>, Mat
+ Martineau <martineau@kernel.org>, Geliang Tang <geliang@kernel.org>, David
+ Ahern <dsahern@kernel.org>, Ido Schimmel <idosch@nvidia.com>, Stanislav
+ Fomichev <sdf@fomichev.me>, Neal Cardwell <ncardwell@google.com>, Kuniyuki
+ Iwashima <kuniyu@google.com>, Pablo Neira Ayuso <pablo@netfilter.org>,
+ Florian Westphal <fw@strlen.de>, Phil Sutter <phil@nwl.cc>,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org, mptcp@lists.linux.dev,
+ netfilter-devel@vger.kernel.org, coreteam@netfilter.org, Xuanqiang Luo
+ <luoxuanqiang@kylinos.cn>
+Subject: Re: [PATCH net-next v1 0/6] net: avoid stack canaries in TCP/IPv4
+ fast paths
+Message-ID: <20261126102058.1fecf50f@pumpkin>
+In-Reply-To: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+References: <20261124130631.1886963-1-xuanqiang.luo@linux.dev>
+X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,87 +114,34 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: stmmac: dwmac-sun8i: Drop received MAC control
- frames
-To: aiyengar1990@gmail.com, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Chen-Yu Tsai <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
- Samuel Holland <samuel@sholland.org>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- LABBE Corentin <clabbe.montjoie@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-References: <20261126-sun8i-emac-ctl-frames-v1-1-e90ac94bc8c7@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261126-sun8i-emac-ctl-frames-v1-1-e90ac94bc8c7@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
 
-Hi,
+On Tue, 24 Nov 2026 22:06:25 +0900
+Xuanqiang Luo <xuanqiang.luo@linux.dev> wrote:
 
-On 11/26/26 10:56, Arun Iyengar via B4 Relay wrote:
-> From: Arun Iyengar <aiyengar1990@gmail.com>
+> From: Xuanqiang Luo <luoxuanqiang@kylinos.cn>
 > 
-> sun8i_dwmac_set_filter() sets CTL_FRM_FILTER to "receive all control
-> frames", so every PAUSE frame reaches the stack and is counted in
-> rx_dropped. Leave it at 0, "drop", as the Allwinner BSP does; the MAC
-> still obeys PAUSE.
+> With CONFIG_STACKPROTECTOR_STRONG=y, a function that has a local array or
+> passes the address of one of its locals to another function needs a stack
+> canary. The canary is set up and checked on every call, also when the
+> local is only used on a path that almost never runs.
 > 
-> Fixes: 9f93ac8d4085 ("net-next: stmmac: Add dwmac-sun8i")
-> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
-
-This shouldn't go to net, this is fairly harmless.
-
-> ---
-> Tested on an Orange Pi Zero2 (H616), net/main, MAC loopback: TX still
-> waits 32.6 ms per PAUSE; rx_dropped per 20 PAUSE frames 20 -> 0.
-> Claude (AI) helped find the cause and write the patch; I reviewed and
-> tested it.
-
-How ? For me on H2+, mac-loopback with Pause didn't work without this series:
-
-https://lore.kernel.org/r/20261122144926.284857-1-maxime.chevallier@bootlin.com
-
-What does the "ethtool -t" flow control selftest report with this new patch ?
-
-Maxime
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 3 +--
->  1 file changed, 1 insertion(+), 2 deletions(-)
+> This series removes the canary from functions of the TCP/IPv4 fast paths,
+> by returning results by value, by using storage that is not on the stack,
+> or by not calling a function that has nothing to do.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 2ece7ba9dd73..f669bf22b7dc 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -192,7 +192,6 @@ static const struct emac_variant emac_variant_h616_emac1 = {
->  
->  /* Used in EMAC_RX_FRM_FLT */
->  #define EMAC_FRM_FLT_RXALL              BIT(0)
-> -#define EMAC_FRM_FLT_CTL                BIT(13)
->  #define EMAC_FRM_FLT_MULTICAST          BIT(16)
->  
->  /* Used in RX_CTL1*/
-> @@ -720,7 +719,7 @@ static void sun8i_dwmac_set_filter(struct mac_device_info *hw,
->  	struct netdev_hw_addr *ha;
->  	int macaddrs = netdev_uc_count(dev) + netdev_mc_count(dev) + 1;
->  
-> -	v = EMAC_FRM_FLT_CTL;
-> +	v = 0;
->  
->  	if (dev->flags & IFF_PROMISC) {
->  		v = EMAC_FRM_FLT_RXALL;
-> 
-> ---
-> base-commit: e509726660dd06ce107437aecf7c106c9d3fc1e7
-> change-id: 20261122-sun8i-emac-ctl-frames-186c03e03399
-> 
-> Best regards,
-> --  
-> Arun Iyengar <aiyengar1990@gmail.com>
+> Patch 1 returns the two mptcp_space() values in a structure, so that
+> __tcp_select_window() no longer needs a canary.
 
+While all (I think) architectures can return a big integer in two
+registers (dx:ax on x86), not all ABI do the same for small structures.
+For those architectures returning a struct by value is implemented by
+passing the address of a hidden on stack structure.
+So code generation may be worse than passing the values by reference.
+I can't remember the list of architectures, mostly old ones - but not
+32bit x86 because the compiler option was set when regparm=3 was added
+for 2.6.
+(Note that this is different from passing small structures by value.)
+
+David
