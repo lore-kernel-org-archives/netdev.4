@@ -1,78 +1,52 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.10.208.51
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=129.217.128.51
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795716384;
-	b=vrNcvWjF+yqx67dmZ90tzvyuCXVcNR4SJzzxHPKhtUe10S/CR7WQ5Ijthg4wkTAOUgig
-	 EsIrUmYn9OAJlAFFJoSASObP/0cEttNyRmQVb6BcD9LD/GtSwRgjHzSuGdVgmD7+MkA3o
-	 QRKxsbKTRUcpTiOeCZqXHIaefJyE79oammJZTNTsIcSObrDaKuzDcxpWgzEXo5kLoFo0T
-	 ZIuu8P+F4FSR+xIRGMdfdesUg0mtVD4oz0VzfjBw0rYdk79FdDgSZgR6y8m28qFEYnXmN
-	 KuVPgxqCqV9zQFyixqIQzPjAGVsGDjDD35BrxE33OBEldqR1iS89fA5W7hpxM1r9m/Q==
+	t=1795716432;
+	b=pu+uv91yjTC3MX/eieOkKI70gmTQxDXG8peYkt39vcZojphtSuSvHZcEPtGGQmAE80a1
+	 rq1ROi18RA6QK/lkKWjqGjxRoI/siavcpTPxKim0YkyaDyuTXf6IR3raH//38QvwPOQtE
+	 /hX2+siz4nbG68h79sbBpxTfkGTGtz/XOTZfSwZI4Af/jWhH98IOjCZMoWt5aEwD5aIO6
+	 Nuz2rLGjqvnW/EsSzDkSwjPtfNTSmajbUeDRgCmgwnRxBVxsapfsMIqD4PhOmtNpFrlXv
+	 eP/dFcIBbUhRGQYMTe+A7MzYloKN1VC5wyOOi/FSehnvGzI9nzAEqJnmgA2z8VhEKkA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795716384;
-	h=DMARC-Filter:Received:DKIM-Signature:From:To:Cc:Subject:Date:
-	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:X-Rspamd-Queue-Id;
-	bh=ZFYiheXa78vwZkfk3QiwkXHEnKws8Sfv2V6CLNUXJgM=;
-	b=3EZiEiFEP53N5RYZw1qRS4Pr5mW5joirdRwywRc9P9PUaceLbQ6c+/+AKqZSVeIg7Dxc
-	 JxjKi11elnqiTNxwHoI6qtR9Zrxqj8YFPSLDAP1qMslid5chfWUWG1Oi/7eXQq/TfoL0X
-	 VVUYbUPX2/vJigD1YORhc5Kz0AaQB3/CaC1aRLrvPxhJX+1hVuL+Iy+BIrnghpJZm1sT4
-	 lMbKx92NozJzekfeDECbPPFc2C+am5+UiC22XkJx37zUWTYc9oapdF5uEfqS1+yegeYXE
-	 yLfbx5drjlg3VPN4mGPO0Tvhxr5Kgghf5eIWvsTNlZD/Ad7v24tjpa/FZmZFOqkSw0A==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795716432;
+	h=DMARC-Filter:DKIM-Signature:Received:Message-ID:Date:MIME-Version:
+	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
+	 Content-Type:Content-Transfer-Encoding;
+	bh=6+hU3UA5s6I/NTpkLAZ+BjhMDXENiELATWgF9iF0YoM=;
+	b=FJ5h7D3wJmO/wDm7yAAZCXISybHjJwAQrmqyDVBbugYCip5jbeG8AMtXBnkJWYoKWptR
+	 fQ7lUZ+MeOdqyUw4TGUbQKKkEmsMC9u25ltxvx8xCIKp1W4syhZB58tAuKct9uXOGhF40
+	 x7Y9QK2X8Jj+FFlC2oT5mAkvobjKN82goNCXgTX0uAWT4hxvfg2KLUxvx39O90W2OCpJX
+	 8rH04NKd7kYGAEQHJcwr7ajcvtjTuu2LlpcKxLtlnqW1sf6HbgSypk8LVQm09oUHdko8E
+	 oQOiB2Q2YRFYFvz+93YJWVHAUHYSg1x1rt/h17qiM49Pr6eRg81D5K0JRXGbuoA48/A==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mandelbit.com;
-	spf=pass smtp.mailfrom=mandelbit.com;
-	dkim=pass header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KQsLwA2y;
-	arc=none smtp.remote-ip=195.10.208.51
-Received: from mout-b-206.mailbox.org (mout-b-206.mailbox.org [195.10.208.51])
+	dmarc=pass header.from=tu-dortmund.de;
+	spf=pass smtp.mailfrom=tu-dortmund.de;
+	dkim=pass header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b="l0/9dwIa";
+	arc=none smtp.remote-ip=129.217.128.51
+Received: from unimail.uni-dortmund.de (mx1.hrz.uni-dortmund.de [129.217.128.51])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 35C95606A31E;
-	Thu, 26 Nov 2026 18:06:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 35C95606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mandelbit.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=mandelbit.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0765A606A31C;
+	Thu, 26 Nov 2026 18:07:09 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0765A606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=tu-dortmund.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=tu-dortmund.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=mandelbit.com header.i=@mandelbit.com header.a=rsa-sha256 header.s=MBO0001 header.b=KQsLwA2y
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519MLKEM768 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-b-206.mailbox.org (Postfix) with ESMTPS id 4jb4HG1cMCzk3;
-	Thu, 26 Nov 2026 19:06:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mandelbit.com;
-	s=MBO0001; t=1795716378;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ZFYiheXa78vwZkfk3QiwkXHEnKws8Sfv2V6CLNUXJgM=;
-	b=KQsLwA2yqIXpa+5Untqa12L/CG9nzfaW/eHsyUg4EjUmFYdGQsRwEiuKe9qMccj1d/eEdX
-	DTvT927J1OjN2XDHl9uYilYItII3GmSsyPeCkroIn/S8jnOKdNcRJQ/gmFuOmcjEcZ33uv
-	YrX+7N4+26VFzyOqjzkJ9dMykFrc90hf3lJL+P+uzPZblfb8AkqmBKlHUdDLkgfsBc8b2W
-	f19w9Le7SrwC108U6NcdS2xG2h8oaEj5rfk9qk3rOLA+Isj0hSYiJrqshk+j+8Z9sTKGyQ
-	0jKSxTXlh17BKgBMg/L5UbCjSZbGYUVg5jqxZ8IP/yOcKYXPBb3oM9K1rVYxLg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=none;
-	spf=pass (outgoing_mbo_mout: domain of ralf@mandelbit.com designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=ralf@mandelbit.com
-From: Ralf Lici <ralf@mandelbit.com>
-To: nicolas.dichtel@6wind.com
-Cc: netdev-bot+sinfo@kernel.org,
-	Steffen Klassert <steffen.klassert@secunet.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@kernel.org>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Willem de Bruijn <willemb@google.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH ipsec] xfrm: advance the route generation when policies are removed
-Date: Thu, 26 Nov 2026 19:06:05 +0100
-Message-ID: <20261126180608.1459401-1-ralf@mandelbit.com>
-X-Mailer: git-send-email 2.56.0
-In-Reply-To: <f707be46-5332-4196-a9e0-5e6fb5ae8353@6wind.com>
-References: <20261126111516.317545-1-ralf@mandelbit.com> <179569192472.3294.16207945676550617931@kernel.org> <20261126113216.337964-1-ralf@mandelbit.com> <f707be46-5332-4196-a9e0-5e6fb5ae8353@6wind.com>
+	dkim=pass (1024-bit key, unprotected) header.d=tu-dortmund.de header.i=@tu-dortmund.de header.a=rsa-sha256 header.s=unimail header.b=l0/9dwIa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=tu-dortmund.de;
+	s=unimail; t=1795716398;
+	bh=6+hU3UA5s6I/NTpkLAZ+BjhMDXENiELATWgF9iF0YoM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=l0/9dwIaZpv+KDaKcRsCxtAWIRuftNDPPiORFqoPlZoL7yzV18Gps4cON6/XbGalv
+	 vyAgqxPfsb/Ti3JyD7/YQS1FVU7T0CMMz7blxT/0EkCi4Vvz6Xj5+WHzwtoS+lgRjz
+	 XPL5rSlTFdgjSRLunmb6mqGyOtOUbqB2ZgCZ/wcg=
+Received: from [129.217.186.54] ([129.217.186.54])
+	(authenticated bits=0)
+	by unimail.uni-dortmund.de (8.19.0.2/8.19.0.2) with ESMTPSA id 6AQI6avb020167
+	(version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384 bits=256 verify=NOT);
+	Thu, 26 Nov 2026 19:06:36 +0100 (CET)
+Message-ID: <61e80a8e-320a-497d-a24d-708dd1acff10@tu-dortmund.de>
+Date: Thu, 26 Nov 2026 19:06:36 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -82,65 +56,39 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next 0/3] veth: earlier txq wake and stop under
+ backpressure
+To: netdev@vger.kernel.org
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+        "David S. Miller"
+ <davem@davemloft.net>,
+        Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
+        Paolo Abeni <pabeni@redhat.com>,
+        Jesper Dangaard Brouer <hawk@kernel.org>,
+        Tim Gebauer <tim.gebauer@tu-dortmund.de>,
+        =?UTF-8?Q?Jonas_K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>,
+        "Michael S. Tsirkin" <mst@redhat.com>,
+        Jason Wang <jasowangio@gmail.com>, Alexei Starovoitov <ast@kernel.org>,
+        Daniel Borkmann <daniel@iogearbox.net>,
+        John Fastabend <john.fastabend@gmail.com>,
+        Stanislav Fomichev <sdf@fomichev.me>, bpf@vger.kernel.org,
+        linux-kernel@vger.kernel.org
+References: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
+Content-Language: en-US
+From: Simon Schippers <simon.schippers@tu-dortmund.de>
+In-Reply-To: <20261125152311.805325-1-simon.schippers@tu-dortmund.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Rspamd-Queue-Id: 4jb4HG1cMCzk3
+Content-Transfer-Encoding: 7bit
 
-On Thu, 26 Nov 2026 15:54:36 +0100, Nicolas Dichtel <nicolas.dichtel@6wind.com> wrote:
-> Le 26/11/2026 à 12:32, Ralf Lici a écrit :> On Thu, 26 Nov 2026 11:18:44 +0000,
-> netdev-bot+sinfo@kernel.org wrote:
-> >> Hi!
-> >>
-> >> This is an automated message. This series looks like a fix, but its
-> >> commit messages seem to be missing some information:
-> >>
-> >>  - Whether the issue was actually triggered, or is only theoretical
-> >>    (e.g. found by LLM and not proven at runtime). If it was triggered
-> >>    please include the symptoms, like the stack trace or kernel messages.
-> >>
-> > 
-> > Yes, the policy removal cases were triggered at runtime, in a VM test
-> > setup (not observed in production AFAIK).
-> > 
-> > There is no kernel message, the symptom is plaintext on the wire. A
-> > connected UDP socket keeps sending unencrypted datagrams after the allow
-> > policy that exempted its flow is removed, although the ESP policy below
-> > it now matches.
-> > 
-> > This is roughly the setup, in a netns with a veth pair (IPv4 is the
-> > same):
-> > 
-> >   ip xfrm state add src fd00::1 dst fd01::2 proto esp spi 0x1001 \
-> >   	reqid 1 mode transport aead 'rfc4106(gcm(aes))' <key> 128
-> >   ip xfrm policy add src fd00::1 dst fd01::2 dir out priority 100 \
-> > 	tmpl src fd00::1 dst fd01::2 proto esp reqid 1 mode transport
-> >   ip xfrm policy add src fd00::1 dst fd01::2 proto udp dport 5002 \
-> > 	dir out priority 10 action allow
-> > 
-> > A UDP socket connected to [fd01::2]:5002 sends one datagram, the allow
-> > policy is removed, then the socket sends 10 more, captured on the veth:
-> > 
-> >   removal               net-next             ipsec + this patch
-> >   delete by selector    10 plain, 0 ESP      0 plain, 10 ESP
-> >   delete by index       10 plain, 0 ESP      0 plain, 10 ESP
-> >   hard time expiry      10 plain, 0 ESP      0 plain, 10 ESP
-> >   flush                 10 plain             nothing sent
-> > 
-> > The flush case replaces the ESP policy with "ip xfrm policy setdefault
-> > out block", so that nothing may be sent once the policies are flushed.
-> > 
-> > The xfrm_policy_insert ordering is a race between the insert and a
-> > concurrent lookup, found by code reading. That I did not reproduce at
-> > runtime.
-> > 
-> > I can share the reproducer script if useful.
-> Maybe adding a selftest would be useful.
->
+On 11/25/26 16:23, Simon Schippers wrote:
+> While working on the veth BQL series [1], I noticed that veth was
+> sometimes faster with BQL enabled than without it. Debugging this showed
+> two reasons, both in how veth handles a full ptr_ring since commit
+> dc82a33297fc ("veth: apply qdisc backpressure on full ptr_ring to reduce
+> TX drops"):
 
-Sure, I'll turn my reproducer into a selftest and add it in v2.
-
-Cheers!
-
--- 
-Ralf Lici
-Mandelbit Srl
+I looked at the sashiko review. Both points are right, but they are
+low-severity comment nits with no effect on the code, and addressing
+them would only lengthen the comments. But I can change them in a v2 if
+preferred.
