@@ -1,97 +1,61 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=119.15.109.137
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795675759;
-	b=j/IgQyFbkzTVSw/3kvS6rHR8E9EGL5LVOMKKh4AJMf2gAVaryeEFxBGQA+LsBuj8S8hZ
-	 12Qu0I4BcZSWdQq5XgKtJCprKmUL8dErxVZLm/ELuHLd6oZCyD7UDEXzYE3R1qqCnUwQm
-	 zM6Fs9JaeiVUf2LCf7fW45cD0M9W3E6rTQV0GNNSPaSTcwV9V+Q3mKScGsZIaQLrFSOpZ
-	 FoKJurgrf5J3py0CnIb3PGhP7/XUEza1aZoX/qyW9v8sDFxycnX+/KI0ab8+qm/4i4OJX
-	 DzaaV+sK7bmt1DQXrhaQif9K6ApygLCR60qBbgaQhmlUug+5wR3wSy+UTM2vO96ISjw==
+	t=1795676454;
+	b=nUgiapA3UU/ja6KncNgyR0uRj0FM07OzZy46F6UMLben+2Nw3rCYdaNuMXrcVrOYmLPQ
+	 o2k80Oybe2M6QDTtq8KOvyLEmImFv+GgWUElav1DozBlZhdwFMwyOacSZzSWUuTgZiDDP
+	 FZ9251StqDyHeiOVvtgIFX+rTBobC/k6k2OsEevXqElJoTV4XRcTN6eETANWRrb2uv15g
+	 CBvSHtbXnYNB04byF5CST9YJeCvGyeJAPHYY5pC4AhvWL8ggW+oe0/rkruPAHsROoHsH8
+	 vuToAVV9ilME0p113zrPQD90OOmAiVEjzH9Pr/Dp5O5p6LqQoixpCh6gCwvoLuymW8g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795675759;
-	h=DMARC-Filter:Received:DKIM-Signature:X-GPT-Reason:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=ALDZI9zzoGK/EGXlQh9cjJVsMiJ6Nq8NocmOtDE4lVY=;
-	b=QN6Vsq/kJSpKv5r34z4WxCSiFDUFAFIJ8uLuTvGedD5+a/BZylnWIoBUPF+LoBNN5Lp7
-	 mK44wpNxKxsDKM2c7A1bNDYBJKdOzhEkj2vw7/HjYmcJ6IZzR8Nc9rErYOp8jb3jFPVm1
-	 VClexBWQM/n0AJhm4aDTZIwtYT0+Yepm2qJmunjh+uR1rp08nJgEfkoStVMqLPUcdc+3u
-	 empBvqnAuX+8FoGsGR9uoP0XQEnj46fzFvetlsV0BS+uQjhOSUalWNNP0reNn7BnC5oYY
-	 cx9bNfIwUmnBGtoCve4tLj8PBCqN0X2EXaAFrzeC4bwe72yriNp61F5IE9pHe1gu4OA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795676454;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=5egdyMUL//oHT60ACbwW69GJ0v66WMLNl92315/6tfM=;
+	b=hiqehImubuv/KJjQiHiXDdn6HbgsZ8tviIb4KuBJ/HiP4UnwfjEUUtA0kxyeTu2Nt1CV
+	 zQ0gcrHO3KRdRh3y25eMEkiAzm43CWLzYK6d73JBxhgWrWWAy5+YjCxyGC4yAhG7xhUVe
+	 eRfNo2L+kNXyR4lMyX4JWbWWVAP2isyO+FOf1iQRcBUePNzaVNv4KKa8GB7FNLE9eB6HS
+	 UazMCCFuHDxlB6/modWlRQAB+bniyi+NmXcNoNmOGAJ7JtaM0d2zV3aLOvku0qdc5u1a3
+	 wabj4oUcRmO6PP/sffSBgFOMkhbXcA4oG/vf4HxIYPpF9KFkXmWRe3YO1X+4cnGdf6g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=d-silva.org;
-	spf=pass smtp.mailfrom=d-silva.org;
-	dkim=pass header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=TABOzGOx;
-	arc=none smtp.remote-ip=119.15.109.137
-Received: from www.nmnhosting.com (watt.d-silva.org [119.15.109.137])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EefzDLSe;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id BAAF4606A339;
-	Thu, 26 Nov 2026 06:49:18 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org BAAF4606A339
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=d-silva.org
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=d-silva.org
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D9347606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:00:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=d-silva.org header.i=@d-silva.org header.a=rsa-sha256 header.s=2025a header.b=TABOzGOx
-Received: from Hawking.lan (hawking.lan [10.0.1.4])
-	by www.nmnhosting.com (Postfix) with ESMTP id 2FEC3403EF;
-	Thu, 26 Nov 2026 17:49:09 +1100 (AEDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=d-silva.org; s=2025a;
-	t=1795675749;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ALDZI9zzoGK/EGXlQh9cjJVsMiJ6Nq8NocmOtDE4lVY=;
-	b=TABOzGOxi1J6AGOAfDZT/+WS29Uy6C2yZftVVmKrm7PTlSkOHLK5XDikYwiChl5+NtFTB0
-	mt0gXWk/t4zEQNHNWaVInTVHmJl3QW1DO9vFAGNlYe+OHLoSt5CnH6DUmOapf4kZwqZN32
-	OQ7A5rQ7qg9cdrnDajTtt2U8pF9kFby03TKdzdcVeFZdkIGrYOEkfqGyoBtk/EBsijjNbH
-	3GKgc8UFZntRHQ6DXwfGwE+kuJD5mUzP+eMacK91Unn975VSCFCkKCse2QzBC7lQLIOxEk
-	LcwirsXbizh3PCuS5ug6Cw3hTcqfnf1a2GYvF5pXoA7XFfKRRGVoxZc93wMlNA==
-X-GPT-Reason: This is a legitimate personal/technical correspondence
-	regarding a Linux kernel patch or hardware driver update. The
-	message is sent from a known personal domain (alastair@d-silva.org)
-	to a recipient in a technical context, and the content specifically
-	discusses hardware clock frequencies (26 MHz crystal, OrangePi
-	4 Pro, DTS files) which aligns perfectly with the subject line.
-	There are no phishing indicators, no unsolicited marketing, and
-	no suspicious links; the conversation is a standard developer follow-up.
-From: Alastair D'Silva <alastair@d-silva.org>
-To: Junhui Liu <junhui.liu@pigmoral.tech>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Brian Masney <bmasney+clk@redhat.com>,
-	Jerome Brunet <jbrunet+clk@baylibre.com>,
-	Chen-Yu Tsai <wens@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Paul Walmsley <pjw@kernel.org>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Richard Cochran <richardcochran@gmail.com>
-Cc: linux-clk@vger.kernel.org,
-	linux-sunxi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Andre Przywara <andre.przywara@arm.com>,
-	netdev@vger.kernel.org,
-	Alastair D'Silva <alastair@d-silva.org>,
-	devicetree@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Enzo Adriano <enzo.adriano.code@gmail.com>,
-	Norman Herms <dockseed@proton.me>,
-	Vinicius Pedrosa <vinicius.eduardo.pedrosa@gmail.com>
-Subject: Re: [PATCH v7 4/8] clk: sunxi-ng: a733: Add PLL clocks support
-Date: Thu, 26 Nov 2026 17:48:50 +1100
-Message-ID: <20261126064909.2584729-1-alastair@d-silva.org>
-X-Mailer: git-send-email 2.53.0
-In-Reply-To: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech>
-References: <20261112-a733-clk-v7-4-db7c5451ffa2@pigmoral.tech> <20261125122452.3966873-1-alastair@d-silva.org>
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=EefzDLSe
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16A731F000D3;
+	Thu, 26 Nov 2026 07:00:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795676453;
+	bh=5egdyMUL//oHT60ACbwW69GJ0v66WMLNl92315/6tfM=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=EefzDLSeGQmRXjNH7bKZMx/eLlYDedDH9dSaFpEM38KInYGJfMElSeNEC0X769AHQ
+	 Urw6WkzfZEwg/lpZbUdPOJStvdglzfOx0L3YZ0gobMN3+jTsN3vrp2aN42zOP7UDUM
+	 b1/WNNGfLA+6vEk78XxhqBCqQ+BArIrTUXMDpvcZq572ze4CX8RwIsQCYn8kH4iiXz
+	 5FNBqxKNkS6IR19HTgHYa7NOpWBfHO8jjhpqYHaXUalyBNdHCl8JOaKO1D1knCLAkv
+	 TegyAiYPpZGLaDi+Me8tf6wL1+CQW21deRk6JcDimiNeSya7f3pWjja+LPABvLWCrj
+	 UTuyFCcX4wayg==
+Subject: Re: [PATCH net] octeontx2-pf: QOS: Don't free SQ memory if disabling
+ the SQ fails
+From: netdev-bot+sashiko@kernel.org
+To: oss.patchbox@gmail.com
+Cc: sgoutham@marvell.com, gakula@marvell.com, rkannoth@marvell.com,
+ sbhatta@marvell.com, bbhushan2@marvell.com, hkelam@marvell.com,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org,
+ kuba@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ jacob.e.keller@intel.com, netdev@vger.kernel.org
+Date: Thu, 26 Nov 2026 07:00:52 +0000
+Message-ID: <179567645260.3135.1714589619526936893@kernel.org>
+In-Reply-To: <20261124190046.415260-2-oss.patchbox@gmail.com>
+References: <20261124190046.415260-2-oss.patchbox@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -101,20 +65,184 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
 
-Hi Junhui,
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-Good catch — I confirmed the OrangePi 4 Pro has a 26 MHz crystal on
-board, and my DTS had declared 24 MHz for hosc.
+Critical: 0 · High: 0 (1) · Medium: 1 · Low: 1
 
-Updating &hosc to 26000000 Hz fixes the rate calculation:
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-  2500000.serial: ttyS0 MMIO32:0x0000000002500000 (irq = 414, base_baud = 1500000) is a 16550A
+- [Medium] If otx2_qos_ctx_disable() fails, the new early return in
+  otx2_qos_disable_sq() (qos_sq.c:316-322) leaves all the queue state in…
+- [Low] The commit message says otx2_free_hw_resources() frees the kept
+  memory 'after the SQ and NPA contexts of the whole LF have been…
 
-ttyS0 now boots cleanly to shell with your v7 CCU series. Sorry for the
-noise, and I'll send a v2 of my OrangePi 4 Pro DTS series with 26 MHz.
+Pre-existing issues:
+- [High] This problem wasn't introduced by this patch, but
+  otx2_qos_sq_free_sqbs() (qos_sq.c:116-148), called on every successful…
 
-Thanks,
-Alastair
+--
+
+octeontx2-pf: QOS: Don't free SQ memory if disabling the SQ fails
+
+This patch makes otx2_qos_disable_sq() check the return value of
+otx2_qos_ctx_disable(). If the AF mailbox request fails, it now logs an
+error and returns without freeing the SQBs, the pool stack and the aura
+flow-control buffer, which the hardware may still reference.
+
+> If the disable fails, log an error and keep the memory: leaking it is
+> safer than freeing memory the hardware may still access. If the queue
+> is not set up again, otx2_free_hw_resources() frees it later with the
+> other queues when the interface goes down, after the SQ and NPA
+> contexts of the whole LF have been disabled.
+
+[Severity: Low]
+Is this ordering accurate? otx2_free_hw_resources() calls
+otx2_free_sq_res(). That function frees the SQB pages of every queue,
+QoS queues included, right after a best-effort SQ disable:
+
+drivers/net/ethernet/marvell/octeontx2/nic/otx2_pf.c:otx2_free_sq_res() {
+    ...
+	/* Disable SQs */
+	otx2_ctx_disable(&pf->mbox, NIX_AQ_CTYPE_SQ, false);
+	/* Free SQB pointers */
+	otx2_sq_free_sqbs(pf);
+    ...
+}
+
+otx2_ctx_disable() returns void and only logs a mailbox failure. The NPA
+pool and aura contexts are disabled later, in otx2_free_hw_resources():
+
+	/* Disable NPA Pool and Aura hw context */
+	otx2_ctx_disable(mbox, NPA_AQ_CTYPE_POOL, true);
+	otx2_ctx_disable(mbox, NPA_AQ_CTYPE_AURA, true);
+	otx2_aura_pool_free(pf);
+
+So the SQB pages are freed before the NPA contexts are disabled. Only
+pool->stack and pool->fc_addr are freed after that. If the AF mailbox is
+still broken at ifdown, the memory kept by this patch gets freed anyway,
+with no check of the result.
+
+Could the commit message be reworded to match this?
+
+> diff --git a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+> index 683efce519af0..e9ca884cfb4d5 100644
+> --- a/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+> +++ b/drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c
+
+[ ... ]
+
+> @@ -311,8 +311,16 @@ void otx2_qos_disable_sq(struct otx2_nic *pfvf, int qidx)
+>  	otx2_cleanup_tx_cqes(pfvf, cq);
+>  
+>  	mutex_lock(&pfvf->mbox.lock);
+> -	otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
+> +	err = otx2_qos_ctx_disable(pfvf, sq_idx, pool_id);
+>  	mutex_unlock(&pfvf->mbox.lock);
+> +	if (err) {
+> +		/* The SQ, aura and pool may still be enabled, so don't free
+> +		 * the memory they point to.
+> +		 */
+> +		netdev_err(pfvf->netdev,
+> +			   "Failed to disable QoS SQ %d (%d)\n", sq_idx, err);
+> +		return;
+> +	}
+
+[Severity: Medium]
+otx2_qos_disable_sq() still returns void, so callers can't tell that the
+disable failed. When the same qid is set up again right afterwards, are
+the kept SQB pages and queue buffers leaked?
+
+otx2_qos_enadis_sq() re-enables the qid straight after the disable:
+
+drivers/net/ethernet/marvell/octeontx2/nic/qos.c:otx2_qos_enadis_sq() {
+	if (pfvf->qos.qid_to_sqmap[qid] != OTX2_QOS_INVALID_SQ)
+		otx2_qos_disable_sq(pfvf, qid);
+
+	pfvf->qos.qid_to_sqmap[qid] = node->schq;
+	otx2_qos_txschq_config(pfvf, node);
+	otx2_qos_enable_sq(pfvf, qid);
+}
+
+otx2_qos_leaf_del() works the same way. It disables node->qid and later
+calls otx2_qos_enable_sq(pfvf, qid) for the moved leaf.
+otx2_qos_leaf_to_inner() and otx2_qos_leaf_del_last() pass the qid to a
+child or parent. That node is then enabled through
+push_txschq_cfg()->otx2_qos_enadis_sq().
+
+The setup path overwrites the kept pointers without checking them:
+
+drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c:otx2_qos_sq_aura_pool_init() {
+    ...
+	sq->sqb_count = 0;
+	sq->sqb_ptrs = kzalloc_objs(*sq->sqb_ptrs, num_sqbs);
+    ...
+}
+
+In the same way, otx2_pool_aq_init() always calls qmem_alloc() for
+pool->stack. otx2_sq_init() also reallocates sq->sqe, sq->sqe_ring,
+sq->cpt_resp and sq->sg.
+
+After that, the old SQB pages stay DMA mapped and keep their page
+references. The old qmem buffers are never freed, because
+otx2_free_hw_resources() only sees the new pointers. pool->fc_addr is
+fine, since otx2_aura_aq_init() reuses it when it is non-NULL.
+
+With default ring sizes this comes to roughly 2 MiB each time. The
+commit message only covers the case where the queue is not set up again.
+In the common callers the queue is set up again in the same call.
+
+Could otx2_qos_disable_sq() return the error so callers can avoid
+reusing the qid? Alternatively, otx2_qos_enable_sq() could refuse, or
+retry the disable and free first, while sq->sqb_ptrs is still set.
+
+>  
+>  	otx2_qos_sq_free_sqbs(pfvf, sq_idx);
+
+[Severity: High]
+This is a pre-existing issue and was not introduced by this patch. Does
+otx2_qos_sq_free_sqbs() leak sq->sqe_ring and sq->cpt_resp on every
+successful disable?
+
+otx2_sq_init() allocates both buffers for every SQ, QoS SQs included,
+with no qidx condition. Those allocations came in with commit
+6a77a158848a ("cn10k-ipsec: Process outbound ipsec crypto offload").
+otx2_qos_sq_free_sqbs() frees the other buffers and then clears the
+struct:
+
+drivers/net/ethernet/marvell/octeontx2/nic/qos_sq.c:otx2_qos_sq_free_sqbs() {
+    ...
+	qmem_free(pfvf->dev, sq->sqe);
+	qmem_free(pfvf->dev, sq->tso_hdrs);
+	kfree(sq->sg);
+	kfree(sq->sqb_ptrs);
+	qmem_free(pfvf->dev, sq->timestamps);
+
+	memset((void *)sq, 0, sizeof(*sq));
+}
+
+The only other place that frees them is otx2_free_sq_res(). It only does
+so when sq->sqe is set, and the memset above has already cleared it:
+
+		if (sq->sqe) {
+			qmem_free(pf->dev, sq->sqe);
+			qmem_free(pf->dev, sq->sqe_ring);
+			qmem_free(pf->dev, sq->cpt_resp);
+
+The qmem buffers come from otx2_dma_alloc_coherent(), which uses
+kzalloc() and dma_map_single(), so they are not devm managed.
+
+With the default sqe_cnt of 4096, each HTB leaf delete, leaf-to-inner,
+leaf delete-last, or re-config through otx2_qos_enadis_sq() would leak
+about 1 MiB for sqe_ring and 256 KiB for cpt_resp, plus their DMA
+mappings. This happens on the normal success path and can be repeated.
+
+>  	otx2_qos_aura_pool_free(pfvf, pool_id);
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124190046.415260-2-oss.patchbox%40gmail.com
