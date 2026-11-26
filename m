@@ -1,67 +1,49 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727608;
-	b=d+999scL5aJUiZ0OeWiiliBSsOc0ONwBVDWQFm+IjwxxZwQuHiWA7je5W4VjA84AjZQd
-	 F/PiuF6ajsh0gjI3yTVG0QukZlUAH+xbJWBbj8QgaZKUtakzmChEyt1+O5ftCaVuh4+Ce
-	 tRZCjd0tH7eJaNOy3hc+0F6F/E5yViHohCvcEKNyAPSj0gfa8e+Uuk0hPT4T5DclJwNuh
-	 mYBJDevTjonnJXgfxRFKchUaM3P4GBy87ocsDIHlPSR+0wGmOnSKgm2vJu7kuJhnVep5K
-	 zoaGliC3yoY/Pt3vMNirzZ88R0kYGq75/WTfSYhEu7YtKG+cjR+GIJmn70mX63iSxLQ==
+	t=1795727932;
+	b=muUBquwHZiHqSxq1QJchGs1ddU4Q2mK7GAzSlPF8iahhAp5MpXJGj77192yatt/rEDiR
+	 PYtvFSc5gTy4NK36EWZCRexoGncKXzPu7VQ/ZKzixueQdqAMzlZVXZCkb7oERSaPZa9y/
+	 EisOIYiqtqmRVHscwMY+o1Ett/zO6eGlDxtcWUIgpdVaohNKeN7QSoLTt+Jo3erYRB2w1
+	 ikl1wk7SNjTrEcwkUVHwjuD94ie0Koy4msKWQ9d0xJYtu6/B4CvqjQpP0+dy7F6hZTxTx
+	 cXTz7bb1F0I4yutP9ww9szu1q4cNEiNq/9w8xEzrCsb3kLgDWruaVKfC5Bx2Mb62JUw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727608;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:Date:Message-ID:
-	 In-Reply-To:References:Auto-Submitted:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	b=f4cniUeotoOj+5m3uGA6zLjnIV6IMCcfepDyKGsRUShEcQbU+787/vVBQgOkYx3iCDTk
-	 NqzrcPcOTO3cIO1D2M3o9WifS/IHZDPvGDIZl8yygw7jpfqYqP6cNms0DayyyStpeOWPc
-	 L3wtL0E18MFLVQ1bv7A+MK05xhKdOehxEtd7ktzJ+J5SpXcgOYHoDymVpVDwjzWZRRCto
-	 ewCvXQ46BTPwXiKZ/s6QSPqJRuPvkSCsZWJWNVC3XCjvbvU4WaRtSbKBya+el4B1Sw9hj
-	 MODpauXKjUMSQHjWMpIrCaor4HiYVnKwVEwoLMshW16Ism7xZezwMH6AbfdoKwvGuWA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795727932;
+	h=Received:DKIM-Signature:From:Subject:Date:Message-Id:MIME-Version:
+	 Content-Type:Content-Transfer-Encoding:X-B4-Tracking:X-Change-ID:To:
+	 Cc:X-Mailer:X-Developer-Signature:X-Developer-Key;
+	bh=w4CqDwg7D7154OuRysg7R/98YqHxmOgh6GHFXhtckiw=;
+	b=rZUEZPOawI/vwOAQZIsqRdc79Mk72uWji5q2CoCNvTuHjYYJVKSOWisthmD3deu6YUym
+	 EuHPK5KnLRb2sCSROFBGMMSoppZ/ihD2Yt6Rdo5Ms0znnB/WYRQa2XYe1TuqoIaxY2gW2
+	 p6/X0ymU4hY3iV7pnUushGemYejSPav7tXtmdnA91zfwauEXw+sfweN1QebSs4v1sLNVd
+	 Mgf9ltlwGrwfDcy9zTrNcHIVniMqtBnqUiOU//NLxPNrkVMQtCYwgnwEnGVYUwI/j92e6
+	 vb4VCqmxf97YRTjbRG2yHKQGbW/uoGsC82+QE1jMcGFsZzy+b4DZvkUtfC4MqbdjpUA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y+F2681g;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eFshtLzJ;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 3CC08606A31C;
-	Thu, 26 Nov 2026 21:13:27 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C5C8606A31C;
+	Thu, 26 Nov 2026 21:18:52 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=Y+F2681g
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7A18C1F000C1;
-	Thu, 26 Nov 2026 21:13:26 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=eFshtLzJ
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C08E21F000C1;
+	Thu, 26 Nov 2026 21:18:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795727607;
-	bh=oj2zs7YpNjut+Fle9NDI2/nVbuq1xcuWOh/20pAlrQ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=Y+F2681gJ5JuaTeV/gpkfDYlLJRTBYWI601R96kVMflmSkJ9s72mTu82jatdBw/HU
-	 SbAHn7qxFqSPSe5W2OpN/srQgaoPGRRTUU/sTToUDfXySmAt+fF00VRdPv+HiOYcb3
-	 CBvpv2dLnhBYqcS8o86CmGCt4Vasm52XTQSTb9mHjW1dGuJ2BtRRBCQFu157IEVTo+
-	 +2kWflrwkho+pi7kbyyjbznzy7tIxzsCO/Q8mp9XzF4SNB4VLBTJcTIybZXNXlCDjn
-	 +J1q1XxR9ozt/Zgd5FW4x2SH9Gc4BI2n46fz59jKyBwW9cZK5VgghNbatoFozZCLru
-	 7GMO2Sj1rMY3w==
-From: netdev-bot+sinfo@kernel.org
-To: Tariq Toukan <tariqt@nvidia.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Jakub Kicinski <kuba@kernel.org>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>,
- Aleksandr Loktionov <aleksandr.loktionov@intel.com>,
- Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu <cratiu@nvidia.com>,
- Daniel Zahka <daniel.zahka@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>,
- Gal Pressman <gal@nvidia.com>, Leon Romanovsky <leon@kernel.org>,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>,
- Raed Salem <raeds@nvidia.com>, Rahul Rameshbabu <rrameshbabu@nvidia.com>,
- Saeed Mahameed <saeedm@nvidia.com>
-Subject: 
- Re: [PATCH net] net/mlx5e: psp: Fix stack info leak in PSP device stats
-Date: Thu, 26 Nov 2026 21:13:25 +0000
-Message-ID: <179572760597.3294.6336919055347712801@kernel.org>
-In-Reply-To: <20261126211115.767481-1-tariqt@nvidia.com>
-References: <20261126211115.767481-1-tariqt@nvidia.com>
-Auto-Submitted: auto-generated
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
+	s=k20260515; t=1795727932;
+	bh=w4CqDwg7D7154OuRysg7R/98YqHxmOgh6GHFXhtckiw=;
+	h=From:Subject:Date:To:Cc;
+	b=eFshtLzJ/qZhIuDavJGMHhx0awqSSLOmqIK+rtEp3hFJGJsXGZp89mYuJ0A2oflwe
+	 WPjABWLlBns1I6Gpe1W3XZGnCdq7jSWTGPUQyeOkVmmQRQy8IgxiawOkCmrG/1zgEO
+	 eESU6WCiodorlDqXUIXFTOcA6BJ2tDqcXtW2yLhywgq0ZojA041FHtBYK2MknIb8MU
+	 oJv4WcqlaWM1MpPY7fKv9kixGfxkcsNBzxM2tkOx+8ZvKYFk6ctt6Ocxu7uwKKFUZL
+	 /UZgbnXSlWo4Nq25r/q2s7Gpew/DaW+ywHX7yhxv4/yrC2G+0LK2yGIXRSzA8sisTU
+	 xuxNQUPxv3ikw==
+From: "David Hildenbrand (Arm)" <david@kernel.org>
+Subject: [PATCH net v2 0/4] net: skbuff: limit pagecache folio refcount
+Date: Thu, 26 Nov 2026 22:18:36 +0100
+Message-Id: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -71,26 +53,149 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAAAAAAA/3WN0Q6CIBRAf4XdZ2mgoulT/9GcU7oo6aABUs357
+ 03rtdezs3NW8Og0eqjJCg6j9toaqEmaEJBjZwak+gY1gZSlBee8pH7qW4dK2sWE1kZ0arZPWoq
+ OsSzHvKgQEgIPh0q/ju4VDAZovtAv/R1l2Iu7NmofrHsf98gP+Tc6/xlFThkVQvA+r0QuM3WZ0
+ BmcT9YN0Gzb9gEfcs4u0gAAAA==
+X-Change-ID: 20261117-skb_refcount_overflow-75a0034e469e
+To: "David S. Miller" <davem@davemloft.net>, 
+ Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
+ Paolo Abeni <pabeni@redhat.com>, Stanislav Fomichev <sdf.kernel@gmail.com>, 
+ Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
+ Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
+ Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
+ Rik van Riel <riel@surriel.com>, 
+ "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+ Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
+ Pedro Falcato <pfalcato@suse.de>, Chuck Lever <cel@kernel.org>, 
+ Jeff Layton <jlayton@kernel.org>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-mm@kvack.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
+ stable@vger.kernel.org
+X-Mailer: b4 0.16.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5224; i=david@kernel.org;
+ h=from:subject:message-id; bh=3E6okuV7gkYorzSuAVGWdCzZhWj30E+ec9fUig6K0PM=;
+ b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLI5Fhn38llMXxfVz2q0s2jN+791KUdTQ3Se/9a7Xb/G8
+ ay09bv8jlIWBjEOBlkxRZag4PsGL1+uq61242OGmcPKBDKEgYtTACayTZCRYdfdXwv3Kr03PpUl
+ v3XP76BOnjcqivlTt/s51jGtWzF3pxcjw3Kz/hluE1tXX7M+LxFt8GxbePipKOMJnzqUJmV9XX5
+ 3HwsA
+X-Developer-Key: i=david@kernel.org; a=openpgp;
+ fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-Hi!
+Hi,
 
-This is an automated message. This series looks like a fix, but its
-commit messages seem to be missing some information:
+This is v2 of the remaining folio refcount overflow fixes that should go
+through the net tree, ideally soon. They address the known cases where
+networking can still overflow the folio refcount by taking unbounded
+references.
 
- - How the issue was discovered, e.g. hit in production, hit during
-   development, syzbot report, manual code inspection, LLM or static
-   analysis tool scan.
+The series is based on Linus' tree, which includes the MM prerequisite
+c6c9a4c1c9a16 ("mm: limit pagecache folio refcount when splicing into
+pipes") that adds the refcount limit checks to try_get_page().
 
- - Whether the issue was actually triggered, or is only theoretical
-   (e.g. found by LLM and not proven at runtime). If it was triggered
-   please include the symptoms, like the stack trace or kernel messages.
+More details in [1], but in essence:
 
-Please do not repost the series just to address the above. Instead,
-reply to this email with the missing information, so that reviewers
-can take it into account.
+There are ways to overflow the folio refcount and cause trouble either
+by letting it go negative or letting it go all the way back to 0.
 
-*IMPORTANT*: If you do repost (for other reasons) - please include
-the relevant info in the cover letter or commit messages.
--- 
-The evaluation is done by an LLM so it may be wrong, if you think
-that is the case please reply and explain.
+This is particularly easy with large pagecache folios, where page table
+mappings can "easily" create many references. The MM changes limit
+references from page tables, GUP and pipes, and leave some headroom for
+races, other bounded refcount users etc.
+
+However, skbs can easily multiply folio references, so any such skb path
+that can take unbounded folio references must also obey the new limits: we
+must use try_get_page() to obtain an additional folio reference and handle
+failures accordingly.
+
+Patch #1 introduces skb_frag_try_ref() and skb_frags_try_ref() and uses
+them when copying skb frag references. Patch #2 covers rearranging
+frags. Patches #3 and #4 cover splicing pages into skbs and splicing data
+from sockets into pipes.
+
+We use existing failure paths where possible. Socket splicing returns
+the bytes already spliced, or -EFAULT if no data could be spliced because
+try_get_page() failed.
+
+Net paths that take folio references that I don't touch because the
+references are either bounded or the paths are not relevant in practice:
+
+ - skb_split(): each reference needs a new socket-charged skb.
+ - IP-TFS reassembly: each reference needs a new inner skb.
+ - io_uring zerocopy send: each piece is charged >= 4 KiB of TCP memory.
+ - kTLS software splicing: only transfers references from the pipe.
+ - kTLS device offload: pushing the record fails in skb_append_pagefrags()
+   (patch #3), so a socket can exceed the limit by about one record.
+ - AF_XDP zerocopy TX, nfsd splice reads, sockmap / sk_msg, espintcp:
+   bounded, or require privileges / special setups.
+ - Other driver-specific paths: not looked into for now, as I can neither
+   test them nor see if they actually trigger unbounded references.
+ - page_pool and net_iov frags: not pagecache pages.
+
+The original refcount overflow problem was reported by Anthropic; we
+knew that it was possible in theory, but didn't expect to have easy ways
+to trigger it. After fixing the splice issue, I used AI to identify
+other unbounded folio refcount users, and it flagged various skb-related
+paths. I made it actually reproduce unbounded references. These patches
+address the paths that were actually reproduced.
+
+I ran tests before and after applying the changes, using a kernel with
+reduced folio refcount limits. These tests focused on exercising the new
+error paths and checking that the refcount limits were respected.
+
+These tests covered AF_PACKET, nft dup, NFQUEUE, software GSO
+segmentation, TCP receive coalescing with dropped ACKs, and socket
+splicing.
+
+I also ran the following networking selftests successfully:
+
+ - net:tls
+ - net:udp_splice_checksum
+ - net:udpgso.sh
+ - net:msg_zerocopy.sh
+
+If there are any further tests I can run, please let me know; help with
+testing would be appreciated as well, as I only have access to limited
+hardware and have limited net experience in general.
+
+[1] https://lore.kernel.org/linux-mm/20261112-refcount_overflow_stable-v4-0-ad3deef0bd23@kernel.org/
+
+Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
+---
+Changes in v2:
+- "net: skbuff: limit folio refcount when copying skb frag references"
+  - Fix skb_zerocopy() kernel-doc indentation
+- "net: skbuff: limit folio refcount when splicing pages into skbs"
+  - Mention nfsd connection teardown in the description
+- "net: skbuff: limit folio refcount when splicing from sockets"
+  - Propagate the error through an "err" pointer
+  - Document the skb_splice_bits() return value
+  - Update the description accordingly
+  - Drop Pedro's Ack
+- Extend the cover letter
+- The GVE issue sashiko reported has already been fixed in commit
+  3946899dbeac ("gve: fix RX page refcount overflow from INT_MAX
+  pagecnt_bias").
+- Link to v1: https://patch.msgid.link/20261118-skb_refcount_overflow-v1-0-5551b4954c3f@kernel.org
+
+---
+David Hildenbrand (Arm) (4):
+      net: skbuff: limit folio refcount when copying skb frag references
+      net: skbuff: limit folio refcount when rearranging skb frags
+      net: skbuff: limit folio refcount when splicing pages into skbs
+      net: skbuff: limit folio refcount when splicing from sockets
+
+ include/linux/skbuff_ref.h |  53 ++++++++++++++++++++
+ net/core/skbuff.c          | 117 +++++++++++++++++++++++++++++----------------
+ net/ipv4/tcp_output.c      |   8 ++--
+ 3 files changed, 134 insertions(+), 44 deletions(-)
+---
+base-commit: 63fdb511c27afcebce797e3db580b3534ddfa639
+change-id: 20261117-skb_refcount_overflow-75a0034e469e
+
+Best regards,
+--  
+David Hildenbrand (Arm) <david@kernel.org>
+
