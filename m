@@ -1,77 +1,74 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.12
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.222.71
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795714656;
-	b=RIc9IsQcmj3Wx/9AgMqtgOfuyJTJex52eTFEoesUaw9oEDv2MFvw37HhJIOmF4eTQUkS
-	 5BKHzW8/2TLD+5t9ZTgju6c/JWKSwVVGHXEm1sQNRiKFINA2tEOr6Nnc0lWXvGXMUxHdy
-	 fFYoqIPtUHl3f2pQTREc8bEOqaSMPEhS/LrQmt/LBxDQb83VcCy34ayaKW4M5yFDJ2/YV
-	 IDUFFQmlyOTX44Go4SjIxqTqhoCkw0su58ZRIyQGvdK6KV+Em9I4MAZ+XEzV5j4LmwtlK
-	 ivkywOnBLA+L4/qr/dU5PEoXL9W57eTSU5Udadvg7Xo730KBukKC4mFPQDd1GrPydXw==
+	t=1795715199;
+	b=Kzr381IakinkYIvjBs0vy6Nn12VUlhZZNJeiAoL0T7MD6X9NgFmNwcP8tjRq57A+RM3B
+	 qPJx+PcL3K++a8RdWsijYmRNLKxUOvCsdb9QTJjpyMbgBULGHJ5JlZzzpNkriCip8IN+P
+	 QPgPlL3E0rrfq/Zts0hdbIzeDSL46RT13uZqiK5WKg4JCc5tNnae14CfiwRCspuKq1AEq
+	 PgaGzW0h7V5k4q/ELNknVYa16NpMcosXjmtGa3vuJokTGQkfm1PVKAoG35MXEbB97kIkf
+	 6EKSDK7hItEkwIQQIz8YvctSxIhQAD7y1Qt0SjsQTCoBfpjxLLp7jeACeQO9kOYnF0g==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795714656;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=KjQVkXpbZ+ewBe7mGcr4pjZmF5iLc9gaYu/dCZLVPpI=;
-	b=ykHasmz7UPLTrM3C8OajbnYm/eA1e/doM6pi9CFP4stg8l3ePJRbGYX7nK23dN79Aayi
-	 h1Wt02dlMJ9c7HDdrjkOCvtvbiqSuug9L/RFmBZnDZFLgRa8VWQOHTFyL2TuMs4Cexqg2
-	 lxAxrnl7OoIhANFcFw4EdsPsxugQnzt6eutTjNdUXyMngOo6idaVrGcJkibdiILSSk/4W
-	 jhksvlxyuRqG977jM4NNTk0tlefG5s59kQr6txrObgX2DZ6SlajWcOOpNhAdvrZAJGAVA
-	 GhSiUBUJyFfNe6pfzcUidoHmbK7JEkI7K2V8SLe8KHJjsqtp/+orA25u0Ry0s7lLUMQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795715199;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Received:Date:In-Reply-To:
+	 Mime-Version:References:Message-ID:Subject:From:To:Cc:Content-Type;
+	bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
+	b=Rk2dnRAiYuYT9XmlpMADm6bt/aQLAe4NUGqtyoxxSXFfZZnj11YmTERKmCwc7GHqFKNM
+	 Gaw9JP2OYNUO5bVvvwmbFkSxysJBVkpUW/fsMwkeztV4HwtHotEr8sB3RnNWzqf4QT2DX
+	 9l2jyn4u/31ZC/T7HlMdY0en+WtTIp9yovSnMoWlx8Xqdjf13A7/NuJX+UKhCNpN9Q6Mh
+	 CF/dBausLH+2EL6LosRawHq5+G2x3EgDjoUOvB8HvlefBBbTvP3zqb7n1/0Xa4bzs+rNf
+	 cLYMfQyrxcfLGsIeBu8pjVwam8NcGGb22PMnCxZa2q7C7S1333+yd5yPKHcusUiGYFw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=qLxOihcK;
-	arc=none smtp.remote-ip=212.227.17.12
-Received: from mout.web.de (mout.web.de [212.227.17.12])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	dmarc=pass header.from=google.com;
+	spf=pass smtp.mailfrom=flex--willemb.bounces.google.com;
+	dkim=pass header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TMt1QKwn;
+	arc=none smtp.remote-ip=209.85.222.71
+Received: from mail-ua1-f71.google.com (mail-ua1-f71.google.com [209.85.222.71])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 29EB3606A330
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:37:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 29EB3606A330
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 228EA606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 17:46:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 228EA606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=google.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=flex--willemb.bounces.google.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=qLxOihcK
-DKIM2-Signature:  i=1; m=1; t=1795714652;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:fqYQ4a0oEczv2TwerpZwo2wJxRAC
-   1r5Gs9lt4eKe8/P/jvXBRABcC7LyNBGjNrVs4ZoVpsJ4TJLctWKULgo8qHTLQp2WuptnRYduxmj
-   UG3sVHSqdmyEafkzA+XI5i3UbEkUHRskozELCTLgtgRrXqDu+ssSV9PZ5VZdxXwcMWffxfdnNxF
-   oMQyNOSpkgv8DWjuhSrR6XBagv3ca8jh0phMPvjr6+Ny/GclzHDNQXI0LDBGXkvTzcTmjF7AGrf
-   JUpz9l2Xt6bGasSbD5/skeXZ3XpbGOQKxX376t/5jZ11tcfdrSoteF170xPwhOpELLr1F7oakyU
-   7wh25tmyWA4ZwA==;
-Message-Instance:  m=1;
- h=sha256:
-   F7o9k7teInH6bVHyuu7COUvaXdASC8qjznL07oImUH0=:
-   KjQVkXpbZ+ewBe7mGcr4pjZmF5iLc9gaYu/dCZLVPpI=,
-  sha512:
-   p1o6Ttn8hfOgl1MepGefGcwYULkIkDFh75+11wAu9JliM75+u2i0kdxt5mXKxDUkVFw10doYNlR8woK1mfxIJQ==:
-   q/ni7vdx06XxQvS5SMllk9e6zH1QKVw3Uj36R8hi5aggZmMD38Rwcurj4Ol11SKo/marQ/q/AQ0nqFEF/23vaA==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795714608; x=1796319408; i=markus.elfring@web.de;
-	bh=KjQVkXpbZ+ewBe7mGcr4pjZmF5iLc9gaYu/dCZLVPpI=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=qLxOihcKbTUf1NIgavStxaXWKV0A+DXk3pRYIarNvRAiBgMpgPiw0luUF24QOo1W
-	 CzbdCTFuWzf3gFvEuPieoMnKIHVcr/r3sTfkBaOSOIkqdW0rJ/3G2tFdbMif9NpaN
-	 Mj3rRbuygiwK3xa3xCGtfB3o60Uz3exrLk5xdoOdPTjbybk1IMIAT3TeC8CG0cEZ1
-	 FsoXas2iiLzJ7UpVO96K7oJbnVBWUieWSG/QPg2lpSxsSJtQu/dZVnRuUj8Ceuudk
-	 TsEoKElc1UW1eDg2I/vCuMqemrBhIMNlitMi5E7wDKO9nEG0b2NCvr6kQ5vJB1KDn
-	 1EAOsiCWj7Wm6ygzYg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb105
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1Mav6f-1y4aN23S4x-00b4UH; Thu, 26
- Nov 2026 18:36:47 +0100
-Message-ID: <206466bf-7ed1-41eb-b74d-6f680ab449ea@web.de>
-Date: Thu, 26 Nov 2026 18:36:44 +0100
+	dkim=pass (2048-bit key) header.d=google.com header.i=@google.com header.a=rsa-sha256 header.s=20260707 header.b=TMt1QKwn
+Received: by mail-ua1-f71.google.com with SMTP id a1e0cc1a2514c-99063f4065eso1796141241.3
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:46:38 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20260707; t=1795715198; x=1796319998; darn=vger.kernel.org;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
+        b=TMt1QKwn4ooOG0LrNqCBdG7iH6jAG+8oo2a/UGskym5ZGxvoSzepWTYvwwZ/Uc5IdL
+         1OPO2zF2+cadqVH/6m6fU6DB7UFfDmVHL6EV9rmhR0NfNJAFWQLhRvsPfdxyRF7rP7f3
+         R3zNBvYI5IZYjOgbU/BVV+iv/o56V3onl4iHQ6mmD+Y4zx/sLKRdmjYeUf1FHi+wguYH
+         +MdfbitMQ8gkY7NS7aLCn07BBRBgy8PWEFmfnzyGjEudJNpne4FZq884UbneCa48sDX5
+         Af7mYeUll/b4o9gvjJ4celtj9lqZlwssbu5IN9v+ZmSHjj+OECK7FrfL2rVGzifmdi8y
+         EJTA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795715198; x=1796319998;
+        h=content-type:cc:to:from:subject:message-id:references:mime-version
+         :in-reply-to:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=EuvPYLumv/K3gPGwMhejNezfZIAIjYhwKqM2Diy+6FE=;
+        b=y8qtkDQk6PW8eTYaKubyGCNMpG6HrhpzV+con4+fXsyY16TcM/QV0Ga2xmHy+3hlEz
+         Dp4e6sXAGjcWjMzMnbGZM5wDlLBr9uvp3vi+S/VSFVpg9zLT7niuMUlBwF2jiqj2JBKf
+         AD8NdtJ/zGwG1hAMrXcSRzhpofFxo26ewVhZKM4f5FWJbxVYpLr/VQd1NiBkW3xG9TeT
+         R15JMFdsbKlVCmpxGDckrW3lzQ3iOKwkWoGisM/7EiqRQ+yVLMc3q5TTVaT5KeQYuEht
+         QRYWhkEOUMBDZqsaeylyaFLOHu9mNuEJGcBL+57BZLIcYYdMeegPVkIfLG0h6Rw28Uwv
+         3blw==
+X-Forwarded-Encrypted: i=1; AL+hErFwul4PNKU4a00vgqycnPzPWZwu3V7RyVw1fFHA0s7QwwlsD8JmK5xoRzQ7WHNZsF/Piw71OuA=@vger.kernel.org
+X-Gm-Message-State: APuU4Z8BWyDGeu5Ak8z+bm2iyN8VHu/7yFFz/9UdTFc3cw95nC/ItU29
+	afKitC/uCA+TphTmsEbLfmKTqWCnibydW7ary8s0REzA0JjM0cnS5gpBALuq2Wfnxx3f2uWEdAp
+	y/d7KOYFZxQ==
+X-Received: from qvbkd28.prod.google.com ([2002:a05:6214:401c:b0:91c:c113:4812])
+ (user=willemb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6102:5126:b0:7b5:4700:3a6a
+ with SMTP id ada2fe7eead31-7d7397bfbe3mr11220876137.26.1795715197540; Thu, 26
+ Nov 2026 09:46:37 -0800 (PST)
+Date: Thu, 26 Nov 2026 12:46:36 -0500
+In-Reply-To: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,161 +77,68 @@ List-Subscribe: <mailto:netdev+subscribe@vger.kernel.org>
 List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
-To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
- <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
- <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
- <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
- <d11b4708-02d9-4d53-bc5e-734fdb363d2b@web.de>
- <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <f3de129e-bbee-470d-a1df-e867269522cc@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:zEkgFKxFLGzECQiqSJfTY7X86X1opUEhpn+ydUdemC4Z2kM62QF
- nCyNaB5ERPqN7Aye/wFRnBdqfgXCFByCKpWuK7hceITb4qgW4dediJiXcqG8uUrMZGfPIf7
- jyKSfyb2LfbvuNNlZJblngRr5OpDMIkjCf2iaqJI5GqD9/+bol1GvNAtNAmCj7RVXF30gZ4
- qxZ3QwF4Ph6FeQIMJgupA==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:iamEvrdmJM0=;RejA8QV7hcNZf8pruzzZDfU95T1
- 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
- yOUmWv/TfXyIrAKuKsfA==
+Mime-Version: 1.0
+References: <20261124170551.1874487-1-willemdebruijn.kernel@gmail.com>
+Message-ID: <willemb.35265d9786238@google.com>
+Subject: Re: [PATCH net-next 0/6] net: remove dev_validate_header() and net_device::min_header_len
+From: willemb@google.com
+To: Willem de Bruijn <willemdebruijn.kernel@gmail.com>, netdev@vger.kernel.org
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, horms@kernel.org, elder@kernel.org, 
+	Willem de Bruijn <willemb@google.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed; delsp=yes
 
->>> Your patch is related to bcm_enet_probe().
->>>
->>> See L1754 and L1791. These 2 calls are related to 2 clk_disable_unprep=
-are() calls in the error handling path and in the remove function.
->>>
->>> Why only update one place, and keep one clk_disable_unprepare()?
->>
->> The ungating of the item =E2=80=9Cpriv->phy_clk=E2=80=9D depends on spe=
-cial condition checks.
->=20
-> This does not answer the question.
-Would you find further clarification approaches more helpful according to
-unbalanced clk_disable_unprepare() calls?
+Willem de Bruijn wrote:
+> From: Willem de Bruijn <willemb@google.com>
 
-Regards,
-Markus
+> Remove unused link-layer header validation plumbing, clean up the
+> remaining af_packet users, and drop net_device::min_header_len.
+
+> Mostly cleanup, with two user-visible changes:
+
+> - Patch 4: on devices that set hard_header_len but have no link layer
+>    header (e.g., PPP), SOCK_RAW and TX_RING sends now always have
+>    skb->network_header at the start of the packet, not only for short
+>    packets.
+> - Patch 5: on SOCK_DGRAM, the VLAN TCI of non-offloaded tags is now
+>    reported on all Ethernet devices, including those with
+>    hard_header_len > ETH_HLEN, and is 0 on non-Ethernet devices.
+
+> 1. Drop stale Ethernet fields (including min_header_len) in IPA modem.
+> 2. Remove header_ops->validate and dev_validate_header().
+> 3. Move af_packet TX header length checks ahead of skb allocation.
+> 4. Reset network header on all headerless devices via dev_has_header().
+> 5. Use ARPHRD_ETHER / ARPHRD_LOOPBACK and ETH_HLEN in vlan_get_tci().
+> 6. Remove unused net_device::min_header_len.
+
+> Testing (under vng):
+> - tools/testing/selftests/net: psock_snd.sh, psock_tpacket, and
+>    txring_overwrite.
+> - Custom tests for short/zero header validation (SOCK_RAW, SOCK_DGRAM,
+>    SOCK_PACKET, TX_RING), non-offloaded outgoing VLAN TCI capture
+>    (AUXDATA, TPACKET_V2, TPACKET_V3), and 48B/100B IPv6 TX over sit
+>    (SOCK_RAW, SOCK_PACKET, TX_RING).
+
+> Willem de Bruijn (6):
+>    net: ipa: remove ethernet-specific artifacts from modem netdev setup
+>    net: remove header_ops->validate and dev_validate_header()
+>    packet: validate TX header length before skb allocation
+>    packet: reset network header on all headerless devices
+>    packet: use Ethernet header length in vlan_get_tci()
+>    net: remove unused net_device::min_header_len
+
+>   .../networking/net_cachelines/net_device.rst  |  1 -
+>   drivers/net/ipa/ipa_modem.c                   |  4 -
+>   drivers/net/loopback.c                        |  1 -
+>   include/linux/netdevice.h                     | 18 -----
+>   net/ethernet/eth.c                            |  1 -
+>   net/packet/af_packet.c                        | 80 ++++++++-----------
+>   6 files changed, 32 insertions(+), 73 deletions(-)
+
+Sashiko reports are valid. I will respin
+
+--
+
+pw-bot: cr
+
+
