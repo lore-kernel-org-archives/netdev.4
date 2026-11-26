@@ -1,100 +1,94 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.175
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795724842;
-	b=egz7f8eQr70tu0yi6E29hlm05X03zgjfrcfcrZVikOAvwMVR4YVTcNl8EN6gL4u6566+
-	 DY3jReKWj3QZdhtxeZ+9rDVWhOW2saJYtH/CAoslQJw+yTtUfK1TCXXVfMFmEyaVsmcsT
-	 Menp0p8v5mmwX5HudfJvxoOQV5gVv/1Rvu4Lks1k4fhUHi0QJbUVNQ1wXm9qtUxNEzR9J
-	 9ffqpectGLkskNK16hu8U2ng8LmPFOfLYwTFDavkUSW18cU7jLYMNn1hxlkrin3RUO4LX
-	 53HtGQavj1t5WMvkrmRX6P6iC8HdK42Am50Jg6yUNAD/v6WEAQEk0plpt76b3u8RE2A==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795724842;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:MIME-Version:References:
-	 In-Reply-To:From:Date:X-Gm-Features:Message-ID:Subject:To:Cc:
-	 Content-Type:Content-Transfer-Encoding;
-	bh=CdPL09V6vjBqFmHjF95aST+4s9bV78AjAx0jSltOIgA=;
-	b=UGwSxoOpp6frvc9WI1pE+SHiIiXIUB/1i9Yr5LIeJw9j8c/GlzhHArIrVog3enErq2wb
-	 T7s3FBXP7Ha6fQ0fcgXxbgF/QKXa9Hoi05Czlij4rQgrutKMtq6Ze6Bfs7eW8rTqCe8Jz
-	 x0zPk984X7xbBhMYLsHJs5ObmrinnKVLDwdabTihSknMwcKjH26Vm/LJavGCww0lN2Xxk
-	 gIyRFqsWqi1Fd71nFbm3BtUmrnnoeDbr++IoX6o94Ti+3PszYnEjUwrnuiktWaZEVhbg6
-	 vE+iLrZdMLJGm7zwly+xR+p7CO5S/3KvHgS99fIlx1ETGMnw3Av7EUBCqbPP1i0iFeA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b="BAcHC/Fv";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.175
-Received: from mail-pf1-f175.google.com (mail-pf1-f175.google.com [209.85.210.175])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795725169;
+	b=jWyiAnSWy+URhlulYfeWzFhQJ0zqYfO5Ogx3mA+QWKhASxJvP8tnVYS0/60/OG4tTcFx
+	 Vjo0SnDFexoQtz0wXX0pojBNlq16DaVJUh10zeWyIjeUacVMN0+zF/TbgxFD4w6glNwas
+	 K60u94cyxZn1IvsoZmEl3H7Pgaw3vQGdfFNRZ2Bt1myN9kkXpekG8vATHTZX9Gmx6TlKz
+	 yU5bjxaAA+Cl4cHo18o4UIgkYdt4tbJDGfkBHfsY0yDDcCn6o36bPKuNvUrwIl2FeKW32
+	 4VouhMVsCk6xrQoabgveRU/3qpBh5VhuPx100Kboe+qUzhvs5vnwqNFikujqJMb4jNg==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795725169;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
+	 Message-ID:MIME-Version:Content-Transfer-Encoding:X-Scanned-By;
+	bh=hteBlJecuyLDEt+A2GyVPbp3T0CryFhITZ+ug8ST7OQ=;
+	b=rcHhAV2U4oOd3egKQSnu61hAPgan950bMy5WwFVMhxiuKy4lIOosbMD7187hcRyyB8F6
+	 KqsjRJ/VceR1zK3ba504rgVcfdthDG47qsG0KX5nowVpGyVZ5+/V27O8NuO7yZNsGreru
+	 OC7dSe1Po69mjmbMAF0xtQuKCWwubnH/IX1rF/Snx7moo23dbQTPfL5fG8A9ht+U+XDkA
+	 +P9dPyVHpIyyHq8a22kpUGO1MCoop1vqpcsdRoy75avDonY1F08S4RK6HXcim4XsZMaJV
+	 +Q+nt0ruGJpr0K2Ur/xeytcxISaFihB7KGzWXY1c3WWxLE30d0t2Z1dGXzlTdAwK2xQ==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KIO5rR3s;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9297D606A31E
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:27:22 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9297D606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 149E9606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 20:32:48 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 149E9606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=BAcHC/Fv
-Received: by mail-pf1-f175.google.com with SMTP id d2e1a72fcca58-8b612fd74e1so2561703b3a.0
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 12:27:22 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795724842; cv=none;
-        d=google.com; s=arc-20260327;
-        b=jOW1D2Oh9eooQnqtb9gsbN4F+nk4RZs3OoeC6gsxv8kj+mxsUurieT+TUdCkIjDPx8
-         3Uhiz14EOVCDPcBuzegFEPEAocDDBNO+j0hsUP7jNdSoVaAwXdiEIGuLON4PQriNHtqZ
-         /YmKhywKxOydHcGON1B+Ym4AD9amg6YSyy+ddnLeSkfjutkbFzntQ3ZvlxBuwzq4nZOI
-         Tuu7PXB7sHHg4xFOXVYrigWaT95QJ3WOk68n1C0Pg7vQGY6bQWjcC2K0oLq6MAgLV8Ut
-         e27Ju70qgz+3XaxiteF5+A3Zb8SwQr00sBuhRAC8eoU4K9Rm5yUUv3TK32HjSau+Sid/
-         QAbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=CdPL09V6vjBqFmHjF95aST+4s9bV78AjAx0jSltOIgA=;
-        fh=hmXngdu0Xr0aCzuWtPuWhRZej2OQgztQTyz38XdXv0I=;
-        b=DYWG9Rhxx/aCK9M6ObNubBqiuYJs8lQJSFmEHm+T4oU1PAgqUyq5sQNv16QHBV7Mns
-         cXThn9bp5Dv2ZkiQ94CUIueFDdL8pP2JqJ1hrm0+H/qtemDFyqlryulQN+3AbrFflCua
-         IdAknt/ROZLxDAWfeVJiZkf8EPnQ8T9kG5OJW0FkJpPc3ddAZtAovs+eyq8TsoxM1wEM
-         Ucl6c8HlGFM2kD3F3Ss6C8GsV2F2f1HtZJ/oYCgqvzARyo+mxqy9KQohzHHZlH0unern
-         /kvarg9uYoYvxAjUsdQNCY1rk0nOfDgFY7QiwsiSFp9veQvkK7pA+/zZ+GHYYxUPv2FZ
-         0wfA==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795724842; x=1796329642; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
-         :date:message-id:reply-to:content-type;
-        bh=CdPL09V6vjBqFmHjF95aST+4s9bV78AjAx0jSltOIgA=;
-        b=BAcHC/Fv91N4U9IimHPu6YSa9DJluh9hbeQxL4i/FBDbAWH0lPf/w7G85ZSvkykggH
-         4m+uvhUK9/oVI2vniWITFMAssbexoIugs2XW0WTYIUSYikIurJ0O9JjAoYfyzjyGWQIH
-         pur2+M8pL8Q5z5kwBDJ2Dv3m30CQSWZrmvCyUrYh2CIDOKzlDon7vQsl7GmvIqvHxDh8
-         nJ0u3bBrE7Ivk2gm9XjIFTBwdRf3iQ5ORZFi0fgiSQJwdrLJPSm0rfRxIlERbDdAvhBR
-         peTNErAAXWEjxCPYg0qIStxbElTbpQdnSoJSo214JfmGskX1RVQnIzuw3t9jV+aOcgqv
-         GsYg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795724842; x=1796329642;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
-         :content-type;
-        bh=CdPL09V6vjBqFmHjF95aST+4s9bV78AjAx0jSltOIgA=;
-        b=IQwCPMdRqNKdzrireShzZAPSbZby1RpGaUeblE36SvUh15KDl4BSnBl2/7IPl2EC9B
-         0vJdDa1u715lXBe8jOif0B3b7EZIbW2upZZLcc77Yj/uv99PxjOtUTW8W7myjrPY8ivI
-         8vSTsfHQ6thIxR/dW7BIR/OMHhZ5/e3Erh5RbC1wN394t2yKfH/sPVuXRzFN1nPHIkeD
-         mMxeVqBaOqqZrjZjHe7UTlEODaZdUXtFFbUVyRW9Vu3/wF7cfWWBMVJFUYS/ccw0rBdY
-         iNpclA3Fwc+OUA9yM8lU5DGCYPHiz+hk7H+igRg6uD1EZAhzbHus51u+hQQ2nCyVqPt/
-         GKWA==
-X-Gm-Message-State: APuU4Z+A9zJBgq9j0GqxeimgCgRMbhIA5kZlQRYjF+H0XA4NxVDLLtm5
-	go/dQY3Ec4fq7M9Kp8spMjt3z1r3wChNckskE9b+ZrV8NSSks+JEUh4LtSHabDZiz/6d7xZfZ38
-	qwOLTWfVKWIEKHw2RLZhFnxN2XNW6iXjkFqNp
-X-Gm-Gg: AZFdTZfGcD+ymzbAfUwJIaa3EnbJAS8dJBrY716bqlhJa7QRkJTlvdC3CrjKE/DHOdH
-	9WWPgkQUb9Kzuy1gN3BsY2kamPb4DDbvfYI7UYlVBtljgvz+eiMURpbjP4tzAYVLZwuY8zSwSsz
-	worhP4sXz7X/K6vRQyqSsgqcFpYCJrKfM7XhwbTCNFDvV5Qcdo/ZKJ+KnMLXWPa4x93uVRNybfx
-	k3uOW44VSnAaVCU+rN4+F/0rsXy/zqpWvdYSB6ofYOdPiy4rjeAbNDo8a8ptqVSJBUbTLMvjLAk
-	FeR8Fqn+DivzxG1I8TQQ1inO8nJRjTrnmgGCsAr7uoBm89fg+vkdhw05Mrb+sBUTuQpAVSmrCif
-	u2JqkximcEbFRUwfvwb6BNIMOFQclBco+OCY7/P1X53PTbGXjSsncQJq197DxU6ufmRblpXSRX4
-	qqOfPdYK7cDXfLr7AQ8m5CQqUvpZd2/goiKSg=
-X-Received: by 2002:a05:6a00:2e9d:b0:880:849d:c07c with SMTP id
- d2e1a72fcca58-8c87c29172cmr19318850b3a.25.1795724841902; Thu, 26 Nov 2026
- 12:27:21 -0800 (PST)
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=KIO5rR3s
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795725168;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=hteBlJecuyLDEt+A2GyVPbp3T0CryFhITZ+ug8ST7OQ=;
+	b=KIO5rR3sHFJPskI23LJLUm2z4gOu49qFO01CMAnAVVYS1l9EZT7o2mnX0bleHi3Or+ly+E
+	sZR0Yx7DAezi4gZtb3uKkQfQlWpViLRvykCMLP1nVEdxy6jFrE4ETWwRcsKntm6qYaWKal
+	rmeirp23l5FtMDCmEN6kqVHxNzUcxsc=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-262-oHFUvPaKNC2yfKu9wYyJ3Q-1; Thu,
+ 26 Nov 2026 20:32:44 +0000
+X-MC-Unique: oHFUvPaKNC2yfKu9wYyJ3Q-1
+X-Mimecast-MFC-AGG-ID: oHFUvPaKNC2yfKu9wYyJ3Q_1795725161
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8CA771955F3A;
+	Thu, 26 Nov 2026 20:32:40 +0000 (UTC)
+Received: from ivecera-thinkpadp16vgen1.tpbc.csb (headnet04.pony-001.prod.iad2.dc.redhat.com [10.2.32.116])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1E3B21800286;
+	Thu, 26 Nov 2026 20:32:32 +0000 (UTC)
+From: Ivan Vecera <ivecera@redhat.com>
+To: netdev@vger.kernel.org
+Cc: Vadim Fedorenko <vadim.fedorenko@linux.dev>,
+	Arkadiusz Kubalewski <arkadiusz.kubalewski@intel.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Shuah Khan <skhan@linuxfoundation.org>,
+	Randy Dunlap <rdunlap@infradead.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Donald Hunter <donald.hunter@gmail.com>,
+	Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	intel-wired-lan@lists.osuosl.org,
+	Min Li <min.li@microchip.com>,
+	Grzegorz Nitka <grzegorz.nitka@intel.com>,
+	Karol Kolacinski <karol.kolacinski@intel.com>,
+	Saeed Mahameed <saeedm@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>,
+	Petr Oros <poros@redhat.com>
+Subject: [PATCH RFC net-next 00/19] dpll: single-owner pins, board wiring as pin links
+Date: Thu, 26 Nov 2026 21:32:12 +0100
+Message-ID: <20261126203231.934632-1-ivecera@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -104,138 +98,211 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin@gmail.com>
- <179570816138.3135.14968815049241245107@kernel.org>
-In-Reply-To: <179570816138.3135.14968815049241245107@kernel.org>
-From: Xin Long <lucien.xin@gmail.com>
-Date: Thu, 26 Nov 2026 15:27:09 -0500
-X-Gm-Features: Aa3M54r5B4wx34siMoGYdu5QqFcDcda8LErzfVJMrQldUnf9MssTYfgWQDCRNDQ
-Message-ID: <CADvbK_fMso1BKZrdX54zph5ZbCgsmiecCm7HS88gA_PePPwRSw@mail.gmail.com>
-Subject: Re: [PATCH net v2] sctp: diag: fix stack garbage in IPv6 scope_id
- during dump_one lookup
-To: netdev-bot+sashiko@kernel.org
-Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net, 
-	kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, 
-	marcelo.leitner@gmail.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 
-On Thu, Nov 26, 2026 at 10:49=E2=80=AFAM <netdev-bot+sashiko@kernel.org> wr=
-ote:
->
-> Thank you for your contribution! Sashiko AI review found 1 potential
-> issue(s) to consider.
->
-> Critical: 0 =C2=B7 High: 0 =C2=B7 Medium: 1 =C2=B7 Low: 0
->
-> If you believe none of the issues are legitimate, please reply to each
-> issue of Medium severity or higher and explain why the AI is wrong.
-> If any of them are legitimate and you plan to respin, please let patchwor=
-k
-> know by including "pw-bot: cr" as a separate line at the end of your repl=
-y
-> (one such reply per series is enough).
->
-> - [Medium] The commit message justifies the wildcard scope_id with: "The
->   dif check in sctp_addrs_lookup_transport() already filters by=E2=80=A6
->
-> --
->
-> sctp: diag: fix stack garbage in IPv6 scope_id during dump_one lookup
->
-> This commit zero-initializes the laddr and paddr lookup addresses in
-> sctp_diag_dump_one(). As a result, sin6_scope_id and sin6_flowinfo no
-> longer hold stack garbage. A zero sin6_scope_id then acts as a wildcard i=
-n
-> __sctp_v6_cmp_addr(), and idiag_if is used only as a dif filter.
->
-> > diff --git a/net/sctp/diag.c b/net/sctp/diag.c
-> > index c2a0de2adf6fd..564a5b51e6ce3 100644
-> > --- a/net/sctp/diag.c
-> > +++ b/net/sctp/diag.c
-> > @@ -433,7 +433,7 @@ static int sctp_diag_dump_one(struct netlink_callba=
-ck *cb,
-> >       struct sk_buff *skb =3D cb->skb;
-> >       struct net *net =3D sock_net(skb->sk);
-> >       const struct nlmsghdr *nlh =3D cb->nlh;
-> > -     union sctp_addr laddr, paddr;
-> > +     union sctp_addr laddr =3D {}, paddr =3D {};
-> >       int dif =3D req->id.idiag_if;
->
-> [Severity: Medium]
->
-> The commit message says:
->
->   The dif check in sctp_addrs_lookup_transport() already filters by
->   sk_bound_dev_if, so scope_id on the lookup addresses is unnecessary.
->
-> Does this hold for SCTP the way it does for TCP and UDP?
->
-> For TCP, connect() to a link-local peer binds the socket to the scope
-> interface, so a dif filter on sk_bound_dev_if is enough. SCTP does not
-> seem to set sk_bound_dev_if from the peer's scope. The scope is kept only
-> in the transport address:
->
-> net/sctp/ipv6.c:sctp_v6_get_dst() {
->     ...
->         if (ipv6_addr_type(&daddr->v6.sin6_addr) & IPV6_ADDR_LINKLOCAL)
->                 fl6->flowi6_oif =3D daddr->v6.sin6_scope_id;
->         else if (asoc)
->                 fl6->flowi6_oif =3D asoc->base.sk->sk_bound_dev_if;
->     ...
-> }
->
-> On the dump side, idiag_if also reports something other than
-> sk_bound_dev_if:
->
-> net/sctp/diag.c:inet_diag_msg_sctpasoc_fill() {
->     ...
->         r->id.idiag_if =3D dst ? dst->dev->ifindex : 0;
->     ...
-> }
->
-> For a link-local peer, this is in effect the peer's scope interface.
->
-> On the lookup side, the call chain
-> sctp_transport_lookup_process()->sctp_addrs_lookup_transport() passes dif
-> to sctp_sk_bound_dev_eq(). For an unbound socket (bound_dev_if =3D=3D 0),
-> inet_bound_dev_eq() returns !sdif || l3mdev_accept. That is true by
-> default, so any dif passes.
->
-> With sin6_scope_id now always 0, __sctp_v6_cmp_addr() matches link-local
-> transports on every interface. sctp_hash_transport() treats two different
-> non-zero scope_ids as distinct. So an unbound socket can hold association=
-s
-> to fe80::X%ethA and fe80::X%ethB on the same port at the same time.
-This is very uncommon.
+Sorry for the size, I know 19 patches is over the netdev limit of 15.
+For the RFC I kept each step in its own patch, so all the changes are
+easy to see one by one. The final series will squash some of them.
 
-I would rather NOT set sin6_scope_id from req->id.idiag_if to support this =
-case.
+In the thread on "dpll: do not serialize driver callbacks under global
+dpll_lock" [1], Jakub was not convinced: relations between DPLL objects
+are hard to follow, objects of one driver plug into objects of another,
+and the driver API should be much more "dummy-proof" [2]. Vadim agreed
+and asked to step back, because the subsystem was shaped to model one
+NIC family and is getting more complex for its next generation [3].
+Jiri agreed with Vadim [4]. This RFC removes the sharing of pin objects
+between drivers instead of picking a lock scheme for it.
 
-Even if we want to support it, it should go to a separate patch in the futu=
-re.
+Problems in DPLL today
+Model:
+- One pin, two owners: on E825, ice registers zl3073x output pins with
+  its DPLLs (c191b319f208) and hangs its recovered clock pins under
+  zl3073x inputs, so one request runs callbacks of two drivers.
+- Per-registration needs on one object: a state change bypass for
+  firmware node pins (521b6d5de08d), zl3073x inputs typed MUX although
+  the mux is in the NIC, one pin that is both an output and an input.
+Driver API:
+- ice waits for the zl3073x pins on a notifier chain (2be467588d6b) and
+  holds references to them, so probe order and lifetime are its job.
+- Core code exists only for that: the owner check exception, the
+  notifier source id (0bf47f722fa9), the owner ref selection
+  (2c1bd78dc8e2, 84e85c325e5e) and a cached module name.
+- Callbacks run under dpll_lock and must use __dpll_*_change_ntf(),
+  notifications go out without driver locks. Only comments say so.
+Locking:
+- dpll_lock serializes every callback of every driver. With a dual NAC
+  E825 and a ZL80132B, ice DPLL requests during zl3073x ToD writes took
+  a median of 1448 ms, at most 3.9 s (idle 0.1 ms). zl3073x is narrowing
+  its waits, but callbacks that wait for hardware stay (planned zl3073x
+  resync, up to 1 s; mlx5 commands, 60 s timeout).
+- No lock scheme fits pins shared between drivers. Options A-E from the
+  thread each cost something, from callbacks invisible to lockdep (A)
+  to one domain for everything connected, the global lock again (D).
+Fragility: 13 fixes in a year in the (un)register, on-pin and
+notification paths, e.g. 32239d600236, df0ba51ccf87, 1a2292101c0d.
 
-Thanks.
+All of these come from one dpll_pin being both a pad of a chip and a
+wire on the board, so two drivers end up sharing one object.
 
->
-> Suppose a dump_one request echoes back a dumped tuple (addresses, ports
-> and the reported idiag_if). Can it pick the wrong association in that
-> case? sctp_addrs_lookup_transport() returns the first matching rhlist
-> entry:
->
-> - With INET_DIAG_NOCOOKIE, that entry could be a different association,
->   possibly on another socket.
-> - With a cookie set, the lookup could return -ESTALE even though the
->   requested association exists.
->
-> The same ambiguity existed before whenever the stack garbage happened to
-> be 0. This patch makes the wildcard the intended behaviour.
->
-> Would it make sense to keep the zero-init and, for link-local addresses,
-> also set sin6_scope_id from req->id.idiag_if? The commit message could
-> then be updated to match.
->
-> --
-> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
-set/7cc69548f249ff63527a663c22d9dc918d3c3e84.1795621751.git.lucien.xin%40gm=
-ail.com
+Proposal
+- I1: a pin is registered only with DPLLs and parent pins of its owner,
+  the module and clock_id it was created with. The core enforces it.
+- I2: so a request about an object runs only its owner's callbacks.
+- I3: a wire between pins of two devices is a link. The driver of one
+  end adds it to its own pin with dpll_pin_link_add() and names the
+  other end by its firmware node, so no driver holds a pin of another.
+- I4: a link is only a wire, with no state and no callbacks. pin-get
+  reports DPLL_A_PIN_LINK with the peer id for both pins while both are
+  registered, the peer is notified when one of them comes or goes.
+On E825 this covers the TX reference (zl3073x output to the ice TXC
+DPLL), the time reference (zl3073x output to the ice TSPLL) and the
+recovered clock crossbar: two ice mux devices, one per CGU output, with
+the port pins as inputs and outputs linked with zl3073x inputs.
+
+This removes the model and driver API problems and options A-E. The
+code of one fix is gone, the cross-owner cases behind other fixes cannot
+happen. The stall and unenforced rules stay, per-owner locks become
+possible. Not addressed: a netdev names only its recovered clock pin.
+
+For a driver
+TX reference and recovered clock, before and after (the first PF of the
+adapter creates the muxes):
+
+  pin = fwnode_dpll_pin_find(fwnode, &tracker); /* or wait for it */
+  dpll_pin_register(txc_dpll, pin, &txclk_ops, priv);
+  dpll_pin_on_pin_register(zl_input, rclk_pin, &rclk_ops, priv);
+
+  pin = dpll_pin_get(txc_clock_id, idx, THIS_MODULE, &prop, &tracker);
+  dpll_pin_link_add(pin, fwnode);
+  dpll_pin_register(txc_dpll, pin, &txclk_ops, priv);
+  dpll_device_register(mux, DPLL_TYPE_GENERIC, &mux_ops, adapter_mux);
+  dpll_pin_link_add(mux_out, rclk_fwnode);
+  dpll_pin_register(mux, mux_out, &out_ops, adapter_mux);
+  dpll_pin_register(mux, rclk_pin, &rclk_ops, priv);
+
+For user space (ids from the GNR-D below)
+The zl3073x output OUT3 (id 36) no longer lists the ice TXC DPLLs as
+parents; it is linked with the EXT_SYNCE pins of the eight PFs, which
+are inputs of their TXC DPLLs:
+
+  {'id': 36, 'module-name': 'zl3073x', 'package-label': 'OUT3',
+   'parent-device': [{'parent-id': 11, 'direction': 'output', ...}],
+   'link': [{'id': 4}, {'id': 8}, ..., {'id': 26}]}
+  {'id': 4, 'module-name': 'ice', 'board-label': 'EXT_SYNCE',
+   'parent-device': [{'parent-id': 1, 'direction': 'input', ...}],
+   'link': [{'id': 36}]}
+
+The port pin of eno1np0 (id 2) had the zl3073x inputs as parent pins.
+It is now an input of the muxes 2 and 3, and RCLK0 (id 0) is linked
+with REF1P (id 29):
+
+  {'id': 2, 'module-name': 'ice', 'type': 'synce-eth-port',
+   'parent-device': [{'parent-id': 2, 'state': 'connected', ...},
+                     {'parent-id': 3, 'state': 'disconnected', ...}]}
+  {'id': 0, 'board-label': 'RCLK0', 'link': [{'id': 29}], ...}
+
+pin-set {"id": 2, "parent-device": {"parent-id": 2, "state":
+"connected"}} routes the port and disconnects the one routed before.
+The clock-id of the port pin is the adapter index instead of the DSN.
+The E825 pins exist without zl3073x too.
+
+What it removes
+Core: everything under driver API above, cross-owner on-pin registration
+is rejected. ice: the notifier work, the firmware node parent pins and
+the foreign pin references. The tolerance for a DPLL without
+registrations (33f016b23a21) stays: on E810 the recovered clock pins of
+the PFs without the CGU stay registered with the DPLLs of the PF with
+the CGU when that PF goes first.
+
+  core (dpll_core, dpll_netlink, dpll.h)  +224/-173
+  ice                                     +727/-503
+  KUnit tests and build                   +563
+  docs, spec, uapi                        +69
+  exported symbols 21 -> 20 (+2 for KUnit only), ops unchanged
+
+ice grows, as the PFs of an ASIC share the muxes and the adapter
+records the routing. An E825 with N ports had N+1 DPLL devices (TXC per
+port, TSPLL) and 2N ice pins, now N+3 devices and 3N+3 ice pins. A mux
+is not a DPLL, but the generic type is for devices outside the EEC and
+PPS classes, and two driver-local devices replace two core mechanisms:
+cross-owner on-pin registration and a MUX parent of another driver.
+
+Locking series: v3 is on hold until the direction is agreed. On top of
+this the rule for drivers becomes "your callbacks run under your lock",
+and options A-E are not needed.
+
+Status: W=1 build at every patch, full build, sparse, kernel-doc,
+ynl-regen, htmldocs, KUnit (12 tests, UML, lockdep). Tested on a GNR-D
+platform with a dual NAC E825 and a ZL80132B: links, routing of all
+eight ports with notifications, the recovered clock at the zl3073x
+inputs, PF reset, CORER, GLOBR, PF unbind and bind, zl3073x reload and
+the TX reference; the test script and its results are in [5]. Not
+tested: EMPR, and the recovered clock of the second NAC, whose ports had
+no link. Prepared with the help of an AI coding assistant.
+
+Questions
+1. The E825 TX reference and recovered clock views change. Fine, or
+   should netlink translate the old view?
+2. Is a mux fine as a generic DPLL device that reports locked while it
+   routes a port, and are N+3 DPLL devices for N ports fine?
+3. The two muxes share module, clock-id and type, so device-id-get
+   finds neither. Is finding them through their output pins enough?
+4. The firmware still types the zl3073x inputs as MUX. Leave it?
+5. The ice pin does not know the frequency on the wire. Omit it, as
+   now, or read it from a firmware node property?
+6. Should the locking series be rebased on top of this?
+
+[1] https://lore.kernel.org/netdev/20261111164021.273409-1-ivecera@redhat.com/
+[2] https://lore.kernel.org/netdev/20261119133851.3f25074c@kernel.org/
+[3] https://lore.kernel.org/netdev/ff8b63b7-b943-444a-bd37-b6fb493b5d9f@linux.dev/
+[4] https://lore.kernel.org/netdev/awMP9Gj3Xhia0ZeI@FV6GYCPJ69/
+[5] https://gist.github.com/ivecera/b31f67adac6deac318719bbe0f282707
+
+Ivan Vecera (19):
+  dpll: add pin links
+  dpll: report pin links
+  dpll: notify linked pins when a pin is registered or unregistered
+  dpll: add KUnit tests for pin links
+  ice: dpll: use own pins for the TX and time references
+  ice: dpll: drop the filter of notifications from own registrations
+  dpll: register pins only with a DPLL of their owner
+  dpll: drop the state change exception for pins with a firmware node
+  dpll: drop the source clock id from pin notifications
+  dpll: drop device events from the in-kernel notifier
+  dpll: drop the cached module name of a pin
+  ice: dpll: track the E825 recovered clock routing in the adapter
+  ice: dpll: register the E825 recovered clock muxes as DPLL devices
+  ice: dpll: route the E825 recovered clock through the mux devices
+  dpll: register pins only with a parent pin of their owner
+  dpll: drop the in-kernel notifier chain
+  dpll: require a registered DPLL for pin registration
+  dpll: drop the owner reference selection of pins
+  dpll: add KUnit tests for the pin owner checks
+
+ Documentation/driver-api/dpll.rst            |   53 +
+ Documentation/netlink/specs/dpll.yaml        |   15 +
+ drivers/dpll/.kunitconfig                    |    5 +
+ drivers/dpll/Kconfig                         |   18 +
+ drivers/dpll/Makefile                        |    2 +
+ drivers/dpll/dpll_core.c                     |  253 ++--
+ drivers/dpll/dpll_core.h                     |   20 +-
+ drivers/dpll/dpll_netlink.c                  |   82 +-
+ drivers/dpll/dpll_netlink.h                  |   10 +-
+ drivers/dpll/tests/dpll_kunit.c              |  538 ++++++++
+ drivers/net/ethernet/intel/ice/ice_adapter.c |    3 +-
+ drivers/net/ethernet/intel/ice/ice_adapter.h |   33 +
+ drivers/net/ethernet/intel/ice/ice_dpll.c    | 1175 ++++++++++--------
+ drivers/net/ethernet/intel/ice/ice_dpll.h    |   11 +-
+ drivers/net/ethernet/intel/ice/ice_ptp_hw.c  |    8 -
+ include/linux/dpll.h                         |   32 +-
+ include/uapi/linux/dpll.h                    |    1 +
+ 17 files changed, 1583 insertions(+), 676 deletions(-)
+ create mode 100644 drivers/dpll/.kunitconfig
+ create mode 100644 drivers/dpll/tests/dpll_kunit.c
+
+
+base-commit: 2388bb763e323442f4dd8189238ac0c5f334c4a0
+-- 
+2.56.1
+
