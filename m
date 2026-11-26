@@ -1,76 +1,108 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795705630;
-	b=WQj4Vsl50ecdjlvdnuXacfOWzLX2hFIn97yV4UOxswtGesRCLk/CeblWu21F0zy9C6vM
-	 fJ0UEnAOuyRH9OXDtF5kuux2sRWyUdAO4aoae5eJSN6tNHlZudjbA4xTfc9fQaAqneKVT
-	 j2t+X/0lyZNa6bMpaZyt75Yqe5uwZZLBNrWtM7Ys3MPTqoFoSZaNT9x5OggTfm8Ux/dA7
-	 QbNPBocGxGAVFcG11LZlMlxcm/IyE22PhKyMYZ8apAktLqZB6tF989G8EYW4YL5V4S5VR
-	 zdCmKKFYYFBw9R/nTzEU4uQt3Zp9WuhS9iPwmduZQAJT7/EnAntwQNQFN897/wgHc5A==
+	t=1795705727;
+	b=Q3VSSS3gQF0e+ktqJDFEzpgC7UJ2c1jSdhNa9AqJfCH7I6V2y72kfwoednP62gPpv/3k
+	 cmKZPnbJR66Fdl1/7bTjQcmyfZWI/d9fLZsieHqKHbwsimtr/XRFZlV00UYbMnwI5mZYr
+	 Ez9qz4LVHN5kkeC4fXPSAIthipRi9tDEr0U0Conhnc3Jq101tf8JK5kkZi2sV/wR/rVZy
+	 nuWT9gJt0ufgSZS4MUlqnn4Im55PbBYvmjXxjtM8/w1Dn1ldhTWFx15qauyq1UJVpK/go
+	 X4yZH5DA8Tlu3EiGh5SrVJkNikZSkG5V+pIxRhYJtLDiLp02cXI6Xt63q/uf1nRYEMA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795705630;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
-	b=ZjCIvPuvQIoXaspL3raCWYl82gvHVBdc7ldqNegpG8HZ9riCxx2SU95coo+lJuyc+59B
-	 0GocDoppJYkyQfC/eUbXuThXbXoAFR+t/Kj+aTwWYZS+c3UiEg/ZSefUni9hVckdiHxW4
-	 TsWp+duv7kfW2JOTgLqEFHYEvIpj5ggVjSKykE9wlbEv8XW6VVXQN4Wyz936OBYqz5bfJ
-	 ZlmwTzpKjcjcIDg7BMF43x6NYmLDjy7wS6ffm7sDoRyL5bj3WPj1mTlW6heBBo0kYfHLB
-	 lbetjdRcAYwzDK8+chPzRDbEyqcJ5mDSeYowYcKaLAOnS0IRiUMwEVhN/AuACoAxhdA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795705727;
+	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
+	 X-Mimecast-MFC-AGG-ID:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 X-Received:Received:Message-ID:Date:MIME-Version:User-Agent:Subject:
+	 To:Cc:References:Content-Language:From:In-Reply-To:Content-Type:
+	 Content-Transfer-Encoding;
+	bh=JNt3KV+/k4qN5uTRrHg3mu6ikRqMaMAV9t3LTRqvweg=;
+	b=N2y1mfRoVWA4hxFGJMkpOv92ND0x0e2y10O8j9uMwla8qZE0UrheJoCHd+PGfvS9g/UG
+	 hvwJqR5uy3FUJptKzIVmRsN3WKtF7pLRcLAeboPw9yU/KwpvRt/2znGHdt3gxL8febzDs
+	 ddxb+pl1wMEmiuJGnxXBYyi5A3v+nB8EG8iPx5hMpfwCVLmqWy6N6iA7w3jR91Gm7R6Fh
+	 Tx5ZGJkSQBgtftQKRyINpovXOm3nlZW+PNwSoWlS76oCHIVOjSV/1871og0FMVEGAgKjo
+	 LtbO/DTTUslpjfTWfx6ki02MK+fVhMXZ0W172CCUIUoutw7pdehHGf0v2zfPENrYEDA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=pass header.from=redhat.com;
+	spf=pass smtp.mailfrom=redhat.com;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ETdGhMay;
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SXi6Cb+4;
+	arc=none smtp.remote-ip=170.10.129.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8AE81606A32A;
-	Thu, 26 Nov 2026 15:07:10 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2239A606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:08:46 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2239A606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=LoTa01m1
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D74891F000D3;
-	Thu, 26 Nov 2026 15:07:08 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795705630;
-	bh=vsjnvGGljX9pov+p77+0fvVdhwRr+JXPFgWF2Ng3Rww=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=LoTa01m10c/DFZtn0E18pWQOzi4WRWeXm/PToA80poqv9rMEQN4wOov6H0/4L7lJe
-	 uc0iMxmwFZ54pWHI8X2OCZH2jKBPIEEND4+WwURhtUrClzewlh0L3aaAjS+rVRecj8
-	 XDsXgFdK4MM9rLbT8hrf9ackhQi0GjFkweNgeGkr1XlGwCD7HUyhRrNLK+LNLIezHc
-	 MidXYkkfw1prDM8i0QXxEx6X2HNntFP+90SzmYy7rafHgJf5yiBoXzk6VDE6pvcsJ7
-	 78sYnYQl5CRACUTGxXyboRSwKWtxZoqco/WJHBkuZI/EfdeMp6Iv/cJWLs4SV1gw4z
-	 QhZfukUObWyEQ==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
- <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
- <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
- Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
- Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
- <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
- Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
- Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
- =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
- Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
- =?utf-8?Q?n?= <toke@redhat.com>,
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Matthieu
- Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
- =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
- <hangbin.liu@linux.dev>
-Subject: Re: [PATCH net-next v3 04/12] psp: add support for socket-less psp
- associations
-In-Reply-To: <20261124221758.3230929-5-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
- <20261124221758.3230929-5-toddfreed@meta.com>
-Date: Thu, 26 Nov 2026 16:07:06 +0100
-Message-ID: <87cxrriqcl.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=ETdGhMay;
+	dkim=pass (2048-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=google header.b=SXi6Cb+4
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1795705726;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=JNt3KV+/k4qN5uTRrHg3mu6ikRqMaMAV9t3LTRqvweg=;
+	b=ETdGhMaymPA7SUHDBQI0h0dE7H4dMnT5oWXzC+RXyhoJFAkMJm8VE/QAXI/22vfq6b8RmU
+	P6NfriA6h8ak89g/qF4OTjOyzIW0BfAvwZz6K15VD2q6Q7WhpC59XaN4S1lHhLLRP1euvP
+	vEPAoQ/0kNH5hBEyaJpu/CsCiSz3LdQ=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-649-QB_Xy6AQOYGnXR-NmOeWpg-1; Thu, 26 Nov 2026 15:08:44 +0000
+X-MC-Unique: QB_Xy6AQOYGnXR-NmOeWpg-1
+X-Mimecast-MFC-AGG-ID: QB_Xy6AQOYGnXR-NmOeWpg_1795705723
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-4a009f82bedso50290455e9.0
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 07:08:44 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=redhat.com; s=google; t=1795705723; x=1796310523; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=JNt3KV+/k4qN5uTRrHg3mu6ikRqMaMAV9t3LTRqvweg=;
+        b=SXi6Cb+47k2u/io62m21RXLIgSH7rvahqeIYawltcordUxlVI/B73hEonBAkA2f4wR
+         YyG5cC+It/NKdyz5BIknFUdDvPSJPoPsmBRNEN76VZTVeKbxjjCVVSpCWmu/hygar7GY
+         Me1rlygljjzwq3lkGyFdAAus7ylxxQrLU9Wo/FOQ2twA4vevhXzD0nw1Za7cDLGCDnfO
+         G2NAUBZbLYmk7w8fm+/ynoYjVKWySkDFwHkJNXKjm6kPlmbyYguv03jJ1RFqZf80dj5D
+         uBrqgWbb/xRWu7DcdC/O5bfM2Qmf1biz/kzH3YBygIvLD1L2aUHKvoF9tnJxEaHrdvSh
+         Y1UQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795705723; x=1796310523;
+        h=content-transfer-encoding:content-type:in-reply-to:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=JNt3KV+/k4qN5uTRrHg3mu6ikRqMaMAV9t3LTRqvweg=;
+        b=A/oFVWaXmUAJUT4wGsTqepMkc2+zbDjq/TZGgpfmda2VB3/+mAAwmSmgDHQfGmsqMe
+         PiHI4H0bKYT02jgy9KitrbGZor4Chp5Yw2JAgJLdavyAtkpD/zpVMfOXyYBHqyMCvA5v
+         pw1Odz7ADtbBCY2CzEvtILIrnENMESjw2X3pz1+N7BtJSfhX846splVKVik8a2Vq6JJ6
+         YGSFwI/eiZ6QGYGuvvIXRZslYr1lRG0LtJwK5CMmaIEu2WR9+cqiOQI53Qx7HFRbwvVd
+         AOpZyjPwBnsjgJfN07fP//MAJE4A1zM0WtHD4RAyMjrpl0HUw1B4M0LXY5Vh3m5yvnzC
+         KnzA==
+X-Forwarded-Encrypted: i=1; AL+hErEXEVq/2hdSPtXtagsyWmFCTofIJw6Yf9DGJMyY3J0Bj3dirKKbJR5JuqU16JmlZMjsMgcqmqQ=@vger.kernel.org
+X-Gm-Message-State: APuU4Z9D2HIpi1hO2op/2VwXZU4UtPydSmy5vPTRSeMiQmxS+mGZLSjV
+	df+G4+VQpQiD3/C/2XRMaAZGe41E8nG1pDUgVWSI2l8jwN7ZzUvdVVfIucve3bZPkhXtofEF8tB
+	pN71PPiAaAojzWfmpVBeHLehAi+9GaNN4/eZstnxtOQrJ/hbZvz3bBqXASA==
+X-Gm-Gg: AZFdTZdstnzUM7k7XZqcuEZX04rr0H7+jQwcPQ8S02cnQqjVhmZpmmvsokjn8b8bXyM
+	zyd9yX61s3Eah37h0CpR9gyuhiMOQk9TFTqZqWAwrL5cpbqbohHpPLIdNVbGBQyeYD9TyUR5XLv
+	fdxLS0uSM/Srd//nSxesUq9WFFS1VUP8Pl4zYvO0Qhmo3ipDyJ3EdvRkzFZVRAsIgpG/vsmIDYY
+	VrJOjsa4LwcGb6A5+5sqH5EDP9e7JUS9mIYkIcPCnr2YBkOlXFslOX8yrQ9D3TAqF7pO7Tt3CcI
+	i2OflLuz1IpxRtGX4g2dYx1aPTbwnzdh6yfB+oRklhmeQn/5YIfawfzeG+sbtiDiAWTiqcjY69N
+	4k5y8AvmufxuhbM3kOMDKfHJASSlQGpGKxky5yjqcaEd/7WEzMWPFTKU2+uJl1E0Cryb/5iPVyB
+	OnlMn5VkMc9HX53sUSKcjVorAQEJ3ssiZq0thrymv84pbM
+X-Received: by 2002:a05:600c:4f0f:b0:4bb:87f4:3674 with SMTP id 5b1f17b1804b1-4bb8880ef40mr544861335e9.15.1795705707139;
+        Thu, 26 Nov 2026 07:08:27 -0800 (PST)
+X-Received: by 2002:a05:600c:4f0f:b0:4bb:87f4:3674 with SMTP id 5b1f17b1804b1-4bb8880ef40mr544860695e9.15.1795705706702;
+        Thu, 26 Nov 2026 07:08:26 -0800 (PST)
+Received: from [192.168.88.30] (ip231-128-192-82.pool-bba.aruba.it. [82.192.128.231])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110ba3sm33713793f8f.35.2026.11.26.07.08.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 26 Nov 2026 07:08:26 -0800 (PST)
+Message-ID: <9ec9f5db-b550-4e34-a299-7c45bf00ba48@redhat.com>
+Date: Thu, 26 Nov 2026 16:08:24 +0100
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,51 +112,47 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net v2 2/2] net: net_test: add tests for
+ netif_tx_stop_queue() trans_start
+To: Curtis McBurney <cmcburney@telcobridges.com>, netdev@vger.kernel.org
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ horms@kernel.org, andrew+netdev@lunn.ch, willemb@google.com,
+ toke@redhat.com, daniel@iogearbox.net, almasrymina@google.com,
+ linux-kernel@vger.kernel.org
+References: <20261119141633.3118789-1-cmcburney@telcobridges.com>
+ <20261119141633.3118789-3-cmcburney@telcobridges.com>
+Content-Language: en-US
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20261119141633.3118789-3-cmcburney@telcobridges.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 
-Todd Freed <toddfreed@meta.com> writes:
+On 11/19/26 15:16, Curtis McBurney wrote:
+> Add KUnit tests for the txq->trans_start handling of
+> netif_tx_stop_queue(), which dev_watchdog() uses to detect a stuck
+> queue:
+> 
+>    - a stop on a running queue writes trans_start
+>    - a stop on a queue already stopped by the driver keeps trans_start
+>    - a stop after netif_tx_start_queue() writes trans_start again
+>    - a stop on a queue stopped only by BQL (__QUEUE_STATE_STACK_XOFF)
+>      writes trans_start
+> 
+> txq_stop_keeps_stamp_stopped_queue fails without the previous patch.
+> 
+> The tests run on a single thread and do not cover a wake that races
+> with a stop. The previous patch removes that race by construction: a
+> stop that finds the bit set writes neither trans_start nor the bit.
+> 
+> Tested on UML with CONFIG_KUNIT, CONFIG_NET and CONFIG_NET_TEST:
+> 
+>    tools/testing/kunit/kunit.py run --kunitconfig=<cfg> 'net_core.txq_*'
+> 
+> Claude Code (Anthropic) wrote these tests and this changelog.
+> 
+> Signed-off-by: Curtis McBurney <cmcburney@telcobridges.com>
+Does not apply cleanly. Please rebase and repost.
 
-> Currently, a PSP association is bound to a TCP socket when it is
-> created, and can hold both an Rx and a Tx key.
->
-> Add Tx associations which are not bound to a socket, and are referenced
-> by an ID, so that other parts of the stack can attach them to packets.
-> See the subsequent patches, where the tc psp action does just this.
->
-> Socket-less Rx does not need an association, and the kernel does not
-> keep anything for this case. For Rx, userspace calls the rx-spi-alloc
-> operation, and then uses tc filters that match the corresponding SPI,
-> version, and PSP device. The flower matches for these fields are added
-> in a subsequent patch.
->
-> Add the following new netlink commands. They are admin-only, and
-> restricted to the netns of the PSP device.
->
->   rx-spi-alloc  allocate an Rx SPI and derived key, without a socket.
->                 The key is delivered to the peer out of band. Also
->                 returns the number of key rotations of the PSP device
->                 so far (key-rotations)
->   assoc-add     create a Tx association and install the peer's key,
->                 returns its ID
->   assoc-del     delete a Tx association
->   assoc-get     get / dump Tx associations; only the SPI is reported
->
-> Socket associations are not addressed by these commands, so for example
-> assoc-get does not list them.
->
-> The kernel doesn't enforce key rotation for socket-less Rx the way it
-> does for socket associations. A tc filter which matches a SPI of one
-> generation will also match that SPI if subsequently re-used in another
-> generation. It is up to userspace to deal with this eventuality by
-> removing such rules in time. Userspace may subscribe to rotation
-> notifications for this purpose.
+/P
 
-Could you talk about the rationale here? rx-spi-alloc returns the key
-rotations, why not make the generation part of the flower match?
-
-Probably missing something, but seems like natural for the kernel to
-ensure that stale rules wont match reused SPIs?
-
-
-Bj=C3=B6rn
