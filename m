@@ -1,41 +1,41 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795680485;
-	b=Sopvea5hrvWFe4HI/mqTCprth4rf3YIWpCB/2hEig4RTGx6KSSh16BXyQqg1ikrYL4Ds
-	 Sf7C+cQe6aBxsoQg4SYvmZu9SSP12bmtBTY4ETGwEkBrtEMmuUivgHfm1ozGQv3EexjcL
-	 t5+B7no0WCeN0Ur3XIALG/d6LM36QNE5ux3dGSTaWZTmZDzlFdmunR/f+6VQBK6FwRcdI
-	 28k3JcSOHe5kCsmRji9/G/Q6ZCU1Iiw1RRM+S2R/+/LpYAGS6xYdQleiQ00bOTjJU4WdR
-	 UddpJzdIHe0hUxpYpeIiaayfvLP498BXM/zeNyqdhkkTT7GkvYAKyWrv1W2OgVJySrw==
+	t=1795680487;
+	b=SHXXTXySB4S+aFWkw0XKShmUJa6XY8pl4oOyc+3Ud7tioky28uiHbWekcvapesrOkArd
+	 5KSIwWa+3ShR7u+Z3DQBXTu/enSAZLuQDaY+TTMvO6lsVZTyC03kiV02s1ghUlgvAYAZH
+	 ahJTgpcmxK9Hpf79rpn5jtcXfBB56rL7F4uh01AAp6hMkHh/bmbHaz9BmXjcjQM+SQgfM
+	 PzJ8+WOgJhBKM1k2DzmDLd1zaytmQLyNql/O2yTuKIyeX4es3CDyyEdnZGmii8B2EIGp6
+	 JRW0NfHn3AWcOSjti+7M4UF68StzIXuE4Fpda5ylAHH3WNsDKOBdK6m3Y/oDAj61exA==
 ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680485;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680487;
 	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Date:Subject:
 	 MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:
 	 References:In-Reply-To:To:Cc:X-Mailer;
-	bh=BVSxdfpeAJRFWrunpKDepXPbpqJmxv2tuIscSWFpfYc=;
-	b=EgrQIyVEqbKe/4oRz7iBbXtiIKph1XNyAGwzVR5GIbK9v+N1JWnVKflyMHkvhWP+H8jc
-	 gy4QRM6HzL+dJvwMgVjJpvXUknI4sea9bWES41ZJR6viuLBKA7jJvqHRYLS6v93VrpFbb
-	 b+gdtQ3fImBpgi6L3qSRRdY0tIi3KTD4RpCCOlUMMeSynKUBagCzYTuhboSy+P3+obIwz
-	 Eld3vsohgxFCpx1mkc5spc++CzjK1jst+tf/Sw0SFPZGv1Y/WAVO2w0r2PM4SLPFvjlEQ
-	 AuwtRUvRnr32vLGGfJyOSzeKtK+TYRrSuC0INT7p72fdwP+JHVU1FOgejpeDME5dfVA==
+	bh=Q+aM+fy0D+ySuVwoLewJrpKeHZuTfIKKugBaktrIbvo=;
+	b=ykTcF+KWjxqinCv+HtN17huWTfht0CN5iDggq3BWPlPo6JnalVcZWkYC7B2R9z7o6E2z
+	 GPJU9mmRVaOWw2Yxoi6kaKmdvlio/PYsXpeeWuh1bRarJ6kYioCli6O7+ljGDCtCCVyyR
+	 YTJvw8EZ/5qzo8v4+Urt7LD/hjI52E++b2PzDmd2d+XNjsnLN8f8m8e0doIfaaxw81FSS
+	 9vVVE5Vlo7rDlchFjgw+1gNaWuzIOiIqZaa/i8F4sHEYHqvtbEwzru649CHLokNAxi3Rt
+	 zHzwEFUuHCIIL1LMNszQRzSW7KniEsIqXYM/CYBXBmKrGMNGKd7cWJv9XKYWlGhTtGA==
 ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
 	dmarc=none header.from=pengutronix.de;
 	spf=pass smtp.mailfrom=pengutronix.de;
-	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=OBV3OX7I;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=HI5knbmb;
 	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
 Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 83D37606A32A
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:08:03 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 83D37606A32A
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id B66D7606A69C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:08:06 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org B66D7606A69C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=OBV3OX7I
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=HI5knbmb
 Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.4.pengutronix.de [10.17.1.12])
 	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
-	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id D6223205A76;
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id DD99F205A77;
 	Thu, 26 Nov 2026 09:08:00 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795680480;
@@ -43,40 +43,40 @@ DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BVSxdfpeAJRFWrunpKDepXPbpqJmxv2tuIscSWFpfYc=;
-	b=OBV3OX7I6ZPFCYFLwDptEIZq+FM9IjQEiox95RQLivNfpVmv41E4r78V/iTFCXaqxrisBP
-	JzJKp+Jn0j2P/5avPq4cAh/DcFU3WBUNzZIBgZ/aFxpZYjbxDn34AxWSP3J9mzL9KQJjvA
-	GL5G593OdKx0SScJvAMM1KcCWhGDVLMg+x43t1QBGMMwX9ThU506kVS8w3P1cz0Inqdl/s
-	+FWcRJ4n28Sx6c5ZyoX+jUEsobLGtu8qAYcodZ8vpPvTYWDlsbI2AxJlOIR3LoZ+ggzzsy
-	GOZjkw6GdY/HGFGAfL7RiBVX05PEHVHu8XG5HlyGLco2KWsOAm9/2WaSD3Xrhg==
+	bh=Q+aM+fy0D+ySuVwoLewJrpKeHZuTfIKKugBaktrIbvo=;
+	b=HI5knbmbTSFXE3sl/IZttPR6kUKMUq3qACHiqPP8rMVCSg0CBSGfJXmkZBPTbl9sWdJfSU
+	EmszcfgOE/OHB/fWUdJpj0FU0ueC6UNPUCPrCPHTomWsN5yLt+A5Llia4RO9u6UywoYa42
+	JO3vqAYUZ+NUjm98sU0GwINOE0asPn1rVikn7BHAwJBYD2NOAMTc1PzbTO5zS/TsyPdni2
+	NiwoKUVyHtbc7QVtgXqHMqofdPl/7mqcJYhjRQ6GYUQqO6idwwWBKgYN2SOLl+REA2vqx+
+	6hSTUnvEOiQhx1K/O4+O9IG6M4fUvPQEz/OyPJKxD58ZycEzpMzWmUwGxVOdxg==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
 	s=20260414; t=1795680480;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=BVSxdfpeAJRFWrunpKDepXPbpqJmxv2tuIscSWFpfYc=;
-	b=Pg00rAL+g4JaLPho3e1DWNGT/U1ZiGQazuqQLWRAAQczQoAg5D7Cd8A2P0hC+j53DwO4IL
-	KcnKBuV+2gwIdeIMiFfIuQZF90w9tUmmJVuCFqQ3j+/wUwu61jFzNv/jPQKWkZ4gXdm221
-	sKDewrUj7g3xKDm/0xEvt+6vowpu4BvjL20KfnINwiojn8gC3Jdd5WU7M7eY2YiCVTh0EL
-	WMf1Jx2CsIlih/k1Mv7IGy3hYmbvJHRzLlMGRZHFYVmBB+wPTu+lGx+z0TZya1M/4uk+p6
-	kSB95jpKVbp36wsjXwtM1z0CQt6OsKKaJHZdbalpKeAkO16bbD4qDtVGbszWew==
+	bh=Q+aM+fy0D+ySuVwoLewJrpKeHZuTfIKKugBaktrIbvo=;
+	b=IDm3O9s8nEL6gXqVGwm1H9UYcqwn5zwREiYf7+sTb4OkMysKzJmaJtw9IyyTQeKfZ7cuOs
+	ij0kwKznAfcnJshidcwvVscVz8TcEbqXO3Y3//niqbbFbccg1ns3f7ZGbkvqmI+Px6CWiS
+	hzoQ0eVaxnuznMHIi0GLq5jnB1PIbNjyT6CZOsX9Q1ajn/vvWPhDxQE/S/MNYN3p36Jy/c
+	eqoRs2EW8qqbcLz/UXwo86nIK/nR/9TaZ9VdHy9qfaOscptKifappJlmSRe+E8R70DB0vn
+	y+VzpjVg5dnzNN+1PvpMN7HnQ3i2O6RP3G8P+6fq0ZfktUmoftgYULJBLKq/gQ==
 ARC-Authentication-Results: i=1;
 	ORIGINATING;
 	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
 ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795680480; a=rsa-sha256;
 	cv=none;
-	b=fn5Ex74NDqnxXXMXVgEBdLuXdYeU9ERTK6tHxkvbaVSSvvQm7RoaWRvUAClaQVm5WhH0yT
-	ElzVL6xzwIFGTCtpmxYxWrFQ7ODSWPvGCkMh145hyRHP/y2ykHvTBrSYRzE2nEUojreRGv
-	JN8P2g/dd1kSt1URV5B7zwg5iYAep7nVy0Ng14AtR+mdX0bZgh/zPhTqsoUPntCoM5YRkk
-	sR8VmnQvjgnwxYHjagXTAYnRMZNRwbRbWhJ1kc5tol9++hrQtRTj43e4YnnCtPinul6+up
-	dqcsXNhuJbInSZgItsCpkMYZ6GVUp6rW/3OYtBIjBtq/HltSDCMGgwh2px8k/g==
+	b=A3YDNf7qwu0UrvXVRH+wg/e6yHDdcouoJgAI1y3lhnmWbU9ID7L0c1f8e3ihM4iT3AP9wU
+	BssPuqZAIV5X68eHtvWSVRWiQk0pEUSFVcJZKltX9r+v6MHPgU/N68NYE8EJU7791W0dCa
+	JTLhXI0qoSBCJtMDXqc7iDFrl1r2CmrfG7tuw4ontuBHs6WUCmsEoITvocmlRuHgnhpyKL
+	fH4u5bWcf7ajh7F5ZHuMm6OnoktpT7VywJxKCjjO0YKJL15sBH5EN3tHyNAVJnxDy0XNF/
+	+RWOf6JP1XmKzIrTtlCKE5brwJlVQWaaPc3Ak8/66tmr+rbgN5XmrEXzJi78oQ==
 Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
-	id B7474380B75; Thu, 26 Nov 2026 09:08:00 +0100 (CET)
+	id B9361380C95; Thu, 26 Nov 2026 09:08:00 +0100 (CET)
 From: Oleksij Rempel <o.rempel@pengutronix.de>
-Date: Thu, 26 Nov 2026 09:07:51 +0100
-Subject: [PATCH net-next 4/5] net: dsa: microchip: ksz9477: refuse FDB/MDB
- entries for trapped groups
+Date: Thu, 26 Nov 2026 09:07:52 +0100
+Subject: [PATCH net-next 5/5] net: dsa: microchip: ksz9477: report the
+ trapped link-local groups
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -88,7 +88,7 @@ Precedence: list
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-ksz-stp-link-local-v1-4-39aed15f6271@pengutronix.de>
+Message-Id: <20261126-ksz-stp-link-local-v1-5-39aed15f6271@pengutronix.de>
 References: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 In-Reply-To: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 To: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
@@ -102,178 +102,77 @@ Cc: Simon Horman <horms@kernel.org>,
  Oleksij Rempel <o.rempel@pengutronix.de>
 X-Mailer: b4 0.14.2
 
-Refuse FDB and MDB entries for trapped link-local groups on user ports,
-so that they cannot bypass the trap.
+Tell the tagger which link-local groups the KSZ9477 family and LAN937x
+trap to the CPU. The tagger then no longer marks these frames as
+forwarded in hardware (offload_fwd_mark). The bridge applies
+group_fwd_mask and the STP state to them and can forward them to the
+other ports of the switch.
 
-The KSZ9477 family looks up a destination address in the address
-lookup table (learned and static FDB entries), the static address table
-(MDB entries) and the reserved multicast table. The driver traps the
-link-local groups with the reserved multicast table: it sends
-01:80:C2:00:00:00 to :0F to the CPU only, except :01 (PAUSE frames),
-which it drops. On a KSZ9893, an FDB or MDB entry for a trapped group
-overrides that rule. The switch then forwards such frames by its own
-lookup, while the bridge decides in software whether to forward these
-groups:
-- with an MDB entry for 01:80:C2:00:00:0E on lan2, the switch forwarded
-  these frames from lan1 to lan2, although group_fwd_mask did not allow
-  it.
-- with a host FDB entry for 01:80:C2:00:00:00, a Blocking port stopped
-  passing BPDUs to the CPU, so the bridge moved the port to Listening.
-
-Record the trapped groups when the driver sets up the reserved multicast
-table, and refuse to offload such entries on user ports with
--EOPNOTSUPP. bridge fdb add and bridge mdb add still succeed, and the
-bridge keeps the entries without the offload flag. In software the
-bridge uses only the MDB entries for these groups, so an FDB entry for
-such a group has no effect. DSA logs an error for a refused FDB entry,
-not for an MDB entry. Accept the entries on the CPU and DSA ports
-without a write. Entries for :01 are accepted as before.
-
-A later patch makes the tagger stop marking these frames as already
-forwarded by the switch. This patch comes first, so that the switch and
-the bridge never both forward such a frame. Until then, frames to a
-group with a refused MDB entry are not forwarded between switch ports
-at all.
+Tested on a KSZ9893: with the group_fwd_mask bit for 01:80:C2:00:00:0E
+set, the bridge relayed 20 of 20 frames to that group from lan1 to lan2
+with this change, and 0 of 20 without it.
 
 Signed-off-by: Oleksij Rempel <o.rempel@pengutronix.de>
 ---
- drivers/net/dsa/microchip/ksz9477.c    | 58 ++++++++++++++++++++++++++++++++++
- drivers/net/dsa/microchip/ksz_common.h |  2 ++
- 2 files changed, 60 insertions(+)
+ drivers/net/dsa/microchip/ksz9477.c      |  1 +
+ drivers/net/dsa/microchip/ksz_common.h   | 12 ++++++++++++
+ drivers/net/dsa/microchip/lan937x_main.c |  1 +
+ 3 files changed, 14 insertions(+)
 
 diff --git a/drivers/net/dsa/microchip/ksz9477.c b/drivers/net/dsa/microchip/ksz9477.c
-index 8271bc742ddc5c92b925b01bedfcf876cfa14078..b972c9fab55c170758dac97bda026e1f29e487f2 100644
+index b972c9fab55c170758dac97bda026e1f29e487f2..3dee81d89c1d7e64314a073980fb648431126a09 100644
 --- a/drivers/net/dsa/microchip/ksz9477.c
 +++ b/drivers/net/dsa/microchip/ksz9477.c
-@@ -768,6 +768,27 @@ int ksz9477_port_vlan_del(struct dsa_switch *ds, int port,
+@@ -2109,6 +2109,7 @@ static int ksz9477_connect_tag_protocol(struct dsa_switch *ds,
+ 
+ 	tagger_data = ksz_tagger_data(ds);
+ 	tagger_data->xmit_work_fn = ksz_port_deferred_xmit;
++	ksz_tagger_set_link_local_to_cpu(ds);
+ 
  	return 0;
  }
- 
-+/* True if @addr is a link-local group that the switch sends to the CPU only.
-+ * An FDB or MDB entry for such a group would override the trap.
-+ */
-+static bool ksz9477_link_local_is_trapped(struct ksz_device *dev,
-+					  const unsigned char *addr)
-+{
-+	/* is_link_local_ether_addr() limits addr[5] to 0x00..0x0f */
-+	return is_link_local_ether_addr(addr) &&
-+	       dev->link_local_to_cpu & BIT(addr[5]);
-+}
-+
-+/* Return -EOPNOTSUPP on a user port, so that the bridge keeps the entry in
-+ * software and does not mark it offloaded. Return 0 on the CPU and DSA ports
-+ * and write nothing: the bridge adds its host entries there, and they must
-+ * not fail.
-+ */
-+static int ksz9477_link_local_entry_err(struct dsa_switch *ds, int port)
-+{
-+	return dsa_is_user_port(ds, port) ? -EOPNOTSUPP : 0;
-+}
-+
- int ksz9477_fdb_add(struct dsa_switch *ds, int port,
- 		    const unsigned char *addr, u16 vid, struct dsa_db db)
- {
-@@ -776,6 +797,9 @@ int ksz9477_fdb_add(struct dsa_switch *ds, int port,
- 	u32 data;
- 	int ret = 0;
- 
-+	if (ksz9477_link_local_is_trapped(dev, addr))
-+		return ksz9477_link_local_entry_err(ds, port);
-+
- 	mutex_lock(&dev->alu_mutex);
- 
- 	/* find any entry with mac & vid */
-@@ -840,6 +864,10 @@ int ksz9477_fdb_del(struct dsa_switch *ds, int port,
- 	u32 data;
- 	int ret = 0;
- 
-+	/* never written, see ksz9477_link_local_entry_err() */
-+	if (ksz9477_link_local_is_trapped(dev, addr))
-+		return 0;
-+
- 	mutex_lock(&dev->alu_mutex);
- 
- 	/* read any entry with mac & vid */
-@@ -989,6 +1017,9 @@ int ksz9477_mdb_add(struct dsa_switch *ds, int port,
- 	u32 mac_hi, mac_lo;
- 	int err = 0;
- 
-+	if (ksz9477_link_local_is_trapped(dev, mdb->addr))
-+		return ksz9477_link_local_entry_err(ds, port);
-+
- 	shifts = dev->info->shifts;
- 	masks = dev->info->masks;
- 
-@@ -1069,6 +1100,10 @@ int ksz9477_mdb_del(struct dsa_switch *ds, int port,
- 	int index;
- 	u32 data;
- 
-+	/* never written, see ksz9477_link_local_entry_err() */
-+	if (ksz9477_link_local_is_trapped(dev, mdb->addr))
-+		return 0;
-+
- 	shifts = dev->info->shifts;
- 	masks = dev->info->masks;
- 
-@@ -1554,8 +1589,21 @@ static void ksz9477_config_cpu_port(struct dsa_switch *ds)
- 
- static u8 reserved_mcast_map[RESV_MCAST_CNT] = { 0, 1, 3, 16, 32, 33, 2, 17 };
- 
-+/* Index: group number in the datasheet's Reserved Multicast Address Table,
-+ * the same index as reserved_mcast_map. Value: the link-local addresses the
-+ * group covers, bit X for 01:80:C2:00:00:0X. The other groups cover
-+ * addresses above :0F.
-+ */
-+static const u16 ksz9477_resv_mcast_link_local[RESV_MCAST_CNT] = {
-+	[0] = BIT(0),			/* STP BPDUs */
-+	[1] = BIT(1),			/* MAC control (e.g. PAUSE), dropped */
-+	[2] = BIT(3),			/* 802.1X (EAPOL) */
-+	[6] = BIT(2) | GENMASK(15, 4),	/* LACP, LLDP and others */
-+};
-+
- int ksz9477_enable_stp_addr(struct ksz_device *dev)
- {
-+	u16 link_local_to_cpu = 0;
- 	u8 i, ports, update;
- 	const u32 *masks;
- 	bool override;
-@@ -1621,6 +1669,14 @@ int ksz9477_enable_stp_addr(struct ksz_device *dev)
- 			update = ports;
- 			break;
- 		}
-+
-+		/* Record the link-local addresses of group i if the switch
-+		 * sends it to the CPU only. Group 1 keeps its drop default and
-+		 * does not match.
-+		 */
-+		if (update == BIT(dev->cpu_port))
-+			link_local_to_cpu |= ksz9477_resv_mcast_link_local[i];
-+
- 		if (update != ports || override) {
- 			data &= ~dev->port_mask;
- 			data |= update;
-@@ -1650,6 +1706,8 @@ int ksz9477_enable_stp_addr(struct ksz_device *dev)
- 		}
- 	}
- 
-+	dev->link_local_to_cpu = link_local_to_cpu;
-+
- 	return 0;
- }
- 
 diff --git a/drivers/net/dsa/microchip/ksz_common.h b/drivers/net/dsa/microchip/ksz_common.h
-index 8819670cbb053eeb73ea4a7685303d9849bd6efb..7b96d110b1f64f4226ee7a371da38cd7e5b3767a 100644
+index 7b96d110b1f64f4226ee7a371da38cd7e5b3767a..1f96b91016fcfa20f99599c10d4095d7f384f7f6 100644
 --- a/drivers/net/dsa/microchip/ksz_common.h
 +++ b/drivers/net/dsa/microchip/ksz_common.h
-@@ -243,6 +243,8 @@ struct ksz_device {
- 	u16 mirror_rx;
- 	u16 mirror_tx;
- 	u16 port_mask;
-+	/* link-local groups sent to the CPU only, bit X: 01:80:C2:00:00:0X */
-+	u16 link_local_to_cpu;
- 	struct mutex lock_irq;		/* IRQ Access */
- 	struct ksz_irq girq;
- 	struct ksz_ptp_data ptp_data;
+@@ -7,6 +7,7 @@
+ #ifndef __KSZ_COMMON_H
+ #define __KSZ_COMMON_H
+ 
++#include <linux/dsa/ksz_common.h>
+ #include <linux/etherdevice.h>
+ #include <linux/irqdomain.h>
+ #include <linux/kernel.h>
+@@ -836,6 +837,17 @@ static inline bool is_lan937x_tx_phy(struct ksz_device *dev, int port)
+ 		dev->chip_id == LAN9372_CHIP_ID) && port == KSZ_PORT_4;
+ }
+ 
++/* Copy dev->link_local_to_cpu to the tagger. Call this from
++ * connect_tag_protocol: ksz9477_enable_stp_addr() fills the bitmap during
++ * ->setup(), and DSA connects the tagger only after ->setup().
++ */
++static inline void ksz_tagger_set_link_local_to_cpu(struct dsa_switch *ds)
++{
++	struct ksz_device *dev = ds->priv;
++
++	ksz_tagger_data(ds)->link_local_to_cpu = dev->link_local_to_cpu;
++}
++
+ static inline int ksz_get_sgmii_port(struct ksz_device *dev)
+ {
+ 	return dev->info->sgmii_port - 1;
+diff --git a/drivers/net/dsa/microchip/lan937x_main.c b/drivers/net/dsa/microchip/lan937x_main.c
+index 7971d120630d173a1bbed6fb98683cee27d8fe89..7452b8c6a73552d9ae4f410dead3b968f22124e5 100644
+--- a/drivers/net/dsa/microchip/lan937x_main.c
++++ b/drivers/net/dsa/microchip/lan937x_main.c
+@@ -924,6 +924,7 @@ static int lan937x_connect_tag_protocol(struct dsa_switch *ds,
+ 
+ 	tagger_data = ksz_tagger_data(ds);
+ 	tagger_data->xmit_work_fn = ksz_port_deferred_xmit;
++	ksz_tagger_set_link_local_to_cpu(ds);
+ 
+ 	return 0;
+ }
 
 -- 
 2.47.3
