@@ -1,90 +1,98 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.41
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=209.85.210.171
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795653815;
-	b=jdrIe+7IICKzc0UNIyc1v1DaCyiMo0LtYewJiTqjq4NusqgB1wTatbf8D6eB74bbPpq0
-	 MNOHlMOZ8aLpVkIau4karuvcGzSB3iXEFSCAf8Fkbc6oF2uUAGt8S3ZMkAmsdsBgCbl3a
-	 RTzax8aYQAiFVuCy+GATrRbsM4nH2WjgNh43hmSQGeL0+UYIlII5BfFaZZBfLBzpnuYwR
-	 HGnvThcYuoYZmHMAyUhVtI9xPmNnKTN43uwk5MsGAVzIwzOxFhiM2XnmbdKriNMyYgpi8
-	 N2i10pHKawIlzLl8hGngKy8kgnimFUhIJZ/A75FNpZCnci41Ythvvxo87HqBwr0DLYA==
+	t=1795654540;
+	b=vOtjtJj+dQL1XJG6qjrEiNiiVgFW1e8Se+DhSyqcDSEZupEVkmta5dM0KBJw8z2pIIWc
+	 3nfkAt2Wyw/K9T2V81d0Fhz8WEccIj89tIVu6gpIQqGsYdv0dIJR8hwtlhOnK1JiR2ppE
+	 xiuM9Jn79i8UTARzGpcYBqPpiFd5U1Krvsu8gmi0vYcRwmHkX5J3lB5R3WZldZIKigoWV
+	 fv134qMAd4OqRV4QyTFWgK7CJHDWv5QRxcMR54Ce7BurNQmqtm+18UvIyi3LLpZ18W7aD
+	 jgNgPyQBiO0ovRjUcA6SFPjvSlEpz81NuYnsBJigbRg/4LPKksbLNLQJpYslcI+XaNA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795653815;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795654540;
 	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
 	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
 	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
-	bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
-	b=PazZllVNaMaBj/TCgbe8YoD4jGUyY3YId5sB/Db/TFkem0ibcHUohJPS+b41urqmoFWN
-	 sPobuaGbL3RXJCJHV879yePKvDMWpSA+GH66F7mPQxxVGUfEo45+9XqlXc4+Ck4RHfb1m
-	 QrR0a54Ox/y9kh4gJCkikl7xgbIVfXs4k3+3Cr/WFo1mFmyFrZuyJiSUAtiChe+h4cQsn
-	 xDyOxW2C1MoEXr3LoxNenSWmYy3QJRHbd+X/YoVvvQ2FOB3OvBoEI/SH53qSm7Xe/0xK7
-	 kWbw16CPnfIaSjyJMiMR6ZrVmeIeFOBXu5N8xoXYEMKNZBBWfiMjn6weqU3lL3c9ubA==
+	bh=KZdqz/5aN0a+Mnl2BFDx98pc2JPnx0esugp5NJKn2WQ=;
+	b=iy013KhhgHWlmNGCN29vyDIqtjEfMtnZh+D2XtxgRcXeeu6VfwMIBX97lNG+CWLfAbLb
+	 aOwEEsLkd6mBdNgTBUap8ee9YL2PCNSKlsuHb2MT37YAuTKKlJwEgFKFrbYwPNA8KaYoV
+	 Y008gFfaRa3EMKVNtIga+rePw1CXaqMYSOsM+QxznSs0WL0LmnBt8+yfyRoMXDESy5NFN
+	 vUPFGGRsRBqw2A+8NHC+YP96U5//0q5Uqw+IHBSO+zIFJ9aKdTM9yXNVKXvQLZsiBYv37
+	 lF/FO7xiCX8Im1/wZGv/bVE6Y+rPN8aiyDlFOuIgNVCYgR2N9h3unoXsC/JJCdzhEPA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=blockcast.net;
-	spf=pass smtp.mailfrom=blockcast.net;
-	dkim=pass header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=AJX0H2xK;
-	arc=none smtp.remote-ip=74.125.82.41
-Received: from mail-dl1-f41.google.com (mail-dl1-f41.google.com [74.125.82.41])
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiSEPO56;
+	arc=none smtp.remote-ip=209.85.210.171
+Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id D507C606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:43:34 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D507C606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=blockcast.net
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=blockcast.net
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 7E1D9606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 00:55:40 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 7E1D9606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=blockcast.net header.i=@blockcast.net header.a=rsa-sha256 header.s=google header.b=AJX0H2xK
-Received: by mail-dl1-f41.google.com with SMTP id a92af1059eb24-1b589050416so887058c88.0
-        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:43:34 -0800 (PST)
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=DiSEPO56
+Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a06e79e152so3217449b3a.0
+        for <netdev@vger.kernel.org>; Wed, 25 Nov 2026 16:55:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=blockcast.net; s=google; t=1795653813; x=1796258613; darn=vger.kernel.org;
+        d=gmail.com; s=20260707; t=1795654540; x=1796259340; darn=vger.kernel.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
-        bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
-        b=AJX0H2xKw2HD10HeffuBReUxknMxMaApxXrWU8K+Gv+4Swe/xp5a1r0zuwwlThGzAV
-         /a02o+HJAMsn8ljTrwXQ+OWhvtwl7PCpnwNFbgxVCJsp1tbc+cGSWp7BuqAFZR8PVarE
-         uzGHawhPY6An1YuW/VxqM0QbLouPPitoFVpM5oQ7yb4YDyc5GT9VvT+Zl8Luej6GYqzx
-         f1irVFW6x9qvqgvDMP06gQGg/4zIrE1LKwtCIoU2smndwlaxE6LpqauShxMyS6CMkJkv
-         UC8I92JuU47hCKG01R97uxOR8RLCpkd3aEIVJcl9BdrYfsfSLxruI/Gi2BQswFks2rcS
-         Nq6w==
+        bh=KZdqz/5aN0a+Mnl2BFDx98pc2JPnx0esugp5NJKn2WQ=;
+        b=DiSEPO56EYuafe0mJhdwC8cA0rzeVwaayI7NlmGRQ22CUF9yk/aWsrwHlM6mnNAEX2
+         KpWJa1Ko9XupkNaKOHqPPkpZdjTOyzhLi4audBkISqnA61rfuj8Mn05L3IvQkAU7MIRo
+         mCh6Jw3hCGFTfyoG+2OeNDow7LlgD5EWA8ZqY3yUAdlFIYLBmwuNmy0W8spzp/yR3hyj
+         wtrUc+dffyqxapQ7bKGBWEv/BVPVetc8KuQ3Mzb0JBzAK9X38oMiBtxRtWAMlLm1Dasr
+         YZ9oLXptcGhaPhOyhPUYJnNSwRtnj3xPxCMyliBNCviJ0p56eh60Lag3USrbweKjlasd
+         dHKw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795653813; x=1796258613;
+        d=1e100.net; s=20260707; t=1795654540; x=1796259340;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to:content-type;
-        bh=f0YG77siU2vWcIe5QSpLLufXofQTb2pqxo09KzKL9BY=;
-        b=jWSBNe648vvcSlbdSdun1/khDPYiJ5o6Cxh0uFH034dzu7UrL3Oen3yqQ+QjFtBobx
-         4p9A76/UUC1mNaJt29F7Om11VpZx/pxnykdbFK/49Dls8CTRtVWsjIYwMWzwW62gkxAQ
-         0YsJT5BYqENcAYBV/ixBguQ5oZa3sWVVRaocQOSRBXUMh/iXd9F8VFTqnNV8toCwjisY
-         Hv8u+GI4j6IMYnz1LkMfZLTGECf2MAV3Vi0MmeKiyuuy8rD5WHr7o9jRyRJla9vX3tmf
-         ZVVLCp5OcWMyt6F53+Ku/aKaVbHeTjkuGcg9ALL9/cVhblQfZemJLddU15QLWcY3slcP
-         NcyQ==
-X-Gm-Message-State: APuU4Z/vE4z9U8dx9/aQHoB2Mcgu0IIQYIiU4ir8x0N4E8lU7gPkNzk7
-	uy6gWcRjQcyP4VK6SPxQmK5ihTtsjQCrmV/YtEaq8gXYKrzXZngnsXKXLhZVvxv9XyC01wm3VdK
-	EiaxmB3g=
-X-Gm-Gg: AZFdTZdbWEDO1j8ROXf3odAZ7Vwv+5AvHUPdx5M01L0IXpXUjtqRNY+MU55P6flW3gZ
-	EVZL6YbI8+wCxEHHiwSZxw/Cf6Z8LNB3oUAMlS/uC9bTflbQ4elBkLLpXuVMtOBXXjT08FoSq1O
-	Pz/kdktT7QIW/Miwnn/SnPMF9mHdmLzM3bf7Ay3kWh51BpKOIkb2Yj5nPrCBIvvuGDkKoPmJH1t
-	ymVD69IMCy0mYM3DKQpdiwL4WUq07QYjQhhpGWhu8KJ5wLyWvwLFh33ZELs/jBEHmofaEO3UrpM
-	LMkiCd+o8nbR3kxBfl/ozGZNVDQN0DhEyG9VprHijoFNMEINqokLq/xy0QmyNNEGLNyLpKxlVpH
-	92o7KlOigiNMrgoND4doLEDcKXBAiGWxdvbo09JeHam+y3FWdDqQqsH8jvsU1qLJX/7Lc3xJPWI
-	ZotNVKF3QHn5SOf2ewokF6LqR72so5Tk6QwQ3btPPc9VftE9I3hm/uoaaNJaVevnt+dCHZVGasj
-	l76XeTGGVTLw6SS4Q122O4zPyZDveCWYORDAVUPKGG9vw7n1CMWcz14O+OxGmTKRw2g0SIwmT3A
-	n1Rf70oWOs4GRls0FO9mBRC63+vrzONzzyv8G6QkaOUCex+Z/xlYHs2zvG64+bGPHmm4CzW1FNr
-	xS4Vser4NnDJdhIRBH+yRdENHHeo2wtZn7jRlXBenAYXN6MDqDWc=
-X-Received: by 2002:a05:7022:3b8e:b0:1b5:10cf:c402 with SMTP id a92af1059eb24-1b5568a17d9mr21101289c88.10.1795653813302;
-        Wed, 25 Nov 2026 16:43:33 -0800 (PST)
-Received: from devbox.ts.blockcast.net ([69.25.95.32])
-        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5567ffa8csm53222947c88.7.2026.11.25.16.43.32
+        bh=KZdqz/5aN0a+Mnl2BFDx98pc2JPnx0esugp5NJKn2WQ=;
+        b=HVbwwwY4JZp+RieksQSnTrhZ26Bl3zqyryIotB3xrYUAvtDp1TpbeoX/ll+Z/veBXs
+         Kuytmkg2reUGLSEsqX59VsCF5XgbM2K731Fvj+yML1rya7B3DabrnQrCbWHHvmlJu1fT
+         kiTv0ihdJxXe3Hl6pp7b/QLeC8Xj69pEtEuWT4jzJTYuHrLSBJomNUYJb1p74cOGX76K
+         Udq/tDcYFHnN9L+76zaZALMcA0QJIJ8xwAFSRblF9Uxq4RNEvXdGPrLUl6sAsq60x9NZ
+         b57yV8Iq+NgFDMqTfaQuLNPse+dXCsJZrVaktA78U8PFzKO6kOMLZSMqOgYzBEIh1yfU
+         tLEA==
+X-Gm-Message-State: APuU4Z9taeMkEDj8hpFMevlYSqmwyux9g704Iq3C6s4CQk+zf15fgz/0
+	1QtG1pYPURPgLAkwJnVlmCGllT5o2Otv1B2/8SSHdQYrvu5gYlxhclTG/uAo+w==
+X-Gm-Gg: AZFdTZcD7nsK61N3en2OGlTMI2XlZsF74hdJ2bMOYlurPU7Zx+U2HwUajQ+ULJ6FUsO
+	FIVMB6muJs7HRPQarvoVqFfrqJivDg7Ks9/G8IuQrk0xwKqPx2oTDb7WT47xzR69HeUmfJnquZG
+	J+dkBLdNETjvbrlUHv+EZH1whv48V1thiRoeC1Rf5QjCp6HO0/DRLhF5Fud/XCCVV4Vgfx1xB8s
+	3rwUnf9b4hUtjViVek/oSVwliZz6fGLNOnN4M7buGUSIFiJlGcMTw/9QsxeL6TrxuKlQeytvgV8
+	6YYaImIfS9SNOUKy05MXVvY5jI1lDFUmS9XIaXDH4/IpWL3I5/zlSbIStuzYO/L7Yk9/NQTqI7A
+	g9f2lD/roTWRkrgqoqZkmkp3xaiu3nV0/+mjvz4xA7FSXJEmhlz0I2ove1l9Ig0THK3Z6aAfUC/
+	yQ2IpE8qRMbxKFcXcDxHXY6wufEAo4kUpQCEem6RGlKoRXG9crJmzL9KhKL/8FWyD5idxI4KO6q
+	oxyNteeBnRa9EIioix/wfZJz+8igGPth0UspDvk/Lx1yicP3RPBac9hGdGpPdGdLkBAwBBYORni
+	EvUzg8x+4MbY5Bqx6W7Wabo2VI0YZpBwp8vKjCsYbAixwAyCqSl2FdYA
+X-Received: by 2002:a05:6372:a705:b0:3e2:7c10:d465 with SMTP id adf61e73a8af0-4014e358b53mr14368648637.83.1795654539819;
+        Wed, 25 Nov 2026 16:55:39 -0800 (PST)
+Received: from d.home.yangfl.dn42 ([2a09:bac1:7680:d30::4d0:8e])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-cde6cfe9bb9sm9472217a12.12.2026.11.25.16.55.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 25 Nov 2026 16:43:32 -0800 (PST)
-From: Omar Ramadan <omar@blockcast.net>
+        Wed, 25 Nov 2026 16:55:39 -0800 (PST)
+From: David Yang <mmyangfl@gmail.com>
 To: netdev@vger.kernel.org
-Cc: David Ahern <dsahern@kernel.org>,
-	Stephen Hemminger <stephen@networkplumber.org>
-Subject: [PATCH iproute2-next v2] iplink: amt: support an IPv6 outer transport
-Date: Thu, 26 Nov 2026 00:43:29 +0000
-Message-ID: <20261126004258.2133805-iproute2-omar@blockcast.net>
-X-Mailer: git-send-email 2.43.0
+Cc: David Yang <mmyangfl@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Jian Shen <shenjian15@huawei.com>,
+	Jijie Shao <shaojijie@huawei.com>,
+	devicetree@vger.kernel.org
+Subject: [PATCH net-next v4 0/5] net: hix5hd2_gmac: Support fixed-link
+Date: Thu, 26 Nov 2026 08:55:12 +0800
+Message-ID: <20261126005524.4156940-1-mmyangfl@gmail.com>
+X-Mailer: git-send-email 2.53.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -96,140 +104,31 @@ Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 
-The amt driver can now run AMT over IPv6 (net-next, "amt: add netlink
-attributes for an IPv6 outer transport"). IFLA_AMT_LOCAL_IP6 selects
-IPv6 as the outer transport, IFLA_AMT_DISCOVERY_IP6 is the IPv6 address
-a gateway discovers its relay through, and IFLA_AMT_REMOTE_IP6 reports
-the relay address the gateway learned.
+Support MAC-to-MAC link on hix5hd2_gmac. Also add and support mdio child
+node to suppress warnings when fixed linked, as in macb.
 
-Put an IPv6 local or discovery address in the new attributes, and print
-all three under the same keys as their IPv4 counterparts; a device has
-one family, so only one of each pair is present. Until now an IPv6
-literal was put in the 4-byte IPv4 attribute: older kernels quietly
-used its first four bytes as an IPv4 address, and kernels whose policy
-sets the attribute's exact length reject it.
+v4:
+ - reword in dt bindings
+ - register MDIO bus manually
+ - skip disabled mdio child
+v3: https://lore.kernel.org/r/20261124002442.19414-1-mmyangfl@gmail.com
+ - use devm_*
+ - split mdio child node and fixed-link
+v2: https://lore.kernel.org/r/20261122230134.3366017-1-mmyangfl@gmail.com
+ - add mdio bus child node
+v1: https://lore.kernel.org/r/20261120031026.1371052-1-mmyangfl@gmail.com
 
-  ip link add amtg type amt mode gateway local 2001:db8:a::1 \
-          discovery 2001:db8:a::2 dev eth0
+David Yang (5):
+  net: hix5hd2_gmac: Use devm_ managed netdev and MDIO bus
+  dt-bindings: net: hisilicon,hisi-gmac-v1: Add mdio bus child node
+  net: hix5hd2_gmac: Use mdio child node for MDIO bus if it exists
+  dt-bindings: net: hisilicon,hisi-gmac-v1: Allow fixed-link
+  net: hix5hd2_gmac: Support fixed-link
 
-This needs include/uapi/linux/amt.h synced with the kernel change.
+ .../bindings/net/hisilicon,hisi-gmac-v1.yaml  | 25 +++++-
+ drivers/net/ethernet/hisilicon/hix5hd2_gmac.c | 87 +++++++++++--------
+ 2 files changed, 77 insertions(+), 35 deletions(-)
 
-Assisted-by: LLM
-Signed-off-by: Omar Ramadan <omar@blockcast.net>
----
-v2: print each IPv6 address with print_color_string() and
-format_host_r(), and the keyword outside the color, as ip6tunnel.c
-does (Stephen Hemminger).
-v1: https://lore.kernel.org/netdev/20261125170100.3054010-iproute2-omar@blockcast.net/
+-- 
+2.53.0
 
- ip/iplink_amt.c       | 39 +++++++++++++++++++++++++++++++++++++--
- man/man8/ip-link.8.in |  6 +++++-
- 2 files changed, 42 insertions(+), 3 deletions(-)
-
-diff --git a/ip/iplink_amt.c b/ip/iplink_amt.c
-index 3a35bd9..2370bc5 100644
---- a/ip/iplink_amt.c
-+++ b/ip/iplink_amt.c
-@@ -107,7 +107,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
- 			check_duparg(&attrs, IFLA_AMT_LOCAL_IP, "local", *argv);
- 			get_addr(&saddr, *argv, daddr.family);
- 
--			if (is_addrtype_inet(&saddr))
-+			if (saddr.family == AF_INET6)
-+				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP6,
-+					  saddr.data, saddr.bytelen);
-+			else if (is_addrtype_inet(&saddr))
- 				addattr_l(n, 1024, IFLA_AMT_LOCAL_IP,
- 					  saddr.data, saddr.bytelen);
- 		} else if (strcmp(*argv, "discovery") == 0) {
-@@ -115,7 +118,10 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
- 			check_duparg(&attrs, IFLA_AMT_DISCOVERY_IP,
- 				     "discovery", *argv);
- 			get_addr(&daddr, *argv, daddr.family);
--			if (is_addrtype_inet(&daddr))
-+			if (daddr.family == AF_INET6)
-+				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP6,
-+					  daddr.data, daddr.bytelen);
-+			else if (is_addrtype_inet(&daddr))
- 				addattr_l(n, 1024, IFLA_AMT_DISCOVERY_IP,
- 					  daddr.data, daddr.bytelen);
- 		} else if (strcmp(*argv, "help") == 0) {
-@@ -134,6 +140,8 @@ static int amt_parse_opt(struct link_util *lu, int argc, char **argv,
- 
- static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
- {
-+	SPRINT_BUF(b1);
-+
- 	if (!tb)
- 		return;
- 
-@@ -156,6 +164,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
- 			     format_host(AF_INET, 4, &addr));
- 	}
- 
-+	if (tb[IFLA_AMT_LOCAL_IP6]) {
-+		const void *addr = RTA_DATA(tb[IFLA_AMT_LOCAL_IP6]);
-+
-+		print_string(PRINT_FP, NULL, "%s", "local ");
-+		print_color_string(PRINT_ANY, COLOR_INET6, "local", "%s ",
-+				   format_host_r(AF_INET6, 16, addr,
-+						 b1, sizeof(b1)));
-+	}
-+
- 	if (tb[IFLA_AMT_REMOTE_IP]) {
- 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_REMOTE_IP]);
- 
-@@ -163,6 +180,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
- 			     format_host(AF_INET, 4, &addr));
- 	}
- 
-+	if (tb[IFLA_AMT_REMOTE_IP6]) {
-+		const void *addr = RTA_DATA(tb[IFLA_AMT_REMOTE_IP6]);
-+
-+		print_string(PRINT_FP, NULL, "%s", "remote ");
-+		print_color_string(PRINT_ANY, COLOR_INET6, "remote", "%s ",
-+				   format_host_r(AF_INET6, 16, addr,
-+						 b1, sizeof(b1)));
-+	}
-+
- 	if (tb[IFLA_AMT_DISCOVERY_IP]) {
- 		__be32 addr = rta_getattr_u32(tb[IFLA_AMT_DISCOVERY_IP]);
- 
-@@ -170,6 +196,15 @@ static void amt_print_opt(struct link_util *lu, FILE *f, struct rtattr *tb[])
- 			     format_host(AF_INET, 4, &addr));
- 	}
- 
-+	if (tb[IFLA_AMT_DISCOVERY_IP6]) {
-+		const void *addr = RTA_DATA(tb[IFLA_AMT_DISCOVERY_IP6]);
-+
-+		print_string(PRINT_FP, NULL, "%s", "discovery ");
-+		print_color_string(PRINT_ANY, COLOR_INET6, "discovery", "%s ",
-+				   format_host_r(AF_INET6, 16, addr,
-+						 b1, sizeof(b1)));
-+	}
-+
- 	if (tb[IFLA_AMT_LINK]) {
- 		unsigned int link = rta_getattr_u32(tb[IFLA_AMT_LINK]);
- 
-diff --git a/man/man8/ip-link.8.in b/man/man8/ip-link.8.in
-index 8fd900e..48d2ca9 100644
---- a/man/man8/ip-link.8.in
-+++ b/man/man8/ip-link.8.in
-@@ -1616,12 +1616,16 @@ the following additional arguments are supported:
- .sp
- .BI discovery " IPADDR"
- - specifies the unicast discovery IP address to use to find remote IP address.
-+It must be of the same family as the
-+.B local
-+address.
- 
- .BR mode " { " gateway " | " relay " } "
- - specifies the role of AMT, Gateway or Relay
- 
- .BI local " IPADDR "
--- specifies the source IP address to use in outgoing packets.
-+- specifies the source IP address to use in outgoing packets. An IPv6
-+address makes the device use IPv6 as the outer transport of the tunnel.
- 
- .BI dev " PHYS_DEV "
- - specifies the underlying physical interface from which transform traffic
