@@ -1,77 +1,59 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=212.227.17.11
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795709750;
-	b=qwxxYadO1jj8iNk5ue0KrzvT52HzdxYwcavTWuGNmqGvz5OjolNKNzoXXelI/0SMM1wY
-	 fnWIOys4tL/5jLH9puv86Pop8dJzTyWaVhQKe690Dq3KzPS7QZj2Few17/rJhULy+Qnnj
-	 4TZeAMUXJKMg0CliK/o8sW1odCpDnJ0lYBbWzRJE99wJRdF7IxpnKqlQcqDAdANTv6YZk
-	 tzuqWTufTPrbDKPMG/yoXwo8va9fWfT/QrZ2d+eDkmZU5Kb4kUTc9zHAwzaIZfgeiqeQX
-	 xBkue9CbENb+JAHwyKzaD4DnCjCTONz+GSvQQahj+asxU9b62bXz+s3OMYrjiqDm4vA==
+	t=1795709851;
+	b=a3oPk/T7VB/UwnGs2d47e6n2s/AkjcSj1jSUztDuW0yptfZ+0MtHxzEV3DtmqTGsdqQi
+	 yw8Saa4giti9t4eaEvMT00C5HA0j3NziKEXL+a/KxeCaeRbTMvXNtFjqR9q1y7QuppE/q
+	 RSGTEVh7SsV/JojpmXzgDOdmm223iNy6zv3vJUSYYPIiiGg9vQZNoGM+Uzz/NDpq0pSas
+	 KaPxCik7DKyCKUBPgmBm3STmER8u3UBWwH9AibtWBGVbWVMsBDBhmMXjRSDlaih1IWPcK
+	 do5RvzS+i0QxaxfJkfDXUxyEvcJq1rjgeYSsn2HEQpZANgySHfRQ8y7MQS3eTZThm3w==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795709750;
-	h=DMARC-Filter:DKIM2-Signature:Message-Instance:DKIM-Signature:
-	 X-UI-Sender-Class:Received:Message-ID:Date:MIME-Version:User-Agent:
-	 Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-Provags-ID:X-Spam-Flag:
-	 UI-OutboundReport;
-	bh=GKuS7nLZ3oMQ2Nkc8HVI+BxFOyzbOxVBIuQcZG1z19o=;
-	b=tXsBDo/qRMvtwN90OCyNywv/1PSv9vVV8ShhfvKeholRJoUEzwpYMdIqvMHp4jlAhYyi
-	 AFVHtxuxO1JK+dK+MxBVXRbZn/uHZeuEmjDCdd1utIeCUCTQTjU8Z1VvgsIe912bHLj2B
-	 obA+XO7/P3c0rwYznWMXitzIYrki3daMt8OawrLiUA72IBG3G9Cwecz/KaYW9enoXksrU
-	 RBIyWRnaeAXwZFQU2bAWIxe5ii3ejlm9qOXVMjsb+5yjndfn8Xyb5KWoz5o/6zaklHxem
-	 GIBLkyKypwqx511fS8zYmSHskTdmTEpFA69kKViFoqEb+LQhgm780eM4Rlvq70IqB0Q==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795709851;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=+a4HiDUMGDKLB8Staz0X/kEQRbxg1uoNm3FaDKu7aWQ=;
+	b=Kq1XYcjnynn8KZHTdmcMu+gvzYJ41Ay3IxMkGbV60K6PCOF6U/OjF1cw3aDc0evcjH0B
+	 g7RfrC2yyF/who/0ezKDhMbhvCoz2Ot6W3uQxx10ULEAUrmSo1qFOBoqjHaM6BhKemc9b
+	 B270ThO888HDwhNyo1PS7YuvS79KjOs5OA3W/377DVGMrnL52DodDepIeuT6JChZyP2nr
+	 rHGqb3uhX9sQEgneu9ORiXbjWRtwm54t1fkd3Zg7LDMKO92/WM3YVfgXvh45qSZOh90tO
+	 NUmaWI4fH/vKCLJr6K/qa4+OJPd7gmJmt+v43BUwE7d78Xfs4w1bSUKFRo7rGVr0z4g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=web.de;
-	spf=pass smtp.mailfrom=web.de;
-	dkim=pass header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=hMJci5ap;
-	arc=none smtp.remote-ip=212.227.17.11
-Received: from mout.web.de (mout.web.de [212.227.17.11])
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e5daNYRm;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4AC17606A336
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 16:15:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4AC17606A336
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=web.de
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=web.de
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 1D870606A31C;
+	Thu, 26 Nov 2026 16:17:31 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=web.de header.i=markus.elfring@web.de header.a=rsa-sha256 header.s=s29768273 header.b=hMJci5ap
-DKIM2-Signature:  i=1; m=1; t=1795709747;
- mf=PE1hcmt1cy5FbGZyaW5nQHdlYi5kZT4=;
- rt=PG5ldGRldkB2Z2VyLmtlcm5lbC5vcmc+;
- d=web.de;
- s=s29768273:rsa-sha256:cIc7DKaLc3+OKsSdFhdih9HgbB1P
-   Af4vN/kV2Buf9sOdncH0SPpUVbOM3wqYZVE407ZivbsEKK87L34MAUfTEuYSgz0eXCnX3P40weT
-   Onk8rQ5XJIxs5kACJn1pu081CmF7mceHPG+cmjh6x+MDNHGFPAzYY+8MES6Q805IdWvSJrnCeL8
-   RJjN3B4cEUxZKtt/P2oxGa/4jUnUlf1NTTCKBe0fR7WmXyCtuqXU34LZDGsll0V9GwPp3i0tRfK
-   Xd8PMMN1HjnC6yLJpjTkvrDWxgqS7vScySYxt9WqaJmt191iBusASwzd1hdb2G6ced2Q1+BSGJm
-   xPFDUUTXRWKEoA==;
-Message-Instance:  m=1;
- h=sha256:
-   Xu4s07prBiFQoCMjTHbugfcUsi9xDwfkskt73zzUPWw=:
-   lYKjP3NlDaBTyJZVE0VCLhdWFb7V/zbPJUWRMvW4b1s=,
-  sha512:
-   Ng+Y8qLQnijbr1PqewoRTXjzYGtaQ9Rd6iZYo64NhHnqxQccx4Fa0OYNf2h0C0Eh6lN/Cpe6q7ACfNEV/CkO0A==:
-   DDcdi6+yNjPPYwYfkU7hMggaAhoUN83CywhImhoC+qW46kfAJT/QtT07CjoAARptGAs0NngmflnsBWirTtoyWg==;
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1795709732; x=1796314532; i=markus.elfring@web.de;
-	bh=GKuS7nLZ3oMQ2Nkc8HVI+BxFOyzbOxVBIuQcZG1z19o=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=hMJci5apK+B/8Qf2UkOZVb+fU4hdBzJ4xY+WRJnleVUetffseiMpA+6wxAO/eY8+
-	 yL7n7CCw2h9jHgK+fQ74EeziecsZGHDh97/BO9kMX/ZE2dUjXy2cRf7/4yOLGXyuu
-	 5JgLznZ/73PWjDIUwlf3WUJ8qc+MwWsbXpUJIM/rj3TwTuK/oLaXvHb9culD5ENzt
-	 6P+DzP0QzCu5q/ksvWjErF9VLxMDKzhw0heyrglyi+ZprC8mF/icL3SKSPy0rCv1+
-	 Ak88vrGJYcluwNtYbno1N3G8gIGms5zr/F+XRsenTISqVt7POcO/h0PvTOtHrg4sA
-	 yZkOHI0qRAO5Tl0raA==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from client.hidden.invalid by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MbCHy-1y3k1k0YnY-00fp1C; Thu, 26
- Nov 2026 17:15:32 +0100
-Message-ID: <a526e002-c8fc-4935-95f9-5943cb557e99@web.de>
-Date: Thu, 26 Nov 2026 17:15:27 +0100
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=e5daNYRm
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DB481F000CA;
+	Thu, 26 Nov 2026 16:17:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795709850;
+	bh=+a4HiDUMGDKLB8Staz0X/kEQRbxg1uoNm3FaDKu7aWQ=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=e5daNYRmWbgQGnBtZ0PYV3Wk8RW4R3gUmKthaW+nZTATFKs1TyweRrwnY5vk9g28r
+	 e3jqLg5m83dDOUfwGOHI1ElwRUE8qRbMDrjJlnYiYMsaPVU7Cpcc9nAWLDrc1cVUoH
+	 ltJZAKOEeOAU3dwOO/sDBitkgbT4HOEQUKu2NQkfEZNUMXVzIZIuIc7fcoTotJSz2u
+	 40JzvRfQSwcH9vp/TpmKj3yjAh3WDy/8BaTB/l8WPeqtsw2YNO9XN8o2LD8is7Cr1A
+	 LfQH2YcFDEDSLALXmtgJSk37yJkS27Di2lwjwF6aTLlfTgfHHr8jkcawUua2t99vIM
+	 YWoGeU2Q/cz/A==
+Subject: Re: [PATCH net v2] sctp: unshare GSO skb frag_list members instead of
+ linearizing
+From: netdev-bot+sashiko@kernel.org
+To: lucien.xin@gmail.com
+Cc: netdev@vger.kernel.org, linux-sctp@vger.kernel.org, davem@davemloft.net,
+ kuba@kernel.org, edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org,
+ marcelo.leitner@gmail.com
+Date: Thu, 26 Nov 2026 16:17:29 +0000
+Message-ID: <179570984998.3135.13925553650605121170@kernel.org>
+In-Reply-To: <739a5caed11c49ce53078747c43ea8cec5076d50.1795619846.git.lucien.xin@gmail.com>
+References: <739a5caed11c49ce53078747c43ea8cec5076d50.1795619846.git.lucien.xin@gmail.com>
+X-sashiko-severity: High
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,158 +63,135 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: bcm63xx_enet: Use devm_clk_get_enabled() in two probe functions
-To: Christophe Jaillet <christophe.jaillet@wanadoo.fr>,
- netdev@vger.kernel.org, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
- Hemanth Selam <hemanth.selam@gmail.com>, Jakub Kicinski <kuba@kernel.org>,
- Jonas Gorski <jonas.gorski@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- Simon Horman <horms@kernel.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Florian Fainelli <f.fainelli@gmail.com>, Frank Li <Frank.Li@kernel.org>
-References: <d293609b-c8cd-4993-a243-89c6d1ace4a0@web.de>
- <ac10d9ef-b193-487c-b4c1-6126aa770c6f@wanadoo.fr>
- <603d7ea7-5d7d-49c4-a01b-a7805e88c361@web.de>
- <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <9c26b213-aa58-4c27-99c7-926c6b4d5275@wanadoo.fr>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:3TBkhHz00Ppr3StysJ701/4TtJYA0mtUQu7GicKK8gG2dvf4nYC
- pcKI2pSrAIihQ5LWUNcjZV4KkhZhVLxxOTu477HTvOiVY5aeQEHy80drKq86akmURppm2nJ
- wp/jbkuZUfjbQzzsgiuYsbRWssuwETWFkDktemsxS8x1leYlNRCzb60kUZx2OwArWE4IKWH
- BwQ44UL/IzzWqKuOWEfwQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:/4WIJLFraeE=;YAm0QeD5TOdCWGUZXGphFYkoj9N
- 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
 
-> Your=C2=A0patch=C2=A0is=C2=A0related=C2=A0to=C2=A0bcm_enet_probe().
->=20
-> See L1754 and L1791. These 2 calls are related to 2 clk_disable_unprepar=
-e() calls in the error handling path and in the remove=C2=A0function.
->=20
-> Why=C2=A0only=C2=A0update=C2=A0one=C2=A0place,=C2=A0and=C2=A0keep=C2=A0o=
-ne=C2=A0clk_disable_unprepare()?
+Thank you for your contribution! Sashiko AI review found 1 potential
+issue(s) to consider.
 
-I got also the impression finally that implementation details would need
-further clarifications and development considerations.
+Critical: 0 · High: 1 · Medium: 0 · Low: 0
 
-* Conditions are checked for the ungating of the item =E2=80=9Cpriv->phy_c=
-lk=E2=80=9D.
-  https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/br=
-oadcom/bcm63xx_enet.c#L1789-L1800
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-* But a clk_disable_unprepare(priv->phy_clk) call is unconditionally perfo=
-rmed
-  in the implementation of the function =E2=80=9Cbcm_enet_remove=E2=80=9D =
-so far.
-  https://elixir.bootlin.com/linux/v7.4-rc1/source/drivers/net/ethernet/br=
-oadcom/bcm63xx_enet.c#L1930
+- [High] In net/sctp/input.c, sctp_gso_unshare() does not give SCTP
+  exclusive ownership of the frag_list data buffers, although the commit…
 
-  Is there a need to adjust the control flow any further?
+--
 
+sctp: unshare GSO skb frag_list members instead of linearizing
 
-Regards,
-Markus
+This patch stops linearizing SCTP GSO packets in sctp_rcv(). It adds
+sctp_gso_unshare() instead, which unclones the outer skb and replaces
+each shared frag_list member with a private pskb_copy(). The intent is to
+give SCTP exclusive ownership of both the member headers and their data,
+so that AUTH verification can rewrite the digest in place safely.
+
+> diff --git a/net/sctp/input.c b/net/sctp/input.c
+> index 9494cfa51106c..f993191ee1ea1 100644
+> --- a/net/sctp/input.c
+> +++ b/net/sctp/input.c
+> @@ -82,6 +82,39 @@ static inline int sctp_rcv_checksum(struct net *net, struct sk_buff *skb)
+>  	return 0;
+>  }
+>  
+> +/* Ensure exclusive ownership of frag_list members for GSO skbs.
+> + * pskb_copy() shares them by reference; unshare with private copies
+> + * so AUTH verification can safely modify the digest in place.
+> + */
+> +static int sctp_gso_unshare(struct sk_buff *skb)
+> +{
+> +	struct sk_buff **pp, *p;
+> +
+> +	if (skb_unclone(skb, GFP_ATOMIC))
+> +		return -ENOMEM;
+> +
+> +	if (!skb_has_frag_list(skb))
+> +		return 0;
+> +
+> +	pp = &skb_shinfo(skb)->frag_list;
+> +	skb_walk_frags(skb, p) {
+> +		if (skb_shared(p)) {
+
+[Severity: High]
+
+Does this check catch members whose data buffer is shared while their
+users count is 1?
+
+skb_shared() only tests refcount_read(&p->users) != 1. A frag_list member
+can have users == 1 and still have skb_cloned(p) true (dataref > 1). The
+skb_unclone() on the outer skb doesn't help here, because by this point
+the outer head is already private.
+
+Core skb code produces this state. ___pskb_trim() forks shared members
+like this:
+
+net/core/skbuff.c:___pskb_trim() {
+    ...
+		if (skb_shared(frag)) {
+			struct sk_buff *nfrag;
+
+			nfrag = skb_clone(frag, GFP_ATOMIC);
+			...
+			consume_skb(frag);
+    ...
+}
+
+__pskb_pull_tail() forks shared members with skb_clone() in the same way.
+In both cases, the member left behind in the other skb has users == 1 and
+shares its data with the clone.
+
+One path that appears to reach this is an SCTP GSO skb looped over lo,
+with a non-mmap AF_PACKET socket attached whose BPF filter returns a
+snaplen:
+
+packet_rcv()
+  pskb_trim(skb, snaplen)
+    ___pskb_trim()
+      pskb_expand_head()   /* skb_clone_fraglist(), members users == 2 */
+      skb_clone(frag) + consume_skb(frag)   /* SCTP side users == 1 */
+
+The original skb then reaches sctp_rcv()->sctp_gso_unshare(). There,
+skb_unclone() does nothing and skb_shared(p) is false for every forked
+member, so nothing gets copied.
+
+skb_condense() only undoes the sharing when the trimmed data_len fits in
+the head's tailroom. Any snaplen larger than that keeps the sharing.
+
+Later, sctp_inq_pop() passes the member to sctp_sf_authenticate(), which
+does:
+
+	memset(digest, 0, sig_len);
+
+	if (sctp_auth_calculate_hmac(asoc, chunk->skb,
+				     (struct sctp_auth_chunk *)chunk->chunk_hdr,
+				     sh_key, GFP_ATOMIC)) {
+
+Wouldn't this zero the digest and then overwrite it inside a buffer that
+the nfrag clones queued on the packet socket still share? The AF_PACKET
+reader would then copy out modified data.
+
+That appears to be the case the commit message says pskb_copy() prevents:
+
+    with skb_clone() the data buffer stays shared, which could let a
+    crafted packet pass AUTH on a second copy or corrupt data visible
+    to AF_PACKET readers.
+
+A similar fork could happen through __pskb_pull_tail() on one of two
+copies that both reach SCTP, for example a TEE duplicate plus a rule that
+pulls past the head. Two SCTP receivers could then write the same digest
+bytes at the same time. That variant is more speculative.
+
+Would checking skb_shared(p) || skb_cloned(p) here, or calling
+skb_unclone(p) when users == 1, give the exclusive data ownership that
+the comment above sctp_gso_unshare() describes?
+
+> +			struct sk_buff *copy;
+> +
+> +			copy = pskb_copy(p, GFP_ATOMIC);
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/739a5caed11c49ce53078747c43ea8cec5076d50.1795619846.git.lucien.xin%40gmail.com
