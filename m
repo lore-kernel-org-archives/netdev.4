@@ -1,49 +1,62 @@
 Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795727958;
-	b=oOOkyOBwTjFI+K6Y5GO7wC3LY7btbDlSzQ/A8KF49J0HGSYzN2zoTCahAmKqHQHtm1Um
-	 iMLTWTu5F1yZdtGLKHnDQLw4d9TFueALYFafgpZbOksmgKwxTeTLU5YDTU+DVN4YFdeLo
-	 WDSGOK/kMz+mqycmdC/BTeZCQMvAdylK5j2JJOP5oiVlIN6y7yyoibw3E/NH7JpjFLIhG
-	 kWEfolLs37un44rlJBE3OrKMNKz2BCEcM6rMec5ghUEu1pcrPLAVocaYV0Ud2jCMsmqG8
-	 fn9UJhlVkEQh2zh2+4E1k7wkwg7fZSrJ6766Yl+ySuLX7NDbPSuJWx5IYnH3/Q8PpXA==
+	t=1795728027;
+	b=BpiGx9Yl69AV8H8NxRx7x1mLp4j7RB2XBgvE2BETY3v4c16GN/rOcicvqMMqRGZgJ+C6
+	 xJkemJTEGRg1qRiE51mlhCr8Bwhu0TDY7JacPu02gB/P9CqxUCaA2aqu2JffX//7wOle0
+	 ORouVdFerb5SFfR5BMCyPqdYWftRsuj1P2ojZHTKKmsAETDaY1ptuIa6xvaSzDKG+0Sm4
+	 Q2zhuIysfKCdBH4njx1LqJFijpSuzQlrGlA81Nve3v6GQN/1WxC1w2LdvyWosWbj+UfxM
+	 SrlT+MayRh9fea36RqYRabzn/qHp1ik4FtMZJt6xug44ZucwTpvhA31o132qbS9rtpw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795727958;
-	h=Received:DKIM-Signature:From:Date:Subject:MIME-Version:Content-Type:
-	 Content-Transfer-Encoding:Message-Id:References:In-Reply-To:To:Cc:
-	 X-Mailer:X-Developer-Signature:X-Developer-Key;
-	bh=T7g0PF2rhm0R9Xo1OcuGfmkKtp0vvqib29xJ2PkeRIE=;
-	b=dOQc8p7oHANomJUW5rmkbB6oZ+RpAJ9mGkWhtTwvqqcmtohd6QGKDo/Ew8LWJ+Bvtovu
-	 2QrOfOOGjYRgL3Ong8tnF10QhcHcmLIRcX5kIO3n6rGtNCWH8IyFkmoQ28iVaM/YviNye
-	 WS19pSTaQ2TKomgshXq1vaO1ejQlxlg9v/3diRyJYvEbxkLMro69x+iiQPabubs8KEAnb
-	 5hcvpW8yXcVar39oW61dgrAQH+GKEOwAqfJ1XERXFbvsxYW1Q6EkP9cZcNp5d5NkaTPR1
-	 Vsx+twmeW/8iUm2wUQC+dMSiYWdemy+1Uhp1P6N7UMmSjo/DGawuwR04Z4HtrvLhv1g==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795728027;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=MdLocymIfUOTbasyv0c+gPZHRjx8+cIIkYhve/nhgK0=;
+	b=RbnHKx5Cvs64kpi6pBwoQ7vBicW7Joyd0bVBQr5rsD6O9lS29geMzDN4FT88PatywvsF
+	 OnRzPO+zkVjPMHwUF4pKnyq9Ir9ZfJV/h5Ml1ki8DciYRg4bsZfsUn2dcLG3T0vuYMt16
+	 ZwzYnr2RNTsEibTqHAORUgnZTiogGRKYvrOf5sHAzGFagAQjlv5K4/Ez97+WZj8gOAbrl
+	 WDBvVoox5kIZO+BSv4sKkx8evRPBJiMFYOspudOZ2kk31KVYLmZyipZJGRq52WldhQhvW
+	 7d/xVmmZsD/9ckvogvVs3jXFejJocphafWBGXK5H67dVlPK9pk973ixj48uOG5RmHAQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmK+azDo;
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUNHJPAT;
 	arc=none smtp.remote-ip=100.103.45.18
 Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 25B29606A323;
-	Thu, 26 Nov 2026 21:19:17 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 45846606A31C;
+	Thu, 26 Nov 2026 21:20:27 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=nmK+azDo
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4602E1F00924;
-	Thu, 26 Nov 2026 21:19:12 +0000 (UTC)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=KUNHJPAT
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEF9D1F00893;
+	Thu, 26 Nov 2026 21:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795727957;
-	bh=T7g0PF2rhm0R9Xo1OcuGfmkKtp0vvqib29xJ2PkeRIE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=nmK+azDom1PHTU7H8yvB0f4RqUfCdgs859IwtodDz2vMV5vCV1NX8WTon4Q0KNF5f
-	 Z94d27mzbKCejbI/EnAqTIDZtThR5A9bWEl2TW3tqxmmysJRjOWINwCOIX182tvd+2
-	 bBIbkRRXJkSy7F6206Y2qFGAazvL/zsW7lw8udwjnG5h/vnqY9ei3A4rTYovvAWnUl
-	 ubuW/k1yG2LmG5zX3X84Lh+YQixDMb55SpGD4lYqTfqvQU8xOS1stQtRo3aFdc4EhT
-	 D96Tzk4dxDiVGxTCC69KqQ5dEBvrB60eXjhBZAv44sr/vFOHbBFp0RnYatUOb6KI9l
-	 D2qsHxnZR5Inw==
-From: "David Hildenbrand (Arm)" <david@kernel.org>
-Date: Thu, 26 Nov 2026 22:18:40 +0100
-Subject: [PATCH net v2 4/4] net: skbuff: limit folio refcount when splicing
- from sockets
+	s=k20260515; t=1795728026;
+	bh=MdLocymIfUOTbasyv0c+gPZHRjx8+cIIkYhve/nhgK0=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=KUNHJPATioGGypSl7o7R9Fb6HfN1LNbyljrOzYJisklOg3vvpvDbHgq44v+szjO1p
+	 0drA4xcFYdXri8DXzpEDDSFpNohPAMb838YAWn1GkcDlRaxM6xqXfbtC4mJBaEGan6
+	 Z9S5m5SXUAgg/rkq8CxNv6vymuLIBCbKZUZaovNXmXvHf/LzYQpm651nBySxdPpzCv
+	 JQPvKZS28BghDnwLphwpZnedbbS3sagSdcV8D3oPHS9LabXQ8O88RbLk9KwCQNimfL
+	 YrqgZtJLrF6F3JkYg8FuvrVSkY5hQc51YXMaDyeKlzSUxKbGpkBn4NYf26MBNhEP9t
+	 c/KQM1ZNsoIMw==
+Subject:
+ Re: [PATCH net-next v2 1/2] tcp: add net.ipv4.tcp_l3mdev_exempt_ports sysctl
+From: netdev-bot+sashiko@kernel.org
+To: kalash@nexthop.ai
+Cc: davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org,
+ pabeni@redhat.com, horms@kernel.org, corbet@lwn.net,
+ skhan@linuxfoundation.org, rdunlap@infradead.org, dsahern@kernel.org,
+ idosch@nvidia.com, ncardwell@google.com, kuniyu@google.com, shuah@kernel.org,
+ joel.granados@kernel.org, netdev@vger.kernel.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org
+Date: Thu, 26 Nov 2026 21:20:25 +0000
+Message-ID: <179572802536.3135.6305865608768923950@kernel.org>
+In-Reply-To: <20261125-tcp-l3mdev-exempt-ports-v2-1-b920f3ff8f5e@nexthop.ai>
+References: <20261125-tcp-l3mdev-exempt-ports-v2-1-b920f3ff8f5e@nexthop.ai>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -53,188 +66,141 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20261126-skb_refcount_overflow-v2-4-a6f600a5634a@kernel.org>
-References: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
-In-Reply-To: <20261126-skb_refcount_overflow-v2-0-a6f600a5634a@kernel.org>
-To: "David S. Miller" <davem@davemloft.net>, 
- Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Stanislav Fomichev <sdf.kernel@gmail.com>, 
- Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
- Andrew Morton <akpm@linux-foundation.org>, Kiryl Shutsemau <kas@kernel.org>, 
- Song Liu <songliubraving@fb.com>, Johannes Weiner <hannes@cmpxchg.org>, 
- Rik van Riel <riel@surriel.com>, 
- "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
- Neal Cardwell <ncardwell@google.com>, Kuniyuki Iwashima <kuniyu@google.com>, 
- Pedro Falcato <pfalcato@suse.de>, Chuck Lever <cel@kernel.org>, 
- Jeff Layton <jlayton@kernel.org>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-mm@kvack.org, "David Hildenbrand (Arm)" <david@kernel.org>, 
- stable@vger.kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5778; i=david@kernel.org;
- h=from:subject:message-id; bh=T9uhC/xEmr2tuYoZB/8o6f641B8j3fTWqS2TXzJ8NJU=;
- b=owGbwMvMwCF2/OVpCdfQ3ZWMp9WSGLI5Fpl9Slk7v/Na4NTqfarWO1YmNxwXTrn0IkH2zUPfL
- Q5XGgOMO0pZGMQ4GGTFFFmCgu8bvHy5rrbajY8ZZg4rE8gQBi5OAZjIbgmG/zWacwIKHqlvzj/E
- sVL303ruyLkLE14FGa14vlU3YVvf5lJGhleCX1LldmRrZZuyRSiKBiSFed+uupO8QG+//tl5C5+
- 78QAA
-X-Developer-Key: i=david@kernel.org; a=openpgp;
- fpr=1BD9CAAD735C4C3A460DFCCA4DDE10F700FF835A
 
-Various networking features support splicing data from sockets into
-pipes (TCP, AF_UNIX, KCM, kTLS), whereby spd_fill_page() takes an
-additional page reference for each fragment, while the skb keeps its own
-reference until it was fully consumed. This allows for exceeding folio
-refcount limits.
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
-This is not specific to large pagecache folios, but with them it is a
-lot easier to reach the refcount limit, as page table mappings can cheaply
-create many references.
+Critical: 0 · High: 0 · Medium: 1 · Low: 1
 
-Let's use try_get_page() in spd_fill_page() and stop splicing with
--EFAULT if that fails. To propagate the error, add an "err" output
-parameter to spd_fill_page(), __splice_segment() and __skb_splice_bits().
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-If we could not splice anything, return the error from skb_splice_bits():
-returning 0 would make the callers (TCP, AF_UNIX, KCM, kTLS) report EOF,
-although data is still queued. The callers already handle errors.
+- [Medium] The commit message names the real cause of the misselection:
+  the lookup returns whichever reuseport listener is first in the listen…
+- [Low] The new net_cachelines documentation row lists
+  sysctl_tcp_l3mdev_exempt_ports as an RX fast-path field:…
 
-Use -EFAULT, consistent with splice_folio_into_pipe().
+--
 
-Fixes: 800d8c63b2e9 ("shmem: add huge pages support")
-Fixes: 99cb0dbd47a1 ("mm,thp: add read-only THP support for (non-shmem) FS")
-Fixes: 793917d997df ("mm/readahead: Add large folio readahead")
-Cc: stable@vger.kernel.org
-Signed-off-by: David Hildenbrand (Arm) <david@kernel.org>
----
- net/core/skbuff.c | 38 +++++++++++++++++++++++---------------
- 1 file changed, 23 insertions(+), 15 deletions(-)
+tcp: add net.ipv4.tcp_l3mdev_exempt_ports sysctl
 
-diff --git a/net/core/skbuff.c b/net/core/skbuff.c
-index 957335bcc5961..ca5e27545b46b 100644
---- a/net/core/skbuff.c
-+++ b/net/core/skbuff.c
-@@ -3162,11 +3162,12 @@ static bool spd_can_coalesce(const struct splice_pipe_desc *spd,
- }
- 
- /*
-- * Fill page/offset/length into spd, if it can hold more pages.
-+ * Fill page/offset/length into spd, if it can hold more pages and we can
-+ * take a page reference.
-  */
- static bool spd_fill_page(struct splice_pipe_desc *spd, struct page *page,
- 			  unsigned int *len, unsigned int offset, bool linear,
--			  struct sock *sk)
-+			  struct sock *sk, int *err)
- {
- 	if (unlikely(spd->nr_pages == MAX_SKB_FRAGS))
- 		return true;
-@@ -3180,7 +3181,10 @@ static bool spd_fill_page(struct splice_pipe_desc *spd, struct page *page,
- 		spd->partial[spd->nr_pages - 1].len += *len;
- 		return false;
- 	}
--	get_page(page);
-+	if (!try_get_page(page)) {
-+		*err = -EFAULT;
-+		return true;
-+	}
- 	spd->pages[spd->nr_pages] = page;
- 	spd->partial[spd->nr_pages].len = *len;
- 	spd->partial[spd->nr_pages].offset = offset;
-@@ -3193,7 +3197,7 @@ static bool __splice_segment(struct page *page, unsigned int poff,
- 			     unsigned int plen, unsigned int *off,
- 			     unsigned int *len,
- 			     struct splice_pipe_desc *spd, bool linear,
--			     struct sock *sk)
-+			     struct sock *sk, int *err)
- {
- 	if (!*len)
- 		return true;
-@@ -3212,7 +3216,7 @@ static bool __splice_segment(struct page *page, unsigned int poff,
- 	do {
- 		unsigned int flen = min(*len, plen);
- 
--		if (spd_fill_page(spd, page, &flen, poff, linear, sk))
-+		if (spd_fill_page(spd, page, &flen, poff, linear, sk, err))
- 			return true;
- 		poff += flen;
- 		plen -= flen;
-@@ -3226,11 +3230,12 @@ static bool __splice_segment(struct page *page, unsigned int poff,
- 
- /*
-  * Map linear and fragment data from the skb to spd. It reports true if the
-- * pipe is full or if we already spliced the requested length.
-+ * pipe is full, if we already spliced the requested length, or on error.
-  */
- static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
- 			      unsigned int *offset, unsigned int *len,
--			      struct splice_pipe_desc *spd, struct sock *sk)
-+			      struct splice_pipe_desc *spd, struct sock *sk,
-+			      int *err)
- {
- 	struct sk_buff *iter;
- 	int seg;
-@@ -3245,7 +3250,7 @@ static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
- 			     skb_headlen(skb),
- 			     offset, len, spd,
- 			     skb_head_is_locked(skb),
--			     sk))
-+			     sk, err))
- 		return true;
- 
- 	/*
-@@ -3262,7 +3267,7 @@ static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
- 
- 		if (__splice_segment(skb_frag_page(f),
- 				     skb_frag_off(f), skb_frag_size(f),
--				     offset, len, spd, false, sk))
-+				     offset, len, spd, false, sk, err))
- 			return true;
- 	}
- 
-@@ -3272,10 +3277,10 @@ static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
- 			continue;
- 		}
- 		/* __skb_splice_bits() only fails if the output has no room
--		 * left, so no point in going over the frag_list for the error
--		 * case.
-+		 * left or on error, so no point in going over the frag_list
-+		 * for the error case.
- 		 */
--		if (__skb_splice_bits(iter, pipe, offset, len, spd, sk))
-+		if (__skb_splice_bits(iter, pipe, offset, len, spd, sk, err))
- 			return true;
- 	}
- 
-@@ -3284,7 +3289,8 @@ static bool __skb_splice_bits(struct sk_buff *skb, struct pipe_inode_info *pipe,
- 
- /*
-  * Map data from the skb to a pipe. Should handle both the linear part,
-- * the fragments, and the frag list.
-+ * the fragments, and the frag list. Returns the number of bytes spliced,
-+ * or an error if splicing failed.
-  */
- int skb_splice_bits(struct sk_buff *skb, struct sock *sk, unsigned int offset,
- 		    struct pipe_inode_info *pipe, unsigned int tlen,
-@@ -3299,12 +3305,14 @@ int skb_splice_bits(struct sk_buff *skb, struct sock *sk, unsigned int offset,
- 		.ops = &default_pipe_buf_ops,
- 		.spd_release = sock_spd_release,
- 	};
--	int ret = 0;
-+	int ret = 0, err = 0;
- 
--	__skb_splice_bits(skb, pipe, &offset, &tlen, &spd, sk);
-+	__skb_splice_bits(skb, pipe, &offset, &tlen, &spd, sk, &err);
- 
- 	if (spd.nr_pages)
- 		ret = splice_to_pipe(pipe, &spd);
-+	else if (err)
-+		ret = err;
- 
- 	return ret;
- }
+This commit adds a per-netns port bitmap sysctl,
+net.ipv4.tcp_l3mdev_exempt_ports. For listed ports, an unbound listener
+does not match connections that arrive through an L3 master device
+(sdif != 0) during listener lookup, even with tcp_l3mdev_accept=1. The
+goal is for VRF connections to reach the VRF-bound listener when both
+listeners use SO_REUSEPORT.
+
+> diff --git a/Documentation/networking/net_cachelines/netns_ipv4_sysctl.rst b/Documentation/networking/net_cachelines/netns_ipv4_sysctl.rst
+> index 2833ce6cba1d4..062153c2793c7 100644
+> --- a/Documentation/networking/net_cachelines/netns_ipv4_sysctl.rst
+> +++ b/Documentation/networking/net_cachelines/netns_ipv4_sysctl.rst
+> @@ -150,6 +150,7 @@ struct_ping_group_range         ping_group_range
+>  atomic_t                        dev_addr_genid
+>  unsigned_int                    sysctl_udp_child_hash_entries
+>  unsigned_long*                  sysctl_local_reserved_ports
+> +unsigned_long*                  sysctl_tcp_l3mdev_exempt_ports                                   read_mostly         __inet_lookup_listener/inet6_lookup_listener
+
+[Severity: Low]
+This row marks sysctl_tcp_l3mdev_exempt_ports as read_mostly on the RX
+fast path. In struct netns_ipv4, though, the field is added to the
+CONFIG_SYSCTL area next to sysctl_local_reserved_ports. That is outside
+the netns_ipv4_read_rx group:
+
+include/net/netns/ipv4.h:
+	__cacheline_group_begin(netns_ipv4_read_rx);
+	u8 sysctl_tcp_moderate_rcvbuf;
+	u8 sysctl_ip_early_demux;
+	u8 sysctl_tcp_early_demux;
+	u8 sysctl_tcp_l3mdev_accept;
+	...
+	__cacheline_group_end(netns_ipv4_read_rx);
+
+netns_ipv4_struct_check() in net/core/net_namespace.c also has no
+CACHELINE_ASSERT_GROUP_MEMBER() for it. Other read_mostly RX fields,
+such as sysctl_tcp_l3mdev_accept, do have one.
+
+Should the document leave the fast path columns empty for this field?
+Or should the field move into netns_ipv4_read_rx with a matching
+assertion?
+
+>  int                             sysctl_ip_prot_sock
+>  struct_mr_table*                mrt
+>  struct_list_head                mr_tables
+
+[ ... ]
+
+> diff --git a/net/ipv4/inet_hashtables.c b/net/ipv4/inet_hashtables.c
+> index 860145d810ed4..063f6dd00a64d 100644
+> --- a/net/ipv4/inet_hashtables.c
+> +++ b/net/ipv4/inet_hashtables.c
+> @@ -362,6 +362,11 @@ static inline int compute_score(struct sock *sk, const struct net *net,
+>  
+>  		if (!inet_sk_bound_dev_eq(net, sk->sk_bound_dev_if, dif, sdif))
+>  			return -1;
+> +
+> +		if (!sk->sk_bound_dev_if && sdif &&
+> +		    tcp_port_l3mdev_exempt(net, hnum))
+> +			return -1;
+> +
+>  		score =  sk->sk_bound_dev_if ? 2 : 1;
+
+[Severity: Medium]
+The commit message gives the cause of the misselection: "the lookup
+returns whichever is first in the listen bucket, not the VRF-bound one".
+Is a per-port opt-in sysctl the right fix for that, rather than a change
+to the lookup itself?
+
+The early return is in inet_lhash2_lookup():
+
+	sk_nulls_for_each_rcu(sk, node, &ilb2->nulls_head) {
+		score = compute_score(sk, net, hnum, daddr, dif, sdif);
+		if (score > hiscore) {
+			result = inet_lookup_reuseport(net, sk, skb, doff,
+						       saddr, sport, daddr, hnum, inet_ehashfn);
+			if (result)
+				return result;
+
+The first reuseport socket that scores above zero is returned at once,
+and the rest of the bucket is never scored. So the higher score for a
+device-bound listener (sk->sk_bound_dev_if ? 2 : 1) has no effect.
+inet6_lhash2_lookup() has the same early return.
+
+inet_reuseport_add_sock() requires sk2->sk_bound_dev_if ==
+sk->sk_bound_dev_if, so the unbound and bound listeners are always in
+separate reuseport groups.
+
+inet_hash() puts AF_INET6 reuseport sockets at the tail of the bucket
+and all other sockets at the head. That explains the IPv4/IPv6
+difference.
+
+With this patch the default list is empty. For every port that is not
+listed, the IPv4/IPv6 inconsistency and the TCP-MD5/AO bypass from the
+commit message still happen.
+
+The new check is also gated on sdif. What about the same setup without
+a VRF? For example:
+
+  - an unbound SO_REUSEPORT listener and an SO_BINDTODEVICE(eth0)
+    SO_REUSEPORT listener on the same port
+  - a SYN arrives on eth0, so sdif == 0
+
+inet_bound_dev_eq() matches both sockets. The unbound listener can still
+win when it is first in the bucket, whatever the sysctl is set to.
+
+Selecting purely by score has caveats of its own. The sk_incoming_cpu
+bonus can raise an unbound IPv6 listener to the score of a bound one
+(1+1 vs 2). Changing the default lookup behavior could also affect
+existing deployments.
+
+Could the commit message explain why a new UAPI knob was chosen instead
+of fixing the selection order in inet_lhash2_lookup() and
+inet6_lhash2_lookup()?
+
+[ ... ]
 
 -- 
-2.56.1
-
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125-tcp-l3mdev-exempt-ports-v2-0-b920f3ff8f5e%40nexthop.ai
