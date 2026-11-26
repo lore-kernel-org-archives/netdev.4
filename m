@@ -1,58 +1,81 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=185.246.84.56
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795680425;
-	b=M2AgX7dzY2ZYbRpVqWLIkMon5Nhxm9XdLoPn39oyRqmVQIapl2KEq8GfLNBz9PS+zhEl
-	 L/MLl9vq1puj0uQ8iAKYajHeTbGPuXRTW3Q4fUPVK+JaI7XmzQNnf162raQBpfJOXEwjK
-	 ogVrI6YG07qndfDCq3BSlV37azcKa0HeGjGmz1wSTfgmO6BSp3VOdOq7dNkuxxvQR28/D
-	 WB8cLqY+HP8J/mPUQNdQlaBgGeFuGTC+VmB87raIPC7COb9IZY6LoKz1K9DY12VkutUyM
-	 UKb35JslEcKMW3BpKOdjoseZL11X9D9Hk7UFCoJZGFyVNpbjT8jG/QyHXC1Goh5EFQQ==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795680425;
-	h=DMARC-Filter:Received:Received:Received:DKIM-Signature:Message-ID:
-	 Date:MIME-Version:User-Agent:Subject:To:Cc:References:From:
-	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 X-Last-TLS-Session-Version;
-	bh=OchicsanssR3AdJ00LY+3McNXqSzaIMckCwuyN0twwQ=;
-	b=wTaDwYTMwo31CEhkhWxXWZ50TFiX7kn/3o/g6PlqUSy+YkKTHehKL7W2Zo8xGIaMLP2q
-	 SlexPNq8U0PPuJbLBqC2i28hB9FwysG3R76s7qr8KC60qIlATBx/SmTO6G0XNm6UluMmO
-	 mbjpja/m5YubsEpIq3f4VBLyn1XKlpAftDbdJBLVykuqgI7qIdx9xakMtjN5Umx2FLe1a
-	 /RqKgAHemEsevYdweLON4ExBAlfR+H65tZbHW7AsnCOGIvsk+CVY8VxmVeCpnLLNROFbE
-	 i+IF1ZL/SN39OmByaZG0pRLJGt7wzVjzrJdZtMVfdm5oVhxcGdKXvxA46V7vOqq2eJw==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=bootlin.com;
-	spf=pass smtp.mailfrom=bootlin.com;
-	dkim=pass header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SrrfR7Zc;
-	arc=none smtp.remote-ip=185.246.84.56
-Received: from smtpout-02.galae.net (smtpout-02.galae.net [185.246.84.56])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795680485;
+	b=yOmljuvYArWwCNvEOuMnEu3bL61Ks6akp2AwAqGaZIxtJfA7WfVWcs9hSTRXNeK8CsDu
+	 3yxwBk9ERN871clTqoBmxHk1Acuydf1mZVAuTpQw/wKHoPmr32oTg12nUVYWd6fKq+Dby
+	 edRchXh8YVK949b+7ffAw6AWzXRM3c1qqd3I6uEQaTT64gkCALZHbHZIuhiZqbm3I7EGI
+	 BQS6OOdB/+TX5+qSVTYUmsb3NjnHtjiWeJotyTKfOMJFFy9vwupfTQOUh64dYUPIiPegc
+	 YYvdk4gVGX2S6h+dx5gGsEXE/NKX9k7WxxK1dn9b/Mo53EuEUZmcQip5pb9dlNy//Nw==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795680485;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:From:Subject:Date:
+	 Message-Id:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	 X-B4-Tracking:X-Change-ID:To:Cc:X-Mailer;
+	bh=lxKcCoDZx/gqVTq1dzs2u8Ielc5pPpYIq3Edy4HmxHQ=;
+	b=z528e3ONAx0PnTs3ca77tLra5iJeX2NcZmfRhwGHlq/gliX7FHyA91G5mDb7kr1AQ8Wz
+	 Anm0uNu35MwlqzZ8sL8rqww2hIWhr8hdtCkMNeFSQR07E4z6AvHedYco2ijxPIrhjSkMj
+	 PXxwCYgiS9bVnS0qPPcuNeThpol2avNKmhAmobRP6ZgaMvAC78MGhz5jF5+stK/giE2mH
+	 y93GkTpvwEDraqEErzq9/VsBa/TKgUTmpOCm9A0Xkv8cHZRXj/Ds1SKtml2hcuABFoHV4
+	 e6wuFHTb+gX/MH8gfx4Y22X2CYg/rVeqh79LlRIQXAJNYavdP6asNOwciaB8JfwsXNA==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=none header.from=pengutronix.de;
+	spf=pass smtp.mailfrom=pengutronix.de;
+	dkim=pass header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=SyWK7dQo;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=185.203.200.13
+Received: from mx1.white.stw.pengutronix.de (mx1.white.stw.pengutronix.de [185.203.200.13])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 0813A606A323
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:07:04 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 0813A606A323
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=bootlin.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=bootlin.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 82D87606A321
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 08:08:03 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 82D87606A321
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=pengutronix.de
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=pengutronix.de
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=bootlin.com header.i=@bootlin.com header.a=rsa-sha256 header.s=dkim header.b=SrrfR7Zc
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 146111A1814;
-	Thu, 26 Nov 2026 08:07:03 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id D193F60237;
-	Thu, 26 Nov 2026 08:07:02 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1694B11E6B27F;
-	Thu, 26 Nov 2026 09:06:55 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1795680421; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=OchicsanssR3AdJ00LY+3McNXqSzaIMckCwuyN0twwQ=;
-	b=SrrfR7ZcuX6e8a0vz/8yqbuzwyHlo8IAOY99nK7EZ4yitmDBz+ys/kSQlnNBI08XaLGEp0
-	hyr5DkipP6U1pY5olD/YICFVF55Qy96f/N/JEm4q7an5IsYpgVSJsgvejTnW8WL77sqEjc
-	ohmJhf8qGOjYK3FqBPqqr7OopELWOLzrrhWpEo2WwcmoLXkAVq4vzUUi3EP+gpmehfqBRR
-	Lg+RlnQizk4xVkEhtKOi5RGFMZ8r/hPo4SlZH1LymmR0E2VqwgYUT7LIi3dmShVy14ZVM8
-	5M8t2vxicrCABrEDvXJlof+0fT8DoENlVmgMT1iuvs/SncHM2gHPKlnc+J6A6A==
-Message-ID: <544205c7-7590-4a6a-8abb-0199768ed283@bootlin.com>
-Date: Thu, 26 Nov 2026 09:06:54 +0100
+	dkim=pass (2048-bit key) header.d=pengutronix.de header.i=@pengutronix.de header.a=rsa-sha256 header.s=20260414 header.b=SyWK7dQo
+Received: from dude04.red.stw.pengutronix.de (dude04.red.stw.4.pengutronix.de [10.17.1.12])
+	(Authenticated sender: relay-from-dude04.red.stw.pengutronix.de)
+	by mx1.white.stw.pengutronix.de (Postfix) with ESMTPSA id BBCBF201223;
+	Thu, 26 Nov 2026 09:08:00 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795680480;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=lxKcCoDZx/gqVTq1dzs2u8Ielc5pPpYIq3Edy4HmxHQ=;
+	b=SyWK7dQoYgwOqSnF5g9EEMTWI/3moeNbZZ8+QkQdOrgtOWLVlbcBFtD8vMz9JcNBanZaRe
+	R5pT8IvSoIZ62KDwrA8usJ2YTFPpqSl6DljTw2Shs1M6un91W6KavyrZpcLx+8ZvScf8n8
+	vkNMv1ouZLP/FMk49z2Kn1+TCtNmBdugc5TvgNuzfher55we6t3mJFlXxctb173dDUVHjR
+	tb8RLZ2os47vNUWA6tvgrhmuiDuNS47tvcvkt2lmeOxxK59uPUQ0GDSDCEbaeSp0x1p5Wq
+	56rGnxpDdaVvIWa1M0Z10JJq+bCVSONqYpjzUnbyHlHLZ4ESX3ZH423FZgDBEA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=pengutronix.de;
+	s=20260414; t=1795680480;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=lxKcCoDZx/gqVTq1dzs2u8Ielc5pPpYIq3Edy4HmxHQ=;
+	b=Ojmquze82debA/t7vZ5630abEQHQTcwCc9gSUczJSRsOUjE01P3dXSGOFZyEzDtHSwyrdJ
+	XoW86kVFBJuonAAwvg1TZ8rgvgrDZXMvejHd76ZJBiZ1mqjmvUv7rSG9roel8q0H/gT7qE
+	ZEIc7FXiATbd0TbxXKYkJMsAAtsVUKLdwUHMATye8f+B7jnd189GwnQ6G3jQU4j2/C+GWj
+	bYWfWWC6jvfGOqH7Z9uieaH7dfjI6fK+vBEsMbGHU/klXIC0f9R1fDau1ye0VqF5KdIy57
+	IieOhb6xTgNEHDtkRgYx6cHVuplgr6M5332Q4/kjCyuJjBEWmBHjC2x5XuE7RA==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=relay-from-dude04.red.stw.pengutronix.de smtp.mailfrom=ore@pengutronix.de
+ARC-Seal: i=1; s=20260414; d=pengutronix.de; t=1795680480; a=rsa-sha256;
+	cv=none;
+	b=DuPM5b8H/jePIohszo11W2LP1E9iwREuKI57AnmnS/lTVNFP+a/SSzwnY70qaH5rhI6m3/
+	gnWtxNYGPwHX/HTFNu3Exh6rqWxzNgJZz4uIpEku6phJZwcGvNgQkpG7khMTyVsMD5BzGm
+	pCUD6yf0e5p4sxNco5gy+bG0Otgd+6OhrTVjbMdNs1R7YDSRqCG0zC7aNMDca8tHAaChp7
+	NQfgDhHpKZe5bTk8NN9fcRF3mFuWWDGuXbmfTmR5vZnMGFGpLH76uJAPXk0RO59h94758y
+	xTYB1Ft5MV3rePmKCADERfkWEBRwoU7RIVB427iouz6cNfftPnJe5oR419sNXQ==
+Received: by dude04.red.stw.pengutronix.de (Postfix, from userid 1058)
+	id AFD5B3802F3; Thu, 26 Nov 2026 09:08:00 +0100 (CET)
+From: Oleksij Rempel <o.rempel@pengutronix.de>
+Subject: [PATCH net-next 0/5] net: dsa: microchip: let the bridge decide
+ about link-local frames
+Date: Thu, 26 Nov 2026 09:07:47 +0100
+Message-Id: <20261126-ksz-stp-link-local-v1-0-39aed15f6271@pengutronix.de>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -62,83 +85,90 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v5] net: stmmac: program the FSM timeout timer
-To: Zxyan Zhu <zxyan0222@gmail.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com
-Cc: netdev@vger.kernel.org, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- rmk+kernel@armlinux.org.uk
-References: <20261125111929.3395740-1-zxyan0222@gmail.com>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <20261125111929.3395740-1-zxyan0222@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-B4-Tracking: v=1; b=H4sIANToB2sC/zWMQQqDMBBFryKz7lCNJGCvUrqI47QOxlGSIFLx7
+ k0LXT7+f++AxFE4wa06IPImSRYt0FwqoNHri1GGwmBq45rGWJzSG1NeMYhOGBbyAS3Ztu0cUed
+ qKOIa+Sn7L3oH5YzKe4ZHWXqfGPvolcZvdPAbz/h/XGcvCuf5Acts/h+UAAAA
+X-Change-ID: 20261125-ksz-stp-link-local-5c53396cc960
+To: Woojung Huh <woojung.huh@microchip.com>, UNGLinuxDriver@microchip.com, 
+ Andrew Lunn <andrew@lunn.ch>, Vladimir Oltean <olteanv@gmail.com>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>
+Cc: Simon Horman <horms@kernel.org>, 
+ Florian Fainelli <f.fainelli@gmail.com>, 
+ Nikolay Aleksandrov <razor@blackwall.org>, Ido Schimmel <idosch@nvidia.com>, 
+ netdev@vger.kernel.org, bridge@lists.linux.dev, kernel@pengutronix.de, 
+ Oleksij Rempel <o.rempel@pengutronix.de>
+X-Mailer: b4 0.14.2
 
-Hi,
+Let the bridge decide about the link-local frames that the KSZ9477
+family and LAN937x trap to the CPU. These switches trap most link-local
+groups (01:80:C2:00:00:0X, for example STP BPDUs and LLDP), but the
+tagger marks the frames as forwarded in hardware. So the bridge never
+forwards them to the other ports of the switch, whatever group_fwd_mask
+says. An FDB or MDB entry for such a group can also make the switch
+forward these frames on its own.
 
-On 11/25/26 12:19, Zxyan Zhu wrote:
-> stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
-> MAC_FSM_ACT_Timer register.  Per the databook the checker only fires once
-> NTMRMD is programmed with a non-zero duration; NTMRMD == 0 disables the
-> timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
-> never reported and the advertised timeout protection is ineffective.
-> 
-> Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
-> TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
-> 4s timeout.  4s is chosen because a PAUSE frame with the maximum 0xffff
-> quanta stalls the transmitter for about 3.36s at 10 Mb/s, and a shorter
-> timeout could wrongly report a flow-control stall as a stuck FSM.
-> 
-> The NTMRMD field holds a power-of-two microsecond timeout per the
-> databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
-> 16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
-> 4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
-> 
-> The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM was
-> not reported through the safety interrupt despite TMOUTEN being set.
-> 
-> Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+The tagger now leaves these frames unmarked, and the driver keeps FDB
+and MDB entries for them out of the hardware. As the bridge then sends
+some link-local frames back out through the CPU port, the switch no
+longer learns addresses there; DSA adds the addresses that the bridge
+learns on its other ports, such as Wi-Fi, as static entries instead. An
+old FDB bug hits these entries often, so one patch fixes it; without the
+series it needs a static entry added over a learned one, so that patch
+goes to net-next with the series. The series goes to net-next as it
+changes how the bridge handles link-local frames.
 
-[...]
+To reproduce on a KSZ9893, with link partners on lan1 and lan2:
 
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index 00be2df63d22..659f5db528d3 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
->  	u32 tmouten;
->  };
->  
-> +/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
-> +#define STMMAC_NTMRMD_1US		0x1
-> +#define STMMAC_NTMRMD_1MS		0x2
-> +#define STMMAC_NTMRMD_16MS		0x3
-> +#define STMMAC_NTMRMD_64MS		0x4
-> +#define STMMAC_NTMRMD_256MS		0x5
-> +#define STMMAC_NTMRMD_1SEC		0x6
-> +#define STMMAC_NTMRMD_4SEC		0x7
-> +#define STMMAC_NTMRMD_16SEC		0x8
-> +#define STMMAC_NTMRMD_32SEC		0x9
-> +#define STMMAC_NTMRMD_64SEC		0xa
+  ip link add br0 type bridge
+  ip link set lan1 master br0 up; ip link set lan2 master br0 up
+  ip link set br0 up
+  # 0x4000: forward 01:80:C2:00:00:0E
+  ip link set br0 type bridge group_fwd_mask 0x4000
+  # Send frames to 01:80:C2:00:00:0E into lan1. Without the series
+  # none reach lan2; with it, all do.
 
-This whole patch starts to look good, one last comment, sorry I
-didn't spot this before. Can you put all these definitions
-in the "common.h" file in the driver folder ? These are some
-register values (same on dwmac5 and xgmac, but still), so they
-should go there.
+With STP off, the bridge now also forwards BPDUs between the ports of
+the switch. IEEE 802.1Q says a bridge filters frames to the reserved
+addresses, including the BPDU address 01:80:C2:00:00:00. The Linux
+bridge forwards BPDUs when STP is off, so that other bridges can still
+detect a loop through it; see commit a598f6aebea2 ("bridge: relay
+bridge multicast pkgs if !STP"). DSA switches whose tagger leaves
+trapped or link-local frames unmarked, such as mv88e6xxx and b53,
+already behave this way.
 
-With that changed, you can send a new iteration with
+The switches driven by ksz8.c (KSZ8463, KSZ87xx, KSZ88x3, KSZ8864,
+KSZ8895, KSZ8995XA) keep their behaviour; KSZ8563 and KSZ8567 use the
+KSZ9477 code and are covered. The ksz8.c switches have one static MAC
+table. It holds the trap entries, the FDB and MDB entries and the local
+addresses of the bridge, and on the KSZ88x3 it has only 8 entries, so a
+change on the KSZ88x3 can run out of space. Of these switches I can test
+only a KSZ8873, so I left them unchanged. Their taggers still mark all
+frames as forwarded.
 
-  Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Tested on a KSZ9893.
 
-Thanks,
+---
+Oleksij Rempel (5):
+      net: dsa: tag_ksz: do not mark trapped link-local frames as forwarded
+      net: dsa: microchip: ksz9477: do not keep the learned port in FDB entries
+      net: dsa: microchip: ksz9477: do not learn addresses on the CPU port
+      net: dsa: microchip: ksz9477: refuse FDB/MDB entries for trapped groups
+      net: dsa: microchip: ksz9477: report the trapped link-local groups
 
-Maxime
+ drivers/net/dsa/microchip/ksz9477.c      | 81 +++++++++++++++++++++++++++++---
+ drivers/net/dsa/microchip/ksz_common.h   | 14 ++++++
+ drivers/net/dsa/microchip/lan937x_main.c | 16 ++++---
+ include/linux/dsa/ksz_common.h           |  8 ++++
+ net/dsa/tag_ksz.c                        | 42 ++++++++++++++++-
+ 5 files changed, 145 insertions(+), 16 deletions(-)
+---
+base-commit: c2621b518b38ed38e280e008aa33e6c2d302f8cc
+change-id: 20261125-ksz-stp-link-local-5c53396cc960
 
-pw-bot: cr
-
+Best regards,
+-- 
+Oleksij Rempel <o.rempel@pengutronix.de>
 
