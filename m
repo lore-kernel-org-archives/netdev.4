@@ -1,96 +1,62 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.61
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795718127;
-	b=J3/8LQ1XnmLi7B7rIy+LaXTz9gPk7F0fboKoqr0wthNJGkhvwsXzHxAOR4vomwLrQnJ+
-	 OP6APbXiQ2bwhwVLKCIfMT0sKUOtmEcBbRz/szgCRGmcSTQYK917+r9XQKDvMNYf0h6N6
-	 iTDtEe70V1uNTxh6PQhsILLzPbPYmBAt73tXpxgRGsm4Gwi/yTxjttsBOjoiFse+MsW4K
-	 dBbXJVJ4sVfm/Svii48T+/BlaUKTNSa3IW71VWYaZNorunyvuWLlv2bxC5okW7TFPHWDk
-	 cmE1Vu0LCk/gkNIfm/WOJ7leilh2PkOROTzrzlckpjkNvMH/s2dIcy1Vv2HtqvcY17w==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795718127;
-	h=DMARC-Filter:DKIM-Signature:Received:Received:Message-ID:Date:
-	 User-Agent:Subject:To:Cc:References:Content-Language:From:In-Reply-To:
-	 Content-Type:Content-Transfer-Encoding:X-ClientProxiedBy:MIME-Version:
-	 X-MS-PublicTrafficType:X-MS-TrafficTypeDiagnostic:
-	 X-MS-Office365-Filtering-Correlation-Id:X-MS-Exchange-SenderADCheck:
-	 X-MS-Exchange-AntiSpam-Relay:X-Microsoft-Antispam:
-	 X-Microsoft-Antispam-Message-Info:X-Forefront-Antispam-Report:
-	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
-	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
-	 X-MS-Exchange-CrossTenant-Network-Message-Id:
-	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
-	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
-	 X-MS-Exchange-CrossTenant-FromEntityHeader:
-	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
-	 X-MS-Exchange-CrossTenant-UserPrincipalName:
-	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
-	bh=dtNGikoQZBwXBTRU0hKkPA0/G37rLWHt+tuMUfY3VC0=;
-	b=datZNokkAq4mNGsvQZQ6Fz2OYRIe0+ffhPyOSNbh/Z3DJ6XSyKiSfmEjPUMJG8ceGil8
-	 b+5NrJRqVQb0u4LsTzRdEXCY+QHiRKCPq/bijNvjXTXLLtzGvp10/653m35eoqqV1cgoP
-	 2nwSN/3UK90BMQa5aWwlGux/9tG8mtgTsj3LR2mC9nhZg29jXpzNz0heTYvnjSXWZpKWB
-	 t3uQIVqNjCMC6WKelzLG25ZpkEuOe4mWXNMQqJN/SDg8KXkBWwzA48EfaELG9LOb7vA21
-	 HDYmqRKdG4ux7MJ3/+lDglN2hBJFoBcmwizNsySJJtjq5ngFH9NK3LvvmXCzmy9pPaw==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=nvidia.com;
-	spf=fail smtp.mailfrom=nvidia.com;
-	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uqwR9ZaT;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.61
-Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012061.outbound.protection.outlook.com [52.101.48.61])
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795718394;
+	b=MSctGsE7UjU84/bnHdIJD6XrPJ7Ew6/gkZ6FhyvsS6IcSN/N03nlXjT1IuPXk3OPIESF
+	 ze2EEiwX8GtDOtYbEECSVr1X4C9rDSW1yL5VGw3QCFPIaiWOeqFdWEyNxaZX7lACDtXW6
+	 GCik/NCFA8y5AN0JNRteUd5XqVF2aXyVHiRYo40W5qxFrPvhSgr2dcaAIbFxWp3VCku3z
+	 n8bIxEeRuhrdFk9dxWIQJx30dqoU9liBo+oUpimN2SxQdgVlkDXiLeCOLTYJqSwSN6LpU
+	 OcOiNiwJkiVKyAF1tZei6JEOz7NVoXPaDDrxYU60VGIKQX3Vajyt1xy7V+YR7+E5/1w==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795718394;
+	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
+	 In-Reply-To:References:X-sashiko-severity:Content-Type:
+	 Content-Transfer-Encoding:MIME-Version;
+	bh=YSTzqRwhJELRsBttl0aXsnSnkGgl9o+9N6c89t9SOdc=;
+	b=eR8bjzs3CnQTepoAx5i9GfPgmWP4djP4qSSM7Ja4zituHBKjifD7cJUlMFdbwtUfJr8H
+	 gI3W0Xogz3WuuNCNA1KyoAKkIQuwxqOP4py2cslo67Z497VBYBuPj0uGYj2UPKN1P3AzY
+	 E6DKYxONyZEwnQTK0YS3mbjbHRsH5830tyz/x/uRKKHQxvh88pObBGRsorpqaTJTTJEPa
+	 wp4Ta3WeCMhyM/0pDh2tKAntsF2df8IRqiC6wVMsw9NbaxT/sEiBvTfbSrSRxTozvMX+k
+	 i0YpV4jw22BQ/VraWDDoHUn7xPv3jOZcN/QHxLWzLih1ZwjbmkeHSmYZ4tyNQX2g6DA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UdwaDnjP;
+	arc=none smtp.remote-ip=100.103.45.18
+Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
+	 key-exchange X25519 server-signature ECDSA (prime256v1))
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 54887606A31C;
-	Thu, 26 Nov 2026 18:35:27 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 54887606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
-Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 12AE7606A31C;
+	Thu, 26 Nov 2026 18:39:54 +0000 (UTC)
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=uqwR9ZaT
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wEXKW2g6C5Sp6W7vs7vz9hxNPpc88XpfufOHv1FgpkAyn78oZ4xjqf3E+ee0VelHHZbLcRqKRNWU5Fkkr3WKv0MxLFpXZN8ENQZ1Q+wY+BGINQ1u8+mjgKWoCwqEkNAzOTwchugr/ZMe4lX12c8OkKHRuSxzH2gT/Fwqo93wt+Pdp39Ep4AhP+ZDEOhOrvs8OO+80gZUusd+r+rodMYoUkOg7FZUT3Ia9EEpLxsZttXqSSMtIJHlfZYhxdpP6engeAu0mjX3iRAY5cIyyKL0LAh7gchrgRecTlkl/vMaDiuH253kv/VsC0uNUofl3t8YSYiSvB9S9J8/B3LYuE93Yg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=dtNGikoQZBwXBTRU0hKkPA0/G37rLWHt+tuMUfY3VC0=;
- b=Wl4oZMkxSOzHwwlthWlebl6+EpgtWZIE6nCAg8oJwxdgrEU5BmxUrjoT7RkID5OZvu3MZaZClgOHs22KwwlOBnnWE9MO/i58w1Nt7Rn2ITRLuXLqDYwaShVh+q0vbHiC5+kajl/ERdWBnDKmMRpFz+YtcZQVqNIDq6eUnO2TwIm/VXPB7rhGOpTHVYY8QtITjs433qynFT4YFoQGy6vBTr/gcpXxQx7KGfgNHeszHjciCVjf8crf3bxrRxhT4/xVEsRCMFDMRkM9pRC8dAA1UpzEU48M+fur8U7NqaYaNlYuT5bYZPSqqsu9vhCeU1kK6TL0meI84oPhJIgxOkeosw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=dtNGikoQZBwXBTRU0hKkPA0/G37rLWHt+tuMUfY3VC0=;
- b=uqwR9ZaTLg+wc/RhYibvG4qy3uayF1TCi2B39oz01HOzq/1zmIBVLh3ngAVKGOaLnKgjkI0VDewzEu5wrv8CkA2QU6Hsf6wseDMlmA0C2DzpjuoJLEy/309JNAe9oeig2qym0Wdw6q/SjJ413sT9EqTnpqZra3RQ2aWdiCLMS+cYbNrA5WLkiK3Of+qSdKx2Xw3chSPnJtmGta3xpBHno2/YQ+VEGvEjr6p23AbiAxIb8k90t3r64AUGFxSP/1akdNFujwUvKug29QUM+HgneX7mQq7g7Lbk6OSYbq+dQo4xG+Icp3JVeEA4Um9zUD3ZihsDVy1NX20YxTCLxr9i3w==
-Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com (2603:10b6:806:94::13)
- by SJ0PR12MB7067.namprd12.prod.outlook.com (2603:10b6:a03:4ae::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.6; Thu, 26 Nov
- 2026 18:35:23 +0000
-Received: from SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c]) by SA0PR12MB4367.namprd12.prod.outlook.com
- ([fe80::2815:8a95:1a44:be1c%6]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
- 18:35:23 +0000
-Message-ID: <3680bfc9-8309-4eec-a35a-217eada75ae8@nvidia.com>
-Date: Thu, 26 Nov 2026 20:35:20 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] net/mlx5: Free the table after storing failure in
- mlx5dr_domain_get_recalc_cs_ft_addr()
-To: Wanhui Fu <fuwh1120@163.com>, saeedm@nvidia.com, leon@kernel.org,
- tariqt@nvidia.com, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com, kliteyn@nvidia.com,
- muhammads@nvidia.com
-Cc: netdev@vger.kernel.org, linux-rdma@vger.kernel.org
-References: <20261126132229.4028110-1-fuwh1120@163.com>
-Content-Language: en-US
-From: Mark Bloch <mbloch@nvidia.com>
-In-Reply-To: <20261126132229.4028110-1-fuwh1120@163.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: TL2P290CA0012.ISRP290.PROD.OUTLOOK.COM
- (2603:1096:950:2::16) To SA0PR12MB4367.namprd12.prod.outlook.com
- (2603:10b6:806:94::13)
+	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=UdwaDnjP
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 174701F000C0;
+	Thu, 26 Nov 2026 18:39:53 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
+	s=k20260515; t=1795718393;
+	bh=YSTzqRwhJELRsBttl0aXsnSnkGgl9o+9N6c89t9SOdc=;
+	h=Subject:From:To:Cc:Date:In-Reply-To:References;
+	b=UdwaDnjPGZvf8z73Rf0Dsyl1eO9t1u2CZq+QPxqNMz6P8icWAyxOcT3CgZt5DobFg
+	 T0TJcK4TCh8QfpreXQHh3aOUmOEDq/LZZ8IrWd33hyxVRkOFHVRA8EySgwf3JWga8h
+	 NiJNRBheXyUnpNThBwUuqShPUidg+Xg+f+OjAcJKCclS8yQp6oNZw5nhYpsfIBeOJM
+	 839h33IXwnz8sB1GtEc8bXGPlxdpu01KamUHYxv0+VaPbos02oZEyMrzXwimnl9OJq
+	 V3sJ6+1NbO7Z8zjvURLXbo3D2G6wwjC6/9YbJrexCyAydwSF8h0KvUZIolEkXruvj4
+	 1HRx0zqE8ls2g==
+Subject:
+ Re: [PATCH net-next v6 3/3] net: phy: dap8211r: add PHY LED control support
+From: netdev-bot+sashiko@kernel.org
+To: a.shimko.dev@gmail.com
+Cc: andrew@lunn.ch, hkallweit1@gmail.com, linux@armlinux.org.uk,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ maxime.chevallier@bootlin.com, pavel@ucw.cz, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-leds@vger.kernel.org,
+ netdev@vger.kernel.org
+Date: Thu, 26 Nov 2026 18:39:52 +0000
+Message-ID: <179571839263.3135.10510245952431569206@kernel.org>
+In-Reply-To: <20261125183742.3039752-4-a.shimko.dev@gmail.com>
+References: <20261125183742.3039752-4-a.shimko.dev@gmail.com>
+X-sashiko-severity: Medium
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -100,104 +66,176 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SA0PR12MB4367:EE_|SJ0PR12MB7067:EE_
-X-MS-Office365-Filtering-Correlation-Id: 793ca73e-019e-479d-a1fa-08df4bec085e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam:
-	BCL:0;ARA:13230040|1800799024|366016|376014|23010399003|921020|261026121527099003|10067099003|11063799006|56012099006|261009223027099003|261021121427099003|261021123027099003|261102123227099003|261026140227099003|261028144727099003|261022105027099003|18002099003|22082099003;
-X-Microsoft-Antispam-Message-Info:
-	z21XsEg3D0afXGJ+M60HRmGYbdmOXN071Y6suILy3P2fj3VxNzEGAf3dYYiUdrYnkzVkdBFjqE6r+NLH5xbT85979PbeAqx3DKdYTGr0AJpFPzy3mck4pyu5d9WbBfKy3c1lQBXkUqb/a39AOzaz+iFjb0AhCvrzFxXNmqB4CNwRS2KU4FvZVhnqci/b0H/5zuV+rDW8sD0boF0lxaQpYiarBwcDzPDUPE1rkOg+HKYzWzHZ+Flp1KFYcHrbIwfmyD128kMNFUUVTh8JooG/oyPFZp80POopM2Qc0EgSrqmdW7HlIt3saCBGi8th8RrX37R5f17KBs8UUPG8bwW9RLuT49fEu1D6xKB6GL0NiD1laCdEp0simHUXlsQgpMWidDbw2Gfr3zZXMEs+iRgwpkf4bH4L1+2OS1IsimuLaC94BNgfTPcTDIk0UBBaRW5LPaGafjv6R2sSQiM7tMbWFb8xPjS0Oo3JFtpFa2AYcoOo5pVqDgI0FKqUaPPW1n7L5fah9O+Ou13nx8oSvy7T+iiicKYi1A303kvaQpB/XA9drA7tkmqLtfUCprxE01jRLqsqmdwIEMiTcZac2pdpeH2uQpO1w4pmJcMjLOyacSt8PS4S+yXq/SuZ36Qq+SZqx7iuBNUu7WoBG4d0t3guOm9cx73gEvYcGWc6YXnSP4J8hG0mbimox/CkDcPSrU+mq5iM9DnuxFVkPmfV/JYZ5A==
-X-Forefront-Antispam-Report:
-	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA0PR12MB4367.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(23010399003)(921020)(261026121527099003)(10067099003)(11063799006)(56012099006)(261009223027099003)(261021121427099003)(261021123027099003)(261102123227099003)(261026140227099003)(261028144727099003)(261022105027099003)(18002099003)(22082099003);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0:
-	=?utf-8?B?ZTlSazlNRnJtWnZqQjU3RUR6bkg2NTZMVUt3WEoyY051a1RVMlFxdFJRN3lX?=
- =?utf-8?B?RW5uSkVNNU0veUFibFgzSGNucDNUTUNKemxSSEdZbXdvRVlWcXVSUFl5d3M0?=
- =?utf-8?B?blA5b1B1RW50cHV2dDJ1aUkvVGhlU3htcTg1a3BEdzU3K2VSa3BCRkMwaEM5?=
- =?utf-8?B?L091S2pJRzJUWDdtcmplaGV1MG84Q3JScm9DYm0rY0YwOFVMNTB1YkpwYTVh?=
- =?utf-8?B?c2VkZ3FpcHRkWkhFVlltN3NrdmYrNmFFYmhINUNuR1NsSm4yK1p0UmRZMmgr?=
- =?utf-8?B?VnYxbE1IRTI2U0tBeHczRGt0SGIyd1M3MUpIbm0zQW92QXdJVDRUNDd4NGFR?=
- =?utf-8?B?QUMyV0FqWkNFa20xZGp0S3ZSMFVhSURPVEU4dy9PTjVpT0NHUmN2VzQ4cFpV?=
- =?utf-8?B?TnQxcmJnTTE0YzNrWHV6YTFiWW5EQ2ZONXhZVDVNNWNjQTRvb1A4R0F4b3Iv?=
- =?utf-8?B?TElvUlVlalZ5MGRva1lMZXpTRitFcHNCdFZJSWhCSE1MSWtrRVZ3LytQdWIw?=
- =?utf-8?B?R2hDNzVQK25lV20zNmx0aDc0dzlXVjgvQ0duSm9SUEVhL01QNjVmTzJ6bVVu?=
- =?utf-8?B?Z1pGVUM3M3BqYVhLNURjSEQrWWFvSHZIeFRndktjZTVsZS94QUMybm4zVVFi?=
- =?utf-8?B?NFUweU9zdFdMM2pjRDlpNEViOWFMRDM3Mmd3WFJaaTMzUEd4aWEwODgxSjIy?=
- =?utf-8?B?c3Q4TDNOQVlyNHg4K0RnZGh1Z2tNREhjaEpuL0tnZVVNVmczdE41MjNQS2c4?=
- =?utf-8?B?UFl2VWtpY01mbzZyVnVLUzhlNjJNWlNQQTFTWDQ2cUVhQjNvKzFsKzFTLzEx?=
- =?utf-8?B?bSs5eG8vem1HUWdnMVoxZnNESUIvSzQxYXhmTmZtamlOYXNxRnVrNkRoeFhj?=
- =?utf-8?B?U2dmRTVQendCOTkrNHZab09JQ1NoeHNPM1J1NkZCNllUV0Y3THlVcnU2eUpR?=
- =?utf-8?B?c1B1cWtIdXRvcFVCV0ZTZFBVSjBoN1ZIRGo5bkFqUjdTZUkwaHlGYkEyYlJj?=
- =?utf-8?B?amt1dHNHeG9hb2JlT2Rjckk4bnJFWnRKV1QzdmIvZGNSZ2xraFRiNnlmQ1NW?=
- =?utf-8?B?bjBiN2tGV3phelZNZzBsa1IyeG0xUDErVjcweTFDR3FrNmdXZlpCdWpPRHlZ?=
- =?utf-8?B?K1RIK2ZzQlhjY0NmS21YakxrQ2FxV2NES3huUnpaS0svaHJWZDNubERKMm9P?=
- =?utf-8?B?KzFsb3VUY1ExTm14ODJpbjlDeThvNjl6UXY0QWFpVnhQQVZYUFlWYWNWMld6?=
- =?utf-8?B?elBid1pjV0JtTmovb0tiQURQZFRFOEFLSFU0TWZ3eHNuWmpwTjludW81bHo5?=
- =?utf-8?B?c1FkNXZsVXNienZRSkVVV3ZOdmc2QktJakRUUDRmSk8zS2tvVlVDZmVxSkYv?=
- =?utf-8?B?YXYrTEcyRWQ4ZTlkemVLYzVCb0IwcEwvRHhKTUtWeDBQM3JDZUZTUVZxajBJ?=
- =?utf-8?B?cWtMSmtBbG9nOFltTlJoaVdpcmY5b2RLTVA5Qy9aTTFaZ29ERnJUZlQ1V1ox?=
- =?utf-8?B?c3ZoeVZYdUZxYjdzclBueklnSzgxVVluUTc2Mi9PcEovTXErL0YvVXA4VzNi?=
- =?utf-8?B?UHF1T0NQL2d6NVF6aVJzZWhTN28rb2oya05kZkhwQTFndnVXNU5uZWs1MUd2?=
- =?utf-8?B?cjV1TEsreTY5N1Ara3NkdUVZenp6K2N4anZZS2dxclFJNmhUK0FGTllScUl1?=
- =?utf-8?B?Wmhkakp6OWE0d1BnWTNjUEx2a2NkajRkWGd4U1cwb1hZQ1psRlZWNmZjZklG?=
- =?utf-8?B?MnhCTm91RWIzN0ZPamx3Qk54aURtTk4xbVNzRUdISzNkNkwzOTJxTG1iVWNH?=
- =?utf-8?B?S0luai9wVUl3eEJxRXRXV2QvR3hFVEZRbFJwcmFTcFFqZHpnMjV4WitSVnpI?=
- =?utf-8?B?MXZ3VVZROU9lQjc5QlBNMlpPb2lieEhCYVJoc3F2KzBSbjJ4KzFvbUNmcXJz?=
- =?utf-8?B?Zk0xS1BSdXJlQy81TWRKUE9ObDFpTVRlemo1QWllQTJoS2p4Sm9sbXB6cnYx?=
- =?utf-8?B?T0JWZmRRbjhaSFFNRWl0R05vRnozdjMvbUE1dVl5SkVvSnhBbERlZGV5UDlT?=
- =?utf-8?B?dHlyb1hDUURyZnFWVDRhZ1RlWlJDcTV0QUhvTFFrRjdEVDhDUktoc09VTThX?=
- =?utf-8?B?YVBYek5GTm1TYzFtUTFiZ1VwTWdSSUpXcTh1UDdMakxsWGNlMzBndUNxZUto?=
- =?utf-8?B?bGMweE4yYnJkWFpKQ2dKN3gyWUFwUHlwQjQrZE1zQTQraTVzdTdKbU5acEg0?=
- =?utf-8?B?eHMrVFZOZFl1OWdoQXFHb1ZVRm9PSDlHMHVSOVlLUkRXeWFEMXJiQUZPRmNs?=
- =?utf-8?B?SHhGMnZSU1RpTzNYcmkva09XMFRuNFBjNlducDAxWDhEcUI5YWpzZz09?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 793ca73e-019e-479d-a1fa-08df4bec085e
-X-MS-Exchange-CrossTenant-AuthSource: SA0PR12MB4367.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 18:35:23.6361
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: h33xhP0e+ZItpshrnYvXOmSeEW+r3bM740BDqGvdfOTFXG2KTUlNdYLftuioo4ue2zpEVXPXvrICIWWY0SBTfg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB7067
 
+Thank you for your contribution! Sashiko AI review found 2 potential
+issue(s) to consider.
 
+Critical: 0 · High: 0 · Medium: 2 · Low: 0
 
-On 26/11/2026 15:22, Wanhui Fu wrote:
-> If xa_store() fails, the entry recalc_cs_ft has not been stored in
-> XArray. Therefore dr_domain_uninit_csum_recalc_fts() would not destroy
-> this entry. Just call mlx5dr_fw_destroy_recalc_cs_ft if xa_store() fails.
-> 
-> Found it by a self-developed static analysis tool and compile-test passed.
-> 
-> Fixes: c0e90fc2ccaa ("net/mlx5: DR, Support csum recalculation flow table on SFs")
-> Signed-off-by: Wanhui Fu <fuwh1120@163.com>
+If you believe none of the issues are legitimate, please reply to each
+issue of Medium severity or higher and explain why the AI is wrong.
+If any of them are legitimate and you plan to respin, please let patchwork
+know by including "pw-bot: cr" as a separate line at the end of your reply
+(one such reply per series is enough).
 
-Thank you for the fix,
+- [Medium] dap8211r_led_hw_control_get() (drivers/net/phy/dap8211r.c:322)
+  builds its rules only from LED_x_CON (0xA00C + index, read at line…
+- [Medium] Speculative, because it depends on the reset scope of
+  DAP8211R_PHY_CON (0xA001) bit 15, which the code cannot show.
 
-Reviewed-by: Mark Bloch <mbloch@nvidia.com>
+--
 
-> ---
->  .../net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c  | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
-> index fedefb565a21..3747c217b61c 100644
-> --- a/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
-> +++ b/drivers/net/ethernet/mellanox/mlx5/core/steering/sws/dr_domain.c
-> @@ -87,8 +87,10 @@ int mlx5dr_domain_get_recalc_cs_ft_addr(struct mlx5dr_domain *dmn,
+net: phy: dap8211r: add PHY LED control support
+
+This commit adds LED support for the three LEDs on the DAP8211R PHY. It
+adds a dap8211r_write_ext() helper and implements the led_brightness_set,
+led_hw_is_supported, led_hw_control_set and led_hw_control_get callbacks.
+
+> diff --git a/drivers/net/phy/dap8211r.c b/drivers/net/phy/dap8211r.c
+> index 1fe20efd394d7..b029b53dc7ba2 100644
+> --- a/drivers/net/phy/dap8211r.c
+> +++ b/drivers/net/phy/dap8211r.c
+
+[ ... ]
+
+> @@ -114,6 +190,189 @@ static int dap8211r_modify_ext(struct phy_device *phydev, u16 reg, u16 mask, u16
+>  	return ret;
+>  }
 >  
->  		ret = xa_err(xa_store(&dmn->csum_fts_xa, vport_num,
->  				      recalc_cs_ft, GFP_KERNEL));
-> -		if (ret)
-> +		if (ret) {
-> +			mlx5dr_fw_destroy_recalc_cs_ft(dmn, recalc_cs_ft);
->  			return ret;
-> +		}
->  	}
->  
->  	*rx_icm_addr = recalc_cs_ft->rx_icm_addr;
+> +/**
+> + * dap8211r_led_brightness_set() - Modify the LEDs common control register
+> + * @phydev: PHY device structure
+> + * @index: LED index
+> + * @value: ON/OFF value for force mode of the LED
+> + *
+> + * Enables force mode and sets the LED to ON/OFF state.
+> + * It will be disabled when hardware LED control is requested.
 
+[ ... ]
+
+> +	if (value != LED_OFF)
+> +		set |= DAP8211R_LED_FORCE_ON(index);
+> +
+> +	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON, mask, set);
+> +}
+
+[ ... ]
+
+> +static int dap8211r_led_hw_control_set(struct phy_device *phydev, u8 index, unsigned long rules)
+> +{
+
+[ ... ]
+
+> +	ret = dap8211r_write_ext(phydev, led_reg, led_mode);
+> +	if (ret)
+> +		return ret;
+> +
+> +	return dap8211r_modify_ext(phydev, DAP8211R_LED_COMCON,
+> +				   DAP8211R_LED_FORCE_EN(index), 0);
+> +}
+
+[Severity: Medium]
+Will this LED setup survive the next call to dap8211r_config_init()? The
+driver keeps no copy of LED_COMCON or LED0..2_CON. config_init does a chip
+software reset and then reprograms only RGMII_CON:
+
+drivers/net/phy/dap8211r.c:dap8211r_config_init() {
+    ...
+	ret = dap8211r_modify_ext(phydev, DAP8211R_PHY_CON, DAP8211R_PHY_SW_RST, 0);
+    ...
+	ret = dap8211r_modify_ext(phydev, DAP8211R_RGMII_CON, DAP8211R_RGMII_CONFIG_MASK, set);
+    ...
+}
+
+config_init runs again from phy_init_hw(). phy_attach_direct() calls
+phy_init_hw(), so for MAC drivers that connect the PHY in ndo_open this
+happens on every ifup. mdio_bus_phy_resume() calls it too. The LED
+classdevs are registered only once, at probe.
+
+DAP8211R_PHY_SW_RST might also reset 0xA00B-0xA00E to their defaults. In
+that case the LEDs would go back to power-on behaviour after an
+ifdown/ifup or a suspend/resume. Meanwhile ledtrig-netdev would keep
+hw_control=true and its cached mode, or the LED core would keep its cached
+brightness.
+
+This depends on the reset scope of PHY_CON bit 15, and the code doesn't
+show it. If the LED registers survive the reset, this doesn't apply.
+
+Can the reset scope be confirmed? If the LED registers are cleared, could
+they be restored after the reset?
+
+> +static int dap8211r_led_hw_control_get(struct phy_device *phydev, u8 index, unsigned long *rules)
+> +{
+
+[ ... ]
+
+> +	led_mode = dap8211r_read_ext(phydev, led_reg);
+> +	if (led_mode < 0)
+> +		return led_mode;
+
+[Severity: Medium]
+Should this also check DAP8211R_LED_FORCE_EN(index) in DAP8211R_LED_COMCON?
+
+dap8211r_led_brightness_set() sets that bit and leaves LED_x_CON alone.
+The old rules stay in the register while the LED is forced on or off. Only
+dap8211r_led_hw_control_set() clears FORCE_EN.
+
+Consider switching the trigger from netdev to none:
+
+echo none > trigger
+  led_trigger_remove()
+    led_trigger_set(led_cdev, NULL)
+      __led_trigger_set()
+        led_set_brightness(led_cdev, LED_OFF)
+          ...
+            dap8211r_led_brightness_set()   <- FORCE_EN set, forced off
+
+In the same way, writing a non-zero value to brightness while no trigger
+is set leaves the LED forced on.
+
+Then switch back to netdev:
+
+echo netdev > trigger
+  __led_trigger_set()
+    flush_work(&led_cdev->set_brightness_work);
+    netdev_trig_activate()
+
+When the PHY has an attached netdev, netdev_trig_activate() does:
+
+    trigger_data->hw_control = true;
+    set_device_name(trigger_data, name, strlen(name));
+
+    rc = led_cdev->hw_control_get(led_cdev, &mode);
+    if (!rc)
+        trigger_data->mode = mode;
+
+On this path, set_device_name() skips set_baseline_state():
+
+    /* Skip if we're called from netdev_trig_activate() and hw_control is true */
+    if (!trigger_data->hw_control || led_get_trigger_data(trigger_data->led_cdev))
+        set_baseline_state(trigger_data);
+
+hw_control_set() is never called, so FORCE_EN stays set. hw_control_get()
+then returns 0 with the stale LED_x_CON rules.
+
+Does the LED then stay forced off (or on) while sysfs shows netdev as
+offloaded with link/rx/tx set? It looks like it only recovers when a mode
+attribute or device_name is written again.
+
+That doesn't match the kernel-doc above either, which says force mode
+"will be disabled when hardware LED control is requested".
+
+For comparison, gpy_led_brightness_set() in mxl-gpy.c clears the hardware
+rule register on LED_OFF:
+
+	if (value == LED_OFF)
+		return phy_write_mmd(phydev, MDIO_MMD_VEND1, VSPEC1_LED(index), 0);
+
+One option is for hw_control_get() to return no rules or an error when
+FORCE_EN(index) is set. Another is for brightness_set() to clear LED_x_CON.
+Would either of those work here?
+
+[ ... ]
+
+-- 
+Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261125183742.3039752-1-a.shimko.dev%40gmail.com
