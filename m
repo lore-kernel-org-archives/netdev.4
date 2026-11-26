@@ -1,102 +1,111 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.172
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795717429;
-	b=nZDhBhRi7r5AasaIOJP8ZiOXh7mr8tOwOcqeDY0aDIkdN/10owcqkChQWCIVt7MCxE8C
-	 /rsJUxDi7O8kN+SvKN0C/L5pDegkpoWzpSaYfU603ZbYnxIg1al32rh33/TcjVUaoMhf6
-	 7MFbuY6ARy/YjCwWlHThc+KEfi4b/QKj9f1YGVKhh8FqNG/QNQ8pOybcRvFYdlTGJNci/
-	 0saDT9+mCUuysVpTU4W1/q9HE8EgKbiSNhXz2/zqhdbR2VEpUhMbEY9X3N1zqyutol4/E
-	 GTW3WW22GeKcRqDufLf1axzwVa2bxnlV+MPFqf+FBM3MVUM/xYqt6fS1aNJiOIHk2/Q==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795717429;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
-	 Date:Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding;
-	bh=A+aU9SIn2Zhiu/uvRNR7gVgAVOlE/lo6ePmTFuyRaj0=;
-	b=kC/Dwf9Sn6X2ZlOH9T9z5HSQG70AYlqEpvnXUdj3nRUm8TzcgqIohSkTP/OY3O//U0pN
-	 6ZSKEc+J2e4F4JGZ56NvRa58AukRq8/zsJHVesubvLOLxO/jZkXpqpMeGmwpUtF7nX6hQ
-	 tQt7z8+XeJXRBUEK5uNzhao/6KC2mRZTTqSniF7yaMviOkW5xB+ueH62ZBObUpvgt/fpd
-	 v4La5ilic/kJ/emOz2yzdWMIk3hna8t+VqznVpHC92Ve/37+ORxvmYc1lrAS+RmU3Soe+
-	 XIauJy9XSqfauv+rntnva5eVlE8LfHjvY4zTw7iC6VtV7FCDbf1C0wtsKwTwZmAPH/A==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=gmail.com;
-	spf=pass smtp.mailfrom=gmail.com;
-	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fibZm9iY;
-	arc=none smtp.remote-ip=74.125.82.172
-Received: from mail-dy1-f172.google.com (mail-dy1-f172.google.com [74.125.82.172])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.56
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795717517;
+	b=EHhokqHRk76/crhuyqht2/exva3irDI2wx52+SzodxXJYKtgCKeSTB9Enmnh9PhrUFvt
+	 +++WQUXxzwsZNxqQTg0uMpSCtXbeEzjnGRlY7hUR82BUgOtXgPkz9L6T/7XyEhwf//QEB
+	 ggSXgP5ZBRdyZhYEAPYvr4joSJllKslOk2bALJghDq9HWBiTCH8n4JSn6m/F+VNZH2r/U
+	 7BlrnyziWPha6lisEPZGfUc9jiEnu5VoJ7aCKsR/5R8lVvPstb6LtqhEymqxa5hsf6752
+	 yG1kO08uFbOWLySevsBzLRoQQm8sQtn7AtDB84Qg9GOEPcGTDJv+UNrfLWZlh/zD0NQ==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795717517;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:
+	 X-MS-Exchange-Authentication-Results:Received-SPF:Received:Received:
+	 Received:Received:From:To:CC:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding:Content-Type:
+	 X-NV-OnPremToCloud:X-EOPAttributedMessage:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-Id:
+	 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
+	b=WUwoPy3agDd+Dy9GpbDQ65k06344XnD7ZmG399Zle2wG5H8BCVesANlf01Ct48uDhfbP
+	 5aI4GOnG7R/Rf8pB3TS0G1TQmSx/URooKYXzQtTUIX3WEtDlGVnVkIIlp2z6LOIs8lRo2
+	 26uZ4/7Hpez43qdaC/kcabiKbdyEkKK5tuNQhFgRTGETNMjYHugK6p/lpOoOfrtC5Bu/W
+	 OkUSQJouUKWwntKbwtY9UhIos/xcnvTF64QK3G3tqftuCUPN3duX2TZHSgLWyudjdwlbS
+	 4YAeh4TnG0pTJjC3XeqA9fY+xSOy9tljNVcl12JEBF66TjEMp7EXnjYU6X3YoV9S1tg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tz7f94oS;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.48.56
+Received: from MW6PR02CU001.outbound.protection.outlook.com (mail-westus2azon11012056.outbound.protection.outlook.com [52.101.48.56])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id A7C8B606A32A
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 18:23:48 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org A7C8B606A32A
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 4400F606A31C;
+	Thu, 26 Nov 2026 18:25:16 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 4400F606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=fibZm9iY
-Received: by mail-dy1-f172.google.com with SMTP id 5a478bee46e88-38190551625so14079512eec.1
-        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 10:23:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20260707; t=1795717428; x=1796322228; darn=vger.kernel.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to:content-type;
-        bh=A+aU9SIn2Zhiu/uvRNR7gVgAVOlE/lo6ePmTFuyRaj0=;
-        b=fibZm9iYF/eIn7DgmoEyzNXyi1sM0myrQojelTiCIZ0v2qpA57jHvy5kdcSCwqLjIF
-         k/Sn1bgxn9Pxf/9H4HwzeCIFhWvTeblR4ushegXzWwBoWQ+M97pxtuy9LmxjmWAuYiAK
-         OUKqOu7bTP2maTMSRFToWN6DAIHiF1wvLlJdyE2vFmdhRv7Xie/0N1L6TNoXAZw/DL21
-         9tQrSBv8KR+2pxiIdiBEflZNvS6Dkw4RPpxWV5BbrhkrUO/RCfup7NcKJcPskqIM72F7
-         HWQCq2foq5fVij0N1+Pmzhuz0typshsuA/XHdBdhrNXmSVj5CdDIN+/QgjOI4xWj21Wz
-         PAjw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795717428; x=1796322228;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-gg:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to:content-type;
-        bh=A+aU9SIn2Zhiu/uvRNR7gVgAVOlE/lo6ePmTFuyRaj0=;
-        b=nLuUEVRt+F0GGY8C4HyoDpVmfilEIdOoMcfYmhqIZ+CRRkfRWStgyTqrPA81ASjIX6
-         Mm5yd/8xdGjFy0w/7ABiFsdz8O/OnJDEexA3In9tT7fTbOwmLnMZyfJ7hyXXqACxn4mc
-         m+748mt9vtWqquZcE856H1QwG8KPoAv1miAFOcjc2YKRWaqR7KePeBPS+ZXRa2jxvupZ
-         KcpcHvn9r/N6dEQiDVLE72ZNfElVZJ/BnIBLN4PGzd8Gr2CmJHNVpJp7yk84Ag5Vvt1L
-         cK/T4iVuLAbmkGHeCzaPGlSndOYZcd9OJMcJAq7cyU2KVSvcViISPECRKK9M9L/AlraU
-         M5GA==
-X-Gm-Message-State: APuU4Z/Ier72cqYHezqIhQQbTBYZWsHeoSO3M7fj5bPOE/aw+0Ot9epf
-	pKZ0xRlkgB+kSM85Q1gE8S4S14pXlaIeFxcZDBWQbSlcD61gpnaDh0c0QbJZXJH1e8c=
-X-Gm-Gg: AZFdTZcBQkyBr/fE0ivuc99P0AV2mgqVVWIGqxPcBOveRE/DKM2SsYAI51Nn1W/MoH0
-	PmmhkMCWcabB0pW2SLuan6Dp5eLNiij//JVfBUk1ZThNOJG5sELBqnjlfFxfP7g6iZfLqrIliOR
-	KKj9n2/ONXCjXwCYRuUvI9WSwK0Xk25oBUc3Wi5/TVY9sFBrqB3sjIC0fjeuVpX2pI0Fv5Mw1fw
-	twwVuWCKmoZ5YdpG2rHPlmlh/Mjv2l++iyKytr4FHtn6fLvixz77K5r/WBLIwCMi/LGLRomK/BE
-	/RfzXhnot3jZb5m6BaE9Qrec3C7pVWFe6wGliVK8uSM4FG77vErstABeJKrJKSCDGdDdAJf6iYA
-	wvrBKj+BZDyCrkCj8Cgxpihvi/bgdpevDwWiIpb6o9aS5lsfWGX3dryrH74thKctkTwDxc4FIng
-	kxfiLYt3fg0lp0iJjF11RO3LJ/XxOxOfS+OLkz10bCPtkBvr8zvtfg4xng5dJCqNG0tyXO84Ys6
-	83DPswFiOOO0QmPFliNwv1MhJ3JUNUjT532IivurYwhq7CQsxdDXMN5erDX/cBf4f+g8kQepWuf
-	Zd6bVP2c01YcyULvq4P7xdFckSXWfL7R1V8rlPL95WaxXE/SnnrGgn3RzzmAnFFc+AGDyjGHNse
-	kYUwamU8=
-X-Received: by 2002:a05:7300:bf10:b0:376:b957:bfb with SMTP id 5a478bee46e88-3856f7563b1mr27002049eec.17.1795717427481;
-        Thu, 26 Nov 2026 10:23:47 -0800 (PST)
-Received: from localhost.localdomain ([203.202.252.249])
-        by smtp.gmail.com with ESMTPSA id 5a478bee46e88-386d605c894sm11826582eec.2.2026.11.26.10.23.42
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Thu, 26 Nov 2026 10:23:46 -0800 (PST)
-From: Zhefu Peng <ilskdw@gmail.com>
-To: netdev@vger.kernel.org
-Cc: andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@kernel.org,
-	kuba@kernel.org,
-	pabeni@redhat.com,
-	horms@kernel.org,
-	kuniyu@google.com,
-	mschiffer@universe-factory.net,
-	nicolas.dichtel@6wind.com,
-	shuah@kernel.org,
-	linux-kselftest@vger.kernel.org
-Subject: [PATCH net v7 2/2] selftests: net: add a test for vxlan snooping moving a MAC
-Date: Fri, 27 Nov 2026 00:23:29 +0600
-Message-ID: <20261126182329.91058-3-ilskdw@gmail.com>
-X-Mailer: git-send-email 2.54.0
-In-Reply-To: <20261126182329.91058-1-ilskdw@gmail.com>
-References: <20261126182329.91058-1-ilskdw@gmail.com>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=tz7f94oS
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SpJqPMSHucA5bq4xTmeABXLmxPkK26aHRI6Y+UyOkSIARFCUxWBBRPDcMyDeLmn+j3nb084H/ZCEIQN6wi7xdY05S0P+MmOyBaU7eqxHzq7NsQaxVbcnCk84dawCxO+FaC8uSRwivkwoRTOqpuqdg3z/JGwafAm2ufX5u6Ct5TbwXJhtfD7MNryF4oxiAfGiol+0Zv4RZMcdgajVoHRn8A7ajV1Dzyd12x57gaoMHLQECYpB9TuyREkPe6yxUt6c7IRl2yj5Isb3WuPY1OM5is3iHPH6i7/v36z1W1GMX5e4UH9dI1/nXwxRFV9aiTRY4PaKOoWI94HntHSs2tKrqw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
+ b=eAxqQca4XX44LjhGya/FXgQ0H7fADqIJF2KJThJZeA2xhZBW4KDSk91pshZCbEzLtYKi/VDlDTao0D7wPLrKA3tArLivFgBshnCa+Nh0eKcp3w9TaYREXZLCbCcPI3MmBjsbWBqQhW3TV06I+RnS7A9ezWFrdXZtMdbKre6376MXTE5febgU2XAAbHEpJGKL5qD5+D6kBvFvg+KqwkV4ACCUj6SHYfPNzYwPjYA2oa6qaYzqafnb9hjT9cxjMoHJTGOIXQiG89H2az+F7jK5EGlx1jwAhNSaq1pQj2BjyXGgYuT8FPQVceMQfseeZLY1bAl088GWtdNxE4jTF3gwiQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=lunn.ch smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=k6u2WmeUJyDbQxk4C6EGt2cBS80L70A3CK+5YS3cV1g=;
+ b=tz7f94oSjKdIVbcHeKp2gv5q97to6j750Brn3P+M49CpSSFqA3yy4N1HW4/IjtjnktA/BCc9l0BO9Y81FvKOELKbQMGKZFwYPjvh3jJRzeSuw3w9EiGUDmMvRE/zjpglCZ3xh1iToN7LlwSZi+Mi9Ln3RMBuBjU3tcRo6XjICDj5ly1s7W+wOtGwzEgMGcx7fT+oV8+ZJefNf3ek6bN/Z+hmbSuizZ9OxaW9hlX7KeBXlgNAACW9ZrliuFn8olaCfZGmk/g8lOdpBiAVznAG2QnK9gtaHVUxgCdSeVAkKSHlEs7rfjVuck5axIzmjTA5MKFgo5NwTrhnCDZvxBWQKQ==
+Received: from DM6PR07CA0101.namprd07.prod.outlook.com (2603:10b6:5:337::34)
+ by MW4PR12MB7192.namprd12.prod.outlook.com (2603:10b6:303:22a::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.639.12; Thu, 26 Nov
+ 2026 18:25:11 +0000
+Received: from DS1PEPF00053450.namprd04.prod.outlook.com
+ (2603:10b6:5:337:cafe::4f) by DM6PR07CA0101.outlook.office365.com
+ (2603:10b6:5:337::34) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.21.662.7 via Frontend Transport; Thu, 26
+ Nov 2026 18:25:11 +0000
+X-MS-Exchange-Authentication-Results: mx.microsoft.com 1; spf=pass (sender IP
+ is 216.228.117.160) smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ DS1PEPF00053450.mail.protection.outlook.com (10.167.23.232) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.21.688.5 via Frontend Transport; Thu, 26 Nov 2026 18:25:10 +0000
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
+ 2026 10:24:58 -0800
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by rnnvmail203.nvidia.com
+ (10.129.68.9) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.57; Thu, 26 Nov
+ 2026 10:24:58 -0800
+Received: from vdi.nvidia.com (10.127.8.10) by mail.nvidia.com (10.129.68.7)
+ with Microsoft SMTP Server id 15.2.2562.57 via Frontend Transport; Thu, 26
+ Nov 2026 10:24:55 -0800
+From: Tariq Toukan <tariqt@nvidia.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski
+	<kuba@kernel.org>, <netdev@vger.kernel.org>, Paolo Abeni <pabeni@redhat.com>
+CC: Carolina Jubran <cjubran@nvidia.com>, Gal Pressman <gal@nvidia.com>, "open
+ list" <linux-kernel@vger.kernel.org>, Shahar Shitrit <shshitrit@nvidia.com>,
+	Tariq Toukan <tariqt@nvidia.com>, Simon Horman <horms@kernel.org>
+Subject: [PATCH net-next V3 0/5] net/mlx5: Introduce mlx5_nodnic, a driver for DRAM-less NVIDIA Mellanox NIC functions
+Date: Thu, 26 Nov 2026 20:24:43 +0200
+Message-ID: <20261126182448.707782-1-tariqt@nvidia.com>
+X-Mailer: git-send-email 2.44.0
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -107,272 +116,341 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS1PEPF00053450:EE_|MW4PR12MB7192:EE_
+X-MS-Office365-Filtering-Correlation-Id: 4a90579b-6651-48b4-2c77-08df4bea9b5d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|82310400026|30052699003|376014|1800799024|36860700016|23010399003|6133799003|13003099007|18002099003|3023799007|11063799006|5023799004|56012099006|261028144727099003|261026121527099003|261022105027099003|261102123227099003|261022075727099003|261026140227099003|261021123027099003|261009223027099003|261021135927099003|261021121427099003|10067099003;
+X-Microsoft-Antispam-Message-Info:
+	1R7N+Q/rTN85NuBXCGLdeliSnLkEa18twN39okF2tZN2dsx0PHwp+VxB2MZglpa7wfoNr5N7JidBVAYycT/zY32gVwcGJgUUbSFfgoPXNlrlwMtjztWmkBo9XpoeUocR7W7H0aJL+jZhWgiSPSMCXib94IwjnHYbWkXIWwiYi+1LiNtkY2l0owr04SWLBb5MhGakIP5fZOHnvGNjV9dWzSAUpBYm9J88+pQyjywF1v3nqWlEBGB5S0wy5HybHJzrvgJjlweQBgCRAOQ4eWml8QyJ0u0RCFFBGKJZ5MLqBMSfG3lr30lPJKC01M995L+GWbZy9Oz/Z2fSdcSEpb95H6GhH0LPF7kzdVa8qgyRkaisABHn35bLDwLaVqAvYRUSl3l1k/WDpoIZZ4CySFCN8w7dmvbZvN5TqY1o/mjVVjFhkrrHix+I9qcIiGFNSLhIuGECBvroyZrnsxPS+WnE2MahUMv4vZ0lKEjk6QiOb3e5ZfrnxOhB7iPUHpREI1drmzVTXiE7EK1hC7L9yCRoc5EBUjKBo/+q4ICkHN9Knv4ATWs9cYjn1oPYkLF63lz8lWGdiZY3VR4cfMd33D7pT6uM3CKQ7LJXTY8Dtq+LHPH8+u03klish40v3z+wKrZjlKzUiN9CL7kSpgDUrJQ37noUBQSW7tCylV7NgGkz8GdjeAvxtYSmtL9ra71Nfz2CL0Qd62EhG9S4v+/rHi5n1g==
+X-Forefront-Antispam-Report:
+	CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(30052699003)(376014)(1800799024)(36860700016)(23010399003)(6133799003)(13003099007)(18002099003)(3023799007)(11063799006)(5023799004)(56012099006)(261028144727099003)(261026121527099003)(261022105027099003)(261102123227099003)(261022075727099003)(261026140227099003)(261021123027099003)(261009223027099003)(261021135927099003)(261021121427099003)(10067099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	tIw47O9r3hAMc/0YTBN51pDAzSUKaBqEvpTvWFEjvy77d9HBNfHoiXEO2gmL/A/N+4Hwi3jn5fwXuY7v1//mxld7US+Pyq6eoxZJXjS5Qyu1LZ+TAC1QvpOKYJBYC+MRMnB7xhIPn3KKIYVjdjCHzn11sePzvXXsKg2ojyZi4V6hjO1/R4P14grpGriYCMB9JD8pI0GiV1jvQXeDFRsbCkZw/xPvrJcW1jJ3fXUPSf0QFnp4MAjwSQO87jko6KB7BvjCfJSh61/iZ5Tr85zYPb1n2s0q0VllODSLusMo6NZ1DviBWaGsowfM2ev8FIbHrDyTyQvTr+arebb961saZ9cB+1/IjE5a8v8n0+Sf/9rqVpVE4JiQJa+ZXfYIdn3xUtyo+XuIK6zbdXOf+wgVHS7927Kk+TDZWI+nR+NrGkt6NUPt4ejArHPqHcRs0GvT
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 18:25:10.9119
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4a90579b-6651-48b4-2c77-08df4bea9b5d
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource:
+	DS1PEPF00053450.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7192
 
-Add a test for a learning VXLAN device that snoops a known MAC.
+Hi,
 
-The first case moves the MAC from an on-link IPv4 remote to a remote
-behind a router, and checks that traffic to the MAC still flows. Its
-pings run on one CPU, because the route cache is per CPU and only the
-CPU that filled it hits the stale entry. This case fails while the
-device keeps the route cached for the previous remote.
+This series by Shahar introduces mlx5_nodnic, a Linux driver for the
+NODNIC (No-DRAM NIC) hardware interface present in Mellanox/NVIDIA
+ConnectX-family ASICs since 2015.
 
-The second case moves the MAC from a global IPv6 remote to a link-local
-one, and checks that the FDB entry records the new output interface.
-Both remotes are on-link, so this case checks the interface, not the
-route cache.
+NODNIC is a first-class hardware capability.
+It defines a lightweight NIC function intended for contexts where local
+DRAM is unavailable or too costly: embedded controllers, management
+planes, pre-boot environments, or any resource-constrained instantiation
+of a ConnectX NIC. The hardware sends and receives ordinary Ethernet
+frames via SQs, RQs and CQs. There is no encapsulation, no private
+protocol, and no FW interposition: packets are forwarded as standard
+Ethernet between whatever peers are connected to the function. The
+interface is documented in the HW spec and has been in production in
+non-Linux OS drivers for over a decade.
 
-The third case adds a dynamic entry with a "via" device, and checks
-that traffic from the entry's remote leaves the device in place.
+Where it is used today:
+- Embedded management controllers on ConnectX-class ASICs that need a
+  network path to the host without consuming a data-path PF.
+- Resource-constrained SoC integrations (no local DRAM) where a
+  minimal-footprint driver is required.
+- Pre-boot / early-OS environments (PXE, iSCSI boot) that need a NIC
+  without a full mlx5e stack.
+- BF4 management PFs (one concrete deployment): on BlueField-4 the
+  firmware exposes a NODNIC PF on the host side and a peer PF on the ARM
+  side, using standard vport forwarding to connect them. This provides
+  in-band Ethernet connectivity between the host and the DPU OS - SSH,
+  PXE, and any standard networking application work over it without any
+  special handling.
 
-This test was written with the help of an AI coding assistant.
+Design notes:
+- The driver is separate from mlx5e rather than a mode within it.
+  NODNIC uses PCI Vendor Specific Capability (VSC) for command
+  operations - reads and writes over PCI config space - instead of the
+  DMA-based command interface used by mlx5_core. This is what makes
+  NODNIC usable in environments without reliable DMA access, and it
+  makes the two command paths fundamentally incompatible. Folding this
+  into mlx5e would mean carrying a second command transport and a second
+  resource model through code that is already dense.
+- A single SQ, RQ and shared CQ are exposed per function, with two MSI-X
+  vectors: the data vector fires on CQEs and drives both TX and RX
+  completions, and the event vector notifies on port state changes.
+  This is the hardware's model, not a driver simplification.
+- The driver exposes a plain netdev with no private uAPI, no ioctls and
+  no vendor-specific configuration surface. Everything is driven through
+  standard netdev and ethtool interfaces.
+- The code lives under drivers/net/ethernet/mellanox/mlx5/nodnic/ and
+  shares no paths with mlx5e, keeping the footprint small and the blast
+  radius of changes contained.
 
-Signed-off-by: Zhefu Peng <ilskdw@gmail.com>
----
- tools/testing/selftests/net/Makefile          |   1 +
- .../selftests/net/test_vxlan_snoop_move.sh    | 222 ++++++++++++++++++
- 2 files changed, 223 insertions(+)
- create mode 100755 tools/testing/selftests/net/test_vxlan_snoop_move.sh
+for Sashiko:
+- Where possible we keep the design close to mlx5 (checksum, VSC API, RX
+  refill and else).
+- We don't implement suspend/resume flows at the moment.
+- We don't implement SW timestamps at the moment.
+- RX modes aren't needed and the driver doesn't implement
+  ndo_set_rx_mode.
+- For sizes and values reported by the device, we trust it to provide
+  reasonable values.
+- This series only wires the basic netdev stats (packets, bytes, and TX
+  drops).
 
-diff --git a/tools/testing/selftests/net/Makefile b/tools/testing/selftests/net/Makefile
-index baea3e7f0..69d440c5b 100644
---- a/tools/testing/selftests/net/Makefile
-+++ b/tools/testing/selftests/net/Makefile
-@@ -118,6 +118,7 @@ TEST_PROGS := \
- 	test_vxlan_mdb.sh \
- 	test_vxlan_nh.sh \
- 	test_vxlan_nolocalbypass.sh \
-+	test_vxlan_snoop_move.sh \
- 	test_vxlan_under_vrf.sh \
- 	test_vxlan_vnifilter_notify.sh \
- 	test_vxlan_vnifiltering.sh \
-diff --git a/tools/testing/selftests/net/test_vxlan_snoop_move.sh b/tools/testing/selftests/net/test_vxlan_snoop_move.sh
-new file mode 100755
-index 000000000..e1f0ebb19
---- /dev/null
-+++ b/tools/testing/selftests/net/test_vxlan_snoop_move.sh
-@@ -0,0 +1,222 @@
-+#!/bin/bash
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Check that a learning VXLAN device fully updates a remote when snooping
-+# moves a known MAC to another VTEP:
-+#
-+# - The route cached for the old remote is dropped. The old remote is
-+#   on-link and the new one is behind a router, so a stale cached route
-+#   blackholes traffic to the moved MAC.
-+# - The output interface follows the new remote. The MAC moves from a
-+#   global IPv6 address to a link-local one, which needs an interface.
-+# - Traffic from the remote of a dynamic entry keeps the entry's "via"
-+#   device.
-+
-+# shellcheck disable=SC2154,SC2329 # set by setup_ns, run by tests_run
-+source lib.sh
-+
-+ALL_TESTS="
-+	test_move_behind_router
-+	test_move_to_link_local
-+	test_same_remote_keeps_via
-+"
-+
-+MAC=02:00:c0:a8:00:0a
-+
-+ping_ns()
-+{
-+	local ns=$1; shift
-+
-+	ip netns exec "$ns" ping -c 3 -W 1 -i 0.2 "$@" &> /dev/null
-+}
-+
-+ping_pinned()
-+{
-+	local ns=$1; shift
-+
-+	taskset -c "$CPU" ip netns exec "$ns" ping -c 3 -W 1 -i 0.2 "$@" \
-+		&> /dev/null
-+}
-+
-+add_sw_port()
-+{
-+	local ns=$1; shift
-+	local dev=$1; shift
-+	local port=$1; shift
-+
-+	ip link add "$dev" netns "$ns" type veth peer name "$port" netns "$sw"
-+	ip -n "$sw" link set "$port" master br0 up
-+	ip -n "$ns" link set "$dev" up
-+}
-+
-+test_move_behind_router()
-+{
-+	local name="IPv4 move to a remote behind a router"
-+
-+	RET=0
-+
-+	if ! setup_ns sw ex a r b; then
-+		log_test_skip "$name"
-+		return
-+	fi
-+	defer cleanup_ns "$sw" "$ex" "$a" "$r" "$b"
-+
-+	ip -n "$sw" link add br0 up type bridge
-+	add_sw_port "$ex" e0 s-e
-+	add_sw_port "$a" a0 s-a
-+	add_sw_port "$r" r0 s-r
-+	ip link add r1 netns "$r" type veth peer name b0 netns "$b"
-+	ip -n "$r" link set r1 up
-+	ip -n "$b" link set b0 up
-+
-+	ip -n "$ex" addr add 10.0.1.1/24 dev e0
-+	ip -n "$ex" route add default via 10.0.1.254
-+	ip -n "$a" addr add 10.0.1.2/24 dev a0
-+	ip -n "$r" addr add 10.0.1.254/24 dev r0
-+	ip -n "$r" addr add 10.0.2.254/24 dev r1
-+	ip netns exec "$r" sysctl -wq net.ipv4.ip_forward=1
-+	ip -n "$b" addr add 10.0.2.2/24 dev b0
-+	ip -n "$b" route add default via 10.0.2.254
-+
-+	ip -n "$ex" link add vx0 type vxlan id 42 dstport 4789 \
-+		local 10.0.1.1 learning
-+	bridge -n "$ex" fdb append 00:00:00:00:00:00 dev vx0 dst 10.0.1.2
-+	bridge -n "$ex" fdb append 00:00:00:00:00:00 dev vx0 dst 10.0.2.2
-+	ip -n "$ex" addr add 192.168.0.1/24 dev vx0
-+	ip -n "$ex" link set vx0 up
-+
-+	ip -n "$a" link add vx0 address "$MAC" type vxlan id 42 dstport 4789 \
-+		local 10.0.1.2 remote 10.0.1.1
-+	ip -n "$b" link add vx0 address "$MAC" type vxlan id 42 dstport 4789 \
-+		local 10.0.2.2 remote 10.0.1.1
-+	ip -n "$a" addr add 192.168.0.10/24 dev vx0
-+	ip -n "$b" addr add 192.168.0.10/24 dev vx0
-+	ip -n "$a" link set vx0 up
-+
-+	ping_pinned "$ex" 192.168.0.10
-+	check_err $? "ping before the move failed"
-+
-+	ip -n "$a" link set vx0 down
-+	ip -n "$b" link set vx0 up
-+	ip netns exec "$b" ping -c 1 -W 1 192.168.0.1 &> /dev/null
-+
-+	bridge -n "$ex" fdb show dev vx0 | grep -q "$MAC dst 10.0.2.2 "
-+	check_err $? "fdb entry did not move to the new remote"
-+
-+	ping_pinned "$ex" 192.168.0.10
-+	check_err $? "ping after the move failed"
-+
-+	log_test "$name"
-+}
-+
-+test_move_to_link_local()
-+{
-+	local name="IPv6 move from a global to a link-local remote"
-+	local ns
-+
-+	RET=0
-+
-+	if ! setup_ns sw ex a b; then
-+		log_test_skip "$name"
-+		return
-+	fi
-+	defer cleanup_ns "$sw" "$ex" "$a" "$b"
-+
-+	for ns in "$sw" "$ex" "$a" "$b"; do
-+		ip netns exec "$ns" sysctl -wq net.ipv6.conf.all.accept_dad=0
-+		ip netns exec "$ns" sysctl -wq \
-+			net.ipv6.conf.default.accept_dad=0
-+	done
-+
-+	ip -n "$sw" link add br0 up type bridge
-+	add_sw_port "$ex" e0 s-e
-+	add_sw_port "$a" a0 s-a
-+	add_sw_port "$b" b0 s-b
-+
-+	ip -n "$ex" addr add 2001:db8:1::1/64 dev e0 nodad
-+	ip -n "$ex" addr add fe80::1/64 dev e0 nodad
-+	ip -n "$a" addr add 2001:db8:1::2/64 dev a0 nodad
-+	ip -n "$b" addr add fe80::b/64 dev b0 nodad
-+
-+	ip -n "$ex" link add vx0 type vxlan id 42 dstport 4789 \
-+		local 2001:db8:1::1 learning
-+	bridge -n "$ex" fdb append 00:00:00:00:00:00 dev vx0 dst 2001:db8:1::2
-+	bridge -n "$ex" fdb append 00:00:00:00:00:00 dev vx0 dst fe80::b via e0
-+	ip -n "$ex" addr add 192.168.0.1/24 dev vx0
-+	ip -n "$ex" link set vx0 up
-+
-+	ip -n "$a" link add vx0 address "$MAC" type vxlan id 42 dstport 4789 \
-+		local 2001:db8:1::2 remote 2001:db8:1::1
-+	ip -n "$b" link add vx0 address "$MAC" type vxlan id 42 dstport 4789 \
-+		local fe80::b remote fe80::1 dev b0 nolearning
-+	ip -n "$a" addr add 192.168.0.10/24 dev vx0
-+	ip -n "$b" addr add 192.168.0.10/24 dev vx0
-+	ip -n "$a" link set vx0 up
-+
-+	ping_ns "$ex" 192.168.0.10
-+	check_err $? "ping before the move failed"
-+
-+	ip -n "$a" link set vx0 down
-+	ip -n "$b" link set vx0 up
-+	ip netns exec "$b" ping -c 1 -W 1 192.168.0.1 &> /dev/null
-+
-+	bridge -n "$ex" fdb show dev vx0 | grep -q "$MAC dst fe80::b via e0 "
-+	check_err $? "fdb entry did not move to the new remote and interface"
-+
-+	ping_ns "$ex" 192.168.0.10
-+	check_err $? "ping after the move failed"
-+
-+	log_test "$name"
-+}
-+
-+test_same_remote_keeps_via()
-+{
-+	local name="Traffic from the same remote keeps the via device"
-+
-+	RET=0
-+
-+	if ! setup_ns sw ex a; then
-+		log_test_skip "$name"
-+		return
-+	fi
-+	defer cleanup_ns "$sw" "$ex" "$a"
-+
-+	ip -n "$sw" link add br0 up type bridge
-+	add_sw_port "$ex" e0 s-e
-+	add_sw_port "$a" a0 s-a
-+
-+	ip -n "$ex" addr add 10.0.1.1/24 dev e0
-+	ip -n "$a" addr add 10.0.1.2/24 dev a0
-+
-+	ip -n "$ex" link add vx0 type vxlan id 42 dstport 4789 \
-+		local 10.0.1.1 learning
-+	bridge -n "$ex" fdb add "$MAC" dev vx0 dst 10.0.1.2 via e0 dynamic
-+	ip -n "$ex" addr add 192.168.0.1/24 dev vx0
-+	ip -n "$ex" link set vx0 up
-+
-+	ip -n "$a" link add vx0 address "$MAC" type vxlan id 42 dstport 4789 \
-+		local 10.0.1.2 remote 10.0.1.1
-+	ip -n "$a" addr add 192.168.0.10/24 dev vx0
-+	ip -n "$a" link set vx0 up
-+
-+	ping_ns "$a" 192.168.0.1
-+	check_err $? "ping from the remote failed"
-+
-+	bridge -n "$ex" fdb show dev vx0 | grep -q "$MAC dst 10.0.1.2 via e0 "
-+	check_err $? "fdb entry lost its via device"
-+
-+	log_test "$name"
-+}
-+
-+cleanup()
-+{
-+	defer_scopes_cleanup
-+}
-+
-+require_command taskset
-+CPU=$(taskset -pc $$ | sed 's/.*: //; s/[-,].*//')
-+
-+trap cleanup EXIT
-+tests_run
-+
-+exit "$EXIT_STATUS"
+Regards,
+Tariq
+
+V3:
+Address the Sashiko AI review comments:
+- Convert PCIBIOS error codes returned by the config space accessors to
+  errno.
+- Preserve the FW-reported CQ log_size when programming the CQ address.
+- Compute the UAR offset in 64 bits.
+- Enable NAPI only after the RQ is set up, fixing the open error unwind.
+- Disable the port when open fails. If the port cannot be disabled,
+  clear bus mastering before freeing DMA memory.
+- Use netif_txq_maybe_stop()/netif_txq_completed_wake() for TX flow
+  control.
+- NAPI poll: handle budget == 0, return budget when the TX limit is hit,
+  and update the CQ doorbell record on every poll.
+- Rate-limit the error CQE prints.
+- Use u64_stats_t for the counters, and read the TX byte count before
+  releasing the WQE slot. Also count error TX CQEs in the stats.
+- Restore the trailing newline in the Makefile.
+- Check pci_save_state() return value.
+- Change 1 << log_uar_page_size to 1U <<.
+- Add NET_IP_ALIGN to the RX headroom, so the IP header is 4-byte
+  aligned.
+- Restore bus mastering in mlx5_nodnic_enable_port(), just before
+  setting dma_en.
+- Return send slots to xmit (sq->cc update and queue wake) only after
+  the CQ consumer index has been written to the device at the end of
+  each poll.
+- Count received packets and bytes before the skb allocation, so packets
+  dropped on allocation failure are still included.
+- Restore PCI state even if FLR failed.
+- Remove the redundant CQ consumer index write from the arm function to
+  prevent overwriting a newer value after NAPI ownership is released.
+- Disable NAPI before stopping the TX queue to prevent completions from
+  waking it again, then quiesce the port after TX submissions have
+  stopped. Reorder activation to mirror the deactivation sequence in
+  reverse.
+- Fail queues opening if the device in fatal state.
+- In health polling, check first if the PCI channel is offline.
+
+> +	if (err) {
+> +		mlx5_nodnic_core_err(dev,
+> +				     "pcie_flr failed with error code %d\n",
+> +				     err);
+> +		return err;
+> +	}
+> +	pci_restore_state(dev->pdev);
+Could mlx5_nodnic_dev_init() in
+drivers/net/ethernet/mellanox/mlx5/nodnic/main.c restore saved PCI state
+on a reset error as well?
+
+[SS] A device that fails to come out of FLR is treated as failed and probe aborts,
+so there is nothing to restore it for.
+
+Would it be appropriate to hold pci_cfg_access_lock() across the
+save/reset/restore transaction in mlx5_nodnic_dev_init(), in
+drivers/net/ethernet/mellanox/mlx5/nodnic/main.c?
+
+[SS] pci_save_state() does not require the caller to hold pci_cfg_access_lock().
+
+> +	dseg->byte_count = cpu_to_be32(skb->len & 0x7FFFFFFF);
+> +	dseg->lkey = cpu_to_be32(sq->ring.lkey);
+> +	dma_addr = dma_map_single(sq->device, skb->data, skb->len,
+> +				  DMA_TO_DEVICE);
+Could mlx5_nodnic_tx_build_wqe_ds(), in
+drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c, handle or reject nonlinear
+skbs before mapping the total length as one contiguous buffer?
+Pktgen with a positive fragment count and start_xmit mode constructs a
+fragmented payload and calls netdev_start_xmit() directly. This bypasses
+the ordinary feature-validation linearization despite scatter-gather
+offload not being advertised.
+Pktgen allocates full-packet linear capacity, so the demonstrated
+regression is not necessarily an out-of-allocation read. Instead, the
+device reads the unfilled linear payload region rather than the fragments,
+sending incorrect bytes and potentially uninitialized allocation contents.
+Could this path linearize the packet or map its fragments separately?
+
+[SS] The driver doesn't advertise NETIF_F_SG, so the stack linearizes skbs
+before they reach ndo_start_xmit. Only pktgen's start_xmit mode with frags
+set can hand us a fragmented skb, which bypasses that validation. That is
+a root-only test configuration, so we don't handle this case.
+
+> +	fatal_error = mlx5_nodnic_health_check_fatal_sensors(dev);
+> +
+> +	if (fatal_error && !health->fatal_error) {
+> +		mlx5_nodnic_core_err(dev, "fatal error detected: %s (%u)\n",
+> +				     mlx5_nodnic_fatal_error_str(fatal_error),
+> +				     fatal_error);
+> +		priv->health.fatal_error = fatal_error;
+> +		dev->state = NODNIC_DEVICE_STATE_INTERNAL_ERROR;
+> +		mlx5_nodnic_print_health_info(dev);
+> +		return;
+> +	}
+Can this fatal transition in mlx5_nodnic_poll_health(), in
+drivers/net/ethernet/mellanox/mlx5/nodnic/health.c, also exclude subsequent
+interface activation?
+If polling detects a fatal condition while the registered interface is
+down, an administrative interface-up request still reaches
+mlx5_nodnic_open() -> mlx5_nodnic_open_locked() in
+drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c. Neither function checks
+the fatal health state before mapping the UAR and programming the queues.
+mlx5_nodnic_activate_queues() in the same file can then restore bus
+mastering and enable the port if the hardware operations succeed. The
+VSC offline check does not reject firmware reset requests, NIC
+disablement, or NIC software reset based on the recorded health state.
+The open path holds priv->state_lock, but the timer does not participate
+in that serialization. Could the fatal transition be coordinated with
+open through process-context work and an activation guard, so this
+regression cannot permit hardware programming after fatal detection?
+
+[SS] Health monitoring here only detects and prints. Fatal-error handling is planned for a follow-up.
+
+What establishes completion of device DMA before cleanup releases the
+buffers after this fallback? pci_clear_master() neither reports PCI
+configuration-access failure nor explicitly waits for outstanding
+transactions, yet cleanup proceeds unconditionally.
+
+[SS] fallback is best effort.
+
+How will netpoll reclaim TX descriptors when an RX CQE is ahead of the
+send completions? Every zero-budget poll stops at the same RX CQE.
+During panic netconsole output, ordinary NAPI cannot be relied on to
+clear it. Once the SQ fills, diagnostic packets remain unsent; netpoll's
+bounded retries only defer them to a worker. This needs a TX progress
+mechanism that does not perform RX processing with a zero budget.
+
+[SS] RX and TX share a single CQ and the ring is consumed in order,
+so a zero-budget poll cannot reach TX CQEs behind an RX CQE without doing RX work
+
+V2:
+https://lore.kernel.org/all/20261008171821.660739-1-tariqt@nvidia.com/
+- Fix sparse warnings in the VSC accessors: use __be32 for the
+  big-endian accessors and drop the redundant le32 conversions, which
+  were also wrong on big-endian hosts (Simon Horman).
+- Cover letter: drop the devlink mention (Simon Horman).
+- Replace the open-coded bitfield macros in the VSC code with
+  GENMASK/BIT and FIELD_GET/u32_replace_bits, and turn the config space
+  accessor macros into functions.
+- Fix line wrapping reported by checkpatch --strict.
+- Add a MAINTAINERS entry for the driver.
+- Kconfig: select PAGE_POOL, fixing the build when it is not otherwise
+  enabled.
+- Drop inline from a function in a .c file.
+
+V1:
+https://lore.kernel.org/all/20260930125708.144767-1-tariqt@nvidia.com/
+
+Shahar Shitrit (5):
+  net/mlx5: nodnic: Introduce the mlx5_nodnic driver
+  net/mlx5: nodnic: Implement data path
+  net/mlx5: nodnic: Add TX/RX statistics
+  net/mlx5: nodnic: Add ethtool driver info
+  net/mlx5: nodnic: Add health monitoring
+
+ MAINTAINERS                                   |    9 +
+ drivers/net/ethernet/mellanox/Kconfig         |    1 +
+ drivers/net/ethernet/mellanox/Makefile        |    1 +
+ .../net/ethernet/mellanox/mlx5/nodnic/Kconfig |   19 +
+ .../ethernet/mellanox/mlx5/nodnic/Makefile    |    8 +
+ .../net/ethernet/mellanox/mlx5/nodnic/en.c    |  286 ++++
+ .../net/ethernet/mellanox/mlx5/nodnic/en.h    |  162 +++
+ .../ethernet/mellanox/mlx5/nodnic/en_cfg.c    | 1152 +++++++++++++++++
+ .../ethernet/mellanox/mlx5/nodnic/health.c    |  315 +++++
+ .../net/ethernet/mellanox/mlx5/nodnic/main.c  |  866 +++++++++++++
+ .../ethernet/mellanox/mlx5/nodnic/nodnic.h    |  105 ++
+ .../mellanox/mlx5/nodnic/nodnic_ifc.h         |  318 +++++
+ .../mellanox/mlx5/nodnic/nodnic_pci_vsc.c     |  347 +++++
+ .../mellanox/mlx5/nodnic/nodnic_pci_vsc.h     |   45 +
+ .../net/ethernet/mellanox/mlx5/nodnic/rx.c    |  174 +++
+ .../net/ethernet/mellanox/mlx5/nodnic/rx.h    |   25 +
+ .../net/ethernet/mellanox/mlx5/nodnic/tx.c    |  237 ++++
+ .../net/ethernet/mellanox/mlx5/nodnic/tx.h    |   61 +
+ 18 files changed, 4131 insertions(+)
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Kconfig
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Makefile
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/health.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/main.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_ifc.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.h
+
+base-commit: 05b5019b01fb9443b09ae4ed34af1135a80a84c8
+--
+2.44.0
+
+Issue: 4971712
+Change-Id: Ic857b4c8532a35fbadbfe6056a97c6d711829e6a
+Signed-off-by: Shahar Shitrit <shshitrit@nvidia.com>
+Signed-off-by: Tariq Toukan <tariqt@nvidia.com>
+
+Shahar Shitrit (5):
+  net/mlx5: nodnic: Introduce the mlx5_nodnic driver
+  net/mlx5: nodnic: Implement data path
+  net/mlx5: nodnic: Add TX/RX statistics
+  net/mlx5: nodnic: Add ethtool driver info
+  net/mlx5: nodnic: Add health monitoring
+
+ MAINTAINERS                                   |    9 +
+ drivers/net/ethernet/mellanox/Kconfig         |    1 +
+ drivers/net/ethernet/mellanox/Makefile        |    1 +
+ .../net/ethernet/mellanox/mlx5/nodnic/Kconfig |   19 +
+ .../ethernet/mellanox/mlx5/nodnic/Makefile    |    8 +
+ .../net/ethernet/mellanox/mlx5/nodnic/en.c    |  295 +++++
+ .../net/ethernet/mellanox/mlx5/nodnic/en.h    |  168 +++
+ .../ethernet/mellanox/mlx5/nodnic/en_cfg.c    | 1158 +++++++++++++++++
+ .../ethernet/mellanox/mlx5/nodnic/health.c    |  303 +++++
+ .../net/ethernet/mellanox/mlx5/nodnic/main.c  |  869 +++++++++++++
+ .../ethernet/mellanox/mlx5/nodnic/nodnic.h    |  130 ++
+ .../mellanox/mlx5/nodnic/nodnic_ifc.h         |  317 +++++
+ .../mellanox/mlx5/nodnic/nodnic_pci_vsc.c     |  347 +++++
+ .../mellanox/mlx5/nodnic/nodnic_pci_vsc.h     |   45 +
+ .../net/ethernet/mellanox/mlx5/nodnic/rx.c    |  174 +++
+ .../net/ethernet/mellanox/mlx5/nodnic/rx.h    |   25 +
+ .../net/ethernet/mellanox/mlx5/nodnic/tx.c    |  265 ++++
+ .../net/ethernet/mellanox/mlx5/nodnic/tx.h    |   65 +
+ 18 files changed, 4199 insertions(+)
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Kconfig
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/Makefile
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/en_cfg.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/health.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/main.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_ifc.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/nodnic_pci_vsc.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/rx.h
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.c
+ create mode 100644 drivers/net/ethernet/mellanox/mlx5/nodnic/tx.h
+
+
+base-commit: 612848d37e68b858e15815175f1c5e609e09d719
 -- 
-2.54.0
+2.44.0
 
