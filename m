@@ -1,77 +1,131 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683939;
-	b=Z/dDvlJhYbng+kdjenqMnYY+8xYvO/GxXoB7qTv+FOJjXtxLRGlZv3F08ENUdUYRvuNE
-	 1fhTTjMEKSesFvDYGqBKhC8rGbUocekxTVCNbeANvUN4cL3yZvZY/5JNqOQF8cxw8/aeS
-	 4RK1dLPiQVmvoRvA/4mWbqANnurJxFkIvqTzNbmv6EappPqNhpka4gJQujl9hCC/74NNg
-	 87RuiD31IEaCAO7xyKSgjG/gV5VGlaRUgD2cGH1gadcBcO+iDWEqyEp7cEDRuLK0Zxkjt
-	 uUifmPj3WkTyCjsMcav3BjaNYxrTJs/7mYQQdekJWnmw7+gv/wdfJp1+d6jRtzNVfQw==
+	t=1795683945;
+	b=SeAdvMxZsUHgyeGW69bhd0JSOk47m7w/8zesQZUKD1taeFt9A749NC6A1t+KKUP7QseY
+	 uyKYsr6YArmyRlxoCCA7bafKrZ2wZFgpo166Roa4b51hQS9GkWCbQsM5b1R6fPyZAr6cH
+	 FEjZzJonO51YqxtoGuSasUC47cA7NQ5hhiX7B7y7tjR2hLTrhqMzgEtGuebAxHbtD1yRR
+	 XUWQmJ2bhRPXtXIIRSCvup9jSusxHXT9Qf2PXYSsQr9izSZzng+bFpZ2YddEi3LA+1kKa
+	 FkGsOxYfoQ3fcYXH6G3Lso5SXOUPAlv83s3rU7pkaXb4FeLj5aHK9dce2wSSoW+ABBQ==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683939;
-	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
-	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
-	 Message-ID:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=5YB4gCt4M6OMnWrIPuEP8EnKlBg5sXTJw5ThjcA32d0=;
-	b=1UTckN9Q1+8m9IMd8/fV5WSrxzNMgpONaIrJ7698mBd9GHR2jgQarIoNImv13bte+PDy
-	 K860os2SWvtp+EAi5HYJRI4FW/dTn7SN1oxhp8W7ybxcuQy/8sjg6ldj+s9rZXIGTKAiE
-	 iaZCLOg+Y+J3AB2Rea9TaYOgUULdOmw3KhUWeQoApRSARjnlnc7B5VfgGYP+UYez2ncq9
-	 7wS3Uzd4uRL5quWrtc49WdcoFIN/stgwqGkub/ChO73Afc21tLio7vrZViSyGrXgUDVRI
-	 8BG5AYWqE4zCPSegqV4Qi2/2X9OiGjqsyM2Wjay5HV07ehT88FUvZ5Bvx/zXAsmg6gA==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683945;
+	h=DMARC-Filter:Received:DKIM-Signature:DKIM-Signature:DKIM-Signature:
+	 DKIM-Signature:Received:Received:Received:Date:From:To:Cc:Subject:
+	 Message-ID:References:MIME-Version:Content-Type:Content-Disposition:
+	 In-Reply-To:X-Spamd-Result:X-Rspamd-Server:X-Rspamd-Action:
+	 X-Spam-Flag:X-Spam-Score:X-Spam-Level:X-Rspamd-Queue-Id;
+	bh=e5FM9vVnkaYr5oiSZF4qGOvuP/i123ZW74JzPvuX6pg=;
+	b=klSnt5/4bCucfrqxssMYsig50aJrmmqE5VmAOChXwHq3Rc2w0YP+/TiBzZd0yT+Dp1HV
+	 BVz5RdVpPUVzwTz2iMf7awM5cMZRhJYAGacLDRr2XPsEdw9NMIAZJAetET/iz0DdxN7cm
+	 TvzHBv0jkIiVu4Ur4cjfYJtVkQK/uR+cqSuRRvkR0NVGUQsv7de0lO41/l5r1fDFR1AUZ
+	 bOlitl6ot+yS9j3VqnjAKf+zy+ozbeaGu0sNn+8Ewy47WW+zwzNQEZn8pLnjVJA4HFSPk
+	 xMUE39qu0D5rloa64ooaEnIRAUOCN+PpZQUeVAIS/M+omdsUViC9f9hmV9TDm1OfUTQ==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dmarc=pass header.from=redhat.com;
-	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jMy1J+Cz;
-	arc=none smtp.remote-ip=170.10.133.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+	dmarc=none header.from=suse.cz;
+	spf=pass smtp.mailfrom=suse.cz;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=2Aj1MXJl;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=aKDUHDex;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=2Aj1MXJl;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=aKDUHDex;
+	arc=none smtp.remote-ip=195.135.223.130
+Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3C2606A31C
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:05:38 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB3C2606A31C
-Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
-Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 75616606A31E;
+	Thu, 26 Nov 2026 09:05:44 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 75616606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=suse.cz
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.cz
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jMy1J+Cz
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795683937;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=5YB4gCt4M6OMnWrIPuEP8EnKlBg5sXTJw5ThjcA32d0=;
-	b=jMy1J+Cz+iUZXbNEUy3wpml1xulRfBFWlo0cptaMXGaDt4DVAYrTlZYUP2aGTJc7/89mG0
-	GgyCyEyvNFfZgeSXt7pEf7AfK5TNu2yCcJSh9QoxxJYDuPA3E/jDJiB+W8bVYWCOqpQYSB
-	Lzad9mqTGiIP7xjIgOCHfrwR9SFp7CY=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-218-Dk79X1VlMuSR4aurm3KjaQ-1; Thu,
- 26 Nov 2026 09:05:35 +0000
-X-MC-Unique: Dk79X1VlMuSR4aurm3KjaQ-1
-X-Mimecast-MFC-AGG-ID: Dk79X1VlMuSR4aurm3KjaQ_1795683934
-Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=2Aj1MXJl;
+	dkim=pass header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=aKDUHDex;
+	dkim=pass (1024-bit key) header.d=suse.cz header.i=@suse.cz header.a=rsa-sha256 header.s=susede2_rsa header.b=2Aj1MXJl;
+	dkim=neutral header.d=suse.cz header.i=@suse.cz header.a=ed25519-sha256 header.s=susede2_ed25519 header.b=aKDUHDex
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D2F9A1956049;
-	Thu, 26 Nov 2026 09:05:33 +0000 (UTC)
-Received: from poros-thinkpadp16vgen1.tpbc.com (unknown [10.44.48.12])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B24C341F;
-	Thu, 26 Nov 2026 09:05:31 +0000 (UTC)
-From: Petr Oros <poros@redhat.com>
-To: netdev@vger.kernel.org
-Cc: Petr Oros <poros@redhat.com>,
-	David Ahern <dsahern@kernel.org>,
-	Stephen Hemminger <stephen@networkplumber.org>,
-	Ivan Vecera <ivecera@redhat.com>,
-	Jiri Pirko <jiri@resnulli.us>
-Subject: [PATCH iproute2-next 3/3] dpll: add the state-connected-override pin capability
-Date: Thu, 26 Nov 2026 10:05:12 +0100
-Message-ID: <20261126090516.4278-4-poros@redhat.com>
-In-Reply-To: <20261126090516.4278-1-poros@redhat.com>
-References: <20261126090516.4278-1-poros@redhat.com>
+	by smtp-out1.suse.de (Postfix) with ESMTPS id A246D21D8F;
+	Thu, 26 Nov 2026 09:05:36 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795683936; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e5FM9vVnkaYr5oiSZF4qGOvuP/i123ZW74JzPvuX6pg=;
+	b=2Aj1MXJlIYpqdmjnsQ0sPyQux4kSV5g4Dsvpn6MzW7FExaq2EkvverSLjQXcNc+6bKKtoy
+	XxcllSyZ+V7edM65UBTv09Yhg3V1KYx1lxcmjqqR+CDO5ZEFQHWH+N1a/+UGiHumsuLmTt
+	ctIrIlDk/wLwqOwjhdBQgfX+DCCOWFs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795683936;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e5FM9vVnkaYr5oiSZF4qGOvuP/i123ZW74JzPvuX6pg=;
+	b=aKDUHDexsKNu7mk1FQDN4+wzC9n5YJr8g3hfI3/jNWMmzqqRUZXH69IyO/q+qyDg6RgAIb
+	u9PtFijfU1TL7JCg==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.cz header.s=susede2_rsa header.b=2Aj1MXJl;
+	dkim=pass header.d=suse.cz header.s=susede2_ed25519 header.b=aKDUHDex
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
+	t=1795683936; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e5FM9vVnkaYr5oiSZF4qGOvuP/i123ZW74JzPvuX6pg=;
+	b=2Aj1MXJlIYpqdmjnsQ0sPyQux4kSV5g4Dsvpn6MzW7FExaq2EkvverSLjQXcNc+6bKKtoy
+	XxcllSyZ+V7edM65UBTv09Yhg3V1KYx1lxcmjqqR+CDO5ZEFQHWH+N1a/+UGiHumsuLmTt
+	ctIrIlDk/wLwqOwjhdBQgfX+DCCOWFs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
+	s=susede2_ed25519; t=1795683936;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=e5FM9vVnkaYr5oiSZF4qGOvuP/i123ZW74JzPvuX6pg=;
+	b=aKDUHDexsKNu7mk1FQDN4+wzC9n5YJr8g3hfI3/jNWMmzqqRUZXH69IyO/q+qyDg6RgAIb
+	u9PtFijfU1TL7JCg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 73C03134C3;
+	Thu, 26 Nov 2026 09:05:36 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id /qoxFGD2B2ufTAAAD6G6ig
+	(envelope-from <jack@suse.cz>); Thu, 26 Nov 2026 09:05:36 +0000
+Received: by quack.suse.cz (Postfix, from userid 1000)
+	id F321627D9A; Thu, 26 Nov 2026 10:05:35 +0100 (CET)
+Date: Thu, 26 Nov 2026 10:05:35 +0100
+From: Jan Kara <jack@suse.cz>
+To: "Harry Yoo (Meta)" <harry@kernel.org>
+Cc: Vlastimil Babka <vbabka@kernel.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, Suren Baghdasaryan <surenb@google.com>, 
+	Johannes Weiner <hannes@cmpxchg.org>, Michal Hocko <mhocko@kernel.org>, 
+	Shakeel Butt <shakeel.butt@linux.dev>, Roman Gushchin <roman.gushchin@linux.dev>, 
+	Hao Li <hao.li@linux.dev>, Christoph Lameter <cl@gentwo.org>, 
+	David Rientjes <rientjes@google.com>, Muchun Song <muchun.song@linux.dev>, Hao Ge <hao.ge@linux.dev>, 
+	Pedro Falcato <pfalcato@suse.de>, linux-mm@kvack.org, linux-kernel@vger.kernel.org, 
+	kernel-team@meta.com, "Liam R. Howlett" <liam@infradead.org>, 
+	Alice Ryhl <aliceryhl@google.com>, Andrew Ballance <andrewjballance@gmail.com>, 
+	Matthew Wilcox <willy@infradead.org>, linux-fsdevel@vger.kernel.org, 
+	Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	"David S. Miller" <davem@davemloft.net>, Jakub Kicinski <kuba@kernel.org>, 
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>, Jiayuan Chen <jiayuan.chen@linux.dev>, netdev@vger.kernel.org, 
+	Kees Cook <kees@kernel.org>, David Hildenbrand <david@kernel.org>, 
+	Lorenzo Stoakes <ljs@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Madhavan Srinivasan <maddy@linux.ibm.com>, Michael Ellerman <mpe@ellerman.id.au>, 
+	Nicholas Piggin <npiggin@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
+	"Joerg Roedel (AMD)" <joro@8bytes.org>, Amir Goldstein <amir73il@gmail.com>, 
+	Casey Schaufler <casey@schaufler-ca.com>, Paul Moore <paul@paul-moore.com>, 
+	James Morris <jmorris@namei.org>, "Serge E. Hallyn" <serge@hallyn.com>, 
+	linux-security-module@vger.kernel.org, Richard Weinberger <richard@nod.at>, 
+	Anton Ivanov <anton.ivanov@cambridgegreys.com>, Johannes Berg <johannes@sipsolutions.net>, 
+	Eric Dumazet <edumazet@kernel.org>
+Subject: Re: [PATCH slab/for-next v2 04/14] fs/buffer: specify
+ SLAB_MAY_ACCOUNT for buffer_head cache
+Message-ID: <gmnosp2u47xewnszzrx4asmldxsyjtejyrbrng2ckrcfedymeu@evhwupv3iwhf>
+References: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-0-7c680f02a734@kernel.org>
+ <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-4-7c680f02a734@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -81,75 +135,88 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20261125-memalloc-prof-dont-waste-slabobj-ext-metadata-v2-4-7c680f02a734@kernel.org>
+X-Spamd-Result: default: False [-13.01 / 50.00];
+	SUSE_INTERNAL_BYPASS(-9.00)[];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_RHS_NOT_FQDN(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	RCVD_TLS_LAST(0.00)[];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com];
+	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	RCVD_COUNT_THREE(0.00)[3];
+	ARC_NA(0.00)[];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FREEMAIL_CC(0.00)[kernel.org,linux-foundation.org,google.com,cmpxchg.org,linux.dev,gentwo.org,suse.de,kvack.org,vger.kernel.org,meta.com,infradead.org,gmail.com,zeniv.linux.org.uk,suse.cz,davemloft.net,linutronix.de,arm.com,linux.ibm.com,ellerman.id.au,8bytes.org,schaufler-ca.com,paul-moore.com,namei.org,hallyn.com,nod.at,cambridgegreys.com,sipsolutions.net];
+	R_RATELIMIT(0.00)[to_ip_from(RLpgg91yox7uqmadgh65wjkwtw)];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	DKIM_TRACE(0.00)[suse.cz:+];
+	RCPT_COUNT_GT_50(0.00)[51];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DWL_DNSWL_BLOCKED(0.00)[suse.cz:dkim];
+	MISSING_XM_UA(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.cz:email,suse.cz:dkim,suse.com:email]
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Rspamd-Action: no action
+X-Spam-Flag: NO
+X-Spam-Score: -13.01
+X-Spam-Level: 
+X-Rspamd-Queue-Id: A246D21D8F
 
-DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE is the kernel capability
-of pins that can be set to the connected state while their parent
-device is in automatic mode. The uapi header in iproute2 already has
-the flag, but the tool does not know it. A pin with the flag is shown
-as "capabilities: 0xc state-can-change" with no name for the new bit,
-and the JSON capabilities array leaves it out.
+On Wed 25-11-26 21:37:05, Harry Yoo (Meta) wrote:
+> Buffer heads are allocated with __GFP_ACCOUNT to charge them to the
+> memcg of the folio they are attached to. Specify SLAB_MAY_ACCOUNT when
+> the object may be charged to a memcg. __GFP_ACCOUNT without
+> SLAB_MAY_ACCOUNT will not be allowed.
+> 
+> Path: ext4_getblk() -> folio_alloc_buffers(GFP_NOFS | __GFP_ACCOUNT)
+>   -> alloc_buffer_head() -> kmem_cache_zalloc(bh_cachep)
+> 
+> Cc: Alexander Viro <viro@zeniv.linux.org.uk>
+> Cc: Christian Brauner <brauner@kernel.org>
+> Cc: Jan Kara <jack@suse.cz>
+> Cc: linux-fsdevel@vger.kernel.org
+> Signed-off-by: Harry Yoo (Meta) <harry@kernel.org>
 
-Add the name to the text and JSON output and describe the capability
-in the man page.
+Looks good. Feel free to add:
 
-Signed-off-by: Petr Oros <poros@redhat.com>
----
- dpll/dpll.c     |  4 ++++
- man/man8/dpll.8 | 10 +++++++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
+Acked-by: Jan Kara <jack@suse.cz>
 
-diff --git a/dpll/dpll.c b/dpll/dpll.c
-index 8dc1b8f5033fea..cc7da615f6beca 100644
---- a/dpll/dpll.c
-+++ b/dpll/dpll.c
-@@ -1534,6 +1534,8 @@ static void dpll_pin_capabilities_name(__u32 capabilities)
- 		print_string(PRINT_FP, NULL, " priority-can-change", NULL);
- 	if (capabilities & DPLL_PIN_CAPABILITIES_DIRECTION_CAN_CHANGE)
- 		print_string(PRINT_FP, NULL, " direction-can-change", NULL);
-+	if (capabilities & DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE)
-+		print_string(PRINT_FP, NULL, " state-connected-override", NULL);
- }
- 
- /* Multi-attribute collection context */
-@@ -1587,6 +1589,8 @@ static void dpll_pin_print_capabilities(struct nlattr *attr)
- 		print_string(PRINT_JSON, NULL, NULL, "priority-can-change");
- 	if (caps & DPLL_PIN_CAPABILITIES_DIRECTION_CAN_CHANGE)
- 		print_string(PRINT_JSON, NULL, NULL, "direction-can-change");
-+	if (caps & DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE)
-+		print_string(PRINT_JSON, NULL, NULL, "state-connected-override");
- 	close_json_array(PRINT_JSON, NULL);
- 
- 	print_hex(PRINT_FP, NULL, "  capabilities: 0x%x", caps);
-diff --git a/man/man8/dpll.8 b/man/man8/dpll.8
-index c1d4a75e072dc8..fb8276fcdc5688 100644
---- a/man/man8/dpll.8
-+++ b/man/man8/dpll.8
-@@ -294,7 +294,8 @@ Configured frequency and supported frequency ranges
- .IP \[bu]
- Measured frequency in Hz (when frequency monitoring is enabled)
- .IP \[bu]
--Capabilities (state-can-change, priority-can-change, direction-can-change)
-+Capabilities (state-can-change, priority-can-change, direction-can-change,
-+state-connected-override)
- .IP \[bu]
- Phase adjustment range, granularity, and current value
- .IP \[bu]
-@@ -549,6 +550,13 @@ or priority within parent-device relationships.
- .B direction-can-change
- The pin's direction (input/output) can be modified.
- 
-+.TP
-+.B state-connected-override
-+The pin can be set to the connected state also when its parent device is
-+in automatic mode, which overrides the automatic input selection. When the
-+pin is disconnected again, the device returns to automatic selection. A pin
-+with this capability also has state-can-change.
-+
- .PP
- Use
- .B dpll pin show
+								Honza
+
+> ---
+>  fs/buffer.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/fs/buffer.c b/fs/buffer.c
+> index f951559e7d32..4c24f4546106 100644
+> --- a/fs/buffer.c
+> +++ b/fs/buffer.c
+> @@ -3006,7 +3006,7 @@ void __init buffer_init(void)
+>  	int ret;
+>  
+>  	bh_cachep = KMEM_CACHE(buffer_head,
+> -				SLAB_RECLAIM_ACCOUNT|SLAB_PANIC);
+> +				SLAB_RECLAIM_ACCOUNT|SLAB_PANIC|SLAB_MAY_ACCOUNT);
+>  	/*
+>  	 * Limit the bh occupancy to 10% of ZONE_NORMAL
+>  	 */
+> 
+> -- 
+> 2.54.0
+> 
 -- 
-2.56.1
-
+Jan Kara <jack@suse.com>
+SUSE Labs, CR
