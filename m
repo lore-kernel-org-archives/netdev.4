@@ -1,65 +1,65 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.129.124
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=170.10.133.124
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795683938;
-	b=dj5XH57moxZVfDi8gYdT9ggBQPV0/J8hSQKP/ovH6fhRPmRsJunxhSp0iwXs6DulZ0jL
-	 yFT5KqqwfBiq40fomxOC2J1pyKTLAaFIAOcfJ21DjR8/Pc38+TZNYsBdir6lE/j9erLJT
-	 h7MeqHf9/AmCa3bBzuFsg65Y/Y6/R+8JC18xzBIoAKyGK4ZYqvbOQS63JGaryfTF19r5L
-	 6rcAJ0gaxwM87wYkRuDunGKQTfJJXQrepuJ/v68sr7CHs3KdrNUX22rT2WUpoDpuDNz7q
-	 n+cSKiIFFlYS8Zm/95FKYDoev6Wlq/JDnOrjuZY/Wlimc5FkNfozF4tlcNzF9WXmZMQ==
+	t=1795683939;
+	b=Z/dDvlJhYbng+kdjenqMnYY+8xYvO/GxXoB7qTv+FOJjXtxLRGlZv3F08ENUdUYRvuNE
+	 1fhTTjMEKSesFvDYGqBKhC8rGbUocekxTVCNbeANvUN4cL3yZvZY/5JNqOQF8cxw8/aeS
+	 4RK1dLPiQVmvoRvA/4mWbqANnurJxFkIvqTzNbmv6EappPqNhpka4gJQujl9hCC/74NNg
+	 87RuiD31IEaCAO7xyKSgjG/gV5VGlaRUgD2cGH1gadcBcO+iDWEqyEp7cEDRuLK0Zxkjt
+	 uUifmPj3WkTyCjsMcav3BjaNYxrTJs/7mYQQdekJWnmw7+gv/wdfJp1+d6jRtzNVfQw==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795683938;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795683939;
 	h=DMARC-Filter:DKIM-Signature:Received:X-MC-Unique:
 	 X-Mimecast-MFC-AGG-ID:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:In-Reply-To:References:MIME-Version:
 	 Content-Transfer-Encoding:X-Scanned-By;
-	bh=8EnDFqFZhi4WNiwO0UjM4diYXockTAoNZIK0/UWf+Sc=;
-	b=DYLxSuJXqhe14uWUn3oUXb/UbqrK/KZq5zeS+dhm2HChlABZtJTaKNrEY6p5Vq9hY4Ul
-	 kraujenmjEZXtecii8b7/X4cznz1PrLxvTgpV0ctpUcX241liuNC/yscmzQn+VNyA5amy
-	 AZqNDlINAmpuSWvX0+0aJpy87BxDhRRY+CipKsOot9FeNQSlQdfXeZKsDCBUh3HvIb/+m
-	 4GvXeBjHbXwicdVxvcdtn8h4DnIaF4SuW/OIsXShGTd+uLIpw0KNgBKEXeecbXOXErILa
-	 KFo+bLbXFjIEkp38N0w0KO+eXjn9reSouJC70Vzs0sNvWQWkMevWaXMDEI4Hdei6vRg==
+	bh=5YB4gCt4M6OMnWrIPuEP8EnKlBg5sXTJw5ThjcA32d0=;
+	b=1UTckN9Q1+8m9IMd8/fV5WSrxzNMgpONaIrJ7698mBd9GHR2jgQarIoNImv13bte+PDy
+	 K860os2SWvtp+EAi5HYJRI4FW/dTn7SN1oxhp8W7ybxcuQy/8sjg6ldj+s9rZXIGTKAiE
+	 iaZCLOg+Y+J3AB2Rea9TaYOgUULdOmw3KhUWeQoApRSARjnlnc7B5VfgGYP+UYez2ncq9
+	 7wS3Uzd4uRL5quWrtc49WdcoFIN/stgwqGkub/ChO73Afc21tLio7vrZViSyGrXgUDVRI
+	 8BG5AYWqE4zCPSegqV4Qi2/2X9OiGjqsyM2Wjay5HV07ehT88FUvZ5Bvx/zXAsmg6gA==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=redhat.com;
 	spf=pass smtp.mailfrom=redhat.com;
-	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VkuOVtqA;
-	arc=none smtp.remote-ip=170.10.129.124
-Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.129.124])
+	dkim=pass header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jMy1J+Cz;
+	arc=none smtp.remote-ip=170.10.133.124
+Received: from us-smtp-delivery-124.mimecast.com (us-smtp-delivery-124.mimecast.com [170.10.133.124])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5D6CC606A321
-	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:05:37 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 5D6CC606A321
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id AB3C2606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:05:38 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org AB3C2606A31C
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=quarantine dis=none) header.from=redhat.com
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=redhat.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=VkuOVtqA
+	dkim=pass (1024-bit key) header.d=redhat.com header.i=@redhat.com header.a=rsa-sha256 header.s=mimecast20190719 header.b=jMy1J+Cz
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1795683936;
+	s=mimecast20190719; t=1795683937;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=8EnDFqFZhi4WNiwO0UjM4diYXockTAoNZIK0/UWf+Sc=;
-	b=VkuOVtqA7FqXA6NcOUTxj2Ph6B1Xa9RW5r+bEDM1vdpm7yue6hf0jv4WcrTUhc2T3Z6MDY
-	zRiO/PJ2wnHwaPoJ751KIsi9GctskRxAavI1rwfOP9/WQtXHsTRj+xKTtvhZrsXWpVe3/U
-	5x25/+oushUXKP8LmH34VnQsK2ye59k=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=5YB4gCt4M6OMnWrIPuEP8EnKlBg5sXTJw5ThjcA32d0=;
+	b=jMy1J+Cz+iUZXbNEUy3wpml1xulRfBFWlo0cptaMXGaDt4DVAYrTlZYUP2aGTJc7/89mG0
+	GgyCyEyvNFfZgeSXt7pEf7AfK5TNu2yCcJSh9QoxxJYDuPA3E/jDJiB+W8bVYWCOqpQYSB
+	Lzad9mqTGiIP7xjIgOCHfrwR9SFp7CY=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-345-z-5WuWHyNTelctoQFMZjuQ-1; Thu,
- 26 Nov 2026 09:05:32 +0000
-X-MC-Unique: z-5WuWHyNTelctoQFMZjuQ-1
-X-Mimecast-MFC-AGG-ID: z-5WuWHyNTelctoQFMZjuQ_1795683931
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-218-Dk79X1VlMuSR4aurm3KjaQ-1; Thu,
+ 26 Nov 2026 09:05:35 +0000
+X-MC-Unique: Dk79X1VlMuSR4aurm3KjaQ-1
+X-Mimecast-MFC-AGG-ID: Dk79X1VlMuSR4aurm3KjaQ_1795683934
 Received: from mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.95])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 1ADBB1800623;
-	Thu, 26 Nov 2026 09:05:31 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D2F9A1956049;
+	Thu, 26 Nov 2026 09:05:33 +0000 (UTC)
 Received: from poros-thinkpadp16vgen1.tpbc.com (unknown [10.44.48.12])
-	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 1B66334B;
-	Thu, 26 Nov 2026 09:05:28 +0000 (UTC)
+	by mx-prod-int-10.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B24C341F;
+	Thu, 26 Nov 2026 09:05:31 +0000 (UTC)
 From: Petr Oros <poros@redhat.com>
 To: netdev@vger.kernel.org
 Cc: Petr Oros <poros@redhat.com>,
@@ -67,9 +67,9 @@ Cc: Petr Oros <poros@redhat.com>,
 	Stephen Hemminger <stephen@networkplumber.org>,
 	Ivan Vecera <ivecera@redhat.com>,
 	Jiri Pirko <jiri@resnulli.us>
-Subject: [PATCH iproute2-next 2/3] dpll: add the generic device type
-Date: Thu, 26 Nov 2026 10:05:11 +0100
-Message-ID: <20261126090516.4278-3-poros@redhat.com>
+Subject: [PATCH iproute2-next 3/3] dpll: add the state-connected-override pin capability
+Date: Thu, 26 Nov 2026 10:05:12 +0100
+Message-ID: <20261126090516.4278-4-poros@redhat.com>
 In-Reply-To: <20261126090516.4278-1-poros@redhat.com>
 References: <20261126090516.4278-1-poros@redhat.com>
 X-Mailing-List: netdev@vger.kernel.org
@@ -84,124 +84,72 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.6 on 10.30.177.95
 
-DPLL_TYPE_GENERIC is the kernel device type of DPLL devices that are
-neither PPS nor EEC, and the ice driver registers such devices. The
-uapi header in iproute2 already has the value, but the tool has no name
-for it. Such a device is shown with "type: unknown" and "type generic"
-is refused both as a filter of "dpll device show" and as an argument of
-"dpll device id-get".
+DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE is the kernel capability
+of pins that can be set to the connected state while their parent
+device is in automatic mode. The uapi header in iproute2 already has
+the flag, but the tool does not know it. A pin with the flag is shown
+as "capabilities: 0xc state-can-change" with no name for the new bit,
+and the JSON capabilities array leaves it out.
 
-Add the name to the device type helpers, to the man page and to the
-bash completion. The list of device type names used by the two error
-messages moves to a macro, as is already done for the pin types.
+Add the name to the text and JSON output and describe the capability
+in the man page.
 
 Signed-off-by: Petr Oros <poros@redhat.com>
 ---
- bash-completion/dpll |  4 ++--
- dpll/dpll.c          | 10 ++++++++--
- man/man8/dpll.8      |  6 +++---
- 3 files changed, 13 insertions(+), 7 deletions(-)
+ dpll/dpll.c     |  4 ++++
+ man/man8/dpll.8 | 10 +++++++++-
+ 2 files changed, 13 insertions(+), 1 deletion(-)
 
-diff --git a/bash-completion/dpll b/bash-completion/dpll
-index cfd39c5e0c7a53..0251df81159792 100644
---- a/bash-completion/dpll
-+++ b/bash-completion/dpll
-@@ -70,7 +70,7 @@ _dpll_device()
-                     return 0
-                     ;;
-                 type)
--                    COMPREPLY=( $( compgen -W "pps eec" -- "$cur" ) )
-+                    COMPREPLY=( $( compgen -W "pps eec generic" -- "$cur" ) )
-                     return 0
-                     ;;
-                 mode)
-@@ -127,7 +127,7 @@ _dpll_device()
-                     return 0
-                     ;;
-                 type)
--                    COMPREPLY=( $( compgen -W "pps eec" -- "$cur" ) )
-+                    COMPREPLY=( $( compgen -W "pps eec generic" -- "$cur" ) )
-                     return 0
-                     ;;
-                 *)
 diff --git a/dpll/dpll.c b/dpll/dpll.c
-index a0a5e3f9a2f152..8dc1b8f5033fea 100644
+index 8dc1b8f5033fea..cc7da615f6beca 100644
 --- a/dpll/dpll.c
 +++ b/dpll/dpll.c
-@@ -806,6 +806,8 @@ static const char *dpll_type_name(__u32 type)
- 		return "pps";
- 	case DPLL_TYPE_EEC:
- 		return "eec";
-+	case DPLL_TYPE_GENERIC:
-+		return "generic";
- 	default:
- 		return "unknown";
- 	}
-@@ -817,11 +819,15 @@ static int str_to_dpll_type(const char *s, __u32 *type)
- 		*type = DPLL_TYPE_PPS;
- 	else if (!strcmp(s, "eec"))
- 		*type = DPLL_TYPE_EEC;
-+	else if (!strcmp(s, "generic"))
-+		*type = DPLL_TYPE_GENERIC;
- 	else
- 		return -EINVAL;
- 	return 0;
+@@ -1534,6 +1534,8 @@ static void dpll_pin_capabilities_name(__u32 capabilities)
+ 		print_string(PRINT_FP, NULL, " priority-can-change", NULL);
+ 	if (capabilities & DPLL_PIN_CAPABILITIES_DIRECTION_CAN_CHANGE)
+ 		print_string(PRINT_FP, NULL, " direction-can-change", NULL);
++	if (capabilities & DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE)
++		print_string(PRINT_FP, NULL, " state-connected-override", NULL);
  }
  
-+#define DPLL_TYPE_NAMES "pps/eec/generic"
-+
- static int str_to_dpll_lock_status(const char *s, __u32 *status)
- {
- 	if (!strcmp(s, "unlocked"))
-@@ -1290,7 +1296,7 @@ static int cmd_device_show(struct dpll *dpll)
- 						   &filter.present,
- 						   DPLL_FILTER_DEV_TYPE,
- 						   str_to_dpll_type,
--						   "pps/eec"))
-+						   DPLL_TYPE_NAMES))
- 				return -EINVAL;
- 		} else if (dpll_argv_match(dpll, "mode")) {
- 			if (dpll_filter_parse_enum(dpll, "mode",
-@@ -1421,7 +1427,7 @@ static int cmd_device_id_get(struct dpll *dpll)
- 				return -EINVAL;
- 			}
- 			if (str_to_dpll_type(str, &val)) {
--				pr_err("invalid type: %s (use pps/eec)\n", str);
-+				pr_err("invalid type: %s (use " DPLL_TYPE_NAMES ")\n", str);
- 				return -EINVAL;
- 			}
- 			mnl_attr_put_u32(nlh, DPLL_A_TYPE, val);
+ /* Multi-attribute collection context */
+@@ -1587,6 +1589,8 @@ static void dpll_pin_print_capabilities(struct nlattr *attr)
+ 		print_string(PRINT_JSON, NULL, NULL, "priority-can-change");
+ 	if (caps & DPLL_PIN_CAPABILITIES_DIRECTION_CAN_CHANGE)
+ 		print_string(PRINT_JSON, NULL, NULL, "direction-can-change");
++	if (caps & DPLL_PIN_CAPABILITIES_STATE_CONNECTED_OVERRIDE)
++		print_string(PRINT_JSON, NULL, NULL, "state-connected-override");
+ 	close_json_array(PRINT_JSON, NULL);
+ 
+ 	print_hex(PRINT_FP, NULL, "  capabilities: 0x%x", caps);
 diff --git a/man/man8/dpll.8 b/man/man8/dpll.8
-index 84c21e7980eb2b..c1d4a75e072dc8 100644
+index c1d4a75e072dc8..fb8276fcdc5688 100644
 --- a/man/man8/dpll.8
 +++ b/man/man8/dpll.8
-@@ -101,7 +101,7 @@ Show only devices with the specified 64-bit clock identifier.
- .TP
- .BI type " TYPE"
- Show only devices of the specified type:
--.BR pps " or " eec .
-+.BR pps ", " eec " or " generic .
+@@ -294,7 +294,8 @@ Configured frequency and supported frequency ranges
+ .IP \[bu]
+ Measured frequency in Hz (when frequency monitoring is enabled)
+ .IP \[bu]
+-Capabilities (state-can-change, priority-can-change, direction-can-change)
++Capabilities (state-can-change, priority-can-change, direction-can-change,
++state-connected-override)
+ .IP \[bu]
+ Phase adjustment range, granularity, and current value
+ .IP \[bu]
+@@ -549,6 +550,13 @@ or priority within parent-device relationships.
+ .B direction-can-change
+ The pin's direction (input/output) can be modified.
  
- .TP
- .BI mode " MODE"
-@@ -133,7 +133,7 @@ Clock quality level (if supported)
- .IP \[bu]
- Temperature (if supported)
- .IP \[bu]
--Type (PPS or EEC)
-+Type (PPS, EEC or generic)
- .IP \[bu]
- Supported modes
- .IP \[bu]
-@@ -198,7 +198,7 @@ Kernel module name.
- .TP
- .BI type " TYPE"
- Device type:
--.BR pps " or " eec .
-+.BR pps ", " eec " or " generic .
- 
- .SH PIN COMMANDS
- 
++.TP
++.B state-connected-override
++The pin can be set to the connected state also when its parent device is
++in automatic mode, which overrides the automatic input selection. When the
++pin is disconnected again, the device returns to automatic selection. A pin
++with this capability also has state-can-change.
++
+ .PP
+ Use
+ .B dpll pin show
 -- 
 2.56.1
 
