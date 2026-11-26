@@ -1,49 +1,53 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=78.47.171.185
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795693210;
-	b=U4Pb/5kGkTokL+3BmYbHo50eoUxvSiiMUxsl0NR4h8jub7o4cL5W9mBzx7J4B0dabGxr
-	 fOhrKqeyaUKOLaXKVDGYzkyzBpZYJhIcHL1h4sCgBE2umqGoQgH6Q/+skQnrC5exk/x1e
-	 Jg89K2e0DQMRroUCtQDVIZmrYZnwhwtrStr45ZiTBaHwZScw7yVy+N6hEdRDPgSXa3s4y
-	 lv7uQxJ/ewy5/+q+nSzkMSmfkHx4GQ/AzYPjGDhpZ19YAnGLkw2FQnDR5ic3cYCfBzu/o
-	 w6Un//COabCtDBlYxdpW1JqLoH8XTO+l33C8aXO6Xz/2G6Eugw1woqhaFUc4UNlamzg==
+	t=1795693438;
+	b=no8BdDhRJ0/AiciOEPw0e6MS+2CsiwXhU6ULIR3IfkHQKiKaXXZaU1Qy4cpXfdYGyej3
+	 woHApCWwMoXi0Zbuqfv3T+kEQlTgB1qLTSLukNF2G/CmAdWpQbHujLGva9TkGzmhf8isg
+	 K8Bdk81pH2VHCxHnDDrie0HEvPZ5jTG99rtG+lMqHJk9CvqCsFS6nJTXzgTZrBHdCqpLD
+	 +SMUQvza2bxc0jQ6pg3+zni4IVZpPRyYpgNd14S7wFxWEMbMk+YPMrsSrbb2KHr0e+A2b
+	 r5YPGPnBRgw17e5AOuP6kYSRvHJOnKpDekBb042P6czf8xUEp0Rva2pDHDjV2GNcXJA==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795693210;
-	h=Received:DKIM-Signature:Received:Content-Type:MIME-Version:
-	 Content-Transfer-Encoding:Subject:From:Message-Id:Date:References:
-	 In-Reply-To:To:Cc;
-	bh=WapnNrSMtWRMh/DEtJXyNZGqF5pDOdH/wpWy76Is1Bw=;
-	b=5LIQDQBV37IlYrjjHMaRbQcKL3bQ56F2jKFa0y45WaXus/R3uZS8aU07P5YKzYean3D8
-	 O3g62/kriUFJX1o58EOKPWUATBfcJWWvEOtaNZhPH2z6dDlRvsfz1ZSrp9PVb72R3d/CT
-	 8+XDjiJpGajyspzxQ3KNaExj2XU51yflyS27m10q0ZdR6GMYYRRR7BUCCDznZjwIrGSSv
-	 Dj8yHlkDGG+b7UUR56K1AZ7W7247zwQy4oHSKetxLr0zYbTHexn0jrI+vCTAEKWcnUviT
-	 KttARjmIK8KIMUK/YROmFfhNz0bsg+XBA/mljdkEOEa4PNgvHkdLeyqUPIF+ncAF5gQ==
+	a=rsa-sha256; c=relaxed/relaxed; t=1795693438;
+	h=DMARC-Filter:Received:From:To:Cc:Subject:Date:Message-ID:X-Mailer:
+	 MIME-Version:Content-Transfer-Encoding;
+	bh=iq7QWD1R6uTQhcWCLV3i7Z9S2aOBwDhRk26vX5a9zxE=;
+	b=0rjG/4JqcMndr+Uzac2SFN3280hlOWo3iv9VsTAbq1INEBv6lv6AMvKkgAdyYcBnZgAI
+	 cHi97ytPA6CG+jPu3k6M6uTXLssLXb8jOet6QzbFnb2aF0w4owhgJkSvJFjzoAYfyH4q2
+	 ZNlDhW8nyT1ta1PZ5DpYgRaeuw6cL9jLHqa4+bZwcHvNKPU2Agtp9ABChoIuvgAVjm7EJ
+	 DAnq70ZOIiCtxUiEZAwA+O7+7IfT3TXIqyE4jaV47bJrCBs2s1mWHXB6iMoS1utsDKBa3
+	 ipdODhVGxWlUx4J1+lRaNVxDQ69Fh7WbsEFs6JR9Vy4fpaWifXcVAqdj9Nikg9mp7Iw==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlHUa8qi;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+	dmarc=none header.from=datenfreihafen.org;
+	spf=pass smtp.mailfrom=datenfreihafen.org;
+	arc=none smtp.remote-ip=78.47.171.185
+Received: from proxima.lasnet.de (proxima.lasnet.de [78.47.171.185])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 02F0C606A321;
-	Thu, 26 Nov 2026 11:40:09 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=mlHUa8qi
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BDC801F000C4;
-	Thu, 26 Nov 2026 11:40:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795693209;
-	bh=WapnNrSMtWRMh/DEtJXyNZGqF5pDOdH/wpWy76Is1Bw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc;
-	b=mlHUa8qiOFWYe6znCBRriSSrERXJykaxtY6EmY/adah8A98Z+TIytTHleBm0tDqTh
-	 c4bPk1SO9QNDAccVa6dwchhvaKHVsxtuonlomy28NFxjletrI4qMPTwFDhKY/G8PnC
-	 vgINVoUWAjcKZVZfyqv59ShvFH/JeL6s+DNlVtek0VpJXc0VkBTtXmd7bB9ok2shJM
-	 PE/mcPgoPVnVpczgBQhq0GLkZvDuGyJv+aTeCwaA+IGFqojVAPL6PDxhj5zon6qeHk
-	 zxu4KCsVOE437kY7mV0kO9Faf4NQtjtEO+RVnn5aXbLn28V0j/JXwWkVHGsOMcGnLW
-	 Zf0wdI4tLXWFg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id B45F3380A962;
-	Thu, 26 Nov 2026 11:40:09 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9C555606A31E;
+	Thu, 26 Nov 2026 11:43:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9C555606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=datenfreihafen.org
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=datenfreihafen.org
+Received: from work.datenfreihafen.local (unknown [46.253.254.165])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: stefan@sostec.de)
+	by proxima.lasnet.de (Postfix) with ESMTPSA id 13EEBC0368;
+	Thu, 26 Nov 2026 12:43:54 +0100 (CET)
+From: Stefan Schmidt <stefan@datenfreihafen.org>
+To: davem@davemloft.net,
+	kuba@kernel.org,
+	pabeni@redhat.com
+Cc: linux-wpan@vger.kernel.org,
+	alex.aring@gmail.com,
+	miquel.raynal@bootlin.com,
+	netdev@vger.kernel.org
+Subject: pull-request: ieee802154 for net 2026-11-26
+Date: Thu, 26 Nov 2026 12:43:49 +0100
+Message-ID: <20261126114349.2003459-1-stefan@datenfreihafen.org>
+X-Mailer: git-send-email 2.56.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -54,91 +58,86 @@ List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net v5 00/14] net: pse-pd: assorted lifetime and
- error-path
- fixes
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: 
- <179569320852.1770964.6389266555271149762.git-patchwork-notify@kernel.org>
-Date: Thu, 26 Nov 2026 11:40:08 +0000
-References: <20261118183957.2031311-1-github@szelinsky.de>
-In-Reply-To: <20261118183957.2031311-1-github@szelinsky.de>
-To: Carlo Szelinsky <github@szelinsky.de>
-Cc: o.rempel@pengutronix.de, kory.maincent@bootlin.com, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
- horms@kernel.org, broonie@kernel.org, lgirdwood@gmail.com,
- maxime.chevallier@bootlin.com, kyle.swenson@est.tech, ross@r-sc.ca,
- netdev-bot+sashiko@kernel.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org
 
-Hello:
+Hello Jakub,Dave, Paolo.
 
-This series was applied to netdev/net-next.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
+An update from ieee802154 for your *net* tree:
 
-On Wed, 18 Nov 2026 19:39:43 +0100 you wrote:
-> Fixes for the PSE core and the pd692x0 driver, found while working on
-> the PSE controller teardown. Most of them are about what happens when a
-> controller unbinds or fails to register.
-> 
->  1  The kfifo is too small: podl-pse-regulator and any controller with
->     0 or 1 lines cannot register.
->  2  Removes two checks that can never be true. Not a fix; it makes 3
->     smaller.
->  3  A module reference leaks when reading the port state fails.
->  4  A failed IRQ request stays in pcdev->irq, so unregister disables a
->     line another device may own.
->  5  The notification worker can read a PHY that was already freed.
->  6  Setting a power limit checks the PI state without the lock.
->  7  A power domain shared by two controllers is freed when the one that
->     created it unbinds, or when registration fails part way.
->  8  Unregister frees the PI array before it stops the IRQ handler and
->     the notification worker. The worker can also be queued again
->     during unregister.
->  9  Unregister frees the PI array while a lookup can still find the
->     controller.
->  10 The PI regulator ops can run after the PI array is freed.
->  11 A failed registration leaks the kfifo.
->  12 A shared power domain's supply handle goes stale when the controller
->     that created it unbinds.
->  13 pd692x0 leaks its manager power budget when probe fails.
->  14 pd692x0 crashes on a manager supply that is not resolved yet.
-> 
-> [...]
+A bigger than usual round of bug fixes for ieee802154.
 
-Here is the summary with links:
-  - [net,v5,01/14] net: pse-pd: size the notification kfifo after defaulting nr_lines
-    https://git.kernel.org/netdev/net-next/c/374589c02b1f
-  - [net,v5,02/14] net: pse-pd: remove dead pi_get_admin_state() checks
-    https://git.kernel.org/netdev/net-next/c/3bbb278ccc73
-  - [net,v5,03/14] net: pse-pd: fix module refcount leak in pse_control_get_internal()
-    https://git.kernel.org/netdev/net-next/c/d1e25868c63b
-  - [net,v5,04/14] net: pse-pd: do not keep a failed IRQ in pcdev->irq
-    https://git.kernel.org/netdev/net-next/c/d4917898edb1
-  - [net,v5,05/14] net: pse-pd: do not reach a freed PHY from the notification worker
-    https://git.kernel.org/netdev/net-next/c/788ab871cce2
-  - [net,v5,06/14] net: pse-pd: check the PI state under the lock when setting a power limit
-    https://git.kernel.org/netdev/net-next/c/dd81d889a87a
-  - [net,v5,07/14] net: pse-pd: do not tie a shared power domain to its creator's devres
-    https://git.kernel.org/netdev/net-next/c/7bb86f016211
-  - [net,v5,08/14] net: pse-pd: stop async event sources before freeing PI data in unregister
-    https://git.kernel.org/netdev/net-next/c/bab065ee89bb
-  - [net,v5,09/14] net: pse-pd: unregister from the controller list before freeing PI data
-    https://git.kernel.org/netdev/net-next/c/89015cdd7920
-  - [net,v5,10/14] net: pse-pd: keep the PI data until the PI regulators are gone
-    https://git.kernel.org/netdev/net-next/c/83683cb6ae01
-  - [net,v5,11/14] net: pse-pd: free the notification kfifo when registration fails
-    https://git.kernel.org/netdev/net-next/c/0cfc9d478abe
-  - [net,v5,12/14] net: pse-pd: use each PI's own supply handle for the power budget
-    https://git.kernel.org/netdev/net-next/c/7abc960054eb
-  - [net,v5,13/14] net: pse-pd: pd692x0: release the manager power budget through devres
-    https://git.kernel.org/netdev/net-next/c/758dcea92de2
-  - [net,v5,14/14] net: pse-pd: pd692x0: defer probe while a manager supply is unresolved
-    https://git.kernel.org/netdev/net-next/c/9e83fadf3887
+Adi Prasan fixe a race in our async tx.
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+Adriano Cordova is making sure a wpan device type is registered.
 
+Andrey Misiurov fixes the error propagation on netns rollback.
 
+Aryan Arora ensures cancellation of in progress scans during teardown.
+
+Lee Keon-Hyeong fixes up child handling and lookup.
+
+Maoyi Xie ensure proper ifindex handling for netns.
+
+Petr Vaganov ensures proper initialization of ieee802154 headers.
+
+Roman Gushchin fixes a type confusion in 6lowpan.
+
+Xuanqiang Luo fixes skb reference handling in the RX queues
+
+Yifan Zhang fixes beacon transmissions to use the correct interface.
+
+regards
+Stefan Schmidt
+
+The following changes since commit ef3e21c61baa74e39a49b75318bd4541562ec43f:
+
+  net/tcp-ao: fix reset key lookup for IPv4 segments on IPv6 listeners (2026-11-25 21:10:35 -0500)
+
+are available in the Git repository at:
+
+  git://git.kernel.org/pub/scm/linux/kernel/git/wpan/wpan.git tags/ieee802154-for-net-2026-11-26
+
+for you to fetch changes up to b6148aaa5eb5b9f5471cc215f37eafb1299afe1c:
+
+  mac802154: look up children by extended address (2026-11-26 10:45:19 +0100)
+
+----------------------------------------------------------------
+Adi Prasan (1):
+      net: mac802154: fix race between slave_close() and in-flight async tx
+
+Adriano Cordova (1):
+      ieee802154: register a device type for the wpan dev
+
+Andrey Misiurov (1):
+      ieee802154: keep the original error after a netns rollback
+
+Aryan Arora (1):
+      mac802154: Cancel scan work synchronously during hardware teardown
+
+Lee Keon-Hyeong (2):
+      mac802154: free a replaced child
+      mac802154: look up children by extended address
+
+Maoyi Xie (1):
+      ieee802154: look up the wpan_phy dump ifindex in the caller's netns
+
+Petr Vaganov (1):
+      mac802154: fix uninit-value in ieee802154_header_create()
+
+Roman Gushchin (1):
+      6lowpan: fix netdev_priv() type confusion in lowpan_event()
+
+Xuanqiang Luo (1):
+      mac802154: avoid extra skb references in RX queues
+
+Yifan Zhang (1):
+      mac802154: validate pinned interface before beacon transmission
+
+ net/6lowpan/6lowpan_i.h   | 13 ++++++++++---
+ net/6lowpan/core.c        |  2 +-
+ net/ieee802154/core.c     | 10 +++++++++-
+ net/ieee802154/nl802154.c |  2 +-
+ net/mac802154/iface.c     | 11 +++++++----
+ net/mac802154/main.c      |  2 ++
+ net/mac802154/rx.c        |  4 ++--
+ net/mac802154/scan.c      | 47 +++++++++++++++++++++++++++--------------------
+ 8 files changed, 59 insertions(+), 32 deletions(-)
