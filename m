@@ -1,76 +1,96 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795706828;
-	b=lfee4/YD3U/VFTB3tlVgyyWrqPLsHrYiqqEb2uSolpbFCEDTrWw3K+AKBDiFuUR80XJh
-	 4Z90mq4CxnLn6pTzIrrRaFqKsJgtPYEJRyX7ZrlG+7V9EPHFfetiA0CQ/1usSaguBroNY
-	 seyKHRTbOg6QppHWyJsqkioNMDuu1FUdOgAdWzTTRT6EvdbrrFcz9cx4zZBJBLML7B5BI
-	 dakHnqBL9n75lEH/3dBTYlWqTfjyjGWm0tU0U8spp377v1b2ct0Rx1gjAB81fwGuslX/A
-	 rEZSJ1QQ7B8UuZLd00KjHgNiPYxMa8+QX2NNNZg7eRGIh33vvVlcts7C7MfC/nWiRWw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795706828;
-	h=Received:DKIM-Signature:From:To:Cc:Subject:In-Reply-To:References:
-	 Date:Message-ID:MIME-Version:Content-Type:Content-Transfer-Encoding;
-	bh=pQbqZcGbxJ+uscPuSMz/IRzY0GOV2w0fU4mvW1Tzpqk=;
-	b=IKLXwfYwgetExAe9AEQ6Tc8v/gxC5h2w6oRIj5qvuaqQs0wEUGrXvgnQ95tdnybd22pW
-	 8kS7tNf7Tnbba6gfsL8c15uQpvh26eUPAviKdJi/TYWUJ3GedE64o/eaz2jZjNwgb1yWX
-	 usKlF2hs0mTquMnqKGJQnoEiben0iVebUF23i4bpM+OD8wOUfV6XDY9j8aeo4CTnzBuR7
-	 vm34NhXIj1vEL4DROUdjYVl+43YVV3tAKShannROwWm8GIpI4Flw1Z4ZrxntFVOJuWbE5
-	 NDs9EowhDZVS05dN/K0inQ2JoOqHegL0ALIcmRBzRLjQVQ9z9Nf3dBgwcb9aTdkOCUQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i98MPiPp;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.56
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795706877;
+	b=DcC2y2RoQ4iEUFAygL4GgpVo1iFqiEcQuUo2tAakEOXkox3SNp6/r9LlPAWAk31jjeqP
+	 +7ZUB4BXtV+qG4e9/Wy00BH0hVE0lWAeibUeqg9m6gB7cnPae0Mu4UrSiD4V9ev8QMFHZ
+	 jhdT1xB8AvRyGx3hatH99tMffiQrIVe19Y1UDFphfKD+zrq/kQApwEcg5j6P/Be4+f/MV
+	 NfUXjXycgJ/dq6qMJAAQnQM41k1UzayT8Y0sQT1+4u/sOkj0GM/Jza4LsyPwWZItcQw+s
+	 Fhvih9Ygz47Auc7oO+Yszd1jSOEyaXtQVHdQQeku2tXe84yQtNanqfACaMzDveBPQpg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795706877;
+	h=DMARC-Filter:DKIM-Signature:Received:Received:Date:From:To:Cc:
+	 Subject:Message-ID:References:Content-Type:Content-Disposition:
+	 In-Reply-To:X-ClientProxiedBy:MIME-Version:X-MS-PublicTrafficType:
+	 X-MS-TrafficTypeDiagnostic:X-MS-Office365-Filtering-Correlation-Id:
+	 X-MS-Exchange-SenderADCheck:X-MS-Exchange-AntiSpam-Relay:
+	 X-Microsoft-Antispam:X-Microsoft-Antispam-Message-Info:
+	 X-Forefront-Antispam-Report:
+	 X-MS-Exchange-AntiSpam-MessageData-ChunkCount:
+	 X-MS-Exchange-AntiSpam-MessageData-0:X-OriginatorOrg:
+	 X-MS-Exchange-CrossTenant-Network-Message-Id:
+	 X-MS-Exchange-CrossTenant-AuthSource:X-MS-Exchange-CrossTenant-AuthAs:
+	 X-MS-Exchange-CrossTenant-OriginalArrivalTime:
+	 X-MS-Exchange-CrossTenant-FromEntityHeader:
+	 X-MS-Exchange-CrossTenant-Id:X-MS-Exchange-CrossTenant-MailboxType:
+	 X-MS-Exchange-CrossTenant-UserPrincipalName:
+	 X-MS-Exchange-Transport-CrossTenantHeadersStamped;
+	bh=mH8FfY72KSbU79x2dDjvBSyebWXoJRNxdZ7GxP3JiEs=;
+	b=xU2lf3ztB+Sop6IY2r5JcspiJEl3d9LFDhqtAS1ZT7bYaWuItgSA9LsIukH0HQ7KEwAB
+	 BavE69F5kasIGuRVAzeQA1Hq0TBRs5LcRY+/g/4+Ipv3Fr6X1pdz+LbPwJ6fAvdbJMGIZ
+	 4nwL56CmXUDDs8nOnQ6GKWMW601VWv1e5hvT+jM8jQwRHB+464UUDkjukRUIz51NEXniW
+	 ZjkqnxUEKPBBG89/c8JKCiH4CUmc+gG5NJ0nOsrWKxHfOabss6jgEW9RfrZQged94Yx95
+	 ifn70JNHoFXG5wKvyiD35Q+ihYukqiU9YCMePmmEMooBXLGadCO3wP32dFOUjTs1Pug==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=nvidia.com;
+	spf=fail smtp.mailfrom=nvidia.com;
+	dkim=pass header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=n0X6mBV3;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=52.101.43.56
+Received: from SJ2PR03CU001.outbound.protection.outlook.com (mail-westusazon11012056.outbound.protection.outlook.com [52.101.43.56])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+	 key-exchange ECDHE (secp384r1) server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 8DE24606A326;
-	Thu, 26 Nov 2026 15:27:08 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id C0E10606A31C
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 15:27:56 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org C0E10606A31C
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=reject dis=none) header.from=nvidia.com
+Authentication-Results: smtp.subspace.kernel.org; spf=fail smtp.mailfrom=nvidia.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=i98MPiPp
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4DA9C1F000C0;
-	Thu, 26 Nov 2026 15:27:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795706828;
-	bh=pQbqZcGbxJ+uscPuSMz/IRzY0GOV2w0fU4mvW1Tzpqk=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date;
-	b=i98MPiPpHdRyKLUYgLKAMej7QhKr9tu3lSzCbrCqmNcCmrUAQDfMibatJjZerutim
-	 oett7b21vDlQ56v9pKMwpj92D+qZjZEybmAHikLaNAluJkqWeO3xqWWGWIfVAYxWHF
-	 aqbUSEq5jMk47WVsUupd3b7L28mhah6QHl5FG6/y7oszmYeYAQrfIQ7Pei2p94nKOE
-	 ybPrKVIpfZN2ZqwQk8F9c8roJ5lgpfOGdGR4fw0ZQiG5uQojAVQDAd5RuyU82vUzQH
-	 zwEKLkqeQP/rczVL8hCbZZtybfgvxPPHPYtAlRWhodjw2Debmz8B9L7F9824TbxkA+
-	 597gUVt/ctzRg==
-From: =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@kernel.org>
-To: Todd Freed <toddfreed@meta.com>, netdev@vger.kernel.org
-Cc: "David S. Miller" <davem@davemloft.net>, Andrew Lunn
- <andrew+netdev@lunn.ch>, Boris Pismenny <borisp@nvidia.com>, Cosmin Ratiu
- <cratiu@nvidia.com>, Daniel Zahka <daniel.zahka@gmail.com>, Donald Hunter
- <donald.hunter@gmail.com>, Dragos Tatulea <dtatulea@nvidia.com>, Eric
- Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Jamal
- Hadi Salim <jhs@mojatatu.com>, Jiri Pirko <jiri@resnulli.us>, Leon
- Romanovsky <leon@kernel.org>, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-rdma@vger.kernel.org, Mark Bloch <mbloch@nvidia.com>, Paolo Abeni
- <pabeni@redhat.com>, Pedro Tammela <pctammela@mojatatu.com>, Saeed
- Mahameed <saeedm@nvidia.com>, Simon Horman <horms@kernel.org>, Tariq
- Toukan <tariqt@nvidia.com>, Wei Wang <weiwan@google.com>, Willem de Bruijn
- <willemdebruijn.kernel@gmail.com>, Kuniyuki Iwashima <kuniyu@google.com>,
- bpf@vger.kernel.org, =?utf-8?Q?Asbj=C3=B8rn?= Sloth =?utf-8?Q?T=C3=B8nnes?=
- =?utf-8?Q?en?= <ast@fiberby.net>, Qingfang
- Deng <qingfang.deng@linux.dev>, Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgense?=
- =?utf-8?Q?n?= <toke@redhat.com>,
- Shuah Khan <shuah@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Shuah
- Khan <skhan@linuxfoundation.org>, Randy Dunlap <rdunlap@infradead.org>,
- Matthieu
- Baerts <matttbe@kernel.org>, David Ahern <dsahern@kernel.org>, Jonas
- =?utf-8?Q?K=C3=B6ppeler?= <j.koeppeler@tu-berlin.de>, Hangbin Liu
- <hangbin.liu@linux.dev>
-Subject: Re: [PATCH net-next v3 05/12] net: add METADATA_PSP dst to carry a
- psp association on an skb
-In-Reply-To: <20261124221758.3230929-6-toddfreed@meta.com>
-References: <20261124221758.3230929-1-toddfreed@meta.com>
- <20261124221758.3230929-6-toddfreed@meta.com>
-Date: Thu, 26 Nov 2026 16:27:04 +0100
-Message-ID: <875wxjipfb.fsf@all.your.base.are.belong.to.us>
+	dkim=pass (2048-bit key, unprotected) header.d=Nvidia.com header.i=@Nvidia.com header.a=rsa-sha256 header.s=selector2 header.b=n0X6mBV3
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=k7YgFo05dgqQYrgQNlF+4LGESQfBqZNUrtQp6lvtCYX5LHBZNPHQgFn7GXS//RLSLhs5ihpme3jMob0pFKX005Jus4FN86qeCaQyWSQyHM59shg1H+X4TJYFEoQEL3VtXKVS2lc8MQCPRouoROsq7QUUGZ/M/od8HxXbH60lbysWAubizPAry2PNfDG331Sr+2nRr3y8GHb7s1xAyW/JmfQWo9DzUyfaS1qe8YFDWWXeneOTNKoJx7pY06k0PL1BY21hNcJZ6EYTsia/xxN0nktonJXAJ0/5SGeQviVIMalqXThty9Tsk9Ztaquwtl5OZJNgPRMkKvY+dlrCG+LPlw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mH8FfY72KSbU79x2dDjvBSyebWXoJRNxdZ7GxP3JiEs=;
+ b=FC+yjGmO9i7mUEZZp0+6jO8VuOZyTYbRXIv1D8flSV2HW+0BjteyrjNaXCwChMeFrXTE+0ZuCzFdgTmuAPnOafKlCDX6AL5rqP9WnkwCabg5etzo7TVj0P0jLiTBwRM3r87ffW14/gXKkjIIOs5qcV/WyYTteV+aJ3rbWgy+xnk9z8a7v2+F7GauBRW2WMNra+B9qsnb4UsX51UIkWsxHpl9mqFAJ6wddW//a5Fiva8xXZ85oibhhq0uIThwqYGDCuoQLcEewiHrT7FhYkSou0OEwTdhPPky9oKVNGHzTUBE8JIQMvk55pgdg76iI6eNyHmxvdOnnENVmELp2NMLDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mH8FfY72KSbU79x2dDjvBSyebWXoJRNxdZ7GxP3JiEs=;
+ b=n0X6mBV38vnzt915t1thmwD2wwIHl5p//68Sc2k4nQd+IFxyhDeW5jwettIhjpaXi9LLDtnJS9+kXAWDVXe20jPHIQ8GxNourJHoe5GB5pMtkfF3EWevR3qaqAB3/mR0AShehb9FFbY4PXiHqAyxyU8b8aEfdtjIJOWjr2VuZoaj/l8ttCTecFGFKHB3z/4LZ2hAWRCN6GgPdHgiPzCTDmHOXjdJfOyV84GFo6utyeA48NqYFpQCptj6Z9IsMvPDKq0JCRI8D25WUZebo3aEABgjP4NvlvJ/XE5RjNo2S4uzYER2NI2CZ7PWyRzapDEtgPhxeVWsMGC7FtoiQu6lwA==
+Authentication-Results: mx.microsoft.com 1; dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com (2603:10b6:408:1f9::13)
+ by LV2PR12MB347031.namprd12.prod.outlook.com (2603:10b6:408:417::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.21.662.7; Thu, 26 Nov
+ 2026 15:27:55 +0000
+Received: from LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96]) by LV8PR12MB9407.namprd12.prod.outlook.com
+ ([fe80::208b:424e:47e9:8a96%4]) with mapi id 15.21.0662.004; Thu, 26 Nov 2026
+ 15:27:54 +0000
+Date: Thu, 26 Nov 2026 17:27:46 +0200
+From: Ido Schimmel <idosch@nvidia.com>
+To: Kyuwon Cho <kyuwoncho18@gmail.com>
+Cc: "David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@kernel.org>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	David Ahern <dsahern@kernel.org>, Xin Long <lucien.xin@gmail.com>,
+	Willem de Bruijn <willemb@google.com>,
+	Simon Horman <horms@kernel.org>, netdev@vger.kernel.org
+Subject: Re: [PATCH net] ip6_gre: return the full header length from
+ ip6gre_header()
+Message-ID: <20261126152746.GA861118@shredder>
+References: <179553307366.1670514.6802805102726706751@gmail.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <179553307366.1670514.6802805102726706751@gmail.com>
+X-ClientProxiedBy: TL2P290CA0012.ISRP290.PROD.OUTLOOK.COM
+ (2603:1096:950:2::16) To LV8PR12MB9407.namprd12.prod.outlook.com
+ (2603:10b6:408:1f9::13)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -80,384 +100,97 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: LV8PR12MB9407:EE_|LV2PR12MB347031:EE_
+X-MS-Office365-Filtering-Correlation-Id: 18a56dd9-97ee-4d38-1ce0-08df4bd1d762
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam:
+	BCL:0;ARA:13230040|7416014|376014|366016|23010399003|1800799024|10067099003|261021121427099003|11063799006|56012099006|261022113327099003|261022075727099003|261026121527099003|261021123027099003|261021135927099003|261022105027099003|261021130227099003|261021133027099003|261022115727099003|261102123227099003|261026135527099003|261026140227099003|261026130827099003|261028144727099003|22082099003|18002099003;
+X-Microsoft-Antispam-Message-Info:
+	31XQCvwDvlqpteeEgMMxBkVak6TsOeFeCzzrpk/3tMfsonx8ZDsKATLu6vy8dQBuHkEzTTB7gyKK1DxBk3JFhkBTV0mjZrgVZuwpDGpqbHMz2PA0u32vFFjYlUdBXmKPuEutaWStReH1Kv9pruovYwOxjbKwXSWQHtZhMfqdTz780Vr6xVFLW8kl/Zx7smEmBzqMZiDSiHVVs3SeAsGs/wX48TLSEZh/gMh7aWdLURzp2rajnl2ULF9tuu5uUsfbCfXAebrYhPju6dh68NPoQW8ltDK6HX8enmbClaMuFCJy1goVDK+aWYGujr6Jn/llcOSsq9WPXbOAs7o52QsSzBgHYpz/rCK4Xj9Y8ZcNsB1q1dasy9jbRPlQbjT1szZvim6SpjixJ1A/pD+1wDStveDvfGYWITIOwz1UkG5oyN2ThqVmtTrJsHLWKsC61a9+IKZquCQvC/1WzMlTqvgITxgDfmI1JZSgGHNptGeVA/vni/1Zv9XRjEjfgcfyPQNJkHEyZost/mo+BbE3GNho81MKSOkXHR+PyH7roVkkty3CikJFLmNqKr6lWgTBJbrpzUsRtowcpzIe7zj2x99+N6hkwEO+FrIH6r2TM7OiFbCXV27s6Wwu3l0s1yPnUw2jzt7DlzeqGkwetrLIPO5jWoZYFDae92zc0/TfuycuC3Y=
+X-Forefront-Antispam-Report:
+	CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV8PR12MB9407.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(23010399003)(1800799024)(10067099003)(261021121427099003)(11063799006)(56012099006)(261022113327099003)(261022075727099003)(261026121527099003)(261021123027099003)(261021135927099003)(261022105027099003)(261021130227099003)(261021133027099003)(261022115727099003)(261102123227099003)(261026135527099003)(261026140227099003)(261026130827099003)(261028144727099003)(22082099003)(18002099003);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0:
+	=?us-ascii?Q?0DQAEBGa/JttFbMFq3+qMFX+AeplKa9xbB+4B4lSt7xiKUQw6BgJCMSAfG0y?=
+ =?us-ascii?Q?cuM+W/SzgM0RgZoYOBLdx9MEX/tOrmFbN12v+7aFGN8xPW/UoI7LjNs9hsAP?=
+ =?us-ascii?Q?bpY/zmIKYUF/pbq3kPbWKl5Vli2WUfG9dr6A2nSWNWpSBb6WeG9aAbpcZylo?=
+ =?us-ascii?Q?tWBqoV2trd9b+cE72PcCEWkOR0mHDRY4ihnq1rPSbUvgZoneD4ttfSd5brhC?=
+ =?us-ascii?Q?ph9erjWR91W3Nixmh/Xf31b3+evI0xogsrSnwnMwtbWDuwgZDiGiNQhBUMH/?=
+ =?us-ascii?Q?vdp7vfVY4cZp3uV6Oif+fJX5fEfsOml2ME3FCzePTpgU+YUTUiw3EFXMxtZy?=
+ =?us-ascii?Q?JueIpv1zpzFA1LKraInyB1cvWrilW6Rt2YhqXd8TzkEfvwTCO02VkuDgpT9s?=
+ =?us-ascii?Q?z3fOVnU2WZJ/BpISO02pBOMAiaTzOhpuSo7ezXUGE5nqZp2CxrihKmu801yF?=
+ =?us-ascii?Q?PT0B/w9//yNiNTbm6FnRNpuQrRXoLFaWFNXmDQSeZ0TPcNvBo6JsTWnSwVAS?=
+ =?us-ascii?Q?zyCJY1BMTeVPvnuwn4/iaMmY8b8amEgnQJR0F+u0L03dkzAApHzWGQpgSEfN?=
+ =?us-ascii?Q?HaJMTuxdICL6sDnPzyiuL+JeLad3VjkxzMnZyz7/Ua31mjdZ3l6zFHasQHZ8?=
+ =?us-ascii?Q?DKnnFgCnabxBFomlPqpxqT7yK0r6TAHngEzYf3TGubGtE3zbUl89hsSiC1Wm?=
+ =?us-ascii?Q?w6tc+PySrbEN34g5kxfLH48o5EN5fowJ0dJk4UXUa4hlt2bsWmiS90unaK69?=
+ =?us-ascii?Q?zhMMcpZuYKwaYXWc2InGHfyBuplNQu/TqsCXE57kd3Y2FhI78VyysdbDrcEv?=
+ =?us-ascii?Q?GS10eSgwueGWcopAabRNXDjmrfZ/Lz4pf64Ihz9k6rPFigS9TXlezy55zA2H?=
+ =?us-ascii?Q?7+4Fhnc6ZWfRWgJX0ovKauWQ9SXJm7VjJmsA7sSlz3Podsp3QcB36vS3W9Dc?=
+ =?us-ascii?Q?ZcOuDHUFNH9VLmLS1Dz1PGNktT0FOE9Cs70LGn5DJmILzRbmok4RA2lUSrdp?=
+ =?us-ascii?Q?FpWFOj3LcFoatw/NqiSMa6Osgvi1eiXSahuI4xPdVNnbzrcjSGjvOVV1Euwn?=
+ =?us-ascii?Q?kOhypGpD2CAT04nqDMLWNxJFAXUZkOAVIeIXC2aj6XReYhZbiY6/EganwPys?=
+ =?us-ascii?Q?ZSLlUz8XZlbdWdhqkS0Bd+/sNgBdchXGl1/zmFaAUb/Cx90iFdSIYTrgMf3R?=
+ =?us-ascii?Q?tMGqxmzbUiuilr3zy/ub1XR7iQpodeug6+buiUOJSYwMbtcsHGWs0EcKoJ34?=
+ =?us-ascii?Q?Ywk2PDe7AIpPeNs/MDIHFqGJUvrUmdswQG5+AJJ69JX3L9yd0kdAOb+Hvckb?=
+ =?us-ascii?Q?gnX4lBQM534x52ggsP15CbyunCbK3bCDzTW50Jdod2P/if57Zf7UDnBAHj93?=
+ =?us-ascii?Q?wmNtRflE97El0dCFeQsoigI/nK/OAM5wbKt52ROTZfr0lrRHCBu8TkslTrXl?=
+ =?us-ascii?Q?eKhlbXW9vtQ+Gcuqb5YvMQp/PQMOJeJ2BmUIOqgUQXcf1a6Teuurtfntg4GO?=
+ =?us-ascii?Q?A1WNGWNvI/i373AMzKNMod9sA00OPWvI541BQXJwwUJwHb06AfWFNOqTscfA?=
+ =?us-ascii?Q?cugho1Ltc0R4dDIKJBg1mgr8j8im846RSNQaVLwxq+5LkNlz0Z+N2gkLguSs?=
+ =?us-ascii?Q?BHPfqaTFSL3rQAG3k+FgrOtL7qkBC83opHWsXuyovfqzRIWhJZdhBfQrRS2P?=
+ =?us-ascii?Q?usvvew8oWmmbYFY6N3O+AwlYu0yy1YxwIQRddd1KYdcPvnfj?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 18a56dd9-97ee-4d38-1ce0-08df4bd1d762
+X-MS-Exchange-CrossTenant-AuthSource: LV8PR12MB9407.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Nov 2026 15:27:54.5024
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 32SatvP3fvjJiwLHBV6zJk0MrdTAq2cup6U0149AuL04Bx8imS0nn4VCAJo7HWiawizIVzYl+SbsG5wjYqXkpg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB347031
 
-Todd Freed <toddfreed@meta.com> writes:
+On Wed, Nov 25, 2026 at 11:04:42AM +0900, Kyuwon Cho wrote:
+> diff --git a/net/ipv6/ip6_gre.c b/net/ipv6/ip6_gre.c
+> index b5d6ed8f0c36..9b30fb2f4bcf 100644
+> --- a/net/ipv6/ip6_gre.c
+> +++ b/net/ipv6/ip6_gre.c
+> @@ -1397,6 +1397,7 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
+>  	ip6_flow_hdr(ipv6h, 0, ip6_make_flowlabel(dev_net(dev), skb,
+>  						  t->fl.u.ip6.flowlabel,
+>  						  true, &t->fl.u.ip6));
+> +	ipv6h->payload_len = htons(t->hlen + len);
+>  	ipv6h->hop_limit = t->parms.hop_limit;
+>  	ipv6h->nexthdr = NEXTHDR_GRE;
+>  	ipv6h->saddr = t->parms.laddr;
+> @@ -1415,9 +1416,9 @@ static int ip6gre_header(struct sk_buff *skb, struct net_device *dev,
+>  	if (daddr)
+>  		memcpy(&ipv6h->daddr, daddr, sizeof(struct in6_addr));
+>  	if (!ipv6_addr_any(&ipv6h->daddr))
+> -		return t->hlen;
+> +		return needed;
+>  
+> -	return -t->hlen;
+> +	return -needed;
+>  }
 
-> Add a metadata_dst type holding a reference to a PSP association, so
-> that an association can be attached to an skb that has no socket, e.g.
-> by a tc action.
->
-> Change psp_skb_get_assoc_rcu() to check for METADATA_PSP, then fall back
-> to the socket, so that existing driver Tx paths (mlx5, netdevsim)
-> encrypt such packets without any changes.
->
-> Once an skb has been marked for PSP xmit, it must be transmitted on the
-> correct device, otherwise it may go onto the wire in clear text. For
-> packets of a PSP socket, sk_validate_xmit_skb() handles this.
->
-> For socket-less PSP packets, the PSP metadata dst carries this
-> information, but __dev_queue_xmit() normally releases the dst before
-> queueing. Add a new check for a PSP metadata dst at that point. If it's
-> the wrong device, drop the packet; if it's the right device, keep the
-> dst so that the driver can use it.
->
-> The right device is the PSP device's main netdev: devices associated
-> with it (dev-assoc, e.g. veth or netkit) have its psp_dev too, but
-> forward the packet rather than encrypt it, and drop the dst on the way.
-> Prevent xmit on those.
->
-> Also check that the packet will still fit the device's MTU once the
-> device adds the PSP encapsulation (UDP + PSP + ICV, 40 bytes), and drop
-> it with SKB_DROP_REASON_PKT_TOO_BIG otherwise. Note that no ICMP error
-> is sent in this case. PSP sockets do leave room for it
-> (psp_sk_overhead()).
->
-> Check a packet with a METADATA_PSP dst again when it is validated at
-> dequeue, in sk_validate_xmit_skb(). If the PSP device was unregistered
-> since enqueue, the packet is dropped.
->
-> A packet of a socket with its own encryption offload (PSP or kTLS) must
-> not carry a METADATA_PSP dst: sk_validate_xmit_skb() would apply the
-> socket's validator instead of checking the association. Whatever attaches
-> the dst refuses such packets, but the socket can gain an offload while
-> the packet is queued, so sk_validate_xmit_skb() drops a packet which has
-> both. It reads sk->sk_validate_xmit_skb with READ_ONCE(), which pairs
-> with the WRITE_ONCE() in psp_sock_set_tx_key().
->
-> Put the new checks behind a static key, psp_md_needed, so that
-> configurations which aren't using socket-less PSP don't pay to evaluate
-> them. It's enabled while any METADATA_PSP dst exists.
->
-> Signed-off-by: Todd Freed <toddfreed@meta.com>
-> ---
->  include/net/dst_metadata.h  |  19 +++++++
->  include/net/psp/functions.h | 105 +++++++++++++++++++++++++++++++++++-
->  net/core/dev.c              |  50 ++++++++++++++---
->  net/core/dst.c              |   5 ++
->  net/psp/psp_main.c          |  31 +++++++++++
->  5 files changed, 201 insertions(+), 9 deletions(-)
->
-> diff --git a/include/net/dst_metadata.h b/include/net/dst_metadata.h
-> index 02fffbb85099..bc6ac51dde9c 100644
-> --- a/include/net/dst_metadata.h
-> +++ b/include/net/dst_metadata.h
-> @@ -13,6 +13,7 @@ enum metadata_type {
->  	METADATA_HW_PORT_MUX,
->  	METADATA_MACSEC,
->  	METADATA_XFRM,
-> +	METADATA_PSP,
->  };
->=20=20
->  struct hw_port_info {
-> @@ -30,6 +31,14 @@ struct xfrm_md_info {
->  	struct dst_entry *dst_orig;
->  };
->=20=20
-> +/**
-> + * struct psp_md_info - PSP association to encrypt a packet with
-> + * @pas: association, the metadata_dst holds a reference on it
-> + */
-> +struct psp_md_info {
-> +	struct psp_assoc *pas;
-> +};
-> +
->  struct metadata_dst {
->  	struct dst_entry		dst;
->  	enum metadata_type		type;
-> @@ -38,6 +47,7 @@ struct metadata_dst {
->  		struct hw_port_info	port_info;
->  		struct macsec_info	macsec_info;
->  		struct xfrm_md_info	xfrm_info;
-> +		struct psp_md_info	psp_info;
->  	} u;
->  };
->=20=20
-> @@ -51,6 +61,13 @@ static inline struct metadata_dst *skb_metadata_dst(co=
-nst struct sk_buff *skb)
->  	return NULL;
->  }
->=20=20
-> +static inline bool skb_psp_md(const struct sk_buff *skb)
-> +{
-> +	struct metadata_dst *md_dst =3D skb_metadata_dst(skb);
-> +
-> +	return md_dst && md_dst->type =3D=3D METADATA_PSP;
-> +}
-> +
->  static inline struct ip_tunnel_info *
->  skb_tunnel_info(const struct sk_buff *skb)
->  {
-> @@ -127,6 +144,8 @@ static inline int skb_metadata_dst_cmp(const struct s=
-k_buff *skb_a,
->  	case METADATA_XFRM:
->  		return memcmp(&a->u.xfrm_info, &b->u.xfrm_info,
->  			      sizeof(a->u.xfrm_info));
-> +	case METADATA_PSP:
-> +		return a->u.psp_info.pas !=3D b->u.psp_info.pas;
->  	default:
->  		return 1;
->  	}
-> diff --git a/include/net/psp/functions.h b/include/net/psp/functions.h
-> index 2380af3b9c86..8704e41a7fda 100644
-> --- a/include/net/psp/functions.h
-> +++ b/include/net/psp/functions.h
-> @@ -5,7 +5,10 @@
->=20=20
->  #include <linux/skbuff.h>
->  #include <linux/rcupdate.h>
-> +#include <linux/jump_label_ratelimit.h>
->  #include <linux/udp.h>
-> +#include <net/dst_metadata.h>
-> +#include <net/gso.h>
->  #include <net/sock.h>
->  #include <net/tcp.h>
->  #include <net/psp/types.h>
-> @@ -22,10 +25,25 @@ bool psp_dev_encapsulate(struct net *net, struct sk_b=
-uff *skb, __be32 spi,
->  int psp_dev_rcv(struct sk_buff *skb, u16 dev_id, u8 generation, bool str=
-ip_icv);
->=20=20
->  /* Kernel-facing API */
-> +#if IS_ENABLED(CONFIG_INET_PSP)
->  void psp_assoc_put(struct psp_assoc *pas);
->  struct psp_assoc *psp_assoc_get_by_id(struct net *net, u32 id);
-> +struct metadata_dst *psp_md_alloc(struct psp_assoc *pas);
-> +
-> +extern struct static_key_false_deferred psp_md_needed;
-> +
-> +/* A METADATA_PSP dst may exist: the transmit path has to check for it */
-> +static inline bool psp_md_needed_on(void)
-> +{
-> +	return static_branch_unlikely(&psp_md_needed.key);
-> +}
-> +
-> +/* Pairs with psp_md_alloc(), from metadata_dst_free() */
-> +static inline void psp_md_put(void)
-> +{
-> +	static_branch_slow_dec_deferred(&psp_md_needed);
-> +}
->=20=20
-> -#if IS_ENABLED(CONFIG_INET_PSP)
->  unsigned int psp_key_size(u32 version);
->  void psp_sk_assoc_free(struct sock *sk);
->  void psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk);
-> @@ -137,14 +155,84 @@ static inline struct psp_assoc *psp_sk_get_assoc_rc=
-u(const struct sock *sk)
->  	return pas;
->  }
->=20=20
-> +static inline struct psp_assoc *psp_skb_md_assoc(const struct sk_buff *s=
-kb)
-> +{
-> +	struct metadata_dst *md_dst;
-> +
-> +	if (!psp_md_needed_on())
-> +		return NULL;
-> +
-> +	md_dst =3D skb_metadata_dst(skb);
-> +	if (md_dst && md_dst->type =3D=3D METADATA_PSP)
-> +		return md_dst->u.psp_info.pas;
-> +
-> +	return NULL;
-> +}
-> +
->  static inline struct psp_assoc *psp_skb_get_assoc_rcu(struct sk_buff *sk=
-b)
->  {
-> +	struct psp_assoc *pas;
-> +
-> +	pas =3D psp_skb_md_assoc(skb);
-> +	if (pas)
-> +		return pas;
-> +
->  	if (!skb->decrypted || !skb->sk)
->  		return NULL;
->=20=20
->  	return psp_sk_get_assoc_rcu(skb->sk);
->  }
->=20=20
-> +/**
-> + * psp_xmit_md() - validate psp association attached as a metadata dst
-> + * @skb: packet about to be queued for transmission, or validated before
-> + *	 the device transmits it
-> + * @dev: device it is queued on, or transmitted by
-> + *
-> + * If the skb has a psp association attached as metadata dst, this indic=
-ates
-> + * intent to transmit encrypted, which will only happen when transmit on
-> + * the main netdev of its psp device.
-> + *
-> + * Also check that the packet will still fit @dev's MTU once the device =
-has
-> + * added the PSP encapsulation. Sockets leave room for it (psp_sk_overhe=
-ad()),
-> + * whoever attached the association may not have.
-> + *
-> + * returns:
-> + *   0 if @skb carries no psp association
-> + *   1 if it does and the dst must be kept for the driver
-> + *  -EINVAL if the packet must be dropped, @dev isn't the main netdev of
-> + *	    its psp device
-> + *  -EMSGSIZE if the packet must be dropped, too big once encapsulated
-> + */
-> +static inline int psp_xmit_md(const struct sk_buff *skb,
-> +			      const struct net_device *dev)
-> +{
-> +	unsigned int psp_encap =3D sizeof(struct udphdr) + PSP_HDR_SIZE +
-> +				 PSP_TRL_SIZE;
-> +	struct psp_assoc *pas =3D psp_skb_md_assoc(skb);
-> +	unsigned int mtu;
-> +
-> +	if (likely(!pas))
-> +		return 0;
-> +
-> +	if (rcu_access_pointer(dev->psp_dev) !=3D pas->psd ||
-> +	    dev !=3D pas->psd->main_netdev)
-> +		return -EINVAL;
-> +
-> +	mtu =3D READ_ONCE(dev->mtu);
-> +	if (mtu <=3D psp_encap)
-> +		return -EMSGSIZE;
-> +	mtu -=3D psp_encap;
-> +	if (skb_is_gso(skb)) {
-> +		if (!skb_gso_validate_network_len(skb, mtu))
-> +			return -EMSGSIZE;
-> +	} else if (skb->len - skb_network_offset(skb) > mtu) {
-> +		return -EMSGSIZE;
-> +	}
-> +
-> +	return 1;
-> +}
-> +
->  static inline unsigned int psp_sk_overhead(const struct sock *sk)
->  {
->  	int psp_encap =3D sizeof(struct udphdr) + PSP_HDR_SIZE + PSP_TRL_SIZE;
-> @@ -153,6 +241,21 @@ static inline unsigned int psp_sk_overhead(const str=
-uct sock *sk)
->  	return pas && pas->tx.spi ? psp_encap : 0;
->  }
->  #else
-> +static inline void psp_assoc_put(struct psp_assoc *pas) { }
-> +static inline bool psp_md_needed_on(void) { return false; }
-> +static inline void psp_md_put(void) { }
-> +
-> +static inline struct psp_assoc *psp_assoc_get_by_id(struct net *net, u32=
- id)
-> +{
-> +	return NULL;
-> +}
-> +
-> +static inline int psp_xmit_md(const struct sk_buff *skb,
-> +			      const struct net_device *dev)
-> +{
-> +	return 0;
-> +}
-> +
->  static inline void psp_sk_assoc_free(struct sock *sk) { }
->  static inline void
->  psp_twsk_init(struct inet_timewait_sock *tw, const struct sock *sk) { }
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index a44b314f387b..2b1a2736ab3f 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -111,6 +111,7 @@
->  #include <net/pkt_cls.h>
->  #include <net/checksum.h>
->  #include <net/xfrm.h>
-> +#include <net/psp/functions.h>
->  #include <net/tcx.h>
->  #include <linux/highmem.h>
->  #include <linux/init.h>
-> @@ -4141,9 +4142,14 @@ int skb_csum_hwoffload_help(struct sk_buff *skb,
->  }
->  EXPORT_SYMBOL(skb_csum_hwoffload_help);
->=20=20
-> -/* Checks if this SKB belongs to an HW offloaded socket
-> - * and whether any SW fallbacks are required based on dev.
-> - * Check decrypted mark in case skb_orphan() cleared socket.
-> +/* Validate an skb for device encryption offload. If the skb belongs to =
-an HW
-> + * offloaded socket, apply the socket's callback, unless the skb also ca=
-rries a
-> + * PSP association: then it is dropped. Otherwise, an skb which carries =
-a PSP
-> + * association is checked again against dev: the PSP device may have been
-> + * unregistered while the skb was queued. An skb marked decrypted (to be
-> + * encrypted by the device) without either is dropped rather than sent i=
-n clear
-> + * text. The mark survives losing the socket to skb_orphan(), or the PSP
-> + * metadata dst to routing.
->   */
->  static struct sk_buff *sk_validate_xmit_skb(struct sk_buff *skb,
->  					    struct net_device *dev)
-> @@ -4156,13 +4162,32 @@ static struct sk_buff *sk_validate_xmit_skb(struc=
-t sk_buff *skb,
->  	sk_validate =3D NULL;
->  	if (sk) {
->  		if (sk_fullsock(sk))
-> -			sk_validate =3D sk->sk_validate_xmit_skb;
-> +			sk_validate =3D READ_ONCE(sk->sk_validate_xmit_skb);
->  		else if (sk_is_inet(sk) && sk->sk_state =3D=3D TCP_TIME_WAIT)
->  			sk_validate =3D inet_twsk(sk)->tw_validate_xmit_skb;
->  	}
->=20=20
->  	if (sk_validate) {
-> -		skb =3D sk_validate(sk, dev, skb);
-> +		/* the socket's validator would apply instead of checking the
-> +		 * association. A METADATA_PSP dst isn't given to the packets
-> +		 * of a socket with its own offload, but the socket can gain
-> +		 * one while such a packet is queued.
-> +		 */
-> +		if (psp_md_needed_on() && skb_psp_md(skb)) {
-> +			kfree_skb_reason(skb, SKB_DROP_REASON_PSP_OUTPUT);
-> +			skb =3D NULL;
-> +		} else {
-> +			skb =3D sk_validate(sk, dev, skb);
-> +		}
-> +	} else if (psp_md_needed_on() && skb_psp_md(skb)) {
-> +		int psp =3D psp_xmit_md(skb, dev);
-> +
-> +		if (psp <=3D 0) {
-> +			kfree_skb_reason(skb, psp =3D=3D -EMSGSIZE ?
-> +					 SKB_DROP_REASON_PKT_TOO_BIG :
-> +					 SKB_DROP_REASON_PSP_OUTPUT);
-> +			skb =3D NULL;
-> +		}
->  	} else if (unlikely(skb_is_decrypted(skb))) {
->  		pr_warn_ratelimited("unencrypted skb with no associated socket - dropp=
-ing\n");
->  		kfree_skb(skb);
-> @@ -5002,7 +5027,7 @@ int __dev_queue_xmit(struct sk_buff *skb, struct ne=
-t_device *sb_dev)
->  	struct net_device *dev =3D skb->dev;
->  	struct netdev_queue *txq =3D NULL;
->  	enum skb_drop_reason reason;
-> -	int cpu, rc =3D -ENOMEM;
-> +	int cpu, psp, rc =3D -ENOMEM;
->  	bool again =3D false;
->  	struct Qdisc *q;
->=20=20
-> @@ -5051,10 +5076,19 @@ int __dev_queue_xmit(struct sk_buff *skb, struct =
-net_device *sb_dev)
->  			txq =3D netdev_tx_queue_mapping(dev, skb);
->  	}
->  #endif
-> +	psp =3D psp_xmit_md(skb, dev);
-> +	if (unlikely(psp < 0)) {
-> +		reason =3D psp =3D=3D -EMSGSIZE ? SKB_DROP_REASON_PKT_TOO_BIG :
-> +					    SKB_DROP_REASON_PSP_OUTPUT;
-> +		rc =3D psp;
-> +		goto drop;
-> +	}
-> +
+There's another info leak in this function. It only initializes the base
+GRE header. The optional parts (e.g., key, sequence number) are left
+uninitialized.
 
-Performance thoughts. These two functions (__dev_queue_xmit and
-sk_validate_xmit_skb) are in the hotpath. The static key is globally for
-all netdevs. My worry is that packets that doesn't care about PSP has to
-touch more cachelines during ptr chasing. Cheaper, less instrusive
-(flag?) per-skb check possible? (Or proof that it doesn't matter! ;-))
+Before this patch the payload was likely written over these bytes, but
+now they remain uninitialized and leak. I suggest a memset(ipv6h, 0,
+needed) after the skb_push(). ipgre_header() has the same problem.
 
+Please wait for the AI review before sending v2. As I see it, it should
+be three patches:
 
-Bj=C3=B6rn
+1. Add missing memset() in ipgre_header().
+2. Add missing memset() in ip6gre_header().
+3. The current patch.
+
+And use the appropriate Fixes tag for each.
