@@ -1,63 +1,100 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=100.103.45.18
-ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795684764;
-	b=3Bpp2r3MGAVpGkUJ4BgXAy+BPVcQoskYeKO0p+pwAWZbBuny2MqYpdohYUoMNd3OEQB9
-	 byqnKyHQqQzqRolXgf3sOp0nLw6OHopPLvhLQYA6hLzPL7Ie3//gj3ZNGqVXIEpd1B/Wb
-	 0/YL8Ta0lLQqnwyQsRCvCYUztj+9Yq+hxKgwvinD2aEpTmSvCJ3IoeP9eHxOtPauhXPUY
-	 kC32rHNlvVohaYsEmrG+b90NCa3s9XHAWznK8SLjcI5lV0afdr2Ic97bZVb0iB69KvYCu
-	 kf4EoyQRz38l4Rsdatd+XMJsuICw7l05Q42tXS/u/OdBP7e7sq6Z6iUqkdlO+4IPRqw==
-ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795684764;
-	h=Received:DKIM-Signature:Subject:From:To:Cc:Date:Message-ID:
-	 In-Reply-To:References:X-sashiko-severity:Content-Type:
-	 Content-Transfer-Encoding:MIME-Version;
-	bh=Q8yqgBgzTDJmfW5A1DWYJIHW8nL4dwX5V+usI6LVyyo=;
-	b=Sm3KxKKTDweSLN4PNWO1idOBFd6uCqDH+o5qcF8e/v0h1OidooOLrtfEAxEq93pmQuRS
-	 y4NA8WKeozTnZ8a3gYTQAMNjU2NNqP/GWQI0HzN1AoS3peSESH9XRjkm9zWMPfI4sbdJ3
-	 e/jmUGcNl6R0o1fwr8NSRRMTqRmf/YuePYhuTzuzXXQU4z7YZlS9x5qpgHZs3+WB5kxKW
-	 ySqSUTF9exzcabngyqWNszfMKpHvY7OASwlwEuLDKsMvEYIL+a+D68r6BW80tnLwLUXW5
-	 0TKHuQcQC2eJu+aifhsm0/qW7MBuGPMMrFmd+oBkZQVEUx9dBnvuNWyCQjE3K8Cj3pQ==
-ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2eWfEDc;
-	arc=none smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
+Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.42
+ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
+	t=1795684795;
+	b=p6QXvOmYeL1cDDAIQbsQv08A6aafI21mdPcY2JcsrOR06n5idcyFLtx8fdiGikJF4GDj
+	 BEcvSvkVcNDk7B+3yIKV/tdv/KS4vFfpflf06tTiMD5Tag7WRkNCakJ2VjYPTybKDja48
+	 odYcNezkSs9zWcwuoLxkYdMtSEjFO6UxITw/Ifa/WW8b5kdvE/ObyIgPKMWUB8+bvzZon
+	 YABDireEyGiQ4GFEC/wyDU2rlDHZTHll9b/eLuThXQ0+VSRK1b/fOkjwhSlP4Pxsf79Ch
+	 +JnUmSkI3SLzqnzvUqrC8j02/0NiewpJZogDwW01gUb/b5tSdElbqcxmOPWK4h1Bzwg==
+ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795684795;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
+	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
+	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
+	bh=UA99tMdzwZI6vPjr4l2t8uq5YE/+8SMplB7ARc+Cy2I=;
+	b=mcsq/vxOriBC2cdGuaH8K+nrXs7hfYOzrYY2k/FIT9rBiekKAD0u/pqu5d7/vcj523Gb
+	 Er1BeGw+UVO4N+cR2ILPiAXzZ4JHVlXTcUT7zRb105VzO0gaBujGLgb3aU4r+fV7xNvO4
+	 wAbJ1VtMae2157RePfD0CCREaaKHUpPkcMqN3JjsXxjWxy8HeM/q8R+qpFdSMDPzVy64H
+	 8dQxxSYggg02XmoBpXPxY7SQS0d8sIx2EScbVFs6wLBCHyhdNfnFePCFb8D9KJhNQxng1
+	 q86qv5tRJvlQXatjTTbVoDNqF5/TSvWa+qw1k25V4lZR0Vuku47K/anAy+EyIx7MLEg==
+ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F6d7tzwx;
+	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.219.42
+Received: from mail-qv1-f42.google.com (mail-qv1-f42.google.com [209.85.219.42])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id F2C5C606A31C;
-	Thu, 26 Nov 2026 09:19:23 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 85A4F606A31E
+	for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 09:19:55 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 85A4F606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=m2eWfEDc
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5CC961F000D0;
-	Thu, 26 Nov 2026 09:19:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795684763;
-	bh=Q8yqgBgzTDJmfW5A1DWYJIHW8nL4dwX5V+usI6LVyyo=;
-	h=Subject:From:To:Cc:Date:In-Reply-To:References;
-	b=m2eWfEDckBiV4URE17VXZMhzfxL8BBTiDuHqWG7oji0R8xam1bnn93Y4ZKGUc2B1j
-	 wJlaw1uFL9zNDd0+4s5sBHAEdC4PjJToOvhMTv2qMyKoguJVMOH9pGj5jV/0262Jxj
-	 5F7KLJRSx1PLWPMG1Df6RPSaj8nfrV2uESimdttsVM6GJPmfs2UNL/uXl7P5CdDHJ6
-	 Hf4dx19Py7sc9NZdX7E7V3jXTCqKLN8BUSAJXyvpPFq4e4xpd0dz4AKp5PmeCHnVth
-	 Qd16UOqdiIl3H0DljYQH/Ypdusb7S5WiwVwulP2KZwscFIr1F/eWfwE0Hu9AQZnGXj
-	 USnYjonUnVm9g==
-Subject: Re: [PATCH net-next v6] selftests: net: veth: derive invalid-tx test
- value from kernel max
-From: netdev-bot+sashiko@kernel.org
-To: emmaonana18@gmail.com
-Cc: tianyi@cloudflare.com, hangbin.liu@linux.dev, kuba@kernel.org,
- netdev@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-kernel@vger.kernel.org, bpf@vger.kernel.org, davem@davemloft.net,
- edumazet@kernel.org, pabeni@redhat.com, horms@kernel.org, shuah@kernel.org,
- ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
- john.fastabend@gmail.com, sdf@fomichev.me, skhan@linuxfoundation.org,
- kernel-team@cloudflare.com, tianyi.gao@linux.dev
-Date: Thu, 26 Nov 2026 09:19:21 +0000
-Message-ID: <179568476191.3135.16062946746480831699@kernel.org>
-In-Reply-To: <20261124211645.5751-2-emmaonana18@gmail.com>
-References: <20261124211645.5751-2-emmaonana18@gmail.com>
-X-sashiko-severity: Medium
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=F6d7tzwx
+Received: by mail-qv1-f42.google.com with SMTP id 6a1803df08f44-9213fddb596so17366036d6.2
+        for <netdev@vger.kernel.org>; Thu, 26 Nov 2026 01:19:55 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1795684794; cv=none;
+        d=google.com; s=arc-20260327;
+        b=OrBXmd/WA2FU5sl6cmL1Go0XWl8iSwTkFH6tw2c63oekOwQMe37B7Q6W/ZqY6O02Bu
+         OSOoAxqYfhiXUkYe9x+gN34ak9YwDmjkmZkFxjpn/xnB/zTCJ3mrBraGrEClR5OWV0sN
+         evoKnV32rPDXr+toPBNSIin7ebjIHQ++Wsh5bfjKkEkcM+UKWPWmilm4sGUA92gxWSCw
+         JIKl0VFq1Aig/+0WW+AfC9jk7XCi0PcX6np9XHFVPjDoVV/O8ixHYM3BjgyfUVWqpBEI
+         Us9rUWa0c1T2TcznFJPDu8AT8NLVQG8IIImp4CuO/DedZsbYp7UbgGzLTcw0au6211R5
+         bxkg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:dkim-signature;
+        bh=UA99tMdzwZI6vPjr4l2t8uq5YE/+8SMplB7ARc+Cy2I=;
+        fh=9eaUfQLqTDdV1zuifk3HY8MP8ucIzVfz/pnhThzJzew=;
+        b=oZrLNxG0vL0VUV4X7q/xOPRhSdJawTBppxnsTOMFR4vqHbjXRzzsegVzFq1anDKWsv
+         x7MWe7YiozFeTeIUviGEzokmfS/zmyn++qtktsleSHMwzOtkctVSR3WDwzybftpOpuF/
+         NF2uSjx9sAp+zd6YnPBocGxXMkKOv5sjwcWSMJiavqFnRaNwL1Wy9dsZgbtIjxHzoPpf
+         x77fSU0uPPyLgY78Zbz2t6W5cXn4k6Tvpw7GntiDjxFYV+vB3FKglVfCkiahibUYn2kg
+         UFvyZxmdRDHF84PxK7qxLr1R1KkqtoJOMK3alPL91yb3ANJGr9nQPd1uGGVRVIBGbS++
+         EF/g==;
+        darn=vger.kernel.org
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795684794; x=1796289594; darn=vger.kernel.org;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+         :date:message-id:reply-to:content-type;
+        bh=UA99tMdzwZI6vPjr4l2t8uq5YE/+8SMplB7ARc+Cy2I=;
+        b=F6d7tzwx/wBnDJgy4uypNLO0KOuNPFnvh071pgdD89w3KKiShPurni1Wx1/bJYs1SZ
+         Nef6FMAEfVbxGyRfALtEHLxwMBjs5+OzC2ax0YvrNYNTluZNk3vELeKACq/7S5v9EPeU
+         rbmdbJ+oIunY69B6/2qN1sz85OxYLY+5xIvK3VUg1FlDw8K0UUyepNHwkK/IOsGv+II0
+         wYm76ChbimtYNhfVxaoBmt6J2Tg4HRh5XqfeS7XvQlrr0EpqTc3FY1IsFBnk4L2+RSTh
+         0t8cjyZgxuBWvnKvVmyNX/4LBMx0UdR+PzYZBkF2vgCn4dpuuN9ECebdS6M1RAtdl+aC
+         E4lg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795684794; x=1796289594;
+        h=content-transfer-encoding:content-type:cc:to:subject:message-id
+         :date:from:in-reply-to:references:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
+         :content-type;
+        bh=UA99tMdzwZI6vPjr4l2t8uq5YE/+8SMplB7ARc+Cy2I=;
+        b=RwKPJ91x0EP+hUhcPulxZYhViEQbhjt7Y0ooj0c15lJlaRgPnK0jhapGVdaiOZPe9m
+         sObGPGQuf3X8HYEL0BZT6Z6LJWLYMUr2gfKcntuZqAsBtlPbKp/YabeM3oAC6X3fp66X
+         GVvrZpDczVzlgc/pA0GdnvUrBTxe2JQiv79NkDXgwREW3i/c+dTCjEUobuIsmxyX/q/Z
+         +C2Qg2/looXhEN9WEIrgoVUULqWrPj7E+vPiABbjmfBYPa1jfZRZzG/7DHrlEHTnyrZH
+         IiRiSM5lPgMe2F6owmnfc//tZrQ/LmIs7peFTLMR1cdkqCDdLRSwoigzJpQ448r0nj3r
+         Jdhg==
+X-Forwarded-Encrypted: i=1; AL+hErExgRF3wMPvU9pjqN+rd4KnF3DeHMTUvFWPfmBbemlwLlaTqRTkd4oN39h0czLZRBHmMybdMIg=@vger.kernel.org
+X-Gm-Message-State: APuU4Z/3hz0miSyWYdKPNTSRIC/LGRcF80/aqOOJphaizoZI8C5LJUHr
+	ecJHJ8jGjgjH5rFPlbS5p5yq2jFgzxcDxpFfIqXGu2wMiq69vbbXtiUBsr5hMHYVyOp9k4om6s3
+	ML03ivoyKLNkaEipIEmxsJOMOu42D34k=
+X-Gm-Gg: AZFdTZesloNQ/0zKAgMTkCA1D8Yu/n7oj9EH2I9ebYrlNKYGiLCE5khGqyL/1K8icfX
+	BIToYuHQpi6+uq5xkJJL1L8dnqgzX6/ib7HSNisksgFt34A/Coxlu/mMI93dyFStMHJMqQgyB7m
+	e5IBfxloPEtl4Z8dDwYR6AvPwFmVc5gHQdifoyoS1Yyz+TEpviEGmi9gbwF2tmV0kepN8NbJDrl
+	vAYka82MXN7FS8El5wftqO7H6adlOE9lRuj3GQHqvRMuDA3+mrqdVGdXy85C0qmh8kA2hfK84R6
+	y/TUcJgo66bHOxIfksGbnouaPn24b31lJcRH5eIZMTzWDATArss3BxKuszu5WwXvqyZFqnV+bPg
+	DBqK1i4zq+ZhBT1dsXCiyR88du4jtsisRuQcFCX4vuxy5hG0bEtYJ2XV/bg==
+X-Received: by 2002:a05:6214:4704:b0:921:21ed:f9d5 with SMTP id
+ 6a1803df08f44-92134af8629mr316655716d6.38.1795684794393; Thu, 26 Nov 2026
+ 01:19:54 -0800 (PST)
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -67,105 +104,99 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
+References: <20261125111929.3395740-1-zxyan0222@gmail.com> <544205c7-7590-4a6a-8abb-0199768ed283@bootlin.com>
+In-Reply-To: <544205c7-7590-4a6a-8abb-0199768ed283@bootlin.com>
+From: zhu xin <zxyan0222@gmail.com>
+Date: Thu, 26 Nov 2026 17:19:42 +0800
+X-Gm-Features: Aa3M54oz8uKYvBtRCaFsIkKluWFn0wSjjEFxOCH-vgc1j273HD6pimb83pZTgGg
+Message-ID: <CAP7veT+ZJ_oW=PueTUwrZ9jGj=oYmRxYNRfeVeM2Rkr-RThkeg@mail.gmail.com>
+Subject: Re: [PATCH net-next v5] net: stmmac: program the FSM timeout timer
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@kernel.org, 
+	kuba@kernel.org, pabeni@redhat.com, netdev@vger.kernel.org, 
+	mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	rmk+kernel@armlinux.org.uk
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thank you for your contribution! Sashiko AI review found 2 potential
-issue(s) to consider.
+Hi Maxime,
 
-Critical: 0 · High: 0 · Medium: 1 · Low: 1
-
-If you believe none of the issues are legitimate, please reply to each
-issue of Medium severity or higher and explain why the AI is wrong.
-If any of them are legitimate and you plan to respin, please let patchwork
-know by including "pw-bot: cr" as a separate line at the end of your reply
-(one such reply per series is enough).
-
-- [Medium] chk_channels() in tools/testing/selftests/net/veth.sh (lines
-  175-196) prints " fail ..." on a mismatch but never sets `ret=1`.
-- [Low] The commit message says that once "failure propagation" is fixed,
-  the false failure "fails the whole script".
-
---
-
-selftests: net: veth: derive invalid-tx test value from kernel max
-
-The "setting invalid channels nr" check in veth.sh used to try nproc+1
-TX channels. It now reads the TX maximum the kernel reports through
-ethtool -l and tries max+1. The old value can be valid on hosts where
-nproc is less than num_possible_cpus().
-
-> selftests: net: veth: derive invalid-tx test value from kernel max
+On Thu, Nov 26, 2026 at 4:07=E2=80=AFPM Maxime Chevallier
+<maxime.chevallier@bootlin.com> wrote:
 >
-> The "setting invalid channels nr" check treats CPUS+1 (CPUS=nproc)
-> as an invalid tx count, but the kernel allows up to max_tx, for veth
+> Hi,
+>
+> On 11/25/26 12:19, Zxyan Zhu wrote:
+> > stmmac enables the FSM timeout checker (TMOUTEN) but never programs the
+> > MAC_FSM_ACT_Timer register.  Per the databook the checker only fires on=
+ce
+> > NTMRMD is programmed with a non-zero duration; NTMRMD =3D=3D 0 disables=
+ the
+> > timer, so with TMOUTEN set but the timer left at reset a stuck FSM is
+> > never reported and the advertised timeout protection is ineffective.
+> >
+> > Program MAC_FSM_ACT_Timer right after TMOUTEN is enabled, deriving the
+> > TMR field (CSR clocks per 1us tic) from the CSR clock rate and using a
+> > 4s timeout.  4s is chosen because a PAUSE frame with the maximum 0xffff
+> > quanta stalls the transmitter for about 3.36s at 10 Mb/s, and a shorter
+> > timeout could wrongly report a flow-control stall as a stuck FSM.
+> >
+> > The NTMRMD field holds a power-of-two microsecond timeout per the
+> > databook: 0x0 disables it, and 0x1..0xa encode 1us, 1.024ms (~1ms),
+> > 16.384ms (~16ms), 65.536ms (~64ms), 262.144ms (~256ms), 1.048s (~1s),
+> > 4.194s (~4s), 16.777s (~16s), 33.554s (~32s), 67.108s (~64s).
+> >
+> > The issue was hit in testing on dwmac4 and dwxgmac, where a stuck FSM w=
+as
+> > not reported through the safety interrupt despite TMOUTEN being set.
+> >
+> > Signed-off-by: Zxyan Zhu <zxyan0222@gmail.com>
+>
+> [...]
+>
+> > diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
+> > index 00be2df63d22..659f5db528d3 100644
+> > --- a/include/linux/stmmac.h
+> > +++ b/include/linux/stmmac.h
+> > @@ -170,6 +170,18 @@ struct stmmac_safety_feature_cfg {
+> >       u32 tmouten;
+> >  };
+> >
+> > +/* MAC_FSM_ACT_Timer.NTMRMD timeout durations */
+> > +#define STMMAC_NTMRMD_1US            0x1
+> > +#define STMMAC_NTMRMD_1MS            0x2
+> > +#define STMMAC_NTMRMD_16MS           0x3
+> > +#define STMMAC_NTMRMD_64MS           0x4
+> > +#define STMMAC_NTMRMD_256MS          0x5
+> > +#define STMMAC_NTMRMD_1SEC           0x6
+> > +#define STMMAC_NTMRMD_4SEC           0x7
+> > +#define STMMAC_NTMRMD_16SEC          0x8
+> > +#define STMMAC_NTMRMD_32SEC          0x9
+> > +#define STMMAC_NTMRMD_64SEC          0xa
+>
+> This whole patch starts to look good, one last comment, sorry I
+> didn't spot this before. Can you put all these definitions
+> in the "common.h" file in the driver folder ? These are some
+> register values (same on dwmac5 and xgmac, but still), so they
+> should go there.
+>
+> With that changed, you can send a new iteration with
+>
+>   Reviewed-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 
-[ ... ]
+Sure, I'll move the STMMAC_NTMRMD_* encodings to the driver's common.h.
+v6 follows with your Reviewed-by.
 
-> the ethtool -L call succeeds and chk_channels() reports a false
-> failure. With failure propagation fixed, this fails the whole script.
+>
+> Thanks,
+>
+> Maxime
+>
+> pw-bot: cr
+>
+>
 
-[Severity: Low]
-Which patch provides the failure propagation fix mentioned here? In this
-tree, chk_channels() only echoes on a mismatch and never sets ret=1:
-
-tools/testing/selftests/net/veth.sh:chk_channels() {
-    ...
-	if [ "$cur_rx" = "$rx" -a "$cur_tx" = "$tx" -a "$cur_combined" = "n/a" ]; then
-		echo " ok "
-	else
-		echo " fail rx:$rx:$cur_rx tx:$tx:$cur_tx combined:n/a:$cur_combined"
-	fi
-}
-
-So before this patch, the CPUS+1 false positive printed a misleading
-"fail" line, but veth.sh still exited with 0.
-
-Suppose the failure propagation change is applied or backported to
-stable without this patch. Then veth.sh would fail on hosts where nproc
-is less than num_possible_cpus(). veth_get_channels() reports max_tx as
-dev->num_tx_queues, and ethnl_set_channels() only rejects
-tx_count > max_tx.
-
-Could the two changes go in the same series, or could this one name the
-dependency? Could it also carry a Fixes tag for the commit that added
-the CPUS + 1 value?
-
-Fixes: 1ec2230fc721 ("selftests: net: veth: add tests for set_channel")
-
-> diff --git a/tools/testing/selftests/net/veth.sh b/tools/testing/selftests/net/veth.sh
-> index 9496b599d722c..bd0d19c49b7cd 100755
-> --- a/tools/testing/selftests/net/veth.sh
-> +++ b/tools/testing/selftests/net/veth.sh
-> @@ -569,7 +569,9 @@ fi
->  ip netns exec $NS_DST ethtool -L veth$DST combined 2 2>/dev/null
->  chk_channels "bad setting: combined channels" $DST $CUR_RX $CUR_TX
->  
-> -ip netns exec $NS_DST ethtool -L veth$DST tx $((CPUS + 1)) 2>/dev/null
-> +MAX_TX=`ip netns exec $NS_DST ethtool -l veth$DST |\
-> +	grep TX: | head -n 1 | awk '{print $2}'`
-> +ip netns exec $NS_DST ethtool -L veth$DST tx $((MAX_TX + 1)) 2>/dev/null
->  chk_channels "setting invalid channels nr" $DST $CUR_RX $CUR_TX
-
-[Severity: Medium]
-Can this check ever change the test result? The other checkers in
-veth.sh set ret=1 on failure, for example chk_napi_ids(), and
-chk_channels_carrier is called with "|| ret=1". chk_channels() does
-not set ret at all.
-
-The script ends with exit $ret. Suppose the tx_count > max_tx check in
-ethnl_set_channels() or ethtool_set_channels() regressed, and
-ethtool -L tx $((MAX_TX + 1)) were accepted. veth.sh would print "fail"
-and still report success to kselftest.
-
-The same applies to the other chk_channels() checks: "setting tx
-channels", "setting both rx and tx channels" and "bad setting: combined
-channels".
-
-The commit message relies on failure propagation being fixed. Should
-that change be part of this submission, so the updated check actually
-affects the exit status?
-
->  
->  if [ $CPUS -gt 1 ]; then
-
--- 
-Sashiko AI review · https://netdev-ai.bots.linux.dev/sashiko/#/patchset/20261124211645.5751-2-emmaonana18%40gmail.com
+Thanks,
+ Zxyan
