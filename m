@@ -1,79 +1,49 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795803322;
-	b=wVgMBKLCczDSlwU/NkQPh7/GzmJHB0I7rmO1Yh1imrmhINSEAhKHiKE8c0WA+nm0JRud
-	 7X/fynT6einDVk99hKhIa/jLjl6i7TDFC33Ha5W3/Fj8HVLHK3AyV3uEbRZPMoCz5sIhA
-	 nALUZaQaA66nLAR5yY+XXiUVkgQB+k61jHX4UQpWx5gVAl9InEwnouXchj0GR37M6qj2E
-	 Mqx3nrxl6at6noJvZhA3fcWr6l9jAOqgVKJrcJ8A0cPqZsXv+p1hSCNe7q0HULbJ0g4cx
-	 WzAGDtZYSjBnUTDRkZxy3hLBJMkoeAmtou2GnGZpxdDEJ8oHZeWasyX9j+AWSdZO+8Q==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795803322;
-	h=Received:DKIM-Signature:Received:From:Date:Subject:MIME-Version:
-	 Content-Type:Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=W6ra3HxnsSrE16LG5PH4BW4qjM2tzXXpcxkdlQ/bPd4=;
-	b=vQX/ppJsJ85H0JS7YCj7mjPpHZbSxizlA2Ca0rSuxDzST6UDEo1lihWLJGzIFmS5wrQc
-	 q9bsPz6HWy9dWFq3k3sUyBf/eWRcAYXVaFqHlV1lQBx0hJdp57dn/VOy9Iw5kccRNLNlq
-	 +kV9iFSm48OR/IWRRHKklU+plpJiRB6hu5xIt3R/xv7fItKo3Ptu+vrgMZ+3rOxsR/Twn
-	 oSPBxxFClNrNvKFzQSP61BX3p5Rq7HHXrwOSJizLAMIyGRRtgmjt5Ww3kp1VjtLv4foHN
-	 mMll/Qmnh5eMbXIpkhuHzrJypjSAN2Hy5AomC87PF1YXOSK1hc7UXdunrYSflNNUazA==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CBUGau81;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 11715606A31E;
-	Fri, 27 Nov 2026 18:15:21 +0000 (UTC)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=217.140.110.172
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795803415;
+	b=A3fYj2DqPov1i+5eB4WGUiJXOnh8bc8JWqpZ0r+DgsCtbZ0mLQFDt74RPdofXGmtr0QC
+	 QMgGMTLwur5YG721P9+sp520TZlLuHOO5/xigf3+N4ItMg5esyQS3qkwo4X9kNIK/8V0a
+	 jlDKfopEZaIl5bm3NyI+eyOQ7EQDRbeE1w0MNJ6frsYbfAimIbZ9kxXrTSp/Q5C5X9xHq
+	 lLX1Vi6ZgUNPWPnJWk2sW02IidllxmJMrQwEHQaWWFg9FsUXlFnT253nU4xnz0pNzc1zp
+	 csu7TBS0tnomg1eihKpTxH0kj3oWEOWbi5TnBrSir3Qjo/9YQW6xEhFkzVxtZ5d3neQ==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795803415;
+	h=DMARC-Filter:Received:Received:DKIM-Signature:Message-ID:Date:
+	 MIME-Version:User-Agent:From:Subject:To:Cc:References:
+	 Content-Language:In-Reply-To:Content-Type:Content-Transfer-Encoding;
+	bh=IRquHP6+JpDcME/70XQJzwgPUGu0D6NcBC9+C049/lA=;
+	b=VeT3rgIbo5gZMtI+onSUDrUwXrhQJdqM8N0dEkSPJPUOJUuuDQduyGcDCkx9IVAy2DFw
+	 fp2+3n047rZjgYxJxotmTwpMxHeVdQGHujpx30NUHWNaji8cKM/xT1EZA+5YJSdUywLeC
+	 Ej/he5XjlptvpaWRACnzYlsalMCFaaOAlSuHpqFdMXSJRqI7UStpbfM+kB+m6QnUaPFTj
+	 LbDOhGlHPu4fOCCWO7jCgKM/u0zTB1+kl4Ep0Mnq9BkYIDD7aXnyRV/YFpGCcQAGd3H0U
+	 ocVmKkPRpMdcpglhXu4dUFMtHK2mIjrxhHCVfKOJRSNU4efZGHNkaw9cmPxyVSDKq8w==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=arm.com;
+	spf=pass smtp.mailfrom=arm.com;
+	dkim=pass header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Cyrj0nr+;
+	arc=none smtp.remote-ip=217.140.110.172
+Received: from foss.arm.com (foss.arm.com [217.140.110.172])
+	by smtp.subspace.kernel.org (Postfix) with ESMTP id D3DF6606A324;
+	Fri, 27 Nov 2026 18:16:54 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org D3DF6606A324
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=arm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=arm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=CBUGau81
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795803321;
-	b=v9/TmFcjDbf91tdeU359uTEpYywToK795HSptQqxYfQmk/i9eQYtuICEgifugtyMlORv
-	 taPSKXDNSXPDXTfpCMwE4v0hjIALGgqW+eU3tGlyNapsiHjBlHbaSMjd4+aOF+o4s6gwk
-	 +oHLUNNL+gzXGXq0fmJrSFz54c7DBmvlN34QwRpHPJ3wn0zS8bcFkLw+bKtgqOObsWykU
-	 d+xMwbuqnxGcrc/0wtX+2YDJMx9hvNR0G+uWY64tbfM9kLS2WJYr0GmNEuIacsnS1CgFa
-	 e/Seff3Ij2rEqoKLQaw5S5Znob2jWOSl6nKqqcF3woYaQuI0M2qVXf4TRvOZkuWYnKg==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795803321;
-	h=DKIM-Signature:Received:From:Date:Subject:MIME-Version:Content-Type:
-	 Message-Id:References:In-Reply-To:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=W6ra3HxnsSrE16LG5PH4BW4qjM2tzXXpcxkdlQ/bPd4=;
-	b=NClEwHQw3HOpJtD4oMZ7KvuT1G5/yev3xzQGw1x0csKr+eoc51Dpf2ZUnVYqudvMx5xM
-	 bdPekXCnV4VTO6sFdk80EpcuTPkWrs/tNjThifa+qpH2JSy4wqOjSJ4Z/o1ghndwkGDDT
-	 vpnM3IeNeuX6EiNaM9y/cCnsAZAexmkq1WMqxqW7F4nlk0WPbTXVg2Eluxsqk/7yrMnFs
-	 5NFJ1gIq++/8X1gw9qWKGzY9PNudxUTNmR5Fo1uCb5PWtUCHEEFtiDmf7HhVLXKZUvor7
-	 8iJ45jEu8fpEjMbjmBKs5ml+3cG7sJqzUT5dsIj4zNLK9+ZrD70IYsV7AvmUnZL496A==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
-	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 6F93E1F00898;
-	Fri, 27 Nov 2026 18:15:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795803321;
-	bh=W6ra3HxnsSrE16LG5PH4BW4qjM2tzXXpcxkdlQ/bPd4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To;
-	b=CBUGau81TWxMmZUT/203+unOO9XcFUWiCYIa4rwpN81Et9a/aTArNGSTOLsbXYpXk
-	 NBEg8tmBNAd57D6TthtTWYtUlpulbXKa4coNlV8GuOhss4Hm0uqPgfpovSfmt4blsd
-	 jKIoPpXGNAk/ZKD9juAyb6Xe79SrUWBHK+sz6qW28WahMwi6vPS8RT/KXLsb6su+TV
-	 IX6QKzR6+36IEhqDVnQAUm4utCtQ0uMBh8I3M0SUVRKnk1mDJv8i6Es5pBLP+2h0uy
-	 pas+uYBxmTW96+GldU3I5ntgsQ8+urzb9NFOjW87KXz5KwSJPGJqnbp/R1Fa29WcYg
-	 Eizj2tzepMJ4g==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id F05B94DCEB;
-	Fri, 27 Nov 2026 18:15:12 +0000 (UTC)
-From: Kyle Hendry via B4 Relay <devnull+khendry.reliablecontrols.com@kernel.org>
-Date: Fri, 27 Nov 2026 10:14:25 -0800
-Subject: [PATCH net-next 1/3] dt-bindings: net: pcs: renesas,rzn1-miic:
- Document rzn1 resets
+	dkim=pass (1024-bit key) header.d=arm.com header.i=@arm.com header.a=rsa-sha256 header.s=foss header.b=Cyrj0nr+
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 699331575;
+	Fri, 27 Nov 2026 10:16:51 -0800 (PST)
+Received: from [10.2.212.23] (e121345-lin.cambridge.arm.com [10.2.212.23])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4CC783F86C;
+	Fri, 27 Nov 2026 10:16:51 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=arm.com; s=foss;
+	t=1795803414; bh=6imln1W2Yy1aPN/smnTpJTPts3LNPdp2Py2G8tyPdSw=;
+	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
+	b=Cyrj0nr+Aawpo4a9zscl6bwOk0Ckq97a90PJDU6Zc5xrVZ/I3+WGA1BXAgrX+o+iB
+	 9D8+slEkc9p2uO0X7wiZF90OZfeY5xl+tPiJX6++jX9vm1PUww2Ws4dWeR+33FPyfQ
+	 RC1U0HfsJvGpo10Uyw8MvP8t+ubp08BZ5OSdJgEA=
+Message-ID: <03b2548c-e451-408e-b5df-a5dec8c290f8@arm.com>
+Date: Fri, 27 Nov 2026 18:16:48 +0000
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -83,125 +53,123 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-miic-reset-consumer-v1-1-3cab78b94e23@reliablecontrols.com>
-References: <20261127-miic-reset-consumer-v1-0-3cab78b94e23@reliablecontrols.com>
-In-Reply-To: <20261127-miic-reset-consumer-v1-0-3cab78b94e23@reliablecontrols.com>
-To: =?utf-8?q?Cl=C3=A9ment_L=C3=A9ger?= <clement.leger@linux.dev>, 
- Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, 
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
- Russell King <linux@armlinux.org.uk>
-Cc: linux-renesas-soc@vger.kernel.org, netdev@vger.kernel.org, 
- devicetree@vger.kernel.org, Kyle Hendry <khendry@reliablecontrols.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795803312; l=2601;
- i=khendry@reliablecontrols.com; s=20260813; h=from:subject:message-id;
- bh=Ibwr9Byd7qZ2f5BKwWGgbhsxQYwHLNF4ceUXnYnnfDo=;
- b=yHlYztCF4RgXSb5SjpfwAO+1qVE3+hH6i1NxfDR86V8tK8v6w5SHRhjWYoNutBMn37o3oqb/T
- IivGNQJR3n9AAXvu1TfN9pDumxrsh3mnHondCJFjXi4uIXYVW6/BgV0
-X-Developer-Key: i=khendry@reliablecontrols.com; a=ed25519;
- pk=gbK6oghz3qBlBiaGCsEzALLOtj5VklmsuolHQNhDV5M=
-X-Endpoint-Received: by B4 Relay for khendry@reliablecontrols.com/20260813
- with auth_id=946
-X-Original-From: Kyle Hendry <khendry@reliablecontrols.com>
-Reply-To: khendry@reliablecontrols.com
+User-Agent: Mozilla Thunderbird
+From: Robin Murphy <robin.murphy@arm.com>
+Subject: Re: [PATCH 4/9] soc: rockchip: grf: Assign the StreamIDs of the
+ RK3588 PHP SMMU masters
+To: aiyengar1990@gmail.com, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ David Wu <david.wu@rock-chips.com>, Damien Le Moal <dlemoal@kernel.org>,
+ Niklas Cassel <cassel@kernel.org>, Serge Semin <fancer.lancer@gmail.com>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-ide@vger.kernel.org,
+ Pranjal Shrivastava <praan@google.com>, Will Deacon <will@kernel.org>,
+ iommu@lists.linux.dev, Shawn Lin <shawn.lin@rock-chips.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+References: <20261113-mmu600-php-v1-0-231196049a3b@gmail.com>
+ <20261113-mmu600-php-v1-4-231196049a3b@gmail.com>
+Content-Language: en-GB
+In-Reply-To: <20261113-mmu600-php-v1-4-231196049a3b@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 
-From: Kyle Hendry <khendry@reliablecontrols.com>
+On 13/11/2026 4:38 pm, Arun Iyengar via B4 Relay wrote:
+> From: Arun Iyengar <aiyengar1990@gmail.com>
+> 
+> The StreamIDs of the six masters behind the RK3588 PHP SMMU come from
+> PHP GRF registers that reset to 0 and are never programmed, so the SMMU
+> can not tell the masters apart.
+> 
+> Assign StreamIDs 1-6 on both AXI channels. 0 stays unused, so a master
+> that loses its ID is aborted instead of using another device's tables.
 
-On the rzn1, there are two resets for the miic. Add documentation for them.
+Urgh... could you at least hide this in U-Boot and have that inject the 
+corresponding "iommus" entries into the DTB it's passing, similar to 
+what the NXP Layerscape platforms do for their "iommu-map" generation?
 
-Signed-off-by: Kyle Hendry <khendry@reliablecontrols.com>
----
- .../bindings/net/pcs/renesas,rzn1-miic.yaml        | 36 +++++++++++++++-------
- 1 file changed, 25 insertions(+), 11 deletions(-)
+StreamIDs are really not meant to be programmable, and even if they are 
+then that is not supposed to be exposed to OSes. The Arm Base System 
+Architecture[1] explicitly calls this out:
 
-diff --git a/Documentation/devicetree/bindings/net/pcs/renesas,rzn1-miic.yaml b/Documentation/devicetree/bindings/net/pcs/renesas,rzn1-miic.yaml
-index f9d39114e667..5ad1f993e8bd 100644
---- a/Documentation/devicetree/bindings/net/pcs/renesas,rzn1-miic.yaml
-+++ b/Documentation/devicetree/bindings/net/pcs/renesas,rzn1-miic.yaml
-@@ -51,14 +51,12 @@ properties:
-       - const: hclk
- 
-   resets:
--    items:
--      - description: Converter register reset
--      - description: Converter reset
-+    minItems: 2
-+    maxItems: 2
- 
-   reset-names:
--    items:
--      - const: rst
--      - const: crst
-+    minItems: 2
-+    maxItems: 2
- 
-   renesas,miic-switch-portin:
-     description: MII Switch PORTIN configuration. This value should use one of
-@@ -109,8 +107,14 @@ allOf:
-       properties:
-         renesas,miic-switch-portin:
-           enum: [1, 2]
--        resets: false
--        reset-names: false
-+        resets:
-+          items:
-+            - description: Timestamp selector reset
-+            - description: Converter reset
-+        reset-names:
-+          items:
-+            - const: rst_ts
-+            - const: rst_miic
-       patternProperties:
-         "^mii-conv@[0-5]$":
-           properties:
-@@ -161,9 +165,14 @@ allOf:
-       properties:
-         renesas,miic-switch-portin:
-           const: 0
--      required:
--        - resets
--        - reset-names
-+      resets:
-+        items:
-+          - description: Converter register reset
-+          - description: Converter reset
-+      reset-names:
-+        items:
-+          - const: rst
-+          - const: crst
-       patternProperties:
-         "^mii-conv@[0-5]$":
-           properties:
-@@ -210,6 +219,8 @@ required:
-   - reg
-   - clocks
-   - clock-names
-+  - resets
-+  - reset-names
-   - power-domains
- 
- additionalProperties: false
-@@ -229,6 +240,9 @@ examples:
-               <&sysctrl R9A06G032_CLK_RMII_REF>,
-               <&sysctrl R9A06G032_HCLK_SWITCH_RG>;
-       clock-names = "mii_ref", "rgmii_ref", "rmii_ref", "hclk";
-+      resets = <&sysctrl R9A06G032_RST_TS>,
-+               <&sysctrl R9A06G032_RST_MIIC>;
-+      reset-names = "rst_ts", "rst_miic";
-       renesas,miic-switch-portin = <MIIC_GMAC2_PORT>;
-       power-domains = <&sysctrl>;
- 
+   R_ITS_DEV_9: The relationships between a device, its StreamID and
+   its DeviceID are considered static by OS or hypervisor software. If
+   the mapping is not fixed by hardware, the relationship between a
+   StreamID and a DeviceID must not change after system initialization,
+   and OS drivers must not be required to set it up.
 
--- 
-2.53.0
+Even just in practical terms, how is this going to work if someone boots 
+a new kernel with an older DT or vice-versa, and one set of hard-coded 
+values then fails to correspond to the other?
 
+Thanks,
+Robin.
+
+[1] https://support.arm.com/documentation/den0094/latest/
+
+> Signed-off-by: Arun Iyengar <aiyengar1990@gmail.com>
+> ---
+>   drivers/soc/rockchip/grf.c | 37 +++++++++++++++++++++++++++++++++++++
+>   1 file changed, 37 insertions(+)
+> 
+> diff --git a/drivers/soc/rockchip/grf.c b/drivers/soc/rockchip/grf.c
+> index b459607c118a..3f0f82a2119f 100644
+> --- a/drivers/soc/rockchip/grf.c
+> +++ b/drivers/soc/rockchip/grf.c
+> @@ -168,6 +168,40 @@ static const struct rockchip_grf_info rk3588_sysgrf __initconst = {
+>   	.num_values = ARRAY_SIZE(rk3588_defaults),
+>   };
+>   
+> +/* PHP SMMU StreamIDs: bits 15:0, no write-enable mask */
+> +#define RK3588_PHP_GRF_GMAC0_SID_AW	0x0074
+> +#define RK3588_PHP_GRF_GMAC1_SID_AW	0x007c
+> +#define RK3588_PHP_GRF_SATA0_SID_AW	0x0084
+> +#define RK3588_PHP_GRF_SATA1_SID_AW	0x008c
+> +#define RK3588_PHP_GRF_SATA2_SID_AW	0x0094
+> +#define RK3588_PHP_GRF_GMAC0_SID_AR	0x009c
+> +#define RK3588_PHP_GRF_GMAC1_SID_AR	0x00a4
+> +#define RK3588_PHP_GRF_SATA0_SID_AR	0x00ac
+> +#define RK3588_PHP_GRF_SATA1_SID_AR	0x00b4
+> +#define RK3588_PHP_GRF_SATA2_SID_AR	0x00bc
+> +#define RK3588_PHP_GRF_USB3OTG2_SID_AR	0x00c4
+> +#define RK3588_PHP_GRF_USB3OTG2_SID_AW	0x00cc
+> +
+> +static const struct rockchip_grf_value rk3588_defaults_php_grf[] __initconst = {
+> +	{ "gmac0 write streamid", RK3588_PHP_GRF_GMAC0_SID_AW, 1 },
+> +	{ "gmac0 read streamid", RK3588_PHP_GRF_GMAC0_SID_AR, 1 },
+> +	{ "gmac1 write streamid", RK3588_PHP_GRF_GMAC1_SID_AW, 2 },
+> +	{ "gmac1 read streamid", RK3588_PHP_GRF_GMAC1_SID_AR, 2 },
+> +	{ "sata0 write streamid", RK3588_PHP_GRF_SATA0_SID_AW, 3 },
+> +	{ "sata0 read streamid", RK3588_PHP_GRF_SATA0_SID_AR, 3 },
+> +	{ "sata1 write streamid", RK3588_PHP_GRF_SATA1_SID_AW, 4 },
+> +	{ "sata1 read streamid", RK3588_PHP_GRF_SATA1_SID_AR, 4 },
+> +	{ "sata2 write streamid", RK3588_PHP_GRF_SATA2_SID_AW, 5 },
+> +	{ "sata2 read streamid", RK3588_PHP_GRF_SATA2_SID_AR, 5 },
+> +	{ "usb3otg2 write streamid", RK3588_PHP_GRF_USB3OTG2_SID_AW, 6 },
+> +	{ "usb3otg2 read streamid", RK3588_PHP_GRF_USB3OTG2_SID_AR, 6 },
+> +};
+> +
+> +static const struct rockchip_grf_info rk3588_phpgrf __initconst = {
+> +	.values = rk3588_defaults_php_grf,
+> +	.num_values = ARRAY_SIZE(rk3588_defaults_php_grf),
+> +};
+> +
+>   static const struct of_device_id rockchip_grf_dt_match[] __initconst = {
+>   	{
+>   		.compatible = "rockchip,rk3036-grf",
+> @@ -202,6 +236,9 @@ static const struct of_device_id rockchip_grf_dt_match[] __initconst = {
+>   	}, {
+>   		.compatible = "rockchip,rk3576-ioc-grf",
+>   		.data = (void *)&rk3576_iocgrf,
+> +	}, {
+> +		.compatible = "rockchip,rk3588-php-grf",
+> +		.data = (void *)&rk3588_phpgrf,
+>   	}, {
+>   		.compatible = "rockchip,rk3588-sys-grf",
+>   		.data = (void *)&rk3588_sysgrf,
+> 
 
