@@ -1,55 +1,55 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.130
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=195.135.223.131
 ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
-	t=1795800035;
-	b=dVbOaqF50uK75s8Z4kvNMfooETSuTpSX0rWYX4RtZ2Riz4ZUBqytXCqxvm9WpHM3scar
-	 KAtEE/oFiWKhNcRW0s5H8ivE69nZHnVp/KGysy8HUvN91tGKFuTtiVamdgT3w+ZFWN3su
-	 +IA/j7KSD7BtQdh1X5rHn65n996KedSK+towQodxHczdyrzrt9HsFAuCRyuKxWraLgeM4
-	 01bZopUiSm4P2h+ibEWdU0OuadfrQp3VHADzWtuGeVMPEmrib19rPBP48LvK25fEvSkJi
-	 eVTr3VNhcdWpzGwcmKrjhpzbeEYauuOlHk85ArZ/BHPC/qzwWoTS3GgjVQx4im7FRBw==
+	t=1795800037;
+	b=sjXCGVBzdcYXMbsH5So2hjDQpMYgTwB/Dth6VWrW30IJuPv7gOEyY23IHyZJiB9ma4Vc
+	 rEROGfkkd4TRaRvkqQFLIDyzIQLrJ5fjGxehzzQ3Fu8q0uzGNqPWuVfYJbZ6oQ9zu8GDW
+	 M33rKj/KLWAPXn0QELHFslqiNPEhqpDulEcujAHb2CZLgZbn+rPz7lRrqRK4QHoQ5fu93
+	 8UFI9XTh62ugFjj+0QepZKVVucKgoGR3bkKNWfhwwX9N9SwoiXVoxGUWjCrfV1S9OFFpz
+	 2r2tiwvvNfQX8zUBxpi0kLwsnzAxwq/aZXmeZimTbj8T/BoYE9YMcGTIel87n/2Os5Q==
 ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795800035;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795800037;
 	h=DMARC-Filter:Received:Received:Received:From:To:Cc:Subject:Date:
 	 Message-ID:X-Mailer:In-Reply-To:References:MIME-Version:
-	 Content-Transfer-Encoding:X-Rspamd-Pre-Result:X-Rspamd-Queue-Id:
-	 X-Rspamd-Pre-Result:X-Rspamd-Action:X-Rspamd-Server:X-Spam-Level:
-	 X-Spamd-Result:X-Spam-Flag:X-Spam-Score;
-	bh=rz7+56DcQZ669uhOYmPdyb0yc62fQtoJngeIKjsraWE=;
-	b=23doRroA3zVPaOP+fKNeUjlZy0LU9KwUvX4hljgqycKADx84tQmmhj/rHlgBMKECDeKW
-	 brRe5pPHHu7ZCfs9Svp+zDsjA9i5dGTlaGJkF6E/t3fRQcU2G0tCPIkuG1FAyeBOhUw82
-	 h1ZFo351p4n2ghu2oUhD7lQ3PQw2FJOiuDBWvMQr644NOj8bPGix4XwaTE4fbvf0fszf8
-	 CUzeljYiphj3ZOW32j2H0qA+rfR+q6HPuPAKqZ1Oeo8GT5jer5tUbG91q20cJ55Kak7LJ
-	 EXXFA0rTyTd1bdjouE/wZzJYCM0RGP8Ec5JqP77oeoXt8goYdgBaeNTO1sTgZgSeICw==
+	 Content-Transfer-Encoding:X-Rspamd-Pre-Result:X-Rspamd-Server:
+	 X-Spamd-Result:X-Spam-Flag:X-Spam-Score:X-Spam-Level:
+	 X-Rspamd-Queue-Id:X-Rspamd-Pre-Result:X-Rspamd-Action;
+	bh=4OguRMGdAm4Ve4RxSaUFRoN3pO2yCoU1/zlHX5Av2aM=;
+	b=T5eyEYTs6mCJQlPnlqrNsJtKJNOQwLAkscdCSA/81y9zyOOMBA14jpYeTQ1bhJxmknrx
+	 KeKFSCNAHqyHf8c+7ryVq99GUVqH2Re/sP27eWi8Q+1y/9ZRCicJ4xyGUAQSJG2oGAtA0
+	 VNw3z77gfq5UUVz1ORmYx4bpZWIdpQYW/PF706sVtjUIkra+8anOlbTjgqMkXvxGNXhqS
+	 3POj23IWJPtwoXWL/U7nEqx2JiF50YBR6GzBcOH1Lgjk0mniNNkoEsJoGjr5GtjRc9Htk
+	 ayb8M8fK7U9lJbE8Jia4X6dlXc8zwT+A3l5OA2P+LyXZ4DhrLXFT0SIw5EVvWxmv06g==
 ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
 	dmarc=pass header.from=suse.de;
 	spf=pass smtp.mailfrom=suse.de;
-	arc=none smtp.remote-ip=195.135.223.130
-Received: from smtp-out1.suse.de (smtp-out1.suse.de [195.135.223.130])
+	arc=none smtp.remote-ip=195.135.223.131
+Received: from smtp-out2.suse.de (smtp-out2.suse.de [195.135.223.131])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 28D5C606A33C
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 17:20:35 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 28D5C606A33C
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9A1AB606A327;
+	Fri, 27 Nov 2026 17:20:36 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9A1AB606A327
 Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=suse.de
 Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=suse.de
 Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 958D32295D;
-	Fri, 27 Nov 2026 17:20:33 +0000 (UTC)
-Authentication-Results: smtp-out1.suse.de;
+	by smtp-out2.suse.de (Postfix) with ESMTPS id DD8B21F7F2;
+	Fri, 27 Nov 2026 17:20:34 +0000 (UTC)
+Authentication-Results: smtp-out2.suse.de;
 	none
 Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id D439E13432;
-	Fri, 27 Nov 2026 17:20:32 +0000 (UTC)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 3E60013432;
+	Fri, 27 Nov 2026 17:20:34 +0000 (UTC)
 Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
 	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id /Yb1MH67CWuMAwAAD6G6ig:T14
-	(envelope-from <fmancera@suse.de>); Fri, 27 Nov 2026 17:20:32 +0000
+	id /Yb1MH67CWuMAwAAD6G6ig:T15
+	(envelope-from <fmancera@suse.de>); Fri, 27 Nov 2026 17:20:34 +0000
 From: Fernando Fernandez Mancera <fmancera@suse.de>
 To: netdev@vger.kernel.org
 Cc: davem@davemloft.net,
@@ -58,13 +58,11 @@ Cc: davem@davemloft.net,
 	pabeni@redhat.com,
 	horms@kernel.org,
 	Fernando Fernandez Mancera <fmancera@suse.de>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Ido Schimmel <idosch@nvidia.com>,
-	Willem de Bruijn <willemb@google.com>,
-	bridge@lists.linux.dev
-Subject: [PATCH net-next v4 13/16] net: bridge: guard ARP/RARP proxy and suppression with CONFIG_IPV4
-Date: Fri, 27 Nov 2026 18:17:58 +0100
-Message-ID: <20261127171824.27362-14-fmancera@suse.de>
+	Johannes Berg <johannes@sipsolutions.net>,
+	linux-wireless@vger.kernel.org
+Subject: [PATCH net-next v4 14/16] wifi: mac80211: replace CONFIG_INET with CONFIG_IPV4 guards
+Date: Fri, 27 Nov 2026 18:17:59 +0100
+Message-ID: <20261127171824.27362-15-fmancera@suse.de>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20261127171824.27362-1-fmancera@suse.de>
 References: <20261127171824.27362-1-fmancera@suse.de>
@@ -81,70 +79,79 @@ Content-Transfer-Encoding: 8bit
 X-Rspamd-Pre-Result: action=no action;
 	module=replies;
 	Message is reply to one we originated
-X-Rspamd-Queue-Id: 958D32295D
-X-Rspamd-Pre-Result: action=no action;
-	module=replies;
-	Message is reply to one we originated
-X-Rspamd-Action: no action
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Spam-Level: 
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
 X-Spamd-Result: default: False [-4.00 / 50.00];
 	REPLY(-4.00)[]
 X-Spam-Flag: NO
 X-Spam-Score: -4.00
+X-Spam-Level: 
+X-Rspamd-Queue-Id: DD8B21F7F2
+X-Rspamd-Pre-Result: action=no action;
+	module=replies;
+	Message is reply to one we originated
+X-Rspamd-Action: no action
 
-Historically, the bridge subsystem relied on CONFIG_INET to guard ARP and
-RARP proxy and suppression routines. As CONFIG_IPV4 is decoupled from the
-core stack and made optional, relying on CONFIG_INET is no longer accurate,
-as ARP and RARP are exclusively IPv4 protocols.
+Historically, the mac80211 subsystem used CONFIG_INET to guard
+IPv4-specific address notifiers, assuming that if IP networking was
+enabled, IPv4 was guaranteed to be present. As part of the effort to
+make CONFIG_IPV4 optional, this assumption is no longer valid.
+
+Update the conditional compilation guards around the IPv4 address change
+notifier and its associated registration routines to explicitly check
+for IS_ENABLED(CONFIG_IPV4). This ensures the mac80211 subsystem
+compiles successfully without undefined references when building an
+IPv6-only kernel.
 
 Signed-off-by: Fernando Fernandez Mancera <fmancera@suse.de>
 ---
- net/bridge/br_arp_nd_proxy.c | 2 ++
- net/bridge/br_device.c       | 2 +-
- net/bridge/br_input.c        | 2 +-
- 3 files changed, 4 insertions(+), 2 deletions(-)
+ net/mac80211/main.c | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/net/bridge/br_arp_nd_proxy.c b/net/bridge/br_arp_nd_proxy.c
-index f306cfbc1679..695510d43733 100644
---- a/net/bridge/br_arp_nd_proxy.c
-+++ b/net/bridge/br_arp_nd_proxy.c
-@@ -56,7 +56,9 @@ br_is_neigh_suppress_enabled_vid(const struct net_bridge_port *p, u16 vid)
- 
- 	return br_is_neigh_suppress_enabled(p, v);
+diff --git a/net/mac80211/main.c b/net/mac80211/main.c
+index e03c2dbf4fb8..5e10ea3c7601 100644
+--- a/net/mac80211/main.c
++++ b/net/mac80211/main.c
+@@ -559,7 +559,7 @@ void ieee80211_restart_hw(struct ieee80211_hw *hw)
  }
-+#endif /* CONFIG_INET */
+ EXPORT_SYMBOL(ieee80211_restart_hw);
  
+-#ifdef CONFIG_INET
 +#if IS_ENABLED(CONFIG_IPV4)
- static void br_arp_send(struct net_bridge *br, struct net_bridge_port *p,
- 			struct net_device *dev, __be32 dest_ip, __be32 src_ip,
- 			const unsigned char *dest_hw,
-diff --git a/net/bridge/br_device.c b/net/bridge/br_device.c
-index 0a1ce9e59a4d..8210042d975a 100644
---- a/net/bridge/br_device.c
-+++ b/net/bridge/br_device.c
-@@ -70,7 +70,7 @@ netdev_tx_t br_dev_xmit(struct sk_buff *skb, struct net_device *dev)
- 		goto out;
- 	vid = vlan ? vlan->vid : 0;
+ static int ieee80211_ifa_changed(struct notifier_block *nb,
+ 				 unsigned long data, void *arg)
+ {
+@@ -1660,7 +1660,7 @@ int ieee80211_register_hw(struct ieee80211_hw *hw)
+ 	wiphy_unlock(hw->wiphy);
+ 	rtnl_unlock();
  
--	if (IS_ENABLED(CONFIG_INET) &&
-+	if (IS_ENABLED(CONFIG_IPV4) &&
- 	    (eth_hdr(skb)->h_proto == htons(ETH_P_ARP) ||
- 	     eth_hdr(skb)->h_proto == htons(ETH_P_RARP)) &&
- 	    br_opt_get(br, BROPT_NEIGH_SUPPRESS_ENABLED)) {
-diff --git a/net/bridge/br_input.c b/net/bridge/br_input.c
-index b5bd9d6808fd..1641ab547705 100644
---- a/net/bridge/br_input.c
-+++ b/net/bridge/br_input.c
-@@ -168,7 +168,7 @@ int br_handle_frame_finish(struct net *net, struct sock *sk, struct sk_buff *skb
- 	BR_INPUT_SKB_CB(skb)->brdev = br->dev;
- 	BR_INPUT_SKB_CB(skb)->src_port_isolated = test_bit(BR_ISOLATED_BIT, &p->flags);
+-#ifdef CONFIG_INET
++#if IS_ENABLED(CONFIG_IPV4)
+ 	local->ifa_notifier.notifier_call = ieee80211_ifa_changed;
+ 	result = register_inetaddr_notifier(&local->ifa_notifier);
+ 	if (result)
+@@ -1678,11 +1678,11 @@ int ieee80211_register_hw(struct ieee80211_hw *hw)
  
--	if (IS_ENABLED(CONFIG_INET) &&
-+	if (IS_ENABLED(CONFIG_IPV4) &&
- 	    (skb->protocol == htons(ETH_P_ARP) ||
- 	     skb->protocol == htons(ETH_P_RARP))) {
- 		br_do_proxy_suppress_arp(skb, br, vid, p);
+ #if IS_ENABLED(CONFIG_IPV6)
+  fail_ifa6:
+-#ifdef CONFIG_INET
++#if IS_ENABLED(CONFIG_IPV4)
+ 	unregister_inetaddr_notifier(&local->ifa_notifier);
+ #endif
+ #endif
+-#if defined(CONFIG_INET) || defined(CONFIG_IPV6)
++#if IS_ENABLED(CONFIG_IPV4)
+  fail_ifa:
+ #endif
+ 	rtnl_lock();
+@@ -1710,7 +1710,7 @@ void ieee80211_unregister_hw(struct ieee80211_hw *hw)
+ 	tasklet_kill(&local->tx_pending_tasklet);
+ 	tasklet_kill(&local->tasklet);
+ 
+-#ifdef CONFIG_INET
++#if IS_ENABLED(CONFIG_IPV4)
+ 	unregister_inetaddr_notifier(&local->ifa_notifier);
+ #endif
+ #if IS_ENABLED(CONFIG_IPV6)
 -- 
 2.56.1
 
