@@ -1,98 +1,126 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795774612;
-	b=QQUseyuUmAQS1/rRg0jUojUXH1zFPwm/8QWbdx47Ep8cRhiEcvQPMDll5hS7FcSw8ejN
-	 hmAXlEuh9F/ATvFT+N5hEzTyGsubSrSLMQbenP+drD/KGL0PfogGqlxvHwbhXGmCRA3e8
-	 5B3bzLNMs+jAngJdzVJQ9AR07JV55W7Q8kdPG/qTGUCKBM0MdpUUlQVGkaJdea2adRGBf
-	 1KzgN2d7o33p+HohUsfzx1GHJ7ND7+MNKIpbadTtkYQdQBZ3rik9BVc6Yge5vyFhsPqHV
-	 hdZ7bx5ePWe9sduTzcXYGQUiZn5ZbGcnX+GJOnQsigyD/G3C3apRpPuxaouBnv90TIA==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795774612;
-	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
-	 X-Forwarded-Encrypted:X-Gm-Message-State:X-Gm-Gg:X-Received:
-	 MIME-Version:References:In-Reply-To:From:Date:X-Gm-Features:
-	 Message-ID:Subject:To:Cc:Content-Type:Content-Transfer-Encoding;
-	bh=KPXb3DtqJNanqI7IPB3ZYAV4XR+6OEYsAvkDzB1Mb18=;
-	b=2prZnbANty5Gd3QoYEyP1H4ddsDcIzAkGkVVRWX2evhnN5+bxJMeOJJAU37oj5UWU+HF
-	 Ek31Bo1heEb8ugZP6JI1eJjsX7UWFFjnoTHHBLoekdjCgaB+q+FdwTg+nc1splkd9hll5
-	 HqAu+9GJQ7Ape091TtgVi6Ro12Vz/J+2c/5A+QaGsWUnvjtEeh+elkorIseY5SHqLZzWR
-	 A79Eyg71fbWNnjkk+RjgJcfyR1NbG+o8brHdvqoxwf4Y4HGIENrcggoEJ93jcXSc55t+t
-	 1G5zLjZVCeNKgg3tTy89dGnZFEQmmUH0RzlvFsA11z9poLg9XwxAOygxHgicf3gre+Q==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dmarc=none header.from=mojatatu.com;
-	spf=none smtp.mailfrom=mojatatu.com;
-	dkim=pass header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=bz6+I5jI;
-	arc=pass header.oldest-pass=0 smtp.remote-ip=209.85.210.171
-Received: from mail-pf1-f171.google.com (mail-pf1-f171.google.com [209.85.210.171])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=205.220.168.131
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795774928;
+	b=r86ODcxgU+HR7zkAvqGzN7RH8qVahuy8r4D61kMTKSZn0cXcdzmrYMYrwnNCPc/xKniN
+	 Ucip1x7N0RzX8zW1ptg1NLaHIhjyxY/eqACi12MPqj+Yn5xSeMJwaUtr+nRMpwuhOs8Fz
+	 u00L+KL9RMRY430TOuGAtJezYK2XtZDTNk7Tnm/GZoMc1q9iTPNbnb6fM/NfSoEwp4Wf3
+	 2UlbRMXSjmNpvk020dy7HbAjCvhhUmmnPvg0OPA03UOXnScDENe//mlrkO+jgjw5ykF4M
+	 Pt1+6QFUV8YOHrQXHw4pctG9zn4GCg1XTMzYq7vCtyL2IZzFaoBlzqDwUTVVQsQ8zFw==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795774928;
+	h=DMARC-Filter:Received:DKIM-Signature:Received:Received:
+	 DKIM-Signature:X-Google-DKIM-Signature:X-Forwarded-Encrypted:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:X-Received:Received:Date:From:
+	 To:Cc:Subject:Message-ID:References:MIME-Version:Content-Type:
+	 Content-Disposition:In-Reply-To:X-Proofpoint-ORIG-GUID:
+	 X-Proofpoint-Spam-Details-Enc:X-Authority-Analysis:
+	 X-Proofpoint-Spam-Info:X-Proofpoint-GUID:X-Proofpoint-Virus-Version:
+	 X-Proofpoint-Spam-Details;
+	bh=wo4YS7qq8Q1RMcBOkwyWTqRSF4hG/DoIce2rCzWWJAo=;
+	b=w1cKDf57jnNHJqSAUhAPK8zZjVql8hWcz5Lfm0RP5XiiKHFcXqqwHocRhmzaDE+/bGDW
+	 DaZDNNr8d7OjkZ/4wsxxE26bUdOvXR5XXBASPs+lCqH+7q7Ri/IBa7ljoCGXCTCaQzzzt
+	 Q6Buvh5Q2osFsOoW4CKnnK7r/FzWbzwgKPDM24MaG7CIC1EChSrXADV+j3v0KDDFukp/p
+	 xvwuMWpd4Y020epLdejVELgWrml0smYkpHUWYWWrV4EC/JV02y+mQQc9r6C+64N6rxHCa
+	 OB10tqTvEJPfJc5ousyyEQWjsvPyeWjsMzHaNRThfuFoEDBMO0RtcT7bikb2GkA4eiw==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=oss.qualcomm.com;
+	spf=pass smtp.mailfrom=oss.qualcomm.com;
+	dkim=pass header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UADvuU8k;
+	dkim=pass header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hehGXlTC;
+	arc=none smtp.remote-ip=205.220.168.131
+Received: from mx0a-0031df01.pphosted.com (mx0a-0031df01.pphosted.com [205.220.168.131])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 08961606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:16:51 +0000 (UTC)
-DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 08961606A31E
-Authentication-Results: smtp.subspace.kernel.org; dmarc=none (p=none dis=none) header.from=mojatatu.com
-Authentication-Results: smtp.subspace.kernel.org; spf=none smtp.mailfrom=mojatatu.com
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 9EA0A606A336
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:22:07 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 9EA0A606A336
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=oss.qualcomm.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=oss.qualcomm.com
 Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (1024-bit key) header.d=mojatatu.com header.i=@mojatatu.com header.a=rsa-sha256 header.s=google header.b=bz6+I5jI
-Received: by mail-pf1-f171.google.com with SMTP id d2e1a72fcca58-8a9f9473029so5964936b3a.2
-        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:16:51 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1795774611; cv=none;
-        d=google.com; s=arc-20260327;
-        b=dzinkzP1P4XvZGgwdYkdphaAIiwVtx3qupmC56D0m7NCWvQTKqLCra7KIl1W6vsSpP
-         AVq+8ceF14OIFPP47fgQdHAsJzRCpYv7tITfMKYRBX2tHSDU3730dnIQe1EzM0Z+PxON
-         p9qqLjWjTL3y4p5EIZ6aOxzG42yioHKohtOrIAh8hWaZe5Kzsi6K1dZ+JfqDuCSC0lUA
-         3ZRw5bdzBiqARDH0QA3YtfwwR7gZIPCof/NptUn3zOhhmaGmVcnzx7s33RyH3o7kRMeP
-         J0BsPv2iJov8hZHEATE/gw0eGR0w5CuWXx0ijqIxsQHP21Px5BvvlMqFebKP/SLLEimo
-         fc4g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20260327;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:dkim-signature;
-        bh=KPXb3DtqJNanqI7IPB3ZYAV4XR+6OEYsAvkDzB1Mb18=;
-        fh=qLPdRXME22MGTFcIpniPXJjNNyDPHMz3Gt/SZLdFfhM=;
-        b=dQ52nGz5PasOSrlxQ9/Nj8W/0jDMI6fqCtnJ4MrINC+ufTwa1A9uwgdDtgAXYWJFBu
-         +YtRj2mDASSxCmrB1FYeNTobB6p+yfKQ4wCaPzC8zckc7KerrG28IG9w9Nlq5g6roFy0
-         aNSUXe/+4hWIaSDVfdLWhdxxoWuQgrLSiGHG354tLEvsT+HMAJqFTKUvhSndYj7takGd
-         23zJMGbZm5dDDy4zCAq7NjZhk6HxfYtXEhqgPHBkOpHeqeS4YKxGZeg0JU0lUeiuENZq
-         oQ8euC8xn7TVrWFtIEuyOhfq2V/AInD+VNx97z3A6R1UWAYdA5V8/4+ETJjDIsZK+9aA
-         ZeCQ==;
-        darn=vger.kernel.org
-ARC-Authentication-Results: i=1; mx.google.com; arc=none
+	dkim=pass (2048-bit key) header.d=qualcomm.com header.i=@qualcomm.com header.a=rsa-sha256 header.s=qcppdkim1 header.b=UADvuU8k;
+	dkim=pass (2048-bit key) header.d=oss.qualcomm.com header.i=@oss.qualcomm.com header.a=rsa-sha256 header.s=google header.b=hehGXlTC
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.11/8.18.1.11) with ESMTP id 6AR7Gids2421546
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:22:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=wo4YS7qq8Q1RMcBOkwyWTqRS
+	F4hG/DoIce2rCzWWJAo=; b=UADvuU8kqNs7LtzLY7K0mdBLDDZowLw8A9vKQ0Q9
+	K7ZzcBH+IlMbWs0ieN5xCjfu9Y2cgANvh33rTabtAZv4GiwpxrMfkh22JdGe5Ed2
+	Hjg1HBpvyr0/ahBjT7h1a9xqZe1Zrcx1LnlP7Gm3Lp4SJ0Afq0RAUjdyhQ5o/mna
+	4St312Oo1tHSIf213iDHdrC9IJVWIZsPFoQB/Tl22yXLH6ISsQ6E7MIeBCM25CKw
+	IhKX8MY6FxzK9piGOZ5W9C3NL1BzBXTubuo5+Mvl6eRmn+7NwhiNEClZLSUCtxyo
+	K6q6vQwFkv9We2tVVBTmprSRE8cTUYLIKv2RA3nVfsRlbA==
+Received: from mail-qv1-f71.google.com (mail-qv1-f71.google.com [209.85.219.71])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4j6rf93241-1
+	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NOT)
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:22:06 +0000 (GMT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-9210ec7cb34so62028616d6.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:22:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=mojatatu.com; s=google; t=1795774611; x=1796379411; darn=vger.kernel.org;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:from:to:cc:subject
+        d=oss.qualcomm.com; s=google; t=1795774926; x=1796379726; darn=vger.kernel.org;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:from:to:cc:subject
          :date:message-id:reply-to:content-type;
-        bh=KPXb3DtqJNanqI7IPB3ZYAV4XR+6OEYsAvkDzB1Mb18=;
-        b=bz6+I5jIn0CXr8Hq35YeWBi7ua7lcqOOo+oFHX6xJ39sNrxxlGLAl/m45iBlrk8g3u
-         XnnrvkEBj4Fz/C+03h80ZcCEEYT3Cj6kNrohV7pvv5BTkCE+5zICD31o66P9SLcrylBj
-         bZm7xijBxwQqceTZLHKTDsjYXgAFX5v5mXwKM=
+        bh=wo4YS7qq8Q1RMcBOkwyWTqRSF4hG/DoIce2rCzWWJAo=;
+        b=hehGXlTCvnHmflM0GNFM78cfc8D4Bo4vLBUUjYelXFLCv2GRFjwBvXL8Wlro1loZaR
+         G+uiY4Y3ZTz9xv2lixafwaQOVWEJscbCnGHZoEKdPRJbQX4MwK/k//UC343SssXJgdMO
+         w2LgLnJXCPLqnAxS9BNMOyGj6bJi+/uUvyayomQHi8dYiHTuMRqBg+VqvIQGioUAER3o
+         5EosAWhuUxgTq/pDLmwmVccGnHAkCxaY7uBsk590vrsb/WVpD4grHlBk/YinnrxAwcD4
+         Yms5OgBbaZPQuycuIbX9ovMXOtsZMkYWUqeHfTyToFkNzcZtzETT/Nn/iGKAUxMxkmDi
+         4W4Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20260707; t=1795774611; x=1796379411;
-        h=content-transfer-encoding:content-type:cc:to:subject:message-id
-         :date:from:in-reply-to:references:mime-version:x-gm-gg
+        d=1e100.net; s=20260707; t=1795774926; x=1796379726;
+        h=in-reply-to:content-disposition:content-type:mime-version
+         :references:message-id:subject:cc:to:from:date:x-gm-gg
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to
          :content-type;
-        bh=KPXb3DtqJNanqI7IPB3ZYAV4XR+6OEYsAvkDzB1Mb18=;
-        b=Bdn9j8KCvmIht8c1PKGp7Oz9iVxv+kwoVk7nHC/CmfcfEiNef6pHH1w2E+F1tn8gvs
-         TQxl0QdNFAd2K4w9mLCc0jFBHwbGs/rfvNbm9UiwRpubKkh1Zifww1bG5+eldzCNen6d
-         PxUjdhkritwADcrlF4IgBYO87N2yX9o30tm0jb/Swx8ddmBxXhEb++kgWvTiSjh3ahI7
-         ivzSaRPHKaPNXpVVdpvf2kep7+3Gd/wBDyviWeSebR/h+1or0zwwPWrotbXFPM/fJOOv
-         SUdLX2WWUbydAVvitm/udXHCe8RkmxvMrI078myFwvsCpRbr7HxrfmqL8o3cJeky8kch
-         42lw==
-X-Forwarded-Encrypted: i=1; AL+hErHM/ueGt7VfA0cd2lWf/7bkZ7ldimaCYJX1gWCIQp0Z9ULDB2e2a+U78iWMCD/ydsJEDIPvU94=@vger.kernel.org
-X-Gm-Message-State: APuU4Z+aZInpR+f+1P796QrkJrt1AwXFqS8k0U4VkvYE0EpD02fBPieb
-	3mtf3q1GS9L88eAaQ9+y9qxz+qXZkTTqRxLzfFGIPqF4knZwbg65wW7L3uCu0RtgbLKZjhHQN7C
-	1AYr657vALKTHm1gv7uYFPlurbwBTTg1v/MIwYs/v
-X-Gm-Gg: AZFdTZcnShzEsXyHj0XXq3dZ27t8l6LzdykpuDbseFwcAEeIDR7mnOq1+NefBHgnyfq
-	apzZ3zQ1iyQB84P7qPrBY3Z0IhgrfPvUhOTwzl+FUV58cRT55Cav8wrq0snRtZwnvlFRYf3dsMo
-	W3xmZ45/YxulBJZwAmHZORnV2hCIxTzsE0d1uNX+I23SkYAGGfPglsND/pVigfREaH+tWvM7Psy
-	k7ykOjGilG52WEiD6tS2ViHvsdgWFpcpfoXynesHms1PWYey/3h+l4QWutcgrREoyP1jV2ilF8T
-	wcxvHvMPyNoxdQkDrJPO7+nlckJ6Qkwx+BeJIRYzp1DC2H1S7+H93W+jsAswpace9RjCO/DJjcC
-	oWU0cleAZNbOd7N7Nc/JAZR/W6F3oQSfA84hB5zX40pi/Tq7kQgpK4doG9U6TQ1P501dkosFV9+
-	akVTGB0tP1EC2rKis=
-X-Received: by 2002:a05:6a00:f06:b0:88c:e59e:e168 with SMTP id
- d2e1a72fcca58-8c87d519a88mr24868251b3a.52.1795774611339; Fri, 27 Nov 2026
- 02:16:51 -0800 (PST)
+        bh=wo4YS7qq8Q1RMcBOkwyWTqRSF4hG/DoIce2rCzWWJAo=;
+        b=RhGePJahECk+B69D4VwDUYZ7IWFHFr0NTCmSMwfMwgCGiqYCLTzm8eVAqWk2YJiFu2
+         buOrgXtsXML4N8d2u4OaPAygTS72cU0i4XnHXyJK4MABqaAMAuF07wvjuglWXQGFwSYV
+         CUChmOCgd0fFRwowCekbReivf15/e6I7nQ4UZAvPQWz4xsSqYOJWlH0Ri72MTRL+5otX
+         VAQ0FfljrRAaVNJlXtirGm/mpJMzkNEOin1B41+EcwR4g8UlZuvt4XqaLBbMtctMwC4O
+         /Pz0CQAQiarTsLYChoL6KHMOxYRRQNYol1vDn3QC5O0nBmAiPpEADDNu3omwYdF/nVbK
+         dcAg==
+X-Forwarded-Encrypted: i=1; AL+hErH5ZwKauck1/GESJXymFfA1nbDwF0V7sbTPZL3Bkcgr0/AXUzW7GG7zKU15t/OMRaZ32+eooyk=@vger.kernel.org
+X-Gm-Message-State: APuU4Z++07PSbhV4Ju9GoyptYfT81Fx6Xd1ixHpbu7YqyTXuuP5Kg1a/
+	/piuVSAXl9TAzVbvNKEKAz0wSO8rUzIOV49GZdfmAAGB2HO6ZRSQForthvHqWRcfOiZ53nWIesz
+	CHdS/zF70HNtY9JKhe0ZgUk81Dy0Qee6nHglm4WfJszjTEpPh+85rirgVmK4=
+X-Gm-Gg: AZFdTZetIC6eKeIY4xw/jXYS44W//8sUEOuEI3m3xX7KAQgiBO6vEvTGP5mM+Y+Ht6p
+	zrKUq0Op2iNMs2Zp3j+qKyufBGz5cBpnL4bbiL+8auDlK/Z3m+9Ta5roDkgVWksz29tug/PW2Q9
+	SdwHQMddscCbPdH9Qm6mcU3Ii012EpbmUx2cRrNejMVjDeSuc5cVOCq1MDT+2jWbfNgrdLXPv5Q
+	95Hssy1CR0aCAnoD4iA1ym9vz31B+avMOT9KOu+ZUUH5IjimvfBhg7utsjRZNvIdnavYGp1spFU
+	dBcHKp6L1oP4hCkfY+newgL0u2rbd1wNpjlwaqJbbjZd02P5dkrtv93ujjYhEGkNb4emelAqKzE
+	qjcD56DVGKQU28Z5z7QVXiQlRFzyqEjMjiqsRb7l3V78KacFda7WrcfAONwL7jI0=
+X-Received: by 2002:a05:620a:4708:b0:949:686f:6267 with SMTP id af79cd13be357-949bac8158emr4595218485a.76.1795774925618;
+        Fri, 27 Nov 2026 02:22:05 -0800 (PST)
+X-Received: by 2002:a05:620a:4708:b0:949:686f:6267 with SMTP id af79cd13be357-949bac8158emr4595212685a.76.1795774925050;
+        Fri, 27 Nov 2026 02:22:05 -0800 (PST)
+Received: from localhost ([188.152.73.83])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4ab6b110c50sm45511482f8f.37.2026.11.27.02.22.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 27 Nov 2026 02:22:04 -0800 (PST)
+Date: Fri, 27 Nov 2026 11:22:03 +0100
+From: Lorenzo Bianconi <lorenzo.bianconi@oss.qualcomm.com>
+To: netdev-bot+sashiko@kernel.org
+Cc: maxime.chevallier@bootlin.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+        edumazet@kernel.org, kuba@kernel.org, pabeni@redhat.com,
+        mcoquelin.stm32@gmail.com, alexandre.torgue@foss.st.com,
+        ast@kernel.org, daniel@iogearbox.net, hawk@kernel.org,
+        john.fastabend@gmail.com, sdf@fomichev.me, Jose.Abreu@synopsys.com,
+        boon.leong.ong@intel.com, horms@kernel.org, andrii@kernel.org,
+        eddyz87@gmail.com, memxor@gmail.com, martin.lau@linux.dev,
+        song@kernel.org, yonghong.song@linux.dev, jolsa@kernel.org,
+        emil@etsalapatis.com, ihor.solodrai@linux.dev,
+        matthew.gerlach@altera.com, boon.khai.ng@altera.com,
+        netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        bpf@vger.kernel.org, nb@tipi-net.de
+Subject: Re: [PATCH net-next v13 5/5] net: stmmac: rework stmmac_rx to
+ support XDP rx multi-buff
+Message-ID: <awlZyw8WzCp_Di4e@lore-desk>
+References: <20261125-stmmac-rx-mb-v13-5-0f6bac53e8d5@oss.qualcomm.com>
+ <179570462877.3135.11557910879568810263@kernel.org>
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -102,109 +130,243 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-References: <ACT-WEXM.v4.r0.20261124074514@mojatatu.com> <ACT-WEXM.v4.r0.20261124074514-2@mojatatu.com>
- <20261124161258.vLyrm8Y4@linutronix.de> <CAM0EoMmMio4kotBqbcJmFtf_c3Du=rhfvp+sMiAd0fHKowv6Vg@mail.gmail.com>
- <CAM0EoMkEjxCo6K9k3MZH0U+3na9soMNE0gouddwOTzUYXcEunA@mail.gmail.com> <398670d0-809d-4cdc-b03f-80bc3b5faa2a@kernel.org>
-In-Reply-To: <398670d0-809d-4cdc-b03f-80bc3b5faa2a@kernel.org>
-From: Jamal Hadi Salim <jhs@mojatatu.com>
-Date: Fri, 27 Nov 2026 05:16:38 -0500
-X-Gm-Features: Aa3M54pNs2p-3UyS5EML3h7jq6W69RH1lzjUNliy6esxdQanlDs19hCw9dfN8zc
-Message-ID: <CAM0EoM=ZtRjDfV1TNNopPyON3szx4aDMn1Yp9oD-dVMVq2QyAg@mail.gmail.com>
-Subject: Re: [PATCH net v4 2/3] net/sched: act_gate: refuse schedule entries
- shorter than 10 us
-To: Matthieu Baerts <matttbe@kernel.org>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>, netdev@vger.kernel.org, 
-	Jiri Pirko <jiri@resnulli.us>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@kernel.org>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Willem de Bruijn <willemb@google.com>, Simon Horman <horms@kernel.org>, 
-	Clark Williams <clrkwllms@kernel.org>, Steven Rostedt <rostedt@goodmis.org>, 
-	linux-rt-devel@lists.linux.dev, Victor Nogueira <victor@mojatatu.com>, 
-	Po Liu <Po.Liu@nxp.com>, stable@vger.kernel.org, sashiko-bot@kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="FUatV4zdk/zdrcyz"
+Content-Disposition: inline
+In-Reply-To: <179570462877.3135.11557910879568810263@kernel.org>
+X-Proofpoint-ORIG-GUID: E-FK9a2V5B2C1KuUGykXs6TNaqgbtsc2
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjYxMTI3MDA0MSBTYWx0ZWRfX+bSocWUOwcMo
+ 4Uk5n4/0SRM6rko6j8H4KyIvl/tYYPmiiAFfiLeCfH1+bg5yseYrCKMmZ8APFZAiuvLhWEPAJpk
+ y64RtYyrQW6b0nZr+1pRC3uROIxKYkIMFO4CNfCGWVJsOrGyBAoPRqqSkDplF+kaF57KKeLca7/
+ +6jjFsIBXLqcgX5RaetKqzqbRdwNxzp1eDQBZiKH4h/Wyjzx6Me/gqU6YR9XQJIR3k0lg7Gsdc/
+ RIcXR0PkVQHdlMwyB20E/rq+92BRizTa17t4LqQD8tAQrTuQY7drMJBqlNFgB+hTSDrZ92eaxvq
+ Bue8H10UC7M52M5nQD40MpqAlOQK2qTZvrN6l6OjzUIdD2jB3pJymT1HCyQMSSjhJvbC4q3wJNG
+ n0oRBl6k7DyKpyL/AIpecIphw4G26wlS69mM8OjWPk6diA5eMHej3buMhcrt+neGu4QDnSqas7t
+ TrQVrNav2c3KLxEs9lg==
+X-Authority-Analysis: v=2.4 cv=cpkOAF4i c=1 sm=1 tr=0 ts=6b0959ce cx=c_pps
+ a=UgVkIMxJMSkC9lv97toC5g==:117 a=mlS0om9xteqVCAF/aDpb2g==:17
+ a=zJRp6_cAMcgA:10 a=s4-Qcg_JpJYA:10 a=VkNPw1HP01LnGYTKEx00:22
+ a=u7WPNUs3qKkmUXheDGA7:22 a=eoimf2acIAo5FJnRuUoq:22 a=9R54UkLUAAAA:8
+ a=EUspDBNiAAAA:8 a=VwQbUJbxAAAA:8 a=5qxvQf1LLhRIni3EHqwA:9 a=QEXdDO2ut3YA:10
+ a=2jtd2hDFVpeCqjqGLGIA:9 a=1HOtulTD9v-eNWfpl4qZ:22 a=YTcpBFlVQWkNscrzJ_Dz:22
+X-Proofpoint-Spam-Info: AW1haW4tMjYxMTI3MDA0MSBTYWx0ZWRfX/ceix33tWW7R
+ +auh2AVmxxlBzxiia2NVa6O7WQDOyz4sI1RM26RfHfokq0nBBgslB7APzJsW7YUkwrP6UIOEa/4
+ yILEXlK/mxSpvrFWQ8Up50wt4IJ7DOU=
+X-Proofpoint-GUID: E-FK9a2V5B2C1KuUGykXs6TNaqgbtsc2
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1176,Hydra:6.1.138,FMLib:17.12.100.49
+ definitions=2026-11-27_01,2026-11-26_02,2025-10-01_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ clxscore=1015 adultscore=0 priorityscore=1501 spamscore=0 phishscore=0
+ suspectscore=0 malwarescore=0 lowpriorityscore=0 impostorscore=0 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.22.0-2611040001 definitions=main-2611270041
+
+--FUatV4zdk/zdrcyz
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Nov 27, 2026 at 5:14=E2=80=AFAM Matthieu Baerts <matttbe@kernel.org=
-> wrote:
->
-> Hi Jamal,
->
-> On 24/11/2026 18:11, Jamal Hadi Salim wrote:
-> > On Tue, Nov 24, 2026 at 11:58=E2=80=AFAM Jamal Hadi Salim <jhs@mojatatu=
-.com> wrote:
-> >>
-> >> On Tue, Nov 24, 2026 at 11:13=E2=80=AFAM Sebastian Andrzej Siewior
-> >> <bigeasy@linutronix.de> wrote:
-> >>>
-> >>> On 2026-11-24 09:12:09 [-0500], Jamal Hadi Salim wrote:
-> >>>> This is a followup of commit a51c328df310 ("net: qos: introduce a ga=
-te
-> >>>> control flow action") as reported by Sashiko.
-> >>>>
-> >>>> The issue:
-> >>>> fill_gate_entry() only rejects an interval of zero, but that interva=
-l is
-> >>>> the period gate_timer_func() re-arms the hrtimer at, and a few
-> >>>> nanoseconds is below the cost of servicing one expiry: the next is d=
-ue
-> >>>> before the current one finishes, so the action holds a CPU in the ti=
-mer
-> >>>> softirq for as long as it exists.
-> >>>
-> >>> The timer is programmed in the past, fires immediately and hogs the
-> >>> CPU.
-> >>>
-> >>>> On a 2-vCPU guest, entries of 1 us and below hold 86% to 90% of a co=
-re,
-> >>>> 2 us holds 61%, and 3 us holds 22%; from 3.5 us on the cost falls to=
- a
-> >>>> few percent and it reaches zero by 100 us.
-> >>>>
-> >>>> The Fix:
-> >>>> Require at least 10 us per entry.  An act_gate schedule is not tied =
-to a
-> >>>> device, so unlike taprio there is no frame time to derive a bound fr=
-om;
-> >>>> the bound has to come from the cost of servicing one expiry, with ro=
-om
-> >>>> for a kernel that services it slower.
-> >>>
-> >>> The 10us sound sane. With enough debug (say kasan, lockdep, =E2=80=A6=
-) this
-> >>> might become tight again.
-> >>>
-> >>
-> >> Agreed. Unfortunately, there is no way to derive a "good value" here
-> >> (it depends on workload, machine, utilization, etc, etc).
-> >> poor choice of wording on my part - should probably have said all of
-> >> what i said above for precisiness...
-> >
-> > And now that you bring this up - this should really have been
-> > targetting net-next not net.
-> > I dont want to resend (unless sashikos find something sinister) - but
-> > Jakub/Paolo consider applying this to net-next instead when the time
-> > comes.
->
-> I'm sorry to say that, but a new version might be needed: it looks like
-> the new tests you added in this series are not passing:
->
->   https://github.com/p4tc-dev/tc-executor/blob/storage/artifacts/928799/1=
--tdc-sh/stdout
->
-> It started there:
->
->   https://netdev.bots.linux.dev/branch_deltas/net-next-2026-11-26--21-00.=
-html
->
-> Or is it due to conflicts with other WIP patches or something missing on
-> the CI?
->
+On Nov 26, netdev-bot+sashiko@kernel.org wrote:
+> Thank you for your contribution! Sashiko AI review found more severe
+> issue(s) in other patches of this series. This mail is only an FYI, in ca=
+se
+> you want to address the nit picks below when you respin.
+>=20
+> Low priority / nit picks for your consideration:
+>=20
+> - [Low] In stmmac_rx()
+>   (drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:6056), the FCS is=E2=
+=80=A6
+>=20
+> Pre-existing issues:
+> - [High] This problem wasn't introduced by this patch, but the patch
+>   extends it.
+>=20
+> --
+>=20
+> net: stmmac: rework stmmac_rx to support XDP rx multi-buff
+>=20
+> This reworks stmmac_rx() to collect all the descriptors of a frame in an
+> xdp_buff. XDP programs loaded with BPF_F_XDP_HAS_FRAGS now see the whole
+> fragmented packet, and the skb is built with xdp_build_skb_from_buff().
+> The in-progress xdp_buff is saved in rx_q->state across NAPI polls, and
+> the FCS is stripped with xdp_buff_shrink_tail().
+>=20
+> > diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/driver=
+s/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > index 7896364c43e95..56355d80ba161 100644
+> > --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+> > +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+>=20
+> [ ... ]
+>=20
+> > @@ -5999,120 +6014,79 @@ static int stmmac_rx(struct stmmac_priv *priv,=
+ int limit, u32 queue)
+>=20
+> [ ... ]
+>=20
+> > +		n_descs++;
+> > =20
+> > -drain_data:
+> >  		if (likely(status & rx_not_ls))
+> >  			goto read_again;
+> > -		if (!skb)
+> > -			goto next;
+> > =20
+> > -		/* Got entire packet into SKB. Finish it. */
+> > +		/* ACS is disabled; strip manually. */
+> > +		len -=3D ETH_FCS_LEN;
+> > +		if (xdp_buff_shrink_tail(&ctx.xdp, ETH_FCS_LEN)) {
+> > +			if (!error)
+> > +				rx_dropped++;
+> > +			error =3D 1;
+> > +		}
+>=20
+> [Severity: Low]
+> Is skb->truesize overstated when a frame spans several buffers and the
+> last buffer holds only FCS bytes (1 to 4 bytes)?
+>=20
+> For a fragmented xdp_buff, xdp_buff_shrink_tail() calls
+> xdp_frags_shrink_tail(). That function returns the FCS-only page to the
+> pool through xdp_buff_shrink_data(), but it only adjusts nr_frags and
+> xdp_frags_size:
+>=20
+> net/core/xdp.c:xdp_frags_shrink_tail() {
+>     ...
+> 	sinfo->nr_frags -=3D n_frags_free;
+> 	sinfo->xdp_frags_size -=3D len_free;
+>     ...
+> }
+>=20
+> sinfo->xdp_frags_truesize still counts the xdp->frame_sz that
+> stmmac_build_xdp_frags() charged for that page through
+> xdp_buff_add_frag(). If at least one fragment is left,
+> xdp_build_skb_from_buff() uses that value unchanged:
+>=20
+> net/core/xdp.c:xdp_build_skb_from_buff() {
+>     ...
+> 		tsize =3D sinfo->xdp_frags_truesize ? : nr_frags * xdp->frame_sz;
+>     ...
+> }
+>=20
+> As a result, skb->truesize includes a full page_pool allocation
+> (PAGE_SIZE << order) for a page that has already been released.
+>=20
+> In the common case the old code fixed this up. pskb_trim(), removed
+> below, went through ___pskb_trim()->skb_condense() (skb->sk is NULL on
+> RX), which pulled small leftover frags into the head and recomputed
+> truesize.
+>=20
+> The commit message says the new truesize "is more accurate". Does that
+> hold for this case?
 
-sorry I broke it - not sure why our system didnt catch it before
-sending. I will send and fix the commit log whining from sashiko.
+This issue has not been introduced by this series since here we are just
+relying on xdp_buff_shrink_tail(). Moreover, commit "net: xdp: add
+xdp_buff_shrink_tail() helper" does not introduce any logic change, it just
+make the symbol available to the driver. I think the problem should be fixed
+with a dedicated patch.
 
-cheers,
-jamal
-> pw-bot: cr
->
-> Cheers,
-> Matt
+>=20
+> > =20
+> > -		/* Remove FCS if needed */
+> > -		if (!fcs_stripped && pskb_trim(skb, len)) {
+> > -			dev_kfree_skb_any(skb);
+> > -			rx_dropped++;
+> > +		if (unlikely(error))
+> > +			goto error_free_frag;
+> > +
+> > +		ctx.desc =3D p;
+> > +		ctx.ndesc =3D np;
+> > +
+> > +		skb =3D stmmac_xdp_run_prog(priv, &ctx.xdp);
+> > +		/* For Not XDP_PASS verdict */
+> > +		if (IS_ERR(skb)) {
+> > +			unsigned int xdp_res =3D -PTR_ERR(skb);
+> > +
+> > +			if (xdp_res & STMMAC_XDP_CONSUMED) {
+> > +				__xdp_return_buff(&ctx.xdp, true);
+> > +				rx_dropped++;
+> > +			} else if (xdp_res & (STMMAC_XDP_TX |
+> > +					      STMMAC_XDP_REDIRECT)) {
+> > +				xdp_status |=3D xdp_res;
+> > +			}
+> >  			goto next;
+> >  		}
+>=20
+> [Severity: High]
+> This issue was not introduced by this patch, but the patch makes it
+> wider. With the stmmac_xdp_run_prog() change, programs with
+> xdp_has_frags can now return XDP_TX on fragmented buffs. Is the direct
+> recycling done when the TX completes safe here?
+>=20
+> stmmac_tx_clean() returns XDP_TX frames like this:
+>=20
+> drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:stmmac_tx_clean() {
+>     ...
+> 		if (xdpf &&
+> 		    tx_q->tx_skbuff_dma[entry].buf_type =3D=3D STMMAC_TXBUF_T_XDP_TX) {
+> 			xdp_return_frame_rx_napi(xdpf);
+>     ...
+> }
+>=20
+> xdp_return_frame_rx_napi() calls __xdp_return() with napi_direct set to
+> true. That path ends in page_pool_recycle_in_cache(), which writes
+> pool->alloc.cache[pool->alloc.count++] with no locking.
+>=20
+> stmmac_tx_clean() runs from stmmac_napi_poll_tx() on ch->tx_napi. That
+> is not the ch->rx_napi which owns and refills rx_q->page_pool.
+>=20
+> stmmac_xdp_xmit_back() also picks the TX queue by CPU through
+> stmmac_xdp_get_tx_queue(priv, smp_processor_id()). The completion can
+> therefore run on a different channel's tx_napi.
+>=20
+> The pool is created without pp_params.napi, so page_pool has no way to
+> detect the foreign context.
+>=20
+> Some setups put the two NAPI contexts on different CPUs:
+>=20
+>   - MSI with independent rx/tx IRQ affinity, for example 4 RX and 2 TX
+>     queues on 4 CPUs
+>   - irqbalance
+>   - threaded NAPI
+>   - busy polling
+>=20
+> In those setups rx_napi can pop from pool->alloc.cache while tx_napi
+> pushes into it from another CPU. With this patch, rx_napi uses that
+> cache more, through __xdp_return_buff(&ctx.xdp, true) and
+> page_pool_put_full_page(..., true).
+>=20
+> Could the racing alloc.count updates lose a page, so that the pool never
+> drains? Could they also hand the same page out twice, so that two RX
+> descriptors DMA into it, or a page is DMA-written while the stack still
+> owns it?
+>=20
+> This race already exists for head pages. With fragmented XDP_TX,
+> xdp_return_frame_rx_napi() now also direct-recycles every fragment page
+> from that context.
+
+This issue has not been introduced by this patch and it needs to be fixed w=
+ith
+a dedicated patch.
+
+Regards,
+Lorenzo
+
+>=20
+> --=20
+> Sashiko AI review =C2=B7 https://netdev-ai.bots.linux.dev/sashiko/#/patch=
+set/20261125-stmmac-rx-mb-v13-0-0f6bac53e8d5%40oss.qualcomm.com
+
+--FUatV4zdk/zdrcyz
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCawlZywAKCRA6cBh0uS2t
+rKATAP48t9HWKKWhMcCUejxJ2aT4ODYRLwtTRjtI+ZSEjBJ9jQD/Ybn2Fpz0BoX0
+4kVlsb0VZFY0ci8MrTtIQAwpBArA2wQ=
+=eStD
+-----END PGP SIGNATURE-----
+
+--FUatV4zdk/zdrcyz--
