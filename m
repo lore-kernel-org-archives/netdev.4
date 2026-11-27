@@ -1,75 +1,99 @@
-Authentication-Results: smtp.subspace.kernel.org; arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-ARC-Seal: i=2; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=pass;
-	t=1795776653;
-	b=YpGOTzqr1pqGoK1ks1+BUoVfwr/KTOpTovzr70qHvsXEMx2OjRNM8TNevxvqPONoIIu3
-	 SaSfoCJ4GiOLYDDS7oXWHr4rWeGJGHaxfdSbi5aZAn1Rt8fU3fqmUUmttZOdvtFUBuDZR
-	 l+JoginEn3vgcmEYMBXzo7Pv2f2hjB43OgIFns67/KI0y9FiX00wd7keHICb05qnxomjJ
-	 8Hv8EfVGw5K1bSg5gIeG2NYnosY6/DWf0ko8zwPm1BixEc/HsB/1L4EkWFPUdBx6x+TDJ
-	 eYM8pG/pYQV/4cRp35L0e/45xvEl7PUUGbb7PEfCCL7acqRA6zuz6+VFPojoKJq973g==
-ARC-Message-Signature: i=2; d=subspace.kernel.org; s=arc20261015;
-	a=rsa-sha256; c=relaxed/relaxed; t=1795776653;
-	h=Received:DKIM-Signature:Received:MIME-Version:Content-Type:
-	 Message-Id:X-B4-Tracking:X-Change-ID:From:Date:Subject:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=LRJZMVd6Qc7oM9Ur8bhmPaB9qK2/g4UpfM7Rn2aSIj0=;
-	b=K6L4aL0K3W8I6DrF5zUVdEdXsGZ6kAuBh2OWXreABSZYwUEDcp+xWQLdoSTtgagJldQw
-	 zB8PFkjMrf9jkoL+zdUNqOHuC2h6Gw8utWo5Rp10qsh+ymuhKEy1UI1vNJLZkgRS7uF6l
-	 vtat57hylpsRkBTFv0I1f/SKYu5/Zple5EwE67RbgbEPuDRirjWmIuWFVFswF1hod7+xG
-	 bfkpQYlny1DhnG0GSg7T+y/lCh/J0MTArhTxdswlEiMwu5lRUH+qefiw86LVUz5n9x4PR
-	 ep1lskKwnAuOzc9tdcYStUNUh5QzeIfEUBxXPLzqK0Tu1p940nfi4vSJ2PGe+w+EZ/g==
-ARC-Authentication-Results: i=2; smtp.subspace.kernel.org; 
-	dkim=pass header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b="DR/6i0j1";
-	arc=pass header.oldest-pass=0 smtp.remote-ip=100.103.45.18
-Received: from smtp.kernel.org (quasi.space.kernel.org [100.103.45.18])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature ECDSA (prime256v1))
-	(No client certificate requested)
-	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 5C151606A31E
-	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:50:53 +0000 (UTC)
-Authentication-Results: smtp.subspace.kernel.org;
-	dkim=pass (2048-bit key) header.d=kernel.org header.i=@kernel.org header.a=rsa-sha256 header.s=k20260515 header.b=DR/6i0j1
-Authentication-Results: smtp.kernel.org; arc=none smtp.remote-ip=100.80.115.77
-ARC-Seal: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256; cv=none;
-	t=1795776652;
-	b=FB7tWREFJg4looPdeTbdX6KvI2U9Q1FzfIZcTSa3Sg//Ra+DvUdWFLgACr/zp5/try1R
-	 gIbpBUbYBP0lQKhXAC62fyrw69a7ocXpg6dFN9eJXjklJ5XjCi2P5Dn99Zs1dwkFIF4QV
-	 2+Xk6Fp26FEXw6Y8ZB0lHANkG8sSqAtaapbQllLN79q3OLkCsBjc8Ts2mT1bMUPKjQ9Qr
-	 aIS+WcTEae1d7jqMTBwvj8xcpIbs2JJfm8E6VQ43wGETgapvpX4GF4YZ0+a1juhSUcDMD
-	 fzfYo9yf8dbpE4oaNDml6rBtFiu3PfxoQmuwKgkZbgl85lN1rOkQJe/zo3snQHgAt+Q==
-ARC-Message-Signature: i=1; d=kernel.org; s=arc20260519; a=rsa-sha256;
-	c=relaxed/relaxed; t=1795776652;
-	h=DKIM-Signature:Received:MIME-Version:Content-Type:Message-Id:
-	 X-B4-Tracking:X-Change-ID:From:Date:Subject:To:Cc:X-Mailer:
-	 X-Developer-Signature:X-Developer-Key:X-Endpoint-Received:
-	 X-Original-From:Reply-To:Content-Transfer-Encoding;
-	bh=LRJZMVd6Qc7oM9Ur8bhmPaB9qK2/g4UpfM7Rn2aSIj0=;
-	b=WiePbz30tNa+0ycdD/YYCbiWVh603ZXCamd01FZ+5AHwqIwCJaxdvz1skTFK7JPz99uN
-	 76I06cbSUAJcrbYNfIqoOt1VygpoH9OB3JTAmvKZQQZ2mlacUGmehmvMkiesfuFrIK8u6
-	 +xk2ntvFFFcd6L7xrQ9aFnaufQAk06BAB73DaUsXA0I5STTXQd14WB0N96dSmFzpr+pVp
-	 jbWNXDqSoLS+ElH9ZdNaGRbv3wCBATRt3dd7kmdFqJcYfFrhBhacnfjCWJLqx2/H3BZXk
-	 bifyuHgUwT7Irr9nKSuG08iaAm8Waq1QM6K2Ex6sq+Y6dZTcSEbRYA8s+tICZlF/qAw==
-ARC-Authentication-Results: i=1; smtp.kernel.org; 
-	arc=none smtp.remote-ip=100.80.115.77
-Received: from lkml.kernel.org (nexus.subspace.kernel.org [100.80.115.77])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+Authentication-Results: smtp.subspace.kernel.org; arc=none smtp.remote-ip=74.125.82.46
+ARC-Seal: i=1; d=subspace.kernel.org; s=arc20261015; a=rsa-sha256; cv=none;
+	t=1795776848;
+	b=GfXRDHRfSdUqc2OuTLVol9S8AaSKi3NxgamfehJhgUdI8r4CK8jWHN1Bgm/SsZZrgO5T
+	 WfWAXEdRenYhvroNhmso9kpCIh4XTdBX05IsVdn4Gz49SMR9T3JXItd+F6P/ovBS+7lh7
+	 XQ3ideXvhtiezgLLEdUS2rZwjmOMCthe32dkZvdVoK/eTsvTqI1AYEtBzYMPs3dJUJFJV
+	 HjxRa3ZeaVtueNbo+2GBsHzmwe5/a/S0s/Xl4Xmkv/HIgWjxVAOu2164l95in+XoYmwl3
+	 CXQhI9RGLY5EylMU+pRBS2iRlmscUWHPLxADTVWfURsgRvgUhR+HphtmpqouHJpMMSA==
+ARC-Message-Signature: i=1; d=subspace.kernel.org; s=arc20261015;
+	a=rsa-sha256; c=relaxed/relaxed; t=1795776848;
+	h=DMARC-Filter:Received:DKIM-Signature:X-Google-DKIM-Signature:
+	 X-Gm-Message-State:X-Gm-Gg:X-Received:Received:From:To:Cc:Subject:
+	 Date:Message-ID:X-Mailer:MIME-Version:Content-Transfer-Encoding;
+	bh=KtjE+y39LGbirxSIXRR4VoQCxmboKYF40P25tI5iNJk=;
+	b=nbAkIqZfeNrTL5Ypon8WMhQelhiN7CXRqrod+CKe61WhalTo5/aXiObhEI3kx6Kr+LRj
+	 yWQZBYR6Be2IRJwpEz0FE9/40Qr+0ywk7a/INx7Grevw1XpYv8xk/n2B4/9hIVOq24wzC
+	 n/aL9Dd9bgydpzl8pAP3zBY8mU1UhsvuNeQ2ZRYwLKlCCJ+YffaIdLjB1fmXt6jGizoyj
+	 QQ8Bj6Gq/7dUB3DPVcynNK04byXlc4+Z0n8t/Rc6IBjOi8DO+SkTFCymnOIUScKkLdcS/
+	 a8L8N6sEj5EkcYuu9gLBALl3sKPJJz9mxFfcLxkIlKDCOde8GiFTL5tAdja9EJDyqLA==
+ARC-Authentication-Results: i=1; smtp.subspace.kernel.org; 
+	dmarc=pass header.from=gmail.com;
+	spf=pass smtp.mailfrom=gmail.com;
+	dkim=pass header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YJDRLZtR;
+	arc=none smtp.remote-ip=74.125.82.46
+Received: from mail-dl1-f46.google.com (mail-dl1-f46.google.com [74.125.82.46])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature ECDSA (prime256v1) server-digest SHA256)
 	(No client certificate requested)
-	by smtp.kernel.org (Postfix) with ESMTPS id 08A611F00897;
-	Fri, 27 Nov 2026 10:50:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kernel.org;
-	s=k20260515; t=1795776652;
-	bh=LRJZMVd6Qc7oM9Ur8bhmPaB9qK2/g4UpfM7Rn2aSIj0=;
-	h=From:Date:Subject:To:Cc:Reply-To;
-	b=DR/6i0j1nBZspqZ4PrP5bid9gpOlpYzROeWWsy6Wh0AwP7OrMnM9s2t7sZufW26n8
-	 dKiVOyiqksqsh/P2fFPlS38KQHnLv+n6OeY9G6eyto6R4jX5RnqV0P9uR9gHPrxMok
-	 PD7m3Sy806Jd2njp5MQR4H9dl9FXicexmOgIpBqgtwdaMpW7PSbUX1QUh+4w0fEo6Y
-	 uPr7Msg81kDBN4XNZiCcfOqMVxumhzOtzUdKNiv0YrU2ctj601uMfWLrP0bc+fwM8r
-	 0xIbDfBXk+1M1wX76qd43tXE6ge32ZOEs7jdIVPIUGaZm5c3GkvuLhQgzHsYlho2Pb
-	 BPja3jJyX2Ejw==
-Received: from nexus.subspace.kernel.org (localhost [IPv6:::1])
-	by lkml.kernel.org (Postfix) with ESMTP id 8D2794B72B;
-	Fri, 27 Nov 2026 10:50:47 +0000 (UTC)
+	by smtp.subspace.kernel.org (Postfix) with ESMTPS id 2CEA7606A31E
+	for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 10:54:08 +0000 (UTC)
+DMARC-Filter: OpenDMARC Filter v1.4.2 smtp.subspace.kernel.org 2CEA7606A31E
+Authentication-Results: smtp.subspace.kernel.org; dmarc=pass (p=none dis=none) header.from=gmail.com
+Authentication-Results: smtp.subspace.kernel.org; spf=pass smtp.mailfrom=gmail.com
+Authentication-Results: smtp.subspace.kernel.org;
+	dkim=pass (2048-bit key) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20260707 header.b=YJDRLZtR
+Received: by mail-dl1-f46.google.com with SMTP id a92af1059eb24-170135e43c7so12367869c88.0
+        for <netdev@vger.kernel.org>; Fri, 27 Nov 2026 02:54:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20260707; t=1795776847; x=1796381647; darn=vger.kernel.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to:content-type;
+        bh=KtjE+y39LGbirxSIXRR4VoQCxmboKYF40P25tI5iNJk=;
+        b=YJDRLZtRKgK3UzAzZ/9roXYftDiQfz3ptAtB8V6A/is6kf1b7P0bzMLL6B8Y+1V9G7
+         rK1peaWVd9nEl/bySmGSkk++VrwTNb6MsFY3+IAPpNzOO6ie5py4kbjLsEMagEC1Itmp
+         mwdMIe0JeN79mofeBwpckqISeGbZXuctNdLaEDxhYYqRaPioOH8dda/bSH/OVoqDp01z
+         XvppX/7t1wD5nmeiPncPlnHCo6/4XDpUrYxj1llBWuVF0kyZeRXe/lTTwdrpo9i+Z2hY
+         LNU68MaTW4slkOapVv+TETuNMUpQV2sJMvalEP2xEBO3SW8Su4MY7w3fvkenEZVAg2b5
+         dnSQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20260707; t=1795776847; x=1796381647;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to:content-type;
+        bh=KtjE+y39LGbirxSIXRR4VoQCxmboKYF40P25tI5iNJk=;
+        b=vUQoc4kIRSZNc7s8YekEBi7Ta1pc+cuE/vQnfYfc90WJeRkyjcXHATWcZL/uRk+qa7
+         Q4dd6vRupygEQDnn+CSR8aUndCzfqhrBf4V5BnEcTkHP+3faSJ462FfPZd6vNh6Nq5gG
+         9NyWWP8rXubm9YKdKBWHQMjRC4lXbEoOD5KlqdO4/D8LhyyMXoJB3UM5HRB+HW6rgA5b
+         QA57Pb0L05EWIILwTyzLraCiWyzfvIfOW6tdqUtUM+duNvG2qPbWOJWoYUAoGlbWgWbD
+         sFMJgXEybBLClDHAl4wuzNzHmMRS3kNTADZO7LNpQwMR8/8hGMlMxul+uAJELaBzA3sW
+         CFcg==
+X-Gm-Message-State: APuU4Z+pHqYwFyT/0oS5v5achxvrNI0jfZqLAepgXRcMQKstldMQ+z4E
+	6hjQ7eb92MRdCoRjQWJhpNFz9zrv06HkILqfg3eQo9KxO79FWO1Hd/fi
+X-Gm-Gg: AZFdTZe7cCeyvmqHmFVe4yaWlTbaMqEKdTdcJBUa4rUJLhAagacAKOxtYbhCYlYE8Tm
+	PQkxpSRgBtcDw0YR1+iWoWH8N84xJnbUKqoVBWPsD7bRYDhPVcQiztwG50wxTGs2ndl46DgOG4r
+	tB5tFwoG0eHOM2CQ2Ek85Drdxk2OGTR4KoPJ7m22VvvfjCx355POeLjzIXExmGvI/zvuMgqARE1
+	heuKFwGjtqC/t7h6WO/XiaGAY654mAqySy1tVcB9HT8b6kq9jbsjsaZlk+Y/B32h4xDuw4/PR6m
+	l9R6EkivETeu508q84gRXpfKIR9Nf2+9b8sZxuzHX5rn5xlSwiQr//w2VnR6m78LlM1mZJ3CJ10
+	We6F5zZR5XukmI0zjZEUjebc/lslFw47jhrEiXHVnX794wMFBkzP8GjX6DQgTW8+pEObfrSWte+
+	Mb4g8cD6X0YOF/f9M8C+i0sP4rMqIp4JeyssvKMxz5Lmn1CsmmIUTfrPVqZMuCjkIX80tO/jqJ5
+	GOaIWZRIt7eeShBapucFBXFTdyYq4NbaJDaZLFvmufiusaU+pA+sc23JZditIitBf6MRLdymxIJ
+	GReKBua/2ghoZDuNyVRAt5yc7yaUqROdVZ8MwvpHP8Vn0tmOGUnqTL89CDp1vK6BpNUcmmIA2U8
+	1KCUIJ5Oi73ghKJVj9GjEj5YO2fYzf7XGbbTnxr4WA+Tgcx+A5ZETFKOkV5FSA49fCjEGhGxQ
+X-Received: by 2002:a05:7022:1701:b0:1a4:c892:b130 with SMTP id a92af1059eb24-1b55feaa6a4mr22058271c88.15.1795776847208;
+        Fri, 27 Nov 2026 02:54:07 -0800 (PST)
+Received: from localhost.localdomain ([38.114.108.154])
+        by smtp.gmail.com with ESMTPSA id a92af1059eb24-1b5566c1142sm54992326c88.2.2026.11.27.02.54.03
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Fri, 27 Nov 2026 02:54:06 -0800 (PST)
+From: Jason Xing <kerneljasonxing@gmail.com>
+To: willemb@google.com,
+	magnus.karlsson@intel.com,
+	maciej.fijalkowski@intel.com,
+	sdf@fomichev.me,
+	bjorn@kernel.org,
+	davem@davemloft.net,
+	edumazet@kernel.org,
+	kuba@kernel.org,
+	pabeni@redhat.com,
+	horms@kernel.org
+Cc: netdev@vger.kernel.org,
+	bpf@vger.kernel.org,
+	Jason Xing <kerneljasonxing@gmail.com>
+Subject: [PATCH net v2 0/2] xsk: handle two header issues
+Date: Fri, 27 Nov 2026 18:53:45 +0800
+Message-ID: <20261127105347.72997-1-kerneljasonxing@gmail.com>
+X-Mailer: git-send-email 2.50.1
 X-Mailing-List: netdev@vger.kernel.org
 List-Id: <netdev.vger.kernel.org>
 List-Post: <mailto:netdev@vger.kernel.org>
@@ -79,90 +103,28 @@ List-Unsubscribe: <mailto:netdev+unsubscribe@vger.kernel.org>
 List-Owner: <mailto:netdev+owner@vger.kernel.org>
 Precedence: list
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <20261127-ktls-net-v1-1-a047fdb54612@certik.com>
-X-B4-Tracking: v=1; b=H4sIAK5fCWsC/yWMywrCMBAAf6Xs2QU3Fl+/Ij0k6cZGy0ayUYTSf
- 2+ixxmGWUA5R1a4dgtk/kSNSSrQrgM/WbkzxrEymL05EpkTPsusKFzQBHs4E4eezAVq/soc4ve
- 3ukENYPhLfbsH+9ImLXNWGV224qemlGUsKc3YPKzrBuQy0KCRAAAA
-X-Change-ID: 20261127-ktls-net-2fa381ef4129
-From: Dickson Wu via B4 Relay <devnull+dickson.wu.certik.com@kernel.org>
-Date: Fri, 27 Nov 2026 08:47:22 +0000
-Subject: [PATCH net] tls: rx: fix skb extension reference leak
-To: netdev@vger.kernel.org
-Cc: John Fastabend <john.fastabend@gmail.com>, 
- Jakub Kicinski <kuba@kernel.org>, Sabrina Dubroca <sd@queasysnail.net>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@kernel.org>, 
- Paolo Abeni <pabeni@redhat.com>, Willem de Bruijn <willemb@google.com>, 
- Simon Horman <horms@kernel.org>, security@kernel.org
-X-Mailer: b4 0.16.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1795776430; l=2316;
- i=dickson.wu@certik.com; s=dickson-b4; h=from:subject:message-id;
- bh=ZT9LWyJjTuc2AU4pnEhY6CiCH+8k4KmgqGBYXiphoUY=;
- b=KGxIvDDLwpFRYgdm+3LyKKsEUxfv3yV3taUjwPxDtsXdp7ZF5+eevhRkvnDYsDqwkUZ43NP7c
- orcFTUu/RXdDdqib2VXMKu6M81n/keFbTbRmjonCNqDb6qqroK5mupn
-X-Developer-Key: i=dickson.wu@certik.com; a=ed25519;
- pk=fxH7FS4FdojeJSGLJzgKdfO51Rvr4EW30yinj2mc1vg=
-X-Endpoint-Received: by B4 Relay for dickson.wu@certik.com/dickson-b4 with
- auth_id=1647
-X-Original-From: Dickson Wu <dickson.wu@certik.com>
-Reply-To: dickson.wu@certik.com
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 
-From: Dickson Wu <dickson.wu@certik.com>
+Cover more potential mac_headers cases in __dev_direct_xmit, including
+xsk.
 
-tls_strp_load_anchor_with_queue() reuses strp->anchor for every record
-and calls skb_copy_header() to copy the header of the first queued skb
-onto it. skb_copy_header() goes through __copy_skb_header(), which uses
-__skb_ext_copy(): it takes a reference on the source skb's extensions
-and overwrites the anchor's extension pointer without dropping the
-reference the anchor already held. When the received skbs carry
-extensions, for example TC_SKB_EXT set by tc or SKB_EXT_BRIDGE_NF set
-by br_netfilter, every reload of the anchor leaks one skb_ext.
+Initialize the metadata of headers in xsk.
 
-skbuff_ext_cache is not charged to the memory cgroup, so the leaked
-objects also escape memcg limits.
-
-Drop the anchor's extensions with skb_ext_reset() before copying the
-new header.
-
-Fixes: 84c61fe1a75b ("tls: rx: do not use the standard strparser")
-Signed-off-by: Dickson Wu <dickson.wu@certik.com>
 ---
-Tested on x86_64 UML with KASAN and kmemleak at v7.4-rc4:
-- kTLS RX receiving 5,000 one-byte records whose skbs carried
-  TC_SKB_EXT (tc flower in a user namespace) or SKB_EXT_BRIDGE_NF
-  (bridge with br_netfilter): skbuff_ext_cache grew by exactly 5,000
-  objects and kmemleak reported 4,900 to 4,978 unreferenced objects
-  from __skb_ext_alloc. With the fix: no growth and no reports. With the
-  fix reverted: 5,000 again.
-- The same kTLS traffic without extensions, and plain TCP with
-  extensions: no leak before or after the fix.
-- On v6.1.193 (bridge path, run from a user namespace) kmemleak
-  reported 3,038 leaked skb_ext objects before the fix and none after.
-  The patch applies unchanged to 6.1.y, 6.6.y, 6.12.y and 6.18.y.
+V2
+Link: https://lore.kernel.org/all/20261124083520.45547-1-kerneljasonxing@gmail.com/
+1. address issues reported by sashiko
+2. introduce 0001 patch to prevent the changes from 0002 casuing ICE
+unintended buggy behavior because of using mac_header in ICE.
 
-A reproducer is available if it helps.
+Jason Xing (2):
+  net: reset the mac header in __dev_direct_xmit()
+  xsk: fill in header offsets for TX checksum offload
 
-This was found and the fix prepared with AI coding tools (OpenAI Codex
-agents, with review by Claude). I went over the analysis and the patch
-before signing off.
+ net/core/dev.c |  2 ++
+ net/xdp/xsk.c  | 47 +++++++++++++++++++++++++++++++++++++++++++++--
+ 2 files changed, 47 insertions(+), 2 deletions(-)
 
- net/tls/tls_strp.c | 1 +
- 1 file changed, 1 insertion(+)
-
-diff --git a/net/tls/tls_strp.c b/net/tls/tls_strp.c
-index 53d3256d0..8ad7f339d 100644
---- a/net/tls/tls_strp.c
-+++ b/net/tls/tls_strp.c
-@@ -475,6 +475,7 @@ static void tls_strp_load_anchor_with_queue(struct tls_strparser *strp, int len)
- 
- 	skb_shinfo(strp->anchor)->frag_list = first;
- 
-+	skb_ext_reset(strp->anchor);
- 	skb_copy_header(strp->anchor, first);
- 	strp->anchor->destructor = NULL;
- 
 -- 
-2.43.0
-
+2.43.7
 
